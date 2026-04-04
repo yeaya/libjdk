@@ -1,5 +1,4 @@
 #include <jdk/xml/internal/TransformErrorListener.h>
-
 #include <javax/xml/transform/TransformerException.h>
 #include <jcpp.h>
 
@@ -10,27 +9,6 @@ using $TransformerException = ::javax::xml::transform::TransformerException;
 namespace jdk {
 	namespace xml {
 		namespace internal {
-
-$MethodInfo _TransformErrorListener_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TransformErrorListener, init$, void)},
-	{"error", "(Ljavax/xml/transform/TransformerException;)V", nullptr, $PUBLIC, $virtualMethod(TransformErrorListener, error, void, $TransformerException*), "javax.xml.transform.TransformerException"},
-	{"fatalError", "(Ljavax/xml/transform/TransformerException;)V", nullptr, $PUBLIC, $virtualMethod(TransformErrorListener, fatalError, void, $TransformerException*), "javax.xml.transform.TransformerException"},
-	{"warning", "(Ljavax/xml/transform/TransformerException;)V", nullptr, $PUBLIC, $virtualMethod(TransformErrorListener, warning, void, $TransformerException*), "javax.xml.transform.TransformerException"},
-	{}
-};
-
-$ClassInfo _TransformErrorListener_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"jdk.xml.internal.TransformErrorListener",
-	"java.lang.Object",
-	"javax.xml.transform.ErrorListener",
-	nullptr,
-	_TransformErrorListener_MethodInfo_
-};
-
-$Object* allocate$TransformErrorListener($Class* clazz) {
-	return $of($alloc(TransformErrorListener));
-}
 
 void TransformErrorListener::init$() {
 }
@@ -50,7 +28,24 @@ TransformErrorListener::TransformErrorListener() {
 }
 
 $Class* TransformErrorListener::load$($String* name, bool initialize) {
-	$loadClass(TransformErrorListener, name, initialize, &_TransformErrorListener_ClassInfo_, allocate$TransformErrorListener);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TransformErrorListener, init$, void)},
+		{"error", "(Ljavax/xml/transform/TransformerException;)V", nullptr, $PUBLIC, $virtualMethod(TransformErrorListener, error, void, $TransformerException*), "javax.xml.transform.TransformerException"},
+		{"fatalError", "(Ljavax/xml/transform/TransformerException;)V", nullptr, $PUBLIC, $virtualMethod(TransformErrorListener, fatalError, void, $TransformerException*), "javax.xml.transform.TransformerException"},
+		{"warning", "(Ljavax/xml/transform/TransformerException;)V", nullptr, $PUBLIC, $virtualMethod(TransformErrorListener, warning, void, $TransformerException*), "javax.xml.transform.TransformerException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"jdk.xml.internal.TransformErrorListener",
+		"java.lang.Object",
+		"javax.xml.transform.ErrorListener",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(TransformErrorListener, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TransformErrorListener);
+	});
 	return class$;
 }
 

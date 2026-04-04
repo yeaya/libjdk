@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/metal/MetalFileChooserUI$FilterComboBoxModel.h>
-
 #include <java/beans/PropertyChangeEvent.h>
 #include <javax/swing/AbstractListModel.h>
 #include <javax/swing/JFileChooser.h>
@@ -27,54 +26,6 @@ namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace metal {
-
-$FieldInfo _MetalFileChooserUI$FilterComboBoxModel_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/plaf/metal/MetalFileChooserUI;", nullptr, $FINAL | $SYNTHETIC, $field(MetalFileChooserUI$FilterComboBoxModel, this$0)},
-	{"filters", "[Ljavax/swing/filechooser/FileFilter;", nullptr, $PROTECTED, $field(MetalFileChooserUI$FilterComboBoxModel, filters)},
-	{}
-};
-
-$MethodInfo _MetalFileChooserUI$FilterComboBoxModel_MethodInfo_[] = {
-	{"*addListDataListener", "(Ljavax/swing/event/ListDataListener;)V", nullptr, $PUBLIC},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljavax/swing/plaf/metal/MetalFileChooserUI;)V", nullptr, $PROTECTED, $method(MetalFileChooserUI$FilterComboBoxModel, init$, void, $MetalFileChooserUI*)},
-	{"getElementAt", "(I)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MetalFileChooserUI$FilterComboBoxModel, getElementAt, $Object*, int32_t)},
-	{"getSelectedItem", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MetalFileChooserUI$FilterComboBoxModel, getSelectedItem, $Object*)},
-	{"getSize", "()I", nullptr, $PUBLIC, $virtualMethod(MetalFileChooserUI$FilterComboBoxModel, getSize, int32_t)},
-	{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(MetalFileChooserUI$FilterComboBoxModel, propertyChange, void, $PropertyChangeEvent*)},
-	{"*removeListDataListener", "(Ljavax/swing/event/ListDataListener;)V", nullptr, $PUBLIC},
-	{"setSelectedItem", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(MetalFileChooserUI$FilterComboBoxModel, setSelectedItem, void, Object$*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _MetalFileChooserUI$FilterComboBoxModel_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.metal.MetalFileChooserUI$FilterComboBoxModel", "javax.swing.plaf.metal.MetalFileChooserUI", "FilterComboBoxModel", $PROTECTED},
-	{}
-};
-
-$ClassInfo _MetalFileChooserUI$FilterComboBoxModel_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.metal.MetalFileChooserUI$FilterComboBoxModel",
-	"javax.swing.AbstractListModel",
-	"javax.swing.ComboBoxModel,java.beans.PropertyChangeListener",
-	_MetalFileChooserUI$FilterComboBoxModel_FieldInfo_,
-	_MetalFileChooserUI$FilterComboBoxModel_MethodInfo_,
-	"Ljavax/swing/AbstractListModel<Ljava/lang/Object;>;Ljavax/swing/ComboBoxModel<Ljava/lang/Object;>;Ljava/beans/PropertyChangeListener;",
-	nullptr,
-	_MetalFileChooserUI$FilterComboBoxModel_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.metal.MetalFileChooserUI"
-};
-
-$Object* allocate$MetalFileChooserUI$FilterComboBoxModel($Class* clazz) {
-	return $of($alloc(MetalFileChooserUI$FilterComboBoxModel));
-}
 
 void MetalFileChooserUI$FilterComboBoxModel::addListDataListener($ListDataListener* l) {
 	this->$AbstractListModel::addListDataListener(l);
@@ -107,7 +58,7 @@ void MetalFileChooserUI$FilterComboBoxModel::finalize() {
 void MetalFileChooserUI$FilterComboBoxModel::init$($MetalFileChooserUI* this$0) {
 	$set(this, this$0, this$0);
 	$AbstractListModel::init$();
-	$set(this, filters, $nc($(this$0->getFileChooser()))->getChoosableFileFilters());
+	$set(this, filters, $$nc(this$0->getFileChooser())->getChoosableFileFilters());
 }
 
 void MetalFileChooserUI$FilterComboBoxModel::propertyChange($PropertyChangeEvent* e) {
@@ -116,48 +67,42 @@ void MetalFileChooserUI$FilterComboBoxModel::propertyChange($PropertyChangeEvent
 	if (prop == $JFileChooser::CHOOSABLE_FILE_FILTER_CHANGED_PROPERTY) {
 		$set(this, filters, $cast($FileFilterArray, e->getNewValue()));
 		fireContentsChanged(this, -1, -1);
-	} else {
-		if (prop == $JFileChooser::FILE_FILTER_CHANGED_PROPERTY) {
-			fireContentsChanged(this, -1, -1);
-		}
+	} else if (prop == $JFileChooser::FILE_FILTER_CHANGED_PROPERTY) {
+		fireContentsChanged(this, -1, -1);
 	}
 }
 
 void MetalFileChooserUI$FilterComboBoxModel::setSelectedItem(Object$* filter) {
 	if (filter != nullptr) {
-		$nc($(this->this$0->getFileChooser()))->setFileFilter($cast($FileFilter, filter));
+		$$nc(this->this$0->getFileChooser())->setFileFilter($cast($FileFilter, filter));
 		fireContentsChanged(this, -1, -1);
 	}
 }
 
 $Object* MetalFileChooserUI$FilterComboBoxModel::getSelectedItem() {
-	$useLocalCurrentObjectStackCache();
-	$var($FileFilter, currentFilter, $nc($(this->this$0->getFileChooser()))->getFileFilter());
+	$useLocalObjectStack();
+	$var($FileFilter, currentFilter, $$nc(this->this$0->getFileChooser())->getFileFilter());
 	bool found = false;
 	if (currentFilter != nullptr) {
 		{
 			$var($FileFilterArray, arr$, this->filters);
-			int32_t len$ = $nc(arr$)->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
+			for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 				$var($FileFilter, filter, arr$->get(i$));
-				{
-					if (filter == currentFilter) {
-						found = true;
-					}
+				if (filter == currentFilter) {
+					found = true;
 				}
 			}
 		}
 		if (found == false) {
-			$nc($(this->this$0->getFileChooser()))->addChoosableFileFilter(currentFilter);
+			$$nc(this->this$0->getFileChooser())->addChoosableFileFilter(currentFilter);
 		}
 	}
-	return $of($nc($(this->this$0->getFileChooser()))->getFileFilter());
+	return $$nc(this->this$0->getFileChooser())->getFileFilter();
 }
 
 int32_t MetalFileChooserUI$FilterComboBoxModel::getSize() {
 	if (this->filters != nullptr) {
-		return $nc(this->filters)->length;
+		return this->filters->length;
 	} else {
 		return 0;
 	}
@@ -165,12 +110,12 @@ int32_t MetalFileChooserUI$FilterComboBoxModel::getSize() {
 
 $Object* MetalFileChooserUI$FilterComboBoxModel::getElementAt(int32_t index) {
 	if (index > getSize() - 1) {
-		return $of($nc($(this->this$0->getFileChooser()))->getFileFilter());
+		return $$nc(this->this$0->getFileChooser())->getFileFilter();
 	}
 	if (this->filters != nullptr) {
-		return $of($nc(this->filters)->get(index));
+		return this->filters->get(index);
 	} else {
-		return $of(nullptr);
+		return nullptr;
 	}
 }
 
@@ -178,7 +123,49 @@ MetalFileChooserUI$FilterComboBoxModel::MetalFileChooserUI$FilterComboBoxModel()
 }
 
 $Class* MetalFileChooserUI$FilterComboBoxModel::load$($String* name, bool initialize) {
-	$loadClass(MetalFileChooserUI$FilterComboBoxModel, name, initialize, &_MetalFileChooserUI$FilterComboBoxModel_ClassInfo_, allocate$MetalFileChooserUI$FilterComboBoxModel);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/plaf/metal/MetalFileChooserUI;", nullptr, $FINAL | $SYNTHETIC, $field(MetalFileChooserUI$FilterComboBoxModel, this$0)},
+		{"filters", "[Ljavax/swing/filechooser/FileFilter;", nullptr, $PROTECTED, $field(MetalFileChooserUI$FilterComboBoxModel, filters)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*addListDataListener", "(Ljavax/swing/event/ListDataListener;)V", nullptr, $PUBLIC},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljavax/swing/plaf/metal/MetalFileChooserUI;)V", nullptr, $PROTECTED, $method(MetalFileChooserUI$FilterComboBoxModel, init$, void, $MetalFileChooserUI*)},
+		{"getElementAt", "(I)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MetalFileChooserUI$FilterComboBoxModel, getElementAt, $Object*, int32_t)},
+		{"getSelectedItem", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MetalFileChooserUI$FilterComboBoxModel, getSelectedItem, $Object*)},
+		{"getSize", "()I", nullptr, $PUBLIC, $virtualMethod(MetalFileChooserUI$FilterComboBoxModel, getSize, int32_t)},
+		{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(MetalFileChooserUI$FilterComboBoxModel, propertyChange, void, $PropertyChangeEvent*)},
+		{"*removeListDataListener", "(Ljavax/swing/event/ListDataListener;)V", nullptr, $PUBLIC},
+		{"setSelectedItem", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(MetalFileChooserUI$FilterComboBoxModel, setSelectedItem, void, Object$*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.metal.MetalFileChooserUI$FilterComboBoxModel", "javax.swing.plaf.metal.MetalFileChooserUI", "FilterComboBoxModel", $PROTECTED},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.metal.MetalFileChooserUI$FilterComboBoxModel",
+		"javax.swing.AbstractListModel",
+		"javax.swing.ComboBoxModel,java.beans.PropertyChangeListener",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljavax/swing/AbstractListModel<Ljava/lang/Object;>;Ljavax/swing/ComboBoxModel<Ljava/lang/Object;>;Ljava/beans/PropertyChangeListener;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.metal.MetalFileChooserUI"
+	};
+	$loadClass(MetalFileChooserUI$FilterComboBoxModel, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MetalFileChooserUI$FilterComboBoxModel));
+	});
 	return class$;
 }
 

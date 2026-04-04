@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/basic/BasicBorders$MenuBarBorder.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/Graphics.h>
@@ -24,49 +23,6 @@ namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace basic {
-
-$FieldInfo _BasicBorders$MenuBarBorder_FieldInfo_[] = {
-	{"shadow", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(BasicBorders$MenuBarBorder, shadow)},
-	{"highlight", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(BasicBorders$MenuBarBorder, highlight)},
-	{}
-};
-
-$MethodInfo _BasicBorders$MenuBarBorder_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/awt/Color;Ljava/awt/Color;)V", nullptr, $PUBLIC, $method(BasicBorders$MenuBarBorder, init$, void, $Color*, $Color*)},
-	{"getBorderInsets", "(Ljava/awt/Component;Ljava/awt/Insets;)Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(BasicBorders$MenuBarBorder, getBorderInsets, $Insets*, $Component*, $Insets*)},
-	{"paintBorder", "(Ljava/awt/Component;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(BasicBorders$MenuBarBorder, paintBorder, void, $Component*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _BasicBorders$MenuBarBorder_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.basic.BasicBorders$MenuBarBorder", "javax.swing.plaf.basic.BasicBorders", "MenuBarBorder", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _BasicBorders$MenuBarBorder_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.basic.BasicBorders$MenuBarBorder",
-	"javax.swing.border.AbstractBorder",
-	"javax.swing.plaf.UIResource",
-	_BasicBorders$MenuBarBorder_FieldInfo_,
-	_BasicBorders$MenuBarBorder_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BasicBorders$MenuBarBorder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.basic.BasicBorders"
-};
-
-$Object* allocate$BasicBorders$MenuBarBorder($Class* clazz) {
-	return $of($alloc(BasicBorders$MenuBarBorder));
-}
 
 int32_t BasicBorders$MenuBarBorder::hashCode() {
 	 return this->$AbstractBorder::hashCode();
@@ -114,7 +70,44 @@ BasicBorders$MenuBarBorder::BasicBorders$MenuBarBorder() {
 }
 
 $Class* BasicBorders$MenuBarBorder::load$($String* name, bool initialize) {
-	$loadClass(BasicBorders$MenuBarBorder, name, initialize, &_BasicBorders$MenuBarBorder_ClassInfo_, allocate$BasicBorders$MenuBarBorder);
+	$FieldInfo fieldInfos$$[] = {
+		{"shadow", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(BasicBorders$MenuBarBorder, shadow)},
+		{"highlight", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(BasicBorders$MenuBarBorder, highlight)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/awt/Color;Ljava/awt/Color;)V", nullptr, $PUBLIC, $method(BasicBorders$MenuBarBorder, init$, void, $Color*, $Color*)},
+		{"getBorderInsets", "(Ljava/awt/Component;Ljava/awt/Insets;)Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(BasicBorders$MenuBarBorder, getBorderInsets, $Insets*, $Component*, $Insets*)},
+		{"paintBorder", "(Ljava/awt/Component;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(BasicBorders$MenuBarBorder, paintBorder, void, $Component*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.basic.BasicBorders$MenuBarBorder", "javax.swing.plaf.basic.BasicBorders", "MenuBarBorder", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.basic.BasicBorders$MenuBarBorder",
+		"javax.swing.border.AbstractBorder",
+		"javax.swing.plaf.UIResource",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.basic.BasicBorders"
+	};
+	$loadClass(BasicBorders$MenuBarBorder, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(BasicBorders$MenuBarBorder));
+	});
 	return class$;
 }
 

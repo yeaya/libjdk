@@ -1,5 +1,4 @@
 #include <javax/imageio/spi/ImageReaderSpi.h>
-
 #include <javax/imageio/ImageReader.h>
 #include <javax/imageio/spi/ImageReaderWriterSpi.h>
 #include <javax/imageio/stream/ImageInputStream.h>
@@ -19,44 +18,6 @@ using $ImageInputStream = ::javax::imageio::stream::ImageInputStream;
 namespace javax {
 	namespace imageio {
 		namespace spi {
-
-$CompoundAttribute _ImageReaderSpi_FieldAnnotations_STANDARD_INPUT_TYPE[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$FieldInfo _ImageReaderSpi_FieldInfo_[] = {
-	{"STANDARD_INPUT_TYPE", "[Ljava/lang/Class;", "[Ljava/lang/Class<*>;", $PUBLIC | $STATIC | $FINAL | $DEPRECATED, $staticField(ImageReaderSpi, STANDARD_INPUT_TYPE), _ImageReaderSpi_FieldAnnotations_STANDARD_INPUT_TYPE},
-	{"inputTypes", "[Ljava/lang/Class;", "[Ljava/lang/Class<*>;", $PROTECTED, $field(ImageReaderSpi, inputTypes)},
-	{"writerSpiNames", "[Ljava/lang/String;", nullptr, $PROTECTED, $field(ImageReaderSpi, writerSpiNames)},
-	{"readerClass", "Ljava/lang/Class;", "Ljava/lang/Class<*>;", $PRIVATE, $field(ImageReaderSpi, readerClass)},
-	{}
-};
-
-$MethodInfo _ImageReaderSpi_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(ImageReaderSpi, init$, void)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Class;[Ljava/lang/String;ZLjava/lang/String;Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;ZLjava/lang/String;Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;)V", "(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Class<*>;[Ljava/lang/String;ZLjava/lang/String;Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;ZLjava/lang/String;Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;)V", $PUBLIC, $method(ImageReaderSpi, init$, void, $String*, $String*, $StringArray*, $StringArray*, $StringArray*, $String*, $ClassArray*, $StringArray*, bool, $String*, $String*, $StringArray*, $StringArray*, bool, $String*, $String*, $StringArray*, $StringArray*)},
-	{"canDecodeInput", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ImageReaderSpi, canDecodeInput, bool, Object$*), "java.io.IOException"},
-	{"createReaderInstance", "()Ljavax/imageio/ImageReader;", nullptr, $PUBLIC, $virtualMethod(ImageReaderSpi, createReaderInstance, $ImageReader*), "java.io.IOException"},
-	{"createReaderInstance", "(Ljava/lang/Object;)Ljavax/imageio/ImageReader;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ImageReaderSpi, createReaderInstance, $ImageReader*, Object$*), "java.io.IOException"},
-	{"getImageWriterSpiNames", "()[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ImageReaderSpi, getImageWriterSpiNames, $StringArray*)},
-	{"getInputTypes", "()[Ljava/lang/Class;", "()[Ljava/lang/Class<*>;", $PUBLIC, $virtualMethod(ImageReaderSpi, getInputTypes, $ClassArray*)},
-	{"isOwnReader", "(Ljavax/imageio/ImageReader;)Z", nullptr, $PUBLIC, $virtualMethod(ImageReaderSpi, isOwnReader, bool, $ImageReader*)},
-	{}
-};
-
-$ClassInfo _ImageReaderSpi_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"javax.imageio.spi.ImageReaderSpi",
-	"javax.imageio.spi.ImageReaderWriterSpi",
-	nullptr,
-	_ImageReaderSpi_FieldInfo_,
-	_ImageReaderSpi_MethodInfo_
-};
-
-$Object* allocate$ImageReaderSpi($Class* clazz) {
-	return $of($alloc(ImageReaderSpi));
-}
 
 $ClassArray* ImageReaderSpi::STANDARD_INPUT_TYPE = nullptr;
 
@@ -79,7 +40,7 @@ void ImageReaderSpi::init$($String* vendorName, $String* version, $StringArray* 
 		$throwNew($IllegalArgumentException, "inputTypes.length == 0!"_s);
 	}
 	$load($ImageInputStream);
-	$set(this, inputTypes, (inputTypes == ImageReaderSpi::STANDARD_INPUT_TYPE) ? $new($ClassArray, {$ImageInputStream::class$}) : $cast($ClassArray, $nc(inputTypes)->clone()));
+	$set(this, inputTypes, (inputTypes == ImageReaderSpi::STANDARD_INPUT_TYPE) ? $new($ClassArray, {$ImageInputStream::class$}) : $cast($ClassArray, inputTypes->clone()));
 	if (writerSpiNames != nullptr && writerSpiNames->length > 0) {
 		$set(this, writerSpiNames, $cast($StringArray, writerSpiNames->clone()));
 	}
@@ -102,10 +63,10 @@ bool ImageReaderSpi::isOwnReader($ImageReader* reader) {
 }
 
 $StringArray* ImageReaderSpi::getImageWriterSpiNames() {
-	return this->writerSpiNames == nullptr ? ($StringArray*)nullptr : $cast($StringArray, $nc(this->writerSpiNames)->clone());
+	return this->writerSpiNames == nullptr ? ($StringArray*)nullptr : $cast($StringArray, this->writerSpiNames->clone());
 }
 
-void clinit$ImageReaderSpi($Class* class$) {
+void ImageReaderSpi::clinit$($Class* clazz) {
 	$load($ImageInputStream);
 	$assignStatic(ImageReaderSpi::STANDARD_INPUT_TYPE, $new($ClassArray, {$ImageInputStream::class$}));
 }
@@ -114,7 +75,39 @@ ImageReaderSpi::ImageReaderSpi() {
 }
 
 $Class* ImageReaderSpi::load$($String* name, bool initialize) {
-	$loadClass(ImageReaderSpi, name, initialize, &_ImageReaderSpi_ClassInfo_, clinit$ImageReaderSpi, allocate$ImageReaderSpi);
+	$CompoundAttribute STANDARD_INPUT_TYPEfieldAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$FieldInfo fieldInfos$$[] = {
+		{"STANDARD_INPUT_TYPE", "[Ljava/lang/Class;", "[Ljava/lang/Class<*>;", $PUBLIC | $STATIC | $FINAL | $DEPRECATED, $staticField(ImageReaderSpi, STANDARD_INPUT_TYPE), STANDARD_INPUT_TYPEfieldAnnotations$$},
+		{"inputTypes", "[Ljava/lang/Class;", "[Ljava/lang/Class<*>;", $PROTECTED, $field(ImageReaderSpi, inputTypes)},
+		{"writerSpiNames", "[Ljava/lang/String;", nullptr, $PROTECTED, $field(ImageReaderSpi, writerSpiNames)},
+		{"readerClass", "Ljava/lang/Class;", "Ljava/lang/Class<*>;", $PRIVATE, $field(ImageReaderSpi, readerClass)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PROTECTED, $method(ImageReaderSpi, init$, void)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Class;[Ljava/lang/String;ZLjava/lang/String;Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;ZLjava/lang/String;Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;)V", "(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Class<*>;[Ljava/lang/String;ZLjava/lang/String;Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;ZLjava/lang/String;Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;)V", $PUBLIC, $method(ImageReaderSpi, init$, void, $String*, $String*, $StringArray*, $StringArray*, $StringArray*, $String*, $ClassArray*, $StringArray*, bool, $String*, $String*, $StringArray*, $StringArray*, bool, $String*, $String*, $StringArray*, $StringArray*)},
+		{"canDecodeInput", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ImageReaderSpi, canDecodeInput, bool, Object$*), "java.io.IOException"},
+		{"createReaderInstance", "()Ljavax/imageio/ImageReader;", nullptr, $PUBLIC, $virtualMethod(ImageReaderSpi, createReaderInstance, $ImageReader*), "java.io.IOException"},
+		{"createReaderInstance", "(Ljava/lang/Object;)Ljavax/imageio/ImageReader;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ImageReaderSpi, createReaderInstance, $ImageReader*, Object$*), "java.io.IOException"},
+		{"getImageWriterSpiNames", "()[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ImageReaderSpi, getImageWriterSpiNames, $StringArray*)},
+		{"getInputTypes", "()[Ljava/lang/Class;", "()[Ljava/lang/Class<*>;", $PUBLIC, $virtualMethod(ImageReaderSpi, getInputTypes, $ClassArray*)},
+		{"isOwnReader", "(Ljavax/imageio/ImageReader;)Z", nullptr, $PUBLIC, $virtualMethod(ImageReaderSpi, isOwnReader, bool, $ImageReader*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"javax.imageio.spi.ImageReaderSpi",
+		"javax.imageio.spi.ImageReaderWriterSpi",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ImageReaderSpi, name, initialize, &classInfo$$, ImageReaderSpi::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ImageReaderSpi);
+	});
 	return class$;
 }
 

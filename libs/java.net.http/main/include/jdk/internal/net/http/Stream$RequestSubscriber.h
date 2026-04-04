@@ -62,6 +62,7 @@ class $import Stream$RequestSubscriber : public ::java::util::concurrent::Flow$S
 	$class(Stream$RequestSubscriber, 0, ::java::util::concurrent::Flow$Subscriber)
 public:
 	Stream$RequestSubscriber();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::jdk::internal::net::http::Stream* this$0, int64_t contentLen);
 	void complete();
 	static $String* lambda$onError$0($Throwable* throwable);

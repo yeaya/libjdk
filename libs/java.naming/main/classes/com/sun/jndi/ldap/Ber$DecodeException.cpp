@@ -1,5 +1,4 @@
 #include <com/sun/jndi/ldap/Ber$DecodeException.h>
-
 #include <com/sun/jndi/ldap/Ber.h>
 #include <java/io/IOException.h>
 #include <jcpp.h>
@@ -14,41 +13,6 @@ namespace com {
 	namespace sun {
 		namespace jndi {
 			namespace ldap {
-
-$FieldInfo _Ber$DecodeException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Ber$DecodeException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _Ber$DecodeException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(Ber$DecodeException, init$, void, $String*)},
-	{}
-};
-
-$InnerClassInfo _Ber$DecodeException_InnerClassesInfo_[] = {
-	{"com.sun.jndi.ldap.Ber$DecodeException", "com.sun.jndi.ldap.Ber", "DecodeException", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _Ber$DecodeException_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.jndi.ldap.Ber$DecodeException",
-	"java.io.IOException",
-	nullptr,
-	_Ber$DecodeException_FieldInfo_,
-	_Ber$DecodeException_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Ber$DecodeException_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.jndi.ldap.Ber"
-};
-
-$Object* allocate$Ber$DecodeException($Class* clazz) {
-	return $of($alloc(Ber$DecodeException));
-}
 
 void Ber$DecodeException::init$($String* msg) {
 	$IOException::init$(msg);
@@ -65,7 +29,36 @@ void Ber$DecodeException::throw$() {
 }
 
 $Class* Ber$DecodeException::load$($String* name, bool initialize) {
-	$loadClass(Ber$DecodeException, name, initialize, &_Ber$DecodeException_ClassInfo_, allocate$Ber$DecodeException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Ber$DecodeException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(Ber$DecodeException, init$, void, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.jndi.ldap.Ber$DecodeException", "com.sun.jndi.ldap.Ber", "DecodeException", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.jndi.ldap.Ber$DecodeException",
+		"java.io.IOException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.jndi.ldap.Ber"
+	};
+	$loadClass(Ber$DecodeException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Ber$DecodeException);
+	});
 	return class$;
 }
 

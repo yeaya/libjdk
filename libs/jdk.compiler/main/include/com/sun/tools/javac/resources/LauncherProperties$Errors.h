@@ -34,6 +34,7 @@ class $import LauncherProperties$Errors : public ::java::lang::Object {
 	$class(LauncherProperties$Errors, 0, ::java::lang::Object)
 public:
 	LauncherProperties$Errors();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::com::sun::tools::javac::util::JCDiagnostic$Error* CantAccessMainMethod($String* arg0);
 	static ::com::sun::tools::javac::util::JCDiagnostic$Error* CantFindClass($String* arg0);

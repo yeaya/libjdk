@@ -71,6 +71,7 @@ class $export Main : public ::java::lang::Object {
 	$class(Main, 0, ::java::lang::Object)
 public:
 	Main();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* name);
 	void init$($String* name, ::java::io::PrintWriter* out);
 	void init$($String* name, ::java::io::PrintWriter* out, ::java::io::PrintWriter* err);

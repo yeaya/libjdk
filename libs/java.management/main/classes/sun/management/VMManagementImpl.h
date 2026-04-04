@@ -28,6 +28,7 @@ class VMManagementImpl : public ::sun::management::VMManagement {
 	$class(VMManagementImpl, 0, ::sun::management::VMManagement)
 public:
 	VMManagementImpl();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual int32_t getAvailableProcessors() override;
 	virtual $String* getBootClassPath() override;

@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/security/keys/keyresolver/implementations/RSAKeyValueResolver.h>
-
 #include <com/sun/org/apache/xml/internal/security/exceptions/XMLSecurityException.h>
 #include <com/sun/org/apache/xml/internal/security/keys/content/keyvalues/RSAKeyValue.h>
 #include <com/sun/org/apache/xml/internal/security/keys/keyresolver/KeyResolverSpi.h>
@@ -48,34 +47,6 @@ namespace com {
 								namespace keyresolver {
 									namespace implementations {
 
-$FieldInfo _RSAKeyValueResolver_FieldInfo_[] = {
-	{"LOG", "Lcom/sun/org/slf4j/internal/Logger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(RSAKeyValueResolver, LOG)},
-	{}
-};
-
-$MethodInfo _RSAKeyValueResolver_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(RSAKeyValueResolver, init$, void)},
-	{"engineCanResolve", "(Lorg/w3c/dom/Element;Ljava/lang/String;Lcom/sun/org/apache/xml/internal/security/keys/storage/StorageResolver;)Z", nullptr, $PROTECTED, $virtualMethod(RSAKeyValueResolver, engineCanResolve, bool, $Element*, $String*, $StorageResolver*)},
-	{"engineResolvePrivateKey", "(Lorg/w3c/dom/Element;Ljava/lang/String;Lcom/sun/org/apache/xml/internal/security/keys/storage/StorageResolver;Z)Ljava/security/PrivateKey;", nullptr, $PROTECTED, $virtualMethod(RSAKeyValueResolver, engineResolvePrivateKey, $PrivateKey*, $Element*, $String*, $StorageResolver*, bool)},
-	{"engineResolvePublicKey", "(Lorg/w3c/dom/Element;Ljava/lang/String;Lcom/sun/org/apache/xml/internal/security/keys/storage/StorageResolver;Z)Ljava/security/PublicKey;", nullptr, $PROTECTED, $virtualMethod(RSAKeyValueResolver, engineResolvePublicKey, $PublicKey*, $Element*, $String*, $StorageResolver*, bool)},
-	{"engineResolveSecretKey", "(Lorg/w3c/dom/Element;Ljava/lang/String;Lcom/sun/org/apache/xml/internal/security/keys/storage/StorageResolver;Z)Ljavax/crypto/SecretKey;", nullptr, $PROTECTED, $virtualMethod(RSAKeyValueResolver, engineResolveSecretKey, $SecretKey*, $Element*, $String*, $StorageResolver*, bool)},
-	{"engineResolveX509Certificate", "(Lorg/w3c/dom/Element;Ljava/lang/String;Lcom/sun/org/apache/xml/internal/security/keys/storage/StorageResolver;Z)Ljava/security/cert/X509Certificate;", nullptr, $PROTECTED, $virtualMethod(RSAKeyValueResolver, engineResolveX509Certificate, $X509Certificate*, $Element*, $String*, $StorageResolver*, bool)},
-	{}
-};
-
-$ClassInfo _RSAKeyValueResolver_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.security.keys.keyresolver.implementations.RSAKeyValueResolver",
-	"com.sun.org.apache.xml.internal.security.keys.keyresolver.KeyResolverSpi",
-	nullptr,
-	_RSAKeyValueResolver_FieldInfo_,
-	_RSAKeyValueResolver_MethodInfo_
-};
-
-$Object* allocate$RSAKeyValueResolver($Class* clazz) {
-	return $of($alloc(RSAKeyValueResolver));
-}
-
 $Logger* RSAKeyValueResolver::LOG = nullptr;
 
 void RSAKeyValueResolver::init$() {
@@ -89,20 +60,18 @@ bool RSAKeyValueResolver::engineCanResolve($Element* element, $String* baseURI, 
 }
 
 $PublicKey* RSAKeyValueResolver::engineResolvePublicKey($Element* element, $String* baseURI, $StorageResolver* storage, bool secureValidation) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (element == nullptr) {
 		return nullptr;
 	}
-	$nc(RSAKeyValueResolver::LOG)->debug("Can I resolve {}"_s, $$new($ObjectArray, {$($of($nc(element)->getTagName()))}));
+	$nc(RSAKeyValueResolver::LOG)->debug("Can I resolve {}"_s, $$new($ObjectArray, {$($nc(element)->getTagName())}));
 	$init($Constants);
 	bool isKeyValue = $XMLUtils::elementIsInSignatureSpace(element, $Constants::_TAG_KEYVALUE);
 	$var($Element, rsaKeyElement, nullptr);
 	if (isKeyValue) {
-		$assign(rsaKeyElement, $XMLUtils::selectDsNode($($nc(element)->getFirstChild()), $Constants::_TAG_RSAKEYVALUE, 0));
-	} else {
-		if ($XMLUtils::elementIsInSignatureSpace(element, $Constants::_TAG_RSAKEYVALUE)) {
-			$assign(rsaKeyElement, element);
-		}
+		$assign(rsaKeyElement, $XMLUtils::selectDsNode($(element->getFirstChild()), $Constants::_TAG_RSAKEYVALUE, 0));
+	} else if ($XMLUtils::elementIsInSignatureSpace(element, $Constants::_TAG_RSAKEYVALUE)) {
+		$assign(rsaKeyElement, element);
 	}
 	if (rsaKeyElement == nullptr) {
 		return nullptr;
@@ -111,7 +80,7 @@ $PublicKey* RSAKeyValueResolver::engineResolvePublicKey($Element* element, $Stri
 		$var($RSAKeyValue, rsaKeyValue, $new($RSAKeyValue, rsaKeyElement, baseURI));
 		return rsaKeyValue->getPublicKey();
 	} catch ($XMLSecurityException& ex) {
-		$nc(RSAKeyValueResolver::LOG)->debug("XMLSecurityException"_s, static_cast<$Throwable*>(ex));
+		RSAKeyValueResolver::LOG->debug("XMLSecurityException"_s, ex);
 	}
 	return nullptr;
 }
@@ -128,7 +97,7 @@ $PrivateKey* RSAKeyValueResolver::engineResolvePrivateKey($Element* element, $St
 	return nullptr;
 }
 
-void clinit$RSAKeyValueResolver($Class* class$) {
+void RSAKeyValueResolver::clinit$($Class* clazz) {
 	$assignStatic(RSAKeyValueResolver::LOG, $LoggerFactory::getLogger(RSAKeyValueResolver::class$));
 }
 
@@ -136,7 +105,30 @@ RSAKeyValueResolver::RSAKeyValueResolver() {
 }
 
 $Class* RSAKeyValueResolver::load$($String* name, bool initialize) {
-	$loadClass(RSAKeyValueResolver, name, initialize, &_RSAKeyValueResolver_ClassInfo_, clinit$RSAKeyValueResolver, allocate$RSAKeyValueResolver);
+	$FieldInfo fieldInfos$$[] = {
+		{"LOG", "Lcom/sun/org/slf4j/internal/Logger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(RSAKeyValueResolver, LOG)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(RSAKeyValueResolver, init$, void)},
+		{"engineCanResolve", "(Lorg/w3c/dom/Element;Ljava/lang/String;Lcom/sun/org/apache/xml/internal/security/keys/storage/StorageResolver;)Z", nullptr, $PROTECTED, $virtualMethod(RSAKeyValueResolver, engineCanResolve, bool, $Element*, $String*, $StorageResolver*)},
+		{"engineResolvePrivateKey", "(Lorg/w3c/dom/Element;Ljava/lang/String;Lcom/sun/org/apache/xml/internal/security/keys/storage/StorageResolver;Z)Ljava/security/PrivateKey;", nullptr, $PROTECTED, $virtualMethod(RSAKeyValueResolver, engineResolvePrivateKey, $PrivateKey*, $Element*, $String*, $StorageResolver*, bool)},
+		{"engineResolvePublicKey", "(Lorg/w3c/dom/Element;Ljava/lang/String;Lcom/sun/org/apache/xml/internal/security/keys/storage/StorageResolver;Z)Ljava/security/PublicKey;", nullptr, $PROTECTED, $virtualMethod(RSAKeyValueResolver, engineResolvePublicKey, $PublicKey*, $Element*, $String*, $StorageResolver*, bool)},
+		{"engineResolveSecretKey", "(Lorg/w3c/dom/Element;Ljava/lang/String;Lcom/sun/org/apache/xml/internal/security/keys/storage/StorageResolver;Z)Ljavax/crypto/SecretKey;", nullptr, $PROTECTED, $virtualMethod(RSAKeyValueResolver, engineResolveSecretKey, $SecretKey*, $Element*, $String*, $StorageResolver*, bool)},
+		{"engineResolveX509Certificate", "(Lorg/w3c/dom/Element;Ljava/lang/String;Lcom/sun/org/apache/xml/internal/security/keys/storage/StorageResolver;Z)Ljava/security/cert/X509Certificate;", nullptr, $PROTECTED, $virtualMethod(RSAKeyValueResolver, engineResolveX509Certificate, $X509Certificate*, $Element*, $String*, $StorageResolver*, bool)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.security.keys.keyresolver.implementations.RSAKeyValueResolver",
+		"com.sun.org.apache.xml.internal.security.keys.keyresolver.KeyResolverSpi",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(RSAKeyValueResolver, name, initialize, &classInfo$$, RSAKeyValueResolver::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(RSAKeyValueResolver);
+	});
 	return class$;
 }
 

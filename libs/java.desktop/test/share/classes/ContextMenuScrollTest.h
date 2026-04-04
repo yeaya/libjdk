@@ -34,6 +34,7 @@ public:
 	using ::javax::swing::JPopupMenu::firePropertyChange;
 	using ::javax::swing::JPopupMenu::getMousePosition;
 	using ::javax::swing::JPopupMenu::list;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void createGUI();
 	static void lambda$main$0();

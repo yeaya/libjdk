@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/impl/dv/xs/StringDV.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/dv/ValidationContext.h>
 #include <com/sun/org/apache/xerces/internal/impl/dv/xs/TypeValidator.h>
 #include <com/sun/org/apache/xerces/internal/impl/dv/xs/XSSimpleTypeDecl.h>
@@ -28,26 +27,6 @@ namespace com {
 							namespace dv {
 								namespace xs {
 
-$MethodInfo _StringDV_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(StringDV, init$, void)},
-	{"getActualValue", "(Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/impl/dv/ValidationContext;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(StringDV, getActualValue, $Object*, $String*, $ValidationContext*), "com.sun.org.apache.xerces.internal.impl.dv.InvalidDatatypeValueException"},
-	{"getAllowedFacets", "()S", nullptr, $PUBLIC, $virtualMethod(StringDV, getAllowedFacets, int16_t)},
-	{}
-};
-
-$ClassInfo _StringDV_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.impl.dv.xs.StringDV",
-	"com.sun.org.apache.xerces.internal.impl.dv.xs.TypeValidator",
-	nullptr,
-	nullptr,
-	_StringDV_MethodInfo_
-};
-
-$Object* allocate$StringDV($Class* clazz) {
-	return $of($alloc(StringDV));
-}
-
 void StringDV::init$() {
 	$TypeValidator::init$();
 }
@@ -64,7 +43,23 @@ StringDV::StringDV() {
 }
 
 $Class* StringDV::load$($String* name, bool initialize) {
-	$loadClass(StringDV, name, initialize, &_StringDV_ClassInfo_, allocate$StringDV);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(StringDV, init$, void)},
+		{"getActualValue", "(Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/impl/dv/ValidationContext;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(StringDV, getActualValue, $Object*, $String*, $ValidationContext*), "com.sun.org.apache.xerces.internal.impl.dv.InvalidDatatypeValueException"},
+		{"getAllowedFacets", "()S", nullptr, $PUBLIC, $virtualMethod(StringDV, getAllowedFacets, int16_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.impl.dv.xs.StringDV",
+		"com.sun.org.apache.xerces.internal.impl.dv.xs.TypeValidator",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(StringDV, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(StringDV);
+	});
 	return class$;
 }
 

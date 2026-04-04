@@ -105,6 +105,7 @@ class XMLErrorReporter : public ::com::sun::org::apache::xerces::internal::xni::
 	$class(XMLErrorReporter, 0, ::com::sun::org::apache::xerces::internal::xni::parser::XMLComponent)
 public:
 	XMLErrorReporter();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual ::com::sun::org::apache::xerces::internal::xni::parser::XMLErrorHandler* getErrorHandler();
 	virtual bool getFeature($String* featureId);

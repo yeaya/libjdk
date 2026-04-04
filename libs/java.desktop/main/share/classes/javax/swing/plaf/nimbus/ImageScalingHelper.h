@@ -54,6 +54,7 @@ class ImageScalingHelper : public ::java::lang::Object {
 	$class(ImageScalingHelper, 0, ::java::lang::Object)
 public:
 	ImageScalingHelper();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void drawChunk(::java::awt::Image* image, ::java::awt::Graphics* g, bool stretch, int32_t dx1, int32_t dy1, int32_t dx2, int32_t dy2, int32_t sx1, int32_t sy1, int32_t sx2, int32_t sy2, bool xDirection);
 	static void drawImage(::java::awt::Image* image, ::java::awt::Graphics* g, int32_t dx1, int32_t dy1, int32_t dx2, int32_t dy2, int32_t sx1, int32_t sy1, int32_t sx2, int32_t sy2);

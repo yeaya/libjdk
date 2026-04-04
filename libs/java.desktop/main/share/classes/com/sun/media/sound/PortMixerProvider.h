@@ -34,6 +34,7 @@ class PortMixerProvider : public ::javax::sound::sampled::spi::MixerProvider {
 	$class(PortMixerProvider, 0, ::javax::sound::sampled::spi::MixerProvider)
 public:
 	PortMixerProvider();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::javax::sound::sampled::Mixer* getDevice(::com::sun::media::sound::PortMixerProvider$PortMixerInfo* info);
 	virtual ::javax::sound::sampled::Mixer* getMixer(::javax::sound::sampled::Mixer$Info* info) override;

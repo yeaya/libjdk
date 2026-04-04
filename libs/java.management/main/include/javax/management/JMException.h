@@ -14,10 +14,13 @@ public:
 	JMException();
 	void init$();
 	void init$($String* msg);
-	static const int64_t serialVersionUID = (int64_t)0x04DD4CEC939D7E71;
+	static const int64_t serialVersionUID = (int64_t)0x04dd4cec939d7e71;
 	JMException(const JMException& e);
 	virtual void throw$() override;
-	inline JMException* operator ->() {
+	inline JMException* operator ->() const {
+		return (JMException*)throwing$;
+	}
+	inline operator JMException*() const {
 		return (JMException*)throwing$;
 	}
 };

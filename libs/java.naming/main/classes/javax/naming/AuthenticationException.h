@@ -14,10 +14,13 @@ public:
 	AuthenticationException();
 	void init$($String* explanation);
 	void init$();
-	static const int64_t serialVersionUID = (int64_t)0x330CA61885881B20;
+	static const int64_t serialVersionUID = (int64_t)0x330ca61885881b20;
 	AuthenticationException(const AuthenticationException& e);
 	virtual void throw$() override;
-	inline AuthenticationException* operator ->() {
+	inline AuthenticationException* operator ->() const {
+		return (AuthenticationException*)throwing$;
+	}
+	inline operator AuthenticationException*() const {
 		return (AuthenticationException*)throwing$;
 	}
 };

@@ -1,5 +1,4 @@
 #include <com/sun/imageio/plugins/tiff/TIFFDecompressor.h>
-
 #include <com/sun/imageio/plugins/common/BogusColorSpace.h>
 #include <com/sun/imageio/plugins/common/ImageUtil.h>
 #include <com/sun/imageio/plugins/common/SimpleCMYKColorSpace.h>
@@ -26,7 +25,6 @@
 #include <java/awt/image/SinglePixelPackedSampleModel.h>
 #include <java/awt/image/WritableRaster.h>
 #include <java/io/ByteArrayInputStream.h>
-#include <java/io/InputStream.h>
 #include <java/nio/ByteOrder.h>
 #include <javax/imageio/IIOException.h>
 #include <javax/imageio/ImageReader.h>
@@ -82,12 +80,10 @@ using $DataBufferUShort = ::java::awt::image::DataBufferUShort;
 using $MultiPixelPackedSampleModel = ::java::awt::image::MultiPixelPackedSampleModel;
 using $PixelInterleavedSampleModel = ::java::awt::image::PixelInterleavedSampleModel;
 using $Raster = ::java::awt::image::Raster;
-using $RenderedImage = ::java::awt::image::RenderedImage;
 using $SampleModel = ::java::awt::image::SampleModel;
 using $SinglePixelPackedSampleModel = ::java::awt::image::SinglePixelPackedSampleModel;
 using $WritableRaster = ::java::awt::image::WritableRaster;
 using $ByteArrayInputStream = ::java::io::ByteArrayInputStream;
-using $InputStream = ::java::io::InputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Double = ::java::lang::Double;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -110,133 +106,6 @@ namespace com {
 		namespace imageio {
 			namespace plugins {
 				namespace tiff {
-
-$FieldInfo _TIFFDecompressor_FieldInfo_[] = {
-	{"reader", "Ljavax/imageio/ImageReader;", nullptr, $PROTECTED, $field(TIFFDecompressor, reader)},
-	{"metadata", "Ljavax/imageio/metadata/IIOMetadata;", nullptr, $PROTECTED, $field(TIFFDecompressor, metadata)},
-	{"photometricInterpretation", "I", nullptr, $PROTECTED, $field(TIFFDecompressor, photometricInterpretation)},
-	{"compression", "I", nullptr, $PROTECTED, $field(TIFFDecompressor, compression)},
-	{"planar", "Z", nullptr, $PROTECTED, $field(TIFFDecompressor, planar)},
-	{"planarBand", "I", nullptr, $PROTECTED, $field(TIFFDecompressor, planarBand)},
-	{"samplesPerPixel", "I", nullptr, $PROTECTED, $field(TIFFDecompressor, samplesPerPixel)},
-	{"bitsPerSample", "[I", nullptr, $PROTECTED, $field(TIFFDecompressor, bitsPerSample)},
-	{"sampleFormat", "[I", nullptr, $PROTECTED, $field(TIFFDecompressor, sampleFormat)},
-	{"extraSamples", "[I", nullptr, $PROTECTED, $field(TIFFDecompressor, extraSamples)},
-	{"colorMap", "[C", nullptr, $PROTECTED, $field(TIFFDecompressor, colorMap)},
-	{"stream", "Ljavax/imageio/stream/ImageInputStream;", nullptr, $PROTECTED, $field(TIFFDecompressor, stream)},
-	{"offset", "J", nullptr, $PROTECTED, $field(TIFFDecompressor, offset)},
-	{"byteCount", "I", nullptr, $PROTECTED, $field(TIFFDecompressor, byteCount)},
-	{"srcMinX", "I", nullptr, $PROTECTED, $field(TIFFDecompressor, srcMinX)},
-	{"srcMinY", "I", nullptr, $PROTECTED, $field(TIFFDecompressor, srcMinY)},
-	{"srcWidth", "I", nullptr, $PROTECTED, $field(TIFFDecompressor, srcWidth)},
-	{"srcHeight", "I", nullptr, $PROTECTED, $field(TIFFDecompressor, srcHeight)},
-	{"sourceXOffset", "I", nullptr, $PROTECTED, $field(TIFFDecompressor, sourceXOffset)},
-	{"dstXOffset", "I", nullptr, $PROTECTED, $field(TIFFDecompressor, dstXOffset)},
-	{"sourceYOffset", "I", nullptr, $PROTECTED, $field(TIFFDecompressor, sourceYOffset)},
-	{"dstYOffset", "I", nullptr, $PROTECTED, $field(TIFFDecompressor, dstYOffset)},
-	{"subsampleX", "I", nullptr, $PROTECTED, $field(TIFFDecompressor, subsampleX)},
-	{"subsampleY", "I", nullptr, $PROTECTED, $field(TIFFDecompressor, subsampleY)},
-	{"sourceBands", "[I", nullptr, $PROTECTED, $field(TIFFDecompressor, sourceBands)},
-	{"destinationBands", "[I", nullptr, $PROTECTED, $field(TIFFDecompressor, destinationBands)},
-	{"rawImage", "Ljava/awt/image/BufferedImage;", nullptr, $PROTECTED, $field(TIFFDecompressor, rawImage)},
-	{"image", "Ljava/awt/image/BufferedImage;", nullptr, $PROTECTED, $field(TIFFDecompressor, image)},
-	{"dstMinX", "I", nullptr, $PROTECTED, $field(TIFFDecompressor, dstMinX)},
-	{"dstMinY", "I", nullptr, $PROTECTED, $field(TIFFDecompressor, dstMinY)},
-	{"dstWidth", "I", nullptr, $PROTECTED, $field(TIFFDecompressor, dstWidth)},
-	{"dstHeight", "I", nullptr, $PROTECTED, $field(TIFFDecompressor, dstHeight)},
-	{"activeSrcMinX", "I", nullptr, $PROTECTED, $field(TIFFDecompressor, activeSrcMinX)},
-	{"activeSrcMinY", "I", nullptr, $PROTECTED, $field(TIFFDecompressor, activeSrcMinY)},
-	{"activeSrcWidth", "I", nullptr, $PROTECTED, $field(TIFFDecompressor, activeSrcWidth)},
-	{"activeSrcHeight", "I", nullptr, $PROTECTED, $field(TIFFDecompressor, activeSrcHeight)},
-	{"colorConverter", "Lcom/sun/imageio/plugins/tiff/TIFFColorConverter;", nullptr, $PROTECTED, $field(TIFFDecompressor, colorConverter)},
-	{"isBilevel", "Z", nullptr, $PRIVATE, $field(TIFFDecompressor, isBilevel)},
-	{"isContiguous", "Z", nullptr, $PRIVATE, $field(TIFFDecompressor, isContiguous)},
-	{"isImageSimple", "Z", nullptr, $PRIVATE, $field(TIFFDecompressor, isImageSimple)},
-	{"adjustBitDepths", "Z", nullptr, $PRIVATE, $field(TIFFDecompressor, adjustBitDepths)},
-	{"bitDepthScale", "[[I", nullptr, $PRIVATE, $field(TIFFDecompressor, bitDepthScale)},
-	{"isFirstBitDepthTable", "Z", nullptr, $PRIVATE, $field(TIFFDecompressor, isFirstBitDepthTable)},
-	{"planarCache", "Z", nullptr, $PRIVATE, $field(TIFFDecompressor, planarCache)},
-	{"destBitsPerSampleCache", "[I", nullptr, $PRIVATE, $field(TIFFDecompressor, destBitsPerSampleCache)},
-	{"sourceBandsCache", "[I", nullptr, $PRIVATE, $field(TIFFDecompressor, sourceBandsCache)},
-	{"bitsPerSampleCache", "[I", nullptr, $PRIVATE, $field(TIFFDecompressor, bitsPerSampleCache)},
-	{"destinationBandsCache", "[I", nullptr, $PRIVATE, $field(TIFFDecompressor, destinationBandsCache)},
-	{}
-};
-
-$MethodInfo _TIFFDecompressor_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TIFFDecompressor, init$, void)},
-	{"areIntArraysEqual", "([I[I)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(TIFFDecompressor, areIntArraysEqual, bool, $ints*, $ints*)},
-	{"areSampleSizesEqual", "(Ljava/awt/image/SampleModel;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(TIFFDecompressor, areSampleSizesEqual, bool, $SampleModel*)},
-	{"beginDecoding", "()V", nullptr, $PUBLIC, $virtualMethod(TIFFDecompressor, beginDecoding, void)},
-	{"createComponentCM", "(Ljava/awt/color/ColorSpace;I[IIZZ)Ljava/awt/image/ColorModel;", nullptr, $STATIC, $staticMethod(TIFFDecompressor, createComponentCM, $ColorModel*, $ColorSpace*, int32_t, $ints*, int32_t, bool, bool)},
-	{"createInterleavedSM", "(II)Ljava/awt/image/SampleModel;", nullptr, $STATIC, $staticMethod(TIFFDecompressor, createInterleavedSM, $SampleModel*, int32_t, int32_t)},
-	{"createMask", "([II)I", nullptr, $PRIVATE | $STATIC, $staticMethod(TIFFDecompressor, createMask, int32_t, $ints*, int32_t)},
-	{"createRawImage", "()Ljava/awt/image/BufferedImage;", nullptr, $PUBLIC, $virtualMethod(TIFFDecompressor, createRawImage, $BufferedImage*)},
-	{"decode", "()V", nullptr, $PUBLIC, $virtualMethod(TIFFDecompressor, decode, void), "java.io.IOException"},
-	{"decodeRaw", "([BIII)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TIFFDecompressor, decodeRaw, void, $bytes*, int32_t, int32_t, int32_t), "java.io.IOException"},
-	{"decodeRaw", "([SIII)V", nullptr, $PUBLIC, $virtualMethod(TIFFDecompressor, decodeRaw, void, $shorts*, int32_t, int32_t, int32_t), "java.io.IOException"},
-	{"decodeRaw", "([IIII)V", nullptr, $PUBLIC, $virtualMethod(TIFFDecompressor, decodeRaw, void, $ints*, int32_t, int32_t, int32_t), "java.io.IOException"},
-	{"decodeRaw", "([FIII)V", nullptr, $PUBLIC, $virtualMethod(TIFFDecompressor, decodeRaw, void, $floats*, int32_t, int32_t, int32_t), "java.io.IOException"},
-	{"decodeRaw", "([DIII)V", nullptr, $PUBLIC, $virtualMethod(TIFFDecompressor, decodeRaw, void, $doubles*, int32_t, int32_t, int32_t), "java.io.IOException"},
-	{"getBitsPerPixel", "(Ljava/awt/image/SampleModel;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(TIFFDecompressor, getBitsPerPixel, int32_t, $SampleModel*)},
-	{"getDataTypeFromNumBits", "(IZ)I", nullptr, $PRIVATE | $STATIC, $staticMethod(TIFFDecompressor, getDataTypeFromNumBits, int32_t, int32_t, bool)},
-	{"getDataTypeSize", "(I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(TIFFDecompressor, getDataTypeSize, int32_t, int32_t), "javax.imageio.IIOException"},
-	{"getRawImageType", "()Ljavax/imageio/ImageTypeSpecifier;", nullptr, $PUBLIC, $virtualMethod(TIFFDecompressor, getRawImageType, $ImageTypeSpecifier*)},
-	{"getRawImageTypeSpecifier", "(III[I[I[I[C)Ljavax/imageio/ImageTypeSpecifier;", nullptr, $PUBLIC | $STATIC, $staticMethod(TIFFDecompressor, getRawImageTypeSpecifier, $ImageTypeSpecifier*, int32_t, int32_t, int32_t, $ints*, $ints*, $ints*, $chars*)},
-	{"isDataBufferBitContiguous", "(Ljava/awt/image/SampleModel;[I)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(TIFFDecompressor, isDataBufferBitContiguous, bool, $SampleModel*, $ints*), "javax.imageio.IIOException"},
-	{"reformatData", "([BII[S[III)V", nullptr, $PRIVATE | $STATIC, $staticMethod(TIFFDecompressor, reformatData, void, $bytes*, int32_t, int32_t, $shorts*, $ints*, int32_t, int32_t), "javax.imageio.IIOException"},
-	{"reformatDiscontiguousData", "([B[IIIILjava/awt/image/WritableRaster;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(TIFFDecompressor, reformatDiscontiguousData, void, $bytes*, $ints*, int32_t, int32_t, int32_t, $WritableRaster*), "java.io.IOException"},
-	{"setActiveSrcHeight", "(I)V", nullptr, $PUBLIC, $virtualMethod(TIFFDecompressor, setActiveSrcHeight, void, int32_t)},
-	{"setActiveSrcMinX", "(I)V", nullptr, $PUBLIC, $virtualMethod(TIFFDecompressor, setActiveSrcMinX, void, int32_t)},
-	{"setActiveSrcMinY", "(I)V", nullptr, $PUBLIC, $virtualMethod(TIFFDecompressor, setActiveSrcMinY, void, int32_t)},
-	{"setActiveSrcWidth", "(I)V", nullptr, $PUBLIC, $virtualMethod(TIFFDecompressor, setActiveSrcWidth, void, int32_t)},
-	{"setBitsPerSample", "([I)V", nullptr, $PUBLIC, $virtualMethod(TIFFDecompressor, setBitsPerSample, void, $ints*)},
-	{"setByteCount", "(I)V", nullptr, $PUBLIC, $virtualMethod(TIFFDecompressor, setByteCount, void, int32_t)},
-	{"setColorConverter", "(Lcom/sun/imageio/plugins/tiff/TIFFColorConverter;)V", nullptr, $PUBLIC, $virtualMethod(TIFFDecompressor, setColorConverter, void, $TIFFColorConverter*)},
-	{"setColorMap", "([C)V", nullptr, $PUBLIC, $virtualMethod(TIFFDecompressor, setColorMap, void, $chars*)},
-	{"setCompression", "(I)V", nullptr, $PUBLIC, $virtualMethod(TIFFDecompressor, setCompression, void, int32_t)},
-	{"setDestinationBands", "([I)V", nullptr, $PUBLIC, $virtualMethod(TIFFDecompressor, setDestinationBands, void, $ints*)},
-	{"setDstHeight", "(I)V", nullptr, $PUBLIC, $virtualMethod(TIFFDecompressor, setDstHeight, void, int32_t)},
-	{"setDstMinX", "(I)V", nullptr, $PUBLIC, $virtualMethod(TIFFDecompressor, setDstMinX, void, int32_t)},
-	{"setDstMinY", "(I)V", nullptr, $PUBLIC, $virtualMethod(TIFFDecompressor, setDstMinY, void, int32_t)},
-	{"setDstWidth", "(I)V", nullptr, $PUBLIC, $virtualMethod(TIFFDecompressor, setDstWidth, void, int32_t)},
-	{"setDstXOffset", "(I)V", nullptr, $PUBLIC, $virtualMethod(TIFFDecompressor, setDstXOffset, void, int32_t)},
-	{"setDstYOffset", "(I)V", nullptr, $PUBLIC, $virtualMethod(TIFFDecompressor, setDstYOffset, void, int32_t)},
-	{"setExtraSamples", "([I)V", nullptr, $PUBLIC, $virtualMethod(TIFFDecompressor, setExtraSamples, void, $ints*)},
-	{"setImage", "(Ljava/awt/image/BufferedImage;)V", nullptr, $PUBLIC, $virtualMethod(TIFFDecompressor, setImage, void, $BufferedImage*)},
-	{"setMetadata", "(Ljavax/imageio/metadata/IIOMetadata;)V", nullptr, $PUBLIC, $virtualMethod(TIFFDecompressor, setMetadata, void, $IIOMetadata*)},
-	{"setOffset", "(J)V", nullptr, $PUBLIC, $virtualMethod(TIFFDecompressor, setOffset, void, int64_t)},
-	{"setPhotometricInterpretation", "(I)V", nullptr, $PUBLIC, $virtualMethod(TIFFDecompressor, setPhotometricInterpretation, void, int32_t)},
-	{"setPlanar", "(Z)V", nullptr, $PUBLIC, $virtualMethod(TIFFDecompressor, setPlanar, void, bool)},
-	{"setPlanarBand", "(I)V", nullptr, $PUBLIC, $virtualMethod(TIFFDecompressor, setPlanarBand, void, int32_t)},
-	{"setReader", "(Ljavax/imageio/ImageReader;)V", nullptr, $PUBLIC, $virtualMethod(TIFFDecompressor, setReader, void, $ImageReader*)},
-	{"setSampleFormat", "([I)V", nullptr, $PUBLIC, $virtualMethod(TIFFDecompressor, setSampleFormat, void, $ints*)},
-	{"setSamplesPerPixel", "(I)V", nullptr, $PUBLIC, $virtualMethod(TIFFDecompressor, setSamplesPerPixel, void, int32_t)},
-	{"setSourceBands", "([I)V", nullptr, $PUBLIC, $virtualMethod(TIFFDecompressor, setSourceBands, void, $ints*)},
-	{"setSourceXOffset", "(I)V", nullptr, $PUBLIC, $virtualMethod(TIFFDecompressor, setSourceXOffset, void, int32_t)},
-	{"setSourceYOffset", "(I)V", nullptr, $PUBLIC, $virtualMethod(TIFFDecompressor, setSourceYOffset, void, int32_t)},
-	{"setSrcHeight", "(I)V", nullptr, $PUBLIC, $virtualMethod(TIFFDecompressor, setSrcHeight, void, int32_t)},
-	{"setSrcMinX", "(I)V", nullptr, $PUBLIC, $virtualMethod(TIFFDecompressor, setSrcMinX, void, int32_t)},
-	{"setSrcMinY", "(I)V", nullptr, $PUBLIC, $virtualMethod(TIFFDecompressor, setSrcMinY, void, int32_t)},
-	{"setSrcWidth", "(I)V", nullptr, $PUBLIC, $virtualMethod(TIFFDecompressor, setSrcWidth, void, int32_t)},
-	{"setStream", "(Ljavax/imageio/stream/ImageInputStream;)V", nullptr, $PUBLIC, $virtualMethod(TIFFDecompressor, setStream, void, $ImageInputStream*)},
-	{"setSubsampleX", "(I)V", nullptr, $PUBLIC, $virtualMethod(TIFFDecompressor, setSubsampleX, void, int32_t)},
-	{"setSubsampleY", "(I)V", nullptr, $PUBLIC, $virtualMethod(TIFFDecompressor, setSubsampleY, void, int32_t)},
-	{}
-};
-
-$ClassInfo _TIFFDecompressor_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"com.sun.imageio.plugins.tiff.TIFFDecompressor",
-	"java.lang.Object",
-	nullptr,
-	_TIFFDecompressor_FieldInfo_,
-	_TIFFDecompressor_MethodInfo_
-};
-
-$Object* allocate$TIFFDecompressor($Class* clazz) {
-	return $of($alloc(TIFFDecompressor));
-}
 
 void TIFFDecompressor::init$() {
 	this->planarBand = 0;
@@ -293,9 +162,9 @@ bool TIFFDecompressor::areIntArraysEqual($ints* a, $ints* b) {
 	if ($nc(a)->length != $nc(b)->length) {
 		return false;
 	}
-	int32_t length = $nc(a)->length;
+	int32_t length = a->length;
 	for (int32_t i = 0; i < length; ++i) {
-		if (a->get(i) != $nc(b)->get(i)) {
+		if (a->get(i) != b->get(i)) {
 			return false;
 		}
 	}
@@ -303,37 +172,25 @@ bool TIFFDecompressor::areIntArraysEqual($ints* a, $ints* b) {
 }
 
 int32_t TIFFDecompressor::getDataTypeSize(int32_t dataType) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t dataTypeSize = 0;
 	switch (dataType) {
 	case $DataBuffer::TYPE_BYTE:
-		{
-			dataTypeSize = 8;
-			break;
-		}
+		dataTypeSize = 8;
+		break;
 	case $DataBuffer::TYPE_SHORT:
-		{}
 	case $DataBuffer::TYPE_USHORT:
-		{
-			dataTypeSize = 16;
-			break;
-		}
+		dataTypeSize = 16;
+		break;
 	case $DataBuffer::TYPE_INT:
-		{}
 	case $DataBuffer::TYPE_FLOAT:
-		{
-			dataTypeSize = 32;
-			break;
-		}
+		dataTypeSize = 32;
+		break;
 	case $DataBuffer::TYPE_DOUBLE:
-		{
-			dataTypeSize = 64;
-			break;
-		}
+		dataTypeSize = 64;
+		break;
 	default:
-		{
-			$throwNew($IIOException, $$str({"Unknown data type "_s, $$str(dataType)}));
-		}
+		$throwNew($IIOException, $$str({"Unknown data type "_s, $$str(dataType)}));
 	}
 	return dataTypeSize;
 }
@@ -363,10 +220,10 @@ bool TIFFDecompressor::areSampleSizesEqual($SampleModel* sm) {
 }
 
 bool TIFFDecompressor::isDataBufferBitContiguous($SampleModel* sm, $ints* bitsPerSample) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t dataTypeSize = getDataTypeSize($nc(sm)->getDataType());
 	if ($instanceOf($ComponentSampleModel, sm)) {
-		int32_t numBands = $nc(sm)->getNumBands();
+		int32_t numBands = sm->getNumBands();
 		for (int32_t i = 0; i < numBands; ++i) {
 			if ($nc(bitsPerSample)->get(i) != dataTypeSize) {
 				return false;
@@ -374,12 +231,12 @@ bool TIFFDecompressor::isDataBufferBitContiguous($SampleModel* sm, $ints* bitsPe
 		}
 	} else if ($instanceOf($MultiPixelPackedSampleModel, sm)) {
 		$var($MultiPixelPackedSampleModel, mppsm, $cast($MultiPixelPackedSampleModel, sm));
-		if ($mod(dataTypeSize, $nc(mppsm)->getPixelBitStride()) != 0) {
+		if ($mod(dataTypeSize, mppsm->getPixelBitStride()) != 0) {
 			return false;
 		}
 	} else if ($instanceOf($SinglePixelPackedSampleModel, sm)) {
 		$var($SinglePixelPackedSampleModel, sppsm, $cast($SinglePixelPackedSampleModel, sm));
-		int32_t numBands = $nc(sm)->getNumBands();
+		int32_t numBands = sm->getNumBands();
 		int32_t numBits = 0;
 		for (int32_t i = 0; i < numBands; ++i) {
 			numBits += sm->getSampleSize(i);
@@ -401,11 +258,11 @@ void TIFFDecompressor::reformatData($bytes* buf, int32_t bytesPerRow, int32_t nu
 		for (int32_t j = 0; j < numRows; ++j) {
 			int32_t k = outOffset;
 			for (int32_t i = 0; i < shortsPerRow; ++i) {
-				int32_t var$0 = (((int32_t)($nc(buf)->get(inOffset++) & (uint32_t)255)) << 8);
-				shortData->set(k++, (int16_t)(var$0 | ((int32_t)(buf->get(inOffset++) & (uint32_t)255))));
+				int32_t var$0 = ($nc(buf)->get(inOffset++) & 0xff) << 8;
+				shortData->set(k++, (int16_t)(var$0 | (buf->get(inOffset++) & 0xff)));
 			}
 			if (numExtraBytes != 0) {
-				shortData->set(k++, (int16_t)(((int32_t)($nc(buf)->get(inOffset++) & (uint32_t)255)) << 8));
+				shortData->set(k++, (int16_t)(($nc(buf)->get(inOffset++) & 0xff) << 8));
 			}
 			outOffset += outStride;
 		}
@@ -416,16 +273,16 @@ void TIFFDecompressor::reformatData($bytes* buf, int32_t bytesPerRow, int32_t nu
 		for (int32_t j = 0; j < numRows; ++j) {
 			int32_t k = outOffset;
 			for (int32_t i = 0; i < intsPerRow; ++i) {
-				int32_t var$3 = (((int32_t)($nc(buf)->get(inOffset++) & (uint32_t)255)) << 24);
-				int32_t var$2 = var$3 | (((int32_t)(buf->get(inOffset++) & (uint32_t)255)) << 16);
-				int32_t var$1 = var$2 | (((int32_t)(buf->get(inOffset++) & (uint32_t)255)) << 8);
-				intData->set(k++, var$1 | ((int32_t)(buf->get(inOffset++) & (uint32_t)255)));
+				int32_t var$3 = ($nc(buf)->get(inOffset++) & 0xff) << 24;
+				int32_t var$2 = var$3 | ((buf->get(inOffset++) & 0xff) << 16);
+				int32_t var$1 = var$2 | ((buf->get(inOffset++) & 0xff) << 8);
+				intData->set(k++, var$1 | (buf->get(inOffset++) & 0xff));
 			}
 			if (numExtraBytes != 0) {
 				int32_t shift = 24;
 				int32_t ival = 0;
 				for (int32_t b = 0; b < numExtraBytes; ++b) {
-					ival |= $sl((int32_t)($nc(buf)->get(inOffset++) & (uint32_t)255), shift);
+					ival |= $sl($nc(buf)->get(inOffset++) & 0xff, shift);
 					shift -= 8;
 				}
 				intData->set(k++, ival);
@@ -438,7 +295,7 @@ void TIFFDecompressor::reformatData($bytes* buf, int32_t bytesPerRow, int32_t nu
 }
 
 void TIFFDecompressor::reformatDiscontiguousData($bytes* buf, $ints* bitsPerSample, int32_t stride, int32_t w, int32_t h, $WritableRaster* raster) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SampleModel, sm, $nc(raster)->getSampleModel());
 	int32_t numBands = $nc(sm)->getNumBands();
 	$var($ByteArrayInputStream, is, $new($ByteArrayInputStream, buf));
@@ -459,8 +316,8 @@ void TIFFDecompressor::reformatDiscontiguousData($bytes* buf, $ints* bitsPerSamp
 }
 
 $ImageTypeSpecifier* TIFFDecompressor::getRawImageTypeSpecifier(int32_t photometricInterpretation, int32_t compression, int32_t samplesPerPixel, $ints* bitsPerSample, $ints* sampleFormat, $ints* extraSamples, $chars* colorMap) {
-	$useLocalCurrentObjectStackCache();
-	if (samplesPerPixel == 1 && ($nc(bitsPerSample)->get(0) == 1 || $nc(bitsPerSample)->get(0) == 2 || $nc(bitsPerSample)->get(0) == 4 || $nc(bitsPerSample)->get(0) == 8 || $nc(bitsPerSample)->get(0) == 16)) {
+	$useLocalObjectStack();
+	if (samplesPerPixel == 1 && ($nc(bitsPerSample)->get(0) == 1 || bitsPerSample->get(0) == 2 || bitsPerSample->get(0) == 4 || bitsPerSample->get(0) == 8 || bitsPerSample->get(0) == 16)) {
 		if (colorMap == nullptr) {
 			bool isSigned = ($nc(sampleFormat)->get(0) == $BaselineTIFFTagSet::SAMPLE_FORMAT_SIGNED_INTEGER);
 			int32_t dataType = 0;
@@ -478,9 +335,9 @@ $ImageTypeSpecifier* TIFFDecompressor::getRawImageTypeSpecifier(int32_t photomet
 			$var($bytes, alphaLut, nullptr);
 			int32_t idx = 0;
 			for (int32_t i = 0; i < mapSize; ++i) {
-				redLut->set(i, (int8_t)(($nc(colorMap)->get(i) * 255) / 0x0000FFFF));
-				greenLut->set(i, (int8_t)((colorMap->get(mapSize + i) * 255) / 0x0000FFFF));
-				blueLut->set(i, (int8_t)((colorMap->get(2 * mapSize + i) * 255) / 0x0000FFFF));
+				redLut->set(i, (int8_t)((colorMap->get(i) * 255) / 0x0000ffff));
+				greenLut->set(i, (int8_t)((colorMap->get(mapSize + i) * 255) / 0x0000ffff));
+				blueLut->set(i, (int8_t)((colorMap->get(2 * mapSize + i) * 255) / 0x0000ffff));
 			}
 			int32_t dataType = 0;
 			if (bitsPerSample->get(0) <= 8) {
@@ -584,7 +441,7 @@ $ImageTypeSpecifier* TIFFDecompressor::getRawImageTypeSpecifier(int32_t photomet
 		}
 		return $ImageTypeSpecifier::createPacked(rgb, redMask, greenMask, blueMask, alphaMask, transferType, alphaPremultiplied);
 	}
-	if ($nc(bitsPerSample)->get(0) % 8 == 0) {
+	if (bitsPerSample->get(0) % 8 == 0) {
 		bool allSameBitDepth = true;
 		for (int32_t i = 1; i < bitsPerSample->length; ++i) {
 			if (bitsPerSample->get(i) != bitsPerSample->get(i - 1)) {
@@ -597,43 +454,35 @@ $ImageTypeSpecifier* TIFFDecompressor::getRawImageTypeSpecifier(int32_t photomet
 			bool isDataTypeSet = false;
 			switch (bitsPerSample->get(0)) {
 			case 8:
-				{
-					if ($nc(sampleFormat)->get(0) != $BaselineTIFFTagSet::SAMPLE_FORMAT_FLOATING_POINT) {
-						dataType = $DataBuffer::TYPE_BYTE;
-						isDataTypeSet = true;
-					}
-					break;
+				if ($nc(sampleFormat)->get(0) != $BaselineTIFFTagSet::SAMPLE_FORMAT_FLOATING_POINT) {
+					dataType = $DataBuffer::TYPE_BYTE;
+					isDataTypeSet = true;
 				}
+				break;
 			case 16:
-				{
-					if ($nc(sampleFormat)->get(0) != $BaselineTIFFTagSet::SAMPLE_FORMAT_FLOATING_POINT) {
-						if (sampleFormat->get(0) == $BaselineTIFFTagSet::SAMPLE_FORMAT_SIGNED_INTEGER) {
-							dataType = $DataBuffer::TYPE_SHORT;
-						} else {
-							dataType = $DataBuffer::TYPE_USHORT;
-						}
-						isDataTypeSet = true;
-					}
-					break;
-				}
-			case 32:
-				{
-					if ($nc(sampleFormat)->get(0) == $BaselineTIFFTagSet::SAMPLE_FORMAT_FLOATING_POINT) {
-						dataType = $DataBuffer::TYPE_FLOAT;
+				if ($nc(sampleFormat)->get(0) != $BaselineTIFFTagSet::SAMPLE_FORMAT_FLOATING_POINT) {
+					if (sampleFormat->get(0) == $BaselineTIFFTagSet::SAMPLE_FORMAT_SIGNED_INTEGER) {
+						dataType = $DataBuffer::TYPE_SHORT;
 					} else {
-						dataType = $DataBuffer::TYPE_INT;
+						dataType = $DataBuffer::TYPE_USHORT;
 					}
 					isDataTypeSet = true;
-					break;
 				}
+				break;
+			case 32:
+				if ($nc(sampleFormat)->get(0) == $BaselineTIFFTagSet::SAMPLE_FORMAT_FLOATING_POINT) {
+					dataType = $DataBuffer::TYPE_FLOAT;
+				} else {
+					dataType = $DataBuffer::TYPE_INT;
+				}
+				isDataTypeSet = true;
+				break;
 			case 64:
-				{
-					if ($nc(sampleFormat)->get(0) == $BaselineTIFFTagSet::SAMPLE_FORMAT_FLOATING_POINT) {
-						dataType = $DataBuffer::TYPE_DOUBLE;
-						isDataTypeSet = true;
-					}
-					break;
+				if ($nc(sampleFormat)->get(0) == $BaselineTIFFTagSet::SAMPLE_FORMAT_FLOATING_POINT) {
+					dataType = $DataBuffer::TYPE_DOUBLE;
+					isDataTypeSet = true;
 				}
+				break;
 			}
 			if (isDataTypeSet) {
 				$var($SampleModel, sm, createInterleavedSM(dataType, samplesPerPixel));
@@ -656,17 +505,17 @@ $ImageTypeSpecifier* TIFFDecompressor::getRawImageTypeSpecifier(int32_t photomet
 	}
 	if (colorMap == nullptr && $nc(sampleFormat)->get(0) != $BaselineTIFFTagSet::SAMPLE_FORMAT_FLOATING_POINT) {
 		int32_t maxBitsPerSample = 0;
-		for (int32_t i = 0; i < $nc(bitsPerSample)->length; ++i) {
+		for (int32_t i = 0; i < bitsPerSample->length; ++i) {
 			if (bitsPerSample->get(i) > maxBitsPerSample) {
 				maxBitsPerSample = bitsPerSample->get(i);
 			}
 		}
 		bool isSigned = (sampleFormat->get(0) == $BaselineTIFFTagSet::SAMPLE_FORMAT_SIGNED_INTEGER);
-		if (samplesPerPixel == 1 && ($nc(bitsPerSample)->get(0) == 1 || $nc(bitsPerSample)->get(0) == 2 || $nc(bitsPerSample)->get(0) == 4 || $nc(bitsPerSample)->get(0) == 8 || $nc(bitsPerSample)->get(0) == 16)) {
+		if (samplesPerPixel == 1 && (bitsPerSample->get(0) == 1 || bitsPerSample->get(0) == 2 || bitsPerSample->get(0) == 4 || bitsPerSample->get(0) == 8 || bitsPerSample->get(0) == 16)) {
 			int32_t dataType = getDataTypeFromNumBits(maxBitsPerSample, isSigned);
 			return $ImageTypeSpecifier::createGrayscale(bitsPerSample->get(0), dataType, isSigned);
 		}
-		if (samplesPerPixel == 2 && $nc(bitsPerSample)->get(0) == bitsPerSample->get(1) && (bitsPerSample->get(0) == 1 || $nc(bitsPerSample)->get(0) == 2 || $nc(bitsPerSample)->get(0) == 4 || $nc(bitsPerSample)->get(0) == 8 || $nc(bitsPerSample)->get(0) == 16)) {
+		if (samplesPerPixel == 2 && bitsPerSample->get(0) == bitsPerSample->get(1) && (bitsPerSample->get(0) == 1 || bitsPerSample->get(0) == 2 || bitsPerSample->get(0) == 4 || bitsPerSample->get(0) == 8 || bitsPerSample->get(0) == 16)) {
 			bool alphaPremultiplied = false;
 			if (extraSamples != nullptr && extraSamples->get(0) == $BaselineTIFFTagSet::EXTRA_SAMPLES_ASSOCIATED_ALPHA) {
 				alphaPremultiplied = true;
@@ -693,7 +542,7 @@ $ImageTypeSpecifier* TIFFDecompressor::getRawImageTypeSpecifier(int32_t photomet
 					alphaPremultiplied = true;
 				}
 				return $ImageTypeSpecifier::createPacked(rgb, redMask, greenMask, blueMask, alphaMask, transferType, alphaPremultiplied);
-			} else if (samplesPerPixel == 3 && dataTypeSize == $nc(bitsPerSample)->get(0) && bitsPerSample->get(0) == bitsPerSample->get(1) && bitsPerSample->get(1) == bitsPerSample->get(2)) {
+			} else if (samplesPerPixel == 3 && dataTypeSize == bitsPerSample->get(0) && bitsPerSample->get(0) == bitsPerSample->get(1) && bitsPerSample->get(1) == bitsPerSample->get(2)) {
 				$var($ints, bandOffsets, $new($ints, {
 					0,
 					1,
@@ -759,19 +608,19 @@ void TIFFDecompressor::setSamplesPerPixel(int32_t samplesPerPixel) {
 }
 
 void TIFFDecompressor::setBitsPerSample($ints* bitsPerSample) {
-	$set(this, bitsPerSample, bitsPerSample == nullptr ? ($ints*)nullptr : $cast($ints, $nc(bitsPerSample)->clone()));
+	$set(this, bitsPerSample, bitsPerSample == nullptr ? ($ints*)nullptr : $cast($ints, bitsPerSample->clone()));
 }
 
 void TIFFDecompressor::setSampleFormat($ints* sampleFormat) {
-	$set(this, sampleFormat, sampleFormat == nullptr ? $new($ints, {$BaselineTIFFTagSet::SAMPLE_FORMAT_UNSIGNED_INTEGER}) : $cast($ints, $nc(sampleFormat)->clone()));
+	$set(this, sampleFormat, sampleFormat == nullptr ? $new($ints, {$BaselineTIFFTagSet::SAMPLE_FORMAT_UNSIGNED_INTEGER}) : $cast($ints, sampleFormat->clone()));
 }
 
 void TIFFDecompressor::setExtraSamples($ints* extraSamples) {
-	$set(this, extraSamples, extraSamples == nullptr ? ($ints*)nullptr : $cast($ints, $nc(extraSamples)->clone()));
+	$set(this, extraSamples, extraSamples == nullptr ? ($ints*)nullptr : $cast($ints, extraSamples->clone()));
 }
 
 void TIFFDecompressor::setColorMap($chars* colorMap) {
-	$set(this, colorMap, colorMap == nullptr ? ($chars*)nullptr : $cast($chars, $nc(colorMap)->clone()));
+	$set(this, colorMap, colorMap == nullptr ? ($chars*)nullptr : $cast($chars, colorMap->clone()));
 }
 
 void TIFFDecompressor::setStream($ImageInputStream* stream) {
@@ -833,11 +682,11 @@ void TIFFDecompressor::setSubsampleY(int32_t subsampleY) {
 }
 
 void TIFFDecompressor::setSourceBands($ints* sourceBands) {
-	$set(this, sourceBands, sourceBands == nullptr ? ($ints*)nullptr : $cast($ints, $nc(sourceBands)->clone()));
+	$set(this, sourceBands, sourceBands == nullptr ? ($ints*)nullptr : $cast($ints, sourceBands->clone()));
 }
 
 void TIFFDecompressor::setDestinationBands($ints* destinationBands) {
-	$set(this, destinationBands, destinationBands == nullptr ? ($ints*)nullptr : $cast($ints, $nc(destinationBands)->clone()));
+	$set(this, destinationBands, destinationBands == nullptr ? ($ints*)nullptr : $cast($ints, destinationBands->clone()));
 }
 
 void TIFFDecompressor::setImage($BufferedImage* image) {
@@ -886,7 +735,7 @@ $ImageTypeSpecifier* TIFFDecompressor::getRawImageType() {
 }
 
 $BufferedImage* TIFFDecompressor::createRawImage() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->planar) {
 		int32_t bps = $nc(this->bitsPerSample)->get($nc(this->sourceBands)->get(0));
 		int32_t dataType = 0;
@@ -899,7 +748,7 @@ $BufferedImage* TIFFDecompressor::createRawImage() {
 		} else if (bps <= 8) {
 			dataType = $DataBuffer::TYPE_BYTE;
 		} else if (bps <= 16) {
-			if ($nc(this->sampleFormat)->get(0) == $BaselineTIFFTagSet::SAMPLE_FORMAT_SIGNED_INTEGER) {
+			if (this->sampleFormat->get(0) == $BaselineTIFFTagSet::SAMPLE_FORMAT_SIGNED_INTEGER) {
 				dataType = $DataBuffer::TYPE_SHORT;
 			} else {
 				dataType = $DataBuffer::TYPE_USHORT;
@@ -932,7 +781,7 @@ void TIFFDecompressor::decodeRaw($shorts* s, int32_t dstOffset, int32_t bitsPerP
 			for (int32_t i = 0; i < shortsPerRow; ++i) {
 				int16_t hiVal = b->get(bOffset++);
 				int16_t loVal = b->get(bOffset++);
-				int16_t sval = (int16_t)((hiVal << 8) | ((int32_t)(loVal & (uint32_t)255)));
+				int16_t sval = (int16_t)((hiVal << 8) | (loVal & 0xff));
 				$nc(s)->set(dstOffset + i, sval);
 			}
 			dstOffset += scanlineStride;
@@ -942,7 +791,7 @@ void TIFFDecompressor::decodeRaw($shorts* s, int32_t dstOffset, int32_t bitsPerP
 			for (int32_t i = 0; i < shortsPerRow; ++i) {
 				int16_t loVal = b->get(bOffset++);
 				int16_t hiVal = b->get(bOffset++);
-				int16_t sval = (int16_t)((hiVal << 8) | ((int32_t)(loVal & (uint32_t)255)));
+				int16_t sval = (int16_t)((hiVal << 8) | (loVal & 0xff));
 				$nc(s)->set(dstOffset + i, sval);
 			}
 			dstOffset += scanlineStride;
@@ -961,10 +810,10 @@ void TIFFDecompressor::decodeRaw($ints* i, int32_t dstOffset, int32_t bitsPerPix
 	if ($nc(this->stream)->getByteOrder() == $ByteOrder::BIG_ENDIAN) {
 		for (int32_t j = 0; j < this->srcHeight; ++j) {
 			for (int32_t k = 0; k < intsPerRow; ++k) {
-				int32_t v0 = (int32_t)(b->get(bOffset++) & (uint32_t)255);
-				int32_t v1 = (int32_t)(b->get(bOffset++) & (uint32_t)255);
-				int32_t v2 = (int32_t)(b->get(bOffset++) & (uint32_t)255);
-				int32_t v3 = (int32_t)(b->get(bOffset++) & (uint32_t)255);
+				int32_t v0 = b->get(bOffset++) & 0xff;
+				int32_t v1 = b->get(bOffset++) & 0xff;
+				int32_t v2 = b->get(bOffset++) & 0xff;
+				int32_t v3 = b->get(bOffset++) & 0xff;
 				int32_t ival = (((v0 << 24) | (v1 << 16)) | (v2 << 8)) | v3;
 				$nc(i)->set(dstOffset + k, ival);
 			}
@@ -973,10 +822,10 @@ void TIFFDecompressor::decodeRaw($ints* i, int32_t dstOffset, int32_t bitsPerPix
 	} else {
 		for (int32_t j = 0; j < this->srcHeight; ++j) {
 			for (int32_t k = 0; k < intsPerRow; ++k) {
-				int32_t v3 = (int32_t)(b->get(bOffset++) & (uint32_t)255);
-				int32_t v2 = (int32_t)(b->get(bOffset++) & (uint32_t)255);
-				int32_t v1 = (int32_t)(b->get(bOffset++) & (uint32_t)255);
-				int32_t v0 = (int32_t)(b->get(bOffset++) & (uint32_t)255);
+				int32_t v3 = b->get(bOffset++) & 0xff;
+				int32_t v2 = b->get(bOffset++) & 0xff;
+				int32_t v1 = b->get(bOffset++) & 0xff;
+				int32_t v0 = b->get(bOffset++) & 0xff;
 				int32_t ival = (((v0 << 24) | (v1 << 16)) | (v2 << 8)) | v3;
 				$nc(i)->set(dstOffset + k, ival);
 			}
@@ -996,10 +845,10 @@ void TIFFDecompressor::decodeRaw($floats* f, int32_t dstOffset, int32_t bitsPerP
 	if ($nc(this->stream)->getByteOrder() == $ByteOrder::BIG_ENDIAN) {
 		for (int32_t j = 0; j < this->srcHeight; ++j) {
 			for (int32_t i = 0; i < floatsPerRow; ++i) {
-				int32_t v0 = (int32_t)(b->get(bOffset++) & (uint32_t)255);
-				int32_t v1 = (int32_t)(b->get(bOffset++) & (uint32_t)255);
-				int32_t v2 = (int32_t)(b->get(bOffset++) & (uint32_t)255);
-				int32_t v3 = (int32_t)(b->get(bOffset++) & (uint32_t)255);
+				int32_t v0 = b->get(bOffset++) & 0xff;
+				int32_t v1 = b->get(bOffset++) & 0xff;
+				int32_t v2 = b->get(bOffset++) & 0xff;
+				int32_t v3 = b->get(bOffset++) & 0xff;
 				int32_t ival = (((v0 << 24) | (v1 << 16)) | (v2 << 8)) | v3;
 				float fval = $Float::intBitsToFloat(ival);
 				$nc(f)->set(dstOffset + i, fval);
@@ -1009,10 +858,10 @@ void TIFFDecompressor::decodeRaw($floats* f, int32_t dstOffset, int32_t bitsPerP
 	} else {
 		for (int32_t j = 0; j < this->srcHeight; ++j) {
 			for (int32_t i = 0; i < floatsPerRow; ++i) {
-				int32_t v3 = (int32_t)(b->get(bOffset++) & (uint32_t)255);
-				int32_t v2 = (int32_t)(b->get(bOffset++) & (uint32_t)255);
-				int32_t v1 = (int32_t)(b->get(bOffset++) & (uint32_t)255);
-				int32_t v0 = (int32_t)(b->get(bOffset++) & (uint32_t)255);
+				int32_t v3 = b->get(bOffset++) & 0xff;
+				int32_t v2 = b->get(bOffset++) & 0xff;
+				int32_t v1 = b->get(bOffset++) & 0xff;
+				int32_t v0 = b->get(bOffset++) & 0xff;
 				int32_t ival = (((v0 << 24) | (v1 << 16)) | (v2 << 8)) | v3;
 				float fval = $Float::intBitsToFloat(ival);
 				$nc(f)->set(dstOffset + i, fval);
@@ -1033,14 +882,14 @@ void TIFFDecompressor::decodeRaw($doubles* d, int32_t dstOffset, int32_t bitsPer
 	if ($nc(this->stream)->getByteOrder() == $ByteOrder::BIG_ENDIAN) {
 		for (int32_t j = 0; j < this->srcHeight; ++j) {
 			for (int32_t i = 0; i < doublesPerRow; ++i) {
-				int64_t v0 = (int32_t)(b->get(bOffset++) & (uint32_t)255);
-				int64_t v1 = (int32_t)(b->get(bOffset++) & (uint32_t)255);
-				int64_t v2 = (int32_t)(b->get(bOffset++) & (uint32_t)255);
-				int64_t v3 = (int32_t)(b->get(bOffset++) & (uint32_t)255);
-				int64_t v4 = (int32_t)(b->get(bOffset++) & (uint32_t)255);
-				int64_t v5 = (int32_t)(b->get(bOffset++) & (uint32_t)255);
-				int64_t v6 = (int32_t)(b->get(bOffset++) & (uint32_t)255);
-				int64_t v7 = (int32_t)(b->get(bOffset++) & (uint32_t)255);
+				int64_t v0 = b->get(bOffset++) & 0xff;
+				int64_t v1 = b->get(bOffset++) & 0xff;
+				int64_t v2 = b->get(bOffset++) & 0xff;
+				int64_t v3 = b->get(bOffset++) & 0xff;
+				int64_t v4 = b->get(bOffset++) & 0xff;
+				int64_t v5 = b->get(bOffset++) & 0xff;
+				int64_t v6 = b->get(bOffset++) & 0xff;
+				int64_t v7 = b->get(bOffset++) & 0xff;
 				int64_t lval = (((((((v0 << 56) | (v1 << 48)) | (v2 << 40)) | (v3 << 32)) | (v4 << 24)) | (v5 << 16)) | (v6 << 8)) | v7;
 				double dval = $Double::longBitsToDouble(lval);
 				$nc(d)->set(dstOffset + i, dval);
@@ -1050,14 +899,14 @@ void TIFFDecompressor::decodeRaw($doubles* d, int32_t dstOffset, int32_t bitsPer
 	} else {
 		for (int32_t j = 0; j < this->srcHeight; ++j) {
 			for (int32_t i = 0; i < doublesPerRow; ++i) {
-				int64_t v7 = (int32_t)(b->get(bOffset++) & (uint32_t)255);
-				int64_t v6 = (int32_t)(b->get(bOffset++) & (uint32_t)255);
-				int64_t v5 = (int32_t)(b->get(bOffset++) & (uint32_t)255);
-				int64_t v4 = (int32_t)(b->get(bOffset++) & (uint32_t)255);
-				int64_t v3 = (int32_t)(b->get(bOffset++) & (uint32_t)255);
-				int64_t v2 = (int32_t)(b->get(bOffset++) & (uint32_t)255);
-				int64_t v1 = (int32_t)(b->get(bOffset++) & (uint32_t)255);
-				int64_t v0 = (int32_t)(b->get(bOffset++) & (uint32_t)255);
+				int64_t v7 = b->get(bOffset++) & 0xff;
+				int64_t v6 = b->get(bOffset++) & 0xff;
+				int64_t v5 = b->get(bOffset++) & 0xff;
+				int64_t v4 = b->get(bOffset++) & 0xff;
+				int64_t v3 = b->get(bOffset++) & 0xff;
+				int64_t v2 = b->get(bOffset++) & 0xff;
+				int64_t v1 = b->get(bOffset++) & 0xff;
+				int64_t v0 = b->get(bOffset++) & 0xff;
 				int64_t lval = (((((((v0 << 56) | (v1 << 48)) | (v2 << 40)) | (v3 << 32)) | (v4 << 24)) | (v5 << 16)) | (v6 << 8)) | v7;
 				double dval = $Double::longBitsToDouble(lval);
 				$nc(d)->set(dstOffset + i, dval);
@@ -1068,19 +917,19 @@ void TIFFDecompressor::decodeRaw($doubles* d, int32_t dstOffset, int32_t bitsPer
 }
 
 void TIFFDecompressor::beginDecoding() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->adjustBitDepths = false;
 	int32_t numBands = $nc(this->destinationBands)->length;
 	$var($ints, destBitsPerSample, nullptr);
 	if (this->planar) {
 		int32_t totalNumBands = $nc(this->bitsPerSample)->length;
 		$assign(destBitsPerSample, $new($ints, totalNumBands));
-		int32_t dbps = $nc($($nc(this->image)->getSampleModel()))->getSampleSize(0);
+		int32_t dbps = $$nc($nc(this->image)->getSampleModel())->getSampleSize(0);
 		for (int32_t b = 0; b < totalNumBands; ++b) {
 			destBitsPerSample->set(b, dbps);
 		}
 	} else {
-		$assign(destBitsPerSample, $nc($($nc(this->image)->getSampleModel()))->getSampleSize());
+		$assign(destBitsPerSample, $$nc($nc(this->image)->getSampleModel())->getSampleSize());
 	}
 	for (int32_t b = 0; b < numBands; ++b) {
 		if ($nc(destBitsPerSample)->get($nc(this->destinationBands)->get(b)) != $nc(this->bitsPerSample)->get($nc(this->sourceBands)->get(b))) {
@@ -1096,17 +945,17 @@ void TIFFDecompressor::beginDecoding() {
 			this->isFirstBitDepthTable = false;
 			this->planarCache = this->planar;
 			$set(this, destBitsPerSampleCache, $cast($ints, $nc(destBitsPerSample)->clone()));
-			$set(this, sourceBandsCache, this->sourceBands == nullptr ? ($ints*)nullptr : $cast($ints, $nc(this->sourceBands)->clone()));
-			$set(this, bitsPerSampleCache, this->bitsPerSample == nullptr ? ($ints*)nullptr : $cast($ints, $nc(this->bitsPerSample)->clone()));
+			$set(this, sourceBandsCache, this->sourceBands == nullptr ? ($ints*)nullptr : $cast($ints, this->sourceBands->clone()));
+			$set(this, bitsPerSampleCache, this->bitsPerSample == nullptr ? ($ints*)nullptr : $cast($ints, this->bitsPerSample->clone()));
 			$set(this, destinationBandsCache, $cast($ints, $nc(this->destinationBands)->clone()));
 			$set(this, bitDepthScale, $new($intArray2, numBands));
 			for (int32_t b = 0; b < numBands; ++b) {
 				int32_t maxInSample = ($sl(1, $nc(this->bitsPerSample)->get($nc(this->sourceBands)->get(b)))) - 1;
 				int32_t halfMaxInSample = maxInSample / 2;
-				int32_t maxOutSample = ($sl(1, destBitsPerSample->get($nc(this->destinationBands)->get(b)))) - 1;
-				$nc(this->bitDepthScale)->set(b, $$new($ints, maxInSample + 1));
+				int32_t maxOutSample = ($sl(1, destBitsPerSample->get(this->destinationBands->get(b)))) - 1;
+				this->bitDepthScale->set(b, $$new($ints, maxInSample + 1));
 				for (int32_t s = 0; s <= maxInSample; ++s) {
-					$nc($nc(this->bitDepthScale)->get(b))->set(s, $div((s * maxOutSample + halfMaxInSample), maxInSample));
+					$nc(this->bitDepthScale->get(b))->set(s, $div((s * maxOutSample + halfMaxInSample), maxInSample));
 				}
 			}
 		}
@@ -1127,14 +976,14 @@ void TIFFDecompressor::beginDecoding() {
 			}
 		}
 	}
-	this->isBilevel = $ImageUtil::isBinary($($nc($($nc(this->image)->getRaster()))->getSampleModel()));
+	this->isBilevel = $ImageUtil::isBinary($($$nc($nc(this->image)->getRaster())->getSampleModel()));
 	this->isContiguous = this->isBilevel ? true : $ImageUtil::imageIsContiguous(this->image);
 	bool var$3 = (this->colorConverter == nullptr) && (this->subsampleX == 1) && (this->subsampleY == 1) && (this->srcWidth == this->dstWidth) && (this->srcHeight == this->dstHeight) && ((this->dstMinX + this->dstWidth) <= $nc(this->image)->getWidth());
-	this->isImageSimple = var$3 && ((this->dstMinY + this->dstHeight) <= $nc(this->image)->getHeight()) && sourceBandsNormal && destinationBandsNormal && !this->adjustBitDepths;
+	this->isImageSimple = var$3 && ((this->dstMinY + this->dstHeight) <= this->image->getHeight()) && sourceBandsNormal && destinationBandsNormal && !this->adjustBitDepths;
 }
 
 void TIFFDecompressor::decode() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, byteData, nullptr);
 	$var($shorts, shortData, nullptr);
 	$var($ints, intData, nullptr);
@@ -1172,76 +1021,76 @@ void TIFFDecompressor::decode() {
 		if ($instanceOf($ComponentSampleModel, sm)) {
 			$var($ComponentSampleModel, csm, $cast($ComponentSampleModel, sm));
 			int32_t var$0 = -ras->getSampleModelTranslateX();
-			dstOffset = $nc(csm)->getOffset(var$0, -ras->getSampleModelTranslateY());
+			dstOffset = csm->getOffset(var$0, -ras->getSampleModelTranslateY());
 			scanlineStride = csm->getScanlineStride();
 			if ($instanceOf($DataBufferByte, db)) {
 				$var($DataBufferByte, dbb, $cast($DataBufferByte, db));
-				$assign(byteData, $nc(dbb)->getData());
+				$assign(byteData, dbb->getData());
 				pixelBitStride = csm->getPixelStride() * 8;
 				isSupportedType = true;
 			} else if ($instanceOf($DataBufferUShort, db)) {
 				$var($DataBufferUShort, dbus, $cast($DataBufferUShort, db));
-				$assign(shortData, $nc(dbus)->getData());
+				$assign(shortData, dbus->getData());
 				pixelBitStride = csm->getPixelStride() * 16;
 				isSupportedType = true;
 			} else if ($instanceOf($DataBufferShort, db)) {
 				$var($DataBufferShort, dbs, $cast($DataBufferShort, db));
-				$assign(shortData, $nc(dbs)->getData());
+				$assign(shortData, dbs->getData());
 				pixelBitStride = csm->getPixelStride() * 16;
 				isSupportedType = true;
 			} else if ($instanceOf($DataBufferInt, db)) {
 				$var($DataBufferInt, dbi, $cast($DataBufferInt, db));
-				$assign(intData, $nc(dbi)->getData());
+				$assign(intData, dbi->getData());
 				pixelBitStride = csm->getPixelStride() * 32;
 				isSupportedType = true;
 			} else if ($instanceOf($DataBufferFloat, db)) {
 				$var($DataBufferFloat, dbf, $cast($DataBufferFloat, db));
-				$assign(floatData, $nc(dbf)->getData());
+				$assign(floatData, dbf->getData());
 				pixelBitStride = csm->getPixelStride() * 32;
 				isSupportedType = true;
 			} else if ($instanceOf($DataBufferDouble, db)) {
 				$var($DataBufferDouble, dbd, $cast($DataBufferDouble, db));
-				$assign(doubleData, $nc(dbd)->getData());
+				$assign(doubleData, dbd->getData());
 				pixelBitStride = csm->getPixelStride() * 64;
 				isSupportedType = true;
 			}
 		} else if ($instanceOf($MultiPixelPackedSampleModel, sm)) {
 			$var($MultiPixelPackedSampleModel, mppsm, $cast($MultiPixelPackedSampleModel, sm));
 			int32_t var$1 = -ras->getSampleModelTranslateX();
-			dstOffset = $nc(mppsm)->getOffset(var$1, -ras->getSampleModelTranslateY());
+			dstOffset = mppsm->getOffset(var$1, -ras->getSampleModelTranslateY());
 			pixelBitStride = mppsm->getPixelBitStride();
 			scanlineStride = mppsm->getScanlineStride();
 			if ($instanceOf($DataBufferByte, db)) {
 				$var($DataBufferByte, dbb, $cast($DataBufferByte, db));
-				$assign(byteData, $nc(dbb)->getData());
+				$assign(byteData, dbb->getData());
 				isSupportedType = true;
 			} else if ($instanceOf($DataBufferUShort, db)) {
 				$var($DataBufferUShort, dbus, $cast($DataBufferUShort, db));
-				$assign(shortData, $nc(dbus)->getData());
+				$assign(shortData, dbus->getData());
 				isSupportedType = true;
 			} else if ($instanceOf($DataBufferInt, db)) {
 				$var($DataBufferInt, dbi, $cast($DataBufferInt, db));
-				$assign(intData, $nc(dbi)->getData());
+				$assign(intData, dbi->getData());
 				isSupportedType = true;
 			}
 		} else if ($instanceOf($SinglePixelPackedSampleModel, sm)) {
 			$var($SinglePixelPackedSampleModel, sppsm, $cast($SinglePixelPackedSampleModel, sm));
 			int32_t var$2 = -ras->getSampleModelTranslateX();
-			dstOffset = $nc(sppsm)->getOffset(var$2, -ras->getSampleModelTranslateY());
+			dstOffset = sppsm->getOffset(var$2, -ras->getSampleModelTranslateY());
 			scanlineStride = sppsm->getScanlineStride();
 			if ($instanceOf($DataBufferByte, db)) {
 				$var($DataBufferByte, dbb, $cast($DataBufferByte, db));
-				$assign(byteData, $nc(dbb)->getData());
+				$assign(byteData, dbb->getData());
 				pixelBitStride = 8;
 				isSupportedType = true;
 			} else if ($instanceOf($DataBufferUShort, db)) {
 				$var($DataBufferUShort, dbus, $cast($DataBufferUShort, db));
-				$assign(shortData, $nc(dbus)->getData());
+				$assign(shortData, dbus->getData());
 				pixelBitStride = 16;
 				isSupportedType = true;
 			} else if ($instanceOf($DataBufferInt, db)) {
 				$var($DataBufferInt, dbi, $cast($DataBufferInt, db));
-				$assign(intData, $nc(dbi)->getData());
+				$assign(intData, dbi->getData());
 				pixelBitStride = 32;
 				isSupportedType = true;
 			}
@@ -1292,9 +1141,7 @@ void TIFFDecompressor::decode() {
 				bpp = 0;
 				{
 					$var($ints, arr$, this->bitsPerSample);
-					int32_t len$ = $nc(arr$)->length;
-					int32_t i$ = 0;
-					for (; i$ < len$; ++i$) {
+					for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 						int32_t bps = arr$->get(i$);
 						{
 							bpp += bps;
@@ -1314,9 +1161,9 @@ void TIFFDecompressor::decode() {
 			for (int32_t j = 0; j < this->dstHeight; ++j) {
 				int32_t idx = dstOffset;
 				for (int32_t i = 0; i < this->dstWidth; ++i) {
-					float x0 = (float)((int32_t)(byteData->get(idx) & (uint32_t)255));
-					float x1 = (float)((int32_t)(byteData->get(idx + 1) & (uint32_t)255));
-					float x2 = (float)((int32_t)(byteData->get(idx + 2) & (uint32_t)255));
+					float x0 = (float)(byteData->get(idx) & 0xff);
+					float x1 = (float)(byteData->get(idx + 1) & 0xff);
+					float x2 = (float)(byteData->get(idx + 2) & 0xff);
 					$nc(this->colorConverter)->toRGB(x0, x1, x2, rgb);
 					byteData->set(idx, $cast(int8_t, (rgb->get(0))));
 					byteData->set(idx + 1, $cast(int8_t, (rgb->get(1))));
@@ -1345,9 +1192,9 @@ void TIFFDecompressor::decode() {
 				for (int32_t j = 0; j < this->dstHeight; ++j) {
 					int32_t idx = dstOffset;
 					for (int32_t i = 0; i < this->dstWidth; ++i) {
-						float x0 = (float)((int32_t)(shortData->get(idx) & (uint32_t)0x0000FFFF));
-						float x1 = (float)((int32_t)(shortData->get(idx + 1) & (uint32_t)0x0000FFFF));
-						float x2 = (float)((int32_t)(shortData->get(idx + 2) & (uint32_t)0x0000FFFF));
+						float x0 = (float)(shortData->get(idx) & 0xffff);
+						float x1 = (float)(shortData->get(idx + 1) & 0xffff);
+						float x2 = (float)(shortData->get(idx + 2) & 0xffff);
 						$nc(this->colorConverter)->toRGB(x0, x1, x2, rgb);
 						shortData->set(idx, $cast(int16_t, (rgb->get(0))));
 						shortData->set(idx + 1, $cast(int16_t, (rgb->get(1))));
@@ -1427,7 +1274,7 @@ void TIFFDecompressor::decode() {
 				for (int32_t y = 0; y < this->srcHeight; ++y) {
 					int32_t offset = dstOffset + y * scanlineStride;
 					for (int32_t i = 0; i < shortsPerRow; ++i) {
-						(*shortData)[offset + i] ^= 0x0000FFFF;
+						(*shortData)[offset + i] ^= 0x0000ffff;
 					}
 				}
 			}
@@ -1512,7 +1359,129 @@ TIFFDecompressor::TIFFDecompressor() {
 }
 
 $Class* TIFFDecompressor::load$($String* name, bool initialize) {
-	$loadClass(TIFFDecompressor, name, initialize, &_TIFFDecompressor_ClassInfo_, allocate$TIFFDecompressor);
+	$FieldInfo fieldInfos$$[] = {
+		{"reader", "Ljavax/imageio/ImageReader;", nullptr, $PROTECTED, $field(TIFFDecompressor, reader)},
+		{"metadata", "Ljavax/imageio/metadata/IIOMetadata;", nullptr, $PROTECTED, $field(TIFFDecompressor, metadata)},
+		{"photometricInterpretation", "I", nullptr, $PROTECTED, $field(TIFFDecompressor, photometricInterpretation)},
+		{"compression", "I", nullptr, $PROTECTED, $field(TIFFDecompressor, compression)},
+		{"planar", "Z", nullptr, $PROTECTED, $field(TIFFDecompressor, planar)},
+		{"planarBand", "I", nullptr, $PROTECTED, $field(TIFFDecompressor, planarBand)},
+		{"samplesPerPixel", "I", nullptr, $PROTECTED, $field(TIFFDecompressor, samplesPerPixel)},
+		{"bitsPerSample", "[I", nullptr, $PROTECTED, $field(TIFFDecompressor, bitsPerSample)},
+		{"sampleFormat", "[I", nullptr, $PROTECTED, $field(TIFFDecompressor, sampleFormat)},
+		{"extraSamples", "[I", nullptr, $PROTECTED, $field(TIFFDecompressor, extraSamples)},
+		{"colorMap", "[C", nullptr, $PROTECTED, $field(TIFFDecompressor, colorMap)},
+		{"stream", "Ljavax/imageio/stream/ImageInputStream;", nullptr, $PROTECTED, $field(TIFFDecompressor, stream)},
+		{"offset", "J", nullptr, $PROTECTED, $field(TIFFDecompressor, offset)},
+		{"byteCount", "I", nullptr, $PROTECTED, $field(TIFFDecompressor, byteCount)},
+		{"srcMinX", "I", nullptr, $PROTECTED, $field(TIFFDecompressor, srcMinX)},
+		{"srcMinY", "I", nullptr, $PROTECTED, $field(TIFFDecompressor, srcMinY)},
+		{"srcWidth", "I", nullptr, $PROTECTED, $field(TIFFDecompressor, srcWidth)},
+		{"srcHeight", "I", nullptr, $PROTECTED, $field(TIFFDecompressor, srcHeight)},
+		{"sourceXOffset", "I", nullptr, $PROTECTED, $field(TIFFDecompressor, sourceXOffset)},
+		{"dstXOffset", "I", nullptr, $PROTECTED, $field(TIFFDecompressor, dstXOffset)},
+		{"sourceYOffset", "I", nullptr, $PROTECTED, $field(TIFFDecompressor, sourceYOffset)},
+		{"dstYOffset", "I", nullptr, $PROTECTED, $field(TIFFDecompressor, dstYOffset)},
+		{"subsampleX", "I", nullptr, $PROTECTED, $field(TIFFDecompressor, subsampleX)},
+		{"subsampleY", "I", nullptr, $PROTECTED, $field(TIFFDecompressor, subsampleY)},
+		{"sourceBands", "[I", nullptr, $PROTECTED, $field(TIFFDecompressor, sourceBands)},
+		{"destinationBands", "[I", nullptr, $PROTECTED, $field(TIFFDecompressor, destinationBands)},
+		{"rawImage", "Ljava/awt/image/BufferedImage;", nullptr, $PROTECTED, $field(TIFFDecompressor, rawImage)},
+		{"image", "Ljava/awt/image/BufferedImage;", nullptr, $PROTECTED, $field(TIFFDecompressor, image)},
+		{"dstMinX", "I", nullptr, $PROTECTED, $field(TIFFDecompressor, dstMinX)},
+		{"dstMinY", "I", nullptr, $PROTECTED, $field(TIFFDecompressor, dstMinY)},
+		{"dstWidth", "I", nullptr, $PROTECTED, $field(TIFFDecompressor, dstWidth)},
+		{"dstHeight", "I", nullptr, $PROTECTED, $field(TIFFDecompressor, dstHeight)},
+		{"activeSrcMinX", "I", nullptr, $PROTECTED, $field(TIFFDecompressor, activeSrcMinX)},
+		{"activeSrcMinY", "I", nullptr, $PROTECTED, $field(TIFFDecompressor, activeSrcMinY)},
+		{"activeSrcWidth", "I", nullptr, $PROTECTED, $field(TIFFDecompressor, activeSrcWidth)},
+		{"activeSrcHeight", "I", nullptr, $PROTECTED, $field(TIFFDecompressor, activeSrcHeight)},
+		{"colorConverter", "Lcom/sun/imageio/plugins/tiff/TIFFColorConverter;", nullptr, $PROTECTED, $field(TIFFDecompressor, colorConverter)},
+		{"isBilevel", "Z", nullptr, $PRIVATE, $field(TIFFDecompressor, isBilevel)},
+		{"isContiguous", "Z", nullptr, $PRIVATE, $field(TIFFDecompressor, isContiguous)},
+		{"isImageSimple", "Z", nullptr, $PRIVATE, $field(TIFFDecompressor, isImageSimple)},
+		{"adjustBitDepths", "Z", nullptr, $PRIVATE, $field(TIFFDecompressor, adjustBitDepths)},
+		{"bitDepthScale", "[[I", nullptr, $PRIVATE, $field(TIFFDecompressor, bitDepthScale)},
+		{"isFirstBitDepthTable", "Z", nullptr, $PRIVATE, $field(TIFFDecompressor, isFirstBitDepthTable)},
+		{"planarCache", "Z", nullptr, $PRIVATE, $field(TIFFDecompressor, planarCache)},
+		{"destBitsPerSampleCache", "[I", nullptr, $PRIVATE, $field(TIFFDecompressor, destBitsPerSampleCache)},
+		{"sourceBandsCache", "[I", nullptr, $PRIVATE, $field(TIFFDecompressor, sourceBandsCache)},
+		{"bitsPerSampleCache", "[I", nullptr, $PRIVATE, $field(TIFFDecompressor, bitsPerSampleCache)},
+		{"destinationBandsCache", "[I", nullptr, $PRIVATE, $field(TIFFDecompressor, destinationBandsCache)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TIFFDecompressor, init$, void)},
+		{"areIntArraysEqual", "([I[I)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(TIFFDecompressor, areIntArraysEqual, bool, $ints*, $ints*)},
+		{"areSampleSizesEqual", "(Ljava/awt/image/SampleModel;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(TIFFDecompressor, areSampleSizesEqual, bool, $SampleModel*)},
+		{"beginDecoding", "()V", nullptr, $PUBLIC, $virtualMethod(TIFFDecompressor, beginDecoding, void)},
+		{"createComponentCM", "(Ljava/awt/color/ColorSpace;I[IIZZ)Ljava/awt/image/ColorModel;", nullptr, $STATIC, $staticMethod(TIFFDecompressor, createComponentCM, $ColorModel*, $ColorSpace*, int32_t, $ints*, int32_t, bool, bool)},
+		{"createInterleavedSM", "(II)Ljava/awt/image/SampleModel;", nullptr, $STATIC, $staticMethod(TIFFDecompressor, createInterleavedSM, $SampleModel*, int32_t, int32_t)},
+		{"createMask", "([II)I", nullptr, $PRIVATE | $STATIC, $staticMethod(TIFFDecompressor, createMask, int32_t, $ints*, int32_t)},
+		{"createRawImage", "()Ljava/awt/image/BufferedImage;", nullptr, $PUBLIC, $virtualMethod(TIFFDecompressor, createRawImage, $BufferedImage*)},
+		{"decode", "()V", nullptr, $PUBLIC, $virtualMethod(TIFFDecompressor, decode, void), "java.io.IOException"},
+		{"decodeRaw", "([BIII)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TIFFDecompressor, decodeRaw, void, $bytes*, int32_t, int32_t, int32_t), "java.io.IOException"},
+		{"decodeRaw", "([SIII)V", nullptr, $PUBLIC, $virtualMethod(TIFFDecompressor, decodeRaw, void, $shorts*, int32_t, int32_t, int32_t), "java.io.IOException"},
+		{"decodeRaw", "([IIII)V", nullptr, $PUBLIC, $virtualMethod(TIFFDecompressor, decodeRaw, void, $ints*, int32_t, int32_t, int32_t), "java.io.IOException"},
+		{"decodeRaw", "([FIII)V", nullptr, $PUBLIC, $virtualMethod(TIFFDecompressor, decodeRaw, void, $floats*, int32_t, int32_t, int32_t), "java.io.IOException"},
+		{"decodeRaw", "([DIII)V", nullptr, $PUBLIC, $virtualMethod(TIFFDecompressor, decodeRaw, void, $doubles*, int32_t, int32_t, int32_t), "java.io.IOException"},
+		{"getBitsPerPixel", "(Ljava/awt/image/SampleModel;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(TIFFDecompressor, getBitsPerPixel, int32_t, $SampleModel*)},
+		{"getDataTypeFromNumBits", "(IZ)I", nullptr, $PRIVATE | $STATIC, $staticMethod(TIFFDecompressor, getDataTypeFromNumBits, int32_t, int32_t, bool)},
+		{"getDataTypeSize", "(I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(TIFFDecompressor, getDataTypeSize, int32_t, int32_t), "javax.imageio.IIOException"},
+		{"getRawImageType", "()Ljavax/imageio/ImageTypeSpecifier;", nullptr, $PUBLIC, $virtualMethod(TIFFDecompressor, getRawImageType, $ImageTypeSpecifier*)},
+		{"getRawImageTypeSpecifier", "(III[I[I[I[C)Ljavax/imageio/ImageTypeSpecifier;", nullptr, $PUBLIC | $STATIC, $staticMethod(TIFFDecompressor, getRawImageTypeSpecifier, $ImageTypeSpecifier*, int32_t, int32_t, int32_t, $ints*, $ints*, $ints*, $chars*)},
+		{"isDataBufferBitContiguous", "(Ljava/awt/image/SampleModel;[I)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(TIFFDecompressor, isDataBufferBitContiguous, bool, $SampleModel*, $ints*), "javax.imageio.IIOException"},
+		{"reformatData", "([BII[S[III)V", nullptr, $PRIVATE | $STATIC, $staticMethod(TIFFDecompressor, reformatData, void, $bytes*, int32_t, int32_t, $shorts*, $ints*, int32_t, int32_t), "javax.imageio.IIOException"},
+		{"reformatDiscontiguousData", "([B[IIIILjava/awt/image/WritableRaster;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(TIFFDecompressor, reformatDiscontiguousData, void, $bytes*, $ints*, int32_t, int32_t, int32_t, $WritableRaster*), "java.io.IOException"},
+		{"setActiveSrcHeight", "(I)V", nullptr, $PUBLIC, $virtualMethod(TIFFDecompressor, setActiveSrcHeight, void, int32_t)},
+		{"setActiveSrcMinX", "(I)V", nullptr, $PUBLIC, $virtualMethod(TIFFDecompressor, setActiveSrcMinX, void, int32_t)},
+		{"setActiveSrcMinY", "(I)V", nullptr, $PUBLIC, $virtualMethod(TIFFDecompressor, setActiveSrcMinY, void, int32_t)},
+		{"setActiveSrcWidth", "(I)V", nullptr, $PUBLIC, $virtualMethod(TIFFDecompressor, setActiveSrcWidth, void, int32_t)},
+		{"setBitsPerSample", "([I)V", nullptr, $PUBLIC, $virtualMethod(TIFFDecompressor, setBitsPerSample, void, $ints*)},
+		{"setByteCount", "(I)V", nullptr, $PUBLIC, $virtualMethod(TIFFDecompressor, setByteCount, void, int32_t)},
+		{"setColorConverter", "(Lcom/sun/imageio/plugins/tiff/TIFFColorConverter;)V", nullptr, $PUBLIC, $virtualMethod(TIFFDecompressor, setColorConverter, void, $TIFFColorConverter*)},
+		{"setColorMap", "([C)V", nullptr, $PUBLIC, $virtualMethod(TIFFDecompressor, setColorMap, void, $chars*)},
+		{"setCompression", "(I)V", nullptr, $PUBLIC, $virtualMethod(TIFFDecompressor, setCompression, void, int32_t)},
+		{"setDestinationBands", "([I)V", nullptr, $PUBLIC, $virtualMethod(TIFFDecompressor, setDestinationBands, void, $ints*)},
+		{"setDstHeight", "(I)V", nullptr, $PUBLIC, $virtualMethod(TIFFDecompressor, setDstHeight, void, int32_t)},
+		{"setDstMinX", "(I)V", nullptr, $PUBLIC, $virtualMethod(TIFFDecompressor, setDstMinX, void, int32_t)},
+		{"setDstMinY", "(I)V", nullptr, $PUBLIC, $virtualMethod(TIFFDecompressor, setDstMinY, void, int32_t)},
+		{"setDstWidth", "(I)V", nullptr, $PUBLIC, $virtualMethod(TIFFDecompressor, setDstWidth, void, int32_t)},
+		{"setDstXOffset", "(I)V", nullptr, $PUBLIC, $virtualMethod(TIFFDecompressor, setDstXOffset, void, int32_t)},
+		{"setDstYOffset", "(I)V", nullptr, $PUBLIC, $virtualMethod(TIFFDecompressor, setDstYOffset, void, int32_t)},
+		{"setExtraSamples", "([I)V", nullptr, $PUBLIC, $virtualMethod(TIFFDecompressor, setExtraSamples, void, $ints*)},
+		{"setImage", "(Ljava/awt/image/BufferedImage;)V", nullptr, $PUBLIC, $virtualMethod(TIFFDecompressor, setImage, void, $BufferedImage*)},
+		{"setMetadata", "(Ljavax/imageio/metadata/IIOMetadata;)V", nullptr, $PUBLIC, $virtualMethod(TIFFDecompressor, setMetadata, void, $IIOMetadata*)},
+		{"setOffset", "(J)V", nullptr, $PUBLIC, $virtualMethod(TIFFDecompressor, setOffset, void, int64_t)},
+		{"setPhotometricInterpretation", "(I)V", nullptr, $PUBLIC, $virtualMethod(TIFFDecompressor, setPhotometricInterpretation, void, int32_t)},
+		{"setPlanar", "(Z)V", nullptr, $PUBLIC, $virtualMethod(TIFFDecompressor, setPlanar, void, bool)},
+		{"setPlanarBand", "(I)V", nullptr, $PUBLIC, $virtualMethod(TIFFDecompressor, setPlanarBand, void, int32_t)},
+		{"setReader", "(Ljavax/imageio/ImageReader;)V", nullptr, $PUBLIC, $virtualMethod(TIFFDecompressor, setReader, void, $ImageReader*)},
+		{"setSampleFormat", "([I)V", nullptr, $PUBLIC, $virtualMethod(TIFFDecompressor, setSampleFormat, void, $ints*)},
+		{"setSamplesPerPixel", "(I)V", nullptr, $PUBLIC, $virtualMethod(TIFFDecompressor, setSamplesPerPixel, void, int32_t)},
+		{"setSourceBands", "([I)V", nullptr, $PUBLIC, $virtualMethod(TIFFDecompressor, setSourceBands, void, $ints*)},
+		{"setSourceXOffset", "(I)V", nullptr, $PUBLIC, $virtualMethod(TIFFDecompressor, setSourceXOffset, void, int32_t)},
+		{"setSourceYOffset", "(I)V", nullptr, $PUBLIC, $virtualMethod(TIFFDecompressor, setSourceYOffset, void, int32_t)},
+		{"setSrcHeight", "(I)V", nullptr, $PUBLIC, $virtualMethod(TIFFDecompressor, setSrcHeight, void, int32_t)},
+		{"setSrcMinX", "(I)V", nullptr, $PUBLIC, $virtualMethod(TIFFDecompressor, setSrcMinX, void, int32_t)},
+		{"setSrcMinY", "(I)V", nullptr, $PUBLIC, $virtualMethod(TIFFDecompressor, setSrcMinY, void, int32_t)},
+		{"setSrcWidth", "(I)V", nullptr, $PUBLIC, $virtualMethod(TIFFDecompressor, setSrcWidth, void, int32_t)},
+		{"setStream", "(Ljavax/imageio/stream/ImageInputStream;)V", nullptr, $PUBLIC, $virtualMethod(TIFFDecompressor, setStream, void, $ImageInputStream*)},
+		{"setSubsampleX", "(I)V", nullptr, $PUBLIC, $virtualMethod(TIFFDecompressor, setSubsampleX, void, int32_t)},
+		{"setSubsampleY", "(I)V", nullptr, $PUBLIC, $virtualMethod(TIFFDecompressor, setSubsampleY, void, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"com.sun.imageio.plugins.tiff.TIFFDecompressor",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TIFFDecompressor, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TIFFDecompressor);
+	});
 	return class$;
 }
 

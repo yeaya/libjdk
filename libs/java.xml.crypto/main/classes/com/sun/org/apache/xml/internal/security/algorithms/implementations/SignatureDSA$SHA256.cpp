@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/security/algorithms/implementations/SignatureDSA$SHA256.h>
-
 #include <com/sun/org/apache/xml/internal/security/algorithms/implementations/SignatureDSA.h>
 #include <com/sun/org/apache/xml/internal/security/signature/XMLSignature.h>
 #include <java/security/Provider.h>
@@ -24,38 +23,6 @@ namespace com {
 							namespace algorithms {
 								namespace implementations {
 
-$MethodInfo _SignatureDSA$SHA256_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SignatureDSA$SHA256, init$, void), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
-	{"<init>", "(Ljava/security/Provider;)V", nullptr, $PUBLIC, $method(SignatureDSA$SHA256, init$, void, $Provider*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
-	{"engineGetURI", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SignatureDSA$SHA256, engineGetURI, $String*)},
-	{}
-};
-
-$InnerClassInfo _SignatureDSA$SHA256_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureDSA$SHA256", "com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureDSA", "SHA256", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _SignatureDSA$SHA256_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureDSA$SHA256",
-	"com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureDSA",
-	nullptr,
-	nullptr,
-	_SignatureDSA$SHA256_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SignatureDSA$SHA256_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureDSA"
-};
-
-$Object* allocate$SignatureDSA$SHA256($Class* clazz) {
-	return $of($alloc(SignatureDSA$SHA256));
-}
-
 void SignatureDSA$SHA256::init$() {
 	$SignatureDSA::init$();
 }
@@ -73,7 +40,34 @@ SignatureDSA$SHA256::SignatureDSA$SHA256() {
 }
 
 $Class* SignatureDSA$SHA256::load$($String* name, bool initialize) {
-	$loadClass(SignatureDSA$SHA256, name, initialize, &_SignatureDSA$SHA256_ClassInfo_, allocate$SignatureDSA$SHA256);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SignatureDSA$SHA256, init$, void), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
+		{"<init>", "(Ljava/security/Provider;)V", nullptr, $PUBLIC, $method(SignatureDSA$SHA256, init$, void, $Provider*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
+		{"engineGetURI", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SignatureDSA$SHA256, engineGetURI, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureDSA$SHA256", "com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureDSA", "SHA256", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureDSA$SHA256",
+		"com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureDSA",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureDSA"
+	};
+	$loadClass(SignatureDSA$SHA256, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SignatureDSA$SHA256);
+	});
 	return class$;
 }
 

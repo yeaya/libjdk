@@ -49,6 +49,7 @@ class PNGMetadataFormat : public ::javax::imageio::metadata::IIOMetadataFormatIm
 	$class(PNGMetadataFormat, 0, ::javax::imageio::metadata::IIOMetadataFormatImpl)
 public:
 	PNGMetadataFormat();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual bool canNodeAppear($String* elementName, ::javax::imageio::ImageTypeSpecifier* imageType) override;
 	static ::javax::imageio::metadata::IIOMetadataFormat* getInstance();

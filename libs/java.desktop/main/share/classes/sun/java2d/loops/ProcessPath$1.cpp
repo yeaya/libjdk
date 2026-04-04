@@ -1,5 +1,4 @@
 #include <sun/java2d/loops/ProcessPath$1.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -11,44 +10,6 @@ namespace sun {
 	namespace java2d {
 		namespace loops {
 
-$MethodInfo _ProcessPath$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(ProcessPath$1, init$, void)},
-	{"processEndSubPath", "()V", nullptr, $PUBLIC, $virtualMethod(ProcessPath$1, processEndSubPath, void)},
-	{}
-};
-
-$EnclosingMethodInfo _ProcessPath$1_EnclosingMethodInfo_ = {
-	"sun.java2d.loops.ProcessPath",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _ProcessPath$1_InnerClassesInfo_[] = {
-	{"sun.java2d.loops.ProcessPath$1", nullptr, nullptr, 0},
-	{"sun.java2d.loops.ProcessPath$EndSubPathHandler", "sun.java2d.loops.ProcessPath", "EndSubPathHandler", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _ProcessPath$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.java2d.loops.ProcessPath$1",
-	"java.lang.Object",
-	"sun.java2d.loops.ProcessPath$EndSubPathHandler",
-	nullptr,
-	_ProcessPath$1_MethodInfo_,
-	nullptr,
-	&_ProcessPath$1_EnclosingMethodInfo_,
-	_ProcessPath$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.java2d.loops.ProcessPath"
-};
-
-$Object* allocate$ProcessPath$1($Class* clazz) {
-	return $of($alloc(ProcessPath$1));
-}
-
 void ProcessPath$1::init$() {
 }
 
@@ -59,7 +20,39 @@ ProcessPath$1::ProcessPath$1() {
 }
 
 $Class* ProcessPath$1::load$($String* name, bool initialize) {
-	$loadClass(ProcessPath$1, name, initialize, &_ProcessPath$1_ClassInfo_, allocate$ProcessPath$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(ProcessPath$1, init$, void)},
+		{"processEndSubPath", "()V", nullptr, $PUBLIC, $virtualMethod(ProcessPath$1, processEndSubPath, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.java2d.loops.ProcessPath",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.java2d.loops.ProcessPath$1", nullptr, nullptr, 0},
+		{"sun.java2d.loops.ProcessPath$EndSubPathHandler", "sun.java2d.loops.ProcessPath", "EndSubPathHandler", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.java2d.loops.ProcessPath$1",
+		"java.lang.Object",
+		"sun.java2d.loops.ProcessPath$EndSubPathHandler",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.java2d.loops.ProcessPath"
+	};
+	$loadClass(ProcessPath$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ProcessPath$1);
+	});
 	return class$;
 }
 

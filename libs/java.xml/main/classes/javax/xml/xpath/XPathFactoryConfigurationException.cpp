@@ -1,5 +1,4 @@
 #include <javax/xml/xpath/XPathFactoryConfigurationException.h>
-
 #include <javax/xml/xpath/XPathException.h>
 #include <jcpp.h>
 
@@ -11,30 +10,6 @@ using $XPathException = ::javax::xml::xpath::XPathException;
 namespace javax {
 	namespace xml {
 		namespace xpath {
-
-$FieldInfo _XPathFactoryConfigurationException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XPathFactoryConfigurationException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _XPathFactoryConfigurationException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(XPathFactoryConfigurationException, init$, void, $String*)},
-	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(XPathFactoryConfigurationException, init$, void, $Throwable*)},
-	{}
-};
-
-$ClassInfo _XPathFactoryConfigurationException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.xml.xpath.XPathFactoryConfigurationException",
-	"javax.xml.xpath.XPathException",
-	nullptr,
-	_XPathFactoryConfigurationException_FieldInfo_,
-	_XPathFactoryConfigurationException_MethodInfo_
-};
-
-$Object* allocate$XPathFactoryConfigurationException($Class* clazz) {
-	return $of($alloc(XPathFactoryConfigurationException));
-}
 
 void XPathFactoryConfigurationException::init$($String* message) {
 	$XPathException::init$(message);
@@ -55,7 +30,26 @@ void XPathFactoryConfigurationException::throw$() {
 }
 
 $Class* XPathFactoryConfigurationException::load$($String* name, bool initialize) {
-	$loadClass(XPathFactoryConfigurationException, name, initialize, &_XPathFactoryConfigurationException_ClassInfo_, allocate$XPathFactoryConfigurationException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XPathFactoryConfigurationException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(XPathFactoryConfigurationException, init$, void, $String*)},
+		{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(XPathFactoryConfigurationException, init$, void, $Throwable*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.xml.xpath.XPathFactoryConfigurationException",
+		"javax.xml.xpath.XPathException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XPathFactoryConfigurationException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XPathFactoryConfigurationException);
+	});
 	return class$;
 }
 

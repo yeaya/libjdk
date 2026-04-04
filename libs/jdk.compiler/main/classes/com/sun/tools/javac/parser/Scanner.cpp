@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/parser/Scanner.h>
-
 #include <com/sun/tools/javac/parser/JavaTokenizer.h>
 #include <com/sun/tools/javac/parser/ScannerFactory.h>
 #include <com/sun/tools/javac/parser/Tokens$Token.h>
@@ -23,51 +22,12 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $CharBuffer = ::java::nio::CharBuffer;
 using $ArrayList = ::java::util::ArrayList;
-using $List = ::java::util::List;
 
 namespace com {
 	namespace sun {
 		namespace tools {
 			namespace javac {
 				namespace parser {
-
-$FieldInfo _Scanner_FieldInfo_[] = {
-	{"tokens", "Lcom/sun/tools/javac/parser/Tokens;", nullptr, $PRIVATE, $field(Scanner, tokens)},
-	{"token", "Lcom/sun/tools/javac/parser/Tokens$Token;", nullptr, $PRIVATE, $field(Scanner, token$)},
-	{"prevToken", "Lcom/sun/tools/javac/parser/Tokens$Token;", nullptr, $PRIVATE, $field(Scanner, prevToken$)},
-	{"savedTokens", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/tools/javac/parser/Tokens$Token;>;", $PRIVATE, $field(Scanner, savedTokens)},
-	{"tokenizer", "Lcom/sun/tools/javac/parser/JavaTokenizer;", nullptr, $PRIVATE, $field(Scanner, tokenizer)},
-	{}
-};
-
-$MethodInfo _Scanner_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/parser/ScannerFactory;Ljava/nio/CharBuffer;)V", nullptr, $PROTECTED, $method(Scanner, init$, void, $ScannerFactory*, $CharBuffer*)},
-	{"<init>", "(Lcom/sun/tools/javac/parser/ScannerFactory;[CI)V", nullptr, $PROTECTED, $method(Scanner, init$, void, $ScannerFactory*, $chars*, int32_t)},
-	{"<init>", "(Lcom/sun/tools/javac/parser/ScannerFactory;Lcom/sun/tools/javac/parser/JavaTokenizer;)V", nullptr, $PROTECTED, $method(Scanner, init$, void, $ScannerFactory*, $JavaTokenizer*)},
-	{"ensureLookahead", "(I)V", nullptr, $PRIVATE, $method(Scanner, ensureLookahead, void, int32_t)},
-	{"errPos", "()I", nullptr, $PUBLIC, $virtualMethod(Scanner, errPos, int32_t)},
-	{"errPos", "(I)V", nullptr, $PUBLIC, $virtualMethod(Scanner, errPos, void, int32_t)},
-	{"getLineMap", "()Lcom/sun/tools/javac/util/Position$LineMap;", nullptr, $PUBLIC, $virtualMethod(Scanner, getLineMap, $Position$LineMap*)},
-	{"nextToken", "()V", nullptr, $PUBLIC, $virtualMethod(Scanner, nextToken, void)},
-	{"prevToken", "()Lcom/sun/tools/javac/parser/Tokens$Token;", nullptr, $PUBLIC, $virtualMethod(Scanner, prevToken, $Tokens$Token*)},
-	{"split", "()Lcom/sun/tools/javac/parser/Tokens$Token;", nullptr, $PUBLIC, $virtualMethod(Scanner, split, $Tokens$Token*)},
-	{"token", "()Lcom/sun/tools/javac/parser/Tokens$Token;", nullptr, $PUBLIC, $virtualMethod(Scanner, token, $Tokens$Token*)},
-	{"token", "(I)Lcom/sun/tools/javac/parser/Tokens$Token;", nullptr, $PUBLIC, $virtualMethod(Scanner, token, $Tokens$Token*, int32_t)},
-	{}
-};
-
-$ClassInfo _Scanner_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.parser.Scanner",
-	"java.lang.Object",
-	"com.sun.tools.javac.parser.Lexer",
-	_Scanner_FieldInfo_,
-	_Scanner_MethodInfo_
-};
-
-$Object* allocate$Scanner($Class* clazz) {
-	return $of($alloc(Scanner));
-}
 
 void Scanner::init$($ScannerFactory* fac, $CharBuffer* buf) {
 	Scanner::init$(fac, $$new($JavaTokenizer, fac, buf));
@@ -82,7 +42,7 @@ void Scanner::init$($ScannerFactory* fac, $JavaTokenizer* tokenizer) {
 	$set(this, tokenizer, tokenizer);
 	$set(this, tokens, $nc(fac)->tokens);
 	$init($Tokens);
-	$set(this, token$, ($set(this, prevToken$, $Tokens::DUMMY)));
+	$set(this, token$, $set(this, prevToken$, $Tokens::DUMMY));
 }
 
 $Tokens$Token* Scanner::token() {
@@ -99,7 +59,7 @@ $Tokens$Token* Scanner::token(int32_t lookahead) {
 }
 
 void Scanner::ensureLookahead(int32_t lookahead) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (int32_t i = $nc(this->savedTokens)->size(); i < lookahead; ++i) {
 		$nc(this->savedTokens)->add($($nc(this->tokenizer)->readToken()));
 	}
@@ -112,7 +72,7 @@ $Tokens$Token* Scanner::prevToken() {
 void Scanner::nextToken() {
 	$set(this, prevToken$, this->token$);
 	if (!$nc(this->savedTokens)->isEmpty()) {
-		$set(this, token$, $cast($Tokens$Token, $nc(this->savedTokens)->remove(0)));
+		$set(this, token$, $cast($Tokens$Token, this->savedTokens->remove(0)));
 	} else {
 		$set(this, token$, $nc(this->tokenizer)->readToken());
 	}
@@ -141,7 +101,40 @@ Scanner::Scanner() {
 }
 
 $Class* Scanner::load$($String* name, bool initialize) {
-	$loadClass(Scanner, name, initialize, &_Scanner_ClassInfo_, allocate$Scanner);
+	$FieldInfo fieldInfos$$[] = {
+		{"tokens", "Lcom/sun/tools/javac/parser/Tokens;", nullptr, $PRIVATE, $field(Scanner, tokens)},
+		{"token", "Lcom/sun/tools/javac/parser/Tokens$Token;", nullptr, $PRIVATE, $field(Scanner, token$)},
+		{"prevToken", "Lcom/sun/tools/javac/parser/Tokens$Token;", nullptr, $PRIVATE, $field(Scanner, prevToken$)},
+		{"savedTokens", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/tools/javac/parser/Tokens$Token;>;", $PRIVATE, $field(Scanner, savedTokens)},
+		{"tokenizer", "Lcom/sun/tools/javac/parser/JavaTokenizer;", nullptr, $PRIVATE, $field(Scanner, tokenizer)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/parser/ScannerFactory;Ljava/nio/CharBuffer;)V", nullptr, $PROTECTED, $method(Scanner, init$, void, $ScannerFactory*, $CharBuffer*)},
+		{"<init>", "(Lcom/sun/tools/javac/parser/ScannerFactory;[CI)V", nullptr, $PROTECTED, $method(Scanner, init$, void, $ScannerFactory*, $chars*, int32_t)},
+		{"<init>", "(Lcom/sun/tools/javac/parser/ScannerFactory;Lcom/sun/tools/javac/parser/JavaTokenizer;)V", nullptr, $PROTECTED, $method(Scanner, init$, void, $ScannerFactory*, $JavaTokenizer*)},
+		{"ensureLookahead", "(I)V", nullptr, $PRIVATE, $method(Scanner, ensureLookahead, void, int32_t)},
+		{"errPos", "()I", nullptr, $PUBLIC, $virtualMethod(Scanner, errPos, int32_t)},
+		{"errPos", "(I)V", nullptr, $PUBLIC, $virtualMethod(Scanner, errPos, void, int32_t)},
+		{"getLineMap", "()Lcom/sun/tools/javac/util/Position$LineMap;", nullptr, $PUBLIC, $virtualMethod(Scanner, getLineMap, $Position$LineMap*)},
+		{"nextToken", "()V", nullptr, $PUBLIC, $virtualMethod(Scanner, nextToken, void)},
+		{"prevToken", "()Lcom/sun/tools/javac/parser/Tokens$Token;", nullptr, $PUBLIC, $virtualMethod(Scanner, prevToken, $Tokens$Token*)},
+		{"split", "()Lcom/sun/tools/javac/parser/Tokens$Token;", nullptr, $PUBLIC, $virtualMethod(Scanner, split, $Tokens$Token*)},
+		{"token", "()Lcom/sun/tools/javac/parser/Tokens$Token;", nullptr, $PUBLIC, $virtualMethod(Scanner, token, $Tokens$Token*)},
+		{"token", "(I)Lcom/sun/tools/javac/parser/Tokens$Token;", nullptr, $PUBLIC, $virtualMethod(Scanner, token, $Tokens$Token*, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.parser.Scanner",
+		"java.lang.Object",
+		"com.sun.tools.javac.parser.Lexer",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Scanner, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Scanner);
+	});
 	return class$;
 }
 

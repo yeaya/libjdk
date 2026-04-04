@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/hpack/HPACK$Logger$Level.h>
-
 #include <java/lang/Enum.h>
 #include <java/lang/System$Logger$Level.h>
 #include <jdk/internal/net/http/hpack/HPACK$Logger.h>
@@ -25,51 +24,6 @@ namespace jdk {
 		namespace net {
 			namespace http {
 				namespace hpack {
-
-$FieldInfo _HPACK$Logger$Level_FieldInfo_[] = {
-	{"NONE", "Ljdk/internal/net/http/hpack/HPACK$Logger$Level;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(HPACK$Logger$Level, NONE)},
-	{"NORMAL", "Ljdk/internal/net/http/hpack/HPACK$Logger$Level;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(HPACK$Logger$Level, NORMAL)},
-	{"EXTRA", "Ljdk/internal/net/http/hpack/HPACK$Logger$Level;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(HPACK$Logger$Level, EXTRA)},
-	{"$VALUES", "[Ljdk/internal/net/http/hpack/HPACK$Logger$Level;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(HPACK$Logger$Level, $VALUES)},
-	{"level", "I", nullptr, $PRIVATE | $FINAL, $field(HPACK$Logger$Level, level)},
-	{"systemLevel", "Ljava/lang/System$Logger$Level;", nullptr, $FINAL, $field(HPACK$Logger$Level, systemLevel)},
-	{}
-};
-
-$MethodInfo _HPACK$Logger$Level_MethodInfo_[] = {
-	{"$values", "()[Ljdk/internal/net/http/hpack/HPACK$Logger$Level;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(HPACK$Logger$Level, $values, $HPACK$Logger$LevelArray*)},
-	{"<init>", "(Ljava/lang/String;IILjava/lang/System$Logger$Level;)V", "(ILjava/lang/System$Logger$Level;)V", $PRIVATE, $method(HPACK$Logger$Level, init$, void, $String*, int32_t, int32_t, $System$Logger$Level*)},
-	{"implies", "(Ljdk/internal/net/http/hpack/HPACK$Logger$Level;)Z", nullptr, $PUBLIC | $FINAL, $method(HPACK$Logger$Level, implies, bool, HPACK$Logger$Level*)},
-	{"valueOf", "(Ljava/lang/String;)Ljdk/internal/net/http/hpack/HPACK$Logger$Level;", nullptr, $PUBLIC | $STATIC, $staticMethod(HPACK$Logger$Level, valueOf, HPACK$Logger$Level*, $String*)},
-	{"values", "()[Ljdk/internal/net/http/hpack/HPACK$Logger$Level;", nullptr, $PUBLIC | $STATIC, $staticMethod(HPACK$Logger$Level, values, $HPACK$Logger$LevelArray*)},
-	{}
-};
-
-$InnerClassInfo _HPACK$Logger$Level_InnerClassesInfo_[] = {
-	{"jdk.internal.net.http.hpack.HPACK$Logger", "jdk.internal.net.http.hpack.HPACK", "Logger", $PUBLIC | $STATIC},
-	{"jdk.internal.net.http.hpack.HPACK$Logger$Level", "jdk.internal.net.http.hpack.HPACK$Logger", "Level", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _HPACK$Logger$Level_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"jdk.internal.net.http.hpack.HPACK$Logger$Level",
-	"java.lang.Enum",
-	nullptr,
-	_HPACK$Logger$Level_FieldInfo_,
-	_HPACK$Logger$Level_MethodInfo_,
-	"Ljava/lang/Enum<Ljdk/internal/net/http/hpack/HPACK$Logger$Level;>;",
-	nullptr,
-	_HPACK$Logger$Level_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.net.http.hpack.HPACK"
-};
-
-$Object* allocate$HPACK$Logger$Level($Class* clazz) {
-	return $of($alloc(HPACK$Logger$Level));
-}
 
 HPACK$Logger$Level* HPACK$Logger$Level::NONE = nullptr;
 HPACK$Logger$Level* HPACK$Logger$Level::NORMAL = nullptr;
@@ -105,7 +59,7 @@ bool HPACK$Logger$Level::implies(HPACK$Logger$Level* other) {
 	return this->level >= $nc(other)->level;
 }
 
-void clinit$HPACK$Logger$Level($Class* class$) {
+void HPACK$Logger$Level::clinit$($Class* clazz) {
 	$init($System$Logger$Level);
 	$assignStatic(HPACK$Logger$Level::NONE, $new(HPACK$Logger$Level, "NONE"_s, 0, 0, $System$Logger$Level::OFF));
 	$assignStatic(HPACK$Logger$Level::NORMAL, $new(HPACK$Logger$Level, "NORMAL"_s, 1, 1, $System$Logger$Level::DEBUG));
@@ -117,7 +71,46 @@ HPACK$Logger$Level::HPACK$Logger$Level() {
 }
 
 $Class* HPACK$Logger$Level::load$($String* name, bool initialize) {
-	$loadClass(HPACK$Logger$Level, name, initialize, &_HPACK$Logger$Level_ClassInfo_, clinit$HPACK$Logger$Level, allocate$HPACK$Logger$Level);
+	$FieldInfo fieldInfos$$[] = {
+		{"NONE", "Ljdk/internal/net/http/hpack/HPACK$Logger$Level;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(HPACK$Logger$Level, NONE)},
+		{"NORMAL", "Ljdk/internal/net/http/hpack/HPACK$Logger$Level;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(HPACK$Logger$Level, NORMAL)},
+		{"EXTRA", "Ljdk/internal/net/http/hpack/HPACK$Logger$Level;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(HPACK$Logger$Level, EXTRA)},
+		{"$VALUES", "[Ljdk/internal/net/http/hpack/HPACK$Logger$Level;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(HPACK$Logger$Level, $VALUES)},
+		{"level", "I", nullptr, $PRIVATE | $FINAL, $field(HPACK$Logger$Level, level)},
+		{"systemLevel", "Ljava/lang/System$Logger$Level;", nullptr, $FINAL, $field(HPACK$Logger$Level, systemLevel)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Ljdk/internal/net/http/hpack/HPACK$Logger$Level;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(HPACK$Logger$Level, $values, $HPACK$Logger$LevelArray*)},
+		{"<init>", "(Ljava/lang/String;IILjava/lang/System$Logger$Level;)V", "(ILjava/lang/System$Logger$Level;)V", $PRIVATE, $method(HPACK$Logger$Level, init$, void, $String*, int32_t, int32_t, $System$Logger$Level*)},
+		{"implies", "(Ljdk/internal/net/http/hpack/HPACK$Logger$Level;)Z", nullptr, $PUBLIC | $FINAL, $method(HPACK$Logger$Level, implies, bool, HPACK$Logger$Level*)},
+		{"valueOf", "(Ljava/lang/String;)Ljdk/internal/net/http/hpack/HPACK$Logger$Level;", nullptr, $PUBLIC | $STATIC, $staticMethod(HPACK$Logger$Level, valueOf, HPACK$Logger$Level*, $String*)},
+		{"values", "()[Ljdk/internal/net/http/hpack/HPACK$Logger$Level;", nullptr, $PUBLIC | $STATIC, $staticMethod(HPACK$Logger$Level, values, $HPACK$Logger$LevelArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.net.http.hpack.HPACK$Logger", "jdk.internal.net.http.hpack.HPACK", "Logger", $PUBLIC | $STATIC},
+		{"jdk.internal.net.http.hpack.HPACK$Logger$Level", "jdk.internal.net.http.hpack.HPACK$Logger", "Level", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"jdk.internal.net.http.hpack.HPACK$Logger$Level",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Ljdk/internal/net/http/hpack/HPACK$Logger$Level;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.net.http.hpack.HPACK"
+	};
+	$loadClass(HPACK$Logger$Level, name, initialize, &classInfo$$, HPACK$Logger$Level::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(HPACK$Logger$Level));
+	});
 	return class$;
 }
 

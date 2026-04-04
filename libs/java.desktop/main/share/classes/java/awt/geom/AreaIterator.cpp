@@ -1,5 +1,4 @@
 #include <java/awt/geom/AreaIterator.h>
-
 #include <java/awt/geom/AffineTransform.h>
 #include <java/awt/geom/PathIterator.h>
 #include <java/util/NoSuchElementException.h>
@@ -26,38 +25,6 @@ namespace java {
 	namespace awt {
 		namespace geom {
 
-$FieldInfo _AreaIterator_FieldInfo_[] = {
-	{"transform", "Ljava/awt/geom/AffineTransform;", nullptr, $PRIVATE, $field(AreaIterator, transform)},
-	{"curves", "Ljava/util/Vector;", "Ljava/util/Vector<Lsun/awt/geom/Curve;>;", $PRIVATE, $field(AreaIterator, curves)},
-	{"index", "I", nullptr, $PRIVATE, $field(AreaIterator, index)},
-	{"prevcurve", "Lsun/awt/geom/Curve;", nullptr, $PRIVATE, $field(AreaIterator, prevcurve)},
-	{"thiscurve", "Lsun/awt/geom/Curve;", nullptr, $PRIVATE, $field(AreaIterator, thiscurve)},
-	{}
-};
-
-$MethodInfo _AreaIterator_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/Vector;Ljava/awt/geom/AffineTransform;)V", "(Ljava/util/Vector<Lsun/awt/geom/Curve;>;Ljava/awt/geom/AffineTransform;)V", $PUBLIC, $method(AreaIterator, init$, void, $Vector*, $AffineTransform*)},
-	{"currentSegment", "([F)I", nullptr, $PUBLIC, $virtualMethod(AreaIterator, currentSegment, int32_t, $floats*)},
-	{"currentSegment", "([D)I", nullptr, $PUBLIC, $virtualMethod(AreaIterator, currentSegment, int32_t, $doubles*)},
-	{"getWindingRule", "()I", nullptr, $PUBLIC, $virtualMethod(AreaIterator, getWindingRule, int32_t)},
-	{"isDone", "()Z", nullptr, $PUBLIC, $virtualMethod(AreaIterator, isDone, bool)},
-	{"next", "()V", nullptr, $PUBLIC, $virtualMethod(AreaIterator, next, void)},
-	{}
-};
-
-$ClassInfo _AreaIterator_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.awt.geom.AreaIterator",
-	"java.lang.Object",
-	"java.awt.geom.PathIterator",
-	_AreaIterator_FieldInfo_,
-	_AreaIterator_MethodInfo_
-};
-
-$Object* allocate$AreaIterator($Class* clazz) {
-	return $of($alloc(AreaIterator));
-}
-
 void AreaIterator::init$($Vector* curves, $AffineTransform* at) {
 	$set(this, curves, curves);
 	$set(this, transform, at);
@@ -81,16 +48,16 @@ void AreaIterator::next() {
 		$set(this, prevcurve, this->thiscurve);
 		++this->index;
 		if (this->index < $nc(this->curves)->size()) {
-			$set(this, thiscurve, $cast($Curve, $nc(this->curves)->get(this->index)));
+			$set(this, thiscurve, $cast($Curve, this->curves->get(this->index)));
 			bool var$1 = $nc(this->thiscurve)->getOrder() != 0;
 			if (var$1) {
 				double var$2 = $nc(this->prevcurve)->getX1();
-				var$1 = var$2 == $nc(this->thiscurve)->getX0();
+				var$1 = var$2 == this->thiscurve->getX0();
 			}
 			bool var$0 = var$1;
 			if (var$0) {
 				double var$3 = $nc(this->prevcurve)->getY1();
-				var$0 = var$3 == $nc(this->thiscurve)->getY0();
+				var$0 = var$3 == this->thiscurve->getY0();
 			}
 			if (var$0) {
 				$set(this, prevcurve, nullptr);
@@ -115,7 +82,7 @@ int32_t AreaIterator::currentSegment($doubles* coords) {
 	int32_t segtype = 0;
 	int32_t numpoints = 0;
 	if (this->prevcurve != nullptr) {
-		if (this->thiscurve == nullptr || $nc(this->thiscurve)->getOrder() == 0) {
+		if (this->thiscurve == nullptr || this->thiscurve->getOrder() == 0) {
 			return $PathIterator::SEG_CLOSE;
 		}
 		$nc(coords)->set(0, $nc(this->thiscurve)->getX0());
@@ -125,14 +92,14 @@ int32_t AreaIterator::currentSegment($doubles* coords) {
 	} else if (this->thiscurve == nullptr) {
 		$throwNew($NoSuchElementException, "area iterator out of bounds"_s);
 	} else {
-		segtype = $nc(this->thiscurve)->getSegment(coords);
+		segtype = this->thiscurve->getSegment(coords);
 		numpoints = $nc(this->thiscurve)->getOrder();
 		if (numpoints == 0) {
 			numpoints = 1;
 		}
 	}
 	if (this->transform != nullptr) {
-		$nc(this->transform)->transform(coords, 0, coords, 0, numpoints);
+		this->transform->transform(coords, 0, coords, 0, numpoints);
 	}
 	return segtype;
 }
@@ -141,7 +108,34 @@ AreaIterator::AreaIterator() {
 }
 
 $Class* AreaIterator::load$($String* name, bool initialize) {
-	$loadClass(AreaIterator, name, initialize, &_AreaIterator_ClassInfo_, allocate$AreaIterator);
+	$FieldInfo fieldInfos$$[] = {
+		{"transform", "Ljava/awt/geom/AffineTransform;", nullptr, $PRIVATE, $field(AreaIterator, transform)},
+		{"curves", "Ljava/util/Vector;", "Ljava/util/Vector<Lsun/awt/geom/Curve;>;", $PRIVATE, $field(AreaIterator, curves)},
+		{"index", "I", nullptr, $PRIVATE, $field(AreaIterator, index)},
+		{"prevcurve", "Lsun/awt/geom/Curve;", nullptr, $PRIVATE, $field(AreaIterator, prevcurve)},
+		{"thiscurve", "Lsun/awt/geom/Curve;", nullptr, $PRIVATE, $field(AreaIterator, thiscurve)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/Vector;Ljava/awt/geom/AffineTransform;)V", "(Ljava/util/Vector<Lsun/awt/geom/Curve;>;Ljava/awt/geom/AffineTransform;)V", $PUBLIC, $method(AreaIterator, init$, void, $Vector*, $AffineTransform*)},
+		{"currentSegment", "([F)I", nullptr, $PUBLIC, $virtualMethod(AreaIterator, currentSegment, int32_t, $floats*)},
+		{"currentSegment", "([D)I", nullptr, $PUBLIC, $virtualMethod(AreaIterator, currentSegment, int32_t, $doubles*)},
+		{"getWindingRule", "()I", nullptr, $PUBLIC, $virtualMethod(AreaIterator, getWindingRule, int32_t)},
+		{"isDone", "()Z", nullptr, $PUBLIC, $virtualMethod(AreaIterator, isDone, bool)},
+		{"next", "()V", nullptr, $PUBLIC, $virtualMethod(AreaIterator, next, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.awt.geom.AreaIterator",
+		"java.lang.Object",
+		"java.awt.geom.PathIterator",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(AreaIterator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AreaIterator);
+	});
 	return class$;
 }
 

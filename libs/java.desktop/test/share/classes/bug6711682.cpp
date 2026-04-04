@@ -1,10 +1,8 @@
 #include <bug6711682.h>
-
 #include <bug6711682$1.h>
 #include <bug6711682$2.h>
 #include <bug6711682$3.h>
 #include <java/awt/BorderLayout.h>
-#include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <java/awt/LayoutManager.h>
 #include <java/awt/Point.h>
@@ -39,9 +37,7 @@ using $bug6711682$1 = ::bug6711682$1;
 using $bug6711682$2 = ::bug6711682$2;
 using $bug6711682$3 = ::bug6711682$3;
 using $BorderLayout = ::java::awt::BorderLayout;
-using $Component = ::java::awt::Component;
 using $Container = ::java::awt::Container;
-using $LayoutManager = ::java::awt::LayoutManager;
 using $Point = ::java::awt::Point;
 using $Robot = ::java::awt::Robot;
 using $InputEvent = ::java::awt::event::InputEvent;
@@ -61,8 +57,6 @@ using $JTable = ::javax::swing::JTable;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $TableCellEditor = ::javax::swing::table::TableCellEditor;
 using $TableCellRenderer = ::javax::swing::table::TableCellRenderer;
-using $TableColumn = ::javax::swing::table::TableColumn;
-using $TableColumnModel = ::javax::swing::table::TableColumnModel;
 
 class bug6711682$$Lambda$lambda$main$0 : public $Runnable {
 	$class(bug6711682$$Lambda$lambda$main$0, $NO_CLASS_INIT, $Runnable)
@@ -72,72 +66,27 @@ public:
 	virtual void run() override {
 		bug6711682::lambda$main$0();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<bug6711682$$Lambda$lambda$main$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo bug6711682$$Lambda$lambda$main$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(bug6711682$$Lambda$lambda$main$0, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug6711682$$Lambda$lambda$main$0, run, void)},
-	{}
-};
-$ClassInfo bug6711682$$Lambda$lambda$main$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"bug6711682$$Lambda$lambda$main$0",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* bug6711682$$Lambda$lambda$main$0::load$($String* name, bool initialize) {
-	$loadClass(bug6711682$$Lambda$lambda$main$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(bug6711682$$Lambda$lambda$main$0, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug6711682$$Lambda$lambda$main$0, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"bug6711682$$Lambda$lambda$main$0",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(bug6711682$$Lambda$lambda$main$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(bug6711682$$Lambda$lambda$main$0);
+	});
 	return class$;
 }
 $Class* bug6711682$$Lambda$lambda$main$0::class$ = nullptr;
-
-$FieldInfo _bug6711682_FieldInfo_[] = {
-	{"editorCb", "Ljavax/swing/JCheckBox;", nullptr, $PRIVATE | $STATIC, $staticField(bug6711682, editorCb)},
-	{"rendererCb", "Ljavax/swing/JCheckBox;", nullptr, $PRIVATE | $STATIC, $staticField(bug6711682, rendererCb)},
-	{"table", "Ljavax/swing/JTable;", nullptr, $PRIVATE | $STATIC, $staticField(bug6711682, table)},
-	{"f", "Ljavax/swing/JFrame;", nullptr, $PRIVATE | $STATIC, $staticField(bug6711682, f)},
-	{}
-};
-
-$MethodInfo _bug6711682_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(bug6711682, init$, void)},
-	{"createAndShowGUI", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(bug6711682, createAndShowGUI, void)},
-	{"lambda$main$0", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(bug6711682, lambda$main$0, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(bug6711682, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$InnerClassInfo _bug6711682_InnerClassesInfo_[] = {
-	{"bug6711682$3", nullptr, nullptr, 0},
-	{"bug6711682$2", nullptr, nullptr, 0},
-	{"bug6711682$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _bug6711682_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"bug6711682",
-	"java.lang.Object",
-	nullptr,
-	_bug6711682_FieldInfo_,
-	_bug6711682_MethodInfo_,
-	nullptr,
-	nullptr,
-	_bug6711682_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"bug6711682$3,bug6711682$2,bug6711682$1"
-};
-
-$Object* allocate$bug6711682($Class* clazz) {
-	return $of($alloc(bug6711682));
-}
 
 $JCheckBox* bug6711682::editorCb = nullptr;
 $JCheckBox* bug6711682::rendererCb = nullptr;
@@ -148,76 +97,71 @@ void bug6711682::init$() {
 }
 
 void bug6711682::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$var($Robot, robot, $new($Robot));
-			robot->setAutoDelay(50);
-			$SwingUtilities::invokeAndWait($$new($bug6711682$1));
-			robot->waitForIdle();
-			$init(bug6711682);
-			$var($Point, l, $nc(bug6711682::table)->getLocationOnScreen());
-			int32_t h = $nc(bug6711682::table)->getRowHeight();
-			for (int32_t i = 0; i < 3; ++i) {
-				robot->mouseMove($nc(l)->x + 5, l->y + 5 + i * h);
-				robot->mousePress($InputEvent::BUTTON1_MASK);
-				robot->mouseRelease($InputEvent::BUTTON1_MASK);
-			}
-			robot->keyPress($KeyEvent::VK_F2);
-			robot->keyRelease($KeyEvent::VK_F2);
-			for (int32_t i = 0; i < 3; ++i) {
-				$init($Boolean);
-				if (!$nc($Boolean::TRUE)->equals($($nc(bug6711682::table)->getValueAt(i, 0)))) {
-					$throwNew($RuntimeException, $$str({"Row #"_s, $$str(i), " checkbox is not selected"_s}));
-				}
-			}
-			for (int32_t i = 2; i >= 0; --i) {
-				robot->mouseMove($nc(l)->x + 5, l->y + 5 + i * h);
-				robot->mousePress($InputEvent::BUTTON1_MASK);
-				robot->mouseRelease($InputEvent::BUTTON1_MASK);
-			}
-			robot->keyPress($KeyEvent::VK_F2);
-			robot->keyRelease($KeyEvent::VK_F2);
-			for (int32_t i = 0; i < 3; ++i) {
-				$init($Boolean);
-				if ($nc($Boolean::TRUE)->equals($($nc(bug6711682::table)->getValueAt(i, 0)))) {
-					$throwNew($RuntimeException, $$str({"Row #"_s, $$str(i), " checkbox is selected"_s}));
-				}
-			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$init(bug6711682);
-			if (bug6711682::f != nullptr) {
-				$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(bug6711682$$Lambda$lambda$main$0)));
+	$useLocalObjectStack();
+	$var($Throwable, var$0, nullptr);
+	try {
+		$var($Robot, robot, $new($Robot));
+		robot->setAutoDelay(50);
+		$SwingUtilities::invokeAndWait($$new($bug6711682$1));
+		robot->waitForIdle();
+		$init(bug6711682);
+		$var($Point, l, $nc(bug6711682::table)->getLocationOnScreen());
+		int32_t h = $nc(bug6711682::table)->getRowHeight();
+		for (int32_t i = 0; i < 3; ++i) {
+			robot->mouseMove($nc(l)->x + 5, $nc(l)->y + 5 + i * h);
+			robot->mousePress($InputEvent::BUTTON1_MASK);
+			robot->mouseRelease($InputEvent::BUTTON1_MASK);
+		}
+		robot->keyPress($KeyEvent::VK_F2);
+		robot->keyRelease($KeyEvent::VK_F2);
+		for (int32_t i = 0; i < 3; ++i) {
+			if (!$nc($Boolean::TRUE)->equals($($nc(bug6711682::table)->getValueAt(i, 0)))) {
+				$throwNew($RuntimeException, $$str({"Row #"_s, $$str(i), " checkbox is not selected"_s}));
 			}
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+		for (int32_t i = 2; i >= 0; --i) {
+			robot->mouseMove($nc(l)->x + 5, $nc(l)->y + 5 + i * h);
+			robot->mousePress($InputEvent::BUTTON1_MASK);
+			robot->mouseRelease($InputEvent::BUTTON1_MASK);
 		}
+		robot->keyPress($KeyEvent::VK_F2);
+		robot->keyRelease($KeyEvent::VK_F2);
+		for (int32_t i = 0; i < 3; ++i) {
+			if ($nc($Boolean::TRUE)->equals($($nc(bug6711682::table)->getValueAt(i, 0)))) {
+				$throwNew($RuntimeException, $$str({"Row #"_s, $$str(i), " checkbox is selected"_s}));
+			}
+		}
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$init(bug6711682);
+		if (bug6711682::f != nullptr) {
+			$SwingUtilities::invokeAndWait($$new(bug6711682$$Lambda$lambda$main$0));
+		}
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 void bug6711682::createAndShowGUI() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init(bug6711682);
 	$assignStatic(bug6711682::editorCb, $new($JCheckBox));
 	$assignStatic(bug6711682::rendererCb, $new($JCheckBox));
 	$assignStatic(bug6711682::f, $new($JFrame, "Table with CheckBox"_s));
-	$var($Container, p, $nc(bug6711682::f)->getContentPane());
+	$var($Container, p, bug6711682::f->getContentPane());
 	$nc(p)->setLayout($$new($BorderLayout));
 	$assignStatic(bug6711682::table, $new($JTable, $$new($ObjectArray2, {
-		$$new($ObjectArray, {$($of($Boolean::valueOf(false)))}),
-		$$new($ObjectArray, {$($of($Boolean::valueOf(false)))}),
-		$$new($ObjectArray, {$($of($Boolean::valueOf(false)))})
-	}), $$new($ObjectArray, {$of("CheckBox"_s)})));
+		$$new($ObjectArray, {$($Boolean::valueOf(false))}),
+		$$new($ObjectArray, {$($Boolean::valueOf(false))}),
+		$$new($ObjectArray, {$($Boolean::valueOf(false))})
+	}), $$new($ObjectArray, {"CheckBox"_s})));
 	$var($TableCellEditor, editor, $new($bug6711682$2));
-	$nc($($nc($($nc(bug6711682::table)->getColumnModel()))->getColumn(0)))->setCellEditor(editor);
+	$$nc($$nc(bug6711682::table->getColumnModel())->getColumn(0))->setCellEditor(editor);
 	$var($TableCellRenderer, renderer, $new($bug6711682$3));
-	$nc($($nc($($nc(bug6711682::table)->getColumnModel()))->getColumn(0)))->setCellRenderer(renderer);
-	$init($BorderLayout);
-	p->add(static_cast<$Component*>(bug6711682::table), $of($BorderLayout::CENTER));
+	$$nc($$nc($nc(bug6711682::table)->getColumnModel())->getColumn(0))->setCellRenderer(renderer);
+	p->add(bug6711682::table, $BorderLayout::CENTER);
 	$nc(bug6711682::f)->pack();
 	$nc(bug6711682::f)->setVisible(true);
 }
@@ -232,11 +176,47 @@ bug6711682::bug6711682() {
 
 $Class* bug6711682::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(bug6711682$$Lambda$lambda$main$0::classInfo$.name)) {
+		if (name->equals("bug6711682$$Lambda$lambda$main$0")) {
 			return bug6711682$$Lambda$lambda$main$0::load$(name, initialize);
 		}
 	}
-	$loadClass(bug6711682, name, initialize, &_bug6711682_ClassInfo_, allocate$bug6711682);
+	$FieldInfo fieldInfos$$[] = {
+		{"editorCb", "Ljavax/swing/JCheckBox;", nullptr, $PRIVATE | $STATIC, $staticField(bug6711682, editorCb)},
+		{"rendererCb", "Ljavax/swing/JCheckBox;", nullptr, $PRIVATE | $STATIC, $staticField(bug6711682, rendererCb)},
+		{"table", "Ljavax/swing/JTable;", nullptr, $PRIVATE | $STATIC, $staticField(bug6711682, table)},
+		{"f", "Ljavax/swing/JFrame;", nullptr, $PRIVATE | $STATIC, $staticField(bug6711682, f)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(bug6711682, init$, void)},
+		{"createAndShowGUI", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(bug6711682, createAndShowGUI, void)},
+		{"lambda$main$0", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(bug6711682, lambda$main$0, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(bug6711682, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"bug6711682$3", nullptr, nullptr, 0},
+		{"bug6711682$2", nullptr, nullptr, 0},
+		{"bug6711682$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"bug6711682",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"bug6711682$3,bug6711682$2,bug6711682$1"
+	};
+	$loadClass(bug6711682, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(bug6711682);
+	});
 	return class$;
 }
 

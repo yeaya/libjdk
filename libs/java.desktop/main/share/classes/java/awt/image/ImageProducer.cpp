@@ -1,5 +1,4 @@
 #include <java/awt/image/ImageProducer.h>
-
 #include <java/awt/image/ImageConsumer.h>
 #include <jcpp.h>
 
@@ -11,30 +10,26 @@ namespace java {
 	namespace awt {
 		namespace image {
 
-$MethodInfo _ImageProducer_MethodInfo_[] = {
-	{"addConsumer", "(Ljava/awt/image/ImageConsumer;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ImageProducer, addConsumer, void, $ImageConsumer*)},
-	{"isConsumer", "(Ljava/awt/image/ImageConsumer;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ImageProducer, isConsumer, bool, $ImageConsumer*)},
-	{"removeConsumer", "(Ljava/awt/image/ImageConsumer;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ImageProducer, removeConsumer, void, $ImageConsumer*)},
-	{"requestTopDownLeftRightResend", "(Ljava/awt/image/ImageConsumer;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ImageProducer, requestTopDownLeftRightResend, void, $ImageConsumer*)},
-	{"startProduction", "(Ljava/awt/image/ImageConsumer;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ImageProducer, startProduction, void, $ImageConsumer*)},
-	{}
-};
-
-$ClassInfo _ImageProducer_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.awt.image.ImageProducer",
-	nullptr,
-	nullptr,
-	nullptr,
-	_ImageProducer_MethodInfo_
-};
-
-$Object* allocate$ImageProducer($Class* clazz) {
-	return $of($alloc(ImageProducer));
-}
-
 $Class* ImageProducer::load$($String* name, bool initialize) {
-	$loadClass(ImageProducer, name, initialize, &_ImageProducer_ClassInfo_, allocate$ImageProducer);
+	$MethodInfo methodInfos$$[] = {
+		{"addConsumer", "(Ljava/awt/image/ImageConsumer;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ImageProducer, addConsumer, void, $ImageConsumer*)},
+		{"isConsumer", "(Ljava/awt/image/ImageConsumer;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ImageProducer, isConsumer, bool, $ImageConsumer*)},
+		{"removeConsumer", "(Ljava/awt/image/ImageConsumer;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ImageProducer, removeConsumer, void, $ImageConsumer*)},
+		{"requestTopDownLeftRightResend", "(Ljava/awt/image/ImageConsumer;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ImageProducer, requestTopDownLeftRightResend, void, $ImageConsumer*)},
+		{"startProduction", "(Ljava/awt/image/ImageConsumer;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ImageProducer, startProduction, void, $ImageConsumer*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.awt.image.ImageProducer",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ImageProducer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ImageProducer);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <TreeTransferHandler$NodesTransferable.h>
-
 #include <TreeTransferHandler.h>
 #include <java/awt/datatransfer/DataFlavor.h>
 #include <java/awt/datatransfer/UnsupportedFlavorException.h>
@@ -16,45 +15,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
-$FieldInfo _TreeTransferHandler$NodesTransferable_FieldInfo_[] = {
-	{"this$0", "LTreeTransferHandler;", nullptr, $FINAL | $SYNTHETIC, $field(TreeTransferHandler$NodesTransferable, this$0)},
-	{"nodes", "[Ljavax/swing/tree/DefaultMutableTreeNode;", nullptr, 0, $field(TreeTransferHandler$NodesTransferable, nodes)},
-	{}
-};
-
-$MethodInfo _TreeTransferHandler$NodesTransferable_MethodInfo_[] = {
-	{"<init>", "(LTreeTransferHandler;[Ljavax/swing/tree/DefaultMutableTreeNode;)V", nullptr, $PUBLIC, $method(TreeTransferHandler$NodesTransferable, init$, void, $TreeTransferHandler*, $DefaultMutableTreeNodeArray*)},
-	{"getTransferData", "(Ljava/awt/datatransfer/DataFlavor;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(TreeTransferHandler$NodesTransferable, getTransferData, $Object*, $DataFlavor*), "java.awt.datatransfer.UnsupportedFlavorException"},
-	{"getTransferDataFlavors", "()[Ljava/awt/datatransfer/DataFlavor;", nullptr, $PUBLIC, $virtualMethod(TreeTransferHandler$NodesTransferable, getTransferDataFlavors, $DataFlavorArray*)},
-	{"isDataFlavorSupported", "(Ljava/awt/datatransfer/DataFlavor;)Z", nullptr, $PUBLIC, $virtualMethod(TreeTransferHandler$NodesTransferable, isDataFlavorSupported, bool, $DataFlavor*)},
-	{}
-};
-
-$InnerClassInfo _TreeTransferHandler$NodesTransferable_InnerClassesInfo_[] = {
-	{"TreeTransferHandler$NodesTransferable", "TreeTransferHandler", "NodesTransferable", $PUBLIC},
-	{}
-};
-
-$ClassInfo _TreeTransferHandler$NodesTransferable_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"TreeTransferHandler$NodesTransferable",
-	"java.lang.Object",
-	"java.awt.datatransfer.Transferable",
-	_TreeTransferHandler$NodesTransferable_FieldInfo_,
-	_TreeTransferHandler$NodesTransferable_MethodInfo_,
-	nullptr,
-	nullptr,
-	_TreeTransferHandler$NodesTransferable_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"TreeTransferHandler"
-};
-
-$Object* allocate$TreeTransferHandler$NodesTransferable($Class* clazz) {
-	return $of($alloc(TreeTransferHandler$NodesTransferable));
-}
-
 void TreeTransferHandler$NodesTransferable::init$($TreeTransferHandler* this$0, $DefaultMutableTreeNodeArray* nodes) {
 	$set(this, this$0, this$0);
 	$set(this, nodes, nodes);
@@ -64,7 +24,7 @@ $Object* TreeTransferHandler$NodesTransferable::getTransferData($DataFlavor* fla
 	if (!isDataFlavorSupported(flavor)) {
 		$throwNew($UnsupportedFlavorException, flavor);
 	}
-	return $of(this->nodes);
+	return this->nodes;
 }
 
 $DataFlavorArray* TreeTransferHandler$NodesTransferable::getTransferDataFlavors() {
@@ -79,7 +39,40 @@ TreeTransferHandler$NodesTransferable::TreeTransferHandler$NodesTransferable() {
 }
 
 $Class* TreeTransferHandler$NodesTransferable::load$($String* name, bool initialize) {
-	$loadClass(TreeTransferHandler$NodesTransferable, name, initialize, &_TreeTransferHandler$NodesTransferable_ClassInfo_, allocate$TreeTransferHandler$NodesTransferable);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "LTreeTransferHandler;", nullptr, $FINAL | $SYNTHETIC, $field(TreeTransferHandler$NodesTransferable, this$0)},
+		{"nodes", "[Ljavax/swing/tree/DefaultMutableTreeNode;", nullptr, 0, $field(TreeTransferHandler$NodesTransferable, nodes)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(LTreeTransferHandler;[Ljavax/swing/tree/DefaultMutableTreeNode;)V", nullptr, $PUBLIC, $method(TreeTransferHandler$NodesTransferable, init$, void, $TreeTransferHandler*, $DefaultMutableTreeNodeArray*)},
+		{"getTransferData", "(Ljava/awt/datatransfer/DataFlavor;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(TreeTransferHandler$NodesTransferable, getTransferData, $Object*, $DataFlavor*), "java.awt.datatransfer.UnsupportedFlavorException"},
+		{"getTransferDataFlavors", "()[Ljava/awt/datatransfer/DataFlavor;", nullptr, $PUBLIC, $virtualMethod(TreeTransferHandler$NodesTransferable, getTransferDataFlavors, $DataFlavorArray*)},
+		{"isDataFlavorSupported", "(Ljava/awt/datatransfer/DataFlavor;)Z", nullptr, $PUBLIC, $virtualMethod(TreeTransferHandler$NodesTransferable, isDataFlavorSupported, bool, $DataFlavor*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"TreeTransferHandler$NodesTransferable", "TreeTransferHandler", "NodesTransferable", $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"TreeTransferHandler$NodesTransferable",
+		"java.lang.Object",
+		"java.awt.datatransfer.Transferable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"TreeTransferHandler"
+	};
+	$loadClass(TreeTransferHandler$NodesTransferable, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TreeTransferHandler$NodesTransferable);
+	});
 	return class$;
 }
 

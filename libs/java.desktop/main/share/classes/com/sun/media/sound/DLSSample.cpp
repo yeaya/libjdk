@@ -1,5 +1,4 @@
 #include <com/sun/media/sound/DLSSample.h>
-
 #include <com/sun/media/sound/DLSInfo.h>
 #include <com/sun/media/sound/DLSSampleOptions.h>
 #include <com/sun/media/sound/ModelByteBuffer.h>
@@ -29,49 +28,6 @@ namespace com {
 		namespace media {
 			namespace sound {
 
-$FieldInfo _DLSSample_FieldInfo_[] = {
-	{"guid", "[B", nullptr, 0, $field(DLSSample, guid)},
-	{"info", "Lcom/sun/media/sound/DLSInfo;", nullptr, 0, $field(DLSSample, info)},
-	{"sampleoptions", "Lcom/sun/media/sound/DLSSampleOptions;", nullptr, 0, $field(DLSSample, sampleoptions)},
-	{"data", "Lcom/sun/media/sound/ModelByteBuffer;", nullptr, 0, $field(DLSSample, data)},
-	{"format", "Ljavax/sound/sampled/AudioFormat;", nullptr, 0, $field(DLSSample, format)},
-	{}
-};
-
-$MethodInfo _DLSSample_MethodInfo_[] = {
-	{"<init>", "(Ljavax/sound/midi/Soundbank;)V", nullptr, $PUBLIC, $method(DLSSample, init$, void, $Soundbank*)},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(DLSSample, init$, void)},
-	{"getData", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DLSSample, getData, $Object*)},
-	{"getDataBuffer", "()Lcom/sun/media/sound/ModelByteBuffer;", nullptr, $PUBLIC, $method(DLSSample, getDataBuffer, $ModelByteBuffer*)},
-	{"getFormat", "()Ljavax/sound/sampled/AudioFormat;", nullptr, $PUBLIC, $method(DLSSample, getFormat, $AudioFormat*)},
-	{"getGuid", "()[B", nullptr, $PUBLIC, $method(DLSSample, getGuid, $bytes*)},
-	{"getInfo", "()Lcom/sun/media/sound/DLSInfo;", nullptr, $PUBLIC, $method(DLSSample, getInfo, $DLSInfo*)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DLSSample, getName, $String*)},
-	{"getSampleoptions", "()Lcom/sun/media/sound/DLSSampleOptions;", nullptr, $PUBLIC, $method(DLSSample, getSampleoptions, $DLSSampleOptions*)},
-	{"setData", "(Lcom/sun/media/sound/ModelByteBuffer;)V", nullptr, $PUBLIC, $method(DLSSample, setData, void, $ModelByteBuffer*)},
-	{"setData", "([B)V", nullptr, $PUBLIC, $method(DLSSample, setData, void, $bytes*)},
-	{"setData", "([BII)V", nullptr, $PUBLIC, $method(DLSSample, setData, void, $bytes*, int32_t, int32_t)},
-	{"setFormat", "(Ljavax/sound/sampled/AudioFormat;)V", nullptr, $PUBLIC, $method(DLSSample, setFormat, void, $AudioFormat*)},
-	{"setGuid", "([B)V", nullptr, $PUBLIC, $method(DLSSample, setGuid, void, $bytes*)},
-	{"setName", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(DLSSample, setName, void, $String*)},
-	{"setSampleoptions", "(Lcom/sun/media/sound/DLSSampleOptions;)V", nullptr, $PUBLIC, $method(DLSSample, setSampleoptions, void, $DLSSampleOptions*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DLSSample, toString, $String*)},
-	{}
-};
-
-$ClassInfo _DLSSample_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.media.sound.DLSSample",
-	"javax.sound.midi.SoundbankResource",
-	nullptr,
-	_DLSSample_FieldInfo_,
-	_DLSSample_MethodInfo_
-};
-
-$Object* allocate$DLSSample($Class* clazz) {
-	return $of($alloc(DLSSample));
-}
-
 void DLSSample::init$($Soundbank* soundBank) {
 	$load($AudioInputStream);
 	$SoundbankResource::init$(soundBank, nullptr, $AudioInputStream::class$);
@@ -91,13 +47,13 @@ $DLSInfo* DLSSample::getInfo() {
 }
 
 $Object* DLSSample::getData() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AudioFormat, format, getFormat());
 	$var($InputStream, is, $nc(this->data)->getInputStream());
 	if (is == nullptr) {
-		return $of(nullptr);
+		return nullptr;
 	}
-	return $of($new($AudioInputStream, is, format, $nc(this->data)->capacity()));
+	return $new($AudioInputStream, is, format, $nc(this->data)->capacity());
 }
 
 $ModelByteBuffer* DLSSample::getDataBuffer() {
@@ -145,18 +101,56 @@ $String* DLSSample::toString() {
 }
 
 $bytes* DLSSample::getGuid() {
-	return this->guid == nullptr ? ($bytes*)nullptr : $Arrays::copyOf(this->guid, $nc(this->guid)->length);
+	return this->guid == nullptr ? ($bytes*)nullptr : $Arrays::copyOf(this->guid, this->guid->length);
 }
 
 void DLSSample::setGuid($bytes* guid) {
-	$set(this, guid, guid == nullptr ? ($bytes*)nullptr : $Arrays::copyOf(guid, $nc(guid)->length));
+	$set(this, guid, guid == nullptr ? ($bytes*)nullptr : $Arrays::copyOf(guid, guid->length));
 }
 
 DLSSample::DLSSample() {
 }
 
 $Class* DLSSample::load$($String* name, bool initialize) {
-	$loadClass(DLSSample, name, initialize, &_DLSSample_ClassInfo_, allocate$DLSSample);
+	$FieldInfo fieldInfos$$[] = {
+		{"guid", "[B", nullptr, 0, $field(DLSSample, guid)},
+		{"info", "Lcom/sun/media/sound/DLSInfo;", nullptr, 0, $field(DLSSample, info)},
+		{"sampleoptions", "Lcom/sun/media/sound/DLSSampleOptions;", nullptr, 0, $field(DLSSample, sampleoptions)},
+		{"data", "Lcom/sun/media/sound/ModelByteBuffer;", nullptr, 0, $field(DLSSample, data)},
+		{"format", "Ljavax/sound/sampled/AudioFormat;", nullptr, 0, $field(DLSSample, format)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/sound/midi/Soundbank;)V", nullptr, $PUBLIC, $method(DLSSample, init$, void, $Soundbank*)},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(DLSSample, init$, void)},
+		{"getData", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DLSSample, getData, $Object*)},
+		{"getDataBuffer", "()Lcom/sun/media/sound/ModelByteBuffer;", nullptr, $PUBLIC, $method(DLSSample, getDataBuffer, $ModelByteBuffer*)},
+		{"getFormat", "()Ljavax/sound/sampled/AudioFormat;", nullptr, $PUBLIC, $method(DLSSample, getFormat, $AudioFormat*)},
+		{"getGuid", "()[B", nullptr, $PUBLIC, $method(DLSSample, getGuid, $bytes*)},
+		{"getInfo", "()Lcom/sun/media/sound/DLSInfo;", nullptr, $PUBLIC, $method(DLSSample, getInfo, $DLSInfo*)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DLSSample, getName, $String*)},
+		{"getSampleoptions", "()Lcom/sun/media/sound/DLSSampleOptions;", nullptr, $PUBLIC, $method(DLSSample, getSampleoptions, $DLSSampleOptions*)},
+		{"setData", "(Lcom/sun/media/sound/ModelByteBuffer;)V", nullptr, $PUBLIC, $method(DLSSample, setData, void, $ModelByteBuffer*)},
+		{"setData", "([B)V", nullptr, $PUBLIC, $method(DLSSample, setData, void, $bytes*)},
+		{"setData", "([BII)V", nullptr, $PUBLIC, $method(DLSSample, setData, void, $bytes*, int32_t, int32_t)},
+		{"setFormat", "(Ljavax/sound/sampled/AudioFormat;)V", nullptr, $PUBLIC, $method(DLSSample, setFormat, void, $AudioFormat*)},
+		{"setGuid", "([B)V", nullptr, $PUBLIC, $method(DLSSample, setGuid, void, $bytes*)},
+		{"setName", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(DLSSample, setName, void, $String*)},
+		{"setSampleoptions", "(Lcom/sun/media/sound/DLSSampleOptions;)V", nullptr, $PUBLIC, $method(DLSSample, setSampleoptions, void, $DLSSampleOptions*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DLSSample, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.media.sound.DLSSample",
+		"javax.sound.midi.SoundbankResource",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DLSSample, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DLSSample);
+	});
 	return class$;
 }
 

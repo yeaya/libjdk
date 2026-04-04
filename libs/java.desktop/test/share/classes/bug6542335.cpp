@@ -1,5 +1,4 @@
 #include <bug6542335.h>
-
 #include <bug6542335$1.h>
 #include <bug6542335$2.h>
 #include <bug6542335$3.h>
@@ -44,71 +43,27 @@ public:
 	virtual void run() override {
 		bug6542335::lambda$main$0();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<bug6542335$$Lambda$lambda$main$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo bug6542335$$Lambda$lambda$main$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(bug6542335$$Lambda$lambda$main$0, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug6542335$$Lambda$lambda$main$0, run, void)},
-	{}
-};
-$ClassInfo bug6542335$$Lambda$lambda$main$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"bug6542335$$Lambda$lambda$main$0",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* bug6542335$$Lambda$lambda$main$0::load$($String* name, bool initialize) {
-	$loadClass(bug6542335$$Lambda$lambda$main$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(bug6542335$$Lambda$lambda$main$0, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug6542335$$Lambda$lambda$main$0, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"bug6542335$$Lambda$lambda$main$0",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(bug6542335$$Lambda$lambda$main$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(bug6542335$$Lambda$lambda$main$0);
+	});
 	return class$;
 }
 $Class* bug6542335$$Lambda$lambda$main$0::class$ = nullptr;
-
-$FieldInfo _bug6542335_FieldInfo_[] = {
-	{"sb", "Ljavax/swing/JScrollBar;", nullptr, $PRIVATE | $STATIC, $staticField(bug6542335, sb)},
-	{"ui", "Lbug6542335$MyScrollBarUI;", nullptr, $PRIVATE | $STATIC, $staticField(bug6542335, ui)},
-	{"frame", "Ljavax/swing/JFrame;", nullptr, $PRIVATE | $STATIC, $staticField(bug6542335, frame)},
-	{}
-};
-
-$MethodInfo _bug6542335_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(bug6542335, init$, void)},
-	{"lambda$main$0", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(bug6542335, lambda$main$0, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(bug6542335, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$InnerClassInfo _bug6542335_InnerClassesInfo_[] = {
-	{"bug6542335$MyScrollBarUI", "bug6542335", "MyScrollBarUI", $STATIC},
-	{"bug6542335$3", nullptr, nullptr, 0},
-	{"bug6542335$2", nullptr, nullptr, 0},
-	{"bug6542335$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _bug6542335_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"bug6542335",
-	"java.lang.Object",
-	nullptr,
-	_bug6542335_FieldInfo_,
-	_bug6542335_MethodInfo_,
-	nullptr,
-	nullptr,
-	_bug6542335_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"bug6542335$MyScrollBarUI,bug6542335$3,bug6542335$2,bug6542335$1"
-};
-
-$Object* allocate$bug6542335($Class* clazz) {
-	return $of($alloc(bug6542335));
-}
 
 $JScrollBar* bug6542335::sb = nullptr;
 $bug6542335$MyScrollBarUI* bug6542335::ui = nullptr;
@@ -118,29 +73,27 @@ void bug6542335::init$() {
 }
 
 void bug6542335::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$var($Robot, robot, $new($Robot));
-			robot->setAutoDelay(10);
-			$var($RectangleArray, thumbBounds, $new($RectangleArray, 1));
-			$SwingUtilities::invokeAndWait($$new($bug6542335$1));
-			robot->waitForIdle();
-			$SwingUtilities::invokeAndWait($$new($bug6542335$2, thumbBounds, robot));
-			robot->waitForIdle();
-			$SwingUtilities::invokeAndWait($$new($bug6542335$3, thumbBounds));
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$init(bug6542335);
-			if (bug6542335::frame != nullptr) {
-				$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(bug6542335$$Lambda$lambda$main$0)));
-			}
+	$useLocalObjectStack();
+	$var($Throwable, var$0, nullptr);
+	try {
+		$var($Robot, robot, $new($Robot));
+		robot->setAutoDelay(10);
+		$var($RectangleArray, thumbBounds, $new($RectangleArray, 1));
+		$SwingUtilities::invokeAndWait($$new($bug6542335$1));
+		robot->waitForIdle();
+		$SwingUtilities::invokeAndWait($$new($bug6542335$2, thumbBounds, robot));
+		robot->waitForIdle();
+		$SwingUtilities::invokeAndWait($$new($bug6542335$3, thumbBounds));
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$init(bug6542335);
+		if (bug6542335::frame != nullptr) {
+			$SwingUtilities::invokeAndWait($$new(bug6542335$$Lambda$lambda$main$0));
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
@@ -154,11 +107,46 @@ bug6542335::bug6542335() {
 
 $Class* bug6542335::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(bug6542335$$Lambda$lambda$main$0::classInfo$.name)) {
+		if (name->equals("bug6542335$$Lambda$lambda$main$0")) {
 			return bug6542335$$Lambda$lambda$main$0::load$(name, initialize);
 		}
 	}
-	$loadClass(bug6542335, name, initialize, &_bug6542335_ClassInfo_, allocate$bug6542335);
+	$FieldInfo fieldInfos$$[] = {
+		{"sb", "Ljavax/swing/JScrollBar;", nullptr, $PRIVATE | $STATIC, $staticField(bug6542335, sb)},
+		{"ui", "Lbug6542335$MyScrollBarUI;", nullptr, $PRIVATE | $STATIC, $staticField(bug6542335, ui)},
+		{"frame", "Ljavax/swing/JFrame;", nullptr, $PRIVATE | $STATIC, $staticField(bug6542335, frame)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(bug6542335, init$, void)},
+		{"lambda$main$0", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(bug6542335, lambda$main$0, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(bug6542335, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"bug6542335$MyScrollBarUI", "bug6542335", "MyScrollBarUI", $STATIC},
+		{"bug6542335$3", nullptr, nullptr, 0},
+		{"bug6542335$2", nullptr, nullptr, 0},
+		{"bug6542335$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"bug6542335",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"bug6542335$MyScrollBarUI,bug6542335$3,bug6542335$2,bug6542335$1"
+	};
+	$loadClass(bug6542335, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(bug6542335);
+	});
 	return class$;
 }
 

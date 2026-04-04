@@ -1,5 +1,4 @@
 #include <java/awt/Menu.h>
-
 #include <java/awt/Event.h>
 #include <java/awt/Font.h>
 #include <java/awt/GraphicsEnvironment.h>
@@ -18,7 +17,6 @@
 #include <java/util/Enumeration.h>
 #include <java/util/Vector.h>
 #include <javax/accessibility/AccessibleContext.h>
-#include <sun/awt/AWTAccessor$MenuAccessor.h>
 #include <sun/awt/AWTAccessor.h>
 #include <sun/awt/ComponentFactory.h>
 #include <jcpp.h>
@@ -29,12 +27,10 @@ using $GraphicsEnvironment = ::java::awt::GraphicsEnvironment;
 using $Menu$1 = ::java::awt::Menu$1;
 using $Menu$AccessibleAWTMenu = ::java::awt::Menu$AccessibleAWTMenu;
 using $MenuComponent = ::java::awt::MenuComponent;
-using $MenuContainer = ::java::awt::MenuContainer;
 using $MenuItem = ::java::awt::MenuItem;
 using $MenuShortcut = ::java::awt::MenuShortcut;
 using $Toolkit = ::java::awt::Toolkit;
 using $KeyEvent = ::java::awt::event::KeyEvent;
-using $MenuComponentPeer = ::java::awt::peer::MenuComponentPeer;
 using $MenuPeer = ::java::awt::peer::MenuPeer;
 using $ObjectInputStream = ::java::io::ObjectInputStream;
 using $ObjectOutputStream = ::java::io::ObjectOutputStream;
@@ -48,96 +44,9 @@ using $Enumeration = ::java::util::Enumeration;
 using $Vector = ::java::util::Vector;
 using $AccessibleContext = ::javax::accessibility::AccessibleContext;
 using $AWTAccessor = ::sun::awt::AWTAccessor;
-using $AWTAccessor$MenuAccessor = ::sun::awt::AWTAccessor$MenuAccessor;
-using $ComponentFactory = ::sun::awt::ComponentFactory;
 
 namespace java {
 	namespace awt {
-
-$CompoundAttribute _Menu_MethodAnnotations_countItems8[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$FieldInfo _Menu_FieldInfo_[] = {
-	{"items", "Ljava/util/Vector;", "Ljava/util/Vector<Ljava/awt/MenuItem;>;", $PRIVATE | $FINAL, $field(Menu, items)},
-	{"tearOff", "Z", nullptr, $PRIVATE | $FINAL, $field(Menu, tearOff)},
-	{"isHelpMenu", "Z", nullptr, $VOLATILE, $field(Menu, isHelpMenu)},
-	{"base", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Menu, base)},
-	{"nameCounter", "I", nullptr, $PRIVATE | $STATIC, $staticField(Menu, nameCounter)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Menu, serialVersionUID)},
-	{"menuSerializedDataVersion", "I", nullptr, $PRIVATE, $field(Menu, menuSerializedDataVersion)},
-	{}
-};
-
-$MethodInfo _Menu_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*getFont", "()Ljava/awt/Font;", nullptr, $PUBLIC},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Menu, init$, void), "java.awt.HeadlessException"},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Menu, init$, void, $String*), "java.awt.HeadlessException"},
-	{"<init>", "(Ljava/lang/String;Z)V", nullptr, $PUBLIC, $method(Menu, init$, void, $String*, bool), "java.awt.HeadlessException"},
-	{"add", "(Ljava/awt/MenuItem;)Ljava/awt/MenuItem;", nullptr, $PUBLIC, $virtualMethod(Menu, add, $MenuItem*, $MenuItem*)},
-	{"add", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Menu, add, void, $String*)},
-	{"addNotify", "()V", nullptr, $PUBLIC, $virtualMethod(Menu, addNotify, void)},
-	{"addSeparator", "()V", nullptr, $PUBLIC, $virtualMethod(Menu, addSeparator, void)},
-	{"constructComponentName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(Menu, constructComponentName, $String*)},
-	{"countItems", "()I", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(Menu, countItems, int32_t), nullptr, nullptr, _Menu_MethodAnnotations_countItems8},
-	{"countItemsImpl", "()I", nullptr, $FINAL, $method(Menu, countItemsImpl, int32_t)},
-	{"deleteShortcut", "(Ljava/awt/MenuShortcut;)V", nullptr, 0, $virtualMethod(Menu, deleteShortcut, void, $MenuShortcut*)},
-	{"getAccessibleChildIndex", "(Ljava/awt/MenuComponent;)I", nullptr, 0, $virtualMethod(Menu, getAccessibleChildIndex, int32_t, $MenuComponent*)},
-	{"getAccessibleContext", "()Ljavax/accessibility/AccessibleContext;", nullptr, $PUBLIC, $virtualMethod(Menu, getAccessibleContext, $AccessibleContext*)},
-	{"getItem", "(I)Ljava/awt/MenuItem;", nullptr, $PUBLIC, $virtualMethod(Menu, getItem, $MenuItem*, int32_t)},
-	{"getItemCount", "()I", nullptr, $PUBLIC, $virtualMethod(Menu, getItemCount, int32_t)},
-	{"getItemImpl", "(I)Ljava/awt/MenuItem;", nullptr, $FINAL, $method(Menu, getItemImpl, $MenuItem*, int32_t)},
-	{"getShortcutMenuItem", "(Ljava/awt/MenuShortcut;)Ljava/awt/MenuItem;", nullptr, 0, $virtualMethod(Menu, getShortcutMenuItem, $MenuItem*, $MenuShortcut*)},
-	{"handleShortcut", "(Ljava/awt/event/KeyEvent;)Z", nullptr, 0, $virtualMethod(Menu, handleShortcut, bool, $KeyEvent*)},
-	{"initIDs", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(Menu, initIDs, void)},
-	{"insert", "(Ljava/awt/MenuItem;I)V", nullptr, $PUBLIC, $virtualMethod(Menu, insert, void, $MenuItem*, int32_t)},
-	{"insert", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $virtualMethod(Menu, insert, void, $String*, int32_t)},
-	{"insertSeparator", "(I)V", nullptr, $PUBLIC, $virtualMethod(Menu, insertSeparator, void, int32_t)},
-	{"isTearOff", "()Z", nullptr, $PUBLIC, $virtualMethod(Menu, isTearOff, bool)},
-	{"paramString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Menu, paramString, $String*)},
-	{"*postEvent", "(Ljava/awt/Event;)Z", nullptr, $PUBLIC | $DEPRECATED},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(Menu, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException,java.awt.HeadlessException"},
-	{"remove", "(I)V", nullptr, $PUBLIC, $virtualMethod(Menu, remove, void, int32_t)},
-	{"remove", "(Ljava/awt/MenuComponent;)V", nullptr, $PUBLIC, $virtualMethod(Menu, remove, void, $MenuComponent*)},
-	{"removeAll", "()V", nullptr, $PUBLIC, $virtualMethod(Menu, removeAll, void)},
-	{"removeNotify", "()V", nullptr, $PUBLIC, $virtualMethod(Menu, removeNotify, void)},
-	{"shortcuts", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/awt/MenuShortcut;>;", $SYNCHRONIZED, $virtualMethod(Menu, shortcuts, $Enumeration*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(Menu, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
-	{}
-};
-
-#define _METHOD_INDEX_initIDs 23
-
-$InnerClassInfo _Menu_InnerClassesInfo_[] = {
-	{"java.awt.Menu$AccessibleAWTMenu", "java.awt.Menu", "AccessibleAWTMenu", $PROTECTED},
-	{"java.awt.Menu$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Menu_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.awt.Menu",
-	"java.awt.MenuItem",
-	"java.awt.MenuContainer",
-	_Menu_FieldInfo_,
-	_Menu_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Menu_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.awt.Menu$AccessibleAWTMenu,java.awt.Menu$1"
-};
-
-$Object* allocate$Menu($Class* clazz) {
-	return $of($alloc(Menu));
-}
 
 $Font* Menu::getFont() {
 	 return this->$MenuItem::getFont();
@@ -186,18 +95,19 @@ void Menu::init$($String* label, bool tearOff) {
 }
 
 $String* Menu::constructComponentName() {
-	$useLocalCurrentObjectStackCache();
 	$synchronized(Menu::class$) {
-		$var($String, var$0, Menu::base);
-		return $concat(var$0, $$str(Menu::nameCounter++));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append(Menu::base);
+		var$0->append(Menu::nameCounter++);
+		return $str(var$0);
 	}
 }
 
 void Menu::addNotify() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized(getTreeLock()) {
 		if (this->peer == nullptr) {
-			$set(this, peer, $nc($(getComponentFactory()))->createMenu(this));
+			$set(this, peer, $$nc(getComponentFactory())->createMenu(this));
 		}
 		int32_t nitems = getItemCount();
 		for (int32_t i = 0; i < nitems; ++i) {
@@ -209,11 +119,11 @@ void Menu::addNotify() {
 }
 
 void Menu::removeNotify() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized(getTreeLock()) {
 		int32_t nitems = getItemCount();
 		for (int32_t i = 0; i < nitems; ++i) {
-			$nc($(getItem(i)))->removeNotify();
+			$$nc(getItem(i))->removeNotify();
 		}
 		$MenuItem::removeNotify();
 	}
@@ -249,7 +159,7 @@ $MenuItem* Menu::add($MenuItem* mi) {
 			$nc(mi->parent)->remove(mi);
 		}
 		$nc(this->items)->addElement(mi);
-		$set($nc(mi), parent, this);
+		$set(mi, parent, this);
 		$var($MenuPeer, peer, $cast($MenuPeer, this->peer));
 		if (peer != nullptr) {
 			mi->addNotify();
@@ -264,7 +174,7 @@ void Menu::add($String* label) {
 }
 
 void Menu::insert($MenuItem* menuitem, int32_t index) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized(getTreeLock()) {
 		if (index < 0) {
 			$throwNew($IllegalArgumentException, "index less than zero."_s);
@@ -277,7 +187,7 @@ void Menu::insert($MenuItem* menuitem, int32_t index) {
 		}
 		add(menuitem);
 		for (int32_t i = 0; i < tempItems->size(); ++i) {
-			add($cast($MenuItem, $(tempItems->elementAt(i))));
+			add($$cast($MenuItem, tempItems->elementAt(i)));
 		}
 	}
 }
@@ -291,7 +201,7 @@ void Menu::addSeparator() {
 }
 
 void Menu::insertSeparator(int32_t index) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized(getTreeLock()) {
 		if (index < 0) {
 			$throwNew($IllegalArgumentException, "index less than zero."_s);
@@ -304,13 +214,13 @@ void Menu::insertSeparator(int32_t index) {
 		}
 		addSeparator();
 		for (int32_t i = 0; i < tempItems->size(); ++i) {
-			add($cast($MenuItem, $(tempItems->elementAt(i))));
+			add($$cast($MenuItem, tempItems->elementAt(i)));
 		}
 	}
 }
 
 void Menu::remove(int32_t index) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized(getTreeLock()) {
 		$var($MenuItem, mi, getItem(index));
 		$nc(this->items)->removeElementAt(index);
@@ -342,7 +252,7 @@ void Menu::removeAll() {
 }
 
 bool Menu::handleShortcut($KeyEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t nitems = getItemCount();
 	for (int32_t i = 0; i < nitems; ++i) {
 		$var($MenuItem, mi, getItem(i));
@@ -354,10 +264,10 @@ bool Menu::handleShortcut($KeyEvent* e) {
 }
 
 $MenuItem* Menu::getShortcutMenuItem($MenuShortcut* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t nitems = getItemCount();
 	for (int32_t i = 0; i < nitems; ++i) {
-		$var($MenuItem, mi, $nc($(getItem(i)))->getShortcutMenuItem(s));
+		$var($MenuItem, mi, $$nc(getItem(i))->getShortcutMenuItem(s));
 		if (mi != nullptr) {
 			return mi;
 		}
@@ -367,15 +277,15 @@ $MenuItem* Menu::getShortcutMenuItem($MenuShortcut* s) {
 
 $Enumeration* Menu::shortcuts() {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$var($Vector, shortcuts, $new($Vector));
 		int32_t nitems = getItemCount();
 		for (int32_t i = 0; i < nitems; ++i) {
 			$var($MenuItem, mi, getItem(i));
 			if ($instanceOf(Menu, mi)) {
-				$var($Enumeration, e, $nc(($cast(Menu, mi)))->shortcuts());
+				$var($Enumeration, e, $cast(Menu, mi)->shortcuts());
 				while ($nc(e)->hasMoreElements()) {
-					shortcuts->addElement($cast($MenuShortcut, $(e->nextElement())));
+					shortcuts->addElement($$cast($MenuShortcut, e->nextElement()));
 				}
 			} else {
 				$var($MenuShortcut, ms, $nc(mi)->getShortcut());
@@ -389,10 +299,10 @@ $Enumeration* Menu::shortcuts() {
 }
 
 void Menu::deleteShortcut($MenuShortcut* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t nitems = getItemCount();
 	for (int32_t i = 0; i < nitems; ++i) {
-		$nc($(getItem(i)))->deleteShortcut(s);
+		$$nc(getItem(i))->deleteShortcut(s);
 	}
 }
 
@@ -401,23 +311,23 @@ void Menu::writeObject($ObjectOutputStream* s) {
 }
 
 void Menu::readObject($ObjectInputStream* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(s)->defaultReadObject();
 	for (int32_t i = 0; i < $nc(this->items)->size(); ++i) {
-		$var($MenuItem, item, $cast($MenuItem, $nc(this->items)->elementAt(i)));
+		$var($MenuItem, item, $cast($MenuItem, this->items->elementAt(i)));
 		$set($nc(item), parent, this);
 	}
 }
 
 $String* Menu::paramString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, str, $str({",tearOff="_s, $$str(this->tearOff), ",isHelpMenu="_s, $$str(this->isHelpMenu)}));
 	return $str({$($MenuItem::paramString()), str});
 }
 
 void Menu::initIDs() {
 	$init(Menu);
-	$prepareNativeStatic(Menu, initIDs, void);
+	$prepareNativeStatic(initIDs, void);
 	$invokeNativeStatic();
 	$finishNativeStatic();
 }
@@ -433,7 +343,7 @@ int32_t Menu::getAccessibleChildIndex($MenuComponent* child) {
 	return $nc(this->items)->indexOf(child);
 }
 
-void clinit$Menu($Class* class$) {
+void Menu::clinit$($Class* clazz) {
 	$assignStatic(Menu::base, "menu"_s);
 	{
 		$Toolkit::loadLibraries();
@@ -449,7 +359,83 @@ Menu::Menu() {
 }
 
 $Class* Menu::load$($String* name, bool initialize) {
-	$loadClass(Menu, name, initialize, &_Menu_ClassInfo_, clinit$Menu, allocate$Menu);
+	$FieldInfo fieldInfos$$[] = {
+		{"items", "Ljava/util/Vector;", "Ljava/util/Vector<Ljava/awt/MenuItem;>;", $PRIVATE | $FINAL, $field(Menu, items)},
+		{"tearOff", "Z", nullptr, $PRIVATE | $FINAL, $field(Menu, tearOff)},
+		{"isHelpMenu", "Z", nullptr, $VOLATILE, $field(Menu, isHelpMenu)},
+		{"base", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Menu, base)},
+		{"nameCounter", "I", nullptr, $PRIVATE | $STATIC, $staticField(Menu, nameCounter)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Menu, serialVersionUID)},
+		{"menuSerializedDataVersion", "I", nullptr, $PRIVATE, $field(Menu, menuSerializedDataVersion)},
+		{}
+	};
+	$CompoundAttribute countItemsmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*getFont", "()Ljava/awt/Font;", nullptr, $PUBLIC},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Menu, init$, void), "java.awt.HeadlessException"},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Menu, init$, void, $String*), "java.awt.HeadlessException"},
+		{"<init>", "(Ljava/lang/String;Z)V", nullptr, $PUBLIC, $method(Menu, init$, void, $String*, bool), "java.awt.HeadlessException"},
+		{"add", "(Ljava/awt/MenuItem;)Ljava/awt/MenuItem;", nullptr, $PUBLIC, $virtualMethod(Menu, add, $MenuItem*, $MenuItem*)},
+		{"add", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Menu, add, void, $String*)},
+		{"addNotify", "()V", nullptr, $PUBLIC, $virtualMethod(Menu, addNotify, void)},
+		{"addSeparator", "()V", nullptr, $PUBLIC, $virtualMethod(Menu, addSeparator, void)},
+		{"constructComponentName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(Menu, constructComponentName, $String*)},
+		{"countItems", "()I", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(Menu, countItems, int32_t), nullptr, nullptr, countItemsmethodAnnotations$$},
+		{"countItemsImpl", "()I", nullptr, $FINAL, $method(Menu, countItemsImpl, int32_t)},
+		{"deleteShortcut", "(Ljava/awt/MenuShortcut;)V", nullptr, 0, $virtualMethod(Menu, deleteShortcut, void, $MenuShortcut*)},
+		{"getAccessibleChildIndex", "(Ljava/awt/MenuComponent;)I", nullptr, 0, $virtualMethod(Menu, getAccessibleChildIndex, int32_t, $MenuComponent*)},
+		{"getAccessibleContext", "()Ljavax/accessibility/AccessibleContext;", nullptr, $PUBLIC, $virtualMethod(Menu, getAccessibleContext, $AccessibleContext*)},
+		{"getItem", "(I)Ljava/awt/MenuItem;", nullptr, $PUBLIC, $virtualMethod(Menu, getItem, $MenuItem*, int32_t)},
+		{"getItemCount", "()I", nullptr, $PUBLIC, $virtualMethod(Menu, getItemCount, int32_t)},
+		{"getItemImpl", "(I)Ljava/awt/MenuItem;", nullptr, $FINAL, $method(Menu, getItemImpl, $MenuItem*, int32_t)},
+		{"getShortcutMenuItem", "(Ljava/awt/MenuShortcut;)Ljava/awt/MenuItem;", nullptr, 0, $virtualMethod(Menu, getShortcutMenuItem, $MenuItem*, $MenuShortcut*)},
+		{"handleShortcut", "(Ljava/awt/event/KeyEvent;)Z", nullptr, 0, $virtualMethod(Menu, handleShortcut, bool, $KeyEvent*)},
+		{"initIDs", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(Menu, initIDs, void)},
+		{"insert", "(Ljava/awt/MenuItem;I)V", nullptr, $PUBLIC, $virtualMethod(Menu, insert, void, $MenuItem*, int32_t)},
+		{"insert", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $virtualMethod(Menu, insert, void, $String*, int32_t)},
+		{"insertSeparator", "(I)V", nullptr, $PUBLIC, $virtualMethod(Menu, insertSeparator, void, int32_t)},
+		{"isTearOff", "()Z", nullptr, $PUBLIC, $virtualMethod(Menu, isTearOff, bool)},
+		{"paramString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Menu, paramString, $String*)},
+		{"*postEvent", "(Ljava/awt/Event;)Z", nullptr, $PUBLIC | $DEPRECATED},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(Menu, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException,java.awt.HeadlessException"},
+		{"remove", "(I)V", nullptr, $PUBLIC, $virtualMethod(Menu, remove, void, int32_t)},
+		{"remove", "(Ljava/awt/MenuComponent;)V", nullptr, $PUBLIC, $virtualMethod(Menu, remove, void, $MenuComponent*)},
+		{"removeAll", "()V", nullptr, $PUBLIC, $virtualMethod(Menu, removeAll, void)},
+		{"removeNotify", "()V", nullptr, $PUBLIC, $virtualMethod(Menu, removeNotify, void)},
+		{"shortcuts", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/awt/MenuShortcut;>;", $SYNCHRONIZED, $virtualMethod(Menu, shortcuts, $Enumeration*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(Menu, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.awt.Menu$AccessibleAWTMenu", "java.awt.Menu", "AccessibleAWTMenu", $PROTECTED},
+		{"java.awt.Menu$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.awt.Menu",
+		"java.awt.MenuItem",
+		"java.awt.MenuContainer",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.awt.Menu$AccessibleAWTMenu,java.awt.Menu$1"
+	};
+	$loadClass(Menu, name, initialize, &classInfo$$, Menu::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Menu));
+	});
 	return class$;
 }
 

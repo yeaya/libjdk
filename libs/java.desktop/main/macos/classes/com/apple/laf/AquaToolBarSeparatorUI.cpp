@@ -1,5 +1,4 @@
 #include <com/apple/laf/AquaToolBarSeparatorUI.h>
-
 #include <com/apple/laf/AquaUtils$RecyclableSingleton.h>
 #include <com/apple/laf/AquaUtils$RecyclableSingletonFromDefaultConstructor.h>
 #include <java/awt/BasicStroke.h>
@@ -8,7 +7,6 @@
 #include <java/awt/Dimension.h>
 #include <java/awt/Graphics.h>
 #include <java/awt/Graphics2D.h>
-#include <java/awt/Stroke.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JToolBar$Separator.h>
 #include <javax/swing/SwingConstants.h>
@@ -27,7 +25,6 @@ using $BasicStroke = ::java::awt::BasicStroke;
 using $Dimension = ::java::awt::Dimension;
 using $Graphics = ::java::awt::Graphics;
 using $Graphics2D = ::java::awt::Graphics2D;
-using $Stroke = ::java::awt::Stroke;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $Float = ::java::lang::Float;
@@ -43,40 +40,11 @@ namespace com {
 	namespace apple {
 		namespace laf {
 
-$FieldInfo _AquaToolBarSeparatorUI_FieldInfo_[] = {
-	{"instance", "Lcom/apple/laf/AquaUtils$RecyclableSingleton;", "Lcom/apple/laf/AquaUtils$RecyclableSingleton<Lcom/apple/laf/AquaToolBarSeparatorUI;>;", $PRIVATE | $STATIC | $FINAL, $staticField(AquaToolBarSeparatorUI, instance)},
-	{"dashedStroke", "Ljava/awt/BasicStroke;", nullptr, 0, $field(AquaToolBarSeparatorUI, dashedStroke)},
-	{}
-};
-
-$MethodInfo _AquaToolBarSeparatorUI_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AquaToolBarSeparatorUI, init$, void)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(AquaToolBarSeparatorUI, createUI, $ComponentUI*, $JComponent*)},
-	{"getMaximumSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(AquaToolBarSeparatorUI, getMaximumSize, $Dimension*, $JComponent*)},
-	{"getMinimumSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(AquaToolBarSeparatorUI, getMinimumSize, $Dimension*, $JComponent*)},
-	{"getPreferredSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(AquaToolBarSeparatorUI, getPreferredSize, $Dimension*, $JComponent*)},
-	{"paint", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(AquaToolBarSeparatorUI, paint, void, $Graphics*, $JComponent*)},
-	{}
-};
-
-$ClassInfo _AquaToolBarSeparatorUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.apple.laf.AquaToolBarSeparatorUI",
-	"javax.swing.plaf.basic.BasicToolBarSeparatorUI",
-	nullptr,
-	_AquaToolBarSeparatorUI_FieldInfo_,
-	_AquaToolBarSeparatorUI_MethodInfo_
-};
-
-$Object* allocate$AquaToolBarSeparatorUI($Class* clazz) {
-	return $of($alloc(AquaToolBarSeparatorUI));
-}
-
 $AquaUtils$RecyclableSingleton* AquaToolBarSeparatorUI::instance = nullptr;
 
 $ComponentUI* AquaToolBarSeparatorUI::createUI($JComponent* c) {
 	$init(AquaToolBarSeparatorUI);
-	return $cast($ComponentUI, $nc(AquaToolBarSeparatorUI::instance)->get());
+	return $cast($ComponentUI, AquaToolBarSeparatorUI::instance->get());
 }
 
 void AquaToolBarSeparatorUI::init$() {
@@ -89,10 +57,10 @@ void AquaToolBarSeparatorUI::init$() {
 
 void AquaToolBarSeparatorUI::paint($Graphics* g, $JComponent* c) {
 	$nc(g)->setColor($($nc(c)->getForeground()));
-	$nc(($cast($Graphics2D, g)))->setStroke(this->dashedStroke);
-	int32_t width = $nc(c)->getWidth();
+	$cast($Graphics2D, g)->setStroke(this->dashedStroke);
+	int32_t width = c->getWidth();
 	int32_t height = c->getHeight();
-	if ($nc(($cast($JToolBar$Separator, c)))->getOrientation() == $SwingConstants::HORIZONTAL) {
+	if ($cast($JToolBar$Separator, c)->getOrientation() == $SwingConstants::HORIZONTAL) {
 		g->drawLine(2, height / 2, width - 3, height / 2);
 	} else {
 		g->drawLine(width / 2, 2, width / 2, height - 3);
@@ -123,7 +91,7 @@ $Dimension* AquaToolBarSeparatorUI::getMaximumSize($JComponent* c) {
 	return $new($Dimension, 11, $Integer::MAX_VALUE);
 }
 
-void clinit$AquaToolBarSeparatorUI($Class* class$) {
+void AquaToolBarSeparatorUI::clinit$($Class* clazz) {
 	$assignStatic(AquaToolBarSeparatorUI::instance, $new($AquaUtils$RecyclableSingletonFromDefaultConstructor, AquaToolBarSeparatorUI::class$));
 }
 
@@ -131,7 +99,31 @@ AquaToolBarSeparatorUI::AquaToolBarSeparatorUI() {
 }
 
 $Class* AquaToolBarSeparatorUI::load$($String* name, bool initialize) {
-	$loadClass(AquaToolBarSeparatorUI, name, initialize, &_AquaToolBarSeparatorUI_ClassInfo_, clinit$AquaToolBarSeparatorUI, allocate$AquaToolBarSeparatorUI);
+	$FieldInfo fieldInfos$$[] = {
+		{"instance", "Lcom/apple/laf/AquaUtils$RecyclableSingleton;", "Lcom/apple/laf/AquaUtils$RecyclableSingleton<Lcom/apple/laf/AquaToolBarSeparatorUI;>;", $PRIVATE | $STATIC | $FINAL, $staticField(AquaToolBarSeparatorUI, instance)},
+		{"dashedStroke", "Ljava/awt/BasicStroke;", nullptr, 0, $field(AquaToolBarSeparatorUI, dashedStroke)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AquaToolBarSeparatorUI, init$, void)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(AquaToolBarSeparatorUI, createUI, $ComponentUI*, $JComponent*)},
+		{"getMaximumSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(AquaToolBarSeparatorUI, getMaximumSize, $Dimension*, $JComponent*)},
+		{"getMinimumSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(AquaToolBarSeparatorUI, getMinimumSize, $Dimension*, $JComponent*)},
+		{"getPreferredSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(AquaToolBarSeparatorUI, getPreferredSize, $Dimension*, $JComponent*)},
+		{"paint", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(AquaToolBarSeparatorUI, paint, void, $Graphics*, $JComponent*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.apple.laf.AquaToolBarSeparatorUI",
+		"javax.swing.plaf.basic.BasicToolBarSeparatorUI",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(AquaToolBarSeparatorUI, name, initialize, &classInfo$$, AquaToolBarSeparatorUI::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(AquaToolBarSeparatorUI);
+	});
 	return class$;
 }
 

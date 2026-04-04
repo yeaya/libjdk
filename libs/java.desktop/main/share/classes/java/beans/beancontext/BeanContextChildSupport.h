@@ -64,7 +64,7 @@ public:
 	virtual $String* toString() override;
 	virtual bool validatePendingSetBeanContext(::java::beans::beancontext::BeanContext* newValue);
 	void writeObject(::java::io::ObjectOutputStream* oos);
-	static const int64_t serialVersionUID = (int64_t)0x57D4EFC704DC7225;
+	static const int64_t serialVersionUID = (int64_t)0x57d4efc704dc7225;
 	::java::beans::beancontext::BeanContextChild* beanContextChildPeer = nullptr;
 	::java::beans::PropertyChangeSupport* pcSupport = nullptr;
 	::java::beans::VetoableChangeSupport* vcSupport = nullptr;

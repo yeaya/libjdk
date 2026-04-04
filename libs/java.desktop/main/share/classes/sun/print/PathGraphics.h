@@ -81,6 +81,7 @@ public:
 	using ::sun::print::ProxyGraphics2D::create;
 	using ::sun::print::ProxyGraphics2D::getFontMetrics;
 	using ::sun::print::ProxyGraphics2D::getClipBounds;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::awt::Graphics2D* graphics, ::java::awt::print::PrinterJob* printerJob, ::java::awt::print::Printable* painter, ::java::awt::print::PageFormat* pageFormat, int32_t pageIndex, bool canRedraw);
 	virtual bool canDoRedraws();
 	virtual bool canDrawStringToWidth();

@@ -1,5 +1,4 @@
 #include <HeadlessJRadioButton.h>
-
 #include <HeadlessJRadioButton$1.h>
 #include <HeadlessJRadioButton$2.h>
 #include <HeadlessJRadioButton$3.h>
@@ -51,7 +50,6 @@ using $FlowLayout = ::java::awt::FlowLayout;
 using $Font = ::java::awt::Font;
 using $IllegalComponentStateException = ::java::awt::IllegalComponentStateException;
 using $Insets = ::java::awt::Insets;
-using $LayoutManager = ::java::awt::LayoutManager;
 using $Point = ::java::awt::Point;
 using $Rectangle = ::java::awt::Rectangle;
 using $Toolkit = ::java::awt::Toolkit;
@@ -62,43 +60,11 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $Locale = ::java::util::Locale;
 using $JRadioButton = ::javax::swing::JRadioButton;
 
-$MethodInfo _HeadlessJRadioButton_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(HeadlessJRadioButton, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(HeadlessJRadioButton, main, void, $StringArray*)},
-	{}
-};
-
-$InnerClassInfo _HeadlessJRadioButton_InnerClassesInfo_[] = {
-	{"HeadlessJRadioButton$3", nullptr, nullptr, 0},
-	{"HeadlessJRadioButton$2", nullptr, nullptr, 0},
-	{"HeadlessJRadioButton$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _HeadlessJRadioButton_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"HeadlessJRadioButton",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_HeadlessJRadioButton_MethodInfo_,
-	nullptr,
-	nullptr,
-	_HeadlessJRadioButton_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"HeadlessJRadioButton$3,HeadlessJRadioButton$2,HeadlessJRadioButton$1"
-};
-
-$Object* allocate$HeadlessJRadioButton($Class* clazz) {
-	return $of($alloc(HeadlessJRadioButton));
-}
-
 void HeadlessJRadioButton::init$() {
 }
 
 void HeadlessJRadioButton::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JRadioButton, rb, $new($JRadioButton));
 	rb->getAccessibleContext();
 	rb->isFocusTraversable();
@@ -110,9 +76,9 @@ void HeadlessJRadioButton::main($StringArray* args) {
 	rb->getMaximumSize();
 	rb->getMinimumSize();
 	rb->contains(1, 2);
-	$var($Component, c1, rb->add(static_cast<$Component*>($$new($HeadlessJRadioButton$1))));
-	$var($Component, c2, rb->add(static_cast<$Component*>($$new($HeadlessJRadioButton$2))));
-	$var($Component, c3, rb->add(static_cast<$Component*>($$new($HeadlessJRadioButton$3))));
+	$var($Component, c1, rb->add($$new($HeadlessJRadioButton$1)));
+	$var($Component, c2, rb->add($$new($HeadlessJRadioButton$2)));
+	$var($Component, c3, rb->add($$new($HeadlessJRadioButton$3)));
 	$var($Insets, ins, rb->getInsets());
 	rb->getAlignmentY();
 	rb->getAlignmentX();
@@ -123,26 +89,22 @@ void HeadlessJRadioButton::main($StringArray* args) {
 	rb->setForeground($Color::red);
 	rb->setBackground($Color::red);
 	{
-		$var($StringArray, arr$, $nc($($Toolkit::getDefaultToolkit()))->getFontList());
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		$var($StringArray, arr$, $$nc($Toolkit::getDefaultToolkit())->getFontList());
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($String, font, arr$->get(i$));
-			{
-				for (int32_t j = 8; j < 17; ++j) {
-					$var($Font, f1, $new($Font, font, $Font::PLAIN, j));
-					$var($Font, f2, $new($Font, font, $Font::BOLD, j));
-					$var($Font, f3, $new($Font, font, $Font::ITALIC, j));
-					$var($Font, f4, $new($Font, font, $Font::BOLD | $Font::ITALIC, j));
-					rb->setFont(f1);
-					rb->setFont(f2);
-					rb->setFont(f3);
-					rb->setFont(f4);
-					rb->getFontMetrics(f1);
-					rb->getFontMetrics(f2);
-					rb->getFontMetrics(f3);
-					rb->getFontMetrics(f4);
-				}
+			for (int32_t j = 8; j < 17; ++j) {
+				$var($Font, f1, $new($Font, font, $Font::PLAIN, j));
+				$var($Font, f2, $new($Font, font, $Font::BOLD, j));
+				$var($Font, f3, $new($Font, font, $Font::ITALIC, j));
+				$var($Font, f4, $new($Font, font, $Font::BOLD | $Font::ITALIC, j));
+				rb->setFont(f1);
+				rb->setFont(f2);
+				rb->setFont(f3);
+				rb->setFont(f4);
+				rb->getFontMetrics(f1);
+				rb->getFontMetrics(f2);
+				rb->getFontMetrics(f3);
+				rb->getFontMetrics(f4);
 			}
 		}
 	}
@@ -207,13 +169,11 @@ void HeadlessJRadioButton::main($StringArray* args) {
 	rb->getFont();
 	rb->isFontSet();
 	$var($Container, c, $new($Container));
-	c->add(static_cast<$Component*>(rb));
+	c->add(rb);
 	rb->getLocale();
 	{
 		$var($LocaleArray, arr$, $Locale::getAvailableLocales());
-		int32_t len$ = arr$->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($Locale, locale, arr$->get(i$));
 			rb->setLocale(locale);
 		}
@@ -270,7 +230,34 @@ HeadlessJRadioButton::HeadlessJRadioButton() {
 }
 
 $Class* HeadlessJRadioButton::load$($String* name, bool initialize) {
-	$loadClass(HeadlessJRadioButton, name, initialize, &_HeadlessJRadioButton_ClassInfo_, allocate$HeadlessJRadioButton);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(HeadlessJRadioButton, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(HeadlessJRadioButton, main, void, $StringArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"HeadlessJRadioButton$3", nullptr, nullptr, 0},
+		{"HeadlessJRadioButton$2", nullptr, nullptr, 0},
+		{"HeadlessJRadioButton$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"HeadlessJRadioButton",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"HeadlessJRadioButton$3,HeadlessJRadioButton$2,HeadlessJRadioButton$1"
+	};
+	$loadClass(HeadlessJRadioButton, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HeadlessJRadioButton);
+	});
 	return class$;
 }
 

@@ -128,7 +128,7 @@ public:
 	virtual $String* toString() override;
 	virtual void warn(::com::sun::org::apache::xpath::internal::XPathContext* xctxt, $String* msg, $ObjectArray* args);
 	virtual ::com::sun::org::apache::xml::internal::utils::XMLString* xstr(::com::sun::org::apache::xpath::internal::XPathContext* xctxt);
-	static const int64_t serialVersionUID = (int64_t)0x07D9A61C8DACACD6;
+	static const int64_t serialVersionUID = (int64_t)0x07d9a61c8dacacd6;
 	::com::sun::org::apache::xpath::internal::ExpressionNode* m_parent = nullptr;
 };
 

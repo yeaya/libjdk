@@ -23,6 +23,7 @@ class $export MatchingUtils : public ::java::lang::Object {
 	$class(MatchingUtils, 0, ::java::lang::Object)
 public:
 	MatchingUtils();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static bool isValidImportString($String* s);
 	static ::java::util::regex::Pattern* validImportStringToPattern($String* s);

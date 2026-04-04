@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/api/ClientCodeWrapper$WrappedStandardJavaFileManager.h>
-
 #include <com/sun/tools/javac/api/ClientCodeWrapper$WrappedJavaFileManager.h>
 #include <com/sun/tools/javac/api/ClientCodeWrapper.h>
 #include <com/sun/tools/javac/util/ClientCodeException.h>
@@ -26,7 +25,6 @@ using $PathArray = $Array<::java::nio::file::Path>;
 using $ClientCodeWrapper = ::com::sun::tools::javac::api::ClientCodeWrapper;
 using $ClientCodeWrapper$WrappedJavaFileManager = ::com::sun::tools::javac::api::ClientCodeWrapper$WrappedJavaFileManager;
 using $ClientCodeException = ::com::sun::tools::javac::util::ClientCodeException;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $ClassLoader = ::java::lang::ClassLoader;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
@@ -43,7 +41,6 @@ using $Iterator = ::java::util::Iterator;
 using $ServiceLoader = ::java::util::ServiceLoader;
 using $Set = ::java::util::Set;
 using $FileObject = ::javax::tools::FileObject;
-using $JavaFileManager = ::javax::tools::JavaFileManager;
 using $JavaFileManager$Location = ::javax::tools::JavaFileManager$Location;
 using $JavaFileObject = ::javax::tools::JavaFileObject;
 using $JavaFileObject$Kind = ::javax::tools::JavaFileObject$Kind;
@@ -55,90 +52,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace api {
-
-$NamedAttribute ClientCodeWrapper$WrappedStandardJavaFileManager_Attribute_var$0[] = {
-	{"since", 's', "13"},
-	{}
-};
-
-$CompoundAttribute _ClientCodeWrapper$WrappedStandardJavaFileManager_MethodAnnotations_getJavaFileObjectsFromPaths7[] = {
-	{"Ljava/lang/Deprecated;", ClientCodeWrapper$WrappedStandardJavaFileManager_Attribute_var$0},
-	{}
-};
-
-$FieldInfo _ClientCodeWrapper$WrappedStandardJavaFileManager_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/api/ClientCodeWrapper;", nullptr, $FINAL | $SYNTHETIC, $field(ClientCodeWrapper$WrappedStandardJavaFileManager, this$0)},
-	{}
-};
-
-$MethodInfo _ClientCodeWrapper$WrappedStandardJavaFileManager_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*close", "()V", nullptr, $PUBLIC},
-	{"*contains", "(Ljavax/tools/JavaFileManager$Location;Ljavax/tools/FileObject;)Z", nullptr, $PUBLIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*flush", "()V", nullptr, $PUBLIC},
-	{"*getClassLoader", "(Ljavax/tools/JavaFileManager$Location;)Ljava/lang/ClassLoader;", nullptr, $PUBLIC},
-	{"*getFileForInput", "(Ljavax/tools/JavaFileManager$Location;Ljava/lang/String;Ljava/lang/String;)Ljavax/tools/FileObject;", nullptr, $PUBLIC},
-	{"*getFileForOutput", "(Ljavax/tools/JavaFileManager$Location;Ljava/lang/String;Ljava/lang/String;Ljavax/tools/FileObject;)Ljavax/tools/FileObject;", nullptr, $PUBLIC},
-	{"*getJavaFileForInput", "(Ljavax/tools/JavaFileManager$Location;Ljava/lang/String;Ljavax/tools/JavaFileObject$Kind;)Ljavax/tools/JavaFileObject;", nullptr, $PUBLIC},
-	{"*getJavaFileForOutput", "(Ljavax/tools/JavaFileManager$Location;Ljava/lang/String;Ljavax/tools/JavaFileObject$Kind;Ljavax/tools/FileObject;)Ljavax/tools/JavaFileObject;", nullptr, $PUBLIC},
-	{"*getLocationForModule", "(Ljavax/tools/JavaFileManager$Location;Ljava/lang/String;)Ljavax/tools/JavaFileManager$Location;", nullptr, $PUBLIC},
-	{"*getLocationForModule", "(Ljavax/tools/JavaFileManager$Location;Ljavax/tools/JavaFileObject;)Ljavax/tools/JavaFileManager$Location;", nullptr, $PUBLIC},
-	{"*getServiceLoader", "(Ljavax/tools/JavaFileManager$Location;Ljava/lang/Class;)Ljava/util/ServiceLoader;", nullptr, $PUBLIC},
-	{"*handleOption", "(Ljava/lang/String;Ljava/util/Iterator;)Z", nullptr, $PUBLIC},
-	{"*hasLocation", "(Ljavax/tools/JavaFileManager$Location;)Z", nullptr, $PUBLIC},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"*inferBinaryName", "(Ljavax/tools/JavaFileManager$Location;Ljavax/tools/JavaFileObject;)Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*inferModuleName", "(Ljavax/tools/JavaFileManager$Location;)Ljava/lang/String;", nullptr, $PUBLIC},
-	{"<init>", "(Lcom/sun/tools/javac/api/ClientCodeWrapper;Ljavax/tools/StandardJavaFileManager;)V", nullptr, 0, $method(ClientCodeWrapper$WrappedStandardJavaFileManager, init$, void, $ClientCodeWrapper*, $StandardJavaFileManager*)},
-	{"asPath", "(Ljavax/tools/FileObject;)Ljava/nio/file/Path;", nullptr, $PUBLIC, $virtualMethod(ClientCodeWrapper$WrappedStandardJavaFileManager, asPath, $Path*, $FileObject*)},
-	{"getJavaFileObjects", "([Ljava/io/File;)Ljava/lang/Iterable;", "([Ljava/io/File;)Ljava/lang/Iterable<+Ljavax/tools/JavaFileObject;>;", $PUBLIC | $TRANSIENT, $virtualMethod(ClientCodeWrapper$WrappedStandardJavaFileManager, getJavaFileObjects, $Iterable*, $FileArray*)},
-	{"getJavaFileObjects", "([Ljava/nio/file/Path;)Ljava/lang/Iterable;", "([Ljava/nio/file/Path;)Ljava/lang/Iterable<+Ljavax/tools/JavaFileObject;>;", $PUBLIC | $TRANSIENT, $virtualMethod(ClientCodeWrapper$WrappedStandardJavaFileManager, getJavaFileObjects, $Iterable*, $PathArray*)},
-	{"getJavaFileObjects", "([Ljava/lang/String;)Ljava/lang/Iterable;", "([Ljava/lang/String;)Ljava/lang/Iterable<+Ljavax/tools/JavaFileObject;>;", $PUBLIC | $TRANSIENT, $virtualMethod(ClientCodeWrapper$WrappedStandardJavaFileManager, getJavaFileObjects, $Iterable*, $StringArray*)},
-	{"getJavaFileObjectsFromFiles", "(Ljava/lang/Iterable;)Ljava/lang/Iterable;", "(Ljava/lang/Iterable<+Ljava/io/File;>;)Ljava/lang/Iterable<+Ljavax/tools/JavaFileObject;>;", $PUBLIC, $virtualMethod(ClientCodeWrapper$WrappedStandardJavaFileManager, getJavaFileObjectsFromFiles, $Iterable*, $Iterable*)},
-	{"getJavaFileObjectsFromPaths", "(Ljava/util/Collection;)Ljava/lang/Iterable;", "(Ljava/util/Collection<+Ljava/nio/file/Path;>;)Ljava/lang/Iterable<+Ljavax/tools/JavaFileObject;>;", $PUBLIC, $virtualMethod(ClientCodeWrapper$WrappedStandardJavaFileManager, getJavaFileObjectsFromPaths, $Iterable*, $Collection*)},
-	{"getJavaFileObjectsFromPaths", "(Ljava/lang/Iterable;)Ljava/lang/Iterable;", "(Ljava/lang/Iterable<+Ljava/nio/file/Path;>;)Ljava/lang/Iterable<+Ljavax/tools/JavaFileObject;>;", $PUBLIC | $DEPRECATED, $virtualMethod(ClientCodeWrapper$WrappedStandardJavaFileManager, getJavaFileObjectsFromPaths, $Iterable*, $Iterable*), nullptr, nullptr, _ClientCodeWrapper$WrappedStandardJavaFileManager_MethodAnnotations_getJavaFileObjectsFromPaths7},
-	{"getJavaFileObjectsFromStrings", "(Ljava/lang/Iterable;)Ljava/lang/Iterable;", "(Ljava/lang/Iterable<Ljava/lang/String;>;)Ljava/lang/Iterable<+Ljavax/tools/JavaFileObject;>;", $PUBLIC, $virtualMethod(ClientCodeWrapper$WrappedStandardJavaFileManager, getJavaFileObjectsFromStrings, $Iterable*, $Iterable*)},
-	{"getLocation", "(Ljavax/tools/JavaFileManager$Location;)Ljava/lang/Iterable;", "(Ljavax/tools/JavaFileManager$Location;)Ljava/lang/Iterable<+Ljava/io/File;>;", $PUBLIC, $virtualMethod(ClientCodeWrapper$WrappedStandardJavaFileManager, getLocation, $Iterable*, $JavaFileManager$Location*)},
-	{"getLocationAsPaths", "(Ljavax/tools/JavaFileManager$Location;)Ljava/lang/Iterable;", "(Ljavax/tools/JavaFileManager$Location;)Ljava/lang/Iterable<+Ljava/nio/file/Path;>;", $PUBLIC, $virtualMethod(ClientCodeWrapper$WrappedStandardJavaFileManager, getLocationAsPaths, $Iterable*, $JavaFileManager$Location*)},
-	{"*isSameFile", "(Ljavax/tools/FileObject;Ljavax/tools/FileObject;)Z", nullptr, $PUBLIC},
-	{"*isSupportedOption", "(Ljava/lang/String;)I", nullptr, $PUBLIC},
-	{"*list", "(Ljavax/tools/JavaFileManager$Location;Ljava/lang/String;Ljava/util/Set;Z)Ljava/lang/Iterable;", nullptr, $PUBLIC},
-	{"*listLocationsForModules", "(Ljavax/tools/JavaFileManager$Location;)Ljava/lang/Iterable;", nullptr, $PUBLIC},
-	{"setLocation", "(Ljavax/tools/JavaFileManager$Location;Ljava/lang/Iterable;)V", "(Ljavax/tools/JavaFileManager$Location;Ljava/lang/Iterable<+Ljava/io/File;>;)V", $PUBLIC, $virtualMethod(ClientCodeWrapper$WrappedStandardJavaFileManager, setLocation, void, $JavaFileManager$Location*, $Iterable*), "java.io.IOException"},
-	{"setLocationForModule", "(Ljavax/tools/JavaFileManager$Location;Ljava/lang/String;Ljava/util/Collection;)V", "(Ljavax/tools/JavaFileManager$Location;Ljava/lang/String;Ljava/util/Collection<+Ljava/nio/file/Path;>;)V", $PUBLIC, $virtualMethod(ClientCodeWrapper$WrappedStandardJavaFileManager, setLocationForModule, void, $JavaFileManager$Location*, $String*, $Collection*), "java.io.IOException"},
-	{"setLocationFromPaths", "(Ljavax/tools/JavaFileManager$Location;Ljava/util/Collection;)V", "(Ljavax/tools/JavaFileManager$Location;Ljava/util/Collection<+Ljava/nio/file/Path;>;)V", $PUBLIC, $virtualMethod(ClientCodeWrapper$WrappedStandardJavaFileManager, setLocationFromPaths, void, $JavaFileManager$Location*, $Collection*), "java.io.IOException"},
-	{"setPathFactory", "(Ljavax/tools/StandardJavaFileManager$PathFactory;)V", nullptr, $PUBLIC, $virtualMethod(ClientCodeWrapper$WrappedStandardJavaFileManager, setPathFactory, void, $StandardJavaFileManager$PathFactory*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _ClientCodeWrapper$WrappedStandardJavaFileManager_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.api.ClientCodeWrapper$WrappedStandardJavaFileManager", "com.sun.tools.javac.api.ClientCodeWrapper", "WrappedStandardJavaFileManager", $PROTECTED},
-	{"com.sun.tools.javac.api.ClientCodeWrapper$WrappedJavaFileManager", "com.sun.tools.javac.api.ClientCodeWrapper", "WrappedJavaFileManager", $PROTECTED},
-	{}
-};
-
-$ClassInfo _ClientCodeWrapper$WrappedStandardJavaFileManager_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.api.ClientCodeWrapper$WrappedStandardJavaFileManager",
-	"com.sun.tools.javac.api.ClientCodeWrapper$WrappedJavaFileManager",
-	"javax.tools.StandardJavaFileManager",
-	_ClientCodeWrapper$WrappedStandardJavaFileManager_FieldInfo_,
-	_ClientCodeWrapper$WrappedStandardJavaFileManager_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ClientCodeWrapper$WrappedStandardJavaFileManager_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.api.ClientCodeWrapper"
-};
-
-$Object* allocate$ClientCodeWrapper$WrappedStandardJavaFileManager($Class* clazz) {
-	return $of($alloc(ClientCodeWrapper$WrappedStandardJavaFileManager));
-}
 
 $ClassLoader* ClientCodeWrapper$WrappedStandardJavaFileManager::getClassLoader($JavaFileManager$Location* location) {
 	 return this->$ClientCodeWrapper$WrappedJavaFileManager::getClassLoader(location);
@@ -243,7 +156,7 @@ void ClientCodeWrapper$WrappedStandardJavaFileManager::init$($ClientCodeWrapper*
 
 $Iterable* ClientCodeWrapper$WrappedStandardJavaFileManager::getJavaFileObjectsFromFiles($Iterable* files) {
 	try {
-		return $nc(($cast($StandardJavaFileManager, this->clientJavaFileManager)))->getJavaFileObjectsFromFiles(files);
+		return $nc($cast($StandardJavaFileManager, this->clientJavaFileManager))->getJavaFileObjectsFromFiles(files);
 	} catch ($ClientCodeException& e) {
 		$throw(e);
 	} catch ($RuntimeException& e) {
@@ -256,7 +169,7 @@ $Iterable* ClientCodeWrapper$WrappedStandardJavaFileManager::getJavaFileObjectsF
 
 $Iterable* ClientCodeWrapper$WrappedStandardJavaFileManager::getJavaFileObjectsFromPaths($Collection* paths) {
 	try {
-		return $nc(($cast($StandardJavaFileManager, this->clientJavaFileManager)))->getJavaFileObjectsFromPaths(paths);
+		return $nc($cast($StandardJavaFileManager, this->clientJavaFileManager))->getJavaFileObjectsFromPaths(paths);
 	} catch ($ClientCodeException& e) {
 		$throw(e);
 	} catch ($RuntimeException& e) {
@@ -269,7 +182,7 @@ $Iterable* ClientCodeWrapper$WrappedStandardJavaFileManager::getJavaFileObjectsF
 
 $Iterable* ClientCodeWrapper$WrappedStandardJavaFileManager::getJavaFileObjectsFromPaths($Iterable* paths) {
 	try {
-		return $nc(($cast($StandardJavaFileManager, this->clientJavaFileManager)))->getJavaFileObjectsFromPaths(paths);
+		return $nc($cast($StandardJavaFileManager, this->clientJavaFileManager))->getJavaFileObjectsFromPaths(paths);
 	} catch ($ClientCodeException& e) {
 		$throw(e);
 	} catch ($RuntimeException& e) {
@@ -282,7 +195,7 @@ $Iterable* ClientCodeWrapper$WrappedStandardJavaFileManager::getJavaFileObjectsF
 
 $Iterable* ClientCodeWrapper$WrappedStandardJavaFileManager::getJavaFileObjects($FileArray* files) {
 	try {
-		return $nc(($cast($StandardJavaFileManager, this->clientJavaFileManager)))->getJavaFileObjects(files);
+		return $nc($cast($StandardJavaFileManager, this->clientJavaFileManager))->getJavaFileObjects(files);
 	} catch ($ClientCodeException& e) {
 		$throw(e);
 	} catch ($RuntimeException& e) {
@@ -295,7 +208,7 @@ $Iterable* ClientCodeWrapper$WrappedStandardJavaFileManager::getJavaFileObjects(
 
 $Iterable* ClientCodeWrapper$WrappedStandardJavaFileManager::getJavaFileObjects($PathArray* paths) {
 	try {
-		return $nc(($cast($StandardJavaFileManager, this->clientJavaFileManager)))->getJavaFileObjects(paths);
+		return $nc($cast($StandardJavaFileManager, this->clientJavaFileManager))->getJavaFileObjects(paths);
 	} catch ($ClientCodeException& e) {
 		$throw(e);
 	} catch ($RuntimeException& e) {
@@ -308,7 +221,7 @@ $Iterable* ClientCodeWrapper$WrappedStandardJavaFileManager::getJavaFileObjects(
 
 $Iterable* ClientCodeWrapper$WrappedStandardJavaFileManager::getJavaFileObjectsFromStrings($Iterable* names) {
 	try {
-		return $nc(($cast($StandardJavaFileManager, this->clientJavaFileManager)))->getJavaFileObjectsFromStrings(names);
+		return $nc($cast($StandardJavaFileManager, this->clientJavaFileManager))->getJavaFileObjectsFromStrings(names);
 	} catch ($ClientCodeException& e) {
 		$throw(e);
 	} catch ($RuntimeException& e) {
@@ -321,7 +234,7 @@ $Iterable* ClientCodeWrapper$WrappedStandardJavaFileManager::getJavaFileObjectsF
 
 $Iterable* ClientCodeWrapper$WrappedStandardJavaFileManager::getJavaFileObjects($StringArray* names) {
 	try {
-		return $nc(($cast($StandardJavaFileManager, this->clientJavaFileManager)))->getJavaFileObjects(names);
+		return $nc($cast($StandardJavaFileManager, this->clientJavaFileManager))->getJavaFileObjects(names);
 	} catch ($ClientCodeException& e) {
 		$throw(e);
 	} catch ($RuntimeException& e) {
@@ -334,7 +247,7 @@ $Iterable* ClientCodeWrapper$WrappedStandardJavaFileManager::getJavaFileObjects(
 
 void ClientCodeWrapper$WrappedStandardJavaFileManager::setLocation($JavaFileManager$Location* location, $Iterable* files) {
 	try {
-		$nc(($cast($StandardJavaFileManager, this->clientJavaFileManager)))->setLocation(location, files);
+		$nc($cast($StandardJavaFileManager, this->clientJavaFileManager))->setLocation(location, files);
 	} catch ($ClientCodeException& e) {
 		$throw(e);
 	} catch ($RuntimeException& e) {
@@ -346,7 +259,7 @@ void ClientCodeWrapper$WrappedStandardJavaFileManager::setLocation($JavaFileMana
 
 void ClientCodeWrapper$WrappedStandardJavaFileManager::setLocationFromPaths($JavaFileManager$Location* location, $Collection* paths) {
 	try {
-		$nc(($cast($StandardJavaFileManager, this->clientJavaFileManager)))->setLocationFromPaths(location, paths);
+		$nc($cast($StandardJavaFileManager, this->clientJavaFileManager))->setLocationFromPaths(location, paths);
 	} catch ($ClientCodeException& e) {
 		$throw(e);
 	} catch ($RuntimeException& e) {
@@ -358,7 +271,7 @@ void ClientCodeWrapper$WrappedStandardJavaFileManager::setLocationFromPaths($Jav
 
 $Iterable* ClientCodeWrapper$WrappedStandardJavaFileManager::getLocation($JavaFileManager$Location* location) {
 	try {
-		return $nc(($cast($StandardJavaFileManager, this->clientJavaFileManager)))->getLocation(location);
+		return $nc($cast($StandardJavaFileManager, this->clientJavaFileManager))->getLocation(location);
 	} catch ($ClientCodeException& e) {
 		$throw(e);
 	} catch ($RuntimeException& e) {
@@ -371,7 +284,7 @@ $Iterable* ClientCodeWrapper$WrappedStandardJavaFileManager::getLocation($JavaFi
 
 $Iterable* ClientCodeWrapper$WrappedStandardJavaFileManager::getLocationAsPaths($JavaFileManager$Location* location) {
 	try {
-		return $nc(($cast($StandardJavaFileManager, this->clientJavaFileManager)))->getLocationAsPaths(location);
+		return $nc($cast($StandardJavaFileManager, this->clientJavaFileManager))->getLocationAsPaths(location);
 	} catch ($ClientCodeException& e) {
 		$throw(e);
 	} catch ($RuntimeException& e) {
@@ -384,7 +297,7 @@ $Iterable* ClientCodeWrapper$WrappedStandardJavaFileManager::getLocationAsPaths(
 
 $Path* ClientCodeWrapper$WrappedStandardJavaFileManager::asPath($FileObject* file) {
 	try {
-		return $nc(($cast($StandardJavaFileManager, this->clientJavaFileManager)))->asPath(file);
+		return $nc($cast($StandardJavaFileManager, this->clientJavaFileManager))->asPath(file);
 	} catch ($ClientCodeException& e) {
 		$throw(e);
 	} catch ($RuntimeException& e) {
@@ -397,7 +310,7 @@ $Path* ClientCodeWrapper$WrappedStandardJavaFileManager::asPath($FileObject* fil
 
 void ClientCodeWrapper$WrappedStandardJavaFileManager::setPathFactory($StandardJavaFileManager$PathFactory* f) {
 	try {
-		$nc(($cast($StandardJavaFileManager, this->clientJavaFileManager)))->setPathFactory(f);
+		$nc($cast($StandardJavaFileManager, this->clientJavaFileManager))->setPathFactory(f);
 	} catch ($ClientCodeException& e) {
 		$throw(e);
 	} catch ($RuntimeException& e) {
@@ -410,7 +323,7 @@ void ClientCodeWrapper$WrappedStandardJavaFileManager::setPathFactory($StandardJ
 void ClientCodeWrapper$WrappedStandardJavaFileManager::setLocationForModule($JavaFileManager$Location* location, $String* moduleName, $Collection* paths) {
 	try {
 		$nc($System::out)->println("invoking wrapped setLocationForModule"_s);
-		$nc(($cast($StandardJavaFileManager, this->clientJavaFileManager)))->setLocationForModule(location, moduleName, paths);
+		$nc($cast($StandardJavaFileManager, this->clientJavaFileManager))->setLocationForModule(location, moduleName, paths);
 	} catch ($ClientCodeException& e) {
 		$throw(e);
 	} catch ($RuntimeException& e) {
@@ -424,7 +337,83 @@ ClientCodeWrapper$WrappedStandardJavaFileManager::ClientCodeWrapper$WrappedStand
 }
 
 $Class* ClientCodeWrapper$WrappedStandardJavaFileManager::load$($String* name, bool initialize) {
-	$loadClass(ClientCodeWrapper$WrappedStandardJavaFileManager, name, initialize, &_ClientCodeWrapper$WrappedStandardJavaFileManager_ClassInfo_, allocate$ClientCodeWrapper$WrappedStandardJavaFileManager);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/api/ClientCodeWrapper;", nullptr, $FINAL | $SYNTHETIC, $field(ClientCodeWrapper$WrappedStandardJavaFileManager, this$0)},
+		{}
+	};
+	$NamedAttribute getJavaFileObjectsFromPathsmethodAnnotations$$$1$namedAttribute[] = {
+		{"since", 's', "13"},
+		{}
+	};
+	$CompoundAttribute getJavaFileObjectsFromPathsmethodAnnotations$$$1[] = {
+		{"Ljava/lang/Deprecated;", getJavaFileObjectsFromPathsmethodAnnotations$$$1$namedAttribute},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*close", "()V", nullptr, $PUBLIC},
+		{"*contains", "(Ljavax/tools/JavaFileManager$Location;Ljavax/tools/FileObject;)Z", nullptr, $PUBLIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*flush", "()V", nullptr, $PUBLIC},
+		{"*getClassLoader", "(Ljavax/tools/JavaFileManager$Location;)Ljava/lang/ClassLoader;", nullptr, $PUBLIC},
+		{"*getFileForInput", "(Ljavax/tools/JavaFileManager$Location;Ljava/lang/String;Ljava/lang/String;)Ljavax/tools/FileObject;", nullptr, $PUBLIC},
+		{"*getFileForOutput", "(Ljavax/tools/JavaFileManager$Location;Ljava/lang/String;Ljava/lang/String;Ljavax/tools/FileObject;)Ljavax/tools/FileObject;", nullptr, $PUBLIC},
+		{"*getJavaFileForInput", "(Ljavax/tools/JavaFileManager$Location;Ljava/lang/String;Ljavax/tools/JavaFileObject$Kind;)Ljavax/tools/JavaFileObject;", nullptr, $PUBLIC},
+		{"*getJavaFileForOutput", "(Ljavax/tools/JavaFileManager$Location;Ljava/lang/String;Ljavax/tools/JavaFileObject$Kind;Ljavax/tools/FileObject;)Ljavax/tools/JavaFileObject;", nullptr, $PUBLIC},
+		{"*getLocationForModule", "(Ljavax/tools/JavaFileManager$Location;Ljava/lang/String;)Ljavax/tools/JavaFileManager$Location;", nullptr, $PUBLIC},
+		{"*getLocationForModule", "(Ljavax/tools/JavaFileManager$Location;Ljavax/tools/JavaFileObject;)Ljavax/tools/JavaFileManager$Location;", nullptr, $PUBLIC},
+		{"*getServiceLoader", "(Ljavax/tools/JavaFileManager$Location;Ljava/lang/Class;)Ljava/util/ServiceLoader;", nullptr, $PUBLIC},
+		{"*handleOption", "(Ljava/lang/String;Ljava/util/Iterator;)Z", nullptr, $PUBLIC},
+		{"*hasLocation", "(Ljavax/tools/JavaFileManager$Location;)Z", nullptr, $PUBLIC},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"*inferBinaryName", "(Ljavax/tools/JavaFileManager$Location;Ljavax/tools/JavaFileObject;)Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*inferModuleName", "(Ljavax/tools/JavaFileManager$Location;)Ljava/lang/String;", nullptr, $PUBLIC},
+		{"<init>", "(Lcom/sun/tools/javac/api/ClientCodeWrapper;Ljavax/tools/StandardJavaFileManager;)V", nullptr, 0, $method(ClientCodeWrapper$WrappedStandardJavaFileManager, init$, void, $ClientCodeWrapper*, $StandardJavaFileManager*)},
+		{"asPath", "(Ljavax/tools/FileObject;)Ljava/nio/file/Path;", nullptr, $PUBLIC, $virtualMethod(ClientCodeWrapper$WrappedStandardJavaFileManager, asPath, $Path*, $FileObject*)},
+		{"getJavaFileObjects", "([Ljava/io/File;)Ljava/lang/Iterable;", "([Ljava/io/File;)Ljava/lang/Iterable<+Ljavax/tools/JavaFileObject;>;", $PUBLIC | $TRANSIENT, $virtualMethod(ClientCodeWrapper$WrappedStandardJavaFileManager, getJavaFileObjects, $Iterable*, $FileArray*)},
+		{"getJavaFileObjects", "([Ljava/nio/file/Path;)Ljava/lang/Iterable;", "([Ljava/nio/file/Path;)Ljava/lang/Iterable<+Ljavax/tools/JavaFileObject;>;", $PUBLIC | $TRANSIENT, $virtualMethod(ClientCodeWrapper$WrappedStandardJavaFileManager, getJavaFileObjects, $Iterable*, $PathArray*)},
+		{"getJavaFileObjects", "([Ljava/lang/String;)Ljava/lang/Iterable;", "([Ljava/lang/String;)Ljava/lang/Iterable<+Ljavax/tools/JavaFileObject;>;", $PUBLIC | $TRANSIENT, $virtualMethod(ClientCodeWrapper$WrappedStandardJavaFileManager, getJavaFileObjects, $Iterable*, $StringArray*)},
+		{"getJavaFileObjectsFromFiles", "(Ljava/lang/Iterable;)Ljava/lang/Iterable;", "(Ljava/lang/Iterable<+Ljava/io/File;>;)Ljava/lang/Iterable<+Ljavax/tools/JavaFileObject;>;", $PUBLIC, $virtualMethod(ClientCodeWrapper$WrappedStandardJavaFileManager, getJavaFileObjectsFromFiles, $Iterable*, $Iterable*)},
+		{"getJavaFileObjectsFromPaths", "(Ljava/util/Collection;)Ljava/lang/Iterable;", "(Ljava/util/Collection<+Ljava/nio/file/Path;>;)Ljava/lang/Iterable<+Ljavax/tools/JavaFileObject;>;", $PUBLIC, $virtualMethod(ClientCodeWrapper$WrappedStandardJavaFileManager, getJavaFileObjectsFromPaths, $Iterable*, $Collection*)},
+		{"getJavaFileObjectsFromPaths", "(Ljava/lang/Iterable;)Ljava/lang/Iterable;", "(Ljava/lang/Iterable<+Ljava/nio/file/Path;>;)Ljava/lang/Iterable<+Ljavax/tools/JavaFileObject;>;", $PUBLIC | $DEPRECATED, $virtualMethod(ClientCodeWrapper$WrappedStandardJavaFileManager, getJavaFileObjectsFromPaths, $Iterable*, $Iterable*), nullptr, nullptr, getJavaFileObjectsFromPathsmethodAnnotations$$$1},
+		{"getJavaFileObjectsFromStrings", "(Ljava/lang/Iterable;)Ljava/lang/Iterable;", "(Ljava/lang/Iterable<Ljava/lang/String;>;)Ljava/lang/Iterable<+Ljavax/tools/JavaFileObject;>;", $PUBLIC, $virtualMethod(ClientCodeWrapper$WrappedStandardJavaFileManager, getJavaFileObjectsFromStrings, $Iterable*, $Iterable*)},
+		{"getLocation", "(Ljavax/tools/JavaFileManager$Location;)Ljava/lang/Iterable;", "(Ljavax/tools/JavaFileManager$Location;)Ljava/lang/Iterable<+Ljava/io/File;>;", $PUBLIC, $virtualMethod(ClientCodeWrapper$WrappedStandardJavaFileManager, getLocation, $Iterable*, $JavaFileManager$Location*)},
+		{"getLocationAsPaths", "(Ljavax/tools/JavaFileManager$Location;)Ljava/lang/Iterable;", "(Ljavax/tools/JavaFileManager$Location;)Ljava/lang/Iterable<+Ljava/nio/file/Path;>;", $PUBLIC, $virtualMethod(ClientCodeWrapper$WrappedStandardJavaFileManager, getLocationAsPaths, $Iterable*, $JavaFileManager$Location*)},
+		{"*isSameFile", "(Ljavax/tools/FileObject;Ljavax/tools/FileObject;)Z", nullptr, $PUBLIC},
+		{"*isSupportedOption", "(Ljava/lang/String;)I", nullptr, $PUBLIC},
+		{"*list", "(Ljavax/tools/JavaFileManager$Location;Ljava/lang/String;Ljava/util/Set;Z)Ljava/lang/Iterable;", nullptr, $PUBLIC},
+		{"*listLocationsForModules", "(Ljavax/tools/JavaFileManager$Location;)Ljava/lang/Iterable;", nullptr, $PUBLIC},
+		{"setLocation", "(Ljavax/tools/JavaFileManager$Location;Ljava/lang/Iterable;)V", "(Ljavax/tools/JavaFileManager$Location;Ljava/lang/Iterable<+Ljava/io/File;>;)V", $PUBLIC, $virtualMethod(ClientCodeWrapper$WrappedStandardJavaFileManager, setLocation, void, $JavaFileManager$Location*, $Iterable*), "java.io.IOException"},
+		{"setLocationForModule", "(Ljavax/tools/JavaFileManager$Location;Ljava/lang/String;Ljava/util/Collection;)V", "(Ljavax/tools/JavaFileManager$Location;Ljava/lang/String;Ljava/util/Collection<+Ljava/nio/file/Path;>;)V", $PUBLIC, $virtualMethod(ClientCodeWrapper$WrappedStandardJavaFileManager, setLocationForModule, void, $JavaFileManager$Location*, $String*, $Collection*), "java.io.IOException"},
+		{"setLocationFromPaths", "(Ljavax/tools/JavaFileManager$Location;Ljava/util/Collection;)V", "(Ljavax/tools/JavaFileManager$Location;Ljava/util/Collection<+Ljava/nio/file/Path;>;)V", $PUBLIC, $virtualMethod(ClientCodeWrapper$WrappedStandardJavaFileManager, setLocationFromPaths, void, $JavaFileManager$Location*, $Collection*), "java.io.IOException"},
+		{"setPathFactory", "(Ljavax/tools/StandardJavaFileManager$PathFactory;)V", nullptr, $PUBLIC, $virtualMethod(ClientCodeWrapper$WrappedStandardJavaFileManager, setPathFactory, void, $StandardJavaFileManager$PathFactory*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.api.ClientCodeWrapper$WrappedStandardJavaFileManager", "com.sun.tools.javac.api.ClientCodeWrapper", "WrappedStandardJavaFileManager", $PROTECTED},
+		{"com.sun.tools.javac.api.ClientCodeWrapper$WrappedJavaFileManager", "com.sun.tools.javac.api.ClientCodeWrapper", "WrappedJavaFileManager", $PROTECTED},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.api.ClientCodeWrapper$WrappedStandardJavaFileManager",
+		"com.sun.tools.javac.api.ClientCodeWrapper$WrappedJavaFileManager",
+		"javax.tools.StandardJavaFileManager",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.api.ClientCodeWrapper"
+	};
+	$loadClass(ClientCodeWrapper$WrappedStandardJavaFileManager, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ClientCodeWrapper$WrappedStandardJavaFileManager));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <javax/imageio/plugins/tiff/TIFFTag.h>
-
 #include <java/util/Iterator.h>
 #include <java/util/Set.h>
 #include <java/util/SortedMap.h>
@@ -34,7 +33,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;
 using $Iterator = ::java::util::Iterator;
 using $Set = ::java::util::Set;
-using $SortedMap = ::java::util::SortedMap;
 using $TreeMap = ::java::util::TreeMap;
 using $TIFFTagSet = ::javax::imageio::plugins::tiff::TIFFTagSet;
 
@@ -43,78 +41,18 @@ namespace javax {
 		namespace plugins {
 			namespace tiff {
 
-$FieldInfo _TIFFTag_FieldInfo_[] = {
-	{"TIFF_BYTE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TIFFTag, TIFF_BYTE)},
-	{"TIFF_ASCII", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TIFFTag, TIFF_ASCII)},
-	{"TIFF_SHORT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TIFFTag, TIFF_SHORT)},
-	{"TIFF_LONG", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TIFFTag, TIFF_LONG)},
-	{"TIFF_RATIONAL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TIFFTag, TIFF_RATIONAL)},
-	{"TIFF_SBYTE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TIFFTag, TIFF_SBYTE)},
-	{"TIFF_UNDEFINED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TIFFTag, TIFF_UNDEFINED)},
-	{"TIFF_SSHORT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TIFFTag, TIFF_SSHORT)},
-	{"TIFF_SLONG", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TIFFTag, TIFF_SLONG)},
-	{"TIFF_SRATIONAL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TIFFTag, TIFF_SRATIONAL)},
-	{"TIFF_FLOAT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TIFFTag, TIFF_FLOAT)},
-	{"TIFF_DOUBLE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TIFFTag, TIFF_DOUBLE)},
-	{"TIFF_IFD_POINTER", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TIFFTag, TIFF_IFD_POINTER)},
-	{"MIN_DATATYPE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TIFFTag, MIN_DATATYPE)},
-	{"MAX_DATATYPE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TIFFTag, MAX_DATATYPE)},
-	{"UNKNOWN_TAG_NAME", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TIFFTag, UNKNOWN_TAG_NAME)},
-	{"DISALLOWED_DATATYPES_MASK", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(TIFFTag, DISALLOWED_DATATYPES_MASK)},
-	{"SIZE_OF_TYPE", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(TIFFTag, SIZE_OF_TYPE)},
-	{"number", "I", nullptr, $PRIVATE, $field(TIFFTag, number)},
-	{"name", "Ljava/lang/String;", nullptr, $PRIVATE, $field(TIFFTag, name)},
-	{"dataTypes", "I", nullptr, $PRIVATE, $field(TIFFTag, dataTypes)},
-	{"count", "I", nullptr, $PRIVATE, $field(TIFFTag, count)},
-	{"tagSet", "Ljavax/imageio/plugins/tiff/TIFFTagSet;", nullptr, $PRIVATE, $field(TIFFTag, tagSet)},
-	{"valueNames", "Ljava/util/SortedMap;", "Ljava/util/SortedMap<Ljava/lang/Integer;Ljava/lang/String;>;", $PRIVATE, $field(TIFFTag, valueNames)},
-	{}
-};
-
-$MethodInfo _TIFFTag_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;III)V", nullptr, $PUBLIC, $method(TIFFTag, init$, void, $String*, int32_t, int32_t, int32_t)},
-	{"<init>", "(Ljava/lang/String;ILjavax/imageio/plugins/tiff/TIFFTagSet;)V", nullptr, $PUBLIC, $method(TIFFTag, init$, void, $String*, int32_t, $TIFFTagSet*)},
-	{"<init>", "(Ljava/lang/String;II)V", nullptr, $PUBLIC, $method(TIFFTag, init$, void, $String*, int32_t, int32_t)},
-	{"addValueName", "(ILjava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(TIFFTag, addValueName, void, int32_t, $String*)},
-	{"getCount", "()I", nullptr, $PUBLIC, $virtualMethod(TIFFTag, getCount, int32_t)},
-	{"getDataTypes", "()I", nullptr, $PUBLIC, $virtualMethod(TIFFTag, getDataTypes, int32_t)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TIFFTag, getName, $String*)},
-	{"getNamedValues", "()[I", nullptr, $PUBLIC, $virtualMethod(TIFFTag, getNamedValues, $ints*)},
-	{"getNumber", "()I", nullptr, $PUBLIC, $virtualMethod(TIFFTag, getNumber, int32_t)},
-	{"getSizeOfType", "(I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(TIFFTag, getSizeOfType, int32_t, int32_t)},
-	{"getTagSet", "()Ljavax/imageio/plugins/tiff/TIFFTagSet;", nullptr, $PUBLIC, $virtualMethod(TIFFTag, getTagSet, $TIFFTagSet*)},
-	{"getValueName", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TIFFTag, getValueName, $String*, int32_t)},
-	{"hasValueNames", "()Z", nullptr, $PUBLIC, $virtualMethod(TIFFTag, hasValueNames, bool)},
-	{"isDataTypeOK", "(I)Z", nullptr, $PUBLIC, $virtualMethod(TIFFTag, isDataTypeOK, bool, int32_t)},
-	{"isIFDPointer", "()Z", nullptr, $PUBLIC, $virtualMethod(TIFFTag, isIFDPointer, bool)},
-	{}
-};
-
-$ClassInfo _TIFFTag_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.imageio.plugins.tiff.TIFFTag",
-	"java.lang.Object",
-	nullptr,
-	_TIFFTag_FieldInfo_,
-	_TIFFTag_MethodInfo_
-};
-
-$Object* allocate$TIFFTag($Class* clazz) {
-	return $of($alloc(TIFFTag));
-}
-
 $String* TIFFTag::UNKNOWN_TAG_NAME = nullptr;
 $ints* TIFFTag::SIZE_OF_TYPE = nullptr;
 
 void TIFFTag::init$($String* name, int32_t number, int32_t dataTypes, int32_t count) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, tagSet, nullptr);
 	$set(this, valueNames, nullptr);
 	if (name == nullptr) {
 		$throwNew($NullPointerException, "name == null"_s);
 	} else if (number < 0) {
 		$throwNew($IllegalArgumentException, $$str({"number ("_s, $$str(number), ") < 0"_s}));
-	} else if (dataTypes < 0 || ((int32_t)(dataTypes & (uint32_t)TIFFTag::DISALLOWED_DATATYPES_MASK)) != 0) {
+	} else if (dataTypes < 0 || (dataTypes & TIFFTag::DISALLOWED_DATATYPES_MASK) != 0) {
 		$throwNew($IllegalArgumentException, "dataTypes out of range"_s);
 	}
 	$set(this, name, name);
@@ -140,7 +78,7 @@ int32_t TIFFTag::getSizeOfType(int32_t dataType) {
 	if (dataType < TIFFTag::MIN_DATATYPE || dataType > TIFFTag::MAX_DATATYPE) {
 		$throwNew($IllegalArgumentException, "dataType out of range!"_s);
 	}
-	return $nc(TIFFTag::SIZE_OF_TYPE)->get(dataType);
+	return TIFFTag::SIZE_OF_TYPE->get(dataType);
 }
 
 $String* TIFFTag::getName() {
@@ -163,7 +101,7 @@ bool TIFFTag::isDataTypeOK(int32_t dataType) {
 	if (dataType < TIFFTag::MIN_DATATYPE || dataType > TIFFTag::MAX_DATATYPE) {
 		$throwNew($IllegalArgumentException, "datatype not in range!"_s);
 	}
-	return ((int32_t)(this->dataTypes & (uint32_t)($sl(1, dataType)))) != 0;
+	return (this->dataTypes & ($sl(1, dataType))) != 0;
 }
 
 $TIFFTagSet* TIFFTag::getTagSet() {
@@ -193,21 +131,21 @@ $String* TIFFTag::getValueName(int32_t value) {
 }
 
 $ints* TIFFTag::getNamedValues() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ints, intValues, nullptr);
 	if (this->valueNames != nullptr) {
-		$var($Set, values, $nc(this->valueNames)->keySet());
+		$var($Set, values, this->valueNames->keySet());
 		$var($Iterator, iter, $nc(values)->iterator());
 		$assign(intValues, $new($ints, values->size()));
 		int32_t i = 0;
 		while ($nc(iter)->hasNext()) {
-			intValues->set(i++, $nc(($cast($Integer, $(iter->next()))))->intValue());
+			intValues->set(i++, $$sure($Integer, iter->next())->intValue());
 		}
 	}
 	return intValues;
 }
 
-void clinit$TIFFTag($Class* class$) {
+void TIFFTag::clinit$($Class* clazz) {
 	$assignStatic(TIFFTag::UNKNOWN_TAG_NAME, "UnknownTag"_s);
 	$assignStatic(TIFFTag::SIZE_OF_TYPE, $new($ints, {
 		0,
@@ -231,7 +169,62 @@ TIFFTag::TIFFTag() {
 }
 
 $Class* TIFFTag::load$($String* name, bool initialize) {
-	$loadClass(TIFFTag, name, initialize, &_TIFFTag_ClassInfo_, clinit$TIFFTag, allocate$TIFFTag);
+	$FieldInfo fieldInfos$$[] = {
+		{"TIFF_BYTE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TIFFTag, TIFF_BYTE)},
+		{"TIFF_ASCII", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TIFFTag, TIFF_ASCII)},
+		{"TIFF_SHORT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TIFFTag, TIFF_SHORT)},
+		{"TIFF_LONG", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TIFFTag, TIFF_LONG)},
+		{"TIFF_RATIONAL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TIFFTag, TIFF_RATIONAL)},
+		{"TIFF_SBYTE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TIFFTag, TIFF_SBYTE)},
+		{"TIFF_UNDEFINED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TIFFTag, TIFF_UNDEFINED)},
+		{"TIFF_SSHORT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TIFFTag, TIFF_SSHORT)},
+		{"TIFF_SLONG", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TIFFTag, TIFF_SLONG)},
+		{"TIFF_SRATIONAL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TIFFTag, TIFF_SRATIONAL)},
+		{"TIFF_FLOAT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TIFFTag, TIFF_FLOAT)},
+		{"TIFF_DOUBLE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TIFFTag, TIFF_DOUBLE)},
+		{"TIFF_IFD_POINTER", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TIFFTag, TIFF_IFD_POINTER)},
+		{"MIN_DATATYPE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TIFFTag, MIN_DATATYPE)},
+		{"MAX_DATATYPE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TIFFTag, MAX_DATATYPE)},
+		{"UNKNOWN_TAG_NAME", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TIFFTag, UNKNOWN_TAG_NAME)},
+		{"DISALLOWED_DATATYPES_MASK", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(TIFFTag, DISALLOWED_DATATYPES_MASK)},
+		{"SIZE_OF_TYPE", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(TIFFTag, SIZE_OF_TYPE)},
+		{"number", "I", nullptr, $PRIVATE, $field(TIFFTag, number)},
+		{"name", "Ljava/lang/String;", nullptr, $PRIVATE, $field(TIFFTag, name)},
+		{"dataTypes", "I", nullptr, $PRIVATE, $field(TIFFTag, dataTypes)},
+		{"count", "I", nullptr, $PRIVATE, $field(TIFFTag, count)},
+		{"tagSet", "Ljavax/imageio/plugins/tiff/TIFFTagSet;", nullptr, $PRIVATE, $field(TIFFTag, tagSet)},
+		{"valueNames", "Ljava/util/SortedMap;", "Ljava/util/SortedMap<Ljava/lang/Integer;Ljava/lang/String;>;", $PRIVATE, $field(TIFFTag, valueNames)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;III)V", nullptr, $PUBLIC, $method(TIFFTag, init$, void, $String*, int32_t, int32_t, int32_t)},
+		{"<init>", "(Ljava/lang/String;ILjavax/imageio/plugins/tiff/TIFFTagSet;)V", nullptr, $PUBLIC, $method(TIFFTag, init$, void, $String*, int32_t, $TIFFTagSet*)},
+		{"<init>", "(Ljava/lang/String;II)V", nullptr, $PUBLIC, $method(TIFFTag, init$, void, $String*, int32_t, int32_t)},
+		{"addValueName", "(ILjava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(TIFFTag, addValueName, void, int32_t, $String*)},
+		{"getCount", "()I", nullptr, $PUBLIC, $virtualMethod(TIFFTag, getCount, int32_t)},
+		{"getDataTypes", "()I", nullptr, $PUBLIC, $virtualMethod(TIFFTag, getDataTypes, int32_t)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TIFFTag, getName, $String*)},
+		{"getNamedValues", "()[I", nullptr, $PUBLIC, $virtualMethod(TIFFTag, getNamedValues, $ints*)},
+		{"getNumber", "()I", nullptr, $PUBLIC, $virtualMethod(TIFFTag, getNumber, int32_t)},
+		{"getSizeOfType", "(I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(TIFFTag, getSizeOfType, int32_t, int32_t)},
+		{"getTagSet", "()Ljavax/imageio/plugins/tiff/TIFFTagSet;", nullptr, $PUBLIC, $virtualMethod(TIFFTag, getTagSet, $TIFFTagSet*)},
+		{"getValueName", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TIFFTag, getValueName, $String*, int32_t)},
+		{"hasValueNames", "()Z", nullptr, $PUBLIC, $virtualMethod(TIFFTag, hasValueNames, bool)},
+		{"isDataTypeOK", "(I)Z", nullptr, $PUBLIC, $virtualMethod(TIFFTag, isDataTypeOK, bool, int32_t)},
+		{"isIFDPointer", "()Z", nullptr, $PUBLIC, $virtualMethod(TIFFTag, isIFDPointer, bool)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.imageio.plugins.tiff.TIFFTag",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TIFFTag, name, initialize, &classInfo$$, TIFFTag::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(TIFFTag);
+	});
 	return class$;
 }
 

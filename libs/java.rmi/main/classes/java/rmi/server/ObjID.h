@@ -48,6 +48,7 @@ class $export ObjID : public ::java::io::Serializable {
 	$class(ObjID, 0, ::java::io::Serializable)
 public:
 	ObjID();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(int32_t objNum);
 	void init$(int64_t objNum, ::java::rmi::server::UID* space);
@@ -61,7 +62,7 @@ public:
 	static const int32_t REGISTRY_ID = 0;
 	static const int32_t ACTIVATOR_ID = 1;
 	static const int32_t DGC_ID = 2;
-	static const int64_t serialVersionUID = (int64_t)0xA75EFA128DDCE55C;
+	static const int64_t serialVersionUID = (int64_t)0xa75efa128ddce55c;
 	static ::java::util::concurrent::atomic::AtomicLong* nextObjNum;
 	static ::java::rmi::server::UID* mySpace;
 	static ::java::security::SecureRandom* secureRandom;

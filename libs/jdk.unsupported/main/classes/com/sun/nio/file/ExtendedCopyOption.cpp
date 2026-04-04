@@ -1,7 +1,5 @@
 #include <com/sun/nio/file/ExtendedCopyOption.h>
-
 #include <java/lang/Enum.h>
-#include <java/nio/file/CopyOption.h>
 #include <jdk/internal/misc/FileSystemOption.h>
 #include <jcpp.h>
 
@@ -12,46 +10,12 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $CopyOption = ::java::nio::file::CopyOption;
 using $FileSystemOption = ::jdk::internal::misc::FileSystemOption;
 
 namespace com {
 	namespace sun {
 		namespace nio {
 			namespace file {
-
-$FieldInfo _ExtendedCopyOption_FieldInfo_[] = {
-	{"INTERRUPTIBLE", "Lcom/sun/nio/file/ExtendedCopyOption;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ExtendedCopyOption, INTERRUPTIBLE)},
-	{"$VALUES", "[Lcom/sun/nio/file/ExtendedCopyOption;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(ExtendedCopyOption, $VALUES)},
-	{}
-};
-
-$MethodInfo _ExtendedCopyOption_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/nio/file/ExtendedCopyOption;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ExtendedCopyOption, $values, $ExtendedCopyOptionArray*)},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
-	{"*finalize", "()V", nullptr, $PROTECTED | $FINAL},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $FINAL},
-	{"<init>", "(Ljava/lang/String;ILjdk/internal/misc/FileSystemOption;)V", "(Ljdk/internal/misc/FileSystemOption<Ljava/lang/Void;>;)V", $PRIVATE, $method(ExtendedCopyOption, init$, void, $String*, int32_t, $FileSystemOption*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/nio/file/ExtendedCopyOption;", nullptr, $PUBLIC | $STATIC, $staticMethod(ExtendedCopyOption, valueOf, ExtendedCopyOption*, $String*)},
-	{"values", "()[Lcom/sun/nio/file/ExtendedCopyOption;", nullptr, $PUBLIC | $STATIC, $staticMethod(ExtendedCopyOption, values, $ExtendedCopyOptionArray*)},
-	{}
-};
-
-$ClassInfo _ExtendedCopyOption_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"com.sun.nio.file.ExtendedCopyOption",
-	"java.lang.Enum",
-	"java.nio.file.CopyOption",
-	_ExtendedCopyOption_FieldInfo_,
-	_ExtendedCopyOption_MethodInfo_,
-	"Ljava/lang/Enum<Lcom/sun/nio/file/ExtendedCopyOption;>;Ljava/nio/file/CopyOption;"
-};
-
-$Object* allocate$ExtendedCopyOption($Class* clazz) {
-	return $of($alloc(ExtendedCopyOption));
-}
 
 $String* ExtendedCopyOption::toString() {
 	 return this->$Enum::toString();
@@ -93,10 +57,10 @@ ExtendedCopyOption* ExtendedCopyOption::valueOf($String* name) {
 
 void ExtendedCopyOption::init$($String* $enum$name, int32_t $enum$ordinal, $FileSystemOption* option) {
 	$Enum::init$($enum$name, $enum$ordinal);
-	$nc(option)->register$(static_cast<$CopyOption*>(this));
+	$nc(option)->register$(this);
 }
 
-void clinit$ExtendedCopyOption($Class* class$) {
+void ExtendedCopyOption::clinit$($Class* clazz) {
 	$init($FileSystemOption);
 	$assignStatic(ExtendedCopyOption::INTERRUPTIBLE, $new(ExtendedCopyOption, "INTERRUPTIBLE"_s, 0, $FileSystemOption::INTERRUPTIBLE));
 	$assignStatic(ExtendedCopyOption::$VALUES, ExtendedCopyOption::$values());
@@ -106,7 +70,35 @@ ExtendedCopyOption::ExtendedCopyOption() {
 }
 
 $Class* ExtendedCopyOption::load$($String* name, bool initialize) {
-	$loadClass(ExtendedCopyOption, name, initialize, &_ExtendedCopyOption_ClassInfo_, clinit$ExtendedCopyOption, allocate$ExtendedCopyOption);
+	$FieldInfo fieldInfos$$[] = {
+		{"INTERRUPTIBLE", "Lcom/sun/nio/file/ExtendedCopyOption;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ExtendedCopyOption, INTERRUPTIBLE)},
+		{"$VALUES", "[Lcom/sun/nio/file/ExtendedCopyOption;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(ExtendedCopyOption, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lcom/sun/nio/file/ExtendedCopyOption;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ExtendedCopyOption, $values, $ExtendedCopyOptionArray*)},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
+		{"*finalize", "()V", nullptr, $PROTECTED | $FINAL},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $FINAL},
+		{"<init>", "(Ljava/lang/String;ILjdk/internal/misc/FileSystemOption;)V", "(Ljdk/internal/misc/FileSystemOption<Ljava/lang/Void;>;)V", $PRIVATE, $method(ExtendedCopyOption, init$, void, $String*, int32_t, $FileSystemOption*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"valueOf", "(Ljava/lang/String;)Lcom/sun/nio/file/ExtendedCopyOption;", nullptr, $PUBLIC | $STATIC, $staticMethod(ExtendedCopyOption, valueOf, ExtendedCopyOption*, $String*)},
+		{"values", "()[Lcom/sun/nio/file/ExtendedCopyOption;", nullptr, $PUBLIC | $STATIC, $staticMethod(ExtendedCopyOption, values, $ExtendedCopyOptionArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"com.sun.nio.file.ExtendedCopyOption",
+		"java.lang.Enum",
+		"java.nio.file.CopyOption",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lcom/sun/nio/file/ExtendedCopyOption;>;Ljava/nio/file/CopyOption;"
+	};
+	$loadClass(ExtendedCopyOption, name, initialize, &classInfo$$, ExtendedCopyOption::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ExtendedCopyOption));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <bug7138665$1.h>
-
 #include <bug7138665.h>
 #include <java/awt/Component.h>
 #include <javax/swing/Icon.h>
@@ -12,7 +11,6 @@
 #undef QUESTION_MESSAGE
 
 using $Component = ::java::awt::Component;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -23,54 +21,17 @@ using $Icon = ::javax::swing::Icon;
 using $JDialog = ::javax::swing::JDialog;
 using $JOptionPane = ::javax::swing::JOptionPane;
 
-$MethodInfo _bug7138665$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(bug7138665$1, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug7138665$1, run, void)},
-	{}
-};
-
-$EnclosingMethodInfo _bug7138665$1_EnclosingMethodInfo_ = {
-	"bug7138665",
-	"main",
-	"([Ljava/lang/String;)V"
-};
-
-$InnerClassInfo _bug7138665$1_InnerClassesInfo_[] = {
-	{"bug7138665$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _bug7138665$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"bug7138665$1",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	_bug7138665$1_MethodInfo_,
-	nullptr,
-	&_bug7138665$1_EnclosingMethodInfo_,
-	_bug7138665$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"bug7138665"
-};
-
-$Object* allocate$bug7138665$1($Class* clazz) {
-	return $of($alloc(bug7138665$1));
-}
-
 void bug7138665$1::init$() {
 }
 
 void bug7138665$1::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JOptionPane, pane, $new($JOptionPane, "Enter value"_s, $JOptionPane::QUESTION_MESSAGE, $JOptionPane::OK_CANCEL_OPTION, nullptr, nullptr, nullptr));
 	pane->setWantsInput(true);
 	$var($JDialog, dialog, pane->createDialog(nullptr, "My Dialog"_s));
 	$nc(dialog)->setVisible(true);
 	$var($Object, result, pane->getValue());
-	if (result == nullptr || $nc(($cast($Integer, result)))->intValue() != $JOptionPane::OK_OPTION) {
+	if (result == nullptr || $cast($Integer, result)->intValue() != $JOptionPane::OK_OPTION) {
 		$throwNew($RuntimeException, $$str({"Invalid result: "_s, result}));
 	}
 	$nc($System::out)->println("Test bug7138665 passed"_s);
@@ -80,7 +41,38 @@ bug7138665$1::bug7138665$1() {
 }
 
 $Class* bug7138665$1::load$($String* name, bool initialize) {
-	$loadClass(bug7138665$1, name, initialize, &_bug7138665$1_ClassInfo_, allocate$bug7138665$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(bug7138665$1, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug7138665$1, run, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"bug7138665",
+		"main",
+		"([Ljava/lang/String;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"bug7138665$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"bug7138665$1",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"bug7138665"
+	};
+	$loadClass(bug7138665$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(bug7138665$1);
+	});
 	return class$;
 }
 

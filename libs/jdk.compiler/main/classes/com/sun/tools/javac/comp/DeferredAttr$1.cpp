@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/DeferredAttr$1.h>
-
 #include <com/sun/tools/javac/code/Symbol.h>
 #include <com/sun/tools/javac/comp/Attr$ResultInfo.h>
 #include <com/sun/tools/javac/comp/DeferredAttr$AttrMode.h>
@@ -36,51 +35,6 @@ namespace com {
 			namespace javac {
 				namespace comp {
 
-$FieldInfo _DeferredAttr$1_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/comp/DeferredAttr;", nullptr, $FINAL | $SYNTHETIC, $field(DeferredAttr$1, this$0)},
-	{}
-};
-
-$MethodInfo _DeferredAttr$1_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/DeferredAttr;Lcom/sun/tools/javac/comp/DeferredAttr$AttrMode;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/comp/Resolve$MethodResolutionPhase;Lcom/sun/tools/javac/comp/InferenceContext;Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext;Lcom/sun/tools/javac/util/Warner;)V", nullptr, 0, $method(DeferredAttr$1, init$, void, $DeferredAttr*, $DeferredAttr$AttrMode*, $Symbol*, $Resolve$MethodResolutionPhase*, $InferenceContext*, $DeferredAttr$DeferredAttrContext*, $Warner*)},
-	{"addDeferredAttrNode", "(Lcom/sun/tools/javac/comp/DeferredAttr$DeferredType;Lcom/sun/tools/javac/comp/Attr$ResultInfo;Lcom/sun/tools/javac/comp/DeferredAttr$DeferredStuckPolicy;)V", nullptr, 0, $virtualMethod(DeferredAttr$1, addDeferredAttrNode, void, $DeferredAttr$DeferredType*, $Attr$ResultInfo*, $DeferredAttr$DeferredStuckPolicy*)},
-	{"complete", "()V", nullptr, 0, $virtualMethod(DeferredAttr$1, complete, void)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DeferredAttr$1, toString, $String*)},
-	{}
-};
-
-$EnclosingMethodInfo _DeferredAttr$1_EnclosingMethodInfo_ = {
-	"com.sun.tools.javac.comp.DeferredAttr",
-	"<init>",
-	"(Lcom/sun/tools/javac/util/Context;)V"
-};
-
-$InnerClassInfo _DeferredAttr$1_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.DeferredAttr$1", nullptr, nullptr, 0},
-	{"com.sun.tools.javac.comp.DeferredAttr$DeferredAttrContext", "com.sun.tools.javac.comp.DeferredAttr", "DeferredAttrContext", 0},
-	{}
-};
-
-$ClassInfo _DeferredAttr$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.comp.DeferredAttr$1",
-	"com.sun.tools.javac.comp.DeferredAttr$DeferredAttrContext",
-	nullptr,
-	_DeferredAttr$1_FieldInfo_,
-	_DeferredAttr$1_MethodInfo_,
-	nullptr,
-	&_DeferredAttr$1_EnclosingMethodInfo_,
-	_DeferredAttr$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.DeferredAttr"
-};
-
-$Object* allocate$DeferredAttr$1($Class* clazz) {
-	return $of($alloc(DeferredAttr$1));
-}
-
 void DeferredAttr$1::init$($DeferredAttr* this$0, $DeferredAttr$AttrMode* mode, $Symbol* msym, $Resolve$MethodResolutionPhase* phase, $InferenceContext* inferenceContext, $DeferredAttr$DeferredAttrContext* parent, $Warner* warn) {
 	$set(this, this$0, this$0);
 	$DeferredAttr$DeferredAttrContext::init$(this$0, mode, msym, phase, inferenceContext, parent, warn);
@@ -102,7 +56,45 @@ DeferredAttr$1::DeferredAttr$1() {
 }
 
 $Class* DeferredAttr$1::load$($String* name, bool initialize) {
-	$loadClass(DeferredAttr$1, name, initialize, &_DeferredAttr$1_ClassInfo_, allocate$DeferredAttr$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/comp/DeferredAttr;", nullptr, $FINAL | $SYNTHETIC, $field(DeferredAttr$1, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/comp/DeferredAttr;Lcom/sun/tools/javac/comp/DeferredAttr$AttrMode;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/comp/Resolve$MethodResolutionPhase;Lcom/sun/tools/javac/comp/InferenceContext;Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext;Lcom/sun/tools/javac/util/Warner;)V", nullptr, 0, $method(DeferredAttr$1, init$, void, $DeferredAttr*, $DeferredAttr$AttrMode*, $Symbol*, $Resolve$MethodResolutionPhase*, $InferenceContext*, $DeferredAttr$DeferredAttrContext*, $Warner*)},
+		{"addDeferredAttrNode", "(Lcom/sun/tools/javac/comp/DeferredAttr$DeferredType;Lcom/sun/tools/javac/comp/Attr$ResultInfo;Lcom/sun/tools/javac/comp/DeferredAttr$DeferredStuckPolicy;)V", nullptr, 0, $virtualMethod(DeferredAttr$1, addDeferredAttrNode, void, $DeferredAttr$DeferredType*, $Attr$ResultInfo*, $DeferredAttr$DeferredStuckPolicy*)},
+		{"complete", "()V", nullptr, 0, $virtualMethod(DeferredAttr$1, complete, void)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DeferredAttr$1, toString, $String*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.tools.javac.comp.DeferredAttr",
+		"<init>",
+		"(Lcom/sun/tools/javac/util/Context;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.DeferredAttr$1", nullptr, nullptr, 0},
+		{"com.sun.tools.javac.comp.DeferredAttr$DeferredAttrContext", "com.sun.tools.javac.comp.DeferredAttr", "DeferredAttrContext", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.comp.DeferredAttr$1",
+		"com.sun.tools.javac.comp.DeferredAttr$DeferredAttrContext",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.DeferredAttr"
+	};
+	$loadClass(DeferredAttr$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DeferredAttr$1);
+	});
 	return class$;
 }
 

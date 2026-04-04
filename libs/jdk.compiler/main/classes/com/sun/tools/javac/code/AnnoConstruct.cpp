@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/code/AnnoConstruct.h>
-
 #include <com/sun/tools/javac/code/Attribute$Array.h>
 #include <com/sun/tools/javac/code/Attribute$Compound.h>
 #include <com/sun/tools/javac/code/Attribute.h>
@@ -12,7 +11,6 @@
 #include <com/sun/tools/javac/util/Name$Table.h>
 #include <com/sun/tools/javac/util/Name.h>
 #include <com/sun/tools/javac/util/Names.h>
-#include <java/lang/CharSequence.h>
 #include <java/lang/annotation/Annotation.h>
 #include <java/lang/annotation/Inherited.h>
 #include <java/lang/annotation/Repeatable.h>
@@ -27,12 +25,9 @@ using $AnnotationArray = $Array<::java::lang::annotation::Annotation>;
 using $Attribute = ::com::sun::tools::javac::code::Attribute;
 using $Attribute$Array = ::com::sun::tools::javac::code::Attribute$Array;
 using $Attribute$Compound = ::com::sun::tools::javac::code::Attribute$Compound;
-using $Symbol$TypeSymbol = ::com::sun::tools::javac::code::Symbol$TypeSymbol;
 using $AnnotationProxyMaker = ::com::sun::tools::javac::model::AnnotationProxyMaker;
 using $List = ::com::sun::tools::javac::util::List;
 using $ListBuffer = ::com::sun::tools::javac::util::ListBuffer;
-using $Name = ::com::sun::tools::javac::util::Name;
-using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -48,46 +43,18 @@ namespace com {
 			namespace javac {
 				namespace code {
 
-$MethodInfo _AnnoConstruct_MethodInfo_[] = {
-	{"getAnnotationMirrors", "()Ljava/util/List;", nullptr, $PUBLIC | $ABSTRACT},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AnnoConstruct, init$, void)},
-	{"getAnnotation", "(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;", "<A::Ljava/lang/annotation/Annotation;>(Ljava/lang/Class<TA;>;)TA;", $PUBLIC, $virtualMethod(AnnoConstruct, getAnnotation, $Annotation*, $Class*)},
-	{"getAnnotationsByType", "(Ljava/lang/Class;)[Ljava/lang/annotation/Annotation;", "<A::Ljava/lang/annotation/Annotation;>(Ljava/lang/Class<TA;>;)[TA;", $PUBLIC, $virtualMethod(AnnoConstruct, getAnnotationsByType, $AnnotationArray*, $Class*)},
-	{"getAttribute", "(Ljava/lang/Class;)Lcom/sun/tools/javac/code/Attribute$Compound;", "<A::Ljava/lang/annotation/Annotation;>(Ljava/lang/Class<TA;>;)Lcom/sun/tools/javac/code/Attribute$Compound;", $PROTECTED, $virtualMethod(AnnoConstruct, getAttribute, $Attribute$Compound*, $Class*)},
-	{"getContainer", "(Ljava/lang/Class;)Ljava/lang/Class;", "(Ljava/lang/Class<+Ljava/lang/annotation/Annotation;>;)Ljava/lang/Class<+Ljava/lang/annotation/Annotation;>;", $PRIVATE | $STATIC, $staticMethod(AnnoConstruct, getContainer, $Class*, $Class*)},
-	{"getInheritedAnnotations", "(Ljava/lang/Class;)[Ljava/lang/annotation/Annotation;", "<A::Ljava/lang/annotation/Annotation;>(Ljava/lang/Class<TA;>;)[TA;", $PROTECTED, $virtualMethod(AnnoConstruct, getInheritedAnnotations, $AnnotationArray*, $Class*)},
-	{"unpackAttributes", "(Lcom/sun/tools/javac/code/Attribute$Compound;)[Lcom/sun/tools/javac/code/Attribute;", nullptr, $PRIVATE | $STATIC, $staticMethod(AnnoConstruct, unpackAttributes, $AttributeArray*, $Attribute$Compound*)},
-	{"unpackContained", "(Lcom/sun/tools/javac/code/Attribute$Compound;)[Lcom/sun/tools/javac/code/Attribute$Compound;", nullptr, $PRIVATE, $method(AnnoConstruct, unpackContained, $Attribute$CompoundArray*, $Attribute$Compound*)},
-	{}
-};
-
-$ClassInfo _AnnoConstruct_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"com.sun.tools.javac.code.AnnoConstruct",
-	"java.lang.Object",
-	"javax.lang.model.AnnotatedConstruct",
-	nullptr,
-	_AnnoConstruct_MethodInfo_
-};
-
-$Object* allocate$AnnoConstruct($Class* clazz) {
-	return $of($alloc(AnnoConstruct));
-}
-
 void AnnoConstruct::init$() {
 }
 
 $Attribute$Compound* AnnoConstruct::getAttribute($Class* annoType) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, name, $nc(annoType)->getName());
 	{
-		$var($Iterator, i$, $nc($($cast($List, getAnnotationMirrors())))->iterator());
+		$var($Iterator, i$, $$sure($List, getAnnotationMirrors())->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Attribute$Compound, anno, $cast($Attribute$Compound, i$->next()));
-			{
-				if ($nc(name)->equals($($nc($($nc($nc($nc(anno)->type)->tsym)->flatName()))->toString()))) {
-					return anno;
-				}
+			if ($nc(name)->equals($($$nc($nc($nc($nc(anno)->type)->tsym)->flatName())->toString()))) {
+				return anno;
 			}
 		}
 	}
@@ -99,7 +66,7 @@ $AnnotationArray* AnnoConstruct::getInheritedAnnotations($Class* annoType) {
 }
 
 $AnnotationArray* AnnoConstruct::getAnnotationsByType($Class* annoType) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!$nc(annoType)->isAnnotation()) {
 		$throwNew($IllegalArgumentException, $$str({"Not an annotation type: "_s, annoType}));
 	}
@@ -113,7 +80,7 @@ $AnnotationArray* AnnoConstruct::getAnnotationsByType($Class* annoType) {
 		}
 		return arr;
 	}
-	$var($String, annoTypeName, $nc(annoType)->getName());
+	$var($String, annoTypeName, annoType->getName());
 	$var($String, containerTypeName, $nc(containerType)->getName());
 	int32_t directIndex = -1;
 	int32_t containerIndex = -1;
@@ -121,15 +88,15 @@ $AnnotationArray* AnnoConstruct::getAnnotationsByType($Class* annoType) {
 	$var($Attribute$Compound, container, nullptr);
 	int32_t index = -1;
 	{
-		$var($Iterator, i$, $nc($($cast($List, getAnnotationMirrors())))->iterator());
+		$var($Iterator, i$, $$sure($List, getAnnotationMirrors())->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Attribute$Compound, attribute, $cast($Attribute$Compound, i$->next()));
 			{
 				++index;
-				if ($nc($($nc($nc($nc(attribute)->type)->tsym)->flatName()))->contentEquals(annoTypeName)) {
+				if ($$nc($nc($nc($nc(attribute)->type)->tsym)->flatName())->contentEquals(annoTypeName)) {
 					directIndex = index;
 					$assign(direct, attribute);
-				} else if (containerTypeName != nullptr && $nc($($nc($nc(attribute->type)->tsym)->flatName()))->contentEquals(containerTypeName)) {
+				} else if (containerTypeName != nullptr && $$nc($nc($nc(attribute->type)->tsym)->flatName())->contentEquals(containerTypeName)) {
 					containerIndex = index;
 					$assign(container, attribute);
 				}
@@ -170,38 +137,34 @@ $AnnotationArray* AnnoConstruct::getAnnotationsByType($Class* annoType) {
 }
 
 $Attribute$CompoundArray* AnnoConstruct::unpackContained($Attribute$Compound* container) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AttributeArray, contained0, nullptr);
 	if (container != nullptr) {
 		$assign(contained0, unpackAttributes(container));
 	}
 	$var($ListBuffer, compounds, $new($ListBuffer));
 	if (contained0 != nullptr) {
-		{
-			$var($AttributeArray, arr$, contained0);
-			int32_t len$ = arr$->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
-				$var($Attribute, a, arr$->get(i$));
-				{
-					$var($Attribute$Compound, attributeCompound, nullptr);
-					bool var$0 = $instanceOf($Attribute$Compound, a);
-					if (var$0) {
-						$assign(attributeCompound, $cast($Attribute$Compound, a));
-						var$0 = true;
-					}
-					if (var$0) {
-						$assign(compounds, $nc(compounds)->append(attributeCompound));
-					}
+		$var($AttributeArray, arr$, contained0);
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
+			$var($Attribute, a, arr$->get(i$));
+			{
+				$var($Attribute$Compound, attributeCompound, nullptr);
+				bool var$0 = $instanceOf($Attribute$Compound, a);
+				if (var$0) {
+					$assign(attributeCompound, $cast($Attribute$Compound, a));
+					var$0 = true;
+				}
+				if (var$0) {
+					$assign(compounds, $nc(compounds)->append(attributeCompound));
 				}
 			}
 		}
 	}
-	return $fcast($Attribute$CompoundArray, $nc(compounds)->toArray($$new($Attribute$CompoundArray, compounds->size())));
+	return $cast($Attribute$CompoundArray, $nc(compounds)->toArray($$new($Attribute$CompoundArray, $nc(compounds)->size())));
 }
 
 $Annotation* AnnoConstruct::getAnnotation($Class* annoType) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!$nc(annoType)->isAnnotation()) {
 		$throwNew($IllegalArgumentException, $$str({"Not an annotation type: "_s, annoType}));
 	}
@@ -213,19 +176,41 @@ $Class* AnnoConstruct::getContainer($Class* annoType) {
 	$init(AnnoConstruct);
 	$load($Repeatable);
 	$var($Repeatable, repeatable, $cast($Repeatable, $nc(annoType)->getAnnotation($Repeatable::class$)));
-	return (repeatable == nullptr) ? ($Class*)nullptr : $nc(repeatable)->value();
+	return (repeatable == nullptr) ? ($Class*)nullptr : repeatable->value();
 }
 
 $AttributeArray* AnnoConstruct::unpackAttributes($Attribute$Compound* container) {
 	$init(AnnoConstruct);
-	return $nc(($cast($Attribute$Array, $($nc(container)->member($nc($nc($nc($nc($nc(container->type)->tsym)->name)->table)->names)->value)))))->values;
+	return $nc($$cast($Attribute$Array, $nc(container)->member($nc($nc($nc($nc($nc($nc(container)->type)->tsym)->name)->table)->names)->value)))->values;
 }
 
 AnnoConstruct::AnnoConstruct() {
 }
 
 $Class* AnnoConstruct::load$($String* name, bool initialize) {
-	$loadClass(AnnoConstruct, name, initialize, &_AnnoConstruct_ClassInfo_, allocate$AnnoConstruct);
+	$MethodInfo methodInfos$$[] = {
+		{"getAnnotationMirrors", "()Ljava/util/List;", nullptr, $PUBLIC | $ABSTRACT},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AnnoConstruct, init$, void)},
+		{"getAnnotation", "(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;", "<A::Ljava/lang/annotation/Annotation;>(Ljava/lang/Class<TA;>;)TA;", $PUBLIC, $virtualMethod(AnnoConstruct, getAnnotation, $Annotation*, $Class*)},
+		{"getAnnotationsByType", "(Ljava/lang/Class;)[Ljava/lang/annotation/Annotation;", "<A::Ljava/lang/annotation/Annotation;>(Ljava/lang/Class<TA;>;)[TA;", $PUBLIC, $virtualMethod(AnnoConstruct, getAnnotationsByType, $AnnotationArray*, $Class*)},
+		{"getAttribute", "(Ljava/lang/Class;)Lcom/sun/tools/javac/code/Attribute$Compound;", "<A::Ljava/lang/annotation/Annotation;>(Ljava/lang/Class<TA;>;)Lcom/sun/tools/javac/code/Attribute$Compound;", $PROTECTED, $virtualMethod(AnnoConstruct, getAttribute, $Attribute$Compound*, $Class*)},
+		{"getContainer", "(Ljava/lang/Class;)Ljava/lang/Class;", "(Ljava/lang/Class<+Ljava/lang/annotation/Annotation;>;)Ljava/lang/Class<+Ljava/lang/annotation/Annotation;>;", $PRIVATE | $STATIC, $staticMethod(AnnoConstruct, getContainer, $Class*, $Class*)},
+		{"getInheritedAnnotations", "(Ljava/lang/Class;)[Ljava/lang/annotation/Annotation;", "<A::Ljava/lang/annotation/Annotation;>(Ljava/lang/Class<TA;>;)[TA;", $PROTECTED, $virtualMethod(AnnoConstruct, getInheritedAnnotations, $AnnotationArray*, $Class*)},
+		{"unpackAttributes", "(Lcom/sun/tools/javac/code/Attribute$Compound;)[Lcom/sun/tools/javac/code/Attribute;", nullptr, $PRIVATE | $STATIC, $staticMethod(AnnoConstruct, unpackAttributes, $AttributeArray*, $Attribute$Compound*)},
+		{"unpackContained", "(Lcom/sun/tools/javac/code/Attribute$Compound;)[Lcom/sun/tools/javac/code/Attribute$Compound;", nullptr, $PRIVATE, $method(AnnoConstruct, unpackContained, $Attribute$CompoundArray*, $Attribute$Compound*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"com.sun.tools.javac.code.AnnoConstruct",
+		"java.lang.Object",
+		"javax.lang.model.AnnotatedConstruct",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(AnnoConstruct, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AnnoConstruct);
+	});
 	return class$;
 }
 

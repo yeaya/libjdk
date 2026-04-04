@@ -42,7 +42,7 @@ public:
 	virtual $String* getPublicId() override;
 	virtual $String* getSystemId() override;
 	virtual $String* toString() override;
-	static const int64_t serialVersionUID = (int64_t)0x2C2799F6A21A0750;
+	static const int64_t serialVersionUID = (int64_t)0x2c2799f6a21a0750;
 	::org::xml::sax::Locator* m_locator = nullptr;
 };
 

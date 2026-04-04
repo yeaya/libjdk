@@ -1,5 +1,4 @@
 #include <sun/java2d/marlin/Stroker.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/lang/InternalError.h>
 #include <java/lang/Math.h>
@@ -49,122 +48,10 @@ using $MarlinConst = ::sun::java2d::marlin::MarlinConst;
 using $MarlinUtils = ::sun::java2d::marlin::MarlinUtils;
 using $RendererContext = ::sun::java2d::marlin::RendererContext;
 using $TransformingPathConsumer2D$CurveBasicMonotonizer = ::sun::java2d::marlin::TransformingPathConsumer2D$CurveBasicMonotonizer;
-using $TransformingPathConsumer2D$CurveClipSplitter = ::sun::java2d::marlin::TransformingPathConsumer2D$CurveClipSplitter;
 
 namespace sun {
 	namespace java2d {
 		namespace marlin {
-
-$FieldInfo _Stroker_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(Stroker, $assertionsDisabled)},
-	{"MOVE_TO", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Stroker, MOVE_TO)},
-	{"DRAWING_OP_TO", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Stroker, DRAWING_OP_TO)},
-	{"CLOSE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Stroker, CLOSE)},
-	{"ERR_JOIN", "D", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Stroker, ERR_JOIN)},
-	{"ROUND_JOIN_THRESHOLD", "D", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Stroker, ROUND_JOIN_THRESHOLD)},
-	{"C", "D", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Stroker, C)},
-	{"SQRT_2", "D", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Stroker, SQRT_2)},
-	{"out", "Lsun/java2d/marlin/DPathConsumer2D;", nullptr, $PRIVATE, $field(Stroker, out)},
-	{"capStyle", "I", nullptr, $PRIVATE, $field(Stroker, capStyle)},
-	{"joinStyle", "I", nullptr, $PRIVATE, $field(Stroker, joinStyle)},
-	{"lineWidth2", "D", nullptr, $PRIVATE, $field(Stroker, lineWidth2)},
-	{"invHalfLineWidth2Sq", "D", nullptr, $PRIVATE, $field(Stroker, invHalfLineWidth2Sq)},
-	{"offset0", "[D", nullptr, $PRIVATE | $FINAL, $field(Stroker, offset0)},
-	{"offset1", "[D", nullptr, $PRIVATE | $FINAL, $field(Stroker, offset1)},
-	{"offset2", "[D", nullptr, $PRIVATE | $FINAL, $field(Stroker, offset2)},
-	{"miter", "[D", nullptr, $PRIVATE | $FINAL, $field(Stroker, miter)},
-	{"miterLimitSq", "D", nullptr, $PRIVATE, $field(Stroker, miterLimitSq)},
-	{"prev", "I", nullptr, $PRIVATE, $field(Stroker, prev)},
-	{"sx0", "D", nullptr, $PRIVATE, $field(Stroker, sx0)},
-	{"sy0", "D", nullptr, $PRIVATE, $field(Stroker, sy0)},
-	{"sdx", "D", nullptr, $PRIVATE, $field(Stroker, sdx)},
-	{"sdy", "D", nullptr, $PRIVATE, $field(Stroker, sdy)},
-	{"cx0", "D", nullptr, $PRIVATE, $field(Stroker, cx0)},
-	{"cy0", "D", nullptr, $PRIVATE, $field(Stroker, cy0)},
-	{"cdx", "D", nullptr, $PRIVATE, $field(Stroker, cdx)},
-	{"cdy", "D", nullptr, $PRIVATE, $field(Stroker, cdy)},
-	{"smx", "D", nullptr, $PRIVATE, $field(Stroker, smx)},
-	{"smy", "D", nullptr, $PRIVATE, $field(Stroker, smy)},
-	{"cmx", "D", nullptr, $PRIVATE, $field(Stroker, cmx)},
-	{"cmy", "D", nullptr, $PRIVATE, $field(Stroker, cmy)},
-	{"reverse", "Lsun/java2d/marlin/Helpers$PolyStack;", nullptr, $PRIVATE | $FINAL, $field(Stroker, reverse)},
-	{"lp", "[D", nullptr, $PRIVATE | $FINAL, $field(Stroker, lp)},
-	{"rp", "[D", nullptr, $PRIVATE | $FINAL, $field(Stroker, rp)},
-	{"rdrCtx", "Lsun/java2d/marlin/RendererContext;", nullptr, $FINAL, $field(Stroker, rdrCtx)},
-	{"curve", "Lsun/java2d/marlin/Curve;", nullptr, $FINAL, $field(Stroker, curve)},
-	{"clipRect", "[D", nullptr, $PRIVATE, $field(Stroker, clipRect)},
-	{"cOutCode", "I", nullptr, $PRIVATE, $field(Stroker, cOutCode)},
-	{"sOutCode", "I", nullptr, $PRIVATE, $field(Stroker, sOutCode)},
-	{"opened", "Z", nullptr, $PRIVATE, $field(Stroker, opened)},
-	{"capStart", "Z", nullptr, $PRIVATE, $field(Stroker, capStart)},
-	{"monotonize", "Z", nullptr, $PRIVATE, $field(Stroker, monotonize)},
-	{"subdivide", "Z", nullptr, $PRIVATE, $field(Stroker, subdivide)},
-	{"curveSplitter", "Lsun/java2d/marlin/TransformingPathConsumer2D$CurveClipSplitter;", nullptr, $PRIVATE | $FINAL, $field(Stroker, curveSplitter)},
-	{}
-};
-
-$MethodInfo _Stroker_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lsun/java2d/marlin/RendererContext;)V", nullptr, 0, $method(Stroker, init$, void, $RendererContext*)},
-	{"_curveTo", "(DDDDDDI)V", nullptr, $PRIVATE, $method(Stroker, _curveTo, void, double, double, double, double, double, double, int32_t)},
-	{"_moveTo", "(DDI)V", nullptr, $PRIVATE, $method(Stroker, _moveTo, void, double, double, int32_t)},
-	{"_quadTo", "(DDDDI)V", nullptr, $PRIVATE, $method(Stroker, _quadTo, void, double, double, double, double, int32_t)},
-	{"closePath", "()V", nullptr, $PUBLIC, $virtualMethod(Stroker, closePath, void)},
-	{"computeMiter", "(DDDDDDDD[D)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Stroker, computeMiter, void, double, double, double, double, double, double, double, double, $doubles*)},
-	{"computeOffset", "(DDD[D)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Stroker, computeOffset, void, double, double, double, $doubles*)},
-	{"computeOffsetCubic", "([DI[D[D)I", nullptr, $PRIVATE, $method(Stroker, computeOffsetCubic, int32_t, $doubles*, int32_t, $doubles*, $doubles*)},
-	{"computeOffsetQuad", "([DI[D[D)I", nullptr, $PRIVATE, $method(Stroker, computeOffsetQuad, int32_t, $doubles*, int32_t, $doubles*, $doubles*)},
-	{"curveTo", "(DDDDDD)V", nullptr, $PUBLIC, $virtualMethod(Stroker, curveTo, void, double, double, double, double, double, double)},
-	{"disableClipping", "()V", nullptr, 0, $method(Stroker, disableClipping, void)},
-	{"dispose", "()V", nullptr, 0, $method(Stroker, dispose, void)},
-	{"drawBezApproxForArc", "(DDDDDDZ)V", nullptr, $PRIVATE, $method(Stroker, drawBezApproxForArc, void, double, double, double, double, double, double, bool)},
-	{"drawJoin", "(DDDDDDDDDDI)V", nullptr, $PRIVATE, $method(Stroker, drawJoin, void, double, double, double, double, double, double, double, double, double, double, int32_t)},
-	{"drawMiter", "(DDDDDDDDDDZ)V", nullptr, $PRIVATE, $method(Stroker, drawMiter, void, double, double, double, double, double, double, double, double, double, double, bool)},
-	{"drawRoundCap", "(DDDD)V", nullptr, $PRIVATE, $method(Stroker, drawRoundCap, void, double, double, double, double)},
-	{"drawRoundJoin", "(DDDDDDZ)V", nullptr, $PRIVATE, $method(Stroker, drawRoundJoin, void, double, double, double, double, double, double, bool)},
-	{"emitClose", "()V", nullptr, $PRIVATE, $method(Stroker, emitClose, void)},
-	{"emitCurveTo", "(DDDDDD)V", nullptr, $PRIVATE, $method(Stroker, emitCurveTo, void, double, double, double, double, double, double)},
-	{"emitCurveTo", "(DDDDDDDDZ)V", nullptr, $PRIVATE, $method(Stroker, emitCurveTo, void, double, double, double, double, double, double, double, double, bool)},
-	{"emitCurveToRev", "(DDDDDD)V", nullptr, $PRIVATE, $method(Stroker, emitCurveToRev, void, double, double, double, double, double, double)},
-	{"emitLineTo", "(DD)V", nullptr, $PRIVATE, $method(Stroker, emitLineTo, void, double, double)},
-	{"emitLineTo", "(DDZ)V", nullptr, $PRIVATE, $method(Stroker, emitLineTo, void, double, double, bool)},
-	{"emitLineToRev", "(DD)V", nullptr, $PRIVATE, $method(Stroker, emitLineToRev, void, double, double)},
-	{"emitMoveTo", "(DD)V", nullptr, $PRIVATE, $method(Stroker, emitMoveTo, void, double, double)},
-	{"emitQuadTo", "(DDDD)V", nullptr, $PRIVATE, $method(Stroker, emitQuadTo, void, double, double, double, double)},
-	{"emitQuadToRev", "(DDDD)V", nullptr, $PRIVATE, $method(Stroker, emitQuadToRev, void, double, double, double, double)},
-	{"emitReverse", "()V", nullptr, $PRIVATE, $method(Stroker, emitReverse, void)},
-	{"finish", "(I)V", nullptr, $PRIVATE, $method(Stroker, finish, void, int32_t)},
-	{"getLineOffsets", "(DDDD[D[D)V", nullptr, $PRIVATE, $method(Stroker, getLineOffsets, void, double, double, double, double, $doubles*, $doubles*)},
-	{"getNativeConsumer", "()J", nullptr, $PUBLIC, $virtualMethod(Stroker, getNativeConsumer, int64_t)},
-	{"init", "(Lsun/java2d/marlin/DPathConsumer2D;DIIDZ)Lsun/java2d/marlin/Stroker;", nullptr, 0, $method(Stroker, init, Stroker*, $DPathConsumer2D*, double, int32_t, int32_t, double, bool)},
-	{"isCW", "(DDDD)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(Stroker, isCW, bool, double, double, double, double)},
-	{"lineTo", "(DD)V", nullptr, $PUBLIC, $virtualMethod(Stroker, lineTo, void, double, double)},
-	{"lineTo", "(DDZ)V", nullptr, $PRIVATE, $method(Stroker, lineTo, void, double, double, bool)},
-	{"mayDrawRoundJoin", "(DDDDDDZ)V", nullptr, $PRIVATE, $method(Stroker, mayDrawRoundJoin, void, double, double, double, double, double, double, bool)},
-	{"moveTo", "(DD)V", nullptr, $PUBLIC, $virtualMethod(Stroker, moveTo, void, double, double)},
-	{"pathDone", "()V", nullptr, $PUBLIC, $virtualMethod(Stroker, pathDone, void)},
-	{"quadTo", "(DDDD)V", nullptr, $PUBLIC, $virtualMethod(Stroker, quadTo, void, double, double, double, double)},
-	{"safeComputeMiter", "(DDDDDDDD[D)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Stroker, safeComputeMiter, void, double, double, double, double, double, double, double, double, $doubles*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"within", "(DDDDD)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(Stroker, within, bool, double, double, double, double, double)},
-	{}
-};
-
-$ClassInfo _Stroker_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.java2d.marlin.Stroker",
-	"java.lang.Object",
-	"sun.java2d.marlin.DPathConsumer2D,sun.java2d.marlin.MarlinConst",
-	_Stroker_FieldInfo_,
-	_Stroker_MethodInfo_
-};
-
-$Object* allocate$Stroker($Class* clazz) {
-	return $of($alloc(Stroker));
-}
 
 int32_t Stroker::hashCode() {
 	 return this->$DPathConsumer2D::hashCode();
@@ -205,13 +92,13 @@ void Stroker::init$($RendererContext* rdrCtx) {
 	this->capStart = false;
 	this->subdivide = false;
 	$set(this, rdrCtx, rdrCtx);
-	$set(this, reverse, ($nc(rdrCtx)->stats$ != nullptr) ? $new($Helpers$PolyStack, rdrCtx, $nc($nc(rdrCtx)->stats$)->stat_str_polystack_types, $nc(rdrCtx->stats$)->stat_str_polystack_curves, $nc(rdrCtx->stats$)->hist_str_polystack_curves, $nc(rdrCtx->stats$)->stat_array_str_polystack_curves, $nc(rdrCtx->stats$)->stat_array_str_polystack_types) : $new($Helpers$PolyStack, rdrCtx));
-	$set(this, curve, $nc(rdrCtx)->curve);
+	$set(this, reverse, ($nc(rdrCtx)->stats$ != nullptr) ? $new($Helpers$PolyStack, rdrCtx, rdrCtx->stats$->stat_str_polystack_types, rdrCtx->stats$->stat_str_polystack_curves, rdrCtx->stats$->hist_str_polystack_curves, rdrCtx->stats$->stat_array_str_polystack_curves, rdrCtx->stats$->stat_array_str_polystack_types) : $new($Helpers$PolyStack, rdrCtx));
+	$set(this, curve, rdrCtx->curve);
 	$set(this, curveSplitter, rdrCtx->curveClipSplitter);
 }
 
 Stroker* Stroker::init($DPathConsumer2D* pc2d, double lineWidth, int32_t capStyle, int32_t joinStyle, double miterLimit, bool subdivideCurves) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, out, pc2d);
 	this->lineWidth2 = lineWidth / 2.0;
 	this->invHalfLineWidth2Sq = 1.0 / (2.0 * this->lineWidth2 * this->lineWidth2);
@@ -222,7 +109,7 @@ Stroker* Stroker::init($DPathConsumer2D* pc2d, double lineWidth, int32_t capStyl
 	this->miterLimitSq = limit * limit;
 	this->prev = Stroker::CLOSE;
 	$nc(this->rdrCtx)->stroking = 1;
-	if ($nc(this->rdrCtx)->doClip) {
+	if (this->rdrCtx->doClip) {
 		double margin = this->lineWidth2;
 		if (capStyle == $MarlinConst::CAP_SQUARE) {
 			margin *= Stroker::SQRT_2;
@@ -230,7 +117,7 @@ Stroker* Stroker::init($DPathConsumer2D* pc2d, double lineWidth, int32_t capStyl
 		if ((joinStyle == $MarlinConst::JOIN_MITER) && (margin < limit)) {
 			margin = limit;
 		}
-		$var($doubles, _clipRect, $nc(this->rdrCtx)->clipRect);
+		$var($doubles, _clipRect, this->rdrCtx->clipRect);
 		(*$nc(_clipRect))[0] -= margin;
 		(*_clipRect)[1] += margin;
 		(*_clipRect)[2] -= margin;
@@ -238,7 +125,7 @@ Stroker* Stroker::init($DPathConsumer2D* pc2d, double lineWidth, int32_t capStyl
 		$set(this, clipRect, _clipRect);
 		$init($MarlinConst);
 		if ($MarlinConst::DO_LOG_CLIP) {
-			$MarlinUtils::logInfo($$str({"clipRect (stroker): "_s, $($Arrays::toString($nc(this->rdrCtx)->clipRect))}));
+			$MarlinUtils::logInfo($$str({"clipRect (stroker): "_s, $($Arrays::toString(this->rdrCtx->clipRect))}));
 		}
 		if ($MarlinConst::DO_CLIP_SUBDIVIDER) {
 			this->subdivide = subdivideCurves;
@@ -264,6 +151,7 @@ void Stroker::dispose() {
 	$nc(this->reverse)->dispose();
 	this->opened = false;
 	this->capStart = false;
+	;
 }
 
 void Stroker::computeOffset(double lx, double ly, double w, $doubles* m) {
@@ -393,8 +281,8 @@ void Stroker::drawMiter(double pdx, double pdy, double x0, double y0, double dx,
 		my = -my;
 	}
 	computeMiter((x0 - pdx) + omx, (y0 - pdy) + omy, x0 + omx, y0 + omy, (dx + x0) + mx, (dy + y0) + my, x0 + mx, y0 + my, this->miter);
-	double miterX = $nc(this->miter)->get(0);
-	double miterY = $nc(this->miter)->get(1);
+	double miterX = this->miter->get(0);
+	double miterY = this->miter->get(1);
 	double lenSq = (miterX - x0) * (miterX - x0) + (miterY - y0) * (miterY - y0);
 	if (lenSq < this->miterLimitSq) {
 		emitLineTo(miterX, miterY, rev);
@@ -442,7 +330,7 @@ void Stroker::lineTo(double x1, double y1, bool force) {
 		int32_t outcode1 = $Helpers::outcode(x1, y1, this->clipRect);
 		int32_t orCode = (outcode0 | outcode1);
 		if (orCode != 0) {
-			int32_t sideCode = (int32_t)(outcode0 & (uint32_t)outcode1);
+			int32_t sideCode = outcode0 & outcode1;
 			if (sideCode == 0) {
 				if (this->subdivide) {
 					this->subdivide = false;
@@ -467,8 +355,8 @@ void Stroker::lineTo(double x1, double y1, bool force) {
 		dx = 1.0;
 	}
 	computeOffset(dx, dy, this->lineWidth2, this->offset0);
-	double mx = $nc(this->offset0)->get(0);
-	double my = $nc(this->offset0)->get(1);
+	double mx = this->offset0->get(0);
+	double my = this->offset0->get(1);
 	drawJoin(this->cdx, this->cdy, this->cx0, this->cy0, dx, dy, this->cmx, this->cmy, mx, my, outcode0);
 	emitLineTo(this->cx0 + mx, this->cy0 + my);
 	emitLineTo(x1 + mx, y1 + my);
@@ -500,7 +388,7 @@ void Stroker::closePath() {
 		finish(this->cOutCode);
 		return;
 	}
-	if (((int32_t)(this->sOutCode & (uint32_t)this->cOutCode)) == 0) {
+	if ((this->sOutCode & this->cOutCode) == 0) {
 		if (this->cx0 != this->sx0 || this->cy0 != this->sy0) {
 			lineTo(this->sx0, this->sy0, true);
 		}
@@ -647,8 +535,8 @@ bool Stroker::within(double x1, double y1, double x2, double y2, double err) {
 
 void Stroker::getLineOffsets(double x1, double y1, double x2, double y2, $doubles* left, $doubles* right) {
 	computeOffset(x2 - x1, y2 - y1, this->lineWidth2, this->offset0);
-	double mx = $nc(this->offset0)->get(0);
-	double my = $nc(this->offset0)->get(1);
+	double mx = this->offset0->get(0);
+	double my = this->offset0->get(1);
 	$nc(left)->set(0, x1 + mx);
 	left->set(1, y1 + my);
 	left->set(2, x2 + mx);
@@ -699,12 +587,12 @@ int32_t Stroker::computeOffsetCubic($doubles* pts, int32_t off, $doubles* leftOf
 	computeOffset(dx1, dy1, this->lineWidth2, this->offset0);
 	computeOffset(dxm, dym, this->lineWidth2, this->offset1);
 	computeOffset(dx4, dy4, this->lineWidth2, this->offset2);
-	double x1p = x1 + $nc(this->offset0)->get(0);
-	double y1p = y1 + $nc(this->offset0)->get(1);
-	double xi = x + $nc(this->offset1)->get(0);
-	double yi = y + $nc(this->offset1)->get(1);
-	double x4p = x4 + $nc(this->offset2)->get(0);
-	double y4p = y4 + $nc(this->offset2)->get(1);
+	double x1p = x1 + this->offset0->get(0);
+	double y1p = y1 + this->offset0->get(1);
+	double xi = x + this->offset1->get(0);
+	double yi = y + this->offset1->get(1);
+	double x4p = x4 + this->offset2->get(0);
+	double y4p = y4 + this->offset2->get(1);
 	double invdet43 = 4.0 / (3.0 * (dx1 * dy4 - dy1 * dx4));
 	double two_pi_m_p1_m_p4x = 2.0 * xi - x1p - x4p;
 	double two_pi_m_p1_m_p4y = 2.0 * yi - y1p - y4p;
@@ -726,12 +614,12 @@ int32_t Stroker::computeOffsetCubic($doubles* pts, int32_t off, $doubles* leftOf
 	leftOff->set(5, y3p);
 	leftOff->set(6, x4p);
 	leftOff->set(7, y4p);
-	x1p = x1 - $nc(this->offset0)->get(0);
-	y1p = y1 - $nc(this->offset0)->get(1);
-	xi = xi - 2.0 * $nc(this->offset1)->get(0);
-	yi = yi - 2.0 * $nc(this->offset1)->get(1);
-	x4p = x4 - $nc(this->offset2)->get(0);
-	y4p = y4 - $nc(this->offset2)->get(1);
+	x1p = x1 - this->offset0->get(0);
+	y1p = y1 - this->offset0->get(1);
+	xi = xi - 2.0 * this->offset1->get(0);
+	yi = yi - 2.0 * this->offset1->get(1);
+	x4p = x4 - this->offset2->get(0);
+	y4p = y4 - this->offset2->get(1);
 	two_pi_m_p1_m_p4x = 2.0 * xi - x1p - x4p;
 	two_pi_m_p1_m_p4y = 2.0 * yi - y1p - y4p;
 	c1 = invdet43 * (dy4 * two_pi_m_p1_m_p4x - dx4 * two_pi_m_p1_m_p4y);
@@ -778,19 +666,19 @@ int32_t Stroker::computeOffsetQuad($doubles* pts, int32_t off, $doubles* leftOff
 	}
 	computeOffset(dx1, dy1, this->lineWidth2, this->offset0);
 	computeOffset(dx3, dy3, this->lineWidth2, this->offset1);
-	double x1p = x1 + $nc(this->offset0)->get(0);
-	double y1p = y1 + $nc(this->offset0)->get(1);
-	double x3p = x3 + $nc(this->offset1)->get(0);
-	double y3p = y3 + $nc(this->offset1)->get(1);
+	double x1p = x1 + this->offset0->get(0);
+	double y1p = y1 + this->offset0->get(1);
+	double x3p = x3 + this->offset1->get(0);
+	double y3p = y3 + this->offset1->get(1);
 	safeComputeMiter(x1p, y1p, x1p + dx1, y1p + dy1, x3p, y3p, x3p - dx3, y3p - dy3, leftOff);
 	$nc(leftOff)->set(0, x1p);
 	leftOff->set(1, y1p);
 	leftOff->set(4, x3p);
 	leftOff->set(5, y3p);
-	x1p = x1 - $nc(this->offset0)->get(0);
-	y1p = y1 - $nc(this->offset0)->get(1);
-	x3p = x3 - $nc(this->offset1)->get(0);
-	y3p = y3 - $nc(this->offset1)->get(1);
+	x1p = x1 - this->offset0->get(0);
+	y1p = y1 - this->offset0->get(1);
+	x3p = x3 - this->offset1->get(0);
+	y3p = y3 - this->offset1->get(1);
 	safeComputeMiter(x1p, y1p, x1p + dx1, y1p + dy1, x3p, y3p, x3p - dx3, y3p - dy3, rightOff);
 	$nc(rightOff)->set(0, x1p);
 	rightOff->set(1, y1p);
@@ -807,7 +695,7 @@ void Stroker::curveTo(double x1, double y1, double x2, double y2, double x3, dou
 		int32_t outcode3 = $Helpers::outcode(x3, y3, this->clipRect);
 		int32_t orCode = (((outcode0 | outcode1) | outcode2) | outcode3);
 		if (orCode != 0) {
-			int32_t sideCode = (int32_t)(((int32_t)(((int32_t)(outcode0 & (uint32_t)outcode1)) & (uint32_t)outcode2)) & (uint32_t)outcode3);
+			int32_t sideCode = ((outcode0 & outcode1) & outcode2) & outcode3;
 			if (sideCode == 0) {
 				if (this->subdivide) {
 					this->subdivide = false;
@@ -830,7 +718,7 @@ void Stroker::curveTo(double x1, double y1, double x2, double y2, double x3, dou
 }
 
 void Stroker::_curveTo(double x1, double y1, double x2, double y2, double x3, double y3, int32_t outcode0) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	double dxs = x1 - this->cx0;
 	double dys = y1 - this->cy0;
 	double dxf = x3 - x2;
@@ -871,7 +759,7 @@ void Stroker::_curveTo(double x1, double y1, double x2, double y2, double x3, do
 		dyf /= len;
 	}
 	computeOffset(dxs, dys, this->lineWidth2, this->offset0);
-	drawJoin(this->cdx, this->cdy, this->cx0, this->cy0, dxs, dys, this->cmx, this->cmy, $nc(this->offset0)->get(0), $nc(this->offset0)->get(1), outcode0);
+	drawJoin(this->cdx, this->cdy, this->cx0, this->cy0, dxs, dys, this->cmx, this->cmy, this->offset0->get(0), this->offset0->get(1), outcode0);
 	int32_t nSplits = 0;
 	$var($doubles, mid, nullptr);
 	$var($doubles, l, this->lp);
@@ -892,30 +780,22 @@ void Stroker::_curveTo(double x1, double y1, double x2, double y2, double x3, do
 	}
 	$var($doubles, r, this->rp);
 	int32_t kind = 0;
-	{
-		int32_t i = 0;
-		int32_t off = 0;
-		for (; i <= nSplits; ++i, off += 6) {
-			kind = computeOffsetCubic(mid, off, l, r);
-			emitLineTo($nc(l)->get(0), l->get(1));
-			switch (kind) {
-			case 8:
-				{
-					emitCurveTo($nc(l)->get(2), l->get(3), l->get(4), l->get(5), l->get(6), l->get(7));
-					emitCurveToRev($nc(r)->get(0), r->get(1), r->get(2), r->get(3), r->get(4), r->get(5));
-					break;
-				}
-			case 4:
-				{
-					emitLineTo($nc(l)->get(2), l->get(3));
-					emitLineToRev($nc(r)->get(0), r->get(1));
-					break;
-				}
-			default:
-				{}
-			}
-			emitLineToRev($nc(r)->get(kind - 2), r->get(kind - 1));
+	for (int32_t i = 0, off = 0; i <= nSplits; ++i, off += 6) {
+		kind = computeOffsetCubic(mid, off, l, r);
+		emitLineTo($nc(l)->get(0), $nc(l)->get(1));
+		switch (kind) {
+		case 8:
+			emitCurveTo(l->get(2), l->get(3), l->get(4), l->get(5), l->get(6), l->get(7));
+			emitCurveToRev($nc(r)->get(0), $nc(r)->get(1), $nc(r)->get(2), $nc(r)->get(3), $nc(r)->get(4), $nc(r)->get(5));
+			break;
+		case 4:
+			emitLineTo(l->get(2), l->get(3));
+			emitLineToRev($nc(r)->get(0), $nc(r)->get(1));
+			break;
+		default:
+			break;
 		}
+		emitLineToRev($nc(r)->get(kind - 2), $nc(r)->get(kind - 1));
 	}
 	this->prev = Stroker::DRAWING_OP_TO;
 	this->cx0 = x3;
@@ -933,7 +813,7 @@ void Stroker::quadTo(double x1, double y1, double x2, double y2) {
 		int32_t outcode2 = $Helpers::outcode(x2, y2, this->clipRect);
 		int32_t orCode = ((outcode0 | outcode1) | outcode2);
 		if (orCode != 0) {
-			int32_t sideCode = (int32_t)(((int32_t)(outcode0 & (uint32_t)outcode1)) & (uint32_t)outcode2);
+			int32_t sideCode = (outcode0 & outcode1) & outcode2;
 			if (sideCode == 0) {
 				if (this->subdivide) {
 					this->subdivide = false;
@@ -956,7 +836,7 @@ void Stroker::quadTo(double x1, double y1, double x2, double y2) {
 }
 
 void Stroker::_quadTo(double x1, double y1, double x2, double y2, int32_t outcode0) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	double dxs = x1 - this->cx0;
 	double dys = y1 - this->cy0;
 	double dxf = x2 - x1;
@@ -985,7 +865,7 @@ void Stroker::_quadTo(double x1, double y1, double x2, double y2, int32_t outcod
 		dyf /= len;
 	}
 	computeOffset(dxs, dys, this->lineWidth2, this->offset0);
-	drawJoin(this->cdx, this->cdy, this->cx0, this->cy0, dxs, dys, this->cmx, this->cmy, $nc(this->offset0)->get(0), $nc(this->offset0)->get(1), outcode0);
+	drawJoin(this->cdx, this->cdy, this->cx0, this->cy0, dxs, dys, this->cmx, this->cmy, this->offset0->get(0), this->offset0->get(1), outcode0);
 	int32_t nSplits = 0;
 	$var($doubles, mid, nullptr);
 	$var($doubles, l, this->lp);
@@ -1004,30 +884,22 @@ void Stroker::_quadTo(double x1, double y1, double x2, double y2, int32_t outcod
 	}
 	$var($doubles, r, this->rp);
 	int32_t kind = 0;
-	{
-		int32_t i = 0;
-		int32_t off = 0;
-		for (; i <= nSplits; ++i, off += 4) {
-			kind = computeOffsetQuad(mid, off, l, r);
-			emitLineTo($nc(l)->get(0), l->get(1));
-			switch (kind) {
-			case 6:
-				{
-					emitQuadTo($nc(l)->get(2), l->get(3), l->get(4), l->get(5));
-					emitQuadToRev($nc(r)->get(0), r->get(1), r->get(2), r->get(3));
-					break;
-				}
-			case 4:
-				{
-					emitLineTo($nc(l)->get(2), l->get(3));
-					emitLineToRev($nc(r)->get(0), r->get(1));
-					break;
-				}
-			default:
-				{}
-			}
-			emitLineToRev($nc(r)->get(kind - 2), r->get(kind - 1));
+	for (int32_t i = 0, off = 0; i <= nSplits; ++i, off += 4) {
+		kind = computeOffsetQuad(mid, off, l, r);
+		emitLineTo($nc(l)->get(0), $nc(l)->get(1));
+		switch (kind) {
+		case 6:
+			emitQuadTo(l->get(2), l->get(3), l->get(4), l->get(5));
+			emitQuadToRev($nc(r)->get(0), $nc(r)->get(1), $nc(r)->get(2), $nc(r)->get(3));
+			break;
+		case 4:
+			emitLineTo(l->get(2), l->get(3));
+			emitLineToRev($nc(r)->get(0), $nc(r)->get(1));
+			break;
+		default:
+			break;
 		}
+		emitLineToRev($nc(r)->get(kind - 2), $nc(r)->get(kind - 1));
 	}
 	this->prev = Stroker::DRAWING_OP_TO;
 	this->cx0 = x2;
@@ -1043,7 +915,7 @@ int64_t Stroker::getNativeConsumer() {
 	$shouldNotReachHere();
 }
 
-void clinit$Stroker($Class* class$) {
+void Stroker::clinit$($Class* clazz) {
 	Stroker::$assertionsDisabled = !Stroker::class$->desiredAssertionStatus();
 	$init($MarlinConst);
 	Stroker::ERR_JOIN = (1.0f / $MarlinConst::MIN_SUBPIXELS);
@@ -1056,7 +928,113 @@ Stroker::Stroker() {
 }
 
 $Class* Stroker::load$($String* name, bool initialize) {
-	$loadClass(Stroker, name, initialize, &_Stroker_ClassInfo_, clinit$Stroker, allocate$Stroker);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(Stroker, $assertionsDisabled)},
+		{"MOVE_TO", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Stroker, MOVE_TO)},
+		{"DRAWING_OP_TO", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Stroker, DRAWING_OP_TO)},
+		{"CLOSE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Stroker, CLOSE)},
+		{"ERR_JOIN", "D", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Stroker, ERR_JOIN)},
+		{"ROUND_JOIN_THRESHOLD", "D", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Stroker, ROUND_JOIN_THRESHOLD)},
+		{"C", "D", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Stroker, C)},
+		{"SQRT_2", "D", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Stroker, SQRT_2)},
+		{"out", "Lsun/java2d/marlin/DPathConsumer2D;", nullptr, $PRIVATE, $field(Stroker, out)},
+		{"capStyle", "I", nullptr, $PRIVATE, $field(Stroker, capStyle)},
+		{"joinStyle", "I", nullptr, $PRIVATE, $field(Stroker, joinStyle)},
+		{"lineWidth2", "D", nullptr, $PRIVATE, $field(Stroker, lineWidth2)},
+		{"invHalfLineWidth2Sq", "D", nullptr, $PRIVATE, $field(Stroker, invHalfLineWidth2Sq)},
+		{"offset0", "[D", nullptr, $PRIVATE | $FINAL, $field(Stroker, offset0)},
+		{"offset1", "[D", nullptr, $PRIVATE | $FINAL, $field(Stroker, offset1)},
+		{"offset2", "[D", nullptr, $PRIVATE | $FINAL, $field(Stroker, offset2)},
+		{"miter", "[D", nullptr, $PRIVATE | $FINAL, $field(Stroker, miter)},
+		{"miterLimitSq", "D", nullptr, $PRIVATE, $field(Stroker, miterLimitSq)},
+		{"prev", "I", nullptr, $PRIVATE, $field(Stroker, prev)},
+		{"sx0", "D", nullptr, $PRIVATE, $field(Stroker, sx0)},
+		{"sy0", "D", nullptr, $PRIVATE, $field(Stroker, sy0)},
+		{"sdx", "D", nullptr, $PRIVATE, $field(Stroker, sdx)},
+		{"sdy", "D", nullptr, $PRIVATE, $field(Stroker, sdy)},
+		{"cx0", "D", nullptr, $PRIVATE, $field(Stroker, cx0)},
+		{"cy0", "D", nullptr, $PRIVATE, $field(Stroker, cy0)},
+		{"cdx", "D", nullptr, $PRIVATE, $field(Stroker, cdx)},
+		{"cdy", "D", nullptr, $PRIVATE, $field(Stroker, cdy)},
+		{"smx", "D", nullptr, $PRIVATE, $field(Stroker, smx)},
+		{"smy", "D", nullptr, $PRIVATE, $field(Stroker, smy)},
+		{"cmx", "D", nullptr, $PRIVATE, $field(Stroker, cmx)},
+		{"cmy", "D", nullptr, $PRIVATE, $field(Stroker, cmy)},
+		{"reverse", "Lsun/java2d/marlin/Helpers$PolyStack;", nullptr, $PRIVATE | $FINAL, $field(Stroker, reverse)},
+		{"lp", "[D", nullptr, $PRIVATE | $FINAL, $field(Stroker, lp)},
+		{"rp", "[D", nullptr, $PRIVATE | $FINAL, $field(Stroker, rp)},
+		{"rdrCtx", "Lsun/java2d/marlin/RendererContext;", nullptr, $FINAL, $field(Stroker, rdrCtx)},
+		{"curve", "Lsun/java2d/marlin/Curve;", nullptr, $FINAL, $field(Stroker, curve)},
+		{"clipRect", "[D", nullptr, $PRIVATE, $field(Stroker, clipRect)},
+		{"cOutCode", "I", nullptr, $PRIVATE, $field(Stroker, cOutCode)},
+		{"sOutCode", "I", nullptr, $PRIVATE, $field(Stroker, sOutCode)},
+		{"opened", "Z", nullptr, $PRIVATE, $field(Stroker, opened)},
+		{"capStart", "Z", nullptr, $PRIVATE, $field(Stroker, capStart)},
+		{"monotonize", "Z", nullptr, $PRIVATE, $field(Stroker, monotonize)},
+		{"subdivide", "Z", nullptr, $PRIVATE, $field(Stroker, subdivide)},
+		{"curveSplitter", "Lsun/java2d/marlin/TransformingPathConsumer2D$CurveClipSplitter;", nullptr, $PRIVATE | $FINAL, $field(Stroker, curveSplitter)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lsun/java2d/marlin/RendererContext;)V", nullptr, 0, $method(Stroker, init$, void, $RendererContext*)},
+		{"_curveTo", "(DDDDDDI)V", nullptr, $PRIVATE, $method(Stroker, _curveTo, void, double, double, double, double, double, double, int32_t)},
+		{"_moveTo", "(DDI)V", nullptr, $PRIVATE, $method(Stroker, _moveTo, void, double, double, int32_t)},
+		{"_quadTo", "(DDDDI)V", nullptr, $PRIVATE, $method(Stroker, _quadTo, void, double, double, double, double, int32_t)},
+		{"closePath", "()V", nullptr, $PUBLIC, $virtualMethod(Stroker, closePath, void)},
+		{"computeMiter", "(DDDDDDDD[D)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Stroker, computeMiter, void, double, double, double, double, double, double, double, double, $doubles*)},
+		{"computeOffset", "(DDD[D)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Stroker, computeOffset, void, double, double, double, $doubles*)},
+		{"computeOffsetCubic", "([DI[D[D)I", nullptr, $PRIVATE, $method(Stroker, computeOffsetCubic, int32_t, $doubles*, int32_t, $doubles*, $doubles*)},
+		{"computeOffsetQuad", "([DI[D[D)I", nullptr, $PRIVATE, $method(Stroker, computeOffsetQuad, int32_t, $doubles*, int32_t, $doubles*, $doubles*)},
+		{"curveTo", "(DDDDDD)V", nullptr, $PUBLIC, $virtualMethod(Stroker, curveTo, void, double, double, double, double, double, double)},
+		{"disableClipping", "()V", nullptr, 0, $method(Stroker, disableClipping, void)},
+		{"dispose", "()V", nullptr, 0, $method(Stroker, dispose, void)},
+		{"drawBezApproxForArc", "(DDDDDDZ)V", nullptr, $PRIVATE, $method(Stroker, drawBezApproxForArc, void, double, double, double, double, double, double, bool)},
+		{"drawJoin", "(DDDDDDDDDDI)V", nullptr, $PRIVATE, $method(Stroker, drawJoin, void, double, double, double, double, double, double, double, double, double, double, int32_t)},
+		{"drawMiter", "(DDDDDDDDDDZ)V", nullptr, $PRIVATE, $method(Stroker, drawMiter, void, double, double, double, double, double, double, double, double, double, double, bool)},
+		{"drawRoundCap", "(DDDD)V", nullptr, $PRIVATE, $method(Stroker, drawRoundCap, void, double, double, double, double)},
+		{"drawRoundJoin", "(DDDDDDZ)V", nullptr, $PRIVATE, $method(Stroker, drawRoundJoin, void, double, double, double, double, double, double, bool)},
+		{"emitClose", "()V", nullptr, $PRIVATE, $method(Stroker, emitClose, void)},
+		{"emitCurveTo", "(DDDDDD)V", nullptr, $PRIVATE, $method(Stroker, emitCurveTo, void, double, double, double, double, double, double)},
+		{"emitCurveTo", "(DDDDDDDDZ)V", nullptr, $PRIVATE, $method(Stroker, emitCurveTo, void, double, double, double, double, double, double, double, double, bool)},
+		{"emitCurveToRev", "(DDDDDD)V", nullptr, $PRIVATE, $method(Stroker, emitCurveToRev, void, double, double, double, double, double, double)},
+		{"emitLineTo", "(DD)V", nullptr, $PRIVATE, $method(Stroker, emitLineTo, void, double, double)},
+		{"emitLineTo", "(DDZ)V", nullptr, $PRIVATE, $method(Stroker, emitLineTo, void, double, double, bool)},
+		{"emitLineToRev", "(DD)V", nullptr, $PRIVATE, $method(Stroker, emitLineToRev, void, double, double)},
+		{"emitMoveTo", "(DD)V", nullptr, $PRIVATE, $method(Stroker, emitMoveTo, void, double, double)},
+		{"emitQuadTo", "(DDDD)V", nullptr, $PRIVATE, $method(Stroker, emitQuadTo, void, double, double, double, double)},
+		{"emitQuadToRev", "(DDDD)V", nullptr, $PRIVATE, $method(Stroker, emitQuadToRev, void, double, double, double, double)},
+		{"emitReverse", "()V", nullptr, $PRIVATE, $method(Stroker, emitReverse, void)},
+		{"finish", "(I)V", nullptr, $PRIVATE, $method(Stroker, finish, void, int32_t)},
+		{"getLineOffsets", "(DDDD[D[D)V", nullptr, $PRIVATE, $method(Stroker, getLineOffsets, void, double, double, double, double, $doubles*, $doubles*)},
+		{"getNativeConsumer", "()J", nullptr, $PUBLIC, $virtualMethod(Stroker, getNativeConsumer, int64_t)},
+		{"init", "(Lsun/java2d/marlin/DPathConsumer2D;DIIDZ)Lsun/java2d/marlin/Stroker;", nullptr, 0, $method(Stroker, init, Stroker*, $DPathConsumer2D*, double, int32_t, int32_t, double, bool)},
+		{"isCW", "(DDDD)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(Stroker, isCW, bool, double, double, double, double)},
+		{"lineTo", "(DD)V", nullptr, $PUBLIC, $virtualMethod(Stroker, lineTo, void, double, double)},
+		{"lineTo", "(DDZ)V", nullptr, $PRIVATE, $method(Stroker, lineTo, void, double, double, bool)},
+		{"mayDrawRoundJoin", "(DDDDDDZ)V", nullptr, $PRIVATE, $method(Stroker, mayDrawRoundJoin, void, double, double, double, double, double, double, bool)},
+		{"moveTo", "(DD)V", nullptr, $PUBLIC, $virtualMethod(Stroker, moveTo, void, double, double)},
+		{"pathDone", "()V", nullptr, $PUBLIC, $virtualMethod(Stroker, pathDone, void)},
+		{"quadTo", "(DDDD)V", nullptr, $PUBLIC, $virtualMethod(Stroker, quadTo, void, double, double, double, double)},
+		{"safeComputeMiter", "(DDDDDDDD[D)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Stroker, safeComputeMiter, void, double, double, double, double, double, double, double, double, $doubles*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"within", "(DDDDD)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(Stroker, within, bool, double, double, double, double, double)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.java2d.marlin.Stroker",
+		"java.lang.Object",
+		"sun.java2d.marlin.DPathConsumer2D,sun.java2d.marlin.MarlinConst",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Stroker, name, initialize, &classInfo$$, Stroker::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Stroker));
+	});
 	return class$;
 }
 

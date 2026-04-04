@@ -1,6 +1,4 @@
 #include <com/sun/tools/javac/tree/JCTree$JCDefaultCaseLabel.h>
-
-#include <com/sun/source/tree/DefaultCaseLabelTree.h>
 #include <com/sun/source/tree/Tree$Kind.h>
 #include <com/sun/source/tree/TreeVisitor.h>
 #include <com/sun/tools/javac/tree/JCTree$JCCaseLabel.h>
@@ -12,7 +10,6 @@
 #undef DEFAULTCASELABEL
 #undef DEFAULT_CASE_LABEL
 
-using $DefaultCaseLabelTree = ::com::sun::source::tree::DefaultCaseLabelTree;
 using $Tree$Kind = ::com::sun::source::tree::Tree$Kind;
 using $TreeVisitor = ::com::sun::source::tree::TreeVisitor;
 using $JCTree$JCCaseLabel = ::com::sun::tools::javac::tree::JCTree$JCCaseLabel;
@@ -27,48 +24,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace tree {
-
-$MethodInfo _JCTree$JCDefaultCaseLabel_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PROTECTED, $method(JCTree$JCDefaultCaseLabel, init$, void)},
-	{"accept", "(Lcom/sun/tools/javac/tree/JCTree$Visitor;)V", nullptr, $PUBLIC, $virtualMethod(JCTree$JCDefaultCaseLabel, accept, void, $JCTree$Visitor*)},
-	{"accept", "(Lcom/sun/source/tree/TreeVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;D:Ljava/lang/Object;>(Lcom/sun/source/tree/TreeVisitor<TR;TD;>;TD;)TR;", $PUBLIC, $virtualMethod(JCTree$JCDefaultCaseLabel, accept, $Object*, $TreeVisitor*, Object$*)},
-	{"getKind", "()Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCDefaultCaseLabel, getKind, $Tree$Kind*)},
-	{"getTag", "()Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCDefaultCaseLabel, getTag, $JCTree$Tag*)},
-	{"isExpression", "()Z", nullptr, $PUBLIC, $virtualMethod(JCTree$JCDefaultCaseLabel, isExpression, bool)},
-	{"isPattern", "()Z", nullptr, $PUBLIC, $virtualMethod(JCTree$JCDefaultCaseLabel, isPattern, bool)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _JCTree$JCDefaultCaseLabel_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.tree.JCTree$JCDefaultCaseLabel", "com.sun.tools.javac.tree.JCTree", "JCDefaultCaseLabel", $PUBLIC | $STATIC},
-	{"com.sun.tools.javac.tree.JCTree$JCCaseLabel", "com.sun.tools.javac.tree.JCTree", "JCCaseLabel", $PUBLIC | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _JCTree$JCDefaultCaseLabel_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.tree.JCTree$JCDefaultCaseLabel",
-	"com.sun.tools.javac.tree.JCTree$JCCaseLabel",
-	"com.sun.source.tree.DefaultCaseLabelTree",
-	nullptr,
-	_JCTree$JCDefaultCaseLabel_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JCTree$JCDefaultCaseLabel_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.tree.JCTree"
-};
-
-$Object* allocate$JCTree$JCDefaultCaseLabel($Class* clazz) {
-	return $of($alloc(JCTree$JCDefaultCaseLabel));
-}
 
 $String* JCTree$JCDefaultCaseLabel::toString() {
 	 return this->$JCTree$JCCaseLabel::toString();
@@ -104,7 +59,7 @@ $Tree$Kind* JCTree$JCDefaultCaseLabel::getKind() {
 }
 
 $Object* JCTree$JCDefaultCaseLabel::accept($TreeVisitor* v, Object$* d) {
-	return $of($nc(v)->visitDefaultCaseLabel(this, d));
+	return $nc(v)->visitDefaultCaseLabel(this, d);
 }
 
 $JCTree$Tag* JCTree$JCDefaultCaseLabel::getTag() {
@@ -124,7 +79,44 @@ JCTree$JCDefaultCaseLabel::JCTree$JCDefaultCaseLabel() {
 }
 
 $Class* JCTree$JCDefaultCaseLabel::load$($String* name, bool initialize) {
-	$loadClass(JCTree$JCDefaultCaseLabel, name, initialize, &_JCTree$JCDefaultCaseLabel_ClassInfo_, allocate$JCTree$JCDefaultCaseLabel);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PROTECTED, $method(JCTree$JCDefaultCaseLabel, init$, void)},
+		{"accept", "(Lcom/sun/tools/javac/tree/JCTree$Visitor;)V", nullptr, $PUBLIC, $virtualMethod(JCTree$JCDefaultCaseLabel, accept, void, $JCTree$Visitor*)},
+		{"accept", "(Lcom/sun/source/tree/TreeVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;D:Ljava/lang/Object;>(Lcom/sun/source/tree/TreeVisitor<TR;TD;>;TD;)TR;", $PUBLIC, $virtualMethod(JCTree$JCDefaultCaseLabel, accept, $Object*, $TreeVisitor*, Object$*)},
+		{"getKind", "()Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCDefaultCaseLabel, getKind, $Tree$Kind*)},
+		{"getTag", "()Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCDefaultCaseLabel, getTag, $JCTree$Tag*)},
+		{"isExpression", "()Z", nullptr, $PUBLIC, $virtualMethod(JCTree$JCDefaultCaseLabel, isExpression, bool)},
+		{"isPattern", "()Z", nullptr, $PUBLIC, $virtualMethod(JCTree$JCDefaultCaseLabel, isPattern, bool)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.tree.JCTree$JCDefaultCaseLabel", "com.sun.tools.javac.tree.JCTree", "JCDefaultCaseLabel", $PUBLIC | $STATIC},
+		{"com.sun.tools.javac.tree.JCTree$JCCaseLabel", "com.sun.tools.javac.tree.JCTree", "JCCaseLabel", $PUBLIC | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.tree.JCTree$JCDefaultCaseLabel",
+		"com.sun.tools.javac.tree.JCTree$JCCaseLabel",
+		"com.sun.source.tree.DefaultCaseLabelTree",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.tree.JCTree"
+	};
+	$loadClass(JCTree$JCDefaultCaseLabel, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JCTree$JCDefaultCaseLabel));
+	});
 	return class$;
 }
 

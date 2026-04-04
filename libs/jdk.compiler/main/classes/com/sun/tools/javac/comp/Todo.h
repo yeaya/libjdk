@@ -48,6 +48,7 @@ class $export Todo : public ::java::util::AbstractQueue {
 	$class(Todo, 0, ::java::util::AbstractQueue)
 public:
 	Todo();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::com::sun::tools::javac::util::Context* context);
 	void addByFile(::com::sun::tools::javac::comp::Env* env);
 	virtual void append(::com::sun::tools::javac::comp::Env* env);

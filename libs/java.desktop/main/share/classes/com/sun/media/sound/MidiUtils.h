@@ -59,7 +59,7 @@ public:
 	static int64_t tick2microsecond(::javax::sound::midi::Sequence* seq, int64_t tick, ::com::sun::media::sound::MidiUtils$TempoCache* cache);
 	static int64_t ticks2microsec(int64_t tick, double tempoMPQ, int32_t resolution);
 	static ::java::lang::RuntimeException* unsupportedDevice(::javax::sound::midi::MidiDevice$Info* info);
-	static const int32_t DEFAULT_TEMPO_MPQ = 0x0007A120;
+	static const int32_t DEFAULT_TEMPO_MPQ = 0x0007a120;
 	static const int32_t META_END_OF_TRACK_TYPE = 47;
 	static const int32_t META_TEMPO_TYPE = 81;
 };

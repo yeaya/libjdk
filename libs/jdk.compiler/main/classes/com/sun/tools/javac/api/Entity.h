@@ -30,6 +30,7 @@ class Entity : public ::java::lang::Object {
 	$class(Entity, 0, ::java::lang::Object)
 public:
 	Entity();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $String* getCharacters(::com::sun::source::doctree::EntityTree* tree);
 	static void put($String* name, char16_t c);

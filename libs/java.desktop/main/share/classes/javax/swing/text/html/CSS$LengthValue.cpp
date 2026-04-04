@@ -1,5 +1,4 @@
 #include <javax/swing/text/html/CSS$LengthValue.h>
-
 #include <java/lang/Math.h>
 #include <java/lang/NumberFormatException.h>
 #include <javax/swing/text/StyleConstants.h>
@@ -32,55 +31,6 @@ namespace javax {
 		namespace text {
 			namespace html {
 
-$FieldInfo _CSS$LengthValue_FieldInfo_[] = {
-	{"mayBeNegative", "Z", nullptr, 0, $field(CSS$LengthValue, mayBeNegative)},
-	{"percentage", "Z", nullptr, 0, $field(CSS$LengthValue, percentage)},
-	{"span", "F", nullptr, 0, $field(CSS$LengthValue, span)},
-	{"units", "Ljava/lang/String;", nullptr, 0, $field(CSS$LengthValue, units)},
-	{}
-};
-
-$MethodInfo _CSS$LengthValue_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(CSS$LengthValue, init$, void)},
-	{"<init>", "(Z)V", nullptr, 0, $method(CSS$LengthValue, init$, void, bool)},
-	{"fromStyleConstants", "(Ljavax/swing/text/StyleConstants;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, 0, $virtualMethod(CSS$LengthValue, fromStyleConstants, $Object*, $StyleConstants*, Object$*)},
-	{"getValue", "()F", nullptr, 0, $virtualMethod(CSS$LengthValue, getValue, float)},
-	{"getValue", "(Z)F", nullptr, 0, $virtualMethod(CSS$LengthValue, getValue, float, bool)},
-	{"getValue", "(F)F", nullptr, 0, $virtualMethod(CSS$LengthValue, getValue, float, float)},
-	{"getValue", "(FZ)F", nullptr, 0, $virtualMethod(CSS$LengthValue, getValue, float, float, bool)},
-	{"isPercentage", "()Z", nullptr, 0, $virtualMethod(CSS$LengthValue, isPercentage, bool)},
-	{"parseCssValue", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, 0, $virtualMethod(CSS$LengthValue, parseCssValue, $Object*, $String*)},
-	{"parseHtmlValue", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, 0, $virtualMethod(CSS$LengthValue, parseHtmlValue, $Object*, $String*)},
-	{"toStyleConstants", "(Ljavax/swing/text/StyleConstants;Ljavax/swing/text/View;)Ljava/lang/Object;", nullptr, 0, $virtualMethod(CSS$LengthValue, toStyleConstants, $Object*, $StyleConstants*, $View*)},
-	{}
-};
-
-$InnerClassInfo _CSS$LengthValue_InnerClassesInfo_[] = {
-	{"javax.swing.text.html.CSS$LengthValue", "javax.swing.text.html.CSS", "LengthValue", $STATIC},
-	{"javax.swing.text.html.CSS$CssValue", "javax.swing.text.html.CSS", "CssValue", $STATIC},
-	{}
-};
-
-$ClassInfo _CSS$LengthValue_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.text.html.CSS$LengthValue",
-	"javax.swing.text.html.CSS$CssValue",
-	nullptr,
-	_CSS$LengthValue_FieldInfo_,
-	_CSS$LengthValue_MethodInfo_,
-	nullptr,
-	nullptr,
-	_CSS$LengthValue_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.html.CSS"
-};
-
-$Object* allocate$CSS$LengthValue($Class* clazz) {
-	return $of($alloc(CSS$LengthValue));
-}
-
 void CSS$LengthValue::init$() {
 	CSS$LengthValue::init$(false);
 }
@@ -96,7 +46,7 @@ float CSS$LengthValue::getValue() {
 }
 
 float CSS$LengthValue::getValue(bool isW3CLengthUnits) {
-	return getValue((float)0, isW3CLengthUnits);
+	return getValue(0, isW3CLengthUnits);
 }
 
 float CSS$LengthValue::getValue(float currentValue) {
@@ -115,37 +65,31 @@ bool CSS$LengthValue::isPercentage() {
 }
 
 $Object* CSS$LengthValue::parseCssValue($String* value) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(CSS$LengthValue, lv, nullptr);
 	try {
-		float absolute = $nc($($Float::valueOf(value)))->floatValue();
+		float absolute = $($Float::valueOf(value))->floatValue();
 		$assign(lv, $new(CSS$LengthValue));
 		lv->span = absolute;
 	} catch ($NumberFormatException& nfe) {
-		$var($CSS$LengthUnit, lu, $new($CSS$LengthUnit, value, $CSS$LengthUnit::UNINITIALIZED_LENGTH, (float)0));
+		$var($CSS$LengthUnit, lu, $new($CSS$LengthUnit, value, $CSS$LengthUnit::UNINITIALIZED_LENGTH, 0));
 		switch (lu->type) {
 		case 0:
-			{
-				$assign(lv, $new(CSS$LengthValue));
-				$nc(lv)->span = (this->mayBeNegative) ? lu->value : $Math::max((float)0, lu->value);
-				$set($nc(lv), units, lu->units);
-				break;
-			}
+			$assign(lv, $new(CSS$LengthValue));
+			lv->span = (this->mayBeNegative) ? lu->value : $Math::max((float)0, lu->value);
+			$set(lv, units, lu->units);
+			break;
 		case 1:
-			{
-				$assign(lv, $new(CSS$LengthValue));
-				$nc(lv)->span = $Math::max((float)0, $Math::min((float)1, lu->value));
-				$nc(lv)->percentage = true;
-				break;
-			}
+			$assign(lv, $new(CSS$LengthValue));
+			lv->span = $Math::max((float)0, $Math::min((float)1, lu->value));
+			lv->percentage = true;
+			break;
 		default:
-			{
-				return $of(nullptr);
-			}
+			return nullptr;
 		}
 	}
 	$set($nc(lv), svalue, value);
-	return $of(lv);
+	return lv;
 }
 
 $Object* CSS$LengthValue::parseHtmlValue($String* value$renamed) {
@@ -154,14 +98,14 @@ $Object* CSS$LengthValue::parseHtmlValue($String* value$renamed) {
 	if ($nc(value)->equals($HTML::NULL_ATTRIBUTE_VALUE)) {
 		$assign(value, "1"_s);
 	}
-	return $of(parseCssValue(value));
+	return parseCssValue(value);
 }
 
 $Object* CSS$LengthValue::fromStyleConstants($StyleConstants* key, Object$* value) {
 	$var(CSS$LengthValue, v, $new(CSS$LengthValue));
 	$set(v, svalue, $nc($of(value))->toString());
-	v->span = $nc(($cast($Float, value)))->floatValue();
-	return $of(v);
+	v->span = $cast($Float, value)->floatValue();
+	return v;
 }
 
 $Object* CSS$LengthValue::toStyleConstants($StyleConstants* key, $View* v) {
@@ -172,7 +116,50 @@ CSS$LengthValue::CSS$LengthValue() {
 }
 
 $Class* CSS$LengthValue::load$($String* name, bool initialize) {
-	$loadClass(CSS$LengthValue, name, initialize, &_CSS$LengthValue_ClassInfo_, allocate$CSS$LengthValue);
+	$FieldInfo fieldInfos$$[] = {
+		{"mayBeNegative", "Z", nullptr, 0, $field(CSS$LengthValue, mayBeNegative)},
+		{"percentage", "Z", nullptr, 0, $field(CSS$LengthValue, percentage)},
+		{"span", "F", nullptr, 0, $field(CSS$LengthValue, span)},
+		{"units", "Ljava/lang/String;", nullptr, 0, $field(CSS$LengthValue, units)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(CSS$LengthValue, init$, void)},
+		{"<init>", "(Z)V", nullptr, 0, $method(CSS$LengthValue, init$, void, bool)},
+		{"fromStyleConstants", "(Ljavax/swing/text/StyleConstants;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, 0, $virtualMethod(CSS$LengthValue, fromStyleConstants, $Object*, $StyleConstants*, Object$*)},
+		{"getValue", "()F", nullptr, 0, $virtualMethod(CSS$LengthValue, getValue, float)},
+		{"getValue", "(Z)F", nullptr, 0, $virtualMethod(CSS$LengthValue, getValue, float, bool)},
+		{"getValue", "(F)F", nullptr, 0, $virtualMethod(CSS$LengthValue, getValue, float, float)},
+		{"getValue", "(FZ)F", nullptr, 0, $virtualMethod(CSS$LengthValue, getValue, float, float, bool)},
+		{"isPercentage", "()Z", nullptr, 0, $virtualMethod(CSS$LengthValue, isPercentage, bool)},
+		{"parseCssValue", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, 0, $virtualMethod(CSS$LengthValue, parseCssValue, $Object*, $String*)},
+		{"parseHtmlValue", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, 0, $virtualMethod(CSS$LengthValue, parseHtmlValue, $Object*, $String*)},
+		{"toStyleConstants", "(Ljavax/swing/text/StyleConstants;Ljavax/swing/text/View;)Ljava/lang/Object;", nullptr, 0, $virtualMethod(CSS$LengthValue, toStyleConstants, $Object*, $StyleConstants*, $View*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.html.CSS$LengthValue", "javax.swing.text.html.CSS", "LengthValue", $STATIC},
+		{"javax.swing.text.html.CSS$CssValue", "javax.swing.text.html.CSS", "CssValue", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.text.html.CSS$LengthValue",
+		"javax.swing.text.html.CSS$CssValue",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.html.CSS"
+	};
+	$loadClass(CSS$LengthValue, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CSS$LengthValue);
+	});
 	return class$;
 }
 

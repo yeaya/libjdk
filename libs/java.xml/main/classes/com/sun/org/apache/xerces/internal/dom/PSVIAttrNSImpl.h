@@ -107,7 +107,7 @@ public:
 	virtual void setPSVI(::com::sun::org::apache::xerces::internal::xs::AttributePSVI* attr);
 	virtual $String* toString() override;
 	void writeObject(::java::io::ObjectOutputStream* out);
-	static const int64_t serialVersionUID = (int64_t)0xD30307D40E5F94F7;
+	static const int64_t serialVersionUID = (int64_t)0xd30307d40e5f94f7;
 	::com::sun::org::apache::xerces::internal::xs::XSAttributeDeclaration* fDeclaration = nullptr;
 	::com::sun::org::apache::xerces::internal::xs::XSTypeDefinition* fTypeDecl = nullptr;
 	bool fSpecified = false;

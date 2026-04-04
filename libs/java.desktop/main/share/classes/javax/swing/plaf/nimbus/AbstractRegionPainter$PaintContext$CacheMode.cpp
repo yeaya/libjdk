@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext$CacheMode.h>
-
 #include <java/lang/Enum.h>
 #include <javax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext.h>
 #include <javax/swing/plaf/nimbus/AbstractRegionPainter.h>
@@ -20,48 +19,6 @@ namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace nimbus {
-
-$FieldInfo _AbstractRegionPainter$PaintContext$CacheMode_FieldInfo_[] = {
-	{"NO_CACHING", "Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext$CacheMode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(AbstractRegionPainter$PaintContext$CacheMode, NO_CACHING)},
-	{"FIXED_SIZES", "Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext$CacheMode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(AbstractRegionPainter$PaintContext$CacheMode, FIXED_SIZES)},
-	{"NINE_SQUARE_SCALE", "Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext$CacheMode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(AbstractRegionPainter$PaintContext$CacheMode, NINE_SQUARE_SCALE)},
-	{"$VALUES", "[Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext$CacheMode;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(AbstractRegionPainter$PaintContext$CacheMode, $VALUES)},
-	{}
-};
-
-$MethodInfo _AbstractRegionPainter$PaintContext$CacheMode_MethodInfo_[] = {
-	{"$values", "()[Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext$CacheMode;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(AbstractRegionPainter$PaintContext$CacheMode, $values, $AbstractRegionPainter$PaintContext$CacheModeArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(AbstractRegionPainter$PaintContext$CacheMode, init$, void, $String*, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext$CacheMode;", nullptr, $PUBLIC | $STATIC, $staticMethod(AbstractRegionPainter$PaintContext$CacheMode, valueOf, AbstractRegionPainter$PaintContext$CacheMode*, $String*)},
-	{"values", "()[Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext$CacheMode;", nullptr, $PUBLIC | $STATIC, $staticMethod(AbstractRegionPainter$PaintContext$CacheMode, values, $AbstractRegionPainter$PaintContext$CacheModeArray*)},
-	{}
-};
-
-$InnerClassInfo _AbstractRegionPainter$PaintContext$CacheMode_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.nimbus.AbstractRegionPainter$PaintContext", "javax.swing.plaf.nimbus.AbstractRegionPainter", "PaintContext", $PROTECTED | $STATIC},
-	{"javax.swing.plaf.nimbus.AbstractRegionPainter$PaintContext$CacheMode", "javax.swing.plaf.nimbus.AbstractRegionPainter$PaintContext", "CacheMode", $PROTECTED | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _AbstractRegionPainter$PaintContext$CacheMode_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"javax.swing.plaf.nimbus.AbstractRegionPainter$PaintContext$CacheMode",
-	"java.lang.Enum",
-	nullptr,
-	_AbstractRegionPainter$PaintContext$CacheMode_FieldInfo_,
-	_AbstractRegionPainter$PaintContext$CacheMode_MethodInfo_,
-	"Ljava/lang/Enum<Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext$CacheMode;>;",
-	nullptr,
-	_AbstractRegionPainter$PaintContext$CacheMode_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.nimbus.AbstractRegionPainter"
-};
-
-$Object* allocate$AbstractRegionPainter$PaintContext$CacheMode($Class* clazz) {
-	return $of($alloc(AbstractRegionPainter$PaintContext$CacheMode));
-}
 
 AbstractRegionPainter$PaintContext$CacheMode* AbstractRegionPainter$PaintContext$CacheMode::NO_CACHING = nullptr;
 AbstractRegionPainter$PaintContext$CacheMode* AbstractRegionPainter$PaintContext$CacheMode::FIXED_SIZES = nullptr;
@@ -91,7 +48,7 @@ void AbstractRegionPainter$PaintContext$CacheMode::init$($String* $enum$name, in
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$AbstractRegionPainter$PaintContext$CacheMode($Class* class$) {
+void AbstractRegionPainter$PaintContext$CacheMode::clinit$($Class* clazz) {
 	$assignStatic(AbstractRegionPainter$PaintContext$CacheMode::NO_CACHING, $new(AbstractRegionPainter$PaintContext$CacheMode, "NO_CACHING"_s, 0));
 	$assignStatic(AbstractRegionPainter$PaintContext$CacheMode::FIXED_SIZES, $new(AbstractRegionPainter$PaintContext$CacheMode, "FIXED_SIZES"_s, 1));
 	$assignStatic(AbstractRegionPainter$PaintContext$CacheMode::NINE_SQUARE_SCALE, $new(AbstractRegionPainter$PaintContext$CacheMode, "NINE_SQUARE_SCALE"_s, 2));
@@ -102,7 +59,43 @@ AbstractRegionPainter$PaintContext$CacheMode::AbstractRegionPainter$PaintContext
 }
 
 $Class* AbstractRegionPainter$PaintContext$CacheMode::load$($String* name, bool initialize) {
-	$loadClass(AbstractRegionPainter$PaintContext$CacheMode, name, initialize, &_AbstractRegionPainter$PaintContext$CacheMode_ClassInfo_, clinit$AbstractRegionPainter$PaintContext$CacheMode, allocate$AbstractRegionPainter$PaintContext$CacheMode);
+	$FieldInfo fieldInfos$$[] = {
+		{"NO_CACHING", "Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext$CacheMode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(AbstractRegionPainter$PaintContext$CacheMode, NO_CACHING)},
+		{"FIXED_SIZES", "Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext$CacheMode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(AbstractRegionPainter$PaintContext$CacheMode, FIXED_SIZES)},
+		{"NINE_SQUARE_SCALE", "Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext$CacheMode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(AbstractRegionPainter$PaintContext$CacheMode, NINE_SQUARE_SCALE)},
+		{"$VALUES", "[Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext$CacheMode;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(AbstractRegionPainter$PaintContext$CacheMode, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext$CacheMode;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(AbstractRegionPainter$PaintContext$CacheMode, $values, $AbstractRegionPainter$PaintContext$CacheModeArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(AbstractRegionPainter$PaintContext$CacheMode, init$, void, $String*, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext$CacheMode;", nullptr, $PUBLIC | $STATIC, $staticMethod(AbstractRegionPainter$PaintContext$CacheMode, valueOf, AbstractRegionPainter$PaintContext$CacheMode*, $String*)},
+		{"values", "()[Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext$CacheMode;", nullptr, $PUBLIC | $STATIC, $staticMethod(AbstractRegionPainter$PaintContext$CacheMode, values, $AbstractRegionPainter$PaintContext$CacheModeArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.nimbus.AbstractRegionPainter$PaintContext", "javax.swing.plaf.nimbus.AbstractRegionPainter", "PaintContext", $PROTECTED | $STATIC},
+		{"javax.swing.plaf.nimbus.AbstractRegionPainter$PaintContext$CacheMode", "javax.swing.plaf.nimbus.AbstractRegionPainter$PaintContext", "CacheMode", $PROTECTED | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"javax.swing.plaf.nimbus.AbstractRegionPainter$PaintContext$CacheMode",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext$CacheMode;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.nimbus.AbstractRegionPainter"
+	};
+	$loadClass(AbstractRegionPainter$PaintContext$CacheMode, name, initialize, &classInfo$$, AbstractRegionPainter$PaintContext$CacheMode::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AbstractRegionPainter$PaintContext$CacheMode));
+	});
 	return class$;
 }
 

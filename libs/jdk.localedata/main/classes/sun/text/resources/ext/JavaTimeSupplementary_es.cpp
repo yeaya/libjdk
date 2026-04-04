@@ -1,5 +1,4 @@
 #include <sun/text/resources/ext/JavaTimeSupplementary_es.h>
-
 #include <sun/util/resources/OpenListResourceBundle.h>
 #include <jcpp.h>
 
@@ -13,31 +12,12 @@ namespace sun {
 		namespace resources {
 			namespace ext {
 
-$MethodInfo _JavaTimeSupplementary_es_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(JavaTimeSupplementary_es, init$, void)},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(JavaTimeSupplementary_es, getContents, $ObjectArray2*)},
-	{}
-};
-
-$ClassInfo _JavaTimeSupplementary_es_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.text.resources.ext.JavaTimeSupplementary_es",
-	"sun.util.resources.OpenListResourceBundle",
-	nullptr,
-	nullptr,
-	_JavaTimeSupplementary_es_MethodInfo_
-};
-
-$Object* allocate$JavaTimeSupplementary_es($Class* clazz) {
-	return $of($alloc(JavaTimeSupplementary_es));
-}
-
 void JavaTimeSupplementary_es::init$() {
 	$OpenListResourceBundle::init$();
 }
 
 $ObjectArray2* JavaTimeSupplementary_es::getContents() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringArray, sharedQuarterAbbreviations, $new($StringArray, {
 		"T1"_s,
 		"T2"_s,
@@ -105,190 +85,190 @@ $ObjectArray2* JavaTimeSupplementary_es::getContents() {
 	}));
 	return $new($ObjectArray2, {
 		$$new($ObjectArray, {
-			$of("QuarterAbbreviations"_s),
-			$of(sharedQuarterAbbreviations)
+			"QuarterAbbreviations"_s,
+			sharedQuarterAbbreviations
 		}),
 		$$new($ObjectArray, {
-			$of("QuarterNames"_s),
-			$of(sharedQuarterNames)
+			"QuarterNames"_s,
+			sharedQuarterNames
 		}),
 		$$new($ObjectArray, {
-			$of("calendarname.buddhist"_s),
-			$of("calendario budista"_s)
+			"calendarname.buddhist"_s,
+			"calendario budista"_s
 		}),
 		$$new($ObjectArray, {
-			$of("calendarname.gregorian"_s),
-			$of("calendario gregoriano"_s)
+			"calendarname.gregorian"_s,
+			"calendario gregoriano"_s
 		}),
 		$$new($ObjectArray, {
-			$of("calendarname.gregory"_s),
-			$of("calendario gregoriano"_s)
+			"calendarname.gregory"_s,
+			"calendario gregoriano"_s
 		}),
 		$$new($ObjectArray, {
-			$of("calendarname.islamic"_s),
-			$of(u"calendario islámico"_s)
+			"calendarname.islamic"_s,
+			u"calendario islámico"_s
 		}),
 		$$new($ObjectArray, {
-			$of("calendarname.islamic-civil"_s),
-			$of(u"calendario civil islámico"_s)
+			"calendarname.islamic-civil"_s,
+			u"calendario civil islámico"_s
 		}),
 		$$new($ObjectArray, {
-			$of("calendarname.japanese"_s),
-			$of(u"calendario japonés"_s)
+			"calendarname.japanese"_s,
+			u"calendario japonés"_s
 		}),
 		$$new($ObjectArray, {
-			$of("calendarname.roc"_s),
-			$of(u"calendario de la República de China"_s)
+			"calendarname.roc"_s,
+			u"calendario de la República de China"_s
 		}),
 		$$new($ObjectArray, {
-			$of("field.dayperiod"_s),
-			$of("a. m./p. m."_s)
+			"field.dayperiod"_s,
+			"a. m./p. m."_s
 		}),
 		$$new($ObjectArray, {
-			$of("field.era"_s),
-			$of("era"_s)
+			"field.era"_s,
+			"era"_s
 		}),
 		$$new($ObjectArray, {
-			$of("field.hour"_s),
-			$of("hora"_s)
+			"field.hour"_s,
+			"hora"_s
 		}),
 		$$new($ObjectArray, {
-			$of("field.minute"_s),
-			$of("minuto"_s)
+			"field.minute"_s,
+			"minuto"_s
 		}),
 		$$new($ObjectArray, {
-			$of("field.month"_s),
-			$of("mes"_s)
+			"field.month"_s,
+			"mes"_s
 		}),
 		$$new($ObjectArray, {
-			$of("field.second"_s),
-			$of("segundo"_s)
+			"field.second"_s,
+			"segundo"_s
 		}),
 		$$new($ObjectArray, {
-			$of("field.week"_s),
-			$of("semana"_s)
+			"field.week"_s,
+			"semana"_s
 		}),
 		$$new($ObjectArray, {
-			$of("field.weekday"_s),
-			$of(u"día de la semana"_s)
+			"field.weekday"_s,
+			u"día de la semana"_s
 		}),
 		$$new($ObjectArray, {
-			$of("field.year"_s),
-			$of(u"año"_s)
+			"field.year"_s,
+			u"año"_s
 		}),
 		$$new($ObjectArray, {
-			$of("field.zone"_s),
-			$of("zona horaria"_s)
+			"field.zone"_s,
+			"zona horaria"_s
 		}),
 		$$new($ObjectArray, {
-			$of("islamic.AmPmMarkers"_s),
-			$of(sharedAmPmMarkers)
+			"islamic.AmPmMarkers"_s,
+			sharedAmPmMarkers
 		}),
 		$$new($ObjectArray, {
-			$of("islamic.DatePatterns"_s),
-			$of(sharedDatePatterns)
+			"islamic.DatePatterns"_s,
+			sharedDatePatterns
 		}),
 		$$new($ObjectArray, {
-			$of("islamic.DayAbbreviations"_s),
-			$of(sharedDayAbbreviations)
+			"islamic.DayAbbreviations"_s,
+			sharedDayAbbreviations
 		}),
 		$$new($ObjectArray, {
-			$of("islamic.DayNames"_s),
-			$of(sharedDayNames)
+			"islamic.DayNames"_s,
+			sharedDayNames
 		}),
 		$$new($ObjectArray, {
-			$of("islamic.DayNarrows"_s),
-			$of(sharedDayNarrows)
+			"islamic.DayNarrows"_s,
+			sharedDayNarrows
 		}),
 		$$new($ObjectArray, {
-			$of("islamic.QuarterAbbreviations"_s),
-			$of(sharedQuarterAbbreviations)
+			"islamic.QuarterAbbreviations"_s,
+			sharedQuarterAbbreviations
 		}),
 		$$new($ObjectArray, {
-			$of("islamic.QuarterNames"_s),
-			$of(sharedQuarterNames)
+			"islamic.QuarterNames"_s,
+			sharedQuarterNames
 		}),
 		$$new($ObjectArray, {
-			$of("islamic.TimePatterns"_s),
-			$of(sharedTimePatterns)
+			"islamic.TimePatterns"_s,
+			sharedTimePatterns
 		}),
 		$$new($ObjectArray, {
-			$of("islamic.abbreviated.AmPmMarkers"_s),
-			$of(sharedAmPmMarkers)
+			"islamic.abbreviated.AmPmMarkers"_s,
+			sharedAmPmMarkers
 		}),
 		$$new($ObjectArray, {
-			$of("islamic.narrow.AmPmMarkers"_s),
-			$of(sharedAmPmMarkers)
+			"islamic.narrow.AmPmMarkers"_s,
+			sharedAmPmMarkers
 		}),
 		$$new($ObjectArray, {
-			$of("java.time.buddhist.DatePatterns"_s),
-			$of(sharedJavaTimeDatePatterns)
+			"java.time.buddhist.DatePatterns"_s,
+			sharedJavaTimeDatePatterns
 		}),
 		$$new($ObjectArray, {
-			$of("java.time.buddhist.short.Eras"_s),
-			$of($$new($StringArray, {
+			"java.time.buddhist.short.Eras"_s,
+			$$new($StringArray, {
 				"BC"_s,
 				"BE"_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("java.time.islamic.DatePatterns"_s),
-			$of(sharedJavaTimeDatePatterns)
+			"java.time.islamic.DatePatterns"_s,
+			sharedJavaTimeDatePatterns
 		}),
 		$$new($ObjectArray, {
-			$of("java.time.japanese.DatePatterns"_s),
-			$of($$new($StringArray, {
+			"java.time.japanese.DatePatterns"_s,
+			$$new($StringArray, {
 				"EEEE, d \'de\' MMMM \'de\' y G"_s,
 				"d \'de\' MMMM \'de\' y G"_s,
 				"dd/MM/y G"_s,
 				"dd/MM/yy GGGGG"_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("java.time.long.Eras"_s),
-			$of($$new($StringArray, {
+			"java.time.long.Eras"_s,
+			$$new($StringArray, {
 				"antes de Cristo"_s,
 				u"después de Cristo"_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("java.time.roc.DatePatterns"_s),
-			$of(sharedJavaTimeDatePatterns)
+			"java.time.roc.DatePatterns"_s,
+			sharedJavaTimeDatePatterns
 		}),
 		$$new($ObjectArray, {
-			$of("java.time.short.Eras"_s),
-			$of($$new($StringArray, {
+			"java.time.short.Eras"_s,
+			$$new($StringArray, {
 				"antes de Cristo"_s,
 				u"anno Dómini"_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("roc.AmPmMarkers"_s),
-			$of(sharedAmPmMarkers)
+			"roc.AmPmMarkers"_s,
+			sharedAmPmMarkers
 		}),
 		$$new($ObjectArray, {
-			$of("roc.DatePatterns"_s),
-			$of(sharedDatePatterns)
+			"roc.DatePatterns"_s,
+			sharedDatePatterns
 		}),
 		$$new($ObjectArray, {
-			$of("roc.DayAbbreviations"_s),
-			$of(sharedDayAbbreviations)
+			"roc.DayAbbreviations"_s,
+			sharedDayAbbreviations
 		}),
 		$$new($ObjectArray, {
-			$of("roc.DayNames"_s),
-			$of(sharedDayNames)
+			"roc.DayNames"_s,
+			sharedDayNames
 		}),
 		$$new($ObjectArray, {
-			$of("roc.DayNarrows"_s),
-			$of(sharedDayNarrows)
+			"roc.DayNarrows"_s,
+			sharedDayNarrows
 		}),
 		$$new($ObjectArray, {
-			$of("roc.Eras"_s),
-			$of(sharedEras)
+			"roc.Eras"_s,
+			sharedEras
 		}),
 		$$new($ObjectArray, {
-			$of("roc.MonthAbbreviations"_s),
-			$of($$new($StringArray, {
+			"roc.MonthAbbreviations"_s,
+			$$new($StringArray, {
 				"ene."_s,
 				"feb."_s,
 				"mar."_s,
@@ -302,11 +282,11 @@ $ObjectArray2* JavaTimeSupplementary_es::getContents() {
 				"nov."_s,
 				"dic."_s,
 				""_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("roc.MonthNames"_s),
-			$of($$new($StringArray, {
+			"roc.MonthNames"_s,
+			$$new($StringArray, {
 				"enero"_s,
 				"febrero"_s,
 				"marzo"_s,
@@ -320,11 +300,11 @@ $ObjectArray2* JavaTimeSupplementary_es::getContents() {
 				"noviembre"_s,
 				"diciembre"_s,
 				""_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("roc.MonthNarrows"_s),
-			$of($$new($StringArray, {
+			"roc.MonthNarrows"_s,
+			$$new($StringArray, {
 				"E"_s,
 				"F"_s,
 				"M"_s,
@@ -338,39 +318,39 @@ $ObjectArray2* JavaTimeSupplementary_es::getContents() {
 				"N"_s,
 				"D"_s,
 				""_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("roc.QuarterAbbreviations"_s),
-			$of(sharedQuarterAbbreviations)
+			"roc.QuarterAbbreviations"_s,
+			sharedQuarterAbbreviations
 		}),
 		$$new($ObjectArray, {
-			$of("roc.QuarterNames"_s),
-			$of(sharedQuarterNames)
+			"roc.QuarterNames"_s,
+			sharedQuarterNames
 		}),
 		$$new($ObjectArray, {
-			$of("roc.TimePatterns"_s),
-			$of(sharedTimePatterns)
+			"roc.TimePatterns"_s,
+			sharedTimePatterns
 		}),
 		$$new($ObjectArray, {
-			$of("roc.abbreviated.AmPmMarkers"_s),
-			$of(sharedAmPmMarkers)
+			"roc.abbreviated.AmPmMarkers"_s,
+			sharedAmPmMarkers
 		}),
 		$$new($ObjectArray, {
-			$of("roc.long.Eras"_s),
-			$of(sharedEras)
+			"roc.long.Eras"_s,
+			sharedEras
 		}),
 		$$new($ObjectArray, {
-			$of("roc.narrow.AmPmMarkers"_s),
-			$of(sharedAmPmMarkers)
+			"roc.narrow.AmPmMarkers"_s,
+			sharedAmPmMarkers
 		}),
 		$$new($ObjectArray, {
-			$of("roc.narrow.Eras"_s),
-			$of(sharedEras)
+			"roc.narrow.Eras"_s,
+			sharedEras
 		}),
 		$$new($ObjectArray, {
-			$of("roc.short.Eras"_s),
-			$of(sharedEras)
+			"roc.short.Eras"_s,
+			sharedEras
 		})
 	});
 }
@@ -379,7 +359,22 @@ JavaTimeSupplementary_es::JavaTimeSupplementary_es() {
 }
 
 $Class* JavaTimeSupplementary_es::load$($String* name, bool initialize) {
-	$loadClass(JavaTimeSupplementary_es, name, initialize, &_JavaTimeSupplementary_es_ClassInfo_, allocate$JavaTimeSupplementary_es);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(JavaTimeSupplementary_es, init$, void)},
+		{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(JavaTimeSupplementary_es, getContents, $ObjectArray2*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.text.resources.ext.JavaTimeSupplementary_es",
+		"sun.util.resources.OpenListResourceBundle",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(JavaTimeSupplementary_es, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JavaTimeSupplementary_es);
+	});
 	return class$;
 }
 

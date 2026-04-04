@@ -37,6 +37,7 @@ class Underline : public ::java::lang::Object {
 	$class(Underline, 0, ::java::lang::Object)
 public:
 	Underline();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void drawUnderline(::java::awt::Graphics2D* g2d, float thickness, float x1, float x2, float y) {}
 	virtual float getLowerDrawLimit(float thickness) {return 0.0;}

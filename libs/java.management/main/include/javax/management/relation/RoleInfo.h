@@ -25,6 +25,7 @@ class $import RoleInfo : public ::java::io::Serializable {
 	$class(RoleInfo, 0, ::java::io::Serializable)
 public:
 	RoleInfo();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* roleName, $String* mbeanClassName, bool read, bool write, int32_t min, int32_t max, $String* descr);
 	void init$($String* roleName, $String* mbeanClassName, bool read, bool write);
 	void init$($String* roleName, $String* mbeanClassName);
@@ -42,8 +43,8 @@ public:
 	void readObject(::java::io::ObjectInputStream* in);
 	virtual $String* toString() override;
 	void writeObject(::java::io::ObjectOutputStream* out);
-	static const int64_t oldSerialVersionUID = (int64_t)0x644C5FE80184C94F;
-	static const int64_t newSerialVersionUID = (int64_t)0x22C361777840B5BB;
+	static const int64_t oldSerialVersionUID = (int64_t)0x644c5fe80184c94f;
+	static const int64_t newSerialVersionUID = (int64_t)0x22c361777840b5bb;
 	static $Array<::java::io::ObjectStreamField>* oldSerialPersistentFields;
 	static $Array<::java::io::ObjectStreamField>* newSerialPersistentFields;
 	static int64_t serialVersionUID;

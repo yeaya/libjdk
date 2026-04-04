@@ -48,6 +48,7 @@ class $export Lint : public ::java::lang::Object {
 	$class(Lint, 0, ::java::lang::Object)
 public:
 	Lint();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::com::sun::tools::javac::util::Context* context);
 	void init$(::com::sun::tools::javac::code::Lint* other);
 	virtual ::com::sun::tools::javac::code::Lint* augment(::com::sun::tools::javac::code::Attribute$Compound* attr);

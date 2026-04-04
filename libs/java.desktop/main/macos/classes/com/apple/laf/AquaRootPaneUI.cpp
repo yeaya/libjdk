@@ -1,5 +1,4 @@
 #include <com/apple/laf/AquaRootPaneUI.h>
-
 #include <com/apple/laf/AquaFocusHandler.h>
 #include <com/apple/laf/AquaMenuBarUI.h>
 #include <com/apple/laf/AquaRootPaneUI$DefaultButtonPainter.h>
@@ -11,11 +10,8 @@
 #include <java/awt/Container.h>
 #include <java/awt/Graphics.h>
 #include <java/awt/Window.h>
-#include <java/awt/event/ActionListener.h>
 #include <java/awt/event/ContainerEvent.h>
-#include <java/awt/event/ContainerListener.h>
 #include <java/awt/event/WindowEvent.h>
-#include <java/awt/event/WindowListener.h>
 #include <java/beans/PropertyChangeEvent.h>
 #include <javax/swing/JButton.h>
 #include <javax/swing/JComponent.h>
@@ -29,7 +25,6 @@
 #include <javax/swing/Timer.h>
 #include <javax/swing/UIManager.h>
 #include <javax/swing/event/AncestorEvent.h>
-#include <javax/swing/event/AncestorListener.h>
 #include <javax/swing/plaf/ComponentUI.h>
 #include <javax/swing/plaf/MenuBarUI.h>
 #include <javax/swing/plaf/UIResource.h>
@@ -52,11 +47,8 @@ using $Component = ::java::awt::Component;
 using $Container = ::java::awt::Container;
 using $Graphics = ::java::awt::Graphics;
 using $Window = ::java::awt::Window;
-using $ActionListener = ::java::awt::event::ActionListener;
 using $ContainerEvent = ::java::awt::event::ContainerEvent;
-using $ContainerListener = ::java::awt::event::ContainerListener;
 using $WindowEvent = ::java::awt::event::WindowEvent;
-using $WindowListener = ::java::awt::event::WindowListener;
 using $PropertyChangeEvent = ::java::beans::PropertyChangeEvent;
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -75,7 +67,6 @@ using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $Timer = ::javax::swing::Timer;
 using $UIManager = ::javax::swing::UIManager;
 using $AncestorEvent = ::javax::swing::event::AncestorEvent;
-using $AncestorListener = ::javax::swing::event::AncestorListener;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
 using $MenuBarUI = ::javax::swing::plaf::MenuBarUI;
 using $UIResource = ::javax::swing::plaf::UIResource;
@@ -84,72 +75,6 @@ using $BasicRootPaneUI = ::javax::swing::plaf::basic::BasicRootPaneUI;
 namespace com {
 	namespace apple {
 		namespace laf {
-
-$FieldInfo _AquaRootPaneUI_FieldInfo_[] = {
-	{"sRootPaneUI", "Lcom/apple/laf/AquaUtils$RecyclableSingleton;", "Lcom/apple/laf/AquaUtils$RecyclableSingleton<Lcom/apple/laf/AquaRootPaneUI;>;", $PRIVATE | $STATIC | $FINAL, $staticField(AquaRootPaneUI, sRootPaneUI)},
-	{"kDefaultButtonPaintDelayBetweenFrames", "I", nullptr, $STATIC | $FINAL, $constField(AquaRootPaneUI, kDefaultButtonPaintDelayBetweenFrames)},
-	{"fCurrentDefaultButton", "Ljavax/swing/JButton;", nullptr, 0, $field(AquaRootPaneUI, fCurrentDefaultButton)},
-	{"fTimer", "Ljavax/swing/Timer;", nullptr, 0, $field(AquaRootPaneUI, fTimer)},
-	{"sUseScreenMenuBar", "Z", nullptr, $STATIC | $FINAL, $staticField(AquaRootPaneUI, sUseScreenMenuBar)},
-	{}
-};
-
-$MethodInfo _AquaRootPaneUI_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AquaRootPaneUI, init$, void)},
-	{"ancestorAdded", "(Ljavax/swing/event/AncestorEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaRootPaneUI, ancestorAdded, void, $AncestorEvent*)},
-	{"ancestorMoved", "(Ljavax/swing/event/AncestorEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaRootPaneUI, ancestorMoved, void, $AncestorEvent*)},
-	{"ancestorRemoved", "(Ljavax/swing/event/AncestorEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaRootPaneUI, ancestorRemoved, void, $AncestorEvent*)},
-	{"componentAdded", "(Ljava/awt/event/ContainerEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaRootPaneUI, componentAdded, void, $ContainerEvent*)},
-	{"componentRemoved", "(Ljava/awt/event/ContainerEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaRootPaneUI, componentRemoved, void, $ContainerEvent*)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(AquaRootPaneUI, createUI, $ComponentUI*, $JComponent*)},
-	{"installUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(AquaRootPaneUI, installUI, void, $JComponent*)},
-	{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaRootPaneUI, propertyChange, void, $PropertyChangeEvent*)},
-	{"stopTimer", "()V", nullptr, $SYNCHRONIZED, $virtualMethod(AquaRootPaneUI, stopTimer, void)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"uninstallUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(AquaRootPaneUI, uninstallUI, void, $JComponent*)},
-	{"update", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(AquaRootPaneUI, update, void, $Graphics*, $JComponent*)},
-	{"updateComponentTreeUIActivation", "(Ljava/awt/Component;Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(AquaRootPaneUI, updateComponentTreeUIActivation, void, $Component*, Object$*)},
-	{"updateDefaultButton", "(Ljavax/swing/JRootPane;)V", nullptr, $SYNCHRONIZED, $virtualMethod(AquaRootPaneUI, updateDefaultButton, void, $JRootPane*)},
-	{"windowActivated", "(Ljava/awt/event/WindowEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaRootPaneUI, windowActivated, void, $WindowEvent*)},
-	{"windowClosed", "(Ljava/awt/event/WindowEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaRootPaneUI, windowClosed, void, $WindowEvent*)},
-	{"windowClosing", "(Ljava/awt/event/WindowEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaRootPaneUI, windowClosing, void, $WindowEvent*)},
-	{"windowDeactivated", "(Ljava/awt/event/WindowEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaRootPaneUI, windowDeactivated, void, $WindowEvent*)},
-	{"windowDeiconified", "(Ljava/awt/event/WindowEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaRootPaneUI, windowDeiconified, void, $WindowEvent*)},
-	{"windowGainedFocus", "(Ljava/awt/event/WindowEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaRootPaneUI, windowGainedFocus, void, $WindowEvent*)},
-	{"windowIconified", "(Ljava/awt/event/WindowEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaRootPaneUI, windowIconified, void, $WindowEvent*)},
-	{"windowLostFocus", "(Ljava/awt/event/WindowEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaRootPaneUI, windowLostFocus, void, $WindowEvent*)},
-	{"windowOpened", "(Ljava/awt/event/WindowEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaRootPaneUI, windowOpened, void, $WindowEvent*)},
-	{"windowStateChanged", "(Ljava/awt/event/WindowEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaRootPaneUI, windowStateChanged, void, $WindowEvent*)},
-	{}
-};
-
-$InnerClassInfo _AquaRootPaneUI_InnerClassesInfo_[] = {
-	{"com.apple.laf.AquaRootPaneUI$DefaultButtonPainter", "com.apple.laf.AquaRootPaneUI", "DefaultButtonPainter", 0},
-	{}
-};
-
-$ClassInfo _AquaRootPaneUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.apple.laf.AquaRootPaneUI",
-	"javax.swing.plaf.basic.BasicRootPaneUI",
-	"javax.swing.event.AncestorListener,java.awt.event.WindowListener,java.awt.event.ContainerListener",
-	_AquaRootPaneUI_FieldInfo_,
-	_AquaRootPaneUI_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AquaRootPaneUI_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.apple.laf.AquaRootPaneUI$DefaultButtonPainter"
-};
-
-$Object* allocate$AquaRootPaneUI($Class* clazz) {
-	return $of($alloc(AquaRootPaneUI));
-}
 
 int32_t AquaRootPaneUI::hashCode() {
 	 return this->$BasicRootPaneUI::hashCode();
@@ -182,11 +107,11 @@ void AquaRootPaneUI::init$() {
 
 $ComponentUI* AquaRootPaneUI::createUI($JComponent* c) {
 	$init(AquaRootPaneUI);
-	return $cast($ComponentUI, $nc(AquaRootPaneUI::sRootPaneUI)->get());
+	return $cast($ComponentUI, AquaRootPaneUI::sRootPaneUI->get());
 }
 
 void AquaRootPaneUI::installUI($JComponent* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$BasicRootPaneUI::installUI(c);
 	$nc(c)->addAncestorListener(this);
 	bool var$0 = c->isShowing();
@@ -204,24 +129,24 @@ void AquaRootPaneUI::installUI($JComponent* c) {
 	if (AquaRootPaneUI::sUseScreenMenuBar) {
 		$var($JRootPane, root, $cast($JRootPane, c));
 		root->addContainerListener(this);
-		$nc($(root->getLayeredPane()))->addContainerListener(this);
+		$$nc(root->getLayeredPane())->addContainerListener(this);
 	}
 }
 
 void AquaRootPaneUI::uninstallUI($JComponent* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	stopTimer();
 	$nc(c)->removeAncestorListener(this);
 	if (AquaRootPaneUI::sUseScreenMenuBar) {
 		$var($JRootPane, root, $cast($JRootPane, c));
 		root->removeContainerListener(this);
-		$nc($(root->getLayeredPane()))->removeContainerListener(this);
+		$$nc(root->getLayeredPane())->removeContainerListener(this);
 	}
 	$BasicRootPaneUI::uninstallUI(c);
 }
 
 void AquaRootPaneUI::componentAdded($ContainerEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($instanceOf($JRootPane, $($nc(e)->getContainer()))) {
 		$var($JRootPane, root, $cast($JRootPane, e->getContainer()));
 		if ($equals(e->getChild(), $nc(root)->getLayeredPane())) {
@@ -234,14 +159,14 @@ void AquaRootPaneUI::componentAdded($ContainerEvent* e) {
 		if ($instanceOf($AquaMenuBarUI, mbui)) {
 			$var($Window, owningWindow, $SwingUtilities::getWindowAncestor(jmb));
 			if (owningWindow != nullptr && $instanceOf($JFrame, owningWindow)) {
-				$nc(($cast($AquaMenuBarUI, mbui)))->setScreenMenuBar($cast($JFrame, owningWindow));
+				$cast($AquaMenuBarUI, mbui)->setScreenMenuBar($cast($JFrame, owningWindow));
 			}
 		}
 	}
 }
 
 void AquaRootPaneUI::componentRemoved($ContainerEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($instanceOf($JRootPane, $($nc(e)->getContainer()))) {
 		$var($JRootPane, root, $cast($JRootPane, e->getContainer()));
 		if ($equals(e->getChild(), $nc(root)->getLayeredPane())) {
@@ -254,14 +179,14 @@ void AquaRootPaneUI::componentRemoved($ContainerEvent* e) {
 		if ($instanceOf($AquaMenuBarUI, mbui)) {
 			$var($Window, owningWindow, $SwingUtilities::getWindowAncestor(jmb));
 			if (owningWindow != nullptr && $instanceOf($JFrame, owningWindow)) {
-				$nc(($cast($AquaMenuBarUI, mbui)))->clearScreenMenuBar($cast($JFrame, owningWindow));
+				$cast($AquaMenuBarUI, mbui)->clearScreenMenuBar($cast($JFrame, owningWindow));
 			}
 		}
 	}
 }
 
 void AquaRootPaneUI::propertyChange($PropertyChangeEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$BasicRootPaneUI::propertyChange(e);
 	$var($String, prop, $nc(e)->getPropertyName());
 	bool var$0 = "defaultButton"_s->equals(prop);
@@ -272,13 +197,13 @@ void AquaRootPaneUI::propertyChange($PropertyChangeEvent* e) {
 			updateDefaultButton(root);
 		}
 	} else {
-		bool var$3 = "enabled"_s->equals(prop);
+		bool var$2 = "enabled"_s->equals(prop);
 		$init($AquaFocusHandler);
-		if (var$3 || $nc($AquaFocusHandler::FRAME_ACTIVE_PROPERTY)->equals(prop)) {
+		if (var$2 || $nc($AquaFocusHandler::FRAME_ACTIVE_PROPERTY)->equals(prop)) {
 			$var($JRootPane, root, $cast($JRootPane, e->getSource()));
 			if ($nc(root)->isShowing()) {
-				if ($nc(($cast($Boolean, $(e->getNewValue()))))->booleanValue()) {
-					updateDefaultButton($cast($JRootPane, $(e->getSource())));
+				if ($$sure($Boolean, e->getNewValue())->booleanValue()) {
+					updateDefaultButton($$cast($JRootPane, e->getSource()));
 				} else {
 					stopTimer();
 				}
@@ -290,7 +215,7 @@ void AquaRootPaneUI::propertyChange($PropertyChangeEvent* e) {
 void AquaRootPaneUI::stopTimer() {
 	$synchronized(this) {
 		if (this->fTimer != nullptr) {
-			$nc(this->fTimer)->stop();
+			this->fTimer->stop();
 			$set(this, fTimer, nullptr);
 		}
 	}
@@ -298,19 +223,19 @@ void AquaRootPaneUI::stopTimer() {
 
 void AquaRootPaneUI::updateDefaultButton($JRootPane* root) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$var($JButton, button, $nc(root)->getDefaultButton());
 		$set(this, fCurrentDefaultButton, button);
 		stopTimer();
 		if (button != nullptr) {
 			$set(this, fTimer, $new($Timer, AquaRootPaneUI::kDefaultButtonPaintDelayBetweenFrames, $$new($AquaRootPaneUI$DefaultButtonPainter, this, root)));
-			$nc(this->fTimer)->start();
+			this->fTimer->start();
 		}
 	}
 }
 
 void AquaRootPaneUI::ancestorAdded($AncestorEvent* event) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Container, ancestor, $nc(event)->getComponent());
 	$var($Window, owningWindow, $SwingUtilities::getWindowAncestor(ancestor));
 	if (owningWindow != nullptr) {
@@ -320,7 +245,7 @@ void AquaRootPaneUI::ancestorAdded($AncestorEvent* event) {
 	$var($JComponent, comp, event->getComponent());
 	if ($instanceOf($JRootPane, comp)) {
 		$var($JRootPane, rp, $cast($JRootPane, comp));
-		bool var$0 = $nc(rp)->isEnabled();
+		bool var$0 = rp->isEnabled();
 		if (var$0 && rp->getDefaultButton() != nullptr) {
 			updateDefaultButton($cast($JRootPane, comp));
 		}
@@ -334,13 +259,11 @@ void AquaRootPaneUI::ancestorMoved($AncestorEvent* event) {
 }
 
 void AquaRootPaneUI::windowActivated($WindowEvent* e) {
-	$init($Boolean);
-	updateComponentTreeUIActivation($cast($Component, $($nc(e)->getSource())), $Boolean::TRUE);
+	updateComponentTreeUIActivation($$cast($Component, $nc(e)->getSource()), $Boolean::TRUE);
 }
 
 void AquaRootPaneUI::windowDeactivated($WindowEvent* e) {
-	$init($Boolean);
-	updateComponentTreeUIActivation($cast($Component, $($nc(e)->getSource())), $Boolean::FALSE);
+	updateComponentTreeUIActivation($$cast($Component, $nc(e)->getSource()), $Boolean::FALSE);
 }
 
 void AquaRootPaneUI::windowOpened($WindowEvent* e) {
@@ -371,30 +294,27 @@ void AquaRootPaneUI::windowLostFocus($WindowEvent* e) {
 
 void AquaRootPaneUI::updateComponentTreeUIActivation($Component* c, Object$* active$renamed) {
 	$init(AquaRootPaneUI);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, active, active$renamed);
 	if ($instanceOf($JInternalFrame, c)) {
-		$init($Boolean);
-		$assign(active, $nc(($cast($JInternalFrame, c)))->isSelected() ? $Boolean::TRUE : $Boolean::FALSE);
+		$assign(active, $cast($JInternalFrame, c)->isSelected() ? $Boolean::TRUE : $Boolean::FALSE);
 	}
 	if ($instanceOf($JComponent, c)) {
 		$init($AquaFocusHandler);
-		$nc(($cast($JComponent, c)))->putClientProperty($AquaFocusHandler::FRAME_ACTIVE_PROPERTY, active);
+		$cast($JComponent, c)->putClientProperty($AquaFocusHandler::FRAME_ACTIVE_PROPERTY, active);
 	}
 	$var($ComponentArray, children, nullptr);
 	if ($instanceOf($JMenu, c)) {
-		$assign(children, $nc(($cast($JMenu, c)))->getMenuComponents());
+		$assign(children, $cast($JMenu, c)->getMenuComponents());
 	} else if ($instanceOf($Container, c)) {
-		$assign(children, $nc(($cast($Container, c)))->getComponents());
+		$assign(children, $cast($Container, c)->getComponents());
 	}
 	if (children == nullptr) {
 		return;
 	}
 	{
 		$var($ComponentArray, arr$, children);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($Component, element, arr$->get(i$));
 			{
 				updateComponentTreeUIActivation(element, active);
@@ -410,7 +330,7 @@ void AquaRootPaneUI::update($Graphics* g, $JComponent* c) {
 	paint(g, c);
 }
 
-void clinit$AquaRootPaneUI($Class* class$) {
+void AquaRootPaneUI::clinit$($Class* clazz) {
 	$assignStatic(AquaRootPaneUI::sRootPaneUI, $new($AquaUtils$RecyclableSingletonFromDefaultConstructor, AquaRootPaneUI::class$));
 	AquaRootPaneUI::sUseScreenMenuBar = $AquaMenuBarUI::getScreenMenuBarProperty();
 }
@@ -419,7 +339,67 @@ AquaRootPaneUI::AquaRootPaneUI() {
 }
 
 $Class* AquaRootPaneUI::load$($String* name, bool initialize) {
-	$loadClass(AquaRootPaneUI, name, initialize, &_AquaRootPaneUI_ClassInfo_, clinit$AquaRootPaneUI, allocate$AquaRootPaneUI);
+	$FieldInfo fieldInfos$$[] = {
+		{"sRootPaneUI", "Lcom/apple/laf/AquaUtils$RecyclableSingleton;", "Lcom/apple/laf/AquaUtils$RecyclableSingleton<Lcom/apple/laf/AquaRootPaneUI;>;", $PRIVATE | $STATIC | $FINAL, $staticField(AquaRootPaneUI, sRootPaneUI)},
+		{"kDefaultButtonPaintDelayBetweenFrames", "I", nullptr, $STATIC | $FINAL, $constField(AquaRootPaneUI, kDefaultButtonPaintDelayBetweenFrames)},
+		{"fCurrentDefaultButton", "Ljavax/swing/JButton;", nullptr, 0, $field(AquaRootPaneUI, fCurrentDefaultButton)},
+		{"fTimer", "Ljavax/swing/Timer;", nullptr, 0, $field(AquaRootPaneUI, fTimer)},
+		{"sUseScreenMenuBar", "Z", nullptr, $STATIC | $FINAL, $staticField(AquaRootPaneUI, sUseScreenMenuBar)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AquaRootPaneUI, init$, void)},
+		{"ancestorAdded", "(Ljavax/swing/event/AncestorEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaRootPaneUI, ancestorAdded, void, $AncestorEvent*)},
+		{"ancestorMoved", "(Ljavax/swing/event/AncestorEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaRootPaneUI, ancestorMoved, void, $AncestorEvent*)},
+		{"ancestorRemoved", "(Ljavax/swing/event/AncestorEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaRootPaneUI, ancestorRemoved, void, $AncestorEvent*)},
+		{"componentAdded", "(Ljava/awt/event/ContainerEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaRootPaneUI, componentAdded, void, $ContainerEvent*)},
+		{"componentRemoved", "(Ljava/awt/event/ContainerEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaRootPaneUI, componentRemoved, void, $ContainerEvent*)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(AquaRootPaneUI, createUI, $ComponentUI*, $JComponent*)},
+		{"installUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(AquaRootPaneUI, installUI, void, $JComponent*)},
+		{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaRootPaneUI, propertyChange, void, $PropertyChangeEvent*)},
+		{"stopTimer", "()V", nullptr, $SYNCHRONIZED, $virtualMethod(AquaRootPaneUI, stopTimer, void)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"uninstallUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(AquaRootPaneUI, uninstallUI, void, $JComponent*)},
+		{"update", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(AquaRootPaneUI, update, void, $Graphics*, $JComponent*)},
+		{"updateComponentTreeUIActivation", "(Ljava/awt/Component;Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(AquaRootPaneUI, updateComponentTreeUIActivation, void, $Component*, Object$*)},
+		{"updateDefaultButton", "(Ljavax/swing/JRootPane;)V", nullptr, $SYNCHRONIZED, $virtualMethod(AquaRootPaneUI, updateDefaultButton, void, $JRootPane*)},
+		{"windowActivated", "(Ljava/awt/event/WindowEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaRootPaneUI, windowActivated, void, $WindowEvent*)},
+		{"windowClosed", "(Ljava/awt/event/WindowEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaRootPaneUI, windowClosed, void, $WindowEvent*)},
+		{"windowClosing", "(Ljava/awt/event/WindowEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaRootPaneUI, windowClosing, void, $WindowEvent*)},
+		{"windowDeactivated", "(Ljava/awt/event/WindowEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaRootPaneUI, windowDeactivated, void, $WindowEvent*)},
+		{"windowDeiconified", "(Ljava/awt/event/WindowEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaRootPaneUI, windowDeiconified, void, $WindowEvent*)},
+		{"windowGainedFocus", "(Ljava/awt/event/WindowEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaRootPaneUI, windowGainedFocus, void, $WindowEvent*)},
+		{"windowIconified", "(Ljava/awt/event/WindowEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaRootPaneUI, windowIconified, void, $WindowEvent*)},
+		{"windowLostFocus", "(Ljava/awt/event/WindowEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaRootPaneUI, windowLostFocus, void, $WindowEvent*)},
+		{"windowOpened", "(Ljava/awt/event/WindowEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaRootPaneUI, windowOpened, void, $WindowEvent*)},
+		{"windowStateChanged", "(Ljava/awt/event/WindowEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaRootPaneUI, windowStateChanged, void, $WindowEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.laf.AquaRootPaneUI$DefaultButtonPainter", "com.apple.laf.AquaRootPaneUI", "DefaultButtonPainter", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.apple.laf.AquaRootPaneUI",
+		"javax.swing.plaf.basic.BasicRootPaneUI",
+		"javax.swing.event.AncestorListener,java.awt.event.WindowListener,java.awt.event.ContainerListener",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.apple.laf.AquaRootPaneUI$DefaultButtonPainter"
+	};
+	$loadClass(AquaRootPaneUI, name, initialize, &classInfo$$, AquaRootPaneUI::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AquaRootPaneUI));
+	});
 	return class$;
 }
 

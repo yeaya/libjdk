@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/security/signature/reference/ReferenceNodeSetData.h>
-
 #include <java/util/Iterator.h>
 #include <jcpp.h>
 
@@ -17,26 +16,22 @@ namespace com {
 							namespace signature {
 								namespace reference {
 
-$MethodInfo _ReferenceNodeSetData_MethodInfo_[] = {
-	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Lorg/w3c/dom/Node;>;", $PUBLIC | $ABSTRACT, $virtualMethod(ReferenceNodeSetData, iterator, $Iterator*)},
-	{}
-};
-
-$ClassInfo _ReferenceNodeSetData_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.org.apache.xml.internal.security.signature.reference.ReferenceNodeSetData",
-	nullptr,
-	"com.sun.org.apache.xml.internal.security.signature.reference.ReferenceData",
-	nullptr,
-	_ReferenceNodeSetData_MethodInfo_
-};
-
-$Object* allocate$ReferenceNodeSetData($Class* clazz) {
-	return $of($alloc(ReferenceNodeSetData));
-}
-
 $Class* ReferenceNodeSetData::load$($String* name, bool initialize) {
-	$loadClass(ReferenceNodeSetData, name, initialize, &_ReferenceNodeSetData_ClassInfo_, allocate$ReferenceNodeSetData);
+	$MethodInfo methodInfos$$[] = {
+		{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Lorg/w3c/dom/Node;>;", $PUBLIC | $ABSTRACT, $virtualMethod(ReferenceNodeSetData, iterator, $Iterator*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.org.apache.xml.internal.security.signature.reference.ReferenceNodeSetData",
+		nullptr,
+		"com.sun.org.apache.xml.internal.security.signature.reference.ReferenceData",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ReferenceNodeSetData, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ReferenceNodeSetData);
+	});
 	return class$;
 }
 

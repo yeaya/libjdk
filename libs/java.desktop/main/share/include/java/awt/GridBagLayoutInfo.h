@@ -16,7 +16,7 @@ public:
 	void init$(int32_t width, int32_t height);
 	virtual bool hasBaseline(int32_t row);
 	virtual bool hasConstantDescent(int32_t row);
-	static const int64_t serialVersionUID = (int64_t)0xBC01C6AFEB0F34D7;
+	static const int64_t serialVersionUID = (int64_t)0xbc01c6afeb0f34d7;
 	int32_t width = 0;
 	int32_t height = 0;
 	int32_t startx = 0;

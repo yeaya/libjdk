@@ -1,5 +1,4 @@
 #include <com/sun/media/sound/ModelTransform.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -10,26 +9,22 @@ namespace com {
 		namespace media {
 			namespace sound {
 
-$MethodInfo _ModelTransform_MethodInfo_[] = {
-	{"transform", "(D)D", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ModelTransform, transform, double, double)},
-	{}
-};
-
-$ClassInfo _ModelTransform_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.media.sound.ModelTransform",
-	nullptr,
-	nullptr,
-	nullptr,
-	_ModelTransform_MethodInfo_
-};
-
-$Object* allocate$ModelTransform($Class* clazz) {
-	return $of($alloc(ModelTransform));
-}
-
 $Class* ModelTransform::load$($String* name, bool initialize) {
-	$loadClass(ModelTransform, name, initialize, &_ModelTransform_ClassInfo_, allocate$ModelTransform);
+	$MethodInfo methodInfos$$[] = {
+		{"transform", "(D)D", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ModelTransform, transform, double, double)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.media.sound.ModelTransform",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ModelTransform, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ModelTransform);
+	});
 	return class$;
 }
 

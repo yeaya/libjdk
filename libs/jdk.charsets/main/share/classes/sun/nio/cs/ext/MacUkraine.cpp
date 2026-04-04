@@ -1,5 +1,4 @@
 #include <sun/nio/cs/ext/MacUkraine.h>
-
 #include <java/nio/charset/Charset.h>
 #include <java/nio/charset/CharsetDecoder.h>
 #include <java/nio/charset/CharsetEncoder.h>
@@ -24,44 +23,6 @@ namespace sun {
 	namespace nio {
 		namespace cs {
 			namespace ext {
-
-$MethodInfo _MacUkraine_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $FINAL},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MacUkraine, init$, void)},
-	{"contains", "(Ljava/nio/charset/Charset;)Z", nullptr, $PUBLIC, $virtualMethod(MacUkraine, contains, bool, $Charset*)},
-	{"historicalName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MacUkraine, historicalName, $String*)},
-	{"newDecoder", "()Ljava/nio/charset/CharsetDecoder;", nullptr, $PUBLIC, $virtualMethod(MacUkraine, newDecoder, $CharsetDecoder*)},
-	{"newEncoder", "()Ljava/nio/charset/CharsetEncoder;", nullptr, $PUBLIC, $virtualMethod(MacUkraine, newEncoder, $CharsetEncoder*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL},
-	{}
-};
-
-$InnerClassInfo _MacUkraine_InnerClassesInfo_[] = {
-	{"sun.nio.cs.ext.MacUkraine$Holder", "sun.nio.cs.ext.MacUkraine", "Holder", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _MacUkraine_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.nio.cs.ext.MacUkraine",
-	"java.nio.charset.Charset",
-	"sun.nio.cs.HistoricallyNamedCharset",
-	nullptr,
-	_MacUkraine_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MacUkraine_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.nio.cs.ext.MacUkraine$Holder"
-};
-
-$Object* allocate$MacUkraine($Class* clazz) {
-	return $of($alloc(MacUkraine));
-}
 
 int32_t MacUkraine::hashCode() {
 	 return this->$Charset::hashCode();
@@ -109,7 +70,40 @@ MacUkraine::MacUkraine() {
 }
 
 $Class* MacUkraine::load$($String* name, bool initialize) {
-	$loadClass(MacUkraine, name, initialize, &_MacUkraine_ClassInfo_, allocate$MacUkraine);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $FINAL},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MacUkraine, init$, void)},
+		{"contains", "(Ljava/nio/charset/Charset;)Z", nullptr, $PUBLIC, $virtualMethod(MacUkraine, contains, bool, $Charset*)},
+		{"historicalName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MacUkraine, historicalName, $String*)},
+		{"newDecoder", "()Ljava/nio/charset/CharsetDecoder;", nullptr, $PUBLIC, $virtualMethod(MacUkraine, newDecoder, $CharsetDecoder*)},
+		{"newEncoder", "()Ljava/nio/charset/CharsetEncoder;", nullptr, $PUBLIC, $virtualMethod(MacUkraine, newEncoder, $CharsetEncoder*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.cs.ext.MacUkraine$Holder", "sun.nio.cs.ext.MacUkraine", "Holder", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.nio.cs.ext.MacUkraine",
+		"java.nio.charset.Charset",
+		"sun.nio.cs.HistoricallyNamedCharset",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.nio.cs.ext.MacUkraine$Holder"
+	};
+	$loadClass(MacUkraine, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MacUkraine));
+	});
 	return class$;
 }
 

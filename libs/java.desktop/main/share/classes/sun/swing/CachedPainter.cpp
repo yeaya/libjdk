@@ -1,5 +1,4 @@
 #include <sun/swing/CachedPainter.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Graphics.h>
 #include <java/awt/Graphics2D.h>
@@ -47,55 +46,12 @@ using $ImageCache = ::sun::swing::ImageCache;
 namespace sun {
 	namespace swing {
 
-$FieldInfo _CachedPainter_FieldInfo_[] = {
-	{"cacheMap", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/Object;Lsun/swing/ImageCache;>;", $PRIVATE | $STATIC | $FINAL, $staticField(CachedPainter, cacheMap)},
-	{}
-};
-
-$MethodInfo _CachedPainter_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(CachedPainter, init$, void, int32_t)},
-	{"createImage", "(Ljava/awt/Component;IILjava/awt/GraphicsConfiguration;[Ljava/lang/Object;)Ljava/awt/Image;", nullptr, $PROTECTED, $virtualMethod(CachedPainter, createImage, $Image*, $Component*, int32_t, int32_t, $GraphicsConfiguration*, $ObjectArray*)},
-	{"flush", "()V", nullptr, $PROTECTED, $virtualMethod(CachedPainter, flush, void)},
-	{"getCache", "(Ljava/lang/Object;)Lsun/swing/ImageCache;", nullptr, $PRIVATE | $STATIC, $staticMethod(CachedPainter, getCache, $ImageCache*, Object$*)},
-	{"getGraphicsConfiguration", "(Ljava/awt/Component;)Ljava/awt/GraphicsConfiguration;", nullptr, $PRIVATE, $method(CachedPainter, getGraphicsConfiguration, $GraphicsConfiguration*, $Component*)},
-	{"getImage", "(Ljava/lang/Object;Ljava/awt/Component;IIII[Ljava/lang/Object;)Ljava/awt/Image;", nullptr, $PRIVATE | $TRANSIENT, $method(CachedPainter, getImage, $Image*, Object$*, $Component*, int32_t, int32_t, int32_t, int32_t, $ObjectArray*)},
-	{"paint", "(Ljava/awt/Component;Ljava/awt/Graphics;IIII[Ljava/lang/Object;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(CachedPainter, paint, void, $Component*, $Graphics*, int32_t, int32_t, int32_t, int32_t, $ObjectArray*)},
-	{"paint0", "(Ljava/awt/Component;Ljava/awt/Graphics;IIII[Ljava/lang/Object;)V", nullptr, $PRIVATE | $TRANSIENT, $method(CachedPainter, paint0, void, $Component*, $Graphics*, int32_t, int32_t, int32_t, int32_t, $ObjectArray*)},
-	{"paintImage", "(Ljava/awt/Component;Ljava/awt/Graphics;IIIILjava/awt/Image;[Ljava/lang/Object;)V", nullptr, $PROTECTED, $virtualMethod(CachedPainter, paintImage, void, $Component*, $Graphics*, int32_t, int32_t, int32_t, int32_t, $Image*, $ObjectArray*)},
-	{"paintToImage", "(Ljava/awt/Component;Ljava/awt/Image;Ljava/awt/Graphics;II[Ljava/lang/Object;)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(CachedPainter, paintToImage, void, $Component*, $Image*, $Graphics*, int32_t, int32_t, $ObjectArray*)},
-	{}
-};
-
-$InnerClassInfo _CachedPainter_InnerClassesInfo_[] = {
-	{"sun.swing.CachedPainter$PainterMultiResolutionCachedImage", "sun.swing.CachedPainter", "PainterMultiResolutionCachedImage", 0},
-	{}
-};
-
-$ClassInfo _CachedPainter_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"sun.swing.CachedPainter",
-	"java.lang.Object",
-	nullptr,
-	_CachedPainter_FieldInfo_,
-	_CachedPainter_MethodInfo_,
-	nullptr,
-	nullptr,
-	_CachedPainter_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.swing.CachedPainter$PainterMultiResolutionCachedImage"
-};
-
-$Object* allocate$CachedPainter($Class* clazz) {
-	return $of($alloc(CachedPainter));
-}
-
 $Map* CachedPainter::cacheMap = nullptr;
 
 $ImageCache* CachedPainter::getCache(Object$* key) {
 	$init(CachedPainter);
 	$synchronized(CachedPainter::class$) {
-		$var($ImageCache, cache, $cast($ImageCache, $nc(CachedPainter::cacheMap)->get(key)));
+		$var($ImageCache, cache, $cast($ImageCache, CachedPainter::cacheMap->get(key)));
 		if (cache == nullptr) {
 			$load($CachedPainter$PainterMultiResolutionCachedImage);
 			if ($equals(key, $CachedPainter$PainterMultiResolutionCachedImage::class$)) {
@@ -103,14 +59,14 @@ $ImageCache* CachedPainter::getCache(Object$* key) {
 			} else {
 				$assign(cache, $new($ImageCache, 1));
 			}
-			$nc(CachedPainter::cacheMap)->put(key, cache);
+			CachedPainter::cacheMap->put(key, cache);
 		}
 		return cache;
 	}
 }
 
 void CachedPainter::init$(int32_t cacheCount) {
-	$nc($(getCache($of(this)->getClass())))->setMaxCount(cacheCount);
+	$$nc(getCache($of(this)->getClass()))->setMaxCount(cacheCount);
 }
 
 void CachedPainter::paint($Component* c, $Graphics* g, int32_t x, int32_t y, int32_t w, int32_t h, $ObjectArray* args) {
@@ -123,7 +79,7 @@ void CachedPainter::paint($Component* c, $Graphics* g, int32_t x, int32_t y, int
 }
 
 $Image* CachedPainter::getImage(Object$* key, $Component* c, int32_t baseWidth, int32_t baseHeight, int32_t w, int32_t h, $ObjectArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($GraphicsConfiguration, config, getGraphicsConfiguration(c));
 	$var($ImageCache, cache, getCache(key));
 	$var($Image, image, $nc(cache)->getImage(key, config, w, h, args));
@@ -134,25 +90,21 @@ $Image* CachedPainter::getImage(Object$* key, $Component* c, int32_t baseWidth, 
 		if (volatileImage != nullptr) {
 			switch (volatileImage->validate(config)) {
 			case $VolatileImage::IMAGE_INCOMPATIBLE:
-				{
-					volatileImage->flush();
-					$assign(image, nullptr);
-					break;
-				}
+				volatileImage->flush();
+				$assign(image, nullptr);
+				break;
 			case $VolatileImage::IMAGE_RESTORED:
-				{
-					draw = true;
-					break;
-				}
+				draw = true;
+				break;
 			}
 		}
 		if (image == nullptr) {
 			if (config != nullptr && (w != baseHeight || h != baseWidth)) {
-				$var($AffineTransform, tx, $nc(config)->getDefaultTransform());
+				$var($AffineTransform, tx, config->getDefaultTransform());
 				double sx = $nc(tx)->getScaleX();
 				double sy = tx->getScaleY();
-				bool var$0 = $Double::compare(sx, (double)1) != 0;
-				if (var$0 || $Double::compare(sy, (double)1) != 0) {
+				bool var$0 = $Double::compare(sx, 1) != 0;
+				if (var$0 || $Double::compare(sy, 1) != 0) {
 					bool var$1 = $Math::abs(sx * baseWidth - w) < 1;
 					if (var$1 && $Math::abs(sy * baseHeight - h) < 1) {
 						w = baseWidth;
@@ -176,18 +128,15 @@ $Image* CachedPainter::getImage(Object$* key, $Component* c, int32_t baseWidth, 
 				}
 				paintToImage(c, image, g2, baseWidth, baseHeight, args);
 			} else {
-				$var($SurfaceData, sd, $nc($($SurfaceManager::getManager(volatileImage)))->getPrimarySurfaceData());
+				$var($SurfaceData, sd, $$nc($SurfaceManager::getManager(volatileImage))->getPrimarySurfaceData());
 				double sx = $nc(sd)->getDefaultScaleX();
 				double sy = sd->getDefaultScaleY();
-				bool var$2 = $Double::compare(sx, (double)1) != 0;
-				if (var$2 || $Double::compare(sy, (double)1) != 0) {
+				bool var$2 = $Double::compare(sx, 1) != 0;
+				if (var$2 || $Double::compare(sy, 1) != 0) {
 					$nc(g2)->scale(1 / sx, 1 / sy);
 				}
-				$var($Component, var$3, c);
-				$var($Image, var$4, image);
-				$var($Graphics, var$5, static_cast<$Graphics*>(g2));
-				int32_t var$6 = $cast(int32_t, $Math::ceil(w * sx));
-				paintToImage(var$3, var$4, var$5, var$6, $cast(int32_t, $Math::ceil(h * sy)), args);
+				int32_t var$3 = $cast(int32_t, $Math::ceil(w * sx));
+				paintToImage(c, image, g2, var$3, $cast(int32_t, $Math::ceil(h * sy)), args);
 			}
 			$nc(g2)->dispose();
 		}
@@ -196,7 +145,7 @@ $Image* CachedPainter::getImage(Object$* key, $Component* c, int32_t baseWidth, 
 }
 
 void CachedPainter::paint0($Component* c, $Graphics* g, int32_t x, int32_t y, int32_t w, int32_t h, $ObjectArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, key, $of(this)->getClass());
 	$var($GraphicsConfiguration, config, getGraphicsConfiguration(c));
 	$var($ImageCache, cache, getCache(key));
@@ -206,7 +155,7 @@ void CachedPainter::paint0($Component* c, $Graphics* g, int32_t x, int32_t y, in
 		cache->setImage(key, config, w, h, args, image);
 	}
 	if ($instanceOf($CachedPainter$PainterMultiResolutionCachedImage, image)) {
-		$nc(($cast($CachedPainter$PainterMultiResolutionCachedImage, image)))->setParams(c, args);
+		$cast($CachedPainter$PainterMultiResolutionCachedImage, image)->setParams(c, args);
 	}
 	paintImage(c, g, x, y, w, h, image, args);
 }
@@ -224,7 +173,7 @@ $Image* CachedPainter::createImage($Component* c, int32_t w, int32_t h, $Graphic
 
 void CachedPainter::flush() {
 	$synchronized(CachedPainter::class$) {
-		$nc($(getCache($of(this)->getClass())))->flush();
+		$$nc(getCache($of(this)->getClass()))->flush();
 	}
 }
 
@@ -235,7 +184,7 @@ $GraphicsConfiguration* CachedPainter::getGraphicsConfiguration($Component* c) {
 	return $nc(c)->getGraphicsConfiguration();
 }
 
-void clinit$CachedPainter($Class* class$) {
+void CachedPainter::clinit$($Class* clazz) {
 	$assignStatic(CachedPainter::cacheMap, $new($HashMap));
 }
 
@@ -243,7 +192,44 @@ CachedPainter::CachedPainter() {
 }
 
 $Class* CachedPainter::load$($String* name, bool initialize) {
-	$loadClass(CachedPainter, name, initialize, &_CachedPainter_ClassInfo_, clinit$CachedPainter, allocate$CachedPainter);
+	$FieldInfo fieldInfos$$[] = {
+		{"cacheMap", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/Object;Lsun/swing/ImageCache;>;", $PRIVATE | $STATIC | $FINAL, $staticField(CachedPainter, cacheMap)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(CachedPainter, init$, void, int32_t)},
+		{"createImage", "(Ljava/awt/Component;IILjava/awt/GraphicsConfiguration;[Ljava/lang/Object;)Ljava/awt/Image;", nullptr, $PROTECTED, $virtualMethod(CachedPainter, createImage, $Image*, $Component*, int32_t, int32_t, $GraphicsConfiguration*, $ObjectArray*)},
+		{"flush", "()V", nullptr, $PROTECTED, $virtualMethod(CachedPainter, flush, void)},
+		{"getCache", "(Ljava/lang/Object;)Lsun/swing/ImageCache;", nullptr, $PRIVATE | $STATIC, $staticMethod(CachedPainter, getCache, $ImageCache*, Object$*)},
+		{"getGraphicsConfiguration", "(Ljava/awt/Component;)Ljava/awt/GraphicsConfiguration;", nullptr, $PRIVATE, $method(CachedPainter, getGraphicsConfiguration, $GraphicsConfiguration*, $Component*)},
+		{"getImage", "(Ljava/lang/Object;Ljava/awt/Component;IIII[Ljava/lang/Object;)Ljava/awt/Image;", nullptr, $PRIVATE | $TRANSIENT, $method(CachedPainter, getImage, $Image*, Object$*, $Component*, int32_t, int32_t, int32_t, int32_t, $ObjectArray*)},
+		{"paint", "(Ljava/awt/Component;Ljava/awt/Graphics;IIII[Ljava/lang/Object;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(CachedPainter, paint, void, $Component*, $Graphics*, int32_t, int32_t, int32_t, int32_t, $ObjectArray*)},
+		{"paint0", "(Ljava/awt/Component;Ljava/awt/Graphics;IIII[Ljava/lang/Object;)V", nullptr, $PRIVATE | $TRANSIENT, $method(CachedPainter, paint0, void, $Component*, $Graphics*, int32_t, int32_t, int32_t, int32_t, $ObjectArray*)},
+		{"paintImage", "(Ljava/awt/Component;Ljava/awt/Graphics;IIIILjava/awt/Image;[Ljava/lang/Object;)V", nullptr, $PROTECTED, $virtualMethod(CachedPainter, paintImage, void, $Component*, $Graphics*, int32_t, int32_t, int32_t, int32_t, $Image*, $ObjectArray*)},
+		{"paintToImage", "(Ljava/awt/Component;Ljava/awt/Image;Ljava/awt/Graphics;II[Ljava/lang/Object;)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(CachedPainter, paintToImage, void, $Component*, $Image*, $Graphics*, int32_t, int32_t, $ObjectArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.swing.CachedPainter$PainterMultiResolutionCachedImage", "sun.swing.CachedPainter", "PainterMultiResolutionCachedImage", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"sun.swing.CachedPainter",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.swing.CachedPainter$PainterMultiResolutionCachedImage"
+	};
+	$loadClass(CachedPainter, name, initialize, &classInfo$$, CachedPainter::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(CachedPainter);
+	});
 	return class$;
 }
 

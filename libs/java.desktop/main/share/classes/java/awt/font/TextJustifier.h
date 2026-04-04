@@ -26,6 +26,7 @@ class TextJustifier : public ::java::lang::Object {
 	$class(TextJustifier, 0, ::java::lang::Object)
 public:
 	TextJustifier();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($Array<::java::awt::font::GlyphJustificationInfo>* info, int32_t start, int32_t limit);
 	virtual $floats* justify(float delta);
 	$Array<::java::awt::font::GlyphJustificationInfo>* info = nullptr;

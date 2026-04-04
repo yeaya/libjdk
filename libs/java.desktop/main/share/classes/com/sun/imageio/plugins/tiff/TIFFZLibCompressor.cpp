@@ -1,5 +1,4 @@
 #include <com/sun/imageio/plugins/tiff/TIFFZLibCompressor.h>
-
 #include <com/sun/imageio/plugins/tiff/TIFFDeflater.h>
 #include <javax/imageio/ImageWriteParam.h>
 #include <javax/imageio/plugins/tiff/BaselineTIFFTagSet.h>
@@ -19,24 +18,6 @@ namespace com {
 			namespace plugins {
 				namespace tiff {
 
-$MethodInfo _TIFFZLibCompressor_MethodInfo_[] = {
-	{"<init>", "(Ljavax/imageio/ImageWriteParam;I)V", nullptr, $PUBLIC, $method(TIFFZLibCompressor, init$, void, $ImageWriteParam*, int32_t)},
-	{}
-};
-
-$ClassInfo _TIFFZLibCompressor_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.imageio.plugins.tiff.TIFFZLibCompressor",
-	"com.sun.imageio.plugins.tiff.TIFFDeflater",
-	nullptr,
-	nullptr,
-	_TIFFZLibCompressor_MethodInfo_
-};
-
-$Object* allocate$TIFFZLibCompressor($Class* clazz) {
-	return $of($alloc(TIFFZLibCompressor));
-}
-
 void TIFFZLibCompressor::init$($ImageWriteParam* param, int32_t predictor) {
 	$TIFFDeflater::init$("ZLib"_s, $BaselineTIFFTagSet::COMPRESSION_ZLIB, param, predictor);
 }
@@ -45,7 +26,21 @@ TIFFZLibCompressor::TIFFZLibCompressor() {
 }
 
 $Class* TIFFZLibCompressor::load$($String* name, bool initialize) {
-	$loadClass(TIFFZLibCompressor, name, initialize, &_TIFFZLibCompressor_ClassInfo_, allocate$TIFFZLibCompressor);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/imageio/ImageWriteParam;I)V", nullptr, $PUBLIC, $method(TIFFZLibCompressor, init$, void, $ImageWriteParam*, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.imageio.plugins.tiff.TIFFZLibCompressor",
+		"com.sun.imageio.plugins.tiff.TIFFDeflater",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(TIFFZLibCompressor, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TIFFZLibCompressor);
+	});
 	return class$;
 }
 

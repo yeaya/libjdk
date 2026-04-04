@@ -1,5 +1,4 @@
 #include <java/awt/BorderLayout.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/ComponentOrientation.h>
 #include <java/awt/Container.h>
@@ -25,7 +24,6 @@
 #undef WEST
 
 using $Component = ::java::awt::Component;
-using $ComponentOrientation = ::java::awt::ComponentOrientation;
 using $Container = ::java::awt::Container;
 using $Dimension = ::java::awt::Dimension;
 using $Insets = ::java::awt::Insets;
@@ -41,82 +39,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace java {
 	namespace awt {
-
-$CompoundAttribute _BorderLayout_MethodAnnotations_addLayoutComponent3[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$FieldInfo _BorderLayout_FieldInfo_[] = {
-	{"hgap", "I", nullptr, 0, $field(BorderLayout, hgap)},
-	{"vgap", "I", nullptr, 0, $field(BorderLayout, vgap)},
-	{"north", "Ljava/awt/Component;", nullptr, 0, $field(BorderLayout, north)},
-	{"west", "Ljava/awt/Component;", nullptr, 0, $field(BorderLayout, west)},
-	{"east", "Ljava/awt/Component;", nullptr, 0, $field(BorderLayout, east)},
-	{"south", "Ljava/awt/Component;", nullptr, 0, $field(BorderLayout, south)},
-	{"center", "Ljava/awt/Component;", nullptr, 0, $field(BorderLayout, center)},
-	{"firstLine", "Ljava/awt/Component;", nullptr, 0, $field(BorderLayout, firstLine)},
-	{"lastLine", "Ljava/awt/Component;", nullptr, 0, $field(BorderLayout, lastLine)},
-	{"firstItem", "Ljava/awt/Component;", nullptr, 0, $field(BorderLayout, firstItem)},
-	{"lastItem", "Ljava/awt/Component;", nullptr, 0, $field(BorderLayout, lastItem)},
-	{"NORTH", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(BorderLayout, NORTH)},
-	{"SOUTH", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(BorderLayout, SOUTH)},
-	{"EAST", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(BorderLayout, EAST)},
-	{"WEST", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(BorderLayout, WEST)},
-	{"CENTER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(BorderLayout, CENTER)},
-	{"BEFORE_FIRST_LINE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(BorderLayout, BEFORE_FIRST_LINE)},
-	{"AFTER_LAST_LINE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(BorderLayout, AFTER_LAST_LINE)},
-	{"BEFORE_LINE_BEGINS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(BorderLayout, BEFORE_LINE_BEGINS)},
-	{"AFTER_LINE_ENDS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(BorderLayout, AFTER_LINE_ENDS)},
-	{"PAGE_START", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(BorderLayout, PAGE_START)},
-	{"PAGE_END", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(BorderLayout, PAGE_END)},
-	{"LINE_START", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(BorderLayout, LINE_START)},
-	{"LINE_END", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(BorderLayout, LINE_END)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BorderLayout, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _BorderLayout_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(BorderLayout, init$, void)},
-	{"<init>", "(II)V", nullptr, $PUBLIC, $method(BorderLayout, init$, void, int32_t, int32_t)},
-	{"addLayoutComponent", "(Ljava/awt/Component;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(BorderLayout, addLayoutComponent, void, $Component*, Object$*)},
-	{"addLayoutComponent", "(Ljava/lang/String;Ljava/awt/Component;)V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(BorderLayout, addLayoutComponent, void, $String*, $Component*), nullptr, nullptr, _BorderLayout_MethodAnnotations_addLayoutComponent3},
-	{"getChild", "(Ljava/lang/String;Z)Ljava/awt/Component;", nullptr, $PRIVATE, $method(BorderLayout, getChild, $Component*, $String*, bool)},
-	{"getConstraints", "(Ljava/awt/Component;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(BorderLayout, getConstraints, $Object*, $Component*)},
-	{"getHgap", "()I", nullptr, $PUBLIC, $virtualMethod(BorderLayout, getHgap, int32_t)},
-	{"getLayoutAlignmentX", "(Ljava/awt/Container;)F", nullptr, $PUBLIC, $virtualMethod(BorderLayout, getLayoutAlignmentX, float, $Container*)},
-	{"getLayoutAlignmentY", "(Ljava/awt/Container;)F", nullptr, $PUBLIC, $virtualMethod(BorderLayout, getLayoutAlignmentY, float, $Container*)},
-	{"getLayoutComponent", "(Ljava/lang/Object;)Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(BorderLayout, getLayoutComponent, $Component*, Object$*)},
-	{"getLayoutComponent", "(Ljava/awt/Container;Ljava/lang/Object;)Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(BorderLayout, getLayoutComponent, $Component*, $Container*, Object$*)},
-	{"getVgap", "()I", nullptr, $PUBLIC, $virtualMethod(BorderLayout, getVgap, int32_t)},
-	{"invalidateLayout", "(Ljava/awt/Container;)V", nullptr, $PUBLIC, $virtualMethod(BorderLayout, invalidateLayout, void, $Container*)},
-	{"layoutContainer", "(Ljava/awt/Container;)V", nullptr, $PUBLIC, $virtualMethod(BorderLayout, layoutContainer, void, $Container*)},
-	{"maximumLayoutSize", "(Ljava/awt/Container;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BorderLayout, maximumLayoutSize, $Dimension*, $Container*)},
-	{"minimumLayoutSize", "(Ljava/awt/Container;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BorderLayout, minimumLayoutSize, $Dimension*, $Container*)},
-	{"preferredLayoutSize", "(Ljava/awt/Container;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BorderLayout, preferredLayoutSize, $Dimension*, $Container*)},
-	{"removeLayoutComponent", "(Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(BorderLayout, removeLayoutComponent, void, $Component*)},
-	{"setHgap", "(I)V", nullptr, $PUBLIC, $virtualMethod(BorderLayout, setHgap, void, int32_t)},
-	{"setVgap", "(I)V", nullptr, $PUBLIC, $virtualMethod(BorderLayout, setVgap, void, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(BorderLayout, toString, $String*)},
-	{}
-};
-
-$ClassInfo _BorderLayout_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.awt.BorderLayout",
-	"java.lang.Object",
-	"java.awt.LayoutManager2,java.io.Serializable",
-	_BorderLayout_FieldInfo_,
-	_BorderLayout_MethodInfo_
-};
-
-$Object* allocate$BorderLayout($Class* clazz) {
-	return $of($alloc(BorderLayout));
-}
 
 int32_t BorderLayout::hashCode() {
 	 return this->$LayoutManager2::hashCode();
@@ -184,7 +106,7 @@ void BorderLayout::addLayoutComponent($Component* comp, Object$* constraints) {
 }
 
 void BorderLayout::addLayoutComponent($String* name$renamed, $Component* comp) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, name, name$renamed);
 	$synchronized($nc(comp)->getTreeLock()) {
 		if (name == nullptr) {
@@ -200,13 +122,13 @@ void BorderLayout::addLayoutComponent($String* name$renamed, $Component* comp) {
 			$set(this, east, comp);
 		} else if ("West"_s->equals(name)) {
 			$set(this, west, comp);
-		} else if ($nc(BorderLayout::BEFORE_FIRST_LINE)->equals(name)) {
+		} else if (BorderLayout::BEFORE_FIRST_LINE->equals(name)) {
 			$set(this, firstLine, comp);
-		} else if ($nc(BorderLayout::AFTER_LAST_LINE)->equals(name)) {
+		} else if (BorderLayout::AFTER_LAST_LINE->equals(name)) {
 			$set(this, lastLine, comp);
-		} else if ($nc(BorderLayout::BEFORE_LINE_BEGINS)->equals(name)) {
+		} else if (BorderLayout::BEFORE_LINE_BEGINS->equals(name)) {
 			$set(this, firstItem, comp);
-		} else if ($nc(BorderLayout::AFTER_LINE_ENDS)->equals(name)) {
+		} else if (BorderLayout::AFTER_LINE_ENDS->equals(name)) {
 			$set(this, lastItem, comp);
 		} else {
 			$throwNew($IllegalArgumentException, $$str({"cannot add to layout: unknown constraint: "_s, name}));
@@ -240,15 +162,15 @@ void BorderLayout::removeLayoutComponent($Component* comp) {
 }
 
 $Component* BorderLayout::getLayoutComponent(Object$* constraints) {
-	if ($nc(BorderLayout::CENTER)->equals(constraints)) {
+	if (BorderLayout::CENTER->equals(constraints)) {
 		return this->center;
-	} else if ($nc(BorderLayout::NORTH)->equals(constraints)) {
+	} else if (BorderLayout::NORTH->equals(constraints)) {
 		return this->north;
-	} else if ($nc(BorderLayout::SOUTH)->equals(constraints)) {
+	} else if (BorderLayout::SOUTH->equals(constraints)) {
 		return this->south;
-	} else if ($nc(BorderLayout::WEST)->equals(constraints)) {
+	} else if (BorderLayout::WEST->equals(constraints)) {
 		return this->west;
-	} else if ($nc(BorderLayout::EAST)->equals(constraints)) {
+	} else if (BorderLayout::EAST->equals(constraints)) {
 		return this->east;
 	} else if ($nc(BorderLayout::PAGE_START)->equals(constraints)) {
 		return this->firstLine;
@@ -264,24 +186,24 @@ $Component* BorderLayout::getLayoutComponent(Object$* constraints) {
 }
 
 $Component* BorderLayout::getLayoutComponent($Container* target, Object$* constraints) {
-	$useLocalCurrentObjectStackCache();
-	bool ltr = $nc($($nc(target)->getComponentOrientation()))->isLeftToRight();
+	$useLocalObjectStack();
+	bool ltr = $$nc($nc(target)->getComponentOrientation())->isLeftToRight();
 	$var($Component, result, nullptr);
-	if ($nc(BorderLayout::NORTH)->equals(constraints)) {
+	if (BorderLayout::NORTH->equals(constraints)) {
 		$assign(result, (this->firstLine != nullptr) ? this->firstLine : this->north);
-	} else if ($nc(BorderLayout::SOUTH)->equals(constraints)) {
+	} else if (BorderLayout::SOUTH->equals(constraints)) {
 		$assign(result, (this->lastLine != nullptr) ? this->lastLine : this->south);
-	} else if ($nc(BorderLayout::WEST)->equals(constraints)) {
+	} else if (BorderLayout::WEST->equals(constraints)) {
 		$assign(result, ltr ? this->firstItem : this->lastItem);
 		if (result == nullptr) {
 			$assign(result, this->west);
 		}
-	} else if ($nc(BorderLayout::EAST)->equals(constraints)) {
+	} else if (BorderLayout::EAST->equals(constraints)) {
 		$assign(result, ltr ? this->lastItem : this->firstItem);
 		if (result == nullptr) {
 			$assign(result, this->east);
 		}
-	} else if ($nc(BorderLayout::CENTER)->equals(constraints)) {
+	} else if (BorderLayout::CENTER->equals(constraints)) {
 		$assign(result, this->center);
 	} else {
 		$throwNew($IllegalArgumentException, $$str({"cannot get component: invalid constraint: "_s, constraints}));
@@ -291,7 +213,7 @@ $Component* BorderLayout::getLayoutComponent($Container* target, Object$* constr
 
 $Object* BorderLayout::getConstraints($Component* comp) {
 	if (comp == nullptr) {
-		return $of(nullptr);
+		return nullptr;
 	}
 	if (comp == this->center) {
 		return $of(BorderLayout::CENTER);
@@ -312,14 +234,14 @@ $Object* BorderLayout::getConstraints($Component* comp) {
 	} else if (comp == this->lastItem) {
 		return $of(BorderLayout::LINE_END);
 	}
-	return $of(nullptr);
+	return nullptr;
 }
 
 $Dimension* BorderLayout::minimumLayoutSize($Container* target) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized($nc(target)->getTreeLock()) {
 		$var($Dimension, dim, $new($Dimension, 0, 0));
-		bool ltr = $nc($(target->getComponentOrientation()))->isLeftToRight();
+		bool ltr = $$nc(target->getComponentOrientation())->isLeftToRight();
 		$var($Component, c, nullptr);
 		if (($assign(c, getChild(BorderLayout::EAST, ltr))) != nullptr) {
 			$var($Dimension, d, $nc(c)->getMinimumSize());
@@ -339,25 +261,25 @@ $Dimension* BorderLayout::minimumLayoutSize($Container* target) {
 		if (($assign(c, getChild(BorderLayout::NORTH, ltr))) != nullptr) {
 			$var($Dimension, d, $nc(c)->getMinimumSize());
 			dim->width = $Math::max($nc(d)->width, dim->width);
-			dim->height += $nc(d)->height + this->vgap;
+			dim->height += d->height + this->vgap;
 		}
 		if (($assign(c, getChild(BorderLayout::SOUTH, ltr))) != nullptr) {
 			$var($Dimension, d, $nc(c)->getMinimumSize());
 			dim->width = $Math::max($nc(d)->width, dim->width);
-			dim->height += $nc(d)->height + this->vgap;
+			dim->height += d->height + this->vgap;
 		}
 		$var($Insets, insets, target->getInsets());
-		dim->width += $nc(insets)->left + insets->right;
+		dim->width += $nc(insets)->left + $nc(insets)->right;
 		dim->height += insets->top + insets->bottom;
 		return dim;
 	}
 }
 
 $Dimension* BorderLayout::preferredLayoutSize($Container* target) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized($nc(target)->getTreeLock()) {
 		$var($Dimension, dim, $new($Dimension, 0, 0));
-		bool ltr = $nc($(target->getComponentOrientation()))->isLeftToRight();
+		bool ltr = $$nc(target->getComponentOrientation())->isLeftToRight();
 		$var($Component, c, nullptr);
 		if (($assign(c, getChild(BorderLayout::EAST, ltr))) != nullptr) {
 			$var($Dimension, d, $nc(c)->getPreferredSize());
@@ -377,15 +299,15 @@ $Dimension* BorderLayout::preferredLayoutSize($Container* target) {
 		if (($assign(c, getChild(BorderLayout::NORTH, ltr))) != nullptr) {
 			$var($Dimension, d, $nc(c)->getPreferredSize());
 			dim->width = $Math::max($nc(d)->width, dim->width);
-			dim->height += $nc(d)->height + this->vgap;
+			dim->height += d->height + this->vgap;
 		}
 		if (($assign(c, getChild(BorderLayout::SOUTH, ltr))) != nullptr) {
 			$var($Dimension, d, $nc(c)->getPreferredSize());
 			dim->width = $Math::max($nc(d)->width, dim->width);
-			dim->height += $nc(d)->height + this->vgap;
+			dim->height += d->height + this->vgap;
 		}
 		$var($Insets, insets, target->getInsets());
-		dim->width += $nc(insets)->left + insets->right;
+		dim->width += $nc(insets)->left + $nc(insets)->right;
 		dim->height += insets->top + insets->bottom;
 		return dim;
 	}
@@ -407,38 +329,38 @@ void BorderLayout::invalidateLayout($Container* target) {
 }
 
 void BorderLayout::layoutContainer($Container* target) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized($nc(target)->getTreeLock()) {
 		$var($Insets, insets, target->getInsets());
 		int32_t top = $nc(insets)->top;
 		int32_t bottom = target->height - insets->bottom;
 		int32_t left = insets->left;
 		int32_t right = target->width - insets->right;
-		bool ltr = $nc($(target->getComponentOrientation()))->isLeftToRight();
+		bool ltr = $$nc(target->getComponentOrientation())->isLeftToRight();
 		$var($Component, c, nullptr);
 		if (($assign(c, getChild(BorderLayout::NORTH, ltr))) != nullptr) {
-			$nc(c)->setSize(right - left, c->height);
+			$nc(c)->setSize(right - left, $nc(c)->height);
 			$var($Dimension, d, c->getPreferredSize());
 			c->setBounds(left, top, right - left, $nc(d)->height);
-			top += $nc(d)->height + this->vgap;
+			top += d->height + this->vgap;
 		}
 		if (($assign(c, getChild(BorderLayout::SOUTH, ltr))) != nullptr) {
-			$nc(c)->setSize(right - left, c->height);
+			$nc(c)->setSize(right - left, $nc(c)->height);
 			$var($Dimension, d, c->getPreferredSize());
-			c->setBounds(left, bottom - $nc(d)->height, right - left, d->height);
-			bottom -= $nc(d)->height + this->vgap;
+			c->setBounds(left, bottom - $nc(d)->height, right - left, $nc(d)->height);
+			bottom -= d->height + this->vgap;
 		}
 		if (($assign(c, getChild(BorderLayout::EAST, ltr))) != nullptr) {
-			$nc(c)->setSize(c->width, bottom - top);
+			$nc(c)->setSize($nc(c)->width, bottom - top);
 			$var($Dimension, d, c->getPreferredSize());
-			c->setBounds(right - $nc(d)->width, top, d->width, bottom - top);
-			right -= $nc(d)->width + this->hgap;
+			c->setBounds(right - $nc(d)->width, top, $nc(d)->width, bottom - top);
+			right -= d->width + this->hgap;
 		}
 		if (($assign(c, getChild(BorderLayout::WEST, ltr))) != nullptr) {
-			$nc(c)->setSize(c->width, bottom - top);
+			$nc(c)->setSize($nc(c)->width, bottom - top);
 			$var($Dimension, d, c->getPreferredSize());
 			c->setBounds(left, top, $nc(d)->width, bottom - top);
-			left += $nc(d)->width + this->hgap;
+			left += d->width + this->hgap;
 		}
 		if (($assign(c, getChild(BorderLayout::CENTER, ltr))) != nullptr) {
 			$nc(c)->setBounds(left, top, right - left, bottom - top);
@@ -472,14 +394,14 @@ $Component* BorderLayout::getChild($String* key, bool ltr) {
 }
 
 $String* BorderLayout::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $str({$($of(this)->getClass()->getName()), "[hgap="_s, $$str(this->hgap), ",vgap="_s, $$str(this->vgap), "]"_s});
 }
 
 BorderLayout::BorderLayout() {
 }
 
-void clinit$BorderLayout($Class* class$) {
+void BorderLayout::clinit$($Class* clazz) {
 	$assignStatic(BorderLayout::NORTH, "North"_s);
 	$assignStatic(BorderLayout::SOUTH, "South"_s);
 	$assignStatic(BorderLayout::EAST, "East"_s);
@@ -496,7 +418,77 @@ void clinit$BorderLayout($Class* class$) {
 }
 
 $Class* BorderLayout::load$($String* name, bool initialize) {
-	$loadClass(BorderLayout, name, initialize, &_BorderLayout_ClassInfo_, clinit$BorderLayout, allocate$BorderLayout);
+	$FieldInfo fieldInfos$$[] = {
+		{"hgap", "I", nullptr, 0, $field(BorderLayout, hgap)},
+		{"vgap", "I", nullptr, 0, $field(BorderLayout, vgap)},
+		{"north", "Ljava/awt/Component;", nullptr, 0, $field(BorderLayout, north)},
+		{"west", "Ljava/awt/Component;", nullptr, 0, $field(BorderLayout, west)},
+		{"east", "Ljava/awt/Component;", nullptr, 0, $field(BorderLayout, east)},
+		{"south", "Ljava/awt/Component;", nullptr, 0, $field(BorderLayout, south)},
+		{"center", "Ljava/awt/Component;", nullptr, 0, $field(BorderLayout, center)},
+		{"firstLine", "Ljava/awt/Component;", nullptr, 0, $field(BorderLayout, firstLine)},
+		{"lastLine", "Ljava/awt/Component;", nullptr, 0, $field(BorderLayout, lastLine)},
+		{"firstItem", "Ljava/awt/Component;", nullptr, 0, $field(BorderLayout, firstItem)},
+		{"lastItem", "Ljava/awt/Component;", nullptr, 0, $field(BorderLayout, lastItem)},
+		{"NORTH", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(BorderLayout, NORTH)},
+		{"SOUTH", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(BorderLayout, SOUTH)},
+		{"EAST", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(BorderLayout, EAST)},
+		{"WEST", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(BorderLayout, WEST)},
+		{"CENTER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(BorderLayout, CENTER)},
+		{"BEFORE_FIRST_LINE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(BorderLayout, BEFORE_FIRST_LINE)},
+		{"AFTER_LAST_LINE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(BorderLayout, AFTER_LAST_LINE)},
+		{"BEFORE_LINE_BEGINS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(BorderLayout, BEFORE_LINE_BEGINS)},
+		{"AFTER_LINE_ENDS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(BorderLayout, AFTER_LINE_ENDS)},
+		{"PAGE_START", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(BorderLayout, PAGE_START)},
+		{"PAGE_END", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(BorderLayout, PAGE_END)},
+		{"LINE_START", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(BorderLayout, LINE_START)},
+		{"LINE_END", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(BorderLayout, LINE_END)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BorderLayout, serialVersionUID)},
+		{}
+	};
+	$CompoundAttribute addLayoutComponentmethodAnnotations$$$1[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(BorderLayout, init$, void)},
+		{"<init>", "(II)V", nullptr, $PUBLIC, $method(BorderLayout, init$, void, int32_t, int32_t)},
+		{"addLayoutComponent", "(Ljava/awt/Component;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(BorderLayout, addLayoutComponent, void, $Component*, Object$*)},
+		{"addLayoutComponent", "(Ljava/lang/String;Ljava/awt/Component;)V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(BorderLayout, addLayoutComponent, void, $String*, $Component*), nullptr, nullptr, addLayoutComponentmethodAnnotations$$$1},
+		{"getChild", "(Ljava/lang/String;Z)Ljava/awt/Component;", nullptr, $PRIVATE, $method(BorderLayout, getChild, $Component*, $String*, bool)},
+		{"getConstraints", "(Ljava/awt/Component;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(BorderLayout, getConstraints, $Object*, $Component*)},
+		{"getHgap", "()I", nullptr, $PUBLIC, $virtualMethod(BorderLayout, getHgap, int32_t)},
+		{"getLayoutAlignmentX", "(Ljava/awt/Container;)F", nullptr, $PUBLIC, $virtualMethod(BorderLayout, getLayoutAlignmentX, float, $Container*)},
+		{"getLayoutAlignmentY", "(Ljava/awt/Container;)F", nullptr, $PUBLIC, $virtualMethod(BorderLayout, getLayoutAlignmentY, float, $Container*)},
+		{"getLayoutComponent", "(Ljava/lang/Object;)Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(BorderLayout, getLayoutComponent, $Component*, Object$*)},
+		{"getLayoutComponent", "(Ljava/awt/Container;Ljava/lang/Object;)Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(BorderLayout, getLayoutComponent, $Component*, $Container*, Object$*)},
+		{"getVgap", "()I", nullptr, $PUBLIC, $virtualMethod(BorderLayout, getVgap, int32_t)},
+		{"invalidateLayout", "(Ljava/awt/Container;)V", nullptr, $PUBLIC, $virtualMethod(BorderLayout, invalidateLayout, void, $Container*)},
+		{"layoutContainer", "(Ljava/awt/Container;)V", nullptr, $PUBLIC, $virtualMethod(BorderLayout, layoutContainer, void, $Container*)},
+		{"maximumLayoutSize", "(Ljava/awt/Container;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BorderLayout, maximumLayoutSize, $Dimension*, $Container*)},
+		{"minimumLayoutSize", "(Ljava/awt/Container;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BorderLayout, minimumLayoutSize, $Dimension*, $Container*)},
+		{"preferredLayoutSize", "(Ljava/awt/Container;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BorderLayout, preferredLayoutSize, $Dimension*, $Container*)},
+		{"removeLayoutComponent", "(Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(BorderLayout, removeLayoutComponent, void, $Component*)},
+		{"setHgap", "(I)V", nullptr, $PUBLIC, $virtualMethod(BorderLayout, setHgap, void, int32_t)},
+		{"setVgap", "(I)V", nullptr, $PUBLIC, $virtualMethod(BorderLayout, setVgap, void, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(BorderLayout, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.awt.BorderLayout",
+		"java.lang.Object",
+		"java.awt.LayoutManager2,java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(BorderLayout, name, initialize, &classInfo$$, BorderLayout::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(BorderLayout));
+	});
 	return class$;
 }
 

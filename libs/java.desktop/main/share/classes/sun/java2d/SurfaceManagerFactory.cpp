@@ -1,5 +1,4 @@
 #include <sun/java2d/SurfaceManagerFactory.h>
-
 #include <java/lang/IllegalStateException.h>
 #include <sun/awt/image/SunVolatileImage.h>
 #include <sun/awt/image/VolatileSurfaceManager.h>
@@ -15,32 +14,6 @@ using $VolatileSurfaceManager = ::sun::awt::image::VolatileSurfaceManager;
 
 namespace sun {
 	namespace java2d {
-
-$FieldInfo _SurfaceManagerFactory_FieldInfo_[] = {
-	{"instance", "Lsun/java2d/SurfaceManagerFactory;", nullptr, $PRIVATE | $STATIC, $staticField(SurfaceManagerFactory, instance)},
-	{}
-};
-
-$MethodInfo _SurfaceManagerFactory_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SurfaceManagerFactory, init$, void)},
-	{"createVolatileManager", "(Lsun/awt/image/SunVolatileImage;Ljava/lang/Object;)Lsun/awt/image/VolatileSurfaceManager;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SurfaceManagerFactory, createVolatileManager, $VolatileSurfaceManager*, $SunVolatileImage*, Object$*)},
-	{"getInstance", "()Lsun/java2d/SurfaceManagerFactory;", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(SurfaceManagerFactory, getInstance, SurfaceManagerFactory*)},
-	{"setInstance", "(Lsun/java2d/SurfaceManagerFactory;)V", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(SurfaceManagerFactory, setInstance, void, SurfaceManagerFactory*)},
-	{}
-};
-
-$ClassInfo _SurfaceManagerFactory_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"sun.java2d.SurfaceManagerFactory",
-	"java.lang.Object",
-	nullptr,
-	_SurfaceManagerFactory_FieldInfo_,
-	_SurfaceManagerFactory_MethodInfo_
-};
-
-$Object* allocate$SurfaceManagerFactory($Class* clazz) {
-	return $of($alloc(SurfaceManagerFactory));
-}
 
 SurfaceManagerFactory* SurfaceManagerFactory::instance = nullptr;
 
@@ -76,7 +49,28 @@ SurfaceManagerFactory::SurfaceManagerFactory() {
 }
 
 $Class* SurfaceManagerFactory::load$($String* name, bool initialize) {
-	$loadClass(SurfaceManagerFactory, name, initialize, &_SurfaceManagerFactory_ClassInfo_, allocate$SurfaceManagerFactory);
+	$FieldInfo fieldInfos$$[] = {
+		{"instance", "Lsun/java2d/SurfaceManagerFactory;", nullptr, $PRIVATE | $STATIC, $staticField(SurfaceManagerFactory, instance)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SurfaceManagerFactory, init$, void)},
+		{"createVolatileManager", "(Lsun/awt/image/SunVolatileImage;Ljava/lang/Object;)Lsun/awt/image/VolatileSurfaceManager;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SurfaceManagerFactory, createVolatileManager, $VolatileSurfaceManager*, $SunVolatileImage*, Object$*)},
+		{"getInstance", "()Lsun/java2d/SurfaceManagerFactory;", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(SurfaceManagerFactory, getInstance, SurfaceManagerFactory*)},
+		{"setInstance", "(Lsun/java2d/SurfaceManagerFactory;)V", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(SurfaceManagerFactory, setInstance, void, SurfaceManagerFactory*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"sun.java2d.SurfaceManagerFactory",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SurfaceManagerFactory, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SurfaceManagerFactory);
+	});
 	return class$;
 }
 

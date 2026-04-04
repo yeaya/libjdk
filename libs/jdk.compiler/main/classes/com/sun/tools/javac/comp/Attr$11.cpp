@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/Attr$11.h>
-
 #include <com/sun/tools/javac/code/Symbol.h>
 #include <com/sun/tools/javac/comp/Attr.h>
 #include <com/sun/tools/javac/comp/Resolve$InapplicableSymbolError.h>
@@ -28,57 +27,11 @@ namespace com {
 			namespace javac {
 				namespace comp {
 
-$FieldInfo _Attr$11_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/comp/Attr;", nullptr, $FINAL | $SYNTHETIC, $field(Attr$11, this$0)},
-	{"val$diag", "Lcom/sun/tools/javac/util/JCDiagnostic;", nullptr, $FINAL | $SYNTHETIC, $field(Attr$11, val$diag)},
-	{"val$sym", "Lcom/sun/tools/javac/code/Symbol;", nullptr, $FINAL | $SYNTHETIC, $field(Attr$11, val$sym)},
-	{}
-};
-
-$MethodInfo _Attr$11_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Attr;Lcom/sun/tools/javac/comp/Resolve;Lcom/sun/tools/javac/comp/Resolve$MethodResolutionContext;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/util/JCDiagnostic;)V", nullptr, 0, $method(Attr$11, init$, void, $Attr*, $Resolve*, $Resolve$MethodResolutionContext*, $Symbol*, $JCDiagnostic*)},
-	{"errCandidate", "()Lcom/sun/tools/javac/util/Pair;", "()Lcom/sun/tools/javac/util/Pair<Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/util/JCDiagnostic;>;", $PROTECTED, $virtualMethod(Attr$11, errCandidate, $Pair*)},
-	{}
-};
-
-$EnclosingMethodInfo _Attr$11_EnclosingMethodInfo_ = {
-	"com.sun.tools.javac.comp.Attr",
-	"checkMethod",
-	"(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/comp/Attr$ResultInfo;Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/code/Type;"
-};
-
-$InnerClassInfo _Attr$11_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.Attr$11", nullptr, nullptr, 0},
-	{"com.sun.tools.javac.comp.Resolve$InapplicableSymbolError", "com.sun.tools.javac.comp.Resolve", "InapplicableSymbolError", 0},
-	{"com.sun.tools.javac.comp.Attr$ResultInfo", "com.sun.tools.javac.comp.Attr", "ResultInfo", 0},
-	{}
-};
-
-$ClassInfo _Attr$11_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.comp.Attr$11",
-	"com.sun.tools.javac.comp.Resolve$InapplicableSymbolError",
-	nullptr,
-	_Attr$11_FieldInfo_,
-	_Attr$11_MethodInfo_,
-	nullptr,
-	&_Attr$11_EnclosingMethodInfo_,
-	_Attr$11_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.Attr"
-};
-
-$Object* allocate$Attr$11($Class* clazz) {
-	return $of($alloc(Attr$11));
-}
-
 void Attr$11::init$($Attr* this$0, $Resolve* x0, $Resolve$MethodResolutionContext* context, $Symbol* val$sym, $JCDiagnostic* val$diag) {
 	$set(this, this$0, this$0);
 	$set(this, val$sym, val$sym);
 	$set(this, val$diag, val$diag);
-	$Resolve$InapplicableSymbolError::init$(static_cast<$Resolve*>($nc(x0)), context);
+	$Resolve$InapplicableSymbolError::init$($nc(x0), context);
 }
 
 $Pair* Attr$11::errCandidate() {
@@ -89,7 +42,46 @@ Attr$11::Attr$11() {
 }
 
 $Class* Attr$11::load$($String* name, bool initialize) {
-	$loadClass(Attr$11, name, initialize, &_Attr$11_ClassInfo_, allocate$Attr$11);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/comp/Attr;", nullptr, $FINAL | $SYNTHETIC, $field(Attr$11, this$0)},
+		{"val$diag", "Lcom/sun/tools/javac/util/JCDiagnostic;", nullptr, $FINAL | $SYNTHETIC, $field(Attr$11, val$diag)},
+		{"val$sym", "Lcom/sun/tools/javac/code/Symbol;", nullptr, $FINAL | $SYNTHETIC, $field(Attr$11, val$sym)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/comp/Attr;Lcom/sun/tools/javac/comp/Resolve;Lcom/sun/tools/javac/comp/Resolve$MethodResolutionContext;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/util/JCDiagnostic;)V", nullptr, 0, $method(Attr$11, init$, void, $Attr*, $Resolve*, $Resolve$MethodResolutionContext*, $Symbol*, $JCDiagnostic*)},
+		{"errCandidate", "()Lcom/sun/tools/javac/util/Pair;", "()Lcom/sun/tools/javac/util/Pair<Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/util/JCDiagnostic;>;", $PROTECTED, $virtualMethod(Attr$11, errCandidate, $Pair*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.tools.javac.comp.Attr",
+		"checkMethod",
+		"(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/comp/Attr$ResultInfo;Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/code/Type;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.Attr$11", nullptr, nullptr, 0},
+		{"com.sun.tools.javac.comp.Resolve$InapplicableSymbolError", "com.sun.tools.javac.comp.Resolve", "InapplicableSymbolError", 0},
+		{"com.sun.tools.javac.comp.Attr$ResultInfo", "com.sun.tools.javac.comp.Attr", "ResultInfo", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.comp.Attr$11",
+		"com.sun.tools.javac.comp.Resolve$InapplicableSymbolError",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.Attr"
+	};
+	$loadClass(Attr$11, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Attr$11));
+	});
 	return class$;
 }
 

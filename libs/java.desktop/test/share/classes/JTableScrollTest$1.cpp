@@ -1,5 +1,4 @@
 #include <JTableScrollTest$1.h>
-
 #include <JTableScrollTest.h>
 #include <java/io/Serializable.h>
 #include <java/lang/Runnable.h>
@@ -27,73 +26,33 @@ public:
 	virtual void run() override {
 		$JTableScrollTest::createTable();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<JTableScrollTest$1$$Lambda$createTable>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo JTableScrollTest$1$$Lambda$createTable::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(JTableScrollTest$1$$Lambda$createTable, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(JTableScrollTest$1$$Lambda$createTable, run, void)},
-	{}
-};
-$ClassInfo JTableScrollTest$1$$Lambda$createTable::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"JTableScrollTest$1$$Lambda$createTable",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* JTableScrollTest$1$$Lambda$createTable::load$($String* name, bool initialize) {
-	$loadClass(JTableScrollTest$1$$Lambda$createTable, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(JTableScrollTest$1$$Lambda$createTable, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(JTableScrollTest$1$$Lambda$createTable, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"JTableScrollTest$1$$Lambda$createTable",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(JTableScrollTest$1$$Lambda$createTable, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JTableScrollTest$1$$Lambda$createTable);
+	});
 	return class$;
 }
 $Class* JTableScrollTest$1$$Lambda$createTable::class$ = nullptr;
-
-$MethodInfo _JTableScrollTest$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(JTableScrollTest$1, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(JTableScrollTest$1, run, void)},
-	{}
-};
-
-$EnclosingMethodInfo _JTableScrollTest$1_EnclosingMethodInfo_ = {
-	"JTableScrollTest",
-	"main",
-	"([Ljava/lang/String;)V"
-};
-
-$InnerClassInfo _JTableScrollTest$1_InnerClassesInfo_[] = {
-	{"JTableScrollTest$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _JTableScrollTest$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"JTableScrollTest$1",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	_JTableScrollTest$1_MethodInfo_,
-	nullptr,
-	&_JTableScrollTest$1_EnclosingMethodInfo_,
-	_JTableScrollTest$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"JTableScrollTest"
-};
-
-$Object* allocate$JTableScrollTest$1($Class* clazz) {
-	return $of($alloc(JTableScrollTest$1));
-}
 
 void JTableScrollTest$1::init$() {
 }
 
 void JTableScrollTest$1::run() {
-	$JTableScrollTest::doTest(static_cast<$Runnable*>($$new(JTableScrollTest$1$$Lambda$createTable)));
+	$JTableScrollTest::doTest($$new(JTableScrollTest$1$$Lambda$createTable));
 }
 
 JTableScrollTest$1::JTableScrollTest$1() {
@@ -101,11 +60,42 @@ JTableScrollTest$1::JTableScrollTest$1() {
 
 $Class* JTableScrollTest$1::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(JTableScrollTest$1$$Lambda$createTable::classInfo$.name)) {
+		if (name->equals("JTableScrollTest$1$$Lambda$createTable")) {
 			return JTableScrollTest$1$$Lambda$createTable::load$(name, initialize);
 		}
 	}
-	$loadClass(JTableScrollTest$1, name, initialize, &_JTableScrollTest$1_ClassInfo_, allocate$JTableScrollTest$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(JTableScrollTest$1, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(JTableScrollTest$1, run, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"JTableScrollTest",
+		"main",
+		"([Ljava/lang/String;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"JTableScrollTest$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"JTableScrollTest$1",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"JTableScrollTest"
+	};
+	$loadClass(JTableScrollTest$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JTableScrollTest$1);
+	});
 	return class$;
 }
 

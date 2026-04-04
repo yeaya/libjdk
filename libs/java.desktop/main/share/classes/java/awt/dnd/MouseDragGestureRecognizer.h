@@ -55,7 +55,7 @@ public:
 	virtual void registerListeners() override;
 	virtual $String* toString() override;
 	virtual void unregisterListeners() override;
-	static const int64_t serialVersionUID = (int64_t)0x56523B65E5A003A0;
+	static const int64_t serialVersionUID = (int64_t)0x56523b65e5a003a0;
 };
 
 		} // dnd

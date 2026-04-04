@@ -1,5 +1,4 @@
 #include <com/apple/laf/AquaFileChooserUI$OpenFilePanel.h>
-
 #include <com/apple/laf/AquaFileChooserUI$FCSubpanel.h>
 #include <com/apple/laf/AquaFileChooserUI$JTableExtension.h>
 #include <com/apple/laf/AquaFileChooserUI.h>
@@ -17,59 +16,12 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $JButton = ::javax::swing::JButton;
 using $JComponent = ::javax::swing::JComponent;
 using $JFileChooser = ::javax::swing::JFileChooser;
-using $JPanel = ::javax::swing::JPanel;
 
 namespace com {
 	namespace apple {
 		namespace laf {
-
-$FieldInfo _AquaFileChooserUI$OpenFilePanel_FieldInfo_[] = {
-	{"this$0", "Lcom/apple/laf/AquaFileChooserUI;", nullptr, $FINAL | $SYNTHETIC, $field(AquaFileChooserUI$OpenFilePanel, this$0)},
-	{}
-};
-
-$MethodInfo _AquaFileChooserUI$OpenFilePanel_MethodInfo_[] = {
-	{"<init>", "(Lcom/apple/laf/AquaFileChooserUI;)V", nullptr, 0, $method(AquaFileChooserUI$OpenFilePanel, init$, void, $AquaFileChooserUI*)},
-	{"getApproveButtonMnemonic", "(Ljavax/swing/JFileChooser;)I", nullptr, 0, $virtualMethod(AquaFileChooserUI$OpenFilePanel, getApproveButtonMnemonic, int32_t, $JFileChooser*)},
-	{"getApproveButtonText", "(Ljavax/swing/JFileChooser;)Ljava/lang/String;", nullptr, 0, $virtualMethod(AquaFileChooserUI$OpenFilePanel, getApproveButtonText, $String*, $JFileChooser*)},
-	{"getApproveButtonToolTipText", "(Ljavax/swing/JFileChooser;)Ljava/lang/String;", nullptr, 0, $virtualMethod(AquaFileChooserUI$OpenFilePanel, getApproveButtonToolTipText, $String*, $JFileChooser*)},
-	{"getCancelButtonToolTipText", "(Ljavax/swing/JFileChooser;)Ljava/lang/String;", nullptr, 0, $virtualMethod(AquaFileChooserUI$OpenFilePanel, getCancelButtonToolTipText, $String*, $JFileChooser*)},
-	{"getFocusComponent", "(Ljavax/swing/JFileChooser;)Ljavax/swing/JComponent;", nullptr, 0, $virtualMethod(AquaFileChooserUI$OpenFilePanel, getFocusComponent, $JComponent*, $JFileChooser*)},
-	{"inOpenDirectoryMode", "(Ljavax/swing/JFileChooser;Ljava/io/File;)Z", nullptr, 0, $virtualMethod(AquaFileChooserUI$OpenFilePanel, inOpenDirectoryMode, bool, $JFileChooser*, $File*)},
-	{"installPanel", "(Ljavax/swing/JFileChooser;Z)V", nullptr, 0, $virtualMethod(AquaFileChooserUI$OpenFilePanel, installPanel, void, $JFileChooser*, bool)},
-	{"isSelectableInList", "(Ljavax/swing/JFileChooser;Ljava/io/File;)Z", nullptr, 0, $virtualMethod(AquaFileChooserUI$OpenFilePanel, isSelectableInList, bool, $JFileChooser*, $File*)},
-	{"updateButtonState", "(Ljavax/swing/JFileChooser;Ljava/io/File;)V", nullptr, 0, $virtualMethod(AquaFileChooserUI$OpenFilePanel, updateButtonState, void, $JFileChooser*, $File*)},
-	{}
-};
-
-$InnerClassInfo _AquaFileChooserUI$OpenFilePanel_InnerClassesInfo_[] = {
-	{"com.apple.laf.AquaFileChooserUI$OpenFilePanel", "com.apple.laf.AquaFileChooserUI", "OpenFilePanel", 0},
-	{"com.apple.laf.AquaFileChooserUI$FCSubpanel", "com.apple.laf.AquaFileChooserUI", "FCSubpanel", $ABSTRACT},
-	{}
-};
-
-$ClassInfo _AquaFileChooserUI$OpenFilePanel_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.apple.laf.AquaFileChooserUI$OpenFilePanel",
-	"com.apple.laf.AquaFileChooserUI$FCSubpanel",
-	nullptr,
-	_AquaFileChooserUI$OpenFilePanel_FieldInfo_,
-	_AquaFileChooserUI$OpenFilePanel_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AquaFileChooserUI$OpenFilePanel_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.apple.laf.AquaFileChooserUI"
-};
-
-$Object* allocate$AquaFileChooserUI$OpenFilePanel($Class* clazz) {
-	return $of($alloc(AquaFileChooserUI$OpenFilePanel));
-}
 
 void AquaFileChooserUI$OpenFilePanel::init$($AquaFileChooserUI* this$0) {
 	$set(this, this$0, this$0);
@@ -93,7 +45,7 @@ $JComponent* AquaFileChooserUI$OpenFilePanel::getFocusComponent($JFileChooser* f
 
 void AquaFileChooserUI$OpenFilePanel::updateButtonState($JFileChooser* fc, $File* f) {
 	bool enabled = (f != nullptr) && !$nc(fc)->isTraversable(f);
-	$nc($(this->this$0->getApproveButton(fc)))->setEnabled(enabled);
+	$$nc(this->this$0->getApproveButton(fc))->setEnabled(enabled);
 }
 
 bool AquaFileChooserUI$OpenFilePanel::isSelectableInList($JFileChooser* fc, $File* f) {
@@ -120,7 +72,46 @@ AquaFileChooserUI$OpenFilePanel::AquaFileChooserUI$OpenFilePanel() {
 }
 
 $Class* AquaFileChooserUI$OpenFilePanel::load$($String* name, bool initialize) {
-	$loadClass(AquaFileChooserUI$OpenFilePanel, name, initialize, &_AquaFileChooserUI$OpenFilePanel_ClassInfo_, allocate$AquaFileChooserUI$OpenFilePanel);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/apple/laf/AquaFileChooserUI;", nullptr, $FINAL | $SYNTHETIC, $field(AquaFileChooserUI$OpenFilePanel, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/apple/laf/AquaFileChooserUI;)V", nullptr, 0, $method(AquaFileChooserUI$OpenFilePanel, init$, void, $AquaFileChooserUI*)},
+		{"getApproveButtonMnemonic", "(Ljavax/swing/JFileChooser;)I", nullptr, 0, $virtualMethod(AquaFileChooserUI$OpenFilePanel, getApproveButtonMnemonic, int32_t, $JFileChooser*)},
+		{"getApproveButtonText", "(Ljavax/swing/JFileChooser;)Ljava/lang/String;", nullptr, 0, $virtualMethod(AquaFileChooserUI$OpenFilePanel, getApproveButtonText, $String*, $JFileChooser*)},
+		{"getApproveButtonToolTipText", "(Ljavax/swing/JFileChooser;)Ljava/lang/String;", nullptr, 0, $virtualMethod(AquaFileChooserUI$OpenFilePanel, getApproveButtonToolTipText, $String*, $JFileChooser*)},
+		{"getCancelButtonToolTipText", "(Ljavax/swing/JFileChooser;)Ljava/lang/String;", nullptr, 0, $virtualMethod(AquaFileChooserUI$OpenFilePanel, getCancelButtonToolTipText, $String*, $JFileChooser*)},
+		{"getFocusComponent", "(Ljavax/swing/JFileChooser;)Ljavax/swing/JComponent;", nullptr, 0, $virtualMethod(AquaFileChooserUI$OpenFilePanel, getFocusComponent, $JComponent*, $JFileChooser*)},
+		{"inOpenDirectoryMode", "(Ljavax/swing/JFileChooser;Ljava/io/File;)Z", nullptr, 0, $virtualMethod(AquaFileChooserUI$OpenFilePanel, inOpenDirectoryMode, bool, $JFileChooser*, $File*)},
+		{"installPanel", "(Ljavax/swing/JFileChooser;Z)V", nullptr, 0, $virtualMethod(AquaFileChooserUI$OpenFilePanel, installPanel, void, $JFileChooser*, bool)},
+		{"isSelectableInList", "(Ljavax/swing/JFileChooser;Ljava/io/File;)Z", nullptr, 0, $virtualMethod(AquaFileChooserUI$OpenFilePanel, isSelectableInList, bool, $JFileChooser*, $File*)},
+		{"updateButtonState", "(Ljavax/swing/JFileChooser;Ljava/io/File;)V", nullptr, 0, $virtualMethod(AquaFileChooserUI$OpenFilePanel, updateButtonState, void, $JFileChooser*, $File*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.laf.AquaFileChooserUI$OpenFilePanel", "com.apple.laf.AquaFileChooserUI", "OpenFilePanel", 0},
+		{"com.apple.laf.AquaFileChooserUI$FCSubpanel", "com.apple.laf.AquaFileChooserUI", "FCSubpanel", $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.apple.laf.AquaFileChooserUI$OpenFilePanel",
+		"com.apple.laf.AquaFileChooserUI$FCSubpanel",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.apple.laf.AquaFileChooserUI"
+	};
+	$loadClass(AquaFileChooserUI$OpenFilePanel, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AquaFileChooserUI$OpenFilePanel);
+	});
 	return class$;
 }
 

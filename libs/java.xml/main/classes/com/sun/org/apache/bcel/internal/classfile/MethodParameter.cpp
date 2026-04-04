@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/bcel/internal/classfile/MethodParameter.h>
-
 #include <com/sun/org/apache/bcel/internal/Const.h>
 #include <com/sun/org/apache/bcel/internal/classfile/Constant.h>
 #include <com/sun/org/apache/bcel/internal/classfile/ConstantPool.h>
@@ -33,42 +32,6 @@ namespace com {
 					namespace internal {
 						namespace classfile {
 
-$FieldInfo _MethodParameter_FieldInfo_[] = {
-	{"nameIndex", "I", nullptr, $PRIVATE, $field(MethodParameter, nameIndex)},
-	{"accessFlags", "I", nullptr, $PRIVATE, $field(MethodParameter, accessFlags)},
-	{}
-};
-
-$MethodInfo _MethodParameter_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MethodParameter, init$, void)},
-	{"<init>", "(Ljava/io/DataInput;)V", nullptr, 0, $method(MethodParameter, init$, void, $DataInput*), "java.io.IOException"},
-	{"accept", "(Lcom/sun/org/apache/bcel/internal/classfile/Visitor;)V", nullptr, $PUBLIC, $virtualMethod(MethodParameter, accept, void, $Visitor*)},
-	{"copy", "()Lcom/sun/org/apache/bcel/internal/classfile/MethodParameter;", nullptr, $PUBLIC, $virtualMethod(MethodParameter, copy, MethodParameter*)},
-	{"dump", "(Ljava/io/DataOutputStream;)V", nullptr, $PUBLIC | $FINAL, $method(MethodParameter, dump, void, $DataOutputStream*), "java.io.IOException"},
-	{"getAccessFlags", "()I", nullptr, $PUBLIC, $virtualMethod(MethodParameter, getAccessFlags, int32_t)},
-	{"getNameIndex", "()I", nullptr, $PUBLIC, $virtualMethod(MethodParameter, getNameIndex, int32_t)},
-	{"getParameterName", "(Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MethodParameter, getParameterName, $String*, $ConstantPool*)},
-	{"isFinal", "()Z", nullptr, $PUBLIC, $virtualMethod(MethodParameter, isFinal, bool)},
-	{"isMandated", "()Z", nullptr, $PUBLIC, $virtualMethod(MethodParameter, isMandated, bool)},
-	{"isSynthetic", "()Z", nullptr, $PUBLIC, $virtualMethod(MethodParameter, isSynthetic, bool)},
-	{"setAccessFlags", "(I)V", nullptr, $PUBLIC, $virtualMethod(MethodParameter, setAccessFlags, void, int32_t)},
-	{"setNameIndex", "(I)V", nullptr, $PUBLIC, $virtualMethod(MethodParameter, setNameIndex, void, int32_t)},
-	{}
-};
-
-$ClassInfo _MethodParameter_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.bcel.internal.classfile.MethodParameter",
-	"java.lang.Object",
-	"java.lang.Cloneable",
-	_MethodParameter_FieldInfo_,
-	_MethodParameter_MethodInfo_
-};
-
-$Object* allocate$MethodParameter($Class* clazz) {
-	return $of($alloc(MethodParameter));
-}
-
 void MethodParameter::init$() {
 }
 
@@ -89,7 +52,7 @@ $String* MethodParameter::getParameterName($ConstantPool* constant_pool) {
 	if (this->nameIndex == 0) {
 		return nullptr;
 	}
-	return $nc(($cast($ConstantUtf8, $($nc(constant_pool)->getConstant(this->nameIndex, $Const::CONSTANT_Utf8)))))->getBytes();
+	return $$sure($ConstantUtf8, $nc(constant_pool)->getConstant(this->nameIndex, $Const::CONSTANT_Utf8))->getBytes();
 }
 
 int32_t MethodParameter::getAccessFlags() {
@@ -101,15 +64,15 @@ void MethodParameter::setAccessFlags(int32_t access_flags) {
 }
 
 bool MethodParameter::isFinal() {
-	return ((int32_t)(this->accessFlags & (uint32_t)(int32_t)$Const::ACC_FINAL)) != 0;
+	return (this->accessFlags & $Const::ACC_FINAL) != 0;
 }
 
 bool MethodParameter::isSynthetic() {
-	return ((int32_t)(this->accessFlags & (uint32_t)(int32_t)$Const::ACC_SYNTHETIC)) != 0;
+	return (this->accessFlags & $Const::ACC_SYNTHETIC) != 0;
 }
 
 bool MethodParameter::isMandated() {
-	return ((int32_t)(this->accessFlags & (uint32_t)(int32_t)$Const::ACC_MANDATED)) != 0;
+	return (this->accessFlags & $Const::ACC_MANDATED) != 0;
 }
 
 void MethodParameter::accept($Visitor* v) {
@@ -133,7 +96,38 @@ MethodParameter::MethodParameter() {
 }
 
 $Class* MethodParameter::load$($String* name, bool initialize) {
-	$loadClass(MethodParameter, name, initialize, &_MethodParameter_ClassInfo_, allocate$MethodParameter);
+	$FieldInfo fieldInfos$$[] = {
+		{"nameIndex", "I", nullptr, $PRIVATE, $field(MethodParameter, nameIndex)},
+		{"accessFlags", "I", nullptr, $PRIVATE, $field(MethodParameter, accessFlags)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MethodParameter, init$, void)},
+		{"<init>", "(Ljava/io/DataInput;)V", nullptr, 0, $method(MethodParameter, init$, void, $DataInput*), "java.io.IOException"},
+		{"accept", "(Lcom/sun/org/apache/bcel/internal/classfile/Visitor;)V", nullptr, $PUBLIC, $virtualMethod(MethodParameter, accept, void, $Visitor*)},
+		{"copy", "()Lcom/sun/org/apache/bcel/internal/classfile/MethodParameter;", nullptr, $PUBLIC, $virtualMethod(MethodParameter, copy, MethodParameter*)},
+		{"dump", "(Ljava/io/DataOutputStream;)V", nullptr, $PUBLIC | $FINAL, $method(MethodParameter, dump, void, $DataOutputStream*), "java.io.IOException"},
+		{"getAccessFlags", "()I", nullptr, $PUBLIC, $virtualMethod(MethodParameter, getAccessFlags, int32_t)},
+		{"getNameIndex", "()I", nullptr, $PUBLIC, $virtualMethod(MethodParameter, getNameIndex, int32_t)},
+		{"getParameterName", "(Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MethodParameter, getParameterName, $String*, $ConstantPool*)},
+		{"isFinal", "()Z", nullptr, $PUBLIC, $virtualMethod(MethodParameter, isFinal, bool)},
+		{"isMandated", "()Z", nullptr, $PUBLIC, $virtualMethod(MethodParameter, isMandated, bool)},
+		{"isSynthetic", "()Z", nullptr, $PUBLIC, $virtualMethod(MethodParameter, isSynthetic, bool)},
+		{"setAccessFlags", "(I)V", nullptr, $PUBLIC, $virtualMethod(MethodParameter, setAccessFlags, void, int32_t)},
+		{"setNameIndex", "(I)V", nullptr, $PUBLIC, $virtualMethod(MethodParameter, setNameIndex, void, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.bcel.internal.classfile.MethodParameter",
+		"java.lang.Object",
+		"java.lang.Cloneable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(MethodParameter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MethodParameter);
+	});
 	return class$;
 }
 

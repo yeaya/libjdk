@@ -1,6 +1,4 @@
 #include <sun/print/ServiceDialog$GeneralPanel.h>
-
-#include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <java/awt/GridBagConstraints.h>
 #include <java/awt/GridBagLayout.h>
@@ -17,11 +15,8 @@
 #undef RELATIVE
 #undef REMAINDER
 
-using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $GridBagConstraints = ::java::awt::GridBagConstraints;
 using $GridBagLayout = ::java::awt::GridBagLayout;
-using $LayoutManager = ::java::awt::LayoutManager;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Double = ::java::lang::Double;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -36,48 +31,8 @@ using $ServiceDialog$PrintServicePanel = ::sun::print::ServiceDialog$PrintServic
 namespace sun {
 	namespace print {
 
-$FieldInfo _ServiceDialog$GeneralPanel_FieldInfo_[] = {
-	{"this$0", "Lsun/print/ServiceDialog;", nullptr, $FINAL | $SYNTHETIC, $field(ServiceDialog$GeneralPanel, this$0)},
-	{"pnlPrintService", "Lsun/print/ServiceDialog$PrintServicePanel;", nullptr, $PRIVATE, $field(ServiceDialog$GeneralPanel, pnlPrintService)},
-	{"pnlPrintRange", "Lsun/print/ServiceDialog$PrintRangePanel;", nullptr, $PRIVATE, $field(ServiceDialog$GeneralPanel, pnlPrintRange)},
-	{"pnlCopies", "Lsun/print/ServiceDialog$CopiesPanel;", nullptr, $PRIVATE, $field(ServiceDialog$GeneralPanel, pnlCopies)},
-	{}
-};
-
-$MethodInfo _ServiceDialog$GeneralPanel_MethodInfo_[] = {
-	{"<init>", "(Lsun/print/ServiceDialog;)V", nullptr, $PUBLIC, $method(ServiceDialog$GeneralPanel, init$, void, $ServiceDialog*)},
-	{"isPrintToFileRequested", "()Z", nullptr, $PUBLIC, $virtualMethod(ServiceDialog$GeneralPanel, isPrintToFileRequested, bool)},
-	{"updateInfo", "()V", nullptr, $PUBLIC, $virtualMethod(ServiceDialog$GeneralPanel, updateInfo, void)},
-	{}
-};
-
-$InnerClassInfo _ServiceDialog$GeneralPanel_InnerClassesInfo_[] = {
-	{"sun.print.ServiceDialog$GeneralPanel", "sun.print.ServiceDialog", "GeneralPanel", $PRIVATE},
-	{}
-};
-
-$ClassInfo _ServiceDialog$GeneralPanel_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.print.ServiceDialog$GeneralPanel",
-	"javax.swing.JPanel",
-	nullptr,
-	_ServiceDialog$GeneralPanel_FieldInfo_,
-	_ServiceDialog$GeneralPanel_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ServiceDialog$GeneralPanel_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.print.ServiceDialog"
-};
-
-$Object* allocate$ServiceDialog$GeneralPanel($Class* clazz) {
-	return $of($alloc(ServiceDialog$GeneralPanel));
-}
-
 void ServiceDialog$GeneralPanel::init$($ServiceDialog* this$0) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, this$0, this$0);
 	$JPanel::init$();
 	$var($GridBagLayout, gridbag, $new($GridBagLayout));
@@ -113,7 +68,41 @@ ServiceDialog$GeneralPanel::ServiceDialog$GeneralPanel() {
 }
 
 $Class* ServiceDialog$GeneralPanel::load$($String* name, bool initialize) {
-	$loadClass(ServiceDialog$GeneralPanel, name, initialize, &_ServiceDialog$GeneralPanel_ClassInfo_, allocate$ServiceDialog$GeneralPanel);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/print/ServiceDialog;", nullptr, $FINAL | $SYNTHETIC, $field(ServiceDialog$GeneralPanel, this$0)},
+		{"pnlPrintService", "Lsun/print/ServiceDialog$PrintServicePanel;", nullptr, $PRIVATE, $field(ServiceDialog$GeneralPanel, pnlPrintService)},
+		{"pnlPrintRange", "Lsun/print/ServiceDialog$PrintRangePanel;", nullptr, $PRIVATE, $field(ServiceDialog$GeneralPanel, pnlPrintRange)},
+		{"pnlCopies", "Lsun/print/ServiceDialog$CopiesPanel;", nullptr, $PRIVATE, $field(ServiceDialog$GeneralPanel, pnlCopies)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/print/ServiceDialog;)V", nullptr, $PUBLIC, $method(ServiceDialog$GeneralPanel, init$, void, $ServiceDialog*)},
+		{"isPrintToFileRequested", "()Z", nullptr, $PUBLIC, $virtualMethod(ServiceDialog$GeneralPanel, isPrintToFileRequested, bool)},
+		{"updateInfo", "()V", nullptr, $PUBLIC, $virtualMethod(ServiceDialog$GeneralPanel, updateInfo, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.print.ServiceDialog$GeneralPanel", "sun.print.ServiceDialog", "GeneralPanel", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.print.ServiceDialog$GeneralPanel",
+		"javax.swing.JPanel",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.print.ServiceDialog"
+	};
+	$loadClass(ServiceDialog$GeneralPanel, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ServiceDialog$GeneralPanel));
+	});
 	return class$;
 }
 

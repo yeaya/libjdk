@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/StripFilter.h>
-
 #include <com/sun/org/apache/xalan/internal/xsltc/DOM.h>
 #include <jcpp.h>
 
@@ -15,26 +14,22 @@ namespace com {
 					namespace internal {
 						namespace xsltc {
 
-$MethodInfo _StripFilter_MethodInfo_[] = {
-	{"stripSpace", "(Lcom/sun/org/apache/xalan/internal/xsltc/DOM;II)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(StripFilter, stripSpace, bool, $DOM*, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _StripFilter_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.org.apache.xalan.internal.xsltc.StripFilter",
-	nullptr,
-	nullptr,
-	nullptr,
-	_StripFilter_MethodInfo_
-};
-
-$Object* allocate$StripFilter($Class* clazz) {
-	return $of($alloc(StripFilter));
-}
-
 $Class* StripFilter::load$($String* name, bool initialize) {
-	$loadClass(StripFilter, name, initialize, &_StripFilter_ClassInfo_, allocate$StripFilter);
+	$MethodInfo methodInfos$$[] = {
+		{"stripSpace", "(Lcom/sun/org/apache/xalan/internal/xsltc/DOM;II)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(StripFilter, stripSpace, bool, $DOM*, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.org.apache.xalan.internal.xsltc.StripFilter",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(StripFilter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(StripFilter);
+	});
 	return class$;
 }
 

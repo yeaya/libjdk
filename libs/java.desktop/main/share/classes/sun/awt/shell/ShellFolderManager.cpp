@@ -1,5 +1,4 @@
 #include <sun/awt/shell/ShellFolderManager.h>
-
 #include <java/io/File.h>
 #include <java/io/FileNotFoundException.h>
 #include <java/io/Serializable.h>
@@ -51,33 +50,29 @@ public:
 	virtual bool test(Object$* f) override {
 		 return ShellFolderManager::lambda$checkFiles$0(sm, $cast($File, f));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<ShellFolderManager$$Lambda$lambda$checkFiles$0>());
-	}
 	$SecurityManager* sm = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo ShellFolderManager$$Lambda$lambda$checkFiles$0::fieldInfos[2] = {
-	{"sm", "Ljava/lang/SecurityManager;", nullptr, $PUBLIC, $field(ShellFolderManager$$Lambda$lambda$checkFiles$0, sm)},
-	{}
-};
-$MethodInfo ShellFolderManager$$Lambda$lambda$checkFiles$0::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/SecurityManager;)V", nullptr, $PUBLIC, $method(ShellFolderManager$$Lambda$lambda$checkFiles$0, init$, void, $SecurityManager*)},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ShellFolderManager$$Lambda$lambda$checkFiles$0, test, bool, Object$*)},
-	{}
-};
-$ClassInfo ShellFolderManager$$Lambda$lambda$checkFiles$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.awt.shell.ShellFolderManager$$Lambda$lambda$checkFiles$0",
-	"java.lang.Object",
-	"java.util.function.Predicate",
-	fieldInfos,
-	methodInfos
 };
 $Class* ShellFolderManager$$Lambda$lambda$checkFiles$0::load$($String* name, bool initialize) {
-	$loadClass(ShellFolderManager$$Lambda$lambda$checkFiles$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"sm", "Ljava/lang/SecurityManager;", nullptr, $PUBLIC, $field(ShellFolderManager$$Lambda$lambda$checkFiles$0, sm)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/SecurityManager;)V", nullptr, $PUBLIC, $method(ShellFolderManager$$Lambda$lambda$checkFiles$0, init$, void, $SecurityManager*)},
+		{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ShellFolderManager$$Lambda$lambda$checkFiles$0, test, bool, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.awt.shell.ShellFolderManager$$Lambda$lambda$checkFiles$0",
+		"java.lang.Object",
+		"java.util.function.Predicate",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ShellFolderManager$$Lambda$lambda$checkFiles$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ShellFolderManager$$Lambda$lambda$checkFiles$0);
+	});
 	return class$;
 }
 $Class* ShellFolderManager$$Lambda$lambda$checkFiles$0::class$ = nullptr;
@@ -88,72 +83,29 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(int32_t x$0) override {
-		 return $of(ShellFolderManager::lambda$checkFiles$1(x$0));
+		 return ShellFolderManager::lambda$checkFiles$1(x$0);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<ShellFolderManager$$Lambda$lambda$checkFiles$1$1>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo ShellFolderManager$$Lambda$lambda$checkFiles$1$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ShellFolderManager$$Lambda$lambda$checkFiles$1$1, init$, void)},
-	{"apply", "(I)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ShellFolderManager$$Lambda$lambda$checkFiles$1$1, apply, $Object*, int32_t)},
-	{}
-};
-$ClassInfo ShellFolderManager$$Lambda$lambda$checkFiles$1$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.awt.shell.ShellFolderManager$$Lambda$lambda$checkFiles$1$1",
-	"java.lang.Object",
-	"java.util.function.IntFunction",
-	nullptr,
-	methodInfos
 };
 $Class* ShellFolderManager$$Lambda$lambda$checkFiles$1$1::load$($String* name, bool initialize) {
-	$loadClass(ShellFolderManager$$Lambda$lambda$checkFiles$1$1, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ShellFolderManager$$Lambda$lambda$checkFiles$1$1, init$, void)},
+		{"apply", "(I)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ShellFolderManager$$Lambda$lambda$checkFiles$1$1, apply, $Object*, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.awt.shell.ShellFolderManager$$Lambda$lambda$checkFiles$1$1",
+		"java.lang.Object",
+		"java.util.function.IntFunction",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ShellFolderManager$$Lambda$lambda$checkFiles$1$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ShellFolderManager$$Lambda$lambda$checkFiles$1$1);
+	});
 	return class$;
 }
 $Class* ShellFolderManager$$Lambda$lambda$checkFiles$1$1::class$ = nullptr;
-
-$MethodInfo _ShellFolderManager_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(ShellFolderManager, init$, void)},
-	{"checkFile", "(Ljava/io/File;)Ljava/io/File;", nullptr, $PRIVATE | $STATIC, $staticMethod(ShellFolderManager, checkFile, $File*, $File*)},
-	{"checkFile", "(Ljava/io/File;Ljava/lang/SecurityManager;)Ljava/io/File;", nullptr, $PRIVATE | $STATIC, $staticMethod(ShellFolderManager, checkFile, $File*, $File*, $SecurityManager*)},
-	{"checkFiles", "([Ljava/io/File;)[Ljava/io/File;", nullptr, $PRIVATE | $STATIC, $staticMethod(ShellFolderManager, checkFiles, $FileArray*, $FileArray*)},
-	{"checkFiles", "(Ljava/util/stream/Stream;Ljava/lang/SecurityManager;)[Ljava/io/File;", "(Ljava/util/stream/Stream<Ljava/io/File;>;Ljava/lang/SecurityManager;)[Ljava/io/File;", $PRIVATE | $STATIC, $staticMethod(ShellFolderManager, checkFiles, $FileArray*, $Stream*, $SecurityManager*)},
-	{"createInvoker", "()Lsun/awt/shell/ShellFolder$Invoker;", nullptr, $PROTECTED, $virtualMethod(ShellFolderManager, createInvoker, $ShellFolder$Invoker*)},
-	{"createShellFolder", "(Ljava/io/File;)Lsun/awt/shell/ShellFolder;", nullptr, $PUBLIC, $virtualMethod(ShellFolderManager, createShellFolder, $ShellFolder*, $File*), "java.io.FileNotFoundException"},
-	{"get", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ShellFolderManager, get, $Object*, $String*)},
-	{"isComputerNode", "(Ljava/io/File;)Z", nullptr, $PUBLIC, $virtualMethod(ShellFolderManager, isComputerNode, bool, $File*)},
-	{"isFileSystemRoot", "(Ljava/io/File;)Z", nullptr, $PUBLIC, $virtualMethod(ShellFolderManager, isFileSystemRoot, bool, $File*)},
-	{"lambda$checkFiles$0", "(Ljava/lang/SecurityManager;Ljava/io/File;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ShellFolderManager, lambda$checkFiles$0, bool, $SecurityManager*, $File*)},
-	{"lambda$checkFiles$1", "(I)[Ljava/io/File;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ShellFolderManager, lambda$checkFiles$1, $FileArray*, int32_t)},
-	{}
-};
-
-$InnerClassInfo _ShellFolderManager_InnerClassesInfo_[] = {
-	{"sun.awt.shell.ShellFolderManager$DirectInvoker", "sun.awt.shell.ShellFolderManager", "DirectInvoker", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _ShellFolderManager_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.awt.shell.ShellFolderManager",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_ShellFolderManager_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ShellFolderManager_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.awt.shell.ShellFolderManager$DirectInvoker"
-};
-
-$Object* allocate$ShellFolderManager($Class* clazz) {
-	return $of($alloc(ShellFolderManager));
-}
 
 void ShellFolderManager::init$() {
 }
@@ -163,7 +115,7 @@ $ShellFolder* ShellFolderManager::createShellFolder($File* file) {
 }
 
 $Object* ShellFolderManager::get($String* key) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(key)->equals("fileChooserDefaultFolder"_s)) {
 		$var($File, homeDir, $new($File, $($System::getProperty("user.home"_s))));
 		try {
@@ -172,13 +124,13 @@ $Object* ShellFolderManager::get($String* key) {
 			return $of(checkFile(homeDir));
 		}
 	} else if (key->equals("roots"_s)) {
-		return $of(checkFiles($($File::listRoots())));
+		return checkFiles($($File::listRoots()));
 	} else if (key->equals("fileChooserComboBoxFolders"_s)) {
-		return $of(get("roots"_s));
+		return get("roots"_s);
 	} else if (key->equals("fileChooserShortcutPanelFolders"_s)) {
-		return $of(checkFiles($$new($FileArray, {$cast($File, $(get("fileChooserDefaultFolder"_s)))})));
+		return checkFiles($$new($FileArray, {$$cast($File, get("fileChooserDefaultFolder"_s))}));
 	}
-	return $of(nullptr);
+	return nullptr;
 }
 
 $File* ShellFolderManager::checkFile($File* f) {
@@ -187,13 +139,13 @@ $File* ShellFolderManager::checkFile($File* f) {
 }
 
 $File* ShellFolderManager::checkFile($File* f, $SecurityManager* sm) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$nc(sm)->checkRead($($nc(f)->getPath()));
 		if ($instanceOf($ShellFolder, f)) {
 			$var($ShellFolder, sf, $cast($ShellFolder, f));
-			if ($nc(sf)->isLink()) {
-				sm->checkRead($($nc($(sf->getLinkLocation()))->getPath()));
+			if (sf->isLink()) {
+				sm->checkRead($($$nc(sf->getLinkLocation())->getPath()));
 			}
 		}
 		return f;
@@ -206,14 +158,14 @@ $File* ShellFolderManager::checkFile($File* f, $SecurityManager* sm) {
 }
 
 $FileArray* ShellFolderManager::checkFiles($FileArray* fs) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	return (sm == nullptr || fs == nullptr) ? fs : checkFiles($($Stream::of(fs)), sm);
 }
 
 $FileArray* ShellFolderManager::checkFiles($Stream* fs, $SecurityManager* sm) {
-	$useLocalCurrentObjectStackCache();
-	return $fcast($FileArray, $nc($($nc(fs)->filter(static_cast<$Predicate*>($$new(ShellFolderManager$$Lambda$lambda$checkFiles$0, sm)))))->toArray(static_cast<$IntFunction*>($$new(ShellFolderManager$$Lambda$lambda$checkFiles$1$1))));
+	$useLocalObjectStack();
+	return $cast($FileArray, $$nc($nc(fs)->filter($$new(ShellFolderManager$$Lambda$lambda$checkFiles$0, sm)))->toArray($$new(ShellFolderManager$$Lambda$lambda$checkFiles$1$1)));
 }
 
 bool ShellFolderManager::isComputerNode($File* dir) {
@@ -221,7 +173,7 @@ bool ShellFolderManager::isComputerNode($File* dir) {
 }
 
 bool ShellFolderManager::isFileSystemRoot($File* dir) {
-	if ($instanceOf($ShellFolder, dir) && !$nc(($cast($ShellFolder, dir)))->isFileSystem()) {
+	if ($instanceOf($ShellFolder, dir) && !$cast($ShellFolder, dir)->isFileSystem()) {
 		return false;
 	}
 	return ($nc(dir)->getParentFile() == nullptr);
@@ -244,14 +196,49 @@ ShellFolderManager::ShellFolderManager() {
 
 $Class* ShellFolderManager::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(ShellFolderManager$$Lambda$lambda$checkFiles$0::classInfo$.name)) {
+		if (name->equals("sun.awt.shell.ShellFolderManager$$Lambda$lambda$checkFiles$0")) {
 			return ShellFolderManager$$Lambda$lambda$checkFiles$0::load$(name, initialize);
 		}
-		if (name->equals(ShellFolderManager$$Lambda$lambda$checkFiles$1$1::classInfo$.name)) {
+		if (name->equals("sun.awt.shell.ShellFolderManager$$Lambda$lambda$checkFiles$1$1")) {
 			return ShellFolderManager$$Lambda$lambda$checkFiles$1$1::load$(name, initialize);
 		}
 	}
-	$loadClass(ShellFolderManager, name, initialize, &_ShellFolderManager_ClassInfo_, allocate$ShellFolderManager);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(ShellFolderManager, init$, void)},
+		{"checkFile", "(Ljava/io/File;)Ljava/io/File;", nullptr, $PRIVATE | $STATIC, $staticMethod(ShellFolderManager, checkFile, $File*, $File*)},
+		{"checkFile", "(Ljava/io/File;Ljava/lang/SecurityManager;)Ljava/io/File;", nullptr, $PRIVATE | $STATIC, $staticMethod(ShellFolderManager, checkFile, $File*, $File*, $SecurityManager*)},
+		{"checkFiles", "([Ljava/io/File;)[Ljava/io/File;", nullptr, $PRIVATE | $STATIC, $staticMethod(ShellFolderManager, checkFiles, $FileArray*, $FileArray*)},
+		{"checkFiles", "(Ljava/util/stream/Stream;Ljava/lang/SecurityManager;)[Ljava/io/File;", "(Ljava/util/stream/Stream<Ljava/io/File;>;Ljava/lang/SecurityManager;)[Ljava/io/File;", $PRIVATE | $STATIC, $staticMethod(ShellFolderManager, checkFiles, $FileArray*, $Stream*, $SecurityManager*)},
+		{"createInvoker", "()Lsun/awt/shell/ShellFolder$Invoker;", nullptr, $PROTECTED, $virtualMethod(ShellFolderManager, createInvoker, $ShellFolder$Invoker*)},
+		{"createShellFolder", "(Ljava/io/File;)Lsun/awt/shell/ShellFolder;", nullptr, $PUBLIC, $virtualMethod(ShellFolderManager, createShellFolder, $ShellFolder*, $File*), "java.io.FileNotFoundException"},
+		{"get", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ShellFolderManager, get, $Object*, $String*)},
+		{"isComputerNode", "(Ljava/io/File;)Z", nullptr, $PUBLIC, $virtualMethod(ShellFolderManager, isComputerNode, bool, $File*)},
+		{"isFileSystemRoot", "(Ljava/io/File;)Z", nullptr, $PUBLIC, $virtualMethod(ShellFolderManager, isFileSystemRoot, bool, $File*)},
+		{"lambda$checkFiles$0", "(Ljava/lang/SecurityManager;Ljava/io/File;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ShellFolderManager, lambda$checkFiles$0, bool, $SecurityManager*, $File*)},
+		{"lambda$checkFiles$1", "(I)[Ljava/io/File;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ShellFolderManager, lambda$checkFiles$1, $FileArray*, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.shell.ShellFolderManager$DirectInvoker", "sun.awt.shell.ShellFolderManager", "DirectInvoker", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.awt.shell.ShellFolderManager",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.awt.shell.ShellFolderManager$DirectInvoker"
+	};
+	$loadClass(ShellFolderManager, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ShellFolderManager);
+	});
 	return class$;
 }
 

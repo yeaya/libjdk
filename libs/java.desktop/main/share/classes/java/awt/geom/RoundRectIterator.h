@@ -23,6 +23,7 @@ class RoundRectIterator : public ::java::awt::geom::PathIterator {
 	$class(RoundRectIterator, 0, ::java::awt::geom::PathIterator)
 public:
 	RoundRectIterator();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::awt::geom::RoundRectangle2D* rr, ::java::awt::geom::AffineTransform* at);
 	virtual int32_t currentSegment($floats* coords) override;
 	virtual int32_t currentSegment($doubles* coords) override;

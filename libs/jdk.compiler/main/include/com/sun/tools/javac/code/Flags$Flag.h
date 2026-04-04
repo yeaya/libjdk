@@ -144,6 +144,7 @@ class $import Flags$Flag : public ::java::lang::Enum {
 public:
 	Flags$Flag();
 	static $Array<::com::sun::tools::javac::code::Flags$Flag>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal, int64_t flag);
 	virtual $String* toString() override;
 	static ::com::sun::tools::javac::code::Flags$Flag* valueOf($String* name);

@@ -1,5 +1,4 @@
 #include <javax/swing/colorchooser/MainSwatchPanel.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/Dimension.h>
@@ -20,27 +19,6 @@ namespace javax {
 	namespace swing {
 		namespace colorchooser {
 
-$MethodInfo _MainSwatchPanel_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(MainSwatchPanel, init$, void)},
-	{"initColors", "()V", nullptr, $PROTECTED, $virtualMethod(MainSwatchPanel, initColors, void)},
-	{"initRawValues", "()[I", nullptr, $PRIVATE, $method(MainSwatchPanel, initRawValues, $ints*)},
-	{"initValues", "()V", nullptr, $PROTECTED, $virtualMethod(MainSwatchPanel, initValues, void)},
-	{}
-};
-
-$ClassInfo _MainSwatchPanel_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.colorchooser.MainSwatchPanel",
-	"javax.swing.colorchooser.SwatchPanel",
-	nullptr,
-	nullptr,
-	_MainSwatchPanel_MethodInfo_
-};
-
-$Object* allocate$MainSwatchPanel($Class* clazz) {
-	return $of($alloc(MainSwatchPanel));
-}
-
 void MainSwatchPanel::init$() {
 	$SwatchPanel::init$();
 }
@@ -52,12 +30,12 @@ void MainSwatchPanel::initValues() {
 }
 
 void MainSwatchPanel::initColors() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ints, rawValues, initRawValues());
 	int32_t numColors = $nc(rawValues)->length / 3;
 	$set(this, colors, $new($ColorArray, numColors));
 	for (int32_t i = 0; i < numColors; ++i) {
-		$nc(this->colors)->set(i, $$new($Color, rawValues->get(i * 3), rawValues->get((i * 3) + 1), rawValues->get((i * 3) + 2)));
+		this->colors->set(i, $$new($Color, rawValues->get(i * 3), rawValues->get((i * 3) + 1), rawValues->get((i * 3) + 2)));
 	}
 }
 
@@ -908,7 +886,24 @@ MainSwatchPanel::MainSwatchPanel() {
 }
 
 $Class* MainSwatchPanel::load$($String* name, bool initialize) {
-	$loadClass(MainSwatchPanel, name, initialize, &_MainSwatchPanel_ClassInfo_, allocate$MainSwatchPanel);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(MainSwatchPanel, init$, void)},
+		{"initColors", "()V", nullptr, $PROTECTED, $virtualMethod(MainSwatchPanel, initColors, void)},
+		{"initRawValues", "()[I", nullptr, $PRIVATE, $method(MainSwatchPanel, initRawValues, $ints*)},
+		{"initValues", "()V", nullptr, $PROTECTED, $virtualMethod(MainSwatchPanel, initValues, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.colorchooser.MainSwatchPanel",
+		"javax.swing.colorchooser.SwatchPanel",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(MainSwatchPanel, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MainSwatchPanel));
+	});
 	return class$;
 }
 

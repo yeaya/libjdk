@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/Annotate$TypeAnnotate.h>
-
 #include <com/sun/tools/javac/code/Kinds$Kind.h>
 #include <com/sun/tools/javac/code/Symbol.h>
 #include <com/sun/tools/javac/comp/Annotate.h>
@@ -14,7 +13,6 @@
 #include <com/sun/tools/javac/tree/JCTree$JCNewClass.h>
 #include <com/sun/tools/javac/tree/JCTree$JCTypeParameter.h>
 #include <com/sun/tools/javac/tree/JCTree$JCVariableDecl.h>
-#include <com/sun/tools/javac/tree/JCTree.h>
 #include <com/sun/tools/javac/tree/TreeScanner.h>
 #include <com/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition.h>
 #include <com/sun/tools/javac/util/List.h>
@@ -27,7 +25,6 @@ using $Kinds$Kind = ::com::sun::tools::javac::code::Kinds$Kind;
 using $Symbol = ::com::sun::tools::javac::code::Symbol;
 using $Annotate = ::com::sun::tools::javac::comp::Annotate;
 using $Env = ::com::sun::tools::javac::comp::Env;
-using $JCTree = ::com::sun::tools::javac::tree::JCTree;
 using $JCTree$JCAnnotatedType = ::com::sun::tools::javac::tree::JCTree$JCAnnotatedType;
 using $JCTree$JCBindingPattern = ::com::sun::tools::javac::tree::JCTree$JCBindingPattern;
 using $JCTree$JCClassDecl = ::com::sun::tools::javac::tree::JCTree$JCClassDecl;
@@ -51,52 +48,6 @@ namespace com {
 			namespace javac {
 				namespace comp {
 
-$FieldInfo _Annotate$TypeAnnotate_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/comp/Annotate;", nullptr, $FINAL | $SYNTHETIC, $field(Annotate$TypeAnnotate, this$0)},
-	{"env", "Lcom/sun/tools/javac/comp/Env;", "Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;", $PRIVATE | $FINAL, $field(Annotate$TypeAnnotate, env)},
-	{"sym", "Lcom/sun/tools/javac/code/Symbol;", nullptr, $PRIVATE | $FINAL, $field(Annotate$TypeAnnotate, sym)},
-	{"deferPos", "Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;", nullptr, $PRIVATE, $field(Annotate$TypeAnnotate, deferPos)},
-	{}
-};
-
-$MethodInfo _Annotate$TypeAnnotate_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Annotate;Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;)V", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;)V", $PUBLIC, $method(Annotate$TypeAnnotate, init$, void, $Annotate*, $Env*, $Symbol*, $JCDiagnostic$DiagnosticPosition*)},
-	{"visitAnnotatedType", "(Lcom/sun/tools/javac/tree/JCTree$JCAnnotatedType;)V", nullptr, $PUBLIC, $virtualMethod(Annotate$TypeAnnotate, visitAnnotatedType, void, $JCTree$JCAnnotatedType*)},
-	{"visitBindingPattern", "(Lcom/sun/tools/javac/tree/JCTree$JCBindingPattern;)V", nullptr, $PUBLIC, $virtualMethod(Annotate$TypeAnnotate, visitBindingPattern, void, $JCTree$JCBindingPattern*)},
-	{"visitClassDef", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)V", nullptr, $PUBLIC, $virtualMethod(Annotate$TypeAnnotate, visitClassDef, void, $JCTree$JCClassDecl*)},
-	{"visitMethodDef", "(Lcom/sun/tools/javac/tree/JCTree$JCMethodDecl;)V", nullptr, $PUBLIC, $virtualMethod(Annotate$TypeAnnotate, visitMethodDef, void, $JCTree$JCMethodDecl*)},
-	{"visitNewArray", "(Lcom/sun/tools/javac/tree/JCTree$JCNewArray;)V", nullptr, $PUBLIC, $virtualMethod(Annotate$TypeAnnotate, visitNewArray, void, $JCTree$JCNewArray*)},
-	{"visitNewClass", "(Lcom/sun/tools/javac/tree/JCTree$JCNewClass;)V", nullptr, $PUBLIC, $virtualMethod(Annotate$TypeAnnotate, visitNewClass, void, $JCTree$JCNewClass*)},
-	{"visitTypeParameter", "(Lcom/sun/tools/javac/tree/JCTree$JCTypeParameter;)V", nullptr, $PUBLIC, $virtualMethod(Annotate$TypeAnnotate, visitTypeParameter, void, $JCTree$JCTypeParameter*)},
-	{"visitVarDef", "(Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;)V", nullptr, $PUBLIC, $virtualMethod(Annotate$TypeAnnotate, visitVarDef, void, $JCTree$JCVariableDecl*)},
-	{}
-};
-
-$InnerClassInfo _Annotate$TypeAnnotate_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.Annotate$TypeAnnotate", "com.sun.tools.javac.comp.Annotate", "TypeAnnotate", $PRIVATE},
-	{}
-};
-
-$ClassInfo _Annotate$TypeAnnotate_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.comp.Annotate$TypeAnnotate",
-	"com.sun.tools.javac.tree.TreeScanner",
-	nullptr,
-	_Annotate$TypeAnnotate_FieldInfo_,
-	_Annotate$TypeAnnotate_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Annotate$TypeAnnotate_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.Annotate"
-};
-
-$Object* allocate$Annotate$TypeAnnotate($Class* clazz) {
-	return $of($alloc(Annotate$TypeAnnotate));
-}
-
 void Annotate$TypeAnnotate::init$($Annotate* this$0, $Env* env, $Symbol* sym, $JCDiagnostic$DiagnosticPosition* deferPos) {
 	$set(this, this$0, this$0);
 	$TreeScanner::init$();
@@ -107,59 +58,57 @@ void Annotate$TypeAnnotate::init$($Annotate* this$0, $Env* env, $Symbol* sym, $J
 
 void Annotate$TypeAnnotate::visitAnnotatedType($JCTree$JCAnnotatedType* tree) {
 	this->this$0->enterTypeAnnotations($nc(tree)->annotations, this->env, this->sym, this->deferPos, false);
-	scan(static_cast<$JCTree*>($nc(tree)->underlyingType));
+	scan(tree->underlyingType);
 }
 
 void Annotate$TypeAnnotate::visitTypeParameter($JCTree$JCTypeParameter* tree) {
 	this->this$0->enterTypeAnnotations($nc(tree)->annotations, this->env, this->sym, this->deferPos, true);
-	scan($nc(tree)->bounds);
+	scan(tree->bounds);
 }
 
 void Annotate$TypeAnnotate::visitNewArray($JCTree$JCNewArray* tree) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->this$0->enterTypeAnnotations($nc(tree)->annotations, this->env, this->sym, this->deferPos, false);
 	{
-		$var($Iterator, i$, $nc($nc(tree)->dimAnnotations)->iterator());
+		$var($Iterator, i$, $nc(tree->dimAnnotations)->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($List, dimAnnos, $cast($List, i$->next()));
 			this->this$0->enterTypeAnnotations(dimAnnos, this->env, this->sym, this->deferPos, false);
 		}
 	}
-	scan(static_cast<$JCTree*>(tree->elemtype));
+	scan(tree->elemtype);
 	scan(tree->elems);
 }
 
 void Annotate$TypeAnnotate::visitMethodDef($JCTree$JCMethodDecl* tree) {
-	scan(static_cast<$JCTree*>($nc(tree)->mods));
-	scan(static_cast<$JCTree*>($nc(tree)->restype));
-	scan($nc(tree)->typarams);
-	scan(static_cast<$JCTree*>($nc(tree)->recvparam));
-	scan($nc(tree)->params);
-	scan($nc(tree)->thrown);
-	scan(static_cast<$JCTree*>($nc(tree)->defaultValue));
+	scan($nc(tree)->mods);
+	scan(tree->restype);
+	scan(tree->typarams);
+	scan(tree->recvparam);
+	scan(tree->params);
+	scan(tree->thrown);
+	scan(tree->defaultValue);
 }
 
 void Annotate$TypeAnnotate::visitVarDef($JCTree$JCVariableDecl* tree) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JCDiagnostic$DiagnosticPosition, prevPos, this->deferPos);
 	$set(this, deferPos, $nc(tree)->pos());
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$init($Kinds$Kind);
-			if (this->sym != nullptr && $nc(this->sym)->kind == $Kinds$Kind::VAR) {
-				scan(static_cast<$JCTree*>(tree->mods));
-				scan(static_cast<$JCTree*>(tree->vartype));
-			}
-			scan(static_cast<$JCTree*>(tree->init));
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$set(this, deferPos, prevPos);
+	$var($Throwable, var$0, nullptr);
+	try {
+		$init($Kinds$Kind);
+		if (this->sym != nullptr && this->sym->kind == $Kinds$Kind::VAR) {
+			scan(tree->mods);
+			scan(tree->vartype);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+		scan(tree->init);
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$set(this, deferPos, prevPos);
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
@@ -170,19 +119,59 @@ void Annotate$TypeAnnotate::visitClassDef($JCTree$JCClassDecl* tree) {
 }
 
 void Annotate$TypeAnnotate::visitNewClass($JCTree$JCNewClass* tree) {
-	scan(static_cast<$JCTree*>($nc(tree)->encl));
-	scan($nc(tree)->typeargs);
-	if ($nc(tree)->def == nullptr) {
-		scan(static_cast<$JCTree*>(tree->clazz));
+	scan($nc(tree)->encl);
+	scan(tree->typeargs);
+	if (tree->def == nullptr) {
+		scan(tree->clazz);
 	}
-	scan($nc(tree)->args);
+	scan(tree->args);
 }
 
 Annotate$TypeAnnotate::Annotate$TypeAnnotate() {
 }
 
 $Class* Annotate$TypeAnnotate::load$($String* name, bool initialize) {
-	$loadClass(Annotate$TypeAnnotate, name, initialize, &_Annotate$TypeAnnotate_ClassInfo_, allocate$Annotate$TypeAnnotate);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/comp/Annotate;", nullptr, $FINAL | $SYNTHETIC, $field(Annotate$TypeAnnotate, this$0)},
+		{"env", "Lcom/sun/tools/javac/comp/Env;", "Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;", $PRIVATE | $FINAL, $field(Annotate$TypeAnnotate, env)},
+		{"sym", "Lcom/sun/tools/javac/code/Symbol;", nullptr, $PRIVATE | $FINAL, $field(Annotate$TypeAnnotate, sym)},
+		{"deferPos", "Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;", nullptr, $PRIVATE, $field(Annotate$TypeAnnotate, deferPos)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/comp/Annotate;Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;)V", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;)V", $PUBLIC, $method(Annotate$TypeAnnotate, init$, void, $Annotate*, $Env*, $Symbol*, $JCDiagnostic$DiagnosticPosition*)},
+		{"visitAnnotatedType", "(Lcom/sun/tools/javac/tree/JCTree$JCAnnotatedType;)V", nullptr, $PUBLIC, $virtualMethod(Annotate$TypeAnnotate, visitAnnotatedType, void, $JCTree$JCAnnotatedType*)},
+		{"visitBindingPattern", "(Lcom/sun/tools/javac/tree/JCTree$JCBindingPattern;)V", nullptr, $PUBLIC, $virtualMethod(Annotate$TypeAnnotate, visitBindingPattern, void, $JCTree$JCBindingPattern*)},
+		{"visitClassDef", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)V", nullptr, $PUBLIC, $virtualMethod(Annotate$TypeAnnotate, visitClassDef, void, $JCTree$JCClassDecl*)},
+		{"visitMethodDef", "(Lcom/sun/tools/javac/tree/JCTree$JCMethodDecl;)V", nullptr, $PUBLIC, $virtualMethod(Annotate$TypeAnnotate, visitMethodDef, void, $JCTree$JCMethodDecl*)},
+		{"visitNewArray", "(Lcom/sun/tools/javac/tree/JCTree$JCNewArray;)V", nullptr, $PUBLIC, $virtualMethod(Annotate$TypeAnnotate, visitNewArray, void, $JCTree$JCNewArray*)},
+		{"visitNewClass", "(Lcom/sun/tools/javac/tree/JCTree$JCNewClass;)V", nullptr, $PUBLIC, $virtualMethod(Annotate$TypeAnnotate, visitNewClass, void, $JCTree$JCNewClass*)},
+		{"visitTypeParameter", "(Lcom/sun/tools/javac/tree/JCTree$JCTypeParameter;)V", nullptr, $PUBLIC, $virtualMethod(Annotate$TypeAnnotate, visitTypeParameter, void, $JCTree$JCTypeParameter*)},
+		{"visitVarDef", "(Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;)V", nullptr, $PUBLIC, $virtualMethod(Annotate$TypeAnnotate, visitVarDef, void, $JCTree$JCVariableDecl*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.Annotate$TypeAnnotate", "com.sun.tools.javac.comp.Annotate", "TypeAnnotate", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.comp.Annotate$TypeAnnotate",
+		"com.sun.tools.javac.tree.TreeScanner",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.Annotate"
+	};
+	$loadClass(Annotate$TypeAnnotate, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Annotate$TypeAnnotate);
+	});
 	return class$;
 }
 

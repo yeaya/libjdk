@@ -24,6 +24,7 @@ class Logger$RbAccess : public ::java::lang::Object {
 	$class(Logger$RbAccess, 0, ::java::lang::Object)
 public:
 	Logger$RbAccess();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::jdk::internal::access::JavaUtilResourceBundleAccess* RB_ACCESS;
 };

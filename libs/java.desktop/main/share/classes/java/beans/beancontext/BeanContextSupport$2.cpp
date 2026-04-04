@@ -1,5 +1,4 @@
 #include <java/beans/beancontext/BeanContextSupport$2.h>
-
 #include <java/beans/PropertyChangeEvent.h>
 #include <java/beans/beancontext/BeanContextSupport.h>
 #include <jcpp.h>
@@ -16,48 +15,6 @@ namespace java {
 	namespace beans {
 		namespace beancontext {
 
-$FieldInfo _BeanContextSupport$2_FieldInfo_[] = {
-	{"this$0", "Ljava/beans/beancontext/BeanContextSupport;", nullptr, $FINAL | $SYNTHETIC, $field(BeanContextSupport$2, this$0)},
-	{}
-};
-
-$MethodInfo _BeanContextSupport$2_MethodInfo_[] = {
-	{"<init>", "(Ljava/beans/beancontext/BeanContextSupport;)V", nullptr, 0, $method(BeanContextSupport$2, init$, void, $BeanContextSupport*)},
-	{"vetoableChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(BeanContextSupport$2, vetoableChange, void, $PropertyChangeEvent*), "java.beans.PropertyVetoException"},
-	{}
-};
-
-$EnclosingMethodInfo _BeanContextSupport$2_EnclosingMethodInfo_ = {
-	"java.beans.beancontext.BeanContextSupport",
-	"initialize",
-	"()V"
-};
-
-$InnerClassInfo _BeanContextSupport$2_InnerClassesInfo_[] = {
-	{"java.beans.beancontext.BeanContextSupport$2", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _BeanContextSupport$2_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.beans.beancontext.BeanContextSupport$2",
-	"java.lang.Object",
-	"java.beans.VetoableChangeListener",
-	_BeanContextSupport$2_FieldInfo_,
-	_BeanContextSupport$2_MethodInfo_,
-	nullptr,
-	&_BeanContextSupport$2_EnclosingMethodInfo_,
-	_BeanContextSupport$2_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.beans.beancontext.BeanContextSupport"
-};
-
-$Object* allocate$BeanContextSupport$2($Class* clazz) {
-	return $of($alloc(BeanContextSupport$2));
-}
-
 void BeanContextSupport$2::init$($BeanContextSupport* this$0) {
 	$set(this, this$0, this$0);
 }
@@ -70,7 +27,42 @@ BeanContextSupport$2::BeanContextSupport$2() {
 }
 
 $Class* BeanContextSupport$2::load$($String* name, bool initialize) {
-	$loadClass(BeanContextSupport$2, name, initialize, &_BeanContextSupport$2_ClassInfo_, allocate$BeanContextSupport$2);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljava/beans/beancontext/BeanContextSupport;", nullptr, $FINAL | $SYNTHETIC, $field(BeanContextSupport$2, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/beans/beancontext/BeanContextSupport;)V", nullptr, 0, $method(BeanContextSupport$2, init$, void, $BeanContextSupport*)},
+		{"vetoableChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(BeanContextSupport$2, vetoableChange, void, $PropertyChangeEvent*), "java.beans.PropertyVetoException"},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.beans.beancontext.BeanContextSupport",
+		"initialize",
+		"()V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.beans.beancontext.BeanContextSupport$2", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.beans.beancontext.BeanContextSupport$2",
+		"java.lang.Object",
+		"java.beans.VetoableChangeListener",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.beans.beancontext.BeanContextSupport"
+	};
+	$loadClass(BeanContextSupport$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BeanContextSupport$2);
+	});
 	return class$;
 }
 

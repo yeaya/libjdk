@@ -1,5 +1,4 @@
 #include <sun/awt/image/PNGFilterInputStream.h>
-
 #include <java/io/FilterInputStream.h>
 #include <java/io/InputStream.h>
 #include <sun/awt/image/PNGImageDecoder.h>
@@ -15,36 +14,6 @@ using $PNGImageDecoder = ::sun::awt::image::PNGImageDecoder;
 namespace sun {
 	namespace awt {
 		namespace image {
-
-$FieldInfo _PNGFilterInputStream_FieldInfo_[] = {
-	{"owner", "Lsun/awt/image/PNGImageDecoder;", nullptr, 0, $field(PNGFilterInputStream, owner)},
-	{"underlyingInputStream", "Ljava/io/InputStream;", nullptr, $PUBLIC, $field(PNGFilterInputStream, underlyingInputStream)},
-	{}
-};
-
-$MethodInfo _PNGFilterInputStream_MethodInfo_[] = {
-	{"<init>", "(Lsun/awt/image/PNGImageDecoder;Ljava/io/InputStream;)V", nullptr, $PUBLIC, $method(PNGFilterInputStream, init$, void, $PNGImageDecoder*, $InputStream*)},
-	{"available", "()I", nullptr, $PUBLIC, $virtualMethod(PNGFilterInputStream, available, int32_t), "java.io.IOException"},
-	{"markSupported", "()Z", nullptr, $PUBLIC, $virtualMethod(PNGFilterInputStream, markSupported, bool)},
-	{"read", "()I", nullptr, $PUBLIC, $virtualMethod(PNGFilterInputStream, read, int32_t), "java.io.IOException"},
-	{"read", "([B)I", nullptr, $PUBLIC, $virtualMethod(PNGFilterInputStream, read, int32_t, $bytes*), "java.io.IOException"},
-	{"read", "([BII)I", nullptr, $PUBLIC, $virtualMethod(PNGFilterInputStream, read, int32_t, $bytes*, int32_t, int32_t), "java.io.IOException"},
-	{"skip", "(J)J", nullptr, $PUBLIC, $virtualMethod(PNGFilterInputStream, skip, int64_t, int64_t), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _PNGFilterInputStream_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.awt.image.PNGFilterInputStream",
-	"java.io.FilterInputStream",
-	nullptr,
-	_PNGFilterInputStream_FieldInfo_,
-	_PNGFilterInputStream_MethodInfo_
-};
-
-$Object* allocate$PNGFilterInputStream($Class* clazz) {
-	return $of($alloc(PNGFilterInputStream));
-}
 
 void PNGFilterInputStream::init$($PNGImageDecoder* owner, $InputStream* is) {
 	$FilterInputStream::init$(is);
@@ -62,12 +31,12 @@ bool PNGFilterInputStream::markSupported() {
 
 int32_t PNGFilterInputStream::read() {
 	if ($nc(this->owner)->chunkLength <= 0) {
-		if (!$nc(this->owner)->getData()) {
+		if (!this->owner->getData()) {
 			return -1;
 		}
 	}
 	--$nc(this->owner)->chunkLength;
-	return (int32_t)($nc($nc(this->owner)->inbuf)->get($nc(this->owner)->chunkStart++) & (uint32_t)255);
+	return $nc(this->owner->inbuf)->get(this->owner->chunkStart++) & 0xff;
 }
 
 int32_t PNGFilterInputStream::read($bytes* b) {
@@ -76,22 +45,23 @@ int32_t PNGFilterInputStream::read($bytes* b) {
 
 int32_t PNGFilterInputStream::read($bytes* b, int32_t st, int32_t len) {
 	if ($nc(this->owner)->chunkLength <= 0) {
-		if (!$nc(this->owner)->getData()) {
+		if (!this->owner->getData()) {
 			return -1;
 		}
 	}
 	if ($nc(this->owner)->chunkLength < len) {
-		len = $nc(this->owner)->chunkLength;
+		len = this->owner->chunkLength;
 	}
-	$System::arraycopy($nc(this->owner)->inbuf, $nc(this->owner)->chunkStart, b, st, len);
-	$nc(this->owner)->chunkLength -= len;
-	$nc(this->owner)->chunkStart += len;
+	$System::arraycopy(this->owner->inbuf, this->owner->chunkStart, b, st, len);
+	this->owner->chunkLength -= len;
+	this->owner->chunkStart += len;
 	return len;
 }
 
 int64_t PNGFilterInputStream::skip(int64_t n) {
 	int32_t i = 0;
 	for (i = 0; i < n && read() >= 0; ++i) {
+		;
 	}
 	return i;
 }
@@ -100,7 +70,32 @@ PNGFilterInputStream::PNGFilterInputStream() {
 }
 
 $Class* PNGFilterInputStream::load$($String* name, bool initialize) {
-	$loadClass(PNGFilterInputStream, name, initialize, &_PNGFilterInputStream_ClassInfo_, allocate$PNGFilterInputStream);
+	$FieldInfo fieldInfos$$[] = {
+		{"owner", "Lsun/awt/image/PNGImageDecoder;", nullptr, 0, $field(PNGFilterInputStream, owner)},
+		{"underlyingInputStream", "Ljava/io/InputStream;", nullptr, $PUBLIC, $field(PNGFilterInputStream, underlyingInputStream)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/awt/image/PNGImageDecoder;Ljava/io/InputStream;)V", nullptr, $PUBLIC, $method(PNGFilterInputStream, init$, void, $PNGImageDecoder*, $InputStream*)},
+		{"available", "()I", nullptr, $PUBLIC, $virtualMethod(PNGFilterInputStream, available, int32_t), "java.io.IOException"},
+		{"markSupported", "()Z", nullptr, $PUBLIC, $virtualMethod(PNGFilterInputStream, markSupported, bool)},
+		{"read", "()I", nullptr, $PUBLIC, $virtualMethod(PNGFilterInputStream, read, int32_t), "java.io.IOException"},
+		{"read", "([B)I", nullptr, $PUBLIC, $virtualMethod(PNGFilterInputStream, read, int32_t, $bytes*), "java.io.IOException"},
+		{"read", "([BII)I", nullptr, $PUBLIC, $virtualMethod(PNGFilterInputStream, read, int32_t, $bytes*, int32_t, int32_t), "java.io.IOException"},
+		{"skip", "(J)J", nullptr, $PUBLIC, $virtualMethod(PNGFilterInputStream, skip, int64_t, int64_t), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.awt.image.PNGFilterInputStream",
+		"java.io.FilterInputStream",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(PNGFilterInputStream, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PNGFilterInputStream);
+	});
 	return class$;
 }
 

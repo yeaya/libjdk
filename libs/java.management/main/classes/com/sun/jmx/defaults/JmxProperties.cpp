@@ -1,5 +1,4 @@
 #include <com/sun/jmx/defaults/JmxProperties.h>
-
 #include <java/lang/System$Logger.h>
 #include <jcpp.h>
 
@@ -38,52 +37,6 @@ namespace com {
 		namespace jmx {
 			namespace defaults {
 
-$FieldInfo _JmxProperties_FieldInfo_[] = {
-	{"JMX_INITIAL_BUILDER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JmxProperties, JMX_INITIAL_BUILDER)},
-	{"MLET_LIB_DIR", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JmxProperties, MLET_LIB_DIR)},
-	{"JMX_SPEC_NAME", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JmxProperties, JMX_SPEC_NAME)},
-	{"JMX_SPEC_VERSION", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JmxProperties, JMX_SPEC_VERSION)},
-	{"JMX_SPEC_VENDOR", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JmxProperties, JMX_SPEC_VENDOR)},
-	{"JMX_IMPL_NAME", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JmxProperties, JMX_IMPL_NAME)},
-	{"JMX_IMPL_VENDOR", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JmxProperties, JMX_IMPL_VENDOR)},
-	{"JMX_IMPL_VERSION", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JmxProperties, JMX_IMPL_VERSION)},
-	{"MBEANSERVER_LOGGER_NAME", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JmxProperties, MBEANSERVER_LOGGER_NAME)},
-	{"MBEANSERVER_LOGGER", "Ljava/lang/System$Logger;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JmxProperties, MBEANSERVER_LOGGER)},
-	{"MLET_LOGGER_NAME", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JmxProperties, MLET_LOGGER_NAME)},
-	{"MLET_LOGGER", "Ljava/lang/System$Logger;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JmxProperties, MLET_LOGGER)},
-	{"MONITOR_LOGGER_NAME", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JmxProperties, MONITOR_LOGGER_NAME)},
-	{"MONITOR_LOGGER", "Ljava/lang/System$Logger;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JmxProperties, MONITOR_LOGGER)},
-	{"TIMER_LOGGER_NAME", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JmxProperties, TIMER_LOGGER_NAME)},
-	{"TIMER_LOGGER", "Ljava/lang/System$Logger;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JmxProperties, TIMER_LOGGER)},
-	{"NOTIFICATION_LOGGER_NAME", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JmxProperties, NOTIFICATION_LOGGER_NAME)},
-	{"NOTIFICATION_LOGGER", "Ljava/lang/System$Logger;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JmxProperties, NOTIFICATION_LOGGER)},
-	{"RELATION_LOGGER_NAME", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JmxProperties, RELATION_LOGGER_NAME)},
-	{"RELATION_LOGGER", "Ljava/lang/System$Logger;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JmxProperties, RELATION_LOGGER)},
-	{"MODELMBEAN_LOGGER_NAME", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JmxProperties, MODELMBEAN_LOGGER_NAME)},
-	{"MODELMBEAN_LOGGER", "Ljava/lang/System$Logger;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JmxProperties, MODELMBEAN_LOGGER)},
-	{"MISC_LOGGER_NAME", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JmxProperties, MISC_LOGGER_NAME)},
-	{"MISC_LOGGER", "Ljava/lang/System$Logger;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JmxProperties, MISC_LOGGER)},
-	{}
-};
-
-$MethodInfo _JmxProperties_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(JmxProperties, init$, void)},
-	{}
-};
-
-$ClassInfo _JmxProperties_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.jmx.defaults.JmxProperties",
-	"java.lang.Object",
-	nullptr,
-	_JmxProperties_FieldInfo_,
-	_JmxProperties_MethodInfo_
-};
-
-$Object* allocate$JmxProperties($Class* clazz) {
-	return $of($alloc(JmxProperties));
-}
-
 $String* JmxProperties::JMX_INITIAL_BUILDER = nullptr;
 $String* JmxProperties::MLET_LIB_DIR = nullptr;
 $String* JmxProperties::JMX_SPEC_NAME = nullptr;
@@ -112,7 +65,7 @@ $System$Logger* JmxProperties::MISC_LOGGER = nullptr;
 void JmxProperties::init$() {
 }
 
-void clinit$JmxProperties($Class* class$) {
+void JmxProperties::clinit$($Class* clazz) {
 	$assignStatic(JmxProperties::JMX_INITIAL_BUILDER, "javax.management.builder.initial"_s);
 	$assignStatic(JmxProperties::MLET_LIB_DIR, "jmx.mlet.library.dir"_s);
 	$assignStatic(JmxProperties::JMX_SPEC_NAME, "jmx.specification.name"_s);
@@ -144,7 +97,48 @@ JmxProperties::JmxProperties() {
 }
 
 $Class* JmxProperties::load$($String* name, bool initialize) {
-	$loadClass(JmxProperties, name, initialize, &_JmxProperties_ClassInfo_, clinit$JmxProperties, allocate$JmxProperties);
+	$FieldInfo fieldInfos$$[] = {
+		{"JMX_INITIAL_BUILDER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JmxProperties, JMX_INITIAL_BUILDER)},
+		{"MLET_LIB_DIR", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JmxProperties, MLET_LIB_DIR)},
+		{"JMX_SPEC_NAME", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JmxProperties, JMX_SPEC_NAME)},
+		{"JMX_SPEC_VERSION", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JmxProperties, JMX_SPEC_VERSION)},
+		{"JMX_SPEC_VENDOR", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JmxProperties, JMX_SPEC_VENDOR)},
+		{"JMX_IMPL_NAME", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JmxProperties, JMX_IMPL_NAME)},
+		{"JMX_IMPL_VENDOR", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JmxProperties, JMX_IMPL_VENDOR)},
+		{"JMX_IMPL_VERSION", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JmxProperties, JMX_IMPL_VERSION)},
+		{"MBEANSERVER_LOGGER_NAME", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JmxProperties, MBEANSERVER_LOGGER_NAME)},
+		{"MBEANSERVER_LOGGER", "Ljava/lang/System$Logger;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JmxProperties, MBEANSERVER_LOGGER)},
+		{"MLET_LOGGER_NAME", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JmxProperties, MLET_LOGGER_NAME)},
+		{"MLET_LOGGER", "Ljava/lang/System$Logger;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JmxProperties, MLET_LOGGER)},
+		{"MONITOR_LOGGER_NAME", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JmxProperties, MONITOR_LOGGER_NAME)},
+		{"MONITOR_LOGGER", "Ljava/lang/System$Logger;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JmxProperties, MONITOR_LOGGER)},
+		{"TIMER_LOGGER_NAME", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JmxProperties, TIMER_LOGGER_NAME)},
+		{"TIMER_LOGGER", "Ljava/lang/System$Logger;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JmxProperties, TIMER_LOGGER)},
+		{"NOTIFICATION_LOGGER_NAME", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JmxProperties, NOTIFICATION_LOGGER_NAME)},
+		{"NOTIFICATION_LOGGER", "Ljava/lang/System$Logger;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JmxProperties, NOTIFICATION_LOGGER)},
+		{"RELATION_LOGGER_NAME", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JmxProperties, RELATION_LOGGER_NAME)},
+		{"RELATION_LOGGER", "Ljava/lang/System$Logger;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JmxProperties, RELATION_LOGGER)},
+		{"MODELMBEAN_LOGGER_NAME", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JmxProperties, MODELMBEAN_LOGGER_NAME)},
+		{"MODELMBEAN_LOGGER", "Ljava/lang/System$Logger;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JmxProperties, MODELMBEAN_LOGGER)},
+		{"MISC_LOGGER_NAME", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JmxProperties, MISC_LOGGER_NAME)},
+		{"MISC_LOGGER", "Ljava/lang/System$Logger;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JmxProperties, MISC_LOGGER)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(JmxProperties, init$, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.jmx.defaults.JmxProperties",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(JmxProperties, name, initialize, &classInfo$$, JmxProperties::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(JmxProperties);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/code/Symbol$OperatorSymbol$AccessCode.h>
-
 #include <com/sun/tools/javac/code/Symbol$1.h>
 #include <com/sun/tools/javac/code/Symbol$OperatorSymbol.h>
 #include <com/sun/tools/javac/code/Symbol.h>
@@ -31,58 +30,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace code {
-
-$FieldInfo _Symbol$OperatorSymbol$AccessCode_FieldInfo_[] = {
-	{"UNKNOWN", "Lcom/sun/tools/javac/code/Symbol$OperatorSymbol$AccessCode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Symbol$OperatorSymbol$AccessCode, UNKNOWN)},
-	{"DEREF", "Lcom/sun/tools/javac/code/Symbol$OperatorSymbol$AccessCode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Symbol$OperatorSymbol$AccessCode, DEREF)},
-	{"ASSIGN", "Lcom/sun/tools/javac/code/Symbol$OperatorSymbol$AccessCode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Symbol$OperatorSymbol$AccessCode, ASSIGN)},
-	{"PREINC", "Lcom/sun/tools/javac/code/Symbol$OperatorSymbol$AccessCode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Symbol$OperatorSymbol$AccessCode, PREINC)},
-	{"PREDEC", "Lcom/sun/tools/javac/code/Symbol$OperatorSymbol$AccessCode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Symbol$OperatorSymbol$AccessCode, PREDEC)},
-	{"POSTINC", "Lcom/sun/tools/javac/code/Symbol$OperatorSymbol$AccessCode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Symbol$OperatorSymbol$AccessCode, POSTINC)},
-	{"POSTDEC", "Lcom/sun/tools/javac/code/Symbol$OperatorSymbol$AccessCode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Symbol$OperatorSymbol$AccessCode, POSTDEC)},
-	{"FIRSTASGOP", "Lcom/sun/tools/javac/code/Symbol$OperatorSymbol$AccessCode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Symbol$OperatorSymbol$AccessCode, FIRSTASGOP)},
-	{"$VALUES", "[Lcom/sun/tools/javac/code/Symbol$OperatorSymbol$AccessCode;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(Symbol$OperatorSymbol$AccessCode, $VALUES)},
-	{"code", "I", nullptr, $PUBLIC | $FINAL, $field(Symbol$OperatorSymbol$AccessCode, code)},
-	{"tag", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $FINAL, $field(Symbol$OperatorSymbol$AccessCode, tag)},
-	{"numberOfAccessCodes", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Symbol$OperatorSymbol$AccessCode, numberOfAccessCodes)},
-	{}
-};
-
-$MethodInfo _Symbol$OperatorSymbol$AccessCode_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/javac/code/Symbol$OperatorSymbol$AccessCode;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Symbol$OperatorSymbol$AccessCode, $values, $Symbol$OperatorSymbol$AccessCodeArray*)},
-	{"<init>", "(Ljava/lang/String;IILcom/sun/tools/javac/tree/JCTree$Tag;)V", "(ILcom/sun/tools/javac/tree/JCTree$Tag;)V", $PRIVATE, $method(Symbol$OperatorSymbol$AccessCode, init$, void, $String*, int32_t, int32_t, $JCTree$Tag*)},
-	{"from", "(Lcom/sun/tools/javac/tree/JCTree$Tag;I)I", nullptr, $STATIC, $staticMethod(Symbol$OperatorSymbol$AccessCode, from, int32_t, $JCTree$Tag*, int32_t)},
-	{"getFromCode", "(I)Lcom/sun/tools/javac/code/Symbol$OperatorSymbol$AccessCode;", nullptr, $PUBLIC | $STATIC, $staticMethod(Symbol$OperatorSymbol$AccessCode, getFromCode, Symbol$OperatorSymbol$AccessCode*, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/code/Symbol$OperatorSymbol$AccessCode;", nullptr, $PUBLIC | $STATIC, $staticMethod(Symbol$OperatorSymbol$AccessCode, valueOf, Symbol$OperatorSymbol$AccessCode*, $String*)},
-	{"values", "()[Lcom/sun/tools/javac/code/Symbol$OperatorSymbol$AccessCode;", nullptr, $PUBLIC | $STATIC, $staticMethod(Symbol$OperatorSymbol$AccessCode, values, $Symbol$OperatorSymbol$AccessCodeArray*)},
-	{}
-};
-
-$InnerClassInfo _Symbol$OperatorSymbol$AccessCode_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.code.Symbol$OperatorSymbol", "com.sun.tools.javac.code.Symbol", "OperatorSymbol", $PUBLIC | $STATIC},
-	{"com.sun.tools.javac.code.Symbol$OperatorSymbol$AccessCode", "com.sun.tools.javac.code.Symbol$OperatorSymbol", "AccessCode", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _Symbol$OperatorSymbol$AccessCode_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"com.sun.tools.javac.code.Symbol$OperatorSymbol$AccessCode",
-	"java.lang.Enum",
-	nullptr,
-	_Symbol$OperatorSymbol$AccessCode_FieldInfo_,
-	_Symbol$OperatorSymbol$AccessCode_MethodInfo_,
-	"Ljava/lang/Enum<Lcom/sun/tools/javac/code/Symbol$OperatorSymbol$AccessCode;>;",
-	nullptr,
-	_Symbol$OperatorSymbol$AccessCode_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.code.Symbol"
-};
-
-$Object* allocate$Symbol$OperatorSymbol$AccessCode($Class* clazz) {
-	return $of($alloc(Symbol$OperatorSymbol$AccessCode));
-}
 
 Symbol$OperatorSymbol$AccessCode* Symbol$OperatorSymbol$AccessCode::UNKNOWN = nullptr;
 Symbol$OperatorSymbol$AccessCode* Symbol$OperatorSymbol$AccessCode::DEREF = nullptr;
@@ -129,14 +76,10 @@ Symbol$OperatorSymbol$AccessCode* Symbol$OperatorSymbol$AccessCode::getFromCode(
 	$init(Symbol$OperatorSymbol$AccessCode);
 	{
 		$var($Symbol$OperatorSymbol$AccessCodeArray, arr$, Symbol$OperatorSymbol$AccessCode::values());
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 			Symbol$OperatorSymbol$AccessCode* aCodes = arr$->get(i$);
-			{
-				if ($nc(aCodes)->code == code) {
-					return aCodes;
-				}
+			if ($nc(aCodes)->code == code) {
+				return aCodes;
 			}
 		}
 	}
@@ -148,21 +91,13 @@ int32_t Symbol$OperatorSymbol$AccessCode::from($JCTree$Tag* tag, int32_t opcode)
 	$init($Symbol$1);
 	switch ($nc($Symbol$1::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->get($nc((tag))->ordinal())) {
 	case 1:
-		{
-			return Symbol$OperatorSymbol$AccessCode::PREINC->code;
-		}
+		return Symbol$OperatorSymbol$AccessCode::PREINC->code;
 	case 2:
-		{
-			return Symbol$OperatorSymbol$AccessCode::PREDEC->code;
-		}
+		return Symbol$OperatorSymbol$AccessCode::PREDEC->code;
 	case 3:
-		{
-			return Symbol$OperatorSymbol$AccessCode::POSTINC->code;
-		}
+		return Symbol$OperatorSymbol$AccessCode::POSTINC->code;
 	case 4:
-		{
-			return Symbol$OperatorSymbol$AccessCode::POSTDEC->code;
-		}
+		return Symbol$OperatorSymbol$AccessCode::POSTDEC->code;
 	}
 	if (96 <= opcode && opcode <= 131) {
 		return (opcode - 96) * 2 + Symbol$OperatorSymbol$AccessCode::FIRSTASGOP->code;
@@ -174,7 +109,7 @@ int32_t Symbol$OperatorSymbol$AccessCode::from($JCTree$Tag* tag, int32_t opcode)
 	return -1;
 }
 
-void clinit$Symbol$OperatorSymbol$AccessCode($Class* class$) {
+void Symbol$OperatorSymbol$AccessCode::clinit$($Class* clazz) {
 	$init($JCTree$Tag);
 	$assignStatic(Symbol$OperatorSymbol$AccessCode::UNKNOWN, $new(Symbol$OperatorSymbol$AccessCode, "UNKNOWN"_s, 0, -1, $JCTree$Tag::NO_TAG));
 	$assignStatic(Symbol$OperatorSymbol$AccessCode::DEREF, $new(Symbol$OperatorSymbol$AccessCode, "DEREF"_s, 1, 0, $JCTree$Tag::NO_TAG));
@@ -192,7 +127,53 @@ Symbol$OperatorSymbol$AccessCode::Symbol$OperatorSymbol$AccessCode() {
 }
 
 $Class* Symbol$OperatorSymbol$AccessCode::load$($String* name, bool initialize) {
-	$loadClass(Symbol$OperatorSymbol$AccessCode, name, initialize, &_Symbol$OperatorSymbol$AccessCode_ClassInfo_, clinit$Symbol$OperatorSymbol$AccessCode, allocate$Symbol$OperatorSymbol$AccessCode);
+	$FieldInfo fieldInfos$$[] = {
+		{"UNKNOWN", "Lcom/sun/tools/javac/code/Symbol$OperatorSymbol$AccessCode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Symbol$OperatorSymbol$AccessCode, UNKNOWN)},
+		{"DEREF", "Lcom/sun/tools/javac/code/Symbol$OperatorSymbol$AccessCode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Symbol$OperatorSymbol$AccessCode, DEREF)},
+		{"ASSIGN", "Lcom/sun/tools/javac/code/Symbol$OperatorSymbol$AccessCode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Symbol$OperatorSymbol$AccessCode, ASSIGN)},
+		{"PREINC", "Lcom/sun/tools/javac/code/Symbol$OperatorSymbol$AccessCode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Symbol$OperatorSymbol$AccessCode, PREINC)},
+		{"PREDEC", "Lcom/sun/tools/javac/code/Symbol$OperatorSymbol$AccessCode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Symbol$OperatorSymbol$AccessCode, PREDEC)},
+		{"POSTINC", "Lcom/sun/tools/javac/code/Symbol$OperatorSymbol$AccessCode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Symbol$OperatorSymbol$AccessCode, POSTINC)},
+		{"POSTDEC", "Lcom/sun/tools/javac/code/Symbol$OperatorSymbol$AccessCode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Symbol$OperatorSymbol$AccessCode, POSTDEC)},
+		{"FIRSTASGOP", "Lcom/sun/tools/javac/code/Symbol$OperatorSymbol$AccessCode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Symbol$OperatorSymbol$AccessCode, FIRSTASGOP)},
+		{"$VALUES", "[Lcom/sun/tools/javac/code/Symbol$OperatorSymbol$AccessCode;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(Symbol$OperatorSymbol$AccessCode, $VALUES)},
+		{"code", "I", nullptr, $PUBLIC | $FINAL, $field(Symbol$OperatorSymbol$AccessCode, code)},
+		{"tag", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $FINAL, $field(Symbol$OperatorSymbol$AccessCode, tag)},
+		{"numberOfAccessCodes", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Symbol$OperatorSymbol$AccessCode, numberOfAccessCodes)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lcom/sun/tools/javac/code/Symbol$OperatorSymbol$AccessCode;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Symbol$OperatorSymbol$AccessCode, $values, $Symbol$OperatorSymbol$AccessCodeArray*)},
+		{"<init>", "(Ljava/lang/String;IILcom/sun/tools/javac/tree/JCTree$Tag;)V", "(ILcom/sun/tools/javac/tree/JCTree$Tag;)V", $PRIVATE, $method(Symbol$OperatorSymbol$AccessCode, init$, void, $String*, int32_t, int32_t, $JCTree$Tag*)},
+		{"from", "(Lcom/sun/tools/javac/tree/JCTree$Tag;I)I", nullptr, $STATIC, $staticMethod(Symbol$OperatorSymbol$AccessCode, from, int32_t, $JCTree$Tag*, int32_t)},
+		{"getFromCode", "(I)Lcom/sun/tools/javac/code/Symbol$OperatorSymbol$AccessCode;", nullptr, $PUBLIC | $STATIC, $staticMethod(Symbol$OperatorSymbol$AccessCode, getFromCode, Symbol$OperatorSymbol$AccessCode*, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/code/Symbol$OperatorSymbol$AccessCode;", nullptr, $PUBLIC | $STATIC, $staticMethod(Symbol$OperatorSymbol$AccessCode, valueOf, Symbol$OperatorSymbol$AccessCode*, $String*)},
+		{"values", "()[Lcom/sun/tools/javac/code/Symbol$OperatorSymbol$AccessCode;", nullptr, $PUBLIC | $STATIC, $staticMethod(Symbol$OperatorSymbol$AccessCode, values, $Symbol$OperatorSymbol$AccessCodeArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.code.Symbol$OperatorSymbol", "com.sun.tools.javac.code.Symbol", "OperatorSymbol", $PUBLIC | $STATIC},
+		{"com.sun.tools.javac.code.Symbol$OperatorSymbol$AccessCode", "com.sun.tools.javac.code.Symbol$OperatorSymbol", "AccessCode", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"com.sun.tools.javac.code.Symbol$OperatorSymbol$AccessCode",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lcom/sun/tools/javac/code/Symbol$OperatorSymbol$AccessCode;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.code.Symbol"
+	};
+	$loadClass(Symbol$OperatorSymbol$AccessCode, name, initialize, &classInfo$$, Symbol$OperatorSymbol$AccessCode::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Symbol$OperatorSymbol$AccessCode));
+	});
 	return class$;
 }
 

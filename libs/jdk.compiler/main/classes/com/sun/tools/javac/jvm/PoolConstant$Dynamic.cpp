@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/jvm/PoolConstant$Dynamic.h>
-
 #include <com/sun/tools/javac/code/Types.h>
 #include <com/sun/tools/javac/jvm/PoolConstant$Dynamic$BsmKey.h>
 #include <com/sun/tools/javac/jvm/PoolConstant$LoadableConstant.h>
@@ -23,56 +22,50 @@ namespace com {
 			namespace javac {
 				namespace jvm {
 
-$MethodInfo _PoolConstant$Dynamic_MethodInfo_[] = {
-	{"bootstrapMethod", "()Lcom/sun/tools/javac/jvm/PoolConstant$LoadableConstant;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(PoolConstant$Dynamic, bootstrapMethod, $PoolConstant$LoadableConstant*)},
-	{"bsmKey", "(Lcom/sun/tools/javac/code/Types;)Lcom/sun/tools/javac/jvm/PoolConstant$Dynamic$BsmKey;", nullptr, $PUBLIC, $virtualMethod(PoolConstant$Dynamic, bsmKey, $PoolConstant$Dynamic$BsmKey*, $Types*)},
-	{"dynamicType", "()Lcom/sun/tools/javac/jvm/PoolConstant;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(PoolConstant$Dynamic, dynamicType, $PoolConstant*)},
-	{"poolKey", "(Lcom/sun/tools/javac/code/Types;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(PoolConstant$Dynamic, poolKey, $Object*, $Types*)},
-	{"staticArgs", "()[Lcom/sun/tools/javac/jvm/PoolConstant$LoadableConstant;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(PoolConstant$Dynamic, staticArgs, $PoolConstant$LoadableConstantArray*)},
-	{}
-};
-
-$InnerClassInfo _PoolConstant$Dynamic_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.jvm.PoolConstant$Dynamic", "com.sun.tools.javac.jvm.PoolConstant", "Dynamic", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"com.sun.tools.javac.jvm.PoolConstant$Dynamic$BsmKey", "com.sun.tools.javac.jvm.PoolConstant$Dynamic", "BsmKey", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _PoolConstant$Dynamic_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.tools.javac.jvm.PoolConstant$Dynamic",
-	nullptr,
-	"com.sun.tools.javac.jvm.PoolConstant",
-	nullptr,
-	_PoolConstant$Dynamic_MethodInfo_,
-	nullptr,
-	nullptr,
-	_PoolConstant$Dynamic_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.jvm.PoolConstant"
-};
-
-$Object* allocate$PoolConstant$Dynamic($Class* clazz) {
-	return $of($alloc(PoolConstant$Dynamic));
-}
-
 $PoolConstant$Dynamic$BsmKey* PoolConstant$Dynamic::bsmKey($Types* types) {
-	$useLocalCurrentObjectStackCache();
-	$var($Types, var$0, types);
-	$var($PoolConstant$LoadableConstant, var$1, bootstrapMethod());
-	return $new($PoolConstant$Dynamic$BsmKey, var$0, var$1, $(staticArgs()));
+	$useLocalObjectStack();
+	$var($PoolConstant$LoadableConstant, var$0, bootstrapMethod());
+	return $new($PoolConstant$Dynamic$BsmKey, types, var$0, $(staticArgs()));
 }
 
 $Object* PoolConstant$Dynamic::poolKey($Types* types) {
-	$useLocalCurrentObjectStackCache();
-	$var($Object, var$0, $of(bsmKey(types)));
-	return $of($new($Pair, var$0, $($nc($(dynamicType()))->poolKey(types))));
+	$useLocalObjectStack();
+	$var($Object, var$0, bsmKey(types));
+	return $new($Pair, var$0, $($$nc(dynamicType())->poolKey(types)));
 }
 
 $Class* PoolConstant$Dynamic::load$($String* name, bool initialize) {
-	$loadClass(PoolConstant$Dynamic, name, initialize, &_PoolConstant$Dynamic_ClassInfo_, allocate$PoolConstant$Dynamic);
+	$MethodInfo methodInfos$$[] = {
+		{"bootstrapMethod", "()Lcom/sun/tools/javac/jvm/PoolConstant$LoadableConstant;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(PoolConstant$Dynamic, bootstrapMethod, $PoolConstant$LoadableConstant*)},
+		{"bsmKey", "(Lcom/sun/tools/javac/code/Types;)Lcom/sun/tools/javac/jvm/PoolConstant$Dynamic$BsmKey;", nullptr, $PUBLIC, $virtualMethod(PoolConstant$Dynamic, bsmKey, $PoolConstant$Dynamic$BsmKey*, $Types*)},
+		{"dynamicType", "()Lcom/sun/tools/javac/jvm/PoolConstant;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(PoolConstant$Dynamic, dynamicType, $PoolConstant*)},
+		{"poolKey", "(Lcom/sun/tools/javac/code/Types;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(PoolConstant$Dynamic, poolKey, $Object*, $Types*)},
+		{"staticArgs", "()[Lcom/sun/tools/javac/jvm/PoolConstant$LoadableConstant;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(PoolConstant$Dynamic, staticArgs, $PoolConstant$LoadableConstantArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.jvm.PoolConstant$Dynamic", "com.sun.tools.javac.jvm.PoolConstant", "Dynamic", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"com.sun.tools.javac.jvm.PoolConstant$Dynamic$BsmKey", "com.sun.tools.javac.jvm.PoolConstant$Dynamic", "BsmKey", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.tools.javac.jvm.PoolConstant$Dynamic",
+		nullptr,
+		"com.sun.tools.javac.jvm.PoolConstant",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.jvm.PoolConstant"
+	};
+	$loadClass(PoolConstant$Dynamic, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PoolConstant$Dynamic);
+	});
 	return class$;
 }
 

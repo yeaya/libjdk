@@ -48,6 +48,7 @@ class $import SSLFlowDelegate$Writer : public ::jdk::internal::net::http::common
 	$class(SSLFlowDelegate$Writer, 0, ::jdk::internal::net::http::common::SubscriberWrapper)
 public:
 	SSLFlowDelegate$Writer();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::jdk::internal::net::http::common::SSLFlowDelegate* this$0);
 	virtual bool closing() override;
 	virtual $String* dbgString() override;

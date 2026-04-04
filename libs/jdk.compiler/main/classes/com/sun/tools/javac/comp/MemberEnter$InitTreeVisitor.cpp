@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/MemberEnter$InitTreeVisitor.h>
-
 #include <com/sun/tools/javac/comp/MemberEnter.h>
 #include <com/sun/tools/javac/tree/JCTree$JCBinary.h>
 #include <com/sun/tools/javac/tree/JCTree$JCConditional.h>
@@ -48,7 +47,6 @@ using $EnumArray = $Array<::java::lang::Enum>;
 using $JCTree = ::com::sun::tools::javac::tree::JCTree;
 using $JCTree$JCBinary = ::com::sun::tools::javac::tree::JCTree$JCBinary;
 using $JCTree$JCConditional = ::com::sun::tools::javac::tree::JCTree$JCConditional;
-using $JCTree$JCExpression = ::com::sun::tools::javac::tree::JCTree$JCExpression;
 using $JCTree$JCFieldAccess = ::com::sun::tools::javac::tree::JCTree$JCFieldAccess;
 using $JCTree$JCIdent = ::com::sun::tools::javac::tree::JCTree$JCIdent;
 using $JCTree$JCLiteral = ::com::sun::tools::javac::tree::JCTree$JCLiteral;
@@ -58,7 +56,6 @@ using $JCTree$JCUnary = ::com::sun::tools::javac::tree::JCTree$JCUnary;
 using $JCTree$Tag = ::com::sun::tools::javac::tree::JCTree$Tag;
 using $JCTree$Visitor = ::com::sun::tools::javac::tree::JCTree$Visitor;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -70,52 +67,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace comp {
-
-$FieldInfo _MemberEnter$InitTreeVisitor_FieldInfo_[] = {
-	{"ALLOWED_OPERATORS", "Ljava/util/Set;", "Ljava/util/Set<Lcom/sun/tools/javac/tree/JCTree$Tag;>;", $PRIVATE | $STATIC | $FINAL, $staticField(MemberEnter$InitTreeVisitor, ALLOWED_OPERATORS)},
-	{"result", "Z", nullptr, 0, $field(MemberEnter$InitTreeVisitor, result)},
-	{}
-};
-
-$MethodInfo _MemberEnter$InitTreeVisitor_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(MemberEnter$InitTreeVisitor, init$, void)},
-	{"visitBinary", "(Lcom/sun/tools/javac/tree/JCTree$JCBinary;)V", nullptr, $PUBLIC, $virtualMethod(MemberEnter$InitTreeVisitor, visitBinary, void, $JCTree$JCBinary*)},
-	{"visitConditional", "(Lcom/sun/tools/javac/tree/JCTree$JCConditional;)V", nullptr, $PUBLIC, $virtualMethod(MemberEnter$InitTreeVisitor, visitConditional, void, $JCTree$JCConditional*)},
-	{"visitIdent", "(Lcom/sun/tools/javac/tree/JCTree$JCIdent;)V", nullptr, $PUBLIC, $virtualMethod(MemberEnter$InitTreeVisitor, visitIdent, void, $JCTree$JCIdent*)},
-	{"visitLiteral", "(Lcom/sun/tools/javac/tree/JCTree$JCLiteral;)V", nullptr, $PUBLIC, $virtualMethod(MemberEnter$InitTreeVisitor, visitLiteral, void, $JCTree$JCLiteral*)},
-	{"visitParens", "(Lcom/sun/tools/javac/tree/JCTree$JCParens;)V", nullptr, $PUBLIC, $virtualMethod(MemberEnter$InitTreeVisitor, visitParens, void, $JCTree$JCParens*)},
-	{"visitSelect", "(Lcom/sun/tools/javac/tree/JCTree$JCFieldAccess;)V", nullptr, $PUBLIC, $virtualMethod(MemberEnter$InitTreeVisitor, visitSelect, void, $JCTree$JCFieldAccess*)},
-	{"visitTree", "(Lcom/sun/tools/javac/tree/JCTree;)V", nullptr, $PUBLIC, $virtualMethod(MemberEnter$InitTreeVisitor, visitTree, void, $JCTree*)},
-	{"visitTypeCast", "(Lcom/sun/tools/javac/tree/JCTree$JCTypeCast;)V", nullptr, $PUBLIC, $virtualMethod(MemberEnter$InitTreeVisitor, visitTypeCast, void, $JCTree$JCTypeCast*)},
-	{"visitUnary", "(Lcom/sun/tools/javac/tree/JCTree$JCUnary;)V", nullptr, $PUBLIC, $virtualMethod(MemberEnter$InitTreeVisitor, visitUnary, void, $JCTree$JCUnary*)},
-	{}
-};
-
-$InnerClassInfo _MemberEnter$InitTreeVisitor_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.MemberEnter$InitTreeVisitor", "com.sun.tools.javac.comp.MemberEnter", "InitTreeVisitor", $STATIC},
-	{"com.sun.tools.javac.tree.JCTree$Visitor", "com.sun.tools.javac.tree.JCTree", "Visitor", $PUBLIC | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _MemberEnter$InitTreeVisitor_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.comp.MemberEnter$InitTreeVisitor",
-	"com.sun.tools.javac.tree.JCTree$Visitor",
-	nullptr,
-	_MemberEnter$InitTreeVisitor_FieldInfo_,
-	_MemberEnter$InitTreeVisitor_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MemberEnter$InitTreeVisitor_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.MemberEnter"
-};
-
-$Object* allocate$MemberEnter$InitTreeVisitor($Class* clazz) {
-	return $of($alloc(MemberEnter$InitTreeVisitor));
-}
 
 $Set* MemberEnter$InitTreeVisitor::ALLOWED_OPERATORS = nullptr;
 
@@ -140,7 +91,7 @@ void MemberEnter$InitTreeVisitor::visitUnary($JCTree$JCUnary* that) {
 		this->result = false;
 		return;
 	}
-	$nc($nc(that)->arg)->accept(this);
+	$nc(that->arg)->accept(this);
 }
 
 void MemberEnter$InitTreeVisitor::visitBinary($JCTree$JCBinary* that) {
@@ -148,7 +99,7 @@ void MemberEnter$InitTreeVisitor::visitBinary($JCTree$JCBinary* that) {
 		this->result = false;
 		return;
 	}
-	$nc($nc(that)->lhs)->accept(this);
+	$nc(that->lhs)->accept(this);
 	$nc(that->rhs)->accept(this);
 }
 
@@ -169,9 +120,9 @@ void MemberEnter$InitTreeVisitor::visitSelect($JCTree$JCFieldAccess* tree) {
 	$nc($nc(tree)->selected)->accept(this);
 }
 
-void clinit$MemberEnter$InitTreeVisitor($Class* class$) {
+void MemberEnter$InitTreeVisitor::clinit$($Class* clazz) {
 	$init($JCTree$Tag);
-	$assignStatic(MemberEnter$InitTreeVisitor::ALLOWED_OPERATORS, $EnumSet::of(static_cast<$Enum*>($JCTree$Tag::POS), $fcast($EnumArray, $$new($JCTree$TagArray, {
+	$assignStatic(MemberEnter$InitTreeVisitor::ALLOWED_OPERATORS, $EnumSet::of($JCTree$Tag::POS, $$cast($EnumArray, $new($JCTree$TagArray, {
 		$JCTree$Tag::NEG,
 		$JCTree$Tag::NOT,
 		$JCTree$Tag::COMPL,
@@ -201,7 +152,47 @@ MemberEnter$InitTreeVisitor::MemberEnter$InitTreeVisitor() {
 }
 
 $Class* MemberEnter$InitTreeVisitor::load$($String* name, bool initialize) {
-	$loadClass(MemberEnter$InitTreeVisitor, name, initialize, &_MemberEnter$InitTreeVisitor_ClassInfo_, clinit$MemberEnter$InitTreeVisitor, allocate$MemberEnter$InitTreeVisitor);
+	$FieldInfo fieldInfos$$[] = {
+		{"ALLOWED_OPERATORS", "Ljava/util/Set;", "Ljava/util/Set<Lcom/sun/tools/javac/tree/JCTree$Tag;>;", $PRIVATE | $STATIC | $FINAL, $staticField(MemberEnter$InitTreeVisitor, ALLOWED_OPERATORS)},
+		{"result", "Z", nullptr, 0, $field(MemberEnter$InitTreeVisitor, result)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(MemberEnter$InitTreeVisitor, init$, void)},
+		{"visitBinary", "(Lcom/sun/tools/javac/tree/JCTree$JCBinary;)V", nullptr, $PUBLIC, $virtualMethod(MemberEnter$InitTreeVisitor, visitBinary, void, $JCTree$JCBinary*)},
+		{"visitConditional", "(Lcom/sun/tools/javac/tree/JCTree$JCConditional;)V", nullptr, $PUBLIC, $virtualMethod(MemberEnter$InitTreeVisitor, visitConditional, void, $JCTree$JCConditional*)},
+		{"visitIdent", "(Lcom/sun/tools/javac/tree/JCTree$JCIdent;)V", nullptr, $PUBLIC, $virtualMethod(MemberEnter$InitTreeVisitor, visitIdent, void, $JCTree$JCIdent*)},
+		{"visitLiteral", "(Lcom/sun/tools/javac/tree/JCTree$JCLiteral;)V", nullptr, $PUBLIC, $virtualMethod(MemberEnter$InitTreeVisitor, visitLiteral, void, $JCTree$JCLiteral*)},
+		{"visitParens", "(Lcom/sun/tools/javac/tree/JCTree$JCParens;)V", nullptr, $PUBLIC, $virtualMethod(MemberEnter$InitTreeVisitor, visitParens, void, $JCTree$JCParens*)},
+		{"visitSelect", "(Lcom/sun/tools/javac/tree/JCTree$JCFieldAccess;)V", nullptr, $PUBLIC, $virtualMethod(MemberEnter$InitTreeVisitor, visitSelect, void, $JCTree$JCFieldAccess*)},
+		{"visitTree", "(Lcom/sun/tools/javac/tree/JCTree;)V", nullptr, $PUBLIC, $virtualMethod(MemberEnter$InitTreeVisitor, visitTree, void, $JCTree*)},
+		{"visitTypeCast", "(Lcom/sun/tools/javac/tree/JCTree$JCTypeCast;)V", nullptr, $PUBLIC, $virtualMethod(MemberEnter$InitTreeVisitor, visitTypeCast, void, $JCTree$JCTypeCast*)},
+		{"visitUnary", "(Lcom/sun/tools/javac/tree/JCTree$JCUnary;)V", nullptr, $PUBLIC, $virtualMethod(MemberEnter$InitTreeVisitor, visitUnary, void, $JCTree$JCUnary*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.MemberEnter$InitTreeVisitor", "com.sun.tools.javac.comp.MemberEnter", "InitTreeVisitor", $STATIC},
+		{"com.sun.tools.javac.tree.JCTree$Visitor", "com.sun.tools.javac.tree.JCTree", "Visitor", $PUBLIC | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.comp.MemberEnter$InitTreeVisitor",
+		"com.sun.tools.javac.tree.JCTree$Visitor",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.MemberEnter"
+	};
+	$loadClass(MemberEnter$InitTreeVisitor, name, initialize, &classInfo$$, MemberEnter$InitTreeVisitor::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(MemberEnter$InitTreeVisitor);
+	});
 	return class$;
 }
 

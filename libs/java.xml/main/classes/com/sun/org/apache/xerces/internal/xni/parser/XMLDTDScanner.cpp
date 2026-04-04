@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/xni/parser/XMLDTDScanner.h>
-
 #include <com/sun/org/apache/xerces/internal/utils/XMLLimitAnalyzer.h>
 #include <com/sun/org/apache/xerces/internal/xni/parser/XMLDTDSource.h>
 #include <com/sun/org/apache/xerces/internal/xni/parser/XMLInputSource.h>
@@ -19,33 +18,6 @@ namespace com {
 					namespace internal {
 						namespace xni {
 							namespace parser {
-
-$MethodInfo _XMLDTDScanner_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"scanDTDExternalSubset", "(Z)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XMLDTDScanner, scanDTDExternalSubset, bool, bool), "java.io.IOException,com.sun.org.apache.xerces.internal.xni.XNIException"},
-	{"scanDTDInternalSubset", "(ZZZ)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XMLDTDScanner, scanDTDInternalSubset, bool, bool, bool, bool), "java.io.IOException,com.sun.org.apache.xerces.internal.xni.XNIException"},
-	{"setInputSource", "(Lcom/sun/org/apache/xerces/internal/xni/parser/XMLInputSource;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XMLDTDScanner, setInputSource, void, $XMLInputSource*), "java.io.IOException"},
-	{"setLimitAnalyzer", "(Lcom/sun/org/apache/xerces/internal/utils/XMLLimitAnalyzer;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XMLDTDScanner, setLimitAnalyzer, void, $XMLLimitAnalyzer*)},
-	{"skipDTD", "(Z)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XMLDTDScanner, skipDTD, bool, bool), "java.io.IOException"},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _XMLDTDScanner_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.org.apache.xerces.internal.xni.parser.XMLDTDScanner",
-	nullptr,
-	"com.sun.org.apache.xerces.internal.xni.parser.XMLDTDSource,com.sun.org.apache.xerces.internal.xni.parser.XMLDTDContentModelSource",
-	nullptr,
-	_XMLDTDScanner_MethodInfo_
-};
-
-$Object* allocate$XMLDTDScanner($Class* clazz) {
-	return $of($alloc(XMLDTDScanner));
-}
 
 int32_t XMLDTDScanner::hashCode() {
 	 return this->$XMLDTDSource::hashCode();
@@ -68,7 +40,30 @@ void XMLDTDScanner::finalize() {
 }
 
 $Class* XMLDTDScanner::load$($String* name, bool initialize) {
-	$loadClass(XMLDTDScanner, name, initialize, &_XMLDTDScanner_ClassInfo_, allocate$XMLDTDScanner);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"scanDTDExternalSubset", "(Z)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XMLDTDScanner, scanDTDExternalSubset, bool, bool), "java.io.IOException,com.sun.org.apache.xerces.internal.xni.XNIException"},
+		{"scanDTDInternalSubset", "(ZZZ)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XMLDTDScanner, scanDTDInternalSubset, bool, bool, bool, bool), "java.io.IOException,com.sun.org.apache.xerces.internal.xni.XNIException"},
+		{"setInputSource", "(Lcom/sun/org/apache/xerces/internal/xni/parser/XMLInputSource;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XMLDTDScanner, setInputSource, void, $XMLInputSource*), "java.io.IOException"},
+		{"setLimitAnalyzer", "(Lcom/sun/org/apache/xerces/internal/utils/XMLLimitAnalyzer;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XMLDTDScanner, setLimitAnalyzer, void, $XMLLimitAnalyzer*)},
+		{"skipDTD", "(Z)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XMLDTDScanner, skipDTD, bool, bool), "java.io.IOException"},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.org.apache.xerces.internal.xni.parser.XMLDTDScanner",
+		nullptr,
+		"com.sun.org.apache.xerces.internal.xni.parser.XMLDTDSource,com.sun.org.apache.xerces.internal.xni.parser.XMLDTDContentModelSource",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(XMLDTDScanner, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(XMLDTDScanner));
+	});
 	return class$;
 }
 

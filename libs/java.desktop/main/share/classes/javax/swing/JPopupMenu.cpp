@@ -1,5 +1,4 @@
 #include <javax/swing/JPopupMenu.h>
-
 #include <java/awt/AWTEvent.h>
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
@@ -23,7 +22,6 @@
 #include <java/io/Serializable.h>
 #include <java/lang/StringBuffer.h>
 #include <java/security/AccessController.h>
-#include <java/security/PrivilegedAction.h>
 #include <java/util/EventListener.h>
 #include <java/util/Iterator.h>
 #include <java/util/Vector.h>
@@ -109,8 +107,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $NamedAttribute = ::java::lang::NamedAttribute;
 using $StringBuffer = ::java::lang::StringBuffer;
 using $AccessController = ::java::security::AccessController;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
-using $EventListener = ::java::util::EventListener;
 using $Iterator = ::java::util::Iterator;
 using $Vector = ::java::util::Vector;
 using $AccessibleContext = ::javax::accessibility::AccessibleContext;
@@ -130,7 +126,6 @@ using $PopupFactory = ::javax::swing::PopupFactory;
 using $SingleSelectionModel = ::javax::swing::SingleSelectionModel;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $UIManager = ::javax::swing::UIManager;
-using $EventListenerList = ::javax::swing::event::EventListenerList;
 using $MenuKeyEvent = ::javax::swing::event::MenuKeyEvent;
 using $MenuKeyListener = ::javax::swing::event::MenuKeyListener;
 using $PopupMenuEvent = ::javax::swing::event::PopupMenuEvent;
@@ -142,338 +137,6 @@ using $GetPropertyAction = ::sun::security::action::GetPropertyAction;
 
 namespace javax {
 	namespace swing {
-
-$NamedAttribute JPopupMenu_Attribute_var$0[] = {
-	{"defaultProperty", 's', "UI"},
-	{"description", 's', "A small window that pops up and displays a series of choices."},
-	{}
-};
-
-$NamedAttribute JPopupMenu_Attribute_var$1[] = {
-	{"value", 'Z', "false"},
-	{}
-};
-
-$CompoundAttribute _JPopupMenu_Annotations_[] = {
-	{"Ljava/beans/JavaBean;", JPopupMenu_Attribute_var$0},
-	{"Ljavax/swing/SwingContainer;", JPopupMenu_Attribute_var$1},
-	{}
-};
-
-$NamedAttribute JPopupMenu_Attribute_var$2[] = {
-	{"bound", 'Z', "false"},
-	{}
-};
-
-$CompoundAttribute _JPopupMenu_MethodAnnotations_getAccessibleContext19[] = {
-	{"Ljava/beans/BeanProperty;", JPopupMenu_Attribute_var$2},
-	{}
-};
-
-$CompoundAttribute _JPopupMenu_MethodAnnotations_getComponentAtIndex21[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$NamedAttribute JPopupMenu_Attribute_var$3[] = {
-	{"bound", 'Z', "false"},
-	{}
-};
-
-$CompoundAttribute _JPopupMenu_MethodAnnotations_getMargin28[] = {
-	{"Ljava/beans/BeanProperty;", JPopupMenu_Attribute_var$3},
-	{}
-};
-
-$NamedAttribute JPopupMenu_Attribute_var$4[] = {
-	{"bound", 'Z', "false"},
-	{}
-};
-
-$CompoundAttribute _JPopupMenu_MethodAnnotations_getMenuKeyListeners29[] = {
-	{"Ljava/beans/BeanProperty;", JPopupMenu_Attribute_var$4},
-	{}
-};
-
-$NamedAttribute JPopupMenu_Attribute_var$5[] = {
-	{"bound", 'Z', "false"},
-	{}
-};
-
-$CompoundAttribute _JPopupMenu_MethodAnnotations_getPopupMenuListeners30[] = {
-	{"Ljava/beans/BeanProperty;", JPopupMenu_Attribute_var$5},
-	{}
-};
-
-$NamedAttribute JPopupMenu_Attribute_var$6[] = {
-	{"bound", 'Z', "false"},
-	{}
-};
-
-$CompoundAttribute _JPopupMenu_MethodAnnotations_getSubElements33[] = {
-	{"Ljava/beans/BeanProperty;", JPopupMenu_Attribute_var$6},
-	{}
-};
-
-$NamedAttribute JPopupMenu_Attribute_var$7[] = {
-	{"bound", 'Z', "false"},
-	{}
-};
-
-$CompoundAttribute _JPopupMenu_MethodAnnotations_getUIClassID35[] = {
-	{"Ljava/beans/BeanProperty;", JPopupMenu_Attribute_var$7},
-	{}
-};
-
-$NamedAttribute JPopupMenu_Attribute_var$8[] = {
-	{"bound", 'Z', "false"},
-	{"description", 's', "Is the border of the popup menu painted"},
-	{}
-};
-
-$CompoundAttribute _JPopupMenu_MethodAnnotations_setBorderPainted57[] = {
-	{"Ljava/beans/BeanProperty;", JPopupMenu_Attribute_var$8},
-	{}
-};
-
-$NamedAttribute JPopupMenu_Attribute_var$9[] = {
-	{"bound", 'Z', "false"},
-	{"expert", 'Z', "true"},
-	{"description", 's', "The invoking component for the popup menu"},
-	{}
-};
-
-$CompoundAttribute _JPopupMenu_MethodAnnotations_setInvoker59[] = {
-	{"Ljava/beans/BeanProperty;", JPopupMenu_Attribute_var$9},
-	{}
-};
-
-$NamedAttribute JPopupMenu_Attribute_var$10[] = {
-	{"description", 's', "The label for the popup menu."},
-	{}
-};
-
-$CompoundAttribute _JPopupMenu_MethodAnnotations_setLabel60[] = {
-	{"Ljava/beans/BeanProperty;", JPopupMenu_Attribute_var$10},
-	{}
-};
-
-$NamedAttribute JPopupMenu_Attribute_var$11[] = {
-	{"bound", 'Z', "false"},
-	{"expert", 'Z', "true"},
-	{"description", 's', "Determines whether lightweight popups are used when possible"},
-	{}
-};
-
-$CompoundAttribute _JPopupMenu_MethodAnnotations_setLightWeightPopupEnabled61[] = {
-	{"Ljava/beans/BeanProperty;", JPopupMenu_Attribute_var$11},
-	{}
-};
-
-$NamedAttribute JPopupMenu_Attribute_var$12[] = {
-	{"description", 's', "The location of the popup menu."},
-	{}
-};
-
-$CompoundAttribute _JPopupMenu_MethodAnnotations_setLocation62[] = {
-	{"Ljava/beans/BeanProperty;", JPopupMenu_Attribute_var$12},
-	{}
-};
-
-$NamedAttribute JPopupMenu_Attribute_var$13[] = {
-	{"description", 's', "The size of the popup menu"},
-	{}
-};
-
-$CompoundAttribute _JPopupMenu_MethodAnnotations_setPopupSize63[] = {
-	{"Ljava/beans/BeanProperty;", JPopupMenu_Attribute_var$13},
-	{}
-};
-
-$NamedAttribute JPopupMenu_Attribute_var$14[] = {
-	{"description", 's', "The size of the popup menu"},
-	{}
-};
-
-$CompoundAttribute _JPopupMenu_MethodAnnotations_setPopupSize64[] = {
-	{"Ljava/beans/BeanProperty;", JPopupMenu_Attribute_var$14},
-	{}
-};
-
-$NamedAttribute JPopupMenu_Attribute_var$15[] = {
-	{"expert", 'Z', "true"},
-	{"hidden", 'Z', "true"},
-	{"description", 's', "The selected component on the popup menu"},
-	{}
-};
-
-$CompoundAttribute _JPopupMenu_MethodAnnotations_setSelected65[] = {
-	{"Ljava/beans/BeanProperty;", JPopupMenu_Attribute_var$15},
-	{}
-};
-
-$NamedAttribute JPopupMenu_Attribute_var$16[] = {
-	{"bound", 'Z', "false"},
-	{"expert", 'Z', "true"},
-	{"description", 's', "The selection model for the popup menu"},
-	{}
-};
-
-$CompoundAttribute _JPopupMenu_MethodAnnotations_setSelectionModel66[] = {
-	{"Ljava/beans/BeanProperty;", JPopupMenu_Attribute_var$16},
-	{}
-};
-
-$NamedAttribute JPopupMenu_Attribute_var$17[] = {
-	{"hidden", 'Z', "true"},
-	{"visualUpdate", 'Z', "true"},
-	{"description", 's', "The UI object that implements the Component\'s LookAndFeel."},
-	{}
-};
-
-$CompoundAttribute _JPopupMenu_MethodAnnotations_setUI67[] = {
-	{"Ljava/beans/BeanProperty;", JPopupMenu_Attribute_var$17},
-	{}
-};
-
-$NamedAttribute JPopupMenu_Attribute_var$18[] = {
-	{"description", 's', "Makes the popup visible"},
-	{}
-};
-
-$CompoundAttribute _JPopupMenu_MethodAnnotations_setVisible68[] = {
-	{"Ljava/beans/BeanProperty;", JPopupMenu_Attribute_var$18},
-	{}
-};
-
-$FieldInfo _JPopupMenu_FieldInfo_[] = {
-	{"uiClassID", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JPopupMenu, uiClassID)},
-	{"defaultLWPopupEnabledKey", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JPopupMenu, defaultLWPopupEnabledKey)},
-	{"popupPostionFixDisabled", "Z", nullptr, $STATIC, $staticField(JPopupMenu, popupPostionFixDisabled)},
-	{"invoker", "Ljava/awt/Component;", nullptr, $TRANSIENT, $field(JPopupMenu, invoker)},
-	{"popup", "Ljavax/swing/Popup;", nullptr, $TRANSIENT, $field(JPopupMenu, popup)},
-	{"frame", "Ljava/awt/Frame;", nullptr, $TRANSIENT, $field(JPopupMenu, frame)},
-	{"desiredLocationX", "I", nullptr, $PRIVATE, $field(JPopupMenu, desiredLocationX)},
-	{"desiredLocationY", "I", nullptr, $PRIVATE, $field(JPopupMenu, desiredLocationY)},
-	{"label", "Ljava/lang/String;", nullptr, $PRIVATE, $field(JPopupMenu, label)},
-	{"paintBorder", "Z", nullptr, $PRIVATE, $field(JPopupMenu, paintBorder$)},
-	{"margin", "Ljava/awt/Insets;", nullptr, $PRIVATE, $field(JPopupMenu, margin)},
-	{"lightWeightPopup", "Z", nullptr, $PRIVATE, $field(JPopupMenu, lightWeightPopup)},
-	{"selectionModel", "Ljavax/swing/SingleSelectionModel;", nullptr, $PRIVATE, $field(JPopupMenu, selectionModel)},
-	{"classLock", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JPopupMenu, classLock)},
-	{"TRACE", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JPopupMenu, TRACE)},
-	{"VERBOSE", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JPopupMenu, VERBOSE)},
-	{"DEBUG", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JPopupMenu, DEBUG)},
-	{}
-};
-
-$MethodInfo _JPopupMenu_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(JPopupMenu, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(JPopupMenu, init$, void, $String*)},
-	{"add", "(Ljavax/swing/JMenuItem;)Ljavax/swing/JMenuItem;", nullptr, $PUBLIC, $virtualMethod(JPopupMenu, add, $JMenuItem*, $JMenuItem*)},
-	{"add", "(Ljava/lang/String;)Ljavax/swing/JMenuItem;", nullptr, $PUBLIC, $virtualMethod(JPopupMenu, add, $JMenuItem*, $String*)},
-	{"add", "(Ljavax/swing/Action;)Ljavax/swing/JMenuItem;", nullptr, $PUBLIC, $virtualMethod(JPopupMenu, add, $JMenuItem*, $Action*)},
-	{"addMenuKeyListener", "(Ljavax/swing/event/MenuKeyListener;)V", nullptr, $PUBLIC, $virtualMethod(JPopupMenu, addMenuKeyListener, void, $MenuKeyListener*)},
-	{"addPopupMenuListener", "(Ljavax/swing/event/PopupMenuListener;)V", nullptr, $PUBLIC, $virtualMethod(JPopupMenu, addPopupMenuListener, void, $PopupMenuListener*)},
-	{"addSeparator", "()V", nullptr, $PUBLIC, $virtualMethod(JPopupMenu, addSeparator, void)},
-	{"adjustPopupLocationToFitScreen", "(II)Ljava/awt/Point;", nullptr, 0, $virtualMethod(JPopupMenu, adjustPopupLocationToFitScreen, $Point*, int32_t, int32_t)},
-	{"alwaysOnTop", "()Z", nullptr, 0, $virtualMethod(JPopupMenu, alwaysOnTop, bool)},
-	{"canPopupOverlapTaskBar", "()Z", nullptr, $STATIC, $staticMethod(JPopupMenu, canPopupOverlapTaskBar, bool)},
-	{"createActionChangeListener", "(Ljavax/swing/JMenuItem;)Ljava/beans/PropertyChangeListener;", nullptr, $PROTECTED, $virtualMethod(JPopupMenu, createActionChangeListener, $PropertyChangeListener*, $JMenuItem*)},
-	{"createActionComponent", "(Ljavax/swing/Action;)Ljavax/swing/JMenuItem;", nullptr, $PROTECTED, $virtualMethod(JPopupMenu, createActionComponent, $JMenuItem*, $Action*)},
-	{"fireMenuKeyPressed", "(Ljavax/swing/event/MenuKeyEvent;)V", nullptr, $PRIVATE, $method(JPopupMenu, fireMenuKeyPressed, void, $MenuKeyEvent*)},
-	{"fireMenuKeyReleased", "(Ljavax/swing/event/MenuKeyEvent;)V", nullptr, $PRIVATE, $method(JPopupMenu, fireMenuKeyReleased, void, $MenuKeyEvent*)},
-	{"fireMenuKeyTyped", "(Ljavax/swing/event/MenuKeyEvent;)V", nullptr, $PRIVATE, $method(JPopupMenu, fireMenuKeyTyped, void, $MenuKeyEvent*)},
-	{"firePopupMenuCanceled", "()V", nullptr, $PROTECTED, $virtualMethod(JPopupMenu, firePopupMenuCanceled, void)},
-	{"firePopupMenuWillBecomeInvisible", "()V", nullptr, $PROTECTED, $virtualMethod(JPopupMenu, firePopupMenuWillBecomeInvisible, void)},
-	{"firePopupMenuWillBecomeVisible", "()V", nullptr, $PROTECTED, $virtualMethod(JPopupMenu, firePopupMenuWillBecomeVisible, void)},
-	{"getAccessibleContext", "()Ljavax/accessibility/AccessibleContext;", nullptr, $PUBLIC, $virtualMethod(JPopupMenu, getAccessibleContext, $AccessibleContext*), nullptr, nullptr, _JPopupMenu_MethodAnnotations_getAccessibleContext19},
-	{"getComponent", "()Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(JPopupMenu, getComponent, $Component*)},
-	{"getComponentAtIndex", "(I)Ljava/awt/Component;", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(JPopupMenu, getComponentAtIndex, $Component*, int32_t), nullptr, nullptr, _JPopupMenu_MethodAnnotations_getComponentAtIndex21},
-	{"getComponentIndex", "(Ljava/awt/Component;)I", nullptr, $PUBLIC, $virtualMethod(JPopupMenu, getComponentIndex, int32_t, $Component*)},
-	{"getCurrentGraphicsConfiguration", "(Ljava/awt/Point;)Ljava/awt/GraphicsConfiguration;", nullptr, $PRIVATE, $method(JPopupMenu, getCurrentGraphicsConfiguration, $GraphicsConfiguration*, $Point*)},
-	{"getDefaultLightWeightPopupEnabled", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(JPopupMenu, getDefaultLightWeightPopupEnabled, bool)},
-	{"getFrame", "(Ljava/awt/Component;)Ljava/awt/Frame;", nullptr, $PRIVATE | $STATIC, $staticMethod(JPopupMenu, getFrame, $Frame*, $Component*)},
-	{"getInvoker", "()Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(JPopupMenu, getInvoker, $Component*)},
-	{"getLabel", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JPopupMenu, getLabel, $String*)},
-	{"getMargin", "()Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(JPopupMenu, getMargin, $Insets*), nullptr, nullptr, _JPopupMenu_MethodAnnotations_getMargin28},
-	{"getMenuKeyListeners", "()[Ljavax/swing/event/MenuKeyListener;", nullptr, $PUBLIC, $virtualMethod(JPopupMenu, getMenuKeyListeners, $MenuKeyListenerArray*), nullptr, nullptr, _JPopupMenu_MethodAnnotations_getMenuKeyListeners29},
-	{"getPopupMenuListeners", "()[Ljavax/swing/event/PopupMenuListener;", nullptr, $PUBLIC, $virtualMethod(JPopupMenu, getPopupMenuListeners, $PopupMenuListenerArray*), nullptr, nullptr, _JPopupMenu_MethodAnnotations_getPopupMenuListeners30},
-	{"getRootPopupMenu", "()Ljavax/swing/JPopupMenu;", nullptr, 0, $virtualMethod(JPopupMenu, getRootPopupMenu, JPopupMenu*)},
-	{"getSelectionModel", "()Ljavax/swing/SingleSelectionModel;", nullptr, $PUBLIC, $virtualMethod(JPopupMenu, getSelectionModel, $SingleSelectionModel*)},
-	{"getSubElements", "()[Ljavax/swing/MenuElement;", nullptr, $PUBLIC, $virtualMethod(JPopupMenu, getSubElements, $MenuElementArray*), nullptr, nullptr, _JPopupMenu_MethodAnnotations_getSubElements33},
-	{"getUI", "()Ljavax/swing/plaf/PopupMenuUI;", nullptr, $PUBLIC, $virtualMethod(JPopupMenu, getUI, $ComponentUI*)},
-	{"getUIClassID", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JPopupMenu, getUIClassID, $String*), nullptr, nullptr, _JPopupMenu_MethodAnnotations_getUIClassID35},
-	{"insert", "(Ljavax/swing/Action;I)V", nullptr, $PUBLIC, $virtualMethod(JPopupMenu, insert, void, $Action*, int32_t)},
-	{"insert", "(Ljava/awt/Component;I)V", nullptr, $PUBLIC, $virtualMethod(JPopupMenu, insert, void, $Component*, int32_t)},
-	{"isBorderPainted", "()Z", nullptr, $PUBLIC, $virtualMethod(JPopupMenu, isBorderPainted, bool)},
-	{"isLightWeightPopupEnabled", "()Z", nullptr, $PUBLIC, $virtualMethod(JPopupMenu, isLightWeightPopupEnabled, bool)},
-	{"isPopupMenu", "()Z", nullptr, $PRIVATE, $method(JPopupMenu, isPopupMenu, bool)},
-	{"isPopupTrigger", "(Ljava/awt/event/MouseEvent;)Z", nullptr, $PUBLIC, $virtualMethod(JPopupMenu, isPopupTrigger, bool, $MouseEvent*)},
-	{"isSubPopupMenu", "(Ljavax/swing/JPopupMenu;)Z", nullptr, 0, $virtualMethod(JPopupMenu, isSubPopupMenu, bool, JPopupMenu*)},
-	{"isVisible", "()Z", nullptr, $PUBLIC, $virtualMethod(JPopupMenu, isVisible, bool)},
-	{"menuSelectionChanged", "(Z)V", nullptr, $PUBLIC, $virtualMethod(JPopupMenu, menuSelectionChanged, void, bool)},
-	{"pack", "()V", nullptr, $PUBLIC, $virtualMethod(JPopupMenu, pack, void)},
-	{"paintBorder", "(Ljava/awt/Graphics;)V", nullptr, $PROTECTED, $virtualMethod(JPopupMenu, paintBorder, void, $Graphics*)},
-	{"paramString", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(JPopupMenu, paramString, $String*)},
-	{"processFocusEvent", "(Ljava/awt/event/FocusEvent;)V", nullptr, $PROTECTED, $virtualMethod(JPopupMenu, processFocusEvent, void, $FocusEvent*)},
-	{"processKeyEvent", "(Ljava/awt/event/KeyEvent;)V", nullptr, $PROTECTED, $virtualMethod(JPopupMenu, processKeyEvent, void, $KeyEvent*)},
-	{"processKeyEvent", "(Ljava/awt/event/KeyEvent;[Ljavax/swing/MenuElement;Ljavax/swing/MenuSelectionManager;)V", nullptr, $PUBLIC, $virtualMethod(JPopupMenu, processKeyEvent, void, $KeyEvent*, $MenuElementArray*, $MenuSelectionManager*)},
-	{"processMenuKeyEvent", "(Ljavax/swing/event/MenuKeyEvent;)V", nullptr, $PRIVATE, $method(JPopupMenu, processMenuKeyEvent, void, $MenuKeyEvent*)},
-	{"processMouseEvent", "(Ljava/awt/event/MouseEvent;[Ljavax/swing/MenuElement;Ljavax/swing/MenuSelectionManager;)V", nullptr, $PUBLIC, $virtualMethod(JPopupMenu, processMouseEvent, void, $MouseEvent*, $MenuElementArray*, $MenuSelectionManager*)},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(JPopupMenu, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"remove", "(I)V", nullptr, $PUBLIC, $virtualMethod(JPopupMenu, remove, void, int32_t)},
-	{"removeMenuKeyListener", "(Ljavax/swing/event/MenuKeyListener;)V", nullptr, $PUBLIC, $virtualMethod(JPopupMenu, removeMenuKeyListener, void, $MenuKeyListener*)},
-	{"removePopupMenuListener", "(Ljavax/swing/event/PopupMenuListener;)V", nullptr, $PUBLIC, $virtualMethod(JPopupMenu, removePopupMenuListener, void, $PopupMenuListener*)},
-	{"setBorderPainted", "(Z)V", nullptr, $PUBLIC, $virtualMethod(JPopupMenu, setBorderPainted, void, bool), nullptr, nullptr, _JPopupMenu_MethodAnnotations_setBorderPainted57},
-	{"setDefaultLightWeightPopupEnabled", "(Z)V", nullptr, $PUBLIC | $STATIC, $staticMethod(JPopupMenu, setDefaultLightWeightPopupEnabled, void, bool)},
-	{"setInvoker", "(Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(JPopupMenu, setInvoker, void, $Component*), nullptr, nullptr, _JPopupMenu_MethodAnnotations_setInvoker59},
-	{"setLabel", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(JPopupMenu, setLabel, void, $String*), nullptr, nullptr, _JPopupMenu_MethodAnnotations_setLabel60},
-	{"setLightWeightPopupEnabled", "(Z)V", nullptr, $PUBLIC, $virtualMethod(JPopupMenu, setLightWeightPopupEnabled, void, bool), nullptr, nullptr, _JPopupMenu_MethodAnnotations_setLightWeightPopupEnabled61},
-	{"setLocation", "(II)V", nullptr, $PUBLIC, $virtualMethod(JPopupMenu, setLocation, void, int32_t, int32_t), nullptr, nullptr, _JPopupMenu_MethodAnnotations_setLocation62},
-	{"setPopupSize", "(Ljava/awt/Dimension;)V", nullptr, $PUBLIC, $virtualMethod(JPopupMenu, setPopupSize, void, $Dimension*), nullptr, nullptr, _JPopupMenu_MethodAnnotations_setPopupSize63},
-	{"setPopupSize", "(II)V", nullptr, $PUBLIC, $virtualMethod(JPopupMenu, setPopupSize, void, int32_t, int32_t), nullptr, nullptr, _JPopupMenu_MethodAnnotations_setPopupSize64},
-	{"setSelected", "(Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(JPopupMenu, setSelected, void, $Component*), nullptr, nullptr, _JPopupMenu_MethodAnnotations_setSelected65},
-	{"setSelectionModel", "(Ljavax/swing/SingleSelectionModel;)V", nullptr, $PUBLIC, $virtualMethod(JPopupMenu, setSelectionModel, void, $SingleSelectionModel*), nullptr, nullptr, _JPopupMenu_MethodAnnotations_setSelectionModel66},
-	{"setUI", "(Ljavax/swing/plaf/PopupMenuUI;)V", nullptr, $PUBLIC, $virtualMethod(JPopupMenu, setUI, void, $PopupMenuUI*), nullptr, nullptr, _JPopupMenu_MethodAnnotations_setUI67},
-	{"setVisible", "(Z)V", nullptr, $PUBLIC, $virtualMethod(JPopupMenu, setVisible, void, bool), nullptr, nullptr, _JPopupMenu_MethodAnnotations_setVisible68},
-	{"show", "(Ljava/awt/Component;II)V", nullptr, $PUBLIC, $virtualMethod(JPopupMenu, show, void, $Component*, int32_t, int32_t)},
-	{"showPopup", "()V", nullptr, $PRIVATE, $method(JPopupMenu, showPopup, void)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"updateUI", "()V", nullptr, $PUBLIC, $virtualMethod(JPopupMenu, updateUI, void)},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(JPopupMenu, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _JPopupMenu_InnerClassesInfo_[] = {
-	{"javax.swing.JPopupMenu$Separator", "javax.swing.JPopupMenu", "Separator", $PUBLIC | $STATIC},
-	{"javax.swing.JPopupMenu$AccessibleJPopupMenu", "javax.swing.JPopupMenu", "AccessibleJPopupMenu", $PROTECTED},
-	{"javax.swing.JPopupMenu$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _JPopupMenu_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.JPopupMenu",
-	"javax.swing.JComponent",
-	"javax.accessibility.Accessible,javax.swing.MenuElement",
-	_JPopupMenu_FieldInfo_,
-	_JPopupMenu_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JPopupMenu_InnerClassesInfo_,
-	_JPopupMenu_Annotations_,
-	nullptr,
-	"javax.swing.JPopupMenu$Separator,javax.swing.JPopupMenu$AccessibleJPopupMenu,javax.swing.JPopupMenu$1"
-};
-
-$Object* allocate$JPopupMenu($Class* clazz) {
-	return $of($alloc(JPopupMenu));
-}
 
 $String* JPopupMenu::toString() {
 	 return this->$JComponent::toString();
@@ -509,7 +172,6 @@ bool JPopupMenu::getDefaultLightWeightPopupEnabled() {
 	$init(JPopupMenu);
 	$var($Boolean, b, $cast($Boolean, $SwingUtilities::appContextGet(JPopupMenu::defaultLWPopupEnabledKey)));
 	if (b == nullptr) {
-		$init($Boolean);
 		$SwingUtilities::appContextPut(JPopupMenu::defaultLWPopupEnabledKey, $Boolean::TRUE);
 		return true;
 	}
@@ -543,7 +205,7 @@ void JPopupMenu::setUI($PopupMenuUI* ui) {
 }
 
 void JPopupMenu::updateUI() {
-	setUI($cast($PopupMenuUI, $($UIManager::getUI(this))));
+	setUI($$cast($PopupMenuUI, $UIManager::getUI(this)));
 }
 
 $String* JPopupMenu::getUIClassID() {
@@ -555,7 +217,7 @@ void JPopupMenu::processFocusEvent($FocusEvent* evt) {
 }
 
 void JPopupMenu::processKeyEvent($KeyEvent* evt) {
-	$nc($($MenuSelectionManager::defaultManager()))->processKeyEvent(evt);
+	$$nc($MenuSelectionManager::defaultManager())->processKeyEvent(evt);
 	if ($nc(evt)->isConsumed()) {
 		return;
 	}
@@ -571,7 +233,7 @@ void JPopupMenu::setSelectionModel($SingleSelectionModel* model) {
 }
 
 $JMenuItem* JPopupMenu::add($JMenuItem* menuItem) {
-	$JComponent::add(static_cast<$Component*>(menuItem));
+	$JComponent::add(menuItem);
 	return menuItem;
 }
 
@@ -587,14 +249,14 @@ $JMenuItem* JPopupMenu::add($Action* a) {
 }
 
 $Point* JPopupMenu::adjustPopupLocationToFitScreen(int32_t xPosition, int32_t yPosition) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Point, popupLocation, $new($Point, xPosition, yPosition));
 	if (JPopupMenu::popupPostionFixDisabled == true || $GraphicsEnvironment::isHeadless()) {
 		return popupLocation;
 	}
 	$var($GraphicsConfiguration, gc, getCurrentGraphicsConfiguration(popupLocation));
 	if (gc == nullptr) {
-		$assign(gc, $nc($($nc($($GraphicsEnvironment::getLocalGraphicsEnvironment()))->getDefaultScreenDevice()))->getDefaultConfiguration());
+		$assign(gc, $$nc($$nc($GraphicsEnvironment::getLocalGraphicsEnvironment())->getDefaultScreenDevice())->getDefaultConfiguration());
 	}
 	$var($Rectangle, scrBounds, $nc(gc)->getBounds());
 	$var($Dimension, popupSize, this->getPreferredSize());
@@ -628,21 +290,21 @@ $Point* JPopupMenu::adjustPopupLocationToFitScreen(int32_t xPosition, int32_t yP
 }
 
 $GraphicsConfiguration* JPopupMenu::getCurrentGraphicsConfiguration($Point* popupLocation) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($GraphicsConfiguration, gc, nullptr);
 	$var($GraphicsEnvironment, ge, $GraphicsEnvironment::getLocalGraphicsEnvironment());
 	$var($GraphicsDeviceArray, gd, $nc(ge)->getScreenDevices());
 	for (int32_t i = 0; i < $nc(gd)->length; ++i) {
 		if ($nc(gd->get(i))->getType() == $GraphicsDevice::TYPE_RASTER_SCREEN) {
 			$var($GraphicsConfiguration, dgc, $nc(gd->get(i))->getDefaultConfiguration());
-			if ($nc($($nc(dgc)->getBounds()))->contains(popupLocation)) {
+			if ($$nc($nc(dgc)->getBounds())->contains(popupLocation)) {
 				$assign(gc, dgc);
 				break;
 			}
 		}
 	}
 	if (gc == nullptr && getInvoker() != nullptr) {
-		$assign(gc, $nc($(getInvoker()))->getGraphicsConfiguration());
+		$assign(gc, $$nc(getInvoker())->getGraphicsConfiguration());
 	}
 	return gc;
 }
@@ -652,7 +314,7 @@ bool JPopupMenu::canPopupOverlapTaskBar() {
 	bool result = true;
 	$var($Toolkit, tk, $Toolkit::getDefaultToolkit());
 	if ($instanceOf($SunToolkit, tk)) {
-		result = $nc(($cast($SunToolkit, tk)))->canPopupOverlapTaskBar();
+		result = $cast($SunToolkit, tk)->canPopupOverlapTaskBar();
 	}
 	return result;
 }
@@ -665,7 +327,7 @@ $JMenuItem* JPopupMenu::createActionComponent($Action* a) {
 }
 
 $PropertyChangeListener* JPopupMenu::createActionChangeListener($JMenuItem* b) {
-	return $nc(b)->createActionPropertyChangeListener0($(b->getAction()));
+	return $nc(b)->createActionPropertyChangeListener0($($nc(b)->getAction()));
 }
 
 void JPopupMenu::remove(int32_t pos) {
@@ -693,27 +355,27 @@ $String* JPopupMenu::getLabel() {
 void JPopupMenu::setLabel($String* label) {
 	$var($String, oldValue, this->label);
 	$set(this, label, label);
-	firePropertyChange("label"_s, $of(oldValue), $of(label));
+	firePropertyChange("label"_s, oldValue, label);
 	if (this->accessibleContext != nullptr) {
 		$init($AccessibleContext);
-		$nc(this->accessibleContext)->firePropertyChange($AccessibleContext::ACCESSIBLE_VISIBLE_DATA_PROPERTY, oldValue, label);
+		this->accessibleContext->firePropertyChange($AccessibleContext::ACCESSIBLE_VISIBLE_DATA_PROPERTY, oldValue, label);
 	}
 	invalidate();
 	repaint();
 }
 
 void JPopupMenu::addSeparator() {
-	add(static_cast<$Component*>($$new($JPopupMenu$Separator)));
+	add($$new($JPopupMenu$Separator));
 }
 
 void JPopupMenu::insert($Action* a, int32_t index) {
 	$var($JMenuItem, mi, createActionComponent(a));
 	$nc(mi)->setAction(a);
-	insert(static_cast<$Component*>(mi), index);
+	insert(mi, index);
 }
 
 void JPopupMenu::insert($Component* component, int32_t index) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (index < 0) {
 		$throwNew($IllegalArgumentException, "index less than zero."_s);
 	}
@@ -747,7 +409,7 @@ void JPopupMenu::removePopupMenuListener($PopupMenuListener* l) {
 
 $PopupMenuListenerArray* JPopupMenu::getPopupMenuListeners() {
 	$load($PopupMenuListener);
-	return $fcast($PopupMenuListenerArray, $nc(this->listenerList)->getListeners($PopupMenuListener::class$));
+	return $cast($PopupMenuListenerArray, $nc(this->listenerList)->getListeners($PopupMenuListener::class$));
 }
 
 void JPopupMenu::addMenuKeyListener($MenuKeyListener* l) {
@@ -762,11 +424,11 @@ void JPopupMenu::removeMenuKeyListener($MenuKeyListener* l) {
 
 $MenuKeyListenerArray* JPopupMenu::getMenuKeyListeners() {
 	$load($MenuKeyListener);
-	return $fcast($MenuKeyListenerArray, $nc(this->listenerList)->getListeners($MenuKeyListener::class$));
+	return $cast($MenuKeyListenerArray, $nc(this->listenerList)->getListeners($MenuKeyListener::class$));
 }
 
 void JPopupMenu::firePopupMenuWillBecomeVisible() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectArray, listeners, $nc(this->listenerList)->getListenerList());
 	$var($PopupMenuEvent, e, nullptr);
 	for (int32_t i = $nc(listeners)->length - 2; i >= 0; i -= 2) {
@@ -775,13 +437,13 @@ void JPopupMenu::firePopupMenuWillBecomeVisible() {
 			if (e == nullptr) {
 				$assign(e, $new($PopupMenuEvent, this));
 			}
-			$nc(($cast($PopupMenuListener, listeners->get(i + 1))))->popupMenuWillBecomeVisible(e);
+			$nc($cast($PopupMenuListener, listeners->get(i + 1)))->popupMenuWillBecomeVisible(e);
 		}
 	}
 }
 
 void JPopupMenu::firePopupMenuWillBecomeInvisible() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectArray, listeners, $nc(this->listenerList)->getListenerList());
 	$var($PopupMenuEvent, e, nullptr);
 	for (int32_t i = $nc(listeners)->length - 2; i >= 0; i -= 2) {
@@ -790,13 +452,13 @@ void JPopupMenu::firePopupMenuWillBecomeInvisible() {
 			if (e == nullptr) {
 				$assign(e, $new($PopupMenuEvent, this));
 			}
-			$nc(($cast($PopupMenuListener, listeners->get(i + 1))))->popupMenuWillBecomeInvisible(e);
+			$nc($cast($PopupMenuListener, listeners->get(i + 1)))->popupMenuWillBecomeInvisible(e);
 		}
 	}
 }
 
 void JPopupMenu::firePopupMenuCanceled() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectArray, listeners, $nc(this->listenerList)->getListenerList());
 	$var($PopupMenuEvent, e, nullptr);
 	for (int32_t i = $nc(listeners)->length - 2; i >= 0; i -= 2) {
@@ -805,7 +467,7 @@ void JPopupMenu::firePopupMenuCanceled() {
 			if (e == nullptr) {
 				$assign(e, $new($PopupMenuEvent, this));
 			}
-			$nc(($cast($PopupMenuListener, listeners->get(i + 1))))->popupMenuCanceled(e);
+			$nc($cast($PopupMenuListener, listeners->get(i + 1)))->popupMenuCanceled(e);
 		}
 	}
 }
@@ -817,8 +479,8 @@ bool JPopupMenu::alwaysOnTop() {
 void JPopupMenu::pack() {
 	if (this->popup != nullptr) {
 		$var($Dimension, pref, getPreferredSize());
-		bool var$0 = pref == nullptr || $nc(pref)->width != getWidth();
-		if (var$0 || $nc(pref)->height != getHeight()) {
+		bool var$0 = pref == nullptr || pref->width != getWidth();
+		if (var$0 || pref->height != getHeight()) {
 			showPopup();
 		} else {
 			validate();
@@ -827,42 +489,40 @@ void JPopupMenu::pack() {
 }
 
 void JPopupMenu::setVisible(bool b) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
+	;
 	if (b == isVisible()) {
 		return;
 	}
 	if (b == false) {
 		$var($Boolean, doCanceled, $cast($Boolean, getClientProperty("JPopupMenu.firePopupMenuCanceled"_s)));
-		$init($Boolean);
 		if (doCanceled != nullptr && doCanceled == $Boolean::TRUE) {
 			putClientProperty("JPopupMenu.firePopupMenuCanceled"_s, $Boolean::FALSE);
 			firePopupMenuCanceled();
 		}
-		$nc($(getSelectionModel()))->clearSelection();
+		$$nc(getSelectionModel())->clearSelection();
 	} else if (isPopupMenu()) {
 		$var($MenuElementArray, me, $new($MenuElementArray, 1));
 		me->set(0, this);
-		$nc($($MenuSelectionManager::defaultManager()))->setSelectedPath(me);
+		$$nc($MenuSelectionManager::defaultManager())->setSelectedPath(me);
 	}
 	if (b) {
 		firePopupMenuWillBecomeVisible();
 		showPopup();
-		$init($Boolean);
-		firePropertyChange("visible"_s, $of($Boolean::FALSE), $of($Boolean::TRUE));
+		firePropertyChange("visible"_s, $Boolean::FALSE, $Boolean::TRUE);
 	} else if (this->popup != nullptr) {
 		firePopupMenuWillBecomeInvisible();
 		$nc(this->popup)->hide();
 		$set(this, popup, nullptr);
-		$init($Boolean);
-		firePropertyChange("visible"_s, $of($Boolean::TRUE), $of($Boolean::FALSE));
+		firePropertyChange("visible"_s, $Boolean::TRUE, $Boolean::FALSE);
 		if (isPopupMenu()) {
-			$nc($($MenuSelectionManager::defaultManager()))->clearSelectedPath();
+			$$nc($MenuSelectionManager::defaultManager())->clearSelectedPath();
 		}
 	}
 }
 
 void JPopupMenu::showPopup() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Popup, oldPopup, this->popup);
 	if (oldPopup != nullptr) {
 		oldPopup->hide();
@@ -876,7 +536,7 @@ void JPopupMenu::showPopup() {
 	$var($Point, p, adjustPopupLocationToFitScreen(this->desiredLocationX, this->desiredLocationY));
 	this->desiredLocationX = $nc(p)->x;
 	this->desiredLocationY = p->y;
-	$var($Popup, newPopup, $nc($($cast($PopupMenuUI, getUI())))->getPopup(this, this->desiredLocationX, this->desiredLocationY));
+	$var($Popup, newPopup, $$sure($PopupMenuUI, getUI())->getPopup(this, this->desiredLocationX, this->desiredLocationY));
 	$nc(popupFactory)->setPopupType($PopupFactory::LIGHT_WEIGHT_POPUP);
 	$set(this, popup, newPopup);
 	$nc(newPopup)->show();
@@ -908,14 +568,15 @@ void JPopupMenu::setInvoker($Component* invoker) {
 	$var($Component, oldInvoker, this->invoker);
 	$set(this, invoker, invoker);
 	if ((oldInvoker != this->invoker) && (this->ui != nullptr)) {
-		$nc(this->ui)->uninstallUI(this);
+		this->ui->uninstallUI(this);
 		$nc(this->ui)->installUI(this);
 	}
 	invalidate();
 }
 
 void JPopupMenu::show($Component* invoker, int32_t x, int32_t y) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
+	;
 	setInvoker(invoker);
 	$var($Frame, newFrame, getFrame(invoker));
 	if (newFrame != this->frame) {
@@ -953,17 +614,17 @@ void JPopupMenu::show($Component* invoker, int32_t x, int32_t y) {
 }
 
 JPopupMenu* JPopupMenu::getRootPopupMenu() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(JPopupMenu, mp, this);
 	while (true) {
 		bool var$2 = (mp != nullptr) && (mp->isPopupMenu() != true);
 		bool var$1 = var$2 && (mp->getInvoker() != nullptr);
-		bool var$0 = var$1 && ($nc($(mp->getInvoker()))->getParent() != nullptr);
-		if (!(var$0 && ($instanceOf(JPopupMenu, $($nc($(mp->getInvoker()))->getParent()))))) {
+		bool var$0 = var$1 && ($$nc(mp->getInvoker())->getParent() != nullptr);
+		if (!(var$0 && ($instanceOf(JPopupMenu, $($$nc(mp->getInvoker())->getParent()))))) {
 			break;
 		}
 		{
-			$assign(mp, $cast(JPopupMenu, $nc($(mp->getInvoker()))->getParent()));
+			$assign(mp, $cast(JPopupMenu, $$nc($nc(mp)->getInvoker())->getParent()));
 		}
 	}
 	return mp;
@@ -974,7 +635,7 @@ $Component* JPopupMenu::getComponentAtIndex(int32_t i) {
 }
 
 int32_t JPopupMenu::getComponentIndex($Component* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t ncomponents = this->getComponentCount();
 	$var($ComponentArray, component, this->getComponents());
 	for (int32_t i = 0; i < ncomponents; ++i) {
@@ -987,7 +648,7 @@ int32_t JPopupMenu::getComponentIndex($Component* c) {
 }
 
 void JPopupMenu::setPopupSize($Dimension* d) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Dimension, oldSize, getPreferredSize());
 	setPreferredSize(d);
 	if (this->popup != nullptr) {
@@ -1032,14 +693,14 @@ $Insets* JPopupMenu::getMargin() {
 }
 
 bool JPopupMenu::isSubPopupMenu(JPopupMenu* popup) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t ncomponents = this->getComponentCount();
 	$var($ComponentArray, component, this->getComponents());
 	for (int32_t i = 0; i < ncomponents; ++i) {
 		$var($Component, comp, $nc(component)->get(i));
 		if ($instanceOf($JMenu, comp)) {
 			$var($JMenu, menu, $cast($JMenu, comp));
-			$var(JPopupMenu, subPopup, $nc(menu)->getPopupMenu());
+			$var(JPopupMenu, subPopup, menu->getPopupMenu());
 			if (subPopup == popup) {
 				return true;
 			}
@@ -1061,10 +722,10 @@ $Frame* JPopupMenu::getFrame($Component* c) {
 }
 
 $String* JPopupMenu::paramString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, labelString, this->label != nullptr ? this->label : ""_s);
 	$var($String, paintBorderString, this->paintBorder$ ? "true"_s : "false"_s);
-	$var($String, marginString, this->margin != nullptr ? $nc(this->margin)->toString() : ""_s);
+	$var($String, marginString, this->margin != nullptr ? this->margin->toString() : ""_s);
 	$var($String, lightWeightPopupEnabledString, isLightWeightPopupEnabled() ? "true"_s : "false"_s);
 	return $str({$($JComponent::paramString()), ",desiredLocationX="_s, $$str(this->desiredLocationX), ",desiredLocationY="_s, $$str(this->desiredLocationY), ",label="_s, labelString, ",lightWeightPopupEnabled="_s, lightWeightPopupEnabledString, ",margin="_s, marginString, ",paintBorder="_s, paintBorderString});
 }
@@ -1077,7 +738,7 @@ $AccessibleContext* JPopupMenu::getAccessibleContext() {
 }
 
 void JPopupMenu::writeObject($ObjectOutputStream* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Vector, values, $new($Vector));
 	$nc(s)->defaultWriteObject();
 	if (this->invoker != nullptr && $instanceOf($Serializable, this->invoker)) {
@@ -1089,36 +750,36 @@ void JPopupMenu::writeObject($ObjectOutputStream* s) {
 		values->addElement(this->popup);
 	}
 	s->writeObject(values);
-	if ($nc($(getUIClassID()))->equals(JPopupMenu::uiClassID)) {
+	if ($$nc(getUIClassID())->equals(JPopupMenu::uiClassID)) {
 		int8_t count = $JComponent::getWriteObjCounter(this);
 		$JComponent::setWriteObjCounter(this, --count);
 		if (count == 0 && this->ui != nullptr) {
-			$nc(this->ui)->installUI(this);
+			this->ui->installUI(this);
 		}
 	}
 }
 
 void JPopupMenu::readObject($ObjectInputStream* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectInputStream$GetField, f, $nc(s)->readFields());
 	int32_t newDesiredLocationX = $nc(f)->get("desiredLocationX"_s, 0);
 	int32_t newDesiredLocationY = f->get("desiredLocationY"_s, 0);
 	$var($Point, p, adjustPopupLocationToFitScreen(newDesiredLocationX, newDesiredLocationY));
 	this->desiredLocationX = $nc(p)->x;
 	this->desiredLocationY = p->y;
-	$set(this, label, $cast($String, f->get("label"_s, ($Object*)nullptr)));
+	$set(this, label, $cast($String, f->get("label"_s, nullptr)));
 	this->paintBorder$ = f->get("paintBorder"_s, false);
-	$set(this, margin, $cast($Insets, f->get("margin"_s, ($Object*)nullptr)));
+	$set(this, margin, $cast($Insets, f->get("margin"_s, nullptr)));
 	this->lightWeightPopup = f->get("lightWeightPopup"_s, false);
-	$set(this, selectionModel, $cast($SingleSelectionModel, f->get("selectionModel"_s, ($Object*)nullptr)));
+	$set(this, selectionModel, $cast($SingleSelectionModel, f->get("selectionModel"_s, nullptr)));
 	$var($Vector, values, $cast($Vector, s->readObject()));
 	int32_t indexCounter = 0;
 	int32_t maxCounter = $nc(values)->size();
-	if (indexCounter < maxCounter && $nc($of($(values->elementAt(indexCounter))))->equals("invoker"_s)) {
+	if (indexCounter < maxCounter && $$nc(values->elementAt(indexCounter))->equals("invoker"_s)) {
 		$set(this, invoker, $cast($Component, values->elementAt(++indexCounter)));
 		++indexCounter;
 	}
-	if (indexCounter < maxCounter && $nc($of($(values->elementAt(indexCounter))))->equals("popup"_s)) {
+	if (indexCounter < maxCounter && $$nc(values->elementAt(indexCounter))->equals("popup"_s)) {
 		$set(this, popup, $cast($Popup, values->elementAt(++indexCounter)));
 		++indexCounter;
 	}
@@ -1128,7 +789,7 @@ void JPopupMenu::processMouseEvent($MouseEvent* event, $MenuElementArray* path, 
 }
 
 void JPopupMenu::processKeyEvent($KeyEvent* e, $MenuElementArray* path, $MenuSelectionManager* manager) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Component, var$0, $nc(e)->getComponent());
 	int32_t var$1 = e->getID();
 	int64_t var$2 = e->getWhen();
@@ -1137,31 +798,23 @@ void JPopupMenu::processKeyEvent($KeyEvent* e, $MenuElementArray* path, $MenuSel
 	$var($MenuKeyEvent, mke, $new($MenuKeyEvent, var$0, var$1, var$2, var$3, var$4, e->getKeyChar(), path, manager));
 	processMenuKeyEvent(mke);
 	if (mke->isConsumed()) {
-		$nc(e)->consume();
+		e->consume();
 	}
 }
 
 void JPopupMenu::processMenuKeyEvent($MenuKeyEvent* e) {
 	switch ($nc(e)->getID()) {
 	case $KeyEvent::KEY_PRESSED:
-		{
-			fireMenuKeyPressed(e);
-			break;
-		}
+		fireMenuKeyPressed(e);
+		break;
 	case $KeyEvent::KEY_RELEASED:
-		{
-			fireMenuKeyReleased(e);
-			break;
-		}
+		fireMenuKeyReleased(e);
+		break;
 	case $KeyEvent::KEY_TYPED:
-		{
-			fireMenuKeyTyped(e);
-			break;
-		}
+		fireMenuKeyTyped(e);
+		break;
 	default:
-		{
-			break;
-		}
+		break;
 	}
 }
 
@@ -1170,7 +823,7 @@ void JPopupMenu::fireMenuKeyPressed($MenuKeyEvent* event) {
 	for (int32_t i = $nc(listeners)->length - 2; i >= 0; i -= 2) {
 		$load($MenuKeyListener);
 		if ($equals(listeners->get(i), $MenuKeyListener::class$)) {
-			$nc(($cast($MenuKeyListener, listeners->get(i + 1))))->menuKeyPressed(event);
+			$nc($cast($MenuKeyListener, listeners->get(i + 1)))->menuKeyPressed(event);
 		}
 	}
 }
@@ -1180,7 +833,7 @@ void JPopupMenu::fireMenuKeyReleased($MenuKeyEvent* event) {
 	for (int32_t i = $nc(listeners)->length - 2; i >= 0; i -= 2) {
 		$load($MenuKeyListener);
 		if ($equals(listeners->get(i), $MenuKeyListener::class$)) {
-			$nc(($cast($MenuKeyListener, listeners->get(i + 1))))->menuKeyReleased(event);
+			$nc($cast($MenuKeyListener, listeners->get(i + 1)))->menuKeyReleased(event);
 		}
 	}
 }
@@ -1190,12 +843,13 @@ void JPopupMenu::fireMenuKeyTyped($MenuKeyEvent* event) {
 	for (int32_t i = $nc(listeners)->length - 2; i >= 0; i -= 2) {
 		$load($MenuKeyListener);
 		if ($equals(listeners->get(i), $MenuKeyListener::class$)) {
-			$nc(($cast($MenuKeyListener, listeners->get(i + 1))))->menuKeyTyped(event);
+			$nc($cast($MenuKeyListener, listeners->get(i + 1)))->menuKeyTyped(event);
 		}
 	}
 }
 
 void JPopupMenu::menuSelectionChanged(bool isIncluded) {
+	;
 	if ($instanceOf($JMenu, this->invoker)) {
 		$var($JMenu, m, $cast($JMenu, this->invoker));
 		if (isIncluded) {
@@ -1210,7 +864,7 @@ void JPopupMenu::menuSelectionChanged(bool isIncluded) {
 }
 
 $MenuElementArray* JPopupMenu::getSubElements() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($MenuElementArray, result, nullptr);
 	$var($Vector, tmp, $new($Vector));
 	int32_t c = getComponentCount();
@@ -1224,7 +878,7 @@ $MenuElementArray* JPopupMenu::getSubElements() {
 	}
 	$assign(result, $new($MenuElementArray, tmp->size()));
 	for (i = 0, c = tmp->size(); i < c; ++i) {
-		result->set(i, $cast($MenuElement, $(tmp->elementAt(i))));
+		result->set(i, $$cast($MenuElement, tmp->elementAt(i)));
 	}
 	return result;
 }
@@ -1234,17 +888,17 @@ $Component* JPopupMenu::getComponent() {
 }
 
 bool JPopupMenu::isPopupTrigger($MouseEvent* e) {
-	return $nc($($cast($PopupMenuUI, getUI())))->isPopupTrigger(e);
+	return $$sure($PopupMenuUI, getUI())->isPopupTrigger(e);
 }
 
-void clinit$JPopupMenu($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void JPopupMenu::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(JPopupMenu::uiClassID, "PopupMenuUI"_s);
 	$beforeCallerSensitive();
 	$assignStatic(JPopupMenu::defaultLWPopupEnabledKey, $new($StringBuffer, "JPopupMenu.defaultLWPopupEnabledKey"_s));
 	JPopupMenu::popupPostionFixDisabled = false;
 	{
-		JPopupMenu::popupPostionFixDisabled = $nc(($cast($String, $($AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($GetPropertyAction, "javax.swing.adjustPopupLocationToFit"_s, ""_s)))))))->equals("false"_s);
+		JPopupMenu::popupPostionFixDisabled = $$sure($String, $AccessController::doPrivileged($$new($GetPropertyAction, "javax.swing.adjustPopupLocationToFit"_s, ""_s)))->equals("false"_s);
 	}
 	$assignStatic(JPopupMenu::classLock, $new($Object));
 }
@@ -1253,7 +907,295 @@ JPopupMenu::JPopupMenu() {
 }
 
 $Class* JPopupMenu::load$($String* name, bool initialize) {
-	$loadClass(JPopupMenu, name, initialize, &_JPopupMenu_ClassInfo_, clinit$JPopupMenu, allocate$JPopupMenu);
+	$FieldInfo fieldInfos$$[] = {
+		{"uiClassID", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JPopupMenu, uiClassID)},
+		{"defaultLWPopupEnabledKey", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JPopupMenu, defaultLWPopupEnabledKey)},
+		{"popupPostionFixDisabled", "Z", nullptr, $STATIC, $staticField(JPopupMenu, popupPostionFixDisabled)},
+		{"invoker", "Ljava/awt/Component;", nullptr, $TRANSIENT, $field(JPopupMenu, invoker)},
+		{"popup", "Ljavax/swing/Popup;", nullptr, $TRANSIENT, $field(JPopupMenu, popup)},
+		{"frame", "Ljava/awt/Frame;", nullptr, $TRANSIENT, $field(JPopupMenu, frame)},
+		{"desiredLocationX", "I", nullptr, $PRIVATE, $field(JPopupMenu, desiredLocationX)},
+		{"desiredLocationY", "I", nullptr, $PRIVATE, $field(JPopupMenu, desiredLocationY)},
+		{"label", "Ljava/lang/String;", nullptr, $PRIVATE, $field(JPopupMenu, label)},
+		{"paintBorder", "Z", nullptr, $PRIVATE, $field(JPopupMenu, paintBorder$)},
+		{"margin", "Ljava/awt/Insets;", nullptr, $PRIVATE, $field(JPopupMenu, margin)},
+		{"lightWeightPopup", "Z", nullptr, $PRIVATE, $field(JPopupMenu, lightWeightPopup)},
+		{"selectionModel", "Ljavax/swing/SingleSelectionModel;", nullptr, $PRIVATE, $field(JPopupMenu, selectionModel)},
+		{"classLock", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JPopupMenu, classLock)},
+		{"TRACE", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JPopupMenu, TRACE)},
+		{"VERBOSE", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JPopupMenu, VERBOSE)},
+		{"DEBUG", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JPopupMenu, DEBUG)},
+		{}
+	};
+	$NamedAttribute getAccessibleContextmethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{}
+	};
+	$CompoundAttribute getAccessibleContextmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", getAccessibleContextmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$CompoundAttribute getComponentAtIndexmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$NamedAttribute getMarginmethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{}
+	};
+	$CompoundAttribute getMarginmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", getMarginmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute getMenuKeyListenersmethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{}
+	};
+	$CompoundAttribute getMenuKeyListenersmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", getMenuKeyListenersmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute getPopupMenuListenersmethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{}
+	};
+	$CompoundAttribute getPopupMenuListenersmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", getPopupMenuListenersmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute getSubElementsmethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{}
+	};
+	$CompoundAttribute getSubElementsmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", getSubElementsmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute getUIClassIDmethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{}
+	};
+	$CompoundAttribute getUIClassIDmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", getUIClassIDmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setBorderPaintedmethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{"description", 's', "Is the border of the popup menu painted"},
+		{}
+	};
+	$CompoundAttribute setBorderPaintedmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setBorderPaintedmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setInvokermethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{"expert", 'Z', "true"},
+		{"description", 's', "The invoking component for the popup menu"},
+		{}
+	};
+	$CompoundAttribute setInvokermethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setInvokermethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setLabelmethodAnnotations$$$namedAttribute[] = {
+		{"description", 's', "The label for the popup menu."},
+		{}
+	};
+	$CompoundAttribute setLabelmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setLabelmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setLightWeightPopupEnabledmethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{"expert", 'Z', "true"},
+		{"description", 's', "Determines whether lightweight popups are used when possible"},
+		{}
+	};
+	$CompoundAttribute setLightWeightPopupEnabledmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setLightWeightPopupEnabledmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setLocationmethodAnnotations$$$namedAttribute[] = {
+		{"description", 's', "The location of the popup menu."},
+		{}
+	};
+	$CompoundAttribute setLocationmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setLocationmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setPopupSizemethodAnnotations$$$namedAttribute[] = {
+		{"description", 's', "The size of the popup menu"},
+		{}
+	};
+	$CompoundAttribute setPopupSizemethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setPopupSizemethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setPopupSizemethodAnnotations$$$1$namedAttribute[] = {
+		{"description", 's', "The size of the popup menu"},
+		{}
+	};
+	$CompoundAttribute setPopupSizemethodAnnotations$$$1[] = {
+		{"Ljava/beans/BeanProperty;", setPopupSizemethodAnnotations$$$1$namedAttribute},
+		{}
+	};
+	$NamedAttribute setSelectedmethodAnnotations$$$namedAttribute[] = {
+		{"expert", 'Z', "true"},
+		{"hidden", 'Z', "true"},
+		{"description", 's', "The selected component on the popup menu"},
+		{}
+	};
+	$CompoundAttribute setSelectedmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setSelectedmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setSelectionModelmethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{"expert", 'Z', "true"},
+		{"description", 's', "The selection model for the popup menu"},
+		{}
+	};
+	$CompoundAttribute setSelectionModelmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setSelectionModelmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setUImethodAnnotations$$$namedAttribute[] = {
+		{"hidden", 'Z', "true"},
+		{"visualUpdate", 'Z', "true"},
+		{"description", 's', "The UI object that implements the Component\'s LookAndFeel."},
+		{}
+	};
+	$CompoundAttribute setUImethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setUImethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setVisiblemethodAnnotations$$$namedAttribute[] = {
+		{"description", 's', "Makes the popup visible"},
+		{}
+	};
+	$CompoundAttribute setVisiblemethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setVisiblemethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(JPopupMenu, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(JPopupMenu, init$, void, $String*)},
+		{"add", "(Ljavax/swing/JMenuItem;)Ljavax/swing/JMenuItem;", nullptr, $PUBLIC, $virtualMethod(JPopupMenu, add, $JMenuItem*, $JMenuItem*)},
+		{"add", "(Ljava/lang/String;)Ljavax/swing/JMenuItem;", nullptr, $PUBLIC, $virtualMethod(JPopupMenu, add, $JMenuItem*, $String*)},
+		{"add", "(Ljavax/swing/Action;)Ljavax/swing/JMenuItem;", nullptr, $PUBLIC, $virtualMethod(JPopupMenu, add, $JMenuItem*, $Action*)},
+		{"addMenuKeyListener", "(Ljavax/swing/event/MenuKeyListener;)V", nullptr, $PUBLIC, $virtualMethod(JPopupMenu, addMenuKeyListener, void, $MenuKeyListener*)},
+		{"addPopupMenuListener", "(Ljavax/swing/event/PopupMenuListener;)V", nullptr, $PUBLIC, $virtualMethod(JPopupMenu, addPopupMenuListener, void, $PopupMenuListener*)},
+		{"addSeparator", "()V", nullptr, $PUBLIC, $virtualMethod(JPopupMenu, addSeparator, void)},
+		{"adjustPopupLocationToFitScreen", "(II)Ljava/awt/Point;", nullptr, 0, $virtualMethod(JPopupMenu, adjustPopupLocationToFitScreen, $Point*, int32_t, int32_t)},
+		{"alwaysOnTop", "()Z", nullptr, 0, $virtualMethod(JPopupMenu, alwaysOnTop, bool)},
+		{"canPopupOverlapTaskBar", "()Z", nullptr, $STATIC, $staticMethod(JPopupMenu, canPopupOverlapTaskBar, bool)},
+		{"createActionChangeListener", "(Ljavax/swing/JMenuItem;)Ljava/beans/PropertyChangeListener;", nullptr, $PROTECTED, $virtualMethod(JPopupMenu, createActionChangeListener, $PropertyChangeListener*, $JMenuItem*)},
+		{"createActionComponent", "(Ljavax/swing/Action;)Ljavax/swing/JMenuItem;", nullptr, $PROTECTED, $virtualMethod(JPopupMenu, createActionComponent, $JMenuItem*, $Action*)},
+		{"fireMenuKeyPressed", "(Ljavax/swing/event/MenuKeyEvent;)V", nullptr, $PRIVATE, $method(JPopupMenu, fireMenuKeyPressed, void, $MenuKeyEvent*)},
+		{"fireMenuKeyReleased", "(Ljavax/swing/event/MenuKeyEvent;)V", nullptr, $PRIVATE, $method(JPopupMenu, fireMenuKeyReleased, void, $MenuKeyEvent*)},
+		{"fireMenuKeyTyped", "(Ljavax/swing/event/MenuKeyEvent;)V", nullptr, $PRIVATE, $method(JPopupMenu, fireMenuKeyTyped, void, $MenuKeyEvent*)},
+		{"firePopupMenuCanceled", "()V", nullptr, $PROTECTED, $virtualMethod(JPopupMenu, firePopupMenuCanceled, void)},
+		{"firePopupMenuWillBecomeInvisible", "()V", nullptr, $PROTECTED, $virtualMethod(JPopupMenu, firePopupMenuWillBecomeInvisible, void)},
+		{"firePopupMenuWillBecomeVisible", "()V", nullptr, $PROTECTED, $virtualMethod(JPopupMenu, firePopupMenuWillBecomeVisible, void)},
+		{"getAccessibleContext", "()Ljavax/accessibility/AccessibleContext;", nullptr, $PUBLIC, $virtualMethod(JPopupMenu, getAccessibleContext, $AccessibleContext*), nullptr, nullptr, getAccessibleContextmethodAnnotations$$},
+		{"getComponent", "()Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(JPopupMenu, getComponent, $Component*)},
+		{"getComponentAtIndex", "(I)Ljava/awt/Component;", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(JPopupMenu, getComponentAtIndex, $Component*, int32_t), nullptr, nullptr, getComponentAtIndexmethodAnnotations$$},
+		{"getComponentIndex", "(Ljava/awt/Component;)I", nullptr, $PUBLIC, $virtualMethod(JPopupMenu, getComponentIndex, int32_t, $Component*)},
+		{"getCurrentGraphicsConfiguration", "(Ljava/awt/Point;)Ljava/awt/GraphicsConfiguration;", nullptr, $PRIVATE, $method(JPopupMenu, getCurrentGraphicsConfiguration, $GraphicsConfiguration*, $Point*)},
+		{"getDefaultLightWeightPopupEnabled", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(JPopupMenu, getDefaultLightWeightPopupEnabled, bool)},
+		{"getFrame", "(Ljava/awt/Component;)Ljava/awt/Frame;", nullptr, $PRIVATE | $STATIC, $staticMethod(JPopupMenu, getFrame, $Frame*, $Component*)},
+		{"getInvoker", "()Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(JPopupMenu, getInvoker, $Component*)},
+		{"getLabel", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JPopupMenu, getLabel, $String*)},
+		{"getMargin", "()Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(JPopupMenu, getMargin, $Insets*), nullptr, nullptr, getMarginmethodAnnotations$$},
+		{"getMenuKeyListeners", "()[Ljavax/swing/event/MenuKeyListener;", nullptr, $PUBLIC, $virtualMethod(JPopupMenu, getMenuKeyListeners, $MenuKeyListenerArray*), nullptr, nullptr, getMenuKeyListenersmethodAnnotations$$},
+		{"getPopupMenuListeners", "()[Ljavax/swing/event/PopupMenuListener;", nullptr, $PUBLIC, $virtualMethod(JPopupMenu, getPopupMenuListeners, $PopupMenuListenerArray*), nullptr, nullptr, getPopupMenuListenersmethodAnnotations$$},
+		{"getRootPopupMenu", "()Ljavax/swing/JPopupMenu;", nullptr, 0, $virtualMethod(JPopupMenu, getRootPopupMenu, JPopupMenu*)},
+		{"getSelectionModel", "()Ljavax/swing/SingleSelectionModel;", nullptr, $PUBLIC, $virtualMethod(JPopupMenu, getSelectionModel, $SingleSelectionModel*)},
+		{"getSubElements", "()[Ljavax/swing/MenuElement;", nullptr, $PUBLIC, $virtualMethod(JPopupMenu, getSubElements, $MenuElementArray*), nullptr, nullptr, getSubElementsmethodAnnotations$$},
+		{"getUI", "()Ljavax/swing/plaf/PopupMenuUI;", nullptr, $PUBLIC, $virtualMethod(JPopupMenu, getUI, $ComponentUI*)},
+		{"getUIClassID", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JPopupMenu, getUIClassID, $String*), nullptr, nullptr, getUIClassIDmethodAnnotations$$},
+		{"insert", "(Ljavax/swing/Action;I)V", nullptr, $PUBLIC, $virtualMethod(JPopupMenu, insert, void, $Action*, int32_t)},
+		{"insert", "(Ljava/awt/Component;I)V", nullptr, $PUBLIC, $virtualMethod(JPopupMenu, insert, void, $Component*, int32_t)},
+		{"isBorderPainted", "()Z", nullptr, $PUBLIC, $virtualMethod(JPopupMenu, isBorderPainted, bool)},
+		{"isLightWeightPopupEnabled", "()Z", nullptr, $PUBLIC, $virtualMethod(JPopupMenu, isLightWeightPopupEnabled, bool)},
+		{"isPopupMenu", "()Z", nullptr, $PRIVATE, $method(JPopupMenu, isPopupMenu, bool)},
+		{"isPopupTrigger", "(Ljava/awt/event/MouseEvent;)Z", nullptr, $PUBLIC, $virtualMethod(JPopupMenu, isPopupTrigger, bool, $MouseEvent*)},
+		{"isSubPopupMenu", "(Ljavax/swing/JPopupMenu;)Z", nullptr, 0, $virtualMethod(JPopupMenu, isSubPopupMenu, bool, JPopupMenu*)},
+		{"isVisible", "()Z", nullptr, $PUBLIC, $virtualMethod(JPopupMenu, isVisible, bool)},
+		{"menuSelectionChanged", "(Z)V", nullptr, $PUBLIC, $virtualMethod(JPopupMenu, menuSelectionChanged, void, bool)},
+		{"pack", "()V", nullptr, $PUBLIC, $virtualMethod(JPopupMenu, pack, void)},
+		{"paintBorder", "(Ljava/awt/Graphics;)V", nullptr, $PROTECTED, $virtualMethod(JPopupMenu, paintBorder, void, $Graphics*)},
+		{"paramString", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(JPopupMenu, paramString, $String*)},
+		{"processFocusEvent", "(Ljava/awt/event/FocusEvent;)V", nullptr, $PROTECTED, $virtualMethod(JPopupMenu, processFocusEvent, void, $FocusEvent*)},
+		{"processKeyEvent", "(Ljava/awt/event/KeyEvent;)V", nullptr, $PROTECTED, $virtualMethod(JPopupMenu, processKeyEvent, void, $KeyEvent*)},
+		{"processKeyEvent", "(Ljava/awt/event/KeyEvent;[Ljavax/swing/MenuElement;Ljavax/swing/MenuSelectionManager;)V", nullptr, $PUBLIC, $virtualMethod(JPopupMenu, processKeyEvent, void, $KeyEvent*, $MenuElementArray*, $MenuSelectionManager*)},
+		{"processMenuKeyEvent", "(Ljavax/swing/event/MenuKeyEvent;)V", nullptr, $PRIVATE, $method(JPopupMenu, processMenuKeyEvent, void, $MenuKeyEvent*)},
+		{"processMouseEvent", "(Ljava/awt/event/MouseEvent;[Ljavax/swing/MenuElement;Ljavax/swing/MenuSelectionManager;)V", nullptr, $PUBLIC, $virtualMethod(JPopupMenu, processMouseEvent, void, $MouseEvent*, $MenuElementArray*, $MenuSelectionManager*)},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(JPopupMenu, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+		{"remove", "(I)V", nullptr, $PUBLIC, $virtualMethod(JPopupMenu, remove, void, int32_t)},
+		{"removeMenuKeyListener", "(Ljavax/swing/event/MenuKeyListener;)V", nullptr, $PUBLIC, $virtualMethod(JPopupMenu, removeMenuKeyListener, void, $MenuKeyListener*)},
+		{"removePopupMenuListener", "(Ljavax/swing/event/PopupMenuListener;)V", nullptr, $PUBLIC, $virtualMethod(JPopupMenu, removePopupMenuListener, void, $PopupMenuListener*)},
+		{"setBorderPainted", "(Z)V", nullptr, $PUBLIC, $virtualMethod(JPopupMenu, setBorderPainted, void, bool), nullptr, nullptr, setBorderPaintedmethodAnnotations$$},
+		{"setDefaultLightWeightPopupEnabled", "(Z)V", nullptr, $PUBLIC | $STATIC, $staticMethod(JPopupMenu, setDefaultLightWeightPopupEnabled, void, bool)},
+		{"setInvoker", "(Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(JPopupMenu, setInvoker, void, $Component*), nullptr, nullptr, setInvokermethodAnnotations$$},
+		{"setLabel", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(JPopupMenu, setLabel, void, $String*), nullptr, nullptr, setLabelmethodAnnotations$$},
+		{"setLightWeightPopupEnabled", "(Z)V", nullptr, $PUBLIC, $virtualMethod(JPopupMenu, setLightWeightPopupEnabled, void, bool), nullptr, nullptr, setLightWeightPopupEnabledmethodAnnotations$$},
+		{"setLocation", "(II)V", nullptr, $PUBLIC, $virtualMethod(JPopupMenu, setLocation, void, int32_t, int32_t), nullptr, nullptr, setLocationmethodAnnotations$$},
+		{"setPopupSize", "(Ljava/awt/Dimension;)V", nullptr, $PUBLIC, $virtualMethod(JPopupMenu, setPopupSize, void, $Dimension*), nullptr, nullptr, setPopupSizemethodAnnotations$$},
+		{"setPopupSize", "(II)V", nullptr, $PUBLIC, $virtualMethod(JPopupMenu, setPopupSize, void, int32_t, int32_t), nullptr, nullptr, setPopupSizemethodAnnotations$$$1},
+		{"setSelected", "(Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(JPopupMenu, setSelected, void, $Component*), nullptr, nullptr, setSelectedmethodAnnotations$$},
+		{"setSelectionModel", "(Ljavax/swing/SingleSelectionModel;)V", nullptr, $PUBLIC, $virtualMethod(JPopupMenu, setSelectionModel, void, $SingleSelectionModel*), nullptr, nullptr, setSelectionModelmethodAnnotations$$},
+		{"setUI", "(Ljavax/swing/plaf/PopupMenuUI;)V", nullptr, $PUBLIC, $virtualMethod(JPopupMenu, setUI, void, $PopupMenuUI*), nullptr, nullptr, setUImethodAnnotations$$},
+		{"setVisible", "(Z)V", nullptr, $PUBLIC, $virtualMethod(JPopupMenu, setVisible, void, bool), nullptr, nullptr, setVisiblemethodAnnotations$$},
+		{"show", "(Ljava/awt/Component;II)V", nullptr, $PUBLIC, $virtualMethod(JPopupMenu, show, void, $Component*, int32_t, int32_t)},
+		{"showPopup", "()V", nullptr, $PRIVATE, $method(JPopupMenu, showPopup, void)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"updateUI", "()V", nullptr, $PUBLIC, $virtualMethod(JPopupMenu, updateUI, void)},
+		{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(JPopupMenu, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.JPopupMenu$Separator", "javax.swing.JPopupMenu", "Separator", $PUBLIC | $STATIC},
+		{"javax.swing.JPopupMenu$AccessibleJPopupMenu", "javax.swing.JPopupMenu", "AccessibleJPopupMenu", $PROTECTED},
+		{"javax.swing.JPopupMenu$1", nullptr, nullptr, 0},
+		{}
+	};
+	$NamedAttribute annotations$$$namedAttribute[] = {
+		{"defaultProperty", 's', "UI"},
+		{"description", 's', "A small window that pops up and displays a series of choices."},
+		{}
+	};
+	$NamedAttribute annotations$$$namedAttribute$1[] = {
+		{"value", 'Z', "false"},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/beans/JavaBean;", annotations$$$namedAttribute},
+		{"Ljavax/swing/SwingContainer;", annotations$$$namedAttribute$1},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.JPopupMenu",
+		"javax.swing.JComponent",
+		"javax.accessibility.Accessible,javax.swing.MenuElement",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		annotations$$,
+		nullptr,
+		"javax.swing.JPopupMenu$Separator,javax.swing.JPopupMenu$AccessibleJPopupMenu,javax.swing.JPopupMenu$1"
+	};
+	$loadClass(JPopupMenu, name, initialize, &classInfo$$, JPopupMenu::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JPopupMenu));
+	});
 	return class$;
 }
 

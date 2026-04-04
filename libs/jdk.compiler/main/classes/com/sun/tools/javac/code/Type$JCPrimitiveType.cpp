@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/code/Type$JCPrimitiveType.h>
-
 #include <com/sun/tools/javac/code/Symbol$TypeSymbol.h>
 #include <com/sun/tools/javac/code/Type$5.h>
 #include <com/sun/tools/javac/code/Type$JCPrimitiveType$1.h>
@@ -12,7 +11,6 @@
 #include <java/lang/AssertionError.h>
 #include <java/lang/annotation/Annotation.h>
 #include <java/util/List.h>
-#include <javax/lang/model/type/PrimitiveType.h>
 #include <javax/lang/model/type/TypeKind.h>
 #include <javax/lang/model/type/TypeVisitor.h>
 #include <jcpp.h>
@@ -44,7 +42,6 @@ using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Annotation = ::java::lang::annotation::Annotation;
 using $List = ::java::util::List;
-using $PrimitiveType = ::javax::lang::model::type::PrimitiveType;
 using $TypeKind = ::javax::lang::model::type::TypeKind;
 using $TypeVisitor = ::javax::lang::model::type::TypeVisitor;
 
@@ -53,64 +50,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace code {
-
-$FieldInfo _Type$JCPrimitiveType_FieldInfo_[] = {
-	{"tag", "Lcom/sun/tools/javac/code/TypeTag;", nullptr, 0, $field(Type$JCPrimitiveType, tag)},
-	{}
-};
-
-$MethodInfo _Type$JCPrimitiveType_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*getAnnotation", "(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;", nullptr, $PUBLIC},
-	{"*getAnnotationsByType", "(Ljava/lang/Class;)[Ljava/lang/annotation/Annotation;", nullptr, $PUBLIC},
-	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "(Lcom/sun/tools/javac/code/TypeTag;Lcom/sun/tools/javac/code/Symbol$TypeSymbol;)V", nullptr, $PUBLIC, $method(Type$JCPrimitiveType, init$, void, $TypeTag*, $Symbol$TypeSymbol*)},
-	{"<init>", "(Lcom/sun/tools/javac/code/TypeTag;Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/code/TypeMetadata;)V", nullptr, $PRIVATE, $method(Type$JCPrimitiveType, init$, void, $TypeTag*, $Symbol$TypeSymbol*, $TypeMetadata*)},
-	{"accept", "(Ljavax/lang/model/type/TypeVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;P:Ljava/lang/Object;>(Ljavax/lang/model/type/TypeVisitor<TR;TP;>;TP;)TR;", $PUBLIC, $virtualMethod(Type$JCPrimitiveType, accept, $Object*, $TypeVisitor*, Object$*)},
-	{"cloneWithMetadata", "(Lcom/sun/tools/javac/code/TypeMetadata;)Lcom/sun/tools/javac/code/Type$JCPrimitiveType;", nullptr, $PUBLIC, $virtualMethod(Type$JCPrimitiveType, cloneWithMetadata, Type$JCPrimitiveType*, $TypeMetadata*)},
-	{"constType", "(Ljava/lang/Object;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(Type$JCPrimitiveType, constType, $Type*, Object$*)},
-	{"getAnnotationMirrors", "()Ljava/util/List;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Type$JCPrimitiveType, getAnnotationMirrors, $List*)},
-	{"getKind", "()Ljavax/lang/model/type/TypeKind;", nullptr, $PUBLIC, $virtualMethod(Type$JCPrimitiveType, getKind, $TypeKind*)},
-	{"getTag", "()Lcom/sun/tools/javac/code/TypeTag;", nullptr, $PUBLIC, $virtualMethod(Type$JCPrimitiveType, getTag, $TypeTag*)},
-	{"isFalse", "()Z", nullptr, $PUBLIC, $virtualMethod(Type$JCPrimitiveType, isFalse, bool)},
-	{"isIntegral", "()Z", nullptr, $PUBLIC, $virtualMethod(Type$JCPrimitiveType, isIntegral, bool)},
-	{"isNumeric", "()Z", nullptr, $PUBLIC, $virtualMethod(Type$JCPrimitiveType, isNumeric, bool)},
-	{"isPrimitive", "()Z", nullptr, $PUBLIC, $virtualMethod(Type$JCPrimitiveType, isPrimitive, bool)},
-	{"isPrimitiveOrVoid", "()Z", nullptr, $PUBLIC, $virtualMethod(Type$JCPrimitiveType, isPrimitiveOrVoid, bool)},
-	{"isTrue", "()Z", nullptr, $PUBLIC, $virtualMethod(Type$JCPrimitiveType, isTrue, bool)},
-	{"stringValue", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Type$JCPrimitiveType, stringValue, $String*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _Type$JCPrimitiveType_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.code.Type$JCPrimitiveType", "com.sun.tools.javac.code.Type", "JCPrimitiveType", $PUBLIC | $STATIC},
-	{"com.sun.tools.javac.code.Type$JCPrimitiveType$2", nullptr, nullptr, 0},
-	{"com.sun.tools.javac.code.Type$JCPrimitiveType$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Type$JCPrimitiveType_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.code.Type$JCPrimitiveType",
-	"com.sun.tools.javac.code.Type",
-	"javax.lang.model.type.PrimitiveType",
-	_Type$JCPrimitiveType_FieldInfo_,
-	_Type$JCPrimitiveType_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Type$JCPrimitiveType_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.code.Type"
-};
-
-$Object* allocate$Type$JCPrimitiveType($Class* clazz) {
-	return $of($alloc(Type$JCPrimitiveType));
-}
 
 $Annotation* Type$JCPrimitiveType::getAnnotation($Class* annotationType) {
 	 return this->$Type::getAnnotation(annotationType);
@@ -164,21 +103,13 @@ bool Type$JCPrimitiveType::isIntegral() {
 	$init($Type$5);
 	switch ($nc($Type$5::$SwitchMap$com$sun$tools$javac$code$TypeTag)->get($nc((this->tag))->ordinal())) {
 	case 1:
-		{}
 	case 2:
-		{}
 	case 3:
-		{}
 	case 4:
-		{}
 	case 5:
-		{
-			return true;
-		}
+		return true;
 	default:
-		{
-			return false;
-		}
+		return false;
 	}
 }
 
@@ -200,79 +131,61 @@ $Type* Type$JCPrimitiveType::constType(Object$* constValue) {
 }
 
 $String* Type$JCPrimitiveType::stringValue() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, cv, $Assert::checkNonNull($(constValue())));
 	$init($TypeTag);
 	if (this->tag == $TypeTag::BOOLEAN) {
-		return $nc(($cast($Integer, cv)))->intValue() == 0 ? "false"_s : "true"_s;
+		return $nc($cast($Integer, cv))->intValue() == 0 ? "false"_s : "true"_s;
+	} else if (this->tag == $TypeTag::CHAR) {
+		return $String::valueOf((char16_t)$nc($cast($Integer, cv))->intValue());
 	} else {
-		if (this->tag == $TypeTag::CHAR) {
-			return $String::valueOf((char16_t)$nc(($cast($Integer, cv)))->intValue());
-		} else {
-			return $nc($of(cv))->toString();
-		}
+		return $nc(cv)->toString();
 	}
 }
 
 bool Type$JCPrimitiveType::isFalse() {
 	$init($TypeTag);
 	bool var$0 = this->tag == $TypeTag::BOOLEAN && constValue() != nullptr;
-	return var$0 && $nc(($cast($Integer, $(constValue()))))->intValue() == 0;
+	return var$0 && $$sure($Integer, constValue())->intValue() == 0;
 }
 
 bool Type$JCPrimitiveType::isTrue() {
 	$init($TypeTag);
 	bool var$0 = this->tag == $TypeTag::BOOLEAN && constValue() != nullptr;
-	return var$0 && $nc(($cast($Integer, $(constValue()))))->intValue() != 0;
+	return var$0 && $$sure($Integer, constValue())->intValue() != 0;
 }
 
 $Object* Type$JCPrimitiveType::accept($TypeVisitor* v, Object$* p) {
-	return $of($nc(v)->visitPrimitive(this, p));
+	return $nc(v)->visitPrimitive(this, p);
 }
 
 $TypeKind* Type$JCPrimitiveType::getKind() {
 	$init($Type$5);
 	switch ($nc($Type$5::$SwitchMap$com$sun$tools$javac$code$TypeTag)->get($nc((this->tag))->ordinal())) {
 	case 2:
-		{
-			$init($TypeKind);
-			return $TypeKind::BYTE;
-		}
+		$init($TypeKind);
+		return $TypeKind::BYTE;
 	case 1:
-		{
-			$init($TypeKind);
-			return $TypeKind::CHAR;
-		}
+		$init($TypeKind);
+		return $TypeKind::CHAR;
 	case 3:
-		{
-			$init($TypeKind);
-			return $TypeKind::SHORT;
-		}
+		$init($TypeKind);
+		return $TypeKind::SHORT;
 	case 4:
-		{
-			$init($TypeKind);
-			return $TypeKind::INT;
-		}
+		$init($TypeKind);
+		return $TypeKind::INT;
 	case 5:
-		{
-			$init($TypeKind);
-			return $TypeKind::LONG;
-		}
+		$init($TypeKind);
+		return $TypeKind::LONG;
 	case 6:
-		{
-			$init($TypeKind);
-			return $TypeKind::FLOAT;
-		}
+		$init($TypeKind);
+		return $TypeKind::FLOAT;
 	case 7:
-		{
-			$init($TypeKind);
-			return $TypeKind::DOUBLE;
-		}
+		$init($TypeKind);
+		return $TypeKind::DOUBLE;
 	case 8:
-		{
-			$init($TypeKind);
-			return $TypeKind::BOOLEAN;
-		}
+		$init($TypeKind);
+		return $TypeKind::BOOLEAN;
 	}
 	$throwNew($AssertionError);
 }
@@ -285,7 +198,59 @@ Type$JCPrimitiveType::Type$JCPrimitiveType() {
 }
 
 $Class* Type$JCPrimitiveType::load$($String* name, bool initialize) {
-	$loadClass(Type$JCPrimitiveType, name, initialize, &_Type$JCPrimitiveType_ClassInfo_, allocate$Type$JCPrimitiveType);
+	$FieldInfo fieldInfos$$[] = {
+		{"tag", "Lcom/sun/tools/javac/code/TypeTag;", nullptr, 0, $field(Type$JCPrimitiveType, tag)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*getAnnotation", "(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;", nullptr, $PUBLIC},
+		{"*getAnnotationsByType", "(Ljava/lang/Class;)[Ljava/lang/annotation/Annotation;", nullptr, $PUBLIC},
+		{"*hashCode", "()I", nullptr, $PUBLIC},
+		{"<init>", "(Lcom/sun/tools/javac/code/TypeTag;Lcom/sun/tools/javac/code/Symbol$TypeSymbol;)V", nullptr, $PUBLIC, $method(Type$JCPrimitiveType, init$, void, $TypeTag*, $Symbol$TypeSymbol*)},
+		{"<init>", "(Lcom/sun/tools/javac/code/TypeTag;Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/code/TypeMetadata;)V", nullptr, $PRIVATE, $method(Type$JCPrimitiveType, init$, void, $TypeTag*, $Symbol$TypeSymbol*, $TypeMetadata*)},
+		{"accept", "(Ljavax/lang/model/type/TypeVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;P:Ljava/lang/Object;>(Ljavax/lang/model/type/TypeVisitor<TR;TP;>;TP;)TR;", $PUBLIC, $virtualMethod(Type$JCPrimitiveType, accept, $Object*, $TypeVisitor*, Object$*)},
+		{"cloneWithMetadata", "(Lcom/sun/tools/javac/code/TypeMetadata;)Lcom/sun/tools/javac/code/Type$JCPrimitiveType;", nullptr, $PUBLIC, $virtualMethod(Type$JCPrimitiveType, cloneWithMetadata, Type$JCPrimitiveType*, $TypeMetadata*)},
+		{"constType", "(Ljava/lang/Object;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(Type$JCPrimitiveType, constType, $Type*, Object$*)},
+		{"getAnnotationMirrors", "()Ljava/util/List;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Type$JCPrimitiveType, getAnnotationMirrors, $List*)},
+		{"getKind", "()Ljavax/lang/model/type/TypeKind;", nullptr, $PUBLIC, $virtualMethod(Type$JCPrimitiveType, getKind, $TypeKind*)},
+		{"getTag", "()Lcom/sun/tools/javac/code/TypeTag;", nullptr, $PUBLIC, $virtualMethod(Type$JCPrimitiveType, getTag, $TypeTag*)},
+		{"isFalse", "()Z", nullptr, $PUBLIC, $virtualMethod(Type$JCPrimitiveType, isFalse, bool)},
+		{"isIntegral", "()Z", nullptr, $PUBLIC, $virtualMethod(Type$JCPrimitiveType, isIntegral, bool)},
+		{"isNumeric", "()Z", nullptr, $PUBLIC, $virtualMethod(Type$JCPrimitiveType, isNumeric, bool)},
+		{"isPrimitive", "()Z", nullptr, $PUBLIC, $virtualMethod(Type$JCPrimitiveType, isPrimitive, bool)},
+		{"isPrimitiveOrVoid", "()Z", nullptr, $PUBLIC, $virtualMethod(Type$JCPrimitiveType, isPrimitiveOrVoid, bool)},
+		{"isTrue", "()Z", nullptr, $PUBLIC, $virtualMethod(Type$JCPrimitiveType, isTrue, bool)},
+		{"stringValue", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Type$JCPrimitiveType, stringValue, $String*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.code.Type$JCPrimitiveType", "com.sun.tools.javac.code.Type", "JCPrimitiveType", $PUBLIC | $STATIC},
+		{"com.sun.tools.javac.code.Type$JCPrimitiveType$2", nullptr, nullptr, 0},
+		{"com.sun.tools.javac.code.Type$JCPrimitiveType$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.code.Type$JCPrimitiveType",
+		"com.sun.tools.javac.code.Type",
+		"javax.lang.model.type.PrimitiveType",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.code.Type"
+	};
+	$loadClass(Type$JCPrimitiveType, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Type$JCPrimitiveType));
+	});
 	return class$;
 }
 

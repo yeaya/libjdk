@@ -28,6 +28,7 @@ class $import DiagnosticFormatter$Configuration$DiagnosticPart : public ::java::
 public:
 	DiagnosticFormatter$Configuration$DiagnosticPart();
 	static $Array<::com::sun::tools::javac::api::DiagnosticFormatter$Configuration$DiagnosticPart>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::com::sun::tools::javac::api::DiagnosticFormatter$Configuration$DiagnosticPart* valueOf($String* name);
 	static $Array<::com::sun::tools::javac::api::DiagnosticFormatter$Configuration$DiagnosticPart>* values();

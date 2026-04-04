@@ -62,6 +62,7 @@ class $export Main : public ::java::lang::Object {
 	$class(Main, 0, ::java::lang::Object)
 public:
 	Main();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::io::PrintStream* out);
 	void init$(::java::io::PrintWriter* out);
 	$String* compile(::java::nio::file::Path* file, ::java::util::List* javacOpts, ::com::sun::tools::javac::launcher::Main$Context* context);

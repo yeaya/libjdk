@@ -15,6 +15,7 @@ class Pretty$1 : public ::java::lang::Object {
 	$class(Pretty$1, 0, ::java::lang::Object)
 public:
 	Pretty$1();
+	static void clinit$(::java::lang::Class* clazz);
 	static $ints* $SwitchMap$com$sun$tools$javac$code$TypeTag;
 	static $ints* $SwitchMap$com$sun$tools$javac$tree$JCTree$Tag;
 };

@@ -1,9 +1,7 @@
 #include <javax/swing/TimerQueue.h>
-
 #include <java/io/Serializable.h>
 #include <java/lang/AssertionError.h>
 #include <java/lang/InterruptedException.h>
-#include <java/lang/Runnable.h>
 #include <java/lang/SecurityException.h>
 #include <java/lang/StringBuffer.h>
 #include <java/lang/ThreadDeath.h>
@@ -39,7 +37,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $InterruptedException = ::java::lang::InterruptedException;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
 using $SecurityException = ::java::lang::SecurityException;
 using $StringBuffer = ::java::lang::StringBuffer;
 using $ThreadDeath = ::java::lang::ThreadDeath;
@@ -51,8 +48,6 @@ using $Iterator = ::java::util::Iterator;
 using $DelayQueue = ::java::util::concurrent::DelayQueue;
 using $Delayed = ::java::util::concurrent::Delayed;
 using $TimeUnit = ::java::util::concurrent::TimeUnit;
-using $Condition = ::java::util::concurrent::locks::Condition;
-using $Lock = ::java::util::concurrent::locks::Lock;
 using $ReentrantLock = ::java::util::concurrent::locks::ReentrantLock;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $Timer = ::javax::swing::Timer;
@@ -72,89 +67,34 @@ public:
 	virtual $Object* run() override {
 		 return $nc(inst$)->lambda$startIfNeeded$0(threadGroup);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<TimerQueue$$Lambda$lambda$startIfNeeded$0>());
-	}
 	TimerQueue* inst$ = nullptr;
 	$ThreadGroup* threadGroup = nullptr;
-	static $FieldInfo fieldInfos[3];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo TimerQueue$$Lambda$lambda$startIfNeeded$0::fieldInfos[3] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(TimerQueue$$Lambda$lambda$startIfNeeded$0, inst$)},
-	{"threadGroup", "Ljava/lang/ThreadGroup;", nullptr, $PUBLIC, $field(TimerQueue$$Lambda$lambda$startIfNeeded$0, threadGroup)},
-	{}
-};
-$MethodInfo TimerQueue$$Lambda$lambda$startIfNeeded$0::methodInfos[3] = {
-	{"<init>", "(Ljavax/swing/TimerQueue;Ljava/lang/ThreadGroup;)V", nullptr, $PUBLIC, $method(TimerQueue$$Lambda$lambda$startIfNeeded$0, init$, void, TimerQueue*, $ThreadGroup*)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(TimerQueue$$Lambda$lambda$startIfNeeded$0, run, $Object*)},
-	{}
-};
-$ClassInfo TimerQueue$$Lambda$lambda$startIfNeeded$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"javax.swing.TimerQueue$$Lambda$lambda$startIfNeeded$0",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	fieldInfos,
-	methodInfos
 };
 $Class* TimerQueue$$Lambda$lambda$startIfNeeded$0::load$($String* name, bool initialize) {
-	$loadClass(TimerQueue$$Lambda$lambda$startIfNeeded$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(TimerQueue$$Lambda$lambda$startIfNeeded$0, inst$)},
+		{"threadGroup", "Ljava/lang/ThreadGroup;", nullptr, $PUBLIC, $field(TimerQueue$$Lambda$lambda$startIfNeeded$0, threadGroup)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/TimerQueue;Ljava/lang/ThreadGroup;)V", nullptr, $PUBLIC, $method(TimerQueue$$Lambda$lambda$startIfNeeded$0, init$, void, TimerQueue*, $ThreadGroup*)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(TimerQueue$$Lambda$lambda$startIfNeeded$0, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"javax.swing.TimerQueue$$Lambda$lambda$startIfNeeded$0",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TimerQueue$$Lambda$lambda$startIfNeeded$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TimerQueue$$Lambda$lambda$startIfNeeded$0);
+	});
 	return class$;
 }
 $Class* TimerQueue$$Lambda$lambda$startIfNeeded$0::class$ = nullptr;
-
-$FieldInfo _TimerQueue_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(TimerQueue, $assertionsDisabled)},
-	{"sharedInstanceKey", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(TimerQueue, sharedInstanceKey)},
-	{"expiredTimersKey", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(TimerQueue, expiredTimersKey)},
-	{"queue", "Ljava/util/concurrent/DelayQueue;", "Ljava/util/concurrent/DelayQueue<Ljavax/swing/TimerQueue$DelayedTimer;>;", $PRIVATE | $FINAL, $field(TimerQueue, queue)},
-	{"running", "Z", nullptr, $PRIVATE | $VOLATILE, $field(TimerQueue, running)},
-	{"runningLock", "Ljava/util/concurrent/locks/Lock;", nullptr, $PRIVATE | $FINAL, $field(TimerQueue, runningLock)},
-	{"classLock", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(TimerQueue, classLock)},
-	{"NANO_ORIGIN", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(TimerQueue, NANO_ORIGIN)},
-	{}
-};
-
-$MethodInfo _TimerQueue_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TimerQueue, init$, void)},
-	{"addTimer", "(Ljavax/swing/Timer;J)V", nullptr, 0, $virtualMethod(TimerQueue, addTimer, void, $Timer*, int64_t)},
-	{"addTimer", "(Ljavax/swing/TimerQueue$DelayedTimer;)V", nullptr, $PRIVATE, $method(TimerQueue, addTimer, void, $TimerQueue$DelayedTimer*)},
-	{"containsTimer", "(Ljavax/swing/Timer;)Z", nullptr, 0, $virtualMethod(TimerQueue, containsTimer, bool, $Timer*)},
-	{"lambda$startIfNeeded$0", "(Ljava/lang/ThreadGroup;)Ljava/lang/Object;", nullptr, $PRIVATE | $SYNTHETIC, $method(TimerQueue, lambda$startIfNeeded$0, $Object*, $ThreadGroup*)},
-	{"now", "()J", nullptr, $PRIVATE | $STATIC, $staticMethod(TimerQueue, now, int64_t)},
-	{"removeTimer", "(Ljavax/swing/Timer;)V", nullptr, 0, $virtualMethod(TimerQueue, removeTimer, void, $Timer*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TimerQueue, run, void)},
-	{"sharedInstance", "()Ljavax/swing/TimerQueue;", nullptr, $PUBLIC | $STATIC, $staticMethod(TimerQueue, sharedInstance, TimerQueue*)},
-	{"startIfNeeded", "()V", nullptr, 0, $virtualMethod(TimerQueue, startIfNeeded, void)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TimerQueue, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _TimerQueue_InnerClassesInfo_[] = {
-	{"javax.swing.TimerQueue$DelayedTimer", "javax.swing.TimerQueue", "DelayedTimer", $STATIC},
-	{}
-};
-
-$ClassInfo _TimerQueue_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.TimerQueue",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	_TimerQueue_FieldInfo_,
-	_TimerQueue_MethodInfo_,
-	nullptr,
-	nullptr,
-	_TimerQueue_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.swing.TimerQueue$DelayedTimer"
-};
-
-$Object* allocate$TimerQueue($Class* clazz) {
-	return $of($alloc(TimerQueue));
-}
 
 bool TimerQueue::$assertionsDisabled = false;
 $Object* TimerQueue::sharedInstanceKey = nullptr;
@@ -181,206 +121,192 @@ TimerQueue* TimerQueue::sharedInstance() {
 }
 
 void TimerQueue::startIfNeeded() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	if (!this->running) {
-		$nc(this->runningLock)->lock();
+		this->runningLock->lock();
 		if (this->running) {
 			return;
 		}
-		{
-			$var($Throwable, var$0, nullptr);
-			try {
-				$var($ThreadGroup, threadGroup, $nc($($AppContext::getAppContext()))->getThreadGroup());
-				$AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new(TimerQueue$$Lambda$lambda$startIfNeeded$0, this, threadGroup)));
-				this->running = true;
-			} catch ($Throwable& var$1) {
-				$assign(var$0, var$1);
-			} /*finally*/ {
-				$nc(this->runningLock)->unlock();
-			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
+		$var($Throwable, var$0, nullptr);
+		try {
+			$var($ThreadGroup, threadGroup, $$nc($AppContext::getAppContext())->getThreadGroup());
+			$AccessController::doPrivileged($cast($PrivilegedAction, $$new(TimerQueue$$Lambda$lambda$startIfNeeded$0, this, threadGroup)));
+			this->running = true;
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
+		} /*finally*/ {
+			this->runningLock->unlock();
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	}
 }
 
 void TimerQueue::addTimer($Timer* timer, int64_t delayMillis) {
-	$useLocalCurrentObjectStackCache();
-	$nc($($nc(timer)->getLock()))->lock();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			if (!containsTimer(timer)) {
-				$init($TimeUnit);
-				int64_t var$1 = $TimeUnit::MILLISECONDS->toNanos(delayMillis);
-				addTimer($$new($TimerQueue$DelayedTimer, timer, var$1 + now()));
-			}
-		} catch ($Throwable& var$2) {
-			$assign(var$0, var$2);
-		} /*finally*/ {
-			$nc($(timer->getLock()))->unlock();
+	$useLocalObjectStack();
+	$$nc($nc(timer)->getLock())->lock();
+	$var($Throwable, var$0, nullptr);
+	try {
+		if (!containsTimer(timer)) {
+			$init($TimeUnit);
+			int64_t var$1 = $TimeUnit::MILLISECONDS->toNanos(delayMillis);
+			addTimer($$new($TimerQueue$DelayedTimer, timer, var$1 + now()));
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	} catch ($Throwable& var$2) {
+		$assign(var$0, var$2);
+	} /*finally*/ {
+		$$nc(timer->getLock())->unlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 void TimerQueue::addTimer($TimerQueue$DelayedTimer* delayedTimer) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!TimerQueue::$assertionsDisabled && !(delayedTimer != nullptr && !containsTimer($(delayedTimer->getTimer())))) {
 		$throwNew($AssertionError);
 	}
 	$var($Timer, timer, $nc(delayedTimer)->getTimer());
-	$nc($($nc(timer)->getLock()))->lock();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$set(timer, delayedTimer, delayedTimer);
-			$nc(this->queue)->add(static_cast<$Delayed*>(delayedTimer));
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$nc($(timer->getLock()))->unlock();
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	$$nc($nc(timer)->getLock())->lock();
+	$var($Throwable, var$0, nullptr);
+	try {
+		$set(timer, delayedTimer, delayedTimer);
+		this->queue->add(delayedTimer);
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$$nc(timer->getLock())->unlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 void TimerQueue::removeTimer($Timer* timer) {
-	$useLocalCurrentObjectStackCache();
-	$nc($($nc(timer)->getLock()))->lock();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			if (timer->delayedTimer != nullptr) {
-				$nc(this->queue)->remove(timer->delayedTimer);
-				$set(timer, delayedTimer, nullptr);
-			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$nc($(timer->getLock()))->unlock();
+	$useLocalObjectStack();
+	$$nc($nc(timer)->getLock())->lock();
+	$var($Throwable, var$0, nullptr);
+	try {
+		if (timer->delayedTimer != nullptr) {
+			this->queue->remove(timer->delayedTimer);
+			$set(timer, delayedTimer, nullptr);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$$nc(timer->getLock())->unlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 bool TimerQueue::containsTimer($Timer* timer) {
-	$useLocalCurrentObjectStackCache();
-	$nc($($nc(timer)->getLock()))->lock();
-	{
-		$var($Throwable, var$0, nullptr);
-		bool var$2 = false;
-		bool return$1 = false;
-		try {
-			var$2 = timer->delayedTimer != nullptr;
-			return$1 = true;
-			goto $finally;
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			$nc($(timer->getLock()))->unlock();
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+	$useLocalObjectStack();
+	$$nc($nc(timer)->getLock())->lock();
+	$var($Throwable, var$0, nullptr);
+	bool var$2 = false;
+	bool return$1 = false;
+	try {
+		var$2 = timer->delayedTimer != nullptr;
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		$$nc(timer->getLock())->unlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
 
 void TimerQueue::run() {
-	$useLocalCurrentObjectStackCache();
-	$nc(this->runningLock)->lock();
-	{
-		$var($Throwable, var$0, nullptr);
+	$useLocalObjectStack();
+	this->runningLock->lock();
+	$var($Throwable, var$0, nullptr);
+	try {
 		try {
-			try {
-				while (this->running) {
+			while (this->running) {
+				try {
+					$var($TimerQueue$DelayedTimer, runningTimer, $cast($TimerQueue$DelayedTimer, $cast($Delayed, this->queue->take())));
+					$var($Timer, timer, $nc(runningTimer)->getTimer());
+					$$nc($nc(timer)->getLock())->lock();
+					$var($Throwable, var$1, nullptr);
 					try {
-						$var($TimerQueue$DelayedTimer, runningTimer, $cast($TimerQueue$DelayedTimer, $cast($Delayed, $nc(this->queue)->take())));
-						$var($Timer, timer, $nc(runningTimer)->getTimer());
-						$nc($($nc(timer)->getLock()))->lock();
-						{
-							$var($Throwable, var$1, nullptr);
-							try {
-								try {
-									$var($TimerQueue$DelayedTimer, delayedTimer, timer->delayedTimer);
-									if (delayedTimer == runningTimer) {
-										timer->post();
-										$set(timer, delayedTimer, nullptr);
-										if (timer->isRepeats()) {
-											int64_t var$2 = now();
-											$init($TimeUnit);
-											$nc(delayedTimer)->setTime(var$2 + $TimeUnit::MILLISECONDS->toNanos(timer->getDelay()));
-											addTimer(delayedTimer);
-										}
-									}
-									$nc($($nc($(timer->getLock()))->newCondition()))->awaitNanos(1);
-								} catch ($SecurityException& ignore) {
+						try {
+							$var($TimerQueue$DelayedTimer, delayedTimer, timer->delayedTimer);
+							if (delayedTimer == runningTimer) {
+								timer->post();
+								$set(timer, delayedTimer, nullptr);
+								if (timer->isRepeats()) {
+									int64_t var$2 = now();
+									$init($TimeUnit);
+									$nc(delayedTimer)->setTime(var$2 + $TimeUnit::MILLISECONDS->toNanos(timer->getDelay()));
+									addTimer(delayedTimer);
 								}
-							} catch ($Throwable& var$3) {
-								$assign(var$1, var$3);
-							} /*finally*/ {
-								$nc($(timer->getLock()))->unlock();
 							}
-							if (var$1 != nullptr) {
-								$throw(var$1);
-							}
+							$$nc($$nc(timer->getLock())->newCondition())->awaitNanos(1);
+						} catch ($SecurityException& ignore) {
 						}
-					} catch ($InterruptedException& ie) {
-						if ($nc($($AppContext::getAppContext()))->isDisposed()) {
-							break;
-						}
+					} catch ($Throwable& var$3) {
+						$assign(var$1, var$3);
+					} /*finally*/ {
+						$$nc(timer->getLock())->unlock();
+					}
+					if (var$1 != nullptr) {
+						$throw(var$1);
+					}
+				} catch ($InterruptedException& ie) {
+					if ($$nc($AppContext::getAppContext())->isDisposed()) {
+						break;
 					}
 				}
-			} catch ($ThreadDeath& td) {
-				{
-					$var($Iterator, i$, $nc(this->queue)->iterator());
-					for (; $nc(i$)->hasNext();) {
-						$var($TimerQueue$DelayedTimer, delayedTimer, $cast($TimerQueue$DelayedTimer, i$->next()));
-						{
-							$nc($($nc(delayedTimer)->getTimer()))->cancelEvent();
-						}
-					}
-				}
-				$throw(td);
 			}
-		} catch ($Throwable& var$4) {
-			$assign(var$0, var$4);
-		} /*finally*/ {
-			this->running = false;
-			$nc(this->runningLock)->unlock();
+		} catch ($ThreadDeath& td) {
+			{
+				$var($Iterator, i$, this->queue->iterator());
+				for (; $nc(i$)->hasNext();) {
+					$var($TimerQueue$DelayedTimer, delayedTimer, $cast($TimerQueue$DelayedTimer, i$->next()));
+					{
+						$$nc($nc(delayedTimer)->getTimer())->cancelEvent();
+					}
+				}
+			}
+			$throw(td);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	} catch ($Throwable& var$4) {
+		$assign(var$0, var$4);
+	} /*finally*/ {
+		this->running = false;
+		this->runningLock->unlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 $String* TimerQueue::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, buf, $new($StringBuilder));
 	buf->append("TimerQueue ("_s);
 	bool isFirst = true;
 	{
-		$var($Iterator, i$, $nc(this->queue)->iterator());
+		$var($Iterator, i$, this->queue->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($TimerQueue$DelayedTimer, delayedTimer, $cast($TimerQueue$DelayedTimer, i$->next()));
 			{
 				if (!isFirst) {
 					buf->append(", "_s);
 				}
-				buf->append($($nc($of($($nc(delayedTimer)->getTimer())))->toString()));
+				buf->append($($$nc($nc(delayedTimer)->getTimer())->toString()));
 				isFirst = false;
 			}
 		}
@@ -395,16 +321,16 @@ int64_t TimerQueue::now() {
 }
 
 $Object* TimerQueue::lambda$startIfNeeded$0($ThreadGroup* threadGroup) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, name, "TimerQueue"_s);
 	$var($Thread, timerThread, $new($Thread, threadGroup, this, name, 0, false));
 	timerThread->setDaemon(true);
 	timerThread->setPriority($Thread::NORM_PRIORITY);
 	timerThread->start();
-	return $of(nullptr);
+	return nullptr;
 }
 
-void clinit$TimerQueue($Class* class$) {
+void TimerQueue::clinit$($Class* clazz) {
 	TimerQueue::$assertionsDisabled = !TimerQueue::class$->desiredAssertionStatus();
 	$assignStatic(TimerQueue::sharedInstanceKey, $new($StringBuffer, "TimerQueue.sharedInstanceKey"_s));
 	$assignStatic(TimerQueue::expiredTimersKey, $new($StringBuffer, "TimerQueue.expiredTimersKey"_s));
@@ -417,11 +343,56 @@ TimerQueue::TimerQueue() {
 
 $Class* TimerQueue::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(TimerQueue$$Lambda$lambda$startIfNeeded$0::classInfo$.name)) {
+		if (name->equals("javax.swing.TimerQueue$$Lambda$lambda$startIfNeeded$0")) {
 			return TimerQueue$$Lambda$lambda$startIfNeeded$0::load$(name, initialize);
 		}
 	}
-	$loadClass(TimerQueue, name, initialize, &_TimerQueue_ClassInfo_, clinit$TimerQueue, allocate$TimerQueue);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(TimerQueue, $assertionsDisabled)},
+		{"sharedInstanceKey", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(TimerQueue, sharedInstanceKey)},
+		{"expiredTimersKey", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(TimerQueue, expiredTimersKey)},
+		{"queue", "Ljava/util/concurrent/DelayQueue;", "Ljava/util/concurrent/DelayQueue<Ljavax/swing/TimerQueue$DelayedTimer;>;", $PRIVATE | $FINAL, $field(TimerQueue, queue)},
+		{"running", "Z", nullptr, $PRIVATE | $VOLATILE, $field(TimerQueue, running)},
+		{"runningLock", "Ljava/util/concurrent/locks/Lock;", nullptr, $PRIVATE | $FINAL, $field(TimerQueue, runningLock)},
+		{"classLock", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(TimerQueue, classLock)},
+		{"NANO_ORIGIN", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(TimerQueue, NANO_ORIGIN)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TimerQueue, init$, void)},
+		{"addTimer", "(Ljavax/swing/Timer;J)V", nullptr, 0, $virtualMethod(TimerQueue, addTimer, void, $Timer*, int64_t)},
+		{"addTimer", "(Ljavax/swing/TimerQueue$DelayedTimer;)V", nullptr, $PRIVATE, $method(TimerQueue, addTimer, void, $TimerQueue$DelayedTimer*)},
+		{"containsTimer", "(Ljavax/swing/Timer;)Z", nullptr, 0, $virtualMethod(TimerQueue, containsTimer, bool, $Timer*)},
+		{"lambda$startIfNeeded$0", "(Ljava/lang/ThreadGroup;)Ljava/lang/Object;", nullptr, $PRIVATE | $SYNTHETIC, $method(TimerQueue, lambda$startIfNeeded$0, $Object*, $ThreadGroup*)},
+		{"now", "()J", nullptr, $PRIVATE | $STATIC, $staticMethod(TimerQueue, now, int64_t)},
+		{"removeTimer", "(Ljavax/swing/Timer;)V", nullptr, 0, $virtualMethod(TimerQueue, removeTimer, void, $Timer*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TimerQueue, run, void)},
+		{"sharedInstance", "()Ljavax/swing/TimerQueue;", nullptr, $PUBLIC | $STATIC, $staticMethod(TimerQueue, sharedInstance, TimerQueue*)},
+		{"startIfNeeded", "()V", nullptr, 0, $virtualMethod(TimerQueue, startIfNeeded, void)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TimerQueue, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.TimerQueue$DelayedTimer", "javax.swing.TimerQueue", "DelayedTimer", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.TimerQueue",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.swing.TimerQueue$DelayedTimer"
+	};
+	$loadClass(TimerQueue, name, initialize, &classInfo$$, TimerQueue::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(TimerQueue);
+	});
 	return class$;
 }
 

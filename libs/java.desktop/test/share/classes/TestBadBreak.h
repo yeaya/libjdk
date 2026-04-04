@@ -27,6 +27,7 @@ class $export TestBadBreak : public ::java::lang::Object {
 	$class(TestBadBreak, 0, ::java::lang::Object)
 public:
 	TestBadBreak();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void lambda$test$0();
 	static void main($StringArray* args);

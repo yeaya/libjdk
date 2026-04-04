@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/code/Scope$LookupKind.h>
-
 #include <com/sun/tools/javac/code/Scope.h>
 #include <java/lang/Enum.h>
 #include <jcpp.h>
@@ -19,46 +18,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace code {
-
-$FieldInfo _Scope$LookupKind_FieldInfo_[] = {
-	{"RECURSIVE", "Lcom/sun/tools/javac/code/Scope$LookupKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Scope$LookupKind, RECURSIVE)},
-	{"NON_RECURSIVE", "Lcom/sun/tools/javac/code/Scope$LookupKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Scope$LookupKind, NON_RECURSIVE)},
-	{"$VALUES", "[Lcom/sun/tools/javac/code/Scope$LookupKind;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(Scope$LookupKind, $VALUES)},
-	{}
-};
-
-$MethodInfo _Scope$LookupKind_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/javac/code/Scope$LookupKind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Scope$LookupKind, $values, $Scope$LookupKindArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(Scope$LookupKind, init$, void, $String*, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/code/Scope$LookupKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(Scope$LookupKind, valueOf, Scope$LookupKind*, $String*)},
-	{"values", "()[Lcom/sun/tools/javac/code/Scope$LookupKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(Scope$LookupKind, values, $Scope$LookupKindArray*)},
-	{}
-};
-
-$InnerClassInfo _Scope$LookupKind_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.code.Scope$LookupKind", "com.sun.tools.javac.code.Scope", "LookupKind", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _Scope$LookupKind_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"com.sun.tools.javac.code.Scope$LookupKind",
-	"java.lang.Enum",
-	nullptr,
-	_Scope$LookupKind_FieldInfo_,
-	_Scope$LookupKind_MethodInfo_,
-	"Ljava/lang/Enum<Lcom/sun/tools/javac/code/Scope$LookupKind;>;",
-	nullptr,
-	_Scope$LookupKind_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.code.Scope"
-};
-
-$Object* allocate$Scope$LookupKind($Class* clazz) {
-	return $of($alloc(Scope$LookupKind));
-}
 
 Scope$LookupKind* Scope$LookupKind::RECURSIVE = nullptr;
 Scope$LookupKind* Scope$LookupKind::NON_RECURSIVE = nullptr;
@@ -86,7 +45,7 @@ void Scope$LookupKind::init$($String* $enum$name, int32_t $enum$ordinal) {
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$Scope$LookupKind($Class* class$) {
+void Scope$LookupKind::clinit$($Class* clazz) {
 	$assignStatic(Scope$LookupKind::RECURSIVE, $new(Scope$LookupKind, "RECURSIVE"_s, 0));
 	$assignStatic(Scope$LookupKind::NON_RECURSIVE, $new(Scope$LookupKind, "NON_RECURSIVE"_s, 1));
 	$assignStatic(Scope$LookupKind::$VALUES, Scope$LookupKind::$values());
@@ -96,7 +55,41 @@ Scope$LookupKind::Scope$LookupKind() {
 }
 
 $Class* Scope$LookupKind::load$($String* name, bool initialize) {
-	$loadClass(Scope$LookupKind, name, initialize, &_Scope$LookupKind_ClassInfo_, clinit$Scope$LookupKind, allocate$Scope$LookupKind);
+	$FieldInfo fieldInfos$$[] = {
+		{"RECURSIVE", "Lcom/sun/tools/javac/code/Scope$LookupKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Scope$LookupKind, RECURSIVE)},
+		{"NON_RECURSIVE", "Lcom/sun/tools/javac/code/Scope$LookupKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Scope$LookupKind, NON_RECURSIVE)},
+		{"$VALUES", "[Lcom/sun/tools/javac/code/Scope$LookupKind;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(Scope$LookupKind, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lcom/sun/tools/javac/code/Scope$LookupKind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Scope$LookupKind, $values, $Scope$LookupKindArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(Scope$LookupKind, init$, void, $String*, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/code/Scope$LookupKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(Scope$LookupKind, valueOf, Scope$LookupKind*, $String*)},
+		{"values", "()[Lcom/sun/tools/javac/code/Scope$LookupKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(Scope$LookupKind, values, $Scope$LookupKindArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.code.Scope$LookupKind", "com.sun.tools.javac.code.Scope", "LookupKind", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"com.sun.tools.javac.code.Scope$LookupKind",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lcom/sun/tools/javac/code/Scope$LookupKind;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.code.Scope"
+	};
+	$loadClass(Scope$LookupKind, name, initialize, &classInfo$$, Scope$LookupKind::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Scope$LookupKind));
+	});
 	return class$;
 }
 

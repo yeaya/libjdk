@@ -1,5 +1,4 @@
 #include <com/sun/rowset/providers/RIXMLProvider.h>
-
 #include <com/sun/rowset/JdbcRowSetResourceBundle.h>
 #include <java/io/IOException.h>
 #include <java/lang/UnsupportedOperationException.h>
@@ -32,57 +31,16 @@ namespace com {
 		namespace rowset {
 			namespace providers {
 
-$FieldInfo _RIXMLProvider_FieldInfo_[] = {
-	{"providerID", "Ljava/lang/String;", nullptr, $PRIVATE, $field(RIXMLProvider, providerID)},
-	{"vendorName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(RIXMLProvider, vendorName)},
-	{"versionNumber", "Ljava/lang/String;", nullptr, $PRIVATE, $field(RIXMLProvider, versionNumber)},
-	{"resBundle", "Lcom/sun/rowset/JdbcRowSetResourceBundle;", nullptr, $PRIVATE, $field(RIXMLProvider, resBundle)},
-	{"xmlReader", "Ljavax/sql/rowset/spi/XmlReader;", nullptr, $PRIVATE, $field(RIXMLProvider, xmlReader)},
-	{"xmlWriter", "Ljavax/sql/rowset/spi/XmlWriter;", nullptr, $PRIVATE, $field(RIXMLProvider, xmlWriter)},
-	{}
-};
-
-$MethodInfo _RIXMLProvider_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(RIXMLProvider, init$, void)},
-	{"getDataSourceLock", "()I", nullptr, $PUBLIC, $virtualMethod(RIXMLProvider, getDataSourceLock, int32_t), "javax.sql.rowset.spi.SyncProviderException"},
-	{"getProviderGrade", "()I", nullptr, $PUBLIC, $virtualMethod(RIXMLProvider, getProviderGrade, int32_t)},
-	{"getProviderID", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RIXMLProvider, getProviderID, $String*)},
-	{"getRowSetReader", "()Ljavax/sql/RowSetReader;", nullptr, $PUBLIC, $virtualMethod(RIXMLProvider, getRowSetReader, $RowSetReader*)},
-	{"getRowSetWriter", "()Ljavax/sql/RowSetWriter;", nullptr, $PUBLIC, $virtualMethod(RIXMLProvider, getRowSetWriter, $RowSetWriter*)},
-	{"getVendor", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RIXMLProvider, getVendor, $String*)},
-	{"getVersion", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RIXMLProvider, getVersion, $String*)},
-	{"getXmlReader", "()Ljavax/sql/rowset/spi/XmlReader;", nullptr, $PUBLIC, $method(RIXMLProvider, getXmlReader, $XmlReader*), "java.sql.SQLException"},
-	{"getXmlWriter", "()Ljavax/sql/rowset/spi/XmlWriter;", nullptr, $PUBLIC, $method(RIXMLProvider, getXmlWriter, $XmlWriter*), "java.sql.SQLException"},
-	{"setDataSourceLock", "(I)V", nullptr, $PUBLIC, $virtualMethod(RIXMLProvider, setDataSourceLock, void, int32_t), "javax.sql.rowset.spi.SyncProviderException"},
-	{"setXmlReader", "(Ljavax/sql/rowset/spi/XmlReader;)V", nullptr, $PUBLIC, $method(RIXMLProvider, setXmlReader, void, $XmlReader*), "java.sql.SQLException"},
-	{"setXmlWriter", "(Ljavax/sql/rowset/spi/XmlWriter;)V", nullptr, $PUBLIC, $method(RIXMLProvider, setXmlWriter, void, $XmlWriter*), "java.sql.SQLException"},
-	{"supportsUpdatableView", "()I", nullptr, $PUBLIC, $virtualMethod(RIXMLProvider, supportsUpdatableView, int32_t)},
-	{}
-};
-
-$ClassInfo _RIXMLProvider_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.rowset.providers.RIXMLProvider",
-	"javax.sql.rowset.spi.SyncProvider",
-	nullptr,
-	_RIXMLProvider_FieldInfo_,
-	_RIXMLProvider_MethodInfo_
-};
-
-$Object* allocate$RIXMLProvider($Class* clazz) {
-	return $of($alloc(RIXMLProvider));
-}
-
 void RIXMLProvider::init$() {
 	$SyncProvider::init$();
 	$set(this, providerID, "com.sun.rowset.providers.RIXMLProvider"_s);
 	$set(this, vendorName, "Oracle Corporation"_s);
 	$set(this, versionNumber, "1.0"_s);
-	$set(this, providerID, $of(this)->getClass()->getName());
+	$set(this, providerID, this->getClass()->getName());
 	try {
 		$set(this, resBundle, $JdbcRowSetResourceBundle::getJdbcRowSetResourceBundle());
 	} catch ($IOException& ioe) {
-		$throwNew($RuntimeException, static_cast<$Throwable*>(ioe));
+		$throwNew($RuntimeException, ioe);
 	}
 }
 
@@ -119,8 +77,8 @@ int32_t RIXMLProvider::getDataSourceLock() {
 }
 
 void RIXMLProvider::setDataSourceLock(int32_t lock) {
-	$useLocalCurrentObjectStackCache();
-	$throwNew($UnsupportedOperationException, $($nc($of($($nc(this->resBundle)->handleGetObject("rixml.unsupp"_s))))->toString()));
+	$useLocalObjectStack();
+	$throwNew($UnsupportedOperationException, $($$nc($nc(this->resBundle)->handleGetObject("rixml.unsupp"_s))->toString()));
 }
 
 $RowSetWriter* RIXMLProvider::getRowSetWriter() {
@@ -143,7 +101,43 @@ RIXMLProvider::RIXMLProvider() {
 }
 
 $Class* RIXMLProvider::load$($String* name, bool initialize) {
-	$loadClass(RIXMLProvider, name, initialize, &_RIXMLProvider_ClassInfo_, allocate$RIXMLProvider);
+	$FieldInfo fieldInfos$$[] = {
+		{"providerID", "Ljava/lang/String;", nullptr, $PRIVATE, $field(RIXMLProvider, providerID)},
+		{"vendorName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(RIXMLProvider, vendorName)},
+		{"versionNumber", "Ljava/lang/String;", nullptr, $PRIVATE, $field(RIXMLProvider, versionNumber)},
+		{"resBundle", "Lcom/sun/rowset/JdbcRowSetResourceBundle;", nullptr, $PRIVATE, $field(RIXMLProvider, resBundle)},
+		{"xmlReader", "Ljavax/sql/rowset/spi/XmlReader;", nullptr, $PRIVATE, $field(RIXMLProvider, xmlReader)},
+		{"xmlWriter", "Ljavax/sql/rowset/spi/XmlWriter;", nullptr, $PRIVATE, $field(RIXMLProvider, xmlWriter)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(RIXMLProvider, init$, void)},
+		{"getDataSourceLock", "()I", nullptr, $PUBLIC, $virtualMethod(RIXMLProvider, getDataSourceLock, int32_t), "javax.sql.rowset.spi.SyncProviderException"},
+		{"getProviderGrade", "()I", nullptr, $PUBLIC, $virtualMethod(RIXMLProvider, getProviderGrade, int32_t)},
+		{"getProviderID", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RIXMLProvider, getProviderID, $String*)},
+		{"getRowSetReader", "()Ljavax/sql/RowSetReader;", nullptr, $PUBLIC, $virtualMethod(RIXMLProvider, getRowSetReader, $RowSetReader*)},
+		{"getRowSetWriter", "()Ljavax/sql/RowSetWriter;", nullptr, $PUBLIC, $virtualMethod(RIXMLProvider, getRowSetWriter, $RowSetWriter*)},
+		{"getVendor", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RIXMLProvider, getVendor, $String*)},
+		{"getVersion", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RIXMLProvider, getVersion, $String*)},
+		{"getXmlReader", "()Ljavax/sql/rowset/spi/XmlReader;", nullptr, $PUBLIC, $method(RIXMLProvider, getXmlReader, $XmlReader*), "java.sql.SQLException"},
+		{"getXmlWriter", "()Ljavax/sql/rowset/spi/XmlWriter;", nullptr, $PUBLIC, $method(RIXMLProvider, getXmlWriter, $XmlWriter*), "java.sql.SQLException"},
+		{"setDataSourceLock", "(I)V", nullptr, $PUBLIC, $virtualMethod(RIXMLProvider, setDataSourceLock, void, int32_t), "javax.sql.rowset.spi.SyncProviderException"},
+		{"setXmlReader", "(Ljavax/sql/rowset/spi/XmlReader;)V", nullptr, $PUBLIC, $method(RIXMLProvider, setXmlReader, void, $XmlReader*), "java.sql.SQLException"},
+		{"setXmlWriter", "(Ljavax/sql/rowset/spi/XmlWriter;)V", nullptr, $PUBLIC, $method(RIXMLProvider, setXmlWriter, void, $XmlWriter*), "java.sql.SQLException"},
+		{"supportsUpdatableView", "()I", nullptr, $PUBLIC, $virtualMethod(RIXMLProvider, supportsUpdatableView, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.rowset.providers.RIXMLProvider",
+		"javax.sql.rowset.spi.SyncProvider",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(RIXMLProvider, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RIXMLProvider);
+	});
 	return class$;
 }
 

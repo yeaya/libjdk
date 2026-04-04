@@ -1,5 +1,4 @@
 #include <com/sun/rowset/internal/CachedRowSetWriter.h>
-
 #include <com/sun/rowset/CachedRowSetImpl.h>
 #include <com/sun/rowset/JdbcRowSetResourceBundle.h>
 #include <com/sun/rowset/internal/CachedRowSetReader.h>
@@ -16,7 +15,6 @@
 #include <java/sql/ResultSetMetaData.h>
 #include <java/sql/SQLData.h>
 #include <java/sql/SQLException.h>
-#include <java/sql/SQLInput.h>
 #include <java/sql/Savepoint.h>
 #include <java/sql/Struct.h>
 #include <java/sql/Types.h>
@@ -24,7 +22,6 @@
 #include <java/util/Map.h>
 #include <java/util/Vector.h>
 #include <javax/sql/RowSetInternal.h>
-#include <javax/sql/RowSetMetaData.h>
 #include <javax/sql/rowset/CachedRowSet.h>
 #include <javax/sql/rowset/RowSetMetaDataImpl.h>
 #include <javax/sql/rowset/serial/SQLInputImpl.h>
@@ -73,7 +70,6 @@ using $ResultSet = ::java::sql::ResultSet;
 using $ResultSetMetaData = ::java::sql::ResultSetMetaData;
 using $SQLData = ::java::sql::SQLData;
 using $SQLException = ::java::sql::SQLException;
-using $SQLInput = ::java::sql::SQLInput;
 using $Savepoint = ::java::sql::Savepoint;
 using $Struct = ::java::sql::Struct;
 using $Types = ::java::sql::Types;
@@ -81,7 +77,6 @@ using $ArrayList = ::java::util::ArrayList;
 using $Map = ::java::util::Map;
 using $Vector = ::java::util::Vector;
 using $RowSetInternal = ::javax::sql::RowSetInternal;
-using $RowSetMetaData = ::javax::sql::RowSetMetaData;
 using $CachedRowSet = ::javax::sql::rowset::CachedRowSet;
 using $RowSetMetaDataImpl = ::javax::sql::rowset::RowSetMetaDataImpl;
 using $SQLInputImpl = ::javax::sql::rowset::serial::SQLInputImpl;
@@ -98,68 +93,6 @@ namespace com {
 	namespace sun {
 		namespace rowset {
 			namespace internal {
-
-$FieldInfo _CachedRowSetWriter_FieldInfo_[] = {
-	{"con", "Ljava/sql/Connection;", nullptr, $PRIVATE | $TRANSIENT, $field(CachedRowSetWriter, con)},
-	{"selectCmd", "Ljava/lang/String;", nullptr, $PRIVATE, $field(CachedRowSetWriter, selectCmd)},
-	{"updateCmd", "Ljava/lang/String;", nullptr, $PRIVATE, $field(CachedRowSetWriter, updateCmd)},
-	{"updateWhere", "Ljava/lang/String;", nullptr, $PRIVATE, $field(CachedRowSetWriter, updateWhere)},
-	{"deleteCmd", "Ljava/lang/String;", nullptr, $PRIVATE, $field(CachedRowSetWriter, deleteCmd)},
-	{"deleteWhere", "Ljava/lang/String;", nullptr, $PRIVATE, $field(CachedRowSetWriter, deleteWhere)},
-	{"insertCmd", "Ljava/lang/String;", nullptr, $PRIVATE, $field(CachedRowSetWriter, insertCmd)},
-	{"keyCols", "[I", nullptr, $PRIVATE, $field(CachedRowSetWriter, keyCols)},
-	{"params", "[Ljava/lang/Object;", nullptr, $PRIVATE, $field(CachedRowSetWriter, params)},
-	{"reader", "Lcom/sun/rowset/internal/CachedRowSetReader;", nullptr, $PRIVATE, $field(CachedRowSetWriter, reader)},
-	{"callerMd", "Ljava/sql/ResultSetMetaData;", nullptr, $PRIVATE, $field(CachedRowSetWriter, callerMd)},
-	{"callerColumnCount", "I", nullptr, $PRIVATE, $field(CachedRowSetWriter, callerColumnCount)},
-	{"crsResolve", "Lcom/sun/rowset/CachedRowSetImpl;", nullptr, $PRIVATE, $field(CachedRowSetWriter, crsResolve)},
-	{"status", "Ljava/util/ArrayList;", "Ljava/util/ArrayList<Ljava/lang/Integer;>;", $PRIVATE, $field(CachedRowSetWriter, status)},
-	{"iChangedValsInDbAndCRS", "I", nullptr, $PRIVATE, $field(CachedRowSetWriter, iChangedValsInDbAndCRS)},
-	{"iChangedValsinDbOnly", "I", nullptr, $PRIVATE, $field(CachedRowSetWriter, iChangedValsinDbOnly)},
-	{"resBundle", "Lcom/sun/rowset/JdbcRowSetResourceBundle;", nullptr, $PRIVATE, $field(CachedRowSetWriter, resBundle)},
-	{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(CachedRowSetWriter, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _CachedRowSetWriter_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(CachedRowSetWriter, init$, void)},
-	{"buildKeyDesc", "(Ljavax/sql/rowset/CachedRowSet;)V", nullptr, $PRIVATE, $method(CachedRowSetWriter, buildKeyDesc, void, $CachedRowSet*), "java.sql.SQLException"},
-	{"buildTableName", "(Ljava/sql/DatabaseMetaData;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(CachedRowSetWriter, buildTableName, $String*, $DatabaseMetaData*, $String*, $String*, $String*), "java.sql.SQLException"},
-	{"buildWhereClause", "(Ljava/lang/String;Ljava/sql/ResultSet;)Ljava/lang/String;", nullptr, $PRIVATE, $method(CachedRowSetWriter, buildWhereClause, $String*, $String*, $ResultSet*), "java.sql.SQLException"},
-	{"commit", "()V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetWriter, commit, void), "java.sql.SQLException"},
-	{"commit", "(Lcom/sun/rowset/CachedRowSetImpl;Z)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetWriter, commit, void, $CachedRowSetImpl*, bool), "java.sql.SQLException"},
-	{"deleteOriginalRow", "(Ljavax/sql/rowset/CachedRowSet;Lcom/sun/rowset/CachedRowSetImpl;)Z", nullptr, $PRIVATE, $method(CachedRowSetWriter, deleteOriginalRow, bool, $CachedRowSet*, $CachedRowSetImpl*), "java.sql.SQLException"},
-	{"getReader", "()Lcom/sun/rowset/internal/CachedRowSetReader;", nullptr, $PUBLIC, $virtualMethod(CachedRowSetWriter, getReader, $CachedRowSetReader*), "java.sql.SQLException"},
-	{"initSQLStatements", "(Ljavax/sql/rowset/CachedRowSet;)V", nullptr, $PRIVATE, $method(CachedRowSetWriter, initSQLStatements, void, $CachedRowSet*), "java.sql.SQLException"},
-	{"insertNewRow", "(Ljavax/sql/rowset/CachedRowSet;Ljava/sql/PreparedStatement;Lcom/sun/rowset/CachedRowSetImpl;)Z", nullptr, $PRIVATE, $method(CachedRowSetWriter, insertNewRow, bool, $CachedRowSet*, $PreparedStatement*, $CachedRowSetImpl*), "java.sql.SQLException"},
-	{"isPKNameValid", "(Ljava/lang/String;Ljava/sql/ResultSetMetaData;)Z", nullptr, $PRIVATE, $method(CachedRowSetWriter, isPKNameValid, bool, $String*, $ResultSetMetaData*), "java.sql.SQLException"},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(CachedRowSetWriter, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"rollback", "()V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetWriter, rollback, void), "java.sql.SQLException"},
-	{"rollback", "(Ljava/sql/Savepoint;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetWriter, rollback, void, $Savepoint*), "java.sql.SQLException"},
-	{"setReader", "(Lcom/sun/rowset/internal/CachedRowSetReader;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetWriter, setReader, void, $CachedRowSetReader*), "java.sql.SQLException"},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"updateOriginalRow", "(Ljavax/sql/rowset/CachedRowSet;)Z", nullptr, $PRIVATE, $method(CachedRowSetWriter, updateOriginalRow, bool, $CachedRowSet*), "java.sql.SQLException"},
-	{"updateResolvedConflictToDB", "(Ljavax/sql/rowset/CachedRowSet;Ljava/sql/Connection;)V", nullptr, 0, $virtualMethod(CachedRowSetWriter, updateResolvedConflictToDB, void, $CachedRowSet*, $Connection*), "java.sql.SQLException"},
-	{"writeData", "(Ljavax/sql/RowSetInternal;)Z", nullptr, $PUBLIC, $virtualMethod(CachedRowSetWriter, writeData, bool, $RowSetInternal*), "java.sql.SQLException"},
-	{}
-};
-
-$ClassInfo _CachedRowSetWriter_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.rowset.internal.CachedRowSetWriter",
-	"java.lang.Object",
-	"javax.sql.rowset.spi.TransactionalWriter,java.io.Serializable",
-	_CachedRowSetWriter_FieldInfo_,
-	_CachedRowSetWriter_MethodInfo_
-};
-
-$Object* allocate$CachedRowSetWriter($Class* clazz) {
-	return $of($alloc(CachedRowSetWriter));
-}
 
 int32_t CachedRowSetWriter::hashCode() {
 	 return this->$TransactionalWriter::hashCode();
@@ -185,12 +118,12 @@ void CachedRowSetWriter::init$() {
 	try {
 		$set(this, resBundle, $JdbcRowSetResourceBundle::getJdbcRowSetResourceBundle());
 	} catch ($IOException& ioe) {
-		$throwNew($RuntimeException, static_cast<$Throwable*>(ioe));
+		$throwNew($RuntimeException, ioe);
 	}
 }
 
 bool CachedRowSetWriter::writeData($RowSetInternal* caller) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int64_t conflicts = 0;
 	bool showDel = false;
 	$var($PreparedStatement, pstmtIns, nullptr);
@@ -198,9 +131,10 @@ bool CachedRowSetWriter::writeData($RowSetInternal* caller) {
 	this->iChangedValsinDbOnly = 0;
 	$var($CachedRowSetImpl, crs, $cast($CachedRowSetImpl, caller));
 	$set(this, crsResolve, $new($CachedRowSetImpl));
+	;
 	$set(this, con, $nc(this->reader)->connect(caller));
 	if (this->con == nullptr) {
-		$throwNew($SQLException, $($nc($of($($nc(this->resBundle)->handleGetObject("crswriter.connect"_s))))->toString()));
+		$throwNew($SQLException, $($$nc($nc(this->resBundle)->handleGetObject("crswriter.connect"_s))->toString()));
 	}
 	initSQLStatements(crs);
 	int32_t iColCount = 0;
@@ -209,7 +143,7 @@ bool CachedRowSetWriter::writeData($RowSetInternal* caller) {
 	iColCount = $nc(rsmdWrite)->getColumnCount();
 	int32_t sz = crs->size() + 1;
 	$set(this, status, $new($ArrayList, sz));
-	$nc(this->status)->add(0, nullptr);
+	this->status->add(0, nullptr);
 	rsmdResolv->setColumnCount(iColCount);
 	for (int32_t i = 1; i <= iColCount; ++i) {
 		rsmdResolv->setColumnType(i, rsmdWrite->getColumnType(i));
@@ -251,7 +185,7 @@ bool CachedRowSetWriter::writeData($RowSetInternal* caller) {
 				$nc(this->status)->add(rows, $($Integer::valueOf($SyncResolver::NO_ROW_CONFLICT)));
 			}
 		} else {
-			int32_t icolCount = $nc($(crs->getMetaData()))->getColumnCount();
+			int32_t icolCount = $$nc(crs->getMetaData())->getColumnCount();
 			$nc(this->status)->add(rows, $($Integer::valueOf($SyncResolver::NO_ROW_CONFLICT)));
 			$nc(this->crsResolve)->moveToInsertRow();
 			for (int32_t cols = 0; cols < iColCount; ++cols) {
@@ -269,7 +203,7 @@ bool CachedRowSetWriter::writeData($RowSetInternal* caller) {
 	crs->beforeFirst();
 	$nc(this->crsResolve)->beforeFirst();
 	if (conflicts != 0) {
-		$var($SyncProviderException, spe, $new($SyncProviderException, $$str({$$str(conflicts), " "_s, $($nc($of($($nc(this->resBundle)->handleGetObject("crswriter.conflictsno"_s))))->toString())})));
+		$var($SyncProviderException, spe, $new($SyncProviderException, $$str({$$str(conflicts), " "_s, $($$nc($nc(this->resBundle)->handleGetObject("crswriter.conflictsno"_s))->toString())})));
 		$var($SyncResolverImpl, syncResImpl, $cast($SyncResolverImpl, spe->getSyncResolver()));
 		$nc(syncResImpl)->setCachedRowSet(crs);
 		syncResImpl->setCachedRowSetResolver(this->crsResolve);
@@ -282,7 +216,7 @@ bool CachedRowSetWriter::writeData($RowSetInternal* caller) {
 }
 
 bool CachedRowSetWriter::updateOriginalRow($CachedRowSet* crs) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$var($PreparedStatement, pstmt, nullptr);
 	int32_t i = 0;
@@ -294,13 +228,13 @@ bool CachedRowSetWriter::updateOriginalRow($CachedRowSet* crs) {
 		$var($String, tempselectCmd, $nc(this->selectCmd)->toLowerCase());
 		int32_t idxWhere = tempselectCmd->indexOf("where"_s);
 		if (idxWhere != -1) {
-			$var($String, tempSelect, $nc(this->selectCmd)->substring(0, idxWhere));
+			$var($String, tempSelect, this->selectCmd->substring(0, idxWhere));
 			$set(this, selectCmd, tempSelect);
 		}
 		$assign(pstmt, $nc(this->con)->prepareStatement($$str({this->selectCmd, this->updateWhere}), $ResultSet::TYPE_SCROLL_SENSITIVE, $ResultSet::CONCUR_READ_ONLY));
 		for (i = 0; i < $nc(this->keyCols)->length; ++i) {
 			if ($nc(this->params)->get(i) != nullptr) {
-				$nc(pstmt)->setObject(++idx, $nc(this->params)->get(i));
+				$nc(pstmt)->setObject(++idx, this->params->get(i));
 			} else {
 				continue;
 			}
@@ -339,7 +273,7 @@ bool CachedRowSetWriter::updateOriginalRow($CachedRowSet* crs) {
 				if ($instanceOf($Struct, rsval)) {
 					$var($Struct, s, $cast($Struct, rsval));
 					$Class* c = nullptr;
-					c = $cast($Class, $nc(map)->get($($nc(s)->getSQLTypeName())));
+					c = $cast($Class, $nc(map)->get($(s->getSQLTypeName())));
 					if (c != nullptr) {
 						$var($SQLData, obj, nullptr);
 						try {
@@ -347,9 +281,9 @@ bool CachedRowSetWriter::updateOriginalRow($CachedRowSet* crs) {
 							$var($Object, tmp, c->newInstance());
 							$assign(obj, $cast($SQLData, tmp));
 						} catch ($Exception& ex) {
-							$throwNew($SQLException, "Unable to Instantiate: "_s, static_cast<$Throwable*>(ex));
+							$throwNew($SQLException, "Unable to Instantiate: "_s, ex);
 						}
-						$var($ObjectArray, attribs, $nc(s)->getAttributes(map));
+						$var($ObjectArray, attribs, s->getAttributes(map));
 						$var($SQLInputImpl, sqlInput, $new($SQLInputImpl, attribs, map));
 						$nc(obj)->readSQL(sqlInput, $(s->getSQLTypeName()));
 						$assign(rsval, obj);
@@ -368,7 +302,7 @@ bool CachedRowSetWriter::updateOriginalRow($CachedRowSet* crs) {
 					++this->iChangedValsinDbOnly;
 					boolNull = false;
 					$assign(objVal, rsval);
-				} else if (rsval != nullptr && (!$of(rsval)->equals(orig))) {
+				} else if (rsval != nullptr && (!rsval->equals(orig))) {
 					++this->iChangedValsinDbOnly;
 					boolNull = false;
 					$assign(objVal, rsval);
@@ -376,19 +310,19 @@ bool CachedRowSetWriter::updateOriginalRow($CachedRowSet* crs) {
 					if (first == false || flag == false) {
 						$plusAssign(updateExec, ", "_s);
 					}
-					$plusAssign(updateExec, $($nc($(crs->getMetaData()))->getColumnName(i)));
+					$plusAssign(updateExec, $($$nc(crs->getMetaData())->getColumnName(i)));
 					cols->add($($Integer::valueOf(i)));
 					$plusAssign(updateExec, " = ? "_s);
 					first = false;
-				} else if ($of(orig)->equals(curr)) {
+				} else if (orig->equals(curr)) {
 					++colsNotChanged;
-				} else if ($of(orig)->equals(curr) == false) {
+				} else if (orig->equals(curr) == false) {
 					if (crs->columnUpdated(i)) {
-						if ($of(rsval)->equals(orig)) {
+						if ($nc(rsval)->equals(orig)) {
 							if (flag == false || first == false) {
 								$plusAssign(updateExec, ", "_s);
 							}
-							$plusAssign(updateExec, $($nc($(crs->getMetaData()))->getColumnName(i)));
+							$plusAssign(updateExec, $($$nc(crs->getMetaData())->getColumnName(i)));
 							cols->add($($Integer::valueOf(i)));
 							$plusAssign(updateExec, " = ? "_s);
 							flag = false;
@@ -418,17 +352,17 @@ bool CachedRowSetWriter::updateOriginalRow($CachedRowSet* crs) {
 			$plusAssign(updateExec, this->updateWhere);
 			$assign(pstmt, $nc(this->con)->prepareStatement(updateExec));
 			for (i = 0; i < cols->size(); ++i) {
-				$var($Object, obj, crs->getObject($nc(($cast($Integer, $(cols->get(i)))))->intValue()));
+				$var($Object, obj, crs->getObject($$sure($Integer, cols->get(i))->intValue()));
 				if (obj != nullptr) {
 					$nc(pstmt)->setObject(i + 1, obj);
 				} else {
-					$nc(pstmt)->setNull(i + 1, $nc($(crs->getMetaData()))->getColumnType(i + 1));
+					$nc(pstmt)->setNull(i + 1, $$nc(crs->getMetaData())->getColumnType(i + 1));
 				}
 			}
 			idx = i;
 			for (i = 0; i < $nc(this->keyCols)->length; ++i) {
 				if ($nc(this->params)->get(i) != nullptr) {
-					$nc(pstmt)->setObject(++idx, $nc(this->params)->get(i));
+					$nc(pstmt)->setObject(++idx, this->params->get(i));
 				} else {
 					continue;
 				}
@@ -452,183 +386,173 @@ bool CachedRowSetWriter::updateOriginalRow($CachedRowSet* crs) {
 }
 
 bool CachedRowSetWriter::insertNewRow($CachedRowSet* crs, $PreparedStatement* pstmt, $CachedRowSetImpl* crsRes) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool returnVal = false;
 	{
 		$var($PreparedStatement, pstmtSel, $nc(this->con)->prepareStatement(this->selectCmd, $ResultSet::TYPE_SCROLL_SENSITIVE, $ResultSet::CONCUR_READ_ONLY));
-		{
-			$var($Throwable, var$0, nullptr);
-			bool var$2 = false;
-			bool return$1 = false;
+		$var($Throwable, var$0, nullptr);
+		bool var$2 = false;
+		bool return$1 = false;
+		try {
 			try {
+				$var($ResultSet, rs, $nc(pstmtSel)->executeQuery());
+				$var($Throwable, var$3, nullptr);
+				bool var$5 = false;
+				bool return$4 = false;
 				try {
-					$var($ResultSet, rs, $nc(pstmtSel)->executeQuery());
-					{
-						$var($Throwable, var$3, nullptr);
-						bool var$5 = false;
-						bool return$4 = false;
+					try {
+						$var($ResultSet, rs2, $$nc($nc(this->con)->getMetaData())->getPrimaryKeys(nullptr, nullptr, $($nc(crs)->getTableName())));
+						$var($Throwable, var$6, nullptr);
+						bool var$8 = false;
+						bool return$7 = false;
 						try {
 							try {
-								$var($ResultSet, rs2, $nc($($nc(this->con)->getMetaData()))->getPrimaryKeys(nullptr, nullptr, $($nc(crs)->getTableName())));
-								{
-									$var($Throwable, var$6, nullptr);
-									bool var$8 = false;
-									bool return$7 = false;
-									try {
-										try {
-											$var($ResultSetMetaData, rsmd, $nc(crs)->getMetaData());
-											int32_t icolCount = $nc(rsmd)->getColumnCount();
-											$var($StringArray, primaryKeys, $new($StringArray, icolCount));
-											int32_t k = 0;
-											while ($nc(rs2)->next()) {
-												primaryKeys->set(k, $(rs2->getString("COLUMN_NAME"_s)));
-												++k;
+								$var($ResultSetMetaData, rsmd, crs->getMetaData());
+								int32_t icolCount = $nc(rsmd)->getColumnCount();
+								$var($StringArray, primaryKeys, $new($StringArray, icolCount));
+								int32_t k = 0;
+								while ($nc(rs2)->next()) {
+									primaryKeys->set(k, $(rs2->getString("COLUMN_NAME"_s)));
+									++k;
+								}
+								if ($nc(rs)->next()) {
+									$var($StringArray, arr$, primaryKeys);
+									for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
+										$var($String, pkName, arr$->get(i$));
+										{
+											if (!isPKNameValid(pkName, rsmd)) {
+												continue;
 											}
-											if ($nc(rs)->next()) {
-												{
-													$var($StringArray, arr$, primaryKeys);
-													int32_t len$ = arr$->length;
-													int32_t i$ = 0;
-													for (; i$ < len$; ++i$) {
-														$var($String, pkName, arr$->get(i$));
-														{
-															if (!isPKNameValid(pkName, rsmd)) {
-																continue;
-															}
-															$var($Object, crsPK, crs->getObject(pkName));
-															if (crsPK == nullptr) {
-																break;
-															}
-															$var($String, rsPK, $nc($of($(rs->getObject(pkName))))->toString());
-															if ($nc($($nc($of(crsPK))->toString()))->equals(rsPK)) {
-																returnVal = true;
-																$nc(this->crsResolve)->moveToInsertRow();
-																for (int32_t i = 1; i <= icolCount; ++i) {
-																	$var($String, colname, $nc(($(rs->getMetaData())))->getColumnName(i));
-																	if ($nc(colname)->equals(pkName)) {
-																		$nc(this->crsResolve)->updateObject(i, $of(rsPK));
-																	} else {
-																		$nc(this->crsResolve)->updateNull(i);
-																	}
-																}
-																$nc(this->crsResolve)->insertRow();
-																$nc(this->crsResolve)->moveToCurrentRow();
-															}
-														}
-													}
-												}
+											$var($Object, crsPK, crs->getObject(pkName));
+											if (crsPK == nullptr) {
+												break;
 											}
-											if (returnVal) {
-												var$8 = returnVal;
-												return$7 = true;
-												goto $finally2;
-											}
-											try {
-												for (int32_t i = 1; i <= icolCount; ++i) {
-													$var($Object, obj, crs->getObject(i));
-													if (obj != nullptr) {
-														$nc(pstmt)->setObject(i, obj);
-													} else {
-														$nc(pstmt)->setNull(i, $nc($(crs->getMetaData()))->getColumnType(i));
-													}
-												}
-												$nc(pstmt)->executeUpdate();
-												var$8 = false;
-												return$7 = true;
-												goto $finally2;
-											} catch ($SQLException& ex) {
+											$var($String, rsPK, $$nc(rs->getObject(pkName))->toString());
+											if ($$nc($nc(crsPK)->toString())->equals(rsPK)) {
+												returnVal = true;
 												$nc(this->crsResolve)->moveToInsertRow();
 												for (int32_t i = 1; i <= icolCount; ++i) {
-													$nc(this->crsResolve)->updateNull(i);
+													$var($String, colname, ($$nc(rs->getMetaData()))->getColumnName(i));
+													if ($nc(colname)->equals(pkName)) {
+														$nc(this->crsResolve)->updateObject(i, rsPK);
+													} else {
+														$nc(this->crsResolve)->updateNull(i);
+													}
 												}
 												$nc(this->crsResolve)->insertRow();
 												$nc(this->crsResolve)->moveToCurrentRow();
-												var$8 = true;
-												return$7 = true;
-												goto $finally2;
 											}
-										} catch ($Throwable& t$) {
-											if (rs2 != nullptr) {
-												try {
-													rs2->close();
-												} catch ($Throwable& x2) {
-													t$->addSuppressed(x2);
-												}
-											}
-											$throw(t$);
 										}
-									} catch ($Throwable& var$9) {
-										$assign(var$6, var$9);
-									} $finally2: {
-										if (rs2 != nullptr) {
-											rs2->close();
-										}
-									}
-									if (var$6 != nullptr) {
-										$throw(var$6);
-									}
-									if (return$7) {
-										var$5 = var$8;
-										return$4 = true;
-										goto $finally1;
 									}
 								}
+								if (returnVal) {
+									var$8 = returnVal;
+									return$7 = true;
+									goto $finally2;
+								}
+								try {
+									for (int32_t i = 1; i <= icolCount; ++i) {
+										$var($Object, obj, crs->getObject(i));
+										if (obj != nullptr) {
+											$nc(pstmt)->setObject(i, obj);
+										} else {
+											$nc(pstmt)->setNull(i, $$nc(crs->getMetaData())->getColumnType(i));
+										}
+									}
+									$nc(pstmt)->executeUpdate();
+									var$8 = false;
+									return$7 = true;
+									goto $finally2;
+								} catch ($SQLException& ex) {
+									$nc(this->crsResolve)->moveToInsertRow();
+									for (int32_t i = 1; i <= icolCount; ++i) {
+										$nc(this->crsResolve)->updateNull(i);
+									}
+									$nc(this->crsResolve)->insertRow();
+									$nc(this->crsResolve)->moveToCurrentRow();
+									var$8 = true;
+									return$7 = true;
+									goto $finally2;
+								}
 							} catch ($Throwable& t$) {
-								if (rs != nullptr) {
+								if (rs2 != nullptr) {
 									try {
-										rs->close();
+										rs2->close();
 									} catch ($Throwable& x2) {
 										t$->addSuppressed(x2);
 									}
 								}
 								$throw(t$);
 							}
-						} catch ($Throwable& var$10) {
-							$assign(var$3, var$10);
-						} $finally1: {
-							if (rs != nullptr) {
-								rs->close();
+						} catch ($Throwable& var$9) {
+							$assign(var$6, var$9);
+						} $finally2: {
+							if (rs2 != nullptr) {
+								rs2->close();
 							}
 						}
-						if (var$3 != nullptr) {
-							$throw(var$3);
+						if (var$6 != nullptr) {
+							$throw(var$6);
 						}
-						if (return$4) {
-							var$2 = var$5;
-							return$1 = true;
-							goto $finally;
+						if (return$7) {
+							var$5 = var$8;
+							return$4 = true;
+							goto $finally1;
 						}
+					} catch ($Throwable& t$) {
+						if (rs != nullptr) {
+							try {
+								rs->close();
+							} catch ($Throwable& x2) {
+								t$->addSuppressed(x2);
+							}
+						}
+						$throw(t$);
 					}
-				} catch ($Throwable& t$) {
-					if (pstmtSel != nullptr) {
-						try {
-							pstmtSel->close();
-						} catch ($Throwable& x2) {
-							t$->addSuppressed(x2);
-						}
+				} catch ($Throwable& var$10) {
+					$assign(var$3, var$10);
+				} $finally1: {
+					if (rs != nullptr) {
+						rs->close();
 					}
-					$throw(t$);
 				}
-			} catch ($Throwable& var$11) {
-				$assign(var$0, var$11);
-			} $finally: {
+				if (var$3 != nullptr) {
+					$throw(var$3);
+				}
+				if (return$4) {
+					var$2 = var$5;
+					return$1 = true;
+					goto $finally;
+				}
+			} catch ($Throwable& t$) {
 				if (pstmtSel != nullptr) {
-					pstmtSel->close();
+					try {
+						pstmtSel->close();
+					} catch ($Throwable& x2) {
+						t$->addSuppressed(x2);
+					}
 				}
+				$throw(t$);
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
+		} catch ($Throwable& var$11) {
+			$assign(var$0, var$11);
+		} $finally: {
+			if (pstmtSel != nullptr) {
+				pstmtSel->close();
 			}
-			if (return$1) {
-				return var$2;
-			}
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
+		}
+		if (return$1) {
+			return var$2;
 		}
 	}
 	$shouldNotReachHere();
 }
 
 bool CachedRowSetWriter::deleteOriginalRow($CachedRowSet* crs, $CachedRowSetImpl* crsRes) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($PreparedStatement, pstmt, nullptr);
 	int32_t i = 0;
 	int32_t idx = 0;
@@ -639,7 +563,7 @@ bool CachedRowSetWriter::deleteOriginalRow($CachedRowSet* crs, $CachedRowSetImpl
 	$assign(pstmt, $nc(this->con)->prepareStatement($$str({this->selectCmd, this->deleteWhere}), $ResultSet::TYPE_SCROLL_SENSITIVE, $ResultSet::CONCUR_READ_ONLY));
 	for (i = 0; i < $nc(this->keyCols)->length; ++i) {
 		if ($nc(this->params)->get(i) != nullptr) {
-			$nc(pstmt)->setObject(++idx, $nc(this->params)->get(i));
+			$nc(pstmt)->setObject(++idx, this->params->get(i));
 		} else {
 			continue;
 		}
@@ -650,6 +574,7 @@ bool CachedRowSetWriter::deleteOriginalRow($CachedRowSet* crs, $CachedRowSetImpl
 		pstmt->setEscapeProcessing(crs->getEscapeProcessing());
 		pstmt->setQueryTimeout(crs->getQueryTimeout());
 	} catch ($Exception& ex) {
+		;
 	}
 	$var($ResultSet, rs, $nc(pstmt)->executeQuery());
 	if ($nc(rs)->next() == true) {
@@ -659,11 +584,11 @@ bool CachedRowSetWriter::deleteOriginalRow($CachedRowSet* crs, $CachedRowSetImpl
 		rs->first();
 		bool boolChanged = false;
 		$nc(crsRes)->moveToInsertRow();
-		for (i = 1; i <= $nc($(crs->getMetaData()))->getColumnCount(); ++i) {
+		for (i = 1; i <= $$nc(crs->getMetaData())->getColumnCount(); ++i) {
 			$var($Object, original, origVals->getObject(i));
 			$var($Object, changed, rs->getObject(i));
 			if (original != nullptr && changed != nullptr) {
-				if (!$nc(($($of(original)->toString())))->equals($($of(changed)->toString()))) {
+				if (!($$nc(original->toString()))->equals($(changed->toString()))) {
 					boolChanged = true;
 					crsRes->updateObject(i, $(origVals->getObject(i)));
 				}
@@ -682,7 +607,7 @@ bool CachedRowSetWriter::deleteOriginalRow($CachedRowSet* crs, $CachedRowSetImpl
 		idx = 0;
 		for (i = 0; i < $nc(this->keyCols)->length; ++i) {
 			if ($nc(this->params)->get(i) != nullptr) {
-				$nc(pstmt)->setObject(++idx, $nc(this->params)->get(i));
+				$nc(pstmt)->setObject(++idx, this->params->get(i));
 			} else {
 				continue;
 			}
@@ -690,7 +615,7 @@ bool CachedRowSetWriter::deleteOriginalRow($CachedRowSet* crs, $CachedRowSetImpl
 		if ($nc(pstmt)->executeUpdate() != 1) {
 			return true;
 		}
-		$nc(pstmt)->close();
+		pstmt->close();
 	} else {
 		return true;
 	}
@@ -706,7 +631,7 @@ $CachedRowSetReader* CachedRowSetWriter::getReader() {
 }
 
 void CachedRowSetWriter::initSQLStatements($CachedRowSet* caller) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t i = 0;
 	$set(this, callerMd, $nc(caller)->getMetaData());
 	this->callerColumnCount = $nc(this->callerMd)->getColumnCount();
@@ -716,8 +641,8 @@ void CachedRowSetWriter::initSQLStatements($CachedRowSet* caller) {
 	$var($String, table, caller->getTableName());
 	if (table == nullptr) {
 		$assign(table, $nc(this->callerMd)->getTableName(1));
-		if (table == nullptr || $nc(table)->length() == 0) {
-			$throwNew($SQLException, $($nc($of($($nc(this->resBundle)->handleGetObject("crswriter.tname"_s))))->toString()));
+		if (table == nullptr || table->length() == 0) {
+			$throwNew($SQLException, $($$nc($nc(this->resBundle)->handleGetObject("crswriter.tname"_s))->toString()));
 		}
 	}
 	$var($String, catalog, $nc(this->callerMd)->getCatalogName(1));
@@ -737,7 +662,7 @@ void CachedRowSetWriter::initSQLStatements($CachedRowSet* caller) {
 	$var($String, tempupdCmd, $nc(this->updateCmd)->toLowerCase());
 	int32_t idxupWhere = tempupdCmd->indexOf("where"_s);
 	if (idxupWhere != -1) {
-		$set(this, updateCmd, $nc(this->updateCmd)->substring(0, idxupWhere));
+		$set(this, updateCmd, this->updateCmd->substring(0, idxupWhere));
 	}
 	$plusAssignField(this, updateCmd, "SET "_s);
 	$set(this, insertCmd, $str({"INSERT INTO "_s, $(buildTableName(dbmd, catalog, schema, table))}));
@@ -763,7 +688,7 @@ void CachedRowSetWriter::initSQLStatements($CachedRowSet* caller) {
 }
 
 $String* CachedRowSetWriter::buildTableName($DatabaseMetaData* dbmd, $String* catalog$renamed, $String* schema$renamed, $String* table$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, schema, schema$renamed);
 	$var($String, catalog, catalog$renamed);
 	$var($String, table, table$renamed);
@@ -793,10 +718,10 @@ $String* CachedRowSetWriter::buildTableName($DatabaseMetaData* dbmd, $String* ca
 }
 
 void CachedRowSetWriter::buildKeyDesc($CachedRowSet* crs) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, keyCols, $nc(crs)->getKeyColumns());
 	$var($ResultSetMetaData, resultsetmd, crs->getMetaData());
-	if (this->keyCols == nullptr || $nc(this->keyCols)->length == 0) {
+	if (this->keyCols == nullptr || this->keyCols->length == 0) {
 		$var($ArrayList, listKeys, $new($ArrayList));
 		for (int32_t i = 0; i < this->callerColumnCount; ++i) {
 			bool var$4 = $nc(resultsetmd)->getColumnType(i + 1) != $Types::CLOB;
@@ -810,21 +735,21 @@ void CachedRowSetWriter::buildKeyDesc($CachedRowSet* crs) {
 		}
 		$set(this, keyCols, $new($ints, listKeys->size()));
 		for (int32_t i = 0; i < listKeys->size(); ++i) {
-			$nc(this->keyCols)->set(i, $nc(($cast($Integer, $(listKeys->get(i)))))->intValue());
+			this->keyCols->set(i, $$sure($Integer, listKeys->get(i))->intValue());
 		}
 	}
 	$set(this, params, $new($ObjectArray, $nc(this->keyCols)->length));
 }
 
 $String* CachedRowSetWriter::buildWhereClause($String* whereClause$renamed, $ResultSet* rs) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, whereClause, whereClause$renamed);
 	$assign(whereClause, "WHERE "_s);
 	for (int32_t i = 0; i < $nc(this->keyCols)->length; ++i) {
 		if (i > 0) {
 			$plusAssign(whereClause, "AND "_s);
 		}
-		$plusAssign(whereClause, $($nc(this->callerMd)->getColumnName($nc(this->keyCols)->get(i))));
+		$plusAssign(whereClause, $($nc(this->callerMd)->getColumnName(this->keyCols->get(i))));
 		$nc(this->params)->set(i, $($nc(rs)->getObject($nc(this->keyCols)->get(i))));
 		if (rs->wasNull() == true) {
 			$plusAssign(whereClause, " IS NULL "_s);
@@ -836,17 +761,17 @@ $String* CachedRowSetWriter::buildWhereClause($String* whereClause$renamed, $Res
 }
 
 void CachedRowSetWriter::updateResolvedConflictToDB($CachedRowSet* crs, $Connection* con) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($PreparedStatement, pStmt, nullptr);
 	$var($String, strWhere, "WHERE "_s);
 	$var($String, strExec, " "_s);
 	$var($String, strUpdate, "UPDATE "_s);
-	int32_t icolCount = $nc($($nc(crs)->getMetaData()))->getColumnCount();
+	int32_t icolCount = $$nc($nc(crs)->getMetaData())->getColumnCount();
 	$var($ints, keyColumns, crs->getKeyColumns());
 	$var($ObjectArray, param, nullptr);
 	$var($String, strSet, ""_s);
 	$assign(strWhere, buildWhereClause(strWhere, crs));
-	if (keyColumns == nullptr || $nc(keyColumns)->length == 0) {
+	if (keyColumns == nullptr || keyColumns->length == 0) {
 		$assign(keyColumns, $new($ints, icolCount));
 		for (int32_t i = 0; i < keyColumns->length;) {
 			int32_t var$0 = i;
@@ -854,11 +779,13 @@ void CachedRowSetWriter::updateResolvedConflictToDB($CachedRowSet* crs, $Connect
 		}
 	}
 	$assign(param, $new($ObjectArray, $nc(keyColumns)->length));
-	$var($String, var$1, "UPDATE "_s);
+	$var($StringBuilder, var$1, $new($StringBuilder));
+	var$1->append("UPDATE "_s);
 	$var($DatabaseMetaData, var$2, $nc(con)->getMetaData());
-	$var($String, var$3, $nc($(crs->getMetaData()))->getCatalogName(1));
-	$var($String, var$4, $nc($(crs->getMetaData()))->getSchemaName(1));
-	$assign(strUpdate, $concat(var$1, $(buildTableName(var$2, var$3, var$4, $(crs->getTableName())))));
+	$var($String, var$3, $$nc(crs->getMetaData())->getCatalogName(1));
+	$var($String, var$4, $$nc(crs->getMetaData())->getSchemaName(1));
+	var$1->append($(buildTableName(var$2, var$3, var$4, $(crs->getTableName()))));
+	$assign(strUpdate, $str(var$1));
 	$plusAssign(strUpdate, "SET "_s);
 	bool first = true;
 	for (int32_t i = 1; i <= icolCount; ++i) {
@@ -866,7 +793,7 @@ void CachedRowSetWriter::updateResolvedConflictToDB($CachedRowSet* crs, $Connect
 			if (first == false) {
 				$plusAssign(strSet, ", "_s);
 			}
-			$plusAssign(strSet, $($nc($(crs->getMetaData()))->getColumnName(i)));
+			$plusAssign(strSet, $($$nc(crs->getMetaData())->getColumnName(i)));
 			$plusAssign(strSet, " = ? "_s);
 			first = false;
 		}
@@ -877,7 +804,7 @@ void CachedRowSetWriter::updateResolvedConflictToDB($CachedRowSet* crs, $Connect
 		if (i > 0) {
 			$plusAssign(strWhere, "AND "_s);
 		}
-		$plusAssign(strWhere, $($nc($(crs->getMetaData()))->getColumnName(keyColumns->get(i))));
+		$plusAssign(strWhere, $($$nc(crs->getMetaData())->getColumnName(keyColumns->get(i))));
 		param->set(i, $(crs->getObject(keyColumns->get(i))));
 		if (crs->wasNull() == true) {
 			$plusAssign(strWhere, " IS NULL "_s);
@@ -894,7 +821,7 @@ void CachedRowSetWriter::updateResolvedConflictToDB($CachedRowSet* crs, $Connect
 			if (obj != nullptr) {
 				$nc(pStmt)->setObject(++idx, obj);
 			} else {
-				$nc(pStmt)->setNull(i + 1, $nc($(crs->getMetaData()))->getColumnType(i + 1));
+				$nc(pStmt)->setNull(i + 1, $$nc(crs->getMetaData())->getColumnType(i + 1));
 			}
 		}
 	}
@@ -944,12 +871,12 @@ void CachedRowSetWriter::readObject($ObjectInputStream* ois) {
 	try {
 		$set(this, resBundle, $JdbcRowSetResourceBundle::getJdbcRowSetResourceBundle());
 	} catch ($IOException& ioe) {
-		$throwNew($RuntimeException, static_cast<$Throwable*>(ioe));
+		$throwNew($RuntimeException, ioe);
 	}
 }
 
 bool CachedRowSetWriter::isPKNameValid($String* pk, $ResultSetMetaData* rsmd) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool isValid = false;
 	int32_t cols = $nc(rsmd)->getColumnCount();
 	for (int32_t i = 1; i <= cols; ++i) {
@@ -966,7 +893,64 @@ CachedRowSetWriter::CachedRowSetWriter() {
 }
 
 $Class* CachedRowSetWriter::load$($String* name, bool initialize) {
-	$loadClass(CachedRowSetWriter, name, initialize, &_CachedRowSetWriter_ClassInfo_, allocate$CachedRowSetWriter);
+	$FieldInfo fieldInfos$$[] = {
+		{"con", "Ljava/sql/Connection;", nullptr, $PRIVATE | $TRANSIENT, $field(CachedRowSetWriter, con)},
+		{"selectCmd", "Ljava/lang/String;", nullptr, $PRIVATE, $field(CachedRowSetWriter, selectCmd)},
+		{"updateCmd", "Ljava/lang/String;", nullptr, $PRIVATE, $field(CachedRowSetWriter, updateCmd)},
+		{"updateWhere", "Ljava/lang/String;", nullptr, $PRIVATE, $field(CachedRowSetWriter, updateWhere)},
+		{"deleteCmd", "Ljava/lang/String;", nullptr, $PRIVATE, $field(CachedRowSetWriter, deleteCmd)},
+		{"deleteWhere", "Ljava/lang/String;", nullptr, $PRIVATE, $field(CachedRowSetWriter, deleteWhere)},
+		{"insertCmd", "Ljava/lang/String;", nullptr, $PRIVATE, $field(CachedRowSetWriter, insertCmd)},
+		{"keyCols", "[I", nullptr, $PRIVATE, $field(CachedRowSetWriter, keyCols)},
+		{"params", "[Ljava/lang/Object;", nullptr, $PRIVATE, $field(CachedRowSetWriter, params)},
+		{"reader", "Lcom/sun/rowset/internal/CachedRowSetReader;", nullptr, $PRIVATE, $field(CachedRowSetWriter, reader)},
+		{"callerMd", "Ljava/sql/ResultSetMetaData;", nullptr, $PRIVATE, $field(CachedRowSetWriter, callerMd)},
+		{"callerColumnCount", "I", nullptr, $PRIVATE, $field(CachedRowSetWriter, callerColumnCount)},
+		{"crsResolve", "Lcom/sun/rowset/CachedRowSetImpl;", nullptr, $PRIVATE, $field(CachedRowSetWriter, crsResolve)},
+		{"status", "Ljava/util/ArrayList;", "Ljava/util/ArrayList<Ljava/lang/Integer;>;", $PRIVATE, $field(CachedRowSetWriter, status)},
+		{"iChangedValsInDbAndCRS", "I", nullptr, $PRIVATE, $field(CachedRowSetWriter, iChangedValsInDbAndCRS)},
+		{"iChangedValsinDbOnly", "I", nullptr, $PRIVATE, $field(CachedRowSetWriter, iChangedValsinDbOnly)},
+		{"resBundle", "Lcom/sun/rowset/JdbcRowSetResourceBundle;", nullptr, $PRIVATE, $field(CachedRowSetWriter, resBundle)},
+		{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(CachedRowSetWriter, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(CachedRowSetWriter, init$, void)},
+		{"buildKeyDesc", "(Ljavax/sql/rowset/CachedRowSet;)V", nullptr, $PRIVATE, $method(CachedRowSetWriter, buildKeyDesc, void, $CachedRowSet*), "java.sql.SQLException"},
+		{"buildTableName", "(Ljava/sql/DatabaseMetaData;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(CachedRowSetWriter, buildTableName, $String*, $DatabaseMetaData*, $String*, $String*, $String*), "java.sql.SQLException"},
+		{"buildWhereClause", "(Ljava/lang/String;Ljava/sql/ResultSet;)Ljava/lang/String;", nullptr, $PRIVATE, $method(CachedRowSetWriter, buildWhereClause, $String*, $String*, $ResultSet*), "java.sql.SQLException"},
+		{"commit", "()V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetWriter, commit, void), "java.sql.SQLException"},
+		{"commit", "(Lcom/sun/rowset/CachedRowSetImpl;Z)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetWriter, commit, void, $CachedRowSetImpl*, bool), "java.sql.SQLException"},
+		{"deleteOriginalRow", "(Ljavax/sql/rowset/CachedRowSet;Lcom/sun/rowset/CachedRowSetImpl;)Z", nullptr, $PRIVATE, $method(CachedRowSetWriter, deleteOriginalRow, bool, $CachedRowSet*, $CachedRowSetImpl*), "java.sql.SQLException"},
+		{"getReader", "()Lcom/sun/rowset/internal/CachedRowSetReader;", nullptr, $PUBLIC, $virtualMethod(CachedRowSetWriter, getReader, $CachedRowSetReader*), "java.sql.SQLException"},
+		{"initSQLStatements", "(Ljavax/sql/rowset/CachedRowSet;)V", nullptr, $PRIVATE, $method(CachedRowSetWriter, initSQLStatements, void, $CachedRowSet*), "java.sql.SQLException"},
+		{"insertNewRow", "(Ljavax/sql/rowset/CachedRowSet;Ljava/sql/PreparedStatement;Lcom/sun/rowset/CachedRowSetImpl;)Z", nullptr, $PRIVATE, $method(CachedRowSetWriter, insertNewRow, bool, $CachedRowSet*, $PreparedStatement*, $CachedRowSetImpl*), "java.sql.SQLException"},
+		{"isPKNameValid", "(Ljava/lang/String;Ljava/sql/ResultSetMetaData;)Z", nullptr, $PRIVATE, $method(CachedRowSetWriter, isPKNameValid, bool, $String*, $ResultSetMetaData*), "java.sql.SQLException"},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(CachedRowSetWriter, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+		{"rollback", "()V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetWriter, rollback, void), "java.sql.SQLException"},
+		{"rollback", "(Ljava/sql/Savepoint;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetWriter, rollback, void, $Savepoint*), "java.sql.SQLException"},
+		{"setReader", "(Lcom/sun/rowset/internal/CachedRowSetReader;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetWriter, setReader, void, $CachedRowSetReader*), "java.sql.SQLException"},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"updateOriginalRow", "(Ljavax/sql/rowset/CachedRowSet;)Z", nullptr, $PRIVATE, $method(CachedRowSetWriter, updateOriginalRow, bool, $CachedRowSet*), "java.sql.SQLException"},
+		{"updateResolvedConflictToDB", "(Ljavax/sql/rowset/CachedRowSet;Ljava/sql/Connection;)V", nullptr, 0, $virtualMethod(CachedRowSetWriter, updateResolvedConflictToDB, void, $CachedRowSet*, $Connection*), "java.sql.SQLException"},
+		{"writeData", "(Ljavax/sql/RowSetInternal;)Z", nullptr, $PUBLIC, $virtualMethod(CachedRowSetWriter, writeData, bool, $RowSetInternal*), "java.sql.SQLException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.rowset.internal.CachedRowSetWriter",
+		"java.lang.Object",
+		"javax.sql.rowset.spi.TransactionalWriter,java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CachedRowSetWriter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(CachedRowSetWriter));
+	});
 	return class$;
 }
 

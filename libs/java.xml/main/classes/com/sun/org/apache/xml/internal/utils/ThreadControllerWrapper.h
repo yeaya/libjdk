@@ -39,6 +39,7 @@ class $export ThreadControllerWrapper : public ::java::lang::Object {
 	$class(ThreadControllerWrapper, 0, ::java::lang::Object)
 public:
 	ThreadControllerWrapper();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $Thread* runThread(::java::lang::Runnable* runnable, int32_t priority);
 	static void waitThread($Thread* worker, ::java::lang::Runnable* task);

@@ -43,7 +43,7 @@ public:
 	virtual int32_t getAccessibleChildrenCount() override;
 	virtual void removePropertyChangeListener(::java::beans::PropertyChangeListener* listener) override;
 	::java::awt::Container* this$0 = nullptr;
-	static const int64_t serialVersionUID = (int64_t)0x468479FC7895D1D1;
+	static const int64_t serialVersionUID = (int64_t)0x468479fc7895d1d1;
 	$volatile(int32_t) propertyListenersCount = 0;
 	::java::awt::event::ContainerListener* accessibleContainerHandler = nullptr;
 };

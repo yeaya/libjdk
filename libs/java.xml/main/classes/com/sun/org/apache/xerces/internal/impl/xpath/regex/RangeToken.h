@@ -42,7 +42,7 @@ public:
 	virtual void subtractRanges(::com::sun::org::apache::xerces::internal::impl::xpath::regex::Token* token) override;
 	using ::com::sun::org::apache::xerces::internal::impl::xpath::regex::Token::toString;
 	virtual $String* toString(int32_t options) override;
-	static const int64_t serialVersionUID = (int64_t)0x2D35353339383331;
+	static const int64_t serialVersionUID = (int64_t)0x2d35353339383331;
 	$ints* ranges = nullptr;
 	bool sorted = false;
 	bool compacted = false;

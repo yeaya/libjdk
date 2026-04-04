@@ -41,6 +41,7 @@ class ModularRuntimeImage : public ::java::io::Closeable {
 	$class(ModularRuntimeImage, 0, ::java::io::Closeable)
 public:
 	ModularRuntimeImage();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$($String* javaHome);
 	void init$(::java::net::URLClassLoader* cl, ::java::nio::file::FileSystem* fs);

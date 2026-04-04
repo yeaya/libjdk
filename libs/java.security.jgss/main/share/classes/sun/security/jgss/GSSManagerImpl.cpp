@@ -1,5 +1,4 @@
 #include <sun/security/jgss/GSSManagerImpl.h>
-
 #include <java/security/Provider.h>
 #include <org/ietf/jgss/GSSContext.h>
 #include <org/ietf/jgss/GSSCredential.h>
@@ -57,55 +56,6 @@ namespace sun {
 	namespace security {
 		namespace jgss {
 
-$FieldInfo _GSSManagerImpl_FieldInfo_[] = {
-	{"USE_NATIVE", "Ljava/lang/Boolean;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(GSSManagerImpl, USE_NATIVE)},
-	{"list", "Lsun/security/jgss/ProviderList;", nullptr, $PRIVATE, $field(GSSManagerImpl, list)},
-	{}
-};
-
-$MethodInfo _GSSManagerImpl_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/jgss/GSSCaller;Z)V", nullptr, $PUBLIC, $method(GSSManagerImpl, init$, void, $GSSCaller*, bool)},
-	{"<init>", "(Lsun/security/jgss/GSSCaller;)V", nullptr, $PUBLIC, $method(GSSManagerImpl, init$, void, $GSSCaller*)},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(GSSManagerImpl, init$, void)},
-	{"addProviderAtEnd", "(Ljava/security/Provider;Lorg/ietf/jgss/Oid;)V", nullptr, $PUBLIC, $virtualMethod(GSSManagerImpl, addProviderAtEnd, void, $Provider*, $Oid*), "org.ietf.jgss.GSSException"},
-	{"addProviderAtFront", "(Ljava/security/Provider;Lorg/ietf/jgss/Oid;)V", nullptr, $PUBLIC, $virtualMethod(GSSManagerImpl, addProviderAtFront, void, $Provider*, $Oid*), "org.ietf.jgss.GSSException"},
-	{"createContext", "(Lorg/ietf/jgss/GSSName;Lorg/ietf/jgss/Oid;Lorg/ietf/jgss/GSSCredential;I)Lorg/ietf/jgss/GSSContext;", nullptr, $PUBLIC, $virtualMethod(GSSManagerImpl, createContext, $GSSContext*, $GSSName*, $Oid*, $GSSCredential*, int32_t), "org.ietf.jgss.GSSException"},
-	{"createContext", "(Lorg/ietf/jgss/GSSCredential;)Lorg/ietf/jgss/GSSContext;", nullptr, $PUBLIC, $virtualMethod(GSSManagerImpl, createContext, $GSSContext*, $GSSCredential*), "org.ietf.jgss.GSSException"},
-	{"createContext", "([B)Lorg/ietf/jgss/GSSContext;", nullptr, $PUBLIC, $virtualMethod(GSSManagerImpl, createContext, $GSSContext*, $bytes*), "org.ietf.jgss.GSSException"},
-	{"createCredential", "(I)Lorg/ietf/jgss/GSSCredential;", nullptr, $PUBLIC, $virtualMethod(GSSManagerImpl, createCredential, $GSSCredential*, int32_t), "org.ietf.jgss.GSSException"},
-	{"createCredential", "(Lorg/ietf/jgss/GSSName;ILorg/ietf/jgss/Oid;I)Lorg/ietf/jgss/GSSCredential;", nullptr, $PUBLIC, $virtualMethod(GSSManagerImpl, createCredential, $GSSCredential*, $GSSName*, int32_t, $Oid*, int32_t), "org.ietf.jgss.GSSException"},
-	{"createCredential", "(Lorg/ietf/jgss/GSSName;I[Lorg/ietf/jgss/Oid;I)Lorg/ietf/jgss/GSSCredential;", nullptr, $PUBLIC, $virtualMethod(GSSManagerImpl, createCredential, $GSSCredential*, $GSSName*, int32_t, $OidArray*, int32_t), "org.ietf.jgss.GSSException"},
-	{"createName", "(Ljava/lang/String;Lorg/ietf/jgss/Oid;)Lorg/ietf/jgss/GSSName;", nullptr, $PUBLIC, $virtualMethod(GSSManagerImpl, createName, $GSSName*, $String*, $Oid*), "org.ietf.jgss.GSSException"},
-	{"createName", "([BLorg/ietf/jgss/Oid;)Lorg/ietf/jgss/GSSName;", nullptr, $PUBLIC, $virtualMethod(GSSManagerImpl, createName, $GSSName*, $bytes*, $Oid*), "org.ietf.jgss.GSSException"},
-	{"createName", "(Ljava/lang/String;Lorg/ietf/jgss/Oid;Lorg/ietf/jgss/Oid;)Lorg/ietf/jgss/GSSName;", nullptr, $PUBLIC, $virtualMethod(GSSManagerImpl, createName, $GSSName*, $String*, $Oid*, $Oid*), "org.ietf.jgss.GSSException"},
-	{"createName", "([BLorg/ietf/jgss/Oid;Lorg/ietf/jgss/Oid;)Lorg/ietf/jgss/GSSName;", nullptr, $PUBLIC, $virtualMethod(GSSManagerImpl, createName, $GSSName*, $bytes*, $Oid*, $Oid*), "org.ietf.jgss.GSSException"},
-	{"getCredentialElement", "(Lsun/security/jgss/spi/GSSNameSpi;IILorg/ietf/jgss/Oid;I)Lsun/security/jgss/spi/GSSCredentialSpi;", nullptr, $PUBLIC, $virtualMethod(GSSManagerImpl, getCredentialElement, $GSSCredentialSpi*, $GSSNameSpi*, int32_t, int32_t, $Oid*, int32_t), "org.ietf.jgss.GSSException"},
-	{"getMechanismContext", "(Lsun/security/jgss/spi/GSSNameSpi;Lsun/security/jgss/spi/GSSCredentialSpi;ILorg/ietf/jgss/Oid;)Lsun/security/jgss/spi/GSSContextSpi;", nullptr, 0, $virtualMethod(GSSManagerImpl, getMechanismContext, $GSSContextSpi*, $GSSNameSpi*, $GSSCredentialSpi*, int32_t, $Oid*), "org.ietf.jgss.GSSException"},
-	{"getMechanismContext", "(Lsun/security/jgss/spi/GSSCredentialSpi;Lorg/ietf/jgss/Oid;)Lsun/security/jgss/spi/GSSContextSpi;", nullptr, 0, $virtualMethod(GSSManagerImpl, getMechanismContext, $GSSContextSpi*, $GSSCredentialSpi*, $Oid*), "org.ietf.jgss.GSSException"},
-	{"getMechanismContext", "([B)Lsun/security/jgss/spi/GSSContextSpi;", nullptr, 0, $virtualMethod(GSSManagerImpl, getMechanismContext, $GSSContextSpi*, $bytes*), "org.ietf.jgss.GSSException"},
-	{"getMechs", "()[Lorg/ietf/jgss/Oid;", nullptr, $PUBLIC, $virtualMethod(GSSManagerImpl, getMechs, $OidArray*)},
-	{"getMechsForName", "(Lorg/ietf/jgss/Oid;)[Lorg/ietf/jgss/Oid;", nullptr, $PUBLIC, $virtualMethod(GSSManagerImpl, getMechsForName, $OidArray*, $Oid*)},
-	{"getNameElement", "(Ljava/lang/String;Lorg/ietf/jgss/Oid;Lorg/ietf/jgss/Oid;)Lsun/security/jgss/spi/GSSNameSpi;", nullptr, $PUBLIC, $virtualMethod(GSSManagerImpl, getNameElement, $GSSNameSpi*, $String*, $Oid*, $Oid*), "org.ietf.jgss.GSSException"},
-	{"getNameElement", "([BLorg/ietf/jgss/Oid;Lorg/ietf/jgss/Oid;)Lsun/security/jgss/spi/GSSNameSpi;", nullptr, $PUBLIC, $virtualMethod(GSSManagerImpl, getNameElement, $GSSNameSpi*, $bytes*, $Oid*, $Oid*), "org.ietf.jgss.GSSException"},
-	{"getNamesForMech", "(Lorg/ietf/jgss/Oid;)[Lorg/ietf/jgss/Oid;", nullptr, $PUBLIC, $virtualMethod(GSSManagerImpl, getNamesForMech, $OidArray*, $Oid*), "org.ietf.jgss.GSSException"},
-	{"wrap", "(Lsun/security/jgss/GSSCredentialImpl;)Lorg/ietf/jgss/GSSCredential;", nullptr, $STATIC, $staticMethod(GSSManagerImpl, wrap, $GSSCredential*, $GSSCredentialImpl*)},
-	{"wrap", "(Lsun/security/jgss/GSSContextImpl;)Lorg/ietf/jgss/GSSContext;", nullptr, $STATIC, $staticMethod(GSSManagerImpl, wrap, $GSSContext*, $GSSContextImpl*)},
-	{}
-};
-
-$ClassInfo _GSSManagerImpl_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.jgss.GSSManagerImpl",
-	"org.ietf.jgss.GSSManager",
-	nullptr,
-	_GSSManagerImpl_FieldInfo_,
-	_GSSManagerImpl_MethodInfo_
-};
-
-$Object* allocate$GSSManagerImpl($Class* clazz) {
-	return $of($alloc(GSSManagerImpl));
-}
-
 $Boolean* GSSManagerImpl::USE_NATIVE = nullptr;
 
 void GSSManagerImpl::init$($GSSCaller* caller, bool useNative) {
@@ -115,13 +65,13 @@ void GSSManagerImpl::init$($GSSCaller* caller, bool useNative) {
 
 void GSSManagerImpl::init$($GSSCaller* caller) {
 	$GSSManager::init$();
-	$set(this, list, $new($ProviderList, caller, $nc(GSSManagerImpl::USE_NATIVE)->booleanValue()));
+	$set(this, list, $new($ProviderList, caller, GSSManagerImpl::USE_NATIVE->booleanValue()));
 }
 
 void GSSManagerImpl::init$() {
 	$GSSManager::init$();
 	$init($GSSCaller);
-	$set(this, list, $new($ProviderList, $GSSCaller::CALLER_UNKNOWN, $nc(GSSManagerImpl::USE_NATIVE)->booleanValue()));
+	$set(this, list, $new($ProviderList, $GSSCaller::CALLER_UNKNOWN, GSSManagerImpl::USE_NATIVE->booleanValue()));
 }
 
 $OidArray* GSSManagerImpl::getMechs() {
@@ -129,13 +79,13 @@ $OidArray* GSSManagerImpl::getMechs() {
 }
 
 $OidArray* GSSManagerImpl::getNamesForMech($Oid* mech) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($MechanismFactory, factory, $nc(this->list)->getMechFactory(mech));
-	return $cast($OidArray, $nc($($nc(factory)->getNameTypes()))->clone());
+	return $cast($OidArray, $$nc($nc(factory)->getNameTypes())->clone());
 }
 
 $OidArray* GSSManagerImpl::getMechsForName($Oid* nameType$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Oid, nameType, nameType$renamed);
 	$var($OidArray, mechs, $nc(this->list)->getMechs());
 	$var($OidArray, retVal, $new($OidArray, $nc(mechs)->length));
@@ -230,7 +180,7 @@ $GSSNameSpi* GSSManagerImpl::getNameElement($bytes* name, $Oid* nameType, $Oid* 
 }
 
 $GSSContextSpi* GSSManagerImpl::getMechanismContext($GSSNameSpi* peer, $GSSCredentialSpi* myInitiatorCred, int32_t lifetime, $Oid* mech) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Provider, p, nullptr);
 	if (myInitiatorCred != nullptr) {
 		$assign(p, myInitiatorCred->getProvider());
@@ -240,7 +190,7 @@ $GSSContextSpi* GSSManagerImpl::getMechanismContext($GSSNameSpi* peer, $GSSCrede
 }
 
 $GSSContextSpi* GSSManagerImpl::getMechanismContext($GSSCredentialSpi* myAcceptorCred, $Oid* mech) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Provider, p, nullptr);
 	if (myAcceptorCred != nullptr) {
 		$assign(p, myAcceptorCred->getProvider());
@@ -250,15 +200,15 @@ $GSSContextSpi* GSSManagerImpl::getMechanismContext($GSSCredentialSpi* myAccepto
 }
 
 $GSSContextSpi* GSSManagerImpl::getMechanismContext($bytes* exportedContext) {
-	$useLocalCurrentObjectStackCache();
-	if ((exportedContext == nullptr) || ($nc(exportedContext)->length == 0)) {
+	$useLocalObjectStack();
+	if ((exportedContext == nullptr) || (exportedContext->length == 0)) {
 		$throwNew($GSSException, $GSSException::NO_CONTEXT);
 	}
 	$var($GSSContextSpi, result, nullptr);
 	$var($OidArray, mechs, $nc(this->list)->getMechs());
 	for (int32_t i = 0; i < $nc(mechs)->length; ++i) {
 		$var($MechanismFactory, factory, $nc(this->list)->getMechFactory(mechs->get(i)));
-		if ($nc($($nc($($nc(factory)->getProvider()))->getName()))->equals("SunNativeGSS"_s)) {
+		if ($$nc($$nc($nc(factory)->getProvider())->getName())->equals("SunNativeGSS"_s)) {
 			$assign(result, factory->getMechanismContext(exportedContext));
 			if (result != nullptr) {
 				break;
@@ -273,15 +223,15 @@ $GSSContextSpi* GSSManagerImpl::getMechanismContext($bytes* exportedContext) {
 
 $GSSCredential* GSSManagerImpl::wrap($GSSCredentialImpl* cred) {
 	$init(GSSManagerImpl);
-	return $nc($($JgssExtender::getExtender()))->wrap(static_cast<$GSSCredential*>(cred));
+	return $$nc($JgssExtender::getExtender())->wrap(cred);
 }
 
 $GSSContext* GSSManagerImpl::wrap($GSSContextImpl* ctxt) {
 	$init(GSSManagerImpl);
-	return $nc($($JgssExtender::getExtender()))->wrap(static_cast<$GSSContext*>(ctxt));
+	return $$nc($JgssExtender::getExtender())->wrap(ctxt);
 }
 
-void clinit$GSSManagerImpl($Class* class$) {
+void GSSManagerImpl::clinit$($Class* clazz) {
 	$beforeCallerSensitive();
 	$assignStatic(GSSManagerImpl::USE_NATIVE, $Boolean::valueOf($GetBooleanAction::privilegedGetProperty("sun.security.jgss.native"_s)));
 	{
@@ -296,7 +246,51 @@ GSSManagerImpl::GSSManagerImpl() {
 }
 
 $Class* GSSManagerImpl::load$($String* name, bool initialize) {
-	$loadClass(GSSManagerImpl, name, initialize, &_GSSManagerImpl_ClassInfo_, clinit$GSSManagerImpl, allocate$GSSManagerImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"USE_NATIVE", "Ljava/lang/Boolean;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(GSSManagerImpl, USE_NATIVE)},
+		{"list", "Lsun/security/jgss/ProviderList;", nullptr, $PRIVATE, $field(GSSManagerImpl, list)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/security/jgss/GSSCaller;Z)V", nullptr, $PUBLIC, $method(GSSManagerImpl, init$, void, $GSSCaller*, bool)},
+		{"<init>", "(Lsun/security/jgss/GSSCaller;)V", nullptr, $PUBLIC, $method(GSSManagerImpl, init$, void, $GSSCaller*)},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(GSSManagerImpl, init$, void)},
+		{"addProviderAtEnd", "(Ljava/security/Provider;Lorg/ietf/jgss/Oid;)V", nullptr, $PUBLIC, $virtualMethod(GSSManagerImpl, addProviderAtEnd, void, $Provider*, $Oid*), "org.ietf.jgss.GSSException"},
+		{"addProviderAtFront", "(Ljava/security/Provider;Lorg/ietf/jgss/Oid;)V", nullptr, $PUBLIC, $virtualMethod(GSSManagerImpl, addProviderAtFront, void, $Provider*, $Oid*), "org.ietf.jgss.GSSException"},
+		{"createContext", "(Lorg/ietf/jgss/GSSName;Lorg/ietf/jgss/Oid;Lorg/ietf/jgss/GSSCredential;I)Lorg/ietf/jgss/GSSContext;", nullptr, $PUBLIC, $virtualMethod(GSSManagerImpl, createContext, $GSSContext*, $GSSName*, $Oid*, $GSSCredential*, int32_t), "org.ietf.jgss.GSSException"},
+		{"createContext", "(Lorg/ietf/jgss/GSSCredential;)Lorg/ietf/jgss/GSSContext;", nullptr, $PUBLIC, $virtualMethod(GSSManagerImpl, createContext, $GSSContext*, $GSSCredential*), "org.ietf.jgss.GSSException"},
+		{"createContext", "([B)Lorg/ietf/jgss/GSSContext;", nullptr, $PUBLIC, $virtualMethod(GSSManagerImpl, createContext, $GSSContext*, $bytes*), "org.ietf.jgss.GSSException"},
+		{"createCredential", "(I)Lorg/ietf/jgss/GSSCredential;", nullptr, $PUBLIC, $virtualMethod(GSSManagerImpl, createCredential, $GSSCredential*, int32_t), "org.ietf.jgss.GSSException"},
+		{"createCredential", "(Lorg/ietf/jgss/GSSName;ILorg/ietf/jgss/Oid;I)Lorg/ietf/jgss/GSSCredential;", nullptr, $PUBLIC, $virtualMethod(GSSManagerImpl, createCredential, $GSSCredential*, $GSSName*, int32_t, $Oid*, int32_t), "org.ietf.jgss.GSSException"},
+		{"createCredential", "(Lorg/ietf/jgss/GSSName;I[Lorg/ietf/jgss/Oid;I)Lorg/ietf/jgss/GSSCredential;", nullptr, $PUBLIC, $virtualMethod(GSSManagerImpl, createCredential, $GSSCredential*, $GSSName*, int32_t, $OidArray*, int32_t), "org.ietf.jgss.GSSException"},
+		{"createName", "(Ljava/lang/String;Lorg/ietf/jgss/Oid;)Lorg/ietf/jgss/GSSName;", nullptr, $PUBLIC, $virtualMethod(GSSManagerImpl, createName, $GSSName*, $String*, $Oid*), "org.ietf.jgss.GSSException"},
+		{"createName", "([BLorg/ietf/jgss/Oid;)Lorg/ietf/jgss/GSSName;", nullptr, $PUBLIC, $virtualMethod(GSSManagerImpl, createName, $GSSName*, $bytes*, $Oid*), "org.ietf.jgss.GSSException"},
+		{"createName", "(Ljava/lang/String;Lorg/ietf/jgss/Oid;Lorg/ietf/jgss/Oid;)Lorg/ietf/jgss/GSSName;", nullptr, $PUBLIC, $virtualMethod(GSSManagerImpl, createName, $GSSName*, $String*, $Oid*, $Oid*), "org.ietf.jgss.GSSException"},
+		{"createName", "([BLorg/ietf/jgss/Oid;Lorg/ietf/jgss/Oid;)Lorg/ietf/jgss/GSSName;", nullptr, $PUBLIC, $virtualMethod(GSSManagerImpl, createName, $GSSName*, $bytes*, $Oid*, $Oid*), "org.ietf.jgss.GSSException"},
+		{"getCredentialElement", "(Lsun/security/jgss/spi/GSSNameSpi;IILorg/ietf/jgss/Oid;I)Lsun/security/jgss/spi/GSSCredentialSpi;", nullptr, $PUBLIC, $virtualMethod(GSSManagerImpl, getCredentialElement, $GSSCredentialSpi*, $GSSNameSpi*, int32_t, int32_t, $Oid*, int32_t), "org.ietf.jgss.GSSException"},
+		{"getMechanismContext", "(Lsun/security/jgss/spi/GSSNameSpi;Lsun/security/jgss/spi/GSSCredentialSpi;ILorg/ietf/jgss/Oid;)Lsun/security/jgss/spi/GSSContextSpi;", nullptr, 0, $virtualMethod(GSSManagerImpl, getMechanismContext, $GSSContextSpi*, $GSSNameSpi*, $GSSCredentialSpi*, int32_t, $Oid*), "org.ietf.jgss.GSSException"},
+		{"getMechanismContext", "(Lsun/security/jgss/spi/GSSCredentialSpi;Lorg/ietf/jgss/Oid;)Lsun/security/jgss/spi/GSSContextSpi;", nullptr, 0, $virtualMethod(GSSManagerImpl, getMechanismContext, $GSSContextSpi*, $GSSCredentialSpi*, $Oid*), "org.ietf.jgss.GSSException"},
+		{"getMechanismContext", "([B)Lsun/security/jgss/spi/GSSContextSpi;", nullptr, 0, $virtualMethod(GSSManagerImpl, getMechanismContext, $GSSContextSpi*, $bytes*), "org.ietf.jgss.GSSException"},
+		{"getMechs", "()[Lorg/ietf/jgss/Oid;", nullptr, $PUBLIC, $virtualMethod(GSSManagerImpl, getMechs, $OidArray*)},
+		{"getMechsForName", "(Lorg/ietf/jgss/Oid;)[Lorg/ietf/jgss/Oid;", nullptr, $PUBLIC, $virtualMethod(GSSManagerImpl, getMechsForName, $OidArray*, $Oid*)},
+		{"getNameElement", "(Ljava/lang/String;Lorg/ietf/jgss/Oid;Lorg/ietf/jgss/Oid;)Lsun/security/jgss/spi/GSSNameSpi;", nullptr, $PUBLIC, $virtualMethod(GSSManagerImpl, getNameElement, $GSSNameSpi*, $String*, $Oid*, $Oid*), "org.ietf.jgss.GSSException"},
+		{"getNameElement", "([BLorg/ietf/jgss/Oid;Lorg/ietf/jgss/Oid;)Lsun/security/jgss/spi/GSSNameSpi;", nullptr, $PUBLIC, $virtualMethod(GSSManagerImpl, getNameElement, $GSSNameSpi*, $bytes*, $Oid*, $Oid*), "org.ietf.jgss.GSSException"},
+		{"getNamesForMech", "(Lorg/ietf/jgss/Oid;)[Lorg/ietf/jgss/Oid;", nullptr, $PUBLIC, $virtualMethod(GSSManagerImpl, getNamesForMech, $OidArray*, $Oid*), "org.ietf.jgss.GSSException"},
+		{"wrap", "(Lsun/security/jgss/GSSCredentialImpl;)Lorg/ietf/jgss/GSSCredential;", nullptr, $STATIC, $staticMethod(GSSManagerImpl, wrap, $GSSCredential*, $GSSCredentialImpl*)},
+		{"wrap", "(Lsun/security/jgss/GSSContextImpl;)Lorg/ietf/jgss/GSSContext;", nullptr, $STATIC, $staticMethod(GSSManagerImpl, wrap, $GSSContext*, $GSSContextImpl*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.jgss.GSSManagerImpl",
+		"org.ietf.jgss.GSSManager",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(GSSManagerImpl, name, initialize, &classInfo$$, GSSManagerImpl::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(GSSManagerImpl);
+	});
 	return class$;
 }
 

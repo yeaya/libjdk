@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/common/SequentialScheduler$SchedulableTask.h>
-
 #include <jdk/internal/net/http/common/SequentialScheduler$DeferredCompleter.h>
 #include <jdk/internal/net/http/common/SequentialScheduler$RestartableTask.h>
 #include <jdk/internal/net/http/common/SequentialScheduler.h>
@@ -10,49 +9,12 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $SequentialScheduler = ::jdk::internal::net::http::common::SequentialScheduler;
-using $SequentialScheduler$RestartableTask = ::jdk::internal::net::http::common::SequentialScheduler$RestartableTask;
 
 namespace jdk {
 	namespace internal {
 		namespace net {
 			namespace http {
 				namespace common {
-
-$FieldInfo _SequentialScheduler$SchedulableTask_FieldInfo_[] = {
-	{"this$0", "Ljdk/internal/net/http/common/SequentialScheduler;", nullptr, $FINAL | $SYNTHETIC, $field(SequentialScheduler$SchedulableTask, this$0)},
-	{}
-};
-
-$MethodInfo _SequentialScheduler$SchedulableTask_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/net/http/common/SequentialScheduler;)V", nullptr, $PRIVATE, $method(SequentialScheduler$SchedulableTask, init$, void, $SequentialScheduler*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(SequentialScheduler$SchedulableTask, run, void)},
-	{}
-};
-
-$InnerClassInfo _SequentialScheduler$SchedulableTask_InnerClassesInfo_[] = {
-	{"jdk.internal.net.http.common.SequentialScheduler$SchedulableTask", "jdk.internal.net.http.common.SequentialScheduler", "SchedulableTask", $PRIVATE | $FINAL},
-	{}
-};
-
-$ClassInfo _SequentialScheduler$SchedulableTask_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"jdk.internal.net.http.common.SequentialScheduler$SchedulableTask",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	_SequentialScheduler$SchedulableTask_FieldInfo_,
-	_SequentialScheduler$SchedulableTask_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SequentialScheduler$SchedulableTask_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.net.http.common.SequentialScheduler"
-};
-
-$Object* allocate$SequentialScheduler$SchedulableTask($Class* clazz) {
-	return $of($alloc(SequentialScheduler$SchedulableTask));
-}
 
 void SequentialScheduler$SchedulableTask::init$($SequentialScheduler* this$0) {
 	$set(this, this$0, this$0);
@@ -66,7 +28,37 @@ SequentialScheduler$SchedulableTask::SequentialScheduler$SchedulableTask() {
 }
 
 $Class* SequentialScheduler$SchedulableTask::load$($String* name, bool initialize) {
-	$loadClass(SequentialScheduler$SchedulableTask, name, initialize, &_SequentialScheduler$SchedulableTask_ClassInfo_, allocate$SequentialScheduler$SchedulableTask);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljdk/internal/net/http/common/SequentialScheduler;", nullptr, $FINAL | $SYNTHETIC, $field(SequentialScheduler$SchedulableTask, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/internal/net/http/common/SequentialScheduler;)V", nullptr, $PRIVATE, $method(SequentialScheduler$SchedulableTask, init$, void, $SequentialScheduler*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(SequentialScheduler$SchedulableTask, run, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.net.http.common.SequentialScheduler$SchedulableTask", "jdk.internal.net.http.common.SequentialScheduler", "SchedulableTask", $PRIVATE | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"jdk.internal.net.http.common.SequentialScheduler$SchedulableTask",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.net.http.common.SequentialScheduler"
+	};
+	$loadClass(SequentialScheduler$SchedulableTask, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SequentialScheduler$SchedulableTask);
+	});
 	return class$;
 }
 

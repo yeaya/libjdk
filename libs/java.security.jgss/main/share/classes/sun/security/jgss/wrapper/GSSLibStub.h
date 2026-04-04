@@ -38,6 +38,7 @@ class GSSLibStub : public ::java::lang::Object {
 	$class(GSSLibStub, 0, ::java::lang::Object)
 public:
 	GSSLibStub();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::org::ietf::jgss::Oid* mech);
 	virtual $bytes* acceptContext(int64_t pCred, ::org::ietf::jgss::ChannelBinding* cb, $bytes* inToken, ::sun::security::jgss::wrapper::NativeGSSContext* context);
 	virtual int64_t acquireCred(int64_t pName, int32_t lifetime, int32_t usage);

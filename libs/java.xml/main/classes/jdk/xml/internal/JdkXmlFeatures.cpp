@@ -1,6 +1,4 @@
 #include <jdk/xml/internal/JdkXmlFeatures.h>
-
-#include <java/lang/Enum.h>
 #include <java/lang/NumberFormatException.h>
 #include <javax/xml/XMLConstants.h>
 #include <jdk/xml/internal/JdkProperty$State.h>
@@ -23,7 +21,6 @@ using $JdkProperty$StateArray = $Array<::jdk::xml::internal::JdkProperty$State>;
 using $JdkXmlFeatures$XmlFeatureArray = $Array<::jdk::xml::internal::JdkXmlFeatures$XmlFeature>;
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -37,85 +34,28 @@ namespace jdk {
 	namespace xml {
 		namespace internal {
 
-$FieldInfo _JdkXmlFeatures_FieldInfo_[] = {
-	{"ORACLE_JAXP_PROPERTY_PREFIX", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JdkXmlFeatures, ORACLE_JAXP_PROPERTY_PREFIX)},
-	{"XML_FEATURE_MANAGER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JdkXmlFeatures, XML_FEATURE_MANAGER)},
-	{"CATALOG_FEATURES", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JdkXmlFeatures, CATALOG_FEATURES)},
-	{"PROPERTY_USE_CATALOG", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JdkXmlFeatures, PROPERTY_USE_CATALOG)},
-	{"featureValues", "[Z", nullptr, $PRIVATE | $FINAL, $field(JdkXmlFeatures, featureValues)},
-	{"states", "[Ljdk/xml/internal/JdkProperty$State;", nullptr, $PRIVATE | $FINAL, $field(JdkXmlFeatures, states)},
-	{"secureProcessing", "Z", nullptr, 0, $field(JdkXmlFeatures, secureProcessing)},
-	{}
-};
-
-$MethodInfo _JdkXmlFeatures_MethodInfo_[] = {
-	{"<init>", "(Z)V", nullptr, $PUBLIC, $method(JdkXmlFeatures, init$, void, bool)},
-	{"findByName", "(Ljava/lang/String;)Ljdk/xml/internal/JdkXmlFeatures$XmlFeature;", nullptr, $PUBLIC, $virtualMethod(JdkXmlFeatures, findByName, $JdkXmlFeatures$XmlFeature*, $String*)},
-	{"getFeature", "(Ljdk/xml/internal/JdkXmlFeatures$XmlFeature;)Z", nullptr, $PUBLIC, $virtualMethod(JdkXmlFeatures, getFeature, bool, $JdkXmlFeatures$XmlFeature*)},
-	{"getFeature", "(I)Z", nullptr, $PUBLIC, $virtualMethod(JdkXmlFeatures, getFeature, bool, int32_t)},
-	{"getIndex", "(Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(JdkXmlFeatures, getIndex, int32_t, $String*)},
-	{"getSystemProperty", "(Ljdk/xml/internal/JdkXmlFeatures$XmlFeature;Ljava/lang/String;)Z", nullptr, $PRIVATE, $method(JdkXmlFeatures, getSystemProperty, bool, $JdkXmlFeatures$XmlFeature*, $String*)},
-	{"readSystemProperties", "()V", nullptr, $PRIVATE, $method(JdkXmlFeatures, readSystemProperties, void)},
-	{"setFeature", "(Ljava/lang/String;Ljdk/xml/internal/JdkProperty$State;Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(JdkXmlFeatures, setFeature, bool, $String*, $JdkProperty$State*, Object$*)},
-	{"setFeature", "(Ljdk/xml/internal/JdkXmlFeatures$XmlFeature;Ljdk/xml/internal/JdkProperty$State;Z)V", nullptr, $PUBLIC, $virtualMethod(JdkXmlFeatures, setFeature, void, $JdkXmlFeatures$XmlFeature*, $JdkProperty$State*, bool)},
-	{"setFeature", "(ILjdk/xml/internal/JdkProperty$State;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(JdkXmlFeatures, setFeature, void, int32_t, $JdkProperty$State*, Object$*)},
-	{"setFeature", "(ILjdk/xml/internal/JdkProperty$State;Z)V", nullptr, $PUBLIC, $virtualMethod(JdkXmlFeatures, setFeature, void, int32_t, $JdkProperty$State*, bool)},
-	{"update", "()V", nullptr, $PUBLIC, $virtualMethod(JdkXmlFeatures, update, void)},
-	{}
-};
-
-$InnerClassInfo _JdkXmlFeatures_InnerClassesInfo_[] = {
-	{"jdk.xml.internal.JdkXmlFeatures$XmlFeature", "jdk.xml.internal.JdkXmlFeatures", "XmlFeature", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _JdkXmlFeatures_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"jdk.xml.internal.JdkXmlFeatures",
-	"java.lang.Object",
-	nullptr,
-	_JdkXmlFeatures_FieldInfo_,
-	_JdkXmlFeatures_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JdkXmlFeatures_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"jdk.xml.internal.JdkXmlFeatures$XmlFeature"
-};
-
-$Object* allocate$JdkXmlFeatures($Class* clazz) {
-	return $of($alloc(JdkXmlFeatures));
-}
-
 $String* JdkXmlFeatures::ORACLE_JAXP_PROPERTY_PREFIX = nullptr;
 $String* JdkXmlFeatures::XML_FEATURE_MANAGER = nullptr;
 $String* JdkXmlFeatures::CATALOG_FEATURES = nullptr;
 $String* JdkXmlFeatures::PROPERTY_USE_CATALOG = nullptr;
 
 void JdkXmlFeatures::init$(bool secureProcessing) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, featureValues, $new($booleans, $($JdkXmlFeatures$XmlFeature::values())->length));
 	$set(this, states, $new($JdkProperty$StateArray, $($JdkXmlFeatures$XmlFeature::values())->length));
 	this->secureProcessing = secureProcessing;
 	{
 		$var($JdkXmlFeatures$XmlFeatureArray, arr$, $JdkXmlFeatures$XmlFeature::values());
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 			$JdkXmlFeatures$XmlFeature* f = arr$->get(i$);
-			{
-				if (secureProcessing && $nc(f)->enforced()) {
-					int32_t var$0 = f->ordinal();
-					$nc(this->featureValues)->set(var$0, f->enforcedValue());
-					$init($JdkProperty$State);
-					$nc(this->states)->set(f->ordinal(), $JdkProperty$State::FSP);
-				} else {
-					int32_t var$1 = f->ordinal();
-					$nc(this->featureValues)->set(var$1, f->defaultValue());
-					$init($JdkProperty$State);
-					$nc(this->states)->set(f->ordinal(), $JdkProperty$State::DEFAULT);
-				}
+			if (secureProcessing && $nc(f)->enforced()) {
+				int32_t var$0 = f->ordinal();
+				this->featureValues->set(var$0, f->enforcedValue());
+				this->states->set(f->ordinal(), $JdkProperty$State::FSP);
+			} else {
+				int32_t var$1 = $nc(f)->ordinal();
+				this->featureValues->set(var$1, f->defaultValue());
+				this->states->set(f->ordinal(), $JdkProperty$State::DEFAULT);
 			}
 		}
 	}
@@ -147,18 +87,17 @@ void JdkXmlFeatures::setFeature($JdkXmlFeatures$XmlFeature* feature, $JdkPropert
 }
 
 bool JdkXmlFeatures::getFeature($JdkXmlFeatures$XmlFeature* feature) {
-	return $nc(this->featureValues)->get($nc(feature)->ordinal());
+	return this->featureValues->get($nc(feature)->ordinal());
 }
 
 bool JdkXmlFeatures::getFeature(int32_t index) {
-	return $nc(this->featureValues)->get(index);
+	return this->featureValues->get(index);
 }
 
 void JdkXmlFeatures::setFeature(int32_t index, $JdkProperty$State* state, Object$* value) {
 	bool temp = false;
-	$load($Boolean);
 	if ($Boolean::class$->isAssignableFrom($nc($of(value))->getClass())) {
-		temp = $nc(($cast($Boolean, value)))->booleanValue();
+		temp = $cast($Boolean, value)->booleanValue();
 	} else {
 		temp = $Boolean::parseBoolean($cast($String, value));
 	}
@@ -166,68 +105,50 @@ void JdkXmlFeatures::setFeature(int32_t index, $JdkProperty$State* state, Object
 }
 
 void JdkXmlFeatures::setFeature(int32_t index, $JdkProperty$State* state, bool value) {
-	if ($nc(state)->compareTo(static_cast<$Enum*>($nc(this->states)->get(index))) >= 0) {
-		$nc(this->featureValues)->set(index, value);
-		$nc(this->states)->set(index, state);
+	if ($nc(state)->compareTo(this->states->get(index)) >= 0) {
+		this->featureValues->set(index, value);
+		this->states->set(index, state);
 	}
 }
 
 $JdkXmlFeatures$XmlFeature* JdkXmlFeatures::findByName($String* propertyName) {
-	{
-		$var($JdkXmlFeatures$XmlFeatureArray, arr$, $JdkXmlFeatures$XmlFeature::values());
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
-			$JdkXmlFeatures$XmlFeature* feature = arr$->get(i$);
-			{
-				if ($nc(feature)->equalsPropertyName(propertyName)) {
-					return feature;
-				}
-			}
+	$var($JdkXmlFeatures$XmlFeatureArray, arr$, $JdkXmlFeatures$XmlFeature::values());
+	for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
+		$JdkXmlFeatures$XmlFeature* feature = arr$->get(i$);
+		if ($nc(feature)->equalsPropertyName(propertyName)) {
+			return feature;
 		}
 	}
 	return nullptr;
 }
 
 int32_t JdkXmlFeatures::getIndex($String* propertyName) {
-	{
-		$var($JdkXmlFeatures$XmlFeatureArray, arr$, $JdkXmlFeatures$XmlFeature::values());
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
-			$JdkXmlFeatures$XmlFeature* feature = arr$->get(i$);
-			{
-				if ($nc(feature)->equalsPropertyName(propertyName)) {
-					return feature->ordinal();
-				}
-			}
+	$var($JdkXmlFeatures$XmlFeatureArray, arr$, $JdkXmlFeatures$XmlFeature::values());
+	for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
+		$JdkXmlFeatures$XmlFeature* feature = arr$->get(i$);
+		if ($nc(feature)->equalsPropertyName(propertyName)) {
+			return feature->ordinal();
 		}
 	}
 	return -1;
 }
 
 void JdkXmlFeatures::readSystemProperties() {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($JdkXmlFeatures$XmlFeatureArray, arr$, $JdkXmlFeatures$XmlFeature::values());
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
-			$JdkXmlFeatures$XmlFeature* feature = arr$->get(i$);
-			{
-				if (!getSystemProperty(feature, $($nc(feature)->systemProperty()))) {
-					$var($String, oldName, $nc(feature)->systemPropertyOld());
-					if (oldName != nullptr) {
-						getSystemProperty(feature, oldName);
-					}
-				}
+	$useLocalObjectStack();
+	$var($JdkXmlFeatures$XmlFeatureArray, arr$, $JdkXmlFeatures$XmlFeature::values());
+	for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
+		$JdkXmlFeatures$XmlFeature* feature = arr$->get(i$);
+		if (!getSystemProperty(feature, $($nc(feature)->systemProperty()))) {
+			$var($String, oldName, feature->systemPropertyOld());
+			if (oldName != nullptr) {
+				getSystemProperty(feature, oldName);
 			}
 		}
 	}
 }
 
 bool JdkXmlFeatures::getSystemProperty($JdkXmlFeatures$XmlFeature* feature, $String* sysPropertyName) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$var($String, value, $SecuritySupport::getSystemProperty(sysPropertyName));
 		if (value != nullptr && !value->isEmpty()) {
@@ -250,7 +171,7 @@ bool JdkXmlFeatures::getSystemProperty($JdkXmlFeatures$XmlFeature* feature, $Str
 JdkXmlFeatures::JdkXmlFeatures() {
 }
 
-void clinit$JdkXmlFeatures($Class* class$) {
+void JdkXmlFeatures::clinit$($Class* clazz) {
 	$assignStatic(JdkXmlFeatures::ORACLE_JAXP_PROPERTY_PREFIX, "http://www.oracle.com/xml/jaxp/properties/"_s);
 	$assignStatic(JdkXmlFeatures::XML_FEATURE_MANAGER, $str({JdkXmlFeatures::ORACLE_JAXP_PROPERTY_PREFIX, "XmlFeatureManager"_s}));
 	$assignStatic(JdkXmlFeatures::CATALOG_FEATURES, "javax.xml.catalog.catalogFeatures"_s);
@@ -259,7 +180,52 @@ void clinit$JdkXmlFeatures($Class* class$) {
 }
 
 $Class* JdkXmlFeatures::load$($String* name, bool initialize) {
-	$loadClass(JdkXmlFeatures, name, initialize, &_JdkXmlFeatures_ClassInfo_, clinit$JdkXmlFeatures, allocate$JdkXmlFeatures);
+	$FieldInfo fieldInfos$$[] = {
+		{"ORACLE_JAXP_PROPERTY_PREFIX", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JdkXmlFeatures, ORACLE_JAXP_PROPERTY_PREFIX)},
+		{"XML_FEATURE_MANAGER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JdkXmlFeatures, XML_FEATURE_MANAGER)},
+		{"CATALOG_FEATURES", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JdkXmlFeatures, CATALOG_FEATURES)},
+		{"PROPERTY_USE_CATALOG", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JdkXmlFeatures, PROPERTY_USE_CATALOG)},
+		{"featureValues", "[Z", nullptr, $PRIVATE | $FINAL, $field(JdkXmlFeatures, featureValues)},
+		{"states", "[Ljdk/xml/internal/JdkProperty$State;", nullptr, $PRIVATE | $FINAL, $field(JdkXmlFeatures, states)},
+		{"secureProcessing", "Z", nullptr, 0, $field(JdkXmlFeatures, secureProcessing)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Z)V", nullptr, $PUBLIC, $method(JdkXmlFeatures, init$, void, bool)},
+		{"findByName", "(Ljava/lang/String;)Ljdk/xml/internal/JdkXmlFeatures$XmlFeature;", nullptr, $PUBLIC, $virtualMethod(JdkXmlFeatures, findByName, $JdkXmlFeatures$XmlFeature*, $String*)},
+		{"getFeature", "(Ljdk/xml/internal/JdkXmlFeatures$XmlFeature;)Z", nullptr, $PUBLIC, $virtualMethod(JdkXmlFeatures, getFeature, bool, $JdkXmlFeatures$XmlFeature*)},
+		{"getFeature", "(I)Z", nullptr, $PUBLIC, $virtualMethod(JdkXmlFeatures, getFeature, bool, int32_t)},
+		{"getIndex", "(Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(JdkXmlFeatures, getIndex, int32_t, $String*)},
+		{"getSystemProperty", "(Ljdk/xml/internal/JdkXmlFeatures$XmlFeature;Ljava/lang/String;)Z", nullptr, $PRIVATE, $method(JdkXmlFeatures, getSystemProperty, bool, $JdkXmlFeatures$XmlFeature*, $String*)},
+		{"readSystemProperties", "()V", nullptr, $PRIVATE, $method(JdkXmlFeatures, readSystemProperties, void)},
+		{"setFeature", "(Ljava/lang/String;Ljdk/xml/internal/JdkProperty$State;Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(JdkXmlFeatures, setFeature, bool, $String*, $JdkProperty$State*, Object$*)},
+		{"setFeature", "(Ljdk/xml/internal/JdkXmlFeatures$XmlFeature;Ljdk/xml/internal/JdkProperty$State;Z)V", nullptr, $PUBLIC, $virtualMethod(JdkXmlFeatures, setFeature, void, $JdkXmlFeatures$XmlFeature*, $JdkProperty$State*, bool)},
+		{"setFeature", "(ILjdk/xml/internal/JdkProperty$State;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(JdkXmlFeatures, setFeature, void, int32_t, $JdkProperty$State*, Object$*)},
+		{"setFeature", "(ILjdk/xml/internal/JdkProperty$State;Z)V", nullptr, $PUBLIC, $virtualMethod(JdkXmlFeatures, setFeature, void, int32_t, $JdkProperty$State*, bool)},
+		{"update", "()V", nullptr, $PUBLIC, $virtualMethod(JdkXmlFeatures, update, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.xml.internal.JdkXmlFeatures$XmlFeature", "jdk.xml.internal.JdkXmlFeatures", "XmlFeature", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"jdk.xml.internal.JdkXmlFeatures",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"jdk.xml.internal.JdkXmlFeatures$XmlFeature"
+	};
+	$loadClass(JdkXmlFeatures, name, initialize, &classInfo$$, JdkXmlFeatures::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(JdkXmlFeatures);
+	});
 	return class$;
 }
 

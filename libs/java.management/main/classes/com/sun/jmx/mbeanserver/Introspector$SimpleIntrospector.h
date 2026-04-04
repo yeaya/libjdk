@@ -33,6 +33,7 @@ class Introspector$SimpleIntrospector : public ::java::lang::Object {
 	$class(Introspector$SimpleIntrospector, 0, ::java::lang::Object)
 public:
 	Introspector$SimpleIntrospector();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::util::List* getCachedMethods($Class* clazz);
 	static ::java::lang::reflect::Method* getReadMethod($Class* clazz, $String* property);

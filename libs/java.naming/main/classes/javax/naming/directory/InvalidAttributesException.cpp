@@ -1,5 +1,4 @@
 #include <javax/naming/directory/InvalidAttributesException.h>
-
 #include <javax/naming/NamingException.h>
 #include <jcpp.h>
 
@@ -11,30 +10,6 @@ using $NamingException = ::javax::naming::NamingException;
 namespace javax {
 	namespace naming {
 		namespace directory {
-
-$FieldInfo _InvalidAttributesException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(InvalidAttributesException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _InvalidAttributesException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(InvalidAttributesException, init$, void, $String*)},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(InvalidAttributesException, init$, void)},
-	{}
-};
-
-$ClassInfo _InvalidAttributesException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.naming.directory.InvalidAttributesException",
-	"javax.naming.NamingException",
-	nullptr,
-	_InvalidAttributesException_FieldInfo_,
-	_InvalidAttributesException_MethodInfo_
-};
-
-$Object* allocate$InvalidAttributesException($Class* clazz) {
-	return $of($alloc(InvalidAttributesException));
-}
 
 void InvalidAttributesException::init$($String* explanation) {
 	$NamingException::init$(explanation);
@@ -55,7 +30,26 @@ void InvalidAttributesException::throw$() {
 }
 
 $Class* InvalidAttributesException::load$($String* name, bool initialize) {
-	$loadClass(InvalidAttributesException, name, initialize, &_InvalidAttributesException_ClassInfo_, allocate$InvalidAttributesException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(InvalidAttributesException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(InvalidAttributesException, init$, void, $String*)},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(InvalidAttributesException, init$, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.naming.directory.InvalidAttributesException",
+		"javax.naming.NamingException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(InvalidAttributesException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(InvalidAttributesException);
+	});
 	return class$;
 }
 

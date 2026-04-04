@@ -1,5 +1,4 @@
 #include <sun/security/krb5/internal/ktab/KeyTabConstants.h>
-
 #include <jcpp.h>
 
 #undef KRB5_KT_VNO
@@ -14,34 +13,30 @@ namespace sun {
 			namespace internal {
 				namespace ktab {
 
-$FieldInfo _KeyTabConstants_FieldInfo_[] = {
-	{"principalComponentSize", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(KeyTabConstants, principalComponentSize)},
-	{"realmSize", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(KeyTabConstants, realmSize)},
-	{"principalSize", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(KeyTabConstants, principalSize)},
-	{"principalTypeSize", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(KeyTabConstants, principalTypeSize)},
-	{"timestampSize", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(KeyTabConstants, timestampSize)},
-	{"keyVersionSize", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(KeyTabConstants, keyVersionSize)},
-	{"keyTypeSize", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(KeyTabConstants, keyTypeSize)},
-	{"keySize", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(KeyTabConstants, keySize)},
-	{"KRB5_KT_VNO_1", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(KeyTabConstants, KRB5_KT_VNO_1)},
-	{"KRB5_KT_VNO", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(KeyTabConstants, KRB5_KT_VNO)},
-	{}
-};
-
-$ClassInfo _KeyTabConstants_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"sun.security.krb5.internal.ktab.KeyTabConstants",
-	nullptr,
-	nullptr,
-	_KeyTabConstants_FieldInfo_
-};
-
-$Object* allocate$KeyTabConstants($Class* clazz) {
-	return $of($alloc(KeyTabConstants));
-}
-
 $Class* KeyTabConstants::load$($String* name, bool initialize) {
-	$loadClass(KeyTabConstants, name, initialize, &_KeyTabConstants_ClassInfo_, allocate$KeyTabConstants);
+	$FieldInfo fieldInfos$$[] = {
+		{"principalComponentSize", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(KeyTabConstants, principalComponentSize)},
+		{"realmSize", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(KeyTabConstants, realmSize)},
+		{"principalSize", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(KeyTabConstants, principalSize)},
+		{"principalTypeSize", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(KeyTabConstants, principalTypeSize)},
+		{"timestampSize", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(KeyTabConstants, timestampSize)},
+		{"keyVersionSize", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(KeyTabConstants, keyVersionSize)},
+		{"keyTypeSize", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(KeyTabConstants, keyTypeSize)},
+		{"keySize", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(KeyTabConstants, keySize)},
+		{"KRB5_KT_VNO_1", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(KeyTabConstants, KRB5_KT_VNO_1)},
+		{"KRB5_KT_VNO", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(KeyTabConstants, KRB5_KT_VNO)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"sun.security.krb5.internal.ktab.KeyTabConstants",
+		nullptr,
+		nullptr,
+		fieldInfos$$
+	};
+	$loadClass(KeyTabConstants, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(KeyTabConstants);
+	});
 	return class$;
 }
 

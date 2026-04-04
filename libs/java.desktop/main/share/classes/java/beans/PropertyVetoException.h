@@ -20,11 +20,14 @@ public:
 	PropertyVetoException();
 	void init$($String* mess, ::java::beans::PropertyChangeEvent* evt);
 	virtual ::java::beans::PropertyChangeEvent* getPropertyChangeEvent();
-	static const int64_t serialVersionUID = (int64_t)0x01CC6AED8726CCF4;
+	static const int64_t serialVersionUID = (int64_t)0x01cc6aed8726ccf4;
 	::java::beans::PropertyChangeEvent* evt = nullptr;
 	PropertyVetoException(const PropertyVetoException& e);
 	virtual void throw$() override;
-	inline PropertyVetoException* operator ->() {
+	inline PropertyVetoException* operator ->() const {
+		return (PropertyVetoException*)throwing$;
+	}
+	inline operator PropertyVetoException*() const {
 		return (PropertyVetoException*)throwing$;
 	}
 };

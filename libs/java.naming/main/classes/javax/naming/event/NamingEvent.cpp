@@ -1,5 +1,4 @@
 #include <javax/naming/event/NamingEvent.h>
-
 #include <java/util/EventObject.h>
 #include <javax/naming/Binding.h>
 #include <javax/naming/event/EventContext.h>
@@ -27,43 +26,6 @@ namespace javax {
 	namespace naming {
 		namespace event {
 
-$FieldInfo _NamingEvent_FieldInfo_[] = {
-	{"OBJECT_ADDED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(NamingEvent, OBJECT_ADDED)},
-	{"OBJECT_REMOVED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(NamingEvent, OBJECT_REMOVED)},
-	{"OBJECT_RENAMED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(NamingEvent, OBJECT_RENAMED)},
-	{"OBJECT_CHANGED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(NamingEvent, OBJECT_CHANGED)},
-	{"changeInfo", "Ljava/lang/Object;", nullptr, $PROTECTED, $field(NamingEvent, changeInfo)},
-	{"type", "I", nullptr, $PROTECTED, $field(NamingEvent, type)},
-	{"oldBinding", "Ljavax/naming/Binding;", nullptr, $PROTECTED, $field(NamingEvent, oldBinding)},
-	{"newBinding", "Ljavax/naming/Binding;", nullptr, $PROTECTED, $field(NamingEvent, newBinding)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NamingEvent, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _NamingEvent_MethodInfo_[] = {
-	{"<init>", "(Ljavax/naming/event/EventContext;ILjavax/naming/Binding;Ljavax/naming/Binding;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(NamingEvent, init$, void, $EventContext*, int32_t, $Binding*, $Binding*, Object$*)},
-	{"dispatch", "(Ljavax/naming/event/NamingListener;)V", nullptr, $PUBLIC, $virtualMethod(NamingEvent, dispatch, void, $NamingListener*)},
-	{"getChangeInfo", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(NamingEvent, getChangeInfo, $Object*)},
-	{"getEventContext", "()Ljavax/naming/event/EventContext;", nullptr, $PUBLIC, $virtualMethod(NamingEvent, getEventContext, $EventContext*)},
-	{"getNewBinding", "()Ljavax/naming/Binding;", nullptr, $PUBLIC, $virtualMethod(NamingEvent, getNewBinding, $Binding*)},
-	{"getOldBinding", "()Ljavax/naming/Binding;", nullptr, $PUBLIC, $virtualMethod(NamingEvent, getOldBinding, $Binding*)},
-	{"getType", "()I", nullptr, $PUBLIC, $virtualMethod(NamingEvent, getType, int32_t)},
-	{}
-};
-
-$ClassInfo _NamingEvent_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.naming.event.NamingEvent",
-	"java.util.EventObject",
-	nullptr,
-	_NamingEvent_FieldInfo_,
-	_NamingEvent_MethodInfo_
-};
-
-$Object* allocate$NamingEvent($Class* clazz) {
-	return $of($alloc(NamingEvent));
-}
-
 void NamingEvent::init$($EventContext* source, int32_t type, $Binding* newBd, $Binding* oldBd, Object$* changeInfo) {
 	$EventObject::init$(source);
 	this->type = type;
@@ -89,31 +51,23 @@ $Binding* NamingEvent::getNewBinding() {
 }
 
 $Object* NamingEvent::getChangeInfo() {
-	return $of(this->changeInfo);
+	return this->changeInfo;
 }
 
 void NamingEvent::dispatch($NamingListener* listener) {
 	switch (this->type) {
 	case NamingEvent::OBJECT_ADDED:
-		{
-			$nc(($cast($NamespaceChangeListener, listener)))->objectAdded(this);
-			break;
-		}
+		$nc($cast($NamespaceChangeListener, listener))->objectAdded(this);
+		break;
 	case NamingEvent::OBJECT_REMOVED:
-		{
-			$nc(($cast($NamespaceChangeListener, listener)))->objectRemoved(this);
-			break;
-		}
+		$nc($cast($NamespaceChangeListener, listener))->objectRemoved(this);
+		break;
 	case NamingEvent::OBJECT_RENAMED:
-		{
-			$nc(($cast($NamespaceChangeListener, listener)))->objectRenamed(this);
-			break;
-		}
+		$nc($cast($NamespaceChangeListener, listener))->objectRenamed(this);
+		break;
 	case NamingEvent::OBJECT_CHANGED:
-		{
-			$nc(($cast($ObjectChangeListener, listener)))->objectChanged(this);
-			break;
-		}
+		$nc($cast($ObjectChangeListener, listener))->objectChanged(this);
+		break;
 	}
 }
 
@@ -121,7 +75,39 @@ NamingEvent::NamingEvent() {
 }
 
 $Class* NamingEvent::load$($String* name, bool initialize) {
-	$loadClass(NamingEvent, name, initialize, &_NamingEvent_ClassInfo_, allocate$NamingEvent);
+	$FieldInfo fieldInfos$$[] = {
+		{"OBJECT_ADDED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(NamingEvent, OBJECT_ADDED)},
+		{"OBJECT_REMOVED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(NamingEvent, OBJECT_REMOVED)},
+		{"OBJECT_RENAMED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(NamingEvent, OBJECT_RENAMED)},
+		{"OBJECT_CHANGED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(NamingEvent, OBJECT_CHANGED)},
+		{"changeInfo", "Ljava/lang/Object;", nullptr, $PROTECTED, $field(NamingEvent, changeInfo)},
+		{"type", "I", nullptr, $PROTECTED, $field(NamingEvent, type)},
+		{"oldBinding", "Ljavax/naming/Binding;", nullptr, $PROTECTED, $field(NamingEvent, oldBinding)},
+		{"newBinding", "Ljavax/naming/Binding;", nullptr, $PROTECTED, $field(NamingEvent, newBinding)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NamingEvent, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/naming/event/EventContext;ILjavax/naming/Binding;Ljavax/naming/Binding;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(NamingEvent, init$, void, $EventContext*, int32_t, $Binding*, $Binding*, Object$*)},
+		{"dispatch", "(Ljavax/naming/event/NamingListener;)V", nullptr, $PUBLIC, $virtualMethod(NamingEvent, dispatch, void, $NamingListener*)},
+		{"getChangeInfo", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(NamingEvent, getChangeInfo, $Object*)},
+		{"getEventContext", "()Ljavax/naming/event/EventContext;", nullptr, $PUBLIC, $virtualMethod(NamingEvent, getEventContext, $EventContext*)},
+		{"getNewBinding", "()Ljavax/naming/Binding;", nullptr, $PUBLIC, $virtualMethod(NamingEvent, getNewBinding, $Binding*)},
+		{"getOldBinding", "()Ljavax/naming/Binding;", nullptr, $PUBLIC, $virtualMethod(NamingEvent, getOldBinding, $Binding*)},
+		{"getType", "()I", nullptr, $PUBLIC, $virtualMethod(NamingEvent, getType, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.naming.event.NamingEvent",
+		"java.util.EventObject",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(NamingEvent, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(NamingEvent);
+	});
 	return class$;
 }
 

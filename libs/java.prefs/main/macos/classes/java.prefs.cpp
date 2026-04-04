@@ -1,5 +1,4 @@
 #include <java.prefs.h>
-
 #include <java.base.h>
 #include <java.xml.h>
 #include <java/lang/ClassEntry.h>
@@ -7,8 +6,6 @@
 #include <java/lang/ModuleInfo.h>
 #include <java/lang/ResourceEntry.h>
 #include <jcpp.h>
-#include <module-info>
-
 #include <java/util/prefs/AbstractPreferences.h>
 #include <java/util/prefs/AbstractPreferences$1.h>
 #include <java/util/prefs/AbstractPreferences$EventDispatchThread.h>
@@ -134,6 +131,7 @@ $bytes* java$prefs$GetResource($String* name) {
 void java$prefs::init() {
 	::java$base::init();
 	::java$xml::init();
+	#include <module-info.h>
 	::java::lang::Library lib = {
 		"java.prefs", "17.35", "",
 		&_java$prefs_ModuleInfo_,

@@ -98,6 +98,7 @@ public:
 	virtual bool equals(Object$* arg0) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	$String* calculateConstraint();
 	virtual bool canDock(::java::awt::Component* c, ::java::awt::Point* p);

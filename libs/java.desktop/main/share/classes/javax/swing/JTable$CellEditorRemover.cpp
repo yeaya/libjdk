@@ -1,5 +1,4 @@
 #include <javax/swing/JTable$CellEditorRemover.h>
-
 #include <java/applet/Applet.h>
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
@@ -25,47 +24,9 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $JTable = ::javax::swing::JTable;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
-using $TableCellEditor = ::javax::swing::table::TableCellEditor;
 
 namespace javax {
 	namespace swing {
-
-$FieldInfo _JTable$CellEditorRemover_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/JTable;", nullptr, $FINAL | $SYNTHETIC, $field(JTable$CellEditorRemover, this$0)},
-	{"focusManager", "Ljava/awt/KeyboardFocusManager;", nullptr, 0, $field(JTable$CellEditorRemover, focusManager)},
-	{}
-};
-
-$MethodInfo _JTable$CellEditorRemover_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/JTable;Ljava/awt/KeyboardFocusManager;)V", nullptr, $PUBLIC, $method(JTable$CellEditorRemover, init$, void, $JTable*, $KeyboardFocusManager*)},
-	{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(JTable$CellEditorRemover, propertyChange, void, $PropertyChangeEvent*)},
-	{}
-};
-
-$InnerClassInfo _JTable$CellEditorRemover_InnerClassesInfo_[] = {
-	{"javax.swing.JTable$CellEditorRemover", "javax.swing.JTable", "CellEditorRemover", 0},
-	{}
-};
-
-$ClassInfo _JTable$CellEditorRemover_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.JTable$CellEditorRemover",
-	"java.lang.Object",
-	"java.beans.PropertyChangeListener",
-	_JTable$CellEditorRemover_FieldInfo_,
-	_JTable$CellEditorRemover_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JTable$CellEditorRemover_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.JTable"
-};
-
-$Object* allocate$JTable$CellEditorRemover($Class* clazz) {
-	return $of($alloc(JTable$CellEditorRemover));
-}
 
 void JTable$CellEditorRemover::init$($JTable* this$0, $KeyboardFocusManager* fm) {
 	$set(this, this$0, this$0);
@@ -73,9 +34,8 @@ void JTable$CellEditorRemover::init$($JTable* this$0, $KeyboardFocusManager* fm)
 }
 
 void JTable$CellEditorRemover::propertyChange($PropertyChangeEvent* ev) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool var$0 = !this->this$0->isEditing();
-	$init($Boolean);
 	if (var$0 || !$equals(this->this$0->getClientProperty("terminateEditOnFocusLost"_s), $Boolean::TRUE)) {
 		return;
 	}
@@ -85,8 +45,8 @@ void JTable$CellEditorRemover::propertyChange($PropertyChangeEvent* ev) {
 			return;
 		} else if (($instanceOf($Window, c)) || ($instanceOf($Applet, c) && c->getParent() == nullptr)) {
 			if (c == $SwingUtilities::getRoot(this->this$0)) {
-				if (!$nc($(this->this$0->getCellEditor()))->stopCellEditing()) {
-					$nc($(this->this$0->getCellEditor()))->cancelCellEditing();
+				if (!$$nc(this->this$0->getCellEditor())->stopCellEditing()) {
+					$$nc(this->this$0->getCellEditor())->cancelCellEditing();
 				}
 			}
 			break;
@@ -99,7 +59,38 @@ JTable$CellEditorRemover::JTable$CellEditorRemover() {
 }
 
 $Class* JTable$CellEditorRemover::load$($String* name, bool initialize) {
-	$loadClass(JTable$CellEditorRemover, name, initialize, &_JTable$CellEditorRemover_ClassInfo_, allocate$JTable$CellEditorRemover);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/JTable;", nullptr, $FINAL | $SYNTHETIC, $field(JTable$CellEditorRemover, this$0)},
+		{"focusManager", "Ljava/awt/KeyboardFocusManager;", nullptr, 0, $field(JTable$CellEditorRemover, focusManager)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/JTable;Ljava/awt/KeyboardFocusManager;)V", nullptr, $PUBLIC, $method(JTable$CellEditorRemover, init$, void, $JTable*, $KeyboardFocusManager*)},
+		{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(JTable$CellEditorRemover, propertyChange, void, $PropertyChangeEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.JTable$CellEditorRemover", "javax.swing.JTable", "CellEditorRemover", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.JTable$CellEditorRemover",
+		"java.lang.Object",
+		"java.beans.PropertyChangeListener",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.JTable"
+	};
+	$loadClass(JTable$CellEditorRemover, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JTable$CellEditorRemover);
+	});
 	return class$;
 }
 

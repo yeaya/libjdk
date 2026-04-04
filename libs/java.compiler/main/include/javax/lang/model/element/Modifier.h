@@ -45,6 +45,7 @@ class $import Modifier : public ::java::lang::Enum {
 public:
 	Modifier();
 	static $Array<::javax::lang::model::element::Modifier>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	virtual $String* toString() override;
 	static ::javax::lang::model::element::Modifier* valueOf($String* name);

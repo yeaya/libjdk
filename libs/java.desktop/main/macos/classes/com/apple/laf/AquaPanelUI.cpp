@@ -1,5 +1,4 @@
 #include <com/apple/laf/AquaPanelUI.h>
-
 #include <com/apple/laf/AquaUtils$RecyclableSingleton.h>
 #include <com/apple/laf/AquaUtils$RecyclableSingletonFromDefaultConstructor.h>
 #include <com/apple/laf/AquaUtils.h>
@@ -13,7 +12,6 @@
 using $AquaUtils = ::com::apple::laf::AquaUtils;
 using $AquaUtils$RecyclableSingleton = ::com::apple::laf::AquaUtils$RecyclableSingleton;
 using $AquaUtils$RecyclableSingletonFromDefaultConstructor = ::com::apple::laf::AquaUtils$RecyclableSingletonFromDefaultConstructor;
-using $Component = ::java::awt::Component;
 using $Graphics = ::java::awt::Graphics;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -26,31 +24,6 @@ namespace com {
 	namespace apple {
 		namespace laf {
 
-$FieldInfo _AquaPanelUI_FieldInfo_[] = {
-	{"instance", "Lcom/apple/laf/AquaUtils$RecyclableSingleton;", "Lcom/apple/laf/AquaUtils$RecyclableSingleton<Lcom/apple/laf/AquaPanelUI;>;", $PRIVATE | $STATIC | $FINAL, $staticField(AquaPanelUI, instance)},
-	{}
-};
-
-$MethodInfo _AquaPanelUI_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AquaPanelUI, init$, void)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(AquaPanelUI, createUI, $ComponentUI*, $JComponent*)},
-	{"update", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(AquaPanelUI, update, void, $Graphics*, $JComponent*)},
-	{}
-};
-
-$ClassInfo _AquaPanelUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.apple.laf.AquaPanelUI",
-	"javax.swing.plaf.basic.BasicPanelUI",
-	nullptr,
-	_AquaPanelUI_FieldInfo_,
-	_AquaPanelUI_MethodInfo_
-};
-
-$Object* allocate$AquaPanelUI($Class* clazz) {
-	return $of($alloc(AquaPanelUI));
-}
-
 $AquaUtils$RecyclableSingleton* AquaPanelUI::instance = nullptr;
 
 void AquaPanelUI::init$() {
@@ -59,7 +32,7 @@ void AquaPanelUI::init$() {
 
 $ComponentUI* AquaPanelUI::createUI($JComponent* c) {
 	$init(AquaPanelUI);
-	return $cast($ComponentUI, $nc(AquaPanelUI::instance)->get());
+	return $cast($ComponentUI, AquaPanelUI::instance->get());
 }
 
 void AquaPanelUI::update($Graphics* g, $JComponent* c) {
@@ -69,7 +42,7 @@ void AquaPanelUI::update($Graphics* g, $JComponent* c) {
 	paint(g, c);
 }
 
-void clinit$AquaPanelUI($Class* class$) {
+void AquaPanelUI::clinit$($Class* clazz) {
 	$assignStatic(AquaPanelUI::instance, $new($AquaUtils$RecyclableSingletonFromDefaultConstructor, AquaPanelUI::class$));
 }
 
@@ -77,7 +50,27 @@ AquaPanelUI::AquaPanelUI() {
 }
 
 $Class* AquaPanelUI::load$($String* name, bool initialize) {
-	$loadClass(AquaPanelUI, name, initialize, &_AquaPanelUI_ClassInfo_, clinit$AquaPanelUI, allocate$AquaPanelUI);
+	$FieldInfo fieldInfos$$[] = {
+		{"instance", "Lcom/apple/laf/AquaUtils$RecyclableSingleton;", "Lcom/apple/laf/AquaUtils$RecyclableSingleton<Lcom/apple/laf/AquaPanelUI;>;", $PRIVATE | $STATIC | $FINAL, $staticField(AquaPanelUI, instance)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AquaPanelUI, init$, void)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(AquaPanelUI, createUI, $ComponentUI*, $JComponent*)},
+		{"update", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(AquaPanelUI, update, void, $Graphics*, $JComponent*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.apple.laf.AquaPanelUI",
+		"javax.swing.plaf.basic.BasicPanelUI",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(AquaPanelUI, name, initialize, &classInfo$$, AquaPanelUI::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(AquaPanelUI);
+	});
 	return class$;
 }
 

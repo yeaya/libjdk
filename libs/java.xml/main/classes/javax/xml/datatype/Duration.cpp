@@ -1,5 +1,4 @@
 #include <javax/xml/datatype/Duration.h>
-
 #include <java/lang/IllegalStateException.h>
 #include <java/lang/Number.h>
 #include <java/lang/StringBuffer.h>
@@ -47,57 +46,6 @@ namespace javax {
 	namespace xml {
 		namespace datatype {
 
-$FieldInfo _Duration_FieldInfo_[] = {
-	{"DEBUG", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Duration, DEBUG)},
-	{}
-};
-
-$MethodInfo _Duration_MethodInfo_[] = {
-	{"hashCode", "()I", nullptr, $PUBLIC | $ABSTRACT},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Duration, init$, void)},
-	{"add", "(Ljavax/xml/datatype/Duration;)Ljavax/xml/datatype/Duration;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Duration, add, Duration*, Duration*)},
-	{"addTo", "(Ljava/util/Calendar;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Duration, addTo, void, $Calendar*)},
-	{"addTo", "(Ljava/util/Date;)V", nullptr, $PUBLIC, $virtualMethod(Duration, addTo, void, $Date*)},
-	{"compare", "(Ljavax/xml/datatype/Duration;)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Duration, compare, int32_t, Duration*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Duration, equals, bool, Object$*)},
-	{"getCalendarTimeInMillis", "(Ljava/util/Calendar;)J", nullptr, $PRIVATE | $STATIC, $staticMethod(Duration, getCalendarTimeInMillis, int64_t, $Calendar*)},
-	{"getDays", "()I", nullptr, $PUBLIC, $virtualMethod(Duration, getDays, int32_t)},
-	{"getField", "(Ljavax/xml/datatype/DatatypeConstants$Field;)Ljava/lang/Number;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Duration, getField, $Number*, $DatatypeConstants$Field*)},
-	{"getHours", "()I", nullptr, $PUBLIC, $virtualMethod(Duration, getHours, int32_t)},
-	{"getMinutes", "()I", nullptr, $PUBLIC, $virtualMethod(Duration, getMinutes, int32_t)},
-	{"getMonths", "()I", nullptr, $PUBLIC, $virtualMethod(Duration, getMonths, int32_t)},
-	{"getSeconds", "()I", nullptr, $PUBLIC, $virtualMethod(Duration, getSeconds, int32_t)},
-	{"getSign", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Duration, getSign, int32_t)},
-	{"getTimeInMillis", "(Ljava/util/Calendar;)J", nullptr, $PUBLIC, $virtualMethod(Duration, getTimeInMillis, int64_t, $Calendar*)},
-	{"getTimeInMillis", "(Ljava/util/Date;)J", nullptr, $PUBLIC, $virtualMethod(Duration, getTimeInMillis, int64_t, $Date*)},
-	{"getXMLSchemaType", "()Ljavax/xml/namespace/QName;", nullptr, $PUBLIC, $virtualMethod(Duration, getXMLSchemaType, $QName*)},
-	{"getYears", "()I", nullptr, $PUBLIC, $virtualMethod(Duration, getYears, int32_t)},
-	{"isLongerThan", "(Ljavax/xml/datatype/Duration;)Z", nullptr, $PUBLIC, $virtualMethod(Duration, isLongerThan, bool, Duration*)},
-	{"isSet", "(Ljavax/xml/datatype/DatatypeConstants$Field;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Duration, isSet, bool, $DatatypeConstants$Field*)},
-	{"isShorterThan", "(Ljavax/xml/datatype/Duration;)Z", nullptr, $PUBLIC, $virtualMethod(Duration, isShorterThan, bool, Duration*)},
-	{"multiply", "(I)Ljavax/xml/datatype/Duration;", nullptr, $PUBLIC, $virtualMethod(Duration, multiply, Duration*, int32_t)},
-	{"multiply", "(Ljava/math/BigDecimal;)Ljavax/xml/datatype/Duration;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Duration, multiply, Duration*, $BigDecimal*)},
-	{"negate", "()Ljavax/xml/datatype/Duration;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Duration, negate, Duration*)},
-	{"normalizeWith", "(Ljava/util/Calendar;)Ljavax/xml/datatype/Duration;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Duration, normalizeWith, Duration*, $Calendar*)},
-	{"subtract", "(Ljavax/xml/datatype/Duration;)Ljavax/xml/datatype/Duration;", nullptr, $PUBLIC, $virtualMethod(Duration, subtract, Duration*, Duration*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Duration, toString, $String*)},
-	{"toString", "(Ljava/math/BigDecimal;)Ljava/lang/String;", nullptr, $PRIVATE, $method(Duration, toString, $String*, $BigDecimal*)},
-	{}
-};
-
-$ClassInfo _Duration_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"javax.xml.datatype.Duration",
-	"java.lang.Object",
-	nullptr,
-	_Duration_FieldInfo_,
-	_Duration_MethodInfo_
-};
-
-$Object* allocate$Duration($Class* clazz) {
-	return $of($alloc(Duration));
-}
-
 int32_t Duration::hashCode() {
 	 return this->$Object::hashCode();
 }
@@ -106,7 +54,7 @@ void Duration::init$() {
 }
 
 $QName* Duration::getXMLSchemaType() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($DatatypeConstants);
 	bool yearSet = isSet($DatatypeConstants::YEARS);
 	bool monthSet = isSet($DatatypeConstants::MONTHS);
@@ -128,32 +76,32 @@ $QName* Duration::getXMLSchemaType() {
 
 int32_t Duration::getYears() {
 	$init($DatatypeConstants);
-	return $nc($(getField($DatatypeConstants::YEARS)))->intValue();
+	return $$nc(getField($DatatypeConstants::YEARS))->intValue();
 }
 
 int32_t Duration::getMonths() {
 	$init($DatatypeConstants);
-	return $nc($(getField($DatatypeConstants::MONTHS)))->intValue();
+	return $$nc(getField($DatatypeConstants::MONTHS))->intValue();
 }
 
 int32_t Duration::getDays() {
 	$init($DatatypeConstants);
-	return $nc($(getField($DatatypeConstants::DAYS)))->intValue();
+	return $$nc(getField($DatatypeConstants::DAYS))->intValue();
 }
 
 int32_t Duration::getHours() {
 	$init($DatatypeConstants);
-	return $nc($(getField($DatatypeConstants::HOURS)))->intValue();
+	return $$nc(getField($DatatypeConstants::HOURS))->intValue();
 }
 
 int32_t Duration::getMinutes() {
 	$init($DatatypeConstants);
-	return $nc($(getField($DatatypeConstants::MINUTES)))->intValue();
+	return $$nc(getField($DatatypeConstants::MINUTES))->intValue();
 }
 
 int32_t Duration::getSeconds() {
 	$init($DatatypeConstants);
-	return $nc($(getField($DatatypeConstants::SECONDS)))->intValue();
+	return $$nc(getField($DatatypeConstants::SECONDS))->intValue();
 }
 
 int64_t Duration::getTimeInMillis($Calendar* startInstant) {
@@ -172,9 +120,9 @@ int64_t Duration::getTimeInMillis($Date* startInstant) {
 }
 
 void Duration::addTo($Date* date) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (date == nullptr) {
-		$throwNew($NullPointerException, $$str({"Cannot call "_s, $($of(this)->getClass()->getName()), "#addTo(Date date) with date == null."_s}));
+		$throwNew($NullPointerException, $$str({"Cannot call "_s, $(this->getClass()->getName()), "#addTo(Date date) with date == null."_s}));
 	}
 	$var($Calendar, cal, $new($GregorianCalendar));
 	cal->setTime(date);
@@ -187,7 +135,7 @@ Duration* Duration::subtract(Duration* rhs) {
 }
 
 Duration* Duration::multiply(int32_t factor) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return multiply($$new($BigDecimal, $($String::valueOf(factor))));
 }
 
@@ -207,7 +155,7 @@ bool Duration::equals(Object$* duration) {
 }
 
 $String* Duration::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuffer, buf, $new($StringBuffer));
 	if (getSign() < 0) {
 		buf->append(u'-');
@@ -245,14 +193,14 @@ $String* Duration::toString() {
 }
 
 $String* Duration::toString($BigDecimal* bd) {
-	$useLocalCurrentObjectStackCache();
-	$var($String, intString, $nc($($nc(bd)->unscaledValue()))->toString());
+	$useLocalObjectStack();
+	$var($String, intString, $($nc(bd)->unscaledValue())->toString());
 	int32_t scale = bd->scale();
 	if (scale == 0) {
 		return intString;
 	}
 	$var($StringBuffer, buf, nullptr);
-	int32_t insertionPoint = $nc(intString)->length() - scale;
+	int32_t insertionPoint = intString->length() - scale;
 	if (insertionPoint == 0) {
 		return $str({"0."_s, intString});
 	} else if (insertionPoint > 0) {
@@ -270,14 +218,60 @@ $String* Duration::toString($BigDecimal* bd) {
 }
 
 int64_t Duration::getCalendarTimeInMillis($Calendar* cal) {
-	return $nc($($nc(cal)->getTime()))->getTime();
+	return $$nc($nc(cal)->getTime())->getTime();
 }
 
 Duration::Duration() {
 }
 
 $Class* Duration::load$($String* name, bool initialize) {
-	$loadClass(Duration, name, initialize, &_Duration_ClassInfo_, allocate$Duration);
+	$FieldInfo fieldInfos$$[] = {
+		{"DEBUG", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Duration, DEBUG)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"hashCode", "()I", nullptr, $PUBLIC | $ABSTRACT},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Duration, init$, void)},
+		{"add", "(Ljavax/xml/datatype/Duration;)Ljavax/xml/datatype/Duration;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Duration, add, Duration*, Duration*)},
+		{"addTo", "(Ljava/util/Calendar;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Duration, addTo, void, $Calendar*)},
+		{"addTo", "(Ljava/util/Date;)V", nullptr, $PUBLIC, $virtualMethod(Duration, addTo, void, $Date*)},
+		{"compare", "(Ljavax/xml/datatype/Duration;)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Duration, compare, int32_t, Duration*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Duration, equals, bool, Object$*)},
+		{"getCalendarTimeInMillis", "(Ljava/util/Calendar;)J", nullptr, $PRIVATE | $STATIC, $staticMethod(Duration, getCalendarTimeInMillis, int64_t, $Calendar*)},
+		{"getDays", "()I", nullptr, $PUBLIC, $virtualMethod(Duration, getDays, int32_t)},
+		{"getField", "(Ljavax/xml/datatype/DatatypeConstants$Field;)Ljava/lang/Number;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Duration, getField, $Number*, $DatatypeConstants$Field*)},
+		{"getHours", "()I", nullptr, $PUBLIC, $virtualMethod(Duration, getHours, int32_t)},
+		{"getMinutes", "()I", nullptr, $PUBLIC, $virtualMethod(Duration, getMinutes, int32_t)},
+		{"getMonths", "()I", nullptr, $PUBLIC, $virtualMethod(Duration, getMonths, int32_t)},
+		{"getSeconds", "()I", nullptr, $PUBLIC, $virtualMethod(Duration, getSeconds, int32_t)},
+		{"getSign", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Duration, getSign, int32_t)},
+		{"getTimeInMillis", "(Ljava/util/Calendar;)J", nullptr, $PUBLIC, $virtualMethod(Duration, getTimeInMillis, int64_t, $Calendar*)},
+		{"getTimeInMillis", "(Ljava/util/Date;)J", nullptr, $PUBLIC, $virtualMethod(Duration, getTimeInMillis, int64_t, $Date*)},
+		{"getXMLSchemaType", "()Ljavax/xml/namespace/QName;", nullptr, $PUBLIC, $virtualMethod(Duration, getXMLSchemaType, $QName*)},
+		{"getYears", "()I", nullptr, $PUBLIC, $virtualMethod(Duration, getYears, int32_t)},
+		{"isLongerThan", "(Ljavax/xml/datatype/Duration;)Z", nullptr, $PUBLIC, $virtualMethod(Duration, isLongerThan, bool, Duration*)},
+		{"isSet", "(Ljavax/xml/datatype/DatatypeConstants$Field;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Duration, isSet, bool, $DatatypeConstants$Field*)},
+		{"isShorterThan", "(Ljavax/xml/datatype/Duration;)Z", nullptr, $PUBLIC, $virtualMethod(Duration, isShorterThan, bool, Duration*)},
+		{"multiply", "(I)Ljavax/xml/datatype/Duration;", nullptr, $PUBLIC, $virtualMethod(Duration, multiply, Duration*, int32_t)},
+		{"multiply", "(Ljava/math/BigDecimal;)Ljavax/xml/datatype/Duration;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Duration, multiply, Duration*, $BigDecimal*)},
+		{"negate", "()Ljavax/xml/datatype/Duration;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Duration, negate, Duration*)},
+		{"normalizeWith", "(Ljava/util/Calendar;)Ljavax/xml/datatype/Duration;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Duration, normalizeWith, Duration*, $Calendar*)},
+		{"subtract", "(Ljavax/xml/datatype/Duration;)Ljavax/xml/datatype/Duration;", nullptr, $PUBLIC, $virtualMethod(Duration, subtract, Duration*, Duration*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Duration, toString, $String*)},
+		{"toString", "(Ljava/math/BigDecimal;)Ljava/lang/String;", nullptr, $PRIVATE, $method(Duration, toString, $String*, $BigDecimal*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"javax.xml.datatype.Duration",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Duration, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Duration);
+	});
 	return class$;
 }
 

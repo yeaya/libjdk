@@ -43,6 +43,7 @@ class $export MemberEnter$InitTreeVisitor : public ::com::sun::tools::javac::tre
 	$class(MemberEnter$InitTreeVisitor, 0, ::com::sun::tools::javac::tree::JCTree$Visitor)
 public:
 	MemberEnter$InitTreeVisitor();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void visitBinary(::com::sun::tools::javac::tree::JCTree$JCBinary* that) override;
 	virtual void visitConditional(::com::sun::tools::javac::tree::JCTree$JCConditional* tree) override;

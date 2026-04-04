@@ -1,5 +1,4 @@
 #include <javax/swing/JDesktopPane$AccessibleJDesktopPane.h>
-
 #include <javax/accessibility/AccessibleRole.h>
 #include <javax/swing/JComponent$AccessibleJComponent.h>
 #include <javax/swing/JComponent.h>
@@ -13,49 +12,11 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AccessibleRole = ::javax::accessibility::AccessibleRole;
-using $JComponent = ::javax::swing::JComponent;
 using $JComponent$AccessibleJComponent = ::javax::swing::JComponent$AccessibleJComponent;
 using $JDesktopPane = ::javax::swing::JDesktopPane;
 
 namespace javax {
 	namespace swing {
-
-$FieldInfo _JDesktopPane$AccessibleJDesktopPane_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/JDesktopPane;", nullptr, $FINAL | $SYNTHETIC, $field(JDesktopPane$AccessibleJDesktopPane, this$0)},
-	{}
-};
-
-$MethodInfo _JDesktopPane$AccessibleJDesktopPane_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/JDesktopPane;)V", nullptr, $PROTECTED, $method(JDesktopPane$AccessibleJDesktopPane, init$, void, $JDesktopPane*)},
-	{"getAccessibleRole", "()Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC, $virtualMethod(JDesktopPane$AccessibleJDesktopPane, getAccessibleRole, $AccessibleRole*)},
-	{}
-};
-
-$InnerClassInfo _JDesktopPane$AccessibleJDesktopPane_InnerClassesInfo_[] = {
-	{"javax.swing.JDesktopPane$AccessibleJDesktopPane", "javax.swing.JDesktopPane", "AccessibleJDesktopPane", $PROTECTED},
-	{"javax.swing.JComponent$AccessibleJComponent", "javax.swing.JComponent", "AccessibleJComponent", $PUBLIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _JDesktopPane$AccessibleJDesktopPane_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.JDesktopPane$AccessibleJDesktopPane",
-	"javax.swing.JComponent$AccessibleJComponent",
-	nullptr,
-	_JDesktopPane$AccessibleJDesktopPane_FieldInfo_,
-	_JDesktopPane$AccessibleJDesktopPane_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JDesktopPane$AccessibleJDesktopPane_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.JDesktopPane"
-};
-
-$Object* allocate$JDesktopPane$AccessibleJDesktopPane($Class* clazz) {
-	return $of($alloc(JDesktopPane$AccessibleJDesktopPane));
-}
 
 void JDesktopPane$AccessibleJDesktopPane::init$($JDesktopPane* this$0) {
 	$set(this, this$0, this$0);
@@ -71,7 +32,38 @@ JDesktopPane$AccessibleJDesktopPane::JDesktopPane$AccessibleJDesktopPane() {
 }
 
 $Class* JDesktopPane$AccessibleJDesktopPane::load$($String* name, bool initialize) {
-	$loadClass(JDesktopPane$AccessibleJDesktopPane, name, initialize, &_JDesktopPane$AccessibleJDesktopPane_ClassInfo_, allocate$JDesktopPane$AccessibleJDesktopPane);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/JDesktopPane;", nullptr, $FINAL | $SYNTHETIC, $field(JDesktopPane$AccessibleJDesktopPane, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/JDesktopPane;)V", nullptr, $PROTECTED, $method(JDesktopPane$AccessibleJDesktopPane, init$, void, $JDesktopPane*)},
+		{"getAccessibleRole", "()Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC, $virtualMethod(JDesktopPane$AccessibleJDesktopPane, getAccessibleRole, $AccessibleRole*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.JDesktopPane$AccessibleJDesktopPane", "javax.swing.JDesktopPane", "AccessibleJDesktopPane", $PROTECTED},
+		{"javax.swing.JComponent$AccessibleJComponent", "javax.swing.JComponent", "AccessibleJComponent", $PUBLIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.JDesktopPane$AccessibleJDesktopPane",
+		"javax.swing.JComponent$AccessibleJComponent",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.JDesktopPane"
+	};
+	$loadClass(JDesktopPane$AccessibleJDesktopPane, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JDesktopPane$AccessibleJDesktopPane));
+	});
 	return class$;
 }
 

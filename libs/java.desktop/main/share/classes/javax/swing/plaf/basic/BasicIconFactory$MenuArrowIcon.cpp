@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/basic/BasicIconFactory$MenuArrowIcon.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Graphics.h>
 #include <java/awt/Polygon.h>
@@ -19,44 +18,6 @@ namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace basic {
-
-$MethodInfo _BasicIconFactory$MenuArrowIcon_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PRIVATE, $method(BasicIconFactory$MenuArrowIcon, init$, void)},
-	{"getIconHeight", "()I", nullptr, $PUBLIC, $virtualMethod(BasicIconFactory$MenuArrowIcon, getIconHeight, int32_t)},
-	{"getIconWidth", "()I", nullptr, $PUBLIC, $virtualMethod(BasicIconFactory$MenuArrowIcon, getIconWidth, int32_t)},
-	{"paintIcon", "(Ljava/awt/Component;Ljava/awt/Graphics;II)V", nullptr, $PUBLIC, $virtualMethod(BasicIconFactory$MenuArrowIcon, paintIcon, void, $Component*, $Graphics*, int32_t, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _BasicIconFactory$MenuArrowIcon_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.basic.BasicIconFactory$MenuArrowIcon", "javax.swing.plaf.basic.BasicIconFactory", "MenuArrowIcon", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _BasicIconFactory$MenuArrowIcon_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.basic.BasicIconFactory$MenuArrowIcon",
-	"java.lang.Object",
-	"javax.swing.Icon,javax.swing.plaf.UIResource,java.io.Serializable",
-	nullptr,
-	_BasicIconFactory$MenuArrowIcon_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BasicIconFactory$MenuArrowIcon_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.basic.BasicIconFactory"
-};
-
-$Object* allocate$BasicIconFactory$MenuArrowIcon($Class* clazz) {
-	return $of($alloc(BasicIconFactory$MenuArrowIcon));
-}
 
 int32_t BasicIconFactory$MenuArrowIcon::hashCode() {
 	 return this->$Icon::hashCode();
@@ -102,7 +63,40 @@ BasicIconFactory$MenuArrowIcon::BasicIconFactory$MenuArrowIcon() {
 }
 
 $Class* BasicIconFactory$MenuArrowIcon::load$($String* name, bool initialize) {
-	$loadClass(BasicIconFactory$MenuArrowIcon, name, initialize, &_BasicIconFactory$MenuArrowIcon_ClassInfo_, allocate$BasicIconFactory$MenuArrowIcon);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PRIVATE, $method(BasicIconFactory$MenuArrowIcon, init$, void)},
+		{"getIconHeight", "()I", nullptr, $PUBLIC, $virtualMethod(BasicIconFactory$MenuArrowIcon, getIconHeight, int32_t)},
+		{"getIconWidth", "()I", nullptr, $PUBLIC, $virtualMethod(BasicIconFactory$MenuArrowIcon, getIconWidth, int32_t)},
+		{"paintIcon", "(Ljava/awt/Component;Ljava/awt/Graphics;II)V", nullptr, $PUBLIC, $virtualMethod(BasicIconFactory$MenuArrowIcon, paintIcon, void, $Component*, $Graphics*, int32_t, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.basic.BasicIconFactory$MenuArrowIcon", "javax.swing.plaf.basic.BasicIconFactory", "MenuArrowIcon", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.basic.BasicIconFactory$MenuArrowIcon",
+		"java.lang.Object",
+		"javax.swing.Icon,javax.swing.plaf.UIResource,java.io.Serializable",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.basic.BasicIconFactory"
+	};
+	$loadClass(BasicIconFactory$MenuArrowIcon, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(BasicIconFactory$MenuArrowIcon));
+	});
 	return class$;
 }
 

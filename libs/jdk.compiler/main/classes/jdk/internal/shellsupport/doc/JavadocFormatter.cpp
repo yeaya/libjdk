@@ -1,7 +1,5 @@
 #include <jdk/internal/shellsupport/doc/JavadocFormatter.h>
-
 #include <com/sun/source/doctree/DocCommentTree.h>
-#include <com/sun/source/doctree/DocTree.h>
 #include <com/sun/source/util/DocTrees.h>
 #include <com/sun/source/util/JavacTask.h>
 #include <java/io/Writer.h>
@@ -42,7 +40,6 @@
 #undef TYPE_PARAMS
 
 using $DocCommentTree = ::com::sun::source::doctree::DocCommentTree;
-using $DocTree = ::com::sun::source::doctree::DocTree;
 using $DocTrees = ::com::sun::source::util::DocTrees;
 using $JavacTask = ::com::sun::source::util::JavacTask;
 using $Writer = ::java::io::Writer;
@@ -61,9 +58,6 @@ using $Map = ::java::util::Map;
 using $ResourceBundle = ::java::util::ResourceBundle;
 using $Name = ::javax::lang::model::element::Name;
 using $DiagnosticListener = ::javax::tools::DiagnosticListener;
-using $FileObject = ::javax::tools::FileObject;
-using $JavaCompiler = ::javax::tools::JavaCompiler;
-using $JavaCompiler$CompilationTask = ::javax::tools::JavaCompiler$CompilationTask;
 using $JavaFileManager = ::javax::tools::JavaFileManager;
 using $JavaFileObject$Kind = ::javax::tools::JavaFileObject$Kind;
 using $ToolProvider = ::javax::tools::ToolProvider;
@@ -78,62 +72,6 @@ namespace jdk {
 		namespace shellsupport {
 			namespace doc {
 
-$FieldInfo _JavadocFormatter_FieldInfo_[] = {
-	{"CODE_RESET", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JavadocFormatter, CODE_RESET)},
-	{"CODE_HIGHLIGHT", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JavadocFormatter, CODE_HIGHLIGHT)},
-	{"CODE_UNDERLINE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JavadocFormatter, CODE_UNDERLINE)},
-	{"lineLimit", "I", nullptr, $PRIVATE | $FINAL, $field(JavadocFormatter, lineLimit)},
-	{"escapeSequencesSupported", "Z", nullptr, $PRIVATE | $FINAL, $field(JavadocFormatter, escapeSequencesSupported)},
-	{"MAX_LINE_LENGTH", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JavadocFormatter, MAX_LINE_LENGTH)},
-	{"SHORTEST_LINE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JavadocFormatter, SHORTEST_LINE)},
-	{"INDENT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JavadocFormatter, INDENT)},
-	{"docSections", "Ljava/util/Map;", "Ljava/util/Map<Ljdk/internal/shellsupport/doc/JavadocFormatter$Sections;Ljava/lang/String;>;", $PRIVATE | $STATIC | $FINAL, $staticField(JavadocFormatter, docSections)},
-	{"inlineReturns", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JavadocFormatter, inlineReturns)},
-	{}
-};
-
-$MethodInfo _JavadocFormatter_MethodInfo_[] = {
-	{"<init>", "(IZ)V", nullptr, $PUBLIC, $method(JavadocFormatter, init$, void, int32_t, bool)},
-	{"addNewLineIfNeeded", "(Ljava/lang/StringBuilder;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(JavadocFormatter, addNewLineIfNeeded, void, $StringBuilder*)},
-	{"addSpaceIfNeeded", "(Ljava/lang/StringBuilder;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(JavadocFormatter, addSpaceIfNeeded, void, $StringBuilder*)},
-	{"countTableColumns", "(Lcom/sun/source/doctree/DocCommentTree;)Ljava/util/Map;", "(Lcom/sun/source/doctree/DocCommentTree;)Ljava/util/Map<Lcom/sun/source/doctree/StartElementTree;Ljava/lang/Integer;>;", $PRIVATE | $STATIC, $staticMethod(JavadocFormatter, countTableColumns, $Map*, $DocCommentTree*)},
-	{"escape", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(JavadocFormatter, escape, $String*, $String*)},
-	{"formatJavadoc", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JavadocFormatter, formatJavadoc, $String*, $String*, $String*)},
-	{"getHtmlTag", "(Ljavax/lang/model/element/Name;)Ljdk/internal/shellsupport/doc/JavadocFormatter$HtmlTag;", nullptr, $PRIVATE | $STATIC, $staticMethod(JavadocFormatter, getHtmlTag, $JavadocFormatter$HtmlTag*, $Name*)},
-	{"indentString", "(I)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(JavadocFormatter, indentString, $String*, int32_t)},
-	{"reflow", "(Ljava/lang/StringBuilder;III)V", nullptr, $PRIVATE | $STATIC, $staticMethod(JavadocFormatter, reflow, void, $StringBuilder*, int32_t, int32_t, int32_t)},
-	{}
-};
-
-$InnerClassInfo _JavadocFormatter_InnerClassesInfo_[] = {
-	{"jdk.internal.shellsupport.doc.JavadocFormatter$3", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{"jdk.internal.shellsupport.doc.JavadocFormatter$Sections", "jdk.internal.shellsupport.doc.JavadocFormatter", "Sections", $PRIVATE | $STATIC | $ABSTRACT | $ENUM},
-	{"jdk.internal.shellsupport.doc.JavadocFormatter$FormatJavadocScanner", "jdk.internal.shellsupport.doc.JavadocFormatter", "FormatJavadocScanner", $PRIVATE},
-	{"jdk.internal.shellsupport.doc.JavadocFormatter$HtmlTag", "jdk.internal.shellsupport.doc.JavadocFormatter", "HtmlTag", $STATIC | $FINAL | $ENUM},
-	{"jdk.internal.shellsupport.doc.JavadocFormatter$2", nullptr, nullptr, 0},
-	{"jdk.internal.shellsupport.doc.JavadocFormatter$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _JavadocFormatter_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"jdk.internal.shellsupport.doc.JavadocFormatter",
-	"java.lang.Object",
-	nullptr,
-	_JavadocFormatter_FieldInfo_,
-	_JavadocFormatter_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JavadocFormatter_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"jdk.internal.shellsupport.doc.JavadocFormatter$3,jdk.internal.shellsupport.doc.JavadocFormatter$Sections,jdk.internal.shellsupport.doc.JavadocFormatter$Sections$4,jdk.internal.shellsupport.doc.JavadocFormatter$Sections$3,jdk.internal.shellsupport.doc.JavadocFormatter$Sections$2,jdk.internal.shellsupport.doc.JavadocFormatter$Sections$1,jdk.internal.shellsupport.doc.JavadocFormatter$FormatJavadocScanner,jdk.internal.shellsupport.doc.JavadocFormatter$HtmlTag,jdk.internal.shellsupport.doc.JavadocFormatter$2,jdk.internal.shellsupport.doc.JavadocFormatter$1"
-};
-
-$Object* allocate$JavadocFormatter($Class* clazz) {
-	return $of($alloc(JavadocFormatter));
-}
-
 $String* JavadocFormatter::CODE_RESET = nullptr;
 $String* JavadocFormatter::CODE_HIGHLIGHT = nullptr;
 $String* JavadocFormatter::CODE_UNDERLINE = nullptr;
@@ -146,18 +84,18 @@ void JavadocFormatter::init$(int32_t lineLimit, bool escapeSequencesSupported) {
 }
 
 $String* JavadocFormatter::formatJavadoc($String* header, $String* javadoc) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$var($StringBuilder, result, $new($StringBuilder));
 		result->append($(escape(JavadocFormatter::CODE_HIGHLIGHT)))->append(header)->append($(escape(JavadocFormatter::CODE_RESET)))->append("\n"_s);
 		if (javadoc == nullptr) {
 			return result->toString();
 		}
-		$var($JavacTask, task, $cast($JavacTask, $nc($($ToolProvider::getSystemJavaCompiler()))->getTask(nullptr, nullptr, nullptr, nullptr, nullptr, nullptr)));
-		$var($DocTrees, trees, $DocTrees::instance(static_cast<$JavaCompiler$CompilationTask*>(task)));
+		$var($JavacTask, task, $cast($JavacTask, $$nc($ToolProvider::getSystemJavaCompiler())->getTask(nullptr, nullptr, nullptr, nullptr, nullptr, nullptr)));
+		$var($DocTrees, trees, $DocTrees::instance(task));
 		$init($JavaFileObject$Kind);
-		$var($DocCommentTree, docComment, $nc(trees)->getDocCommentTree(static_cast<$FileObject*>($$new($JavadocFormatter$1, this, $$new($URI, "mem://doc.html"_s), $JavaFileObject$Kind::HTML, javadoc))));
-		$$new($JavadocFormatter$FormatJavadocScanner, this, result, task)->scan(static_cast<$DocTree*>(docComment), ($Object*)nullptr);
+		$var($DocCommentTree, docComment, $nc(trees)->getDocCommentTree($$new($JavadocFormatter$1, this, $$new($URI, "mem://doc.html"_s), $JavaFileObject$Kind::HTML, javadoc)));
+		$$new($JavadocFormatter$FormatJavadocScanner, this, result, task)->scan(docComment, nullptr);
 		addNewLineIfNeeded(result);
 		return result->toString();
 	} catch ($URISyntaxException& ex) {
@@ -179,7 +117,7 @@ $String* JavadocFormatter::indentString(int32_t indent) {
 
 void JavadocFormatter::reflow($StringBuilder* text, int32_t from, int32_t indent, int32_t limit) {
 	$init(JavadocFormatter);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t lineStart = from;
 	while (lineStart > 0 && $nc(text)->charAt(lineStart - 1) != u'\n') {
 		--lineStart;
@@ -218,7 +156,7 @@ void JavadocFormatter::addSpaceIfNeeded($StringBuilder* text) {
 	if ($nc(text)->length() == 0) {
 		return;
 	}
-	char16_t last = $nc(text)->charAt(text->length() - 1);
+	char16_t last = text->charAt(text->length() - 1);
 	if (last != u' ' && last != u'\n') {
 		text->append(" "_s);
 	}
@@ -232,14 +170,14 @@ $JavadocFormatter$HtmlTag* JavadocFormatter::getHtmlTag($Name* name) {
 
 $Map* JavadocFormatter::countTableColumns($DocCommentTree* dct) {
 	$init(JavadocFormatter);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Map, result, $new($IdentityHashMap));
-	$$new($JavadocFormatter$2, result)->scan(static_cast<$DocTree*>(dct), ($Object*)nullptr);
+	$$new($JavadocFormatter$2, result)->scan(dct, nullptr);
 	return result;
 }
 
-void clinit$JavadocFormatter($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void JavadocFormatter::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(JavadocFormatter::CODE_RESET, "\u001b[0m"_s);
 	$assignStatic(JavadocFormatter::CODE_HIGHLIGHT, "\u001b[1m"_s);
 	$assignStatic(JavadocFormatter::CODE_UNDERLINE, "\u001b[4m"_s);
@@ -248,11 +186,11 @@ void clinit$JavadocFormatter($Class* class$) {
 	{
 		$var($ResourceBundle, bundle, $ResourceBundle::getBundle("jdk.internal.shellsupport.doc.resources.javadocformatter"_s));
 		$init($JavadocFormatter$Sections);
-		$nc(JavadocFormatter::docSections)->put($JavadocFormatter$Sections::TYPE_PARAMS, $($nc(bundle)->getString("CAP_TypeParameters"_s)));
-		$nc(JavadocFormatter::docSections)->put($JavadocFormatter$Sections::PARAMS, $($nc(bundle)->getString("CAP_Parameters"_s)));
-		$nc(JavadocFormatter::docSections)->put($JavadocFormatter$Sections::RETURNS, $($nc(bundle)->getString("CAP_Returns"_s)));
-		$nc(JavadocFormatter::docSections)->put($JavadocFormatter$Sections::THROWS, $($nc(bundle)->getString("CAP_Thrown_Exceptions"_s)));
-		$assignStatic(JavadocFormatter::inlineReturns, $nc(bundle)->getString("Inline_Returns"_s));
+		JavadocFormatter::docSections->put($JavadocFormatter$Sections::TYPE_PARAMS, $($nc(bundle)->getString("CAP_TypeParameters"_s)));
+		JavadocFormatter::docSections->put($JavadocFormatter$Sections::PARAMS, $(bundle->getString("CAP_Parameters"_s)));
+		JavadocFormatter::docSections->put($JavadocFormatter$Sections::RETURNS, $(bundle->getString("CAP_Returns"_s)));
+		JavadocFormatter::docSections->put($JavadocFormatter$Sections::THROWS, $(bundle->getString("CAP_Thrown_Exceptions"_s)));
+		$assignStatic(JavadocFormatter::inlineReturns, bundle->getString("Inline_Returns"_s));
 	}
 }
 
@@ -260,7 +198,57 @@ JavadocFormatter::JavadocFormatter() {
 }
 
 $Class* JavadocFormatter::load$($String* name, bool initialize) {
-	$loadClass(JavadocFormatter, name, initialize, &_JavadocFormatter_ClassInfo_, clinit$JavadocFormatter, allocate$JavadocFormatter);
+	$FieldInfo fieldInfos$$[] = {
+		{"CODE_RESET", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JavadocFormatter, CODE_RESET)},
+		{"CODE_HIGHLIGHT", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JavadocFormatter, CODE_HIGHLIGHT)},
+		{"CODE_UNDERLINE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JavadocFormatter, CODE_UNDERLINE)},
+		{"lineLimit", "I", nullptr, $PRIVATE | $FINAL, $field(JavadocFormatter, lineLimit)},
+		{"escapeSequencesSupported", "Z", nullptr, $PRIVATE | $FINAL, $field(JavadocFormatter, escapeSequencesSupported)},
+		{"MAX_LINE_LENGTH", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JavadocFormatter, MAX_LINE_LENGTH)},
+		{"SHORTEST_LINE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JavadocFormatter, SHORTEST_LINE)},
+		{"INDENT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JavadocFormatter, INDENT)},
+		{"docSections", "Ljava/util/Map;", "Ljava/util/Map<Ljdk/internal/shellsupport/doc/JavadocFormatter$Sections;Ljava/lang/String;>;", $PRIVATE | $STATIC | $FINAL, $staticField(JavadocFormatter, docSections)},
+		{"inlineReturns", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JavadocFormatter, inlineReturns)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(IZ)V", nullptr, $PUBLIC, $method(JavadocFormatter, init$, void, int32_t, bool)},
+		{"addNewLineIfNeeded", "(Ljava/lang/StringBuilder;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(JavadocFormatter, addNewLineIfNeeded, void, $StringBuilder*)},
+		{"addSpaceIfNeeded", "(Ljava/lang/StringBuilder;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(JavadocFormatter, addSpaceIfNeeded, void, $StringBuilder*)},
+		{"countTableColumns", "(Lcom/sun/source/doctree/DocCommentTree;)Ljava/util/Map;", "(Lcom/sun/source/doctree/DocCommentTree;)Ljava/util/Map<Lcom/sun/source/doctree/StartElementTree;Ljava/lang/Integer;>;", $PRIVATE | $STATIC, $staticMethod(JavadocFormatter, countTableColumns, $Map*, $DocCommentTree*)},
+		{"escape", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(JavadocFormatter, escape, $String*, $String*)},
+		{"formatJavadoc", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JavadocFormatter, formatJavadoc, $String*, $String*, $String*)},
+		{"getHtmlTag", "(Ljavax/lang/model/element/Name;)Ljdk/internal/shellsupport/doc/JavadocFormatter$HtmlTag;", nullptr, $PRIVATE | $STATIC, $staticMethod(JavadocFormatter, getHtmlTag, $JavadocFormatter$HtmlTag*, $Name*)},
+		{"indentString", "(I)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(JavadocFormatter, indentString, $String*, int32_t)},
+		{"reflow", "(Ljava/lang/StringBuilder;III)V", nullptr, $PRIVATE | $STATIC, $staticMethod(JavadocFormatter, reflow, void, $StringBuilder*, int32_t, int32_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.shellsupport.doc.JavadocFormatter$3", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{"jdk.internal.shellsupport.doc.JavadocFormatter$Sections", "jdk.internal.shellsupport.doc.JavadocFormatter", "Sections", $PRIVATE | $STATIC | $ABSTRACT | $ENUM},
+		{"jdk.internal.shellsupport.doc.JavadocFormatter$FormatJavadocScanner", "jdk.internal.shellsupport.doc.JavadocFormatter", "FormatJavadocScanner", $PRIVATE},
+		{"jdk.internal.shellsupport.doc.JavadocFormatter$HtmlTag", "jdk.internal.shellsupport.doc.JavadocFormatter", "HtmlTag", $STATIC | $FINAL | $ENUM},
+		{"jdk.internal.shellsupport.doc.JavadocFormatter$2", nullptr, nullptr, 0},
+		{"jdk.internal.shellsupport.doc.JavadocFormatter$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"jdk.internal.shellsupport.doc.JavadocFormatter",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"jdk.internal.shellsupport.doc.JavadocFormatter$3,jdk.internal.shellsupport.doc.JavadocFormatter$Sections,jdk.internal.shellsupport.doc.JavadocFormatter$Sections$4,jdk.internal.shellsupport.doc.JavadocFormatter$Sections$3,jdk.internal.shellsupport.doc.JavadocFormatter$Sections$2,jdk.internal.shellsupport.doc.JavadocFormatter$Sections$1,jdk.internal.shellsupport.doc.JavadocFormatter$FormatJavadocScanner,jdk.internal.shellsupport.doc.JavadocFormatter$HtmlTag,jdk.internal.shellsupport.doc.JavadocFormatter$2,jdk.internal.shellsupport.doc.JavadocFormatter$1"
+	};
+	$loadClass(JavadocFormatter, name, initialize, &classInfo$$, JavadocFormatter::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(JavadocFormatter);
+	});
 	return class$;
 }
 

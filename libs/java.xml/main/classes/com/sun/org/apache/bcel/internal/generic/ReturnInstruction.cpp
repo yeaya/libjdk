@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/bcel/internal/generic/ReturnInstruction.h>
-
 #include <com/sun/org/apache/bcel/internal/Const.h>
 #include <com/sun/org/apache/bcel/internal/ExceptionConst.h>
 #include <com/sun/org/apache/bcel/internal/generic/BasicType.h>
@@ -41,34 +40,6 @@ namespace com {
 					namespace internal {
 						namespace generic {
 
-$MethodInfo _ReturnInstruction_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*consumeStack", "(Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;)I", nullptr, $PUBLIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "()V", nullptr, 0, $method(ReturnInstruction, init$, void)},
-	{"<init>", "(S)V", nullptr, $PROTECTED, $method(ReturnInstruction, init$, void, int16_t)},
-	{"getExceptions", "()[Ljava/lang/Class;", "()[Ljava/lang/Class<*>;", $PUBLIC, $virtualMethod(ReturnInstruction, getExceptions, $ClassArray*)},
-	{"getType", "()Lcom/sun/org/apache/bcel/internal/generic/Type;", nullptr, $PUBLIC, $virtualMethod(ReturnInstruction, getType, $Type*)},
-	{"getType", "(Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;)Lcom/sun/org/apache/bcel/internal/generic/Type;", nullptr, $PUBLIC, $virtualMethod(ReturnInstruction, getType, $Type*, $ConstantPoolGen*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _ReturnInstruction_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"com.sun.org.apache.bcel.internal.generic.ReturnInstruction",
-	"com.sun.org.apache.bcel.internal.generic.Instruction",
-	"com.sun.org.apache.bcel.internal.generic.ExceptionThrower,com.sun.org.apache.bcel.internal.generic.TypedInstruction,com.sun.org.apache.bcel.internal.generic.StackConsumer",
-	nullptr,
-	_ReturnInstruction_MethodInfo_
-};
-
-$Object* allocate$ReturnInstruction($Class* clazz) {
-	return $of($alloc(ReturnInstruction));
-}
-
 $String* ReturnInstruction::toString() {
 	 return this->$Instruction::toString();
 }
@@ -102,43 +73,29 @@ void ReturnInstruction::init$(int16_t opcode) {
 }
 
 $Type* ReturnInstruction::getType() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int16_t _opcode = $Instruction::getOpcode();
 	switch (_opcode) {
 	case $Const::IRETURN:
-		{
-			$init($Type);
-			return $Type::INT;
-		}
+		$init($Type);
+		return $Type::INT;
 	case $Const::LRETURN:
-		{
-			$init($Type);
-			return $Type::LONG;
-		}
+		$init($Type);
+		return $Type::LONG;
 	case $Const::FRETURN:
-		{
-			$init($Type);
-			return $Type::FLOAT;
-		}
+		$init($Type);
+		return $Type::FLOAT;
 	case $Const::DRETURN:
-		{
-			$init($Type);
-			return $Type::DOUBLE;
-		}
+		$init($Type);
+		return $Type::DOUBLE;
 	case $Const::ARETURN:
-		{
-			$init($Type);
-			return $Type::OBJECT;
-		}
+		$init($Type);
+		return $Type::OBJECT;
 	case $Const::RETURN:
-		{
-			$init($Type);
-			return $Type::VOID;
-		}
+		$init($Type);
+		return $Type::VOID;
 	default:
-		{
-			$throwNew($ClassGenException, $$str({"Unknown type "_s, $$str(_opcode)}));
-		}
+		$throwNew($ClassGenException, $$str({"Unknown type "_s, $$str(_opcode)}));
 	}
 }
 
@@ -155,7 +112,31 @@ ReturnInstruction::ReturnInstruction() {
 }
 
 $Class* ReturnInstruction::load$($String* name, bool initialize) {
-	$loadClass(ReturnInstruction, name, initialize, &_ReturnInstruction_ClassInfo_, allocate$ReturnInstruction);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*consumeStack", "(Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;)I", nullptr, $PUBLIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC},
+		{"<init>", "()V", nullptr, 0, $method(ReturnInstruction, init$, void)},
+		{"<init>", "(S)V", nullptr, $PROTECTED, $method(ReturnInstruction, init$, void, int16_t)},
+		{"getExceptions", "()[Ljava/lang/Class;", "()[Ljava/lang/Class<*>;", $PUBLIC, $virtualMethod(ReturnInstruction, getExceptions, $ClassArray*)},
+		{"getType", "()Lcom/sun/org/apache/bcel/internal/generic/Type;", nullptr, $PUBLIC, $virtualMethod(ReturnInstruction, getType, $Type*)},
+		{"getType", "(Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;)Lcom/sun/org/apache/bcel/internal/generic/Type;", nullptr, $PUBLIC, $virtualMethod(ReturnInstruction, getType, $Type*, $ConstantPoolGen*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"com.sun.org.apache.bcel.internal.generic.ReturnInstruction",
+		"com.sun.org.apache.bcel.internal.generic.Instruction",
+		"com.sun.org.apache.bcel.internal.generic.ExceptionThrower,com.sun.org.apache.bcel.internal.generic.TypedInstruction,com.sun.org.apache.bcel.internal.generic.StackConsumer",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ReturnInstruction, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ReturnInstruction));
+	});
 	return class$;
 }
 

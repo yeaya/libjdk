@@ -17,6 +17,7 @@ class $export SynthScrollbarThumbPainterTest : public ::java::lang::Object {
 	$class(SynthScrollbarThumbPainterTest, 0, ::java::lang::Object)
 public:
 	SynthScrollbarThumbPainterTest();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void constructTestUI($String* lookAndFeelString);
 	static void disposeTestUI();

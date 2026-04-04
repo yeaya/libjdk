@@ -1,5 +1,4 @@
 #include <sun/java2d/d3d/D3DRTTSurfaceToSurfaceBlit.h>
-
 #include <java/awt/Composite.h>
 #include <java/awt/geom/AffineTransform.h>
 #include <java/awt/image/AffineTransformOp.h>
@@ -34,25 +33,6 @@ namespace sun {
 	namespace java2d {
 		namespace d3d {
 
-$MethodInfo _D3DRTTSurfaceToSurfaceBlit_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(D3DRTTSurfaceToSurfaceBlit, init$, void)},
-	{"Blit", "(Lsun/java2d/SurfaceData;Lsun/java2d/SurfaceData;Ljava/awt/Composite;Lsun/java2d/pipe/Region;IIIIII)V", nullptr, $PUBLIC, $virtualMethod(D3DRTTSurfaceToSurfaceBlit, Blit$, void, $SurfaceData*, $SurfaceData*, $Composite*, $Region*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _D3DRTTSurfaceToSurfaceBlit_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.java2d.d3d.D3DRTTSurfaceToSurfaceBlit",
-	"sun.java2d.loops.Blit",
-	nullptr,
-	nullptr,
-	_D3DRTTSurfaceToSurfaceBlit_MethodInfo_
-};
-
-$Object* allocate$D3DRTTSurfaceToSurfaceBlit($Class* clazz) {
-	return $of($alloc(D3DRTTSurfaceToSurfaceBlit));
-}
-
 void D3DRTTSurfaceToSurfaceBlit::init$() {
 	$init($D3DSurfaceData);
 	$init($CompositeType);
@@ -67,7 +47,22 @@ D3DRTTSurfaceToSurfaceBlit::D3DRTTSurfaceToSurfaceBlit() {
 }
 
 $Class* D3DRTTSurfaceToSurfaceBlit::load$($String* name, bool initialize) {
-	$loadClass(D3DRTTSurfaceToSurfaceBlit, name, initialize, &_D3DRTTSurfaceToSurfaceBlit_ClassInfo_, allocate$D3DRTTSurfaceToSurfaceBlit);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(D3DRTTSurfaceToSurfaceBlit, init$, void)},
+		{"Blit", "(Lsun/java2d/SurfaceData;Lsun/java2d/SurfaceData;Ljava/awt/Composite;Lsun/java2d/pipe/Region;IIIIII)V", nullptr, $PUBLIC, $virtualMethod(D3DRTTSurfaceToSurfaceBlit, Blit$, void, $SurfaceData*, $SurfaceData*, $Composite*, $Region*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.java2d.d3d.D3DRTTSurfaceToSurfaceBlit",
+		"sun.java2d.loops.Blit",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(D3DRTTSurfaceToSurfaceBlit, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(D3DRTTSurfaceToSurfaceBlit);
+	});
 	return class$;
 }
 

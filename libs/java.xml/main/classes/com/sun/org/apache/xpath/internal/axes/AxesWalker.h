@@ -121,7 +121,7 @@ public:
 	virtual void setRoot(int32_t root);
 	virtual $String* toString() override;
 	::com::sun::org::apache::xpath::internal::axes::WalkingIterator* wi();
-	static const int64_t serialVersionUID = (int64_t)0xD6D689A7ADE94CE1;
+	static const int64_t serialVersionUID = (int64_t)0xd6d689a7ade94ce1;
 	::com::sun::org::apache::xml::internal::dtm::DTM* m_dtm = nullptr;
 	int32_t m_root = 0;
 	int32_t m_currentNode = 0;

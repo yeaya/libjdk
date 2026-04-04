@@ -1,5 +1,4 @@
 #include <sun/util/resources/cldr/ext/CurrencyNames_naq.h>
-
 #include <sun/util/resources/OpenListResourceBundle.h>
 #include <jcpp.h>
 
@@ -14,267 +13,248 @@ namespace sun {
 			namespace cldr {
 				namespace ext {
 
-$MethodInfo _CurrencyNames_naq_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(CurrencyNames_naq, init$, void)},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(CurrencyNames_naq, getContents, $ObjectArray2*)},
-	{}
-};
-
-$ClassInfo _CurrencyNames_naq_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.util.resources.cldr.ext.CurrencyNames_naq",
-	"sun.util.resources.OpenListResourceBundle",
-	nullptr,
-	nullptr,
-	_CurrencyNames_naq_MethodInfo_
-};
-
-$Object* allocate$CurrencyNames_naq($Class* clazz) {
-	return $of($alloc(CurrencyNames_naq));
-}
-
 void CurrencyNames_naq::init$() {
 	$OpenListResourceBundle::init$();
 }
 
 $ObjectArray2* CurrencyNames_naq::getContents() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectArray2, data, $new($ObjectArray2, {
 		$$new($ObjectArray, {
-			$of("NAD"_s),
-			$of("$"_s)
+			"NAD"_s,
+			"$"_s
 		}),
 		$$new($ObjectArray, {
-			$of("aed"_s),
-			$of("United Arab Emirates Dirham"_s)
+			"aed"_s,
+			"United Arab Emirates Dirham"_s
 		}),
 		$$new($ObjectArray, {
-			$of("aoa"_s),
-			$of("Angolan Kwanzab"_s)
+			"aoa"_s,
+			"Angolan Kwanzab"_s
 		}),
 		$$new($ObjectArray, {
-			$of("aud"_s),
-			$of("Australian Dollari"_s)
+			"aud"_s,
+			"Australian Dollari"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bhd"_s),
-			$of("Bahrain Dinar"_s)
+			"bhd"_s,
+			"Bahrain Dinar"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bif"_s),
-			$of("Burundi Franc"_s)
+			"bif"_s,
+			"Burundi Franc"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bwp"_s),
-			$of("Botswanan Pulab"_s)
+			"bwp"_s,
+			"Botswanan Pulab"_s
 		}),
 		$$new($ObjectArray, {
-			$of("cad"_s),
-			$of("Canadian Dollari"_s)
+			"cad"_s,
+			"Canadian Dollari"_s
 		}),
 		$$new($ObjectArray, {
-			$of("cdf"_s),
-			$of("Congolese Franc"_s)
+			"cdf"_s,
+			"Congolese Franc"_s
 		}),
 		$$new($ObjectArray, {
-			$of("chf"_s),
-			$of("Swiss Franci"_s)
+			"chf"_s,
+			"Swiss Franci"_s
 		}),
 		$$new($ObjectArray, {
-			$of("cny"_s),
-			$of("Chinese Yuan Renminbi"_s)
+			"cny"_s,
+			"Chinese Yuan Renminbi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("cve"_s),
-			$of("Escudo Caboverdiano"_s)
+			"cve"_s,
+			"Escudo Caboverdiano"_s
 		}),
 		$$new($ObjectArray, {
-			$of("djf"_s),
-			$of("Djibouti Franc"_s)
+			"djf"_s,
+			"Djibouti Franc"_s
 		}),
 		$$new($ObjectArray, {
-			$of("dzd"_s),
-			$of("Algerian Dinar"_s)
+			"dzd"_s,
+			"Algerian Dinar"_s
 		}),
 		$$new($ObjectArray, {
-			$of("egp"_s),
-			$of("Egytian Ponds"_s)
+			"egp"_s,
+			"Egytian Ponds"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ern"_s),
-			$of("Eritreian Nakfa"_s)
+			"ern"_s,
+			"Eritreian Nakfa"_s
 		}),
 		$$new($ObjectArray, {
-			$of("etb"_s),
-			$of("Ethiopian Birr"_s)
+			"etb"_s,
+			"Ethiopian Birr"_s
 		}),
 		$$new($ObjectArray, {
-			$of("eur"_s),
-			$of("Eurob"_s)
+			"eur"_s,
+			"Eurob"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gbp"_s),
-			$of("British Ponds"_s)
+			"gbp"_s,
+			"British Ponds"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ghc"_s),
-			$of("Ghana Cedi"_s)
+			"ghc"_s,
+			"Ghana Cedi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gmd"_s),
-			$of("Gambia Dalasi"_s)
+			"gmd"_s,
+			"Gambia Dalasi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gns"_s),
-			$of("Guinea Franc"_s)
+			"gns"_s,
+			"Guinea Franc"_s
 		}),
 		$$new($ObjectArray, {
-			$of("inr"_s),
-			$of("Indian Rupee"_s)
+			"inr"_s,
+			"Indian Rupee"_s
 		}),
 		$$new($ObjectArray, {
-			$of("jpy"_s),
-			$of("Japanese Yenni"_s)
+			"jpy"_s,
+			"Japanese Yenni"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kes"_s),
-			$of("Kenyan Shilling"_s)
+			"kes"_s,
+			"Kenyan Shilling"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kmf"_s),
-			$of("Comorian Franc"_s)
+			"kmf"_s,
+			"Comorian Franc"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lrd"_s),
-			$of("Liberian Dollar"_s)
+			"lrd"_s,
+			"Liberian Dollar"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lsl"_s),
-			$of("Lesotho Loti"_s)
+			"lsl"_s,
+			"Lesotho Loti"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lyd"_s),
-			$of("Libyan Dinar"_s)
+			"lyd"_s,
+			"Libyan Dinar"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mad"_s),
-			$of("Moroccan Dirham"_s)
+			"mad"_s,
+			"Moroccan Dirham"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mga"_s),
-			$of("Malagasy Franc"_s)
+			"mga"_s,
+			"Malagasy Franc"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mro"_s),
-			$of(u"Mauritania Ouguiya (1973–2017)"_s)
+			"mro"_s,
+			u"Mauritania Ouguiya (1973–2017)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mru"_s),
-			$of("Mauritania Ouguiya"_s)
+			"mru"_s,
+			"Mauritania Ouguiya"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mur"_s),
-			$of("Mauritius Rupeeb"_s)
+			"mur"_s,
+			"Mauritius Rupeeb"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mwk"_s),
-			$of("Malawian Kwachab"_s)
+			"mwk"_s,
+			"Malawian Kwachab"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mzm"_s),
-			$of("Mozambique Metical"_s)
+			"mzm"_s,
+			"Mozambique Metical"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nad"_s),
-			$of("Namibia Dollari"_s)
+			"nad"_s,
+			"Namibia Dollari"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ngn"_s),
-			$of("Nigerian Naira"_s)
+			"ngn"_s,
+			"Nigerian Naira"_s
 		}),
 		$$new($ObjectArray, {
-			$of("rwf"_s),
-			$of("Rwanda Franci"_s)
+			"rwf"_s,
+			"Rwanda Franci"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sar"_s),
-			$of("Saudi Riyal"_s)
+			"sar"_s,
+			"Saudi Riyal"_s
 		}),
 		$$new($ObjectArray, {
-			$of("scr"_s),
-			$of("Seychelles Rupee"_s)
+			"scr"_s,
+			"Seychelles Rupee"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sdg"_s),
-			$of("Sudanese Dinar"_s)
+			"sdg"_s,
+			"Sudanese Dinar"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sdp"_s),
-			$of("Sudanese Ponds"_s)
+			"sdp"_s,
+			"Sudanese Ponds"_s
 		}),
 		$$new($ObjectArray, {
-			$of("shp"_s),
-			$of("St Helena Ponds"_s)
+			"shp"_s,
+			"St Helena Ponds"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sll"_s),
-			$of("Leone"_s)
+			"sll"_s,
+			"Leone"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sos"_s),
-			$of("Somali Shillings"_s)
+			"sos"_s,
+			"Somali Shillings"_s
 		}),
 		$$new($ObjectArray, {
-			$of("std"_s),
-			$of(u"Sao Tome and Principe Dobra (1977–2017)"_s)
+			"std"_s,
+			u"Sao Tome and Principe Dobra (1977–2017)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("stn"_s),
-			$of("Sao Tome and Principe Dobra"_s)
+			"stn"_s,
+			"Sao Tome and Principe Dobra"_s
 		}),
 		$$new($ObjectArray, {
-			$of("szl"_s),
-			$of("Lilangeni"_s)
+			"szl"_s,
+			"Lilangeni"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tnd"_s),
-			$of("Tunisian Dinar"_s)
+			"tnd"_s,
+			"Tunisian Dinar"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tzs"_s),
-			$of("Tanzanian Shillings"_s)
+			"tzs"_s,
+			"Tanzanian Shillings"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ugx"_s),
-			$of("Ugandan Shillings"_s)
+			"ugx"_s,
+			"Ugandan Shillings"_s
 		}),
 		$$new($ObjectArray, {
-			$of("usd"_s),
-			$of("US Dollari"_s)
+			"usd"_s,
+			"US Dollari"_s
 		}),
 		$$new($ObjectArray, {
-			$of("xaf"_s),
-			$of("CFA Franc BEAC"_s)
+			"xaf"_s,
+			"CFA Franc BEAC"_s
 		}),
 		$$new($ObjectArray, {
-			$of("xof"_s),
-			$of("CFA Franc BCEAO"_s)
+			"xof"_s,
+			"CFA Franc BCEAO"_s
 		}),
 		$$new($ObjectArray, {
-			$of("zar"_s),
-			$of("South African Randi"_s)
+			"zar"_s,
+			"South African Randi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("zmk"_s),
-			$of(u"Zambian Kwachab (1968–2012)"_s)
+			"zmk"_s,
+			u"Zambian Kwachab (1968–2012)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("zmw"_s),
-			$of("Zambian Kwachab"_s)
+			"zmw"_s,
+			"Zambian Kwachab"_s
 		}),
 		$$new($ObjectArray, {
-			$of("zwd"_s),
-			$of("Zimbabwe Dollari"_s)
+			"zwd"_s,
+			"Zimbabwe Dollari"_s
 		})
 	}));
 	return data;
@@ -284,7 +264,22 @@ CurrencyNames_naq::CurrencyNames_naq() {
 }
 
 $Class* CurrencyNames_naq::load$($String* name, bool initialize) {
-	$loadClass(CurrencyNames_naq, name, initialize, &_CurrencyNames_naq_ClassInfo_, allocate$CurrencyNames_naq);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(CurrencyNames_naq, init$, void)},
+		{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(CurrencyNames_naq, getContents, $ObjectArray2*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.util.resources.cldr.ext.CurrencyNames_naq",
+		"sun.util.resources.OpenListResourceBundle",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(CurrencyNames_naq, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CurrencyNames_naq);
+	});
 	return class$;
 }
 

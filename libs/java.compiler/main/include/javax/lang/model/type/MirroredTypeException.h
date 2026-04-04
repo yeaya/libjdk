@@ -36,7 +36,10 @@ public:
 	::javax::lang::model::type::TypeMirror* type = nullptr;
 	MirroredTypeException(const MirroredTypeException& e);
 	virtual void throw$() override;
-	inline MirroredTypeException* operator ->() {
+	inline MirroredTypeException* operator ->() const {
+		return (MirroredTypeException*)throwing$;
+	}
+	inline operator MirroredTypeException*() const {
 		return (MirroredTypeException*)throwing$;
 	}
 };

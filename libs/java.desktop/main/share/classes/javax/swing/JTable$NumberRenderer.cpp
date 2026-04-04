@@ -1,5 +1,4 @@
 #include <javax/swing/JTable$NumberRenderer.h>
-
 #include <javax/swing/JLabel.h>
 #include <javax/swing/JTable.h>
 #include <javax/swing/table/DefaultTableCellRenderer$UIResource.h>
@@ -16,37 +15,6 @@ using $DefaultTableCellRenderer$UIResource = ::javax::swing::table::DefaultTable
 namespace javax {
 	namespace swing {
 
-$MethodInfo _JTable$NumberRenderer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(JTable$NumberRenderer, init$, void)},
-	{}
-};
-
-$InnerClassInfo _JTable$NumberRenderer_InnerClassesInfo_[] = {
-	{"javax.swing.JTable$NumberRenderer", "javax.swing.JTable", "NumberRenderer", $STATIC},
-	{"javax.swing.table.DefaultTableCellRenderer$UIResource", "javax.swing.table.DefaultTableCellRenderer", "UIResource", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _JTable$NumberRenderer_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.JTable$NumberRenderer",
-	"javax.swing.table.DefaultTableCellRenderer$UIResource",
-	nullptr,
-	nullptr,
-	_JTable$NumberRenderer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JTable$NumberRenderer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.JTable"
-};
-
-$Object* allocate$JTable$NumberRenderer($Class* clazz) {
-	return $of($alloc(JTable$NumberRenderer));
-}
-
 void JTable$NumberRenderer::init$() {
 	$DefaultTableCellRenderer$UIResource::init$();
 	setHorizontalAlignment($JLabel::RIGHT);
@@ -56,7 +24,33 @@ JTable$NumberRenderer::JTable$NumberRenderer() {
 }
 
 $Class* JTable$NumberRenderer::load$($String* name, bool initialize) {
-	$loadClass(JTable$NumberRenderer, name, initialize, &_JTable$NumberRenderer_ClassInfo_, allocate$JTable$NumberRenderer);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(JTable$NumberRenderer, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.JTable$NumberRenderer", "javax.swing.JTable", "NumberRenderer", $STATIC},
+		{"javax.swing.table.DefaultTableCellRenderer$UIResource", "javax.swing.table.DefaultTableCellRenderer", "UIResource", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.JTable$NumberRenderer",
+		"javax.swing.table.DefaultTableCellRenderer$UIResource",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.JTable"
+	};
+	$loadClass(JTable$NumberRenderer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JTable$NumberRenderer));
+	});
 	return class$;
 }
 

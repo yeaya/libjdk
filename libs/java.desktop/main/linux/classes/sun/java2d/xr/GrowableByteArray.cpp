@@ -1,5 +1,4 @@
 #include <sun/java2d/xr/GrowableByteArray.h>
-
 #include <java/lang/Math.h>
 #include <java/util/Arrays.h>
 #include <jcpp.h>
@@ -13,41 +12,6 @@ using $Arrays = ::java::util::Arrays;
 namespace sun {
 	namespace java2d {
 		namespace xr {
-
-$FieldInfo _GrowableByteArray_FieldInfo_[] = {
-	{"array", "[B", nullptr, 0, $field(GrowableByteArray, array)},
-	{"size", "I", nullptr, 0, $field(GrowableByteArray, size)},
-	{"cellSize", "I", nullptr, 0, $field(GrowableByteArray, cellSize)},
-	{}
-};
-
-$MethodInfo _GrowableByteArray_MethodInfo_[] = {
-	{"<init>", "(II)V", nullptr, $PUBLIC, $method(GrowableByteArray, init$, void, int32_t, int32_t)},
-	{"addByte", "(B)V", nullptr, $PUBLIC | $FINAL, $method(GrowableByteArray, addByte, void, int8_t)},
-	{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(GrowableByteArray, clear, void)},
-	{"getArray", "()[B", nullptr, $PUBLIC, $virtualMethod(GrowableByteArray, getArray, $bytes*)},
-	{"getByte", "(I)I", nullptr, $PUBLIC | $FINAL, $method(GrowableByteArray, getByte, int32_t, int32_t)},
-	{"getCellIndex", "(I)I", nullptr, $PROTECTED | $FINAL, $method(GrowableByteArray, getCellIndex, int32_t, int32_t)},
-	{"getNextCellIndex", "()I", nullptr, $PRIVATE, $method(GrowableByteArray, getNextCellIndex, int32_t)},
-	{"getNextIndex", "()I", nullptr, $PUBLIC | $FINAL, $method(GrowableByteArray, getNextIndex, int32_t)},
-	{"getSize", "()I", nullptr, $PUBLIC | $FINAL, $method(GrowableByteArray, getSize, int32_t)},
-	{"getSizedArray", "()[B", nullptr, $PUBLIC, $virtualMethod(GrowableByteArray, getSizedArray, $bytes*)},
-	{"growArray", "()V", nullptr, $PROTECTED, $virtualMethod(GrowableByteArray, growArray, void)},
-	{}
-};
-
-$ClassInfo _GrowableByteArray_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.java2d.xr.GrowableByteArray",
-	"java.lang.Object",
-	nullptr,
-	_GrowableByteArray_FieldInfo_,
-	_GrowableByteArray_MethodInfo_
-};
-
-$Object* allocate$GrowableByteArray($Class* clazz) {
-	return $of($alloc(GrowableByteArray));
-}
 
 void GrowableByteArray::init$(int32_t cellSize, int32_t initialSize) {
 	$set(this, array, $new($bytes, initialSize));
@@ -108,7 +72,37 @@ GrowableByteArray::GrowableByteArray() {
 }
 
 $Class* GrowableByteArray::load$($String* name, bool initialize) {
-	$loadClass(GrowableByteArray, name, initialize, &_GrowableByteArray_ClassInfo_, allocate$GrowableByteArray);
+	$FieldInfo fieldInfos$$[] = {
+		{"array", "[B", nullptr, 0, $field(GrowableByteArray, array)},
+		{"size", "I", nullptr, 0, $field(GrowableByteArray, size)},
+		{"cellSize", "I", nullptr, 0, $field(GrowableByteArray, cellSize)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(II)V", nullptr, $PUBLIC, $method(GrowableByteArray, init$, void, int32_t, int32_t)},
+		{"addByte", "(B)V", nullptr, $PUBLIC | $FINAL, $method(GrowableByteArray, addByte, void, int8_t)},
+		{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(GrowableByteArray, clear, void)},
+		{"getArray", "()[B", nullptr, $PUBLIC, $virtualMethod(GrowableByteArray, getArray, $bytes*)},
+		{"getByte", "(I)I", nullptr, $PUBLIC | $FINAL, $method(GrowableByteArray, getByte, int32_t, int32_t)},
+		{"getCellIndex", "(I)I", nullptr, $PROTECTED | $FINAL, $method(GrowableByteArray, getCellIndex, int32_t, int32_t)},
+		{"getNextCellIndex", "()I", nullptr, $PRIVATE, $method(GrowableByteArray, getNextCellIndex, int32_t)},
+		{"getNextIndex", "()I", nullptr, $PUBLIC | $FINAL, $method(GrowableByteArray, getNextIndex, int32_t)},
+		{"getSize", "()I", nullptr, $PUBLIC | $FINAL, $method(GrowableByteArray, getSize, int32_t)},
+		{"getSizedArray", "()[B", nullptr, $PUBLIC, $virtualMethod(GrowableByteArray, getSizedArray, $bytes*)},
+		{"growArray", "()V", nullptr, $PROTECTED, $virtualMethod(GrowableByteArray, growArray, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.java2d.xr.GrowableByteArray",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(GrowableByteArray, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(GrowableByteArray);
+	});
 	return class$;
 }
 

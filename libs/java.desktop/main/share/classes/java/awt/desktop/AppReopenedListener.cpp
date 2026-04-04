@@ -1,5 +1,4 @@
 #include <java/awt/desktop/AppReopenedListener.h>
-
 #include <java/awt/desktop/AppReopenedEvent.h>
 #include <jcpp.h>
 
@@ -11,26 +10,22 @@ namespace java {
 	namespace awt {
 		namespace desktop {
 
-$MethodInfo _AppReopenedListener_MethodInfo_[] = {
-	{"appReopened", "(Ljava/awt/desktop/AppReopenedEvent;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AppReopenedListener, appReopened, void, $AppReopenedEvent*)},
-	{}
-};
-
-$ClassInfo _AppReopenedListener_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.awt.desktop.AppReopenedListener",
-	nullptr,
-	"java.awt.desktop.SystemEventListener",
-	nullptr,
-	_AppReopenedListener_MethodInfo_
-};
-
-$Object* allocate$AppReopenedListener($Class* clazz) {
-	return $of($alloc(AppReopenedListener));
-}
-
 $Class* AppReopenedListener::load$($String* name, bool initialize) {
-	$loadClass(AppReopenedListener, name, initialize, &_AppReopenedListener_ClassInfo_, allocate$AppReopenedListener);
+	$MethodInfo methodInfos$$[] = {
+		{"appReopened", "(Ljava/awt/desktop/AppReopenedEvent;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AppReopenedListener, appReopened, void, $AppReopenedEvent*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.awt.desktop.AppReopenedListener",
+		nullptr,
+		"java.awt.desktop.SystemEventListener",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(AppReopenedListener, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AppReopenedListener);
+	});
 	return class$;
 }
 

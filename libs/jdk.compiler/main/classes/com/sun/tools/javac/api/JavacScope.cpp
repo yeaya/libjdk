@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/api/JavacScope.h>
-
 #include <com/sun/tools/javac/api/JavacScope$1.h>
 #include <com/sun/tools/javac/api/JavacScope$2.h>
 #include <com/sun/tools/javac/code/Kinds$Kind.h>
@@ -58,83 +57,33 @@ public:
 	virtual bool test(Object$* sym) override {
 		 return JavacScope::lambda$static$0($cast($Symbol, sym));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<JavacScope$$Lambda$lambda$static$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo JavacScope$$Lambda$lambda$static$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(JavacScope$$Lambda$lambda$static$0, init$, void)},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(JavacScope$$Lambda$lambda$static$0, test, bool, Object$*)},
-	{}
-};
-$ClassInfo JavacScope$$Lambda$lambda$static$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.api.JavacScope$$Lambda$lambda$static$0",
-	"java.lang.Object",
-	"java.util.function.Predicate",
-	nullptr,
-	methodInfos
 };
 $Class* JavacScope$$Lambda$lambda$static$0::load$($String* name, bool initialize) {
-	$loadClass(JavacScope$$Lambda$lambda$static$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(JavacScope$$Lambda$lambda$static$0, init$, void)},
+		{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(JavacScope$$Lambda$lambda$static$0, test, bool, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.api.JavacScope$$Lambda$lambda$static$0",
+		"java.lang.Object",
+		"java.util.function.Predicate",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(JavacScope$$Lambda$lambda$static$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JavacScope$$Lambda$lambda$static$0);
+	});
 	return class$;
 }
 $Class* JavacScope$$Lambda$lambda$static$0::class$ = nullptr;
-
-$FieldInfo _JavacScope_FieldInfo_[] = {
-	{"VALIDATOR", "Ljava/util/function/Predicate;", "Ljava/util/function/Predicate<Lcom/sun/tools/javac/code/Symbol;>;", $PRIVATE | $STATIC | $FINAL, $staticField(JavacScope, VALIDATOR)},
-	{"env", "Lcom/sun/tools/javac/comp/Env;", "Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;", $PROTECTED | $FINAL, $field(JavacScope, env)},
-	{}
-};
-
-$MethodInfo _JavacScope_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Env;)V", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)V", $PRIVATE, $method(JavacScope, init$, void, $Env*)},
-	{"create", "(Lcom/sun/tools/javac/comp/Env;)Lcom/sun/tools/javac/api/JavacScope;", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)Lcom/sun/tools/javac/api/JavacScope;", $STATIC, $staticMethod(JavacScope, create, JavacScope*, $Env*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(JavacScope, equals, bool, Object$*)},
-	{"getEnclosingClass", "()Ljavax/lang/model/element/TypeElement;", nullptr, $PUBLIC, $virtualMethod(JavacScope, getEnclosingClass, $TypeElement*)},
-	{"getEnclosingMethod", "()Ljavax/lang/model/element/ExecutableElement;", nullptr, $PUBLIC, $virtualMethod(JavacScope, getEnclosingMethod, $ExecutableElement*)},
-	{"getEnclosingScope", "()Lcom/sun/tools/javac/api/JavacScope;", nullptr, $PUBLIC, $virtualMethod(JavacScope, getEnclosingScope, JavacScope*)},
-	{"getEnv", "()Lcom/sun/tools/javac/comp/Env;", "()Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;", $PUBLIC, $virtualMethod(JavacScope, getEnv, $Env*)},
-	{"getLocalElements", "()Ljava/lang/Iterable;", "()Ljava/lang/Iterable<+Ljavax/lang/model/element/Element;>;", $PUBLIC, $virtualMethod(JavacScope, getLocalElements, $Iterable*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(JavacScope, hashCode, int32_t)},
-	{"isStarImportScope", "()Z", nullptr, $PUBLIC, $virtualMethod(JavacScope, isStarImportScope, bool)},
-	{"lambda$static$0", "(Lcom/sun/tools/javac/code/Symbol;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JavacScope, lambda$static$0, bool, $Symbol*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JavacScope, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _JavacScope_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.api.JavacScope$2", nullptr, nullptr, 0},
-	{"com.sun.tools.javac.api.JavacScope$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _JavacScope_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.api.JavacScope",
-	"java.lang.Object",
-	"com.sun.source.tree.Scope",
-	_JavacScope_FieldInfo_,
-	_JavacScope_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JavacScope_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.api.JavacScope$2,com.sun.tools.javac.api.JavacScope$1"
-};
-
-$Object* allocate$JavacScope($Class* clazz) {
-	return $of($alloc(JavacScope));
-}
 
 $Predicate* JavacScope::VALIDATOR = nullptr;
 
 JavacScope* JavacScope::create($Env* env) {
 	$init(JavacScope);
-	if ($nc(env)->outer == nullptr || $nc(env)->outer == env) {
+	if ($nc(env)->outer == nullptr || env->outer == env) {
 		return $new($JavacScope$1, env);
 	} else {
 		return $new(JavacScope, env);
@@ -146,23 +95,23 @@ void JavacScope::init$($Env* env) {
 }
 
 JavacScope* JavacScope::getEnclosingScope() {
-	if ($nc(this->env)->outer != nullptr && $nc(this->env)->outer != this->env) {
-		return create($nc(this->env)->outer);
+	if ($nc(this->env)->outer != nullptr && this->env->outer != this->env) {
+		return create(this->env->outer);
 	} else {
 		return $new($JavacScope$2, this, this->env);
 	}
 }
 
 $TypeElement* JavacScope::getEnclosingClass() {
-	return ($nc(this->env)->outer == nullptr || $nc(this->env)->outer == this->env ? ($TypeElement*)nullptr : $as($TypeElement, $nc($nc(this->env)->enclClass)->sym));
+	return ($nc(this->env)->outer == nullptr || this->env->outer == this->env ? ($TypeElement*)nullptr : $as($TypeElement, $nc(this->env->enclClass)->sym));
 }
 
 $ExecutableElement* JavacScope::getEnclosingMethod() {
-	return ($nc(this->env)->enclMethod == nullptr ? ($ExecutableElement*)nullptr : $as($ExecutableElement, $nc($nc(this->env)->enclMethod)->sym));
+	return ($nc(this->env)->enclMethod == nullptr ? ($ExecutableElement*)nullptr : $as($ExecutableElement, this->env->enclMethod->sym));
 }
 
 $Iterable* JavacScope::getLocalElements() {
-	return $nc(($cast($AttrContext, $nc(this->env)->info)))->getLocalElements();
+	return $nc($cast($AttrContext, $nc(this->env)->info))->getLocalElements();
 }
 
 $Env* JavacScope::getEnv() {
@@ -181,24 +130,27 @@ bool JavacScope::equals(Object$* other) {
 		var$2 = true;
 	}
 	bool var$1 = var$2;
-	bool var$0 = var$1 && $nc($of(this->env))->equals($nc(javacScope)->env);
+	bool var$0 = var$1 && $nc(this->env)->equals($nc(javacScope)->env);
 	if (var$0) {
 		bool var$3 = isStarImportScope();
-		var$0 = var$3 == $nc(javacScope)->isStarImportScope();
+		var$0 = var$3 == javacScope->isStarImportScope();
 	}
 	return var$0;
 }
 
 int32_t JavacScope::hashCode() {
-	int32_t var$0 = $nc($of(this->env))->hashCode();
+	int32_t var$0 = $nc(this->env)->hashCode();
 	return var$0 + (isStarImportScope() ? 1 : 0);
 }
 
 $String* JavacScope::toString() {
-	$useLocalCurrentObjectStackCache();
-	$var($String, var$1, $$str({"JavacScope[env="_s, this->env, ",starImport="_s}));
-	$var($String, var$0, $$concat(var$1, $$str(isStarImportScope())));
-	return $concat(var$0, "]"_s);
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append("JavacScope[env="_s);
+	var$0->append(this->env);
+	var$0->append(",starImport="_s);
+	var$0->append(isStarImportScope());
+	var$0->append("]"_s);
+	return $str(var$0);
 }
 
 bool JavacScope::lambda$static$0($Symbol* sym) {
@@ -208,8 +160,8 @@ bool JavacScope::lambda$static$0($Symbol* sym) {
 	return sym->kind != $Kinds$Kind::ERR;
 }
 
-void clinit$JavacScope($Class* class$) {
-	$assignStatic(JavacScope::VALIDATOR, static_cast<$Predicate*>($new(JavacScope$$Lambda$lambda$static$0)));
+void JavacScope::clinit$($Class* clazz) {
+	$assignStatic(JavacScope::VALIDATOR, $new(JavacScope$$Lambda$lambda$static$0));
 }
 
 JavacScope::JavacScope() {
@@ -217,11 +169,52 @@ JavacScope::JavacScope() {
 
 $Class* JavacScope::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(JavacScope$$Lambda$lambda$static$0::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.api.JavacScope$$Lambda$lambda$static$0")) {
 			return JavacScope$$Lambda$lambda$static$0::load$(name, initialize);
 		}
 	}
-	$loadClass(JavacScope, name, initialize, &_JavacScope_ClassInfo_, clinit$JavacScope, allocate$JavacScope);
+	$FieldInfo fieldInfos$$[] = {
+		{"VALIDATOR", "Ljava/util/function/Predicate;", "Ljava/util/function/Predicate<Lcom/sun/tools/javac/code/Symbol;>;", $PRIVATE | $STATIC | $FINAL, $staticField(JavacScope, VALIDATOR)},
+		{"env", "Lcom/sun/tools/javac/comp/Env;", "Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;", $PROTECTED | $FINAL, $field(JavacScope, env)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/comp/Env;)V", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)V", $PRIVATE, $method(JavacScope, init$, void, $Env*)},
+		{"create", "(Lcom/sun/tools/javac/comp/Env;)Lcom/sun/tools/javac/api/JavacScope;", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)Lcom/sun/tools/javac/api/JavacScope;", $STATIC, $staticMethod(JavacScope, create, JavacScope*, $Env*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(JavacScope, equals, bool, Object$*)},
+		{"getEnclosingClass", "()Ljavax/lang/model/element/TypeElement;", nullptr, $PUBLIC, $virtualMethod(JavacScope, getEnclosingClass, $TypeElement*)},
+		{"getEnclosingMethod", "()Ljavax/lang/model/element/ExecutableElement;", nullptr, $PUBLIC, $virtualMethod(JavacScope, getEnclosingMethod, $ExecutableElement*)},
+		{"getEnclosingScope", "()Lcom/sun/tools/javac/api/JavacScope;", nullptr, $PUBLIC, $virtualMethod(JavacScope, getEnclosingScope, JavacScope*)},
+		{"getEnv", "()Lcom/sun/tools/javac/comp/Env;", "()Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;", $PUBLIC, $virtualMethod(JavacScope, getEnv, $Env*)},
+		{"getLocalElements", "()Ljava/lang/Iterable;", "()Ljava/lang/Iterable<+Ljavax/lang/model/element/Element;>;", $PUBLIC, $virtualMethod(JavacScope, getLocalElements, $Iterable*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(JavacScope, hashCode, int32_t)},
+		{"isStarImportScope", "()Z", nullptr, $PUBLIC, $virtualMethod(JavacScope, isStarImportScope, bool)},
+		{"lambda$static$0", "(Lcom/sun/tools/javac/code/Symbol;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JavacScope, lambda$static$0, bool, $Symbol*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JavacScope, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.api.JavacScope$2", nullptr, nullptr, 0},
+		{"com.sun.tools.javac.api.JavacScope$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.api.JavacScope",
+		"java.lang.Object",
+		"com.sun.source.tree.Scope",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.api.JavacScope$2,com.sun.tools.javac.api.JavacScope$1"
+	};
+	$loadClass(JavacScope, name, initialize, &classInfo$$, JavacScope::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(JavacScope);
+	});
 	return class$;
 }
 

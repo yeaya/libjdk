@@ -52,6 +52,7 @@ class AquaTableHeaderUI : public ::javax::swing::plaf::basic::BasicTableHeaderUI
 	$class(AquaTableHeaderUI, 0, ::javax::swing::plaf::basic::BasicTableHeaderUI)
 public:
 	AquaTableHeaderUI();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::javax::swing::table::JTableHeader* access$000(::com::apple::laf::AquaTableHeaderUI* x0);
 	static ::javax::swing::table::JTableHeader* access$100(::com::apple::laf::AquaTableHeaderUI* x0);

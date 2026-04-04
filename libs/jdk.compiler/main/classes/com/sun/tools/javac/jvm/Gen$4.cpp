@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/jvm/Gen$4.h>
-
 #include <com/sun/tools/javac/code/TypeTag.h>
 #include <com/sun/tools/javac/jvm/Gen.h>
 #include <com/sun/tools/javac/tree/JCTree$Tag.h>
@@ -34,103 +33,66 @@ namespace com {
 			namespace javac {
 				namespace jvm {
 
-$FieldInfo _Gen$4_FieldInfo_[] = {
-	{"$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(Gen$4, $SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)},
-	{"$SwitchMap$com$sun$tools$javac$code$TypeTag", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(Gen$4, $SwitchMap$com$sun$tools$javac$code$TypeTag)},
-	{}
-};
-
-$EnclosingMethodInfo _Gen$4_EnclosingMethodInfo_ = {
-	"com.sun.tools.javac.jvm.Gen",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _Gen$4_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.jvm.Gen$4", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{}
-};
-
-$ClassInfo _Gen$4_ClassInfo_ = {
-	$ACC_SUPER | $SYNTHETIC,
-	"com.sun.tools.javac.jvm.Gen$4",
-	"java.lang.Object",
-	nullptr,
-	_Gen$4_FieldInfo_,
-	nullptr,
-	nullptr,
-	&_Gen$4_EnclosingMethodInfo_,
-	_Gen$4_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.jvm.Gen"
-};
-
-$Object* allocate$Gen$4($Class* clazz) {
-	return $of($alloc(Gen$4));
-}
-
 $ints* Gen$4::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag = nullptr;
 $ints* Gen$4::$SwitchMap$com$sun$tools$javac$code$TypeTag = nullptr;
 
-void clinit$Gen$4($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void Gen$4::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(Gen$4::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag, $new($ints, $($JCTree$Tag::values())->length));
 	{
 		try {
-			$nc(Gen$4::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->set($JCTree$Tag::BLOCK->ordinal(), 1);
+			Gen$4::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag->set($JCTree$Tag::BLOCK->ordinal(), 1);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Gen$4::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->set($JCTree$Tag::METHODDEF->ordinal(), 2);
+			Gen$4::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag->set($JCTree$Tag::METHODDEF->ordinal(), 2);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Gen$4::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->set($JCTree$Tag::VARDEF->ordinal(), 3);
+			Gen$4::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag->set($JCTree$Tag::VARDEF->ordinal(), 3);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Gen$4::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->set($JCTree$Tag::POSTINC->ordinal(), 4);
+			Gen$4::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag->set($JCTree$Tag::POSTINC->ordinal(), 4);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Gen$4::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->set($JCTree$Tag::POSTDEC->ordinal(), 5);
+			Gen$4::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag->set($JCTree$Tag::POSTDEC->ordinal(), 5);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Gen$4::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->set($JCTree$Tag::POS->ordinal(), 6);
+			Gen$4::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag->set($JCTree$Tag::POS->ordinal(), 6);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Gen$4::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->set($JCTree$Tag::NEG->ordinal(), 7);
+			Gen$4::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag->set($JCTree$Tag::NEG->ordinal(), 7);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Gen$4::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->set($JCTree$Tag::COMPL->ordinal(), 8);
+			Gen$4::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag->set($JCTree$Tag::COMPL->ordinal(), 8);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Gen$4::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->set($JCTree$Tag::PREINC->ordinal(), 9);
+			Gen$4::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag->set($JCTree$Tag::PREINC->ordinal(), 9);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Gen$4::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->set($JCTree$Tag::PREDEC->ordinal(), 10);
+			Gen$4::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag->set($JCTree$Tag::PREDEC->ordinal(), 10);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Gen$4::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->set($JCTree$Tag::NULLCHK->ordinal(), 11);
+			Gen$4::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag->set($JCTree$Tag::NULLCHK->ordinal(), 11);
 		} catch ($NoSuchFieldError& ex) {
 		}
 	}
 	$assignStatic(Gen$4::$SwitchMap$com$sun$tools$javac$code$TypeTag, $new($ints, $($TypeTag::values())->length));
 	{
 		try {
-			$nc(Gen$4::$SwitchMap$com$sun$tools$javac$code$TypeTag)->set($TypeTag::METHOD->ordinal(), 1);
+			Gen$4::$SwitchMap$com$sun$tools$javac$code$TypeTag->set($TypeTag::METHOD->ordinal(), 1);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Gen$4::$SwitchMap$com$sun$tools$javac$code$TypeTag)->set($TypeTag::ARRAY->ordinal(), 2);
+			Gen$4::$SwitchMap$com$sun$tools$javac$code$TypeTag->set($TypeTag::ARRAY->ordinal(), 2);
 		} catch ($NoSuchFieldError& ex) {
 		}
 	}
@@ -140,7 +102,38 @@ Gen$4::Gen$4() {
 }
 
 $Class* Gen$4::load$($String* name, bool initialize) {
-	$loadClass(Gen$4, name, initialize, &_Gen$4_ClassInfo_, clinit$Gen$4, allocate$Gen$4);
+	$FieldInfo fieldInfos$$[] = {
+		{"$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(Gen$4, $SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)},
+		{"$SwitchMap$com$sun$tools$javac$code$TypeTag", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(Gen$4, $SwitchMap$com$sun$tools$javac$code$TypeTag)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.tools.javac.jvm.Gen",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.jvm.Gen$4", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $SYNTHETIC,
+		"com.sun.tools.javac.jvm.Gen$4",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		nullptr,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.jvm.Gen"
+	};
+	$loadClass(Gen$4, name, initialize, &classInfo$$, Gen$4::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Gen$4);
+	});
 	return class$;
 }
 

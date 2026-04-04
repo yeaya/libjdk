@@ -1,5 +1,4 @@
 #include <sun/util/resources/cldr/ext/LocaleNames_kl.h>
-
 #include <sun/util/resources/OpenListResourceBundle.h>
 #include <jcpp.h>
 
@@ -14,39 +13,20 @@ namespace sun {
 			namespace cldr {
 				namespace ext {
 
-$MethodInfo _LocaleNames_kl_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(LocaleNames_kl, init$, void)},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(LocaleNames_kl, getContents, $ObjectArray2*)},
-	{}
-};
-
-$ClassInfo _LocaleNames_kl_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.util.resources.cldr.ext.LocaleNames_kl",
-	"sun.util.resources.OpenListResourceBundle",
-	nullptr,
-	nullptr,
-	_LocaleNames_kl_MethodInfo_
-};
-
-$Object* allocate$LocaleNames_kl($Class* clazz) {
-	return $of($alloc(LocaleNames_kl));
-}
-
 void LocaleNames_kl::init$() {
 	$OpenListResourceBundle::init$();
 }
 
 $ObjectArray2* LocaleNames_kl::getContents() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectArray2, data, $new($ObjectArray2, {
 		$$new($ObjectArray, {
-			$of("GL"_s),
-			$of("Kalaallit Nunaat"_s)
+			"GL"_s,
+			"Kalaallit Nunaat"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kl"_s),
-			$of("kalaallisut"_s)
+			"kl"_s,
+			"kalaallisut"_s
 		})
 	}));
 	return data;
@@ -56,7 +36,22 @@ LocaleNames_kl::LocaleNames_kl() {
 }
 
 $Class* LocaleNames_kl::load$($String* name, bool initialize) {
-	$loadClass(LocaleNames_kl, name, initialize, &_LocaleNames_kl_ClassInfo_, allocate$LocaleNames_kl);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(LocaleNames_kl, init$, void)},
+		{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(LocaleNames_kl, getContents, $ObjectArray2*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.util.resources.cldr.ext.LocaleNames_kl",
+		"sun.util.resources.OpenListResourceBundle",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(LocaleNames_kl, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LocaleNames_kl);
+	});
 	return class$;
 }
 

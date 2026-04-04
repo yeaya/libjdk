@@ -1,5 +1,4 @@
 #include <com/sun/jndi/ldap/Obj$LoaderInputStream.h>
-
 #include <com/sun/jndi/ldap/Obj.h>
 #include <java/io/InputStream.h>
 #include <java/io/ObjectInputStream.h>
@@ -32,43 +31,6 @@ namespace com {
 		namespace jndi {
 			namespace ldap {
 
-$FieldInfo _Obj$LoaderInputStream_FieldInfo_[] = {
-	{"classLoader", "Ljava/lang/ClassLoader;", nullptr, $PRIVATE, $field(Obj$LoaderInputStream, classLoader)},
-	{}
-};
-
-$MethodInfo _Obj$LoaderInputStream_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/InputStream;Ljava/lang/ClassLoader;)V", nullptr, 0, $method(Obj$LoaderInputStream, init$, void, $InputStream*, $ClassLoader*), "java.io.IOException"},
-	{"resolveClass", "(Ljava/io/ObjectStreamClass;)Ljava/lang/Class;", "(Ljava/io/ObjectStreamClass;)Ljava/lang/Class<*>;", $PROTECTED, $virtualMethod(Obj$LoaderInputStream, resolveClass, $Class*, $ObjectStreamClass*), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"resolveProxyClass", "([Ljava/lang/String;)Ljava/lang/Class;", "([Ljava/lang/String;)Ljava/lang/Class<*>;", $PROTECTED, $virtualMethod(Obj$LoaderInputStream, resolveProxyClass, $Class*, $StringArray*), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{}
-};
-
-$InnerClassInfo _Obj$LoaderInputStream_InnerClassesInfo_[] = {
-	{"com.sun.jndi.ldap.Obj$LoaderInputStream", "com.sun.jndi.ldap.Obj", "LoaderInputStream", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _Obj$LoaderInputStream_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.jndi.ldap.Obj$LoaderInputStream",
-	"java.io.ObjectInputStream",
-	nullptr,
-	_Obj$LoaderInputStream_FieldInfo_,
-	_Obj$LoaderInputStream_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Obj$LoaderInputStream_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.jndi.ldap.Obj"
-};
-
-$Object* allocate$Obj$LoaderInputStream($Class* clazz) {
-	return $of($alloc(Obj$LoaderInputStream));
-}
-
 void Obj$LoaderInputStream::init$($InputStream* in, $ClassLoader* cl) {
 	$ObjectInputStream::init$(in);
 	$set(this, classLoader, cl);
@@ -84,14 +46,14 @@ $Class* Obj$LoaderInputStream::resolveClass($ObjectStreamClass* desc) {
 }
 
 $Class* Obj$LoaderInputStream::resolveProxyClass($StringArray* interfaces) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$var($ClassLoader, nonPublicLoader, nullptr);
 	bool hasNonPublicInterface = false;
 	$var($ClassArray, classObjs, $new($ClassArray, $nc(interfaces)->length));
 	for (int32_t i = 0; i < interfaces->length; ++i) {
 		$Class* cl = $Class::forName(interfaces->get(i), false, this->classLoader);
-		if (((int32_t)($nc(cl)->getModifiers() & (uint32_t)$Modifier::PUBLIC)) == 0) {
+		if ((cl->getModifiers() & $Modifier::PUBLIC) == 0) {
 			if (hasNonPublicInterface) {
 				if (nonPublicLoader != cl->getClassLoader()) {
 					$throwNew($IllegalAccessError, "conflicting non-public interface class loaders"_s);
@@ -116,7 +78,38 @@ Obj$LoaderInputStream::Obj$LoaderInputStream() {
 }
 
 $Class* Obj$LoaderInputStream::load$($String* name, bool initialize) {
-	$loadClass(Obj$LoaderInputStream, name, initialize, &_Obj$LoaderInputStream_ClassInfo_, allocate$Obj$LoaderInputStream);
+	$FieldInfo fieldInfos$$[] = {
+		{"classLoader", "Ljava/lang/ClassLoader;", nullptr, $PRIVATE, $field(Obj$LoaderInputStream, classLoader)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/io/InputStream;Ljava/lang/ClassLoader;)V", nullptr, 0, $method(Obj$LoaderInputStream, init$, void, $InputStream*, $ClassLoader*), "java.io.IOException"},
+		{"resolveClass", "(Ljava/io/ObjectStreamClass;)Ljava/lang/Class;", "(Ljava/io/ObjectStreamClass;)Ljava/lang/Class<*>;", $PROTECTED, $virtualMethod(Obj$LoaderInputStream, resolveClass, $Class*, $ObjectStreamClass*), "java.io.IOException,java.lang.ClassNotFoundException"},
+		{"resolveProxyClass", "([Ljava/lang/String;)Ljava/lang/Class;", "([Ljava/lang/String;)Ljava/lang/Class<*>;", $PROTECTED, $virtualMethod(Obj$LoaderInputStream, resolveProxyClass, $Class*, $StringArray*), "java.io.IOException,java.lang.ClassNotFoundException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.jndi.ldap.Obj$LoaderInputStream", "com.sun.jndi.ldap.Obj", "LoaderInputStream", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.jndi.ldap.Obj$LoaderInputStream",
+		"java.io.ObjectInputStream",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.jndi.ldap.Obj"
+	};
+	$loadClass(Obj$LoaderInputStream, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Obj$LoaderInputStream));
+	});
 	return class$;
 }
 

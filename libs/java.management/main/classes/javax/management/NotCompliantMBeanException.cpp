@@ -1,5 +1,4 @@
 #include <javax/management/NotCompliantMBeanException.h>
-
 #include <javax/management/OperationsException.h>
 #include <jcpp.h>
 
@@ -10,30 +9,6 @@ using $OperationsException = ::javax::management::OperationsException;
 
 namespace javax {
 	namespace management {
-
-$FieldInfo _NotCompliantMBeanException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NotCompliantMBeanException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _NotCompliantMBeanException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(NotCompliantMBeanException, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(NotCompliantMBeanException, init$, void, $String*)},
-	{}
-};
-
-$ClassInfo _NotCompliantMBeanException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.management.NotCompliantMBeanException",
-	"javax.management.OperationsException",
-	nullptr,
-	_NotCompliantMBeanException_FieldInfo_,
-	_NotCompliantMBeanException_MethodInfo_
-};
-
-$Object* allocate$NotCompliantMBeanException($Class* clazz) {
-	return $of($alloc(NotCompliantMBeanException));
-}
 
 void NotCompliantMBeanException::init$() {
 	$OperationsException::init$();
@@ -54,7 +29,26 @@ void NotCompliantMBeanException::throw$() {
 }
 
 $Class* NotCompliantMBeanException::load$($String* name, bool initialize) {
-	$loadClass(NotCompliantMBeanException, name, initialize, &_NotCompliantMBeanException_ClassInfo_, allocate$NotCompliantMBeanException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NotCompliantMBeanException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(NotCompliantMBeanException, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(NotCompliantMBeanException, init$, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.management.NotCompliantMBeanException",
+		"javax.management.OperationsException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(NotCompliantMBeanException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(NotCompliantMBeanException);
+	});
 	return class$;
 }
 

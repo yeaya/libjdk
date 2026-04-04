@@ -33,6 +33,7 @@ class AquaToolTipUI : public ::javax::swing::plaf::basic::BasicToolTipUI {
 	$class(AquaToolTipUI, 0, ::javax::swing::plaf::basic::BasicToolTipUI)
 public:
 	AquaToolTipUI();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::javax::swing::plaf::ComponentUI* createUI(::javax::swing::JComponent* c);
 	static ::com::apple::laf::AquaUtils$RecyclableSingletonFromDefaultConstructor* sharedAquaInstance;

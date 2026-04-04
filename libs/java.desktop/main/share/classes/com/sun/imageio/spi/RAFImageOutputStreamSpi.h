@@ -33,6 +33,7 @@ class RAFImageOutputStreamSpi : public ::javax::imageio::spi::ImageOutputStreamS
 public:
 	RAFImageOutputStreamSpi();
 	using ::javax::imageio::spi::ImageOutputStreamSpi::createOutputStreamInstance;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual ::javax::imageio::stream::ImageOutputStream* createOutputStreamInstance(Object$* output, bool useCache, ::java::io::File* cacheDir) override;
 	virtual $String* getDescription(::java::util::Locale* locale) override;

@@ -48,6 +48,7 @@ public:
 	using ::java::awt::image::ColorModel::getRGB;
 	using ::java::awt::image::ColorModel::getDataElement;
 	using ::java::awt::image::ColorModel::getDataElements;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int32_t bits, int32_t size, $bytes* r, $bytes* g, $bytes* b);
 	void init$(int32_t bits, int32_t size, $bytes* r, $bytes* g, $bytes* b, int32_t trans);
 	void init$(int32_t bits, int32_t size, $bytes* r, $bytes* g, $bytes* b, $bytes* a);

@@ -1,5 +1,4 @@
 #include <bug7165725$1$1.h>
-
 #include <bug7165725$1.h>
 #include <javax/swing/text/AbstractDocument.h>
 #include <javax/swing/text/Document.h>
@@ -16,49 +15,6 @@ using $AbstractDocument = ::javax::swing::text::AbstractDocument;
 using $Document = ::javax::swing::text::Document;
 using $HTMLEditorKit = ::javax::swing::text::html::HTMLEditorKit;
 
-$FieldInfo _bug7165725$1$1_FieldInfo_[] = {
-	{"this$1", "Lbug7165725$1;", nullptr, $FINAL | $SYNTHETIC, $field(bug7165725$1$1, this$1)},
-	{}
-};
-
-$MethodInfo _bug7165725$1$1_MethodInfo_[] = {
-	{"<init>", "(Lbug7165725$1;)V", nullptr, 0, $method(bug7165725$1$1, init$, void, $bug7165725$1*)},
-	{"createDefaultDocument", "()Ljavax/swing/text/Document;", nullptr, $PUBLIC, $virtualMethod(bug7165725$1$1, createDefaultDocument, $Document*)},
-	{}
-};
-
-$EnclosingMethodInfo _bug7165725$1$1_EnclosingMethodInfo_ = {
-	"bug7165725$1",
-	"run",
-	"()V"
-};
-
-$InnerClassInfo _bug7165725$1$1_InnerClassesInfo_[] = {
-	{"bug7165725$1", nullptr, nullptr, 0},
-	{"bug7165725$1$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _bug7165725$1$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"bug7165725$1$1",
-	"javax.swing.text.html.HTMLEditorKit",
-	nullptr,
-	_bug7165725$1$1_FieldInfo_,
-	_bug7165725$1$1_MethodInfo_,
-	nullptr,
-	&_bug7165725$1$1_EnclosingMethodInfo_,
-	_bug7165725$1$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"bug7165725"
-};
-
-$Object* allocate$bug7165725$1$1($Class* clazz) {
-	return $of($alloc(bug7165725$1$1));
-}
-
 void bug7165725$1$1::init$($bug7165725$1* this$1) {
 	$set(this, this$1, this$1);
 	$HTMLEditorKit::init$();
@@ -74,7 +30,43 @@ bug7165725$1$1::bug7165725$1$1() {
 }
 
 $Class* bug7165725$1$1::load$($String* name, bool initialize) {
-	$loadClass(bug7165725$1$1, name, initialize, &_bug7165725$1$1_ClassInfo_, allocate$bug7165725$1$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$1", "Lbug7165725$1;", nullptr, $FINAL | $SYNTHETIC, $field(bug7165725$1$1, this$1)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lbug7165725$1;)V", nullptr, 0, $method(bug7165725$1$1, init$, void, $bug7165725$1*)},
+		{"createDefaultDocument", "()Ljavax/swing/text/Document;", nullptr, $PUBLIC, $virtualMethod(bug7165725$1$1, createDefaultDocument, $Document*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"bug7165725$1",
+		"run",
+		"()V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"bug7165725$1", nullptr, nullptr, 0},
+		{"bug7165725$1$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"bug7165725$1$1",
+		"javax.swing.text.html.HTMLEditorKit",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"bug7165725"
+	};
+	$loadClass(bug7165725$1$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(bug7165725$1$1));
+	});
 	return class$;
 }
 

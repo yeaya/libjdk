@@ -36,6 +36,7 @@ class $export Option$HiddenGroup : public ::java::lang::Enum {
 public:
 	Option$HiddenGroup();
 	static $Array<::com::sun::tools::javac::main::Option$HiddenGroup>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal, $String* text);
 	virtual void process(::com::sun::tools::javac::main::OptionHelper* helper, $String* option, $String* arg);
 	static ::com::sun::tools::javac::main::Option$HiddenGroup* valueOf($String* name);

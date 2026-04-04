@@ -42,6 +42,7 @@ class XMSelection : public ::java::lang::Object {
 	$class(XMSelection, 0, ::java::lang::Object)
 public:
 	XMSelection();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* selname);
 	void init$($String* selname, int64_t extraMask);
 	virtual void addSelectionListener(::sun::awt::X11::XMSelectionListener* listener);

@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/jvm/Items$CondItem.h>
-
 #include <com/sun/tools/javac/jvm/CRTable.h>
 #include <com/sun/tools/javac/jvm/Code$Chain.h>
 #include <com/sun/tools/javac/jvm/Code.h>
@@ -31,58 +30,6 @@ namespace com {
 			namespace javac {
 				namespace jvm {
 
-$FieldInfo _Items$CondItem_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/jvm/Items;", nullptr, $FINAL | $SYNTHETIC, $field(Items$CondItem, this$0)},
-	{"trueJumps", "Lcom/sun/tools/javac/jvm/Code$Chain;", nullptr, 0, $field(Items$CondItem, trueJumps)},
-	{"falseJumps", "Lcom/sun/tools/javac/jvm/Code$Chain;", nullptr, 0, $field(Items$CondItem, falseJumps)},
-	{"opcode", "I", nullptr, 0, $field(Items$CondItem, opcode)},
-	{"tree", "Lcom/sun/tools/javac/tree/JCTree;", nullptr, 0, $field(Items$CondItem, tree)},
-	{}
-};
-
-$MethodInfo _Items$CondItem_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/jvm/Items;ILcom/sun/tools/javac/jvm/Code$Chain;Lcom/sun/tools/javac/jvm/Code$Chain;)V", nullptr, 0, $method(Items$CondItem, init$, void, $Items*, int32_t, $Code$Chain*, $Code$Chain*)},
-	{"drop", "()V", nullptr, 0, $virtualMethod(Items$CondItem, drop, void)},
-	{"duplicate", "()V", nullptr, 0, $virtualMethod(Items$CondItem, duplicate, void)},
-	{"isFalse", "()Z", nullptr, 0, $virtualMethod(Items$CondItem, isFalse, bool)},
-	{"isTrue", "()Z", nullptr, 0, $virtualMethod(Items$CondItem, isTrue, bool)},
-	{"jumpFalse", "()Lcom/sun/tools/javac/jvm/Code$Chain;", nullptr, 0, $virtualMethod(Items$CondItem, jumpFalse, $Code$Chain*)},
-	{"jumpTrue", "()Lcom/sun/tools/javac/jvm/Code$Chain;", nullptr, 0, $virtualMethod(Items$CondItem, jumpTrue, $Code$Chain*)},
-	{"load", "()Lcom/sun/tools/javac/jvm/Items$Item;", nullptr, 0, $virtualMethod(Items$CondItem, load, $Items$Item*)},
-	{"mkCond", "()Lcom/sun/tools/javac/jvm/Items$CondItem;", nullptr, 0, $virtualMethod(Items$CondItem, mkCond, Items$CondItem*)},
-	{"negate", "()Lcom/sun/tools/javac/jvm/Items$CondItem;", nullptr, 0, $virtualMethod(Items$CondItem, negate, Items$CondItem*)},
-	{"stash", "(I)V", nullptr, 0, $virtualMethod(Items$CondItem, stash, void, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Items$CondItem, toString, $String*)},
-	{"width", "()I", nullptr, 0, $virtualMethod(Items$CondItem, width, int32_t)},
-	{}
-};
-
-$InnerClassInfo _Items$CondItem_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.jvm.Items$CondItem", "com.sun.tools.javac.jvm.Items", "CondItem", 0},
-	{"com.sun.tools.javac.jvm.Items$Item", "com.sun.tools.javac.jvm.Items", "Item", $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Items$CondItem_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.jvm.Items$CondItem",
-	"com.sun.tools.javac.jvm.Items$Item",
-	nullptr,
-	_Items$CondItem_FieldInfo_,
-	_Items$CondItem_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Items$CondItem_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.jvm.Items"
-};
-
-$Object* allocate$Items$CondItem($Class* clazz) {
-	return $of($alloc(Items$CondItem));
-}
-
 void Items$CondItem::init$($Items* this$0, int32_t opcode, $Code$Chain* truejumps, $Code$Chain* falsejumps) {
 	$set(this, this$0, this$0);
 	$Items$Item::init$(this$0, 5);
@@ -92,7 +39,7 @@ void Items$CondItem::init$($Items* this$0, int32_t opcode, $Code$Chain* truejump
 }
 
 $Items$Item* Items$CondItem::load() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Code$Chain, trueChain, nullptr);
 	$var($Code$Chain, falseChain, jumpFalse());
 	if (!isFalse()) {
@@ -109,11 +56,11 @@ $Items$Item* Items$CondItem::load() {
 }
 
 void Items$CondItem::duplicate() {
-	$nc($(load()))->duplicate();
+	$$nc(load())->duplicate();
 }
 
 void Items$CondItem::drop() {
-	$nc($(load()))->drop();
+	$$nc(load())->drop();
 }
 
 void Items$CondItem::stash(int32_t toscode) {
@@ -125,7 +72,7 @@ Items$CondItem* Items$CondItem::mkCond() {
 }
 
 $Code$Chain* Items$CondItem::jumpTrue() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->tree == nullptr) {
 		return $Code::mergeChains(this->trueJumps, $($nc(this->this$0->code)->branch(this->opcode)));
 	}
@@ -136,7 +83,7 @@ $Code$Chain* Items$CondItem::jumpTrue() {
 }
 
 $Code$Chain* Items$CondItem::jumpFalse() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->tree == nullptr) {
 		return $Code::mergeChains(this->falseJumps, $($nc(this->this$0->code)->branch($Code::negate(this->opcode))));
 	}
@@ -173,7 +120,53 @@ Items$CondItem::Items$CondItem() {
 }
 
 $Class* Items$CondItem::load$($String* name, bool initialize) {
-	$loadClass(Items$CondItem, name, initialize, &_Items$CondItem_ClassInfo_, allocate$Items$CondItem);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/jvm/Items;", nullptr, $FINAL | $SYNTHETIC, $field(Items$CondItem, this$0)},
+		{"trueJumps", "Lcom/sun/tools/javac/jvm/Code$Chain;", nullptr, 0, $field(Items$CondItem, trueJumps)},
+		{"falseJumps", "Lcom/sun/tools/javac/jvm/Code$Chain;", nullptr, 0, $field(Items$CondItem, falseJumps)},
+		{"opcode", "I", nullptr, 0, $field(Items$CondItem, opcode)},
+		{"tree", "Lcom/sun/tools/javac/tree/JCTree;", nullptr, 0, $field(Items$CondItem, tree)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/jvm/Items;ILcom/sun/tools/javac/jvm/Code$Chain;Lcom/sun/tools/javac/jvm/Code$Chain;)V", nullptr, 0, $method(Items$CondItem, init$, void, $Items*, int32_t, $Code$Chain*, $Code$Chain*)},
+		{"drop", "()V", nullptr, 0, $virtualMethod(Items$CondItem, drop, void)},
+		{"duplicate", "()V", nullptr, 0, $virtualMethod(Items$CondItem, duplicate, void)},
+		{"isFalse", "()Z", nullptr, 0, $virtualMethod(Items$CondItem, isFalse, bool)},
+		{"isTrue", "()Z", nullptr, 0, $virtualMethod(Items$CondItem, isTrue, bool)},
+		{"jumpFalse", "()Lcom/sun/tools/javac/jvm/Code$Chain;", nullptr, 0, $virtualMethod(Items$CondItem, jumpFalse, $Code$Chain*)},
+		{"jumpTrue", "()Lcom/sun/tools/javac/jvm/Code$Chain;", nullptr, 0, $virtualMethod(Items$CondItem, jumpTrue, $Code$Chain*)},
+		{"load", "()Lcom/sun/tools/javac/jvm/Items$Item;", nullptr, 0, $virtualMethod(Items$CondItem, load, $Items$Item*)},
+		{"mkCond", "()Lcom/sun/tools/javac/jvm/Items$CondItem;", nullptr, 0, $virtualMethod(Items$CondItem, mkCond, Items$CondItem*)},
+		{"negate", "()Lcom/sun/tools/javac/jvm/Items$CondItem;", nullptr, 0, $virtualMethod(Items$CondItem, negate, Items$CondItem*)},
+		{"stash", "(I)V", nullptr, 0, $virtualMethod(Items$CondItem, stash, void, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Items$CondItem, toString, $String*)},
+		{"width", "()I", nullptr, 0, $virtualMethod(Items$CondItem, width, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.jvm.Items$CondItem", "com.sun.tools.javac.jvm.Items", "CondItem", 0},
+		{"com.sun.tools.javac.jvm.Items$Item", "com.sun.tools.javac.jvm.Items", "Item", $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.jvm.Items$CondItem",
+		"com.sun.tools.javac.jvm.Items$Item",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.jvm.Items"
+	};
+	$loadClass(Items$CondItem, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Items$CondItem);
+	});
 	return class$;
 }
 

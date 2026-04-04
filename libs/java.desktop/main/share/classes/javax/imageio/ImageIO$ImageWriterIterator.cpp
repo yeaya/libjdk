@@ -1,5 +1,4 @@
 #include <javax/imageio/ImageIO$ImageWriterIterator.h>
-
 #include <java/io/IOException.h>
 #include <java/lang/UnsupportedOperationException.h>
 #include <java/util/Iterator.h>
@@ -18,49 +17,10 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $UnsupportedOperationException = ::java::lang::UnsupportedOperationException;
 using $Iterator = ::java::util::Iterator;
 using $ImageIO = ::javax::imageio::ImageIO;
-using $IIORegistry = ::javax::imageio::spi::IIORegistry;
 using $ImageWriterSpi = ::javax::imageio::spi::ImageWriterSpi;
 
 namespace javax {
 	namespace imageio {
-
-$FieldInfo _ImageIO$ImageWriterIterator_FieldInfo_[] = {
-	{"iter", "Ljava/util/Iterator;", "Ljava/util/Iterator<Ljavax/imageio/spi/ImageWriterSpi;>;", $PRIVATE, $field(ImageIO$ImageWriterIterator, iter)},
-	{}
-};
-
-$MethodInfo _ImageIO$ImageWriterIterator_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/Iterator;)V", "(Ljava/util/Iterator<Ljavax/imageio/spi/ImageWriterSpi;>;)V", $PUBLIC, $method(ImageIO$ImageWriterIterator, init$, void, $Iterator*)},
-	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(ImageIO$ImageWriterIterator, hasNext, bool)},
-	{"next", "()Ljavax/imageio/ImageWriter;", nullptr, $PUBLIC, $virtualMethod(ImageIO$ImageWriterIterator, next, $Object*)},
-	{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(ImageIO$ImageWriterIterator, remove, void)},
-	{}
-};
-
-$InnerClassInfo _ImageIO$ImageWriterIterator_InnerClassesInfo_[] = {
-	{"javax.imageio.ImageIO$ImageWriterIterator", "javax.imageio.ImageIO", "ImageWriterIterator", $STATIC},
-	{}
-};
-
-$ClassInfo _ImageIO$ImageWriterIterator_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.imageio.ImageIO$ImageWriterIterator",
-	"java.lang.Object",
-	"java.util.Iterator",
-	_ImageIO$ImageWriterIterator_FieldInfo_,
-	_ImageIO$ImageWriterIterator_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/Iterator<Ljavax/imageio/ImageWriter;>;",
-	nullptr,
-	_ImageIO$ImageWriterIterator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.imageio.ImageIO"
-};
-
-$Object* allocate$ImageIO$ImageWriterIterator($Class* clazz) {
-	return $of($alloc(ImageIO$ImageWriterIterator));
-}
 
 void ImageIO$ImageWriterIterator::init$($Iterator* iter) {
 	$set(this, iter, iter);
@@ -74,13 +34,13 @@ $Object* ImageIO$ImageWriterIterator::next() {
 	$var($ImageWriterSpi, spi, nullptr);
 	try {
 		$assign(spi, $cast($ImageWriterSpi, $nc(this->iter)->next()));
-		return $of($nc(spi)->createWriterInstance());
+		return $nc(spi)->createWriterInstance();
 	} catch ($IOException& e) {
 		$init($ImageIO);
 		$load($ImageWriterSpi);
 		$nc($ImageIO::theRegistry)->deregisterServiceProvider(spi, $ImageWriterSpi::class$);
 	}
-	return $of(nullptr);
+	return nullptr;
 }
 
 void ImageIO$ImageWriterIterator::remove() {
@@ -91,7 +51,39 @@ ImageIO$ImageWriterIterator::ImageIO$ImageWriterIterator() {
 }
 
 $Class* ImageIO$ImageWriterIterator::load$($String* name, bool initialize) {
-	$loadClass(ImageIO$ImageWriterIterator, name, initialize, &_ImageIO$ImageWriterIterator_ClassInfo_, allocate$ImageIO$ImageWriterIterator);
+	$FieldInfo fieldInfos$$[] = {
+		{"iter", "Ljava/util/Iterator;", "Ljava/util/Iterator<Ljavax/imageio/spi/ImageWriterSpi;>;", $PRIVATE, $field(ImageIO$ImageWriterIterator, iter)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/Iterator;)V", "(Ljava/util/Iterator<Ljavax/imageio/spi/ImageWriterSpi;>;)V", $PUBLIC, $method(ImageIO$ImageWriterIterator, init$, void, $Iterator*)},
+		{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(ImageIO$ImageWriterIterator, hasNext, bool)},
+		{"next", "()Ljavax/imageio/ImageWriter;", nullptr, $PUBLIC, $virtualMethod(ImageIO$ImageWriterIterator, next, $Object*)},
+		{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(ImageIO$ImageWriterIterator, remove, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.imageio.ImageIO$ImageWriterIterator", "javax.imageio.ImageIO", "ImageWriterIterator", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.imageio.ImageIO$ImageWriterIterator",
+		"java.lang.Object",
+		"java.util.Iterator",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/Iterator<Ljavax/imageio/ImageWriter;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.imageio.ImageIO"
+	};
+	$loadClass(ImageIO$ImageWriterIterator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ImageIO$ImageWriterIterator);
+	});
 	return class$;
 }
 

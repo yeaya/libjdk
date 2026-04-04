@@ -1,10 +1,8 @@
 #include <com/apple/laf/AquaTextFieldFormattedUI.h>
-
 #include <com/apple/laf/AquaTextFieldUI.h>
 #include <java/awt/Component.h>
 #include <java/awt/Point.h>
 #include <java/awt/event/MouseEvent.h>
-#include <java/awt/event/MouseListener.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/plaf/ComponentUI.h>
 #include <javax/swing/plaf/basic/BasicTextUI.h>
@@ -13,7 +11,6 @@
 
 using $AquaTextFieldUI = ::com::apple::laf::AquaTextFieldUI;
 using $MouseEvent = ::java::awt::event::MouseEvent;
-using $MouseListener = ::java::awt::event::MouseListener;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $JComponent = ::javax::swing::JComponent;
@@ -23,38 +20,6 @@ using $JTextComponent = ::javax::swing::text::JTextComponent;
 namespace com {
 	namespace apple {
 		namespace laf {
-
-$MethodInfo _AquaTextFieldFormattedUI_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AquaTextFieldFormattedUI, init$, void)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(AquaTextFieldFormattedUI, createUI, $ComponentUI*, $JComponent*)},
-	{"getPropertyPrefix", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(AquaTextFieldFormattedUI, getPropertyPrefix, $String*)},
-	{"installListeners", "()V", nullptr, $PROTECTED, $virtualMethod(AquaTextFieldFormattedUI, installListeners, void)},
-	{"mouseClicked", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaTextFieldFormattedUI, mouseClicked, void, $MouseEvent*)},
-	{"mouseEntered", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaTextFieldFormattedUI, mouseEntered, void, $MouseEvent*)},
-	{"mouseExited", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaTextFieldFormattedUI, mouseExited, void, $MouseEvent*)},
-	{"mousePressed", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaTextFieldFormattedUI, mousePressed, void, $MouseEvent*)},
-	{"mouseReleased", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaTextFieldFormattedUI, mouseReleased, void, $MouseEvent*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"uninstallListeners", "()V", nullptr, $PROTECTED, $virtualMethod(AquaTextFieldFormattedUI, uninstallListeners, void)},
-	{}
-};
-
-$ClassInfo _AquaTextFieldFormattedUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.apple.laf.AquaTextFieldFormattedUI",
-	"com.apple.laf.AquaTextFieldUI",
-	"java.awt.event.MouseListener",
-	nullptr,
-	_AquaTextFieldFormattedUI_MethodInfo_
-};
-
-$Object* allocate$AquaTextFieldFormattedUI($Class* clazz) {
-	return $of($alloc(AquaTextFieldFormattedUI));
-}
 
 int32_t AquaTextFieldFormattedUI::hashCode() {
 	 return this->$AquaTextFieldUI::hashCode();
@@ -91,21 +56,21 @@ $String* AquaTextFieldFormattedUI::getPropertyPrefix() {
 
 void AquaTextFieldFormattedUI::installListeners() {
 	$AquaTextFieldUI::installListeners();
-	$nc($(getComponent()))->addMouseListener(this);
+	$$nc(getComponent())->addMouseListener(this);
 }
 
 void AquaTextFieldFormattedUI::uninstallListeners() {
-	$nc($(getComponent()))->removeMouseListener(this);
+	$$nc(getComponent())->removeMouseListener(this);
 	$AquaTextFieldUI::uninstallListeners();
 }
 
 void AquaTextFieldFormattedUI::mouseClicked($MouseEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(e)->getClickCount() != 1) {
 		return;
 	}
 	$var($JTextComponent, c, getComponent());
-	$nc(c)->setCaretPosition(viewToModel(c, $($nc(e)->getPoint())));
+	$nc(c)->setCaretPosition(viewToModel(c, $(e->getPoint())));
 }
 
 void AquaTextFieldFormattedUI::mouseEntered($MouseEvent* e) {
@@ -124,7 +89,35 @@ AquaTextFieldFormattedUI::AquaTextFieldFormattedUI() {
 }
 
 $Class* AquaTextFieldFormattedUI::load$($String* name, bool initialize) {
-	$loadClass(AquaTextFieldFormattedUI, name, initialize, &_AquaTextFieldFormattedUI_ClassInfo_, allocate$AquaTextFieldFormattedUI);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AquaTextFieldFormattedUI, init$, void)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(AquaTextFieldFormattedUI, createUI, $ComponentUI*, $JComponent*)},
+		{"getPropertyPrefix", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(AquaTextFieldFormattedUI, getPropertyPrefix, $String*)},
+		{"installListeners", "()V", nullptr, $PROTECTED, $virtualMethod(AquaTextFieldFormattedUI, installListeners, void)},
+		{"mouseClicked", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaTextFieldFormattedUI, mouseClicked, void, $MouseEvent*)},
+		{"mouseEntered", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaTextFieldFormattedUI, mouseEntered, void, $MouseEvent*)},
+		{"mouseExited", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaTextFieldFormattedUI, mouseExited, void, $MouseEvent*)},
+		{"mousePressed", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaTextFieldFormattedUI, mousePressed, void, $MouseEvent*)},
+		{"mouseReleased", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaTextFieldFormattedUI, mouseReleased, void, $MouseEvent*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"uninstallListeners", "()V", nullptr, $PROTECTED, $virtualMethod(AquaTextFieldFormattedUI, uninstallListeners, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.apple.laf.AquaTextFieldFormattedUI",
+		"com.apple.laf.AquaTextFieldUI",
+		"java.awt.event.MouseListener",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(AquaTextFieldFormattedUI, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AquaTextFieldFormattedUI));
+	});
 	return class$;
 }
 

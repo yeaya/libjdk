@@ -24,6 +24,7 @@ class $import HKSCS : public ::java::nio::charset::Charset {
 	$class(HKSCS, 0, ::java::nio::charset::Charset)
 public:
 	HKSCS();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual bool contains(::java::nio::charset::Charset* cs) override;
 	virtual ::java::nio::charset::CharsetDecoder* newDecoder() override;

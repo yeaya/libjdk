@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/basic/BasicSplitPaneDivider$DragController.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Dimension.h>
 #include <java/awt/Insets.h>
@@ -22,61 +21,14 @@ using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $JSplitPane = ::javax::swing::JSplitPane;
 using $BasicSplitPaneDivider = ::javax::swing::plaf::basic::BasicSplitPaneDivider;
-using $BasicSplitPaneUI = ::javax::swing::plaf::basic::BasicSplitPaneUI;
 
 namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace basic {
 
-$FieldInfo _BasicSplitPaneDivider$DragController_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/plaf/basic/BasicSplitPaneDivider;", nullptr, $FINAL | $SYNTHETIC, $field(BasicSplitPaneDivider$DragController, this$0)},
-	{"initialX", "I", nullptr, 0, $field(BasicSplitPaneDivider$DragController, initialX)},
-	{"maxX", "I", nullptr, 0, $field(BasicSplitPaneDivider$DragController, maxX)},
-	{"minX", "I", nullptr, 0, $field(BasicSplitPaneDivider$DragController, minX)},
-	{"offset", "I", nullptr, 0, $field(BasicSplitPaneDivider$DragController, offset)},
-	{}
-};
-
-$MethodInfo _BasicSplitPaneDivider$DragController_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/plaf/basic/BasicSplitPaneDivider;Ljava/awt/event/MouseEvent;)V", nullptr, $PROTECTED, $method(BasicSplitPaneDivider$DragController, init$, void, $BasicSplitPaneDivider*, $MouseEvent*)},
-	{"completeDrag", "(II)V", nullptr, $PROTECTED, $virtualMethod(BasicSplitPaneDivider$DragController, completeDrag, void, int32_t, int32_t)},
-	{"completeDrag", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PROTECTED, $virtualMethod(BasicSplitPaneDivider$DragController, completeDrag, void, $MouseEvent*)},
-	{"continueDrag", "(II)V", nullptr, $PROTECTED, $virtualMethod(BasicSplitPaneDivider$DragController, continueDrag, void, int32_t, int32_t)},
-	{"continueDrag", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PROTECTED, $virtualMethod(BasicSplitPaneDivider$DragController, continueDrag, void, $MouseEvent*)},
-	{"getNeededLocation", "(II)I", nullptr, $PROTECTED, $virtualMethod(BasicSplitPaneDivider$DragController, getNeededLocation, int32_t, int32_t, int32_t)},
-	{"isValid", "()Z", nullptr, $PROTECTED, $virtualMethod(BasicSplitPaneDivider$DragController, isValid, bool)},
-	{"positionForMouseEvent", "(Ljava/awt/event/MouseEvent;)I", nullptr, $PROTECTED, $virtualMethod(BasicSplitPaneDivider$DragController, positionForMouseEvent, int32_t, $MouseEvent*)},
-	{}
-};
-
-$InnerClassInfo _BasicSplitPaneDivider$DragController_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.basic.BasicSplitPaneDivider$DragController", "javax.swing.plaf.basic.BasicSplitPaneDivider", "DragController", $PROTECTED},
-	{}
-};
-
-$ClassInfo _BasicSplitPaneDivider$DragController_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.basic.BasicSplitPaneDivider$DragController",
-	"java.lang.Object",
-	nullptr,
-	_BasicSplitPaneDivider$DragController_FieldInfo_,
-	_BasicSplitPaneDivider$DragController_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BasicSplitPaneDivider$DragController_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.basic.BasicSplitPaneDivider"
-};
-
-$Object* allocate$BasicSplitPaneDivider$DragController($Class* clazz) {
-	return $of($alloc(BasicSplitPaneDivider$DragController));
-}
-
 void BasicSplitPaneDivider$DragController::init$($BasicSplitPaneDivider* this$0, $MouseEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, this$0, this$0);
 	$var($JSplitPane, splitPane, $nc(this$0->splitPaneUI)->getSplitPane());
 	$var($Component, leftC, $nc(splitPane)->getLeftComponent());
@@ -91,7 +43,7 @@ void BasicSplitPaneDivider$DragController::init$($BasicSplitPaneDivider* this$0,
 		this->maxX = -1;
 	} else {
 		$var($Insets, insets, splitPane->getInsets());
-		if ($nc(leftC)->isVisible()) {
+		if (leftC->isVisible()) {
 			this->minX = $nc($(leftC->getMinimumSize()))->width;
 			if (insets != nullptr) {
 				this->minX += insets->left;
@@ -99,13 +51,13 @@ void BasicSplitPaneDivider$DragController::init$($BasicSplitPaneDivider* this$0,
 		} else {
 			this->minX = 0;
 		}
-		if ($nc(rightC)->isVisible()) {
-			int32_t right = (insets != nullptr) ? $nc(insets)->right : 0;
+		if (rightC->isVisible()) {
+			int32_t right = (insets != nullptr) ? insets->right : 0;
 			int32_t var$1 = $nc($(splitPane->getSize()))->width;
 			int32_t var$0 = var$1 - ($nc($(this$0->getSize()))->width + right);
 			this->maxX = $Math::max(0, var$0 - $nc($(rightC->getMinimumSize()))->width);
 		} else {
-			int32_t right = (insets != nullptr) ? $nc(insets)->right : 0;
+			int32_t right = (insets != nullptr) ? insets->right : 0;
 			int32_t var$2 = $nc($(splitPane->getSize()))->width;
 			this->maxX = $Math::max(0, var$2 - ($nc($(this$0->getSize()))->width + right));
 		}
@@ -158,7 +110,47 @@ BasicSplitPaneDivider$DragController::BasicSplitPaneDivider$DragController() {
 }
 
 $Class* BasicSplitPaneDivider$DragController::load$($String* name, bool initialize) {
-	$loadClass(BasicSplitPaneDivider$DragController, name, initialize, &_BasicSplitPaneDivider$DragController_ClassInfo_, allocate$BasicSplitPaneDivider$DragController);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/plaf/basic/BasicSplitPaneDivider;", nullptr, $FINAL | $SYNTHETIC, $field(BasicSplitPaneDivider$DragController, this$0)},
+		{"initialX", "I", nullptr, 0, $field(BasicSplitPaneDivider$DragController, initialX)},
+		{"maxX", "I", nullptr, 0, $field(BasicSplitPaneDivider$DragController, maxX)},
+		{"minX", "I", nullptr, 0, $field(BasicSplitPaneDivider$DragController, minX)},
+		{"offset", "I", nullptr, 0, $field(BasicSplitPaneDivider$DragController, offset)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/plaf/basic/BasicSplitPaneDivider;Ljava/awt/event/MouseEvent;)V", nullptr, $PROTECTED, $method(BasicSplitPaneDivider$DragController, init$, void, $BasicSplitPaneDivider*, $MouseEvent*)},
+		{"completeDrag", "(II)V", nullptr, $PROTECTED, $virtualMethod(BasicSplitPaneDivider$DragController, completeDrag, void, int32_t, int32_t)},
+		{"completeDrag", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PROTECTED, $virtualMethod(BasicSplitPaneDivider$DragController, completeDrag, void, $MouseEvent*)},
+		{"continueDrag", "(II)V", nullptr, $PROTECTED, $virtualMethod(BasicSplitPaneDivider$DragController, continueDrag, void, int32_t, int32_t)},
+		{"continueDrag", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PROTECTED, $virtualMethod(BasicSplitPaneDivider$DragController, continueDrag, void, $MouseEvent*)},
+		{"getNeededLocation", "(II)I", nullptr, $PROTECTED, $virtualMethod(BasicSplitPaneDivider$DragController, getNeededLocation, int32_t, int32_t, int32_t)},
+		{"isValid", "()Z", nullptr, $PROTECTED, $virtualMethod(BasicSplitPaneDivider$DragController, isValid, bool)},
+		{"positionForMouseEvent", "(Ljava/awt/event/MouseEvent;)I", nullptr, $PROTECTED, $virtualMethod(BasicSplitPaneDivider$DragController, positionForMouseEvent, int32_t, $MouseEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.basic.BasicSplitPaneDivider$DragController", "javax.swing.plaf.basic.BasicSplitPaneDivider", "DragController", $PROTECTED},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.basic.BasicSplitPaneDivider$DragController",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.basic.BasicSplitPaneDivider"
+	};
+	$loadClass(BasicSplitPaneDivider$DragController, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BasicSplitPaneDivider$DragController);
+	});
 	return class$;
 }
 

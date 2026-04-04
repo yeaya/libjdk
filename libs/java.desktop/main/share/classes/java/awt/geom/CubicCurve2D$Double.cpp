@@ -1,5 +1,4 @@
 #include <java/awt/geom/CubicCurve2D$Double.h>
-
 #include <java/awt/geom/CubicCurve2D.h>
 #include <java/awt/geom/Point2D$Double.h>
 #include <java/awt/geom/Point2D.h>
@@ -22,69 +21,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace java {
 	namespace awt {
 		namespace geom {
-
-$FieldInfo _CubicCurve2D$Double_FieldInfo_[] = {
-	{"x1", "D", nullptr, $PUBLIC, $field(CubicCurve2D$Double, x1)},
-	{"y1", "D", nullptr, $PUBLIC, $field(CubicCurve2D$Double, y1)},
-	{"ctrlx1", "D", nullptr, $PUBLIC, $field(CubicCurve2D$Double, ctrlx1)},
-	{"ctrly1", "D", nullptr, $PUBLIC, $field(CubicCurve2D$Double, ctrly1)},
-	{"ctrlx2", "D", nullptr, $PUBLIC, $field(CubicCurve2D$Double, ctrlx2)},
-	{"ctrly2", "D", nullptr, $PUBLIC, $field(CubicCurve2D$Double, ctrly2)},
-	{"x2", "D", nullptr, $PUBLIC, $field(CubicCurve2D$Double, x2)},
-	{"y2", "D", nullptr, $PUBLIC, $field(CubicCurve2D$Double, y2)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CubicCurve2D$Double, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _CubicCurve2D$Double_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(CubicCurve2D$Double, init$, void)},
-	{"<init>", "(DDDDDDDD)V", nullptr, $PUBLIC, $method(CubicCurve2D$Double, init$, void, double, double, double, double, double, double, double, double)},
-	{"getBounds2D", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC, $virtualMethod(CubicCurve2D$Double, getBounds2D, $Rectangle2D*)},
-	{"getCtrlP1", "()Ljava/awt/geom/Point2D;", nullptr, $PUBLIC, $virtualMethod(CubicCurve2D$Double, getCtrlP1, $Point2D*)},
-	{"getCtrlP2", "()Ljava/awt/geom/Point2D;", nullptr, $PUBLIC, $virtualMethod(CubicCurve2D$Double, getCtrlP2, $Point2D*)},
-	{"getCtrlX1", "()D", nullptr, $PUBLIC, $virtualMethod(CubicCurve2D$Double, getCtrlX1, double)},
-	{"getCtrlX2", "()D", nullptr, $PUBLIC, $virtualMethod(CubicCurve2D$Double, getCtrlX2, double)},
-	{"getCtrlY1", "()D", nullptr, $PUBLIC, $virtualMethod(CubicCurve2D$Double, getCtrlY1, double)},
-	{"getCtrlY2", "()D", nullptr, $PUBLIC, $virtualMethod(CubicCurve2D$Double, getCtrlY2, double)},
-	{"getP1", "()Ljava/awt/geom/Point2D;", nullptr, $PUBLIC, $virtualMethod(CubicCurve2D$Double, getP1, $Point2D*)},
-	{"getP2", "()Ljava/awt/geom/Point2D;", nullptr, $PUBLIC, $virtualMethod(CubicCurve2D$Double, getP2, $Point2D*)},
-	{"getX1", "()D", nullptr, $PUBLIC, $virtualMethod(CubicCurve2D$Double, getX1, double)},
-	{"getX2", "()D", nullptr, $PUBLIC, $virtualMethod(CubicCurve2D$Double, getX2, double)},
-	{"getY1", "()D", nullptr, $PUBLIC, $virtualMethod(CubicCurve2D$Double, getY1, double)},
-	{"getY2", "()D", nullptr, $PUBLIC, $virtualMethod(CubicCurve2D$Double, getY2, double)},
-	{"setCurve", "(DDDDDDDD)V", nullptr, $PUBLIC, $virtualMethod(CubicCurve2D$Double, setCurve, void, double, double, double, double, double, double, double, double)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _CubicCurve2D$Double_InnerClassesInfo_[] = {
-	{"java.awt.geom.CubicCurve2D$Double", "java.awt.geom.CubicCurve2D", "Double", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _CubicCurve2D$Double_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.awt.geom.CubicCurve2D$Double",
-	"java.awt.geom.CubicCurve2D",
-	"java.io.Serializable",
-	_CubicCurve2D$Double_FieldInfo_,
-	_CubicCurve2D$Double_MethodInfo_,
-	nullptr,
-	nullptr,
-	_CubicCurve2D$Double_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.awt.geom.CubicCurve2D"
-};
-
-$Object* allocate$CubicCurve2D$Double($Class* clazz) {
-	return $of($alloc(CubicCurve2D$Double));
-}
 
 $Object* CubicCurve2D$Double::clone() {
 	 return this->$CubicCurve2D::clone();
@@ -190,7 +126,64 @@ CubicCurve2D$Double::CubicCurve2D$Double() {
 }
 
 $Class* CubicCurve2D$Double::load$($String* name, bool initialize) {
-	$loadClass(CubicCurve2D$Double, name, initialize, &_CubicCurve2D$Double_ClassInfo_, allocate$CubicCurve2D$Double);
+	$FieldInfo fieldInfos$$[] = {
+		{"x1", "D", nullptr, $PUBLIC, $field(CubicCurve2D$Double, x1)},
+		{"y1", "D", nullptr, $PUBLIC, $field(CubicCurve2D$Double, y1)},
+		{"ctrlx1", "D", nullptr, $PUBLIC, $field(CubicCurve2D$Double, ctrlx1)},
+		{"ctrly1", "D", nullptr, $PUBLIC, $field(CubicCurve2D$Double, ctrly1)},
+		{"ctrlx2", "D", nullptr, $PUBLIC, $field(CubicCurve2D$Double, ctrlx2)},
+		{"ctrly2", "D", nullptr, $PUBLIC, $field(CubicCurve2D$Double, ctrly2)},
+		{"x2", "D", nullptr, $PUBLIC, $field(CubicCurve2D$Double, x2)},
+		{"y2", "D", nullptr, $PUBLIC, $field(CubicCurve2D$Double, y2)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CubicCurve2D$Double, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(CubicCurve2D$Double, init$, void)},
+		{"<init>", "(DDDDDDDD)V", nullptr, $PUBLIC, $method(CubicCurve2D$Double, init$, void, double, double, double, double, double, double, double, double)},
+		{"getBounds2D", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC, $virtualMethod(CubicCurve2D$Double, getBounds2D, $Rectangle2D*)},
+		{"getCtrlP1", "()Ljava/awt/geom/Point2D;", nullptr, $PUBLIC, $virtualMethod(CubicCurve2D$Double, getCtrlP1, $Point2D*)},
+		{"getCtrlP2", "()Ljava/awt/geom/Point2D;", nullptr, $PUBLIC, $virtualMethod(CubicCurve2D$Double, getCtrlP2, $Point2D*)},
+		{"getCtrlX1", "()D", nullptr, $PUBLIC, $virtualMethod(CubicCurve2D$Double, getCtrlX1, double)},
+		{"getCtrlX2", "()D", nullptr, $PUBLIC, $virtualMethod(CubicCurve2D$Double, getCtrlX2, double)},
+		{"getCtrlY1", "()D", nullptr, $PUBLIC, $virtualMethod(CubicCurve2D$Double, getCtrlY1, double)},
+		{"getCtrlY2", "()D", nullptr, $PUBLIC, $virtualMethod(CubicCurve2D$Double, getCtrlY2, double)},
+		{"getP1", "()Ljava/awt/geom/Point2D;", nullptr, $PUBLIC, $virtualMethod(CubicCurve2D$Double, getP1, $Point2D*)},
+		{"getP2", "()Ljava/awt/geom/Point2D;", nullptr, $PUBLIC, $virtualMethod(CubicCurve2D$Double, getP2, $Point2D*)},
+		{"getX1", "()D", nullptr, $PUBLIC, $virtualMethod(CubicCurve2D$Double, getX1, double)},
+		{"getX2", "()D", nullptr, $PUBLIC, $virtualMethod(CubicCurve2D$Double, getX2, double)},
+		{"getY1", "()D", nullptr, $PUBLIC, $virtualMethod(CubicCurve2D$Double, getY1, double)},
+		{"getY2", "()D", nullptr, $PUBLIC, $virtualMethod(CubicCurve2D$Double, getY2, double)},
+		{"setCurve", "(DDDDDDDD)V", nullptr, $PUBLIC, $virtualMethod(CubicCurve2D$Double, setCurve, void, double, double, double, double, double, double, double, double)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.awt.geom.CubicCurve2D$Double", "java.awt.geom.CubicCurve2D", "Double", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.awt.geom.CubicCurve2D$Double",
+		"java.awt.geom.CubicCurve2D",
+		"java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.awt.geom.CubicCurve2D"
+	};
+	$loadClass(CubicCurve2D$Double, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(CubicCurve2D$Double));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <javax/print/attribute/standard/Compression.h>
-
 #include <javax/print/attribute/EnumSyntax.h>
 #include <jcpp.h>
 
@@ -19,44 +18,6 @@ namespace javax {
 	namespace print {
 		namespace attribute {
 			namespace standard {
-
-$FieldInfo _Compression_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Compression, serialVersionUID)},
-	{"NONE", "Ljavax/print/attribute/standard/Compression;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Compression, NONE)},
-	{"DEFLATE", "Ljavax/print/attribute/standard/Compression;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Compression, DEFLATE)},
-	{"GZIP", "Ljavax/print/attribute/standard/Compression;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Compression, GZIP)},
-	{"COMPRESS", "Ljavax/print/attribute/standard/Compression;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Compression, COMPRESS)},
-	{"myStringTable", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Compression, myStringTable)},
-	{"myEnumValueTable", "[Ljavax/print/attribute/standard/Compression;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Compression, myEnumValueTable)},
-	{}
-};
-
-$MethodInfo _Compression_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "(I)V", nullptr, $PROTECTED, $method(Compression, init$, void, int32_t)},
-	{"getCategory", "()Ljava/lang/Class;", "()Ljava/lang/Class<+Ljavax/print/attribute/Attribute;>;", $PUBLIC | $FINAL, $virtualMethod(Compression, getCategory, $Class*)},
-	{"getEnumValueTable", "()[Ljavax/print/attribute/EnumSyntax;", nullptr, $PROTECTED, $virtualMethod(Compression, getEnumValueTable, $EnumSyntaxArray*)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(Compression, getName, $String*)},
-	{"getStringTable", "()[Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(Compression, getStringTable, $StringArray*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _Compression_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.print.attribute.standard.Compression",
-	"javax.print.attribute.EnumSyntax",
-	"javax.print.attribute.DocAttribute",
-	_Compression_FieldInfo_,
-	_Compression_MethodInfo_
-};
-
-$Object* allocate$Compression($Class* clazz) {
-	return $of($alloc(Compression));
-}
 
 $Object* Compression::clone() {
 	 return this->$EnumSyntax::clone();
@@ -90,11 +51,11 @@ void Compression::init$(int32_t value) {
 }
 
 $StringArray* Compression::getStringTable() {
-	return $cast($StringArray, $nc(Compression::myStringTable)->clone());
+	return $cast($StringArray, Compression::myStringTable->clone());
 }
 
 $EnumSyntaxArray* Compression::getEnumValueTable() {
-	return $cast($EnumSyntaxArray, $nc(Compression::myEnumValueTable)->clone());
+	return $cast($EnumSyntaxArray, Compression::myEnumValueTable->clone());
 }
 
 $Class* Compression::getCategory() {
@@ -105,7 +66,7 @@ $String* Compression::getName() {
 	return "compression"_s;
 }
 
-void clinit$Compression($Class* class$) {
+void Compression::clinit$($Class* clazz) {
 	$assignStatic(Compression::NONE, $new(Compression, 0));
 	$assignStatic(Compression::DEFLATE, $new(Compression, 1));
 	$assignStatic(Compression::GZIP, $new(Compression, 2));
@@ -128,7 +89,40 @@ Compression::Compression() {
 }
 
 $Class* Compression::load$($String* name, bool initialize) {
-	$loadClass(Compression, name, initialize, &_Compression_ClassInfo_, clinit$Compression, allocate$Compression);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Compression, serialVersionUID)},
+		{"NONE", "Ljavax/print/attribute/standard/Compression;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Compression, NONE)},
+		{"DEFLATE", "Ljavax/print/attribute/standard/Compression;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Compression, DEFLATE)},
+		{"GZIP", "Ljavax/print/attribute/standard/Compression;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Compression, GZIP)},
+		{"COMPRESS", "Ljavax/print/attribute/standard/Compression;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Compression, COMPRESS)},
+		{"myStringTable", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Compression, myStringTable)},
+		{"myEnumValueTable", "[Ljavax/print/attribute/standard/Compression;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Compression, myEnumValueTable)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC},
+		{"<init>", "(I)V", nullptr, $PROTECTED, $method(Compression, init$, void, int32_t)},
+		{"getCategory", "()Ljava/lang/Class;", "()Ljava/lang/Class<+Ljavax/print/attribute/Attribute;>;", $PUBLIC | $FINAL, $virtualMethod(Compression, getCategory, $Class*)},
+		{"getEnumValueTable", "()[Ljavax/print/attribute/EnumSyntax;", nullptr, $PROTECTED, $virtualMethod(Compression, getEnumValueTable, $EnumSyntaxArray*)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(Compression, getName, $String*)},
+		{"getStringTable", "()[Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(Compression, getStringTable, $StringArray*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.print.attribute.standard.Compression",
+		"javax.print.attribute.EnumSyntax",
+		"javax.print.attribute.DocAttribute",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Compression, name, initialize, &classInfo$$, Compression::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Compression));
+	});
 	return class$;
 }
 

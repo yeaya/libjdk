@@ -25,6 +25,7 @@ class $export ContextMonthNamesTest : public ::java::lang::Object {
 	$class(ContextMonthNamesTest, 0, ::java::lang::Object)
 public:
 	ContextMonthNamesTest();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void main($StringArray* args);
 	static ::java::util::Locale* CZECH;

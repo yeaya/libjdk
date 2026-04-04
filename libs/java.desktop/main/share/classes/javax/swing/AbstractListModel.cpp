@@ -1,5 +1,4 @@
 #include <javax/swing/AbstractListModel.h>
-
 #include <java/util/EventListener.h>
 #include <javax/swing/ListModel.h>
 #include <javax/swing/event/EventListenerList.h>
@@ -16,7 +15,6 @@ using $ListDataListenerArray = $Array<::javax::swing::event::ListDataListener>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $EventListener = ::java::util::EventListener;
 using $ListModel = ::javax::swing::ListModel;
 using $EventListenerList = ::javax::swing::event::EventListenerList;
 using $ListDataEvent = ::javax::swing::event::ListDataEvent;
@@ -24,42 +22,6 @@ using $ListDataListener = ::javax::swing::event::ListDataListener;
 
 namespace javax {
 	namespace swing {
-
-$FieldInfo _AbstractListModel_FieldInfo_[] = {
-	{"listenerList", "Ljavax/swing/event/EventListenerList;", nullptr, $PROTECTED, $field(AbstractListModel, listenerList)},
-	{}
-};
-
-$MethodInfo _AbstractListModel_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PROTECTED, $method(AbstractListModel, init$, void)},
-	{"addListDataListener", "(Ljavax/swing/event/ListDataListener;)V", nullptr, $PUBLIC, $virtualMethod(AbstractListModel, addListDataListener, void, $ListDataListener*)},
-	{"fireContentsChanged", "(Ljava/lang/Object;II)V", nullptr, $PROTECTED, $virtualMethod(AbstractListModel, fireContentsChanged, void, Object$*, int32_t, int32_t)},
-	{"fireIntervalAdded", "(Ljava/lang/Object;II)V", nullptr, $PROTECTED, $virtualMethod(AbstractListModel, fireIntervalAdded, void, Object$*, int32_t, int32_t)},
-	{"fireIntervalRemoved", "(Ljava/lang/Object;II)V", nullptr, $PROTECTED, $virtualMethod(AbstractListModel, fireIntervalRemoved, void, Object$*, int32_t, int32_t)},
-	{"getListDataListeners", "()[Ljavax/swing/event/ListDataListener;", nullptr, $PUBLIC, $virtualMethod(AbstractListModel, getListDataListeners, $ListDataListenerArray*)},
-	{"getListeners", "(Ljava/lang/Class;)[Ljava/util/EventListener;", "<T::Ljava/util/EventListener;>(Ljava/lang/Class<TT;>;)[TT;", $PUBLIC, $virtualMethod(AbstractListModel, getListeners, $EventListenerArray*, $Class*)},
-	{"removeListDataListener", "(Ljavax/swing/event/ListDataListener;)V", nullptr, $PUBLIC, $virtualMethod(AbstractListModel, removeListDataListener, void, $ListDataListener*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _AbstractListModel_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"javax.swing.AbstractListModel",
-	"java.lang.Object",
-	"javax.swing.ListModel,java.io.Serializable",
-	_AbstractListModel_FieldInfo_,
-	_AbstractListModel_MethodInfo_,
-	"<E:Ljava/lang/Object;>Ljava/lang/Object;Ljavax/swing/ListModel<TE;>;Ljava/io/Serializable;"
-};
-
-$Object* allocate$AbstractListModel($Class* clazz) {
-	return $of($alloc(AbstractListModel));
-}
 
 int32_t AbstractListModel::hashCode() {
 	 return this->$ListModel::hashCode();
@@ -97,11 +59,11 @@ void AbstractListModel::removeListDataListener($ListDataListener* l) {
 
 $ListDataListenerArray* AbstractListModel::getListDataListeners() {
 	$load($ListDataListener);
-	return $fcast($ListDataListenerArray, $nc(this->listenerList)->getListeners($ListDataListener::class$));
+	return $cast($ListDataListenerArray, $nc(this->listenerList)->getListeners($ListDataListener::class$));
 }
 
 void AbstractListModel::fireContentsChanged(Object$* source, int32_t index0, int32_t index1) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectArray, listeners, $nc(this->listenerList)->getListenerList());
 	$var($ListDataEvent, e, nullptr);
 	for (int32_t i = $nc(listeners)->length - 2; i >= 0; i -= 2) {
@@ -110,13 +72,13 @@ void AbstractListModel::fireContentsChanged(Object$* source, int32_t index0, int
 			if (e == nullptr) {
 				$assign(e, $new($ListDataEvent, source, $ListDataEvent::CONTENTS_CHANGED, index0, index1));
 			}
-			$nc(($cast($ListDataListener, listeners->get(i + 1))))->contentsChanged(e);
+			$nc($cast($ListDataListener, listeners->get(i + 1)))->contentsChanged(e);
 		}
 	}
 }
 
 void AbstractListModel::fireIntervalAdded(Object$* source, int32_t index0, int32_t index1) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectArray, listeners, $nc(this->listenerList)->getListenerList());
 	$var($ListDataEvent, e, nullptr);
 	for (int32_t i = $nc(listeners)->length - 2; i >= 0; i -= 2) {
@@ -125,13 +87,13 @@ void AbstractListModel::fireIntervalAdded(Object$* source, int32_t index0, int32
 			if (e == nullptr) {
 				$assign(e, $new($ListDataEvent, source, $ListDataEvent::INTERVAL_ADDED, index0, index1));
 			}
-			$nc(($cast($ListDataListener, listeners->get(i + 1))))->intervalAdded(e);
+			$nc($cast($ListDataListener, listeners->get(i + 1)))->intervalAdded(e);
 		}
 	}
 }
 
 void AbstractListModel::fireIntervalRemoved(Object$* source, int32_t index0, int32_t index1) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectArray, listeners, $nc(this->listenerList)->getListenerList());
 	$var($ListDataEvent, e, nullptr);
 	for (int32_t i = $nc(listeners)->length - 2; i >= 0; i -= 2) {
@@ -140,7 +102,7 @@ void AbstractListModel::fireIntervalRemoved(Object$* source, int32_t index0, int
 			if (e == nullptr) {
 				$assign(e, $new($ListDataEvent, source, $ListDataEvent::INTERVAL_REMOVED, index0, index1));
 			}
-			$nc(($cast($ListDataListener, listeners->get(i + 1))))->intervalRemoved(e);
+			$nc($cast($ListDataListener, listeners->get(i + 1)))->intervalRemoved(e);
 		}
 	}
 }
@@ -153,7 +115,38 @@ AbstractListModel::AbstractListModel() {
 }
 
 $Class* AbstractListModel::load$($String* name, bool initialize) {
-	$loadClass(AbstractListModel, name, initialize, &_AbstractListModel_ClassInfo_, allocate$AbstractListModel);
+	$FieldInfo fieldInfos$$[] = {
+		{"listenerList", "Ljavax/swing/event/EventListenerList;", nullptr, $PROTECTED, $field(AbstractListModel, listenerList)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PROTECTED, $method(AbstractListModel, init$, void)},
+		{"addListDataListener", "(Ljavax/swing/event/ListDataListener;)V", nullptr, $PUBLIC, $virtualMethod(AbstractListModel, addListDataListener, void, $ListDataListener*)},
+		{"fireContentsChanged", "(Ljava/lang/Object;II)V", nullptr, $PROTECTED, $virtualMethod(AbstractListModel, fireContentsChanged, void, Object$*, int32_t, int32_t)},
+		{"fireIntervalAdded", "(Ljava/lang/Object;II)V", nullptr, $PROTECTED, $virtualMethod(AbstractListModel, fireIntervalAdded, void, Object$*, int32_t, int32_t)},
+		{"fireIntervalRemoved", "(Ljava/lang/Object;II)V", nullptr, $PROTECTED, $virtualMethod(AbstractListModel, fireIntervalRemoved, void, Object$*, int32_t, int32_t)},
+		{"getListDataListeners", "()[Ljavax/swing/event/ListDataListener;", nullptr, $PUBLIC, $virtualMethod(AbstractListModel, getListDataListeners, $ListDataListenerArray*)},
+		{"getListeners", "(Ljava/lang/Class;)[Ljava/util/EventListener;", "<T::Ljava/util/EventListener;>(Ljava/lang/Class<TT;>;)[TT;", $PUBLIC, $virtualMethod(AbstractListModel, getListeners, $EventListenerArray*, $Class*)},
+		{"removeListDataListener", "(Ljavax/swing/event/ListDataListener;)V", nullptr, $PUBLIC, $virtualMethod(AbstractListModel, removeListDataListener, void, $ListDataListener*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"javax.swing.AbstractListModel",
+		"java.lang.Object",
+		"javax.swing.ListModel,java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$,
+		"<E:Ljava/lang/Object;>Ljava/lang/Object;Ljavax/swing/ListModel<TE;>;Ljava/io/Serializable;"
+	};
+	$loadClass(AbstractListModel, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AbstractListModel));
+	});
 	return class$;
 }
 

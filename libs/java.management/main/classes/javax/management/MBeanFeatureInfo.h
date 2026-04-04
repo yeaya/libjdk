@@ -38,7 +38,7 @@ public:
 	void readObject(::java::io::ObjectInputStream* in);
 	virtual $String* toString() override;
 	void writeObject(::java::io::ObjectOutputStream* out);
-	static const int64_t serialVersionUID = (int64_t)0x36DB75DCC2C15521;
+	static const int64_t serialVersionUID = (int64_t)0x36db75dcc2c15521;
 	$String* name = nullptr;
 	$String* description = nullptr;
 	::javax::management::Descriptor* descriptor = nullptr;

@@ -1,5 +1,4 @@
 #include <java/awt/FontMetrics.h>
-
 #include <java/awt/Font.h>
 #include <java/awt/Graphics.h>
 #include <java/awt/Graphics2D.h>
@@ -32,67 +31,6 @@ using $CharacterIterator = ::java::text::CharacterIterator;
 
 namespace java {
 	namespace awt {
-
-$CompoundAttribute _FontMetrics_MethodAnnotations_getMaxDecent18[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$FieldInfo _FontMetrics_FieldInfo_[] = {
-	{"DEFAULT_FRC", "Ljava/awt/font/FontRenderContext;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(FontMetrics, DEFAULT_FRC)},
-	{"font", "Ljava/awt/Font;", nullptr, $PROTECTED, $field(FontMetrics, font)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(FontMetrics, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _FontMetrics_MethodInfo_[] = {
-	{"<init>", "(Ljava/awt/Font;)V", nullptr, $PROTECTED, $method(FontMetrics, init$, void, $Font*)},
-	{"bytesWidth", "([BII)I", nullptr, $PUBLIC, $virtualMethod(FontMetrics, bytesWidth, int32_t, $bytes*, int32_t, int32_t)},
-	{"charWidth", "(I)I", nullptr, $PUBLIC, $virtualMethod(FontMetrics, charWidth, int32_t, int32_t)},
-	{"charWidth", "(C)I", nullptr, $PUBLIC, $virtualMethod(FontMetrics, charWidth, int32_t, char16_t)},
-	{"charsWidth", "([CII)I", nullptr, $PUBLIC, $virtualMethod(FontMetrics, charsWidth, int32_t, $chars*, int32_t, int32_t)},
-	{"getAscent", "()I", nullptr, $PUBLIC, $virtualMethod(FontMetrics, getAscent, int32_t)},
-	{"getDescent", "()I", nullptr, $PUBLIC, $virtualMethod(FontMetrics, getDescent, int32_t)},
-	{"getFont", "()Ljava/awt/Font;", nullptr, $PUBLIC, $virtualMethod(FontMetrics, getFont, $Font*)},
-	{"getFontRenderContext", "()Ljava/awt/font/FontRenderContext;", nullptr, $PUBLIC, $virtualMethod(FontMetrics, getFontRenderContext, $FontRenderContext*)},
-	{"getHeight", "()I", nullptr, $PUBLIC, $virtualMethod(FontMetrics, getHeight, int32_t)},
-	{"getLeading", "()I", nullptr, $PUBLIC, $virtualMethod(FontMetrics, getLeading, int32_t)},
-	{"getLineMetrics", "(Ljava/lang/String;Ljava/awt/Graphics;)Ljava/awt/font/LineMetrics;", nullptr, $PUBLIC, $virtualMethod(FontMetrics, getLineMetrics, $LineMetrics*, $String*, $Graphics*)},
-	{"getLineMetrics", "(Ljava/lang/String;IILjava/awt/Graphics;)Ljava/awt/font/LineMetrics;", nullptr, $PUBLIC, $virtualMethod(FontMetrics, getLineMetrics, $LineMetrics*, $String*, int32_t, int32_t, $Graphics*)},
-	{"getLineMetrics", "([CIILjava/awt/Graphics;)Ljava/awt/font/LineMetrics;", nullptr, $PUBLIC, $virtualMethod(FontMetrics, getLineMetrics, $LineMetrics*, $chars*, int32_t, int32_t, $Graphics*)},
-	{"getLineMetrics", "(Ljava/text/CharacterIterator;IILjava/awt/Graphics;)Ljava/awt/font/LineMetrics;", nullptr, $PUBLIC, $virtualMethod(FontMetrics, getLineMetrics, $LineMetrics*, $CharacterIterator*, int32_t, int32_t, $Graphics*)},
-	{"getMaxAdvance", "()I", nullptr, $PUBLIC, $virtualMethod(FontMetrics, getMaxAdvance, int32_t)},
-	{"getMaxAscent", "()I", nullptr, $PUBLIC, $virtualMethod(FontMetrics, getMaxAscent, int32_t)},
-	{"getMaxCharBounds", "(Ljava/awt/Graphics;)Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC, $virtualMethod(FontMetrics, getMaxCharBounds, $Rectangle2D*, $Graphics*)},
-	{"getMaxDecent", "()I", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(FontMetrics, getMaxDecent, int32_t), nullptr, nullptr, _FontMetrics_MethodAnnotations_getMaxDecent18},
-	{"getMaxDescent", "()I", nullptr, $PUBLIC, $virtualMethod(FontMetrics, getMaxDescent, int32_t)},
-	{"getStringBounds", "(Ljava/lang/String;Ljava/awt/Graphics;)Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC, $virtualMethod(FontMetrics, getStringBounds, $Rectangle2D*, $String*, $Graphics*)},
-	{"getStringBounds", "(Ljava/lang/String;IILjava/awt/Graphics;)Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC, $virtualMethod(FontMetrics, getStringBounds, $Rectangle2D*, $String*, int32_t, int32_t, $Graphics*)},
-	{"getStringBounds", "([CIILjava/awt/Graphics;)Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC, $virtualMethod(FontMetrics, getStringBounds, $Rectangle2D*, $chars*, int32_t, int32_t, $Graphics*)},
-	{"getStringBounds", "(Ljava/text/CharacterIterator;IILjava/awt/Graphics;)Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC, $virtualMethod(FontMetrics, getStringBounds, $Rectangle2D*, $CharacterIterator*, int32_t, int32_t, $Graphics*)},
-	{"getWidths", "()[I", nullptr, $PUBLIC, $virtualMethod(FontMetrics, getWidths, $ints*)},
-	{"hasUniformLineMetrics", "()Z", nullptr, $PUBLIC, $virtualMethod(FontMetrics, hasUniformLineMetrics, bool)},
-	{"initIDs", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(FontMetrics, initIDs, void)},
-	{"myFRC", "(Ljava/awt/Graphics;)Ljava/awt/font/FontRenderContext;", nullptr, $PRIVATE, $method(FontMetrics, myFRC, $FontRenderContext*, $Graphics*)},
-	{"stringWidth", "(Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(FontMetrics, stringWidth, int32_t, $String*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(FontMetrics, toString, $String*)},
-	{}
-};
-
-#define _METHOD_INDEX_initIDs 26
-
-$ClassInfo _FontMetrics_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"java.awt.FontMetrics",
-	"java.lang.Object",
-	"java.io.Serializable",
-	_FontMetrics_FieldInfo_,
-	_FontMetrics_MethodInfo_
-};
-
-$Object* allocate$FontMetrics($Class* clazz) {
-	return $of($alloc(FontMetrics));
-}
 
 $FontRenderContext* FontMetrics::DEFAULT_FRC = nullptr;
 
@@ -143,9 +81,9 @@ int32_t FontMetrics::getMaxAdvance() {
 }
 
 int32_t FontMetrics::charWidth(int32_t codePoint) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!$Character::isValidCodePoint(codePoint)) {
-		codePoint = 0x0000FFFF;
+		codePoint = 0x0000ffff;
 	}
 	if (codePoint < 256) {
 		return $nc($(getWidths()))->get(codePoint);
@@ -157,7 +95,7 @@ int32_t FontMetrics::charWidth(int32_t codePoint) {
 }
 
 int32_t FontMetrics::charWidth(char16_t ch) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (ch < 256) {
 		return $nc($(getWidths()))->get(ch);
 	}
@@ -182,7 +120,7 @@ int32_t FontMetrics::bytesWidth($bytes* data, int32_t off, int32_t len) {
 
 $ints* FontMetrics::getWidths() {
 	$var($ints, widths, $new($ints, 256));
-	for (char16_t ch = (char16_t)0; ch < 256; ++ch) {
+	for (char16_t ch = 0; ch < 256; ++ch) {
 		widths->set(ch, charWidth(ch));
 	}
 	return widths;
@@ -230,46 +168,102 @@ $Rectangle2D* FontMetrics::getMaxCharBounds($Graphics* context) {
 
 $FontRenderContext* FontMetrics::myFRC($Graphics* context) {
 	if ($instanceOf($Graphics2D, context)) {
-		return $nc(($cast($Graphics2D, context)))->getFontRenderContext();
+		return $cast($Graphics2D, context)->getFontRenderContext();
 	}
 	return FontMetrics::DEFAULT_FRC;
 }
 
 $String* FontMetrics::toString() {
-	$useLocalCurrentObjectStackCache();
-	$var($String, var$7, $$str({$($of(this)->getClass()->getName()), "[font="_s}));
-	$var($String, var$6, $$concat(var$7, $(getFont())));
-	$var($String, var$5, $$concat(var$6, "ascent="_s));
-	$var($String, var$4, $$concat(var$5, $$str(getAscent())));
-	$var($String, var$3, $$concat(var$4, ", descent="_s));
-	$var($String, var$2, $$concat(var$3, $$str(getDescent())));
-	$var($String, var$1, $$concat(var$2, ", height="_s));
-	$var($String, var$0, $$concat(var$1, $$str(getHeight())));
-	return $concat(var$0, "]"_s);
+	$useLocalObjectStack();
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append($($of(this)->getClass()->getName()));
+	var$0->append("[font="_s);
+	var$0->append($(getFont()));
+	var$0->append("ascent="_s);
+	var$0->append(getAscent());
+	var$0->append(", descent="_s);
+	var$0->append(getDescent());
+	var$0->append(", height="_s);
+	var$0->append(getHeight());
+	var$0->append("]"_s);
+	return $str(var$0);
 }
 
 void FontMetrics::initIDs() {
 	$init(FontMetrics);
-	$prepareNativeStatic(FontMetrics, initIDs, void);
+	$prepareNativeStatic(initIDs, void);
 	$invokeNativeStatic();
 	$finishNativeStatic();
 }
 
-void clinit$FontMetrics($Class* class$) {
+void FontMetrics::clinit$($Class* clazz) {
 	{
 		$Toolkit::loadLibraries();
 		if (!$GraphicsEnvironment::isHeadless()) {
 			FontMetrics::initIDs();
 		}
 	}
-	$assignStatic(FontMetrics::DEFAULT_FRC, $new($FontRenderContext, ($AffineTransform*)nullptr, false, false));
+	$assignStatic(FontMetrics::DEFAULT_FRC, $new($FontRenderContext, nullptr, false, false));
 }
 
 FontMetrics::FontMetrics() {
 }
 
 $Class* FontMetrics::load$($String* name, bool initialize) {
-	$loadClass(FontMetrics, name, initialize, &_FontMetrics_ClassInfo_, clinit$FontMetrics, allocate$FontMetrics);
+	$FieldInfo fieldInfos$$[] = {
+		{"DEFAULT_FRC", "Ljava/awt/font/FontRenderContext;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(FontMetrics, DEFAULT_FRC)},
+		{"font", "Ljava/awt/Font;", nullptr, $PROTECTED, $field(FontMetrics, font)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(FontMetrics, serialVersionUID)},
+		{}
+	};
+	$CompoundAttribute getMaxDecentmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/Font;)V", nullptr, $PROTECTED, $method(FontMetrics, init$, void, $Font*)},
+		{"bytesWidth", "([BII)I", nullptr, $PUBLIC, $virtualMethod(FontMetrics, bytesWidth, int32_t, $bytes*, int32_t, int32_t)},
+		{"charWidth", "(I)I", nullptr, $PUBLIC, $virtualMethod(FontMetrics, charWidth, int32_t, int32_t)},
+		{"charWidth", "(C)I", nullptr, $PUBLIC, $virtualMethod(FontMetrics, charWidth, int32_t, char16_t)},
+		{"charsWidth", "([CII)I", nullptr, $PUBLIC, $virtualMethod(FontMetrics, charsWidth, int32_t, $chars*, int32_t, int32_t)},
+		{"getAscent", "()I", nullptr, $PUBLIC, $virtualMethod(FontMetrics, getAscent, int32_t)},
+		{"getDescent", "()I", nullptr, $PUBLIC, $virtualMethod(FontMetrics, getDescent, int32_t)},
+		{"getFont", "()Ljava/awt/Font;", nullptr, $PUBLIC, $virtualMethod(FontMetrics, getFont, $Font*)},
+		{"getFontRenderContext", "()Ljava/awt/font/FontRenderContext;", nullptr, $PUBLIC, $virtualMethod(FontMetrics, getFontRenderContext, $FontRenderContext*)},
+		{"getHeight", "()I", nullptr, $PUBLIC, $virtualMethod(FontMetrics, getHeight, int32_t)},
+		{"getLeading", "()I", nullptr, $PUBLIC, $virtualMethod(FontMetrics, getLeading, int32_t)},
+		{"getLineMetrics", "(Ljava/lang/String;Ljava/awt/Graphics;)Ljava/awt/font/LineMetrics;", nullptr, $PUBLIC, $virtualMethod(FontMetrics, getLineMetrics, $LineMetrics*, $String*, $Graphics*)},
+		{"getLineMetrics", "(Ljava/lang/String;IILjava/awt/Graphics;)Ljava/awt/font/LineMetrics;", nullptr, $PUBLIC, $virtualMethod(FontMetrics, getLineMetrics, $LineMetrics*, $String*, int32_t, int32_t, $Graphics*)},
+		{"getLineMetrics", "([CIILjava/awt/Graphics;)Ljava/awt/font/LineMetrics;", nullptr, $PUBLIC, $virtualMethod(FontMetrics, getLineMetrics, $LineMetrics*, $chars*, int32_t, int32_t, $Graphics*)},
+		{"getLineMetrics", "(Ljava/text/CharacterIterator;IILjava/awt/Graphics;)Ljava/awt/font/LineMetrics;", nullptr, $PUBLIC, $virtualMethod(FontMetrics, getLineMetrics, $LineMetrics*, $CharacterIterator*, int32_t, int32_t, $Graphics*)},
+		{"getMaxAdvance", "()I", nullptr, $PUBLIC, $virtualMethod(FontMetrics, getMaxAdvance, int32_t)},
+		{"getMaxAscent", "()I", nullptr, $PUBLIC, $virtualMethod(FontMetrics, getMaxAscent, int32_t)},
+		{"getMaxCharBounds", "(Ljava/awt/Graphics;)Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC, $virtualMethod(FontMetrics, getMaxCharBounds, $Rectangle2D*, $Graphics*)},
+		{"getMaxDecent", "()I", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(FontMetrics, getMaxDecent, int32_t), nullptr, nullptr, getMaxDecentmethodAnnotations$$},
+		{"getMaxDescent", "()I", nullptr, $PUBLIC, $virtualMethod(FontMetrics, getMaxDescent, int32_t)},
+		{"getStringBounds", "(Ljava/lang/String;Ljava/awt/Graphics;)Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC, $virtualMethod(FontMetrics, getStringBounds, $Rectangle2D*, $String*, $Graphics*)},
+		{"getStringBounds", "(Ljava/lang/String;IILjava/awt/Graphics;)Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC, $virtualMethod(FontMetrics, getStringBounds, $Rectangle2D*, $String*, int32_t, int32_t, $Graphics*)},
+		{"getStringBounds", "([CIILjava/awt/Graphics;)Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC, $virtualMethod(FontMetrics, getStringBounds, $Rectangle2D*, $chars*, int32_t, int32_t, $Graphics*)},
+		{"getStringBounds", "(Ljava/text/CharacterIterator;IILjava/awt/Graphics;)Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC, $virtualMethod(FontMetrics, getStringBounds, $Rectangle2D*, $CharacterIterator*, int32_t, int32_t, $Graphics*)},
+		{"getWidths", "()[I", nullptr, $PUBLIC, $virtualMethod(FontMetrics, getWidths, $ints*)},
+		{"hasUniformLineMetrics", "()Z", nullptr, $PUBLIC, $virtualMethod(FontMetrics, hasUniformLineMetrics, bool)},
+		{"initIDs", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(FontMetrics, initIDs, void)},
+		{"myFRC", "(Ljava/awt/Graphics;)Ljava/awt/font/FontRenderContext;", nullptr, $PRIVATE, $method(FontMetrics, myFRC, $FontRenderContext*, $Graphics*)},
+		{"stringWidth", "(Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(FontMetrics, stringWidth, int32_t, $String*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(FontMetrics, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"java.awt.FontMetrics",
+		"java.lang.Object",
+		"java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(FontMetrics, name, initialize, &classInfo$$, FontMetrics::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(FontMetrics);
+	});
 	return class$;
 }
 

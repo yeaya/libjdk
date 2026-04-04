@@ -1,5 +1,4 @@
 #include <sun/swing/text/TextComponentPrintable$10.h>
-
 #include <sun/swing/text/TextComponentPrintable.h>
 #include <jcpp.h>
 
@@ -14,49 +13,6 @@ namespace sun {
 	namespace swing {
 		namespace text {
 
-$FieldInfo _TextComponentPrintable$10_FieldInfo_[] = {
-	{"this$0", "Lsun/swing/text/TextComponentPrintable;", nullptr, $FINAL | $SYNTHETIC, $field(TextComponentPrintable$10, this$0)},
-	{"val$width", "I", nullptr, $FINAL | $SYNTHETIC, $field(TextComponentPrintable$10, val$width)},
-	{}
-};
-
-$MethodInfo _TextComponentPrintable$10_MethodInfo_[] = {
-	{"<init>", "(Lsun/swing/text/TextComponentPrintable;I)V", "()V", 0, $method(TextComponentPrintable$10, init$, void, $TextComponentPrintable*, int32_t)},
-	{"call", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(TextComponentPrintable$10, call, $Object*), "java.lang.Exception"},
-	{}
-};
-
-$EnclosingMethodInfo _TextComponentPrintable$10_EnclosingMethodInfo_ = {
-	"sun.swing.text.TextComponentPrintable",
-	"layout",
-	"(I)V"
-};
-
-$InnerClassInfo _TextComponentPrintable$10_InnerClassesInfo_[] = {
-	{"sun.swing.text.TextComponentPrintable$10", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _TextComponentPrintable$10_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.swing.text.TextComponentPrintable$10",
-	"java.lang.Object",
-	"java.util.concurrent.Callable",
-	_TextComponentPrintable$10_FieldInfo_,
-	_TextComponentPrintable$10_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/concurrent/Callable<Ljava/lang/Object;>;",
-	&_TextComponentPrintable$10_EnclosingMethodInfo_,
-	_TextComponentPrintable$10_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.swing.text.TextComponentPrintable"
-};
-
-$Object* allocate$TextComponentPrintable$10($Class* clazz) {
-	return $of($alloc(TextComponentPrintable$10));
-}
-
 void TextComponentPrintable$10::init$($TextComponentPrintable* this$0, int32_t val$width) {
 	$set(this, this$0, this$0);
 	this->val$width = val$width;
@@ -64,14 +20,50 @@ void TextComponentPrintable$10::init$($TextComponentPrintable* this$0, int32_t v
 
 $Object* TextComponentPrintable$10::call() {
 	this->this$0->layoutOnEDT(this->val$width);
-	return $of(nullptr);
+	return nullptr;
 }
 
 TextComponentPrintable$10::TextComponentPrintable$10() {
 }
 
 $Class* TextComponentPrintable$10::load$($String* name, bool initialize) {
-	$loadClass(TextComponentPrintable$10, name, initialize, &_TextComponentPrintable$10_ClassInfo_, allocate$TextComponentPrintable$10);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/swing/text/TextComponentPrintable;", nullptr, $FINAL | $SYNTHETIC, $field(TextComponentPrintable$10, this$0)},
+		{"val$width", "I", nullptr, $FINAL | $SYNTHETIC, $field(TextComponentPrintable$10, val$width)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/swing/text/TextComponentPrintable;I)V", "()V", 0, $method(TextComponentPrintable$10, init$, void, $TextComponentPrintable*, int32_t)},
+		{"call", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(TextComponentPrintable$10, call, $Object*), "java.lang.Exception"},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.swing.text.TextComponentPrintable",
+		"layout",
+		"(I)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.swing.text.TextComponentPrintable$10", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.swing.text.TextComponentPrintable$10",
+		"java.lang.Object",
+		"java.util.concurrent.Callable",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/concurrent/Callable<Ljava/lang/Object;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.swing.text.TextComponentPrintable"
+	};
+	$loadClass(TextComponentPrintable$10, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TextComponentPrintable$10);
+	});
 	return class$;
 }
 

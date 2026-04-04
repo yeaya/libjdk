@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/api/ClientCodeWrapper$WrappedFileObject.h>
-
 #include <com/sun/tools/javac/api/ClientCodeWrapper.h>
 #include <com/sun/tools/javac/util/ClientCodeException.h>
 #include <java/io/InputStream.h>
@@ -35,52 +34,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace api {
-
-$FieldInfo _ClientCodeWrapper$WrappedFileObject_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/api/ClientCodeWrapper;", nullptr, $FINAL | $SYNTHETIC, $field(ClientCodeWrapper$WrappedFileObject, this$0)},
-	{"clientFileObject", "Ljavax/tools/FileObject;", nullptr, $PROTECTED, $field(ClientCodeWrapper$WrappedFileObject, clientFileObject)},
-	{}
-};
-
-$MethodInfo _ClientCodeWrapper$WrappedFileObject_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/api/ClientCodeWrapper;Ljavax/tools/FileObject;)V", nullptr, 0, $method(ClientCodeWrapper$WrappedFileObject, init$, void, $ClientCodeWrapper*, $FileObject*)},
-	{"delete", "()Z", nullptr, $PUBLIC, $virtualMethod(ClientCodeWrapper$WrappedFileObject, delete$, bool)},
-	{"getCharContent", "(Z)Ljava/lang/CharSequence;", nullptr, $PUBLIC, $virtualMethod(ClientCodeWrapper$WrappedFileObject, getCharContent, $CharSequence*, bool), "java.io.IOException"},
-	{"getLastModified", "()J", nullptr, $PUBLIC, $virtualMethod(ClientCodeWrapper$WrappedFileObject, getLastModified, int64_t)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ClientCodeWrapper$WrappedFileObject, getName, $String*)},
-	{"openInputStream", "()Ljava/io/InputStream;", nullptr, $PUBLIC, $virtualMethod(ClientCodeWrapper$WrappedFileObject, openInputStream, $InputStream*), "java.io.IOException"},
-	{"openOutputStream", "()Ljava/io/OutputStream;", nullptr, $PUBLIC, $virtualMethod(ClientCodeWrapper$WrappedFileObject, openOutputStream, $OutputStream*), "java.io.IOException"},
-	{"openReader", "(Z)Ljava/io/Reader;", nullptr, $PUBLIC, $virtualMethod(ClientCodeWrapper$WrappedFileObject, openReader, $Reader*, bool), "java.io.IOException"},
-	{"openWriter", "()Ljava/io/Writer;", nullptr, $PUBLIC, $virtualMethod(ClientCodeWrapper$WrappedFileObject, openWriter, $Writer*), "java.io.IOException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ClientCodeWrapper$WrappedFileObject, toString, $String*)},
-	{"toUri", "()Ljava/net/URI;", nullptr, $PUBLIC, $virtualMethod(ClientCodeWrapper$WrappedFileObject, toUri, $URI*)},
-	{}
-};
-
-$InnerClassInfo _ClientCodeWrapper$WrappedFileObject_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.api.ClientCodeWrapper$WrappedFileObject", "com.sun.tools.javac.api.ClientCodeWrapper", "WrappedFileObject", $PROTECTED},
-	{}
-};
-
-$ClassInfo _ClientCodeWrapper$WrappedFileObject_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.api.ClientCodeWrapper$WrappedFileObject",
-	"java.lang.Object",
-	"javax.tools.FileObject",
-	_ClientCodeWrapper$WrappedFileObject_FieldInfo_,
-	_ClientCodeWrapper$WrappedFileObject_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ClientCodeWrapper$WrappedFileObject_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.api.ClientCodeWrapper"
-};
-
-$Object* allocate$ClientCodeWrapper$WrappedFileObject($Class* clazz) {
-	return $of($alloc(ClientCodeWrapper$WrappedFileObject));
-}
 
 void ClientCodeWrapper$WrappedFileObject::init$($ClientCodeWrapper* this$0, $FileObject* clientFileObject) {
 	$set(this, this$0, this$0);
@@ -212,7 +165,47 @@ ClientCodeWrapper$WrappedFileObject::ClientCodeWrapper$WrappedFileObject() {
 }
 
 $Class* ClientCodeWrapper$WrappedFileObject::load$($String* name, bool initialize) {
-	$loadClass(ClientCodeWrapper$WrappedFileObject, name, initialize, &_ClientCodeWrapper$WrappedFileObject_ClassInfo_, allocate$ClientCodeWrapper$WrappedFileObject);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/api/ClientCodeWrapper;", nullptr, $FINAL | $SYNTHETIC, $field(ClientCodeWrapper$WrappedFileObject, this$0)},
+		{"clientFileObject", "Ljavax/tools/FileObject;", nullptr, $PROTECTED, $field(ClientCodeWrapper$WrappedFileObject, clientFileObject)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/api/ClientCodeWrapper;Ljavax/tools/FileObject;)V", nullptr, 0, $method(ClientCodeWrapper$WrappedFileObject, init$, void, $ClientCodeWrapper*, $FileObject*)},
+		{"delete", "()Z", nullptr, $PUBLIC, $virtualMethod(ClientCodeWrapper$WrappedFileObject, delete$, bool)},
+		{"getCharContent", "(Z)Ljava/lang/CharSequence;", nullptr, $PUBLIC, $virtualMethod(ClientCodeWrapper$WrappedFileObject, getCharContent, $CharSequence*, bool), "java.io.IOException"},
+		{"getLastModified", "()J", nullptr, $PUBLIC, $virtualMethod(ClientCodeWrapper$WrappedFileObject, getLastModified, int64_t)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ClientCodeWrapper$WrappedFileObject, getName, $String*)},
+		{"openInputStream", "()Ljava/io/InputStream;", nullptr, $PUBLIC, $virtualMethod(ClientCodeWrapper$WrappedFileObject, openInputStream, $InputStream*), "java.io.IOException"},
+		{"openOutputStream", "()Ljava/io/OutputStream;", nullptr, $PUBLIC, $virtualMethod(ClientCodeWrapper$WrappedFileObject, openOutputStream, $OutputStream*), "java.io.IOException"},
+		{"openReader", "(Z)Ljava/io/Reader;", nullptr, $PUBLIC, $virtualMethod(ClientCodeWrapper$WrappedFileObject, openReader, $Reader*, bool), "java.io.IOException"},
+		{"openWriter", "()Ljava/io/Writer;", nullptr, $PUBLIC, $virtualMethod(ClientCodeWrapper$WrappedFileObject, openWriter, $Writer*), "java.io.IOException"},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ClientCodeWrapper$WrappedFileObject, toString, $String*)},
+		{"toUri", "()Ljava/net/URI;", nullptr, $PUBLIC, $virtualMethod(ClientCodeWrapper$WrappedFileObject, toUri, $URI*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.api.ClientCodeWrapper$WrappedFileObject", "com.sun.tools.javac.api.ClientCodeWrapper", "WrappedFileObject", $PROTECTED},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.api.ClientCodeWrapper$WrappedFileObject",
+		"java.lang.Object",
+		"javax.tools.FileObject",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.api.ClientCodeWrapper"
+	};
+	$loadClass(ClientCodeWrapper$WrappedFileObject, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ClientCodeWrapper$WrappedFileObject);
+	});
 	return class$;
 }
 

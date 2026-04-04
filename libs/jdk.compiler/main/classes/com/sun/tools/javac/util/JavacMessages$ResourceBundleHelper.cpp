@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/util/JavacMessages$ResourceBundleHelper.h>
-
 #include <com/sun/tools/javac/util/JavacMessages.h>
 #include <java/util/Locale.h>
 #include <java/util/ResourceBundle.h>
@@ -17,38 +16,33 @@ namespace com {
 			namespace javac {
 				namespace util {
 
-$MethodInfo _JavacMessages$ResourceBundleHelper_MethodInfo_[] = {
-	{"getResourceBundle", "(Ljava/util/Locale;)Ljava/util/ResourceBundle;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(JavacMessages$ResourceBundleHelper, getResourceBundle, $ResourceBundle*, $Locale*)},
-	{}
-};
-
-$InnerClassInfo _JavacMessages$ResourceBundleHelper_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.util.JavacMessages$ResourceBundleHelper", "com.sun.tools.javac.util.JavacMessages", "ResourceBundleHelper", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _JavacMessages$ResourceBundleHelper_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.tools.javac.util.JavacMessages$ResourceBundleHelper",
-	nullptr,
-	nullptr,
-	nullptr,
-	_JavacMessages$ResourceBundleHelper_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JavacMessages$ResourceBundleHelper_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.util.JavacMessages"
-};
-
-$Object* allocate$JavacMessages$ResourceBundleHelper($Class* clazz) {
-	return $of($alloc(JavacMessages$ResourceBundleHelper));
-}
-
 $Class* JavacMessages$ResourceBundleHelper::load$($String* name, bool initialize) {
-	$loadClass(JavacMessages$ResourceBundleHelper, name, initialize, &_JavacMessages$ResourceBundleHelper_ClassInfo_, allocate$JavacMessages$ResourceBundleHelper);
+	$MethodInfo methodInfos$$[] = {
+		{"getResourceBundle", "(Ljava/util/Locale;)Ljava/util/ResourceBundle;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(JavacMessages$ResourceBundleHelper, getResourceBundle, $ResourceBundle*, $Locale*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.util.JavacMessages$ResourceBundleHelper", "com.sun.tools.javac.util.JavacMessages", "ResourceBundleHelper", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.tools.javac.util.JavacMessages$ResourceBundleHelper",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.util.JavacMessages"
+	};
+	$loadClass(JavacMessages$ResourceBundleHelper, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JavacMessages$ResourceBundleHelper);
+	});
 	return class$;
 }
 

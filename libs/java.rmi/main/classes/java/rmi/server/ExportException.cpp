@@ -1,5 +1,4 @@
 #include <java/rmi/server/ExportException.h>
-
 #include <java/rmi/RemoteException.h>
 #include <jcpp.h>
 
@@ -12,30 +11,6 @@ using $RemoteException = ::java::rmi::RemoteException;
 namespace java {
 	namespace rmi {
 		namespace server {
-
-$FieldInfo _ExportException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ExportException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _ExportException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ExportException, init$, void, $String*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Exception;)V", nullptr, $PUBLIC, $method(ExportException, init$, void, $String*, $Exception*)},
-	{}
-};
-
-$ClassInfo _ExportException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.rmi.server.ExportException",
-	"java.rmi.RemoteException",
-	nullptr,
-	_ExportException_FieldInfo_,
-	_ExportException_MethodInfo_
-};
-
-$Object* allocate$ExportException($Class* clazz) {
-	return $of($alloc(ExportException));
-}
 
 void ExportException::init$($String* s) {
 	$RemoteException::init$(s);
@@ -56,7 +31,26 @@ void ExportException::throw$() {
 }
 
 $Class* ExportException::load$($String* name, bool initialize) {
-	$loadClass(ExportException, name, initialize, &_ExportException_ClassInfo_, allocate$ExportException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ExportException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ExportException, init$, void, $String*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/Exception;)V", nullptr, $PUBLIC, $method(ExportException, init$, void, $String*, $Exception*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.rmi.server.ExportException",
+		"java.rmi.RemoteException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ExportException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ExportException);
+	});
 	return class$;
 }
 

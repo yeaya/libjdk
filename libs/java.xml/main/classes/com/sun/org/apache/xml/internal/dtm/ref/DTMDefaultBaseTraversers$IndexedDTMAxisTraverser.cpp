@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/dtm/ref/DTMDefaultBaseTraversers$IndexedDTMAxisTraverser.h>
-
 #include <com/sun/org/apache/xml/internal/dtm/DTM.h>
 #include <com/sun/org/apache/xml/internal/dtm/DTMAxisTraverser.h>
 #include <com/sun/org/apache/xml/internal/dtm/ref/DTMDefaultBaseTraversers.h>
@@ -26,45 +25,6 @@ namespace com {
 					namespace internal {
 						namespace dtm {
 							namespace ref {
-
-$FieldInfo _DTMDefaultBaseTraversers$IndexedDTMAxisTraverser_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/org/apache/xml/internal/dtm/ref/DTMDefaultBaseTraversers;", nullptr, $FINAL | $SYNTHETIC, $field(DTMDefaultBaseTraversers$IndexedDTMAxisTraverser, this$0)},
-	{}
-};
-
-$MethodInfo _DTMDefaultBaseTraversers$IndexedDTMAxisTraverser_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/org/apache/xml/internal/dtm/ref/DTMDefaultBaseTraversers;)V", nullptr, $PRIVATE, $method(DTMDefaultBaseTraversers$IndexedDTMAxisTraverser, init$, void, $DTMDefaultBaseTraversers*)},
-	{"axisHasBeenProcessed", "(I)Z", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(DTMDefaultBaseTraversers$IndexedDTMAxisTraverser, axisHasBeenProcessed, bool, int32_t)},
-	{"getNextIndexed", "(III)I", nullptr, $PROTECTED, $virtualMethod(DTMDefaultBaseTraversers$IndexedDTMAxisTraverser, getNextIndexed, int32_t, int32_t, int32_t, int32_t)},
-	{"isAfterAxis", "(II)Z", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(DTMDefaultBaseTraversers$IndexedDTMAxisTraverser, isAfterAxis, bool, int32_t, int32_t)},
-	{"isIndexed", "(I)Z", nullptr, $PROTECTED | $FINAL, $method(DTMDefaultBaseTraversers$IndexedDTMAxisTraverser, isIndexed, bool, int32_t)},
-	{}
-};
-
-$InnerClassInfo _DTMDefaultBaseTraversers$IndexedDTMAxisTraverser_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xml.internal.dtm.ref.DTMDefaultBaseTraversers$IndexedDTMAxisTraverser", "com.sun.org.apache.xml.internal.dtm.ref.DTMDefaultBaseTraversers", "IndexedDTMAxisTraverser", $PRIVATE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _DTMDefaultBaseTraversers$IndexedDTMAxisTraverser_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"com.sun.org.apache.xml.internal.dtm.ref.DTMDefaultBaseTraversers$IndexedDTMAxisTraverser",
-	"com.sun.org.apache.xml.internal.dtm.DTMAxisTraverser",
-	nullptr,
-	_DTMDefaultBaseTraversers$IndexedDTMAxisTraverser_FieldInfo_,
-	_DTMDefaultBaseTraversers$IndexedDTMAxisTraverser_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DTMDefaultBaseTraversers$IndexedDTMAxisTraverser_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xml.internal.dtm.ref.DTMDefaultBaseTraversers"
-};
-
-$Object* allocate$DTMDefaultBaseTraversers$IndexedDTMAxisTraverser($Class* clazz) {
-	return $of($alloc(DTMDefaultBaseTraversers$IndexedDTMAxisTraverser));
-}
 
 void DTMDefaultBaseTraversers$IndexedDTMAxisTraverser::init$($DTMDefaultBaseTraversers* this$0) {
 	$set(this, this$0, this$0);
@@ -97,7 +57,40 @@ DTMDefaultBaseTraversers$IndexedDTMAxisTraverser::DTMDefaultBaseTraversers$Index
 }
 
 $Class* DTMDefaultBaseTraversers$IndexedDTMAxisTraverser::load$($String* name, bool initialize) {
-	$loadClass(DTMDefaultBaseTraversers$IndexedDTMAxisTraverser, name, initialize, &_DTMDefaultBaseTraversers$IndexedDTMAxisTraverser_ClassInfo_, allocate$DTMDefaultBaseTraversers$IndexedDTMAxisTraverser);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/org/apache/xml/internal/dtm/ref/DTMDefaultBaseTraversers;", nullptr, $FINAL | $SYNTHETIC, $field(DTMDefaultBaseTraversers$IndexedDTMAxisTraverser, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/org/apache/xml/internal/dtm/ref/DTMDefaultBaseTraversers;)V", nullptr, $PRIVATE, $method(DTMDefaultBaseTraversers$IndexedDTMAxisTraverser, init$, void, $DTMDefaultBaseTraversers*)},
+		{"axisHasBeenProcessed", "(I)Z", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(DTMDefaultBaseTraversers$IndexedDTMAxisTraverser, axisHasBeenProcessed, bool, int32_t)},
+		{"getNextIndexed", "(III)I", nullptr, $PROTECTED, $virtualMethod(DTMDefaultBaseTraversers$IndexedDTMAxisTraverser, getNextIndexed, int32_t, int32_t, int32_t, int32_t)},
+		{"isAfterAxis", "(II)Z", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(DTMDefaultBaseTraversers$IndexedDTMAxisTraverser, isAfterAxis, bool, int32_t, int32_t)},
+		{"isIndexed", "(I)Z", nullptr, $PROTECTED | $FINAL, $method(DTMDefaultBaseTraversers$IndexedDTMAxisTraverser, isIndexed, bool, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xml.internal.dtm.ref.DTMDefaultBaseTraversers$IndexedDTMAxisTraverser", "com.sun.org.apache.xml.internal.dtm.ref.DTMDefaultBaseTraversers", "IndexedDTMAxisTraverser", $PRIVATE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"com.sun.org.apache.xml.internal.dtm.ref.DTMDefaultBaseTraversers$IndexedDTMAxisTraverser",
+		"com.sun.org.apache.xml.internal.dtm.DTMAxisTraverser",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xml.internal.dtm.ref.DTMDefaultBaseTraversers"
+	};
+	$loadClass(DTMDefaultBaseTraversers$IndexedDTMAxisTraverser, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DTMDefaultBaseTraversers$IndexedDTMAxisTraverser);
+	});
 	return class$;
 }
 

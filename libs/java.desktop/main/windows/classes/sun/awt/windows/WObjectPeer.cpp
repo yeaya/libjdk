@@ -1,5 +1,4 @@
 #include <sun/awt/windows/WObjectPeer.h>
-
 #include <java/lang/Error.h>
 #include <java/lang/IllegalStateException.h>
 #include <java/util/Iterator.h>
@@ -15,55 +14,12 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalStateException = ::java::lang::IllegalStateException;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Iterator = ::java::util::Iterator;
-using $Map = ::java::util::Map;
-using $Set = ::java::util::Set;
 using $WeakHashMap = ::java::util::WeakHashMap;
 using $WToolkit = ::sun::awt::windows::WToolkit;
 
 namespace sun {
 	namespace awt {
 		namespace windows {
-
-$FieldInfo _WObjectPeer_FieldInfo_[] = {
-	{"pData", "J", nullptr, $VOLATILE, $field(WObjectPeer, pData)},
-	{"destroyed", "Z", nullptr, $PRIVATE | $VOLATILE, $field(WObjectPeer, destroyed)},
-	{"target", "Ljava/lang/Object;", nullptr, $VOLATILE, $field(WObjectPeer, target)},
-	{"disposed", "Z", nullptr, $PRIVATE | $VOLATILE, $field(WObjectPeer, disposed)},
-	{"createError", "Ljava/lang/Error;", nullptr, $VOLATILE, $field(WObjectPeer, createError)},
-	{"stateLock", "Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $field(WObjectPeer, stateLock)},
-	{"childPeers", "Ljava/util/Map;", "Ljava/util/Map<Lsun/awt/windows/WObjectPeer;Lsun/awt/windows/WObjectPeer;>;", $PRIVATE | $VOLATILE, $field(WObjectPeer, childPeers)},
-	{}
-};
-
-$MethodInfo _WObjectPeer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(WObjectPeer, init$, void)},
-	{"addChildPeer", "(Lsun/awt/windows/WObjectPeer;)V", nullptr, $FINAL, $method(WObjectPeer, addChildPeer, void, WObjectPeer*)},
-	{"dispose", "()V", nullptr, $PUBLIC | $FINAL, $method(WObjectPeer, dispose, void)},
-	{"disposeChildPeers", "()V", nullptr, $PRIVATE, $method(WObjectPeer, disposeChildPeers, void)},
-	{"disposeImpl", "()V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(WObjectPeer, disposeImpl, void)},
-	{"getData", "()J", nullptr, $PUBLIC, $virtualMethod(WObjectPeer, getData, int64_t)},
-	{"getPeerForTarget", "(Ljava/lang/Object;)Lsun/awt/windows/WObjectPeer;", nullptr, $PUBLIC | $STATIC, $staticMethod(WObjectPeer, getPeerForTarget, WObjectPeer*, Object$*)},
-	{"getStateLock", "()Ljava/lang/Object;", nullptr, $PUBLIC | $FINAL, $method(WObjectPeer, getStateLock, $Object*)},
-	{"getTarget", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(WObjectPeer, getTarget, $Object*)},
-	{"initIDs", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(WObjectPeer, initIDs, void)},
-	{"isDisposed", "()Z", nullptr, $PROTECTED | $FINAL, $method(WObjectPeer, isDisposed, bool)},
-	{}
-};
-
-#define _METHOD_INDEX_initIDs 9
-
-$ClassInfo _WObjectPeer_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"sun.awt.windows.WObjectPeer",
-	"java.lang.Object",
-	nullptr,
-	_WObjectPeer_FieldInfo_,
-	_WObjectPeer_MethodInfo_
-};
-
-$Object* allocate$WObjectPeer($Class* clazz) {
-	return $of($alloc(WObjectPeer));
-}
 
 void WObjectPeer::init$() {
 	$set(this, createError, nullptr);
@@ -81,11 +37,11 @@ int64_t WObjectPeer::getData() {
 }
 
 $Object* WObjectPeer::getTarget() {
-	return $of(this->target);
+	return this->target;
 }
 
 $Object* WObjectPeer::getStateLock() {
-	return $of(this->stateLock);
+	return this->stateLock;
 }
 
 void WObjectPeer::dispose() {
@@ -109,7 +65,7 @@ bool WObjectPeer::isDisposed() {
 
 void WObjectPeer::initIDs() {
 	$init(WObjectPeer);
-	$prepareNativeStatic(WObjectPeer, initIDs, void);
+	$prepareNativeStatic(initIDs, void);
 	$invokeNativeStatic();
 	$finishNativeStatic();
 }
@@ -127,26 +83,22 @@ void WObjectPeer::addChildPeer(WObjectPeer* child) {
 }
 
 void WObjectPeer::disposeChildPeers() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized(getStateLock()) {
-		{
-			$var($Iterator, i$, $nc($($nc(this->childPeers)->keySet()))->iterator());
-			for (; $nc(i$)->hasNext();) {
-				$var(WObjectPeer, child, $cast(WObjectPeer, i$->next()));
-				{
-					if (child != nullptr) {
-						try {
-							child->dispose();
-						} catch ($Exception& e) {
-						}
-					}
+		$var($Iterator, i$, $$nc($nc(this->childPeers)->keySet())->iterator());
+		for (; $nc(i$)->hasNext();) {
+			$var(WObjectPeer, child, $cast(WObjectPeer, i$->next()));
+			if (child != nullptr) {
+				try {
+					child->dispose();
+				} catch ($Exception& e) {
 				}
 			}
 		}
 	}
 }
 
-void clinit$WObjectPeer($Class* class$) {
+void WObjectPeer::clinit$($Class* clazz) {
 	{
 		WObjectPeer::initIDs();
 	}
@@ -156,7 +108,41 @@ WObjectPeer::WObjectPeer() {
 }
 
 $Class* WObjectPeer::load$($String* name, bool initialize) {
-	$loadClass(WObjectPeer, name, initialize, &_WObjectPeer_ClassInfo_, clinit$WObjectPeer, allocate$WObjectPeer);
+	$FieldInfo fieldInfos$$[] = {
+		{"pData", "J", nullptr, $VOLATILE, $field(WObjectPeer, pData)},
+		{"destroyed", "Z", nullptr, $PRIVATE | $VOLATILE, $field(WObjectPeer, destroyed)},
+		{"target", "Ljava/lang/Object;", nullptr, $VOLATILE, $field(WObjectPeer, target)},
+		{"disposed", "Z", nullptr, $PRIVATE | $VOLATILE, $field(WObjectPeer, disposed)},
+		{"createError", "Ljava/lang/Error;", nullptr, $VOLATILE, $field(WObjectPeer, createError)},
+		{"stateLock", "Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $field(WObjectPeer, stateLock)},
+		{"childPeers", "Ljava/util/Map;", "Ljava/util/Map<Lsun/awt/windows/WObjectPeer;Lsun/awt/windows/WObjectPeer;>;", $PRIVATE | $VOLATILE, $field(WObjectPeer, childPeers)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(WObjectPeer, init$, void)},
+		{"addChildPeer", "(Lsun/awt/windows/WObjectPeer;)V", nullptr, $FINAL, $method(WObjectPeer, addChildPeer, void, WObjectPeer*)},
+		{"dispose", "()V", nullptr, $PUBLIC | $FINAL, $method(WObjectPeer, dispose, void)},
+		{"disposeChildPeers", "()V", nullptr, $PRIVATE, $method(WObjectPeer, disposeChildPeers, void)},
+		{"disposeImpl", "()V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(WObjectPeer, disposeImpl, void)},
+		{"getData", "()J", nullptr, $PUBLIC, $virtualMethod(WObjectPeer, getData, int64_t)},
+		{"getPeerForTarget", "(Ljava/lang/Object;)Lsun/awt/windows/WObjectPeer;", nullptr, $PUBLIC | $STATIC, $staticMethod(WObjectPeer, getPeerForTarget, WObjectPeer*, Object$*)},
+		{"getStateLock", "()Ljava/lang/Object;", nullptr, $PUBLIC | $FINAL, $method(WObjectPeer, getStateLock, $Object*)},
+		{"getTarget", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(WObjectPeer, getTarget, $Object*)},
+		{"initIDs", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(WObjectPeer, initIDs, void)},
+		{"isDisposed", "()Z", nullptr, $PROTECTED | $FINAL, $method(WObjectPeer, isDisposed, bool)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"sun.awt.windows.WObjectPeer",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(WObjectPeer, name, initialize, &classInfo$$, WObjectPeer::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(WObjectPeer);
+	});
 	return class$;
 }
 

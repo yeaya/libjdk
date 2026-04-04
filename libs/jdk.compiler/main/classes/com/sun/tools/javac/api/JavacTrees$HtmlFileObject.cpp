@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/api/JavacTrees$HtmlFileObject.h>
-
 #include <com/sun/tools/javac/api/JavacTrees.h>
 #include <com/sun/tools/javac/file/BaseFileManager.h>
 #include <java/io/InputStream.h>
@@ -36,54 +35,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace api {
-
-$MethodInfo _JavacTrees$HtmlFileObject_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*delete$", "()Z", nullptr, $PUBLIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*getCharContent", "(Z)Ljava/lang/CharSequence;", nullptr, $PUBLIC},
-	{"*getLastModified", "()J", nullptr, $PUBLIC},
-	{"*getName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljavax/tools/FileObject;)V", nullptr, $PUBLIC, $method(JavacTrees$HtmlFileObject, init$, void, $FileObject*)},
-	{"getAccessLevel", "()Ljavax/lang/model/element/Modifier;", nullptr, $PUBLIC, $virtualMethod(JavacTrees$HtmlFileObject, getAccessLevel, $Modifier*)},
-	{"getKind", "()Ljavax/tools/JavaFileObject$Kind;", nullptr, $PUBLIC, $virtualMethod(JavacTrees$HtmlFileObject, getKind, $JavaFileObject$Kind*)},
-	{"getNestingKind", "()Ljavax/lang/model/element/NestingKind;", nullptr, $PUBLIC, $virtualMethod(JavacTrees$HtmlFileObject, getNestingKind, $NestingKind*)},
-	{"isNameCompatible", "(Ljava/lang/String;Ljavax/tools/JavaFileObject$Kind;)Z", nullptr, $PUBLIC, $virtualMethod(JavacTrees$HtmlFileObject, isNameCompatible, bool, $String*, $JavaFileObject$Kind*)},
-	{"*toUri", "()Ljava/net/URI;", nullptr, $PUBLIC},
-	{"*openInputStream", "()Ljava/io/InputStream;", nullptr, $PUBLIC},
-	{"*openOutputStream", "()Ljava/io/OutputStream;", nullptr, $PUBLIC},
-	{"*openReader", "(Z)Ljava/io/Reader;", nullptr, $PUBLIC},
-	{"*openWriter", "()Ljava/io/Writer;", nullptr, $PUBLIC},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _JavacTrees$HtmlFileObject_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.api.JavacTrees$HtmlFileObject", "com.sun.tools.javac.api.JavacTrees", "HtmlFileObject", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _JavacTrees$HtmlFileObject_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.api.JavacTrees$HtmlFileObject",
-	"javax.tools.ForwardingFileObject",
-	"javax.tools.JavaFileObject",
-	nullptr,
-	_JavacTrees$HtmlFileObject_MethodInfo_,
-	"Ljavax/tools/ForwardingFileObject<Ljavax/tools/FileObject;>;Ljavax/tools/JavaFileObject;",
-	nullptr,
-	_JavacTrees$HtmlFileObject_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.api.JavacTrees"
-};
-
-$Object* allocate$JavacTrees$HtmlFileObject($Class* clazz) {
-	return $of($alloc(JavacTrees$HtmlFileObject));
-}
 
 $URI* JavacTrees$HtmlFileObject::toUri() {
 	 return this->$ForwardingFileObject::toUri();
@@ -165,7 +116,50 @@ JavacTrees$HtmlFileObject::JavacTrees$HtmlFileObject() {
 }
 
 $Class* JavacTrees$HtmlFileObject::load$($String* name, bool initialize) {
-	$loadClass(JavacTrees$HtmlFileObject, name, initialize, &_JavacTrees$HtmlFileObject_ClassInfo_, allocate$JavacTrees$HtmlFileObject);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*delete$", "()Z", nullptr, $PUBLIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*getCharContent", "(Z)Ljava/lang/CharSequence;", nullptr, $PUBLIC},
+		{"*getLastModified", "()J", nullptr, $PUBLIC},
+		{"*getName", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljavax/tools/FileObject;)V", nullptr, $PUBLIC, $method(JavacTrees$HtmlFileObject, init$, void, $FileObject*)},
+		{"getAccessLevel", "()Ljavax/lang/model/element/Modifier;", nullptr, $PUBLIC, $virtualMethod(JavacTrees$HtmlFileObject, getAccessLevel, $Modifier*)},
+		{"getKind", "()Ljavax/tools/JavaFileObject$Kind;", nullptr, $PUBLIC, $virtualMethod(JavacTrees$HtmlFileObject, getKind, $JavaFileObject$Kind*)},
+		{"getNestingKind", "()Ljavax/lang/model/element/NestingKind;", nullptr, $PUBLIC, $virtualMethod(JavacTrees$HtmlFileObject, getNestingKind, $NestingKind*)},
+		{"isNameCompatible", "(Ljava/lang/String;Ljavax/tools/JavaFileObject$Kind;)Z", nullptr, $PUBLIC, $virtualMethod(JavacTrees$HtmlFileObject, isNameCompatible, bool, $String*, $JavaFileObject$Kind*)},
+		{"*toUri", "()Ljava/net/URI;", nullptr, $PUBLIC},
+		{"*openInputStream", "()Ljava/io/InputStream;", nullptr, $PUBLIC},
+		{"*openOutputStream", "()Ljava/io/OutputStream;", nullptr, $PUBLIC},
+		{"*openReader", "(Z)Ljava/io/Reader;", nullptr, $PUBLIC},
+		{"*openWriter", "()Ljava/io/Writer;", nullptr, $PUBLIC},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.api.JavacTrees$HtmlFileObject", "com.sun.tools.javac.api.JavacTrees", "HtmlFileObject", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.api.JavacTrees$HtmlFileObject",
+		"javax.tools.ForwardingFileObject",
+		"javax.tools.JavaFileObject",
+		nullptr,
+		methodInfos$$,
+		"Ljavax/tools/ForwardingFileObject<Ljavax/tools/FileObject;>;Ljavax/tools/JavaFileObject;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.api.JavacTrees"
+	};
+	$loadClass(JavacTrees$HtmlFileObject, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JavacTrees$HtmlFileObject));
+	});
 	return class$;
 }
 

@@ -29,11 +29,14 @@ public:
 	void init$($String* message, ::java::lang::Exception* exception);
 	virtual $Throwable* getCause() override;
 	virtual ::java::lang::Exception* getException();
-	static const int64_t serialVersionUID = (int64_t)0x7D2CD64B50FF589F;
+	static const int64_t serialVersionUID = (int64_t)0x7d2cd64b50ff589f;
 	::java::lang::Exception* fException = nullptr;
 	XNIException(const XNIException& e);
 	virtual void throw$() override;
-	inline XNIException* operator ->() {
+	inline XNIException* operator ->() const {
+		return (XNIException*)throwing$;
+	}
+	inline operator XNIException*() const {
 		return (XNIException*)throwing$;
 	}
 };

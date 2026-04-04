@@ -139,6 +139,7 @@ class $export Keywords : public ::java::lang::Object {
 	$class(Keywords, 0, ::java::lang::Object)
 public:
 	Keywords();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::lang::Integer* getAxisName($String* key);
 	static ::java::lang::Integer* getKeyWord($String* key);

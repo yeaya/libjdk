@@ -1,5 +1,4 @@
 #include <javax/sql/rowset/spi/ProviderImpl.h>
-
 #include <javax/sql/RowSetReader.h>
 #include <javax/sql/RowSetWriter.h>
 #include <javax/sql/rowset/spi/SyncFactory.h>
@@ -22,47 +21,6 @@ namespace javax {
 	namespace sql {
 		namespace rowset {
 			namespace spi {
-
-$FieldInfo _ProviderImpl_FieldInfo_[] = {
-	{"className", "Ljava/lang/String;", nullptr, $PRIVATE, $field(ProviderImpl, className)},
-	{"vendorName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(ProviderImpl, vendorName)},
-	{"ver", "Ljava/lang/String;", nullptr, $PRIVATE, $field(ProviderImpl, ver)},
-	{"index", "I", nullptr, $PRIVATE, $field(ProviderImpl, index)},
-	{}
-};
-
-$MethodInfo _ProviderImpl_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(ProviderImpl, init$, void)},
-	{"getClassname", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ProviderImpl, getClassname, $String*)},
-	{"getDataSourceLock", "()I", nullptr, $PUBLIC, $virtualMethod(ProviderImpl, getDataSourceLock, int32_t), "javax.sql.rowset.spi.SyncProviderException"},
-	{"getIndex", "()I", nullptr, $PUBLIC, $virtualMethod(ProviderImpl, getIndex, int32_t)},
-	{"getProviderGrade", "()I", nullptr, $PUBLIC, $virtualMethod(ProviderImpl, getProviderGrade, int32_t)},
-	{"getProviderID", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ProviderImpl, getProviderID, $String*)},
-	{"getRowSetReader", "()Ljavax/sql/RowSetReader;", nullptr, $PUBLIC, $virtualMethod(ProviderImpl, getRowSetReader, $RowSetReader*)},
-	{"getRowSetWriter", "()Ljavax/sql/RowSetWriter;", nullptr, $PUBLIC, $virtualMethod(ProviderImpl, getRowSetWriter, $RowSetWriter*)},
-	{"getVendor", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ProviderImpl, getVendor, $String*)},
-	{"getVersion", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ProviderImpl, getVersion, $String*)},
-	{"setClassname", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ProviderImpl, setClassname, void, $String*)},
-	{"setDataSourceLock", "(I)V", nullptr, $PUBLIC, $virtualMethod(ProviderImpl, setDataSourceLock, void, int32_t), "javax.sql.rowset.spi.SyncProviderException"},
-	{"setIndex", "(I)V", nullptr, $PUBLIC, $virtualMethod(ProviderImpl, setIndex, void, int32_t)},
-	{"setVendor", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ProviderImpl, setVendor, void, $String*)},
-	{"setVersion", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ProviderImpl, setVersion, void, $String*)},
-	{"supportsUpdatableView", "()I", nullptr, $PUBLIC, $virtualMethod(ProviderImpl, supportsUpdatableView, int32_t)},
-	{}
-};
-
-$ClassInfo _ProviderImpl_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.sql.rowset.spi.ProviderImpl",
-	"javax.sql.rowset.spi.SyncProvider",
-	nullptr,
-	_ProviderImpl_FieldInfo_,
-	_ProviderImpl_MethodInfo_
-};
-
-$Object* allocate$ProviderImpl($Class* clazz) {
-	return $of($alloc(ProviderImpl));
-}
 
 void ProviderImpl::init$() {
 	$SyncProvider::init$();
@@ -104,10 +62,10 @@ int32_t ProviderImpl::getIndex() {
 }
 
 int32_t ProviderImpl::getDataSourceLock() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t dsLock = 0;
 	try {
-		dsLock = $nc($($SyncFactory::getInstance(this->className)))->getDataSourceLock();
+		dsLock = $$nc($SyncFactory::getInstance(this->className))->getDataSourceLock();
 	} catch ($SyncFactoryException& sfEx) {
 		$throwNew($SyncProviderException, $(sfEx->getMessage()));
 	}
@@ -117,7 +75,7 @@ int32_t ProviderImpl::getDataSourceLock() {
 int32_t ProviderImpl::getProviderGrade() {
 	int32_t grade = 0;
 	try {
-		grade = $nc($($SyncFactory::getInstance(this->className)))->getProviderGrade();
+		grade = $$nc($SyncFactory::getInstance(this->className))->getProviderGrade();
 	} catch ($SyncFactoryException& sfEx) {
 	}
 	return grade;
@@ -128,29 +86,29 @@ $String* ProviderImpl::getProviderID() {
 }
 
 $RowSetReader* ProviderImpl::getRowSetReader() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($RowSetReader, rsReader, nullptr);
 	try {
-		$assign(rsReader, $nc($($SyncFactory::getInstance(this->className)))->getRowSetReader());
+		$assign(rsReader, $$nc($SyncFactory::getInstance(this->className))->getRowSetReader());
 	} catch ($SyncFactoryException& sfEx) {
 	}
 	return rsReader;
 }
 
 $RowSetWriter* ProviderImpl::getRowSetWriter() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($RowSetWriter, rsWriter, nullptr);
 	try {
-		$assign(rsWriter, $nc($($SyncFactory::getInstance(this->className)))->getRowSetWriter());
+		$assign(rsWriter, $$nc($SyncFactory::getInstance(this->className))->getRowSetWriter());
 	} catch ($SyncFactoryException& sfEx) {
 	}
 	return rsWriter;
 }
 
 void ProviderImpl::setDataSourceLock(int32_t param) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
-		$nc($($SyncFactory::getInstance(this->className)))->setDataSourceLock(param);
+		$$nc($SyncFactory::getInstance(this->className))->setDataSourceLock(param);
 	} catch ($SyncFactoryException& sfEx) {
 		$throwNew($SyncProviderException, $(sfEx->getMessage()));
 	}
@@ -159,7 +117,7 @@ void ProviderImpl::setDataSourceLock(int32_t param) {
 int32_t ProviderImpl::supportsUpdatableView() {
 	int32_t view = 0;
 	try {
-		view = $nc($($SyncFactory::getInstance(this->className)))->supportsUpdatableView();
+		view = $$nc($SyncFactory::getInstance(this->className))->supportsUpdatableView();
 	} catch ($SyncFactoryException& sfEx) {
 	}
 	return view;
@@ -169,7 +127,43 @@ ProviderImpl::ProviderImpl() {
 }
 
 $Class* ProviderImpl::load$($String* name, bool initialize) {
-	$loadClass(ProviderImpl, name, initialize, &_ProviderImpl_ClassInfo_, allocate$ProviderImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"className", "Ljava/lang/String;", nullptr, $PRIVATE, $field(ProviderImpl, className)},
+		{"vendorName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(ProviderImpl, vendorName)},
+		{"ver", "Ljava/lang/String;", nullptr, $PRIVATE, $field(ProviderImpl, ver)},
+		{"index", "I", nullptr, $PRIVATE, $field(ProviderImpl, index)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(ProviderImpl, init$, void)},
+		{"getClassname", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ProviderImpl, getClassname, $String*)},
+		{"getDataSourceLock", "()I", nullptr, $PUBLIC, $virtualMethod(ProviderImpl, getDataSourceLock, int32_t), "javax.sql.rowset.spi.SyncProviderException"},
+		{"getIndex", "()I", nullptr, $PUBLIC, $virtualMethod(ProviderImpl, getIndex, int32_t)},
+		{"getProviderGrade", "()I", nullptr, $PUBLIC, $virtualMethod(ProviderImpl, getProviderGrade, int32_t)},
+		{"getProviderID", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ProviderImpl, getProviderID, $String*)},
+		{"getRowSetReader", "()Ljavax/sql/RowSetReader;", nullptr, $PUBLIC, $virtualMethod(ProviderImpl, getRowSetReader, $RowSetReader*)},
+		{"getRowSetWriter", "()Ljavax/sql/RowSetWriter;", nullptr, $PUBLIC, $virtualMethod(ProviderImpl, getRowSetWriter, $RowSetWriter*)},
+		{"getVendor", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ProviderImpl, getVendor, $String*)},
+		{"getVersion", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ProviderImpl, getVersion, $String*)},
+		{"setClassname", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ProviderImpl, setClassname, void, $String*)},
+		{"setDataSourceLock", "(I)V", nullptr, $PUBLIC, $virtualMethod(ProviderImpl, setDataSourceLock, void, int32_t), "javax.sql.rowset.spi.SyncProviderException"},
+		{"setIndex", "(I)V", nullptr, $PUBLIC, $virtualMethod(ProviderImpl, setIndex, void, int32_t)},
+		{"setVendor", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ProviderImpl, setVendor, void, $String*)},
+		{"setVersion", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ProviderImpl, setVersion, void, $String*)},
+		{"supportsUpdatableView", "()I", nullptr, $PUBLIC, $virtualMethod(ProviderImpl, supportsUpdatableView, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.sql.rowset.spi.ProviderImpl",
+		"javax.sql.rowset.spi.SyncProvider",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ProviderImpl, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ProviderImpl);
+	});
 	return class$;
 }
 

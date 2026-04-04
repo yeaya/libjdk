@@ -1,5 +1,4 @@
 #include <javax/swing/text/rtf/RTFGenerator.h>
-
 #include <java/awt/Color.h>
 #include <java/io/OutputStream.h>
 #include <java/lang/InternalError.h>
@@ -85,91 +84,6 @@ namespace javax {
 		namespace text {
 			namespace rtf {
 
-$FieldInfo _RTFGenerator_FieldInfo_[] = {
-	{"colorTable", "Ljava/util/Dictionary;", "Ljava/util/Dictionary<Ljava/lang/Object;Ljava/lang/Integer;>;", 0, $field(RTFGenerator, colorTable)},
-	{"colorCount", "I", nullptr, 0, $field(RTFGenerator, colorCount)},
-	{"fontTable", "Ljava/util/Dictionary;", "Ljava/util/Dictionary<Ljava/lang/String;Ljava/lang/Integer;>;", 0, $field(RTFGenerator, fontTable)},
-	{"fontCount", "I", nullptr, 0, $field(RTFGenerator, fontCount)},
-	{"styleTable", "Ljava/util/Dictionary;", "Ljava/util/Dictionary<Ljavax/swing/text/AttributeSet;Ljava/lang/Integer;>;", 0, $field(RTFGenerator, styleTable)},
-	{"styleCount", "I", nullptr, 0, $field(RTFGenerator, styleCount)},
-	{"outputStream", "Ljava/io/OutputStream;", nullptr, 0, $field(RTFGenerator, outputStream)},
-	{"afterKeyword", "Z", nullptr, 0, $field(RTFGenerator, afterKeyword)},
-	{"outputAttributes", "Ljavax/swing/text/MutableAttributeSet;", nullptr, 0, $field(RTFGenerator, outputAttributes)},
-	{"unicodeCount", "I", nullptr, 0, $field(RTFGenerator, unicodeCount)},
-	{"workingSegment", "Ljavax/swing/text/Segment;", nullptr, $PRIVATE, $field(RTFGenerator, workingSegment)},
-	{"outputConversion", "[I", nullptr, 0, $field(RTFGenerator, outputConversion)},
-	{"defaultRTFColor", "Ljava/awt/Color;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(RTFGenerator, defaultRTFColor)},
-	{"defaultFontSize", "F", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(RTFGenerator, defaultFontSize)},
-	{"defaultFontFamily", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(RTFGenerator, defaultFontFamily)},
-	{"MagicToken", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(RTFGenerator, MagicToken)},
-	{"textKeywords", "[Ljavax/swing/text/rtf/RTFGenerator$CharacterKeywordPair;", nullptr, $PROTECTED | $STATIC, $staticField(RTFGenerator, textKeywords)},
-	{"hexdigits", "[C", nullptr, $STATIC | $FINAL, $staticField(RTFGenerator, hexdigits)},
-	{}
-};
-
-$MethodInfo _RTFGenerator_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $method(RTFGenerator, init$, void, $OutputStream*)},
-	{"approximationForUnicode", "(C)Ljava/lang/String;", nullptr, 0, $virtualMethod(RTFGenerator, approximationForUnicode, $String*, char16_t)},
-	{"attrDiff", "(Ljavax/swing/text/MutableAttributeSet;Ljavax/swing/text/AttributeSet;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC, $staticMethod(RTFGenerator, attrDiff, $Object*, $MutableAttributeSet*, $AttributeSet*, Object$*, Object$*)},
-	{"checkControlWord", "(Ljavax/swing/text/MutableAttributeSet;Ljavax/swing/text/AttributeSet;Ljavax/swing/text/rtf/RTFAttribute;)V", nullptr, $PROTECTED, $virtualMethod(RTFGenerator, checkControlWord, void, $MutableAttributeSet*, $AttributeSet*, $RTFAttribute*), "java.io.IOException"},
-	{"checkControlWords", "(Ljavax/swing/text/MutableAttributeSet;Ljavax/swing/text/AttributeSet;[Ljavax/swing/text/rtf/RTFAttribute;I)V", nullptr, $PROTECTED, $virtualMethod(RTFGenerator, checkControlWords, void, $MutableAttributeSet*, $AttributeSet*, $RTFAttributeArray*, int32_t), "java.io.IOException"},
-	{"checkNumericControlWord", "(Ljavax/swing/text/MutableAttributeSet;Ljavax/swing/text/AttributeSet;Ljava/lang/Object;Ljava/lang/String;FF)V", nullptr, $PROTECTED, $virtualMethod(RTFGenerator, checkNumericControlWord, void, $MutableAttributeSet*, $AttributeSet*, Object$*, $String*, float, float), "java.io.IOException"},
-	{"convertCharacter", "([IC)I", nullptr, $PROTECTED | $STATIC, $staticMethod(RTFGenerator, convertCharacter, int32_t, $ints*, char16_t)},
-	{"equalArraysOK", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(RTFGenerator, equalArraysOK, bool, Object$*, Object$*)},
-	{"examineElement", "(Ljavax/swing/text/Element;)V", nullptr, $PUBLIC, $virtualMethod(RTFGenerator, examineElement, void, $Element*)},
-	{"findStyle", "(Ljavax/swing/text/AttributeSet;)Ljavax/swing/text/Style;", nullptr, $PRIVATE, $method(RTFGenerator, findStyle, $Style*, $AttributeSet*)},
-	{"findStyleNumber", "(Ljavax/swing/text/AttributeSet;Ljava/lang/String;)Ljava/lang/Integer;", nullptr, $PRIVATE, $method(RTFGenerator, findStyleNumber, $Integer*, $AttributeSet*, $String*)},
-	{"outputConversionForName", "(Ljava/lang/String;)[I", nullptr, $STATIC, $staticMethod(RTFGenerator, outputConversionForName, $ints*, $String*), "java.io.IOException"},
-	{"outputConversionFromTranslationTable", "([C)[I", nullptr, $STATIC, $staticMethod(RTFGenerator, outputConversionFromTranslationTable, $ints*, $chars*)},
-	{"resetCharacterAttributes", "(Ljavax/swing/text/MutableAttributeSet;)V", nullptr, $PROTECTED, $virtualMethod(RTFGenerator, resetCharacterAttributes, void, $MutableAttributeSet*), "java.io.IOException"},
-	{"resetParagraphAttributes", "(Ljavax/swing/text/MutableAttributeSet;)V", nullptr, $PROTECTED, $virtualMethod(RTFGenerator, resetParagraphAttributes, void, $MutableAttributeSet*), "java.io.IOException"},
-	{"resetSectionAttributes", "(Ljavax/swing/text/MutableAttributeSet;)V", nullptr, $PROTECTED, $virtualMethod(RTFGenerator, resetSectionAttributes, void, $MutableAttributeSet*), "java.io.IOException"},
-	{"tallyStyles", "(Ljavax/swing/text/AttributeSet;)V", nullptr, $PRIVATE, $method(RTFGenerator, tallyStyles, void, $AttributeSet*)},
-	{"updateCharacterAttributes", "(Ljavax/swing/text/MutableAttributeSet;Ljavax/swing/text/AttributeSet;Z)V", nullptr, 0, $virtualMethod(RTFGenerator, updateCharacterAttributes, void, $MutableAttributeSet*, $AttributeSet*, bool), "java.io.IOException"},
-	{"updateParagraphAttributes", "(Ljavax/swing/text/MutableAttributeSet;Ljavax/swing/text/AttributeSet;Z)V", nullptr, 0, $virtualMethod(RTFGenerator, updateParagraphAttributes, void, $MutableAttributeSet*, $AttributeSet*, bool), "java.io.IOException"},
-	{"updateSectionAttributes", "(Ljavax/swing/text/MutableAttributeSet;Ljavax/swing/text/AttributeSet;Z)V", nullptr, 0, $virtualMethod(RTFGenerator, updateSectionAttributes, void, $MutableAttributeSet*, $AttributeSet*, bool), "java.io.IOException"},
-	{"writeBegingroup", "()V", nullptr, $PUBLIC, $virtualMethod(RTFGenerator, writeBegingroup, void), "java.io.IOException"},
-	{"writeCharacter", "(C)V", nullptr, $PUBLIC, $virtualMethod(RTFGenerator, writeCharacter, void, char16_t), "java.io.IOException"},
-	{"writeControlWord", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(RTFGenerator, writeControlWord, void, $String*), "java.io.IOException"},
-	{"writeControlWord", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $virtualMethod(RTFGenerator, writeControlWord, void, $String*, int32_t), "java.io.IOException"},
-	{"writeDocument", "(Ljavax/swing/text/Document;Ljava/io/OutputStream;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(RTFGenerator, writeDocument, void, $Document*, $OutputStream*), "java.io.IOException"},
-	{"writeDocumentProperties", "(Ljavax/swing/text/Document;)V", nullptr, 0, $virtualMethod(RTFGenerator, writeDocumentProperties, void, $Document*), "java.io.IOException"},
-	{"writeEndgroup", "()V", nullptr, $PUBLIC, $virtualMethod(RTFGenerator, writeEndgroup, void), "java.io.IOException"},
-	{"writeLineBreak", "()V", nullptr, $PUBLIC, $virtualMethod(RTFGenerator, writeLineBreak, void), "java.io.IOException"},
-	{"writeParagraphElement", "(Ljavax/swing/text/Element;)V", nullptr, $PUBLIC, $virtualMethod(RTFGenerator, writeParagraphElement, void, $Element*), "java.io.IOException"},
-	{"writeRTFHeader", "()V", nullptr, $PUBLIC, $virtualMethod(RTFGenerator, writeRTFHeader, void), "java.io.IOException"},
-	{"writeRTFTrailer", "()V", nullptr, $PUBLIC, $virtualMethod(RTFGenerator, writeRTFTrailer, void), "java.io.IOException"},
-	{"writeRawString", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(RTFGenerator, writeRawString, void, $String*), "java.io.IOException"},
-	{"writeText", "(Ljavax/swing/text/Segment;)V", nullptr, $PUBLIC, $virtualMethod(RTFGenerator, writeText, void, $Segment*), "java.io.IOException"},
-	{"writeText", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(RTFGenerator, writeText, void, $String*), "java.io.IOException"},
-	{"writeTextElement", "(Ljavax/swing/text/Element;)V", nullptr, $PUBLIC, $virtualMethod(RTFGenerator, writeTextElement, void, $Element*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _RTFGenerator_InnerClassesInfo_[] = {
-	{"javax.swing.text.rtf.RTFGenerator$CharacterKeywordPair", "javax.swing.text.rtf.RTFGenerator", "CharacterKeywordPair", $STATIC},
-	{}
-};
-
-$ClassInfo _RTFGenerator_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.text.rtf.RTFGenerator",
-	"java.lang.Object",
-	nullptr,
-	_RTFGenerator_FieldInfo_,
-	_RTFGenerator_MethodInfo_,
-	nullptr,
-	nullptr,
-	_RTFGenerator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.swing.text.rtf.RTFGenerator$CharacterKeywordPair"
-};
-
-$Object* allocate$RTFGenerator($Class* clazz) {
-	return $of($alloc(RTFGenerator));
-}
-
 $Color* RTFGenerator::defaultRTFColor = nullptr;
 float RTFGenerator::defaultFontSize = 0.0;
 $String* RTFGenerator::defaultFontFamily = nullptr;
@@ -179,7 +93,7 @@ $chars* RTFGenerator::hexdigits = nullptr;
 
 void RTFGenerator::writeDocument($Document* d, $OutputStream* to) {
 	$init(RTFGenerator);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(RTFGenerator, gen, $new(RTFGenerator, to));
 	$var($Element, root, $nc(d)->getDefaultRootElement());
 	gen->examineElement(root);
@@ -194,7 +108,7 @@ void RTFGenerator::writeDocument($Document* d, $OutputStream* to) {
 
 void RTFGenerator::init$($OutputStream* to) {
 	$set(this, colorTable, $new($Hashtable));
-	$nc(this->colorTable)->put(RTFGenerator::defaultRTFColor, $($Integer::valueOf(0)));
+	this->colorTable->put(RTFGenerator::defaultRTFColor, $($Integer::valueOf(0)));
 	this->colorCount = 1;
 	$set(this, fontTable, $new($Hashtable));
 	this->fontCount = 0;
@@ -206,7 +120,7 @@ void RTFGenerator::init$($OutputStream* to) {
 }
 
 void RTFGenerator::examineElement($Element* el) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AttributeSet, a, $nc(el)->getAttributes());
 	$var($String, fontName, nullptr);
 	$var($Object, foregroundColor, nullptr);
@@ -215,12 +129,12 @@ void RTFGenerator::examineElement($Element* el) {
 	if (a != nullptr) {
 		$assign(foregroundColor, $StyleConstants::getForeground(a));
 		if (foregroundColor != nullptr && $nc(this->colorTable)->get(foregroundColor) == nullptr) {
-			$nc(this->colorTable)->put(foregroundColor, $($Integer::valueOf(this->colorCount)));
+			this->colorTable->put(foregroundColor, $($Integer::valueOf(this->colorCount)));
 			++this->colorCount;
 		}
 		$assign(backgroundColor, a->getAttribute($StyleConstants::Background));
 		if (backgroundColor != nullptr && $nc(this->colorTable)->get(backgroundColor) == nullptr) {
-			$nc(this->colorTable)->put(backgroundColor, $($Integer::valueOf(this->colorCount)));
+			this->colorTable->put(backgroundColor, $($Integer::valueOf(this->colorCount)));
 			++this->colorCount;
 		}
 		$assign(fontName, $StyleConstants::getFontFamily(a));
@@ -228,7 +142,7 @@ void RTFGenerator::examineElement($Element* el) {
 			$assign(fontName, RTFGenerator::defaultFontFamily);
 		}
 		if (fontName != nullptr && $nc(this->fontTable)->get(fontName) == nullptr) {
-			$nc(this->fontTable)->put(fontName, $($Integer::valueOf(this->fontCount)));
+			this->fontTable->put(fontName, $($Integer::valueOf(this->fontCount)));
 			++this->fontCount;
 		}
 	}
@@ -239,7 +153,7 @@ void RTFGenerator::examineElement($Element* el) {
 }
 
 void RTFGenerator::tallyStyles($AttributeSet* a$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AttributeSet, a, a$renamed);
 	while (a != nullptr) {
 		if ($instanceOf($Style, a)) {
@@ -247,7 +161,7 @@ void RTFGenerator::tallyStyles($AttributeSet* a$renamed) {
 			if (aNum == nullptr) {
 				this->styleCount = this->styleCount + 1;
 				$assign(aNum, $Integer::valueOf(this->styleCount));
-				$nc(this->styleTable)->put(a, aNum);
+				this->styleTable->put(a, aNum);
 			}
 		}
 		$assign(a, a->getResolveParent());
@@ -255,7 +169,7 @@ void RTFGenerator::tallyStyles($AttributeSet* a$renamed) {
 }
 
 $Style* RTFGenerator::findStyle($AttributeSet* a$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AttributeSet, a, a$renamed);
 	while (a != nullptr) {
 		if ($instanceOf($Style, a)) {
@@ -270,14 +184,14 @@ $Style* RTFGenerator::findStyle($AttributeSet* a$renamed) {
 }
 
 $Integer* RTFGenerator::findStyleNumber($AttributeSet* a$renamed, $String* domain) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AttributeSet, a, a$renamed);
 	while (a != nullptr) {
 		if ($instanceOf($Style, a)) {
 			$var($Integer, aNum, $cast($Integer, $nc(this->styleTable)->get(a)));
 			if (aNum != nullptr) {
 				$init($Constants);
-				if (domain == nullptr || $nc(domain)->equals($(a->getAttribute($Constants::StyleType)))) {
+				if (domain == nullptr || domain->equals($(a->getAttribute($Constants::StyleType)))) {
 					return aNum;
 				}
 			}
@@ -289,32 +203,32 @@ $Integer* RTFGenerator::findStyleNumber($AttributeSet* a$renamed, $String* domai
 
 $Object* RTFGenerator::attrDiff($MutableAttributeSet* oldAttrs, $AttributeSet* newAttrs, Object$* key, Object$* dfl) {
 	$init(RTFGenerator);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, oldValue, nullptr);
 	$var($Object, newValue, nullptr);
 	$assign(oldValue, $nc(oldAttrs)->getAttribute(key));
 	$assign(newValue, $nc(newAttrs)->getAttribute(key));
 	if ($equals(newValue, oldValue)) {
-		return $of(nullptr);
+		return nullptr;
 	}
 	if (newValue == nullptr) {
 		oldAttrs->removeAttribute(key);
 		if (dfl != nullptr && !$of(dfl)->equals(oldValue)) {
 			return $of(dfl);
 		} else {
-			return $of(nullptr);
+			return nullptr;
 		}
 	}
 	if (oldValue == nullptr || !equalArraysOK(oldValue, newValue)) {
 		oldAttrs->addAttribute(key, newValue);
-		return $of(newValue);
+		return newValue;
 	}
-	return $of(nullptr);
+	return nullptr;
 }
 
 bool RTFGenerator::equalArraysOK(Object$* a, Object$* b) {
 	$init(RTFGenerator);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectArray, aa, nullptr);
 	$var($ObjectArray, bb, nullptr);
 	if ($equals(a, b)) {
@@ -326,19 +240,19 @@ bool RTFGenerator::equalArraysOK(Object$* a, Object$* b) {
 	if ($nc($of(a))->equals(b)) {
 		return true;
 	}
-	bool var$0 = $nc($of(a))->getClass()->isArray();
+	bool var$0 = $of(a)->getClass()->isArray();
 	if (!(var$0 && $nc($of(b))->getClass()->isArray())) {
 		return false;
 	}
 	$assign(aa, $cast($ObjectArray, a));
 	$assign(bb, $cast($ObjectArray, b));
-	if ($nc(aa)->length != $nc(bb)->length) {
+	if (aa->length != $nc(bb)->length) {
 		return false;
 	}
 	int32_t i = 0;
-	int32_t l = $nc(aa)->length;
+	int32_t l = aa->length;
 	for (i = 0; i < l; ++i) {
-		if (!equalArraysOK(aa->get(i), $nc(bb)->get(i))) {
+		if (!equalArraysOK(aa->get(i), bb->get(i))) {
 			return false;
 		}
 	}
@@ -351,7 +265,7 @@ void RTFGenerator::writeLineBreak() {
 }
 
 void RTFGenerator::writeRTFHeader() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t index = 0;
 	writeBegingroup();
 	writeControlWord("rtf"_s, 1);
@@ -363,7 +277,7 @@ void RTFGenerator::writeRTFHeader() {
 	$var($String, font, nullptr);
 	while ($nc(fonts)->hasMoreElements()) {
 		$assign(font, $cast($String, fonts->nextElement()));
-		$var($Integer, num, $cast($Integer, $nc(this->fontTable)->get(font)));
+		$var($Integer, num, $cast($Integer, this->fontTable->get(font)));
 		sortedFontTable->set($nc(num)->intValue(), font);
 	}
 	writeBegingroup();
@@ -382,7 +296,7 @@ void RTFGenerator::writeRTFHeader() {
 		$var($Color, color, nullptr);
 		while ($nc(colors)->hasMoreElements()) {
 			$assign(color, $cast($Color, colors->nextElement()));
-			$var($Integer, num, $cast($Integer, $nc(this->colorTable)->get(color)));
+			$var($Integer, num, $cast($Integer, this->colorTable->get(color)));
 			sortedColorTable->set($nc(num)->intValue(), color);
 		}
 		writeBegingroup();
@@ -405,7 +319,7 @@ void RTFGenerator::writeRTFHeader() {
 		$var($Enumeration, styles, $nc(this->styleTable)->keys());
 		while ($nc(styles)->hasMoreElements()) {
 			$var($Style, style, $cast($Style, styles->nextElement()));
-			int32_t styleNumber = $nc(($cast($Integer, $($nc(this->styleTable)->get(style)))))->intValue();
+			int32_t styleNumber = $$sure($Integer, $nc(this->styleTable)->get(style))->intValue();
 			writeBegingroup();
 			$init($Constants);
 			$var($String, styleType, $cast($String, $nc(style)->getAttribute($Constants::StyleType)));
@@ -415,13 +329,11 @@ void RTFGenerator::writeRTFHeader() {
 			if ($nc(styleType)->equals($Constants::STCharacter)) {
 				writeControlWord("*"_s);
 				writeControlWord("cs"_s, styleNumber);
+			} else if (styleType->equals($Constants::STSection)) {
+				writeControlWord("*"_s);
+				writeControlWord("ds"_s, styleNumber);
 			} else {
-				if (styleType->equals($Constants::STSection)) {
-					writeControlWord("*"_s);
-					writeControlWord("ds"_s, styleNumber);
-				} else {
-					writeControlWord("s"_s, styleNumber);
-				}
+				writeControlWord("s"_s, styleNumber);
 			}
 			$var($AttributeSet, basis, style->getResolveParent());
 			$var($MutableAttributeSet, goat, nullptr);
@@ -466,17 +378,17 @@ void RTFGenerator::writeRTFHeader() {
 }
 
 void RTFGenerator::writeDocumentProperties($Document* doc) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t i = 0;
 	bool wroteSomething = false;
 	$init($RTFAttributes);
 	for (i = 0; i < $nc($RTFAttributes::attributes)->length; ++i) {
-		$var($RTFAttribute, attr, $nc($RTFAttributes::attributes)->get(i));
+		$var($RTFAttribute, attr, $RTFAttributes::attributes->get(i));
 		if ($nc(attr)->domain() != $RTFAttribute::D_DOCUMENT) {
 			continue;
 		}
-		$var($Object, prop, $nc(doc)->getProperty($($nc(attr)->swingName())));
-		bool ok = $nc(attr)->writeValue(prop, this, false);
+		$var($Object, prop, $nc(doc)->getProperty($(attr->swingName())));
+		bool ok = attr->writeValue(prop, this, false);
 		if (ok) {
 			wroteSomething = true;
 		}
@@ -498,27 +410,27 @@ void RTFGenerator::checkNumericControlWord($MutableAttributeSet* currentAttribut
 		if ($equals(parm, RTFGenerator::MagicToken)) {
 			targ = dflt;
 		} else {
-			targ = $nc(($cast($Number, parm)))->floatValue();
+			targ = $nc($cast($Number, parm))->floatValue();
 		}
 		writeControlWord(controlWord, $Math::round(targ * scale));
 	}
 }
 
 void RTFGenerator::checkControlWord($MutableAttributeSet* currentAttributes, $AttributeSet* newAttributes, $RTFAttribute* word) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, parm, nullptr);
 	if (($assign(parm, attrDiff(currentAttributes, newAttributes, $($nc(word)->swingName()), RTFGenerator::MagicToken))) != nullptr) {
 		if ($equals(parm, RTFGenerator::MagicToken)) {
 			$assign(parm, nullptr);
 		}
-		if (!$nc(word)->writeValue(parm, this, true) && $instanceOf($RTFAttributes$AssertiveAttribute, word)) {
+		if (!word->writeValue(parm, this, true) && $instanceOf($RTFAttributes$AssertiveAttribute, word)) {
 			$nc(currentAttributes)->removeAttribute($(word->swingName()));
 		}
 	}
 }
 
 void RTFGenerator::checkControlWords($MutableAttributeSet* currentAttributes, $AttributeSet* newAttributes, $RTFAttributeArray* words, int32_t domain) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t wordIndex = 0;
 	int32_t wordCount = $nc(words)->length;
 	for (wordIndex = 0; wordIndex < wordCount; ++wordIndex) {
@@ -530,7 +442,7 @@ void RTFGenerator::checkControlWords($MutableAttributeSet* currentAttributes, $A
 }
 
 void RTFGenerator::updateSectionAttributes($MutableAttributeSet* current, $AttributeSet* newAttributes, bool emitStyleChanges) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (emitStyleChanges) {
 		$var($Object, oldStyle, $nc(current)->getAttribute("sectionStyle"_s));
 		$init($Constants);
@@ -540,7 +452,7 @@ void RTFGenerator::updateSectionAttributes($MutableAttributeSet* current, $Attri
 				resetSectionAttributes(current);
 			}
 			if (newStyle != nullptr) {
-				writeControlWord("ds"_s, $nc(($cast($Integer, newStyle)))->intValue());
+				writeControlWord("ds"_s, $cast($Integer, newStyle)->intValue());
 				current->addAttribute("sectionStyle"_s, newStyle);
 			} else {
 				current->removeAttribute("sectionStyle"_s);
@@ -552,7 +464,7 @@ void RTFGenerator::updateSectionAttributes($MutableAttributeSet* current, $Attri
 }
 
 void RTFGenerator::resetSectionAttributes($MutableAttributeSet* currentAttributes) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	writeControlWord("sectd"_s);
 	int32_t wordIndex = 0;
 	$init($RTFAttributes);
@@ -567,7 +479,7 @@ void RTFGenerator::resetSectionAttributes($MutableAttributeSet* currentAttribute
 }
 
 void RTFGenerator::updateParagraphAttributes($MutableAttributeSet* current, $AttributeSet* newAttributes, bool emitStyleChanges) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, parm, nullptr);
 	$var($Object, oldStyle, nullptr);
 	$var($Object, newStyle, nullptr);
@@ -596,7 +508,7 @@ void RTFGenerator::updateParagraphAttributes($MutableAttributeSet* current, $Att
 		}
 	}
 	if (!$equals(oldStyle, newStyle) && newStyle != nullptr) {
-		writeControlWord("s"_s, $nc(($cast($Integer, newStyle)))->intValue());
+		writeControlWord("s"_s, $cast($Integer, newStyle)->intValue());
 		current->addAttribute("paragraphStyle"_s, newStyle);
 	}
 	$init($RTFAttributes);
@@ -608,57 +520,36 @@ void RTFGenerator::updateParagraphAttributes($MutableAttributeSet* current, $Att
 			$var($TabStop, tab, tabs->get(index));
 			switch ($nc(tab)->getAlignment()) {
 			case $TabStop::ALIGN_LEFT:
-				{}
 			case $TabStop::ALIGN_BAR:
-				{
-					break;
-				}
+				break;
 			case $TabStop::ALIGN_RIGHT:
-				{
-					writeControlWord("tqr"_s);
-					break;
-				}
+				writeControlWord("tqr"_s);
+				break;
 			case $TabStop::ALIGN_CENTER:
-				{
-					writeControlWord("tqc"_s);
-					break;
-				}
+				writeControlWord("tqc"_s);
+				break;
 			case $TabStop::ALIGN_DECIMAL:
-				{
-					writeControlWord("tqdec"_s);
-					break;
-				}
+				writeControlWord("tqdec"_s);
+				break;
 			}
 			switch (tab->getLeader()) {
 			case $TabStop::LEAD_NONE:
-				{
-					break;
-				}
+				break;
 			case $TabStop::LEAD_DOTS:
-				{
-					writeControlWord("tldot"_s);
-					break;
-				}
+				writeControlWord("tldot"_s);
+				break;
 			case $TabStop::LEAD_HYPHENS:
-				{
-					writeControlWord("tlhyph"_s);
-					break;
-				}
+				writeControlWord("tlhyph"_s);
+				break;
 			case $TabStop::LEAD_UNDERLINE:
-				{
-					writeControlWord("tlul"_s);
-					break;
-				}
+				writeControlWord("tlul"_s);
+				break;
 			case $TabStop::LEAD_THICKLINE:
-				{
-					writeControlWord("tlth"_s);
-					break;
-				}
+				writeControlWord("tlth"_s);
+				break;
 			case $TabStop::LEAD_EQUALS:
-				{
-					writeControlWord("tleq"_s);
-					break;
-				}
+				writeControlWord("tleq"_s);
+				break;
 			}
 			int32_t twips = $Math::round(20.0f * tab->getPosition());
 			if (tab->getAlignment() == $TabStop::ALIGN_BAR) {
@@ -672,9 +563,9 @@ void RTFGenerator::updateParagraphAttributes($MutableAttributeSet* current, $Att
 }
 
 void RTFGenerator::writeParagraphElement($Element* el) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	updateParagraphAttributes(this->outputAttributes, $($nc(el)->getAttributes()), true);
-	int32_t sub_count = $nc(el)->getElementCount();
+	int32_t sub_count = el->getElementCount();
 	for (int32_t idx = 0; idx < sub_count; ++idx) {
 		writeTextElement($(el->getElement(idx)));
 	}
@@ -683,7 +574,7 @@ void RTFGenerator::writeParagraphElement($Element* el) {
 }
 
 void RTFGenerator::resetParagraphAttributes($MutableAttributeSet* currentAttributes) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	writeControlWord("pard"_s);
 	$init($StyleConstants);
 	$nc(currentAttributes)->addAttribute($StyleConstants::Alignment, $($Integer::valueOf(0)));
@@ -702,7 +593,7 @@ void RTFGenerator::resetParagraphAttributes($MutableAttributeSet* currentAttribu
 }
 
 void RTFGenerator::updateCharacterAttributes($MutableAttributeSet* current, $AttributeSet* newAttributes, bool updateStyleChanges) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, parm, nullptr);
 	if (updateStyleChanges) {
 		$var($Object, oldStyle, $nc(current)->getAttribute("characterStyle"_s));
@@ -713,7 +604,7 @@ void RTFGenerator::updateCharacterAttributes($MutableAttributeSet* current, $Att
 				resetCharacterAttributes(current);
 			}
 			if (newStyle != nullptr) {
-				writeControlWord("cs"_s, $nc(($cast($Integer, newStyle)))->intValue());
+				writeControlWord("cs"_s, $cast($Integer, newStyle)->intValue());
 				current->addAttribute("characterStyle"_s, newStyle);
 			} else {
 				current->removeAttribute("characterStyle"_s);
@@ -728,13 +619,13 @@ void RTFGenerator::updateCharacterAttributes($MutableAttributeSet* current, $Att
 	checkNumericControlWord(current, newAttributes, $StyleConstants::FontSize, "fs"_s, RTFGenerator::defaultFontSize, 2.0f);
 	$init($RTFAttributes);
 	checkControlWords(current, newAttributes, $RTFAttributes::attributes, $RTFAttribute::D_CHARACTER);
-	checkNumericControlWord(current, newAttributes, $StyleConstants::LineSpacing, "sl"_s, (float)0, 20.0f);
+	checkNumericControlWord(current, newAttributes, $StyleConstants::LineSpacing, "sl"_s, 0, 20.0f);
 	if (($assign(parm, attrDiff(current, newAttributes, $StyleConstants::Background, RTFGenerator::MagicToken))) != nullptr) {
 		int32_t colorNum = 0;
 		if ($equals(parm, RTFGenerator::MagicToken)) {
 			colorNum = 0;
 		} else {
-			colorNum = $nc(($cast($Integer, $($nc(this->colorTable)->get(parm)))))->intValue();
+			colorNum = $$sure($Integer, $nc(this->colorTable)->get(parm))->intValue();
 		}
 		writeControlWord("cb"_s, colorNum);
 	}
@@ -743,14 +634,14 @@ void RTFGenerator::updateCharacterAttributes($MutableAttributeSet* current, $Att
 		if ($equals(parm, RTFGenerator::MagicToken)) {
 			colorNum = 0;
 		} else {
-			colorNum = $nc(($cast($Integer, $($nc(this->colorTable)->get(parm)))))->intValue();
+			colorNum = $$sure($Integer, $nc(this->colorTable)->get(parm))->intValue();
 		}
 		writeControlWord("cf"_s, colorNum);
 	}
 }
 
 void RTFGenerator::resetCharacterAttributes($MutableAttributeSet* currentAttributes) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	writeControlWord("plain"_s);
 	int32_t wordIndex = 0;
 	$init($RTFAttributes);
@@ -770,13 +661,13 @@ void RTFGenerator::resetCharacterAttributes($MutableAttributeSet* currentAttribu
 }
 
 void RTFGenerator::writeTextElement($Element* el) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	updateCharacterAttributes(this->outputAttributes, $($nc(el)->getAttributes()), true);
-	if ($nc(el)->isLeaf()) {
+	if (el->isLeaf()) {
 		try {
 			int32_t var$0 = el->getStartOffset();
 			int32_t var$1 = el->getEndOffset();
-			$nc($(el->getDocument()))->getText(var$0, var$1 - el->getStartOffset(), this->workingSegment);
+			$$nc(el->getDocument())->getText(var$0, var$1 - el->getStartOffset(), this->workingSegment);
 		} catch ($BadLocationException& ble) {
 			ble->printStackTrace();
 			$throwNew($InternalError, $(ble->getMessage()));
@@ -820,32 +711,32 @@ void RTFGenerator::writeRawString($String* str) {
 }
 
 void RTFGenerator::writeControlWord($String* keyword) {
-	$nc(this->outputStream)->write((int32_t)u'\\');
+	$nc(this->outputStream)->write(u'\\');
 	writeRawString(keyword);
 	this->afterKeyword = true;
 }
 
 void RTFGenerator::writeControlWord($String* keyword, int32_t arg) {
-	$nc(this->outputStream)->write((int32_t)u'\\');
+	$nc(this->outputStream)->write(u'\\');
 	writeRawString(keyword);
 	writeRawString($($String::valueOf(arg)));
 	this->afterKeyword = true;
 }
 
 void RTFGenerator::writeBegingroup() {
-	$nc(this->outputStream)->write((int32_t)u'{');
+	$nc(this->outputStream)->write(u'{');
 	this->afterKeyword = false;
 }
 
 void RTFGenerator::writeEndgroup() {
-	$nc(this->outputStream)->write((int32_t)u'}');
+	$nc(this->outputStream)->write(u'}');
 	this->afterKeyword = false;
 }
 
 void RTFGenerator::writeCharacter(char16_t ch) {
 	if (ch == 160) {
 		$nc(this->outputStream)->write(92);
-		$nc(this->outputStream)->write(126);
+		this->outputStream->write(126);
 		this->afterKeyword = false;
 		return;
 	}
@@ -860,8 +751,8 @@ void RTFGenerator::writeCharacter(char16_t ch) {
 	if (b == 0) {
 		int32_t i = 0;
 		for (i = 0; i < $nc(RTFGenerator::textKeywords)->length; ++i) {
-			if ($nc($nc(RTFGenerator::textKeywords)->get(i))->character == ch) {
-				writeControlWord($nc($nc(RTFGenerator::textKeywords)->get(i))->keyword);
+			if ($nc(RTFGenerator::textKeywords->get(i))->character == ch) {
+				writeControlWord($nc(RTFGenerator::textKeywords->get(i))->keyword);
 				return;
 			}
 		}
@@ -878,34 +769,28 @@ void RTFGenerator::writeCharacter(char16_t ch) {
 	}
 	if (b > 127) {
 		int32_t nybble = 0;
-		$nc(this->outputStream)->write((int32_t)u'\\');
-		$nc(this->outputStream)->write((int32_t)u'\'');
-		nybble = (int32_t)((uint32_t)((int32_t)(b & (uint32_t)240)) >> 4);
-		$nc(this->outputStream)->write((int32_t)$nc(RTFGenerator::hexdigits)->get(nybble));
-		nybble = ((int32_t)(b & (uint32_t)15));
-		$nc(this->outputStream)->write((int32_t)$nc(RTFGenerator::hexdigits)->get(nybble));
+		$nc(this->outputStream)->write(u'\\');
+		this->outputStream->write(u'\'');
+		nybble = (int32_t)((uint32_t)(b & 0xf0) >> 4);
+		this->outputStream->write(RTFGenerator::hexdigits->get(nybble));
+		nybble = (b & 0x0f);
+		this->outputStream->write(RTFGenerator::hexdigits->get(nybble));
 		this->afterKeyword = false;
 		return;
 	}
 	switch (b) {
 	case u'}':
-		{}
 	case u'{':
-		{}
 	case u'\\':
-		{
-			$nc(this->outputStream)->write(92);
+		$nc(this->outputStream)->write(92);
+		this->afterKeyword = false;
+	default:
+		if (this->afterKeyword) {
+			$nc(this->outputStream)->write(32);
 			this->afterKeyword = false;
 		}
-	default:
-		{
-			if (this->afterKeyword) {
-				$nc(this->outputStream)->write(32);
-				this->afterKeyword = false;
-			}
-			$nc(this->outputStream)->write(b);
-			break;
-		}
+		$nc(this->outputStream)->write(b);
+		break;
 	}
 }
 
@@ -941,8 +826,8 @@ int32_t RTFGenerator::convertCharacter($ints* conversion, char16_t ch) {
 	return 0;
 }
 
-void clinit$RTFGenerator($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void RTFGenerator::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	RTFGenerator::defaultFontSize = 12.0f;
 	$assignStatic(RTFGenerator::defaultFontFamily, "Helvetica"_s);
 	$init($Color);
@@ -956,7 +841,7 @@ void clinit$RTFGenerator($Class* class$) {
 		while ($nc(keys)->hasMoreElements()) {
 			$var($RTFGenerator$CharacterKeywordPair, pair, $new($RTFGenerator$CharacterKeywordPair));
 			$set(pair, keyword, $cast($String, keys->nextElement()));
-			pair->character = $nc(($cast($String, $(textKeywordDictionary->get(pair->keyword)))))->charAt(0);
+			pair->character = $$sure($String, textKeywordDictionary->get(pair->keyword))->charAt(0);
 			tempPairs->addElement(pair);
 		}
 		$assignStatic(RTFGenerator::textKeywords, $new($RTFGenerator$CharacterKeywordPairArray, tempPairs->size()));
@@ -986,7 +871,86 @@ RTFGenerator::RTFGenerator() {
 }
 
 $Class* RTFGenerator::load$($String* name, bool initialize) {
-	$loadClass(RTFGenerator, name, initialize, &_RTFGenerator_ClassInfo_, clinit$RTFGenerator, allocate$RTFGenerator);
+	$FieldInfo fieldInfos$$[] = {
+		{"colorTable", "Ljava/util/Dictionary;", "Ljava/util/Dictionary<Ljava/lang/Object;Ljava/lang/Integer;>;", 0, $field(RTFGenerator, colorTable)},
+		{"colorCount", "I", nullptr, 0, $field(RTFGenerator, colorCount)},
+		{"fontTable", "Ljava/util/Dictionary;", "Ljava/util/Dictionary<Ljava/lang/String;Ljava/lang/Integer;>;", 0, $field(RTFGenerator, fontTable)},
+		{"fontCount", "I", nullptr, 0, $field(RTFGenerator, fontCount)},
+		{"styleTable", "Ljava/util/Dictionary;", "Ljava/util/Dictionary<Ljavax/swing/text/AttributeSet;Ljava/lang/Integer;>;", 0, $field(RTFGenerator, styleTable)},
+		{"styleCount", "I", nullptr, 0, $field(RTFGenerator, styleCount)},
+		{"outputStream", "Ljava/io/OutputStream;", nullptr, 0, $field(RTFGenerator, outputStream)},
+		{"afterKeyword", "Z", nullptr, 0, $field(RTFGenerator, afterKeyword)},
+		{"outputAttributes", "Ljavax/swing/text/MutableAttributeSet;", nullptr, 0, $field(RTFGenerator, outputAttributes)},
+		{"unicodeCount", "I", nullptr, 0, $field(RTFGenerator, unicodeCount)},
+		{"workingSegment", "Ljavax/swing/text/Segment;", nullptr, $PRIVATE, $field(RTFGenerator, workingSegment)},
+		{"outputConversion", "[I", nullptr, 0, $field(RTFGenerator, outputConversion)},
+		{"defaultRTFColor", "Ljava/awt/Color;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(RTFGenerator, defaultRTFColor)},
+		{"defaultFontSize", "F", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(RTFGenerator, defaultFontSize)},
+		{"defaultFontFamily", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(RTFGenerator, defaultFontFamily)},
+		{"MagicToken", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(RTFGenerator, MagicToken)},
+		{"textKeywords", "[Ljavax/swing/text/rtf/RTFGenerator$CharacterKeywordPair;", nullptr, $PROTECTED | $STATIC, $staticField(RTFGenerator, textKeywords)},
+		{"hexdigits", "[C", nullptr, $STATIC | $FINAL, $staticField(RTFGenerator, hexdigits)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $method(RTFGenerator, init$, void, $OutputStream*)},
+		{"approximationForUnicode", "(C)Ljava/lang/String;", nullptr, 0, $virtualMethod(RTFGenerator, approximationForUnicode, $String*, char16_t)},
+		{"attrDiff", "(Ljavax/swing/text/MutableAttributeSet;Ljavax/swing/text/AttributeSet;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC, $staticMethod(RTFGenerator, attrDiff, $Object*, $MutableAttributeSet*, $AttributeSet*, Object$*, Object$*)},
+		{"checkControlWord", "(Ljavax/swing/text/MutableAttributeSet;Ljavax/swing/text/AttributeSet;Ljavax/swing/text/rtf/RTFAttribute;)V", nullptr, $PROTECTED, $virtualMethod(RTFGenerator, checkControlWord, void, $MutableAttributeSet*, $AttributeSet*, $RTFAttribute*), "java.io.IOException"},
+		{"checkControlWords", "(Ljavax/swing/text/MutableAttributeSet;Ljavax/swing/text/AttributeSet;[Ljavax/swing/text/rtf/RTFAttribute;I)V", nullptr, $PROTECTED, $virtualMethod(RTFGenerator, checkControlWords, void, $MutableAttributeSet*, $AttributeSet*, $RTFAttributeArray*, int32_t), "java.io.IOException"},
+		{"checkNumericControlWord", "(Ljavax/swing/text/MutableAttributeSet;Ljavax/swing/text/AttributeSet;Ljava/lang/Object;Ljava/lang/String;FF)V", nullptr, $PROTECTED, $virtualMethod(RTFGenerator, checkNumericControlWord, void, $MutableAttributeSet*, $AttributeSet*, Object$*, $String*, float, float), "java.io.IOException"},
+		{"convertCharacter", "([IC)I", nullptr, $PROTECTED | $STATIC, $staticMethod(RTFGenerator, convertCharacter, int32_t, $ints*, char16_t)},
+		{"equalArraysOK", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(RTFGenerator, equalArraysOK, bool, Object$*, Object$*)},
+		{"examineElement", "(Ljavax/swing/text/Element;)V", nullptr, $PUBLIC, $virtualMethod(RTFGenerator, examineElement, void, $Element*)},
+		{"findStyle", "(Ljavax/swing/text/AttributeSet;)Ljavax/swing/text/Style;", nullptr, $PRIVATE, $method(RTFGenerator, findStyle, $Style*, $AttributeSet*)},
+		{"findStyleNumber", "(Ljavax/swing/text/AttributeSet;Ljava/lang/String;)Ljava/lang/Integer;", nullptr, $PRIVATE, $method(RTFGenerator, findStyleNumber, $Integer*, $AttributeSet*, $String*)},
+		{"outputConversionForName", "(Ljava/lang/String;)[I", nullptr, $STATIC, $staticMethod(RTFGenerator, outputConversionForName, $ints*, $String*), "java.io.IOException"},
+		{"outputConversionFromTranslationTable", "([C)[I", nullptr, $STATIC, $staticMethod(RTFGenerator, outputConversionFromTranslationTable, $ints*, $chars*)},
+		{"resetCharacterAttributes", "(Ljavax/swing/text/MutableAttributeSet;)V", nullptr, $PROTECTED, $virtualMethod(RTFGenerator, resetCharacterAttributes, void, $MutableAttributeSet*), "java.io.IOException"},
+		{"resetParagraphAttributes", "(Ljavax/swing/text/MutableAttributeSet;)V", nullptr, $PROTECTED, $virtualMethod(RTFGenerator, resetParagraphAttributes, void, $MutableAttributeSet*), "java.io.IOException"},
+		{"resetSectionAttributes", "(Ljavax/swing/text/MutableAttributeSet;)V", nullptr, $PROTECTED, $virtualMethod(RTFGenerator, resetSectionAttributes, void, $MutableAttributeSet*), "java.io.IOException"},
+		{"tallyStyles", "(Ljavax/swing/text/AttributeSet;)V", nullptr, $PRIVATE, $method(RTFGenerator, tallyStyles, void, $AttributeSet*)},
+		{"updateCharacterAttributes", "(Ljavax/swing/text/MutableAttributeSet;Ljavax/swing/text/AttributeSet;Z)V", nullptr, 0, $virtualMethod(RTFGenerator, updateCharacterAttributes, void, $MutableAttributeSet*, $AttributeSet*, bool), "java.io.IOException"},
+		{"updateParagraphAttributes", "(Ljavax/swing/text/MutableAttributeSet;Ljavax/swing/text/AttributeSet;Z)V", nullptr, 0, $virtualMethod(RTFGenerator, updateParagraphAttributes, void, $MutableAttributeSet*, $AttributeSet*, bool), "java.io.IOException"},
+		{"updateSectionAttributes", "(Ljavax/swing/text/MutableAttributeSet;Ljavax/swing/text/AttributeSet;Z)V", nullptr, 0, $virtualMethod(RTFGenerator, updateSectionAttributes, void, $MutableAttributeSet*, $AttributeSet*, bool), "java.io.IOException"},
+		{"writeBegingroup", "()V", nullptr, $PUBLIC, $virtualMethod(RTFGenerator, writeBegingroup, void), "java.io.IOException"},
+		{"writeCharacter", "(C)V", nullptr, $PUBLIC, $virtualMethod(RTFGenerator, writeCharacter, void, char16_t), "java.io.IOException"},
+		{"writeControlWord", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(RTFGenerator, writeControlWord, void, $String*), "java.io.IOException"},
+		{"writeControlWord", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $virtualMethod(RTFGenerator, writeControlWord, void, $String*, int32_t), "java.io.IOException"},
+		{"writeDocument", "(Ljavax/swing/text/Document;Ljava/io/OutputStream;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(RTFGenerator, writeDocument, void, $Document*, $OutputStream*), "java.io.IOException"},
+		{"writeDocumentProperties", "(Ljavax/swing/text/Document;)V", nullptr, 0, $virtualMethod(RTFGenerator, writeDocumentProperties, void, $Document*), "java.io.IOException"},
+		{"writeEndgroup", "()V", nullptr, $PUBLIC, $virtualMethod(RTFGenerator, writeEndgroup, void), "java.io.IOException"},
+		{"writeLineBreak", "()V", nullptr, $PUBLIC, $virtualMethod(RTFGenerator, writeLineBreak, void), "java.io.IOException"},
+		{"writeParagraphElement", "(Ljavax/swing/text/Element;)V", nullptr, $PUBLIC, $virtualMethod(RTFGenerator, writeParagraphElement, void, $Element*), "java.io.IOException"},
+		{"writeRTFHeader", "()V", nullptr, $PUBLIC, $virtualMethod(RTFGenerator, writeRTFHeader, void), "java.io.IOException"},
+		{"writeRTFTrailer", "()V", nullptr, $PUBLIC, $virtualMethod(RTFGenerator, writeRTFTrailer, void), "java.io.IOException"},
+		{"writeRawString", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(RTFGenerator, writeRawString, void, $String*), "java.io.IOException"},
+		{"writeText", "(Ljavax/swing/text/Segment;)V", nullptr, $PUBLIC, $virtualMethod(RTFGenerator, writeText, void, $Segment*), "java.io.IOException"},
+		{"writeText", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(RTFGenerator, writeText, void, $String*), "java.io.IOException"},
+		{"writeTextElement", "(Ljavax/swing/text/Element;)V", nullptr, $PUBLIC, $virtualMethod(RTFGenerator, writeTextElement, void, $Element*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.rtf.RTFGenerator$CharacterKeywordPair", "javax.swing.text.rtf.RTFGenerator", "CharacterKeywordPair", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.text.rtf.RTFGenerator",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.swing.text.rtf.RTFGenerator$CharacterKeywordPair"
+	};
+	$loadClass(RTFGenerator, name, initialize, &classInfo$$, RTFGenerator::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(RTFGenerator);
+	});
 	return class$;
 }
 

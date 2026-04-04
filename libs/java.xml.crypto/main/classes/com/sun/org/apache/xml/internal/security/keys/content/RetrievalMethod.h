@@ -65,6 +65,7 @@ class RetrievalMethod : public ::com::sun::org::apache::xml::internal::security:
 	$class(RetrievalMethod, 0, ::com::sun::org::apache::xml::internal::security::utils::SignatureElementProxy, ::com::sun::org::apache::xml::internal::security::keys::content::KeyInfoContent)
 public:
 	RetrievalMethod();
+	static void clinit$(::java::lang::Class* clazz);
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* arg0) override;
 	virtual void finalize() override;

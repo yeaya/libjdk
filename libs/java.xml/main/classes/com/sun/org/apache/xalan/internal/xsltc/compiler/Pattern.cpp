@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/Pattern.h>
-
 #include <com/sun/org/apache/bcel/internal/generic/InstructionHandle.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/Expression.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/FlowList.h>
@@ -29,40 +28,6 @@ namespace com {
 					namespace internal {
 						namespace xsltc {
 							namespace compiler {
-
-$MethodInfo _Pattern_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Pattern, init$, void)},
-	{"backPatchFalseList", "(Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Pattern, backPatchFalseList, void, $InstructionHandle*)},
-	{"backPatchTrueList", "(Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Pattern, backPatchTrueList, void, $InstructionHandle*)},
-	{"desynthesize", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Pattern, desynthesize, void, $ClassGenerator*, $MethodGenerator*)},
-	{"evaluateAtCompileTime", "()Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Pattern, evaluateAtCompileTime, $Object*)},
-	{"getFalseList", "()Lcom/sun/org/apache/xalan/internal/xsltc/compiler/FlowList;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Pattern, getFalseList, $FlowList*)},
-	{"getPriority", "()D", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Pattern, getPriority, double)},
-	{"getTrueList", "()Lcom/sun/org/apache/xalan/internal/xsltc/compiler/FlowList;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Pattern, getTrueList, $FlowList*)},
-	{"getType", "()Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/Type;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Pattern, getType, $Type*)},
-	{"hasLastCall", "()Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Pattern, hasLastCall, bool)},
-	{"hasPositionCall", "()Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Pattern, hasPositionCall, bool)},
-	{"lookupPrimop", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SymbolTable;Ljava/lang/String;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodType;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodType;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Pattern, lookupPrimop, $MethodType*, $SymbolTable*, $String*, $MethodType*)},
-	{"startIterator", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Pattern, startIterator, void, $ClassGenerator*, $MethodGenerator*)},
-	{"synthesize", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Pattern, synthesize, void, $ClassGenerator*, $MethodGenerator*)},
-	{"translate", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"translateDesynthesized", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Pattern, translateDesynthesized, void, $ClassGenerator*, $MethodGenerator*)},
-	{"typeCheck", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SymbolTable;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/Type;", nullptr, $PUBLIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Pattern_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"com.sun.org.apache.xalan.internal.xsltc.compiler.Pattern",
-	"com.sun.org.apache.xalan.internal.xsltc.compiler.Expression",
-	nullptr,
-	nullptr,
-	_Pattern_MethodInfo_
-};
-
-$Object* allocate$Pattern($Class* clazz) {
-	return $of($alloc(Pattern));
-}
 
 $Type* Pattern::typeCheck($SymbolTable* stable) {
 	 return this->$Expression::typeCheck(stable);
@@ -113,7 +78,7 @@ void Pattern::translateDesynthesized($ClassGenerator* classGen, $MethodGenerator
 }
 
 $Object* Pattern::evaluateAtCompileTime() {
-	return $of($Expression::evaluateAtCompileTime());
+	return $Expression::evaluateAtCompileTime();
 }
 
 bool Pattern::hasLastCall() {
@@ -132,7 +97,37 @@ Pattern::Pattern() {
 }
 
 $Class* Pattern::load$($String* name, bool initialize) {
-	$loadClass(Pattern, name, initialize, &_Pattern_ClassInfo_, allocate$Pattern);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Pattern, init$, void)},
+		{"backPatchFalseList", "(Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Pattern, backPatchFalseList, void, $InstructionHandle*)},
+		{"backPatchTrueList", "(Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Pattern, backPatchTrueList, void, $InstructionHandle*)},
+		{"desynthesize", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Pattern, desynthesize, void, $ClassGenerator*, $MethodGenerator*)},
+		{"evaluateAtCompileTime", "()Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Pattern, evaluateAtCompileTime, $Object*)},
+		{"getFalseList", "()Lcom/sun/org/apache/xalan/internal/xsltc/compiler/FlowList;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Pattern, getFalseList, $FlowList*)},
+		{"getPriority", "()D", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Pattern, getPriority, double)},
+		{"getTrueList", "()Lcom/sun/org/apache/xalan/internal/xsltc/compiler/FlowList;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Pattern, getTrueList, $FlowList*)},
+		{"getType", "()Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/Type;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Pattern, getType, $Type*)},
+		{"hasLastCall", "()Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Pattern, hasLastCall, bool)},
+		{"hasPositionCall", "()Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Pattern, hasPositionCall, bool)},
+		{"lookupPrimop", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SymbolTable;Ljava/lang/String;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodType;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodType;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Pattern, lookupPrimop, $MethodType*, $SymbolTable*, $String*, $MethodType*)},
+		{"startIterator", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Pattern, startIterator, void, $ClassGenerator*, $MethodGenerator*)},
+		{"synthesize", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Pattern, synthesize, void, $ClassGenerator*, $MethodGenerator*)},
+		{"translate", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;)V", nullptr, $PUBLIC | $ABSTRACT},
+		{"translateDesynthesized", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Pattern, translateDesynthesized, void, $ClassGenerator*, $MethodGenerator*)},
+		{"typeCheck", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SymbolTable;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/Type;", nullptr, $PUBLIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"com.sun.org.apache.xalan.internal.xsltc.compiler.Pattern",
+		"com.sun.org.apache.xalan.internal.xsltc.compiler.Expression",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Pattern, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Pattern);
+	});
 	return class$;
 }
 

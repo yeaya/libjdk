@@ -1,5 +1,4 @@
 #include <sun/awt/image/JPEGImageDecoder.h>
-
 #include <java/awt/image/ColorModel.h>
 #include <java/awt/image/DirectColorModel.h>
 #include <java/awt/image/ImageConsumer.h>
@@ -7,7 +6,6 @@
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
 #include <java/security/AccessController.h>
-#include <java/security/PrivilegedAction.h>
 #include <java/util/Hashtable.h>
 #include <sun/awt/image/ImageDecoder.h>
 #include <sun/awt/image/ImageFormatException.h>
@@ -29,7 +27,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AccessController = ::java::security::AccessController;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $Hashtable = ::java::util::Hashtable;
 using $ImageDecoder = ::sun::awt::image::ImageDecoder;
 using $ImageFormatException = ::sun::awt::image::ImageFormatException;
@@ -40,56 +37,6 @@ namespace sun {
 	namespace awt {
 		namespace image {
 
-$FieldInfo _JPEGImageDecoder_FieldInfo_[] = {
-	{"RGBcolormodel", "Ljava/awt/image/ColorModel;", nullptr, $PRIVATE | $STATIC, $staticField(JPEGImageDecoder, RGBcolormodel)},
-	{"ARGBcolormodel", "Ljava/awt/image/ColorModel;", nullptr, $PRIVATE | $STATIC, $staticField(JPEGImageDecoder, ARGBcolormodel)},
-	{"Graycolormodel", "Ljava/awt/image/ColorModel;", nullptr, $PRIVATE | $STATIC, $staticField(JPEGImageDecoder, Graycolormodel)},
-	{"InputStreamClass", "Ljava/lang/Class;", "Ljava/lang/Class<*>;", $PRIVATE | $STATIC | $FINAL, $staticField(JPEGImageDecoder, InputStreamClass)},
-	{"colormodel", "Ljava/awt/image/ColorModel;", nullptr, $PRIVATE, $field(JPEGImageDecoder, colormodel)},
-	{"props", "Ljava/util/Hashtable;", "Ljava/util/Hashtable<Ljava/lang/String;Ljava/lang/Object;>;", 0, $field(JPEGImageDecoder, props)},
-	{"hintflags", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JPEGImageDecoder, hintflags)},
-	{}
-};
-
-$MethodInfo _JPEGImageDecoder_MethodInfo_[] = {
-	{"<init>", "(Lsun/awt/image/InputStreamImageSource;Ljava/io/InputStream;)V", nullptr, $PUBLIC, $method(JPEGImageDecoder, init$, void, $InputStreamImageSource*, $InputStream*)},
-	{"error", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(JPEGImageDecoder, error, void, $String*), "sun.awt.image.ImageFormatException"},
-	{"initIDs", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;)V", $PRIVATE | $STATIC | $NATIVE, $staticMethod(JPEGImageDecoder, initIDs, void, $Class*)},
-	{"produceImage", "()V", nullptr, $PUBLIC, $virtualMethod(JPEGImageDecoder, produceImage, void), "java.io.IOException,sun.awt.image.ImageFormatException"},
-	{"readImage", "(Ljava/io/InputStream;[B)V", nullptr, $PRIVATE | $NATIVE, $method(JPEGImageDecoder, readImage, void, $InputStream*, $bytes*), "sun.awt.image.ImageFormatException,java.io.IOException"},
-	{"sendHeaderInfo", "(IIZZZ)Z", nullptr, $PUBLIC, $virtualMethod(JPEGImageDecoder, sendHeaderInfo, bool, int32_t, int32_t, bool, bool, bool)},
-	{"sendPixels", "([II)Z", nullptr, $PUBLIC, $virtualMethod(JPEGImageDecoder, sendPixels, bool, $ints*, int32_t)},
-	{"sendPixels", "([BI)Z", nullptr, $PUBLIC, $virtualMethod(JPEGImageDecoder, sendPixels, bool, $bytes*, int32_t)},
-	{}
-};
-
-#define _METHOD_INDEX_initIDs 2
-#define _METHOD_INDEX_readImage 4
-
-$InnerClassInfo _JPEGImageDecoder_InnerClassesInfo_[] = {
-	{"sun.awt.image.JPEGImageDecoder$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _JPEGImageDecoder_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.awt.image.JPEGImageDecoder",
-	"sun.awt.image.ImageDecoder",
-	nullptr,
-	_JPEGImageDecoder_FieldInfo_,
-	_JPEGImageDecoder_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JPEGImageDecoder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.awt.image.JPEGImageDecoder$1"
-};
-
-$Object* allocate$JPEGImageDecoder($Class* clazz) {
-	return $of($alloc(JPEGImageDecoder));
-}
-
 $ColorModel* JPEGImageDecoder::RGBcolormodel = nullptr;
 $ColorModel* JPEGImageDecoder::ARGBcolormodel = nullptr;
 $ColorModel* JPEGImageDecoder::Graycolormodel = nullptr;
@@ -97,13 +44,13 @@ $Class* JPEGImageDecoder::InputStreamClass = nullptr;
 
 void JPEGImageDecoder::initIDs($Class* InputStreamClass) {
 	$init(JPEGImageDecoder);
-	$prepareNativeStatic(JPEGImageDecoder, initIDs, void, $Class* InputStreamClass);
+	$prepareNativeStatic(initIDs, void, $Class* InputStreamClass);
 	$invokeNativeStatic(InputStreamClass);
 	$finishNativeStatic();
 }
 
 void JPEGImageDecoder::readImage($InputStream* is, $bytes* buf) {
-	$prepareNative(JPEGImageDecoder, readImage, void, $InputStream* is, $bytes* buf);
+	$prepareNative(readImage, void, $InputStream* is, $bytes* buf);
 	$invokeNative(is, buf);
 	$finishNative();
 }
@@ -139,7 +86,7 @@ bool JPEGImageDecoder::sendHeaderInfo(int32_t width, int32_t height, bool gray, 
 }
 
 bool JPEGImageDecoder::sendPixels($ints* pixels, int32_t y) {
-	int32_t count = setPixels(0, y, $nc(pixels)->length, 1, this->colormodel, pixels, 0, pixels->length);
+	int32_t count = setPixels(0, y, $nc(pixels)->length, 1, this->colormodel, pixels, 0, $nc(pixels)->length);
 	if (count <= 0) {
 		this->aborted = true;
 	}
@@ -147,7 +94,7 @@ bool JPEGImageDecoder::sendPixels($ints* pixels, int32_t y) {
 }
 
 bool JPEGImageDecoder::sendPixels($bytes* pixels, int32_t y) {
-	int32_t count = setPixels(0, y, $nc(pixels)->length, 1, this->colormodel, pixels, 0, pixels->length);
+	int32_t count = setPixels(0, y, $nc(pixels)->length, 1, this->colormodel, pixels, 0, $nc(pixels)->length);
 	if (count <= 0) {
 		this->aborted = true;
 	}
@@ -155,40 +102,38 @@ bool JPEGImageDecoder::sendPixels($bytes* pixels, int32_t y) {
 }
 
 void JPEGImageDecoder::produceImage() {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Throwable, var$0, nullptr);
+	$useLocalObjectStack();
+	$var($Throwable, var$0, nullptr);
+	try {
 		try {
-			try {
-				readImage(this->input, $$new($bytes, 1024));
-				if (!this->aborted) {
-					imageComplete($ImageConsumer::STATICIMAGEDONE, true);
-				}
-			} catch ($IOException& e) {
-				if (!this->aborted) {
-					$throw(e);
-				}
+			readImage(this->input, $$new($bytes, 1024));
+			if (!this->aborted) {
+				imageComplete($ImageConsumer::STATICIMAGEDONE, true);
 			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			close();
+		} catch ($IOException& e) {
+			if (!this->aborted) {
+				$throw(e);
+			}
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		close();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
-void clinit$JPEGImageDecoder($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void JPEGImageDecoder::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$load($InputStream);
 	$assignStatic(JPEGImageDecoder::InputStreamClass, $InputStream::class$);
 	{
-		$AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($JPEGImageDecoder$1)));
+		$AccessController::doPrivileged($$new($JPEGImageDecoder$1));
 		JPEGImageDecoder::initIDs(JPEGImageDecoder::InputStreamClass);
-		$assignStatic(JPEGImageDecoder::RGBcolormodel, $new($DirectColorModel, 24, 0x00FF0000, 0x0000FF00, 255));
+		$assignStatic(JPEGImageDecoder::RGBcolormodel, $new($DirectColorModel, 24, 0x00ff0000, 0x0000ff00, 255));
 		$assignStatic(JPEGImageDecoder::ARGBcolormodel, $ColorModel::getRGBdefault());
 		$var($bytes, g, $new($bytes, 256));
 		for (int32_t i = 0; i < 256; ++i) {
@@ -202,7 +147,48 @@ JPEGImageDecoder::JPEGImageDecoder() {
 }
 
 $Class* JPEGImageDecoder::load$($String* name, bool initialize) {
-	$loadClass(JPEGImageDecoder, name, initialize, &_JPEGImageDecoder_ClassInfo_, clinit$JPEGImageDecoder, allocate$JPEGImageDecoder);
+	$FieldInfo fieldInfos$$[] = {
+		{"RGBcolormodel", "Ljava/awt/image/ColorModel;", nullptr, $PRIVATE | $STATIC, $staticField(JPEGImageDecoder, RGBcolormodel)},
+		{"ARGBcolormodel", "Ljava/awt/image/ColorModel;", nullptr, $PRIVATE | $STATIC, $staticField(JPEGImageDecoder, ARGBcolormodel)},
+		{"Graycolormodel", "Ljava/awt/image/ColorModel;", nullptr, $PRIVATE | $STATIC, $staticField(JPEGImageDecoder, Graycolormodel)},
+		{"InputStreamClass", "Ljava/lang/Class;", "Ljava/lang/Class<*>;", $PRIVATE | $STATIC | $FINAL, $staticField(JPEGImageDecoder, InputStreamClass)},
+		{"colormodel", "Ljava/awt/image/ColorModel;", nullptr, $PRIVATE, $field(JPEGImageDecoder, colormodel)},
+		{"props", "Ljava/util/Hashtable;", "Ljava/util/Hashtable<Ljava/lang/String;Ljava/lang/Object;>;", 0, $field(JPEGImageDecoder, props)},
+		{"hintflags", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JPEGImageDecoder, hintflags)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/awt/image/InputStreamImageSource;Ljava/io/InputStream;)V", nullptr, $PUBLIC, $method(JPEGImageDecoder, init$, void, $InputStreamImageSource*, $InputStream*)},
+		{"error", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(JPEGImageDecoder, error, void, $String*), "sun.awt.image.ImageFormatException"},
+		{"initIDs", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;)V", $PRIVATE | $STATIC | $NATIVE, $staticMethod(JPEGImageDecoder, initIDs, void, $Class*)},
+		{"produceImage", "()V", nullptr, $PUBLIC, $virtualMethod(JPEGImageDecoder, produceImage, void), "java.io.IOException,sun.awt.image.ImageFormatException"},
+		{"readImage", "(Ljava/io/InputStream;[B)V", nullptr, $PRIVATE | $NATIVE, $method(JPEGImageDecoder, readImage, void, $InputStream*, $bytes*), "sun.awt.image.ImageFormatException,java.io.IOException"},
+		{"sendHeaderInfo", "(IIZZZ)Z", nullptr, $PUBLIC, $virtualMethod(JPEGImageDecoder, sendHeaderInfo, bool, int32_t, int32_t, bool, bool, bool)},
+		{"sendPixels", "([II)Z", nullptr, $PUBLIC, $virtualMethod(JPEGImageDecoder, sendPixels, bool, $ints*, int32_t)},
+		{"sendPixels", "([BI)Z", nullptr, $PUBLIC, $virtualMethod(JPEGImageDecoder, sendPixels, bool, $bytes*, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.image.JPEGImageDecoder$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.awt.image.JPEGImageDecoder",
+		"sun.awt.image.ImageDecoder",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.awt.image.JPEGImageDecoder$1"
+	};
+	$loadClass(JPEGImageDecoder, name, initialize, &classInfo$$, JPEGImageDecoder::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(JPEGImageDecoder);
+	});
 	return class$;
 }
 

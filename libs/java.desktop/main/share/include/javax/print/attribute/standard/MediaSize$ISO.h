@@ -27,6 +27,7 @@ class $import MediaSize$ISO : public ::java::lang::Object {
 	$class(MediaSize$ISO, 0, ::java::lang::Object)
 public:
 	MediaSize$ISO();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::javax::print::attribute::standard::MediaSize* A0;
 	static ::javax::print::attribute::standard::MediaSize* A1;

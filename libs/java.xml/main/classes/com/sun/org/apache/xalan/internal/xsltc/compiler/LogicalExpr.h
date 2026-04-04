@@ -64,6 +64,7 @@ class LogicalExpr : public ::com::sun::org::apache::xalan::internal::xsltc::comp
 	$class(LogicalExpr, 0, ::com::sun::org::apache::xalan::internal::xsltc::compiler::Expression)
 public:
 	LogicalExpr();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int32_t op, ::com::sun::org::apache::xalan::internal::xsltc::compiler::Expression* left, ::com::sun::org::apache::xalan::internal::xsltc::compiler::Expression* right);
 	virtual $Object* evaluateAtCompileTime() override;
 	int32_t getOp();

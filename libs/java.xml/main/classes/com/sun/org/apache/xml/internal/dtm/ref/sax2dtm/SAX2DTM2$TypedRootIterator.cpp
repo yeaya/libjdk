@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/dtm/ref/sax2dtm/SAX2DTM2$TypedRootIterator.h>
-
 #include <com/sun/org/apache/xml/internal/dtm/DTM.h>
 #include <com/sun/org/apache/xml/internal/dtm/ref/DTMAxisIteratorBase.h>
 #include <com/sun/org/apache/xml/internal/dtm/ref/DTMDefaultBase.h>
@@ -13,9 +12,7 @@
 #undef NTYPES
 
 using $DTM = ::com::sun::org::apache::xml::internal::dtm::DTM;
-using $DTMDefaultBaseIterators = ::com::sun::org::apache::xml::internal::dtm::ref::DTMDefaultBaseIterators;
 using $DTMDefaultBaseIterators$RootIterator = ::com::sun::org::apache::xml::internal::dtm::ref::DTMDefaultBaseIterators$RootIterator;
-using $ExtendedType = ::com::sun::org::apache::xml::internal::dtm::ref::ExtendedType;
 using $SAX2DTM2 = ::com::sun::org::apache::xml::internal::dtm::ref::sax2dtm::SAX2DTM2;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -31,44 +28,6 @@ namespace com {
 						namespace dtm {
 							namespace ref {
 								namespace sax2dtm {
-
-$FieldInfo _SAX2DTM2$TypedRootIterator_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/org/apache/xml/internal/dtm/ref/sax2dtm/SAX2DTM2;", nullptr, $FINAL | $SYNTHETIC, $field(SAX2DTM2$TypedRootIterator, this$0)},
-	{"_nodeType", "I", nullptr, $PRIVATE | $FINAL, $field(SAX2DTM2$TypedRootIterator, _nodeType)},
-	{}
-};
-
-$MethodInfo _SAX2DTM2$TypedRootIterator_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/org/apache/xml/internal/dtm/ref/sax2dtm/SAX2DTM2;I)V", nullptr, $PUBLIC, $method(SAX2DTM2$TypedRootIterator, init$, void, $SAX2DTM2*, int32_t)},
-	{"next", "()I", nullptr, $PUBLIC, $virtualMethod(SAX2DTM2$TypedRootIterator, next, int32_t)},
-	{}
-};
-
-$InnerClassInfo _SAX2DTM2$TypedRootIterator_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xml.internal.dtm.ref.sax2dtm.SAX2DTM2$TypedRootIterator", "com.sun.org.apache.xml.internal.dtm.ref.sax2dtm.SAX2DTM2", "TypedRootIterator", $PUBLIC},
-	{"com.sun.org.apache.xml.internal.dtm.ref.DTMDefaultBaseIterators$RootIterator", "com.sun.org.apache.xml.internal.dtm.ref.DTMDefaultBaseIterators", "RootIterator", $PUBLIC},
-	{}
-};
-
-$ClassInfo _SAX2DTM2$TypedRootIterator_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.dtm.ref.sax2dtm.SAX2DTM2$TypedRootIterator",
-	"com.sun.org.apache.xml.internal.dtm.ref.DTMDefaultBaseIterators$RootIterator",
-	nullptr,
-	_SAX2DTM2$TypedRootIterator_FieldInfo_,
-	_SAX2DTM2$TypedRootIterator_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SAX2DTM2$TypedRootIterator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xml.internal.dtm.ref.sax2dtm.SAX2DTM2"
-};
-
-$Object* allocate$SAX2DTM2$TypedRootIterator($Class* clazz) {
-	return $of($alloc(SAX2DTM2$TypedRootIterator));
-}
 
 void SAX2DTM2$TypedRootIterator::init$($SAX2DTM2* this$0, int32_t nodeType) {
 	$set(this, this$0, this$0);
@@ -101,7 +60,39 @@ SAX2DTM2$TypedRootIterator::SAX2DTM2$TypedRootIterator() {
 }
 
 $Class* SAX2DTM2$TypedRootIterator::load$($String* name, bool initialize) {
-	$loadClass(SAX2DTM2$TypedRootIterator, name, initialize, &_SAX2DTM2$TypedRootIterator_ClassInfo_, allocate$SAX2DTM2$TypedRootIterator);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/org/apache/xml/internal/dtm/ref/sax2dtm/SAX2DTM2;", nullptr, $FINAL | $SYNTHETIC, $field(SAX2DTM2$TypedRootIterator, this$0)},
+		{"_nodeType", "I", nullptr, $PRIVATE | $FINAL, $field(SAX2DTM2$TypedRootIterator, _nodeType)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/org/apache/xml/internal/dtm/ref/sax2dtm/SAX2DTM2;I)V", nullptr, $PUBLIC, $method(SAX2DTM2$TypedRootIterator, init$, void, $SAX2DTM2*, int32_t)},
+		{"next", "()I", nullptr, $PUBLIC, $virtualMethod(SAX2DTM2$TypedRootIterator, next, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xml.internal.dtm.ref.sax2dtm.SAX2DTM2$TypedRootIterator", "com.sun.org.apache.xml.internal.dtm.ref.sax2dtm.SAX2DTM2", "TypedRootIterator", $PUBLIC},
+		{"com.sun.org.apache.xml.internal.dtm.ref.DTMDefaultBaseIterators$RootIterator", "com.sun.org.apache.xml.internal.dtm.ref.DTMDefaultBaseIterators", "RootIterator", $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.dtm.ref.sax2dtm.SAX2DTM2$TypedRootIterator",
+		"com.sun.org.apache.xml.internal.dtm.ref.DTMDefaultBaseIterators$RootIterator",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xml.internal.dtm.ref.sax2dtm.SAX2DTM2"
+	};
+	$loadClass(SAX2DTM2$TypedRootIterator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SAX2DTM2$TypedRootIterator);
+	});
 	return class$;
 }
 

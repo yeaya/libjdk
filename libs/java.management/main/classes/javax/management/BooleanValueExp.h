@@ -36,7 +36,7 @@ public:
 	virtual ::java::lang::Boolean* getValue();
 	virtual void setMBeanServer(::javax::management::MBeanServer* s) override;
 	virtual $String* toString() override;
-	static const int64_t serialVersionUID = (int64_t)0x6B9F048502091515;
+	static const int64_t serialVersionUID = (int64_t)0x6b9f048502091515;
 	bool val = false;
 };
 

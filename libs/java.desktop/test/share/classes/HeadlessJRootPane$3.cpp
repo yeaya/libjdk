@@ -1,5 +1,4 @@
 #include <HeadlessJRootPane$3.h>
-
 #include <HeadlessJRootPane.h>
 #include <java/awt/Component.h>
 #include <jcpp.h>
@@ -10,42 +9,6 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
-$MethodInfo _HeadlessJRootPane$3_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(HeadlessJRootPane$3, init$, void)},
-	{}
-};
-
-$EnclosingMethodInfo _HeadlessJRootPane$3_EnclosingMethodInfo_ = {
-	"HeadlessJRootPane",
-	"main",
-	"([Ljava/lang/String;)V"
-};
-
-$InnerClassInfo _HeadlessJRootPane$3_InnerClassesInfo_[] = {
-	{"HeadlessJRootPane$3", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _HeadlessJRootPane$3_ClassInfo_ = {
-	$ACC_SUPER,
-	"HeadlessJRootPane$3",
-	"java.awt.Component",
-	nullptr,
-	nullptr,
-	_HeadlessJRootPane$3_MethodInfo_,
-	nullptr,
-	&_HeadlessJRootPane$3_EnclosingMethodInfo_,
-	_HeadlessJRootPane$3_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"HeadlessJRootPane"
-};
-
-$Object* allocate$HeadlessJRootPane$3($Class* clazz) {
-	return $of($alloc(HeadlessJRootPane$3));
-}
-
 void HeadlessJRootPane$3::init$() {
 	$Component::init$();
 }
@@ -54,7 +17,37 @@ HeadlessJRootPane$3::HeadlessJRootPane$3() {
 }
 
 $Class* HeadlessJRootPane$3::load$($String* name, bool initialize) {
-	$loadClass(HeadlessJRootPane$3, name, initialize, &_HeadlessJRootPane$3_ClassInfo_, allocate$HeadlessJRootPane$3);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(HeadlessJRootPane$3, init$, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"HeadlessJRootPane",
+		"main",
+		"([Ljava/lang/String;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"HeadlessJRootPane$3", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"HeadlessJRootPane$3",
+		"java.awt.Component",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"HeadlessJRootPane"
+	};
+	$loadClass(HeadlessJRootPane$3, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(HeadlessJRootPane$3));
+	});
 	return class$;
 }
 

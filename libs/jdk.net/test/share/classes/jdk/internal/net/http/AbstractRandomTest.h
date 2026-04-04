@@ -25,6 +25,7 @@ class $export AbstractRandomTest : public ::java::lang::Object {
 	$class(AbstractRandomTest, 0, ::java::lang::Object)
 public:
 	AbstractRandomTest();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static int64_t getSeed();
 	static ::java::lang::Long* getSystemSeed();

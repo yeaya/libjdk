@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/nimbus/FileChooserPainter.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Graphics2D.h>
 #include <java/awt/LinearGradientPaint.h>
@@ -13,7 +12,6 @@
 #include <java/awt/geom/Rectangle2D$Float.h>
 #include <java/awt/geom/Rectangle2D.h>
 #include <java/awt/geom/RoundRectangle2D$Float.h>
-#include <java/awt/geom/RoundRectangle2D.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext.h>
 #include <javax/swing/plaf/nimbus/AbstractRegionPainter.h>
@@ -42,7 +40,6 @@ using $Path2D = ::java::awt::geom::Path2D;
 using $Path2D$Float = ::java::awt::geom::Path2D$Float;
 using $Rectangle2D = ::java::awt::geom::Rectangle2D;
 using $Rectangle2D$Float = ::java::awt::geom::Rectangle2D$Float;
-using $RoundRectangle2D = ::java::awt::geom::RoundRectangle2D;
 using $RoundRectangle2D$Float = ::java::awt::geom::RoundRectangle2D$Float;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -57,322 +54,12 @@ namespace javax {
 		namespace plaf {
 			namespace nimbus {
 
-$FieldInfo _FileChooserPainter_FieldInfo_[] = {
-	{"BACKGROUND_ENABLED", "I", nullptr, $STATIC | $FINAL, $constField(FileChooserPainter, BACKGROUND_ENABLED)},
-	{"FILEICON_ENABLED", "I", nullptr, $STATIC | $FINAL, $constField(FileChooserPainter, FILEICON_ENABLED)},
-	{"DIRECTORYICON_ENABLED", "I", nullptr, $STATIC | $FINAL, $constField(FileChooserPainter, DIRECTORYICON_ENABLED)},
-	{"UPFOLDERICON_ENABLED", "I", nullptr, $STATIC | $FINAL, $constField(FileChooserPainter, UPFOLDERICON_ENABLED)},
-	{"NEWFOLDERICON_ENABLED", "I", nullptr, $STATIC | $FINAL, $constField(FileChooserPainter, NEWFOLDERICON_ENABLED)},
-	{"COMPUTERICON_ENABLED", "I", nullptr, $STATIC | $FINAL, $constField(FileChooserPainter, COMPUTERICON_ENABLED)},
-	{"HARDDRIVEICON_ENABLED", "I", nullptr, $STATIC | $FINAL, $constField(FileChooserPainter, HARDDRIVEICON_ENABLED)},
-	{"FLOPPYDRIVEICON_ENABLED", "I", nullptr, $STATIC | $FINAL, $constField(FileChooserPainter, FLOPPYDRIVEICON_ENABLED)},
-	{"HOMEFOLDERICON_ENABLED", "I", nullptr, $STATIC | $FINAL, $constField(FileChooserPainter, HOMEFOLDERICON_ENABLED)},
-	{"DETAILSVIEWICON_ENABLED", "I", nullptr, $STATIC | $FINAL, $constField(FileChooserPainter, DETAILSVIEWICON_ENABLED)},
-	{"LISTVIEWICON_ENABLED", "I", nullptr, $STATIC | $FINAL, $constField(FileChooserPainter, LISTVIEWICON_ENABLED)},
-	{"state", "I", nullptr, $PRIVATE, $field(FileChooserPainter, state)},
-	{"ctx", "Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext;", nullptr, $PRIVATE, $field(FileChooserPainter, ctx)},
-	{"path", "Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $field(FileChooserPainter, path)},
-	{"rect", "Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $field(FileChooserPainter, rect)},
-	{"roundRect", "Ljava/awt/geom/RoundRectangle2D;", nullptr, $PRIVATE, $field(FileChooserPainter, roundRect)},
-	{"ellipse", "Ljava/awt/geom/Ellipse2D;", nullptr, $PRIVATE, $field(FileChooserPainter, ellipse)},
-	{"color1", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color1)},
-	{"color2", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color2)},
-	{"color3", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color3)},
-	{"color4", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color4)},
-	{"color5", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color5)},
-	{"color6", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color6)},
-	{"color7", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color7)},
-	{"color8", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color8)},
-	{"color9", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color9)},
-	{"color10", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color10)},
-	{"color11", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color11)},
-	{"color12", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color12)},
-	{"color13", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color13)},
-	{"color14", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color14)},
-	{"color15", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color15)},
-	{"color16", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color16)},
-	{"color17", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color17)},
-	{"color18", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color18)},
-	{"color19", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color19)},
-	{"color20", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color20)},
-	{"color21", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color21)},
-	{"color22", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color22)},
-	{"color23", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color23)},
-	{"color24", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color24)},
-	{"color25", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color25)},
-	{"color26", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color26)},
-	{"color27", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color27)},
-	{"color28", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color28)},
-	{"color29", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color29)},
-	{"color30", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color30)},
-	{"color31", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color31)},
-	{"color32", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color32)},
-	{"color33", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color33)},
-	{"color34", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color34)},
-	{"color35", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color35)},
-	{"color36", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color36)},
-	{"color37", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color37)},
-	{"color38", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color38)},
-	{"color39", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color39)},
-	{"color40", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color40)},
-	{"color41", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color41)},
-	{"color42", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color42)},
-	{"color43", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color43)},
-	{"color44", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color44)},
-	{"color45", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color45)},
-	{"color46", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color46)},
-	{"color47", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color47)},
-	{"color48", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color48)},
-	{"color49", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color49)},
-	{"color50", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color50)},
-	{"color51", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color51)},
-	{"color52", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color52)},
-	{"color53", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color53)},
-	{"color54", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color54)},
-	{"color55", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color55)},
-	{"color56", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color56)},
-	{"color57", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color57)},
-	{"color58", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color58)},
-	{"color59", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color59)},
-	{"color60", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color60)},
-	{"color61", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color61)},
-	{"color62", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color62)},
-	{"color63", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color63)},
-	{"color64", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color64)},
-	{"color65", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color65)},
-	{"color66", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color66)},
-	{"color67", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color67)},
-	{"color68", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color68)},
-	{"color69", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color69)},
-	{"color70", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color70)},
-	{"color71", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color71)},
-	{"color72", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color72)},
-	{"color73", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color73)},
-	{"color74", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color74)},
-	{"color75", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color75)},
-	{"color76", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color76)},
-	{"color77", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color77)},
-	{"color78", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color78)},
-	{"color79", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color79)},
-	{"color80", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color80)},
-	{"color81", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color81)},
-	{"color82", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color82)},
-	{"color83", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color83)},
-	{"color84", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color84)},
-	{"color85", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color85)},
-	{"color86", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color86)},
-	{"color87", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color87)},
-	{"color88", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color88)},
-	{"color89", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color89)},
-	{"color90", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color90)},
-	{"color91", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color91)},
-	{"color92", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color92)},
-	{"color93", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color93)},
-	{"color94", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color94)},
-	{"color95", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color95)},
-	{"color96", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color96)},
-	{"color97", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color97)},
-	{"color98", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color98)},
-	{"color99", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color99)},
-	{"color100", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color100)},
-	{"color101", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color101)},
-	{"color102", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color102)},
-	{"color103", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color103)},
-	{"color104", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color104)},
-	{"color105", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color105)},
-	{"color106", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color106)},
-	{"color107", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color107)},
-	{"color108", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color108)},
-	{"color109", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color109)},
-	{"color110", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color110)},
-	{"color111", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color111)},
-	{"color112", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color112)},
-	{"color113", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color113)},
-	{"color114", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color114)},
-	{"color115", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color115)},
-	{"color116", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color116)},
-	{"color117", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color117)},
-	{"color118", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color118)},
-	{"color119", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color119)},
-	{"color120", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color120)},
-	{"color121", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color121)},
-	{"color122", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color122)},
-	{"componentColors", "[Ljava/lang/Object;", nullptr, $PRIVATE, $field(FileChooserPainter, componentColors)},
-	{}
-};
-
-$MethodInfo _FileChooserPainter_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext;I)V", nullptr, $PUBLIC, $method(FileChooserPainter, init$, void, $AbstractRegionPainter$PaintContext*, int32_t)},
-	{"decodeEllipse1", "()Ljava/awt/geom/Ellipse2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeEllipse1, $Ellipse2D*)},
-	{"decodeEllipse2", "()Ljava/awt/geom/Ellipse2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeEllipse2, $Ellipse2D*)},
-	{"decodeEllipse3", "()Ljava/awt/geom/Ellipse2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeEllipse3, $Ellipse2D*)},
-	{"decodeEllipse4", "()Ljava/awt/geom/Ellipse2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeEllipse4, $Ellipse2D*)},
-	{"decodeEllipse5", "()Ljava/awt/geom/Ellipse2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeEllipse5, $Ellipse2D*)},
-	{"decodeEllipse6", "()Ljava/awt/geom/Ellipse2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeEllipse6, $Ellipse2D*)},
-	{"decodeEllipse7", "()Ljava/awt/geom/Ellipse2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeEllipse7, $Ellipse2D*)},
-	{"decodeEllipse8", "()Ljava/awt/geom/Ellipse2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeEllipse8, $Ellipse2D*)},
-	{"decodeEllipse9", "()Ljava/awt/geom/Ellipse2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeEllipse9, $Ellipse2D*)},
-	{"decodeGradient1", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeGradient1, $Paint*, $Shape*)},
-	{"decodeGradient10", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeGradient10, $Paint*, $Shape*)},
-	{"decodeGradient11", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeGradient11, $Paint*, $Shape*)},
-	{"decodeGradient12", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeGradient12, $Paint*, $Shape*)},
-	{"decodeGradient13", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeGradient13, $Paint*, $Shape*)},
-	{"decodeGradient14", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeGradient14, $Paint*, $Shape*)},
-	{"decodeGradient15", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeGradient15, $Paint*, $Shape*)},
-	{"decodeGradient16", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeGradient16, $Paint*, $Shape*)},
-	{"decodeGradient17", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeGradient17, $Paint*, $Shape*)},
-	{"decodeGradient18", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeGradient18, $Paint*, $Shape*)},
-	{"decodeGradient19", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeGradient19, $Paint*, $Shape*)},
-	{"decodeGradient2", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeGradient2, $Paint*, $Shape*)},
-	{"decodeGradient20", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeGradient20, $Paint*, $Shape*)},
-	{"decodeGradient21", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeGradient21, $Paint*, $Shape*)},
-	{"decodeGradient22", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeGradient22, $Paint*, $Shape*)},
-	{"decodeGradient23", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeGradient23, $Paint*, $Shape*)},
-	{"decodeGradient24", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeGradient24, $Paint*, $Shape*)},
-	{"decodeGradient25", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeGradient25, $Paint*, $Shape*)},
-	{"decodeGradient26", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeGradient26, $Paint*, $Shape*)},
-	{"decodeGradient27", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeGradient27, $Paint*, $Shape*)},
-	{"decodeGradient28", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeGradient28, $Paint*, $Shape*)},
-	{"decodeGradient29", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeGradient29, $Paint*, $Shape*)},
-	{"decodeGradient3", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeGradient3, $Paint*, $Shape*)},
-	{"decodeGradient30", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeGradient30, $Paint*, $Shape*)},
-	{"decodeGradient31", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeGradient31, $Paint*, $Shape*)},
-	{"decodeGradient32", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeGradient32, $Paint*, $Shape*)},
-	{"decodeGradient33", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeGradient33, $Paint*, $Shape*)},
-	{"decodeGradient34", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeGradient34, $Paint*, $Shape*)},
-	{"decodeGradient35", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeGradient35, $Paint*, $Shape*)},
-	{"decodeGradient4", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeGradient4, $Paint*, $Shape*)},
-	{"decodeGradient5", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeGradient5, $Paint*, $Shape*)},
-	{"decodeGradient6", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeGradient6, $Paint*, $Shape*)},
-	{"decodeGradient7", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeGradient7, $Paint*, $Shape*)},
-	{"decodeGradient8", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeGradient8, $Paint*, $Shape*)},
-	{"decodeGradient9", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeGradient9, $Paint*, $Shape*)},
-	{"decodePath1", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodePath1, $Path2D*)},
-	{"decodePath10", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodePath10, $Path2D*)},
-	{"decodePath11", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodePath11, $Path2D*)},
-	{"decodePath12", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodePath12, $Path2D*)},
-	{"decodePath13", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodePath13, $Path2D*)},
-	{"decodePath14", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodePath14, $Path2D*)},
-	{"decodePath15", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodePath15, $Path2D*)},
-	{"decodePath16", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodePath16, $Path2D*)},
-	{"decodePath17", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodePath17, $Path2D*)},
-	{"decodePath18", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodePath18, $Path2D*)},
-	{"decodePath19", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodePath19, $Path2D*)},
-	{"decodePath2", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodePath2, $Path2D*)},
-	{"decodePath20", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodePath20, $Path2D*)},
-	{"decodePath21", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodePath21, $Path2D*)},
-	{"decodePath22", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodePath22, $Path2D*)},
-	{"decodePath23", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodePath23, $Path2D*)},
-	{"decodePath24", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodePath24, $Path2D*)},
-	{"decodePath25", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodePath25, $Path2D*)},
-	{"decodePath26", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodePath26, $Path2D*)},
-	{"decodePath27", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodePath27, $Path2D*)},
-	{"decodePath28", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodePath28, $Path2D*)},
-	{"decodePath29", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodePath29, $Path2D*)},
-	{"decodePath3", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodePath3, $Path2D*)},
-	{"decodePath30", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodePath30, $Path2D*)},
-	{"decodePath31", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodePath31, $Path2D*)},
-	{"decodePath32", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodePath32, $Path2D*)},
-	{"decodePath33", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodePath33, $Path2D*)},
-	{"decodePath34", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodePath34, $Path2D*)},
-	{"decodePath35", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodePath35, $Path2D*)},
-	{"decodePath36", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodePath36, $Path2D*)},
-	{"decodePath37", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodePath37, $Path2D*)},
-	{"decodePath38", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodePath38, $Path2D*)},
-	{"decodePath4", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodePath4, $Path2D*)},
-	{"decodePath5", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodePath5, $Path2D*)},
-	{"decodePath6", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodePath6, $Path2D*)},
-	{"decodePath7", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodePath7, $Path2D*)},
-	{"decodePath8", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodePath8, $Path2D*)},
-	{"decodePath9", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodePath9, $Path2D*)},
-	{"decodeRadial1", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeRadial1, $Paint*, $Shape*)},
-	{"decodeRadial2", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeRadial2, $Paint*, $Shape*)},
-	{"decodeRect1", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeRect1, $Rectangle2D*)},
-	{"decodeRect10", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeRect10, $Rectangle2D*)},
-	{"decodeRect11", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeRect11, $Rectangle2D*)},
-	{"decodeRect12", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeRect12, $Rectangle2D*)},
-	{"decodeRect13", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeRect13, $Rectangle2D*)},
-	{"decodeRect14", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeRect14, $Rectangle2D*)},
-	{"decodeRect15", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeRect15, $Rectangle2D*)},
-	{"decodeRect16", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeRect16, $Rectangle2D*)},
-	{"decodeRect17", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeRect17, $Rectangle2D*)},
-	{"decodeRect18", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeRect18, $Rectangle2D*)},
-	{"decodeRect19", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeRect19, $Rectangle2D*)},
-	{"decodeRect2", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeRect2, $Rectangle2D*)},
-	{"decodeRect20", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeRect20, $Rectangle2D*)},
-	{"decodeRect21", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeRect21, $Rectangle2D*)},
-	{"decodeRect22", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeRect22, $Rectangle2D*)},
-	{"decodeRect23", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeRect23, $Rectangle2D*)},
-	{"decodeRect24", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeRect24, $Rectangle2D*)},
-	{"decodeRect25", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeRect25, $Rectangle2D*)},
-	{"decodeRect26", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeRect26, $Rectangle2D*)},
-	{"decodeRect27", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeRect27, $Rectangle2D*)},
-	{"decodeRect28", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeRect28, $Rectangle2D*)},
-	{"decodeRect29", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeRect29, $Rectangle2D*)},
-	{"decodeRect3", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeRect3, $Rectangle2D*)},
-	{"decodeRect30", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeRect30, $Rectangle2D*)},
-	{"decodeRect31", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeRect31, $Rectangle2D*)},
-	{"decodeRect32", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeRect32, $Rectangle2D*)},
-	{"decodeRect33", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeRect33, $Rectangle2D*)},
-	{"decodeRect34", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeRect34, $Rectangle2D*)},
-	{"decodeRect35", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeRect35, $Rectangle2D*)},
-	{"decodeRect36", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeRect36, $Rectangle2D*)},
-	{"decodeRect37", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeRect37, $Rectangle2D*)},
-	{"decodeRect38", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeRect38, $Rectangle2D*)},
-	{"decodeRect39", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeRect39, $Rectangle2D*)},
-	{"decodeRect4", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeRect4, $Rectangle2D*)},
-	{"decodeRect40", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeRect40, $Rectangle2D*)},
-	{"decodeRect41", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeRect41, $Rectangle2D*)},
-	{"decodeRect42", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeRect42, $Rectangle2D*)},
-	{"decodeRect43", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeRect43, $Rectangle2D*)},
-	{"decodeRect44", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeRect44, $Rectangle2D*)},
-	{"decodeRect45", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeRect45, $Rectangle2D*)},
-	{"decodeRect46", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeRect46, $Rectangle2D*)},
-	{"decodeRect47", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeRect47, $Rectangle2D*)},
-	{"decodeRect48", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeRect48, $Rectangle2D*)},
-	{"decodeRect49", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeRect49, $Rectangle2D*)},
-	{"decodeRect5", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeRect5, $Rectangle2D*)},
-	{"decodeRect50", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeRect50, $Rectangle2D*)},
-	{"decodeRect51", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeRect51, $Rectangle2D*)},
-	{"decodeRect52", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeRect52, $Rectangle2D*)},
-	{"decodeRect6", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeRect6, $Rectangle2D*)},
-	{"decodeRect7", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeRect7, $Rectangle2D*)},
-	{"decodeRect8", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeRect8, $Rectangle2D*)},
-	{"decodeRect9", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeRect9, $Rectangle2D*)},
-	{"doPaint", "(Ljava/awt/Graphics2D;Ljavax/swing/JComponent;II[Ljava/lang/Object;)V", nullptr, $PROTECTED, $virtualMethod(FileChooserPainter, doPaint, void, $Graphics2D*, $JComponent*, int32_t, int32_t, $ObjectArray*)},
-	{"getPaintContext", "()Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext;", nullptr, $PROTECTED | $FINAL, $virtualMethod(FileChooserPainter, getPaintContext, $AbstractRegionPainter$PaintContext*)},
-	{"paintBackgroundEnabled", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(FileChooserPainter, paintBackgroundEnabled, void, $Graphics2D*)},
-	{"paintdetailsViewIconEnabled", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(FileChooserPainter, paintdetailsViewIconEnabled, void, $Graphics2D*)},
-	{"paintdirectoryIconEnabled", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(FileChooserPainter, paintdirectoryIconEnabled, void, $Graphics2D*)},
-	{"paintfileIconEnabled", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(FileChooserPainter, paintfileIconEnabled, void, $Graphics2D*)},
-	{"paintfloppyDriveIconEnabled", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(FileChooserPainter, paintfloppyDriveIconEnabled, void, $Graphics2D*)},
-	{"painthardDriveIconEnabled", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(FileChooserPainter, painthardDriveIconEnabled, void, $Graphics2D*)},
-	{"painthomeFolderIconEnabled", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(FileChooserPainter, painthomeFolderIconEnabled, void, $Graphics2D*)},
-	{"paintlistViewIconEnabled", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(FileChooserPainter, paintlistViewIconEnabled, void, $Graphics2D*)},
-	{"paintnewFolderIconEnabled", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(FileChooserPainter, paintnewFolderIconEnabled, void, $Graphics2D*)},
-	{"paintupFolderIconEnabled", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(FileChooserPainter, paintupFolderIconEnabled, void, $Graphics2D*)},
-	{}
-};
-
-$ClassInfo _FileChooserPainter_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"javax.swing.plaf.nimbus.FileChooserPainter",
-	"javax.swing.plaf.nimbus.AbstractRegionPainter",
-	nullptr,
-	_FileChooserPainter_FieldInfo_,
-	_FileChooserPainter_MethodInfo_
-};
-
-$Object* allocate$FileChooserPainter($Class* clazz) {
-	return $of($alloc(FileChooserPainter));
-}
-
 void FileChooserPainter::init$($AbstractRegionPainter$PaintContext* ctx, int32_t state) {
 	$AbstractRegionPainter::init$();
 	$set(this, path, $new($Path2D$Float));
-	$set(this, rect, $new($Rectangle2D$Float, (float)0, (float)0, (float)0, (float)0));
-	$set(this, roundRect, $new($RoundRectangle2D$Float, (float)0, (float)0, (float)0, (float)0, (float)0, (float)0));
-	$set(this, ellipse, $new($Ellipse2D$Float, (float)0, (float)0, (float)0, (float)0));
+	$set(this, rect, $new($Rectangle2D$Float, 0, 0, 0, 0));
+	$set(this, roundRect, $new($RoundRectangle2D$Float, 0, 0, 0, 0, 0, 0));
+	$set(this, ellipse, $new($Ellipse2D$Float, 0, 0, 0, 0));
 	$set(this, color1, decodeColor("control"_s, 0.0f, 0.0f, 0.0f, 0));
 	$set(this, color2, decodeColor("nimbusBlueGrey"_s, 0.007936537f, -0.065654516f, -0.13333333f, 0));
 	$set(this, color3, $new($Color, 97, 98, 102, 255));
@@ -503,55 +190,35 @@ void FileChooserPainter::doPaint($Graphics2D* g, $JComponent* c, int32_t width, 
 	$set(this, componentColors, extendedCacheKeys);
 	switch (this->state) {
 	case FileChooserPainter::BACKGROUND_ENABLED:
-		{
-			paintBackgroundEnabled(g);
-			break;
-		}
+		paintBackgroundEnabled(g);
+		break;
 	case FileChooserPainter::FILEICON_ENABLED:
-		{
-			paintfileIconEnabled(g);
-			break;
-		}
+		paintfileIconEnabled(g);
+		break;
 	case FileChooserPainter::DIRECTORYICON_ENABLED:
-		{
-			paintdirectoryIconEnabled(g);
-			break;
-		}
+		paintdirectoryIconEnabled(g);
+		break;
 	case FileChooserPainter::UPFOLDERICON_ENABLED:
-		{
-			paintupFolderIconEnabled(g);
-			break;
-		}
+		paintupFolderIconEnabled(g);
+		break;
 	case FileChooserPainter::NEWFOLDERICON_ENABLED:
-		{
-			paintnewFolderIconEnabled(g);
-			break;
-		}
+		paintnewFolderIconEnabled(g);
+		break;
 	case FileChooserPainter::HARDDRIVEICON_ENABLED:
-		{
-			painthardDriveIconEnabled(g);
-			break;
-		}
+		painthardDriveIconEnabled(g);
+		break;
 	case FileChooserPainter::FLOPPYDRIVEICON_ENABLED:
-		{
-			paintfloppyDriveIconEnabled(g);
-			break;
-		}
+		paintfloppyDriveIconEnabled(g);
+		break;
 	case FileChooserPainter::HOMEFOLDERICON_ENABLED:
-		{
-			painthomeFolderIconEnabled(g);
-			break;
-		}
+		painthomeFolderIconEnabled(g);
+		break;
 	case FileChooserPainter::DETAILSVIEWICON_ENABLED:
-		{
-			paintdetailsViewIconEnabled(g);
-			break;
-		}
+		paintdetailsViewIconEnabled(g);
+		break;
 	case FileChooserPainter::LISTVIEWICON_ENABLED:
-		{
-			paintlistViewIconEnabled(g);
-			break;
-		}
+		paintlistViewIconEnabled(g);
+		break;
 	}
 }
 
@@ -566,7 +233,7 @@ void FileChooserPainter::paintBackgroundEnabled($Graphics2D* g) {
 }
 
 void FileChooserPainter::paintfileIconEnabled($Graphics2D* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, path, decodePath1());
 	$nc(g)->setPaint(this->color2);
 	g->fill(this->path);
@@ -588,7 +255,7 @@ void FileChooserPainter::paintfileIconEnabled($Graphics2D* g) {
 }
 
 void FileChooserPainter::paintdirectoryIconEnabled($Graphics2D* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, path, decodePath6());
 	$nc(g)->setPaint(this->color10);
 	g->fill(this->path);
@@ -619,7 +286,7 @@ void FileChooserPainter::paintdirectoryIconEnabled($Graphics2D* g) {
 }
 
 void FileChooserPainter::paintupFolderIconEnabled($Graphics2D* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, path, decodePath12());
 	$nc(g)->setPaint($(decodeGradient7(this->path)));
 	g->fill(this->path);
@@ -647,7 +314,7 @@ void FileChooserPainter::paintupFolderIconEnabled($Graphics2D* g) {
 }
 
 void FileChooserPainter::paintnewFolderIconEnabled($Graphics2D* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, path, decodePath6());
 	$nc(g)->setPaint(this->color10);
 	g->fill(this->path);
@@ -687,7 +354,7 @@ void FileChooserPainter::paintnewFolderIconEnabled($Graphics2D* g) {
 }
 
 void FileChooserPainter::painthardDriveIconEnabled($Graphics2D* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, rect, decodeRect6());
 	$nc(g)->setPaint(this->color43);
 	g->fill(this->rect);
@@ -742,7 +409,7 @@ void FileChooserPainter::painthardDriveIconEnabled($Graphics2D* g) {
 }
 
 void FileChooserPainter::paintfloppyDriveIconEnabled($Graphics2D* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, path, decodePath25());
 	$nc(g)->setPaint($(decodeGradient16(this->path)));
 	g->fill(this->path);
@@ -776,7 +443,7 @@ void FileChooserPainter::paintfloppyDriveIconEnabled($Graphics2D* g) {
 }
 
 void FileChooserPainter::painthomeFolderIconEnabled($Graphics2D* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, path, decodePath30());
 	$nc(g)->setPaint(this->color72);
 	g->fill(this->path);
@@ -810,7 +477,7 @@ void FileChooserPainter::painthomeFolderIconEnabled($Graphics2D* g) {
 }
 
 void FileChooserPainter::paintdetailsViewIconEnabled($Graphics2D* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, rect, decodeRect22());
 	$nc(g)->setPaint($(decodeGradient26(this->rect)));
 	g->fill(this->rect);
@@ -856,7 +523,7 @@ void FileChooserPainter::paintdetailsViewIconEnabled($Graphics2D* g) {
 }
 
 void FileChooserPainter::paintlistViewIconEnabled($Graphics2D* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, rect, decodeRect31());
 	$nc(g)->setPaint($(decodeGradient26(this->rect)));
 	g->fill(this->rect);
@@ -926,10 +593,10 @@ void FileChooserPainter::paintlistViewIconEnabled($Graphics2D* g) {
 }
 
 $Rectangle2D* FileChooserPainter::decodeRect1() {
-	double var$0 = (double)decodeX(1.0f);
-	double var$1 = (double)decodeY(1.0f);
+	double var$0 = decodeX(1.0f);
+	double var$1 = decodeY(1.0f);
 	float var$3 = decodeX(2.0f);
-	double var$2 = (double)(var$3 - decodeX(1.0f));
+	double var$2 = var$3 - decodeX(1.0f);
 	float var$4 = decodeY(2.0f);
 	$nc(this->rect)->setRect(var$0, var$1, var$2, var$4 - decodeY(1.0f));
 	return this->rect;
@@ -937,37 +604,37 @@ $Rectangle2D* FileChooserPainter::decodeRect1() {
 
 $Path2D* FileChooserPainter::decodePath1() {
 	$nc(this->path)->reset();
-	double var$0 = (double)decodeX(0.2f);
+	double var$0 = decodeX(0.2f);
 	$nc(this->path)->moveTo(var$0, decodeY(0.0f));
-	double var$1 = (double)decodeX(0.2f);
+	double var$1 = decodeX(0.2f);
 	$nc(this->path)->lineTo(var$1, decodeY(3.0f));
-	double var$2 = (double)decodeX(0.4f);
+	double var$2 = decodeX(0.4f);
 	$nc(this->path)->lineTo(var$2, decodeY(3.0f));
-	double var$3 = (double)decodeX(0.4f);
+	double var$3 = decodeX(0.4f);
 	$nc(this->path)->lineTo(var$3, decodeY(0.2f));
-	double var$4 = (double)decodeX(1.9197531f);
+	double var$4 = decodeX(1.9197531f);
 	$nc(this->path)->lineTo(var$4, decodeY(0.2f));
-	double var$5 = (double)decodeX(2.6f);
+	double var$5 = decodeX(2.6f);
 	$nc(this->path)->lineTo(var$5, decodeY(0.9f));
-	double var$6 = (double)decodeX(2.6f);
+	double var$6 = decodeX(2.6f);
 	$nc(this->path)->lineTo(var$6, decodeY(3.0f));
-	double var$7 = (double)decodeX(2.8f);
+	double var$7 = decodeX(2.8f);
 	$nc(this->path)->lineTo(var$7, decodeY(3.0f));
-	double var$8 = (double)decodeX(2.8f);
+	double var$8 = decodeX(2.8f);
 	$nc(this->path)->lineTo(var$8, decodeY(0.88888896f));
-	double var$9 = (double)decodeX(1.9537036f);
+	double var$9 = decodeX(1.9537036f);
 	$nc(this->path)->lineTo(var$9, decodeY(0.0f));
-	double var$10 = (double)decodeX(0.2f);
+	double var$10 = decodeX(0.2f);
 	$nc(this->path)->lineTo(var$10, decodeY(0.0f));
 	$nc(this->path)->closePath();
 	return this->path;
 }
 
 $Rectangle2D* FileChooserPainter::decodeRect2() {
-	double var$0 = (double)decodeX(0.4f);
-	double var$1 = (double)decodeY(2.8f);
+	double var$0 = decodeX(0.4f);
+	double var$1 = decodeY(2.8f);
 	float var$3 = decodeX(2.6f);
-	double var$2 = (double)(var$3 - decodeX(0.4f));
+	double var$2 = var$3 - decodeX(0.4f);
 	float var$4 = decodeY(3.0f);
 	$nc(this->rect)->setRect(var$0, var$1, var$2, var$4 - decodeY(2.8f));
 	return this->rect;
@@ -975,13 +642,13 @@ $Rectangle2D* FileChooserPainter::decodeRect2() {
 
 $Path2D* FileChooserPainter::decodePath2() {
 	$nc(this->path)->reset();
-	double var$0 = (double)decodeX(1.8333333f);
+	double var$0 = decodeX(1.8333333f);
 	$nc(this->path)->moveTo(var$0, decodeY(0.2f));
-	double var$1 = (double)decodeX(1.8333333f);
+	double var$1 = decodeX(1.8333333f);
 	$nc(this->path)->lineTo(var$1, decodeY(1.0f));
-	double var$2 = (double)decodeX(2.6f);
+	double var$2 = decodeX(2.6f);
 	$nc(this->path)->lineTo(var$2, decodeY(1.0f));
-	double var$3 = (double)decodeX(1.8333333f);
+	double var$3 = decodeX(1.8333333f);
 	$nc(this->path)->lineTo(var$3, decodeY(0.2f));
 	$nc(this->path)->closePath();
 	return this->path;
@@ -989,19 +656,19 @@ $Path2D* FileChooserPainter::decodePath2() {
 
 $Path2D* FileChooserPainter::decodePath3() {
 	$nc(this->path)->reset();
-	double var$0 = (double)decodeX(1.8333333f);
+	double var$0 = decodeX(1.8333333f);
 	$nc(this->path)->moveTo(var$0, decodeY(0.2f));
-	double var$1 = (double)decodeX(0.4f);
+	double var$1 = decodeX(0.4f);
 	$nc(this->path)->lineTo(var$1, decodeY(0.2f));
-	double var$2 = (double)decodeX(0.4f);
+	double var$2 = decodeX(0.4f);
 	$nc(this->path)->lineTo(var$2, decodeY(2.8f));
-	double var$3 = (double)decodeX(2.6f);
+	double var$3 = decodeX(2.6f);
 	$nc(this->path)->lineTo(var$3, decodeY(2.8f));
-	double var$4 = (double)decodeX(2.6f);
+	double var$4 = decodeX(2.6f);
 	$nc(this->path)->lineTo(var$4, decodeY(1.0f));
-	double var$5 = (double)decodeX(1.8333333f);
+	double var$5 = decodeX(1.8333333f);
 	$nc(this->path)->lineTo(var$5, decodeY(1.0f));
-	double var$6 = (double)decodeX(1.8333333f);
+	double var$6 = decodeX(1.8333333f);
 	$nc(this->path)->lineTo(var$6, decodeY(0.2f));
 	$nc(this->path)->closePath();
 	return this->path;
@@ -1009,19 +676,19 @@ $Path2D* FileChooserPainter::decodePath3() {
 
 $Path2D* FileChooserPainter::decodePath4() {
 	$nc(this->path)->reset();
-	double var$0 = (double)decodeX(1.8333333f);
+	double var$0 = decodeX(1.8333333f);
 	$nc(this->path)->moveTo(var$0, decodeY(0.2f));
-	double var$1 = (double)decodeX(1.6234567f);
+	double var$1 = decodeX(1.6234567f);
 	$nc(this->path)->lineTo(var$1, decodeY(0.2f));
-	double var$2 = (double)decodeX(1.6296296f);
+	double var$2 = decodeX(1.6296296f);
 	$nc(this->path)->lineTo(var$2, decodeY(1.2037038f));
-	double var$3 = (double)decodeX(2.6f);
+	double var$3 = decodeX(2.6f);
 	$nc(this->path)->lineTo(var$3, decodeY(1.2006173f));
-	double var$4 = (double)decodeX(2.6f);
+	double var$4 = decodeX(2.6f);
 	$nc(this->path)->lineTo(var$4, decodeY(1.0f));
-	double var$5 = (double)decodeX(1.8333333f);
+	double var$5 = decodeX(1.8333333f);
 	$nc(this->path)->lineTo(var$5, decodeY(1.0f));
-	double var$6 = (double)decodeX(1.8333333f);
+	double var$6 = decodeX(1.8333333f);
 	$nc(this->path)->lineTo(var$6, decodeY(0.2f));
 	$nc(this->path)->closePath();
 	return this->path;
@@ -1029,27 +696,27 @@ $Path2D* FileChooserPainter::decodePath4() {
 
 $Path2D* FileChooserPainter::decodePath5() {
 	$nc(this->path)->reset();
-	double var$0 = (double)decodeX(1.8333333f);
+	double var$0 = decodeX(1.8333333f);
 	$nc(this->path)->moveTo(var$0, decodeY(0.4f));
-	double var$1 = (double)decodeX(1.8333333f);
+	double var$1 = decodeX(1.8333333f);
 	$nc(this->path)->lineTo(var$1, decodeY(0.2f));
-	double var$2 = (double)decodeX(0.4f);
+	double var$2 = decodeX(0.4f);
 	$nc(this->path)->lineTo(var$2, decodeY(0.2f));
-	double var$3 = (double)decodeX(0.4f);
+	double var$3 = decodeX(0.4f);
 	$nc(this->path)->lineTo(var$3, decodeY(2.8f));
-	double var$4 = (double)decodeX(2.6f);
+	double var$4 = decodeX(2.6f);
 	$nc(this->path)->lineTo(var$4, decodeY(2.8f));
-	double var$5 = (double)decodeX(2.6f);
+	double var$5 = decodeX(2.6f);
 	$nc(this->path)->lineTo(var$5, decodeY(1.0f));
-	double var$6 = (double)decodeX(2.4f);
+	double var$6 = decodeX(2.4f);
 	$nc(this->path)->lineTo(var$6, decodeY(1.0f));
-	double var$7 = (double)decodeX(2.4f);
+	double var$7 = decodeX(2.4f);
 	$nc(this->path)->lineTo(var$7, decodeY(2.6f));
-	double var$8 = (double)decodeX(0.6f);
+	double var$8 = decodeX(0.6f);
 	$nc(this->path)->lineTo(var$8, decodeY(2.6f));
-	double var$9 = (double)decodeX(0.6f);
+	double var$9 = decodeX(0.6f);
 	$nc(this->path)->lineTo(var$9, decodeY(0.4f));
-	double var$10 = (double)decodeX(1.8333333f);
+	double var$10 = decodeX(1.8333333f);
 	$nc(this->path)->lineTo(var$10, decodeY(0.4f));
 	$nc(this->path)->closePath();
 	return this->path;
@@ -1057,19 +724,19 @@ $Path2D* FileChooserPainter::decodePath5() {
 
 $Path2D* FileChooserPainter::decodePath6() {
 	$nc(this->path)->reset();
-	double var$0 = (double)decodeX(0.0f);
+	double var$0 = decodeX(0.0f);
 	$nc(this->path)->moveTo(var$0, decodeY(2.4f));
-	double var$1 = (double)decodeX(0.0f);
+	double var$1 = decodeX(0.0f);
 	$nc(this->path)->lineTo(var$1, decodeY(2.6f));
-	double var$2 = (double)decodeX(0.2f);
+	double var$2 = decodeX(0.2f);
 	$nc(this->path)->lineTo(var$2, decodeY(3.0f));
-	double var$3 = (double)decodeX(2.6f);
+	double var$3 = decodeX(2.6f);
 	$nc(this->path)->lineTo(var$3, decodeY(3.0f));
-	double var$4 = (double)decodeX(2.8f);
+	double var$4 = decodeX(2.8f);
 	$nc(this->path)->lineTo(var$4, decodeY(2.6f));
-	double var$5 = (double)decodeX(2.8f);
+	double var$5 = decodeX(2.8f);
 	$nc(this->path)->lineTo(var$5, decodeY(2.4f));
-	double var$6 = (double)decodeX(0.0f);
+	double var$6 = decodeX(0.0f);
 	$nc(this->path)->lineTo(var$6, decodeY(2.4f));
 	$nc(this->path)->closePath();
 	return this->path;
@@ -1077,19 +744,19 @@ $Path2D* FileChooserPainter::decodePath6() {
 
 $Path2D* FileChooserPainter::decodePath7() {
 	$nc(this->path)->reset();
-	double var$0 = (double)decodeX(0.6f);
+	double var$0 = decodeX(0.6f);
 	$nc(this->path)->moveTo(var$0, decodeY(2.6f));
-	double var$1 = (double)decodeX(0.6037037f);
+	double var$1 = decodeX(0.6037037f);
 	$nc(this->path)->lineTo(var$1, decodeY(1.8425925f));
-	double var$2 = (double)decodeX(0.8f);
+	double var$2 = decodeX(0.8f);
 	$nc(this->path)->lineTo(var$2, decodeY(1.0f));
-	double var$3 = (double)decodeX(2.8f);
+	double var$3 = decodeX(2.8f);
 	$nc(this->path)->lineTo(var$3, decodeY(1.0f));
-	double var$4 = (double)decodeX(2.8f);
+	double var$4 = decodeX(2.8f);
 	$nc(this->path)->lineTo(var$4, decodeY(1.3333334f));
-	double var$5 = (double)decodeX(2.6f);
+	double var$5 = decodeX(2.6f);
 	$nc(this->path)->lineTo(var$5, decodeY(2.6f));
-	double var$6 = (double)decodeX(0.6f);
+	double var$6 = decodeX(0.6f);
 	$nc(this->path)->lineTo(var$6, decodeY(2.6f));
 	$nc(this->path)->closePath();
 	return this->path;
@@ -1097,63 +764,63 @@ $Path2D* FileChooserPainter::decodePath7() {
 
 $Path2D* FileChooserPainter::decodePath8() {
 	$nc(this->path)->reset();
-	double var$0 = (double)decodeX(0.2f);
+	double var$0 = decodeX(0.2f);
 	$nc(this->path)->moveTo(var$0, decodeY(2.6f));
-	double var$1 = (double)decodeX(0.4f);
+	double var$1 = decodeX(0.4f);
 	$nc(this->path)->lineTo(var$1, decodeY(2.6f));
-	double var$2 = (double)decodeX(0.40833336f);
+	double var$2 = decodeX(0.40833336f);
 	$nc(this->path)->lineTo(var$2, decodeY(1.8645833f));
-	double var$3 = (double)decodeX(0.79583335f);
+	double var$3 = decodeX(0.79583335f);
 	$nc(this->path)->lineTo(var$3, decodeY(0.8f));
-	double var$4 = (double)decodeX(2.4f);
+	double var$4 = decodeX(2.4f);
 	$nc(this->path)->lineTo(var$4, decodeY(0.8f));
-	double var$5 = (double)decodeX(2.4f);
+	double var$5 = decodeX(2.4f);
 	$nc(this->path)->lineTo(var$5, decodeY(0.6f));
-	double var$6 = (double)decodeX(1.5f);
+	double var$6 = decodeX(1.5f);
 	$nc(this->path)->lineTo(var$6, decodeY(0.6f));
-	double var$7 = (double)decodeX(1.3333334f);
+	double var$7 = decodeX(1.3333334f);
 	$nc(this->path)->lineTo(var$7, decodeY(0.4f));
-	double var$8 = (double)decodeX(1.3333334f);
+	double var$8 = decodeX(1.3333334f);
 	$nc(this->path)->lineTo(var$8, decodeY(0.2f));
-	double var$9 = (double)decodeX(0.6f);
+	double var$9 = decodeX(0.6f);
 	$nc(this->path)->lineTo(var$9, decodeY(0.2f));
-	double var$10 = (double)decodeX(0.6f);
+	double var$10 = decodeX(0.6f);
 	$nc(this->path)->lineTo(var$10, decodeY(0.4f));
-	double var$11 = (double)decodeX(0.4f);
+	double var$11 = decodeX(0.4f);
 	$nc(this->path)->lineTo(var$11, decodeY(0.6f));
-	double var$12 = (double)decodeX(0.2f);
+	double var$12 = decodeX(0.2f);
 	$nc(this->path)->lineTo(var$12, decodeY(0.6f));
-	double var$13 = (double)decodeX(0.2f);
+	double var$13 = decodeX(0.2f);
 	$nc(this->path)->lineTo(var$13, decodeY(2.6f));
 	$nc(this->path)->closePath();
 	return this->path;
 }
 
 $Rectangle2D* FileChooserPainter::decodeRect3() {
-	double var$0 = (double)decodeX(0.2f);
-	double var$1 = (double)decodeY(0.6f);
+	double var$0 = decodeX(0.2f);
+	double var$1 = decodeY(0.6f);
 	float var$3 = decodeX(0.4f);
-	double var$2 = (double)(var$3 - decodeX(0.2f));
+	double var$2 = var$3 - decodeX(0.2f);
 	float var$4 = decodeY(0.8f);
 	$nc(this->rect)->setRect(var$0, var$1, var$2, var$4 - decodeY(0.6f));
 	return this->rect;
 }
 
 $Rectangle2D* FileChooserPainter::decodeRect4() {
-	double var$0 = (double)decodeX(0.6f);
-	double var$1 = (double)decodeY(0.2f);
+	double var$0 = decodeX(0.6f);
+	double var$1 = decodeY(0.2f);
 	float var$3 = decodeX(1.3333334f);
-	double var$2 = (double)(var$3 - decodeX(0.6f));
+	double var$2 = var$3 - decodeX(0.6f);
 	float var$4 = decodeY(0.4f);
 	$nc(this->rect)->setRect(var$0, var$1, var$2, var$4 - decodeY(0.2f));
 	return this->rect;
 }
 
 $Rectangle2D* FileChooserPainter::decodeRect5() {
-	double var$0 = (double)decodeX(1.5f);
-	double var$1 = (double)decodeY(0.6f);
+	double var$0 = decodeX(1.5f);
+	double var$1 = decodeY(0.6f);
 	float var$3 = decodeX(2.4f);
-	double var$2 = (double)(var$3 - decodeX(1.5f));
+	double var$2 = var$3 - decodeX(1.5f);
 	float var$4 = decodeY(0.8f);
 	$nc(this->rect)->setRect(var$0, var$1, var$2, var$4 - decodeY(0.6f));
 	return this->rect;
@@ -1161,67 +828,67 @@ $Rectangle2D* FileChooserPainter::decodeRect5() {
 
 $Path2D* FileChooserPainter::decodePath9() {
 	$nc(this->path)->reset();
-	double var$0 = (double)decodeX(3.0f);
+	double var$0 = decodeX(3.0f);
 	$nc(this->path)->moveTo(var$0, decodeY(0.8f));
-	double var$1 = (double)decodeX(3.0f);
+	double var$1 = decodeX(3.0f);
 	$nc(this->path)->lineTo(var$1, decodeY(1.0f));
-	double var$2 = (double)decodeX(2.4f);
+	double var$2 = decodeX(2.4f);
 	$nc(this->path)->lineTo(var$2, decodeY(1.0f));
-	double var$3 = (double)decodeX(2.4f);
+	double var$3 = decodeX(2.4f);
 	$nc(this->path)->lineTo(var$3, decodeY(0.6f));
-	double var$4 = (double)decodeX(1.5f);
+	double var$4 = decodeX(1.5f);
 	$nc(this->path)->lineTo(var$4, decodeY(0.6f));
-	double var$5 = (double)decodeX(1.3333334f);
+	double var$5 = decodeX(1.3333334f);
 	$nc(this->path)->lineTo(var$5, decodeY(0.4f));
-	double var$6 = (double)decodeX(1.3333334f);
+	double var$6 = decodeX(1.3333334f);
 	$nc(this->path)->lineTo(var$6, decodeY(0.2f));
-	double var$7 = (double)decodeX(0.5888889f);
+	double var$7 = decodeX(0.5888889f);
 	$nc(this->path)->lineTo(var$7, decodeY(0.20370372f));
-	double var$8 = (double)decodeX(0.5962963f);
+	double var$8 = decodeX(0.5962963f);
 	$nc(this->path)->lineTo(var$8, decodeY(0.34814817f));
-	double var$9 = (double)decodeX(0.34814817f);
+	double var$9 = decodeX(0.34814817f);
 	$nc(this->path)->lineTo(var$9, decodeY(0.6f));
-	double var$10 = (double)decodeX(0.2f);
+	double var$10 = decodeX(0.2f);
 	$nc(this->path)->lineTo(var$10, decodeY(0.6f));
-	double var$11 = (double)decodeX(0.2f);
+	double var$11 = decodeX(0.2f);
 	$nc(this->path)->lineTo(var$11, decodeY(2.6f));
-	double var$12 = (double)decodeX(2.6f);
+	double var$12 = decodeX(2.6f);
 	$nc(this->path)->lineTo(var$12, decodeY(2.6f));
-	double var$13 = (double)decodeX(2.6f);
+	double var$13 = decodeX(2.6f);
 	$nc(this->path)->lineTo(var$13, decodeY(1.3333334f));
-	double var$14 = (double)decodeX(2.774074f);
+	double var$14 = decodeX(2.774074f);
 	$nc(this->path)->lineTo(var$14, decodeY(1.1604939f));
-	double var$15 = (double)decodeX(2.8f);
+	double var$15 = decodeX(2.8f);
 	$nc(this->path)->lineTo(var$15, decodeY(1.0f));
-	double var$16 = (double)decodeX(3.0f);
+	double var$16 = decodeX(3.0f);
 	$nc(this->path)->lineTo(var$16, decodeY(1.0f));
-	double var$17 = (double)decodeX(2.8925927f);
+	double var$17 = decodeX(2.8925927f);
 	$nc(this->path)->lineTo(var$17, decodeY(1.1882716f));
-	double var$18 = (double)decodeX(2.8f);
+	double var$18 = decodeX(2.8f);
 	$nc(this->path)->lineTo(var$18, decodeY(1.3333334f));
-	double var$19 = (double)decodeX(2.8f);
+	double var$19 = decodeX(2.8f);
 	$nc(this->path)->lineTo(var$19, decodeY(2.6f));
-	double var$20 = (double)decodeX(2.6f);
+	double var$20 = decodeX(2.6f);
 	$nc(this->path)->lineTo(var$20, decodeY(2.8f));
-	double var$21 = (double)decodeX(0.2f);
+	double var$21 = decodeX(0.2f);
 	$nc(this->path)->lineTo(var$21, decodeY(2.8f));
-	double var$22 = (double)decodeX(0.0f);
+	double var$22 = decodeX(0.0f);
 	$nc(this->path)->lineTo(var$22, decodeY(2.6f));
-	double var$23 = (double)decodeX(0.0f);
+	double var$23 = decodeX(0.0f);
 	$nc(this->path)->lineTo(var$23, decodeY(0.65185183f));
-	double var$24 = (double)decodeX(0.63703704f);
+	double var$24 = decodeX(0.63703704f);
 	$nc(this->path)->lineTo(var$24, decodeY(0.0f));
-	double var$25 = (double)decodeX(1.3333334f);
+	double var$25 = decodeX(1.3333334f);
 	$nc(this->path)->lineTo(var$25, decodeY(0.0f));
-	double var$26 = (double)decodeX(1.5925925f);
+	double var$26 = decodeX(1.5925925f);
 	$nc(this->path)->lineTo(var$26, decodeY(0.4f));
-	double var$27 = (double)decodeX(2.4f);
+	double var$27 = decodeX(2.4f);
 	$nc(this->path)->lineTo(var$27, decodeY(0.4f));
-	double var$28 = (double)decodeX(2.6f);
+	double var$28 = decodeX(2.6f);
 	$nc(this->path)->lineTo(var$28, decodeY(0.6f));
-	double var$29 = (double)decodeX(2.6f);
+	double var$29 = decodeX(2.6f);
 	$nc(this->path)->lineTo(var$29, decodeY(0.8f));
-	double var$30 = (double)decodeX(3.0f);
+	double var$30 = decodeX(3.0f);
 	$nc(this->path)->lineTo(var$30, decodeY(0.8f));
 	$nc(this->path)->closePath();
 	return this->path;
@@ -1229,23 +896,23 @@ $Path2D* FileChooserPainter::decodePath9() {
 
 $Path2D* FileChooserPainter::decodePath10() {
 	$nc(this->path)->reset();
-	double var$0 = (double)decodeX(2.4f);
+	double var$0 = decodeX(2.4f);
 	$nc(this->path)->moveTo(var$0, decodeY(1.0f));
-	double var$1 = (double)decodeX(2.4f);
+	double var$1 = decodeX(2.4f);
 	$nc(this->path)->lineTo(var$1, decodeY(0.8f));
-	double var$2 = (double)decodeX(0.74814814f);
+	double var$2 = decodeX(0.74814814f);
 	$nc(this->path)->lineTo(var$2, decodeY(0.8f));
-	double var$3 = (double)decodeX(0.4037037f);
+	double var$3 = decodeX(0.4037037f);
 	$nc(this->path)->lineTo(var$3, decodeY(1.8425925f));
-	double var$4 = (double)decodeX(0.4f);
+	double var$4 = decodeX(0.4f);
 	$nc(this->path)->lineTo(var$4, decodeY(2.6f));
-	double var$5 = (double)decodeX(0.6f);
+	double var$5 = decodeX(0.6f);
 	$nc(this->path)->lineTo(var$5, decodeY(2.6f));
-	double var$6 = (double)decodeX(0.5925926f);
+	double var$6 = decodeX(0.5925926f);
 	$nc(this->path)->lineTo(var$6, decodeY(2.225926f));
-	double var$7 = (double)decodeX(0.916f);
+	double var$7 = decodeX(0.916f);
 	$nc(this->path)->lineTo(var$7, decodeY(0.996f));
-	double var$8 = (double)decodeX(2.4f);
+	double var$8 = decodeX(2.4f);
 	$nc(this->path)->lineTo(var$8, decodeY(1.0f));
 	$nc(this->path)->closePath();
 	return this->path;
@@ -1253,9 +920,9 @@ $Path2D* FileChooserPainter::decodePath10() {
 
 $Path2D* FileChooserPainter::decodePath11() {
 	$nc(this->path)->reset();
-	double var$0 = (double)decodeX(2.2f);
+	double var$0 = decodeX(2.2f);
 	$nc(this->path)->moveTo(var$0, decodeY(2.2f));
-	double var$1 = (double)decodeX(2.2f);
+	double var$1 = decodeX(2.2f);
 	$nc(this->path)->lineTo(var$1, decodeY(2.2f));
 	$nc(this->path)->closePath();
 	return this->path;
@@ -1263,37 +930,37 @@ $Path2D* FileChooserPainter::decodePath11() {
 
 $Path2D* FileChooserPainter::decodePath12() {
 	$nc(this->path)->reset();
-	double var$0 = (double)decodeX(0.0f);
+	double var$0 = decodeX(0.0f);
 	$nc(this->path)->moveTo(var$0, decodeY(2.8f));
-	double var$1 = (double)decodeX(0.2f);
+	double var$1 = decodeX(0.2f);
 	$nc(this->path)->lineTo(var$1, decodeY(3.0f));
-	double var$2 = (double)decodeX(2.6f);
+	double var$2 = decodeX(2.6f);
 	$nc(this->path)->lineTo(var$2, decodeY(3.0f));
-	double var$3 = (double)decodeX(2.8f);
+	double var$3 = decodeX(2.8f);
 	$nc(this->path)->lineTo(var$3, decodeY(2.8f));
-	double var$4 = (double)decodeX(2.8f);
+	double var$4 = decodeX(2.8f);
 	$nc(this->path)->lineTo(var$4, decodeY(1.8333333f));
-	double var$5 = (double)decodeX(3.0f);
+	double var$5 = decodeX(3.0f);
 	$nc(this->path)->lineTo(var$5, decodeY(1.3333334f));
-	double var$6 = (double)decodeX(3.0f);
+	double var$6 = decodeX(3.0f);
 	$nc(this->path)->lineTo(var$6, decodeY(1.0f));
-	double var$7 = (double)decodeX(1.5f);
+	double var$7 = decodeX(1.5f);
 	$nc(this->path)->lineTo(var$7, decodeY(1.0f));
-	double var$8 = (double)decodeX(1.5f);
+	double var$8 = decodeX(1.5f);
 	$nc(this->path)->lineTo(var$8, decodeY(0.4f));
-	double var$9 = (double)decodeX(1.3333334f);
+	double var$9 = decodeX(1.3333334f);
 	$nc(this->path)->lineTo(var$9, decodeY(0.2f));
-	double var$10 = (double)decodeX(0.6f);
+	double var$10 = decodeX(0.6f);
 	$nc(this->path)->lineTo(var$10, decodeY(0.2f));
-	double var$11 = (double)decodeX(0.4f);
+	double var$11 = decodeX(0.4f);
 	$nc(this->path)->lineTo(var$11, decodeY(0.4f));
-	double var$12 = (double)decodeX(0.4f);
+	double var$12 = decodeX(0.4f);
 	$nc(this->path)->lineTo(var$12, decodeY(0.6f));
-	double var$13 = (double)decodeX(0.2f);
+	double var$13 = decodeX(0.2f);
 	$nc(this->path)->lineTo(var$13, decodeY(0.6f));
-	double var$14 = (double)decodeX(0.0f);
+	double var$14 = decodeX(0.0f);
 	$nc(this->path)->lineTo(var$14, decodeY(0.8f));
-	double var$15 = (double)decodeX(0.0f);
+	double var$15 = decodeX(0.0f);
 	$nc(this->path)->lineTo(var$15, decodeY(2.8f));
 	$nc(this->path)->closePath();
 	return this->path;
@@ -1301,25 +968,25 @@ $Path2D* FileChooserPainter::decodePath12() {
 
 $Path2D* FileChooserPainter::decodePath13() {
 	$nc(this->path)->reset();
-	double var$0 = (double)decodeX(0.2f);
+	double var$0 = decodeX(0.2f);
 	$nc(this->path)->moveTo(var$0, decodeY(2.8f));
-	double var$1 = (double)decodeX(0.2f);
+	double var$1 = decodeX(0.2f);
 	$nc(this->path)->lineTo(var$1, decodeY(0.8f));
-	double var$2 = (double)decodeX(0.4f);
+	double var$2 = decodeX(0.4f);
 	$nc(this->path)->lineTo(var$2, decodeY(0.8f));
-	double var$3 = (double)decodeX(0.6f);
+	double var$3 = decodeX(0.6f);
 	$nc(this->path)->lineTo(var$3, decodeY(0.6f));
-	double var$4 = (double)decodeX(0.6f);
+	double var$4 = decodeX(0.6f);
 	$nc(this->path)->lineTo(var$4, decodeY(0.4f));
-	double var$5 = (double)decodeX(1.3333334f);
+	double var$5 = decodeX(1.3333334f);
 	$nc(this->path)->lineTo(var$5, decodeY(0.4f));
-	double var$6 = (double)decodeX(1.3333334f);
+	double var$6 = decodeX(1.3333334f);
 	$nc(this->path)->lineTo(var$6, decodeY(0.6f));
-	double var$7 = (double)decodeX(1.5f);
+	double var$7 = decodeX(1.5f);
 	$nc(this->path)->lineTo(var$7, decodeY(0.6f));
-	double var$8 = (double)decodeX(1.5f);
+	double var$8 = decodeX(1.5f);
 	$nc(this->path)->lineTo(var$8, decodeY(2.8f));
-	double var$9 = (double)decodeX(0.2f);
+	double var$9 = decodeX(0.2f);
 	$nc(this->path)->lineTo(var$9, decodeY(2.8f));
 	$nc(this->path)->closePath();
 	return this->path;
@@ -1327,21 +994,21 @@ $Path2D* FileChooserPainter::decodePath13() {
 
 $Path2D* FileChooserPainter::decodePath14() {
 	$nc(this->path)->reset();
-	double var$0 = (double)decodeX(0.4f);
+	double var$0 = decodeX(0.4f);
 	$nc(this->path)->moveTo(var$0, decodeY(2.0f));
-	double var$1 = (double)decodeX(0.6f);
+	double var$1 = decodeX(0.6f);
 	$nc(this->path)->lineTo(var$1, decodeY(1.1666666f));
-	double var$2 = (double)decodeX(0.8f);
+	double var$2 = decodeX(0.8f);
 	$nc(this->path)->lineTo(var$2, decodeY(1.0f));
-	double var$3 = (double)decodeX(2.8f);
+	double var$3 = decodeX(2.8f);
 	$nc(this->path)->lineTo(var$3, decodeY(1.0f));
-	double var$4 = (double)decodeX(2.8f);
+	double var$4 = decodeX(2.8f);
 	$nc(this->path)->lineTo(var$4, decodeY(2.8f));
-	double var$5 = (double)decodeX(2.4f);
+	double var$5 = decodeX(2.4f);
 	$nc(this->path)->lineTo(var$5, decodeY(3.0f));
-	double var$6 = (double)decodeX(0.4f);
+	double var$6 = decodeX(0.4f);
 	$nc(this->path)->lineTo(var$6, decodeY(3.0f));
-	double var$7 = (double)decodeX(0.4f);
+	double var$7 = decodeX(0.4f);
 	$nc(this->path)->lineTo(var$7, decodeY(2.0f));
 	$nc(this->path)->closePath();
 	return this->path;
@@ -1349,19 +1016,19 @@ $Path2D* FileChooserPainter::decodePath14() {
 
 $Path2D* FileChooserPainter::decodePath15() {
 	$nc(this->path)->reset();
-	double var$0 = (double)decodeX(0.6f);
+	double var$0 = decodeX(0.6f);
 	$nc(this->path)->moveTo(var$0, decodeY(2.8f));
-	double var$1 = (double)decodeX(0.6f);
+	double var$1 = decodeX(0.6f);
 	$nc(this->path)->lineTo(var$1, decodeY(2.0f));
-	double var$2 = (double)decodeX(0.8f);
+	double var$2 = decodeX(0.8f);
 	$nc(this->path)->lineTo(var$2, decodeY(1.1666666f));
-	double var$3 = (double)decodeX(2.8f);
+	double var$3 = decodeX(2.8f);
 	$nc(this->path)->lineTo(var$3, decodeY(1.1666666f));
-	double var$4 = (double)decodeX(2.6f);
+	double var$4 = decodeX(2.6f);
 	$nc(this->path)->lineTo(var$4, decodeY(2.0f));
-	double var$5 = (double)decodeX(2.6f);
+	double var$5 = decodeX(2.6f);
 	$nc(this->path)->lineTo(var$5, decodeY(2.8f));
-	double var$6 = (double)decodeX(0.6f);
+	double var$6 = decodeX(0.6f);
 	$nc(this->path)->lineTo(var$6, decodeY(2.8f));
 	$nc(this->path)->closePath();
 	return this->path;
@@ -1369,27 +1036,27 @@ $Path2D* FileChooserPainter::decodePath15() {
 
 $Path2D* FileChooserPainter::decodePath16() {
 	$nc(this->path)->reset();
-	double var$0 = (double)decodeX(1.1702899f);
+	double var$0 = decodeX(1.1702899f);
 	$nc(this->path)->moveTo(var$0, decodeY(1.2536231f));
-	double var$1 = (double)decodeX(1.1666666f);
+	double var$1 = decodeX(1.1666666f);
 	$nc(this->path)->lineTo(var$1, decodeY(1.0615941f));
-	double var$2 = (double)decodeX(3.0f);
+	double var$2 = decodeX(3.0f);
 	$nc(this->path)->lineTo(var$2, decodeY(1.0978261f));
-	double var$3 = (double)decodeX(2.7782607f);
+	double var$3 = decodeX(2.7782607f);
 	$nc(this->path)->lineTo(var$3, decodeY(1.25f));
-	double var$4 = (double)decodeX(2.3913045f);
+	double var$4 = decodeX(2.3913045f);
 	$nc(this->path)->lineTo(var$4, decodeY(1.3188406f));
-	double var$5 = (double)decodeX(2.3826087f);
+	double var$5 = decodeX(2.3826087f);
 	$nc(this->path)->lineTo(var$5, decodeY(1.7246377f));
-	double var$6 = (double)decodeX(2.173913f);
+	double var$6 = decodeX(2.173913f);
 	$nc(this->path)->lineTo(var$6, decodeY(1.9347827f));
-	double var$7 = (double)decodeX(1.8695652f);
+	double var$7 = decodeX(1.8695652f);
 	$nc(this->path)->lineTo(var$7, decodeY(1.923913f));
-	double var$8 = (double)decodeX(1.710145f);
+	double var$8 = decodeX(1.710145f);
 	$nc(this->path)->lineTo(var$8, decodeY(1.7246377f));
-	double var$9 = (double)decodeX(1.710145f);
+	double var$9 = decodeX(1.710145f);
 	$nc(this->path)->lineTo(var$9, decodeY(1.3115941f));
-	double var$10 = (double)decodeX(1.1702899f);
+	double var$10 = decodeX(1.1702899f);
 	$nc(this->path)->lineTo(var$10, decodeY(1.2536231f));
 	$nc(this->path)->closePath();
 	return this->path;
@@ -1397,31 +1064,31 @@ $Path2D* FileChooserPainter::decodePath16() {
 
 $Path2D* FileChooserPainter::decodePath17() {
 	$nc(this->path)->reset();
-	double var$0 = (double)decodeX(1.1666666f);
+	double var$0 = decodeX(1.1666666f);
 	$nc(this->path)->moveTo(var$0, decodeY(1.1666666f));
-	double var$1 = (double)decodeX(1.1666666f);
+	double var$1 = decodeX(1.1666666f);
 	$nc(this->path)->lineTo(var$1, decodeY(0.9130435f));
-	double var$2 = (double)decodeX(1.9456522f);
+	double var$2 = decodeX(1.9456522f);
 	$nc(this->path)->lineTo(var$2, decodeY(0.0f));
-	double var$3 = (double)decodeX(2.0608697f);
+	double var$3 = decodeX(2.0608697f);
 	$nc(this->path)->lineTo(var$3, decodeY(0.0f));
-	double var$4 = (double)decodeX(2.9956522f);
+	double var$4 = decodeX(2.9956522f);
 	$nc(this->path)->lineTo(var$4, decodeY(0.9130435f));
-	double var$5 = (double)decodeX(3.0f);
+	double var$5 = decodeX(3.0f);
 	$nc(this->path)->lineTo(var$5, decodeY(1.1666666f));
-	double var$6 = (double)decodeX(2.4f);
+	double var$6 = decodeX(2.4f);
 	$nc(this->path)->lineTo(var$6, decodeY(1.1666666f));
-	double var$7 = (double)decodeX(2.4f);
+	double var$7 = decodeX(2.4f);
 	$nc(this->path)->lineTo(var$7, decodeY(1.6666667f));
-	double var$8 = (double)decodeX(2.2f);
+	double var$8 = decodeX(2.2f);
 	$nc(this->path)->lineTo(var$8, decodeY(1.8333333f));
-	double var$9 = (double)decodeX(1.8333333f);
+	double var$9 = decodeX(1.8333333f);
 	$nc(this->path)->lineTo(var$9, decodeY(1.8333333f));
-	double var$10 = (double)decodeX(1.6666667f);
+	double var$10 = decodeX(1.6666667f);
 	$nc(this->path)->lineTo(var$10, decodeY(1.6666667f));
-	double var$11 = (double)decodeX(1.6666667f);
+	double var$11 = decodeX(1.6666667f);
 	$nc(this->path)->lineTo(var$11, decodeY(1.1666666f));
-	double var$12 = (double)decodeX(1.1666666f);
+	double var$12 = decodeX(1.1666666f);
 	$nc(this->path)->lineTo(var$12, decodeY(1.1666666f));
 	$nc(this->path)->closePath();
 	return this->path;
@@ -1429,21 +1096,21 @@ $Path2D* FileChooserPainter::decodePath17() {
 
 $Path2D* FileChooserPainter::decodePath18() {
 	$nc(this->path)->reset();
-	double var$0 = (double)decodeX(1.2717391f);
+	double var$0 = decodeX(1.2717391f);
 	$nc(this->path)->moveTo(var$0, decodeY(0.9956522f));
-	double var$1 = (double)decodeX(1.8333333f);
+	double var$1 = decodeX(1.8333333f);
 	$nc(this->path)->lineTo(var$1, decodeY(1.0f));
-	double var$2 = (double)decodeX(1.8333333f);
+	double var$2 = decodeX(1.8333333f);
 	$nc(this->path)->lineTo(var$2, decodeY(1.6666667f));
-	double var$3 = (double)decodeX(2.2f);
+	double var$3 = decodeX(2.2f);
 	$nc(this->path)->lineTo(var$3, decodeY(1.6666667f));
-	double var$4 = (double)decodeX(2.2f);
+	double var$4 = decodeX(2.2f);
 	$nc(this->path)->lineTo(var$4, decodeY(1.0f));
-	double var$5 = (double)decodeX(2.8652174f);
+	double var$5 = decodeX(2.8652174f);
 	$nc(this->path)->lineTo(var$5, decodeY(1.0f));
-	double var$6 = (double)decodeX(2.0f);
+	double var$6 = decodeX(2.0f);
 	$nc(this->path)->lineTo(var$6, decodeY(0.13043478f));
-	double var$7 = (double)decodeX(1.2717391f);
+	double var$7 = decodeX(1.2717391f);
 	$nc(this->path)->lineTo(var$7, decodeY(0.9956522f));
 	$nc(this->path)->closePath();
 	return this->path;
@@ -1451,21 +1118,21 @@ $Path2D* FileChooserPainter::decodePath18() {
 
 $Path2D* FileChooserPainter::decodePath19() {
 	$nc(this->path)->reset();
-	double var$0 = (double)decodeX(1.8333333f);
+	double var$0 = decodeX(1.8333333f);
 	$nc(this->path)->moveTo(var$0, decodeY(1.6666667f));
-	double var$1 = (double)decodeX(1.8333333f);
+	double var$1 = decodeX(1.8333333f);
 	$nc(this->path)->lineTo(var$1, decodeY(1.0f));
-	double var$2 = (double)decodeX(1.3913044f);
+	double var$2 = decodeX(1.3913044f);
 	$nc(this->path)->lineTo(var$2, decodeY(1.0f));
-	double var$3 = (double)decodeX(1.9963768f);
+	double var$3 = decodeX(1.9963768f);
 	$nc(this->path)->lineTo(var$3, decodeY(0.25652176f));
-	double var$4 = (double)decodeX(2.6608696f);
+	double var$4 = decodeX(2.6608696f);
 	$nc(this->path)->lineTo(var$4, decodeY(1.0f));
-	double var$5 = (double)decodeX(2.2f);
+	double var$5 = decodeX(2.2f);
 	$nc(this->path)->lineTo(var$5, decodeY(1.0f));
-	double var$6 = (double)decodeX(2.2f);
+	double var$6 = decodeX(2.2f);
 	$nc(this->path)->lineTo(var$6, decodeY(1.6666667f));
-	double var$7 = (double)decodeX(1.8333333f);
+	double var$7 = decodeX(1.8333333f);
 	$nc(this->path)->lineTo(var$7, decodeY(1.6666667f));
 	$nc(this->path)->closePath();
 	return this->path;
@@ -1473,39 +1140,39 @@ $Path2D* FileChooserPainter::decodePath19() {
 
 $Path2D* FileChooserPainter::decodePath20() {
 	$nc(this->path)->reset();
-	double var$0 = (double)decodeX(0.22692308f);
+	double var$0 = decodeX(0.22692308f);
 	$nc(this->path)->moveTo(var$0, decodeY(0.061538465f));
-	double var$1 = (double)decodeX(0.75384617f);
+	double var$1 = decodeX(0.75384617f);
 	$nc(this->path)->lineTo(var$1, decodeY(0.37692308f));
-	double var$2 = (double)decodeX(0.91923076f);
+	double var$2 = decodeX(0.91923076f);
 	$nc(this->path)->lineTo(var$2, decodeY(0.01923077f));
-	double var$3 = (double)decodeX(1.2532052f);
+	double var$3 = decodeX(1.2532052f);
 	$nc(this->path)->lineTo(var$3, decodeY(0.40769228f));
-	double var$4 = (double)decodeX(1.7115386f);
+	double var$4 = decodeX(1.7115386f);
 	$nc(this->path)->lineTo(var$4, decodeY(0.13846155f));
-	double var$5 = (double)decodeX(1.6923077f);
+	double var$5 = decodeX(1.6923077f);
 	$nc(this->path)->lineTo(var$5, decodeY(0.85f));
-	double var$6 = (double)decodeX(2.169231f);
+	double var$6 = decodeX(2.169231f);
 	$nc(this->path)->lineTo(var$6, decodeY(0.9115385f));
-	double var$7 = (double)decodeX(1.7852564f);
+	double var$7 = decodeX(1.7852564f);
 	$nc(this->path)->lineTo(var$7, decodeY(1.3333334f));
-	double var$8 = (double)decodeX(1.9166667f);
+	double var$8 = decodeX(1.9166667f);
 	$nc(this->path)->lineTo(var$8, decodeY(1.9679487f));
-	double var$9 = (double)decodeX(1.3685898f);
+	double var$9 = decodeX(1.3685898f);
 	$nc(this->path)->lineTo(var$9, decodeY(1.8301282f));
-	double var$10 = (double)decodeX(1.1314102f);
+	double var$10 = decodeX(1.1314102f);
 	$nc(this->path)->lineTo(var$10, decodeY(2.2115386f));
-	double var$11 = (double)decodeX(0.63076925f);
+	double var$11 = decodeX(0.63076925f);
 	$nc(this->path)->lineTo(var$11, decodeY(1.8205128f));
-	double var$12 = (double)decodeX(0.22692308f);
+	double var$12 = decodeX(0.22692308f);
 	$nc(this->path)->lineTo(var$12, decodeY(1.9262822f));
-	double var$13 = (double)decodeX(0.31153846f);
+	double var$13 = decodeX(0.31153846f);
 	$nc(this->path)->lineTo(var$13, decodeY(1.4871795f));
-	double var$14 = (double)decodeX(0.0f);
+	double var$14 = decodeX(0.0f);
 	$nc(this->path)->lineTo(var$14, decodeY(1.1538461f));
-	double var$15 = (double)decodeX(0.38461536f);
+	double var$15 = decodeX(0.38461536f);
 	$nc(this->path)->lineTo(var$15, decodeY(0.68076926f));
-	double var$16 = (double)decodeX(0.22692308f);
+	double var$16 = decodeX(0.22692308f);
 	$nc(this->path)->lineTo(var$16, decodeY(0.061538465f));
 	$nc(this->path)->closePath();
 	return this->path;
@@ -1513,55 +1180,55 @@ $Path2D* FileChooserPainter::decodePath20() {
 
 $Path2D* FileChooserPainter::decodePath21() {
 	$nc(this->path)->reset();
-	double var$0 = (double)decodeX(0.23461537f);
+	double var$0 = decodeX(0.23461537f);
 	$nc(this->path)->moveTo(var$0, decodeY(0.33076924f));
-	double var$1 = (double)decodeX(0.32692307f);
+	double var$1 = decodeX(0.32692307f);
 	$nc(this->path)->lineTo(var$1, decodeY(0.21538463f));
-	double var$2 = (double)decodeX(0.9653846f);
+	double var$2 = decodeX(0.9653846f);
 	$nc(this->path)->lineTo(var$2, decodeY(0.74615383f));
-	double var$3 = (double)decodeX(1.0160257f);
+	double var$3 = decodeX(1.0160257f);
 	$nc(this->path)->lineTo(var$3, decodeY(0.01923077f));
-	double var$4 = (double)decodeX(1.1506411f);
+	double var$4 = decodeX(1.1506411f);
 	$nc(this->path)->lineTo(var$4, decodeY(0.01923077f));
-	double var$5 = (double)decodeX(1.2275641f);
+	double var$5 = decodeX(1.2275641f);
 	$nc(this->path)->lineTo(var$5, decodeY(0.72307694f));
-	double var$6 = (double)decodeX(1.6987178f);
+	double var$6 = decodeX(1.6987178f);
 	$nc(this->path)->lineTo(var$6, decodeY(0.20769231f));
-	double var$7 = (double)decodeX(1.8237178f);
+	double var$7 = decodeX(1.8237178f);
 	$nc(this->path)->lineTo(var$7, decodeY(0.37692308f));
-	double var$8 = (double)decodeX(1.3878205f);
+	double var$8 = decodeX(1.3878205f);
 	$nc(this->path)->lineTo(var$8, decodeY(0.94230765f));
-	double var$9 = (double)decodeX(1.9775641f);
+	double var$9 = decodeX(1.9775641f);
 	$nc(this->path)->lineTo(var$9, decodeY(1.0256411f));
-	double var$10 = (double)decodeX(1.9839742f);
+	double var$10 = decodeX(1.9839742f);
 	$nc(this->path)->lineTo(var$10, decodeY(1.1474359f));
-	double var$11 = (double)decodeX(1.4070512f);
+	double var$11 = decodeX(1.4070512f);
 	$nc(this->path)->lineTo(var$11, decodeY(1.2083334f));
-	double var$12 = (double)decodeX(1.7980769f);
+	double var$12 = decodeX(1.7980769f);
 	$nc(this->path)->lineTo(var$12, decodeY(1.7307692f));
-	double var$13 = (double)decodeX(1.7532051f);
+	double var$13 = decodeX(1.7532051f);
 	$nc(this->path)->lineTo(var$13, decodeY(1.8269231f));
-	double var$14 = (double)decodeX(1.2211539f);
+	double var$14 = decodeX(1.2211539f);
 	$nc(this->path)->lineTo(var$14, decodeY(1.3365384f));
-	double var$15 = (double)decodeX(1.1506411f);
+	double var$15 = decodeX(1.1506411f);
 	$nc(this->path)->lineTo(var$15, decodeY(1.9839742f));
-	double var$16 = (double)decodeX(1.0288461f);
+	double var$16 = decodeX(1.0288461f);
 	$nc(this->path)->lineTo(var$16, decodeY(1.9775641f));
-	double var$17 = (double)decodeX(0.95384616f);
+	double var$17 = decodeX(0.95384616f);
 	$nc(this->path)->lineTo(var$17, decodeY(1.3429488f));
-	double var$18 = (double)decodeX(0.28846154f);
+	double var$18 = decodeX(0.28846154f);
 	$nc(this->path)->lineTo(var$18, decodeY(1.8012822f));
-	double var$19 = (double)decodeX(0.20769231f);
+	double var$19 = decodeX(0.20769231f);
 	$nc(this->path)->lineTo(var$19, decodeY(1.7371795f));
-	double var$20 = (double)decodeX(0.75f);
+	double var$20 = decodeX(0.75f);
 	$nc(this->path)->lineTo(var$20, decodeY(1.173077f));
-	double var$21 = (double)decodeX(0.011538462f);
+	double var$21 = decodeX(0.011538462f);
 	$nc(this->path)->lineTo(var$21, decodeY(1.1634616f));
-	double var$22 = (double)decodeX(0.015384616f);
+	double var$22 = decodeX(0.015384616f);
 	$nc(this->path)->lineTo(var$22, decodeY(1.0224359f));
-	double var$23 = (double)decodeX(0.79615384f);
+	double var$23 = decodeX(0.79615384f);
 	$nc(this->path)->lineTo(var$23, decodeY(0.94230765f));
-	double var$24 = (double)decodeX(0.23461537f);
+	double var$24 = decodeX(0.23461537f);
 	$nc(this->path)->lineTo(var$24, decodeY(0.33076924f));
 	$nc(this->path)->closePath();
 	return this->path;
@@ -1569,85 +1236,85 @@ $Path2D* FileChooserPainter::decodePath21() {
 
 $Path2D* FileChooserPainter::decodePath22() {
 	$nc(this->path)->reset();
-	double var$0 = (double)decodeX(0.58461535f);
+	double var$0 = decodeX(0.58461535f);
 	$nc(this->path)->moveTo(var$0, decodeY(0.6615385f));
-	double var$1 = (double)decodeX(0.68846154f);
+	double var$1 = decodeX(0.68846154f);
 	$nc(this->path)->lineTo(var$1, decodeY(0.56923074f));
-	double var$2 = (double)decodeX(0.9884615f);
+	double var$2 = decodeX(0.9884615f);
 	$nc(this->path)->lineTo(var$2, decodeY(0.80769235f));
-	double var$3 = (double)decodeX(1.0352564f);
+	double var$3 = decodeX(1.0352564f);
 	$nc(this->path)->lineTo(var$3, decodeY(0.43076926f));
-	double var$4 = (double)decodeX(1.1282052f);
+	double var$4 = decodeX(1.1282052f);
 	$nc(this->path)->lineTo(var$4, decodeY(0.43846154f));
-	double var$5 = (double)decodeX(1.1891025f);
+	double var$5 = decodeX(1.1891025f);
 	$nc(this->path)->lineTo(var$5, decodeY(0.80769235f));
-	double var$6 = (double)decodeX(1.4006411f);
+	double var$6 = decodeX(1.4006411f);
 	$nc(this->path)->lineTo(var$6, decodeY(0.59615386f));
-	double var$7 = (double)decodeX(1.4967948f);
+	double var$7 = decodeX(1.4967948f);
 	$nc(this->path)->lineTo(var$7, decodeY(0.70384616f));
-	double var$8 = (double)decodeX(1.3173077f);
+	double var$8 = decodeX(1.3173077f);
 	$nc(this->path)->lineTo(var$8, decodeY(0.9384615f));
-	double var$9 = (double)decodeX(1.625f);
+	double var$9 = decodeX(1.625f);
 	$nc(this->path)->lineTo(var$9, decodeY(1.0256411f));
-	double var$10 = (double)decodeX(1.6282051f);
+	double var$10 = decodeX(1.6282051f);
 	$nc(this->path)->lineTo(var$10, decodeY(1.1346154f));
-	double var$11 = (double)decodeX(1.2564102f);
+	double var$11 = decodeX(1.2564102f);
 	$nc(this->path)->lineTo(var$11, decodeY(1.176282f));
-	double var$12 = (double)decodeX(1.4711539f);
+	double var$12 = decodeX(1.4711539f);
 	$nc(this->path)->lineTo(var$12, decodeY(1.3910257f));
-	double var$13 = (double)decodeX(1.4070512f);
+	double var$13 = decodeX(1.4070512f);
 	$nc(this->path)->lineTo(var$13, decodeY(1.4807693f));
-	double var$14 = (double)decodeX(1.1858975f);
+	double var$14 = decodeX(1.1858975f);
 	$nc(this->path)->lineTo(var$14, decodeY(1.2724359f));
-	double var$15 = (double)decodeX(1.1474359f);
+	double var$15 = decodeX(1.1474359f);
 	$nc(this->path)->lineTo(var$15, decodeY(1.6602564f));
-	double var$16 = (double)decodeX(1.0416666f);
+	double var$16 = decodeX(1.0416666f);
 	$nc(this->path)->lineTo(var$16, decodeY(1.6602564f));
-	double var$17 = (double)decodeX(0.9769231f);
+	double var$17 = decodeX(0.9769231f);
 	$nc(this->path)->lineTo(var$17, decodeY(1.2884616f));
-	double var$18 = (double)decodeX(0.6923077f);
+	double var$18 = decodeX(0.6923077f);
 	$nc(this->path)->lineTo(var$18, decodeY(1.5f));
-	double var$19 = (double)decodeX(0.6423077f);
+	double var$19 = decodeX(0.6423077f);
 	$nc(this->path)->lineTo(var$19, decodeY(1.3782052f));
-	double var$20 = (double)decodeX(0.83076924f);
+	double var$20 = decodeX(0.83076924f);
 	$nc(this->path)->lineTo(var$20, decodeY(1.176282f));
-	double var$21 = (double)decodeX(0.46923074f);
+	double var$21 = decodeX(0.46923074f);
 	$nc(this->path)->lineTo(var$21, decodeY(1.1474359f));
-	double var$22 = (double)decodeX(0.48076925f);
+	double var$22 = decodeX(0.48076925f);
 	$nc(this->path)->lineTo(var$22, decodeY(1.0064102f));
-	double var$23 = (double)decodeX(0.8230769f);
+	double var$23 = decodeX(0.8230769f);
 	$nc(this->path)->lineTo(var$23, decodeY(0.98461545f));
-	double var$24 = (double)decodeX(0.58461535f);
+	double var$24 = decodeX(0.58461535f);
 	$nc(this->path)->lineTo(var$24, decodeY(0.6615385f));
 	$nc(this->path)->closePath();
 	return this->path;
 }
 
 $Rectangle2D* FileChooserPainter::decodeRect6() {
-	double var$0 = (double)decodeX(0.2f);
-	double var$1 = (double)decodeY(0.0f);
+	double var$0 = decodeX(0.2f);
+	double var$1 = decodeY(0.0f);
 	float var$3 = decodeX(2.8f);
-	double var$2 = (double)(var$3 - decodeX(0.2f));
+	double var$2 = var$3 - decodeX(0.2f);
 	float var$4 = decodeY(2.2f);
 	$nc(this->rect)->setRect(var$0, var$1, var$2, var$4 - decodeY(0.0f));
 	return this->rect;
 }
 
 $Rectangle2D* FileChooserPainter::decodeRect7() {
-	double var$0 = (double)decodeX(0.2f);
-	double var$1 = (double)decodeY(2.2f);
+	double var$0 = decodeX(0.2f);
+	double var$1 = decodeY(2.2f);
 	float var$3 = decodeX(2.8f);
-	double var$2 = (double)(var$3 - decodeX(0.2f));
+	double var$2 = var$3 - decodeX(0.2f);
 	float var$4 = decodeY(3.0f);
 	$nc(this->rect)->setRect(var$0, var$1, var$2, var$4 - decodeY(2.2f));
 	return this->rect;
 }
 
 $Rectangle2D* FileChooserPainter::decodeRect8() {
-	double var$0 = (double)decodeX(0.4f);
-	double var$1 = (double)decodeY(0.2f);
+	double var$0 = decodeX(0.4f);
+	double var$1 = decodeY(0.2f);
 	float var$3 = decodeX(2.6f);
-	double var$2 = (double)(var$3 - decodeX(0.4f));
+	double var$2 = var$3 - decodeX(0.4f);
 	float var$4 = decodeY(2.2f);
 	$nc(this->rect)->setRect(var$0, var$1, var$2, var$4 - decodeY(0.2f));
 	return this->rect;
@@ -1655,53 +1322,53 @@ $Rectangle2D* FileChooserPainter::decodeRect8() {
 
 $Path2D* FileChooserPainter::decodePath23() {
 	$nc(this->path)->reset();
-	double var$0 = (double)decodeX(0.4f);
+	double var$0 = decodeX(0.4f);
 	$nc(this->path)->moveTo(var$0, decodeY(2.2f));
-	double var$1 = (double)decodeX(0.4f);
+	double var$1 = decodeX(0.4f);
 	$nc(this->path)->lineTo(var$1, decodeY(2.8f));
-	double var$2 = (double)decodeX(0.6f);
+	double var$2 = decodeX(0.6f);
 	$nc(this->path)->lineTo(var$2, decodeY(2.8f));
-	double var$3 = (double)decodeX(0.6f);
+	double var$3 = decodeX(0.6f);
 	$nc(this->path)->lineTo(var$3, decodeY(2.6f));
-	double var$4 = (double)decodeX(2.4f);
+	double var$4 = decodeX(2.4f);
 	$nc(this->path)->lineTo(var$4, decodeY(2.6f));
-	double var$5 = (double)decodeX(2.4f);
+	double var$5 = decodeX(2.4f);
 	$nc(this->path)->lineTo(var$5, decodeY(2.8f));
-	double var$6 = (double)decodeX(2.6f);
+	double var$6 = decodeX(2.6f);
 	$nc(this->path)->lineTo(var$6, decodeY(2.8f));
-	double var$7 = (double)decodeX(2.6f);
+	double var$7 = decodeX(2.6f);
 	$nc(this->path)->lineTo(var$7, decodeY(2.2f));
-	double var$8 = (double)decodeX(0.4f);
+	double var$8 = decodeX(0.4f);
 	$nc(this->path)->lineTo(var$8, decodeY(2.2f));
 	$nc(this->path)->closePath();
 	return this->path;
 }
 
 $Rectangle2D* FileChooserPainter::decodeRect9() {
-	double var$0 = (double)decodeX(0.6f);
-	double var$1 = (double)decodeY(2.8f);
+	double var$0 = decodeX(0.6f);
+	double var$1 = decodeY(2.8f);
 	float var$3 = decodeX(1.6666667f);
-	double var$2 = (double)(var$3 - decodeX(0.6f));
+	double var$2 = var$3 - decodeX(0.6f);
 	float var$4 = decodeY(3.0f);
 	$nc(this->rect)->setRect(var$0, var$1, var$2, var$4 - decodeY(2.8f));
 	return this->rect;
 }
 
 $Rectangle2D* FileChooserPainter::decodeRect10() {
-	double var$0 = (double)decodeX(1.8333333f);
-	double var$1 = (double)decodeY(2.8f);
+	double var$0 = decodeX(1.8333333f);
+	double var$1 = decodeY(2.8f);
 	float var$3 = decodeX(2.4f);
-	double var$2 = (double)(var$3 - decodeX(1.8333333f));
+	double var$2 = var$3 - decodeX(1.8333333f);
 	float var$4 = decodeY(3.0f);
 	$nc(this->rect)->setRect(var$0, var$1, var$2, var$4 - decodeY(2.8f));
 	return this->rect;
 }
 
 $Ellipse2D* FileChooserPainter::decodeEllipse1() {
-	double var$0 = (double)decodeX(0.6f);
-	double var$1 = (double)decodeY(2.4f);
+	double var$0 = decodeX(0.6f);
+	double var$1 = decodeY(2.4f);
 	float var$3 = decodeX(0.8f);
-	double var$2 = (double)(var$3 - decodeX(0.6f));
+	double var$2 = var$3 - decodeX(0.6f);
 	float var$4 = decodeY(2.6f);
 	$nc(this->ellipse)->setFrame(var$0, var$1, var$2, var$4 - decodeY(2.4f));
 	return this->ellipse;
@@ -1709,145 +1376,145 @@ $Ellipse2D* FileChooserPainter::decodeEllipse1() {
 
 $Path2D* FileChooserPainter::decodePath24() {
 	$nc(this->path)->reset();
-	double var$0 = (double)decodeX(1.0f);
+	double var$0 = decodeX(1.0f);
 	$nc(this->path)->moveTo(var$0, decodeY(0.4f));
-	double var$1 = (double)decodeAnchorX(1.0f, 1.0f);
-	double var$2 = (double)decodeAnchorY(0.4f, -1.0f);
-	double var$3 = (double)decodeAnchorX(2.0f, -1.0f);
-	double var$4 = (double)decodeAnchorY(0.4f, -1.0f);
-	double var$5 = (double)decodeX(2.0f);
+	double var$1 = decodeAnchorX(1.0f, 1.0f);
+	double var$2 = decodeAnchorY(0.4f, -1.0f);
+	double var$3 = decodeAnchorX(2.0f, -1.0f);
+	double var$4 = decodeAnchorY(0.4f, -1.0f);
+	double var$5 = decodeX(2.0f);
 	$nc(this->path)->curveTo(var$1, var$2, var$3, var$4, var$5, decodeY(0.4f));
-	double var$6 = (double)decodeAnchorX(2.0f, 1.0f);
-	double var$7 = (double)decodeAnchorY(0.4f, 1.0f);
-	double var$8 = (double)decodeAnchorX(2.2f, 0.0f);
-	double var$9 = (double)decodeAnchorY(1.0f, -1.0f);
-	double var$10 = (double)decodeX(2.2f);
+	double var$6 = decodeAnchorX(2.0f, 1.0f);
+	double var$7 = decodeAnchorY(0.4f, 1.0f);
+	double var$8 = decodeAnchorX(2.2f, 0.0f);
+	double var$9 = decodeAnchorY(1.0f, -1.0f);
+	double var$10 = decodeX(2.2f);
 	$nc(this->path)->curveTo(var$6, var$7, var$8, var$9, var$10, decodeY(1.0f));
-	double var$11 = (double)decodeAnchorX(2.2f, 0.0f);
-	double var$12 = (double)decodeAnchorY(1.0f, 1.0f);
-	double var$13 = (double)decodeAnchorX(2.2f, 0.0f);
-	double var$14 = (double)decodeAnchorY(1.5f, -2.0f);
-	double var$15 = (double)decodeX(2.2f);
+	double var$11 = decodeAnchorX(2.2f, 0.0f);
+	double var$12 = decodeAnchorY(1.0f, 1.0f);
+	double var$13 = decodeAnchorX(2.2f, 0.0f);
+	double var$14 = decodeAnchorY(1.5f, -2.0f);
+	double var$15 = decodeX(2.2f);
 	$nc(this->path)->curveTo(var$11, var$12, var$13, var$14, var$15, decodeY(1.5f));
-	double var$16 = (double)decodeAnchorX(2.2f, 0.0f);
-	double var$17 = (double)decodeAnchorY(1.5f, 2.0f);
-	double var$18 = (double)decodeAnchorX(1.6666667f, 1.0f);
-	double var$19 = (double)decodeAnchorY(1.8333333f, 0.0f);
-	double var$20 = (double)decodeX(1.6666667f);
+	double var$16 = decodeAnchorX(2.2f, 0.0f);
+	double var$17 = decodeAnchorY(1.5f, 2.0f);
+	double var$18 = decodeAnchorX(1.6666667f, 1.0f);
+	double var$19 = decodeAnchorY(1.8333333f, 0.0f);
+	double var$20 = decodeX(1.6666667f);
 	$nc(this->path)->curveTo(var$16, var$17, var$18, var$19, var$20, decodeY(1.8333333f));
-	double var$21 = (double)decodeAnchorX(1.6666667f, -1.0f);
-	double var$22 = (double)decodeAnchorY(1.8333333f, 0.0f);
-	double var$23 = (double)decodeAnchorX(1.3333334f, 1.0f);
-	double var$24 = (double)decodeAnchorY(1.8333333f, 0.0f);
-	double var$25 = (double)decodeX(1.3333334f);
+	double var$21 = decodeAnchorX(1.6666667f, -1.0f);
+	double var$22 = decodeAnchorY(1.8333333f, 0.0f);
+	double var$23 = decodeAnchorX(1.3333334f, 1.0f);
+	double var$24 = decodeAnchorY(1.8333333f, 0.0f);
+	double var$25 = decodeX(1.3333334f);
 	$nc(this->path)->curveTo(var$21, var$22, var$23, var$24, var$25, decodeY(1.8333333f));
-	double var$26 = (double)decodeAnchorX(1.3333334f, -1.0f);
-	double var$27 = (double)decodeAnchorY(1.8333333f, 0.0f);
-	double var$28 = (double)decodeAnchorX(0.8f, 0.0f);
-	double var$29 = (double)decodeAnchorY(1.5f, 2.0f);
-	double var$30 = (double)decodeX(0.8f);
+	double var$26 = decodeAnchorX(1.3333334f, -1.0f);
+	double var$27 = decodeAnchorY(1.8333333f, 0.0f);
+	double var$28 = decodeAnchorX(0.8f, 0.0f);
+	double var$29 = decodeAnchorY(1.5f, 2.0f);
+	double var$30 = decodeX(0.8f);
 	$nc(this->path)->curveTo(var$26, var$27, var$28, var$29, var$30, decodeY(1.5f));
-	double var$31 = (double)decodeAnchorX(0.8f, 0.0f);
-	double var$32 = (double)decodeAnchorY(1.5f, -2.0f);
-	double var$33 = (double)decodeAnchorX(0.8f, 0.0f);
-	double var$34 = (double)decodeAnchorY(1.0f, 1.0f);
-	double var$35 = (double)decodeX(0.8f);
+	double var$31 = decodeAnchorX(0.8f, 0.0f);
+	double var$32 = decodeAnchorY(1.5f, -2.0f);
+	double var$33 = decodeAnchorX(0.8f, 0.0f);
+	double var$34 = decodeAnchorY(1.0f, 1.0f);
+	double var$35 = decodeX(0.8f);
 	$nc(this->path)->curveTo(var$31, var$32, var$33, var$34, var$35, decodeY(1.0f));
-	double var$36 = (double)decodeAnchorX(0.8f, 0.0f);
-	double var$37 = (double)decodeAnchorY(1.0f, -1.0f);
-	double var$38 = (double)decodeAnchorX(1.0f, -1.0f);
-	double var$39 = (double)decodeAnchorY(0.4f, 1.0f);
-	double var$40 = (double)decodeX(1.0f);
+	double var$36 = decodeAnchorX(0.8f, 0.0f);
+	double var$37 = decodeAnchorY(1.0f, -1.0f);
+	double var$38 = decodeAnchorX(1.0f, -1.0f);
+	double var$39 = decodeAnchorY(0.4f, 1.0f);
+	double var$40 = decodeX(1.0f);
 	$nc(this->path)->curveTo(var$36, var$37, var$38, var$39, var$40, decodeY(0.4f));
 	$nc(this->path)->closePath();
 	return this->path;
 }
 
 $Ellipse2D* FileChooserPainter::decodeEllipse2() {
-	double var$0 = (double)decodeX(0.6f);
-	double var$1 = (double)decodeY(0.2f);
+	double var$0 = decodeX(0.6f);
+	double var$1 = decodeY(0.2f);
 	float var$3 = decodeX(0.8f);
-	double var$2 = (double)(var$3 - decodeX(0.6f));
+	double var$2 = var$3 - decodeX(0.6f);
 	float var$4 = decodeY(0.4f);
 	$nc(this->ellipse)->setFrame(var$0, var$1, var$2, var$4 - decodeY(0.2f));
 	return this->ellipse;
 }
 
 $Ellipse2D* FileChooserPainter::decodeEllipse3() {
-	double var$0 = (double)decodeX(2.2f);
-	double var$1 = (double)decodeY(0.2f);
+	double var$0 = decodeX(2.2f);
+	double var$1 = decodeY(0.2f);
 	float var$3 = decodeX(2.4f);
-	double var$2 = (double)(var$3 - decodeX(2.2f));
+	double var$2 = var$3 - decodeX(2.2f);
 	float var$4 = decodeY(0.4f);
 	$nc(this->ellipse)->setFrame(var$0, var$1, var$2, var$4 - decodeY(0.2f));
 	return this->ellipse;
 }
 
 $Ellipse2D* FileChooserPainter::decodeEllipse4() {
-	double var$0 = (double)decodeX(2.2f);
-	double var$1 = (double)decodeY(1.0f);
+	double var$0 = decodeX(2.2f);
+	double var$1 = decodeY(1.0f);
 	float var$3 = decodeX(2.4f);
-	double var$2 = (double)(var$3 - decodeX(2.2f));
+	double var$2 = var$3 - decodeX(2.2f);
 	float var$4 = decodeY(1.1666666f);
 	$nc(this->ellipse)->setFrame(var$0, var$1, var$2, var$4 - decodeY(1.0f));
 	return this->ellipse;
 }
 
 $Ellipse2D* FileChooserPainter::decodeEllipse5() {
-	double var$0 = (double)decodeX(2.2f);
-	double var$1 = (double)decodeY(1.6666667f);
+	double var$0 = decodeX(2.2f);
+	double var$1 = decodeY(1.6666667f);
 	float var$3 = decodeX(2.4f);
-	double var$2 = (double)(var$3 - decodeX(2.2f));
+	double var$2 = var$3 - decodeX(2.2f);
 	float var$4 = decodeY(1.8333333f);
 	$nc(this->ellipse)->setFrame(var$0, var$1, var$2, var$4 - decodeY(1.6666667f));
 	return this->ellipse;
 }
 
 $Ellipse2D* FileChooserPainter::decodeEllipse6() {
-	double var$0 = (double)decodeX(0.6f);
-	double var$1 = (double)decodeY(1.6666667f);
+	double var$0 = decodeX(0.6f);
+	double var$1 = decodeY(1.6666667f);
 	float var$3 = decodeX(0.8f);
-	double var$2 = (double)(var$3 - decodeX(0.6f));
+	double var$2 = var$3 - decodeX(0.6f);
 	float var$4 = decodeY(1.8333333f);
 	$nc(this->ellipse)->setFrame(var$0, var$1, var$2, var$4 - decodeY(1.6666667f));
 	return this->ellipse;
 }
 
 $Ellipse2D* FileChooserPainter::decodeEllipse7() {
-	double var$0 = (double)decodeX(0.6f);
-	double var$1 = (double)decodeY(1.0f);
+	double var$0 = decodeX(0.6f);
+	double var$1 = decodeY(1.0f);
 	float var$3 = decodeX(0.8f);
-	double var$2 = (double)(var$3 - decodeX(0.6f));
+	double var$2 = var$3 - decodeX(0.6f);
 	float var$4 = decodeY(1.1666666f);
 	$nc(this->ellipse)->setFrame(var$0, var$1, var$2, var$4 - decodeY(1.0f));
 	return this->ellipse;
 }
 
 $Rectangle2D* FileChooserPainter::decodeRect11() {
-	double var$0 = (double)decodeX(0.8f);
-	double var$1 = (double)decodeY(2.2f);
+	double var$0 = decodeX(0.8f);
+	double var$1 = decodeY(2.2f);
 	float var$3 = decodeX(1.0f);
-	double var$2 = (double)(var$3 - decodeX(0.8f));
+	double var$2 = var$3 - decodeX(0.8f);
 	float var$4 = decodeY(2.6f);
 	$nc(this->rect)->setRect(var$0, var$1, var$2, var$4 - decodeY(2.2f));
 	return this->rect;
 }
 
 $Rectangle2D* FileChooserPainter::decodeRect12() {
-	double var$0 = (double)decodeX(1.1666666f);
-	double var$1 = (double)decodeY(2.2f);
+	double var$0 = decodeX(1.1666666f);
+	double var$1 = decodeY(2.2f);
 	float var$3 = decodeX(1.3333334f);
-	double var$2 = (double)(var$3 - decodeX(1.1666666f));
+	double var$2 = var$3 - decodeX(1.1666666f);
 	float var$4 = decodeY(2.6f);
 	$nc(this->rect)->setRect(var$0, var$1, var$2, var$4 - decodeY(2.2f));
 	return this->rect;
 }
 
 $Rectangle2D* FileChooserPainter::decodeRect13() {
-	double var$0 = (double)decodeX(1.5f);
-	double var$1 = (double)decodeY(2.2f);
+	double var$0 = decodeX(1.5f);
+	double var$1 = decodeY(2.2f);
 	float var$3 = decodeX(1.6666667f);
-	double var$2 = (double)(var$3 - decodeX(1.5f));
+	double var$2 = var$3 - decodeX(1.5f);
 	float var$4 = decodeY(2.6f);
 	$nc(this->rect)->setRect(var$0, var$1, var$2, var$4 - decodeY(2.2f));
 	return this->rect;
@@ -1855,23 +1522,23 @@ $Rectangle2D* FileChooserPainter::decodeRect13() {
 
 $Path2D* FileChooserPainter::decodePath25() {
 	$nc(this->path)->reset();
-	double var$0 = (double)decodeX(0.0f);
+	double var$0 = decodeX(0.0f);
 	$nc(this->path)->moveTo(var$0, decodeY(0.2f));
-	double var$1 = (double)decodeX(0.2f);
+	double var$1 = decodeX(0.2f);
 	$nc(this->path)->lineTo(var$1, decodeY(0.0f));
-	double var$2 = (double)decodeX(2.6f);
+	double var$2 = decodeX(2.6f);
 	$nc(this->path)->lineTo(var$2, decodeY(0.0f));
-	double var$3 = (double)decodeX(3.0f);
+	double var$3 = decodeX(3.0f);
 	$nc(this->path)->lineTo(var$3, decodeY(0.4f));
-	double var$4 = (double)decodeX(3.0f);
+	double var$4 = decodeX(3.0f);
 	$nc(this->path)->lineTo(var$4, decodeY(2.8f));
-	double var$5 = (double)decodeX(2.8f);
+	double var$5 = decodeX(2.8f);
 	$nc(this->path)->lineTo(var$5, decodeY(3.0f));
-	double var$6 = (double)decodeX(0.2f);
+	double var$6 = decodeX(0.2f);
 	$nc(this->path)->lineTo(var$6, decodeY(3.0f));
-	double var$7 = (double)decodeX(0.0f);
+	double var$7 = decodeX(0.0f);
 	$nc(this->path)->lineTo(var$7, decodeY(2.8f));
-	double var$8 = (double)decodeX(0.0f);
+	double var$8 = decodeX(0.0f);
 	$nc(this->path)->lineTo(var$8, decodeY(0.2f));
 	$nc(this->path)->closePath();
 	return this->path;
@@ -1879,19 +1546,19 @@ $Path2D* FileChooserPainter::decodePath25() {
 
 $Path2D* FileChooserPainter::decodePath26() {
 	$nc(this->path)->reset();
-	double var$0 = (double)decodeX(0.2f);
+	double var$0 = decodeX(0.2f);
 	$nc(this->path)->moveTo(var$0, decodeY(0.4f));
-	double var$1 = (double)decodeX(0.4f);
+	double var$1 = decodeX(0.4f);
 	$nc(this->path)->lineTo(var$1, decodeY(0.2f));
-	double var$2 = (double)decodeX(2.4f);
+	double var$2 = decodeX(2.4f);
 	$nc(this->path)->lineTo(var$2, decodeY(0.2f));
-	double var$3 = (double)decodeX(2.8f);
+	double var$3 = decodeX(2.8f);
 	$nc(this->path)->lineTo(var$3, decodeY(0.6f));
-	double var$4 = (double)decodeX(2.8f);
+	double var$4 = decodeX(2.8f);
 	$nc(this->path)->lineTo(var$4, decodeY(2.8f));
-	double var$5 = (double)decodeX(0.2f);
+	double var$5 = decodeX(0.2f);
 	$nc(this->path)->lineTo(var$5, decodeY(2.8f));
-	double var$6 = (double)decodeX(0.2f);
+	double var$6 = decodeX(0.2f);
 	$nc(this->path)->lineTo(var$6, decodeY(0.4f));
 	$nc(this->path)->closePath();
 	return this->path;
@@ -1899,19 +1566,19 @@ $Path2D* FileChooserPainter::decodePath26() {
 
 $Path2D* FileChooserPainter::decodePath27() {
 	$nc(this->path)->reset();
-	double var$0 = (double)decodeX(0.8f);
+	double var$0 = decodeX(0.8f);
 	$nc(this->path)->moveTo(var$0, decodeY(1.6666667f));
-	double var$1 = (double)decodeX(1.0f);
+	double var$1 = decodeX(1.0f);
 	$nc(this->path)->lineTo(var$1, decodeY(1.5f));
-	double var$2 = (double)decodeX(2.0f);
+	double var$2 = decodeX(2.0f);
 	$nc(this->path)->lineTo(var$2, decodeY(1.5f));
-	double var$3 = (double)decodeX(2.2f);
+	double var$3 = decodeX(2.2f);
 	$nc(this->path)->lineTo(var$3, decodeY(1.6666667f));
-	double var$4 = (double)decodeX(2.2f);
+	double var$4 = decodeX(2.2f);
 	$nc(this->path)->lineTo(var$4, decodeY(2.6f));
-	double var$5 = (double)decodeX(0.8f);
+	double var$5 = decodeX(0.8f);
 	$nc(this->path)->lineTo(var$5, decodeY(2.6f));
-	double var$6 = (double)decodeX(0.8f);
+	double var$6 = decodeX(0.8f);
 	$nc(this->path)->lineTo(var$6, decodeY(1.6666667f));
 	$nc(this->path)->closePath();
 	return this->path;
@@ -1919,27 +1586,27 @@ $Path2D* FileChooserPainter::decodePath27() {
 
 $Path2D* FileChooserPainter::decodePath28() {
 	$nc(this->path)->reset();
-	double var$0 = (double)decodeX(1.1666666f);
+	double var$0 = decodeX(1.1666666f);
 	$nc(this->path)->moveTo(var$0, decodeY(0.2f));
-	double var$1 = (double)decodeX(1.1666666f);
+	double var$1 = decodeX(1.1666666f);
 	$nc(this->path)->lineTo(var$1, decodeY(1.1666666f));
-	double var$2 = (double)decodeX(2.2f);
+	double var$2 = decodeX(2.2f);
 	$nc(this->path)->lineTo(var$2, decodeY(1.1666666f));
-	double var$3 = (double)decodeX(2.2f);
+	double var$3 = decodeX(2.2f);
 	$nc(this->path)->lineTo(var$3, decodeY(0.4f));
-	double var$4 = (double)decodeX(2.0f);
+	double var$4 = decodeX(2.0f);
 	$nc(this->path)->lineTo(var$4, decodeY(0.4f));
-	double var$5 = (double)decodeX(2.0f);
+	double var$5 = decodeX(2.0f);
 	$nc(this->path)->lineTo(var$5, decodeY(1.0f));
-	double var$6 = (double)decodeX(1.6666667f);
+	double var$6 = decodeX(1.6666667f);
 	$nc(this->path)->lineTo(var$6, decodeY(1.0f));
-	double var$7 = (double)decodeX(1.6666667f);
+	double var$7 = decodeX(1.6666667f);
 	$nc(this->path)->lineTo(var$7, decodeY(0.4f));
-	double var$8 = (double)decodeX(2.2f);
+	double var$8 = decodeX(2.2f);
 	$nc(this->path)->lineTo(var$8, decodeY(0.4f));
-	double var$9 = (double)decodeX(2.2f);
+	double var$9 = decodeX(2.2f);
 	$nc(this->path)->lineTo(var$9, decodeY(0.2f));
-	double var$10 = (double)decodeX(1.1666666f);
+	double var$10 = decodeX(1.1666666f);
 	$nc(this->path)->lineTo(var$10, decodeY(0.2f));
 	$nc(this->path)->closePath();
 	return this->path;
@@ -1947,77 +1614,77 @@ $Path2D* FileChooserPainter::decodePath28() {
 
 $Path2D* FileChooserPainter::decodePath29() {
 	$nc(this->path)->reset();
-	double var$0 = (double)decodeX(0.8f);
+	double var$0 = decodeX(0.8f);
 	$nc(this->path)->moveTo(var$0, decodeY(0.2f));
-	double var$1 = (double)decodeX(1.0f);
+	double var$1 = decodeX(1.0f);
 	$nc(this->path)->lineTo(var$1, decodeY(0.2f));
-	double var$2 = (double)decodeX(1.0f);
+	double var$2 = decodeX(1.0f);
 	$nc(this->path)->lineTo(var$2, decodeY(1.0f));
-	double var$3 = (double)decodeX(1.3333334f);
+	double var$3 = decodeX(1.3333334f);
 	$nc(this->path)->lineTo(var$3, decodeY(1.0f));
-	double var$4 = (double)decodeX(1.3333334f);
+	double var$4 = decodeX(1.3333334f);
 	$nc(this->path)->lineTo(var$4, decodeY(0.2f));
-	double var$5 = (double)decodeX(1.5f);
+	double var$5 = decodeX(1.5f);
 	$nc(this->path)->lineTo(var$5, decodeY(0.2f));
-	double var$6 = (double)decodeX(1.5f);
+	double var$6 = decodeX(1.5f);
 	$nc(this->path)->lineTo(var$6, decodeY(1.0f));
-	double var$7 = (double)decodeX(1.6666667f);
+	double var$7 = decodeX(1.6666667f);
 	$nc(this->path)->lineTo(var$7, decodeY(1.0f));
-	double var$8 = (double)decodeX(1.6666667f);
+	double var$8 = decodeX(1.6666667f);
 	$nc(this->path)->lineTo(var$8, decodeY(1.1666666f));
-	double var$9 = (double)decodeX(0.8f);
+	double var$9 = decodeX(0.8f);
 	$nc(this->path)->lineTo(var$9, decodeY(1.1666666f));
-	double var$10 = (double)decodeX(0.8f);
+	double var$10 = decodeX(0.8f);
 	$nc(this->path)->lineTo(var$10, decodeY(0.2f));
 	$nc(this->path)->closePath();
 	return this->path;
 }
 
 $Rectangle2D* FileChooserPainter::decodeRect14() {
-	double var$0 = (double)decodeX(0.8f);
-	double var$1 = (double)decodeY(2.6f);
+	double var$0 = decodeX(0.8f);
+	double var$1 = decodeY(2.6f);
 	float var$3 = decodeX(2.2f);
-	double var$2 = (double)(var$3 - decodeX(0.8f));
+	double var$2 = var$3 - decodeX(0.8f);
 	float var$4 = decodeY(2.8f);
 	$nc(this->rect)->setRect(var$0, var$1, var$2, var$4 - decodeY(2.6f));
 	return this->rect;
 }
 
 $Rectangle2D* FileChooserPainter::decodeRect15() {
-	double var$0 = (double)decodeX(0.36153847f);
-	double var$1 = (double)decodeY(2.3576922f);
+	double var$0 = decodeX(0.36153847f);
+	double var$1 = decodeY(2.3576922f);
 	float var$3 = decodeX(0.63461536f);
-	double var$2 = (double)(var$3 - decodeX(0.36153847f));
+	double var$2 = var$3 - decodeX(0.36153847f);
 	float var$4 = decodeY(2.6807692f);
 	$nc(this->rect)->setRect(var$0, var$1, var$2, var$4 - decodeY(2.3576922f));
 	return this->rect;
 }
 
 $Rectangle2D* FileChooserPainter::decodeRect16() {
-	double var$0 = (double)decodeX(2.376923f);
-	double var$1 = (double)decodeY(2.3807693f);
+	double var$0 = decodeX(2.376923f);
+	double var$1 = decodeY(2.3807693f);
 	float var$3 = decodeX(2.6384616f);
-	double var$2 = (double)(var$3 - decodeX(2.376923f));
+	double var$2 = var$3 - decodeX(2.376923f);
 	float var$4 = decodeY(2.6846154f);
 	$nc(this->rect)->setRect(var$0, var$1, var$2, var$4 - decodeY(2.3807693f));
 	return this->rect;
 }
 
 $Rectangle2D* FileChooserPainter::decodeRect17() {
-	double var$0 = (double)decodeX(0.4f);
-	double var$1 = (double)decodeY(2.4f);
+	double var$0 = decodeX(0.4f);
+	double var$1 = decodeY(2.4f);
 	float var$3 = decodeX(0.6f);
-	double var$2 = (double)(var$3 - decodeX(0.4f));
+	double var$2 = var$3 - decodeX(0.4f);
 	float var$4 = decodeY(2.6f);
 	$nc(this->rect)->setRect(var$0, var$1, var$2, var$4 - decodeY(2.4f));
 	return this->rect;
 }
 
 $Rectangle2D* FileChooserPainter::decodeRect18() {
-	double var$0 = (double)decodeX(2.4f);
-	double var$1 = (double)decodeY(2.4f);
+	double var$0 = decodeX(2.4f);
+	double var$1 = decodeY(2.4f);
 	float var$3 = decodeX(2.6f);
-	double var$2 = (double)(var$3 - decodeX(2.4f));
+	double var$2 = var$3 - decodeX(2.4f);
 	float var$4 = decodeY(2.6f);
 	$nc(this->rect)->setRect(var$0, var$1, var$2, var$4 - decodeY(2.4f));
 	return this->rect;
@@ -2025,19 +1692,19 @@ $Rectangle2D* FileChooserPainter::decodeRect18() {
 
 $Path2D* FileChooserPainter::decodePath30() {
 	$nc(this->path)->reset();
-	double var$0 = (double)decodeX(0.4f);
+	double var$0 = decodeX(0.4f);
 	$nc(this->path)->moveTo(var$0, decodeY(1.5f));
-	double var$1 = (double)decodeX(0.4f);
+	double var$1 = decodeX(0.4f);
 	$nc(this->path)->lineTo(var$1, decodeY(2.6f));
-	double var$2 = (double)decodeX(0.6f);
+	double var$2 = decodeX(0.6f);
 	$nc(this->path)->lineTo(var$2, decodeY(2.8f));
-	double var$3 = (double)decodeX(2.4f);
+	double var$3 = decodeX(2.4f);
 	$nc(this->path)->lineTo(var$3, decodeY(2.8f));
-	double var$4 = (double)decodeX(2.6f);
+	double var$4 = decodeX(2.6f);
 	$nc(this->path)->lineTo(var$4, decodeY(2.6f));
-	double var$5 = (double)decodeX(2.6f);
+	double var$5 = decodeX(2.6f);
 	$nc(this->path)->lineTo(var$5, decodeY(1.5f));
-	double var$6 = (double)decodeX(0.4f);
+	double var$6 = decodeX(0.4f);
 	$nc(this->path)->lineTo(var$6, decodeY(1.5f));
 	$nc(this->path)->closePath();
 	return this->path;
@@ -2045,37 +1712,37 @@ $Path2D* FileChooserPainter::decodePath30() {
 
 $Path2D* FileChooserPainter::decodePath31() {
 	$nc(this->path)->reset();
-	double var$0 = (double)decodeX(0.6f);
+	double var$0 = decodeX(0.6f);
 	$nc(this->path)->moveTo(var$0, decodeY(1.5f));
-	double var$1 = (double)decodeX(0.6f);
+	double var$1 = decodeX(0.6f);
 	$nc(this->path)->lineTo(var$1, decodeY(2.6f));
-	double var$2 = (double)decodeX(2.4f);
+	double var$2 = decodeX(2.4f);
 	$nc(this->path)->lineTo(var$2, decodeY(2.6f));
-	double var$3 = (double)decodeX(2.4f);
+	double var$3 = decodeX(2.4f);
 	$nc(this->path)->lineTo(var$3, decodeY(1.5f));
-	double var$4 = (double)decodeX(1.5f);
+	double var$4 = decodeX(1.5f);
 	$nc(this->path)->lineTo(var$4, decodeY(0.8f));
-	double var$5 = (double)decodeX(0.6f);
+	double var$5 = decodeX(0.6f);
 	$nc(this->path)->lineTo(var$5, decodeY(1.5f));
 	$nc(this->path)->closePath();
 	return this->path;
 }
 
 $Rectangle2D* FileChooserPainter::decodeRect19() {
-	double var$0 = (double)decodeX(1.6666667f);
-	double var$1 = (double)decodeY(1.6666667f);
+	double var$0 = decodeX(1.6666667f);
+	double var$1 = decodeY(1.6666667f);
 	float var$3 = decodeX(2.2f);
-	double var$2 = (double)(var$3 - decodeX(1.6666667f));
+	double var$2 = var$3 - decodeX(1.6666667f);
 	float var$4 = decodeY(2.2f);
 	$nc(this->rect)->setRect(var$0, var$1, var$2, var$4 - decodeY(1.6666667f));
 	return this->rect;
 }
 
 $Rectangle2D* FileChooserPainter::decodeRect20() {
-	double var$0 = (double)decodeX(1.8333333f);
-	double var$1 = (double)decodeY(1.8333333f);
+	double var$0 = decodeX(1.8333333f);
+	double var$1 = decodeY(1.8333333f);
 	float var$3 = decodeX(2.0f);
-	double var$2 = (double)(var$3 - decodeX(1.8333333f));
+	double var$2 = var$3 - decodeX(1.8333333f);
 	float var$4 = decodeY(2.0f);
 	$nc(this->rect)->setRect(var$0, var$1, var$2, var$4 - decodeY(1.8333333f));
 	return this->rect;
@@ -2083,29 +1750,29 @@ $Rectangle2D* FileChooserPainter::decodeRect20() {
 
 $Path2D* FileChooserPainter::decodePath32() {
 	$nc(this->path)->reset();
-	double var$0 = (double)decodeX(1.0f);
+	double var$0 = decodeX(1.0f);
 	$nc(this->path)->moveTo(var$0, decodeY(2.8f));
-	double var$1 = (double)decodeX(1.5f);
+	double var$1 = decodeX(1.5f);
 	$nc(this->path)->lineTo(var$1, decodeY(2.8f));
-	double var$2 = (double)decodeX(1.5f);
+	double var$2 = decodeX(1.5f);
 	$nc(this->path)->lineTo(var$2, decodeY(1.8333333f));
-	double var$3 = (double)decodeX(1.3333334f);
+	double var$3 = decodeX(1.3333334f);
 	$nc(this->path)->lineTo(var$3, decodeY(1.6666667f));
-	double var$4 = (double)decodeX(1.1666666f);
+	double var$4 = decodeX(1.1666666f);
 	$nc(this->path)->lineTo(var$4, decodeY(1.6666667f));
-	double var$5 = (double)decodeX(1.0f);
+	double var$5 = decodeX(1.0f);
 	$nc(this->path)->lineTo(var$5, decodeY(1.8333333f));
-	double var$6 = (double)decodeX(1.0f);
+	double var$6 = decodeX(1.0f);
 	$nc(this->path)->lineTo(var$6, decodeY(2.8f));
 	$nc(this->path)->closePath();
 	return this->path;
 }
 
 $Rectangle2D* FileChooserPainter::decodeRect21() {
-	double var$0 = (double)decodeX(1.1666666f);
-	double var$1 = (double)decodeY(1.8333333f);
+	double var$0 = decodeX(1.1666666f);
+	double var$1 = decodeY(1.8333333f);
 	float var$3 = decodeX(1.3333334f);
-	double var$2 = (double)(var$3 - decodeX(1.1666666f));
+	double var$2 = var$3 - decodeX(1.1666666f);
 	float var$4 = decodeY(2.6f);
 	$nc(this->rect)->setRect(var$0, var$1, var$2, var$4 - decodeY(1.8333333f));
 	return this->rect;
@@ -2113,27 +1780,27 @@ $Rectangle2D* FileChooserPainter::decodeRect21() {
 
 $Path2D* FileChooserPainter::decodePath33() {
 	$nc(this->path)->reset();
-	double var$0 = (double)decodeX(0.0f);
+	double var$0 = decodeX(0.0f);
 	$nc(this->path)->moveTo(var$0, decodeY(1.3333334f));
-	double var$1 = (double)decodeX(0.0f);
+	double var$1 = decodeX(0.0f);
 	$nc(this->path)->lineTo(var$1, decodeY(1.6666667f));
-	double var$2 = (double)decodeX(0.4f);
+	double var$2 = decodeX(0.4f);
 	$nc(this->path)->lineTo(var$2, decodeY(1.6666667f));
-	double var$3 = (double)decodeX(1.3974359f);
+	double var$3 = decodeX(1.3974359f);
 	$nc(this->path)->lineTo(var$3, decodeY(0.6f));
-	double var$4 = (double)decodeX(1.596154f);
+	double var$4 = decodeX(1.596154f);
 	$nc(this->path)->lineTo(var$4, decodeY(0.6f));
-	double var$5 = (double)decodeX(2.6f);
+	double var$5 = decodeX(2.6f);
 	$nc(this->path)->lineTo(var$5, decodeY(1.6666667f));
-	double var$6 = (double)decodeX(3.0f);
+	double var$6 = decodeX(3.0f);
 	$nc(this->path)->lineTo(var$6, decodeY(1.6666667f));
-	double var$7 = (double)decodeX(3.0f);
+	double var$7 = decodeX(3.0f);
 	$nc(this->path)->lineTo(var$7, decodeY(1.3333334f));
-	double var$8 = (double)decodeX(1.6666667f);
+	double var$8 = decodeX(1.6666667f);
 	$nc(this->path)->lineTo(var$8, decodeY(0.0f));
-	double var$9 = (double)decodeX(1.3333334f);
+	double var$9 = decodeX(1.3333334f);
 	$nc(this->path)->lineTo(var$9, decodeY(0.0f));
-	double var$10 = (double)decodeX(0.0f);
+	double var$10 = decodeX(0.0f);
 	$nc(this->path)->lineTo(var$10, decodeY(1.3333334f));
 	$nc(this->path)->closePath();
 	return this->path;
@@ -2141,27 +1808,27 @@ $Path2D* FileChooserPainter::decodePath33() {
 
 $Path2D* FileChooserPainter::decodePath34() {
 	$nc(this->path)->reset();
-	double var$0 = (double)decodeX(0.2576923f);
+	double var$0 = decodeX(0.2576923f);
 	$nc(this->path)->moveTo(var$0, decodeY(1.3717948f));
-	double var$1 = (double)decodeX(0.2f);
+	double var$1 = decodeX(0.2f);
 	$nc(this->path)->lineTo(var$1, decodeY(1.5f));
-	double var$2 = (double)decodeX(0.3230769f);
+	double var$2 = decodeX(0.3230769f);
 	$nc(this->path)->lineTo(var$2, decodeY(1.4711539f));
-	double var$3 = (double)decodeX(1.4006411f);
+	double var$3 = decodeX(1.4006411f);
 	$nc(this->path)->lineTo(var$3, decodeY(0.40384617f));
-	double var$4 = (double)decodeX(1.5929487f);
+	double var$4 = decodeX(1.5929487f);
 	$nc(this->path)->lineTo(var$4, decodeY(0.4f));
-	double var$5 = (double)decodeX(2.6615386f);
+	double var$5 = decodeX(2.6615386f);
 	$nc(this->path)->lineTo(var$5, decodeY(1.4615384f));
-	double var$6 = (double)decodeX(2.8f);
+	double var$6 = decodeX(2.8f);
 	$nc(this->path)->lineTo(var$6, decodeY(1.5f));
-	double var$7 = (double)decodeX(2.7461538f);
+	double var$7 = decodeX(2.7461538f);
 	$nc(this->path)->lineTo(var$7, decodeY(1.3653846f));
-	double var$8 = (double)decodeX(1.6089742f);
+	double var$8 = decodeX(1.6089742f);
 	$nc(this->path)->lineTo(var$8, decodeY(0.19615385f));
-	double var$9 = (double)decodeX(1.4070512f);
+	double var$9 = decodeX(1.4070512f);
 	$nc(this->path)->lineTo(var$9, decodeY(0.2f));
-	double var$10 = (double)decodeX(0.2576923f);
+	double var$10 = decodeX(0.2576923f);
 	$nc(this->path)->lineTo(var$10, decodeY(1.3717948f));
 	$nc(this->path)->closePath();
 	return this->path;
@@ -2169,19 +1836,19 @@ $Path2D* FileChooserPainter::decodePath34() {
 
 $Path2D* FileChooserPainter::decodePath35() {
 	$nc(this->path)->reset();
-	double var$0 = (double)decodeX(0.6f);
+	double var$0 = decodeX(0.6f);
 	$nc(this->path)->moveTo(var$0, decodeY(1.5f));
-	double var$1 = (double)decodeX(1.3333334f);
+	double var$1 = decodeX(1.3333334f);
 	$nc(this->path)->lineTo(var$1, decodeY(0.6f));
-	double var$2 = (double)decodeX(1.5f);
+	double var$2 = decodeX(1.5f);
 	$nc(this->path)->lineTo(var$2, decodeY(0.6f));
-	double var$3 = (double)decodeX(1.5f);
+	double var$3 = decodeX(1.5f);
 	$nc(this->path)->lineTo(var$3, decodeY(1.1666666f));
-	double var$4 = (double)decodeX(1.0f);
+	double var$4 = decodeX(1.0f);
 	$nc(this->path)->lineTo(var$4, decodeY(1.6666667f));
-	double var$5 = (double)decodeX(0.6f);
+	double var$5 = decodeX(0.6f);
 	$nc(this->path)->lineTo(var$5, decodeY(1.6666667f));
-	double var$6 = (double)decodeX(0.6f);
+	double var$6 = decodeX(0.6f);
 	$nc(this->path)->lineTo(var$6, decodeY(1.5f));
 	$nc(this->path)->closePath();
 	return this->path;
@@ -2189,89 +1856,89 @@ $Path2D* FileChooserPainter::decodePath35() {
 
 $Path2D* FileChooserPainter::decodePath36() {
 	$nc(this->path)->reset();
-	double var$0 = (double)decodeX(1.6666667f);
+	double var$0 = decodeX(1.6666667f);
 	$nc(this->path)->moveTo(var$0, decodeY(0.6f));
-	double var$1 = (double)decodeX(1.5f);
+	double var$1 = decodeX(1.5f);
 	$nc(this->path)->lineTo(var$1, decodeY(0.6f));
-	double var$2 = (double)decodeX(1.5f);
+	double var$2 = decodeX(1.5f);
 	$nc(this->path)->lineTo(var$2, decodeY(1.1666666f));
-	double var$3 = (double)decodeX(2.0f);
+	double var$3 = decodeX(2.0f);
 	$nc(this->path)->lineTo(var$3, decodeY(1.6666667f));
-	double var$4 = (double)decodeX(2.4f);
+	double var$4 = decodeX(2.4f);
 	$nc(this->path)->lineTo(var$4, decodeY(1.6666667f));
-	double var$5 = (double)decodeX(2.4f);
+	double var$5 = decodeX(2.4f);
 	$nc(this->path)->lineTo(var$5, decodeY(1.3333334f));
-	double var$6 = (double)decodeX(1.6666667f);
+	double var$6 = decodeX(1.6666667f);
 	$nc(this->path)->lineTo(var$6, decodeY(0.6f));
 	$nc(this->path)->closePath();
 	return this->path;
 }
 
 $Rectangle2D* FileChooserPainter::decodeRect22() {
-	double var$0 = (double)decodeX(0.2f);
-	double var$1 = (double)decodeY(0.0f);
+	double var$0 = decodeX(0.2f);
+	double var$1 = decodeY(0.0f);
 	float var$3 = decodeX(3.0f);
-	double var$2 = (double)(var$3 - decodeX(0.2f));
+	double var$2 = var$3 - decodeX(0.2f);
 	float var$4 = decodeY(2.8f);
 	$nc(this->rect)->setRect(var$0, var$1, var$2, var$4 - decodeY(0.0f));
 	return this->rect;
 }
 
 $Rectangle2D* FileChooserPainter::decodeRect23() {
-	double var$0 = (double)decodeX(0.4f);
-	double var$1 = (double)decodeY(0.2f);
+	double var$0 = decodeX(0.4f);
+	double var$1 = decodeY(0.2f);
 	float var$3 = decodeX(2.8f);
-	double var$2 = (double)(var$3 - decodeX(0.4f));
+	double var$2 = var$3 - decodeX(0.4f);
 	float var$4 = decodeY(2.6f);
 	$nc(this->rect)->setRect(var$0, var$1, var$2, var$4 - decodeY(0.2f));
 	return this->rect;
 }
 
 $Rectangle2D* FileChooserPainter::decodeRect24() {
-	double var$0 = (double)decodeX(1.0f);
-	double var$1 = (double)decodeY(0.6f);
+	double var$0 = decodeX(1.0f);
+	double var$1 = decodeY(0.6f);
 	float var$3 = decodeX(1.3333334f);
-	double var$2 = (double)(var$3 - decodeX(1.0f));
+	double var$2 = var$3 - decodeX(1.0f);
 	float var$4 = decodeY(0.8f);
 	$nc(this->rect)->setRect(var$0, var$1, var$2, var$4 - decodeY(0.6f));
 	return this->rect;
 }
 
 $Rectangle2D* FileChooserPainter::decodeRect25() {
-	double var$0 = (double)decodeX(1.5f);
-	double var$1 = (double)decodeY(1.3333334f);
+	double var$0 = decodeX(1.5f);
+	double var$1 = decodeY(1.3333334f);
 	float var$3 = decodeX(2.4f);
-	double var$2 = (double)(var$3 - decodeX(1.5f));
+	double var$2 = var$3 - decodeX(1.5f);
 	float var$4 = decodeY(1.5f);
 	$nc(this->rect)->setRect(var$0, var$1, var$2, var$4 - decodeY(1.3333334f));
 	return this->rect;
 }
 
 $Rectangle2D* FileChooserPainter::decodeRect26() {
-	double var$0 = (double)decodeX(1.5f);
-	double var$1 = (double)decodeY(2.0f);
+	double var$0 = decodeX(1.5f);
+	double var$1 = decodeY(2.0f);
 	float var$3 = decodeX(2.4f);
-	double var$2 = (double)(var$3 - decodeX(1.5f));
+	double var$2 = var$3 - decodeX(1.5f);
 	float var$4 = decodeY(2.2f);
 	$nc(this->rect)->setRect(var$0, var$1, var$2, var$4 - decodeY(2.0f));
 	return this->rect;
 }
 
 $Ellipse2D* FileChooserPainter::decodeEllipse8() {
-	double var$0 = (double)decodeX(0.6f);
-	double var$1 = (double)decodeY(0.8f);
+	double var$0 = decodeX(0.6f);
+	double var$1 = decodeY(0.8f);
 	float var$3 = decodeX(2.2f);
-	double var$2 = (double)(var$3 - decodeX(0.6f));
+	double var$2 = var$3 - decodeX(0.6f);
 	float var$4 = decodeY(2.4f);
 	$nc(this->ellipse)->setFrame(var$0, var$1, var$2, var$4 - decodeY(0.8f));
 	return this->ellipse;
 }
 
 $Ellipse2D* FileChooserPainter::decodeEllipse9() {
-	double var$0 = (double)decodeX(0.8f);
-	double var$1 = (double)decodeY(1.0f);
+	double var$0 = decodeX(0.8f);
+	double var$1 = decodeY(1.0f);
 	float var$3 = decodeX(2.0f);
-	double var$2 = (double)(var$3 - decodeX(0.8f));
+	double var$2 = var$3 - decodeX(0.8f);
 	float var$4 = decodeY(2.2f);
 	$nc(this->ellipse)->setFrame(var$0, var$1, var$2, var$4 - decodeY(1.0f));
 	return this->ellipse;
@@ -2279,17 +1946,17 @@ $Ellipse2D* FileChooserPainter::decodeEllipse9() {
 
 $Path2D* FileChooserPainter::decodePath37() {
 	$nc(this->path)->reset();
-	double var$0 = (double)decodeX(0.0f);
+	double var$0 = decodeX(0.0f);
 	$nc(this->path)->moveTo(var$0, decodeY(2.8f));
-	double var$1 = (double)decodeX(0.0f);
+	double var$1 = decodeX(0.0f);
 	$nc(this->path)->lineTo(var$1, decodeY(3.0f));
-	double var$2 = (double)decodeX(0.4f);
+	double var$2 = decodeX(0.4f);
 	$nc(this->path)->lineTo(var$2, decodeY(3.0f));
-	double var$3 = (double)decodeX(1.0f);
+	double var$3 = decodeX(1.0f);
 	$nc(this->path)->lineTo(var$3, decodeY(2.2f));
-	double var$4 = (double)decodeX(0.8f);
+	double var$4 = decodeX(0.8f);
 	$nc(this->path)->lineTo(var$4, decodeY(1.8333333f));
-	double var$5 = (double)decodeX(0.0f);
+	double var$5 = decodeX(0.0f);
 	$nc(this->path)->lineTo(var$5, decodeY(2.8f));
 	$nc(this->path)->closePath();
 	return this->path;
@@ -2297,282 +1964,282 @@ $Path2D* FileChooserPainter::decodePath37() {
 
 $Path2D* FileChooserPainter::decodePath38() {
 	$nc(this->path)->reset();
-	double var$0 = (double)decodeX(0.1826087f);
+	double var$0 = decodeX(0.1826087f);
 	$nc(this->path)->moveTo(var$0, decodeY(2.7217393f));
-	double var$1 = (double)decodeX(0.2826087f);
+	double var$1 = decodeX(0.2826087f);
 	$nc(this->path)->lineTo(var$1, decodeY(2.8217392f));
-	double var$2 = (double)decodeX(1.0181159f);
+	double var$2 = decodeX(1.0181159f);
 	$nc(this->path)->lineTo(var$2, decodeY(2.095652f));
-	double var$3 = (double)decodeX(0.9130435f);
+	double var$3 = decodeX(0.9130435f);
 	$nc(this->path)->lineTo(var$3, decodeY(1.9891305f));
-	double var$4 = (double)decodeX(0.1826087f);
+	double var$4 = decodeX(0.1826087f);
 	$nc(this->path)->lineTo(var$4, decodeY(2.7217393f));
 	$nc(this->path)->closePath();
 	return this->path;
 }
 
 $Rectangle2D* FileChooserPainter::decodeRect27() {
-	double var$0 = (double)decodeX(1.0f);
-	double var$1 = (double)decodeY(1.3333334f);
+	double var$0 = decodeX(1.0f);
+	double var$1 = decodeY(1.3333334f);
 	float var$3 = decodeX(1.3333334f);
-	double var$2 = (double)(var$3 - decodeX(1.0f));
+	double var$2 = var$3 - decodeX(1.0f);
 	float var$4 = decodeY(1.5f);
 	$nc(this->rect)->setRect(var$0, var$1, var$2, var$4 - decodeY(1.3333334f));
 	return this->rect;
 }
 
 $Rectangle2D* FileChooserPainter::decodeRect28() {
-	double var$0 = (double)decodeX(1.5f);
-	double var$1 = (double)decodeY(1.3333334f);
+	double var$0 = decodeX(1.5f);
+	double var$1 = decodeY(1.3333334f);
 	float var$3 = decodeX(1.8333333f);
-	double var$2 = (double)(var$3 - decodeX(1.5f));
+	double var$2 = var$3 - decodeX(1.5f);
 	float var$4 = decodeY(1.5f);
 	$nc(this->rect)->setRect(var$0, var$1, var$2, var$4 - decodeY(1.3333334f));
 	return this->rect;
 }
 
 $Rectangle2D* FileChooserPainter::decodeRect29() {
-	double var$0 = (double)decodeX(1.5f);
-	double var$1 = (double)decodeY(1.6666667f);
+	double var$0 = decodeX(1.5f);
+	double var$1 = decodeY(1.6666667f);
 	float var$3 = decodeX(1.8333333f);
-	double var$2 = (double)(var$3 - decodeX(1.5f));
+	double var$2 = var$3 - decodeX(1.5f);
 	float var$4 = decodeY(1.8333333f);
 	$nc(this->rect)->setRect(var$0, var$1, var$2, var$4 - decodeY(1.6666667f));
 	return this->rect;
 }
 
 $Rectangle2D* FileChooserPainter::decodeRect30() {
-	double var$0 = (double)decodeX(1.0f);
-	double var$1 = (double)decodeY(1.6666667f);
+	double var$0 = decodeX(1.0f);
+	double var$1 = decodeY(1.6666667f);
 	float var$3 = decodeX(1.3333334f);
-	double var$2 = (double)(var$3 - decodeX(1.0f));
+	double var$2 = var$3 - decodeX(1.0f);
 	float var$4 = decodeY(1.8333333f);
 	$nc(this->rect)->setRect(var$0, var$1, var$2, var$4 - decodeY(1.6666667f));
 	return this->rect;
 }
 
 $Rectangle2D* FileChooserPainter::decodeRect31() {
-	double var$0 = (double)decodeX(0.0f);
-	double var$1 = (double)decodeY(0.0f);
+	double var$0 = decodeX(0.0f);
+	double var$1 = decodeY(0.0f);
 	float var$3 = decodeX(3.0f);
-	double var$2 = (double)(var$3 - decodeX(0.0f));
+	double var$2 = var$3 - decodeX(0.0f);
 	float var$4 = decodeY(2.8f);
 	$nc(this->rect)->setRect(var$0, var$1, var$2, var$4 - decodeY(0.0f));
 	return this->rect;
 }
 
 $Rectangle2D* FileChooserPainter::decodeRect32() {
-	double var$0 = (double)decodeX(0.2f);
-	double var$1 = (double)decodeY(0.2f);
+	double var$0 = decodeX(0.2f);
+	double var$1 = decodeY(0.2f);
 	float var$3 = decodeX(2.8f);
-	double var$2 = (double)(var$3 - decodeX(0.2f));
+	double var$2 = var$3 - decodeX(0.2f);
 	float var$4 = decodeY(2.6f);
 	$nc(this->rect)->setRect(var$0, var$1, var$2, var$4 - decodeY(0.2f));
 	return this->rect;
 }
 
 $Rectangle2D* FileChooserPainter::decodeRect33() {
-	double var$0 = (double)decodeX(0.8f);
-	double var$1 = (double)decodeY(0.6f);
+	double var$0 = decodeX(0.8f);
+	double var$1 = decodeY(0.6f);
 	float var$3 = decodeX(1.1666666f);
-	double var$2 = (double)(var$3 - decodeX(0.8f));
+	double var$2 = var$3 - decodeX(0.8f);
 	float var$4 = decodeY(0.8f);
 	$nc(this->rect)->setRect(var$0, var$1, var$2, var$4 - decodeY(0.6f));
 	return this->rect;
 }
 
 $Rectangle2D* FileChooserPainter::decodeRect34() {
-	double var$0 = (double)decodeX(1.3333334f);
-	double var$1 = (double)decodeY(0.6f);
+	double var$0 = decodeX(1.3333334f);
+	double var$1 = decodeY(0.6f);
 	float var$3 = decodeX(2.2f);
-	double var$2 = (double)(var$3 - decodeX(1.3333334f));
+	double var$2 = var$3 - decodeX(1.3333334f);
 	float var$4 = decodeY(0.8f);
 	$nc(this->rect)->setRect(var$0, var$1, var$2, var$4 - decodeY(0.6f));
 	return this->rect;
 }
 
 $Rectangle2D* FileChooserPainter::decodeRect35() {
-	double var$0 = (double)decodeX(1.3333334f);
-	double var$1 = (double)decodeY(1.0f);
+	double var$0 = decodeX(1.3333334f);
+	double var$1 = decodeY(1.0f);
 	float var$3 = decodeX(2.0f);
-	double var$2 = (double)(var$3 - decodeX(1.3333334f));
+	double var$2 = var$3 - decodeX(1.3333334f);
 	float var$4 = decodeY(1.1666666f);
 	$nc(this->rect)->setRect(var$0, var$1, var$2, var$4 - decodeY(1.0f));
 	return this->rect;
 }
 
 $Rectangle2D* FileChooserPainter::decodeRect36() {
-	double var$0 = (double)decodeX(0.8f);
-	double var$1 = (double)decodeY(1.0f);
+	double var$0 = decodeX(0.8f);
+	double var$1 = decodeY(1.0f);
 	float var$3 = decodeX(1.1666666f);
-	double var$2 = (double)(var$3 - decodeX(0.8f));
+	double var$2 = var$3 - decodeX(0.8f);
 	float var$4 = decodeY(1.1666666f);
 	$nc(this->rect)->setRect(var$0, var$1, var$2, var$4 - decodeY(1.0f));
 	return this->rect;
 }
 
 $Rectangle2D* FileChooserPainter::decodeRect37() {
-	double var$0 = (double)decodeX(0.8f);
-	double var$1 = (double)decodeY(1.3333334f);
+	double var$0 = decodeX(0.8f);
+	double var$1 = decodeY(1.3333334f);
 	float var$3 = decodeX(1.1666666f);
-	double var$2 = (double)(var$3 - decodeX(0.8f));
+	double var$2 = var$3 - decodeX(0.8f);
 	float var$4 = decodeY(1.5f);
 	$nc(this->rect)->setRect(var$0, var$1, var$2, var$4 - decodeY(1.3333334f));
 	return this->rect;
 }
 
 $Rectangle2D* FileChooserPainter::decodeRect38() {
-	double var$0 = (double)decodeX(1.3333334f);
-	double var$1 = (double)decodeY(1.3333334f);
+	double var$0 = decodeX(1.3333334f);
+	double var$1 = decodeY(1.3333334f);
 	float var$3 = decodeX(2.2f);
-	double var$2 = (double)(var$3 - decodeX(1.3333334f));
+	double var$2 = var$3 - decodeX(1.3333334f);
 	float var$4 = decodeY(1.5f);
 	$nc(this->rect)->setRect(var$0, var$1, var$2, var$4 - decodeY(1.3333334f));
 	return this->rect;
 }
 
 $Rectangle2D* FileChooserPainter::decodeRect39() {
-	double var$0 = (double)decodeX(0.8f);
-	double var$1 = (double)decodeY(1.6666667f);
+	double var$0 = decodeX(0.8f);
+	double var$1 = decodeY(1.6666667f);
 	float var$3 = decodeX(1.1666666f);
-	double var$2 = (double)(var$3 - decodeX(0.8f));
+	double var$2 = var$3 - decodeX(0.8f);
 	float var$4 = decodeY(1.8333333f);
 	$nc(this->rect)->setRect(var$0, var$1, var$2, var$4 - decodeY(1.6666667f));
 	return this->rect;
 }
 
 $Rectangle2D* FileChooserPainter::decodeRect40() {
-	double var$0 = (double)decodeX(1.3333334f);
-	double var$1 = (double)decodeY(1.6666667f);
+	double var$0 = decodeX(1.3333334f);
+	double var$1 = decodeY(1.6666667f);
 	float var$3 = decodeX(2.0f);
-	double var$2 = (double)(var$3 - decodeX(1.3333334f));
+	double var$2 = var$3 - decodeX(1.3333334f);
 	float var$4 = decodeY(1.8333333f);
 	$nc(this->rect)->setRect(var$0, var$1, var$2, var$4 - decodeY(1.6666667f));
 	return this->rect;
 }
 
 $Rectangle2D* FileChooserPainter::decodeRect41() {
-	double var$0 = (double)decodeX(1.3333334f);
-	double var$1 = (double)decodeY(2.0f);
+	double var$0 = decodeX(1.3333334f);
+	double var$1 = decodeY(2.0f);
 	float var$3 = decodeX(2.2f);
-	double var$2 = (double)(var$3 - decodeX(1.3333334f));
+	double var$2 = var$3 - decodeX(1.3333334f);
 	float var$4 = decodeY(2.2f);
 	$nc(this->rect)->setRect(var$0, var$1, var$2, var$4 - decodeY(2.0f));
 	return this->rect;
 }
 
 $Rectangle2D* FileChooserPainter::decodeRect42() {
-	double var$0 = (double)decodeX(0.8f);
-	double var$1 = (double)decodeY(2.0f);
+	double var$0 = decodeX(0.8f);
+	double var$1 = decodeY(2.0f);
 	float var$3 = decodeX(1.1666666f);
-	double var$2 = (double)(var$3 - decodeX(0.8f));
+	double var$2 = var$3 - decodeX(0.8f);
 	float var$4 = decodeY(2.2f);
 	$nc(this->rect)->setRect(var$0, var$1, var$2, var$4 - decodeY(2.0f));
 	return this->rect;
 }
 
 $Rectangle2D* FileChooserPainter::decodeRect43() {
-	double var$0 = (double)decodeX(0.8f);
-	double var$1 = (double)decodeY(0.8f);
+	double var$0 = decodeX(0.8f);
+	double var$1 = decodeY(0.8f);
 	float var$3 = decodeX(1.1666666f);
-	double var$2 = (double)(var$3 - decodeX(0.8f));
+	double var$2 = var$3 - decodeX(0.8f);
 	float var$4 = decodeY(1.0f);
 	$nc(this->rect)->setRect(var$0, var$1, var$2, var$4 - decodeY(0.8f));
 	return this->rect;
 }
 
 $Rectangle2D* FileChooserPainter::decodeRect44() {
-	double var$0 = (double)decodeX(1.3333334f);
-	double var$1 = (double)decodeY(0.8f);
+	double var$0 = decodeX(1.3333334f);
+	double var$1 = decodeY(0.8f);
 	float var$3 = decodeX(2.2f);
-	double var$2 = (double)(var$3 - decodeX(1.3333334f));
+	double var$2 = var$3 - decodeX(1.3333334f);
 	float var$4 = decodeY(1.0f);
 	$nc(this->rect)->setRect(var$0, var$1, var$2, var$4 - decodeY(0.8f));
 	return this->rect;
 }
 
 $Rectangle2D* FileChooserPainter::decodeRect45() {
-	double var$0 = (double)decodeX(0.8f);
-	double var$1 = (double)decodeY(1.1666666f);
+	double var$0 = decodeX(0.8f);
+	double var$1 = decodeY(1.1666666f);
 	float var$3 = decodeX(1.1666666f);
-	double var$2 = (double)(var$3 - decodeX(0.8f));
+	double var$2 = var$3 - decodeX(0.8f);
 	float var$4 = decodeY(1.3333334f);
 	$nc(this->rect)->setRect(var$0, var$1, var$2, var$4 - decodeY(1.1666666f));
 	return this->rect;
 }
 
 $Rectangle2D* FileChooserPainter::decodeRect46() {
-	double var$0 = (double)decodeX(1.3333334f);
-	double var$1 = (double)decodeY(1.1666666f);
+	double var$0 = decodeX(1.3333334f);
+	double var$1 = decodeY(1.1666666f);
 	float var$3 = decodeX(2.0f);
-	double var$2 = (double)(var$3 - decodeX(1.3333334f));
+	double var$2 = var$3 - decodeX(1.3333334f);
 	float var$4 = decodeY(1.3333334f);
 	$nc(this->rect)->setRect(var$0, var$1, var$2, var$4 - decodeY(1.1666666f));
 	return this->rect;
 }
 
 $Rectangle2D* FileChooserPainter::decodeRect47() {
-	double var$0 = (double)decodeX(0.8f);
-	double var$1 = (double)decodeY(1.5f);
+	double var$0 = decodeX(0.8f);
+	double var$1 = decodeY(1.5f);
 	float var$3 = decodeX(1.1666666f);
-	double var$2 = (double)(var$3 - decodeX(0.8f));
+	double var$2 = var$3 - decodeX(0.8f);
 	float var$4 = decodeY(1.6666667f);
 	$nc(this->rect)->setRect(var$0, var$1, var$2, var$4 - decodeY(1.5f));
 	return this->rect;
 }
 
 $Rectangle2D* FileChooserPainter::decodeRect48() {
-	double var$0 = (double)decodeX(1.3333334f);
-	double var$1 = (double)decodeY(1.5f);
+	double var$0 = decodeX(1.3333334f);
+	double var$1 = decodeY(1.5f);
 	float var$3 = decodeX(2.2f);
-	double var$2 = (double)(var$3 - decodeX(1.3333334f));
+	double var$2 = var$3 - decodeX(1.3333334f);
 	float var$4 = decodeY(1.6666667f);
 	$nc(this->rect)->setRect(var$0, var$1, var$2, var$4 - decodeY(1.5f));
 	return this->rect;
 }
 
 $Rectangle2D* FileChooserPainter::decodeRect49() {
-	double var$0 = (double)decodeX(1.3333334f);
-	double var$1 = (double)decodeY(1.8333333f);
+	double var$0 = decodeX(1.3333334f);
+	double var$1 = decodeY(1.8333333f);
 	float var$3 = decodeX(2.0f);
-	double var$2 = (double)(var$3 - decodeX(1.3333334f));
+	double var$2 = var$3 - decodeX(1.3333334f);
 	float var$4 = decodeY(2.0f);
 	$nc(this->rect)->setRect(var$0, var$1, var$2, var$4 - decodeY(1.8333333f));
 	return this->rect;
 }
 
 $Rectangle2D* FileChooserPainter::decodeRect50() {
-	double var$0 = (double)decodeX(0.8f);
-	double var$1 = (double)decodeY(1.8333333f);
+	double var$0 = decodeX(0.8f);
+	double var$1 = decodeY(1.8333333f);
 	float var$3 = decodeX(1.1666666f);
-	double var$2 = (double)(var$3 - decodeX(0.8f));
+	double var$2 = var$3 - decodeX(0.8f);
 	float var$4 = decodeY(2.0f);
 	$nc(this->rect)->setRect(var$0, var$1, var$2, var$4 - decodeY(1.8333333f));
 	return this->rect;
 }
 
 $Rectangle2D* FileChooserPainter::decodeRect51() {
-	double var$0 = (double)decodeX(0.8f);
-	double var$1 = (double)decodeY(2.2f);
+	double var$0 = decodeX(0.8f);
+	double var$1 = decodeY(2.2f);
 	float var$3 = decodeX(1.1666666f);
-	double var$2 = (double)(var$3 - decodeX(0.8f));
+	double var$2 = var$3 - decodeX(0.8f);
 	float var$4 = decodeY(2.4f);
 	$nc(this->rect)->setRect(var$0, var$1, var$2, var$4 - decodeY(2.2f));
 	return this->rect;
 }
 
 $Rectangle2D* FileChooserPainter::decodeRect52() {
-	double var$0 = (double)decodeX(1.3333334f);
-	double var$1 = (double)decodeY(2.2f);
+	double var$0 = decodeX(1.3333334f);
+	double var$1 = decodeY(2.2f);
 	float var$3 = decodeX(2.2f);
-	double var$2 = (double)(var$3 - decodeX(1.3333334f));
+	double var$2 = var$3 - decodeX(1.3333334f);
 	float var$4 = decodeY(2.4f);
 	$nc(this->rect)->setRect(var$0, var$1, var$2, var$4 - decodeY(2.2f));
 	return this->rect;
 }
 
 $Paint* FileChooserPainter::decodeGradient1($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -2590,7 +2257,7 @@ $Paint* FileChooserPainter::decodeGradient1($Shape* s) {
 }
 
 $Paint* FileChooserPainter::decodeGradient2($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -2608,7 +2275,7 @@ $Paint* FileChooserPainter::decodeGradient2($Shape* s) {
 }
 
 $Paint* FileChooserPainter::decodeGradient3($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -2634,7 +2301,7 @@ $Paint* FileChooserPainter::decodeGradient3($Shape* s) {
 }
 
 $Paint* FileChooserPainter::decodeGradient4($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -2652,7 +2319,7 @@ $Paint* FileChooserPainter::decodeGradient4($Shape* s) {
 }
 
 $Paint* FileChooserPainter::decodeGradient5($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -2670,7 +2337,7 @@ $Paint* FileChooserPainter::decodeGradient5($Shape* s) {
 }
 
 $Paint* FileChooserPainter::decodeGradient6($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -2692,7 +2359,7 @@ $Paint* FileChooserPainter::decodeGradient6($Shape* s) {
 }
 
 $Paint* FileChooserPainter::decodeGradient7($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -2714,7 +2381,7 @@ $Paint* FileChooserPainter::decodeGradient7($Shape* s) {
 }
 
 $Paint* FileChooserPainter::decodeGradient8($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -2736,7 +2403,7 @@ $Paint* FileChooserPainter::decodeGradient8($Shape* s) {
 }
 
 $Paint* FileChooserPainter::decodeGradient9($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -2754,7 +2421,7 @@ $Paint* FileChooserPainter::decodeGradient9($Shape* s) {
 }
 
 $Paint* FileChooserPainter::decodeGradient10($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -2780,7 +2447,7 @@ $Paint* FileChooserPainter::decodeGradient10($Shape* s) {
 }
 
 $Paint* FileChooserPainter::decodeGradient11($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -2798,7 +2465,7 @@ $Paint* FileChooserPainter::decodeGradient11($Shape* s) {
 }
 
 $Paint* FileChooserPainter::decodeGradient12($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -2816,7 +2483,7 @@ $Paint* FileChooserPainter::decodeGradient12($Shape* s) {
 }
 
 $Paint* FileChooserPainter::decodeRadial1($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -2842,7 +2509,7 @@ $Paint* FileChooserPainter::decodeRadial1($Shape* s) {
 }
 
 $Paint* FileChooserPainter::decodeGradient13($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -2860,7 +2527,7 @@ $Paint* FileChooserPainter::decodeGradient13($Shape* s) {
 }
 
 $Paint* FileChooserPainter::decodeGradient14($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -2878,7 +2545,7 @@ $Paint* FileChooserPainter::decodeGradient14($Shape* s) {
 }
 
 $Paint* FileChooserPainter::decodeGradient15($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -2900,7 +2567,7 @@ $Paint* FileChooserPainter::decodeGradient15($Shape* s) {
 }
 
 $Paint* FileChooserPainter::decodeGradient16($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -2926,7 +2593,7 @@ $Paint* FileChooserPainter::decodeGradient16($Shape* s) {
 }
 
 $Paint* FileChooserPainter::decodeGradient17($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -2956,7 +2623,7 @@ $Paint* FileChooserPainter::decodeGradient17($Shape* s) {
 }
 
 $Paint* FileChooserPainter::decodeGradient18($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -3006,7 +2673,7 @@ $Paint* FileChooserPainter::decodeGradient18($Shape* s) {
 }
 
 $Paint* FileChooserPainter::decodeGradient19($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -3024,7 +2691,7 @@ $Paint* FileChooserPainter::decodeGradient19($Shape* s) {
 }
 
 $Paint* FileChooserPainter::decodeGradient20($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -3042,7 +2709,7 @@ $Paint* FileChooserPainter::decodeGradient20($Shape* s) {
 }
 
 $Paint* FileChooserPainter::decodeGradient21($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -3060,7 +2727,7 @@ $Paint* FileChooserPainter::decodeGradient21($Shape* s) {
 }
 
 $Paint* FileChooserPainter::decodeGradient22($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -3078,7 +2745,7 @@ $Paint* FileChooserPainter::decodeGradient22($Shape* s) {
 }
 
 $Paint* FileChooserPainter::decodeGradient23($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -3096,7 +2763,7 @@ $Paint* FileChooserPainter::decodeGradient23($Shape* s) {
 }
 
 $Paint* FileChooserPainter::decodeGradient24($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -3114,7 +2781,7 @@ $Paint* FileChooserPainter::decodeGradient24($Shape* s) {
 }
 
 $Paint* FileChooserPainter::decodeGradient25($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -3132,7 +2799,7 @@ $Paint* FileChooserPainter::decodeGradient25($Shape* s) {
 }
 
 $Paint* FileChooserPainter::decodeGradient26($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -3150,7 +2817,7 @@ $Paint* FileChooserPainter::decodeGradient26($Shape* s) {
 }
 
 $Paint* FileChooserPainter::decodeGradient27($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -3176,7 +2843,7 @@ $Paint* FileChooserPainter::decodeGradient27($Shape* s) {
 }
 
 $Paint* FileChooserPainter::decodeGradient28($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -3194,7 +2861,7 @@ $Paint* FileChooserPainter::decodeGradient28($Shape* s) {
 }
 
 $Paint* FileChooserPainter::decodeRadial2($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -3212,7 +2879,7 @@ $Paint* FileChooserPainter::decodeRadial2($Shape* s) {
 }
 
 $Paint* FileChooserPainter::decodeGradient29($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -3234,7 +2901,7 @@ $Paint* FileChooserPainter::decodeGradient29($Shape* s) {
 }
 
 $Paint* FileChooserPainter::decodeGradient30($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -3260,7 +2927,7 @@ $Paint* FileChooserPainter::decodeGradient30($Shape* s) {
 }
 
 $Paint* FileChooserPainter::decodeGradient31($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -3286,7 +2953,7 @@ $Paint* FileChooserPainter::decodeGradient31($Shape* s) {
 }
 
 $Paint* FileChooserPainter::decodeGradient32($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -3308,7 +2975,7 @@ $Paint* FileChooserPainter::decodeGradient32($Shape* s) {
 }
 
 $Paint* FileChooserPainter::decodeGradient33($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -3330,7 +2997,7 @@ $Paint* FileChooserPainter::decodeGradient33($Shape* s) {
 }
 
 $Paint* FileChooserPainter::decodeGradient34($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -3348,7 +3015,7 @@ $Paint* FileChooserPainter::decodeGradient34($Shape* s) {
 }
 
 $Paint* FileChooserPainter::decodeGradient35($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -3373,7 +3040,312 @@ FileChooserPainter::FileChooserPainter() {
 }
 
 $Class* FileChooserPainter::load$($String* name, bool initialize) {
-	$loadClass(FileChooserPainter, name, initialize, &_FileChooserPainter_ClassInfo_, allocate$FileChooserPainter);
+	$FieldInfo fieldInfos$$[] = {
+		{"BACKGROUND_ENABLED", "I", nullptr, $STATIC | $FINAL, $constField(FileChooserPainter, BACKGROUND_ENABLED)},
+		{"FILEICON_ENABLED", "I", nullptr, $STATIC | $FINAL, $constField(FileChooserPainter, FILEICON_ENABLED)},
+		{"DIRECTORYICON_ENABLED", "I", nullptr, $STATIC | $FINAL, $constField(FileChooserPainter, DIRECTORYICON_ENABLED)},
+		{"UPFOLDERICON_ENABLED", "I", nullptr, $STATIC | $FINAL, $constField(FileChooserPainter, UPFOLDERICON_ENABLED)},
+		{"NEWFOLDERICON_ENABLED", "I", nullptr, $STATIC | $FINAL, $constField(FileChooserPainter, NEWFOLDERICON_ENABLED)},
+		{"COMPUTERICON_ENABLED", "I", nullptr, $STATIC | $FINAL, $constField(FileChooserPainter, COMPUTERICON_ENABLED)},
+		{"HARDDRIVEICON_ENABLED", "I", nullptr, $STATIC | $FINAL, $constField(FileChooserPainter, HARDDRIVEICON_ENABLED)},
+		{"FLOPPYDRIVEICON_ENABLED", "I", nullptr, $STATIC | $FINAL, $constField(FileChooserPainter, FLOPPYDRIVEICON_ENABLED)},
+		{"HOMEFOLDERICON_ENABLED", "I", nullptr, $STATIC | $FINAL, $constField(FileChooserPainter, HOMEFOLDERICON_ENABLED)},
+		{"DETAILSVIEWICON_ENABLED", "I", nullptr, $STATIC | $FINAL, $constField(FileChooserPainter, DETAILSVIEWICON_ENABLED)},
+		{"LISTVIEWICON_ENABLED", "I", nullptr, $STATIC | $FINAL, $constField(FileChooserPainter, LISTVIEWICON_ENABLED)},
+		{"state", "I", nullptr, $PRIVATE, $field(FileChooserPainter, state)},
+		{"ctx", "Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext;", nullptr, $PRIVATE, $field(FileChooserPainter, ctx)},
+		{"path", "Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $field(FileChooserPainter, path)},
+		{"rect", "Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $field(FileChooserPainter, rect)},
+		{"roundRect", "Ljava/awt/geom/RoundRectangle2D;", nullptr, $PRIVATE, $field(FileChooserPainter, roundRect)},
+		{"ellipse", "Ljava/awt/geom/Ellipse2D;", nullptr, $PRIVATE, $field(FileChooserPainter, ellipse)},
+		{"color1", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color1)},
+		{"color2", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color2)},
+		{"color3", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color3)},
+		{"color4", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color4)},
+		{"color5", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color5)},
+		{"color6", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color6)},
+		{"color7", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color7)},
+		{"color8", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color8)},
+		{"color9", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color9)},
+		{"color10", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color10)},
+		{"color11", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color11)},
+		{"color12", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color12)},
+		{"color13", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color13)},
+		{"color14", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color14)},
+		{"color15", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color15)},
+		{"color16", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color16)},
+		{"color17", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color17)},
+		{"color18", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color18)},
+		{"color19", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color19)},
+		{"color20", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color20)},
+		{"color21", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color21)},
+		{"color22", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color22)},
+		{"color23", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color23)},
+		{"color24", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color24)},
+		{"color25", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color25)},
+		{"color26", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color26)},
+		{"color27", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color27)},
+		{"color28", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color28)},
+		{"color29", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color29)},
+		{"color30", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color30)},
+		{"color31", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color31)},
+		{"color32", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color32)},
+		{"color33", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color33)},
+		{"color34", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color34)},
+		{"color35", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color35)},
+		{"color36", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color36)},
+		{"color37", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color37)},
+		{"color38", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color38)},
+		{"color39", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color39)},
+		{"color40", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color40)},
+		{"color41", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color41)},
+		{"color42", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color42)},
+		{"color43", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color43)},
+		{"color44", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color44)},
+		{"color45", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color45)},
+		{"color46", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color46)},
+		{"color47", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color47)},
+		{"color48", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color48)},
+		{"color49", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color49)},
+		{"color50", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color50)},
+		{"color51", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color51)},
+		{"color52", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color52)},
+		{"color53", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color53)},
+		{"color54", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color54)},
+		{"color55", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color55)},
+		{"color56", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color56)},
+		{"color57", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color57)},
+		{"color58", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color58)},
+		{"color59", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color59)},
+		{"color60", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color60)},
+		{"color61", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color61)},
+		{"color62", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color62)},
+		{"color63", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color63)},
+		{"color64", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color64)},
+		{"color65", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color65)},
+		{"color66", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color66)},
+		{"color67", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color67)},
+		{"color68", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color68)},
+		{"color69", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color69)},
+		{"color70", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color70)},
+		{"color71", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color71)},
+		{"color72", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color72)},
+		{"color73", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color73)},
+		{"color74", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color74)},
+		{"color75", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color75)},
+		{"color76", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color76)},
+		{"color77", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color77)},
+		{"color78", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color78)},
+		{"color79", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color79)},
+		{"color80", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color80)},
+		{"color81", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color81)},
+		{"color82", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color82)},
+		{"color83", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color83)},
+		{"color84", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color84)},
+		{"color85", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color85)},
+		{"color86", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color86)},
+		{"color87", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color87)},
+		{"color88", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color88)},
+		{"color89", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color89)},
+		{"color90", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color90)},
+		{"color91", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color91)},
+		{"color92", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color92)},
+		{"color93", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color93)},
+		{"color94", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color94)},
+		{"color95", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color95)},
+		{"color96", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color96)},
+		{"color97", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color97)},
+		{"color98", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color98)},
+		{"color99", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color99)},
+		{"color100", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color100)},
+		{"color101", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color101)},
+		{"color102", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color102)},
+		{"color103", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color103)},
+		{"color104", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color104)},
+		{"color105", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color105)},
+		{"color106", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color106)},
+		{"color107", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color107)},
+		{"color108", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color108)},
+		{"color109", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color109)},
+		{"color110", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color110)},
+		{"color111", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color111)},
+		{"color112", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color112)},
+		{"color113", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color113)},
+		{"color114", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color114)},
+		{"color115", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color115)},
+		{"color116", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color116)},
+		{"color117", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color117)},
+		{"color118", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color118)},
+		{"color119", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color119)},
+		{"color120", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color120)},
+		{"color121", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color121)},
+		{"color122", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FileChooserPainter, color122)},
+		{"componentColors", "[Ljava/lang/Object;", nullptr, $PRIVATE, $field(FileChooserPainter, componentColors)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext;I)V", nullptr, $PUBLIC, $method(FileChooserPainter, init$, void, $AbstractRegionPainter$PaintContext*, int32_t)},
+		{"decodeEllipse1", "()Ljava/awt/geom/Ellipse2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeEllipse1, $Ellipse2D*)},
+		{"decodeEllipse2", "()Ljava/awt/geom/Ellipse2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeEllipse2, $Ellipse2D*)},
+		{"decodeEllipse3", "()Ljava/awt/geom/Ellipse2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeEllipse3, $Ellipse2D*)},
+		{"decodeEllipse4", "()Ljava/awt/geom/Ellipse2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeEllipse4, $Ellipse2D*)},
+		{"decodeEllipse5", "()Ljava/awt/geom/Ellipse2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeEllipse5, $Ellipse2D*)},
+		{"decodeEllipse6", "()Ljava/awt/geom/Ellipse2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeEllipse6, $Ellipse2D*)},
+		{"decodeEllipse7", "()Ljava/awt/geom/Ellipse2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeEllipse7, $Ellipse2D*)},
+		{"decodeEllipse8", "()Ljava/awt/geom/Ellipse2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeEllipse8, $Ellipse2D*)},
+		{"decodeEllipse9", "()Ljava/awt/geom/Ellipse2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeEllipse9, $Ellipse2D*)},
+		{"decodeGradient1", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeGradient1, $Paint*, $Shape*)},
+		{"decodeGradient10", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeGradient10, $Paint*, $Shape*)},
+		{"decodeGradient11", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeGradient11, $Paint*, $Shape*)},
+		{"decodeGradient12", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeGradient12, $Paint*, $Shape*)},
+		{"decodeGradient13", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeGradient13, $Paint*, $Shape*)},
+		{"decodeGradient14", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeGradient14, $Paint*, $Shape*)},
+		{"decodeGradient15", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeGradient15, $Paint*, $Shape*)},
+		{"decodeGradient16", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeGradient16, $Paint*, $Shape*)},
+		{"decodeGradient17", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeGradient17, $Paint*, $Shape*)},
+		{"decodeGradient18", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeGradient18, $Paint*, $Shape*)},
+		{"decodeGradient19", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeGradient19, $Paint*, $Shape*)},
+		{"decodeGradient2", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeGradient2, $Paint*, $Shape*)},
+		{"decodeGradient20", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeGradient20, $Paint*, $Shape*)},
+		{"decodeGradient21", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeGradient21, $Paint*, $Shape*)},
+		{"decodeGradient22", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeGradient22, $Paint*, $Shape*)},
+		{"decodeGradient23", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeGradient23, $Paint*, $Shape*)},
+		{"decodeGradient24", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeGradient24, $Paint*, $Shape*)},
+		{"decodeGradient25", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeGradient25, $Paint*, $Shape*)},
+		{"decodeGradient26", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeGradient26, $Paint*, $Shape*)},
+		{"decodeGradient27", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeGradient27, $Paint*, $Shape*)},
+		{"decodeGradient28", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeGradient28, $Paint*, $Shape*)},
+		{"decodeGradient29", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeGradient29, $Paint*, $Shape*)},
+		{"decodeGradient3", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeGradient3, $Paint*, $Shape*)},
+		{"decodeGradient30", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeGradient30, $Paint*, $Shape*)},
+		{"decodeGradient31", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeGradient31, $Paint*, $Shape*)},
+		{"decodeGradient32", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeGradient32, $Paint*, $Shape*)},
+		{"decodeGradient33", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeGradient33, $Paint*, $Shape*)},
+		{"decodeGradient34", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeGradient34, $Paint*, $Shape*)},
+		{"decodeGradient35", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeGradient35, $Paint*, $Shape*)},
+		{"decodeGradient4", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeGradient4, $Paint*, $Shape*)},
+		{"decodeGradient5", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeGradient5, $Paint*, $Shape*)},
+		{"decodeGradient6", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeGradient6, $Paint*, $Shape*)},
+		{"decodeGradient7", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeGradient7, $Paint*, $Shape*)},
+		{"decodeGradient8", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeGradient8, $Paint*, $Shape*)},
+		{"decodeGradient9", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeGradient9, $Paint*, $Shape*)},
+		{"decodePath1", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodePath1, $Path2D*)},
+		{"decodePath10", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodePath10, $Path2D*)},
+		{"decodePath11", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodePath11, $Path2D*)},
+		{"decodePath12", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodePath12, $Path2D*)},
+		{"decodePath13", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodePath13, $Path2D*)},
+		{"decodePath14", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodePath14, $Path2D*)},
+		{"decodePath15", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodePath15, $Path2D*)},
+		{"decodePath16", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodePath16, $Path2D*)},
+		{"decodePath17", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodePath17, $Path2D*)},
+		{"decodePath18", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodePath18, $Path2D*)},
+		{"decodePath19", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodePath19, $Path2D*)},
+		{"decodePath2", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodePath2, $Path2D*)},
+		{"decodePath20", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodePath20, $Path2D*)},
+		{"decodePath21", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodePath21, $Path2D*)},
+		{"decodePath22", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodePath22, $Path2D*)},
+		{"decodePath23", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodePath23, $Path2D*)},
+		{"decodePath24", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodePath24, $Path2D*)},
+		{"decodePath25", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodePath25, $Path2D*)},
+		{"decodePath26", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodePath26, $Path2D*)},
+		{"decodePath27", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodePath27, $Path2D*)},
+		{"decodePath28", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodePath28, $Path2D*)},
+		{"decodePath29", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodePath29, $Path2D*)},
+		{"decodePath3", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodePath3, $Path2D*)},
+		{"decodePath30", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodePath30, $Path2D*)},
+		{"decodePath31", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodePath31, $Path2D*)},
+		{"decodePath32", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodePath32, $Path2D*)},
+		{"decodePath33", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodePath33, $Path2D*)},
+		{"decodePath34", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodePath34, $Path2D*)},
+		{"decodePath35", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodePath35, $Path2D*)},
+		{"decodePath36", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodePath36, $Path2D*)},
+		{"decodePath37", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodePath37, $Path2D*)},
+		{"decodePath38", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodePath38, $Path2D*)},
+		{"decodePath4", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodePath4, $Path2D*)},
+		{"decodePath5", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodePath5, $Path2D*)},
+		{"decodePath6", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodePath6, $Path2D*)},
+		{"decodePath7", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodePath7, $Path2D*)},
+		{"decodePath8", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodePath8, $Path2D*)},
+		{"decodePath9", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodePath9, $Path2D*)},
+		{"decodeRadial1", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeRadial1, $Paint*, $Shape*)},
+		{"decodeRadial2", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeRadial2, $Paint*, $Shape*)},
+		{"decodeRect1", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeRect1, $Rectangle2D*)},
+		{"decodeRect10", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeRect10, $Rectangle2D*)},
+		{"decodeRect11", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeRect11, $Rectangle2D*)},
+		{"decodeRect12", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeRect12, $Rectangle2D*)},
+		{"decodeRect13", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeRect13, $Rectangle2D*)},
+		{"decodeRect14", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeRect14, $Rectangle2D*)},
+		{"decodeRect15", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeRect15, $Rectangle2D*)},
+		{"decodeRect16", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeRect16, $Rectangle2D*)},
+		{"decodeRect17", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeRect17, $Rectangle2D*)},
+		{"decodeRect18", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeRect18, $Rectangle2D*)},
+		{"decodeRect19", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeRect19, $Rectangle2D*)},
+		{"decodeRect2", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeRect2, $Rectangle2D*)},
+		{"decodeRect20", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeRect20, $Rectangle2D*)},
+		{"decodeRect21", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeRect21, $Rectangle2D*)},
+		{"decodeRect22", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeRect22, $Rectangle2D*)},
+		{"decodeRect23", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeRect23, $Rectangle2D*)},
+		{"decodeRect24", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeRect24, $Rectangle2D*)},
+		{"decodeRect25", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeRect25, $Rectangle2D*)},
+		{"decodeRect26", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeRect26, $Rectangle2D*)},
+		{"decodeRect27", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeRect27, $Rectangle2D*)},
+		{"decodeRect28", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeRect28, $Rectangle2D*)},
+		{"decodeRect29", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeRect29, $Rectangle2D*)},
+		{"decodeRect3", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeRect3, $Rectangle2D*)},
+		{"decodeRect30", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeRect30, $Rectangle2D*)},
+		{"decodeRect31", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeRect31, $Rectangle2D*)},
+		{"decodeRect32", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeRect32, $Rectangle2D*)},
+		{"decodeRect33", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeRect33, $Rectangle2D*)},
+		{"decodeRect34", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeRect34, $Rectangle2D*)},
+		{"decodeRect35", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeRect35, $Rectangle2D*)},
+		{"decodeRect36", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeRect36, $Rectangle2D*)},
+		{"decodeRect37", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeRect37, $Rectangle2D*)},
+		{"decodeRect38", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeRect38, $Rectangle2D*)},
+		{"decodeRect39", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeRect39, $Rectangle2D*)},
+		{"decodeRect4", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeRect4, $Rectangle2D*)},
+		{"decodeRect40", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeRect40, $Rectangle2D*)},
+		{"decodeRect41", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeRect41, $Rectangle2D*)},
+		{"decodeRect42", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeRect42, $Rectangle2D*)},
+		{"decodeRect43", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeRect43, $Rectangle2D*)},
+		{"decodeRect44", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeRect44, $Rectangle2D*)},
+		{"decodeRect45", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeRect45, $Rectangle2D*)},
+		{"decodeRect46", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeRect46, $Rectangle2D*)},
+		{"decodeRect47", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeRect47, $Rectangle2D*)},
+		{"decodeRect48", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeRect48, $Rectangle2D*)},
+		{"decodeRect49", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeRect49, $Rectangle2D*)},
+		{"decodeRect5", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeRect5, $Rectangle2D*)},
+		{"decodeRect50", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeRect50, $Rectangle2D*)},
+		{"decodeRect51", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeRect51, $Rectangle2D*)},
+		{"decodeRect52", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeRect52, $Rectangle2D*)},
+		{"decodeRect6", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeRect6, $Rectangle2D*)},
+		{"decodeRect7", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeRect7, $Rectangle2D*)},
+		{"decodeRect8", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeRect8, $Rectangle2D*)},
+		{"decodeRect9", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(FileChooserPainter, decodeRect9, $Rectangle2D*)},
+		{"doPaint", "(Ljava/awt/Graphics2D;Ljavax/swing/JComponent;II[Ljava/lang/Object;)V", nullptr, $PROTECTED, $virtualMethod(FileChooserPainter, doPaint, void, $Graphics2D*, $JComponent*, int32_t, int32_t, $ObjectArray*)},
+		{"getPaintContext", "()Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext;", nullptr, $PROTECTED | $FINAL, $virtualMethod(FileChooserPainter, getPaintContext, $AbstractRegionPainter$PaintContext*)},
+		{"paintBackgroundEnabled", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(FileChooserPainter, paintBackgroundEnabled, void, $Graphics2D*)},
+		{"paintdetailsViewIconEnabled", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(FileChooserPainter, paintdetailsViewIconEnabled, void, $Graphics2D*)},
+		{"paintdirectoryIconEnabled", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(FileChooserPainter, paintdirectoryIconEnabled, void, $Graphics2D*)},
+		{"paintfileIconEnabled", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(FileChooserPainter, paintfileIconEnabled, void, $Graphics2D*)},
+		{"paintfloppyDriveIconEnabled", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(FileChooserPainter, paintfloppyDriveIconEnabled, void, $Graphics2D*)},
+		{"painthardDriveIconEnabled", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(FileChooserPainter, painthardDriveIconEnabled, void, $Graphics2D*)},
+		{"painthomeFolderIconEnabled", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(FileChooserPainter, painthomeFolderIconEnabled, void, $Graphics2D*)},
+		{"paintlistViewIconEnabled", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(FileChooserPainter, paintlistViewIconEnabled, void, $Graphics2D*)},
+		{"paintnewFolderIconEnabled", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(FileChooserPainter, paintnewFolderIconEnabled, void, $Graphics2D*)},
+		{"paintupFolderIconEnabled", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(FileChooserPainter, paintupFolderIconEnabled, void, $Graphics2D*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"javax.swing.plaf.nimbus.FileChooserPainter",
+		"javax.swing.plaf.nimbus.AbstractRegionPainter",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(FileChooserPainter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FileChooserPainter);
+	});
 	return class$;
 }
 

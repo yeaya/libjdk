@@ -1,5 +1,4 @@
 #include <BasicComboNPE.h>
-
 #include <java/awt/IllegalComponentStateException.h>
 #include <java/lang/ClassNotFoundException.h>
 #include <java/lang/IllegalAccessException.h>
@@ -13,7 +12,6 @@
 
 using $UIManager$LookAndFeelInfoArray = $Array<::javax::swing::UIManager$LookAndFeelInfo>;
 using $IllegalComponentStateException = ::java::awt::IllegalComponentStateException;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $ClassNotFoundException = ::java::lang::ClassNotFoundException;
 using $IllegalAccessException = ::java::lang::IllegalAccessException;
@@ -25,51 +23,25 @@ using $UIManager = ::javax::swing::UIManager;
 using $UIManager$LookAndFeelInfo = ::javax::swing::UIManager$LookAndFeelInfo;
 using $UnsupportedLookAndFeelException = ::javax::swing::UnsupportedLookAndFeelException;
 
-$MethodInfo _BasicComboNPE_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(BasicComboNPE, init$, void)},
-	{"getModel", "()Ljavax/swing/ComboBoxModel;", nullptr, $PUBLIC, $virtualMethod(BasicComboNPE, getModel, $ComboBoxModel*)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(BasicComboNPE, main, void, $StringArray*)},
-	{}
-};
-
-$ClassInfo _BasicComboNPE_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"BasicComboNPE",
-	"javax.swing.JComboBox",
-	nullptr,
-	nullptr,
-	_BasicComboNPE_MethodInfo_
-};
-
-$Object* allocate$BasicComboNPE($Class* clazz) {
-	return $of($alloc(BasicComboNPE));
-}
-
 void BasicComboNPE::init$() {
 	$JComboBox::init$();
 }
 
 void BasicComboNPE::main($StringArray* args) {
 	$init(BasicComboNPE);
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($UIManager$LookAndFeelInfoArray, arr$, $UIManager::getInstalledLookAndFeels());
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
-			$var($UIManager$LookAndFeelInfo, laf, arr$->get(i$));
-			{
-				try {
-					$nc($System::out)->println($$str({"Test for LookAndFeel "_s, $($nc(laf)->getClassName())}));
-					$UIManager::setLookAndFeel($($nc(laf)->getClassName()));
-					$$new(BasicComboNPE)->getModel();
-				} catch ($IllegalComponentStateException& e) {
-				} catch ($ClassNotFoundException& e) {
-				} catch ($InstantiationException& e) {
-				} catch ($IllegalAccessException& e) {
-				} catch ($UnsupportedLookAndFeelException& e) {
-				}
-			}
+	$useLocalObjectStack();
+	$var($UIManager$LookAndFeelInfoArray, arr$, $UIManager::getInstalledLookAndFeels());
+	for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
+		$var($UIManager$LookAndFeelInfo, laf, arr$->get(i$));
+		try {
+			$nc($System::out)->println($$str({"Test for LookAndFeel "_s, $($nc(laf)->getClassName())}));
+			$UIManager::setLookAndFeel($(laf->getClassName()));
+			$$new(BasicComboNPE)->getModel();
+		} catch ($IllegalComponentStateException& e) {
+		} catch ($ClassNotFoundException& e) {
+		} catch ($InstantiationException& e) {
+		} catch ($IllegalAccessException& e) {
+		} catch ($UnsupportedLookAndFeelException& e) {
 		}
 	}
 }
@@ -84,7 +56,23 @@ BasicComboNPE::BasicComboNPE() {
 }
 
 $Class* BasicComboNPE::load$($String* name, bool initialize) {
-	$loadClass(BasicComboNPE, name, initialize, &_BasicComboNPE_ClassInfo_, allocate$BasicComboNPE);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(BasicComboNPE, init$, void)},
+		{"getModel", "()Ljavax/swing/ComboBoxModel;", nullptr, $PUBLIC, $virtualMethod(BasicComboNPE, getModel, $ComboBoxModel*)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(BasicComboNPE, main, void, $StringArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"BasicComboNPE",
+		"javax.swing.JComboBox",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(BasicComboNPE, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(BasicComboNPE));
+	});
 	return class$;
 }
 

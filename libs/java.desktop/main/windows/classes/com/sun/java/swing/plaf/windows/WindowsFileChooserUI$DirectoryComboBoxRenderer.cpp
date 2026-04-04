@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/windows/WindowsFileChooserUI$DirectoryComboBoxRenderer.h>
-
 #include <com/sun/java/swing/plaf/windows/WindowsFileChooserUI$DirectoryComboBoxModel.h>
 #include <com/sun/java/swing/plaf/windows/WindowsFileChooserUI$IndentIcon.h>
 #include <com/sun/java/swing/plaf/windows/WindowsFileChooserUI.h>
@@ -13,7 +12,6 @@
 #include <jcpp.h>
 
 using $WindowsFileChooserUI = ::com::sun::java::swing::plaf::windows::WindowsFileChooserUI;
-using $WindowsFileChooserUI$DirectoryComboBoxModel = ::com::sun::java::swing::plaf::windows::WindowsFileChooserUI$DirectoryComboBoxModel;
 using $WindowsFileChooserUI$IndentIcon = ::com::sun::java::swing::plaf::windows::WindowsFileChooserUI$IndentIcon;
 using $Component = ::java::awt::Component;
 using $File = ::java::io::File;
@@ -23,7 +21,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $DefaultListCellRenderer = ::javax::swing::DefaultListCellRenderer;
 using $Icon = ::javax::swing::Icon;
-using $JFileChooser = ::javax::swing::JFileChooser;
 using $JList = ::javax::swing::JList;
 
 namespace com {
@@ -33,43 +30,6 @@ namespace com {
 				namespace plaf {
 					namespace windows {
 
-$FieldInfo _WindowsFileChooserUI$DirectoryComboBoxRenderer_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/java/swing/plaf/windows/WindowsFileChooserUI;", nullptr, $FINAL | $SYNTHETIC, $field(WindowsFileChooserUI$DirectoryComboBoxRenderer, this$0)},
-	{"ii", "Lcom/sun/java/swing/plaf/windows/WindowsFileChooserUI$IndentIcon;", nullptr, 0, $field(WindowsFileChooserUI$DirectoryComboBoxRenderer, ii)},
-	{}
-};
-
-$MethodInfo _WindowsFileChooserUI$DirectoryComboBoxRenderer_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/java/swing/plaf/windows/WindowsFileChooserUI;)V", nullptr, 0, $method(WindowsFileChooserUI$DirectoryComboBoxRenderer, init$, void, $WindowsFileChooserUI*)},
-	{"getListCellRendererComponent", "(Ljavax/swing/JList;Ljava/lang/Object;IZZ)Ljava/awt/Component;", "(Ljavax/swing/JList<*>;Ljava/lang/Object;IZZ)Ljava/awt/Component;", $PUBLIC, $virtualMethod(WindowsFileChooserUI$DirectoryComboBoxRenderer, getListCellRendererComponent, $Component*, $JList*, Object$*, int32_t, bool, bool)},
-	{}
-};
-
-$InnerClassInfo _WindowsFileChooserUI$DirectoryComboBoxRenderer_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.windows.WindowsFileChooserUI$DirectoryComboBoxRenderer", "com.sun.java.swing.plaf.windows.WindowsFileChooserUI", "DirectoryComboBoxRenderer", 0},
-	{}
-};
-
-$ClassInfo _WindowsFileChooserUI$DirectoryComboBoxRenderer_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.java.swing.plaf.windows.WindowsFileChooserUI$DirectoryComboBoxRenderer",
-	"javax.swing.DefaultListCellRenderer",
-	nullptr,
-	_WindowsFileChooserUI$DirectoryComboBoxRenderer_FieldInfo_,
-	_WindowsFileChooserUI$DirectoryComboBoxRenderer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_WindowsFileChooserUI$DirectoryComboBoxRenderer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.windows.WindowsFileChooserUI"
-};
-
-$Object* allocate$WindowsFileChooserUI$DirectoryComboBoxRenderer($Class* clazz) {
-	return $of($alloc(WindowsFileChooserUI$DirectoryComboBoxRenderer));
-}
-
 void WindowsFileChooserUI$DirectoryComboBoxRenderer::init$($WindowsFileChooserUI* this$0) {
 	$set(this, this$0, this$0);
 	$DefaultListCellRenderer::init$();
@@ -77,17 +37,17 @@ void WindowsFileChooserUI$DirectoryComboBoxRenderer::init$($WindowsFileChooserUI
 }
 
 $Component* WindowsFileChooserUI$DirectoryComboBoxRenderer::getListCellRendererComponent($JList* list, Object$* value, int32_t index, bool isSelected, bool cellHasFocus) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$DefaultListCellRenderer::getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
 	if (value == nullptr) {
 		setText(""_s);
 		return this;
 	}
 	$var($File, directory, $cast($File, value));
-	setText($($nc($(this->this$0->getFileChooser()))->getName(directory)));
-	$var($Icon, icon, $nc($(this->this$0->getFileChooser()))->getIcon(directory));
+	setText($($$nc(this->this$0->getFileChooser())->getName(directory)));
+	$var($Icon, icon, $$nc(this->this$0->getFileChooser())->getIcon(directory));
 	$set($nc(this->ii), icon, icon);
-	$nc(this->ii)->depth = $nc(this->this$0->directoryComboBoxModel)->getDepth(index);
+	this->ii->depth = $nc(this->this$0->directoryComboBoxModel)->getDepth(index);
 	setIcon(this->ii);
 	return this;
 }
@@ -96,7 +56,38 @@ WindowsFileChooserUI$DirectoryComboBoxRenderer::WindowsFileChooserUI$DirectoryCo
 }
 
 $Class* WindowsFileChooserUI$DirectoryComboBoxRenderer::load$($String* name, bool initialize) {
-	$loadClass(WindowsFileChooserUI$DirectoryComboBoxRenderer, name, initialize, &_WindowsFileChooserUI$DirectoryComboBoxRenderer_ClassInfo_, allocate$WindowsFileChooserUI$DirectoryComboBoxRenderer);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/java/swing/plaf/windows/WindowsFileChooserUI;", nullptr, $FINAL | $SYNTHETIC, $field(WindowsFileChooserUI$DirectoryComboBoxRenderer, this$0)},
+		{"ii", "Lcom/sun/java/swing/plaf/windows/WindowsFileChooserUI$IndentIcon;", nullptr, 0, $field(WindowsFileChooserUI$DirectoryComboBoxRenderer, ii)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/java/swing/plaf/windows/WindowsFileChooserUI;)V", nullptr, 0, $method(WindowsFileChooserUI$DirectoryComboBoxRenderer, init$, void, $WindowsFileChooserUI*)},
+		{"getListCellRendererComponent", "(Ljavax/swing/JList;Ljava/lang/Object;IZZ)Ljava/awt/Component;", "(Ljavax/swing/JList<*>;Ljava/lang/Object;IZZ)Ljava/awt/Component;", $PUBLIC, $virtualMethod(WindowsFileChooserUI$DirectoryComboBoxRenderer, getListCellRendererComponent, $Component*, $JList*, Object$*, int32_t, bool, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.windows.WindowsFileChooserUI$DirectoryComboBoxRenderer", "com.sun.java.swing.plaf.windows.WindowsFileChooserUI", "DirectoryComboBoxRenderer", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.java.swing.plaf.windows.WindowsFileChooserUI$DirectoryComboBoxRenderer",
+		"javax.swing.DefaultListCellRenderer",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.windows.WindowsFileChooserUI"
+	};
+	$loadClass(WindowsFileChooserUI$DirectoryComboBoxRenderer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(WindowsFileChooserUI$DirectoryComboBoxRenderer));
+	});
 	return class$;
 }
 

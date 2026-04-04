@@ -1,5 +1,4 @@
 #include <sun/java2d/marlin/Helpers.h>
-
 #include <java/lang/Error.h>
 #include <java/lang/InternalError.h>
 #include <java/lang/Math.h>
@@ -29,59 +28,6 @@ using $MarlinConst = ::sun::java2d::marlin::MarlinConst;
 namespace sun {
 	namespace java2d {
 		namespace marlin {
-
-$MethodInfo _Helpers_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(Helpers, init$, void)},
-	{"cubicRootsInAB", "(DDDD[DIDD)I", nullptr, $STATIC, $staticMethod(Helpers, cubicRootsInAB, int32_t, double, double, double, double, $doubles*, int32_t, double, double)},
-	{"curvelen", "(DDDDDDDD)D", nullptr, $STATIC, $staticMethod(Helpers, curvelen, double, double, double, double, double, double, double, double, double)},
-	{"evalCubic", "(DDDDD)D", nullptr, $STATIC, $staticMethod(Helpers, evalCubic, double, double, double, double, double, double)},
-	{"evalQuad", "(DDDD)D", nullptr, $STATIC, $staticMethod(Helpers, evalQuad, double, double, double, double, double)},
-	{"fastCurvelen", "(DDDDDDDD)D", nullptr, $STATIC, $staticMethod(Helpers, fastCurvelen, double, double, double, double, double, double, double, double, double)},
-	{"fastLineLen", "(DDDD)D", nullptr, $STATIC, $staticMethod(Helpers, fastLineLen, double, double, double, double, double)},
-	{"fastQuadLen", "(DDDDDD)D", nullptr, $STATIC, $staticMethod(Helpers, fastQuadLen, double, double, double, double, double, double, double)},
-	{"filterOutNotInAB", "([DIIDD)I", nullptr, $STATIC, $staticMethod(Helpers, filterOutNotInAB, int32_t, $doubles*, int32_t, int32_t, double, double)},
-	{"findClipPoints", "(Lsun/java2d/marlin/Curve;[D[DII[D)I", nullptr, $STATIC, $staticMethod(Helpers, findClipPoints, int32_t, $Curve*, $doubles*, $doubles*, int32_t, int32_t, $doubles*)},
-	{"findSubdivPoints", "(Lsun/java2d/marlin/Curve;[D[DID)I", nullptr, $STATIC, $staticMethod(Helpers, findSubdivPoints, int32_t, $Curve*, $doubles*, $doubles*, int32_t, double)},
-	{"isort", "([DI)V", nullptr, $STATIC, $staticMethod(Helpers, isort, void, $doubles*, int32_t)},
-	{"linelen", "(DDDD)D", nullptr, $STATIC, $staticMethod(Helpers, linelen, double, double, double, double, double)},
-	{"outcode", "(DD[D)I", nullptr, $STATIC, $staticMethod(Helpers, outcode, int32_t, double, double, $doubles*)},
-	{"quadlen", "(DDDDDD)D", nullptr, $STATIC, $staticMethod(Helpers, quadlen, double, double, double, double, double, double, double)},
-	{"quadraticRoots", "(DDD[DI)I", nullptr, $STATIC, $staticMethod(Helpers, quadraticRoots, int32_t, double, double, double, $doubles*, int32_t)},
-	{"subdivide", "([D[D[DI)V", nullptr, $STATIC, $staticMethod(Helpers, subdivide, void, $doubles*, $doubles*, $doubles*, int32_t)},
-	{"subdivideAt", "(D[DI[DII)V", nullptr, $STATIC, $staticMethod(Helpers, subdivideAt, void, double, $doubles*, int32_t, $doubles*, int32_t, int32_t)},
-	{"subdivideCubic", "([D[D[D)V", nullptr, $STATIC, $staticMethod(Helpers, subdivideCubic, void, $doubles*, $doubles*, $doubles*)},
-	{"subdivideCubicAt", "(D[DI[DII)V", nullptr, $STATIC, $staticMethod(Helpers, subdivideCubicAt, void, double, $doubles*, int32_t, $doubles*, int32_t, int32_t)},
-	{"subdivideLineAt", "(D[DI[DII)V", nullptr, $STATIC, $staticMethod(Helpers, subdivideLineAt, void, double, $doubles*, int32_t, $doubles*, int32_t, int32_t)},
-	{"subdivideQuad", "([D[D[D)V", nullptr, $STATIC, $staticMethod(Helpers, subdivideQuad, void, $doubles*, $doubles*, $doubles*)},
-	{"subdivideQuadAt", "(D[DI[DII)V", nullptr, $STATIC, $staticMethod(Helpers, subdivideQuadAt, void, double, $doubles*, int32_t, $doubles*, int32_t, int32_t)},
-	{"within", "(DDD)Z", nullptr, $STATIC, $staticMethod(Helpers, within, bool, double, double, double)},
-	{}
-};
-
-$InnerClassInfo _Helpers_InnerClassesInfo_[] = {
-	{"sun.java2d.marlin.Helpers$IndexStack", "sun.java2d.marlin.Helpers", "IndexStack", $STATIC | $FINAL},
-	{"sun.java2d.marlin.Helpers$PolyStack", "sun.java2d.marlin.Helpers", "PolyStack", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _Helpers_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.java2d.marlin.Helpers",
-	"java.lang.Object",
-	"sun.java2d.marlin.MarlinConst",
-	nullptr,
-	_Helpers_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Helpers_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.java2d.marlin.Helpers$IndexStack,sun.java2d.marlin.Helpers$PolyStack"
-};
-
-$Object* allocate$Helpers($Class* clazz) {
-	return $of($alloc(Helpers));
-}
 
 void Helpers::init$() {
 	$throwNew($Error, "This is a non instantiable class"_s);
@@ -166,13 +112,9 @@ int32_t Helpers::cubicRootsInAB(double d, double a, double b, double c, $doubles
 int32_t Helpers::filterOutNotInAB($doubles* nums, int32_t off, int32_t len, double a, double b) {
 	$init(Helpers);
 	int32_t ret = off;
-	{
-		int32_t i = off;
-		int32_t end = off + len;
-		for (; i < end; ++i) {
-			if ($nc(nums)->get(i) >= a && nums->get(i) < b) {
-				nums->set(ret++, nums->get(i));
-			}
+	for (int32_t i = off, end = off + len; i < end; ++i) {
+		if ($nc(nums)->get(i) >= a && nums->get(i) < b) {
+			nums->set(ret++, nums->get(i));
 		}
 	}
 	return ret;
@@ -238,7 +180,7 @@ double Helpers::curvelen(double x0, double y0, double x1, double y1, double x2, 
 
 int32_t Helpers::findSubdivPoints($Curve* c, $doubles* pts, $doubles* ts, int32_t type, double w2) {
 	$init(Helpers);
-	double x12 = $nc(pts)->get(2) - pts->get(0);
+	double x12 = $nc(pts)->get(2) - $nc(pts)->get(0);
 	double y12 = pts->get(3) - pts->get(1);
 	if ((y12 != 0.0) && (x12 != 0.0)) {
 		double hypot = $Math::sqrt(x12 * x12 + y12 * y12);
@@ -255,19 +197,15 @@ int32_t Helpers::findSubdivPoints($Curve* c, $doubles* pts, $doubles* ts, int32_
 			double y4 = 0;
 			switch (type) {
 			case 8:
-				{
-					x4 = cos * pts->get(6) + sin * pts->get(7);
-					y4 = cos * pts->get(7) - sin * pts->get(6);
-					$nc(c)->set(x1, y1, x2, y2, x3, y3, x4, y4);
-					break;
-				}
+				x4 = cos * pts->get(6) + sin * pts->get(7);
+				y4 = cos * pts->get(7) - sin * pts->get(6);
+				$nc(c)->set(x1, y1, x2, y2, x3, y3, x4, y4);
+				break;
 			case 6:
-				{
-					$nc(c)->set(x1, y1, x2, y2, x3, y3);
-					break;
-				}
+				$nc(c)->set(x1, y1, x2, y2, x3, y3);
+				break;
 			default:
-				{}
+				break;
 			}
 		}
 	} else {
@@ -289,16 +227,16 @@ int32_t Helpers::findClipPoints($Curve* curve, $doubles* pts, $doubles* ts, int3
 	$init(Helpers);
 	$nc(curve)->set(pts, type);
 	int32_t ret = 0;
-	if (((int32_t)(outCodeOR & (uint32_t)$MarlinConst::OUTCODE_LEFT)) != 0) {
+	if ((outCodeOR & $MarlinConst::OUTCODE_LEFT) != 0) {
 		ret += curve->xPoints(ts, ret, $nc(clipRect)->get(2));
 	}
-	if (((int32_t)(outCodeOR & (uint32_t)$MarlinConst::OUTCODE_RIGHT)) != 0) {
+	if ((outCodeOR & $MarlinConst::OUTCODE_RIGHT) != 0) {
 		ret += curve->xPoints(ts, ret, $nc(clipRect)->get(3));
 	}
-	if (((int32_t)(outCodeOR & (uint32_t)$MarlinConst::OUTCODE_TOP)) != 0) {
+	if ((outCodeOR & $MarlinConst::OUTCODE_TOP) != 0) {
 		ret += curve->yPoints(ts, ret, $nc(clipRect)->get(0));
 	}
-	if (((int32_t)(outCodeOR & (uint32_t)$MarlinConst::OUTCODE_BOTTOM)) != 0) {
+	if ((outCodeOR & $MarlinConst::OUTCODE_BOTTOM) != 0) {
 		ret += curve->yPoints(ts, ret, $nc(clipRect)->get(1));
 	}
 	isort(ts, ret);
@@ -309,35 +247,25 @@ void Helpers::subdivide($doubles* src, $doubles* left, $doubles* right, int32_t 
 	$init(Helpers);
 	switch (type) {
 	case 8:
-		{
-			subdivideCubic(src, left, right);
-			return;
-		}
+		subdivideCubic(src, left, right);
+		return;
 	case 6:
-		{
-			subdivideQuad(src, left, right);
-			return;
-		}
+		subdivideQuad(src, left, right);
+		return;
 	default:
-		{
-			$throwNew($InternalError, "Unsupported curve type"_s);
-		}
+		$throwNew($InternalError, "Unsupported curve type"_s);
 	}
 }
 
 void Helpers::isort($doubles* a, int32_t len) {
 	$init(Helpers);
-	{
-		int32_t i = 1;
-		int32_t j = 0;
-		for (; i < len; ++i) {
-			double ai = $nc(a)->get(i);
-			j = i - 1;
-			for (; j >= 0 && a->get(j) > ai; --j) {
-				a->set(j + 1, a->get(j));
-			}
-			a->set(j + 1, ai);
+	for (int32_t i = 1, j = 0; i < len; ++i) {
+		double ai = $nc(a)->get(i);
+		j = i - 1;
+		for (; j >= 0 && a->get(j) > ai; --j) {
+			a->set(j + 1, a->get(j));
 		}
+		a->set(j + 1, ai);
 	}
 }
 
@@ -516,7 +444,7 @@ int32_t Helpers::outcode(double x, double y, $doubles* clipRect) {
 	} else {
 		code = 0;
 	}
-	if (x < $nc(clipRect)->get(2)) {
+	if (x < clipRect->get(2)) {
 		code |= $MarlinConst::OUTCODE_LEFT;
 	} else if (x >= clipRect->get(3)) {
 		code |= $MarlinConst::OUTCODE_RIGHT;
@@ -528,7 +456,55 @@ Helpers::Helpers() {
 }
 
 $Class* Helpers::load$($String* name, bool initialize) {
-	$loadClass(Helpers, name, initialize, &_Helpers_ClassInfo_, allocate$Helpers);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(Helpers, init$, void)},
+		{"cubicRootsInAB", "(DDDD[DIDD)I", nullptr, $STATIC, $staticMethod(Helpers, cubicRootsInAB, int32_t, double, double, double, double, $doubles*, int32_t, double, double)},
+		{"curvelen", "(DDDDDDDD)D", nullptr, $STATIC, $staticMethod(Helpers, curvelen, double, double, double, double, double, double, double, double, double)},
+		{"evalCubic", "(DDDDD)D", nullptr, $STATIC, $staticMethod(Helpers, evalCubic, double, double, double, double, double, double)},
+		{"evalQuad", "(DDDD)D", nullptr, $STATIC, $staticMethod(Helpers, evalQuad, double, double, double, double, double)},
+		{"fastCurvelen", "(DDDDDDDD)D", nullptr, $STATIC, $staticMethod(Helpers, fastCurvelen, double, double, double, double, double, double, double, double, double)},
+		{"fastLineLen", "(DDDD)D", nullptr, $STATIC, $staticMethod(Helpers, fastLineLen, double, double, double, double, double)},
+		{"fastQuadLen", "(DDDDDD)D", nullptr, $STATIC, $staticMethod(Helpers, fastQuadLen, double, double, double, double, double, double, double)},
+		{"filterOutNotInAB", "([DIIDD)I", nullptr, $STATIC, $staticMethod(Helpers, filterOutNotInAB, int32_t, $doubles*, int32_t, int32_t, double, double)},
+		{"findClipPoints", "(Lsun/java2d/marlin/Curve;[D[DII[D)I", nullptr, $STATIC, $staticMethod(Helpers, findClipPoints, int32_t, $Curve*, $doubles*, $doubles*, int32_t, int32_t, $doubles*)},
+		{"findSubdivPoints", "(Lsun/java2d/marlin/Curve;[D[DID)I", nullptr, $STATIC, $staticMethod(Helpers, findSubdivPoints, int32_t, $Curve*, $doubles*, $doubles*, int32_t, double)},
+		{"isort", "([DI)V", nullptr, $STATIC, $staticMethod(Helpers, isort, void, $doubles*, int32_t)},
+		{"linelen", "(DDDD)D", nullptr, $STATIC, $staticMethod(Helpers, linelen, double, double, double, double, double)},
+		{"outcode", "(DD[D)I", nullptr, $STATIC, $staticMethod(Helpers, outcode, int32_t, double, double, $doubles*)},
+		{"quadlen", "(DDDDDD)D", nullptr, $STATIC, $staticMethod(Helpers, quadlen, double, double, double, double, double, double, double)},
+		{"quadraticRoots", "(DDD[DI)I", nullptr, $STATIC, $staticMethod(Helpers, quadraticRoots, int32_t, double, double, double, $doubles*, int32_t)},
+		{"subdivide", "([D[D[DI)V", nullptr, $STATIC, $staticMethod(Helpers, subdivide, void, $doubles*, $doubles*, $doubles*, int32_t)},
+		{"subdivideAt", "(D[DI[DII)V", nullptr, $STATIC, $staticMethod(Helpers, subdivideAt, void, double, $doubles*, int32_t, $doubles*, int32_t, int32_t)},
+		{"subdivideCubic", "([D[D[D)V", nullptr, $STATIC, $staticMethod(Helpers, subdivideCubic, void, $doubles*, $doubles*, $doubles*)},
+		{"subdivideCubicAt", "(D[DI[DII)V", nullptr, $STATIC, $staticMethod(Helpers, subdivideCubicAt, void, double, $doubles*, int32_t, $doubles*, int32_t, int32_t)},
+		{"subdivideLineAt", "(D[DI[DII)V", nullptr, $STATIC, $staticMethod(Helpers, subdivideLineAt, void, double, $doubles*, int32_t, $doubles*, int32_t, int32_t)},
+		{"subdivideQuad", "([D[D[D)V", nullptr, $STATIC, $staticMethod(Helpers, subdivideQuad, void, $doubles*, $doubles*, $doubles*)},
+		{"subdivideQuadAt", "(D[DI[DII)V", nullptr, $STATIC, $staticMethod(Helpers, subdivideQuadAt, void, double, $doubles*, int32_t, $doubles*, int32_t, int32_t)},
+		{"within", "(DDD)Z", nullptr, $STATIC, $staticMethod(Helpers, within, bool, double, double, double)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.java2d.marlin.Helpers$IndexStack", "sun.java2d.marlin.Helpers", "IndexStack", $STATIC | $FINAL},
+		{"sun.java2d.marlin.Helpers$PolyStack", "sun.java2d.marlin.Helpers", "PolyStack", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.java2d.marlin.Helpers",
+		"java.lang.Object",
+		"sun.java2d.marlin.MarlinConst",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.java2d.marlin.Helpers$IndexStack,sun.java2d.marlin.Helpers$PolyStack"
+	};
+	$loadClass(Helpers, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Helpers);
+	});
 	return class$;
 }
 

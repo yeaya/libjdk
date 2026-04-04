@@ -1,5 +1,4 @@
 #include <org/w3c/dom/events/EventListener.h>
-
 #include <org/w3c/dom/events/Event.h>
 #include <jcpp.h>
 
@@ -12,26 +11,22 @@ namespace org {
 		namespace dom {
 			namespace events {
 
-$MethodInfo _EventListener_MethodInfo_[] = {
-	{"handleEvent", "(Lorg/w3c/dom/events/Event;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(EventListener, handleEvent, void, $Event*)},
-	{}
-};
-
-$ClassInfo _EventListener_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"org.w3c.dom.events.EventListener",
-	nullptr,
-	nullptr,
-	nullptr,
-	_EventListener_MethodInfo_
-};
-
-$Object* allocate$EventListener($Class* clazz) {
-	return $of($alloc(EventListener));
-}
-
 $Class* EventListener::load$($String* name, bool initialize) {
-	$loadClass(EventListener, name, initialize, &_EventListener_ClassInfo_, allocate$EventListener);
+	$MethodInfo methodInfos$$[] = {
+		{"handleEvent", "(Lorg/w3c/dom/events/Event;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(EventListener, handleEvent, void, $Event*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"org.w3c.dom.events.EventListener",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(EventListener, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(EventListener);
+	});
 	return class$;
 }
 

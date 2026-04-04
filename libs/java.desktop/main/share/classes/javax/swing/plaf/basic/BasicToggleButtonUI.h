@@ -37,6 +37,7 @@ class $export BasicToggleButtonUI : public ::javax::swing::plaf::basic::BasicBut
 	$class(BasicToggleButtonUI, 0, ::javax::swing::plaf::basic::BasicButtonUI)
 public:
 	BasicToggleButtonUI();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::javax::swing::plaf::ComponentUI* createUI(::javax::swing::JComponent* b);
 	virtual $String* getPropertyPrefix() override;

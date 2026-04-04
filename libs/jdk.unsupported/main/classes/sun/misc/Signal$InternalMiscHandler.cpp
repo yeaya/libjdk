@@ -1,5 +1,4 @@
 #include <sun/misc/Signal$InternalMiscHandler.h>
-
 #include <jdk/internal/misc/Signal$Handler.h>
 #include <jdk/internal/misc/Signal.h>
 #include <sun/misc/Signal$SunMiscHandler.h>
@@ -23,60 +22,19 @@ using $SignalHandler = ::sun::misc::SignalHandler;
 namespace sun {
 	namespace misc {
 
-$FieldInfo _Signal$InternalMiscHandler_FieldInfo_[] = {
-	{"handler", "Lsun/misc/SignalHandler;", nullptr, $PRIVATE | $FINAL, $field(Signal$InternalMiscHandler, handler)},
-	{"signal", "Lsun/misc/Signal;", nullptr, $PRIVATE | $FINAL, $field(Signal$InternalMiscHandler, signal)},
-	{}
-};
-
-$MethodInfo _Signal$InternalMiscHandler_MethodInfo_[] = {
-	{"<init>", "(Lsun/misc/Signal;Lsun/misc/SignalHandler;)V", nullptr, $PRIVATE, $method(Signal$InternalMiscHandler, init$, void, $Signal*, $SignalHandler*)},
-	{"handle", "(Ljdk/internal/misc/Signal;)V", nullptr, $PUBLIC, $virtualMethod(Signal$InternalMiscHandler, handle, void, $1Signal*)},
-	{"of", "(Lsun/misc/Signal;Lsun/misc/SignalHandler;)Ljdk/internal/misc/Signal$Handler;", nullptr, $STATIC, $staticMethod(Signal$InternalMiscHandler, of, $Signal$Handler*, $Signal*, $SignalHandler*)},
-	{}
-};
-
-$InnerClassInfo _Signal$InternalMiscHandler_InnerClassesInfo_[] = {
-	{"sun.misc.Signal$InternalMiscHandler", "sun.misc.Signal", "InternalMiscHandler", $STATIC | $FINAL},
-	{"jdk.internal.misc.Signal$Handler", "jdk.internal.misc.Signal", "Handler", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Signal$InternalMiscHandler_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.misc.Signal$InternalMiscHandler",
-	"java.lang.Object",
-	"jdk.internal.misc.Signal$Handler",
-	_Signal$InternalMiscHandler_FieldInfo_,
-	_Signal$InternalMiscHandler_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Signal$InternalMiscHandler_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.misc.Signal"
-};
-
-$Object* allocate$Signal$InternalMiscHandler($Class* clazz) {
-	return $of($alloc(Signal$InternalMiscHandler));
-}
-
 $Signal$Handler* Signal$InternalMiscHandler::of($Signal* signal, $SignalHandler* handler) {
 	$init(Signal$InternalMiscHandler);
 	$init($SignalHandler);
 	if (handler == $SignalHandler::SIG_DFL) {
 		$init($Signal$Handler);
 		return $Signal$Handler::SIG_DFL;
+	} else if (handler == $SignalHandler::SIG_IGN) {
+		$init($Signal$Handler);
+		return $Signal$Handler::SIG_IGN;
+	} else if ($instanceOf($Signal$SunMiscHandler, handler)) {
+		return $cast($Signal$SunMiscHandler, handler)->iHandler;
 	} else {
-		if (handler == $SignalHandler::SIG_IGN) {
-			$init($Signal$Handler);
-			return $Signal$Handler::SIG_IGN;
-		} else if ($instanceOf($Signal$SunMiscHandler, handler)) {
-			return $nc(($cast($Signal$SunMiscHandler, handler)))->iHandler;
-		} else {
-			return $new(Signal$InternalMiscHandler, signal, handler);
-		}
+		return $new(Signal$InternalMiscHandler, signal, handler);
 	}
 }
 
@@ -93,7 +51,40 @@ Signal$InternalMiscHandler::Signal$InternalMiscHandler() {
 }
 
 $Class* Signal$InternalMiscHandler::load$($String* name, bool initialize) {
-	$loadClass(Signal$InternalMiscHandler, name, initialize, &_Signal$InternalMiscHandler_ClassInfo_, allocate$Signal$InternalMiscHandler);
+	$FieldInfo fieldInfos$$[] = {
+		{"handler", "Lsun/misc/SignalHandler;", nullptr, $PRIVATE | $FINAL, $field(Signal$InternalMiscHandler, handler)},
+		{"signal", "Lsun/misc/Signal;", nullptr, $PRIVATE | $FINAL, $field(Signal$InternalMiscHandler, signal)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/misc/Signal;Lsun/misc/SignalHandler;)V", nullptr, $PRIVATE, $method(Signal$InternalMiscHandler, init$, void, $Signal*, $SignalHandler*)},
+		{"handle", "(Ljdk/internal/misc/Signal;)V", nullptr, $PUBLIC, $virtualMethod(Signal$InternalMiscHandler, handle, void, $1Signal*)},
+		{"of", "(Lsun/misc/Signal;Lsun/misc/SignalHandler;)Ljdk/internal/misc/Signal$Handler;", nullptr, $STATIC, $staticMethod(Signal$InternalMiscHandler, of, $Signal$Handler*, $Signal*, $SignalHandler*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.misc.Signal$InternalMiscHandler", "sun.misc.Signal", "InternalMiscHandler", $STATIC | $FINAL},
+		{"jdk.internal.misc.Signal$Handler", "jdk.internal.misc.Signal", "Handler", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.misc.Signal$InternalMiscHandler",
+		"java.lang.Object",
+		"jdk.internal.misc.Signal$Handler",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.misc.Signal"
+	};
+	$loadClass(Signal$InternalMiscHandler, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Signal$InternalMiscHandler);
+	});
 	return class$;
 }
 

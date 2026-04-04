@@ -1,5 +1,4 @@
 #include <sun/instrument/TransformerManager.h>
-
 #include <java/lang/ClassLoader.h>
 #include <java/lang/Module.h>
 #include <java/lang/instrument/ClassFileTransformer.h>
@@ -21,50 +20,6 @@ using $TransformerManager$TransformerInfo = ::sun::instrument::TransformerManage
 namespace sun {
 	namespace instrument {
 
-$FieldInfo _TransformerManager_FieldInfo_[] = {
-	{"mTransformerList", "[Lsun/instrument/TransformerManager$TransformerInfo;", nullptr, $PRIVATE, $field(TransformerManager, mTransformerList)},
-	{"mIsRetransformable", "Z", nullptr, $PRIVATE, $field(TransformerManager, mIsRetransformable)},
-	{}
-};
-
-$MethodInfo _TransformerManager_MethodInfo_[] = {
-	{"<init>", "(Z)V", nullptr, 0, $method(TransformerManager, init$, void, bool)},
-	{"addTransformer", "(Ljava/lang/instrument/ClassFileTransformer;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(TransformerManager, addTransformer, void, $ClassFileTransformer*)},
-	{"getNativeMethodPrefixes", "()[Ljava/lang/String;", nullptr, 0, $virtualMethod(TransformerManager, getNativeMethodPrefixes, $StringArray*)},
-	{"getSnapshotTransformerList", "()[Lsun/instrument/TransformerManager$TransformerInfo;", nullptr, $PRIVATE, $method(TransformerManager, getSnapshotTransformerList, $TransformerManager$TransformerInfoArray*)},
-	{"getTransformerCount", "()I", nullptr, 0, $virtualMethod(TransformerManager, getTransformerCount, int32_t)},
-	{"includesTransformer", "(Ljava/lang/instrument/ClassFileTransformer;)Z", nullptr, $SYNCHRONIZED, $virtualMethod(TransformerManager, includesTransformer, bool, $ClassFileTransformer*)},
-	{"isRetransformable", "()Z", nullptr, 0, $virtualMethod(TransformerManager, isRetransformable, bool)},
-	{"removeTransformer", "(Ljava/lang/instrument/ClassFileTransformer;)Z", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(TransformerManager, removeTransformer, bool, $ClassFileTransformer*)},
-	{"setNativeMethodPrefix", "(Ljava/lang/instrument/ClassFileTransformer;Ljava/lang/String;)Z", nullptr, 0, $virtualMethod(TransformerManager, setNativeMethodPrefix, bool, $ClassFileTransformer*, $String*)},
-	{"transform", "(Ljava/lang/Module;Ljava/lang/ClassLoader;Ljava/lang/String;Ljava/lang/Class;Ljava/security/ProtectionDomain;[B)[B", "(Ljava/lang/Module;Ljava/lang/ClassLoader;Ljava/lang/String;Ljava/lang/Class<*>;Ljava/security/ProtectionDomain;[B)[B", $PUBLIC, $virtualMethod(TransformerManager, transform, $bytes*, $Module*, $ClassLoader*, $String*, $Class*, $ProtectionDomain*, $bytes*)},
-	{}
-};
-
-$InnerClassInfo _TransformerManager_InnerClassesInfo_[] = {
-	{"sun.instrument.TransformerManager$TransformerInfo", "sun.instrument.TransformerManager", "TransformerInfo", $PRIVATE},
-	{}
-};
-
-$ClassInfo _TransformerManager_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.instrument.TransformerManager",
-	"java.lang.Object",
-	nullptr,
-	_TransformerManager_FieldInfo_,
-	_TransformerManager_MethodInfo_,
-	nullptr,
-	nullptr,
-	_TransformerManager_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.instrument.TransformerManager$TransformerInfo"
-};
-
-$Object* allocate$TransformerManager($Class* clazz) {
-	return $of($alloc(TransformerManager));
-}
-
 void TransformerManager::init$(bool isRetransformable) {
 	$set(this, mTransformerList, $new($TransformerManager$TransformerInfoArray, 0));
 	this->mIsRetransformable = isRetransformable;
@@ -76,7 +31,7 @@ bool TransformerManager::isRetransformable() {
 
 void TransformerManager::addTransformer($ClassFileTransformer* transformer) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$var($TransformerManager$TransformerInfoArray, oldList, this->mTransformerList);
 		$var($TransformerManager$TransformerInfoArray, newList, $new($TransformerManager$TransformerInfoArray, $nc(oldList)->length + 1));
 		$System::arraycopy(oldList, 0, newList, 0, oldList->length);
@@ -87,7 +42,7 @@ void TransformerManager::addTransformer($ClassFileTransformer* transformer) {
 
 bool TransformerManager::removeTransformer($ClassFileTransformer* transformer) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		bool found = false;
 		$var($TransformerManager$TransformerInfoArray, oldList, this->mTransformerList);
 		int32_t oldLength = $nc(oldList)->length;
@@ -116,18 +71,12 @@ bool TransformerManager::removeTransformer($ClassFileTransformer* transformer) {
 
 bool TransformerManager::includesTransformer($ClassFileTransformer* transformer) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
-		{
-			$var($TransformerManager$TransformerInfoArray, arr$, this->mTransformerList);
-			int32_t len$ = $nc(arr$)->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
-				$var($TransformerManager$TransformerInfo, info, arr$->get(i$));
-				{
-					if ($nc(info)->transformer() == transformer) {
-						return true;
-					}
-				}
+		$useLocalObjectStack();
+		$var($TransformerManager$TransformerInfoArray, arr$, this->mTransformerList);
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
+			$var($TransformerManager$TransformerInfo, info, arr$->get(i$));
+			if ($nc(info)->transformer() == transformer) {
+				return true;
 			}
 		}
 		return false;
@@ -139,7 +88,7 @@ $TransformerManager$TransformerInfoArray* TransformerManager::getSnapshotTransfo
 }
 
 $bytes* TransformerManager::transform($Module* module, $ClassLoader* loader, $String* classname, $Class* classBeingRedefined, $ProtectionDomain* protectionDomain, $bytes* classfileBuffer) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool someoneTouchedTheBytecode = false;
 	$var($TransformerManager$TransformerInfoArray, transformerList, getSnapshotTransformerList());
 	$var($bytes, bufferToUse, classfileBuffer);
@@ -171,7 +120,7 @@ int32_t TransformerManager::getTransformerCount() {
 }
 
 bool TransformerManager::setNativeMethodPrefix($ClassFileTransformer* transformer, $String* prefix) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($TransformerManager$TransformerInfoArray, transformerList, getSnapshotTransformerList());
 	for (int32_t x = 0; x < $nc(transformerList)->length; ++x) {
 		$var($TransformerManager$TransformerInfo, transformerInfo, transformerList->get(x));
@@ -185,7 +134,7 @@ bool TransformerManager::setNativeMethodPrefix($ClassFileTransformer* transforme
 }
 
 $StringArray* TransformerManager::getNativeMethodPrefixes() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($TransformerManager$TransformerInfoArray, transformerList, getSnapshotTransformerList());
 	$var($StringArray, prefixes, $new($StringArray, $nc(transformerList)->length));
 	for (int32_t x = 0; x < transformerList->length; ++x) {
@@ -199,7 +148,45 @@ TransformerManager::TransformerManager() {
 }
 
 $Class* TransformerManager::load$($String* name, bool initialize) {
-	$loadClass(TransformerManager, name, initialize, &_TransformerManager_ClassInfo_, allocate$TransformerManager);
+	$FieldInfo fieldInfos$$[] = {
+		{"mTransformerList", "[Lsun/instrument/TransformerManager$TransformerInfo;", nullptr, $PRIVATE, $field(TransformerManager, mTransformerList)},
+		{"mIsRetransformable", "Z", nullptr, $PRIVATE, $field(TransformerManager, mIsRetransformable)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Z)V", nullptr, 0, $method(TransformerManager, init$, void, bool)},
+		{"addTransformer", "(Ljava/lang/instrument/ClassFileTransformer;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(TransformerManager, addTransformer, void, $ClassFileTransformer*)},
+		{"getNativeMethodPrefixes", "()[Ljava/lang/String;", nullptr, 0, $virtualMethod(TransformerManager, getNativeMethodPrefixes, $StringArray*)},
+		{"getSnapshotTransformerList", "()[Lsun/instrument/TransformerManager$TransformerInfo;", nullptr, $PRIVATE, $method(TransformerManager, getSnapshotTransformerList, $TransformerManager$TransformerInfoArray*)},
+		{"getTransformerCount", "()I", nullptr, 0, $virtualMethod(TransformerManager, getTransformerCount, int32_t)},
+		{"includesTransformer", "(Ljava/lang/instrument/ClassFileTransformer;)Z", nullptr, $SYNCHRONIZED, $virtualMethod(TransformerManager, includesTransformer, bool, $ClassFileTransformer*)},
+		{"isRetransformable", "()Z", nullptr, 0, $virtualMethod(TransformerManager, isRetransformable, bool)},
+		{"removeTransformer", "(Ljava/lang/instrument/ClassFileTransformer;)Z", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(TransformerManager, removeTransformer, bool, $ClassFileTransformer*)},
+		{"setNativeMethodPrefix", "(Ljava/lang/instrument/ClassFileTransformer;Ljava/lang/String;)Z", nullptr, 0, $virtualMethod(TransformerManager, setNativeMethodPrefix, bool, $ClassFileTransformer*, $String*)},
+		{"transform", "(Ljava/lang/Module;Ljava/lang/ClassLoader;Ljava/lang/String;Ljava/lang/Class;Ljava/security/ProtectionDomain;[B)[B", "(Ljava/lang/Module;Ljava/lang/ClassLoader;Ljava/lang/String;Ljava/lang/Class<*>;Ljava/security/ProtectionDomain;[B)[B", $PUBLIC, $virtualMethod(TransformerManager, transform, $bytes*, $Module*, $ClassLoader*, $String*, $Class*, $ProtectionDomain*, $bytes*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.instrument.TransformerManager$TransformerInfo", "sun.instrument.TransformerManager", "TransformerInfo", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.instrument.TransformerManager",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.instrument.TransformerManager$TransformerInfo"
+	};
+	$loadClass(TransformerManager, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TransformerManager);
+	});
 	return class$;
 }
 

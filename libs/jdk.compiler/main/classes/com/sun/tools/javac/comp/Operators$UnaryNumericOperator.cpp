@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/Operators$UnaryNumericOperator.h>
-
 #include <com/sun/tools/javac/code/Symbol$OperatorSymbol.h>
 #include <com/sun/tools/javac/code/Type.h>
 #include <com/sun/tools/javac/comp/Operators$UnaryOperatorHelper.h>
@@ -41,74 +40,30 @@ public:
 	virtual bool test(Object$* inst$) override {
 		 return $sure($Type, inst$)->isNumeric();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Operators$UnaryNumericOperator$$Lambda$isNumeric>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo Operators$UnaryNumericOperator$$Lambda$isNumeric::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Operators$UnaryNumericOperator$$Lambda$isNumeric, init$, void)},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Operators$UnaryNumericOperator$$Lambda$isNumeric, test, bool, Object$*)},
-	{}
-};
-$ClassInfo Operators$UnaryNumericOperator$$Lambda$isNumeric::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.comp.Operators$UnaryNumericOperator$$Lambda$isNumeric",
-	"java.lang.Object",
-	"java.util.function.Predicate",
-	nullptr,
-	methodInfos
 };
 $Class* Operators$UnaryNumericOperator$$Lambda$isNumeric::load$($String* name, bool initialize) {
-	$loadClass(Operators$UnaryNumericOperator$$Lambda$isNumeric, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Operators$UnaryNumericOperator$$Lambda$isNumeric, init$, void)},
+		{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Operators$UnaryNumericOperator$$Lambda$isNumeric, test, bool, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.comp.Operators$UnaryNumericOperator$$Lambda$isNumeric",
+		"java.lang.Object",
+		"java.util.function.Predicate",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Operators$UnaryNumericOperator$$Lambda$isNumeric, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Operators$UnaryNumericOperator$$Lambda$isNumeric);
+	});
 	return class$;
 }
 $Class* Operators$UnaryNumericOperator$$Lambda$isNumeric::class$ = nullptr;
 
-$FieldInfo _Operators$UnaryNumericOperator_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/comp/Operators;", nullptr, $FINAL | $SYNTHETIC, $field(Operators$UnaryNumericOperator, this$0)},
-	{"numericTest", "Ljava/util/function/Predicate;", "Ljava/util/function/Predicate<Lcom/sun/tools/javac/code/Type;>;", 0, $field(Operators$UnaryNumericOperator, numericTest)},
-	{}
-};
-
-$MethodInfo _Operators$UnaryNumericOperator_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Operators;Lcom/sun/tools/javac/tree/JCTree$Tag;)V", nullptr, 0, $method(Operators$UnaryNumericOperator, init$, void, $Operators*, $JCTree$Tag*)},
-	{"<init>", "(Lcom/sun/tools/javac/comp/Operators;Lcom/sun/tools/javac/tree/JCTree$Tag;Ljava/util/function/Predicate;)V", "(Lcom/sun/tools/javac/tree/JCTree$Tag;Ljava/util/function/Predicate<Lcom/sun/tools/javac/code/Type;>;)V", 0, $method(Operators$UnaryNumericOperator, init$, void, $Operators*, $JCTree$Tag*, $Predicate*)},
-	{"resolve", "(Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Symbol$OperatorSymbol;", nullptr, $PUBLIC, $virtualMethod(Operators$UnaryNumericOperator, resolve, $Symbol$OperatorSymbol*, $Type*)},
-	{"test", "(Lcom/sun/tools/javac/code/Type;)Z", nullptr, $PUBLIC, $virtualMethod(Operators$UnaryNumericOperator, test, bool, $Type*)},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Operators$UnaryNumericOperator, test, bool, Object$*)},
-	{}
-};
-
-$InnerClassInfo _Operators$UnaryNumericOperator_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.Operators$UnaryNumericOperator", "com.sun.tools.javac.comp.Operators", "UnaryNumericOperator", 0},
-	{"com.sun.tools.javac.comp.Operators$UnaryOperatorHelper", "com.sun.tools.javac.comp.Operators", "UnaryOperatorHelper", $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Operators$UnaryNumericOperator_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.comp.Operators$UnaryNumericOperator",
-	"com.sun.tools.javac.comp.Operators$UnaryOperatorHelper",
-	nullptr,
-	_Operators$UnaryNumericOperator_FieldInfo_,
-	_Operators$UnaryNumericOperator_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Operators$UnaryNumericOperator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.Operators"
-};
-
-$Object* allocate$Operators$UnaryNumericOperator($Class* clazz) {
-	return $of($alloc(Operators$UnaryNumericOperator));
-}
-
 void Operators$UnaryNumericOperator::init$($Operators* this$0, $JCTree$Tag* tag) {
-	Operators$UnaryNumericOperator::init$(this$0, tag, static_cast<$Predicate*>($$new(Operators$UnaryNumericOperator$$Lambda$isNumeric)));
+	Operators$UnaryNumericOperator::init$(this$0, tag, $$new(Operators$UnaryNumericOperator$$Lambda$isNumeric));
 }
 
 void Operators$UnaryNumericOperator::init$($Operators* this$0, $JCTree$Tag* tag, $Predicate* numericTest) {
@@ -134,11 +89,46 @@ Operators$UnaryNumericOperator::Operators$UnaryNumericOperator() {
 
 $Class* Operators$UnaryNumericOperator::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(Operators$UnaryNumericOperator$$Lambda$isNumeric::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.comp.Operators$UnaryNumericOperator$$Lambda$isNumeric")) {
 			return Operators$UnaryNumericOperator$$Lambda$isNumeric::load$(name, initialize);
 		}
 	}
-	$loadClass(Operators$UnaryNumericOperator, name, initialize, &_Operators$UnaryNumericOperator_ClassInfo_, allocate$Operators$UnaryNumericOperator);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/comp/Operators;", nullptr, $FINAL | $SYNTHETIC, $field(Operators$UnaryNumericOperator, this$0)},
+		{"numericTest", "Ljava/util/function/Predicate;", "Ljava/util/function/Predicate<Lcom/sun/tools/javac/code/Type;>;", 0, $field(Operators$UnaryNumericOperator, numericTest)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/comp/Operators;Lcom/sun/tools/javac/tree/JCTree$Tag;)V", nullptr, 0, $method(Operators$UnaryNumericOperator, init$, void, $Operators*, $JCTree$Tag*)},
+		{"<init>", "(Lcom/sun/tools/javac/comp/Operators;Lcom/sun/tools/javac/tree/JCTree$Tag;Ljava/util/function/Predicate;)V", "(Lcom/sun/tools/javac/tree/JCTree$Tag;Ljava/util/function/Predicate<Lcom/sun/tools/javac/code/Type;>;)V", 0, $method(Operators$UnaryNumericOperator, init$, void, $Operators*, $JCTree$Tag*, $Predicate*)},
+		{"resolve", "(Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Symbol$OperatorSymbol;", nullptr, $PUBLIC, $virtualMethod(Operators$UnaryNumericOperator, resolve, $Symbol$OperatorSymbol*, $Type*)},
+		{"test", "(Lcom/sun/tools/javac/code/Type;)Z", nullptr, $PUBLIC, $virtualMethod(Operators$UnaryNumericOperator, test, bool, $Type*)},
+		{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Operators$UnaryNumericOperator, test, bool, Object$*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.Operators$UnaryNumericOperator", "com.sun.tools.javac.comp.Operators", "UnaryNumericOperator", 0},
+		{"com.sun.tools.javac.comp.Operators$UnaryOperatorHelper", "com.sun.tools.javac.comp.Operators", "UnaryOperatorHelper", $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.comp.Operators$UnaryNumericOperator",
+		"com.sun.tools.javac.comp.Operators$UnaryOperatorHelper",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.Operators"
+	};
+	$loadClass(Operators$UnaryNumericOperator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Operators$UnaryNumericOperator));
+	});
 	return class$;
 }
 

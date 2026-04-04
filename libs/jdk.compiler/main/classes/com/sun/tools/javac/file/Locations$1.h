@@ -15,6 +15,7 @@ class Locations$1 : public ::java::lang::Object {
 	$class(Locations$1, 0, ::java::lang::Object)
 public:
 	Locations$1();
+	static void clinit$(::java::lang::Class* clazz);
 	static $ints* $SwitchMap$com$sun$tools$javac$main$Option;
 };
 

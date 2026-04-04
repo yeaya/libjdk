@@ -17,8 +17,9 @@ class $export DocFlavor$STRING : public ::javax::print::DocFlavor {
 	$class(DocFlavor$STRING, 0, ::javax::print::DocFlavor)
 public:
 	DocFlavor$STRING();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* mimeType);
-	static const int64_t serialVersionUID = (int64_t)0x3D43203CB69C30B3;
+	static const int64_t serialVersionUID = (int64_t)0x3d43203cb69c30b3;
 	static ::javax::print::DocFlavor$STRING* TEXT_PLAIN;
 	static ::javax::print::DocFlavor$STRING* TEXT_HTML;
 };

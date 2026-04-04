@@ -62,6 +62,7 @@ class AquaTextFieldSearch : public ::java::lang::Object {
 	$class(AquaTextFieldSearch, 0, ::java::lang::Object)
 public:
 	AquaTextFieldSearch();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::javax::swing::JButton* createButton(::javax::swing::text::JTextComponent* c, ::com::apple::laf::AquaIcon$DynamicallySizingJRSUIIcon* icon);
 	static ::javax::swing::JButton* getCancelButton(::javax::swing::text::JTextComponent* c);

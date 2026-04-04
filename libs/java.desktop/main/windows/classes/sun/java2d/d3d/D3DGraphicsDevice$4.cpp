@@ -1,5 +1,4 @@
 #include <sun/java2d/d3d/D3DGraphicsDevice$4.h>
-
 #include <java/awt/DisplayMode.h>
 #include <sun/java2d/d3d/D3DGraphicsDevice$2Result.h>
 #include <sun/java2d/d3d/D3DGraphicsDevice.h>
@@ -17,50 +16,6 @@ namespace sun {
 	namespace java2d {
 		namespace d3d {
 
-$FieldInfo _D3DGraphicsDevice$4_FieldInfo_[] = {
-	{"this$0", "Lsun/java2d/d3d/D3DGraphicsDevice;", nullptr, $FINAL | $SYNTHETIC, $field(D3DGraphicsDevice$4, this$0)},
-	{"val$screen", "I", nullptr, $FINAL | $SYNTHETIC, $field(D3DGraphicsDevice$4, val$screen)},
-	{"val$res", "Lsun/java2d/d3d/D3DGraphicsDevice$2Result;", nullptr, $FINAL | $SYNTHETIC, $field(D3DGraphicsDevice$4, val$res)},
-	{}
-};
-
-$MethodInfo _D3DGraphicsDevice$4_MethodInfo_[] = {
-	{"<init>", "(Lsun/java2d/d3d/D3DGraphicsDevice;Lsun/java2d/d3d/D3DGraphicsDevice$2Result;I)V", "()V", 0, $method(D3DGraphicsDevice$4, init$, void, $D3DGraphicsDevice*, $D3DGraphicsDevice$2Result*, int32_t)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(D3DGraphicsDevice$4, run, void)},
-	{}
-};
-
-$EnclosingMethodInfo _D3DGraphicsDevice$4_EnclosingMethodInfo_ = {
-	"sun.java2d.d3d.D3DGraphicsDevice",
-	"getCurrentDisplayMode",
-	"(I)Ljava/awt/DisplayMode;"
-};
-
-$InnerClassInfo _D3DGraphicsDevice$4_InnerClassesInfo_[] = {
-	{"sun.java2d.d3d.D3DGraphicsDevice$4", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _D3DGraphicsDevice$4_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.java2d.d3d.D3DGraphicsDevice$4",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	_D3DGraphicsDevice$4_FieldInfo_,
-	_D3DGraphicsDevice$4_MethodInfo_,
-	nullptr,
-	&_D3DGraphicsDevice$4_EnclosingMethodInfo_,
-	_D3DGraphicsDevice$4_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.java2d.d3d.D3DGraphicsDevice"
-};
-
-$Object* allocate$D3DGraphicsDevice$4($Class* clazz) {
-	return $of($alloc(D3DGraphicsDevice$4));
-}
-
 void D3DGraphicsDevice$4::init$($D3DGraphicsDevice* this$0, $D3DGraphicsDevice$2Result* val$res, int32_t val$screen) {
 	$set(this, this$0, this$0);
 	$set(this, val$res, val$res);
@@ -75,7 +30,44 @@ D3DGraphicsDevice$4::D3DGraphicsDevice$4() {
 }
 
 $Class* D3DGraphicsDevice$4::load$($String* name, bool initialize) {
-	$loadClass(D3DGraphicsDevice$4, name, initialize, &_D3DGraphicsDevice$4_ClassInfo_, allocate$D3DGraphicsDevice$4);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/java2d/d3d/D3DGraphicsDevice;", nullptr, $FINAL | $SYNTHETIC, $field(D3DGraphicsDevice$4, this$0)},
+		{"val$screen", "I", nullptr, $FINAL | $SYNTHETIC, $field(D3DGraphicsDevice$4, val$screen)},
+		{"val$res", "Lsun/java2d/d3d/D3DGraphicsDevice$2Result;", nullptr, $FINAL | $SYNTHETIC, $field(D3DGraphicsDevice$4, val$res)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/java2d/d3d/D3DGraphicsDevice;Lsun/java2d/d3d/D3DGraphicsDevice$2Result;I)V", "()V", 0, $method(D3DGraphicsDevice$4, init$, void, $D3DGraphicsDevice*, $D3DGraphicsDevice$2Result*, int32_t)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(D3DGraphicsDevice$4, run, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.java2d.d3d.D3DGraphicsDevice",
+		"getCurrentDisplayMode",
+		"(I)Ljava/awt/DisplayMode;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.java2d.d3d.D3DGraphicsDevice$4", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.java2d.d3d.D3DGraphicsDevice$4",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.java2d.d3d.D3DGraphicsDevice"
+	};
+	$loadClass(D3DGraphicsDevice$4, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(D3DGraphicsDevice$4);
+	});
 	return class$;
 }
 

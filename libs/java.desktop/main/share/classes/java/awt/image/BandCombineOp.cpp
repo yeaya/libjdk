@@ -1,12 +1,10 @@
 #include <java/awt/image/BandCombineOp.h>
-
 #include <java/awt/Rectangle.h>
 #include <java/awt/RenderingHints.h>
 #include <java/awt/geom/Point2D$Float.h>
 #include <java/awt/geom/Point2D.h>
 #include <java/awt/geom/Rectangle2D.h>
 #include <java/awt/image/Raster.h>
-#include <java/awt/image/RasterOp.h>
 #include <java/awt/image/WritableRaster.h>
 #include <java/lang/IndexOutOfBoundsException.h>
 #include <java/util/Arrays.h>
@@ -19,7 +17,6 @@ using $Point2D = ::java::awt::geom::Point2D;
 using $Point2D$Float = ::java::awt::geom::Point2D$Float;
 using $Rectangle2D = ::java::awt::geom::Rectangle2D;
 using $Raster = ::java::awt::image::Raster;
-using $RasterOp = ::java::awt::image::RasterOp;
 using $WritableRaster = ::java::awt::image::WritableRaster;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -34,40 +31,8 @@ namespace java {
 	namespace awt {
 		namespace image {
 
-$FieldInfo _BandCombineOp_FieldInfo_[] = {
-	{"matrix", "[[F", nullptr, 0, $field(BandCombineOp, matrix)},
-	{"nrows", "I", nullptr, 0, $field(BandCombineOp, nrows)},
-	{"ncols", "I", nullptr, 0, $field(BandCombineOp, ncols)},
-	{"hints", "Ljava/awt/RenderingHints;", nullptr, 0, $field(BandCombineOp, hints)},
-	{}
-};
-
-$MethodInfo _BandCombineOp_MethodInfo_[] = {
-	{"<init>", "([[FLjava/awt/RenderingHints;)V", nullptr, $PUBLIC, $method(BandCombineOp, init$, void, $floatArray2*, $RenderingHints*)},
-	{"createCompatibleDestRaster", "(Ljava/awt/image/Raster;)Ljava/awt/image/WritableRaster;", nullptr, $PUBLIC, $virtualMethod(BandCombineOp, createCompatibleDestRaster, $WritableRaster*, $Raster*)},
-	{"filter", "(Ljava/awt/image/Raster;Ljava/awt/image/WritableRaster;)Ljava/awt/image/WritableRaster;", nullptr, $PUBLIC, $virtualMethod(BandCombineOp, filter, $WritableRaster*, $Raster*, $WritableRaster*)},
-	{"getBounds2D", "(Ljava/awt/image/Raster;)Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC | $FINAL, $virtualMethod(BandCombineOp, getBounds2D, $Rectangle2D*, $Raster*)},
-	{"getMatrix", "()[[F", nullptr, $PUBLIC | $FINAL, $method(BandCombineOp, getMatrix, $floatArray2*)},
-	{"getPoint2D", "(Ljava/awt/geom/Point2D;Ljava/awt/geom/Point2D;)Ljava/awt/geom/Point2D;", nullptr, $PUBLIC | $FINAL, $virtualMethod(BandCombineOp, getPoint2D, $Point2D*, $Point2D*, $Point2D*)},
-	{"getRenderingHints", "()Ljava/awt/RenderingHints;", nullptr, $PUBLIC | $FINAL, $virtualMethod(BandCombineOp, getRenderingHints, $RenderingHints*)},
-	{}
-};
-
-$ClassInfo _BandCombineOp_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.awt.image.BandCombineOp",
-	"java.lang.Object",
-	"java.awt.image.RasterOp",
-	_BandCombineOp_FieldInfo_,
-	_BandCombineOp_MethodInfo_
-};
-
-$Object* allocate$BandCombineOp($Class* clazz) {
-	return $of($alloc(BandCombineOp));
-}
-
 void BandCombineOp::init$($floatArray2* matrix, $RenderingHints* hints) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->nrows = 0;
 	this->ncols = 0;
 	this->nrows = $nc(matrix)->length;
@@ -77,13 +42,13 @@ void BandCombineOp::init$($floatArray2* matrix, $RenderingHints* hints) {
 		if (this->ncols > $nc(matrix->get(i))->length) {
 			$throwNew($IndexOutOfBoundsException, $$str({"row "_s, $$str(i), " too short"_s}));
 		}
-		$nc(this->matrix)->set(i, $($Arrays::copyOf(matrix->get(i), this->ncols)));
+		this->matrix->set(i, $($Arrays::copyOf(matrix->get(i), this->ncols)));
 	}
 	$set(this, hints, hints);
 }
 
 $floatArray2* BandCombineOp::getMatrix() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($floatArray2, ret, $new($floatArray2, this->nrows));
 	for (int32_t i = 0; i < this->nrows; ++i) {
 		ret->set(i, $($Arrays::copyOf($nc(this->matrix)->get(i), this->ncols)));
@@ -92,7 +57,7 @@ $floatArray2* BandCombineOp::getMatrix() {
 }
 
 $WritableRaster* BandCombineOp::filter($Raster* src, $WritableRaster* dst$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($WritableRaster, dst, dst$renamed);
 	int32_t nBands = $nc(src)->getNumBands();
 	if (this->ncols != nBands && this->ncols != (nBands + 1)) {
@@ -100,10 +65,10 @@ $WritableRaster* BandCombineOp::filter($Raster* src, $WritableRaster* dst$rename
 	}
 	if (dst == nullptr) {
 		$assign(dst, createCompatibleDestRaster(src));
-	} else if (this->nrows != $nc(dst)->getNumBands()) {
+	} else if (this->nrows != dst->getNumBands()) {
 		$throwNew($IllegalArgumentException, $$str({"Number of rows in the matrix ("_s, $$str(this->nrows), ") must be equal to the number of bands ([+1]) in dst ("_s, $$str(nBands), ")."_s}));
 	}
-	if ($ImagingLib::filter(static_cast<$RasterOp*>(this), src, dst) != nullptr) {
+	if ($ImagingLib::filter(this, src, dst) != nullptr) {
 		return dst;
 	}
 	$var($ints, pixel, nullptr);
@@ -156,7 +121,7 @@ $Rectangle2D* BandCombineOp::getBounds2D($Raster* src) {
 }
 
 $WritableRaster* BandCombineOp::createCompatibleDestRaster($Raster* src) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t nBands = $nc(src)->getNumBands();
 	if ((this->ncols != nBands) && (this->ncols != (nBands + 1))) {
 		$throwNew($IllegalArgumentException, $$str({"Number of columns in the matrix ("_s, $$str(this->ncols), ") must be equal to the number of bands ([+1]) in src ("_s, $$str(nBands), ")."_s}));
@@ -186,7 +151,34 @@ BandCombineOp::BandCombineOp() {
 }
 
 $Class* BandCombineOp::load$($String* name, bool initialize) {
-	$loadClass(BandCombineOp, name, initialize, &_BandCombineOp_ClassInfo_, allocate$BandCombineOp);
+	$FieldInfo fieldInfos$$[] = {
+		{"matrix", "[[F", nullptr, 0, $field(BandCombineOp, matrix)},
+		{"nrows", "I", nullptr, 0, $field(BandCombineOp, nrows)},
+		{"ncols", "I", nullptr, 0, $field(BandCombineOp, ncols)},
+		{"hints", "Ljava/awt/RenderingHints;", nullptr, 0, $field(BandCombineOp, hints)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "([[FLjava/awt/RenderingHints;)V", nullptr, $PUBLIC, $method(BandCombineOp, init$, void, $floatArray2*, $RenderingHints*)},
+		{"createCompatibleDestRaster", "(Ljava/awt/image/Raster;)Ljava/awt/image/WritableRaster;", nullptr, $PUBLIC, $virtualMethod(BandCombineOp, createCompatibleDestRaster, $WritableRaster*, $Raster*)},
+		{"filter", "(Ljava/awt/image/Raster;Ljava/awt/image/WritableRaster;)Ljava/awt/image/WritableRaster;", nullptr, $PUBLIC, $virtualMethod(BandCombineOp, filter, $WritableRaster*, $Raster*, $WritableRaster*)},
+		{"getBounds2D", "(Ljava/awt/image/Raster;)Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC | $FINAL, $virtualMethod(BandCombineOp, getBounds2D, $Rectangle2D*, $Raster*)},
+		{"getMatrix", "()[[F", nullptr, $PUBLIC | $FINAL, $method(BandCombineOp, getMatrix, $floatArray2*)},
+		{"getPoint2D", "(Ljava/awt/geom/Point2D;Ljava/awt/geom/Point2D;)Ljava/awt/geom/Point2D;", nullptr, $PUBLIC | $FINAL, $virtualMethod(BandCombineOp, getPoint2D, $Point2D*, $Point2D*, $Point2D*)},
+		{"getRenderingHints", "()Ljava/awt/RenderingHints;", nullptr, $PUBLIC | $FINAL, $virtualMethod(BandCombineOp, getRenderingHints, $RenderingHints*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.awt.image.BandCombineOp",
+		"java.lang.Object",
+		"java.awt.image.RasterOp",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(BandCombineOp, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BandCombineOp);
+	});
 	return class$;
 }
 

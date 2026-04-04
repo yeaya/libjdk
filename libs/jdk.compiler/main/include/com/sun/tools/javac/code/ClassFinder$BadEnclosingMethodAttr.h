@@ -49,7 +49,10 @@ public:
 	static const int64_t serialVersionUID = 0;
 	ClassFinder$BadEnclosingMethodAttr(const ClassFinder$BadEnclosingMethodAttr& e);
 	virtual void throw$() override;
-	inline ClassFinder$BadEnclosingMethodAttr* operator ->() {
+	inline ClassFinder$BadEnclosingMethodAttr* operator ->() const {
+		return (ClassFinder$BadEnclosingMethodAttr*)throwing$;
+	}
+	inline operator ClassFinder$BadEnclosingMethodAttr*() const {
 		return (ClassFinder$BadEnclosingMethodAttr*)throwing$;
 	}
 };

@@ -1,5 +1,4 @@
 #include <java/lang/instrument/UnmodifiableClassException.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -10,30 +9,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace java {
 	namespace lang {
 		namespace instrument {
-
-$FieldInfo _UnmodifiableClassException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(UnmodifiableClassException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _UnmodifiableClassException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(UnmodifiableClassException, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(UnmodifiableClassException, init$, void, $String*)},
-	{}
-};
-
-$ClassInfo _UnmodifiableClassException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.lang.instrument.UnmodifiableClassException",
-	"java.lang.Exception",
-	nullptr,
-	_UnmodifiableClassException_FieldInfo_,
-	_UnmodifiableClassException_MethodInfo_
-};
-
-$Object* allocate$UnmodifiableClassException($Class* clazz) {
-	return $of($alloc(UnmodifiableClassException));
-}
 
 void UnmodifiableClassException::init$() {
 	$Exception::init$();
@@ -54,7 +29,26 @@ void UnmodifiableClassException::throw$() {
 }
 
 $Class* UnmodifiableClassException::load$($String* name, bool initialize) {
-	$loadClass(UnmodifiableClassException, name, initialize, &_UnmodifiableClassException_ClassInfo_, allocate$UnmodifiableClassException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(UnmodifiableClassException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(UnmodifiableClassException, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(UnmodifiableClassException, init$, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.lang.instrument.UnmodifiableClassException",
+		"java.lang.Exception",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(UnmodifiableClassException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(UnmodifiableClassException);
+	});
 	return class$;
 }
 

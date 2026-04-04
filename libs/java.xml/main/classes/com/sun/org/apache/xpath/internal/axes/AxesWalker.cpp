@@ -1,11 +1,9 @@
 #include <com/sun/org/apache/xpath/internal/axes/AxesWalker.h>
-
 #include <com/sun/org/apache/xalan/internal/res/XSLMessages.h>
 #include <com/sun/org/apache/xml/internal/dtm/DTM.h>
 #include <com/sun/org/apache/xml/internal/dtm/DTMAxisTraverser.h>
 #include <com/sun/org/apache/xml/internal/dtm/DTMIterator.h>
 #include <com/sun/org/apache/xpath/internal/Expression.h>
-#include <com/sun/org/apache/xpath/internal/ExpressionNode.h>
 #include <com/sun/org/apache/xpath/internal/ExpressionOwner.h>
 #include <com/sun/org/apache/xpath/internal/XPathContext.h>
 #include <com/sun/org/apache/xpath/internal/XPathVisitor.h>
@@ -26,10 +24,8 @@
 
 using $XSLMessages = ::com::sun::org::apache::xalan::internal::res::XSLMessages;
 using $DTM = ::com::sun::org::apache::xml::internal::dtm::DTM;
-using $DTMAxisTraverser = ::com::sun::org::apache::xml::internal::dtm::DTMAxisTraverser;
 using $DTMIterator = ::com::sun::org::apache::xml::internal::dtm::DTMIterator;
 using $Expression = ::com::sun::org::apache::xpath::internal::Expression;
-using $ExpressionNode = ::com::sun::org::apache::xpath::internal::ExpressionNode;
 using $ExpressionOwner = ::com::sun::org::apache::xpath::internal::ExpressionOwner;
 using $XPathContext = ::com::sun::org::apache::xpath::internal::XPathContext;
 using $XPathVisitor = ::com::sun::org::apache::xpath::internal::XPathVisitor;
@@ -38,7 +34,6 @@ using $PredicatedNodeTest = ::com::sun::org::apache::xpath::internal::axes::Pred
 using $WalkerFactory = ::com::sun::org::apache::xpath::internal::axes::WalkerFactory;
 using $WalkingIterator = ::com::sun::org::apache::xpath::internal::axes::WalkingIterator;
 using $Compiler = ::com::sun::org::apache::xpath::internal::compiler::Compiler;
-using $NodeTest = ::com::sun::org::apache::xpath::internal::patterns::NodeTest;
 using $XPATHErrorResources = ::com::sun::org::apache::xpath::internal::res::XPATHErrorResources;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CloneNotSupportedException = ::java::lang::CloneNotSupportedException;
@@ -54,67 +49,6 @@ namespace com {
 				namespace xpath {
 					namespace internal {
 						namespace axes {
-
-$FieldInfo _AxesWalker_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(AxesWalker, serialVersionUID)},
-	{"m_dtm", "Lcom/sun/org/apache/xml/internal/dtm/DTM;", nullptr, $PRIVATE, $field(AxesWalker, m_dtm)},
-	{"m_root", "I", nullptr, $TRANSIENT, $field(AxesWalker, m_root)},
-	{"m_currentNode", "I", nullptr, $PRIVATE | $TRANSIENT, $field(AxesWalker, m_currentNode)},
-	{"m_isFresh", "Z", nullptr, $TRANSIENT, $field(AxesWalker, m_isFresh)},
-	{"m_nextWalker", "Lcom/sun/org/apache/xpath/internal/axes/AxesWalker;", nullptr, $PROTECTED, $field(AxesWalker, m_nextWalker)},
-	{"m_prevWalker", "Lcom/sun/org/apache/xpath/internal/axes/AxesWalker;", nullptr, 0, $field(AxesWalker, m_prevWalker)},
-	{"m_axis", "I", nullptr, $PROTECTED, $field(AxesWalker, m_axis)},
-	{"m_traverser", "Lcom/sun/org/apache/xml/internal/dtm/DTMAxisTraverser;", nullptr, $PROTECTED, $field(AxesWalker, m_traverser)},
-	{}
-};
-
-$MethodInfo _AxesWalker_MethodInfo_[] = {
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lcom/sun/org/apache/xpath/internal/axes/LocPathIterator;I)V", nullptr, $PUBLIC, $method(AxesWalker, init$, void, $LocPathIterator*, int32_t)},
-	{"callVisitors", "(Lcom/sun/org/apache/xpath/internal/ExpressionOwner;Lcom/sun/org/apache/xpath/internal/XPathVisitor;)V", nullptr, $PUBLIC, $virtualMethod(AxesWalker, callVisitors, void, $ExpressionOwner*, $XPathVisitor*)},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AxesWalker, clone, $Object*), "java.lang.CloneNotSupportedException"},
-	{"cloneDeep", "(Lcom/sun/org/apache/xpath/internal/axes/WalkingIterator;Ljava/util/List;)Lcom/sun/org/apache/xpath/internal/axes/AxesWalker;", "(Lcom/sun/org/apache/xpath/internal/axes/WalkingIterator;Ljava/util/List<Lcom/sun/org/apache/xpath/internal/axes/AxesWalker;>;)Lcom/sun/org/apache/xpath/internal/axes/AxesWalker;", 0, $virtualMethod(AxesWalker, cloneDeep, AxesWalker*, $WalkingIterator*, $List*), "java.lang.CloneNotSupportedException"},
-	{"deepEquals", "(Lcom/sun/org/apache/xpath/internal/Expression;)Z", nullptr, $PUBLIC, $virtualMethod(AxesWalker, deepEquals, bool, $Expression*)},
-	{"detach", "()V", nullptr, $PUBLIC, $virtualMethod(AxesWalker, detach, void)},
-	{"findClone", "(Lcom/sun/org/apache/xpath/internal/axes/AxesWalker;Ljava/util/List;)Lcom/sun/org/apache/xpath/internal/axes/AxesWalker;", "(Lcom/sun/org/apache/xpath/internal/axes/AxesWalker;Ljava/util/List<Lcom/sun/org/apache/xpath/internal/axes/AxesWalker;>;)Lcom/sun/org/apache/xpath/internal/axes/AxesWalker;", $STATIC, $staticMethod(AxesWalker, findClone, AxesWalker*, AxesWalker*, $List*)},
-	{"getAnalysisBits", "()I", nullptr, $PUBLIC, $virtualMethod(AxesWalker, getAnalysisBits, int32_t)},
-	{"getAxis", "()I", nullptr, $PUBLIC, $virtualMethod(AxesWalker, getAxis, int32_t)},
-	{"getCurrentNode", "()I", nullptr, $PUBLIC | $FINAL, $method(AxesWalker, getCurrentNode, int32_t)},
-	{"getDTM", "(I)Lcom/sun/org/apache/xml/internal/dtm/DTM;", nullptr, $PUBLIC, $virtualMethod(AxesWalker, getDTM, $DTM*, int32_t)},
-	{"getExpression", "()Lcom/sun/org/apache/xpath/internal/Expression;", nullptr, $PUBLIC, $virtualMethod(AxesWalker, getExpression, $Expression*)},
-	{"getLastPos", "(Lcom/sun/org/apache/xpath/internal/XPathContext;)I", nullptr, $PUBLIC, $virtualMethod(AxesWalker, getLastPos, int32_t, $XPathContext*)},
-	{"getNextNode", "()I", nullptr, $PROTECTED, $virtualMethod(AxesWalker, getNextNode, int32_t)},
-	{"getNextWalker", "()Lcom/sun/org/apache/xpath/internal/axes/AxesWalker;", nullptr, $PUBLIC, $virtualMethod(AxesWalker, getNextWalker, AxesWalker*)},
-	{"getPrevWalker", "()Lcom/sun/org/apache/xpath/internal/axes/AxesWalker;", nullptr, $PUBLIC, $virtualMethod(AxesWalker, getPrevWalker, AxesWalker*)},
-	{"getRoot", "()I", nullptr, $PUBLIC, $virtualMethod(AxesWalker, getRoot, int32_t)},
-	{"init", "(Lcom/sun/org/apache/xpath/internal/compiler/Compiler;II)V", nullptr, $PUBLIC, $virtualMethod(AxesWalker, init, void, $Compiler*, int32_t, int32_t), "javax.xml.transform.TransformerException"},
-	{"isDocOrdered", "()Z", nullptr, $PUBLIC, $virtualMethod(AxesWalker, isDocOrdered, bool)},
-	{"nextNode", "()I", nullptr, $PUBLIC, $virtualMethod(AxesWalker, nextNode, int32_t)},
-	{"returnNextNode", "(I)I", nullptr, $PRIVATE, $method(AxesWalker, returnNextNode, int32_t, int32_t)},
-	{"setDefaultDTM", "(Lcom/sun/org/apache/xml/internal/dtm/DTM;)V", nullptr, $PUBLIC, $virtualMethod(AxesWalker, setDefaultDTM, void, $DTM*)},
-	{"setExpression", "(Lcom/sun/org/apache/xpath/internal/Expression;)V", nullptr, $PUBLIC, $virtualMethod(AxesWalker, setExpression, void, $Expression*)},
-	{"setNextWalker", "(Lcom/sun/org/apache/xpath/internal/axes/AxesWalker;)V", nullptr, $PUBLIC, $virtualMethod(AxesWalker, setNextWalker, void, AxesWalker*)},
-	{"setPrevWalker", "(Lcom/sun/org/apache/xpath/internal/axes/AxesWalker;)V", nullptr, $PUBLIC, $virtualMethod(AxesWalker, setPrevWalker, void, AxesWalker*)},
-	{"setRoot", "(I)V", nullptr, $PUBLIC, $virtualMethod(AxesWalker, setRoot, void, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"wi", "()Lcom/sun/org/apache/xpath/internal/axes/WalkingIterator;", nullptr, $PUBLIC | $FINAL, $method(AxesWalker, wi, $WalkingIterator*)},
-	{}
-};
-
-$ClassInfo _AxesWalker_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xpath.internal.axes.AxesWalker",
-	"com.sun.org.apache.xpath.internal.axes.PredicatedNodeTest",
-	"java.lang.Cloneable,com.sun.org.apache.xpath.internal.axes.PathComponent,com.sun.org.apache.xpath.internal.ExpressionOwner",
-	_AxesWalker_FieldInfo_,
-	_AxesWalker_MethodInfo_
-};
-
-$Object* allocate$AxesWalker($Class* clazz) {
-	return $of($alloc(AxesWalker));
-}
 
 int32_t AxesWalker::hashCode() {
 	 return this->$PredicatedNodeTest::hashCode();
@@ -154,7 +88,7 @@ $Object* AxesWalker::clone() {
 }
 
 AxesWalker* AxesWalker::cloneDeep($WalkingIterator* cloneOwner, $List* cloneList) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(AxesWalker, clone, findClone(this, cloneList));
 	if (nullptr != clone) {
 		return clone;
@@ -169,11 +103,11 @@ AxesWalker* AxesWalker::cloneDeep($WalkingIterator* cloneOwner, $List* cloneList
 		$set($nc(cloneOwner), m_lastUsedWalker, clone);
 	}
 	if (nullptr != this->m_nextWalker) {
-		$set(clone, m_nextWalker, $nc(this->m_nextWalker)->cloneDeep(cloneOwner, cloneList));
+		$set(clone, m_nextWalker, this->m_nextWalker->cloneDeep(cloneOwner, cloneList));
 	}
 	if (nullptr != cloneList) {
 		if (nullptr != this->m_prevWalker) {
-			$set(clone, m_prevWalker, $nc(this->m_prevWalker)->cloneDeep(cloneOwner, cloneList));
+			$set(clone, m_prevWalker, this->m_prevWalker->cloneDeep(cloneOwner, cloneList));
 		}
 	} else if (nullptr != this->m_nextWalker) {
 		$set($nc(clone->m_nextWalker), m_prevWalker, clone);
@@ -213,8 +147,8 @@ int32_t AxesWalker::getAnalysisBits() {
 }
 
 void AxesWalker::setRoot(int32_t root) {
-	$useLocalCurrentObjectStackCache();
-	$var($XPathContext, xctxt, $nc($(wi()))->getXPathContext());
+	$useLocalObjectStack();
+	$var($XPathContext, xctxt, $$nc(wi())->getXPathContext());
 	$set(this, m_dtm, $nc(xctxt)->getDTM(root));
 	$set(this, m_traverser, $nc(this->m_dtm)->getAxisTraverser(this->m_axis));
 	this->m_isFresh = true;
@@ -269,9 +203,9 @@ int32_t AxesWalker::getNextNode() {
 }
 
 int32_t AxesWalker::nextNode() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t nextNode = $DTM::NULL;
-	$var(AxesWalker, walker, $nc($(wi()))->getLastUsedWalker());
+	$var(AxesWalker, walker, $$nc(wi())->getLastUsedWalker());
 	while (true) {
 		if (nullptr == walker) {
 			break;
@@ -284,7 +218,7 @@ int32_t AxesWalker::nextNode() {
 				continue;
 			}
 			if (nullptr == walker->m_nextWalker) {
-				$nc($(wi()))->setLastUsedWalker(walker);
+				$$nc(wi())->setLastUsedWalker(walker);
 				break;
 			} else {
 				$var(AxesWalker, prev, walker);
@@ -299,7 +233,7 @@ int32_t AxesWalker::nextNode() {
 }
 
 int32_t AxesWalker::getLastPos($XPathContext* xctxt) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t pos = getProximityPosition();
 	$var(AxesWalker, walker, nullptr);
 	try {
@@ -312,22 +246,20 @@ int32_t AxesWalker::getLastPos($XPathContext* xctxt) {
 	walker->setPrevWalker(nullptr);
 	$var($WalkingIterator, lpi, wi());
 	$var(AxesWalker, savedWalker, $nc(lpi)->getLastUsedWalker());
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			lpi->setLastUsedWalker(walker);
-			int32_t next = 0;
-			while ($DTM::NULL != (next = walker->nextNode())) {
-				++pos;
-			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			lpi->setLastUsedWalker(savedWalker);
+	$var($Throwable, var$0, nullptr);
+	try {
+		lpi->setLastUsedWalker(walker);
+		int32_t next = 0;
+		while ($DTM::NULL != (next = walker->nextNode())) {
+			++pos;
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		lpi->setLastUsedWalker(savedWalker);
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 	return pos;
 }
@@ -337,8 +269,8 @@ void AxesWalker::setDefaultDTM($DTM* dtm) {
 }
 
 $DTM* AxesWalker::getDTM(int32_t node) {
-	$useLocalCurrentObjectStackCache();
-	return $nc($($nc($(wi()))->getXPathContext()))->getDTM(node);
+	$useLocalObjectStack();
+	return $$nc($$nc(wi())->getXPathContext())->getDTM(node);
 }
 
 bool AxesWalker::isDocOrdered() {
@@ -353,7 +285,7 @@ void AxesWalker::callVisitors($ExpressionOwner* owner, $XPathVisitor* visitor) {
 	if ($nc(visitor)->visitStep(owner, this)) {
 		callPredicateVisitors(visitor);
 		if (nullptr != this->m_nextWalker) {
-			$nc(this->m_nextWalker)->callVisitors(this, visitor);
+			this->m_nextWalker->callVisitors(this, visitor);
 		}
 	}
 }
@@ -382,7 +314,63 @@ AxesWalker::AxesWalker() {
 }
 
 $Class* AxesWalker::load$($String* name, bool initialize) {
-	$loadClass(AxesWalker, name, initialize, &_AxesWalker_ClassInfo_, allocate$AxesWalker);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(AxesWalker, serialVersionUID)},
+		{"m_dtm", "Lcom/sun/org/apache/xml/internal/dtm/DTM;", nullptr, $PRIVATE, $field(AxesWalker, m_dtm)},
+		{"m_root", "I", nullptr, $TRANSIENT, $field(AxesWalker, m_root)},
+		{"m_currentNode", "I", nullptr, $PRIVATE | $TRANSIENT, $field(AxesWalker, m_currentNode)},
+		{"m_isFresh", "Z", nullptr, $TRANSIENT, $field(AxesWalker, m_isFresh)},
+		{"m_nextWalker", "Lcom/sun/org/apache/xpath/internal/axes/AxesWalker;", nullptr, $PROTECTED, $field(AxesWalker, m_nextWalker)},
+		{"m_prevWalker", "Lcom/sun/org/apache/xpath/internal/axes/AxesWalker;", nullptr, 0, $field(AxesWalker, m_prevWalker)},
+		{"m_axis", "I", nullptr, $PROTECTED, $field(AxesWalker, m_axis)},
+		{"m_traverser", "Lcom/sun/org/apache/xml/internal/dtm/DTMAxisTraverser;", nullptr, $PROTECTED, $field(AxesWalker, m_traverser)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lcom/sun/org/apache/xpath/internal/axes/LocPathIterator;I)V", nullptr, $PUBLIC, $method(AxesWalker, init$, void, $LocPathIterator*, int32_t)},
+		{"callVisitors", "(Lcom/sun/org/apache/xpath/internal/ExpressionOwner;Lcom/sun/org/apache/xpath/internal/XPathVisitor;)V", nullptr, $PUBLIC, $virtualMethod(AxesWalker, callVisitors, void, $ExpressionOwner*, $XPathVisitor*)},
+		{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AxesWalker, clone, $Object*), "java.lang.CloneNotSupportedException"},
+		{"cloneDeep", "(Lcom/sun/org/apache/xpath/internal/axes/WalkingIterator;Ljava/util/List;)Lcom/sun/org/apache/xpath/internal/axes/AxesWalker;", "(Lcom/sun/org/apache/xpath/internal/axes/WalkingIterator;Ljava/util/List<Lcom/sun/org/apache/xpath/internal/axes/AxesWalker;>;)Lcom/sun/org/apache/xpath/internal/axes/AxesWalker;", 0, $virtualMethod(AxesWalker, cloneDeep, AxesWalker*, $WalkingIterator*, $List*), "java.lang.CloneNotSupportedException"},
+		{"deepEquals", "(Lcom/sun/org/apache/xpath/internal/Expression;)Z", nullptr, $PUBLIC, $virtualMethod(AxesWalker, deepEquals, bool, $Expression*)},
+		{"detach", "()V", nullptr, $PUBLIC, $virtualMethod(AxesWalker, detach, void)},
+		{"findClone", "(Lcom/sun/org/apache/xpath/internal/axes/AxesWalker;Ljava/util/List;)Lcom/sun/org/apache/xpath/internal/axes/AxesWalker;", "(Lcom/sun/org/apache/xpath/internal/axes/AxesWalker;Ljava/util/List<Lcom/sun/org/apache/xpath/internal/axes/AxesWalker;>;)Lcom/sun/org/apache/xpath/internal/axes/AxesWalker;", $STATIC, $staticMethod(AxesWalker, findClone, AxesWalker*, AxesWalker*, $List*)},
+		{"getAnalysisBits", "()I", nullptr, $PUBLIC, $virtualMethod(AxesWalker, getAnalysisBits, int32_t)},
+		{"getAxis", "()I", nullptr, $PUBLIC, $virtualMethod(AxesWalker, getAxis, int32_t)},
+		{"getCurrentNode", "()I", nullptr, $PUBLIC | $FINAL, $method(AxesWalker, getCurrentNode, int32_t)},
+		{"getDTM", "(I)Lcom/sun/org/apache/xml/internal/dtm/DTM;", nullptr, $PUBLIC, $virtualMethod(AxesWalker, getDTM, $DTM*, int32_t)},
+		{"getExpression", "()Lcom/sun/org/apache/xpath/internal/Expression;", nullptr, $PUBLIC, $virtualMethod(AxesWalker, getExpression, $Expression*)},
+		{"getLastPos", "(Lcom/sun/org/apache/xpath/internal/XPathContext;)I", nullptr, $PUBLIC, $virtualMethod(AxesWalker, getLastPos, int32_t, $XPathContext*)},
+		{"getNextNode", "()I", nullptr, $PROTECTED, $virtualMethod(AxesWalker, getNextNode, int32_t)},
+		{"getNextWalker", "()Lcom/sun/org/apache/xpath/internal/axes/AxesWalker;", nullptr, $PUBLIC, $virtualMethod(AxesWalker, getNextWalker, AxesWalker*)},
+		{"getPrevWalker", "()Lcom/sun/org/apache/xpath/internal/axes/AxesWalker;", nullptr, $PUBLIC, $virtualMethod(AxesWalker, getPrevWalker, AxesWalker*)},
+		{"getRoot", "()I", nullptr, $PUBLIC, $virtualMethod(AxesWalker, getRoot, int32_t)},
+		{"init", "(Lcom/sun/org/apache/xpath/internal/compiler/Compiler;II)V", nullptr, $PUBLIC, $virtualMethod(AxesWalker, init, void, $Compiler*, int32_t, int32_t), "javax.xml.transform.TransformerException"},
+		{"isDocOrdered", "()Z", nullptr, $PUBLIC, $virtualMethod(AxesWalker, isDocOrdered, bool)},
+		{"nextNode", "()I", nullptr, $PUBLIC, $virtualMethod(AxesWalker, nextNode, int32_t)},
+		{"returnNextNode", "(I)I", nullptr, $PRIVATE, $method(AxesWalker, returnNextNode, int32_t, int32_t)},
+		{"setDefaultDTM", "(Lcom/sun/org/apache/xml/internal/dtm/DTM;)V", nullptr, $PUBLIC, $virtualMethod(AxesWalker, setDefaultDTM, void, $DTM*)},
+		{"setExpression", "(Lcom/sun/org/apache/xpath/internal/Expression;)V", nullptr, $PUBLIC, $virtualMethod(AxesWalker, setExpression, void, $Expression*)},
+		{"setNextWalker", "(Lcom/sun/org/apache/xpath/internal/axes/AxesWalker;)V", nullptr, $PUBLIC, $virtualMethod(AxesWalker, setNextWalker, void, AxesWalker*)},
+		{"setPrevWalker", "(Lcom/sun/org/apache/xpath/internal/axes/AxesWalker;)V", nullptr, $PUBLIC, $virtualMethod(AxesWalker, setPrevWalker, void, AxesWalker*)},
+		{"setRoot", "(I)V", nullptr, $PUBLIC, $virtualMethod(AxesWalker, setRoot, void, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"wi", "()Lcom/sun/org/apache/xpath/internal/axes/WalkingIterator;", nullptr, $PUBLIC | $FINAL, $method(AxesWalker, wi, $WalkingIterator*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xpath.internal.axes.AxesWalker",
+		"com.sun.org.apache.xpath.internal.axes.PredicatedNodeTest",
+		"java.lang.Cloneable,com.sun.org.apache.xpath.internal.axes.PathComponent,com.sun.org.apache.xpath.internal.ExpressionOwner",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(AxesWalker, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AxesWalker));
+	});
 	return class$;
 }
 

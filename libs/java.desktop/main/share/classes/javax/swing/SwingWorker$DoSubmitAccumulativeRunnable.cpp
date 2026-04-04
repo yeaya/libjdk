@@ -1,7 +1,5 @@
 #include <javax/swing/SwingWorker$DoSubmitAccumulativeRunnable.h>
-
 #include <java/awt/event/ActionEvent.h>
-#include <java/awt/event/ActionListener.h>
 #include <java/lang/Runnable.h>
 #include <java/util/Iterator.h>
 #include <java/util/List.h>
@@ -13,7 +11,6 @@
 #undef DELAY
 
 using $ActionEvent = ::java::awt::event::ActionEvent;
-using $ActionListener = ::java::awt::event::ActionListener;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -26,49 +23,6 @@ using $AccumulativeRunnable = ::sun::swing::AccumulativeRunnable;
 
 namespace javax {
 	namespace swing {
-
-$FieldInfo _SwingWorker$DoSubmitAccumulativeRunnable_FieldInfo_[] = {
-	{"DELAY", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SwingWorker$DoSubmitAccumulativeRunnable, DELAY)},
-	{}
-};
-
-$MethodInfo _SwingWorker$DoSubmitAccumulativeRunnable_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PRIVATE, $method(SwingWorker$DoSubmitAccumulativeRunnable, init$, void)},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(SwingWorker$DoSubmitAccumulativeRunnable, actionPerformed, void, $ActionEvent*)},
-	{"run", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/lang/Runnable;>;)V", $PROTECTED, $virtualMethod(SwingWorker$DoSubmitAccumulativeRunnable, run, void, $List*)},
-	{"submit", "()V", nullptr, $PROTECTED, $virtualMethod(SwingWorker$DoSubmitAccumulativeRunnable, submit, void)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _SwingWorker$DoSubmitAccumulativeRunnable_InnerClassesInfo_[] = {
-	{"javax.swing.SwingWorker$DoSubmitAccumulativeRunnable", "javax.swing.SwingWorker", "DoSubmitAccumulativeRunnable", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _SwingWorker$DoSubmitAccumulativeRunnable_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.SwingWorker$DoSubmitAccumulativeRunnable",
-	"sun.swing.AccumulativeRunnable",
-	"java.awt.event.ActionListener",
-	_SwingWorker$DoSubmitAccumulativeRunnable_FieldInfo_,
-	_SwingWorker$DoSubmitAccumulativeRunnable_MethodInfo_,
-	"Lsun/swing/AccumulativeRunnable<Ljava/lang/Runnable;>;Ljava/awt/event/ActionListener;",
-	nullptr,
-	_SwingWorker$DoSubmitAccumulativeRunnable_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.SwingWorker"
-};
-
-$Object* allocate$SwingWorker$DoSubmitAccumulativeRunnable($Class* clazz) {
-	return $of($alloc(SwingWorker$DoSubmitAccumulativeRunnable));
-}
 
 int32_t SwingWorker$DoSubmitAccumulativeRunnable::hashCode() {
 	 return this->$AccumulativeRunnable::hashCode();
@@ -95,14 +49,12 @@ void SwingWorker$DoSubmitAccumulativeRunnable::init$() {
 }
 
 void SwingWorker$DoSubmitAccumulativeRunnable::run($List* args) {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Iterator, i$, $nc(args)->iterator());
-		for (; $nc(i$)->hasNext();) {
-			$var($Runnable, runnable, $cast($Runnable, i$->next()));
-			{
-				$nc(runnable)->run();
-			}
+	$useLocalObjectStack();
+	$var($Iterator, i$, $nc(args)->iterator());
+	for (; $nc(i$)->hasNext();) {
+		$var($Runnable, runnable, $cast($Runnable, i$->next()));
+		{
+			$nc(runnable)->run();
 		}
 	}
 }
@@ -121,7 +73,44 @@ SwingWorker$DoSubmitAccumulativeRunnable::SwingWorker$DoSubmitAccumulativeRunnab
 }
 
 $Class* SwingWorker$DoSubmitAccumulativeRunnable::load$($String* name, bool initialize) {
-	$loadClass(SwingWorker$DoSubmitAccumulativeRunnable, name, initialize, &_SwingWorker$DoSubmitAccumulativeRunnable_ClassInfo_, allocate$SwingWorker$DoSubmitAccumulativeRunnable);
+	$FieldInfo fieldInfos$$[] = {
+		{"DELAY", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SwingWorker$DoSubmitAccumulativeRunnable, DELAY)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PRIVATE, $method(SwingWorker$DoSubmitAccumulativeRunnable, init$, void)},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(SwingWorker$DoSubmitAccumulativeRunnable, actionPerformed, void, $ActionEvent*)},
+		{"run", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/lang/Runnable;>;)V", $PROTECTED, $virtualMethod(SwingWorker$DoSubmitAccumulativeRunnable, run, void, $List*)},
+		{"submit", "()V", nullptr, $PROTECTED, $virtualMethod(SwingWorker$DoSubmitAccumulativeRunnable, submit, void)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.SwingWorker$DoSubmitAccumulativeRunnable", "javax.swing.SwingWorker", "DoSubmitAccumulativeRunnable", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.SwingWorker$DoSubmitAccumulativeRunnable",
+		"sun.swing.AccumulativeRunnable",
+		"java.awt.event.ActionListener",
+		fieldInfos$$,
+		methodInfos$$,
+		"Lsun/swing/AccumulativeRunnable<Ljava/lang/Runnable;>;Ljava/awt/event/ActionListener;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.SwingWorker"
+	};
+	$loadClass(SwingWorker$DoSubmitAccumulativeRunnable, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SwingWorker$DoSubmitAccumulativeRunnable));
+	});
 	return class$;
 }
 

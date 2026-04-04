@@ -1,5 +1,4 @@
 #include <com/sun/imageio/plugins/tiff/TIFFPackBitsDecompressor.h>
-
 #include <com/sun/imageio/plugins/tiff/TIFFDecompressor.h>
 #include <com/sun/imageio/plugins/tiff/TIFFImageReader.h>
 #include <java/lang/ArrayIndexOutOfBoundsException.h>
@@ -12,33 +11,12 @@ using $TIFFImageReader = ::com::sun::imageio::plugins::tiff::TIFFImageReader;
 using $ArrayIndexOutOfBoundsException = ::java::lang::ArrayIndexOutOfBoundsException;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $ImageInputStream = ::javax::imageio::stream::ImageInputStream;
 
 namespace com {
 	namespace sun {
 		namespace imageio {
 			namespace plugins {
 				namespace tiff {
-
-$MethodInfo _TIFFPackBitsDecompressor_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TIFFPackBitsDecompressor, init$, void)},
-	{"decode", "([BI[BI)I", nullptr, $PUBLIC, $virtualMethod(TIFFPackBitsDecompressor, decode, int32_t, $bytes*, int32_t, $bytes*, int32_t), "java.io.IOException"},
-	{"decodeRaw", "([BIII)V", nullptr, $PUBLIC, $virtualMethod(TIFFPackBitsDecompressor, decodeRaw, void, $bytes*, int32_t, int32_t, int32_t), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _TIFFPackBitsDecompressor_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.imageio.plugins.tiff.TIFFPackBitsDecompressor",
-	"com.sun.imageio.plugins.tiff.TIFFDecompressor",
-	nullptr,
-	nullptr,
-	_TIFFPackBitsDecompressor_MethodInfo_
-};
-
-$Object* allocate$TIFFPackBitsDecompressor($Class* clazz) {
-	return $of($alloc(TIFFPackBitsDecompressor));
-}
 
 void TIFFPackBitsDecompressor::init$() {
 	$TIFFDecompressor::init$();
@@ -67,14 +45,14 @@ int32_t TIFFPackBitsDecompressor::decode($bytes* srcData, int32_t srcOffset, $by
 		}
 	} catch ($ArrayIndexOutOfBoundsException& e) {
 		if ($instanceOf($TIFFImageReader, this->reader)) {
-			$nc(($cast($TIFFImageReader, this->reader)))->forwardWarningMessage("ArrayIndexOutOfBoundsException ignored in TIFFPackBitsDecompressor.decode()"_s);
+			$cast($TIFFImageReader, this->reader)->forwardWarningMessage("ArrayIndexOutOfBoundsException ignored in TIFFPackBitsDecompressor.decode()"_s);
 		}
 	}
 	return dstIndex - dstOffset;
 }
 
 void TIFFPackBitsDecompressor::decodeRaw($bytes* b, int32_t dstOffset, int32_t bitsPerPixel, int32_t scanlineStride) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(this->stream)->seek(this->offset);
 	$var($bytes, srcData, $new($bytes, this->byteCount));
 	$nc(this->stream)->readFully(srcData);
@@ -103,7 +81,23 @@ TIFFPackBitsDecompressor::TIFFPackBitsDecompressor() {
 }
 
 $Class* TIFFPackBitsDecompressor::load$($String* name, bool initialize) {
-	$loadClass(TIFFPackBitsDecompressor, name, initialize, &_TIFFPackBitsDecompressor_ClassInfo_, allocate$TIFFPackBitsDecompressor);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TIFFPackBitsDecompressor, init$, void)},
+		{"decode", "([BI[BI)I", nullptr, $PUBLIC, $virtualMethod(TIFFPackBitsDecompressor, decode, int32_t, $bytes*, int32_t, $bytes*, int32_t), "java.io.IOException"},
+		{"decodeRaw", "([BIII)V", nullptr, $PUBLIC, $virtualMethod(TIFFPackBitsDecompressor, decodeRaw, void, $bytes*, int32_t, int32_t, int32_t), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.imageio.plugins.tiff.TIFFPackBitsDecompressor",
+		"com.sun.imageio.plugins.tiff.TIFFDecompressor",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(TIFFPackBitsDecompressor, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TIFFPackBitsDecompressor);
+	});
 	return class$;
 }
 

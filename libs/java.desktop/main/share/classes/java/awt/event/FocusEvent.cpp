@@ -1,5 +1,4 @@
 #include <java/awt/event/FocusEvent.h>
-
 #include <java/awt/AWTEvent.h>
 #include <java/awt/Component.h>
 #include <java/awt/event/ComponentEvent.h>
@@ -17,7 +16,6 @@
 #undef FOCUS_LOST
 #undef UNKNOWN
 
-using $AWTEvent = ::java::awt::AWTEvent;
 using $Component = ::java::awt::Component;
 using $ComponentEvent = ::java::awt::event::ComponentEvent;
 using $FocusEvent$1 = ::java::awt::event::FocusEvent$1;
@@ -35,56 +33,6 @@ using $SunToolkit = ::sun::awt::SunToolkit;
 namespace java {
 	namespace awt {
 		namespace event {
-
-$FieldInfo _FocusEvent_FieldInfo_[] = {
-	{"FOCUS_FIRST", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(FocusEvent, FOCUS_FIRST)},
-	{"FOCUS_LAST", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(FocusEvent, FOCUS_LAST)},
-	{"FOCUS_GAINED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(FocusEvent, FOCUS_GAINED)},
-	{"FOCUS_LOST", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(FocusEvent, FOCUS_LOST)},
-	{"cause", "Ljava/awt/event/FocusEvent$Cause;", nullptr, $PRIVATE | $FINAL, $field(FocusEvent, cause)},
-	{"temporary", "Z", nullptr, 0, $field(FocusEvent, temporary)},
-	{"opposite", "Ljava/awt/Component;", nullptr, $TRANSIENT, $field(FocusEvent, opposite)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(FocusEvent, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _FocusEvent_MethodInfo_[] = {
-	{"<init>", "(Ljava/awt/Component;IZLjava/awt/Component;)V", nullptr, $PUBLIC, $method(FocusEvent, init$, void, $Component*, int32_t, bool, $Component*)},
-	{"<init>", "(Ljava/awt/Component;IZLjava/awt/Component;Ljava/awt/event/FocusEvent$Cause;)V", nullptr, $PUBLIC, $method(FocusEvent, init$, void, $Component*, int32_t, bool, $Component*, $FocusEvent$Cause*)},
-	{"<init>", "(Ljava/awt/Component;IZ)V", nullptr, $PUBLIC, $method(FocusEvent, init$, void, $Component*, int32_t, bool)},
-	{"<init>", "(Ljava/awt/Component;I)V", nullptr, $PUBLIC, $method(FocusEvent, init$, void, $Component*, int32_t)},
-	{"getCause", "()Ljava/awt/event/FocusEvent$Cause;", nullptr, $PUBLIC | $FINAL, $method(FocusEvent, getCause, $FocusEvent$Cause*)},
-	{"getOppositeComponent", "()Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(FocusEvent, getOppositeComponent, $Component*)},
-	{"isTemporary", "()Z", nullptr, $PUBLIC, $virtualMethod(FocusEvent, isTemporary, bool)},
-	{"paramString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(FocusEvent, paramString, $String*)},
-	{"readResolve", "()Ljava/lang/Object;", nullptr, 0, $virtualMethod(FocusEvent, readResolve, $Object*), "java.io.ObjectStreamException"},
-	{}
-};
-
-$InnerClassInfo _FocusEvent_InnerClassesInfo_[] = {
-	{"java.awt.event.FocusEvent$Cause", "java.awt.event.FocusEvent", "Cause", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{"java.awt.event.FocusEvent$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _FocusEvent_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.awt.event.FocusEvent",
-	"java.awt.event.ComponentEvent",
-	nullptr,
-	_FocusEvent_FieldInfo_,
-	_FocusEvent_MethodInfo_,
-	nullptr,
-	nullptr,
-	_FocusEvent_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.awt.event.FocusEvent$Cause,java.awt.event.FocusEvent$1"
-};
-
-$Object* allocate$FocusEvent($Class* clazz) {
-	return $of($alloc(FocusEvent));
-}
 
 void FocusEvent::init$($Component* source, int32_t id, bool temporary, $Component* opposite) {
 	$init($FocusEvent$Cause);
@@ -121,26 +69,26 @@ $Component* FocusEvent::getOppositeComponent() {
 }
 
 $String* FocusEvent::paramString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, typeStr, nullptr);
 	switch (this->id) {
 	case FocusEvent::FOCUS_GAINED:
-		{
-			$assign(typeStr, "FOCUS_GAINED"_s);
-			break;
-		}
+		$assign(typeStr, "FOCUS_GAINED"_s);
+		break;
 	case FocusEvent::FOCUS_LOST:
-		{
-			$assign(typeStr, "FOCUS_LOST"_s);
-			break;
-		}
+		$assign(typeStr, "FOCUS_LOST"_s);
+		break;
 	default:
-		{
-			$assign(typeStr, "unknown type"_s);
-		}
+		$assign(typeStr, "unknown type"_s);
 	}
-	$var($String, var$0, $$str({typeStr, (this->temporary ? ",temporary"_s : ",permanent"_s), ",opposite="_s, $(getOppositeComponent()), ",cause="_s}));
-	return $concat(var$0, $(getCause()));
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append(typeStr);
+	var$0->append(this->temporary ? ",temporary"_s : ",permanent"_s);
+	var$0->append(",opposite="_s);
+	var$0->append($(getOppositeComponent()));
+	var$0->append(",cause="_s);
+	var$0->append($(getCause()));
+	return $str(var$0);
 }
 
 $FocusEvent$Cause* FocusEvent::getCause() {
@@ -148,26 +96,70 @@ $FocusEvent$Cause* FocusEvent::getCause() {
 }
 
 $Object* FocusEvent::readResolve() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->cause != nullptr) {
-		return $of(this);
+		return this;
 	}
-	$var($Component, var$0, static_cast<$Component*>($new($FocusEvent$1, this)));
+	$var($Component, var$0, $new($FocusEvent$1, this));
 	int32_t var$1 = getID();
 	bool var$2 = isTemporary();
 	$var(FocusEvent, focusEvent, $new(FocusEvent, var$0, var$1, var$2, $(getOppositeComponent())));
 	focusEvent->setSource(nullptr);
 	focusEvent->consumed = this->consumed;
 	$var($AWTAccessor$AWTEventAccessor, accessor, $AWTAccessor::getAWTEventAccessor());
-	$nc(accessor)->setBData(focusEvent, $(accessor->getBData(this)));
-	return $of(focusEvent);
+	$nc(accessor)->setBData(focusEvent, $($nc(accessor)->getBData(this)));
+	return focusEvent;
 }
 
 FocusEvent::FocusEvent() {
 }
 
 $Class* FocusEvent::load$($String* name, bool initialize) {
-	$loadClass(FocusEvent, name, initialize, &_FocusEvent_ClassInfo_, allocate$FocusEvent);
+	$FieldInfo fieldInfos$$[] = {
+		{"FOCUS_FIRST", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(FocusEvent, FOCUS_FIRST)},
+		{"FOCUS_LAST", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(FocusEvent, FOCUS_LAST)},
+		{"FOCUS_GAINED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(FocusEvent, FOCUS_GAINED)},
+		{"FOCUS_LOST", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(FocusEvent, FOCUS_LOST)},
+		{"cause", "Ljava/awt/event/FocusEvent$Cause;", nullptr, $PRIVATE | $FINAL, $field(FocusEvent, cause)},
+		{"temporary", "Z", nullptr, 0, $field(FocusEvent, temporary)},
+		{"opposite", "Ljava/awt/Component;", nullptr, $TRANSIENT, $field(FocusEvent, opposite)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(FocusEvent, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/Component;IZLjava/awt/Component;)V", nullptr, $PUBLIC, $method(FocusEvent, init$, void, $Component*, int32_t, bool, $Component*)},
+		{"<init>", "(Ljava/awt/Component;IZLjava/awt/Component;Ljava/awt/event/FocusEvent$Cause;)V", nullptr, $PUBLIC, $method(FocusEvent, init$, void, $Component*, int32_t, bool, $Component*, $FocusEvent$Cause*)},
+		{"<init>", "(Ljava/awt/Component;IZ)V", nullptr, $PUBLIC, $method(FocusEvent, init$, void, $Component*, int32_t, bool)},
+		{"<init>", "(Ljava/awt/Component;I)V", nullptr, $PUBLIC, $method(FocusEvent, init$, void, $Component*, int32_t)},
+		{"getCause", "()Ljava/awt/event/FocusEvent$Cause;", nullptr, $PUBLIC | $FINAL, $method(FocusEvent, getCause, $FocusEvent$Cause*)},
+		{"getOppositeComponent", "()Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(FocusEvent, getOppositeComponent, $Component*)},
+		{"isTemporary", "()Z", nullptr, $PUBLIC, $virtualMethod(FocusEvent, isTemporary, bool)},
+		{"paramString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(FocusEvent, paramString, $String*)},
+		{"readResolve", "()Ljava/lang/Object;", nullptr, 0, $virtualMethod(FocusEvent, readResolve, $Object*), "java.io.ObjectStreamException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.awt.event.FocusEvent$Cause", "java.awt.event.FocusEvent", "Cause", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{"java.awt.event.FocusEvent$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.awt.event.FocusEvent",
+		"java.awt.event.ComponentEvent",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.awt.event.FocusEvent$Cause,java.awt.event.FocusEvent$1"
+	};
+	$loadClass(FocusEvent, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FocusEvent);
+	});
 	return class$;
 }
 

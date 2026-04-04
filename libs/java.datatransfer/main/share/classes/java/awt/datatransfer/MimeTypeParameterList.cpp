@@ -1,5 +1,4 @@
 #include <java/awt/datatransfer/MimeTypeParameterList.h>
-
 #include <java/awt/datatransfer/MimeTypeParseException.h>
 #include <java/lang/CloneNotSupportedException.h>
 #include <java/lang/Cloneable.h>
@@ -32,46 +31,6 @@ namespace java {
 	namespace awt {
 		namespace datatransfer {
 
-$FieldInfo _MimeTypeParameterList_FieldInfo_[] = {
-	{"parameters", "Ljava/util/Hashtable;", "Ljava/util/Hashtable<Ljava/lang/String;Ljava/lang/String;>;", $PRIVATE, $field(MimeTypeParameterList, parameters)},
-	{"TSPECIALS", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MimeTypeParameterList, TSPECIALS)},
-	{}
-};
-
-$MethodInfo _MimeTypeParameterList_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MimeTypeParameterList, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(MimeTypeParameterList, init$, void, $String*), "java.awt.datatransfer.MimeTypeParseException"},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MimeTypeParameterList, clone, $Object*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(MimeTypeParameterList, equals, bool, Object$*)},
-	{"get", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MimeTypeParameterList, get, $String*, $String*)},
-	{"getNames", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(MimeTypeParameterList, getNames, $Enumeration*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(MimeTypeParameterList, hashCode, int32_t)},
-	{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(MimeTypeParameterList, isEmpty, bool)},
-	{"isTokenChar", "(C)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(MimeTypeParameterList, isTokenChar, bool, char16_t)},
-	{"parse", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(MimeTypeParameterList, parse, void, $String*), "java.awt.datatransfer.MimeTypeParseException"},
-	{"quote", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(MimeTypeParameterList, quote, $String*, $String*)},
-	{"remove", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(MimeTypeParameterList, remove, void, $String*)},
-	{"set", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(MimeTypeParameterList, set, void, $String*, $String*)},
-	{"size", "()I", nullptr, $PUBLIC, $virtualMethod(MimeTypeParameterList, size, int32_t)},
-	{"skipWhiteSpace", "(Ljava/lang/String;I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(MimeTypeParameterList, skipWhiteSpace, int32_t, $String*, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MimeTypeParameterList, toString, $String*)},
-	{"unquote", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(MimeTypeParameterList, unquote, $String*, $String*)},
-	{}
-};
-
-$ClassInfo _MimeTypeParameterList_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.awt.datatransfer.MimeTypeParameterList",
-	"java.lang.Object",
-	"java.lang.Cloneable",
-	_MimeTypeParameterList_FieldInfo_,
-	_MimeTypeParameterList_MethodInfo_
-};
-
-$Object* allocate$MimeTypeParameterList($Class* clazz) {
-	return $of($alloc(MimeTypeParameterList));
-}
-
 $String* MimeTypeParameterList::TSPECIALS = nullptr;
 
 void MimeTypeParameterList::init$() {
@@ -84,20 +43,20 @@ void MimeTypeParameterList::init$($String* rawdata) {
 }
 
 int32_t MimeTypeParameterList::hashCode() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t code = $Integer::MAX_VALUE / 45;
 	$var($String, paramName, nullptr);
 	$var($Enumeration, enum_, this->getNames());
 	while ($nc(enum_)->hasMoreElements()) {
 		$assign(paramName, $cast($String, enum_->nextElement()));
 		code += $nc(paramName)->hashCode();
-		code += $nc($(this->get(paramName)))->hashCode();
+		code += $$nc(this->get(paramName))->hashCode();
 	}
 	return code;
 }
 
 bool MimeTypeParameterList::equals(Object$* thatObject) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!($instanceOf(MimeTypeParameterList, thatObject))) {
 		return false;
 	}
@@ -116,12 +75,12 @@ bool MimeTypeParameterList::equals(Object$* thatObject) {
 		$assign(entry, $cast($Map$Entry, iterator->next()));
 		$assign(name, $cast($String, $nc(entry)->getKey()));
 		$assign(thisValue, $cast($String, entry->getValue()));
-		$assign(thatValue, $cast($String, $nc($nc(that)->parameters)->get(name)));
+		$assign(thatValue, $cast($String, $nc(that->parameters)->get(name)));
 		if ((thisValue == nullptr) || (thatValue == nullptr)) {
 			if (thisValue != thatValue) {
 				return false;
 			}
-		} else if (!$nc(thisValue)->equals(thatValue)) {
+		} else if (!thisValue->equals(thatValue)) {
 			return false;
 		}
 	}
@@ -129,7 +88,7 @@ bool MimeTypeParameterList::equals(Object$* thatObject) {
 }
 
 void MimeTypeParameterList::parse($String* rawdata) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t length = $nc(rawdata)->length();
 	if (length > 0) {
 		int32_t currentIndex = skipWhiteSpace(rawdata, 0);
@@ -226,17 +185,17 @@ bool MimeTypeParameterList::isEmpty() {
 }
 
 $String* MimeTypeParameterList::get($String* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $cast($String, $nc(this->parameters)->get($($($nc(name)->trim())->toLowerCase())));
 }
 
 void MimeTypeParameterList::set($String* name, $String* value) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(this->parameters)->put($($($nc(name)->trim())->toLowerCase()), value);
 }
 
 void MimeTypeParameterList::remove($String* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(this->parameters)->remove($($($nc(name)->trim())->toLowerCase()));
 }
 
@@ -245,15 +204,15 @@ $Enumeration* MimeTypeParameterList::getNames() {
 }
 
 $String* MimeTypeParameterList::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, buffer, $new($StringBuilder, $nc(this->parameters)->size() * 16));
-	$var($Enumeration, keys, $nc(this->parameters)->keys());
+	$var($Enumeration, keys, this->parameters->keys());
 	while ($nc(keys)->hasMoreElements()) {
 		buffer->append("; "_s);
 		$var($String, key, $cast($String, keys->nextElement()));
 		buffer->append(key);
 		buffer->append(u'=');
-		buffer->append($(quote($cast($String, $($nc(this->parameters)->get(key))))));
+		buffer->append($(quote($$cast($String, $nc(this->parameters)->get(key)))));
 	}
 	return buffer->toString();
 }
@@ -265,12 +224,12 @@ $Object* MimeTypeParameterList::clone() {
 	} catch ($CloneNotSupportedException& cannotHappen) {
 	}
 	$set($nc(newObj), parameters, $cast($Hashtable, $nc(this->parameters)->clone()));
-	return $of(newObj);
+	return newObj;
 }
 
 bool MimeTypeParameterList::isTokenChar(char16_t c) {
 	$init(MimeTypeParameterList);
-	return ((c > 32) && (c < 127)) && ($nc(MimeTypeParameterList::TSPECIALS)->indexOf((int32_t)c) < 0);
+	return ((c > 32) && (c < 127)) && (MimeTypeParameterList::TSPECIALS->indexOf(c) < 0);
 }
 
 int32_t MimeTypeParameterList::skipWhiteSpace($String* rawdata, int32_t i) {
@@ -332,12 +291,47 @@ $String* MimeTypeParameterList::unquote($String* value) {
 MimeTypeParameterList::MimeTypeParameterList() {
 }
 
-void clinit$MimeTypeParameterList($Class* class$) {
+void MimeTypeParameterList::clinit$($Class* clazz) {
 	$assignStatic(MimeTypeParameterList::TSPECIALS, "()<>@,;:\\\"/[]?="_s);
 }
 
 $Class* MimeTypeParameterList::load$($String* name, bool initialize) {
-	$loadClass(MimeTypeParameterList, name, initialize, &_MimeTypeParameterList_ClassInfo_, clinit$MimeTypeParameterList, allocate$MimeTypeParameterList);
+	$FieldInfo fieldInfos$$[] = {
+		{"parameters", "Ljava/util/Hashtable;", "Ljava/util/Hashtable<Ljava/lang/String;Ljava/lang/String;>;", $PRIVATE, $field(MimeTypeParameterList, parameters)},
+		{"TSPECIALS", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MimeTypeParameterList, TSPECIALS)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MimeTypeParameterList, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(MimeTypeParameterList, init$, void, $String*), "java.awt.datatransfer.MimeTypeParseException"},
+		{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MimeTypeParameterList, clone, $Object*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(MimeTypeParameterList, equals, bool, Object$*)},
+		{"get", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MimeTypeParameterList, get, $String*, $String*)},
+		{"getNames", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(MimeTypeParameterList, getNames, $Enumeration*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(MimeTypeParameterList, hashCode, int32_t)},
+		{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(MimeTypeParameterList, isEmpty, bool)},
+		{"isTokenChar", "(C)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(MimeTypeParameterList, isTokenChar, bool, char16_t)},
+		{"parse", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(MimeTypeParameterList, parse, void, $String*), "java.awt.datatransfer.MimeTypeParseException"},
+		{"quote", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(MimeTypeParameterList, quote, $String*, $String*)},
+		{"remove", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(MimeTypeParameterList, remove, void, $String*)},
+		{"set", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(MimeTypeParameterList, set, void, $String*, $String*)},
+		{"size", "()I", nullptr, $PUBLIC, $virtualMethod(MimeTypeParameterList, size, int32_t)},
+		{"skipWhiteSpace", "(Ljava/lang/String;I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(MimeTypeParameterList, skipWhiteSpace, int32_t, $String*, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MimeTypeParameterList, toString, $String*)},
+		{"unquote", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(MimeTypeParameterList, unquote, $String*, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.awt.datatransfer.MimeTypeParameterList",
+		"java.lang.Object",
+		"java.lang.Cloneable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(MimeTypeParameterList, name, initialize, &classInfo$$, MimeTypeParameterList::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(MimeTypeParameterList);
+	});
 	return class$;
 }
 

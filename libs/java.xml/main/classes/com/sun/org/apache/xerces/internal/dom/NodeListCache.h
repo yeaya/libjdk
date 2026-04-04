@@ -35,7 +35,7 @@ class NodeListCache : public ::java::io::Serializable {
 public:
 	NodeListCache();
 	void init$(::com::sun::org::apache::xerces::internal::dom::ParentNode* owner);
-	static const int64_t serialVersionUID = (int64_t)0x91FBC224FE0ED1A6;
+	static const int64_t serialVersionUID = (int64_t)0x91fbc224fe0ed1a6;
 	int32_t fLength = 0;
 	int32_t fChildIndex = 0;
 	::com::sun::org::apache::xerces::internal::dom::ChildNode* fChild = nullptr;

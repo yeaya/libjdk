@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xpath/internal/compiler/OpMap.h>
-
 #include <com/sun/org/apache/xalan/internal/res/XSLMessages.h>
 #include <com/sun/org/apache/xml/internal/utils/ObjectVector.h>
 #include <com/sun/org/apache/xpath/internal/compiler/OpCodes.h>
@@ -44,55 +43,6 @@ namespace com {
 					namespace internal {
 						namespace compiler {
 
-$FieldInfo _OpMap_FieldInfo_[] = {
-	{"m_currentPattern", "Ljava/lang/String;", nullptr, $PROTECTED, $field(OpMap, m_currentPattern)},
-	{"MAXTOKENQUEUESIZE", "I", nullptr, $STATIC | $FINAL, $constField(OpMap, MAXTOKENQUEUESIZE)},
-	{"BLOCKTOKENQUEUESIZE", "I", nullptr, $STATIC | $FINAL, $constField(OpMap, BLOCKTOKENQUEUESIZE)},
-	{"m_tokenQueue", "Lcom/sun/org/apache/xml/internal/utils/ObjectVector;", nullptr, 0, $field(OpMap, m_tokenQueue)},
-	{"m_opMap", "Lcom/sun/org/apache/xpath/internal/compiler/OpMapVector;", nullptr, 0, $field(OpMap, m_opMap)},
-	{"MAPINDEX_LENGTH", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(OpMap, MAPINDEX_LENGTH)},
-	{}
-};
-
-$MethodInfo _OpMap_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(OpMap, init$, void)},
-	{"error", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(OpMap, error, void, $String*, $ObjectArray*), "javax.xml.transform.TransformerException"},
-	{"getArgLength", "(I)I", nullptr, $PUBLIC, $virtualMethod(OpMap, getArgLength, int32_t, int32_t)},
-	{"getArgLengthOfStep", "(I)I", nullptr, $PUBLIC, $virtualMethod(OpMap, getArgLengthOfStep, int32_t, int32_t)},
-	{"getFirstChildPos", "(I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(OpMap, getFirstChildPos, int32_t, int32_t)},
-	{"getFirstChildPosOfStep", "(I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(OpMap, getFirstChildPosOfStep, int32_t, int32_t)},
-	{"getFirstPredicateOpPos", "(I)I", nullptr, $PUBLIC, $virtualMethod(OpMap, getFirstPredicateOpPos, int32_t, int32_t), "javax.xml.transform.TransformerException"},
-	{"getNextOpPos", "(I)I", nullptr, $PUBLIC, $virtualMethod(OpMap, getNextOpPos, int32_t, int32_t)},
-	{"getNextOpPos", "([II)I", nullptr, $PUBLIC | $STATIC, $staticMethod(OpMap, getNextOpPos, int32_t, $ints*, int32_t)},
-	{"getNextStepPos", "(I)I", nullptr, $PUBLIC, $virtualMethod(OpMap, getNextStepPos, int32_t, int32_t)},
-	{"getOp", "(I)I", nullptr, $PUBLIC, $virtualMethod(OpMap, getOp, int32_t, int32_t)},
-	{"getOpMap", "()Lcom/sun/org/apache/xpath/internal/compiler/OpMapVector;", nullptr, $PUBLIC, $virtualMethod(OpMap, getOpMap, $OpMapVector*)},
-	{"getPatternString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(OpMap, getPatternString, $String*)},
-	{"getStepLocalName", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(OpMap, getStepLocalName, $String*, int32_t)},
-	{"getStepNS", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(OpMap, getStepNS, $String*, int32_t)},
-	{"getStepTestType", "(I)I", nullptr, $PUBLIC, $virtualMethod(OpMap, getStepTestType, int32_t, int32_t)},
-	{"getToken", "(I)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(OpMap, getToken, $Object*, int32_t)},
-	{"getTokenQueue", "()Lcom/sun/org/apache/xml/internal/utils/ObjectVector;", nullptr, $PUBLIC, $virtualMethod(OpMap, getTokenQueue, $ObjectVector*)},
-	{"getTokenQueueSize", "()I", nullptr, $PUBLIC, $virtualMethod(OpMap, getTokenQueueSize, int32_t)},
-	{"setOp", "(II)V", nullptr, $PUBLIC, $virtualMethod(OpMap, setOp, void, int32_t, int32_t)},
-	{"shrink", "()V", nullptr, 0, $virtualMethod(OpMap, shrink, void)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(OpMap, toString, $String*)},
-	{}
-};
-
-$ClassInfo _OpMap_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xpath.internal.compiler.OpMap",
-	"java.lang.Object",
-	nullptr,
-	_OpMap_FieldInfo_,
-	_OpMap_MethodInfo_
-};
-
-$Object* allocate$OpMap($Class* clazz) {
-	return $of($alloc(OpMap));
-}
-
 void OpMap::init$() {
 	$set(this, m_tokenQueue, $new($ObjectVector, OpMap::MAXTOKENQUEUESIZE, OpMap::BLOCKTOKENQUEUESIZE));
 	$set(this, m_opMap, nullptr);
@@ -111,7 +61,7 @@ $ObjectVector* OpMap::getTokenQueue() {
 }
 
 $Object* OpMap::getToken(int32_t pos) {
-	return $of($nc(this->m_tokenQueue)->elementAt(pos));
+	return $nc(this->m_tokenQueue)->elementAt(pos);
 }
 
 int32_t OpMap::getTokenQueueSize() {
@@ -148,7 +98,7 @@ int32_t OpMap::getNextOpPos(int32_t opPos) {
 }
 
 int32_t OpMap::getNextStepPos(int32_t opPos) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t stepType = getOp(opPos);
 	if ((stepType >= $OpCodes::AXES_START_TYPES) && (stepType <= $OpCodes::AXES_END_TYPES)) {
 		return getNextOpPos(opPos);
@@ -164,7 +114,7 @@ int32_t OpMap::getNextStepPos(int32_t opPos) {
 		return newOpPos;
 	} else {
 		$init($XPATHErrorResources);
-		$throwNew($RuntimeException, $($XSLMessages::createXPATHMessage($XPATHErrorResources::ER_UNKNOWN_STEP, $$new($ObjectArray, {$($of($String::valueOf(stepType)))}))));
+		$throwNew($RuntimeException, $($XSLMessages::createXPATHMessage($XPATHErrorResources::ER_UNKNOWN_STEP, $$new($ObjectArray, {$($String::valueOf(stepType))}))));
 	}
 }
 
@@ -173,7 +123,7 @@ int32_t OpMap::getNextOpPos($ints* opMap, int32_t opPos) {
 }
 
 int32_t OpMap::getFirstPredicateOpPos(int32_t opPos) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t stepType = $nc(this->m_opMap)->elementAt(opPos);
 	if ((stepType >= $OpCodes::AXES_START_TYPES) && (stepType <= $OpCodes::AXES_END_TYPES)) {
 		return opPos + $nc(this->m_opMap)->elementAt(opPos + 2);
@@ -183,7 +133,7 @@ int32_t OpMap::getFirstPredicateOpPos(int32_t opPos) {
 		return -2;
 	} else {
 		$init($XPATHErrorResources);
-		error($XPATHErrorResources::ER_UNKNOWN_OPCODE, $$new($ObjectArray, {$($of($String::valueOf(stepType)))}));
+		error($XPATHErrorResources::ER_UNKNOWN_OPCODE, $$new($ObjectArray, {$($String::valueOf(stepType))}));
 		return -1;
 	}
 }
@@ -235,33 +185,23 @@ $String* OpMap::getStepLocalName(int32_t opPosOfStep) {
 	int32_t index = 0;
 	switch (argLenOfStep) {
 	case 0:
-		{
-			index = $OpCodes::EMPTY;
-			break;
-		}
+		index = $OpCodes::EMPTY;
+		break;
 	case 1:
-		{
-			index = $OpCodes::ELEMWILDCARD;
-			break;
-		}
+		index = $OpCodes::ELEMWILDCARD;
+		break;
 	case 2:
-		{
-			index = $nc(this->m_opMap)->elementAt(opPosOfStep + 4);
-			break;
-		}
+		index = $nc(this->m_opMap)->elementAt(opPosOfStep + 4);
+		break;
 	case 3:
-		{
-			index = $nc(this->m_opMap)->elementAt(opPosOfStep + 5);
-			break;
-		}
+		index = $nc(this->m_opMap)->elementAt(opPosOfStep + 5);
+		break;
 	default:
-		{
-			index = $OpCodes::EMPTY;
-			break;
-		}
+		index = $OpCodes::EMPTY;
+		break;
 	}
 	if (index >= 0) {
-		return $nc($of($($nc(this->m_tokenQueue)->elementAt(index))))->toString();
+		return $$nc($nc(this->m_tokenQueue)->elementAt(index))->toString();
 	} else if ($OpCodes::ELEMWILDCARD == index) {
 		$init($NodeTest);
 		return $NodeTest::WILD;
@@ -274,7 +214,51 @@ OpMap::OpMap() {
 }
 
 $Class* OpMap::load$($String* name, bool initialize) {
-	$loadClass(OpMap, name, initialize, &_OpMap_ClassInfo_, allocate$OpMap);
+	$FieldInfo fieldInfos$$[] = {
+		{"m_currentPattern", "Ljava/lang/String;", nullptr, $PROTECTED, $field(OpMap, m_currentPattern)},
+		{"MAXTOKENQUEUESIZE", "I", nullptr, $STATIC | $FINAL, $constField(OpMap, MAXTOKENQUEUESIZE)},
+		{"BLOCKTOKENQUEUESIZE", "I", nullptr, $STATIC | $FINAL, $constField(OpMap, BLOCKTOKENQUEUESIZE)},
+		{"m_tokenQueue", "Lcom/sun/org/apache/xml/internal/utils/ObjectVector;", nullptr, 0, $field(OpMap, m_tokenQueue)},
+		{"m_opMap", "Lcom/sun/org/apache/xpath/internal/compiler/OpMapVector;", nullptr, 0, $field(OpMap, m_opMap)},
+		{"MAPINDEX_LENGTH", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(OpMap, MAPINDEX_LENGTH)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(OpMap, init$, void)},
+		{"error", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(OpMap, error, void, $String*, $ObjectArray*), "javax.xml.transform.TransformerException"},
+		{"getArgLength", "(I)I", nullptr, $PUBLIC, $virtualMethod(OpMap, getArgLength, int32_t, int32_t)},
+		{"getArgLengthOfStep", "(I)I", nullptr, $PUBLIC, $virtualMethod(OpMap, getArgLengthOfStep, int32_t, int32_t)},
+		{"getFirstChildPos", "(I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(OpMap, getFirstChildPos, int32_t, int32_t)},
+		{"getFirstChildPosOfStep", "(I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(OpMap, getFirstChildPosOfStep, int32_t, int32_t)},
+		{"getFirstPredicateOpPos", "(I)I", nullptr, $PUBLIC, $virtualMethod(OpMap, getFirstPredicateOpPos, int32_t, int32_t), "javax.xml.transform.TransformerException"},
+		{"getNextOpPos", "(I)I", nullptr, $PUBLIC, $virtualMethod(OpMap, getNextOpPos, int32_t, int32_t)},
+		{"getNextOpPos", "([II)I", nullptr, $PUBLIC | $STATIC, $staticMethod(OpMap, getNextOpPos, int32_t, $ints*, int32_t)},
+		{"getNextStepPos", "(I)I", nullptr, $PUBLIC, $virtualMethod(OpMap, getNextStepPos, int32_t, int32_t)},
+		{"getOp", "(I)I", nullptr, $PUBLIC, $virtualMethod(OpMap, getOp, int32_t, int32_t)},
+		{"getOpMap", "()Lcom/sun/org/apache/xpath/internal/compiler/OpMapVector;", nullptr, $PUBLIC, $virtualMethod(OpMap, getOpMap, $OpMapVector*)},
+		{"getPatternString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(OpMap, getPatternString, $String*)},
+		{"getStepLocalName", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(OpMap, getStepLocalName, $String*, int32_t)},
+		{"getStepNS", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(OpMap, getStepNS, $String*, int32_t)},
+		{"getStepTestType", "(I)I", nullptr, $PUBLIC, $virtualMethod(OpMap, getStepTestType, int32_t, int32_t)},
+		{"getToken", "(I)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(OpMap, getToken, $Object*, int32_t)},
+		{"getTokenQueue", "()Lcom/sun/org/apache/xml/internal/utils/ObjectVector;", nullptr, $PUBLIC, $virtualMethod(OpMap, getTokenQueue, $ObjectVector*)},
+		{"getTokenQueueSize", "()I", nullptr, $PUBLIC, $virtualMethod(OpMap, getTokenQueueSize, int32_t)},
+		{"setOp", "(II)V", nullptr, $PUBLIC, $virtualMethod(OpMap, setOp, void, int32_t, int32_t)},
+		{"shrink", "()V", nullptr, 0, $virtualMethod(OpMap, shrink, void)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(OpMap, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xpath.internal.compiler.OpMap",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(OpMap, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(OpMap);
+	});
 	return class$;
 }
 

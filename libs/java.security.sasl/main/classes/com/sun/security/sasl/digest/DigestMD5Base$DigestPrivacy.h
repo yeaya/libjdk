@@ -38,6 +38,7 @@ class DigestMD5Base$DigestPrivacy : public ::com::sun::security::sasl::digest::D
 	$class(DigestMD5Base$DigestPrivacy, 0, ::com::sun::security::sasl::digest::DigestMD5Base$DigestIntegrity)
 public:
 	DigestMD5Base$DigestPrivacy();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::com::sun::security::sasl::digest::DigestMD5Base* this$0, bool clientMode);
 	void generatePrivacyKeyPair(bool clientMode);
 	virtual $bytes* unwrap($bytes* incoming, int32_t start, int32_t len) override;

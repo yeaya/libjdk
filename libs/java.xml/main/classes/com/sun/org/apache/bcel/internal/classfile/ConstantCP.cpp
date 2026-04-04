@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/bcel/internal/classfile/ConstantCP.h>
-
 #include <com/sun/org/apache/bcel/internal/Const.h>
 #include <com/sun/org/apache/bcel/internal/classfile/Constant.h>
 #include <com/sun/org/apache/bcel/internal/classfile/ConstantPool.h>
@@ -24,39 +23,6 @@ namespace com {
 					namespace internal {
 						namespace classfile {
 
-$FieldInfo _ConstantCP_FieldInfo_[] = {
-	{"class_index", "I", nullptr, $PRIVATE, $field(ConstantCP, class_index)},
-	{"name_and_type_index", "I", nullptr, $PRIVATE, $field(ConstantCP, name_and_type_index)},
-	{}
-};
-
-$MethodInfo _ConstantCP_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/org/apache/bcel/internal/classfile/ConstantCP;)V", nullptr, $PUBLIC, $method(ConstantCP, init$, void, ConstantCP*)},
-	{"<init>", "(BLjava/io/DataInput;)V", nullptr, 0, $method(ConstantCP, init$, void, int8_t, $DataInput*), "java.io.IOException"},
-	{"<init>", "(BII)V", nullptr, $PROTECTED, $method(ConstantCP, init$, void, int8_t, int32_t, int32_t)},
-	{"dump", "(Ljava/io/DataOutputStream;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(ConstantCP, dump, void, $DataOutputStream*), "java.io.IOException"},
-	{"getClass", "(Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ConstantCP, getClass, $String*, $ConstantPool*)},
-	{"getClassIndex", "()I", nullptr, $PUBLIC | $FINAL, $method(ConstantCP, getClassIndex, int32_t)},
-	{"getNameAndTypeIndex", "()I", nullptr, $PUBLIC | $FINAL, $method(ConstantCP, getNameAndTypeIndex, int32_t)},
-	{"setClassIndex", "(I)V", nullptr, $PUBLIC | $FINAL, $method(ConstantCP, setClassIndex, void, int32_t)},
-	{"setNameAndTypeIndex", "(I)V", nullptr, $PUBLIC | $FINAL, $method(ConstantCP, setNameAndTypeIndex, void, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ConstantCP, toString, $String*)},
-	{}
-};
-
-$ClassInfo _ConstantCP_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"com.sun.org.apache.bcel.internal.classfile.ConstantCP",
-	"com.sun.org.apache.bcel.internal.classfile.Constant",
-	nullptr,
-	_ConstantCP_FieldInfo_,
-	_ConstantCP_MethodInfo_
-};
-
-$Object* allocate$ConstantCP($Class* clazz) {
-	return $of($alloc(ConstantCP));
-}
-
 void ConstantCP::init$(ConstantCP* c) {
 	int8_t var$0 = $nc(c)->getTag();
 	int32_t var$1 = c->getClassIndex();
@@ -64,9 +30,8 @@ void ConstantCP::init$(ConstantCP* c) {
 }
 
 void ConstantCP::init$(int8_t tag, $DataInput* file) {
-	int8_t var$0 = tag;
-	int32_t var$1 = $nc(file)->readUnsignedShort();
-	ConstantCP::init$(var$0, var$1, file->readUnsignedShort());
+	int32_t var$0 = $nc(file)->readUnsignedShort();
+	ConstantCP::init$(tag, var$0, file->readUnsignedShort());
 }
 
 void ConstantCP::init$(int8_t tag, int32_t class_index, int32_t name_and_type_index) {
@@ -102,7 +67,7 @@ $String* ConstantCP::getClass($ConstantPool* cp) {
 }
 
 $String* ConstantCP::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $str({$($Constant::toString()), "(class_index = "_s, $$str(this->class_index), ", name_and_type_index = "_s, $$str(this->name_and_type_index), ")"_s});
 }
 
@@ -110,7 +75,35 @@ ConstantCP::ConstantCP() {
 }
 
 $Class* ConstantCP::load$($String* name, bool initialize) {
-	$loadClass(ConstantCP, name, initialize, &_ConstantCP_ClassInfo_, allocate$ConstantCP);
+	$FieldInfo fieldInfos$$[] = {
+		{"class_index", "I", nullptr, $PRIVATE, $field(ConstantCP, class_index)},
+		{"name_and_type_index", "I", nullptr, $PRIVATE, $field(ConstantCP, name_and_type_index)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/org/apache/bcel/internal/classfile/ConstantCP;)V", nullptr, $PUBLIC, $method(ConstantCP, init$, void, ConstantCP*)},
+		{"<init>", "(BLjava/io/DataInput;)V", nullptr, 0, $method(ConstantCP, init$, void, int8_t, $DataInput*), "java.io.IOException"},
+		{"<init>", "(BII)V", nullptr, $PROTECTED, $method(ConstantCP, init$, void, int8_t, int32_t, int32_t)},
+		{"dump", "(Ljava/io/DataOutputStream;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(ConstantCP, dump, void, $DataOutputStream*), "java.io.IOException"},
+		{"getClass", "(Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ConstantCP, getClass, $String*, $ConstantPool*)},
+		{"getClassIndex", "()I", nullptr, $PUBLIC | $FINAL, $method(ConstantCP, getClassIndex, int32_t)},
+		{"getNameAndTypeIndex", "()I", nullptr, $PUBLIC | $FINAL, $method(ConstantCP, getNameAndTypeIndex, int32_t)},
+		{"setClassIndex", "(I)V", nullptr, $PUBLIC | $FINAL, $method(ConstantCP, setClassIndex, void, int32_t)},
+		{"setNameAndTypeIndex", "(I)V", nullptr, $PUBLIC | $FINAL, $method(ConstantCP, setNameAndTypeIndex, void, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ConstantCP, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"com.sun.org.apache.bcel.internal.classfile.ConstantCP",
+		"com.sun.org.apache.bcel.internal.classfile.Constant",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ConstantCP, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ConstantCP));
+	});
 	return class$;
 }
 

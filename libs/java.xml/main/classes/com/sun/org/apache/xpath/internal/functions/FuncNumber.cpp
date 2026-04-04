@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xpath/internal/functions/FuncNumber.h>
-
 #include <com/sun/org/apache/xpath/internal/XPathContext.h>
 #include <com/sun/org/apache/xpath/internal/functions/FunctionDef1Arg.h>
 #include <com/sun/org/apache/xpath/internal/objects/XNumber.h>
@@ -22,30 +21,6 @@ namespace com {
 					namespace internal {
 						namespace functions {
 
-$FieldInfo _FuncNumber_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(FuncNumber, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _FuncNumber_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(FuncNumber, init$, void)},
-	{"execute", "(Lcom/sun/org/apache/xpath/internal/XPathContext;)Lcom/sun/org/apache/xpath/internal/objects/XObject;", nullptr, $PUBLIC, $virtualMethod(FuncNumber, execute, $XObject*, $XPathContext*), "javax.xml.transform.TransformerException"},
-	{}
-};
-
-$ClassInfo _FuncNumber_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xpath.internal.functions.FuncNumber",
-	"com.sun.org.apache.xpath.internal.functions.FunctionDef1Arg",
-	nullptr,
-	_FuncNumber_FieldInfo_,
-	_FuncNumber_MethodInfo_
-};
-
-$Object* allocate$FuncNumber($Class* clazz) {
-	return $of($alloc(FuncNumber));
-}
-
 void FuncNumber::init$() {
 	$FunctionDef1Arg::init$();
 }
@@ -58,7 +33,26 @@ FuncNumber::FuncNumber() {
 }
 
 $Class* FuncNumber::load$($String* name, bool initialize) {
-	$loadClass(FuncNumber, name, initialize, &_FuncNumber_ClassInfo_, allocate$FuncNumber);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(FuncNumber, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(FuncNumber, init$, void)},
+		{"execute", "(Lcom/sun/org/apache/xpath/internal/XPathContext;)Lcom/sun/org/apache/xpath/internal/objects/XObject;", nullptr, $PUBLIC, $virtualMethod(FuncNumber, execute, $XObject*, $XPathContext*), "javax.xml.transform.TransformerException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xpath.internal.functions.FuncNumber",
+		"com.sun.org.apache.xpath.internal.functions.FunctionDef1Arg",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(FuncNumber, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(FuncNumber));
+	});
 	return class$;
 }
 

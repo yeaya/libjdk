@@ -1,5 +1,4 @@
 #include <javax/sql/rowset/FilteredRowSet.h>
-
 #include <javax/sql/rowset/Predicate.h>
 #include <jcpp.h>
 
@@ -11,27 +10,23 @@ namespace javax {
 	namespace sql {
 		namespace rowset {
 
-$MethodInfo _FilteredRowSet_MethodInfo_[] = {
-	{"getFilter", "()Ljavax/sql/rowset/Predicate;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(FilteredRowSet, getFilter, $Predicate*)},
-	{"setFilter", "(Ljavax/sql/rowset/Predicate;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(FilteredRowSet, setFilter, void, $Predicate*), "java.sql.SQLException"},
-	{}
-};
-
-$ClassInfo _FilteredRowSet_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"javax.sql.rowset.FilteredRowSet",
-	nullptr,
-	"javax.sql.rowset.WebRowSet",
-	nullptr,
-	_FilteredRowSet_MethodInfo_
-};
-
-$Object* allocate$FilteredRowSet($Class* clazz) {
-	return $of($alloc(FilteredRowSet));
-}
-
 $Class* FilteredRowSet::load$($String* name, bool initialize) {
-	$loadClass(FilteredRowSet, name, initialize, &_FilteredRowSet_ClassInfo_, allocate$FilteredRowSet);
+	$MethodInfo methodInfos$$[] = {
+		{"getFilter", "()Ljavax/sql/rowset/Predicate;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(FilteredRowSet, getFilter, $Predicate*)},
+		{"setFilter", "(Ljavax/sql/rowset/Predicate;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(FilteredRowSet, setFilter, void, $Predicate*), "java.sql.SQLException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"javax.sql.rowset.FilteredRowSet",
+		nullptr,
+		"javax.sql.rowset.WebRowSet",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(FilteredRowSet, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(FilteredRowSet));
+	});
 	return class$;
 }
 

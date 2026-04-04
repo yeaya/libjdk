@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/security/utils/SignatureElementProxy.h>
-
 #include <com/sun/org/apache/xml/internal/security/utils/Constants.h>
 #include <com/sun/org/apache/xml/internal/security/utils/ElementProxy.h>
 #include <com/sun/org/apache/xml/internal/security/utils/XMLUtils.h>
@@ -25,33 +24,12 @@ namespace com {
 						namespace security {
 							namespace utils {
 
-$MethodInfo _SignatureElementProxy_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(SignatureElementProxy, init$, void)},
-	{"<init>", "(Lorg/w3c/dom/Document;)V", nullptr, $PUBLIC, $method(SignatureElementProxy, init$, void, $Document*)},
-	{"<init>", "(Lorg/w3c/dom/Element;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SignatureElementProxy, init$, void, $Element*, $String*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
-	{"getBaseNamespace", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SignatureElementProxy, getBaseNamespace, $String*)},
-	{}
-};
-
-$ClassInfo _SignatureElementProxy_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"com.sun.org.apache.xml.internal.security.utils.SignatureElementProxy",
-	"com.sun.org.apache.xml.internal.security.utils.ElementProxy",
-	nullptr,
-	nullptr,
-	_SignatureElementProxy_MethodInfo_
-};
-
-$Object* allocate$SignatureElementProxy($Class* clazz) {
-	return $of($alloc(SignatureElementProxy));
-}
-
 void SignatureElementProxy::init$() {
 	$ElementProxy::init$();
 }
 
 void SignatureElementProxy::init$($Document* doc) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$ElementProxy::init$();
 	if (doc == nullptr) {
 		$throwNew($RuntimeException, "Document is null"_s);
@@ -73,7 +51,24 @@ SignatureElementProxy::SignatureElementProxy() {
 }
 
 $Class* SignatureElementProxy::load$($String* name, bool initialize) {
-	$loadClass(SignatureElementProxy, name, initialize, &_SignatureElementProxy_ClassInfo_, allocate$SignatureElementProxy);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PROTECTED, $method(SignatureElementProxy, init$, void)},
+		{"<init>", "(Lorg/w3c/dom/Document;)V", nullptr, $PUBLIC, $method(SignatureElementProxy, init$, void, $Document*)},
+		{"<init>", "(Lorg/w3c/dom/Element;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SignatureElementProxy, init$, void, $Element*, $String*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
+		{"getBaseNamespace", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SignatureElementProxy, getBaseNamespace, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"com.sun.org.apache.xml.internal.security.utils.SignatureElementProxy",
+		"com.sun.org.apache.xml.internal.security.utils.ElementProxy",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(SignatureElementProxy, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SignatureElementProxy);
+	});
 	return class$;
 }
 

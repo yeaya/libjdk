@@ -1,5 +1,4 @@
 #include <java/beans/FeatureDescriptor.h>
-
 #include <com/sun/beans/TypeResolver.h>
 #include <java/beans/Transient.h>
 #include <java/lang/ref/Reference.h>
@@ -11,7 +10,6 @@
 #include <java/util/Hashtable.h>
 #include <java/util/Iterator.h>
 #include <java/util/Map$Entry.h>
-#include <java/util/Map.h>
 #include <java/util/Set.h>
 #include <jcpp.h>
 
@@ -30,75 +28,10 @@ using $Method = ::java::lang::reflect::Method;
 using $Enumeration = ::java::util::Enumeration;
 using $Hashtable = ::java::util::Hashtable;
 using $Iterator = ::java::util::Iterator;
-using $Map = ::java::util::Map;
 using $Map$Entry = ::java::util::Map$Entry;
-using $Set = ::java::util::Set;
 
 namespace java {
 	namespace beans {
-
-$FieldInfo _FeatureDescriptor_FieldInfo_[] = {
-	{"TRANSIENT", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(FeatureDescriptor, TRANSIENT)},
-	{"classRef", "Ljava/lang/ref/Reference;", "Ljava/lang/ref/Reference<+Ljava/lang/Class<*>;>;", $PRIVATE, $field(FeatureDescriptor, classRef)},
-	{"expert", "Z", nullptr, $PRIVATE, $field(FeatureDescriptor, expert)},
-	{"hidden", "Z", nullptr, $PRIVATE, $field(FeatureDescriptor, hidden)},
-	{"preferred", "Z", nullptr, $PRIVATE, $field(FeatureDescriptor, preferred)},
-	{"shortDescription", "Ljava/lang/String;", nullptr, $PRIVATE, $field(FeatureDescriptor, shortDescription)},
-	{"name", "Ljava/lang/String;", nullptr, $PRIVATE, $field(FeatureDescriptor, name)},
-	{"displayName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(FeatureDescriptor, displayName)},
-	{"table", "Ljava/util/Hashtable;", "Ljava/util/Hashtable<Ljava/lang/String;Ljava/lang/Object;>;", $PRIVATE, $field(FeatureDescriptor, table)},
-	{}
-};
-
-$MethodInfo _FeatureDescriptor_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(FeatureDescriptor, init$, void)},
-	{"<init>", "(Ljava/beans/FeatureDescriptor;Ljava/beans/FeatureDescriptor;)V", nullptr, 0, $method(FeatureDescriptor, init$, void, FeatureDescriptor*, FeatureDescriptor*)},
-	{"<init>", "(Ljava/beans/FeatureDescriptor;)V", nullptr, 0, $method(FeatureDescriptor, init$, void, FeatureDescriptor*)},
-	{"addTable", "(Ljava/util/Hashtable;)V", "(Ljava/util/Hashtable<Ljava/lang/String;Ljava/lang/Object;>;)V", $PRIVATE, $method(FeatureDescriptor, addTable, void, $Hashtable*)},
-	{"appendTo", "(Ljava/lang/StringBuilder;)V", nullptr, 0, $virtualMethod(FeatureDescriptor, appendTo, void, $StringBuilder*)},
-	{"appendTo", "(Ljava/lang/StringBuilder;Ljava/lang/String;Ljava/lang/ref/Reference;)V", "(Ljava/lang/StringBuilder;Ljava/lang/String;Ljava/lang/ref/Reference<*>;)V", $STATIC, $staticMethod(FeatureDescriptor, appendTo, void, $StringBuilder*, $String*, $Reference*)},
-	{"appendTo", "(Ljava/lang/StringBuilder;Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $STATIC, $staticMethod(FeatureDescriptor, appendTo, void, $StringBuilder*, $String*, Object$*)},
-	{"appendTo", "(Ljava/lang/StringBuilder;Ljava/lang/String;Z)V", nullptr, $STATIC, $staticMethod(FeatureDescriptor, appendTo, void, $StringBuilder*, $String*, bool)},
-	{"attributeNames", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(FeatureDescriptor, attributeNames, $Enumeration*)},
-	{"getClass0", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", 0, $virtualMethod(FeatureDescriptor, getClass0, $Class*)},
-	{"getDisplayName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(FeatureDescriptor, getDisplayName, $String*)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(FeatureDescriptor, getName, $String*)},
-	{"getParameterTypes", "(Ljava/lang/Class;Ljava/lang/reflect/Method;)[Ljava/lang/Class;", "(Ljava/lang/Class<*>;Ljava/lang/reflect/Method;)[Ljava/lang/Class<*>;", $STATIC, $staticMethod(FeatureDescriptor, getParameterTypes, $ClassArray*, $Class*, $Method*)},
-	{"getReturnType", "(Ljava/lang/Class;Ljava/lang/reflect/Method;)Ljava/lang/Class;", "(Ljava/lang/Class<*>;Ljava/lang/reflect/Method;)Ljava/lang/Class<*>;", $STATIC, $staticMethod(FeatureDescriptor, getReturnType, $Class*, $Class*, $Method*)},
-	{"getShortDescription", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(FeatureDescriptor, getShortDescription, $String*)},
-	{"getSoftReference", "(Ljava/lang/Object;)Ljava/lang/ref/Reference;", "<T:Ljava/lang/Object;>(TT;)Ljava/lang/ref/Reference<TT;>;", $STATIC, $staticMethod(FeatureDescriptor, getSoftReference, $Reference*, Object$*)},
-	{"getTable", "()Ljava/util/Hashtable;", "()Ljava/util/Hashtable<Ljava/lang/String;Ljava/lang/Object;>;", $PRIVATE, $method(FeatureDescriptor, getTable, $Hashtable*)},
-	{"getValue", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(FeatureDescriptor, getValue, $Object*, $String*)},
-	{"getWeakReference", "(Ljava/lang/Object;)Ljava/lang/ref/Reference;", "<T:Ljava/lang/Object;>(TT;)Ljava/lang/ref/Reference<TT;>;", $STATIC, $staticMethod(FeatureDescriptor, getWeakReference, $Reference*, Object$*)},
-	{"isExpert", "()Z", nullptr, $PUBLIC, $virtualMethod(FeatureDescriptor, isExpert, bool)},
-	{"isHidden", "()Z", nullptr, $PUBLIC, $virtualMethod(FeatureDescriptor, isHidden, bool)},
-	{"isPreferred", "()Z", nullptr, $PUBLIC, $virtualMethod(FeatureDescriptor, isPreferred, bool)},
-	{"isTransient", "()Z", nullptr, 0, $virtualMethod(FeatureDescriptor, isTransient, bool)},
-	{"setClass0", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;)V", 0, $virtualMethod(FeatureDescriptor, setClass0, void, $Class*)},
-	{"setDisplayName", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(FeatureDescriptor, setDisplayName, void, $String*)},
-	{"setExpert", "(Z)V", nullptr, $PUBLIC, $virtualMethod(FeatureDescriptor, setExpert, void, bool)},
-	{"setHidden", "(Z)V", nullptr, $PUBLIC, $virtualMethod(FeatureDescriptor, setHidden, void, bool)},
-	{"setName", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(FeatureDescriptor, setName, void, $String*)},
-	{"setPreferred", "(Z)V", nullptr, $PUBLIC, $virtualMethod(FeatureDescriptor, setPreferred, void, bool)},
-	{"setShortDescription", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(FeatureDescriptor, setShortDescription, void, $String*)},
-	{"setTransient", "(Ljava/beans/Transient;)V", nullptr, 0, $virtualMethod(FeatureDescriptor, setTransient, void, $Transient*)},
-	{"setValue", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(FeatureDescriptor, setValue, void, $String*, Object$*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(FeatureDescriptor, toString, $String*)},
-	{}
-};
-
-$ClassInfo _FeatureDescriptor_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.beans.FeatureDescriptor",
-	"java.lang.Object",
-	nullptr,
-	_FeatureDescriptor_FieldInfo_,
-	_FeatureDescriptor_MethodInfo_
-};
-
-$Object* allocate$FeatureDescriptor($Class* clazz) {
-	return $of($alloc(FeatureDescriptor));
-}
 
 $String* FeatureDescriptor::TRANSIENT = nullptr;
 
@@ -160,15 +93,15 @@ void FeatureDescriptor::setShortDescription($String* text) {
 }
 
 void FeatureDescriptor::setValue($String* attributeName, Object$* value) {
-	$nc($(getTable()))->put(attributeName, value);
+	$$nc(getTable())->put(attributeName, value);
 }
 
 $Object* FeatureDescriptor::getValue($String* attributeName) {
-	return $of((this->table != nullptr) ? $nc(this->table)->get(attributeName) : ($Object*)nullptr);
+	return (this->table != nullptr) ? this->table->get(attributeName) : ($Object*)nullptr;
 }
 
 $Enumeration* FeatureDescriptor::attributeNames() {
-	return $nc($(getTable()))->keys();
+	return $$nc(getTable())->keys();
 }
 
 void FeatureDescriptor::init$(FeatureDescriptor* x, FeatureDescriptor* y) {
@@ -205,7 +138,7 @@ void FeatureDescriptor::init$(FeatureDescriptor* old) {
 
 void FeatureDescriptor::addTable($Hashtable* table) {
 	if ((table != nullptr) && !table->isEmpty()) {
-		$nc($(getTable()))->putAll(table);
+		$$nc(getTable())->putAll(table);
 	}
 }
 
@@ -224,7 +157,7 @@ void FeatureDescriptor::setTransient($Transient* annotation) {
 
 bool FeatureDescriptor::isTransient() {
 	$var($Object, value, getValue(FeatureDescriptor::TRANSIENT));
-	return ($instanceOf($Boolean, value)) ? $nc(($cast($Boolean, value)))->booleanValue() : false;
+	return ($instanceOf($Boolean, value)) ? $cast($Boolean, value)->booleanValue() : false;
 }
 
 void FeatureDescriptor::setClass0($Class* cls) {
@@ -232,22 +165,22 @@ void FeatureDescriptor::setClass0($Class* cls) {
 }
 
 $Class* FeatureDescriptor::getClass0() {
-	return (this->classRef != nullptr) ? $cast($Class, $nc(this->classRef)->get()) : ($Class*)nullptr;
+	return (this->classRef != nullptr) ? $cast($Class, this->classRef->get()) : ($Class*)nullptr;
 }
 
 $Reference* FeatureDescriptor::getSoftReference(Object$* object) {
 	$init(FeatureDescriptor);
-	return (object != nullptr) ? static_cast<$Reference*>($new($SoftReference, object)) : ($Reference*)nullptr;
+	return (object != nullptr) ? $cast($Reference, $new($SoftReference, object)) : ($Reference*)nullptr;
 }
 
 $Reference* FeatureDescriptor::getWeakReference(Object$* object) {
 	$init(FeatureDescriptor);
-	return (object != nullptr) ? static_cast<$Reference*>($new($WeakReference, object)) : ($Reference*)nullptr;
+	return (object != nullptr) ? $cast($Reference, $new($WeakReference, object)) : ($Reference*)nullptr;
 }
 
 $Class* FeatureDescriptor::getReturnType($Class* base, $Method* method) {
 	$init(FeatureDescriptor);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (base == nullptr) {
 		base = $nc(method)->getDeclaringClass();
 	}
@@ -256,7 +189,7 @@ $Class* FeatureDescriptor::getReturnType($Class* base, $Method* method) {
 
 $ClassArray* FeatureDescriptor::getParameterTypes($Class* base, $Method* method) {
 	$init(FeatureDescriptor);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (base == nullptr) {
 		base = $nc(method)->getDeclaringClass();
 	}
@@ -264,22 +197,22 @@ $ClassArray* FeatureDescriptor::getParameterTypes($Class* base, $Method* method)
 }
 
 $String* FeatureDescriptor::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, sb, $new($StringBuilder, $($of(this)->getClass()->getName())));
 	sb->append("[name="_s)->append(this->name);
-	appendTo(sb, "displayName"_s, $of(this->displayName));
-	appendTo(sb, "shortDescription"_s, $of(this->shortDescription));
+	appendTo(sb, "displayName"_s, this->displayName);
+	appendTo(sb, "shortDescription"_s, this->shortDescription);
 	appendTo(sb, "preferred"_s, this->preferred);
 	appendTo(sb, "hidden"_s, this->hidden);
 	appendTo(sb, "expert"_s, this->expert);
-	if ((this->table != nullptr) && !$nc(this->table)->isEmpty()) {
+	if ((this->table != nullptr) && !this->table->isEmpty()) {
 		sb->append("; values={"_s);
 		{
-			$var($Iterator, i$, $nc($($nc(this->table)->entrySet()))->iterator());
+			$var($Iterator, i$, $$nc(this->table->entrySet())->iterator());
 			for (; $nc(i$)->hasNext();) {
 				$var($Map$Entry, entry, $cast($Map$Entry, i$->next()));
 				{
-					sb->append($cast($String, $($nc(entry)->getKey())))->append("="_s)->append($($nc(entry)->getValue()))->append("; "_s);
+					sb->append($$cast($String, $nc(entry)->getKey()))->append("="_s)->append($($nc(entry)->getValue()))->append("; "_s);
 				}
 			}
 		}
@@ -317,12 +250,70 @@ void FeatureDescriptor::appendTo($StringBuilder* sb, $String* name, bool value) 
 FeatureDescriptor::FeatureDescriptor() {
 }
 
-void clinit$FeatureDescriptor($Class* class$) {
+void FeatureDescriptor::clinit$($Class* clazz) {
 	$assignStatic(FeatureDescriptor::TRANSIENT, "transient"_s);
 }
 
 $Class* FeatureDescriptor::load$($String* name, bool initialize) {
-	$loadClass(FeatureDescriptor, name, initialize, &_FeatureDescriptor_ClassInfo_, clinit$FeatureDescriptor, allocate$FeatureDescriptor);
+	$FieldInfo fieldInfos$$[] = {
+		{"TRANSIENT", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(FeatureDescriptor, TRANSIENT)},
+		{"classRef", "Ljava/lang/ref/Reference;", "Ljava/lang/ref/Reference<+Ljava/lang/Class<*>;>;", $PRIVATE, $field(FeatureDescriptor, classRef)},
+		{"expert", "Z", nullptr, $PRIVATE, $field(FeatureDescriptor, expert)},
+		{"hidden", "Z", nullptr, $PRIVATE, $field(FeatureDescriptor, hidden)},
+		{"preferred", "Z", nullptr, $PRIVATE, $field(FeatureDescriptor, preferred)},
+		{"shortDescription", "Ljava/lang/String;", nullptr, $PRIVATE, $field(FeatureDescriptor, shortDescription)},
+		{"name", "Ljava/lang/String;", nullptr, $PRIVATE, $field(FeatureDescriptor, name)},
+		{"displayName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(FeatureDescriptor, displayName)},
+		{"table", "Ljava/util/Hashtable;", "Ljava/util/Hashtable<Ljava/lang/String;Ljava/lang/Object;>;", $PRIVATE, $field(FeatureDescriptor, table)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(FeatureDescriptor, init$, void)},
+		{"<init>", "(Ljava/beans/FeatureDescriptor;Ljava/beans/FeatureDescriptor;)V", nullptr, 0, $method(FeatureDescriptor, init$, void, FeatureDescriptor*, FeatureDescriptor*)},
+		{"<init>", "(Ljava/beans/FeatureDescriptor;)V", nullptr, 0, $method(FeatureDescriptor, init$, void, FeatureDescriptor*)},
+		{"addTable", "(Ljava/util/Hashtable;)V", "(Ljava/util/Hashtable<Ljava/lang/String;Ljava/lang/Object;>;)V", $PRIVATE, $method(FeatureDescriptor, addTable, void, $Hashtable*)},
+		{"appendTo", "(Ljava/lang/StringBuilder;)V", nullptr, 0, $virtualMethod(FeatureDescriptor, appendTo, void, $StringBuilder*)},
+		{"appendTo", "(Ljava/lang/StringBuilder;Ljava/lang/String;Ljava/lang/ref/Reference;)V", "(Ljava/lang/StringBuilder;Ljava/lang/String;Ljava/lang/ref/Reference<*>;)V", $STATIC, $staticMethod(FeatureDescriptor, appendTo, void, $StringBuilder*, $String*, $Reference*)},
+		{"appendTo", "(Ljava/lang/StringBuilder;Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $STATIC, $staticMethod(FeatureDescriptor, appendTo, void, $StringBuilder*, $String*, Object$*)},
+		{"appendTo", "(Ljava/lang/StringBuilder;Ljava/lang/String;Z)V", nullptr, $STATIC, $staticMethod(FeatureDescriptor, appendTo, void, $StringBuilder*, $String*, bool)},
+		{"attributeNames", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(FeatureDescriptor, attributeNames, $Enumeration*)},
+		{"getClass0", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", 0, $virtualMethod(FeatureDescriptor, getClass0, $Class*)},
+		{"getDisplayName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(FeatureDescriptor, getDisplayName, $String*)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(FeatureDescriptor, getName, $String*)},
+		{"getParameterTypes", "(Ljava/lang/Class;Ljava/lang/reflect/Method;)[Ljava/lang/Class;", "(Ljava/lang/Class<*>;Ljava/lang/reflect/Method;)[Ljava/lang/Class<*>;", $STATIC, $staticMethod(FeatureDescriptor, getParameterTypes, $ClassArray*, $Class*, $Method*)},
+		{"getReturnType", "(Ljava/lang/Class;Ljava/lang/reflect/Method;)Ljava/lang/Class;", "(Ljava/lang/Class<*>;Ljava/lang/reflect/Method;)Ljava/lang/Class<*>;", $STATIC, $staticMethod(FeatureDescriptor, getReturnType, $Class*, $Class*, $Method*)},
+		{"getShortDescription", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(FeatureDescriptor, getShortDescription, $String*)},
+		{"getSoftReference", "(Ljava/lang/Object;)Ljava/lang/ref/Reference;", "<T:Ljava/lang/Object;>(TT;)Ljava/lang/ref/Reference<TT;>;", $STATIC, $staticMethod(FeatureDescriptor, getSoftReference, $Reference*, Object$*)},
+		{"getTable", "()Ljava/util/Hashtable;", "()Ljava/util/Hashtable<Ljava/lang/String;Ljava/lang/Object;>;", $PRIVATE, $method(FeatureDescriptor, getTable, $Hashtable*)},
+		{"getValue", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(FeatureDescriptor, getValue, $Object*, $String*)},
+		{"getWeakReference", "(Ljava/lang/Object;)Ljava/lang/ref/Reference;", "<T:Ljava/lang/Object;>(TT;)Ljava/lang/ref/Reference<TT;>;", $STATIC, $staticMethod(FeatureDescriptor, getWeakReference, $Reference*, Object$*)},
+		{"isExpert", "()Z", nullptr, $PUBLIC, $virtualMethod(FeatureDescriptor, isExpert, bool)},
+		{"isHidden", "()Z", nullptr, $PUBLIC, $virtualMethod(FeatureDescriptor, isHidden, bool)},
+		{"isPreferred", "()Z", nullptr, $PUBLIC, $virtualMethod(FeatureDescriptor, isPreferred, bool)},
+		{"isTransient", "()Z", nullptr, 0, $virtualMethod(FeatureDescriptor, isTransient, bool)},
+		{"setClass0", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;)V", 0, $virtualMethod(FeatureDescriptor, setClass0, void, $Class*)},
+		{"setDisplayName", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(FeatureDescriptor, setDisplayName, void, $String*)},
+		{"setExpert", "(Z)V", nullptr, $PUBLIC, $virtualMethod(FeatureDescriptor, setExpert, void, bool)},
+		{"setHidden", "(Z)V", nullptr, $PUBLIC, $virtualMethod(FeatureDescriptor, setHidden, void, bool)},
+		{"setName", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(FeatureDescriptor, setName, void, $String*)},
+		{"setPreferred", "(Z)V", nullptr, $PUBLIC, $virtualMethod(FeatureDescriptor, setPreferred, void, bool)},
+		{"setShortDescription", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(FeatureDescriptor, setShortDescription, void, $String*)},
+		{"setTransient", "(Ljava/beans/Transient;)V", nullptr, 0, $virtualMethod(FeatureDescriptor, setTransient, void, $Transient*)},
+		{"setValue", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(FeatureDescriptor, setValue, void, $String*, Object$*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(FeatureDescriptor, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.beans.FeatureDescriptor",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(FeatureDescriptor, name, initialize, &classInfo$$, FeatureDescriptor::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(FeatureDescriptor);
+	});
 	return class$;
 }
 

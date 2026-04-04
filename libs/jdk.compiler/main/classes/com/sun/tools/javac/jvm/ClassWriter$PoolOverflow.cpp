@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/jvm/ClassWriter$PoolOverflow.h>
-
 #include <com/sun/tools/javac/jvm/ClassWriter.h>
 #include <jcpp.h>
 
@@ -14,41 +13,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace jvm {
-
-$FieldInfo _ClassWriter$PoolOverflow_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ClassWriter$PoolOverflow, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _ClassWriter$PoolOverflow_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ClassWriter$PoolOverflow, init$, void)},
-	{}
-};
-
-$InnerClassInfo _ClassWriter$PoolOverflow_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.jvm.ClassWriter$PoolOverflow", "com.sun.tools.javac.jvm.ClassWriter", "PoolOverflow", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _ClassWriter$PoolOverflow_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.jvm.ClassWriter$PoolOverflow",
-	"java.lang.RuntimeException",
-	nullptr,
-	_ClassWriter$PoolOverflow_FieldInfo_,
-	_ClassWriter$PoolOverflow_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ClassWriter$PoolOverflow_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.jvm.ClassWriter"
-};
-
-$Object* allocate$ClassWriter$PoolOverflow($Class* clazz) {
-	return $of($alloc(ClassWriter$PoolOverflow));
-}
 
 void ClassWriter$PoolOverflow::init$() {
 	$RuntimeException::init$();
@@ -65,7 +29,36 @@ void ClassWriter$PoolOverflow::throw$() {
 }
 
 $Class* ClassWriter$PoolOverflow::load$($String* name, bool initialize) {
-	$loadClass(ClassWriter$PoolOverflow, name, initialize, &_ClassWriter$PoolOverflow_ClassInfo_, allocate$ClassWriter$PoolOverflow);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ClassWriter$PoolOverflow, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ClassWriter$PoolOverflow, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.jvm.ClassWriter$PoolOverflow", "com.sun.tools.javac.jvm.ClassWriter", "PoolOverflow", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.jvm.ClassWriter$PoolOverflow",
+		"java.lang.RuntimeException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.jvm.ClassWriter"
+	};
+	$loadClass(ClassWriter$PoolOverflow, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ClassWriter$PoolOverflow);
+	});
 	return class$;
 }
 

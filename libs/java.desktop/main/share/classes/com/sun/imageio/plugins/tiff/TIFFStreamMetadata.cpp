@@ -1,5 +1,4 @@
 #include <com/sun/imageio/plugins/tiff/TIFFStreamMetadata.h>
-
 #include <java/nio/ByteOrder.h>
 #include <javax/imageio/metadata/IIOInvalidTreeException.h>
 #include <javax/imageio/metadata/IIOMetadata.h>
@@ -31,39 +30,6 @@ namespace com {
 			namespace plugins {
 				namespace tiff {
 
-$FieldInfo _TIFFStreamMetadata_FieldInfo_[] = {
-	{"NATIVE_METADATA_FORMAT_NAME", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(TIFFStreamMetadata, NATIVE_METADATA_FORMAT_NAME)},
-	{"NATIVE_METADATA_FORMAT_CLASS_NAME", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(TIFFStreamMetadata, NATIVE_METADATA_FORMAT_CLASS_NAME)},
-	{"bigEndianString", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(TIFFStreamMetadata, bigEndianString)},
-	{"littleEndianString", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(TIFFStreamMetadata, littleEndianString)},
-	{"byteOrder", "Ljava/nio/ByteOrder;", nullptr, $PUBLIC, $field(TIFFStreamMetadata, byteOrder)},
-	{}
-};
-
-$MethodInfo _TIFFStreamMetadata_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TIFFStreamMetadata, init$, void)},
-	{"fatal", "(Lorg/w3c/dom/Node;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(TIFFStreamMetadata, fatal, void, $Node*, $String*), "javax.imageio.metadata.IIOInvalidTreeException"},
-	{"getAsTree", "(Ljava/lang/String;)Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(TIFFStreamMetadata, getAsTree, $Node*, $String*)},
-	{"isReadOnly", "()Z", nullptr, $PUBLIC, $virtualMethod(TIFFStreamMetadata, isReadOnly, bool)},
-	{"mergeNativeTree", "(Lorg/w3c/dom/Node;)V", nullptr, $PRIVATE, $method(TIFFStreamMetadata, mergeNativeTree, void, $Node*), "javax.imageio.metadata.IIOInvalidTreeException"},
-	{"mergeTree", "(Ljava/lang/String;Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC, $virtualMethod(TIFFStreamMetadata, mergeTree, void, $String*, $Node*), "javax.imageio.metadata.IIOInvalidTreeException"},
-	{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(TIFFStreamMetadata, reset, void)},
-	{}
-};
-
-$ClassInfo _TIFFStreamMetadata_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.imageio.plugins.tiff.TIFFStreamMetadata",
-	"javax.imageio.metadata.IIOMetadata",
-	nullptr,
-	_TIFFStreamMetadata_FieldInfo_,
-	_TIFFStreamMetadata_MethodInfo_
-};
-
-$Object* allocate$TIFFStreamMetadata($Class* clazz) {
-	return $of($alloc(TIFFStreamMetadata));
-}
-
 $String* TIFFStreamMetadata::NATIVE_METADATA_FORMAT_NAME = nullptr;
 $String* TIFFStreamMetadata::NATIVE_METADATA_FORMAT_CLASS_NAME = nullptr;
 $String* TIFFStreamMetadata::bigEndianString = nullptr;
@@ -85,7 +51,7 @@ void TIFFStreamMetadata::fatal($Node* node, $String* reason) {
 }
 
 $Node* TIFFStreamMetadata::getAsTree($String* formatName) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($IIOMetadataNode, root, $new($IIOMetadataNode, this->nativeMetadataFormatName));
 	$var($IIOMetadataNode, byteOrderNode, $new($IIOMetadataNode, "ByteOrder"_s));
 	byteOrderNode->setAttribute("value"_s, $($nc(this->byteOrder)->toString()));
@@ -94,17 +60,17 @@ $Node* TIFFStreamMetadata::getAsTree($String* formatName) {
 }
 
 void TIFFStreamMetadata::mergeNativeTree($Node* root) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Node, node, root);
-	if (!$nc($($nc(node)->getNodeName()))->equals(this->nativeMetadataFormatName)) {
+	if (!$$nc($nc(node)->getNodeName())->equals(this->nativeMetadataFormatName)) {
 		fatal(node, $$str({"Root must be "_s, this->nativeMetadataFormatName}));
 	}
-	$assign(node, $nc(node)->getFirstChild());
-	if (node == nullptr || !$nc($(node->getNodeName()))->equals("ByteOrder"_s)) {
+	$assign(node, node->getFirstChild());
+	if (node == nullptr || !$$nc(node->getNodeName())->equals("ByteOrder"_s)) {
 		fatal(node, "Root must have \"ByteOrder\" child"_s);
 	}
-	$var($NamedNodeMap, attrs, node->getAttributes());
-	$var($String, order, $nc($($nc(attrs)->getNamedItem("value"_s)))->getNodeValue());
+	$var($NamedNodeMap, attrs, $nc(node)->getAttributes());
+	$var($String, order, $$nc($nc(attrs)->getNamedItem("value"_s))->getNodeValue());
 	if (order == nullptr) {
 		fatal(node, "ByteOrder node must have a \"value\" attribute"_s);
 	}
@@ -135,7 +101,7 @@ void TIFFStreamMetadata::reset() {
 	$set(this, byteOrder, $ByteOrder::BIG_ENDIAN);
 }
 
-void clinit$TIFFStreamMetadata($Class* class$) {
+void TIFFStreamMetadata::clinit$($Class* clazz) {
 	$assignStatic(TIFFStreamMetadata::NATIVE_METADATA_FORMAT_NAME, "javax_imageio_tiff_stream_1.0"_s);
 	$assignStatic(TIFFStreamMetadata::NATIVE_METADATA_FORMAT_CLASS_NAME, "javax.imageio.plugins.tiff.TIFFStreamMetadataFormat"_s);
 	$init($ByteOrder);
@@ -147,7 +113,35 @@ TIFFStreamMetadata::TIFFStreamMetadata() {
 }
 
 $Class* TIFFStreamMetadata::load$($String* name, bool initialize) {
-	$loadClass(TIFFStreamMetadata, name, initialize, &_TIFFStreamMetadata_ClassInfo_, clinit$TIFFStreamMetadata, allocate$TIFFStreamMetadata);
+	$FieldInfo fieldInfos$$[] = {
+		{"NATIVE_METADATA_FORMAT_NAME", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(TIFFStreamMetadata, NATIVE_METADATA_FORMAT_NAME)},
+		{"NATIVE_METADATA_FORMAT_CLASS_NAME", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(TIFFStreamMetadata, NATIVE_METADATA_FORMAT_CLASS_NAME)},
+		{"bigEndianString", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(TIFFStreamMetadata, bigEndianString)},
+		{"littleEndianString", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(TIFFStreamMetadata, littleEndianString)},
+		{"byteOrder", "Ljava/nio/ByteOrder;", nullptr, $PUBLIC, $field(TIFFStreamMetadata, byteOrder)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TIFFStreamMetadata, init$, void)},
+		{"fatal", "(Lorg/w3c/dom/Node;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(TIFFStreamMetadata, fatal, void, $Node*, $String*), "javax.imageio.metadata.IIOInvalidTreeException"},
+		{"getAsTree", "(Ljava/lang/String;)Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(TIFFStreamMetadata, getAsTree, $Node*, $String*)},
+		{"isReadOnly", "()Z", nullptr, $PUBLIC, $virtualMethod(TIFFStreamMetadata, isReadOnly, bool)},
+		{"mergeNativeTree", "(Lorg/w3c/dom/Node;)V", nullptr, $PRIVATE, $method(TIFFStreamMetadata, mergeNativeTree, void, $Node*), "javax.imageio.metadata.IIOInvalidTreeException"},
+		{"mergeTree", "(Ljava/lang/String;Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC, $virtualMethod(TIFFStreamMetadata, mergeTree, void, $String*, $Node*), "javax.imageio.metadata.IIOInvalidTreeException"},
+		{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(TIFFStreamMetadata, reset, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.imageio.plugins.tiff.TIFFStreamMetadata",
+		"javax.imageio.metadata.IIOMetadata",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TIFFStreamMetadata, name, initialize, &classInfo$$, TIFFStreamMetadata::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(TIFFStreamMetadata);
+	});
 	return class$;
 }
 

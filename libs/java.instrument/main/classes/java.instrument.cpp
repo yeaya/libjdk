@@ -1,13 +1,10 @@
 #include <java.instrument.h>
-
 #include <java.base.h>
 #include <java/lang/ClassEntry.h>
 #include <java/lang/Library.h>
 #include <java/lang/ModuleInfo.h>
 #include <java/lang/ResourceEntry.h>
 #include <jcpp.h>
-#include <module-info>
-
 #include <java/lang/instrument/ClassDefinition.h>
 #include <java/lang/instrument/ClassFileTransformer.h>
 #include <java/lang/instrument/IllegalClassFormatException.h>
@@ -99,6 +96,7 @@ $bytes* java$instrument$GetResource($String* name) {
 
 void java$instrument::init() {
 	::java$base::init();
+	#include <module-info.h>
 	::java::lang::Library lib = {
 		"java.instrument", "17.35", "",
 		&_java$instrument_ModuleInfo_,

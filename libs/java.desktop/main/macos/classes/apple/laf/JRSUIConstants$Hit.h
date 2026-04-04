@@ -19,6 +19,7 @@ class JRSUIConstants$Hit : public ::java::lang::Object {
 	$class(JRSUIConstants$Hit, 0, ::java::lang::Object)
 public:
 	JRSUIConstants$Hit();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int32_t hit);
 	$String* getConstantName(::apple::laf::JRSUIConstants$Hit* hit);
 	virtual bool isHit();

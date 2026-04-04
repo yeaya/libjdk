@@ -1,5 +1,4 @@
 #include <bug6917744$3.h>
-
 #include <bug6917744.h>
 #include <java/awt/Window.h>
 #include <javax/swing/BoundedRangeModel.h>
@@ -15,54 +14,14 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $BoundedRangeModel = ::javax::swing::BoundedRangeModel;
-using $JFrame = ::javax::swing::JFrame;
-using $JScrollBar = ::javax::swing::JScrollBar;
-using $JScrollPane = ::javax::swing::JScrollPane;
-
-$MethodInfo _bug6917744$3_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(bug6917744$3, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug6917744$3, run, void)},
-	{}
-};
-
-$EnclosingMethodInfo _bug6917744$3_EnclosingMethodInfo_ = {
-	"bug6917744",
-	"main",
-	"([Ljava/lang/String;)V"
-};
-
-$InnerClassInfo _bug6917744$3_InnerClassesInfo_[] = {
-	{"bug6917744$3", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _bug6917744$3_ClassInfo_ = {
-	$ACC_SUPER,
-	"bug6917744$3",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	_bug6917744$3_MethodInfo_,
-	nullptr,
-	&_bug6917744$3_EnclosingMethodInfo_,
-	_bug6917744$3_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"bug6917744"
-};
-
-$Object* allocate$bug6917744$3($Class* clazz) {
-	return $of($alloc(bug6917744$3));
-}
 
 void bug6917744$3::init$() {
 }
 
 void bug6917744$3::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($bug6917744);
-	$var($BoundedRangeModel, model, $nc($($nc($bug6917744::scrollPane)->getVerticalScrollBar()))->getModel());
+	$var($BoundedRangeModel, model, $$nc($nc($bug6917744::scrollPane)->getVerticalScrollBar())->getModel());
 	int32_t var$0 = $nc(model)->getValue();
 	if (var$0 != model->getMinimum()) {
 		$nc($bug6917744::frame)->dispose();
@@ -75,7 +34,38 @@ bug6917744$3::bug6917744$3() {
 }
 
 $Class* bug6917744$3::load$($String* name, bool initialize) {
-	$loadClass(bug6917744$3, name, initialize, &_bug6917744$3_ClassInfo_, allocate$bug6917744$3);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(bug6917744$3, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug6917744$3, run, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"bug6917744",
+		"main",
+		"([Ljava/lang/String;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"bug6917744$3", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"bug6917744$3",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"bug6917744"
+	};
+	$loadClass(bug6917744$3, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(bug6917744$3);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <TestUI.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <java/awt/GridBagConstraints.h>
@@ -26,14 +25,11 @@
 #include <javax/swing/border/TitledBorder.h>
 #include <jcpp.h>
 
-using $Component = ::java::awt::Component;
 using $GridBagConstraints = ::java::awt::GridBagConstraints;
 using $GridBagLayout = ::java::awt::GridBagLayout;
 using $Insets = ::java::awt::Insets;
-using $LayoutManager = ::java::awt::LayoutManager;
 using $ActionEvent = ::java::awt::event::ActionEvent;
 using $ActionListener = ::java::awt::event::ActionListener;
-using $PrintStream = ::java::io::PrintStream;
 using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -46,7 +42,6 @@ using $JFrame = ::javax::swing::JFrame;
 using $JPanel = ::javax::swing::JPanel;
 using $JTextArea = ::javax::swing::JTextArea;
 using $UIManager = ::javax::swing::UIManager;
-using $Border = ::javax::swing::border::Border;
 
 class TestUI$$Lambda$lambda$createUI$0 : public $ActionListener {
 	$class(TestUI$$Lambda$lambda$createUI$0, $NO_CLASS_INIT, $ActionListener)
@@ -57,33 +52,29 @@ public:
 	virtual void actionPerformed($ActionEvent* e) override {
 		$nc(inst$)->lambda$createUI$0(e);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<TestUI$$Lambda$lambda$createUI$0>());
-	}
 	TestUI* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo TestUI$$Lambda$lambda$createUI$0::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(TestUI$$Lambda$lambda$createUI$0, inst$)},
-	{}
-};
-$MethodInfo TestUI$$Lambda$lambda$createUI$0::methodInfos[3] = {
-	{"<init>", "(LTestUI;)V", nullptr, $PUBLIC, $method(TestUI$$Lambda$lambda$createUI$0, init$, void, TestUI*)},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(TestUI$$Lambda$lambda$createUI$0, actionPerformed, void, $ActionEvent*)},
-	{}
-};
-$ClassInfo TestUI$$Lambda$lambda$createUI$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"TestUI$$Lambda$lambda$createUI$0",
-	"java.lang.Object",
-	"java.awt.event.ActionListener",
-	fieldInfos,
-	methodInfos
 };
 $Class* TestUI$$Lambda$lambda$createUI$0::load$($String* name, bool initialize) {
-	$loadClass(TestUI$$Lambda$lambda$createUI$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(TestUI$$Lambda$lambda$createUI$0, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(LTestUI;)V", nullptr, $PUBLIC, $method(TestUI$$Lambda$lambda$createUI$0, init$, void, TestUI*)},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(TestUI$$Lambda$lambda$createUI$0, actionPerformed, void, $ActionEvent*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"TestUI$$Lambda$lambda$createUI$0",
+		"java.lang.Object",
+		"java.awt.event.ActionListener",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TestUI$$Lambda$lambda$createUI$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TestUI$$Lambda$lambda$createUI$0);
+	});
 	return class$;
 }
 $Class* TestUI$$Lambda$lambda$createUI$0::class$ = nullptr;
@@ -97,74 +88,32 @@ public:
 	virtual void actionPerformed($ActionEvent* e) override {
 		$nc(inst$)->lambda$createUI$1(e);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<TestUI$$Lambda$lambda$createUI$1$1>());
-	}
 	TestUI* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo TestUI$$Lambda$lambda$createUI$1$1::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(TestUI$$Lambda$lambda$createUI$1$1, inst$)},
-	{}
-};
-$MethodInfo TestUI$$Lambda$lambda$createUI$1$1::methodInfos[3] = {
-	{"<init>", "(LTestUI;)V", nullptr, $PUBLIC, $method(TestUI$$Lambda$lambda$createUI$1$1, init$, void, TestUI*)},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(TestUI$$Lambda$lambda$createUI$1$1, actionPerformed, void, $ActionEvent*)},
-	{}
-};
-$ClassInfo TestUI$$Lambda$lambda$createUI$1$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"TestUI$$Lambda$lambda$createUI$1$1",
-	"java.lang.Object",
-	"java.awt.event.ActionListener",
-	fieldInfos,
-	methodInfos
 };
 $Class* TestUI$$Lambda$lambda$createUI$1$1::load$($String* name, bool initialize) {
-	$loadClass(TestUI$$Lambda$lambda$createUI$1$1, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(TestUI$$Lambda$lambda$createUI$1$1, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(LTestUI;)V", nullptr, $PUBLIC, $method(TestUI$$Lambda$lambda$createUI$1$1, init$, void, TestUI*)},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(TestUI$$Lambda$lambda$createUI$1$1, actionPerformed, void, $ActionEvent*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"TestUI$$Lambda$lambda$createUI$1$1",
+		"java.lang.Object",
+		"java.awt.event.ActionListener",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TestUI$$Lambda$lambda$createUI$1$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TestUI$$Lambda$lambda$createUI$1$1);
+	});
 	return class$;
 }
 $Class* TestUI$$Lambda$lambda$createUI$1$1::class$ = nullptr;
-
-$FieldInfo _TestUI_FieldInfo_[] = {
-	{"mainFrame", "Ljavax/swing/JFrame;", nullptr, $PRIVATE | $STATIC, $staticField(TestUI, mainFrame)},
-	{"mainControlPanel", "Ljavax/swing/JPanel;", nullptr, $PRIVATE | $STATIC, $staticField(TestUI, mainControlPanel)},
-	{"instructionTextArea", "Ljavax/swing/JTextArea;", nullptr, $PRIVATE | $STATIC, $staticField(TestUI, instructionTextArea)},
-	{"resultButtonPanel", "Ljavax/swing/JPanel;", nullptr, $PRIVATE | $STATIC, $staticField(TestUI, resultButtonPanel)},
-	{"passButton", "Ljavax/swing/JButton;", nullptr, $PRIVATE | $STATIC, $staticField(TestUI, passButton)},
-	{"failButton", "Ljavax/swing/JButton;", nullptr, $PRIVATE | $STATIC, $staticField(TestUI, failButton)},
-	{"gbc", "Ljava/awt/GridBagConstraints;", nullptr, $PRIVATE, $field(TestUI, gbc)},
-	{"layout", "Ljava/awt/GridBagLayout;", nullptr, $PRIVATE | $STATIC, $staticField(TestUI, layout)},
-	{"latch", "Ljava/util/concurrent/CountDownLatch;", nullptr, $PRIVATE | $FINAL, $field(TestUI, latch)},
-	{"testResult", "Z", nullptr, $PUBLIC, $field(TestUI, testResult)},
-	{}
-};
-
-$MethodInfo _TestUI_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/concurrent/CountDownLatch;)V", nullptr, $PUBLIC, $method(TestUI, init$, void, $CountDownLatch*), "java.lang.Exception"},
-	{"createUI", "()V", nullptr, $PUBLIC | $FINAL, $method(TestUI, createUI, void), "java.lang.Exception"},
-	{"customize", "()V", nullptr, $PRIVATE, $method(TestUI, customize, void), "java.lang.Exception"},
-	{"disposeUI", "()V", nullptr, $PUBLIC, $virtualMethod(TestUI, disposeUI, void)},
-	{"initialize", "()V", nullptr, $PUBLIC | $FINAL, $method(TestUI, initialize, void), "java.lang.Exception"},
-	{"lambda$createUI$0", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(TestUI, lambda$createUI$0, void, $ActionEvent*)},
-	{"lambda$createUI$1", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(TestUI, lambda$createUI$1, void, $ActionEvent*)},
-	{}
-};
-
-$ClassInfo _TestUI_ClassInfo_ = {
-	$ACC_SUPER,
-	"TestUI",
-	"java.lang.Object",
-	nullptr,
-	_TestUI_FieldInfo_,
-	_TestUI_MethodInfo_
-};
-
-$Object* allocate$TestUI($Class* clazz) {
-	return $of($alloc(TestUI));
-}
 
 $JFrame* TestUI::mainFrame = nullptr;
 $JPanel* TestUI::mainControlPanel = nullptr;
@@ -185,37 +134,37 @@ void TestUI::init$($CountDownLatch* latch) {
 }
 
 void TestUI::createUI() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$assignStatic(TestUI::mainFrame, $new($JFrame));
 	$assignStatic(TestUI::layout, $new($GridBagLayout));
-	$assignStatic(TestUI::mainControlPanel, $new($JPanel, static_cast<$LayoutManager*>(TestUI::layout)));
-	$assignStatic(TestUI::resultButtonPanel, $new($JPanel, static_cast<$LayoutManager*>(TestUI::layout)));
+	$assignStatic(TestUI::mainControlPanel, $new($JPanel, TestUI::layout));
+	$assignStatic(TestUI::resultButtonPanel, $new($JPanel, TestUI::layout));
 	$set(this, gbc, $new($GridBagConstraints));
 	$var($String, instructions, "Move cursor over disabled button.\nCheck if there is a border around the tooltip text \nIf yes, click on \'pass\' else click on \'fail\'\n"_s);
 	$assignStatic(TestUI::instructionTextArea, $new($JTextArea));
-	$nc(TestUI::instructionTextArea)->setText(instructions);
+	TestUI::instructionTextArea->setText(instructions);
 	$nc(TestUI::instructionTextArea)->setEditable(false);
 	$nc(TestUI::instructionTextArea)->setBorder($($BorderFactory::createTitledBorder("Test Instructions"_s)));
 	$nc(this->gbc)->gridx = 0;
-	$nc(this->gbc)->gridy = 0;
-	$nc(TestUI::mainControlPanel)->add(static_cast<$Component*>(TestUI::instructionTextArea), $of(this->gbc));
+	this->gbc->gridy = 0;
+	$nc(TestUI::mainControlPanel)->add(TestUI::instructionTextArea, this->gbc);
 	customize();
 	$assignStatic(TestUI::passButton, $new($JButton, "Pass"_s));
-	$nc(TestUI::passButton)->setActionCommand("Pass"_s);
-	$nc(TestUI::passButton)->addActionListener(static_cast<$ActionListener*>($$new(TestUI$$Lambda$lambda$createUI$0, this)));
+	TestUI::passButton->setActionCommand("Pass"_s);
+	$nc(TestUI::passButton)->addActionListener($$new(TestUI$$Lambda$lambda$createUI$0, this));
 	$assignStatic(TestUI::failButton, $new($JButton, "Fail"_s));
-	$nc(TestUI::failButton)->setActionCommand("Fail"_s);
-	$nc(TestUI::failButton)->addActionListener(static_cast<$ActionListener*>($$new(TestUI$$Lambda$lambda$createUI$1$1, this)));
+	TestUI::failButton->setActionCommand("Fail"_s);
+	$nc(TestUI::failButton)->addActionListener($$new(TestUI$$Lambda$lambda$createUI$1$1, this));
 	$nc(this->gbc)->gridx = 0;
-	$nc(this->gbc)->gridy = 0;
-	$nc(TestUI::resultButtonPanel)->add(static_cast<$Component*>(TestUI::passButton), $of(this->gbc));
+	this->gbc->gridy = 0;
+	$nc(TestUI::resultButtonPanel)->add(TestUI::passButton, this->gbc);
 	$nc(this->gbc)->gridx = 1;
-	$nc(this->gbc)->gridy = 0;
-	$nc(TestUI::resultButtonPanel)->add(static_cast<$Component*>(TestUI::failButton), $of(this->gbc));
+	this->gbc->gridy = 0;
+	$nc(TestUI::resultButtonPanel)->add(TestUI::failButton, this->gbc);
 	$nc(this->gbc)->gridx = 0;
-	$nc(this->gbc)->gridy = 2;
-	$nc(TestUI::mainControlPanel)->add(static_cast<$Component*>(TestUI::resultButtonPanel), $of(this->gbc));
-	$nc(TestUI::mainFrame)->add(static_cast<$Component*>(TestUI::mainControlPanel));
+	this->gbc->gridy = 2;
+	$nc(TestUI::mainControlPanel)->add(TestUI::resultButtonPanel, this->gbc);
+	$nc(TestUI::mainFrame)->add(TestUI::mainControlPanel);
 	$nc(TestUI::mainFrame)->pack();
 	$nc(TestUI::mainFrame)->setVisible(true);
 }
@@ -225,19 +174,19 @@ void TestUI::disposeUI() {
 }
 
 void TestUI::customize() {
-	$useLocalCurrentObjectStackCache();
-	$var($JPanel, customButtonPanel, $new($JPanel, static_cast<$LayoutManager*>(TestUI::layout)));
+	$useLocalObjectStack();
+	$var($JPanel, customButtonPanel, $new($JPanel, TestUI::layout));
 	$nc(TestUI::mainFrame)->setTitle("TestDisabledToolTipBorder"_s);
 	$var($JButton, disabledButton, $new($JButton, "Disabled Button"_s));
 	disabledButton->setToolTipText("TooltipText"_s);
 	disabledButton->setMargin($$new($Insets, 30, 30, 30, 30));
 	disabledButton->setEnabled(false);
 	$nc(this->gbc)->gridx = 0;
-	$nc(this->gbc)->gridy = 0;
-	customButtonPanel->add(static_cast<$Component*>(disabledButton), $of(this->gbc));
+	this->gbc->gridy = 0;
+	customButtonPanel->add(disabledButton, this->gbc);
 	$nc(this->gbc)->gridx = 0;
-	$nc(this->gbc)->gridy = 1;
-	$nc(TestUI::mainControlPanel)->add(static_cast<$Component*>(customButtonPanel), $of(this->gbc));
+	this->gbc->gridy = 1;
+	$nc(TestUI::mainControlPanel)->add(customButtonPanel, this->gbc);
 }
 
 void TestUI::lambda$createUI$1($ActionEvent* e) {
@@ -259,14 +208,47 @@ TestUI::TestUI() {
 
 $Class* TestUI::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(TestUI$$Lambda$lambda$createUI$0::classInfo$.name)) {
+		if (name->equals("TestUI$$Lambda$lambda$createUI$0")) {
 			return TestUI$$Lambda$lambda$createUI$0::load$(name, initialize);
 		}
-		if (name->equals(TestUI$$Lambda$lambda$createUI$1$1::classInfo$.name)) {
+		if (name->equals("TestUI$$Lambda$lambda$createUI$1$1")) {
 			return TestUI$$Lambda$lambda$createUI$1$1::load$(name, initialize);
 		}
 	}
-	$loadClass(TestUI, name, initialize, &_TestUI_ClassInfo_, allocate$TestUI);
+	$FieldInfo fieldInfos$$[] = {
+		{"mainFrame", "Ljavax/swing/JFrame;", nullptr, $PRIVATE | $STATIC, $staticField(TestUI, mainFrame)},
+		{"mainControlPanel", "Ljavax/swing/JPanel;", nullptr, $PRIVATE | $STATIC, $staticField(TestUI, mainControlPanel)},
+		{"instructionTextArea", "Ljavax/swing/JTextArea;", nullptr, $PRIVATE | $STATIC, $staticField(TestUI, instructionTextArea)},
+		{"resultButtonPanel", "Ljavax/swing/JPanel;", nullptr, $PRIVATE | $STATIC, $staticField(TestUI, resultButtonPanel)},
+		{"passButton", "Ljavax/swing/JButton;", nullptr, $PRIVATE | $STATIC, $staticField(TestUI, passButton)},
+		{"failButton", "Ljavax/swing/JButton;", nullptr, $PRIVATE | $STATIC, $staticField(TestUI, failButton)},
+		{"gbc", "Ljava/awt/GridBagConstraints;", nullptr, $PRIVATE, $field(TestUI, gbc)},
+		{"layout", "Ljava/awt/GridBagLayout;", nullptr, $PRIVATE | $STATIC, $staticField(TestUI, layout)},
+		{"latch", "Ljava/util/concurrent/CountDownLatch;", nullptr, $PRIVATE | $FINAL, $field(TestUI, latch)},
+		{"testResult", "Z", nullptr, $PUBLIC, $field(TestUI, testResult)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/concurrent/CountDownLatch;)V", nullptr, $PUBLIC, $method(TestUI, init$, void, $CountDownLatch*), "java.lang.Exception"},
+		{"createUI", "()V", nullptr, $PUBLIC | $FINAL, $method(TestUI, createUI, void), "java.lang.Exception"},
+		{"customize", "()V", nullptr, $PRIVATE, $method(TestUI, customize, void), "java.lang.Exception"},
+		{"disposeUI", "()V", nullptr, $PUBLIC, $virtualMethod(TestUI, disposeUI, void)},
+		{"initialize", "()V", nullptr, $PUBLIC | $FINAL, $method(TestUI, initialize, void), "java.lang.Exception"},
+		{"lambda$createUI$0", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(TestUI, lambda$createUI$0, void, $ActionEvent*)},
+		{"lambda$createUI$1", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(TestUI, lambda$createUI$1, void, $ActionEvent*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"TestUI",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TestUI, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TestUI);
+	});
 	return class$;
 }
 

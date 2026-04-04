@@ -1,5 +1,4 @@
 #include <com/sun/imageio/plugins/common/SimpleRenderedImage.h>
-
 #include <java/awt/Image.h>
 #include <java/awt/Point.h>
 #include <java/awt/Rectangle.h>
@@ -34,74 +33,6 @@ namespace com {
 		namespace imageio {
 			namespace plugins {
 				namespace common {
-
-$FieldInfo _SimpleRenderedImage_FieldInfo_[] = {
-	{"minX", "I", nullptr, $PROTECTED, $field(SimpleRenderedImage, minX)},
-	{"minY", "I", nullptr, $PROTECTED, $field(SimpleRenderedImage, minY)},
-	{"width", "I", nullptr, $PROTECTED, $field(SimpleRenderedImage, width)},
-	{"height", "I", nullptr, $PROTECTED, $field(SimpleRenderedImage, height)},
-	{"tileWidth", "I", nullptr, $PROTECTED, $field(SimpleRenderedImage, tileWidth)},
-	{"tileHeight", "I", nullptr, $PROTECTED, $field(SimpleRenderedImage, tileHeight)},
-	{"tileGridXOffset", "I", nullptr, $PROTECTED, $field(SimpleRenderedImage, tileGridXOffset)},
-	{"tileGridYOffset", "I", nullptr, $PROTECTED, $field(SimpleRenderedImage, tileGridYOffset)},
-	{"sampleModel", "Ljava/awt/image/SampleModel;", nullptr, $PROTECTED, $field(SimpleRenderedImage, sampleModel)},
-	{"colorModel", "Ljava/awt/image/ColorModel;", nullptr, $PROTECTED, $field(SimpleRenderedImage, colorModel)},
-	{"sources", "Ljava/util/Vector;", "Ljava/util/Vector<Ljava/awt/image/RenderedImage;>;", $PROTECTED, $field(SimpleRenderedImage, sources)},
-	{"properties", "Ljava/util/Hashtable;", "Ljava/util/Hashtable<Ljava/lang/String;Ljava/lang/Object;>;", $PROTECTED, $field(SimpleRenderedImage, properties)},
-	{}
-};
-
-$MethodInfo _SimpleRenderedImage_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SimpleRenderedImage, init$, void)},
-	{"XToTileX", "(III)I", nullptr, $PUBLIC | $STATIC, $staticMethod(SimpleRenderedImage, XToTileX, int32_t, int32_t, int32_t, int32_t)},
-	{"XToTileX", "(I)I", nullptr, $PUBLIC, $virtualMethod(SimpleRenderedImage, XToTileX, int32_t, int32_t)},
-	{"YToTileY", "(III)I", nullptr, $PUBLIC | $STATIC, $staticMethod(SimpleRenderedImage, YToTileY, int32_t, int32_t, int32_t, int32_t)},
-	{"YToTileY", "(I)I", nullptr, $PUBLIC, $virtualMethod(SimpleRenderedImage, YToTileY, int32_t, int32_t)},
-	{"copyData", "(Ljava/awt/image/WritableRaster;)Ljava/awt/image/WritableRaster;", nullptr, $PUBLIC, $virtualMethod(SimpleRenderedImage, copyData, $WritableRaster*, $WritableRaster*)},
-	{"getBounds", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(SimpleRenderedImage, getBounds, $Rectangle*)},
-	{"getColorModel", "()Ljava/awt/image/ColorModel;", nullptr, $PUBLIC, $virtualMethod(SimpleRenderedImage, getColorModel, $ColorModel*)},
-	{"getData", "()Ljava/awt/image/Raster;", nullptr, $PUBLIC, $virtualMethod(SimpleRenderedImage, getData, $Raster*)},
-	{"getData", "(Ljava/awt/Rectangle;)Ljava/awt/image/Raster;", nullptr, $PUBLIC, $virtualMethod(SimpleRenderedImage, getData, $Raster*, $Rectangle*)},
-	{"getHeight", "()I", nullptr, $PUBLIC, $virtualMethod(SimpleRenderedImage, getHeight, int32_t)},
-	{"getMaxTileX", "()I", nullptr, $PUBLIC, $virtualMethod(SimpleRenderedImage, getMaxTileX, int32_t)},
-	{"getMaxTileY", "()I", nullptr, $PUBLIC, $virtualMethod(SimpleRenderedImage, getMaxTileY, int32_t)},
-	{"getMaxX", "()I", nullptr, $PUBLIC | $FINAL, $method(SimpleRenderedImage, getMaxX, int32_t)},
-	{"getMaxY", "()I", nullptr, $PUBLIC | $FINAL, $method(SimpleRenderedImage, getMaxY, int32_t)},
-	{"getMinTileX", "()I", nullptr, $PUBLIC, $virtualMethod(SimpleRenderedImage, getMinTileX, int32_t)},
-	{"getMinTileY", "()I", nullptr, $PUBLIC, $virtualMethod(SimpleRenderedImage, getMinTileY, int32_t)},
-	{"getMinX", "()I", nullptr, $PUBLIC, $virtualMethod(SimpleRenderedImage, getMinX, int32_t)},
-	{"getMinY", "()I", nullptr, $PUBLIC, $virtualMethod(SimpleRenderedImage, getMinY, int32_t)},
-	{"getNumXTiles", "()I", nullptr, $PUBLIC, $virtualMethod(SimpleRenderedImage, getNumXTiles, int32_t)},
-	{"getNumYTiles", "()I", nullptr, $PUBLIC, $virtualMethod(SimpleRenderedImage, getNumYTiles, int32_t)},
-	{"getProperty", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SimpleRenderedImage, getProperty, $Object*, $String*)},
-	{"getPropertyNames", "()[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SimpleRenderedImage, getPropertyNames, $StringArray*)},
-	{"getPropertyNames", "(Ljava/lang/String;)[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SimpleRenderedImage, getPropertyNames, $StringArray*, $String*)},
-	{"getSampleModel", "()Ljava/awt/image/SampleModel;", nullptr, $PUBLIC, $virtualMethod(SimpleRenderedImage, getSampleModel, $SampleModel*)},
-	{"getSources", "()Ljava/util/Vector;", "()Ljava/util/Vector<Ljava/awt/image/RenderedImage;>;", $PUBLIC, $virtualMethod(SimpleRenderedImage, getSources, $Vector*)},
-	{"getTileGridXOffset", "()I", nullptr, $PUBLIC, $virtualMethod(SimpleRenderedImage, getTileGridXOffset, int32_t)},
-	{"getTileGridYOffset", "()I", nullptr, $PUBLIC, $virtualMethod(SimpleRenderedImage, getTileGridYOffset, int32_t)},
-	{"getTileHeight", "()I", nullptr, $PUBLIC, $virtualMethod(SimpleRenderedImage, getTileHeight, int32_t)},
-	{"getTileWidth", "()I", nullptr, $PUBLIC, $virtualMethod(SimpleRenderedImage, getTileWidth, int32_t)},
-	{"getWidth", "()I", nullptr, $PUBLIC, $virtualMethod(SimpleRenderedImage, getWidth, int32_t)},
-	{"tileXToX", "(III)I", nullptr, $PUBLIC | $STATIC, $staticMethod(SimpleRenderedImage, tileXToX, int32_t, int32_t, int32_t, int32_t)},
-	{"tileXToX", "(I)I", nullptr, $PUBLIC, $virtualMethod(SimpleRenderedImage, tileXToX, int32_t, int32_t)},
-	{"tileYToY", "(III)I", nullptr, $PUBLIC | $STATIC, $staticMethod(SimpleRenderedImage, tileYToY, int32_t, int32_t, int32_t, int32_t)},
-	{"tileYToY", "(I)I", nullptr, $PUBLIC, $virtualMethod(SimpleRenderedImage, tileYToY, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _SimpleRenderedImage_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"com.sun.imageio.plugins.common.SimpleRenderedImage",
-	"java.lang.Object",
-	"java.awt.image.RenderedImage",
-	_SimpleRenderedImage_FieldInfo_,
-	_SimpleRenderedImage_MethodInfo_
-};
-
-$Object* allocate$SimpleRenderedImage($Class* clazz) {
-	return $of($alloc(SimpleRenderedImage));
-}
 
 void SimpleRenderedImage::init$() {
 	this->tileGridXOffset = 0;
@@ -194,21 +125,21 @@ $ColorModel* SimpleRenderedImage::getColorModel() {
 }
 
 $Object* SimpleRenderedImage::getProperty($String* name$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, name, name$renamed);
 	$assign(name, $nc(name)->toLowerCase());
 	$var($Object, value, $nc(this->properties)->get(name));
 	$init($Image);
-	return $of(value != nullptr ? value : $Image::UndefinedProperty);
+	return value != nullptr ? value : $Image::UndefinedProperty;
 }
 
 $StringArray* SimpleRenderedImage::getPropertyNames() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringArray, names, nullptr);
 	if ($nc(this->properties)->size() > 0) {
-		$assign(names, $new($StringArray, $nc(this->properties)->size()));
+		$assign(names, $new($StringArray, this->properties->size()));
 		int32_t index = 0;
-		$var($Enumeration, e, $nc(this->properties)->keys());
+		$var($Enumeration, e, this->properties->keys());
 		while ($nc(e)->hasMoreElements()) {
 			$var($String, name, $cast($String, e->nextElement()));
 			names->set(index++, name);
@@ -218,7 +149,7 @@ $StringArray* SimpleRenderedImage::getPropertyNames() {
 }
 
 $StringArray* SimpleRenderedImage::getPropertyNames($String* prefix$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, prefix, prefix$renamed);
 	$var($StringArray, propertyNames, getPropertyNames());
 	if (propertyNames == nullptr) {
@@ -239,7 +170,7 @@ $StringArray* SimpleRenderedImage::getPropertyNames($String* prefix$renamed) {
 	{
 		$var($Iterator, it, names->iterator());
 		for (; $nc(it)->hasNext();) {
-			prefixNames->set(count++, $cast($String, $(it->next())));
+			prefixNames->set(count++, $$cast($String, it->next()));
 		}
 	}
 	return prefixNames;
@@ -264,15 +195,13 @@ int32_t SimpleRenderedImage::YToTileY(int32_t y, int32_t tileGridYOffset, int32_
 }
 
 int32_t SimpleRenderedImage::XToTileX(int32_t x) {
-	int32_t var$0 = x;
-	int32_t var$1 = getTileGridXOffset();
-	return XToTileX(var$0, var$1, getTileWidth());
+	int32_t var$0 = getTileGridXOffset();
+	return XToTileX(x, var$0, getTileWidth());
 }
 
 int32_t SimpleRenderedImage::YToTileY(int32_t y) {
-	int32_t var$0 = y;
-	int32_t var$1 = getTileGridYOffset();
-	return YToTileY(var$0, var$1, getTileHeight());
+	int32_t var$0 = getTileGridYOffset();
+	return YToTileY(y, var$0, getTileHeight());
 }
 
 int32_t SimpleRenderedImage::tileXToX(int32_t tx, int32_t tileGridXOffset, int32_t tileWidth) {
@@ -306,37 +235,37 @@ $Raster* SimpleRenderedImage::getData() {
 }
 
 $Raster* SimpleRenderedImage::getData($Rectangle* bounds$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle, bounds, bounds$renamed);
 	$var($Rectangle, imageBounds, getBounds());
 	if (bounds == nullptr) {
 		$assign(bounds, imageBounds);
-	} else if (!$nc(bounds)->intersects(imageBounds)) {
+	} else if (!bounds->intersects(imageBounds)) {
 		$throwNew($IllegalArgumentException, "The provided region doesn\'t intersect with the image bounds."_s);
 	}
 	int32_t startX = XToTileX($nc(bounds)->x);
-	int32_t startY = YToTileY($nc(bounds)->y);
-	int32_t endX = XToTileX($nc(bounds)->x + bounds->width - 1);
-	int32_t endY = YToTileY($nc(bounds)->y + bounds->height - 1);
+	int32_t startY = YToTileY(bounds->y);
+	int32_t endX = XToTileX(bounds->x + bounds->width - 1);
+	int32_t endY = YToTileY(bounds->y + bounds->height - 1);
 	if ((startX == endX) && (startY == endY)) {
 		$var($Raster, tile, getTile(startX, startY));
-		return $nc(tile)->createChild($nc(bounds)->x, bounds->y, bounds->width, bounds->height, bounds->x, bounds->y, nullptr);
+		return $nc(tile)->createChild(bounds->x, bounds->y, bounds->width, bounds->height, bounds->x, bounds->y, nullptr);
 	} else {
 		if (!$nc(imageBounds)->contains(bounds)) {
-			$var($Rectangle, xsect, $nc(bounds)->intersection(imageBounds));
+			$var($Rectangle, xsect, bounds->intersection(imageBounds));
 			startX = XToTileX($nc(xsect)->x);
-			startY = YToTileY($nc(xsect)->y);
-			endX = XToTileX($nc(xsect)->x + xsect->width - 1);
-			endY = YToTileY($nc(xsect)->y + xsect->height - 1);
+			startY = YToTileY(xsect->y);
+			endX = XToTileX(xsect->x + xsect->width - 1);
+			endY = YToTileY(xsect->y + xsect->height - 1);
 		}
-		$var($SampleModel, sm, $nc(this->sampleModel)->createCompatibleSampleModel($nc(bounds)->width, bounds->height));
-		$var($WritableRaster, dest, $Raster::createWritableRaster(sm, $($nc(bounds)->getLocation())));
+		$var($SampleModel, sm, $nc(this->sampleModel)->createCompatibleSampleModel(bounds->width, bounds->height));
+		$var($WritableRaster, dest, $Raster::createWritableRaster(sm, $(bounds->getLocation())));
 		for (int32_t j = startY; j <= endY; ++j) {
 			for (int32_t i = startX; i <= endX; ++i) {
 				$var($Raster, tile, getTile(i, j));
 				$var($Rectangle, tileRect, $nc(tile)->getBounds());
-				$var($Rectangle, intersectRect, $nc(bounds)->intersection($(tile->getBounds())));
-				$var($Raster, liveRaster, tile->createChild($nc(intersectRect)->x, intersectRect->y, intersectRect->width, intersectRect->height, intersectRect->x, intersectRect->y, nullptr));
+				$var($Rectangle, intersectRect, bounds->intersection($(tile->getBounds())));
+				$var($Raster, liveRaster, tile->createChild($nc(intersectRect)->x, $nc(intersectRect)->y, $nc(intersectRect)->width, $nc(intersectRect)->height, $nc(intersectRect)->x, $nc(intersectRect)->y, nullptr));
 				$nc(dest)->setRect(liveRaster);
 			}
 		}
@@ -345,7 +274,7 @@ $Raster* SimpleRenderedImage::getData($Rectangle* bounds$renamed) {
 }
 
 $WritableRaster* SimpleRenderedImage::copyData($WritableRaster* dest$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($WritableRaster, dest, dest$renamed);
 	$var($Rectangle, imageBounds, getBounds());
 	$var($Rectangle, bounds, nullptr);
@@ -355,19 +284,19 @@ $WritableRaster* SimpleRenderedImage::copyData($WritableRaster* dest$renamed) {
 		$var($SampleModel, sm, $nc(this->sampleModel)->createCompatibleSampleModel(this->width, this->height));
 		$assign(dest, $Raster::createWritableRaster(sm, p));
 	} else {
-		$assign(bounds, $nc(dest)->getBounds());
+		$assign(bounds, dest->getBounds());
 	}
 	$var($Rectangle, xsect, $nc(imageBounds)->contains(bounds) ? bounds : $nc(bounds)->intersection(imageBounds));
 	int32_t startX = XToTileX($nc(xsect)->x);
-	int32_t startY = YToTileY($nc(xsect)->y);
-	int32_t endX = XToTileX($nc(xsect)->x + xsect->width - 1);
-	int32_t endY = YToTileY($nc(xsect)->y + xsect->height - 1);
+	int32_t startY = YToTileY(xsect->y);
+	int32_t endX = XToTileX(xsect->x + xsect->width - 1);
+	int32_t endY = YToTileY(xsect->y + xsect->height - 1);
 	for (int32_t j = startY; j <= endY; ++j) {
 		for (int32_t i = startX; i <= endX; ++i) {
 			$var($Raster, tile, getTile(i, j));
 			$var($Rectangle, tileRect, $nc(tile)->getBounds());
-			$var($Rectangle, intersectRect, bounds->intersection($(tile->getBounds())));
-			$var($Raster, liveRaster, tile->createChild($nc(intersectRect)->x, intersectRect->y, intersectRect->width, intersectRect->height, intersectRect->x, intersectRect->y, nullptr));
+			$var($Rectangle, intersectRect, $nc(bounds)->intersection($(tile->getBounds())));
+			$var($Raster, liveRaster, tile->createChild($nc(intersectRect)->x, $nc(intersectRect)->y, $nc(intersectRect)->width, $nc(intersectRect)->height, $nc(intersectRect)->x, $nc(intersectRect)->y, nullptr));
 			$nc(dest)->setRect(liveRaster);
 		}
 	}
@@ -378,7 +307,70 @@ SimpleRenderedImage::SimpleRenderedImage() {
 }
 
 $Class* SimpleRenderedImage::load$($String* name, bool initialize) {
-	$loadClass(SimpleRenderedImage, name, initialize, &_SimpleRenderedImage_ClassInfo_, allocate$SimpleRenderedImage);
+	$FieldInfo fieldInfos$$[] = {
+		{"minX", "I", nullptr, $PROTECTED, $field(SimpleRenderedImage, minX)},
+		{"minY", "I", nullptr, $PROTECTED, $field(SimpleRenderedImage, minY)},
+		{"width", "I", nullptr, $PROTECTED, $field(SimpleRenderedImage, width)},
+		{"height", "I", nullptr, $PROTECTED, $field(SimpleRenderedImage, height)},
+		{"tileWidth", "I", nullptr, $PROTECTED, $field(SimpleRenderedImage, tileWidth)},
+		{"tileHeight", "I", nullptr, $PROTECTED, $field(SimpleRenderedImage, tileHeight)},
+		{"tileGridXOffset", "I", nullptr, $PROTECTED, $field(SimpleRenderedImage, tileGridXOffset)},
+		{"tileGridYOffset", "I", nullptr, $PROTECTED, $field(SimpleRenderedImage, tileGridYOffset)},
+		{"sampleModel", "Ljava/awt/image/SampleModel;", nullptr, $PROTECTED, $field(SimpleRenderedImage, sampleModel)},
+		{"colorModel", "Ljava/awt/image/ColorModel;", nullptr, $PROTECTED, $field(SimpleRenderedImage, colorModel)},
+		{"sources", "Ljava/util/Vector;", "Ljava/util/Vector<Ljava/awt/image/RenderedImage;>;", $PROTECTED, $field(SimpleRenderedImage, sources)},
+		{"properties", "Ljava/util/Hashtable;", "Ljava/util/Hashtable<Ljava/lang/String;Ljava/lang/Object;>;", $PROTECTED, $field(SimpleRenderedImage, properties)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SimpleRenderedImage, init$, void)},
+		{"XToTileX", "(III)I", nullptr, $PUBLIC | $STATIC, $staticMethod(SimpleRenderedImage, XToTileX, int32_t, int32_t, int32_t, int32_t)},
+		{"XToTileX", "(I)I", nullptr, $PUBLIC, $virtualMethod(SimpleRenderedImage, XToTileX, int32_t, int32_t)},
+		{"YToTileY", "(III)I", nullptr, $PUBLIC | $STATIC, $staticMethod(SimpleRenderedImage, YToTileY, int32_t, int32_t, int32_t, int32_t)},
+		{"YToTileY", "(I)I", nullptr, $PUBLIC, $virtualMethod(SimpleRenderedImage, YToTileY, int32_t, int32_t)},
+		{"copyData", "(Ljava/awt/image/WritableRaster;)Ljava/awt/image/WritableRaster;", nullptr, $PUBLIC, $virtualMethod(SimpleRenderedImage, copyData, $WritableRaster*, $WritableRaster*)},
+		{"getBounds", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(SimpleRenderedImage, getBounds, $Rectangle*)},
+		{"getColorModel", "()Ljava/awt/image/ColorModel;", nullptr, $PUBLIC, $virtualMethod(SimpleRenderedImage, getColorModel, $ColorModel*)},
+		{"getData", "()Ljava/awt/image/Raster;", nullptr, $PUBLIC, $virtualMethod(SimpleRenderedImage, getData, $Raster*)},
+		{"getData", "(Ljava/awt/Rectangle;)Ljava/awt/image/Raster;", nullptr, $PUBLIC, $virtualMethod(SimpleRenderedImage, getData, $Raster*, $Rectangle*)},
+		{"getHeight", "()I", nullptr, $PUBLIC, $virtualMethod(SimpleRenderedImage, getHeight, int32_t)},
+		{"getMaxTileX", "()I", nullptr, $PUBLIC, $virtualMethod(SimpleRenderedImage, getMaxTileX, int32_t)},
+		{"getMaxTileY", "()I", nullptr, $PUBLIC, $virtualMethod(SimpleRenderedImage, getMaxTileY, int32_t)},
+		{"getMaxX", "()I", nullptr, $PUBLIC | $FINAL, $method(SimpleRenderedImage, getMaxX, int32_t)},
+		{"getMaxY", "()I", nullptr, $PUBLIC | $FINAL, $method(SimpleRenderedImage, getMaxY, int32_t)},
+		{"getMinTileX", "()I", nullptr, $PUBLIC, $virtualMethod(SimpleRenderedImage, getMinTileX, int32_t)},
+		{"getMinTileY", "()I", nullptr, $PUBLIC, $virtualMethod(SimpleRenderedImage, getMinTileY, int32_t)},
+		{"getMinX", "()I", nullptr, $PUBLIC, $virtualMethod(SimpleRenderedImage, getMinX, int32_t)},
+		{"getMinY", "()I", nullptr, $PUBLIC, $virtualMethod(SimpleRenderedImage, getMinY, int32_t)},
+		{"getNumXTiles", "()I", nullptr, $PUBLIC, $virtualMethod(SimpleRenderedImage, getNumXTiles, int32_t)},
+		{"getNumYTiles", "()I", nullptr, $PUBLIC, $virtualMethod(SimpleRenderedImage, getNumYTiles, int32_t)},
+		{"getProperty", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SimpleRenderedImage, getProperty, $Object*, $String*)},
+		{"getPropertyNames", "()[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SimpleRenderedImage, getPropertyNames, $StringArray*)},
+		{"getPropertyNames", "(Ljava/lang/String;)[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SimpleRenderedImage, getPropertyNames, $StringArray*, $String*)},
+		{"getSampleModel", "()Ljava/awt/image/SampleModel;", nullptr, $PUBLIC, $virtualMethod(SimpleRenderedImage, getSampleModel, $SampleModel*)},
+		{"getSources", "()Ljava/util/Vector;", "()Ljava/util/Vector<Ljava/awt/image/RenderedImage;>;", $PUBLIC, $virtualMethod(SimpleRenderedImage, getSources, $Vector*)},
+		{"getTileGridXOffset", "()I", nullptr, $PUBLIC, $virtualMethod(SimpleRenderedImage, getTileGridXOffset, int32_t)},
+		{"getTileGridYOffset", "()I", nullptr, $PUBLIC, $virtualMethod(SimpleRenderedImage, getTileGridYOffset, int32_t)},
+		{"getTileHeight", "()I", nullptr, $PUBLIC, $virtualMethod(SimpleRenderedImage, getTileHeight, int32_t)},
+		{"getTileWidth", "()I", nullptr, $PUBLIC, $virtualMethod(SimpleRenderedImage, getTileWidth, int32_t)},
+		{"getWidth", "()I", nullptr, $PUBLIC, $virtualMethod(SimpleRenderedImage, getWidth, int32_t)},
+		{"tileXToX", "(III)I", nullptr, $PUBLIC | $STATIC, $staticMethod(SimpleRenderedImage, tileXToX, int32_t, int32_t, int32_t, int32_t)},
+		{"tileXToX", "(I)I", nullptr, $PUBLIC, $virtualMethod(SimpleRenderedImage, tileXToX, int32_t, int32_t)},
+		{"tileYToY", "(III)I", nullptr, $PUBLIC | $STATIC, $staticMethod(SimpleRenderedImage, tileYToY, int32_t, int32_t, int32_t, int32_t)},
+		{"tileYToY", "(I)I", nullptr, $PUBLIC, $virtualMethod(SimpleRenderedImage, tileYToY, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"com.sun.imageio.plugins.common.SimpleRenderedImage",
+		"java.lang.Object",
+		"java.awt.image.RenderedImage",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SimpleRenderedImage, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SimpleRenderedImage);
+	});
 	return class$;
 }
 

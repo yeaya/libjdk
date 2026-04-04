@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/code/ModuleFinder$ModuleNameFromSourceReader.h>
-
 #include <com/sun/tools/javac/code/ModuleFinder.h>
 #include <com/sun/tools/javac/util/Name.h>
 #include <javax/tools/JavaFileObject.h>
@@ -17,38 +16,33 @@ namespace com {
 			namespace javac {
 				namespace code {
 
-$MethodInfo _ModuleFinder$ModuleNameFromSourceReader_MethodInfo_[] = {
-	{"readModuleName", "(Ljavax/tools/JavaFileObject;)Lcom/sun/tools/javac/util/Name;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ModuleFinder$ModuleNameFromSourceReader, readModuleName, $Name*, $JavaFileObject*)},
-	{}
-};
-
-$InnerClassInfo _ModuleFinder$ModuleNameFromSourceReader_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.code.ModuleFinder$ModuleNameFromSourceReader", "com.sun.tools.javac.code.ModuleFinder", "ModuleNameFromSourceReader", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _ModuleFinder$ModuleNameFromSourceReader_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.tools.javac.code.ModuleFinder$ModuleNameFromSourceReader",
-	nullptr,
-	nullptr,
-	nullptr,
-	_ModuleFinder$ModuleNameFromSourceReader_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ModuleFinder$ModuleNameFromSourceReader_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.code.ModuleFinder"
-};
-
-$Object* allocate$ModuleFinder$ModuleNameFromSourceReader($Class* clazz) {
-	return $of($alloc(ModuleFinder$ModuleNameFromSourceReader));
-}
-
 $Class* ModuleFinder$ModuleNameFromSourceReader::load$($String* name, bool initialize) {
-	$loadClass(ModuleFinder$ModuleNameFromSourceReader, name, initialize, &_ModuleFinder$ModuleNameFromSourceReader_ClassInfo_, allocate$ModuleFinder$ModuleNameFromSourceReader);
+	$MethodInfo methodInfos$$[] = {
+		{"readModuleName", "(Ljavax/tools/JavaFileObject;)Lcom/sun/tools/javac/util/Name;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ModuleFinder$ModuleNameFromSourceReader, readModuleName, $Name*, $JavaFileObject*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.code.ModuleFinder$ModuleNameFromSourceReader", "com.sun.tools.javac.code.ModuleFinder", "ModuleNameFromSourceReader", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.tools.javac.code.ModuleFinder$ModuleNameFromSourceReader",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.code.ModuleFinder"
+	};
+	$loadClass(ModuleFinder$ModuleNameFromSourceReader, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ModuleFinder$ModuleNameFromSourceReader);
+	});
 	return class$;
 }
 

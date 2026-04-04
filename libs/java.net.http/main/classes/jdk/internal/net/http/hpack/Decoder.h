@@ -60,6 +60,7 @@ class Decoder : public ::java::lang::Object {
 	$class(Decoder, 0, ::java::lang::Object)
 public:
 	Decoder();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int32_t capacity);
 	void cleanUpAfterReading();
 	bool completeReading(::java::nio::ByteBuffer* input);

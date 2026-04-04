@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/security/transforms/TransformationException.h>
-
 #include <com/sun/org/apache/xml/internal/security/exceptions/XMLSecurityException.h>
 #include <jcpp.h>
 
@@ -18,46 +17,6 @@ namespace com {
 					namespace internal {
 						namespace security {
 							namespace transforms {
-
-$CompoundAttribute _TransformationException_MethodAnnotations_init$5[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _TransformationException_MethodAnnotations_init$7[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$FieldInfo _TransformationException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(TransformationException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _TransformationException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TransformationException, init$, void)},
-	{"<init>", "(Ljava/lang/Exception;)V", nullptr, $PUBLIC, $method(TransformationException, init$, void, $Exception*)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(TransformationException, init$, void, $String*)},
-	{"<init>", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(TransformationException, init$, void, $String*, $ObjectArray*)},
-	{"<init>", "(Ljava/lang/Exception;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(TransformationException, init$, void, $Exception*, $String*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Exception;)V", nullptr, $PUBLIC | $DEPRECATED, $method(TransformationException, init$, void, $String*, $Exception*), nullptr, nullptr, _TransformationException_MethodAnnotations_init$5},
-	{"<init>", "(Ljava/lang/Exception;Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(TransformationException, init$, void, $Exception*, $String*, $ObjectArray*)},
-	{"<init>", "(Ljava/lang/String;[Ljava/lang/Object;Ljava/lang/Exception;)V", nullptr, $PUBLIC | $DEPRECATED, $method(TransformationException, init$, void, $String*, $ObjectArray*, $Exception*), nullptr, nullptr, _TransformationException_MethodAnnotations_init$7},
-	{}
-};
-
-$ClassInfo _TransformationException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.security.transforms.TransformationException",
-	"com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException",
-	nullptr,
-	_TransformationException_FieldInfo_,
-	_TransformationException_MethodInfo_
-};
-
-$Object* allocate$TransformationException($Class* clazz) {
-	return $of($alloc(TransformationException));
-}
 
 void TransformationException::init$() {
 	$XMLSecurityException::init$();
@@ -102,7 +61,40 @@ void TransformationException::throw$() {
 }
 
 $Class* TransformationException::load$($String* name, bool initialize) {
-	$loadClass(TransformationException, name, initialize, &_TransformationException_ClassInfo_, allocate$TransformationException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(TransformationException, serialVersionUID)},
+		{}
+	};
+	$CompoundAttribute init$methodAnnotations$$$5[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute init$methodAnnotations$$$7[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TransformationException, init$, void)},
+		{"<init>", "(Ljava/lang/Exception;)V", nullptr, $PUBLIC, $method(TransformationException, init$, void, $Exception*)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(TransformationException, init$, void, $String*)},
+		{"<init>", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(TransformationException, init$, void, $String*, $ObjectArray*)},
+		{"<init>", "(Ljava/lang/Exception;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(TransformationException, init$, void, $Exception*, $String*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/Exception;)V", nullptr, $PUBLIC | $DEPRECATED, $method(TransformationException, init$, void, $String*, $Exception*), nullptr, nullptr, init$methodAnnotations$$$5},
+		{"<init>", "(Ljava/lang/Exception;Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(TransformationException, init$, void, $Exception*, $String*, $ObjectArray*)},
+		{"<init>", "(Ljava/lang/String;[Ljava/lang/Object;Ljava/lang/Exception;)V", nullptr, $PUBLIC | $DEPRECATED, $method(TransformationException, init$, void, $String*, $ObjectArray*, $Exception*), nullptr, nullptr, init$methodAnnotations$$$7},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.security.transforms.TransformationException",
+		"com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TransformationException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TransformationException);
+	});
 	return class$;
 }
 

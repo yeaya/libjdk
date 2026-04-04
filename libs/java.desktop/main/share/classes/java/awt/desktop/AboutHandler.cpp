@@ -1,5 +1,4 @@
 #include <java/awt/desktop/AboutHandler.h>
-
 #include <java/awt/desktop/AboutEvent.h>
 #include <jcpp.h>
 
@@ -11,26 +10,22 @@ namespace java {
 	namespace awt {
 		namespace desktop {
 
-$MethodInfo _AboutHandler_MethodInfo_[] = {
-	{"handleAbout", "(Ljava/awt/desktop/AboutEvent;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AboutHandler, handleAbout, void, $AboutEvent*)},
-	{}
-};
-
-$ClassInfo _AboutHandler_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.awt.desktop.AboutHandler",
-	nullptr,
-	nullptr,
-	nullptr,
-	_AboutHandler_MethodInfo_
-};
-
-$Object* allocate$AboutHandler($Class* clazz) {
-	return $of($alloc(AboutHandler));
-}
-
 $Class* AboutHandler::load$($String* name, bool initialize) {
-	$loadClass(AboutHandler, name, initialize, &_AboutHandler_ClassInfo_, allocate$AboutHandler);
+	$MethodInfo methodInfos$$[] = {
+		{"handleAbout", "(Ljava/awt/desktop/AboutEvent;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AboutHandler, handleAbout, void, $AboutEvent*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.awt.desktop.AboutHandler",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(AboutHandler, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AboutHandler);
+	});
 	return class$;
 }
 

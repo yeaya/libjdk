@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/xs/XSObjectList.h>
-
 #include <com/sun/org/apache/xerces/internal/xs/XSObject.h>
 #include <jcpp.h>
 
@@ -15,28 +14,24 @@ namespace com {
 					namespace internal {
 						namespace xs {
 
-$MethodInfo _XSObjectList_MethodInfo_[] = {
-	{"getLength", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XSObjectList, getLength, int32_t)},
-	{"item", "(I)Lcom/sun/org/apache/xerces/internal/xs/XSObject;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XSObjectList, item, $XSObject*, int32_t)},
-	{}
-};
-
-$ClassInfo _XSObjectList_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.org.apache.xerces.internal.xs.XSObjectList",
-	nullptr,
-	"java.util.List",
-	nullptr,
-	_XSObjectList_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/List<Lcom/sun/org/apache/xerces/internal/xs/XSObject;>;"
-};
-
-$Object* allocate$XSObjectList($Class* clazz) {
-	return $of($alloc(XSObjectList));
-}
-
 $Class* XSObjectList::load$($String* name, bool initialize) {
-	$loadClass(XSObjectList, name, initialize, &_XSObjectList_ClassInfo_, allocate$XSObjectList);
+	$MethodInfo methodInfos$$[] = {
+		{"getLength", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XSObjectList, getLength, int32_t)},
+		{"item", "(I)Lcom/sun/org/apache/xerces/internal/xs/XSObject;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XSObjectList, item, $XSObject*, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.org.apache.xerces.internal.xs.XSObjectList",
+		nullptr,
+		"java.util.List",
+		nullptr,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/List<Lcom/sun/org/apache/xerces/internal/xs/XSObject;>;"
+	};
+	$loadClass(XSObjectList, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XSObjectList);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/bcel/internal/classfile/ConstantDynamic.h>
-
 #include <com/sun/org/apache/bcel/internal/Const.h>
 #include <com/sun/org/apache/bcel/internal/classfile/ConstantCP.h>
 #include <com/sun/org/apache/bcel/internal/classfile/Visitor.h>
@@ -23,36 +22,13 @@ namespace com {
 					namespace internal {
 						namespace classfile {
 
-$MethodInfo _ConstantDynamic_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/org/apache/bcel/internal/classfile/ConstantDynamic;)V", nullptr, $PUBLIC, $method(ConstantDynamic, init$, void, ConstantDynamic*)},
-	{"<init>", "(Ljava/io/DataInput;)V", nullptr, 0, $method(ConstantDynamic, init$, void, $DataInput*), "java.io.IOException"},
-	{"<init>", "(II)V", nullptr, $PUBLIC, $method(ConstantDynamic, init$, void, int32_t, int32_t)},
-	{"accept", "(Lcom/sun/org/apache/bcel/internal/classfile/Visitor;)V", nullptr, $PUBLIC, $virtualMethod(ConstantDynamic, accept, void, $Visitor*)},
-	{"getBootstrapMethodAttrIndex", "()I", nullptr, $PUBLIC, $method(ConstantDynamic, getBootstrapMethodAttrIndex, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ConstantDynamic, toString, $String*)},
-	{}
-};
-
-$ClassInfo _ConstantDynamic_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.org.apache.bcel.internal.classfile.ConstantDynamic",
-	"com.sun.org.apache.bcel.internal.classfile.ConstantCP",
-	nullptr,
-	nullptr,
-	_ConstantDynamic_MethodInfo_
-};
-
-$Object* allocate$ConstantDynamic($Class* clazz) {
-	return $of($alloc(ConstantDynamic));
-}
-
 void ConstantDynamic::init$(ConstantDynamic* c) {
 	int32_t var$0 = $nc(c)->getBootstrapMethodAttrIndex();
 	ConstantDynamic::init$(var$0, c->getNameAndTypeIndex());
 }
 
 void ConstantDynamic::init$($DataInput* file) {
-	int32_t var$0 = (int32_t)$nc(file)->readShort();
+	int32_t var$0 = $nc(file)->readShort();
 	ConstantDynamic::init$(var$0, file->readShort());
 }
 
@@ -69,14 +45,33 @@ int32_t ConstantDynamic::getBootstrapMethodAttrIndex() {
 }
 
 $String* ConstantDynamic::toString() {
-	return $nc($($ConstantCP::toString()))->replace(static_cast<$CharSequence*>("class_index"_s), static_cast<$CharSequence*>("bootstrap_method_attr_index"_s));
+	return $$nc($ConstantCP::toString())->replace("class_index"_s, "bootstrap_method_attr_index"_s);
 }
 
 ConstantDynamic::ConstantDynamic() {
 }
 
 $Class* ConstantDynamic::load$($String* name, bool initialize) {
-	$loadClass(ConstantDynamic, name, initialize, &_ConstantDynamic_ClassInfo_, allocate$ConstantDynamic);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/org/apache/bcel/internal/classfile/ConstantDynamic;)V", nullptr, $PUBLIC, $method(ConstantDynamic, init$, void, ConstantDynamic*)},
+		{"<init>", "(Ljava/io/DataInput;)V", nullptr, 0, $method(ConstantDynamic, init$, void, $DataInput*), "java.io.IOException"},
+		{"<init>", "(II)V", nullptr, $PUBLIC, $method(ConstantDynamic, init$, void, int32_t, int32_t)},
+		{"accept", "(Lcom/sun/org/apache/bcel/internal/classfile/Visitor;)V", nullptr, $PUBLIC, $virtualMethod(ConstantDynamic, accept, void, $Visitor*)},
+		{"getBootstrapMethodAttrIndex", "()I", nullptr, $PUBLIC, $method(ConstantDynamic, getBootstrapMethodAttrIndex, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ConstantDynamic, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.org.apache.bcel.internal.classfile.ConstantDynamic",
+		"com.sun.org.apache.bcel.internal.classfile.ConstantCP",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ConstantDynamic, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ConstantDynamic));
+	});
 	return class$;
 }
 

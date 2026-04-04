@@ -1,5 +1,4 @@
 #include <HeadlessJMenuItem.h>
-
 #include <HeadlessJMenuItem$1.h>
 #include <HeadlessJMenuItem$2.h>
 #include <HeadlessJMenuItem$3.h>
@@ -50,7 +49,6 @@ using $FlowLayout = ::java::awt::FlowLayout;
 using $Font = ::java::awt::Font;
 using $IllegalComponentStateException = ::java::awt::IllegalComponentStateException;
 using $Insets = ::java::awt::Insets;
-using $LayoutManager = ::java::awt::LayoutManager;
 using $Point = ::java::awt::Point;
 using $Rectangle = ::java::awt::Rectangle;
 using $Toolkit = ::java::awt::Toolkit;
@@ -61,43 +59,11 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $Locale = ::java::util::Locale;
 using $JMenuItem = ::javax::swing::JMenuItem;
 
-$MethodInfo _HeadlessJMenuItem_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(HeadlessJMenuItem, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(HeadlessJMenuItem, main, void, $StringArray*)},
-	{}
-};
-
-$InnerClassInfo _HeadlessJMenuItem_InnerClassesInfo_[] = {
-	{"HeadlessJMenuItem$3", nullptr, nullptr, 0},
-	{"HeadlessJMenuItem$2", nullptr, nullptr, 0},
-	{"HeadlessJMenuItem$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _HeadlessJMenuItem_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"HeadlessJMenuItem",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_HeadlessJMenuItem_MethodInfo_,
-	nullptr,
-	nullptr,
-	_HeadlessJMenuItem_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"HeadlessJMenuItem$3,HeadlessJMenuItem$2,HeadlessJMenuItem$1"
-};
-
-$Object* allocate$HeadlessJMenuItem($Class* clazz) {
-	return $of($alloc(HeadlessJMenuItem));
-}
-
 void HeadlessJMenuItem::init$() {
 }
 
 void HeadlessJMenuItem::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JMenuItem, mi, $new($JMenuItem));
 	mi->getAccessibleContext();
 	mi->isFocusTraversable();
@@ -109,9 +75,9 @@ void HeadlessJMenuItem::main($StringArray* args) {
 	mi->getMaximumSize();
 	mi->getMinimumSize();
 	mi->contains(1, 2);
-	$var($Component, c1, mi->add(static_cast<$Component*>($$new($HeadlessJMenuItem$1))));
-	$var($Component, c2, mi->add(static_cast<$Component*>($$new($HeadlessJMenuItem$2))));
-	$var($Component, c3, mi->add(static_cast<$Component*>($$new($HeadlessJMenuItem$3))));
+	$var($Component, c1, mi->add($$new($HeadlessJMenuItem$1)));
+	$var($Component, c2, mi->add($$new($HeadlessJMenuItem$2)));
+	$var($Component, c3, mi->add($$new($HeadlessJMenuItem$3)));
 	$var($Insets, ins, mi->getInsets());
 	mi->getAlignmentY();
 	mi->getAlignmentX();
@@ -122,26 +88,22 @@ void HeadlessJMenuItem::main($StringArray* args) {
 	mi->setForeground($Color::red);
 	mi->setBackground($Color::red);
 	{
-		$var($StringArray, arr$, $nc($($Toolkit::getDefaultToolkit()))->getFontList());
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		$var($StringArray, arr$, $$nc($Toolkit::getDefaultToolkit())->getFontList());
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($String, font, arr$->get(i$));
-			{
-				for (int32_t j = 8; j < 17; ++j) {
-					$var($Font, f1, $new($Font, font, $Font::PLAIN, j));
-					$var($Font, f2, $new($Font, font, $Font::BOLD, j));
-					$var($Font, f3, $new($Font, font, $Font::ITALIC, j));
-					$var($Font, f4, $new($Font, font, $Font::BOLD | $Font::ITALIC, j));
-					mi->setFont(f1);
-					mi->setFont(f2);
-					mi->setFont(f3);
-					mi->setFont(f4);
-					mi->getFontMetrics(f1);
-					mi->getFontMetrics(f2);
-					mi->getFontMetrics(f3);
-					mi->getFontMetrics(f4);
-				}
+			for (int32_t j = 8; j < 17; ++j) {
+				$var($Font, f1, $new($Font, font, $Font::PLAIN, j));
+				$var($Font, f2, $new($Font, font, $Font::BOLD, j));
+				$var($Font, f3, $new($Font, font, $Font::ITALIC, j));
+				$var($Font, f4, $new($Font, font, $Font::BOLD | $Font::ITALIC, j));
+				mi->setFont(f1);
+				mi->setFont(f2);
+				mi->setFont(f3);
+				mi->setFont(f4);
+				mi->getFontMetrics(f1);
+				mi->getFontMetrics(f2);
+				mi->getFontMetrics(f3);
+				mi->getFontMetrics(f4);
 			}
 		}
 	}
@@ -206,13 +168,11 @@ void HeadlessJMenuItem::main($StringArray* args) {
 	mi->getFont();
 	mi->isFontSet();
 	$var($Container, c, $new($Container));
-	c->add(static_cast<$Component*>(mi));
+	c->add(mi);
 	mi->getLocale();
 	{
 		$var($LocaleArray, arr$, $Locale::getAvailableLocales());
-		int32_t len$ = arr$->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($Locale, locale, arr$->get(i$));
 			mi->setLocale(locale);
 		}
@@ -269,7 +229,34 @@ HeadlessJMenuItem::HeadlessJMenuItem() {
 }
 
 $Class* HeadlessJMenuItem::load$($String* name, bool initialize) {
-	$loadClass(HeadlessJMenuItem, name, initialize, &_HeadlessJMenuItem_ClassInfo_, allocate$HeadlessJMenuItem);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(HeadlessJMenuItem, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(HeadlessJMenuItem, main, void, $StringArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"HeadlessJMenuItem$3", nullptr, nullptr, 0},
+		{"HeadlessJMenuItem$2", nullptr, nullptr, 0},
+		{"HeadlessJMenuItem$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"HeadlessJMenuItem",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"HeadlessJMenuItem$3,HeadlessJMenuItem$2,HeadlessJMenuItem$1"
+	};
+	$loadClass(HeadlessJMenuItem, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HeadlessJMenuItem);
+	});
 	return class$;
 }
 

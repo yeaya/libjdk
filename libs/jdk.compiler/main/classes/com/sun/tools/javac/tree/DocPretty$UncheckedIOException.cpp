@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/tree/DocPretty$UncheckedIOException.h>
-
 #include <com/sun/tools/javac/tree/DocPretty.h>
 #include <java/io/IOException.h>
 #include <java/lang/Error.h>
@@ -18,41 +17,6 @@ namespace com {
 			namespace javac {
 				namespace tree {
 
-$FieldInfo _DocPretty$UncheckedIOException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(DocPretty$UncheckedIOException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _DocPretty$UncheckedIOException_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/IOException;)V", nullptr, 0, $method(DocPretty$UncheckedIOException, init$, void, $IOException*)},
-	{}
-};
-
-$InnerClassInfo _DocPretty$UncheckedIOException_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.tree.DocPretty$UncheckedIOException", "com.sun.tools.javac.tree.DocPretty", "UncheckedIOException", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _DocPretty$UncheckedIOException_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.tree.DocPretty$UncheckedIOException",
-	"java.lang.Error",
-	nullptr,
-	_DocPretty$UncheckedIOException_FieldInfo_,
-	_DocPretty$UncheckedIOException_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DocPretty$UncheckedIOException_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.tree.DocPretty"
-};
-
-$Object* allocate$DocPretty$UncheckedIOException($Class* clazz) {
-	return $of($alloc(DocPretty$UncheckedIOException));
-}
-
 void DocPretty$UncheckedIOException::init$($IOException* e) {
 	$Error::init$($($nc(e)->getMessage()), e);
 }
@@ -68,7 +32,36 @@ void DocPretty$UncheckedIOException::throw$() {
 }
 
 $Class* DocPretty$UncheckedIOException::load$($String* name, bool initialize) {
-	$loadClass(DocPretty$UncheckedIOException, name, initialize, &_DocPretty$UncheckedIOException_ClassInfo_, allocate$DocPretty$UncheckedIOException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(DocPretty$UncheckedIOException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/io/IOException;)V", nullptr, 0, $method(DocPretty$UncheckedIOException, init$, void, $IOException*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.tree.DocPretty$UncheckedIOException", "com.sun.tools.javac.tree.DocPretty", "UncheckedIOException", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.tree.DocPretty$UncheckedIOException",
+		"java.lang.Error",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.tree.DocPretty"
+	};
+	$loadClass(DocPretty$UncheckedIOException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DocPretty$UncheckedIOException);
+	});
 	return class$;
 }
 

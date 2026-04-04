@@ -55,6 +55,7 @@ class $export MaskFormatter : public ::javax::swing::text::DefaultFormatter {
 	$class(MaskFormatter, 0, ::javax::swing::text::DefaultFormatter)
 public:
 	MaskFormatter();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$($String* mask);
 	void append(::java::lang::StringBuilder* result, $String* value, $ints* index, $String* placeholder, $Array<::javax::swing::text::MaskFormatter$MaskCharacter>* mask);

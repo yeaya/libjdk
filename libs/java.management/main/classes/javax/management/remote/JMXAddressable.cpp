@@ -1,5 +1,4 @@
 #include <javax/management/remote/JMXAddressable.h>
-
 #include <javax/management/remote/JMXServiceURL.h>
 #include <jcpp.h>
 
@@ -11,26 +10,22 @@ namespace javax {
 	namespace management {
 		namespace remote {
 
-$MethodInfo _JMXAddressable_MethodInfo_[] = {
-	{"getAddress", "()Ljavax/management/remote/JMXServiceURL;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(JMXAddressable, getAddress, $JMXServiceURL*)},
-	{}
-};
-
-$ClassInfo _JMXAddressable_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"javax.management.remote.JMXAddressable",
-	nullptr,
-	nullptr,
-	nullptr,
-	_JMXAddressable_MethodInfo_
-};
-
-$Object* allocate$JMXAddressable($Class* clazz) {
-	return $of($alloc(JMXAddressable));
-}
-
 $Class* JMXAddressable::load$($String* name, bool initialize) {
-	$loadClass(JMXAddressable, name, initialize, &_JMXAddressable_ClassInfo_, allocate$JMXAddressable);
+	$MethodInfo methodInfos$$[] = {
+		{"getAddress", "()Ljavax/management/remote/JMXServiceURL;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(JMXAddressable, getAddress, $JMXServiceURL*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"javax.management.remote.JMXAddressable",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(JMXAddressable, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JMXAddressable);
+	});
 	return class$;
 }
 

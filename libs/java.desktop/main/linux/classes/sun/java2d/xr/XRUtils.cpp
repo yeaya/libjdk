@@ -1,5 +1,4 @@
 #include <sun/java2d/xr/XRUtils.h>
-
 #include <java/awt/MultipleGradientPaint$CycleMethod.h>
 #include <java/awt/Transparency.h>
 #include <java/awt/geom/AffineTransform.h>
@@ -46,75 +45,6 @@ namespace sun {
 	namespace java2d {
 		namespace xr {
 
-$FieldInfo _XRUtils_FieldInfo_[] = {
-	{"None", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XRUtils, None)},
-	{"PictOpClear", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XRUtils, PictOpClear)},
-	{"PictOpSrc", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XRUtils, PictOpSrc)},
-	{"PictOpDst", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XRUtils, PictOpDst)},
-	{"PictOpOver", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XRUtils, PictOpOver)},
-	{"PictOpOverReverse", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XRUtils, PictOpOverReverse)},
-	{"PictOpIn", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XRUtils, PictOpIn)},
-	{"PictOpInReverse", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XRUtils, PictOpInReverse)},
-	{"PictOpOut", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XRUtils, PictOpOut)},
-	{"PictOpOutReverse", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XRUtils, PictOpOutReverse)},
-	{"PictOpAtop", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XRUtils, PictOpAtop)},
-	{"PictOpAtopReverse", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XRUtils, PictOpAtopReverse)},
-	{"PictOpXor", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XRUtils, PictOpXor)},
-	{"PictOpAdd", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XRUtils, PictOpAdd)},
-	{"PictOpSaturate", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XRUtils, PictOpSaturate)},
-	{"RepeatNone", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XRUtils, RepeatNone)},
-	{"RepeatNormal", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XRUtils, RepeatNormal)},
-	{"RepeatPad", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XRUtils, RepeatPad)},
-	{"RepeatReflect", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XRUtils, RepeatReflect)},
-	{"FAST", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XRUtils, FAST)},
-	{"GOOD", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XRUtils, GOOD)},
-	{"BEST", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XRUtils, BEST)},
-	{"FAST_NAME", "[B", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XRUtils, FAST_NAME)},
-	{"GOOD_NAME", "[B", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XRUtils, GOOD_NAME)},
-	{"BEST_NAME", "[B", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XRUtils, BEST_NAME)},
-	{"PictStandardARGB32", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XRUtils, PictStandardARGB32)},
-	{"PictStandardRGB24", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XRUtils, PictStandardRGB24)},
-	{"PictStandardA8", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XRUtils, PictStandardA8)},
-	{"PictStandardA4", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XRUtils, PictStandardA4)},
-	{"PictStandardA1", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XRUtils, PictStandardA1)},
-	{}
-};
-
-$MethodInfo _XRUtils_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(XRUtils, init$, void)},
-	{"ATransOpToXRQuality", "(I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(XRUtils, ATransOpToXRQuality, int32_t, int32_t)},
-	{"ATransOpToXRQualityName", "(I)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(XRUtils, ATransOpToXRQualityName, $bytes*, int32_t)},
-	{"XDoubleToFixed", "(D)I", nullptr, $PUBLIC | $STATIC, $staticMethod(XRUtils, XDoubleToFixed, int32_t, double)},
-	{"XFixedToDouble", "(I)D", nullptr, $PUBLIC | $STATIC, $staticMethod(XRUtils, XFixedToDouble, double, int32_t)},
-	{"clampToShort", "(I)S", nullptr, $PUBLIC | $STATIC, $staticMethod(XRUtils, clampToShort, int16_t, int32_t)},
-	{"clampToUShort", "(I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(XRUtils, clampToUShort, int32_t, int32_t)},
-	{"convertFloatsToFixed", "([F)[I", nullptr, $PUBLIC | $STATIC, $staticMethod(XRUtils, convertFloatsToFixed, $ints*, $floats*)},
-	{"getFilterName", "(I)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(XRUtils, getFilterName, $bytes*, int32_t)},
-	{"getPictureFormatForTransparency", "(I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(XRUtils, getPictureFormatForTransparency, int32_t, int32_t)},
-	{"getRepeatForCycleMethod", "(Ljava/awt/MultipleGradientPaint$CycleMethod;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(XRUtils, getRepeatForCycleMethod, int32_t, $MultipleGradientPaint$CycleMethod*)},
-	{"getXRSurfaceTypeForTransparency", "(I)Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $STATIC, $staticMethod(XRUtils, getXRSurfaceTypeForTransparency, $SurfaceType*, int32_t)},
-	{"intToULong", "(I)J", nullptr, $PUBLIC | $STATIC, $staticMethod(XRUtils, intToULong, int64_t, int32_t)},
-	{"isDoubleInShortRange", "(D)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(XRUtils, isDoubleInShortRange, bool, double)},
-	{"isMaskEvaluated", "(B)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(XRUtils, isMaskEvaluated, bool, int8_t)},
-	{"isPointCoordInShortRange", "(Ljava/awt/geom/Point2D;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(XRUtils, isPointCoordInShortRange, bool, $Point2D*)},
-	{"isTransformQuadrantRotated", "(Ljava/awt/geom/AffineTransform;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(XRUtils, isTransformQuadrantRotated, bool, $AffineTransform*)},
-	{"j2dAlphaCompToXR", "(I)B", nullptr, $PUBLIC | $STATIC, $staticMethod(XRUtils, j2dAlphaCompToXR, int8_t, int32_t)},
-	{}
-};
-
-$ClassInfo _XRUtils_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.java2d.xr.XRUtils",
-	"java.lang.Object",
-	nullptr,
-	_XRUtils_FieldInfo_,
-	_XRUtils_MethodInfo_
-};
-
-$Object* allocate$XRUtils($Class* clazz) {
-	return $of($alloc(XRUtils));
-}
-
 $bytes* XRUtils::FAST_NAME = nullptr;
 $bytes* XRUtils::GOOD_NAME = nullptr;
 $bytes* XRUtils::BEST_NAME = nullptr;
@@ -126,17 +56,11 @@ int32_t XRUtils::ATransOpToXRQuality(int32_t affineTranformOp) {
 	$init(XRUtils);
 	switch (affineTranformOp) {
 	case $AffineTransformOp::TYPE_NEAREST_NEIGHBOR:
-		{
-			return XRUtils::FAST;
-		}
+		return XRUtils::FAST;
 	case $AffineTransformOp::TYPE_BILINEAR:
-		{
-			return XRUtils::GOOD;
-		}
+		return XRUtils::GOOD;
 	case $AffineTransformOp::TYPE_BICUBIC:
-		{
-			return XRUtils::BEST;
-		}
+		return XRUtils::BEST;
 	}
 	return -1;
 }
@@ -145,17 +69,11 @@ $bytes* XRUtils::ATransOpToXRQualityName(int32_t affineTranformOp) {
 	$init(XRUtils);
 	switch (affineTranformOp) {
 	case $AffineTransformOp::TYPE_NEAREST_NEIGHBOR:
-		{
-			return XRUtils::FAST_NAME;
-		}
+		return XRUtils::FAST_NAME;
 	case $AffineTransformOp::TYPE_BILINEAR:
-		{
-			return XRUtils::GOOD_NAME;
-		}
+		return XRUtils::GOOD_NAME;
 	case $AffineTransformOp::TYPE_BICUBIC:
-		{
-			return XRUtils::BEST_NAME;
-		}
+		return XRUtils::BEST_NAME;
 	}
 	return nullptr;
 }
@@ -164,17 +82,11 @@ $bytes* XRUtils::getFilterName(int32_t filterType) {
 	$init(XRUtils);
 	switch (filterType) {
 	case XRUtils::FAST:
-		{
-			return XRUtils::FAST_NAME;
-		}
+		return XRUtils::FAST_NAME;
 	case XRUtils::GOOD:
-		{
-			return XRUtils::GOOD_NAME;
-		}
+		return XRUtils::GOOD_NAME;
 	case XRUtils::BEST:
-		{
-			return XRUtils::BEST_NAME;
-		}
+		return XRUtils::BEST_NAME;
 	}
 	return nullptr;
 }
@@ -183,15 +95,10 @@ int32_t XRUtils::getPictureFormatForTransparency(int32_t transparency) {
 	$init(XRUtils);
 	switch (transparency) {
 	case $Transparency::OPAQUE:
-		{
-			return XRUtils::PictStandardRGB24;
-		}
+		return XRUtils::PictStandardRGB24;
 	case $Transparency::BITMASK:
-		{}
 	case $Transparency::TRANSLUCENT:
-		{
-			return XRUtils::PictStandardARGB32;
-		}
+		return XRUtils::PictStandardARGB32;
 	}
 	return -1;
 }
@@ -212,14 +119,10 @@ int32_t XRUtils::getRepeatForCycleMethod($MultipleGradientPaint$CycleMethod* cyc
 	$init($MultipleGradientPaint$CycleMethod);
 	if ($nc(cycleMethod)->equals($MultipleGradientPaint$CycleMethod::NO_CYCLE)) {
 		return XRUtils::RepeatPad;
-	} else {
-		if (cycleMethod->equals($MultipleGradientPaint$CycleMethod::REFLECT)) {
-			return XRUtils::RepeatReflect;
-		} else {
-			if (cycleMethod->equals($MultipleGradientPaint$CycleMethod::REPEAT)) {
-				return XRUtils::RepeatNormal;
-			}
-		}
+	} else if (cycleMethod->equals($MultipleGradientPaint$CycleMethod::REFLECT)) {
+		return XRUtils::RepeatReflect;
+	} else if (cycleMethod->equals($MultipleGradientPaint$CycleMethod::REPEAT)) {
+		return XRUtils::RepeatNormal;
 	}
 	return XRUtils::RepeatNone;
 }
@@ -253,68 +156,44 @@ int64_t XRUtils::intToULong(int32_t signed$) {
 
 int8_t XRUtils::j2dAlphaCompToXR(int32_t j2dRule) {
 	$init(XRUtils);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	switch (j2dRule) {
 	case 1:
-		{
-			return XRUtils::PictOpClear;
-		}
+		return XRUtils::PictOpClear;
 	case 2:
-		{
-			return XRUtils::PictOpSrc;
-		}
+		return XRUtils::PictOpSrc;
 	case 9:
-		{
-			return XRUtils::PictOpDst;
-		}
+		return XRUtils::PictOpDst;
 	case 3:
-		{
-			return XRUtils::PictOpOver;
-		}
+		return XRUtils::PictOpOver;
 	case 4:
-		{
-			return XRUtils::PictOpOverReverse;
-		}
+		return XRUtils::PictOpOverReverse;
 	case 5:
-		{
-			return XRUtils::PictOpIn;
-		}
+		return XRUtils::PictOpIn;
 	case 6:
-		{
-			return XRUtils::PictOpInReverse;
-		}
+		return XRUtils::PictOpInReverse;
 	case 7:
-		{
-			return XRUtils::PictOpOut;
-		}
+		return XRUtils::PictOpOut;
 	case 8:
-		{
-			return XRUtils::PictOpOutReverse;
-		}
+		return XRUtils::PictOpOutReverse;
 	case 10:
-		{
-			return XRUtils::PictOpAtop;
-		}
+		return XRUtils::PictOpAtop;
 	case 11:
-		{
-			return XRUtils::PictOpAtopReverse;
-		}
+		return XRUtils::PictOpAtopReverse;
 	case 12:
-		{
-			return XRUtils::PictOpXor;
-		}
+		return XRUtils::PictOpXor;
 	}
 	$throwNew($InternalError, $$str({"No XRender equivalent available for requested java2d composition rule: "_s, $$str(j2dRule)}));
 }
 
 int16_t XRUtils::clampToShort(int32_t x) {
 	$init(XRUtils);
-	return (int16_t)(x > $Short::MAX_VALUE ? (int32_t)$Short::MAX_VALUE : (x < $Short::MIN_VALUE ? (int32_t)$Short::MIN_VALUE : x));
+	return (int16_t)(x > $Short::MAX_VALUE ? $Short::MAX_VALUE : (x < $Short::MIN_VALUE ? $Short::MIN_VALUE : x));
 }
 
 int32_t XRUtils::clampToUShort(int32_t x) {
 	$init(XRUtils);
-	return (x > 0x0000FFFF ? 0x0000FFFF : (x < 0) ? 0 : x);
+	return (x > 0x0000ffff ? 0x0000ffff : (x < 0) ? 0 : x);
 }
 
 bool XRUtils::isDoubleInShortRange(double dbl) {
@@ -325,32 +204,27 @@ bool XRUtils::isDoubleInShortRange(double dbl) {
 bool XRUtils::isPointCoordInShortRange($Point2D* p) {
 	$init(XRUtils);
 	bool var$0 = isDoubleInShortRange($nc(p)->getX());
-	return var$0 && isDoubleInShortRange($nc(p)->getY());
+	return var$0 && isDoubleInShortRange(p->getY());
 }
 
 bool XRUtils::isTransformQuadrantRotated($AffineTransform* tr) {
 	$init(XRUtils);
-	return (((int32_t)($nc(tr)->getType() & (uint32_t)($AffineTransform::TYPE_GENERAL_ROTATION | $AffineTransform::TYPE_GENERAL_TRANSFORM))) == 0);
+	return (($nc(tr)->getType() & ($AffineTransform::TYPE_GENERAL_ROTATION | $AffineTransform::TYPE_GENERAL_TRANSFORM)) == 0);
 }
 
 bool XRUtils::isMaskEvaluated(int8_t xrCompRule) {
 	$init(XRUtils);
 	switch (xrCompRule) {
 	case XRUtils::PictOpOver:
-		{}
 	case XRUtils::PictOpOverReverse:
-		{}
 	case XRUtils::PictOpAtop:
-		{}
 	case XRUtils::PictOpXor:
-		{
-			return true;
-		}
+		return true;
 	}
 	return false;
 }
 
-void clinit$XRUtils($Class* class$) {
+void XRUtils::clinit$($Class* clazz) {
 	$assignStatic(XRUtils::FAST_NAME, "fast"_s->getBytes());
 	$assignStatic(XRUtils::GOOD_NAME, "good"_s->getBytes());
 	$assignStatic(XRUtils::BEST_NAME, "best"_s->getBytes());
@@ -360,7 +234,71 @@ XRUtils::XRUtils() {
 }
 
 $Class* XRUtils::load$($String* name, bool initialize) {
-	$loadClass(XRUtils, name, initialize, &_XRUtils_ClassInfo_, clinit$XRUtils, allocate$XRUtils);
+	$FieldInfo fieldInfos$$[] = {
+		{"None", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XRUtils, None)},
+		{"PictOpClear", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XRUtils, PictOpClear)},
+		{"PictOpSrc", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XRUtils, PictOpSrc)},
+		{"PictOpDst", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XRUtils, PictOpDst)},
+		{"PictOpOver", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XRUtils, PictOpOver)},
+		{"PictOpOverReverse", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XRUtils, PictOpOverReverse)},
+		{"PictOpIn", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XRUtils, PictOpIn)},
+		{"PictOpInReverse", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XRUtils, PictOpInReverse)},
+		{"PictOpOut", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XRUtils, PictOpOut)},
+		{"PictOpOutReverse", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XRUtils, PictOpOutReverse)},
+		{"PictOpAtop", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XRUtils, PictOpAtop)},
+		{"PictOpAtopReverse", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XRUtils, PictOpAtopReverse)},
+		{"PictOpXor", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XRUtils, PictOpXor)},
+		{"PictOpAdd", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XRUtils, PictOpAdd)},
+		{"PictOpSaturate", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XRUtils, PictOpSaturate)},
+		{"RepeatNone", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XRUtils, RepeatNone)},
+		{"RepeatNormal", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XRUtils, RepeatNormal)},
+		{"RepeatPad", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XRUtils, RepeatPad)},
+		{"RepeatReflect", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XRUtils, RepeatReflect)},
+		{"FAST", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XRUtils, FAST)},
+		{"GOOD", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XRUtils, GOOD)},
+		{"BEST", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XRUtils, BEST)},
+		{"FAST_NAME", "[B", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XRUtils, FAST_NAME)},
+		{"GOOD_NAME", "[B", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XRUtils, GOOD_NAME)},
+		{"BEST_NAME", "[B", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XRUtils, BEST_NAME)},
+		{"PictStandardARGB32", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XRUtils, PictStandardARGB32)},
+		{"PictStandardRGB24", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XRUtils, PictStandardRGB24)},
+		{"PictStandardA8", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XRUtils, PictStandardA8)},
+		{"PictStandardA4", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XRUtils, PictStandardA4)},
+		{"PictStandardA1", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XRUtils, PictStandardA1)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(XRUtils, init$, void)},
+		{"ATransOpToXRQuality", "(I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(XRUtils, ATransOpToXRQuality, int32_t, int32_t)},
+		{"ATransOpToXRQualityName", "(I)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(XRUtils, ATransOpToXRQualityName, $bytes*, int32_t)},
+		{"XDoubleToFixed", "(D)I", nullptr, $PUBLIC | $STATIC, $staticMethod(XRUtils, XDoubleToFixed, int32_t, double)},
+		{"XFixedToDouble", "(I)D", nullptr, $PUBLIC | $STATIC, $staticMethod(XRUtils, XFixedToDouble, double, int32_t)},
+		{"clampToShort", "(I)S", nullptr, $PUBLIC | $STATIC, $staticMethod(XRUtils, clampToShort, int16_t, int32_t)},
+		{"clampToUShort", "(I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(XRUtils, clampToUShort, int32_t, int32_t)},
+		{"convertFloatsToFixed", "([F)[I", nullptr, $PUBLIC | $STATIC, $staticMethod(XRUtils, convertFloatsToFixed, $ints*, $floats*)},
+		{"getFilterName", "(I)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(XRUtils, getFilterName, $bytes*, int32_t)},
+		{"getPictureFormatForTransparency", "(I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(XRUtils, getPictureFormatForTransparency, int32_t, int32_t)},
+		{"getRepeatForCycleMethod", "(Ljava/awt/MultipleGradientPaint$CycleMethod;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(XRUtils, getRepeatForCycleMethod, int32_t, $MultipleGradientPaint$CycleMethod*)},
+		{"getXRSurfaceTypeForTransparency", "(I)Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $STATIC, $staticMethod(XRUtils, getXRSurfaceTypeForTransparency, $SurfaceType*, int32_t)},
+		{"intToULong", "(I)J", nullptr, $PUBLIC | $STATIC, $staticMethod(XRUtils, intToULong, int64_t, int32_t)},
+		{"isDoubleInShortRange", "(D)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(XRUtils, isDoubleInShortRange, bool, double)},
+		{"isMaskEvaluated", "(B)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(XRUtils, isMaskEvaluated, bool, int8_t)},
+		{"isPointCoordInShortRange", "(Ljava/awt/geom/Point2D;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(XRUtils, isPointCoordInShortRange, bool, $Point2D*)},
+		{"isTransformQuadrantRotated", "(Ljava/awt/geom/AffineTransform;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(XRUtils, isTransformQuadrantRotated, bool, $AffineTransform*)},
+		{"j2dAlphaCompToXR", "(I)B", nullptr, $PUBLIC | $STATIC, $staticMethod(XRUtils, j2dAlphaCompToXR, int8_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.java2d.xr.XRUtils",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XRUtils, name, initialize, &classInfo$$, XRUtils::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(XRUtils);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <java/sql/SQLFeatureNotSupportedException.h>
-
 #include <java/sql/SQLNonTransientException.h>
 #include <jcpp.h>
 
@@ -10,36 +9,6 @@ using $SQLNonTransientException = ::java::sql::SQLNonTransientException;
 
 namespace java {
 	namespace sql {
-
-$FieldInfo _SQLFeatureNotSupportedException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SQLFeatureNotSupportedException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _SQLFeatureNotSupportedException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SQLFeatureNotSupportedException, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SQLFeatureNotSupportedException, init$, void, $String*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SQLFeatureNotSupportedException, init$, void, $String*, $String*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(SQLFeatureNotSupportedException, init$, void, $String*, $String*, int32_t)},
-	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(SQLFeatureNotSupportedException, init$, void, $Throwable*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(SQLFeatureNotSupportedException, init$, void, $String*, $Throwable*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(SQLFeatureNotSupportedException, init$, void, $String*, $String*, $Throwable*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;ILjava/lang/Throwable;)V", nullptr, $PUBLIC, $method(SQLFeatureNotSupportedException, init$, void, $String*, $String*, int32_t, $Throwable*)},
-	{}
-};
-
-$ClassInfo _SQLFeatureNotSupportedException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.sql.SQLFeatureNotSupportedException",
-	"java.sql.SQLNonTransientException",
-	nullptr,
-	_SQLFeatureNotSupportedException_FieldInfo_,
-	_SQLFeatureNotSupportedException_MethodInfo_
-};
-
-$Object* allocate$SQLFeatureNotSupportedException($Class* clazz) {
-	return $of($alloc(SQLFeatureNotSupportedException));
-}
 
 void SQLFeatureNotSupportedException::init$() {
 	$SQLNonTransientException::init$();
@@ -84,7 +53,32 @@ void SQLFeatureNotSupportedException::throw$() {
 }
 
 $Class* SQLFeatureNotSupportedException::load$($String* name, bool initialize) {
-	$loadClass(SQLFeatureNotSupportedException, name, initialize, &_SQLFeatureNotSupportedException_ClassInfo_, allocate$SQLFeatureNotSupportedException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SQLFeatureNotSupportedException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SQLFeatureNotSupportedException, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SQLFeatureNotSupportedException, init$, void, $String*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SQLFeatureNotSupportedException, init$, void, $String*, $String*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(SQLFeatureNotSupportedException, init$, void, $String*, $String*, int32_t)},
+		{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(SQLFeatureNotSupportedException, init$, void, $Throwable*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(SQLFeatureNotSupportedException, init$, void, $String*, $Throwable*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(SQLFeatureNotSupportedException, init$, void, $String*, $String*, $Throwable*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;ILjava/lang/Throwable;)V", nullptr, $PUBLIC, $method(SQLFeatureNotSupportedException, init$, void, $String*, $String*, int32_t, $Throwable*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.sql.SQLFeatureNotSupportedException",
+		"java.sql.SQLNonTransientException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SQLFeatureNotSupportedException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SQLFeatureNotSupportedException));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/tree/Pretty.h>
-
 #include <com/sun/source/tree/CaseTree$CaseKind.h>
 #include <com/sun/source/tree/MemberReferenceTree$ReferenceMode.h>
 #include <com/sun/source/tree/ModuleTree$ModuleKind.h>
@@ -125,8 +124,6 @@ using $ModuleTree$ModuleKind = ::com::sun::source::tree::ModuleTree$ModuleKind;
 using $BoundKind = ::com::sun::tools::javac::code::BoundKind;
 using $Flags = ::com::sun::tools::javac::code::Flags;
 using $Symbol = ::com::sun::tools::javac::code::Symbol;
-using $TypeTag = ::com::sun::tools::javac::code::TypeTag;
-using $DocCommentTable = ::com::sun::tools::javac::tree::DocCommentTable;
 using $JCTree = ::com::sun::tools::javac::tree::JCTree;
 using $JCTree$JCAnnotatedType = ::com::sun::tools::javac::tree::JCTree$JCAnnotatedType;
 using $JCTree$JCAnnotation = ::com::sun::tools::javac::tree::JCTree$JCAnnotation;
@@ -151,7 +148,6 @@ using $JCTree$JCDoWhileLoop = ::com::sun::tools::javac::tree::JCTree$JCDoWhileLo
 using $JCTree$JCEnhancedForLoop = ::com::sun::tools::javac::tree::JCTree$JCEnhancedForLoop;
 using $JCTree$JCErroneous = ::com::sun::tools::javac::tree::JCTree$JCErroneous;
 using $JCTree$JCExports = ::com::sun::tools::javac::tree::JCTree$JCExports;
-using $JCTree$JCExpression = ::com::sun::tools::javac::tree::JCTree$JCExpression;
 using $JCTree$JCExpressionStatement = ::com::sun::tools::javac::tree::JCTree$JCExpressionStatement;
 using $JCTree$JCFieldAccess = ::com::sun::tools::javac::tree::JCTree$JCFieldAccess;
 using $JCTree$JCForLoop = ::com::sun::tools::javac::tree::JCTree$JCForLoop;
@@ -228,150 +224,6 @@ namespace com {
 			namespace javac {
 				namespace tree {
 
-$FieldInfo _Pretty_FieldInfo_[] = {
-	{"sourceOutput", "Z", nullptr, $PRIVATE | $FINAL, $field(Pretty, sourceOutput)},
-	{"out", "Ljava/io/Writer;", nullptr, 0, $field(Pretty, out)},
-	{"width", "I", nullptr, $PUBLIC, $field(Pretty, width)},
-	{"lmargin", "I", nullptr, 0, $field(Pretty, lmargin)},
-	{"enclClassName", "Lcom/sun/tools/javac/util/Name;", nullptr, 0, $field(Pretty, enclClassName)},
-	{"docComments", "Lcom/sun/tools/javac/tree/DocCommentTable;", nullptr, 0, $field(Pretty, docComments)},
-	{"trimSequence", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Pretty, trimSequence)},
-	{"PREFERRED_LENGTH", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Pretty, PREFERRED_LENGTH)},
-	{"lineSep", "Ljava/lang/String;", nullptr, 0, $field(Pretty, lineSep)},
-	{"prec", "I", nullptr, 0, $field(Pretty, prec)},
-	{}
-};
-
-$MethodInfo _Pretty_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/Writer;Z)V", nullptr, $PUBLIC, $method(Pretty, init$, void, $Writer*, bool)},
-	{"align", "()V", nullptr, 0, $virtualMethod(Pretty, align, void), "java.io.IOException"},
-	{"close", "(II)V", nullptr, 0, $virtualMethod(Pretty, close, void, int32_t, int32_t), "java.io.IOException"},
-	{"indent", "()V", nullptr, 0, $virtualMethod(Pretty, indent, void)},
-	{"isEnumerator", "(Lcom/sun/tools/javac/tree/JCTree;)Z", nullptr, 0, $virtualMethod(Pretty, isEnumerator, bool, $JCTree*)},
-	{"isUsed", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/tree/JCTree;)Z", nullptr, 0, $virtualMethod(Pretty, isUsed, bool, $Symbol*, $JCTree*)},
-	{"lineEndPos", "(Ljava/lang/String;I)I", nullptr, $STATIC, $staticMethod(Pretty, lineEndPos, int32_t, $String*, int32_t)},
-	{"open", "(II)V", nullptr, 0, $virtualMethod(Pretty, open, void, int32_t, int32_t), "java.io.IOException"},
-	{"operatorName", "(Lcom/sun/tools/javac/tree/JCTree$Tag;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Pretty, operatorName, $String*, $JCTree$Tag*)},
-	{"print", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Pretty, print, void, Object$*), "java.io.IOException"},
-	{"printAnnotations", "(Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;>;)V", $PUBLIC, $virtualMethod(Pretty, printAnnotations, void, $List*), "java.io.IOException"},
-	{"printBaseElementType", "(Lcom/sun/tools/javac/tree/JCTree;)V", nullptr, $PRIVATE, $method(Pretty, printBaseElementType, void, $JCTree*), "java.io.IOException"},
-	{"printBlock", "(Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/util/List<+Lcom/sun/tools/javac/tree/JCTree;>;)V", $PUBLIC, $virtualMethod(Pretty, printBlock, void, $List*), "java.io.IOException"},
-	{"printBrackets", "(Lcom/sun/tools/javac/tree/JCTree;)V", nullptr, $PRIVATE, $method(Pretty, printBrackets, void, $JCTree*), "java.io.IOException"},
-	{"printDocComment", "(Lcom/sun/tools/javac/tree/JCTree;)V", nullptr, $PUBLIC, $virtualMethod(Pretty, printDocComment, void, $JCTree*), "java.io.IOException"},
-	{"printEnumBody", "(Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree;>;)V", $PUBLIC, $virtualMethod(Pretty, printEnumBody, void, $List*), "java.io.IOException"},
-	{"printExpr", "(Lcom/sun/tools/javac/tree/JCTree;I)V", nullptr, $PUBLIC, $virtualMethod(Pretty, printExpr, void, $JCTree*, int32_t), "java.io.IOException"},
-	{"printExpr", "(Lcom/sun/tools/javac/tree/JCTree;)V", nullptr, $PUBLIC, $virtualMethod(Pretty, printExpr, void, $JCTree*), "java.io.IOException"},
-	{"printExprs", "(Lcom/sun/tools/javac/util/List;Ljava/lang/String;)V", "<T:Lcom/sun/tools/javac/tree/JCTree;>(Lcom/sun/tools/javac/util/List<TT;>;Ljava/lang/String;)V", $PUBLIC, $virtualMethod(Pretty, printExprs, void, $List*, $String*), "java.io.IOException"},
-	{"printExprs", "(Lcom/sun/tools/javac/util/List;)V", "<T:Lcom/sun/tools/javac/tree/JCTree;>(Lcom/sun/tools/javac/util/List<TT;>;)V", $PUBLIC, $virtualMethod(Pretty, printExprs, void, $List*), "java.io.IOException"},
-	{"printFlags", "(J)V", nullptr, $PUBLIC, $virtualMethod(Pretty, printFlags, void, int64_t), "java.io.IOException"},
-	{"printPattern", "(Lcom/sun/tools/javac/tree/JCTree;)V", nullptr, $PUBLIC, $virtualMethod(Pretty, printPattern, void, $JCTree*), "java.io.IOException"},
-	{"printStat", "(Lcom/sun/tools/javac/tree/JCTree;)V", nullptr, $PUBLIC, $virtualMethod(Pretty, printStat, void, $JCTree*), "java.io.IOException"},
-	{"printStats", "(Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/util/List<+Lcom/sun/tools/javac/tree/JCTree;>;)V", $PUBLIC, $virtualMethod(Pretty, printStats, void, $List*), "java.io.IOException"},
-	{"printTypeAnnotations", "(Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;>;)V", $PUBLIC, $virtualMethod(Pretty, printTypeAnnotations, void, $List*), "java.io.IOException"},
-	{"printTypeParameters", "(Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCTypeParameter;>;)V", $PUBLIC, $virtualMethod(Pretty, printTypeParameters, void, $List*), "java.io.IOException"},
-	{"printUnit", "(Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)V", nullptr, $PUBLIC, $virtualMethod(Pretty, printUnit, void, $JCTree$JCCompilationUnit*, $JCTree$JCClassDecl*), "java.io.IOException"},
-	{"println", "()V", nullptr, $PUBLIC, $virtualMethod(Pretty, println, void), "java.io.IOException"},
-	{"toSimpleString", "(Lcom/sun/tools/javac/tree/JCTree;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Pretty, toSimpleString, $String*, $JCTree*)},
-	{"toSimpleString", "(Lcom/sun/tools/javac/tree/JCTree;I)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Pretty, toSimpleString, $String*, $JCTree*, int32_t)},
-	{"undent", "()V", nullptr, 0, $virtualMethod(Pretty, undent, void)},
-	{"visitAnnotatedType", "(Lcom/sun/tools/javac/tree/JCTree$JCAnnotatedType;)V", nullptr, $PUBLIC, $virtualMethod(Pretty, visitAnnotatedType, void, $JCTree$JCAnnotatedType*)},
-	{"visitAnnotation", "(Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;)V", nullptr, $PUBLIC, $virtualMethod(Pretty, visitAnnotation, void, $JCTree$JCAnnotation*)},
-	{"visitApply", "(Lcom/sun/tools/javac/tree/JCTree$JCMethodInvocation;)V", nullptr, $PUBLIC, $virtualMethod(Pretty, visitApply, void, $JCTree$JCMethodInvocation*)},
-	{"visitAssert", "(Lcom/sun/tools/javac/tree/JCTree$JCAssert;)V", nullptr, $PUBLIC, $virtualMethod(Pretty, visitAssert, void, $JCTree$JCAssert*)},
-	{"visitAssign", "(Lcom/sun/tools/javac/tree/JCTree$JCAssign;)V", nullptr, $PUBLIC, $virtualMethod(Pretty, visitAssign, void, $JCTree$JCAssign*)},
-	{"visitAssignop", "(Lcom/sun/tools/javac/tree/JCTree$JCAssignOp;)V", nullptr, $PUBLIC, $virtualMethod(Pretty, visitAssignop, void, $JCTree$JCAssignOp*)},
-	{"visitBinary", "(Lcom/sun/tools/javac/tree/JCTree$JCBinary;)V", nullptr, $PUBLIC, $virtualMethod(Pretty, visitBinary, void, $JCTree$JCBinary*)},
-	{"visitBindingPattern", "(Lcom/sun/tools/javac/tree/JCTree$JCBindingPattern;)V", nullptr, $PUBLIC, $virtualMethod(Pretty, visitBindingPattern, void, $JCTree$JCBindingPattern*)},
-	{"visitBlock", "(Lcom/sun/tools/javac/tree/JCTree$JCBlock;)V", nullptr, $PUBLIC, $virtualMethod(Pretty, visitBlock, void, $JCTree$JCBlock*)},
-	{"visitBreak", "(Lcom/sun/tools/javac/tree/JCTree$JCBreak;)V", nullptr, $PUBLIC, $virtualMethod(Pretty, visitBreak, void, $JCTree$JCBreak*)},
-	{"visitCase", "(Lcom/sun/tools/javac/tree/JCTree$JCCase;)V", nullptr, $PUBLIC, $virtualMethod(Pretty, visitCase, void, $JCTree$JCCase*)},
-	{"visitCatch", "(Lcom/sun/tools/javac/tree/JCTree$JCCatch;)V", nullptr, $PUBLIC, $virtualMethod(Pretty, visitCatch, void, $JCTree$JCCatch*)},
-	{"visitClassDef", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)V", nullptr, $PUBLIC, $virtualMethod(Pretty, visitClassDef, void, $JCTree$JCClassDecl*)},
-	{"visitConditional", "(Lcom/sun/tools/javac/tree/JCTree$JCConditional;)V", nullptr, $PUBLIC, $virtualMethod(Pretty, visitConditional, void, $JCTree$JCConditional*)},
-	{"visitContinue", "(Lcom/sun/tools/javac/tree/JCTree$JCContinue;)V", nullptr, $PUBLIC, $virtualMethod(Pretty, visitContinue, void, $JCTree$JCContinue*)},
-	{"visitDefaultCaseLabel", "(Lcom/sun/tools/javac/tree/JCTree$JCDefaultCaseLabel;)V", nullptr, $PUBLIC, $virtualMethod(Pretty, visitDefaultCaseLabel, void, $JCTree$JCDefaultCaseLabel*)},
-	{"visitDoLoop", "(Lcom/sun/tools/javac/tree/JCTree$JCDoWhileLoop;)V", nullptr, $PUBLIC, $virtualMethod(Pretty, visitDoLoop, void, $JCTree$JCDoWhileLoop*)},
-	{"visitErroneous", "(Lcom/sun/tools/javac/tree/JCTree$JCErroneous;)V", nullptr, $PUBLIC, $virtualMethod(Pretty, visitErroneous, void, $JCTree$JCErroneous*)},
-	{"visitExec", "(Lcom/sun/tools/javac/tree/JCTree$JCExpressionStatement;)V", nullptr, $PUBLIC, $virtualMethod(Pretty, visitExec, void, $JCTree$JCExpressionStatement*)},
-	{"visitExports", "(Lcom/sun/tools/javac/tree/JCTree$JCExports;)V", nullptr, $PUBLIC, $virtualMethod(Pretty, visitExports, void, $JCTree$JCExports*)},
-	{"visitForLoop", "(Lcom/sun/tools/javac/tree/JCTree$JCForLoop;)V", nullptr, $PUBLIC, $virtualMethod(Pretty, visitForLoop, void, $JCTree$JCForLoop*)},
-	{"visitForeachLoop", "(Lcom/sun/tools/javac/tree/JCTree$JCEnhancedForLoop;)V", nullptr, $PUBLIC, $virtualMethod(Pretty, visitForeachLoop, void, $JCTree$JCEnhancedForLoop*)},
-	{"visitGuardPattern", "(Lcom/sun/tools/javac/tree/JCTree$JCGuardPattern;)V", nullptr, $PUBLIC, $virtualMethod(Pretty, visitGuardPattern, void, $JCTree$JCGuardPattern*)},
-	{"visitIdent", "(Lcom/sun/tools/javac/tree/JCTree$JCIdent;)V", nullptr, $PUBLIC, $virtualMethod(Pretty, visitIdent, void, $JCTree$JCIdent*)},
-	{"visitIf", "(Lcom/sun/tools/javac/tree/JCTree$JCIf;)V", nullptr, $PUBLIC, $virtualMethod(Pretty, visitIf, void, $JCTree$JCIf*)},
-	{"visitImport", "(Lcom/sun/tools/javac/tree/JCTree$JCImport;)V", nullptr, $PUBLIC, $virtualMethod(Pretty, visitImport, void, $JCTree$JCImport*)},
-	{"visitIndexed", "(Lcom/sun/tools/javac/tree/JCTree$JCArrayAccess;)V", nullptr, $PUBLIC, $virtualMethod(Pretty, visitIndexed, void, $JCTree$JCArrayAccess*)},
-	{"visitLabelled", "(Lcom/sun/tools/javac/tree/JCTree$JCLabeledStatement;)V", nullptr, $PUBLIC, $virtualMethod(Pretty, visitLabelled, void, $JCTree$JCLabeledStatement*)},
-	{"visitLambda", "(Lcom/sun/tools/javac/tree/JCTree$JCLambda;)V", nullptr, $PUBLIC, $virtualMethod(Pretty, visitLambda, void, $JCTree$JCLambda*)},
-	{"visitLetExpr", "(Lcom/sun/tools/javac/tree/JCTree$LetExpr;)V", nullptr, $PUBLIC, $virtualMethod(Pretty, visitLetExpr, void, $JCTree$LetExpr*)},
-	{"visitLiteral", "(Lcom/sun/tools/javac/tree/JCTree$JCLiteral;)V", nullptr, $PUBLIC, $virtualMethod(Pretty, visitLiteral, void, $JCTree$JCLiteral*)},
-	{"visitMethodDef", "(Lcom/sun/tools/javac/tree/JCTree$JCMethodDecl;)V", nullptr, $PUBLIC, $virtualMethod(Pretty, visitMethodDef, void, $JCTree$JCMethodDecl*)},
-	{"visitModifiers", "(Lcom/sun/tools/javac/tree/JCTree$JCModifiers;)V", nullptr, $PUBLIC, $virtualMethod(Pretty, visitModifiers, void, $JCTree$JCModifiers*)},
-	{"visitModuleDef", "(Lcom/sun/tools/javac/tree/JCTree$JCModuleDecl;)V", nullptr, $PUBLIC, $virtualMethod(Pretty, visitModuleDef, void, $JCTree$JCModuleDecl*)},
-	{"visitNewArray", "(Lcom/sun/tools/javac/tree/JCTree$JCNewArray;)V", nullptr, $PUBLIC, $virtualMethod(Pretty, visitNewArray, void, $JCTree$JCNewArray*)},
-	{"visitNewClass", "(Lcom/sun/tools/javac/tree/JCTree$JCNewClass;)V", nullptr, $PUBLIC, $virtualMethod(Pretty, visitNewClass, void, $JCTree$JCNewClass*)},
-	{"visitOpens", "(Lcom/sun/tools/javac/tree/JCTree$JCOpens;)V", nullptr, $PUBLIC, $virtualMethod(Pretty, visitOpens, void, $JCTree$JCOpens*)},
-	{"visitPackageDef", "(Lcom/sun/tools/javac/tree/JCTree$JCPackageDecl;)V", nullptr, $PUBLIC, $virtualMethod(Pretty, visitPackageDef, void, $JCTree$JCPackageDecl*)},
-	{"visitParens", "(Lcom/sun/tools/javac/tree/JCTree$JCParens;)V", nullptr, $PUBLIC, $virtualMethod(Pretty, visitParens, void, $JCTree$JCParens*)},
-	{"visitParenthesizedPattern", "(Lcom/sun/tools/javac/tree/JCTree$JCParenthesizedPattern;)V", nullptr, $PUBLIC, $virtualMethod(Pretty, visitParenthesizedPattern, void, $JCTree$JCParenthesizedPattern*)},
-	{"visitProvides", "(Lcom/sun/tools/javac/tree/JCTree$JCProvides;)V", nullptr, $PUBLIC, $virtualMethod(Pretty, visitProvides, void, $JCTree$JCProvides*)},
-	{"visitReference", "(Lcom/sun/tools/javac/tree/JCTree$JCMemberReference;)V", nullptr, $PUBLIC, $virtualMethod(Pretty, visitReference, void, $JCTree$JCMemberReference*)},
-	{"visitRequires", "(Lcom/sun/tools/javac/tree/JCTree$JCRequires;)V", nullptr, $PUBLIC, $virtualMethod(Pretty, visitRequires, void, $JCTree$JCRequires*)},
-	{"visitReturn", "(Lcom/sun/tools/javac/tree/JCTree$JCReturn;)V", nullptr, $PUBLIC, $virtualMethod(Pretty, visitReturn, void, $JCTree$JCReturn*)},
-	{"visitSelect", "(Lcom/sun/tools/javac/tree/JCTree$JCFieldAccess;)V", nullptr, $PUBLIC, $virtualMethod(Pretty, visitSelect, void, $JCTree$JCFieldAccess*)},
-	{"visitSkip", "(Lcom/sun/tools/javac/tree/JCTree$JCSkip;)V", nullptr, $PUBLIC, $virtualMethod(Pretty, visitSkip, void, $JCTree$JCSkip*)},
-	{"visitSwitch", "(Lcom/sun/tools/javac/tree/JCTree$JCSwitch;)V", nullptr, $PUBLIC, $virtualMethod(Pretty, visitSwitch, void, $JCTree$JCSwitch*)},
-	{"visitSwitchExpression", "(Lcom/sun/tools/javac/tree/JCTree$JCSwitchExpression;)V", nullptr, $PUBLIC, $virtualMethod(Pretty, visitSwitchExpression, void, $JCTree$JCSwitchExpression*)},
-	{"visitSynchronized", "(Lcom/sun/tools/javac/tree/JCTree$JCSynchronized;)V", nullptr, $PUBLIC, $virtualMethod(Pretty, visitSynchronized, void, $JCTree$JCSynchronized*)},
-	{"visitThrow", "(Lcom/sun/tools/javac/tree/JCTree$JCThrow;)V", nullptr, $PUBLIC, $virtualMethod(Pretty, visitThrow, void, $JCTree$JCThrow*)},
-	{"visitTopLevel", "(Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;)V", nullptr, $PUBLIC, $virtualMethod(Pretty, visitTopLevel, void, $JCTree$JCCompilationUnit*)},
-	{"visitTree", "(Lcom/sun/tools/javac/tree/JCTree;)V", nullptr, $PUBLIC, $virtualMethod(Pretty, visitTree, void, $JCTree*)},
-	{"visitTry", "(Lcom/sun/tools/javac/tree/JCTree$JCTry;)V", nullptr, $PUBLIC, $virtualMethod(Pretty, visitTry, void, $JCTree$JCTry*)},
-	{"visitTypeApply", "(Lcom/sun/tools/javac/tree/JCTree$JCTypeApply;)V", nullptr, $PUBLIC, $virtualMethod(Pretty, visitTypeApply, void, $JCTree$JCTypeApply*)},
-	{"visitTypeArray", "(Lcom/sun/tools/javac/tree/JCTree$JCArrayTypeTree;)V", nullptr, $PUBLIC, $virtualMethod(Pretty, visitTypeArray, void, $JCTree$JCArrayTypeTree*)},
-	{"visitTypeBoundKind", "(Lcom/sun/tools/javac/tree/JCTree$TypeBoundKind;)V", nullptr, $PUBLIC, $virtualMethod(Pretty, visitTypeBoundKind, void, $JCTree$TypeBoundKind*)},
-	{"visitTypeCast", "(Lcom/sun/tools/javac/tree/JCTree$JCTypeCast;)V", nullptr, $PUBLIC, $virtualMethod(Pretty, visitTypeCast, void, $JCTree$JCTypeCast*)},
-	{"visitTypeIdent", "(Lcom/sun/tools/javac/tree/JCTree$JCPrimitiveTypeTree;)V", nullptr, $PUBLIC, $virtualMethod(Pretty, visitTypeIdent, void, $JCTree$JCPrimitiveTypeTree*)},
-	{"visitTypeIntersection", "(Lcom/sun/tools/javac/tree/JCTree$JCTypeIntersection;)V", nullptr, $PUBLIC, $virtualMethod(Pretty, visitTypeIntersection, void, $JCTree$JCTypeIntersection*)},
-	{"visitTypeParameter", "(Lcom/sun/tools/javac/tree/JCTree$JCTypeParameter;)V", nullptr, $PUBLIC, $virtualMethod(Pretty, visitTypeParameter, void, $JCTree$JCTypeParameter*)},
-	{"visitTypeTest", "(Lcom/sun/tools/javac/tree/JCTree$JCInstanceOf;)V", nullptr, $PUBLIC, $virtualMethod(Pretty, visitTypeTest, void, $JCTree$JCInstanceOf*)},
-	{"visitTypeUnion", "(Lcom/sun/tools/javac/tree/JCTree$JCTypeUnion;)V", nullptr, $PUBLIC, $virtualMethod(Pretty, visitTypeUnion, void, $JCTree$JCTypeUnion*)},
-	{"visitUnary", "(Lcom/sun/tools/javac/tree/JCTree$JCUnary;)V", nullptr, $PUBLIC, $virtualMethod(Pretty, visitUnary, void, $JCTree$JCUnary*)},
-	{"visitUses", "(Lcom/sun/tools/javac/tree/JCTree$JCUses;)V", nullptr, $PUBLIC, $virtualMethod(Pretty, visitUses, void, $JCTree$JCUses*)},
-	{"visitVarDef", "(Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;)V", nullptr, $PUBLIC, $virtualMethod(Pretty, visitVarDef, void, $JCTree$JCVariableDecl*)},
-	{"visitWhileLoop", "(Lcom/sun/tools/javac/tree/JCTree$JCWhileLoop;)V", nullptr, $PUBLIC, $virtualMethod(Pretty, visitWhileLoop, void, $JCTree$JCWhileLoop*)},
-	{"visitWildcard", "(Lcom/sun/tools/javac/tree/JCTree$JCWildcard;)V", nullptr, $PUBLIC, $virtualMethod(Pretty, visitWildcard, void, $JCTree$JCWildcard*)},
-	{"visitYield", "(Lcom/sun/tools/javac/tree/JCTree$JCYield;)V", nullptr, $PUBLIC, $virtualMethod(Pretty, visitYield, void, $JCTree$JCYield*)},
-	{}
-};
-
-$InnerClassInfo _Pretty_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.tree.JCTree$Visitor", "com.sun.tools.javac.tree.JCTree", "Visitor", $PUBLIC | $STATIC | $ABSTRACT},
-	{"com.sun.tools.javac.tree.Pretty$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{"com.sun.tools.javac.tree.Pretty$UncheckedIOException", "com.sun.tools.javac.tree.Pretty", "UncheckedIOException", $PRIVATE | $STATIC},
-	{"com.sun.tools.javac.tree.Pretty$1UsedVisitor", nullptr, "UsedVisitor", 0},
-	{}
-};
-
-$ClassInfo _Pretty_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.tree.Pretty",
-	"com.sun.tools.javac.tree.JCTree$Visitor",
-	nullptr,
-	_Pretty_FieldInfo_,
-	_Pretty_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Pretty_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.tree.Pretty$1,com.sun.tools.javac.tree.Pretty$UncheckedIOException,com.sun.tools.javac.tree.Pretty$1UsedVisitor"
-};
-
-$Object* allocate$Pretty($Class* clazz) {
-	return $of($alloc(Pretty));
-}
-
 $String* Pretty::trimSequence = nullptr;
 
 void Pretty::init$($Writer* out, bool sourceOutput) {
@@ -411,7 +263,7 @@ void Pretty::close(int32_t contextPrec, int32_t ownPrec) {
 }
 
 void Pretty::print(Object$* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(this->out)->write($($Convert::escapeUnicode($($nc($of(s))->toString()))));
 }
 
@@ -426,50 +278,51 @@ $String* Pretty::toSimpleString($JCTree* tree) {
 
 $String* Pretty::toSimpleString($JCTree* tree, int32_t maxLength) {
 	$init(Pretty);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringWriter, s, $new($StringWriter));
 	try {
 		$$new(Pretty, s, false)->printExpr(tree);
 	} catch ($IOException& e) {
 		$throwNew($AssertionError, $of(e));
 	}
-	$var($String, res, $($($nc($(s->toString()))->trim())->replaceAll("\\s+"_s, " "_s))->replaceAll("/\\*missing\\*/"_s, ""_s));
+	$var($String, res, $($($$nc(s->toString())->trim())->replaceAll("\\s+"_s, " "_s))->replaceAll("/\\*missing\\*/"_s, ""_s));
 	if (res->length() < maxLength) {
 		return res;
 	} else {
-		int32_t head = (maxLength - $nc(Pretty::trimSequence)->length()) * 2 / 3;
-		int32_t tail = maxLength - $nc(Pretty::trimSequence)->length() - head;
-		$var($String, var$0, $$str({$(res->substring(0, head)), Pretty::trimSequence}));
-		return $concat(var$0, $(res->substring(res->length() - tail)));
+		int32_t head = (maxLength - Pretty::trimSequence->length()) * 2 / 3;
+		int32_t tail = maxLength - Pretty::trimSequence->length() - head;
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append($(res->substring(0, head)));
+		var$0->append(Pretty::trimSequence);
+		var$0->append($(res->substring(res->length() - tail)));
+		return $str(var$0);
 	}
 }
 
 void Pretty::printExpr($JCTree* tree, int32_t prec) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t prevPrec = this->prec;
-	{
-		$var($Throwable, var$0, nullptr);
+	$var($Throwable, var$0, nullptr);
+	try {
 		try {
-			try {
-				this->prec = prec;
-				if (tree == nullptr) {
-					print("/*missing*/"_s);
-				} else {
-					$nc(tree)->accept(this);
-				}
-			} catch ($Pretty$UncheckedIOException& ex) {
-				$var($IOException, e, $new($IOException, $(ex->getMessage())));
-				e->initCause(ex);
-				$throw(e);
+			this->prec = prec;
+			if (tree == nullptr) {
+				print("/*missing*/"_s);
+			} else {
+				tree->accept(this);
 			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			this->prec = prevPrec;
+		} catch ($Pretty$UncheckedIOException& ex) {
+			$var($IOException, e, $new($IOException, $(ex->getMessage())));
+			e->initCause(ex);
+			$throw(e);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		this->prec = prevPrec;
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
@@ -486,7 +339,7 @@ void Pretty::printExprs($List* trees, $String* sep) {
 		printExpr($cast($JCTree, trees->head));
 		{
 			$var($List, l, trees->tail);
-			for (; $nc(l)->nonEmpty(); $assign(l, $nc(l)->tail)) {
+			for (; $nc(l)->nonEmpty(); $assign(l, l->tail)) {
 				print(sep);
 				printExpr($cast($JCTree, l->head));
 			}
@@ -503,54 +356,48 @@ void Pretty::printPattern($JCTree* tree) {
 }
 
 void Pretty::printStats($List* trees) {
-	{
-		$var($List, l, trees);
-		for (; $nc(l)->nonEmpty(); $assign(l, $nc(l)->tail)) {
-			align();
-			printStat($cast($JCTree, l->head));
-			println();
-		}
+	$var($List, l, trees);
+	for (; $nc(l)->nonEmpty(); $assign(l, l->tail)) {
+		align();
+		printStat($cast($JCTree, l->head));
+		println();
 	}
 }
 
 void Pretty::printFlags(int64_t flags) {
-	if (((int64_t)(flags & (uint64_t)(int64_t)4096)) != 0) {
+	if ((flags & 0x1000) != 0) {
 		print("/*synthetic*/ "_s);
 	}
 	print($($TreeInfo::flagNames(flags)));
-	if (((int64_t)(flags & (uint64_t)(int64_t)0xC000080000000FFF)) != 0) {
+	if ((flags & (int64_t)0xc000080000000fff) != 0) {
 		print(" "_s);
 	}
-	if (((int64_t)(flags & (uint64_t)(int64_t)8192)) != 0) {
+	if ((flags & 0x2000) != 0) {
 		print("@"_s);
 	}
 }
 
 void Pretty::printAnnotations($List* trees) {
-	{
-		$var($List, l, trees);
-		for (; $nc(l)->nonEmpty(); $assign(l, $nc(l)->tail)) {
-			printStat($cast($JCTree, l->head));
-			println();
-			align();
-		}
+	$var($List, l, trees);
+	for (; $nc(l)->nonEmpty(); $assign(l, l->tail)) {
+		printStat($cast($JCTree, l->head));
+		println();
+		align();
 	}
 }
 
 void Pretty::printTypeAnnotations($List* trees) {
-	{
-		$var($List, l, trees);
-		for (; $nc(l)->nonEmpty(); $assign(l, $nc(l)->tail)) {
-			printExpr($cast($JCTree, l->head));
-			print(" "_s);
-		}
+	$var($List, l, trees);
+	for (; $nc(l)->nonEmpty(); $assign(l, l->tail)) {
+		printExpr($cast($JCTree, l->head));
+		print(" "_s);
 	}
 }
 
 void Pretty::printDocComment($JCTree* tree) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->docComments != nullptr) {
-		$var($String, dc, $nc(this->docComments)->getCommentText(tree));
+		$var($String, dc, this->docComments->getCommentText(tree));
 		if (dc != nullptr) {
 			print("/**"_s);
 			println();
@@ -578,7 +425,7 @@ void Pretty::printDocComment($JCTree* tree) {
 
 int32_t Pretty::lineEndPos($String* s, int32_t start) {
 	$init(Pretty);
-	int32_t pos = $nc(s)->indexOf((int32_t)u'\n', start);
+	int32_t pos = $nc(s)->indexOf(u'\n', start);
 	if (pos < 0) {
 		pos = s->length();
 	}
@@ -604,14 +451,14 @@ void Pretty::printBlock($List* stats) {
 }
 
 void Pretty::printEnumBody($List* stats) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	print("{"_s);
 	println();
 	indent();
 	bool first = true;
 	{
 		$var($List, l, stats);
-		for (; $nc(l)->nonEmpty(); $assign(l, $nc(l)->tail)) {
+		for (; $nc(l)->nonEmpty(); $assign(l, l->tail)) {
 			if (isEnumerator($cast($JCTree, l->head))) {
 				if (!first) {
 					print(","_s);
@@ -627,10 +474,10 @@ void Pretty::printEnumBody($List* stats) {
 	println();
 	{
 		$var($List, l, stats);
-		for (; l->nonEmpty(); $assign(l, l->tail)) {
-			if (!isEnumerator($cast($JCTree, $nc(l)->head))) {
+		for (; $nc(l)->nonEmpty(); $assign(l, l->tail)) {
+			if (!isEnumerator($cast($JCTree, l->head))) {
 				align();
-				printStat($cast($JCTree, $nc(l)->head));
+				printStat($cast($JCTree, l->head));
 				println();
 			}
 		}
@@ -642,32 +489,32 @@ void Pretty::printEnumBody($List* stats) {
 
 bool Pretty::isEnumerator($JCTree* t) {
 	$init($JCTree$Tag);
-	return $nc(t)->hasTag($JCTree$Tag::VARDEF) && ((int64_t)($nc($nc(($cast($JCTree$JCVariableDecl, t)))->mods)->flags & (uint64_t)(int64_t)16384)) != 0;
+	return $nc(t)->hasTag($JCTree$Tag::VARDEF) && ($nc($cast($JCTree$JCVariableDecl, t)->mods)->flags & 0x4000) != 0;
 }
 
 void Pretty::printUnit($JCTree$JCCompilationUnit* tree, $JCTree$JCClassDecl* cdef) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, docComments, $nc(tree)->docComments);
 	printDocComment(tree);
 	bool firstImport = true;
 	{
 		$var($List, l, tree->defs);
 		for (;; $assign(l, $nc(l)->tail)) {
-			bool var$0 = l->nonEmpty();
+			bool var$0 = $nc(l)->nonEmpty();
 			if (var$0) {
 				$init($JCTree$Tag);
-				bool var$1 = cdef == nullptr || $nc(($cast($JCTree, l->head)))->hasTag($JCTree$Tag::IMPORT);
-				var$0 = (var$1 || $nc(($cast($JCTree, l->head)))->hasTag($JCTree$Tag::PACKAGEDEF));
+				bool var$1 = cdef == nullptr || $nc($cast($JCTree, l->head))->hasTag($JCTree$Tag::IMPORT);
+				var$0 = var$1 || $nc($cast($JCTree, l->head))->hasTag($JCTree$Tag::PACKAGEDEF);
 			}
 			if (!(var$0)) {
 				break;
 			}
 			{
 				$init($JCTree$Tag);
-				if ($nc(($cast($JCTree, l->head)))->hasTag($JCTree$Tag::IMPORT)) {
+				if ($nc($cast($JCTree, l->head))->hasTag($JCTree$Tag::IMPORT)) {
 					$var($JCTree$JCImport, imp, $cast($JCTree$JCImport, l->head));
 					$var($Name, name, $TreeInfo::name($nc(imp)->qualid));
-					if (name == $nc($nc($nc(name)->table)->names)->asterisk || cdef == nullptr || isUsed($($TreeInfo::symbol($nc(imp)->qualid)), cdef)) {
+					if (name == $nc($nc($nc(name)->table)->names)->asterisk || cdef == nullptr || isUsed($($TreeInfo::symbol(imp->qualid)), cdef)) {
 						if (firstImport) {
 							firstImport = false;
 							println();
@@ -706,7 +553,7 @@ void Pretty::visitPackageDef($JCTree$JCPackageDecl* tree) {
 	try {
 		printDocComment(tree);
 		printAnnotations($nc(tree)->annotations);
-		if ($nc(tree)->pid != nullptr) {
+		if (tree->pid != nullptr) {
 			print("package "_s);
 			printExpr(tree->pid);
 			print(";"_s);
@@ -722,12 +569,12 @@ void Pretty::visitModuleDef($JCTree$JCModuleDecl* tree) {
 		printDocComment(tree);
 		printAnnotations($nc($nc(tree)->mods)->annotations);
 		$init($ModuleTree$ModuleKind);
-		if ($nc(tree)->getModuleType() == $ModuleTree$ModuleKind::OPEN) {
+		if (tree->getModuleType() == $ModuleTree$ModuleKind::OPEN) {
 			print("open "_s);
 		}
 		print("module "_s);
-		printExpr($nc(tree)->qualId);
-		if ($nc(tree)->directives == nullptr) {
+		printExpr(tree->qualId);
+		if (tree->directives == nullptr) {
 			print(";"_s);
 		} else {
 			print(" "_s);
@@ -743,7 +590,7 @@ void Pretty::visitExports($JCTree$JCExports* tree) {
 	try {
 		print("exports "_s);
 		printExpr($nc(tree)->qualid);
-		if ($nc(tree)->moduleNames != nullptr) {
+		if (tree->moduleNames != nullptr) {
 			print(" to "_s);
 			printExprs(tree->moduleNames);
 		}
@@ -757,7 +604,7 @@ void Pretty::visitOpens($JCTree$JCOpens* tree) {
 	try {
 		print("opens "_s);
 		printExpr($nc(tree)->qualid);
-		if ($nc(tree)->moduleNames != nullptr) {
+		if (tree->moduleNames != nullptr) {
 			print(" to "_s);
 			printExprs(tree->moduleNames);
 		}
@@ -772,7 +619,7 @@ void Pretty::visitProvides($JCTree$JCProvides* tree) {
 		print("provides "_s);
 		printExpr($nc(tree)->serviceName);
 		print(" with "_s);
-		printExprs($nc(tree)->implNames);
+		printExprs(tree->implNames);
 		print(";"_s);
 	} catch ($IOException& e) {
 		$throwNew($Pretty$UncheckedIOException, e);
@@ -785,10 +632,10 @@ void Pretty::visitRequires($JCTree$JCRequires* tree) {
 		if ($nc(tree)->isStaticPhase) {
 			print("static "_s);
 		}
-		if ($nc(tree)->isTransitive$) {
+		if (tree->isTransitive$) {
 			print("transitive "_s);
 		}
-		printExpr($nc(tree)->moduleName);
+		printExpr(tree->moduleName);
 		print(";"_s);
 	} catch ($IOException& e) {
 		$throwNew($Pretty$UncheckedIOException, e);
@@ -811,7 +658,7 @@ void Pretty::visitImport($JCTree$JCImport* tree) {
 		if ($nc(tree)->staticImport) {
 			print("static "_s);
 		}
-		printExpr($nc(tree)->qualid);
+		printExpr(tree->qualid);
 		print(";"_s);
 		println();
 	} catch ($IOException& e) {
@@ -820,16 +667,16 @@ void Pretty::visitImport($JCTree$JCImport* tree) {
 }
 
 void Pretty::visitClassDef($JCTree$JCClassDecl* tree) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		println();
 		align();
 		printDocComment(tree);
 		printAnnotations($nc($nc(tree)->mods)->annotations);
-		printFlags((int64_t)($nc($nc(tree)->mods)->flags & (uint64_t)(int64_t)~512));
+		printFlags($nc(tree->mods)->flags & ~0x0200);
 		$var($Name, enclClassNamePrev, this->enclClassName);
-		$set(this, enclClassName, $nc(tree)->name);
-		if (((int64_t)($nc(tree->mods)->flags & (uint64_t)(int64_t)512)) != 0) {
+		$set(this, enclClassName, tree->name);
+		if (($nc(tree->mods)->flags & 0x0200) != 0) {
 			print($$str({"interface "_s, tree->name}));
 			printTypeParameters(tree->typarams);
 			if ($nc(tree->implementing)->nonEmpty()) {
@@ -841,7 +688,7 @@ void Pretty::visitClassDef($JCTree$JCClassDecl* tree) {
 				printExprs(tree->permitting);
 			}
 		} else {
-			if (((int64_t)($nc(tree->mods)->flags & (uint64_t)(int64_t)16384)) != 0) {
+			if ((tree->mods->flags & 0x4000) != 0) {
 				print($$str({"enum "_s, tree->name}));
 			} else {
 				print($$str({"class "_s, tree->name}));
@@ -861,7 +708,7 @@ void Pretty::visitClassDef($JCTree$JCClassDecl* tree) {
 			}
 		}
 		print(" "_s);
-		if (((int64_t)($nc(tree->mods)->flags & (uint64_t)(int64_t)16384)) != 0) {
+		if (($nc(tree->mods)->flags & 0x4000) != 0) {
 			printEnumBody(tree->defs);
 		} else {
 			printBlock(tree->defs);
@@ -874,38 +721,38 @@ void Pretty::visitClassDef($JCTree$JCClassDecl* tree) {
 
 void Pretty::visitMethodDef($JCTree$JCMethodDecl* tree) {
 	try {
-		if ($nc(tree)->name == $nc($nc($nc(tree->name)->table)->names)->init && this->enclClassName == nullptr && this->sourceOutput) {
+		if ($nc(tree)->name == $nc($nc($nc($nc(tree)->name)->table)->names)->init && this->enclClassName == nullptr && this->sourceOutput) {
 			return;
 		}
 		println();
 		align();
 		printDocComment(tree);
-		printExpr($nc(tree)->mods);
-		printTypeParameters($nc(tree)->typarams);
-		if ($nc(tree)->name == $nc($nc($nc(tree->name)->table)->names)->init) {
-			print(this->enclClassName != nullptr ? $of(this->enclClassName) : $of(tree->name));
+		printExpr(tree->mods);
+		printTypeParameters(tree->typarams);
+		if (tree->name == $nc(tree->name)->table->names->init) {
+			print(this->enclClassName != nullptr ? this->enclClassName : tree->name);
 		} else {
 			printExpr(tree->restype);
 			print($$str({" "_s, tree->name}));
 		}
 		print("("_s);
-		if ($nc(tree)->recvparam != nullptr) {
+		if (tree->recvparam != nullptr) {
 			printExpr(tree->recvparam);
 			if ($nc(tree->params)->size() > 0) {
 				print(", "_s);
 			}
 		}
-		printExprs($nc(tree)->params);
+		printExprs(tree->params);
 		print(")"_s);
-		if ($nc($nc(tree)->thrown)->nonEmpty()) {
+		if ($nc(tree->thrown)->nonEmpty()) {
 			print(" throws "_s);
 			printExprs(tree->thrown);
 		}
-		if ($nc(tree)->defaultValue != nullptr) {
+		if (tree->defaultValue != nullptr) {
 			print(" default "_s);
 			printExpr(tree->defaultValue);
 		}
-		if ($nc(tree)->body != nullptr) {
+		if (tree->body != nullptr) {
 			print(" "_s);
 			printStat(tree->body);
 		} else {
@@ -917,28 +764,28 @@ void Pretty::visitMethodDef($JCTree$JCMethodDecl* tree) {
 }
 
 void Pretty::visitVarDef($JCTree$JCVariableDecl* tree) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
-		if (this->docComments != nullptr && $nc(this->docComments)->hasComment(tree)) {
+		if (this->docComments != nullptr && this->docComments->hasComment(tree)) {
 			println();
 			align();
 		}
 		printDocComment(tree);
-		if (((int64_t)($nc($nc(tree)->mods)->flags & (uint64_t)(int64_t)16384)) != 0) {
+		if (($nc($nc(tree)->mods)->flags & 0x4000) != 0) {
 			print("/*public static final*/ "_s);
 			print(tree->name);
 			if (tree->init != nullptr) {
 				$init($JCTree$Tag);
-				if ($nc(tree->init)->hasTag($JCTree$Tag::NEWCLASS)) {
+				if (tree->init->hasTag($JCTree$Tag::NEWCLASS)) {
 					$var($JCTree$JCNewClass, init, $cast($JCTree$JCNewClass, tree->init));
 					if (this->sourceOutput) {
 						print(" /*enum*/ "_s);
-						if ($nc(init)->args != nullptr && $nc(init->args)->nonEmpty()) {
+						if ($nc(init)->args != nullptr && init->args->nonEmpty()) {
 							print("("_s);
 							print(init->args);
 							print(")"_s);
 						}
-						if ($nc(init)->def != nullptr && $nc(init->def)->defs != nullptr) {
+						if (init->def != nullptr && init->def->defs != nullptr) {
 							print(" "_s);
 							printBlock($nc(init->def)->defs);
 						}
@@ -946,21 +793,21 @@ void Pretty::visitVarDef($JCTree$JCVariableDecl* tree) {
 					} else {
 						print(" /* = "_s);
 						print("new "_s);
-						if ($nc(init)->def != nullptr && $nc($nc($nc(init->def)->mods)->annotations)->nonEmpty()) {
-							printTypeAnnotations($nc($nc(init->def)->mods)->annotations);
+						if ($nc(init)->def != nullptr && $nc($nc(init->def->mods)->annotations)->nonEmpty()) {
+							printTypeAnnotations($nc(init->def->mods)->annotations);
 						}
-						printExpr($nc(init)->clazz);
+						printExpr(init->clazz);
 						print("("_s);
-						printExprs($nc(init)->args);
+						printExprs(init->args);
 						print(")"_s);
 						print(" */"_s);
 						print(" /*enum*/ "_s);
-						if ($nc(init)->args != nullptr && $nc(init->args)->nonEmpty()) {
+						if (init->args != nullptr && init->args->nonEmpty()) {
 							print("("_s);
 							printExprs(init->args);
 							print(")"_s);
 						}
-						if ($nc(init)->def != nullptr && $nc(init->def)->defs != nullptr) {
+						if (init->def != nullptr && init->def->defs != nullptr) {
 							print(" "_s);
 							printBlock($nc(init->def)->defs);
 						}
@@ -973,7 +820,7 @@ void Pretty::visitVarDef($JCTree$JCVariableDecl* tree) {
 			}
 		} else {
 			printExpr(tree->mods);
-			if (((int64_t)($nc(tree->mods)->flags & (uint64_t)(int64_t)0x0000000400000000)) != 0) {
+			if (($nc(tree->mods)->flags & (int64_t)0x0000000400000000) != 0) {
 				$var($JCTree, vartype, tree->vartype);
 				$var($List, tas, nullptr);
 				{
@@ -988,7 +835,7 @@ void Pretty::visitVarDef($JCTree$JCVariableDecl* tree) {
 						$assign(vartype, annotatedType->underlyingType);
 					}
 				}
-				printExpr($nc(($cast($JCTree$JCArrayTypeTree, vartype)))->elemtype);
+				printExpr($nc($cast($JCTree$JCArrayTypeTree, vartype))->elemtype);
 				if (tas != nullptr) {
 					print($($Character::valueOf(u' ')));
 					printTypeAnnotations(tas);
@@ -1022,7 +869,7 @@ void Pretty::visitSkip($JCTree$JCSkip* tree) {
 void Pretty::visitBlock($JCTree$JCBlock* tree) {
 	try {
 		printFlags($nc(tree)->flags);
-		printBlock($nc(tree)->stats);
+		printBlock(tree->stats);
 	} catch ($IOException& e) {
 		$throwNew($Pretty$UncheckedIOException, e);
 	}
@@ -1035,7 +882,7 @@ void Pretty::visitDoLoop($JCTree$JCDoWhileLoop* tree) {
 		align();
 		print(" while "_s);
 		$init($JCTree$Tag);
-		if ($nc($nc(tree)->cond)->hasTag($JCTree$Tag::PARENS)) {
+		if ($nc(tree->cond)->hasTag($JCTree$Tag::PARENS)) {
 			printExpr(tree->cond);
 		} else {
 			print("("_s);
@@ -1060,26 +907,26 @@ void Pretty::visitWhileLoop($JCTree$JCWhileLoop* tree) {
 			print(")"_s);
 		}
 		print(" "_s);
-		printStat($nc(tree)->body);
+		printStat(tree->body);
 	} catch ($IOException& e) {
 		$throwNew($Pretty$UncheckedIOException, e);
 	}
 }
 
 void Pretty::visitForLoop($JCTree$JCForLoop* tree) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		print("for ("_s);
 		if ($nc($nc(tree)->init)->nonEmpty()) {
 			$init($JCTree$Tag);
-			if ($nc(($cast($JCTree$JCStatement, $nc(tree->init)->head)))->hasTag($JCTree$Tag::VARDEF)) {
+			if ($nc($cast($JCTree$JCStatement, $nc(tree->init)->head))->hasTag($JCTree$Tag::VARDEF)) {
 				printExpr($cast($JCTree, $nc(tree->init)->head));
 				{
 					$var($List, l, $nc(tree->init)->tail);
-					for (; $nc(l)->nonEmpty(); $assign(l, $nc(l)->tail)) {
+					for (; $nc(l)->nonEmpty(); $assign(l, l->tail)) {
 						$var($JCTree$JCVariableDecl, vdef, $cast($JCTree$JCVariableDecl, l->head));
 						print($$str({", "_s, $nc(vdef)->name}));
-						if ($nc(vdef)->init != nullptr) {
+						if (vdef->init != nullptr) {
 							print(" = "_s);
 							printExpr(vdef->init);
 						}
@@ -1090,13 +937,13 @@ void Pretty::visitForLoop($JCTree$JCForLoop* tree) {
 			}
 		}
 		print("; "_s);
-		if ($nc(tree)->cond != nullptr) {
+		if (tree->cond != nullptr) {
 			printExpr(tree->cond);
 		}
 		print("; "_s);
-		printExprs($nc(tree)->step);
+		printExprs(tree->step);
 		print(") "_s);
-		printStat($nc(tree)->body);
+		printStat(tree->body);
 	} catch ($IOException& e) {
 		$throwNew($Pretty$UncheckedIOException, e);
 	}
@@ -1107,9 +954,9 @@ void Pretty::visitForeachLoop($JCTree$JCEnhancedForLoop* tree) {
 		print("for ("_s);
 		printExpr($nc(tree)->var);
 		print(" : "_s);
-		printExpr($nc(tree)->expr);
+		printExpr(tree->expr);
 		print(") "_s);
-		printStat($nc(tree)->body);
+		printStat(tree->body);
 	} catch ($IOException& e) {
 		$throwNew($Pretty$UncheckedIOException, e);
 	}
@@ -1118,7 +965,7 @@ void Pretty::visitForeachLoop($JCTree$JCEnhancedForLoop* tree) {
 void Pretty::visitLabelled($JCTree$JCLabeledStatement* tree) {
 	try {
 		print($$str({$nc(tree)->label, ": "_s}));
-		printStat($nc(tree)->body);
+		printStat(tree->body);
 	} catch ($IOException& e) {
 		$throwNew($Pretty$UncheckedIOException, e);
 	}
@@ -1137,7 +984,7 @@ void Pretty::visitSwitch($JCTree$JCSwitch* tree) {
 		}
 		print(" {"_s);
 		println();
-		printStats($nc(tree)->cases);
+		printStats(tree->cases);
 		align();
 		print("}"_s);
 	} catch ($IOException& e) {
@@ -1149,14 +996,13 @@ void Pretty::visitCase($JCTree$JCCase* tree) {
 	try {
 		bool var$0 = $nc($nc(tree)->labels)->size() == 1;
 		$init($JCTree$Tag);
-		if (var$0 && $nc(($cast($JCTree$JCCaseLabel, $($nc(tree->labels)->get(0)))))->hasTag($JCTree$Tag::DEFAULTCASELABEL)) {
+		if (var$0 && $$sure($JCTree$JCCaseLabel, tree->labels->get(0))->hasTag($JCTree$Tag::DEFAULTCASELABEL)) {
 			print("default"_s);
 		} else {
 			print("case "_s);
 			printExprs(tree->labels);
 		}
-		$init($JCTree$JCCase);
-		if ($nc(tree)->caseKind == $JCTree$JCCase::STATEMENT) {
+		if (tree->caseKind == $JCTree$JCCase::STATEMENT) {
 			print(":"_s);
 			println();
 			indent();
@@ -1197,7 +1043,7 @@ void Pretty::visitSwitchExpression($JCTree$JCSwitchExpression* tree) {
 		}
 		print(" {"_s);
 		println();
-		printStats($nc(tree)->cases);
+		printStats(tree->cases);
 		align();
 		print("}"_s);
 	} catch ($IOException& e) {
@@ -1227,7 +1073,7 @@ void Pretty::visitGuardPattern($JCTree$JCGuardPattern* patt) {
 	try {
 		printExpr($nc(patt)->patt);
 		print(" && "_s);
-		printExpr($nc(patt)->expr);
+		printExpr(patt->expr);
 	} catch ($IOException& e) {
 		$throwNew($Pretty$UncheckedIOException, e);
 	}
@@ -1245,14 +1091,14 @@ void Pretty::visitSynchronized($JCTree$JCSynchronized* tree) {
 			print(")"_s);
 		}
 		print(" "_s);
-		printStat($nc(tree)->body);
+		printStat(tree->body);
 	} catch ($IOException& e) {
 		$throwNew($Pretty$UncheckedIOException, e);
 	}
 }
 
 void Pretty::visitTry($JCTree$JCTry* tree) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		print("try "_s);
 		if ($nc($nc(tree)->resources)->nonEmpty()) {
@@ -1274,10 +1120,10 @@ void Pretty::visitTry($JCTree$JCTry* tree) {
 			}
 			print(") "_s);
 		}
-		printStat($nc(tree)->body);
+		printStat(tree->body);
 		{
-			$var($List, l, $nc(tree)->catchers);
-			for (; $nc(l)->nonEmpty(); $assign(l, $nc(l)->tail)) {
+			$var($List, l, tree->catchers);
+			for (; $nc(l)->nonEmpty(); $assign(l, l->tail)) {
 				printStat($cast($JCTree, l->head));
 			}
 		}
@@ -1295,7 +1141,7 @@ void Pretty::visitCatch($JCTree$JCCatch* tree) {
 		print(" catch ("_s);
 		printExpr($nc(tree)->param);
 		print(") "_s);
-		printStat($nc(tree)->body);
+		printStat(tree->body);
 	} catch ($IOException& e) {
 		$throwNew($Pretty$UncheckedIOException, e);
 	}
@@ -1306,9 +1152,9 @@ void Pretty::visitConditional($JCTree$JCConditional* tree) {
 		open(this->prec, $TreeInfo::condPrec);
 		printExpr($nc(tree)->cond, $TreeInfo::condPrec + 1);
 		print(" ? "_s);
-		printExpr($nc(tree)->truepart);
+		printExpr(tree->truepart);
 		print(" : "_s);
-		printExpr($nc(tree)->falsepart, $TreeInfo::condPrec);
+		printExpr(tree->falsepart, $TreeInfo::condPrec);
 		close(this->prec, $TreeInfo::condPrec);
 	} catch ($IOException& e) {
 		$throwNew($Pretty$UncheckedIOException, e);
@@ -1327,8 +1173,8 @@ void Pretty::visitIf($JCTree$JCIf* tree) {
 			print(")"_s);
 		}
 		print(" "_s);
-		printStat($nc(tree)->thenpart);
-		if ($nc(tree)->elsepart != nullptr) {
+		printStat(tree->thenpart);
+		if (tree->elsepart != nullptr) {
 			print(" else "_s);
 			printStat(tree->elsepart);
 		}
@@ -1410,7 +1256,7 @@ void Pretty::visitAssert($JCTree$JCAssert* tree) {
 	try {
 		print("assert "_s);
 		printExpr($nc(tree)->cond);
-		if ($nc(tree)->detail != nullptr) {
+		if (tree->detail != nullptr) {
 			print(" : "_s);
 			printExpr(tree->detail);
 		}
@@ -1421,7 +1267,7 @@ void Pretty::visitAssert($JCTree$JCAssert* tree) {
 }
 
 void Pretty::visitApply($JCTree$JCMethodInvocation* tree) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		if (!$nc($nc(tree)->typeargs)->isEmpty()) {
 			$init($JCTree$Tag);
@@ -1430,7 +1276,7 @@ void Pretty::visitApply($JCTree$JCMethodInvocation* tree) {
 				printExpr($nc(left)->selected);
 				print(".<"_s);
 				printExprs(tree->typeargs);
-				print($$str({">"_s, $nc(left)->name}));
+				print($$str({">"_s, left->name}));
 			} else {
 				print("<"_s);
 				printExprs(tree->typeargs);
@@ -1441,7 +1287,7 @@ void Pretty::visitApply($JCTree$JCMethodInvocation* tree) {
 			printExpr(tree->meth);
 		}
 		print("("_s);
-		printExprs($nc(tree)->args);
+		printExprs(tree->args);
 		print(")"_s);
 	} catch ($IOException& e) {
 		$throwNew($Pretty$UncheckedIOException, e);
@@ -1455,22 +1301,22 @@ void Pretty::visitNewClass($JCTree$JCNewClass* tree) {
 			print("."_s);
 		}
 		print("new "_s);
-		if (!$nc($nc(tree)->typeargs)->isEmpty()) {
+		if (!$nc(tree->typeargs)->isEmpty()) {
 			print("<"_s);
 			printExprs(tree->typeargs);
 			print(">"_s);
 		}
-		if ($nc(tree)->def != nullptr && $nc($nc($nc(tree->def)->mods)->annotations)->nonEmpty()) {
-			printTypeAnnotations($nc($nc(tree->def)->mods)->annotations);
+		if (tree->def != nullptr && $nc($nc(tree->def->mods)->annotations)->nonEmpty()) {
+			printTypeAnnotations($nc(tree->def->mods)->annotations);
 		}
-		printExpr($nc(tree)->clazz);
+		printExpr(tree->clazz);
 		print("("_s);
-		printExprs($nc(tree)->args);
+		printExprs(tree->args);
 		print(")"_s);
-		if ($nc(tree)->def != nullptr) {
+		if (tree->def != nullptr) {
 			$var($Name, enclClassNamePrev, this->enclClassName);
-			$set(this, enclClassName, $nc(tree->def)->name != nullptr ? $nc(tree->def)->name : tree->type != nullptr && $nc($nc(tree->type)->tsym)->name != $nc($nc($nc($nc($nc(tree->type)->tsym)->name)->table)->names)->empty ? $nc($nc(tree->type)->tsym)->name : ($Name*)nullptr);
-			if (((int64_t)($nc($nc(tree->def)->mods)->flags & (uint64_t)(int64_t)$Flags::ENUM)) != 0) {
+			$set(this, enclClassName, tree->def->name != nullptr ? tree->def->name : tree->type != nullptr && $nc(tree->type->tsym)->name != $nc($nc($nc($nc(tree->type->tsym)->name)->table)->names)->empty ? tree->type->tsym->name : ($Name*)nullptr);
+			if (($nc(tree->def->mods)->flags & $Flags::ENUM) != 0) {
 				print("/*enum*/"_s);
 			}
 			printBlock($nc(tree->def)->defs);
@@ -1482,7 +1328,7 @@ void Pretty::visitNewClass($JCTree$JCNewClass* tree) {
 }
 
 void Pretty::visitNewArray($JCTree$JCNewArray* tree) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		if ($nc(tree)->elemtype != nullptr) {
 			print("new "_s);
@@ -1499,11 +1345,11 @@ void Pretty::visitNewArray($JCTree$JCNewArray* tree) {
 			$var($List, da, tree->dimAnnotations);
 			{
 				$var($List, l, tree->dims);
-				for (; $nc(l)->nonEmpty(); $assign(l, $nc(l)->tail)) {
+				for (; $nc(l)->nonEmpty(); $assign(l, l->tail)) {
 					bool var$0 = $nc(da)->size() > i;
-					if (var$0 && !$nc(($cast($List, $(da->get(i)))))->isEmpty()) {
+					if (var$0 && !$$sure($List, da->get(i))->isEmpty()) {
 						print($($Character::valueOf(u' ')));
-						printTypeAnnotations($cast($List, $(da->get(i))));
+						printTypeAnnotations($$cast($List, da->get(i)));
 					}
 					print("["_s);
 					++i;
@@ -1513,7 +1359,7 @@ void Pretty::visitNewArray($JCTree$JCNewArray* tree) {
 			}
 			printBrackets(elem);
 		}
-		if ($nc(tree)->elems != nullptr) {
+		if (tree->elems != nullptr) {
 			print("{"_s);
 			printExprs(tree->elems);
 			print("}"_s);
@@ -1524,7 +1370,7 @@ void Pretty::visitNewArray($JCTree$JCNewArray* tree) {
 }
 
 void Pretty::visitLambda($JCTree$JCLambda* tree) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		print("("_s);
 		$init($JCTree$JCLambda$ParameterKind);
@@ -1545,7 +1391,7 @@ void Pretty::visitLambda($JCTree$JCLambda* tree) {
 			}
 		}
 		print(")->"_s);
-		printExpr($nc(tree)->body);
+		printExpr(tree->body);
 	} catch ($IOException& e) {
 		$throwNew($Pretty$UncheckedIOException, e);
 	}
@@ -1566,7 +1412,7 @@ void Pretty::visitAssign($JCTree$JCAssign* tree) {
 		open(this->prec, $TreeInfo::assignPrec);
 		printExpr($nc(tree)->lhs, $TreeInfo::assignPrec + 1);
 		print(" = "_s);
-		printExpr($nc(tree)->rhs, $TreeInfo::assignPrec);
+		printExpr(tree->rhs, $TreeInfo::assignPrec);
 		close(this->prec, $TreeInfo::assignPrec);
 	} catch ($IOException& e) {
 		$throwNew($Pretty$UncheckedIOException, e);
@@ -1577,131 +1423,73 @@ $String* Pretty::operatorName($JCTree$Tag* tag) {
 	$init($Pretty$1);
 	switch ($nc($Pretty$1::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->get($nc((tag))->ordinal())) {
 	case 1:
-		{
-			return "+"_s;
-		}
+		return "+"_s;
 	case 2:
-		{
-			return "-"_s;
-		}
+		return "-"_s;
 	case 3:
-		{
-			return "!"_s;
-		}
+		return "!"_s;
 	case 4:
-		{
-			return "~"_s;
-		}
+		return "~"_s;
 	case 5:
-		{
-			return "++"_s;
-		}
+		return "++"_s;
 	case 6:
-		{
-			return "--"_s;
-		}
+		return "--"_s;
 	case 7:
-		{
-			return "++"_s;
-		}
+		return "++"_s;
 	case 8:
-		{
-			return "--"_s;
-		}
+		return "--"_s;
 	case 9:
-		{
-			return "<*nullchk*>"_s;
-		}
+		return "<*nullchk*>"_s;
 	case 10:
-		{
-			return "||"_s;
-		}
+		return "||"_s;
 	case 11:
-		{
-			return "&&"_s;
-		}
+		return "&&"_s;
 	case 12:
-		{
-			return "=="_s;
-		}
+		return "=="_s;
 	case 13:
-		{
-			return "!="_s;
-		}
+		return "!="_s;
 	case 14:
-		{
-			return "<"_s;
-		}
+		return "<"_s;
 	case 15:
-		{
-			return ">"_s;
-		}
+		return ">"_s;
 	case 16:
-		{
-			return "<="_s;
-		}
+		return "<="_s;
 	case 17:
-		{
-			return ">="_s;
-		}
+		return ">="_s;
 	case 18:
-		{
-			return "|"_s;
-		}
+		return "|"_s;
 	case 19:
-		{
-			return "^"_s;
-		}
+		return "^"_s;
 	case 20:
-		{
-			return "&"_s;
-		}
+		return "&"_s;
 	case 21:
-		{
-			return "<<"_s;
-		}
+		return "<<"_s;
 	case 22:
-		{
-			return ">>"_s;
-		}
+		return ">>"_s;
 	case 23:
-		{
-			return ">>>"_s;
-		}
+		return ">>>"_s;
 	case 24:
-		{
-			return "+"_s;
-		}
+		return "+"_s;
 	case 25:
-		{
-			return "-"_s;
-		}
+		return "-"_s;
 	case 26:
-		{
-			return "*"_s;
-		}
+		return "*"_s;
 	case 27:
-		{
-			return "/"_s;
-		}
+		return "/"_s;
 	case 28:
-		{
-			return "%"_s;
-		}
+		return "%"_s;
 	default:
-		{
-			$throwNew($Error);
-		}
+		$throwNew($Error);
 	}
 }
 
 void Pretty::visitAssignop($JCTree$JCAssignOp* tree) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		open(this->prec, $TreeInfo::assignopPrec);
 		printExpr($nc(tree)->lhs, $TreeInfo::assignopPrec + 1);
-		print($$str({" "_s, $(operatorName($($nc($($nc(tree)->getTag()))->noAssignOp()))), "= "_s}));
-		printExpr($nc(tree)->rhs, $TreeInfo::assignopPrec);
+		print($$str({" "_s, $(operatorName($($$nc(tree->getTag())->noAssignOp()))), "= "_s}));
+		printExpr(tree->rhs, $TreeInfo::assignopPrec);
 		close(this->prec, $TreeInfo::assignopPrec);
 	} catch ($IOException& e) {
 		$throwNew($Pretty$UncheckedIOException, e);
@@ -1709,12 +1497,12 @@ void Pretty::visitAssignop($JCTree$JCAssignOp* tree) {
 }
 
 void Pretty::visitUnary($JCTree$JCUnary* tree) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		int32_t ownprec = $TreeInfo::opPrec($($nc(tree)->getTag()));
-		$var($String, opname, operatorName($($nc(tree)->getTag())));
+		$var($String, opname, operatorName($(tree->getTag())));
 		open(this->prec, ownprec);
-		if (!$nc($($nc(tree)->getTag()))->isPostUnaryOp()) {
+		if (!$$nc(tree->getTag())->isPostUnaryOp()) {
 			print(opname);
 			printExpr(tree->arg, ownprec);
 		} else {
@@ -1728,14 +1516,14 @@ void Pretty::visitUnary($JCTree$JCUnary* tree) {
 }
 
 void Pretty::visitBinary($JCTree$JCBinary* tree) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		int32_t ownprec = $TreeInfo::opPrec($($nc(tree)->getTag()));
-		$var($String, opname, operatorName($($nc(tree)->getTag())));
+		$var($String, opname, operatorName($(tree->getTag())));
 		open(this->prec, ownprec);
-		printExpr($nc(tree)->lhs, ownprec);
+		printExpr(tree->lhs, ownprec);
 		print($$str({" "_s, opname, " "_s}));
-		printExpr($nc(tree)->rhs, ownprec + 1);
+		printExpr(tree->rhs, ownprec + 1);
 		close(this->prec, ownprec);
 	} catch ($IOException& e) {
 		$throwNew($Pretty$UncheckedIOException, e);
@@ -1748,7 +1536,7 @@ void Pretty::visitTypeCast($JCTree$JCTypeCast* tree) {
 		print("("_s);
 		printExpr($nc(tree)->clazz);
 		print(")"_s);
-		printExpr($nc(tree)->expr, $TreeInfo::prefixPrec);
+		printExpr(tree->expr, $TreeInfo::prefixPrec);
 		close(this->prec, $TreeInfo::prefixPrec);
 	} catch ($IOException& e) {
 		$throwNew($Pretty$UncheckedIOException, e);
@@ -1760,7 +1548,7 @@ void Pretty::visitTypeTest($JCTree$JCInstanceOf* tree) {
 		open(this->prec, $TreeInfo::ordPrec);
 		printExpr($nc(tree)->expr, $TreeInfo::ordPrec);
 		print(" instanceof "_s);
-		if ($instanceOf($JCTree$JCPattern, $nc(tree)->pattern)) {
+		if ($instanceOf($JCTree$JCPattern, tree->pattern)) {
 			printPattern(tree->pattern);
 		} else {
 			printExpr($(tree->getType()), $TreeInfo::ordPrec + 1);
@@ -1775,7 +1563,7 @@ void Pretty::visitIndexed($JCTree$JCArrayAccess* tree) {
 	try {
 		printExpr($nc(tree)->indexed, $TreeInfo::postfixPrec);
 		print("["_s);
-		printExpr($nc(tree)->index);
+		printExpr(tree->index);
 		print("]"_s);
 	} catch ($IOException& e) {
 		$throwNew($Pretty$UncheckedIOException, e);
@@ -1785,7 +1573,7 @@ void Pretty::visitIndexed($JCTree$JCArrayAccess* tree) {
 void Pretty::visitSelect($JCTree$JCFieldAccess* tree) {
 	try {
 		printExpr($nc(tree)->selected, $TreeInfo::postfixPrec);
-		print($$str({"."_s, $nc(tree)->name}));
+		print($$str({"."_s, tree->name}));
 	} catch ($IOException& e) {
 		$throwNew($Pretty$UncheckedIOException, e);
 	}
@@ -1795,13 +1583,13 @@ void Pretty::visitReference($JCTree$JCMemberReference* tree) {
 	try {
 		printExpr($nc(tree)->expr);
 		print("::"_s);
-		if ($nc(tree)->typeargs != nullptr) {
+		if (tree->typeargs != nullptr) {
 			print("<"_s);
 			printExprs(tree->typeargs);
 			print(">"_s);
 		}
 		$init($MemberReferenceTree$ReferenceMode);
-		print($nc(tree)->getMode() == $MemberReferenceTree$ReferenceMode::INVOKE ? $of($nc(tree)->name) : $of("new"_s));
+		print(tree->getMode() == $MemberReferenceTree$ReferenceMode::INVOKE ? $of(tree->name) : $of("new"_s));
 	} catch ($IOException& e) {
 		$throwNew($Pretty$UncheckedIOException, e);
 	}
@@ -1816,50 +1604,34 @@ void Pretty::visitIdent($JCTree$JCIdent* tree) {
 }
 
 void Pretty::visitLiteral($JCTree$JCLiteral* tree) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$init($Pretty$1);
 		switch ($nc($Pretty$1::$SwitchMap$com$sun$tools$javac$code$TypeTag)->get($nc(($nc(tree)->typetag))->ordinal())) {
 		case 1:
-			{
-				print($($nc($of(tree->value))->toString()));
-				break;
-			}
+			print($($nc(tree->value)->toString()));
+			break;
 		case 2:
-			{
-				print($$str({tree->value, "L"_s}));
-				break;
-			}
+			print($$str({tree->value, "L"_s}));
+			break;
 		case 3:
-			{
-				print($$str({tree->value, "F"_s}));
-				break;
-			}
+			print($$str({tree->value, "F"_s}));
+			break;
 		case 4:
-			{
-				print($($nc($of(tree->value))->toString()));
-				break;
-			}
+			print($($nc(tree->value)->toString()));
+			break;
 		case 5:
-			{
-				print($$str({"\'"_s, $($Convert::quote($($String::valueOf((char16_t)$nc(($cast($Number, tree->value)))->intValue())))), "\'"_s}));
-				break;
-			}
+			print($$str({"\'"_s, $($Convert::quote($($String::valueOf((char16_t)$nc($cast($Number, tree->value))->intValue())))), "\'"_s}));
+			break;
 		case 6:
-			{
-				print($nc(($cast($Number, tree->value)))->intValue() == 1 ? $of("true"_s) : $of("false"_s));
-				break;
-			}
+			print($nc($cast($Number, tree->value))->intValue() == 1 ? "true"_s : "false"_s);
+			break;
 		case 7:
-			{
-				print("null"_s);
-				break;
-			}
+			print("null"_s);
+			break;
 		default:
-			{
-				print($$str({"\""_s, $($Convert::quote($($nc($of(tree->value))->toString()))), "\""_s}));
-				break;
-			}
+			print($$str({"\""_s, $($Convert::quote($($nc(tree->value)->toString()))), "\""_s}));
+			break;
 		}
 	} catch ($IOException& e) {
 		$throwNew($Pretty$UncheckedIOException, e);
@@ -1871,55 +1643,35 @@ void Pretty::visitTypeIdent($JCTree$JCPrimitiveTypeTree* tree) {
 		$init($Pretty$1);
 		switch ($nc($Pretty$1::$SwitchMap$com$sun$tools$javac$code$TypeTag)->get($nc(($nc(tree)->typetag))->ordinal())) {
 		case 8:
-			{
-				print("byte"_s);
-				break;
-			}
+			print("byte"_s);
+			break;
 		case 5:
-			{
-				print("char"_s);
-				break;
-			}
+			print("char"_s);
+			break;
 		case 9:
-			{
-				print("short"_s);
-				break;
-			}
+			print("short"_s);
+			break;
 		case 1:
-			{
-				print("int"_s);
-				break;
-			}
+			print("int"_s);
+			break;
 		case 2:
-			{
-				print("long"_s);
-				break;
-			}
+			print("long"_s);
+			break;
 		case 3:
-			{
-				print("float"_s);
-				break;
-			}
+			print("float"_s);
+			break;
 		case 4:
-			{
-				print("double"_s);
-				break;
-			}
+			print("double"_s);
+			break;
 		case 6:
-			{
-				print("boolean"_s);
-				break;
-			}
+			print("boolean"_s);
+			break;
 		case 10:
-			{
-				print("void"_s);
-				break;
-			}
+			print("void"_s);
+			break;
 		default:
-			{
-				print("error"_s);
-				break;
-			}
+			print("error"_s);
+			break;
 		}
 	} catch ($IOException& e) {
 		$throwNew($Pretty$UncheckedIOException, e);
@@ -1940,7 +1692,7 @@ void Pretty::printBaseElementType($JCTree* tree) {
 }
 
 void Pretty::printBrackets($JCTree* tree) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JCTree, elem, tree);
 	while (true) {
 		$init($JCTree$Tag);
@@ -1952,9 +1704,9 @@ void Pretty::printBrackets($JCTree* tree) {
 				printTypeAnnotations(atype->annotations);
 			}
 		}
-		if ($nc(elem)->hasTag($JCTree$Tag::TYPEARRAY)) {
+		if (elem->hasTag($JCTree$Tag::TYPEARRAY)) {
 			print("[]"_s);
-			$assign(elem, $nc(($cast($JCTree$JCArrayTypeTree, elem)))->elemtype);
+			$assign(elem, $cast($JCTree$JCArrayTypeTree, elem)->elemtype);
 		} else {
 			break;
 		}
@@ -1965,7 +1717,7 @@ void Pretty::visitTypeApply($JCTree$JCTypeApply* tree) {
 	try {
 		printExpr($nc(tree)->clazz);
 		print("<"_s);
-		printExprs($nc(tree)->arguments);
+		printExprs(tree->arguments);
 		print(">"_s);
 	} catch ($IOException& e) {
 		$throwNew($Pretty$UncheckedIOException, e);
@@ -1993,8 +1745,8 @@ void Pretty::visitTypeParameter($JCTree$JCTypeParameter* tree) {
 		if ($nc($nc(tree)->annotations)->nonEmpty()) {
 			this->printTypeAnnotations(tree->annotations);
 		}
-		print($nc(tree)->name);
-		if ($nc($nc(tree)->bounds)->nonEmpty()) {
+		print(tree->name);
+		if ($nc(tree->bounds)->nonEmpty()) {
 			print(" extends "_s);
 			printExprs(tree->bounds, " & "_s);
 		}
@@ -2007,7 +1759,7 @@ void Pretty::visitWildcard($JCTree$JCWildcard* tree) {
 	try {
 		print($nc(tree)->kind);
 		$init($BoundKind);
-		if ($nc($nc(tree)->kind)->kind != $BoundKind::UNBOUND) {
+		if ($nc(tree->kind)->kind != $BoundKind::UNBOUND) {
 			printExpr(tree->inner);
 		}
 	} catch ($IOException& e) {
@@ -2017,7 +1769,7 @@ void Pretty::visitWildcard($JCTree$JCWildcard* tree) {
 
 void Pretty::visitTypeBoundKind($JCTree$TypeBoundKind* tree) {
 	try {
-		print($($String::valueOf($of($nc(tree)->kind))));
+		print($($String::valueOf($nc(tree)->kind)));
 	} catch ($IOException& e) {
 		$throwNew($Pretty$UncheckedIOException, e);
 	}
@@ -2033,7 +1785,7 @@ void Pretty::visitErroneous($JCTree$JCErroneous* tree) {
 
 void Pretty::visitLetExpr($JCTree$LetExpr* tree) {
 	try {
-		print($$str({"(let "_s, $nc(tree)->defs, " in "_s, tree->expr, ")"_s}));
+		print($$str({"(let "_s, $nc(tree)->defs, " in "_s, $nc(tree)->expr, ")"_s}));
 	} catch ($IOException& e) {
 		$throwNew($Pretty$UncheckedIOException, e);
 	}
@@ -2042,7 +1794,7 @@ void Pretty::visitLetExpr($JCTree$LetExpr* tree) {
 void Pretty::visitModifiers($JCTree$JCModifiers* mods) {
 	try {
 		printAnnotations($nc(mods)->annotations);
-		printFlags($nc(mods)->flags);
+		printFlags(mods->flags);
 	} catch ($IOException& e) {
 		$throwNew($Pretty$UncheckedIOException, e);
 	}
@@ -2052,7 +1804,7 @@ void Pretty::visitAnnotation($JCTree$JCAnnotation* tree) {
 	try {
 		print("@"_s);
 		printExpr($nc(tree)->annotationType);
-		if (!$nc($nc(tree)->args)->isEmpty()) {
+		if (!$nc(tree->args)->isEmpty()) {
 			print("("_s);
 			printExprs(tree->args);
 			print(")"_s);
@@ -2070,15 +1822,13 @@ void Pretty::visitAnnotatedType($JCTree$JCAnnotatedType* tree) {
 			printExpr($nc(access)->selected, $TreeInfo::postfixPrec);
 			print("."_s);
 			printTypeAnnotations(tree->annotations);
-			print($nc(access)->name);
+			print(access->name);
+		} else if ($nc(tree->underlyingType)->hasTag($JCTree$Tag::TYPEARRAY)) {
+			printBaseElementType(tree);
+			printBrackets(tree);
 		} else {
-			if ($nc(tree->underlyingType)->hasTag($JCTree$Tag::TYPEARRAY)) {
-				printBaseElementType(tree);
-				printBrackets(tree);
-			} else {
-				printTypeAnnotations(tree->annotations);
-				printExpr(tree->underlyingType);
-			}
+			printTypeAnnotations(tree->annotations);
+			printExpr(tree->underlyingType);
 		}
 	} catch ($IOException& e) {
 		$throwNew($Pretty$UncheckedIOException, e);
@@ -2086,7 +1836,7 @@ void Pretty::visitAnnotatedType($JCTree$JCAnnotatedType* tree) {
 }
 
 void Pretty::visitTree($JCTree* tree) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		print($$str({"(UNKNOWN: "_s, $($nc(tree)->getTag()), ")"_s}));
 		println();
@@ -2098,12 +1848,150 @@ void Pretty::visitTree($JCTree* tree) {
 Pretty::Pretty() {
 }
 
-void clinit$Pretty($Class* class$) {
+void Pretty::clinit$($Class* clazz) {
 	$assignStatic(Pretty::trimSequence, "[...]"_s);
 }
 
 $Class* Pretty::load$($String* name, bool initialize) {
-	$loadClass(Pretty, name, initialize, &_Pretty_ClassInfo_, clinit$Pretty, allocate$Pretty);
+	$FieldInfo fieldInfos$$[] = {
+		{"sourceOutput", "Z", nullptr, $PRIVATE | $FINAL, $field(Pretty, sourceOutput)},
+		{"out", "Ljava/io/Writer;", nullptr, 0, $field(Pretty, out)},
+		{"width", "I", nullptr, $PUBLIC, $field(Pretty, width)},
+		{"lmargin", "I", nullptr, 0, $field(Pretty, lmargin)},
+		{"enclClassName", "Lcom/sun/tools/javac/util/Name;", nullptr, 0, $field(Pretty, enclClassName)},
+		{"docComments", "Lcom/sun/tools/javac/tree/DocCommentTable;", nullptr, 0, $field(Pretty, docComments)},
+		{"trimSequence", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Pretty, trimSequence)},
+		{"PREFERRED_LENGTH", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Pretty, PREFERRED_LENGTH)},
+		{"lineSep", "Ljava/lang/String;", nullptr, 0, $field(Pretty, lineSep)},
+		{"prec", "I", nullptr, 0, $field(Pretty, prec)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/io/Writer;Z)V", nullptr, $PUBLIC, $method(Pretty, init$, void, $Writer*, bool)},
+		{"align", "()V", nullptr, 0, $virtualMethod(Pretty, align, void), "java.io.IOException"},
+		{"close", "(II)V", nullptr, 0, $virtualMethod(Pretty, close, void, int32_t, int32_t), "java.io.IOException"},
+		{"indent", "()V", nullptr, 0, $virtualMethod(Pretty, indent, void)},
+		{"isEnumerator", "(Lcom/sun/tools/javac/tree/JCTree;)Z", nullptr, 0, $virtualMethod(Pretty, isEnumerator, bool, $JCTree*)},
+		{"isUsed", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/tree/JCTree;)Z", nullptr, 0, $virtualMethod(Pretty, isUsed, bool, $Symbol*, $JCTree*)},
+		{"lineEndPos", "(Ljava/lang/String;I)I", nullptr, $STATIC, $staticMethod(Pretty, lineEndPos, int32_t, $String*, int32_t)},
+		{"open", "(II)V", nullptr, 0, $virtualMethod(Pretty, open, void, int32_t, int32_t), "java.io.IOException"},
+		{"operatorName", "(Lcom/sun/tools/javac/tree/JCTree$Tag;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Pretty, operatorName, $String*, $JCTree$Tag*)},
+		{"print", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Pretty, print, void, Object$*), "java.io.IOException"},
+		{"printAnnotations", "(Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;>;)V", $PUBLIC, $virtualMethod(Pretty, printAnnotations, void, $List*), "java.io.IOException"},
+		{"printBaseElementType", "(Lcom/sun/tools/javac/tree/JCTree;)V", nullptr, $PRIVATE, $method(Pretty, printBaseElementType, void, $JCTree*), "java.io.IOException"},
+		{"printBlock", "(Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/util/List<+Lcom/sun/tools/javac/tree/JCTree;>;)V", $PUBLIC, $virtualMethod(Pretty, printBlock, void, $List*), "java.io.IOException"},
+		{"printBrackets", "(Lcom/sun/tools/javac/tree/JCTree;)V", nullptr, $PRIVATE, $method(Pretty, printBrackets, void, $JCTree*), "java.io.IOException"},
+		{"printDocComment", "(Lcom/sun/tools/javac/tree/JCTree;)V", nullptr, $PUBLIC, $virtualMethod(Pretty, printDocComment, void, $JCTree*), "java.io.IOException"},
+		{"printEnumBody", "(Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree;>;)V", $PUBLIC, $virtualMethod(Pretty, printEnumBody, void, $List*), "java.io.IOException"},
+		{"printExpr", "(Lcom/sun/tools/javac/tree/JCTree;I)V", nullptr, $PUBLIC, $virtualMethod(Pretty, printExpr, void, $JCTree*, int32_t), "java.io.IOException"},
+		{"printExpr", "(Lcom/sun/tools/javac/tree/JCTree;)V", nullptr, $PUBLIC, $virtualMethod(Pretty, printExpr, void, $JCTree*), "java.io.IOException"},
+		{"printExprs", "(Lcom/sun/tools/javac/util/List;Ljava/lang/String;)V", "<T:Lcom/sun/tools/javac/tree/JCTree;>(Lcom/sun/tools/javac/util/List<TT;>;Ljava/lang/String;)V", $PUBLIC, $virtualMethod(Pretty, printExprs, void, $List*, $String*), "java.io.IOException"},
+		{"printExprs", "(Lcom/sun/tools/javac/util/List;)V", "<T:Lcom/sun/tools/javac/tree/JCTree;>(Lcom/sun/tools/javac/util/List<TT;>;)V", $PUBLIC, $virtualMethod(Pretty, printExprs, void, $List*), "java.io.IOException"},
+		{"printFlags", "(J)V", nullptr, $PUBLIC, $virtualMethod(Pretty, printFlags, void, int64_t), "java.io.IOException"},
+		{"printPattern", "(Lcom/sun/tools/javac/tree/JCTree;)V", nullptr, $PUBLIC, $virtualMethod(Pretty, printPattern, void, $JCTree*), "java.io.IOException"},
+		{"printStat", "(Lcom/sun/tools/javac/tree/JCTree;)V", nullptr, $PUBLIC, $virtualMethod(Pretty, printStat, void, $JCTree*), "java.io.IOException"},
+		{"printStats", "(Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/util/List<+Lcom/sun/tools/javac/tree/JCTree;>;)V", $PUBLIC, $virtualMethod(Pretty, printStats, void, $List*), "java.io.IOException"},
+		{"printTypeAnnotations", "(Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;>;)V", $PUBLIC, $virtualMethod(Pretty, printTypeAnnotations, void, $List*), "java.io.IOException"},
+		{"printTypeParameters", "(Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCTypeParameter;>;)V", $PUBLIC, $virtualMethod(Pretty, printTypeParameters, void, $List*), "java.io.IOException"},
+		{"printUnit", "(Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)V", nullptr, $PUBLIC, $virtualMethod(Pretty, printUnit, void, $JCTree$JCCompilationUnit*, $JCTree$JCClassDecl*), "java.io.IOException"},
+		{"println", "()V", nullptr, $PUBLIC, $virtualMethod(Pretty, println, void), "java.io.IOException"},
+		{"toSimpleString", "(Lcom/sun/tools/javac/tree/JCTree;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Pretty, toSimpleString, $String*, $JCTree*)},
+		{"toSimpleString", "(Lcom/sun/tools/javac/tree/JCTree;I)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Pretty, toSimpleString, $String*, $JCTree*, int32_t)},
+		{"undent", "()V", nullptr, 0, $virtualMethod(Pretty, undent, void)},
+		{"visitAnnotatedType", "(Lcom/sun/tools/javac/tree/JCTree$JCAnnotatedType;)V", nullptr, $PUBLIC, $virtualMethod(Pretty, visitAnnotatedType, void, $JCTree$JCAnnotatedType*)},
+		{"visitAnnotation", "(Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;)V", nullptr, $PUBLIC, $virtualMethod(Pretty, visitAnnotation, void, $JCTree$JCAnnotation*)},
+		{"visitApply", "(Lcom/sun/tools/javac/tree/JCTree$JCMethodInvocation;)V", nullptr, $PUBLIC, $virtualMethod(Pretty, visitApply, void, $JCTree$JCMethodInvocation*)},
+		{"visitAssert", "(Lcom/sun/tools/javac/tree/JCTree$JCAssert;)V", nullptr, $PUBLIC, $virtualMethod(Pretty, visitAssert, void, $JCTree$JCAssert*)},
+		{"visitAssign", "(Lcom/sun/tools/javac/tree/JCTree$JCAssign;)V", nullptr, $PUBLIC, $virtualMethod(Pretty, visitAssign, void, $JCTree$JCAssign*)},
+		{"visitAssignop", "(Lcom/sun/tools/javac/tree/JCTree$JCAssignOp;)V", nullptr, $PUBLIC, $virtualMethod(Pretty, visitAssignop, void, $JCTree$JCAssignOp*)},
+		{"visitBinary", "(Lcom/sun/tools/javac/tree/JCTree$JCBinary;)V", nullptr, $PUBLIC, $virtualMethod(Pretty, visitBinary, void, $JCTree$JCBinary*)},
+		{"visitBindingPattern", "(Lcom/sun/tools/javac/tree/JCTree$JCBindingPattern;)V", nullptr, $PUBLIC, $virtualMethod(Pretty, visitBindingPattern, void, $JCTree$JCBindingPattern*)},
+		{"visitBlock", "(Lcom/sun/tools/javac/tree/JCTree$JCBlock;)V", nullptr, $PUBLIC, $virtualMethod(Pretty, visitBlock, void, $JCTree$JCBlock*)},
+		{"visitBreak", "(Lcom/sun/tools/javac/tree/JCTree$JCBreak;)V", nullptr, $PUBLIC, $virtualMethod(Pretty, visitBreak, void, $JCTree$JCBreak*)},
+		{"visitCase", "(Lcom/sun/tools/javac/tree/JCTree$JCCase;)V", nullptr, $PUBLIC, $virtualMethod(Pretty, visitCase, void, $JCTree$JCCase*)},
+		{"visitCatch", "(Lcom/sun/tools/javac/tree/JCTree$JCCatch;)V", nullptr, $PUBLIC, $virtualMethod(Pretty, visitCatch, void, $JCTree$JCCatch*)},
+		{"visitClassDef", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)V", nullptr, $PUBLIC, $virtualMethod(Pretty, visitClassDef, void, $JCTree$JCClassDecl*)},
+		{"visitConditional", "(Lcom/sun/tools/javac/tree/JCTree$JCConditional;)V", nullptr, $PUBLIC, $virtualMethod(Pretty, visitConditional, void, $JCTree$JCConditional*)},
+		{"visitContinue", "(Lcom/sun/tools/javac/tree/JCTree$JCContinue;)V", nullptr, $PUBLIC, $virtualMethod(Pretty, visitContinue, void, $JCTree$JCContinue*)},
+		{"visitDefaultCaseLabel", "(Lcom/sun/tools/javac/tree/JCTree$JCDefaultCaseLabel;)V", nullptr, $PUBLIC, $virtualMethod(Pretty, visitDefaultCaseLabel, void, $JCTree$JCDefaultCaseLabel*)},
+		{"visitDoLoop", "(Lcom/sun/tools/javac/tree/JCTree$JCDoWhileLoop;)V", nullptr, $PUBLIC, $virtualMethod(Pretty, visitDoLoop, void, $JCTree$JCDoWhileLoop*)},
+		{"visitErroneous", "(Lcom/sun/tools/javac/tree/JCTree$JCErroneous;)V", nullptr, $PUBLIC, $virtualMethod(Pretty, visitErroneous, void, $JCTree$JCErroneous*)},
+		{"visitExec", "(Lcom/sun/tools/javac/tree/JCTree$JCExpressionStatement;)V", nullptr, $PUBLIC, $virtualMethod(Pretty, visitExec, void, $JCTree$JCExpressionStatement*)},
+		{"visitExports", "(Lcom/sun/tools/javac/tree/JCTree$JCExports;)V", nullptr, $PUBLIC, $virtualMethod(Pretty, visitExports, void, $JCTree$JCExports*)},
+		{"visitForLoop", "(Lcom/sun/tools/javac/tree/JCTree$JCForLoop;)V", nullptr, $PUBLIC, $virtualMethod(Pretty, visitForLoop, void, $JCTree$JCForLoop*)},
+		{"visitForeachLoop", "(Lcom/sun/tools/javac/tree/JCTree$JCEnhancedForLoop;)V", nullptr, $PUBLIC, $virtualMethod(Pretty, visitForeachLoop, void, $JCTree$JCEnhancedForLoop*)},
+		{"visitGuardPattern", "(Lcom/sun/tools/javac/tree/JCTree$JCGuardPattern;)V", nullptr, $PUBLIC, $virtualMethod(Pretty, visitGuardPattern, void, $JCTree$JCGuardPattern*)},
+		{"visitIdent", "(Lcom/sun/tools/javac/tree/JCTree$JCIdent;)V", nullptr, $PUBLIC, $virtualMethod(Pretty, visitIdent, void, $JCTree$JCIdent*)},
+		{"visitIf", "(Lcom/sun/tools/javac/tree/JCTree$JCIf;)V", nullptr, $PUBLIC, $virtualMethod(Pretty, visitIf, void, $JCTree$JCIf*)},
+		{"visitImport", "(Lcom/sun/tools/javac/tree/JCTree$JCImport;)V", nullptr, $PUBLIC, $virtualMethod(Pretty, visitImport, void, $JCTree$JCImport*)},
+		{"visitIndexed", "(Lcom/sun/tools/javac/tree/JCTree$JCArrayAccess;)V", nullptr, $PUBLIC, $virtualMethod(Pretty, visitIndexed, void, $JCTree$JCArrayAccess*)},
+		{"visitLabelled", "(Lcom/sun/tools/javac/tree/JCTree$JCLabeledStatement;)V", nullptr, $PUBLIC, $virtualMethod(Pretty, visitLabelled, void, $JCTree$JCLabeledStatement*)},
+		{"visitLambda", "(Lcom/sun/tools/javac/tree/JCTree$JCLambda;)V", nullptr, $PUBLIC, $virtualMethod(Pretty, visitLambda, void, $JCTree$JCLambda*)},
+		{"visitLetExpr", "(Lcom/sun/tools/javac/tree/JCTree$LetExpr;)V", nullptr, $PUBLIC, $virtualMethod(Pretty, visitLetExpr, void, $JCTree$LetExpr*)},
+		{"visitLiteral", "(Lcom/sun/tools/javac/tree/JCTree$JCLiteral;)V", nullptr, $PUBLIC, $virtualMethod(Pretty, visitLiteral, void, $JCTree$JCLiteral*)},
+		{"visitMethodDef", "(Lcom/sun/tools/javac/tree/JCTree$JCMethodDecl;)V", nullptr, $PUBLIC, $virtualMethod(Pretty, visitMethodDef, void, $JCTree$JCMethodDecl*)},
+		{"visitModifiers", "(Lcom/sun/tools/javac/tree/JCTree$JCModifiers;)V", nullptr, $PUBLIC, $virtualMethod(Pretty, visitModifiers, void, $JCTree$JCModifiers*)},
+		{"visitModuleDef", "(Lcom/sun/tools/javac/tree/JCTree$JCModuleDecl;)V", nullptr, $PUBLIC, $virtualMethod(Pretty, visitModuleDef, void, $JCTree$JCModuleDecl*)},
+		{"visitNewArray", "(Lcom/sun/tools/javac/tree/JCTree$JCNewArray;)V", nullptr, $PUBLIC, $virtualMethod(Pretty, visitNewArray, void, $JCTree$JCNewArray*)},
+		{"visitNewClass", "(Lcom/sun/tools/javac/tree/JCTree$JCNewClass;)V", nullptr, $PUBLIC, $virtualMethod(Pretty, visitNewClass, void, $JCTree$JCNewClass*)},
+		{"visitOpens", "(Lcom/sun/tools/javac/tree/JCTree$JCOpens;)V", nullptr, $PUBLIC, $virtualMethod(Pretty, visitOpens, void, $JCTree$JCOpens*)},
+		{"visitPackageDef", "(Lcom/sun/tools/javac/tree/JCTree$JCPackageDecl;)V", nullptr, $PUBLIC, $virtualMethod(Pretty, visitPackageDef, void, $JCTree$JCPackageDecl*)},
+		{"visitParens", "(Lcom/sun/tools/javac/tree/JCTree$JCParens;)V", nullptr, $PUBLIC, $virtualMethod(Pretty, visitParens, void, $JCTree$JCParens*)},
+		{"visitParenthesizedPattern", "(Lcom/sun/tools/javac/tree/JCTree$JCParenthesizedPattern;)V", nullptr, $PUBLIC, $virtualMethod(Pretty, visitParenthesizedPattern, void, $JCTree$JCParenthesizedPattern*)},
+		{"visitProvides", "(Lcom/sun/tools/javac/tree/JCTree$JCProvides;)V", nullptr, $PUBLIC, $virtualMethod(Pretty, visitProvides, void, $JCTree$JCProvides*)},
+		{"visitReference", "(Lcom/sun/tools/javac/tree/JCTree$JCMemberReference;)V", nullptr, $PUBLIC, $virtualMethod(Pretty, visitReference, void, $JCTree$JCMemberReference*)},
+		{"visitRequires", "(Lcom/sun/tools/javac/tree/JCTree$JCRequires;)V", nullptr, $PUBLIC, $virtualMethod(Pretty, visitRequires, void, $JCTree$JCRequires*)},
+		{"visitReturn", "(Lcom/sun/tools/javac/tree/JCTree$JCReturn;)V", nullptr, $PUBLIC, $virtualMethod(Pretty, visitReturn, void, $JCTree$JCReturn*)},
+		{"visitSelect", "(Lcom/sun/tools/javac/tree/JCTree$JCFieldAccess;)V", nullptr, $PUBLIC, $virtualMethod(Pretty, visitSelect, void, $JCTree$JCFieldAccess*)},
+		{"visitSkip", "(Lcom/sun/tools/javac/tree/JCTree$JCSkip;)V", nullptr, $PUBLIC, $virtualMethod(Pretty, visitSkip, void, $JCTree$JCSkip*)},
+		{"visitSwitch", "(Lcom/sun/tools/javac/tree/JCTree$JCSwitch;)V", nullptr, $PUBLIC, $virtualMethod(Pretty, visitSwitch, void, $JCTree$JCSwitch*)},
+		{"visitSwitchExpression", "(Lcom/sun/tools/javac/tree/JCTree$JCSwitchExpression;)V", nullptr, $PUBLIC, $virtualMethod(Pretty, visitSwitchExpression, void, $JCTree$JCSwitchExpression*)},
+		{"visitSynchronized", "(Lcom/sun/tools/javac/tree/JCTree$JCSynchronized;)V", nullptr, $PUBLIC, $virtualMethod(Pretty, visitSynchronized, void, $JCTree$JCSynchronized*)},
+		{"visitThrow", "(Lcom/sun/tools/javac/tree/JCTree$JCThrow;)V", nullptr, $PUBLIC, $virtualMethod(Pretty, visitThrow, void, $JCTree$JCThrow*)},
+		{"visitTopLevel", "(Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;)V", nullptr, $PUBLIC, $virtualMethod(Pretty, visitTopLevel, void, $JCTree$JCCompilationUnit*)},
+		{"visitTree", "(Lcom/sun/tools/javac/tree/JCTree;)V", nullptr, $PUBLIC, $virtualMethod(Pretty, visitTree, void, $JCTree*)},
+		{"visitTry", "(Lcom/sun/tools/javac/tree/JCTree$JCTry;)V", nullptr, $PUBLIC, $virtualMethod(Pretty, visitTry, void, $JCTree$JCTry*)},
+		{"visitTypeApply", "(Lcom/sun/tools/javac/tree/JCTree$JCTypeApply;)V", nullptr, $PUBLIC, $virtualMethod(Pretty, visitTypeApply, void, $JCTree$JCTypeApply*)},
+		{"visitTypeArray", "(Lcom/sun/tools/javac/tree/JCTree$JCArrayTypeTree;)V", nullptr, $PUBLIC, $virtualMethod(Pretty, visitTypeArray, void, $JCTree$JCArrayTypeTree*)},
+		{"visitTypeBoundKind", "(Lcom/sun/tools/javac/tree/JCTree$TypeBoundKind;)V", nullptr, $PUBLIC, $virtualMethod(Pretty, visitTypeBoundKind, void, $JCTree$TypeBoundKind*)},
+		{"visitTypeCast", "(Lcom/sun/tools/javac/tree/JCTree$JCTypeCast;)V", nullptr, $PUBLIC, $virtualMethod(Pretty, visitTypeCast, void, $JCTree$JCTypeCast*)},
+		{"visitTypeIdent", "(Lcom/sun/tools/javac/tree/JCTree$JCPrimitiveTypeTree;)V", nullptr, $PUBLIC, $virtualMethod(Pretty, visitTypeIdent, void, $JCTree$JCPrimitiveTypeTree*)},
+		{"visitTypeIntersection", "(Lcom/sun/tools/javac/tree/JCTree$JCTypeIntersection;)V", nullptr, $PUBLIC, $virtualMethod(Pretty, visitTypeIntersection, void, $JCTree$JCTypeIntersection*)},
+		{"visitTypeParameter", "(Lcom/sun/tools/javac/tree/JCTree$JCTypeParameter;)V", nullptr, $PUBLIC, $virtualMethod(Pretty, visitTypeParameter, void, $JCTree$JCTypeParameter*)},
+		{"visitTypeTest", "(Lcom/sun/tools/javac/tree/JCTree$JCInstanceOf;)V", nullptr, $PUBLIC, $virtualMethod(Pretty, visitTypeTest, void, $JCTree$JCInstanceOf*)},
+		{"visitTypeUnion", "(Lcom/sun/tools/javac/tree/JCTree$JCTypeUnion;)V", nullptr, $PUBLIC, $virtualMethod(Pretty, visitTypeUnion, void, $JCTree$JCTypeUnion*)},
+		{"visitUnary", "(Lcom/sun/tools/javac/tree/JCTree$JCUnary;)V", nullptr, $PUBLIC, $virtualMethod(Pretty, visitUnary, void, $JCTree$JCUnary*)},
+		{"visitUses", "(Lcom/sun/tools/javac/tree/JCTree$JCUses;)V", nullptr, $PUBLIC, $virtualMethod(Pretty, visitUses, void, $JCTree$JCUses*)},
+		{"visitVarDef", "(Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;)V", nullptr, $PUBLIC, $virtualMethod(Pretty, visitVarDef, void, $JCTree$JCVariableDecl*)},
+		{"visitWhileLoop", "(Lcom/sun/tools/javac/tree/JCTree$JCWhileLoop;)V", nullptr, $PUBLIC, $virtualMethod(Pretty, visitWhileLoop, void, $JCTree$JCWhileLoop*)},
+		{"visitWildcard", "(Lcom/sun/tools/javac/tree/JCTree$JCWildcard;)V", nullptr, $PUBLIC, $virtualMethod(Pretty, visitWildcard, void, $JCTree$JCWildcard*)},
+		{"visitYield", "(Lcom/sun/tools/javac/tree/JCTree$JCYield;)V", nullptr, $PUBLIC, $virtualMethod(Pretty, visitYield, void, $JCTree$JCYield*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.tree.JCTree$Visitor", "com.sun.tools.javac.tree.JCTree", "Visitor", $PUBLIC | $STATIC | $ABSTRACT},
+		{"com.sun.tools.javac.tree.Pretty$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{"com.sun.tools.javac.tree.Pretty$UncheckedIOException", "com.sun.tools.javac.tree.Pretty", "UncheckedIOException", $PRIVATE | $STATIC},
+		{"com.sun.tools.javac.tree.Pretty$1UsedVisitor", nullptr, "UsedVisitor", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.tree.Pretty",
+		"com.sun.tools.javac.tree.JCTree$Visitor",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.tree.Pretty$1,com.sun.tools.javac.tree.Pretty$UncheckedIOException,com.sun.tools.javac.tree.Pretty$1UsedVisitor"
+	};
+	$loadClass(Pretty, name, initialize, &classInfo$$, Pretty::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Pretty);
+	});
 	return class$;
 }
 

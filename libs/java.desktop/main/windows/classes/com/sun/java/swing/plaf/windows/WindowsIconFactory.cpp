@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/windows/WindowsIconFactory.h>
-
 #include <com/sun/java/swing/plaf/windows/TMSchema$Part.h>
 #include <com/sun/java/swing/plaf/windows/WindowsIconFactory$CheckBoxIcon.h>
 #include <com/sun/java/swing/plaf/windows/WindowsIconFactory$CheckBoxMenuItemIcon.h>
@@ -42,74 +41,6 @@ namespace com {
 			namespace swing {
 				namespace plaf {
 					namespace windows {
-
-$FieldInfo _WindowsIconFactory_FieldInfo_[] = {
-	{"frame_closeIcon", "Ljavax/swing/Icon;", nullptr, $PRIVATE | $STATIC, $staticField(WindowsIconFactory, frame_closeIcon)},
-	{"frame_iconifyIcon", "Ljavax/swing/Icon;", nullptr, $PRIVATE | $STATIC, $staticField(WindowsIconFactory, frame_iconifyIcon)},
-	{"frame_maxIcon", "Ljavax/swing/Icon;", nullptr, $PRIVATE | $STATIC, $staticField(WindowsIconFactory, frame_maxIcon)},
-	{"frame_minIcon", "Ljavax/swing/Icon;", nullptr, $PRIVATE | $STATIC, $staticField(WindowsIconFactory, frame_minIcon)},
-	{"frame_resizeIcon", "Ljavax/swing/Icon;", nullptr, $PRIVATE | $STATIC, $staticField(WindowsIconFactory, frame_resizeIcon)},
-	{"checkBoxIcon", "Ljavax/swing/Icon;", nullptr, $PRIVATE | $STATIC, $staticField(WindowsIconFactory, checkBoxIcon)},
-	{"radioButtonIcon", "Ljavax/swing/Icon;", nullptr, $PRIVATE | $STATIC, $staticField(WindowsIconFactory, radioButtonIcon)},
-	{"checkBoxMenuItemIcon", "Ljavax/swing/Icon;", nullptr, $PRIVATE | $STATIC, $staticField(WindowsIconFactory, checkBoxMenuItemIcon)},
-	{"radioButtonMenuItemIcon", "Ljavax/swing/Icon;", nullptr, $PRIVATE | $STATIC, $staticField(WindowsIconFactory, radioButtonMenuItemIcon)},
-	{"menuItemCheckIcon", "Ljavax/swing/Icon;", nullptr, $PRIVATE | $STATIC, $staticField(WindowsIconFactory, menuItemCheckIcon)},
-	{"menuItemArrowIcon", "Ljavax/swing/Icon;", nullptr, $PRIVATE | $STATIC, $staticField(WindowsIconFactory, menuItemArrowIcon)},
-	{"menuArrowIcon", "Ljavax/swing/Icon;", nullptr, $PRIVATE | $STATIC, $staticField(WindowsIconFactory, menuArrowIcon)},
-	{"menuItemCheckIconFactory", "Lcom/sun/java/swing/plaf/windows/WindowsIconFactory$VistaMenuItemCheckIconFactory;", nullptr, $PRIVATE | $STATIC, $staticField(WindowsIconFactory, menuItemCheckIconFactory)},
-	{}
-};
-
-$MethodInfo _WindowsIconFactory_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(WindowsIconFactory, init$, void)},
-	{"createFrameCloseIcon", "()Ljavax/swing/Icon;", nullptr, $PUBLIC | $STATIC, $staticMethod(WindowsIconFactory, createFrameCloseIcon, $Icon*)},
-	{"createFrameIconifyIcon", "()Ljavax/swing/Icon;", nullptr, $PUBLIC | $STATIC, $staticMethod(WindowsIconFactory, createFrameIconifyIcon, $Icon*)},
-	{"createFrameMaximizeIcon", "()Ljavax/swing/Icon;", nullptr, $PUBLIC | $STATIC, $staticMethod(WindowsIconFactory, createFrameMaximizeIcon, $Icon*)},
-	{"createFrameMinimizeIcon", "()Ljavax/swing/Icon;", nullptr, $PUBLIC | $STATIC, $staticMethod(WindowsIconFactory, createFrameMinimizeIcon, $Icon*)},
-	{"createFrameResizeIcon", "()Ljavax/swing/Icon;", nullptr, $PUBLIC | $STATIC, $staticMethod(WindowsIconFactory, createFrameResizeIcon, $Icon*)},
-	{"getCheckBoxIcon", "()Ljavax/swing/Icon;", nullptr, $PUBLIC | $STATIC, $staticMethod(WindowsIconFactory, getCheckBoxIcon, $Icon*)},
-	{"getCheckBoxMenuItemIcon", "()Ljavax/swing/Icon;", nullptr, $PUBLIC | $STATIC, $staticMethod(WindowsIconFactory, getCheckBoxMenuItemIcon, $Icon*)},
-	{"getMenuArrowIcon", "()Ljavax/swing/Icon;", nullptr, $PUBLIC | $STATIC, $staticMethod(WindowsIconFactory, getMenuArrowIcon, $Icon*)},
-	{"getMenuItemArrowIcon", "()Ljavax/swing/Icon;", nullptr, $PUBLIC | $STATIC, $staticMethod(WindowsIconFactory, getMenuItemArrowIcon, $Icon*)},
-	{"getMenuItemCheckIcon", "()Ljavax/swing/Icon;", nullptr, $PUBLIC | $STATIC, $staticMethod(WindowsIconFactory, getMenuItemCheckIcon, $Icon*)},
-	{"getMenuItemCheckIconFactory", "()Lcom/sun/java/swing/plaf/windows/WindowsIconFactory$VistaMenuItemCheckIconFactory;", nullptr, $STATIC | $SYNCHRONIZED, $staticMethod(WindowsIconFactory, getMenuItemCheckIconFactory, $WindowsIconFactory$VistaMenuItemCheckIconFactory*)},
-	{"getRadioButtonIcon", "()Ljavax/swing/Icon;", nullptr, $PUBLIC | $STATIC, $staticMethod(WindowsIconFactory, getRadioButtonIcon, $Icon*)},
-	{"getRadioButtonMenuItemIcon", "()Ljavax/swing/Icon;", nullptr, $PUBLIC | $STATIC, $staticMethod(WindowsIconFactory, getRadioButtonMenuItemIcon, $Icon*)},
-	{}
-};
-
-$InnerClassInfo _WindowsIconFactory_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.windows.WindowsIconFactory$VistaMenuItemCheckIconFactory", "com.sun.java.swing.plaf.windows.WindowsIconFactory", "VistaMenuItemCheckIconFactory", $STATIC},
-	{"com.sun.java.swing.plaf.windows.WindowsIconFactory$MenuArrowIcon", "com.sun.java.swing.plaf.windows.WindowsIconFactory", "MenuArrowIcon", $PRIVATE | $STATIC},
-	{"com.sun.java.swing.plaf.windows.WindowsIconFactory$MenuItemArrowIcon", "com.sun.java.swing.plaf.windows.WindowsIconFactory", "MenuItemArrowIcon", $PRIVATE | $STATIC},
-	{"com.sun.java.swing.plaf.windows.WindowsIconFactory$MenuItemCheckIcon", "com.sun.java.swing.plaf.windows.WindowsIconFactory", "MenuItemCheckIcon", $PRIVATE | $STATIC},
-	{"com.sun.java.swing.plaf.windows.WindowsIconFactory$RadioButtonMenuItemIcon", "com.sun.java.swing.plaf.windows.WindowsIconFactory", "RadioButtonMenuItemIcon", $PRIVATE | $STATIC},
-	{"com.sun.java.swing.plaf.windows.WindowsIconFactory$CheckBoxMenuItemIcon", "com.sun.java.swing.plaf.windows.WindowsIconFactory", "CheckBoxMenuItemIcon", $PRIVATE | $STATIC},
-	{"com.sun.java.swing.plaf.windows.WindowsIconFactory$RadioButtonIcon", "com.sun.java.swing.plaf.windows.WindowsIconFactory", "RadioButtonIcon", $PRIVATE | $STATIC},
-	{"com.sun.java.swing.plaf.windows.WindowsIconFactory$CheckBoxIcon", "com.sun.java.swing.plaf.windows.WindowsIconFactory", "CheckBoxIcon", $PRIVATE | $STATIC},
-	{"com.sun.java.swing.plaf.windows.WindowsIconFactory$ResizeIcon", "com.sun.java.swing.plaf.windows.WindowsIconFactory", "ResizeIcon", $PRIVATE | $STATIC},
-	{"com.sun.java.swing.plaf.windows.WindowsIconFactory$FrameButtonIcon", "com.sun.java.swing.plaf.windows.WindowsIconFactory", "FrameButtonIcon", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _WindowsIconFactory_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.java.swing.plaf.windows.WindowsIconFactory",
-	"java.lang.Object",
-	"java.io.Serializable",
-	_WindowsIconFactory_FieldInfo_,
-	_WindowsIconFactory_MethodInfo_,
-	nullptr,
-	nullptr,
-	_WindowsIconFactory_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.windows.WindowsIconFactory$VistaMenuItemCheckIconFactory,com.sun.java.swing.plaf.windows.WindowsIconFactory$VistaMenuItemCheckIconFactory$VistaMenuItemCheckIcon,com.sun.java.swing.plaf.windows.WindowsIconFactory$MenuArrowIcon,com.sun.java.swing.plaf.windows.WindowsIconFactory$MenuItemArrowIcon,com.sun.java.swing.plaf.windows.WindowsIconFactory$MenuItemCheckIcon,com.sun.java.swing.plaf.windows.WindowsIconFactory$RadioButtonMenuItemIcon,com.sun.java.swing.plaf.windows.WindowsIconFactory$CheckBoxMenuItemIcon,com.sun.java.swing.plaf.windows.WindowsIconFactory$RadioButtonIcon,com.sun.java.swing.plaf.windows.WindowsIconFactory$CheckBoxIcon,com.sun.java.swing.plaf.windows.WindowsIconFactory$ResizeIcon,com.sun.java.swing.plaf.windows.WindowsIconFactory$FrameButtonIcon"
-};
-
-$Object* allocate$WindowsIconFactory($Class* clazz) {
-	return $of($alloc(WindowsIconFactory));
-}
 
 $Icon* WindowsIconFactory::frame_closeIcon = nullptr;
 $Icon* WindowsIconFactory::frame_iconifyIcon = nullptr;
@@ -185,9 +116,8 @@ $Icon* WindowsIconFactory::getRadioButtonMenuItemIcon() {
 }
 
 $WindowsIconFactory$VistaMenuItemCheckIconFactory* WindowsIconFactory::getMenuItemCheckIconFactory() {
-	$load(WindowsIconFactory);
+	$init(WindowsIconFactory);
 	$synchronized(class$) {
-		$init(WindowsIconFactory);
 		if (WindowsIconFactory::menuItemCheckIconFactory == nullptr) {
 			$assignStatic(WindowsIconFactory::menuItemCheckIconFactory, $new($WindowsIconFactory$VistaMenuItemCheckIconFactory));
 		}
@@ -243,7 +173,69 @@ WindowsIconFactory::WindowsIconFactory() {
 }
 
 $Class* WindowsIconFactory::load$($String* name, bool initialize) {
-	$loadClass(WindowsIconFactory, name, initialize, &_WindowsIconFactory_ClassInfo_, allocate$WindowsIconFactory);
+	$FieldInfo fieldInfos$$[] = {
+		{"frame_closeIcon", "Ljavax/swing/Icon;", nullptr, $PRIVATE | $STATIC, $staticField(WindowsIconFactory, frame_closeIcon)},
+		{"frame_iconifyIcon", "Ljavax/swing/Icon;", nullptr, $PRIVATE | $STATIC, $staticField(WindowsIconFactory, frame_iconifyIcon)},
+		{"frame_maxIcon", "Ljavax/swing/Icon;", nullptr, $PRIVATE | $STATIC, $staticField(WindowsIconFactory, frame_maxIcon)},
+		{"frame_minIcon", "Ljavax/swing/Icon;", nullptr, $PRIVATE | $STATIC, $staticField(WindowsIconFactory, frame_minIcon)},
+		{"frame_resizeIcon", "Ljavax/swing/Icon;", nullptr, $PRIVATE | $STATIC, $staticField(WindowsIconFactory, frame_resizeIcon)},
+		{"checkBoxIcon", "Ljavax/swing/Icon;", nullptr, $PRIVATE | $STATIC, $staticField(WindowsIconFactory, checkBoxIcon)},
+		{"radioButtonIcon", "Ljavax/swing/Icon;", nullptr, $PRIVATE | $STATIC, $staticField(WindowsIconFactory, radioButtonIcon)},
+		{"checkBoxMenuItemIcon", "Ljavax/swing/Icon;", nullptr, $PRIVATE | $STATIC, $staticField(WindowsIconFactory, checkBoxMenuItemIcon)},
+		{"radioButtonMenuItemIcon", "Ljavax/swing/Icon;", nullptr, $PRIVATE | $STATIC, $staticField(WindowsIconFactory, radioButtonMenuItemIcon)},
+		{"menuItemCheckIcon", "Ljavax/swing/Icon;", nullptr, $PRIVATE | $STATIC, $staticField(WindowsIconFactory, menuItemCheckIcon)},
+		{"menuItemArrowIcon", "Ljavax/swing/Icon;", nullptr, $PRIVATE | $STATIC, $staticField(WindowsIconFactory, menuItemArrowIcon)},
+		{"menuArrowIcon", "Ljavax/swing/Icon;", nullptr, $PRIVATE | $STATIC, $staticField(WindowsIconFactory, menuArrowIcon)},
+		{"menuItemCheckIconFactory", "Lcom/sun/java/swing/plaf/windows/WindowsIconFactory$VistaMenuItemCheckIconFactory;", nullptr, $PRIVATE | $STATIC, $staticField(WindowsIconFactory, menuItemCheckIconFactory)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(WindowsIconFactory, init$, void)},
+		{"createFrameCloseIcon", "()Ljavax/swing/Icon;", nullptr, $PUBLIC | $STATIC, $staticMethod(WindowsIconFactory, createFrameCloseIcon, $Icon*)},
+		{"createFrameIconifyIcon", "()Ljavax/swing/Icon;", nullptr, $PUBLIC | $STATIC, $staticMethod(WindowsIconFactory, createFrameIconifyIcon, $Icon*)},
+		{"createFrameMaximizeIcon", "()Ljavax/swing/Icon;", nullptr, $PUBLIC | $STATIC, $staticMethod(WindowsIconFactory, createFrameMaximizeIcon, $Icon*)},
+		{"createFrameMinimizeIcon", "()Ljavax/swing/Icon;", nullptr, $PUBLIC | $STATIC, $staticMethod(WindowsIconFactory, createFrameMinimizeIcon, $Icon*)},
+		{"createFrameResizeIcon", "()Ljavax/swing/Icon;", nullptr, $PUBLIC | $STATIC, $staticMethod(WindowsIconFactory, createFrameResizeIcon, $Icon*)},
+		{"getCheckBoxIcon", "()Ljavax/swing/Icon;", nullptr, $PUBLIC | $STATIC, $staticMethod(WindowsIconFactory, getCheckBoxIcon, $Icon*)},
+		{"getCheckBoxMenuItemIcon", "()Ljavax/swing/Icon;", nullptr, $PUBLIC | $STATIC, $staticMethod(WindowsIconFactory, getCheckBoxMenuItemIcon, $Icon*)},
+		{"getMenuArrowIcon", "()Ljavax/swing/Icon;", nullptr, $PUBLIC | $STATIC, $staticMethod(WindowsIconFactory, getMenuArrowIcon, $Icon*)},
+		{"getMenuItemArrowIcon", "()Ljavax/swing/Icon;", nullptr, $PUBLIC | $STATIC, $staticMethod(WindowsIconFactory, getMenuItemArrowIcon, $Icon*)},
+		{"getMenuItemCheckIcon", "()Ljavax/swing/Icon;", nullptr, $PUBLIC | $STATIC, $staticMethod(WindowsIconFactory, getMenuItemCheckIcon, $Icon*)},
+		{"getMenuItemCheckIconFactory", "()Lcom/sun/java/swing/plaf/windows/WindowsIconFactory$VistaMenuItemCheckIconFactory;", nullptr, $STATIC | $SYNCHRONIZED, $staticMethod(WindowsIconFactory, getMenuItemCheckIconFactory, $WindowsIconFactory$VistaMenuItemCheckIconFactory*)},
+		{"getRadioButtonIcon", "()Ljavax/swing/Icon;", nullptr, $PUBLIC | $STATIC, $staticMethod(WindowsIconFactory, getRadioButtonIcon, $Icon*)},
+		{"getRadioButtonMenuItemIcon", "()Ljavax/swing/Icon;", nullptr, $PUBLIC | $STATIC, $staticMethod(WindowsIconFactory, getRadioButtonMenuItemIcon, $Icon*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.windows.WindowsIconFactory$VistaMenuItemCheckIconFactory", "com.sun.java.swing.plaf.windows.WindowsIconFactory", "VistaMenuItemCheckIconFactory", $STATIC},
+		{"com.sun.java.swing.plaf.windows.WindowsIconFactory$MenuArrowIcon", "com.sun.java.swing.plaf.windows.WindowsIconFactory", "MenuArrowIcon", $PRIVATE | $STATIC},
+		{"com.sun.java.swing.plaf.windows.WindowsIconFactory$MenuItemArrowIcon", "com.sun.java.swing.plaf.windows.WindowsIconFactory", "MenuItemArrowIcon", $PRIVATE | $STATIC},
+		{"com.sun.java.swing.plaf.windows.WindowsIconFactory$MenuItemCheckIcon", "com.sun.java.swing.plaf.windows.WindowsIconFactory", "MenuItemCheckIcon", $PRIVATE | $STATIC},
+		{"com.sun.java.swing.plaf.windows.WindowsIconFactory$RadioButtonMenuItemIcon", "com.sun.java.swing.plaf.windows.WindowsIconFactory", "RadioButtonMenuItemIcon", $PRIVATE | $STATIC},
+		{"com.sun.java.swing.plaf.windows.WindowsIconFactory$CheckBoxMenuItemIcon", "com.sun.java.swing.plaf.windows.WindowsIconFactory", "CheckBoxMenuItemIcon", $PRIVATE | $STATIC},
+		{"com.sun.java.swing.plaf.windows.WindowsIconFactory$RadioButtonIcon", "com.sun.java.swing.plaf.windows.WindowsIconFactory", "RadioButtonIcon", $PRIVATE | $STATIC},
+		{"com.sun.java.swing.plaf.windows.WindowsIconFactory$CheckBoxIcon", "com.sun.java.swing.plaf.windows.WindowsIconFactory", "CheckBoxIcon", $PRIVATE | $STATIC},
+		{"com.sun.java.swing.plaf.windows.WindowsIconFactory$ResizeIcon", "com.sun.java.swing.plaf.windows.WindowsIconFactory", "ResizeIcon", $PRIVATE | $STATIC},
+		{"com.sun.java.swing.plaf.windows.WindowsIconFactory$FrameButtonIcon", "com.sun.java.swing.plaf.windows.WindowsIconFactory", "FrameButtonIcon", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.java.swing.plaf.windows.WindowsIconFactory",
+		"java.lang.Object",
+		"java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.windows.WindowsIconFactory$VistaMenuItemCheckIconFactory,com.sun.java.swing.plaf.windows.WindowsIconFactory$VistaMenuItemCheckIconFactory$VistaMenuItemCheckIcon,com.sun.java.swing.plaf.windows.WindowsIconFactory$MenuArrowIcon,com.sun.java.swing.plaf.windows.WindowsIconFactory$MenuItemArrowIcon,com.sun.java.swing.plaf.windows.WindowsIconFactory$MenuItemCheckIcon,com.sun.java.swing.plaf.windows.WindowsIconFactory$RadioButtonMenuItemIcon,com.sun.java.swing.plaf.windows.WindowsIconFactory$CheckBoxMenuItemIcon,com.sun.java.swing.plaf.windows.WindowsIconFactory$RadioButtonIcon,com.sun.java.swing.plaf.windows.WindowsIconFactory$CheckBoxIcon,com.sun.java.swing.plaf.windows.WindowsIconFactory$ResizeIcon,com.sun.java.swing.plaf.windows.WindowsIconFactory$FrameButtonIcon"
+	};
+	$loadClass(WindowsIconFactory, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WindowsIconFactory);
+	});
 	return class$;
 }
 

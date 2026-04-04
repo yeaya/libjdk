@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/synth/SynthMenuItemLayoutHelper.h>
-
 #include <java/awt/Font.h>
 #include <java/awt/FontMetrics.h>
 #include <java/awt/Rectangle.h>
@@ -47,63 +46,12 @@ using $View = ::javax::swing::text::View;
 using $MenuItemLayoutHelper = ::sun::swing::MenuItemLayoutHelper;
 using $MenuItemLayoutHelper$ColumnAlignment = ::sun::swing::MenuItemLayoutHelper$ColumnAlignment;
 using $MenuItemLayoutHelper$LayoutResult = ::sun::swing::MenuItemLayoutHelper$LayoutResult;
-using $MenuItemLayoutHelper$RectSize = ::sun::swing::MenuItemLayoutHelper$RectSize;
 using $StringUIClientPropertyKey = ::sun::swing::StringUIClientPropertyKey;
 
 namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace synth {
-
-$FieldInfo _SynthMenuItemLayoutHelper_FieldInfo_[] = {
-	{"MAX_ACC_OR_ARROW_WIDTH", "Lsun/swing/StringUIClientPropertyKey;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SynthMenuItemLayoutHelper, MAX_ACC_OR_ARROW_WIDTH)},
-	{"LTR_ALIGNMENT_1", "Lsun/swing/MenuItemLayoutHelper$ColumnAlignment;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SynthMenuItemLayoutHelper, LTR_ALIGNMENT_1)},
-	{"LTR_ALIGNMENT_2", "Lsun/swing/MenuItemLayoutHelper$ColumnAlignment;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SynthMenuItemLayoutHelper, LTR_ALIGNMENT_2)},
-	{"RTL_ALIGNMENT_1", "Lsun/swing/MenuItemLayoutHelper$ColumnAlignment;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SynthMenuItemLayoutHelper, RTL_ALIGNMENT_1)},
-	{"RTL_ALIGNMENT_2", "Lsun/swing/MenuItemLayoutHelper$ColumnAlignment;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SynthMenuItemLayoutHelper, RTL_ALIGNMENT_2)},
-	{"context", "Ljavax/swing/plaf/synth/SynthContext;", nullptr, $PRIVATE, $field(SynthMenuItemLayoutHelper, context)},
-	{"accContext", "Ljavax/swing/plaf/synth/SynthContext;", nullptr, $PRIVATE, $field(SynthMenuItemLayoutHelper, accContext)},
-	{"style", "Ljavax/swing/plaf/synth/SynthStyle;", nullptr, $PRIVATE, $field(SynthMenuItemLayoutHelper, style)},
-	{"accStyle", "Ljavax/swing/plaf/synth/SynthStyle;", nullptr, $PRIVATE, $field(SynthMenuItemLayoutHelper, accStyle)},
-	{"gu", "Ljavax/swing/plaf/synth/SynthGraphicsUtils;", nullptr, $PRIVATE, $field(SynthMenuItemLayoutHelper, gu)},
-	{"accGu", "Ljavax/swing/plaf/synth/SynthGraphicsUtils;", nullptr, $PRIVATE, $field(SynthMenuItemLayoutHelper, accGu)},
-	{"alignAcceleratorText", "Z", nullptr, $PRIVATE, $field(SynthMenuItemLayoutHelper, alignAcceleratorText$)},
-	{"maxAccOrArrowWidth", "I", nullptr, $PRIVATE, $field(SynthMenuItemLayoutHelper, maxAccOrArrowWidth)},
-	{}
-};
-
-$MethodInfo _SynthMenuItemLayoutHelper_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/plaf/synth/SynthContext;Ljavax/swing/plaf/synth/SynthContext;Ljavax/swing/JMenuItem;Ljavax/swing/Icon;Ljavax/swing/Icon;Ljava/awt/Rectangle;ILjava/lang/String;ZZLjava/lang/String;)V", nullptr, $PUBLIC, $method(SynthMenuItemLayoutHelper, init$, void, $SynthContext*, $SynthContext*, $JMenuItem*, $Icon*, $Icon*, $Rectangle*, int32_t, $String*, bool, bool, $String*)},
-	{"alignAcceleratorText", "()Z", nullptr, $PUBLIC, $virtualMethod(SynthMenuItemLayoutHelper, alignAcceleratorText, bool)},
-	{"calcMaxWidths", "()V", nullptr, $PROTECTED, $virtualMethod(SynthMenuItemLayoutHelper, calcMaxWidths, void)},
-	{"calcWidthsAndHeights", "()V", nullptr, $PROTECTED, $virtualMethod(SynthMenuItemLayoutHelper, calcWidthsAndHeights, void)},
-	{"getAccContext", "()Ljavax/swing/plaf/synth/SynthContext;", nullptr, $PUBLIC, $virtualMethod(SynthMenuItemLayoutHelper, getAccContext, $SynthContext*)},
-	{"getAccGraphicsUtils", "()Ljavax/swing/plaf/synth/SynthGraphicsUtils;", nullptr, $PUBLIC, $virtualMethod(SynthMenuItemLayoutHelper, getAccGraphicsUtils, $SynthGraphicsUtils*)},
-	{"getAccStyle", "()Ljavax/swing/plaf/synth/SynthStyle;", nullptr, $PUBLIC, $virtualMethod(SynthMenuItemLayoutHelper, getAccStyle, $SynthStyle*)},
-	{"getAlignAcceleratorText", "(Ljava/lang/String;)Z", nullptr, $PRIVATE, $method(SynthMenuItemLayoutHelper, getAlignAcceleratorText, bool, $String*)},
-	{"getContext", "()Ljavax/swing/plaf/synth/SynthContext;", nullptr, $PUBLIC, $virtualMethod(SynthMenuItemLayoutHelper, getContext, $SynthContext*)},
-	{"getGraphicsUtils", "()Ljavax/swing/plaf/synth/SynthGraphicsUtils;", nullptr, $PUBLIC, $virtualMethod(SynthMenuItemLayoutHelper, getGraphicsUtils, $SynthGraphicsUtils*)},
-	{"getLTRColumnAlignment", "()Lsun/swing/MenuItemLayoutHelper$ColumnAlignment;", nullptr, $PUBLIC, $virtualMethod(SynthMenuItemLayoutHelper, getLTRColumnAlignment, $MenuItemLayoutHelper$ColumnAlignment*)},
-	{"getMaxAccOrArrowWidth", "()I", nullptr, $PUBLIC, $virtualMethod(SynthMenuItemLayoutHelper, getMaxAccOrArrowWidth, int32_t)},
-	{"getRTLColumnAlignment", "()Lsun/swing/MenuItemLayoutHelper$ColumnAlignment;", nullptr, $PUBLIC, $virtualMethod(SynthMenuItemLayoutHelper, getRTLColumnAlignment, $MenuItemLayoutHelper$ColumnAlignment*)},
-	{"getStyle", "()Ljavax/swing/plaf/synth/SynthStyle;", nullptr, $PUBLIC, $virtualMethod(SynthMenuItemLayoutHelper, getStyle, $SynthStyle*)},
-	{"layoutIconAndTextInLabelRect", "(Lsun/swing/MenuItemLayoutHelper$LayoutResult;)V", nullptr, $PROTECTED, $virtualMethod(SynthMenuItemLayoutHelper, layoutIconAndTextInLabelRect, void, $MenuItemLayoutHelper$LayoutResult*)},
-	{"prepareForLayout", "(Lsun/swing/MenuItemLayoutHelper$LayoutResult;)V", nullptr, $PROTECTED, $virtualMethod(SynthMenuItemLayoutHelper, prepareForLayout, void, $MenuItemLayoutHelper$LayoutResult*)},
-	{}
-};
-
-$ClassInfo _SynthMenuItemLayoutHelper_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.synth.SynthMenuItemLayoutHelper",
-	"sun.swing.MenuItemLayoutHelper",
-	nullptr,
-	_SynthMenuItemLayoutHelper_FieldInfo_,
-	_SynthMenuItemLayoutHelper_MethodInfo_
-};
-
-$Object* allocate$SynthMenuItemLayoutHelper($Class* clazz) {
-	return $of($alloc(SynthMenuItemLayoutHelper));
-}
 
 $StringUIClientPropertyKey* SynthMenuItemLayoutHelper::MAX_ACC_OR_ARROW_WIDTH = nullptr;
 $MenuItemLayoutHelper$ColumnAlignment* SynthMenuItemLayoutHelper::LTR_ALIGNMENT_1 = nullptr;
@@ -112,7 +60,7 @@ $MenuItemLayoutHelper$ColumnAlignment* SynthMenuItemLayoutHelper::RTL_ALIGNMENT_
 $MenuItemLayoutHelper$ColumnAlignment* SynthMenuItemLayoutHelper::RTL_ALIGNMENT_2 = nullptr;
 
 void SynthMenuItemLayoutHelper::init$($SynthContext* context, $SynthContext* accContext, $JMenuItem* mi, $Icon* checkIcon, $Icon* arrowIcon, $Rectangle* viewRect, int32_t gap, $String* accDelimiter, bool isLeftToRight, bool useCheckAndArrow, $String* propertyPrefix) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$MenuItemLayoutHelper::init$();
 	$set(this, context, context);
 	$set(this, accContext, accContext);
@@ -121,15 +69,8 @@ void SynthMenuItemLayoutHelper::init$($SynthContext* context, $SynthContext* acc
 	$set(this, gu, $nc(this->style)->getGraphicsUtils(context));
 	$set(this, accGu, $nc(this->accStyle)->getGraphicsUtils(accContext));
 	this->alignAcceleratorText$ = getAlignAcceleratorText(propertyPrefix);
-	$var($JMenuItem, var$0, mi);
-	$var($Icon, var$1, checkIcon);
-	$var($Icon, var$2, arrowIcon);
-	$var($Rectangle, var$3, viewRect);
-	int32_t var$4 = gap;
-	$var($String, var$5, accDelimiter);
-	bool var$6 = isLeftToRight;
-	$var($Font, var$7, $nc(this->style)->getFont(context));
-	reset(var$0, var$1, var$2, var$3, var$4, var$5, var$6, var$7, $($nc(this->accStyle)->getFont(accContext)), useCheckAndArrow, propertyPrefix);
+	$var($Font, var$0, $nc(this->style)->getFont(context));
+	reset(mi, checkIcon, arrowIcon, viewRect, gap, accDelimiter, isLeftToRight, var$0, $($nc(this->accStyle)->getFont(accContext)), useCheckAndArrow, propertyPrefix);
 	setLeadingGap(0);
 }
 
@@ -138,52 +79,52 @@ bool SynthMenuItemLayoutHelper::getAlignAcceleratorText($String* propertyPrefix)
 }
 
 void SynthMenuItemLayoutHelper::calcWidthsAndHeights() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (getIcon() != nullptr) {
-		$nc($(getIconSize()))->setWidth($SynthGraphicsUtils::getIconWidth($(getIcon()), this->context));
-		$nc($(getIconSize()))->setHeight($SynthGraphicsUtils::getIconHeight($(getIcon()), this->context));
+		$$nc(getIconSize())->setWidth($SynthGraphicsUtils::getIconWidth($(getIcon()), this->context));
+		$$nc(getIconSize())->setHeight($SynthGraphicsUtils::getIconHeight($(getIcon()), this->context));
 	}
-	if (!$nc($(getAccText()))->isEmpty()) {
+	if (!$$nc(getAccText())->isEmpty()) {
 		$var($SynthContext, var$0, getAccContext());
-		$var($Font, var$1, $nc($(getAccFontMetrics()))->getFont());
+		$var($Font, var$1, $$nc(getAccFontMetrics())->getFont());
 		$var($FontMetrics, var$2, getAccFontMetrics());
-		$nc($(getAccSize()))->setWidth($nc(this->accGu)->computeStringWidth(var$0, var$1, var$2, $(getAccText())));
-		$nc($(getAccSize()))->setHeight($nc($(getAccFontMetrics()))->getHeight());
+		$$nc(getAccSize())->setWidth($nc(this->accGu)->computeStringWidth(var$0, var$1, var$2, $(getAccText())));
+		$$nc(getAccSize())->setHeight($$nc(getAccFontMetrics())->getHeight());
 	}
 	if (getText() == nullptr) {
 		setText(""_s);
-	} else if (!$nc($(getText()))->isEmpty()) {
+	} else if (!$$nc(getText())->isEmpty()) {
 		if (getHtmlView() != nullptr) {
-			$nc($(getTextSize()))->setWidth($cast(int32_t, $nc($(getHtmlView()))->getPreferredSpan($View::X_AXIS)));
-			$nc($(getTextSize()))->setHeight($cast(int32_t, $nc($(getHtmlView()))->getPreferredSpan($View::Y_AXIS)));
+			$$nc(getTextSize())->setWidth($cast(int32_t, $$nc(getHtmlView())->getPreferredSpan($View::X_AXIS)));
+			$$nc(getTextSize())->setHeight($cast(int32_t, $$nc(getHtmlView())->getPreferredSpan($View::Y_AXIS)));
 		} else {
 			$var($SynthContext, var$3, this->context);
-			$var($Font, var$4, $nc($(getFontMetrics()))->getFont());
+			$var($Font, var$4, $$nc(getFontMetrics())->getFont());
 			$var($FontMetrics, var$5, getFontMetrics());
-			$nc($(getTextSize()))->setWidth($nc(this->gu)->computeStringWidth(var$3, var$4, var$5, $(getText())));
-			$nc($(getTextSize()))->setHeight($nc($(getFontMetrics()))->getHeight());
+			$$nc(getTextSize())->setWidth($nc(this->gu)->computeStringWidth(var$3, var$4, var$5, $(getText())));
+			$$nc(getTextSize())->setHeight($$nc(getFontMetrics())->getHeight());
 		}
 	}
 	if (useCheckAndArrow()) {
 		if (getCheckIcon() != nullptr) {
-			$nc($(getCheckSize()))->setWidth($SynthGraphicsUtils::getIconWidth($(getCheckIcon()), this->context));
-			$nc($(getCheckSize()))->setHeight($SynthGraphicsUtils::getIconHeight($(getCheckIcon()), this->context));
+			$$nc(getCheckSize())->setWidth($SynthGraphicsUtils::getIconWidth($(getCheckIcon()), this->context));
+			$$nc(getCheckSize())->setHeight($SynthGraphicsUtils::getIconHeight($(getCheckIcon()), this->context));
 		}
 		if (getArrowIcon() != nullptr) {
-			$nc($(getArrowSize()))->setWidth($SynthGraphicsUtils::getIconWidth($(getArrowIcon()), this->context));
-			$nc($(getArrowSize()))->setHeight($SynthGraphicsUtils::getIconHeight($(getArrowIcon()), this->context));
+			$$nc(getArrowSize())->setWidth($SynthGraphicsUtils::getIconWidth($(getArrowIcon()), this->context));
+			$$nc(getArrowSize())->setHeight($SynthGraphicsUtils::getIconHeight($(getArrowIcon()), this->context));
 		}
 	}
 	if (isColumnLayout()) {
-		int32_t var$7 = $nc($(getIconSize()))->getWidth();
-		int32_t var$6 = var$7 + $nc($(getTextSize()))->getWidth();
-		$nc($(getLabelSize()))->setWidth(var$6 + getGap());
-		$nc($(getLabelSize()))->setHeight($MenuItemLayoutHelper::max($$new($ints, {
-			$nc($(getCheckSize()))->getHeight(),
-			$nc($(getIconSize()))->getHeight(),
-			$nc($(getTextSize()))->getHeight(),
-			$nc($(getAccSize()))->getHeight(),
-			$nc($(getArrowSize()))->getHeight()
+		int32_t var$7 = $$nc(getIconSize())->getWidth();
+		int32_t var$6 = var$7 + $$nc(getTextSize())->getWidth();
+		$$nc(getLabelSize())->setWidth(var$6 + getGap());
+		$$nc(getLabelSize())->setHeight($MenuItemLayoutHelper::max($$new($ints, {
+			$$nc(getCheckSize())->getHeight(),
+			$$nc(getIconSize())->getHeight(),
+			$$nc(getTextSize())->getHeight(),
+			$$nc(getAccSize())->getHeight(),
+			$$nc(getArrowSize())->getHeight()
 		})));
 	} else {
 		$var($Rectangle, textRect, $new($Rectangle));
@@ -197,41 +138,39 @@ void SynthMenuItemLayoutHelper::calcWidthsAndHeights() {
 		int32_t var$14 = getHorizontalTextPosition();
 		int32_t var$15 = getVerticalTextPosition();
 		$var($Rectangle, var$16, getViewRect());
-		$var($Rectangle, var$17, iconRect);
-		$var($Rectangle, var$18, textRect);
-		$nc(this->gu)->layoutText(var$8, var$9, var$10, var$11, var$12, var$13, var$14, var$15, var$16, var$17, var$18, getGap());
+		$nc(this->gu)->layoutText(var$8, var$9, var$10, var$11, var$12, var$13, var$14, var$15, var$16, iconRect, textRect, getGap());
 		textRect->width += getLeftTextExtraWidth();
 		$var($Rectangle, labelRect, iconRect->union$(textRect));
-		$nc($(getLabelSize()))->setHeight($nc(labelRect)->height);
-		$nc($(getLabelSize()))->setWidth($nc(labelRect)->width);
+		$$nc(getLabelSize())->setHeight($nc(labelRect)->height);
+		$$nc(getLabelSize())->setWidth(labelRect->width);
 	}
 }
 
 void SynthMenuItemLayoutHelper::calcMaxWidths() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($MenuItemLayoutHelper);
 	calcMaxWidth($(getCheckSize()), $MenuItemLayoutHelper::MAX_CHECK_WIDTH);
-	this->maxAccOrArrowWidth = calcMaxValue(SynthMenuItemLayoutHelper::MAX_ACC_OR_ARROW_WIDTH, $nc($(getArrowSize()))->getWidth());
-	this->maxAccOrArrowWidth = calcMaxValue(SynthMenuItemLayoutHelper::MAX_ACC_OR_ARROW_WIDTH, $nc($(getAccSize()))->getWidth());
+	this->maxAccOrArrowWidth = calcMaxValue(SynthMenuItemLayoutHelper::MAX_ACC_OR_ARROW_WIDTH, $$nc(getArrowSize())->getWidth());
+	this->maxAccOrArrowWidth = calcMaxValue(SynthMenuItemLayoutHelper::MAX_ACC_OR_ARROW_WIDTH, $$nc(getAccSize())->getWidth());
 	if (isColumnLayout()) {
 		calcMaxWidth($(getIconSize()), $MenuItemLayoutHelper::MAX_ICON_WIDTH);
 		calcMaxWidth($(getTextSize()), $MenuItemLayoutHelper::MAX_TEXT_WIDTH);
 		int32_t curGap = getGap();
-		bool var$0 = ($nc($(getIconSize()))->getMaxWidth() == 0);
-		if (var$0 || ($nc($(getTextSize()))->getMaxWidth() == 0)) {
+		bool var$0 = $$nc(getIconSize())->getMaxWidth() == 0;
+		if (var$0 || ($$nc(getTextSize())->getMaxWidth() == 0)) {
 			curGap = 0;
 		}
-		int32_t var$1 = $nc($(getIconSize()))->getMaxWidth();
-		$nc($(getLabelSize()))->setMaxWidth(calcMaxValue($MenuItemLayoutHelper::MAX_LABEL_WIDTH, var$1 + $nc($(getTextSize()))->getMaxWidth() + curGap));
+		int32_t var$1 = $$nc(getIconSize())->getMaxWidth();
+		$$nc(getLabelSize())->setMaxWidth(calcMaxValue($MenuItemLayoutHelper::MAX_LABEL_WIDTH, var$1 + $$nc(getTextSize())->getMaxWidth() + curGap));
 	} else {
-		$nc($(getIconSize()))->setMaxWidth(getParentIntProperty($MenuItemLayoutHelper::MAX_ICON_WIDTH));
+		$$nc(getIconSize())->setMaxWidth(getParentIntProperty($MenuItemLayoutHelper::MAX_ICON_WIDTH));
 		calcMaxWidth($(getLabelSize()), $MenuItemLayoutHelper::MAX_LABEL_WIDTH);
-		int32_t var$2 = $nc($(getLabelSize()))->getMaxWidth();
-		int32_t candidateTextWidth = var$2 - $nc($(getIconSize()))->getMaxWidth();
-		if ($nc($(getIconSize()))->getMaxWidth() > 0) {
+		int32_t var$2 = $$nc(getLabelSize())->getMaxWidth();
+		int32_t candidateTextWidth = var$2 - $$nc(getIconSize())->getMaxWidth();
+		if ($$nc(getIconSize())->getMaxWidth() > 0) {
 			candidateTextWidth -= getGap();
 		}
-		$nc($(getTextSize()))->setMaxWidth(calcMaxValue($MenuItemLayoutHelper::MAX_TEXT_WIDTH, candidateTextWidth));
+		$$nc(getTextSize())->setMaxWidth(calcMaxValue($MenuItemLayoutHelper::MAX_TEXT_WIDTH, candidateTextWidth));
 	}
 }
 
@@ -268,8 +207,8 @@ int32_t SynthMenuItemLayoutHelper::getMaxAccOrArrowWidth() {
 }
 
 void SynthMenuItemLayoutHelper::prepareForLayout($MenuItemLayoutHelper$LayoutResult* lr) {
-	$useLocalCurrentObjectStackCache();
-	$nc($($nc(lr)->getCheckRect()))->width = $nc($(getCheckSize()))->getMaxWidth();
+	$useLocalObjectStack();
+	$nc($($nc(lr)->getCheckRect()))->width = $$nc(getCheckSize())->getMaxWidth();
 	bool var$0 = useCheckAndArrow();
 	if (var$0 && (!""_s->equals($(getAccText())))) {
 		$nc($(lr->getAccRect()))->width = this->maxAccOrArrowWidth;
@@ -295,7 +234,7 @@ $MenuItemLayoutHelper$ColumnAlignment* SynthMenuItemLayoutHelper::getRTLColumnAl
 }
 
 void SynthMenuItemLayoutHelper::layoutIconAndTextInLabelRect($MenuItemLayoutHelper$LayoutResult* lr) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(lr)->setTextRect($$new($Rectangle));
 	lr->setIconRect($$new($Rectangle));
 	$var($SynthContext, var$0, this->context);
@@ -312,7 +251,7 @@ void SynthMenuItemLayoutHelper::layoutIconAndTextInLabelRect($MenuItemLayoutHelp
 	$nc(this->gu)->layoutText(var$0, var$1, var$2, var$3, var$4, var$5, var$6, var$7, var$8, var$9, var$10, getGap());
 }
 
-void clinit$SynthMenuItemLayoutHelper($Class* class$) {
+void SynthMenuItemLayoutHelper::clinit$($Class* clazz) {
 	$assignStatic(SynthMenuItemLayoutHelper::MAX_ACC_OR_ARROW_WIDTH, $new($StringUIClientPropertyKey, "maxAccOrArrowWidth"_s));
 	$assignStatic(SynthMenuItemLayoutHelper::LTR_ALIGNMENT_1, $new($MenuItemLayoutHelper$ColumnAlignment, $SwingConstants::LEFT, $SwingConstants::LEFT, $SwingConstants::LEFT, $SwingConstants::RIGHT, $SwingConstants::RIGHT));
 	$assignStatic(SynthMenuItemLayoutHelper::LTR_ALIGNMENT_2, $new($MenuItemLayoutHelper$ColumnAlignment, $SwingConstants::LEFT, $SwingConstants::LEFT, $SwingConstants::LEFT, $SwingConstants::LEFT, $SwingConstants::RIGHT));
@@ -324,7 +263,52 @@ SynthMenuItemLayoutHelper::SynthMenuItemLayoutHelper() {
 }
 
 $Class* SynthMenuItemLayoutHelper::load$($String* name, bool initialize) {
-	$loadClass(SynthMenuItemLayoutHelper, name, initialize, &_SynthMenuItemLayoutHelper_ClassInfo_, clinit$SynthMenuItemLayoutHelper, allocate$SynthMenuItemLayoutHelper);
+	$FieldInfo fieldInfos$$[] = {
+		{"MAX_ACC_OR_ARROW_WIDTH", "Lsun/swing/StringUIClientPropertyKey;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SynthMenuItemLayoutHelper, MAX_ACC_OR_ARROW_WIDTH)},
+		{"LTR_ALIGNMENT_1", "Lsun/swing/MenuItemLayoutHelper$ColumnAlignment;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SynthMenuItemLayoutHelper, LTR_ALIGNMENT_1)},
+		{"LTR_ALIGNMENT_2", "Lsun/swing/MenuItemLayoutHelper$ColumnAlignment;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SynthMenuItemLayoutHelper, LTR_ALIGNMENT_2)},
+		{"RTL_ALIGNMENT_1", "Lsun/swing/MenuItemLayoutHelper$ColumnAlignment;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SynthMenuItemLayoutHelper, RTL_ALIGNMENT_1)},
+		{"RTL_ALIGNMENT_2", "Lsun/swing/MenuItemLayoutHelper$ColumnAlignment;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SynthMenuItemLayoutHelper, RTL_ALIGNMENT_2)},
+		{"context", "Ljavax/swing/plaf/synth/SynthContext;", nullptr, $PRIVATE, $field(SynthMenuItemLayoutHelper, context)},
+		{"accContext", "Ljavax/swing/plaf/synth/SynthContext;", nullptr, $PRIVATE, $field(SynthMenuItemLayoutHelper, accContext)},
+		{"style", "Ljavax/swing/plaf/synth/SynthStyle;", nullptr, $PRIVATE, $field(SynthMenuItemLayoutHelper, style)},
+		{"accStyle", "Ljavax/swing/plaf/synth/SynthStyle;", nullptr, $PRIVATE, $field(SynthMenuItemLayoutHelper, accStyle)},
+		{"gu", "Ljavax/swing/plaf/synth/SynthGraphicsUtils;", nullptr, $PRIVATE, $field(SynthMenuItemLayoutHelper, gu)},
+		{"accGu", "Ljavax/swing/plaf/synth/SynthGraphicsUtils;", nullptr, $PRIVATE, $field(SynthMenuItemLayoutHelper, accGu)},
+		{"alignAcceleratorText", "Z", nullptr, $PRIVATE, $field(SynthMenuItemLayoutHelper, alignAcceleratorText$)},
+		{"maxAccOrArrowWidth", "I", nullptr, $PRIVATE, $field(SynthMenuItemLayoutHelper, maxAccOrArrowWidth)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/plaf/synth/SynthContext;Ljavax/swing/plaf/synth/SynthContext;Ljavax/swing/JMenuItem;Ljavax/swing/Icon;Ljavax/swing/Icon;Ljava/awt/Rectangle;ILjava/lang/String;ZZLjava/lang/String;)V", nullptr, $PUBLIC, $method(SynthMenuItemLayoutHelper, init$, void, $SynthContext*, $SynthContext*, $JMenuItem*, $Icon*, $Icon*, $Rectangle*, int32_t, $String*, bool, bool, $String*)},
+		{"alignAcceleratorText", "()Z", nullptr, $PUBLIC, $virtualMethod(SynthMenuItemLayoutHelper, alignAcceleratorText, bool)},
+		{"calcMaxWidths", "()V", nullptr, $PROTECTED, $virtualMethod(SynthMenuItemLayoutHelper, calcMaxWidths, void)},
+		{"calcWidthsAndHeights", "()V", nullptr, $PROTECTED, $virtualMethod(SynthMenuItemLayoutHelper, calcWidthsAndHeights, void)},
+		{"getAccContext", "()Ljavax/swing/plaf/synth/SynthContext;", nullptr, $PUBLIC, $virtualMethod(SynthMenuItemLayoutHelper, getAccContext, $SynthContext*)},
+		{"getAccGraphicsUtils", "()Ljavax/swing/plaf/synth/SynthGraphicsUtils;", nullptr, $PUBLIC, $virtualMethod(SynthMenuItemLayoutHelper, getAccGraphicsUtils, $SynthGraphicsUtils*)},
+		{"getAccStyle", "()Ljavax/swing/plaf/synth/SynthStyle;", nullptr, $PUBLIC, $virtualMethod(SynthMenuItemLayoutHelper, getAccStyle, $SynthStyle*)},
+		{"getAlignAcceleratorText", "(Ljava/lang/String;)Z", nullptr, $PRIVATE, $method(SynthMenuItemLayoutHelper, getAlignAcceleratorText, bool, $String*)},
+		{"getContext", "()Ljavax/swing/plaf/synth/SynthContext;", nullptr, $PUBLIC, $virtualMethod(SynthMenuItemLayoutHelper, getContext, $SynthContext*)},
+		{"getGraphicsUtils", "()Ljavax/swing/plaf/synth/SynthGraphicsUtils;", nullptr, $PUBLIC, $virtualMethod(SynthMenuItemLayoutHelper, getGraphicsUtils, $SynthGraphicsUtils*)},
+		{"getLTRColumnAlignment", "()Lsun/swing/MenuItemLayoutHelper$ColumnAlignment;", nullptr, $PUBLIC, $virtualMethod(SynthMenuItemLayoutHelper, getLTRColumnAlignment, $MenuItemLayoutHelper$ColumnAlignment*)},
+		{"getMaxAccOrArrowWidth", "()I", nullptr, $PUBLIC, $virtualMethod(SynthMenuItemLayoutHelper, getMaxAccOrArrowWidth, int32_t)},
+		{"getRTLColumnAlignment", "()Lsun/swing/MenuItemLayoutHelper$ColumnAlignment;", nullptr, $PUBLIC, $virtualMethod(SynthMenuItemLayoutHelper, getRTLColumnAlignment, $MenuItemLayoutHelper$ColumnAlignment*)},
+		{"getStyle", "()Ljavax/swing/plaf/synth/SynthStyle;", nullptr, $PUBLIC, $virtualMethod(SynthMenuItemLayoutHelper, getStyle, $SynthStyle*)},
+		{"layoutIconAndTextInLabelRect", "(Lsun/swing/MenuItemLayoutHelper$LayoutResult;)V", nullptr, $PROTECTED, $virtualMethod(SynthMenuItemLayoutHelper, layoutIconAndTextInLabelRect, void, $MenuItemLayoutHelper$LayoutResult*)},
+		{"prepareForLayout", "(Lsun/swing/MenuItemLayoutHelper$LayoutResult;)V", nullptr, $PROTECTED, $virtualMethod(SynthMenuItemLayoutHelper, prepareForLayout, void, $MenuItemLayoutHelper$LayoutResult*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.synth.SynthMenuItemLayoutHelper",
+		"sun.swing.MenuItemLayoutHelper",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SynthMenuItemLayoutHelper, name, initialize, &classInfo$$, SynthMenuItemLayoutHelper::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(SynthMenuItemLayoutHelper);
+	});
 	return class$;
 }
 

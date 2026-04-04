@@ -1,5 +1,4 @@
 #include <java/lang/management/MemoryNotificationInfo.h>
-
 #include <java/lang/management/MemoryUsage.h>
 #include <javax/management/openmbean/CompositeData.h>
 #include <sun/management/MemoryNotifInfoCompositeData.h>
@@ -19,38 +18,6 @@ using $MemoryNotifInfoCompositeData = ::sun::management::MemoryNotifInfoComposit
 namespace java {
 	namespace lang {
 		namespace management {
-
-$FieldInfo _MemoryNotificationInfo_FieldInfo_[] = {
-	{"poolName", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(MemoryNotificationInfo, poolName)},
-	{"usage", "Ljava/lang/management/MemoryUsage;", nullptr, $PRIVATE | $FINAL, $field(MemoryNotificationInfo, usage)},
-	{"count", "J", nullptr, $PRIVATE | $FINAL, $field(MemoryNotificationInfo, count)},
-	{"MEMORY_THRESHOLD_EXCEEDED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MemoryNotificationInfo, MEMORY_THRESHOLD_EXCEEDED)},
-	{"MEMORY_COLLECTION_THRESHOLD_EXCEEDED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MemoryNotificationInfo, MEMORY_COLLECTION_THRESHOLD_EXCEEDED)},
-	{}
-};
-
-$MethodInfo _MemoryNotificationInfo_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/management/MemoryUsage;J)V", nullptr, $PUBLIC, $method(MemoryNotificationInfo, init$, void, $String*, $MemoryUsage*, int64_t)},
-	{"<init>", "(Ljavax/management/openmbean/CompositeData;)V", nullptr, 0, $method(MemoryNotificationInfo, init$, void, $CompositeData*)},
-	{"from", "(Ljavax/management/openmbean/CompositeData;)Ljava/lang/management/MemoryNotificationInfo;", nullptr, $PUBLIC | $STATIC, $staticMethod(MemoryNotificationInfo, from, MemoryNotificationInfo*, $CompositeData*)},
-	{"getCount", "()J", nullptr, $PUBLIC, $virtualMethod(MemoryNotificationInfo, getCount, int64_t)},
-	{"getPoolName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MemoryNotificationInfo, getPoolName, $String*)},
-	{"getUsage", "()Ljava/lang/management/MemoryUsage;", nullptr, $PUBLIC, $virtualMethod(MemoryNotificationInfo, getUsage, $MemoryUsage*)},
-	{}
-};
-
-$ClassInfo _MemoryNotificationInfo_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.lang.management.MemoryNotificationInfo",
-	"java.lang.Object",
-	nullptr,
-	_MemoryNotificationInfo_FieldInfo_,
-	_MemoryNotificationInfo_MethodInfo_
-};
-
-$Object* allocate$MemoryNotificationInfo($Class* clazz) {
-	return $of($alloc(MemoryNotificationInfo));
-}
 
 $String* MemoryNotificationInfo::MEMORY_THRESHOLD_EXCEEDED = nullptr;
 $String* MemoryNotificationInfo::MEMORY_COLLECTION_THRESHOLD_EXCEEDED = nullptr;
@@ -92,7 +59,7 @@ MemoryNotificationInfo* MemoryNotificationInfo::from($CompositeData* cd) {
 		return nullptr;
 	}
 	if ($instanceOf($MemoryNotifInfoCompositeData, cd)) {
-		return $nc(($cast($MemoryNotifInfoCompositeData, cd)))->getMemoryNotifInfo();
+		return $cast($MemoryNotifInfoCompositeData, cd)->getMemoryNotifInfo();
 	} else {
 		return $new(MemoryNotificationInfo, cd);
 	}
@@ -101,13 +68,40 @@ MemoryNotificationInfo* MemoryNotificationInfo::from($CompositeData* cd) {
 MemoryNotificationInfo::MemoryNotificationInfo() {
 }
 
-void clinit$MemoryNotificationInfo($Class* class$) {
+void MemoryNotificationInfo::clinit$($Class* clazz) {
 	$assignStatic(MemoryNotificationInfo::MEMORY_THRESHOLD_EXCEEDED, "java.management.memory.threshold.exceeded"_s);
 	$assignStatic(MemoryNotificationInfo::MEMORY_COLLECTION_THRESHOLD_EXCEEDED, "java.management.memory.collection.threshold.exceeded"_s);
 }
 
 $Class* MemoryNotificationInfo::load$($String* name, bool initialize) {
-	$loadClass(MemoryNotificationInfo, name, initialize, &_MemoryNotificationInfo_ClassInfo_, clinit$MemoryNotificationInfo, allocate$MemoryNotificationInfo);
+	$FieldInfo fieldInfos$$[] = {
+		{"poolName", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(MemoryNotificationInfo, poolName)},
+		{"usage", "Ljava/lang/management/MemoryUsage;", nullptr, $PRIVATE | $FINAL, $field(MemoryNotificationInfo, usage)},
+		{"count", "J", nullptr, $PRIVATE | $FINAL, $field(MemoryNotificationInfo, count)},
+		{"MEMORY_THRESHOLD_EXCEEDED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MemoryNotificationInfo, MEMORY_THRESHOLD_EXCEEDED)},
+		{"MEMORY_COLLECTION_THRESHOLD_EXCEEDED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MemoryNotificationInfo, MEMORY_COLLECTION_THRESHOLD_EXCEEDED)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljava/lang/management/MemoryUsage;J)V", nullptr, $PUBLIC, $method(MemoryNotificationInfo, init$, void, $String*, $MemoryUsage*, int64_t)},
+		{"<init>", "(Ljavax/management/openmbean/CompositeData;)V", nullptr, 0, $method(MemoryNotificationInfo, init$, void, $CompositeData*)},
+		{"from", "(Ljavax/management/openmbean/CompositeData;)Ljava/lang/management/MemoryNotificationInfo;", nullptr, $PUBLIC | $STATIC, $staticMethod(MemoryNotificationInfo, from, MemoryNotificationInfo*, $CompositeData*)},
+		{"getCount", "()J", nullptr, $PUBLIC, $virtualMethod(MemoryNotificationInfo, getCount, int64_t)},
+		{"getPoolName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MemoryNotificationInfo, getPoolName, $String*)},
+		{"getUsage", "()Ljava/lang/management/MemoryUsage;", nullptr, $PUBLIC, $virtualMethod(MemoryNotificationInfo, getUsage, $MemoryUsage*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.lang.management.MemoryNotificationInfo",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(MemoryNotificationInfo, name, initialize, &classInfo$$, MemoryNotificationInfo::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(MemoryNotificationInfo);
+	});
 	return class$;
 }
 

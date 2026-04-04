@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/dom/SortSettings.h>
-
 #include <com/sun/org/apache/xalan/internal/xsltc/runtime/AbstractTranslet.h>
 #include <java/text/Collator.h>
 #include <java/util/Locale.h>
@@ -20,40 +19,6 @@ namespace com {
 					namespace internal {
 						namespace xsltc {
 							namespace dom {
-
-$FieldInfo _SortSettings_FieldInfo_[] = {
-	{"_translet", "Lcom/sun/org/apache/xalan/internal/xsltc/runtime/AbstractTranslet;", nullptr, $PRIVATE, $field(SortSettings, _translet)},
-	{"_sortOrders", "[I", nullptr, $PRIVATE, $field(SortSettings, _sortOrders)},
-	{"_types", "[I", nullptr, $PRIVATE, $field(SortSettings, _types)},
-	{"_locales", "[Ljava/util/Locale;", nullptr, $PRIVATE, $field(SortSettings, _locales)},
-	{"_collators", "[Ljava/text/Collator;", nullptr, $PRIVATE, $field(SortSettings, _collators)},
-	{"_caseOrders", "[Ljava/lang/String;", nullptr, $PRIVATE, $field(SortSettings, _caseOrders)},
-	{}
-};
-
-$MethodInfo _SortSettings_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/org/apache/xalan/internal/xsltc/runtime/AbstractTranslet;[I[I[Ljava/util/Locale;[Ljava/text/Collator;[Ljava/lang/String;)V", nullptr, 0, $method(SortSettings, init$, void, $AbstractTranslet*, $ints*, $ints*, $LocaleArray*, $CollatorArray*, $StringArray*)},
-	{"getCaseOrders", "()[Ljava/lang/String;", nullptr, 0, $method(SortSettings, getCaseOrders, $StringArray*)},
-	{"getCollators", "()[Ljava/text/Collator;", nullptr, 0, $method(SortSettings, getCollators, $CollatorArray*)},
-	{"getLocales", "()[Ljava/util/Locale;", nullptr, 0, $method(SortSettings, getLocales, $LocaleArray*)},
-	{"getSortOrders", "()[I", nullptr, 0, $method(SortSettings, getSortOrders, $ints*)},
-	{"getTranslet", "()Lcom/sun/org/apache/xalan/internal/xsltc/runtime/AbstractTranslet;", nullptr, 0, $method(SortSettings, getTranslet, $AbstractTranslet*)},
-	{"getTypes", "()[I", nullptr, 0, $method(SortSettings, getTypes, $ints*)},
-	{}
-};
-
-$ClassInfo _SortSettings_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xalan.internal.xsltc.dom.SortSettings",
-	"java.lang.Object",
-	nullptr,
-	_SortSettings_FieldInfo_,
-	_SortSettings_MethodInfo_
-};
-
-$Object* allocate$SortSettings($Class* clazz) {
-	return $of($alloc(SortSettings));
-}
 
 void SortSettings::init$($AbstractTranslet* translet, $ints* sortOrders, $ints* types, $LocaleArray* locales, $CollatorArray* collators, $StringArray* caseOrders) {
 	$set(this, _translet, translet);
@@ -92,7 +57,36 @@ SortSettings::SortSettings() {
 }
 
 $Class* SortSettings::load$($String* name, bool initialize) {
-	$loadClass(SortSettings, name, initialize, &_SortSettings_ClassInfo_, allocate$SortSettings);
+	$FieldInfo fieldInfos$$[] = {
+		{"_translet", "Lcom/sun/org/apache/xalan/internal/xsltc/runtime/AbstractTranslet;", nullptr, $PRIVATE, $field(SortSettings, _translet)},
+		{"_sortOrders", "[I", nullptr, $PRIVATE, $field(SortSettings, _sortOrders)},
+		{"_types", "[I", nullptr, $PRIVATE, $field(SortSettings, _types)},
+		{"_locales", "[Ljava/util/Locale;", nullptr, $PRIVATE, $field(SortSettings, _locales)},
+		{"_collators", "[Ljava/text/Collator;", nullptr, $PRIVATE, $field(SortSettings, _collators)},
+		{"_caseOrders", "[Ljava/lang/String;", nullptr, $PRIVATE, $field(SortSettings, _caseOrders)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/org/apache/xalan/internal/xsltc/runtime/AbstractTranslet;[I[I[Ljava/util/Locale;[Ljava/text/Collator;[Ljava/lang/String;)V", nullptr, 0, $method(SortSettings, init$, void, $AbstractTranslet*, $ints*, $ints*, $LocaleArray*, $CollatorArray*, $StringArray*)},
+		{"getCaseOrders", "()[Ljava/lang/String;", nullptr, 0, $method(SortSettings, getCaseOrders, $StringArray*)},
+		{"getCollators", "()[Ljava/text/Collator;", nullptr, 0, $method(SortSettings, getCollators, $CollatorArray*)},
+		{"getLocales", "()[Ljava/util/Locale;", nullptr, 0, $method(SortSettings, getLocales, $LocaleArray*)},
+		{"getSortOrders", "()[I", nullptr, 0, $method(SortSettings, getSortOrders, $ints*)},
+		{"getTranslet", "()Lcom/sun/org/apache/xalan/internal/xsltc/runtime/AbstractTranslet;", nullptr, 0, $method(SortSettings, getTranslet, $AbstractTranslet*)},
+		{"getTypes", "()[I", nullptr, 0, $method(SortSettings, getTypes, $ints*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xalan.internal.xsltc.dom.SortSettings",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SortSettings, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SortSettings);
+	});
 	return class$;
 }
 

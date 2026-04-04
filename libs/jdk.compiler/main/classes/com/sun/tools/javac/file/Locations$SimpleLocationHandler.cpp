@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/file/Locations$SimpleLocationHandler.h>
-
 #include <com/sun/tools/javac/file/Locations$BasicLocationHandler.h>
 #include <com/sun/tools/javac/file/Locations$SearchPath.h>
 #include <com/sun/tools/javac/file/Locations.h>
@@ -7,11 +6,8 @@
 #include <java/lang/Iterable.h>
 #include <java/nio/file/Path.h>
 #include <java/util/AbstractCollection.h>
-#include <java/util/AbstractSet.h>
 #include <java/util/Collection.h>
 #include <java/util/Collections.h>
-#include <java/util/HashSet.h>
-#include <java/util/LinkedHashSet.h>
 #include <java/util/Set.h>
 #include <javax/tools/JavaFileManager$Location.h>
 #include <jcpp.h>
@@ -28,12 +24,8 @@ using $Iterable = ::java::lang::Iterable;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Path = ::java::nio::file::Path;
 using $AbstractCollection = ::java::util::AbstractCollection;
-using $AbstractSet = ::java::util::AbstractSet;
 using $Collection = ::java::util::Collection;
 using $Collections = ::java::util::Collections;
-using $HashSet = ::java::util::HashSet;
-using $LinkedHashSet = ::java::util::LinkedHashSet;
-using $Set = ::java::util::Set;
 using $JavaFileManager$Location = ::javax::tools::JavaFileManager$Location;
 
 namespace com {
@@ -42,61 +34,18 @@ namespace com {
 			namespace javac {
 				namespace file {
 
-$FieldInfo _Locations$SimpleLocationHandler_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/file/Locations;", nullptr, $FINAL | $SYNTHETIC, $field(Locations$SimpleLocationHandler, this$0)},
-	{"searchPath", "Ljava/util/Collection;", "Ljava/util/Collection<Ljava/nio/file/Path;>;", $PROTECTED, $field(Locations$SimpleLocationHandler, searchPath)},
-	{}
-};
-
-$MethodInfo _Locations$SimpleLocationHandler_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/file/Locations;Ljavax/tools/JavaFileManager$Location;[Lcom/sun/tools/javac/main/Option;)V", nullptr, $TRANSIENT, $method(Locations$SimpleLocationHandler, init$, void, $Locations*, $JavaFileManager$Location*, $OptionArray*)},
-	{"computePath", "(Ljava/lang/String;)Lcom/sun/tools/javac/file/Locations$SearchPath;", nullptr, $PROTECTED, $virtualMethod(Locations$SimpleLocationHandler, computePath, $Locations$SearchPath*, $String*)},
-	{"contains", "(Ljava/nio/file/Path;)Z", nullptr, 0, $virtualMethod(Locations$SimpleLocationHandler, contains, bool, $Path*), "java.io.IOException"},
-	{"createPath", "()Lcom/sun/tools/javac/file/Locations$SearchPath;", nullptr, $PROTECTED, $virtualMethod(Locations$SimpleLocationHandler, createPath, $Locations$SearchPath*)},
-	{"getPaths", "()Ljava/util/Collection;", "()Ljava/util/Collection<Ljava/nio/file/Path;>;", 0, $virtualMethod(Locations$SimpleLocationHandler, getPaths, $Collection*)},
-	{"handleOption", "(Lcom/sun/tools/javac/main/Option;Ljava/lang/String;)Z", nullptr, 0, $virtualMethod(Locations$SimpleLocationHandler, handleOption, bool, $Option*, $String*)},
-	{"setPaths", "(Ljava/lang/Iterable;)V", "(Ljava/lang/Iterable<+Ljava/nio/file/Path;>;)V", 0, $virtualMethod(Locations$SimpleLocationHandler, setPaths, void, $Iterable*)},
-	{}
-};
-
-$InnerClassInfo _Locations$SimpleLocationHandler_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.file.Locations$SimpleLocationHandler", "com.sun.tools.javac.file.Locations", "SimpleLocationHandler", $PRIVATE},
-	{"com.sun.tools.javac.file.Locations$BasicLocationHandler", "com.sun.tools.javac.file.Locations", "BasicLocationHandler", $PRIVATE | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Locations$SimpleLocationHandler_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.file.Locations$SimpleLocationHandler",
-	"com.sun.tools.javac.file.Locations$BasicLocationHandler",
-	nullptr,
-	_Locations$SimpleLocationHandler_FieldInfo_,
-	_Locations$SimpleLocationHandler_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Locations$SimpleLocationHandler_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.file.Locations"
-};
-
-$Object* allocate$Locations$SimpleLocationHandler($Class* clazz) {
-	return $of($alloc(Locations$SimpleLocationHandler));
-}
-
 void Locations$SimpleLocationHandler::init$($Locations* this$0, $JavaFileManager$Location* location, $OptionArray* options) {
 	$set(this, this$0, this$0);
 	$Locations$BasicLocationHandler::init$(location, options);
 }
 
 bool Locations$SimpleLocationHandler::handleOption($Option* option, $String* value) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!$nc(this->options)->contains(option)) {
 		return false;
 	}
 	this->explicit$ = true;
-	$set(this, searchPath, value == nullptr ? ($Collection*)nullptr : $Collections::unmodifiableCollection($(static_cast<$Collection*>(static_cast<$AbstractCollection*>(static_cast<$AbstractSet*>(static_cast<$HashSet*>(static_cast<$LinkedHashSet*>($nc($(createPath()))->addFiles(value)))))))));
+	$set(this, searchPath, value == nullptr ? ($Collection*)nullptr : $Collections::unmodifiableCollection($$cast($AbstractCollection, $$nc(createPath())->addFiles(value))));
 	return true;
 }
 
@@ -105,19 +54,19 @@ $Collection* Locations$SimpleLocationHandler::getPaths() {
 }
 
 void Locations$SimpleLocationHandler::setPaths($Iterable* files) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Locations$SearchPath, p, nullptr);
 	if (files == nullptr) {
 		$assign(p, computePath(nullptr));
 	} else {
 		this->explicit$ = true;
-		$assign(p, $nc($(createPath()))->addFiles(files));
+		$assign(p, $$nc(createPath())->addFiles(files));
 	}
-	$set(this, searchPath, $Collections::unmodifiableCollection(static_cast<$Collection*>(static_cast<$AbstractCollection*>(static_cast<$AbstractSet*>(static_cast<$HashSet*>(static_cast<$LinkedHashSet*>(p)))))));
+	$set(this, searchPath, $Collections::unmodifiableCollection($cast($AbstractCollection, p)));
 }
 
 $Locations$SearchPath* Locations$SimpleLocationHandler::computePath($String* value) {
-	return $nc($(createPath()))->addFiles(value);
+	return $$nc(createPath())->addFiles(value);
 }
 
 $Locations$SearchPath* Locations$SimpleLocationHandler::createPath() {
@@ -132,7 +81,44 @@ Locations$SimpleLocationHandler::Locations$SimpleLocationHandler() {
 }
 
 $Class* Locations$SimpleLocationHandler::load$($String* name, bool initialize) {
-	$loadClass(Locations$SimpleLocationHandler, name, initialize, &_Locations$SimpleLocationHandler_ClassInfo_, allocate$Locations$SimpleLocationHandler);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/file/Locations;", nullptr, $FINAL | $SYNTHETIC, $field(Locations$SimpleLocationHandler, this$0)},
+		{"searchPath", "Ljava/util/Collection;", "Ljava/util/Collection<Ljava/nio/file/Path;>;", $PROTECTED, $field(Locations$SimpleLocationHandler, searchPath)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/file/Locations;Ljavax/tools/JavaFileManager$Location;[Lcom/sun/tools/javac/main/Option;)V", nullptr, $TRANSIENT, $method(Locations$SimpleLocationHandler, init$, void, $Locations*, $JavaFileManager$Location*, $OptionArray*)},
+		{"computePath", "(Ljava/lang/String;)Lcom/sun/tools/javac/file/Locations$SearchPath;", nullptr, $PROTECTED, $virtualMethod(Locations$SimpleLocationHandler, computePath, $Locations$SearchPath*, $String*)},
+		{"contains", "(Ljava/nio/file/Path;)Z", nullptr, 0, $virtualMethod(Locations$SimpleLocationHandler, contains, bool, $Path*), "java.io.IOException"},
+		{"createPath", "()Lcom/sun/tools/javac/file/Locations$SearchPath;", nullptr, $PROTECTED, $virtualMethod(Locations$SimpleLocationHandler, createPath, $Locations$SearchPath*)},
+		{"getPaths", "()Ljava/util/Collection;", "()Ljava/util/Collection<Ljava/nio/file/Path;>;", 0, $virtualMethod(Locations$SimpleLocationHandler, getPaths, $Collection*)},
+		{"handleOption", "(Lcom/sun/tools/javac/main/Option;Ljava/lang/String;)Z", nullptr, 0, $virtualMethod(Locations$SimpleLocationHandler, handleOption, bool, $Option*, $String*)},
+		{"setPaths", "(Ljava/lang/Iterable;)V", "(Ljava/lang/Iterable<+Ljava/nio/file/Path;>;)V", 0, $virtualMethod(Locations$SimpleLocationHandler, setPaths, void, $Iterable*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.file.Locations$SimpleLocationHandler", "com.sun.tools.javac.file.Locations", "SimpleLocationHandler", $PRIVATE},
+		{"com.sun.tools.javac.file.Locations$BasicLocationHandler", "com.sun.tools.javac.file.Locations", "BasicLocationHandler", $PRIVATE | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.file.Locations$SimpleLocationHandler",
+		"com.sun.tools.javac.file.Locations$BasicLocationHandler",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.file.Locations"
+	};
+	$loadClass(Locations$SimpleLocationHandler, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Locations$SimpleLocationHandler);
+	});
 	return class$;
 }
 

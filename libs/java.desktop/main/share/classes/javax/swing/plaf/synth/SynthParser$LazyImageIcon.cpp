@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/synth/SynthParser$LazyImageIcon.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Graphics.h>
 #include <java/awt/Image.h>
@@ -24,50 +23,6 @@ namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace synth {
-
-$FieldInfo _SynthParser$LazyImageIcon_FieldInfo_[] = {
-	{"location", "Ljava/net/URL;", nullptr, $PRIVATE, $field(SynthParser$LazyImageIcon, location)},
-	{}
-};
-
-$MethodInfo _SynthParser$LazyImageIcon_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/net/URL;)V", nullptr, $PUBLIC, $method(SynthParser$LazyImageIcon, init$, void, $URL*)},
-	{"getIconHeight", "()I", nullptr, $PUBLIC, $virtualMethod(SynthParser$LazyImageIcon, getIconHeight, int32_t)},
-	{"getIconWidth", "()I", nullptr, $PUBLIC, $virtualMethod(SynthParser$LazyImageIcon, getIconWidth, int32_t)},
-	{"getImage", "()Ljava/awt/Image;", nullptr, $PUBLIC, $virtualMethod(SynthParser$LazyImageIcon, getImage, $Image*)},
-	{"paintIcon", "(Ljava/awt/Component;Ljava/awt/Graphics;II)V", nullptr, $PUBLIC, $virtualMethod(SynthParser$LazyImageIcon, paintIcon, void, $Component*, $Graphics*, int32_t, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _SynthParser$LazyImageIcon_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.synth.SynthParser$LazyImageIcon", "javax.swing.plaf.synth.SynthParser", "LazyImageIcon", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _SynthParser$LazyImageIcon_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.synth.SynthParser$LazyImageIcon",
-	"javax.swing.ImageIcon",
-	"javax.swing.plaf.UIResource",
-	_SynthParser$LazyImageIcon_FieldInfo_,
-	_SynthParser$LazyImageIcon_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SynthParser$LazyImageIcon_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.synth.SynthParser"
-};
-
-$Object* allocate$SynthParser$LazyImageIcon($Class* clazz) {
-	return $of($alloc(SynthParser$LazyImageIcon));
-}
 
 $String* SynthParser$LazyImageIcon::toString() {
 	 return this->$ImageIcon::toString();
@@ -115,9 +70,9 @@ int32_t SynthParser$LazyImageIcon::getIconHeight() {
 }
 
 $Image* SynthParser$LazyImageIcon::getImage() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->location != nullptr) {
-		setImage($($nc($($Toolkit::getDefaultToolkit()))->getImage(this->location)));
+		setImage($($$nc($Toolkit::getDefaultToolkit())->getImage(this->location)));
 		$set(this, location, nullptr);
 	}
 	return $ImageIcon::getImage();
@@ -127,7 +82,45 @@ SynthParser$LazyImageIcon::SynthParser$LazyImageIcon() {
 }
 
 $Class* SynthParser$LazyImageIcon::load$($String* name, bool initialize) {
-	$loadClass(SynthParser$LazyImageIcon, name, initialize, &_SynthParser$LazyImageIcon_ClassInfo_, allocate$SynthParser$LazyImageIcon);
+	$FieldInfo fieldInfos$$[] = {
+		{"location", "Ljava/net/URL;", nullptr, $PRIVATE, $field(SynthParser$LazyImageIcon, location)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/net/URL;)V", nullptr, $PUBLIC, $method(SynthParser$LazyImageIcon, init$, void, $URL*)},
+		{"getIconHeight", "()I", nullptr, $PUBLIC, $virtualMethod(SynthParser$LazyImageIcon, getIconHeight, int32_t)},
+		{"getIconWidth", "()I", nullptr, $PUBLIC, $virtualMethod(SynthParser$LazyImageIcon, getIconWidth, int32_t)},
+		{"getImage", "()Ljava/awt/Image;", nullptr, $PUBLIC, $virtualMethod(SynthParser$LazyImageIcon, getImage, $Image*)},
+		{"paintIcon", "(Ljava/awt/Component;Ljava/awt/Graphics;II)V", nullptr, $PUBLIC, $virtualMethod(SynthParser$LazyImageIcon, paintIcon, void, $Component*, $Graphics*, int32_t, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.synth.SynthParser$LazyImageIcon", "javax.swing.plaf.synth.SynthParser", "LazyImageIcon", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.synth.SynthParser$LazyImageIcon",
+		"javax.swing.ImageIcon",
+		"javax.swing.plaf.UIResource",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.synth.SynthParser"
+	};
+	$loadClass(SynthParser$LazyImageIcon, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SynthParser$LazyImageIcon));
+	});
 	return class$;
 }
 

@@ -1,11 +1,9 @@
 #include <com/apple/laf/ScreenPopupFactory.h>
-
 #include <com/apple/laf/ScreenPopupFactory$1.h>
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <java/awt/Window.h>
-#include <java/lang/Runnable.h>
 #include <javax/swing/JRootPane.h>
 #include <javax/swing/Popup.h>
 #include <javax/swing/PopupFactory.h>
@@ -36,7 +34,6 @@ using $Float = ::java::lang::Float;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
 using $JRootPane = ::javax::swing::JRootPane;
 using $Popup = ::javax::swing::Popup;
 using $PopupFactory = ::javax::swing::PopupFactory;
@@ -45,50 +42,10 @@ using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $UIManager = ::javax::swing::UIManager;
 using $CPlatformWindow = ::sun::lwawt::macosx::CPlatformWindow;
 using $SwingAccessor = ::sun::swing::SwingAccessor;
-using $SwingAccessor$PopupFactoryAccessor = ::sun::swing::SwingAccessor$PopupFactoryAccessor;
 
 namespace com {
 	namespace apple {
 		namespace laf {
-
-$FieldInfo _ScreenPopupFactory_FieldInfo_[] = {
-	{"TRANSLUCENT", "Ljava/lang/Float;", nullptr, $STATIC | $FINAL, $staticField(ScreenPopupFactory, TRANSLUCENT)},
-	{"OPAQUE", "Ljava/lang/Float;", nullptr, $STATIC | $FINAL, $staticField(ScreenPopupFactory, OPAQUE)},
-	{"fIsActive", "Z", nullptr, 0, $field(ScreenPopupFactory, fIsActive)},
-	{}
-};
-
-$MethodInfo _ScreenPopupFactory_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(ScreenPopupFactory, init$, void)},
-	{"getPopup", "(Ljava/awt/Component;Ljava/awt/Component;II)Ljavax/swing/Popup;", nullptr, $PUBLIC, $virtualMethod(ScreenPopupFactory, getPopup, $Popup*, $Component*, $Component*, int32_t, int32_t)},
-	{"getWindow", "(Ljava/awt/Component;)Ljava/awt/Window;", nullptr, $PRIVATE | $STATIC, $staticMethod(ScreenPopupFactory, getWindow, $Window*, $Component*)},
-	{"setActive", "(Z)V", nullptr, 0, $virtualMethod(ScreenPopupFactory, setActive, void, bool)},
-	{}
-};
-
-$InnerClassInfo _ScreenPopupFactory_InnerClassesInfo_[] = {
-	{"com.apple.laf.ScreenPopupFactory$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _ScreenPopupFactory_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.apple.laf.ScreenPopupFactory",
-	"javax.swing.PopupFactory",
-	nullptr,
-	_ScreenPopupFactory_FieldInfo_,
-	_ScreenPopupFactory_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ScreenPopupFactory_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.apple.laf.ScreenPopupFactory$1"
-};
-
-$Object* allocate$ScreenPopupFactory($Class* clazz) {
-	return $of($alloc(ScreenPopupFactory));
-}
 
 $Float* ScreenPopupFactory::TRANSLUCENT = nullptr;
 $Float* ScreenPopupFactory::OPAQUE = nullptr;
@@ -112,13 +69,13 @@ $Window* ScreenPopupFactory::getWindow($Component* c) {
 }
 
 $Popup* ScreenPopupFactory::getPopup($Component* comp, $Component* invoker, int32_t x, int32_t y) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (invoker == nullptr) {
 		$throwNew($IllegalArgumentException, "Popup.getPopup must be passed non-null contents"_s);
 	}
 	$var($Popup, popup, nullptr);
 	if (this->fIsActive) {
-		$assign(popup, $nc($($SwingAccessor::getPopupFactoryAccessor()))->getHeavyWeightPopup(this, comp, invoker, x, y));
+		$assign(popup, $$nc($SwingAccessor::getPopupFactoryAccessor())->getHeavyWeightPopup(this, comp, invoker, x, y));
 	} else {
 		$assign(popup, $PopupFactory::getPopup(comp, invoker, x, y));
 	}
@@ -129,26 +86,24 @@ $Popup* ScreenPopupFactory::getPopup($Component* comp, $Component* invoker, int3
 	if (!($instanceOf($RootPaneContainer, w))) {
 		return popup;
 	}
-	$var($JRootPane, popupRootPane, $nc(($cast($RootPaneContainer, w)))->getRootPane());
+	$var($JRootPane, popupRootPane, $nc($cast($RootPaneContainer, w))->getRootPane());
 	if (this->fIsActive) {
 		$init($CPlatformWindow);
 		$nc(popupRootPane)->putClientProperty($CPlatformWindow::WINDOW_ALPHA, ScreenPopupFactory::TRANSLUCENT);
-		$init($Boolean);
 		popupRootPane->putClientProperty($CPlatformWindow::WINDOW_SHADOW, $Boolean::TRUE);
 		popupRootPane->putClientProperty($CPlatformWindow::WINDOW_FADE_DELEGATE, invoker);
-		$nc(w)->setBackground($($UIManager::getColor("PopupMenu.translucentBackground"_s)));
+		w->setBackground($($UIManager::getColor("PopupMenu.translucentBackground"_s)));
 		popupRootPane->putClientProperty($CPlatformWindow::WINDOW_DRAGGABLE_BACKGROUND, $Boolean::FALSE);
 		$SwingUtilities::invokeLater($$new($ScreenPopupFactory$1, this, popupRootPane));
 	} else {
 		$init($CPlatformWindow);
 		$nc(popupRootPane)->putClientProperty($CPlatformWindow::WINDOW_ALPHA, ScreenPopupFactory::OPAQUE);
-		$init($Boolean);
 		popupRootPane->putClientProperty($CPlatformWindow::WINDOW_SHADOW, $Boolean::FALSE);
 	}
 	return popup;
 }
 
-void clinit$ScreenPopupFactory($Class* class$) {
+void ScreenPopupFactory::clinit$($Class* clazz) {
 	$assignStatic(ScreenPopupFactory::TRANSLUCENT, $Float::valueOf(248.0f / 255.0f));
 	$assignStatic(ScreenPopupFactory::OPAQUE, $Float::valueOf(1.0f));
 }
@@ -157,7 +112,40 @@ ScreenPopupFactory::ScreenPopupFactory() {
 }
 
 $Class* ScreenPopupFactory::load$($String* name, bool initialize) {
-	$loadClass(ScreenPopupFactory, name, initialize, &_ScreenPopupFactory_ClassInfo_, clinit$ScreenPopupFactory, allocate$ScreenPopupFactory);
+	$FieldInfo fieldInfos$$[] = {
+		{"TRANSLUCENT", "Ljava/lang/Float;", nullptr, $STATIC | $FINAL, $staticField(ScreenPopupFactory, TRANSLUCENT)},
+		{"OPAQUE", "Ljava/lang/Float;", nullptr, $STATIC | $FINAL, $staticField(ScreenPopupFactory, OPAQUE)},
+		{"fIsActive", "Z", nullptr, 0, $field(ScreenPopupFactory, fIsActive)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(ScreenPopupFactory, init$, void)},
+		{"getPopup", "(Ljava/awt/Component;Ljava/awt/Component;II)Ljavax/swing/Popup;", nullptr, $PUBLIC, $virtualMethod(ScreenPopupFactory, getPopup, $Popup*, $Component*, $Component*, int32_t, int32_t)},
+		{"getWindow", "(Ljava/awt/Component;)Ljava/awt/Window;", nullptr, $PRIVATE | $STATIC, $staticMethod(ScreenPopupFactory, getWindow, $Window*, $Component*)},
+		{"setActive", "(Z)V", nullptr, 0, $virtualMethod(ScreenPopupFactory, setActive, void, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.laf.ScreenPopupFactory$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.apple.laf.ScreenPopupFactory",
+		"javax.swing.PopupFactory",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.apple.laf.ScreenPopupFactory$1"
+	};
+	$loadClass(ScreenPopupFactory, name, initialize, &classInfo$$, ScreenPopupFactory::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ScreenPopupFactory);
+	});
 	return class$;
 }
 

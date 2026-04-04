@@ -1,11 +1,9 @@
 #include <JTextAreaEmojiTest.h>
-
 #include <JTextAreaEmojiTest$1.h>
 #include <java/awt/GridBagLayout.h>
 #include <java/awt/Window.h>
 #include <java/awt/event/ActionEvent.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Runnable.h>
 #include <java/util/EventObject.h>
 #include <java/util/concurrent/CountDownLatch.h>
 #include <java/util/concurrent/TimeUnit.h>
@@ -26,7 +24,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $CountDownLatch = ::java::util::concurrent::CountDownLatch;
 using $TimeUnit = ::java::util::concurrent::TimeUnit;
@@ -35,55 +32,6 @@ using $JFrame = ::javax::swing::JFrame;
 using $JPanel = ::javax::swing::JPanel;
 using $JTextArea = ::javax::swing::JTextArea;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
-
-$FieldInfo _JTextAreaEmojiTest_FieldInfo_[] = {
-	{"layout", "Ljava/awt/GridBagLayout;", nullptr, $PRIVATE | $STATIC, $staticField(JTextAreaEmojiTest, layout)},
-	{"textAreaPanel", "Ljavax/swing/JPanel;", nullptr, $PRIVATE | $STATIC, $staticField(JTextAreaEmojiTest, textAreaPanel)},
-	{"mainControlPanel", "Ljavax/swing/JPanel;", nullptr, $PRIVATE | $STATIC, $staticField(JTextAreaEmojiTest, mainControlPanel)},
-	{"instructionPanel", "Ljavax/swing/JPanel;", nullptr, $PRIVATE | $STATIC, $staticField(JTextAreaEmojiTest, instructionPanel)},
-	{"resultButtonPanel", "Ljavax/swing/JPanel;", nullptr, $PRIVATE | $STATIC, $staticField(JTextAreaEmojiTest, resultButtonPanel)},
-	{"controlPanel", "Ljavax/swing/JPanel;", nullptr, $PRIVATE | $STATIC, $staticField(JTextAreaEmojiTest, controlPanel)},
-	{"instructionTextArea", "Ljavax/swing/JTextArea;", nullptr, $PRIVATE | $STATIC, $staticField(JTextAreaEmojiTest, instructionTextArea)},
-	{"emojiTextArea", "Ljavax/swing/JTextArea;", nullptr, $PRIVATE | $STATIC, $staticField(JTextAreaEmojiTest, emojiTextArea)},
-	{"passButton", "Ljavax/swing/JButton;", nullptr, $PRIVATE | $STATIC, $staticField(JTextAreaEmojiTest, passButton)},
-	{"failButton", "Ljavax/swing/JButton;", nullptr, $PRIVATE | $STATIC, $staticField(JTextAreaEmojiTest, failButton)},
-	{"mainFrame", "Ljavax/swing/JFrame;", nullptr, $PRIVATE | $STATIC, $staticField(JTextAreaEmojiTest, mainFrame)},
-	{"testRunLatch", "Ljava/util/concurrent/CountDownLatch;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JTextAreaEmojiTest, testRunLatch)},
-	{}
-};
-
-$MethodInfo _JTextAreaEmojiTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(JTextAreaEmojiTest, init$, void), "java.lang.Exception"},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(JTextAreaEmojiTest, actionPerformed, void, $ActionEvent*)},
-	{"cleanUp", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(JTextAreaEmojiTest, cleanUp, void)},
-	{"createControlPanelUI", "()V", nullptr, $PUBLIC | $FINAL, $method(JTextAreaEmojiTest, createControlPanelUI, void), "java.lang.Exception"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(JTextAreaEmojiTest, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$InnerClassInfo _JTextAreaEmojiTest_InnerClassesInfo_[] = {
-	{"JTextAreaEmojiTest$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _JTextAreaEmojiTest_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"JTextAreaEmojiTest",
-	"java.lang.Object",
-	"java.awt.event.ActionListener",
-	_JTextAreaEmojiTest_FieldInfo_,
-	_JTextAreaEmojiTest_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JTextAreaEmojiTest_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"JTextAreaEmojiTest$1"
-};
-
-$Object* allocate$JTextAreaEmojiTest($Class* clazz) {
-	return $of($alloc(JTextAreaEmojiTest));
-}
 
 $GridBagLayout* JTextAreaEmojiTest::layout = nullptr;
 $JPanel* JTextAreaEmojiTest::textAreaPanel = nullptr;
@@ -102,7 +50,7 @@ void JTextAreaEmojiTest::main($StringArray* args) {
 	$init(JTextAreaEmojiTest);
 	$var(JTextAreaEmojiTest, test, $new(JTextAreaEmojiTest));
 	$init($TimeUnit);
-	bool status = $nc(JTextAreaEmojiTest::testRunLatch)->await(5, $TimeUnit::MINUTES);
+	bool status = JTextAreaEmojiTest::testRunLatch->await(5, $TimeUnit::MINUTES);
 	if (!status) {
 		$throwNew($RuntimeException, "Test timed out"_s);
 	}
@@ -117,37 +65,29 @@ void JTextAreaEmojiTest::createControlPanelUI() {
 }
 
 void JTextAreaEmojiTest::actionPerformed($ActionEvent* evt) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($instanceOf($JButton, $($nc(evt)->getSource()))) {
 		$var($JButton, btn, $cast($JButton, evt->getSource()));
 		{
 			$var($String, s6251$, $nc(btn)->getActionCommand());
 			int32_t tmp6251$ = -1;
 			switch ($nc(s6251$)->hashCode()) {
-			case 0x0025D831:
-				{
-					if (s6251$->equals("Pass"_s)) {
-						tmp6251$ = 0;
-					}
-					break;
+			case 0x0025d831:
+				if (s6251$->equals("Pass"_s)) {
+					tmp6251$ = 0;
 				}
-			case 0x00214B3E:
-				{
-					if (s6251$->equals("Fail"_s)) {
-						tmp6251$ = 1;
-					}
-					break;
+				break;
+			case 0x00214b3e:
+				if (s6251$->equals("Fail"_s)) {
+					tmp6251$ = 1;
 				}
+				break;
 			}
 			switch (tmp6251$) {
 			case 0:
-				{
-					break;
-				}
+				break;
 			case 1:
-				{
-					$throwNew($AssertionError, $of("Test case has failed!"_s));
-				}
+				$throwNew($AssertionError, $of("Test case has failed!"_s));
 			}
 		}
 		cleanUp();
@@ -157,10 +97,10 @@ void JTextAreaEmojiTest::actionPerformed($ActionEvent* evt) {
 void JTextAreaEmojiTest::cleanUp() {
 	$init(JTextAreaEmojiTest);
 	$nc(JTextAreaEmojiTest::mainFrame)->dispose();
-	$nc(JTextAreaEmojiTest::testRunLatch)->countDown();
+	JTextAreaEmojiTest::testRunLatch->countDown();
 }
 
-void clinit$JTextAreaEmojiTest($Class* class$) {
+void JTextAreaEmojiTest::clinit$($Class* clazz) {
 	$assignStatic(JTextAreaEmojiTest::testRunLatch, $new($CountDownLatch, 1));
 }
 
@@ -168,7 +108,50 @@ JTextAreaEmojiTest::JTextAreaEmojiTest() {
 }
 
 $Class* JTextAreaEmojiTest::load$($String* name, bool initialize) {
-	$loadClass(JTextAreaEmojiTest, name, initialize, &_JTextAreaEmojiTest_ClassInfo_, clinit$JTextAreaEmojiTest, allocate$JTextAreaEmojiTest);
+	$FieldInfo fieldInfos$$[] = {
+		{"layout", "Ljava/awt/GridBagLayout;", nullptr, $PRIVATE | $STATIC, $staticField(JTextAreaEmojiTest, layout)},
+		{"textAreaPanel", "Ljavax/swing/JPanel;", nullptr, $PRIVATE | $STATIC, $staticField(JTextAreaEmojiTest, textAreaPanel)},
+		{"mainControlPanel", "Ljavax/swing/JPanel;", nullptr, $PRIVATE | $STATIC, $staticField(JTextAreaEmojiTest, mainControlPanel)},
+		{"instructionPanel", "Ljavax/swing/JPanel;", nullptr, $PRIVATE | $STATIC, $staticField(JTextAreaEmojiTest, instructionPanel)},
+		{"resultButtonPanel", "Ljavax/swing/JPanel;", nullptr, $PRIVATE | $STATIC, $staticField(JTextAreaEmojiTest, resultButtonPanel)},
+		{"controlPanel", "Ljavax/swing/JPanel;", nullptr, $PRIVATE | $STATIC, $staticField(JTextAreaEmojiTest, controlPanel)},
+		{"instructionTextArea", "Ljavax/swing/JTextArea;", nullptr, $PRIVATE | $STATIC, $staticField(JTextAreaEmojiTest, instructionTextArea)},
+		{"emojiTextArea", "Ljavax/swing/JTextArea;", nullptr, $PRIVATE | $STATIC, $staticField(JTextAreaEmojiTest, emojiTextArea)},
+		{"passButton", "Ljavax/swing/JButton;", nullptr, $PRIVATE | $STATIC, $staticField(JTextAreaEmojiTest, passButton)},
+		{"failButton", "Ljavax/swing/JButton;", nullptr, $PRIVATE | $STATIC, $staticField(JTextAreaEmojiTest, failButton)},
+		{"mainFrame", "Ljavax/swing/JFrame;", nullptr, $PRIVATE | $STATIC, $staticField(JTextAreaEmojiTest, mainFrame)},
+		{"testRunLatch", "Ljava/util/concurrent/CountDownLatch;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JTextAreaEmojiTest, testRunLatch)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(JTextAreaEmojiTest, init$, void), "java.lang.Exception"},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(JTextAreaEmojiTest, actionPerformed, void, $ActionEvent*)},
+		{"cleanUp", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(JTextAreaEmojiTest, cleanUp, void)},
+		{"createControlPanelUI", "()V", nullptr, $PUBLIC | $FINAL, $method(JTextAreaEmojiTest, createControlPanelUI, void), "java.lang.Exception"},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(JTextAreaEmojiTest, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"JTextAreaEmojiTest$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"JTextAreaEmojiTest",
+		"java.lang.Object",
+		"java.awt.event.ActionListener",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"JTextAreaEmojiTest$1"
+	};
+	$loadClass(JTextAreaEmojiTest, name, initialize, &classInfo$$, JTextAreaEmojiTest::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(JTextAreaEmojiTest);
+	});
 	return class$;
 }
 

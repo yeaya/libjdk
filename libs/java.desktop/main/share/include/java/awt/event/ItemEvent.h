@@ -42,7 +42,7 @@ public:
 	static const int32_t DESELECTED = 2;
 	$Object* item = nullptr;
 	int32_t stateChange = 0;
-	static const int64_t serialVersionUID = (int64_t)0xF78D6F2DB997C1EB;
+	static const int64_t serialVersionUID = (int64_t)0xf78d6f2db997c1eb;
 };
 
 		} // event

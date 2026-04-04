@@ -1,5 +1,4 @@
 #include <com/sun/media/sound/JavaSoundAudioClip.h>
-
 #include <com/sun/media/sound/AutoClosingClip.h>
 #include <com/sun/media/sound/DataPusher.h>
 #include <com/sun/media/sound/JavaSoundAudioClip$DirectBAOS.h>
@@ -12,7 +11,6 @@
 #include <java/net/URL.h>
 #include <java/net/URLConnection.h>
 #include <javax/sound/midi/InvalidMidiDataException.h>
-#include <javax/sound/midi/MetaEventListener.h>
 #include <javax/sound/midi/MetaMessage.h>
 #include <javax/sound/midi/MidiFileFormat.h>
 #include <javax/sound/midi/MidiSystem.h>
@@ -24,7 +22,6 @@
 #include <javax/sound/sampled/AudioSystem.h>
 #include <javax/sound/sampled/Clip.h>
 #include <javax/sound/sampled/DataLine$Info.h>
-#include <javax/sound/sampled/Line$Info.h>
 #include <javax/sound/sampled/Line.h>
 #include <javax/sound/sampled/LineEvent.h>
 #include <javax/sound/sampled/SourceDataLine.h>
@@ -45,7 +42,6 @@ using $Toolkit = ::com::sun::media::sound::Toolkit;
 using $AudioClip = ::java::applet::AudioClip;
 using $BufferedInputStream = ::java::io::BufferedInputStream;
 using $InputStream = ::java::io::InputStream;
-using $OutputStream = ::java::io::OutputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -54,18 +50,14 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $URL = ::java::net::URL;
 using $URLConnection = ::java::net::URLConnection;
 using $InvalidMidiDataException = ::javax::sound::midi::InvalidMidiDataException;
-using $MetaEventListener = ::javax::sound::midi::MetaEventListener;
 using $MetaMessage = ::javax::sound::midi::MetaMessage;
 using $MidiFileFormat = ::javax::sound::midi::MidiFileFormat;
 using $MidiSystem = ::javax::sound::midi::MidiSystem;
 using $MidiUnavailableException = ::javax::sound::midi::MidiUnavailableException;
-using $Sequencer = ::javax::sound::midi::Sequencer;
-using $AudioFormat = ::javax::sound::sampled::AudioFormat;
 using $AudioInputStream = ::javax::sound::sampled::AudioInputStream;
 using $AudioSystem = ::javax::sound::sampled::AudioSystem;
 using $Clip = ::javax::sound::sampled::Clip;
 using $DataLine$Info = ::javax::sound::sampled::DataLine$Info;
-using $Line$Info = ::javax::sound::sampled::Line$Info;
 using $LineEvent = ::javax::sound::sampled::LineEvent;
 using $SourceDataLine = ::javax::sound::sampled::SourceDataLine;
 using $UnsupportedAudioFileException = ::javax::sound::sampled::UnsupportedAudioFileException;
@@ -74,73 +66,6 @@ namespace com {
 	namespace sun {
 		namespace media {
 			namespace sound {
-
-$FieldInfo _JavaSoundAudioClip_FieldInfo_[] = {
-	{"lastPlayCall", "J", nullptr, $PRIVATE, $field(JavaSoundAudioClip, lastPlayCall)},
-	{"MINIMUM_PLAY_DELAY", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JavaSoundAudioClip, MINIMUM_PLAY_DELAY)},
-	{"loadedAudio", "[B", nullptr, $PRIVATE, $field(JavaSoundAudioClip, loadedAudio)},
-	{"loadedAudioByteLength", "I", nullptr, $PRIVATE, $field(JavaSoundAudioClip, loadedAudioByteLength)},
-	{"loadedAudioFormat", "Ljavax/sound/sampled/AudioFormat;", nullptr, $PRIVATE, $field(JavaSoundAudioClip, loadedAudioFormat)},
-	{"clip", "Lcom/sun/media/sound/AutoClosingClip;", nullptr, $PRIVATE, $field(JavaSoundAudioClip, clip)},
-	{"clipLooping", "Z", nullptr, $PRIVATE, $field(JavaSoundAudioClip, clipLooping)},
-	{"datapusher", "Lcom/sun/media/sound/DataPusher;", nullptr, $PRIVATE, $field(JavaSoundAudioClip, datapusher)},
-	{"sequencer", "Ljavax/sound/midi/Sequencer;", nullptr, $PRIVATE, $field(JavaSoundAudioClip, sequencer)},
-	{"sequence", "Ljavax/sound/midi/Sequence;", nullptr, $PRIVATE, $field(JavaSoundAudioClip, sequence)},
-	{"sequencerloop", "Z", nullptr, $PRIVATE, $field(JavaSoundAudioClip, sequencerloop)},
-	{"success", "Z", nullptr, $PRIVATE | $VOLATILE, $field(JavaSoundAudioClip, success)},
-	{"CLIP_THRESHOLD", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JavaSoundAudioClip, CLIP_THRESHOLD)},
-	{"STREAM_BUFFER_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JavaSoundAudioClip, STREAM_BUFFER_SIZE)},
-	{}
-};
-
-$MethodInfo _JavaSoundAudioClip_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(JavaSoundAudioClip, init$, void)},
-	{"create", "(Ljava/net/URLConnection;)Lcom/sun/media/sound/JavaSoundAudioClip;", nullptr, $PUBLIC | $STATIC, $staticMethod(JavaSoundAudioClip, create, JavaSoundAudioClip*, $URLConnection*)},
-	{"create", "(Ljava/net/URL;)Lcom/sun/media/sound/JavaSoundAudioClip;", nullptr, $PUBLIC | $STATIC, $staticMethod(JavaSoundAudioClip, create, JavaSoundAudioClip*, $URL*)},
-	{"createClip", "()Z", nullptr, $PRIVATE, $method(JavaSoundAudioClip, createClip, bool)},
-	{"createSequencer", "(Ljava/io/BufferedInputStream;)Z", nullptr, $PRIVATE, $method(JavaSoundAudioClip, createSequencer, bool, $BufferedInputStream*), "java.io.IOException"},
-	{"createSourceDataLine", "()Z", nullptr, $PRIVATE, $method(JavaSoundAudioClip, createSourceDataLine, bool)},
-	{"finalize", "()V", nullptr, $PROTECTED, $virtualMethod(JavaSoundAudioClip, finalize, void)},
-	{"init", "(Ljava/io/InputStream;)V", nullptr, $PRIVATE, $method(JavaSoundAudioClip, init, void, $InputStream*), "java.io.IOException"},
-	{"loadAudioData", "(Ljavax/sound/sampled/AudioInputStream;)Z", nullptr, $PRIVATE, $method(JavaSoundAudioClip, loadAudioData, bool, $AudioInputStream*), "java.io.IOException,javax.sound.sampled.UnsupportedAudioFileException"},
-	{"loop", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(JavaSoundAudioClip, loop, void)},
-	{"meta", "(Ljavax/sound/midi/MetaMessage;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(JavaSoundAudioClip, meta, void, $MetaMessage*)},
-	{"play", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(JavaSoundAudioClip, play, void)},
-	{"readStream", "(Ljavax/sound/sampled/AudioInputStream;J)V", nullptr, $PRIVATE, $method(JavaSoundAudioClip, readStream, void, $AudioInputStream*, int64_t), "java.io.IOException"},
-	{"readStream", "(Ljavax/sound/sampled/AudioInputStream;)V", nullptr, $PRIVATE, $method(JavaSoundAudioClip, readStream, void, $AudioInputStream*), "java.io.IOException"},
-	{"startImpl", "(Z)V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(JavaSoundAudioClip, startImpl, void, bool)},
-	{"stop", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(JavaSoundAudioClip, stop, void)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JavaSoundAudioClip, toString, $String*)},
-	{"update", "(Ljavax/sound/sampled/LineEvent;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(JavaSoundAudioClip, update, void, $LineEvent*)},
-	{}
-};
-
-$InnerClassInfo _JavaSoundAudioClip_InnerClassesInfo_[] = {
-	{"com.sun.media.sound.JavaSoundAudioClip$DirectBAOS", "com.sun.media.sound.JavaSoundAudioClip", "DirectBAOS", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _JavaSoundAudioClip_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.media.sound.JavaSoundAudioClip",
-	"java.lang.Object",
-	"java.applet.AudioClip,javax.sound.midi.MetaEventListener,javax.sound.sampled.LineListener",
-	_JavaSoundAudioClip_FieldInfo_,
-	_JavaSoundAudioClip_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JavaSoundAudioClip_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.media.sound.JavaSoundAudioClip$DirectBAOS"
-};
-
-$Object* allocate$JavaSoundAudioClip($Class* clazz) {
-	return $of($alloc(JavaSoundAudioClip));
-}
 
 int32_t JavaSoundAudioClip::hashCode() {
 	 return this->$AudioClip::hashCode();
@@ -169,7 +94,7 @@ void JavaSoundAudioClip::init$() {
 
 JavaSoundAudioClip* JavaSoundAudioClip::create($URLConnection* uc) {
 	$init(JavaSoundAudioClip);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(JavaSoundAudioClip, clip, $new(JavaSoundAudioClip));
 	try {
 		clip->init($($nc(uc)->getInputStream()));
@@ -180,7 +105,7 @@ JavaSoundAudioClip* JavaSoundAudioClip::create($URLConnection* uc) {
 
 JavaSoundAudioClip* JavaSoundAudioClip::create($URL* url) {
 	$init(JavaSoundAudioClip);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(JavaSoundAudioClip, clip, $new(JavaSoundAudioClip));
 	try {
 		clip->init($($nc(url)->openStream()));
@@ -190,11 +115,11 @@ JavaSoundAudioClip* JavaSoundAudioClip::create($URL* url) {
 }
 
 void JavaSoundAudioClip::init($InputStream* in) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($BufferedInputStream, bis, $new($BufferedInputStream, in, JavaSoundAudioClip::STREAM_BUFFER_SIZE));
 	bis->mark(JavaSoundAudioClip::STREAM_BUFFER_SIZE);
 	try {
-		$var($AudioInputStream, as, $AudioSystem::getAudioInputStream(static_cast<$InputStream*>(bis)));
+		$var($AudioInputStream, as, $AudioSystem::getAudioInputStream(bis));
 		this->success = loadAudioData(as);
 		if (this->success) {
 			this->success = false;
@@ -207,7 +132,7 @@ void JavaSoundAudioClip::init($InputStream* in) {
 		}
 	} catch ($UnsupportedAudioFileException& e) {
 		try {
-			$var($MidiFileFormat, mff, $MidiSystem::getMidiFileFormat(static_cast<$InputStream*>(bis)));
+			$var($MidiFileFormat, mff, $MidiSystem::getMidiFileFormat(bis));
 			this->success = createSequencer(bis);
 		} catch ($InvalidMidiDataException& e1) {
 			this->success = false;
@@ -243,39 +168,37 @@ void JavaSoundAudioClip::startImpl(bool loop) {
 		this->lastPlayCall = currentTime;
 		try {
 			if (this->clip != nullptr) {
-				$nc(this->clip)->setAutoClosing(false);
-				{
-					$var($Throwable, var$0, nullptr);
-					try {
-						if (!$nc(this->clip)->isOpen()) {
-							$nc(this->clip)->open(this->loadedAudioFormat, this->loadedAudio, 0, this->loadedAudioByteLength);
-						} else {
-							$nc(this->clip)->flush();
-							if (loop != this->clipLooping) {
-								$nc(this->clip)->stop();
-							}
+				this->clip->setAutoClosing(false);
+				$var($Throwable, var$0, nullptr);
+				try {
+					if (!$nc(this->clip)->isOpen()) {
+						$nc(this->clip)->open(this->loadedAudioFormat, this->loadedAudio, 0, this->loadedAudioByteLength);
+					} else {
+						$nc(this->clip)->flush();
+						if (loop != this->clipLooping) {
+							$nc(this->clip)->stop();
 						}
-						$nc(this->clip)->setFramePosition(0);
-						if (loop) {
-							$nc(this->clip)->loop($Clip::LOOP_CONTINUOUSLY);
-						} else {
-							$nc(this->clip)->start();
-						}
-						this->clipLooping = loop;
-					} catch ($Throwable& var$1) {
-						$assign(var$0, var$1);
-					} /*finally*/ {
-						$nc(this->clip)->setAutoClosing(true);
 					}
-					if (var$0 != nullptr) {
-						$throw(var$0);
+					$nc(this->clip)->setFramePosition(0);
+					if (loop) {
+						$nc(this->clip)->loop($Clip::LOOP_CONTINUOUSLY);
+					} else {
+						$nc(this->clip)->start();
 					}
+					this->clipLooping = loop;
+				} catch ($Throwable& var$1) {
+					$assign(var$0, var$1);
+				} /*finally*/ {
+					$nc(this->clip)->setAutoClosing(true);
+				}
+				if (var$0 != nullptr) {
+					$throw(var$0);
 				}
 			} else if (this->datapusher != nullptr) {
-				$nc(this->datapusher)->start(loop);
+				this->datapusher->start(loop);
 			} else if (this->sequencer != nullptr) {
 				this->sequencerloop = loop;
-				if ($nc(this->sequencer)->isRunning()) {
+				if (this->sequencer->isRunning()) {
 					$nc(this->sequencer)->setMicrosecondPosition(0);
 				}
 				if (!$nc(this->sequencer)->isOpen()) {
@@ -321,7 +244,7 @@ void JavaSoundAudioClip::stop() {
 		this->lastPlayCall = 0;
 		if (this->clip != nullptr) {
 			try {
-				$nc(this->clip)->flush();
+				this->clip->flush();
 			} catch ($Exception& e1) {
 				$init($Printer);
 				if ($Printer::err$) {
@@ -337,11 +260,11 @@ void JavaSoundAudioClip::stop() {
 				}
 			}
 		} else if (this->datapusher != nullptr) {
-			$nc(this->datapusher)->stop();
+			this->datapusher->stop();
 		} else if (this->sequencer != nullptr) {
 			try {
 				this->sequencerloop = false;
-				$nc(this->sequencer)->removeMetaEventListener(this);
+				this->sequencer->removeMetaEventListener(this);
 				$nc(this->sequencer)->stop();
 			} catch ($Exception& e3) {
 				$init($Printer);
@@ -385,13 +308,13 @@ $String* JavaSoundAudioClip::toString() {
 
 void JavaSoundAudioClip::finalize() {
 	if (this->clip != nullptr) {
-		$nc(this->clip)->close();
+		this->clip->close();
 	}
 	if (this->datapusher != nullptr) {
-		$nc(this->datapusher)->close();
+		this->datapusher->close();
 	}
 	if (this->sequencer != nullptr) {
-		$nc(this->sequencer)->close();
+		this->sequencer->close();
 	}
 }
 
@@ -418,8 +341,8 @@ bool JavaSoundAudioClip::loadAudioData($AudioInputStream* as$renamed) {
 
 void JavaSoundAudioClip::readStream($AudioInputStream* as, int64_t byteLen) {
 	int32_t intLen = 0;
-	if (byteLen > 0x7FFFFFFF) {
-		intLen = 0x7FFFFFFF;
+	if (byteLen > 0x7fffffff) {
+		intLen = 0x7fffffff;
 	} else {
 		intLen = (int32_t)byteLen;
 	}
@@ -436,36 +359,34 @@ void JavaSoundAudioClip::readStream($AudioInputStream* as, int64_t byteLen) {
 }
 
 void JavaSoundAudioClip::readStream($AudioInputStream* as) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JavaSoundAudioClip$DirectBAOS, baos, $new($JavaSoundAudioClip$DirectBAOS));
 	int32_t totalBytesRead = 0;
 	{
 		$var($AudioInputStream, twrVar0$, as);
-		{
-			$var($Throwable, var$0, nullptr);
+		$var($Throwable, var$0, nullptr);
+		try {
 			try {
-				try {
-					totalBytesRead = (int32_t)$nc(as)->transferTo(baos);
-				} catch ($Throwable& t$) {
-					if (twrVar0$ != nullptr) {
-						try {
-							twrVar0$->close();
-						} catch ($Throwable& x2) {
-							t$->addSuppressed(x2);
-						}
-					}
-					$throw(t$);
-				}
-			} catch ($Throwable& var$1) {
-				$assign(var$0, var$1);
-			} /*finally*/ {
+				totalBytesRead = (int32_t)$nc(as)->transferTo(baos);
+			} catch ($Throwable& t$) {
 				if (twrVar0$ != nullptr) {
-					twrVar0$->close();
+					try {
+						twrVar0$->close();
+					} catch ($Throwable& x2) {
+						t$->addSuppressed(x2);
+					}
 				}
+				$throw(t$);
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
+		} /*finally*/ {
+			if (twrVar0$ != nullptr) {
+				twrVar0$->close();
 			}
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	}
 	$set(this, loadedAudio, baos->getInternalBuffer());
@@ -473,7 +394,7 @@ void JavaSoundAudioClip::readStream($AudioInputStream* as) {
 }
 
 bool JavaSoundAudioClip::createClip() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$load($Clip);
 		$var($DataLine$Info, info, $new($DataLine$Info, $Clip::class$, this->loadedAudioFormat));
@@ -508,7 +429,7 @@ bool JavaSoundAudioClip::createClip() {
 }
 
 bool JavaSoundAudioClip::createSourceDataLine() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$load($SourceDataLine);
 		$var($DataLine$Info, info, $new($DataLine$Info, $SourceDataLine::class$, this->loadedAudioFormat));
@@ -548,7 +469,7 @@ bool JavaSoundAudioClip::createSequencer($BufferedInputStream* in) {
 		return false;
 	}
 	try {
-		$set(this, sequence, $MidiSystem::getSequence(static_cast<$InputStream*>(in)));
+		$set(this, sequence, $MidiSystem::getSequence(in));
 		if (this->sequence == nullptr) {
 			return false;
 		}
@@ -566,7 +487,68 @@ JavaSoundAudioClip::JavaSoundAudioClip() {
 }
 
 $Class* JavaSoundAudioClip::load$($String* name, bool initialize) {
-	$loadClass(JavaSoundAudioClip, name, initialize, &_JavaSoundAudioClip_ClassInfo_, allocate$JavaSoundAudioClip);
+	$FieldInfo fieldInfos$$[] = {
+		{"lastPlayCall", "J", nullptr, $PRIVATE, $field(JavaSoundAudioClip, lastPlayCall)},
+		{"MINIMUM_PLAY_DELAY", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JavaSoundAudioClip, MINIMUM_PLAY_DELAY)},
+		{"loadedAudio", "[B", nullptr, $PRIVATE, $field(JavaSoundAudioClip, loadedAudio)},
+		{"loadedAudioByteLength", "I", nullptr, $PRIVATE, $field(JavaSoundAudioClip, loadedAudioByteLength)},
+		{"loadedAudioFormat", "Ljavax/sound/sampled/AudioFormat;", nullptr, $PRIVATE, $field(JavaSoundAudioClip, loadedAudioFormat)},
+		{"clip", "Lcom/sun/media/sound/AutoClosingClip;", nullptr, $PRIVATE, $field(JavaSoundAudioClip, clip)},
+		{"clipLooping", "Z", nullptr, $PRIVATE, $field(JavaSoundAudioClip, clipLooping)},
+		{"datapusher", "Lcom/sun/media/sound/DataPusher;", nullptr, $PRIVATE, $field(JavaSoundAudioClip, datapusher)},
+		{"sequencer", "Ljavax/sound/midi/Sequencer;", nullptr, $PRIVATE, $field(JavaSoundAudioClip, sequencer)},
+		{"sequence", "Ljavax/sound/midi/Sequence;", nullptr, $PRIVATE, $field(JavaSoundAudioClip, sequence)},
+		{"sequencerloop", "Z", nullptr, $PRIVATE, $field(JavaSoundAudioClip, sequencerloop)},
+		{"success", "Z", nullptr, $PRIVATE | $VOLATILE, $field(JavaSoundAudioClip, success)},
+		{"CLIP_THRESHOLD", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JavaSoundAudioClip, CLIP_THRESHOLD)},
+		{"STREAM_BUFFER_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JavaSoundAudioClip, STREAM_BUFFER_SIZE)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(JavaSoundAudioClip, init$, void)},
+		{"create", "(Ljava/net/URLConnection;)Lcom/sun/media/sound/JavaSoundAudioClip;", nullptr, $PUBLIC | $STATIC, $staticMethod(JavaSoundAudioClip, create, JavaSoundAudioClip*, $URLConnection*)},
+		{"create", "(Ljava/net/URL;)Lcom/sun/media/sound/JavaSoundAudioClip;", nullptr, $PUBLIC | $STATIC, $staticMethod(JavaSoundAudioClip, create, JavaSoundAudioClip*, $URL*)},
+		{"createClip", "()Z", nullptr, $PRIVATE, $method(JavaSoundAudioClip, createClip, bool)},
+		{"createSequencer", "(Ljava/io/BufferedInputStream;)Z", nullptr, $PRIVATE, $method(JavaSoundAudioClip, createSequencer, bool, $BufferedInputStream*), "java.io.IOException"},
+		{"createSourceDataLine", "()Z", nullptr, $PRIVATE, $method(JavaSoundAudioClip, createSourceDataLine, bool)},
+		{"finalize", "()V", nullptr, $PROTECTED, $virtualMethod(JavaSoundAudioClip, finalize, void)},
+		{"init", "(Ljava/io/InputStream;)V", nullptr, $PRIVATE, $method(JavaSoundAudioClip, init, void, $InputStream*), "java.io.IOException"},
+		{"loadAudioData", "(Ljavax/sound/sampled/AudioInputStream;)Z", nullptr, $PRIVATE, $method(JavaSoundAudioClip, loadAudioData, bool, $AudioInputStream*), "java.io.IOException,javax.sound.sampled.UnsupportedAudioFileException"},
+		{"loop", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(JavaSoundAudioClip, loop, void)},
+		{"meta", "(Ljavax/sound/midi/MetaMessage;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(JavaSoundAudioClip, meta, void, $MetaMessage*)},
+		{"play", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(JavaSoundAudioClip, play, void)},
+		{"readStream", "(Ljavax/sound/sampled/AudioInputStream;J)V", nullptr, $PRIVATE, $method(JavaSoundAudioClip, readStream, void, $AudioInputStream*, int64_t), "java.io.IOException"},
+		{"readStream", "(Ljavax/sound/sampled/AudioInputStream;)V", nullptr, $PRIVATE, $method(JavaSoundAudioClip, readStream, void, $AudioInputStream*), "java.io.IOException"},
+		{"startImpl", "(Z)V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(JavaSoundAudioClip, startImpl, void, bool)},
+		{"stop", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(JavaSoundAudioClip, stop, void)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JavaSoundAudioClip, toString, $String*)},
+		{"update", "(Ljavax/sound/sampled/LineEvent;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(JavaSoundAudioClip, update, void, $LineEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.media.sound.JavaSoundAudioClip$DirectBAOS", "com.sun.media.sound.JavaSoundAudioClip", "DirectBAOS", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.media.sound.JavaSoundAudioClip",
+		"java.lang.Object",
+		"java.applet.AudioClip,javax.sound.midi.MetaEventListener,javax.sound.sampled.LineListener",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.media.sound.JavaSoundAudioClip$DirectBAOS"
+	};
+	$loadClass(JavaSoundAudioClip, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JavaSoundAudioClip));
+	});
 	return class$;
 }
 

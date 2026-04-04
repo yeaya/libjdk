@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/code/Types$UnaryVisitor.h>
-
 #include <com/sun/tools/javac/code/Type$Visitor.h>
 #include <com/sun/tools/javac/code/Type.h>
 #include <com/sun/tools/javac/code/Types$SimpleVisitor.h>
@@ -7,7 +6,6 @@
 #include <jcpp.h>
 
 using $Type = ::com::sun::tools::javac::code::Type;
-using $Type$Visitor = ::com::sun::tools::javac::code::Type$Visitor;
 using $Types$SimpleVisitor = ::com::sun::tools::javac::code::Types$SimpleVisitor;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -19,51 +17,46 @@ namespace com {
 			namespace javac {
 				namespace code {
 
-$MethodInfo _Types$UnaryVisitor_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Types$UnaryVisitor, init$, void)},
-	{"visit", "(Lcom/sun/tools/javac/code/Type;)Ljava/lang/Object;", "(Lcom/sun/tools/javac/code/Type;)TR;", $PUBLIC | $FINAL, $method(Types$UnaryVisitor, visit, $Object*, $Type*)},
-	{}
-};
-
-$InnerClassInfo _Types$UnaryVisitor_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.code.Types$UnaryVisitor", "com.sun.tools.javac.code.Types", "UnaryVisitor", $PUBLIC | $STATIC | $ABSTRACT},
-	{"com.sun.tools.javac.code.Types$SimpleVisitor", "com.sun.tools.javac.code.Types", "SimpleVisitor", $PUBLIC | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Types$UnaryVisitor_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"com.sun.tools.javac.code.Types$UnaryVisitor",
-	"com.sun.tools.javac.code.Types$SimpleVisitor",
-	nullptr,
-	nullptr,
-	_Types$UnaryVisitor_MethodInfo_,
-	"<R:Ljava/lang/Object;>Lcom/sun/tools/javac/code/Types$SimpleVisitor<TR;Ljava/lang/Void;>;",
-	nullptr,
-	_Types$UnaryVisitor_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.code.Types"
-};
-
-$Object* allocate$Types$UnaryVisitor($Class* clazz) {
-	return $of($alloc(Types$UnaryVisitor));
-}
-
 void Types$UnaryVisitor::init$() {
 	$Types$SimpleVisitor::init$();
 }
 
 $Object* Types$UnaryVisitor::visit($Type* t) {
-	return $of($nc(t)->accept(static_cast<$Type$Visitor*>(this), ($Object*)nullptr));
+	return $nc(t)->accept(this, nullptr);
 }
 
 Types$UnaryVisitor::Types$UnaryVisitor() {
 }
 
 $Class* Types$UnaryVisitor::load$($String* name, bool initialize) {
-	$loadClass(Types$UnaryVisitor, name, initialize, &_Types$UnaryVisitor_ClassInfo_, allocate$Types$UnaryVisitor);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Types$UnaryVisitor, init$, void)},
+		{"visit", "(Lcom/sun/tools/javac/code/Type;)Ljava/lang/Object;", "(Lcom/sun/tools/javac/code/Type;)TR;", $PUBLIC | $FINAL, $method(Types$UnaryVisitor, visit, $Object*, $Type*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.code.Types$UnaryVisitor", "com.sun.tools.javac.code.Types", "UnaryVisitor", $PUBLIC | $STATIC | $ABSTRACT},
+		{"com.sun.tools.javac.code.Types$SimpleVisitor", "com.sun.tools.javac.code.Types", "SimpleVisitor", $PUBLIC | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"com.sun.tools.javac.code.Types$UnaryVisitor",
+		"com.sun.tools.javac.code.Types$SimpleVisitor",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		"<R:Ljava/lang/Object;>Lcom/sun/tools/javac/code/Types$SimpleVisitor<TR;Ljava/lang/Void;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.code.Types"
+	};
+	$loadClass(Types$UnaryVisitor, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Types$UnaryVisitor);
+	});
 	return class$;
 }
 

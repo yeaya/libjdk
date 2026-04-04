@@ -1,5 +1,4 @@
 #include <Test6593649$2.h>
-
 #include <Test6593649.h>
 #include <java/awt/BorderLayout.h>
 #include <java/awt/Component.h>
@@ -18,9 +17,6 @@
 
 using $Test6593649 = ::Test6593649;
 using $BorderLayout = ::java::awt::BorderLayout;
-using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
-using $LayoutManager = ::java::awt::LayoutManager;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -29,71 +25,64 @@ using $BoxLayout = ::javax::swing::BoxLayout;
 using $JFrame = ::javax::swing::JFrame;
 using $JPanel = ::javax::swing::JPanel;
 using $JTextArea = ::javax::swing::JTextArea;
-using $Timer = ::javax::swing::Timer;
-
-$MethodInfo _Test6593649$2_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(Test6593649$2, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Test6593649$2, run, void)},
-	{}
-};
-
-$EnclosingMethodInfo _Test6593649$2_EnclosingMethodInfo_ = {
-	"Test6593649",
-	"main",
-	"([Ljava/lang/String;)V"
-};
-
-$InnerClassInfo _Test6593649$2_InnerClassesInfo_[] = {
-	{"Test6593649$2", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Test6593649$2_ClassInfo_ = {
-	$ACC_SUPER,
-	"Test6593649$2",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	_Test6593649$2_MethodInfo_,
-	nullptr,
-	&_Test6593649$2_EnclosingMethodInfo_,
-	_Test6593649$2_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"Test6593649"
-};
-
-$Object* allocate$Test6593649$2($Class* clazz) {
-	return $of($alloc(Test6593649$2));
-}
 
 void Test6593649$2::init$() {
 }
 
 void Test6593649$2::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Test6593649);
 	$assignStatic($Test6593649::frame, $new($JFrame));
-	$nc($Test6593649::frame)->setSize(200, 100);
+	$Test6593649::frame->setSize(200, 100);
 	$assignStatic($Test6593649::textArea, $new($JTextArea, "This is a long line that should wrap, but doesn\'t..."_s));
-	$nc($Test6593649::textArea)->setLineWrap(true);
+	$Test6593649::textArea->setLineWrap(true);
 	$nc($Test6593649::textArea)->setWrapStyleWord(true);
 	$var($JPanel, innerPanel, $new($JPanel));
 	innerPanel->setLayout($$new($BoxLayout, innerPanel, $BoxLayout::LINE_AXIS));
-	innerPanel->add(static_cast<$Component*>($Test6593649::textArea));
+	innerPanel->add($Test6593649::textArea);
 	$init($BorderLayout);
-	$nc($($nc($Test6593649::frame)->getContentPane()))->add(static_cast<$Component*>(innerPanel), $of($BorderLayout::SOUTH));
+	$$nc($nc($Test6593649::frame)->getContentPane())->add(innerPanel, $BorderLayout::SOUTH);
 	$nc($Test6593649::frame)->setVisible(true);
 	$nc($Test6593649::timer)->setRepeats(false);
-	$nc($Test6593649::timer)->start();
+	$Test6593649::timer->start();
 }
 
 Test6593649$2::Test6593649$2() {
 }
 
 $Class* Test6593649$2::load$($String* name, bool initialize) {
-	$loadClass(Test6593649$2, name, initialize, &_Test6593649$2_ClassInfo_, allocate$Test6593649$2);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(Test6593649$2, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Test6593649$2, run, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"Test6593649",
+		"main",
+		"([Ljava/lang/String;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"Test6593649$2", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"Test6593649$2",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"Test6593649"
+	};
+	$loadClass(Test6593649$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Test6593649$2);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/beans/finder/SignatureException.h>
-
 #include <java/lang/NoSuchMethodException.h>
 #include <jcpp.h>
 
@@ -14,36 +13,12 @@ namespace com {
 		namespace beans {
 			namespace finder {
 
-$FieldInfo _SignatureException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SignatureException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _SignatureException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, 0, $method(SignatureException, init$, void, $Throwable*)},
-	{"toNoSuchMethodException", "(Ljava/lang/String;)Ljava/lang/NoSuchMethodException;", nullptr, 0, $method(SignatureException, toNoSuchMethodException, $NoSuchMethodException*, $String*)},
-	{}
-};
-
-$ClassInfo _SignatureException_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.beans.finder.SignatureException",
-	"java.lang.RuntimeException",
-	nullptr,
-	_SignatureException_FieldInfo_,
-	_SignatureException_MethodInfo_
-};
-
-$Object* allocate$SignatureException($Class* clazz) {
-	return $of($alloc(SignatureException));
-}
-
 void SignatureException::init$($Throwable* cause) {
 	$RuntimeException::init$(cause);
 }
 
 $NoSuchMethodException* SignatureException::toNoSuchMethodException($String* message) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Throwable, throwable, getCause());
 	if ($instanceOf($NoSuchMethodException, throwable)) {
 		return $cast($NoSuchMethodException, throwable);
@@ -64,7 +39,26 @@ void SignatureException::throw$() {
 }
 
 $Class* SignatureException::load$($String* name, bool initialize) {
-	$loadClass(SignatureException, name, initialize, &_SignatureException_ClassInfo_, allocate$SignatureException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SignatureException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Throwable;)V", nullptr, 0, $method(SignatureException, init$, void, $Throwable*)},
+		{"toNoSuchMethodException", "(Ljava/lang/String;)Ljava/lang/NoSuchMethodException;", nullptr, 0, $method(SignatureException, toNoSuchMethodException, $NoSuchMethodException*, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.beans.finder.SignatureException",
+		"java.lang.RuntimeException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SignatureException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SignatureException);
+	});
 	return class$;
 }
 

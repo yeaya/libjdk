@@ -27,6 +27,7 @@ class $import DocLint : public ::com::sun::source::util::Plugin {
 	$class(DocLint, 0, ::com::sun::source::util::Plugin)
 public:
 	DocLint();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual bool isValidOption($String* opt) {return false;}
 	static bool lambda$newDocLint$0(::java::util::ServiceLoader$Provider* p_);

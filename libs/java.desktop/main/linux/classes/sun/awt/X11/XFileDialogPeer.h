@@ -105,6 +105,7 @@ public:
 	virtual bool isObscured() override;
 	virtual bool isReparentSupported() override;
 	virtual void layout() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::awt::FileDialog* target);
 	virtual void actionPerformed(::java::awt::event::ActionEvent* actionEvent) override;
 	virtual void addComponent(::java::awt::Component* comp, ::java::awt::GridBagLayout* gb, ::java::awt::GridBagConstraints* c, int32_t gridx, int32_t gridy, int32_t gridwidth, int32_t anchor, ::java::awt::Container* cont, int32_t weightx, int32_t weighty, int32_t fill, ::java::awt::Insets* in);

@@ -1,5 +1,4 @@
 #include <sun/awt/HeadlessToolkit.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Cursor.h>
 #include <java/awt/Dialog$ModalExclusionType.h>
@@ -78,7 +77,6 @@ using $KeyboardFocusManagerPeer = ::java::awt::peer::KeyboardFocusManagerPeer;
 using $SystemTrayPeer = ::java::awt::peer::SystemTrayPeer;
 using $TrayIconPeer = ::java::awt::peer::TrayIconPeer;
 using $PropertyChangeListener = ::java::beans::PropertyChangeListener;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -96,109 +94,6 @@ using $SunToolkit = ::sun::awt::SunToolkit;
 
 namespace sun {
 	namespace awt {
-
-$NamedAttribute HeadlessToolkit_Attribute_var$0[] = {
-	{"since", 's', "10"},
-	{}
-};
-
-$CompoundAttribute _HeadlessToolkit_MethodAnnotations_getMenuShortcutKeyMask28[] = {
-	{"Ljava/lang/Deprecated;", HeadlessToolkit_Attribute_var$0},
-	{}
-};
-
-$FieldInfo _HeadlessToolkit_FieldInfo_[] = {
-	{"kfmPeer", "Ljava/awt/peer/KeyboardFocusManagerPeer;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(HeadlessToolkit, kfmPeer)},
-	{"tk", "Ljava/awt/Toolkit;", nullptr, $PRIVATE | $FINAL, $field(HeadlessToolkit, tk)},
-	{"componentFactory", "Lsun/awt/ComponentFactory;", nullptr, $PRIVATE, $field(HeadlessToolkit, componentFactory)},
-	{}
-};
-
-$MethodInfo _HeadlessToolkit_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/awt/Toolkit;)V", nullptr, $PUBLIC, $method(HeadlessToolkit, init$, void, $Toolkit*)},
-	{"addAWTEventListener", "(Ljava/awt/event/AWTEventListener;J)V", nullptr, $PUBLIC, $virtualMethod(HeadlessToolkit, addAWTEventListener, void, $AWTEventListener*, int64_t)},
-	{"addPropertyChangeListener", "(Ljava/lang/String;Ljava/beans/PropertyChangeListener;)V", nullptr, $PUBLIC, $virtualMethod(HeadlessToolkit, addPropertyChangeListener, void, $String*, $PropertyChangeListener*)},
-	{"areExtraMouseButtonsEnabled", "()Z", nullptr, $PUBLIC, $virtualMethod(HeadlessToolkit, areExtraMouseButtonsEnabled, bool), "java.awt.HeadlessException"},
-	{"beep", "()V", nullptr, $PUBLIC, $virtualMethod(HeadlessToolkit, beep, void)},
-	{"checkImage", "(Ljava/awt/Image;IILjava/awt/image/ImageObserver;)I", nullptr, $PUBLIC, $virtualMethod(HeadlessToolkit, checkImage, int32_t, $Image*, int32_t, int32_t, $ImageObserver*)},
-	{"createCustomCursor", "(Ljava/awt/Image;Ljava/awt/Point;Ljava/lang/String;)Ljava/awt/Cursor;", nullptr, $PUBLIC, $virtualMethod(HeadlessToolkit, createCustomCursor, $Cursor*, $Image*, $Point*, $String*), "java.lang.IndexOutOfBoundsException,java.awt.HeadlessException"},
-	{"createDragGestureRecognizer", "(Ljava/lang/Class;Ljava/awt/dnd/DragSource;Ljava/awt/Component;ILjava/awt/dnd/DragGestureListener;)Ljava/awt/dnd/DragGestureRecognizer;", "<T:Ljava/awt/dnd/DragGestureRecognizer;>(Ljava/lang/Class<TT;>;Ljava/awt/dnd/DragSource;Ljava/awt/Component;ILjava/awt/dnd/DragGestureListener;)TT;", $PUBLIC, $virtualMethod(HeadlessToolkit, createDragGestureRecognizer, $DragGestureRecognizer*, $Class*, $DragSource*, $Component*, int32_t, $DragGestureListener*)},
-	{"createImage", "(Ljava/lang/String;)Ljava/awt/Image;", nullptr, $PUBLIC, $virtualMethod(HeadlessToolkit, createImage, $Image*, $String*)},
-	{"createImage", "(Ljava/net/URL;)Ljava/awt/Image;", nullptr, $PUBLIC, $virtualMethod(HeadlessToolkit, createImage, $Image*, $URL*)},
-	{"createImage", "([BII)Ljava/awt/Image;", nullptr, $PUBLIC, $virtualMethod(HeadlessToolkit, createImage, $Image*, $bytes*, int32_t, int32_t)},
-	{"createImage", "(Ljava/awt/image/ImageProducer;)Ljava/awt/Image;", nullptr, $PUBLIC, $virtualMethod(HeadlessToolkit, createImage, $Image*, $ImageProducer*)},
-	{"createImage", "([B)Ljava/awt/Image;", nullptr, $PUBLIC, $virtualMethod(HeadlessToolkit, createImage, $Image*, $bytes*)},
-	{"createSystemTray", "(Ljava/awt/SystemTray;)Ljava/awt/peer/SystemTrayPeer;", nullptr, $PUBLIC, $method(HeadlessToolkit, createSystemTray, $SystemTrayPeer*, $SystemTray*), "java.awt.HeadlessException"},
-	{"createTrayIcon", "(Ljava/awt/TrayIcon;)Ljava/awt/peer/TrayIconPeer;", nullptr, $PUBLIC, $method(HeadlessToolkit, createTrayIcon, $TrayIconPeer*, $TrayIcon*), "java.awt.HeadlessException"},
-	{"getAWTEventListeners", "()[Ljava/awt/event/AWTEventListener;", nullptr, $PUBLIC, $virtualMethod(HeadlessToolkit, getAWTEventListeners, $AWTEventListenerArray*)},
-	{"getAWTEventListeners", "(J)[Ljava/awt/event/AWTEventListener;", nullptr, $PUBLIC, $virtualMethod(HeadlessToolkit, getAWTEventListeners, $AWTEventListenerArray*, int64_t)},
-	{"getBestCursorSize", "(II)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(HeadlessToolkit, getBestCursorSize, $Dimension*, int32_t, int32_t), "java.awt.HeadlessException"},
-	{"getColorModel", "()Ljava/awt/image/ColorModel;", nullptr, $PUBLIC, $virtualMethod(HeadlessToolkit, getColorModel, $ColorModel*), "java.awt.HeadlessException"},
-	{"getFontList", "()[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HeadlessToolkit, getFontList, $StringArray*)},
-	{"getFontMetrics", "(Ljava/awt/Font;)Ljava/awt/FontMetrics;", nullptr, $PUBLIC, $virtualMethod(HeadlessToolkit, getFontMetrics, $FontMetrics*, $Font*)},
-	{"getFontPeer", "(Ljava/lang/String;I)Ljava/awt/peer/FontPeer;", nullptr, $PUBLIC, $virtualMethod(HeadlessToolkit, getFontPeer, $FontPeer*, $String*, int32_t)},
-	{"getGlobalCursorManager", "()Lsun/awt/GlobalCursorManager;", nullptr, $PUBLIC, $method(HeadlessToolkit, getGlobalCursorManager, $GlobalCursorManager*), "java.awt.HeadlessException"},
-	{"getImage", "(Ljava/lang/String;)Ljava/awt/Image;", nullptr, $PUBLIC, $virtualMethod(HeadlessToolkit, getImage, $Image*, $String*)},
-	{"getImage", "(Ljava/net/URL;)Ljava/awt/Image;", nullptr, $PUBLIC, $virtualMethod(HeadlessToolkit, getImage, $Image*, $URL*)},
-	{"getKeyboardFocusManagerPeer", "()Ljava/awt/peer/KeyboardFocusManagerPeer;", nullptr, $PUBLIC, $virtualMethod(HeadlessToolkit, getKeyboardFocusManagerPeer, $KeyboardFocusManagerPeer*)},
-	{"getLockingKeyState", "(I)Z", nullptr, $PUBLIC, $virtualMethod(HeadlessToolkit, getLockingKeyState, bool, int32_t), "java.lang.UnsupportedOperationException"},
-	{"getMaximumCursorColors", "()I", nullptr, $PUBLIC, $virtualMethod(HeadlessToolkit, getMaximumCursorColors, int32_t), "java.awt.HeadlessException"},
-	{"getMenuShortcutKeyMask", "()I", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(HeadlessToolkit, getMenuShortcutKeyMask, int32_t), "java.awt.HeadlessException", nullptr, _HeadlessToolkit_MethodAnnotations_getMenuShortcutKeyMask28},
-	{"getMenuShortcutKeyMaskEx", "()I", nullptr, $PUBLIC, $virtualMethod(HeadlessToolkit, getMenuShortcutKeyMaskEx, int32_t), "java.awt.HeadlessException"},
-	{"getPrintJob", "(Ljava/awt/Frame;Ljava/lang/String;Ljava/awt/JobAttributes;Ljava/awt/PageAttributes;)Ljava/awt/PrintJob;", nullptr, $PUBLIC, $virtualMethod(HeadlessToolkit, getPrintJob, $PrintJob*, $Frame*, $String*, $JobAttributes*, $PageAttributes*)},
-	{"getPrintJob", "(Ljava/awt/Frame;Ljava/lang/String;Ljava/util/Properties;)Ljava/awt/PrintJob;", nullptr, $PUBLIC, $virtualMethod(HeadlessToolkit, getPrintJob, $PrintJob*, $Frame*, $String*, $Properties*)},
-	{"getScreenInsets", "(Ljava/awt/GraphicsConfiguration;)Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(HeadlessToolkit, getScreenInsets, $Insets*, $GraphicsConfiguration*), "java.awt.HeadlessException"},
-	{"getScreenResolution", "()I", nullptr, $PUBLIC, $virtualMethod(HeadlessToolkit, getScreenResolution, int32_t), "java.awt.HeadlessException"},
-	{"getScreenSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(HeadlessToolkit, getScreenSize, $Dimension*), "java.awt.HeadlessException"},
-	{"getSystemClipboard", "()Ljava/awt/datatransfer/Clipboard;", nullptr, $PUBLIC, $virtualMethod(HeadlessToolkit, getSystemClipboard, $Clipboard*), "java.awt.HeadlessException"},
-	{"getSystemEventQueueImpl", "()Ljava/awt/EventQueue;", nullptr, $PUBLIC, $virtualMethod(HeadlessToolkit, getSystemEventQueueImpl, $EventQueue*)},
-	{"getUnderlyingToolkit", "()Ljava/awt/Toolkit;", nullptr, $PUBLIC, $method(HeadlessToolkit, getUnderlyingToolkit, $Toolkit*)},
-	{"isAlwaysOnTopSupported", "()Z", nullptr, $PUBLIC, $virtualMethod(HeadlessToolkit, isAlwaysOnTopSupported, bool)},
-	{"isDesktopSupported", "()Z", nullptr, $PUBLIC, $method(HeadlessToolkit, isDesktopSupported, bool)},
-	{"isDynamicLayoutActive", "()Z", nullptr, $PUBLIC, $virtualMethod(HeadlessToolkit, isDynamicLayoutActive, bool), "java.awt.HeadlessException"},
-	{"isDynamicLayoutSet", "()Z", nullptr, $PROTECTED, $virtualMethod(HeadlessToolkit, isDynamicLayoutSet, bool), "java.awt.HeadlessException"},
-	{"isModalExclusionTypeSupported", "(Ljava/awt/Dialog$ModalExclusionType;)Z", nullptr, $PUBLIC, $virtualMethod(HeadlessToolkit, isModalExclusionTypeSupported, bool, $Dialog$ModalExclusionType*)},
-	{"isModalityTypeSupported", "(Ljava/awt/Dialog$ModalityType;)Z", nullptr, $PUBLIC, $virtualMethod(HeadlessToolkit, isModalityTypeSupported, bool, $Dialog$ModalityType*)},
-	{"isTraySupported", "()Z", nullptr, $PUBLIC, $method(HeadlessToolkit, isTraySupported, bool)},
-	{"loadSystemColors", "([I)V", nullptr, $PROTECTED, $virtualMethod(HeadlessToolkit, loadSystemColors, void, $ints*), "java.awt.HeadlessException"},
-	{"mapInputMethodHighlight", "(Ljava/awt/im/InputMethodHighlight;)Ljava/util/Map;", "(Ljava/awt/im/InputMethodHighlight;)Ljava/util/Map<Ljava/awt/font/TextAttribute;*>;", $PUBLIC, $virtualMethod(HeadlessToolkit, mapInputMethodHighlight, $Map*, $InputMethodHighlight*), "java.awt.HeadlessException"},
-	{"prepareImage", "(Ljava/awt/Image;IILjava/awt/image/ImageObserver;)Z", nullptr, $PUBLIC, $virtualMethod(HeadlessToolkit, prepareImage, bool, $Image*, int32_t, int32_t, $ImageObserver*)},
-	{"removeAWTEventListener", "(Ljava/awt/event/AWTEventListener;)V", nullptr, $PUBLIC, $virtualMethod(HeadlessToolkit, removeAWTEventListener, void, $AWTEventListener*)},
-	{"removePropertyChangeListener", "(Ljava/lang/String;Ljava/beans/PropertyChangeListener;)V", nullptr, $PUBLIC, $virtualMethod(HeadlessToolkit, removePropertyChangeListener, void, $String*, $PropertyChangeListener*)},
-	{"setDynamicLayout", "(Z)V", nullptr, $PUBLIC, $virtualMethod(HeadlessToolkit, setDynamicLayout, void, bool), "java.awt.HeadlessException"},
-	{"setLockingKeyState", "(IZ)V", nullptr, $PUBLIC, $virtualMethod(HeadlessToolkit, setLockingKeyState, void, int32_t, bool), "java.lang.UnsupportedOperationException"},
-	{"sync", "()V", nullptr, $PUBLIC, $virtualMethod(HeadlessToolkit, sync, void)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _HeadlessToolkit_InnerClassesInfo_[] = {
-	{"sun.awt.HeadlessToolkit$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _HeadlessToolkit_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.awt.HeadlessToolkit",
-	"java.awt.Toolkit",
-	"sun.awt.ComponentFactory,sun.awt.KeyboardFocusManagerPeerProvider",
-	_HeadlessToolkit_FieldInfo_,
-	_HeadlessToolkit_MethodInfo_,
-	nullptr,
-	nullptr,
-	_HeadlessToolkit_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.awt.HeadlessToolkit$1"
-};
-
-$Object* allocate$HeadlessToolkit($Class* clazz) {
-	return $of($alloc(HeadlessToolkit));
-}
 
 int32_t HeadlessToolkit::hashCode() {
 	 return this->$Toolkit::hashCode();
@@ -408,7 +303,7 @@ $Image* HeadlessToolkit::createImage($bytes* imagedata) {
 
 $FontPeer* HeadlessToolkit::getFontPeer($String* name, int32_t style) {
 	if (this->componentFactory != nullptr) {
-		return $nc(this->componentFactory)->getFontPeer(name, style);
+		return this->componentFactory->getFontPeer(name, style);
 	}
 	return nullptr;
 }
@@ -466,7 +361,7 @@ bool HeadlessToolkit::areExtraMouseButtonsEnabled() {
 	$shouldNotReachHere();
 }
 
-void clinit$HeadlessToolkit($Class* class$) {
+void HeadlessToolkit::clinit$($Class* clazz) {
 	$assignStatic(HeadlessToolkit::kfmPeer, $new($HeadlessToolkit$1));
 }
 
@@ -474,7 +369,102 @@ HeadlessToolkit::HeadlessToolkit() {
 }
 
 $Class* HeadlessToolkit::load$($String* name, bool initialize) {
-	$loadClass(HeadlessToolkit, name, initialize, &_HeadlessToolkit_ClassInfo_, clinit$HeadlessToolkit, allocate$HeadlessToolkit);
+	$FieldInfo fieldInfos$$[] = {
+		{"kfmPeer", "Ljava/awt/peer/KeyboardFocusManagerPeer;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(HeadlessToolkit, kfmPeer)},
+		{"tk", "Ljava/awt/Toolkit;", nullptr, $PRIVATE | $FINAL, $field(HeadlessToolkit, tk)},
+		{"componentFactory", "Lsun/awt/ComponentFactory;", nullptr, $PRIVATE, $field(HeadlessToolkit, componentFactory)},
+		{}
+	};
+	$NamedAttribute getMenuShortcutKeyMaskmethodAnnotations$$$namedAttribute[] = {
+		{"since", 's', "10"},
+		{}
+	};
+	$CompoundAttribute getMenuShortcutKeyMaskmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", getMenuShortcutKeyMaskmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/awt/Toolkit;)V", nullptr, $PUBLIC, $method(HeadlessToolkit, init$, void, $Toolkit*)},
+		{"addAWTEventListener", "(Ljava/awt/event/AWTEventListener;J)V", nullptr, $PUBLIC, $virtualMethod(HeadlessToolkit, addAWTEventListener, void, $AWTEventListener*, int64_t)},
+		{"addPropertyChangeListener", "(Ljava/lang/String;Ljava/beans/PropertyChangeListener;)V", nullptr, $PUBLIC, $virtualMethod(HeadlessToolkit, addPropertyChangeListener, void, $String*, $PropertyChangeListener*)},
+		{"areExtraMouseButtonsEnabled", "()Z", nullptr, $PUBLIC, $virtualMethod(HeadlessToolkit, areExtraMouseButtonsEnabled, bool), "java.awt.HeadlessException"},
+		{"beep", "()V", nullptr, $PUBLIC, $virtualMethod(HeadlessToolkit, beep, void)},
+		{"checkImage", "(Ljava/awt/Image;IILjava/awt/image/ImageObserver;)I", nullptr, $PUBLIC, $virtualMethod(HeadlessToolkit, checkImage, int32_t, $Image*, int32_t, int32_t, $ImageObserver*)},
+		{"createCustomCursor", "(Ljava/awt/Image;Ljava/awt/Point;Ljava/lang/String;)Ljava/awt/Cursor;", nullptr, $PUBLIC, $virtualMethod(HeadlessToolkit, createCustomCursor, $Cursor*, $Image*, $Point*, $String*), "java.lang.IndexOutOfBoundsException,java.awt.HeadlessException"},
+		{"createDragGestureRecognizer", "(Ljava/lang/Class;Ljava/awt/dnd/DragSource;Ljava/awt/Component;ILjava/awt/dnd/DragGestureListener;)Ljava/awt/dnd/DragGestureRecognizer;", "<T:Ljava/awt/dnd/DragGestureRecognizer;>(Ljava/lang/Class<TT;>;Ljava/awt/dnd/DragSource;Ljava/awt/Component;ILjava/awt/dnd/DragGestureListener;)TT;", $PUBLIC, $virtualMethod(HeadlessToolkit, createDragGestureRecognizer, $DragGestureRecognizer*, $Class*, $DragSource*, $Component*, int32_t, $DragGestureListener*)},
+		{"createImage", "(Ljava/lang/String;)Ljava/awt/Image;", nullptr, $PUBLIC, $virtualMethod(HeadlessToolkit, createImage, $Image*, $String*)},
+		{"createImage", "(Ljava/net/URL;)Ljava/awt/Image;", nullptr, $PUBLIC, $virtualMethod(HeadlessToolkit, createImage, $Image*, $URL*)},
+		{"createImage", "([BII)Ljava/awt/Image;", nullptr, $PUBLIC, $virtualMethod(HeadlessToolkit, createImage, $Image*, $bytes*, int32_t, int32_t)},
+		{"createImage", "(Ljava/awt/image/ImageProducer;)Ljava/awt/Image;", nullptr, $PUBLIC, $virtualMethod(HeadlessToolkit, createImage, $Image*, $ImageProducer*)},
+		{"createImage", "([B)Ljava/awt/Image;", nullptr, $PUBLIC, $virtualMethod(HeadlessToolkit, createImage, $Image*, $bytes*)},
+		{"createSystemTray", "(Ljava/awt/SystemTray;)Ljava/awt/peer/SystemTrayPeer;", nullptr, $PUBLIC, $method(HeadlessToolkit, createSystemTray, $SystemTrayPeer*, $SystemTray*), "java.awt.HeadlessException"},
+		{"createTrayIcon", "(Ljava/awt/TrayIcon;)Ljava/awt/peer/TrayIconPeer;", nullptr, $PUBLIC, $method(HeadlessToolkit, createTrayIcon, $TrayIconPeer*, $TrayIcon*), "java.awt.HeadlessException"},
+		{"getAWTEventListeners", "()[Ljava/awt/event/AWTEventListener;", nullptr, $PUBLIC, $virtualMethod(HeadlessToolkit, getAWTEventListeners, $AWTEventListenerArray*)},
+		{"getAWTEventListeners", "(J)[Ljava/awt/event/AWTEventListener;", nullptr, $PUBLIC, $virtualMethod(HeadlessToolkit, getAWTEventListeners, $AWTEventListenerArray*, int64_t)},
+		{"getBestCursorSize", "(II)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(HeadlessToolkit, getBestCursorSize, $Dimension*, int32_t, int32_t), "java.awt.HeadlessException"},
+		{"getColorModel", "()Ljava/awt/image/ColorModel;", nullptr, $PUBLIC, $virtualMethod(HeadlessToolkit, getColorModel, $ColorModel*), "java.awt.HeadlessException"},
+		{"getFontList", "()[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HeadlessToolkit, getFontList, $StringArray*)},
+		{"getFontMetrics", "(Ljava/awt/Font;)Ljava/awt/FontMetrics;", nullptr, $PUBLIC, $virtualMethod(HeadlessToolkit, getFontMetrics, $FontMetrics*, $Font*)},
+		{"getFontPeer", "(Ljava/lang/String;I)Ljava/awt/peer/FontPeer;", nullptr, $PUBLIC, $virtualMethod(HeadlessToolkit, getFontPeer, $FontPeer*, $String*, int32_t)},
+		{"getGlobalCursorManager", "()Lsun/awt/GlobalCursorManager;", nullptr, $PUBLIC, $method(HeadlessToolkit, getGlobalCursorManager, $GlobalCursorManager*), "java.awt.HeadlessException"},
+		{"getImage", "(Ljava/lang/String;)Ljava/awt/Image;", nullptr, $PUBLIC, $virtualMethod(HeadlessToolkit, getImage, $Image*, $String*)},
+		{"getImage", "(Ljava/net/URL;)Ljava/awt/Image;", nullptr, $PUBLIC, $virtualMethod(HeadlessToolkit, getImage, $Image*, $URL*)},
+		{"getKeyboardFocusManagerPeer", "()Ljava/awt/peer/KeyboardFocusManagerPeer;", nullptr, $PUBLIC, $virtualMethod(HeadlessToolkit, getKeyboardFocusManagerPeer, $KeyboardFocusManagerPeer*)},
+		{"getLockingKeyState", "(I)Z", nullptr, $PUBLIC, $virtualMethod(HeadlessToolkit, getLockingKeyState, bool, int32_t), "java.lang.UnsupportedOperationException"},
+		{"getMaximumCursorColors", "()I", nullptr, $PUBLIC, $virtualMethod(HeadlessToolkit, getMaximumCursorColors, int32_t), "java.awt.HeadlessException"},
+		{"getMenuShortcutKeyMask", "()I", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(HeadlessToolkit, getMenuShortcutKeyMask, int32_t), "java.awt.HeadlessException", nullptr, getMenuShortcutKeyMaskmethodAnnotations$$},
+		{"getMenuShortcutKeyMaskEx", "()I", nullptr, $PUBLIC, $virtualMethod(HeadlessToolkit, getMenuShortcutKeyMaskEx, int32_t), "java.awt.HeadlessException"},
+		{"getPrintJob", "(Ljava/awt/Frame;Ljava/lang/String;Ljava/awt/JobAttributes;Ljava/awt/PageAttributes;)Ljava/awt/PrintJob;", nullptr, $PUBLIC, $virtualMethod(HeadlessToolkit, getPrintJob, $PrintJob*, $Frame*, $String*, $JobAttributes*, $PageAttributes*)},
+		{"getPrintJob", "(Ljava/awt/Frame;Ljava/lang/String;Ljava/util/Properties;)Ljava/awt/PrintJob;", nullptr, $PUBLIC, $virtualMethod(HeadlessToolkit, getPrintJob, $PrintJob*, $Frame*, $String*, $Properties*)},
+		{"getScreenInsets", "(Ljava/awt/GraphicsConfiguration;)Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(HeadlessToolkit, getScreenInsets, $Insets*, $GraphicsConfiguration*), "java.awt.HeadlessException"},
+		{"getScreenResolution", "()I", nullptr, $PUBLIC, $virtualMethod(HeadlessToolkit, getScreenResolution, int32_t), "java.awt.HeadlessException"},
+		{"getScreenSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(HeadlessToolkit, getScreenSize, $Dimension*), "java.awt.HeadlessException"},
+		{"getSystemClipboard", "()Ljava/awt/datatransfer/Clipboard;", nullptr, $PUBLIC, $virtualMethod(HeadlessToolkit, getSystemClipboard, $Clipboard*), "java.awt.HeadlessException"},
+		{"getSystemEventQueueImpl", "()Ljava/awt/EventQueue;", nullptr, $PUBLIC, $virtualMethod(HeadlessToolkit, getSystemEventQueueImpl, $EventQueue*)},
+		{"getUnderlyingToolkit", "()Ljava/awt/Toolkit;", nullptr, $PUBLIC, $method(HeadlessToolkit, getUnderlyingToolkit, $Toolkit*)},
+		{"isAlwaysOnTopSupported", "()Z", nullptr, $PUBLIC, $virtualMethod(HeadlessToolkit, isAlwaysOnTopSupported, bool)},
+		{"isDesktopSupported", "()Z", nullptr, $PUBLIC, $method(HeadlessToolkit, isDesktopSupported, bool)},
+		{"isDynamicLayoutActive", "()Z", nullptr, $PUBLIC, $virtualMethod(HeadlessToolkit, isDynamicLayoutActive, bool), "java.awt.HeadlessException"},
+		{"isDynamicLayoutSet", "()Z", nullptr, $PROTECTED, $virtualMethod(HeadlessToolkit, isDynamicLayoutSet, bool), "java.awt.HeadlessException"},
+		{"isModalExclusionTypeSupported", "(Ljava/awt/Dialog$ModalExclusionType;)Z", nullptr, $PUBLIC, $virtualMethod(HeadlessToolkit, isModalExclusionTypeSupported, bool, $Dialog$ModalExclusionType*)},
+		{"isModalityTypeSupported", "(Ljava/awt/Dialog$ModalityType;)Z", nullptr, $PUBLIC, $virtualMethod(HeadlessToolkit, isModalityTypeSupported, bool, $Dialog$ModalityType*)},
+		{"isTraySupported", "()Z", nullptr, $PUBLIC, $method(HeadlessToolkit, isTraySupported, bool)},
+		{"loadSystemColors", "([I)V", nullptr, $PROTECTED, $virtualMethod(HeadlessToolkit, loadSystemColors, void, $ints*), "java.awt.HeadlessException"},
+		{"mapInputMethodHighlight", "(Ljava/awt/im/InputMethodHighlight;)Ljava/util/Map;", "(Ljava/awt/im/InputMethodHighlight;)Ljava/util/Map<Ljava/awt/font/TextAttribute;*>;", $PUBLIC, $virtualMethod(HeadlessToolkit, mapInputMethodHighlight, $Map*, $InputMethodHighlight*), "java.awt.HeadlessException"},
+		{"prepareImage", "(Ljava/awt/Image;IILjava/awt/image/ImageObserver;)Z", nullptr, $PUBLIC, $virtualMethod(HeadlessToolkit, prepareImage, bool, $Image*, int32_t, int32_t, $ImageObserver*)},
+		{"removeAWTEventListener", "(Ljava/awt/event/AWTEventListener;)V", nullptr, $PUBLIC, $virtualMethod(HeadlessToolkit, removeAWTEventListener, void, $AWTEventListener*)},
+		{"removePropertyChangeListener", "(Ljava/lang/String;Ljava/beans/PropertyChangeListener;)V", nullptr, $PUBLIC, $virtualMethod(HeadlessToolkit, removePropertyChangeListener, void, $String*, $PropertyChangeListener*)},
+		{"setDynamicLayout", "(Z)V", nullptr, $PUBLIC, $virtualMethod(HeadlessToolkit, setDynamicLayout, void, bool), "java.awt.HeadlessException"},
+		{"setLockingKeyState", "(IZ)V", nullptr, $PUBLIC, $virtualMethod(HeadlessToolkit, setLockingKeyState, void, int32_t, bool), "java.lang.UnsupportedOperationException"},
+		{"sync", "()V", nullptr, $PUBLIC, $virtualMethod(HeadlessToolkit, sync, void)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.HeadlessToolkit$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.awt.HeadlessToolkit",
+		"java.awt.Toolkit",
+		"sun.awt.ComponentFactory,sun.awt.KeyboardFocusManagerPeerProvider",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.awt.HeadlessToolkit$1"
+	};
+	$loadClass(HeadlessToolkit, name, initialize, &classInfo$$, HeadlessToolkit::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(HeadlessToolkit));
+	});
 	return class$;
 }
 

@@ -32,7 +32,7 @@ public:
 	static const int32_t NSOtherMouseDragged = 27;
 	static const int32_t AllLeftMouseEventsMask = 70; // 1 << NSLeftMouseDown | 1 << NSLeftMouseUp | 1 << NSLeftMouseDragged
 	static const int32_t AllRightMouseEventsMask = 152; // 1 << NSRightMouseDown | 1 << NSRightMouseUp | 1 << NSRightMouseDragged
-	static const int32_t AllOtherMouseEventsMask = 0x0E000000; // 1 << NSOtherMouseDown | 1 << NSOtherMouseUp | 1 << NSOtherMouseDragged
+	static const int32_t AllOtherMouseEventsMask = 0x0e000000; // 1 << NSOtherMouseDown | 1 << NSOtherMouseUp | 1 << NSOtherMouseDragged
 	static const int32_t kCGMouseButtonLeft = 0;
 	static const int32_t kCGMouseButtonRight = 1;
 	static const int32_t kCGMouseButtonCenter = 2;

@@ -39,6 +39,7 @@ public:
 	virtual bool equals(Object$* arg0) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal, ::jdk::internal::misc::FileSystemOption* option);
 	virtual $String* toString() override;
 	static ::com::sun::nio::file::ExtendedOpenOption* valueOf($String* name);

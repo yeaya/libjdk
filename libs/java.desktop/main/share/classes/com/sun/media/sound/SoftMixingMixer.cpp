@@ -1,5 +1,4 @@
 #include <com/sun/media/sound/SoftMixingMixer.h>
-
 #include <com/sun/media/sound/SoftAudioPusher.h>
 #include <com/sun/media/sound/SoftMixingClip.h>
 #include <com/sun/media/sound/SoftMixingDataLine.h>
@@ -18,7 +17,6 @@
 #include <javax/sound/sampled/Control$Type.h>
 #include <javax/sound/sampled/Control.h>
 #include <javax/sound/sampled/DataLine$Info.h>
-#include <javax/sound/sampled/DataLine.h>
 #include <javax/sound/sampled/Line$Info.h>
 #include <javax/sound/sampled/Line.h>
 #include <javax/sound/sampled/LineEvent$Type.h>
@@ -63,7 +61,6 @@ using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ArrayList = ::java::util::ArrayList;
-using $List = ::java::util::List;
 using $AudioFormat = ::javax::sound::sampled::AudioFormat;
 using $AudioFormat$Encoding = ::javax::sound::sampled::AudioFormat$Encoding;
 using $AudioInputStream = ::javax::sound::sampled::AudioInputStream;
@@ -71,7 +68,6 @@ using $AudioSystem = ::javax::sound::sampled::AudioSystem;
 using $Clip = ::javax::sound::sampled::Clip;
 using $Control = ::javax::sound::sampled::Control;
 using $Control$Type = ::javax::sound::sampled::Control$Type;
-using $DataLine = ::javax::sound::sampled::DataLine;
 using $DataLine$Info = ::javax::sound::sampled::DataLine$Info;
 using $Line = ::javax::sound::sampled::Line;
 using $Line$Info = ::javax::sound::sampled::Line$Info;
@@ -88,86 +84,6 @@ namespace com {
 		namespace media {
 			namespace sound {
 
-$FieldInfo _SoftMixingMixer_FieldInfo_[] = {
-	{"INFO_NAME", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(SoftMixingMixer, INFO_NAME)},
-	{"INFO_VENDOR", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(SoftMixingMixer, INFO_VENDOR)},
-	{"INFO_DESCRIPTION", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(SoftMixingMixer, INFO_DESCRIPTION)},
-	{"INFO_VERSION", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(SoftMixingMixer, INFO_VERSION)},
-	{"info", "Ljavax/sound/sampled/Mixer$Info;", nullptr, $STATIC | $FINAL, $staticField(SoftMixingMixer, info)},
-	{"control_mutex", "Ljava/lang/Object;", nullptr, $FINAL, $field(SoftMixingMixer, control_mutex)},
-	{"implicitOpen", "Z", nullptr, 0, $field(SoftMixingMixer, implicitOpen)},
-	{"open", "Z", nullptr, $PRIVATE, $field(SoftMixingMixer, open$)},
-	{"mainmixer", "Lcom/sun/media/sound/SoftMixingMainMixer;", nullptr, $PRIVATE, $field(SoftMixingMixer, mainmixer)},
-	{"format", "Ljavax/sound/sampled/AudioFormat;", nullptr, $PRIVATE, $field(SoftMixingMixer, format)},
-	{"sourceDataLine", "Ljavax/sound/sampled/SourceDataLine;", nullptr, $PRIVATE, $field(SoftMixingMixer, sourceDataLine)},
-	{"pusher", "Lcom/sun/media/sound/SoftAudioPusher;", nullptr, $PRIVATE, $field(SoftMixingMixer, pusher)},
-	{"pusher_stream", "Ljavax/sound/sampled/AudioInputStream;", nullptr, $PRIVATE, $field(SoftMixingMixer, pusher_stream)},
-	{"controlrate", "F", nullptr, $PRIVATE | $FINAL, $field(SoftMixingMixer, controlrate)},
-	{"latency", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SoftMixingMixer, latency)},
-	{"jitter_correction", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SoftMixingMixer, jitter_correction)},
-	{"listeners", "Ljava/util/List;", "Ljava/util/List<Ljavax/sound/sampled/LineListener;>;", $PRIVATE | $FINAL, $field(SoftMixingMixer, listeners)},
-	{"sourceLineInfo", "[Ljavax/sound/sampled/Line$Info;", nullptr, $PRIVATE | $FINAL, $field(SoftMixingMixer, sourceLineInfo)},
-	{}
-};
-
-$MethodInfo _SoftMixingMixer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SoftMixingMixer, init$, void)},
-	{"addLineListener", "(Ljavax/sound/sampled/LineListener;)V", nullptr, $PUBLIC, $virtualMethod(SoftMixingMixer, addLineListener, void, $LineListener*)},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(SoftMixingMixer, close, void)},
-	{"getControl", "(Ljavax/sound/sampled/Control$Type;)Ljavax/sound/sampled/Control;", nullptr, $PUBLIC, $virtualMethod(SoftMixingMixer, getControl, $Control*, $Control$Type*)},
-	{"getControlRate", "()F", nullptr, 0, $method(SoftMixingMixer, getControlRate, float)},
-	{"getControls", "()[Ljavax/sound/sampled/Control;", nullptr, $PUBLIC, $virtualMethod(SoftMixingMixer, getControls, $ControlArray*)},
-	{"getFormat", "()Ljavax/sound/sampled/AudioFormat;", nullptr, $PUBLIC, $method(SoftMixingMixer, getFormat, $AudioFormat*)},
-	{"getLatency", "()J", nullptr, $PUBLIC, $method(SoftMixingMixer, getLatency, int64_t)},
-	{"getLine", "(Ljavax/sound/sampled/Line$Info;)Ljavax/sound/sampled/Line;", nullptr, $PUBLIC, $virtualMethod(SoftMixingMixer, getLine, $Line*, $Line$Info*), "javax.sound.sampled.LineUnavailableException"},
-	{"getLineInfo", "()Ljavax/sound/sampled/Line$Info;", nullptr, $PUBLIC, $virtualMethod(SoftMixingMixer, getLineInfo, $Line$Info*)},
-	{"getMainMixer", "()Lcom/sun/media/sound/SoftMixingMainMixer;", nullptr, 0, $method(SoftMixingMixer, getMainMixer, $SoftMixingMainMixer*)},
-	{"getMaxLines", "(Ljavax/sound/sampled/Line$Info;)I", nullptr, $PUBLIC, $virtualMethod(SoftMixingMixer, getMaxLines, int32_t, $Line$Info*)},
-	{"getMixerInfo", "()Ljavax/sound/sampled/Mixer$Info;", nullptr, $PUBLIC, $virtualMethod(SoftMixingMixer, getMixerInfo, $Mixer$Info*)},
-	{"getSourceLineInfo", "()[Ljavax/sound/sampled/Line$Info;", nullptr, $PUBLIC, $virtualMethod(SoftMixingMixer, getSourceLineInfo, $Line$InfoArray*)},
-	{"getSourceLineInfo", "(Ljavax/sound/sampled/Line$Info;)[Ljavax/sound/sampled/Line$Info;", nullptr, $PUBLIC, $virtualMethod(SoftMixingMixer, getSourceLineInfo, $Line$InfoArray*, $Line$Info*)},
-	{"getSourceLines", "()[Ljavax/sound/sampled/Line;", nullptr, $PUBLIC, $virtualMethod(SoftMixingMixer, getSourceLines, $LineArray*)},
-	{"getTargetLineInfo", "()[Ljavax/sound/sampled/Line$Info;", nullptr, $PUBLIC, $virtualMethod(SoftMixingMixer, getTargetLineInfo, $Line$InfoArray*)},
-	{"getTargetLineInfo", "(Ljavax/sound/sampled/Line$Info;)[Ljavax/sound/sampled/Line$Info;", nullptr, $PUBLIC, $virtualMethod(SoftMixingMixer, getTargetLineInfo, $Line$InfoArray*, $Line$Info*)},
-	{"getTargetLines", "()[Ljavax/sound/sampled/Line;", nullptr, $PUBLIC, $virtualMethod(SoftMixingMixer, getTargetLines, $LineArray*)},
-	{"isControlSupported", "(Ljavax/sound/sampled/Control$Type;)Z", nullptr, $PUBLIC, $virtualMethod(SoftMixingMixer, isControlSupported, bool, $Control$Type*)},
-	{"isLineSupported", "(Ljavax/sound/sampled/Line$Info;)Z", nullptr, $PUBLIC, $virtualMethod(SoftMixingMixer, isLineSupported, bool, $Line$Info*)},
-	{"isOpen", "()Z", nullptr, $PUBLIC, $virtualMethod(SoftMixingMixer, isOpen, bool)},
-	{"isSynchronizationSupported", "([Ljavax/sound/sampled/Line;Z)Z", nullptr, $PUBLIC, $virtualMethod(SoftMixingMixer, isSynchronizationSupported, bool, $LineArray*, bool)},
-	{"open", "()V", nullptr, $PUBLIC, $virtualMethod(SoftMixingMixer, open, void), "javax.sound.sampled.LineUnavailableException"},
-	{"open", "(Ljavax/sound/sampled/SourceDataLine;)V", nullptr, $PUBLIC, $method(SoftMixingMixer, open, void, $SourceDataLine*), "javax.sound.sampled.LineUnavailableException"},
-	{"openStream", "(Ljavax/sound/sampled/AudioFormat;)Ljavax/sound/sampled/AudioInputStream;", nullptr, $PUBLIC, $method(SoftMixingMixer, openStream, $AudioInputStream*, $AudioFormat*), "javax.sound.sampled.LineUnavailableException"},
-	{"removeLineListener", "(Ljavax/sound/sampled/LineListener;)V", nullptr, $PUBLIC, $virtualMethod(SoftMixingMixer, removeLineListener, void, $LineListener*)},
-	{"sendEvent", "(Ljavax/sound/sampled/LineEvent;)V", nullptr, $PRIVATE, $method(SoftMixingMixer, sendEvent, void, $LineEvent*)},
-	{"synchronize", "([Ljavax/sound/sampled/Line;Z)V", nullptr, $PUBLIC, $virtualMethod(SoftMixingMixer, synchronize, void, $LineArray*, bool)},
-	{"unsynchronize", "([Ljavax/sound/sampled/Line;)V", nullptr, $PUBLIC, $virtualMethod(SoftMixingMixer, unsynchronize, void, $LineArray*)},
-	{}
-};
-
-$InnerClassInfo _SoftMixingMixer_InnerClassesInfo_[] = {
-	{"com.sun.media.sound.SoftMixingMixer$Info", "com.sun.media.sound.SoftMixingMixer", "Info", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _SoftMixingMixer_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.media.sound.SoftMixingMixer",
-	"java.lang.Object",
-	"javax.sound.sampled.Mixer",
-	_SoftMixingMixer_FieldInfo_,
-	_SoftMixingMixer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SoftMixingMixer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.media.sound.SoftMixingMixer$Info"
-};
-
-$Object* allocate$SoftMixingMixer($Class* clazz) {
-	return $of($alloc(SoftMixingMixer));
-}
-
 $String* SoftMixingMixer::INFO_NAME = nullptr;
 $String* SoftMixingMixer::INFO_VENDOR = nullptr;
 $String* SoftMixingMixer::INFO_DESCRIPTION = nullptr;
@@ -175,12 +91,12 @@ $String* SoftMixingMixer::INFO_VERSION = nullptr;
 $Mixer$Info* SoftMixingMixer::info = nullptr;
 
 void SoftMixingMixer::init$() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, control_mutex, this);
 	this->implicitOpen = false;
 	this->open$ = false;
 	$set(this, mainmixer, nullptr);
-	$set(this, format, $new($AudioFormat, (float)0x0000AC44, 16, 2, true, false));
+	$set(this, format, $new($AudioFormat, 0x0000ac44, 16, 2, true, false));
 	$set(this, sourceDataLine, nullptr);
 	$set(this, pusher, nullptr);
 	$set(this, pusher_stream, nullptr);
@@ -203,25 +119,25 @@ void SoftMixingMixer::init$() {
 		formats->add($$new($AudioFormat, $AudioFormat$Encoding::PCM_FLOAT, (float)$AudioSystem::NOT_SPECIFIED, 64, channels, channels * 8, (float)$AudioSystem::NOT_SPECIFIED, false));
 		formats->add($$new($AudioFormat, $AudioFormat$Encoding::PCM_FLOAT, (float)$AudioSystem::NOT_SPECIFIED, 64, channels, channels * 8, (float)$AudioSystem::NOT_SPECIFIED, true));
 	}
-	$var($AudioFormatArray, formats_array, $fcast($AudioFormatArray, formats->toArray($$new($AudioFormatArray, formats->size()))));
+	$var($AudioFormatArray, formats_array, $cast($AudioFormatArray, formats->toArray($$new($AudioFormatArray, formats->size()))));
 	$load($SourceDataLine);
-	$nc(this->sourceLineInfo)->set(0, $$new($DataLine$Info, $SourceDataLine::class$, formats_array, $AudioSystem::NOT_SPECIFIED, $AudioSystem::NOT_SPECIFIED));
+	this->sourceLineInfo->set(0, $$new($DataLine$Info, $SourceDataLine::class$, formats_array, $AudioSystem::NOT_SPECIFIED, $AudioSystem::NOT_SPECIFIED));
 	$load($Clip);
-	$nc(this->sourceLineInfo)->set(1, $$new($DataLine$Info, $Clip::class$, formats_array, $AudioSystem::NOT_SPECIFIED, $AudioSystem::NOT_SPECIFIED));
+	this->sourceLineInfo->set(1, $$new($DataLine$Info, $Clip::class$, formats_array, $AudioSystem::NOT_SPECIFIED, $AudioSystem::NOT_SPECIFIED));
 }
 
 $Line* SoftMixingMixer::getLine($Line$Info* info) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!isLineSupported(info)) {
 		$throwNew($IllegalArgumentException, $$str({"Line unsupported: "_s, info}));
 	}
 	$load($SourceDataLine);
 	if ($nc(info)->getLineClass() == $SourceDataLine::class$) {
-		return static_cast<$Line*>(static_cast<$DataLine*>(static_cast<$SoftMixingDataLine*>($new($SoftMixingSourceDataLine, this, $cast($DataLine$Info, info)))));
+		return $cast($SoftMixingDataLine, $new($SoftMixingSourceDataLine, this, $cast($DataLine$Info, info)));
 	}
 	$load($Clip);
-	if ($nc(info)->getLineClass() == $Clip::class$) {
-		return static_cast<$Line*>(static_cast<$DataLine*>(static_cast<$SoftMixingDataLine*>($new($SoftMixingClip, this, $cast($DataLine$Info, info)))));
+	if (info->getLineClass() == $Clip::class$) {
+		return $cast($SoftMixingDataLine, $new($SoftMixingClip, this, $cast($DataLine$Info, info)));
 	}
 	$throwNew($IllegalArgumentException, $$str({"Line unsupported: "_s, info}));
 }
@@ -232,7 +148,7 @@ int32_t SoftMixingMixer::getMaxLines($Line$Info* info) {
 		return $AudioSystem::NOT_SPECIFIED;
 	}
 	$load($Clip);
-	if ($nc(info)->getLineClass() == $Clip::class$) {
+	if (info->getLineClass() == $Clip::class$) {
 		return $AudioSystem::NOT_SPECIFIED;
 	}
 	return 0;
@@ -243,25 +159,25 @@ $Mixer$Info* SoftMixingMixer::getMixerInfo() {
 }
 
 $Line$InfoArray* SoftMixingMixer::getSourceLineInfo() {
-	$var($Line$InfoArray, localArray, $new($Line$InfoArray, $nc(this->sourceLineInfo)->length));
-	$System::arraycopy(this->sourceLineInfo, 0, localArray, 0, $nc(this->sourceLineInfo)->length);
+	$var($Line$InfoArray, localArray, $new($Line$InfoArray, this->sourceLineInfo->length));
+	$System::arraycopy(this->sourceLineInfo, 0, localArray, 0, this->sourceLineInfo->length);
 	return localArray;
 }
 
 $Line$InfoArray* SoftMixingMixer::getSourceLineInfo($Line$Info* info) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t i = 0;
 	$var($ArrayList, infos, $new($ArrayList));
-	for (i = 0; i < $nc(this->sourceLineInfo)->length; ++i) {
-		if ($nc(info)->matches($nc(this->sourceLineInfo)->get(i))) {
-			infos->add($nc(this->sourceLineInfo)->get(i));
+	for (i = 0; i < this->sourceLineInfo->length; ++i) {
+		if ($nc(info)->matches(this->sourceLineInfo->get(i))) {
+			infos->add(this->sourceLineInfo->get(i));
 		}
 	}
-	return $fcast($Line$InfoArray, infos->toArray($$new($Line$InfoArray, infos->size())));
+	return $cast($Line$InfoArray, infos->toArray($$new($Line$InfoArray, infos->size())));
 }
 
 $LineArray* SoftMixingMixer::getSourceLines() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($LineArray, localLines, nullptr);
 	$synchronized(this->control_mutex) {
 		if (this->mainmixer == nullptr) {
@@ -290,8 +206,8 @@ $LineArray* SoftMixingMixer::getTargetLines() {
 
 bool SoftMixingMixer::isLineSupported($Line$Info* info) {
 	if (info != nullptr) {
-		for (int32_t i = 0; i < $nc(this->sourceLineInfo)->length; ++i) {
-			if (info->matches($nc(this->sourceLineInfo)->get(i))) {
+		for (int32_t i = 0; i < this->sourceLineInfo->length; ++i) {
+			if (info->matches(this->sourceLineInfo->get(i))) {
 				return true;
 			}
 		}
@@ -313,21 +229,19 @@ void SoftMixingMixer::unsynchronize($LineArray* lines) {
 
 void SoftMixingMixer::addLineListener($LineListener* listener) {
 	$synchronized(this->control_mutex) {
-		$nc(this->listeners)->add(listener);
+		this->listeners->add(listener);
 	}
 }
 
 void SoftMixingMixer::sendEvent($LineEvent* event) {
-	$useLocalCurrentObjectStackCache();
-	if ($nc(this->listeners)->size() == 0) {
+	$useLocalObjectStack();
+	if (this->listeners->size() == 0) {
 		return;
 	}
-	$var($LineListenerArray, listener_array, $fcast($LineListenerArray, $nc(this->listeners)->toArray($$new($LineListenerArray, $nc(this->listeners)->size()))));
+	$var($LineListenerArray, listener_array, $cast($LineListenerArray, this->listeners->toArray($$new($LineListenerArray, this->listeners->size()))));
 	{
 		$var($LineListenerArray, arr$, listener_array);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($LineListener, listener, arr$->get(i$));
 			{
 				$nc(listener)->update(event);
@@ -337,7 +251,7 @@ void SoftMixingMixer::sendEvent($LineEvent* event) {
 }
 
 void SoftMixingMixer::close() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!isOpen()) {
 		return;
 	}
@@ -363,11 +277,11 @@ void SoftMixingMixer::close() {
 	}
 	$synchronized(this->control_mutex) {
 		if (this->mainmixer != nullptr) {
-			$nc(this->mainmixer)->close();
+			this->mainmixer->close();
 		}
 		this->open$ = false;
 		if (this->sourceDataLine != nullptr) {
-			$nc(this->sourceDataLine)->drain();
+			this->sourceDataLine->drain();
 			$nc(this->sourceDataLine)->close();
 			$set(this, sourceDataLine, nullptr);
 		}
@@ -407,7 +321,7 @@ void SoftMixingMixer::open() {
 }
 
 void SoftMixingMixer::open($SourceDataLine* line$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SourceDataLine, line, line$renamed);
 	if (isOpen()) {
 		this->implicitOpen = false;
@@ -424,90 +338,88 @@ void SoftMixingMixer::open($SourceDataLine* line$renamed) {
 				$synchronized($SoftMixingMixerProvider::mutex) {
 					$assignStatic($SoftMixingMixerProvider::lockthread, $Thread::currentThread());
 				}
-				{
-					$var($Throwable, var$0, nullptr);
-					try {
-						$var($Mixer, defaultmixer, $AudioSystem::getMixer(nullptr));
-						if (defaultmixer != nullptr) {
-							$var($DataLine$Info, idealinfo, nullptr);
-							$var($AudioFormat, idealformat, nullptr);
-							$var($Line$InfoArray, lineinfos, defaultmixer->getSourceLineInfo());
-							bool idealFound$break = false;
-							for (int32_t i = 0; i < $nc(lineinfos)->length; ++i) {
-								$load($SourceDataLine);
-								if ($nc(lineinfos->get(i))->getLineClass() == $SourceDataLine::class$) {
-									$var($DataLine$Info, info, $cast($DataLine$Info, lineinfos->get(i)));
-									$var($AudioFormatArray, formats, $nc(info)->getFormats());
-									for (int32_t j = 0; j < $nc(formats)->length; ++j) {
-										$var($AudioFormat, format, formats->get(j));
-										bool var$1 = $nc(format)->getChannels() == 2;
-										if (var$1 || $nc(format)->getChannels() == $AudioSystem::NOT_SPECIFIED) {
-											$init($AudioFormat$Encoding);
-											bool var$2 = $nc($(format->getEncoding()))->equals($AudioFormat$Encoding::PCM_SIGNED);
-											if (var$2 || $nc($(format->getEncoding()))->equals($AudioFormat$Encoding::PCM_UNSIGNED)) {
-												bool var$3 = format->getSampleRate() == $AudioSystem::NOT_SPECIFIED;
-												if (var$3 || format->getSampleRate() == 48000.0) {
-													bool var$4 = format->getSampleSizeInBits() == $AudioSystem::NOT_SPECIFIED;
-													if (var$4 || format->getSampleSizeInBits() == 16) {
-														$assign(idealinfo, info);
-														int32_t ideal_channels = format->getChannels();
-														bool ideal_signed = $nc($(format->getEncoding()))->equals($AudioFormat$Encoding::PCM_SIGNED);
-														float ideal_rate = format->getSampleRate();
-														bool ideal_endian = format->isBigEndian();
-														int32_t ideal_bits = format->getSampleSizeInBits();
-														if (ideal_bits == $AudioSystem::NOT_SPECIFIED) {
-															ideal_bits = 16;
-														}
-														if (ideal_channels == $AudioSystem::NOT_SPECIFIED) {
-															ideal_channels = 2;
-														}
-														if (ideal_rate == $AudioSystem::NOT_SPECIFIED) {
-															ideal_rate = (float)0x0000BB80;
-														}
-														$assign(idealformat, $new($AudioFormat, ideal_rate, ideal_bits, ideal_channels, ideal_signed, ideal_endian));
-														idealFound$break = true;
-														break;
+				$var($Throwable, var$0, nullptr);
+				try {
+					$var($Mixer, defaultmixer, $AudioSystem::getMixer(nullptr));
+					if (defaultmixer != nullptr) {
+						$var($DataLine$Info, idealinfo, nullptr);
+						$var($AudioFormat, idealformat, nullptr);
+						$var($Line$InfoArray, lineinfos, defaultmixer->getSourceLineInfo());
+						bool idealFound$break = false;
+						for (int32_t i = 0; i < $nc(lineinfos)->length; ++i) {
+							$load($SourceDataLine);
+							if ($nc(lineinfos->get(i))->getLineClass() == $SourceDataLine::class$) {
+								$var($DataLine$Info, info, $cast($DataLine$Info, lineinfos->get(i)));
+								$var($AudioFormatArray, formats, $nc(info)->getFormats());
+								for (int32_t j = 0; j < $nc(formats)->length; ++j) {
+									$var($AudioFormat, format, formats->get(j));
+									bool var$1 = $nc(format)->getChannels() == 2;
+									if (var$1 || format->getChannels() == $AudioSystem::NOT_SPECIFIED) {
+										$init($AudioFormat$Encoding);
+										bool var$2 = $$nc(format->getEncoding())->equals($AudioFormat$Encoding::PCM_SIGNED);
+										if (var$2 || $$nc(format->getEncoding())->equals($AudioFormat$Encoding::PCM_UNSIGNED)) {
+											bool var$3 = format->getSampleRate() == $AudioSystem::NOT_SPECIFIED;
+											if (var$3 || format->getSampleRate() == 48000.0) {
+												bool var$4 = format->getSampleSizeInBits() == $AudioSystem::NOT_SPECIFIED;
+												if (var$4 || format->getSampleSizeInBits() == 16) {
+													$assign(idealinfo, info);
+													int32_t ideal_channels = format->getChannels();
+													bool ideal_signed = $$nc(format->getEncoding())->equals($AudioFormat$Encoding::PCM_SIGNED);
+													float ideal_rate = format->getSampleRate();
+													bool ideal_endian = format->isBigEndian();
+													int32_t ideal_bits = format->getSampleSizeInBits();
+													if (ideal_bits == $AudioSystem::NOT_SPECIFIED) {
+														ideal_bits = 16;
 													}
+													if (ideal_channels == $AudioSystem::NOT_SPECIFIED) {
+														ideal_channels = 2;
+													}
+													if (ideal_rate == $AudioSystem::NOT_SPECIFIED) {
+														ideal_rate = 48000;
+													}
+													$assign(idealformat, $new($AudioFormat, ideal_rate, ideal_bits, ideal_channels, ideal_signed, ideal_endian));
+													idealFound$break = true;
+													break;
 												}
 											}
 										}
 									}
-									if (idealFound$break) {
-										break;
-									}
+								}
+								if (idealFound$break) {
+									break;
 								}
 							}
-							if (idealformat != nullptr) {
-								$set(this, format, idealformat);
-								$assign(line, $cast($SourceDataLine, defaultmixer->getLine(idealinfo)));
-							}
 						}
-						if (line == nullptr) {
-							$assign(line, $AudioSystem::getSourceDataLine(this->format));
-						}
-					} catch ($Throwable& var$5) {
-						$assign(var$0, var$5);
-					} /*finally*/ {
-						$synchronized($SoftMixingMixerProvider::mutex) {
-							$assignStatic($SoftMixingMixerProvider::lockthread, nullptr);
+						if (idealformat != nullptr) {
+							$set(this, format, idealformat);
+							$assign(line, $cast($SourceDataLine, defaultmixer->getLine(idealinfo)));
 						}
 					}
-					if (var$0 != nullptr) {
-						$throw(var$0);
+					if (line == nullptr) {
+						$assign(line, $AudioSystem::getSourceDataLine(this->format));
+					}
+				} catch ($Throwable& var$5) {
+					$assign(var$0, var$5);
+				} /*finally*/ {
+					$synchronized($SoftMixingMixerProvider::mutex) {
+						$assignStatic($SoftMixingMixerProvider::lockthread, nullptr);
 					}
 				}
+				if (var$0 != nullptr) {
+					$throw(var$0);
+				}
 				if (line == nullptr) {
-					$throwNew($IllegalArgumentException, $$str({"No line matching "_s, $($nc(SoftMixingMixer::info)->toString()), " is supported."_s}));
+					$throwNew($IllegalArgumentException, $$str({"No line matching "_s, $(SoftMixingMixer::info->toString()), " is supported."_s}));
 				}
 			}
 			double latency = (double)this->latency;
 			if (!$nc(line)->isOpen()) {
-				int32_t var$6 = $nc($(getFormat()))->getFrameSize();
-				int32_t bufferSize = var$6 * $cast(int32_t, ($nc($(getFormat()))->getFrameRate() * (latency / 1000000.0f)));
+				int32_t var$6 = $$nc(getFormat())->getFrameSize();
+				int32_t bufferSize = var$6 * $cast(int32_t, ($$nc(getFormat())->getFrameRate() * (latency / 1000000.0f)));
 				line->open($(getFormat()), bufferSize);
 				$set(this, sourceDataLine, line);
 			}
-			if (!$nc(line)->isActive()) {
+			if (!line->isActive()) {
 				line->start();
 			}
 			int32_t controlbuffersize = 512;
@@ -515,14 +427,15 @@ void SoftMixingMixer::open($SourceDataLine* line$renamed) {
 				controlbuffersize = $nc(ais)->available();
 			} catch ($IOException& e) {
 			}
-			int32_t buffersize = $nc(line)->getBufferSize();
+			int32_t buffersize = line->getBufferSize();
 			buffersize -= $mod(buffersize, controlbuffersize);
 			if (buffersize < 3 * controlbuffersize) {
 				buffersize = 3 * controlbuffersize;
 			}
+			;
 			$set(this, pusher, $new($SoftAudioPusher, line, ais, controlbuffersize));
 			$set(this, pusher_stream, ais);
-			$nc(this->pusher)->start();
+			this->pusher->start();
 		} catch ($LineUnavailableException& e) {
 			if (isOpen()) {
 				close();
@@ -551,7 +464,7 @@ $AudioInputStream* SoftMixingMixer::openStream($AudioFormat* targetFormat) {
 
 void SoftMixingMixer::removeLineListener($LineListener* listener) {
 	$synchronized(this->control_mutex) {
-		$nc(this->listeners)->remove($of(listener));
+		this->listeners->remove(listener);
 	}
 }
 
@@ -578,7 +491,7 @@ $SoftMixingMainMixer* SoftMixingMixer::getMainMixer() {
 	return this->mainmixer;
 }
 
-void clinit$SoftMixingMixer($Class* class$) {
+void SoftMixingMixer::clinit$($Class* clazz) {
 	$assignStatic(SoftMixingMixer::INFO_NAME, "Gervill Sound Mixer"_s);
 	$assignStatic(SoftMixingMixer::INFO_VENDOR, "OpenJDK Proposal"_s);
 	$assignStatic(SoftMixingMixer::INFO_DESCRIPTION, "Software Sound Mixer"_s);
@@ -590,7 +503,81 @@ SoftMixingMixer::SoftMixingMixer() {
 }
 
 $Class* SoftMixingMixer::load$($String* name, bool initialize) {
-	$loadClass(SoftMixingMixer, name, initialize, &_SoftMixingMixer_ClassInfo_, clinit$SoftMixingMixer, allocate$SoftMixingMixer);
+	$FieldInfo fieldInfos$$[] = {
+		{"INFO_NAME", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(SoftMixingMixer, INFO_NAME)},
+		{"INFO_VENDOR", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(SoftMixingMixer, INFO_VENDOR)},
+		{"INFO_DESCRIPTION", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(SoftMixingMixer, INFO_DESCRIPTION)},
+		{"INFO_VERSION", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(SoftMixingMixer, INFO_VERSION)},
+		{"info", "Ljavax/sound/sampled/Mixer$Info;", nullptr, $STATIC | $FINAL, $staticField(SoftMixingMixer, info)},
+		{"control_mutex", "Ljava/lang/Object;", nullptr, $FINAL, $field(SoftMixingMixer, control_mutex)},
+		{"implicitOpen", "Z", nullptr, 0, $field(SoftMixingMixer, implicitOpen)},
+		{"open", "Z", nullptr, $PRIVATE, $field(SoftMixingMixer, open$)},
+		{"mainmixer", "Lcom/sun/media/sound/SoftMixingMainMixer;", nullptr, $PRIVATE, $field(SoftMixingMixer, mainmixer)},
+		{"format", "Ljavax/sound/sampled/AudioFormat;", nullptr, $PRIVATE, $field(SoftMixingMixer, format)},
+		{"sourceDataLine", "Ljavax/sound/sampled/SourceDataLine;", nullptr, $PRIVATE, $field(SoftMixingMixer, sourceDataLine)},
+		{"pusher", "Lcom/sun/media/sound/SoftAudioPusher;", nullptr, $PRIVATE, $field(SoftMixingMixer, pusher)},
+		{"pusher_stream", "Ljavax/sound/sampled/AudioInputStream;", nullptr, $PRIVATE, $field(SoftMixingMixer, pusher_stream)},
+		{"controlrate", "F", nullptr, $PRIVATE | $FINAL, $field(SoftMixingMixer, controlrate)},
+		{"latency", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SoftMixingMixer, latency)},
+		{"jitter_correction", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SoftMixingMixer, jitter_correction)},
+		{"listeners", "Ljava/util/List;", "Ljava/util/List<Ljavax/sound/sampled/LineListener;>;", $PRIVATE | $FINAL, $field(SoftMixingMixer, listeners)},
+		{"sourceLineInfo", "[Ljavax/sound/sampled/Line$Info;", nullptr, $PRIVATE | $FINAL, $field(SoftMixingMixer, sourceLineInfo)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SoftMixingMixer, init$, void)},
+		{"addLineListener", "(Ljavax/sound/sampled/LineListener;)V", nullptr, $PUBLIC, $virtualMethod(SoftMixingMixer, addLineListener, void, $LineListener*)},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(SoftMixingMixer, close, void)},
+		{"getControl", "(Ljavax/sound/sampled/Control$Type;)Ljavax/sound/sampled/Control;", nullptr, $PUBLIC, $virtualMethod(SoftMixingMixer, getControl, $Control*, $Control$Type*)},
+		{"getControlRate", "()F", nullptr, 0, $method(SoftMixingMixer, getControlRate, float)},
+		{"getControls", "()[Ljavax/sound/sampled/Control;", nullptr, $PUBLIC, $virtualMethod(SoftMixingMixer, getControls, $ControlArray*)},
+		{"getFormat", "()Ljavax/sound/sampled/AudioFormat;", nullptr, $PUBLIC, $method(SoftMixingMixer, getFormat, $AudioFormat*)},
+		{"getLatency", "()J", nullptr, $PUBLIC, $method(SoftMixingMixer, getLatency, int64_t)},
+		{"getLine", "(Ljavax/sound/sampled/Line$Info;)Ljavax/sound/sampled/Line;", nullptr, $PUBLIC, $virtualMethod(SoftMixingMixer, getLine, $Line*, $Line$Info*), "javax.sound.sampled.LineUnavailableException"},
+		{"getLineInfo", "()Ljavax/sound/sampled/Line$Info;", nullptr, $PUBLIC, $virtualMethod(SoftMixingMixer, getLineInfo, $Line$Info*)},
+		{"getMainMixer", "()Lcom/sun/media/sound/SoftMixingMainMixer;", nullptr, 0, $method(SoftMixingMixer, getMainMixer, $SoftMixingMainMixer*)},
+		{"getMaxLines", "(Ljavax/sound/sampled/Line$Info;)I", nullptr, $PUBLIC, $virtualMethod(SoftMixingMixer, getMaxLines, int32_t, $Line$Info*)},
+		{"getMixerInfo", "()Ljavax/sound/sampled/Mixer$Info;", nullptr, $PUBLIC, $virtualMethod(SoftMixingMixer, getMixerInfo, $Mixer$Info*)},
+		{"getSourceLineInfo", "()[Ljavax/sound/sampled/Line$Info;", nullptr, $PUBLIC, $virtualMethod(SoftMixingMixer, getSourceLineInfo, $Line$InfoArray*)},
+		{"getSourceLineInfo", "(Ljavax/sound/sampled/Line$Info;)[Ljavax/sound/sampled/Line$Info;", nullptr, $PUBLIC, $virtualMethod(SoftMixingMixer, getSourceLineInfo, $Line$InfoArray*, $Line$Info*)},
+		{"getSourceLines", "()[Ljavax/sound/sampled/Line;", nullptr, $PUBLIC, $virtualMethod(SoftMixingMixer, getSourceLines, $LineArray*)},
+		{"getTargetLineInfo", "()[Ljavax/sound/sampled/Line$Info;", nullptr, $PUBLIC, $virtualMethod(SoftMixingMixer, getTargetLineInfo, $Line$InfoArray*)},
+		{"getTargetLineInfo", "(Ljavax/sound/sampled/Line$Info;)[Ljavax/sound/sampled/Line$Info;", nullptr, $PUBLIC, $virtualMethod(SoftMixingMixer, getTargetLineInfo, $Line$InfoArray*, $Line$Info*)},
+		{"getTargetLines", "()[Ljavax/sound/sampled/Line;", nullptr, $PUBLIC, $virtualMethod(SoftMixingMixer, getTargetLines, $LineArray*)},
+		{"isControlSupported", "(Ljavax/sound/sampled/Control$Type;)Z", nullptr, $PUBLIC, $virtualMethod(SoftMixingMixer, isControlSupported, bool, $Control$Type*)},
+		{"isLineSupported", "(Ljavax/sound/sampled/Line$Info;)Z", nullptr, $PUBLIC, $virtualMethod(SoftMixingMixer, isLineSupported, bool, $Line$Info*)},
+		{"isOpen", "()Z", nullptr, $PUBLIC, $virtualMethod(SoftMixingMixer, isOpen, bool)},
+		{"isSynchronizationSupported", "([Ljavax/sound/sampled/Line;Z)Z", nullptr, $PUBLIC, $virtualMethod(SoftMixingMixer, isSynchronizationSupported, bool, $LineArray*, bool)},
+		{"open", "()V", nullptr, $PUBLIC, $virtualMethod(SoftMixingMixer, open, void), "javax.sound.sampled.LineUnavailableException"},
+		{"open", "(Ljavax/sound/sampled/SourceDataLine;)V", nullptr, $PUBLIC, $method(SoftMixingMixer, open, void, $SourceDataLine*), "javax.sound.sampled.LineUnavailableException"},
+		{"openStream", "(Ljavax/sound/sampled/AudioFormat;)Ljavax/sound/sampled/AudioInputStream;", nullptr, $PUBLIC, $method(SoftMixingMixer, openStream, $AudioInputStream*, $AudioFormat*), "javax.sound.sampled.LineUnavailableException"},
+		{"removeLineListener", "(Ljavax/sound/sampled/LineListener;)V", nullptr, $PUBLIC, $virtualMethod(SoftMixingMixer, removeLineListener, void, $LineListener*)},
+		{"sendEvent", "(Ljavax/sound/sampled/LineEvent;)V", nullptr, $PRIVATE, $method(SoftMixingMixer, sendEvent, void, $LineEvent*)},
+		{"synchronize", "([Ljavax/sound/sampled/Line;Z)V", nullptr, $PUBLIC, $virtualMethod(SoftMixingMixer, synchronize, void, $LineArray*, bool)},
+		{"unsynchronize", "([Ljavax/sound/sampled/Line;)V", nullptr, $PUBLIC, $virtualMethod(SoftMixingMixer, unsynchronize, void, $LineArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.media.sound.SoftMixingMixer$Info", "com.sun.media.sound.SoftMixingMixer", "Info", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.media.sound.SoftMixingMixer",
+		"java.lang.Object",
+		"javax.sound.sampled.Mixer",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.media.sound.SoftMixingMixer$Info"
+	};
+	$loadClass(SoftMixingMixer, name, initialize, &classInfo$$, SoftMixingMixer::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(SoftMixingMixer);
+	});
 	return class$;
 }
 

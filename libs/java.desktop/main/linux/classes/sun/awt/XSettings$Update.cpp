@@ -1,5 +1,4 @@
 #include <sun/awt/XSettings$Update.h>
-
 #include <java/awt/Color.h>
 #include <java/io/UnsupportedEncodingException.h>
 #include <java/lang/IndexOutOfBoundsException.h>
@@ -31,62 +30,6 @@ using $XSettings = ::sun::awt::XSettings;
 namespace sun {
 	namespace awt {
 
-$FieldInfo _XSettings$Update_FieldInfo_[] = {
-	{"this$0", "Lsun/awt/XSettings;", nullptr, $FINAL | $SYNTHETIC, $field(XSettings$Update, this$0)},
-	{"LITTLE_ENDIAN", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XSettings$Update, LITTLE_ENDIAN)},
-	{"BIG_ENDIAN", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XSettings$Update, BIG_ENDIAN)},
-	{"TYPE_INTEGER", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XSettings$Update, TYPE_INTEGER)},
-	{"TYPE_STRING", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XSettings$Update, TYPE_STRING)},
-	{"TYPE_COLOR", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XSettings$Update, TYPE_COLOR)},
-	{"data", "[B", nullptr, $PRIVATE, $field(XSettings$Update, data)},
-	{"dlen", "I", nullptr, $PRIVATE, $field(XSettings$Update, dlen)},
-	{"idx", "I", nullptr, $PRIVATE, $field(XSettings$Update, idx)},
-	{"isLittle", "Z", nullptr, $PRIVATE, $field(XSettings$Update, isLittle)},
-	{"serial", "J", nullptr, $PRIVATE, $field(XSettings$Update, serial)},
-	{"nsettings", "I", nullptr, $PRIVATE, $field(XSettings$Update, nsettings)},
-	{"isValid", "Z", nullptr, $PRIVATE, $field(XSettings$Update, isValid)},
-	{"updatedSettings", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/Object;>;", $PRIVATE, $field(XSettings$Update, updatedSettings)},
-	{}
-};
-
-$MethodInfo _XSettings$Update_MethodInfo_[] = {
-	{"<init>", "(Lsun/awt/XSettings;[B)V", nullptr, 0, $method(XSettings$Update, init$, void, $XSettings*, $bytes*)},
-	{"getCARD16", "()I", nullptr, $PRIVATE, $method(XSettings$Update, getCARD16, int32_t), "java.lang.IndexOutOfBoundsException"},
-	{"getCARD32", "()J", nullptr, $PRIVATE, $method(XSettings$Update, getCARD32, int64_t), "java.lang.IndexOutOfBoundsException"},
-	{"getCARD8", "()I", nullptr, $PRIVATE, $method(XSettings$Update, getCARD8, int32_t), "java.lang.IndexOutOfBoundsException"},
-	{"getINT32", "()I", nullptr, $PRIVATE, $method(XSettings$Update, getINT32, int32_t), "java.lang.IndexOutOfBoundsException"},
-	{"getString", "(I)Ljava/lang/String;", nullptr, $PRIVATE, $method(XSettings$Update, getString, $String*, int32_t), "java.lang.IndexOutOfBoundsException"},
-	{"needBytes", "(I)V", nullptr, $PRIVATE, $method(XSettings$Update, needBytes, void, int32_t), "java.lang.IndexOutOfBoundsException"},
-	{"update", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;", $PUBLIC, $virtualMethod(XSettings$Update, update, $Map*)},
-	{"updateOne", "(J)V", nullptr, $PRIVATE, $method(XSettings$Update, updateOne, void, int64_t), "java.lang.IndexOutOfBoundsException,java.lang.IllegalArgumentException"},
-	{}
-};
-
-$InnerClassInfo _XSettings$Update_InnerClassesInfo_[] = {
-	{"sun.awt.XSettings$Update", "sun.awt.XSettings", "Update", 0},
-	{}
-};
-
-$ClassInfo _XSettings$Update_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.awt.XSettings$Update",
-	"java.lang.Object",
-	nullptr,
-	_XSettings$Update_FieldInfo_,
-	_XSettings$Update_MethodInfo_,
-	nullptr,
-	nullptr,
-	_XSettings$Update_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.awt.XSettings"
-};
-
-$Object* allocate$XSettings$Update($Class* clazz) {
-	return $of($alloc(XSettings$Update));
-}
-
 void XSettings$Update::init$($XSettings* this$0, $bytes* data) {
 	$set(this, this$0, this$0);
 	this->serial = -1;
@@ -107,7 +50,7 @@ void XSettings$Update::init$($XSettings* this$0, $bytes* data) {
 }
 
 void XSettings$Update::needBytes(int32_t n) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->idx + n <= this->dlen) {
 		return;
 	}
@@ -116,7 +59,7 @@ void XSettings$Update::needBytes(int32_t n) {
 
 int32_t XSettings$Update::getCARD8() {
 	needBytes(1);
-	int32_t val = (int32_t)($nc(this->data)->get(this->idx) & (uint32_t)255);
+	int32_t val = $nc(this->data)->get(this->idx) & 0xff;
 	++this->idx;
 	return val;
 }
@@ -125,9 +68,9 @@ int32_t XSettings$Update::getCARD16() {
 	needBytes(2);
 	int32_t val = 0;
 	if (this->isLittle) {
-		val = ((int32_t)($nc(this->data)->get(this->idx + 0) & (uint32_t)255)) | (((int32_t)($nc(this->data)->get(this->idx + 1) & (uint32_t)255)) << 8);
+		val = ($nc(this->data)->get(this->idx + 0) & 0xff) | (($nc(this->data)->get(this->idx + 1) & 0xff) << 8);
 	} else {
-		val = (((int32_t)($nc(this->data)->get(this->idx + 0) & (uint32_t)255)) << 8) | ((int32_t)($nc(this->data)->get(this->idx + 1) & (uint32_t)255));
+		val = (($nc(this->data)->get(this->idx + 0) & 0xff) << 8) | ($nc(this->data)->get(this->idx + 1) & 0xff);
 	}
 	this->idx += 2;
 	return val;
@@ -137,16 +80,16 @@ int32_t XSettings$Update::getINT32() {
 	needBytes(4);
 	int32_t val = 0;
 	if (this->isLittle) {
-		val = ((((int32_t)($nc(this->data)->get(this->idx + 0) & (uint32_t)255)) | (((int32_t)($nc(this->data)->get(this->idx + 1) & (uint32_t)255)) << 8)) | (((int32_t)($nc(this->data)->get(this->idx + 2) & (uint32_t)255)) << 16)) | (((int32_t)($nc(this->data)->get(this->idx + 3) & (uint32_t)255)) << 24);
+		val = ((($nc(this->data)->get(this->idx + 0) & 0xff) | (($nc(this->data)->get(this->idx + 1) & 0xff) << 8)) | (($nc(this->data)->get(this->idx + 2) & 0xff) << 16)) | (($nc(this->data)->get(this->idx + 3) & 0xff) << 24);
 	} else {
-		val = (((((int32_t)($nc(this->data)->get(this->idx + 0) & (uint32_t)255)) << 24) | (((int32_t)($nc(this->data)->get(this->idx + 1) & (uint32_t)255)) << 16)) | (((int32_t)($nc(this->data)->get(this->idx + 2) & (uint32_t)255)) << 8)) | (((int32_t)($nc(this->data)->get(this->idx + 3) & (uint32_t)255)) << 0);
+		val = (((($nc(this->data)->get(this->idx + 0) & 0xff) << 24) | (($nc(this->data)->get(this->idx + 1) & 0xff) << 16)) | (($nc(this->data)->get(this->idx + 2) & 0xff) << 8)) | (($nc(this->data)->get(this->idx + 3) & 0xff) << 0);
 	}
 	this->idx += 4;
 	return val;
 }
 
 int64_t XSettings$Update::getCARD32() {
-	return (int64_t)(getINT32() & (uint64_t)(int64_t)0x00000000FFFFFFFF);
+	return getINT32() & (int64_t)0xffffffff;
 }
 
 $String* XSettings$Update::getString(int32_t len) {
@@ -156,7 +99,7 @@ $String* XSettings$Update::getString(int32_t len) {
 		$assign(str, $new($String, this->data, this->idx, len, "UTF-8"_s));
 	} catch ($UnsupportedEncodingException& e) {
 	}
-	this->idx = (int32_t)((this->idx + len + 3) & (uint32_t)~3);
+	this->idx = (this->idx + len + 3) & ~3;
 	return str;
 }
 
@@ -178,19 +121,19 @@ $Map* XSettings$Update::update() {
 }
 
 void XSettings$Update::updateOne(int64_t currentSerial) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t type = getCARD8();
 	++this->idx;
 	int32_t nameLen = getCARD16();
 	int32_t nameIdx = this->idx;
-	this->idx = (int32_t)((this->idx + nameLen + 3) & (uint32_t)~3);
+	this->idx = (this->idx + nameLen + 3) & ~3;
 	int64_t lastChanged = getCARD32();
 	if (lastChanged <= currentSerial) {
 		if (type == XSettings$Update::TYPE_INTEGER) {
 			this->idx += 4;
 		} else if (type == XSettings$Update::TYPE_STRING) {
 			int32_t len = getINT32();
-			this->idx = (int32_t)((this->idx + len + 3) & (uint32_t)~3);
+			this->idx = (this->idx + len + 3) & ~3;
 		} else if (type == XSettings$Update::TYPE_COLOR) {
 			this->idx += 8;
 		} else {
@@ -225,7 +168,57 @@ XSettings$Update::XSettings$Update() {
 }
 
 $Class* XSettings$Update::load$($String* name, bool initialize) {
-	$loadClass(XSettings$Update, name, initialize, &_XSettings$Update_ClassInfo_, allocate$XSettings$Update);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/awt/XSettings;", nullptr, $FINAL | $SYNTHETIC, $field(XSettings$Update, this$0)},
+		{"LITTLE_ENDIAN", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XSettings$Update, LITTLE_ENDIAN)},
+		{"BIG_ENDIAN", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XSettings$Update, BIG_ENDIAN)},
+		{"TYPE_INTEGER", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XSettings$Update, TYPE_INTEGER)},
+		{"TYPE_STRING", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XSettings$Update, TYPE_STRING)},
+		{"TYPE_COLOR", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XSettings$Update, TYPE_COLOR)},
+		{"data", "[B", nullptr, $PRIVATE, $field(XSettings$Update, data)},
+		{"dlen", "I", nullptr, $PRIVATE, $field(XSettings$Update, dlen)},
+		{"idx", "I", nullptr, $PRIVATE, $field(XSettings$Update, idx)},
+		{"isLittle", "Z", nullptr, $PRIVATE, $field(XSettings$Update, isLittle)},
+		{"serial", "J", nullptr, $PRIVATE, $field(XSettings$Update, serial)},
+		{"nsettings", "I", nullptr, $PRIVATE, $field(XSettings$Update, nsettings)},
+		{"isValid", "Z", nullptr, $PRIVATE, $field(XSettings$Update, isValid)},
+		{"updatedSettings", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/Object;>;", $PRIVATE, $field(XSettings$Update, updatedSettings)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/awt/XSettings;[B)V", nullptr, 0, $method(XSettings$Update, init$, void, $XSettings*, $bytes*)},
+		{"getCARD16", "()I", nullptr, $PRIVATE, $method(XSettings$Update, getCARD16, int32_t), "java.lang.IndexOutOfBoundsException"},
+		{"getCARD32", "()J", nullptr, $PRIVATE, $method(XSettings$Update, getCARD32, int64_t), "java.lang.IndexOutOfBoundsException"},
+		{"getCARD8", "()I", nullptr, $PRIVATE, $method(XSettings$Update, getCARD8, int32_t), "java.lang.IndexOutOfBoundsException"},
+		{"getINT32", "()I", nullptr, $PRIVATE, $method(XSettings$Update, getINT32, int32_t), "java.lang.IndexOutOfBoundsException"},
+		{"getString", "(I)Ljava/lang/String;", nullptr, $PRIVATE, $method(XSettings$Update, getString, $String*, int32_t), "java.lang.IndexOutOfBoundsException"},
+		{"needBytes", "(I)V", nullptr, $PRIVATE, $method(XSettings$Update, needBytes, void, int32_t), "java.lang.IndexOutOfBoundsException"},
+		{"update", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;", $PUBLIC, $virtualMethod(XSettings$Update, update, $Map*)},
+		{"updateOne", "(J)V", nullptr, $PRIVATE, $method(XSettings$Update, updateOne, void, int64_t), "java.lang.IndexOutOfBoundsException,java.lang.IllegalArgumentException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.XSettings$Update", "sun.awt.XSettings", "Update", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.awt.XSettings$Update",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.awt.XSettings"
+	};
+	$loadClass(XSettings$Update, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XSettings$Update);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/BorderUIResource$CompoundBorderUIResource.h>
-
 #include <javax/swing/border/Border.h>
 #include <javax/swing/border/CompoundBorder.h>
 #include <javax/swing/plaf/BorderUIResource.h>
@@ -17,57 +16,6 @@ using $CompoundBorder = ::javax::swing::border::CompoundBorder;
 namespace javax {
 	namespace swing {
 		namespace plaf {
-
-$Attribute BorderUIResource$CompoundBorderUIResource_Attribute_var$1[] = {
-	{'s', "outsideBorder"},
-	{'s', "insideBorder"},
-	{'-'}
-};
-
-$NamedAttribute BorderUIResource$CompoundBorderUIResource_Attribute_var$0[] = {
-	{"value", '[', BorderUIResource$CompoundBorderUIResource_Attribute_var$1},
-	{}
-};
-
-$CompoundAttribute _BorderUIResource$CompoundBorderUIResource_MethodAnnotations_init$0[] = {
-	{"Ljava/beans/ConstructorProperties;", BorderUIResource$CompoundBorderUIResource_Attribute_var$0},
-	{}
-};
-
-$MethodInfo _BorderUIResource$CompoundBorderUIResource_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljavax/swing/border/Border;Ljavax/swing/border/Border;)V", nullptr, $PUBLIC, $method(BorderUIResource$CompoundBorderUIResource, init$, void, $Border*, $Border*), nullptr, nullptr, _BorderUIResource$CompoundBorderUIResource_MethodAnnotations_init$0},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _BorderUIResource$CompoundBorderUIResource_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.BorderUIResource$CompoundBorderUIResource", "javax.swing.plaf.BorderUIResource", "CompoundBorderUIResource", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _BorderUIResource$CompoundBorderUIResource_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.BorderUIResource$CompoundBorderUIResource",
-	"javax.swing.border.CompoundBorder",
-	"javax.swing.plaf.UIResource",
-	nullptr,
-	_BorderUIResource$CompoundBorderUIResource_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BorderUIResource$CompoundBorderUIResource_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.BorderUIResource"
-};
-
-$Object* allocate$BorderUIResource$CompoundBorderUIResource($Class* clazz) {
-	return $of($alloc(BorderUIResource$CompoundBorderUIResource));
-}
 
 int32_t BorderUIResource$CompoundBorderUIResource::hashCode() {
 	 return this->$CompoundBorder::hashCode();
@@ -97,7 +45,50 @@ BorderUIResource$CompoundBorderUIResource::BorderUIResource$CompoundBorderUIReso
 }
 
 $Class* BorderUIResource$CompoundBorderUIResource::load$($String* name, bool initialize) {
-	$loadClass(BorderUIResource$CompoundBorderUIResource, name, initialize, &_BorderUIResource$CompoundBorderUIResource_ClassInfo_, allocate$BorderUIResource$CompoundBorderUIResource);
+	$Attribute $attribute[] = {
+		{'s', "outsideBorder"},
+		{'s', "insideBorder"},
+		{'-'}
+	};
+	$NamedAttribute init$methodAnnotations$$$namedAttribute[] = {
+		{"value", '[', $attribute},
+		{}
+	};
+	$CompoundAttribute init$methodAnnotations$$[] = {
+		{"Ljava/beans/ConstructorProperties;", init$methodAnnotations$$$namedAttribute},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljavax/swing/border/Border;Ljavax/swing/border/Border;)V", nullptr, $PUBLIC, $method(BorderUIResource$CompoundBorderUIResource, init$, void, $Border*, $Border*), nullptr, nullptr, init$methodAnnotations$$},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.BorderUIResource$CompoundBorderUIResource", "javax.swing.plaf.BorderUIResource", "CompoundBorderUIResource", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.BorderUIResource$CompoundBorderUIResource",
+		"javax.swing.border.CompoundBorder",
+		"javax.swing.plaf.UIResource",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.BorderUIResource"
+	};
+	$loadClass(BorderUIResource$CompoundBorderUIResource, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(BorderUIResource$CompoundBorderUIResource));
+	});
 	return class$;
 }
 

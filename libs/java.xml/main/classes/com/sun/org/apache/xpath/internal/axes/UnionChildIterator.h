@@ -44,7 +44,7 @@ public:
 	virtual int16_t acceptNode(int32_t n) override;
 	virtual void addNodeTest(::com::sun::org::apache::xpath::internal::axes::PredicatedNodeTest* test);
 	virtual void fixupVariables(::java::util::List* vars, int32_t globalsSize) override;
-	static const int64_t serialVersionUID = (int64_t)0x30938EEC96F3F3E7;
+	static const int64_t serialVersionUID = (int64_t)0x30938eec96f3f3e7;
 	$Array<::com::sun::org::apache::xpath::internal::axes::PredicatedNodeTest>* m_nodeTests = nullptr;
 };
 

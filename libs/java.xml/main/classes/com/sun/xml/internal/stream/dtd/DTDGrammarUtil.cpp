@@ -1,5 +1,4 @@
 #include <com/sun/xml/internal/stream/dtd/DTDGrammarUtil.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/Constants.h>
 #include <com/sun/org/apache/xerces/internal/util/NamespaceSupport.h>
 #include <com/sun/org/apache/xerces/internal/util/SymbolTable.h>
@@ -63,59 +62,6 @@ namespace com {
 			namespace internal {
 				namespace stream {
 					namespace dtd {
-
-$FieldInfo _DTDGrammarUtil_FieldInfo_[] = {
-	{"SYMBOL_TABLE", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(DTDGrammarUtil, SYMBOL_TABLE)},
-	{"NAMESPACES", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(DTDGrammarUtil, NAMESPACES)},
-	{"DEBUG_ATTRIBUTES", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DTDGrammarUtil, DEBUG_ATTRIBUTES)},
-	{"DEBUG_ELEMENT_CHILDREN", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DTDGrammarUtil, DEBUG_ELEMENT_CHILDREN)},
-	{"fDTDGrammar", "Lcom/sun/xml/internal/stream/dtd/nonvalidating/DTDGrammar;", nullptr, $PROTECTED, $field(DTDGrammarUtil, fDTDGrammar)},
-	{"fNamespaces", "Z", nullptr, $PROTECTED, $field(DTDGrammarUtil, fNamespaces)},
-	{"fSymbolTable", "Lcom/sun/org/apache/xerces/internal/util/SymbolTable;", nullptr, $PROTECTED, $field(DTDGrammarUtil, fSymbolTable)},
-	{"fCurrentElementIndex", "I", nullptr, $PRIVATE, $field(DTDGrammarUtil, fCurrentElementIndex)},
-	{"fCurrentContentSpecType", "I", nullptr, $PRIVATE, $field(DTDGrammarUtil, fCurrentContentSpecType)},
-	{"fElementContentState", "[Z", nullptr, $PRIVATE, $field(DTDGrammarUtil, fElementContentState)},
-	{"fElementDepth", "I", nullptr, $PRIVATE, $field(DTDGrammarUtil, fElementDepth)},
-	{"fInElementContent", "Z", nullptr, $PRIVATE, $field(DTDGrammarUtil, fInElementContent)},
-	{"fTempAttDecl", "Lcom/sun/xml/internal/stream/dtd/nonvalidating/XMLAttributeDecl;", nullptr, $PRIVATE, $field(DTDGrammarUtil, fTempAttDecl)},
-	{"fTempQName", "Lcom/sun/org/apache/xerces/internal/xni/QName;", nullptr, $PRIVATE, $field(DTDGrammarUtil, fTempQName)},
-	{"fBuffer", "Ljava/lang/StringBuilder;", nullptr, $PRIVATE, $field(DTDGrammarUtil, fBuffer)},
-	{"fNamespaceContext", "Lcom/sun/org/apache/xerces/internal/xni/NamespaceContext;", nullptr, $PRIVATE, $field(DTDGrammarUtil, fNamespaceContext)},
-	{}
-};
-
-$MethodInfo _DTDGrammarUtil_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/org/apache/xerces/internal/util/SymbolTable;)V", nullptr, $PUBLIC, $method(DTDGrammarUtil, init$, void, $SymbolTable*)},
-	{"<init>", "(Lcom/sun/xml/internal/stream/dtd/nonvalidating/DTDGrammar;Lcom/sun/org/apache/xerces/internal/util/SymbolTable;)V", nullptr, $PUBLIC, $method(DTDGrammarUtil, init$, void, $DTDGrammar*, $SymbolTable*)},
-	{"<init>", "(Lcom/sun/xml/internal/stream/dtd/nonvalidating/DTDGrammar;Lcom/sun/org/apache/xerces/internal/util/SymbolTable;Lcom/sun/org/apache/xerces/internal/xni/NamespaceContext;)V", nullptr, $PUBLIC, $method(DTDGrammarUtil, init$, void, $DTDGrammar*, $SymbolTable*, $NamespaceContext*)},
-	{"addDTDDefaultAttrs", "(Lcom/sun/org/apache/xerces/internal/xni/QName;Lcom/sun/org/apache/xerces/internal/xni/XMLAttributes;)V", nullptr, $PUBLIC, $virtualMethod(DTDGrammarUtil, addDTDDefaultAttrs, void, $QName*, $XMLAttributes*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
-	{"endCDATA", "(Lcom/sun/org/apache/xerces/internal/xni/Augmentations;)V", nullptr, $PUBLIC, $virtualMethod(DTDGrammarUtil, endCDATA, void, $Augmentations*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
-	{"endElement", "(Lcom/sun/org/apache/xerces/internal/xni/QName;)V", nullptr, $PUBLIC, $virtualMethod(DTDGrammarUtil, endElement, void, $QName*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
-	{"ensureStackCapacity", "(I)V", nullptr, $PRIVATE, $method(DTDGrammarUtil, ensureStackCapacity, void, int32_t)},
-	{"getAttributeTypeName", "(Lcom/sun/xml/internal/stream/dtd/nonvalidating/XMLAttributeDecl;)Ljava/lang/String;", nullptr, $PRIVATE, $method(DTDGrammarUtil, getAttributeTypeName, $String*, $XMLAttributeDecl*)},
-	{"handleEndElement", "(Lcom/sun/org/apache/xerces/internal/xni/QName;)V", nullptr, $PROTECTED, $virtualMethod(DTDGrammarUtil, handleEndElement, void, $QName*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
-	{"handleStartElement", "(Lcom/sun/org/apache/xerces/internal/xni/QName;Lcom/sun/org/apache/xerces/internal/xni/XMLAttributes;)V", nullptr, $PROTECTED, $virtualMethod(DTDGrammarUtil, handleStartElement, void, $QName*, $XMLAttributes*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
-	{"isIgnorableWhiteSpace", "(Lcom/sun/org/apache/xerces/internal/xni/XMLString;)Z", nullptr, $PUBLIC, $virtualMethod(DTDGrammarUtil, isIgnorableWhiteSpace, bool, $XMLString*)},
-	{"isInElementContent", "()Z", nullptr, $PUBLIC, $virtualMethod(DTDGrammarUtil, isInElementContent, bool)},
-	{"normalizeAttrValue", "(Lcom/sun/org/apache/xerces/internal/xni/XMLAttributes;I)Z", nullptr, $PRIVATE, $method(DTDGrammarUtil, normalizeAttrValue, bool, $XMLAttributes*, int32_t)},
-	{"reset", "(Lcom/sun/org/apache/xerces/internal/xni/parser/XMLComponentManager;)V", nullptr, $PUBLIC, $virtualMethod(DTDGrammarUtil, reset, void, $XMLComponentManager*), "com.sun.org.apache.xerces.internal.xni.parser.XMLConfigurationException"},
-	{"startCDATA", "(Lcom/sun/org/apache/xerces/internal/xni/Augmentations;)V", nullptr, $PUBLIC, $virtualMethod(DTDGrammarUtil, startCDATA, void, $Augmentations*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
-	{"startElement", "(Lcom/sun/org/apache/xerces/internal/xni/QName;Lcom/sun/org/apache/xerces/internal/xni/XMLAttributes;)V", nullptr, $PUBLIC, $virtualMethod(DTDGrammarUtil, startElement, void, $QName*, $XMLAttributes*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
-	{}
-};
-
-$ClassInfo _DTDGrammarUtil_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.xml.internal.stream.dtd.DTDGrammarUtil",
-	"java.lang.Object",
-	nullptr,
-	_DTDGrammarUtil_FieldInfo_,
-	_DTDGrammarUtil_MethodInfo_
-};
-
-$Object* allocate$DTDGrammarUtil($Class* clazz) {
-	return $of($alloc(DTDGrammarUtil));
-}
 
 $String* DTDGrammarUtil::SYMBOL_TABLE = nullptr;
 $String* DTDGrammarUtil::NAMESPACES = nullptr;
@@ -194,7 +140,7 @@ void DTDGrammarUtil::endCDATA($Augmentations* augs) {
 }
 
 void DTDGrammarUtil::addDTDDefaultAttrs($QName* elementName, $XMLAttributes* attributes) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t elementIndex = 0;
 	elementIndex = $nc(this->fDTDGrammar)->getElementDeclIndex(elementName);
 	if (elementIndex == -1 || this->fDTDGrammar == nullptr) {
@@ -203,14 +149,15 @@ void DTDGrammarUtil::addDTDDefaultAttrs($QName* elementName, $XMLAttributes* att
 	int32_t attlistIndex = $nc(this->fDTDGrammar)->getFirstAttributeDeclIndex(elementIndex);
 	while (attlistIndex != -1) {
 		$nc(this->fDTDGrammar)->getAttributeDecl(attlistIndex, this->fTempAttDecl);
+		;
 		$var($String, attPrefix, $nc($nc(this->fTempAttDecl)->name)->prefix);
-		$var($String, attLocalpart, $nc($nc(this->fTempAttDecl)->name)->localpart);
-		$var($String, attRawName, $nc($nc(this->fTempAttDecl)->name)->rawname);
+		$var($String, attLocalpart, this->fTempAttDecl->name->localpart);
+		$var($String, attRawName, this->fTempAttDecl->name->rawname);
 		$var($String, attType, getAttributeTypeName(this->fTempAttDecl));
 		int32_t attDefaultType = $nc($nc(this->fTempAttDecl)->simpleType)->defaultType;
 		$var($String, attValue, nullptr);
-		if ($nc($nc(this->fTempAttDecl)->simpleType)->defaultValue != nullptr) {
-			$assign(attValue, $nc($nc(this->fTempAttDecl)->simpleType)->defaultValue);
+		if (this->fTempAttDecl->simpleType->defaultValue != nullptr) {
+			$assign(attValue, this->fTempAttDecl->simpleType->defaultValue);
 		}
 		bool specified = false;
 		bool required = attDefaultType == $XMLSimpleType::DEFAULT_TYPE_REQUIRED;
@@ -220,14 +167,14 @@ void DTDGrammarUtil::addDTDDefaultAttrs($QName* elementName, $XMLAttributes* att
 			$init($XMLConstants);
 			if (this->fNamespaceContext != nullptr && $nc(attRawName)->startsWith($XMLConstants::XMLNS_ATTRIBUTE)) {
 				$var($String, prefix, ""_s);
-				int32_t pos = attRawName->indexOf((int32_t)u':');
+				int32_t pos = attRawName->indexOf(u':');
 				if (pos != -1) {
 					$assign(prefix, attRawName->substring(0, pos));
 				} else {
 					$assign(prefix, attRawName);
 				}
 				$assign(prefix, $nc(this->fSymbolTable)->addSymbol(prefix));
-				if (!$nc(($cast($NamespaceSupport, this->fNamespaceContext)))->containsPrefixInCurrentContext(prefix)) {
+				if (!$nc($cast($NamespaceSupport, this->fNamespaceContext))->containsPrefixInCurrentContext(prefix)) {
 					$nc(this->fNamespaceContext)->declarePrefix(prefix, attValue);
 				}
 				specified = true;
@@ -244,7 +191,7 @@ void DTDGrammarUtil::addDTDDefaultAttrs($QName* elementName, $XMLAttributes* att
 		if (!specified) {
 			if (attValue != nullptr) {
 				if (this->fNamespaces) {
-					int32_t index = $nc(attRawName)->indexOf((int32_t)u':');
+					int32_t index = $nc(attRawName)->indexOf(u':');
 					if (index != -1) {
 						$assign(attPrefix, attRawName->substring(0, index));
 						$assign(attPrefix, $nc(this->fSymbolTable)->addSymbol(attPrefix));
@@ -252,7 +199,7 @@ void DTDGrammarUtil::addDTDDefaultAttrs($QName* elementName, $XMLAttributes* att
 						$assign(attLocalpart, $nc(this->fSymbolTable)->addSymbol(attLocalpart));
 					}
 				}
-				$nc(this->fTempQName)->setValues(attPrefix, attLocalpart, attRawName, $nc($nc(this->fTempAttDecl)->name)->uri);
+				$nc(this->fTempQName)->setValues(attPrefix, attLocalpart, attRawName, $nc(this->fTempAttDecl)->name->uri);
 				int32_t newAttr = $nc(attributes)->addAttribute(this->fTempQName, attType, attValue);
 			}
 		}
@@ -285,7 +232,7 @@ void DTDGrammarUtil::addDTDDefaultAttrs($QName* elementName, $XMLAttributes* att
 }
 
 bool DTDGrammarUtil::normalizeAttrValue($XMLAttributes* attributes, int32_t index) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool leadingSpace = true;
 	bool spaceStart = false;
 	bool readingNonSpace = false;
@@ -303,7 +250,7 @@ bool DTDGrammarUtil::normalizeAttrValue($XMLAttributes* attributes, int32_t inde
 			}
 			if (spaceStart && !leadingSpace) {
 				spaceStart = false;
-				$nc(this->fBuffer)->append(attValue->get(i));
+				this->fBuffer->append(attValue->get(i));
 				++count;
 			} else if (leadingSpace || !spaceStart) {
 				++eaten;
@@ -312,70 +259,58 @@ bool DTDGrammarUtil::normalizeAttrValue($XMLAttributes* attributes, int32_t inde
 			readingNonSpace = true;
 			spaceStart = false;
 			leadingSpace = false;
-			$nc(this->fBuffer)->append(attValue->get(i));
+			this->fBuffer->append(attValue->get(i));
 			++count;
 		}
 	}
-	if (count > 0 && $nc(this->fBuffer)->charAt(count - 1) == u' ') {
-		$nc(this->fBuffer)->setLength(count - 1);
+	if (count > 0 && this->fBuffer->charAt(count - 1) == u' ') {
+		this->fBuffer->setLength(count - 1);
 	}
-	$var($String, newValue, $nc(this->fBuffer)->toString());
+	$var($String, newValue, this->fBuffer->toString());
 	attributes->setValue(index, newValue);
 	return !attrValue->equals(newValue);
 }
 
 $String* DTDGrammarUtil::getAttributeTypeName($XMLAttributeDecl* attrDecl) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	switch ($nc($nc(attrDecl)->simpleType)->type) {
 	case $XMLSimpleType::TYPE_ENTITY:
 		{
-			{
-				$init($XMLSymbols);
-				return $nc(attrDecl->simpleType)->list ? $XMLSymbols::fENTITIESSymbol : $XMLSymbols::fENTITYSymbol;
-			}
+			$init($XMLSymbols);
+			return attrDecl->simpleType->list ? $XMLSymbols::fENTITIESSymbol : $XMLSymbols::fENTITYSymbol;
 		}
 	case $XMLSimpleType::TYPE_ENUMERATION:
 		{
-			{
-				$var($StringBuilder, buffer, $new($StringBuilder));
-				buffer->append(u'(');
-				for (int32_t i = 0; i < $nc($nc(attrDecl->simpleType)->enumeration)->length; ++i) {
-					if (i > 0) {
-						buffer->append("|"_s);
-					}
-					buffer->append($nc($nc(attrDecl->simpleType)->enumeration)->get(i));
+			$var($StringBuilder, buffer, $new($StringBuilder));
+			buffer->append(u'(');
+			for (int32_t i = 0; i < $nc(attrDecl->simpleType->enumeration)->length; ++i) {
+				if (i > 0) {
+					buffer->append("|"_s);
 				}
-				buffer->append(u')');
-				return $nc(this->fSymbolTable)->addSymbol($(buffer->toString()));
+				buffer->append(attrDecl->simpleType->enumeration->get(i));
 			}
+			buffer->append(u')');
+			return $nc(this->fSymbolTable)->addSymbol($(buffer->toString()));
 		}
 	case $XMLSimpleType::TYPE_ID:
 		{
-			{
-				$init($XMLSymbols);
-				return $XMLSymbols::fIDSymbol;
-			}
+			$init($XMLSymbols);
+			return $XMLSymbols::fIDSymbol;
 		}
 	case $XMLSimpleType::TYPE_IDREF:
 		{
-			{
-				$init($XMLSymbols);
-				return $nc(attrDecl->simpleType)->list ? $XMLSymbols::fIDREFSSymbol : $XMLSymbols::fIDREFSymbol;
-			}
+			$init($XMLSymbols);
+			return attrDecl->simpleType->list ? $XMLSymbols::fIDREFSSymbol : $XMLSymbols::fIDREFSymbol;
 		}
 	case $XMLSimpleType::TYPE_NMTOKEN:
 		{
-			{
-				$init($XMLSymbols);
-				return $nc(attrDecl->simpleType)->list ? $XMLSymbols::fNMTOKENSSymbol : $XMLSymbols::fNMTOKENSymbol;
-			}
+			$init($XMLSymbols);
+			return attrDecl->simpleType->list ? $XMLSymbols::fNMTOKENSSymbol : $XMLSymbols::fNMTOKENSymbol;
 		}
 	case $XMLSimpleType::TYPE_NOTATION:
 		{
-			{
-				$init($XMLSymbols);
-				return $XMLSymbols::fNOTATIONSymbol;
-			}
+			$init($XMLSymbols);
+			return $XMLSymbols::fNOTATIONSymbol;
 		}
 	}
 	$init($XMLSymbols);
@@ -397,7 +332,7 @@ void DTDGrammarUtil::handleStartElement($QName* element, $XMLAttributes* attribu
 		this->fInElementContent = false;
 		return;
 	} else {
-		this->fCurrentElementIndex = $nc(this->fDTDGrammar)->getElementDeclIndex(element);
+		this->fCurrentElementIndex = this->fDTDGrammar->getElementDeclIndex(element);
 		this->fCurrentContentSpecType = $nc(this->fDTDGrammar)->getContentSpecType(this->fCurrentElementIndex);
 		addDTDDefaultAttrs(element, attributes);
 	}
@@ -443,14 +378,62 @@ bool DTDGrammarUtil::isIgnorableWhiteSpace($XMLString* text) {
 DTDGrammarUtil::DTDGrammarUtil() {
 }
 
-void clinit$DTDGrammarUtil($Class* class$) {
+void DTDGrammarUtil::clinit$($Class* clazz) {
 	$init($Constants);
 	$assignStatic(DTDGrammarUtil::SYMBOL_TABLE, $str({$Constants::XERCES_PROPERTY_PREFIX, $Constants::SYMBOL_TABLE_PROPERTY}));
 	$assignStatic(DTDGrammarUtil::NAMESPACES, $str({$Constants::SAX_FEATURE_PREFIX, $Constants::NAMESPACES_FEATURE}));
 }
 
 $Class* DTDGrammarUtil::load$($String* name, bool initialize) {
-	$loadClass(DTDGrammarUtil, name, initialize, &_DTDGrammarUtil_ClassInfo_, clinit$DTDGrammarUtil, allocate$DTDGrammarUtil);
+	$FieldInfo fieldInfos$$[] = {
+		{"SYMBOL_TABLE", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(DTDGrammarUtil, SYMBOL_TABLE)},
+		{"NAMESPACES", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(DTDGrammarUtil, NAMESPACES)},
+		{"DEBUG_ATTRIBUTES", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DTDGrammarUtil, DEBUG_ATTRIBUTES)},
+		{"DEBUG_ELEMENT_CHILDREN", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DTDGrammarUtil, DEBUG_ELEMENT_CHILDREN)},
+		{"fDTDGrammar", "Lcom/sun/xml/internal/stream/dtd/nonvalidating/DTDGrammar;", nullptr, $PROTECTED, $field(DTDGrammarUtil, fDTDGrammar)},
+		{"fNamespaces", "Z", nullptr, $PROTECTED, $field(DTDGrammarUtil, fNamespaces)},
+		{"fSymbolTable", "Lcom/sun/org/apache/xerces/internal/util/SymbolTable;", nullptr, $PROTECTED, $field(DTDGrammarUtil, fSymbolTable)},
+		{"fCurrentElementIndex", "I", nullptr, $PRIVATE, $field(DTDGrammarUtil, fCurrentElementIndex)},
+		{"fCurrentContentSpecType", "I", nullptr, $PRIVATE, $field(DTDGrammarUtil, fCurrentContentSpecType)},
+		{"fElementContentState", "[Z", nullptr, $PRIVATE, $field(DTDGrammarUtil, fElementContentState)},
+		{"fElementDepth", "I", nullptr, $PRIVATE, $field(DTDGrammarUtil, fElementDepth)},
+		{"fInElementContent", "Z", nullptr, $PRIVATE, $field(DTDGrammarUtil, fInElementContent)},
+		{"fTempAttDecl", "Lcom/sun/xml/internal/stream/dtd/nonvalidating/XMLAttributeDecl;", nullptr, $PRIVATE, $field(DTDGrammarUtil, fTempAttDecl)},
+		{"fTempQName", "Lcom/sun/org/apache/xerces/internal/xni/QName;", nullptr, $PRIVATE, $field(DTDGrammarUtil, fTempQName)},
+		{"fBuffer", "Ljava/lang/StringBuilder;", nullptr, $PRIVATE, $field(DTDGrammarUtil, fBuffer)},
+		{"fNamespaceContext", "Lcom/sun/org/apache/xerces/internal/xni/NamespaceContext;", nullptr, $PRIVATE, $field(DTDGrammarUtil, fNamespaceContext)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/org/apache/xerces/internal/util/SymbolTable;)V", nullptr, $PUBLIC, $method(DTDGrammarUtil, init$, void, $SymbolTable*)},
+		{"<init>", "(Lcom/sun/xml/internal/stream/dtd/nonvalidating/DTDGrammar;Lcom/sun/org/apache/xerces/internal/util/SymbolTable;)V", nullptr, $PUBLIC, $method(DTDGrammarUtil, init$, void, $DTDGrammar*, $SymbolTable*)},
+		{"<init>", "(Lcom/sun/xml/internal/stream/dtd/nonvalidating/DTDGrammar;Lcom/sun/org/apache/xerces/internal/util/SymbolTable;Lcom/sun/org/apache/xerces/internal/xni/NamespaceContext;)V", nullptr, $PUBLIC, $method(DTDGrammarUtil, init$, void, $DTDGrammar*, $SymbolTable*, $NamespaceContext*)},
+		{"addDTDDefaultAttrs", "(Lcom/sun/org/apache/xerces/internal/xni/QName;Lcom/sun/org/apache/xerces/internal/xni/XMLAttributes;)V", nullptr, $PUBLIC, $virtualMethod(DTDGrammarUtil, addDTDDefaultAttrs, void, $QName*, $XMLAttributes*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
+		{"endCDATA", "(Lcom/sun/org/apache/xerces/internal/xni/Augmentations;)V", nullptr, $PUBLIC, $virtualMethod(DTDGrammarUtil, endCDATA, void, $Augmentations*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
+		{"endElement", "(Lcom/sun/org/apache/xerces/internal/xni/QName;)V", nullptr, $PUBLIC, $virtualMethod(DTDGrammarUtil, endElement, void, $QName*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
+		{"ensureStackCapacity", "(I)V", nullptr, $PRIVATE, $method(DTDGrammarUtil, ensureStackCapacity, void, int32_t)},
+		{"getAttributeTypeName", "(Lcom/sun/xml/internal/stream/dtd/nonvalidating/XMLAttributeDecl;)Ljava/lang/String;", nullptr, $PRIVATE, $method(DTDGrammarUtil, getAttributeTypeName, $String*, $XMLAttributeDecl*)},
+		{"handleEndElement", "(Lcom/sun/org/apache/xerces/internal/xni/QName;)V", nullptr, $PROTECTED, $virtualMethod(DTDGrammarUtil, handleEndElement, void, $QName*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
+		{"handleStartElement", "(Lcom/sun/org/apache/xerces/internal/xni/QName;Lcom/sun/org/apache/xerces/internal/xni/XMLAttributes;)V", nullptr, $PROTECTED, $virtualMethod(DTDGrammarUtil, handleStartElement, void, $QName*, $XMLAttributes*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
+		{"isIgnorableWhiteSpace", "(Lcom/sun/org/apache/xerces/internal/xni/XMLString;)Z", nullptr, $PUBLIC, $virtualMethod(DTDGrammarUtil, isIgnorableWhiteSpace, bool, $XMLString*)},
+		{"isInElementContent", "()Z", nullptr, $PUBLIC, $virtualMethod(DTDGrammarUtil, isInElementContent, bool)},
+		{"normalizeAttrValue", "(Lcom/sun/org/apache/xerces/internal/xni/XMLAttributes;I)Z", nullptr, $PRIVATE, $method(DTDGrammarUtil, normalizeAttrValue, bool, $XMLAttributes*, int32_t)},
+		{"reset", "(Lcom/sun/org/apache/xerces/internal/xni/parser/XMLComponentManager;)V", nullptr, $PUBLIC, $virtualMethod(DTDGrammarUtil, reset, void, $XMLComponentManager*), "com.sun.org.apache.xerces.internal.xni.parser.XMLConfigurationException"},
+		{"startCDATA", "(Lcom/sun/org/apache/xerces/internal/xni/Augmentations;)V", nullptr, $PUBLIC, $virtualMethod(DTDGrammarUtil, startCDATA, void, $Augmentations*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
+		{"startElement", "(Lcom/sun/org/apache/xerces/internal/xni/QName;Lcom/sun/org/apache/xerces/internal/xni/XMLAttributes;)V", nullptr, $PUBLIC, $virtualMethod(DTDGrammarUtil, startElement, void, $QName*, $XMLAttributes*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.xml.internal.stream.dtd.DTDGrammarUtil",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DTDGrammarUtil, name, initialize, &classInfo$$, DTDGrammarUtil::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(DTDGrammarUtil);
+	});
 	return class$;
 }
 

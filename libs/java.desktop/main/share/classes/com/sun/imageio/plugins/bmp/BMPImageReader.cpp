@@ -1,5 +1,4 @@
 #include <com/sun/imageio/plugins/bmp/BMPImageReader.h>
-
 #include <com/sun/imageio/plugins/bmp/BMPConstants.h>
 #include <com/sun/imageio/plugins/bmp/BMPImageReader$1.h>
 #include <com/sun/imageio/plugins/bmp/BMPImageReader$2.h>
@@ -46,8 +45,6 @@
 #include <javax/imageio/ImageReader.h>
 #include <javax/imageio/ImageTypeSpecifier.h>
 #include <javax/imageio/event/IIOReadProgressListener.h>
-#include <javax/imageio/event/IIOReadUpdateListener.h>
-#include <javax/imageio/event/IIOReadWarningListener.h>
 #include <javax/imageio/metadata/IIOMetadata.h>
 #include <javax/imageio/spi/ImageReaderSpi.h>
 #include <javax/imageio/stream/ImageInputStream.h>
@@ -114,7 +111,6 @@ using $ColorSpace = ::java::awt::color::ColorSpace;
 using $ICC_ColorSpace = ::java::awt::color::ICC_ColorSpace;
 using $ICC_Profile = ::java::awt::color::ICC_Profile;
 using $BufferedImage = ::java::awt::image::BufferedImage;
-using $ColorModel = ::java::awt::image::ColorModel;
 using $ComponentSampleModel = ::java::awt::image::ComponentSampleModel;
 using $DataBuffer = ::java::awt::image::DataBuffer;
 using $DataBufferByte = ::java::awt::image::DataBufferByte;
@@ -125,7 +121,6 @@ using $IndexColorModel = ::java::awt::image::IndexColorModel;
 using $MultiPixelPackedSampleModel = ::java::awt::image::MultiPixelPackedSampleModel;
 using $PixelInterleavedSampleModel = ::java::awt::image::PixelInterleavedSampleModel;
 using $Raster = ::java::awt::image::Raster;
-using $SampleModel = ::java::awt::image::SampleModel;
 using $SinglePixelPackedSampleModel = ::java::awt::image::SinglePixelPackedSampleModel;
 using $WritableRaster = ::java::awt::image::WritableRaster;
 using $ByteArrayInputStream = ::java::io::ByteArrayInputStream;
@@ -153,9 +148,6 @@ using $ImageIO = ::javax::imageio::ImageIO;
 using $ImageReadParam = ::javax::imageio::ImageReadParam;
 using $ImageReader = ::javax::imageio::ImageReader;
 using $ImageTypeSpecifier = ::javax::imageio::ImageTypeSpecifier;
-using $IIOReadProgressListener = ::javax::imageio::event::IIOReadProgressListener;
-using $IIOReadUpdateListener = ::javax::imageio::event::IIOReadUpdateListener;
-using $IIOReadWarningListener = ::javax::imageio::event::IIOReadWarningListener;
 using $IIOMetadata = ::javax::imageio::metadata::IIOMetadata;
 using $ImageReaderSpi = ::javax::imageio::spi::ImageReaderSpi;
 using $ImageInputStream = ::javax::imageio::stream::ImageInputStream;
@@ -165,145 +157,6 @@ namespace com {
 		namespace imageio {
 			namespace plugins {
 				namespace bmp {
-
-$FieldInfo _BMPImageReader_FieldInfo_[] = {
-	{"VERSION_2_1_BIT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BMPImageReader, VERSION_2_1_BIT)},
-	{"VERSION_2_4_BIT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BMPImageReader, VERSION_2_4_BIT)},
-	{"VERSION_2_8_BIT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BMPImageReader, VERSION_2_8_BIT)},
-	{"VERSION_2_24_BIT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BMPImageReader, VERSION_2_24_BIT)},
-	{"VERSION_3_1_BIT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BMPImageReader, VERSION_3_1_BIT)},
-	{"VERSION_3_4_BIT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BMPImageReader, VERSION_3_4_BIT)},
-	{"VERSION_3_8_BIT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BMPImageReader, VERSION_3_8_BIT)},
-	{"VERSION_3_24_BIT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BMPImageReader, VERSION_3_24_BIT)},
-	{"VERSION_3_NT_16_BIT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BMPImageReader, VERSION_3_NT_16_BIT)},
-	{"VERSION_3_NT_32_BIT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BMPImageReader, VERSION_3_NT_32_BIT)},
-	{"VERSION_3_EXT_1_BIT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BMPImageReader, VERSION_3_EXT_1_BIT)},
-	{"VERSION_3_EXT_4_BIT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BMPImageReader, VERSION_3_EXT_4_BIT)},
-	{"VERSION_3_EXT_8_BIT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BMPImageReader, VERSION_3_EXT_8_BIT)},
-	{"VERSION_3_EXT_16_BIT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BMPImageReader, VERSION_3_EXT_16_BIT)},
-	{"VERSION_3_EXT_24_BIT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BMPImageReader, VERSION_3_EXT_24_BIT)},
-	{"VERSION_3_EXT_32_BIT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BMPImageReader, VERSION_3_EXT_32_BIT)},
-	{"VERSION_4_1_BIT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BMPImageReader, VERSION_4_1_BIT)},
-	{"VERSION_4_4_BIT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BMPImageReader, VERSION_4_4_BIT)},
-	{"VERSION_4_8_BIT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BMPImageReader, VERSION_4_8_BIT)},
-	{"VERSION_4_16_BIT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BMPImageReader, VERSION_4_16_BIT)},
-	{"VERSION_4_24_BIT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BMPImageReader, VERSION_4_24_BIT)},
-	{"VERSION_4_32_BIT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BMPImageReader, VERSION_4_32_BIT)},
-	{"VERSION_3_XP_EMBEDDED", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BMPImageReader, VERSION_3_XP_EMBEDDED)},
-	{"VERSION_3_EXT_EMBEDDED", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BMPImageReader, VERSION_3_EXT_EMBEDDED)},
-	{"VERSION_4_XP_EMBEDDED", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BMPImageReader, VERSION_4_XP_EMBEDDED)},
-	{"VERSION_5_XP_EMBEDDED", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BMPImageReader, VERSION_5_XP_EMBEDDED)},
-	{"bitmapFileSize", "J", nullptr, $PRIVATE, $field(BMPImageReader, bitmapFileSize)},
-	{"bitmapOffset", "J", nullptr, $PRIVATE, $field(BMPImageReader, bitmapOffset)},
-	{"bitmapStart", "J", nullptr, $PRIVATE, $field(BMPImageReader, bitmapStart)},
-	{"compression", "J", nullptr, $PRIVATE, $field(BMPImageReader, compression)},
-	{"imageSize", "J", nullptr, $PRIVATE, $field(BMPImageReader, imageSize)},
-	{"palette", "[B", nullptr, $PRIVATE, $field(BMPImageReader, palette)},
-	{"imageType", "I", nullptr, $PRIVATE, $field(BMPImageReader, imageType)},
-	{"numBands", "I", nullptr, $PRIVATE, $field(BMPImageReader, numBands)},
-	{"isBottomUp", "Z", nullptr, $PRIVATE, $field(BMPImageReader, isBottomUp)},
-	{"bitsPerPixel", "I", nullptr, $PRIVATE, $field(BMPImageReader, bitsPerPixel)},
-	{"redMask", "I", nullptr, $PRIVATE, $field(BMPImageReader, redMask)},
-	{"greenMask", "I", nullptr, $PRIVATE, $field(BMPImageReader, greenMask)},
-	{"blueMask", "I", nullptr, $PRIVATE, $field(BMPImageReader, blueMask)},
-	{"alphaMask", "I", nullptr, $PRIVATE, $field(BMPImageReader, alphaMask)},
-	{"sampleModel", "Ljava/awt/image/SampleModel;", nullptr, $PRIVATE, $field(BMPImageReader, sampleModel)},
-	{"originalSampleModel", "Ljava/awt/image/SampleModel;", nullptr, $PRIVATE, $field(BMPImageReader, originalSampleModel)},
-	{"colorModel", "Ljava/awt/image/ColorModel;", nullptr, $PRIVATE, $field(BMPImageReader, colorModel)},
-	{"originalColorModel", "Ljava/awt/image/ColorModel;", nullptr, $PRIVATE, $field(BMPImageReader, originalColorModel)},
-	{"iis", "Ljavax/imageio/stream/ImageInputStream;", nullptr, $PRIVATE, $field(BMPImageReader, iis)},
-	{"gotHeader", "Z", nullptr, $PRIVATE, $field(BMPImageReader, gotHeader)},
-	{"width", "I", nullptr, $PRIVATE, $field(BMPImageReader, width)},
-	{"height", "I", nullptr, $PRIVATE, $field(BMPImageReader, height)},
-	{"destinationRegion", "Ljava/awt/Rectangle;", nullptr, $PRIVATE, $field(BMPImageReader, destinationRegion)},
-	{"sourceRegion", "Ljava/awt/Rectangle;", nullptr, $PRIVATE, $field(BMPImageReader, sourceRegion)},
-	{"metadata", "Lcom/sun/imageio/plugins/bmp/BMPMetadata;", nullptr, $PRIVATE, $field(BMPImageReader, metadata)},
-	{"bi", "Ljava/awt/image/BufferedImage;", nullptr, $PRIVATE, $field(BMPImageReader, bi)},
-	{"noTransform", "Z", nullptr, $PRIVATE, $field(BMPImageReader, noTransform)},
-	{"seleBand", "Z", nullptr, $PRIVATE, $field(BMPImageReader, seleBand)},
-	{"scaleX", "I", nullptr, $PRIVATE, $field(BMPImageReader, scaleX)},
-	{"scaleY", "I", nullptr, $PRIVATE, $field(BMPImageReader, scaleY)},
-	{"sourceBands", "[I", nullptr, $PRIVATE, $field(BMPImageReader, sourceBands)},
-	{"destBands", "[I", nullptr, $PRIVATE, $field(BMPImageReader, destBands)},
-	{"isLinkedProfileDisabled", "Ljava/lang/Boolean;", nullptr, $PRIVATE | $STATIC, $staticField(BMPImageReader, isLinkedProfileDisabled)},
-	{"isWindowsPlatform", "Ljava/lang/Boolean;", nullptr, $PRIVATE | $STATIC, $staticField(BMPImageReader, isWindowsPlatform)},
-	{}
-};
-
-$MethodInfo _BMPImageReader_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljavax/imageio/spi/ImageReaderSpi;)V", nullptr, $PUBLIC, $method(BMPImageReader, init$, void, $ImageReaderSpi*)},
-	{"access$000", "(Lcom/sun/imageio/plugins/bmp/BMPImageReader;F)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(BMPImageReader, access$000, void, BMPImageReader*, float)},
-	{"access$100", "(Lcom/sun/imageio/plugins/bmp/BMPImageReader;Ljava/awt/image/BufferedImage;IIIIII[I)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(BMPImageReader, access$100, void, BMPImageReader*, $BufferedImage*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, $ints*)},
-	{"access$200", "(Lcom/sun/imageio/plugins/bmp/BMPImageReader;Ljava/awt/image/BufferedImage;)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(BMPImageReader, access$200, void, BMPImageReader*, $BufferedImage*)},
-	{"access$300", "(Lcom/sun/imageio/plugins/bmp/BMPImageReader;Ljava/awt/image/BufferedImage;IIIIIII[I)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(BMPImageReader, access$300, void, BMPImageReader*, $BufferedImage*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, $ints*)},
-	{"access$400", "(Lcom/sun/imageio/plugins/bmp/BMPImageReader;Ljava/lang/String;)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(BMPImageReader, access$400, void, BMPImageReader*, $String*)},
-	{"canReadRaster", "()Z", nullptr, $PUBLIC, $virtualMethod(BMPImageReader, canReadRaster, bool)},
-	{"checkIndex", "(I)V", nullptr, $PRIVATE, $method(BMPImageReader, checkIndex, void, int32_t)},
-	{"copyRLE4ScanlineToDst", "(I[B[B)Z", nullptr, $PRIVATE, $method(BMPImageReader, copyRLE4ScanlineToDst, bool, int32_t, $bytes*, $bytes*), "java.io.IOException"},
-	{"copyRLE8ScanlineToDst", "(I[B[B)Z", nullptr, $PRIVATE, $method(BMPImageReader, copyRLE8ScanlineToDst, bool, int32_t, $bytes*, $bytes*)},
-	{"decodeRLE4", "(II[B[B)V", nullptr, $PRIVATE, $method(BMPImageReader, decodeRLE4, void, int32_t, int32_t, $bytes*, $bytes*), "java.io.IOException"},
-	{"decodeRLE8", "(II[B[B)V", nullptr, $PRIVATE, $method(BMPImageReader, decodeRLE8, void, int32_t, int32_t, $bytes*, $bytes*), "java.io.IOException"},
-	{"getDefaultReadParam", "()Ljavax/imageio/ImageReadParam;", nullptr, $PUBLIC, $virtualMethod(BMPImageReader, getDefaultReadParam, $ImageReadParam*)},
-	{"getHeight", "(I)I", nullptr, $PUBLIC, $virtualMethod(BMPImageReader, getHeight, int32_t, int32_t), "java.io.IOException"},
-	{"getImageMetadata", "(I)Ljavax/imageio/metadata/IIOMetadata;", nullptr, $PUBLIC, $virtualMethod(BMPImageReader, getImageMetadata, $IIOMetadata*, int32_t), "java.io.IOException"},
-	{"getImageTypes", "(I)Ljava/util/Iterator;", "(I)Ljava/util/Iterator<Ljavax/imageio/ImageTypeSpecifier;>;", $PUBLIC, $virtualMethod(BMPImageReader, getImageTypes, $Iterator*, int32_t), "java.io.IOException"},
-	{"getNumImages", "(Z)I", nullptr, $PUBLIC, $virtualMethod(BMPImageReader, getNumImages, int32_t, bool), "java.io.IOException"},
-	{"getStreamMetadata", "()Ljavax/imageio/metadata/IIOMetadata;", nullptr, $PUBLIC, $virtualMethod(BMPImageReader, getStreamMetadata, $IIOMetadata*), "java.io.IOException"},
-	{"getWidth", "(I)I", nullptr, $PUBLIC, $virtualMethod(BMPImageReader, getWidth, int32_t, int32_t), "java.io.IOException"},
-	{"isLinkedProfileAllowed", "()Z", nullptr, $PRIVATE | $STATIC, $staticMethod(BMPImageReader, isLinkedProfileAllowed, bool)},
-	{"isRandomAccessEasy", "(I)Z", nullptr, $PUBLIC, $virtualMethod(BMPImageReader, isRandomAccessEasy, bool, int32_t), "java.io.IOException"},
-	{"isUncOrDevicePath", "([B)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(BMPImageReader, isUncOrDevicePath, bool, $bytes*)},
-	{"read", "(ILjavax/imageio/ImageReadParam;)Ljava/awt/image/BufferedImage;", nullptr, $PUBLIC, $virtualMethod(BMPImageReader, read, $BufferedImage*, int32_t, $ImageReadParam*), "java.io.IOException"},
-	{"read16Bit", "([S)V", nullptr, $PRIVATE, $method(BMPImageReader, read16Bit, void, $shorts*), "java.io.IOException"},
-	{"read1Bit", "([B)V", nullptr, $PRIVATE, $method(BMPImageReader, read1Bit, void, $bytes*), "java.io.IOException"},
-	{"read24Bit", "([B)V", nullptr, $PRIVATE, $method(BMPImageReader, read24Bit, void, $bytes*), "java.io.IOException"},
-	{"read32Bit", "([I)V", nullptr, $PRIVATE, $method(BMPImageReader, read32Bit, void, $ints*), "java.io.IOException"},
-	{"read4Bit", "([B)V", nullptr, $PRIVATE, $method(BMPImageReader, read4Bit, void, $bytes*), "java.io.IOException"},
-	{"read8Bit", "([B)V", nullptr, $PRIVATE, $method(BMPImageReader, read8Bit, void, $bytes*), "java.io.IOException"},
-	{"readEmbedded", "(ILjava/awt/image/BufferedImage;Ljavax/imageio/ImageReadParam;)Ljava/awt/image/BufferedImage;", nullptr, $PRIVATE, $method(BMPImageReader, readEmbedded, $BufferedImage*, int32_t, $BufferedImage*, $ImageReadParam*), "java.io.IOException"},
-	{"readHeader", "()V", nullptr, $PROTECTED, $virtualMethod(BMPImageReader, readHeader, void), "java.io.IOException,java.lang.IllegalArgumentException"},
-	{"readRLE4", "([B)V", nullptr, $PRIVATE, $method(BMPImageReader, readRLE4, void, $bytes*), "java.io.IOException"},
-	{"readRLE8", "([B)V", nullptr, $PRIVATE, $method(BMPImageReader, readRLE8, void, $bytes*), "java.io.IOException"},
-	{"readRaster", "(ILjavax/imageio/ImageReadParam;)Ljava/awt/image/Raster;", nullptr, $PUBLIC, $virtualMethod(BMPImageReader, readRaster, $Raster*, int32_t, $ImageReadParam*), "java.io.IOException"},
-	{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(BMPImageReader, reset, void)},
-	{"resetHeaderInfo", "()V", nullptr, $PRIVATE, $method(BMPImageReader, resetHeaderInfo, void)},
-	{"setInput", "(Ljava/lang/Object;ZZ)V", nullptr, $PUBLIC, $virtualMethod(BMPImageReader, setInput, void, Object$*, bool, bool)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _BMPImageReader_InnerClassesInfo_[] = {
-	{"com.sun.imageio.plugins.bmp.BMPImageReader$EmbeddedProgressAdapter", "com.sun.imageio.plugins.bmp.BMPImageReader", "EmbeddedProgressAdapter", $PRIVATE | $STATIC},
-	{"com.sun.imageio.plugins.bmp.BMPImageReader$5", nullptr, nullptr, 0},
-	{"com.sun.imageio.plugins.bmp.BMPImageReader$4", nullptr, nullptr, 0},
-	{"com.sun.imageio.plugins.bmp.BMPImageReader$3", nullptr, nullptr, 0},
-	{"com.sun.imageio.plugins.bmp.BMPImageReader$2", nullptr, nullptr, 0},
-	{"com.sun.imageio.plugins.bmp.BMPImageReader$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _BMPImageReader_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.imageio.plugins.bmp.BMPImageReader",
-	"javax.imageio.ImageReader",
-	"com.sun.imageio.plugins.bmp.BMPConstants",
-	_BMPImageReader_FieldInfo_,
-	_BMPImageReader_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BMPImageReader_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.imageio.plugins.bmp.BMPImageReader$EmbeddedProgressAdapter,com.sun.imageio.plugins.bmp.BMPImageReader$5,com.sun.imageio.plugins.bmp.BMPImageReader$4,com.sun.imageio.plugins.bmp.BMPImageReader$3,com.sun.imageio.plugins.bmp.BMPImageReader$2,com.sun.imageio.plugins.bmp.BMPImageReader$1"
-};
-
-$Object* allocate$BMPImageReader($Class* clazz) {
-	return $of($alloc(BMPImageReader));
-}
 
 int32_t BMPImageReader::hashCode() {
 	 return this->$ImageReader::hashCode();
@@ -366,13 +219,13 @@ void BMPImageReader::setInput(Object$* input, bool seekForwardOnly, bool ignoreM
 	$set(this, iis, $cast($ImageInputStream, input));
 	if (this->iis != nullptr) {
 		$init($ByteOrder);
-		$nc(this->iis)->setByteOrder($ByteOrder::LITTLE_ENDIAN);
+		this->iis->setByteOrder($ByteOrder::LITTLE_ENDIAN);
 	}
 	resetHeaderInfo();
 }
 
 int32_t BMPImageReader::getNumImages(bool allowSearch) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->iis == nullptr) {
 		$throwNew($IllegalStateException, $($I18N::getString("GetNumImages0"_s)));
 	}
@@ -409,7 +262,7 @@ void BMPImageReader::checkIndex(int32_t imageIndex) {
 }
 
 void BMPImageReader::readHeader() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->gotHeader) {
 		return;
 	}
@@ -437,14 +290,14 @@ void BMPImageReader::readHeader() {
 		this->height = $nc(this->iis)->readInt();
 	}
 	$nc(this->metadata)->width = this->width;
-	$nc(this->metadata)->height = this->height;
+	this->metadata->height = this->height;
 	int32_t planes = $nc(this->iis)->readUnsignedShort();
 	this->bitsPerPixel = $nc(this->iis)->readUnsignedShort();
 	$nc(this->metadata)->bitsPerPixel = (int16_t)this->bitsPerPixel;
 	this->numBands = 3;
 	if (size == 12) {
 		$init($BMPConstants);
-		$set($nc(this->metadata), bmpVersion, $BMPConstants::VERSION_2);
+		$set(this->metadata, bmpVersion, $BMPConstants::VERSION_2);
 		if (this->bitsPerPixel == 1) {
 			this->imageType = BMPImageReader::VERSION_2_1_BIT;
 		} else if (this->bitsPerPixel == 4) {
@@ -461,7 +314,7 @@ void BMPImageReader::readHeader() {
 		$set(this, palette, $new($bytes, sizeOfPalette));
 		$nc(this->iis)->readFully(this->palette, 0, sizeOfPalette);
 		$set($nc(this->metadata), palette, this->palette);
-		$nc(this->metadata)->paletteSize = numberOfEntries;
+		this->metadata->paletteSize = numberOfEntries;
 	} else {
 		this->compression = $nc(this->iis)->readUnsignedInt();
 		this->imageSize = $nc(this->iis)->readUnsignedInt();
@@ -470,101 +323,88 @@ void BMPImageReader::readHeader() {
 		int64_t colorsUsed = $nc(this->iis)->readUnsignedInt();
 		int64_t colorsImportant = $nc(this->iis)->readUnsignedInt();
 		$nc(this->metadata)->compression = (int32_t)this->compression;
-		$nc(this->metadata)->xPixelsPerMeter = (int32_t)xPelsPerMeter;
-		$nc(this->metadata)->yPixelsPerMeter = (int32_t)yPelsPerMeter;
-		$nc(this->metadata)->colorsUsed = (int32_t)colorsUsed;
-		$nc(this->metadata)->colorsImportant = (int32_t)colorsImportant;
+		this->metadata->xPixelsPerMeter = (int32_t)xPelsPerMeter;
+		this->metadata->yPixelsPerMeter = (int32_t)yPelsPerMeter;
+		this->metadata->colorsUsed = (int32_t)colorsUsed;
+		this->metadata->colorsImportant = (int32_t)colorsImportant;
 		if (size == 40) {
-			{
-				int32_t numberOfEntries = 0;
-				int32_t sizeOfPalette = 0;
-				switch ((int32_t)this->compression) {
-				case $BMPConstants::BI_JPEG:
-					{}
-				case $BMPConstants::BI_PNG:
-					{
-						$init($BMPConstants);
-						$set($nc(this->metadata), bmpVersion, $BMPConstants::VERSION_3);
-						this->imageType = BMPImageReader::VERSION_3_XP_EMBEDDED;
-						break;
-					}
-				case $BMPConstants::BI_RGB:
-					{}
-				case $BMPConstants::BI_RLE8:
-					{}
-				case $BMPConstants::BI_RLE4:
-					{
-						if (this->bitmapOffset < (size + 14)) {
-							$throwNew($IIOException, $($I18N::getString("BMPImageReader7"_s)));
-						}
-						numberOfEntries = (int32_t)((this->bitmapOffset - 14 - size) / 4);
-						sizeOfPalette = numberOfEntries * 4;
-						$set(this, palette, $new($bytes, sizeOfPalette));
-						$nc(this->iis)->readFully(this->palette, 0, sizeOfPalette);
-						$set($nc(this->metadata), palette, this->palette);
-						$nc(this->metadata)->paletteSize = numberOfEntries;
-						if (this->bitsPerPixel == 1) {
-							this->imageType = BMPImageReader::VERSION_3_1_BIT;
-						} else if (this->bitsPerPixel == 4) {
-							this->imageType = BMPImageReader::VERSION_3_4_BIT;
-						} else if (this->bitsPerPixel == 8) {
-							this->imageType = BMPImageReader::VERSION_3_8_BIT;
-						} else if (this->bitsPerPixel == 24) {
-							this->imageType = BMPImageReader::VERSION_3_24_BIT;
-						} else if (this->bitsPerPixel == 16) {
-							this->imageType = BMPImageReader::VERSION_3_NT_16_BIT;
-							this->redMask = 31744;
-							this->greenMask = 992;
-							this->blueMask = (1 << 5) - 1;
-							$nc(this->metadata)->redMask = this->redMask;
-							$nc(this->metadata)->greenMask = this->greenMask;
-							$nc(this->metadata)->blueMask = this->blueMask;
-						} else if (this->bitsPerPixel == 32) {
-							this->imageType = BMPImageReader::VERSION_3_NT_32_BIT;
-							this->redMask = 0x00FF0000;
-							this->greenMask = 0x0000FF00;
-							this->blueMask = 255;
-							$nc(this->metadata)->redMask = this->redMask;
-							$nc(this->metadata)->greenMask = this->greenMask;
-							$nc(this->metadata)->blueMask = this->blueMask;
-						} else {
-							$throwNew($IIOException, $($I18N::getString("BMPImageReader8"_s)));
-						}
-						$init($BMPConstants);
-						$set($nc(this->metadata), bmpVersion, $BMPConstants::VERSION_3);
-						break;
-					}
-				case $BMPConstants::BI_BITFIELDS:
-					{
-						if (this->bitsPerPixel == 16) {
-							this->imageType = BMPImageReader::VERSION_3_NT_16_BIT;
-						} else if (this->bitsPerPixel == 32) {
-							this->imageType = BMPImageReader::VERSION_3_NT_32_BIT;
-						} else {
-							$throwNew($IIOException, $($I18N::getString("BMPImageReader8"_s)));
-						}
-						this->redMask = (int32_t)$nc(this->iis)->readUnsignedInt();
-						this->greenMask = (int32_t)$nc(this->iis)->readUnsignedInt();
-						this->blueMask = (int32_t)$nc(this->iis)->readUnsignedInt();
-						$nc(this->metadata)->redMask = this->redMask;
-						$nc(this->metadata)->greenMask = this->greenMask;
-						$nc(this->metadata)->blueMask = this->blueMask;
-						if (colorsUsed != 0) {
-							sizeOfPalette = (int32_t)colorsUsed * 4;
-							$set(this, palette, $new($bytes, sizeOfPalette));
-							$nc(this->iis)->readFully(this->palette, 0, sizeOfPalette);
-							$set($nc(this->metadata), palette, this->palette);
-							$nc(this->metadata)->paletteSize = (int32_t)colorsUsed;
-						}
-						$init($BMPConstants);
-						$set($nc(this->metadata), bmpVersion, $BMPConstants::VERSION_3_NT);
-						break;
-					}
-				default:
-					{
-						$throwNew($IIOException, $($I18N::getString("BMPImageReader2"_s)));
-					}
+			int32_t numberOfEntries = 0;
+			int32_t sizeOfPalette = 0;
+			switch ((int32_t)this->compression) {
+			case $BMPConstants::BI_JPEG:
+			case $BMPConstants::BI_PNG:
+				$init($BMPConstants);
+				$set(this->metadata, bmpVersion, $BMPConstants::VERSION_3);
+				this->imageType = BMPImageReader::VERSION_3_XP_EMBEDDED;
+				break;
+			case $BMPConstants::BI_RGB:
+			case $BMPConstants::BI_RLE8:
+			case $BMPConstants::BI_RLE4:
+				if (this->bitmapOffset < (size + 14)) {
+					$throwNew($IIOException, $($I18N::getString("BMPImageReader7"_s)));
 				}
+				numberOfEntries = (int32_t)((this->bitmapOffset - 14 - size) / 4);
+				sizeOfPalette = numberOfEntries * 4;
+				$set(this, palette, $new($bytes, sizeOfPalette));
+				$nc(this->iis)->readFully(this->palette, 0, sizeOfPalette);
+				$set($nc(this->metadata), palette, this->palette);
+				this->metadata->paletteSize = numberOfEntries;
+				if (this->bitsPerPixel == 1) {
+					this->imageType = BMPImageReader::VERSION_3_1_BIT;
+				} else if (this->bitsPerPixel == 4) {
+					this->imageType = BMPImageReader::VERSION_3_4_BIT;
+				} else if (this->bitsPerPixel == 8) {
+					this->imageType = BMPImageReader::VERSION_3_8_BIT;
+				} else if (this->bitsPerPixel == 24) {
+					this->imageType = BMPImageReader::VERSION_3_24_BIT;
+				} else if (this->bitsPerPixel == 16) {
+					this->imageType = BMPImageReader::VERSION_3_NT_16_BIT;
+					this->redMask = 31744;
+					this->greenMask = 992;
+					this->blueMask = (1 << 5) - 1;
+					this->metadata->redMask = this->redMask;
+					this->metadata->greenMask = this->greenMask;
+					this->metadata->blueMask = this->blueMask;
+				} else if (this->bitsPerPixel == 32) {
+					this->imageType = BMPImageReader::VERSION_3_NT_32_BIT;
+					this->redMask = 0x00ff0000;
+					this->greenMask = 0x0000ff00;
+					this->blueMask = 255;
+					this->metadata->redMask = this->redMask;
+					this->metadata->greenMask = this->greenMask;
+					this->metadata->blueMask = this->blueMask;
+				} else {
+					$throwNew($IIOException, $($I18N::getString("BMPImageReader8"_s)));
+				}
+				$init($BMPConstants);
+				$set(this->metadata, bmpVersion, $BMPConstants::VERSION_3);
+				break;
+			case $BMPConstants::BI_BITFIELDS:
+				if (this->bitsPerPixel == 16) {
+					this->imageType = BMPImageReader::VERSION_3_NT_16_BIT;
+				} else if (this->bitsPerPixel == 32) {
+					this->imageType = BMPImageReader::VERSION_3_NT_32_BIT;
+				} else {
+					$throwNew($IIOException, $($I18N::getString("BMPImageReader8"_s)));
+				}
+				this->redMask = (int32_t)$nc(this->iis)->readUnsignedInt();
+				this->greenMask = (int32_t)$nc(this->iis)->readUnsignedInt();
+				this->blueMask = (int32_t)$nc(this->iis)->readUnsignedInt();
+				$nc(this->metadata)->redMask = this->redMask;
+				this->metadata->greenMask = this->greenMask;
+				this->metadata->blueMask = this->blueMask;
+				if (colorsUsed != 0) {
+					sizeOfPalette = (int32_t)colorsUsed * 4;
+					$set(this, palette, $new($bytes, sizeOfPalette));
+					$nc(this->iis)->readFully(this->palette, 0, sizeOfPalette);
+					$set($nc(this->metadata), palette, this->palette);
+					this->metadata->paletteSize = (int32_t)colorsUsed;
+				}
+				$init($BMPConstants);
+				$set($nc(this->metadata), bmpVersion, $BMPConstants::VERSION_3_NT);
+				break;
+			default:
+				$throwNew($IIOException, $($I18N::getString("BMPImageReader2"_s)));
 			}
 		} else if (size == 52 || size == 56) {
 			this->redMask = (int32_t)$nc(this->iis)->readUnsignedInt();
@@ -580,47 +420,42 @@ void BMPImageReader::readHeader() {
 			$set(this, palette, $new($bytes, sizeOfPalette));
 			$nc(this->iis)->readFully(this->palette, 0, sizeOfPalette);
 			$set($nc(this->metadata), palette, this->palette);
-			$nc(this->metadata)->paletteSize = numberOfEntries;
+			this->metadata->paletteSize = numberOfEntries;
 			switch ((int32_t)this->compression) {
 			case $BMPConstants::BI_JPEG:
-				{}
 			case $BMPConstants::BI_PNG:
-				{
-					this->imageType = BMPImageReader::VERSION_3_EXT_EMBEDDED;
-					break;
-				}
+				this->imageType = BMPImageReader::VERSION_3_EXT_EMBEDDED;
+				break;
 			default:
-				{
-					if (this->bitsPerPixel == 1) {
-						this->imageType = BMPImageReader::VERSION_3_EXT_1_BIT;
-					} else if (this->bitsPerPixel == 4) {
-						this->imageType = BMPImageReader::VERSION_3_EXT_4_BIT;
-					} else if (this->bitsPerPixel == 8) {
-						this->imageType = BMPImageReader::VERSION_3_EXT_8_BIT;
-					} else if (this->bitsPerPixel == 16) {
-						this->imageType = BMPImageReader::VERSION_3_EXT_16_BIT;
-						if ((int32_t)this->compression == $BMPConstants::BI_RGB) {
-							this->redMask = 31744;
-							this->greenMask = 992;
-							this->blueMask = 31;
-						}
-					} else if (this->bitsPerPixel == 24) {
-						this->imageType = BMPImageReader::VERSION_3_EXT_24_BIT;
-					} else if (this->bitsPerPixel == 32) {
-						this->imageType = BMPImageReader::VERSION_3_EXT_32_BIT;
-						if ((int32_t)this->compression == $BMPConstants::BI_RGB) {
-							this->redMask = 0x00FF0000;
-							this->greenMask = 0x0000FF00;
-							this->blueMask = 255;
-						}
-					} else {
-						$throwNew($IIOException, $($I18N::getString("BMPImageReader8"_s)));
+				if (this->bitsPerPixel == 1) {
+					this->imageType = BMPImageReader::VERSION_3_EXT_1_BIT;
+				} else if (this->bitsPerPixel == 4) {
+					this->imageType = BMPImageReader::VERSION_3_EXT_4_BIT;
+				} else if (this->bitsPerPixel == 8) {
+					this->imageType = BMPImageReader::VERSION_3_EXT_8_BIT;
+				} else if (this->bitsPerPixel == 16) {
+					this->imageType = BMPImageReader::VERSION_3_EXT_16_BIT;
+					if ((int32_t)this->compression == $BMPConstants::BI_RGB) {
+						this->redMask = 31744;
+						this->greenMask = 992;
+						this->blueMask = 31;
 					}
-					$nc(this->metadata)->redMask = this->redMask;
-					$nc(this->metadata)->greenMask = this->greenMask;
-					$nc(this->metadata)->blueMask = this->blueMask;
-					$nc(this->metadata)->alphaMask = this->alphaMask;
+				} else if (this->bitsPerPixel == 24) {
+					this->imageType = BMPImageReader::VERSION_3_EXT_24_BIT;
+				} else if (this->bitsPerPixel == 32) {
+					this->imageType = BMPImageReader::VERSION_3_EXT_32_BIT;
+					if ((int32_t)this->compression == $BMPConstants::BI_RGB) {
+						this->redMask = 0x00ff0000;
+						this->greenMask = 0x0000ff00;
+						this->blueMask = 255;
+					}
+				} else {
+					$throwNew($IIOException, $($I18N::getString("BMPImageReader8"_s)));
 				}
+				this->metadata->redMask = this->redMask;
+				this->metadata->greenMask = this->greenMask;
+				this->metadata->blueMask = this->blueMask;
+				this->metadata->alphaMask = this->alphaMask;
 			}
 		} else if (size == 108 || size == 124) {
 			if (size == 108) {
@@ -655,69 +490,64 @@ void BMPImageReader::readHeader() {
 			}
 			$nc(this->metadata)->colorSpace = (int32_t)csType;
 			if (csType == $BMPConstants::LCS_CALIBRATED_RGB) {
-				$nc(this->metadata)->redX = (double)redX;
-				$nc(this->metadata)->redY = (double)redY;
-				$nc(this->metadata)->redZ = (double)redZ;
-				$nc(this->metadata)->greenX = (double)greenX;
-				$nc(this->metadata)->greenY = (double)greenY;
-				$nc(this->metadata)->greenZ = (double)greenZ;
-				$nc(this->metadata)->blueX = (double)blueX;
-				$nc(this->metadata)->blueY = (double)blueY;
-				$nc(this->metadata)->blueZ = (double)blueZ;
-				$nc(this->metadata)->gammaRed = (int32_t)gammaRed;
-				$nc(this->metadata)->gammaGreen = (int32_t)gammaGreen;
-				$nc(this->metadata)->gammaBlue = (int32_t)gammaBlue;
+				this->metadata->redX = (double)redX;
+				this->metadata->redY = (double)redY;
+				this->metadata->redZ = (double)redZ;
+				this->metadata->greenX = (double)greenX;
+				this->metadata->greenY = (double)greenY;
+				this->metadata->greenZ = (double)greenZ;
+				this->metadata->blueX = (double)blueX;
+				this->metadata->blueY = (double)blueY;
+				this->metadata->blueZ = (double)blueZ;
+				this->metadata->gammaRed = (int32_t)gammaRed;
+				this->metadata->gammaGreen = (int32_t)gammaGreen;
+				this->metadata->gammaBlue = (int32_t)gammaBlue;
 			}
 			int32_t numberOfEntries = (int32_t)((this->bitmapOffset - 14 - size) / 4);
 			int32_t sizeOfPalette = numberOfEntries * 4;
 			$set(this, palette, $new($bytes, sizeOfPalette));
 			$nc(this->iis)->readFully(this->palette, 0, sizeOfPalette);
 			$set($nc(this->metadata), palette, this->palette);
-			$nc(this->metadata)->paletteSize = numberOfEntries;
+			this->metadata->paletteSize = numberOfEntries;
 			switch ((int32_t)this->compression) {
 			case $BMPConstants::BI_JPEG:
-				{}
 			case $BMPConstants::BI_PNG:
-				{
-					if (size == 108) {
-						this->imageType = BMPImageReader::VERSION_4_XP_EMBEDDED;
-					} else if (size == 124) {
-						this->imageType = BMPImageReader::VERSION_5_XP_EMBEDDED;
-					}
-					break;
+				if (size == 108) {
+					this->imageType = BMPImageReader::VERSION_4_XP_EMBEDDED;
+				} else if (size == 124) {
+					this->imageType = BMPImageReader::VERSION_5_XP_EMBEDDED;
 				}
+				break;
 			default:
-				{
-					if (this->bitsPerPixel == 1) {
-						this->imageType = BMPImageReader::VERSION_4_1_BIT;
-					} else if (this->bitsPerPixel == 4) {
-						this->imageType = BMPImageReader::VERSION_4_4_BIT;
-					} else if (this->bitsPerPixel == 8) {
-						this->imageType = BMPImageReader::VERSION_4_8_BIT;
-					} else if (this->bitsPerPixel == 16) {
-						this->imageType = BMPImageReader::VERSION_4_16_BIT;
-						if ((int32_t)this->compression == $BMPConstants::BI_RGB) {
-							this->redMask = 31744;
-							this->greenMask = 992;
-							this->blueMask = 31;
-						}
-					} else if (this->bitsPerPixel == 24) {
-						this->imageType = BMPImageReader::VERSION_4_24_BIT;
-					} else if (this->bitsPerPixel == 32) {
-						this->imageType = BMPImageReader::VERSION_4_32_BIT;
-						if ((int32_t)this->compression == $BMPConstants::BI_RGB) {
-							this->redMask = 0x00FF0000;
-							this->greenMask = 0x0000FF00;
-							this->blueMask = 255;
-						}
-					} else {
-						$throwNew($IIOException, $($I18N::getString("BMPImageReader8"_s)));
+				if (this->bitsPerPixel == 1) {
+					this->imageType = BMPImageReader::VERSION_4_1_BIT;
+				} else if (this->bitsPerPixel == 4) {
+					this->imageType = BMPImageReader::VERSION_4_4_BIT;
+				} else if (this->bitsPerPixel == 8) {
+					this->imageType = BMPImageReader::VERSION_4_8_BIT;
+				} else if (this->bitsPerPixel == 16) {
+					this->imageType = BMPImageReader::VERSION_4_16_BIT;
+					if ((int32_t)this->compression == $BMPConstants::BI_RGB) {
+						this->redMask = 31744;
+						this->greenMask = 992;
+						this->blueMask = 31;
 					}
-					$nc(this->metadata)->redMask = this->redMask;
-					$nc(this->metadata)->greenMask = this->greenMask;
-					$nc(this->metadata)->blueMask = this->blueMask;
-					$nc(this->metadata)->alphaMask = this->alphaMask;
+				} else if (this->bitsPerPixel == 24) {
+					this->imageType = BMPImageReader::VERSION_4_24_BIT;
+				} else if (this->bitsPerPixel == 32) {
+					this->imageType = BMPImageReader::VERSION_4_32_BIT;
+					if ((int32_t)this->compression == $BMPConstants::BI_RGB) {
+						this->redMask = 0x00ff0000;
+						this->greenMask = 0x0000ff00;
+						this->blueMask = 255;
+					}
+				} else {
+					$throwNew($IIOException, $($I18N::getString("BMPImageReader8"_s)));
 				}
+				this->metadata->redMask = this->redMask;
+				this->metadata->greenMask = this->greenMask;
+				this->metadata->blueMask = this->blueMask;
+				this->metadata->alphaMask = this->alphaMask;
 			}
 		} else {
 			$throwNew($IIOException, $($I18N::getString("BMPImageReader3"_s)));
@@ -730,7 +560,7 @@ void BMPImageReader::readHeader() {
 		this->height = $Math::abs(this->height);
 	}
 	$var($ColorSpace, colorSpace, $ColorSpace::getInstance($ColorSpace::CS_sRGB));
-	if ($nc(this->metadata)->colorSpace == $BMPConstants::PROFILE_LINKED || $nc(this->metadata)->colorSpace == $BMPConstants::PROFILE_EMBEDDED) {
+	if ($nc(this->metadata)->colorSpace == $BMPConstants::PROFILE_LINKED || this->metadata->colorSpace == $BMPConstants::PROFILE_EMBEDDED) {
 		$nc(this->iis)->mark();
 		$nc(this->iis)->skipBytes(profileData - size);
 		$var($bytes, profile, $new($bytes, profileSize));
@@ -776,9 +606,9 @@ void BMPImageReader::readHeader() {
 			$assign(b, $new($bytes, (int32_t)size));
 			for (int32_t i = 0; i < (int32_t)size; ++i) {
 				off = 3 * i;
-				b->set(i, $nc(this->palette)->get(off));
-				g->set(i, $nc(this->palette)->get(off + 1));
-				r->set(i, $nc(this->palette)->get(off + 2));
+				b->set(i, this->palette->get(off));
+				g->set(i, this->palette->get(off + 1));
+				r->set(i, this->palette->get(off + 2));
 			}
 		} else {
 			size = $nc(this->palette)->length / 4;
@@ -791,9 +621,9 @@ void BMPImageReader::readHeader() {
 			$assign(b, $new($bytes, (int32_t)size));
 			for (int32_t i = 0; i < size; ++i) {
 				off = 4 * i;
-				b->set(i, $nc(this->palette)->get(off));
-				g->set(i, $nc(this->palette)->get(off + 1));
-				r->set(i, $nc(this->palette)->get(off + 2));
+				b->set(i, this->palette->get(off));
+				g->set(i, this->palette->get(off + 1));
+				r->set(i, this->palette->get(off + 2));
 			}
 		}
 		if ($ImageUtil::isIndicesForGrayscale(r, g, b)) {
@@ -841,7 +671,7 @@ void BMPImageReader::readHeader() {
 }
 
 $Iterator* BMPImageReader::getImageTypes(int32_t imageIndex) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	checkIndex(imageIndex);
 	try {
 		readHeader();
@@ -884,7 +714,7 @@ bool BMPImageReader::isRandomAccessEasy(int32_t imageIndex) {
 }
 
 $BufferedImage* BMPImageReader::read(int32_t imageIndex, $ImageReadParam* param$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ImageReadParam, param, param$renamed);
 	if (this->iis == nullptr) {
 		$throwNew($IllegalStateException, $($I18N::getString("BMPImageReader5"_s)));
@@ -907,7 +737,7 @@ $BufferedImage* BMPImageReader::read(int32_t imageIndex, $ImageReadParam* param$
 	$set(this, sourceRegion, $new($Rectangle, 0, 0, 0, 0));
 	$set(this, destinationRegion, $new($Rectangle, 0, 0, 0, 0));
 	computeRegions(param, this->width, this->height, $($nc(param)->getDestination()), this->sourceRegion, this->destinationRegion);
-	this->scaleX = $nc(param)->getSourceXSubsampling();
+	this->scaleX = param->getSourceXSubsampling();
 	this->scaleY = param->getSourceYSubsampling();
 	$set(this, sourceBands, param->getSourceBands());
 	$set(this, destBands, param->getDestinationBands());
@@ -918,22 +748,22 @@ $BufferedImage* BMPImageReader::read(int32_t imageIndex, $ImageReadParam* param$
 		$set(this, destBands, $new($ints, this->numBands));
 		for (int32_t i = 0; i < this->numBands; ++i) {
 			int32_t var$0 = i;
-			$nc(this->destBands)->set(var$0, $nc(this->sourceBands)->set(i, i));
+			this->destBands->set(var$0, this->sourceBands->set(i, i));
 		}
 	}
 	$set(this, bi, param->getDestination());
 	$var($WritableRaster, raster, nullptr);
 	if (this->bi == nullptr) {
 		if (this->sampleModel != nullptr && this->colorModel != nullptr) {
-			$set(this, sampleModel, $nc(this->sampleModel)->createCompatibleSampleModel($nc(this->destinationRegion)->x + $nc(this->destinationRegion)->width, $nc(this->destinationRegion)->y + $nc(this->destinationRegion)->height));
+			$set(this, sampleModel, this->sampleModel->createCompatibleSampleModel($nc(this->destinationRegion)->x + $nc(this->destinationRegion)->width, $nc(this->destinationRegion)->y + $nc(this->destinationRegion)->height));
 			if (this->seleBand) {
 				$set(this, sampleModel, $nc(this->sampleModel)->createSubsetSampleModel(this->sourceBands));
 			}
 			$assign(raster, $Raster::createWritableRaster(this->sampleModel, $$new($Point)));
-			$set(this, bi, $new($BufferedImage, this->colorModel, raster, false, ($Hashtable*)nullptr));
+			$set(this, bi, $new($BufferedImage, this->colorModel, raster, false, nullptr));
 		}
 	} else {
-		$assign(raster, $nc(this->bi)->getWritableTile(0, 0));
+		$assign(raster, this->bi->getWritableTile(0, 0));
 		$set(this, sampleModel, $nc(this->bi)->getSampleModel());
 		$set(this, colorModel, $nc(this->bi)->getColorModel());
 		this->noTransform &= $nc(this->destinationRegion)->equals($($nc(raster)->getBounds()));
@@ -942,179 +772,112 @@ $BufferedImage* BMPImageReader::read(int32_t imageIndex, $ImageReadParam* param$
 	$var($shorts, sdata, nullptr);
 	$var($ints, idata, nullptr);
 	if (this->sampleModel != nullptr) {
-		if ($nc(this->sampleModel)->getDataType() == $DataBuffer::TYPE_BYTE) {
-			$assign(bdata, $nc(($cast($DataBufferByte, $($nc(raster)->getDataBuffer()))))->getData());
+		if (this->sampleModel->getDataType() == $DataBuffer::TYPE_BYTE) {
+			$assign(bdata, $$sure($DataBufferByte, $nc(raster)->getDataBuffer())->getData());
 		} else if ($nc(this->sampleModel)->getDataType() == $DataBuffer::TYPE_USHORT) {
-			$assign(sdata, $nc(($cast($DataBufferUShort, $($nc(raster)->getDataBuffer()))))->getData());
+			$assign(sdata, $$sure($DataBufferUShort, $nc(raster)->getDataBuffer())->getData());
 		} else if ($nc(this->sampleModel)->getDataType() == $DataBuffer::TYPE_INT) {
-			$assign(idata, $nc(($cast($DataBufferInt, $($nc(raster)->getDataBuffer()))))->getData());
+			$assign(idata, $$sure($DataBufferInt, $nc(raster)->getDataBuffer())->getData());
 		}
 	}
 	$nc(this->iis)->seek(this->bitmapStart);
 	switch (this->imageType) {
 	case BMPImageReader::VERSION_2_1_BIT:
-		{
-			read1Bit(bdata);
-			break;
-		}
+		read1Bit(bdata);
+		break;
 	case BMPImageReader::VERSION_2_4_BIT:
-		{
+		read4Bit(bdata);
+		break;
+	case BMPImageReader::VERSION_2_8_BIT:
+		read8Bit(bdata);
+		break;
+	case BMPImageReader::VERSION_2_24_BIT:
+		read24Bit(bdata);
+		break;
+	case BMPImageReader::VERSION_3_1_BIT:
+		read1Bit(bdata);
+		break;
+	case BMPImageReader::VERSION_3_4_BIT:
+		switch ((int32_t)this->compression) {
+		case $BMPConstants::BI_RGB:
 			read4Bit(bdata);
 			break;
+		case $BMPConstants::BI_RLE4:
+			readRLE4(bdata);
+			break;
+		default:
+			$throwNew($IIOException, $($I18N::getString("BMPImageReader1"_s)));
 		}
-	case BMPImageReader::VERSION_2_8_BIT:
-		{
+		break;
+	case BMPImageReader::VERSION_3_8_BIT:
+		switch ((int32_t)this->compression) {
+		case $BMPConstants::BI_RGB:
 			read8Bit(bdata);
 			break;
-		}
-	case BMPImageReader::VERSION_2_24_BIT:
-		{
-			read24Bit(bdata);
+		case $BMPConstants::BI_RLE8:
+			readRLE8(bdata);
 			break;
+		default:
+			$throwNew($IIOException, $($I18N::getString("BMPImageReader1"_s)));
 		}
-	case BMPImageReader::VERSION_3_1_BIT:
-		{
-			read1Bit(bdata);
-			break;
-		}
-	case BMPImageReader::VERSION_3_4_BIT:
-		{
-			switch ((int32_t)this->compression) {
-			case $BMPConstants::BI_RGB:
-				{
-					read4Bit(bdata);
-					break;
-				}
-			case $BMPConstants::BI_RLE4:
-				{
-					readRLE4(bdata);
-					break;
-				}
-			default:
-				{
-					$throwNew($IIOException, $($I18N::getString("BMPImageReader1"_s)));
-				}
-			}
-			break;
-		}
-	case BMPImageReader::VERSION_3_8_BIT:
-		{
-			switch ((int32_t)this->compression) {
-			case $BMPConstants::BI_RGB:
-				{
-					read8Bit(bdata);
-					break;
-				}
-			case $BMPConstants::BI_RLE8:
-				{
-					readRLE8(bdata);
-					break;
-				}
-			default:
-				{
-					$throwNew($IIOException, $($I18N::getString("BMPImageReader1"_s)));
-				}
-			}
-			break;
-		}
+		break;
 	case BMPImageReader::VERSION_3_24_BIT:
-		{
-			read24Bit(bdata);
-			break;
-		}
+		read24Bit(bdata);
+		break;
 	case BMPImageReader::VERSION_3_NT_16_BIT:
-		{
-			read16Bit(sdata);
-			break;
-		}
+		read16Bit(sdata);
+		break;
 	case BMPImageReader::VERSION_3_NT_32_BIT:
-		{
-			read32Bit(idata);
-			break;
-		}
+		read32Bit(idata);
+		break;
 	case BMPImageReader::VERSION_3_XP_EMBEDDED:
-		{}
 	case BMPImageReader::VERSION_3_EXT_EMBEDDED:
-		{}
 	case BMPImageReader::VERSION_4_XP_EMBEDDED:
-		{}
 	case BMPImageReader::VERSION_5_XP_EMBEDDED:
-		{
-			$set(this, bi, readEmbedded((int32_t)this->compression, this->bi, param));
-			break;
-		}
+		$set(this, bi, readEmbedded((int32_t)this->compression, this->bi, param));
+		break;
 	case BMPImageReader::VERSION_3_EXT_1_BIT:
-		{}
 	case BMPImageReader::VERSION_4_1_BIT:
-		{
-			read1Bit(bdata);
-			break;
-		}
+		read1Bit(bdata);
+		break;
 	case BMPImageReader::VERSION_3_EXT_4_BIT:
-		{}
 	case BMPImageReader::VERSION_4_4_BIT:
-		{
-			switch ((int32_t)this->compression) {
-			case $BMPConstants::BI_RGB:
-				{
-					read4Bit(bdata);
-					break;
-				}
-			case $BMPConstants::BI_RLE4:
-				{
-					readRLE4(bdata);
-					break;
-				}
-			default:
-				{
-					$throwNew($IIOException, $($I18N::getString("BMPImageReader1"_s)));
-				}
-			}
+		switch ((int32_t)this->compression) {
+		case $BMPConstants::BI_RGB:
+			read4Bit(bdata);
 			break;
+		case $BMPConstants::BI_RLE4:
+			readRLE4(bdata);
+			break;
+		default:
+			$throwNew($IIOException, $($I18N::getString("BMPImageReader1"_s)));
 		}
+		break;
 	case BMPImageReader::VERSION_3_EXT_8_BIT:
-		{}
 	case BMPImageReader::VERSION_4_8_BIT:
-		{
-			switch ((int32_t)this->compression) {
-			case $BMPConstants::BI_RGB:
-				{
-					read8Bit(bdata);
-					break;
-				}
-			case $BMPConstants::BI_RLE8:
-				{
-					readRLE8(bdata);
-					break;
-				}
-			default:
-				{
-					$throwNew($IIOException, $($I18N::getString("BMPImageReader1"_s)));
-				}
-			}
+		switch ((int32_t)this->compression) {
+		case $BMPConstants::BI_RGB:
+			read8Bit(bdata);
 			break;
+		case $BMPConstants::BI_RLE8:
+			readRLE8(bdata);
+			break;
+		default:
+			$throwNew($IIOException, $($I18N::getString("BMPImageReader1"_s)));
 		}
+		break;
 	case BMPImageReader::VERSION_3_EXT_16_BIT:
-		{}
 	case BMPImageReader::VERSION_4_16_BIT:
-		{
-			read16Bit(sdata);
-			break;
-		}
+		read16Bit(sdata);
+		break;
 	case BMPImageReader::VERSION_3_EXT_24_BIT:
-		{}
 	case BMPImageReader::VERSION_4_24_BIT:
-		{
-			read24Bit(bdata);
-			break;
-		}
+		read24Bit(bdata);
+		break;
 	case BMPImageReader::VERSION_3_EXT_32_BIT:
-		{}
 	case BMPImageReader::VERSION_4_32_BIT:
-		{
-			read32Bit(idata);
-			break;
-		}
+		read32Bit(idata);
+		break;
 	}
 	if (abortRequested()) {
 		processReadAborted();
@@ -1136,8 +899,8 @@ $Raster* BMPImageReader::readRaster(int32_t imageIndex, $ImageReadParam* param) 
 void BMPImageReader::resetHeaderInfo() {
 	this->gotHeader = false;
 	$set(this, bi, nullptr);
-	$set(this, sampleModel, ($set(this, originalSampleModel, nullptr)));
-	$set(this, colorModel, ($set(this, originalColorModel, nullptr)));
+	$set(this, sampleModel, $set(this, originalSampleModel, nullptr));
+	$set(this, colorModel, $set(this, originalColorModel, nullptr));
 }
 
 void BMPImageReader::reset() {
@@ -1147,7 +910,7 @@ void BMPImageReader::reset() {
 }
 
 void BMPImageReader::read1Bit($bytes* bdata) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t bytesPerScanline = (this->width + 7) / 8;
 	int32_t padding = bytesPerScanline % 4;
 	if (padding != 0) {
@@ -1168,7 +931,7 @@ void BMPImageReader::read1Bit($bytes* bdata) {
 		}
 	} else {
 		$var($bytes, buf, $new($bytes, lineLength));
-		int32_t lineStride = $nc(($cast($MultiPixelPackedSampleModel, this->sampleModel)))->getScanlineStride();
+		int32_t lineStride = $nc($cast($MultiPixelPackedSampleModel, this->sampleModel))->getScanlineStride();
 		if (this->isBottomUp) {
 			int32_t lastLine = $nc(this->sourceRegion)->y + ($nc(this->destinationRegion)->height - 1) * this->scaleY;
 			$nc(this->iis)->skipBytes(lineLength * (this->height - 1 - lastLine));
@@ -1177,47 +940,38 @@ void BMPImageReader::read1Bit($bytes* bdata) {
 		}
 		int32_t skipLength = lineLength * (this->scaleY - 1);
 		$var($ints, srcOff, $new($ints, $nc(this->destinationRegion)->width));
-		$var($ints, destOff, $new($ints, $nc(this->destinationRegion)->width));
-		$var($ints, srcPos, $new($ints, $nc(this->destinationRegion)->width));
-		$var($ints, destPos, $new($ints, $nc(this->destinationRegion)->width));
-		{
-			int32_t i = $nc(this->destinationRegion)->x;
-			int32_t x = $nc(this->sourceRegion)->x;
-			int32_t j = 0;
-			for (; i < $nc(this->destinationRegion)->x + $nc(this->destinationRegion)->width; ++i, ++j, x += this->scaleX) {
-				srcPos->set(j, x >> 3);
-				srcOff->set(j, 7 - ((int32_t)(x & (uint32_t)7)));
-				destPos->set(j, i >> 3);
-				destOff->set(j, 7 - ((int32_t)(i & (uint32_t)7)));
-			}
+		$var($ints, destOff, $new($ints, this->destinationRegion->width));
+		$var($ints, srcPos, $new($ints, this->destinationRegion->width));
+		$var($ints, destPos, $new($ints, this->destinationRegion->width));
+		for (int32_t i = this->destinationRegion->x, x = $nc(this->sourceRegion)->x, j = 0; i < this->destinationRegion->x + this->destinationRegion->width; ++i, ++j, x += this->scaleX) {
+			srcPos->set(j, x >> 3);
+			srcOff->set(j, 7 - (x & 7));
+			destPos->set(j, i >> 3);
+			destOff->set(j, 7 - (i & 7));
 		}
-		int32_t k = $nc(this->destinationRegion)->y * lineStride;
+		int32_t k = this->destinationRegion->y * lineStride;
 		if (this->isBottomUp) {
-			k += ($nc(this->destinationRegion)->height - 1) * lineStride;
+			k += (this->destinationRegion->height - 1) * lineStride;
 		}
-		{
-			int32_t j = 0;
-			int32_t y = $nc(this->sourceRegion)->y;
-			for (; j < $nc(this->destinationRegion)->height; ++j, y += this->scaleY) {
-				$nc(this->iis)->read(buf, 0, lineLength);
-				for (int32_t i = 0; i < $nc(this->destinationRegion)->width; ++i) {
-					int32_t v = (int32_t)(($sr((int32_t)buf->get(srcPos->get(i)), srcOff->get(i))) & (uint32_t)1);
-					(*$nc(bdata))[k + destPos->get(i)] |= $sl(v, destOff->get(i));
-				}
-				k += this->isBottomUp ? -lineStride : lineStride;
-				$nc(this->iis)->skipBytes(skipLength);
-				processImageUpdate(this->bi, 0, j, $nc(this->destinationRegion)->width, 1, 1, 1, $$new($ints, {0}));
-				processImageProgress(100.0f * j / $nc(this->destinationRegion)->height);
-				if (abortRequested()) {
-					break;
-				}
+		for (int32_t j = 0, y = this->sourceRegion->y; j < $nc(this->destinationRegion)->height; ++j, y += this->scaleY) {
+			$nc(this->iis)->read(buf, 0, lineLength);
+			for (int32_t i = 0; i < $nc(this->destinationRegion)->width; ++i) {
+				int32_t v = ($sr(buf->get(srcPos->get(i)), srcOff->get(i))) & 1;
+				(*$nc(bdata))[k + destPos->get(i)] |= $sl(v, destOff->get(i));
+			}
+			k += this->isBottomUp ? -lineStride : lineStride;
+			$nc(this->iis)->skipBytes(skipLength);
+			processImageUpdate(this->bi, 0, j, $nc(this->destinationRegion)->width, 1, 1, 1, $$new($ints, {0}));
+			processImageProgress(100.0f * j / $nc(this->destinationRegion)->height);
+			if (abortRequested()) {
+				break;
 			}
 		}
 	}
 }
 
 void BMPImageReader::read4Bit($bytes* bdata) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t bytesPerScanline = (this->width + 1) / 2;
 	int32_t padding = bytesPerScanline % 4;
 	if (padding != 0) {
@@ -1238,7 +992,7 @@ void BMPImageReader::read4Bit($bytes* bdata) {
 		}
 	} else {
 		$var($bytes, buf, $new($bytes, lineLength));
-		int32_t lineStride = $nc(($cast($MultiPixelPackedSampleModel, this->sampleModel)))->getScanlineStride();
+		int32_t lineStride = $nc($cast($MultiPixelPackedSampleModel, this->sampleModel))->getScanlineStride();
 		if (this->isBottomUp) {
 			int32_t lastLine = $nc(this->sourceRegion)->y + ($nc(this->destinationRegion)->height - 1) * this->scaleY;
 			$nc(this->iis)->skipBytes(lineLength * (this->height - 1 - lastLine));
@@ -1247,47 +1001,38 @@ void BMPImageReader::read4Bit($bytes* bdata) {
 		}
 		int32_t skipLength = lineLength * (this->scaleY - 1);
 		$var($ints, srcOff, $new($ints, $nc(this->destinationRegion)->width));
-		$var($ints, destOff, $new($ints, $nc(this->destinationRegion)->width));
-		$var($ints, srcPos, $new($ints, $nc(this->destinationRegion)->width));
-		$var($ints, destPos, $new($ints, $nc(this->destinationRegion)->width));
-		{
-			int32_t i = $nc(this->destinationRegion)->x;
-			int32_t x = $nc(this->sourceRegion)->x;
-			int32_t j = 0;
-			for (; i < $nc(this->destinationRegion)->x + $nc(this->destinationRegion)->width; ++i, ++j, x += this->scaleX) {
-				srcPos->set(j, x >> 1);
-				srcOff->set(j, (1 - ((int32_t)(x & (uint32_t)1))) << 2);
-				destPos->set(j, i >> 1);
-				destOff->set(j, (1 - ((int32_t)(i & (uint32_t)1))) << 2);
-			}
+		$var($ints, destOff, $new($ints, this->destinationRegion->width));
+		$var($ints, srcPos, $new($ints, this->destinationRegion->width));
+		$var($ints, destPos, $new($ints, this->destinationRegion->width));
+		for (int32_t i = this->destinationRegion->x, x = $nc(this->sourceRegion)->x, j = 0; i < this->destinationRegion->x + this->destinationRegion->width; ++i, ++j, x += this->scaleX) {
+			srcPos->set(j, x >> 1);
+			srcOff->set(j, (1 - (x & 1)) << 2);
+			destPos->set(j, i >> 1);
+			destOff->set(j, (1 - (i & 1)) << 2);
 		}
-		int32_t k = $nc(this->destinationRegion)->y * lineStride;
+		int32_t k = this->destinationRegion->y * lineStride;
 		if (this->isBottomUp) {
-			k += ($nc(this->destinationRegion)->height - 1) * lineStride;
+			k += (this->destinationRegion->height - 1) * lineStride;
 		}
-		{
-			int32_t j = 0;
-			int32_t y = $nc(this->sourceRegion)->y;
-			for (; j < $nc(this->destinationRegion)->height; ++j, y += this->scaleY) {
-				$nc(this->iis)->read(buf, 0, lineLength);
-				for (int32_t i = 0; i < $nc(this->destinationRegion)->width; ++i) {
-					int32_t v = (int32_t)(($sr((int32_t)buf->get(srcPos->get(i)), srcOff->get(i))) & (uint32_t)15);
-					(*$nc(bdata))[k + destPos->get(i)] |= $sl(v, destOff->get(i));
-				}
-				k += this->isBottomUp ? -lineStride : lineStride;
-				$nc(this->iis)->skipBytes(skipLength);
-				processImageUpdate(this->bi, 0, j, $nc(this->destinationRegion)->width, 1, 1, 1, $$new($ints, {0}));
-				processImageProgress(100.0f * j / $nc(this->destinationRegion)->height);
-				if (abortRequested()) {
-					break;
-				}
+		for (int32_t j = 0, y = this->sourceRegion->y; j < $nc(this->destinationRegion)->height; ++j, y += this->scaleY) {
+			$nc(this->iis)->read(buf, 0, lineLength);
+			for (int32_t i = 0; i < $nc(this->destinationRegion)->width; ++i) {
+				int32_t v = ($sr(buf->get(srcPos->get(i)), srcOff->get(i))) & 0x0f;
+				(*$nc(bdata))[k + destPos->get(i)] |= $sl(v, destOff->get(i));
+			}
+			k += this->isBottomUp ? -lineStride : lineStride;
+			$nc(this->iis)->skipBytes(skipLength);
+			processImageUpdate(this->bi, 0, j, $nc(this->destinationRegion)->width, 1, 1, 1, $$new($ints, {0}));
+			processImageProgress(100.0f * j / $nc(this->destinationRegion)->height);
+			if (abortRequested()) {
+				break;
 			}
 		}
 	}
 }
 
 void BMPImageReader::read8Bit($bytes* bdata) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t padding = this->width % 4;
 	if (padding != 0) {
 		padding = 4 - padding;
@@ -1307,7 +1052,7 @@ void BMPImageReader::read8Bit($bytes* bdata) {
 		}
 	} else {
 		$var($bytes, buf, $new($bytes, lineLength));
-		int32_t lineStride = $nc(($cast($ComponentSampleModel, this->sampleModel)))->getScanlineStride();
+		int32_t lineStride = $nc($cast($ComponentSampleModel, this->sampleModel))->getScanlineStride();
 		if (this->isBottomUp) {
 			int32_t lastLine = $nc(this->sourceRegion)->y + ($nc(this->destinationRegion)->height - 1) * this->scaleY;
 			$nc(this->iis)->skipBytes(lineLength * (this->height - 1 - lastLine));
@@ -1317,35 +1062,27 @@ void BMPImageReader::read8Bit($bytes* bdata) {
 		int32_t skipLength = lineLength * (this->scaleY - 1);
 		int32_t k = $nc(this->destinationRegion)->y * lineStride;
 		if (this->isBottomUp) {
-			k += ($nc(this->destinationRegion)->height - 1) * lineStride;
+			k += (this->destinationRegion->height - 1) * lineStride;
 		}
-		k += $nc(this->destinationRegion)->x;
-		{
-			int32_t j = 0;
-			int32_t y = $nc(this->sourceRegion)->y;
-			for (; j < $nc(this->destinationRegion)->height; ++j, y += this->scaleY) {
-				$nc(this->iis)->read(buf, 0, lineLength);
-				{
-					int32_t i = 0;
-					int32_t m = $nc(this->sourceRegion)->x;
-					for (; i < $nc(this->destinationRegion)->width; ++i, m += this->scaleX) {
-						$nc(bdata)->set(k + i, buf->get(m));
-					}
-				}
-				k += this->isBottomUp ? -lineStride : lineStride;
-				$nc(this->iis)->skipBytes(skipLength);
-				processImageUpdate(this->bi, 0, j, $nc(this->destinationRegion)->width, 1, 1, 1, $$new($ints, {0}));
-				processImageProgress(100.0f * j / $nc(this->destinationRegion)->height);
-				if (abortRequested()) {
-					break;
-				}
+		k += this->destinationRegion->x;
+		for (int32_t j = 0, y = $nc(this->sourceRegion)->y; j < $nc(this->destinationRegion)->height; ++j, y += this->scaleY) {
+			$nc(this->iis)->read(buf, 0, lineLength);
+			for (int32_t i = 0, m = $nc(this->sourceRegion)->x; i < $nc(this->destinationRegion)->width; ++i, m += this->scaleX) {
+				$nc(bdata)->set(k + i, buf->get(m));
+			}
+			k += this->isBottomUp ? -lineStride : lineStride;
+			$nc(this->iis)->skipBytes(skipLength);
+			processImageUpdate(this->bi, 0, j, $nc(this->destinationRegion)->width, 1, 1, 1, $$new($ints, {0}));
+			processImageProgress(100.0f * j / $nc(this->destinationRegion)->height);
+			if (abortRequested()) {
+				break;
 			}
 		}
 	}
 }
 
 void BMPImageReader::read24Bit($bytes* bdata) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t padding = this->width * 3 % 4;
 	if (padding != 0) {
 		padding = 4 - padding;
@@ -1366,7 +1103,7 @@ void BMPImageReader::read24Bit($bytes* bdata) {
 		}
 	} else {
 		$var($bytes, buf, $new($bytes, lineLength));
-		lineStride = $nc(($cast($ComponentSampleModel, this->sampleModel)))->getScanlineStride();
+		lineStride = $nc($cast($ComponentSampleModel, this->sampleModel))->getScanlineStride();
 		if (this->isBottomUp) {
 			int32_t lastLine = $nc(this->sourceRegion)->y + ($nc(this->destinationRegion)->height - 1) * this->scaleY;
 			$nc(this->iis)->skipBytes(lineLength * (this->height - 1 - lastLine));
@@ -1376,38 +1113,30 @@ void BMPImageReader::read24Bit($bytes* bdata) {
 		int32_t skipLength = lineLength * (this->scaleY - 1);
 		int32_t k = $nc(this->destinationRegion)->y * lineStride;
 		if (this->isBottomUp) {
-			k += ($nc(this->destinationRegion)->height - 1) * lineStride;
+			k += (this->destinationRegion->height - 1) * lineStride;
 		}
-		k += $nc(this->destinationRegion)->x * 3;
-		{
-			int32_t j = 0;
-			int32_t y = $nc(this->sourceRegion)->y;
-			for (; j < $nc(this->destinationRegion)->height; ++j, y += this->scaleY) {
-				$nc(this->iis)->read(buf, 0, lineLength);
-				{
-					int32_t i = 0;
-					int32_t m = 3 * $nc(this->sourceRegion)->x;
-					for (; i < $nc(this->destinationRegion)->width; ++i, m += 3 * this->scaleX) {
-						int32_t n = 3 * i + k;
-						for (int32_t b = 0; b < $nc(this->destBands)->length; ++b) {
-							$nc(bdata)->set(n + $nc(this->destBands)->get(b), buf->get(m + $nc(this->sourceBands)->get(b)));
-						}
-					}
+		k += this->destinationRegion->x * 3;
+		for (int32_t j = 0, y = $nc(this->sourceRegion)->y; j < $nc(this->destinationRegion)->height; ++j, y += this->scaleY) {
+			$nc(this->iis)->read(buf, 0, lineLength);
+			for (int32_t i = 0, m = 3 * $nc(this->sourceRegion)->x; i < $nc(this->destinationRegion)->width; ++i, m += 3 * this->scaleX) {
+				int32_t n = 3 * i + k;
+				for (int32_t b = 0; b < $nc(this->destBands)->length; ++b) {
+					$nc(bdata)->set(n + this->destBands->get(b), buf->get(m + $nc(this->sourceBands)->get(b)));
 				}
-				k += this->isBottomUp ? -lineStride : lineStride;
-				$nc(this->iis)->skipBytes(skipLength);
-				processImageUpdate(this->bi, 0, j, $nc(this->destinationRegion)->width, 1, 1, 1, $$new($ints, {0}));
-				processImageProgress(100.0f * j / $nc(this->destinationRegion)->height);
-				if (abortRequested()) {
-					break;
-				}
+			}
+			k += this->isBottomUp ? -lineStride : lineStride;
+			$nc(this->iis)->skipBytes(skipLength);
+			processImageUpdate(this->bi, 0, j, $nc(this->destinationRegion)->width, 1, 1, 1, $$new($ints, {0}));
+			processImageProgress(100.0f * j / $nc(this->destinationRegion)->height);
+			if (abortRequested()) {
+				break;
 			}
 		}
 	}
 }
 
 void BMPImageReader::read16Bit($shorts* sdata) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t padding = this->width * 2 % 4;
 	if (padding != 0) {
 		padding = 4 - padding;
@@ -1427,7 +1156,7 @@ void BMPImageReader::read16Bit($shorts* sdata) {
 		}
 	} else {
 		$var($shorts, buf, $new($shorts, lineLength));
-		int32_t lineStride = $nc(($cast($SinglePixelPackedSampleModel, this->sampleModel)))->getScanlineStride();
+		int32_t lineStride = $nc($cast($SinglePixelPackedSampleModel, this->sampleModel))->getScanlineStride();
 		if (this->isBottomUp) {
 			int32_t lastLine = $nc(this->sourceRegion)->y + ($nc(this->destinationRegion)->height - 1) * this->scaleY;
 			$nc(this->iis)->skipBytes((lineLength * (this->height - 1 - lastLine)) << 1);
@@ -1437,35 +1166,27 @@ void BMPImageReader::read16Bit($shorts* sdata) {
 		int32_t skipLength = (lineLength * (this->scaleY - 1)) << 1;
 		int32_t k = $nc(this->destinationRegion)->y * lineStride;
 		if (this->isBottomUp) {
-			k += ($nc(this->destinationRegion)->height - 1) * lineStride;
+			k += (this->destinationRegion->height - 1) * lineStride;
 		}
-		k += $nc(this->destinationRegion)->x;
-		{
-			int32_t j = 0;
-			int32_t y = $nc(this->sourceRegion)->y;
-			for (; j < $nc(this->destinationRegion)->height; ++j, y += this->scaleY) {
-				$nc(this->iis)->readFully(buf, 0, lineLength);
-				{
-					int32_t i = 0;
-					int32_t m = $nc(this->sourceRegion)->x;
-					for (; i < $nc(this->destinationRegion)->width; ++i, m += this->scaleX) {
-						$nc(sdata)->set(k + i, buf->get(m));
-					}
-				}
-				k += this->isBottomUp ? -lineStride : lineStride;
-				$nc(this->iis)->skipBytes(skipLength);
-				processImageUpdate(this->bi, 0, j, $nc(this->destinationRegion)->width, 1, 1, 1, $$new($ints, {0}));
-				processImageProgress(100.0f * j / $nc(this->destinationRegion)->height);
-				if (abortRequested()) {
-					break;
-				}
+		k += this->destinationRegion->x;
+		for (int32_t j = 0, y = $nc(this->sourceRegion)->y; j < $nc(this->destinationRegion)->height; ++j, y += this->scaleY) {
+			$nc(this->iis)->readFully(buf, 0, lineLength);
+			for (int32_t i = 0, m = $nc(this->sourceRegion)->x; i < $nc(this->destinationRegion)->width; ++i, m += this->scaleX) {
+				$nc(sdata)->set(k + i, buf->get(m));
+			}
+			k += this->isBottomUp ? -lineStride : lineStride;
+			$nc(this->iis)->skipBytes(skipLength);
+			processImageUpdate(this->bi, 0, j, $nc(this->destinationRegion)->width, 1, 1, 1, $$new($ints, {0}));
+			processImageProgress(100.0f * j / $nc(this->destinationRegion)->height);
+			if (abortRequested()) {
+				break;
 			}
 		}
 	}
 }
 
 void BMPImageReader::read32Bit($ints* idata) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->noTransform) {
 		int32_t j = this->isBottomUp ? (this->height - 1) * this->width : 0;
 		for (int32_t i = 0; i < this->height; ++i) {
@@ -1479,7 +1200,7 @@ void BMPImageReader::read32Bit($ints* idata) {
 		}
 	} else {
 		$var($ints, buf, $new($ints, this->width));
-		int32_t lineStride = $nc(($cast($SinglePixelPackedSampleModel, this->sampleModel)))->getScanlineStride();
+		int32_t lineStride = $nc($cast($SinglePixelPackedSampleModel, this->sampleModel))->getScanlineStride();
 		if (this->isBottomUp) {
 			int32_t lastLine = $nc(this->sourceRegion)->y + ($nc(this->destinationRegion)->height - 1) * this->scaleY;
 			$nc(this->iis)->skipBytes((this->width * (this->height - 1 - lastLine)) << 2);
@@ -1489,28 +1210,20 @@ void BMPImageReader::read32Bit($ints* idata) {
 		int32_t skipLength = (this->width * (this->scaleY - 1)) << 2;
 		int32_t k = $nc(this->destinationRegion)->y * lineStride;
 		if (this->isBottomUp) {
-			k += ($nc(this->destinationRegion)->height - 1) * lineStride;
+			k += (this->destinationRegion->height - 1) * lineStride;
 		}
-		k += $nc(this->destinationRegion)->x;
-		{
-			int32_t j = 0;
-			int32_t y = $nc(this->sourceRegion)->y;
-			for (; j < $nc(this->destinationRegion)->height; ++j, y += this->scaleY) {
-				$nc(this->iis)->readFully(buf, 0, this->width);
-				{
-					int32_t i = 0;
-					int32_t m = $nc(this->sourceRegion)->x;
-					for (; i < $nc(this->destinationRegion)->width; ++i, m += this->scaleX) {
-						$nc(idata)->set(k + i, buf->get(m));
-					}
-				}
-				k += this->isBottomUp ? -lineStride : lineStride;
-				$nc(this->iis)->skipBytes(skipLength);
-				processImageUpdate(this->bi, 0, j, $nc(this->destinationRegion)->width, 1, 1, 1, $$new($ints, {0}));
-				processImageProgress(100.0f * j / $nc(this->destinationRegion)->height);
-				if (abortRequested()) {
-					break;
-				}
+		k += this->destinationRegion->x;
+		for (int32_t j = 0, y = $nc(this->sourceRegion)->y; j < $nc(this->destinationRegion)->height; ++j, y += this->scaleY) {
+			$nc(this->iis)->readFully(buf, 0, this->width);
+			for (int32_t i = 0, m = $nc(this->sourceRegion)->x; i < $nc(this->destinationRegion)->width; ++i, m += this->scaleX) {
+				$nc(idata)->set(k + i, buf->get(m));
+			}
+			k += this->isBottomUp ? -lineStride : lineStride;
+			$nc(this->iis)->skipBytes(skipLength);
+			processImageUpdate(this->bi, 0, j, $nc(this->destinationRegion)->width, 1, 1, 1, $$new($ints, {0}));
+			processImageProgress(100.0f * j / $nc(this->destinationRegion)->height);
+			if (abortRequested()) {
+				break;
 			}
 		}
 	}
@@ -1533,9 +1246,9 @@ void BMPImageReader::readRLE8($bytes* bdata) {
 }
 
 bool BMPImageReader::copyRLE8ScanlineToDst(int32_t lineNo, $bytes* val, $bytes* bdata) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool isSuccess = false;
-	if (lineNo >= $nc(this->sourceRegion)->y && lineNo < $nc(this->sourceRegion)->y + $nc(this->sourceRegion)->height) {
+	if (lineNo >= $nc(this->sourceRegion)->y && lineNo < this->sourceRegion->y + this->sourceRegion->height) {
 		if (this->noTransform) {
 			int32_t pos = lineNo * this->width;
 			for (int32_t i = 0; i < this->width; ++i) {
@@ -1544,18 +1257,18 @@ bool BMPImageReader::copyRLE8ScanlineToDst(int32_t lineNo, $bytes* val, $bytes* 
 			processImageUpdate(this->bi, 0, lineNo, $nc(this->destinationRegion)->width, 1, 1, 1, $$new($ints, {0}));
 			isSuccess = true;
 		} else if ($mod((lineNo - $nc(this->sourceRegion)->y), this->scaleY) == 0) {
-			int32_t lineStride = $nc(($cast($ComponentSampleModel, this->sampleModel)))->getScanlineStride();
+			int32_t lineStride = $nc($cast($ComponentSampleModel, this->sampleModel))->getScanlineStride();
 			int32_t currentLine = $div((lineNo - $nc(this->sourceRegion)->y), this->scaleY) + $nc(this->destinationRegion)->y;
 			int32_t pos = currentLine * lineStride;
-			pos += $nc(this->destinationRegion)->x;
-			for (int32_t i = $nc(this->sourceRegion)->x; i < $nc(this->sourceRegion)->x + $nc(this->sourceRegion)->width; i += this->scaleX) {
+			pos += this->destinationRegion->x;
+			for (int32_t i = this->sourceRegion->x; i < this->sourceRegion->x + this->sourceRegion->width; i += this->scaleX) {
 				$nc(bdata)->set(pos++, $nc(val)->get(i));
 			}
-			processImageUpdate(this->bi, 0, currentLine, $nc(this->destinationRegion)->width, 1, 1, 1, $$new($ints, {0}));
+			processImageUpdate(this->bi, 0, currentLine, this->destinationRegion->width, 1, 1, 1, $$new($ints, {0}));
 			isSuccess = true;
 		}
 		for (int32_t scIndex = 0; scIndex < this->width; ++scIndex) {
-			$nc(val)->set(scIndex, (int8_t)0);
+			$nc(val)->set(scIndex, 0);
 		}
 	}
 	return isSuccess;
@@ -1570,76 +1283,66 @@ void BMPImageReader::decodeRLE8(int32_t imSize, int32_t padding, $bytes* values,
 	int32_t lineNo = this->isBottomUp ? this->height - 1 : 0;
 	int32_t finished = 0;
 	while ((count + 1) < imSize) {
-		value = (int32_t)($nc(values)->get(count++) & (uint32_t)255);
+		value = $nc(values)->get(count++) & 0xff;
 		if (value == 0) {
-			{
-				int32_t end = 0;
-				int8_t readByte = 0;
-				switch ((int32_t)(values->get(count++) & (uint32_t)255)) {
-				case 0:
-					{
+			int32_t end = 0;
+			int8_t readByte = 0;
+			switch (values->get(count++) & 0xff) {
+			case 0:
+				if (copyRLE8ScanlineToDst(lineNo, val, bdata)) {
+					++finished;
+				}
+				processImageProgress(100.0f * finished / $nc(this->destinationRegion)->height);
+				lineNo += this->isBottomUp ? -1 : 1;
+				l = 0;
+				if (abortRequested()) {
+					flag = true;
+				}
+				break;
+			case 1:
+				flag = true;
+				if (l != 0) {
+					if (copyRLE8ScanlineToDst(lineNo, val, bdata)) {
+						++finished;
+					}
+					processImageProgress(100.0f * finished / $nc(this->destinationRegion)->height);
+					lineNo += this->isBottomUp ? -1 : 1;
+					l = 0;
+				}
+				break;
+			case 2:
+				if ((count + 1) < imSize) {
+					int32_t xoff = values->get(count++) & 0xff;
+					int32_t yoff = values->get(count++) & 0xff;
+					if (yoff != 0) {
 						if (copyRLE8ScanlineToDst(lineNo, val, bdata)) {
 							++finished;
 						}
 						processImageProgress(100.0f * finished / $nc(this->destinationRegion)->height);
-						lineNo += this->isBottomUp ? -1 : 1;
-						l = 0;
-						if (abortRequested()) {
-							flag = true;
-						}
-						break;
+						lineNo += this->isBottomUp ? -yoff : yoff;
 					}
-				case 1:
-					{
-						flag = true;
-						if (l != 0) {
-							if (copyRLE8ScanlineToDst(lineNo, val, bdata)) {
-								++finished;
-							}
-							processImageProgress(100.0f * finished / $nc(this->destinationRegion)->height);
-							lineNo += this->isBottomUp ? -1 : 1;
-							l = 0;
-						}
-						break;
-					}
-				case 2:
-					{
-						if ((count + 1) < imSize) {
-							int32_t xoff = (int32_t)(values->get(count++) & (uint32_t)255);
-							int32_t yoff = (int32_t)(values->get(count++) & (uint32_t)255);
-							if (yoff != 0) {
-								if (copyRLE8ScanlineToDst(lineNo, val, bdata)) {
-									++finished;
-								}
-								processImageProgress(100.0f * finished / $nc(this->destinationRegion)->height);
-								lineNo += this->isBottomUp ? -yoff : yoff;
-							}
-							l += xoff + yoff * this->width;
-							$modAssign(l, this->width);
-						}
-						break;
-					}
-				default:
-					{
-						end = (int32_t)(values->get(count - 1) & (uint32_t)255);
-						readByte = (int8_t)0;
-						for (int32_t i = 0; (i < end) && (count < imSize); ++i) {
-							readByte = (int8_t)((int32_t)(values->get(count++) & (uint32_t)255));
-							if (l < this->width) {
-								val->set(l++, readByte);
-							}
-						}
-						if (((int32_t)(end & (uint32_t)1)) == 1) {
-							++count;
-						}
-						break;
+					l += xoff + yoff * this->width;
+					$modAssign(l, this->width);
+				}
+				break;
+			default:
+				end = values->get(count - 1) & 0xff;
+				readByte = 0;
+				for (int32_t i = 0; (i < end) && (count < imSize); ++i) {
+					readByte = (int8_t)(values->get(count++) & 0xff);
+					if (l < this->width) {
+						val->set(l++, readByte);
 					}
 				}
+				if ((end & 1) == 1) {
+					++count;
+				}
+				break;
 			}
 		} else {
 			if (count < imSize) {
 				for (int32_t i = 0; (i < value) && (l < this->width); ++i) {
-					val->set(l++, (int8_t)((int32_t)(values->get(count) & (uint32_t)255)));
+					val->set(l++, (int8_t)(values->get(count) & 0xff));
 				}
 			}
 			++count;
@@ -1666,50 +1369,46 @@ void BMPImageReader::readRLE4($bytes* bdata) {
 }
 
 bool BMPImageReader::copyRLE4ScanlineToDst(int32_t lineNo, $bytes* val, $bytes* bdata) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool isSuccess = false;
-	if (lineNo >= $nc(this->sourceRegion)->y && lineNo < $nc(this->sourceRegion)->y + $nc(this->sourceRegion)->height) {
+	if (lineNo >= $nc(this->sourceRegion)->y && lineNo < this->sourceRegion->y + this->sourceRegion->height) {
 		if (this->noTransform) {
 			int32_t pos = lineNo * ((this->width + 1) >> 1);
-			{
-				int32_t i = 0;
-				int32_t j = 0;
-				for (; i < this->width >> 1; ++i) {
-					int32_t var$0 = ($nc(val)->get(j++) << 4);
-					$nc(bdata)->set(pos++, (int8_t)(var$0 | val->get(j++)));
-				}
+			for (int32_t i = 0, j = 0; i < this->width >> 1; ++i) {
+				int32_t var$0 = $nc(val)->get(j++) << 4;
+				$nc(bdata)->set(pos++, (int8_t)(var$0 | val->get(j++)));
 			}
-			if (((int32_t)(this->width & (uint32_t)1)) == 1) {
+			if ((this->width & 1) == 1) {
 				(*$nc(bdata))[pos] |= $nc(val)->get(this->width - 1) << 4;
 			}
 			processImageUpdate(this->bi, 0, lineNo, $nc(this->destinationRegion)->width, 1, 1, 1, $$new($ints, {0}));
 			isSuccess = true;
 		} else if ($mod((lineNo - $nc(this->sourceRegion)->y), this->scaleY) == 0) {
-			int32_t lineStride = $nc(($cast($MultiPixelPackedSampleModel, this->sampleModel)))->getScanlineStride();
+			int32_t lineStride = $nc($cast($MultiPixelPackedSampleModel, this->sampleModel))->getScanlineStride();
 			int32_t currentLine = $div((lineNo - $nc(this->sourceRegion)->y), this->scaleY) + $nc(this->destinationRegion)->y;
 			int32_t pos = currentLine * lineStride;
-			pos += $nc(this->destinationRegion)->x >> 1;
-			int32_t shift = (1 - ((int32_t)($nc(this->destinationRegion)->x & (uint32_t)1))) << 2;
-			for (int32_t i = $nc(this->sourceRegion)->x; i < $nc(this->sourceRegion)->x + $nc(this->sourceRegion)->width; i += this->scaleX) {
-				(*$nc(bdata))[pos] |= $sl((int32_t)$nc(val)->get(i), shift);
+			pos += this->destinationRegion->x >> 1;
+			int32_t shift = (1 - (this->destinationRegion->x & 1)) << 2;
+			for (int32_t i = this->sourceRegion->x; i < this->sourceRegion->x + this->sourceRegion->width; i += this->scaleX) {
+				(*$nc(bdata))[pos] |= $sl($nc(val)->get(i), shift);
 				shift += 4;
 				if (shift == 4) {
 					++pos;
 				}
 				shift &= (uint32_t)7;
 			}
-			processImageUpdate(this->bi, 0, currentLine, $nc(this->destinationRegion)->width, 1, 1, 1, $$new($ints, {0}));
+			processImageUpdate(this->bi, 0, currentLine, this->destinationRegion->width, 1, 1, 1, $$new($ints, {0}));
 			isSuccess = true;
 		}
 		for (int32_t scIndex = 0; scIndex < this->width; ++scIndex) {
-			$nc(val)->set(scIndex, (int8_t)0);
+			$nc(val)->set(scIndex, 0);
 		}
 	}
 	return isSuccess;
 }
 
 void BMPImageReader::decodeRLE4(int32_t imSize, int32_t padding, $bytes* values, $bytes* bdata) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, val, $new($bytes, this->width));
 	int32_t count = 0;
 	int32_t l = 0;
@@ -1718,83 +1417,73 @@ void BMPImageReader::decodeRLE4(int32_t imSize, int32_t padding, $bytes* values,
 	int32_t lineNo = this->isBottomUp ? this->height - 1 : 0;
 	int32_t finished = 0;
 	while ((count + 1) < imSize) {
-		value = (int32_t)($nc(values)->get(count++) & (uint32_t)255);
+		value = $nc(values)->get(count++) & 0xff;
 		if (value == 0) {
-			{
-				int32_t end = 0;
-				int8_t readByte = 0;
-				switch ((int32_t)(values->get(count++) & (uint32_t)255)) {
-				case 0:
-					{
+			int32_t end = 0;
+			int8_t readByte = 0;
+			switch (values->get(count++) & 0xff) {
+			case 0:
+				if (copyRLE4ScanlineToDst(lineNo, val, bdata)) {
+					++finished;
+				}
+				processImageProgress(100.0f * finished / $nc(this->destinationRegion)->height);
+				lineNo += this->isBottomUp ? -1 : 1;
+				l = 0;
+				if (abortRequested()) {
+					flag = true;
+				}
+				break;
+			case 1:
+				flag = true;
+				if (l != 0) {
+					if (copyRLE4ScanlineToDst(lineNo, val, bdata)) {
+						++finished;
+					}
+					processImageProgress(100.0f * finished / $nc(this->destinationRegion)->height);
+					lineNo += this->isBottomUp ? -1 : 1;
+					l = 0;
+				}
+				break;
+			case 2:
+				if ((count + 1) < imSize) {
+					int32_t xoff = values->get(count++) & 0xff;
+					int32_t yoff = values->get(count++) & 0xff;
+					if (yoff != 0) {
 						if (copyRLE4ScanlineToDst(lineNo, val, bdata)) {
 							++finished;
 						}
 						processImageProgress(100.0f * finished / $nc(this->destinationRegion)->height);
-						lineNo += this->isBottomUp ? -1 : 1;
-						l = 0;
-						if (abortRequested()) {
-							flag = true;
-						}
-						break;
+						lineNo += this->isBottomUp ? -yoff : yoff;
 					}
-				case 1:
-					{
-						flag = true;
-						if (l != 0) {
-							if (copyRLE4ScanlineToDst(lineNo, val, bdata)) {
-								++finished;
-							}
-							processImageProgress(100.0f * finished / $nc(this->destinationRegion)->height);
-							lineNo += this->isBottomUp ? -1 : 1;
-							l = 0;
-						}
-						break;
-					}
-				case 2:
-					{
-						if ((count + 1) < imSize) {
-							int32_t xoff = (int32_t)(values->get(count++) & (uint32_t)255);
-							int32_t yoff = (int32_t)(values->get(count++) & (uint32_t)255);
-							if (yoff != 0) {
-								if (copyRLE4ScanlineToDst(lineNo, val, bdata)) {
-									++finished;
-								}
-								processImageProgress(100.0f * finished / $nc(this->destinationRegion)->height);
-								lineNo += this->isBottomUp ? -yoff : yoff;
-							}
-							l += xoff + yoff * this->width;
-							$modAssign(l, this->width);
-						}
-						break;
-					}
-				default:
-					{
-						end = (int32_t)(values->get(count - 1) & (uint32_t)255);
-						readByte = (int8_t)0;
-						for (int32_t i = 0; (i < end) && (count < imSize); ++i) {
-							readByte = (int8_t)((((int32_t)(i & (uint32_t)1)) == 0) ? ((int32_t)(values->get(count) & (uint32_t)240)) >> 4 : ((int32_t)(values->get(count++) & (uint32_t)15)));
-							if (l < this->width) {
-								val->set(l++, readByte);
-							}
-						}
-						if (((int32_t)(end & (uint32_t)1)) == 1) {
-							++count;
-						}
-						if (((int32_t)(((end + 1) / 2) & (uint32_t)1)) == 1) {
-							++count;
-						}
-						break;
+					l += xoff + yoff * this->width;
+					$modAssign(l, this->width);
+				}
+				break;
+			default:
+				end = values->get(count - 1) & 0xff;
+				readByte = 0;
+				for (int32_t i = 0; (i < end) && (count < imSize); ++i) {
+					readByte = (int8_t)(((i & 1) == 0) ? (values->get(count) & 0xf0) >> 4 : (values->get(count++) & 0x0f));
+					if (l < this->width) {
+						val->set(l++, readByte);
 					}
 				}
+				if ((end & 1) == 1) {
+					++count;
+				}
+				if ((((end + 1) / 2) & 1) == 1) {
+					++count;
+				}
+				break;
 			}
 		} else {
 			if (count < imSize) {
 				$var($ints, alternate, $new($ints, {
-					((int32_t)(values->get(count) & (uint32_t)240)) >> 4,
-					(int32_t)(values->get(count) & (uint32_t)15)
+					(values->get(count) & 0xf0) >> 4,
+					values->get(count) & 0x0f
 				}));
 				for (int32_t i = 0; (i < value) && (l < this->width); ++i) {
-					val->set(l++, (int8_t)alternate->get((int32_t)(i & (uint32_t)1)));
+					val->set(l++, (int8_t)alternate->get(i & 1));
 				}
 			}
 			++count;
@@ -1806,26 +1495,20 @@ void BMPImageReader::decodeRLE4(int32_t imSize, int32_t padding, $bytes* values,
 }
 
 $BufferedImage* BMPImageReader::readEmbedded(int32_t type, $BufferedImage* bi$renamed, $ImageReadParam* bmpParam) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($BufferedImage, bi, bi$renamed);
 	$var($String, format, nullptr);
 	switch (type) {
 	case $BMPConstants::BI_JPEG:
-		{
-			$assign(format, "JPEG"_s);
-			break;
-		}
+		$assign(format, "JPEG"_s);
+		break;
 	case $BMPConstants::BI_PNG:
-		{
-			$assign(format, "PNG"_s);
-			break;
-		}
+		$assign(format, "PNG"_s);
+		break;
 	default:
-		{
-			$throwNew($IOException, $$str({"Unexpected compression type: "_s, $$str(type)}));
-		}
+		$throwNew($IOException, $$str({"Unexpected compression type: "_s, $$str(type)}));
 	}
-	$var($ImageReader, reader, $cast($ImageReader, $nc($($ImageIO::getImageReadersByFormatName(format)))->next()));
+	$var($ImageReader, reader, $cast($ImageReader, $$nc($ImageIO::getImageReadersByFormatName(format))->next()));
 	if (reader == nullptr) {
 		$throwNew($RuntimeException, $$str({$($I18N::getString("BMPImageReader4"_s)), " "_s, format}));
 	}
@@ -1833,7 +1516,7 @@ $BufferedImage* BMPImageReader::readEmbedded(int32_t type, $BufferedImage* bi$re
 	$nc(this->iis)->read(buff);
 	$nc(reader)->setInput($($ImageIO::createImageInputStream($$new($ByteArrayInputStream, buff))));
 	if (bi == nullptr) {
-		$var($ImageTypeSpecifier, embType, $cast($ImageTypeSpecifier, $nc($(reader->getImageTypes(0)))->next()));
+		$var($ImageTypeSpecifier, embType, $cast($ImageTypeSpecifier, $$nc(reader->getImageTypes(0))->next()));
 		$assign(bi, $nc(embType)->createBufferedImage($nc(this->destinationRegion)->x + $nc(this->destinationRegion)->width, $nc(this->destinationRegion)->y + $nc(this->destinationRegion)->height));
 	}
 	reader->addIIOReadProgressListener($$new($BMPImageReader$1, this));
@@ -1842,10 +1525,10 @@ $BufferedImage* BMPImageReader::readEmbedded(int32_t type, $BufferedImage* bi$re
 	$var($ImageReadParam, param, reader->getDefaultReadParam());
 	$nc(param)->setDestination(bi);
 	param->setDestinationBands($($nc(bmpParam)->getDestinationBands()));
-	param->setDestinationOffset($($nc(bmpParam)->getDestinationOffset()));
-	param->setSourceBands($($nc(bmpParam)->getSourceBands()));
-	param->setSourceRegion($($nc(bmpParam)->getSourceRegion()));
-	int32_t var$0 = $nc(bmpParam)->getSourceXSubsampling();
+	param->setDestinationOffset($(bmpParam->getDestinationOffset()));
+	param->setSourceBands($(bmpParam->getSourceBands()));
+	param->setSourceRegion($(bmpParam->getSourceRegion()));
+	int32_t var$0 = bmpParam->getSourceXSubsampling();
 	int32_t var$1 = bmpParam->getSourceYSubsampling();
 	int32_t var$2 = bmpParam->getSubsamplingXOffset();
 	param->setSourceSubsampling(var$0, var$1, var$2, bmpParam->getSubsamplingYOffset());
@@ -1876,13 +1559,13 @@ bool BMPImageReader::isUncOrDevicePath($bytes* p) {
 	if ($nc(p)->get(0) == u'/') {
 		p->set(0, (int8_t)u'\\');
 	}
-	if ($nc(p)->get(1) == u'/') {
+	if (p->get(1) == u'/') {
 		p->set(1, (int8_t)u'\\');
 	}
-	if ($nc(p)->get(3) == u'/') {
+	if (p->get(3) == u'/') {
 		p->set(3, (int8_t)u'\\');
 	}
-	if (($nc(p)->get(0) == u'\\') && (p->get(1) == u'\\')) {
+	if ((p->get(0) == u'\\') && (p->get(1) == u'\\')) {
 		if ((p->get(2) == u'?') && (p->get(3) == u'\\')) {
 			return ((p->get(4) == u'U' || p->get(4) == u'u') && (p->get(5) == u'N' || p->get(5) == u'n') && (p->get(6) == u'C' || p->get(6) == u'c'));
 		} else {
@@ -1893,7 +1576,7 @@ bool BMPImageReader::isUncOrDevicePath($bytes* p) {
 	}
 }
 
-void clinit$BMPImageReader($Class* class$) {
+void BMPImageReader::clinit$($Class* clazz) {
 	$assignStatic(BMPImageReader::isLinkedProfileDisabled, nullptr);
 	$assignStatic(BMPImageReader::isWindowsPlatform, nullptr);
 }
@@ -1902,7 +1585,140 @@ BMPImageReader::BMPImageReader() {
 }
 
 $Class* BMPImageReader::load$($String* name, bool initialize) {
-	$loadClass(BMPImageReader, name, initialize, &_BMPImageReader_ClassInfo_, clinit$BMPImageReader, allocate$BMPImageReader);
+	$FieldInfo fieldInfos$$[] = {
+		{"VERSION_2_1_BIT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BMPImageReader, VERSION_2_1_BIT)},
+		{"VERSION_2_4_BIT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BMPImageReader, VERSION_2_4_BIT)},
+		{"VERSION_2_8_BIT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BMPImageReader, VERSION_2_8_BIT)},
+		{"VERSION_2_24_BIT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BMPImageReader, VERSION_2_24_BIT)},
+		{"VERSION_3_1_BIT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BMPImageReader, VERSION_3_1_BIT)},
+		{"VERSION_3_4_BIT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BMPImageReader, VERSION_3_4_BIT)},
+		{"VERSION_3_8_BIT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BMPImageReader, VERSION_3_8_BIT)},
+		{"VERSION_3_24_BIT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BMPImageReader, VERSION_3_24_BIT)},
+		{"VERSION_3_NT_16_BIT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BMPImageReader, VERSION_3_NT_16_BIT)},
+		{"VERSION_3_NT_32_BIT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BMPImageReader, VERSION_3_NT_32_BIT)},
+		{"VERSION_3_EXT_1_BIT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BMPImageReader, VERSION_3_EXT_1_BIT)},
+		{"VERSION_3_EXT_4_BIT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BMPImageReader, VERSION_3_EXT_4_BIT)},
+		{"VERSION_3_EXT_8_BIT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BMPImageReader, VERSION_3_EXT_8_BIT)},
+		{"VERSION_3_EXT_16_BIT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BMPImageReader, VERSION_3_EXT_16_BIT)},
+		{"VERSION_3_EXT_24_BIT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BMPImageReader, VERSION_3_EXT_24_BIT)},
+		{"VERSION_3_EXT_32_BIT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BMPImageReader, VERSION_3_EXT_32_BIT)},
+		{"VERSION_4_1_BIT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BMPImageReader, VERSION_4_1_BIT)},
+		{"VERSION_4_4_BIT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BMPImageReader, VERSION_4_4_BIT)},
+		{"VERSION_4_8_BIT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BMPImageReader, VERSION_4_8_BIT)},
+		{"VERSION_4_16_BIT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BMPImageReader, VERSION_4_16_BIT)},
+		{"VERSION_4_24_BIT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BMPImageReader, VERSION_4_24_BIT)},
+		{"VERSION_4_32_BIT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BMPImageReader, VERSION_4_32_BIT)},
+		{"VERSION_3_XP_EMBEDDED", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BMPImageReader, VERSION_3_XP_EMBEDDED)},
+		{"VERSION_3_EXT_EMBEDDED", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BMPImageReader, VERSION_3_EXT_EMBEDDED)},
+		{"VERSION_4_XP_EMBEDDED", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BMPImageReader, VERSION_4_XP_EMBEDDED)},
+		{"VERSION_5_XP_EMBEDDED", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BMPImageReader, VERSION_5_XP_EMBEDDED)},
+		{"bitmapFileSize", "J", nullptr, $PRIVATE, $field(BMPImageReader, bitmapFileSize)},
+		{"bitmapOffset", "J", nullptr, $PRIVATE, $field(BMPImageReader, bitmapOffset)},
+		{"bitmapStart", "J", nullptr, $PRIVATE, $field(BMPImageReader, bitmapStart)},
+		{"compression", "J", nullptr, $PRIVATE, $field(BMPImageReader, compression)},
+		{"imageSize", "J", nullptr, $PRIVATE, $field(BMPImageReader, imageSize)},
+		{"palette", "[B", nullptr, $PRIVATE, $field(BMPImageReader, palette)},
+		{"imageType", "I", nullptr, $PRIVATE, $field(BMPImageReader, imageType)},
+		{"numBands", "I", nullptr, $PRIVATE, $field(BMPImageReader, numBands)},
+		{"isBottomUp", "Z", nullptr, $PRIVATE, $field(BMPImageReader, isBottomUp)},
+		{"bitsPerPixel", "I", nullptr, $PRIVATE, $field(BMPImageReader, bitsPerPixel)},
+		{"redMask", "I", nullptr, $PRIVATE, $field(BMPImageReader, redMask)},
+		{"greenMask", "I", nullptr, $PRIVATE, $field(BMPImageReader, greenMask)},
+		{"blueMask", "I", nullptr, $PRIVATE, $field(BMPImageReader, blueMask)},
+		{"alphaMask", "I", nullptr, $PRIVATE, $field(BMPImageReader, alphaMask)},
+		{"sampleModel", "Ljava/awt/image/SampleModel;", nullptr, $PRIVATE, $field(BMPImageReader, sampleModel)},
+		{"originalSampleModel", "Ljava/awt/image/SampleModel;", nullptr, $PRIVATE, $field(BMPImageReader, originalSampleModel)},
+		{"colorModel", "Ljava/awt/image/ColorModel;", nullptr, $PRIVATE, $field(BMPImageReader, colorModel)},
+		{"originalColorModel", "Ljava/awt/image/ColorModel;", nullptr, $PRIVATE, $field(BMPImageReader, originalColorModel)},
+		{"iis", "Ljavax/imageio/stream/ImageInputStream;", nullptr, $PRIVATE, $field(BMPImageReader, iis)},
+		{"gotHeader", "Z", nullptr, $PRIVATE, $field(BMPImageReader, gotHeader)},
+		{"width", "I", nullptr, $PRIVATE, $field(BMPImageReader, width)},
+		{"height", "I", nullptr, $PRIVATE, $field(BMPImageReader, height)},
+		{"destinationRegion", "Ljava/awt/Rectangle;", nullptr, $PRIVATE, $field(BMPImageReader, destinationRegion)},
+		{"sourceRegion", "Ljava/awt/Rectangle;", nullptr, $PRIVATE, $field(BMPImageReader, sourceRegion)},
+		{"metadata", "Lcom/sun/imageio/plugins/bmp/BMPMetadata;", nullptr, $PRIVATE, $field(BMPImageReader, metadata)},
+		{"bi", "Ljava/awt/image/BufferedImage;", nullptr, $PRIVATE, $field(BMPImageReader, bi)},
+		{"noTransform", "Z", nullptr, $PRIVATE, $field(BMPImageReader, noTransform)},
+		{"seleBand", "Z", nullptr, $PRIVATE, $field(BMPImageReader, seleBand)},
+		{"scaleX", "I", nullptr, $PRIVATE, $field(BMPImageReader, scaleX)},
+		{"scaleY", "I", nullptr, $PRIVATE, $field(BMPImageReader, scaleY)},
+		{"sourceBands", "[I", nullptr, $PRIVATE, $field(BMPImageReader, sourceBands)},
+		{"destBands", "[I", nullptr, $PRIVATE, $field(BMPImageReader, destBands)},
+		{"isLinkedProfileDisabled", "Ljava/lang/Boolean;", nullptr, $PRIVATE | $STATIC, $staticField(BMPImageReader, isLinkedProfileDisabled)},
+		{"isWindowsPlatform", "Ljava/lang/Boolean;", nullptr, $PRIVATE | $STATIC, $staticField(BMPImageReader, isWindowsPlatform)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljavax/imageio/spi/ImageReaderSpi;)V", nullptr, $PUBLIC, $method(BMPImageReader, init$, void, $ImageReaderSpi*)},
+		{"access$000", "(Lcom/sun/imageio/plugins/bmp/BMPImageReader;F)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(BMPImageReader, access$000, void, BMPImageReader*, float)},
+		{"access$100", "(Lcom/sun/imageio/plugins/bmp/BMPImageReader;Ljava/awt/image/BufferedImage;IIIIII[I)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(BMPImageReader, access$100, void, BMPImageReader*, $BufferedImage*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, $ints*)},
+		{"access$200", "(Lcom/sun/imageio/plugins/bmp/BMPImageReader;Ljava/awt/image/BufferedImage;)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(BMPImageReader, access$200, void, BMPImageReader*, $BufferedImage*)},
+		{"access$300", "(Lcom/sun/imageio/plugins/bmp/BMPImageReader;Ljava/awt/image/BufferedImage;IIIIIII[I)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(BMPImageReader, access$300, void, BMPImageReader*, $BufferedImage*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, $ints*)},
+		{"access$400", "(Lcom/sun/imageio/plugins/bmp/BMPImageReader;Ljava/lang/String;)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(BMPImageReader, access$400, void, BMPImageReader*, $String*)},
+		{"canReadRaster", "()Z", nullptr, $PUBLIC, $virtualMethod(BMPImageReader, canReadRaster, bool)},
+		{"checkIndex", "(I)V", nullptr, $PRIVATE, $method(BMPImageReader, checkIndex, void, int32_t)},
+		{"copyRLE4ScanlineToDst", "(I[B[B)Z", nullptr, $PRIVATE, $method(BMPImageReader, copyRLE4ScanlineToDst, bool, int32_t, $bytes*, $bytes*), "java.io.IOException"},
+		{"copyRLE8ScanlineToDst", "(I[B[B)Z", nullptr, $PRIVATE, $method(BMPImageReader, copyRLE8ScanlineToDst, bool, int32_t, $bytes*, $bytes*)},
+		{"decodeRLE4", "(II[B[B)V", nullptr, $PRIVATE, $method(BMPImageReader, decodeRLE4, void, int32_t, int32_t, $bytes*, $bytes*), "java.io.IOException"},
+		{"decodeRLE8", "(II[B[B)V", nullptr, $PRIVATE, $method(BMPImageReader, decodeRLE8, void, int32_t, int32_t, $bytes*, $bytes*), "java.io.IOException"},
+		{"getDefaultReadParam", "()Ljavax/imageio/ImageReadParam;", nullptr, $PUBLIC, $virtualMethod(BMPImageReader, getDefaultReadParam, $ImageReadParam*)},
+		{"getHeight", "(I)I", nullptr, $PUBLIC, $virtualMethod(BMPImageReader, getHeight, int32_t, int32_t), "java.io.IOException"},
+		{"getImageMetadata", "(I)Ljavax/imageio/metadata/IIOMetadata;", nullptr, $PUBLIC, $virtualMethod(BMPImageReader, getImageMetadata, $IIOMetadata*, int32_t), "java.io.IOException"},
+		{"getImageTypes", "(I)Ljava/util/Iterator;", "(I)Ljava/util/Iterator<Ljavax/imageio/ImageTypeSpecifier;>;", $PUBLIC, $virtualMethod(BMPImageReader, getImageTypes, $Iterator*, int32_t), "java.io.IOException"},
+		{"getNumImages", "(Z)I", nullptr, $PUBLIC, $virtualMethod(BMPImageReader, getNumImages, int32_t, bool), "java.io.IOException"},
+		{"getStreamMetadata", "()Ljavax/imageio/metadata/IIOMetadata;", nullptr, $PUBLIC, $virtualMethod(BMPImageReader, getStreamMetadata, $IIOMetadata*), "java.io.IOException"},
+		{"getWidth", "(I)I", nullptr, $PUBLIC, $virtualMethod(BMPImageReader, getWidth, int32_t, int32_t), "java.io.IOException"},
+		{"isLinkedProfileAllowed", "()Z", nullptr, $PRIVATE | $STATIC, $staticMethod(BMPImageReader, isLinkedProfileAllowed, bool)},
+		{"isRandomAccessEasy", "(I)Z", nullptr, $PUBLIC, $virtualMethod(BMPImageReader, isRandomAccessEasy, bool, int32_t), "java.io.IOException"},
+		{"isUncOrDevicePath", "([B)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(BMPImageReader, isUncOrDevicePath, bool, $bytes*)},
+		{"read", "(ILjavax/imageio/ImageReadParam;)Ljava/awt/image/BufferedImage;", nullptr, $PUBLIC, $virtualMethod(BMPImageReader, read, $BufferedImage*, int32_t, $ImageReadParam*), "java.io.IOException"},
+		{"read16Bit", "([S)V", nullptr, $PRIVATE, $method(BMPImageReader, read16Bit, void, $shorts*), "java.io.IOException"},
+		{"read1Bit", "([B)V", nullptr, $PRIVATE, $method(BMPImageReader, read1Bit, void, $bytes*), "java.io.IOException"},
+		{"read24Bit", "([B)V", nullptr, $PRIVATE, $method(BMPImageReader, read24Bit, void, $bytes*), "java.io.IOException"},
+		{"read32Bit", "([I)V", nullptr, $PRIVATE, $method(BMPImageReader, read32Bit, void, $ints*), "java.io.IOException"},
+		{"read4Bit", "([B)V", nullptr, $PRIVATE, $method(BMPImageReader, read4Bit, void, $bytes*), "java.io.IOException"},
+		{"read8Bit", "([B)V", nullptr, $PRIVATE, $method(BMPImageReader, read8Bit, void, $bytes*), "java.io.IOException"},
+		{"readEmbedded", "(ILjava/awt/image/BufferedImage;Ljavax/imageio/ImageReadParam;)Ljava/awt/image/BufferedImage;", nullptr, $PRIVATE, $method(BMPImageReader, readEmbedded, $BufferedImage*, int32_t, $BufferedImage*, $ImageReadParam*), "java.io.IOException"},
+		{"readHeader", "()V", nullptr, $PROTECTED, $virtualMethod(BMPImageReader, readHeader, void), "java.io.IOException,java.lang.IllegalArgumentException"},
+		{"readRLE4", "([B)V", nullptr, $PRIVATE, $method(BMPImageReader, readRLE4, void, $bytes*), "java.io.IOException"},
+		{"readRLE8", "([B)V", nullptr, $PRIVATE, $method(BMPImageReader, readRLE8, void, $bytes*), "java.io.IOException"},
+		{"readRaster", "(ILjavax/imageio/ImageReadParam;)Ljava/awt/image/Raster;", nullptr, $PUBLIC, $virtualMethod(BMPImageReader, readRaster, $Raster*, int32_t, $ImageReadParam*), "java.io.IOException"},
+		{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(BMPImageReader, reset, void)},
+		{"resetHeaderInfo", "()V", nullptr, $PRIVATE, $method(BMPImageReader, resetHeaderInfo, void)},
+		{"setInput", "(Ljava/lang/Object;ZZ)V", nullptr, $PUBLIC, $virtualMethod(BMPImageReader, setInput, void, Object$*, bool, bool)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.imageio.plugins.bmp.BMPImageReader$EmbeddedProgressAdapter", "com.sun.imageio.plugins.bmp.BMPImageReader", "EmbeddedProgressAdapter", $PRIVATE | $STATIC},
+		{"com.sun.imageio.plugins.bmp.BMPImageReader$5", nullptr, nullptr, 0},
+		{"com.sun.imageio.plugins.bmp.BMPImageReader$4", nullptr, nullptr, 0},
+		{"com.sun.imageio.plugins.bmp.BMPImageReader$3", nullptr, nullptr, 0},
+		{"com.sun.imageio.plugins.bmp.BMPImageReader$2", nullptr, nullptr, 0},
+		{"com.sun.imageio.plugins.bmp.BMPImageReader$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.imageio.plugins.bmp.BMPImageReader",
+		"javax.imageio.ImageReader",
+		"com.sun.imageio.plugins.bmp.BMPConstants",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.imageio.plugins.bmp.BMPImageReader$EmbeddedProgressAdapter,com.sun.imageio.plugins.bmp.BMPImageReader$5,com.sun.imageio.plugins.bmp.BMPImageReader$4,com.sun.imageio.plugins.bmp.BMPImageReader$3,com.sun.imageio.plugins.bmp.BMPImageReader$2,com.sun.imageio.plugins.bmp.BMPImageReader$1"
+	};
+	$loadClass(BMPImageReader, name, initialize, &classInfo$$, BMPImageReader::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(BMPImageReader));
+	});
 	return class$;
 }
 

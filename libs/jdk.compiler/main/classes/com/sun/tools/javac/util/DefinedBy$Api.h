@@ -26,6 +26,7 @@ class $export DefinedBy$Api : public ::java::lang::Enum {
 public:
 	DefinedBy$Api();
 	static $Array<::com::sun::tools::javac::util::DefinedBy$Api>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal, $String* packageRoot);
 	static ::com::sun::tools::javac::util::DefinedBy$Api* valueOf($String* name);
 	static $Array<::com::sun::tools::javac::util::DefinedBy$Api>* values();

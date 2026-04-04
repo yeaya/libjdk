@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/util/DOMEntityResolverWrapper.h>
-
 #include <com/sun/org/apache/xerces/internal/xni/XMLResourceIdentifier.h>
 #include <com/sun/org/apache/xerces/internal/xni/grammars/XMLGrammarDescription.h>
 #include <com/sun/org/apache/xerces/internal/xni/parser/XMLInputSource.h>
@@ -34,36 +33,6 @@ namespace com {
 					namespace internal {
 						namespace util {
 
-$FieldInfo _DOMEntityResolverWrapper_FieldInfo_[] = {
-	{"XML_TYPE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DOMEntityResolverWrapper, XML_TYPE)},
-	{"XSD_TYPE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DOMEntityResolverWrapper, XSD_TYPE)},
-	{"fEntityResolver", "Lorg/w3c/dom/ls/LSResourceResolver;", nullptr, $PROTECTED, $field(DOMEntityResolverWrapper, fEntityResolver)},
-	{}
-};
-
-$MethodInfo _DOMEntityResolverWrapper_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(DOMEntityResolverWrapper, init$, void)},
-	{"<init>", "(Lorg/w3c/dom/ls/LSResourceResolver;)V", nullptr, $PUBLIC, $method(DOMEntityResolverWrapper, init$, void, $LSResourceResolver*)},
-	{"getEntityResolver", "()Lorg/w3c/dom/ls/LSResourceResolver;", nullptr, $PUBLIC, $virtualMethod(DOMEntityResolverWrapper, getEntityResolver, $LSResourceResolver*)},
-	{"getType", "(Lcom/sun/org/apache/xerces/internal/xni/XMLResourceIdentifier;)Ljava/lang/String;", nullptr, $PRIVATE, $method(DOMEntityResolverWrapper, getType, $String*, $XMLResourceIdentifier*)},
-	{"resolveEntity", "(Lcom/sun/org/apache/xerces/internal/xni/XMLResourceIdentifier;)Lcom/sun/org/apache/xerces/internal/xni/parser/XMLInputSource;", nullptr, $PUBLIC, $virtualMethod(DOMEntityResolverWrapper, resolveEntity, $XMLInputSource*, $XMLResourceIdentifier*), "com.sun.org.apache.xerces.internal.xni.XNIException,java.io.IOException"},
-	{"setEntityResolver", "(Lorg/w3c/dom/ls/LSResourceResolver;)V", nullptr, $PUBLIC, $virtualMethod(DOMEntityResolverWrapper, setEntityResolver, void, $LSResourceResolver*)},
-	{}
-};
-
-$ClassInfo _DOMEntityResolverWrapper_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.util.DOMEntityResolverWrapper",
-	"java.lang.Object",
-	"com.sun.org.apache.xerces.internal.xni.parser.XMLEntityResolver",
-	_DOMEntityResolverWrapper_FieldInfo_,
-	_DOMEntityResolverWrapper_MethodInfo_
-};
-
-$Object* allocate$DOMEntityResolverWrapper($Class* clazz) {
-	return $of($alloc(DOMEntityResolverWrapper));
-}
-
 $String* DOMEntityResolverWrapper::XML_TYPE = nullptr;
 $String* DOMEntityResolverWrapper::XSD_TYPE = nullptr;
 
@@ -83,17 +52,17 @@ $LSResourceResolver* DOMEntityResolverWrapper::getEntityResolver() {
 }
 
 $XMLInputSource* DOMEntityResolverWrapper::resolveEntity($XMLResourceIdentifier* resourceIdentifier) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->fEntityResolver != nullptr) {
 		$var($LSInput, var$0, nullptr);
 		if (resourceIdentifier == nullptr) {
-			$assign(var$0, $nc(this->fEntityResolver)->resolveResource(nullptr, nullptr, nullptr, nullptr, nullptr));
+			$assign(var$0, this->fEntityResolver->resolveResource(nullptr, nullptr, nullptr, nullptr, nullptr));
 		} else {
 			$var($String, var$1, getType(resourceIdentifier));
 			$var($String, var$2, $nc(resourceIdentifier)->getNamespace());
 			$var($String, var$3, resourceIdentifier->getPublicId());
 			$var($String, var$4, resourceIdentifier->getLiteralSystemId());
-			$assign(var$0, $nc(this->fEntityResolver)->resolveResource(var$1, var$2, var$3, var$4, $(resourceIdentifier->getBaseSystemId())));
+			$assign(var$0, this->fEntityResolver->resolveResource(var$1, var$2, var$3, var$4, $(resourceIdentifier->getBaseSystemId())));
 		}
 		$var($LSInput, inputSource, var$0);
 		if (inputSource != nullptr) {
@@ -120,11 +89,11 @@ $XMLInputSource* DOMEntityResolverWrapper::resolveEntity($XMLResourceIdentifier*
 }
 
 $String* DOMEntityResolverWrapper::getType($XMLResourceIdentifier* resourceIdentifier) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($instanceOf($XMLGrammarDescription, resourceIdentifier)) {
 		$var($XMLGrammarDescription, desc, $cast($XMLGrammarDescription, resourceIdentifier));
 		$init($XMLGrammarDescription);
-		if ($nc($XMLGrammarDescription::XML_SCHEMA)->equals($($nc(desc)->getGrammarType()))) {
+		if ($nc($XMLGrammarDescription::XML_SCHEMA)->equals($(desc->getGrammarType()))) {
 			return DOMEntityResolverWrapper::XSD_TYPE;
 		}
 	}
@@ -134,13 +103,38 @@ $String* DOMEntityResolverWrapper::getType($XMLResourceIdentifier* resourceIdent
 DOMEntityResolverWrapper::DOMEntityResolverWrapper() {
 }
 
-void clinit$DOMEntityResolverWrapper($Class* class$) {
+void DOMEntityResolverWrapper::clinit$($Class* clazz) {
 	$assignStatic(DOMEntityResolverWrapper::XML_TYPE, "http://www.w3.org/TR/REC-xml"_s);
 	$assignStatic(DOMEntityResolverWrapper::XSD_TYPE, "http://www.w3.org/2001/XMLSchema"_s);
 }
 
 $Class* DOMEntityResolverWrapper::load$($String* name, bool initialize) {
-	$loadClass(DOMEntityResolverWrapper, name, initialize, &_DOMEntityResolverWrapper_ClassInfo_, clinit$DOMEntityResolverWrapper, allocate$DOMEntityResolverWrapper);
+	$FieldInfo fieldInfos$$[] = {
+		{"XML_TYPE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DOMEntityResolverWrapper, XML_TYPE)},
+		{"XSD_TYPE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DOMEntityResolverWrapper, XSD_TYPE)},
+		{"fEntityResolver", "Lorg/w3c/dom/ls/LSResourceResolver;", nullptr, $PROTECTED, $field(DOMEntityResolverWrapper, fEntityResolver)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(DOMEntityResolverWrapper, init$, void)},
+		{"<init>", "(Lorg/w3c/dom/ls/LSResourceResolver;)V", nullptr, $PUBLIC, $method(DOMEntityResolverWrapper, init$, void, $LSResourceResolver*)},
+		{"getEntityResolver", "()Lorg/w3c/dom/ls/LSResourceResolver;", nullptr, $PUBLIC, $virtualMethod(DOMEntityResolverWrapper, getEntityResolver, $LSResourceResolver*)},
+		{"getType", "(Lcom/sun/org/apache/xerces/internal/xni/XMLResourceIdentifier;)Ljava/lang/String;", nullptr, $PRIVATE, $method(DOMEntityResolverWrapper, getType, $String*, $XMLResourceIdentifier*)},
+		{"resolveEntity", "(Lcom/sun/org/apache/xerces/internal/xni/XMLResourceIdentifier;)Lcom/sun/org/apache/xerces/internal/xni/parser/XMLInputSource;", nullptr, $PUBLIC, $virtualMethod(DOMEntityResolverWrapper, resolveEntity, $XMLInputSource*, $XMLResourceIdentifier*), "com.sun.org.apache.xerces.internal.xni.XNIException,java.io.IOException"},
+		{"setEntityResolver", "(Lorg/w3c/dom/ls/LSResourceResolver;)V", nullptr, $PUBLIC, $virtualMethod(DOMEntityResolverWrapper, setEntityResolver, void, $LSResourceResolver*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.util.DOMEntityResolverWrapper",
+		"java.lang.Object",
+		"com.sun.org.apache.xerces.internal.xni.parser.XMLEntityResolver",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DOMEntityResolverWrapper, name, initialize, &classInfo$$, DOMEntityResolverWrapper::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(DOMEntityResolverWrapper);
+	});
 	return class$;
 }
 

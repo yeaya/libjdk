@@ -1,5 +1,4 @@
 #include <javax/swing/GroupLayout$ContainerAutoPreferredGapSpring.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <java/lang/Math.h>
@@ -24,59 +23,15 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ArrayList = ::java::util::ArrayList;
-using $List = ::java::util::List;
 using $GroupLayout = ::javax::swing::GroupLayout;
 using $GroupLayout$AutoPreferredGapSpring = ::javax::swing::GroupLayout$AutoPreferredGapSpring;
 using $GroupLayout$ComponentSpring = ::javax::swing::GroupLayout$ComponentSpring;
-using $GroupLayout$Spring = ::javax::swing::GroupLayout$Spring;
 using $JComponent = ::javax::swing::JComponent;
 using $LayoutStyle = ::javax::swing::LayoutStyle;
 using $SwingConstants = ::javax::swing::SwingConstants;
 
 namespace javax {
 	namespace swing {
-
-$FieldInfo _GroupLayout$ContainerAutoPreferredGapSpring_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/GroupLayout;", nullptr, $FINAL | $SYNTHETIC, $field(GroupLayout$ContainerAutoPreferredGapSpring, this$0)},
-	{"targets", "Ljava/util/List;", "Ljava/util/List<Ljavax/swing/GroupLayout$ComponentSpring;>;", $PRIVATE, $field(GroupLayout$ContainerAutoPreferredGapSpring, targets)},
-	{}
-};
-
-$MethodInfo _GroupLayout$ContainerAutoPreferredGapSpring_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/GroupLayout;)V", nullptr, 0, $method(GroupLayout$ContainerAutoPreferredGapSpring, init$, void, $GroupLayout*)},
-	{"<init>", "(Ljavax/swing/GroupLayout;II)V", nullptr, 0, $method(GroupLayout$ContainerAutoPreferredGapSpring, init$, void, $GroupLayout*, int32_t, int32_t)},
-	{"addTarget", "(Ljavax/swing/GroupLayout$ComponentSpring;I)V", nullptr, $PUBLIC, $virtualMethod(GroupLayout$ContainerAutoPreferredGapSpring, addTarget, void, $GroupLayout$ComponentSpring*, int32_t)},
-	{"calculatePadding", "(I)V", nullptr, $PUBLIC, $virtualMethod(GroupLayout$ContainerAutoPreferredGapSpring, calculatePadding, void, int32_t)},
-	{"getMatchDescription", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(GroupLayout$ContainerAutoPreferredGapSpring, getMatchDescription, $String*)},
-	{"updateSize", "(Ljavax/swing/LayoutStyle;Ljavax/swing/GroupLayout$ComponentSpring;I)I", nullptr, $PRIVATE, $method(GroupLayout$ContainerAutoPreferredGapSpring, updateSize, int32_t, $LayoutStyle*, $GroupLayout$ComponentSpring*, int32_t)},
-	{}
-};
-
-$InnerClassInfo _GroupLayout$ContainerAutoPreferredGapSpring_InnerClassesInfo_[] = {
-	{"javax.swing.GroupLayout$ContainerAutoPreferredGapSpring", "javax.swing.GroupLayout", "ContainerAutoPreferredGapSpring", $PRIVATE},
-	{"javax.swing.GroupLayout$AutoPreferredGapSpring", "javax.swing.GroupLayout", "AutoPreferredGapSpring", $PRIVATE},
-	{}
-};
-
-$ClassInfo _GroupLayout$ContainerAutoPreferredGapSpring_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.GroupLayout$ContainerAutoPreferredGapSpring",
-	"javax.swing.GroupLayout$AutoPreferredGapSpring",
-	nullptr,
-	_GroupLayout$ContainerAutoPreferredGapSpring_FieldInfo_,
-	_GroupLayout$ContainerAutoPreferredGapSpring_MethodInfo_,
-	nullptr,
-	nullptr,
-	_GroupLayout$ContainerAutoPreferredGapSpring_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.GroupLayout"
-};
-
-$Object* allocate$GroupLayout$ContainerAutoPreferredGapSpring($Class* clazz) {
-	return $of($alloc(GroupLayout$ContainerAutoPreferredGapSpring));
-}
 
 void GroupLayout$ContainerAutoPreferredGapSpring::init$($GroupLayout* this$0) {
 	$set(this, this$0, this$0);
@@ -98,7 +53,7 @@ void GroupLayout$ContainerAutoPreferredGapSpring::addTarget($GroupLayout$Compone
 }
 
 void GroupLayout$ContainerAutoPreferredGapSpring::calculatePadding(int32_t axis) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($LayoutStyle, p, this->this$0->getLayoutStyle0());
 	int32_t maxPadding = 0;
 	int32_t position = 0;
@@ -117,7 +72,7 @@ void GroupLayout$ContainerAutoPreferredGapSpring::calculatePadding(int32_t axis)
 			$var($GroupLayout$ComponentSpring, targetSpring, $cast($GroupLayout$ComponentSpring, $nc(this->targets)->get(i)));
 			int32_t padding = 10;
 			if ($instanceOf($JComponent, $($nc(targetSpring)->getComponent()))) {
-				padding = $nc(p)->getContainerGap($cast($JComponent, $(targetSpring->getComponent())), position, this->this$0->host);
+				padding = $nc(p)->getContainerGap($$cast($JComponent, targetSpring->getComponent()), position, this->this$0->host);
 				maxPadding = $Math::max(padding, maxPadding);
 				padding -= targetSpring->getOrigin();
 			} else {
@@ -136,7 +91,7 @@ void GroupLayout$ContainerAutoPreferredGapSpring::calculatePadding(int32_t axis)
 			position = $SwingConstants::SOUTH;
 		}
 		if (this->sources != nullptr) {
-			for (int32_t i = $nc(this->sources)->size() - 1; i >= 0; --i) {
+			for (int32_t i = this->sources->size() - 1; i >= 0; --i) {
 				$var($GroupLayout$ComponentSpring, sourceSpring, $cast($GroupLayout$ComponentSpring, $nc(this->sources)->get(i)));
 				maxPadding = $Math::max(maxPadding, updateSize(p, sourceSpring, position));
 			}
@@ -150,25 +105,25 @@ void GroupLayout$ContainerAutoPreferredGapSpring::calculatePadding(int32_t axis)
 }
 
 int32_t GroupLayout$ContainerAutoPreferredGapSpring::updateSize($LayoutStyle* p, $GroupLayout$ComponentSpring* sourceSpring, int32_t position) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t padding = 10;
 	if ($instanceOf($JComponent, $($nc(sourceSpring)->getComponent()))) {
-		padding = $nc(p)->getContainerGap($cast($JComponent, $(sourceSpring->getComponent())), position, this->this$0->host);
+		padding = $nc(p)->getContainerGap($$cast($JComponent, sourceSpring->getComponent()), position, this->this$0->host);
 	}
-	int32_t var$1 = $nc($(getParent()))->getSize();
-	int32_t var$0 = var$1 - $nc(sourceSpring)->getSize();
+	int32_t var$1 = $$nc(getParent())->getSize();
+	int32_t var$0 = var$1 - sourceSpring->getSize();
 	int32_t delta = $Math::max(0, var$0 - sourceSpring->getOrigin());
 	this->size = $Math::max(this->size, padding - delta);
 	return padding;
 }
 
 $String* GroupLayout$ContainerAutoPreferredGapSpring::getMatchDescription() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->targets != nullptr) {
-		return $str({"leading: "_s, $($nc($of(this->targets))->toString())});
+		return $str({"leading: "_s, $(this->targets->toString())});
 	}
 	if (this->sources != nullptr) {
-		return $str({"trailing: "_s, $($nc($of(this->sources))->toString())});
+		return $str({"trailing: "_s, $(this->sources->toString())});
 	}
 	return "--"_s;
 }
@@ -177,7 +132,43 @@ GroupLayout$ContainerAutoPreferredGapSpring::GroupLayout$ContainerAutoPreferredG
 }
 
 $Class* GroupLayout$ContainerAutoPreferredGapSpring::load$($String* name, bool initialize) {
-	$loadClass(GroupLayout$ContainerAutoPreferredGapSpring, name, initialize, &_GroupLayout$ContainerAutoPreferredGapSpring_ClassInfo_, allocate$GroupLayout$ContainerAutoPreferredGapSpring);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/GroupLayout;", nullptr, $FINAL | $SYNTHETIC, $field(GroupLayout$ContainerAutoPreferredGapSpring, this$0)},
+		{"targets", "Ljava/util/List;", "Ljava/util/List<Ljavax/swing/GroupLayout$ComponentSpring;>;", $PRIVATE, $field(GroupLayout$ContainerAutoPreferredGapSpring, targets)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/GroupLayout;)V", nullptr, 0, $method(GroupLayout$ContainerAutoPreferredGapSpring, init$, void, $GroupLayout*)},
+		{"<init>", "(Ljavax/swing/GroupLayout;II)V", nullptr, 0, $method(GroupLayout$ContainerAutoPreferredGapSpring, init$, void, $GroupLayout*, int32_t, int32_t)},
+		{"addTarget", "(Ljavax/swing/GroupLayout$ComponentSpring;I)V", nullptr, $PUBLIC, $virtualMethod(GroupLayout$ContainerAutoPreferredGapSpring, addTarget, void, $GroupLayout$ComponentSpring*, int32_t)},
+		{"calculatePadding", "(I)V", nullptr, $PUBLIC, $virtualMethod(GroupLayout$ContainerAutoPreferredGapSpring, calculatePadding, void, int32_t)},
+		{"getMatchDescription", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(GroupLayout$ContainerAutoPreferredGapSpring, getMatchDescription, $String*)},
+		{"updateSize", "(Ljavax/swing/LayoutStyle;Ljavax/swing/GroupLayout$ComponentSpring;I)I", nullptr, $PRIVATE, $method(GroupLayout$ContainerAutoPreferredGapSpring, updateSize, int32_t, $LayoutStyle*, $GroupLayout$ComponentSpring*, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.GroupLayout$ContainerAutoPreferredGapSpring", "javax.swing.GroupLayout", "ContainerAutoPreferredGapSpring", $PRIVATE},
+		{"javax.swing.GroupLayout$AutoPreferredGapSpring", "javax.swing.GroupLayout", "AutoPreferredGapSpring", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.GroupLayout$ContainerAutoPreferredGapSpring",
+		"javax.swing.GroupLayout$AutoPreferredGapSpring",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.GroupLayout"
+	};
+	$loadClass(GroupLayout$ContainerAutoPreferredGapSpring, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(GroupLayout$ContainerAutoPreferredGapSpring);
+	});
 	return class$;
 }
 

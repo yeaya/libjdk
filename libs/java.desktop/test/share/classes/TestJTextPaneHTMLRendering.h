@@ -44,6 +44,7 @@ class $export TestJTextPaneHTMLRendering : public ::java::lang::Object {
 	$class(TestJTextPaneHTMLRendering, 0, ::java::lang::Object)
 public:
 	TestJTextPaneHTMLRendering();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void createTestUI(::javax::swing::JPanel* panel);
 	static void createUI();

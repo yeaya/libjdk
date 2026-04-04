@@ -1,5 +1,4 @@
 #include <javax/swing/text/AsyncBoxView$ChildState.h>
-
 #include <java/lang/Math.h>
 #include <javax/swing/text/AbstractDocument.h>
 #include <javax/swing/text/AsyncBoxView$ChildLocator.h>
@@ -16,66 +15,11 @@ using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AbstractDocument = ::javax::swing::text::AbstractDocument;
 using $AsyncBoxView = ::javax::swing::text::AsyncBoxView;
-using $AsyncBoxView$ChildLocator = ::javax::swing::text::AsyncBoxView$ChildLocator;
 using $View = ::javax::swing::text::View;
 
 namespace javax {
 	namespace swing {
 		namespace text {
-
-$FieldInfo _AsyncBoxView$ChildState_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/text/AsyncBoxView;", nullptr, $FINAL | $SYNTHETIC, $field(AsyncBoxView$ChildState, this$0)},
-	{"min", "F", nullptr, $PRIVATE, $field(AsyncBoxView$ChildState, min)},
-	{"pref", "F", nullptr, $PRIVATE, $field(AsyncBoxView$ChildState, pref)},
-	{"max", "F", nullptr, $PRIVATE, $field(AsyncBoxView$ChildState, max)},
-	{"minorValid", "Z", nullptr, $PRIVATE, $field(AsyncBoxView$ChildState, minorValid)},
-	{"span", "F", nullptr, $PRIVATE, $field(AsyncBoxView$ChildState, span)},
-	{"offset", "F", nullptr, $PRIVATE, $field(AsyncBoxView$ChildState, offset)},
-	{"majorValid", "Z", nullptr, $PRIVATE, $field(AsyncBoxView$ChildState, majorValid)},
-	{"child", "Ljavax/swing/text/View;", nullptr, $PRIVATE, $field(AsyncBoxView$ChildState, child)},
-	{"childSizeValid", "Z", nullptr, $PRIVATE, $field(AsyncBoxView$ChildState, childSizeValid)},
-	{}
-};
-
-$MethodInfo _AsyncBoxView$ChildState_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/text/AsyncBoxView;Ljavax/swing/text/View;)V", nullptr, $PUBLIC, $method(AsyncBoxView$ChildState, init$, void, $AsyncBoxView*, $View*)},
-	{"getChildView", "()Ljavax/swing/text/View;", nullptr, $PUBLIC, $virtualMethod(AsyncBoxView$ChildState, getChildView, $View*)},
-	{"getMajorOffset", "()F", nullptr, $PUBLIC, $virtualMethod(AsyncBoxView$ChildState, getMajorOffset, float)},
-	{"getMajorSpan", "()F", nullptr, $PUBLIC, $virtualMethod(AsyncBoxView$ChildState, getMajorSpan, float)},
-	{"getMinorOffset", "()F", nullptr, $PUBLIC, $virtualMethod(AsyncBoxView$ChildState, getMinorOffset, float)},
-	{"getMinorSpan", "()F", nullptr, $PUBLIC, $virtualMethod(AsyncBoxView$ChildState, getMinorSpan, float)},
-	{"isLayoutValid", "()Z", nullptr, $PUBLIC, $virtualMethod(AsyncBoxView$ChildState, isLayoutValid, bool)},
-	{"preferenceChanged", "(ZZ)V", nullptr, $PUBLIC, $virtualMethod(AsyncBoxView$ChildState, preferenceChanged, void, bool, bool)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(AsyncBoxView$ChildState, run, void)},
-	{"setMajorOffset", "(F)V", nullptr, $PUBLIC, $virtualMethod(AsyncBoxView$ChildState, setMajorOffset, void, float)},
-	{"updateChild", "()V", nullptr, 0, $virtualMethod(AsyncBoxView$ChildState, updateChild, void)},
-	{}
-};
-
-$InnerClassInfo _AsyncBoxView$ChildState_InnerClassesInfo_[] = {
-	{"javax.swing.text.AsyncBoxView$ChildState", "javax.swing.text.AsyncBoxView", "ChildState", $PUBLIC},
-	{}
-};
-
-$ClassInfo _AsyncBoxView$ChildState_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.text.AsyncBoxView$ChildState",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	_AsyncBoxView$ChildState_FieldInfo_,
-	_AsyncBoxView$ChildState_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AsyncBoxView$ChildState_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.AsyncBoxView"
-};
-
-$Object* allocate$AsyncBoxView$ChildState($Class* clazz) {
-	return $of($alloc(AsyncBoxView$ChildState));
-}
 
 void AsyncBoxView$ChildState::init$($AsyncBoxView* this$0, $View* v) {
 	$set(this, this$0, this$0);
@@ -91,38 +35,36 @@ $View* AsyncBoxView$ChildState::getChildView() {
 }
 
 void AsyncBoxView$ChildState::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AbstractDocument, doc, $cast($AbstractDocument, this->this$0->getDocument()));
-	{
-		$var($Throwable, var$0, nullptr);
-		bool return$1 = false;
-		try {
-			$nc(doc)->readLock();
-			if (this->minorValid && this->majorValid && this->childSizeValid) {
-				return$1 = true;
-				goto $finally;
+	$var($Throwable, var$0, nullptr);
+	bool return$1 = false;
+	try {
+		$nc(doc)->readLock();
+		if (this->minorValid && this->majorValid && this->childSizeValid) {
+			return$1 = true;
+			goto $finally;
+		}
+		if ($equals($nc(this->child)->getParent(), this->this$0)) {
+			$synchronized(this->this$0) {
+				$set(this->this$0, changing, this);
 			}
-			if ($equals($nc(this->child)->getParent(), this->this$0)) {
-				$synchronized(this->this$0) {
-					$set(this->this$0, changing, this);
-				}
-				updateChild();
-				$synchronized(this->this$0) {
-					$set(this->this$0, changing, nullptr);
-				}
-				updateChild();
+			updateChild();
+			$synchronized(this->this$0) {
+				$set(this->this$0, changing, nullptr);
 			}
-		} catch ($Throwable& var$2) {
-			$assign(var$0, var$2);
-		} $finally: {
-			$nc(doc)->readUnlock();
+			updateChild();
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return;
-		}
+	} catch ($Throwable& var$2) {
+		$assign(var$0, var$2);
+	} $finally: {
+		$nc(doc)->readUnlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return;
 	}
 }
 
@@ -227,7 +169,55 @@ AsyncBoxView$ChildState::AsyncBoxView$ChildState() {
 }
 
 $Class* AsyncBoxView$ChildState::load$($String* name, bool initialize) {
-	$loadClass(AsyncBoxView$ChildState, name, initialize, &_AsyncBoxView$ChildState_ClassInfo_, allocate$AsyncBoxView$ChildState);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/text/AsyncBoxView;", nullptr, $FINAL | $SYNTHETIC, $field(AsyncBoxView$ChildState, this$0)},
+		{"min", "F", nullptr, $PRIVATE, $field(AsyncBoxView$ChildState, min)},
+		{"pref", "F", nullptr, $PRIVATE, $field(AsyncBoxView$ChildState, pref)},
+		{"max", "F", nullptr, $PRIVATE, $field(AsyncBoxView$ChildState, max)},
+		{"minorValid", "Z", nullptr, $PRIVATE, $field(AsyncBoxView$ChildState, minorValid)},
+		{"span", "F", nullptr, $PRIVATE, $field(AsyncBoxView$ChildState, span)},
+		{"offset", "F", nullptr, $PRIVATE, $field(AsyncBoxView$ChildState, offset)},
+		{"majorValid", "Z", nullptr, $PRIVATE, $field(AsyncBoxView$ChildState, majorValid)},
+		{"child", "Ljavax/swing/text/View;", nullptr, $PRIVATE, $field(AsyncBoxView$ChildState, child)},
+		{"childSizeValid", "Z", nullptr, $PRIVATE, $field(AsyncBoxView$ChildState, childSizeValid)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/text/AsyncBoxView;Ljavax/swing/text/View;)V", nullptr, $PUBLIC, $method(AsyncBoxView$ChildState, init$, void, $AsyncBoxView*, $View*)},
+		{"getChildView", "()Ljavax/swing/text/View;", nullptr, $PUBLIC, $virtualMethod(AsyncBoxView$ChildState, getChildView, $View*)},
+		{"getMajorOffset", "()F", nullptr, $PUBLIC, $virtualMethod(AsyncBoxView$ChildState, getMajorOffset, float)},
+		{"getMajorSpan", "()F", nullptr, $PUBLIC, $virtualMethod(AsyncBoxView$ChildState, getMajorSpan, float)},
+		{"getMinorOffset", "()F", nullptr, $PUBLIC, $virtualMethod(AsyncBoxView$ChildState, getMinorOffset, float)},
+		{"getMinorSpan", "()F", nullptr, $PUBLIC, $virtualMethod(AsyncBoxView$ChildState, getMinorSpan, float)},
+		{"isLayoutValid", "()Z", nullptr, $PUBLIC, $virtualMethod(AsyncBoxView$ChildState, isLayoutValid, bool)},
+		{"preferenceChanged", "(ZZ)V", nullptr, $PUBLIC, $virtualMethod(AsyncBoxView$ChildState, preferenceChanged, void, bool, bool)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(AsyncBoxView$ChildState, run, void)},
+		{"setMajorOffset", "(F)V", nullptr, $PUBLIC, $virtualMethod(AsyncBoxView$ChildState, setMajorOffset, void, float)},
+		{"updateChild", "()V", nullptr, 0, $virtualMethod(AsyncBoxView$ChildState, updateChild, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.AsyncBoxView$ChildState", "javax.swing.text.AsyncBoxView", "ChildState", $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.text.AsyncBoxView$ChildState",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.AsyncBoxView"
+	};
+	$loadClass(AsyncBoxView$ChildState, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AsyncBoxView$ChildState);
+	});
 	return class$;
 }
 

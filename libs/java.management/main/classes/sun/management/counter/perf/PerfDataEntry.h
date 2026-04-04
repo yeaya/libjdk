@@ -38,6 +38,7 @@ class PerfDataEntry : public ::java::lang::Object {
 	$class(PerfDataEntry, 0, ::java::lang::Object)
 public:
 	PerfDataEntry();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::nio::ByteBuffer* b);
 	virtual ::java::nio::ByteBuffer* byteData();
 	virtual int32_t flags();

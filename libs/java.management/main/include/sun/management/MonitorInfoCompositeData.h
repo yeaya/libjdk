@@ -49,6 +49,7 @@ class $import MonitorInfoCompositeData : public ::sun::management::LazyComposite
 	$class(MonitorInfoCompositeData, 0, ::sun::management::LazyCompositeData)
 public:
 	MonitorInfoCompositeData();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::lang::management::MonitorInfo* mi);
 	static $String* getClassName(::javax::management::openmbean::CompositeData* cd);
 	virtual ::javax::management::openmbean::CompositeData* getCompositeData() override;
@@ -67,7 +68,7 @@ public:
 	static $StringArray* MONITOR_INFO_ATTRIBUTES;
 	static ::javax::management::openmbean::CompositeType* MONITOR_INFO_COMPOSITE_TYPE;
 	static ::javax::management::openmbean::CompositeType* V6_COMPOSITE_TYPE;
-	static const int64_t serialVersionUID = (int64_t)0xAF28AD485554238F;
+	static const int64_t serialVersionUID = (int64_t)0xaf28ad485554238f;
 };
 
 	} // management

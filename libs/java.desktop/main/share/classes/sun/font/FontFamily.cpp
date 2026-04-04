@@ -1,5 +1,4 @@
 #include <sun/font/FontFamily.h>
-
 #include <java/awt/Font.h>
 #include <java/io/File.h>
 #include <java/io/IOException.h>
@@ -45,55 +44,6 @@ using $FontUtilities = ::sun::font::FontUtilities;
 namespace sun {
 	namespace font {
 
-$FieldInfo _FontFamily_FieldInfo_[] = {
-	{"familyNameMap", "Ljava/util/concurrent/ConcurrentHashMap;", "Ljava/util/concurrent/ConcurrentHashMap<Ljava/lang/String;Lsun/font/FontFamily;>;", $PRIVATE | $STATIC, $staticField(FontFamily, familyNameMap)},
-	{"allLocaleNames", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/lang/String;Lsun/font/FontFamily;>;", $PRIVATE | $STATIC, $staticField(FontFamily, allLocaleNames)},
-	{"familyName", "Ljava/lang/String;", nullptr, $PROTECTED, $field(FontFamily, familyName)},
-	{"plain", "Lsun/font/Font2D;", nullptr, $PROTECTED, $field(FontFamily, plain)},
-	{"bold", "Lsun/font/Font2D;", nullptr, $PROTECTED, $field(FontFamily, bold)},
-	{"italic", "Lsun/font/Font2D;", nullptr, $PROTECTED, $field(FontFamily, italic)},
-	{"bolditalic", "Lsun/font/Font2D;", nullptr, $PROTECTED, $field(FontFamily, bolditalic)},
-	{"logicalFont", "Z", nullptr, $PROTECTED, $field(FontFamily, logicalFont)},
-	{"familyRank", "I", nullptr, $PROTECTED, $field(FontFamily, familyRank)},
-	{"familyWidth", "I", nullptr, $PRIVATE, $field(FontFamily, familyWidth)},
-	{}
-};
-
-$MethodInfo _FontFamily_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;ZI)V", nullptr, $PUBLIC, $method(FontFamily, init$, void, $String*, bool, int32_t)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(FontFamily, init$, void, $String*)},
-	{"addLocaleNames", "(Lsun/font/FontFamily;[Ljava/lang/String;)V", nullptr, $STATIC | $SYNCHRONIZED, $staticMethod(FontFamily, addLocaleNames, void, FontFamily*, $StringArray*)},
-	{"closerWeight", "(Lsun/font/Font2D;Lsun/font/Font2D;I)Z", nullptr, $PRIVATE, $method(FontFamily, closerWeight, bool, $Font2D*, $Font2D*, int32_t)},
-	{"getAllFamilyNames", "()[Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(FontFamily, getAllFamilyNames, $StringArray*)},
-	{"getAllFontFamilies", "()[Lsun/font/FontFamily;", nullptr, $PUBLIC | $STATIC, $staticMethod(FontFamily, getAllFontFamilies, $FontFamilyArray*)},
-	{"getClosestStyle", "(I)Lsun/font/Font2D;", nullptr, 0, $virtualMethod(FontFamily, getClosestStyle, $Font2D*, int32_t)},
-	{"getFamily", "(Ljava/lang/String;)Lsun/font/FontFamily;", nullptr, $PUBLIC | $STATIC, $staticMethod(FontFamily, getFamily, FontFamily*, $String*)},
-	{"getFamilyName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(FontFamily, getFamilyName, $String*)},
-	{"getFont", "(I)Lsun/font/Font2D;", nullptr, $PUBLIC, $virtualMethod(FontFamily, getFont, $Font2D*, int32_t)},
-	{"getFontWithExactStyleMatch", "(I)Lsun/font/Font2D;", nullptr, $PUBLIC, $virtualMethod(FontFamily, getFontWithExactStyleMatch, $Font2D*, int32_t)},
-	{"getLocaleFamily", "(Ljava/lang/String;)Lsun/font/FontFamily;", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(FontFamily, getLocaleFamily, FontFamily*, $String*)},
-	{"getRank", "()I", nullptr, $PUBLIC, $virtualMethod(FontFamily, getRank, int32_t)},
-	{"isFromSameSource", "(Lsun/font/Font2D;)Z", nullptr, $PRIVATE, $method(FontFamily, isFromSameSource, bool, $Font2D*)},
-	{"preferredWidth", "(Lsun/font/Font2D;)Z", nullptr, $PRIVATE, $method(FontFamily, preferredWidth, bool, $Font2D*)},
-	{"remove", "(Lsun/font/Font2D;)V", nullptr, $STATIC, $staticMethod(FontFamily, remove, void, $Font2D*)},
-	{"setFont", "(Lsun/font/Font2D;I)V", nullptr, $PUBLIC, $virtualMethod(FontFamily, setFont, void, $Font2D*, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(FontFamily, toString, $String*)},
-	{}
-};
-
-$ClassInfo _FontFamily_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.font.FontFamily",
-	"java.lang.Object",
-	nullptr,
-	_FontFamily_FieldInfo_,
-	_FontFamily_MethodInfo_
-};
-
-$Object* allocate$FontFamily($Class* clazz) {
-	return $of($alloc(FontFamily));
-}
-
 $ConcurrentHashMap* FontFamily::familyNameMap = nullptr;
 $HashMap* FontFamily::allLocaleNames = nullptr;
 
@@ -110,7 +60,7 @@ $StringArray* FontFamily::getAllFamilyNames() {
 
 void FontFamily::remove($Font2D* font2D) {
 	$init(FontFamily);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Locale);
 	$var($String, name, $nc(font2D)->getFamilyName($Locale::ENGLISH));
 	$var(FontFamily, family, getFamily(name));
@@ -120,16 +70,16 @@ void FontFamily::remove($Font2D* font2D) {
 	if ($nc(family)->plain == font2D) {
 		$set(family, plain, nullptr);
 	}
-	if ($nc(family)->bold == font2D) {
+	if (family->bold == font2D) {
 		$set(family, bold, nullptr);
 	}
-	if ($nc(family)->italic == font2D) {
+	if (family->italic == font2D) {
 		$set(family, italic, nullptr);
 	}
-	if ($nc(family)->bolditalic == font2D) {
+	if (family->bolditalic == font2D) {
 		$set(family, bolditalic, nullptr);
 	}
-	if ($nc(family)->plain == nullptr && family->bold == nullptr && family->italic == nullptr && family->bolditalic == nullptr) {
+	if (family->plain == nullptr && family->bold == nullptr && family->italic == nullptr && family->bolditalic == nullptr) {
 		$nc(FontFamily::familyNameMap)->remove(name);
 	}
 }
@@ -161,7 +111,7 @@ int32_t FontFamily::getRank() {
 }
 
 bool FontFamily::isFromSameSource($Font2D* font) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!($instanceOf($FileFont, font))) {
 		return false;
 	}
@@ -197,7 +147,7 @@ bool FontFamily::isFromSameSource($Font2D* font) {
 }
 
 bool FontFamily::preferredWidth($Font2D* font) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t newWidth = $nc(font)->getWidth();
 	if (this->familyWidth == 0) {
 		this->familyWidth = newWidth;
@@ -212,7 +162,7 @@ bool FontFamily::preferredWidth($Font2D* font) {
 			$FontUtilities::logInfo($$str({"Found more preferred width. New width = "_s, $$str(newWidth), " Old width = "_s, $$str(this->familyWidth), " in font "_s, font, " nulling out fonts plain: "_s, this->plain, " bold: "_s, this->bold, " italic: "_s, this->italic, " bolditalic: "_s, this->bolditalic}));
 		}
 		this->familyWidth = newWidth;
-		$set(this, plain, ($set(this, bold, ($set(this, italic, ($set(this, bolditalic, nullptr)))))));
+		$set(this, plain, $set(this, bold, $set(this, italic, $set(this, bolditalic, nullptr))));
 		return true;
 	} else if ($FontUtilities::debugFonts()) {
 		$FontUtilities::logInfo($$str({"Family rejecting font "_s, font, " of less preferred width "_s, $$str(newWidth)}));
@@ -221,7 +171,7 @@ bool FontFamily::preferredWidth($Font2D* font) {
 }
 
 bool FontFamily::closerWeight($Font2D* currFont, $Font2D* font, int32_t style) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->familyWidth != $nc(font)->getWidth()) {
 		return false;
 	}
@@ -229,12 +179,20 @@ bool FontFamily::closerWeight($Font2D* currFont, $Font2D* font, int32_t style) {
 		return true;
 	}
 	if ($FontUtilities::debugFonts()) {
-		$var($String, var$2, $$str({"New weight for style "_s, $$str(style), ". Curr.font="_s, currFont, " New font="_s, font, " Curr.weight="_s}));
-		$var($String, var$1, $$concat(var$2, $$str(+$nc(currFont)->getWeight())));
-		$var($String, var$0, $$concat(var$1, " New weight="_s));
-		$FontUtilities::logInfo($$concat(var$0, $$str($nc(font)->getWeight())));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append("New weight for style "_s);
+		var$0->append(style);
+		var$0->append(". Curr.font="_s);
+		var$0->append(currFont);
+		var$0->append(" New font="_s);
+		var$0->append(font);
+		var$0->append(" Curr.weight="_s);
+		var$0->append(+$nc(currFont)->getWeight());
+		var$0->append(" New weight="_s);
+		var$0->append(font->getWeight());
+		$FontUtilities::logInfo($$str(var$0));
 	}
-	int32_t newWeight = $nc(font)->getWeight();
+	int32_t newWeight = font->getWeight();
 	do {
 		if (style == $Font::PLAIN) {
 			goto case$0;
@@ -251,51 +209,47 @@ bool FontFamily::closerWeight($Font2D* currFont, $Font2D* font, int32_t style) {
 		goto case$4;
 case$0:
 		// Font.PLAIN
-		{
-		}
 case$1:
 		// Font.ITALIC
-		{
-			return (newWeight <= $Font2D::FWEIGHT_NORMAL && newWeight > $nc(currFont)->getWeight());
-		}
+		return (newWeight <= $Font2D::FWEIGHT_NORMAL && newWeight > $nc(currFont)->getWeight());
 case$2:
 		// Font.BOLD
-		{
-		}
 case$3:
 		// Font.BOLD | Font.ITALIC
 		{
-			int32_t var$3 = $Math::abs(newWeight - $Font2D::FWEIGHT_BOLD);
-			return (var$3 < $Math::abs($nc(currFont)->getWeight() - $Font2D::FWEIGHT_BOLD));
+			int32_t var$1 = $Math::abs(newWeight - $Font2D::FWEIGHT_BOLD);
+			return (var$1 < $Math::abs($nc(currFont)->getWeight() - $Font2D::FWEIGHT_BOLD));
 		}
 case$4:
 		// default
-		{
-			return false;
-		}
+		return false;
 	} while (false);
 }
 
 void FontFamily::setFont($Font2D* font, int32_t style) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($FontUtilities::isLogging()) {
 		$var($String, msg, nullptr);
 		if ($instanceOf($CompositeFont, font)) {
-			$assign(msg, $str({"Request to add "_s, $($nc(font)->getFamilyName(nullptr)), " with style "_s, $$str(style), " to family "_s, this->familyName}));
+			$assign(msg, $str({"Request to add "_s, $(font->getFamilyName(nullptr)), " with style "_s, $$str(style), " to family "_s, this->familyName}));
 		} else {
 			$assign(msg, $str({"Request to add "_s, font, " with style "_s, $$str(style), " to family "_s, this}));
 		}
 		$FontUtilities::logInfo(msg);
 	}
-	bool var$0 = ($nc(font)->getRank() > this->familyRank);
+	bool var$0 = $nc(font)->getRank() > this->familyRank;
 	if (var$0 && !isFromSameSource(font)) {
 		if ($FontUtilities::isLogging()) {
-			$var($String, var$5, $$str({"Rejecting adding "_s, font, " of lower rank "_s}));
-			$var($String, var$4, $$concat(var$5, $$str(font->getRank())));
-			$var($String, var$3, $$concat(var$4, " to family "_s));
-			$var($String, var$2, $$concat(var$3, this));
-			$var($String, var$1, $$concat(var$2, " of rank "_s));
-			$FontUtilities::logWarning($$concat(var$1, $$str(this->familyRank)));
+			$var($StringBuilder, var$1, $new($StringBuilder));
+			var$1->append("Rejecting adding "_s);
+			var$1->append(font);
+			var$1->append(" of lower rank "_s);
+			var$1->append(font->getRank());
+			var$1->append(" to family "_s);
+			var$1->append(this);
+			var$1->append(" of rank "_s);
+			var$1->append(this->familyRank);
+			$FontUtilities::logWarning($$str(var$1));
 		}
 		return;
 	}
@@ -316,8 +270,8 @@ void FontFamily::setFont($Font2D* font, int32_t style) {
 case$5:
 		// Font.PLAIN
 		{
-			bool var$6 = preferredWidth(font);
-			if (var$6 && closerWeight(this->plain, font, style)) {
+			bool var$2 = preferredWidth(font);
+			if (var$2 && closerWeight(this->plain, font, style)) {
 				$set(this, plain, font);
 			}
 			break;
@@ -325,8 +279,8 @@ case$5:
 case$6:
 		// Font.BOLD
 		{
-			bool var$7 = preferredWidth(font);
-			if (var$7 && closerWeight(this->bold, font, style)) {
+			bool var$3 = preferredWidth(font);
+			if (var$3 && closerWeight(this->bold, font, style)) {
 				$set(this, bold, font);
 			}
 			break;
@@ -334,8 +288,8 @@ case$6:
 case$7:
 		// Font.ITALIC
 		{
-			bool var$8 = preferredWidth(font);
-			if (var$8 && closerWeight(this->italic, font, style)) {
+			bool var$4 = preferredWidth(font);
+			if (var$4 && closerWeight(this->italic, font, style)) {
 				$set(this, italic, font);
 			}
 			break;
@@ -343,17 +297,15 @@ case$7:
 case$8:
 		// Font.BOLD | Font.ITALIC
 		{
-			bool var$9 = preferredWidth(font);
-			if (var$9 && closerWeight(this->bolditalic, font, style)) {
+			bool var$5 = preferredWidth(font);
+			if (var$5 && closerWeight(this->bolditalic, font, style)) {
 				$set(this, bolditalic, font);
 			}
 			break;
 		}
 case$9:
 		// default
-		{
-			break;
-		}
+		break;
 	} while (false);
 }
 
@@ -374,29 +326,19 @@ $Font2D* FontFamily::getFontWithExactStyleMatch(int32_t style) {
 		goto case$14;
 case$10:
 		// Font.PLAIN
-		{
-			return this->plain;
-		}
+		return this->plain;
 case$11:
 		// Font.BOLD
-		{
-			return this->bold;
-		}
+		return this->bold;
 case$12:
 		// Font.ITALIC
-		{
-			return this->italic;
-		}
+		return this->italic;
 case$13:
 		// Font.BOLD | Font.ITALIC
-		{
-			return this->bolditalic;
-		}
+		return this->bolditalic;
 case$14:
 		// default
-		{
-			return nullptr;
-		}
+		return nullptr;
 	} while (false);
 }
 
@@ -417,51 +359,41 @@ $Font2D* FontFamily::getFont(int32_t style) {
 		goto case$19;
 case$15:
 		// Font.PLAIN
-		{
-			return this->plain;
-		}
+		return this->plain;
 case$16:
 		// Font.BOLD
-		{
-			if (this->bold != nullptr) {
-				return this->bold;
-			} else if (this->plain != nullptr && $nc(this->plain)->canDoStyle(style)) {
-				return this->plain;
-			} else {
-				return nullptr;
-			}
+		if (this->bold != nullptr) {
+			return this->bold;
+		} else if (this->plain != nullptr && this->plain->canDoStyle(style)) {
+			return this->plain;
+		} else {
+			return nullptr;
 		}
 case$17:
 		// Font.ITALIC
-		{
-			if (this->italic != nullptr) {
-				return this->italic;
-			} else if (this->plain != nullptr && $nc(this->plain)->canDoStyle(style)) {
-				return this->plain;
-			} else {
-				return nullptr;
-			}
+		if (this->italic != nullptr) {
+			return this->italic;
+		} else if (this->plain != nullptr && this->plain->canDoStyle(style)) {
+			return this->plain;
+		} else {
+			return nullptr;
 		}
 case$18:
 		// Font.BOLD | Font.ITALIC
-		{
-			if (this->bolditalic != nullptr) {
-				return this->bolditalic;
-			} else if (this->bold != nullptr && $nc(this->bold)->canDoStyle(style)) {
-				return this->bold;
-			} else if (this->italic != nullptr && $nc(this->italic)->canDoStyle(style)) {
-				return this->italic;
-			} else if (this->plain != nullptr && $nc(this->plain)->canDoStyle(style)) {
-				return this->plain;
-			} else {
-				return nullptr;
-			}
+		if (this->bolditalic != nullptr) {
+			return this->bolditalic;
+		} else if (this->bold != nullptr && this->bold->canDoStyle(style)) {
+			return this->bold;
+		} else if (this->italic != nullptr && this->italic->canDoStyle(style)) {
+			return this->italic;
+		} else if (this->plain != nullptr && this->plain->canDoStyle(style)) {
+			return this->plain;
+		} else {
+			return nullptr;
 		}
 case$19:
 		// default
-		{
-			return nullptr;
-		}
+		return nullptr;
 	} while (false);
 }
 
@@ -482,57 +414,48 @@ $Font2D* FontFamily::getClosestStyle(int32_t style) {
 		break;
 case$20:
 		// Font.PLAIN
-		{
-			if (this->bold != nullptr) {
-				return this->bold;
-			} else if (this->italic != nullptr) {
-				return this->italic;
-			} else {
-				return this->bolditalic;
-			}
+		if (this->bold != nullptr) {
+			return this->bold;
+		} else if (this->italic != nullptr) {
+			return this->italic;
+		} else {
+			return this->bolditalic;
 		}
 case$21:
 		// Font.BOLD
-		{
-			if (this->plain != nullptr) {
-				return this->plain;
-			} else if (this->bolditalic != nullptr) {
-				return this->bolditalic;
-			} else {
-				return this->italic;
-			}
+		if (this->plain != nullptr) {
+			return this->plain;
+		} else if (this->bolditalic != nullptr) {
+			return this->bolditalic;
+		} else {
+			return this->italic;
 		}
 case$22:
 		// Font.ITALIC
-		{
-			if (this->bolditalic != nullptr) {
-				return this->bolditalic;
-			} else if (this->plain != nullptr) {
-				return this->plain;
-			} else {
-				return this->bold;
-			}
+		if (this->bolditalic != nullptr) {
+			return this->bolditalic;
+		} else if (this->plain != nullptr) {
+			return this->plain;
+		} else {
+			return this->bold;
 		}
 case$23:
 		// Font.BOLD | Font.ITALIC
-		{
-			if (this->italic != nullptr) {
-				return this->italic;
-			} else if (this->bold != nullptr) {
-				return this->bold;
-			} else {
-				return this->plain;
-			}
+		if (this->italic != nullptr) {
+			return this->italic;
+		} else if (this->bold != nullptr) {
+			return this->bold;
+		} else {
+			return this->plain;
 		}
 	} while (false);
 	return nullptr;
 }
 
 void FontFamily::addLocaleNames(FontFamily* family, $StringArray* names) {
-	$load(FontFamily);
+	$init(FontFamily);
 	$synchronized(class$) {
-		$init(FontFamily);
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		if (FontFamily::allLocaleNames == nullptr) {
 			$assignStatic(FontFamily::allLocaleNames, $new($HashMap));
 		}
@@ -543,9 +466,8 @@ void FontFamily::addLocaleNames(FontFamily* family, $StringArray* names) {
 }
 
 FontFamily* FontFamily::getLocaleFamily($String* name) {
-	$load(FontFamily);
+	$init(FontFamily);
 	$synchronized(class$) {
-		$init(FontFamily);
 		if (FontFamily::allLocaleNames == nullptr) {
 			return nullptr;
 		}
@@ -555,16 +477,16 @@ FontFamily* FontFamily::getLocaleFamily($String* name) {
 
 $FontFamilyArray* FontFamily::getAllFontFamilies() {
 	$init(FontFamily);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Collection, families, $nc(FontFamily::familyNameMap)->values());
-	return $fcast($FontFamilyArray, $nc(families)->toArray($$new($FontFamilyArray, 0)));
+	return $cast($FontFamilyArray, $nc(families)->toArray($$new($FontFamilyArray, 0)));
 }
 
 $String* FontFamily::toString() {
 	return $str({"Font family: "_s, this->familyName, " plain="_s, this->plain, " bold="_s, this->bold, " italic="_s, this->italic, " bolditalic="_s, this->bolditalic});
 }
 
-void clinit$FontFamily($Class* class$) {
+void FontFamily::clinit$($Class* clazz) {
 	$assignStatic(FontFamily::familyNameMap, $new($ConcurrentHashMap));
 }
 
@@ -572,7 +494,51 @@ FontFamily::FontFamily() {
 }
 
 $Class* FontFamily::load$($String* name, bool initialize) {
-	$loadClass(FontFamily, name, initialize, &_FontFamily_ClassInfo_, clinit$FontFamily, allocate$FontFamily);
+	$FieldInfo fieldInfos$$[] = {
+		{"familyNameMap", "Ljava/util/concurrent/ConcurrentHashMap;", "Ljava/util/concurrent/ConcurrentHashMap<Ljava/lang/String;Lsun/font/FontFamily;>;", $PRIVATE | $STATIC, $staticField(FontFamily, familyNameMap)},
+		{"allLocaleNames", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/lang/String;Lsun/font/FontFamily;>;", $PRIVATE | $STATIC, $staticField(FontFamily, allLocaleNames)},
+		{"familyName", "Ljava/lang/String;", nullptr, $PROTECTED, $field(FontFamily, familyName)},
+		{"plain", "Lsun/font/Font2D;", nullptr, $PROTECTED, $field(FontFamily, plain)},
+		{"bold", "Lsun/font/Font2D;", nullptr, $PROTECTED, $field(FontFamily, bold)},
+		{"italic", "Lsun/font/Font2D;", nullptr, $PROTECTED, $field(FontFamily, italic)},
+		{"bolditalic", "Lsun/font/Font2D;", nullptr, $PROTECTED, $field(FontFamily, bolditalic)},
+		{"logicalFont", "Z", nullptr, $PROTECTED, $field(FontFamily, logicalFont)},
+		{"familyRank", "I", nullptr, $PROTECTED, $field(FontFamily, familyRank)},
+		{"familyWidth", "I", nullptr, $PRIVATE, $field(FontFamily, familyWidth)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;ZI)V", nullptr, $PUBLIC, $method(FontFamily, init$, void, $String*, bool, int32_t)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(FontFamily, init$, void, $String*)},
+		{"addLocaleNames", "(Lsun/font/FontFamily;[Ljava/lang/String;)V", nullptr, $STATIC | $SYNCHRONIZED, $staticMethod(FontFamily, addLocaleNames, void, FontFamily*, $StringArray*)},
+		{"closerWeight", "(Lsun/font/Font2D;Lsun/font/Font2D;I)Z", nullptr, $PRIVATE, $method(FontFamily, closerWeight, bool, $Font2D*, $Font2D*, int32_t)},
+		{"getAllFamilyNames", "()[Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(FontFamily, getAllFamilyNames, $StringArray*)},
+		{"getAllFontFamilies", "()[Lsun/font/FontFamily;", nullptr, $PUBLIC | $STATIC, $staticMethod(FontFamily, getAllFontFamilies, $FontFamilyArray*)},
+		{"getClosestStyle", "(I)Lsun/font/Font2D;", nullptr, 0, $virtualMethod(FontFamily, getClosestStyle, $Font2D*, int32_t)},
+		{"getFamily", "(Ljava/lang/String;)Lsun/font/FontFamily;", nullptr, $PUBLIC | $STATIC, $staticMethod(FontFamily, getFamily, FontFamily*, $String*)},
+		{"getFamilyName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(FontFamily, getFamilyName, $String*)},
+		{"getFont", "(I)Lsun/font/Font2D;", nullptr, $PUBLIC, $virtualMethod(FontFamily, getFont, $Font2D*, int32_t)},
+		{"getFontWithExactStyleMatch", "(I)Lsun/font/Font2D;", nullptr, $PUBLIC, $virtualMethod(FontFamily, getFontWithExactStyleMatch, $Font2D*, int32_t)},
+		{"getLocaleFamily", "(Ljava/lang/String;)Lsun/font/FontFamily;", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(FontFamily, getLocaleFamily, FontFamily*, $String*)},
+		{"getRank", "()I", nullptr, $PUBLIC, $virtualMethod(FontFamily, getRank, int32_t)},
+		{"isFromSameSource", "(Lsun/font/Font2D;)Z", nullptr, $PRIVATE, $method(FontFamily, isFromSameSource, bool, $Font2D*)},
+		{"preferredWidth", "(Lsun/font/Font2D;)Z", nullptr, $PRIVATE, $method(FontFamily, preferredWidth, bool, $Font2D*)},
+		{"remove", "(Lsun/font/Font2D;)V", nullptr, $STATIC, $staticMethod(FontFamily, remove, void, $Font2D*)},
+		{"setFont", "(Lsun/font/Font2D;I)V", nullptr, $PUBLIC, $virtualMethod(FontFamily, setFont, void, $Font2D*, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(FontFamily, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.font.FontFamily",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(FontFamily, name, initialize, &classInfo$$, FontFamily::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(FontFamily);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <java/rmi/server/Unreferenced.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -9,26 +8,22 @@ namespace java {
 	namespace rmi {
 		namespace server {
 
-$MethodInfo _Unreferenced_MethodInfo_[] = {
-	{"unreferenced", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Unreferenced, unreferenced, void)},
-	{}
-};
-
-$ClassInfo _Unreferenced_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.rmi.server.Unreferenced",
-	nullptr,
-	nullptr,
-	nullptr,
-	_Unreferenced_MethodInfo_
-};
-
-$Object* allocate$Unreferenced($Class* clazz) {
-	return $of($alloc(Unreferenced));
-}
-
 $Class* Unreferenced::load$($String* name, bool initialize) {
-	$loadClass(Unreferenced, name, initialize, &_Unreferenced_ClassInfo_, allocate$Unreferenced);
+	$MethodInfo methodInfos$$[] = {
+		{"unreferenced", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Unreferenced, unreferenced, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.rmi.server.Unreferenced",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Unreferenced, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Unreferenced);
+	});
 	return class$;
 }
 

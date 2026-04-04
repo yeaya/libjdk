@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/Http1HeaderParser$1.h>
-
 #include <java/lang/NoSuchFieldError.h>
 #include <jdk/internal/net/http/Http1HeaderParser$State.h>
 #include <jdk/internal/net/http/Http1HeaderParser.h>
@@ -31,97 +30,61 @@ namespace jdk {
 		namespace net {
 			namespace http {
 
-$FieldInfo _Http1HeaderParser$1_FieldInfo_[] = {
-	{"$SwitchMap$jdk$internal$net$http$Http1HeaderParser$State", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(Http1HeaderParser$1, $SwitchMap$jdk$internal$net$http$Http1HeaderParser$State)},
-	{}
-};
-
-$EnclosingMethodInfo _Http1HeaderParser$1_EnclosingMethodInfo_ = {
-	"jdk.internal.net.http.Http1HeaderParser",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _Http1HeaderParser$1_InnerClassesInfo_[] = {
-	{"jdk.internal.net.http.Http1HeaderParser$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{}
-};
-
-$ClassInfo _Http1HeaderParser$1_ClassInfo_ = {
-	$ACC_SUPER | $SYNTHETIC,
-	"jdk.internal.net.http.Http1HeaderParser$1",
-	"java.lang.Object",
-	nullptr,
-	_Http1HeaderParser$1_FieldInfo_,
-	nullptr,
-	nullptr,
-	&_Http1HeaderParser$1_EnclosingMethodInfo_,
-	_Http1HeaderParser$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.net.http.Http1HeaderParser"
-};
-
-$Object* allocate$Http1HeaderParser$1($Class* clazz) {
-	return $of($alloc(Http1HeaderParser$1));
-}
-
 $ints* Http1HeaderParser$1::$SwitchMap$jdk$internal$net$http$Http1HeaderParser$State = nullptr;
 
-void clinit$Http1HeaderParser$1($Class* class$) {
+void Http1HeaderParser$1::clinit$($Class* clazz) {
 	$assignStatic(Http1HeaderParser$1::$SwitchMap$jdk$internal$net$http$Http1HeaderParser$State, $new($ints, $($Http1HeaderParser$State::values())->length));
 	{
 		try {
-			$nc(Http1HeaderParser$1::$SwitchMap$jdk$internal$net$http$Http1HeaderParser$State)->set($Http1HeaderParser$State::INITIAL->ordinal(), 1);
+			Http1HeaderParser$1::$SwitchMap$jdk$internal$net$http$Http1HeaderParser$State->set($Http1HeaderParser$State::INITIAL->ordinal(), 1);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Http1HeaderParser$1::$SwitchMap$jdk$internal$net$http$Http1HeaderParser$State)->set($Http1HeaderParser$State::STATUS_LINE->ordinal(), 2);
+			Http1HeaderParser$1::$SwitchMap$jdk$internal$net$http$Http1HeaderParser$State->set($Http1HeaderParser$State::STATUS_LINE->ordinal(), 2);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Http1HeaderParser$1::$SwitchMap$jdk$internal$net$http$Http1HeaderParser$State)->set($Http1HeaderParser$State::STATUS_LINE_FOUND_CR->ordinal(), 3);
+			Http1HeaderParser$1::$SwitchMap$jdk$internal$net$http$Http1HeaderParser$State->set($Http1HeaderParser$State::STATUS_LINE_FOUND_CR->ordinal(), 3);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Http1HeaderParser$1::$SwitchMap$jdk$internal$net$http$Http1HeaderParser$State)->set($Http1HeaderParser$State::STATUS_LINE_FOUND_LF->ordinal(), 4);
+			Http1HeaderParser$1::$SwitchMap$jdk$internal$net$http$Http1HeaderParser$State->set($Http1HeaderParser$State::STATUS_LINE_FOUND_LF->ordinal(), 4);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Http1HeaderParser$1::$SwitchMap$jdk$internal$net$http$Http1HeaderParser$State)->set($Http1HeaderParser$State::STATUS_LINE_END->ordinal(), 5);
+			Http1HeaderParser$1::$SwitchMap$jdk$internal$net$http$Http1HeaderParser$State->set($Http1HeaderParser$State::STATUS_LINE_END->ordinal(), 5);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Http1HeaderParser$1::$SwitchMap$jdk$internal$net$http$Http1HeaderParser$State)->set($Http1HeaderParser$State::STATUS_LINE_END_CR->ordinal(), 6);
+			Http1HeaderParser$1::$SwitchMap$jdk$internal$net$http$Http1HeaderParser$State->set($Http1HeaderParser$State::STATUS_LINE_END_CR->ordinal(), 6);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Http1HeaderParser$1::$SwitchMap$jdk$internal$net$http$Http1HeaderParser$State)->set($Http1HeaderParser$State::STATUS_LINE_END_LF->ordinal(), 7);
+			Http1HeaderParser$1::$SwitchMap$jdk$internal$net$http$Http1HeaderParser$State->set($Http1HeaderParser$State::STATUS_LINE_END_LF->ordinal(), 7);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Http1HeaderParser$1::$SwitchMap$jdk$internal$net$http$Http1HeaderParser$State)->set($Http1HeaderParser$State::HEADER->ordinal(), 8);
+			Http1HeaderParser$1::$SwitchMap$jdk$internal$net$http$Http1HeaderParser$State->set($Http1HeaderParser$State::HEADER->ordinal(), 8);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Http1HeaderParser$1::$SwitchMap$jdk$internal$net$http$Http1HeaderParser$State)->set($Http1HeaderParser$State::HEADER_FOUND_CR->ordinal(), 9);
+			Http1HeaderParser$1::$SwitchMap$jdk$internal$net$http$Http1HeaderParser$State->set($Http1HeaderParser$State::HEADER_FOUND_CR->ordinal(), 9);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Http1HeaderParser$1::$SwitchMap$jdk$internal$net$http$Http1HeaderParser$State)->set($Http1HeaderParser$State::HEADER_FOUND_LF->ordinal(), 10);
+			Http1HeaderParser$1::$SwitchMap$jdk$internal$net$http$Http1HeaderParser$State->set($Http1HeaderParser$State::HEADER_FOUND_LF->ordinal(), 10);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Http1HeaderParser$1::$SwitchMap$jdk$internal$net$http$Http1HeaderParser$State)->set($Http1HeaderParser$State::HEADER_FOUND_CR_LF->ordinal(), 11);
+			Http1HeaderParser$1::$SwitchMap$jdk$internal$net$http$Http1HeaderParser$State->set($Http1HeaderParser$State::HEADER_FOUND_CR_LF->ordinal(), 11);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Http1HeaderParser$1::$SwitchMap$jdk$internal$net$http$Http1HeaderParser$State)->set($Http1HeaderParser$State::HEADER_FOUND_CR_LF_CR->ordinal(), 12);
+			Http1HeaderParser$1::$SwitchMap$jdk$internal$net$http$Http1HeaderParser$State->set($Http1HeaderParser$State::HEADER_FOUND_CR_LF_CR->ordinal(), 12);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Http1HeaderParser$1::$SwitchMap$jdk$internal$net$http$Http1HeaderParser$State)->set($Http1HeaderParser$State::FINISHED->ordinal(), 13);
+			Http1HeaderParser$1::$SwitchMap$jdk$internal$net$http$Http1HeaderParser$State->set($Http1HeaderParser$State::FINISHED->ordinal(), 13);
 		} catch ($NoSuchFieldError& ex) {
 		}
 	}
@@ -131,7 +94,37 @@ Http1HeaderParser$1::Http1HeaderParser$1() {
 }
 
 $Class* Http1HeaderParser$1::load$($String* name, bool initialize) {
-	$loadClass(Http1HeaderParser$1, name, initialize, &_Http1HeaderParser$1_ClassInfo_, clinit$Http1HeaderParser$1, allocate$Http1HeaderParser$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"$SwitchMap$jdk$internal$net$http$Http1HeaderParser$State", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(Http1HeaderParser$1, $SwitchMap$jdk$internal$net$http$Http1HeaderParser$State)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"jdk.internal.net.http.Http1HeaderParser",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.net.http.Http1HeaderParser$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $SYNTHETIC,
+		"jdk.internal.net.http.Http1HeaderParser$1",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		nullptr,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.net.http.Http1HeaderParser"
+	};
+	$loadClass(Http1HeaderParser$1, name, initialize, &classInfo$$, Http1HeaderParser$1::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Http1HeaderParser$1);
+	});
 	return class$;
 }
 

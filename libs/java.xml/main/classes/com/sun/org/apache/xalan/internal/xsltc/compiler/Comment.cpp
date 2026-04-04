@@ -1,6 +1,4 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/Comment.h>
-
-#include <com/sun/org/apache/bcel/internal/generic/CompoundInstruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/ConstantPoolGen.h>
 #include <com/sun/org/apache/bcel/internal/generic/GETFIELD.h>
 #include <com/sun/org/apache/bcel/internal/generic/INVOKEINTERFACE.h>
@@ -28,12 +26,10 @@
 #undef TRANSLET_CLASS
 #undef TRANSLET_OUTPUT_INTERFACE
 
-using $CompoundInstruction = ::com::sun::org::apache::bcel::internal::generic::CompoundInstruction;
 using $ConstantPoolGen = ::com::sun::org::apache::bcel::internal::generic::ConstantPoolGen;
 using $GETFIELD = ::com::sun::org::apache::bcel::internal::generic::GETFIELD;
 using $INVOKEINTERFACE = ::com::sun::org::apache::bcel::internal::generic::INVOKEINTERFACE;
 using $INVOKEVIRTUAL = ::com::sun::org::apache::bcel::internal::generic::INVOKEVIRTUAL;
-using $1Instruction = ::com::sun::org::apache::bcel::internal::generic::Instruction;
 using $InstructionList = ::com::sun::org::apache::bcel::internal::generic::InstructionList;
 using $PUSH = ::com::sun::org::apache::bcel::internal::generic::PUSH;
 using $Constants = ::com::sun::org::apache::xalan::internal::xsltc::compiler::Constants;
@@ -56,27 +52,6 @@ namespace com {
 						namespace xsltc {
 							namespace compiler {
 
-$MethodInfo _Comment_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(Comment, init$, void)},
-	{"parseContents", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Parser;)V", nullptr, $PUBLIC, $virtualMethod(Comment, parseContents, void, $Parser*)},
-	{"translate", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;)V", nullptr, $PUBLIC, $virtualMethod(Comment, translate, void, $ClassGenerator*, $MethodGenerator*)},
-	{"typeCheck", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SymbolTable;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/Type;", nullptr, $PUBLIC, $virtualMethod(Comment, typeCheck, $Type*, $SymbolTable*), "com.sun.org.apache.xalan.internal.xsltc.compiler.util.TypeCheckError"},
-	{}
-};
-
-$ClassInfo _Comment_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xalan.internal.xsltc.compiler.Comment",
-	"com.sun.org.apache.xalan.internal.xsltc.compiler.Instruction",
-	nullptr,
-	nullptr,
-	_Comment_MethodInfo_
-};
-
-$Object* allocate$Comment($Class* clazz) {
-	return $of($alloc(Comment));
-}
-
 void Comment::init$() {
 	$Instruction::init$();
 }
@@ -92,7 +67,7 @@ $Type* Comment::typeCheck($SymbolTable* stable) {
 }
 
 void Comment::translate($ClassGenerator* classGen, $MethodGenerator* methodGen) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ConstantPoolGen, cpg, $nc(classGen)->getConstantPool());
 	$var($InstructionList, il, $nc(methodGen)->getInstructionList());
 	$var($Text, rawText, nullptr);
@@ -108,25 +83,25 @@ void Comment::translate($ClassGenerator* classGen, $MethodGenerator* methodGen) 
 			rawText->loadAsArrayOffsetLength(classGen, methodGen);
 			$init($Constants);
 			int32_t comment = $nc(cpg)->addInterfaceMethodref($Constants::TRANSLET_OUTPUT_INTERFACE, "comment"_s, "([CII)V"_s);
-			il->append(static_cast<$1Instruction*>($$new($INVOKEINTERFACE, comment, 4)));
+			il->append($$new($INVOKEINTERFACE, comment, 4));
 		} else {
-			il->append(static_cast<$CompoundInstruction*>($$new($PUSH, cpg, $(rawText->getText()))));
+			il->append($$new($PUSH, cpg, $(rawText->getText())));
 			$init($Constants);
 			int32_t comment = $nc(cpg)->addInterfaceMethodref($Constants::TRANSLET_OUTPUT_INTERFACE, "comment"_s, $$str({"("_s, $Constants::STRING_SIG, ")V"_s}));
-			il->append(static_cast<$1Instruction*>($$new($INVOKEINTERFACE, comment, 2)));
+			il->append($$new($INVOKEINTERFACE, comment, 2));
 		}
 	} else {
 		$nc(il)->append($(methodGen->loadHandler()));
 		$init($Constants);
-		il->append(static_cast<$1Instruction*>($Constants::DUP));
+		il->append($Constants::DUP);
 		il->append($(classGen->loadTranslet()));
-		il->append(static_cast<$1Instruction*>($$new($GETFIELD, $nc(cpg)->addFieldref($Constants::TRANSLET_CLASS, "stringValueHandler"_s, $Constants::STRING_VALUE_HANDLER_SIG))));
-		il->append(static_cast<$1Instruction*>($Constants::DUP));
+		il->append($$new($GETFIELD, $nc(cpg)->addFieldref($Constants::TRANSLET_CLASS, "stringValueHandler"_s, $Constants::STRING_VALUE_HANDLER_SIG)));
+		il->append($Constants::DUP);
 		il->append($(methodGen->storeHandler()));
 		translateContents(classGen, methodGen);
-		il->append(static_cast<$1Instruction*>($$new($INVOKEVIRTUAL, $nc(cpg)->addMethodref($Constants::STRING_VALUE_HANDLER, "getValue"_s, $$str({"()"_s, $Constants::STRING_SIG})))));
-		int32_t comment = $nc(cpg)->addInterfaceMethodref($Constants::TRANSLET_OUTPUT_INTERFACE, "comment"_s, $$str({"("_s, $Constants::STRING_SIG, ")V"_s}));
-		il->append(static_cast<$1Instruction*>($$new($INVOKEINTERFACE, comment, 2)));
+		il->append($$new($INVOKEVIRTUAL, cpg->addMethodref($Constants::STRING_VALUE_HANDLER, "getValue"_s, $$str({"()"_s, $Constants::STRING_SIG}))));
+		int32_t comment = cpg->addInterfaceMethodref($Constants::TRANSLET_OUTPUT_INTERFACE, "comment"_s, $$str({"("_s, $Constants::STRING_SIG, ")V"_s}));
+		il->append($$new($INVOKEINTERFACE, comment, 2));
 		il->append($(methodGen->storeHandler()));
 	}
 }
@@ -135,7 +110,24 @@ Comment::Comment() {
 }
 
 $Class* Comment::load$($String* name, bool initialize) {
-	$loadClass(Comment, name, initialize, &_Comment_ClassInfo_, allocate$Comment);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(Comment, init$, void)},
+		{"parseContents", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Parser;)V", nullptr, $PUBLIC, $virtualMethod(Comment, parseContents, void, $Parser*)},
+		{"translate", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;)V", nullptr, $PUBLIC, $virtualMethod(Comment, translate, void, $ClassGenerator*, $MethodGenerator*)},
+		{"typeCheck", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SymbolTable;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/Type;", nullptr, $PUBLIC, $virtualMethod(Comment, typeCheck, $Type*, $SymbolTable*), "com.sun.org.apache.xalan.internal.xsltc.compiler.util.TypeCheckError"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xalan.internal.xsltc.compiler.Comment",
+		"com.sun.org.apache.xalan.internal.xsltc.compiler.Instruction",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Comment, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Comment);
+	});
 	return class$;
 }
 

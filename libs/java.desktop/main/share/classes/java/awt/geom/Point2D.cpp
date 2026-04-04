@@ -1,5 +1,4 @@
 #include <java/awt/geom/Point2D.h>
-
 #include <java/lang/CloneNotSupportedException.h>
 #include <java/lang/Cloneable.h>
 #include <java/lang/InternalError.h>
@@ -18,49 +17,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace java {
 	namespace awt {
 		namespace geom {
-
-$MethodInfo _Point2D_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(Point2D, init$, void)},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Point2D, clone, $Object*)},
-	{"distance", "(DDDD)D", nullptr, $PUBLIC | $STATIC, $staticMethod(Point2D, distance, double, double, double, double, double)},
-	{"distance", "(DD)D", nullptr, $PUBLIC, $virtualMethod(Point2D, distance, double, double, double)},
-	{"distance", "(Ljava/awt/geom/Point2D;)D", nullptr, $PUBLIC, $virtualMethod(Point2D, distance, double, Point2D*)},
-	{"distanceSq", "(DDDD)D", nullptr, $PUBLIC | $STATIC, $staticMethod(Point2D, distanceSq, double, double, double, double, double)},
-	{"distanceSq", "(DD)D", nullptr, $PUBLIC, $virtualMethod(Point2D, distanceSq, double, double, double)},
-	{"distanceSq", "(Ljava/awt/geom/Point2D;)D", nullptr, $PUBLIC, $virtualMethod(Point2D, distanceSq, double, Point2D*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Point2D, equals, bool, Object$*)},
-	{"getX", "()D", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Point2D, getX, double)},
-	{"getY", "()D", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Point2D, getY, double)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Point2D, hashCode, int32_t)},
-	{"setLocation", "(DD)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Point2D, setLocation, void, double, double)},
-	{"setLocation", "(Ljava/awt/geom/Point2D;)V", nullptr, $PUBLIC, $virtualMethod(Point2D, setLocation, void, Point2D*)},
-	{}
-};
-
-$InnerClassInfo _Point2D_InnerClassesInfo_[] = {
-	{"java.awt.geom.Point2D$Double", "java.awt.geom.Point2D", "Double", $PUBLIC | $STATIC},
-	{"java.awt.geom.Point2D$Float", "java.awt.geom.Point2D", "Float", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _Point2D_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"java.awt.geom.Point2D",
-	"java.lang.Object",
-	"java.lang.Cloneable",
-	nullptr,
-	_Point2D_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Point2D_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.awt.geom.Point2D$Double,java.awt.geom.Point2D$Float"
-};
-
-$Object* allocate$Point2D($Class* clazz) {
-	return $of($alloc(Point2D));
-}
 
 void Point2D::init$() {
 }
@@ -114,9 +70,9 @@ double Point2D::distance(Point2D* pt) {
 
 $Object* Point2D::clone() {
 	try {
-		return $of($Cloneable::clone());
+		return $Cloneable::clone();
 	} catch ($CloneNotSupportedException& e) {
-		$throwNew($InternalError, static_cast<$Throwable*>(e));
+		$throwNew($InternalError, e);
 	}
 	$shouldNotReachHere();
 }
@@ -131,10 +87,10 @@ bool Point2D::equals(Object$* obj) {
 	if ($instanceOf(Point2D, obj)) {
 		$var(Point2D, p2d, $cast(Point2D, obj));
 		double var$1 = getX();
-		bool var$0 = (var$1 == $nc(p2d)->getX());
+		bool var$0 = var$1 == p2d->getX();
 		if (var$0) {
 			double var$2 = getY();
-			var$0 = (var$2 == p2d->getY());
+			var$0 = var$2 == p2d->getY();
 		}
 		return var$0;
 	}
@@ -145,7 +101,45 @@ Point2D::Point2D() {
 }
 
 $Class* Point2D::load$($String* name, bool initialize) {
-	$loadClass(Point2D, name, initialize, &_Point2D_ClassInfo_, allocate$Point2D);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PROTECTED, $method(Point2D, init$, void)},
+		{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Point2D, clone, $Object*)},
+		{"distance", "(DDDD)D", nullptr, $PUBLIC | $STATIC, $staticMethod(Point2D, distance, double, double, double, double, double)},
+		{"distance", "(DD)D", nullptr, $PUBLIC, $virtualMethod(Point2D, distance, double, double, double)},
+		{"distance", "(Ljava/awt/geom/Point2D;)D", nullptr, $PUBLIC, $virtualMethod(Point2D, distance, double, Point2D*)},
+		{"distanceSq", "(DDDD)D", nullptr, $PUBLIC | $STATIC, $staticMethod(Point2D, distanceSq, double, double, double, double, double)},
+		{"distanceSq", "(DD)D", nullptr, $PUBLIC, $virtualMethod(Point2D, distanceSq, double, double, double)},
+		{"distanceSq", "(Ljava/awt/geom/Point2D;)D", nullptr, $PUBLIC, $virtualMethod(Point2D, distanceSq, double, Point2D*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Point2D, equals, bool, Object$*)},
+		{"getX", "()D", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Point2D, getX, double)},
+		{"getY", "()D", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Point2D, getY, double)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Point2D, hashCode, int32_t)},
+		{"setLocation", "(DD)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Point2D, setLocation, void, double, double)},
+		{"setLocation", "(Ljava/awt/geom/Point2D;)V", nullptr, $PUBLIC, $virtualMethod(Point2D, setLocation, void, Point2D*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.awt.geom.Point2D$Double", "java.awt.geom.Point2D", "Double", $PUBLIC | $STATIC},
+		{"java.awt.geom.Point2D$Float", "java.awt.geom.Point2D", "Float", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"java.awt.geom.Point2D",
+		"java.lang.Object",
+		"java.lang.Cloneable",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.awt.geom.Point2D$Double,java.awt.geom.Point2D$Float"
+	};
+	$loadClass(Point2D, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Point2D);
+	});
 	return class$;
 }
 

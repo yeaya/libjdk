@@ -1,5 +1,4 @@
 #include <javax/swing/JTabbedPane.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
@@ -67,7 +66,6 @@ using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NamedAttribute = ::java::lang::NamedAttribute;
 using $ArrayList = ::java::util::ArrayList;
-using $EventListener = ::java::util::EventListener;
 using $List = ::java::util::List;
 using $Accessible = ::javax::accessibility::Accessible;
 using $AccessibleContext = ::javax::accessibility::AccessibleContext;
@@ -78,7 +76,6 @@ using $JComponent = ::javax::swing::JComponent;
 using $JTabbedPane$AccessibleJTabbedPane = ::javax::swing::JTabbedPane$AccessibleJTabbedPane;
 using $JTabbedPane$ModelListener = ::javax::swing::JTabbedPane$ModelListener;
 using $JTabbedPane$Page = ::javax::swing::JTabbedPane$Page;
-using $LookAndFeel = ::javax::swing::LookAndFeel;
 using $SingleSelectionModel = ::javax::swing::SingleSelectionModel;
 using $SwingConstants = ::javax::swing::SwingConstants;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
@@ -86,7 +83,6 @@ using $ToolTipManager = ::javax::swing::ToolTipManager;
 using $UIManager = ::javax::swing::UIManager;
 using $ChangeEvent = ::javax::swing::event::ChangeEvent;
 using $ChangeListener = ::javax::swing::event::ChangeListener;
-using $EventListenerList = ::javax::swing::event::EventListenerList;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
 using $TabbedPaneUI = ::javax::swing::plaf::TabbedPaneUI;
 using $UIResource = ::javax::swing::plaf::UIResource;
@@ -94,409 +90,6 @@ using $SwingUtilities2 = ::sun::swing::SwingUtilities2;
 
 namespace javax {
 	namespace swing {
-
-$NamedAttribute JTabbedPane_Attribute_var$0[] = {
-	{"defaultProperty", 's', "UI"},
-	{"description", 's', "A component which provides a tab folder metaphor for displaying one component from a set of components."},
-	{}
-};
-
-$CompoundAttribute _JTabbedPane_Annotations_[] = {
-	{"Ljava/beans/JavaBean;", JTabbedPane_Attribute_var$0},
-	{"Ljavax/swing/SwingContainer;", nullptr},
-	{}
-};
-
-$NamedAttribute JTabbedPane_Attribute_var$1[] = {
-	{"bound", 'Z', "false"},
-	{}
-};
-
-$CompoundAttribute _JTabbedPane_MethodAnnotations_getAccessibleContext22[] = {
-	{"Ljava/beans/BeanProperty;", JTabbedPane_Attribute_var$1},
-	{}
-};
-
-$NamedAttribute JTabbedPane_Attribute_var$2[] = {
-	{"bound", 'Z', "false"},
-	{}
-};
-
-$CompoundAttribute _JTabbedPane_MethodAnnotations_getChangeListeners25[] = {
-	{"Ljava/beans/BeanProperty;", JTabbedPane_Attribute_var$2},
-	{}
-};
-
-$CompoundAttribute _JTabbedPane_MethodAnnotations_getSelectedComponent33[] = {
-	{"Ljava/beans/Transient;", nullptr},
-	{}
-};
-
-$CompoundAttribute _JTabbedPane_MethodAnnotations_getSelectedIndex34[] = {
-	{"Ljava/beans/Transient;", nullptr},
-	{}
-};
-
-$NamedAttribute JTabbedPane_Attribute_var$3[] = {
-	{"bound", 'Z', "false"},
-	{}
-};
-
-$CompoundAttribute _JTabbedPane_MethodAnnotations_getTabCount36[] = {
-	{"Ljava/beans/BeanProperty;", JTabbedPane_Attribute_var$3},
-	{}
-};
-
-$NamedAttribute JTabbedPane_Attribute_var$4[] = {
-	{"bound", 'Z', "false"},
-	{}
-};
-
-$CompoundAttribute _JTabbedPane_MethodAnnotations_getTabRunCount39[] = {
-	{"Ljava/beans/BeanProperty;", JTabbedPane_Attribute_var$4},
-	{}
-};
-
-$NamedAttribute JTabbedPane_Attribute_var$5[] = {
-	{"bound", 'Z', "false"},
-	{}
-};
-
-$CompoundAttribute _JTabbedPane_MethodAnnotations_getUIClassID44[] = {
-	{"Ljava/beans/BeanProperty;", JTabbedPane_Attribute_var$5},
-	{}
-};
-
-$NamedAttribute JTabbedPane_Attribute_var$6[] = {
-	{"preferred", 'Z', "true"},
-	{"visualUpdate", 'Z', "true"},
-	{"description", 's', "The background color at the specified tab index."},
-	{}
-};
-
-$CompoundAttribute _JTabbedPane_MethodAnnotations_setBackgroundAt59[] = {
-	{"Ljava/beans/BeanProperty;", JTabbedPane_Attribute_var$6},
-	{}
-};
-
-$NamedAttribute JTabbedPane_Attribute_var$7[] = {
-	{"visualUpdate", 'Z', "true"},
-	{"description", 's', "The component at the specified tab index."},
-	{}
-};
-
-$CompoundAttribute _JTabbedPane_MethodAnnotations_setComponentAt60[] = {
-	{"Ljava/beans/BeanProperty;", JTabbedPane_Attribute_var$7},
-	{}
-};
-
-$NamedAttribute JTabbedPane_Attribute_var$8[] = {
-	{"preferred", 'Z', "true"},
-	{"visualUpdate", 'Z', "true"},
-	{"description", 's', "The disabled icon at the specified tab index."},
-	{}
-};
-
-$CompoundAttribute _JTabbedPane_MethodAnnotations_setDisabledIconAt61[] = {
-	{"Ljava/beans/BeanProperty;", JTabbedPane_Attribute_var$8},
-	{}
-};
-
-$NamedAttribute JTabbedPane_Attribute_var$9[] = {
-	{"visualUpdate", 'Z', "true"},
-	{"description", 's', "the index into the String to draw the keyboard character mnemonic at"},
-	{}
-};
-
-$CompoundAttribute _JTabbedPane_MethodAnnotations_setDisplayedMnemonicIndexAt62[] = {
-	{"Ljava/beans/BeanProperty;", JTabbedPane_Attribute_var$9},
-	{}
-};
-
-$NamedAttribute JTabbedPane_Attribute_var$10[] = {
-	{"preferred", 'Z', "true"},
-	{"visualUpdate", 'Z', "true"},
-	{"description", 's', "The foreground color at the specified tab index."},
-	{}
-};
-
-$CompoundAttribute _JTabbedPane_MethodAnnotations_setForegroundAt64[] = {
-	{"Ljava/beans/BeanProperty;", JTabbedPane_Attribute_var$10},
-	{}
-};
-
-$NamedAttribute JTabbedPane_Attribute_var$11[] = {
-	{"preferred", 'Z', "true"},
-	{"visualUpdate", 'Z', "true"},
-	{"description", 's', "The icon at the specified tab index."},
-	{}
-};
-
-$CompoundAttribute _JTabbedPane_MethodAnnotations_setIconAt65[] = {
-	{"Ljava/beans/BeanProperty;", JTabbedPane_Attribute_var$11},
-	{}
-};
-
-$NamedAttribute JTabbedPane_Attribute_var$12[] = {
-	{"visualUpdate", 'Z', "true"},
-	{"description", 's', "The keyboard mnenmonic, as a KeyEvent VK constant, for the specified tab"},
-	{}
-};
-
-$CompoundAttribute _JTabbedPane_MethodAnnotations_setMnemonicAt66[] = {
-	{"Ljava/beans/BeanProperty;", JTabbedPane_Attribute_var$12},
-	{}
-};
-
-$NamedAttribute JTabbedPane_Attribute_var$13[] = {
-	{"description", 's', "The tabbedpane\'s SingleSelectionModel."},
-	{}
-};
-
-$CompoundAttribute _JTabbedPane_MethodAnnotations_setModel67[] = {
-	{"Ljava/beans/BeanProperty;", JTabbedPane_Attribute_var$13},
-	{}
-};
-
-$NamedAttribute JTabbedPane_Attribute_var$14[] = {
-	{"bound", 'Z', "false"},
-	{"preferred", 'Z', "true"},
-	{"description", 's', "The tabbedpane\'s selected component."},
-	{}
-};
-
-$CompoundAttribute _JTabbedPane_MethodAnnotations_setSelectedComponent68[] = {
-	{"Ljava/beans/BeanProperty;", JTabbedPane_Attribute_var$14},
-	{}
-};
-
-$NamedAttribute JTabbedPane_Attribute_var$15[] = {
-	{"bound", 'Z', "false"},
-	{"preferred", 'Z', "true"},
-	{"description", 's', "The tabbedpane\'s selected tab index."},
-	{}
-};
-
-$CompoundAttribute _JTabbedPane_MethodAnnotations_setSelectedIndex69[] = {
-	{"Ljava/beans/BeanProperty;", JTabbedPane_Attribute_var$15},
-	{}
-};
-
-$NamedAttribute JTabbedPane_Attribute_var$16[] = {
-	{"preferred", 'Z', "true"},
-	{"visualUpdate", 'Z', "true"},
-	{"description", 's', "The tab component at the specified tab index."},
-	{}
-};
-
-$CompoundAttribute _JTabbedPane_MethodAnnotations_setTabComponentAt71[] = {
-	{"Ljava/beans/BeanProperty;", JTabbedPane_Attribute_var$16},
-	{}
-};
-
-$Attribute JTabbedPane_Attribute_var$18[] = {
-	{'s', "JTabbedPane.WRAP_TAB_LAYOUT"},
-	{'s', "JTabbedPane.SCROLL_TAB_LAYOUT"},
-	{'-'}
-};
-
-$NamedAttribute JTabbedPane_Attribute_var$17[] = {
-	{"preferred", 'Z', "true"},
-	{"visualUpdate", 'Z', "true"},
-	{"enumerationValues", '[', JTabbedPane_Attribute_var$18},
-	{"description", 's', "The tabbedpane\'s policy for laying out the tabs"},
-	{}
-};
-
-$CompoundAttribute _JTabbedPane_MethodAnnotations_setTabLayoutPolicy72[] = {
-	{"Ljava/beans/BeanProperty;", JTabbedPane_Attribute_var$17},
-	{}
-};
-
-$Attribute JTabbedPane_Attribute_var$20[] = {
-	{'s', "JTabbedPane.TOP"},
-	{'s', "JTabbedPane.LEFT"},
-	{'s', "JTabbedPane.BOTTOM"},
-	{'s', "JTabbedPane.RIGHT"},
-	{'-'}
-};
-
-$NamedAttribute JTabbedPane_Attribute_var$19[] = {
-	{"preferred", 'Z', "true"},
-	{"visualUpdate", 'Z', "true"},
-	{"enumerationValues", '[', JTabbedPane_Attribute_var$20},
-	{"description", 's', "The tabbedpane\'s tab placement."},
-	{}
-};
-
-$CompoundAttribute _JTabbedPane_MethodAnnotations_setTabPlacement73[] = {
-	{"Ljava/beans/BeanProperty;", JTabbedPane_Attribute_var$19},
-	{}
-};
-
-$NamedAttribute JTabbedPane_Attribute_var$21[] = {
-	{"preferred", 'Z', "true"},
-	{"visualUpdate", 'Z', "true"},
-	{"description", 's', "The title at the specified tab index."},
-	{}
-};
-
-$CompoundAttribute _JTabbedPane_MethodAnnotations_setTitleAt74[] = {
-	{"Ljava/beans/BeanProperty;", JTabbedPane_Attribute_var$21},
-	{}
-};
-
-$NamedAttribute JTabbedPane_Attribute_var$22[] = {
-	{"preferred", 'Z', "true"},
-	{"description", 's', "The tooltip text at the specified tab index."},
-	{}
-};
-
-$CompoundAttribute _JTabbedPane_MethodAnnotations_setToolTipTextAt75[] = {
-	{"Ljava/beans/BeanProperty;", JTabbedPane_Attribute_var$22},
-	{}
-};
-
-$NamedAttribute JTabbedPane_Attribute_var$23[] = {
-	{"hidden", 'Z', "true"},
-	{"visualUpdate", 'Z', "true"},
-	{"description", 's', "The UI object that implements the tabbedpane\'s LookAndFeel"},
-	{}
-};
-
-$CompoundAttribute _JTabbedPane_MethodAnnotations_setUI76[] = {
-	{"Ljava/beans/BeanProperty;", JTabbedPane_Attribute_var$23},
-	{}
-};
-
-$FieldInfo _JTabbedPane_FieldInfo_[] = {
-	{"WRAP_TAB_LAYOUT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JTabbedPane, WRAP_TAB_LAYOUT)},
-	{"SCROLL_TAB_LAYOUT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JTabbedPane, SCROLL_TAB_LAYOUT)},
-	{"uiClassID", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JTabbedPane, uiClassID)},
-	{"tabPlacement", "I", nullptr, $PROTECTED, $field(JTabbedPane, tabPlacement)},
-	{"tabLayoutPolicy", "I", nullptr, $PRIVATE, $field(JTabbedPane, tabLayoutPolicy)},
-	{"model", "Ljavax/swing/SingleSelectionModel;", nullptr, $PROTECTED, $field(JTabbedPane, model)},
-	{"haveRegistered", "Z", nullptr, $PRIVATE, $field(JTabbedPane, haveRegistered)},
-	{"changeListener", "Ljavax/swing/event/ChangeListener;", nullptr, $PROTECTED, $field(JTabbedPane, changeListener)},
-	{"pages", "Ljava/util/List;", "Ljava/util/List<Ljavax/swing/JTabbedPane$Page;>;", $PRIVATE, $field(JTabbedPane, pages)},
-	{"visComp", "Ljava/awt/Component;", nullptr, $PRIVATE, $field(JTabbedPane, visComp)},
-	{"changeEvent", "Ljavax/swing/event/ChangeEvent;", nullptr, $PROTECTED | $TRANSIENT, $field(JTabbedPane, changeEvent)},
-	{}
-};
-
-$MethodInfo _JTabbedPane_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(JTabbedPane, init$, void)},
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(JTabbedPane, init$, void, int32_t)},
-	{"<init>", "(II)V", nullptr, $PUBLIC, $method(JTabbedPane, init$, void, int32_t, int32_t)},
-	{"access$000", "(Ljavax/swing/JTabbedPane;)Ljavax/accessibility/AccessibleContext;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(JTabbedPane, access$000, $AccessibleContext*, JTabbedPane*)},
-	{"access$100", "(Ljavax/swing/JTabbedPane;Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(JTabbedPane, access$100, void, JTabbedPane*, $String*, Object$*, Object$*)},
-	{"add", "(Ljava/awt/Component;)Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(JTabbedPane, add, $Component*, $Component*)},
-	{"add", "(Ljava/lang/String;Ljava/awt/Component;)Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(JTabbedPane, add, $Component*, $String*, $Component*)},
-	{"add", "(Ljava/awt/Component;I)Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(JTabbedPane, add, $Component*, $Component*, int32_t)},
-	{"add", "(Ljava/awt/Component;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(JTabbedPane, add, void, $Component*, Object$*)},
-	{"add", "(Ljava/awt/Component;Ljava/lang/Object;I)V", nullptr, $PUBLIC, $virtualMethod(JTabbedPane, add, void, $Component*, Object$*, int32_t)},
-	{"addChangeListener", "(Ljavax/swing/event/ChangeListener;)V", nullptr, $PUBLIC, $virtualMethod(JTabbedPane, addChangeListener, void, $ChangeListener*)},
-	{"addTab", "(Ljava/lang/String;Ljavax/swing/Icon;Ljava/awt/Component;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(JTabbedPane, addTab, void, $String*, $Icon*, $Component*, $String*)},
-	{"addTab", "(Ljava/lang/String;Ljavax/swing/Icon;Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(JTabbedPane, addTab, void, $String*, $Icon*, $Component*)},
-	{"addTab", "(Ljava/lang/String;Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(JTabbedPane, addTab, void, $String*, $Component*)},
-	{"changeAccessibleSelection", "(Ljavax/swing/JTabbedPane$Page;Ljava/lang/String;Ljavax/swing/JTabbedPane$Page;)V", nullptr, $PRIVATE, $method(JTabbedPane, changeAccessibleSelection, void, $JTabbedPane$Page*, $String*, $JTabbedPane$Page*)},
-	{"checkIndex", "(I)V", nullptr, $PRIVATE, $method(JTabbedPane, checkIndex, void, int32_t)},
-	{"checkTabLayoutPolicy", "(I)V", nullptr, $PRIVATE | $STATIC, $staticMethod(JTabbedPane, checkTabLayoutPolicy, void, int32_t)},
-	{"checkTabPlacement", "(I)V", nullptr, $PRIVATE | $STATIC, $staticMethod(JTabbedPane, checkTabPlacement, void, int32_t)},
-	{"clearAccessibleParent", "(Ljava/awt/Component;)V", nullptr, $PRIVATE, $method(JTabbedPane, clearAccessibleParent, void, $Component*)},
-	{"compWriteObjectNotify", "()V", nullptr, 0, $virtualMethod(JTabbedPane, compWriteObjectNotify, void)},
-	{"createChangeListener", "()Ljavax/swing/event/ChangeListener;", nullptr, $PROTECTED, $virtualMethod(JTabbedPane, createChangeListener, $ChangeListener*)},
-	{"fireStateChanged", "()V", nullptr, $PROTECTED, $virtualMethod(JTabbedPane, fireStateChanged, void)},
-	{"getAccessibleContext", "()Ljavax/accessibility/AccessibleContext;", nullptr, $PUBLIC, $virtualMethod(JTabbedPane, getAccessibleContext, $AccessibleContext*), nullptr, nullptr, _JTabbedPane_MethodAnnotations_getAccessibleContext22},
-	{"getBackgroundAt", "(I)Ljava/awt/Color;", nullptr, $PUBLIC, $virtualMethod(JTabbedPane, getBackgroundAt, $Color*, int32_t)},
-	{"getBoundsAt", "(I)Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(JTabbedPane, getBoundsAt, $Rectangle*, int32_t)},
-	{"getChangeListeners", "()[Ljavax/swing/event/ChangeListener;", nullptr, $PUBLIC, $virtualMethod(JTabbedPane, getChangeListeners, $ChangeListenerArray*), nullptr, nullptr, _JTabbedPane_MethodAnnotations_getChangeListeners25},
-	{"getComponentAt", "(I)Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(JTabbedPane, getComponentAt, $Component*, int32_t)},
-	{"getDisabledIconAt", "(I)Ljavax/swing/Icon;", nullptr, $PUBLIC, $virtualMethod(JTabbedPane, getDisabledIconAt, $Icon*, int32_t)},
-	{"getDisplayedMnemonicIndexAt", "(I)I", nullptr, $PUBLIC, $virtualMethod(JTabbedPane, getDisplayedMnemonicIndexAt, int32_t, int32_t)},
-	{"getForegroundAt", "(I)Ljava/awt/Color;", nullptr, $PUBLIC, $virtualMethod(JTabbedPane, getForegroundAt, $Color*, int32_t)},
-	{"getIconAt", "(I)Ljavax/swing/Icon;", nullptr, $PUBLIC, $virtualMethod(JTabbedPane, getIconAt, $Icon*, int32_t)},
-	{"getMnemonicAt", "(I)I", nullptr, $PUBLIC, $virtualMethod(JTabbedPane, getMnemonicAt, int32_t, int32_t)},
-	{"getModel", "()Ljavax/swing/SingleSelectionModel;", nullptr, $PUBLIC, $virtualMethod(JTabbedPane, getModel, $SingleSelectionModel*)},
-	{"getSelectedComponent", "()Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(JTabbedPane, getSelectedComponent, $Component*), nullptr, nullptr, _JTabbedPane_MethodAnnotations_getSelectedComponent33},
-	{"getSelectedIndex", "()I", nullptr, $PUBLIC, $virtualMethod(JTabbedPane, getSelectedIndex, int32_t), nullptr, nullptr, _JTabbedPane_MethodAnnotations_getSelectedIndex34},
-	{"getTabComponentAt", "(I)Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(JTabbedPane, getTabComponentAt, $Component*, int32_t)},
-	{"getTabCount", "()I", nullptr, $PUBLIC, $virtualMethod(JTabbedPane, getTabCount, int32_t), nullptr, nullptr, _JTabbedPane_MethodAnnotations_getTabCount36},
-	{"getTabLayoutPolicy", "()I", nullptr, $PUBLIC, $virtualMethod(JTabbedPane, getTabLayoutPolicy, int32_t)},
-	{"getTabPlacement", "()I", nullptr, $PUBLIC, $virtualMethod(JTabbedPane, getTabPlacement, int32_t)},
-	{"getTabRunCount", "()I", nullptr, $PUBLIC, $virtualMethod(JTabbedPane, getTabRunCount, int32_t), nullptr, nullptr, _JTabbedPane_MethodAnnotations_getTabRunCount39},
-	{"getTitleAt", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JTabbedPane, getTitleAt, $String*, int32_t)},
-	{"getToolTipText", "(Ljava/awt/event/MouseEvent;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JTabbedPane, getToolTipText, $String*, $MouseEvent*)},
-	{"getToolTipTextAt", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JTabbedPane, getToolTipTextAt, $String*, int32_t)},
-	{"getUI", "()Ljavax/swing/plaf/TabbedPaneUI;", nullptr, $PUBLIC, $virtualMethod(JTabbedPane, getUI, $ComponentUI*)},
-	{"getUIClassID", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JTabbedPane, getUIClassID, $String*), nullptr, nullptr, _JTabbedPane_MethodAnnotations_getUIClassID44},
-	{"indexAtLocation", "(II)I", nullptr, $PUBLIC, $virtualMethod(JTabbedPane, indexAtLocation, int32_t, int32_t, int32_t)},
-	{"indexOfComponent", "(Ljava/awt/Component;)I", nullptr, $PUBLIC, $virtualMethod(JTabbedPane, indexOfComponent, int32_t, $Component*)},
-	{"indexOfTab", "(Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(JTabbedPane, indexOfTab, int32_t, $String*)},
-	{"indexOfTab", "(Ljavax/swing/Icon;)I", nullptr, $PUBLIC, $virtualMethod(JTabbedPane, indexOfTab, int32_t, $Icon*)},
-	{"indexOfTabComponent", "(Ljava/awt/Component;)I", nullptr, $PUBLIC, $virtualMethod(JTabbedPane, indexOfTabComponent, int32_t, $Component*)},
-	{"insertTab", "(Ljava/lang/String;Ljavax/swing/Icon;Ljava/awt/Component;Ljava/lang/String;I)V", nullptr, $PUBLIC, $virtualMethod(JTabbedPane, insertTab, void, $String*, $Icon*, $Component*, $String*, int32_t)},
-	{"isEnabledAt", "(I)Z", nullptr, $PUBLIC, $virtualMethod(JTabbedPane, isEnabledAt, bool, int32_t)},
-	{"paramString", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(JTabbedPane, paramString, $String*)},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(JTabbedPane, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"remove", "(Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(JTabbedPane, remove, void, $Component*)},
-	{"remove", "(I)V", nullptr, $PUBLIC, $virtualMethod(JTabbedPane, remove, void, int32_t)},
-	{"removeAll", "()V", nullptr, $PUBLIC, $virtualMethod(JTabbedPane, removeAll, void)},
-	{"removeChangeListener", "(Ljavax/swing/event/ChangeListener;)V", nullptr, $PUBLIC, $virtualMethod(JTabbedPane, removeChangeListener, void, $ChangeListener*)},
-	{"removeTabAt", "(I)V", nullptr, $PUBLIC, $virtualMethod(JTabbedPane, removeTabAt, void, int32_t)},
-	{"setBackgroundAt", "(ILjava/awt/Color;)V", nullptr, $PUBLIC, $virtualMethod(JTabbedPane, setBackgroundAt, void, int32_t, $Color*), nullptr, nullptr, _JTabbedPane_MethodAnnotations_setBackgroundAt59},
-	{"setComponentAt", "(ILjava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(JTabbedPane, setComponentAt, void, int32_t, $Component*), nullptr, nullptr, _JTabbedPane_MethodAnnotations_setComponentAt60},
-	{"setDisabledIconAt", "(ILjavax/swing/Icon;)V", nullptr, $PUBLIC, $virtualMethod(JTabbedPane, setDisabledIconAt, void, int32_t, $Icon*), nullptr, nullptr, _JTabbedPane_MethodAnnotations_setDisabledIconAt61},
-	{"setDisplayedMnemonicIndexAt", "(II)V", nullptr, $PUBLIC, $virtualMethod(JTabbedPane, setDisplayedMnemonicIndexAt, void, int32_t, int32_t), nullptr, nullptr, _JTabbedPane_MethodAnnotations_setDisplayedMnemonicIndexAt62},
-	{"setEnabledAt", "(IZ)V", nullptr, $PUBLIC, $virtualMethod(JTabbedPane, setEnabledAt, void, int32_t, bool)},
-	{"setForegroundAt", "(ILjava/awt/Color;)V", nullptr, $PUBLIC, $virtualMethod(JTabbedPane, setForegroundAt, void, int32_t, $Color*), nullptr, nullptr, _JTabbedPane_MethodAnnotations_setForegroundAt64},
-	{"setIconAt", "(ILjavax/swing/Icon;)V", nullptr, $PUBLIC, $virtualMethod(JTabbedPane, setIconAt, void, int32_t, $Icon*), nullptr, nullptr, _JTabbedPane_MethodAnnotations_setIconAt65},
-	{"setMnemonicAt", "(II)V", nullptr, $PUBLIC, $virtualMethod(JTabbedPane, setMnemonicAt, void, int32_t, int32_t), nullptr, nullptr, _JTabbedPane_MethodAnnotations_setMnemonicAt66},
-	{"setModel", "(Ljavax/swing/SingleSelectionModel;)V", nullptr, $PUBLIC, $virtualMethod(JTabbedPane, setModel, void, $SingleSelectionModel*), nullptr, nullptr, _JTabbedPane_MethodAnnotations_setModel67},
-	{"setSelectedComponent", "(Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(JTabbedPane, setSelectedComponent, void, $Component*), nullptr, nullptr, _JTabbedPane_MethodAnnotations_setSelectedComponent68},
-	{"setSelectedIndex", "(I)V", nullptr, $PUBLIC, $virtualMethod(JTabbedPane, setSelectedIndex, void, int32_t), nullptr, nullptr, _JTabbedPane_MethodAnnotations_setSelectedIndex69},
-	{"setSelectedIndexImpl", "(IZ)V", nullptr, $PRIVATE, $method(JTabbedPane, setSelectedIndexImpl, void, int32_t, bool)},
-	{"setTabComponentAt", "(ILjava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(JTabbedPane, setTabComponentAt, void, int32_t, $Component*), nullptr, nullptr, _JTabbedPane_MethodAnnotations_setTabComponentAt71},
-	{"setTabLayoutPolicy", "(I)V", nullptr, $PUBLIC, $virtualMethod(JTabbedPane, setTabLayoutPolicy, void, int32_t), nullptr, nullptr, _JTabbedPane_MethodAnnotations_setTabLayoutPolicy72},
-	{"setTabPlacement", "(I)V", nullptr, $PUBLIC, $virtualMethod(JTabbedPane, setTabPlacement, void, int32_t), nullptr, nullptr, _JTabbedPane_MethodAnnotations_setTabPlacement73},
-	{"setTitleAt", "(ILjava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(JTabbedPane, setTitleAt, void, int32_t, $String*), nullptr, nullptr, _JTabbedPane_MethodAnnotations_setTitleAt74},
-	{"setToolTipTextAt", "(ILjava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(JTabbedPane, setToolTipTextAt, void, int32_t, $String*), nullptr, nullptr, _JTabbedPane_MethodAnnotations_setToolTipTextAt75},
-	{"setUI", "(Ljavax/swing/plaf/TabbedPaneUI;)V", nullptr, $PUBLIC, $virtualMethod(JTabbedPane, setUI, void, $TabbedPaneUI*), nullptr, nullptr, _JTabbedPane_MethodAnnotations_setUI76},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"updateUI", "()V", nullptr, $PUBLIC, $virtualMethod(JTabbedPane, updateUI, void)},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(JTabbedPane, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _JTabbedPane_InnerClassesInfo_[] = {
-	{"javax.swing.JTabbedPane$Page", "javax.swing.JTabbedPane", "Page", $PRIVATE},
-	{"javax.swing.JTabbedPane$AccessibleJTabbedPane", "javax.swing.JTabbedPane", "AccessibleJTabbedPane", $PROTECTED},
-	{"javax.swing.JTabbedPane$ModelListener", "javax.swing.JTabbedPane", "ModelListener", $PROTECTED},
-	{}
-};
-
-$ClassInfo _JTabbedPane_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.JTabbedPane",
-	"javax.swing.JComponent",
-	"javax.accessibility.Accessible,javax.swing.SwingConstants",
-	_JTabbedPane_FieldInfo_,
-	_JTabbedPane_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JTabbedPane_InnerClassesInfo_,
-	_JTabbedPane_Annotations_,
-	nullptr,
-	"javax.swing.JTabbedPane$Page,javax.swing.JTabbedPane$AccessibleJTabbedPane,javax.swing.JTabbedPane$ModelListener"
-};
-
-$Object* allocate$JTabbedPane($Class* clazz) {
-	return $of($alloc(JTabbedPane));
-}
 
 $String* JTabbedPane::toString() {
 	 return this->$JComponent::toString();
@@ -556,10 +149,10 @@ $ComponentUI* JTabbedPane::getUI() {
 }
 
 void JTabbedPane::setUI($TabbedPaneUI* ui) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$JComponent::setUI(ui);
 	for (int32_t i = 0; i < getTabCount(); ++i) {
-		$var($Icon, icon, $nc(($cast($JTabbedPane$Page, $($nc(this->pages)->get(i)))))->disabledIcon);
+		$var($Icon, icon, $nc(($$cast($JTabbedPane$Page, $nc(this->pages)->get(i))))->disabledIcon);
 		if ($instanceOf($UIResource, icon)) {
 			setDisabledIconAt(i, nullptr);
 		}
@@ -567,7 +160,7 @@ void JTabbedPane::setUI($TabbedPaneUI* ui) {
 }
 
 void JTabbedPane::updateUI() {
-	setUI($cast($TabbedPaneUI, $($UIManager::getUI(this))));
+	setUI($$cast($TabbedPaneUI, $UIManager::getUI(this)));
 }
 
 $String* JTabbedPane::getUIClassID() {
@@ -590,15 +183,15 @@ void JTabbedPane::removeChangeListener($ChangeListener* l) {
 
 $ChangeListenerArray* JTabbedPane::getChangeListeners() {
 	$load($ChangeListener);
-	return $fcast($ChangeListenerArray, $nc(this->listenerList)->getListeners($ChangeListener::class$));
+	return $cast($ChangeListenerArray, $nc(this->listenerList)->getListeners($ChangeListener::class$));
 }
 
 void JTabbedPane::fireStateChanged() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t selIndex = getSelectedIndex();
 	if (selIndex < 0) {
-		if (this->visComp != nullptr && $nc(this->visComp)->isVisible()) {
-			$nc(this->visComp)->setVisible(false);
+		if (this->visComp != nullptr && this->visComp->isVisible()) {
+			this->visComp->setVisible(false);
 		}
 		$set(this, visComp, nullptr);
 	} else {
@@ -627,7 +220,7 @@ void JTabbedPane::fireStateChanged() {
 			if (this->changeEvent == nullptr) {
 				$set(this, changeEvent, $new($ChangeEvent, this));
 			}
-			$nc(($cast($ChangeListener, listeners->get(i + 1))))->stateChanged(this->changeEvent);
+			$nc($cast($ChangeListener, listeners->get(i + 1)))->stateChanged(this->changeEvent);
 		}
 	}
 }
@@ -647,7 +240,7 @@ void JTabbedPane::setModel($SingleSelectionModel* model) {
 		$set(this, changeListener, createChangeListener());
 		model->addChangeListener(this->changeListener);
 	}
-	firePropertyChange("model"_s, $of(oldModel), $of(model));
+	firePropertyChange("model"_s, oldModel, model);
 	repaint();
 }
 
@@ -707,7 +300,7 @@ void JTabbedPane::setSelectedIndex(int32_t index) {
 }
 
 void JTabbedPane::setSelectedIndexImpl(int32_t index, bool doAccessibleChanges) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t oldIndex = $nc(this->model)->getSelectedIndex();
 	$var($JTabbedPane$Page, oldPage, nullptr);
 	$var($JTabbedPane$Page, newPage, nullptr);
@@ -715,7 +308,7 @@ void JTabbedPane::setSelectedIndexImpl(int32_t index, bool doAccessibleChanges) 
 	doAccessibleChanges = doAccessibleChanges && (oldIndex != index);
 	if (doAccessibleChanges) {
 		if (this->accessibleContext != nullptr) {
-			$assign(oldName, $nc(this->accessibleContext)->getAccessibleName());
+			$assign(oldName, this->accessibleContext->getAccessibleName());
 		}
 		if (oldIndex >= 0) {
 			$assign(oldPage, $cast($JTabbedPane$Page, $nc(this->pages)->get(oldIndex)));
@@ -766,7 +359,7 @@ void JTabbedPane::setSelectedComponent($Component* c) {
 }
 
 void JTabbedPane::insertTab($String* title, $Icon* icon, $Component* component, $String* tip, int32_t index) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t newIndex = index;
 	int32_t removeIndex = indexOfComponent(component);
 	if (component != nullptr && removeIndex != -1) {
@@ -790,12 +383,12 @@ void JTabbedPane::insertTab($String* title, $Icon* icon, $Component* component, 
 		setSelectedIndexImpl(selectedIndex + 1, false);
 	}
 	if (!this->haveRegistered && tip != nullptr) {
-		$nc($($ToolTipManager::sharedInstance()))->registerComponent(this);
+		$$nc($ToolTipManager::sharedInstance())->registerComponent(this);
 		this->haveRegistered = true;
 	}
 	if (this->accessibleContext != nullptr) {
 		$init($AccessibleContext);
-		$nc(this->accessibleContext)->firePropertyChange($AccessibleContext::ACCESSIBLE_VISIBLE_DATA_PROPERTY, nullptr, component);
+		this->accessibleContext->firePropertyChange($AccessibleContext::ACCESSIBLE_VISIBLE_DATA_PROPERTY, nullptr, component);
 	}
 	revalidate();
 	repaint();
@@ -832,11 +425,9 @@ $Component* JTabbedPane::add($String* title, $Component* component) {
 }
 
 $Component* JTabbedPane::add($Component* component, int32_t index) {
-	$useLocalCurrentObjectStackCache();
 	if (!($instanceOf($UIResource, component))) {
 		$var($String, var$0, $nc(component)->getName());
-		$var($Component, var$1, component);
-		insertTab(var$0, nullptr, var$1, nullptr, index == -1 ? getTabCount() : index);
+		insertTab(var$0, nullptr, component, nullptr, index == -1 ? getTabCount() : index);
 	} else {
 		$JComponent::add(component, index);
 	}
@@ -858,7 +449,7 @@ void JTabbedPane::add($Component* component, Object$* constraints) {
 }
 
 void JTabbedPane::add($Component* component, Object$* constraints, int32_t index) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!($instanceOf($UIResource, component))) {
 		$var($Icon, icon, $instanceOf($Icon, constraints) ? $cast($Icon, constraints) : ($Icon*)nullptr);
 		$var($String, title, $instanceOf($String, constraints) ? $cast($String, constraints) : ($String*)nullptr);
@@ -876,7 +467,7 @@ void JTabbedPane::clearAccessibleParent($Component* c) {
 }
 
 void JTabbedPane::removeTabAt(int32_t index) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	checkIndex(index);
 	$var($Component, component, getComponentAt(index));
 	bool shouldChangeFocus = false;
@@ -890,7 +481,7 @@ void JTabbedPane::removeTabAt(int32_t index) {
 		if (index == selected) {
 			$init($AccessibleContext);
 			$init($AccessibleState);
-			$nc(($cast($JTabbedPane$Page, $($nc(this->pages)->get(index)))))->firePropertyChange($AccessibleContext::ACCESSIBLE_STATE_PROPERTY, $AccessibleState::SELECTED, nullptr);
+			$$sure($JTabbedPane$Page, $nc(this->pages)->get(index))->firePropertyChange($AccessibleContext::ACCESSIBLE_STATE_PROPERTY, $AccessibleState::SELECTED, nullptr);
 			$assign(oldName, $nc(this->accessibleContext)->getAccessibleName());
 		}
 		$init($AccessibleContext);
@@ -907,7 +498,7 @@ void JTabbedPane::removeTabAt(int32_t index) {
 		changeAccessibleSelection(nullptr, oldName, newSelected);
 	} else if (index == selected) {
 		fireStateChanged();
-		changeAccessibleSelection(nullptr, oldName, $cast($JTabbedPane$Page, $($nc(this->pages)->get(index))));
+		changeAccessibleSelection(nullptr, oldName, $$cast($JTabbedPane$Page, $nc(this->pages)->get(index)));
 	}
 	if (component != nullptr) {
 		$var($ComponentArray, components, getComponents());
@@ -960,46 +551,46 @@ int32_t JTabbedPane::getTabCount() {
 
 int32_t JTabbedPane::getTabRunCount() {
 	if (this->ui != nullptr) {
-		return $nc(($cast($TabbedPaneUI, this->ui)))->getTabRunCount(this);
+		return $cast($TabbedPaneUI, this->ui)->getTabRunCount(this);
 	}
 	return 0;
 }
 
 $String* JTabbedPane::getTitleAt(int32_t index) {
-	return $nc(($cast($JTabbedPane$Page, $($nc(this->pages)->get(index)))))->title;
+	return $nc(($$cast($JTabbedPane$Page, $nc(this->pages)->get(index))))->title;
 }
 
 $Icon* JTabbedPane::getIconAt(int32_t index) {
-	return $nc(($cast($JTabbedPane$Page, $($nc(this->pages)->get(index)))))->icon;
+	return $nc(($$cast($JTabbedPane$Page, $nc(this->pages)->get(index))))->icon;
 }
 
 $Icon* JTabbedPane::getDisabledIconAt(int32_t index) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JTabbedPane$Page, page, $cast($JTabbedPane$Page, $nc(this->pages)->get(index)));
 	if ($nc(page)->disabledIcon == nullptr) {
-		$set(page, disabledIcon, $nc($($UIManager::getLookAndFeel()))->getDisabledIcon(this, page->icon));
+		$set(page, disabledIcon, $$nc($UIManager::getLookAndFeel())->getDisabledIcon(this, page->icon));
 	}
-	return $nc(page)->disabledIcon;
+	return page->disabledIcon;
 }
 
 $String* JTabbedPane::getToolTipTextAt(int32_t index) {
-	return $nc(($cast($JTabbedPane$Page, $($nc(this->pages)->get(index)))))->tip;
+	return $nc(($$cast($JTabbedPane$Page, $nc(this->pages)->get(index))))->tip;
 }
 
 $Color* JTabbedPane::getBackgroundAt(int32_t index) {
-	return $nc(($cast($JTabbedPane$Page, $($nc(this->pages)->get(index)))))->getBackground();
+	return $$sure($JTabbedPane$Page, $nc(this->pages)->get(index))->getBackground();
 }
 
 $Color* JTabbedPane::getForegroundAt(int32_t index) {
-	return $nc(($cast($JTabbedPane$Page, $($nc(this->pages)->get(index)))))->getForeground();
+	return $$sure($JTabbedPane$Page, $nc(this->pages)->get(index))->getForeground();
 }
 
 bool JTabbedPane::isEnabledAt(int32_t index) {
-	return $nc(($cast($JTabbedPane$Page, $($nc(this->pages)->get(index)))))->isEnabled();
+	return $$sure($JTabbedPane$Page, $nc(this->pages)->get(index))->isEnabled();
 }
 
 $Component* JTabbedPane::getComponentAt(int32_t index) {
-	return $nc(($cast($JTabbedPane$Page, $($nc(this->pages)->get(index)))))->component;
+	return $nc(($$cast($JTabbedPane$Page, $nc(this->pages)->get(index))))->component;
 }
 
 int32_t JTabbedPane::getMnemonicAt(int32_t tabIndex) {
@@ -1017,13 +608,13 @@ int32_t JTabbedPane::getDisplayedMnemonicIndexAt(int32_t tabIndex) {
 $Rectangle* JTabbedPane::getBoundsAt(int32_t index) {
 	checkIndex(index);
 	if (this->ui != nullptr) {
-		return $nc(($cast($TabbedPaneUI, this->ui)))->getTabBounds(this, index);
+		return $cast($TabbedPaneUI, this->ui)->getTabBounds(this, index);
 	}
 	return nullptr;
 }
 
 void JTabbedPane::setTitleAt(int32_t index, $String* title) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JTabbedPane$Page, page, $cast($JTabbedPane$Page, $nc(this->pages)->get(index)));
 	$var($String, oldTitle, $nc(page)->title);
 	$set(page, title, title);
@@ -1033,16 +624,16 @@ void JTabbedPane::setTitleAt(int32_t index, $String* title) {
 	page->updateDisplayedMnemonicIndex();
 	if ((oldTitle != title) && (this->accessibleContext != nullptr)) {
 		$init($AccessibleContext);
-		$nc(this->accessibleContext)->firePropertyChange($AccessibleContext::ACCESSIBLE_VISIBLE_DATA_PROPERTY, oldTitle, title);
+		this->accessibleContext->firePropertyChange($AccessibleContext::ACCESSIBLE_VISIBLE_DATA_PROPERTY, oldTitle, title);
 	}
-	if (title == nullptr || oldTitle == nullptr || !$nc(title)->equals(oldTitle)) {
+	if (title == nullptr || oldTitle == nullptr || !title->equals(oldTitle)) {
 		revalidate();
 		repaint();
 	}
 }
 
 void JTabbedPane::setIconAt(int32_t index, $Icon* icon) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JTabbedPane$Page, page, $cast($JTabbedPane$Page, $nc(this->pages)->get(index)));
 	$var($Icon, oldIcon, $nc(page)->icon);
 	if (icon != oldIcon) {
@@ -1052,7 +643,7 @@ void JTabbedPane::setIconAt(int32_t index, $Icon* icon) {
 		}
 		if (this->accessibleContext != nullptr) {
 			$init($AccessibleContext);
-			$nc(this->accessibleContext)->firePropertyChange($AccessibleContext::ACCESSIBLE_VISIBLE_DATA_PROPERTY, oldIcon, icon);
+			this->accessibleContext->firePropertyChange($AccessibleContext::ACCESSIBLE_VISIBLE_DATA_PROPERTY, oldIcon, icon);
 		}
 		revalidate();
 		repaint();
@@ -1060,9 +651,9 @@ void JTabbedPane::setIconAt(int32_t index, $Icon* icon) {
 }
 
 void JTabbedPane::setDisabledIconAt(int32_t index, $Icon* disabledIcon) {
-	$useLocalCurrentObjectStackCache();
-	$var($Icon, oldIcon, $nc(($cast($JTabbedPane$Page, $($nc(this->pages)->get(index)))))->disabledIcon);
-	$set($nc($cast($JTabbedPane$Page, $($nc(this->pages)->get(index)))), disabledIcon, disabledIcon);
+	$useLocalObjectStack();
+	$var($Icon, oldIcon, $nc(($$cast($JTabbedPane$Page, $nc(this->pages)->get(index))))->disabledIcon);
+	$set($nc($$cast($JTabbedPane$Page, this->pages->get(index))), disabledIcon, disabledIcon);
 	if (disabledIcon != oldIcon && !isEnabledAt(index)) {
 		revalidate();
 		repaint();
@@ -1070,24 +661,24 @@ void JTabbedPane::setDisabledIconAt(int32_t index, $Icon* disabledIcon) {
 }
 
 void JTabbedPane::setToolTipTextAt(int32_t index, $String* toolTipText) {
-	$useLocalCurrentObjectStackCache();
-	$var($String, oldToolTipText, $nc(($cast($JTabbedPane$Page, $($nc(this->pages)->get(index)))))->tip);
-	$set($nc($cast($JTabbedPane$Page, $($nc(this->pages)->get(index)))), tip, toolTipText);
+	$useLocalObjectStack();
+	$var($String, oldToolTipText, $nc(($$cast($JTabbedPane$Page, $nc(this->pages)->get(index))))->tip);
+	$set($nc($$cast($JTabbedPane$Page, this->pages->get(index))), tip, toolTipText);
 	if ((oldToolTipText != toolTipText) && (this->accessibleContext != nullptr)) {
 		$init($AccessibleContext);
-		$nc(this->accessibleContext)->firePropertyChange($AccessibleContext::ACCESSIBLE_VISIBLE_DATA_PROPERTY, oldToolTipText, toolTipText);
+		this->accessibleContext->firePropertyChange($AccessibleContext::ACCESSIBLE_VISIBLE_DATA_PROPERTY, oldToolTipText, toolTipText);
 	}
 	if (!this->haveRegistered && toolTipText != nullptr) {
-		$nc($($ToolTipManager::sharedInstance()))->registerComponent(this);
+		$$nc($ToolTipManager::sharedInstance())->registerComponent(this);
 		this->haveRegistered = true;
 	}
 }
 
 void JTabbedPane::setBackgroundAt(int32_t index, $Color* background) {
-	$useLocalCurrentObjectStackCache();
-	$var($Color, oldBg, $nc(($cast($JTabbedPane$Page, $($nc(this->pages)->get(index)))))->background);
-	$nc(($cast($JTabbedPane$Page, $($nc(this->pages)->get(index)))))->setBackground(background);
-	if (background == nullptr || oldBg == nullptr || !$nc(background)->equals(oldBg)) {
+	$useLocalObjectStack();
+	$var($Color, oldBg, $nc(($$cast($JTabbedPane$Page, $nc(this->pages)->get(index))))->background);
+	$$sure($JTabbedPane$Page, this->pages->get(index))->setBackground(background);
+	if (background == nullptr || oldBg == nullptr || !background->equals(oldBg)) {
 		$var($Rectangle, tabBounds, getBoundsAt(index));
 		if (tabBounds != nullptr) {
 			repaint(tabBounds);
@@ -1096,10 +687,10 @@ void JTabbedPane::setBackgroundAt(int32_t index, $Color* background) {
 }
 
 void JTabbedPane::setForegroundAt(int32_t index, $Color* foreground) {
-	$useLocalCurrentObjectStackCache();
-	$var($Color, oldFg, $nc(($cast($JTabbedPane$Page, $($nc(this->pages)->get(index)))))->foreground);
-	$nc(($cast($JTabbedPane$Page, $($nc(this->pages)->get(index)))))->setForeground(foreground);
-	if (foreground == nullptr || oldFg == nullptr || !$nc(foreground)->equals(oldFg)) {
+	$useLocalObjectStack();
+	$var($Color, oldFg, $nc(($$cast($JTabbedPane$Page, $nc(this->pages)->get(index))))->foreground);
+	$$sure($JTabbedPane$Page, this->pages->get(index))->setForeground(foreground);
+	if (foreground == nullptr || oldFg == nullptr || !foreground->equals(oldFg)) {
 		$var($Rectangle, tabBounds, getBoundsAt(index));
 		if (tabBounds != nullptr) {
 			repaint(tabBounds);
@@ -1108,9 +699,9 @@ void JTabbedPane::setForegroundAt(int32_t index, $Color* foreground) {
 }
 
 void JTabbedPane::setEnabledAt(int32_t index, bool enabled) {
-	$useLocalCurrentObjectStackCache();
-	bool oldEnabled = $nc(($cast($JTabbedPane$Page, $($nc(this->pages)->get(index)))))->isEnabled();
-	$nc(($cast($JTabbedPane$Page, $($nc(this->pages)->get(index)))))->setEnabled(enabled);
+	$useLocalObjectStack();
+	bool oldEnabled = $$sure($JTabbedPane$Page, $nc(this->pages)->get(index))->isEnabled();
+	$$sure($JTabbedPane$Page, $nc(this->pages)->get(index))->setEnabled(enabled);
 	if (enabled != oldEnabled) {
 		revalidate();
 		repaint();
@@ -1118,7 +709,7 @@ void JTabbedPane::setEnabledAt(int32_t index, bool enabled) {
 }
 
 void JTabbedPane::setComponentAt(int32_t index, $Component* component) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JTabbedPane$Page, page, $cast($JTabbedPane$Page, $nc(this->pages)->get(index)));
 	if (component != $nc(page)->component) {
 		bool shouldChangeFocus = false;
@@ -1163,13 +754,13 @@ void JTabbedPane::setMnemonicAt(int32_t tabIndex, int32_t mnemonic) {
 	checkIndex(tabIndex);
 	$var($JTabbedPane$Page, page, $cast($JTabbedPane$Page, $nc(this->pages)->get(tabIndex)));
 	$nc(page)->setMnemonic(mnemonic);
-	firePropertyChange("mnemonicAt"_s, ($Object*)nullptr, ($Object*)nullptr);
+	firePropertyChange("mnemonicAt"_s, nullptr, nullptr);
 }
 
 int32_t JTabbedPane::indexOfTab($String* title) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (int32_t i = 0; i < getTabCount(); ++i) {
-		if ($nc($(getTitleAt(i)))->equals(title == nullptr ? $of(""_s) : $of(title))) {
+		if ($$nc(getTitleAt(i))->equals(title == nullptr ? ""_s : title)) {
 			return i;
 		}
 	}
@@ -1177,10 +768,10 @@ int32_t JTabbedPane::indexOfTab($String* title) {
 }
 
 int32_t JTabbedPane::indexOfTab($Icon* icon) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (int32_t i = 0; i < getTabCount(); ++i) {
 		$var($Icon, tabIcon, getIconAt(i));
-		if ((tabIcon != nullptr && $of(tabIcon)->equals(icon)) || (tabIcon == nullptr && tabIcon == icon)) {
+		if ((tabIcon != nullptr && tabIcon->equals(icon)) || (tabIcon == nullptr && tabIcon == icon)) {
 			return i;
 		}
 	}
@@ -1188,10 +779,10 @@ int32_t JTabbedPane::indexOfTab($Icon* icon) {
 }
 
 int32_t JTabbedPane::indexOfComponent($Component* component) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (int32_t i = 0; i < getTabCount(); ++i) {
 		$var($Component, c, getComponentAt(i));
-		if ((c != nullptr && $of(c)->equals(component)) || (c == nullptr && c == component)) {
+		if ((c != nullptr && c->equals(component)) || (c == nullptr && c == component)) {
 			return i;
 		}
 	}
@@ -1200,7 +791,7 @@ int32_t JTabbedPane::indexOfComponent($Component* component) {
 
 int32_t JTabbedPane::indexAtLocation(int32_t x, int32_t y) {
 	if (this->ui != nullptr) {
-		return $nc(($cast($TabbedPaneUI, this->ui)))->tabForCoordinate(this, x, y);
+		return $cast($TabbedPaneUI, this->ui)->tabForCoordinate(this, x, y);
 	}
 	return -1;
 }
@@ -1208,16 +799,16 @@ int32_t JTabbedPane::indexAtLocation(int32_t x, int32_t y) {
 $String* JTabbedPane::getToolTipText($MouseEvent* event) {
 	if (this->ui != nullptr) {
 		int32_t var$0 = $nc(event)->getX();
-		int32_t index = $nc(($cast($TabbedPaneUI, this->ui)))->tabForCoordinate(this, var$0, event->getY());
+		int32_t index = $cast($TabbedPaneUI, this->ui)->tabForCoordinate(this, var$0, event->getY());
 		if (index != -1) {
-			return $nc(($cast($JTabbedPane$Page, $($nc(this->pages)->get(index)))))->tip;
+			return $nc(($$cast($JTabbedPane$Page, $nc(this->pages)->get(index))))->tip;
 		}
 	}
 	return $JComponent::getToolTipText(event);
 }
 
 void JTabbedPane::checkIndex(int32_t index) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (index < 0 || index >= $nc(this->pages)->size()) {
 		$throwNew($IndexOutOfBoundsException, $$str({"Index: "_s, $$str(index), ", Tab count: "_s, $$str($nc(this->pages)->size())}));
 	}
@@ -1225,11 +816,11 @@ void JTabbedPane::checkIndex(int32_t index) {
 
 void JTabbedPane::writeObject($ObjectOutputStream* s) {
 	$nc(s)->defaultWriteObject();
-	if ($nc($(getUIClassID()))->equals(JTabbedPane::uiClassID)) {
+	if ($$nc(getUIClassID())->equals(JTabbedPane::uiClassID)) {
 		int8_t count = $JComponent::getWriteObjCounter(this);
 		$JComponent::setWriteObjCounter(this, --count);
 		if (count == 0 && this->ui != nullptr) {
-			$nc(this->ui)->installUI(this);
+			this->ui->installUI(this);
 		}
 	}
 }
@@ -1237,12 +828,12 @@ void JTabbedPane::writeObject($ObjectOutputStream* s) {
 void JTabbedPane::compWriteObjectNotify() {
 	$JComponent::compWriteObjectNotify();
 	if (getToolTipText() == nullptr && this->haveRegistered) {
-		$nc($($ToolTipManager::sharedInstance()))->unregisterComponent(this);
+		$$nc($ToolTipManager::sharedInstance())->unregisterComponent(this);
 	}
 }
 
 void JTabbedPane::readObject($ObjectInputStream* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectInputStream$GetField, f, $nc(s)->readFields());
 	int32_t newTabPlacement = $nc(f)->get("tabPlacement"_s, $SwingConstants::TOP);
 	checkTabPlacement(newTabPlacement);
@@ -1250,21 +841,21 @@ void JTabbedPane::readObject($ObjectInputStream* s) {
 	int32_t newTabLayoutPolicy = f->get("tabLayoutPolicy"_s, 0);
 	checkTabLayoutPolicy(newTabLayoutPolicy);
 	this->tabLayoutPolicy = newTabLayoutPolicy;
-	$set(this, model, $cast($SingleSelectionModel, f->get("model"_s, ($Object*)nullptr)));
+	$set(this, model, $cast($SingleSelectionModel, f->get("model"_s, nullptr)));
 	this->haveRegistered = f->get("haveRegistered"_s, false);
-	$set(this, changeListener, $cast($ChangeListener, f->get("changeListener"_s, ($Object*)nullptr)));
-	$set(this, pages, $cast($List, f->get("pages"_s, ($Object*)nullptr)));
-	$set(this, visComp, $cast($Component, f->get("visComp"_s, ($Object*)nullptr)));
-	if ((this->ui != nullptr) && ($nc($(getUIClassID()))->equals(JTabbedPane::uiClassID))) {
-		$nc(this->ui)->installUI(this);
+	$set(this, changeListener, $cast($ChangeListener, f->get("changeListener"_s, nullptr)));
+	$set(this, pages, $cast($List, f->get("pages"_s, nullptr)));
+	$set(this, visComp, $cast($Component, f->get("visComp"_s, nullptr)));
+	if ((this->ui != nullptr) && ($$nc(getUIClassID())->equals(JTabbedPane::uiClassID))) {
+		this->ui->installUI(this);
 	}
 	if (getToolTipText() == nullptr && this->haveRegistered) {
-		$nc($($ToolTipManager::sharedInstance()))->registerComponent(this);
+		$$nc($ToolTipManager::sharedInstance())->registerComponent(this);
 	}
 }
 
 $String* JTabbedPane::paramString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, tabPlacementString, nullptr);
 	if (this->tabPlacement == $SwingConstants::TOP) {
 		$assign(tabPlacementString, "TOP"_s);
@@ -1282,19 +873,19 @@ $String* JTabbedPane::paramString() {
 }
 
 $AccessibleContext* JTabbedPane::getAccessibleContext() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->accessibleContext == nullptr) {
 		$set(this, accessibleContext, $new($JTabbedPane$AccessibleJTabbedPane, this));
 		int32_t count = getTabCount();
 		for (int32_t i = 0; i < count; ++i) {
-			$nc(($cast($JTabbedPane$Page, $($nc(this->pages)->get(i)))))->initAccessibleContext();
+			$$sure($JTabbedPane$Page, $nc(this->pages)->get(i))->initAccessibleContext();
 		}
 	}
 	return this->accessibleContext;
 }
 
 void JTabbedPane::setTabComponentAt(int32_t index, $Component* component) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (component != nullptr && indexOfComponent(component) != -1) {
 		$throwNew($IllegalArgumentException, "Component is already added to this JTabbedPane"_s);
 	}
@@ -1304,17 +895,17 @@ void JTabbedPane::setTabComponentAt(int32_t index, $Component* component) {
 		if (tabComponentIndex != -1) {
 			setTabComponentAt(tabComponentIndex, nullptr);
 		}
-		$set($nc($cast($JTabbedPane$Page, $($nc(this->pages)->get(index)))), tabComponent, component);
+		$set($nc($$cast($JTabbedPane$Page, $nc(this->pages)->get(index))), tabComponent, component);
 		firePropertyChange("indexForTabComponent"_s, -1, index);
 	}
 }
 
 $Component* JTabbedPane::getTabComponentAt(int32_t index) {
-	return $nc(($cast($JTabbedPane$Page, $($nc(this->pages)->get(index)))))->tabComponent;
+	return $nc(($$cast($JTabbedPane$Page, $nc(this->pages)->get(index))))->tabComponent;
 }
 
 int32_t JTabbedPane::indexOfTabComponent($Component* tabComponent) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (int32_t i = 0; i < getTabCount(); ++i) {
 		$var($Component, c, getTabComponentAt(i));
 		if (c == tabComponent) {
@@ -1327,12 +918,361 @@ int32_t JTabbedPane::indexOfTabComponent($Component* tabComponent) {
 JTabbedPane::JTabbedPane() {
 }
 
-void clinit$JTabbedPane($Class* class$) {
+void JTabbedPane::clinit$($Class* clazz) {
 	$assignStatic(JTabbedPane::uiClassID, "TabbedPaneUI"_s);
 }
 
 $Class* JTabbedPane::load$($String* name, bool initialize) {
-	$loadClass(JTabbedPane, name, initialize, &_JTabbedPane_ClassInfo_, clinit$JTabbedPane, allocate$JTabbedPane);
+	$FieldInfo fieldInfos$$[] = {
+		{"WRAP_TAB_LAYOUT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JTabbedPane, WRAP_TAB_LAYOUT)},
+		{"SCROLL_TAB_LAYOUT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JTabbedPane, SCROLL_TAB_LAYOUT)},
+		{"uiClassID", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JTabbedPane, uiClassID)},
+		{"tabPlacement", "I", nullptr, $PROTECTED, $field(JTabbedPane, tabPlacement)},
+		{"tabLayoutPolicy", "I", nullptr, $PRIVATE, $field(JTabbedPane, tabLayoutPolicy)},
+		{"model", "Ljavax/swing/SingleSelectionModel;", nullptr, $PROTECTED, $field(JTabbedPane, model)},
+		{"haveRegistered", "Z", nullptr, $PRIVATE, $field(JTabbedPane, haveRegistered)},
+		{"changeListener", "Ljavax/swing/event/ChangeListener;", nullptr, $PROTECTED, $field(JTabbedPane, changeListener)},
+		{"pages", "Ljava/util/List;", "Ljava/util/List<Ljavax/swing/JTabbedPane$Page;>;", $PRIVATE, $field(JTabbedPane, pages)},
+		{"visComp", "Ljava/awt/Component;", nullptr, $PRIVATE, $field(JTabbedPane, visComp)},
+		{"changeEvent", "Ljavax/swing/event/ChangeEvent;", nullptr, $PROTECTED | $TRANSIENT, $field(JTabbedPane, changeEvent)},
+		{}
+	};
+	$NamedAttribute getAccessibleContextmethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{}
+	};
+	$CompoundAttribute getAccessibleContextmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", getAccessibleContextmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute getChangeListenersmethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{}
+	};
+	$CompoundAttribute getChangeListenersmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", getChangeListenersmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$CompoundAttribute getSelectedComponentmethodAnnotations$$[] = {
+		{"Ljava/beans/Transient;", nullptr},
+		{}
+	};
+	$CompoundAttribute getSelectedIndexmethodAnnotations$$[] = {
+		{"Ljava/beans/Transient;", nullptr},
+		{}
+	};
+	$NamedAttribute getTabCountmethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{}
+	};
+	$CompoundAttribute getTabCountmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", getTabCountmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute getTabRunCountmethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{}
+	};
+	$CompoundAttribute getTabRunCountmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", getTabRunCountmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute getUIClassIDmethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{}
+	};
+	$CompoundAttribute getUIClassIDmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", getUIClassIDmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setBackgroundAtmethodAnnotations$$$namedAttribute[] = {
+		{"preferred", 'Z', "true"},
+		{"visualUpdate", 'Z', "true"},
+		{"description", 's', "The background color at the specified tab index."},
+		{}
+	};
+	$CompoundAttribute setBackgroundAtmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setBackgroundAtmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setComponentAtmethodAnnotations$$$namedAttribute[] = {
+		{"visualUpdate", 'Z', "true"},
+		{"description", 's', "The component at the specified tab index."},
+		{}
+	};
+	$CompoundAttribute setComponentAtmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setComponentAtmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setDisabledIconAtmethodAnnotations$$$namedAttribute[] = {
+		{"preferred", 'Z', "true"},
+		{"visualUpdate", 'Z', "true"},
+		{"description", 's', "The disabled icon at the specified tab index."},
+		{}
+	};
+	$CompoundAttribute setDisabledIconAtmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setDisabledIconAtmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setDisplayedMnemonicIndexAtmethodAnnotations$$$namedAttribute[] = {
+		{"visualUpdate", 'Z', "true"},
+		{"description", 's', "the index into the String to draw the keyboard character mnemonic at"},
+		{}
+	};
+	$CompoundAttribute setDisplayedMnemonicIndexAtmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setDisplayedMnemonicIndexAtmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setForegroundAtmethodAnnotations$$$namedAttribute[] = {
+		{"preferred", 'Z', "true"},
+		{"visualUpdate", 'Z', "true"},
+		{"description", 's', "The foreground color at the specified tab index."},
+		{}
+	};
+	$CompoundAttribute setForegroundAtmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setForegroundAtmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setIconAtmethodAnnotations$$$namedAttribute[] = {
+		{"preferred", 'Z', "true"},
+		{"visualUpdate", 'Z', "true"},
+		{"description", 's', "The icon at the specified tab index."},
+		{}
+	};
+	$CompoundAttribute setIconAtmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setIconAtmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setMnemonicAtmethodAnnotations$$$namedAttribute[] = {
+		{"visualUpdate", 'Z', "true"},
+		{"description", 's', "The keyboard mnenmonic, as a KeyEvent VK constant, for the specified tab"},
+		{}
+	};
+	$CompoundAttribute setMnemonicAtmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setMnemonicAtmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setModelmethodAnnotations$$$namedAttribute[] = {
+		{"description", 's', "The tabbedpane\'s SingleSelectionModel."},
+		{}
+	};
+	$CompoundAttribute setModelmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setModelmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setSelectedComponentmethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{"preferred", 'Z', "true"},
+		{"description", 's', "The tabbedpane\'s selected component."},
+		{}
+	};
+	$CompoundAttribute setSelectedComponentmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setSelectedComponentmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setSelectedIndexmethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{"preferred", 'Z', "true"},
+		{"description", 's', "The tabbedpane\'s selected tab index."},
+		{}
+	};
+	$CompoundAttribute setSelectedIndexmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setSelectedIndexmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setTabComponentAtmethodAnnotations$$$namedAttribute[] = {
+		{"preferred", 'Z', "true"},
+		{"visualUpdate", 'Z', "true"},
+		{"description", 's', "The tab component at the specified tab index."},
+		{}
+	};
+	$CompoundAttribute setTabComponentAtmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setTabComponentAtmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$Attribute $attribute[] = {
+		{'s', "JTabbedPane.WRAP_TAB_LAYOUT"},
+		{'s', "JTabbedPane.SCROLL_TAB_LAYOUT"},
+		{'-'}
+	};
+	$NamedAttribute setTabLayoutPolicymethodAnnotations$$$namedAttribute[] = {
+		{"preferred", 'Z', "true"},
+		{"visualUpdate", 'Z', "true"},
+		{"enumerationValues", '[', $attribute},
+		{"description", 's', "The tabbedpane\'s policy for laying out the tabs"},
+		{}
+	};
+	$CompoundAttribute setTabLayoutPolicymethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setTabLayoutPolicymethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$Attribute $attribute$1[] = {
+		{'s', "JTabbedPane.TOP"},
+		{'s', "JTabbedPane.LEFT"},
+		{'s', "JTabbedPane.BOTTOM"},
+		{'s', "JTabbedPane.RIGHT"},
+		{'-'}
+	};
+	$NamedAttribute setTabPlacementmethodAnnotations$$$namedAttribute[] = {
+		{"preferred", 'Z', "true"},
+		{"visualUpdate", 'Z', "true"},
+		{"enumerationValues", '[', $attribute$1},
+		{"description", 's', "The tabbedpane\'s tab placement."},
+		{}
+	};
+	$CompoundAttribute setTabPlacementmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setTabPlacementmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setTitleAtmethodAnnotations$$$namedAttribute[] = {
+		{"preferred", 'Z', "true"},
+		{"visualUpdate", 'Z', "true"},
+		{"description", 's', "The title at the specified tab index."},
+		{}
+	};
+	$CompoundAttribute setTitleAtmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setTitleAtmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setToolTipTextAtmethodAnnotations$$$namedAttribute[] = {
+		{"preferred", 'Z', "true"},
+		{"description", 's', "The tooltip text at the specified tab index."},
+		{}
+	};
+	$CompoundAttribute setToolTipTextAtmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setToolTipTextAtmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setUImethodAnnotations$$$namedAttribute[] = {
+		{"hidden", 'Z', "true"},
+		{"visualUpdate", 'Z', "true"},
+		{"description", 's', "The UI object that implements the tabbedpane\'s LookAndFeel"},
+		{}
+	};
+	$CompoundAttribute setUImethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setUImethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(JTabbedPane, init$, void)},
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(JTabbedPane, init$, void, int32_t)},
+		{"<init>", "(II)V", nullptr, $PUBLIC, $method(JTabbedPane, init$, void, int32_t, int32_t)},
+		{"access$000", "(Ljavax/swing/JTabbedPane;)Ljavax/accessibility/AccessibleContext;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(JTabbedPane, access$000, $AccessibleContext*, JTabbedPane*)},
+		{"access$100", "(Ljavax/swing/JTabbedPane;Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(JTabbedPane, access$100, void, JTabbedPane*, $String*, Object$*, Object$*)},
+		{"add", "(Ljava/awt/Component;)Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(JTabbedPane, add, $Component*, $Component*)},
+		{"add", "(Ljava/lang/String;Ljava/awt/Component;)Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(JTabbedPane, add, $Component*, $String*, $Component*)},
+		{"add", "(Ljava/awt/Component;I)Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(JTabbedPane, add, $Component*, $Component*, int32_t)},
+		{"add", "(Ljava/awt/Component;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(JTabbedPane, add, void, $Component*, Object$*)},
+		{"add", "(Ljava/awt/Component;Ljava/lang/Object;I)V", nullptr, $PUBLIC, $virtualMethod(JTabbedPane, add, void, $Component*, Object$*, int32_t)},
+		{"addChangeListener", "(Ljavax/swing/event/ChangeListener;)V", nullptr, $PUBLIC, $virtualMethod(JTabbedPane, addChangeListener, void, $ChangeListener*)},
+		{"addTab", "(Ljava/lang/String;Ljavax/swing/Icon;Ljava/awt/Component;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(JTabbedPane, addTab, void, $String*, $Icon*, $Component*, $String*)},
+		{"addTab", "(Ljava/lang/String;Ljavax/swing/Icon;Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(JTabbedPane, addTab, void, $String*, $Icon*, $Component*)},
+		{"addTab", "(Ljava/lang/String;Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(JTabbedPane, addTab, void, $String*, $Component*)},
+		{"changeAccessibleSelection", "(Ljavax/swing/JTabbedPane$Page;Ljava/lang/String;Ljavax/swing/JTabbedPane$Page;)V", nullptr, $PRIVATE, $method(JTabbedPane, changeAccessibleSelection, void, $JTabbedPane$Page*, $String*, $JTabbedPane$Page*)},
+		{"checkIndex", "(I)V", nullptr, $PRIVATE, $method(JTabbedPane, checkIndex, void, int32_t)},
+		{"checkTabLayoutPolicy", "(I)V", nullptr, $PRIVATE | $STATIC, $staticMethod(JTabbedPane, checkTabLayoutPolicy, void, int32_t)},
+		{"checkTabPlacement", "(I)V", nullptr, $PRIVATE | $STATIC, $staticMethod(JTabbedPane, checkTabPlacement, void, int32_t)},
+		{"clearAccessibleParent", "(Ljava/awt/Component;)V", nullptr, $PRIVATE, $method(JTabbedPane, clearAccessibleParent, void, $Component*)},
+		{"compWriteObjectNotify", "()V", nullptr, 0, $virtualMethod(JTabbedPane, compWriteObjectNotify, void)},
+		{"createChangeListener", "()Ljavax/swing/event/ChangeListener;", nullptr, $PROTECTED, $virtualMethod(JTabbedPane, createChangeListener, $ChangeListener*)},
+		{"fireStateChanged", "()V", nullptr, $PROTECTED, $virtualMethod(JTabbedPane, fireStateChanged, void)},
+		{"getAccessibleContext", "()Ljavax/accessibility/AccessibleContext;", nullptr, $PUBLIC, $virtualMethod(JTabbedPane, getAccessibleContext, $AccessibleContext*), nullptr, nullptr, getAccessibleContextmethodAnnotations$$},
+		{"getBackgroundAt", "(I)Ljava/awt/Color;", nullptr, $PUBLIC, $virtualMethod(JTabbedPane, getBackgroundAt, $Color*, int32_t)},
+		{"getBoundsAt", "(I)Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(JTabbedPane, getBoundsAt, $Rectangle*, int32_t)},
+		{"getChangeListeners", "()[Ljavax/swing/event/ChangeListener;", nullptr, $PUBLIC, $virtualMethod(JTabbedPane, getChangeListeners, $ChangeListenerArray*), nullptr, nullptr, getChangeListenersmethodAnnotations$$},
+		{"getComponentAt", "(I)Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(JTabbedPane, getComponentAt, $Component*, int32_t)},
+		{"getDisabledIconAt", "(I)Ljavax/swing/Icon;", nullptr, $PUBLIC, $virtualMethod(JTabbedPane, getDisabledIconAt, $Icon*, int32_t)},
+		{"getDisplayedMnemonicIndexAt", "(I)I", nullptr, $PUBLIC, $virtualMethod(JTabbedPane, getDisplayedMnemonicIndexAt, int32_t, int32_t)},
+		{"getForegroundAt", "(I)Ljava/awt/Color;", nullptr, $PUBLIC, $virtualMethod(JTabbedPane, getForegroundAt, $Color*, int32_t)},
+		{"getIconAt", "(I)Ljavax/swing/Icon;", nullptr, $PUBLIC, $virtualMethod(JTabbedPane, getIconAt, $Icon*, int32_t)},
+		{"getMnemonicAt", "(I)I", nullptr, $PUBLIC, $virtualMethod(JTabbedPane, getMnemonicAt, int32_t, int32_t)},
+		{"getModel", "()Ljavax/swing/SingleSelectionModel;", nullptr, $PUBLIC, $virtualMethod(JTabbedPane, getModel, $SingleSelectionModel*)},
+		{"getSelectedComponent", "()Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(JTabbedPane, getSelectedComponent, $Component*), nullptr, nullptr, getSelectedComponentmethodAnnotations$$},
+		{"getSelectedIndex", "()I", nullptr, $PUBLIC, $virtualMethod(JTabbedPane, getSelectedIndex, int32_t), nullptr, nullptr, getSelectedIndexmethodAnnotations$$},
+		{"getTabComponentAt", "(I)Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(JTabbedPane, getTabComponentAt, $Component*, int32_t)},
+		{"getTabCount", "()I", nullptr, $PUBLIC, $virtualMethod(JTabbedPane, getTabCount, int32_t), nullptr, nullptr, getTabCountmethodAnnotations$$},
+		{"getTabLayoutPolicy", "()I", nullptr, $PUBLIC, $virtualMethod(JTabbedPane, getTabLayoutPolicy, int32_t)},
+		{"getTabPlacement", "()I", nullptr, $PUBLIC, $virtualMethod(JTabbedPane, getTabPlacement, int32_t)},
+		{"getTabRunCount", "()I", nullptr, $PUBLIC, $virtualMethod(JTabbedPane, getTabRunCount, int32_t), nullptr, nullptr, getTabRunCountmethodAnnotations$$},
+		{"getTitleAt", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JTabbedPane, getTitleAt, $String*, int32_t)},
+		{"getToolTipText", "(Ljava/awt/event/MouseEvent;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JTabbedPane, getToolTipText, $String*, $MouseEvent*)},
+		{"getToolTipTextAt", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JTabbedPane, getToolTipTextAt, $String*, int32_t)},
+		{"getUI", "()Ljavax/swing/plaf/TabbedPaneUI;", nullptr, $PUBLIC, $virtualMethod(JTabbedPane, getUI, $ComponentUI*)},
+		{"getUIClassID", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JTabbedPane, getUIClassID, $String*), nullptr, nullptr, getUIClassIDmethodAnnotations$$},
+		{"indexAtLocation", "(II)I", nullptr, $PUBLIC, $virtualMethod(JTabbedPane, indexAtLocation, int32_t, int32_t, int32_t)},
+		{"indexOfComponent", "(Ljava/awt/Component;)I", nullptr, $PUBLIC, $virtualMethod(JTabbedPane, indexOfComponent, int32_t, $Component*)},
+		{"indexOfTab", "(Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(JTabbedPane, indexOfTab, int32_t, $String*)},
+		{"indexOfTab", "(Ljavax/swing/Icon;)I", nullptr, $PUBLIC, $virtualMethod(JTabbedPane, indexOfTab, int32_t, $Icon*)},
+		{"indexOfTabComponent", "(Ljava/awt/Component;)I", nullptr, $PUBLIC, $virtualMethod(JTabbedPane, indexOfTabComponent, int32_t, $Component*)},
+		{"insertTab", "(Ljava/lang/String;Ljavax/swing/Icon;Ljava/awt/Component;Ljava/lang/String;I)V", nullptr, $PUBLIC, $virtualMethod(JTabbedPane, insertTab, void, $String*, $Icon*, $Component*, $String*, int32_t)},
+		{"isEnabledAt", "(I)Z", nullptr, $PUBLIC, $virtualMethod(JTabbedPane, isEnabledAt, bool, int32_t)},
+		{"paramString", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(JTabbedPane, paramString, $String*)},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(JTabbedPane, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+		{"remove", "(Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(JTabbedPane, remove, void, $Component*)},
+		{"remove", "(I)V", nullptr, $PUBLIC, $virtualMethod(JTabbedPane, remove, void, int32_t)},
+		{"removeAll", "()V", nullptr, $PUBLIC, $virtualMethod(JTabbedPane, removeAll, void)},
+		{"removeChangeListener", "(Ljavax/swing/event/ChangeListener;)V", nullptr, $PUBLIC, $virtualMethod(JTabbedPane, removeChangeListener, void, $ChangeListener*)},
+		{"removeTabAt", "(I)V", nullptr, $PUBLIC, $virtualMethod(JTabbedPane, removeTabAt, void, int32_t)},
+		{"setBackgroundAt", "(ILjava/awt/Color;)V", nullptr, $PUBLIC, $virtualMethod(JTabbedPane, setBackgroundAt, void, int32_t, $Color*), nullptr, nullptr, setBackgroundAtmethodAnnotations$$},
+		{"setComponentAt", "(ILjava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(JTabbedPane, setComponentAt, void, int32_t, $Component*), nullptr, nullptr, setComponentAtmethodAnnotations$$},
+		{"setDisabledIconAt", "(ILjavax/swing/Icon;)V", nullptr, $PUBLIC, $virtualMethod(JTabbedPane, setDisabledIconAt, void, int32_t, $Icon*), nullptr, nullptr, setDisabledIconAtmethodAnnotations$$},
+		{"setDisplayedMnemonicIndexAt", "(II)V", nullptr, $PUBLIC, $virtualMethod(JTabbedPane, setDisplayedMnemonicIndexAt, void, int32_t, int32_t), nullptr, nullptr, setDisplayedMnemonicIndexAtmethodAnnotations$$},
+		{"setEnabledAt", "(IZ)V", nullptr, $PUBLIC, $virtualMethod(JTabbedPane, setEnabledAt, void, int32_t, bool)},
+		{"setForegroundAt", "(ILjava/awt/Color;)V", nullptr, $PUBLIC, $virtualMethod(JTabbedPane, setForegroundAt, void, int32_t, $Color*), nullptr, nullptr, setForegroundAtmethodAnnotations$$},
+		{"setIconAt", "(ILjavax/swing/Icon;)V", nullptr, $PUBLIC, $virtualMethod(JTabbedPane, setIconAt, void, int32_t, $Icon*), nullptr, nullptr, setIconAtmethodAnnotations$$},
+		{"setMnemonicAt", "(II)V", nullptr, $PUBLIC, $virtualMethod(JTabbedPane, setMnemonicAt, void, int32_t, int32_t), nullptr, nullptr, setMnemonicAtmethodAnnotations$$},
+		{"setModel", "(Ljavax/swing/SingleSelectionModel;)V", nullptr, $PUBLIC, $virtualMethod(JTabbedPane, setModel, void, $SingleSelectionModel*), nullptr, nullptr, setModelmethodAnnotations$$},
+		{"setSelectedComponent", "(Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(JTabbedPane, setSelectedComponent, void, $Component*), nullptr, nullptr, setSelectedComponentmethodAnnotations$$},
+		{"setSelectedIndex", "(I)V", nullptr, $PUBLIC, $virtualMethod(JTabbedPane, setSelectedIndex, void, int32_t), nullptr, nullptr, setSelectedIndexmethodAnnotations$$},
+		{"setSelectedIndexImpl", "(IZ)V", nullptr, $PRIVATE, $method(JTabbedPane, setSelectedIndexImpl, void, int32_t, bool)},
+		{"setTabComponentAt", "(ILjava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(JTabbedPane, setTabComponentAt, void, int32_t, $Component*), nullptr, nullptr, setTabComponentAtmethodAnnotations$$},
+		{"setTabLayoutPolicy", "(I)V", nullptr, $PUBLIC, $virtualMethod(JTabbedPane, setTabLayoutPolicy, void, int32_t), nullptr, nullptr, setTabLayoutPolicymethodAnnotations$$},
+		{"setTabPlacement", "(I)V", nullptr, $PUBLIC, $virtualMethod(JTabbedPane, setTabPlacement, void, int32_t), nullptr, nullptr, setTabPlacementmethodAnnotations$$},
+		{"setTitleAt", "(ILjava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(JTabbedPane, setTitleAt, void, int32_t, $String*), nullptr, nullptr, setTitleAtmethodAnnotations$$},
+		{"setToolTipTextAt", "(ILjava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(JTabbedPane, setToolTipTextAt, void, int32_t, $String*), nullptr, nullptr, setToolTipTextAtmethodAnnotations$$},
+		{"setUI", "(Ljavax/swing/plaf/TabbedPaneUI;)V", nullptr, $PUBLIC, $virtualMethod(JTabbedPane, setUI, void, $TabbedPaneUI*), nullptr, nullptr, setUImethodAnnotations$$},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"updateUI", "()V", nullptr, $PUBLIC, $virtualMethod(JTabbedPane, updateUI, void)},
+		{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(JTabbedPane, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.JTabbedPane$Page", "javax.swing.JTabbedPane", "Page", $PRIVATE},
+		{"javax.swing.JTabbedPane$AccessibleJTabbedPane", "javax.swing.JTabbedPane", "AccessibleJTabbedPane", $PROTECTED},
+		{"javax.swing.JTabbedPane$ModelListener", "javax.swing.JTabbedPane", "ModelListener", $PROTECTED},
+		{}
+	};
+	$NamedAttribute annotations$$$namedAttribute[] = {
+		{"defaultProperty", 's', "UI"},
+		{"description", 's', "A component which provides a tab folder metaphor for displaying one component from a set of components."},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/beans/JavaBean;", annotations$$$namedAttribute},
+		{"Ljavax/swing/SwingContainer;", nullptr},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.JTabbedPane",
+		"javax.swing.JComponent",
+		"javax.accessibility.Accessible,javax.swing.SwingConstants",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		annotations$$,
+		nullptr,
+		"javax.swing.JTabbedPane$Page,javax.swing.JTabbedPane$AccessibleJTabbedPane,javax.swing.JTabbedPane$ModelListener"
+	};
+	$loadClass(JTabbedPane, name, initialize, &classInfo$$, JTabbedPane::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JTabbedPane));
+	});
 	return class$;
 }
 

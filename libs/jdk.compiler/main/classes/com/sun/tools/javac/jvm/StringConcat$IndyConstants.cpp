@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/jvm/StringConcat$IndyConstants.h>
-
 #include <com/sun/tools/javac/code/Symbol$ClassSymbol.h>
 #include <com/sun/tools/javac/code/Symbol$DynamicMethodSymbol.h>
 #include <com/sun/tools/javac/code/Symbol$MethodHandleSymbol.h>
@@ -34,17 +33,12 @@ using $Symbol = ::com::sun::tools::javac::code::Symbol;
 using $Symbol$DynamicMethodSymbol = ::com::sun::tools::javac::code::Symbol$DynamicMethodSymbol;
 using $Symbol$MethodHandleSymbol = ::com::sun::tools::javac::code::Symbol$MethodHandleSymbol;
 using $Symbol$MethodSymbol = ::com::sun::tools::javac::code::Symbol$MethodSymbol;
-using $Symbol$TypeSymbol = ::com::sun::tools::javac::code::Symbol$TypeSymbol;
 using $Type = ::com::sun::tools::javac::code::Type;
 using $Type$MethodType = ::com::sun::tools::javac::code::Type$MethodType;
-using $Resolve = ::com::sun::tools::javac::comp::Resolve;
-using $Gen = ::com::sun::tools::javac::jvm::Gen;
-using $Items = ::com::sun::tools::javac::jvm::Items;
 using $Items$Item = ::com::sun::tools::javac::jvm::Items$Item;
 using $PoolConstant$LoadableConstant = ::com::sun::tools::javac::jvm::PoolConstant$LoadableConstant;
 using $StringConcat$Indy = ::com::sun::tools::javac::jvm::StringConcat$Indy;
 using $JCTree = ::com::sun::tools::javac::tree::JCTree;
-using $TreeMaker = ::com::sun::tools::javac::tree::TreeMaker;
 using $Assert = ::com::sun::tools::javac::util::Assert;
 using $Context = ::com::sun::tools::javac::util::Context;
 using $JCDiagnostic$DiagnosticPosition = ::com::sun::tools::javac::util::JCDiagnostic$DiagnosticPosition;
@@ -62,45 +56,12 @@ namespace com {
 			namespace javac {
 				namespace jvm {
 
-$MethodInfo _StringConcat$IndyConstants_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/util/Context;)V", nullptr, $PUBLIC, $method(StringConcat$IndyConstants, init$, void, $Context*)},
-	{"doCall", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Ljava/lang/String;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Ljava/lang/String;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/jvm/PoolConstant$LoadableConstant;>;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;)V", $PRIVATE, $method(StringConcat$IndyConstants, doCall, void, $Type*, $JCDiagnostic$DiagnosticPosition*, $String*, $List*, $List*)},
-	{"emit", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/util/List;ZLcom/sun/tools/javac/code/Type;)V", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree;>;ZLcom/sun/tools/javac/code/Type;)V", $PROTECTED, $virtualMethod(StringConcat$IndyConstants, emit, void, $JCDiagnostic$DiagnosticPosition*, $List*, bool, $Type*)},
-	{}
-};
-
-$InnerClassInfo _StringConcat$IndyConstants_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.jvm.StringConcat$IndyConstants", "com.sun.tools.javac.jvm.StringConcat", "IndyConstants", $PRIVATE | $STATIC | $FINAL},
-	{"com.sun.tools.javac.jvm.StringConcat$Indy", "com.sun.tools.javac.jvm.StringConcat", "Indy", $PRIVATE | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _StringConcat$IndyConstants_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.tools.javac.jvm.StringConcat$IndyConstants",
-	"com.sun.tools.javac.jvm.StringConcat$Indy",
-	nullptr,
-	nullptr,
-	_StringConcat$IndyConstants_MethodInfo_,
-	nullptr,
-	nullptr,
-	_StringConcat$IndyConstants_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.jvm.StringConcat"
-};
-
-$Object* allocate$StringConcat$IndyConstants($Class* clazz) {
-	return $of($alloc(StringConcat$IndyConstants));
-}
-
 void StringConcat$IndyConstants::init$($Context* context) {
 	$StringConcat$Indy::init$(context);
 }
 
 void StringConcat$IndyConstants::emit($JCDiagnostic$DiagnosticPosition* pos, $List* args, bool generateFirstArg, $Type* type) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, split, this->split(args));
 	bool first = true;
 	{
@@ -109,11 +70,11 @@ void StringConcat$IndyConstants::emit($JCDiagnostic$DiagnosticPosition* pos, $Li
 			$var($List, t, $cast($List, i$->next()));
 			{
 				$Assert::check(!$nc(t)->isEmpty(), "Arguments list is empty"_s);
-				$var($StringBuilder, recipe, $new($StringBuilder, $nc(t)->size()));
+				$var($StringBuilder, recipe, $new($StringBuilder, t->size()));
 				$var($ListBuffer, dynamicArgs, $new($ListBuffer));
 				$var($ListBuffer, staticArgs, $new($ListBuffer));
 				{
-					$var($Iterator, i$, $nc(t)->iterator());
+					$var($Iterator, i$, t->iterator());
 					for (; $nc(i$)->hasNext();) {
 						$var($JCTree, arg, $cast($JCTree, i$->next()));
 						{
@@ -125,29 +86,27 @@ void StringConcat$IndyConstants::emit($JCDiagnostic$DiagnosticPosition* pos, $Li
 								recipe->append(($String*)nullptr);
 							} else if (constVal != nullptr) {
 								$var($String, a, $nc(arg->type)->stringValue());
-								bool var$0 = $nc(a)->indexOf((int32_t)(char16_t)0x2) != -1;
-								if (var$0 || $nc(a)->indexOf((int32_t)(char16_t)0x1) != -1) {
-									recipe->append((char16_t)0x2);
+								bool var$0 = $nc(a)->indexOf((char16_t)0x02) != -1;
+								if (var$0 || a->indexOf((char16_t)0x01) != -1) {
+									recipe->append((char16_t)0x02);
 									staticArgs->add($($PoolConstant$LoadableConstant::String(a)));
 								} else {
 									recipe->append(a);
 								}
 							} else {
-								recipe->append((char16_t)0x1);
+								recipe->append((char16_t)0x01);
 								dynamicArgs->add($(sharpestAccessible(arg->type)));
 								if (!first || generateFirstArg) {
-									$nc($($nc(this->gen)->genExpr(arg, arg->type)))->load();
+									$$nc($nc(this->gen)->genExpr(arg, arg->type))->load();
 								}
 								first = false;
 							}
 						}
 					}
 				}
-				$var($Type, var$1, type);
-				$var($JCDiagnostic$DiagnosticPosition, var$2, pos);
-				$var($String, var$3, recipe->toString());
-				$var($List, var$4, staticArgs->toList());
-				doCall(var$1, var$2, var$3, var$4, $(dynamicArgs->toList()));
+				$var($String, var$1, recipe->toString());
+				$var($List, var$2, staticArgs->toList());
+				doCall(type, pos, var$1, var$2, $(dynamicArgs->toList()));
 			}
 		}
 	}
@@ -156,53 +115,48 @@ void StringConcat$IndyConstants::emit($JCDiagnostic$DiagnosticPosition* pos, $Li
 		$var($StringBuilder, recipe, $new($StringBuilder));
 		for (int32_t c = 0; c < split->size(); ++c) {
 			argTypes->append($nc(this->syms)->stringType);
-			recipe->append((char16_t)0x1);
+			recipe->append((char16_t)0x01);
 		}
-		$var($Type, var$5, type);
-		$var($JCDiagnostic$DiagnosticPosition, var$6, pos);
-		$var($String, var$7, recipe->toString());
-		$var($List, var$8, $List::nil());
-		doCall(var$5, var$6, var$7, var$8, $(argTypes->toList()));
+		$var($String, var$3, recipe->toString());
+		$var($List, var$4, $List::nil());
+		doCall(type, pos, var$3, var$4, $(argTypes->toList()));
 	}
 }
 
 void StringConcat$IndyConstants::doCall($Type* type, $JCDiagnostic$DiagnosticPosition* pos, $String* recipe, $List* staticArgs, $List* dynamicArgTypes) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Type$MethodType, indyType, $new($Type$MethodType, dynamicArgTypes, type, $($List::nil()), $nc(this->syms)->methodClass));
 	int32_t prevPos = $nc(this->make)->pos;
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$nc(this->make)->at(pos);
-			$var($ListBuffer, constTypes, $new($ListBuffer));
-			$var($ListBuffer, constants, $new($ListBuffer));
-			{
-				$var($Iterator, i$, $nc(staticArgs)->iterator());
-				for (; $nc(i$)->hasNext();) {
-					$var($PoolConstant$LoadableConstant, t, $cast($PoolConstant$LoadableConstant, i$->next()));
-					{
-						constants->add(t);
-						constTypes->add($nc(this->syms)->stringType);
-					}
+	$var($Throwable, var$0, nullptr);
+	try {
+		this->make->at(pos);
+		$var($ListBuffer, constTypes, $new($ListBuffer));
+		$var($ListBuffer, constants, $new($ListBuffer));
+		{
+			$var($Iterator, i$, $nc(staticArgs)->iterator());
+			for (; $nc(i$)->hasNext();) {
+				$var($PoolConstant$LoadableConstant, t, $cast($PoolConstant$LoadableConstant, i$->next()));
+				{
+					constants->add(t);
+					constTypes->add(this->syms->stringType);
 				}
 			}
-			$var($List, bsm_staticArgs, $nc($($nc($($List::of($nc(this->syms)->methodHandleLookupType, $nc(this->syms)->stringType, $nc(this->syms)->methodTypeType)))->append($nc(this->syms)->stringType)))->appendList(constTypes));
-			$var($Symbol, bsm, $nc(this->rs)->resolveInternalMethod(pos, $($nc(this->gen)->getAttrEnv()), $nc(this->syms)->stringConcatFactory, $nc(this->names)->makeConcatWithConstants, bsm_staticArgs, nullptr));
-			$var($Name, var$1, $nc(this->names)->makeConcatWithConstants);
-			$var($Symbol, var$2, static_cast<$Symbol*>($nc(this->syms)->noSymbol));
-			$var($Symbol$MethodHandleSymbol, var$3, $nc(($cast($Symbol$MethodSymbol, bsm)))->asHandle());
-			$var($Type, var$4, static_cast<$Type*>(indyType));
-			$var($Symbol$DynamicMethodSymbol, dynSym, $new($Symbol$DynamicMethodSymbol, var$1, var$2, var$3, var$4, $fcast($PoolConstant$LoadableConstantArray, $($nc($($nc($($List::of($($PoolConstant$LoadableConstant::String(recipe)))))->appendList(constants)))->toArray($$new($PoolConstant$LoadableConstantArray, constants->size()))))));
-			$var($Items$Item, item, $nc($($nc(this->gen)->getItems()))->makeDynamicItem(dynSym));
-			$nc(item)->invoke();
-		} catch ($Throwable& var$5) {
-			$assign(var$0, var$5);
-		} /*finally*/ {
-			$nc(this->make)->at(prevPos);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+		$var($List, bsm_staticArgs, $$nc($$nc($List::of(this->syms->methodHandleLookupType, this->syms->stringType, this->syms->methodTypeType))->append(this->syms->stringType))->appendList(constTypes));
+		$var($Symbol, bsm, $nc(this->rs)->resolveInternalMethod(pos, $($nc(this->gen)->getAttrEnv()), this->syms->stringConcatFactory, $nc(this->names)->makeConcatWithConstants, bsm_staticArgs, nullptr));
+		$var($Name, var$1, this->names->makeConcatWithConstants);
+		$var($Symbol, var$2, this->syms->noSymbol);
+		$var($Symbol$MethodHandleSymbol, var$3, $nc($cast($Symbol$MethodSymbol, bsm))->asHandle());
+		$var($Symbol$DynamicMethodSymbol, dynSym, $new($Symbol$DynamicMethodSymbol, var$1, var$2, var$3, indyType, $$cast($PoolConstant$LoadableConstantArray, $$nc($$nc($List::of($($PoolConstant$LoadableConstant::String(recipe))))->appendList(constants))->toArray($$new($PoolConstant$LoadableConstantArray, constants->size())))));
+		$var($Items$Item, item, $$nc(this->gen->getItems())->makeDynamicItem(dynSym));
+		$nc(item)->invoke();
+	} catch ($Throwable& var$4) {
+		$assign(var$0, var$4);
+	} /*finally*/ {
+		this->make->at(prevPos);
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
@@ -210,7 +164,35 @@ StringConcat$IndyConstants::StringConcat$IndyConstants() {
 }
 
 $Class* StringConcat$IndyConstants::load$($String* name, bool initialize) {
-	$loadClass(StringConcat$IndyConstants, name, initialize, &_StringConcat$IndyConstants_ClassInfo_, allocate$StringConcat$IndyConstants);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/util/Context;)V", nullptr, $PUBLIC, $method(StringConcat$IndyConstants, init$, void, $Context*)},
+		{"doCall", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Ljava/lang/String;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Ljava/lang/String;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/jvm/PoolConstant$LoadableConstant;>;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;)V", $PRIVATE, $method(StringConcat$IndyConstants, doCall, void, $Type*, $JCDiagnostic$DiagnosticPosition*, $String*, $List*, $List*)},
+		{"emit", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/util/List;ZLcom/sun/tools/javac/code/Type;)V", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree;>;ZLcom/sun/tools/javac/code/Type;)V", $PROTECTED, $virtualMethod(StringConcat$IndyConstants, emit, void, $JCDiagnostic$DiagnosticPosition*, $List*, bool, $Type*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.jvm.StringConcat$IndyConstants", "com.sun.tools.javac.jvm.StringConcat", "IndyConstants", $PRIVATE | $STATIC | $FINAL},
+		{"com.sun.tools.javac.jvm.StringConcat$Indy", "com.sun.tools.javac.jvm.StringConcat", "Indy", $PRIVATE | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.tools.javac.jvm.StringConcat$IndyConstants",
+		"com.sun.tools.javac.jvm.StringConcat$Indy",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.jvm.StringConcat"
+	};
+	$loadClass(StringConcat$IndyConstants, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(StringConcat$IndyConstants);
+	});
 	return class$;
 }
 

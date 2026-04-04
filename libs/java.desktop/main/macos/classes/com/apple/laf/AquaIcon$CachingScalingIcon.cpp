@@ -1,5 +1,4 @@
 #include <com/apple/laf/AquaIcon$CachingScalingIcon.h>
-
 #include <com/apple/laf/AquaIcon.h>
 #include <java/awt/Component.h>
 #include <java/awt/Graphics.h>
@@ -31,55 +30,6 @@ using $Icon = ::javax::swing::Icon;
 namespace com {
 	namespace apple {
 		namespace laf {
-
-$FieldInfo _AquaIcon$CachingScalingIcon_FieldInfo_[] = {
-	{"width", "I", nullptr, 0, $field(AquaIcon$CachingScalingIcon, width)},
-	{"height", "I", nullptr, 0, $field(AquaIcon$CachingScalingIcon, height)},
-	{"image", "Ljava/awt/Image;", nullptr, 0, $field(AquaIcon$CachingScalingIcon, image)},
-	{}
-};
-
-$MethodInfo _AquaIcon$CachingScalingIcon_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(II)V", nullptr, $PUBLIC, $method(AquaIcon$CachingScalingIcon, init$, void, int32_t, int32_t)},
-	{"createImage", "()Ljava/awt/Image;", nullptr, $ABSTRACT, $virtualMethod(AquaIcon$CachingScalingIcon, createImage, $Image*)},
-	{"getIconHeight", "()I", nullptr, $PUBLIC, $virtualMethod(AquaIcon$CachingScalingIcon, getIconHeight, int32_t)},
-	{"getIconWidth", "()I", nullptr, $PUBLIC, $virtualMethod(AquaIcon$CachingScalingIcon, getIconWidth, int32_t)},
-	{"getImage", "()Ljava/awt/Image;", nullptr, 0, $virtualMethod(AquaIcon$CachingScalingIcon, getImage, $Image*)},
-	{"hasIconRef", "()Z", nullptr, $PUBLIC, $virtualMethod(AquaIcon$CachingScalingIcon, hasIconRef, bool)},
-	{"paintIcon", "(Ljava/awt/Component;Ljava/awt/Graphics;II)V", nullptr, $PUBLIC, $virtualMethod(AquaIcon$CachingScalingIcon, paintIcon, void, $Component*, $Graphics*, int32_t, int32_t)},
-	{"setSize", "(II)V", nullptr, 0, $virtualMethod(AquaIcon$CachingScalingIcon, setSize, void, int32_t, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _AquaIcon$CachingScalingIcon_InnerClassesInfo_[] = {
-	{"com.apple.laf.AquaIcon$CachingScalingIcon", "com.apple.laf.AquaIcon", "CachingScalingIcon", $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _AquaIcon$CachingScalingIcon_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"com.apple.laf.AquaIcon$CachingScalingIcon",
-	"java.lang.Object",
-	"javax.swing.Icon,javax.swing.plaf.UIResource",
-	_AquaIcon$CachingScalingIcon_FieldInfo_,
-	_AquaIcon$CachingScalingIcon_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AquaIcon$CachingScalingIcon_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.apple.laf.AquaIcon"
-};
-
-$Object* allocate$AquaIcon$CachingScalingIcon($Class* clazz) {
-	return $of($alloc(AquaIcon$CachingScalingIcon));
-}
 
 int32_t AquaIcon$CachingScalingIcon::hashCode() {
 	 return this->$Icon::hashCode();
@@ -127,22 +77,19 @@ bool AquaIcon$CachingScalingIcon::hasIconRef() {
 }
 
 void AquaIcon$CachingScalingIcon::paintIcon($Component* c, $Graphics* g$renamed, int32_t x, int32_t y) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Graphics, g, g$renamed);
 	$assign(g, $nc(g)->create());
 	if ($instanceOf($Graphics2D, g)) {
 		$init($RenderingHints);
-		$nc(($cast($Graphics2D, g)))->setRenderingHint($RenderingHints::KEY_RENDERING, $RenderingHints::VALUE_RENDER_QUALITY);
+		$cast($Graphics2D, g)->setRenderingHint($RenderingHints::KEY_RENDERING, $RenderingHints::VALUE_RENDER_QUALITY);
 	}
 	$var($Image, myImage, getImage());
 	if (myImage != nullptr) {
-		$var($Image, var$0, myImage);
-		int32_t var$1 = x;
-		int32_t var$2 = y;
-		int32_t var$3 = getIconWidth();
-		g->drawImage(var$0, var$1, var$2, var$3, getIconHeight(), nullptr);
+		int32_t var$0 = getIconWidth();
+		$nc(g)->drawImage(myImage, x, y, var$0, getIconHeight(), nullptr);
 	}
-	g->dispose();
+	$nc(g)->dispose();
 }
 
 int32_t AquaIcon$CachingScalingIcon::getIconWidth() {
@@ -157,7 +104,50 @@ AquaIcon$CachingScalingIcon::AquaIcon$CachingScalingIcon() {
 }
 
 $Class* AquaIcon$CachingScalingIcon::load$($String* name, bool initialize) {
-	$loadClass(AquaIcon$CachingScalingIcon, name, initialize, &_AquaIcon$CachingScalingIcon_ClassInfo_, allocate$AquaIcon$CachingScalingIcon);
+	$FieldInfo fieldInfos$$[] = {
+		{"width", "I", nullptr, 0, $field(AquaIcon$CachingScalingIcon, width)},
+		{"height", "I", nullptr, 0, $field(AquaIcon$CachingScalingIcon, height)},
+		{"image", "Ljava/awt/Image;", nullptr, 0, $field(AquaIcon$CachingScalingIcon, image)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(II)V", nullptr, $PUBLIC, $method(AquaIcon$CachingScalingIcon, init$, void, int32_t, int32_t)},
+		{"createImage", "()Ljava/awt/Image;", nullptr, $ABSTRACT, $virtualMethod(AquaIcon$CachingScalingIcon, createImage, $Image*)},
+		{"getIconHeight", "()I", nullptr, $PUBLIC, $virtualMethod(AquaIcon$CachingScalingIcon, getIconHeight, int32_t)},
+		{"getIconWidth", "()I", nullptr, $PUBLIC, $virtualMethod(AquaIcon$CachingScalingIcon, getIconWidth, int32_t)},
+		{"getImage", "()Ljava/awt/Image;", nullptr, 0, $virtualMethod(AquaIcon$CachingScalingIcon, getImage, $Image*)},
+		{"hasIconRef", "()Z", nullptr, $PUBLIC, $virtualMethod(AquaIcon$CachingScalingIcon, hasIconRef, bool)},
+		{"paintIcon", "(Ljava/awt/Component;Ljava/awt/Graphics;II)V", nullptr, $PUBLIC, $virtualMethod(AquaIcon$CachingScalingIcon, paintIcon, void, $Component*, $Graphics*, int32_t, int32_t)},
+		{"setSize", "(II)V", nullptr, 0, $virtualMethod(AquaIcon$CachingScalingIcon, setSize, void, int32_t, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.laf.AquaIcon$CachingScalingIcon", "com.apple.laf.AquaIcon", "CachingScalingIcon", $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"com.apple.laf.AquaIcon$CachingScalingIcon",
+		"java.lang.Object",
+		"javax.swing.Icon,javax.swing.plaf.UIResource",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.apple.laf.AquaIcon"
+	};
+	$loadClass(AquaIcon$CachingScalingIcon, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AquaIcon$CachingScalingIcon));
+	});
 	return class$;
 }
 

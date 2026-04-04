@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/parsers/AbstractDOMParser$Abort.h>
-
 #include <com/sun/org/apache/xerces/internal/parsers/AbstractDOMParser.h>
 #include <jcpp.h>
 
@@ -19,43 +18,6 @@ namespace com {
 					namespace internal {
 						namespace parsers {
 
-$FieldInfo _AbstractDOMParser$Abort_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AbstractDOMParser$Abort, serialVersionUID)},
-	{"INSTANCE", "Lcom/sun/org/apache/xerces/internal/parsers/AbstractDOMParser$Abort;", nullptr, $STATIC | $FINAL, $staticField(AbstractDOMParser$Abort, INSTANCE)},
-	{}
-};
-
-$MethodInfo _AbstractDOMParser$Abort_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(AbstractDOMParser$Abort, init$, void)},
-	{"fillInStackTrace", "()Ljava/lang/Throwable;", nullptr, $PUBLIC, $virtualMethod(AbstractDOMParser$Abort, fillInStackTrace, $Throwable*)},
-	{}
-};
-
-$InnerClassInfo _AbstractDOMParser$Abort_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xerces.internal.parsers.AbstractDOMParser$Abort", "com.sun.org.apache.xerces.internal.parsers.AbstractDOMParser", "Abort", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _AbstractDOMParser$Abort_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.parsers.AbstractDOMParser$Abort",
-	"java.lang.RuntimeException",
-	nullptr,
-	_AbstractDOMParser$Abort_FieldInfo_,
-	_AbstractDOMParser$Abort_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AbstractDOMParser$Abort_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xerces.internal.parsers.AbstractDOMParser"
-};
-
-$Object* allocate$AbstractDOMParser$Abort($Class* clazz) {
-	return $of($alloc(AbstractDOMParser$Abort));
-}
-
 AbstractDOMParser$Abort* AbstractDOMParser$Abort::INSTANCE = nullptr;
 
 void AbstractDOMParser$Abort::init$() {
@@ -66,7 +28,7 @@ $Throwable* AbstractDOMParser$Abort::fillInStackTrace() {
 	return this;
 }
 
-void clinit$AbstractDOMParser$Abort($Class* class$) {
+void AbstractDOMParser$Abort::clinit$($Class* clazz) {
 	$assignStatic(AbstractDOMParser$Abort::INSTANCE, $new(AbstractDOMParser$Abort));
 }
 
@@ -81,7 +43,38 @@ void AbstractDOMParser$Abort::throw$() {
 }
 
 $Class* AbstractDOMParser$Abort::load$($String* name, bool initialize) {
-	$loadClass(AbstractDOMParser$Abort, name, initialize, &_AbstractDOMParser$Abort_ClassInfo_, clinit$AbstractDOMParser$Abort, allocate$AbstractDOMParser$Abort);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AbstractDOMParser$Abort, serialVersionUID)},
+		{"INSTANCE", "Lcom/sun/org/apache/xerces/internal/parsers/AbstractDOMParser$Abort;", nullptr, $STATIC | $FINAL, $staticField(AbstractDOMParser$Abort, INSTANCE)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(AbstractDOMParser$Abort, init$, void)},
+		{"fillInStackTrace", "()Ljava/lang/Throwable;", nullptr, $PUBLIC, $virtualMethod(AbstractDOMParser$Abort, fillInStackTrace, $Throwable*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xerces.internal.parsers.AbstractDOMParser$Abort", "com.sun.org.apache.xerces.internal.parsers.AbstractDOMParser", "Abort", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.parsers.AbstractDOMParser$Abort",
+		"java.lang.RuntimeException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xerces.internal.parsers.AbstractDOMParser"
+	};
+	$loadClass(AbstractDOMParser$Abort, name, initialize, &classInfo$$, AbstractDOMParser$Abort::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(AbstractDOMParser$Abort);
+	});
 	return class$;
 }
 

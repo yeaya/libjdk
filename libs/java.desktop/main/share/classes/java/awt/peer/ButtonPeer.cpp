@@ -1,5 +1,4 @@
 #include <java/awt/peer/ButtonPeer.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -9,26 +8,22 @@ namespace java {
 	namespace awt {
 		namespace peer {
 
-$MethodInfo _ButtonPeer_MethodInfo_[] = {
-	{"setLabel", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ButtonPeer, setLabel, void, $String*)},
-	{}
-};
-
-$ClassInfo _ButtonPeer_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.awt.peer.ButtonPeer",
-	nullptr,
-	"java.awt.peer.ComponentPeer",
-	nullptr,
-	_ButtonPeer_MethodInfo_
-};
-
-$Object* allocate$ButtonPeer($Class* clazz) {
-	return $of($alloc(ButtonPeer));
-}
-
 $Class* ButtonPeer::load$($String* name, bool initialize) {
-	$loadClass(ButtonPeer, name, initialize, &_ButtonPeer_ClassInfo_, allocate$ButtonPeer);
+	$MethodInfo methodInfos$$[] = {
+		{"setLabel", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ButtonPeer, setLabel, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.awt.peer.ButtonPeer",
+		nullptr,
+		"java.awt.peer.ComponentPeer",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ButtonPeer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ButtonPeer);
+	});
 	return class$;
 }
 

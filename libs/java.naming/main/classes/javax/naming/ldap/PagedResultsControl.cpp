@@ -1,5 +1,4 @@
 #include <javax/naming/ldap/PagedResultsControl.h>
-
 #include <com/sun/jndi/ldap/Ber.h>
 #include <com/sun/jndi/ldap/BerEncoder.h>
 #include <javax/naming/ldap/BasicControl.h>
@@ -21,33 +20,6 @@ using $BasicControl = ::javax::naming::ldap::BasicControl;
 namespace javax {
 	namespace naming {
 		namespace ldap {
-
-$FieldInfo _PagedResultsControl_FieldInfo_[] = {
-	{"OID", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PagedResultsControl, OID)},
-	{"EMPTY_COOKIE", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PagedResultsControl, EMPTY_COOKIE)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PagedResultsControl, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _PagedResultsControl_MethodInfo_[] = {
-	{"<init>", "(IZ)V", nullptr, $PUBLIC, $method(PagedResultsControl, init$, void, int32_t, bool), "java.io.IOException"},
-	{"<init>", "(I[BZ)V", nullptr, $PUBLIC, $method(PagedResultsControl, init$, void, int32_t, $bytes*, bool), "java.io.IOException"},
-	{"setEncodedValue", "(I[B)[B", nullptr, $PRIVATE, $method(PagedResultsControl, setEncodedValue, $bytes*, int32_t, $bytes*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _PagedResultsControl_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"javax.naming.ldap.PagedResultsControl",
-	"javax.naming.ldap.BasicControl",
-	nullptr,
-	_PagedResultsControl_FieldInfo_,
-	_PagedResultsControl_MethodInfo_
-};
-
-$Object* allocate$PagedResultsControl($Class* clazz) {
-	return $of($alloc(PagedResultsControl));
-}
 
 $String* PagedResultsControl::OID = nullptr;
 $bytes* PagedResultsControl::EMPTY_COOKIE = nullptr;
@@ -75,7 +47,7 @@ $bytes* PagedResultsControl::setEncodedValue(int32_t pageSize, $bytes* cookie) {
 	return ber->getTrimmedBuf();
 }
 
-void clinit$PagedResultsControl($Class* class$) {
+void PagedResultsControl::clinit$($Class* clazz) {
 	$assignStatic(PagedResultsControl::OID, "1.2.840.113556.1.4.319"_s);
 	$assignStatic(PagedResultsControl::EMPTY_COOKIE, $new($bytes, 0));
 }
@@ -84,7 +56,29 @@ PagedResultsControl::PagedResultsControl() {
 }
 
 $Class* PagedResultsControl::load$($String* name, bool initialize) {
-	$loadClass(PagedResultsControl, name, initialize, &_PagedResultsControl_ClassInfo_, clinit$PagedResultsControl, allocate$PagedResultsControl);
+	$FieldInfo fieldInfos$$[] = {
+		{"OID", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PagedResultsControl, OID)},
+		{"EMPTY_COOKIE", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PagedResultsControl, EMPTY_COOKIE)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PagedResultsControl, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(IZ)V", nullptr, $PUBLIC, $method(PagedResultsControl, init$, void, int32_t, bool), "java.io.IOException"},
+		{"<init>", "(I[BZ)V", nullptr, $PUBLIC, $method(PagedResultsControl, init$, void, int32_t, $bytes*, bool), "java.io.IOException"},
+		{"setEncodedValue", "(I[B)[B", nullptr, $PRIVATE, $method(PagedResultsControl, setEncodedValue, $bytes*, int32_t, $bytes*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"javax.naming.ldap.PagedResultsControl",
+		"javax.naming.ldap.BasicControl",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(PagedResultsControl, name, initialize, &classInfo$$, PagedResultsControl::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(PagedResultsControl);
+	});
 	return class$;
 }
 

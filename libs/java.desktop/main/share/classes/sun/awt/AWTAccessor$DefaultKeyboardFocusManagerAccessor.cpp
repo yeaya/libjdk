@@ -1,5 +1,4 @@
 #include <sun/awt/AWTAccessor$DefaultKeyboardFocusManagerAccessor.h>
-
 #include <java/awt/DefaultKeyboardFocusManager.h>
 #include <java/awt/event/KeyEvent.h>
 #include <sun/awt/AWTAccessor.h>
@@ -14,38 +13,33 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace sun {
 	namespace awt {
 
-$MethodInfo _AWTAccessor$DefaultKeyboardFocusManagerAccessor_MethodInfo_[] = {
-	{"consumeNextKeyTyped", "(Ljava/awt/DefaultKeyboardFocusManager;Ljava/awt/event/KeyEvent;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AWTAccessor$DefaultKeyboardFocusManagerAccessor, consumeNextKeyTyped, void, $DefaultKeyboardFocusManager*, $KeyEvent*)},
-	{}
-};
-
-$InnerClassInfo _AWTAccessor$DefaultKeyboardFocusManagerAccessor_InnerClassesInfo_[] = {
-	{"sun.awt.AWTAccessor$DefaultKeyboardFocusManagerAccessor", "sun.awt.AWTAccessor", "DefaultKeyboardFocusManagerAccessor", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _AWTAccessor$DefaultKeyboardFocusManagerAccessor_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"sun.awt.AWTAccessor$DefaultKeyboardFocusManagerAccessor",
-	nullptr,
-	nullptr,
-	nullptr,
-	_AWTAccessor$DefaultKeyboardFocusManagerAccessor_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AWTAccessor$DefaultKeyboardFocusManagerAccessor_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.awt.AWTAccessor"
-};
-
-$Object* allocate$AWTAccessor$DefaultKeyboardFocusManagerAccessor($Class* clazz) {
-	return $of($alloc(AWTAccessor$DefaultKeyboardFocusManagerAccessor));
-}
-
 $Class* AWTAccessor$DefaultKeyboardFocusManagerAccessor::load$($String* name, bool initialize) {
-	$loadClass(AWTAccessor$DefaultKeyboardFocusManagerAccessor, name, initialize, &_AWTAccessor$DefaultKeyboardFocusManagerAccessor_ClassInfo_, allocate$AWTAccessor$DefaultKeyboardFocusManagerAccessor);
+	$MethodInfo methodInfos$$[] = {
+		{"consumeNextKeyTyped", "(Ljava/awt/DefaultKeyboardFocusManager;Ljava/awt/event/KeyEvent;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AWTAccessor$DefaultKeyboardFocusManagerAccessor, consumeNextKeyTyped, void, $DefaultKeyboardFocusManager*, $KeyEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.AWTAccessor$DefaultKeyboardFocusManagerAccessor", "sun.awt.AWTAccessor", "DefaultKeyboardFocusManagerAccessor", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"sun.awt.AWTAccessor$DefaultKeyboardFocusManagerAccessor",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.awt.AWTAccessor"
+	};
+	$loadClass(AWTAccessor$DefaultKeyboardFocusManagerAccessor, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AWTAccessor$DefaultKeyboardFocusManagerAccessor);
+	});
 	return class$;
 }
 

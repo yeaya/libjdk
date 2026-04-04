@@ -1,5 +1,4 @@
 #include <com/sun/media/sound/SoftJitterCorrector$JitterStream.h>
-
 #include <com/sun/media/sound/SoftJitterCorrector$JitterStream$1.h>
 #include <com/sun/media/sound/SoftJitterCorrector.h>
 #include <java/io/InputStream.h>
@@ -30,65 +29,6 @@ namespace com {
 	namespace sun {
 		namespace media {
 			namespace sound {
-
-$FieldInfo _SoftJitterCorrector$JitterStream_FieldInfo_[] = {
-	{"MAX_BUFFER_SIZE", "I", nullptr, $STATIC, $staticField(SoftJitterCorrector$JitterStream, MAX_BUFFER_SIZE)},
-	{"active", "Z", nullptr, 0, $field(SoftJitterCorrector$JitterStream, active)},
-	{"thread", "Ljava/lang/Thread;", nullptr, 0, $field(SoftJitterCorrector$JitterStream, thread)},
-	{"stream", "Ljavax/sound/sampled/AudioInputStream;", nullptr, 0, $field(SoftJitterCorrector$JitterStream, stream)},
-	{"writepos", "I", nullptr, 0, $field(SoftJitterCorrector$JitterStream, writepos)},
-	{"readpos", "I", nullptr, 0, $field(SoftJitterCorrector$JitterStream, readpos)},
-	{"buffers", "[[B", nullptr, 0, $field(SoftJitterCorrector$JitterStream, buffers)},
-	{"buffers_mutex", "Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $field(SoftJitterCorrector$JitterStream, buffers_mutex)},
-	{"w_count", "I", nullptr, 0, $field(SoftJitterCorrector$JitterStream, w_count)},
-	{"w_min_tol", "I", nullptr, 0, $field(SoftJitterCorrector$JitterStream, w_min_tol)},
-	{"w_max_tol", "I", nullptr, 0, $field(SoftJitterCorrector$JitterStream, w_max_tol)},
-	{"w", "I", nullptr, 0, $field(SoftJitterCorrector$JitterStream, w)},
-	{"w_min", "I", nullptr, 0, $field(SoftJitterCorrector$JitterStream, w_min)},
-	{"bbuffer_pos", "I", nullptr, 0, $field(SoftJitterCorrector$JitterStream, bbuffer_pos)},
-	{"bbuffer_max", "I", nullptr, 0, $field(SoftJitterCorrector$JitterStream, bbuffer_max)},
-	{"bbuffer", "[B", nullptr, 0, $field(SoftJitterCorrector$JitterStream, bbuffer)},
-	{}
-};
-
-$MethodInfo _SoftJitterCorrector$JitterStream_MethodInfo_[] = {
-	{"<init>", "(Ljavax/sound/sampled/AudioInputStream;II)V", nullptr, 0, $method(SoftJitterCorrector$JitterStream, init$, void, $AudioInputStream*, int32_t, int32_t)},
-	{"available", "()I", nullptr, $PUBLIC, $virtualMethod(SoftJitterCorrector$JitterStream, available, int32_t)},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(SoftJitterCorrector$JitterStream, close, void), "java.io.IOException"},
-	{"commit", "()V", nullptr, $PUBLIC, $virtualMethod(SoftJitterCorrector$JitterStream, commit, void)},
-	{"fillBuffer", "()V", nullptr, $PUBLIC, $virtualMethod(SoftJitterCorrector$JitterStream, fillBuffer, void)},
-	{"nextReadBuffer", "()[B", nullptr, $PUBLIC, $virtualMethod(SoftJitterCorrector$JitterStream, nextReadBuffer, $bytes*)},
-	{"nextWriteBuffer", "()[B", nullptr, $PUBLIC, $virtualMethod(SoftJitterCorrector$JitterStream, nextWriteBuffer, $bytes*)},
-	{"read", "()I", nullptr, $PUBLIC, $virtualMethod(SoftJitterCorrector$JitterStream, read, int32_t), "java.io.IOException"},
-	{"read", "([BII)I", nullptr, $PUBLIC, $virtualMethod(SoftJitterCorrector$JitterStream, read, int32_t, $bytes*, int32_t, int32_t)},
-	{}
-};
-
-$InnerClassInfo _SoftJitterCorrector$JitterStream_InnerClassesInfo_[] = {
-	{"com.sun.media.sound.SoftJitterCorrector$JitterStream", "com.sun.media.sound.SoftJitterCorrector", "JitterStream", $PRIVATE | $STATIC},
-	{"com.sun.media.sound.SoftJitterCorrector$JitterStream$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _SoftJitterCorrector$JitterStream_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.media.sound.SoftJitterCorrector$JitterStream",
-	"java.io.InputStream",
-	nullptr,
-	_SoftJitterCorrector$JitterStream_FieldInfo_,
-	_SoftJitterCorrector$JitterStream_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SoftJitterCorrector$JitterStream_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.media.sound.SoftJitterCorrector"
-};
-
-$Object* allocate$SoftJitterCorrector$JitterStream($Class* clazz) {
-	return $of($alloc(SoftJitterCorrector$JitterStream));
-}
 
 int32_t SoftJitterCorrector$JitterStream::MAX_BUFFER_SIZE = 0;
 
@@ -136,8 +76,8 @@ void SoftJitterCorrector$JitterStream::commit() {
 		++this->writepos;
 		if ((this->writepos - this->readpos) > $nc(this->buffers)->length) {
 			int32_t newsize = (this->writepos - this->readpos) + 10;
-			newsize = $Math::max($nc(this->buffers)->length * 2, newsize);
-			$set(this, buffers, $new($byteArray2, newsize, $nc($nc(this->buffers)->get(0))->length));
+			newsize = $Math::max(this->buffers->length * 2, newsize);
+			$set(this, buffers, $new($byteArray2, newsize, $nc(this->buffers->get(0))->length));
 		}
 	}
 }
@@ -165,9 +105,9 @@ void SoftJitterCorrector$JitterStream::init$($AudioInputStream* s, int32_t buffe
 	$set(this, stream, s);
 	$var($Runnable, runnable, $new($SoftJitterCorrector$JitterStream$1, this));
 	$set(this, thread, $new($Thread, nullptr, runnable, "JitterCorrector"_s, 0, false));
-	$nc(this->thread)->setDaemon(true);
-	$nc(this->thread)->setPriority($Thread::MAX_PRIORITY);
-	$nc(this->thread)->start();
+	this->thread->setDaemon(true);
+	this->thread->setPriority($Thread::MAX_PRIORITY);
+	this->thread->start();
 }
 
 void SoftJitterCorrector$JitterStream::close() {
@@ -186,7 +126,7 @@ int32_t SoftJitterCorrector$JitterStream::read() {
 	if (read(b) == -1) {
 		return -1;
 	}
-	return (int32_t)(b->get(0) & (uint32_t)255);
+	return b->get(0) & 0xff;
 }
 
 void SoftJitterCorrector$JitterStream::fillBuffer() {
@@ -195,7 +135,7 @@ void SoftJitterCorrector$JitterStream::fillBuffer() {
 }
 
 int32_t SoftJitterCorrector$JitterStream::read($bytes* b, int32_t off, int32_t len) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->bbuffer == nullptr) {
 		fillBuffer();
 	}
@@ -220,7 +160,7 @@ int32_t SoftJitterCorrector$JitterStream::available() {
 	return $nc(this->bbuffer)->length - this->bbuffer_pos;
 }
 
-void clinit$SoftJitterCorrector$JitterStream($Class* class$) {
+void SoftJitterCorrector$JitterStream::clinit$($Class* clazz) {
 	SoftJitterCorrector$JitterStream::MAX_BUFFER_SIZE = 0x00100000;
 }
 
@@ -228,7 +168,60 @@ SoftJitterCorrector$JitterStream::SoftJitterCorrector$JitterStream() {
 }
 
 $Class* SoftJitterCorrector$JitterStream::load$($String* name, bool initialize) {
-	$loadClass(SoftJitterCorrector$JitterStream, name, initialize, &_SoftJitterCorrector$JitterStream_ClassInfo_, clinit$SoftJitterCorrector$JitterStream, allocate$SoftJitterCorrector$JitterStream);
+	$FieldInfo fieldInfos$$[] = {
+		{"MAX_BUFFER_SIZE", "I", nullptr, $STATIC, $staticField(SoftJitterCorrector$JitterStream, MAX_BUFFER_SIZE)},
+		{"active", "Z", nullptr, 0, $field(SoftJitterCorrector$JitterStream, active)},
+		{"thread", "Ljava/lang/Thread;", nullptr, 0, $field(SoftJitterCorrector$JitterStream, thread)},
+		{"stream", "Ljavax/sound/sampled/AudioInputStream;", nullptr, 0, $field(SoftJitterCorrector$JitterStream, stream)},
+		{"writepos", "I", nullptr, 0, $field(SoftJitterCorrector$JitterStream, writepos)},
+		{"readpos", "I", nullptr, 0, $field(SoftJitterCorrector$JitterStream, readpos)},
+		{"buffers", "[[B", nullptr, 0, $field(SoftJitterCorrector$JitterStream, buffers)},
+		{"buffers_mutex", "Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $field(SoftJitterCorrector$JitterStream, buffers_mutex)},
+		{"w_count", "I", nullptr, 0, $field(SoftJitterCorrector$JitterStream, w_count)},
+		{"w_min_tol", "I", nullptr, 0, $field(SoftJitterCorrector$JitterStream, w_min_tol)},
+		{"w_max_tol", "I", nullptr, 0, $field(SoftJitterCorrector$JitterStream, w_max_tol)},
+		{"w", "I", nullptr, 0, $field(SoftJitterCorrector$JitterStream, w)},
+		{"w_min", "I", nullptr, 0, $field(SoftJitterCorrector$JitterStream, w_min)},
+		{"bbuffer_pos", "I", nullptr, 0, $field(SoftJitterCorrector$JitterStream, bbuffer_pos)},
+		{"bbuffer_max", "I", nullptr, 0, $field(SoftJitterCorrector$JitterStream, bbuffer_max)},
+		{"bbuffer", "[B", nullptr, 0, $field(SoftJitterCorrector$JitterStream, bbuffer)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/sound/sampled/AudioInputStream;II)V", nullptr, 0, $method(SoftJitterCorrector$JitterStream, init$, void, $AudioInputStream*, int32_t, int32_t)},
+		{"available", "()I", nullptr, $PUBLIC, $virtualMethod(SoftJitterCorrector$JitterStream, available, int32_t)},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(SoftJitterCorrector$JitterStream, close, void), "java.io.IOException"},
+		{"commit", "()V", nullptr, $PUBLIC, $virtualMethod(SoftJitterCorrector$JitterStream, commit, void)},
+		{"fillBuffer", "()V", nullptr, $PUBLIC, $virtualMethod(SoftJitterCorrector$JitterStream, fillBuffer, void)},
+		{"nextReadBuffer", "()[B", nullptr, $PUBLIC, $virtualMethod(SoftJitterCorrector$JitterStream, nextReadBuffer, $bytes*)},
+		{"nextWriteBuffer", "()[B", nullptr, $PUBLIC, $virtualMethod(SoftJitterCorrector$JitterStream, nextWriteBuffer, $bytes*)},
+		{"read", "()I", nullptr, $PUBLIC, $virtualMethod(SoftJitterCorrector$JitterStream, read, int32_t), "java.io.IOException"},
+		{"read", "([BII)I", nullptr, $PUBLIC, $virtualMethod(SoftJitterCorrector$JitterStream, read, int32_t, $bytes*, int32_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.media.sound.SoftJitterCorrector$JitterStream", "com.sun.media.sound.SoftJitterCorrector", "JitterStream", $PRIVATE | $STATIC},
+		{"com.sun.media.sound.SoftJitterCorrector$JitterStream$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.media.sound.SoftJitterCorrector$JitterStream",
+		"java.io.InputStream",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.media.sound.SoftJitterCorrector"
+	};
+	$loadClass(SoftJitterCorrector$JitterStream, name, initialize, &classInfo$$, SoftJitterCorrector$JitterStream::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(SoftJitterCorrector$JitterStream);
+	});
 	return class$;
 }
 

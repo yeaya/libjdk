@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/utils/QName.h>
-
 #include <com/sun/org/apache/xml/internal/res/XMLErrorResources.h>
 #include <com/sun/org/apache/xml/internal/res/XMLMessages.h>
 #include <com/sun/org/apache/xml/internal/utils/NameSpace.h>
@@ -8,7 +7,6 @@
 #include <java/util/Stack.h>
 #include <java/util/StringTokenizer.h>
 #include <org/w3c/dom/Element.h>
-#include <org/w3c/dom/Node.h>
 #include <jcpp.h>
 
 #undef ER_ARG_LOCALNAME_INVALID
@@ -31,7 +29,6 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $Stack = ::java::util::Stack;
 using $StringTokenizer = ::java::util::StringTokenizer;
 using $Element = ::org::w3c::dom::Element;
-using $Node = ::org::w3c::dom::Node;
 
 namespace com {
 	namespace sun {
@@ -40,61 +37,6 @@ namespace com {
 				namespace xml {
 					namespace internal {
 						namespace utils {
-
-$FieldInfo _QName_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(QName, serialVersionUID)},
-	{"_localName", "Ljava/lang/String;", nullptr, $PROTECTED, $field(QName, _localName)},
-	{"_namespaceURI", "Ljava/lang/String;", nullptr, $PROTECTED, $field(QName, _namespaceURI)},
-	{"_prefix", "Ljava/lang/String;", nullptr, $PROTECTED, $field(QName, _prefix)},
-	{"S_XMLNAMESPACEURI", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(QName, S_XMLNAMESPACEURI)},
-	{"m_hashCode", "I", nullptr, $PRIVATE, $field(QName, m_hashCode)},
-	{}
-};
-
-$MethodInfo _QName_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(QName, init$, void)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(QName, init$, void, $String*, $String*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Z)V", nullptr, $PUBLIC, $method(QName, init$, void, $String*, $String*, bool)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(QName, init$, void, $String*, $String*, $String*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)V", nullptr, $PUBLIC, $method(QName, init$, void, $String*, $String*, $String*, bool)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(QName, init$, void, $String*)},
-	{"<init>", "(Ljava/lang/String;Z)V", nullptr, $PUBLIC, $method(QName, init$, void, $String*, bool)},
-	{"<init>", "(Ljava/lang/String;Ljava/util/Stack;)V", "(Ljava/lang/String;Ljava/util/Stack<Lcom/sun/org/apache/xml/internal/utils/NameSpace;>;)V", $PUBLIC, $method(QName, init$, void, $String*, $Stack*)},
-	{"<init>", "(Ljava/lang/String;Ljava/util/Stack;Z)V", "(Ljava/lang/String;Ljava/util/Stack<Lcom/sun/org/apache/xml/internal/utils/NameSpace;>;Z)V", $PUBLIC, $method(QName, init$, void, $String*, $Stack*, bool)},
-	{"<init>", "(Ljava/lang/String;Lorg/w3c/dom/Element;Lcom/sun/org/apache/xml/internal/utils/PrefixResolver;)V", nullptr, $PUBLIC, $method(QName, init$, void, $String*, $Element*, $PrefixResolver*)},
-	{"<init>", "(Ljava/lang/String;Lorg/w3c/dom/Element;Lcom/sun/org/apache/xml/internal/utils/PrefixResolver;Z)V", nullptr, $PUBLIC, $method(QName, init$, void, $String*, $Element*, $PrefixResolver*, bool)},
-	{"<init>", "(Ljava/lang/String;Lcom/sun/org/apache/xml/internal/utils/PrefixResolver;)V", nullptr, $PUBLIC, $method(QName, init$, void, $String*, $PrefixResolver*)},
-	{"<init>", "(Ljava/lang/String;Lcom/sun/org/apache/xml/internal/utils/PrefixResolver;Z)V", nullptr, $PUBLIC, $method(QName, init$, void, $String*, $PrefixResolver*, bool)},
-	{"equals", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(QName, equals, bool, $String*, $String*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(QName, equals, bool, Object$*)},
-	{"getLocalName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(QName, getLocalName, $String*)},
-	{"getLocalPart", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(QName, getLocalPart, $String*)},
-	{"getLocalPart", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(QName, getLocalPart, $String*, $String*)},
-	{"getNamespace", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(QName, getNamespace, $String*)},
-	{"getNamespaceURI", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(QName, getNamespaceURI, $String*)},
-	{"getPrefix", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(QName, getPrefix, $String*)},
-	{"getPrefixFromXMLNSDecl", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(QName, getPrefixFromXMLNSDecl, $String*, $String*)},
-	{"getPrefixPart", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(QName, getPrefixPart, $String*, $String*)},
-	{"getQNameFromString", "(Ljava/lang/String;)Lcom/sun/org/apache/xml/internal/utils/QName;", nullptr, $PUBLIC | $STATIC, $staticMethod(QName, getQNameFromString, QName*, $String*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(QName, hashCode, int32_t)},
-	{"isXMLNSDecl", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(QName, isXMLNSDecl, bool, $String*)},
-	{"toNamespacedString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(QName, toNamespacedString, $String*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(QName, toString, $String*)},
-	{}
-};
-
-$ClassInfo _QName_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.utils.QName",
-	"java.lang.Object",
-	"java.io.Serializable",
-	_QName_FieldInfo_,
-	_QName_MethodInfo_
-};
-
-$Object* allocate$QName($Class* clazz) {
-	return $of($alloc(QName));
-}
 
 $String* QName::S_XMLNAMESPACEURI = nullptr;
 
@@ -106,7 +48,7 @@ void QName::init$($String* namespaceURI, $String* localName) {
 }
 
 void QName::init$($String* namespaceURI, $String* localName, bool validate) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (localName == nullptr) {
 		$init($XMLErrorResources);
 		$throwNew($IllegalArgumentException, $($XMLMessages::createXMLMessage($XMLErrorResources::ER_ARG_LOCALNAME_NULL, nullptr)));
@@ -119,7 +61,7 @@ void QName::init$($String* namespaceURI, $String* localName, bool validate) {
 	}
 	$set(this, _namespaceURI, namespaceURI);
 	$set(this, _localName, localName);
-	this->m_hashCode = $nc($(toString()))->hashCode();
+	this->m_hashCode = $$nc(toString())->hashCode();
 }
 
 void QName::init$($String* namespaceURI, $String* prefix, $String* localName) {
@@ -127,7 +69,7 @@ void QName::init$($String* namespaceURI, $String* prefix, $String* localName) {
 }
 
 void QName::init$($String* namespaceURI, $String* prefix, $String* localName, bool validate) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (localName == nullptr) {
 		$init($XMLErrorResources);
 		$throwNew($IllegalArgumentException, $($XMLMessages::createXMLMessage($XMLErrorResources::ER_ARG_LOCALNAME_NULL, nullptr)));
@@ -145,7 +87,7 @@ void QName::init$($String* namespaceURI, $String* prefix, $String* localName, bo
 	$set(this, _namespaceURI, namespaceURI);
 	$set(this, _prefix, prefix);
 	$set(this, _localName, localName);
-	this->m_hashCode = $nc($(toString()))->hashCode();
+	this->m_hashCode = $$nc(toString())->hashCode();
 }
 
 void QName::init$($String* localName) {
@@ -153,7 +95,7 @@ void QName::init$($String* localName) {
 }
 
 void QName::init$($String* localName, bool validate) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (localName == nullptr) {
 		$init($XMLErrorResources);
 		$throwNew($IllegalArgumentException, $($XMLMessages::createXMLMessage($XMLErrorResources::ER_ARG_LOCALNAME_NULL, nullptr)));
@@ -166,7 +108,7 @@ void QName::init$($String* localName, bool validate) {
 	}
 	$set(this, _namespaceURI, nullptr);
 	$set(this, _localName, localName);
-	this->m_hashCode = $nc($(toString()))->hashCode();
+	this->m_hashCode = $$nc(toString())->hashCode();
 }
 
 void QName::init$($String* qname, $Stack* namespaces) {
@@ -174,10 +116,10 @@ void QName::init$($String* qname, $Stack* namespaces) {
 }
 
 void QName::init$($String* qname, $Stack* namespaces, bool validate) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, namespace$, nullptr);
 	$var($String, prefix, nullptr);
-	int32_t indexOfNSSep = $nc(qname)->indexOf((int32_t)u':');
+	int32_t indexOfNSSep = $nc(qname)->indexOf(u':');
 	if (indexOfNSSep > 0) {
 		$assign(prefix, qname->substring(0, indexOfNSSep));
 		if (prefix->equals("xml"_s)) {
@@ -200,7 +142,7 @@ void QName::init$($String* qname, $Stack* namespaces, bool validate) {
 		}
 		if (nullptr == namespace$) {
 			$init($XMLErrorResources);
-			$throwNew($RuntimeException, $($XMLMessages::createXMLMessage($XMLErrorResources::ER_PREFIX_MUST_RESOLVE, $$new($ObjectArray, {$of(prefix)}))));
+			$throwNew($RuntimeException, $($XMLMessages::createXMLMessage($XMLErrorResources::ER_PREFIX_MUST_RESOLVE, $$new($ObjectArray, {prefix}))));
 		}
 	}
 	$set(this, _localName, (indexOfNSSep < 0) ? qname : qname->substring(indexOfNSSep + 1));
@@ -212,7 +154,7 @@ void QName::init$($String* qname, $Stack* namespaces, bool validate) {
 	}
 	$set(this, _namespaceURI, namespace$);
 	$set(this, _prefix, prefix);
-	this->m_hashCode = $nc($(toString()))->hashCode();
+	this->m_hashCode = $$nc(toString())->hashCode();
 }
 
 void QName::init$($String* qname, $Element* namespaceContext, $PrefixResolver* resolver) {
@@ -220,9 +162,9 @@ void QName::init$($String* qname, $Element* namespaceContext, $PrefixResolver* r
 }
 
 void QName::init$($String* qname, $Element* namespaceContext, $PrefixResolver* resolver, bool validate) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, _namespaceURI, nullptr);
-	int32_t indexOfNSSep = $nc(qname)->indexOf((int32_t)u':');
+	int32_t indexOfNSSep = $nc(qname)->indexOf(u':');
 	if (indexOfNSSep > 0) {
 		if (nullptr != namespaceContext) {
 			$var($String, prefix, qname->substring(0, indexOfNSSep));
@@ -236,7 +178,7 @@ void QName::init$($String* qname, $Element* namespaceContext, $PrefixResolver* r
 			}
 			if (nullptr == this->_namespaceURI) {
 				$init($XMLErrorResources);
-				$throwNew($RuntimeException, $($XMLMessages::createXMLMessage($XMLErrorResources::ER_PREFIX_MUST_RESOLVE, $$new($ObjectArray, {$of(prefix)}))));
+				$throwNew($RuntimeException, $($XMLMessages::createXMLMessage($XMLErrorResources::ER_PREFIX_MUST_RESOLVE, $$new($ObjectArray, {prefix}))));
 			}
 		} else {
 		}
@@ -248,7 +190,7 @@ void QName::init$($String* qname, $Element* namespaceContext, $PrefixResolver* r
 			$throwNew($IllegalArgumentException, $($XMLMessages::createXMLMessage($XMLErrorResources::ER_ARG_LOCALNAME_INVALID, nullptr)));
 		}
 	}
-	this->m_hashCode = $nc($(toString()))->hashCode();
+	this->m_hashCode = $$nc(toString())->hashCode();
 }
 
 void QName::init$($String* qname, $PrefixResolver* resolver) {
@@ -256,10 +198,10 @@ void QName::init$($String* qname, $PrefixResolver* resolver) {
 }
 
 void QName::init$($String* qname, $PrefixResolver* resolver, bool validate) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, prefix, nullptr);
 	$set(this, _namespaceURI, nullptr);
-	int32_t indexOfNSSep = $nc(qname)->indexOf((int32_t)u':');
+	int32_t indexOfNSSep = $nc(qname)->indexOf(u':');
 	if (indexOfNSSep > 0) {
 		$assign(prefix, qname->substring(0, indexOfNSSep));
 		if (prefix->equals("xml"_s)) {
@@ -269,7 +211,7 @@ void QName::init$($String* qname, $PrefixResolver* resolver, bool validate) {
 		}
 		if (nullptr == this->_namespaceURI) {
 			$init($XMLErrorResources);
-			$throwNew($RuntimeException, $($XMLMessages::createXMLMessage($XMLErrorResources::ER_PREFIX_MUST_RESOLVE, $$new($ObjectArray, {$of(prefix)}))));
+			$throwNew($RuntimeException, $($XMLMessages::createXMLMessage($XMLErrorResources::ER_PREFIX_MUST_RESOLVE, $$new($ObjectArray, {prefix}))));
 		}
 		$set(this, _localName, qname->substring(indexOfNSSep + 1));
 	} else if (indexOfNSSep == 0) {
@@ -284,7 +226,7 @@ void QName::init$($String* qname, $PrefixResolver* resolver, bool validate) {
 			$throwNew($IllegalArgumentException, $($XMLMessages::createXMLMessage($XMLErrorResources::ER_ARG_LOCALNAME_INVALID, nullptr)));
 		}
 	}
-	this->m_hashCode = $nc($(toString()))->hashCode();
+	this->m_hashCode = $$nc(toString())->hashCode();
 	$set(this, _prefix, prefix);
 }
 
@@ -321,23 +263,23 @@ int32_t QName::hashCode() {
 }
 
 bool QName::equals($String* ns, $String* localPart) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, thisnamespace, getNamespaceURI());
-	bool var$0 = $nc($(getLocalName()))->equals(localPart);
-	return var$0 && (((nullptr != thisnamespace) && (nullptr != ns)) ? $nc(thisnamespace)->equals(ns) : ((nullptr == thisnamespace) && (nullptr == ns)));
+	bool var$0 = $$nc(getLocalName())->equals(localPart);
+	return var$0 && (((nullptr != thisnamespace) && (nullptr != ns)) ? thisnamespace->equals(ns) : ((nullptr == thisnamespace) && (nullptr == ns)));
 }
 
 bool QName::equals(Object$* object) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($equals(object, this)) {
 		return true;
 	}
 	if ($instanceOf(QName, object)) {
 		$var(QName, qname, $cast(QName, object));
 		$var($String, thisnamespace, getNamespaceURI());
-		$var($String, thatnamespace, $nc(qname)->getNamespaceURI());
-		bool var$0 = $nc($(getLocalName()))->equals($(qname->getLocalName()));
-		return var$0 && (((nullptr != thisnamespace) && (nullptr != thatnamespace)) ? $nc(thisnamespace)->equals(thatnamespace) : ((nullptr == thisnamespace) && (nullptr == thatnamespace)));
+		$var($String, thatnamespace, qname->getNamespaceURI());
+		bool var$0 = $$nc(getLocalName())->equals($(qname->getLocalName()));
+		return var$0 && (((nullptr != thisnamespace) && (nullptr != thatnamespace)) ? thisnamespace->equals(thatnamespace) : ((nullptr == thisnamespace) && (nullptr == thatnamespace)));
 	} else {
 		return false;
 	}
@@ -345,13 +287,13 @@ bool QName::equals(Object$* object) {
 
 QName* QName::getQNameFromString($String* name) {
 	$init(QName);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringTokenizer, tokenizer, $new($StringTokenizer, name, "{}"_s, false));
 	$var(QName, qname, nullptr);
 	$var($String, s1, tokenizer->nextToken());
 	$var($String, s2, tokenizer->hasMoreTokens() ? tokenizer->nextToken() : ($String*)nullptr);
 	if (nullptr == s2) {
-		$assign(qname, $new(QName, ($String*)nullptr, s1));
+		$assign(qname, $new(QName, nullptr, s1));
 	} else {
 		$assign(qname, $new(QName, s1, s2));
 	}
@@ -363,38 +305,88 @@ bool QName::isXMLNSDecl($String* attRawName) {
 	bool var$0 = $nc(attRawName)->startsWith("xmlns"_s);
 	if (var$0) {
 		bool var$1 = attRawName->equals("xmlns"_s);
-		var$0 = (var$1 || attRawName->startsWith("xmlns:"_s));
+		var$0 = var$1 || attRawName->startsWith("xmlns:"_s);
 	}
 	return (var$0);
 }
 
 $String* QName::getPrefixFromXMLNSDecl($String* attRawName) {
 	$init(QName);
-	int32_t index = $nc(attRawName)->indexOf((int32_t)u':');
+	int32_t index = $nc(attRawName)->indexOf(u':');
 	return (index >= 0) ? attRawName->substring(index + 1) : ""_s;
 }
 
 $String* QName::getLocalPart($String* qname) {
 	$init(QName);
-	int32_t index = $nc(qname)->indexOf((int32_t)u':');
+	int32_t index = $nc(qname)->indexOf(u':');
 	return (index < 0) ? qname : qname->substring(index + 1);
 }
 
 $String* QName::getPrefixPart($String* qname) {
 	$init(QName);
-	int32_t index = $nc(qname)->indexOf((int32_t)u':');
+	int32_t index = $nc(qname)->indexOf(u':');
 	return (index >= 0) ? qname->substring(0, index) : ""_s;
 }
 
 QName::QName() {
 }
 
-void clinit$QName($Class* class$) {
+void QName::clinit$($Class* clazz) {
 	$assignStatic(QName::S_XMLNAMESPACEURI, "http://www.w3.org/XML/1998/namespace"_s);
 }
 
 $Class* QName::load$($String* name, bool initialize) {
-	$loadClass(QName, name, initialize, &_QName_ClassInfo_, clinit$QName, allocate$QName);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(QName, serialVersionUID)},
+		{"_localName", "Ljava/lang/String;", nullptr, $PROTECTED, $field(QName, _localName)},
+		{"_namespaceURI", "Ljava/lang/String;", nullptr, $PROTECTED, $field(QName, _namespaceURI)},
+		{"_prefix", "Ljava/lang/String;", nullptr, $PROTECTED, $field(QName, _prefix)},
+		{"S_XMLNAMESPACEURI", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(QName, S_XMLNAMESPACEURI)},
+		{"m_hashCode", "I", nullptr, $PRIVATE, $field(QName, m_hashCode)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(QName, init$, void)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(QName, init$, void, $String*, $String*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;Z)V", nullptr, $PUBLIC, $method(QName, init$, void, $String*, $String*, bool)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(QName, init$, void, $String*, $String*, $String*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)V", nullptr, $PUBLIC, $method(QName, init$, void, $String*, $String*, $String*, bool)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(QName, init$, void, $String*)},
+		{"<init>", "(Ljava/lang/String;Z)V", nullptr, $PUBLIC, $method(QName, init$, void, $String*, bool)},
+		{"<init>", "(Ljava/lang/String;Ljava/util/Stack;)V", "(Ljava/lang/String;Ljava/util/Stack<Lcom/sun/org/apache/xml/internal/utils/NameSpace;>;)V", $PUBLIC, $method(QName, init$, void, $String*, $Stack*)},
+		{"<init>", "(Ljava/lang/String;Ljava/util/Stack;Z)V", "(Ljava/lang/String;Ljava/util/Stack<Lcom/sun/org/apache/xml/internal/utils/NameSpace;>;Z)V", $PUBLIC, $method(QName, init$, void, $String*, $Stack*, bool)},
+		{"<init>", "(Ljava/lang/String;Lorg/w3c/dom/Element;Lcom/sun/org/apache/xml/internal/utils/PrefixResolver;)V", nullptr, $PUBLIC, $method(QName, init$, void, $String*, $Element*, $PrefixResolver*)},
+		{"<init>", "(Ljava/lang/String;Lorg/w3c/dom/Element;Lcom/sun/org/apache/xml/internal/utils/PrefixResolver;Z)V", nullptr, $PUBLIC, $method(QName, init$, void, $String*, $Element*, $PrefixResolver*, bool)},
+		{"<init>", "(Ljava/lang/String;Lcom/sun/org/apache/xml/internal/utils/PrefixResolver;)V", nullptr, $PUBLIC, $method(QName, init$, void, $String*, $PrefixResolver*)},
+		{"<init>", "(Ljava/lang/String;Lcom/sun/org/apache/xml/internal/utils/PrefixResolver;Z)V", nullptr, $PUBLIC, $method(QName, init$, void, $String*, $PrefixResolver*, bool)},
+		{"equals", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(QName, equals, bool, $String*, $String*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(QName, equals, bool, Object$*)},
+		{"getLocalName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(QName, getLocalName, $String*)},
+		{"getLocalPart", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(QName, getLocalPart, $String*)},
+		{"getLocalPart", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(QName, getLocalPart, $String*, $String*)},
+		{"getNamespace", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(QName, getNamespace, $String*)},
+		{"getNamespaceURI", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(QName, getNamespaceURI, $String*)},
+		{"getPrefix", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(QName, getPrefix, $String*)},
+		{"getPrefixFromXMLNSDecl", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(QName, getPrefixFromXMLNSDecl, $String*, $String*)},
+		{"getPrefixPart", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(QName, getPrefixPart, $String*, $String*)},
+		{"getQNameFromString", "(Ljava/lang/String;)Lcom/sun/org/apache/xml/internal/utils/QName;", nullptr, $PUBLIC | $STATIC, $staticMethod(QName, getQNameFromString, QName*, $String*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(QName, hashCode, int32_t)},
+		{"isXMLNSDecl", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(QName, isXMLNSDecl, bool, $String*)},
+		{"toNamespacedString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(QName, toNamespacedString, $String*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(QName, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.utils.QName",
+		"java.lang.Object",
+		"java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(QName, name, initialize, &classInfo$$, QName::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(QName);
+	});
 	return class$;
 }
 

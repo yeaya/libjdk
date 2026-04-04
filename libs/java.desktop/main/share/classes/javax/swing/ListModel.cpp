@@ -1,5 +1,4 @@
 #include <javax/swing/ListModel.h>
-
 #include <javax/swing/event/ListDataListener.h>
 #include <jcpp.h>
 
@@ -10,30 +9,26 @@ using $ListDataListener = ::javax::swing::event::ListDataListener;
 namespace javax {
 	namespace swing {
 
-$MethodInfo _ListModel_MethodInfo_[] = {
-	{"addListDataListener", "(Ljavax/swing/event/ListDataListener;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ListModel, addListDataListener, void, $ListDataListener*)},
-	{"getElementAt", "(I)Ljava/lang/Object;", "(I)TE;", $PUBLIC | $ABSTRACT, $virtualMethod(ListModel, getElementAt, $Object*, int32_t)},
-	{"getSize", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ListModel, getSize, int32_t)},
-	{"removeListDataListener", "(Ljavax/swing/event/ListDataListener;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ListModel, removeListDataListener, void, $ListDataListener*)},
-	{}
-};
-
-$ClassInfo _ListModel_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"javax.swing.ListModel",
-	nullptr,
-	nullptr,
-	nullptr,
-	_ListModel_MethodInfo_,
-	"<E:Ljava/lang/Object;>Ljava/lang/Object;"
-};
-
-$Object* allocate$ListModel($Class* clazz) {
-	return $of($alloc(ListModel));
-}
-
 $Class* ListModel::load$($String* name, bool initialize) {
-	$loadClass(ListModel, name, initialize, &_ListModel_ClassInfo_, allocate$ListModel);
+	$MethodInfo methodInfos$$[] = {
+		{"addListDataListener", "(Ljavax/swing/event/ListDataListener;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ListModel, addListDataListener, void, $ListDataListener*)},
+		{"getElementAt", "(I)Ljava/lang/Object;", "(I)TE;", $PUBLIC | $ABSTRACT, $virtualMethod(ListModel, getElementAt, $Object*, int32_t)},
+		{"getSize", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ListModel, getSize, int32_t)},
+		{"removeListDataListener", "(Ljavax/swing/event/ListDataListener;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ListModel, removeListDataListener, void, $ListDataListener*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"javax.swing.ListModel",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		"<E:Ljava/lang/Object;>Ljava/lang/Object;"
+	};
+	$loadClass(ListModel, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ListModel);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/bcel/internal/generic/StackProducer.h>
-
 #include <com/sun/org/apache/bcel/internal/generic/ConstantPoolGen.h>
 #include <jcpp.h>
 
@@ -15,26 +14,22 @@ namespace com {
 					namespace internal {
 						namespace generic {
 
-$MethodInfo _StackProducer_MethodInfo_[] = {
-	{"produceStack", "(Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(StackProducer, produceStack, int32_t, $ConstantPoolGen*)},
-	{}
-};
-
-$ClassInfo _StackProducer_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.org.apache.bcel.internal.generic.StackProducer",
-	nullptr,
-	nullptr,
-	nullptr,
-	_StackProducer_MethodInfo_
-};
-
-$Object* allocate$StackProducer($Class* clazz) {
-	return $of($alloc(StackProducer));
-}
-
 $Class* StackProducer::load$($String* name, bool initialize) {
-	$loadClass(StackProducer, name, initialize, &_StackProducer_ClassInfo_, allocate$StackProducer);
+	$MethodInfo methodInfos$$[] = {
+		{"produceStack", "(Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(StackProducer, produceStack, int32_t, $ConstantPoolGen*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.org.apache.bcel.internal.generic.StackProducer",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(StackProducer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(StackProducer);
+	});
 	return class$;
 }
 

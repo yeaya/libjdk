@@ -34,7 +34,7 @@ public:
 	virtual void setPublicId($String* publicId);
 	virtual void setSystemId($String* systemId);
 	virtual $String* toString() override;
-	static const int64_t serialVersionUID = (int64_t)0xDB14AB85DCC2B97C;
+	static const int64_t serialVersionUID = (int64_t)0xdb14ab85dcc2b97c;
 	$String* publicId = nullptr;
 	$String* systemId = nullptr;
 	int32_t lineNumber = 0;

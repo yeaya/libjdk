@@ -1,5 +1,4 @@
 #include <bug4816114$2.h>
-
 #include <bug4816114.h>
 #include <javax/swing/JSplitPane.h>
 #include <jcpp.h>
@@ -13,43 +12,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $JSplitPane = ::javax::swing::JSplitPane;
 
-$MethodInfo _bug4816114$2_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(bug4816114$2, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug4816114$2, run, void)},
-	{}
-};
-
-$EnclosingMethodInfo _bug4816114$2_EnclosingMethodInfo_ = {
-	"bug4816114",
-	"main",
-	"([Ljava/lang/String;)V"
-};
-
-$InnerClassInfo _bug4816114$2_InnerClassesInfo_[] = {
-	{"bug4816114$2", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _bug4816114$2_ClassInfo_ = {
-	$ACC_SUPER,
-	"bug4816114$2",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	_bug4816114$2_MethodInfo_,
-	nullptr,
-	&_bug4816114$2_EnclosingMethodInfo_,
-	_bug4816114$2_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"bug4816114"
-};
-
-$Object* allocate$bug4816114$2($Class* clazz) {
-	return $of($alloc(bug4816114$2));
-}
-
 void bug4816114$2::init$() {
 }
 
@@ -62,7 +24,38 @@ bug4816114$2::bug4816114$2() {
 }
 
 $Class* bug4816114$2::load$($String* name, bool initialize) {
-	$loadClass(bug4816114$2, name, initialize, &_bug4816114$2_ClassInfo_, allocate$bug4816114$2);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(bug4816114$2, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug4816114$2, run, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"bug4816114",
+		"main",
+		"([Ljava/lang/String;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"bug4816114$2", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"bug4816114$2",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"bug4816114"
+	};
+	$loadClass(bug4816114$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(bug4816114$2);
+	});
 	return class$;
 }
 

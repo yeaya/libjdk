@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/impl/xs/traversers/XSDAttributeTraverser.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/dv/InvalidDatatypeValueException.h>
 #include <com/sun/org/apache/xerces/internal/impl/dv/ValidatedInfo.h>
 #include <com/sun/org/apache/xerces/internal/impl/dv/ValidationContext.h>
@@ -26,13 +25,11 @@
 #include <com/sun/org/apache/xerces/internal/xni/NamespaceContext.h>
 #include <com/sun/org/apache/xerces/internal/xni/QName.h>
 #include <com/sun/org/apache/xerces/internal/xs/XSConstants.h>
-#include <com/sun/org/apache/xerces/internal/xs/XSObject.h>
 #include <com/sun/org/apache/xerces/internal/xs/XSObjectList.h>
 #include <com/sun/org/apache/xerces/internal/xs/XSSimpleTypeDefinition.h>
 #include <com/sun/org/apache/xerces/internal/xs/XSTypeDefinition.h>
 #include <org/w3c/dom/Attr.h>
 #include <org/w3c/dom/Element.h>
-#include <org/w3c/dom/Node.h>
 #include <jcpp.h>
 
 #undef ATTIDX_DEFAULT
@@ -67,34 +64,27 @@ using $InvalidDatatypeValueException = ::com::sun::org::apache::xerces::internal
 using $ValidatedInfo = ::com::sun::org::apache::xerces::internal::impl::dv::ValidatedInfo;
 using $ValidationContext = ::com::sun::org::apache::xerces::internal::impl::dv::ValidationContext;
 using $XSSimpleType = ::com::sun::org::apache::xerces::internal::impl::dv::XSSimpleType;
-using $ValidationState = ::com::sun::org::apache::xerces::internal::impl::validation::ValidationState;
 using $SchemaGrammar = ::com::sun::org::apache::xerces::internal::impl::xs::SchemaGrammar;
 using $SchemaSymbols = ::com::sun::org::apache::xerces::internal::impl::xs::SchemaSymbols;
 using $XSAnnotationImpl = ::com::sun::org::apache::xerces::internal::impl::xs::XSAnnotationImpl;
 using $XSAttributeDecl = ::com::sun::org::apache::xerces::internal::impl::xs::XSAttributeDecl;
 using $XSAttributeUseImpl = ::com::sun::org::apache::xerces::internal::impl::xs::XSAttributeUseImpl;
 using $XSComplexTypeDecl = ::com::sun::org::apache::xerces::internal::impl::xs::XSComplexTypeDecl;
-using $XSDeclarationPool = ::com::sun::org::apache::xerces::internal::impl::xs::XSDeclarationPool;
 using $XSAttributeChecker = ::com::sun::org::apache::xerces::internal::impl::xs::traversers::XSAttributeChecker;
 using $XSDAbstractTraverser = ::com::sun::org::apache::xerces::internal::impl::xs::traversers::XSDAbstractTraverser;
 using $XSDHandler = ::com::sun::org::apache::xerces::internal::impl::xs::traversers::XSDHandler;
-using $XSDSimpleTypeTraverser = ::com::sun::org::apache::xerces::internal::impl::xs::traversers::XSDSimpleTypeTraverser;
 using $XSDocumentInfo = ::com::sun::org::apache::xerces::internal::impl::xs::traversers::XSDocumentInfo;
 using $XInt = ::com::sun::org::apache::xerces::internal::impl::xs::util::XInt;
 using $XSObjectListImpl = ::com::sun::org::apache::xerces::internal::impl::xs::util::XSObjectListImpl;
 using $DOMUtil = ::com::sun::org::apache::xerces::internal::util::DOMUtil;
-using $SymbolTable = ::com::sun::org::apache::xerces::internal::util::SymbolTable;
 using $XMLSymbols = ::com::sun::org::apache::xerces::internal::util::XMLSymbols;
-using $NamespaceContext = ::com::sun::org::apache::xerces::internal::xni::NamespaceContext;
 using $QName = ::com::sun::org::apache::xerces::internal::xni::QName;
 using $XSConstants = ::com::sun::org::apache::xerces::internal::xs::XSConstants;
-using $XSObject = ::com::sun::org::apache::xerces::internal::xs::XSObject;
 using $XSObjectList = ::com::sun::org::apache::xerces::internal::xs::XSObjectList;
 using $XSTypeDefinition = ::com::sun::org::apache::xerces::internal::xs::XSTypeDefinition;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Element = ::org::w3c::dom::Element;
-using $Node = ::org::w3c::dom::Node;
 
 namespace com {
 	namespace sun {
@@ -106,35 +96,12 @@ namespace com {
 							namespace xs {
 								namespace traversers {
 
-$MethodInfo _XSDAttributeTraverser_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDHandler;Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSAttributeChecker;)V", nullptr, $PUBLIC, $method(XSDAttributeTraverser, init$, void, $XSDHandler*, $XSAttributeChecker*)},
-	{"checkDefaultValid", "(Lcom/sun/org/apache/xerces/internal/impl/xs/XSAttributeDecl;)V", nullptr, 0, $virtualMethod(XSDAttributeTraverser, checkDefaultValid, void, $XSAttributeDecl*), "com.sun.org.apache.xerces.internal.impl.dv.InvalidDatatypeValueException"},
-	{"checkDefaultValid", "(Lcom/sun/org/apache/xerces/internal/impl/xs/XSAttributeUseImpl;)V", nullptr, 0, $virtualMethod(XSDAttributeTraverser, checkDefaultValid, void, $XSAttributeUseImpl*), "com.sun.org.apache.xerces.internal.impl.dv.InvalidDatatypeValueException"},
-	{"traverseGlobal", "(Lorg/w3c/dom/Element;Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDocumentInfo;Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;)Lcom/sun/org/apache/xerces/internal/impl/xs/XSAttributeDecl;", nullptr, $PROTECTED, $virtualMethod(XSDAttributeTraverser, traverseGlobal, $XSAttributeDecl*, $Element*, $XSDocumentInfo*, $SchemaGrammar*)},
-	{"traverseLocal", "(Lorg/w3c/dom/Element;Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDocumentInfo;Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;Lcom/sun/org/apache/xerces/internal/impl/xs/XSComplexTypeDecl;)Lcom/sun/org/apache/xerces/internal/impl/xs/XSAttributeUseImpl;", nullptr, $PROTECTED, $virtualMethod(XSDAttributeTraverser, traverseLocal, $XSAttributeUseImpl*, $Element*, $XSDocumentInfo*, $SchemaGrammar*, $XSComplexTypeDecl*)},
-	{"traverseNamedAttr", "(Lorg/w3c/dom/Element;[Ljava/lang/Object;Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDocumentInfo;Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;ZLcom/sun/org/apache/xerces/internal/impl/xs/XSComplexTypeDecl;)Lcom/sun/org/apache/xerces/internal/impl/xs/XSAttributeDecl;", nullptr, 0, $virtualMethod(XSDAttributeTraverser, traverseNamedAttr, $XSAttributeDecl*, $Element*, $ObjectArray*, $XSDocumentInfo*, $SchemaGrammar*, bool, $XSComplexTypeDecl*)},
-	{}
-};
-
-$ClassInfo _XSDAttributeTraverser_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.impl.xs.traversers.XSDAttributeTraverser",
-	"com.sun.org.apache.xerces.internal.impl.xs.traversers.XSDAbstractTraverser",
-	nullptr,
-	nullptr,
-	_XSDAttributeTraverser_MethodInfo_
-};
-
-$Object* allocate$XSDAttributeTraverser($Class* clazz) {
-	return $of($alloc(XSDAttributeTraverser));
-}
-
 void XSDAttributeTraverser::init$($XSDHandler* handler, $XSAttributeChecker* gAttrCheck) {
 	$XSDAbstractTraverser::init$(handler, gAttrCheck);
 }
 
 $XSAttributeUseImpl* XSDAttributeTraverser::traverseLocal($Element* attrDecl, $XSDocumentInfo* schemaDoc, $SchemaGrammar* grammar, $XSComplexTypeDecl* enclosingCT) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectArray, attrValues, $nc(this->fAttrChecker)->checkAttributes(attrDecl, false, schemaDoc));
 	$var($String, defaultAtt, $cast($String, $nc(attrValues)->get($XSAttributeChecker::ATTIDX_DEFAULT)));
 	$var($String, fixedAtt, $cast($String, attrValues->get($XSAttributeChecker::ATTIDX_FIXED)));
@@ -148,7 +115,7 @@ $XSAttributeUseImpl* XSDAttributeTraverser::traverseLocal($Element* attrDecl, $X
 		if (refAtt != nullptr) {
 			$assign(attribute, $cast($XSAttributeDecl, $nc(this->fSchemaHandler)->getGlobalDecl(schemaDoc, $XSDHandler::ATTRIBUTE_TYPE, refAtt, attrDecl)));
 			$var($Element, child, $DOMUtil::getFirstChildElement(attrDecl));
-			if (child != nullptr && $nc($($DOMUtil::getLocalName(child)))->equals($SchemaSymbols::ELT_ANNOTATION)) {
+			if (child != nullptr && $$nc($DOMUtil::getLocalName(child))->equals($SchemaSymbols::ELT_ANNOTATION)) {
 				$assign(annotation, traverseAnnotationDecl(child, attrValues, false, schemaDoc));
 				$assign(child, $DOMUtil::getNextSiblingElement(child));
 			} else {
@@ -158,7 +125,7 @@ $XSAttributeUseImpl* XSDAttributeTraverser::traverseLocal($Element* attrDecl, $X
 				}
 			}
 			if (child != nullptr) {
-				reportSchemaError("src-attribute.3.2"_s, $$new($ObjectArray, {$of(refAtt->rawname)}), child);
+				reportSchemaError("src-attribute.3.2"_s, $$new($ObjectArray, {refAtt->rawname}), child);
 			}
 			$assign(nameAtt, refAtt->localpart);
 		} else {
@@ -178,7 +145,7 @@ $XSAttributeUseImpl* XSDAttributeTraverser::traverseLocal($Element* attrDecl, $X
 	$var($XSAttributeUseImpl, attrUse, nullptr);
 	if (attribute != nullptr) {
 		if ($nc(this->fSchemaHandler)->fDeclPool != nullptr) {
-			$assign(attrUse, $nc($nc(this->fSchemaHandler)->fDeclPool)->getAttributeUse());
+			$assign(attrUse, this->fSchemaHandler->fDeclPool->getAttributeUse());
 		} else {
 			$assign(attrUse, $new($XSAttributeUseImpl));
 		}
@@ -187,15 +154,15 @@ $XSAttributeUseImpl* XSDAttributeTraverser::traverseLocal($Element* attrDecl, $X
 		attrUse->fConstraintType = consType;
 		if (defaultAtt != nullptr) {
 			$set(attrUse, fDefault, $new($ValidatedInfo));
-			$set($nc(attrUse->fDefault), normalizedValue, defaultAtt);
+			$set(attrUse->fDefault, normalizedValue, defaultAtt);
 		}
-		if ($nc(attrDecl)->getAttributeNode($SchemaSymbols::ATT_REF) == nullptr) {
+		if (attrDecl->getAttributeNode($SchemaSymbols::ATT_REF) == nullptr) {
 			$set(attrUse, fAnnotations, attribute->getAnnotations());
 		} else {
 			$var($XSObjectList, annotations, nullptr);
 			if (annotation != nullptr) {
 				$assign(annotations, $new($XSObjectListImpl));
-				$nc(($cast($XSObjectListImpl, annotations)))->addXSObject(annotation);
+				$cast($XSObjectListImpl, annotations)->addXSObject(annotation);
 			} else {
 				$init($XSObjectListImpl);
 				$assign(annotations, $XSObjectListImpl::EMPTY_LIST);
@@ -204,10 +171,10 @@ $XSAttributeUseImpl* XSDAttributeTraverser::traverseLocal($Element* attrDecl, $X
 		}
 	}
 	if (defaultAtt != nullptr && fixedAtt != nullptr) {
-		reportSchemaError("src-attribute.1"_s, $$new($ObjectArray, {$of(nameAtt)}), attrDecl);
+		reportSchemaError("src-attribute.1"_s, $$new($ObjectArray, {nameAtt}), attrDecl);
 	}
 	if (consType == $XSConstants::VC_DEFAULT && useAtt != nullptr && useAtt->intValue() != $SchemaSymbols::USE_OPTIONAL) {
-		reportSchemaError("src-attribute.2"_s, $$new($ObjectArray, {$of(nameAtt)}), attrDecl);
+		reportSchemaError("src-attribute.2"_s, $$new($ObjectArray, {nameAtt}), attrDecl);
 		$nc(attrUse)->fUse = $SchemaSymbols::USE_OPTIONAL;
 	}
 	if (defaultAtt != nullptr && attrUse != nullptr) {
@@ -218,22 +185,22 @@ $XSAttributeUseImpl* XSDAttributeTraverser::traverseLocal($Element* attrDecl, $X
 			$var($String, var$0, ide->getKey());
 			reportSchemaError(var$0, $(ide->getArgs()), attrDecl);
 			reportSchemaError("a-props-correct.2"_s, $$new($ObjectArray, {
-				$of(nameAtt),
-				$of(defaultAtt)
+				nameAtt,
+				defaultAtt
 			}), attrDecl);
 			$set(attrUse, fDefault, nullptr);
 			attrUse->fConstraintType = $XSConstants::VC_NONE;
 		}
-		if ($nc(($cast($XSSimpleType, $($nc(attribute)->getTypeDefinition()))))->isIDType()) {
-			reportSchemaError("a-props-correct.3"_s, $$new($ObjectArray, {$of(nameAtt)}), attrDecl);
+		if ($$sure($XSSimpleType, $nc(attribute)->getTypeDefinition())->isIDType()) {
+			reportSchemaError("a-props-correct.3"_s, $$new($ObjectArray, {nameAtt}), attrDecl);
 			$set(attrUse, fDefault, nullptr);
 			attrUse->fConstraintType = $XSConstants::VC_NONE;
 		}
 		if ($nc(attrUse->fAttrDecl)->getConstraintType() == $XSConstants::VC_FIXED && attrUse->fConstraintType != $XSConstants::VC_NONE) {
-			if (attrUse->fConstraintType != $XSConstants::VC_FIXED || !$nc($of($nc($($nc(attrUse->fAttrDecl)->getValInfo()))->actualValue))->equals($nc(attrUse->fDefault)->actualValue)) {
+			if (attrUse->fConstraintType != $XSConstants::VC_FIXED || !$nc($nc($($nc(attrUse->fAttrDecl)->getValInfo()))->actualValue)->equals($nc(attrUse->fDefault)->actualValue)) {
 				reportSchemaError("au-props-correct.2"_s, $$new($ObjectArray, {
-					$of(nameAtt),
-					$($of($nc($($nc(attrUse->fAttrDecl)->getValInfo()))->stringValue()))
+					nameAtt,
+					$($$nc($nc(attrUse->fAttrDecl)->getValInfo())->stringValue())
 				}), attrDecl);
 				$set(attrUse, fDefault, $nc(attrUse->fAttrDecl)->getValInfo());
 				attrUse->fConstraintType = $XSConstants::VC_FIXED;
@@ -245,7 +212,7 @@ $XSAttributeUseImpl* XSDAttributeTraverser::traverseLocal($Element* attrDecl, $X
 }
 
 $XSAttributeDecl* XSDAttributeTraverser::traverseGlobal($Element* attrDecl, $XSDocumentInfo* schemaDoc, $SchemaGrammar* grammar) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectArray, attrValues, $nc(this->fAttrChecker)->checkAttributes(attrDecl, true, schemaDoc));
 	$var($XSAttributeDecl, attribute, traverseNamedAttr(attrDecl, attrValues, schemaDoc, grammar, true, nullptr));
 	$nc(this->fAttrChecker)->returnAttrArray(attrValues, schemaDoc);
@@ -253,7 +220,7 @@ $XSAttributeDecl* XSDAttributeTraverser::traverseGlobal($Element* attrDecl, $XSD
 }
 
 $XSAttributeDecl* XSDAttributeTraverser::traverseNamedAttr($Element* attrDecl, $ObjectArray* attrValues, $XSDocumentInfo* schemaDoc, $SchemaGrammar* grammar, bool isGlobal, $XSComplexTypeDecl* enclosingCT) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($XSAttributeChecker);
 	$var($String, defaultAtt, $cast($String, $nc(attrValues)->get($XSAttributeChecker::ATTIDX_DEFAULT)));
 	$var($String, fixedAtt, $cast($String, attrValues->get($XSAttributeChecker::ATTIDX_FIXED)));
@@ -262,7 +229,7 @@ $XSAttributeDecl* XSDAttributeTraverser::traverseNamedAttr($Element* attrDecl, $
 	$var($QName, typeAtt, $cast($QName, attrValues->get($XSAttributeChecker::ATTIDX_TYPE)));
 	$var($XSAttributeDecl, attribute, nullptr);
 	if ($nc(this->fSchemaHandler)->fDeclPool != nullptr) {
-		$assign(attribute, $nc($nc(this->fSchemaHandler)->fDeclPool)->getAttributeDecl());
+		$assign(attribute, this->fSchemaHandler->fDeclPool->getAttributeDecl());
 	} else {
 		$assign(attribute, $new($XSAttributeDecl));
 	}
@@ -304,7 +271,7 @@ $XSAttributeDecl* XSDAttributeTraverser::traverseNamedAttr($Element* attrDecl, $
 	$var($Element, child, $DOMUtil::getFirstChildElement(attrDecl));
 	$var($XSAnnotationImpl, annotation, nullptr);
 	$init($SchemaSymbols);
-	if (child != nullptr && $nc($($DOMUtil::getLocalName(child)))->equals($SchemaSymbols::ELT_ANNOTATION)) {
+	if (child != nullptr && $$nc($DOMUtil::getLocalName(child))->equals($SchemaSymbols::ELT_ANNOTATION)) {
 		$assign(annotation, traverseAnnotationDecl(child, attrValues, false, schemaDoc));
 		$assign(child, $DOMUtil::getNextSiblingElement(child));
 	} else {
@@ -329,8 +296,8 @@ $XSAttributeDecl* XSDAttributeTraverser::traverseNamedAttr($Element* attrDecl, $
 			$assign(attrType, $cast($XSSimpleType, type));
 		} else {
 			reportSchemaError("src-resolve"_s, $$new($ObjectArray, {
-				$of(typeAtt->rawname),
-				$of("simpleType definition"_s)
+				typeAtt->rawname,
+				"simpleType definition"_s
 			}), attrDecl);
 			if (type == nullptr) {
 				$set($nc(attribute), fUnresolvedTypeName, typeAtt);
@@ -344,7 +311,7 @@ $XSAttributeDecl* XSDAttributeTraverser::traverseNamedAttr($Element* attrDecl, $
 	$var($XSObjectList, annotations, nullptr);
 	if (annotation != nullptr) {
 		$assign(annotations, $new($XSObjectListImpl));
-		$nc(($cast($XSObjectListImpl, annotations)))->addXSObject(annotation);
+		$cast($XSObjectListImpl, annotations)->addXSObject(annotation);
 	} else {
 		$init($XSObjectListImpl);
 		$assign(annotations, $XSObjectListImpl::EMPTY_LIST);
@@ -353,8 +320,8 @@ $XSAttributeDecl* XSDAttributeTraverser::traverseNamedAttr($Element* attrDecl, $
 	if (nameAtt == nullptr) {
 		if (isGlobal) {
 			reportSchemaError("s4s-att-must-appear"_s, $$new($ObjectArray, {
-				$of($SchemaSymbols::ELT_ATTRIBUTE),
-				$of($SchemaSymbols::ATT_NAME)
+				$SchemaSymbols::ELT_ATTRIBUTE,
+				$SchemaSymbols::ATT_NAME
 			}), attrDecl);
 		} else {
 			reportSchemaError("src-attribute.3.1"_s, nullptr, attrDecl);
@@ -364,16 +331,16 @@ $XSAttributeDecl* XSDAttributeTraverser::traverseNamedAttr($Element* attrDecl, $
 	}
 	if (child != nullptr) {
 		reportSchemaError("s4s-elt-must-match.1"_s, $$new($ObjectArray, {
-			$of(nameAtt),
-			$of("(annotation?, (simpleType?))"_s),
-			$($of($DOMUtil::getLocalName(child)))
+			nameAtt,
+			"(annotation?, (simpleType?))"_s,
+			$($DOMUtil::getLocalName(child))
 		}), child);
 	}
 	if (defaultAtt != nullptr && fixedAtt != nullptr) {
-		reportSchemaError("src-attribute.1"_s, $$new($ObjectArray, {$of(nameAtt)}), attrDecl);
+		reportSchemaError("src-attribute.1"_s, $$new($ObjectArray, {nameAtt}), attrDecl);
 	}
 	if (haveAnonType && (typeAtt != nullptr)) {
-		reportSchemaError("src-attribute.4"_s, $$new($ObjectArray, {$of(nameAtt)}), attrDecl);
+		reportSchemaError("src-attribute.4"_s, $$new($ObjectArray, {nameAtt}), attrDecl);
 	}
 	checkNotationType(nameAtt, attrType, attrDecl);
 	if (attDefault != nullptr) {
@@ -384,8 +351,8 @@ $XSAttributeDecl* XSDAttributeTraverser::traverseNamedAttr($Element* attrDecl, $
 			$var($String, var$0, ide->getKey());
 			reportSchemaError(var$0, $(ide->getArgs()), attrDecl);
 			reportSchemaError("a-props-correct.2"_s, $$new($ObjectArray, {
-				$of(nameAtt),
-				$of(attDefault->normalizedValue)
+				nameAtt,
+				attDefault->normalizedValue
 			}), attrDecl);
 			$assign(attDefault, nullptr);
 			constraintType = $XSConstants::VC_NONE;
@@ -394,7 +361,7 @@ $XSAttributeDecl* XSDAttributeTraverser::traverseNamedAttr($Element* attrDecl, $
 	}
 	if (attDefault != nullptr) {
 		if ($nc(attrType)->isIDType()) {
-			reportSchemaError("a-props-correct.3"_s, $$new($ObjectArray, {$of(nameAtt)}), attrDecl);
+			reportSchemaError("a-props-correct.3"_s, $$new($ObjectArray, {nameAtt}), attrDecl);
 			$assign(attDefault, nullptr);
 			constraintType = $XSConstants::VC_NONE;
 			attribute->setValues(nameAtt, tnsAtt, attrType, constraintType, scope, attDefault, enclCT, annotations);
@@ -406,7 +373,7 @@ $XSAttributeDecl* XSDAttributeTraverser::traverseNamedAttr($Element* attrDecl, $
 		return nullptr;
 	}
 	if (tnsAtt != nullptr && tnsAtt->equals($SchemaSymbols::URI_XSI)) {
-		reportSchemaError("no-xsi"_s, $$new($ObjectArray, {$of($SchemaSymbols::URI_XSI)}), attrDecl);
+		reportSchemaError("no-xsi"_s, $$new($ObjectArray, {$SchemaSymbols::URI_XSI}), attrDecl);
 		return nullptr;
 	}
 	$init($XSDAbstractTraverser);
@@ -418,7 +385,7 @@ $XSAttributeDecl* XSDAttributeTraverser::traverseNamedAttr($Element* attrDecl, $
 			grammar->addGlobalAttributeDecl(attribute);
 		}
 		$var($String, loc, $nc(this->fSchemaHandler)->schemaDocument2SystemId(schemaDoc));
-		$var($XSAttributeDecl, attribute2, $nc(grammar)->getGlobalAttributeDecl(nameAtt, loc));
+		$var($XSAttributeDecl, attribute2, grammar->getGlobalAttributeDecl(nameAtt, loc));
 		if (attribute2 == nullptr) {
 			grammar->addGlobalAttributeDecl(attribute, loc);
 		}
@@ -426,33 +393,52 @@ $XSAttributeDecl* XSDAttributeTraverser::traverseNamedAttr($Element* attrDecl, $
 			if (attribute2 != nullptr) {
 				$assign(attribute, attribute2);
 			}
-			$nc(this->fSchemaHandler)->addGlobalAttributeDecl(attribute);
+			this->fSchemaHandler->addGlobalAttributeDecl(attribute);
 		}
 	}
 	return attribute;
 }
 
 void XSDAttributeTraverser::checkDefaultValid($XSAttributeDecl* attribute) {
-	$useLocalCurrentObjectStackCache();
-	$var($String, var$0, $nc($(attribute->getValInfo()))->normalizedValue);
-	$var($ValidationContext, var$1, static_cast<$ValidationContext*>(this->fValidationState));
-	$nc(($cast($XSSimpleType, $($nc(attribute)->getTypeDefinition()))))->validate(var$0, var$1, $(attribute->getValInfo()));
-	$var($String, var$2, $nc($(attribute->getValInfo()))->stringValue());
-	$var($ValidationContext, var$3, static_cast<$ValidationContext*>(this->fValidationState));
-	$nc(($cast($XSSimpleType, $(attribute->getTypeDefinition()))))->validate(var$2, var$3, $(attribute->getValInfo()));
+	$useLocalObjectStack();
+	$var($String, var$0, $nc($($nc(attribute)->getValInfo()))->normalizedValue);
+	$var($ValidationContext, var$1, this->fValidationState);
+	$$sure($XSSimpleType, $nc(attribute)->getTypeDefinition())->validate(var$0, var$1, $(attribute->getValInfo()));
+	$var($String, var$2, $$nc(attribute->getValInfo())->stringValue());
+	$var($ValidationContext, var$3, this->fValidationState);
+	$$sure($XSSimpleType, attribute->getTypeDefinition())->validate(var$2, var$3, $(attribute->getValInfo()));
 }
 
 void XSDAttributeTraverser::checkDefaultValid($XSAttributeUseImpl* attrUse) {
-	$useLocalCurrentObjectStackCache();
-	$nc(($cast($XSSimpleType, $($nc($nc(attrUse)->fAttrDecl)->getTypeDefinition()))))->validate($nc(attrUse->fDefault)->normalizedValue, static_cast<$ValidationContext*>(this->fValidationState), attrUse->fDefault);
-	$nc(($cast($XSSimpleType, $($nc(attrUse->fAttrDecl)->getTypeDefinition()))))->validate($($nc(attrUse->fDefault)->stringValue()), static_cast<$ValidationContext*>(this->fValidationState), attrUse->fDefault);
+	$useLocalObjectStack();
+	$$sure($XSSimpleType, $nc($nc(attrUse)->fAttrDecl)->getTypeDefinition())->validate($nc($nc(attrUse)->fDefault)->normalizedValue, this->fValidationState, $nc(attrUse)->fDefault);
+	$$sure($XSSimpleType, $nc(attrUse->fAttrDecl)->getTypeDefinition())->validate($($nc(attrUse->fDefault)->stringValue()), this->fValidationState, attrUse->fDefault);
 }
 
 XSDAttributeTraverser::XSDAttributeTraverser() {
 }
 
 $Class* XSDAttributeTraverser::load$($String* name, bool initialize) {
-	$loadClass(XSDAttributeTraverser, name, initialize, &_XSDAttributeTraverser_ClassInfo_, allocate$XSDAttributeTraverser);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDHandler;Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSAttributeChecker;)V", nullptr, $PUBLIC, $method(XSDAttributeTraverser, init$, void, $XSDHandler*, $XSAttributeChecker*)},
+		{"checkDefaultValid", "(Lcom/sun/org/apache/xerces/internal/impl/xs/XSAttributeDecl;)V", nullptr, 0, $virtualMethod(XSDAttributeTraverser, checkDefaultValid, void, $XSAttributeDecl*), "com.sun.org.apache.xerces.internal.impl.dv.InvalidDatatypeValueException"},
+		{"checkDefaultValid", "(Lcom/sun/org/apache/xerces/internal/impl/xs/XSAttributeUseImpl;)V", nullptr, 0, $virtualMethod(XSDAttributeTraverser, checkDefaultValid, void, $XSAttributeUseImpl*), "com.sun.org.apache.xerces.internal.impl.dv.InvalidDatatypeValueException"},
+		{"traverseGlobal", "(Lorg/w3c/dom/Element;Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDocumentInfo;Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;)Lcom/sun/org/apache/xerces/internal/impl/xs/XSAttributeDecl;", nullptr, $PROTECTED, $virtualMethod(XSDAttributeTraverser, traverseGlobal, $XSAttributeDecl*, $Element*, $XSDocumentInfo*, $SchemaGrammar*)},
+		{"traverseLocal", "(Lorg/w3c/dom/Element;Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDocumentInfo;Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;Lcom/sun/org/apache/xerces/internal/impl/xs/XSComplexTypeDecl;)Lcom/sun/org/apache/xerces/internal/impl/xs/XSAttributeUseImpl;", nullptr, $PROTECTED, $virtualMethod(XSDAttributeTraverser, traverseLocal, $XSAttributeUseImpl*, $Element*, $XSDocumentInfo*, $SchemaGrammar*, $XSComplexTypeDecl*)},
+		{"traverseNamedAttr", "(Lorg/w3c/dom/Element;[Ljava/lang/Object;Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDocumentInfo;Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;ZLcom/sun/org/apache/xerces/internal/impl/xs/XSComplexTypeDecl;)Lcom/sun/org/apache/xerces/internal/impl/xs/XSAttributeDecl;", nullptr, 0, $virtualMethod(XSDAttributeTraverser, traverseNamedAttr, $XSAttributeDecl*, $Element*, $ObjectArray*, $XSDocumentInfo*, $SchemaGrammar*, bool, $XSComplexTypeDecl*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.impl.xs.traversers.XSDAttributeTraverser",
+		"com.sun.org.apache.xerces.internal.impl.xs.traversers.XSDAbstractTraverser",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(XSDAttributeTraverser, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XSDAttributeTraverser);
+	});
 	return class$;
 }
 

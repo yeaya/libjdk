@@ -62,6 +62,7 @@ class $import JMXConnectorFactory : public ::java::lang::Object {
 	$class(JMXConnectorFactory, 0, ::java::lang::Object)
 public:
 	JMXConnectorFactory();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::javax::management::remote::JMXConnector* connect(::javax::management::remote::JMXServiceURL* serviceURL);
 	static ::javax::management::remote::JMXConnector* connect(::javax::management::remote::JMXServiceURL* serviceURL, ::java::util::Map* environment);

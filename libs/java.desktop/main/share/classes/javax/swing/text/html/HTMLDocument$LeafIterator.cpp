@@ -1,5 +1,4 @@
 #include <javax/swing/text/html/HTMLDocument$LeafIterator.h>
-
 #include <javax/swing/text/AttributeSet.h>
 #include <javax/swing/text/Document.h>
 #include <javax/swing/text/Element.h>
@@ -27,52 +26,6 @@ namespace javax {
 		namespace text {
 			namespace html {
 
-$FieldInfo _HTMLDocument$LeafIterator_FieldInfo_[] = {
-	{"endOffset", "I", nullptr, $PRIVATE, $field(HTMLDocument$LeafIterator, endOffset)},
-	{"tag", "Ljavax/swing/text/html/HTML$Tag;", nullptr, $PRIVATE, $field(HTMLDocument$LeafIterator, tag)},
-	{"pos", "Ljavax/swing/text/ElementIterator;", nullptr, $PRIVATE, $field(HTMLDocument$LeafIterator, pos)},
-	{}
-};
-
-$MethodInfo _HTMLDocument$LeafIterator_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/text/html/HTML$Tag;Ljavax/swing/text/Document;)V", nullptr, 0, $method(HTMLDocument$LeafIterator, init$, void, $HTML$Tag*, $Document*)},
-	{"getAttributes", "()Ljavax/swing/text/AttributeSet;", nullptr, $PUBLIC, $virtualMethod(HTMLDocument$LeafIterator, getAttributes, $AttributeSet*)},
-	{"getEndOffset", "()I", nullptr, $PUBLIC, $virtualMethod(HTMLDocument$LeafIterator, getEndOffset, int32_t)},
-	{"getStartOffset", "()I", nullptr, $PUBLIC, $virtualMethod(HTMLDocument$LeafIterator, getStartOffset, int32_t)},
-	{"getTag", "()Ljavax/swing/text/html/HTML$Tag;", nullptr, $PUBLIC, $virtualMethod(HTMLDocument$LeafIterator, getTag, $HTML$Tag*)},
-	{"isValid", "()Z", nullptr, $PUBLIC, $virtualMethod(HTMLDocument$LeafIterator, isValid, bool)},
-	{"next", "()V", nullptr, $PUBLIC, $virtualMethod(HTMLDocument$LeafIterator, next, void)},
-	{"nextLeaf", "(Ljavax/swing/text/ElementIterator;)V", nullptr, 0, $virtualMethod(HTMLDocument$LeafIterator, nextLeaf, void, $ElementIterator*)},
-	{"setEndOffset", "()V", nullptr, 0, $virtualMethod(HTMLDocument$LeafIterator, setEndOffset, void)},
-	{}
-};
-
-$InnerClassInfo _HTMLDocument$LeafIterator_InnerClassesInfo_[] = {
-	{"javax.swing.text.html.HTMLDocument$LeafIterator", "javax.swing.text.html.HTMLDocument", "LeafIterator", $STATIC},
-	{"javax.swing.text.html.HTMLDocument$Iterator", "javax.swing.text.html.HTMLDocument", "Iterator", $PUBLIC | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _HTMLDocument$LeafIterator_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.text.html.HTMLDocument$LeafIterator",
-	"javax.swing.text.html.HTMLDocument$Iterator",
-	nullptr,
-	_HTMLDocument$LeafIterator_FieldInfo_,
-	_HTMLDocument$LeafIterator_MethodInfo_,
-	nullptr,
-	nullptr,
-	_HTMLDocument$LeafIterator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.html.HTMLDocument"
-};
-
-$Object* allocate$HTMLDocument$LeafIterator($Class* clazz) {
-	return $of($alloc(HTMLDocument$LeafIterator));
-}
-
 void HTMLDocument$LeafIterator::init$($HTML$Tag* t, $Document* doc) {
 	$HTMLDocument$Iterator::init$();
 	$set(this, tag, t);
@@ -82,10 +35,10 @@ void HTMLDocument$LeafIterator::init$($HTML$Tag* t, $Document* doc) {
 }
 
 $AttributeSet* HTMLDocument$LeafIterator::getAttributes() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Element, elem, $nc(this->pos)->current());
 	if (elem != nullptr) {
-		$var($AttributeSet, a, $cast($AttributeSet, $nc($(elem->getAttributes()))->getAttribute(this->tag)));
+		$var($AttributeSet, a, $cast($AttributeSet, $$nc(elem->getAttributes())->getAttribute(this->tag)));
 		if (a == nullptr) {
 			$assign(a, elem->getAttributes());
 		}
@@ -107,14 +60,14 @@ int32_t HTMLDocument$LeafIterator::getEndOffset() {
 }
 
 void HTMLDocument$LeafIterator::next() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (nextLeaf(this->pos); isValid(); nextLeaf(this->pos)) {
 		$var($Element, elem, $nc(this->pos)->current());
 		if ($nc(elem)->getStartOffset() >= this->endOffset) {
-			$var($AttributeSet, a, $nc($($nc(this->pos)->current()))->getAttributes());
+			$var($AttributeSet, a, $$nc($nc(this->pos)->current())->getAttributes());
 			bool var$0 = $nc(a)->isDefined(this->tag);
 			$init($StyleConstants);
-			if (var$0 || $equals($nc(a)->getAttribute($StyleConstants::NameAttribute), this->tag)) {
+			if (var$0 || $equals(a->getAttribute($StyleConstants::NameAttribute), this->tag)) {
 				setEndOffset();
 				break;
 			}
@@ -131,7 +84,7 @@ bool HTMLDocument$LeafIterator::isValid() {
 }
 
 void HTMLDocument$LeafIterator::nextLeaf($ElementIterator* iter) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for ($nc(iter)->next(); iter->current() != nullptr; iter->next()) {
 		$var($Element, e, iter->current());
 		if ($nc(e)->isLeaf()) {
@@ -141,14 +94,14 @@ void HTMLDocument$LeafIterator::nextLeaf($ElementIterator* iter) {
 }
 
 void HTMLDocument$LeafIterator::setEndOffset() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AttributeSet, a0, getAttributes());
-	this->endOffset = $nc($($nc(this->pos)->current()))->getEndOffset();
+	this->endOffset = $$nc($nc(this->pos)->current())->getEndOffset();
 	$var($ElementIterator, fwd, $cast($ElementIterator, $nc(this->pos)->clone()));
 	for (nextLeaf(fwd); $nc(fwd)->current() != nullptr; nextLeaf(fwd)) {
 		$var($Element, e, fwd->current());
-		$var($AttributeSet, a1, $cast($AttributeSet, $nc($($nc(e)->getAttributes()))->getAttribute(this->tag)));
-		if ((a1 == nullptr) || (!$nc($of(a1))->equals(a0))) {
+		$var($AttributeSet, a1, $cast($AttributeSet, $$nc($nc(e)->getAttributes())->getAttribute(this->tag)));
+		if ((a1 == nullptr) || (!a1->equals(a0))) {
 			break;
 		}
 		this->endOffset = e->getEndOffset();
@@ -159,7 +112,47 @@ HTMLDocument$LeafIterator::HTMLDocument$LeafIterator() {
 }
 
 $Class* HTMLDocument$LeafIterator::load$($String* name, bool initialize) {
-	$loadClass(HTMLDocument$LeafIterator, name, initialize, &_HTMLDocument$LeafIterator_ClassInfo_, allocate$HTMLDocument$LeafIterator);
+	$FieldInfo fieldInfos$$[] = {
+		{"endOffset", "I", nullptr, $PRIVATE, $field(HTMLDocument$LeafIterator, endOffset)},
+		{"tag", "Ljavax/swing/text/html/HTML$Tag;", nullptr, $PRIVATE, $field(HTMLDocument$LeafIterator, tag)},
+		{"pos", "Ljavax/swing/text/ElementIterator;", nullptr, $PRIVATE, $field(HTMLDocument$LeafIterator, pos)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/text/html/HTML$Tag;Ljavax/swing/text/Document;)V", nullptr, 0, $method(HTMLDocument$LeafIterator, init$, void, $HTML$Tag*, $Document*)},
+		{"getAttributes", "()Ljavax/swing/text/AttributeSet;", nullptr, $PUBLIC, $virtualMethod(HTMLDocument$LeafIterator, getAttributes, $AttributeSet*)},
+		{"getEndOffset", "()I", nullptr, $PUBLIC, $virtualMethod(HTMLDocument$LeafIterator, getEndOffset, int32_t)},
+		{"getStartOffset", "()I", nullptr, $PUBLIC, $virtualMethod(HTMLDocument$LeafIterator, getStartOffset, int32_t)},
+		{"getTag", "()Ljavax/swing/text/html/HTML$Tag;", nullptr, $PUBLIC, $virtualMethod(HTMLDocument$LeafIterator, getTag, $HTML$Tag*)},
+		{"isValid", "()Z", nullptr, $PUBLIC, $virtualMethod(HTMLDocument$LeafIterator, isValid, bool)},
+		{"next", "()V", nullptr, $PUBLIC, $virtualMethod(HTMLDocument$LeafIterator, next, void)},
+		{"nextLeaf", "(Ljavax/swing/text/ElementIterator;)V", nullptr, 0, $virtualMethod(HTMLDocument$LeafIterator, nextLeaf, void, $ElementIterator*)},
+		{"setEndOffset", "()V", nullptr, 0, $virtualMethod(HTMLDocument$LeafIterator, setEndOffset, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.html.HTMLDocument$LeafIterator", "javax.swing.text.html.HTMLDocument", "LeafIterator", $STATIC},
+		{"javax.swing.text.html.HTMLDocument$Iterator", "javax.swing.text.html.HTMLDocument", "Iterator", $PUBLIC | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.text.html.HTMLDocument$LeafIterator",
+		"javax.swing.text.html.HTMLDocument$Iterator",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.html.HTMLDocument"
+	};
+	$loadClass(HTMLDocument$LeafIterator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HTMLDocument$LeafIterator);
+	});
 	return class$;
 }
 

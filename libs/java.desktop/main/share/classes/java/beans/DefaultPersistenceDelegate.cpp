@@ -1,5 +1,4 @@
 #include <java/beans/DefaultPersistenceDelegate.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/event/ComponentListener.h>
 #include <java/beans/BeanInfo.h>
@@ -39,7 +38,6 @@ using $ComponentListener = ::java::awt::event::ComponentListener;
 using $BeanInfo = ::java::beans::BeanInfo;
 using $Encoder = ::java::beans::Encoder;
 using $EventSetDescriptor = ::java::beans::EventSetDescriptor;
-using $ExceptionListener = ::java::beans::ExceptionListener;
 using $Expression = ::java::beans::Expression;
 using $IntrospectionException = ::java::beans::IntrospectionException;
 using $Introspector = ::java::beans::Introspector;
@@ -67,42 +65,6 @@ using $ReflectUtil = ::sun::reflect::misc::ReflectUtil;
 namespace java {
 	namespace beans {
 
-$FieldInfo _DefaultPersistenceDelegate_FieldInfo_[] = {
-	{"EMPTY", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DefaultPersistenceDelegate, EMPTY)},
-	{"constructor", "[Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(DefaultPersistenceDelegate, constructor)},
-	{"definesEquals", "Ljava/lang/Boolean;", nullptr, $PRIVATE, $field(DefaultPersistenceDelegate, definesEquals$)},
-	{}
-};
-
-$MethodInfo _DefaultPersistenceDelegate_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(DefaultPersistenceDelegate, init$, void)},
-	{"<init>", "([Ljava/lang/String;)V", nullptr, $PUBLIC, $method(DefaultPersistenceDelegate, init$, void, $StringArray*)},
-	{"definesEquals", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;)Z", $PRIVATE | $STATIC, $staticMethod(DefaultPersistenceDelegate, definesEquals, bool, $Class*)},
-	{"definesEquals", "(Ljava/lang/Object;)Z", nullptr, $PRIVATE, $method(DefaultPersistenceDelegate, definesEquals, bool, Object$*)},
-	{"doProperty", "(Ljava/lang/Class;Ljava/beans/PropertyDescriptor;Ljava/lang/Object;Ljava/lang/Object;Ljava/beans/Encoder;)V", "(Ljava/lang/Class<*>;Ljava/beans/PropertyDescriptor;Ljava/lang/Object;Ljava/lang/Object;Ljava/beans/Encoder;)V", $PRIVATE, $method(DefaultPersistenceDelegate, doProperty, void, $Class*, $PropertyDescriptor*, Object$*, Object$*, $Encoder*), "java.lang.Exception"},
-	{"findMethod", "(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/reflect/Method;", "(Ljava/lang/Class<*>;Ljava/lang/String;)Ljava/lang/reflect/Method;", $PRIVATE, $method(DefaultPersistenceDelegate, findMethod, $Method*, $Class*, $String*)},
-	{"getPropertyDescriptor", "(Ljava/lang/Class;Ljava/lang/String;)Ljava/beans/PropertyDescriptor;", "(Ljava/lang/Class<*>;Ljava/lang/String;)Ljava/beans/PropertyDescriptor;", $PRIVATE | $STATIC, $staticMethod(DefaultPersistenceDelegate, getPropertyDescriptor, $PropertyDescriptor*, $Class*, $String*)},
-	{"initBean", "(Ljava/lang/Class;Ljava/lang/Object;Ljava/lang/Object;Ljava/beans/Encoder;)V", "(Ljava/lang/Class<*>;Ljava/lang/Object;Ljava/lang/Object;Ljava/beans/Encoder;)V", $PRIVATE, $method(DefaultPersistenceDelegate, initBean, void, $Class*, Object$*, Object$*, $Encoder*)},
-	{"initialize", "(Ljava/lang/Class;Ljava/lang/Object;Ljava/lang/Object;Ljava/beans/Encoder;)V", "(Ljava/lang/Class<*>;Ljava/lang/Object;Ljava/lang/Object;Ljava/beans/Encoder;)V", $PROTECTED, $virtualMethod(DefaultPersistenceDelegate, initialize, void, $Class*, Object$*, Object$*, $Encoder*)},
-	{"instantiate", "(Ljava/lang/Object;Ljava/beans/Encoder;)Ljava/beans/Expression;", nullptr, $PROTECTED, $virtualMethod(DefaultPersistenceDelegate, instantiate, $Expression*, Object$*, $Encoder*)},
-	{"invokeStatement", "(Ljava/lang/Object;Ljava/lang/String;[Ljava/lang/Object;Ljava/beans/Encoder;)V", nullptr, $STATIC, $staticMethod(DefaultPersistenceDelegate, invokeStatement, void, Object$*, $String*, $ObjectArray*, $Encoder*)},
-	{"mutatesTo", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PROTECTED, $virtualMethod(DefaultPersistenceDelegate, mutatesTo, bool, Object$*, Object$*)},
-	{}
-};
-
-$ClassInfo _DefaultPersistenceDelegate_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.beans.DefaultPersistenceDelegate",
-	"java.beans.PersistenceDelegate",
-	nullptr,
-	_DefaultPersistenceDelegate_FieldInfo_,
-	_DefaultPersistenceDelegate_MethodInfo_
-};
-
-$Object* allocate$DefaultPersistenceDelegate($Class* clazz) {
-	return $of($alloc(DefaultPersistenceDelegate));
-}
-
 $StringArray* DefaultPersistenceDelegate::EMPTY = nullptr;
 
 void DefaultPersistenceDelegate::init$() {
@@ -112,15 +74,15 @@ void DefaultPersistenceDelegate::init$() {
 
 void DefaultPersistenceDelegate::init$($StringArray* constructorPropertyNames) {
 	$PersistenceDelegate::init$();
-	$set(this, constructor, (constructorPropertyNames == nullptr) ? DefaultPersistenceDelegate::EMPTY : $cast($StringArray, $nc(constructorPropertyNames)->clone()));
+	$set(this, constructor, (constructorPropertyNames == nullptr) ? DefaultPersistenceDelegate::EMPTY : $cast($StringArray, constructorPropertyNames->clone()));
 }
 
 bool DefaultPersistenceDelegate::definesEquals($Class* type) {
 	$init(DefaultPersistenceDelegate);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	try {
-		return type == $nc($($nc(type)->getMethod("equals"_s, $$new($ClassArray, {$Object::class$}))))->getDeclaringClass();
+		return type == $$nc($nc(type)->getMethod("equals"_s, $$new($ClassArray, {$Object::class$})))->getDeclaringClass();
 	} catch ($NoSuchMethodException& e) {
 		return false;
 	}
@@ -129,11 +91,9 @@ bool DefaultPersistenceDelegate::definesEquals($Class* type) {
 
 bool DefaultPersistenceDelegate::definesEquals(Object$* instance) {
 	if (this->definesEquals$ != nullptr) {
-		$init($Boolean);
 		return (this->definesEquals$ == $Boolean::TRUE);
 	} else {
 		bool result = definesEquals($nc($of(instance))->getClass());
-		$init($Boolean);
 		$set(this, definesEquals$, result ? $Boolean::TRUE : $Boolean::FALSE);
 		return result;
 	}
@@ -144,7 +104,7 @@ bool DefaultPersistenceDelegate::mutatesTo(Object$* oldInstance, Object$* newIns
 }
 
 $Expression* DefaultPersistenceDelegate::instantiate(Object$* oldInstance, $Encoder* out) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t nArgs = $nc(this->constructor)->length;
 	$Class* type = $nc($of(oldInstance))->getClass();
 	$var($ObjectArray, constructorArgs, $new($ObjectArray, nArgs));
@@ -153,14 +113,14 @@ $Expression* DefaultPersistenceDelegate::instantiate(Object$* oldInstance, $Enco
 			$var($Method, method, findMethod(type, $nc(this->constructor)->get(i)));
 			constructorArgs->set(i, $($MethodUtil::invoke(method, oldInstance, $$new($ObjectArray, 0))));
 		} catch ($Exception& e) {
-			$nc($($nc(out)->getExceptionListener()))->exceptionThrown(e);
+			$$nc($nc(out)->getExceptionListener())->exceptionThrown(e);
 		}
 	}
 	return $new($Expression, oldInstance, $of(oldInstance)->getClass(), "new"_s, constructorArgs);
 }
 
 $Method* DefaultPersistenceDelegate::findMethod($Class* type, $String* property) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (property == nullptr) {
 		$throwNew($IllegalArgumentException, "Property name is null"_s);
 	}
@@ -176,7 +136,7 @@ $Method* DefaultPersistenceDelegate::findMethod($Class* type, $String* property)
 }
 
 void DefaultPersistenceDelegate::doProperty($Class* type, $PropertyDescriptor* pd, Object$* oldInstance, Object$* newInstance, $Encoder* out) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$var($Method, getter, $nc(pd)->getReadMethod());
 	$var($Method, setter, pd->getWriteMethod());
@@ -190,12 +150,12 @@ void DefaultPersistenceDelegate::doProperty($Class* type, $PropertyDescriptor* p
 			$var($Object, e, $cast($ObjectArray, pd->getValue("enumerationValues"_s)));
 			if ($instanceOf($ObjectArray, e) && $1Array::getLength(e) % 3 == 0) {
 				$var($ObjectArray, a, $cast($ObjectArray, e));
-				for (int32_t i = 0; i < $nc(a)->length; i = i + 3) {
+				for (int32_t i = 0; i < a->length; i = i + 3) {
 					try {
 						$var($Field, f, $nc(type)->getField($cast($String, a->get(i))));
-						if ($nc($of($($nc(f)->get(nullptr))))->equals(oldValue)) {
+						if ($$nc($nc(f)->get(nullptr))->equals(oldValue)) {
 							out->remove(oldValue);
-							out->writeExpression($$new($Expression, oldValue, f, "get"_s, $$new($ObjectArray, {($Object*)nullptr})));
+							out->writeExpression($$new($Expression, oldValue, f, "get"_s, $$new($ObjectArray, {nullptr})));
 						}
 					} catch ($Exception& ex) {
 					}
@@ -212,19 +172,17 @@ void DefaultPersistenceDelegate::invokeStatement(Object$* instance, $String* met
 }
 
 void DefaultPersistenceDelegate::initBean($Class* type, Object$* oldInstance, Object$* newInstance, $Encoder* out) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	{
 		$var($FieldArray, arr$, $nc(type)->getFields());
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($Field, field, arr$->get(i$));
 			{
 				if (!$ReflectUtil::isPackageAccessible($nc(field)->getDeclaringClass())) {
 					continue;
 				}
-				int32_t mod = $nc(field)->getModifiers();
+				int32_t mod = field->getModifiers();
 				bool var$1 = $Modifier::isFinal(mod);
 				bool var$0 = var$1 || $Modifier::isStatic(mod);
 				if (var$0 || $Modifier::isTransient(mod)) {
@@ -243,7 +201,7 @@ void DefaultPersistenceDelegate::initBean($Class* type, Object$* oldInstance, Ob
 						})));
 					}
 				} catch ($Exception& exception) {
-					$nc($($nc(out)->getExceptionListener()))->exceptionThrown(exception);
+					$$nc($nc(out)->getExceptionListener())->exceptionThrown(exception);
 				}
 			}
 		}
@@ -256,9 +214,7 @@ void DefaultPersistenceDelegate::initBean($Class* type, Object$* oldInstance, Ob
 	}
 	{
 		$var($PropertyDescriptorArray, arr$, $nc(info)->getPropertyDescriptors());
-		int32_t len$ = arr$->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($PropertyDescriptor, d, arr$->get(i$));
 			{
 				if ($nc(d)->isTransient()) {
@@ -267,7 +223,7 @@ void DefaultPersistenceDelegate::initBean($Class* type, Object$* oldInstance, Ob
 				try {
 					doProperty(type, d, oldInstance, newInstance, out);
 				} catch ($Exception& e) {
-					$nc($($nc(out)->getExceptionListener()))->exceptionThrown(e);
+					$$nc($nc(out)->getExceptionListener())->exceptionThrown(e);
 				}
 			}
 		}
@@ -278,15 +234,13 @@ void DefaultPersistenceDelegate::initBean($Class* type, Object$* oldInstance, Ob
 	}
 	{
 		$var($EventSetDescriptorArray, arr$, info->getEventSetDescriptors());
-		int32_t len$ = arr$->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($EventSetDescriptor, d, arr$->get(i$));
 			{
 				if ($nc(d)->isTransient()) {
 					continue;
 				}
-				$Class* listenerType = $nc(d)->getListenerType();
+				$Class* listenerType = d->getListenerType();
 				$load($ComponentListener);
 				if (listenerType == $ComponentListener::class$) {
 					continue;
@@ -305,19 +259,19 @@ void DefaultPersistenceDelegate::initBean($Class* type, Object$* oldInstance, Ob
 				} catch ($Exception& e2) {
 					try {
 						$var($Method, m, type->getMethod("getListeners"_s, $$new($ClassArray, {$Class::class$})));
-						$assign(oldL, $cast($EventListenerArray, $MethodUtil::invoke(m, oldInstance, $$new($ObjectArray, {$of(listenerType)}))));
-						$assign(newL, $cast($EventListenerArray, $MethodUtil::invoke(m, newInstance, $$new($ObjectArray, {$of(listenerType)}))));
+						$assign(oldL, $cast($EventListenerArray, $MethodUtil::invoke(m, oldInstance, $$new($ObjectArray, {listenerType}))));
+						$assign(newL, $cast($EventListenerArray, $MethodUtil::invoke(m, newInstance, $$new($ObjectArray, {listenerType}))));
 					} catch ($Exception& e3) {
 						return;
 					}
 				}
-				$var($String, addListenerMethodName, $nc($(d->getAddListenerMethod()))->getName());
-				for (int32_t i = newL->length; i < oldL->length; ++i) {
-					invokeStatement(oldInstance, addListenerMethodName, $$new($ObjectArray, {$of(oldL->get(i))}), out);
+				$var($String, addListenerMethodName, $$nc(d->getAddListenerMethod())->getName());
+				for (int32_t i = $nc(newL)->length; i < $nc(oldL)->length; ++i) {
+					invokeStatement(oldInstance, addListenerMethodName, $$new($ObjectArray, {oldL->get(i)}), out);
 				}
-				$var($String, removeListenerMethodName, $nc($(d->getRemoveListenerMethod()))->getName());
+				$var($String, removeListenerMethodName, $$nc(d->getRemoveListenerMethod())->getName());
 				for (int32_t i = oldL->length; i < newL->length; ++i) {
-					invokeStatement(oldInstance, removeListenerMethodName, $$new($ObjectArray, {$of(newL->get(i))}), out);
+					invokeStatement(oldInstance, removeListenerMethodName, $$new($ObjectArray, {newL->get(i)}), out);
 				}
 			}
 		}
@@ -333,19 +287,13 @@ void DefaultPersistenceDelegate::initialize($Class* type, Object$* oldInstance, 
 
 $PropertyDescriptor* DefaultPersistenceDelegate::getPropertyDescriptor($Class* type, $String* property) {
 	$init(DefaultPersistenceDelegate);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
-		{
-			$var($PropertyDescriptorArray, arr$, $nc($($Introspector::getBeanInfo(type)))->getPropertyDescriptors());
-			int32_t len$ = $nc(arr$)->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
-				$var($PropertyDescriptor, pd, arr$->get(i$));
-				{
-					if ($nc(property)->equals($($nc(pd)->getName()))) {
-						return pd;
-					}
-				}
+		$var($PropertyDescriptorArray, arr$, $$nc($Introspector::getBeanInfo(type))->getPropertyDescriptors());
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
+			$var($PropertyDescriptor, pd, arr$->get(i$));
+			if ($nc(property)->equals($($nc(pd)->getName()))) {
+				return pd;
 			}
 		}
 	} catch ($IntrospectionException& exception) {
@@ -353,7 +301,7 @@ $PropertyDescriptor* DefaultPersistenceDelegate::getPropertyDescriptor($Class* t
 	return nullptr;
 }
 
-void clinit$DefaultPersistenceDelegate($Class* class$) {
+void DefaultPersistenceDelegate::clinit$($Class* clazz) {
 	$assignStatic(DefaultPersistenceDelegate::EMPTY, $new($StringArray, 0));
 }
 
@@ -361,7 +309,38 @@ DefaultPersistenceDelegate::DefaultPersistenceDelegate() {
 }
 
 $Class* DefaultPersistenceDelegate::load$($String* name, bool initialize) {
-	$loadClass(DefaultPersistenceDelegate, name, initialize, &_DefaultPersistenceDelegate_ClassInfo_, clinit$DefaultPersistenceDelegate, allocate$DefaultPersistenceDelegate);
+	$FieldInfo fieldInfos$$[] = {
+		{"EMPTY", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DefaultPersistenceDelegate, EMPTY)},
+		{"constructor", "[Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(DefaultPersistenceDelegate, constructor)},
+		{"definesEquals", "Ljava/lang/Boolean;", nullptr, $PRIVATE, $field(DefaultPersistenceDelegate, definesEquals$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(DefaultPersistenceDelegate, init$, void)},
+		{"<init>", "([Ljava/lang/String;)V", nullptr, $PUBLIC, $method(DefaultPersistenceDelegate, init$, void, $StringArray*)},
+		{"definesEquals", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;)Z", $PRIVATE | $STATIC, $staticMethod(DefaultPersistenceDelegate, definesEquals, bool, $Class*)},
+		{"definesEquals", "(Ljava/lang/Object;)Z", nullptr, $PRIVATE, $method(DefaultPersistenceDelegate, definesEquals, bool, Object$*)},
+		{"doProperty", "(Ljava/lang/Class;Ljava/beans/PropertyDescriptor;Ljava/lang/Object;Ljava/lang/Object;Ljava/beans/Encoder;)V", "(Ljava/lang/Class<*>;Ljava/beans/PropertyDescriptor;Ljava/lang/Object;Ljava/lang/Object;Ljava/beans/Encoder;)V", $PRIVATE, $method(DefaultPersistenceDelegate, doProperty, void, $Class*, $PropertyDescriptor*, Object$*, Object$*, $Encoder*), "java.lang.Exception"},
+		{"findMethod", "(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/reflect/Method;", "(Ljava/lang/Class<*>;Ljava/lang/String;)Ljava/lang/reflect/Method;", $PRIVATE, $method(DefaultPersistenceDelegate, findMethod, $Method*, $Class*, $String*)},
+		{"getPropertyDescriptor", "(Ljava/lang/Class;Ljava/lang/String;)Ljava/beans/PropertyDescriptor;", "(Ljava/lang/Class<*>;Ljava/lang/String;)Ljava/beans/PropertyDescriptor;", $PRIVATE | $STATIC, $staticMethod(DefaultPersistenceDelegate, getPropertyDescriptor, $PropertyDescriptor*, $Class*, $String*)},
+		{"initBean", "(Ljava/lang/Class;Ljava/lang/Object;Ljava/lang/Object;Ljava/beans/Encoder;)V", "(Ljava/lang/Class<*>;Ljava/lang/Object;Ljava/lang/Object;Ljava/beans/Encoder;)V", $PRIVATE, $method(DefaultPersistenceDelegate, initBean, void, $Class*, Object$*, Object$*, $Encoder*)},
+		{"initialize", "(Ljava/lang/Class;Ljava/lang/Object;Ljava/lang/Object;Ljava/beans/Encoder;)V", "(Ljava/lang/Class<*>;Ljava/lang/Object;Ljava/lang/Object;Ljava/beans/Encoder;)V", $PROTECTED, $virtualMethod(DefaultPersistenceDelegate, initialize, void, $Class*, Object$*, Object$*, $Encoder*)},
+		{"instantiate", "(Ljava/lang/Object;Ljava/beans/Encoder;)Ljava/beans/Expression;", nullptr, $PROTECTED, $virtualMethod(DefaultPersistenceDelegate, instantiate, $Expression*, Object$*, $Encoder*)},
+		{"invokeStatement", "(Ljava/lang/Object;Ljava/lang/String;[Ljava/lang/Object;Ljava/beans/Encoder;)V", nullptr, $STATIC, $staticMethod(DefaultPersistenceDelegate, invokeStatement, void, Object$*, $String*, $ObjectArray*, $Encoder*)},
+		{"mutatesTo", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PROTECTED, $virtualMethod(DefaultPersistenceDelegate, mutatesTo, bool, Object$*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.beans.DefaultPersistenceDelegate",
+		"java.beans.PersistenceDelegate",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DefaultPersistenceDelegate, name, initialize, &classInfo$$, DefaultPersistenceDelegate::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(DefaultPersistenceDelegate);
+	});
 	return class$;
 }
 

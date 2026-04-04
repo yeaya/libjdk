@@ -23,6 +23,7 @@ class GTKConstants$Orientation : public ::java::lang::Enum {
 public:
 	GTKConstants$Orientation();
 	static $Array<::com::sun::java::swing::plaf::gtk::GTKConstants$Orientation>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::com::sun::java::swing::plaf::gtk::GTKConstants$Orientation* valueOf($String* name);
 	static $Array<::com::sun::java::swing::plaf::gtk::GTKConstants$Orientation>* values();

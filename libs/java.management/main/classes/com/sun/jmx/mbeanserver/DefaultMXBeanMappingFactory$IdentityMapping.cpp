@@ -1,5 +1,4 @@
 #include <com/sun/jmx/mbeanserver/DefaultMXBeanMappingFactory$IdentityMapping.h>
-
 #include <com/sun/jmx/mbeanserver/DefaultMXBeanMappingFactory$NonNullMXBeanMapping.h>
 #include <com/sun/jmx/mbeanserver/DefaultMXBeanMappingFactory.h>
 #include <java/lang/reflect/Type.h>
@@ -17,40 +16,6 @@ namespace com {
 	namespace sun {
 		namespace jmx {
 			namespace mbeanserver {
-
-$MethodInfo _DefaultMXBeanMappingFactory$IdentityMapping_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/reflect/Type;Ljavax/management/openmbean/OpenType;)V", "(Ljava/lang/reflect/Type;Ljavax/management/openmbean/OpenType<*>;)V", 0, $method(DefaultMXBeanMappingFactory$IdentityMapping, init$, void, $Type*, $OpenType*)},
-	{"fromNonNullOpenValue", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, 0, $virtualMethod(DefaultMXBeanMappingFactory$IdentityMapping, fromNonNullOpenValue, $Object*, Object$*), "java.io.InvalidObjectException"},
-	{"isIdentity", "()Z", nullptr, 0, $virtualMethod(DefaultMXBeanMappingFactory$IdentityMapping, isIdentity, bool)},
-	{"toNonNullOpenValue", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, 0, $virtualMethod(DefaultMXBeanMappingFactory$IdentityMapping, toNonNullOpenValue, $Object*, Object$*), "javax.management.openmbean.OpenDataException"},
-	{}
-};
-
-$InnerClassInfo _DefaultMXBeanMappingFactory$IdentityMapping_InnerClassesInfo_[] = {
-	{"com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory$IdentityMapping", "com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory", "IdentityMapping", $PRIVATE | $STATIC | $FINAL},
-	{"com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory$NonNullMXBeanMapping", "com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory", "NonNullMXBeanMapping", $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _DefaultMXBeanMappingFactory$IdentityMapping_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory$IdentityMapping",
-	"com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory$NonNullMXBeanMapping",
-	nullptr,
-	nullptr,
-	_DefaultMXBeanMappingFactory$IdentityMapping_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DefaultMXBeanMappingFactory$IdentityMapping_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory"
-};
-
-$Object* allocate$DefaultMXBeanMappingFactory$IdentityMapping($Class* clazz) {
-	return $of($alloc(DefaultMXBeanMappingFactory$IdentityMapping));
-}
 
 void DefaultMXBeanMappingFactory$IdentityMapping::init$($Type* targetType, $OpenType* openType) {
 	$DefaultMXBeanMappingFactory$NonNullMXBeanMapping::init$(targetType, openType);
@@ -72,7 +37,36 @@ DefaultMXBeanMappingFactory$IdentityMapping::DefaultMXBeanMappingFactory$Identit
 }
 
 $Class* DefaultMXBeanMappingFactory$IdentityMapping::load$($String* name, bool initialize) {
-	$loadClass(DefaultMXBeanMappingFactory$IdentityMapping, name, initialize, &_DefaultMXBeanMappingFactory$IdentityMapping_ClassInfo_, allocate$DefaultMXBeanMappingFactory$IdentityMapping);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/reflect/Type;Ljavax/management/openmbean/OpenType;)V", "(Ljava/lang/reflect/Type;Ljavax/management/openmbean/OpenType<*>;)V", 0, $method(DefaultMXBeanMappingFactory$IdentityMapping, init$, void, $Type*, $OpenType*)},
+		{"fromNonNullOpenValue", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, 0, $virtualMethod(DefaultMXBeanMappingFactory$IdentityMapping, fromNonNullOpenValue, $Object*, Object$*), "java.io.InvalidObjectException"},
+		{"isIdentity", "()Z", nullptr, 0, $virtualMethod(DefaultMXBeanMappingFactory$IdentityMapping, isIdentity, bool)},
+		{"toNonNullOpenValue", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, 0, $virtualMethod(DefaultMXBeanMappingFactory$IdentityMapping, toNonNullOpenValue, $Object*, Object$*), "javax.management.openmbean.OpenDataException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory$IdentityMapping", "com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory", "IdentityMapping", $PRIVATE | $STATIC | $FINAL},
+		{"com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory$NonNullMXBeanMapping", "com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory", "NonNullMXBeanMapping", $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory$IdentityMapping",
+		"com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory$NonNullMXBeanMapping",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory"
+	};
+	$loadClass(DefaultMXBeanMappingFactory$IdentityMapping, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DefaultMXBeanMappingFactory$IdentityMapping);
+	});
 	return class$;
 }
 

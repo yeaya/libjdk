@@ -1,5 +1,4 @@
 #include <sun/font/Type1Font.h>
-
 #include <java/awt/FontFormatException.h>
 #include <java/io/IOException.h>
 #include <java/io/RandomAccessFile.h>
@@ -11,7 +10,6 @@
 #include <java/nio/channels/ClosedChannelException.h>
 #include <java/nio/channels/FileChannel.h>
 #include <java/security/AccessController.h>
-#include <java/security/PrivilegedAction.h>
 #include <java/util/HashMap.h>
 #include <java/util/HashSet.h>
 #include <sun/font/CharToGlyphMapper.h>
@@ -24,7 +22,6 @@
 #include <sun/font/Type1Font$T1DisposerRecord.h>
 #include <sun/font/Type1GlyphMapper.h>
 #include <sun/java2d/Disposer.h>
-#include <sun/java2d/DisposerRecord.h>
 #include <jcpp.h>
 
 #undef BIG_ENDIAN
@@ -51,7 +48,6 @@ using $ByteOrder = ::java::nio::ByteOrder;
 using $ClosedChannelException = ::java::nio::channels::ClosedChannelException;
 using $FileChannel = ::java::nio::channels::FileChannel;
 using $AccessController = ::java::security::AccessController;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $HashMap = ::java::util::HashMap;
 using $HashSet = ::java::util::HashSet;
 using $CharToGlyphMapper = ::sun::font::CharToGlyphMapper;
@@ -64,80 +60,9 @@ using $Type1Font$2 = ::sun::font::Type1Font$2;
 using $Type1Font$T1DisposerRecord = ::sun::font::Type1Font$T1DisposerRecord;
 using $Type1GlyphMapper = ::sun::font::Type1GlyphMapper;
 using $Disposer = ::sun::java2d::Disposer;
-using $DisposerRecord = ::sun::java2d::DisposerRecord;
 
 namespace sun {
 	namespace font {
-
-$FieldInfo _Type1Font_FieldInfo_[] = {
-	{"bufferRef", "Ljava/lang/ref/WeakReference;", "Ljava/lang/ref/WeakReference<Ljava/nio/ByteBuffer;>;", 0, $field(Type1Font, bufferRef)},
-	{"psName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(Type1Font, psName)},
-	{"styleAbbreviationsMapping", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/String;>;", $PRIVATE | $STATIC, $staticField(Type1Font, styleAbbreviationsMapping)},
-	{"styleNameTokes", "Ljava/util/HashSet;", "Ljava/util/HashSet<Ljava/lang/String;>;", $PRIVATE | $STATIC, $staticField(Type1Font, styleNameTokes)},
-	{"PSEOFTOKEN", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Type1Font, PSEOFTOKEN)},
-	{"PSNAMETOKEN", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Type1Font, PSNAMETOKEN)},
-	{"PSSTRINGTOKEN", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Type1Font, PSSTRINGTOKEN)},
-	{}
-};
-
-$MethodInfo _Type1Font_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(Type1Font, init$, void, $String*, Object$*), "java.awt.FontFormatException"},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Object;Z)V", nullptr, $PUBLIC, $method(Type1Font, init$, void, $String*, Object$*, bool), "java.awt.FontFormatException"},
-	{"close", "()V", nullptr, $PROTECTED, $virtualMethod(Type1Font, close, void)},
-	{"expandAbbreviation", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(Type1Font, expandAbbreviation, $String*, $String*)},
-	{"expandName", "(Ljava/lang/String;Z)Ljava/lang/String;", nullptr, $PRIVATE, $method(Type1Font, expandName, $String*, $String*, bool)},
-	{"fullName2FamilyName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(Type1Font, fullName2FamilyName, $String*, $String*)},
-	{"getBuffer", "()Ljava/nio/ByteBuffer;", nullptr, $PRIVATE | $SYNCHRONIZED, $method(Type1Font, getBuffer, $ByteBuffer*), "java.awt.FontFormatException"},
-	{"getFileSize", "()I", nullptr, $PUBLIC, $virtualMethod(Type1Font, getFileSize, int32_t)},
-	{"getGlyphCode", "(C)I", nullptr, $PUBLIC, $virtualMethod(Type1Font, getGlyphCode, int32_t, char16_t)},
-	{"getMapper", "()Lsun/font/CharToGlyphMapper;", nullptr, 0, $virtualMethod(Type1Font, getMapper, $CharToGlyphMapper*)},
-	{"getMissingGlyphCode", "()I", nullptr, $PUBLIC, $virtualMethod(Type1Font, getMissingGlyphCode, int32_t)},
-	{"getNumGlyphs", "()I", nullptr, $PUBLIC, $virtualMethod(Type1Font, getNumGlyphs, int32_t)},
-	{"getPostscriptName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Type1Font, getPostscriptName, $String*)},
-	{"getScaler", "()Lsun/font/FontScaler;", nullptr, $PROTECTED | $SYNCHRONIZED, $virtualMethod(Type1Font, getScaler, $FontScaler*)},
-	{"getSimpleToken", "(Ljava/nio/ByteBuffer;)Ljava/lang/String;", nullptr, $PRIVATE, $method(Type1Font, getSimpleToken, $String*, $ByteBuffer*)},
-	{"getString", "(Ljava/nio/ByteBuffer;)Ljava/lang/String;", nullptr, $PRIVATE, $method(Type1Font, getString, $String*, $ByteBuffer*)},
-	{"initNames", "(Ljava/nio/ByteBuffer;)V", nullptr, $PRIVATE, $method(Type1Font, initNames, void, $ByteBuffer*), "java.awt.FontFormatException"},
-	{"isStyleToken", "(Ljava/lang/String;)Z", nullptr, $PRIVATE, $method(Type1Font, isStyleToken, bool, $String*)},
-	{"nextCapitalLetter", "(Ljava/lang/String;I)I", nullptr, $PRIVATE, $method(Type1Font, nextCapitalLetter, int32_t, $String*, int32_t)},
-	{"nextTokenType", "(Ljava/nio/ByteBuffer;)I", nullptr, $PRIVATE, $method(Type1Font, nextTokenType, int32_t, $ByteBuffer*)},
-	{"psName2FamilyName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(Type1Font, psName2FamilyName, $String*, $String*)},
-	{"psName2FullName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(Type1Font, psName2FullName, $String*, $String*)},
-	{"readBlock", "(II)Ljava/nio/ByteBuffer;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Type1Font, readBlock, $ByteBuffer*, int32_t, int32_t)},
-	{"readFile", "(Ljava/nio/ByteBuffer;)V", nullptr, 0, $virtualMethod(Type1Font, readFile, void, $ByteBuffer*)},
-	{"skip", "(Ljava/nio/ByteBuffer;)B", nullptr, $PRIVATE, $method(Type1Font, skip, int8_t, $ByteBuffer*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Type1Font, toString, $String*)},
-	{"verify", "()V", nullptr, $PRIVATE, $method(Type1Font, verify, void), "java.awt.FontFormatException"},
-	{"verifyPFA", "(Ljava/nio/ByteBuffer;)V", nullptr, $PRIVATE, $method(Type1Font, verifyPFA, void, $ByteBuffer*), "java.awt.FontFormatException"},
-	{"verifyPFB", "(Ljava/nio/ByteBuffer;)V", nullptr, $PRIVATE, $method(Type1Font, verifyPFB, void, $ByteBuffer*), "java.awt.FontFormatException"},
-	{}
-};
-
-$InnerClassInfo _Type1Font_InnerClassesInfo_[] = {
-	{"sun.font.Type1Font$T1DisposerRecord", "sun.font.Type1Font", "T1DisposerRecord", $PRIVATE | $STATIC},
-	{"sun.font.Type1Font$2", nullptr, nullptr, 0},
-	{"sun.font.Type1Font$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Type1Font_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.font.Type1Font",
-	"sun.font.FileFont",
-	nullptr,
-	_Type1Font_FieldInfo_,
-	_Type1Font_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Type1Font_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.font.Type1Font$T1DisposerRecord,sun.font.Type1Font$T1DisposerRecord$1,sun.font.Type1Font$2,sun.font.Type1Font$1"
-};
-
-$Object* allocate$Type1Font($Class* clazz) {
-	return $of($alloc(Type1Font));
-}
 
 $HashMap* Type1Font::styleAbbreviationsMapping = nullptr;
 $HashSet* Type1Font::styleNameTokes = nullptr;
@@ -169,12 +94,12 @@ void Type1Font::init$($String* platname, Object$* nativeNames, bool createdCopy)
 
 $ByteBuffer* Type1Font::getBuffer() {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$beforeCallerSensitive();
 		$var($ByteBuffer, bbuf, $cast($ByteBuffer, $nc(this->bufferRef)->get()));
 		if (bbuf == nullptr) {
 			try {
-				$var($RandomAccessFile, raf, $cast($RandomAccessFile, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($Type1Font$1, this)))));
+				$var($RandomAccessFile, raf, $cast($RandomAccessFile, $AccessController::doPrivileged($$new($Type1Font$1, this))));
 				$var($FileChannel, fc, $nc(raf)->getChannel());
 				this->fileSize = (int32_t)$nc(fc)->size();
 				$assign(bbuf, $ByteBuffer::allocate(this->fileSize));
@@ -199,50 +124,48 @@ void Type1Font::close() {
 }
 
 void Type1Font::readFile($ByteBuffer* buffer) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$var($RandomAccessFile, raf, nullptr);
 	$var($FileChannel, fc, nullptr);
-	{
-		$var($Throwable, var$0, nullptr);
+	$var($Throwable, var$0, nullptr);
+	try {
 		try {
+			$assign(raf, $cast($RandomAccessFile, $AccessController::doPrivileged($$new($Type1Font$2, this))));
+			$assign(fc, $nc(raf)->getChannel());
+			while (true) {
+				bool var$1 = $nc(buffer)->remaining() > 0;
+				if (!(var$1 && $nc(fc)->read(buffer) != -1)) {
+					break;
+				}
+				{
+				}
+			}
+		} catch ($NullPointerException& npe) {
+		} catch ($ClosedChannelException& e) {
 			try {
-				$assign(raf, $cast($RandomAccessFile, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($Type1Font$2, this)))));
-				$assign(fc, $nc(raf)->getChannel());
-				while (true) {
-					bool var$1 = $nc(buffer)->remaining() > 0;
-					if (!(var$1 && $nc(fc)->read(buffer) != -1)) {
-						break;
-					}
-					{
-					}
+				if (raf != nullptr) {
+					raf->close();
+					$assign(raf, nullptr);
 				}
-			} catch ($NullPointerException& npe) {
-			} catch ($ClosedChannelException& e) {
-				try {
-					if (raf != nullptr) {
-						raf->close();
-						$assign(raf, nullptr);
-					}
-				} catch ($IOException& ioe) {
-				}
-				$Thread::interrupted();
-				readFile(buffer);
+			} catch ($IOException& ioe) {
+			}
+			$Thread::interrupted();
+			readFile(buffer);
+		} catch ($IOException& e) {
+		}
+	} catch ($Throwable& var$2) {
+		$assign(var$0, var$2);
+	} /*finally*/ {
+		if (raf != nullptr) {
+			try {
+				raf->close();
 			} catch ($IOException& e) {
 			}
-		} catch ($Throwable& var$2) {
-			$assign(var$0, var$2);
-		} /*finally*/ {
-			if (raf != nullptr) {
-				try {
-					raf->close();
-				} catch ($IOException& e) {
-				}
-			}
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
@@ -268,8 +191,8 @@ void Type1Font::verify() {
 	if ($nc(bb)->capacity() < 6) {
 		$throwNew($FontFormatException, "short file"_s);
 	}
-	int32_t val = (int32_t)($nc(bb)->get(0) & (uint32_t)255);
-	if (((int32_t)(bb->get(0) & (uint32_t)255)) == 128) {
+	int32_t val = bb->get(0) & 0xff;
+	if ((bb->get(0) & 0xff) == 0x80) {
 		verifyPFB(bb);
 		bb->position(6);
 	} else {
@@ -300,11 +223,11 @@ void Type1Font::verifyPFA($ByteBuffer* bb) {
 }
 
 void Type1Font::verifyPFB($ByteBuffer* bb) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t pos = 0;
 	while (true) {
 		try {
-			int32_t segType = (int32_t)($nc(bb)->getShort(pos) & (uint32_t)0x0000FFFF);
+			int32_t segType = $nc(bb)->getShort(pos) & 0xffff;
 			if (segType == 0x00008001 || segType == 0x00008002) {
 				$init($ByteOrder);
 				bb->order($ByteOrder::LITTLE_ENDIAN);
@@ -328,7 +251,7 @@ void Type1Font::verifyPFB($ByteBuffer* bb) {
 }
 
 void Type1Font::initNames($ByteBuffer* bb) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool eof = false;
 	$var($String, fontType, nullptr);
 	try {
@@ -358,6 +281,7 @@ void Type1Font::initNames($ByteBuffer* bb) {
 					}
 				} else {
 					while (bb->get() > u' ') {
+						;
 					}
 				}
 			} else if (tokenType == Type1Font::PSEOFTOKEN) {
@@ -395,7 +319,7 @@ void Type1Font::initNames($ByteBuffer* bb) {
 }
 
 $String* Type1Font::fullName2FamilyName($String* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, res, nullptr);
 	$var($String, token, nullptr);
 	int32_t len = 0;
@@ -417,7 +341,7 @@ $String* Type1Font::fullName2FamilyName($String* name) {
 
 $String* Type1Font::expandAbbreviation($String* abbr) {
 	if ($nc(Type1Font::styleAbbreviationsMapping)->containsKey(abbr)) {
-		return $cast($String, $nc(Type1Font::styleAbbreviationsMapping)->get(abbr));
+		return $cast($String, Type1Font::styleAbbreviationsMapping->get(abbr));
 	}
 	return abbr;
 }
@@ -427,10 +351,10 @@ bool Type1Font::isStyleToken($String* token) {
 }
 
 $String* Type1Font::psName2FullName($String* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, res, nullptr);
 	int32_t pos = 0;
-	pos = $nc(name)->indexOf((int32_t)u'-');
+	pos = $nc(name)->indexOf(u'-');
 	if (pos >= 0) {
 		$assign(res, expandName($(name->substring(0, pos)), false));
 		$plusAssign(res, $$str({" "_s, $(expandName($(name->substring(pos + 1)), true))}));
@@ -442,8 +366,8 @@ $String* Type1Font::psName2FullName($String* name) {
 
 $String* Type1Font::psName2FamilyName($String* name) {
 	$var($String, tmp, name);
-	if ($nc(tmp)->indexOf((int32_t)u'-') > 0) {
-		$assign(tmp, tmp->substring(0, tmp->indexOf((int32_t)u'-')));
+	if ($nc(tmp)->indexOf(u'-') > 0) {
+		$assign(tmp, tmp->substring(0, tmp->indexOf(u'-')));
 	}
 	return expandName(tmp, false);
 }
@@ -459,11 +383,11 @@ int32_t Type1Font::nextCapitalLetter($String* s, int32_t off) {
 }
 
 $String* Type1Font::expandName($String* s, bool tryExpandAbbreviations) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, res, $new($StringBuilder, $nc(s)->length() + 10));
 	int32_t start = 0;
 	int32_t end = 0;
-	while (start < $nc(s)->length()) {
+	while (start < s->length()) {
 		end = nextCapitalLetter(s, start + 1);
 		if (end < 0) {
 			end = s->length();
@@ -519,9 +443,11 @@ int32_t Type1Font::nextTokenType($ByteBuffer* bb) {
 
 $String* Type1Font::getSimpleToken($ByteBuffer* bb) {
 	while ($nc(bb)->get() <= u' ') {
+		;
 	}
-	int32_t pos1 = $nc(bb)->position() - 1;
+	int32_t pos1 = bb->position() - 1;
 	while (bb->get() > u' ') {
+		;
 	}
 	int32_t pos2 = bb->position();
 	$var($bytes, nameBytes, $new($bytes, pos2 - pos1 - 1));
@@ -538,6 +464,7 @@ $String* Type1Font::getSimpleToken($ByteBuffer* bb) {
 $String* Type1Font::getString($ByteBuffer* bb) {
 	int32_t pos1 = $nc(bb)->position();
 	while (bb->get() != u')') {
+		;
 	}
 	int32_t pos2 = bb->position();
 	$var($bytes, nameBytes, $new($bytes, pos2 - pos1 - 1));
@@ -573,7 +500,7 @@ $CharToGlyphMapper* Type1Font::getMapper() {
 
 int32_t Type1Font::getNumGlyphs() {
 	try {
-		return $nc($(getScaler()))->getNumGlyphs();
+		return $$nc(getScaler())->getNumGlyphs();
 	} catch ($FontScalerException& e) {
 		$set(this, scaler, $FontScaler::getNullScaler());
 		return getNumGlyphs();
@@ -583,7 +510,7 @@ int32_t Type1Font::getNumGlyphs() {
 
 int32_t Type1Font::getMissingGlyphCode() {
 	try {
-		return $nc($(getScaler()))->getMissingGlyphCode();
+		return $$nc(getScaler())->getMissingGlyphCode();
 	} catch ($FontScalerException& e) {
 		$set(this, scaler, $FontScaler::getNullScaler());
 		return getMissingGlyphCode();
@@ -593,7 +520,7 @@ int32_t Type1Font::getMissingGlyphCode() {
 
 int32_t Type1Font::getGlyphCode(char16_t charCode) {
 	try {
-		return $nc($(getScaler()))->getGlyphCode(charCode);
+		return $$nc(getScaler())->getGlyphCode(charCode);
 	} catch ($FontScalerException& e) {
 		$set(this, scaler, $FontScaler::getNullScaler());
 		return getGlyphCode(charCode);
@@ -602,12 +529,12 @@ int32_t Type1Font::getGlyphCode(char16_t charCode) {
 }
 
 $String* Type1Font::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $str({"** Type1 Font: Family="_s, this->familyName, " Name="_s, this->fullName, " style="_s, $$str(this->style), " fileName="_s, $(getPublicFileName())});
 }
 
-void clinit$Type1Font($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void Type1Font::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	{
 		$assignStatic(Type1Font::styleAbbreviationsMapping, $new($HashMap));
 		$assignStatic(Type1Font::styleNameTokes, $new($HashSet));
@@ -725,10 +652,10 @@ void clinit$Type1Font($Class* class$) {
 			"Extra"_s
 		}));
 		for (int32_t i = 0; i < nm->length; ++i) {
-			$nc(Type1Font::styleAbbreviationsMapping)->put(abbrv->get(i), nm->get(i));
+			Type1Font::styleAbbreviationsMapping->put(abbrv->get(i), nm->get(i));
 		}
 		for (int32_t i = 0; i < styleTokens->length; ++i) {
-			$nc(Type1Font::styleNameTokes)->add(styleTokens->get(i));
+			Type1Font::styleNameTokes->add(styleTokens->get(i));
 		}
 	}
 }
@@ -737,7 +664,71 @@ Type1Font::Type1Font() {
 }
 
 $Class* Type1Font::load$($String* name, bool initialize) {
-	$loadClass(Type1Font, name, initialize, &_Type1Font_ClassInfo_, clinit$Type1Font, allocate$Type1Font);
+	$FieldInfo fieldInfos$$[] = {
+		{"bufferRef", "Ljava/lang/ref/WeakReference;", "Ljava/lang/ref/WeakReference<Ljava/nio/ByteBuffer;>;", 0, $field(Type1Font, bufferRef)},
+		{"psName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(Type1Font, psName)},
+		{"styleAbbreviationsMapping", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/String;>;", $PRIVATE | $STATIC, $staticField(Type1Font, styleAbbreviationsMapping)},
+		{"styleNameTokes", "Ljava/util/HashSet;", "Ljava/util/HashSet<Ljava/lang/String;>;", $PRIVATE | $STATIC, $staticField(Type1Font, styleNameTokes)},
+		{"PSEOFTOKEN", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Type1Font, PSEOFTOKEN)},
+		{"PSNAMETOKEN", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Type1Font, PSNAMETOKEN)},
+		{"PSSTRINGTOKEN", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Type1Font, PSSTRINGTOKEN)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(Type1Font, init$, void, $String*, Object$*), "java.awt.FontFormatException"},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/Object;Z)V", nullptr, $PUBLIC, $method(Type1Font, init$, void, $String*, Object$*, bool), "java.awt.FontFormatException"},
+		{"close", "()V", nullptr, $PROTECTED, $virtualMethod(Type1Font, close, void)},
+		{"expandAbbreviation", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(Type1Font, expandAbbreviation, $String*, $String*)},
+		{"expandName", "(Ljava/lang/String;Z)Ljava/lang/String;", nullptr, $PRIVATE, $method(Type1Font, expandName, $String*, $String*, bool)},
+		{"fullName2FamilyName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(Type1Font, fullName2FamilyName, $String*, $String*)},
+		{"getBuffer", "()Ljava/nio/ByteBuffer;", nullptr, $PRIVATE | $SYNCHRONIZED, $method(Type1Font, getBuffer, $ByteBuffer*), "java.awt.FontFormatException"},
+		{"getFileSize", "()I", nullptr, $PUBLIC, $virtualMethod(Type1Font, getFileSize, int32_t)},
+		{"getGlyphCode", "(C)I", nullptr, $PUBLIC, $virtualMethod(Type1Font, getGlyphCode, int32_t, char16_t)},
+		{"getMapper", "()Lsun/font/CharToGlyphMapper;", nullptr, 0, $virtualMethod(Type1Font, getMapper, $CharToGlyphMapper*)},
+		{"getMissingGlyphCode", "()I", nullptr, $PUBLIC, $virtualMethod(Type1Font, getMissingGlyphCode, int32_t)},
+		{"getNumGlyphs", "()I", nullptr, $PUBLIC, $virtualMethod(Type1Font, getNumGlyphs, int32_t)},
+		{"getPostscriptName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Type1Font, getPostscriptName, $String*)},
+		{"getScaler", "()Lsun/font/FontScaler;", nullptr, $PROTECTED | $SYNCHRONIZED, $virtualMethod(Type1Font, getScaler, $FontScaler*)},
+		{"getSimpleToken", "(Ljava/nio/ByteBuffer;)Ljava/lang/String;", nullptr, $PRIVATE, $method(Type1Font, getSimpleToken, $String*, $ByteBuffer*)},
+		{"getString", "(Ljava/nio/ByteBuffer;)Ljava/lang/String;", nullptr, $PRIVATE, $method(Type1Font, getString, $String*, $ByteBuffer*)},
+		{"initNames", "(Ljava/nio/ByteBuffer;)V", nullptr, $PRIVATE, $method(Type1Font, initNames, void, $ByteBuffer*), "java.awt.FontFormatException"},
+		{"isStyleToken", "(Ljava/lang/String;)Z", nullptr, $PRIVATE, $method(Type1Font, isStyleToken, bool, $String*)},
+		{"nextCapitalLetter", "(Ljava/lang/String;I)I", nullptr, $PRIVATE, $method(Type1Font, nextCapitalLetter, int32_t, $String*, int32_t)},
+		{"nextTokenType", "(Ljava/nio/ByteBuffer;)I", nullptr, $PRIVATE, $method(Type1Font, nextTokenType, int32_t, $ByteBuffer*)},
+		{"psName2FamilyName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(Type1Font, psName2FamilyName, $String*, $String*)},
+		{"psName2FullName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(Type1Font, psName2FullName, $String*, $String*)},
+		{"readBlock", "(II)Ljava/nio/ByteBuffer;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Type1Font, readBlock, $ByteBuffer*, int32_t, int32_t)},
+		{"readFile", "(Ljava/nio/ByteBuffer;)V", nullptr, 0, $virtualMethod(Type1Font, readFile, void, $ByteBuffer*)},
+		{"skip", "(Ljava/nio/ByteBuffer;)B", nullptr, $PRIVATE, $method(Type1Font, skip, int8_t, $ByteBuffer*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Type1Font, toString, $String*)},
+		{"verify", "()V", nullptr, $PRIVATE, $method(Type1Font, verify, void), "java.awt.FontFormatException"},
+		{"verifyPFA", "(Ljava/nio/ByteBuffer;)V", nullptr, $PRIVATE, $method(Type1Font, verifyPFA, void, $ByteBuffer*), "java.awt.FontFormatException"},
+		{"verifyPFB", "(Ljava/nio/ByteBuffer;)V", nullptr, $PRIVATE, $method(Type1Font, verifyPFB, void, $ByteBuffer*), "java.awt.FontFormatException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.font.Type1Font$T1DisposerRecord", "sun.font.Type1Font", "T1DisposerRecord", $PRIVATE | $STATIC},
+		{"sun.font.Type1Font$2", nullptr, nullptr, 0},
+		{"sun.font.Type1Font$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.font.Type1Font",
+		"sun.font.FileFont",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.font.Type1Font$T1DisposerRecord,sun.font.Type1Font$T1DisposerRecord$1,sun.font.Type1Font$2,sun.font.Type1Font$1"
+	};
+	$loadClass(Type1Font, name, initialize, &classInfo$$, Type1Font::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Type1Font);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <java/awt/dnd/DropTargetContext.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/datatransfer/DataFlavor.h>
 #include <java/awt/datatransfer/Transferable.h>
@@ -10,7 +9,6 @@
 #include <java/awt/dnd/peer/DropTargetContextPeer.h>
 #include <java/util/Arrays.h>
 #include <java/util/List.h>
-#include <sun/awt/AWTAccessor$DropTargetContextAccessor.h>
 #include <sun/awt/AWTAccessor.h>
 #include <jcpp.h>
 
@@ -30,66 +28,10 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Arrays = ::java::util::Arrays;
 using $List = ::java::util::List;
 using $AWTAccessor = ::sun::awt::AWTAccessor;
-using $AWTAccessor$DropTargetContextAccessor = ::sun::awt::AWTAccessor$DropTargetContextAccessor;
 
 namespace java {
 	namespace awt {
 		namespace dnd {
-
-$FieldInfo _DropTargetContext_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DropTargetContext, serialVersionUID)},
-	{"dropTarget", "Ljava/awt/dnd/DropTarget;", nullptr, $PRIVATE | $FINAL, $field(DropTargetContext, dropTarget)},
-	{"dropTargetContextPeer", "Ljava/awt/dnd/peer/DropTargetContextPeer;", nullptr, $PRIVATE | $TRANSIENT, $field(DropTargetContext, dropTargetContextPeer)},
-	{"transferable", "Ljava/awt/datatransfer/Transferable;", nullptr, $PRIVATE | $TRANSIENT, $field(DropTargetContext, transferable)},
-	{}
-};
-
-$MethodInfo _DropTargetContext_MethodInfo_[] = {
-	{"<init>", "(Ljava/awt/dnd/DropTarget;)V", nullptr, 0, $method(DropTargetContext, init$, void, $DropTarget*)},
-	{"acceptDrag", "(I)V", nullptr, $PROTECTED, $virtualMethod(DropTargetContext, acceptDrag, void, int32_t)},
-	{"acceptDrop", "(I)V", nullptr, $PROTECTED, $virtualMethod(DropTargetContext, acceptDrop, void, int32_t)},
-	{"createTransferableProxy", "(Ljava/awt/datatransfer/Transferable;Z)Ljava/awt/datatransfer/Transferable;", nullptr, $PROTECTED, $virtualMethod(DropTargetContext, createTransferableProxy, $Transferable*, $Transferable*, bool)},
-	{"dropComplete", "(Z)V", nullptr, $PUBLIC, $virtualMethod(DropTargetContext, dropComplete, void, bool), "java.awt.dnd.InvalidDnDOperationException"},
-	{"getComponent", "()Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(DropTargetContext, getComponent, $Component*)},
-	{"getCurrentDataFlavors", "()[Ljava/awt/datatransfer/DataFlavor;", nullptr, $PROTECTED, $virtualMethod(DropTargetContext, getCurrentDataFlavors, $DataFlavorArray*)},
-	{"getCurrentDataFlavorsAsList", "()Ljava/util/List;", "()Ljava/util/List<Ljava/awt/datatransfer/DataFlavor;>;", $PROTECTED, $virtualMethod(DropTargetContext, getCurrentDataFlavorsAsList, $List*)},
-	{"getDropTarget", "()Ljava/awt/dnd/DropTarget;", nullptr, $PUBLIC, $virtualMethod(DropTargetContext, getDropTarget, $DropTarget*)},
-	{"getDropTargetContextPeer", "()Ljava/awt/dnd/peer/DropTargetContextPeer;", nullptr, 0, $virtualMethod(DropTargetContext, getDropTargetContextPeer, $DropTargetContextPeer*)},
-	{"getTargetActions", "()I", nullptr, $PROTECTED, $virtualMethod(DropTargetContext, getTargetActions, int32_t)},
-	{"getTransferable", "()Ljava/awt/datatransfer/Transferable;", nullptr, $PROTECTED, $virtualMethod(DropTargetContext, getTransferable, $Transferable*), "java.awt.dnd.InvalidDnDOperationException"},
-	{"isDataFlavorSupported", "(Ljava/awt/datatransfer/DataFlavor;)Z", nullptr, $PROTECTED, $virtualMethod(DropTargetContext, isDataFlavorSupported, bool, $DataFlavor*)},
-	{"rejectDrag", "()V", nullptr, $PROTECTED, $virtualMethod(DropTargetContext, rejectDrag, void)},
-	{"rejectDrop", "()V", nullptr, $PROTECTED, $virtualMethod(DropTargetContext, rejectDrop, void)},
-	{"reset", "()V", nullptr, 0, $virtualMethod(DropTargetContext, reset, void)},
-	{"setDropTargetContextPeer", "(Ljava/awt/dnd/peer/DropTargetContextPeer;)V", nullptr, 0, $virtualMethod(DropTargetContext, setDropTargetContextPeer, void, $DropTargetContextPeer*)},
-	{"setTargetActions", "(I)V", nullptr, $PROTECTED, $virtualMethod(DropTargetContext, setTargetActions, void, int32_t)},
-	{}
-};
-
-$InnerClassInfo _DropTargetContext_InnerClassesInfo_[] = {
-	{"java.awt.dnd.DropTargetContext$TransferableProxy", "java.awt.dnd.DropTargetContext", "TransferableProxy", $PROTECTED},
-	{"java.awt.dnd.DropTargetContext$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _DropTargetContext_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.awt.dnd.DropTargetContext",
-	"java.lang.Object",
-	"java.io.Serializable",
-	_DropTargetContext_FieldInfo_,
-	_DropTargetContext_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DropTargetContext_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.awt.dnd.DropTargetContext$TransferableProxy,java.awt.dnd.DropTargetContext$1"
-};
-
-$Object* allocate$DropTargetContext($Class* clazz) {
-	return $of($alloc(DropTargetContext));
-}
 
 void DropTargetContext::init$($DropTarget* dt) {
 	$set(this, dropTarget, dt);
@@ -109,21 +51,21 @@ void DropTargetContext::reset() {
 }
 
 void DropTargetContext::setTargetActions(int32_t actions) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DropTargetContextPeer, peer, getDropTargetContextPeer());
 	if (peer != nullptr) {
 		$synchronized(peer) {
 			peer->setTargetActions(actions);
-			$nc($(getDropTarget()))->doSetDefaultActions(actions);
+			$$nc(getDropTarget())->doSetDefaultActions(actions);
 		}
 	} else {
-		$nc($(getDropTarget()))->doSetDefaultActions(actions);
+		$$nc(getDropTarget())->doSetDefaultActions(actions);
 	}
 }
 
 int32_t DropTargetContext::getTargetActions() {
 	$var($DropTargetContextPeer, peer, getDropTargetContextPeer());
-	return ((peer != nullptr) ? $nc(peer)->getTargetActions() : $nc(this->dropTarget)->getDefaultActions());
+	return ((peer != nullptr) ? peer->getTargetActions() : $nc(this->dropTarget)->getDefaultActions());
 }
 
 void DropTargetContext::dropComplete(bool success) {
@@ -163,7 +105,7 @@ void DropTargetContext::rejectDrop() {
 
 $DataFlavorArray* DropTargetContext::getCurrentDataFlavors() {
 	$var($DropTargetContextPeer, peer, getDropTargetContextPeer());
-	return peer != nullptr ? $nc(peer)->getTransferDataFlavors() : $new($DataFlavorArray, 0);
+	return peer != nullptr ? peer->getTransferDataFlavors() : $new($DataFlavorArray, 0);
 }
 
 $List* DropTargetContext::getCurrentDataFlavorsAsList() {
@@ -171,17 +113,17 @@ $List* DropTargetContext::getCurrentDataFlavorsAsList() {
 }
 
 bool DropTargetContext::isDataFlavorSupported($DataFlavor* df) {
-	return $nc($(getCurrentDataFlavorsAsList()))->contains(df);
+	return $$nc(getCurrentDataFlavorsAsList())->contains(df);
 }
 
 $Transferable* DropTargetContext::getTransferable() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DropTargetContextPeer, peer, getDropTargetContextPeer());
 	if (peer == nullptr) {
 		$throwNew($InvalidDnDOperationException);
 	} else {
 		if (this->transferable == nullptr) {
-			$var($Transferable, t, $nc(peer)->getTransferable());
+			$var($Transferable, t, peer->getTransferable());
 			bool isLocal = peer->isTransferableJVMLocal();
 			$synchronized(this) {
 				if (this->transferable == nullptr) {
@@ -205,7 +147,7 @@ $Transferable* DropTargetContext::createTransferableProxy($Transferable* t, bool
 	return $new($DropTargetContext$TransferableProxy, this, t, local);
 }
 
-void clinit$DropTargetContext($Class* class$) {
+void DropTargetContext::clinit$($Class* clazz) {
 	{
 		$AWTAccessor::setDropTargetContextAccessor($$new($DropTargetContext$1));
 	}
@@ -215,7 +157,56 @@ DropTargetContext::DropTargetContext() {
 }
 
 $Class* DropTargetContext::load$($String* name, bool initialize) {
-	$loadClass(DropTargetContext, name, initialize, &_DropTargetContext_ClassInfo_, clinit$DropTargetContext, allocate$DropTargetContext);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DropTargetContext, serialVersionUID)},
+		{"dropTarget", "Ljava/awt/dnd/DropTarget;", nullptr, $PRIVATE | $FINAL, $field(DropTargetContext, dropTarget)},
+		{"dropTargetContextPeer", "Ljava/awt/dnd/peer/DropTargetContextPeer;", nullptr, $PRIVATE | $TRANSIENT, $field(DropTargetContext, dropTargetContextPeer)},
+		{"transferable", "Ljava/awt/datatransfer/Transferable;", nullptr, $PRIVATE | $TRANSIENT, $field(DropTargetContext, transferable)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/dnd/DropTarget;)V", nullptr, 0, $method(DropTargetContext, init$, void, $DropTarget*)},
+		{"acceptDrag", "(I)V", nullptr, $PROTECTED, $virtualMethod(DropTargetContext, acceptDrag, void, int32_t)},
+		{"acceptDrop", "(I)V", nullptr, $PROTECTED, $virtualMethod(DropTargetContext, acceptDrop, void, int32_t)},
+		{"createTransferableProxy", "(Ljava/awt/datatransfer/Transferable;Z)Ljava/awt/datatransfer/Transferable;", nullptr, $PROTECTED, $virtualMethod(DropTargetContext, createTransferableProxy, $Transferable*, $Transferable*, bool)},
+		{"dropComplete", "(Z)V", nullptr, $PUBLIC, $virtualMethod(DropTargetContext, dropComplete, void, bool), "java.awt.dnd.InvalidDnDOperationException"},
+		{"getComponent", "()Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(DropTargetContext, getComponent, $Component*)},
+		{"getCurrentDataFlavors", "()[Ljava/awt/datatransfer/DataFlavor;", nullptr, $PROTECTED, $virtualMethod(DropTargetContext, getCurrentDataFlavors, $DataFlavorArray*)},
+		{"getCurrentDataFlavorsAsList", "()Ljava/util/List;", "()Ljava/util/List<Ljava/awt/datatransfer/DataFlavor;>;", $PROTECTED, $virtualMethod(DropTargetContext, getCurrentDataFlavorsAsList, $List*)},
+		{"getDropTarget", "()Ljava/awt/dnd/DropTarget;", nullptr, $PUBLIC, $virtualMethod(DropTargetContext, getDropTarget, $DropTarget*)},
+		{"getDropTargetContextPeer", "()Ljava/awt/dnd/peer/DropTargetContextPeer;", nullptr, 0, $virtualMethod(DropTargetContext, getDropTargetContextPeer, $DropTargetContextPeer*)},
+		{"getTargetActions", "()I", nullptr, $PROTECTED, $virtualMethod(DropTargetContext, getTargetActions, int32_t)},
+		{"getTransferable", "()Ljava/awt/datatransfer/Transferable;", nullptr, $PROTECTED, $virtualMethod(DropTargetContext, getTransferable, $Transferable*), "java.awt.dnd.InvalidDnDOperationException"},
+		{"isDataFlavorSupported", "(Ljava/awt/datatransfer/DataFlavor;)Z", nullptr, $PROTECTED, $virtualMethod(DropTargetContext, isDataFlavorSupported, bool, $DataFlavor*)},
+		{"rejectDrag", "()V", nullptr, $PROTECTED, $virtualMethod(DropTargetContext, rejectDrag, void)},
+		{"rejectDrop", "()V", nullptr, $PROTECTED, $virtualMethod(DropTargetContext, rejectDrop, void)},
+		{"reset", "()V", nullptr, 0, $virtualMethod(DropTargetContext, reset, void)},
+		{"setDropTargetContextPeer", "(Ljava/awt/dnd/peer/DropTargetContextPeer;)V", nullptr, 0, $virtualMethod(DropTargetContext, setDropTargetContextPeer, void, $DropTargetContextPeer*)},
+		{"setTargetActions", "(I)V", nullptr, $PROTECTED, $virtualMethod(DropTargetContext, setTargetActions, void, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.awt.dnd.DropTargetContext$TransferableProxy", "java.awt.dnd.DropTargetContext", "TransferableProxy", $PROTECTED},
+		{"java.awt.dnd.DropTargetContext$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.awt.dnd.DropTargetContext",
+		"java.lang.Object",
+		"java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.awt.dnd.DropTargetContext$TransferableProxy,java.awt.dnd.DropTargetContext$1"
+	};
+	$loadClass(DropTargetContext, name, initialize, &classInfo$$, DropTargetContext::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(DropTargetContext);
+	});
 	return class$;
 }
 

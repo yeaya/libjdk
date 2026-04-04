@@ -1,5 +1,4 @@
 #include <sun/security/krb5/internal/ccache/Credentials.h>
-
 #include <sun/security/krb5/Credentials.h>
 #include <sun/security/krb5/EncryptedData.h>
 #include <sun/security/krb5/EncryptionKey.h>
@@ -17,7 +16,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Credentials = ::sun::security::krb5::Credentials;
-using $EncryptedData = ::sun::security::krb5::EncryptedData;
 using $EncryptionKey = ::sun::security::krb5::EncryptionKey;
 using $PrincipalName = ::sun::security::krb5::PrincipalName;
 using $AuthorizationData = ::sun::security::krb5::internal::AuthorizationData;
@@ -32,59 +30,6 @@ namespace sun {
 		namespace krb5 {
 			namespace internal {
 				namespace ccache {
-
-$FieldInfo _Credentials_FieldInfo_[] = {
-	{"cname", "Lsun/security/krb5/PrincipalName;", nullptr, 0, $field(Credentials, cname)},
-	{"sname", "Lsun/security/krb5/PrincipalName;", nullptr, 0, $field(Credentials, sname)},
-	{"key", "Lsun/security/krb5/EncryptionKey;", nullptr, 0, $field(Credentials, key)},
-	{"authtime", "Lsun/security/krb5/internal/KerberosTime;", nullptr, 0, $field(Credentials, authtime)},
-	{"starttime", "Lsun/security/krb5/internal/KerberosTime;", nullptr, 0, $field(Credentials, starttime)},
-	{"endtime", "Lsun/security/krb5/internal/KerberosTime;", nullptr, 0, $field(Credentials, endtime)},
-	{"renewTill", "Lsun/security/krb5/internal/KerberosTime;", nullptr, 0, $field(Credentials, renewTill)},
-	{"caddr", "Lsun/security/krb5/internal/HostAddresses;", nullptr, 0, $field(Credentials, caddr)},
-	{"authorizationData", "Lsun/security/krb5/internal/AuthorizationData;", nullptr, 0, $field(Credentials, authorizationData)},
-	{"isEncInSKey", "Z", nullptr, $PUBLIC, $field(Credentials, isEncInSKey)},
-	{"flags", "Lsun/security/krb5/internal/TicketFlags;", nullptr, 0, $field(Credentials, flags)},
-	{"ticket", "Lsun/security/krb5/internal/Ticket;", nullptr, 0, $field(Credentials, ticket)},
-	{"secondTicket", "Lsun/security/krb5/internal/Ticket;", nullptr, 0, $field(Credentials, secondTicket)},
-	{}
-};
-
-$MethodInfo _Credentials_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/krb5/PrincipalName;Lsun/security/krb5/PrincipalName;Lsun/security/krb5/EncryptionKey;Lsun/security/krb5/internal/KerberosTime;Lsun/security/krb5/internal/KerberosTime;Lsun/security/krb5/internal/KerberosTime;Lsun/security/krb5/internal/KerberosTime;ZLsun/security/krb5/internal/TicketFlags;Lsun/security/krb5/internal/HostAddresses;Lsun/security/krb5/internal/AuthorizationData;Lsun/security/krb5/internal/Ticket;Lsun/security/krb5/internal/Ticket;)V", nullptr, $PUBLIC, $method(Credentials, init$, void, $PrincipalName*, $PrincipalName*, $EncryptionKey*, $KerberosTime*, $KerberosTime*, $KerberosTime*, $KerberosTime*, bool, $TicketFlags*, $HostAddresses*, $AuthorizationData*, $Ticket*, $Ticket*)},
-	{"<init>", "(Lsun/security/krb5/internal/KDCRep;Lsun/security/krb5/internal/Ticket;Lsun/security/krb5/internal/AuthorizationData;Z)V", nullptr, $PUBLIC, $method(Credentials, init$, void, $KDCRep*, $Ticket*, $AuthorizationData*, bool)},
-	{"<init>", "(Lsun/security/krb5/internal/KDCRep;)V", nullptr, $PUBLIC, $method(Credentials, init$, void, $KDCRep*)},
-	{"<init>", "(Lsun/security/krb5/internal/KDCRep;Lsun/security/krb5/internal/Ticket;)V", nullptr, $PUBLIC, $method(Credentials, init$, void, $KDCRep*, $Ticket*)},
-	{"getAuthTime", "()Lsun/security/krb5/internal/KerberosTime;", nullptr, $PUBLIC, $virtualMethod(Credentials, getAuthTime, $KerberosTime*)},
-	{"getClientPrincipal", "()Lsun/security/krb5/PrincipalName;", nullptr, $PUBLIC, $virtualMethod(Credentials, getClientPrincipal, $PrincipalName*), "sun.security.krb5.RealmException"},
-	{"getEType", "()I", nullptr, $PUBLIC, $virtualMethod(Credentials, getEType, int32_t)},
-	{"getEndTime", "()Lsun/security/krb5/internal/KerberosTime;", nullptr, $PUBLIC, $virtualMethod(Credentials, getEndTime, $KerberosTime*)},
-	{"getKey", "()Lsun/security/krb5/EncryptionKey;", nullptr, $PUBLIC, $virtualMethod(Credentials, getKey, $EncryptionKey*)},
-	{"getRenewTill", "()Lsun/security/krb5/internal/KerberosTime;", nullptr, $PUBLIC, $virtualMethod(Credentials, getRenewTill, $KerberosTime*)},
-	{"getServicePrincipal", "()Lsun/security/krb5/PrincipalName;", nullptr, $PUBLIC, $virtualMethod(Credentials, getServicePrincipal, $PrincipalName*), "sun.security.krb5.RealmException"},
-	{"getServicePrincipal2", "()Lsun/security/krb5/PrincipalName;", nullptr, $PUBLIC, $virtualMethod(Credentials, getServicePrincipal2, $PrincipalName*), "sun.security.krb5.RealmException"},
-	{"getStartTime", "()Lsun/security/krb5/internal/KerberosTime;", nullptr, $PUBLIC, $virtualMethod(Credentials, getStartTime, $KerberosTime*)},
-	{"getTicket", "()Lsun/security/krb5/internal/Ticket;", nullptr, $PUBLIC, $virtualMethod(Credentials, getTicket, $Ticket*), "sun.security.krb5.RealmException"},
-	{"getTicketFlags", "()Lsun/security/krb5/internal/TicketFlags;", nullptr, $PUBLIC, $virtualMethod(Credentials, getTicketFlags, $TicketFlags*)},
-	{"getTktEType", "()I", nullptr, $PUBLIC, $virtualMethod(Credentials, getTktEType, int32_t)},
-	{"getTktEType2", "()I", nullptr, $PUBLIC, $virtualMethod(Credentials, getTktEType2, int32_t)},
-	{"isValid", "()Z", nullptr, $PUBLIC, $virtualMethod(Credentials, isValid, bool)},
-	{"setKrbCreds", "()Lsun/security/krb5/Credentials;", nullptr, $PUBLIC, $virtualMethod(Credentials, setKrbCreds, $Credentials*)},
-	{}
-};
-
-$ClassInfo _Credentials_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.krb5.internal.ccache.Credentials",
-	"java.lang.Object",
-	nullptr,
-	_Credentials_FieldInfo_,
-	_Credentials_MethodInfo_
-};
-
-$Object* allocate$Credentials($Class* clazz) {
-	return $of($alloc(Credentials));
-}
 
 void Credentials::init$($PrincipalName* new_cname, $PrincipalName* new_sname, $EncryptionKey* new_key, $KerberosTime* new_authtime, $KerberosTime* new_starttime, $KerberosTime* new_endtime, $KerberosTime* new_renewTill, bool new_isEncInSKey, $TicketFlags* new_flags, $HostAddresses* new_caddr, $AuthorizationData* new_authData, $Ticket* new_ticket, $Ticket* new_secondTicket) {
 	$set(this, cname, $cast($PrincipalName, $nc(new_cname)->clone()));
@@ -102,7 +47,7 @@ void Credentials::init$($PrincipalName* new_cname, $PrincipalName* new_sname, $E
 	}
 	this->isEncInSKey = new_isEncInSKey;
 	$set(this, flags, $cast($TicketFlags, $nc(new_flags)->clone()));
-	$set(this, ticket, ($cast($Ticket, $nc(new_ticket)->clone())));
+	$set(this, ticket, $cast($Ticket, $nc(new_ticket)->clone()));
 	if (new_secondTicket != nullptr) {
 		$set(this, secondTicket, $cast($Ticket, new_secondTicket->clone()));
 	}
@@ -112,15 +57,15 @@ void Credentials::init$($KDCRep* kdcRep, $Ticket* new_secondTicket, $Authorizati
 	if ($nc(kdcRep)->encKDCRepPart == nullptr) {
 		return;
 	}
-	$set(this, cname, $cast($PrincipalName, $nc($nc(kdcRep)->cname)->clone()));
+	$set(this, cname, $cast($PrincipalName, $nc(kdcRep->cname)->clone()));
 	$set(this, ticket, $cast($Ticket, $nc(kdcRep->ticket)->clone()));
 	$set(this, key, $cast($EncryptionKey, $nc($nc(kdcRep->encKDCRepPart)->key)->clone()));
 	$set(this, flags, $cast($TicketFlags, $nc($nc(kdcRep->encKDCRepPart)->flags)->clone()));
 	$set(this, authtime, $nc(kdcRep->encKDCRepPart)->authtime);
-	$set(this, starttime, $nc(kdcRep->encKDCRepPart)->starttime);
-	$set(this, endtime, $nc(kdcRep->encKDCRepPart)->endtime);
-	$set(this, renewTill, $nc(kdcRep->encKDCRepPart)->renewTill);
-	$set(this, sname, $cast($PrincipalName, $nc($nc(kdcRep->encKDCRepPart)->sname)->clone()));
+	$set(this, starttime, kdcRep->encKDCRepPart->starttime);
+	$set(this, endtime, kdcRep->encKDCRepPart->endtime);
+	$set(this, renewTill, kdcRep->encKDCRepPart->renewTill);
+	$set(this, sname, $cast($PrincipalName, $nc(kdcRep->encKDCRepPart->sname)->clone()));
 	$set(this, caddr, $cast($HostAddresses, $nc($nc(kdcRep->encKDCRepPart)->caddr)->clone()));
 	$set(this, secondTicket, $cast($Ticket, $nc(new_secondTicket)->clone()));
 	$set(this, authorizationData, $cast($AuthorizationData, $nc(new_authorizationData)->clone()));
@@ -136,12 +81,12 @@ void Credentials::init$($KDCRep* kdcRep, $Ticket* new_ticket) {
 	$set(this, cname, $cast($PrincipalName, $nc(kdcRep->cname)->clone()));
 	$set(this, key, $cast($EncryptionKey, $nc($nc(kdcRep->encKDCRepPart)->key)->clone()));
 	$set(this, authtime, $nc(kdcRep->encKDCRepPart)->authtime);
-	$set(this, starttime, $nc(kdcRep->encKDCRepPart)->starttime);
-	$set(this, endtime, $nc(kdcRep->encKDCRepPart)->endtime);
-	$set(this, renewTill, $nc(kdcRep->encKDCRepPart)->renewTill);
-	$set(this, flags, $nc(kdcRep->encKDCRepPart)->flags);
-	if ($nc(kdcRep->encKDCRepPart)->caddr != nullptr) {
-		$set(this, caddr, $cast($HostAddresses, $nc($nc(kdcRep->encKDCRepPart)->caddr)->clone()));
+	$set(this, starttime, kdcRep->encKDCRepPart->starttime);
+	$set(this, endtime, kdcRep->encKDCRepPart->endtime);
+	$set(this, renewTill, kdcRep->encKDCRepPart->renewTill);
+	$set(this, flags, kdcRep->encKDCRepPart->flags);
+	if (kdcRep->encKDCRepPart->caddr != nullptr) {
+		$set(this, caddr, $cast($HostAddresses, kdcRep->encKDCRepPart->caddr->clone()));
 	} else {
 		$set(this, caddr, nullptr);
 	}
@@ -161,13 +106,13 @@ bool Credentials::isValid() {
 	if (var$0 < $System::currentTimeMillis()) {
 		valid = false;
 	} else if (this->starttime != nullptr) {
-		int64_t var$1 = $nc(this->starttime)->getTime();
+		int64_t var$1 = this->starttime->getTime();
 		if (var$1 > $System::currentTimeMillis()) {
 			valid = false;
 		}
 	} else {
-		int64_t var$3 = $nc(this->authtime)->getTime();
-		if (var$3 > $System::currentTimeMillis()) {
+		int64_t var$2 = $nc(this->authtime)->getTime();
+		if (var$2 > $System::currentTimeMillis()) {
 			valid = false;
 		}
 	}
@@ -183,7 +128,7 @@ $Ticket* Credentials::getTicket() {
 }
 
 $PrincipalName* Credentials::getServicePrincipal2() {
-	return this->secondTicket == nullptr ? ($PrincipalName*)nullptr : $nc(this->secondTicket)->sname;
+	return this->secondTicket == nullptr ? ($PrincipalName*)nullptr : this->secondTicket->sname;
 }
 
 $PrincipalName* Credentials::getClientPrincipal() {
@@ -227,14 +172,62 @@ int32_t Credentials::getTktEType() {
 }
 
 int32_t Credentials::getTktEType2() {
-	return (this->secondTicket == nullptr) ? 0 : $nc($nc(this->secondTicket)->encPart)->getEType();
+	return (this->secondTicket == nullptr) ? 0 : $nc(this->secondTicket->encPart)->getEType();
 }
 
 Credentials::Credentials() {
 }
 
 $Class* Credentials::load$($String* name, bool initialize) {
-	$loadClass(Credentials, name, initialize, &_Credentials_ClassInfo_, allocate$Credentials);
+	$FieldInfo fieldInfos$$[] = {
+		{"cname", "Lsun/security/krb5/PrincipalName;", nullptr, 0, $field(Credentials, cname)},
+		{"sname", "Lsun/security/krb5/PrincipalName;", nullptr, 0, $field(Credentials, sname)},
+		{"key", "Lsun/security/krb5/EncryptionKey;", nullptr, 0, $field(Credentials, key)},
+		{"authtime", "Lsun/security/krb5/internal/KerberosTime;", nullptr, 0, $field(Credentials, authtime)},
+		{"starttime", "Lsun/security/krb5/internal/KerberosTime;", nullptr, 0, $field(Credentials, starttime)},
+		{"endtime", "Lsun/security/krb5/internal/KerberosTime;", nullptr, 0, $field(Credentials, endtime)},
+		{"renewTill", "Lsun/security/krb5/internal/KerberosTime;", nullptr, 0, $field(Credentials, renewTill)},
+		{"caddr", "Lsun/security/krb5/internal/HostAddresses;", nullptr, 0, $field(Credentials, caddr)},
+		{"authorizationData", "Lsun/security/krb5/internal/AuthorizationData;", nullptr, 0, $field(Credentials, authorizationData)},
+		{"isEncInSKey", "Z", nullptr, $PUBLIC, $field(Credentials, isEncInSKey)},
+		{"flags", "Lsun/security/krb5/internal/TicketFlags;", nullptr, 0, $field(Credentials, flags)},
+		{"ticket", "Lsun/security/krb5/internal/Ticket;", nullptr, 0, $field(Credentials, ticket)},
+		{"secondTicket", "Lsun/security/krb5/internal/Ticket;", nullptr, 0, $field(Credentials, secondTicket)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/security/krb5/PrincipalName;Lsun/security/krb5/PrincipalName;Lsun/security/krb5/EncryptionKey;Lsun/security/krb5/internal/KerberosTime;Lsun/security/krb5/internal/KerberosTime;Lsun/security/krb5/internal/KerberosTime;Lsun/security/krb5/internal/KerberosTime;ZLsun/security/krb5/internal/TicketFlags;Lsun/security/krb5/internal/HostAddresses;Lsun/security/krb5/internal/AuthorizationData;Lsun/security/krb5/internal/Ticket;Lsun/security/krb5/internal/Ticket;)V", nullptr, $PUBLIC, $method(Credentials, init$, void, $PrincipalName*, $PrincipalName*, $EncryptionKey*, $KerberosTime*, $KerberosTime*, $KerberosTime*, $KerberosTime*, bool, $TicketFlags*, $HostAddresses*, $AuthorizationData*, $Ticket*, $Ticket*)},
+		{"<init>", "(Lsun/security/krb5/internal/KDCRep;Lsun/security/krb5/internal/Ticket;Lsun/security/krb5/internal/AuthorizationData;Z)V", nullptr, $PUBLIC, $method(Credentials, init$, void, $KDCRep*, $Ticket*, $AuthorizationData*, bool)},
+		{"<init>", "(Lsun/security/krb5/internal/KDCRep;)V", nullptr, $PUBLIC, $method(Credentials, init$, void, $KDCRep*)},
+		{"<init>", "(Lsun/security/krb5/internal/KDCRep;Lsun/security/krb5/internal/Ticket;)V", nullptr, $PUBLIC, $method(Credentials, init$, void, $KDCRep*, $Ticket*)},
+		{"getAuthTime", "()Lsun/security/krb5/internal/KerberosTime;", nullptr, $PUBLIC, $virtualMethod(Credentials, getAuthTime, $KerberosTime*)},
+		{"getClientPrincipal", "()Lsun/security/krb5/PrincipalName;", nullptr, $PUBLIC, $virtualMethod(Credentials, getClientPrincipal, $PrincipalName*), "sun.security.krb5.RealmException"},
+		{"getEType", "()I", nullptr, $PUBLIC, $virtualMethod(Credentials, getEType, int32_t)},
+		{"getEndTime", "()Lsun/security/krb5/internal/KerberosTime;", nullptr, $PUBLIC, $virtualMethod(Credentials, getEndTime, $KerberosTime*)},
+		{"getKey", "()Lsun/security/krb5/EncryptionKey;", nullptr, $PUBLIC, $virtualMethod(Credentials, getKey, $EncryptionKey*)},
+		{"getRenewTill", "()Lsun/security/krb5/internal/KerberosTime;", nullptr, $PUBLIC, $virtualMethod(Credentials, getRenewTill, $KerberosTime*)},
+		{"getServicePrincipal", "()Lsun/security/krb5/PrincipalName;", nullptr, $PUBLIC, $virtualMethod(Credentials, getServicePrincipal, $PrincipalName*), "sun.security.krb5.RealmException"},
+		{"getServicePrincipal2", "()Lsun/security/krb5/PrincipalName;", nullptr, $PUBLIC, $virtualMethod(Credentials, getServicePrincipal2, $PrincipalName*), "sun.security.krb5.RealmException"},
+		{"getStartTime", "()Lsun/security/krb5/internal/KerberosTime;", nullptr, $PUBLIC, $virtualMethod(Credentials, getStartTime, $KerberosTime*)},
+		{"getTicket", "()Lsun/security/krb5/internal/Ticket;", nullptr, $PUBLIC, $virtualMethod(Credentials, getTicket, $Ticket*), "sun.security.krb5.RealmException"},
+		{"getTicketFlags", "()Lsun/security/krb5/internal/TicketFlags;", nullptr, $PUBLIC, $virtualMethod(Credentials, getTicketFlags, $TicketFlags*)},
+		{"getTktEType", "()I", nullptr, $PUBLIC, $virtualMethod(Credentials, getTktEType, int32_t)},
+		{"getTktEType2", "()I", nullptr, $PUBLIC, $virtualMethod(Credentials, getTktEType2, int32_t)},
+		{"isValid", "()Z", nullptr, $PUBLIC, $virtualMethod(Credentials, isValid, bool)},
+		{"setKrbCreds", "()Lsun/security/krb5/Credentials;", nullptr, $PUBLIC, $virtualMethod(Credentials, setKrbCreds, $Credentials*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.krb5.internal.ccache.Credentials",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Credentials, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Credentials);
+	});
 	return class$;
 }
 

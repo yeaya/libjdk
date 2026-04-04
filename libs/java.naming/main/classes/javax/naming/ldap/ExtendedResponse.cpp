@@ -1,5 +1,4 @@
 #include <javax/naming/ldap/ExtendedResponse.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -9,27 +8,23 @@ namespace javax {
 	namespace naming {
 		namespace ldap {
 
-$MethodInfo _ExtendedResponse_MethodInfo_[] = {
-	{"getEncodedValue", "()[B", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ExtendedResponse, getEncodedValue, $bytes*)},
-	{"getID", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ExtendedResponse, getID, $String*)},
-	{}
-};
-
-$ClassInfo _ExtendedResponse_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"javax.naming.ldap.ExtendedResponse",
-	nullptr,
-	"java.io.Serializable",
-	nullptr,
-	_ExtendedResponse_MethodInfo_
-};
-
-$Object* allocate$ExtendedResponse($Class* clazz) {
-	return $of($alloc(ExtendedResponse));
-}
-
 $Class* ExtendedResponse::load$($String* name, bool initialize) {
-	$loadClass(ExtendedResponse, name, initialize, &_ExtendedResponse_ClassInfo_, allocate$ExtendedResponse);
+	$MethodInfo methodInfos$$[] = {
+		{"getEncodedValue", "()[B", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ExtendedResponse, getEncodedValue, $bytes*)},
+		{"getID", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ExtendedResponse, getID, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"javax.naming.ldap.ExtendedResponse",
+		nullptr,
+		"java.io.Serializable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ExtendedResponse, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ExtendedResponse);
+	});
 	return class$;
 }
 

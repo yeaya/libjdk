@@ -1,5 +1,4 @@
 #include <java/sql/ClientInfoStatus.h>
-
 #include <java/lang/Enum.h>
 #include <jcpp.h>
 
@@ -16,37 +15,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace java {
 	namespace sql {
-
-$FieldInfo _ClientInfoStatus_FieldInfo_[] = {
-	{"REASON_UNKNOWN", "Ljava/sql/ClientInfoStatus;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ClientInfoStatus, REASON_UNKNOWN)},
-	{"REASON_UNKNOWN_PROPERTY", "Ljava/sql/ClientInfoStatus;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ClientInfoStatus, REASON_UNKNOWN_PROPERTY)},
-	{"REASON_VALUE_INVALID", "Ljava/sql/ClientInfoStatus;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ClientInfoStatus, REASON_VALUE_INVALID)},
-	{"REASON_VALUE_TRUNCATED", "Ljava/sql/ClientInfoStatus;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ClientInfoStatus, REASON_VALUE_TRUNCATED)},
-	{"$VALUES", "[Ljava/sql/ClientInfoStatus;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(ClientInfoStatus, $VALUES)},
-	{}
-};
-
-$MethodInfo _ClientInfoStatus_MethodInfo_[] = {
-	{"$values", "()[Ljava/sql/ClientInfoStatus;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ClientInfoStatus, $values, $ClientInfoStatusArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(ClientInfoStatus, init$, void, $String*, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)Ljava/sql/ClientInfoStatus;", nullptr, $PUBLIC | $STATIC, $staticMethod(ClientInfoStatus, valueOf, ClientInfoStatus*, $String*)},
-	{"values", "()[Ljava/sql/ClientInfoStatus;", nullptr, $PUBLIC | $STATIC, $staticMethod(ClientInfoStatus, values, $ClientInfoStatusArray*)},
-	{}
-};
-
-$ClassInfo _ClientInfoStatus_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"java.sql.ClientInfoStatus",
-	"java.lang.Enum",
-	nullptr,
-	_ClientInfoStatus_FieldInfo_,
-	_ClientInfoStatus_MethodInfo_,
-	"Ljava/lang/Enum<Ljava/sql/ClientInfoStatus;>;"
-};
-
-$Object* allocate$ClientInfoStatus($Class* clazz) {
-	return $of($alloc(ClientInfoStatus));
-}
 
 ClientInfoStatus* ClientInfoStatus::REASON_UNKNOWN = nullptr;
 ClientInfoStatus* ClientInfoStatus::REASON_UNKNOWN_PROPERTY = nullptr;
@@ -78,7 +46,7 @@ void ClientInfoStatus::init$($String* $enum$name, int32_t $enum$ordinal) {
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$ClientInfoStatus($Class* class$) {
+void ClientInfoStatus::clinit$($Class* clazz) {
 	$assignStatic(ClientInfoStatus::REASON_UNKNOWN, $new(ClientInfoStatus, "REASON_UNKNOWN"_s, 0));
 	$assignStatic(ClientInfoStatus::REASON_UNKNOWN_PROPERTY, $new(ClientInfoStatus, "REASON_UNKNOWN_PROPERTY"_s, 1));
 	$assignStatic(ClientInfoStatus::REASON_VALUE_INVALID, $new(ClientInfoStatus, "REASON_VALUE_INVALID"_s, 2));
@@ -90,7 +58,33 @@ ClientInfoStatus::ClientInfoStatus() {
 }
 
 $Class* ClientInfoStatus::load$($String* name, bool initialize) {
-	$loadClass(ClientInfoStatus, name, initialize, &_ClientInfoStatus_ClassInfo_, clinit$ClientInfoStatus, allocate$ClientInfoStatus);
+	$FieldInfo fieldInfos$$[] = {
+		{"REASON_UNKNOWN", "Ljava/sql/ClientInfoStatus;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ClientInfoStatus, REASON_UNKNOWN)},
+		{"REASON_UNKNOWN_PROPERTY", "Ljava/sql/ClientInfoStatus;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ClientInfoStatus, REASON_UNKNOWN_PROPERTY)},
+		{"REASON_VALUE_INVALID", "Ljava/sql/ClientInfoStatus;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ClientInfoStatus, REASON_VALUE_INVALID)},
+		{"REASON_VALUE_TRUNCATED", "Ljava/sql/ClientInfoStatus;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ClientInfoStatus, REASON_VALUE_TRUNCATED)},
+		{"$VALUES", "[Ljava/sql/ClientInfoStatus;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(ClientInfoStatus, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Ljava/sql/ClientInfoStatus;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ClientInfoStatus, $values, $ClientInfoStatusArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(ClientInfoStatus, init$, void, $String*, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)Ljava/sql/ClientInfoStatus;", nullptr, $PUBLIC | $STATIC, $staticMethod(ClientInfoStatus, valueOf, ClientInfoStatus*, $String*)},
+		{"values", "()[Ljava/sql/ClientInfoStatus;", nullptr, $PUBLIC | $STATIC, $staticMethod(ClientInfoStatus, values, $ClientInfoStatusArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"java.sql.ClientInfoStatus",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Ljava/sql/ClientInfoStatus;>;"
+	};
+	$loadClass(ClientInfoStatus, name, initialize, &classInfo$$, ClientInfoStatus::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ClientInfoStatus));
+	});
 	return class$;
 }
 

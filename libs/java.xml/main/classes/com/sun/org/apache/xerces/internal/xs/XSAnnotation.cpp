@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/xs/XSAnnotation.h>
-
 #include <jcpp.h>
 
 #undef SAX_CONTENTHANDLER
@@ -18,34 +17,29 @@ namespace com {
 					namespace internal {
 						namespace xs {
 
-$FieldInfo _XSAnnotation_FieldInfo_[] = {
-	{"W3C_DOM_ELEMENT", "S", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XSAnnotation, W3C_DOM_ELEMENT)},
-	{"SAX_CONTENTHANDLER", "S", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XSAnnotation, SAX_CONTENTHANDLER)},
-	{"W3C_DOM_DOCUMENT", "S", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XSAnnotation, W3C_DOM_DOCUMENT)},
-	{}
-};
-
-$MethodInfo _XSAnnotation_MethodInfo_[] = {
-	{"getAnnotationString", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XSAnnotation, getAnnotationString, $String*)},
-	{"writeAnnotation", "(Ljava/lang/Object;S)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XSAnnotation, writeAnnotation, bool, Object$*, int16_t)},
-	{}
-};
-
-$ClassInfo _XSAnnotation_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.org.apache.xerces.internal.xs.XSAnnotation",
-	nullptr,
-	"com.sun.org.apache.xerces.internal.xs.XSObject",
-	_XSAnnotation_FieldInfo_,
-	_XSAnnotation_MethodInfo_
-};
-
-$Object* allocate$XSAnnotation($Class* clazz) {
-	return $of($alloc(XSAnnotation));
-}
-
 $Class* XSAnnotation::load$($String* name, bool initialize) {
-	$loadClass(XSAnnotation, name, initialize, &_XSAnnotation_ClassInfo_, allocate$XSAnnotation);
+	$FieldInfo fieldInfos$$[] = {
+		{"W3C_DOM_ELEMENT", "S", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XSAnnotation, W3C_DOM_ELEMENT)},
+		{"SAX_CONTENTHANDLER", "S", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XSAnnotation, SAX_CONTENTHANDLER)},
+		{"W3C_DOM_DOCUMENT", "S", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XSAnnotation, W3C_DOM_DOCUMENT)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"getAnnotationString", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XSAnnotation, getAnnotationString, $String*)},
+		{"writeAnnotation", "(Ljava/lang/Object;S)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XSAnnotation, writeAnnotation, bool, Object$*, int16_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.org.apache.xerces.internal.xs.XSAnnotation",
+		nullptr,
+		"com.sun.org.apache.xerces.internal.xs.XSObject",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XSAnnotation, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XSAnnotation);
+	});
 	return class$;
 }
 

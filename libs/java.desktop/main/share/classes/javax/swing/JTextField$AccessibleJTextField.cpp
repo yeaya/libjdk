@@ -1,10 +1,8 @@
 #include <javax/swing/JTextField$AccessibleJTextField.h>
-
 #include <javax/accessibility/AccessibleState.h>
 #include <javax/accessibility/AccessibleStateSet.h>
 #include <javax/swing/JTextField.h>
 #include <javax/swing/text/JTextComponent$AccessibleJTextComponent.h>
-#include <javax/swing/text/JTextComponent.h>
 #include <jcpp.h>
 
 #undef SINGLE_LINE
@@ -16,48 +14,10 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $AccessibleState = ::javax::accessibility::AccessibleState;
 using $AccessibleStateSet = ::javax::accessibility::AccessibleStateSet;
 using $JTextField = ::javax::swing::JTextField;
-using $JTextComponent = ::javax::swing::text::JTextComponent;
 using $JTextComponent$AccessibleJTextComponent = ::javax::swing::text::JTextComponent$AccessibleJTextComponent;
 
 namespace javax {
 	namespace swing {
-
-$FieldInfo _JTextField$AccessibleJTextField_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/JTextField;", nullptr, $FINAL | $SYNTHETIC, $field(JTextField$AccessibleJTextField, this$0)},
-	{}
-};
-
-$MethodInfo _JTextField$AccessibleJTextField_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/JTextField;)V", nullptr, $PROTECTED, $method(JTextField$AccessibleJTextField, init$, void, $JTextField*)},
-	{"getAccessibleStateSet", "()Ljavax/accessibility/AccessibleStateSet;", nullptr, $PUBLIC, $virtualMethod(JTextField$AccessibleJTextField, getAccessibleStateSet, $AccessibleStateSet*)},
-	{}
-};
-
-$InnerClassInfo _JTextField$AccessibleJTextField_InnerClassesInfo_[] = {
-	{"javax.swing.JTextField$AccessibleJTextField", "javax.swing.JTextField", "AccessibleJTextField", $PROTECTED},
-	{"javax.swing.text.JTextComponent$AccessibleJTextComponent", "javax.swing.text.JTextComponent", "AccessibleJTextComponent", $PUBLIC},
-	{}
-};
-
-$ClassInfo _JTextField$AccessibleJTextField_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.JTextField$AccessibleJTextField",
-	"javax.swing.text.JTextComponent$AccessibleJTextComponent",
-	nullptr,
-	_JTextField$AccessibleJTextField_FieldInfo_,
-	_JTextField$AccessibleJTextField_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JTextField$AccessibleJTextField_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.JTextField"
-};
-
-$Object* allocate$JTextField$AccessibleJTextField($Class* clazz) {
-	return $of($alloc(JTextField$AccessibleJTextField));
-}
 
 void JTextField$AccessibleJTextField::init$($JTextField* this$0) {
 	$set(this, this$0, this$0);
@@ -75,7 +35,38 @@ JTextField$AccessibleJTextField::JTextField$AccessibleJTextField() {
 }
 
 $Class* JTextField$AccessibleJTextField::load$($String* name, bool initialize) {
-	$loadClass(JTextField$AccessibleJTextField, name, initialize, &_JTextField$AccessibleJTextField_ClassInfo_, allocate$JTextField$AccessibleJTextField);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/JTextField;", nullptr, $FINAL | $SYNTHETIC, $field(JTextField$AccessibleJTextField, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/JTextField;)V", nullptr, $PROTECTED, $method(JTextField$AccessibleJTextField, init$, void, $JTextField*)},
+		{"getAccessibleStateSet", "()Ljavax/accessibility/AccessibleStateSet;", nullptr, $PUBLIC, $virtualMethod(JTextField$AccessibleJTextField, getAccessibleStateSet, $AccessibleStateSet*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.JTextField$AccessibleJTextField", "javax.swing.JTextField", "AccessibleJTextField", $PROTECTED},
+		{"javax.swing.text.JTextComponent$AccessibleJTextComponent", "javax.swing.text.JTextComponent", "AccessibleJTextComponent", $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.JTextField$AccessibleJTextField",
+		"javax.swing.text.JTextComponent$AccessibleJTextComponent",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.JTextField"
+	};
+	$loadClass(JTextField$AccessibleJTextField, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JTextField$AccessibleJTextField));
+	});
 	return class$;
 }
 

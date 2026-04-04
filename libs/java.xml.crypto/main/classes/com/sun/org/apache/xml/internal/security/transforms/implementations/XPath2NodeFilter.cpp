@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/security/transforms/implementations/XPath2NodeFilter.h>
-
 #include <com/sun/org/apache/xml/internal/security/utils/XMLUtils.h>
 #include <java/util/HashSet.h>
 #include <java/util/Iterator.h>
@@ -29,42 +28,6 @@ namespace com {
 						namespace security {
 							namespace transforms {
 								namespace implementations {
-
-$FieldInfo _XPath2NodeFilter_FieldInfo_[] = {
-	{"hasUnionFilter", "Z", nullptr, $PRIVATE | $FINAL, $field(XPath2NodeFilter, hasUnionFilter)},
-	{"hasSubtractFilter", "Z", nullptr, $PRIVATE | $FINAL, $field(XPath2NodeFilter, hasSubtractFilter)},
-	{"hasIntersectFilter", "Z", nullptr, $PRIVATE | $FINAL, $field(XPath2NodeFilter, hasIntersectFilter)},
-	{"unionNodes", "Ljava/util/Set;", "Ljava/util/Set<Lorg/w3c/dom/Node;>;", $PRIVATE | $FINAL, $field(XPath2NodeFilter, unionNodes)},
-	{"subtractNodes", "Ljava/util/Set;", "Ljava/util/Set<Lorg/w3c/dom/Node;>;", $PRIVATE | $FINAL, $field(XPath2NodeFilter, subtractNodes)},
-	{"intersectNodes", "Ljava/util/Set;", "Ljava/util/Set<Lorg/w3c/dom/Node;>;", $PRIVATE | $FINAL, $field(XPath2NodeFilter, intersectNodes)},
-	{"inSubtract", "I", nullptr, $PRIVATE, $field(XPath2NodeFilter, inSubtract)},
-	{"inIntersect", "I", nullptr, $PRIVATE, $field(XPath2NodeFilter, inIntersect)},
-	{"inUnion", "I", nullptr, $PRIVATE, $field(XPath2NodeFilter, inUnion)},
-	{}
-};
-
-$MethodInfo _XPath2NodeFilter_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/List;Ljava/util/List;Ljava/util/List;)V", "(Ljava/util/List<Lorg/w3c/dom/NodeList;>;Ljava/util/List<Lorg/w3c/dom/NodeList;>;Ljava/util/List<Lorg/w3c/dom/NodeList;>;)V", 0, $method(XPath2NodeFilter, init$, void, $List*, $List*, $List*)},
-	{"convertNodeListToSet", "(Ljava/util/List;)Ljava/util/Set;", "(Ljava/util/List<Lorg/w3c/dom/NodeList;>;)Ljava/util/Set<Lorg/w3c/dom/Node;>;", $PRIVATE | $STATIC, $staticMethod(XPath2NodeFilter, convertNodeListToSet, $Set*, $List*)},
-	{"inList", "(Lorg/w3c/dom/Node;Ljava/util/Set;)Z", "(Lorg/w3c/dom/Node;Ljava/util/Set<Lorg/w3c/dom/Node;>;)Z", $STATIC, $staticMethod(XPath2NodeFilter, inList, bool, $Node*, $Set*)},
-	{"isNodeInclude", "(Lorg/w3c/dom/Node;)I", nullptr, $PUBLIC, $virtualMethod(XPath2NodeFilter, isNodeInclude, int32_t, $Node*)},
-	{"isNodeIncludeDO", "(Lorg/w3c/dom/Node;I)I", nullptr, $PUBLIC, $virtualMethod(XPath2NodeFilter, isNodeIncludeDO, int32_t, $Node*, int32_t)},
-	{"rooted", "(Lorg/w3c/dom/Node;Ljava/util/Set;)Z", "(Lorg/w3c/dom/Node;Ljava/util/Set<Lorg/w3c/dom/Node;>;)Z", $STATIC, $staticMethod(XPath2NodeFilter, rooted, bool, $Node*, $Set*)},
-	{}
-};
-
-$ClassInfo _XPath2NodeFilter_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.org.apache.xml.internal.security.transforms.implementations.XPath2NodeFilter",
-	"java.lang.Object",
-	"com.sun.org.apache.xml.internal.security.signature.NodeFilter",
-	_XPath2NodeFilter_FieldInfo_,
-	_XPath2NodeFilter_MethodInfo_
-};
-
-$Object* allocate$XPath2NodeFilter($Class* clazz) {
-	return $of($alloc(XPath2NodeFilter));
-}
 
 void XPath2NodeFilter::init$($List* unionNodes, $List* subtractNodes, $List* intersectNodes) {
 	this->inSubtract = -1;
@@ -139,21 +102,19 @@ int32_t XPath2NodeFilter::isNodeIncludeDO($Node* n, int32_t level) {
 
 bool XPath2NodeFilter::rooted($Node* currentNode, $Set* nodeList) {
 	$init(XPath2NodeFilter);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(nodeList)->isEmpty()) {
 		return false;
 	}
-	if ($nc(nodeList)->contains(currentNode)) {
+	if (nodeList->contains(currentNode)) {
 		return true;
 	}
 	{
-		$var($Iterator, i$, $nc(nodeList)->iterator());
+		$var($Iterator, i$, nodeList->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Node, rootNode, $cast($Node, i$->next()));
-			{
-				if ($XMLUtils::isDescendantOrSelf(rootNode, currentNode)) {
-					return true;
-				}
+			if ($XMLUtils::isDescendantOrSelf(rootNode, currentNode)) {
+				return true;
 			}
 		}
 	}
@@ -167,7 +128,7 @@ bool XPath2NodeFilter::inList($Node* currentNode, $Set* nodeList) {
 
 $Set* XPath2NodeFilter::convertNodeListToSet($List* l) {
 	$init(XPath2NodeFilter);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Set, result, $new($HashSet));
 	{
 		$var($Iterator, i$, $nc(l)->iterator());
@@ -189,7 +150,38 @@ XPath2NodeFilter::XPath2NodeFilter() {
 }
 
 $Class* XPath2NodeFilter::load$($String* name, bool initialize) {
-	$loadClass(XPath2NodeFilter, name, initialize, &_XPath2NodeFilter_ClassInfo_, allocate$XPath2NodeFilter);
+	$FieldInfo fieldInfos$$[] = {
+		{"hasUnionFilter", "Z", nullptr, $PRIVATE | $FINAL, $field(XPath2NodeFilter, hasUnionFilter)},
+		{"hasSubtractFilter", "Z", nullptr, $PRIVATE | $FINAL, $field(XPath2NodeFilter, hasSubtractFilter)},
+		{"hasIntersectFilter", "Z", nullptr, $PRIVATE | $FINAL, $field(XPath2NodeFilter, hasIntersectFilter)},
+		{"unionNodes", "Ljava/util/Set;", "Ljava/util/Set<Lorg/w3c/dom/Node;>;", $PRIVATE | $FINAL, $field(XPath2NodeFilter, unionNodes)},
+		{"subtractNodes", "Ljava/util/Set;", "Ljava/util/Set<Lorg/w3c/dom/Node;>;", $PRIVATE | $FINAL, $field(XPath2NodeFilter, subtractNodes)},
+		{"intersectNodes", "Ljava/util/Set;", "Ljava/util/Set<Lorg/w3c/dom/Node;>;", $PRIVATE | $FINAL, $field(XPath2NodeFilter, intersectNodes)},
+		{"inSubtract", "I", nullptr, $PRIVATE, $field(XPath2NodeFilter, inSubtract)},
+		{"inIntersect", "I", nullptr, $PRIVATE, $field(XPath2NodeFilter, inIntersect)},
+		{"inUnion", "I", nullptr, $PRIVATE, $field(XPath2NodeFilter, inUnion)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/List;Ljava/util/List;Ljava/util/List;)V", "(Ljava/util/List<Lorg/w3c/dom/NodeList;>;Ljava/util/List<Lorg/w3c/dom/NodeList;>;Ljava/util/List<Lorg/w3c/dom/NodeList;>;)V", 0, $method(XPath2NodeFilter, init$, void, $List*, $List*, $List*)},
+		{"convertNodeListToSet", "(Ljava/util/List;)Ljava/util/Set;", "(Ljava/util/List<Lorg/w3c/dom/NodeList;>;)Ljava/util/Set<Lorg/w3c/dom/Node;>;", $PRIVATE | $STATIC, $staticMethod(XPath2NodeFilter, convertNodeListToSet, $Set*, $List*)},
+		{"inList", "(Lorg/w3c/dom/Node;Ljava/util/Set;)Z", "(Lorg/w3c/dom/Node;Ljava/util/Set<Lorg/w3c/dom/Node;>;)Z", $STATIC, $staticMethod(XPath2NodeFilter, inList, bool, $Node*, $Set*)},
+		{"isNodeInclude", "(Lorg/w3c/dom/Node;)I", nullptr, $PUBLIC, $virtualMethod(XPath2NodeFilter, isNodeInclude, int32_t, $Node*)},
+		{"isNodeIncludeDO", "(Lorg/w3c/dom/Node;I)I", nullptr, $PUBLIC, $virtualMethod(XPath2NodeFilter, isNodeIncludeDO, int32_t, $Node*, int32_t)},
+		{"rooted", "(Lorg/w3c/dom/Node;Ljava/util/Set;)Z", "(Lorg/w3c/dom/Node;Ljava/util/Set<Lorg/w3c/dom/Node;>;)Z", $STATIC, $staticMethod(XPath2NodeFilter, rooted, bool, $Node*, $Set*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.org.apache.xml.internal.security.transforms.implementations.XPath2NodeFilter",
+		"java.lang.Object",
+		"com.sun.org.apache.xml.internal.security.signature.NodeFilter",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XPath2NodeFilter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XPath2NodeFilter);
+	});
 	return class$;
 }
 

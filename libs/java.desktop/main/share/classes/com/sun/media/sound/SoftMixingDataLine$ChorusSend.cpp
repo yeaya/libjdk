@@ -1,5 +1,4 @@
 #include <com/sun/media/sound/SoftMixingDataLine$ChorusSend.h>
-
 #include <com/sun/media/sound/SoftMixingDataLine$Balance.h>
 #include <com/sun/media/sound/SoftMixingDataLine.h>
 #include <javax/sound/sampled/FloatControl$Type.h>
@@ -9,7 +8,6 @@
 #undef CHORUS_SEND
 
 using $SoftMixingDataLine = ::com::sun::media::sound::SoftMixingDataLine;
-using $SoftMixingDataLine$Balance = ::com::sun::media::sound::SoftMixingDataLine$Balance;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $Float = ::java::lang::Float;
@@ -21,42 +19,6 @@ namespace com {
 	namespace sun {
 		namespace media {
 			namespace sound {
-
-$FieldInfo _SoftMixingDataLine$ChorusSend_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/media/sound/SoftMixingDataLine;", nullptr, $FINAL | $SYNTHETIC, $field(SoftMixingDataLine$ChorusSend, this$0)},
-	{}
-};
-
-$MethodInfo _SoftMixingDataLine$ChorusSend_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/media/sound/SoftMixingDataLine;)V", nullptr, $PRIVATE, $method(SoftMixingDataLine$ChorusSend, init$, void, $SoftMixingDataLine*)},
-	{"setValue", "(F)V", nullptr, $PUBLIC, $virtualMethod(SoftMixingDataLine$ChorusSend, setValue, void, float)},
-	{}
-};
-
-$InnerClassInfo _SoftMixingDataLine$ChorusSend_InnerClassesInfo_[] = {
-	{"com.sun.media.sound.SoftMixingDataLine$ChorusSend", "com.sun.media.sound.SoftMixingDataLine", "ChorusSend", $PRIVATE | $FINAL},
-	{}
-};
-
-$ClassInfo _SoftMixingDataLine$ChorusSend_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.media.sound.SoftMixingDataLine$ChorusSend",
-	"javax.sound.sampled.FloatControl",
-	nullptr,
-	_SoftMixingDataLine$ChorusSend_FieldInfo_,
-	_SoftMixingDataLine$ChorusSend_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SoftMixingDataLine$ChorusSend_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.media.sound.SoftMixingDataLine"
-};
-
-$Object* allocate$SoftMixingDataLine$ChorusSend($Class* clazz) {
-	return $of($alloc(SoftMixingDataLine$ChorusSend));
-}
 
 void SoftMixingDataLine$ChorusSend::init$($SoftMixingDataLine* this$0) {
 	$set(this, this$0, this$0);
@@ -73,7 +35,37 @@ SoftMixingDataLine$ChorusSend::SoftMixingDataLine$ChorusSend() {
 }
 
 $Class* SoftMixingDataLine$ChorusSend::load$($String* name, bool initialize) {
-	$loadClass(SoftMixingDataLine$ChorusSend, name, initialize, &_SoftMixingDataLine$ChorusSend_ClassInfo_, allocate$SoftMixingDataLine$ChorusSend);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/media/sound/SoftMixingDataLine;", nullptr, $FINAL | $SYNTHETIC, $field(SoftMixingDataLine$ChorusSend, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/media/sound/SoftMixingDataLine;)V", nullptr, $PRIVATE, $method(SoftMixingDataLine$ChorusSend, init$, void, $SoftMixingDataLine*)},
+		{"setValue", "(F)V", nullptr, $PUBLIC, $virtualMethod(SoftMixingDataLine$ChorusSend, setValue, void, float)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.media.sound.SoftMixingDataLine$ChorusSend", "com.sun.media.sound.SoftMixingDataLine", "ChorusSend", $PRIVATE | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.media.sound.SoftMixingDataLine$ChorusSend",
+		"javax.sound.sampled.FloatControl",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.media.sound.SoftMixingDataLine"
+	};
+	$loadClass(SoftMixingDataLine$ChorusSend, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SoftMixingDataLine$ChorusSend);
+	});
 	return class$;
 }
 

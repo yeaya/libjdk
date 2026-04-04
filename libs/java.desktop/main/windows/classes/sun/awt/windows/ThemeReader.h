@@ -42,6 +42,7 @@ class ThemeReader : public ::java::lang::Object {
 	$class(ThemeReader, 0, ::java::lang::Object)
 public:
 	ThemeReader();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void closeTheme(int64_t theme);
 	static void flush();

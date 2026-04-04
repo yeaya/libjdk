@@ -1,5 +1,4 @@
 #include <javax/imageio/plugins/tiff/ExifTIFFTagSet$ImageUniqueID.h>
-
 #include <javax/imageio/plugins/tiff/ExifTIFFTagSet.h>
 #include <javax/imageio/plugins/tiff/TIFFTag.h>
 #include <jcpp.h>
@@ -16,45 +15,40 @@ namespace javax {
 		namespace plugins {
 			namespace tiff {
 
-$MethodInfo _ExifTIFFTagSet$ImageUniqueID_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ExifTIFFTagSet$ImageUniqueID, init$, void)},
-	{}
-};
-
-$InnerClassInfo _ExifTIFFTagSet$ImageUniqueID_InnerClassesInfo_[] = {
-	{"javax.imageio.plugins.tiff.ExifTIFFTagSet$ImageUniqueID", "javax.imageio.plugins.tiff.ExifTIFFTagSet", "ImageUniqueID", $STATIC},
-	{}
-};
-
-$ClassInfo _ExifTIFFTagSet$ImageUniqueID_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.imageio.plugins.tiff.ExifTIFFTagSet$ImageUniqueID",
-	"javax.imageio.plugins.tiff.TIFFTag",
-	nullptr,
-	nullptr,
-	_ExifTIFFTagSet$ImageUniqueID_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ExifTIFFTagSet$ImageUniqueID_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.imageio.plugins.tiff.ExifTIFFTagSet"
-};
-
-$Object* allocate$ExifTIFFTagSet$ImageUniqueID($Class* clazz) {
-	return $of($alloc(ExifTIFFTagSet$ImageUniqueID));
-}
-
 void ExifTIFFTagSet$ImageUniqueID::init$() {
-	$TIFFTag::init$("ImageUniqueID"_s, 0x0000A420, $sl(1, $TIFFTag::TIFF_ASCII), 33);
+	$TIFFTag::init$("ImageUniqueID"_s, 0x0000a420, $sl(1, $TIFFTag::TIFF_ASCII), 33);
 }
 
 ExifTIFFTagSet$ImageUniqueID::ExifTIFFTagSet$ImageUniqueID() {
 }
 
 $Class* ExifTIFFTagSet$ImageUniqueID::load$($String* name, bool initialize) {
-	$loadClass(ExifTIFFTagSet$ImageUniqueID, name, initialize, &_ExifTIFFTagSet$ImageUniqueID_ClassInfo_, allocate$ExifTIFFTagSet$ImageUniqueID);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ExifTIFFTagSet$ImageUniqueID, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.imageio.plugins.tiff.ExifTIFFTagSet$ImageUniqueID", "javax.imageio.plugins.tiff.ExifTIFFTagSet", "ImageUniqueID", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.imageio.plugins.tiff.ExifTIFFTagSet$ImageUniqueID",
+		"javax.imageio.plugins.tiff.TIFFTag",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.imageio.plugins.tiff.ExifTIFFTagSet"
+	};
+	$loadClass(ExifTIFFTagSet$ImageUniqueID, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ExifTIFFTagSet$ImageUniqueID);
+	});
 	return class$;
 }
 

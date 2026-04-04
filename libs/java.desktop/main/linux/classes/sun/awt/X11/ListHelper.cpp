@@ -1,5 +1,4 @@
 #include <sun/awt/X11/ListHelper.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/Font.h>
@@ -18,7 +17,6 @@
 #include <sun/awt/X11/XComponentPeer.h>
 #include <sun/awt/X11/XHorizontalScrollbar.h>
 #include <sun/awt/X11/XScrollbar.h>
-#include <sun/awt/X11/XScrollbarClient.h>
 #include <sun/awt/X11/XVerticalScrollbar.h>
 #include <sun/awt/X11/XWindow.h>
 #include <sun/util/logging/PlatformLogger$Level.h>
@@ -46,7 +44,6 @@ using $ColorArray = $Array<::java::awt::Color>;
 using $Color = ::java::awt::Color;
 using $Component = ::java::awt::Component;
 using $Font = ::java::awt::Font;
-using $FontMetrics = ::java::awt::FontMetrics;
 using $Graphics = ::java::awt::Graphics;
 using $Rectangle = ::java::awt::Rectangle;
 using $Toolkit = ::java::awt::Toolkit;
@@ -61,11 +58,9 @@ using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ArrayList = ::java::util::ArrayList;
 using $Iterator = ::java::util::Iterator;
-using $List = ::java::util::List;
 using $XComponentPeer = ::sun::awt::X11::XComponentPeer;
 using $XHorizontalScrollbar = ::sun::awt::X11::XHorizontalScrollbar;
 using $XScrollbar = ::sun::awt::X11::XScrollbar;
-using $XScrollbarClient = ::sun::awt::X11::XScrollbarClient;
 using $XVerticalScrollbar = ::sun::awt::X11::XVerticalScrollbar;
 using $XWindow = ::sun::awt::X11::XWindow;
 using $PlatformLogger = ::sun::util::logging::PlatformLogger;
@@ -74,102 +69,6 @@ using $PlatformLogger$Level = ::sun::util::logging::PlatformLogger$Level;
 namespace sun {
 	namespace awt {
 		namespace X11 {
-
-$FieldInfo _ListHelper_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(ListHelper, $assertionsDisabled)},
-	{"log", "Lsun/util/logging/PlatformLogger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ListHelper, log)},
-	{"FOCUS_INSET", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ListHelper, FOCUS_INSET)},
-	{"BORDER_WIDTH", "I", nullptr, $PRIVATE | $FINAL, $field(ListHelper, BORDER_WIDTH)},
-	{"ITEM_MARGIN", "I", nullptr, $PRIVATE | $FINAL, $field(ListHelper, ITEM_MARGIN)},
-	{"TEXT_SPACE", "I", nullptr, $PRIVATE | $FINAL, $field(ListHelper, TEXT_SPACE)},
-	{"SCROLLBAR_WIDTH", "I", nullptr, $PRIVATE | $FINAL, $field(ListHelper, SCROLLBAR_WIDTH)},
-	{"items", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/String;>;", $PRIVATE, $field(ListHelper, items)},
-	{"selected", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/Integer;>;", $PRIVATE, $field(ListHelper, selected)},
-	{"multiSelect", "Z", nullptr, $PRIVATE, $field(ListHelper, multiSelect)},
-	{"focusedIndex", "I", nullptr, $PRIVATE, $field(ListHelper, focusedIndex)},
-	{"maxVisItems", "I", nullptr, $PRIVATE, $field(ListHelper, maxVisItems)},
-	{"vsb", "Lsun/awt/X11/XVerticalScrollbar;", nullptr, $PRIVATE, $field(ListHelper, vsb)},
-	{"vsbVis", "Z", nullptr, $PRIVATE, $field(ListHelper, vsbVis)},
-	{"hsb", "Lsun/awt/X11/XHorizontalScrollbar;", nullptr, $PRIVATE, $field(ListHelper, hsb)},
-	{"hsbVis", "Z", nullptr, $PRIVATE, $field(ListHelper, hsbVis)},
-	{"font", "Ljava/awt/Font;", nullptr, $PRIVATE, $field(ListHelper, font)},
-	{"fm", "Ljava/awt/FontMetrics;", nullptr, $PRIVATE, $field(ListHelper, fm)},
-	{"peer", "Lsun/awt/X11/XWindow;", nullptr, $PRIVATE, $field(ListHelper, peer)},
-	{"colors", "[Ljava/awt/Color;", nullptr, $PRIVATE, $field(ListHelper, colors)},
-	{"mouseDraggedOutVertically", "Z", nullptr, $PRIVATE, $field(ListHelper, mouseDraggedOutVertically)},
-	{"vsbVisibilityChanged", "Z", nullptr, $PRIVATE | $VOLATILE, $field(ListHelper, vsbVisibilityChanged)},
-	{}
-};
-
-$MethodInfo _ListHelper_MethodInfo_[] = {
-	{"<init>", "(Lsun/awt/X11/XWindow;[Ljava/awt/Color;IZZZLjava/awt/Font;IIIII)V", nullptr, 0, $method(ListHelper, init$, void, $XWindow*, $ColorArray*, int32_t, bool, bool, bool, $Font*, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"add", "(Ljava/lang/String;)V", nullptr, 0, $method(ListHelper, add, void, $String*)},
-	{"add", "(Ljava/lang/String;I)V", nullptr, 0, $method(ListHelper, add, void, $String*, int32_t)},
-	{"checkVsbVisibilityChangedAndReset", "()Z", nullptr, 0, $method(ListHelper, checkVsbVisibilityChangedAndReset, bool)},
-	{"deselect", "(I)V", nullptr, 0, $method(ListHelper, deselect, void, int32_t)},
-	{"doWheelScroll", "(Lsun/awt/X11/XVerticalScrollbar;Lsun/awt/X11/XHorizontalScrollbar;Ljava/awt/event/MouseWheelEvent;)Z", nullptr, $STATIC, $staticMethod(ListHelper, doWheelScroll, bool, $XVerticalScrollbar*, $XHorizontalScrollbar*, $MouseWheelEvent*)},
-	{"down", "()V", nullptr, 0, $method(ListHelper, down, void)},
-	{"end", "()V", nullptr, 0, $method(ListHelper, end, void)},
-	{"firstDisplayedIndex", "()I", nullptr, 0, $method(ListHelper, firstDisplayedIndex, int32_t)},
-	{"getEventSource", "()Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(ListHelper, getEventSource, $Component*)},
-	{"getHSB", "()Lsun/awt/X11/XHorizontalScrollbar;", nullptr, 0, $method(ListHelper, getHSB, $XHorizontalScrollbar*)},
-	{"getItem", "(I)Ljava/lang/String;", nullptr, 0, $method(ListHelper, getItem, $String*, int32_t)},
-	{"getItemCount", "()I", nullptr, 0, $method(ListHelper, getItemCount, int32_t)},
-	{"getItemHeight", "()I", nullptr, 0, $method(ListHelper, getItemHeight, int32_t)},
-	{"getMaxItemWidth", "()I", nullptr, 0, $method(ListHelper, getMaxItemWidth, int32_t)},
-	{"getNumItemsDisplayed", "()I", nullptr, $PRIVATE, $method(ListHelper, getNumItemsDisplayed, int32_t)},
-	{"getSelectedIndex", "()I", nullptr, 0, $method(ListHelper, getSelectedIndex, int32_t)},
-	{"getSelectedIndexes", "()[I", nullptr, 0, $method(ListHelper, getSelectedIndexes, $ints*)},
-	{"getVSB", "()Lsun/awt/X11/XVerticalScrollbar;", nullptr, 0, $method(ListHelper, getVSB, $XVerticalScrollbar*)},
-	{"handleVSBEvent", "(Ljava/awt/event/MouseEvent;Ljava/awt/Rectangle;II)V", nullptr, 0, $method(ListHelper, handleVSBEvent, void, $MouseEvent*, $Rectangle*, int32_t, int32_t)},
-	{"home", "()V", nullptr, 0, $method(ListHelper, home, void)},
-	{"isEmpty", "()Z", nullptr, 0, $method(ListHelper, isEmpty, bool)},
-	{"isFocusedIndex", "(I)Z", nullptr, $PRIVATE, $method(ListHelper, isFocusedIndex, bool, int32_t)},
-	{"isHSBVisible", "()Z", nullptr, 0, $method(ListHelper, isHSBVisible, bool)},
-	{"isInHorizSB", "(Ljava/awt/Rectangle;II)Z", nullptr, 0, $method(ListHelper, isInHorizSB, bool, $Rectangle*, int32_t, int32_t)},
-	{"isInVertSB", "(Ljava/awt/Rectangle;II)Z", nullptr, 0, $method(ListHelper, isInVertSB, bool, $Rectangle*, int32_t, int32_t)},
-	{"isItemSelected", "(I)Z", nullptr, $PRIVATE, $method(ListHelper, isItemSelected, bool, int32_t)},
-	{"isVSBVisible", "()Z", nullptr, 0, $method(ListHelper, isVSBVisible, bool)},
-	{"lastDisplayedIndex", "()I", nullptr, 0, $method(ListHelper, lastDisplayedIndex, int32_t)},
-	{"makeVisible", "(I)V", nullptr, $PRIVATE, $method(ListHelper, makeVisible, void, int32_t)},
-	{"notifyValue", "(Lsun/awt/X11/XScrollbar;IIZ)V", nullptr, $PUBLIC, $virtualMethod(ListHelper, notifyValue, void, $XScrollbar*, int32_t, int32_t, bool)},
-	{"pageDown", "()V", nullptr, 0, $method(ListHelper, pageDown, void)},
-	{"pageUp", "()V", nullptr, 0, $method(ListHelper, pageUp, void)},
-	{"paintAllItems", "(Ljava/awt/Graphics;[Ljava/awt/Color;Ljava/awt/Rectangle;)V", nullptr, 0, $method(ListHelper, paintAllItems, void, $Graphics*, $ColorArray*, $Rectangle*)},
-	{"paintHSB", "(Ljava/awt/Graphics;[Ljava/awt/Color;Ljava/awt/Rectangle;)V", nullptr, $PRIVATE, $method(ListHelper, paintHSB, void, $Graphics*, $ColorArray*, $Rectangle*)},
-	{"paintItem", "(Ljava/awt/Graphics;[Ljava/awt/Color;Ljava/lang/String;IIIIZZ)V", nullptr, $PRIVATE, $method(ListHelper, paintItem, void, $Graphics*, $ColorArray*, $String*, int32_t, int32_t, int32_t, int32_t, bool, bool)},
-	{"paintItems", "(Ljava/awt/Graphics;[Ljava/awt/Color;Ljava/awt/Rectangle;)V", nullptr, 0, $method(ListHelper, paintItems, void, $Graphics*, $ColorArray*, $Rectangle*)},
-	{"paintItems", "(Ljava/awt/Graphics;[Ljava/awt/Color;Ljava/awt/Rectangle;II)V", nullptr, $PRIVATE, $method(ListHelper, paintItems, void, $Graphics*, $ColorArray*, $Rectangle*, int32_t, int32_t)},
-	{"paintVSB", "(Ljava/awt/Graphics;[Ljava/awt/Color;Ljava/awt/Rectangle;)V", nullptr, $PRIVATE, $method(ListHelper, paintVSB, void, $Graphics*, $ColorArray*, $Rectangle*)},
-	{"remove", "(Ljava/lang/String;)V", nullptr, 0, $method(ListHelper, remove, void, $String*)},
-	{"remove", "(I)V", nullptr, 0, $method(ListHelper, remove, void, int32_t)},
-	{"removeAll", "()V", nullptr, 0, $method(ListHelper, removeAll, void)},
-	{"repaintScrollbarRequest", "(Lsun/awt/X11/XScrollbar;)V", nullptr, $PUBLIC, $virtualMethod(ListHelper, repaintScrollbarRequest, void, $XScrollbar*)},
-	{"select", "(I)V", nullptr, 0, $method(ListHelper, select, void, int32_t)},
-	{"setFocusedIndex", "(I)V", nullptr, 0, $method(ListHelper, setFocusedIndex, void, int32_t)},
-	{"setFont", "(Ljava/awt/Font;)V", nullptr, 0, $method(ListHelper, setFont, void, $Font*)},
-	{"setMultiSelect", "(Z)V", nullptr, 0, $method(ListHelper, setMultiSelect, void, bool)},
-	{"trackMouseDraggedScroll", "(IIII)V", nullptr, 0, $method(ListHelper, trackMouseDraggedScroll, void, int32_t, int32_t, int32_t, int32_t)},
-	{"trackMouseReleasedScroll", "()V", nullptr, 0, $method(ListHelper, trackMouseReleasedScroll, void)},
-	{"up", "()V", nullptr, 0, $method(ListHelper, up, void)},
-	{"updateColors", "([Ljava/awt/Color;)V", nullptr, 0, $method(ListHelper, updateColors, void, $ColorArray*)},
-	{"updateScrollbars", "()V", nullptr, $PRIVATE, $method(ListHelper, updateScrollbars, void)},
-	{"y2index", "(I)I", nullptr, 0, $method(ListHelper, y2index, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _ListHelper_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.awt.X11.ListHelper",
-	"java.lang.Object",
-	"sun.awt.X11.XScrollbarClient",
-	_ListHelper_FieldInfo_,
-	_ListHelper_MethodInfo_
-};
-
-$Object* allocate$ListHelper($Class* clazz) {
-	return $of($alloc(ListHelper));
-}
 
 bool ListHelper::$assertionsDisabled = false;
 $PlatformLogger* ListHelper::log = nullptr;
@@ -182,15 +81,15 @@ void ListHelper::init$($XWindow* peer, $ColorArray* colors, int32_t initialSize,
 	this->multiSelect = multiSelect;
 	$set(this, items, $new($ArrayList, initialSize));
 	$set(this, selected, $new($ArrayList, 1));
-	$nc(this->selected)->add($($Integer::valueOf(-1)));
+	this->selected->add($($Integer::valueOf(-1)));
 	this->maxVisItems = maxVisItems;
 	if (scrollVert) {
 		$set(this, vsb, $new($XVerticalScrollbar, this));
-		$nc(this->vsb)->setValues(0, 0, 0, 0, 1, maxVisItems - 1);
+		this->vsb->setValues(0, 0, 0, 0, 1, maxVisItems - 1);
 	}
 	if (scrollHoriz) {
 		$set(this, hsb, $new($XHorizontalScrollbar, this));
-		$nc(this->hsb)->setValues(0, 0, 0, 0, 1, 1);
+		this->hsb->setValues(0, 0, 0, 0, 1, 1);
 	}
 	setFont(font);
 	this->TEXT_SPACE = SPACE;
@@ -214,7 +113,7 @@ void ListHelper::add($String* item, int32_t index) {
 }
 
 void ListHelper::remove($String* item) {
-	$nc(this->items)->remove($of(item));
+	$nc(this->items)->remove(item);
 	updateScrollbars();
 }
 
@@ -242,7 +141,7 @@ void ListHelper::select(int32_t index) {
 		}
 	} else if (getSelectedIndex() != index) {
 		$nc(this->selected)->remove(0);
-		$nc(this->selected)->add($($Integer::valueOf(index)));
+		this->selected->add($($Integer::valueOf(index)));
 		makeVisible(index);
 	}
 }
@@ -297,12 +196,12 @@ bool ListHelper::isFocusedIndex(int32_t index) {
 void ListHelper::setFont($Font* newFont) {
 	if (newFont != this->font) {
 		$set(this, font, newFont);
-		$set(this, fm, $nc($($Toolkit::getDefaultToolkit()))->getFontMetrics(this->font));
+		$set(this, fm, $$nc($Toolkit::getDefaultToolkit())->getFontMetrics(this->font));
 	}
 }
 
 int32_t ListHelper::getMaxItemWidth() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t m = 0;
 	int32_t end = getItemCount();
 	for (int32_t i = 0; i < end; ++i) {
@@ -317,16 +216,22 @@ int32_t ListHelper::getItemHeight() {
 }
 
 int32_t ListHelper::y2index(int32_t y) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($PlatformLogger$Level);
 	if ($nc(ListHelper::log)->isLoggable($PlatformLogger$Level::FINE)) {
-		$var($String, var$2, $$str({"y="_s, $$str(y), ", firstIdx="_s, $$str(firstDisplayedIndex()), ", itemHeight="_s}));
-		$var($String, var$1, $$concat(var$2, $$str(getItemHeight())));
-		$var($String, var$0, $$concat(var$1, ",item_margin="_s));
-		$nc(ListHelper::log)->fine($$concat(var$0, $$str(this->ITEM_MARGIN)));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append("y="_s);
+		var$0->append(y);
+		var$0->append(", firstIdx="_s);
+		var$0->append(firstDisplayedIndex());
+		var$0->append(", itemHeight="_s);
+		var$0->append(getItemHeight());
+		var$0->append(",item_margin="_s);
+		var$0->append(this->ITEM_MARGIN);
+		ListHelper::log->fine($$str(var$0));
 	}
-	int32_t var$3 = firstDisplayedIndex();
-	int32_t newIdx = var$3 + ($div((y - 2 * this->ITEM_MARGIN), (getItemHeight() + 2 * this->ITEM_MARGIN)));
+	int32_t var$1 = firstDisplayedIndex();
+	int32_t newIdx = var$1 + ($div((y - 2 * this->ITEM_MARGIN), (getItemHeight() + 2 * this->ITEM_MARGIN)));
 	return newIdx;
 }
 
@@ -372,7 +277,7 @@ void ListHelper::up() {
 }
 
 void ListHelper::down() {
-	int32_t var$0 = (getSelectedIndex() + 1);
+	int32_t var$0 = getSelectedIndex() + 1;
 	int32_t newIdx = $mod(var$0, getItemCount());
 	select(newIdx);
 }
@@ -442,8 +347,8 @@ bool ListHelper::isInVertSB($Rectangle* bounds, int32_t x, int32_t y) {
 		if (!ListHelper::$assertionsDisabled && !(this->vsb != nullptr)) {
 			$throwNew($AssertionError, $of("Vert scrollbar is visible, yet is null?"_s));
 		}
-		int32_t sbHeight = this->hsbVis ? $nc(bounds)->height - this->SCROLLBAR_WIDTH : bounds->height;
-		return (x <= bounds->width) && (x >= bounds->width - this->SCROLLBAR_WIDTH) && (y >= 0) && (y <= sbHeight);
+		int32_t sbHeight = this->hsbVis ? $nc(bounds)->height - this->SCROLLBAR_WIDTH : $nc(bounds)->height;
+		return (x <= $nc(bounds)->width) && (x >= bounds->width - this->SCROLLBAR_WIDTH) && (y >= 0) && (y <= sbHeight);
 	}
 	return false;
 }
@@ -453,16 +358,16 @@ bool ListHelper::isInHorizSB($Rectangle* bounds, int32_t x, int32_t y) {
 		if (!ListHelper::$assertionsDisabled && !(this->hsb != nullptr)) {
 			$throwNew($AssertionError, $of("Horiz scrollbar is visible, yet is null?"_s));
 		}
-		int32_t sbWidth = this->vsbVis ? $nc(bounds)->width - this->SCROLLBAR_WIDTH : bounds->width;
-		return (x <= sbWidth) && (x >= 0) && (y >= bounds->height - this->SCROLLBAR_WIDTH) && (y <= bounds->height);
+		int32_t sbWidth = this->vsbVis ? $nc(bounds)->width - this->SCROLLBAR_WIDTH : $nc(bounds)->width;
+		return (x <= sbWidth) && (x >= 0) && (y >= $nc(bounds)->height - this->SCROLLBAR_WIDTH) && (y <= bounds->height);
 	}
 	return false;
 }
 
 void ListHelper::handleVSBEvent($MouseEvent* e, $Rectangle* bounds, int32_t x, int32_t y) {
-	int32_t sbHeight = this->hsbVis ? $nc(bounds)->height - this->SCROLLBAR_WIDTH : bounds->height;
+	int32_t sbHeight = this->hsbVis ? $nc(bounds)->height - this->SCROLLBAR_WIDTH : $nc(bounds)->height;
 	int32_t var$0 = $nc(e)->getID();
-	$nc(this->vsb)->handleMouseEvent(var$0, e->getModifiers(), x - (bounds->width - this->SCROLLBAR_WIDTH), y);
+	$nc(this->vsb)->handleMouseEvent(var$0, e->getModifiers(), x - ($nc(bounds)->width - this->SCROLLBAR_WIDTH), y);
 }
 
 void ListHelper::updateScrollbars() {
@@ -471,18 +376,18 @@ void ListHelper::updateScrollbars() {
 	if (this->vsbVis) {
 		int32_t var$0 = $nc(this->vsb)->getValue();
 		int32_t var$1 = getNumItemsDisplayed();
-		int32_t var$2 = $nc(this->vsb)->getMinimum();
+		int32_t var$2 = this->vsb->getMinimum();
 		$nc(this->vsb)->setValues(var$0, var$1, var$2, $nc(this->items)->size());
 	}
 	this->vsbVisibilityChanged = (this->vsbVis != oldVsbVis);
 }
 
 int32_t ListHelper::getNumItemsDisplayed() {
-	return $nc(this->items)->size() > this->maxVisItems ? this->maxVisItems : $nc(this->items)->size();
+	return $nc(this->items)->size() > this->maxVisItems ? this->maxVisItems : this->items->size();
 }
 
 void ListHelper::repaintScrollbarRequest($XScrollbar* sb) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Graphics, g, $nc(this->peer)->getGraphics());
 	$var($Rectangle, bounds, $nc(this->peer)->getBounds());
 	if (($equals(sb, this->vsb)) && this->vsbVis) {
@@ -494,7 +399,7 @@ void ListHelper::repaintScrollbarRequest($XScrollbar* sb) {
 }
 
 void ListHelper::notifyValue($XScrollbar* obj, int32_t type, int32_t v, bool isAdjusting) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($equals(obj, this->vsb)) {
 		int32_t oldScrollValue = $nc(this->vsb)->getValue();
 		$nc(this->vsb)->setValue(v);
@@ -526,31 +431,21 @@ void ListHelper::paintItems($Graphics* g, $ColorArray* colors, $Rectangle* bound
 }
 
 void ListHelper::paintAllItems($Graphics* g, $ColorArray* colors, $Rectangle* bounds) {
-	$useLocalCurrentObjectStackCache();
-	$var($Graphics, var$0, g);
-	$var($ColorArray, var$1, colors);
-	$var($Rectangle, var$2, bounds);
-	int32_t var$3 = firstDisplayedIndex();
-	paintItems(var$0, var$1, var$2, var$3, lastDisplayedIndex());
+	int32_t var$0 = firstDisplayedIndex();
+	paintItems(g, colors, bounds, var$0, lastDisplayedIndex());
 }
 
 void ListHelper::paintItems($Graphics* g, $ColorArray* colors, $Rectangle* bounds, int32_t first, int32_t last) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(this->peer)->flush();
 	int32_t x = this->BORDER_WIDTH + this->ITEM_MARGIN;
 	int32_t width = $nc(bounds)->width - 2 * this->ITEM_MARGIN - 2 * this->BORDER_WIDTH - (this->vsbVis ? this->SCROLLBAR_WIDTH : 0);
 	int32_t height = getItemHeight();
 	int32_t y = this->BORDER_WIDTH + this->ITEM_MARGIN;
 	for (int32_t i = first; i <= last; ++i) {
-		$var($Graphics, var$0, g);
-		$var($ColorArray, var$1, colors);
-		$var($String, var$2, getItem(i));
-		int32_t var$3 = x;
-		int32_t var$4 = y;
-		int32_t var$5 = width;
-		int32_t var$6 = height;
-		bool var$7 = isItemSelected(i);
-		paintItem(var$0, var$1, var$2, var$3, var$4, var$5, var$6, var$7, isFocusedIndex(i));
+		$var($String, var$0, getItem(i));
+		bool var$1 = isItemSelected(i);
+		paintItem(g, colors, var$0, x, y, width, height, var$1, isFocusedIndex(i));
 		y += height + 2 * this->ITEM_MARGIN;
 	}
 	if (this->vsbVis) {
@@ -584,12 +479,12 @@ void ListHelper::paintItem($Graphics* g, $ColorArray* colors, $String* string, i
 	int32_t fontDescent = $nc(this->fm)->getDescent();
 	int32_t var$0 = y;
 	int32_t var$2 = height + $nc(this->fm)->getMaxAscent();
-	int32_t var$1 = (var$2 - $nc(this->fm)->getMaxDescent()) / 2;
+	int32_t var$1 = (var$2 - this->fm->getMaxDescent()) / 2;
 	g->drawString(string, x + this->TEXT_SPACE, var$0 + var$1);
 }
 
 bool ListHelper::isItemSelected(int32_t index) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Iterator, itr, $nc(this->selected)->iterator());
 	while ($nc(itr)->hasNext()) {
 		$var($Integer, val, $cast($Integer, itr->next()));
@@ -601,24 +496,22 @@ bool ListHelper::isItemSelected(int32_t index) {
 }
 
 void ListHelper::paintVSB($Graphics* g, $ColorArray* colors, $Rectangle* bounds) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t height = $nc(bounds)->height - 2 * this->BORDER_WIDTH - (this->hsbVis ? (this->SCROLLBAR_WIDTH - 2) : 0);
 	$var($Graphics, ng, $nc(g)->create());
 	g->setColor($nc(colors)->get($XComponentPeer::BACKGROUND_COLOR));
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$nc(ng)->translate(bounds->width - this->BORDER_WIDTH - this->SCROLLBAR_WIDTH, this->BORDER_WIDTH);
-			$nc(this->vsb)->setSize(this->SCROLLBAR_WIDTH, bounds->height);
-			$nc(this->vsb)->paint(ng, colors, true);
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$nc(ng)->dispose();
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	$var($Throwable, var$0, nullptr);
+	try {
+		$nc(ng)->translate(bounds->width - this->BORDER_WIDTH - this->SCROLLBAR_WIDTH, this->BORDER_WIDTH);
+		$nc(this->vsb)->setSize(this->SCROLLBAR_WIDTH, bounds->height);
+		$nc(this->vsb)->paint(ng, colors, true);
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$nc(ng)->dispose();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
@@ -642,14 +535,14 @@ bool ListHelper::doWheelScroll($XVerticalScrollbar* vsb, $XHorizontalScrollbar* 
 		int32_t var$2 = $nc(scroll)->getValue();
 		var$1 = var$2 > scroll->getMinimum();
 	}
-	bool var$0 = (var$1);
+	bool var$0 = var$1;
 	if (!var$0) {
 		bool var$3 = wheelRotation > 0;
 		if (var$3) {
 			int32_t var$4 = $nc(scroll)->getValue();
 			var$3 = var$4 < scroll->getMaximum();
 		}
-		var$0 = (var$3);
+		var$0 = var$3;
 	}
 	if (var$0 || wheelRotation != 0) {
 		int32_t type = e->getScrollType();
@@ -660,7 +553,7 @@ bool ListHelper::doWheelScroll($XVerticalScrollbar* vsb, $XHorizontalScrollbar* 
 			int32_t var$5 = e->getUnitsToScroll();
 			incr = var$5 * $nc(scroll)->getUnitIncrement();
 		}
-		$nc(scroll)->setValue(scroll->getValue() + incr);
+		$nc(scroll)->setValue($nc(scroll)->getValue() + incr);
 		return true;
 	}
 	return false;
@@ -691,7 +584,7 @@ void ListHelper::trackMouseReleasedScroll() {
 	}
 }
 
-void clinit$ListHelper($Class* class$) {
+void ListHelper::clinit$($Class* clazz) {
 	ListHelper::$assertionsDisabled = !ListHelper::class$->desiredAssertionStatus();
 	$assignStatic(ListHelper::log, $PlatformLogger::getLogger("sun.awt.X11.ListHelper"_s));
 }
@@ -700,7 +593,98 @@ ListHelper::ListHelper() {
 }
 
 $Class* ListHelper::load$($String* name, bool initialize) {
-	$loadClass(ListHelper, name, initialize, &_ListHelper_ClassInfo_, clinit$ListHelper, allocate$ListHelper);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(ListHelper, $assertionsDisabled)},
+		{"log", "Lsun/util/logging/PlatformLogger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ListHelper, log)},
+		{"FOCUS_INSET", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ListHelper, FOCUS_INSET)},
+		{"BORDER_WIDTH", "I", nullptr, $PRIVATE | $FINAL, $field(ListHelper, BORDER_WIDTH)},
+		{"ITEM_MARGIN", "I", nullptr, $PRIVATE | $FINAL, $field(ListHelper, ITEM_MARGIN)},
+		{"TEXT_SPACE", "I", nullptr, $PRIVATE | $FINAL, $field(ListHelper, TEXT_SPACE)},
+		{"SCROLLBAR_WIDTH", "I", nullptr, $PRIVATE | $FINAL, $field(ListHelper, SCROLLBAR_WIDTH)},
+		{"items", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/String;>;", $PRIVATE, $field(ListHelper, items)},
+		{"selected", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/Integer;>;", $PRIVATE, $field(ListHelper, selected)},
+		{"multiSelect", "Z", nullptr, $PRIVATE, $field(ListHelper, multiSelect)},
+		{"focusedIndex", "I", nullptr, $PRIVATE, $field(ListHelper, focusedIndex)},
+		{"maxVisItems", "I", nullptr, $PRIVATE, $field(ListHelper, maxVisItems)},
+		{"vsb", "Lsun/awt/X11/XVerticalScrollbar;", nullptr, $PRIVATE, $field(ListHelper, vsb)},
+		{"vsbVis", "Z", nullptr, $PRIVATE, $field(ListHelper, vsbVis)},
+		{"hsb", "Lsun/awt/X11/XHorizontalScrollbar;", nullptr, $PRIVATE, $field(ListHelper, hsb)},
+		{"hsbVis", "Z", nullptr, $PRIVATE, $field(ListHelper, hsbVis)},
+		{"font", "Ljava/awt/Font;", nullptr, $PRIVATE, $field(ListHelper, font)},
+		{"fm", "Ljava/awt/FontMetrics;", nullptr, $PRIVATE, $field(ListHelper, fm)},
+		{"peer", "Lsun/awt/X11/XWindow;", nullptr, $PRIVATE, $field(ListHelper, peer)},
+		{"colors", "[Ljava/awt/Color;", nullptr, $PRIVATE, $field(ListHelper, colors)},
+		{"mouseDraggedOutVertically", "Z", nullptr, $PRIVATE, $field(ListHelper, mouseDraggedOutVertically)},
+		{"vsbVisibilityChanged", "Z", nullptr, $PRIVATE | $VOLATILE, $field(ListHelper, vsbVisibilityChanged)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/awt/X11/XWindow;[Ljava/awt/Color;IZZZLjava/awt/Font;IIIII)V", nullptr, 0, $method(ListHelper, init$, void, $XWindow*, $ColorArray*, int32_t, bool, bool, bool, $Font*, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"add", "(Ljava/lang/String;)V", nullptr, 0, $method(ListHelper, add, void, $String*)},
+		{"add", "(Ljava/lang/String;I)V", nullptr, 0, $method(ListHelper, add, void, $String*, int32_t)},
+		{"checkVsbVisibilityChangedAndReset", "()Z", nullptr, 0, $method(ListHelper, checkVsbVisibilityChangedAndReset, bool)},
+		{"deselect", "(I)V", nullptr, 0, $method(ListHelper, deselect, void, int32_t)},
+		{"doWheelScroll", "(Lsun/awt/X11/XVerticalScrollbar;Lsun/awt/X11/XHorizontalScrollbar;Ljava/awt/event/MouseWheelEvent;)Z", nullptr, $STATIC, $staticMethod(ListHelper, doWheelScroll, bool, $XVerticalScrollbar*, $XHorizontalScrollbar*, $MouseWheelEvent*)},
+		{"down", "()V", nullptr, 0, $method(ListHelper, down, void)},
+		{"end", "()V", nullptr, 0, $method(ListHelper, end, void)},
+		{"firstDisplayedIndex", "()I", nullptr, 0, $method(ListHelper, firstDisplayedIndex, int32_t)},
+		{"getEventSource", "()Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(ListHelper, getEventSource, $Component*)},
+		{"getHSB", "()Lsun/awt/X11/XHorizontalScrollbar;", nullptr, 0, $method(ListHelper, getHSB, $XHorizontalScrollbar*)},
+		{"getItem", "(I)Ljava/lang/String;", nullptr, 0, $method(ListHelper, getItem, $String*, int32_t)},
+		{"getItemCount", "()I", nullptr, 0, $method(ListHelper, getItemCount, int32_t)},
+		{"getItemHeight", "()I", nullptr, 0, $method(ListHelper, getItemHeight, int32_t)},
+		{"getMaxItemWidth", "()I", nullptr, 0, $method(ListHelper, getMaxItemWidth, int32_t)},
+		{"getNumItemsDisplayed", "()I", nullptr, $PRIVATE, $method(ListHelper, getNumItemsDisplayed, int32_t)},
+		{"getSelectedIndex", "()I", nullptr, 0, $method(ListHelper, getSelectedIndex, int32_t)},
+		{"getSelectedIndexes", "()[I", nullptr, 0, $method(ListHelper, getSelectedIndexes, $ints*)},
+		{"getVSB", "()Lsun/awt/X11/XVerticalScrollbar;", nullptr, 0, $method(ListHelper, getVSB, $XVerticalScrollbar*)},
+		{"handleVSBEvent", "(Ljava/awt/event/MouseEvent;Ljava/awt/Rectangle;II)V", nullptr, 0, $method(ListHelper, handleVSBEvent, void, $MouseEvent*, $Rectangle*, int32_t, int32_t)},
+		{"home", "()V", nullptr, 0, $method(ListHelper, home, void)},
+		{"isEmpty", "()Z", nullptr, 0, $method(ListHelper, isEmpty, bool)},
+		{"isFocusedIndex", "(I)Z", nullptr, $PRIVATE, $method(ListHelper, isFocusedIndex, bool, int32_t)},
+		{"isHSBVisible", "()Z", nullptr, 0, $method(ListHelper, isHSBVisible, bool)},
+		{"isInHorizSB", "(Ljava/awt/Rectangle;II)Z", nullptr, 0, $method(ListHelper, isInHorizSB, bool, $Rectangle*, int32_t, int32_t)},
+		{"isInVertSB", "(Ljava/awt/Rectangle;II)Z", nullptr, 0, $method(ListHelper, isInVertSB, bool, $Rectangle*, int32_t, int32_t)},
+		{"isItemSelected", "(I)Z", nullptr, $PRIVATE, $method(ListHelper, isItemSelected, bool, int32_t)},
+		{"isVSBVisible", "()Z", nullptr, 0, $method(ListHelper, isVSBVisible, bool)},
+		{"lastDisplayedIndex", "()I", nullptr, 0, $method(ListHelper, lastDisplayedIndex, int32_t)},
+		{"makeVisible", "(I)V", nullptr, $PRIVATE, $method(ListHelper, makeVisible, void, int32_t)},
+		{"notifyValue", "(Lsun/awt/X11/XScrollbar;IIZ)V", nullptr, $PUBLIC, $virtualMethod(ListHelper, notifyValue, void, $XScrollbar*, int32_t, int32_t, bool)},
+		{"pageDown", "()V", nullptr, 0, $method(ListHelper, pageDown, void)},
+		{"pageUp", "()V", nullptr, 0, $method(ListHelper, pageUp, void)},
+		{"paintAllItems", "(Ljava/awt/Graphics;[Ljava/awt/Color;Ljava/awt/Rectangle;)V", nullptr, 0, $method(ListHelper, paintAllItems, void, $Graphics*, $ColorArray*, $Rectangle*)},
+		{"paintHSB", "(Ljava/awt/Graphics;[Ljava/awt/Color;Ljava/awt/Rectangle;)V", nullptr, $PRIVATE, $method(ListHelper, paintHSB, void, $Graphics*, $ColorArray*, $Rectangle*)},
+		{"paintItem", "(Ljava/awt/Graphics;[Ljava/awt/Color;Ljava/lang/String;IIIIZZ)V", nullptr, $PRIVATE, $method(ListHelper, paintItem, void, $Graphics*, $ColorArray*, $String*, int32_t, int32_t, int32_t, int32_t, bool, bool)},
+		{"paintItems", "(Ljava/awt/Graphics;[Ljava/awt/Color;Ljava/awt/Rectangle;)V", nullptr, 0, $method(ListHelper, paintItems, void, $Graphics*, $ColorArray*, $Rectangle*)},
+		{"paintItems", "(Ljava/awt/Graphics;[Ljava/awt/Color;Ljava/awt/Rectangle;II)V", nullptr, $PRIVATE, $method(ListHelper, paintItems, void, $Graphics*, $ColorArray*, $Rectangle*, int32_t, int32_t)},
+		{"paintVSB", "(Ljava/awt/Graphics;[Ljava/awt/Color;Ljava/awt/Rectangle;)V", nullptr, $PRIVATE, $method(ListHelper, paintVSB, void, $Graphics*, $ColorArray*, $Rectangle*)},
+		{"remove", "(Ljava/lang/String;)V", nullptr, 0, $method(ListHelper, remove, void, $String*)},
+		{"remove", "(I)V", nullptr, 0, $method(ListHelper, remove, void, int32_t)},
+		{"removeAll", "()V", nullptr, 0, $method(ListHelper, removeAll, void)},
+		{"repaintScrollbarRequest", "(Lsun/awt/X11/XScrollbar;)V", nullptr, $PUBLIC, $virtualMethod(ListHelper, repaintScrollbarRequest, void, $XScrollbar*)},
+		{"select", "(I)V", nullptr, 0, $method(ListHelper, select, void, int32_t)},
+		{"setFocusedIndex", "(I)V", nullptr, 0, $method(ListHelper, setFocusedIndex, void, int32_t)},
+		{"setFont", "(Ljava/awt/Font;)V", nullptr, 0, $method(ListHelper, setFont, void, $Font*)},
+		{"setMultiSelect", "(Z)V", nullptr, 0, $method(ListHelper, setMultiSelect, void, bool)},
+		{"trackMouseDraggedScroll", "(IIII)V", nullptr, 0, $method(ListHelper, trackMouseDraggedScroll, void, int32_t, int32_t, int32_t, int32_t)},
+		{"trackMouseReleasedScroll", "()V", nullptr, 0, $method(ListHelper, trackMouseReleasedScroll, void)},
+		{"up", "()V", nullptr, 0, $method(ListHelper, up, void)},
+		{"updateColors", "([Ljava/awt/Color;)V", nullptr, 0, $method(ListHelper, updateColors, void, $ColorArray*)},
+		{"updateScrollbars", "()V", nullptr, $PRIVATE, $method(ListHelper, updateScrollbars, void)},
+		{"y2index", "(I)I", nullptr, 0, $method(ListHelper, y2index, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.awt.X11.ListHelper",
+		"java.lang.Object",
+		"sun.awt.X11.XScrollbarClient",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ListHelper, name, initialize, &classInfo$$, ListHelper::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ListHelper);
+	});
 	return class$;
 }
 

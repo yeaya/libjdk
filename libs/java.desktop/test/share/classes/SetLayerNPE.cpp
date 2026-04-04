@@ -1,5 +1,4 @@
 #include <SetLayerNPE.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <java/awt/EventQueue.h>
@@ -15,7 +14,6 @@
 #include <javax/swing/JInternalFrame.h>
 #include <jcpp.h>
 
-using $Component = ::java::awt::Component;
 using $EventQueue = ::java::awt::EventQueue;
 using $Serializable = ::java::io::Serializable;
 using $AssertionError = ::java::lang::AssertionError;
@@ -36,27 +34,24 @@ public:
 	virtual void run() override {
 		SetLayerNPE::lambda$main$0();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<SetLayerNPE$$Lambda$lambda$main$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo SetLayerNPE$$Lambda$lambda$main$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SetLayerNPE$$Lambda$lambda$main$0, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(SetLayerNPE$$Lambda$lambda$main$0, run, void)},
-	{}
-};
-$ClassInfo SetLayerNPE$$Lambda$lambda$main$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"SetLayerNPE$$Lambda$lambda$main$0",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* SetLayerNPE$$Lambda$lambda$main$0::load$($String* name, bool initialize) {
-	$loadClass(SetLayerNPE$$Lambda$lambda$main$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SetLayerNPE$$Lambda$lambda$main$0, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(SetLayerNPE$$Lambda$lambda$main$0, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"SetLayerNPE$$Lambda$lambda$main$0",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(SetLayerNPE$$Lambda$lambda$main$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SetLayerNPE$$Lambda$lambda$main$0);
+	});
 	return class$;
 }
 $Class* SetLayerNPE$$Lambda$lambda$main$0::class$ = nullptr;
@@ -69,67 +64,43 @@ public:
 	virtual void run() override {
 		SetLayerNPE::lambda$main$1();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<SetLayerNPE$$Lambda$lambda$main$1$1>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo SetLayerNPE$$Lambda$lambda$main$1$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SetLayerNPE$$Lambda$lambda$main$1$1, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(SetLayerNPE$$Lambda$lambda$main$1$1, run, void)},
-	{}
-};
-$ClassInfo SetLayerNPE$$Lambda$lambda$main$1$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"SetLayerNPE$$Lambda$lambda$main$1$1",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* SetLayerNPE$$Lambda$lambda$main$1$1::load$($String* name, bool initialize) {
-	$loadClass(SetLayerNPE$$Lambda$lambda$main$1$1, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SetLayerNPE$$Lambda$lambda$main$1$1, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(SetLayerNPE$$Lambda$lambda$main$1$1, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"SetLayerNPE$$Lambda$lambda$main$1$1",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(SetLayerNPE$$Lambda$lambda$main$1$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SetLayerNPE$$Lambda$lambda$main$1$1);
+	});
 	return class$;
 }
 $Class* SetLayerNPE$$Lambda$lambda$main$1$1::class$ = nullptr;
-
-$MethodInfo _SetLayerNPE_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SetLayerNPE, init$, void)},
-	{"lambda$main$0", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(SetLayerNPE, lambda$main$0, void)},
-	{"lambda$main$1", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(SetLayerNPE, lambda$main$1, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SetLayerNPE, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _SetLayerNPE_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"SetLayerNPE",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_SetLayerNPE_MethodInfo_
-};
-
-$Object* allocate$SetLayerNPE($Class* clazz) {
-	return $of($alloc(SetLayerNPE));
-}
 
 void SetLayerNPE::init$() {
 }
 
 void SetLayerNPE::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
-	$EventQueue::invokeAndWait(static_cast<$Runnable*>($$new(SetLayerNPE$$Lambda$lambda$main$0)));
-	$EventQueue::invokeAndWait(static_cast<$Runnable*>($$new(SetLayerNPE$$Lambda$lambda$main$1$1)));
+	$useLocalObjectStack();
+	$EventQueue::invokeAndWait($$new(SetLayerNPE$$Lambda$lambda$main$0));
+	$EventQueue::invokeAndWait($$new(SetLayerNPE$$Lambda$lambda$main$1$1));
 }
 
 void SetLayerNPE::lambda$main$1() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$var($JInternalFrame, jif, $new($JInternalFrame, "My Frame"_s));
-		$$new($JDesktopPane)->add(static_cast<$Component*>(jif));
-		jif->setLayer(($Integer*)nullptr);
+		$$new($JDesktopPane)->add(jif);
+		jif->setLayer(nullptr);
 		$throwNew($AssertionError, $of("expected NPE was not thrown"_s));
 	} catch ($NullPointerException& ignored) {
 	}
@@ -137,7 +108,7 @@ void SetLayerNPE::lambda$main$1() {
 
 void SetLayerNPE::lambda$main$0() {
 	try {
-		$$new($JInternalFrame, "My Frame"_s)->setLayer(($Integer*)nullptr);
+		$$new($JInternalFrame, "My Frame"_s)->setLayer(nullptr);
 		$throwNew($AssertionError, $of("expected NPE was not thrown"_s));
 	} catch ($NullPointerException& ignored) {
 	}
@@ -148,14 +119,31 @@ SetLayerNPE::SetLayerNPE() {
 
 $Class* SetLayerNPE::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(SetLayerNPE$$Lambda$lambda$main$0::classInfo$.name)) {
+		if (name->equals("SetLayerNPE$$Lambda$lambda$main$0")) {
 			return SetLayerNPE$$Lambda$lambda$main$0::load$(name, initialize);
 		}
-		if (name->equals(SetLayerNPE$$Lambda$lambda$main$1$1::classInfo$.name)) {
+		if (name->equals("SetLayerNPE$$Lambda$lambda$main$1$1")) {
 			return SetLayerNPE$$Lambda$lambda$main$1$1::load$(name, initialize);
 		}
 	}
-	$loadClass(SetLayerNPE, name, initialize, &_SetLayerNPE_ClassInfo_, allocate$SetLayerNPE);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SetLayerNPE, init$, void)},
+		{"lambda$main$0", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(SetLayerNPE, lambda$main$0, void)},
+		{"lambda$main$1", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(SetLayerNPE, lambda$main$1, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SetLayerNPE, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"SetLayerNPE",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(SetLayerNPE, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SetLayerNPE);
+	});
 	return class$;
 }
 

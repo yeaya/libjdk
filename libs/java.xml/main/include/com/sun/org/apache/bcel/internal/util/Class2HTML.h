@@ -54,6 +54,7 @@ class $import Class2HTML : public ::java::lang::Object {
 	$class(Class2HTML, 0, ::java::lang::Object)
 public:
 	Class2HTML();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::com::sun::org::apache::bcel::internal::classfile::JavaClass* java_class, $String* dir);
 	static void main($StringArray* argv);
 	static $String* referenceClass(int32_t index);

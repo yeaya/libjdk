@@ -1,7 +1,5 @@
 #include <com/sun/java/swing/plaf/motif/MotifOptionPaneUI.h>
-
 #include <com/sun/java/swing/plaf/motif/MotifOptionPaneUI$1.h>
-#include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <java/awt/Dimension.h>
 #include <java/awt/LayoutManager.h>
@@ -17,7 +15,6 @@
 #undef CENTER
 
 using $MotifOptionPaneUI$1 = ::com::sun::java::swing::plaf::motif::MotifOptionPaneUI$1;
-using $Component = ::java::awt::Component;
 using $Container = ::java::awt::Container;
 using $Dimension = ::java::awt::Dimension;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -38,40 +35,6 @@ namespace com {
 				namespace plaf {
 					namespace motif {
 
-$MethodInfo _MotifOptionPaneUI_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MotifOptionPaneUI, init$, void)},
-	{"addIcon", "(Ljava/awt/Container;)V", nullptr, $PROTECTED, $virtualMethod(MotifOptionPaneUI, addIcon, void, $Container*)},
-	{"createButtonArea", "()Ljava/awt/Container;", nullptr, $PROTECTED, $virtualMethod(MotifOptionPaneUI, createButtonArea, $Container*)},
-	{"createSeparator", "()Ljava/awt/Container;", nullptr, $PROTECTED, $virtualMethod(MotifOptionPaneUI, createSeparator, $Container*)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(MotifOptionPaneUI, createUI, $ComponentUI*, $JComponent*)},
-	{"getMinimumOptionPaneSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(MotifOptionPaneUI, getMinimumOptionPaneSize, $Dimension*)},
-	{}
-};
-
-$InnerClassInfo _MotifOptionPaneUI_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.motif.MotifOptionPaneUI$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _MotifOptionPaneUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.java.swing.plaf.motif.MotifOptionPaneUI",
-	"javax.swing.plaf.basic.BasicOptionPaneUI",
-	nullptr,
-	nullptr,
-	_MotifOptionPaneUI_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MotifOptionPaneUI_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.motif.MotifOptionPaneUI$1"
-};
-
-$Object* allocate$MotifOptionPaneUI($Class* clazz) {
-	return $of($alloc(MotifOptionPaneUI));
-}
-
 void MotifOptionPaneUI::init$() {
 	$BasicOptionPaneUI::init$();
 }
@@ -82,10 +45,10 @@ $ComponentUI* MotifOptionPaneUI::createUI($JComponent* x) {
 }
 
 $Container* MotifOptionPaneUI::createButtonArea() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Container, b, $BasicOptionPaneUI::createButtonArea());
 	if (b != nullptr && $instanceOf($BasicOptionPaneUI$ButtonAreaLayout, $(b->getLayout()))) {
-		$nc(($cast($BasicOptionPaneUI$ButtonAreaLayout, $(b->getLayout()))))->setCentersChildren(false);
+		$$sure($BasicOptionPaneUI$ButtonAreaLayout, b->getLayout())->setCentersChildren(false);
 	}
 	return b;
 }
@@ -99,12 +62,12 @@ $Container* MotifOptionPaneUI::createSeparator() {
 }
 
 void MotifOptionPaneUI::addIcon($Container* top) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Icon, sideIcon, getIcon());
 	if (sideIcon != nullptr) {
 		$var($JLabel, iconLabel, $new($JLabel, sideIcon));
 		iconLabel->setVerticalAlignment($SwingConstants::CENTER);
-		$nc(top)->add(static_cast<$Component*>(iconLabel), $of("West"_s));
+		$nc(top)->add(iconLabel, "West"_s);
 	}
 }
 
@@ -112,7 +75,36 @@ MotifOptionPaneUI::MotifOptionPaneUI() {
 }
 
 $Class* MotifOptionPaneUI::load$($String* name, bool initialize) {
-	$loadClass(MotifOptionPaneUI, name, initialize, &_MotifOptionPaneUI_ClassInfo_, allocate$MotifOptionPaneUI);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MotifOptionPaneUI, init$, void)},
+		{"addIcon", "(Ljava/awt/Container;)V", nullptr, $PROTECTED, $virtualMethod(MotifOptionPaneUI, addIcon, void, $Container*)},
+		{"createButtonArea", "()Ljava/awt/Container;", nullptr, $PROTECTED, $virtualMethod(MotifOptionPaneUI, createButtonArea, $Container*)},
+		{"createSeparator", "()Ljava/awt/Container;", nullptr, $PROTECTED, $virtualMethod(MotifOptionPaneUI, createSeparator, $Container*)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(MotifOptionPaneUI, createUI, $ComponentUI*, $JComponent*)},
+		{"getMinimumOptionPaneSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(MotifOptionPaneUI, getMinimumOptionPaneSize, $Dimension*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.motif.MotifOptionPaneUI$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.java.swing.plaf.motif.MotifOptionPaneUI",
+		"javax.swing.plaf.basic.BasicOptionPaneUI",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.motif.MotifOptionPaneUI$1"
+	};
+	$loadClass(MotifOptionPaneUI, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MotifOptionPaneUI);
+	});
 	return class$;
 }
 

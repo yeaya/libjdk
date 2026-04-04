@@ -1,5 +1,4 @@
 #include <sun/security/krb5/internal/rcache/AuthTime.h>
-
 #include <java/io/IOException.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/nio/ByteOrder.h>
@@ -30,37 +29,6 @@ namespace sun {
 			namespace internal {
 				namespace rcache {
 
-$FieldInfo _AuthTime_FieldInfo_[] = {
-	{"ctime", "I", nullptr, $FINAL, $field(AuthTime, ctime)},
-	{"cusec", "I", nullptr, $FINAL, $field(AuthTime, cusec)},
-	{"client", "Ljava/lang/String;", nullptr, $FINAL, $field(AuthTime, client)},
-	{"server", "Ljava/lang/String;", nullptr, $FINAL, $field(AuthTime, server)},
-	{}
-};
-
-$MethodInfo _AuthTime_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;II)V", nullptr, $PUBLIC, $method(AuthTime, init$, void, $String*, $String*, int32_t, int32_t)},
-	{"encode", "(Z)[B", nullptr, $PUBLIC, $virtualMethod(AuthTime, encode, $bytes*, bool)},
-	{"encode0", "(Ljava/lang/String;Ljava/lang/String;)[B", nullptr, $PROTECTED, $virtualMethod(AuthTime, encode0, $bytes*, $String*, $String*)},
-	{"readFrom", "(Ljava/nio/channels/SeekableByteChannel;)Lsun/security/krb5/internal/rcache/AuthTime;", nullptr, $PUBLIC | $STATIC, $staticMethod(AuthTime, readFrom, AuthTime*, $SeekableByteChannel*), "java.io.IOException"},
-	{"readStringWithLength", "(Ljava/nio/channels/SeekableByteChannel;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(AuthTime, readStringWithLength, $String*, $SeekableByteChannel*), "java.io.IOException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AuthTime, toString, $String*)},
-	{}
-};
-
-$ClassInfo _AuthTime_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.krb5.internal.rcache.AuthTime",
-	"java.lang.Object",
-	nullptr,
-	_AuthTime_FieldInfo_,
-	_AuthTime_MethodInfo_
-};
-
-$Object* allocate$AuthTime($Class* clazz) {
-	return $of($alloc(AuthTime));
-}
-
 void AuthTime::init$($String* client, $String* server, int32_t ctime, int32_t cusec) {
 	this->ctime = ctime;
 	this->cusec = cusec;
@@ -69,16 +37,16 @@ void AuthTime::init$($String* client, $String* server, int32_t ctime, int32_t cu
 }
 
 $String* AuthTime::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $String::format("%d/%06d/----/%s"_s, $$new($ObjectArray, {
-		$($of($Integer::valueOf(this->ctime))),
-		$($of($Integer::valueOf(this->cusec))),
-		$of(this->client)
+		$($Integer::valueOf(this->ctime)),
+		$($Integer::valueOf(this->cusec)),
+		this->client
 	}));
 }
 
 $String* AuthTime::readStringWithLength($SeekableByteChannel* chan) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ByteBuffer, bb, $ByteBuffer::allocate(4));
 	$nc(bb)->order($($ByteOrder::nativeOrder()));
 	$nc(chan)->read(bb);
@@ -91,13 +59,13 @@ $String* AuthTime::readStringWithLength($SeekableByteChannel* chan) {
 	if (chan->read(bb) != len) {
 		$throwNew($IOException, "Not enough string"_s);
 	}
-	$var($bytes, data, $cast($bytes, bb->array()));
+	$var($bytes, data, $cast($bytes, $nc(bb)->array()));
 	$init($StandardCharsets);
 	return ($nc(data)->get(len - 1) == 0) ? $new($String, data, 0, len - 1, $StandardCharsets::UTF_8) : $new($String, data, $StandardCharsets::UTF_8);
 }
 
 AuthTime* AuthTime::readFrom($SeekableByteChannel* chan) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, client, readStringWithLength(chan));
 	$var($String, server, readStringWithLength(chan));
 	$var($ByteBuffer, bb, $ByteBuffer::allocate(8));
@@ -123,14 +91,16 @@ AuthTime* AuthTime::readFrom($SeekableByteChannel* chan) {
 }
 
 $bytes* AuthTime::encode0($String* cstring, $String* sstring) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($StandardCharsets);
 	$var($bytes, c, $nc(cstring)->getBytes($StandardCharsets::UTF_8));
+	;
 	$var($bytes, s, $nc(sstring)->getBytes($StandardCharsets::UTF_8));
+	;
 	$var($bytes, zero, $new($bytes, 1));
 	int32_t len = 4 + c->length + 1 + 4 + s->length + 1 + 4 + 4;
-	$var($ByteBuffer, bb, $nc($($ByteBuffer::allocate(len)))->order($($ByteOrder::nativeOrder())));
-	$nc($($nc($($nc($($nc($($nc($($nc($($nc($($nc(bb)->putInt(c->length + 1)))->put(c)))->put(zero)))->putInt(s->length + 1)))->put(s)))->put(zero)))->putInt(this->cusec)))->putInt(this->ctime);
+	$var($ByteBuffer, bb, $$nc($ByteBuffer::allocate(len))->order($($ByteOrder::nativeOrder())));
+	$$nc($$nc($$nc($$nc($$nc($$nc($$nc($nc(bb)->putInt(c->length + 1))->put(c))->put(zero))->putInt(s->length + 1))->put(s))->put(zero))->putInt(this->cusec))->putInt(this->ctime);
 	return $cast($bytes, bb->array());
 }
 
@@ -142,7 +112,33 @@ AuthTime::AuthTime() {
 }
 
 $Class* AuthTime::load$($String* name, bool initialize) {
-	$loadClass(AuthTime, name, initialize, &_AuthTime_ClassInfo_, allocate$AuthTime);
+	$FieldInfo fieldInfos$$[] = {
+		{"ctime", "I", nullptr, $FINAL, $field(AuthTime, ctime)},
+		{"cusec", "I", nullptr, $FINAL, $field(AuthTime, cusec)},
+		{"client", "Ljava/lang/String;", nullptr, $FINAL, $field(AuthTime, client)},
+		{"server", "Ljava/lang/String;", nullptr, $FINAL, $field(AuthTime, server)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;II)V", nullptr, $PUBLIC, $method(AuthTime, init$, void, $String*, $String*, int32_t, int32_t)},
+		{"encode", "(Z)[B", nullptr, $PUBLIC, $virtualMethod(AuthTime, encode, $bytes*, bool)},
+		{"encode0", "(Ljava/lang/String;Ljava/lang/String;)[B", nullptr, $PROTECTED, $virtualMethod(AuthTime, encode0, $bytes*, $String*, $String*)},
+		{"readFrom", "(Ljava/nio/channels/SeekableByteChannel;)Lsun/security/krb5/internal/rcache/AuthTime;", nullptr, $PUBLIC | $STATIC, $staticMethod(AuthTime, readFrom, AuthTime*, $SeekableByteChannel*), "java.io.IOException"},
+		{"readStringWithLength", "(Ljava/nio/channels/SeekableByteChannel;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(AuthTime, readStringWithLength, $String*, $SeekableByteChannel*), "java.io.IOException"},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AuthTime, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.krb5.internal.rcache.AuthTime",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(AuthTime, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AuthTime);
+	});
 	return class$;
 }
 

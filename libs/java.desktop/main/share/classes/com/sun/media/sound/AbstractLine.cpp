@@ -1,5 +1,4 @@
 #include <com/sun/media/sound/AbstractLine.h>
-
 #include <com/sun/media/sound/AbstractMixer.h>
 #include <com/sun/media/sound/EventDispatcher.h>
 #include <java/lang/ThreadGroup.h>
@@ -11,7 +10,6 @@
 #include <javax/sound/sampled/Control$Type.h>
 #include <javax/sound/sampled/Control.h>
 #include <javax/sound/sampled/Line$Info.h>
-#include <javax/sound/sampled/Line.h>
 #include <javax/sound/sampled/LineEvent$Type.h>
 #include <javax/sound/sampled/LineEvent.h>
 #include <javax/sound/sampled/LineListener.h>
@@ -29,14 +27,12 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ThreadGroup = ::java::lang::ThreadGroup;
-using $List = ::java::util::List;
 using $Map = ::java::util::Map;
 using $Vector = ::java::util::Vector;
 using $WeakHashMap = ::java::util::WeakHashMap;
 using $AudioSystem = ::javax::sound::sampled::AudioSystem;
 using $Control = ::javax::sound::sampled::Control;
 using $Control$Type = ::javax::sound::sampled::Control$Type;
-using $Line = ::javax::sound::sampled::Line;
 using $Line$Info = ::javax::sound::sampled::Line$Info;
 using $LineEvent = ::javax::sound::sampled::LineEvent;
 using $LineEvent$Type = ::javax::sound::sampled::LineEvent$Type;
@@ -46,49 +42,6 @@ namespace com {
 	namespace sun {
 		namespace media {
 			namespace sound {
-
-$FieldInfo _AbstractLine_FieldInfo_[] = {
-	{"info", "Ljavax/sound/sampled/Line$Info;", nullptr, $PROTECTED | $FINAL, $field(AbstractLine, info)},
-	{"controls", "[Ljavax/sound/sampled/Control;", nullptr, $PROTECTED, $field(AbstractLine, controls)},
-	{"mixer", "Lcom/sun/media/sound/AbstractMixer;", nullptr, 0, $field(AbstractLine, mixer)},
-	{"open", "Z", nullptr, $PRIVATE | $VOLATILE, $field(AbstractLine, open$)},
-	{"listeners", "Ljava/util/Vector;", "Ljava/util/Vector<Ljava/lang/Object;>;", $PRIVATE | $FINAL, $field(AbstractLine, listeners)},
-	{"dispatchers", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/ThreadGroup;Lcom/sun/media/sound/EventDispatcher;>;", $PRIVATE | $STATIC | $FINAL, $staticField(AbstractLine, dispatchers)},
-	{}
-};
-
-$MethodInfo _AbstractLine_MethodInfo_[] = {
-	{"close", "()V", nullptr, $PUBLIC | $ABSTRACT},
-	{"<init>", "(Ljavax/sound/sampled/Line$Info;Lcom/sun/media/sound/AbstractMixer;[Ljavax/sound/sampled/Control;)V", nullptr, $PROTECTED, $method(AbstractLine, init$, void, $Line$Info*, $AbstractMixer*, $ControlArray*)},
-	{"addLineListener", "(Ljavax/sound/sampled/LineListener;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(AbstractLine, addLineListener, void, $LineListener*)},
-	{"getControl", "(Ljavax/sound/sampled/Control$Type;)Ljavax/sound/sampled/Control;", nullptr, $PUBLIC | $FINAL, $virtualMethod(AbstractLine, getControl, $Control*, $Control$Type*)},
-	{"getControls", "()[Ljavax/sound/sampled/Control;", nullptr, $PUBLIC | $FINAL, $virtualMethod(AbstractLine, getControls, $ControlArray*)},
-	{"getEventDispatcher", "()Lcom/sun/media/sound/EventDispatcher;", nullptr, $FINAL, $method(AbstractLine, getEventDispatcher, $EventDispatcher*)},
-	{"getFramePosition", "()I", nullptr, $PUBLIC | $FINAL, $method(AbstractLine, getFramePosition, int32_t)},
-	{"getLineInfo", "()Ljavax/sound/sampled/Line$Info;", nullptr, $PUBLIC | $FINAL, $virtualMethod(AbstractLine, getLineInfo, $Line$Info*)},
-	{"getLongFramePosition", "()J", nullptr, $PUBLIC, $virtualMethod(AbstractLine, getLongFramePosition, int64_t)},
-	{"getMixer", "()Lcom/sun/media/sound/AbstractMixer;", nullptr, $FINAL, $method(AbstractLine, getMixer, $AbstractMixer*)},
-	{"isControlSupported", "(Ljavax/sound/sampled/Control$Type;)Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(AbstractLine, isControlSupported, bool, $Control$Type*)},
-	{"isOpen", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(AbstractLine, isOpen, bool)},
-	{"open", "()V", nullptr, $PUBLIC | $ABSTRACT},
-	{"removeLineListener", "(Ljavax/sound/sampled/LineListener;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(AbstractLine, removeLineListener, void, $LineListener*)},
-	{"sendEvents", "(Ljavax/sound/sampled/LineEvent;)V", nullptr, $FINAL, $method(AbstractLine, sendEvents, void, $LineEvent*)},
-	{"setOpen", "(Z)V", nullptr, $FINAL, $method(AbstractLine, setOpen, void, bool)},
-	{}
-};
-
-$ClassInfo _AbstractLine_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"com.sun.media.sound.AbstractLine",
-	"java.lang.Object",
-	"javax.sound.sampled.Line",
-	_AbstractLine_FieldInfo_,
-	_AbstractLine_MethodInfo_
-};
-
-$Object* allocate$AbstractLine($Class* clazz) {
-	return $of($alloc(AbstractLine));
-}
 
 $Map* AbstractLine::dispatchers = nullptr;
 
@@ -113,20 +66,20 @@ bool AbstractLine::isOpen() {
 
 void AbstractLine::addLineListener($LineListener* listener) {
 	$synchronized(this->listeners) {
-		if (!($nc(this->listeners)->contains(listener))) {
-			$nc(this->listeners)->addElement(listener);
+		if (!(this->listeners->contains(listener))) {
+			this->listeners->addElement(listener);
 		}
 	}
 }
 
 void AbstractLine::removeLineListener($LineListener* listener) {
-	$nc(this->listeners)->removeElement(listener);
+	this->listeners->removeElement(listener);
 }
 
 $ControlArray* AbstractLine::getControls() {
 	$var($ControlArray, returnedArray, $new($ControlArray, $nc(this->controls)->length));
-	for (int32_t i = 0; i < $nc(this->controls)->length; ++i) {
-		returnedArray->set(i, $nc(this->controls)->get(i));
+	for (int32_t i = 0; i < this->controls->length; ++i) {
+		returnedArray->set(i, this->controls->get(i));
 	}
 	return returnedArray;
 }
@@ -136,7 +89,7 @@ bool AbstractLine::isControlSupported($Control$Type* controlType) {
 		return false;
 	}
 	for (int32_t i = 0; i < $nc(this->controls)->length; ++i) {
-		if (controlType == $nc($nc(this->controls)->get(i))->getType()) {
+		if (controlType == $nc(this->controls->get(i))->getType()) {
 			return true;
 		}
 	}
@@ -146,7 +99,7 @@ bool AbstractLine::isControlSupported($Control$Type* controlType) {
 $Control* AbstractLine::getControl($Control$Type* controlType) {
 	if (controlType != nullptr) {
 		for (int32_t i = 0; i < $nc(this->controls)->length; ++i) {
-			if (controlType == $nc($nc(this->controls)->get(i))->getType()) {
+			if (controlType == $nc(this->controls->get(i))->getType()) {
 				return $nc(this->controls)->get(i);
 			}
 		}
@@ -155,7 +108,7 @@ $Control* AbstractLine::getControl($Control$Type* controlType) {
 }
 
 void AbstractLine::setOpen(bool open) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool sendEvents = false;
 	int64_t position = getLongFramePosition();
 	if (this->open$ != open) {
@@ -174,7 +127,7 @@ void AbstractLine::setOpen(bool open) {
 }
 
 void AbstractLine::sendEvents($LineEvent* event) {
-	$nc($(getEventDispatcher()))->sendAudioEvents(event, this->listeners);
+	$$nc(getEventDispatcher())->sendAudioEvents(event, this->listeners);
 }
 
 int32_t AbstractLine::getFramePosition() {
@@ -190,20 +143,20 @@ $AbstractMixer* AbstractLine::getMixer() {
 }
 
 $EventDispatcher* AbstractLine::getEventDispatcher() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ThreadGroup, tg, $($Thread::currentThread())->getThreadGroup());
 	$synchronized(AbstractLine::dispatchers) {
-		$var($EventDispatcher, eventDispatcher, $cast($EventDispatcher, $nc(AbstractLine::dispatchers)->get(tg)));
+		$var($EventDispatcher, eventDispatcher, $cast($EventDispatcher, AbstractLine::dispatchers->get(tg)));
 		if (eventDispatcher == nullptr) {
 			$assign(eventDispatcher, $new($EventDispatcher));
-			$nc(AbstractLine::dispatchers)->put(tg, eventDispatcher);
+			AbstractLine::dispatchers->put(tg, eventDispatcher);
 			eventDispatcher->start();
 		}
 		return eventDispatcher;
 	}
 }
 
-void clinit$AbstractLine($Class* class$) {
+void AbstractLine::clinit$($Class* clazz) {
 	$assignStatic(AbstractLine::dispatchers, $new($WeakHashMap));
 }
 
@@ -211,7 +164,45 @@ AbstractLine::AbstractLine() {
 }
 
 $Class* AbstractLine::load$($String* name, bool initialize) {
-	$loadClass(AbstractLine, name, initialize, &_AbstractLine_ClassInfo_, clinit$AbstractLine, allocate$AbstractLine);
+	$FieldInfo fieldInfos$$[] = {
+		{"info", "Ljavax/sound/sampled/Line$Info;", nullptr, $PROTECTED | $FINAL, $field(AbstractLine, info)},
+		{"controls", "[Ljavax/sound/sampled/Control;", nullptr, $PROTECTED, $field(AbstractLine, controls)},
+		{"mixer", "Lcom/sun/media/sound/AbstractMixer;", nullptr, 0, $field(AbstractLine, mixer)},
+		{"open", "Z", nullptr, $PRIVATE | $VOLATILE, $field(AbstractLine, open$)},
+		{"listeners", "Ljava/util/Vector;", "Ljava/util/Vector<Ljava/lang/Object;>;", $PRIVATE | $FINAL, $field(AbstractLine, listeners)},
+		{"dispatchers", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/ThreadGroup;Lcom/sun/media/sound/EventDispatcher;>;", $PRIVATE | $STATIC | $FINAL, $staticField(AbstractLine, dispatchers)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"close", "()V", nullptr, $PUBLIC | $ABSTRACT},
+		{"<init>", "(Ljavax/sound/sampled/Line$Info;Lcom/sun/media/sound/AbstractMixer;[Ljavax/sound/sampled/Control;)V", nullptr, $PROTECTED, $method(AbstractLine, init$, void, $Line$Info*, $AbstractMixer*, $ControlArray*)},
+		{"addLineListener", "(Ljavax/sound/sampled/LineListener;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(AbstractLine, addLineListener, void, $LineListener*)},
+		{"getControl", "(Ljavax/sound/sampled/Control$Type;)Ljavax/sound/sampled/Control;", nullptr, $PUBLIC | $FINAL, $virtualMethod(AbstractLine, getControl, $Control*, $Control$Type*)},
+		{"getControls", "()[Ljavax/sound/sampled/Control;", nullptr, $PUBLIC | $FINAL, $virtualMethod(AbstractLine, getControls, $ControlArray*)},
+		{"getEventDispatcher", "()Lcom/sun/media/sound/EventDispatcher;", nullptr, $FINAL, $method(AbstractLine, getEventDispatcher, $EventDispatcher*)},
+		{"getFramePosition", "()I", nullptr, $PUBLIC | $FINAL, $method(AbstractLine, getFramePosition, int32_t)},
+		{"getLineInfo", "()Ljavax/sound/sampled/Line$Info;", nullptr, $PUBLIC | $FINAL, $virtualMethod(AbstractLine, getLineInfo, $Line$Info*)},
+		{"getLongFramePosition", "()J", nullptr, $PUBLIC, $virtualMethod(AbstractLine, getLongFramePosition, int64_t)},
+		{"getMixer", "()Lcom/sun/media/sound/AbstractMixer;", nullptr, $FINAL, $method(AbstractLine, getMixer, $AbstractMixer*)},
+		{"isControlSupported", "(Ljavax/sound/sampled/Control$Type;)Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(AbstractLine, isControlSupported, bool, $Control$Type*)},
+		{"isOpen", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(AbstractLine, isOpen, bool)},
+		{"open", "()V", nullptr, $PUBLIC | $ABSTRACT},
+		{"removeLineListener", "(Ljavax/sound/sampled/LineListener;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(AbstractLine, removeLineListener, void, $LineListener*)},
+		{"sendEvents", "(Ljavax/sound/sampled/LineEvent;)V", nullptr, $FINAL, $method(AbstractLine, sendEvents, void, $LineEvent*)},
+		{"setOpen", "(Z)V", nullptr, $FINAL, $method(AbstractLine, setOpen, void, bool)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"com.sun.media.sound.AbstractLine",
+		"java.lang.Object",
+		"javax.sound.sampled.Line",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(AbstractLine, name, initialize, &classInfo$$, AbstractLine::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(AbstractLine);
+	});
 	return class$;
 }
 

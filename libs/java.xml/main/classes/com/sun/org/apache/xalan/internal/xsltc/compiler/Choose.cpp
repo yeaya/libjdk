@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/Choose.h>
-
 #include <com/sun/org/apache/bcel/internal/generic/BranchHandle.h>
 #include <com/sun/org/apache/bcel/internal/generic/BranchInstruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/GOTO.h>
@@ -25,7 +24,6 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/util/TypeCheckError.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/util/Util.h>
 #include <java/util/ArrayList.h>
-#include <java/util/Collection.h>
 #include <java/util/Collections.h>
 #include <java/util/Enumeration.h>
 #include <java/util/Iterator.h>
@@ -39,18 +37,15 @@
 #undef WHEN_ELEMENT_ERR
 
 using $BranchHandle = ::com::sun::org::apache::bcel::internal::generic::BranchHandle;
-using $BranchInstruction = ::com::sun::org::apache::bcel::internal::generic::BranchInstruction;
 using $GOTO = ::com::sun::org::apache::bcel::internal::generic::GOTO;
 using $IFEQ = ::com::sun::org::apache::bcel::internal::generic::IFEQ;
 using $InstructionHandle = ::com::sun::org::apache::bcel::internal::generic::InstructionHandle;
 using $InstructionList = ::com::sun::org::apache::bcel::internal::generic::InstructionList;
 using $Constants = ::com::sun::org::apache::xalan::internal::xsltc::compiler::Constants;
 using $Expression = ::com::sun::org::apache::xalan::internal::xsltc::compiler::Expression;
-using $FlowList = ::com::sun::org::apache::xalan::internal::xsltc::compiler::FlowList;
 using $FunctionCall = ::com::sun::org::apache::xalan::internal::xsltc::compiler::FunctionCall;
 using $Instruction = ::com::sun::org::apache::xalan::internal::xsltc::compiler::Instruction;
 using $Otherwise = ::com::sun::org::apache::xalan::internal::xsltc::compiler::Otherwise;
-using $Parser = ::com::sun::org::apache::xalan::internal::xsltc::compiler::Parser;
 using $SyntaxTreeNode = ::com::sun::org::apache::xalan::internal::xsltc::compiler::SyntaxTreeNode;
 using $Text = ::com::sun::org::apache::xalan::internal::xsltc::compiler::Text;
 using $When = ::com::sun::org::apache::xalan::internal::xsltc::compiler::When;
@@ -63,7 +58,6 @@ using $Util = ::com::sun::org::apache::xalan::internal::xsltc::compiler::util::U
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ArrayList = ::java::util::ArrayList;
-using $Collection = ::java::util::Collection;
 using $Collections = ::java::util::Collections;
 using $Enumeration = ::java::util::Enumeration;
 using $Iterator = ::java::util::Iterator;
@@ -78,26 +72,6 @@ namespace com {
 						namespace xsltc {
 							namespace compiler {
 
-$MethodInfo _Choose_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(Choose, init$, void)},
-	{"display", "(I)V", nullptr, $PUBLIC, $virtualMethod(Choose, display, void, int32_t)},
-	{"translate", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;)V", nullptr, $PUBLIC, $virtualMethod(Choose, translate, void, $ClassGenerator*, $MethodGenerator*)},
-	{}
-};
-
-$ClassInfo _Choose_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xalan.internal.xsltc.compiler.Choose",
-	"com.sun.org.apache.xalan.internal.xsltc.compiler.Instruction",
-	nullptr,
-	nullptr,
-	_Choose_MethodInfo_
-};
-
-$Object* allocate$Choose($Class* clazz) {
-	return $of($alloc(Choose));
-}
-
 void Choose::init$() {
 	$Instruction::init$();
 }
@@ -110,7 +84,7 @@ void Choose::display(int32_t indent) {
 }
 
 void Choose::translate($ClassGenerator* classGen, $MethodGenerator* methodGen) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, whenElements, $new($ArrayList));
 	$var($Otherwise, otherwise, nullptr);
 	$var($Iterator, elements, this->elements());
@@ -125,21 +99,21 @@ void Choose::translate($ClassGenerator* classGen, $MethodGenerator* methodGen) {
 				$assign(otherwise, $cast($Otherwise, element));
 			} else {
 				$init($ErrorMsg);
-				$assign(error, $new($ErrorMsg, $ErrorMsg::MULTIPLE_OTHERWISE_ERR, static_cast<$SyntaxTreeNode*>(this)));
-				$nc($(getParser()))->reportError($Constants::ERROR, error);
+				$assign(error, $new($ErrorMsg, $ErrorMsg::MULTIPLE_OTHERWISE_ERR, this));
+				$$nc(getParser())->reportError($Constants::ERROR, error);
 			}
 		} else if ($instanceOf($Text, element)) {
-			$nc(($cast($Text, element)))->ignore();
+			$cast($Text, element)->ignore();
 		} else {
 			$init($ErrorMsg);
-			$assign(error, $new($ErrorMsg, $ErrorMsg::WHEN_ELEMENT_ERR, static_cast<$SyntaxTreeNode*>(this)));
-			$nc($(getParser()))->reportError($Constants::ERROR, error);
+			$assign(error, $new($ErrorMsg, $ErrorMsg::WHEN_ELEMENT_ERR, this));
+			$$nc(getParser())->reportError($Constants::ERROR, error);
 		}
 	}
 	if (whenElements->size() == 0) {
 		$init($ErrorMsg);
-		$assign(error, $new($ErrorMsg, $ErrorMsg::MISSING_WHEN_ERR, static_cast<$SyntaxTreeNode*>(this)));
-		$nc($(getParser()))->reportError($Constants::ERROR, error);
+		$assign(error, $new($ErrorMsg, $ErrorMsg::MISSING_WHEN_ERR, this));
+		$$nc(getParser())->reportError($Constants::ERROR, error);
 		return;
 	}
 	$var($InstructionList, il, $nc(methodGen)->getInstructionList());
@@ -159,10 +133,10 @@ void Choose::translate($ClassGenerator* classGen, $MethodGenerator* methodGen) {
 		if ($instanceOf($FunctionCall, test)) {
 			$var($FunctionCall, call, $cast($FunctionCall, test));
 			try {
-				$var($Type, type, call->typeCheck($($nc($(getParser()))->getSymbolTable())));
+				$var($Type, type, call->typeCheck($($$nc(getParser())->getSymbolTable())));
 				$init($Type);
 				if (type != $Type::Boolean) {
-					$nc(test->_falseList)->add($(il->append(static_cast<$BranchInstruction*>($$new($IFEQ, nullptr)))));
+					$nc(test->_falseList)->add($(il->append($$new($IFEQ, nullptr))));
 				}
 			} catch ($TypeCheckError& e) {
 			}
@@ -171,9 +145,9 @@ void Choose::translate($ClassGenerator* classGen, $MethodGenerator* methodGen) {
 		if (!when->ignore()) {
 			when->translateContents(classGen, methodGen);
 		}
-		exitHandles->add($(il->append(static_cast<$BranchInstruction*>($$new($GOTO, nullptr)))));
+		exitHandles->add($(il->append($$new($GOTO, nullptr))));
 		if (whens->hasMoreElements() || otherwise != nullptr) {
-			$assign(nextElement, il->append(static_cast<$BranchInstruction*>($$new($GOTO, nullptr))));
+			$assign(nextElement, il->append($$new($GOTO, nullptr)));
 			test->backPatchFalseList(nextElement);
 		} else {
 			$init($Constants);
@@ -185,7 +159,7 @@ void Choose::translate($ClassGenerator* classGen, $MethodGenerator* methodGen) {
 		$init($Constants);
 		$nc(nextElement)->setTarget($($nc(il)->append($Constants::NOP)));
 		otherwise->translateContents(classGen, methodGen);
-		$assign(exit, $nc(il)->append($Constants::NOP));
+		$assign(exit, il->append($Constants::NOP));
 	}
 	$var($Enumeration, exitGotos, $Collections::enumeration(exitHandles));
 	while ($nc(exitGotos)->hasMoreElements()) {
@@ -198,7 +172,23 @@ Choose::Choose() {
 }
 
 $Class* Choose::load$($String* name, bool initialize) {
-	$loadClass(Choose, name, initialize, &_Choose_ClassInfo_, allocate$Choose);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(Choose, init$, void)},
+		{"display", "(I)V", nullptr, $PUBLIC, $virtualMethod(Choose, display, void, int32_t)},
+		{"translate", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;)V", nullptr, $PUBLIC, $virtualMethod(Choose, translate, void, $ClassGenerator*, $MethodGenerator*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xalan.internal.xsltc.compiler.Choose",
+		"com.sun.org.apache.xalan.internal.xsltc.compiler.Instruction",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Choose, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Choose);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/code/Types$25.h>
-
 #include <com/sun/tools/javac/code/BoundKind.h>
 #include <com/sun/tools/javac/code/TypeTag.h>
 #include <com/sun/tools/javac/code/Types$ProjectionKind.h>
@@ -54,189 +53,150 @@ namespace com {
 			namespace javac {
 				namespace code {
 
-$FieldInfo _Types$25_FieldInfo_[] = {
-	{"$SwitchMap$javax$lang$model$type$TypeKind", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(Types$25, $SwitchMap$javax$lang$model$type$TypeKind)},
-	{"$SwitchMap$com$sun$tools$javac$code$TypeTag", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(Types$25, $SwitchMap$com$sun$tools$javac$code$TypeTag)},
-	{"$SwitchMap$com$sun$tools$javac$code$BoundKind", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(Types$25, $SwitchMap$com$sun$tools$javac$code$BoundKind)},
-	{"$SwitchMap$com$sun$tools$javac$code$Types$ProjectionKind", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(Types$25, $SwitchMap$com$sun$tools$javac$code$Types$ProjectionKind)},
-	{}
-};
-
-$EnclosingMethodInfo _Types$25_EnclosingMethodInfo_ = {
-	"com.sun.tools.javac.code.Types",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _Types$25_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.code.Types$25", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{}
-};
-
-$ClassInfo _Types$25_ClassInfo_ = {
-	$ACC_SUPER | $SYNTHETIC,
-	"com.sun.tools.javac.code.Types$25",
-	"java.lang.Object",
-	nullptr,
-	_Types$25_FieldInfo_,
-	nullptr,
-	nullptr,
-	&_Types$25_EnclosingMethodInfo_,
-	_Types$25_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.code.Types"
-};
-
-$Object* allocate$Types$25($Class* clazz) {
-	return $of($alloc(Types$25));
-}
-
 $ints* Types$25::$SwitchMap$javax$lang$model$type$TypeKind = nullptr;
 $ints* Types$25::$SwitchMap$com$sun$tools$javac$code$TypeTag = nullptr;
 $ints* Types$25::$SwitchMap$com$sun$tools$javac$code$BoundKind = nullptr;
 $ints* Types$25::$SwitchMap$com$sun$tools$javac$code$Types$ProjectionKind = nullptr;
 
-void clinit$Types$25($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void Types$25::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(Types$25::$SwitchMap$javax$lang$model$type$TypeKind, $new($ints, $($TypeKind::values())->length));
 	{
 		try {
-			$nc(Types$25::$SwitchMap$javax$lang$model$type$TypeKind)->set($TypeKind::OTHER->ordinal(), 1);
+			Types$25::$SwitchMap$javax$lang$model$type$TypeKind->set($TypeKind::OTHER->ordinal(), 1);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Types$25::$SwitchMap$javax$lang$model$type$TypeKind)->set($TypeKind::UNION->ordinal(), 2);
+			Types$25::$SwitchMap$javax$lang$model$type$TypeKind->set($TypeKind::UNION->ordinal(), 2);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Types$25::$SwitchMap$javax$lang$model$type$TypeKind)->set($TypeKind::INTERSECTION->ordinal(), 3);
+			Types$25::$SwitchMap$javax$lang$model$type$TypeKind->set($TypeKind::INTERSECTION->ordinal(), 3);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Types$25::$SwitchMap$javax$lang$model$type$TypeKind)->set($TypeKind::PACKAGE->ordinal(), 4);
+			Types$25::$SwitchMap$javax$lang$model$type$TypeKind->set($TypeKind::PACKAGE->ordinal(), 4);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Types$25::$SwitchMap$javax$lang$model$type$TypeKind)->set($TypeKind::EXECUTABLE->ordinal(), 5);
+			Types$25::$SwitchMap$javax$lang$model$type$TypeKind->set($TypeKind::EXECUTABLE->ordinal(), 5);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Types$25::$SwitchMap$javax$lang$model$type$TypeKind)->set($TypeKind::NONE->ordinal(), 6);
+			Types$25::$SwitchMap$javax$lang$model$type$TypeKind->set($TypeKind::NONE->ordinal(), 6);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Types$25::$SwitchMap$javax$lang$model$type$TypeKind)->set($TypeKind::VOID->ordinal(), 7);
+			Types$25::$SwitchMap$javax$lang$model$type$TypeKind->set($TypeKind::VOID->ordinal(), 7);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Types$25::$SwitchMap$javax$lang$model$type$TypeKind)->set($TypeKind::ERROR->ordinal(), 8);
+			Types$25::$SwitchMap$javax$lang$model$type$TypeKind->set($TypeKind::ERROR->ordinal(), 8);
 		} catch ($NoSuchFieldError& ex) {
 		}
 	}
 	$assignStatic(Types$25::$SwitchMap$com$sun$tools$javac$code$TypeTag, $new($ints, $($TypeTag::values())->length));
 	{
 		try {
-			$nc(Types$25::$SwitchMap$com$sun$tools$javac$code$TypeTag)->set($TypeTag::ARRAY->ordinal(), 1);
+			Types$25::$SwitchMap$com$sun$tools$javac$code$TypeTag->set($TypeTag::ARRAY->ordinal(), 1);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Types$25::$SwitchMap$com$sun$tools$javac$code$TypeTag)->set($TypeTag::CLASS->ordinal(), 2);
+			Types$25::$SwitchMap$com$sun$tools$javac$code$TypeTag->set($TypeTag::CLASS->ordinal(), 2);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Types$25::$SwitchMap$com$sun$tools$javac$code$TypeTag)->set($TypeTag::BYTE->ordinal(), 3);
+			Types$25::$SwitchMap$com$sun$tools$javac$code$TypeTag->set($TypeTag::BYTE->ordinal(), 3);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Types$25::$SwitchMap$com$sun$tools$javac$code$TypeTag)->set($TypeTag::CHAR->ordinal(), 4);
+			Types$25::$SwitchMap$com$sun$tools$javac$code$TypeTag->set($TypeTag::CHAR->ordinal(), 4);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Types$25::$SwitchMap$com$sun$tools$javac$code$TypeTag)->set($TypeTag::SHORT->ordinal(), 5);
+			Types$25::$SwitchMap$com$sun$tools$javac$code$TypeTag->set($TypeTag::SHORT->ordinal(), 5);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Types$25::$SwitchMap$com$sun$tools$javac$code$TypeTag)->set($TypeTag::INT->ordinal(), 6);
+			Types$25::$SwitchMap$com$sun$tools$javac$code$TypeTag->set($TypeTag::INT->ordinal(), 6);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Types$25::$SwitchMap$com$sun$tools$javac$code$TypeTag)->set($TypeTag::LONG->ordinal(), 7);
+			Types$25::$SwitchMap$com$sun$tools$javac$code$TypeTag->set($TypeTag::LONG->ordinal(), 7);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Types$25::$SwitchMap$com$sun$tools$javac$code$TypeTag)->set($TypeTag::FLOAT->ordinal(), 8);
+			Types$25::$SwitchMap$com$sun$tools$javac$code$TypeTag->set($TypeTag::FLOAT->ordinal(), 8);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Types$25::$SwitchMap$com$sun$tools$javac$code$TypeTag)->set($TypeTag::DOUBLE->ordinal(), 9);
+			Types$25::$SwitchMap$com$sun$tools$javac$code$TypeTag->set($TypeTag::DOUBLE->ordinal(), 9);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Types$25::$SwitchMap$com$sun$tools$javac$code$TypeTag)->set($TypeTag::BOOLEAN->ordinal(), 10);
+			Types$25::$SwitchMap$com$sun$tools$javac$code$TypeTag->set($TypeTag::BOOLEAN->ordinal(), 10);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Types$25::$SwitchMap$com$sun$tools$javac$code$TypeTag)->set($TypeTag::VOID->ordinal(), 11);
+			Types$25::$SwitchMap$com$sun$tools$javac$code$TypeTag->set($TypeTag::VOID->ordinal(), 11);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Types$25::$SwitchMap$com$sun$tools$javac$code$TypeTag)->set($TypeTag::TYPEVAR->ordinal(), 12);
+			Types$25::$SwitchMap$com$sun$tools$javac$code$TypeTag->set($TypeTag::TYPEVAR->ordinal(), 12);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Types$25::$SwitchMap$com$sun$tools$javac$code$TypeTag)->set($TypeTag::BOT->ordinal(), 13);
+			Types$25::$SwitchMap$com$sun$tools$javac$code$TypeTag->set($TypeTag::BOT->ordinal(), 13);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Types$25::$SwitchMap$com$sun$tools$javac$code$TypeTag)->set($TypeTag::WILDCARD->ordinal(), 14);
+			Types$25::$SwitchMap$com$sun$tools$javac$code$TypeTag->set($TypeTag::WILDCARD->ordinal(), 14);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Types$25::$SwitchMap$com$sun$tools$javac$code$TypeTag)->set($TypeTag::NONE->ordinal(), 15);
+			Types$25::$SwitchMap$com$sun$tools$javac$code$TypeTag->set($TypeTag::NONE->ordinal(), 15);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Types$25::$SwitchMap$com$sun$tools$javac$code$TypeTag)->set($TypeTag::ERROR->ordinal(), 16);
+			Types$25::$SwitchMap$com$sun$tools$javac$code$TypeTag->set($TypeTag::ERROR->ordinal(), 16);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Types$25::$SwitchMap$com$sun$tools$javac$code$TypeTag)->set($TypeTag::UNDETVAR->ordinal(), 17);
+			Types$25::$SwitchMap$com$sun$tools$javac$code$TypeTag->set($TypeTag::UNDETVAR->ordinal(), 17);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Types$25::$SwitchMap$com$sun$tools$javac$code$TypeTag)->set($TypeTag::FORALL->ordinal(), 18);
+			Types$25::$SwitchMap$com$sun$tools$javac$code$TypeTag->set($TypeTag::FORALL->ordinal(), 18);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Types$25::$SwitchMap$com$sun$tools$javac$code$TypeTag)->set($TypeTag::METHOD->ordinal(), 19);
+			Types$25::$SwitchMap$com$sun$tools$javac$code$TypeTag->set($TypeTag::METHOD->ordinal(), 19);
 		} catch ($NoSuchFieldError& ex) {
 		}
 	}
 	$assignStatic(Types$25::$SwitchMap$com$sun$tools$javac$code$BoundKind, $new($ints, $($BoundKind::values())->length));
 	{
 		try {
-			$nc(Types$25::$SwitchMap$com$sun$tools$javac$code$BoundKind)->set($BoundKind::EXTENDS->ordinal(), 1);
+			Types$25::$SwitchMap$com$sun$tools$javac$code$BoundKind->set($BoundKind::EXTENDS->ordinal(), 1);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Types$25::$SwitchMap$com$sun$tools$javac$code$BoundKind)->set($BoundKind::SUPER->ordinal(), 2);
+			Types$25::$SwitchMap$com$sun$tools$javac$code$BoundKind->set($BoundKind::SUPER->ordinal(), 2);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Types$25::$SwitchMap$com$sun$tools$javac$code$BoundKind)->set($BoundKind::UNBOUND->ordinal(), 3);
+			Types$25::$SwitchMap$com$sun$tools$javac$code$BoundKind->set($BoundKind::UNBOUND->ordinal(), 3);
 		} catch ($NoSuchFieldError& ex) {
 		}
 	}
 	$assignStatic(Types$25::$SwitchMap$com$sun$tools$javac$code$Types$ProjectionKind, $new($ints, $($Types$ProjectionKind::values())->length));
 	{
 		try {
-			$nc(Types$25::$SwitchMap$com$sun$tools$javac$code$Types$ProjectionKind)->set($Types$ProjectionKind::UPWARDS->ordinal(), 1);
+			Types$25::$SwitchMap$com$sun$tools$javac$code$Types$ProjectionKind->set($Types$ProjectionKind::UPWARDS->ordinal(), 1);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Types$25::$SwitchMap$com$sun$tools$javac$code$Types$ProjectionKind)->set($Types$ProjectionKind::DOWNWARDS->ordinal(), 2);
+			Types$25::$SwitchMap$com$sun$tools$javac$code$Types$ProjectionKind->set($Types$ProjectionKind::DOWNWARDS->ordinal(), 2);
 		} catch ($NoSuchFieldError& ex) {
 		}
 	}
@@ -246,7 +206,40 @@ Types$25::Types$25() {
 }
 
 $Class* Types$25::load$($String* name, bool initialize) {
-	$loadClass(Types$25, name, initialize, &_Types$25_ClassInfo_, clinit$Types$25, allocate$Types$25);
+	$FieldInfo fieldInfos$$[] = {
+		{"$SwitchMap$javax$lang$model$type$TypeKind", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(Types$25, $SwitchMap$javax$lang$model$type$TypeKind)},
+		{"$SwitchMap$com$sun$tools$javac$code$TypeTag", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(Types$25, $SwitchMap$com$sun$tools$javac$code$TypeTag)},
+		{"$SwitchMap$com$sun$tools$javac$code$BoundKind", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(Types$25, $SwitchMap$com$sun$tools$javac$code$BoundKind)},
+		{"$SwitchMap$com$sun$tools$javac$code$Types$ProjectionKind", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(Types$25, $SwitchMap$com$sun$tools$javac$code$Types$ProjectionKind)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.tools.javac.code.Types",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.code.Types$25", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $SYNTHETIC,
+		"com.sun.tools.javac.code.Types$25",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		nullptr,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.code.Types"
+	};
+	$loadClass(Types$25, name, initialize, &classInfo$$, Types$25::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Types$25);
+	});
 	return class$;
 }
 

@@ -1,8 +1,6 @@
 #include <CurrencyFormat.h>
-
 #include <java/io/File.h>
 #include <java/io/FileInputStream.h>
-#include <java/io/InputStream.h>
 #include <java/lang/CharSequence.h>
 #include <java/text/DecimalFormatSymbols.h>
 #include <java/text/NumberFormat.h>
@@ -25,8 +23,6 @@ using $LocaleArray = $Array<::java::util::Locale>;
 using $StringArray2 = $Array<::java::lang::String, 2>;
 using $File = ::java::io::File;
 using $FileInputStream = ::java::io::FileInputStream;
-using $InputStream = ::java::io::InputStream;
-using $PrintStream = ::java::io::PrintStream;
 using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Double = ::java::lang::Double;
@@ -37,37 +33,10 @@ using $DecimalFormatSymbols = ::java::text::DecimalFormatSymbols;
 using $NumberFormat = ::java::text::NumberFormat;
 using $SimpleDateFormat = ::java::text::SimpleDateFormat;
 using $Currency = ::java::util::Currency;
-using $Date = ::java::util::Date;
 using $Locale = ::java::util::Locale;
 using $Properties = ::java::util::Properties;
 using $StringTokenizer = ::java::util::StringTokenizer;
 using $TimeZone = ::java::util::TimeZone;
-
-$FieldInfo _CurrencyFormat_FieldInfo_[] = {
-	{"isCompat", "Z", nullptr, $PRIVATE | $STATIC, $staticField(CurrencyFormat, isCompat)},
-	{}
-};
-
-$MethodInfo _CurrencyFormat_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(CurrencyFormat, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(CurrencyFormat, main, void, $StringArray*), "java.lang.Exception"},
-	{"testFormatting", "()V", nullptr, $STATIC, $staticMethod(CurrencyFormat, testFormatting, void)},
-	{"testSymbols", "()V", nullptr, $STATIC, $staticMethod(CurrencyFormat, testSymbols, void), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _CurrencyFormat_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"CurrencyFormat",
-	"java.lang.Object",
-	nullptr,
-	_CurrencyFormat_FieldInfo_,
-	_CurrencyFormat_MethodInfo_
-};
-
-$Object* allocate$CurrencyFormat($Class* clazz) {
-	return $of($alloc(CurrencyFormat));
-}
 
 bool CurrencyFormat::isCompat = false;
 
@@ -82,7 +51,7 @@ void CurrencyFormat::main($StringArray* args) {
 }
 
 void CurrencyFormat::testFormatting() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool failed = false;
 	$init($Locale);
 	$var($LocaleArray, locales, $new($LocaleArray, {
@@ -95,7 +64,7 @@ void CurrencyFormat::testFormatting() {
 		$($Locale::forLanguageTag("fr-CH"_s))
 	}));
 	$var($CurrencyArray, currencies, $new($CurrencyArray, {
-		($Currency*)nullptr,
+		nullptr,
 		$($Currency::getInstance("USD"_s)),
 		$($Currency::getInstance("JPY"_s)),
 		$($Currency::getInstance("DEM"_s)),
@@ -219,12 +188,15 @@ void CurrencyFormat::testFormatting() {
 			$var($String, result, $nc(format)->format(1234.56));
 			if (!$nc(result)->equals(expected)) {
 				failed = true;
-				$var($String, var$4, $$str({"FAIL: Locale "_s, locale}));
-				$var($String, var$3, $$concat(var$4, (currency == nullptr ? ", default currency"_s : ($$str({", currency: "_s, currency})))));
-				$var($String, var$2, $$concat(var$3, ", expected: "_s));
-				$var($String, var$1, $$concat(var$2, expected));
-				$var($String, var$0, $$concat(var$1, ", actual: "_s));
-				$nc($System::out)->println($$concat(var$0, result));
+				$var($StringBuilder, var$0, $new($StringBuilder));
+				var$0->append("FAIL: Locale "_s);
+				var$0->append(locale);
+				var$0->append(currency == nullptr ? ", default currency"_s : ($$str({", currency: "_s, currency})));
+				var$0->append(", expected: "_s);
+				var$0->append(expected);
+				var$0->append(", actual: "_s);
+				var$0->append(result);
+				$nc($System::out)->println($$str(var$0));
 			}
 		}
 	}
@@ -234,14 +206,14 @@ void CurrencyFormat::testFormatting() {
 }
 
 void CurrencyFormat::testSymbols() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init(CurrencyFormat);
 	if (!CurrencyFormat::isCompat) {
 		return;
 	}
 	$var($FileInputStream, stream, $new($FileInputStream, $$new($File, $($System::getProperty("test.src"_s, "."_s)), "CurrencySymbols.properties"_s)));
 	$var($Properties, props, $new($Properties));
-	props->load(static_cast<$InputStream*>(stream));
+	props->load(stream);
 	$var($SimpleDateFormat, format, nullptr);
 	$var($LocaleArray, locales, $NumberFormat::getAvailableLocales());
 	for (int32_t i = 0; i < $nc(locales)->length; ++i) {
@@ -252,7 +224,7 @@ void CurrencyFormat::testSymbols() {
 		if (expected == nullptr) {
 			$nc($System::out)->println($$str({"Warning: No expected currency symbol defined for locale "_s, locale}));
 		} else {
-			if ($nc(expected)->contains(";"_s)) {
+			if (expected->contains(";"_s)) {
 				$var($StringTokenizer, tokens, $new($StringTokenizer, expected, ";"_s));
 				int32_t tokensCount = tokens->countTokens();
 				if (tokensCount == 3) {
@@ -262,7 +234,7 @@ void CurrencyFormat::testSymbols() {
 						format->setTimeZone($($TimeZone::getTimeZone("GMT"_s)));
 						format->setLenient(false);
 					}
-					int64_t var$0 = $nc($($nc(format)->parse($(tokens->nextToken()))))->getTime();
+					int64_t var$0 = $$nc($nc(format)->parse($(tokens->nextToken())))->getTime();
 					if (var$0 < $System::currentTimeMillis()) {
 						$assign(expected, tokens->nextToken());
 					}
@@ -279,7 +251,28 @@ CurrencyFormat::CurrencyFormat() {
 }
 
 $Class* CurrencyFormat::load$($String* name, bool initialize) {
-	$loadClass(CurrencyFormat, name, initialize, &_CurrencyFormat_ClassInfo_, allocate$CurrencyFormat);
+	$FieldInfo fieldInfos$$[] = {
+		{"isCompat", "Z", nullptr, $PRIVATE | $STATIC, $staticField(CurrencyFormat, isCompat)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(CurrencyFormat, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(CurrencyFormat, main, void, $StringArray*), "java.lang.Exception"},
+		{"testFormatting", "()V", nullptr, $STATIC, $staticMethod(CurrencyFormat, testFormatting, void)},
+		{"testSymbols", "()V", nullptr, $STATIC, $staticMethod(CurrencyFormat, testSymbols, void), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"CurrencyFormat",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CurrencyFormat, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CurrencyFormat);
+	});
 	return class$;
 }
 

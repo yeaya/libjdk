@@ -70,6 +70,7 @@ class $import ModuleFinder : public ::java::lang::Object {
 	$class(ModuleFinder, 0, ::java::lang::Object)
 public:
 	ModuleFinder();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::com::sun::tools::javac::util::Context* context);
 	virtual ::com::sun::tools::javac::util::List* findAllModules();
 	virtual ::com::sun::tools::javac::code::Symbol$ModuleSymbol* findModule(::com::sun::tools::javac::util::Name* name);

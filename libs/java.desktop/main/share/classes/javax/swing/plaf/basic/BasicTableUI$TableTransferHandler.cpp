@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/basic/BasicTableUI$TableTransferHandler.h>
-
 #include <java/awt/datatransfer/Transferable.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JTable.h>
@@ -23,43 +22,6 @@ namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace basic {
-
-$MethodInfo _BasicTableUI$TableTransferHandler_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, 0, $method(BasicTableUI$TableTransferHandler, init$, void)},
-	{"createTransferable", "(Ljavax/swing/JComponent;)Ljava/awt/datatransfer/Transferable;", nullptr, $PROTECTED, $virtualMethod(BasicTableUI$TableTransferHandler, createTransferable, $Transferable*, $JComponent*)},
-	{"getSourceActions", "(Ljavax/swing/JComponent;)I", nullptr, $PUBLIC, $virtualMethod(BasicTableUI$TableTransferHandler, getSourceActions, int32_t, $JComponent*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _BasicTableUI$TableTransferHandler_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.basic.BasicTableUI$TableTransferHandler", "javax.swing.plaf.basic.BasicTableUI", "TableTransferHandler", $STATIC},
-	{}
-};
-
-$ClassInfo _BasicTableUI$TableTransferHandler_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.basic.BasicTableUI$TableTransferHandler",
-	"javax.swing.TransferHandler",
-	"javax.swing.plaf.UIResource",
-	nullptr,
-	_BasicTableUI$TableTransferHandler_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BasicTableUI$TableTransferHandler_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.basic.BasicTableUI"
-};
-
-$Object* allocate$BasicTableUI$TableTransferHandler($Class* clazz) {
-	return $of($alloc(BasicTableUI$TableTransferHandler));
-}
 
 int32_t BasicTableUI$TableTransferHandler::hashCode() {
 	 return this->$TransferHandler::hashCode();
@@ -86,16 +48,16 @@ void BasicTableUI$TableTransferHandler::init$() {
 }
 
 $Transferable* BasicTableUI$TableTransferHandler::createTransferable($JComponent* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($instanceOf($JTable, c)) {
 		$var($JTable, table, $cast($JTable, c));
 		$var($ints, rows, nullptr);
 		$var($ints, cols, nullptr);
-		bool var$0 = !$nc(table)->getRowSelectionAllowed();
+		bool var$0 = !table->getRowSelectionAllowed();
 		if (var$0 && !table->getColumnSelectionAllowed()) {
 			return nullptr;
 		}
-		if (!$nc(table)->getRowSelectionAllowed()) {
+		if (!table->getRowSelectionAllowed()) {
 			int32_t rowCount = table->getRowCount();
 			$assign(rows, $new($ints, rowCount));
 			for (int32_t counter = 0; counter < rowCount; ++counter) {
@@ -104,7 +66,7 @@ $Transferable* BasicTableUI$TableTransferHandler::createTransferable($JComponent
 		} else {
 			$assign(rows, table->getSelectedRows());
 		}
-		if (!$nc(table)->getColumnSelectionAllowed()) {
+		if (!table->getColumnSelectionAllowed()) {
 			int32_t colCount = table->getColumnCount();
 			$assign(cols, $new($ints, colCount));
 			for (int32_t counter = 0; counter < colCount; ++counter) {
@@ -113,7 +75,7 @@ $Transferable* BasicTableUI$TableTransferHandler::createTransferable($JComponent
 		} else {
 			$assign(cols, table->getSelectedColumns());
 		}
-		if (rows == nullptr || cols == nullptr || $nc(rows)->length == 0 || $nc(cols)->length == 0) {
+		if (rows == nullptr || cols == nullptr || rows->length == 0 || cols->length == 0) {
 			return nullptr;
 		}
 		$var($StringBuilder, plainStr, $new($StringBuilder));
@@ -122,8 +84,8 @@ $Transferable* BasicTableUI$TableTransferHandler::createTransferable($JComponent
 		for (int32_t row = 0; row < $nc(rows)->length; ++row) {
 			htmlStr->append("<tr>\n"_s);
 			for (int32_t col = 0; col < $nc(cols)->length; ++col) {
-				$var($Object, obj, $nc(table)->getValueAt(rows->get(row), cols->get(col)));
-				$var($String, val, (obj == nullptr) ? ""_s : $nc($of(obj))->toString());
+				$var($Object, obj, table->getValueAt(rows->get(row), cols->get(col)));
+				$var($String, val, (obj == nullptr) ? ""_s : obj->toString());
 				plainStr->append(val)->append(u'\t');
 				htmlStr->append("  <td>"_s)->append(val)->append("</td>\n"_s);
 			}
@@ -146,7 +108,39 @@ BasicTableUI$TableTransferHandler::BasicTableUI$TableTransferHandler() {
 }
 
 $Class* BasicTableUI$TableTransferHandler::load$($String* name, bool initialize) {
-	$loadClass(BasicTableUI$TableTransferHandler, name, initialize, &_BasicTableUI$TableTransferHandler_ClassInfo_, allocate$BasicTableUI$TableTransferHandler);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, 0, $method(BasicTableUI$TableTransferHandler, init$, void)},
+		{"createTransferable", "(Ljavax/swing/JComponent;)Ljava/awt/datatransfer/Transferable;", nullptr, $PROTECTED, $virtualMethod(BasicTableUI$TableTransferHandler, createTransferable, $Transferable*, $JComponent*)},
+		{"getSourceActions", "(Ljavax/swing/JComponent;)I", nullptr, $PUBLIC, $virtualMethod(BasicTableUI$TableTransferHandler, getSourceActions, int32_t, $JComponent*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.basic.BasicTableUI$TableTransferHandler", "javax.swing.plaf.basic.BasicTableUI", "TableTransferHandler", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.basic.BasicTableUI$TableTransferHandler",
+		"javax.swing.TransferHandler",
+		"javax.swing.plaf.UIResource",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.basic.BasicTableUI"
+	};
+	$loadClass(BasicTableUI$TableTransferHandler, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(BasicTableUI$TableTransferHandler));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <NormalBoundsTest$4.h>
-
 #include <NormalBoundsTest.h>
 #include <java/awt/Component.h>
 #include <java/awt/Rectangle.h>
@@ -9,51 +8,11 @@
 #include <jcpp.h>
 
 using $NormalBoundsTest = ::NormalBoundsTest;
-using $Rectangle = ::java::awt::Rectangle;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
-using $JFrame = ::javax::swing::JFrame;
-using $JInternalFrame = ::javax::swing::JInternalFrame;
-
-$MethodInfo _NormalBoundsTest$4_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(NormalBoundsTest$4, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(NormalBoundsTest$4, run, void)},
-	{}
-};
-
-$EnclosingMethodInfo _NormalBoundsTest$4_EnclosingMethodInfo_ = {
-	"NormalBoundsTest",
-	"executeTest",
-	"(Ljava/awt/Robot;)V"
-};
-
-$InnerClassInfo _NormalBoundsTest$4_InnerClassesInfo_[] = {
-	{"NormalBoundsTest$4", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _NormalBoundsTest$4_ClassInfo_ = {
-	$ACC_SUPER,
-	"NormalBoundsTest$4",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	_NormalBoundsTest$4_MethodInfo_,
-	nullptr,
-	&_NormalBoundsTest$4_EnclosingMethodInfo_,
-	_NormalBoundsTest$4_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"NormalBoundsTest"
-};
-
-$Object* allocate$NormalBoundsTest$4($Class* clazz) {
-	return $of($alloc(NormalBoundsTest$4));
-}
 
 void NormalBoundsTest$4::init$() {
 }
@@ -61,7 +20,7 @@ void NormalBoundsTest$4::init$() {
 void NormalBoundsTest$4::run() {
 	$init($NormalBoundsTest);
 	$assignStatic($NormalBoundsTest::bounds, $nc($NormalBoundsTest::internalFrame)->getBounds());
-	if (!$nc($($nc($NormalBoundsTest::internalFrame)->getNormalBounds()))->equals($NormalBoundsTest::bounds)) {
+	if (!$$nc($nc($NormalBoundsTest::internalFrame)->getNormalBounds())->equals($NormalBoundsTest::bounds)) {
 		$nc($NormalBoundsTest::mainFrame)->dispose();
 		$throwNew($RuntimeException, "Invalid NormalBounds"_s);
 	}
@@ -71,7 +30,38 @@ NormalBoundsTest$4::NormalBoundsTest$4() {
 }
 
 $Class* NormalBoundsTest$4::load$($String* name, bool initialize) {
-	$loadClass(NormalBoundsTest$4, name, initialize, &_NormalBoundsTest$4_ClassInfo_, allocate$NormalBoundsTest$4);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(NormalBoundsTest$4, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(NormalBoundsTest$4, run, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"NormalBoundsTest",
+		"executeTest",
+		"(Ljava/awt/Robot;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"NormalBoundsTest$4", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"NormalBoundsTest$4",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"NormalBoundsTest"
+	};
+	$loadClass(NormalBoundsTest$4, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(NormalBoundsTest$4);
+	});
 	return class$;
 }
 

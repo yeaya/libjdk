@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/code/Symtab$3.h>
-
 #include <com/sun/tools/javac/code/Directive$RequiresDirective.h>
 #include <com/sun/tools/javac/code/Directive$RequiresFlag.h>
 #include <com/sun/tools/javac/code/Symbol$ModuleSymbol.h>
@@ -9,7 +8,6 @@
 #include <com/sun/tools/javac/util/List.h>
 #include <com/sun/tools/javac/util/Name.h>
 #include <com/sun/tools/javac/util/Names.h>
-#include <java/lang/Enum.h>
 #include <java/util/EnumSet.h>
 #include <java/util/Set.h>
 #include <jcpp.h>
@@ -21,17 +19,14 @@ using $Directive$RequiresFlag = ::com::sun::tools::javac::code::Directive$Requir
 using $Symbol = ::com::sun::tools::javac::code::Symbol;
 using $Symbol$ModuleSymbol = ::com::sun::tools::javac::code::Symbol$ModuleSymbol;
 using $Symtab = ::com::sun::tools::javac::code::Symtab;
-using $JavacMessages = ::com::sun::tools::javac::util::JavacMessages;
 using $List = ::com::sun::tools::javac::util::List;
 using $Name = ::com::sun::tools::javac::util::Name;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $EnumSet = ::java::util::EnumSet;
-using $Set = ::java::util::Set;
 
 namespace com {
 	namespace sun {
@@ -39,51 +34,8 @@ namespace com {
 			namespace javac {
 				namespace code {
 
-$FieldInfo _Symtab$3_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/code/Symtab;", nullptr, $FINAL | $SYNTHETIC, $field(Symtab$3, this$0)},
-	{}
-};
-
-$MethodInfo _Symtab$3_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Symtab;Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, 0, $method(Symtab$3, init$, void, $Symtab*, $Name*, $Symbol*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Symtab$3, toString, $String*)},
-	{}
-};
-
-$EnclosingMethodInfo _Symtab$3_EnclosingMethodInfo_ = {
-	"com.sun.tools.javac.code.Symtab",
-	"<init>",
-	"(Lcom/sun/tools/javac/util/Context;)V"
-};
-
-$InnerClassInfo _Symtab$3_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.code.Symtab$3", nullptr, nullptr, 0},
-	{"com.sun.tools.javac.code.Symbol$ModuleSymbol", "com.sun.tools.javac.code.Symbol", "ModuleSymbol", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _Symtab$3_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.code.Symtab$3",
-	"com.sun.tools.javac.code.Symbol$ModuleSymbol",
-	nullptr,
-	_Symtab$3_FieldInfo_,
-	_Symtab$3_MethodInfo_,
-	nullptr,
-	&_Symtab$3_EnclosingMethodInfo_,
-	_Symtab$3_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.code.Symtab"
-};
-
-$Object* allocate$Symtab$3($Class* clazz) {
-	return $of($alloc(Symtab$3));
-}
-
 void Symtab$3::init$($Symtab* this$0, $Name* name, $Symbol* owner) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, this$0, this$0);
 	$Symbol$ModuleSymbol::init$(name, owner);
 	{
@@ -106,7 +58,43 @@ Symtab$3::Symtab$3() {
 }
 
 $Class* Symtab$3::load$($String* name, bool initialize) {
-	$loadClass(Symtab$3, name, initialize, &_Symtab$3_ClassInfo_, allocate$Symtab$3);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/code/Symtab;", nullptr, $FINAL | $SYNTHETIC, $field(Symtab$3, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/code/Symtab;Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, 0, $method(Symtab$3, init$, void, $Symtab*, $Name*, $Symbol*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Symtab$3, toString, $String*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.tools.javac.code.Symtab",
+		"<init>",
+		"(Lcom/sun/tools/javac/util/Context;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.code.Symtab$3", nullptr, nullptr, 0},
+		{"com.sun.tools.javac.code.Symbol$ModuleSymbol", "com.sun.tools.javac.code.Symbol", "ModuleSymbol", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.code.Symtab$3",
+		"com.sun.tools.javac.code.Symbol$ModuleSymbol",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.code.Symtab"
+	};
+	$loadClass(Symtab$3, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Symtab$3));
+	});
 	return class$;
 }
 

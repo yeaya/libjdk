@@ -16,6 +16,7 @@ class $import WindowsTableHeaderUI$1 : public ::java::lang::Object {
 	$class(WindowsTableHeaderUI$1, 0, ::java::lang::Object)
 public:
 	WindowsTableHeaderUI$1();
+	static void clinit$(::java::lang::Class* clazz);
 	static $ints* $SwitchMap$com$sun$java$swing$plaf$windows$TMSchema$State;
 	static $ints* $SwitchMap$javax$swing$SortOrder;
 };

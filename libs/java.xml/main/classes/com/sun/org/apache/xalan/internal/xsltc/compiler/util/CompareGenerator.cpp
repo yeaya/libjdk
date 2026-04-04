@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/util/CompareGenerator.h>
-
 #include <com/sun/org/apache/bcel/internal/generic/ACONST_NULL.h>
 #include <com/sun/org/apache/bcel/internal/generic/ALOAD.h>
 #include <com/sun/org/apache/bcel/internal/generic/ASTORE.h>
@@ -54,49 +53,6 @@ namespace com {
 							namespace compiler {
 								namespace util {
 
-$FieldInfo _CompareGenerator_FieldInfo_[] = {
-	{"DOM_INDEX", "I", nullptr, $PRIVATE | $STATIC, $staticField(CompareGenerator, DOM_INDEX)},
-	{"CURRENT_INDEX", "I", nullptr, $PRIVATE | $STATIC, $staticField(CompareGenerator, CURRENT_INDEX)},
-	{"LEVEL_INDEX", "I", nullptr, $PRIVATE | $STATIC, $staticField(CompareGenerator, LEVEL_INDEX)},
-	{"TRANSLET_INDEX", "I", nullptr, $PRIVATE | $STATIC, $staticField(CompareGenerator, TRANSLET_INDEX)},
-	{"LAST_INDEX", "I", nullptr, $PRIVATE | $STATIC, $staticField(CompareGenerator, LAST_INDEX)},
-	{"ITERATOR_INDEX", "I", nullptr, $PRIVATE, $field(CompareGenerator, ITERATOR_INDEX)},
-	{"_iloadCurrent", "Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PRIVATE | $FINAL, $field(CompareGenerator, _iloadCurrent)},
-	{"_istoreCurrent", "Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PRIVATE | $FINAL, $field(CompareGenerator, _istoreCurrent)},
-	{"_aloadDom", "Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PRIVATE | $FINAL, $field(CompareGenerator, _aloadDom)},
-	{"_iloadLast", "Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PRIVATE | $FINAL, $field(CompareGenerator, _iloadLast)},
-	{"_aloadIterator", "Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PRIVATE | $FINAL, $field(CompareGenerator, _aloadIterator)},
-	{"_astoreIterator", "Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PRIVATE | $FINAL, $field(CompareGenerator, _astoreIterator)},
-	{}
-};
-
-$MethodInfo _CompareGenerator_MethodInfo_[] = {
-	{"<init>", "(ILcom/sun/org/apache/bcel/internal/generic/Type;[Lcom/sun/org/apache/bcel/internal/generic/Type;[Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/sun/org/apache/bcel/internal/generic/InstructionList;Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;)V", nullptr, $PUBLIC, $method(CompareGenerator, init$, void, int32_t, $Type*, $TypeArray*, $StringArray*, $String*, $String*, $InstructionList*, $ConstantPoolGen*)},
-	{"getHandlerIndex", "()I", nullptr, $PUBLIC, $method(CompareGenerator, getHandlerIndex, int32_t)},
-	{"getIteratorIndex", "()I", nullptr, $PUBLIC, $method(CompareGenerator, getIteratorIndex, int32_t)},
-	{"getLocalIndex", "(Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(CompareGenerator, getLocalIndex, int32_t, $String*)},
-	{"loadCurrentNode", "()Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PUBLIC, $virtualMethod(CompareGenerator, loadCurrentNode, $Instruction*)},
-	{"loadDOM", "()Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PUBLIC, $virtualMethod(CompareGenerator, loadDOM, $Instruction*)},
-	{"loadIterator", "()Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PUBLIC, $virtualMethod(CompareGenerator, loadIterator, $Instruction*)},
-	{"loadLastNode", "()Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PUBLIC, $method(CompareGenerator, loadLastNode, $Instruction*)},
-	{"storeCurrentNode", "()Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PUBLIC, $virtualMethod(CompareGenerator, storeCurrentNode, $Instruction*)},
-	{"storeIterator", "()Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PUBLIC, $virtualMethod(CompareGenerator, storeIterator, $Instruction*)},
-	{}
-};
-
-$ClassInfo _CompareGenerator_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xalan.internal.xsltc.compiler.util.CompareGenerator",
-	"com.sun.org.apache.xalan.internal.xsltc.compiler.util.MethodGenerator",
-	nullptr,
-	_CompareGenerator_FieldInfo_,
-	_CompareGenerator_MethodInfo_
-};
-
-$Object* allocate$CompareGenerator($Class* clazz) {
-	return $of($alloc(CompareGenerator));
-}
-
 int32_t CompareGenerator::DOM_INDEX = 0;
 int32_t CompareGenerator::CURRENT_INDEX = 0;
 int32_t CompareGenerator::LEVEL_INDEX = 0;
@@ -104,7 +60,7 @@ int32_t CompareGenerator::TRANSLET_INDEX = 0;
 int32_t CompareGenerator::LAST_INDEX = 0;
 
 void CompareGenerator::init$(int32_t access_flags, $Type* return_type, $TypeArray* arg_types, $StringArray* arg_names, $String* method_name, $String* class_name, $InstructionList* il, $ConstantPoolGen* cp) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$MethodGenerator::init$(access_flags, return_type, arg_types, arg_names, method_name, class_name, il, cp);
 	this->ITERATOR_INDEX = 6;
 	$set(this, _iloadCurrent, $new($ILOAD, CompareGenerator::CURRENT_INDEX));
@@ -116,7 +72,7 @@ void CompareGenerator::init$(int32_t access_flags, $Type* return_type, $TypeArra
 	this->ITERATOR_INDEX = $nc(iterator)->getIndex();
 	$set(this, _aloadIterator, $new($ALOAD, this->ITERATOR_INDEX));
 	$set(this, _astoreIterator, $new($ASTORE, this->ITERATOR_INDEX));
-	$nc(il)->append(static_cast<$Instruction*>($$new($ACONST_NULL)));
+	$nc(il)->append($$new($ACONST_NULL));
 	il->append($(storeIterator()));
 }
 
@@ -159,7 +115,7 @@ int32_t CompareGenerator::getLocalIndex($String* name) {
 	return $MethodGenerator::getLocalIndex(name);
 }
 
-void clinit$CompareGenerator($Class* class$) {
+void CompareGenerator::clinit$($Class* clazz) {
 	CompareGenerator::DOM_INDEX = 1;
 	CompareGenerator::CURRENT_INDEX = 2;
 	CompareGenerator::LEVEL_INDEX = 3;
@@ -171,7 +127,45 @@ CompareGenerator::CompareGenerator() {
 }
 
 $Class* CompareGenerator::load$($String* name, bool initialize) {
-	$loadClass(CompareGenerator, name, initialize, &_CompareGenerator_ClassInfo_, clinit$CompareGenerator, allocate$CompareGenerator);
+	$FieldInfo fieldInfos$$[] = {
+		{"DOM_INDEX", "I", nullptr, $PRIVATE | $STATIC, $staticField(CompareGenerator, DOM_INDEX)},
+		{"CURRENT_INDEX", "I", nullptr, $PRIVATE | $STATIC, $staticField(CompareGenerator, CURRENT_INDEX)},
+		{"LEVEL_INDEX", "I", nullptr, $PRIVATE | $STATIC, $staticField(CompareGenerator, LEVEL_INDEX)},
+		{"TRANSLET_INDEX", "I", nullptr, $PRIVATE | $STATIC, $staticField(CompareGenerator, TRANSLET_INDEX)},
+		{"LAST_INDEX", "I", nullptr, $PRIVATE | $STATIC, $staticField(CompareGenerator, LAST_INDEX)},
+		{"ITERATOR_INDEX", "I", nullptr, $PRIVATE, $field(CompareGenerator, ITERATOR_INDEX)},
+		{"_iloadCurrent", "Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PRIVATE | $FINAL, $field(CompareGenerator, _iloadCurrent)},
+		{"_istoreCurrent", "Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PRIVATE | $FINAL, $field(CompareGenerator, _istoreCurrent)},
+		{"_aloadDom", "Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PRIVATE | $FINAL, $field(CompareGenerator, _aloadDom)},
+		{"_iloadLast", "Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PRIVATE | $FINAL, $field(CompareGenerator, _iloadLast)},
+		{"_aloadIterator", "Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PRIVATE | $FINAL, $field(CompareGenerator, _aloadIterator)},
+		{"_astoreIterator", "Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PRIVATE | $FINAL, $field(CompareGenerator, _astoreIterator)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(ILcom/sun/org/apache/bcel/internal/generic/Type;[Lcom/sun/org/apache/bcel/internal/generic/Type;[Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/sun/org/apache/bcel/internal/generic/InstructionList;Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;)V", nullptr, $PUBLIC, $method(CompareGenerator, init$, void, int32_t, $Type*, $TypeArray*, $StringArray*, $String*, $String*, $InstructionList*, $ConstantPoolGen*)},
+		{"getHandlerIndex", "()I", nullptr, $PUBLIC, $method(CompareGenerator, getHandlerIndex, int32_t)},
+		{"getIteratorIndex", "()I", nullptr, $PUBLIC, $method(CompareGenerator, getIteratorIndex, int32_t)},
+		{"getLocalIndex", "(Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(CompareGenerator, getLocalIndex, int32_t, $String*)},
+		{"loadCurrentNode", "()Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PUBLIC, $virtualMethod(CompareGenerator, loadCurrentNode, $Instruction*)},
+		{"loadDOM", "()Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PUBLIC, $virtualMethod(CompareGenerator, loadDOM, $Instruction*)},
+		{"loadIterator", "()Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PUBLIC, $virtualMethod(CompareGenerator, loadIterator, $Instruction*)},
+		{"loadLastNode", "()Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PUBLIC, $method(CompareGenerator, loadLastNode, $Instruction*)},
+		{"storeCurrentNode", "()Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PUBLIC, $virtualMethod(CompareGenerator, storeCurrentNode, $Instruction*)},
+		{"storeIterator", "()Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PUBLIC, $virtualMethod(CompareGenerator, storeIterator, $Instruction*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xalan.internal.xsltc.compiler.util.CompareGenerator",
+		"com.sun.org.apache.xalan.internal.xsltc.compiler.util.MethodGenerator",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CompareGenerator, name, initialize, &classInfo$$, CompareGenerator::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(CompareGenerator));
+	});
 	return class$;
 }
 

@@ -1,6 +1,4 @@
 #include <com/sun/tools/javac/tree/DCTree$DCDocComment.h>
-
-#include <com/sun/source/doctree/DocCommentTree.h>
 #include <com/sun/source/doctree/DocTree$Kind.h>
 #include <com/sun/source/doctree/DocTreeVisitor.h>
 #include <com/sun/tools/javac/parser/Tokens$Comment.h>
@@ -10,7 +8,6 @@
 
 #undef DOC_COMMENT
 
-using $DocCommentTree = ::com::sun::source::doctree::DocCommentTree;
 using $DocTree$Kind = ::com::sun::source::doctree::DocTree$Kind;
 using $DocTreeVisitor = ::com::sun::source::doctree::DocTreeVisitor;
 using $Tokens$Comment = ::com::sun::tools::javac::parser::Tokens$Comment;
@@ -26,60 +23,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace tree {
-
-$FieldInfo _DCTree$DCDocComment_FieldInfo_[] = {
-	{"comment", "Lcom/sun/tools/javac/parser/Tokens$Comment;", nullptr, $PUBLIC | $FINAL, $field(DCTree$DCDocComment, comment)},
-	{"fullBody", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/tools/javac/tree/DCTree;>;", $PUBLIC | $FINAL, $field(DCTree$DCDocComment, fullBody)},
-	{"firstSentence", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/tools/javac/tree/DCTree;>;", $PUBLIC | $FINAL, $field(DCTree$DCDocComment, firstSentence)},
-	{"body", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/tools/javac/tree/DCTree;>;", $PUBLIC | $FINAL, $field(DCTree$DCDocComment, body)},
-	{"tags", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/tools/javac/tree/DCTree;>;", $PUBLIC | $FINAL, $field(DCTree$DCDocComment, tags)},
-	{"preamble", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/tools/javac/tree/DCTree;>;", $PUBLIC | $FINAL, $field(DCTree$DCDocComment, preamble)},
-	{"postamble", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/tools/javac/tree/DCTree;>;", $PUBLIC | $FINAL, $field(DCTree$DCDocComment, postamble)},
-	{}
-};
-
-$MethodInfo _DCTree$DCDocComment_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lcom/sun/tools/javac/parser/Tokens$Comment;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;)V", "(Lcom/sun/tools/javac/parser/Tokens$Comment;Ljava/util/List<Lcom/sun/tools/javac/tree/DCTree;>;Ljava/util/List<Lcom/sun/tools/javac/tree/DCTree;>;Ljava/util/List<Lcom/sun/tools/javac/tree/DCTree;>;Ljava/util/List<Lcom/sun/tools/javac/tree/DCTree;>;Ljava/util/List<Lcom/sun/tools/javac/tree/DCTree;>;Ljava/util/List<Lcom/sun/tools/javac/tree/DCTree;>;)V", $PUBLIC, $method(DCTree$DCDocComment, init$, void, $Tokens$Comment*, $List*, $List*, $List*, $List*, $List*, $List*)},
-	{"accept", "(Lcom/sun/source/doctree/DocTreeVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;D:Ljava/lang/Object;>(Lcom/sun/source/doctree/DocTreeVisitor<TR;TD;>;TD;)TR;", $PUBLIC, $virtualMethod(DCTree$DCDocComment, accept, $Object*, $DocTreeVisitor*, Object$*)},
-	{"getBlockTags", "()Ljava/util/List;", "()Ljava/util/List<+Lcom/sun/source/doctree/DocTree;>;", $PUBLIC, $virtualMethod(DCTree$DCDocComment, getBlockTags, $List*)},
-	{"getBody", "()Ljava/util/List;", "()Ljava/util/List<+Lcom/sun/source/doctree/DocTree;>;", $PUBLIC, $virtualMethod(DCTree$DCDocComment, getBody, $List*)},
-	{"getFirstSentence", "()Ljava/util/List;", "()Ljava/util/List<+Lcom/sun/source/doctree/DocTree;>;", $PUBLIC, $virtualMethod(DCTree$DCDocComment, getFirstSentence, $List*)},
-	{"getFullBody", "()Ljava/util/List;", "()Ljava/util/List<+Lcom/sun/source/doctree/DocTree;>;", $PUBLIC, $virtualMethod(DCTree$DCDocComment, getFullBody, $List*)},
-	{"getKind", "()Lcom/sun/source/doctree/DocTree$Kind;", nullptr, $PUBLIC, $virtualMethod(DCTree$DCDocComment, getKind, $DocTree$Kind*)},
-	{"getPostamble", "()Ljava/util/List;", "()Ljava/util/List<+Lcom/sun/source/doctree/DocTree;>;", $PUBLIC, $virtualMethod(DCTree$DCDocComment, getPostamble, $List*)},
-	{"getPreamble", "()Ljava/util/List;", "()Ljava/util/List<+Lcom/sun/source/doctree/DocTree;>;", $PUBLIC, $virtualMethod(DCTree$DCDocComment, getPreamble, $List*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _DCTree$DCDocComment_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.tree.DCTree$DCDocComment", "com.sun.tools.javac.tree.DCTree", "DCDocComment", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _DCTree$DCDocComment_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.tree.DCTree$DCDocComment",
-	"com.sun.tools.javac.tree.DCTree",
-	"com.sun.source.doctree.DocCommentTree",
-	_DCTree$DCDocComment_FieldInfo_,
-	_DCTree$DCDocComment_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DCTree$DCDocComment_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.tree.DCTree"
-};
-
-$Object* allocate$DCTree$DCDocComment($Class* clazz) {
-	return $of($alloc(DCTree$DCDocComment));
-}
 
 $String* DCTree$DCDocComment::toString() {
 	 return this->$DCTree::toString();
@@ -118,7 +61,7 @@ $DocTree$Kind* DCTree$DCDocComment::getKind() {
 }
 
 $Object* DCTree$DCDocComment::accept($DocTreeVisitor* v, Object$* d) {
-	return $of($nc(v)->visitDocComment(this, d));
+	return $nc(v)->visitDocComment(this, d);
 }
 
 $List* DCTree$DCDocComment::getFirstSentence() {
@@ -149,7 +92,55 @@ DCTree$DCDocComment::DCTree$DCDocComment() {
 }
 
 $Class* DCTree$DCDocComment::load$($String* name, bool initialize) {
-	$loadClass(DCTree$DCDocComment, name, initialize, &_DCTree$DCDocComment_ClassInfo_, allocate$DCTree$DCDocComment);
+	$FieldInfo fieldInfos$$[] = {
+		{"comment", "Lcom/sun/tools/javac/parser/Tokens$Comment;", nullptr, $PUBLIC | $FINAL, $field(DCTree$DCDocComment, comment)},
+		{"fullBody", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/tools/javac/tree/DCTree;>;", $PUBLIC | $FINAL, $field(DCTree$DCDocComment, fullBody)},
+		{"firstSentence", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/tools/javac/tree/DCTree;>;", $PUBLIC | $FINAL, $field(DCTree$DCDocComment, firstSentence)},
+		{"body", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/tools/javac/tree/DCTree;>;", $PUBLIC | $FINAL, $field(DCTree$DCDocComment, body)},
+		{"tags", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/tools/javac/tree/DCTree;>;", $PUBLIC | $FINAL, $field(DCTree$DCDocComment, tags)},
+		{"preamble", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/tools/javac/tree/DCTree;>;", $PUBLIC | $FINAL, $field(DCTree$DCDocComment, preamble)},
+		{"postamble", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/tools/javac/tree/DCTree;>;", $PUBLIC | $FINAL, $field(DCTree$DCDocComment, postamble)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lcom/sun/tools/javac/parser/Tokens$Comment;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;)V", "(Lcom/sun/tools/javac/parser/Tokens$Comment;Ljava/util/List<Lcom/sun/tools/javac/tree/DCTree;>;Ljava/util/List<Lcom/sun/tools/javac/tree/DCTree;>;Ljava/util/List<Lcom/sun/tools/javac/tree/DCTree;>;Ljava/util/List<Lcom/sun/tools/javac/tree/DCTree;>;Ljava/util/List<Lcom/sun/tools/javac/tree/DCTree;>;Ljava/util/List<Lcom/sun/tools/javac/tree/DCTree;>;)V", $PUBLIC, $method(DCTree$DCDocComment, init$, void, $Tokens$Comment*, $List*, $List*, $List*, $List*, $List*, $List*)},
+		{"accept", "(Lcom/sun/source/doctree/DocTreeVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;D:Ljava/lang/Object;>(Lcom/sun/source/doctree/DocTreeVisitor<TR;TD;>;TD;)TR;", $PUBLIC, $virtualMethod(DCTree$DCDocComment, accept, $Object*, $DocTreeVisitor*, Object$*)},
+		{"getBlockTags", "()Ljava/util/List;", "()Ljava/util/List<+Lcom/sun/source/doctree/DocTree;>;", $PUBLIC, $virtualMethod(DCTree$DCDocComment, getBlockTags, $List*)},
+		{"getBody", "()Ljava/util/List;", "()Ljava/util/List<+Lcom/sun/source/doctree/DocTree;>;", $PUBLIC, $virtualMethod(DCTree$DCDocComment, getBody, $List*)},
+		{"getFirstSentence", "()Ljava/util/List;", "()Ljava/util/List<+Lcom/sun/source/doctree/DocTree;>;", $PUBLIC, $virtualMethod(DCTree$DCDocComment, getFirstSentence, $List*)},
+		{"getFullBody", "()Ljava/util/List;", "()Ljava/util/List<+Lcom/sun/source/doctree/DocTree;>;", $PUBLIC, $virtualMethod(DCTree$DCDocComment, getFullBody, $List*)},
+		{"getKind", "()Lcom/sun/source/doctree/DocTree$Kind;", nullptr, $PUBLIC, $virtualMethod(DCTree$DCDocComment, getKind, $DocTree$Kind*)},
+		{"getPostamble", "()Ljava/util/List;", "()Ljava/util/List<+Lcom/sun/source/doctree/DocTree;>;", $PUBLIC, $virtualMethod(DCTree$DCDocComment, getPostamble, $List*)},
+		{"getPreamble", "()Ljava/util/List;", "()Ljava/util/List<+Lcom/sun/source/doctree/DocTree;>;", $PUBLIC, $virtualMethod(DCTree$DCDocComment, getPreamble, $List*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.tree.DCTree$DCDocComment", "com.sun.tools.javac.tree.DCTree", "DCDocComment", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.tree.DCTree$DCDocComment",
+		"com.sun.tools.javac.tree.DCTree",
+		"com.sun.source.doctree.DocCommentTree",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.tree.DCTree"
+	};
+	$loadClass(DCTree$DCDocComment, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DCTree$DCDocComment));
+	});
 	return class$;
 }
 

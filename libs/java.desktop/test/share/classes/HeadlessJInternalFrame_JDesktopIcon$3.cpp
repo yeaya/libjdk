@@ -1,5 +1,4 @@
 #include <HeadlessJInternalFrame_JDesktopIcon$3.h>
-
 #include <HeadlessJInternalFrame_JDesktopIcon.h>
 #include <java/awt/Component.h>
 #include <jcpp.h>
@@ -10,42 +9,6 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
-$MethodInfo _HeadlessJInternalFrame_JDesktopIcon$3_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(HeadlessJInternalFrame_JDesktopIcon$3, init$, void)},
-	{}
-};
-
-$EnclosingMethodInfo _HeadlessJInternalFrame_JDesktopIcon$3_EnclosingMethodInfo_ = {
-	"HeadlessJInternalFrame_JDesktopIcon",
-	"main",
-	"([Ljava/lang/String;)V"
-};
-
-$InnerClassInfo _HeadlessJInternalFrame_JDesktopIcon$3_InnerClassesInfo_[] = {
-	{"HeadlessJInternalFrame_JDesktopIcon$3", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _HeadlessJInternalFrame_JDesktopIcon$3_ClassInfo_ = {
-	$ACC_SUPER,
-	"HeadlessJInternalFrame_JDesktopIcon$3",
-	"java.awt.Component",
-	nullptr,
-	nullptr,
-	_HeadlessJInternalFrame_JDesktopIcon$3_MethodInfo_,
-	nullptr,
-	&_HeadlessJInternalFrame_JDesktopIcon$3_EnclosingMethodInfo_,
-	_HeadlessJInternalFrame_JDesktopIcon$3_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"HeadlessJInternalFrame_JDesktopIcon"
-};
-
-$Object* allocate$HeadlessJInternalFrame_JDesktopIcon$3($Class* clazz) {
-	return $of($alloc(HeadlessJInternalFrame_JDesktopIcon$3));
-}
-
 void HeadlessJInternalFrame_JDesktopIcon$3::init$() {
 	$Component::init$();
 }
@@ -54,7 +17,37 @@ HeadlessJInternalFrame_JDesktopIcon$3::HeadlessJInternalFrame_JDesktopIcon$3() {
 }
 
 $Class* HeadlessJInternalFrame_JDesktopIcon$3::load$($String* name, bool initialize) {
-	$loadClass(HeadlessJInternalFrame_JDesktopIcon$3, name, initialize, &_HeadlessJInternalFrame_JDesktopIcon$3_ClassInfo_, allocate$HeadlessJInternalFrame_JDesktopIcon$3);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(HeadlessJInternalFrame_JDesktopIcon$3, init$, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"HeadlessJInternalFrame_JDesktopIcon",
+		"main",
+		"([Ljava/lang/String;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"HeadlessJInternalFrame_JDesktopIcon$3", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"HeadlessJInternalFrame_JDesktopIcon$3",
+		"java.awt.Component",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"HeadlessJInternalFrame_JDesktopIcon"
+	};
+	$loadClass(HeadlessJInternalFrame_JDesktopIcon$3, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(HeadlessJInternalFrame_JDesktopIcon$3));
+	});
 	return class$;
 }
 

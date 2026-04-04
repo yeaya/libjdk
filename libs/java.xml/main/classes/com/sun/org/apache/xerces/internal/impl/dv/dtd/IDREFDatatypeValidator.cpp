@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/impl/dv/dtd/IDREFDatatypeValidator.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/dv/InvalidDatatypeValueException.h>
 #include <com/sun/org/apache/xerces/internal/impl/dv/ValidationContext.h>
 #include <com/sun/org/apache/xerces/internal/util/XMLChar.h>
@@ -21,45 +20,41 @@ namespace com {
 							namespace dv {
 								namespace dtd {
 
-$MethodInfo _IDREFDatatypeValidator_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(IDREFDatatypeValidator, init$, void)},
-	{"validate", "(Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/impl/dv/ValidationContext;)V", nullptr, $PUBLIC, $virtualMethod(IDREFDatatypeValidator, validate, void, $String*, $ValidationContext*), "com.sun.org.apache.xerces.internal.impl.dv.InvalidDatatypeValueException"},
-	{}
-};
-
-$ClassInfo _IDREFDatatypeValidator_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.impl.dv.dtd.IDREFDatatypeValidator",
-	"java.lang.Object",
-	"com.sun.org.apache.xerces.internal.impl.dv.DatatypeValidator",
-	nullptr,
-	_IDREFDatatypeValidator_MethodInfo_
-};
-
-$Object* allocate$IDREFDatatypeValidator($Class* clazz) {
-	return $of($alloc(IDREFDatatypeValidator));
-}
-
 void IDREFDatatypeValidator::init$() {
 }
 
 void IDREFDatatypeValidator::validate($String* content, $ValidationContext* context) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(context)->useNamespaces()) {
 		if (!$XMLChar::isValidNCName(content)) {
-			$throwNew($InvalidDatatypeValueException, "IDREFInvalidWithNamespaces"_s, $$new($ObjectArray, {$of(content)}));
+			$throwNew($InvalidDatatypeValueException, "IDREFInvalidWithNamespaces"_s, $$new($ObjectArray, {content}));
 		}
 	} else if (!$XMLChar::isValidName(content)) {
-		$throwNew($InvalidDatatypeValueException, "IDREFInvalid"_s, $$new($ObjectArray, {$of(content)}));
+		$throwNew($InvalidDatatypeValueException, "IDREFInvalid"_s, $$new($ObjectArray, {content}));
 	}
-	$nc(context)->addIdRef(content);
+	context->addIdRef(content);
 }
 
 IDREFDatatypeValidator::IDREFDatatypeValidator() {
 }
 
 $Class* IDREFDatatypeValidator::load$($String* name, bool initialize) {
-	$loadClass(IDREFDatatypeValidator, name, initialize, &_IDREFDatatypeValidator_ClassInfo_, allocate$IDREFDatatypeValidator);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(IDREFDatatypeValidator, init$, void)},
+		{"validate", "(Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/impl/dv/ValidationContext;)V", nullptr, $PUBLIC, $virtualMethod(IDREFDatatypeValidator, validate, void, $String*, $ValidationContext*), "com.sun.org.apache.xerces.internal.impl.dv.InvalidDatatypeValueException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.impl.dv.dtd.IDREFDatatypeValidator",
+		"java.lang.Object",
+		"com.sun.org.apache.xerces.internal.impl.dv.DatatypeValidator",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(IDREFDatatypeValidator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(IDREFDatatypeValidator);
+	});
 	return class$;
 }
 

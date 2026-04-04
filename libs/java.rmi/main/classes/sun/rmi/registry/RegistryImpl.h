@@ -72,6 +72,7 @@ public:
 	virtual bool equals(Object$* obj) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int32_t port, ::java::rmi::server::RMIClientSocketFactory* csf, ::java::rmi::server::RMIServerSocketFactory* ssf);
 	void init$(int32_t port, ::java::rmi::server::RMIClientSocketFactory* csf, ::java::rmi::server::RMIServerSocketFactory* ssf, ::java::io::ObjectInputFilter* serialFilter);
 	void init$(int32_t port);
@@ -91,7 +92,7 @@ public:
 	void setup(::sun::rmi::server::UnicastServerRef* uref);
 	virtual $String* toString() override;
 	virtual void unbind($String* name) override;
-	static const int64_t serialVersionUID = (int64_t)0x40C40E240AEB82C5;
+	static const int64_t serialVersionUID = (int64_t)0x40c40e240aeb82c5;
 	::java::util::Hashtable* bindings = nullptr;
 	static ::java::util::Hashtable* allowedAccessCache;
 	static ::sun::rmi::registry::RegistryImpl* registry;
@@ -99,7 +100,7 @@ public:
 	static ::java::util::ResourceBundle* resources;
 	static $String* REGISTRY_FILTER_PROPNAME;
 	static const int32_t REGISTRY_MAX_DEPTH = 20;
-	static const int32_t REGISTRY_MAX_ARRAY_SIZE = 0x000F4240;
+	static const int32_t REGISTRY_MAX_ARRAY_SIZE = 0x000f4240;
 	static ::java::io::ObjectInputFilter* registryFilter$;
 };
 

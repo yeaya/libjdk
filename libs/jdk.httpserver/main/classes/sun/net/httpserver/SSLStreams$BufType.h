@@ -20,6 +20,7 @@ class SSLStreams$BufType : public ::java::lang::Enum {
 public:
 	SSLStreams$BufType();
 	static $Array<::sun::net::httpserver::SSLStreams$BufType>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::sun::net::httpserver::SSLStreams$BufType* valueOf($String* name);
 	static $Array<::sun::net::httpserver::SSLStreams$BufType>* values();

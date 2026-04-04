@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/motif/MotifComboBoxUI$MotifComboPopup$1.h>
-
 #include <com/sun/java/swing/plaf/motif/MotifComboBoxUI$MotifComboPopup.h>
 #include <java/awt/event/MouseMotionAdapter.h>
 #include <jcpp.h>
@@ -19,48 +18,6 @@ namespace com {
 				namespace plaf {
 					namespace motif {
 
-$FieldInfo _MotifComboBoxUI$MotifComboPopup$1_FieldInfo_[] = {
-	{"this$1", "Lcom/sun/java/swing/plaf/motif/MotifComboBoxUI$MotifComboPopup;", nullptr, $FINAL | $SYNTHETIC, $field(MotifComboBoxUI$MotifComboPopup$1, this$1)},
-	{}
-};
-
-$MethodInfo _MotifComboBoxUI$MotifComboPopup$1_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/java/swing/plaf/motif/MotifComboBoxUI$MotifComboPopup;)V", nullptr, 0, $method(MotifComboBoxUI$MotifComboPopup$1, init$, void, $MotifComboBoxUI$MotifComboPopup*)},
-	{}
-};
-
-$EnclosingMethodInfo _MotifComboBoxUI$MotifComboPopup$1_EnclosingMethodInfo_ = {
-	"com.sun.java.swing.plaf.motif.MotifComboBoxUI$MotifComboPopup",
-	"createListMouseMotionListener",
-	"()Ljava/awt/event/MouseMotionListener;"
-};
-
-$InnerClassInfo _MotifComboBoxUI$MotifComboPopup$1_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.motif.MotifComboBoxUI$MotifComboPopup", "com.sun.java.swing.plaf.motif.MotifComboBoxUI", "MotifComboPopup", $PROTECTED},
-	{"com.sun.java.swing.plaf.motif.MotifComboBoxUI$MotifComboPopup$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _MotifComboBoxUI$MotifComboPopup$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.java.swing.plaf.motif.MotifComboBoxUI$MotifComboPopup$1",
-	"java.awt.event.MouseMotionAdapter",
-	nullptr,
-	_MotifComboBoxUI$MotifComboPopup$1_FieldInfo_,
-	_MotifComboBoxUI$MotifComboPopup$1_MethodInfo_,
-	nullptr,
-	&_MotifComboBoxUI$MotifComboPopup$1_EnclosingMethodInfo_,
-	_MotifComboBoxUI$MotifComboPopup$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.motif.MotifComboBoxUI"
-};
-
-$Object* allocate$MotifComboBoxUI$MotifComboPopup$1($Class* clazz) {
-	return $of($alloc(MotifComboBoxUI$MotifComboPopup$1));
-}
-
 void MotifComboBoxUI$MotifComboPopup$1::init$($MotifComboBoxUI$MotifComboPopup* this$1) {
 	$set(this, this$1, this$1);
 	$MouseMotionAdapter::init$();
@@ -70,7 +27,42 @@ MotifComboBoxUI$MotifComboPopup$1::MotifComboBoxUI$MotifComboPopup$1() {
 }
 
 $Class* MotifComboBoxUI$MotifComboPopup$1::load$($String* name, bool initialize) {
-	$loadClass(MotifComboBoxUI$MotifComboPopup$1, name, initialize, &_MotifComboBoxUI$MotifComboPopup$1_ClassInfo_, allocate$MotifComboBoxUI$MotifComboPopup$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$1", "Lcom/sun/java/swing/plaf/motif/MotifComboBoxUI$MotifComboPopup;", nullptr, $FINAL | $SYNTHETIC, $field(MotifComboBoxUI$MotifComboPopup$1, this$1)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/java/swing/plaf/motif/MotifComboBoxUI$MotifComboPopup;)V", nullptr, 0, $method(MotifComboBoxUI$MotifComboPopup$1, init$, void, $MotifComboBoxUI$MotifComboPopup*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.java.swing.plaf.motif.MotifComboBoxUI$MotifComboPopup",
+		"createListMouseMotionListener",
+		"()Ljava/awt/event/MouseMotionListener;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.motif.MotifComboBoxUI$MotifComboPopup", "com.sun.java.swing.plaf.motif.MotifComboBoxUI", "MotifComboPopup", $PROTECTED},
+		{"com.sun.java.swing.plaf.motif.MotifComboBoxUI$MotifComboPopup$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.java.swing.plaf.motif.MotifComboBoxUI$MotifComboPopup$1",
+		"java.awt.event.MouseMotionAdapter",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.motif.MotifComboBoxUI"
+	};
+	$loadClass(MotifComboBoxUI$MotifComboPopup$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MotifComboBoxUI$MotifComboPopup$1);
+	});
 	return class$;
 }
 

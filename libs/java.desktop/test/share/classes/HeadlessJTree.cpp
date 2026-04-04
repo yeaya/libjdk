@@ -1,5 +1,4 @@
 #include <HeadlessJTree.h>
-
 #include <HeadlessJTree$1.h>
 #include <HeadlessJTree$2.h>
 #include <HeadlessJTree$3.h>
@@ -27,10 +26,7 @@
 #include <javax/swing/JTree.h>
 #include <javax/swing/tree/DefaultMutableTreeNode.h>
 #include <javax/swing/tree/DefaultTreeModel.h>
-#include <javax/swing/tree/MutableTreeNode.h>
 #include <javax/swing/tree/TreeCellRenderer.h>
-#include <javax/swing/tree/TreeModel.h>
-#include <javax/swing/tree/TreeNode.h>
 #include <jcpp.h>
 
 #undef BOLD
@@ -57,7 +53,6 @@ using $FlowLayout = ::java::awt::FlowLayout;
 using $Font = ::java::awt::Font;
 using $IllegalComponentStateException = ::java::awt::IllegalComponentStateException;
 using $Insets = ::java::awt::Insets;
-using $LayoutManager = ::java::awt::LayoutManager;
 using $Point = ::java::awt::Point;
 using $Rectangle = ::java::awt::Rectangle;
 using $Toolkit = ::java::awt::Toolkit;
@@ -69,49 +64,12 @@ using $Locale = ::java::util::Locale;
 using $JTree = ::javax::swing::JTree;
 using $DefaultMutableTreeNode = ::javax::swing::tree::DefaultMutableTreeNode;
 using $DefaultTreeModel = ::javax::swing::tree::DefaultTreeModel;
-using $MutableTreeNode = ::javax::swing::tree::MutableTreeNode;
-using $TreeCellRenderer = ::javax::swing::tree::TreeCellRenderer;
-using $TreeModel = ::javax::swing::tree::TreeModel;
-using $TreeNode = ::javax::swing::tree::TreeNode;
-
-$MethodInfo _HeadlessJTree_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(HeadlessJTree, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(HeadlessJTree, main, void, $StringArray*)},
-	{}
-};
-
-$InnerClassInfo _HeadlessJTree_InnerClassesInfo_[] = {
-	{"HeadlessJTree$4", nullptr, nullptr, 0},
-	{"HeadlessJTree$3", nullptr, nullptr, 0},
-	{"HeadlessJTree$2", nullptr, nullptr, 0},
-	{"HeadlessJTree$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _HeadlessJTree_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"HeadlessJTree",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_HeadlessJTree_MethodInfo_,
-	nullptr,
-	nullptr,
-	_HeadlessJTree_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"HeadlessJTree$4,HeadlessJTree$3,HeadlessJTree$2,HeadlessJTree$1"
-};
-
-$Object* allocate$HeadlessJTree($Class* clazz) {
-	return $of($alloc(HeadlessJTree));
-}
 
 void HeadlessJTree::init$() {
 }
 
 void HeadlessJTree::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JTree, t, nullptr);
 	$var($DefaultMutableTreeNode, root, $new($DefaultMutableTreeNode, "JTree"_s));
 	$var($DefaultMutableTreeNode, parent, nullptr);
@@ -133,8 +91,8 @@ void HeadlessJTree::main($StringArray* args) {
 	parent->add($$new($DefaultMutableTreeNode, "pizza"_s));
 	parent->add($$new($DefaultMutableTreeNode, "ravioli"_s));
 	parent->add($$new($DefaultMutableTreeNode, "bananas"_s));
-	$assign(t, $new($JTree, static_cast<$TreeNode*>(root)));
-	$assign(t, $new($JTree, static_cast<$TreeModel*>($$new($DefaultTreeModel, root))));
+	$assign(t, $new($JTree, root));
+	$assign(t, $new($JTree, $$new($DefaultTreeModel, root)));
 	t->setCellRenderer($$new($HeadlessJTree$1));
 	t->getCellRenderer();
 	t->getAccessibleContext();
@@ -147,9 +105,9 @@ void HeadlessJTree::main($StringArray* args) {
 	t->getMaximumSize();
 	t->getMinimumSize();
 	t->contains(1, 2);
-	$var($Component, c1, t->add(static_cast<$Component*>($$new($HeadlessJTree$2))));
-	$var($Component, c2, t->add(static_cast<$Component*>($$new($HeadlessJTree$3))));
-	$var($Component, c3, t->add(static_cast<$Component*>($$new($HeadlessJTree$4))));
+	$var($Component, c1, t->add($$new($HeadlessJTree$2)));
+	$var($Component, c2, t->add($$new($HeadlessJTree$3)));
+	$var($Component, c3, t->add($$new($HeadlessJTree$4)));
 	$var($Insets, ins, t->getInsets());
 	t->getAlignmentY();
 	t->getAlignmentX();
@@ -160,26 +118,22 @@ void HeadlessJTree::main($StringArray* args) {
 	t->setForeground($Color::red);
 	t->setBackground($Color::red);
 	{
-		$var($StringArray, arr$, $nc($($Toolkit::getDefaultToolkit()))->getFontList());
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		$var($StringArray, arr$, $$nc($Toolkit::getDefaultToolkit())->getFontList());
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($String, font, arr$->get(i$));
-			{
-				for (int32_t j = 8; j < 17; ++j) {
-					$var($Font, f1, $new($Font, font, $Font::PLAIN, j));
-					$var($Font, f2, $new($Font, font, $Font::BOLD, j));
-					$var($Font, f3, $new($Font, font, $Font::ITALIC, j));
-					$var($Font, f4, $new($Font, font, $Font::BOLD | $Font::ITALIC, j));
-					t->setFont(f1);
-					t->setFont(f2);
-					t->setFont(f3);
-					t->setFont(f4);
-					t->getFontMetrics(f1);
-					t->getFontMetrics(f2);
-					t->getFontMetrics(f3);
-					t->getFontMetrics(f4);
-				}
+			for (int32_t j = 8; j < 17; ++j) {
+				$var($Font, f1, $new($Font, font, $Font::PLAIN, j));
+				$var($Font, f2, $new($Font, font, $Font::BOLD, j));
+				$var($Font, f3, $new($Font, font, $Font::ITALIC, j));
+				$var($Font, f4, $new($Font, font, $Font::BOLD | $Font::ITALIC, j));
+				t->setFont(f1);
+				t->setFont(f2);
+				t->setFont(f3);
+				t->setFont(f4);
+				t->getFontMetrics(f1);
+				t->getFontMetrics(f2);
+				t->getFontMetrics(f3);
+				t->getFontMetrics(f4);
 			}
 		}
 	}
@@ -244,13 +198,11 @@ void HeadlessJTree::main($StringArray* args) {
 	t->getFont();
 	t->isFontSet();
 	$var($Container, c, $new($Container));
-	c->add(static_cast<$Component*>(t));
+	c->add(t);
 	t->getLocale();
 	{
 		$var($LocaleArray, arr$, $Locale::getAvailableLocales());
-		int32_t len$ = arr$->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($Locale, locale, arr$->get(i$));
 			t->setLocale(locale);
 		}
@@ -307,7 +259,35 @@ HeadlessJTree::HeadlessJTree() {
 }
 
 $Class* HeadlessJTree::load$($String* name, bool initialize) {
-	$loadClass(HeadlessJTree, name, initialize, &_HeadlessJTree_ClassInfo_, allocate$HeadlessJTree);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(HeadlessJTree, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(HeadlessJTree, main, void, $StringArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"HeadlessJTree$4", nullptr, nullptr, 0},
+		{"HeadlessJTree$3", nullptr, nullptr, 0},
+		{"HeadlessJTree$2", nullptr, nullptr, 0},
+		{"HeadlessJTree$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"HeadlessJTree",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"HeadlessJTree$4,HeadlessJTree$3,HeadlessJTree$2,HeadlessJTree$1"
+	};
+	$loadClass(HeadlessJTree, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HeadlessJTree);
+	});
 	return class$;
 }
 

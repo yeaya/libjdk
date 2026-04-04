@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/metal/MetalTreeUI.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/Graphics.h>
@@ -28,14 +27,11 @@ using $Color = ::java::awt::Color;
 using $Graphics = ::java::awt::Graphics;
 using $Insets = ::java::awt::Insets;
 using $Rectangle = ::java::awt::Rectangle;
-using $PropertyChangeListener = ::java::beans::PropertyChangeListener;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Icon = ::javax::swing::Icon;
 using $JComponent = ::javax::swing::JComponent;
-using $JTree = ::javax::swing::JTree;
 using $UIManager = ::javax::swing::UIManager;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
 using $BasicTreeUI = ::javax::swing::plaf::basic::BasicTreeUI;
@@ -46,59 +42,6 @@ namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace metal {
-
-$FieldInfo _MetalTreeUI_FieldInfo_[] = {
-	{"lineColor", "Ljava/awt/Color;", nullptr, $PRIVATE | $STATIC, $staticField(MetalTreeUI, lineColor)},
-	{"LINE_STYLE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MetalTreeUI, LINE_STYLE)},
-	{"LEG_LINE_STYLE_STRING", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MetalTreeUI, LEG_LINE_STYLE_STRING)},
-	{"HORIZ_STYLE_STRING", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MetalTreeUI, HORIZ_STYLE_STRING)},
-	{"NO_STYLE_STRING", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MetalTreeUI, NO_STYLE_STRING)},
-	{"LEG_LINE_STYLE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MetalTreeUI, LEG_LINE_STYLE)},
-	{"HORIZ_LINE_STYLE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MetalTreeUI, HORIZ_LINE_STYLE)},
-	{"NO_LINE_STYLE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MetalTreeUI, NO_LINE_STYLE)},
-	{"lineStyle", "I", nullptr, $PRIVATE, $field(MetalTreeUI, lineStyle)},
-	{"lineStyleListener", "Ljava/beans/PropertyChangeListener;", nullptr, $PRIVATE, $field(MetalTreeUI, lineStyleListener)},
-	{}
-};
-
-$MethodInfo _MetalTreeUI_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MetalTreeUI, init$, void)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalTreeUI, createUI, $ComponentUI*, $JComponent*)},
-	{"decodeLineStyle", "(Ljava/lang/Object;)V", nullptr, $PROTECTED, $virtualMethod(MetalTreeUI, decodeLineStyle, void, Object$*)},
-	{"getHorizontalLegBuffer", "()I", nullptr, $PROTECTED, $virtualMethod(MetalTreeUI, getHorizontalLegBuffer, int32_t)},
-	{"installUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(MetalTreeUI, installUI, void, $JComponent*)},
-	{"isLocationInExpandControl", "(IIII)Z", nullptr, $PROTECTED, $virtualMethod(MetalTreeUI, isLocationInExpandControl, bool, int32_t, int32_t, int32_t, int32_t)},
-	{"paint", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(MetalTreeUI, paint, void, $Graphics*, $JComponent*)},
-	{"paintHorizontalPartOfLeg", "(Ljava/awt/Graphics;Ljava/awt/Rectangle;Ljava/awt/Insets;Ljava/awt/Rectangle;Ljavax/swing/tree/TreePath;IZZZ)V", nullptr, $PROTECTED, $virtualMethod(MetalTreeUI, paintHorizontalPartOfLeg, void, $Graphics*, $Rectangle*, $Insets*, $Rectangle*, $TreePath*, int32_t, bool, bool, bool)},
-	{"paintHorizontalSeparators", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PROTECTED, $virtualMethod(MetalTreeUI, paintHorizontalSeparators, void, $Graphics*, $JComponent*)},
-	{"paintVerticalPartOfLeg", "(Ljava/awt/Graphics;Ljava/awt/Rectangle;Ljava/awt/Insets;Ljavax/swing/tree/TreePath;)V", nullptr, $PROTECTED, $virtualMethod(MetalTreeUI, paintVerticalPartOfLeg, void, $Graphics*, $Rectangle*, $Insets*, $TreePath*)},
-	{"uninstallUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(MetalTreeUI, uninstallUI, void, $JComponent*)},
-	{}
-};
-
-$InnerClassInfo _MetalTreeUI_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.metal.MetalTreeUI$LineListener", "javax.swing.plaf.metal.MetalTreeUI", "LineListener", 0},
-	{}
-};
-
-$ClassInfo _MetalTreeUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.metal.MetalTreeUI",
-	"javax.swing.plaf.basic.BasicTreeUI",
-	nullptr,
-	_MetalTreeUI_FieldInfo_,
-	_MetalTreeUI_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MetalTreeUI_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.metal.MetalTreeUI$LineListener"
-};
-
-$Object* allocate$MetalTreeUI($Class* clazz) {
-	return $of($alloc(MetalTreeUI));
-}
 
 $Color* MetalTreeUI::lineColor = nullptr;
 $String* MetalTreeUI::LINE_STYLE = nullptr;
@@ -135,7 +78,7 @@ void MetalTreeUI::uninstallUI($JComponent* c) {
 }
 
 void MetalTreeUI::decodeLineStyle(Object$* lineStyleFlag) {
-	if (lineStyleFlag == nullptr || $nc($of(lineStyleFlag))->equals(MetalTreeUI::LEG_LINE_STYLE_STRING)) {
+	if (lineStyleFlag == nullptr || $of(lineStyleFlag)->equals(MetalTreeUI::LEG_LINE_STYLE_STRING)) {
 		this->lineStyle = MetalTreeUI::LEG_LINE_STYLE;
 	} else if ($of(lineStyleFlag)->equals(MetalTreeUI::NO_STYLE_STRING)) {
 		this->lineStyle = MetalTreeUI::NO_LINE_STYLE;
@@ -145,16 +88,16 @@ void MetalTreeUI::decodeLineStyle(Object$* lineStyleFlag) {
 }
 
 bool MetalTreeUI::isLocationInExpandControl(int32_t row, int32_t rowLevel, int32_t mouseX, int32_t mouseY) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->tree != nullptr && !isLeaf(row)) {
 		int32_t boxWidth = 0;
 		if (getExpandedIcon() != nullptr) {
-			boxWidth = $nc($(getExpandedIcon()))->getIconWidth() + 6;
+			boxWidth = $$nc(getExpandedIcon())->getIconWidth() + 6;
 		} else {
 			boxWidth = 8;
 		}
 		$var($Insets, i, $nc(this->tree)->getInsets());
-		int32_t boxLeftX = (i != nullptr) ? $nc(i)->left : 0;
+		int32_t boxLeftX = (i != nullptr) ? i->left : 0;
 		boxLeftX += (((rowLevel + this->depthOffset - 1) * this->totalChildIndent) + getLeftChildIndent()) - boxWidth / 2;
 		int32_t boxRightX = boxLeftX + boxWidth;
 		return mouseX >= boxLeftX && mouseX <= boxRightX;
@@ -170,11 +113,11 @@ void MetalTreeUI::paint($Graphics* g, $JComponent* c) {
 }
 
 void MetalTreeUI::paintHorizontalSeparators($Graphics* g, $JComponent* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(g)->setColor(MetalTreeUI::lineColor);
 	$var($Rectangle, clipBounds, g->getClipBounds());
 	int32_t beginRow = getRowForPath(this->tree, $(getClosestPathForLocation(this->tree, 0, $nc(clipBounds)->y)));
-	int32_t endRow = getRowForPath(this->tree, $(getClosestPathForLocation(this->tree, 0, $nc(clipBounds)->y + clipBounds->height - 1)));
+	int32_t endRow = getRowForPath(this->tree, $(getClosestPathForLocation(this->tree, 0, clipBounds->y + clipBounds->height - 1)));
 	if (beginRow <= -1 || endRow <= -1) {
 		return;
 	}
@@ -183,7 +126,7 @@ void MetalTreeUI::paintHorizontalSeparators($Graphics* g, $JComponent* c) {
 		if (path != nullptr && path->getPathCount() == 2) {
 			$var($Rectangle, rowBounds, getPathBounds(this->tree, $(getPathForRow(this->tree, i))));
 			if (rowBounds != nullptr) {
-				g->drawLine($nc(clipBounds)->x, rowBounds->y, clipBounds->x + clipBounds->width, rowBounds->y);
+				g->drawLine(clipBounds->x, rowBounds->y, clipBounds->x + clipBounds->width, rowBounds->y);
 			}
 		}
 	}
@@ -204,7 +147,7 @@ void MetalTreeUI::paintHorizontalPartOfLeg($Graphics* g, $Rectangle* clipBounds,
 MetalTreeUI::MetalTreeUI() {
 }
 
-void clinit$MetalTreeUI($Class* class$) {
+void MetalTreeUI::clinit$($Class* clazz) {
 	$assignStatic(MetalTreeUI::LINE_STYLE, "JTree.lineStyle"_s);
 	$assignStatic(MetalTreeUI::LEG_LINE_STYLE_STRING, "Angled"_s);
 	$assignStatic(MetalTreeUI::HORIZ_STYLE_STRING, "Horizontal"_s);
@@ -212,7 +155,54 @@ void clinit$MetalTreeUI($Class* class$) {
 }
 
 $Class* MetalTreeUI::load$($String* name, bool initialize) {
-	$loadClass(MetalTreeUI, name, initialize, &_MetalTreeUI_ClassInfo_, clinit$MetalTreeUI, allocate$MetalTreeUI);
+	$FieldInfo fieldInfos$$[] = {
+		{"lineColor", "Ljava/awt/Color;", nullptr, $PRIVATE | $STATIC, $staticField(MetalTreeUI, lineColor)},
+		{"LINE_STYLE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MetalTreeUI, LINE_STYLE)},
+		{"LEG_LINE_STYLE_STRING", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MetalTreeUI, LEG_LINE_STYLE_STRING)},
+		{"HORIZ_STYLE_STRING", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MetalTreeUI, HORIZ_STYLE_STRING)},
+		{"NO_STYLE_STRING", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MetalTreeUI, NO_STYLE_STRING)},
+		{"LEG_LINE_STYLE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MetalTreeUI, LEG_LINE_STYLE)},
+		{"HORIZ_LINE_STYLE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MetalTreeUI, HORIZ_LINE_STYLE)},
+		{"NO_LINE_STYLE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MetalTreeUI, NO_LINE_STYLE)},
+		{"lineStyle", "I", nullptr, $PRIVATE, $field(MetalTreeUI, lineStyle)},
+		{"lineStyleListener", "Ljava/beans/PropertyChangeListener;", nullptr, $PRIVATE, $field(MetalTreeUI, lineStyleListener)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MetalTreeUI, init$, void)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalTreeUI, createUI, $ComponentUI*, $JComponent*)},
+		{"decodeLineStyle", "(Ljava/lang/Object;)V", nullptr, $PROTECTED, $virtualMethod(MetalTreeUI, decodeLineStyle, void, Object$*)},
+		{"getHorizontalLegBuffer", "()I", nullptr, $PROTECTED, $virtualMethod(MetalTreeUI, getHorizontalLegBuffer, int32_t)},
+		{"installUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(MetalTreeUI, installUI, void, $JComponent*)},
+		{"isLocationInExpandControl", "(IIII)Z", nullptr, $PROTECTED, $virtualMethod(MetalTreeUI, isLocationInExpandControl, bool, int32_t, int32_t, int32_t, int32_t)},
+		{"paint", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(MetalTreeUI, paint, void, $Graphics*, $JComponent*)},
+		{"paintHorizontalPartOfLeg", "(Ljava/awt/Graphics;Ljava/awt/Rectangle;Ljava/awt/Insets;Ljava/awt/Rectangle;Ljavax/swing/tree/TreePath;IZZZ)V", nullptr, $PROTECTED, $virtualMethod(MetalTreeUI, paintHorizontalPartOfLeg, void, $Graphics*, $Rectangle*, $Insets*, $Rectangle*, $TreePath*, int32_t, bool, bool, bool)},
+		{"paintHorizontalSeparators", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PROTECTED, $virtualMethod(MetalTreeUI, paintHorizontalSeparators, void, $Graphics*, $JComponent*)},
+		{"paintVerticalPartOfLeg", "(Ljava/awt/Graphics;Ljava/awt/Rectangle;Ljava/awt/Insets;Ljavax/swing/tree/TreePath;)V", nullptr, $PROTECTED, $virtualMethod(MetalTreeUI, paintVerticalPartOfLeg, void, $Graphics*, $Rectangle*, $Insets*, $TreePath*)},
+		{"uninstallUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(MetalTreeUI, uninstallUI, void, $JComponent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.metal.MetalTreeUI$LineListener", "javax.swing.plaf.metal.MetalTreeUI", "LineListener", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.metal.MetalTreeUI",
+		"javax.swing.plaf.basic.BasicTreeUI",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.metal.MetalTreeUI$LineListener"
+	};
+	$loadClass(MetalTreeUI, name, initialize, &classInfo$$, MetalTreeUI::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(MetalTreeUI);
+	});
 	return class$;
 }
 

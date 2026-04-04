@@ -1,5 +1,4 @@
 #include <sun/management/RuntimeImpl.h>
-
 #include <java/lang/UnsupportedOperationException.h>
 #include <java/lang/management/ManagementFactory.h>
 #include <java/util/HashMap.h>
@@ -32,47 +31,6 @@ using $VMManagement = ::sun::management::VMManagement;
 
 namespace sun {
 	namespace management {
-
-$FieldInfo _RuntimeImpl_FieldInfo_[] = {
-	{"jvm", "Lsun/management/VMManagement;", nullptr, $PRIVATE | $FINAL, $field(RuntimeImpl, jvm)},
-	{"vmStartupTime", "J", nullptr, $PRIVATE | $FINAL, $field(RuntimeImpl, vmStartupTime)},
-	{}
-};
-
-$MethodInfo _RuntimeImpl_MethodInfo_[] = {
-	{"<init>", "(Lsun/management/VMManagement;)V", nullptr, 0, $method(RuntimeImpl, init$, void, $VMManagement*)},
-	{"getBootClassPath", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RuntimeImpl, getBootClassPath, $String*)},
-	{"getClassPath", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RuntimeImpl, getClassPath, $String*)},
-	{"getInputArguments", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(RuntimeImpl, getInputArguments, $List*)},
-	{"getLibraryPath", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RuntimeImpl, getLibraryPath, $String*)},
-	{"getManagementSpecVersion", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RuntimeImpl, getManagementSpecVersion, $String*)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RuntimeImpl, getName, $String*)},
-	{"getObjectName", "()Ljavax/management/ObjectName;", nullptr, $PUBLIC, $virtualMethod(RuntimeImpl, getObjectName, $ObjectName*)},
-	{"getSpecName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RuntimeImpl, getSpecName, $String*)},
-	{"getSpecVendor", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RuntimeImpl, getSpecVendor, $String*)},
-	{"getSpecVersion", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RuntimeImpl, getSpecVersion, $String*)},
-	{"getStartTime", "()J", nullptr, $PUBLIC, $virtualMethod(RuntimeImpl, getStartTime, int64_t)},
-	{"getSystemProperties", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;", $PUBLIC, $virtualMethod(RuntimeImpl, getSystemProperties, $Map*)},
-	{"getUptime", "()J", nullptr, $PUBLIC, $virtualMethod(RuntimeImpl, getUptime, int64_t)},
-	{"getVmName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RuntimeImpl, getVmName, $String*)},
-	{"getVmVendor", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RuntimeImpl, getVmVendor, $String*)},
-	{"getVmVersion", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RuntimeImpl, getVmVersion, $String*)},
-	{"isBootClassPathSupported", "()Z", nullptr, $PUBLIC, $virtualMethod(RuntimeImpl, isBootClassPathSupported, bool)},
-	{}
-};
-
-$ClassInfo _RuntimeImpl_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.management.RuntimeImpl",
-	"java.lang.Object",
-	"java.lang.management.RuntimeMXBean",
-	_RuntimeImpl_FieldInfo_,
-	_RuntimeImpl_MethodInfo_
-};
-
-$Object* allocate$RuntimeImpl($Class* clazz) {
-	return $of($alloc(RuntimeImpl));
-}
 
 void RuntimeImpl::init$($VMManagement* vm) {
 	$set(this, jvm, vm);
@@ -142,7 +100,7 @@ bool RuntimeImpl::isBootClassPathSupported() {
 }
 
 $Map* RuntimeImpl::getSystemProperties() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Properties, sysProps, $System::getProperties());
 	$var($Map, map, $new($HashMap));
 	$var($Set, keys, $nc(sysProps)->stringPropertyNames());
@@ -168,7 +126,43 @@ RuntimeImpl::RuntimeImpl() {
 }
 
 $Class* RuntimeImpl::load$($String* name, bool initialize) {
-	$loadClass(RuntimeImpl, name, initialize, &_RuntimeImpl_ClassInfo_, allocate$RuntimeImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"jvm", "Lsun/management/VMManagement;", nullptr, $PRIVATE | $FINAL, $field(RuntimeImpl, jvm)},
+		{"vmStartupTime", "J", nullptr, $PRIVATE | $FINAL, $field(RuntimeImpl, vmStartupTime)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/management/VMManagement;)V", nullptr, 0, $method(RuntimeImpl, init$, void, $VMManagement*)},
+		{"getBootClassPath", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RuntimeImpl, getBootClassPath, $String*)},
+		{"getClassPath", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RuntimeImpl, getClassPath, $String*)},
+		{"getInputArguments", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(RuntimeImpl, getInputArguments, $List*)},
+		{"getLibraryPath", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RuntimeImpl, getLibraryPath, $String*)},
+		{"getManagementSpecVersion", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RuntimeImpl, getManagementSpecVersion, $String*)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RuntimeImpl, getName, $String*)},
+		{"getObjectName", "()Ljavax/management/ObjectName;", nullptr, $PUBLIC, $virtualMethod(RuntimeImpl, getObjectName, $ObjectName*)},
+		{"getSpecName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RuntimeImpl, getSpecName, $String*)},
+		{"getSpecVendor", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RuntimeImpl, getSpecVendor, $String*)},
+		{"getSpecVersion", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RuntimeImpl, getSpecVersion, $String*)},
+		{"getStartTime", "()J", nullptr, $PUBLIC, $virtualMethod(RuntimeImpl, getStartTime, int64_t)},
+		{"getSystemProperties", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;", $PUBLIC, $virtualMethod(RuntimeImpl, getSystemProperties, $Map*)},
+		{"getUptime", "()J", nullptr, $PUBLIC, $virtualMethod(RuntimeImpl, getUptime, int64_t)},
+		{"getVmName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RuntimeImpl, getVmName, $String*)},
+		{"getVmVendor", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RuntimeImpl, getVmVendor, $String*)},
+		{"getVmVersion", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RuntimeImpl, getVmVersion, $String*)},
+		{"isBootClassPathSupported", "()Z", nullptr, $PUBLIC, $virtualMethod(RuntimeImpl, isBootClassPathSupported, bool)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.management.RuntimeImpl",
+		"java.lang.Object",
+		"java.lang.management.RuntimeMXBean",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(RuntimeImpl, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RuntimeImpl);
+	});
 	return class$;
 }
 

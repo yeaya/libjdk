@@ -1,5 +1,4 @@
 #include <com/sun/media/sound/SoftReverb$Comb.h>
-
 #include <com/sun/media/sound/SoftReverb.h>
 #include <jcpp.h>
 
@@ -13,56 +12,11 @@ namespace com {
 		namespace media {
 			namespace sound {
 
-$FieldInfo _SoftReverb$Comb_FieldInfo_[] = {
-	{"delaybuffer", "[F", nullptr, $PRIVATE | $FINAL, $field(SoftReverb$Comb, delaybuffer)},
-	{"delaybuffersize", "I", nullptr, $PRIVATE | $FINAL, $field(SoftReverb$Comb, delaybuffersize)},
-	{"rovepos", "I", nullptr, $PRIVATE, $field(SoftReverb$Comb, rovepos)},
-	{"feedback", "F", nullptr, $PRIVATE, $field(SoftReverb$Comb, feedback)},
-	{"filtertemp", "F", nullptr, $PRIVATE, $field(SoftReverb$Comb, filtertemp)},
-	{"filtercoeff1", "F", nullptr, $PRIVATE, $field(SoftReverb$Comb, filtercoeff1)},
-	{"filtercoeff2", "F", nullptr, $PRIVATE, $field(SoftReverb$Comb, filtercoeff2)},
-	{}
-};
-
-$MethodInfo _SoftReverb$Comb_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, 0, $method(SoftReverb$Comb, init$, void, int32_t)},
-	{"processMix", "([F[F)V", nullptr, $PUBLIC, $method(SoftReverb$Comb, processMix, void, $floats*, $floats*)},
-	{"processReplace", "([F[F)V", nullptr, $PUBLIC, $method(SoftReverb$Comb, processReplace, void, $floats*, $floats*)},
-	{"setDamp", "(F)V", nullptr, $PUBLIC, $method(SoftReverb$Comb, setDamp, void, float)},
-	{"setFeedBack", "(F)V", nullptr, $PUBLIC, $method(SoftReverb$Comb, setFeedBack, void, float)},
-	{}
-};
-
-$InnerClassInfo _SoftReverb$Comb_InnerClassesInfo_[] = {
-	{"com.sun.media.sound.SoftReverb$Comb", "com.sun.media.sound.SoftReverb", "Comb", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _SoftReverb$Comb_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.media.sound.SoftReverb$Comb",
-	"java.lang.Object",
-	nullptr,
-	_SoftReverb$Comb_FieldInfo_,
-	_SoftReverb$Comb_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SoftReverb$Comb_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.media.sound.SoftReverb"
-};
-
-$Object* allocate$SoftReverb$Comb($Class* clazz) {
-	return $of($alloc(SoftReverb$Comb));
-}
-
 void SoftReverb$Comb::init$(int32_t size) {
 	this->rovepos = 0;
-	this->filtertemp = (float)0;
-	this->filtercoeff1 = (float)0;
-	this->filtercoeff2 = (float)1;
+	this->filtertemp = 0;
+	this->filtercoeff1 = 0;
+	this->filtercoeff2 = 1;
 	$set(this, delaybuffer, $new($floats, size));
 	this->delaybuffersize = size;
 }
@@ -80,10 +34,10 @@ void SoftReverb$Comb::processMix($floats* in, $floats* out) {
 	float filtercoeff1 = this->filtercoeff1;
 	float filtercoeff2 = this->filtercoeff2;
 	for (int32_t i = 0; i < len; ++i) {
-		float delayout = $nc(this->delaybuffer)->get(rovepos);
+		float delayout = this->delaybuffer->get(rovepos);
 		filtertemp = (delayout * filtercoeff2) + (filtertemp * filtercoeff1);
 		(*$nc(out))[i] += delayout;
-		$nc(this->delaybuffer)->set(rovepos, in->get(i) + filtertemp);
+		this->delaybuffer->set(rovepos, in->get(i) + filtertemp);
 		if (++rovepos == delaybuffersize) {
 			rovepos = 0;
 		}
@@ -100,10 +54,10 @@ void SoftReverb$Comb::processReplace($floats* in, $floats* out) {
 	float filtercoeff1 = this->filtercoeff1;
 	float filtercoeff2 = this->filtercoeff2;
 	for (int32_t i = 0; i < len; ++i) {
-		float delayout = $nc(this->delaybuffer)->get(rovepos);
+		float delayout = this->delaybuffer->get(rovepos);
 		filtertemp = (delayout * filtercoeff2) + (filtertemp * filtercoeff1);
 		$nc(out)->set(i, delayout);
-		$nc(this->delaybuffer)->set(rovepos, in->get(i) + filtertemp);
+		this->delaybuffer->set(rovepos, in->get(i) + filtertemp);
 		if (++rovepos == delaybuffersize) {
 			rovepos = 0;
 		}
@@ -121,7 +75,46 @@ SoftReverb$Comb::SoftReverb$Comb() {
 }
 
 $Class* SoftReverb$Comb::load$($String* name, bool initialize) {
-	$loadClass(SoftReverb$Comb, name, initialize, &_SoftReverb$Comb_ClassInfo_, allocate$SoftReverb$Comb);
+	$FieldInfo fieldInfos$$[] = {
+		{"delaybuffer", "[F", nullptr, $PRIVATE | $FINAL, $field(SoftReverb$Comb, delaybuffer)},
+		{"delaybuffersize", "I", nullptr, $PRIVATE | $FINAL, $field(SoftReverb$Comb, delaybuffersize)},
+		{"rovepos", "I", nullptr, $PRIVATE, $field(SoftReverb$Comb, rovepos)},
+		{"feedback", "F", nullptr, $PRIVATE, $field(SoftReverb$Comb, feedback)},
+		{"filtertemp", "F", nullptr, $PRIVATE, $field(SoftReverb$Comb, filtertemp)},
+		{"filtercoeff1", "F", nullptr, $PRIVATE, $field(SoftReverb$Comb, filtercoeff1)},
+		{"filtercoeff2", "F", nullptr, $PRIVATE, $field(SoftReverb$Comb, filtercoeff2)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I)V", nullptr, 0, $method(SoftReverb$Comb, init$, void, int32_t)},
+		{"processMix", "([F[F)V", nullptr, $PUBLIC, $method(SoftReverb$Comb, processMix, void, $floats*, $floats*)},
+		{"processReplace", "([F[F)V", nullptr, $PUBLIC, $method(SoftReverb$Comb, processReplace, void, $floats*, $floats*)},
+		{"setDamp", "(F)V", nullptr, $PUBLIC, $method(SoftReverb$Comb, setDamp, void, float)},
+		{"setFeedBack", "(F)V", nullptr, $PUBLIC, $method(SoftReverb$Comb, setFeedBack, void, float)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.media.sound.SoftReverb$Comb", "com.sun.media.sound.SoftReverb", "Comb", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.media.sound.SoftReverb$Comb",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.media.sound.SoftReverb"
+	};
+	$loadClass(SoftReverb$Comb, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SoftReverb$Comb);
+	});
 	return class$;
 }
 

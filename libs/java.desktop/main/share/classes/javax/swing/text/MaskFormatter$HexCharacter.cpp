@@ -1,5 +1,4 @@
 #include <javax/swing/text/MaskFormatter$HexCharacter.h>
-
 #include <javax/swing/text/MaskFormatter$MaskCharacter.h>
 #include <javax/swing/text/MaskFormatter.h>
 #include <jcpp.h>
@@ -15,44 +14,6 @@ using $MaskFormatter$MaskCharacter = ::javax::swing::text::MaskFormatter$MaskCha
 namespace javax {
 	namespace swing {
 		namespace text {
-
-$FieldInfo _MaskFormatter$HexCharacter_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/text/MaskFormatter;", nullptr, $FINAL | $SYNTHETIC, $field(MaskFormatter$HexCharacter, this$0)},
-	{}
-};
-
-$MethodInfo _MaskFormatter$HexCharacter_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/text/MaskFormatter;)V", nullptr, $PRIVATE, $method(MaskFormatter$HexCharacter, init$, void, $MaskFormatter*)},
-	{"getChar", "(C)C", nullptr, $PUBLIC, $virtualMethod(MaskFormatter$HexCharacter, getChar, char16_t, char16_t)},
-	{"isValidCharacter", "(C)Z", nullptr, $PUBLIC, $virtualMethod(MaskFormatter$HexCharacter, isValidCharacter, bool, char16_t)},
-	{}
-};
-
-$InnerClassInfo _MaskFormatter$HexCharacter_InnerClassesInfo_[] = {
-	{"javax.swing.text.MaskFormatter$HexCharacter", "javax.swing.text.MaskFormatter", "HexCharacter", $PRIVATE},
-	{"javax.swing.text.MaskFormatter$MaskCharacter", "javax.swing.text.MaskFormatter", "MaskCharacter", $PRIVATE},
-	{}
-};
-
-$ClassInfo _MaskFormatter$HexCharacter_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.text.MaskFormatter$HexCharacter",
-	"javax.swing.text.MaskFormatter$MaskCharacter",
-	nullptr,
-	_MaskFormatter$HexCharacter_FieldInfo_,
-	_MaskFormatter$HexCharacter_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MaskFormatter$HexCharacter_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.MaskFormatter"
-};
-
-$Object* allocate$MaskFormatter$HexCharacter($Class* clazz) {
-	return $of($alloc(MaskFormatter$HexCharacter));
-}
 
 void MaskFormatter$HexCharacter::init$($MaskFormatter* this$0) {
 	$set(this, this$0, this$0);
@@ -74,7 +35,39 @@ MaskFormatter$HexCharacter::MaskFormatter$HexCharacter() {
 }
 
 $Class* MaskFormatter$HexCharacter::load$($String* name, bool initialize) {
-	$loadClass(MaskFormatter$HexCharacter, name, initialize, &_MaskFormatter$HexCharacter_ClassInfo_, allocate$MaskFormatter$HexCharacter);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/text/MaskFormatter;", nullptr, $FINAL | $SYNTHETIC, $field(MaskFormatter$HexCharacter, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/text/MaskFormatter;)V", nullptr, $PRIVATE, $method(MaskFormatter$HexCharacter, init$, void, $MaskFormatter*)},
+		{"getChar", "(C)C", nullptr, $PUBLIC, $virtualMethod(MaskFormatter$HexCharacter, getChar, char16_t, char16_t)},
+		{"isValidCharacter", "(C)Z", nullptr, $PUBLIC, $virtualMethod(MaskFormatter$HexCharacter, isValidCharacter, bool, char16_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.MaskFormatter$HexCharacter", "javax.swing.text.MaskFormatter", "HexCharacter", $PRIVATE},
+		{"javax.swing.text.MaskFormatter$MaskCharacter", "javax.swing.text.MaskFormatter", "MaskCharacter", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.text.MaskFormatter$HexCharacter",
+		"javax.swing.text.MaskFormatter$MaskCharacter",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.MaskFormatter"
+	};
+	$loadClass(MaskFormatter$HexCharacter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MaskFormatter$HexCharacter);
+	});
 	return class$;
 }
 

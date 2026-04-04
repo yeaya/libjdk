@@ -19,8 +19,9 @@ class $export DocFlavor$SERVICE_FORMATTED : public ::javax::print::DocFlavor {
 	$class(DocFlavor$SERVICE_FORMATTED, 0, ::javax::print::DocFlavor)
 public:
 	DocFlavor$SERVICE_FORMATTED();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* className);
-	static const int64_t serialVersionUID = (int64_t)0x55C885F2C3078BC8;
+	static const int64_t serialVersionUID = (int64_t)0x55c885f2c3078bc8;
 	static ::javax::print::DocFlavor$SERVICE_FORMATTED* RENDERABLE_IMAGE;
 	static ::javax::print::DocFlavor$SERVICE_FORMATTED* PRINTABLE;
 	static ::javax::print::DocFlavor$SERVICE_FORMATTED* PAGEABLE;

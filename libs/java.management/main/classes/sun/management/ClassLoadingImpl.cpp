@@ -1,5 +1,4 @@
 #include <sun/management/ClassLoadingImpl.h>
-
 #include <java/lang/management/ManagementFactory.h>
 #include <javax/management/ObjectName.h>
 #include <sun/management/Util.h>
@@ -18,38 +17,6 @@ using $VMManagement = ::sun::management::VMManagement;
 
 namespace sun {
 	namespace management {
-
-$FieldInfo _ClassLoadingImpl_FieldInfo_[] = {
-	{"jvm", "Lsun/management/VMManagement;", nullptr, $PRIVATE | $FINAL, $field(ClassLoadingImpl, jvm)},
-	{}
-};
-
-$MethodInfo _ClassLoadingImpl_MethodInfo_[] = {
-	{"<init>", "(Lsun/management/VMManagement;)V", nullptr, 0, $method(ClassLoadingImpl, init$, void, $VMManagement*)},
-	{"getLoadedClassCount", "()I", nullptr, $PUBLIC, $virtualMethod(ClassLoadingImpl, getLoadedClassCount, int32_t)},
-	{"getObjectName", "()Ljavax/management/ObjectName;", nullptr, $PUBLIC, $virtualMethod(ClassLoadingImpl, getObjectName, $ObjectName*)},
-	{"getTotalLoadedClassCount", "()J", nullptr, $PUBLIC, $virtualMethod(ClassLoadingImpl, getTotalLoadedClassCount, int64_t)},
-	{"getUnloadedClassCount", "()J", nullptr, $PUBLIC, $virtualMethod(ClassLoadingImpl, getUnloadedClassCount, int64_t)},
-	{"isVerbose", "()Z", nullptr, $PUBLIC, $virtualMethod(ClassLoadingImpl, isVerbose, bool)},
-	{"setVerbose", "(Z)V", nullptr, $PUBLIC, $virtualMethod(ClassLoadingImpl, setVerbose, void, bool)},
-	{"setVerboseClass", "(Z)V", nullptr, $STATIC | $NATIVE, $staticMethod(ClassLoadingImpl, setVerboseClass, void, bool)},
-	{}
-};
-
-#define _METHOD_INDEX_setVerboseClass 7
-
-$ClassInfo _ClassLoadingImpl_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.management.ClassLoadingImpl",
-	"java.lang.Object",
-	"java.lang.management.ClassLoadingMXBean",
-	_ClassLoadingImpl_FieldInfo_,
-	_ClassLoadingImpl_MethodInfo_
-};
-
-$Object* allocate$ClassLoadingImpl($Class* clazz) {
-	return $of($alloc(ClassLoadingImpl));
-}
 
 void ClassLoadingImpl::init$($VMManagement* vm) {
 	$set(this, jvm, vm);
@@ -78,7 +45,7 @@ void ClassLoadingImpl::setVerbose(bool value) {
 
 void ClassLoadingImpl::setVerboseClass(bool value) {
 	$init(ClassLoadingImpl);
-	$prepareNativeStatic(ClassLoadingImpl, setVerboseClass, void, bool value);
+	$prepareNativeStatic(setVerboseClass, void, bool value);
 	$invokeNativeStatic(value);
 	$finishNativeStatic();
 }
@@ -92,7 +59,32 @@ ClassLoadingImpl::ClassLoadingImpl() {
 }
 
 $Class* ClassLoadingImpl::load$($String* name, bool initialize) {
-	$loadClass(ClassLoadingImpl, name, initialize, &_ClassLoadingImpl_ClassInfo_, allocate$ClassLoadingImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"jvm", "Lsun/management/VMManagement;", nullptr, $PRIVATE | $FINAL, $field(ClassLoadingImpl, jvm)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/management/VMManagement;)V", nullptr, 0, $method(ClassLoadingImpl, init$, void, $VMManagement*)},
+		{"getLoadedClassCount", "()I", nullptr, $PUBLIC, $virtualMethod(ClassLoadingImpl, getLoadedClassCount, int32_t)},
+		{"getObjectName", "()Ljavax/management/ObjectName;", nullptr, $PUBLIC, $virtualMethod(ClassLoadingImpl, getObjectName, $ObjectName*)},
+		{"getTotalLoadedClassCount", "()J", nullptr, $PUBLIC, $virtualMethod(ClassLoadingImpl, getTotalLoadedClassCount, int64_t)},
+		{"getUnloadedClassCount", "()J", nullptr, $PUBLIC, $virtualMethod(ClassLoadingImpl, getUnloadedClassCount, int64_t)},
+		{"isVerbose", "()Z", nullptr, $PUBLIC, $virtualMethod(ClassLoadingImpl, isVerbose, bool)},
+		{"setVerbose", "(Z)V", nullptr, $PUBLIC, $virtualMethod(ClassLoadingImpl, setVerbose, void, bool)},
+		{"setVerboseClass", "(Z)V", nullptr, $STATIC | $NATIVE, $staticMethod(ClassLoadingImpl, setVerboseClass, void, bool)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.management.ClassLoadingImpl",
+		"java.lang.Object",
+		"java.lang.management.ClassLoadingMXBean",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ClassLoadingImpl, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ClassLoadingImpl);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/security/krb5/Config.h>
-
 #include <java/io/File.h>
 #include <java/io/FilePermission.h>
 #include <java/io/IOException.h>
@@ -93,7 +92,6 @@ using $PermissionArray = $Array<::java::security::Permission>;
 using $File = ::java::io::File;
 using $FilePermission = ::java::io::FilePermission;
 using $IOException = ::java::io::IOException;
-using $PrintStream = ::java::io::PrintStream;
 using $Serializable = ::java::io::Serializable;
 using $Boolean = ::java::lang::Boolean;
 using $CharSequence = ::java::lang::CharSequence;
@@ -117,7 +115,6 @@ using $Path = ::java::nio::file::Path;
 using $Paths = ::java::nio::file::Paths;
 using $AccessControlContext = ::java::security::AccessControlContext;
 using $AccessController = ::java::security::AccessController;
-using $Permission = ::java::security::Permission;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $PrivilegedActionException = ::java::security::PrivilegedActionException;
 using $PrivilegedExceptionAction = ::java::security::PrivilegedExceptionAction;
@@ -167,123 +164,32 @@ public:
 	virtual $Object* run() override {
 		 return $of(Config::lambda$loadConfigFile$0(fileName));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Config$$Lambda$lambda$loadConfigFile$0>());
-	}
 	$String* fileName = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Config$$Lambda$lambda$loadConfigFile$0::fieldInfos[2] = {
-	{"fileName", "Ljava/lang/String;", nullptr, $PUBLIC, $field(Config$$Lambda$lambda$loadConfigFile$0, fileName)},
-	{}
-};
-$MethodInfo Config$$Lambda$lambda$loadConfigFile$0::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Config$$Lambda$lambda$loadConfigFile$0, init$, void, $String*)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Config$$Lambda$lambda$loadConfigFile$0, run, $Object*)},
-	{}
-};
-$ClassInfo Config$$Lambda$lambda$loadConfigFile$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.security.krb5.Config$$Lambda$lambda$loadConfigFile$0",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	fieldInfos,
-	methodInfos
 };
 $Class* Config$$Lambda$lambda$loadConfigFile$0::load$($String* name, bool initialize) {
-	$loadClass(Config$$Lambda$lambda$loadConfigFile$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"fileName", "Ljava/lang/String;", nullptr, $PUBLIC, $field(Config$$Lambda$lambda$loadConfigFile$0, fileName)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Config$$Lambda$lambda$loadConfigFile$0, init$, void, $String*)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Config$$Lambda$lambda$loadConfigFile$0, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.security.krb5.Config$$Lambda$lambda$loadConfigFile$0",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Config$$Lambda$lambda$loadConfigFile$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Config$$Lambda$lambda$loadConfigFile$0);
+	});
 	return class$;
 }
 $Class* Config$$Lambda$lambda$loadConfigFile$0::class$ = nullptr;
-
-$FieldInfo _Config_FieldInfo_[] = {
-	{"DISABLE_REFERRALS", "Z", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Config, DISABLE_REFERRALS)},
-	{"MAX_REFERRALS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Config, MAX_REFERRALS)},
-	{"singleton", "Lsun/security/krb5/Config;", nullptr, $PRIVATE | $STATIC, $staticField(Config, singleton)},
-	{"stanzaTable", "Ljava/util/Hashtable;", "Ljava/util/Hashtable<Ljava/lang/String;Ljava/lang/Object;>;", $PRIVATE, $field(Config, stanzaTable)},
-	{"DEBUG", "Z", nullptr, $PRIVATE | $STATIC, $staticField(Config, DEBUG)},
-	{"BASE16_0", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Config, BASE16_0)},
-	{"BASE16_1", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Config, BASE16_1)},
-	{"BASE16_2", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Config, BASE16_2)},
-	{"BASE16_3", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Config, BASE16_3)},
-	{"defaultRealm", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(Config, defaultRealm)},
-	{"defaultKDC", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(Config, defaultKDC)},
-	{}
-};
-
-$MethodInfo _Config_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(Config, init$, void), "sun.security.krb5.KrbException"},
-	{"checkRealm", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Config, checkRealm, $String*, $String*)},
-	{"defaultEtype", "(Ljava/lang/String;)[I", nullptr, $PUBLIC, $virtualMethod(Config, defaultEtype, $ints*, $String*), "sun.security.krb5.KrbException"},
-	{"duration", "(Ljava/lang/String;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Config, duration, int32_t, $String*), "sun.security.krb5.KrbException"},
-	{"exists", "([Ljava/lang/String;)Z", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(Config, exists, bool, $StringArray*)},
-	{"fileExists", "(Ljava/lang/String;)Z", nullptr, $PRIVATE, $method(Config, fileExists, bool, $String*)},
-	{"findMacosConfigFile", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(Config, findMacosConfigFile, $String*)},
-	{"get", "([Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(Config, get, $String*, $StringArray*)},
-	{"get0", "([Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PRIVATE | $TRANSIENT, $method(Config, get0, $Object*, $StringArray*)},
-	{"getAll", "([Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(Config, getAll, $String*, $StringArray*)},
-	{"getBase", "(I)I", nullptr, $PRIVATE, $method(Config, getBase, int32_t, int32_t)},
-	{"getBooleanObject", "([Ljava/lang/String;)Ljava/lang/Boolean;", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(Config, getBooleanObject, $Boolean*, $StringArray*)},
-	{"getDefaultRealm", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Config, getDefaultRealm, $String*), "sun.security.krb5.KrbException"},
-	{"getInstance", "()Lsun/security/krb5/Config;", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(Config, getInstance, Config*), "sun.security.krb5.KrbException"},
-	{"getIntValue", "([Ljava/lang/String;)I", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(Config, getIntValue, int32_t, $StringArray*)},
-	{"getJavaFileName", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(Config, getJavaFileName, $String*)},
-	{"getKDCFromDNS", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(Config, getKDCFromDNS, $String*, $String*), "sun.security.krb5.KrbException"},
-	{"getKDCList", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Config, getKDCList, $String*, $String*), "sun.security.krb5.KrbException"},
-	{"getNativeFileName", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(Config, getNativeFileName, $String*)},
-	{"getRealmFromDNS", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(Config, getRealmFromDNS, $String*), "sun.security.krb5.KrbException"},
-	{"getString0", "([Ljava/lang/String;)Ljava/util/Vector;", "([Ljava/lang/String;)Ljava/util/Vector<Ljava/lang/String;>;", $PRIVATE | $TRANSIENT, $method(Config, getString0, $Vector*, $StringArray*)},
-	{"getType", "(Ljava/lang/String;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Config, getType, int32_t, $String*)},
-	{"getWindowsDirectory", "(Z)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(Config, getWindowsDirectory, $String*, bool)},
-	{"isMacosLionOrBetter", "()Z", nullptr, $PRIVATE | $STATIC, $staticMethod(Config, isMacosLionOrBetter, bool)},
-	{"lambda$loadConfigFile$0", "(Ljava/lang/String;)Ljava/nio/file/Path;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Config, lambda$loadConfigFile$0, $Path*, $String*)},
-	{"listTable", "()V", nullptr, $PUBLIC, $virtualMethod(Config, listTable, void)},
-	{"loadConfigFile", "(Ljava/lang/String;)Ljava/util/List;", "(Ljava/lang/String;)Ljava/util/List<Ljava/lang/String;>;", $PRIVATE, $method(Config, loadConfigFile, $List*, $String*), "java.io.IOException,sun.security.krb5.KrbException"},
-	{"parseIntValue", "(Ljava/lang/String;)I", nullptr, $PRIVATE, $method(Config, parseIntValue, int32_t, $String*), "java.lang.NumberFormatException"},
-	{"parseStanzaTable", "(Ljava/util/List;)Ljava/util/Hashtable;", "(Ljava/util/List<Ljava/lang/String;>;)Ljava/util/Hashtable<Ljava/lang/String;Ljava/lang/Object;>;", $PRIVATE, $method(Config, parseStanzaTable, $Hashtable*, $List*), "sun.security.krb5.KrbException"},
-	{"readConfigFileLines", "(Ljava/nio/file/Path;Ljava/util/List;Ljava/util/Set;)Ljava/lang/Void;", "(Ljava/nio/file/Path;Ljava/util/List<Ljava/lang/String;>;Ljava/util/Set<Ljava/nio/file/Path;>;)Ljava/lang/Void;", $PRIVATE | $STATIC, $staticMethod(Config, readConfigFileLines, $Void*, $Path*, $List*, $Set*), "java.io.IOException"},
-	{"refresh", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(Config, refresh, void), "sun.security.krb5.KrbException"},
-	{"resetDefaultRealm", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Config, resetDefaultRealm, void, $String*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Config, toString, $String*)},
-	{"toStringInternal", "(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/StringBuffer;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Config, toStringInternal, void, $String*, Object$*, $StringBuffer*)},
-	{"unquote", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Config, unquote, $String*, $String*)},
-	{"useAddresses", "()Z", nullptr, $PUBLIC, $virtualMethod(Config, useAddresses, bool)},
-	{"useDNS", "(Ljava/lang/String;Z)Z", nullptr, $PRIVATE, $method(Config, useDNS, bool, $String*, bool)},
-	{"useDNS_KDC", "()Z", nullptr, $PRIVATE, $method(Config, useDNS_KDC, bool)},
-	{"useDNS_Realm", "()Z", nullptr, $PRIVATE, $method(Config, useDNS_Realm, bool)},
-	{}
-};
-
-#define _METHOD_INDEX_getWindowsDirectory 22
-
-$InnerClassInfo _Config_InnerClassesInfo_[] = {
-	{"sun.security.krb5.Config$FileExistsAction", "sun.security.krb5.Config", "FileExistsAction", $STATIC},
-	{"sun.security.krb5.Config$3", nullptr, nullptr, 0},
-	{"sun.security.krb5.Config$2", nullptr, nullptr, 0},
-	{"sun.security.krb5.Config$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Config_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.krb5.Config",
-	"java.lang.Object",
-	nullptr,
-	_Config_FieldInfo_,
-	_Config_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Config_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.security.krb5.Config$FileExistsAction,sun.security.krb5.Config$3,sun.security.krb5.Config$2,sun.security.krb5.Config$1"
-};
-
-$Object* allocate$Config($Class* clazz) {
-	return $of($alloc(Config));
-}
 
 bool Config::DISABLE_REFERRALS = false;
 int32_t Config::MAX_REFERRALS = 0;
@@ -292,17 +198,15 @@ bool Config::DEBUG = false;
 
 $String* Config::getWindowsDirectory(bool isSystem) {
 	$init(Config);
-	$var($String, $ret, nullptr);
-	$prepareNativeStatic(Config, getWindowsDirectory, $String*, bool isSystem);
-	$assign($ret, $invokeNativeStaticObject(isSystem));
+	$prepareNativeStatic(getWindowsDirectory, $String*, bool isSystem);
+	$var($String, $ret, $invokeNativeStaticObject(isSystem));
 	$finishNativeStatic();
 	return $ret;
 }
 
 Config* Config::getInstance() {
-	$load(Config);
+	$init(Config);
 	$synchronized(class$) {
-		$init(Config);
 		if (Config::singleton == nullptr) {
 			$assignStatic(Config::singleton, $new(Config));
 		}
@@ -323,7 +227,7 @@ void Config::refresh() {
 
 bool Config::isMacosLionOrBetter() {
 	$init(Config);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, osname, $GetPropertyAction::privilegedGetProperty("os.name"_s));
 	if (!$nc(osname)->contains("OS X"_s)) {
 		return false;
@@ -348,7 +252,7 @@ bool Config::isMacosLionOrBetter() {
 }
 
 void Config::init$() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, stanzaTable, $new($Hashtable));
 	$var($String, tmp, $GetPropertyAction::privilegedGetProperty("java.security.krb5.kdc"_s));
 	if (tmp != nullptr) {
@@ -408,7 +312,7 @@ $String* Config::get($StringArray* keys) {
 }
 
 $Boolean* Config::getBooleanObject($StringArray* keys) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, s, get(keys));
 	if (s == nullptr) {
 		return nullptr;
@@ -418,60 +322,42 @@ $Boolean* Config::getBooleanObject($StringArray* keys) {
 		$var($String, s11083$, $nc(s)->toLowerCase($Locale::US));
 		int32_t tmp11083$ = -1;
 		switch (s11083$->hashCode()) {
-		case 0x0001D2E7:
-			{
-				if (s11083$->equals("yes"_s)) {
-					tmp11083$ = 0;
-				}
-				break;
+		case 0x0001d2e7:
+			if (s11083$->equals("yes"_s)) {
+				tmp11083$ = 0;
 			}
-		case 0x0036758E:
-			{
-				if (s11083$->equals("true"_s)) {
-					tmp11083$ = 1;
-				}
-				break;
+			break;
+		case 0x0036758e:
+			if (s11083$->equals("true"_s)) {
+				tmp11083$ = 1;
 			}
+			break;
 		case 3521:
-			{
-				if (s11083$->equals("no"_s)) {
-					tmp11083$ = 2;
-				}
-				break;
+			if (s11083$->equals("no"_s)) {
+				tmp11083$ = 2;
 			}
-		case 0x05CB1923:
-			{
-				if (s11083$->equals("false"_s)) {
-					tmp11083$ = 3;
-				}
-				break;
+			break;
+		case 0x05cb1923:
+			if (s11083$->equals("false"_s)) {
+				tmp11083$ = 3;
 			}
+			break;
 		}
 		switch (tmp11083$) {
 		case 0:
-			{}
 		case 1:
-			{
-				$init($Boolean);
-				return $Boolean::TRUE;
-			}
+			return $Boolean::TRUE;
 		case 2:
-			{}
 		case 3:
-			{
-				$init($Boolean);
-				return $Boolean::FALSE;
-			}
+			return $Boolean::FALSE;
 		default:
-			{
-				return nullptr;
-			}
+			return nullptr;
 		}
 	}
 }
 
 $String* Config::getAll($StringArray* keys) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Vector, v, getString0(keys));
 	if (v == nullptr) {
 		return nullptr;
@@ -504,46 +390,44 @@ $Vector* Config::getString0($StringArray* keys) {
 	try {
 		return $cast($Vector, get0(keys));
 	} catch ($ClassCastException& cce) {
-		$throwNew($IllegalArgumentException, static_cast<$Throwable*>(cce));
+		$throwNew($IllegalArgumentException, cce);
 	}
 	$shouldNotReachHere();
 }
 
 $Object* Config::get0($StringArray* keys) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, current, this->stanzaTable);
 	try {
 		{
 			$var($StringArray, arr$, keys);
-			int32_t len$ = $nc(arr$)->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
+			for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 				$var($String, key, arr$->get(i$));
 				{
-					$assign(current, $nc(($cast($Hashtable, current)))->get(key));
+					$assign(current, $nc($cast($Hashtable, current))->get(key));
 					if (current == nullptr) {
-						return $of(nullptr);
+						return nullptr;
 					}
 				}
 			}
 		}
-		return $of(current);
+		return current;
 	} catch ($ClassCastException& cce) {
-		$throwNew($IllegalArgumentException, static_cast<$Throwable*>(cce));
+		$throwNew($IllegalArgumentException, cce);
 	}
 	$shouldNotReachHere();
 }
 
 int32_t Config::duration($String* s) {
 	$init(Config);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(s)->isEmpty()) {
 		$throwNew($KrbException, "Duration cannot be empty"_s);
 	}
-	if ($nc(s)->matches("\\d+"_s)) {
+	if (s->matches("\\d+"_s)) {
 		return $Integer::parseInt(s);
 	}
-	$var($Matcher, m, $nc($($Pattern::compile("(\\d+):(\\d+)(:(\\d+))?"_s)))->matcher(s));
+	$var($Matcher, m, $$nc($Pattern::compile("(\\d+):(\\d+)(:(\\d+))?"_s))->matcher(s));
 	if ($nc(m)->matches()) {
 		int32_t hr = $Integer::parseInt($(m->group(1)));
 		int32_t min = $Integer::parseInt($(m->group(2)));
@@ -560,7 +444,7 @@ int32_t Config::duration($String* s) {
 		}
 		return result;
 	}
-	$assign(m, $nc($($Pattern::compile("((\\d+)d)?\\s*((\\d+)h)?\\s*((\\d+)m)?\\s*((\\d+)s)?"_s, $Pattern::CASE_INSENSITIVE)))->matcher(s));
+	$assign(m, $$nc($Pattern::compile("((\\d+)d)?\\s*((\\d+)h)?\\s*((\\d+)m)?\\s*((\\d+)s)?"_s, $Pattern::CASE_INSENSITIVE))->matcher(s));
 	if ($nc(m)->matches()) {
 		int32_t result = 0;
 		if (m->group(2) != nullptr) {
@@ -581,7 +465,7 @@ int32_t Config::duration($String* s) {
 }
 
 int32_t Config::getIntValue($StringArray* keys) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, result, get(keys));
 	int32_t value = $Integer::MIN_VALUE;
 	if (result != nullptr) {
@@ -589,9 +473,13 @@ int32_t Config::getIntValue($StringArray* keys) {
 			value = parseIntValue(result);
 		} catch ($NumberFormatException& e) {
 			if (Config::DEBUG) {
-				$var($String, var$0, $$str({"Exception in getting value of "_s, $($Arrays::toString(keys)), ": "_s}));
-				$nc($System::out)->println($$concat(var$0, $(e->getMessage())));
-				$nc($System::out)->println($$str({"Setting "_s, $($Arrays::toString(keys)), " to minimum value"_s}));
+				$var($StringBuilder, var$0, $new($StringBuilder));
+				var$0->append("Exception in getting value of "_s);
+				var$0->append($($Arrays::toString(keys)));
+				var$0->append(": "_s);
+				var$0->append($(e->getMessage()));
+				$nc($System::out)->println($$str(var$0));
+				$System::out->println($$str({"Setting "_s, $($Arrays::toString(keys)), " to minimum value"_s}));
 			}
 			value = $Integer::MIN_VALUE;
 		}
@@ -600,7 +488,7 @@ int32_t Config::getIntValue($StringArray* keys) {
 }
 
 int32_t Config::parseIntValue($String* input) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t value = 0;
 	if ($nc(input)->startsWith("+"_s)) {
 		$var($String, temp, input->substring(1));
@@ -615,101 +503,61 @@ int32_t Config::parseIntValue($String* input) {
 				int32_t index = chars->length - i - 1;
 				switch (chars->get(i)) {
 				case u'0':
-					{
-						value += 0;
-						break;
-					}
+					value += 0;
+					break;
 				case u'1':
-					{
-						value += 1 * getBase(index);
-						break;
-					}
+					value += 1 * getBase(index);
+					break;
 				case u'2':
-					{
-						value += 2 * getBase(index);
-						break;
-					}
+					value += 2 * getBase(index);
+					break;
 				case u'3':
-					{
-						value += 3 * getBase(index);
-						break;
-					}
+					value += 3 * getBase(index);
+					break;
 				case u'4':
-					{
-						value += 4 * getBase(index);
-						break;
-					}
+					value += 4 * getBase(index);
+					break;
 				case u'5':
-					{
-						value += 5 * getBase(index);
-						break;
-					}
+					value += 5 * getBase(index);
+					break;
 				case u'6':
-					{
-						value += 6 * getBase(index);
-						break;
-					}
+					value += 6 * getBase(index);
+					break;
 				case u'7':
-					{
-						value += 7 * getBase(index);
-						break;
-					}
+					value += 7 * getBase(index);
+					break;
 				case u'8':
-					{
-						value += 8 * getBase(index);
-						break;
-					}
+					value += 8 * getBase(index);
+					break;
 				case u'9':
-					{
-						value += 9 * getBase(index);
-						break;
-					}
+					value += 9 * getBase(index);
+					break;
 				case u'a':
-					{}
 				case u'A':
-					{
-						value += 10 * getBase(index);
-						break;
-					}
+					value += 10 * getBase(index);
+					break;
 				case u'b':
-					{}
 				case u'B':
-					{
-						value += 11 * getBase(index);
-						break;
-					}
+					value += 11 * getBase(index);
+					break;
 				case u'c':
-					{}
 				case u'C':
-					{
-						value += 12 * getBase(index);
-						break;
-					}
+					value += 12 * getBase(index);
+					break;
 				case u'd':
-					{}
 				case u'D':
-					{
-						value += 13 * getBase(index);
-						break;
-					}
+					value += 13 * getBase(index);
+					break;
 				case u'e':
-					{}
 				case u'E':
-					{
-						value += 14 * getBase(index);
-						break;
-					}
+					value += 14 * getBase(index);
+					break;
 				case u'f':
-					{}
 				case u'F':
-					{
-						value += 15 * getBase(index);
-						break;
-					}
+					value += 15 * getBase(index);
+					break;
 				default:
-					{
-						$throwNew($NumberFormatException, "Invalid numerical format"_s);
-					}
+					$throwNew($NumberFormatException, "Invalid numerical format"_s);
 				}
 			}
 		}
@@ -726,30 +574,20 @@ int32_t Config::getBase(int32_t i) {
 	int32_t result = 16;
 	switch (i) {
 	case 0:
-		{
-			result = Config::BASE16_0;
-			break;
-		}
+		result = Config::BASE16_0;
+		break;
 	case 1:
-		{
-			result = Config::BASE16_1;
-			break;
-		}
+		result = Config::BASE16_1;
+		break;
 	case 2:
-		{
-			result = Config::BASE16_2;
-			break;
-		}
+		result = Config::BASE16_2;
+		break;
 	case 3:
-		{
-			result = Config::BASE16_3;
-			break;
-		}
+		result = Config::BASE16_3;
+		break;
 	default:
-		{
-			for (int32_t j = 1; j < i; ++j) {
-				result *= 16;
-			}
+		for (int32_t j = 1; j < i; ++j) {
+			result *= 16;
 		}
 	}
 	return result;
@@ -757,7 +595,7 @@ int32_t Config::getBase(int32_t i) {
 
 $Void* Config::readConfigFileLines($Path* file, $List* content, $Set* dups) {
 	$init(Config);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (Config::DEBUG) {
 		$nc($System::out)->println($$str({"Loading krb5 profile at "_s, file}));
 	}
@@ -788,58 +626,52 @@ $Void* Config::readConfigFileLines($Path* file, $List* content, $Set* dups) {
 						$var($Path, dir, $Paths::get($($(line->substring("includedir "_s->length()))->trim()), $$new($StringArray, 0)));
 						{
 							$var($DirectoryStream, files, $Files::newDirectoryStream(dir));
-							{
-								$var($Throwable, var$2, nullptr);
+							$var($Throwable, var$2, nullptr);
+							try {
 								try {
-									try {
+									$var($Iterator, i$, $nc(files)->iterator());
+									for (; $nc(i$)->hasNext();) {
+										$var($Path, p, $cast($Path, i$->next()));
 										{
-											$var($Iterator, i$, $nc(files)->iterator());
-											for (; $nc(i$)->hasNext();) {
-												$var($Path, p, $cast($Path, i$->next()));
-												{
-													if ($Files::isDirectory(p, $$new($LinkOptionArray, 0))) {
-														continue;
-													}
-													$var($String, name, $nc($($nc(p)->getFileName()))->toString());
-													bool var$3 = $nc(name)->matches("[a-zA-Z0-9_-]+"_s);
-													if (!var$3) {
-														bool var$4 = !$nc(name)->startsWith("."_s);
-														var$3 = (var$4 && name->endsWith(".conf"_s));
-													}
-													if (var$3) {
-														readConfigFileLines(p, content, dups);
-													}
-												}
+											if ($Files::isDirectory(p, $$new($LinkOptionArray, 0))) {
+												continue;
+											}
+											$var($String, name, $$nc($nc(p)->getFileName())->toString());
+											bool var$3 = $nc(name)->matches("[a-zA-Z0-9_-]+"_s);
+											if (!var$3) {
+												bool var$4 = !name->startsWith("."_s);
+												var$3 = var$4 && name->endsWith(".conf"_s);
+											}
+											if (var$3) {
+												readConfigFileLines(p, content, dups);
 											}
 										}
-									} catch ($Throwable& t$) {
-										if (files != nullptr) {
-											try {
-												files->close();
-											} catch ($Throwable& x2) {
-												t$->addSuppressed(x2);
-											}
-										}
-										$throw(t$);
 									}
-								} catch ($Throwable& var$5) {
-									$assign(var$2, var$5);
-								} /*finally*/ {
+								} catch ($Throwable& t$) {
 									if (files != nullptr) {
-										files->close();
+										try {
+											files->close();
+										} catch ($Throwable& x2) {
+											t$->addSuppressed(x2);
+										}
 									}
+									$throw(t$);
 								}
-								if (var$2 != nullptr) {
-									$throw(var$2);
+							} catch ($Throwable& var$5) {
+								$assign(var$2, var$5);
+							} /*finally*/ {
+								if (files != nullptr) {
+									files->close();
 								}
+							}
+							if (var$2 != nullptr) {
+								$throw(var$2);
 							}
 						}
 					} else if (line->startsWith("include "_s)) {
 						readConfigFileLines($($Paths::get($($(line->substring("include "_s->length()))->trim()), $$new($StringArray, 0))), content, dups);
-					} else {
-						if (Config::DEBUG) {
-							$nc($System::out)->println($$str({"Unknown directive: "_s, line}));
-						}
+					} else if (Config::DEBUG) {
+						$nc($System::out)->println($$str({"Unknown directive: "_s, line}));
 					}
 				} else {
 					$nc(content)->add(line);
@@ -851,54 +683,52 @@ $Void* Config::readConfigFileLines($Path* file, $List* content, $Set* dups) {
 }
 
 $List* Config::loadConfigFile($String* fileName) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$var($List, result, $new($ArrayList));
 	$var($List, raw, $new($ArrayList));
 	$var($Set, dupsCheck, $new($HashSet));
 	try {
-		$var($PrivilegedAction, var$0, static_cast<$PrivilegedAction*>($new(Config$$Lambda$lambda$loadConfigFile$0, fileName)));
-		$var($Path, fullp, $cast($Path, $AccessController::doPrivileged(var$0, ($AccessControlContext*)nullptr, $$new($PermissionArray, {static_cast<$Permission*>($$new($PropertyPermission, "user.dir"_s, "read"_s))}))));
-		$var($PrivilegedExceptionAction, var$1, static_cast<$PrivilegedExceptionAction*>($new($Config$1, this, fileName, fullp, raw, dupsCheck)));
-		$AccessController::doPrivileged(var$1, ($AccessControlContext*)nullptr, $$new($PermissionArray, {static_cast<$Permission*>($$new($FilePermission, "<<ALL FILES>>"_s, "read"_s))}));
+		$var($PrivilegedAction, var$0, $cast($PrivilegedAction, $new(Config$$Lambda$lambda$loadConfigFile$0, fileName)));
+		$var($Path, fullp, $cast($Path, $AccessController::doPrivileged(var$0, nullptr, $$new($PermissionArray, {$$new($PropertyPermission, "user.dir"_s, "read"_s)}))));
+		$var($PrivilegedExceptionAction, var$1, $new($Config$1, this, fileName, fullp, raw, dupsCheck));
+		$AccessController::doPrivileged(var$1, nullptr, $$new($PermissionArray, {$$new($FilePermission, "<<ALL FILES>>"_s, "read"_s)}));
 	} catch ($PrivilegedActionException& pe) {
-		$throw($cast($IOException, $(pe->getException())));
+		$throw($$cast($IOException, pe->getException()));
 	}
 	$var($String, previous, nullptr);
 	{
 		$var($Iterator, i$, raw->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($String, line, $cast($String, i$->next()));
-			{
-				if ($nc(line)->startsWith("["_s)) {
-					if (!line->endsWith("]"_s)) {
-						$throwNew($KrbException, $$str({"Illegal config content:"_s, line}));
-					}
-					if (previous != nullptr) {
-						result->add(previous);
-						result->add("}"_s);
-					}
-					$var($String, title, $(line->substring(1, line->length() - 1))->trim());
-					if (title->isEmpty()) {
-						$throwNew($KrbException, $$str({"Illegal config content:"_s, line}));
-					}
-					$assign(previous, $str({title, " = {"_s}));
-				} else if (line->startsWith("{"_s)) {
-					if (previous == nullptr) {
-						$throwNew($KrbException, "Config file should not start with \"{\""_s);
-					}
-					$plusAssign(previous, " {"_s);
-					if (line->length() > 1) {
-						result->add(previous);
-						$assign(previous, $(line->substring(1))->trim());
-					}
-				} else {
-					if (previous == nullptr) {
-						$throwNew($KrbException, "Config file must starts with a section"_s);
-					}
-					result->add(previous);
-					$assign(previous, line);
+			if ($nc(line)->startsWith("["_s)) {
+				if (!line->endsWith("]"_s)) {
+					$throwNew($KrbException, $$str({"Illegal config content:"_s, line}));
 				}
+				if (previous != nullptr) {
+					result->add(previous);
+					result->add("}"_s);
+				}
+				$var($String, title, $(line->substring(1, line->length() - 1))->trim());
+				if (title->isEmpty()) {
+					$throwNew($KrbException, $$str({"Illegal config content:"_s, line}));
+				}
+				$assign(previous, $str({title, " = {"_s}));
+			} else if (line->startsWith("{"_s)) {
+				if (previous == nullptr) {
+					$throwNew($KrbException, "Config file should not start with \"{\""_s);
+				}
+				$plusAssign(previous, " {"_s);
+				if (line->length() > 1) {
+					result->add(previous);
+					$assign(previous, $(line->substring(1))->trim());
+				}
+			} else {
+				if (previous == nullptr) {
+					$throwNew($KrbException, "Config file must starts with a section"_s);
+				}
+				result->add(previous);
+				$assign(previous, line);
 			}
 		}
 	}
@@ -910,57 +740,55 @@ $List* Config::loadConfigFile($String* fileName) {
 }
 
 $Hashtable* Config::parseStanzaTable($List* v) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Hashtable, current, this->stanzaTable);
 	{
 		$var($Iterator, i$, $nc(v)->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($String, line, $cast($String, i$->next()));
-			{
-				if ($nc(line)->equals("}"_s)) {
-					$assign(current, $cast($Hashtable, $nc(current)->remove(" PARENT "_s)));
-					if (current == nullptr) {
-						$throwNew($KrbException, "Unmatched close brace"_s);
+			if ($nc(line)->equals("}"_s)) {
+				$assign(current, $cast($Hashtable, $nc(current)->remove(" PARENT "_s)));
+				if (current == nullptr) {
+					$throwNew($KrbException, "Unmatched close brace"_s);
+				}
+			} else {
+				int32_t pos = line->indexOf(u'=');
+				if (pos < 0) {
+					$throwNew($KrbException, $$str({"Illegal config content:"_s, line}));
+				}
+				$var($String, key, $(line->substring(0, pos))->trim());
+				$var($String, value, unquote($(line->substring(pos + 1))));
+				if ($nc(value)->equals("{"_s)) {
+					$var($Hashtable, subTable, nullptr);
+					if (current == this->stanzaTable) {
+						$init($Locale);
+						$assign(key, key->toLowerCase($Locale::US));
 					}
-				} else {
-					int32_t pos = line->indexOf((int32_t)u'=');
-					if (pos < 0) {
-						$throwNew($KrbException, $$str({"Illegal config content:"_s, line}));
-					}
-					$var($String, key, $(line->substring(0, pos))->trim());
-					$var($String, value, unquote($(line->substring(pos + 1))));
-					if ($nc(value)->equals("{"_s)) {
-						$var($Hashtable, subTable, nullptr);
+					if ($nc(current)->containsKey(key)) {
 						if (current == this->stanzaTable) {
-							$init($Locale);
-							$assign(key, key->toLowerCase($Locale::US));
-						}
-						if ($nc(current)->containsKey(key)) {
-							if (current == this->stanzaTable) {
-								$assign(subTable, $cast($Hashtable, current->get(key)));
-							} else {
-								$assign(subTable, $new($Hashtable));
-							}
+							$assign(subTable, $cast($Hashtable, current->get(key)));
 						} else {
 							$assign(subTable, $new($Hashtable));
-							current->put(key, subTable);
 						}
-						$nc(subTable)->put(" PARENT "_s, current);
-						$assign(current, subTable);
 					} else {
-						$var($Vector, values, nullptr);
-						if ($nc(current)->containsKey(key)) {
-							$var($Object, obj, current->get(key));
-							if ($instanceOf($Vector, obj)) {
-								$assign(values, $cast($Vector, obj));
-								$nc(values)->add(value);
-							} else {
-							}
-						} else {
-							$assign(values, $new($Vector));
+						$assign(subTable, $new($Hashtable));
+						current->put(key, subTable);
+					}
+					$nc(subTable)->put(" PARENT "_s, current);
+					$assign(current, subTable);
+				} else {
+					$var($Vector, values, nullptr);
+					if ($nc(current)->containsKey(key)) {
+						$var($Object, obj, current->get(key));
+						if ($instanceOf($Vector, obj)) {
+							$assign(values, $cast($Vector, obj));
 							values->add(value);
-							current->put(key, values);
+						} else {
 						}
+					} else {
+						$assign(values, $new($Vector));
+						values->add(value);
+						current->put(key, values);
 					}
 				}
 			}
@@ -973,7 +801,7 @@ $Hashtable* Config::parseStanzaTable($List* v) {
 }
 
 $String* Config::getJavaFileName() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, name, $GetPropertyAction::privilegedGetProperty("java.security.krb5.conf"_s));
 	if (name == nullptr) {
 		$init($File);
@@ -989,7 +817,7 @@ $String* Config::getJavaFileName() {
 }
 
 $String* Config::getNativeFileName() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, name, nullptr);
 	$var($String, osname, $GetPropertyAction::privilegedGetProperty("os.name"_s));
 	if ($nc(osname)->startsWith("Windows"_s)) {
@@ -1037,7 +865,7 @@ $String* Config::getNativeFileName() {
 }
 
 $String* Config::findMacosConfigFile() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, userHome, $GetPropertyAction::privilegedGetProperty("user.home"_s));
 	$var($String, PREF_FILE, "/Library/Preferences/edu.mit.Kerberos"_s);
 	$var($String, userPrefs, $str({userHome, PREF_FILE}));
@@ -1052,18 +880,18 @@ $String* Config::findMacosConfigFile() {
 
 $String* Config::unquote($String* s$renamed) {
 	$init(Config);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, s, s$renamed);
 	$assign(s, $nc(s)->trim());
 	bool var$0 = s->length() >= 2;
 	if (var$0) {
 		bool var$2 = s->charAt(0) == u'\"';
-		bool var$1 = (var$2 && s->charAt(s->length() - 1) == u'\"');
+		bool var$1 = var$2 && s->charAt(s->length() - 1) == u'\"';
 		if (!var$1) {
 			bool var$3 = s->charAt(0) == u'\'';
-			var$1 = (var$3 && s->charAt(s->length() - 1) == u'\'');
+			var$1 = var$3 && s->charAt(s->length() - 1) == u'\'';
 		}
-		var$0 = (var$1);
+		var$0 = var$1;
 	}
 	if (var$0) {
 		$assign(s, $(s->substring(1, s->length() - 1))->trim());
@@ -1072,11 +900,11 @@ $String* Config::unquote($String* s$renamed) {
 }
 
 void Config::listTable() {
-	$nc($System::out)->println($of(this));
+	$nc($System::out)->println(this);
 }
 
 $ints* Config::defaultEtype($String* configName) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, default_enctypes, nullptr);
 	$assign(default_enctypes, get($$new($StringArray, {
 		"libdefaults"_s,
@@ -1097,7 +925,7 @@ $ints* Config::defaultEtype($String* configName) {
 	} else {
 		$var($String, delim, " "_s);
 		$var($StringTokenizer, st, nullptr);
-		for (int32_t j = 0; j < $nc(default_enctypes)->length(); ++j) {
+		for (int32_t j = 0; j < default_enctypes->length(); ++j) {
 			if ($(default_enctypes->substring(j, j + 1))->equals(","_s)) {
 				$assign(delim, ","_s);
 				break;
@@ -1118,16 +946,16 @@ $ints* Config::defaultEtype($String* configName) {
 		} else {
 			$assign(etype, $new($ints, ls->size()));
 			for (int32_t i = 0; i < etype->length; ++i) {
-				etype->set(i, $nc(($cast($Integer, $(ls->get(i)))))->intValue());
+				etype->set(i, $$sure($Integer, ls->get(i))->intValue());
 			}
 		}
 	}
 	if (Config::DEBUG) {
 		$nc($System::out)->print($$str({"default etypes for "_s, configName, ":"_s}));
 		for (int32_t i = 0; i < $nc(etype)->length; ++i) {
-			$nc($System::out)->print($$str({" "_s, $$str(etype->get(i))}));
+			$System::out->print($$str({" "_s, $$str(etype->get(i))}));
 		}
-		$nc($System::out)->println("."_s);
+		$System::out->println("."_s);
 	}
 	return etype;
 }
@@ -1139,7 +967,7 @@ int32_t Config::getType($String* input) {
 		return result;
 	}
 	bool var$0 = $nc(input)->startsWith("d"_s);
-	if (var$0 || ($nc(input)->startsWith("D"_s))) {
+	if (var$0 || (input->startsWith("D"_s))) {
 		if (input->equalsIgnoreCase("des-cbc-crc"_s)) {
 			result = $EncryptedData::ETYPE_DES_CBC_CRC;
 		} else if (input->equalsIgnoreCase("des-cbc-md5"_s)) {
@@ -1151,36 +979,36 @@ int32_t Config::getType($String* input) {
 		} else if (input->equalsIgnoreCase("des-cbc-md4"_s)) {
 			result = $EncryptedData::ETYPE_DES_CBC_MD4;
 		} else {
-			bool var$6 = input->equalsIgnoreCase("des3-cbc-sha1"_s);
-			bool var$5 = var$6 || input->equalsIgnoreCase("des3-hmac-sha1"_s);
-			bool var$4 = var$5 || input->equalsIgnoreCase("des3-cbc-sha1-kd"_s);
-			if (var$4 || input->equalsIgnoreCase("des3-cbc-hmac-sha1-kd"_s)) {
+			bool var$3 = input->equalsIgnoreCase("des3-cbc-sha1"_s);
+			bool var$2 = var$3 || input->equalsIgnoreCase("des3-hmac-sha1"_s);
+			bool var$1 = var$2 || input->equalsIgnoreCase("des3-cbc-sha1-kd"_s);
+			if (var$1 || input->equalsIgnoreCase("des3-cbc-hmac-sha1-kd"_s)) {
 				result = $EncryptedData::ETYPE_DES3_CBC_HMAC_SHA1_KD;
 			}
 		}
 	} else {
-		bool var$8 = input->startsWith("a"_s);
-		if (var$8 || (input->startsWith("A"_s))) {
-			bool var$10 = input->equalsIgnoreCase("aes128-cts"_s);
-			bool var$9 = var$10 || input->equalsIgnoreCase("aes128-sha1"_s);
-			if (var$9 || input->equalsIgnoreCase("aes128-cts-hmac-sha1-96"_s)) {
+		bool var$4 = input->startsWith("a"_s);
+		if (var$4 || (input->startsWith("A"_s))) {
+			bool var$6 = input->equalsIgnoreCase("aes128-cts"_s);
+			bool var$5 = var$6 || input->equalsIgnoreCase("aes128-sha1"_s);
+			if (var$5 || input->equalsIgnoreCase("aes128-cts-hmac-sha1-96"_s)) {
 				result = $EncryptedData::ETYPE_AES128_CTS_HMAC_SHA1_96;
 			} else {
-				bool var$14 = input->equalsIgnoreCase("aes256-cts"_s);
-				bool var$13 = var$14 || input->equalsIgnoreCase("aes256-sha1"_s);
-				if (var$13 || input->equalsIgnoreCase("aes256-cts-hmac-sha1-96"_s)) {
+				bool var$8 = input->equalsIgnoreCase("aes256-cts"_s);
+				bool var$7 = var$8 || input->equalsIgnoreCase("aes256-sha1"_s);
+				if (var$7 || input->equalsIgnoreCase("aes256-cts-hmac-sha1-96"_s)) {
 					result = $EncryptedData::ETYPE_AES256_CTS_HMAC_SHA1_96;
 				} else {
-					bool var$16 = input->equalsIgnoreCase("aes128-sha2"_s);
-					if (var$16 || input->equalsIgnoreCase("aes128-cts-hmac-sha256-128"_s)) {
+					bool var$9 = input->equalsIgnoreCase("aes128-sha2"_s);
+					if (var$9 || input->equalsIgnoreCase("aes128-cts-hmac-sha256-128"_s)) {
 						result = $EncryptedData::ETYPE_AES128_CTS_HMAC_SHA256_128;
 					} else {
-						bool var$18 = input->equalsIgnoreCase("aes256-sha2"_s);
-						if (var$18 || input->equalsIgnoreCase("aes256-cts-hmac-sha384-192"_s)) {
+						bool var$10 = input->equalsIgnoreCase("aes256-sha2"_s);
+						if (var$10 || input->equalsIgnoreCase("aes256-cts-hmac-sha384-192"_s)) {
 							result = $EncryptedData::ETYPE_AES256_CTS_HMAC_SHA384_192;
 						} else {
-							bool var$20 = input->equalsIgnoreCase("arcfour-hmac"_s);
-							if (var$20 || input->equalsIgnoreCase("arcfour-hmac-md5"_s)) {
+							bool var$11 = input->equalsIgnoreCase("arcfour-hmac"_s);
+							if (var$11 || input->equalsIgnoreCase("arcfour-hmac-md5"_s)) {
 								result = $EncryptedData::ETYPE_ARCFOUR_HMAC;
 							}
 						}
@@ -1192,8 +1020,8 @@ int32_t Config::getType($String* input) {
 		} else if (input->equalsIgnoreCase("CRC32"_s)) {
 			result = $Checksum::CKSUMTYPE_CRC32;
 		} else {
-			bool var$22 = input->startsWith("r"_s);
-			if (var$22 || (input->startsWith("R"_s))) {
+			bool var$12 = input->startsWith("r"_s);
+			if (var$12 || (input->startsWith("R"_s))) {
 				if (input->equalsIgnoreCase("rsa-md5"_s)) {
 					result = $Checksum::CKSUMTYPE_RSA_MD5;
 				} else if (input->equalsIgnoreCase("rsa-md5-des"_s)) {
@@ -1210,9 +1038,9 @@ int32_t Config::getType($String* input) {
 			} else if (input->equalsIgnoreCase("hmac-sha384-192-aes256"_s)) {
 				result = $Checksum::CKSUMTYPE_HMAC_SHA384_192_AES256;
 			} else {
-				bool var$26 = input->equalsIgnoreCase("hmac-md5-rc4"_s);
-				bool var$25 = var$26 || input->equalsIgnoreCase("hmac-md5-arcfour"_s);
-				if (var$25 || input->equalsIgnoreCase("hmac-md5-enc"_s)) {
+				bool var$14 = input->equalsIgnoreCase("hmac-md5-rc4"_s);
+				bool var$13 = var$14 || input->equalsIgnoreCase("hmac-md5-arcfour"_s);
+				if (var$13 || input->equalsIgnoreCase("hmac-md5-enc"_s)) {
 					result = $Checksum::CKSUMTYPE_HMAC_MD5_ARCFOUR;
 				} else if (input->equalsIgnoreCase("NULL"_s)) {
 					result = $EncryptedData::ETYPE_NULL;
@@ -1230,8 +1058,7 @@ void Config::resetDefaultRealm($String* realm) {
 }
 
 bool Config::useAddresses() {
-	$useLocalCurrentObjectStackCache();
-	$init($Boolean);
+	$useLocalObjectStack();
 	bool var$0 = getBooleanObject($$new($StringArray, {
 		"libdefaults"_s,
 		"no_addresses"_s
@@ -1243,7 +1070,7 @@ bool Config::useAddresses() {
 }
 
 bool Config::useDNS($String* name, bool defaultValue) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Boolean, value, getBooleanObject($$new($StringArray, {
 		"libdefaults"_s,
 		name
@@ -1270,7 +1097,7 @@ bool Config::useDNS_Realm() {
 }
 
 $String* Config::getDefaultRealm() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	if (this->defaultRealm != nullptr) {
 		return this->defaultRealm;
@@ -1288,7 +1115,7 @@ $String* Config::getDefaultRealm() {
 		}
 	}
 	if (realm == nullptr) {
-		$assign(realm, $cast($String, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($Config$2, this)))));
+		$assign(realm, $cast($String, $AccessController::doPrivileged($$new($Config$2, this))));
 	}
 	if (realm == nullptr) {
 		$var($KrbException, ke, $new($KrbException, "Cannot locate default realm"_s));
@@ -1301,7 +1128,7 @@ $String* Config::getDefaultRealm() {
 }
 
 $String* Config::getKDCList($String* realm$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, realm, realm$renamed);
 	$beforeCallerSensitive();
 	if (realm == nullptr) {
@@ -1324,7 +1151,7 @@ $String* Config::getKDCList($String* realm$renamed) {
 		}
 	}
 	if (kdcs == nullptr) {
-		$assign(kdcs, $cast($String, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($Config$3, this)))));
+		$assign(kdcs, $cast($String, $AccessController::doPrivileged($$new($Config$3, this))));
 	}
 	if (kdcs == nullptr) {
 		if (this->defaultKDC != nullptr) {
@@ -1340,11 +1167,11 @@ $String* Config::getKDCList($String* realm$renamed) {
 }
 
 $String* Config::getRealmFromDNS() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, realm, nullptr);
 	$var($String, hostName, nullptr);
 	try {
-		$assign(hostName, $nc($($InetAddress::getLocalHost()))->getCanonicalHostName());
+		$assign(hostName, $$nc($InetAddress::getLocalHost())->getCanonicalHostName());
 	} catch ($UnknownHostException& e) {
 		$var($KrbException, ke, $new($KrbException, $Krb5::KRB_ERR_GENERIC, $$str({"Unable to locate Kerberos realm: "_s, $(e->getMessage())})));
 		ke->initCause(e);
@@ -1352,7 +1179,7 @@ $String* Config::getRealmFromDNS() {
 	}
 	$var($String, mapRealm, $PrincipalName::mapHostToRealm(hostName));
 	if (mapRealm == nullptr) {
-		$var($List, srchlist, $nc($($ResolverConfiguration::open()))->searchlist());
+		$var($List, srchlist, $$nc($ResolverConfiguration::open())->searchlist());
 		{
 			$var($Iterator, i$, $nc(srchlist)->iterator());
 			for (; $nc(i$)->hasNext();) {
@@ -1376,7 +1203,7 @@ $String* Config::getRealmFromDNS() {
 
 $String* Config::checkRealm($String* mapRealm) {
 	$init(Config);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (Config::DEBUG) {
 		$nc($System::out)->println($$str({"getRealmFromDNS: trying "_s, mapRealm}));
 	}
@@ -1397,7 +1224,7 @@ $String* Config::checkRealm($String* mapRealm) {
 }
 
 $String* Config::getKDCFromDNS($String* realm) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, kdcs, ""_s);
 	$var($StringArray, srvs, nullptr);
 	if (Config::DEBUG) {
@@ -1416,7 +1243,7 @@ $String* Config::getKDCFromDNS($String* realm) {
 	if ($nc(srvs)->length == 0) {
 		return nullptr;
 	}
-	for (int32_t i = 0; i < $nc(srvs)->length; ++i) {
+	for (int32_t i = 0; i < srvs->length; ++i) {
 		$plusAssign(kdcs, $$str({$($nc(srvs->get(i))->trim()), " "_s}));
 	}
 	$assign(kdcs, kdcs->trim());
@@ -1427,9 +1254,9 @@ $String* Config::getKDCFromDNS($String* realm) {
 }
 
 bool Config::fileExists($String* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
-	return $nc(($cast($Boolean, $($AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($Config$FileExistsAction, name)))))))->booleanValue();
+	return $$sure($Boolean, $AccessController::doPrivileged($$new($Config$FileExistsAction, name)))->booleanValue();
 }
 
 $String* Config::toString() {
@@ -1440,14 +1267,14 @@ $String* Config::toString() {
 
 void Config::toStringInternal($String* prefix, Object$* obj, $StringBuffer* sb) {
 	$init(Config);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($instanceOf($String, obj)) {
 		$nc(sb)->append(obj)->append(u'\n');
 	} else if ($instanceOf($Hashtable, obj)) {
 		$var($Hashtable, tab, $cast($Hashtable, obj));
 		$nc(sb)->append("{\n"_s);
 		{
-			$var($Iterator, i$, $nc($($nc(tab)->keySet()))->iterator());
+			$var($Iterator, i$, $$nc(tab->keySet())->iterator());
 			for (; $nc(i$)->hasNext();) {
 				$var($Object, o, i$->next());
 				{
@@ -1462,10 +1289,8 @@ void Config::toStringInternal($String* prefix, Object$* obj, $StringBuffer* sb) 
 		$nc(sb)->append("["_s);
 		bool first = true;
 		{
-			$var($ObjectArray, arr$, $nc(v)->toArray());
-			int32_t len$ = $nc(arr$)->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
+			$var($ObjectArray, arr$, v->toArray());
+			for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 				$var($Object0, o, arr$->get(i$));
 				{
 					if (!first) {
@@ -1482,12 +1307,12 @@ void Config::toStringInternal($String* prefix, Object$* obj, $StringBuffer* sb) 
 
 $Path* Config::lambda$loadConfigFile$0($String* fileName) {
 	$init(Config);
-	$useLocalCurrentObjectStackCache();
-	return $nc($($Paths::get(fileName, $$new($StringArray, 0))))->toAbsolutePath();
+	$useLocalObjectStack();
+	return $$nc($Paths::get(fileName, $$new($StringArray, 0)))->toAbsolutePath();
 }
 
-void clinit$Config($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void Config::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	{
 		$var($String, disableReferralsProp, $SecurityProperties::privilegedGetOverridable("sun.security.krb5.disableReferrals"_s));
 		if (disableReferralsProp != nullptr) {
@@ -1513,11 +1338,90 @@ Config::Config() {
 
 $Class* Config::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(Config$$Lambda$lambda$loadConfigFile$0::classInfo$.name)) {
+		if (name->equals("sun.security.krb5.Config$$Lambda$lambda$loadConfigFile$0")) {
 			return Config$$Lambda$lambda$loadConfigFile$0::load$(name, initialize);
 		}
 	}
-	$loadClass(Config, name, initialize, &_Config_ClassInfo_, clinit$Config, allocate$Config);
+	$FieldInfo fieldInfos$$[] = {
+		{"DISABLE_REFERRALS", "Z", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Config, DISABLE_REFERRALS)},
+		{"MAX_REFERRALS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Config, MAX_REFERRALS)},
+		{"singleton", "Lsun/security/krb5/Config;", nullptr, $PRIVATE | $STATIC, $staticField(Config, singleton)},
+		{"stanzaTable", "Ljava/util/Hashtable;", "Ljava/util/Hashtable<Ljava/lang/String;Ljava/lang/Object;>;", $PRIVATE, $field(Config, stanzaTable)},
+		{"DEBUG", "Z", nullptr, $PRIVATE | $STATIC, $staticField(Config, DEBUG)},
+		{"BASE16_0", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Config, BASE16_0)},
+		{"BASE16_1", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Config, BASE16_1)},
+		{"BASE16_2", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Config, BASE16_2)},
+		{"BASE16_3", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Config, BASE16_3)},
+		{"defaultRealm", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(Config, defaultRealm)},
+		{"defaultKDC", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(Config, defaultKDC)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(Config, init$, void), "sun.security.krb5.KrbException"},
+		{"checkRealm", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Config, checkRealm, $String*, $String*)},
+		{"defaultEtype", "(Ljava/lang/String;)[I", nullptr, $PUBLIC, $virtualMethod(Config, defaultEtype, $ints*, $String*), "sun.security.krb5.KrbException"},
+		{"duration", "(Ljava/lang/String;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Config, duration, int32_t, $String*), "sun.security.krb5.KrbException"},
+		{"exists", "([Ljava/lang/String;)Z", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(Config, exists, bool, $StringArray*)},
+		{"fileExists", "(Ljava/lang/String;)Z", nullptr, $PRIVATE, $method(Config, fileExists, bool, $String*)},
+		{"findMacosConfigFile", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(Config, findMacosConfigFile, $String*)},
+		{"get", "([Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(Config, get, $String*, $StringArray*)},
+		{"get0", "([Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PRIVATE | $TRANSIENT, $method(Config, get0, $Object*, $StringArray*)},
+		{"getAll", "([Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(Config, getAll, $String*, $StringArray*)},
+		{"getBase", "(I)I", nullptr, $PRIVATE, $method(Config, getBase, int32_t, int32_t)},
+		{"getBooleanObject", "([Ljava/lang/String;)Ljava/lang/Boolean;", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(Config, getBooleanObject, $Boolean*, $StringArray*)},
+		{"getDefaultRealm", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Config, getDefaultRealm, $String*), "sun.security.krb5.KrbException"},
+		{"getInstance", "()Lsun/security/krb5/Config;", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(Config, getInstance, Config*), "sun.security.krb5.KrbException"},
+		{"getIntValue", "([Ljava/lang/String;)I", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(Config, getIntValue, int32_t, $StringArray*)},
+		{"getJavaFileName", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(Config, getJavaFileName, $String*)},
+		{"getKDCFromDNS", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(Config, getKDCFromDNS, $String*, $String*), "sun.security.krb5.KrbException"},
+		{"getKDCList", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Config, getKDCList, $String*, $String*), "sun.security.krb5.KrbException"},
+		{"getNativeFileName", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(Config, getNativeFileName, $String*)},
+		{"getRealmFromDNS", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(Config, getRealmFromDNS, $String*), "sun.security.krb5.KrbException"},
+		{"getString0", "([Ljava/lang/String;)Ljava/util/Vector;", "([Ljava/lang/String;)Ljava/util/Vector<Ljava/lang/String;>;", $PRIVATE | $TRANSIENT, $method(Config, getString0, $Vector*, $StringArray*)},
+		{"getType", "(Ljava/lang/String;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Config, getType, int32_t, $String*)},
+		{"getWindowsDirectory", "(Z)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(Config, getWindowsDirectory, $String*, bool)},
+		{"isMacosLionOrBetter", "()Z", nullptr, $PRIVATE | $STATIC, $staticMethod(Config, isMacosLionOrBetter, bool)},
+		{"lambda$loadConfigFile$0", "(Ljava/lang/String;)Ljava/nio/file/Path;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Config, lambda$loadConfigFile$0, $Path*, $String*)},
+		{"listTable", "()V", nullptr, $PUBLIC, $virtualMethod(Config, listTable, void)},
+		{"loadConfigFile", "(Ljava/lang/String;)Ljava/util/List;", "(Ljava/lang/String;)Ljava/util/List<Ljava/lang/String;>;", $PRIVATE, $method(Config, loadConfigFile, $List*, $String*), "java.io.IOException,sun.security.krb5.KrbException"},
+		{"parseIntValue", "(Ljava/lang/String;)I", nullptr, $PRIVATE, $method(Config, parseIntValue, int32_t, $String*), "java.lang.NumberFormatException"},
+		{"parseStanzaTable", "(Ljava/util/List;)Ljava/util/Hashtable;", "(Ljava/util/List<Ljava/lang/String;>;)Ljava/util/Hashtable<Ljava/lang/String;Ljava/lang/Object;>;", $PRIVATE, $method(Config, parseStanzaTable, $Hashtable*, $List*), "sun.security.krb5.KrbException"},
+		{"readConfigFileLines", "(Ljava/nio/file/Path;Ljava/util/List;Ljava/util/Set;)Ljava/lang/Void;", "(Ljava/nio/file/Path;Ljava/util/List<Ljava/lang/String;>;Ljava/util/Set<Ljava/nio/file/Path;>;)Ljava/lang/Void;", $PRIVATE | $STATIC, $staticMethod(Config, readConfigFileLines, $Void*, $Path*, $List*, $Set*), "java.io.IOException"},
+		{"refresh", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(Config, refresh, void), "sun.security.krb5.KrbException"},
+		{"resetDefaultRealm", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Config, resetDefaultRealm, void, $String*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Config, toString, $String*)},
+		{"toStringInternal", "(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/StringBuffer;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Config, toStringInternal, void, $String*, Object$*, $StringBuffer*)},
+		{"unquote", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Config, unquote, $String*, $String*)},
+		{"useAddresses", "()Z", nullptr, $PUBLIC, $virtualMethod(Config, useAddresses, bool)},
+		{"useDNS", "(Ljava/lang/String;Z)Z", nullptr, $PRIVATE, $method(Config, useDNS, bool, $String*, bool)},
+		{"useDNS_KDC", "()Z", nullptr, $PRIVATE, $method(Config, useDNS_KDC, bool)},
+		{"useDNS_Realm", "()Z", nullptr, $PRIVATE, $method(Config, useDNS_Realm, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.krb5.Config$FileExistsAction", "sun.security.krb5.Config", "FileExistsAction", $STATIC},
+		{"sun.security.krb5.Config$3", nullptr, nullptr, 0},
+		{"sun.security.krb5.Config$2", nullptr, nullptr, 0},
+		{"sun.security.krb5.Config$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.krb5.Config",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.security.krb5.Config$FileExistsAction,sun.security.krb5.Config$3,sun.security.krb5.Config$2,sun.security.krb5.Config$1"
+	};
+	$loadClass(Config, name, initialize, &classInfo$$, Config::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Config);
+	});
 	return class$;
 }
 

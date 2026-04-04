@@ -1,16 +1,12 @@
 #include <sun/print/ServiceDialog$PrintServicePanel.h>
-
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/GridBagConstraints.h>
 #include <java/awt/GridBagLayout.h>
 #include <java/awt/Insets.h>
 #include <java/awt/LayoutManager.h>
 #include <java/awt/Window.h>
 #include <java/awt/event/ActionEvent.h>
-#include <java/awt/event/ActionListener.h>
 #include <java/awt/event/ItemEvent.h>
-#include <java/awt/event/ItemListener.h>
 #include <java/awt/print/PrinterJob.h>
 #include <java/io/FilePermission.h>
 #include <java/lang/SecurityException.h>
@@ -19,12 +15,10 @@
 #include <java/net/URI.h>
 #include <java/net/URISyntaxException.h>
 #include <java/net/URL.h>
-#include <java/security/Permission.h>
 #include <javax/print/DocFlavor.h>
 #include <javax/print/PrintService.h>
 #include <javax/print/ServiceUIFactory.h>
 #include <javax/print/attribute/Attribute.h>
-#include <javax/print/attribute/AttributeSet.h>
 #include <javax/print/attribute/HashAttributeSet.h>
 #include <javax/print/attribute/HashPrintRequestAttributeSet.h>
 #include <javax/print/attribute/PrintJobAttribute.h>
@@ -44,7 +38,6 @@
 #include <javax/swing/border/Border.h>
 #include <javax/swing/border/TitledBorder.h>
 #include <javax/swing/event/PopupMenuEvent.h>
-#include <javax/swing/event/PopupMenuListener.h>
 #include <sun/print/DocumentPropertiesUI.h>
 #include <sun/print/PrinterJobWrapper.h>
 #include <sun/print/ServiceDialog.h>
@@ -61,15 +54,10 @@
 #undef TRAILING
 
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $GridBagConstraints = ::java::awt::GridBagConstraints;
 using $GridBagLayout = ::java::awt::GridBagLayout;
-using $LayoutManager = ::java::awt::LayoutManager;
-using $Window = ::java::awt::Window;
 using $ActionEvent = ::java::awt::event::ActionEvent;
-using $ActionListener = ::java::awt::event::ActionListener;
 using $ItemEvent = ::java::awt::event::ItemEvent;
-using $ItemListener = ::java::awt::event::ItemListener;
 using $PrinterJob = ::java::awt::print::PrinterJob;
 using $FilePermission = ::java::io::FilePermission;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -83,13 +71,9 @@ using $SecurityManager = ::java::lang::SecurityManager;
 using $MalformedURLException = ::java::net::MalformedURLException;
 using $URI = ::java::net::URI;
 using $URISyntaxException = ::java::net::URISyntaxException;
-using $Permission = ::java::security::Permission;
-using $PrintService = ::javax::print::PrintService;
 using $ServiceUIFactory = ::javax::print::ServiceUIFactory;
 using $Attribute = ::javax::print::attribute::Attribute;
-using $AttributeSet = ::javax::print::attribute::AttributeSet;
 using $HashAttributeSet = ::javax::print::attribute::HashAttributeSet;
-using $HashPrintRequestAttributeSet = ::javax::print::attribute::HashPrintRequestAttributeSet;
 using $PrintJobAttribute = ::javax::print::attribute::PrintJobAttribute;
 using $PrintRequestAttributeSet = ::javax::print::attribute::PrintRequestAttributeSet;
 using $Destination = ::javax::print::attribute::standard::Destination;
@@ -97,82 +81,17 @@ using $PrinterInfo = ::javax::print::attribute::standard::PrinterInfo;
 using $PrinterIsAcceptingJobs = ::javax::print::attribute::standard::PrinterIsAcceptingJobs;
 using $PrinterMakeAndModel = ::javax::print::attribute::standard::PrinterMakeAndModel;
 using $BorderFactory = ::javax::swing::BorderFactory;
-using $JButton = ::javax::swing::JButton;
-using $JCheckBox = ::javax::swing::JCheckBox;
 using $JComboBox = ::javax::swing::JComboBox;
 using $JDialog = ::javax::swing::JDialog;
 using $JLabel = ::javax::swing::JLabel;
 using $JPanel = ::javax::swing::JPanel;
-using $Border = ::javax::swing::border::Border;
 using $PopupMenuEvent = ::javax::swing::event::PopupMenuEvent;
-using $PopupMenuListener = ::javax::swing::event::PopupMenuListener;
 using $DocumentPropertiesUI = ::sun::print::DocumentPropertiesUI;
 using $PrinterJobWrapper = ::sun::print::PrinterJobWrapper;
 using $ServiceDialog = ::sun::print::ServiceDialog;
 
 namespace sun {
 	namespace print {
-
-$FieldInfo _ServiceDialog$PrintServicePanel_FieldInfo_[] = {
-	{"this$0", "Lsun/print/ServiceDialog;", nullptr, $FINAL | $SYNTHETIC, $field(ServiceDialog$PrintServicePanel, this$0)},
-	{"strTitle", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(ServiceDialog$PrintServicePanel, strTitle)},
-	{"printToFilePermission", "Ljava/io/FilePermission;", nullptr, $PRIVATE, $field(ServiceDialog$PrintServicePanel, printToFilePermission)},
-	{"btnProperties", "Ljavax/swing/JButton;", nullptr, $PRIVATE, $field(ServiceDialog$PrintServicePanel, btnProperties)},
-	{"cbPrintToFile", "Ljavax/swing/JCheckBox;", nullptr, $PRIVATE, $field(ServiceDialog$PrintServicePanel, cbPrintToFile)},
-	{"cbName", "Ljavax/swing/JComboBox;", "Ljavax/swing/JComboBox<Ljava/lang/String;>;", $PRIVATE, $field(ServiceDialog$PrintServicePanel, cbName)},
-	{"lblType", "Ljavax/swing/JLabel;", nullptr, $PRIVATE, $field(ServiceDialog$PrintServicePanel, lblType)},
-	{"lblStatus", "Ljavax/swing/JLabel;", nullptr, $PRIVATE, $field(ServiceDialog$PrintServicePanel, lblStatus)},
-	{"lblInfo", "Ljavax/swing/JLabel;", nullptr, $PRIVATE, $field(ServiceDialog$PrintServicePanel, lblInfo)},
-	{"uiFactory", "Ljavax/print/ServiceUIFactory;", nullptr, $PRIVATE, $field(ServiceDialog$PrintServicePanel, uiFactory)},
-	{"changedService", "Z", nullptr, $PRIVATE, $field(ServiceDialog$PrintServicePanel, changedService)},
-	{"filePermission", "Z", nullptr, $PRIVATE, $field(ServiceDialog$PrintServicePanel, filePermission)},
-	{}
-};
-
-$MethodInfo _ServiceDialog$PrintServicePanel_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lsun/print/ServiceDialog;)V", nullptr, $PUBLIC, $method(ServiceDialog$PrintServicePanel, init$, void, $ServiceDialog*)},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(ServiceDialog$PrintServicePanel, actionPerformed, void, $ActionEvent*)},
-	{"addLabel", "(Ljava/lang/String;Ljava/awt/GridBagLayout;Ljava/awt/GridBagConstraints;)Ljavax/swing/JLabel;", nullptr, $PRIVATE, $method(ServiceDialog$PrintServicePanel, addLabel, $JLabel*, $String*, $GridBagLayout*, $GridBagConstraints*)},
-	{"allowedToPrintToFile", "()Z", nullptr, $PRIVATE, $method(ServiceDialog$PrintServicePanel, allowedToPrintToFile, bool)},
-	{"isPrintToFileSelected", "()Z", nullptr, $PUBLIC, $virtualMethod(ServiceDialog$PrintServicePanel, isPrintToFileSelected, bool)},
-	{"itemStateChanged", "(Ljava/awt/event/ItemEvent;)V", nullptr, $PUBLIC, $virtualMethod(ServiceDialog$PrintServicePanel, itemStateChanged, void, $ItemEvent*)},
-	{"popupMenuCanceled", "(Ljavax/swing/event/PopupMenuEvent;)V", nullptr, $PUBLIC, $virtualMethod(ServiceDialog$PrintServicePanel, popupMenuCanceled, void, $PopupMenuEvent*)},
-	{"popupMenuWillBecomeInvisible", "(Ljavax/swing/event/PopupMenuEvent;)V", nullptr, $PUBLIC, $virtualMethod(ServiceDialog$PrintServicePanel, popupMenuWillBecomeInvisible, void, $PopupMenuEvent*)},
-	{"popupMenuWillBecomeVisible", "(Ljavax/swing/event/PopupMenuEvent;)V", nullptr, $PUBLIC, $virtualMethod(ServiceDialog$PrintServicePanel, popupMenuWillBecomeVisible, void, $PopupMenuEvent*)},
-	{"throwPrintToFile", "()V", nullptr, $PRIVATE, $method(ServiceDialog$PrintServicePanel, throwPrintToFile, void)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"updateInfo", "()V", nullptr, $PUBLIC, $virtualMethod(ServiceDialog$PrintServicePanel, updateInfo, void)},
-	{}
-};
-
-$InnerClassInfo _ServiceDialog$PrintServicePanel_InnerClassesInfo_[] = {
-	{"sun.print.ServiceDialog$PrintServicePanel", "sun.print.ServiceDialog", "PrintServicePanel", $PRIVATE},
-	{}
-};
-
-$ClassInfo _ServiceDialog$PrintServicePanel_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.print.ServiceDialog$PrintServicePanel",
-	"javax.swing.JPanel",
-	"java.awt.event.ActionListener,java.awt.event.ItemListener,javax.swing.event.PopupMenuListener",
-	_ServiceDialog$PrintServicePanel_FieldInfo_,
-	_ServiceDialog$PrintServicePanel_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ServiceDialog$PrintServicePanel_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.print.ServiceDialog"
-};
-
-$Object* allocate$ServiceDialog$PrintServicePanel($Class* clazz) {
-	return $of($alloc(ServiceDialog$PrintServicePanel));
-}
 
 $String* ServiceDialog$PrintServicePanel::toString() {
 	 return this->$JPanel::toString();
@@ -195,7 +114,7 @@ void ServiceDialog$PrintServicePanel::finalize() {
 }
 
 void ServiceDialog$PrintServicePanel::init$($ServiceDialog* this$0) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, this$0, this$0);
 	$JPanel::init$();
 	$set(this, strTitle, $ServiceDialog::getMsg("border.printservice"_s));
@@ -210,7 +129,7 @@ void ServiceDialog$PrintServicePanel::init$($ServiceDialog* this$0) {
 		psnames->set(i, $($nc($nc(this$0->services)->get(i))->getName()));
 	}
 	$set(this, cbName, $new($JComboBox, psnames));
-	$nc(this->cbName)->setSelectedIndex(this$0->defaultServiceIndex);
+	this->cbName->setSelectedIndex(this$0->defaultServiceIndex);
 	$nc(this->cbName)->addItemListener(this);
 	$nc(this->cbName)->addPopupMenuListener(this);
 	c->fill = $GridBagConstraints::BOTH;
@@ -236,7 +155,7 @@ void ServiceDialog$PrintServicePanel::init$($ServiceDialog* this$0) {
 	$ServiceDialog::addToGB($$new($JLabel, $($ServiceDialog::getMsg("label.info"_s)), $JLabel::TRAILING), this, gridbag, c);
 	c->gridwidth = $GridBagConstraints::RELATIVE;
 	$set(this, lblInfo, $new($JLabel));
-	$nc(this->lblInfo)->setLabelFor(nullptr);
+	this->lblInfo->setLabelFor(nullptr);
 	$ServiceDialog::addToGB(this->lblInfo, this, gridbag, c);
 	c->gridwidth = $GridBagConstraints::REMAINDER;
 	$set(this, cbPrintToFile, $ServiceDialog::createCheckBox("checkbox.printtofile"_s, this));
@@ -249,7 +168,7 @@ bool ServiceDialog$PrintServicePanel::isPrintToFileSelected() {
 }
 
 $JLabel* ServiceDialog$PrintServicePanel::addLabel($String* text, $GridBagLayout* gridbag, $GridBagConstraints* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(c)->gridwidth = 1;
 	$ServiceDialog::addToGB($$new($JLabel, text, $JLabel::TRAILING), this, gridbag, c);
 	c->gridwidth = $GridBagConstraints::REMAINDER;
@@ -259,12 +178,12 @@ $JLabel* ServiceDialog$PrintServicePanel::addLabel($String* text, $GridBagLayout
 }
 
 void ServiceDialog$PrintServicePanel::actionPerformed($ActionEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, source, $nc(e)->getSource());
 	if ($equals(source, this->btnProperties)) {
 		if (this->uiFactory != nullptr) {
 			$init($ServiceUIFactory);
-			$var($JDialog, dialog, $cast($JDialog, $nc(this->uiFactory)->getUI($ServiceUIFactory::MAIN_UIROLE, $ServiceUIFactory::JDIALOG_UI)));
+			$var($JDialog, dialog, $cast($JDialog, this->uiFactory->getUI($ServiceUIFactory::MAIN_UIROLE, $ServiceUIFactory::JDIALOG_UI)));
 			if (dialog != nullptr) {
 				dialog->show();
 			} else {
@@ -296,20 +215,20 @@ void ServiceDialog$PrintServicePanel::actionPerformed($ActionEvent* e) {
 }
 
 void ServiceDialog$PrintServicePanel::itemStateChanged($ItemEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(e)->getStateChange() == $ItemEvent::SELECTED) {
 		int32_t index = $nc(this->cbName)->getSelectedIndex();
 		if ((index >= 0) && (index < $nc(this->this$0->services)->length)) {
-			if (!$nc($nc(this->this$0->services)->get(index))->equals(this->this$0->psCurrent)) {
+			if (!$nc(this->this$0->services->get(index))->equals(this->this$0->psCurrent)) {
 				$set(this->this$0, psCurrent, $nc(this->this$0->services)->get(index));
 				$set(this, uiFactory, $nc(this->this$0->psCurrent)->getServiceUIFactory());
 				this->changedService = true;
 				$load($Destination);
 				$var($Destination, dest, $cast($Destination, $nc(this->this$0->asOriginal)->get($Destination::class$)));
-				bool var$0 = (dest != nullptr || isPrintToFileSelected());
+				bool var$0 = dest != nullptr || isPrintToFileSelected();
 				if (var$0 && $nc(this->this$0->psCurrent)->isAttributeCategorySupported($Destination::class$)) {
 					if (dest != nullptr) {
-						$nc(this->this$0->asCurrent)->add(static_cast<$Attribute*>(static_cast<$PrintJobAttribute*>(dest)));
+						$nc(this->this$0->asCurrent)->add($cast($PrintJobAttribute, dest));
 					} else {
 						$assign(dest, $cast($Destination, $nc(this->this$0->psCurrent)->getDefaultAttributeValue($Destination::class$)));
 						if (dest == nullptr) {
@@ -319,7 +238,7 @@ void ServiceDialog$PrintServicePanel::itemStateChanged($ItemEvent* e) {
 							}
 						}
 						if (dest != nullptr) {
-							$nc(this->this$0->asCurrent)->add(static_cast<$Attribute*>(static_cast<$PrintJobAttribute*>(dest)));
+							$nc(this->this$0->asCurrent)->add($cast($PrintJobAttribute, dest));
 						}
 					}
 				} else {
@@ -365,7 +284,7 @@ void ServiceDialog$PrintServicePanel::throwPrintToFile() {
 }
 
 void ServiceDialog$PrintServicePanel::updateInfo() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$load($Destination);
 	$Class* dstCategory = $Destination::class$;
 	bool dstSupported = false;
@@ -374,8 +293,8 @@ void ServiceDialog$PrintServicePanel::updateInfo() {
 	$var($Destination, dst, $cast($Destination, $nc(this->this$0->asCurrent)->get(dstCategory)));
 	if (dst != nullptr) {
 		try {
-			$nc($(dst->getURI()))->toURL();
-			if ($nc(this->this$0->psCurrent)->isAttributeValueSupported(static_cast<$Attribute*>(static_cast<$PrintJobAttribute*>(dst)), this->this$0->docFlavor, static_cast<$AttributeSet*>(static_cast<$HashAttributeSet*>(this->this$0->asCurrent)))) {
+			$$nc(dst->getURI())->toURL();
+			if ($nc(this->this$0->psCurrent)->isAttributeValueSupported($cast($PrintJobAttribute, dst), this->this$0->docFlavor, $cast($HashAttributeSet, this->this$0->asCurrent))) {
 				dstSupported = true;
 				dstSelected = true;
 			}
@@ -390,17 +309,17 @@ void ServiceDialog$PrintServicePanel::updateInfo() {
 	$load($PrinterMakeAndModel);
 	$var($Attribute, type, $nc(this->this$0->psCurrent)->getAttribute($PrinterMakeAndModel::class$));
 	if (type != nullptr) {
-		$nc(this->lblType)->setText($($of(type)->toString()));
+		$nc(this->lblType)->setText($(type->toString()));
 	}
 	$load($PrinterIsAcceptingJobs);
 	$var($Attribute, status, $nc(this->this$0->psCurrent)->getAttribute($PrinterIsAcceptingJobs::class$));
 	if (status != nullptr) {
-		$nc(this->lblStatus)->setText($($ServiceDialog::getMsg($($of(status)->toString()))));
+		$nc(this->lblStatus)->setText($($ServiceDialog::getMsg($(status->toString()))));
 	}
 	$load($PrinterInfo);
 	$var($Attribute, info, $nc(this->this$0->psCurrent)->getAttribute($PrinterInfo::class$));
 	if (info != nullptr) {
-		$nc(this->lblInfo)->setText($($of(info)->toString()));
+		$nc(this->lblInfo)->setText($(info->toString()));
 	}
 	$var($PrinterJob, job, nullptr);
 	$load($PrinterJobWrapper);
@@ -415,7 +334,62 @@ ServiceDialog$PrintServicePanel::ServiceDialog$PrintServicePanel() {
 }
 
 $Class* ServiceDialog$PrintServicePanel::load$($String* name, bool initialize) {
-	$loadClass(ServiceDialog$PrintServicePanel, name, initialize, &_ServiceDialog$PrintServicePanel_ClassInfo_, allocate$ServiceDialog$PrintServicePanel);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/print/ServiceDialog;", nullptr, $FINAL | $SYNTHETIC, $field(ServiceDialog$PrintServicePanel, this$0)},
+		{"strTitle", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(ServiceDialog$PrintServicePanel, strTitle)},
+		{"printToFilePermission", "Ljava/io/FilePermission;", nullptr, $PRIVATE, $field(ServiceDialog$PrintServicePanel, printToFilePermission)},
+		{"btnProperties", "Ljavax/swing/JButton;", nullptr, $PRIVATE, $field(ServiceDialog$PrintServicePanel, btnProperties)},
+		{"cbPrintToFile", "Ljavax/swing/JCheckBox;", nullptr, $PRIVATE, $field(ServiceDialog$PrintServicePanel, cbPrintToFile)},
+		{"cbName", "Ljavax/swing/JComboBox;", "Ljavax/swing/JComboBox<Ljava/lang/String;>;", $PRIVATE, $field(ServiceDialog$PrintServicePanel, cbName)},
+		{"lblType", "Ljavax/swing/JLabel;", nullptr, $PRIVATE, $field(ServiceDialog$PrintServicePanel, lblType)},
+		{"lblStatus", "Ljavax/swing/JLabel;", nullptr, $PRIVATE, $field(ServiceDialog$PrintServicePanel, lblStatus)},
+		{"lblInfo", "Ljavax/swing/JLabel;", nullptr, $PRIVATE, $field(ServiceDialog$PrintServicePanel, lblInfo)},
+		{"uiFactory", "Ljavax/print/ServiceUIFactory;", nullptr, $PRIVATE, $field(ServiceDialog$PrintServicePanel, uiFactory)},
+		{"changedService", "Z", nullptr, $PRIVATE, $field(ServiceDialog$PrintServicePanel, changedService)},
+		{"filePermission", "Z", nullptr, $PRIVATE, $field(ServiceDialog$PrintServicePanel, filePermission)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lsun/print/ServiceDialog;)V", nullptr, $PUBLIC, $method(ServiceDialog$PrintServicePanel, init$, void, $ServiceDialog*)},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(ServiceDialog$PrintServicePanel, actionPerformed, void, $ActionEvent*)},
+		{"addLabel", "(Ljava/lang/String;Ljava/awt/GridBagLayout;Ljava/awt/GridBagConstraints;)Ljavax/swing/JLabel;", nullptr, $PRIVATE, $method(ServiceDialog$PrintServicePanel, addLabel, $JLabel*, $String*, $GridBagLayout*, $GridBagConstraints*)},
+		{"allowedToPrintToFile", "()Z", nullptr, $PRIVATE, $method(ServiceDialog$PrintServicePanel, allowedToPrintToFile, bool)},
+		{"isPrintToFileSelected", "()Z", nullptr, $PUBLIC, $virtualMethod(ServiceDialog$PrintServicePanel, isPrintToFileSelected, bool)},
+		{"itemStateChanged", "(Ljava/awt/event/ItemEvent;)V", nullptr, $PUBLIC, $virtualMethod(ServiceDialog$PrintServicePanel, itemStateChanged, void, $ItemEvent*)},
+		{"popupMenuCanceled", "(Ljavax/swing/event/PopupMenuEvent;)V", nullptr, $PUBLIC, $virtualMethod(ServiceDialog$PrintServicePanel, popupMenuCanceled, void, $PopupMenuEvent*)},
+		{"popupMenuWillBecomeInvisible", "(Ljavax/swing/event/PopupMenuEvent;)V", nullptr, $PUBLIC, $virtualMethod(ServiceDialog$PrintServicePanel, popupMenuWillBecomeInvisible, void, $PopupMenuEvent*)},
+		{"popupMenuWillBecomeVisible", "(Ljavax/swing/event/PopupMenuEvent;)V", nullptr, $PUBLIC, $virtualMethod(ServiceDialog$PrintServicePanel, popupMenuWillBecomeVisible, void, $PopupMenuEvent*)},
+		{"throwPrintToFile", "()V", nullptr, $PRIVATE, $method(ServiceDialog$PrintServicePanel, throwPrintToFile, void)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"updateInfo", "()V", nullptr, $PUBLIC, $virtualMethod(ServiceDialog$PrintServicePanel, updateInfo, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.print.ServiceDialog$PrintServicePanel", "sun.print.ServiceDialog", "PrintServicePanel", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.print.ServiceDialog$PrintServicePanel",
+		"javax.swing.JPanel",
+		"java.awt.event.ActionListener,java.awt.event.ItemListener,javax.swing.event.PopupMenuListener",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.print.ServiceDialog"
+	};
+	$loadClass(ServiceDialog$PrintServicePanel, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ServiceDialog$PrintServicePanel));
+	});
 	return class$;
 }
 

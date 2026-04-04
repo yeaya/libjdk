@@ -113,6 +113,7 @@ class X11SurfaceData : public ::sun::java2d::x11::XSurfaceData {
 public:
 	X11SurfaceData();
 	using ::sun::java2d::x11::XSurfaceData::getSurfaceType;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::awt::X11ComponentPeer* peer, ::sun::awt::X11GraphicsConfig* gc, ::sun::java2d::loops::SurfaceType* sType, ::java::awt::image::ColorModel* cm);
 	static void XSetCopyMode(int64_t xgc);
 	static void XSetForeground(int64_t xgc, int32_t pixel);

@@ -66,6 +66,7 @@ class UseAttributeSets : public ::com::sun::org::apache::xalan::internal::xsltc:
 	$class(UseAttributeSets, 0, ::com::sun::org::apache::xalan::internal::xsltc::compiler::Instruction)
 public:
 	UseAttributeSets();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* setNames, ::com::sun::org::apache::xalan::internal::xsltc::compiler::Parser* parser);
 	void addAttributeSets($String* setNames);
 	virtual void translate(::com::sun::org::apache::xalan::internal::xsltc::compiler::util::ClassGenerator* classGen, ::com::sun::org::apache::xalan::internal::xsltc::compiler::util::MethodGenerator* methodGen) override;

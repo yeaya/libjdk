@@ -25,6 +25,7 @@ class $export WindowsLookAndFeel$XPValue : public ::javax::swing::UIDefaults$Act
 	$class(WindowsLookAndFeel$XPValue, 0, ::javax::swing::UIDefaults$ActiveValue)
 public:
 	WindowsLookAndFeel$XPValue();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(Object$* xpValue, Object$* classicValue);
 	virtual $Object* createValue(::javax::swing::UIDefaults* table) override;
 	virtual $Object* getClassicValue(::javax::swing::UIDefaults* table);

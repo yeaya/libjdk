@@ -1,5 +1,4 @@
 #include <javax/imageio/plugins/jpeg/JPEGImageWriteParam.h>
-
 #include <com/sun/imageio/plugins/jpeg/JPEG.h>
 #include <java/lang/IllegalStateException.h>
 #include <java/util/Locale.h>
@@ -28,47 +27,6 @@ namespace javax {
 	namespace imageio {
 		namespace plugins {
 			namespace jpeg {
-
-$FieldInfo _JPEGImageWriteParam_FieldInfo_[] = {
-	{"qTables", "[Ljavax/imageio/plugins/jpeg/JPEGQTable;", nullptr, $PRIVATE, $field(JPEGImageWriteParam, qTables)},
-	{"DCHuffmanTables", "[Ljavax/imageio/plugins/jpeg/JPEGHuffmanTable;", nullptr, $PRIVATE, $field(JPEGImageWriteParam, DCHuffmanTables)},
-	{"ACHuffmanTables", "[Ljavax/imageio/plugins/jpeg/JPEGHuffmanTable;", nullptr, $PRIVATE, $field(JPEGImageWriteParam, ACHuffmanTables)},
-	{"optimizeHuffman", "Z", nullptr, $PRIVATE, $field(JPEGImageWriteParam, optimizeHuffman)},
-	{"compressionNames", "[Ljava/lang/String;", nullptr, $PRIVATE, $field(JPEGImageWriteParam, compressionNames)},
-	{"qualityVals", "[F", nullptr, $PRIVATE, $field(JPEGImageWriteParam, qualityVals)},
-	{"qualityDescs", "[Ljava/lang/String;", nullptr, $PRIVATE, $field(JPEGImageWriteParam, qualityDescs)},
-	{}
-};
-
-$MethodInfo _JPEGImageWriteParam_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/Locale;)V", nullptr, $PUBLIC, $method(JPEGImageWriteParam, init$, void, $Locale*)},
-	{"areTablesSet", "()Z", nullptr, $PUBLIC, $virtualMethod(JPEGImageWriteParam, areTablesSet, bool)},
-	{"getACHuffmanTables", "()[Ljavax/imageio/plugins/jpeg/JPEGHuffmanTable;", nullptr, $PUBLIC, $virtualMethod(JPEGImageWriteParam, getACHuffmanTables, $JPEGHuffmanTableArray*)},
-	{"getCompressionQualityDescriptions", "()[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JPEGImageWriteParam, getCompressionQualityDescriptions, $StringArray*)},
-	{"getCompressionQualityValues", "()[F", nullptr, $PUBLIC, $virtualMethod(JPEGImageWriteParam, getCompressionQualityValues, $floats*)},
-	{"getDCHuffmanTables", "()[Ljavax/imageio/plugins/jpeg/JPEGHuffmanTable;", nullptr, $PUBLIC, $virtualMethod(JPEGImageWriteParam, getDCHuffmanTables, $JPEGHuffmanTableArray*)},
-	{"getOptimizeHuffmanTables", "()Z", nullptr, $PUBLIC, $virtualMethod(JPEGImageWriteParam, getOptimizeHuffmanTables, bool)},
-	{"getQTables", "()[Ljavax/imageio/plugins/jpeg/JPEGQTable;", nullptr, $PUBLIC, $virtualMethod(JPEGImageWriteParam, getQTables, $JPEGQTableArray*)},
-	{"isCompressionLossless", "()Z", nullptr, $PUBLIC, $virtualMethod(JPEGImageWriteParam, isCompressionLossless, bool)},
-	{"setEncodeTables", "([Ljavax/imageio/plugins/jpeg/JPEGQTable;[Ljavax/imageio/plugins/jpeg/JPEGHuffmanTable;[Ljavax/imageio/plugins/jpeg/JPEGHuffmanTable;)V", nullptr, $PUBLIC, $virtualMethod(JPEGImageWriteParam, setEncodeTables, void, $JPEGQTableArray*, $JPEGHuffmanTableArray*, $JPEGHuffmanTableArray*)},
-	{"setOptimizeHuffmanTables", "(Z)V", nullptr, $PUBLIC, $virtualMethod(JPEGImageWriteParam, setOptimizeHuffmanTables, void, bool)},
-	{"unsetCompression", "()V", nullptr, $PUBLIC, $virtualMethod(JPEGImageWriteParam, unsetCompression, void)},
-	{"unsetEncodeTables", "()V", nullptr, $PUBLIC, $virtualMethod(JPEGImageWriteParam, unsetEncodeTables, void)},
-	{}
-};
-
-$ClassInfo _JPEGImageWriteParam_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.imageio.plugins.jpeg.JPEGImageWriteParam",
-	"javax.imageio.ImageWriteParam",
-	nullptr,
-	_JPEGImageWriteParam_FieldInfo_,
-	_JPEGImageWriteParam_MethodInfo_
-};
-
-$Object* allocate$JPEGImageWriteParam($Class* clazz) {
-	return $of($alloc(JPEGImageWriteParam));
-}
 
 void JPEGImageWriteParam::init$($Locale* locale) {
 	$ImageWriteParam::init$(locale);
@@ -116,7 +74,7 @@ $StringArray* JPEGImageWriteParam::getCompressionQualityDescriptions() {
 	if (getCompressionMode() != $ImageWriteParam::MODE_EXPLICIT) {
 		$throwNew($IllegalStateException, "Compression mode not MODE_EXPLICIT!"_s);
 	}
-	bool var$0 = (getCompressionTypes() != nullptr);
+	bool var$0 = getCompressionTypes() != nullptr;
 	if (var$0 && (getCompressionType() == nullptr)) {
 		$throwNew($IllegalStateException, "No compression type set!"_s);
 	}
@@ -127,7 +85,7 @@ $floats* JPEGImageWriteParam::getCompressionQualityValues() {
 	if (getCompressionMode() != $ImageWriteParam::MODE_EXPLICIT) {
 		$throwNew($IllegalStateException, "Compression mode not MODE_EXPLICIT!"_s);
 	}
-	bool var$0 = (getCompressionTypes() != nullptr);
+	bool var$0 = getCompressionTypes() != nullptr;
 	if (var$0 && (getCompressionType() == nullptr)) {
 		$throwNew($IllegalStateException, "No compression type set!"_s);
 	}
@@ -139,7 +97,7 @@ bool JPEGImageWriteParam::areTablesSet() {
 }
 
 void JPEGImageWriteParam::setEncodeTables($JPEGQTableArray* qTables, $JPEGHuffmanTableArray* DCHuffmanTables, $JPEGHuffmanTableArray* ACHuffmanTables) {
-	if ((qTables == nullptr) || (DCHuffmanTables == nullptr) || (ACHuffmanTables == nullptr) || ($nc(qTables)->length > 4) || ($nc(DCHuffmanTables)->length > 4) || ($nc(ACHuffmanTables)->length > 4) || ($nc(DCHuffmanTables)->length != $nc(ACHuffmanTables)->length)) {
+	if ((qTables == nullptr) || (DCHuffmanTables == nullptr) || (ACHuffmanTables == nullptr) || (qTables->length > 4) || (DCHuffmanTables->length > 4) || (ACHuffmanTables->length > 4) || (DCHuffmanTables->length != ACHuffmanTables->length)) {
 		$throwNew($IllegalArgumentException, "Invalid JPEG table arrays"_s);
 	}
 	$set(this, qTables, $cast($JPEGQTableArray, $nc(qTables)->clone()));
@@ -154,15 +112,15 @@ void JPEGImageWriteParam::unsetEncodeTables() {
 }
 
 $JPEGQTableArray* JPEGImageWriteParam::getQTables() {
-	return (this->qTables != nullptr) ? $cast($JPEGQTableArray, $nc(this->qTables)->clone()) : ($JPEGQTableArray*)nullptr;
+	return (this->qTables != nullptr) ? $cast($JPEGQTableArray, this->qTables->clone()) : ($JPEGQTableArray*)nullptr;
 }
 
 $JPEGHuffmanTableArray* JPEGImageWriteParam::getDCHuffmanTables() {
-	return (this->DCHuffmanTables != nullptr) ? $cast($JPEGHuffmanTableArray, $nc(this->DCHuffmanTables)->clone()) : ($JPEGHuffmanTableArray*)nullptr;
+	return (this->DCHuffmanTables != nullptr) ? $cast($JPEGHuffmanTableArray, this->DCHuffmanTables->clone()) : ($JPEGHuffmanTableArray*)nullptr;
 }
 
 $JPEGHuffmanTableArray* JPEGImageWriteParam::getACHuffmanTables() {
-	return (this->ACHuffmanTables != nullptr) ? $cast($JPEGHuffmanTableArray, $nc(this->ACHuffmanTables)->clone()) : ($JPEGHuffmanTableArray*)nullptr;
+	return (this->ACHuffmanTables != nullptr) ? $cast($JPEGHuffmanTableArray, this->ACHuffmanTables->clone()) : ($JPEGHuffmanTableArray*)nullptr;
 }
 
 void JPEGImageWriteParam::setOptimizeHuffmanTables(bool optimize) {
@@ -177,7 +135,43 @@ JPEGImageWriteParam::JPEGImageWriteParam() {
 }
 
 $Class* JPEGImageWriteParam::load$($String* name, bool initialize) {
-	$loadClass(JPEGImageWriteParam, name, initialize, &_JPEGImageWriteParam_ClassInfo_, allocate$JPEGImageWriteParam);
+	$FieldInfo fieldInfos$$[] = {
+		{"qTables", "[Ljavax/imageio/plugins/jpeg/JPEGQTable;", nullptr, $PRIVATE, $field(JPEGImageWriteParam, qTables)},
+		{"DCHuffmanTables", "[Ljavax/imageio/plugins/jpeg/JPEGHuffmanTable;", nullptr, $PRIVATE, $field(JPEGImageWriteParam, DCHuffmanTables)},
+		{"ACHuffmanTables", "[Ljavax/imageio/plugins/jpeg/JPEGHuffmanTable;", nullptr, $PRIVATE, $field(JPEGImageWriteParam, ACHuffmanTables)},
+		{"optimizeHuffman", "Z", nullptr, $PRIVATE, $field(JPEGImageWriteParam, optimizeHuffman)},
+		{"compressionNames", "[Ljava/lang/String;", nullptr, $PRIVATE, $field(JPEGImageWriteParam, compressionNames)},
+		{"qualityVals", "[F", nullptr, $PRIVATE, $field(JPEGImageWriteParam, qualityVals)},
+		{"qualityDescs", "[Ljava/lang/String;", nullptr, $PRIVATE, $field(JPEGImageWriteParam, qualityDescs)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/Locale;)V", nullptr, $PUBLIC, $method(JPEGImageWriteParam, init$, void, $Locale*)},
+		{"areTablesSet", "()Z", nullptr, $PUBLIC, $virtualMethod(JPEGImageWriteParam, areTablesSet, bool)},
+		{"getACHuffmanTables", "()[Ljavax/imageio/plugins/jpeg/JPEGHuffmanTable;", nullptr, $PUBLIC, $virtualMethod(JPEGImageWriteParam, getACHuffmanTables, $JPEGHuffmanTableArray*)},
+		{"getCompressionQualityDescriptions", "()[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JPEGImageWriteParam, getCompressionQualityDescriptions, $StringArray*)},
+		{"getCompressionQualityValues", "()[F", nullptr, $PUBLIC, $virtualMethod(JPEGImageWriteParam, getCompressionQualityValues, $floats*)},
+		{"getDCHuffmanTables", "()[Ljavax/imageio/plugins/jpeg/JPEGHuffmanTable;", nullptr, $PUBLIC, $virtualMethod(JPEGImageWriteParam, getDCHuffmanTables, $JPEGHuffmanTableArray*)},
+		{"getOptimizeHuffmanTables", "()Z", nullptr, $PUBLIC, $virtualMethod(JPEGImageWriteParam, getOptimizeHuffmanTables, bool)},
+		{"getQTables", "()[Ljavax/imageio/plugins/jpeg/JPEGQTable;", nullptr, $PUBLIC, $virtualMethod(JPEGImageWriteParam, getQTables, $JPEGQTableArray*)},
+		{"isCompressionLossless", "()Z", nullptr, $PUBLIC, $virtualMethod(JPEGImageWriteParam, isCompressionLossless, bool)},
+		{"setEncodeTables", "([Ljavax/imageio/plugins/jpeg/JPEGQTable;[Ljavax/imageio/plugins/jpeg/JPEGHuffmanTable;[Ljavax/imageio/plugins/jpeg/JPEGHuffmanTable;)V", nullptr, $PUBLIC, $virtualMethod(JPEGImageWriteParam, setEncodeTables, void, $JPEGQTableArray*, $JPEGHuffmanTableArray*, $JPEGHuffmanTableArray*)},
+		{"setOptimizeHuffmanTables", "(Z)V", nullptr, $PUBLIC, $virtualMethod(JPEGImageWriteParam, setOptimizeHuffmanTables, void, bool)},
+		{"unsetCompression", "()V", nullptr, $PUBLIC, $virtualMethod(JPEGImageWriteParam, unsetCompression, void)},
+		{"unsetEncodeTables", "()V", nullptr, $PUBLIC, $virtualMethod(JPEGImageWriteParam, unsetEncodeTables, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.imageio.plugins.jpeg.JPEGImageWriteParam",
+		"javax.imageio.ImageWriteParam",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(JPEGImageWriteParam, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JPEGImageWriteParam);
+	});
 	return class$;
 }
 

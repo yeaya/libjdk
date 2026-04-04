@@ -1,5 +1,4 @@
 #include <com/apple/laf/AquaTabbedPaneCopyFromBasicUI$LazyActionMap.h>
-
 #include <com/apple/laf/AquaTabbedPaneCopyFromBasicUI.h>
 #include <java/lang/AssertionError.h>
 #include <java/lang/IllegalAccessException.h>
@@ -32,7 +31,6 @@ using $Action = ::javax::swing::Action;
 using $ActionMap = ::javax::swing::ActionMap;
 using $JComponent = ::javax::swing::JComponent;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
-using $UIDefaults = ::javax::swing::UIDefaults;
 using $UIManager = ::javax::swing::UIManager;
 using $ActionMapUIResource = ::javax::swing::plaf::ActionMapUIResource;
 
@@ -40,74 +38,26 @@ namespace com {
 	namespace apple {
 		namespace laf {
 
-$FieldInfo _AquaTabbedPaneCopyFromBasicUI$LazyActionMap_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(AquaTabbedPaneCopyFromBasicUI$LazyActionMap, $assertionsDisabled)},
-	{"_loader", "Ljava/lang/Object;", nullptr, $PRIVATE | $TRANSIENT, $field(AquaTabbedPaneCopyFromBasicUI$LazyActionMap, _loader)},
-	{}
-};
-
-$MethodInfo _AquaTabbedPaneCopyFromBasicUI$LazyActionMap_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<Lcom/apple/laf/AquaTabbedPaneCopyFromBasicUI;>;)V", $PRIVATE, $method(AquaTabbedPaneCopyFromBasicUI$LazyActionMap, init$, void, $Class*)},
-	{"allKeys", "()[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AquaTabbedPaneCopyFromBasicUI$LazyActionMap, allKeys, $ObjectArray*)},
-	{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(AquaTabbedPaneCopyFromBasicUI$LazyActionMap, clear, void)},
-	{"get", "(Ljava/lang/Object;)Ljavax/swing/Action;", nullptr, $PUBLIC, $virtualMethod(AquaTabbedPaneCopyFromBasicUI$LazyActionMap, get, $Action*, Object$*)},
-	{"getActionMap", "(Ljava/lang/Class;Ljava/lang/String;)Ljavax/swing/ActionMap;", "(Ljava/lang/Class<Lcom/apple/laf/AquaTabbedPaneCopyFromBasicUI;>;Ljava/lang/String;)Ljavax/swing/ActionMap;", $STATIC, $staticMethod(AquaTabbedPaneCopyFromBasicUI$LazyActionMap, getActionMap, $ActionMap*, $Class*, $String*)},
-	{"installLazyActionMap", "(Ljavax/swing/JComponent;Ljava/lang/Class;Ljava/lang/String;)V", "(Ljavax/swing/JComponent;Ljava/lang/Class<Lcom/apple/laf/AquaTabbedPaneCopyFromBasicUI;>;Ljava/lang/String;)V", $STATIC, $staticMethod(AquaTabbedPaneCopyFromBasicUI$LazyActionMap, installLazyActionMap, void, $JComponent*, $Class*, $String*)},
-	{"keys", "()[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AquaTabbedPaneCopyFromBasicUI$LazyActionMap, keys, $ObjectArray*)},
-	{"loadIfNecessary", "()V", nullptr, $PRIVATE, $method(AquaTabbedPaneCopyFromBasicUI$LazyActionMap, loadIfNecessary, void)},
-	{"put", "(Ljavax/swing/Action;)V", nullptr, $PUBLIC, $virtualMethod(AquaTabbedPaneCopyFromBasicUI$LazyActionMap, put, void, $Action*)},
-	{"put", "(Ljava/lang/Object;Ljavax/swing/Action;)V", nullptr, $PUBLIC, $virtualMethod(AquaTabbedPaneCopyFromBasicUI$LazyActionMap, put, void, Object$*, $Action*)},
-	{"remove", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(AquaTabbedPaneCopyFromBasicUI$LazyActionMap, remove, void, Object$*)},
-	{"setParent", "(Ljavax/swing/ActionMap;)V", nullptr, $PUBLIC, $virtualMethod(AquaTabbedPaneCopyFromBasicUI$LazyActionMap, setParent, void, $ActionMap*)},
-	{"size", "()I", nullptr, $PUBLIC, $virtualMethod(AquaTabbedPaneCopyFromBasicUI$LazyActionMap, size, int32_t)},
-	{}
-};
-
-$InnerClassInfo _AquaTabbedPaneCopyFromBasicUI$LazyActionMap_InnerClassesInfo_[] = {
-	{"com.apple.laf.AquaTabbedPaneCopyFromBasicUI$LazyActionMap", "com.apple.laf.AquaTabbedPaneCopyFromBasicUI", "LazyActionMap", $STATIC},
-	{}
-};
-
-$ClassInfo _AquaTabbedPaneCopyFromBasicUI$LazyActionMap_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.apple.laf.AquaTabbedPaneCopyFromBasicUI$LazyActionMap",
-	"javax.swing.plaf.ActionMapUIResource",
-	nullptr,
-	_AquaTabbedPaneCopyFromBasicUI$LazyActionMap_FieldInfo_,
-	_AquaTabbedPaneCopyFromBasicUI$LazyActionMap_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AquaTabbedPaneCopyFromBasicUI$LazyActionMap_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.apple.laf.AquaTabbedPaneCopyFromBasicUI"
-};
-
-$Object* allocate$AquaTabbedPaneCopyFromBasicUI$LazyActionMap($Class* clazz) {
-	return $of($alloc(AquaTabbedPaneCopyFromBasicUI$LazyActionMap));
-}
-
 bool AquaTabbedPaneCopyFromBasicUI$LazyActionMap::$assertionsDisabled = false;
 
 void AquaTabbedPaneCopyFromBasicUI$LazyActionMap::installLazyActionMap($JComponent* c, $Class* loaderClass, $String* defaultsKey) {
 	$init(AquaTabbedPaneCopyFromBasicUI$LazyActionMap);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ActionMap, map, $cast($ActionMap, $UIManager::get(defaultsKey)));
 	if (map == nullptr) {
 		$assign(map, $new(AquaTabbedPaneCopyFromBasicUI$LazyActionMap, loaderClass));
-		$nc($($UIManager::getLookAndFeelDefaults()))->put(defaultsKey, map);
+		$$nc($UIManager::getLookAndFeelDefaults())->put(defaultsKey, map);
 	}
 	$SwingUtilities::replaceUIActionMap(c, map);
 }
 
 $ActionMap* AquaTabbedPaneCopyFromBasicUI$LazyActionMap::getActionMap($Class* loaderClass, $String* defaultsKey) {
 	$init(AquaTabbedPaneCopyFromBasicUI$LazyActionMap);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ActionMap, map, $cast($ActionMap, $UIManager::get(defaultsKey)));
 	if (map == nullptr) {
 		$assign(map, $new(AquaTabbedPaneCopyFromBasicUI$LazyActionMap, loaderClass));
-		$nc($($UIManager::getLookAndFeelDefaults()))->put(defaultsKey, map);
+		$$nc($UIManager::getLookAndFeelDefaults())->put(defaultsKey, map);
 	}
 	return map;
 }
@@ -163,7 +113,7 @@ void AquaTabbedPaneCopyFromBasicUI$LazyActionMap::setParent($ActionMap* map) {
 }
 
 void AquaTabbedPaneCopyFromBasicUI$LazyActionMap::loadIfNecessary() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	if (this->_loader != nullptr) {
 		$var($Object, loader, this->_loader);
@@ -171,28 +121,28 @@ void AquaTabbedPaneCopyFromBasicUI$LazyActionMap::loadIfNecessary() {
 		$Class* klass = $cast($Class, loader);
 		try {
 			$var($Method, method, $nc(klass)->getDeclaredMethod("loadActionMap"_s, $$new($ClassArray, {AquaTabbedPaneCopyFromBasicUI$LazyActionMap::class$})));
-			$nc(method)->invoke(klass, $$new($ObjectArray, {$of(this)}));
+			$nc(method)->invoke(klass, $$new($ObjectArray, {this}));
 		} catch ($NoSuchMethodException& nsme) {
 			if (!AquaTabbedPaneCopyFromBasicUI$LazyActionMap::$assertionsDisabled) {
-				$throwNew($AssertionError, $of($$str({"LazyActionMap unable to load actions "_s, klass})));
+				$throwNew($AssertionError, $$of($str({"LazyActionMap unable to load actions "_s, klass})));
 			}
 		} catch ($IllegalAccessException& iae) {
 			if (!AquaTabbedPaneCopyFromBasicUI$LazyActionMap::$assertionsDisabled) {
-				$throwNew($AssertionError, $of($$str({"LazyActionMap unable to load actions "_s, iae})));
+				$throwNew($AssertionError, $$of($str({"LazyActionMap unable to load actions "_s, iae})));
 			}
 		} catch ($InvocationTargetException& ite) {
 			if (!AquaTabbedPaneCopyFromBasicUI$LazyActionMap::$assertionsDisabled) {
-				$throwNew($AssertionError, $of($$str({"LazyActionMap unable to load actions "_s, ite})));
+				$throwNew($AssertionError, $$of($str({"LazyActionMap unable to load actions "_s, ite})));
 			}
 		} catch ($IllegalArgumentException& iae) {
 			if (!AquaTabbedPaneCopyFromBasicUI$LazyActionMap::$assertionsDisabled) {
-				$throwNew($AssertionError, $of($$str({"LazyActionMap unable to load actions "_s, iae})));
+				$throwNew($AssertionError, $$of($str({"LazyActionMap unable to load actions "_s, iae})));
 			}
 		}
 	}
 }
 
-void clinit$AquaTabbedPaneCopyFromBasicUI$LazyActionMap($Class* class$) {
+void AquaTabbedPaneCopyFromBasicUI$LazyActionMap::clinit$($Class* clazz) {
 	$load($AquaTabbedPaneCopyFromBasicUI);
 	AquaTabbedPaneCopyFromBasicUI$LazyActionMap::$assertionsDisabled = !$AquaTabbedPaneCopyFromBasicUI::class$->desiredAssertionStatus();
 }
@@ -201,7 +151,49 @@ AquaTabbedPaneCopyFromBasicUI$LazyActionMap::AquaTabbedPaneCopyFromBasicUI$LazyA
 }
 
 $Class* AquaTabbedPaneCopyFromBasicUI$LazyActionMap::load$($String* name, bool initialize) {
-	$loadClass(AquaTabbedPaneCopyFromBasicUI$LazyActionMap, name, initialize, &_AquaTabbedPaneCopyFromBasicUI$LazyActionMap_ClassInfo_, clinit$AquaTabbedPaneCopyFromBasicUI$LazyActionMap, allocate$AquaTabbedPaneCopyFromBasicUI$LazyActionMap);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(AquaTabbedPaneCopyFromBasicUI$LazyActionMap, $assertionsDisabled)},
+		{"_loader", "Ljava/lang/Object;", nullptr, $PRIVATE | $TRANSIENT, $field(AquaTabbedPaneCopyFromBasicUI$LazyActionMap, _loader)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<Lcom/apple/laf/AquaTabbedPaneCopyFromBasicUI;>;)V", $PRIVATE, $method(AquaTabbedPaneCopyFromBasicUI$LazyActionMap, init$, void, $Class*)},
+		{"allKeys", "()[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AquaTabbedPaneCopyFromBasicUI$LazyActionMap, allKeys, $ObjectArray*)},
+		{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(AquaTabbedPaneCopyFromBasicUI$LazyActionMap, clear, void)},
+		{"get", "(Ljava/lang/Object;)Ljavax/swing/Action;", nullptr, $PUBLIC, $virtualMethod(AquaTabbedPaneCopyFromBasicUI$LazyActionMap, get, $Action*, Object$*)},
+		{"getActionMap", "(Ljava/lang/Class;Ljava/lang/String;)Ljavax/swing/ActionMap;", "(Ljava/lang/Class<Lcom/apple/laf/AquaTabbedPaneCopyFromBasicUI;>;Ljava/lang/String;)Ljavax/swing/ActionMap;", $STATIC, $staticMethod(AquaTabbedPaneCopyFromBasicUI$LazyActionMap, getActionMap, $ActionMap*, $Class*, $String*)},
+		{"installLazyActionMap", "(Ljavax/swing/JComponent;Ljava/lang/Class;Ljava/lang/String;)V", "(Ljavax/swing/JComponent;Ljava/lang/Class<Lcom/apple/laf/AquaTabbedPaneCopyFromBasicUI;>;Ljava/lang/String;)V", $STATIC, $staticMethod(AquaTabbedPaneCopyFromBasicUI$LazyActionMap, installLazyActionMap, void, $JComponent*, $Class*, $String*)},
+		{"keys", "()[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AquaTabbedPaneCopyFromBasicUI$LazyActionMap, keys, $ObjectArray*)},
+		{"loadIfNecessary", "()V", nullptr, $PRIVATE, $method(AquaTabbedPaneCopyFromBasicUI$LazyActionMap, loadIfNecessary, void)},
+		{"put", "(Ljavax/swing/Action;)V", nullptr, $PUBLIC, $virtualMethod(AquaTabbedPaneCopyFromBasicUI$LazyActionMap, put, void, $Action*)},
+		{"put", "(Ljava/lang/Object;Ljavax/swing/Action;)V", nullptr, $PUBLIC, $virtualMethod(AquaTabbedPaneCopyFromBasicUI$LazyActionMap, put, void, Object$*, $Action*)},
+		{"remove", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(AquaTabbedPaneCopyFromBasicUI$LazyActionMap, remove, void, Object$*)},
+		{"setParent", "(Ljavax/swing/ActionMap;)V", nullptr, $PUBLIC, $virtualMethod(AquaTabbedPaneCopyFromBasicUI$LazyActionMap, setParent, void, $ActionMap*)},
+		{"size", "()I", nullptr, $PUBLIC, $virtualMethod(AquaTabbedPaneCopyFromBasicUI$LazyActionMap, size, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.laf.AquaTabbedPaneCopyFromBasicUI$LazyActionMap", "com.apple.laf.AquaTabbedPaneCopyFromBasicUI", "LazyActionMap", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.apple.laf.AquaTabbedPaneCopyFromBasicUI$LazyActionMap",
+		"javax.swing.plaf.ActionMapUIResource",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.apple.laf.AquaTabbedPaneCopyFromBasicUI"
+	};
+	$loadClass(AquaTabbedPaneCopyFromBasicUI$LazyActionMap, name, initialize, &classInfo$$, AquaTabbedPaneCopyFromBasicUI$LazyActionMap::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AquaTabbedPaneCopyFromBasicUI$LazyActionMap));
+	});
 	return class$;
 }
 

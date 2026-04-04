@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/windows/WindowsInternalFrameTitlePane.h>
-
 #include <com/sun/java/swing/plaf/windows/TMSchema$Part.h>
 #include <com/sun/java/swing/plaf/windows/TMSchema$Prop.h>
 #include <com/sun/java/swing/plaf/windows/TMSchema$State.h>
@@ -30,7 +29,6 @@
 #include <javax/swing/BorderFactory.h>
 #include <javax/swing/Icon.h>
 #include <javax/swing/JButton.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JInternalFrame.h>
 #include <javax/swing/JLabel.h>
 #include <javax/swing/JMenuItem.h>
@@ -77,7 +75,6 @@ using $LayoutManager = ::java::awt::LayoutManager;
 using $Paint = ::java::awt::Paint;
 using $Point = ::java::awt::Point;
 using $Rectangle = ::java::awt::Rectangle;
-using $MouseListener = ::java::awt::event::MouseListener;
 using $PropertyChangeListener = ::java::beans::PropertyChangeListener;
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -89,7 +86,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $NumberFormatException = ::java::lang::NumberFormatException;
 using $BorderFactory = ::javax::swing::BorderFactory;
 using $JButton = ::javax::swing::JButton;
-using $JComponent = ::javax::swing::JComponent;
 using $JInternalFrame = ::javax::swing::JInternalFrame;
 using $JLabel = ::javax::swing::JLabel;
 using $JMenuItem = ::javax::swing::JMenuItem;
@@ -107,81 +103,6 @@ namespace com {
 			namespace swing {
 				namespace plaf {
 					namespace windows {
-
-$FieldInfo _WindowsInternalFrameTitlePane_FieldInfo_[] = {
-	{"selectedTitleGradientColor", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(WindowsInternalFrameTitlePane, selectedTitleGradientColor)},
-	{"notSelectedTitleGradientColor", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(WindowsInternalFrameTitlePane, notSelectedTitleGradientColor)},
-	{"systemPopupMenu", "Ljavax/swing/JPopupMenu;", nullptr, $PRIVATE, $field(WindowsInternalFrameTitlePane, systemPopupMenu)},
-	{"systemLabel", "Ljavax/swing/JLabel;", nullptr, $PRIVATE, $field(WindowsInternalFrameTitlePane, systemLabel)},
-	{"titleFont", "Ljava/awt/Font;", nullptr, $PRIVATE, $field(WindowsInternalFrameTitlePane, titleFont)},
-	{"titlePaneHeight", "I", nullptr, $PRIVATE, $field(WindowsInternalFrameTitlePane, titlePaneHeight)},
-	{"buttonWidth", "I", nullptr, $PRIVATE, $field(WindowsInternalFrameTitlePane, buttonWidth)},
-	{"buttonHeight", "I", nullptr, $PRIVATE, $field(WindowsInternalFrameTitlePane, buttonHeight)},
-	{"hotTrackingOn", "Z", nullptr, $PRIVATE, $field(WindowsInternalFrameTitlePane, hotTrackingOn)},
-	{}
-};
-
-$MethodInfo _WindowsInternalFrameTitlePane_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/JInternalFrame;)V", nullptr, $PUBLIC, $method(WindowsInternalFrameTitlePane, init$, void, $JInternalFrame*)},
-	{"access$000", "(Lcom/sun/java/swing/plaf/windows/WindowsInternalFrameTitlePane;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(WindowsInternalFrameTitlePane, access$000, $JInternalFrame*, WindowsInternalFrameTitlePane*)},
-	{"access$100", "(Lcom/sun/java/swing/plaf/windows/WindowsInternalFrameTitlePane;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(WindowsInternalFrameTitlePane, access$100, $JInternalFrame*, WindowsInternalFrameTitlePane*)},
-	{"access$1000", "(Lcom/sun/java/swing/plaf/windows/WindowsInternalFrameTitlePane;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(WindowsInternalFrameTitlePane, access$1000, $JInternalFrame*, WindowsInternalFrameTitlePane*)},
-	{"access$1100", "(Lcom/sun/java/swing/plaf/windows/WindowsInternalFrameTitlePane;)Ljavax/swing/JButton;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(WindowsInternalFrameTitlePane, access$1100, $JButton*, WindowsInternalFrameTitlePane*)},
-	{"access$1200", "(Lcom/sun/java/swing/plaf/windows/WindowsInternalFrameTitlePane;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(WindowsInternalFrameTitlePane, access$1200, $JInternalFrame*, WindowsInternalFrameTitlePane*)},
-	{"access$200", "(Lcom/sun/java/swing/plaf/windows/WindowsInternalFrameTitlePane;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(WindowsInternalFrameTitlePane, access$200, $JInternalFrame*, WindowsInternalFrameTitlePane*)},
-	{"access$300", "(Lcom/sun/java/swing/plaf/windows/WindowsInternalFrameTitlePane;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(WindowsInternalFrameTitlePane, access$300, $JInternalFrame*, WindowsInternalFrameTitlePane*)},
-	{"access$400", "(Lcom/sun/java/swing/plaf/windows/WindowsInternalFrameTitlePane;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(WindowsInternalFrameTitlePane, access$400, $JInternalFrame*, WindowsInternalFrameTitlePane*)},
-	{"access$500", "(Lcom/sun/java/swing/plaf/windows/WindowsInternalFrameTitlePane;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(WindowsInternalFrameTitlePane, access$500, $JInternalFrame*, WindowsInternalFrameTitlePane*)},
-	{"access$600", "(Lcom/sun/java/swing/plaf/windows/WindowsInternalFrameTitlePane;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(WindowsInternalFrameTitlePane, access$600, $JInternalFrame*, WindowsInternalFrameTitlePane*)},
-	{"access$700", "(Lcom/sun/java/swing/plaf/windows/WindowsInternalFrameTitlePane;)Ljavax/swing/JButton;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(WindowsInternalFrameTitlePane, access$700, $JButton*, WindowsInternalFrameTitlePane*)},
-	{"access$800", "(Lcom/sun/java/swing/plaf/windows/WindowsInternalFrameTitlePane;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(WindowsInternalFrameTitlePane, access$800, $JInternalFrame*, WindowsInternalFrameTitlePane*)},
-	{"access$900", "(Lcom/sun/java/swing/plaf/windows/WindowsInternalFrameTitlePane;)Ljavax/swing/JButton;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(WindowsInternalFrameTitlePane, access$900, $JButton*, WindowsInternalFrameTitlePane*)},
-	{"addSubComponents", "()V", nullptr, $PROTECTED, $virtualMethod(WindowsInternalFrameTitlePane, addSubComponents, void)},
-	{"addSystemMenuItems", "(Ljavax/swing/JPopupMenu;)V", nullptr, $PROTECTED, $virtualMethod(WindowsInternalFrameTitlePane, addSystemMenuItems, void, $JPopupMenu*)},
-	{"assembleSystemMenu", "()V", nullptr, $PROTECTED, $virtualMethod(WindowsInternalFrameTitlePane, assembleSystemMenu, void)},
-	{"createButtons", "()V", nullptr, $PROTECTED, $virtualMethod(WindowsInternalFrameTitlePane, createButtons, void)},
-	{"createLayout", "()Ljava/awt/LayoutManager;", nullptr, $PROTECTED, $virtualMethod(WindowsInternalFrameTitlePane, createLayout, $LayoutManager*)},
-	{"createPropertyChangeListener", "()Ljava/beans/PropertyChangeListener;", nullptr, $PROTECTED, $virtualMethod(WindowsInternalFrameTitlePane, createPropertyChangeListener, $PropertyChangeListener*)},
-	{"getButtonMnemonic", "(Ljava/lang/String;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(WindowsInternalFrameTitlePane, getButtonMnemonic, int32_t, $String*)},
-	{"getMinimumSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(WindowsInternalFrameTitlePane, getMinimumSize, $Dimension*)},
-	{"getPreferredSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(WindowsInternalFrameTitlePane, getPreferredSize, $Dimension*)},
-	{"installDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(WindowsInternalFrameTitlePane, installDefaults, void)},
-	{"paintComponent", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(WindowsInternalFrameTitlePane, paintComponent, void, $Graphics*)},
-	{"paintTitleBackground", "(Ljava/awt/Graphics;)V", nullptr, $PROTECTED, $virtualMethod(WindowsInternalFrameTitlePane, paintTitleBackground, void, $Graphics*)},
-	{"setButtonIcons", "()V", nullptr, $PROTECTED, $virtualMethod(WindowsInternalFrameTitlePane, setButtonIcons, void)},
-	{"showSystemMenu", "()V", nullptr, $PROTECTED, $virtualMethod(WindowsInternalFrameTitlePane, showSystemMenu, void)},
-	{"showSystemPopupMenu", "(Ljava/awt/Component;)V", nullptr, $PRIVATE, $method(WindowsInternalFrameTitlePane, showSystemPopupMenu, void, $Component*)},
-	{"uninstallListeners", "()V", nullptr, $PROTECTED, $virtualMethod(WindowsInternalFrameTitlePane, uninstallListeners, void)},
-	{}
-};
-
-$InnerClassInfo _WindowsInternalFrameTitlePane_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.windows.WindowsInternalFrameTitlePane$ScalableIconUIResource", "com.sun.java.swing.plaf.windows.WindowsInternalFrameTitlePane", "ScalableIconUIResource", $PUBLIC | $STATIC},
-	{"com.sun.java.swing.plaf.windows.WindowsInternalFrameTitlePane$WindowsPropertyChangeHandler", "com.sun.java.swing.plaf.windows.WindowsInternalFrameTitlePane", "WindowsPropertyChangeHandler", $PUBLIC},
-	{"com.sun.java.swing.plaf.windows.WindowsInternalFrameTitlePane$WindowsTitlePaneLayout", "com.sun.java.swing.plaf.windows.WindowsInternalFrameTitlePane", "WindowsTitlePaneLayout", $PUBLIC},
-	{"com.sun.java.swing.plaf.windows.WindowsInternalFrameTitlePane$2", nullptr, nullptr, 0},
-	{"com.sun.java.swing.plaf.windows.WindowsInternalFrameTitlePane$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _WindowsInternalFrameTitlePane_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.java.swing.plaf.windows.WindowsInternalFrameTitlePane",
-	"javax.swing.plaf.basic.BasicInternalFrameTitlePane",
-	nullptr,
-	_WindowsInternalFrameTitlePane_FieldInfo_,
-	_WindowsInternalFrameTitlePane_MethodInfo_,
-	nullptr,
-	nullptr,
-	_WindowsInternalFrameTitlePane_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.windows.WindowsInternalFrameTitlePane$ScalableIconUIResource,com.sun.java.swing.plaf.windows.WindowsInternalFrameTitlePane$WindowsPropertyChangeHandler,com.sun.java.swing.plaf.windows.WindowsInternalFrameTitlePane$WindowsTitlePaneLayout,com.sun.java.swing.plaf.windows.WindowsInternalFrameTitlePane$2,com.sun.java.swing.plaf.windows.WindowsInternalFrameTitlePane$1"
-};
-
-$Object* allocate$WindowsInternalFrameTitlePane($Class* clazz) {
-	return $of($alloc(WindowsInternalFrameTitlePane));
-}
 
 $JInternalFrame* WindowsInternalFrameTitlePane::access$1200(WindowsInternalFrameTitlePane* x0) {
 	$init(WindowsInternalFrameTitlePane);
@@ -253,20 +174,20 @@ void WindowsInternalFrameTitlePane::init$($JInternalFrame* f) {
 }
 
 void WindowsInternalFrameTitlePane::addSubComponents() {
-	add(static_cast<$Component*>(this->systemLabel));
-	add(static_cast<$Component*>(this->iconButton));
-	add(static_cast<$Component*>(this->maxButton));
-	add(static_cast<$Component*>(this->closeButton));
+	add(this->systemLabel);
+	add(this->iconButton);
+	add(this->maxButton);
+	add(this->closeButton);
 }
 
 void WindowsInternalFrameTitlePane::installDefaults() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$BasicInternalFrameTitlePane::installDefaults();
 	this->titlePaneHeight = $UIManager::getInt("InternalFrame.titlePaneHeight"_s);
 	this->buttonWidth = $UIManager::getInt("InternalFrame.titleButtonWidth"_s) - 4;
 	this->buttonHeight = $UIManager::getInt("InternalFrame.titleButtonHeight"_s) - 4;
 	$var($Object, obj, $UIManager::get("InternalFrame.titleButtonToolTipsOn"_s));
-	this->hotTrackingOn = ($instanceOf($Boolean, obj)) ? $nc(($cast($Boolean, obj)))->booleanValue() : true;
+	this->hotTrackingOn = ($instanceOf($Boolean, obj)) ? $cast($Boolean, obj)->booleanValue() : true;
 	if ($XPStyle::getXP() != nullptr) {
 		this->buttonWidth = this->buttonHeight;
 		$init($TMSchema$Part);
@@ -307,7 +228,7 @@ void WindowsInternalFrameTitlePane::setButtonIcons() {
 }
 
 void WindowsInternalFrameTitlePane::paintComponent($Graphics* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($XPStyle, xp, $XPStyle::getXP());
 	paintTitleBackground(g);
 	$var($String, title, $nc(this->frame)->getTitle());
@@ -333,18 +254,18 @@ void WindowsInternalFrameTitlePane::paintComponent($Graphics* g) {
 		int32_t titleW = 0;
 		int32_t gap = 2;
 		if ($WindowsGraphicsUtils::isLeftToRight(this->frame)) {
-			if (lastIconBounds->x == 0) {
+			if ($nc(lastIconBounds)->x == 0) {
 				int32_t var$3 = $nc(this->frame)->getWidth();
-				lastIconBounds->x = var$3 - $nc($($nc(this->frame)->getInsets()))->right;
+				lastIconBounds->x = var$3 - $nc($(this->frame->getInsets()))->right;
 			}
 			int32_t var$4 = $nc(this->systemLabel)->getX();
-			titleX = var$4 + $nc(this->systemLabel)->getWidth() + gap;
+			titleX = var$4 + this->systemLabel->getWidth() + gap;
 			if (xp != nullptr) {
 				titleX += 2;
 			}
 			titleW = lastIconBounds->x - titleX - gap;
 		} else {
-			if (lastIconBounds->x == 0) {
+			if ($nc(lastIconBounds)->x == 0) {
 				lastIconBounds->x = $nc($($nc(this->frame)->getInsets()))->left;
 			}
 			titleW = $SwingUtilities2::stringWidth(this->frame, fm, title);
@@ -377,12 +298,12 @@ void WindowsInternalFrameTitlePane::paintComponent($Graphics* g) {
 				$var($Color, shadowColor, xp->getColor(this, $TMSchema$Part::WP_WINDOW, $TMSchema$State::ACTIVE, $TMSchema$Prop::TEXTSHADOWCOLOR, nullptr));
 				if (shadowOffset != nullptr && shadowColor != nullptr) {
 					g->setColor(shadowColor);
-					$SwingUtilities2::drawString(static_cast<$JComponent*>(this->frame), g, title, titleX + shadowOffset->x, baseline + shadowOffset->y);
+					$SwingUtilities2::drawString(this->frame, g, title, titleX + shadowOffset->x, baseline + shadowOffset->y);
 				}
 			}
 		}
 		g->setColor(isSelected ? this->selectedTextColor : this->notSelectedTextColor);
-		$SwingUtilities2::drawString(static_cast<$JComponent*>(this->frame), g, title, titleX, baseline);
+		$SwingUtilities2::drawString(this->frame, g, title, titleX, baseline);
 		g->setFont(oldFont);
 	}
 }
@@ -392,7 +313,7 @@ $Dimension* WindowsInternalFrameTitlePane::getPreferredSize() {
 }
 
 $Dimension* WindowsInternalFrameTitlePane::getMinimumSize() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Dimension, d, $new($Dimension, $($BasicInternalFrameTitlePane::getMinimumSize())));
 	d->height = this->titlePaneHeight + 2;
 	$var($XPStyle, xp, $XPStyle::getXP());
@@ -407,33 +328,32 @@ $Dimension* WindowsInternalFrameTitlePane::getMinimumSize() {
 }
 
 void WindowsInternalFrameTitlePane::paintTitleBackground($Graphics* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($XPStyle, xp, $XPStyle::getXP());
 	if (xp != nullptr) {
 		$init($TMSchema$Part);
-		$TMSchema$Part* part = $nc(this->frame)->isIcon() ? $TMSchema$Part::WP_MINCAPTION : ($nc(this->frame)->isMaximum() ? $TMSchema$Part::WP_MAXCAPTION : $TMSchema$Part::WP_CAPTION);
+		$TMSchema$Part* part = $nc(this->frame)->isIcon() ? $TMSchema$Part::WP_MINCAPTION : (this->frame->isMaximum() ? $TMSchema$Part::WP_MAXCAPTION : $TMSchema$Part::WP_CAPTION);
 		$init($TMSchema$State);
 		$TMSchema$State* state = $nc(this->frame)->isSelected() ? $TMSchema$State::ACTIVE : $TMSchema$State::INACTIVE;
 		$var($XPStyle$Skin, skin, xp->getSkin(this, part));
-		$var($Graphics, var$0, g);
-		int32_t var$1 = getWidth();
-		$nc(skin)->paintSkin(var$0, 0, 0, var$1, getHeight(), state);
+		int32_t var$0 = getWidth();
+		$nc(skin)->paintSkin(g, 0, 0, var$0, getHeight(), state);
 	} else {
 		$var($Boolean, gradientsOn, $cast($Boolean, $LookAndFeel::getDesktopPropertyValue("win.frame.captionGradientsOn"_s, $($Boolean::valueOf(false)))));
 		if ($nc(gradientsOn)->booleanValue() && $instanceOf($Graphics2D, g)) {
 			$var($Graphics2D, g2, $cast($Graphics2D, g));
-			$var($Paint, savePaint, $nc(g2)->getPaint());
+			$var($Paint, savePaint, g2->getPaint());
 			bool isSelected = $nc(this->frame)->isSelected();
 			int32_t w = getWidth();
 			if (isSelected) {
-				$var($GradientPaint, titleGradient, $new($GradientPaint, (float)0, (float)0, this->selectedTitleColor, (float)$cast(int32_t, (w * 0.75)), (float)0, this->selectedTitleGradientColor));
+				$var($GradientPaint, titleGradient, $new($GradientPaint, 0, 0, this->selectedTitleColor, (float)$cast(int32_t, (w * 0.75)), 0, this->selectedTitleGradientColor));
 				g2->setPaint(titleGradient);
 			} else {
-				$var($GradientPaint, titleGradient, $new($GradientPaint, (float)0, (float)0, this->notSelectedTitleColor, (float)$cast(int32_t, (w * 0.75)), (float)0, this->notSelectedTitleGradientColor));
+				$var($GradientPaint, titleGradient, $new($GradientPaint, 0, 0, this->notSelectedTitleColor, (float)$cast(int32_t, (w * 0.75)), 0, this->notSelectedTitleGradientColor));
 				g2->setPaint(titleGradient);
 			}
-			int32_t var$2 = getWidth();
-			g2->fillRect(0, 0, var$2, getHeight());
+			int32_t var$1 = getWidth();
+			g2->fillRect(0, 0, var$1, getHeight());
 			g2->setPaint(savePaint);
 		} else {
 			$BasicInternalFrameTitlePane::paintTitleBackground(g);
@@ -442,35 +362,35 @@ void WindowsInternalFrameTitlePane::paintTitleBackground($Graphics* g) {
 }
 
 void WindowsInternalFrameTitlePane::assembleSystemMenu() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, systemPopupMenu, $new($JPopupMenu));
 	addSystemMenuItems(this->systemPopupMenu);
 	enableActions();
 	$var($JLabel, tmp, $new($WindowsInternalFrameTitlePane$1, this, $($nc(this->frame)->getFrameIcon())));
 	$set(this, systemLabel, tmp);
-	$nc(this->systemLabel)->addMouseListener($$new($WindowsInternalFrameTitlePane$2, this));
+	this->systemLabel->addMouseListener($$new($WindowsInternalFrameTitlePane$2, this));
 }
 
 void WindowsInternalFrameTitlePane::addSystemMenuItems($JPopupMenu* menu) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JMenuItem, mi, $nc(menu)->add(this->restoreAction));
 	$nc(mi)->setMnemonic(getButtonMnemonic("restore"_s));
 	$assign(mi, menu->add(this->moveAction));
-	mi->setMnemonic(getButtonMnemonic("move"_s));
+	$nc(mi)->setMnemonic(getButtonMnemonic("move"_s));
 	$assign(mi, menu->add(this->sizeAction));
-	mi->setMnemonic(getButtonMnemonic("size"_s));
+	$nc(mi)->setMnemonic(getButtonMnemonic("size"_s));
 	$assign(mi, menu->add(this->iconifyAction));
-	mi->setMnemonic(getButtonMnemonic("minimize"_s));
+	$nc(mi)->setMnemonic(getButtonMnemonic("minimize"_s));
 	$assign(mi, menu->add(this->maximizeAction));
-	mi->setMnemonic(getButtonMnemonic("maximize"_s));
-	menu->add(static_cast<$Component*>($$new($JSeparator)));
+	$nc(mi)->setMnemonic(getButtonMnemonic("maximize"_s));
+	menu->add($$new($JSeparator));
 	$assign(mi, menu->add(this->closeAction));
-	mi->setMnemonic(getButtonMnemonic("close"_s));
+	$nc(mi)->setMnemonic(getButtonMnemonic("close"_s));
 }
 
 int32_t WindowsInternalFrameTitlePane::getButtonMnemonic($String* button) {
 	$init(WindowsInternalFrameTitlePane);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		return $Integer::parseInt($($UIManager::getString($$str({"InternalFrameTitlePane."_s, button, "Button.mnemonic"_s}))));
 	} catch ($NumberFormatException& e) {
@@ -484,7 +404,7 @@ void WindowsInternalFrameTitlePane::showSystemMenu() {
 }
 
 void WindowsInternalFrameTitlePane::showSystemPopupMenu($Component* invoker) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Dimension, dim, $new($Dimension));
 	$var($Border, border, $nc(this->frame)->getBorder());
 	if (border != nullptr) {
@@ -494,15 +414,13 @@ void WindowsInternalFrameTitlePane::showSystemPopupMenu($Component* invoker) {
 		dim->height += var$1 + $nc($(border->getBorderInsets(this->frame)))->top;
 	}
 	if (!$nc(this->frame)->isIcon()) {
-		$var($Component, var$2, invoker);
-		int32_t var$3 = getX() - dim->width;
-		int32_t var$4 = getY();
-		$nc(this->systemPopupMenu)->show(var$2, var$3, var$4 + getHeight() - dim->height);
+		int32_t var$2 = getX() - dim->width;
+		int32_t var$3 = getY();
+		$nc(this->systemPopupMenu)->show(invoker, var$2, var$3 + getHeight() - dim->height);
 	} else {
-		$var($Component, var$5, invoker);
-		int32_t var$6 = getX() - dim->width;
-		int32_t var$7 = getY();
-		$nc(this->systemPopupMenu)->show(var$5, var$6, var$7 - $nc($($nc(this->systemPopupMenu)->getPreferredSize()))->height - dim->height);
+		int32_t var$4 = getX() - dim->width;
+		int32_t var$5 = getY();
+		$nc(this->systemPopupMenu)->show(invoker, var$4, var$5 - $nc($($nc(this->systemPopupMenu)->getPreferredSize()))->height - dim->height);
 	}
 }
 
@@ -518,7 +436,76 @@ WindowsInternalFrameTitlePane::WindowsInternalFrameTitlePane() {
 }
 
 $Class* WindowsInternalFrameTitlePane::load$($String* name, bool initialize) {
-	$loadClass(WindowsInternalFrameTitlePane, name, initialize, &_WindowsInternalFrameTitlePane_ClassInfo_, allocate$WindowsInternalFrameTitlePane);
+	$FieldInfo fieldInfos$$[] = {
+		{"selectedTitleGradientColor", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(WindowsInternalFrameTitlePane, selectedTitleGradientColor)},
+		{"notSelectedTitleGradientColor", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(WindowsInternalFrameTitlePane, notSelectedTitleGradientColor)},
+		{"systemPopupMenu", "Ljavax/swing/JPopupMenu;", nullptr, $PRIVATE, $field(WindowsInternalFrameTitlePane, systemPopupMenu)},
+		{"systemLabel", "Ljavax/swing/JLabel;", nullptr, $PRIVATE, $field(WindowsInternalFrameTitlePane, systemLabel)},
+		{"titleFont", "Ljava/awt/Font;", nullptr, $PRIVATE, $field(WindowsInternalFrameTitlePane, titleFont)},
+		{"titlePaneHeight", "I", nullptr, $PRIVATE, $field(WindowsInternalFrameTitlePane, titlePaneHeight)},
+		{"buttonWidth", "I", nullptr, $PRIVATE, $field(WindowsInternalFrameTitlePane, buttonWidth)},
+		{"buttonHeight", "I", nullptr, $PRIVATE, $field(WindowsInternalFrameTitlePane, buttonHeight)},
+		{"hotTrackingOn", "Z", nullptr, $PRIVATE, $field(WindowsInternalFrameTitlePane, hotTrackingOn)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/JInternalFrame;)V", nullptr, $PUBLIC, $method(WindowsInternalFrameTitlePane, init$, void, $JInternalFrame*)},
+		{"access$000", "(Lcom/sun/java/swing/plaf/windows/WindowsInternalFrameTitlePane;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(WindowsInternalFrameTitlePane, access$000, $JInternalFrame*, WindowsInternalFrameTitlePane*)},
+		{"access$100", "(Lcom/sun/java/swing/plaf/windows/WindowsInternalFrameTitlePane;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(WindowsInternalFrameTitlePane, access$100, $JInternalFrame*, WindowsInternalFrameTitlePane*)},
+		{"access$1000", "(Lcom/sun/java/swing/plaf/windows/WindowsInternalFrameTitlePane;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(WindowsInternalFrameTitlePane, access$1000, $JInternalFrame*, WindowsInternalFrameTitlePane*)},
+		{"access$1100", "(Lcom/sun/java/swing/plaf/windows/WindowsInternalFrameTitlePane;)Ljavax/swing/JButton;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(WindowsInternalFrameTitlePane, access$1100, $JButton*, WindowsInternalFrameTitlePane*)},
+		{"access$1200", "(Lcom/sun/java/swing/plaf/windows/WindowsInternalFrameTitlePane;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(WindowsInternalFrameTitlePane, access$1200, $JInternalFrame*, WindowsInternalFrameTitlePane*)},
+		{"access$200", "(Lcom/sun/java/swing/plaf/windows/WindowsInternalFrameTitlePane;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(WindowsInternalFrameTitlePane, access$200, $JInternalFrame*, WindowsInternalFrameTitlePane*)},
+		{"access$300", "(Lcom/sun/java/swing/plaf/windows/WindowsInternalFrameTitlePane;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(WindowsInternalFrameTitlePane, access$300, $JInternalFrame*, WindowsInternalFrameTitlePane*)},
+		{"access$400", "(Lcom/sun/java/swing/plaf/windows/WindowsInternalFrameTitlePane;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(WindowsInternalFrameTitlePane, access$400, $JInternalFrame*, WindowsInternalFrameTitlePane*)},
+		{"access$500", "(Lcom/sun/java/swing/plaf/windows/WindowsInternalFrameTitlePane;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(WindowsInternalFrameTitlePane, access$500, $JInternalFrame*, WindowsInternalFrameTitlePane*)},
+		{"access$600", "(Lcom/sun/java/swing/plaf/windows/WindowsInternalFrameTitlePane;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(WindowsInternalFrameTitlePane, access$600, $JInternalFrame*, WindowsInternalFrameTitlePane*)},
+		{"access$700", "(Lcom/sun/java/swing/plaf/windows/WindowsInternalFrameTitlePane;)Ljavax/swing/JButton;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(WindowsInternalFrameTitlePane, access$700, $JButton*, WindowsInternalFrameTitlePane*)},
+		{"access$800", "(Lcom/sun/java/swing/plaf/windows/WindowsInternalFrameTitlePane;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(WindowsInternalFrameTitlePane, access$800, $JInternalFrame*, WindowsInternalFrameTitlePane*)},
+		{"access$900", "(Lcom/sun/java/swing/plaf/windows/WindowsInternalFrameTitlePane;)Ljavax/swing/JButton;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(WindowsInternalFrameTitlePane, access$900, $JButton*, WindowsInternalFrameTitlePane*)},
+		{"addSubComponents", "()V", nullptr, $PROTECTED, $virtualMethod(WindowsInternalFrameTitlePane, addSubComponents, void)},
+		{"addSystemMenuItems", "(Ljavax/swing/JPopupMenu;)V", nullptr, $PROTECTED, $virtualMethod(WindowsInternalFrameTitlePane, addSystemMenuItems, void, $JPopupMenu*)},
+		{"assembleSystemMenu", "()V", nullptr, $PROTECTED, $virtualMethod(WindowsInternalFrameTitlePane, assembleSystemMenu, void)},
+		{"createButtons", "()V", nullptr, $PROTECTED, $virtualMethod(WindowsInternalFrameTitlePane, createButtons, void)},
+		{"createLayout", "()Ljava/awt/LayoutManager;", nullptr, $PROTECTED, $virtualMethod(WindowsInternalFrameTitlePane, createLayout, $LayoutManager*)},
+		{"createPropertyChangeListener", "()Ljava/beans/PropertyChangeListener;", nullptr, $PROTECTED, $virtualMethod(WindowsInternalFrameTitlePane, createPropertyChangeListener, $PropertyChangeListener*)},
+		{"getButtonMnemonic", "(Ljava/lang/String;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(WindowsInternalFrameTitlePane, getButtonMnemonic, int32_t, $String*)},
+		{"getMinimumSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(WindowsInternalFrameTitlePane, getMinimumSize, $Dimension*)},
+		{"getPreferredSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(WindowsInternalFrameTitlePane, getPreferredSize, $Dimension*)},
+		{"installDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(WindowsInternalFrameTitlePane, installDefaults, void)},
+		{"paintComponent", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(WindowsInternalFrameTitlePane, paintComponent, void, $Graphics*)},
+		{"paintTitleBackground", "(Ljava/awt/Graphics;)V", nullptr, $PROTECTED, $virtualMethod(WindowsInternalFrameTitlePane, paintTitleBackground, void, $Graphics*)},
+		{"setButtonIcons", "()V", nullptr, $PROTECTED, $virtualMethod(WindowsInternalFrameTitlePane, setButtonIcons, void)},
+		{"showSystemMenu", "()V", nullptr, $PROTECTED, $virtualMethod(WindowsInternalFrameTitlePane, showSystemMenu, void)},
+		{"showSystemPopupMenu", "(Ljava/awt/Component;)V", nullptr, $PRIVATE, $method(WindowsInternalFrameTitlePane, showSystemPopupMenu, void, $Component*)},
+		{"uninstallListeners", "()V", nullptr, $PROTECTED, $virtualMethod(WindowsInternalFrameTitlePane, uninstallListeners, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.windows.WindowsInternalFrameTitlePane$ScalableIconUIResource", "com.sun.java.swing.plaf.windows.WindowsInternalFrameTitlePane", "ScalableIconUIResource", $PUBLIC | $STATIC},
+		{"com.sun.java.swing.plaf.windows.WindowsInternalFrameTitlePane$WindowsPropertyChangeHandler", "com.sun.java.swing.plaf.windows.WindowsInternalFrameTitlePane", "WindowsPropertyChangeHandler", $PUBLIC},
+		{"com.sun.java.swing.plaf.windows.WindowsInternalFrameTitlePane$WindowsTitlePaneLayout", "com.sun.java.swing.plaf.windows.WindowsInternalFrameTitlePane", "WindowsTitlePaneLayout", $PUBLIC},
+		{"com.sun.java.swing.plaf.windows.WindowsInternalFrameTitlePane$2", nullptr, nullptr, 0},
+		{"com.sun.java.swing.plaf.windows.WindowsInternalFrameTitlePane$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.java.swing.plaf.windows.WindowsInternalFrameTitlePane",
+		"javax.swing.plaf.basic.BasicInternalFrameTitlePane",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.windows.WindowsInternalFrameTitlePane$ScalableIconUIResource,com.sun.java.swing.plaf.windows.WindowsInternalFrameTitlePane$WindowsPropertyChangeHandler,com.sun.java.swing.plaf.windows.WindowsInternalFrameTitlePane$WindowsTitlePaneLayout,com.sun.java.swing.plaf.windows.WindowsInternalFrameTitlePane$2,com.sun.java.swing.plaf.windows.WindowsInternalFrameTitlePane$1"
+	};
+	$loadClass(WindowsInternalFrameTitlePane, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(WindowsInternalFrameTitlePane));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/apple/laf/ScreenMenu$1.h>
-
 #include <com/apple/laf/ScreenMenu.h>
 #include <jcpp.h>
 
@@ -12,57 +11,51 @@ namespace com {
 	namespace apple {
 		namespace laf {
 
-$MethodInfo _ScreenMenu$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(ScreenMenu$1, init$, void)},
-	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(ScreenMenu$1, run, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _ScreenMenu$1_EnclosingMethodInfo_ = {
-	"com.apple.laf.ScreenMenu",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _ScreenMenu$1_InnerClassesInfo_[] = {
-	{"com.apple.laf.ScreenMenu$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _ScreenMenu$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.apple.laf.ScreenMenu$1",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	nullptr,
-	_ScreenMenu$1_MethodInfo_,
-	"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/Void;>;",
-	&_ScreenMenu$1_EnclosingMethodInfo_,
-	_ScreenMenu$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.apple.laf.ScreenMenu"
-};
-
-$Object* allocate$ScreenMenu$1($Class* clazz) {
-	return $of($alloc(ScreenMenu$1));
-}
-
 void ScreenMenu$1::init$() {
 }
 
 $Object* ScreenMenu$1::run() {
 	$beforeCallerSensitive();
 	$System::loadLibrary("awt"_s);
-	return $of(nullptr);
+	return nullptr;
 }
 
 ScreenMenu$1::ScreenMenu$1() {
 }
 
 $Class* ScreenMenu$1::load$($String* name, bool initialize) {
-	$loadClass(ScreenMenu$1, name, initialize, &_ScreenMenu$1_ClassInfo_, allocate$ScreenMenu$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(ScreenMenu$1, init$, void)},
+		{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(ScreenMenu$1, run, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.apple.laf.ScreenMenu",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.laf.ScreenMenu$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.apple.laf.ScreenMenu$1",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		nullptr,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/Void;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.apple.laf.ScreenMenu"
+	};
+	$loadClass(ScreenMenu$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ScreenMenu$1);
+	});
 	return class$;
 }
 

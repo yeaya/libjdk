@@ -1,5 +1,4 @@
 #include <com/sun/naming/internal/FactoryEnumeration.h>
-
 #include <com/sun/naming/internal/NamedWeakReference.h>
 #include <java/lang/ClassLoader.h>
 #include <java/lang/ClassNotFoundException.h>
@@ -26,33 +25,6 @@ namespace com {
 		namespace naming {
 			namespace internal {
 
-$FieldInfo _FactoryEnumeration_FieldInfo_[] = {
-	{"factories", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/naming/internal/NamedWeakReference<Ljava/lang/Object;>;>;", $PRIVATE, $field(FactoryEnumeration, factories)},
-	{"posn", "I", nullptr, $PRIVATE, $field(FactoryEnumeration, posn)},
-	{"loader", "Ljava/lang/ClassLoader;", nullptr, $PRIVATE, $field(FactoryEnumeration, loader)},
-	{}
-};
-
-$MethodInfo _FactoryEnumeration_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/List;Ljava/lang/ClassLoader;)V", "(Ljava/util/List<Lcom/sun/naming/internal/NamedWeakReference<Ljava/lang/Object;>;>;Ljava/lang/ClassLoader;)V", 0, $method(FactoryEnumeration, init$, void, $List*, $ClassLoader*)},
-	{"hasMore", "()Z", nullptr, $PUBLIC, $method(FactoryEnumeration, hasMore, bool)},
-	{"next", "()Ljava/lang/Object;", nullptr, $PUBLIC, $method(FactoryEnumeration, next, $Object*), "javax.naming.NamingException"},
-	{}
-};
-
-$ClassInfo _FactoryEnumeration_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.naming.internal.FactoryEnumeration",
-	"java.lang.Object",
-	nullptr,
-	_FactoryEnumeration_FieldInfo_,
-	_FactoryEnumeration_MethodInfo_
-};
-
-$Object* allocate$FactoryEnumeration($Class* clazz) {
-	return $of($alloc(FactoryEnumeration));
-}
-
 void FactoryEnumeration::init$($List* factories, $ClassLoader* loader) {
 	this->posn = 0;
 	$set(this, factories, factories);
@@ -60,13 +32,13 @@ void FactoryEnumeration::init$($List* factories, $ClassLoader* loader) {
 }
 
 $Object* FactoryEnumeration::next() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$synchronized(this->factories) {
-		$var($NamedWeakReference, ref, $cast($NamedWeakReference, $nc(this->factories)->get(this->posn++)));
+		$var($NamedWeakReference, ref, $cast($NamedWeakReference, this->factories->get(this->posn++)));
 		$var($Object, answer, $nc(ref)->get());
 		if ((answer != nullptr) && !($instanceOf($Class, answer))) {
-			return $of(answer);
+			return answer;
 		}
 		$var($String, className, ref->getName());
 		try {
@@ -74,11 +46,11 @@ $Object* FactoryEnumeration::next() {
 				$Class* cls = $Class::forName(className, true, this->loader);
 				$assign(answer, cls);
 			}
-			$var($Object, tmp, $nc(($cast($Class, answer)))->newInstance());
+			$var($Object, tmp, $nc($cast($Class, answer))->newInstance());
 			$assign(answer, tmp);
 			$assign(ref, $new($NamedWeakReference, answer, className));
 			$nc(this->factories)->set(this->posn - 1, ref);
-			return $of(answer);
+			return answer;
 		} catch ($ClassNotFoundException& e) {
 			$var($NamingException, ne, $new($NamingException, $$str({"No longer able to load "_s, className})));
 			ne->setRootCause(e);
@@ -98,7 +70,7 @@ $Object* FactoryEnumeration::next() {
 
 bool FactoryEnumeration::hasMore() {
 	$synchronized(this->factories) {
-		return this->posn < $nc(this->factories)->size();
+		return this->posn < this->factories->size();
 	}
 }
 
@@ -106,7 +78,29 @@ FactoryEnumeration::FactoryEnumeration() {
 }
 
 $Class* FactoryEnumeration::load$($String* name, bool initialize) {
-	$loadClass(FactoryEnumeration, name, initialize, &_FactoryEnumeration_ClassInfo_, allocate$FactoryEnumeration);
+	$FieldInfo fieldInfos$$[] = {
+		{"factories", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/naming/internal/NamedWeakReference<Ljava/lang/Object;>;>;", $PRIVATE, $field(FactoryEnumeration, factories)},
+		{"posn", "I", nullptr, $PRIVATE, $field(FactoryEnumeration, posn)},
+		{"loader", "Ljava/lang/ClassLoader;", nullptr, $PRIVATE, $field(FactoryEnumeration, loader)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/List;Ljava/lang/ClassLoader;)V", "(Ljava/util/List<Lcom/sun/naming/internal/NamedWeakReference<Ljava/lang/Object;>;>;Ljava/lang/ClassLoader;)V", 0, $method(FactoryEnumeration, init$, void, $List*, $ClassLoader*)},
+		{"hasMore", "()Z", nullptr, $PUBLIC, $method(FactoryEnumeration, hasMore, bool)},
+		{"next", "()Ljava/lang/Object;", nullptr, $PUBLIC, $method(FactoryEnumeration, next, $Object*), "javax.naming.NamingException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.naming.internal.FactoryEnumeration",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(FactoryEnumeration, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FactoryEnumeration);
+	});
 	return class$;
 }
 

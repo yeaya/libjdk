@@ -55,6 +55,7 @@ public:
 	LoggingProviderImpl$JULWrapper();
 	virtual $Object* clone() override;
 	virtual void finalize() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::util::logging::Logger* logger);
 	virtual bool equals(Object$* obj) override;
 	virtual ::sun::util::logging::PlatformLogger$ConfigurableBridge$LoggerConfiguration* getLoggerConfiguration() override;

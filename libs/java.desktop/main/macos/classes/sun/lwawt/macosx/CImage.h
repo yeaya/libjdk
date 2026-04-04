@@ -56,6 +56,7 @@ class CImage : public ::sun::lwawt::macosx::CFRetainedResource {
 	$class(CImage, 0, ::sun::lwawt::macosx::CFRetainedResource)
 public:
 	CImage();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int64_t nsImagePtr);
 	static ::sun::lwawt::macosx::CImage* createFromImage(::java::awt::Image* image);
 	static ::sun::lwawt::macosx::CImage* createFromImage(::java::awt::Image* image, ::sun::lwawt::macosx::CTrayIcon$IconObserver* observer);

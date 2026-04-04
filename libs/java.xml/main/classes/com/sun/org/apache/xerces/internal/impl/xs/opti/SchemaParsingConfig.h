@@ -199,6 +199,7 @@ class SchemaParsingConfig : public ::com::sun::org::apache::xerces::internal::pa
 	$class(SchemaParsingConfig, 0, ::com::sun::org::apache::xerces::internal::parsers::BasicParserConfiguration, ::com::sun::org::apache::xerces::internal::xni::parser::XMLPullParserConfiguration)
 public:
 	SchemaParsingConfig();
+	static void clinit$(::java::lang::Class* clazz);
 	virtual void addRecognizedFeatures($StringArray* featureIds) override;
 	virtual void addRecognizedProperties($StringArray* propertyIds) override;
 	virtual $Object* clone() override;

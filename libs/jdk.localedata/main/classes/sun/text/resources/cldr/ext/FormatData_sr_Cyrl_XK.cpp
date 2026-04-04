@@ -1,5 +1,4 @@
 #include <sun/text/resources/cldr/ext/FormatData_sr_Cyrl_XK.h>
-
 #include <java/util/ListResourceBundle.h>
 #include <jcpp.h>
 
@@ -14,31 +13,12 @@ namespace sun {
 			namespace cldr {
 				namespace ext {
 
-$MethodInfo _FormatData_sr_Cyrl_XK_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(FormatData_sr_Cyrl_XK, init$, void)},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(FormatData_sr_Cyrl_XK, getContents, $ObjectArray2*)},
-	{}
-};
-
-$ClassInfo _FormatData_sr_Cyrl_XK_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.text.resources.cldr.ext.FormatData_sr_Cyrl_XK",
-	"java.util.ListResourceBundle",
-	nullptr,
-	nullptr,
-	_FormatData_sr_Cyrl_XK_MethodInfo_
-};
-
-$Object* allocate$FormatData_sr_Cyrl_XK($Class* clazz) {
-	return $of($alloc(FormatData_sr_Cyrl_XK));
-}
-
 void FormatData_sr_Cyrl_XK::init$() {
 	$ListResourceBundle::init$();
 }
 
 $ObjectArray2* FormatData_sr_Cyrl_XK::getContents() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringArray, metaValue_MonthAbbreviations, $new($StringArray, {
 		u"јан"_s,
 		u"феб"_s,
@@ -84,76 +64,76 @@ $ObjectArray2* FormatData_sr_Cyrl_XK::getContents() {
 	}));
 	$var($ObjectArray2, data, $new($ObjectArray2, {
 		$$new($ObjectArray, {
-			$of("roc.MonthAbbreviations"_s),
-			$of(metaValue_MonthAbbreviations)
+			"roc.MonthAbbreviations"_s,
+			metaValue_MonthAbbreviations
 		}),
 		$$new($ObjectArray, {
-			$of("japanese.AmPmMarkers"_s),
-			$of(metaValue_AmPmMarkers)
+			"japanese.AmPmMarkers"_s,
+			metaValue_AmPmMarkers
 		}),
 		$$new($ObjectArray, {
-			$of("islamic.abbreviated.AmPmMarkers"_s),
-			$of(metaValue_AmPmMarkers)
+			"islamic.abbreviated.AmPmMarkers"_s,
+			metaValue_AmPmMarkers
 		}),
 		$$new($ObjectArray, {
-			$of("AmPmMarkers"_s),
-			$of(metaValue_AmPmMarkers)
+			"AmPmMarkers"_s,
+			metaValue_AmPmMarkers
 		}),
 		$$new($ObjectArray, {
-			$of("buddhist.MonthAbbreviations"_s),
-			$of(metaValue_MonthAbbreviations)
+			"buddhist.MonthAbbreviations"_s,
+			metaValue_MonthAbbreviations
 		}),
 		$$new($ObjectArray, {
-			$of("MonthAbbreviations"_s),
-			$of(metaValue_MonthAbbreviations)
+			"MonthAbbreviations"_s,
+			metaValue_MonthAbbreviations
 		}),
 		$$new($ObjectArray, {
-			$of("narrow.AmPmMarkers"_s),
-			$of(metaValue_narrow_AmPmMarkers)
+			"narrow.AmPmMarkers"_s,
+			metaValue_narrow_AmPmMarkers
 		}),
 		$$new($ObjectArray, {
-			$of("japanese.narrow.AmPmMarkers"_s),
-			$of(metaValue_narrow_AmPmMarkers)
+			"japanese.narrow.AmPmMarkers"_s,
+			metaValue_narrow_AmPmMarkers
 		}),
 		$$new($ObjectArray, {
-			$of("japanese.MonthAbbreviations"_s),
-			$of(metaValue_MonthAbbreviations)
+			"japanese.MonthAbbreviations"_s,
+			metaValue_MonthAbbreviations
 		}),
 		$$new($ObjectArray, {
-			$of("islamic.narrow.AmPmMarkers"_s),
-			$of(metaValue_narrow_AmPmMarkers)
+			"islamic.narrow.AmPmMarkers"_s,
+			metaValue_narrow_AmPmMarkers
 		}),
 		$$new($ObjectArray, {
-			$of("standalone.MonthAbbreviations"_s),
-			$of(metaValue_MonthAbbreviations)
+			"standalone.MonthAbbreviations"_s,
+			metaValue_MonthAbbreviations
 		}),
 		$$new($ObjectArray, {
-			$of("abbreviated.AmPmMarkers"_s),
-			$of(metaValue_AmPmMarkers)
+			"abbreviated.AmPmMarkers"_s,
+			metaValue_AmPmMarkers
 		}),
 		$$new($ObjectArray, {
-			$of("buddhist.AmPmMarkers"_s),
-			$of(metaValue_AmPmMarkers)
+			"buddhist.AmPmMarkers"_s,
+			metaValue_AmPmMarkers
 		}),
 		$$new($ObjectArray, {
-			$of("japanese.abbreviated.AmPmMarkers"_s),
-			$of(metaValue_AmPmMarkers)
+			"japanese.abbreviated.AmPmMarkers"_s,
+			metaValue_AmPmMarkers
 		}),
 		$$new($ObjectArray, {
-			$of("roc.narrow.AmPmMarkers"_s),
-			$of(metaValue_narrow_AmPmMarkers)
+			"roc.narrow.AmPmMarkers"_s,
+			metaValue_narrow_AmPmMarkers
 		}),
 		$$new($ObjectArray, {
-			$of("buddhist.narrow.AmPmMarkers"_s),
-			$of(metaValue_narrow_AmPmMarkers)
+			"buddhist.narrow.AmPmMarkers"_s,
+			metaValue_narrow_AmPmMarkers
 		}),
 		$$new($ObjectArray, {
-			$of("buddhist.abbreviated.AmPmMarkers"_s),
-			$of(metaValue_AmPmMarkers)
+			"buddhist.abbreviated.AmPmMarkers"_s,
+			metaValue_AmPmMarkers
 		}),
 		$$new($ObjectArray, {
-			$of("roc.abbreviated.AmPmMarkers"_s),
-			$of(metaValue_AmPmMarkers)
+			"roc.abbreviated.AmPmMarkers"_s,
+			metaValue_AmPmMarkers
 		})
 	}));
 	return data;
@@ -163,7 +143,22 @@ FormatData_sr_Cyrl_XK::FormatData_sr_Cyrl_XK() {
 }
 
 $Class* FormatData_sr_Cyrl_XK::load$($String* name, bool initialize) {
-	$loadClass(FormatData_sr_Cyrl_XK, name, initialize, &_FormatData_sr_Cyrl_XK_ClassInfo_, allocate$FormatData_sr_Cyrl_XK);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(FormatData_sr_Cyrl_XK, init$, void)},
+		{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(FormatData_sr_Cyrl_XK, getContents, $ObjectArray2*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.text.resources.cldr.ext.FormatData_sr_Cyrl_XK",
+		"java.util.ListResourceBundle",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(FormatData_sr_Cyrl_XK, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FormatData_sr_Cyrl_XK);
+	});
 	return class$;
 }
 

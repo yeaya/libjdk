@@ -1,5 +1,4 @@
 #include <java/awt/Container$MouseEventTargetFilter.h>
-
 #include <java/awt/AWTEvent.h>
 #include <java/awt/Component.h>
 #include <java/awt/Container$EventTargetFilter.h>
@@ -25,53 +24,16 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace java {
 	namespace awt {
 
-$FieldInfo _Container$MouseEventTargetFilter_FieldInfo_[] = {
-	{"FILTER", "Ljava/awt/Container$EventTargetFilter;", nullptr, $STATIC | $FINAL, $staticField(Container$MouseEventTargetFilter, FILTER)},
-	{}
-};
-
-$MethodInfo _Container$MouseEventTargetFilter_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(Container$MouseEventTargetFilter, init$, void)},
-	{"accept", "(Ljava/awt/Component;)Z", nullptr, $PUBLIC, $virtualMethod(Container$MouseEventTargetFilter, accept, bool, $Component*)},
-	{}
-};
-
-$InnerClassInfo _Container$MouseEventTargetFilter_InnerClassesInfo_[] = {
-	{"java.awt.Container$MouseEventTargetFilter", "java.awt.Container", "MouseEventTargetFilter", $STATIC},
-	{"java.awt.Container$EventTargetFilter", "java.awt.Container", "EventTargetFilter", $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Container$MouseEventTargetFilter_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.awt.Container$MouseEventTargetFilter",
-	"java.lang.Object",
-	"java.awt.Container$EventTargetFilter",
-	_Container$MouseEventTargetFilter_FieldInfo_,
-	_Container$MouseEventTargetFilter_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Container$MouseEventTargetFilter_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.awt.Container"
-};
-
-$Object* allocate$Container$MouseEventTargetFilter($Class* clazz) {
-	return $of($alloc(Container$MouseEventTargetFilter));
-}
-
 $Container$EventTargetFilter* Container$MouseEventTargetFilter::FILTER = nullptr;
 
 void Container$MouseEventTargetFilter::init$() {
 }
 
 bool Container$MouseEventTargetFilter::accept($Component* comp) {
-	return ((int64_t)($nc(comp)->eventMask & (uint64_t)$AWTEvent::MOUSE_MOTION_EVENT_MASK)) != 0 || ((int64_t)($nc(comp)->eventMask & (uint64_t)$AWTEvent::MOUSE_EVENT_MASK)) != 0 || ((int64_t)($nc(comp)->eventMask & (uint64_t)$AWTEvent::MOUSE_WHEEL_EVENT_MASK)) != 0 || $nc(comp)->mouseListener != nullptr || $nc(comp)->mouseMotionListener != nullptr || $nc(comp)->mouseWheelListener != nullptr;
+	return ($nc(comp)->eventMask & $AWTEvent::MOUSE_MOTION_EVENT_MASK) != 0 || (comp->eventMask & $AWTEvent::MOUSE_EVENT_MASK) != 0 || (comp->eventMask & $AWTEvent::MOUSE_WHEEL_EVENT_MASK) != 0 || comp->mouseListener != nullptr || comp->mouseMotionListener != nullptr || comp->mouseWheelListener != nullptr;
 }
 
-void clinit$Container$MouseEventTargetFilter($Class* class$) {
+void Container$MouseEventTargetFilter::clinit$($Class* clazz) {
 	$assignStatic(Container$MouseEventTargetFilter::FILTER, $new(Container$MouseEventTargetFilter));
 }
 
@@ -79,7 +41,38 @@ Container$MouseEventTargetFilter::Container$MouseEventTargetFilter() {
 }
 
 $Class* Container$MouseEventTargetFilter::load$($String* name, bool initialize) {
-	$loadClass(Container$MouseEventTargetFilter, name, initialize, &_Container$MouseEventTargetFilter_ClassInfo_, clinit$Container$MouseEventTargetFilter, allocate$Container$MouseEventTargetFilter);
+	$FieldInfo fieldInfos$$[] = {
+		{"FILTER", "Ljava/awt/Container$EventTargetFilter;", nullptr, $STATIC | $FINAL, $staticField(Container$MouseEventTargetFilter, FILTER)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(Container$MouseEventTargetFilter, init$, void)},
+		{"accept", "(Ljava/awt/Component;)Z", nullptr, $PUBLIC, $virtualMethod(Container$MouseEventTargetFilter, accept, bool, $Component*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.awt.Container$MouseEventTargetFilter", "java.awt.Container", "MouseEventTargetFilter", $STATIC},
+		{"java.awt.Container$EventTargetFilter", "java.awt.Container", "EventTargetFilter", $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.awt.Container$MouseEventTargetFilter",
+		"java.lang.Object",
+		"java.awt.Container$EventTargetFilter",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.awt.Container"
+	};
+	$loadClass(Container$MouseEventTargetFilter, name, initialize, &classInfo$$, Container$MouseEventTargetFilter::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Container$MouseEventTargetFilter);
+	});
 	return class$;
 }
 

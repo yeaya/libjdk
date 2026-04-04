@@ -182,6 +182,7 @@ public:
 	using ::java::awt::Graphics2D::fillPolygon;
 	virtual bool equals(Object$* arg0) override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::java2d::SurfaceData* sd, ::java::awt::Color* fg, ::java::awt::Color* bg, ::java::awt::Font* f);
 	virtual void addRenderingHints(::java::util::Map* hints) override;
 	::sun::java2d::loops::FontInfo* checkFontInfo(::sun::java2d::loops::FontInfo* info, ::java::awt::Font* font, ::java::awt::font::FontRenderContext* frc);

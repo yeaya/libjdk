@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/NumberCall.h>
-
 #include <com/sun/org/apache/bcel/internal/generic/Instruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/InstructionHandle.h>
 #include <com/sun/org/apache/bcel/internal/generic/InstructionList.h>
@@ -34,40 +33,20 @@ namespace com {
 						namespace xsltc {
 							namespace compiler {
 
-$MethodInfo _NumberCall_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;Ljava/util/List;)V", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;Ljava/util/List<Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Expression;>;)V", $PUBLIC, $method(NumberCall, init$, void, $QName*, $List*)},
-	{"translate", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;)V", nullptr, $PUBLIC, $virtualMethod(NumberCall, translate, void, $ClassGenerator*, $MethodGenerator*)},
-	{"typeCheck", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SymbolTable;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/Type;", nullptr, $PUBLIC, $virtualMethod(NumberCall, typeCheck, $Type*, $SymbolTable*), "com.sun.org.apache.xalan.internal.xsltc.compiler.util.TypeCheckError"},
-	{}
-};
-
-$ClassInfo _NumberCall_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xalan.internal.xsltc.compiler.NumberCall",
-	"com.sun.org.apache.xalan.internal.xsltc.compiler.FunctionCall",
-	nullptr,
-	nullptr,
-	_NumberCall_MethodInfo_
-};
-
-$Object* allocate$NumberCall($Class* clazz) {
-	return $of($alloc(NumberCall));
-}
-
 void NumberCall::init$($QName* fname, $List* arguments) {
 	$FunctionCall::init$(fname, arguments);
 }
 
 $Type* NumberCall::typeCheck($SymbolTable* stable) {
 	if (argumentCount() > 0) {
-		$nc($(argument()))->typeCheck(stable);
+		$$nc(argument())->typeCheck(stable);
 	}
 	$init($Type);
 	return $set(this, _type, $Type::Real);
 }
 
 void NumberCall::translate($ClassGenerator* classGen, $MethodGenerator* methodGen) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($InstructionList, il, $nc(methodGen)->getInstructionList());
 	$var($Type, targ, nullptr);
 	if (argumentCount() == 0) {
@@ -90,7 +69,23 @@ NumberCall::NumberCall() {
 }
 
 $Class* NumberCall::load$($String* name, bool initialize) {
-	$loadClass(NumberCall, name, initialize, &_NumberCall_ClassInfo_, allocate$NumberCall);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;Ljava/util/List;)V", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;Ljava/util/List<Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Expression;>;)V", $PUBLIC, $method(NumberCall, init$, void, $QName*, $List*)},
+		{"translate", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;)V", nullptr, $PUBLIC, $virtualMethod(NumberCall, translate, void, $ClassGenerator*, $MethodGenerator*)},
+		{"typeCheck", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SymbolTable;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/Type;", nullptr, $PUBLIC, $virtualMethod(NumberCall, typeCheck, $Type*, $SymbolTable*), "com.sun.org.apache.xalan.internal.xsltc.compiler.util.TypeCheckError"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xalan.internal.xsltc.compiler.NumberCall",
+		"com.sun.org.apache.xalan.internal.xsltc.compiler.FunctionCall",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(NumberCall, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(NumberCall);
+	});
 	return class$;
 }
 

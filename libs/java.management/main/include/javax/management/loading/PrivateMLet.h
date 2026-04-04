@@ -41,7 +41,7 @@ public:
 	void init$($Array<::java::net::URL>* urls, ::java::lang::ClassLoader* parent, ::java::net::URLStreamHandlerFactory* factory, bool delegateToCLR);
 	using ::javax::management::loading::MLet::loadClass;
 	virtual $String* toString() override;
-	static const int64_t serialVersionUID = (int64_t)0x22BE12AC22E5736B;
+	static const int64_t serialVersionUID = (int64_t)0x22be12ac22e5736b;
 };
 
 		} // loading

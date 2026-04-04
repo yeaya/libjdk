@@ -21,7 +21,7 @@ public:
 	OpenURIEvent();
 	void init$(::java::net::URI* uri);
 	::java::net::URI* getURI();
-	static const int64_t serialVersionUID = (int64_t)0x0311E4815A5EAE24;
+	static const int64_t serialVersionUID = (int64_t)0x0311e4815a5eae24;
 	::java::net::URI* uri = nullptr;
 };
 

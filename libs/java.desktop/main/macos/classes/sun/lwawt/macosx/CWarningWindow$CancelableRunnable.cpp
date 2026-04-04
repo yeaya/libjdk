@@ -1,5 +1,4 @@
 #include <sun/lwawt/macosx/CWarningWindow$CancelableRunnable.h>
-
 #include <sun/lwawt/macosx/CWarningWindow.h>
 #include <jcpp.h>
 
@@ -11,44 +10,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace sun {
 	namespace lwawt {
 		namespace macosx {
-
-$FieldInfo _CWarningWindow$CancelableRunnable_FieldInfo_[] = {
-	{"perform", "Z", nullptr, $PRIVATE | $VOLATILE, $field(CWarningWindow$CancelableRunnable, perform$)},
-	{}
-};
-
-$MethodInfo _CWarningWindow$CancelableRunnable_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(CWarningWindow$CancelableRunnable, init$, void)},
-	{"cancel", "()V", nullptr, $PUBLIC | $FINAL, $method(CWarningWindow$CancelableRunnable, cancel, void)},
-	{"perform", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CWarningWindow$CancelableRunnable, perform, void)},
-	{"run", "()V", nullptr, $PUBLIC | $FINAL, $virtualMethod(CWarningWindow$CancelableRunnable, run, void)},
-	{}
-};
-
-$InnerClassInfo _CWarningWindow$CancelableRunnable_InnerClassesInfo_[] = {
-	{"sun.lwawt.macosx.CWarningWindow$CancelableRunnable", "sun.lwawt.macosx.CWarningWindow", "CancelableRunnable", $PRIVATE | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _CWarningWindow$CancelableRunnable_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"sun.lwawt.macosx.CWarningWindow$CancelableRunnable",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	_CWarningWindow$CancelableRunnable_FieldInfo_,
-	_CWarningWindow$CancelableRunnable_MethodInfo_,
-	nullptr,
-	nullptr,
-	_CWarningWindow$CancelableRunnable_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.lwawt.macosx.CWarningWindow"
-};
-
-$Object* allocate$CWarningWindow$CancelableRunnable($Class* clazz) {
-	return $of($alloc(CWarningWindow$CancelableRunnable));
-}
 
 void CWarningWindow$CancelableRunnable::init$() {
 	this->perform$ = true;
@@ -68,7 +29,39 @@ CWarningWindow$CancelableRunnable::CWarningWindow$CancelableRunnable() {
 }
 
 $Class* CWarningWindow$CancelableRunnable::load$($String* name, bool initialize) {
-	$loadClass(CWarningWindow$CancelableRunnable, name, initialize, &_CWarningWindow$CancelableRunnable_ClassInfo_, allocate$CWarningWindow$CancelableRunnable);
+	$FieldInfo fieldInfos$$[] = {
+		{"perform", "Z", nullptr, $PRIVATE | $VOLATILE, $field(CWarningWindow$CancelableRunnable, perform$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(CWarningWindow$CancelableRunnable, init$, void)},
+		{"cancel", "()V", nullptr, $PUBLIC | $FINAL, $method(CWarningWindow$CancelableRunnable, cancel, void)},
+		{"perform", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CWarningWindow$CancelableRunnable, perform, void)},
+		{"run", "()V", nullptr, $PUBLIC | $FINAL, $virtualMethod(CWarningWindow$CancelableRunnable, run, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.lwawt.macosx.CWarningWindow$CancelableRunnable", "sun.lwawt.macosx.CWarningWindow", "CancelableRunnable", $PRIVATE | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"sun.lwawt.macosx.CWarningWindow$CancelableRunnable",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.lwawt.macosx.CWarningWindow"
+	};
+	$loadClass(CWarningWindow$CancelableRunnable, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CWarningWindow$CancelableRunnable);
+	});
 	return class$;
 }
 

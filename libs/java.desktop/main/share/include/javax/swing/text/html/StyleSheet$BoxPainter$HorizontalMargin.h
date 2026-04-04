@@ -21,6 +21,7 @@ class $import StyleSheet$BoxPainter$HorizontalMargin : public ::java::lang::Enum
 public:
 	StyleSheet$BoxPainter$HorizontalMargin();
 	static $Array<::javax::swing::text::html::StyleSheet$BoxPainter$HorizontalMargin>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::javax::swing::text::html::StyleSheet$BoxPainter$HorizontalMargin* valueOf($String* name);
 	static $Array<::javax::swing::text::html::StyleSheet$BoxPainter$HorizontalMargin>* values();

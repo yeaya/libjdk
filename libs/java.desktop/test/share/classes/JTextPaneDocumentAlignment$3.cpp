@@ -1,5 +1,4 @@
 #include <JTextPaneDocumentAlignment$3.h>
-
 #include <JTextPaneDocumentAlignment.h>
 #include <java/awt/Rectangle.h>
 #include <java/awt/Window.h>
@@ -14,46 +13,7 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $JFrame = ::javax::swing::JFrame;
-using $JTextPane = ::javax::swing::JTextPane;
 using $BadLocationException = ::javax::swing::text::BadLocationException;
-
-$MethodInfo _JTextPaneDocumentAlignment$3_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(JTextPaneDocumentAlignment$3, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(JTextPaneDocumentAlignment$3, run, void)},
-	{}
-};
-
-$EnclosingMethodInfo _JTextPaneDocumentAlignment$3_EnclosingMethodInfo_ = {
-	"JTextPaneDocumentAlignment",
-	"main",
-	"([Ljava/lang/String;)V"
-};
-
-$InnerClassInfo _JTextPaneDocumentAlignment$3_InnerClassesInfo_[] = {
-	{"JTextPaneDocumentAlignment$3", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _JTextPaneDocumentAlignment$3_ClassInfo_ = {
-	$ACC_SUPER,
-	"JTextPaneDocumentAlignment$3",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	_JTextPaneDocumentAlignment$3_MethodInfo_,
-	nullptr,
-	&_JTextPaneDocumentAlignment$3_EnclosingMethodInfo_,
-	_JTextPaneDocumentAlignment$3_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"JTextPaneDocumentAlignment"
-};
-
-$Object* allocate$JTextPaneDocumentAlignment$3($Class* clazz) {
-	return $of($alloc(JTextPaneDocumentAlignment$3));
-}
 
 void JTextPaneDocumentAlignment$3::init$() {
 }
@@ -73,7 +33,38 @@ JTextPaneDocumentAlignment$3::JTextPaneDocumentAlignment$3() {
 }
 
 $Class* JTextPaneDocumentAlignment$3::load$($String* name, bool initialize) {
-	$loadClass(JTextPaneDocumentAlignment$3, name, initialize, &_JTextPaneDocumentAlignment$3_ClassInfo_, allocate$JTextPaneDocumentAlignment$3);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(JTextPaneDocumentAlignment$3, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(JTextPaneDocumentAlignment$3, run, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"JTextPaneDocumentAlignment",
+		"main",
+		"([Ljava/lang/String;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"JTextPaneDocumentAlignment$3", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"JTextPaneDocumentAlignment$3",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"JTextPaneDocumentAlignment"
+	};
+	$loadClass(JTextPaneDocumentAlignment$3, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JTextPaneDocumentAlignment$3);
+	});
 	return class$;
 }
 

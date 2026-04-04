@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/motif/MotifLookAndFeel$2.h>
-
 #include <com/sun/java/swing/plaf/motif/MotifIconFactory.h>
 #include <com/sun/java/swing/plaf/motif/MotifLookAndFeel.h>
 #include <javax/swing/Icon.h>
@@ -22,62 +21,55 @@ namespace com {
 				namespace plaf {
 					namespace motif {
 
-$FieldInfo _MotifLookAndFeel$2_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/java/swing/plaf/motif/MotifLookAndFeel;", nullptr, $FINAL | $SYNTHETIC, $field(MotifLookAndFeel$2, this$0)},
-	{}
-};
-
-$MethodInfo _MotifLookAndFeel$2_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/java/swing/plaf/motif/MotifLookAndFeel;)V", nullptr, 0, $method(MotifLookAndFeel$2, init$, void, $MotifLookAndFeel*)},
-	{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MotifLookAndFeel$2, createValue, $Object*, $UIDefaults*)},
-	{}
-};
-
-$EnclosingMethodInfo _MotifLookAndFeel$2_EnclosingMethodInfo_ = {
-	"com.sun.java.swing.plaf.motif.MotifLookAndFeel",
-	"initComponentDefaults",
-	"(Ljavax/swing/UIDefaults;)V"
-};
-
-$InnerClassInfo _MotifLookAndFeel$2_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.motif.MotifLookAndFeel$2", nullptr, nullptr, 0},
-	{"javax.swing.UIDefaults$LazyValue", "javax.swing.UIDefaults", "LazyValue", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _MotifLookAndFeel$2_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.java.swing.plaf.motif.MotifLookAndFeel$2",
-	"java.lang.Object",
-	"javax.swing.UIDefaults$LazyValue",
-	_MotifLookAndFeel$2_FieldInfo_,
-	_MotifLookAndFeel$2_MethodInfo_,
-	nullptr,
-	&_MotifLookAndFeel$2_EnclosingMethodInfo_,
-	_MotifLookAndFeel$2_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.motif.MotifLookAndFeel"
-};
-
-$Object* allocate$MotifLookAndFeel$2($Class* clazz) {
-	return $of($alloc(MotifLookAndFeel$2));
-}
-
 void MotifLookAndFeel$2::init$($MotifLookAndFeel* this$0) {
 	$set(this, this$0, this$0);
 }
 
 $Object* MotifLookAndFeel$2::createValue($UIDefaults* table) {
-	return $of($MotifIconFactory::getMenuItemArrowIcon());
+	return $MotifIconFactory::getMenuItemArrowIcon();
 }
 
 MotifLookAndFeel$2::MotifLookAndFeel$2() {
 }
 
 $Class* MotifLookAndFeel$2::load$($String* name, bool initialize) {
-	$loadClass(MotifLookAndFeel$2, name, initialize, &_MotifLookAndFeel$2_ClassInfo_, allocate$MotifLookAndFeel$2);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/java/swing/plaf/motif/MotifLookAndFeel;", nullptr, $FINAL | $SYNTHETIC, $field(MotifLookAndFeel$2, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/java/swing/plaf/motif/MotifLookAndFeel;)V", nullptr, 0, $method(MotifLookAndFeel$2, init$, void, $MotifLookAndFeel*)},
+		{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MotifLookAndFeel$2, createValue, $Object*, $UIDefaults*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.java.swing.plaf.motif.MotifLookAndFeel",
+		"initComponentDefaults",
+		"(Ljavax/swing/UIDefaults;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.motif.MotifLookAndFeel$2", nullptr, nullptr, 0},
+		{"javax.swing.UIDefaults$LazyValue", "javax.swing.UIDefaults", "LazyValue", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.java.swing.plaf.motif.MotifLookAndFeel$2",
+		"java.lang.Object",
+		"javax.swing.UIDefaults$LazyValue",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.motif.MotifLookAndFeel"
+	};
+	$loadClass(MotifLookAndFeel$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MotifLookAndFeel$2);
+	});
 	return class$;
 }
 

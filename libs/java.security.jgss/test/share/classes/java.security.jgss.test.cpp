@@ -1,5 +1,4 @@
 #include <java.security.jgss.test.h>
-
 #include <java.security.jgss.h>
 #include <java.base.h>
 #include <java.logging.h>

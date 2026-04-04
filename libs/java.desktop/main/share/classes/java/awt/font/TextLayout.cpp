@@ -1,5 +1,4 @@
 #include <java/awt/font/TextLayout.h>
-
 #include <java/awt/Font.h>
 #include <java/awt/Graphics2D.h>
 #include <java/awt/Rectangle.h>
@@ -27,7 +26,6 @@
 #include <java/lang/Error.h>
 #include <java/lang/InternalError.h>
 #include <java/lang/Math.h>
-#include <java/text/AttributedCharacterIterator$Attribute.h>
 #include <java/text/AttributedCharacterIterator.h>
 #include <java/text/AttributedString.h>
 #include <java/text/CharacterIterator.h>
@@ -89,7 +87,6 @@ using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;
 using $AttributedCharacterIterator = ::java::text::AttributedCharacterIterator;
-using $AttributedCharacterIterator$Attribute = ::java::text::AttributedCharacterIterator$Attribute;
 using $AttributedString = ::java::text::AttributedString;
 using $CharacterIterator = ::java::text::CharacterIterator;
 using $Map = ::java::util::Map;
@@ -104,134 +101,13 @@ namespace java {
 	namespace awt {
 		namespace font {
 
-$FieldInfo _TextLayout_FieldInfo_[] = {
-	{"characterCount", "I", nullptr, $PRIVATE, $field(TextLayout, characterCount)},
-	{"isVerticalLine", "Z", nullptr, $PRIVATE, $field(TextLayout, isVerticalLine)},
-	{"baseline", "B", nullptr, $PRIVATE, $field(TextLayout, baseline)},
-	{"baselineOffsets", "[F", nullptr, $PRIVATE, $field(TextLayout, baselineOffsets)},
-	{"textLine", "Ljava/awt/font/TextLine;", nullptr, $PRIVATE, $field(TextLayout, textLine)},
-	{"lineMetrics", "Ljava/awt/font/TextLine$TextLineMetrics;", nullptr, $PRIVATE, $field(TextLayout, lineMetrics)},
-	{"visibleAdvance", "F", nullptr, $PRIVATE, $field(TextLayout, visibleAdvance)},
-	{"cacheIsValid", "Z", nullptr, $PRIVATE, $field(TextLayout, cacheIsValid)},
-	{"justifyRatio", "F", nullptr, $PRIVATE, $field(TextLayout, justifyRatio)},
-	{"ALREADY_JUSTIFIED", "F", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(TextLayout, ALREADY_JUSTIFIED)},
-	{"dx", "F", nullptr, $PRIVATE | $STATIC, $staticField(TextLayout, dx)},
-	{"dy", "F", nullptr, $PRIVATE | $STATIC, $staticField(TextLayout, dy)},
-	{"naturalBounds", "Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $field(TextLayout, naturalBounds)},
-	{"boundsRect", "Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $field(TextLayout, boundsRect)},
-	{"caretsInLigaturesAreAllowed", "Z", nullptr, $PRIVATE, $field(TextLayout, caretsInLigaturesAreAllowed)},
-	{"DEFAULT_CARET_POLICY", "Ljava/awt/font/TextLayout$CaretPolicy;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TextLayout, DEFAULT_CARET_POLICY)},
-	{}
-};
-
-$MethodInfo _TextLayout_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/awt/Font;Ljava/awt/font/FontRenderContext;)V", nullptr, $PUBLIC, $method(TextLayout, init$, void, $String*, $Font*, $FontRenderContext*)},
-	{"<init>", "(Ljava/lang/String;Ljava/util/Map;Ljava/awt/font/FontRenderContext;)V", "(Ljava/lang/String;Ljava/util/Map<+Ljava/text/AttributedCharacterIterator$Attribute;*>;Ljava/awt/font/FontRenderContext;)V", $PUBLIC, $method(TextLayout, init$, void, $String*, $Map*, $FontRenderContext*)},
-	{"<init>", "(Ljava/text/AttributedCharacterIterator;Ljava/awt/font/FontRenderContext;)V", nullptr, $PUBLIC, $method(TextLayout, init$, void, $AttributedCharacterIterator*, $FontRenderContext*)},
-	{"<init>", "(Ljava/awt/font/TextLine;B[FF)V", nullptr, 0, $method(TextLayout, init$, void, $TextLine*, int8_t, $floats*, float)},
-	{"boundingShape", "([D[D)Ljava/awt/geom/GeneralPath;", nullptr, $PRIVATE, $method(TextLayout, boundingShape, $GeneralPath*, $doubles*, $doubles*)},
-	{"buildCache", "()V", nullptr, $PRIVATE, $method(TextLayout, buildCache, void)},
-	{"caretBoundingShape", "(IILjava/awt/geom/Rectangle2D;)Ljava/awt/geom/GeneralPath;", nullptr, $PRIVATE, $method(TextLayout, caretBoundingShape, $GeneralPath*, int32_t, int32_t, $Rectangle2D*)},
-	{"caretIsValid", "(I)Z", nullptr, $PRIVATE, $method(TextLayout, caretIsValid, bool, int32_t)},
-	{"caretToHit", "(I)Ljava/awt/font/TextHitInfo;", nullptr, $PRIVATE, $method(TextLayout, caretToHit, $TextHitInfo*, int32_t)},
-	{"caretToPointDistance", "([FFF)F", nullptr, $PRIVATE, $method(TextLayout, caretToPointDistance, float, $floats*, float, float)},
-	{"checkTextHit", "(Ljava/awt/font/TextHitInfo;)V", nullptr, $PRIVATE, $method(TextLayout, checkTextHit, void, $TextHitInfo*)},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(TextLayout, clone, $Object*)},
-	{"draw", "(Ljava/awt/Graphics2D;FF)V", nullptr, $PUBLIC, $method(TextLayout, draw, void, $Graphics2D*, float, float)},
-	{"ensureCache", "()V", nullptr, $PRIVATE, $method(TextLayout, ensureCache, void)},
-	{"equals", "(Ljava/awt/font/TextLayout;)Z", nullptr, $PUBLIC, $method(TextLayout, equals, bool, TextLayout*)},
-	{"fastInit", "([CLjava/awt/Font;Ljava/util/Map;Ljava/awt/font/FontRenderContext;)V", "([CLjava/awt/Font;Ljava/util/Map<+Ljava/text/AttributedCharacterIterator$Attribute;*>;Ljava/awt/font/FontRenderContext;)V", $PRIVATE, $method(TextLayout, fastInit, void, $chars*, $Font*, $Map*, $FontRenderContext*)},
-	{"getAdvance", "()F", nullptr, $PUBLIC, $method(TextLayout, getAdvance, float)},
-	{"getAscent", "()F", nullptr, $PUBLIC, $method(TextLayout, getAscent, float)},
-	{"getBaseline", "()B", nullptr, $PUBLIC, $method(TextLayout, getBaseline, int8_t)},
-	{"getBaselineFromGraphic", "(Ljava/awt/font/GraphicAttribute;)B", nullptr, $STATIC, $staticMethod(TextLayout, getBaselineFromGraphic, int8_t, $GraphicAttribute*)},
-	{"getBaselineOffsets", "()[F", nullptr, $PUBLIC, $method(TextLayout, getBaselineOffsets, $floats*)},
-	{"getBlackBoxBounds", "(II)Ljava/awt/Shape;", nullptr, $PUBLIC, $method(TextLayout, getBlackBoxBounds, $Shape*, int32_t, int32_t)},
-	{"getBounds", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC, $method(TextLayout, getBounds, $Rectangle2D*)},
-	{"getCaretInfo", "(ILjava/awt/geom/Rectangle2D;[F)[F", nullptr, $PRIVATE, $method(TextLayout, getCaretInfo, $floats*, int32_t, $Rectangle2D*, $floats*)},
-	{"getCaretInfo", "(Ljava/awt/font/TextHitInfo;Ljava/awt/geom/Rectangle2D;)[F", nullptr, $PUBLIC, $method(TextLayout, getCaretInfo, $floats*, $TextHitInfo*, $Rectangle2D*)},
-	{"getCaretInfo", "(Ljava/awt/font/TextHitInfo;)[F", nullptr, $PUBLIC, $method(TextLayout, getCaretInfo, $floats*, $TextHitInfo*)},
-	{"getCaretInfoTestInternal", "(Ljava/awt/font/TextHitInfo;Ljava/awt/geom/Rectangle2D;)[F", nullptr, $PRIVATE, $method(TextLayout, getCaretInfoTestInternal, $floats*, $TextHitInfo*, $Rectangle2D*)},
-	{"getCaretPath", "(Ljava/awt/font/TextHitInfo;Ljava/awt/geom/Rectangle2D;)[D", nullptr, $PRIVATE, $method(TextLayout, getCaretPath, $doubles*, $TextHitInfo*, $Rectangle2D*)},
-	{"getCaretPath", "(ILjava/awt/geom/Rectangle2D;Z)[D", nullptr, $PRIVATE, $method(TextLayout, getCaretPath, $doubles*, int32_t, $Rectangle2D*, bool)},
-	{"getCaretShape", "(Ljava/awt/font/TextHitInfo;Ljava/awt/geom/Rectangle2D;)Ljava/awt/Shape;", nullptr, $PUBLIC, $method(TextLayout, getCaretShape, $Shape*, $TextHitInfo*, $Rectangle2D*)},
-	{"getCaretShape", "(Ljava/awt/font/TextHitInfo;)Ljava/awt/Shape;", nullptr, $PUBLIC, $method(TextLayout, getCaretShape, $Shape*, $TextHitInfo*)},
-	{"getCaretShapes", "(ILjava/awt/geom/Rectangle2D;Ljava/awt/font/TextLayout$CaretPolicy;)[Ljava/awt/Shape;", nullptr, $PUBLIC, $method(TextLayout, getCaretShapes, $ShapeArray*, int32_t, $Rectangle2D*, $TextLayout$CaretPolicy*)},
-	{"getCaretShapes", "(ILjava/awt/geom/Rectangle2D;)[Ljava/awt/Shape;", nullptr, $PUBLIC, $method(TextLayout, getCaretShapes, $ShapeArray*, int32_t, $Rectangle2D*)},
-	{"getCaretShapes", "(I)[Ljava/awt/Shape;", nullptr, $PUBLIC, $method(TextLayout, getCaretShapes, $ShapeArray*, int32_t)},
-	{"getCharacterCount", "()I", nullptr, $PUBLIC, $method(TextLayout, getCharacterCount, int32_t)},
-	{"getCharacterLevel", "(I)B", nullptr, $PUBLIC, $method(TextLayout, getCharacterLevel, int8_t, int32_t)},
-	{"getDescent", "()F", nullptr, $PUBLIC, $method(TextLayout, getDescent, float)},
-	{"getJustifiedLayout", "(F)Ljava/awt/font/TextLayout;", nullptr, $PUBLIC, $method(TextLayout, getJustifiedLayout, TextLayout*, float)},
-	{"getLayoutPath", "()Ljava/awt/font/LayoutPath;", nullptr, $PUBLIC, $method(TextLayout, getLayoutPath, $LayoutPath*)},
-	{"getLeading", "()F", nullptr, $PUBLIC, $method(TextLayout, getLeading, float)},
-	{"getLogicalHighlightShape", "(IILjava/awt/geom/Rectangle2D;)Ljava/awt/Shape;", nullptr, $PUBLIC, $method(TextLayout, getLogicalHighlightShape, $Shape*, int32_t, int32_t, $Rectangle2D*)},
-	{"getLogicalHighlightShape", "(II)Ljava/awt/Shape;", nullptr, $PUBLIC, $method(TextLayout, getLogicalHighlightShape, $Shape*, int32_t, int32_t)},
-	{"getLogicalRangesForVisualSelection", "(Ljava/awt/font/TextHitInfo;Ljava/awt/font/TextHitInfo;)[I", nullptr, $PUBLIC, $method(TextLayout, getLogicalRangesForVisualSelection, $ints*, $TextHitInfo*, $TextHitInfo*)},
-	{"getNaturalBounds", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(TextLayout, getNaturalBounds, $Rectangle2D*)},
-	{"getNextLeftHit", "(Ljava/awt/font/TextHitInfo;)Ljava/awt/font/TextHitInfo;", nullptr, $PUBLIC, $method(TextLayout, getNextLeftHit, $TextHitInfo*, $TextHitInfo*)},
-	{"getNextLeftHit", "(ILjava/awt/font/TextLayout$CaretPolicy;)Ljava/awt/font/TextHitInfo;", nullptr, $PUBLIC, $method(TextLayout, getNextLeftHit, $TextHitInfo*, int32_t, $TextLayout$CaretPolicy*)},
-	{"getNextLeftHit", "(I)Ljava/awt/font/TextHitInfo;", nullptr, $PUBLIC, $method(TextLayout, getNextLeftHit, $TextHitInfo*, int32_t)},
-	{"getNextRightHit", "(Ljava/awt/font/TextHitInfo;)Ljava/awt/font/TextHitInfo;", nullptr, $PUBLIC, $method(TextLayout, getNextRightHit, $TextHitInfo*, $TextHitInfo*)},
-	{"getNextRightHit", "(ILjava/awt/font/TextLayout$CaretPolicy;)Ljava/awt/font/TextHitInfo;", nullptr, $PUBLIC, $method(TextLayout, getNextRightHit, $TextHitInfo*, int32_t, $TextLayout$CaretPolicy*)},
-	{"getNextRightHit", "(I)Ljava/awt/font/TextHitInfo;", nullptr, $PUBLIC, $method(TextLayout, getNextRightHit, $TextHitInfo*, int32_t)},
-	{"getOutline", "(Ljava/awt/geom/AffineTransform;)Ljava/awt/Shape;", nullptr, $PUBLIC, $method(TextLayout, getOutline, $Shape*, $AffineTransform*)},
-	{"getPixelBounds", "(Ljava/awt/font/FontRenderContext;FF)Ljava/awt/Rectangle;", nullptr, $PUBLIC, $method(TextLayout, getPixelBounds, $Rectangle*, $FontRenderContext*, float, float)},
-	{"getStrongHit", "(Ljava/awt/font/TextHitInfo;Ljava/awt/font/TextHitInfo;)Ljava/awt/font/TextHitInfo;", nullptr, $PRIVATE, $method(TextLayout, getStrongHit, $TextHitInfo*, $TextHitInfo*, $TextHitInfo*)},
-	{"getTextLineForTesting", "()Ljava/awt/font/TextLine;", nullptr, 0, $method(TextLayout, getTextLineForTesting, $TextLine*)},
-	{"getVisibleAdvance", "()F", nullptr, $PUBLIC, $method(TextLayout, getVisibleAdvance, float)},
-	{"getVisualHighlightShape", "(Ljava/awt/font/TextHitInfo;Ljava/awt/font/TextHitInfo;Ljava/awt/geom/Rectangle2D;)Ljava/awt/Shape;", nullptr, $PUBLIC, $method(TextLayout, getVisualHighlightShape, $Shape*, $TextHitInfo*, $TextHitInfo*, $Rectangle2D*)},
-	{"getVisualHighlightShape", "(Ljava/awt/font/TextHitInfo;Ljava/awt/font/TextHitInfo;)Ljava/awt/Shape;", nullptr, $PUBLIC, $method(TextLayout, getVisualHighlightShape, $Shape*, $TextHitInfo*, $TextHitInfo*)},
-	{"getVisualOtherHit", "(Ljava/awt/font/TextHitInfo;)Ljava/awt/font/TextHitInfo;", nullptr, $PUBLIC, $method(TextLayout, getVisualOtherHit, $TextHitInfo*, $TextHitInfo*)},
-	{"handleJustify", "(F)V", nullptr, $PROTECTED, $method(TextLayout, handleJustify, void, float)},
-	{"hitTestChar", "(FFLjava/awt/geom/Rectangle2D;)Ljava/awt/font/TextHitInfo;", nullptr, $PUBLIC, $method(TextLayout, hitTestChar, $TextHitInfo*, float, float, $Rectangle2D*)},
-	{"hitTestChar", "(FF)Ljava/awt/font/TextHitInfo;", nullptr, $PUBLIC, $method(TextLayout, hitTestChar, $TextHitInfo*, float, float)},
-	{"hitToCaret", "(Ljava/awt/font/TextHitInfo;)I", nullptr, $PRIVATE, $method(TextLayout, hitToCaret, int32_t, $TextHitInfo*)},
-	{"hitToPoint", "(Ljava/awt/font/TextHitInfo;Ljava/awt/geom/Point2D;)V", nullptr, $PUBLIC, $method(TextLayout, hitToPoint, void, $TextHitInfo*, $Point2D*)},
-	{"isLeftToRight", "()Z", nullptr, $PUBLIC, $method(TextLayout, isLeftToRight, bool)},
-	{"isVertical", "()Z", nullptr, $PUBLIC, $method(TextLayout, isVertical, bool)},
-	{"leftShape", "(Ljava/awt/geom/Rectangle2D;)Ljava/awt/geom/GeneralPath;", nullptr, $PRIVATE, $method(TextLayout, leftShape, $GeneralPath*, $Rectangle2D*)},
-	{"paragraphInit", "(BLsun/font/CoreMetrics;Ljava/util/Map;[C)V", "(BLsun/font/CoreMetrics;Ljava/util/Map<+Ljava/text/AttributedCharacterIterator$Attribute;*>;[C)V", $PRIVATE, $method(TextLayout, paragraphInit, void, int8_t, $CoreMetrics*, $Map*, $chars*)},
-	{"pathToShape", "([DZLsun/font/LayoutPathImpl;)Ljava/awt/geom/GeneralPath;", nullptr, $PRIVATE | $STATIC, $staticMethod(TextLayout, pathToShape, $GeneralPath*, $doubles*, bool, $LayoutPathImpl*)},
-	{"rightShape", "(Ljava/awt/geom/Rectangle2D;)Ljava/awt/geom/GeneralPath;", nullptr, $PRIVATE, $method(TextLayout, rightShape, $GeneralPath*, $Rectangle2D*)},
-	{"sameBaselineUpTo", "(Ljava/awt/Font;[CII)I", nullptr, $PRIVATE | $STATIC, $staticMethod(TextLayout, sameBaselineUpTo, int32_t, $Font*, $chars*, int32_t, int32_t)},
-	{"singleFont", "([CIILjava/util/Map;)Ljava/awt/Font;", "([CIILjava/util/Map<+Ljava/text/AttributedCharacterIterator$Attribute;*>;)Ljava/awt/Font;", $PRIVATE | $STATIC, $staticMethod(TextLayout, singleFont, $Font*, $chars*, int32_t, int32_t, $Map*)},
-	{"standardInit", "(Ljava/text/AttributedCharacterIterator;[CLjava/awt/font/FontRenderContext;)V", nullptr, $PRIVATE, $method(TextLayout, standardInit, void, $AttributedCharacterIterator*, $chars*, $FontRenderContext*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TextLayout, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _TextLayout_InnerClassesInfo_[] = {
-	{"java.awt.font.TextLayout$CaretPolicy", "java.awt.font.TextLayout", "CaretPolicy", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _TextLayout_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"java.awt.font.TextLayout",
-	"java.lang.Object",
-	"java.lang.Cloneable",
-	_TextLayout_FieldInfo_,
-	_TextLayout_MethodInfo_,
-	nullptr,
-	nullptr,
-	_TextLayout_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.awt.font.TextLayout$CaretPolicy"
-};
-
-$Object* allocate$TextLayout($Class* clazz) {
-	return $of($alloc(TextLayout));
-}
-
 float TextLayout::ALREADY_JUSTIFIED = 0.0;
 float TextLayout::dx = 0.0;
 float TextLayout::dy = 0.0;
 $TextLayout$CaretPolicy* TextLayout::DEFAULT_CARET_POLICY = nullptr;
 
 void TextLayout::init$($String* string, $Font* font, $FontRenderContext* frc) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->isVerticalLine = false;
 	$set(this, lineMetrics, nullptr);
 	this->cacheIsValid = false;
@@ -251,7 +127,7 @@ void TextLayout::init$($String* string, $Font* font, $FontRenderContext* frc) {
 	if ($nc(font)->hasLayoutAttributes()) {
 		$assign(attributes, font->getAttributes());
 	}
-	$var($chars, text, $nc(string)->toCharArray());
+	$var($chars, text, string->toCharArray());
 	if (sameBaselineUpTo(font, text, 0, text->length) == text->length) {
 		fastInit(text, font, attributes, frc);
 	} else {
@@ -263,7 +139,7 @@ void TextLayout::init$($String* string, $Font* font, $FontRenderContext* frc) {
 }
 
 void TextLayout::init$($String* string, $Map* attributes, $FontRenderContext* frc) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->isVerticalLine = false;
 	$set(this, lineMetrics, nullptr);
 	this->cacheIsValid = false;
@@ -279,7 +155,7 @@ void TextLayout::init$($String* string, $Map* attributes, $FontRenderContext* fr
 	if ($nc(string)->length() == 0) {
 		$throwNew($IllegalArgumentException, "Zero length string passed to TextLayout constructor."_s);
 	}
-	$var($chars, text, $nc(string)->toCharArray());
+	$var($chars, text, string->toCharArray());
 	$var($Font, font, singleFont(text, 0, text->length, attributes));
 	if (font != nullptr) {
 		fastInit(text, font, attributes, frc);
@@ -291,18 +167,18 @@ void TextLayout::init$($String* string, $Map* attributes, $FontRenderContext* fr
 
 $Font* TextLayout::singleFont($chars* text, int32_t start, int32_t limit, $Map* attributes) {
 	$init(TextLayout);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($TextAttribute);
 	if ($nc(attributes)->get($TextAttribute::CHAR_REPLACEMENT) != nullptr) {
 		return nullptr;
 	}
 	$var($Font, font, nullptr);
 	try {
-		$assign(font, $cast($Font, $nc(attributes)->get($TextAttribute::FONT)));
+		$assign(font, $cast($Font, attributes->get($TextAttribute::FONT)));
 	} catch ($ClassCastException& e) {
 	}
 	if (font == nullptr) {
-		if ($nc(attributes)->get($TextAttribute::FAMILY) != nullptr) {
+		if (attributes->get($TextAttribute::FAMILY) != nullptr) {
 			$assign(font, $Font::getFont(attributes));
 			if ($nc(font)->canDisplayUpTo(text, start, limit) != -1) {
 				return nullptr;
@@ -323,7 +199,7 @@ $Font* TextLayout::singleFont($chars* text, int32_t start, int32_t limit, $Map* 
 }
 
 void TextLayout::init$($AttributedCharacterIterator* text, $FontRenderContext* frc) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->isVerticalLine = false;
 	$set(this, lineMetrics, nullptr);
 	this->cacheIsValid = false;
@@ -382,7 +258,7 @@ void TextLayout::paragraphInit(int8_t aBaseline, $CoreMetrics* lm, $Map* paragra
 }
 
 void TextLayout::fastInit($chars* chars, $Font* font, $Map* attrs, $FontRenderContext* frc) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->isVerticalLine = false;
 	$var($LineMetrics, lm, $nc(font)->getLineMetrics(chars, 0, $nc(chars)->length, frc));
 	$var($CoreMetrics, cm, $CoreMetrics::get(lm));
@@ -394,12 +270,12 @@ void TextLayout::fastInit($chars* chars, $Font* font, $Map* attrs, $FontRenderCo
 	} else {
 		paragraphInit(glyphBaseline, cm, attrs, chars);
 	}
-	this->characterCount = $nc(chars)->length;
+	this->characterCount = chars->length;
 	$set(this, textLine, $TextLine::fastCreateTextLine(frc, chars, font, cm, attrs));
 }
 
 void TextLayout::standardInit($AttributedCharacterIterator* text, $chars* chars, $FontRenderContext* frc) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->characterCount = $nc(chars)->length;
 	{
 		$var($Map, paragraphAttrs, $nc(text)->getAttributes());
@@ -443,11 +319,11 @@ void TextLayout::buildCache() {
 		if (lastNonSpace == this->characterCount - 1) {
 			this->visibleAdvance = $nc(this->lineMetrics)->advance;
 		} else if (lastNonSpace == -1) {
-			this->visibleAdvance = (float)0;
+			this->visibleAdvance = 0;
 		} else {
 			int32_t logIndex = $nc(this->textLine)->visualToLogical(lastNonSpace);
 			float var$0 = $nc(this->textLine)->getCharLinePosition(logIndex);
-			this->visibleAdvance = var$0 + $nc(this->textLine)->getCharAdvance(logIndex);
+			this->visibleAdvance = var$0 + this->textLine->getCharAdvance(logIndex);
 		}
 	} else {
 		int32_t leftmostNonSpace = 0;
@@ -460,7 +336,7 @@ void TextLayout::buildCache() {
 			}
 		}
 		if (leftmostNonSpace == this->characterCount) {
-			this->visibleAdvance = (float)0;
+			this->visibleAdvance = 0;
 		} else if (leftmostNonSpace == 0) {
 			this->visibleAdvance = $nc(this->lineMetrics)->advance;
 		} else {
@@ -484,9 +360,9 @@ $Rectangle2D* TextLayout::getNaturalBounds() {
 
 $Object* TextLayout::clone() {
 	try {
-		return $of($Cloneable::clone());
+		return $Cloneable::clone();
 	} catch ($CloneNotSupportedException& e) {
-		$throwNew($InternalError, static_cast<$Throwable*>(e));
+		$throwNew($InternalError, e);
 	}
 	$shouldNotReachHere();
 }
@@ -496,7 +372,7 @@ void TextLayout::checkTextHit($TextHitInfo* hit) {
 		$throwNew($IllegalArgumentException, "TextHitInfo is null."_s);
 	}
 	bool var$0 = $nc(hit)->getInsertionIndex() < 0;
-	if (var$0 || $nc(hit)->getInsertionIndex() > this->characterCount) {
+	if (var$0 || hit->getInsertionIndex() > this->characterCount) {
 		$throwNew($IllegalArgumentException, "TextHitInfo is out of range"_s);
 	}
 }
@@ -559,12 +435,12 @@ float TextLayout::getLeading() {
 }
 
 $Rectangle2D* TextLayout::getBounds() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	ensureCache();
 	if (this->boundsRect == nullptr) {
 		$var($Rectangle2D, vb, $nc(this->textLine)->getVisualBounds());
 		if (TextLayout::dx != 0 || TextLayout::dy != 0) {
-			double var$0 = vb->getX() - TextLayout::dx;
+			double var$0 = $nc(vb)->getX() - TextLayout::dx;
 			double var$1 = vb->getY() - TextLayout::dy;
 			double var$2 = vb->getWidth();
 			$nc(vb)->setRect(var$0, var$1, var$2, vb->getHeight());
@@ -604,7 +480,7 @@ $floats* TextLayout::getCaretInfo(int32_t caret, $Rectangle2D* bounds, $floats* 
 		if (caret == this->characterCount) {
 			logIndex = $nc(this->textLine)->visualToLogical(this->characterCount - 1);
 			float var$0 = $nc(this->textLine)->getCharLinePosition(logIndex);
-			pos = var$0 + $nc(this->textLine)->getCharAdvance(logIndex);
+			pos = var$0 + this->textLine->getCharAdvance(logIndex);
 		} else {
 			logIndex = $nc(this->textLine)->visualToLogical(caret);
 			pos = $nc(this->textLine)->getCharLinePosition(logIndex);
@@ -619,7 +495,7 @@ $floats* TextLayout::getCaretInfo(int32_t caret, $Rectangle2D* bounds, $floats* 
 			int32_t logIndex = $nc(this->textLine)->visualToLogical(caret - 1);
 			float angle1 = $nc(this->textLine)->getCharAngle(logIndex);
 			float var$1 = $nc(this->textLine)->getCharLinePosition(logIndex);
-			float pos1 = var$1 + $nc(this->textLine)->getCharAdvance(logIndex);
+			float pos1 = var$1 + this->textLine->getCharAdvance(logIndex);
 			if (angle1 != 0) {
 				pos1 += angle1 * $nc(this->textLine)->getCharShift(logIndex);
 				top1X = pos1 + angle1 * $nc(this->textLine)->getCharAscent(logIndex);
@@ -663,7 +539,7 @@ $floats* TextLayout::getCaretInfo($TextHitInfo* hit, $Rectangle2D* bounds) {
 }
 
 $floats* TextLayout::getCaretInfoTestInternal($TextHitInfo* hit, $Rectangle2D* bounds) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	ensureCache();
 	checkTextHit(hit);
 	$var($floats, info, $new($floats, 6));
@@ -681,14 +557,14 @@ $floats* TextLayout::getCaretInfoTestInternal($TextHitInfo* hit, $Rectangle2D* b
 	if (charix == -1 || charix == this->characterCount) {
 		$var($TextLine$TextLineMetrics, m, $nc(this->textLine)->getMetrics());
 		bool low = ltr == (charix == -1);
-		iangle = (double)0;
+		iangle = 0;
 		if (horiz) {
-			p1x = (p2x = low ? (float)0 : $nc(m)->advance);
-			p1y = -m->ascent;
+			p1x = (p2x = low ? 0 : $nc(m)->advance);
+			p1y = -$nc(m)->ascent;
 			p2y = m->descent;
 		} else {
-			p1y = (p2y = low ? (float)0 : $nc(m)->advance);
-			p1x = m->descent;
+			p1y = (p2y = low ? 0 : $nc(m)->advance);
+			p1x = $nc(m)->descent;
 			p2x = m->ascent;
 		}
 	} else {
@@ -796,7 +672,7 @@ $TextHitInfo* TextLayout::getNextRightHit($TextHitInfo* hit) {
 }
 
 $TextHitInfo* TextLayout::getNextRightHit(int32_t offset, $TextLayout$CaretPolicy* policy) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (offset < 0 || offset > this->characterCount) {
 		$throwNew($IllegalArgumentException, "Offset out of bounds in TextLayout.getNextRightHit()"_s);
 	}
@@ -808,7 +684,7 @@ $TextHitInfo* TextLayout::getNextRightHit(int32_t offset, $TextLayout$CaretPolic
 	$var($TextHitInfo, nextHit, getNextRightHit($($nc(policy)->getStrongCaret(hit1, hit2, this))));
 	if (nextHit != nullptr) {
 		$var($TextHitInfo, otherHit, getVisualOtherHit(nextHit));
-		return $nc(policy)->getStrongCaret(otherHit, nextHit, this);
+		return policy->getStrongCaret(otherHit, nextHit, this);
 	} else {
 		return nullptr;
 	}
@@ -832,7 +708,7 @@ $TextHitInfo* TextLayout::getNextLeftHit($TextHitInfo* hit) {
 }
 
 $TextHitInfo* TextLayout::getNextLeftHit(int32_t offset, $TextLayout$CaretPolicy* policy) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (policy == nullptr) {
 		$throwNew($IllegalArgumentException, "Null CaretPolicy passed to TextLayout.getNextLeftHit()"_s);
 	}
@@ -844,7 +720,7 @@ $TextHitInfo* TextLayout::getNextLeftHit(int32_t offset, $TextLayout$CaretPolicy
 	$var($TextHitInfo, nextHit, getNextLeftHit($($nc(policy)->getStrongCaret(hit1, hit2, this))));
 	if (nextHit != nullptr) {
 		$var($TextHitInfo, otherHit, getVisualOtherHit(nextHit));
-		return $nc(policy)->getStrongCaret(otherHit, nextHit, this);
+		return policy->getStrongCaret(otherHit, nextHit, this);
 	} else {
 		return nullptr;
 	}
@@ -898,10 +774,10 @@ $TextHitInfo* TextLayout::getVisualOtherHit($TextHitInfo* hit) {
 $doubles* TextLayout::getCaretPath($TextHitInfo* hit, $Rectangle2D* bounds) {
 	$var($floats, info, getCaretInfo(hit, bounds));
 	return $new($doubles, {
-		(double)$nc(info)->get(2),
-		(double)info->get(3),
-		(double)info->get(4),
-		(double)info->get(5)
+		$nc(info)->get(2),
+		$nc(info)->get(3),
+		$nc(info)->get(4),
+		$nc(info)->get(5)
 	});
 }
 
@@ -1007,8 +883,8 @@ $doubles* TextLayout::getCaretPath(int32_t caret, $Rectangle2D* bounds, bool cli
 $GeneralPath* TextLayout::pathToShape($doubles* path, bool close, $LayoutPathImpl* lp) {
 	$init(TextLayout);
 	$var($GeneralPath, result, $new($GeneralPath, $GeneralPath::WIND_EVEN_ODD, $nc(path)->length));
-	result->moveTo((float)$nc(path)->get(0), (float)path->get(1));
-	for (int32_t i = 2; i < $nc(path)->length; i += 2) {
+	result->moveTo((float)path->get(0), (float)path->get(1));
+	for (int32_t i = 2; i < path->length; i += 2) {
 		result->lineTo((float)path->get(i), (float)path->get(i + 1));
 	}
 	if (close) {
@@ -1021,7 +897,7 @@ $GeneralPath* TextLayout::pathToShape($doubles* path, bool close, $LayoutPathImp
 }
 
 $Shape* TextLayout::getCaretShape($TextHitInfo* hit, $Rectangle2D* bounds) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	ensureCache();
 	checkTextHit(hit);
 	if (bounds == nullptr) {
@@ -1039,8 +915,8 @@ $TextHitInfo* TextLayout::getStrongHit($TextHitInfo* hit1, $TextHitInfo* hit2) {
 	int8_t hit1Level = getCharacterLevel($nc(hit1)->getCharIndex());
 	int8_t hit2Level = getCharacterLevel($nc(hit2)->getCharIndex());
 	if (hit1Level == hit2Level) {
-		bool var$0 = $nc(hit2)->isLeadingEdge();
-		if (var$0 && !$nc(hit1)->isLeadingEdge()) {
+		bool var$0 = hit2->isLeadingEdge();
+		if (var$0 && !hit1->isLeadingEdge()) {
 			return hit2;
 		} else {
 			return hit1;
@@ -1062,7 +938,7 @@ int8_t TextLayout::getCharacterLevel(int32_t index) {
 }
 
 $ShapeArray* TextLayout::getCaretShapes(int32_t offset, $Rectangle2D* bounds, $TextLayout$CaretPolicy* policy) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	ensureCache();
 	if (offset < 0 || offset > this->characterCount) {
 		$throwNew($IllegalArgumentException, "Offset out of bounds in TextLayout.getCaretShapes()"_s);
@@ -1109,9 +985,9 @@ $GeneralPath* TextLayout::boundingShape($doubles* path0, $doubles* path1) {
 	$var($GeneralPath, result, pathToShape(path0, false, nullptr));
 	bool sameDirection = false;
 	if (this->isVerticalLine) {
-		sameDirection = ($nc(path0)->get(1) > path0->get(path0->length - 1)) == ($nc(path1)->get(1) > path1->get(path1->length - 1));
+		sameDirection = ($nc(path0)->get(1) > $nc(path0)->get($nc(path0)->length - 1)) == ($nc(path1)->get(1) > $nc(path1)->get($nc(path1)->length - 1));
 	} else {
-		sameDirection = ($nc(path0)->get(0) > path0->get(path0->length - 2)) == ($nc(path1)->get(0) > path1->get(path1->length - 2));
+		sameDirection = ($nc(path0)->get(0) > $nc(path0)->get($nc(path0)->length - 2)) == ($nc(path1)->get(0) > $nc(path1)->get($nc(path1)->length - 2));
 	}
 	int32_t start = 0;
 	int32_t limit = 0;
@@ -1126,14 +1002,14 @@ $GeneralPath* TextLayout::boundingShape($doubles* path0, $doubles* path1) {
 		increment = 2;
 	}
 	for (int32_t i = start; i != limit; i += increment) {
-		$nc(result)->lineTo((float)$nc(path1)->get(i), (float)path1->get(i + 1));
+		$nc(result)->lineTo((float)$nc(path1)->get(i), (float)$nc(path1)->get(i + 1));
 	}
 	$nc(result)->closePath();
 	return result;
 }
 
 $GeneralPath* TextLayout::caretBoundingShape(int32_t caret0, int32_t caret1, $Rectangle2D* bounds) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (caret0 > caret1) {
 		int32_t temp = caret0;
 		caret0 = caret1;
@@ -1144,18 +1020,18 @@ $GeneralPath* TextLayout::caretBoundingShape(int32_t caret0, int32_t caret1, $Re
 }
 
 $GeneralPath* TextLayout::leftShape($Rectangle2D* bounds) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($doubles, path0, nullptr);
 	if (this->isVerticalLine) {
-		double var$0 = bounds->getX();
+		double var$0 = $nc(bounds)->getX();
 		$assign(path0, $new($doubles, {
 			$nc(bounds)->getX(),
-			bounds->getY(),
+			$nc(bounds)->getY(),
 			var$0 + bounds->getWidth(),
 			bounds->getY()
 		}));
 	} else {
-		double var$1 = bounds->getY();
+		double var$1 = $nc(bounds)->getY();
 		$assign(path0, $new($doubles, {
 			$nc(bounds)->getX(),
 			var$1 + bounds->getHeight(),
@@ -1168,10 +1044,10 @@ $GeneralPath* TextLayout::leftShape($Rectangle2D* bounds) {
 }
 
 $GeneralPath* TextLayout::rightShape($Rectangle2D* bounds) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($doubles, path1, nullptr);
 	if (this->isVerticalLine) {
-		double var$0 = bounds->getY();
+		double var$0 = $nc(bounds)->getY();
 		double var$1 = bounds->getX();
 		double var$2 = bounds->getY();
 		$assign(path1, $new($doubles, {
@@ -1196,7 +1072,7 @@ $GeneralPath* TextLayout::rightShape($Rectangle2D* bounds) {
 }
 
 $ints* TextLayout::getLogicalRangesForVisualSelection($TextHitInfo* firstEndpoint, $TextHitInfo* secondEndpoint) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	ensureCache();
 	checkTextHit(firstEndpoint);
 	checkTextHit(secondEndpoint);
@@ -1241,7 +1117,7 @@ $ints* TextLayout::getLogicalRangesForVisualSelection($TextHitInfo* firstEndpoin
 }
 
 $Shape* TextLayout::getVisualHighlightShape($TextHitInfo* firstEndpoint, $TextHitInfo* secondEndpoint, $Rectangle2D* bounds) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	ensureCache();
 	checkTextHit(firstEndpoint);
 	checkTextHit(secondEndpoint);
@@ -1251,17 +1127,17 @@ $Shape* TextLayout::getVisualHighlightShape($TextHitInfo* firstEndpoint, $TextHi
 	$var($GeneralPath, result, $new($GeneralPath, $GeneralPath::WIND_EVEN_ODD));
 	int32_t firstCaret = hitToCaret(firstEndpoint);
 	int32_t secondCaret = hitToCaret(secondEndpoint);
-	result->append($(static_cast<$Shape*>(caretBoundingShape(firstCaret, secondCaret, bounds))), false);
+	result->append($(caretBoundingShape(firstCaret, secondCaret, bounds)), false);
 	if (firstCaret == 0 || secondCaret == 0) {
 		$var($GeneralPath, ls, leftShape(bounds));
-		if (!$nc($($nc(ls)->getBounds()))->isEmpty()) {
-			result->append(static_cast<$Shape*>(ls), false);
+		if (!$$nc($nc(ls)->getBounds())->isEmpty()) {
+			result->append(ls, false);
 		}
 	}
 	if (firstCaret == this->characterCount || secondCaret == this->characterCount) {
 		$var($GeneralPath, rs, rightShape(bounds));
-		if (!$nc($($nc(rs)->getBounds()))->isEmpty()) {
-			result->append(static_cast<$Shape*>(rs), false);
+		if (!$$nc($nc(rs)->getBounds())->isEmpty()) {
+			result->append(rs, false);
 		}
 	}
 	$var($LayoutPathImpl, lp, $nc(this->textLine)->getLayoutPath());
@@ -1276,7 +1152,7 @@ $Shape* TextLayout::getVisualHighlightShape($TextHitInfo* firstEndpoint, $TextHi
 }
 
 $Shape* TextLayout::getLogicalHighlightShape(int32_t firstEndpoint, int32_t secondEndpoint, $Rectangle2D* bounds) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (bounds == nullptr) {
 		$throwNew($IllegalArgumentException, "Null Rectangle2D passed to TextLayout.getLogicalHighlightShape()"_s);
 	}
@@ -1295,7 +1171,7 @@ $Shape* TextLayout::getLogicalHighlightShape(int32_t firstEndpoint, int32_t seco
 	if (firstEndpoint < secondEndpoint) {
 		int32_t logIndex = firstEndpoint;
 		do {
-			carets->set(count++, hitToCaret($($TextHitInfo::leading(logIndex))));
+			$nc(carets)->set(count++, hitToCaret($($TextHitInfo::leading(logIndex))));
 			bool ltr = $nc(this->textLine)->isCharLTR(logIndex);
 			do {
 				++logIndex;
@@ -1310,24 +1186,24 @@ $Shape* TextLayout::getLogicalHighlightShape(int32_t firstEndpoint, int32_t seco
 		} while (logIndex < secondEndpoint);
 	} else {
 		count = 2;
-		carets->set(0, carets->set(1, hitToCaret($($TextHitInfo::leading(firstEndpoint)))));
+		$nc(carets)->set(0, $nc(carets)->set(1, hitToCaret($($TextHitInfo::leading(firstEndpoint)))));
 	}
 	for (int32_t i = 0; i < count; i += 2) {
-		result->append($(static_cast<$Shape*>(caretBoundingShape(carets->get(i), carets->get(i + 1), bounds))), false);
+		result->append($(caretBoundingShape($nc(carets)->get(i), $nc(carets)->get(i + 1), bounds)), false);
 	}
 	if (firstEndpoint != secondEndpoint) {
-		bool var$0 = ($nc(this->textLine)->isDirectionLTR() && firstEndpoint == 0);
-		if (var$0 || (!$nc(this->textLine)->isDirectionLTR() && secondEndpoint == this->characterCount)) {
+		bool var$0 = $nc(this->textLine)->isDirectionLTR() && firstEndpoint == 0;
+		if (var$0 || (!this->textLine->isDirectionLTR() && secondEndpoint == this->characterCount)) {
 			$var($GeneralPath, ls, leftShape(bounds));
-			if (!$nc($($nc(ls)->getBounds()))->isEmpty()) {
-				result->append(static_cast<$Shape*>(ls), false);
+			if (!$$nc($nc(ls)->getBounds())->isEmpty()) {
+				result->append(ls, false);
 			}
 		}
-		bool var$1 = ($nc(this->textLine)->isDirectionLTR() && secondEndpoint == this->characterCount);
-		if (var$1 || (!$nc(this->textLine)->isDirectionLTR() && firstEndpoint == 0)) {
+		bool var$1 = $nc(this->textLine)->isDirectionLTR() && secondEndpoint == this->characterCount;
+		if (var$1 || (!this->textLine->isDirectionLTR() && firstEndpoint == 0)) {
 			$var($GeneralPath, rs, rightShape(bounds));
-			if (!$nc($($nc(rs)->getBounds()))->isEmpty()) {
-				result->append(static_cast<$Shape*>(rs), false);
+			if (!$$nc($nc(rs)->getBounds())->isEmpty()) {
+				result->append(rs, false);
 			}
 		}
 	}
@@ -1343,7 +1219,7 @@ $Shape* TextLayout::getLogicalHighlightShape(int32_t firstEndpoint, int32_t seco
 }
 
 $Shape* TextLayout::getBlackBoxBounds(int32_t firstEndpoint, int32_t secondEndpoint) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	ensureCache();
 	if (firstEndpoint > secondEndpoint) {
 		int32_t t = firstEndpoint;
@@ -1358,7 +1234,7 @@ $Shape* TextLayout::getBlackBoxBounds(int32_t firstEndpoint, int32_t secondEndpo
 		for (int32_t logIndex = firstEndpoint; logIndex < secondEndpoint; ++logIndex) {
 			$var($Rectangle2D, r, $nc(this->textLine)->getCharBounds(logIndex));
 			if (!$nc(r)->isEmpty()) {
-				result->append(static_cast<$Shape*>(r), false);
+				result->append(r, false);
 			}
 		}
 	}
@@ -1376,11 +1252,11 @@ $Shape* TextLayout::getBlackBoxBounds(int32_t firstEndpoint, int32_t secondEndpo
 float TextLayout::caretToPointDistance($floats* caretInfo, float x, float y) {
 	float lineDistance = this->isVerticalLine ? y : x;
 	float distanceOffBaseline = this->isVerticalLine ? -x : y;
-	return lineDistance - $nc(caretInfo)->get(0) + (distanceOffBaseline * caretInfo->get(1));
+	return lineDistance - $nc(caretInfo)->get(0) + (distanceOffBaseline * $nc(caretInfo)->get(1));
 }
 
 $TextHitInfo* TextLayout::hitTestChar(float x, float y, $Rectangle2D* bounds) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($LayoutPathImpl, lp, $nc(this->textLine)->getLayoutPath());
 	bool prev = false;
 	if (lp != nullptr) {
@@ -1400,17 +1276,16 @@ $TextHitInfo* TextLayout::hitTestChar(float x, float y, $Rectangle2D* bounds) {
 	} else if (x >= bounds->getMaxX()) {
 		return isLeftToRight() ? $TextHitInfo::trailing(this->characterCount - 1) : $TextHitInfo::leading(0);
 	}
-	$init($Double);
 	double distance = $Double::MAX_VALUE;
 	int32_t index = 0;
 	int32_t trail = -1;
 	$var($CoreMetrics, lcm, nullptr);
-	float icx = (float)0;
-	float icy = (float)0;
-	float ia = (float)0;
-	float cy = (float)0;
-	float dya = (float)0;
-	float ydsq = (float)0;
+	float icx = 0;
+	float icy = 0;
+	float ia = 0;
+	float cy = 0;
+	float dya = 0;
+	float ydsq = 0;
 	for (int32_t i = 0; i < this->characterCount; ++i) {
 		if (!$nc(this->textLine)->caretAtOffsetIsValid(i)) {
 			continue;
@@ -1428,7 +1303,7 @@ $TextHitInfo* TextLayout::hitTestChar(float x, float y, $Rectangle2D* bounds) {
 			} else {
 				cy = cm->effectiveBaselineOffset(this->baselineOffsets) + cm->ssOffset;
 			}
-			float dy = ($nc(cm)->descent - cm->ascent) / 2 - cy;
+			float dy = (cm->descent - cm->ascent) / 2 - cy;
 			dya = dy * cm->italicAngle;
 			cy += dy;
 			ydsq = (cy - y) * (cy - y);
@@ -1496,7 +1371,7 @@ int8_t TextLayout::getBaselineFromGraphic($GraphicAttribute* graphic) {
 }
 
 $Shape* TextLayout::getOutline($AffineTransform* tx) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	ensureCache();
 	$var($Shape, result, $nc(this->textLine)->getOutline(tx));
 	$var($LayoutPathImpl, lp, $nc(this->textLine)->getLayoutPath());
@@ -1511,20 +1386,20 @@ $LayoutPath* TextLayout::getLayoutPath() {
 }
 
 void TextLayout::hitToPoint($TextHitInfo* hit, $Point2D* point) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (hit == nullptr || point == nullptr) {
 		$throwNew($NullPointerException, $$str({(hit == nullptr ? "hit"_s : "point"_s), " can\'t be null"_s}));
 	}
 	ensureCache();
 	checkTextHit(hit);
-	float adv = (float)0;
-	float off = (float)0;
+	float adv = 0;
+	float off = 0;
 	int32_t ix = $nc(hit)->getCharIndex();
 	bool leading = hit->isLeadingEdge();
 	bool ltr = false;
 	if (ix == -1 || ix == $nc(this->textLine)->characterCount()) {
 		ltr = $nc(this->textLine)->isDirectionLTR();
-		adv = (ltr == (ix == -1)) ? (float)0 : $nc(this->lineMetrics)->advance;
+		adv = (ltr == (ix == -1)) ? 0 : $nc(this->lineMetrics)->advance;
 	} else {
 		ltr = $nc(this->textLine)->isCharLTR(ix);
 		adv = $nc(this->textLine)->getCharLinePosition(ix, leading);
@@ -1537,7 +1412,7 @@ void TextLayout::hitToPoint($TextHitInfo* hit, $Point2D* point) {
 	}
 }
 
-void clinit$TextLayout($Class* class$) {
+void TextLayout::clinit$($Class* clazz) {
 	TextLayout::ALREADY_JUSTIFIED = -53.9f;
 	$assignStatic(TextLayout::DEFAULT_CARET_POLICY, $new($TextLayout$CaretPolicy));
 }
@@ -1546,7 +1421,122 @@ TextLayout::TextLayout() {
 }
 
 $Class* TextLayout::load$($String* name, bool initialize) {
-	$loadClass(TextLayout, name, initialize, &_TextLayout_ClassInfo_, clinit$TextLayout, allocate$TextLayout);
+	$FieldInfo fieldInfos$$[] = {
+		{"characterCount", "I", nullptr, $PRIVATE, $field(TextLayout, characterCount)},
+		{"isVerticalLine", "Z", nullptr, $PRIVATE, $field(TextLayout, isVerticalLine)},
+		{"baseline", "B", nullptr, $PRIVATE, $field(TextLayout, baseline)},
+		{"baselineOffsets", "[F", nullptr, $PRIVATE, $field(TextLayout, baselineOffsets)},
+		{"textLine", "Ljava/awt/font/TextLine;", nullptr, $PRIVATE, $field(TextLayout, textLine)},
+		{"lineMetrics", "Ljava/awt/font/TextLine$TextLineMetrics;", nullptr, $PRIVATE, $field(TextLayout, lineMetrics)},
+		{"visibleAdvance", "F", nullptr, $PRIVATE, $field(TextLayout, visibleAdvance)},
+		{"cacheIsValid", "Z", nullptr, $PRIVATE, $field(TextLayout, cacheIsValid)},
+		{"justifyRatio", "F", nullptr, $PRIVATE, $field(TextLayout, justifyRatio)},
+		{"ALREADY_JUSTIFIED", "F", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(TextLayout, ALREADY_JUSTIFIED)},
+		{"dx", "F", nullptr, $PRIVATE | $STATIC, $staticField(TextLayout, dx)},
+		{"dy", "F", nullptr, $PRIVATE | $STATIC, $staticField(TextLayout, dy)},
+		{"naturalBounds", "Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $field(TextLayout, naturalBounds)},
+		{"boundsRect", "Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $field(TextLayout, boundsRect)},
+		{"caretsInLigaturesAreAllowed", "Z", nullptr, $PRIVATE, $field(TextLayout, caretsInLigaturesAreAllowed)},
+		{"DEFAULT_CARET_POLICY", "Ljava/awt/font/TextLayout$CaretPolicy;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TextLayout, DEFAULT_CARET_POLICY)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljava/awt/Font;Ljava/awt/font/FontRenderContext;)V", nullptr, $PUBLIC, $method(TextLayout, init$, void, $String*, $Font*, $FontRenderContext*)},
+		{"<init>", "(Ljava/lang/String;Ljava/util/Map;Ljava/awt/font/FontRenderContext;)V", "(Ljava/lang/String;Ljava/util/Map<+Ljava/text/AttributedCharacterIterator$Attribute;*>;Ljava/awt/font/FontRenderContext;)V", $PUBLIC, $method(TextLayout, init$, void, $String*, $Map*, $FontRenderContext*)},
+		{"<init>", "(Ljava/text/AttributedCharacterIterator;Ljava/awt/font/FontRenderContext;)V", nullptr, $PUBLIC, $method(TextLayout, init$, void, $AttributedCharacterIterator*, $FontRenderContext*)},
+		{"<init>", "(Ljava/awt/font/TextLine;B[FF)V", nullptr, 0, $method(TextLayout, init$, void, $TextLine*, int8_t, $floats*, float)},
+		{"boundingShape", "([D[D)Ljava/awt/geom/GeneralPath;", nullptr, $PRIVATE, $method(TextLayout, boundingShape, $GeneralPath*, $doubles*, $doubles*)},
+		{"buildCache", "()V", nullptr, $PRIVATE, $method(TextLayout, buildCache, void)},
+		{"caretBoundingShape", "(IILjava/awt/geom/Rectangle2D;)Ljava/awt/geom/GeneralPath;", nullptr, $PRIVATE, $method(TextLayout, caretBoundingShape, $GeneralPath*, int32_t, int32_t, $Rectangle2D*)},
+		{"caretIsValid", "(I)Z", nullptr, $PRIVATE, $method(TextLayout, caretIsValid, bool, int32_t)},
+		{"caretToHit", "(I)Ljava/awt/font/TextHitInfo;", nullptr, $PRIVATE, $method(TextLayout, caretToHit, $TextHitInfo*, int32_t)},
+		{"caretToPointDistance", "([FFF)F", nullptr, $PRIVATE, $method(TextLayout, caretToPointDistance, float, $floats*, float, float)},
+		{"checkTextHit", "(Ljava/awt/font/TextHitInfo;)V", nullptr, $PRIVATE, $method(TextLayout, checkTextHit, void, $TextHitInfo*)},
+		{"clone", "()Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(TextLayout, clone, $Object*)},
+		{"draw", "(Ljava/awt/Graphics2D;FF)V", nullptr, $PUBLIC, $method(TextLayout, draw, void, $Graphics2D*, float, float)},
+		{"ensureCache", "()V", nullptr, $PRIVATE, $method(TextLayout, ensureCache, void)},
+		{"equals", "(Ljava/awt/font/TextLayout;)Z", nullptr, $PUBLIC, $method(TextLayout, equals, bool, TextLayout*)},
+		{"fastInit", "([CLjava/awt/Font;Ljava/util/Map;Ljava/awt/font/FontRenderContext;)V", "([CLjava/awt/Font;Ljava/util/Map<+Ljava/text/AttributedCharacterIterator$Attribute;*>;Ljava/awt/font/FontRenderContext;)V", $PRIVATE, $method(TextLayout, fastInit, void, $chars*, $Font*, $Map*, $FontRenderContext*)},
+		{"getAdvance", "()F", nullptr, $PUBLIC, $method(TextLayout, getAdvance, float)},
+		{"getAscent", "()F", nullptr, $PUBLIC, $method(TextLayout, getAscent, float)},
+		{"getBaseline", "()B", nullptr, $PUBLIC, $method(TextLayout, getBaseline, int8_t)},
+		{"getBaselineFromGraphic", "(Ljava/awt/font/GraphicAttribute;)B", nullptr, $STATIC, $staticMethod(TextLayout, getBaselineFromGraphic, int8_t, $GraphicAttribute*)},
+		{"getBaselineOffsets", "()[F", nullptr, $PUBLIC, $method(TextLayout, getBaselineOffsets, $floats*)},
+		{"getBlackBoxBounds", "(II)Ljava/awt/Shape;", nullptr, $PUBLIC, $method(TextLayout, getBlackBoxBounds, $Shape*, int32_t, int32_t)},
+		{"getBounds", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC, $method(TextLayout, getBounds, $Rectangle2D*)},
+		{"getCaretInfo", "(ILjava/awt/geom/Rectangle2D;[F)[F", nullptr, $PRIVATE, $method(TextLayout, getCaretInfo, $floats*, int32_t, $Rectangle2D*, $floats*)},
+		{"getCaretInfo", "(Ljava/awt/font/TextHitInfo;Ljava/awt/geom/Rectangle2D;)[F", nullptr, $PUBLIC, $method(TextLayout, getCaretInfo, $floats*, $TextHitInfo*, $Rectangle2D*)},
+		{"getCaretInfo", "(Ljava/awt/font/TextHitInfo;)[F", nullptr, $PUBLIC, $method(TextLayout, getCaretInfo, $floats*, $TextHitInfo*)},
+		{"getCaretInfoTestInternal", "(Ljava/awt/font/TextHitInfo;Ljava/awt/geom/Rectangle2D;)[F", nullptr, $PRIVATE, $method(TextLayout, getCaretInfoTestInternal, $floats*, $TextHitInfo*, $Rectangle2D*)},
+		{"getCaretPath", "(Ljava/awt/font/TextHitInfo;Ljava/awt/geom/Rectangle2D;)[D", nullptr, $PRIVATE, $method(TextLayout, getCaretPath, $doubles*, $TextHitInfo*, $Rectangle2D*)},
+		{"getCaretPath", "(ILjava/awt/geom/Rectangle2D;Z)[D", nullptr, $PRIVATE, $method(TextLayout, getCaretPath, $doubles*, int32_t, $Rectangle2D*, bool)},
+		{"getCaretShape", "(Ljava/awt/font/TextHitInfo;Ljava/awt/geom/Rectangle2D;)Ljava/awt/Shape;", nullptr, $PUBLIC, $method(TextLayout, getCaretShape, $Shape*, $TextHitInfo*, $Rectangle2D*)},
+		{"getCaretShape", "(Ljava/awt/font/TextHitInfo;)Ljava/awt/Shape;", nullptr, $PUBLIC, $method(TextLayout, getCaretShape, $Shape*, $TextHitInfo*)},
+		{"getCaretShapes", "(ILjava/awt/geom/Rectangle2D;Ljava/awt/font/TextLayout$CaretPolicy;)[Ljava/awt/Shape;", nullptr, $PUBLIC, $method(TextLayout, getCaretShapes, $ShapeArray*, int32_t, $Rectangle2D*, $TextLayout$CaretPolicy*)},
+		{"getCaretShapes", "(ILjava/awt/geom/Rectangle2D;)[Ljava/awt/Shape;", nullptr, $PUBLIC, $method(TextLayout, getCaretShapes, $ShapeArray*, int32_t, $Rectangle2D*)},
+		{"getCaretShapes", "(I)[Ljava/awt/Shape;", nullptr, $PUBLIC, $method(TextLayout, getCaretShapes, $ShapeArray*, int32_t)},
+		{"getCharacterCount", "()I", nullptr, $PUBLIC, $method(TextLayout, getCharacterCount, int32_t)},
+		{"getCharacterLevel", "(I)B", nullptr, $PUBLIC, $method(TextLayout, getCharacterLevel, int8_t, int32_t)},
+		{"getDescent", "()F", nullptr, $PUBLIC, $method(TextLayout, getDescent, float)},
+		{"getJustifiedLayout", "(F)Ljava/awt/font/TextLayout;", nullptr, $PUBLIC, $method(TextLayout, getJustifiedLayout, TextLayout*, float)},
+		{"getLayoutPath", "()Ljava/awt/font/LayoutPath;", nullptr, $PUBLIC, $method(TextLayout, getLayoutPath, $LayoutPath*)},
+		{"getLeading", "()F", nullptr, $PUBLIC, $method(TextLayout, getLeading, float)},
+		{"getLogicalHighlightShape", "(IILjava/awt/geom/Rectangle2D;)Ljava/awt/Shape;", nullptr, $PUBLIC, $method(TextLayout, getLogicalHighlightShape, $Shape*, int32_t, int32_t, $Rectangle2D*)},
+		{"getLogicalHighlightShape", "(II)Ljava/awt/Shape;", nullptr, $PUBLIC, $method(TextLayout, getLogicalHighlightShape, $Shape*, int32_t, int32_t)},
+		{"getLogicalRangesForVisualSelection", "(Ljava/awt/font/TextHitInfo;Ljava/awt/font/TextHitInfo;)[I", nullptr, $PUBLIC, $method(TextLayout, getLogicalRangesForVisualSelection, $ints*, $TextHitInfo*, $TextHitInfo*)},
+		{"getNaturalBounds", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(TextLayout, getNaturalBounds, $Rectangle2D*)},
+		{"getNextLeftHit", "(Ljava/awt/font/TextHitInfo;)Ljava/awt/font/TextHitInfo;", nullptr, $PUBLIC, $method(TextLayout, getNextLeftHit, $TextHitInfo*, $TextHitInfo*)},
+		{"getNextLeftHit", "(ILjava/awt/font/TextLayout$CaretPolicy;)Ljava/awt/font/TextHitInfo;", nullptr, $PUBLIC, $method(TextLayout, getNextLeftHit, $TextHitInfo*, int32_t, $TextLayout$CaretPolicy*)},
+		{"getNextLeftHit", "(I)Ljava/awt/font/TextHitInfo;", nullptr, $PUBLIC, $method(TextLayout, getNextLeftHit, $TextHitInfo*, int32_t)},
+		{"getNextRightHit", "(Ljava/awt/font/TextHitInfo;)Ljava/awt/font/TextHitInfo;", nullptr, $PUBLIC, $method(TextLayout, getNextRightHit, $TextHitInfo*, $TextHitInfo*)},
+		{"getNextRightHit", "(ILjava/awt/font/TextLayout$CaretPolicy;)Ljava/awt/font/TextHitInfo;", nullptr, $PUBLIC, $method(TextLayout, getNextRightHit, $TextHitInfo*, int32_t, $TextLayout$CaretPolicy*)},
+		{"getNextRightHit", "(I)Ljava/awt/font/TextHitInfo;", nullptr, $PUBLIC, $method(TextLayout, getNextRightHit, $TextHitInfo*, int32_t)},
+		{"getOutline", "(Ljava/awt/geom/AffineTransform;)Ljava/awt/Shape;", nullptr, $PUBLIC, $method(TextLayout, getOutline, $Shape*, $AffineTransform*)},
+		{"getPixelBounds", "(Ljava/awt/font/FontRenderContext;FF)Ljava/awt/Rectangle;", nullptr, $PUBLIC, $method(TextLayout, getPixelBounds, $Rectangle*, $FontRenderContext*, float, float)},
+		{"getStrongHit", "(Ljava/awt/font/TextHitInfo;Ljava/awt/font/TextHitInfo;)Ljava/awt/font/TextHitInfo;", nullptr, $PRIVATE, $method(TextLayout, getStrongHit, $TextHitInfo*, $TextHitInfo*, $TextHitInfo*)},
+		{"getTextLineForTesting", "()Ljava/awt/font/TextLine;", nullptr, 0, $method(TextLayout, getTextLineForTesting, $TextLine*)},
+		{"getVisibleAdvance", "()F", nullptr, $PUBLIC, $method(TextLayout, getVisibleAdvance, float)},
+		{"getVisualHighlightShape", "(Ljava/awt/font/TextHitInfo;Ljava/awt/font/TextHitInfo;Ljava/awt/geom/Rectangle2D;)Ljava/awt/Shape;", nullptr, $PUBLIC, $method(TextLayout, getVisualHighlightShape, $Shape*, $TextHitInfo*, $TextHitInfo*, $Rectangle2D*)},
+		{"getVisualHighlightShape", "(Ljava/awt/font/TextHitInfo;Ljava/awt/font/TextHitInfo;)Ljava/awt/Shape;", nullptr, $PUBLIC, $method(TextLayout, getVisualHighlightShape, $Shape*, $TextHitInfo*, $TextHitInfo*)},
+		{"getVisualOtherHit", "(Ljava/awt/font/TextHitInfo;)Ljava/awt/font/TextHitInfo;", nullptr, $PUBLIC, $method(TextLayout, getVisualOtherHit, $TextHitInfo*, $TextHitInfo*)},
+		{"handleJustify", "(F)V", nullptr, $PROTECTED, $method(TextLayout, handleJustify, void, float)},
+		{"hitTestChar", "(FFLjava/awt/geom/Rectangle2D;)Ljava/awt/font/TextHitInfo;", nullptr, $PUBLIC, $method(TextLayout, hitTestChar, $TextHitInfo*, float, float, $Rectangle2D*)},
+		{"hitTestChar", "(FF)Ljava/awt/font/TextHitInfo;", nullptr, $PUBLIC, $method(TextLayout, hitTestChar, $TextHitInfo*, float, float)},
+		{"hitToCaret", "(Ljava/awt/font/TextHitInfo;)I", nullptr, $PRIVATE, $method(TextLayout, hitToCaret, int32_t, $TextHitInfo*)},
+		{"hitToPoint", "(Ljava/awt/font/TextHitInfo;Ljava/awt/geom/Point2D;)V", nullptr, $PUBLIC, $method(TextLayout, hitToPoint, void, $TextHitInfo*, $Point2D*)},
+		{"isLeftToRight", "()Z", nullptr, $PUBLIC, $method(TextLayout, isLeftToRight, bool)},
+		{"isVertical", "()Z", nullptr, $PUBLIC, $method(TextLayout, isVertical, bool)},
+		{"leftShape", "(Ljava/awt/geom/Rectangle2D;)Ljava/awt/geom/GeneralPath;", nullptr, $PRIVATE, $method(TextLayout, leftShape, $GeneralPath*, $Rectangle2D*)},
+		{"paragraphInit", "(BLsun/font/CoreMetrics;Ljava/util/Map;[C)V", "(BLsun/font/CoreMetrics;Ljava/util/Map<+Ljava/text/AttributedCharacterIterator$Attribute;*>;[C)V", $PRIVATE, $method(TextLayout, paragraphInit, void, int8_t, $CoreMetrics*, $Map*, $chars*)},
+		{"pathToShape", "([DZLsun/font/LayoutPathImpl;)Ljava/awt/geom/GeneralPath;", nullptr, $PRIVATE | $STATIC, $staticMethod(TextLayout, pathToShape, $GeneralPath*, $doubles*, bool, $LayoutPathImpl*)},
+		{"rightShape", "(Ljava/awt/geom/Rectangle2D;)Ljava/awt/geom/GeneralPath;", nullptr, $PRIVATE, $method(TextLayout, rightShape, $GeneralPath*, $Rectangle2D*)},
+		{"sameBaselineUpTo", "(Ljava/awt/Font;[CII)I", nullptr, $PRIVATE | $STATIC, $staticMethod(TextLayout, sameBaselineUpTo, int32_t, $Font*, $chars*, int32_t, int32_t)},
+		{"singleFont", "([CIILjava/util/Map;)Ljava/awt/Font;", "([CIILjava/util/Map<+Ljava/text/AttributedCharacterIterator$Attribute;*>;)Ljava/awt/Font;", $PRIVATE | $STATIC, $staticMethod(TextLayout, singleFont, $Font*, $chars*, int32_t, int32_t, $Map*)},
+		{"standardInit", "(Ljava/text/AttributedCharacterIterator;[CLjava/awt/font/FontRenderContext;)V", nullptr, $PRIVATE, $method(TextLayout, standardInit, void, $AttributedCharacterIterator*, $chars*, $FontRenderContext*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TextLayout, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.awt.font.TextLayout$CaretPolicy", "java.awt.font.TextLayout", "CaretPolicy", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"java.awt.font.TextLayout",
+		"java.lang.Object",
+		"java.lang.Cloneable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.awt.font.TextLayout$CaretPolicy"
+	};
+	$loadClass(TextLayout, name, initialize, &classInfo$$, TextLayout::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(TextLayout);
+	});
 	return class$;
 }
 

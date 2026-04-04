@@ -1,5 +1,4 @@
 #include <sun/java2d/loops/Blit$GeneralXorBlit.h>
-
 #include <java/awt/Composite.h>
 #include <java/lang/ref/WeakReference.h>
 #include <sun/java2d/SurfaceData.h>
@@ -26,59 +25,6 @@ using $Region = ::sun::java2d::pipe::Region;
 namespace sun {
 	namespace java2d {
 		namespace loops {
-
-$FieldInfo _Blit$GeneralXorBlit_FieldInfo_[] = {
-	{"convertsrc", "Lsun/java2d/loops/Blit;", nullptr, 0, $field(Blit$GeneralXorBlit, convertsrc)},
-	{"convertdst", "Lsun/java2d/loops/Blit;", nullptr, 0, $field(Blit$GeneralXorBlit, convertdst)},
-	{"performop", "Lsun/java2d/loops/Blit;", nullptr, 0, $field(Blit$GeneralXorBlit, performop)},
-	{"convertresult", "Lsun/java2d/loops/Blit;", nullptr, 0, $field(Blit$GeneralXorBlit, convertresult)},
-	{"srcTmp", "Ljava/lang/ref/WeakReference;", "Ljava/lang/ref/WeakReference<Lsun/java2d/SurfaceData;>;", 0, $field(Blit$GeneralXorBlit, srcTmp)},
-	{"dstTmp", "Ljava/lang/ref/WeakReference;", "Ljava/lang/ref/WeakReference<Lsun/java2d/SurfaceData;>;", 0, $field(Blit$GeneralXorBlit, dstTmp)},
-	{}
-};
-
-$MethodInfo _Blit$GeneralXorBlit_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*getCompositeType", "()Lsun/java2d/loops/CompositeType;", nullptr, $PUBLIC | $FINAL},
-	{"*getDestType", "()Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $FINAL},
-	{"*getPrimTypeID", "()I", nullptr, $PUBLIC | $FINAL},
-	{"*getSignature", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL},
-	{"*getSourceType", "()Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $FINAL},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lsun/java2d/loops/SurfaceType;Lsun/java2d/loops/CompositeType;Lsun/java2d/loops/SurfaceType;)V", nullptr, $PUBLIC, $method(Blit$GeneralXorBlit, init$, void, $SurfaceType*, $CompositeType*, $SurfaceType*)},
-	{"Blit", "(Lsun/java2d/SurfaceData;Lsun/java2d/SurfaceData;Ljava/awt/Composite;Lsun/java2d/pipe/Region;IIIIII)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Blit$GeneralXorBlit, Blit$, void, $SurfaceData*, $SurfaceData*, $Composite*, $Region*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"setPrimitives", "(Lsun/java2d/loops/Blit;Lsun/java2d/loops/Blit;Lsun/java2d/loops/GraphicsPrimitive;Lsun/java2d/loops/Blit;)V", nullptr, $PUBLIC, $virtualMethod(Blit$GeneralXorBlit, setPrimitives, void, $Blit*, $Blit*, $GraphicsPrimitive*, $Blit*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _Blit$GeneralXorBlit_InnerClassesInfo_[] = {
-	{"sun.java2d.loops.Blit$GeneralXorBlit", "sun.java2d.loops.Blit", "GeneralXorBlit", $PRIVATE | $STATIC},
-	{"sun.java2d.loops.GraphicsPrimitive$GeneralBinaryOp", "sun.java2d.loops.GraphicsPrimitive", "GeneralBinaryOp", $PROTECTED | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Blit$GeneralXorBlit_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.java2d.loops.Blit$GeneralXorBlit",
-	"sun.java2d.loops.Blit",
-	"sun.java2d.loops.GraphicsPrimitive$GeneralBinaryOp",
-	_Blit$GeneralXorBlit_FieldInfo_,
-	_Blit$GeneralXorBlit_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Blit$GeneralXorBlit_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.java2d.loops.Blit"
-};
-
-$Object* allocate$Blit$GeneralXorBlit($Class* clazz) {
-	return $of($alloc(Blit$GeneralXorBlit));
-}
 
 $String* Blit$GeneralXorBlit::getSignature() {
 	 return this->$Blit::getSignature();
@@ -133,7 +79,7 @@ void Blit$GeneralXorBlit::setPrimitives($Blit* srcconverter, $Blit* dstconverter
 
 void Blit$GeneralXorBlit::Blit$($SurfaceData* srcData, $SurfaceData* dstData, $Composite* comp, $Region* clip, int32_t srcx, int32_t srcy, int32_t dstx, int32_t dsty, int32_t width, int32_t height) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$var($SurfaceData, src, nullptr);
 		$var($SurfaceData, dst, nullptr);
 		$var($Region, opclip, nullptr);
@@ -148,7 +94,7 @@ void Blit$GeneralXorBlit::Blit$($SurfaceData* srcData, $SurfaceData* dstData, $C
 		} else {
 			$var($SurfaceData, cachedSrc, nullptr);
 			if (this->srcTmp != nullptr) {
-				$assign(cachedSrc, $cast($SurfaceData, $nc(this->srcTmp)->get()));
+				$assign(cachedSrc, $cast($SurfaceData, this->srcTmp->get()));
 			}
 			$assign(src, convertFrom(this->convertsrc, srcData, srcx, srcy, width, height, cachedSrc));
 			sx = 0;
@@ -165,7 +111,7 @@ void Blit$GeneralXorBlit::Blit$($SurfaceData* srcData, $SurfaceData* dstData, $C
 		} else {
 			$var($SurfaceData, cachedDst, nullptr);
 			if (this->dstTmp != nullptr) {
-				$assign(cachedDst, $cast($SurfaceData, $nc(this->dstTmp)->get()));
+				$assign(cachedDst, $cast($SurfaceData, this->dstTmp->get()));
 			}
 			$assign(dst, convertFrom(this->convertdst, dstData, dstx, dsty, width, height, cachedDst));
 			dx = 0;
@@ -186,7 +132,54 @@ Blit$GeneralXorBlit::Blit$GeneralXorBlit() {
 }
 
 $Class* Blit$GeneralXorBlit::load$($String* name, bool initialize) {
-	$loadClass(Blit$GeneralXorBlit, name, initialize, &_Blit$GeneralXorBlit_ClassInfo_, allocate$Blit$GeneralXorBlit);
+	$FieldInfo fieldInfos$$[] = {
+		{"convertsrc", "Lsun/java2d/loops/Blit;", nullptr, 0, $field(Blit$GeneralXorBlit, convertsrc)},
+		{"convertdst", "Lsun/java2d/loops/Blit;", nullptr, 0, $field(Blit$GeneralXorBlit, convertdst)},
+		{"performop", "Lsun/java2d/loops/Blit;", nullptr, 0, $field(Blit$GeneralXorBlit, performop)},
+		{"convertresult", "Lsun/java2d/loops/Blit;", nullptr, 0, $field(Blit$GeneralXorBlit, convertresult)},
+		{"srcTmp", "Ljava/lang/ref/WeakReference;", "Ljava/lang/ref/WeakReference<Lsun/java2d/SurfaceData;>;", 0, $field(Blit$GeneralXorBlit, srcTmp)},
+		{"dstTmp", "Ljava/lang/ref/WeakReference;", "Ljava/lang/ref/WeakReference<Lsun/java2d/SurfaceData;>;", 0, $field(Blit$GeneralXorBlit, dstTmp)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*getCompositeType", "()Lsun/java2d/loops/CompositeType;", nullptr, $PUBLIC | $FINAL},
+		{"*getDestType", "()Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $FINAL},
+		{"*getPrimTypeID", "()I", nullptr, $PUBLIC | $FINAL},
+		{"*getSignature", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL},
+		{"*getSourceType", "()Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $FINAL},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lsun/java2d/loops/SurfaceType;Lsun/java2d/loops/CompositeType;Lsun/java2d/loops/SurfaceType;)V", nullptr, $PUBLIC, $method(Blit$GeneralXorBlit, init$, void, $SurfaceType*, $CompositeType*, $SurfaceType*)},
+		{"Blit", "(Lsun/java2d/SurfaceData;Lsun/java2d/SurfaceData;Ljava/awt/Composite;Lsun/java2d/pipe/Region;IIIIII)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Blit$GeneralXorBlit, Blit$, void, $SurfaceData*, $SurfaceData*, $Composite*, $Region*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"setPrimitives", "(Lsun/java2d/loops/Blit;Lsun/java2d/loops/Blit;Lsun/java2d/loops/GraphicsPrimitive;Lsun/java2d/loops/Blit;)V", nullptr, $PUBLIC, $virtualMethod(Blit$GeneralXorBlit, setPrimitives, void, $Blit*, $Blit*, $GraphicsPrimitive*, $Blit*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.java2d.loops.Blit$GeneralXorBlit", "sun.java2d.loops.Blit", "GeneralXorBlit", $PRIVATE | $STATIC},
+		{"sun.java2d.loops.GraphicsPrimitive$GeneralBinaryOp", "sun.java2d.loops.GraphicsPrimitive", "GeneralBinaryOp", $PROTECTED | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.java2d.loops.Blit$GeneralXorBlit",
+		"sun.java2d.loops.Blit",
+		"sun.java2d.loops.GraphicsPrimitive$GeneralBinaryOp",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.java2d.loops.Blit"
+	};
+	$loadClass(Blit$GeneralXorBlit, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Blit$GeneralXorBlit));
+	});
 	return class$;
 }
 

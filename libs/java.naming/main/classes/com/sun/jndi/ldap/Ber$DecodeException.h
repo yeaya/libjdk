@@ -15,10 +15,13 @@ class Ber$DecodeException : public ::java::io::IOException {
 public:
 	Ber$DecodeException();
 	void init$($String* msg);
-	static const int64_t serialVersionUID = (int64_t)0x793915D7E3B7FD6F;
+	static const int64_t serialVersionUID = (int64_t)0x793915d7e3b7fd6f;
 	Ber$DecodeException(const Ber$DecodeException& e);
 	virtual void throw$() override;
-	inline Ber$DecodeException* operator ->() {
+	inline Ber$DecodeException* operator ->() const {
+		return (Ber$DecodeException*)throwing$;
+	}
+	inline operator Ber$DecodeException*() const {
 		return (Ber$DecodeException*)throwing$;
 	}
 };

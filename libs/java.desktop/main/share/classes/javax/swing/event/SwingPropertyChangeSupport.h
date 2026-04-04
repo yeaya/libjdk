@@ -24,7 +24,7 @@ public:
 	void init$(Object$* sourceBean, bool notifyOnEDT);
 	virtual void firePropertyChange(::java::beans::PropertyChangeEvent* evt) override;
 	bool isNotifyOnEDT();
-	static const int64_t serialVersionUID = (int64_t)0x6366C23E8F83118C;
+	static const int64_t serialVersionUID = (int64_t)0x6366c23e8f83118c;
 	bool notifyOnEDT = false;
 };
 

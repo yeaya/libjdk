@@ -1,5 +1,4 @@
 #include <sun/nio/cs/ext/SJIS_0213$Decoder.h>
-
 #include <java/nio/ByteBuffer.h>
 #include <java/nio/CharBuffer.h>
 #include <java/nio/charset/Charset.h>
@@ -25,7 +24,6 @@ using $CharBuffer = ::java::nio::CharBuffer;
 using $Charset = ::java::nio::charset::Charset;
 using $CharsetDecoder = ::java::nio::charset::CharsetDecoder;
 using $CoderResult = ::java::nio::charset::CoderResult;
-using $CharsetMapping = ::sun::nio::cs::CharsetMapping;
 using $CharsetMapping$Entry = ::sun::nio::cs::CharsetMapping$Entry;
 using $SJIS_0213$Holder = ::sun::nio::cs::ext::SJIS_0213$Holder;
 
@@ -34,49 +32,6 @@ namespace sun {
 		namespace cs {
 			namespace ext {
 
-$FieldInfo _SJIS_0213$Decoder_FieldInfo_[] = {
-	{"UNMAPPABLE", "C", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(SJIS_0213$Decoder, UNMAPPABLE)},
-	{"cc", "[C", nullptr, $PRIVATE, $field(SJIS_0213$Decoder, cc)},
-	{"comp", "Lsun/nio/cs/CharsetMapping$Entry;", nullptr, $PRIVATE, $field(SJIS_0213$Decoder, comp)},
-	{}
-};
-
-$MethodInfo _SJIS_0213$Decoder_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/charset/Charset;)V", nullptr, $PROTECTED, $method(SJIS_0213$Decoder, init$, void, $Charset*)},
-	{"decodeArrayLoop", "(Ljava/nio/ByteBuffer;Ljava/nio/CharBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PRIVATE, $method(SJIS_0213$Decoder, decodeArrayLoop, $CoderResult*, $ByteBuffer*, $CharBuffer*)},
-	{"decodeBufferLoop", "(Ljava/nio/ByteBuffer;Ljava/nio/CharBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PRIVATE, $method(SJIS_0213$Decoder, decodeBufferLoop, $CoderResult*, $ByteBuffer*, $CharBuffer*)},
-	{"decodeDouble", "(II)C", nullptr, $PROTECTED, $virtualMethod(SJIS_0213$Decoder, decodeDouble, char16_t, int32_t, int32_t)},
-	{"decodeDoubleEx", "(II)[C", nullptr, $PROTECTED, $virtualMethod(SJIS_0213$Decoder, decodeDoubleEx, $chars*, int32_t, int32_t)},
-	{"decodeLoop", "(Ljava/nio/ByteBuffer;Ljava/nio/CharBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PROTECTED, $virtualMethod(SJIS_0213$Decoder, decodeLoop, $CoderResult*, $ByteBuffer*, $CharBuffer*)},
-	{"decodeSingle", "(I)C", nullptr, $PROTECTED, $virtualMethod(SJIS_0213$Decoder, decodeSingle, char16_t, int32_t)},
-	{}
-};
-
-$InnerClassInfo _SJIS_0213$Decoder_InnerClassesInfo_[] = {
-	{"sun.nio.cs.ext.SJIS_0213$Decoder", "sun.nio.cs.ext.SJIS_0213", "Decoder", $PROTECTED | $STATIC},
-	{}
-};
-
-$ClassInfo _SJIS_0213$Decoder_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.nio.cs.ext.SJIS_0213$Decoder",
-	"java.nio.charset.CharsetDecoder",
-	nullptr,
-	_SJIS_0213$Decoder_FieldInfo_,
-	_SJIS_0213$Decoder_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SJIS_0213$Decoder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.nio.cs.ext.SJIS_0213"
-};
-
-$Object* allocate$SJIS_0213$Decoder($Class* clazz) {
-	return $of($alloc(SJIS_0213$Decoder));
-}
-
 void SJIS_0213$Decoder::init$($Charset* cs) {
 	$CharsetDecoder::init$(cs, 0.5f, 1.0f);
 	$set(this, cc, $new($chars, 2));
@@ -84,7 +39,7 @@ void SJIS_0213$Decoder::init$($Charset* cs) {
 }
 
 $CoderResult* SJIS_0213$Decoder::decodeArrayLoop($ByteBuffer* src, $CharBuffer* dst) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, sa, $cast($bytes, $nc(src)->array()));
 	int32_t var$0 = src->arrayOffset();
 	int32_t sp = var$0 + src->position();
@@ -95,146 +50,142 @@ $CoderResult* SJIS_0213$Decoder::decodeArrayLoop($ByteBuffer* src, $CharBuffer* 
 	int32_t dp = var$2 + dst->position();
 	int32_t var$3 = dst->arrayOffset();
 	int32_t dl = var$3 + dst->limit();
-	{
-		$var($Throwable, var$4, nullptr);
-		$var($CoderResult, var$6, nullptr);
-		bool return$5 = false;
-		try {
-			while (sp < sl) {
-				int32_t b1 = (int32_t)($nc(sa)->get(sp) & (uint32_t)255);
-				char16_t c = decodeSingle(b1);
-				int32_t inSize = 1;
-				int32_t outSize = 1;
-				$var($chars, cc, nullptr);
-				if (c == SJIS_0213$Decoder::UNMAPPABLE) {
-					if (sl - sp < 2) {
-						$init($CoderResult);
-						$assign(var$6, $CoderResult::UNDERFLOW);
-						return$5 = true;
-						goto $finally;
-					}
-					int32_t b2 = (int32_t)(sa->get(sp + 1) & (uint32_t)255);
-					c = decodeDouble(b1, b2);
-					++inSize;
-					if (c == SJIS_0213$Decoder::UNMAPPABLE) {
-						$assign(cc, decodeDoubleEx(b1, b2));
-						if (cc == nullptr) {
-							if (decodeSingle(b2) == SJIS_0213$Decoder::UNMAPPABLE) {
-								$assign(var$6, $CoderResult::unmappableForLength(2));
-								return$5 = true;
-								goto $finally;
-							} else {
-								$assign(var$6, $CoderResult::unmappableForLength(1));
-								return$5 = true;
-								goto $finally;
-							}
-						}
-						++outSize;
-					}
-				}
-				if (dl - dp < outSize) {
+	$var($Throwable, var$4, nullptr);
+	$var($CoderResult, var$6, nullptr);
+	bool return$5 = false;
+	try {
+		while (sp < sl) {
+			int32_t b1 = $nc(sa)->get(sp) & 0xff;
+			char16_t c = decodeSingle(b1);
+			int32_t inSize = 1;
+			int32_t outSize = 1;
+			$var($chars, cc, nullptr);
+			if (c == SJIS_0213$Decoder::UNMAPPABLE) {
+				if (sl - sp < 2) {
 					$init($CoderResult);
-					$assign(var$6, $CoderResult::OVERFLOW);
+					$assign(var$6, $CoderResult::UNDERFLOW);
 					return$5 = true;
 					goto $finally;
 				}
-				if (outSize == 2) {
-					$nc(da)->set(dp++, $nc(cc)->get(0));
-					da->set(dp++, cc->get(1));
-				} else {
-					$nc(da)->set(dp++, c);
+				int32_t b2 = sa->get(sp + 1) & 0xff;
+				c = decodeDouble(b1, b2);
+				++inSize;
+				if (c == SJIS_0213$Decoder::UNMAPPABLE) {
+					$assign(cc, decodeDoubleEx(b1, b2));
+					if (cc == nullptr) {
+						if (decodeSingle(b2) == SJIS_0213$Decoder::UNMAPPABLE) {
+							$assign(var$6, $CoderResult::unmappableForLength(2));
+							return$5 = true;
+							goto $finally;
+						} else {
+							$assign(var$6, $CoderResult::unmappableForLength(1));
+							return$5 = true;
+							goto $finally;
+						}
+					}
+					++outSize;
 				}
-				sp += inSize;
 			}
-			$init($CoderResult);
-			$assign(var$6, $CoderResult::UNDERFLOW);
-			return$5 = true;
-			goto $finally;
-		} catch ($Throwable& var$7) {
-			$assign(var$4, var$7);
-		} $finally: {
-			src->position(sp - src->arrayOffset());
-			dst->position(dp - dst->arrayOffset());
+			if (dl - dp < outSize) {
+				$init($CoderResult);
+				$assign(var$6, $CoderResult::OVERFLOW);
+				return$5 = true;
+				goto $finally;
+			}
+			if (outSize == 2) {
+				$nc(da)->set(dp++, $nc(cc)->get(0));
+				da->set(dp++, cc->get(1));
+			} else {
+				$nc(da)->set(dp++, c);
+			}
+			sp += inSize;
 		}
-		if (var$4 != nullptr) {
-			$throw(var$4);
-		}
-		if (return$5) {
-			return var$6;
-		}
+		$init($CoderResult);
+		$assign(var$6, $CoderResult::UNDERFLOW);
+		return$5 = true;
+		goto $finally;
+	} catch ($Throwable& var$7) {
+		$assign(var$4, var$7);
+	} $finally: {
+		src->position(sp - src->arrayOffset());
+		dst->position(dp - dst->arrayOffset());
+	}
+	if (var$4 != nullptr) {
+		$throw(var$4);
+	}
+	if (return$5) {
+		return var$6;
 	}
 	$shouldNotReachHere();
 }
 
 $CoderResult* SJIS_0213$Decoder::decodeBufferLoop($ByteBuffer* src, $CharBuffer* dst) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t mark = $nc(src)->position();
-	{
-		$var($Throwable, var$0, nullptr);
-		$var($CoderResult, var$2, nullptr);
-		bool return$1 = false;
-		try {
-			while (src->hasRemaining()) {
-				$var($chars, cc, nullptr);
-				int32_t b1 = (int32_t)(src->get() & (uint32_t)255);
-				char16_t c = decodeSingle(b1);
-				int32_t inSize = 1;
-				int32_t outSize = 1;
-				if (c == SJIS_0213$Decoder::UNMAPPABLE) {
-					if (src->remaining() < 1) {
-						$init($CoderResult);
-						$assign(var$2, $CoderResult::UNDERFLOW);
-						return$1 = true;
-						goto $finally;
-					}
-					int32_t b2 = (int32_t)(src->get() & (uint32_t)255);
-					++inSize;
-					c = decodeDouble(b1, b2);
-					if (c == SJIS_0213$Decoder::UNMAPPABLE) {
-						$assign(cc, decodeDoubleEx(b1, b2));
-						if (cc == nullptr) {
-							if (decodeSingle(b2) == SJIS_0213$Decoder::UNMAPPABLE) {
-								$assign(var$2, $CoderResult::unmappableForLength(2));
-								return$1 = true;
-								goto $finally;
-							} else {
-								$assign(var$2, $CoderResult::unmappableForLength(1));
-								return$1 = true;
-								goto $finally;
-							}
-						}
-						++outSize;
-					}
-				}
-				if ($nc(dst)->remaining() < outSize) {
+	$var($Throwable, var$0, nullptr);
+	$var($CoderResult, var$2, nullptr);
+	bool return$1 = false;
+	try {
+		while (src->hasRemaining()) {
+			$var($chars, cc, nullptr);
+			int32_t b1 = src->get() & 0xff;
+			char16_t c = decodeSingle(b1);
+			int32_t inSize = 1;
+			int32_t outSize = 1;
+			if (c == SJIS_0213$Decoder::UNMAPPABLE) {
+				if (src->remaining() < 1) {
 					$init($CoderResult);
-					$assign(var$2, $CoderResult::OVERFLOW);
+					$assign(var$2, $CoderResult::UNDERFLOW);
 					return$1 = true;
 					goto $finally;
 				}
-				if (outSize == 2) {
-					$nc(dst)->put($nc(cc)->get(0));
-					dst->put($nc(cc)->get(1));
-				} else {
-					$nc(dst)->put(c);
+				int32_t b2 = src->get() & 0xff;
+				++inSize;
+				c = decodeDouble(b1, b2);
+				if (c == SJIS_0213$Decoder::UNMAPPABLE) {
+					$assign(cc, decodeDoubleEx(b1, b2));
+					if (cc == nullptr) {
+						if (decodeSingle(b2) == SJIS_0213$Decoder::UNMAPPABLE) {
+							$assign(var$2, $CoderResult::unmappableForLength(2));
+							return$1 = true;
+							goto $finally;
+						} else {
+							$assign(var$2, $CoderResult::unmappableForLength(1));
+							return$1 = true;
+							goto $finally;
+						}
+					}
+					++outSize;
 				}
-				mark += inSize;
 			}
-			$init($CoderResult);
-			$assign(var$2, $CoderResult::UNDERFLOW);
-			return$1 = true;
-			goto $finally;
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			src->position(mark);
+			if ($nc(dst)->remaining() < outSize) {
+				$init($CoderResult);
+				$assign(var$2, $CoderResult::OVERFLOW);
+				return$1 = true;
+				goto $finally;
+			}
+			if (outSize == 2) {
+				dst->put($nc(cc)->get(0));
+				dst->put(cc->get(1));
+			} else {
+				dst->put(c);
+			}
+			mark += inSize;
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+		$init($CoderResult);
+		$assign(var$2, $CoderResult::UNDERFLOW);
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		src->position(mark);
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
@@ -265,7 +216,7 @@ $chars* SJIS_0213$Decoder::decodeDoubleEx(int32_t b1, int32_t b2) {
 		return this->cc;
 	}
 	$nc(this->comp)->bs = db;
-	if ($nc($SJIS_0213$Holder::mapping)->decodeComposite(this->comp, this->cc) != nullptr) {
+	if ($SJIS_0213$Holder::mapping->decodeComposite(this->comp, this->cc) != nullptr) {
 		return this->cc;
 	}
 	return nullptr;
@@ -275,7 +226,44 @@ SJIS_0213$Decoder::SJIS_0213$Decoder() {
 }
 
 $Class* SJIS_0213$Decoder::load$($String* name, bool initialize) {
-	$loadClass(SJIS_0213$Decoder, name, initialize, &_SJIS_0213$Decoder_ClassInfo_, allocate$SJIS_0213$Decoder);
+	$FieldInfo fieldInfos$$[] = {
+		{"UNMAPPABLE", "C", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(SJIS_0213$Decoder, UNMAPPABLE)},
+		{"cc", "[C", nullptr, $PRIVATE, $field(SJIS_0213$Decoder, cc)},
+		{"comp", "Lsun/nio/cs/CharsetMapping$Entry;", nullptr, $PRIVATE, $field(SJIS_0213$Decoder, comp)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/nio/charset/Charset;)V", nullptr, $PROTECTED, $method(SJIS_0213$Decoder, init$, void, $Charset*)},
+		{"decodeArrayLoop", "(Ljava/nio/ByteBuffer;Ljava/nio/CharBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PRIVATE, $method(SJIS_0213$Decoder, decodeArrayLoop, $CoderResult*, $ByteBuffer*, $CharBuffer*)},
+		{"decodeBufferLoop", "(Ljava/nio/ByteBuffer;Ljava/nio/CharBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PRIVATE, $method(SJIS_0213$Decoder, decodeBufferLoop, $CoderResult*, $ByteBuffer*, $CharBuffer*)},
+		{"decodeDouble", "(II)C", nullptr, $PROTECTED, $virtualMethod(SJIS_0213$Decoder, decodeDouble, char16_t, int32_t, int32_t)},
+		{"decodeDoubleEx", "(II)[C", nullptr, $PROTECTED, $virtualMethod(SJIS_0213$Decoder, decodeDoubleEx, $chars*, int32_t, int32_t)},
+		{"decodeLoop", "(Ljava/nio/ByteBuffer;Ljava/nio/CharBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PROTECTED, $virtualMethod(SJIS_0213$Decoder, decodeLoop, $CoderResult*, $ByteBuffer*, $CharBuffer*)},
+		{"decodeSingle", "(I)C", nullptr, $PROTECTED, $virtualMethod(SJIS_0213$Decoder, decodeSingle, char16_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.cs.ext.SJIS_0213$Decoder", "sun.nio.cs.ext.SJIS_0213", "Decoder", $PROTECTED | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.nio.cs.ext.SJIS_0213$Decoder",
+		"java.nio.charset.CharsetDecoder",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.nio.cs.ext.SJIS_0213"
+	};
+	$loadClass(SJIS_0213$Decoder, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SJIS_0213$Decoder);
+	});
 	return class$;
 }
 

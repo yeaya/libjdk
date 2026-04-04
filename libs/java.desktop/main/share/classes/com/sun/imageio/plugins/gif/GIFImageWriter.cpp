@@ -1,5 +1,4 @@
 #include <com/sun/imageio/plugins/gif/GIFImageWriter.h>
-
 #include <com/sun/imageio/plugins/common/LZWCompressor.h>
 #include <com/sun/imageio/plugins/common/PaletteBuilder.h>
 #include <com/sun/imageio/plugins/gif/GIFImageMetadata.h>
@@ -37,7 +36,6 @@
 #include <javax/imageio/metadata/IIOMetadata.h>
 #include <javax/imageio/metadata/IIOMetadataFormatImpl.h>
 #include <javax/imageio/metadata/IIOMetadataNode.h>
-#include <javax/imageio/spi/ImageWriterSpi.h>
 #include <javax/imageio/stream/ImageOutputStream.h>
 #include <org/w3c/dom/Node.h>
 #include <org/w3c/dom/NodeList.h>
@@ -83,7 +81,6 @@ using $UnsupportedOperationException = ::java::lang::UnsupportedOperationExcepti
 using $ByteOrder = ::java::nio::ByteOrder;
 using $Arrays = ::java::util::Arrays;
 using $Iterator = ::java::util::Iterator;
-using $List = ::java::util::List;
 using $IIOException = ::javax::imageio::IIOException;
 using $IIOImage = ::javax::imageio::IIOImage;
 using $ImageTypeSpecifier = ::javax::imageio::ImageTypeSpecifier;
@@ -93,7 +90,6 @@ using $IIOInvalidTreeException = ::javax::imageio::metadata::IIOInvalidTreeExcep
 using $IIOMetadata = ::javax::imageio::metadata::IIOMetadata;
 using $IIOMetadataFormatImpl = ::javax::imageio::metadata::IIOMetadataFormatImpl;
 using $IIOMetadataNode = ::javax::imageio::metadata::IIOMetadataNode;
-using $ImageWriterSpi = ::javax::imageio::spi::ImageWriterSpi;
 using $ImageOutputStream = ::javax::imageio::stream::ImageOutputStream;
 using $Node = ::org::w3c::dom::Node;
 using $NodeList = ::org::w3c::dom::NodeList;
@@ -105,138 +101,54 @@ namespace com {
 			namespace plugins {
 				namespace gif {
 
-$FieldInfo _GIFImageWriter_FieldInfo_[] = {
-	{"DEBUG", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(GIFImageWriter, DEBUG)},
-	{"STANDARD_METADATA_NAME", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(GIFImageWriter, STANDARD_METADATA_NAME)},
-	{"STREAM_METADATA_NAME", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(GIFImageWriter, STREAM_METADATA_NAME)},
-	{"IMAGE_METADATA_NAME", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(GIFImageWriter, IMAGE_METADATA_NAME)},
-	{"stream", "Ljavax/imageio/stream/ImageOutputStream;", nullptr, $PRIVATE, $field(GIFImageWriter, stream)},
-	{"isWritingSequence", "Z", nullptr, $PRIVATE, $field(GIFImageWriter, isWritingSequence)},
-	{"wroteSequenceHeader", "Z", nullptr, $PRIVATE, $field(GIFImageWriter, wroteSequenceHeader)},
-	{"theStreamMetadata", "Lcom/sun/imageio/plugins/gif/GIFWritableStreamMetadata;", nullptr, $PRIVATE, $field(GIFImageWriter, theStreamMetadata)},
-	{"imageIndex", "I", nullptr, $PRIVATE, $field(GIFImageWriter, imageIndex)},
-	{}
-};
-
-$MethodInfo _GIFImageWriter_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/imageio/plugins/gif/GIFImageWriterSpi;)V", nullptr, $PUBLIC, $method(GIFImageWriter, init$, void, $GIFImageWriterSpi*)},
-	{"canWriteSequence", "()Z", nullptr, $PUBLIC, $virtualMethod(GIFImageWriter, canWriteSequence, bool)},
-	{"computeRegions", "(Ljava/awt/Rectangle;Ljava/awt/Dimension;Ljavax/imageio/ImageWriteParam;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(GIFImageWriter, computeRegions, void, $Rectangle*, $Dimension*, $ImageWriteParam*)},
-	{"convertImageMetadata", "(Ljavax/imageio/metadata/IIOMetadata;Ljavax/imageio/ImageTypeSpecifier;Ljavax/imageio/ImageWriteParam;)Ljavax/imageio/metadata/IIOMetadata;", nullptr, $PUBLIC, $virtualMethod(GIFImageWriter, convertImageMetadata, $IIOMetadata*, $IIOMetadata*, $ImageTypeSpecifier*, $ImageWriteParam*)},
-	{"convertMetadata", "(Ljava/lang/String;Ljavax/imageio/metadata/IIOMetadata;Ljavax/imageio/metadata/IIOMetadata;)V", nullptr, $PRIVATE, $method(GIFImageWriter, convertMetadata, void, $String*, $IIOMetadata*, $IIOMetadata*)},
-	{"convertStreamMetadata", "(Ljavax/imageio/metadata/IIOMetadata;Ljavax/imageio/ImageWriteParam;)Ljavax/imageio/metadata/IIOMetadata;", nullptr, $PUBLIC, $virtualMethod(GIFImageWriter, convertStreamMetadata, $IIOMetadata*, $IIOMetadata*, $ImageWriteParam*)},
-	{"createColorTable", "(Ljava/awt/image/ColorModel;Ljava/awt/image/SampleModel;)[B", nullptr, $PRIVATE | $STATIC, $staticMethod(GIFImageWriter, createColorTable, $bytes*, $ColorModel*, $SampleModel*)},
-	{"endWriteSequence", "()V", nullptr, $PUBLIC, $virtualMethod(GIFImageWriter, endWriteSequence, void), "java.io.IOException"},
-	{"getDefaultImageMetadata", "(Ljavax/imageio/ImageTypeSpecifier;Ljavax/imageio/ImageWriteParam;)Ljavax/imageio/metadata/IIOMetadata;", nullptr, $PUBLIC, $virtualMethod(GIFImageWriter, getDefaultImageMetadata, $IIOMetadata*, $ImageTypeSpecifier*, $ImageWriteParam*)},
-	{"getDefaultStreamMetadata", "(Ljavax/imageio/ImageWriteParam;)Ljavax/imageio/metadata/IIOMetadata;", nullptr, $PUBLIC, $virtualMethod(GIFImageWriter, getDefaultStreamMetadata, $IIOMetadata*, $ImageWriteParam*)},
-	{"getDefaultWriteParam", "()Ljavax/imageio/ImageWriteParam;", nullptr, $PUBLIC, $virtualMethod(GIFImageWriter, getDefaultWriteParam, $ImageWriteParam*)},
-	{"getGifPaletteSize", "(I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(GIFImageWriter, getGifPaletteSize, int32_t, int32_t)},
-	{"getNumBits", "(I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(GIFImageWriter, getNumBits, int32_t, int32_t), "java.io.IOException"},
-	{"needToCreateIndex", "(Ljava/awt/image/RenderedImage;)Z", nullptr, $PRIVATE, $method(GIFImageWriter, needToCreateIndex, bool, $RenderedImage*)},
-	{"prepareWriteSequence", "(Ljavax/imageio/metadata/IIOMetadata;)V", nullptr, $PUBLIC, $virtualMethod(GIFImageWriter, prepareWriteSequence, void, $IIOMetadata*), "java.io.IOException"},
-	{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(GIFImageWriter, reset, void)},
-	{"resetLocal", "()V", nullptr, $PRIVATE, $method(GIFImageWriter, resetLocal, void)},
-	{"setOutput", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(GIFImageWriter, setOutput, void, Object$*)},
-	{"write", "(Ljavax/imageio/metadata/IIOMetadata;Ljavax/imageio/IIOImage;Ljavax/imageio/ImageWriteParam;)V", nullptr, $PUBLIC, $virtualMethod(GIFImageWriter, write, void, $IIOMetadata*, $IIOImage*, $ImageWriteParam*), "java.io.IOException"},
-	{"write", "(ZZLjavax/imageio/metadata/IIOMetadata;Ljavax/imageio/IIOImage;Ljavax/imageio/ImageWriteParam;)V", nullptr, $PRIVATE, $method(GIFImageWriter, write, void, bool, bool, $IIOMetadata*, $IIOImage*, $ImageWriteParam*), "java.io.IOException"},
-	{"writeApplicationExtension", "(Lcom/sun/imageio/plugins/gif/GIFWritableImageMetadata;)V", nullptr, $PRIVATE, $method(GIFImageWriter, writeApplicationExtension, void, $GIFWritableImageMetadata*), "java.io.IOException"},
-	{"writeBlocks", "([B)V", nullptr, $PRIVATE, $method(GIFImageWriter, writeBlocks, void, $bytes*), "java.io.IOException"},
-	{"writeCommentExtension", "(Lcom/sun/imageio/plugins/gif/GIFWritableImageMetadata;)V", nullptr, $PRIVATE, $method(GIFImageWriter, writeCommentExtension, void, $GIFWritableImageMetadata*), "java.io.IOException"},
-	{"writeGraphicControlExtension", "(IZZII)V", nullptr, $PRIVATE, $method(GIFImageWriter, writeGraphicControlExtension, void, int32_t, bool, bool, int32_t, int32_t), "java.io.IOException"},
-	{"writeGraphicControlExtension", "(Lcom/sun/imageio/plugins/gif/GIFWritableImageMetadata;)V", nullptr, $PRIVATE, $method(GIFImageWriter, writeGraphicControlExtension, void, $GIFWritableImageMetadata*), "java.io.IOException"},
-	{"writeHeader", "(Ljava/lang/String;IIIIIZI[B)V", nullptr, $PRIVATE, $method(GIFImageWriter, writeHeader, void, $String*, int32_t, int32_t, int32_t, int32_t, int32_t, bool, int32_t, $bytes*), "java.io.IOException"},
-	{"writeHeader", "(Ljavax/imageio/metadata/IIOMetadata;I)V", nullptr, $PRIVATE, $method(GIFImageWriter, writeHeader, void, $IIOMetadata*, int32_t), "java.io.IOException"},
-	{"writeImage", "(Ljava/awt/image/RenderedImage;Lcom/sun/imageio/plugins/gif/GIFWritableImageMetadata;Ljavax/imageio/ImageWriteParam;[BLjava/awt/Rectangle;Ljava/awt/Dimension;)V", nullptr, $PRIVATE, $method(GIFImageWriter, writeImage, void, $RenderedImage*, $GIFWritableImageMetadata*, $ImageWriteParam*, $bytes*, $Rectangle*, $Dimension*), "java.io.IOException"},
-	{"writeImageDescriptor", "(IIIIZZI[B)V", nullptr, $PRIVATE, $method(GIFImageWriter, writeImageDescriptor, void, int32_t, int32_t, int32_t, int32_t, bool, bool, int32_t, $bytes*), "java.io.IOException"},
-	{"writeImageDescriptor", "(Lcom/sun/imageio/plugins/gif/GIFWritableImageMetadata;I)V", nullptr, $PRIVATE, $method(GIFImageWriter, writeImageDescriptor, void, $GIFWritableImageMetadata*, int32_t), "java.io.IOException"},
-	{"writePlainTextExtension", "(Lcom/sun/imageio/plugins/gif/GIFWritableImageMetadata;)V", nullptr, $PRIVATE, $method(GIFImageWriter, writePlainTextExtension, void, $GIFWritableImageMetadata*), "java.io.IOException"},
-	{"writeRasterData", "(Ljava/awt/image/RenderedImage;Ljava/awt/Rectangle;Ljava/awt/Dimension;Ljavax/imageio/ImageWriteParam;Z)V", nullptr, $PRIVATE, $method(GIFImageWriter, writeRasterData, void, $RenderedImage*, $Rectangle*, $Dimension*, $ImageWriteParam*, bool), "java.io.IOException"},
-	{"writeRows", "(Ljava/awt/image/RenderedImage;Lcom/sun/imageio/plugins/common/LZWCompressor;IIIIIIIIIII)V", nullptr, $PRIVATE, $method(GIFImageWriter, writeRows, void, $RenderedImage*, $LZWCompressor*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t), "java.io.IOException"},
-	{"writeRowsOpt", "([BIILcom/sun/imageio/plugins/common/LZWCompressor;IIIIII)V", nullptr, $PRIVATE, $method(GIFImageWriter, writeRowsOpt, void, $bytes*, int32_t, int32_t, $LZWCompressor*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t), "java.io.IOException"},
-	{"writeToSequence", "(Ljavax/imageio/IIOImage;Ljavax/imageio/ImageWriteParam;)V", nullptr, $PUBLIC, $virtualMethod(GIFImageWriter, writeToSequence, void, $IIOImage*, $ImageWriteParam*), "java.io.IOException"},
-	{"writeTrailer", "()V", nullptr, $PRIVATE, $method(GIFImageWriter, writeTrailer, void), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _GIFImageWriter_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.imageio.plugins.gif.GIFImageWriter",
-	"javax.imageio.ImageWriter",
-	nullptr,
-	_GIFImageWriter_FieldInfo_,
-	_GIFImageWriter_MethodInfo_
-};
-
-$Object* allocate$GIFImageWriter($Class* clazz) {
-	return $of($alloc(GIFImageWriter));
-}
-
 $String* GIFImageWriter::STANDARD_METADATA_NAME = nullptr;
 $String* GIFImageWriter::STREAM_METADATA_NAME = nullptr;
 $String* GIFImageWriter::IMAGE_METADATA_NAME = nullptr;
 
 int32_t GIFImageWriter::getNumBits(int32_t value) {
 	$init(GIFImageWriter);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t numBits = 0;
 	switch (value) {
 	case 2:
-		{
-			numBits = 1;
-			break;
-		}
+		numBits = 1;
+		break;
 	case 4:
-		{
-			numBits = 2;
-			break;
-		}
+		numBits = 2;
+		break;
 	case 8:
-		{
-			numBits = 3;
-			break;
-		}
+		numBits = 3;
+		break;
 	case 16:
-		{
-			numBits = 4;
-			break;
-		}
+		numBits = 4;
+		break;
 	case 32:
-		{
-			numBits = 5;
-			break;
-		}
+		numBits = 5;
+		break;
 	case 64:
-		{
-			numBits = 6;
-			break;
-		}
+		numBits = 6;
+		break;
 	case 128:
-		{
-			numBits = 7;
-			break;
-		}
+		numBits = 7;
+		break;
 	case 256:
-		{
-			numBits = 8;
-			break;
-		}
+		numBits = 8;
+		break;
 	default:
-		{
-			$throwNew($IOException, $$str({"Bad palette length: "_s, $$str(value), "!"_s}));
-		}
+		$throwNew($IOException, $$str({"Bad palette length: "_s, $$str(value), "!"_s}));
 	}
 	return numBits;
 }
 
 void GIFImageWriter::computeRegions($Rectangle* sourceBounds, $Dimension* destSize, $ImageWriteParam* p) {
 	$init(GIFImageWriter);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ImageWriteParam, param, nullptr);
 	int32_t periodX = 1;
 	int32_t periodY = 1;
 	if (p != nullptr) {
 		$var($ints, sourceBands, p->getSourceBands());
-		if (sourceBands != nullptr && (sourceBands->length != 1 || $nc(sourceBands)->get(0) != 0)) {
+		if (sourceBands != nullptr && (sourceBands->length != 1 || sourceBands->get(0) != 0)) {
 			$throwNew($IllegalArgumentException, "Cannot sub-band image!"_s);
 		}
 		$var($Rectangle, sourceRegion, p->getSourceRegion());
@@ -253,7 +165,7 @@ void GIFImageWriter::computeRegions($Rectangle* sourceBounds, $Dimension* destSi
 		periodX = p->getSourceXSubsampling();
 		periodY = p->getSourceYSubsampling();
 	}
-	$nc(destSize)->setSize($div(($nc(sourceBounds)->width + periodX - 1), periodX), $div((sourceBounds->height + periodY - 1), periodY));
+	$nc(destSize)->setSize($div(($nc(sourceBounds)->width + periodX - 1), periodX), $div(($nc(sourceBounds)->height + periodY - 1), periodY));
 	if (destSize->width <= 0 || destSize->height <= 0) {
 		$throwNew($IllegalArgumentException, "Empty source region!"_s);
 	}
@@ -261,11 +173,11 @@ void GIFImageWriter::computeRegions($Rectangle* sourceBounds, $Dimension* destSi
 
 $bytes* GIFImageWriter::createColorTable($ColorModel* colorModel, $SampleModel* sampleModel) {
 	$init(GIFImageWriter);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, colorTable, nullptr);
 	if ($instanceOf($IndexColorModel, colorModel)) {
 		$var($IndexColorModel, icm, $cast($IndexColorModel, colorModel));
-		int32_t mapSize = $nc(icm)->getMapSize();
+		int32_t mapSize = icm->getMapSize();
 		int32_t ctSize = getGifPaletteSize(mapSize);
 		$var($bytes, reds, $new($bytes, ctSize));
 		$var($bytes, greens, $new($bytes, ctSize));
@@ -322,6 +234,7 @@ void GIFImageWriter::init$($GIFImageWriterSpi* originatingProvider) {
 	this->wroteSequenceHeader = false;
 	$set(this, theStreamMetadata, nullptr);
 	this->imageIndex = 0;
+	;
 }
 
 bool GIFImageWriter::canWriteSequence() {
@@ -329,7 +242,7 @@ bool GIFImageWriter::canWriteSequence() {
 }
 
 void GIFImageWriter::convertMetadata($String* metadataFormatName, $IIOMetadata* inData, $IIOMetadata* outData) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, formatName, nullptr);
 	$var($String, nativeFormatName, $nc(inData)->getNativeMetadataFormatName());
 	if (nativeFormatName != nullptr && nativeFormatName->equals(metadataFormatName)) {
@@ -395,7 +308,7 @@ void GIFImageWriter::endWriteSequence() {
 }
 
 $IIOMetadata* GIFImageWriter::getDefaultImageMetadata($ImageTypeSpecifier* imageType, $ImageWriteParam* param) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($GIFWritableImageMetadata, imageMetadata, $new($GIFWritableImageMetadata));
 	$var($SampleModel, sampleModel, $nc(imageType)->getSampleModel());
 	int32_t var$0 = $nc(sampleModel)->getWidth();
@@ -413,7 +326,7 @@ $IIOMetadata* GIFImageWriter::getDefaultImageMetadata($ImageTypeSpecifier* image
 	$var($ColorModel, colorModel, imageType->getColorModel());
 	$set(imageMetadata, localColorTable, createColorTable(colorModel, sampleModel));
 	if ($instanceOf($IndexColorModel, colorModel)) {
-		int32_t transparentIndex = $nc(($cast($IndexColorModel, colorModel)))->getTransparentPixel();
+		int32_t transparentIndex = $cast($IndexColorModel, colorModel)->getTransparentPixel();
 		if (transparentIndex != -1) {
 			imageMetadata->transparentColorFlag = true;
 			imageMetadata->transparentColorIndex = transparentIndex;
@@ -466,7 +379,7 @@ void GIFImageWriter::setOutput(Object$* output) {
 		}
 		$set(this, stream, $cast($ImageOutputStream, output));
 		$init($ByteOrder);
-		$nc(this->stream)->setByteOrder($ByteOrder::LITTLE_ENDIAN);
+		this->stream->setByteOrder($ByteOrder::LITTLE_ENDIAN);
 	} else {
 		$set(this, stream, nullptr);
 	}
@@ -513,16 +426,16 @@ void GIFImageWriter::writeToSequence($IIOImage* image, $ImageWriteParam* param) 
 }
 
 bool GIFImageWriter::needToCreateIndex($RenderedImage* image) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SampleModel, sampleModel, $nc(image)->getSampleModel());
 	$var($ColorModel, colorModel, image->getColorModel());
 	bool var$1 = $nc(sampleModel)->getNumBands() != 1;
-	bool var$0 = var$1 || $nc($($nc(sampleModel)->getSampleSize()))->get(0) > 8;
+	bool var$0 = var$1 || $nc($(sampleModel->getSampleSize()))->get(0) > 8;
 	return var$0 || $nc($($nc(colorModel)->getComponentSize()))->get(0) > 8;
 }
 
 void GIFImageWriter::write(bool writeHeader, bool writeTrailer, $IIOMetadata* sm, $IIOImage* iioimage, $ImageWriteParam* p) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($RenderedImage, image, $nc(iioimage)->getRenderedImage());
 	if (needToCreateIndex(image)) {
 		$assign(image, $PaletteBuilder::createIndexedImage(image));
@@ -544,7 +457,7 @@ void GIFImageWriter::write(bool writeHeader, bool writeTrailer, $IIOMetadata* sm
 			$set(imageMetadata, localColorTable, createColorTable(colorModel, sampleModel));
 			if ($instanceOf($IndexColorModel, colorModel)) {
 				$var($IndexColorModel, icm, $cast($IndexColorModel, colorModel));
-				int32_t index = $nc(icm)->getTransparentPixel();
+				int32_t index = icm->getTransparentPixel();
 				imageMetadata->transparentColorFlag = (index != -1);
 				if (imageMetadata->transparentColorFlag) {
 					imageMetadata->transparentColorIndex = index;
@@ -561,28 +474,28 @@ void GIFImageWriter::write(bool writeHeader, bool writeTrailer, $IIOMetadata* sm
 		if ($nc(streamMetadata)->version == nullptr) {
 			$set(streamMetadata, version, "89a"_s);
 		}
-		if ($nc(streamMetadata)->logicalScreenWidth == $GIFMetadata::UNDEFINED_INTEGER_VALUE) {
+		if (streamMetadata->logicalScreenWidth == $GIFMetadata::UNDEFINED_INTEGER_VALUE) {
 			streamMetadata->logicalScreenWidth = destSize->width;
 		}
-		if ($nc(streamMetadata)->logicalScreenHeight == $GIFMetadata::UNDEFINED_INTEGER_VALUE) {
+		if (streamMetadata->logicalScreenHeight == $GIFMetadata::UNDEFINED_INTEGER_VALUE) {
 			streamMetadata->logicalScreenHeight = destSize->height;
 		}
-		if ($nc(streamMetadata)->colorResolution == $GIFMetadata::UNDEFINED_INTEGER_VALUE) {
-			streamMetadata->colorResolution = colorModel != nullptr ? $nc($($nc(colorModel)->getComponentSize()))->get(0) : $nc($($nc(sampleModel)->getSampleSize()))->get(0);
+		if (streamMetadata->colorResolution == $GIFMetadata::UNDEFINED_INTEGER_VALUE) {
+			streamMetadata->colorResolution = colorModel != nullptr ? $nc($(colorModel->getComponentSize()))->get(0) : $nc($($nc(sampleModel)->getSampleSize()))->get(0);
 		}
-		if ($nc(streamMetadata)->globalColorTable == nullptr) {
+		if (streamMetadata->globalColorTable == nullptr) {
 			if (this->isWritingSequence && imageMetadata != nullptr && imageMetadata->localColorTable != nullptr) {
 				$set(streamMetadata, globalColorTable, imageMetadata->localColorTable);
 			} else if (imageMetadata == nullptr || imageMetadata->localColorTable == nullptr) {
 				$set(streamMetadata, globalColorTable, createColorTable(colorModel, sampleModel));
 			}
 		}
-		$assign(globalColorTable, $nc(streamMetadata)->globalColorTable);
+		$assign(globalColorTable, streamMetadata->globalColorTable);
 		int32_t bitsPerPixel = 0;
 		if (globalColorTable != nullptr) {
 			bitsPerPixel = getNumBits(globalColorTable->length / 3);
 		} else if (imageMetadata != nullptr && imageMetadata->localColorTable != nullptr) {
-			bitsPerPixel = getNumBits($nc(imageMetadata->localColorTable)->length / 3);
+			bitsPerPixel = getNumBits(imageMetadata->localColorTable->length / 3);
 		} else {
 			bitsPerPixel = $nc(sampleModel)->getSampleSize(0);
 		}
@@ -599,7 +512,7 @@ void GIFImageWriter::write(bool writeHeader, bool writeTrailer, $IIOMetadata* sm
 }
 
 void GIFImageWriter::writeImage($RenderedImage* image, $GIFWritableImageMetadata* imageMetadata$renamed, $ImageWriteParam* param, $bytes* globalColorTable, $Rectangle* sourceBounds, $Dimension* destSize) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($GIFWritableImageMetadata, imageMetadata, imageMetadata$renamed);
 	$var($ColorModel, colorModel, $nc(image)->getColorModel());
 	$var($SampleModel, sampleModel, image->getSampleModel());
@@ -610,23 +523,23 @@ void GIFImageWriter::writeImage($RenderedImage* image, $GIFWritableImageMetadata
 	} else {
 		$var($NodeList, list, nullptr);
 		try {
-			$var($IIOMetadataNode, root, $cast($IIOMetadataNode, $nc(imageMetadata)->getAsTree(GIFImageWriter::IMAGE_METADATA_NAME)));
+			$var($IIOMetadataNode, root, $cast($IIOMetadataNode, imageMetadata->getAsTree(GIFImageWriter::IMAGE_METADATA_NAME)));
 			$assign(list, $nc(root)->getElementsByTagName("GraphicControlExtension"_s));
 		} catch ($IllegalArgumentException& iae) {
 		}
 		writeGraphicsControlExtension = list != nullptr && list->getLength() > 0;
 		if (param != nullptr && param->canWriteProgressive()) {
 			if (param->getProgressiveMode() == $ImageWriteParam::MODE_DISABLED) {
-				$nc(imageMetadata)->interlaceFlag = false;
+				imageMetadata->interlaceFlag = false;
 			} else if (param->getProgressiveMode() == $ImageWriteParam::MODE_DEFAULT) {
-				$nc(imageMetadata)->interlaceFlag = true;
+				imageMetadata->interlaceFlag = true;
 			}
 		}
 	}
 	if ($Arrays::equals(globalColorTable, $nc(imageMetadata)->localColorTable)) {
-		$set($nc(imageMetadata), localColorTable, nullptr);
+		$set(imageMetadata, localColorTable, nullptr);
 	}
-	$nc(imageMetadata)->imageWidth = $nc(destSize)->width;
+	imageMetadata->imageWidth = $nc(destSize)->width;
 	imageMetadata->imageHeight = destSize->height;
 	if (writeGraphicsControlExtension) {
 		writeGraphicControlExtension(imageMetadata);
@@ -634,17 +547,18 @@ void GIFImageWriter::writeImage($RenderedImage* image, $GIFWritableImageMetadata
 	writePlainTextExtension(imageMetadata);
 	writeApplicationExtension(imageMetadata);
 	writeCommentExtension(imageMetadata);
-	int32_t bitsPerPixel = getNumBits(imageMetadata->localColorTable == nullptr ? (globalColorTable == nullptr ? $nc(sampleModel)->getSampleSize(0) : $nc(globalColorTable)->length / 3) : $nc(imageMetadata->localColorTable)->length / 3);
+	int32_t bitsPerPixel = getNumBits(imageMetadata->localColorTable == nullptr ? (globalColorTable == nullptr ? $nc(sampleModel)->getSampleSize(0) : globalColorTable->length / 3) : imageMetadata->localColorTable->length / 3);
 	writeImageDescriptor(imageMetadata, bitsPerPixel);
 	writeRasterData(image, sourceBounds, destSize, param, imageMetadata->interlaceFlag);
 }
 
 void GIFImageWriter::writeRows($RenderedImage* image, $LZWCompressor* compressor, int32_t sx, int32_t sdx, int32_t sy, int32_t sdy, int32_t sw, int32_t dy, int32_t ddy, int32_t dw, int32_t dh, int32_t numRowsWritten, int32_t progressReportRowPeriod) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
+	;
 	$var($ints, sbuf, $new($ints, sw));
 	$var($bytes, dbuf, $new($bytes, dw));
 	bool var$0 = $nc(image)->getNumXTiles() == 1;
-	$var($Raster, raster, var$0 && image->getNumYTiles() == 1 ? $nc(image)->getTile(0, 0) : image->getData());
+	$var($Raster, raster, var$0 && image->getNumYTiles() == 1 ? image->getTile(0, 0) : image->getData());
 	for (int32_t y = dy; y < dh; y += ddy) {
 		if ($mod(numRowsWritten, progressReportRowPeriod) == 0) {
 			processImageProgress((numRowsWritten * 100.0f) / dh);
@@ -654,12 +568,8 @@ void GIFImageWriter::writeRows($RenderedImage* image, $LZWCompressor* compressor
 			}
 		}
 		$nc(raster)->getSamples(sx, sy, sw, 1, 0, sbuf);
-		{
-			int32_t i = 0;
-			int32_t j = 0;
-			for (; i < dw; ++i, j += sdx) {
-				dbuf->set(i, (int8_t)sbuf->get(j));
-			}
+		for (int32_t i = 0, j = 0; i < dw; ++i, j += sdx) {
+			dbuf->set(i, (int8_t)sbuf->get(j));
 		}
 		$nc(compressor)->compress(dbuf, 0, dw);
 		++numRowsWritten;
@@ -668,6 +578,7 @@ void GIFImageWriter::writeRows($RenderedImage* image, $LZWCompressor* compressor
 }
 
 void GIFImageWriter::writeRowsOpt($bytes* data, int32_t offset, int32_t lineStride, $LZWCompressor* compressor, int32_t dy, int32_t ddy, int32_t dw, int32_t dh, int32_t numRowsWritten, int32_t progressReportRowPeriod) {
+	;
 	offset += dy * lineStride;
 	lineStride *= ddy;
 	for (int32_t y = dy; y < dh; y += ddy) {
@@ -685,7 +596,7 @@ void GIFImageWriter::writeRowsOpt($bytes* data, int32_t offset, int32_t lineStri
 }
 
 void GIFImageWriter::writeRasterData($RenderedImage* image, $Rectangle* sourceBounds, $Dimension* destSize, $ImageWriteParam* param, bool interlaceFlag) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t sourceXOffset = $nc(sourceBounds)->x;
 	int32_t sourceYOffset = sourceBounds->y;
 	int32_t sourceWidth = sourceBounds->width;
@@ -698,7 +609,7 @@ void GIFImageWriter::writeRasterData($RenderedImage* image, $Rectangle* sourceBo
 		periodX = 1;
 		periodY = 1;
 	} else {
-		periodX = $nc(param)->getSourceXSubsampling();
+		periodX = param->getSourceXSubsampling();
 		periodY = param->getSourceYSubsampling();
 	}
 	$var($SampleModel, sampleModel, $nc(image)->getSampleModel());
@@ -712,7 +623,7 @@ void GIFImageWriter::writeRasterData($RenderedImage* image, $Rectangle* sourceBo
 	bool var$2 = periodX == 1 && periodY == 1 && image->getNumXTiles() == 1;
 	bool var$1 = var$2 && image->getNumYTiles() == 1 && $instanceOf($ComponentSampleModel, sampleModel);
 	bool var$0 = var$1 && $instanceOf($ByteComponentRaster, $(image->getTile(0, 0)));
-	bool isOptimizedCase = var$0 && $instanceOf($DataBufferByte, $($nc($(image->getTile(0, 0)))->getDataBuffer()));
+	bool isOptimizedCase = var$0 && $instanceOf($DataBufferByte, $($$nc(image->getTile(0, 0))->getDataBuffer()));
 	int32_t numRowsWritten = 0;
 	int32_t progressReportRowPeriod = $Math::max(destHeight / 20, 1);
 	clearAbortRequest();
@@ -722,9 +633,10 @@ void GIFImageWriter::writeRasterData($RenderedImage* image, $Rectangle* sourceBo
 		return;
 	}
 	if (interlaceFlag) {
+		;
 		if (isOptimizedCase) {
 			$var($ByteComponentRaster, tile, $cast($ByteComponentRaster, image->getTile(0, 0)));
-			$var($bytes, data, $nc(($cast($DataBufferByte, $($nc(tile)->getDataBuffer()))))->getData());
+			$var($bytes, data, $$sure($DataBufferByte, $nc(tile)->getDataBuffer())->getData());
 			$var($ComponentSampleModel, csm, $cast($ComponentSampleModel, tile->getSampleModel()));
 			int32_t offset = $nc(csm)->getOffset(sourceXOffset, sourceYOffset, 0);
 			offset += tile->getDataOffset(0);
@@ -770,9 +682,10 @@ void GIFImageWriter::writeRasterData($RenderedImage* image, $Rectangle* sourceBo
 			}
 		}
 	} else {
+		;
 		if (isOptimizedCase) {
 			$var($Raster, tile, image->getTile(0, 0));
-			$var($bytes, data, $nc(($cast($DataBufferByte, $($nc(tile)->getDataBuffer()))))->getData());
+			$var($bytes, data, $$sure($DataBufferByte, $nc(tile)->getDataBuffer())->getData());
 			$var($ComponentSampleModel, csm, $cast($ComponentSampleModel, tile->getSampleModel()));
 			int32_t offset = $nc(csm)->getOffset(sourceXOffset, sourceYOffset, 0);
 			int32_t lineStride = csm->getScanlineStride();
@@ -798,7 +711,7 @@ void GIFImageWriter::writeHeader($String* version, int32_t logicalScreenWidth, i
 		$nc(this->stream)->writeShort((int16_t)logicalScreenWidth);
 		$nc(this->stream)->writeShort((int16_t)logicalScreenHeight);
 		int32_t packedFields = globalColorTable != nullptr ? 128 : 0;
-		packedFields |= ((int32_t)((colorResolution - 1) & (uint32_t)7)) << 4;
+		packedFields |= ((colorResolution - 1) & 7) << 4;
 		if (sortFlag) {
 			packedFields |= 8;
 		}
@@ -815,7 +728,7 @@ void GIFImageWriter::writeHeader($String* version, int32_t logicalScreenWidth, i
 }
 
 void GIFImageWriter::writeHeader($IIOMetadata* streamMetadata, int32_t bitsPerPixel) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($GIFWritableStreamMetadata, sm, nullptr);
 	if ($instanceOf($GIFWritableStreamMetadata, streamMetadata)) {
 		$assign(sm, $cast($GIFWritableStreamMetadata, streamMetadata));
@@ -824,7 +737,7 @@ void GIFImageWriter::writeHeader($IIOMetadata* streamMetadata, int32_t bitsPerPi
 		$var($Node, root, $nc(streamMetadata)->getAsTree(GIFImageWriter::STREAM_METADATA_NAME));
 		sm->setFromTree(GIFImageWriter::STREAM_METADATA_NAME, root);
 	}
-	writeHeader($nc(sm)->version, sm->logicalScreenWidth, sm->logicalScreenHeight, sm->colorResolution, sm->pixelAspectRatio, sm->backgroundColorIndex, sm->sortFlag, bitsPerPixel, sm->globalColorTable);
+	writeHeader($nc(sm)->version, $nc(sm)->logicalScreenWidth, $nc(sm)->logicalScreenHeight, $nc(sm)->colorResolution, $nc(sm)->pixelAspectRatio, $nc(sm)->backgroundColorIndex, $nc(sm)->sortFlag, bitsPerPixel, $nc(sm)->globalColorTable);
 }
 
 void GIFImageWriter::writeGraphicControlExtension(int32_t disposalMethod, bool userInputFlag, bool transparentColorFlag, int32_t delayTime, int32_t transparentColorIndex) {
@@ -832,7 +745,7 @@ void GIFImageWriter::writeGraphicControlExtension(int32_t disposalMethod, bool u
 		$nc(this->stream)->write(33);
 		$nc(this->stream)->write(249);
 		$nc(this->stream)->write(4);
-		int32_t packedFields = ((int32_t)(disposalMethod & (uint32_t)3)) << 2;
+		int32_t packedFields = (disposalMethod & 3) << 2;
 		if (userInputFlag) {
 			packedFields |= 2;
 		}
@@ -849,7 +762,7 @@ void GIFImageWriter::writeGraphicControlExtension(int32_t disposalMethod, bool u
 }
 
 void GIFImageWriter::writeGraphicControlExtension($GIFWritableImageMetadata* im) {
-	writeGraphicControlExtension($nc(im)->disposalMethod, im->userInputFlag, im->transparentColorFlag, im->delayTime, im->transparentColorIndex);
+	writeGraphicControlExtension($nc(im)->disposalMethod, $nc(im)->userInputFlag, $nc(im)->transparentColorFlag, $nc(im)->delayTime, $nc(im)->transparentColorIndex);
 }
 
 void GIFImageWriter::writeBlocks($bytes* data) {
@@ -887,9 +800,9 @@ void GIFImageWriter::writePlainTextExtension($GIFWritableImageMetadata* im) {
 }
 
 void GIFImageWriter::writeApplicationExtension($GIFWritableImageMetadata* im) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(im)->applicationIDs != nullptr) {
-		$var($Iterator, iterIDs, $nc(im->applicationIDs)->iterator());
+		$var($Iterator, iterIDs, im->applicationIDs->iterator());
 		$var($Iterator, iterCodes, $nc(im->authenticationCodes)->iterator());
 		$var($Iterator, iterData, $nc(im->applicationData)->iterator());
 		while ($nc(iterIDs)->hasNext()) {
@@ -897,9 +810,9 @@ void GIFImageWriter::writeApplicationExtension($GIFWritableImageMetadata* im) {
 				$nc(this->stream)->write(33);
 				$nc(this->stream)->write(255);
 				$nc(this->stream)->write(11);
-				$nc(this->stream)->write($cast($bytes, $(iterIDs->next())), 0, 8);
-				$nc(this->stream)->write($cast($bytes, $($nc(iterCodes)->next())), 0, 3);
-				writeBlocks($cast($bytes, $($nc(iterData)->next())));
+				$nc(this->stream)->write($$cast($bytes, iterIDs->next()), 0, 8);
+				$nc(this->stream)->write($$cast($bytes, $nc(iterCodes)->next()), 0, 3);
+				writeBlocks($$cast($bytes, $nc(iterData)->next()));
 				$nc(this->stream)->write(0);
 			} catch ($IOException& e) {
 				$throwNew($IIOException, "I/O error writing Application Extension!"_s, e);
@@ -909,19 +822,17 @@ void GIFImageWriter::writeApplicationExtension($GIFWritableImageMetadata* im) {
 }
 
 void GIFImageWriter::writeCommentExtension($GIFWritableImageMetadata* im) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(im)->comments != nullptr) {
 		try {
-			{
-				$var($Iterator, i$, $nc(im->comments)->iterator());
-				for (; $nc(i$)->hasNext();) {
-					$var($bytes, bytes, $cast($bytes, i$->next()));
-					{
-						$nc(this->stream)->write(33);
-						$nc(this->stream)->write(254);
-						writeBlocks(bytes);
-						$nc(this->stream)->write(0);
-					}
+			$var($Iterator, i$, im->comments->iterator());
+			for (; $nc(i$)->hasNext();) {
+				$var($bytes, bytes, $cast($bytes, i$->next()));
+				{
+					$nc(this->stream)->write(33);
+					$nc(this->stream)->write(254);
+					writeBlocks(bytes);
+					$nc(this->stream)->write(0);
 				}
 			}
 		} catch ($IOException& e) {
@@ -955,7 +866,7 @@ void GIFImageWriter::writeImageDescriptor(int32_t imageLeftPosition, int32_t ima
 }
 
 void GIFImageWriter::writeImageDescriptor($GIFWritableImageMetadata* imageMetadata, int32_t bitsPerPixel) {
-	writeImageDescriptor($nc(imageMetadata)->imageLeftPosition, imageMetadata->imageTopPosition, imageMetadata->imageWidth, imageMetadata->imageHeight, imageMetadata->interlaceFlag, imageMetadata->sortFlag, bitsPerPixel, imageMetadata->localColorTable);
+	writeImageDescriptor($nc(imageMetadata)->imageLeftPosition, $nc(imageMetadata)->imageTopPosition, $nc(imageMetadata)->imageWidth, $nc(imageMetadata)->imageHeight, $nc(imageMetadata)->interlaceFlag, $nc(imageMetadata)->sortFlag, bitsPerPixel, $nc(imageMetadata)->localColorTable);
 }
 
 void GIFImageWriter::writeTrailer() {
@@ -965,7 +876,7 @@ void GIFImageWriter::writeTrailer() {
 GIFImageWriter::GIFImageWriter() {
 }
 
-void clinit$GIFImageWriter($Class* class$) {
+void GIFImageWriter::clinit$($Class* clazz) {
 	$init($IIOMetadataFormatImpl);
 	$assignStatic(GIFImageWriter::STANDARD_METADATA_NAME, $IIOMetadataFormatImpl::standardMetadataFormatName);
 	$init($GIFWritableStreamMetadata);
@@ -975,7 +886,68 @@ void clinit$GIFImageWriter($Class* class$) {
 }
 
 $Class* GIFImageWriter::load$($String* name, bool initialize) {
-	$loadClass(GIFImageWriter, name, initialize, &_GIFImageWriter_ClassInfo_, clinit$GIFImageWriter, allocate$GIFImageWriter);
+	$FieldInfo fieldInfos$$[] = {
+		{"DEBUG", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(GIFImageWriter, DEBUG)},
+		{"STANDARD_METADATA_NAME", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(GIFImageWriter, STANDARD_METADATA_NAME)},
+		{"STREAM_METADATA_NAME", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(GIFImageWriter, STREAM_METADATA_NAME)},
+		{"IMAGE_METADATA_NAME", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(GIFImageWriter, IMAGE_METADATA_NAME)},
+		{"stream", "Ljavax/imageio/stream/ImageOutputStream;", nullptr, $PRIVATE, $field(GIFImageWriter, stream)},
+		{"isWritingSequence", "Z", nullptr, $PRIVATE, $field(GIFImageWriter, isWritingSequence)},
+		{"wroteSequenceHeader", "Z", nullptr, $PRIVATE, $field(GIFImageWriter, wroteSequenceHeader)},
+		{"theStreamMetadata", "Lcom/sun/imageio/plugins/gif/GIFWritableStreamMetadata;", nullptr, $PRIVATE, $field(GIFImageWriter, theStreamMetadata)},
+		{"imageIndex", "I", nullptr, $PRIVATE, $field(GIFImageWriter, imageIndex)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/imageio/plugins/gif/GIFImageWriterSpi;)V", nullptr, $PUBLIC, $method(GIFImageWriter, init$, void, $GIFImageWriterSpi*)},
+		{"canWriteSequence", "()Z", nullptr, $PUBLIC, $virtualMethod(GIFImageWriter, canWriteSequence, bool)},
+		{"computeRegions", "(Ljava/awt/Rectangle;Ljava/awt/Dimension;Ljavax/imageio/ImageWriteParam;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(GIFImageWriter, computeRegions, void, $Rectangle*, $Dimension*, $ImageWriteParam*)},
+		{"convertImageMetadata", "(Ljavax/imageio/metadata/IIOMetadata;Ljavax/imageio/ImageTypeSpecifier;Ljavax/imageio/ImageWriteParam;)Ljavax/imageio/metadata/IIOMetadata;", nullptr, $PUBLIC, $virtualMethod(GIFImageWriter, convertImageMetadata, $IIOMetadata*, $IIOMetadata*, $ImageTypeSpecifier*, $ImageWriteParam*)},
+		{"convertMetadata", "(Ljava/lang/String;Ljavax/imageio/metadata/IIOMetadata;Ljavax/imageio/metadata/IIOMetadata;)V", nullptr, $PRIVATE, $method(GIFImageWriter, convertMetadata, void, $String*, $IIOMetadata*, $IIOMetadata*)},
+		{"convertStreamMetadata", "(Ljavax/imageio/metadata/IIOMetadata;Ljavax/imageio/ImageWriteParam;)Ljavax/imageio/metadata/IIOMetadata;", nullptr, $PUBLIC, $virtualMethod(GIFImageWriter, convertStreamMetadata, $IIOMetadata*, $IIOMetadata*, $ImageWriteParam*)},
+		{"createColorTable", "(Ljava/awt/image/ColorModel;Ljava/awt/image/SampleModel;)[B", nullptr, $PRIVATE | $STATIC, $staticMethod(GIFImageWriter, createColorTable, $bytes*, $ColorModel*, $SampleModel*)},
+		{"endWriteSequence", "()V", nullptr, $PUBLIC, $virtualMethod(GIFImageWriter, endWriteSequence, void), "java.io.IOException"},
+		{"getDefaultImageMetadata", "(Ljavax/imageio/ImageTypeSpecifier;Ljavax/imageio/ImageWriteParam;)Ljavax/imageio/metadata/IIOMetadata;", nullptr, $PUBLIC, $virtualMethod(GIFImageWriter, getDefaultImageMetadata, $IIOMetadata*, $ImageTypeSpecifier*, $ImageWriteParam*)},
+		{"getDefaultStreamMetadata", "(Ljavax/imageio/ImageWriteParam;)Ljavax/imageio/metadata/IIOMetadata;", nullptr, $PUBLIC, $virtualMethod(GIFImageWriter, getDefaultStreamMetadata, $IIOMetadata*, $ImageWriteParam*)},
+		{"getDefaultWriteParam", "()Ljavax/imageio/ImageWriteParam;", nullptr, $PUBLIC, $virtualMethod(GIFImageWriter, getDefaultWriteParam, $ImageWriteParam*)},
+		{"getGifPaletteSize", "(I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(GIFImageWriter, getGifPaletteSize, int32_t, int32_t)},
+		{"getNumBits", "(I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(GIFImageWriter, getNumBits, int32_t, int32_t), "java.io.IOException"},
+		{"needToCreateIndex", "(Ljava/awt/image/RenderedImage;)Z", nullptr, $PRIVATE, $method(GIFImageWriter, needToCreateIndex, bool, $RenderedImage*)},
+		{"prepareWriteSequence", "(Ljavax/imageio/metadata/IIOMetadata;)V", nullptr, $PUBLIC, $virtualMethod(GIFImageWriter, prepareWriteSequence, void, $IIOMetadata*), "java.io.IOException"},
+		{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(GIFImageWriter, reset, void)},
+		{"resetLocal", "()V", nullptr, $PRIVATE, $method(GIFImageWriter, resetLocal, void)},
+		{"setOutput", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(GIFImageWriter, setOutput, void, Object$*)},
+		{"write", "(Ljavax/imageio/metadata/IIOMetadata;Ljavax/imageio/IIOImage;Ljavax/imageio/ImageWriteParam;)V", nullptr, $PUBLIC, $virtualMethod(GIFImageWriter, write, void, $IIOMetadata*, $IIOImage*, $ImageWriteParam*), "java.io.IOException"},
+		{"write", "(ZZLjavax/imageio/metadata/IIOMetadata;Ljavax/imageio/IIOImage;Ljavax/imageio/ImageWriteParam;)V", nullptr, $PRIVATE, $method(GIFImageWriter, write, void, bool, bool, $IIOMetadata*, $IIOImage*, $ImageWriteParam*), "java.io.IOException"},
+		{"writeApplicationExtension", "(Lcom/sun/imageio/plugins/gif/GIFWritableImageMetadata;)V", nullptr, $PRIVATE, $method(GIFImageWriter, writeApplicationExtension, void, $GIFWritableImageMetadata*), "java.io.IOException"},
+		{"writeBlocks", "([B)V", nullptr, $PRIVATE, $method(GIFImageWriter, writeBlocks, void, $bytes*), "java.io.IOException"},
+		{"writeCommentExtension", "(Lcom/sun/imageio/plugins/gif/GIFWritableImageMetadata;)V", nullptr, $PRIVATE, $method(GIFImageWriter, writeCommentExtension, void, $GIFWritableImageMetadata*), "java.io.IOException"},
+		{"writeGraphicControlExtension", "(IZZII)V", nullptr, $PRIVATE, $method(GIFImageWriter, writeGraphicControlExtension, void, int32_t, bool, bool, int32_t, int32_t), "java.io.IOException"},
+		{"writeGraphicControlExtension", "(Lcom/sun/imageio/plugins/gif/GIFWritableImageMetadata;)V", nullptr, $PRIVATE, $method(GIFImageWriter, writeGraphicControlExtension, void, $GIFWritableImageMetadata*), "java.io.IOException"},
+		{"writeHeader", "(Ljava/lang/String;IIIIIZI[B)V", nullptr, $PRIVATE, $method(GIFImageWriter, writeHeader, void, $String*, int32_t, int32_t, int32_t, int32_t, int32_t, bool, int32_t, $bytes*), "java.io.IOException"},
+		{"writeHeader", "(Ljavax/imageio/metadata/IIOMetadata;I)V", nullptr, $PRIVATE, $method(GIFImageWriter, writeHeader, void, $IIOMetadata*, int32_t), "java.io.IOException"},
+		{"writeImage", "(Ljava/awt/image/RenderedImage;Lcom/sun/imageio/plugins/gif/GIFWritableImageMetadata;Ljavax/imageio/ImageWriteParam;[BLjava/awt/Rectangle;Ljava/awt/Dimension;)V", nullptr, $PRIVATE, $method(GIFImageWriter, writeImage, void, $RenderedImage*, $GIFWritableImageMetadata*, $ImageWriteParam*, $bytes*, $Rectangle*, $Dimension*), "java.io.IOException"},
+		{"writeImageDescriptor", "(IIIIZZI[B)V", nullptr, $PRIVATE, $method(GIFImageWriter, writeImageDescriptor, void, int32_t, int32_t, int32_t, int32_t, bool, bool, int32_t, $bytes*), "java.io.IOException"},
+		{"writeImageDescriptor", "(Lcom/sun/imageio/plugins/gif/GIFWritableImageMetadata;I)V", nullptr, $PRIVATE, $method(GIFImageWriter, writeImageDescriptor, void, $GIFWritableImageMetadata*, int32_t), "java.io.IOException"},
+		{"writePlainTextExtension", "(Lcom/sun/imageio/plugins/gif/GIFWritableImageMetadata;)V", nullptr, $PRIVATE, $method(GIFImageWriter, writePlainTextExtension, void, $GIFWritableImageMetadata*), "java.io.IOException"},
+		{"writeRasterData", "(Ljava/awt/image/RenderedImage;Ljava/awt/Rectangle;Ljava/awt/Dimension;Ljavax/imageio/ImageWriteParam;Z)V", nullptr, $PRIVATE, $method(GIFImageWriter, writeRasterData, void, $RenderedImage*, $Rectangle*, $Dimension*, $ImageWriteParam*, bool), "java.io.IOException"},
+		{"writeRows", "(Ljava/awt/image/RenderedImage;Lcom/sun/imageio/plugins/common/LZWCompressor;IIIIIIIIIII)V", nullptr, $PRIVATE, $method(GIFImageWriter, writeRows, void, $RenderedImage*, $LZWCompressor*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t), "java.io.IOException"},
+		{"writeRowsOpt", "([BIILcom/sun/imageio/plugins/common/LZWCompressor;IIIIII)V", nullptr, $PRIVATE, $method(GIFImageWriter, writeRowsOpt, void, $bytes*, int32_t, int32_t, $LZWCompressor*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t), "java.io.IOException"},
+		{"writeToSequence", "(Ljavax/imageio/IIOImage;Ljavax/imageio/ImageWriteParam;)V", nullptr, $PUBLIC, $virtualMethod(GIFImageWriter, writeToSequence, void, $IIOImage*, $ImageWriteParam*), "java.io.IOException"},
+		{"writeTrailer", "()V", nullptr, $PRIVATE, $method(GIFImageWriter, writeTrailer, void), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.imageio.plugins.gif.GIFImageWriter",
+		"javax.imageio.ImageWriter",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(GIFImageWriter, name, initialize, &classInfo$$, GIFImageWriter::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(GIFImageWriter);
+	});
 	return class$;
 }
 

@@ -33,6 +33,7 @@ class BasicLabelUI$Actions : public ::sun::swing::UIAction {
 	$class(BasicLabelUI$Actions, 0, ::sun::swing::UIAction)
 public:
 	BasicLabelUI$Actions();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* key);
 	virtual void actionPerformed(::java::awt::event::ActionEvent* e) override;
 	void doPress(::javax::swing::JLabel* label);

@@ -1,5 +1,4 @@
 #include <com/sun/xml/internal/stream/Entity.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -12,49 +11,6 @@ namespace com {
 		namespace xml {
 			namespace internal {
 				namespace stream {
-
-$FieldInfo _Entity_FieldInfo_[] = {
-	{"name", "Ljava/lang/String;", nullptr, $PUBLIC, $field(Entity, name)},
-	{"inExternalSubset", "Z", nullptr, $PUBLIC, $field(Entity, inExternalSubset)},
-	{}
-};
-
-$MethodInfo _Entity_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Entity, init$, void)},
-	{"<init>", "(Ljava/lang/String;Z)V", nullptr, $PUBLIC, $method(Entity, init$, void, $String*, bool)},
-	{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(Entity, clear, void)},
-	{"isEntityDeclInExternalSubset", "()Z", nullptr, $PUBLIC, $virtualMethod(Entity, isEntityDeclInExternalSubset, bool)},
-	{"isExternal", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Entity, isExternal, bool)},
-	{"isUnparsed", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Entity, isUnparsed, bool)},
-	{"setValues", "(Lcom/sun/xml/internal/stream/Entity;)V", nullptr, $PUBLIC, $virtualMethod(Entity, setValues, void, Entity*)},
-	{}
-};
-
-$InnerClassInfo _Entity_InnerClassesInfo_[] = {
-	{"com.sun.xml.internal.stream.Entity$ScannedEntity", "com.sun.xml.internal.stream.Entity", "ScannedEntity", $PUBLIC | $STATIC},
-	{"com.sun.xml.internal.stream.Entity$ExternalEntity", "com.sun.xml.internal.stream.Entity", "ExternalEntity", $PUBLIC | $STATIC},
-	{"com.sun.xml.internal.stream.Entity$InternalEntity", "com.sun.xml.internal.stream.Entity", "InternalEntity", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _Entity_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"com.sun.xml.internal.stream.Entity",
-	"java.lang.Object",
-	nullptr,
-	_Entity_FieldInfo_,
-	_Entity_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Entity_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.xml.internal.stream.Entity$ScannedEntity,com.sun.xml.internal.stream.Entity$ExternalEntity,com.sun.xml.internal.stream.Entity$InternalEntity"
-};
-
-$Object* allocate$Entity($Class* clazz) {
-	return $of($alloc(Entity));
-}
 
 void Entity::init$() {
 	clear();
@@ -83,7 +39,44 @@ Entity::Entity() {
 }
 
 $Class* Entity::load$($String* name, bool initialize) {
-	$loadClass(Entity, name, initialize, &_Entity_ClassInfo_, allocate$Entity);
+	$FieldInfo fieldInfos$$[] = {
+		{"name", "Ljava/lang/String;", nullptr, $PUBLIC, $field(Entity, name)},
+		{"inExternalSubset", "Z", nullptr, $PUBLIC, $field(Entity, inExternalSubset)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Entity, init$, void)},
+		{"<init>", "(Ljava/lang/String;Z)V", nullptr, $PUBLIC, $method(Entity, init$, void, $String*, bool)},
+		{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(Entity, clear, void)},
+		{"isEntityDeclInExternalSubset", "()Z", nullptr, $PUBLIC, $virtualMethod(Entity, isEntityDeclInExternalSubset, bool)},
+		{"isExternal", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Entity, isExternal, bool)},
+		{"isUnparsed", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Entity, isUnparsed, bool)},
+		{"setValues", "(Lcom/sun/xml/internal/stream/Entity;)V", nullptr, $PUBLIC, $virtualMethod(Entity, setValues, void, Entity*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.xml.internal.stream.Entity$ScannedEntity", "com.sun.xml.internal.stream.Entity", "ScannedEntity", $PUBLIC | $STATIC},
+		{"com.sun.xml.internal.stream.Entity$ExternalEntity", "com.sun.xml.internal.stream.Entity", "ExternalEntity", $PUBLIC | $STATIC},
+		{"com.sun.xml.internal.stream.Entity$InternalEntity", "com.sun.xml.internal.stream.Entity", "InternalEntity", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"com.sun.xml.internal.stream.Entity",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.xml.internal.stream.Entity$ScannedEntity,com.sun.xml.internal.stream.Entity$ExternalEntity,com.sun.xml.internal.stream.Entity$InternalEntity"
+	};
+	$loadClass(Entity, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Entity);
+	});
 	return class$;
 }
 

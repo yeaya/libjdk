@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/basic/BasicDesktopPaneUI$OpenAction.h>
-
 #include <java/awt/event/ActionEvent.h>
 #include <java/util/EventObject.h>
 #include <javax/swing/AbstractAction.h>
@@ -26,43 +25,6 @@ namespace javax {
 		namespace plaf {
 			namespace basic {
 
-$FieldInfo _BasicDesktopPaneUI$OpenAction_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/plaf/basic/BasicDesktopPaneUI;", nullptr, $FINAL | $SYNTHETIC, $field(BasicDesktopPaneUI$OpenAction, this$0)},
-	{}
-};
-
-$MethodInfo _BasicDesktopPaneUI$OpenAction_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/plaf/basic/BasicDesktopPaneUI;)V", nullptr, $PROTECTED, $method(BasicDesktopPaneUI$OpenAction, init$, void, $BasicDesktopPaneUI*)},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicDesktopPaneUI$OpenAction, actionPerformed, void, $ActionEvent*)},
-	{"isEnabled", "()Z", nullptr, $PUBLIC, $virtualMethod(BasicDesktopPaneUI$OpenAction, isEnabled, bool)},
-	{}
-};
-
-$InnerClassInfo _BasicDesktopPaneUI$OpenAction_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.basic.BasicDesktopPaneUI$OpenAction", "javax.swing.plaf.basic.BasicDesktopPaneUI", "OpenAction", $PROTECTED},
-	{}
-};
-
-$ClassInfo _BasicDesktopPaneUI$OpenAction_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.basic.BasicDesktopPaneUI$OpenAction",
-	"javax.swing.AbstractAction",
-	nullptr,
-	_BasicDesktopPaneUI$OpenAction_FieldInfo_,
-	_BasicDesktopPaneUI$OpenAction_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BasicDesktopPaneUI$OpenAction_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.basic.BasicDesktopPaneUI"
-};
-
-$Object* allocate$BasicDesktopPaneUI$OpenAction($Class* clazz) {
-	return $of($alloc(BasicDesktopPaneUI$OpenAction));
-}
-
 void BasicDesktopPaneUI$OpenAction::init$($BasicDesktopPaneUI* this$0) {
 	$set(this, this$0, this$0);
 	$AbstractAction::init$();
@@ -83,7 +45,38 @@ BasicDesktopPaneUI$OpenAction::BasicDesktopPaneUI$OpenAction() {
 }
 
 $Class* BasicDesktopPaneUI$OpenAction::load$($String* name, bool initialize) {
-	$loadClass(BasicDesktopPaneUI$OpenAction, name, initialize, &_BasicDesktopPaneUI$OpenAction_ClassInfo_, allocate$BasicDesktopPaneUI$OpenAction);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/plaf/basic/BasicDesktopPaneUI;", nullptr, $FINAL | $SYNTHETIC, $field(BasicDesktopPaneUI$OpenAction, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/plaf/basic/BasicDesktopPaneUI;)V", nullptr, $PROTECTED, $method(BasicDesktopPaneUI$OpenAction, init$, void, $BasicDesktopPaneUI*)},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicDesktopPaneUI$OpenAction, actionPerformed, void, $ActionEvent*)},
+		{"isEnabled", "()Z", nullptr, $PUBLIC, $virtualMethod(BasicDesktopPaneUI$OpenAction, isEnabled, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.basic.BasicDesktopPaneUI$OpenAction", "javax.swing.plaf.basic.BasicDesktopPaneUI", "OpenAction", $PROTECTED},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.basic.BasicDesktopPaneUI$OpenAction",
+		"javax.swing.AbstractAction",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.basic.BasicDesktopPaneUI"
+	};
+	$loadClass(BasicDesktopPaneUI$OpenAction, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(BasicDesktopPaneUI$OpenAction));
+	});
 	return class$;
 }
 

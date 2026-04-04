@@ -1,5 +1,4 @@
 #include <sun/awt/X11/XEmbedCanvasPeer$7.h>
-
 #include <java/awt/AWTKeyStroke.h>
 #include <java/util/Map.h>
 #include <sun/awt/X11/XEmbedCanvasPeer.h>
@@ -17,57 +16,12 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Long = ::java::lang::Long;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Map = ::java::util::Map;
 using $XEmbedCanvasPeer = ::sun::awt::X11::XEmbedCanvasPeer;
-using $PlatformLogger = ::sun::util::logging::PlatformLogger;
 using $PlatformLogger$Level = ::sun::util::logging::PlatformLogger$Level;
 
 namespace sun {
 	namespace awt {
 		namespace X11 {
-
-$FieldInfo _XEmbedCanvasPeer$7_FieldInfo_[] = {
-	{"this$0", "Lsun/awt/X11/XEmbedCanvasPeer;", nullptr, $FINAL | $SYNTHETIC, $field(XEmbedCanvasPeer$7, this$0)},
-	{"val$accel_id", "J", nullptr, $FINAL | $SYNTHETIC, $field(XEmbedCanvasPeer$7, val$accel_id)},
-	{}
-};
-
-$MethodInfo _XEmbedCanvasPeer$7_MethodInfo_[] = {
-	{"<init>", "(Lsun/awt/X11/XEmbedCanvasPeer;J)V", "()V", 0, $method(XEmbedCanvasPeer$7, init$, void, $XEmbedCanvasPeer*, int64_t)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(XEmbedCanvasPeer$7, run, void)},
-	{}
-};
-
-$EnclosingMethodInfo _XEmbedCanvasPeer$7_EnclosingMethodInfo_ = {
-	"sun.awt.X11.XEmbedCanvasPeer",
-	"unregisterAccelerator",
-	"(J)V"
-};
-
-$InnerClassInfo _XEmbedCanvasPeer$7_InnerClassesInfo_[] = {
-	{"sun.awt.X11.XEmbedCanvasPeer$7", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _XEmbedCanvasPeer$7_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.awt.X11.XEmbedCanvasPeer$7",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	_XEmbedCanvasPeer$7_FieldInfo_,
-	_XEmbedCanvasPeer$7_MethodInfo_,
-	nullptr,
-	&_XEmbedCanvasPeer$7_EnclosingMethodInfo_,
-	_XEmbedCanvasPeer$7_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.awt.X11.XEmbedCanvasPeer"
-};
-
-$Object* allocate$XEmbedCanvasPeer$7($Class* clazz) {
-	return $of($alloc(XEmbedCanvasPeer$7));
-}
 
 void XEmbedCanvasPeer$7::init$($XEmbedCanvasPeer* this$0, int64_t val$accel_id) {
 	$set(this, this$0, this$0);
@@ -75,15 +29,14 @@ void XEmbedCanvasPeer$7::init$($XEmbedCanvasPeer* this$0, int64_t val$accel_id) 
 }
 
 void XEmbedCanvasPeer$7::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AWTKeyStroke, stroke, nullptr);
 	$synchronized(this->this$0->ACCEL_LOCK) {
 		$assign(stroke, $cast($AWTKeyStroke, $nc(this->this$0->accelerators)->get($($Long::valueOf(this->val$accel_id)))));
 		if (stroke != nullptr) {
-			$init($XEmbedCanvasPeer);
 			$init($PlatformLogger$Level);
 			if ($nc($XEmbedCanvasPeer::xembedLog)->isLoggable($PlatformLogger$Level::FINE)) {
-				$nc($XEmbedCanvasPeer::xembedLog)->fine($$str({"Unregistering accelerator: "_s, $$str(this->val$accel_id)}));
+				$XEmbedCanvasPeer::xembedLog->fine($$str({"Unregistering accelerator: "_s, $$str(this->val$accel_id)}));
 			}
 			$nc(this->this$0->accelerators)->remove($($Long::valueOf(this->val$accel_id)));
 			$nc(this->this$0->accel_lookup)->remove(stroke);
@@ -96,7 +49,43 @@ XEmbedCanvasPeer$7::XEmbedCanvasPeer$7() {
 }
 
 $Class* XEmbedCanvasPeer$7::load$($String* name, bool initialize) {
-	$loadClass(XEmbedCanvasPeer$7, name, initialize, &_XEmbedCanvasPeer$7_ClassInfo_, allocate$XEmbedCanvasPeer$7);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/awt/X11/XEmbedCanvasPeer;", nullptr, $FINAL | $SYNTHETIC, $field(XEmbedCanvasPeer$7, this$0)},
+		{"val$accel_id", "J", nullptr, $FINAL | $SYNTHETIC, $field(XEmbedCanvasPeer$7, val$accel_id)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/awt/X11/XEmbedCanvasPeer;J)V", "()V", 0, $method(XEmbedCanvasPeer$7, init$, void, $XEmbedCanvasPeer*, int64_t)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(XEmbedCanvasPeer$7, run, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.awt.X11.XEmbedCanvasPeer",
+		"unregisterAccelerator",
+		"(J)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.X11.XEmbedCanvasPeer$7", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.awt.X11.XEmbedCanvasPeer$7",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.awt.X11.XEmbedCanvasPeer"
+	};
+	$loadClass(XEmbedCanvasPeer$7, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XEmbedCanvasPeer$7);
+	});
 	return class$;
 }
 

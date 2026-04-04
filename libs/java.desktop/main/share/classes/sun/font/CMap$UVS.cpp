@@ -1,5 +1,4 @@
 #include <sun/font/CMap$UVS.h>
-
 #include <java/nio/ByteBuffer.h>
 #include <java/util/Arrays.h>
 #include <sun/font/CMap.h>
@@ -20,51 +19,10 @@ using $Arrays = ::java::util::Arrays;
 namespace sun {
 	namespace font {
 
-$FieldInfo _CMap$UVS_FieldInfo_[] = {
-	{"numSelectors", "I", nullptr, 0, $field(CMap$UVS, numSelectors)},
-	{"selector", "[I", nullptr, 0, $field(CMap$UVS, selector)},
-	{"numUVSMapping", "[I", nullptr, 0, $field(CMap$UVS, numUVSMapping)},
-	{"unicodeValue", "[[I", nullptr, 0, $field(CMap$UVS, unicodeValue)},
-	{"glyphID", "[[C", nullptr, 0, $field(CMap$UVS, glyphID)},
-	{"VS_NOGLYPH", "I", nullptr, $STATIC | $FINAL, $constField(CMap$UVS, VS_NOGLYPH)},
-	{}
-};
-
-$MethodInfo _CMap$UVS_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/ByteBuffer;I)V", nullptr, 0, $method(CMap$UVS, init$, void, $ByteBuffer*, int32_t)},
-	{"getGlyph", "(II)I", nullptr, $PRIVATE, $method(CMap$UVS, getGlyph, int32_t, int32_t, int32_t)},
-	{}
-};
-
-$InnerClassInfo _CMap$UVS_InnerClassesInfo_[] = {
-	{"sun.font.CMap$UVS", "sun.font.CMap", "UVS", $STATIC},
-	{}
-};
-
-$ClassInfo _CMap$UVS_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.font.CMap$UVS",
-	"java.lang.Object",
-	nullptr,
-	_CMap$UVS_FieldInfo_,
-	_CMap$UVS_MethodInfo_,
-	nullptr,
-	nullptr,
-	_CMap$UVS_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.font.CMap"
-};
-
-$Object* allocate$CMap$UVS($Class* clazz) {
-	return $of($alloc(CMap$UVS));
-}
-
 void CMap$UVS::init$($ByteBuffer* buffer, int32_t offset) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(buffer)->position(offset + 6);
-	this->numSelectors = (int32_t)(buffer->getInt() & (uint32_t)0x7FFFFFFF);
+	this->numSelectors = buffer->getInt() & 0x7fffffff;
 	if (buffer->remaining() < (11 * (int64_t)this->numSelectors)) {
 		$throwNew($RuntimeException, "Variations exceed buffer"_s);
 	}
@@ -74,24 +32,24 @@ void CMap$UVS::init$($ByteBuffer* buffer, int32_t offset) {
 	$set(this, glyphID, $new($charArray2, this->numSelectors));
 	for (int32_t i = 0; i < this->numSelectors; ++i) {
 		buffer->position(offset + 10 + i * 11);
-		$nc(this->selector)->set(i, ((int32_t)(buffer->get() & (uint32_t)255)) << 16);
-		(*$nc(this->selector))[i] += ((int32_t)(buffer->get() & (uint32_t)255)) << 8;
-		(*$nc(this->selector))[i] += (int32_t)(buffer->get() & (uint32_t)255);
+		$nc(this->selector)->set(i, (buffer->get() & 0xff) << 16);
+		(*$nc(this->selector))[i] += (buffer->get() & 0xff) << 8;
+		(*$nc(this->selector))[i] += buffer->get() & 0xff;
 		int32_t tableOffset = buffer->getInt(offset + 10 + i * 11 + 7);
 		if (tableOffset == 0) {
 			$nc(this->numUVSMapping)->set(i, 0);
 		} else if (tableOffset > 0) {
 			buffer->position(offset + tableOffset);
-			$nc(this->numUVSMapping)->set(i, (int32_t)(buffer->getInt() & (uint32_t)0x7FFFFFFF));
+			$nc(this->numUVSMapping)->set(i, buffer->getInt() & 0x7fffffff);
 			if (buffer->remaining() < (5 * (int64_t)$nc(this->numUVSMapping)->get(i))) {
 				$throwNew($RuntimeException, "Variations exceed buffer"_s);
 			}
 			$nc(this->unicodeValue)->set(i, $$new($ints, $nc(this->numUVSMapping)->get(i)));
-			$nc(this->glyphID)->set(i, $$new($chars, $nc(this->numUVSMapping)->get(i)));
+			$nc(this->glyphID)->set(i, $$new($chars, this->numUVSMapping->get(i)));
 			for (int32_t j = 0; j < $nc(this->numUVSMapping)->get(i); ++j) {
-				int32_t temp = ((int32_t)(buffer->get() & (uint32_t)255)) << 16;
-				temp += ((int32_t)(buffer->get() & (uint32_t)255)) << 8;
-				temp += (int32_t)(buffer->get() & (uint32_t)255);
+				int32_t temp = (buffer->get() & 0xff) << 16;
+				temp += (buffer->get() & 0xff) << 8;
+				temp += buffer->get() & 0xff;
 				$nc($nc(this->unicodeValue)->get(i))->set(j, temp);
 				$nc($nc(this->glyphID)->get(i))->set(j, buffer->getChar());
 			}
@@ -123,7 +81,42 @@ CMap$UVS::CMap$UVS() {
 }
 
 $Class* CMap$UVS::load$($String* name, bool initialize) {
-	$loadClass(CMap$UVS, name, initialize, &_CMap$UVS_ClassInfo_, allocate$CMap$UVS);
+	$FieldInfo fieldInfos$$[] = {
+		{"numSelectors", "I", nullptr, 0, $field(CMap$UVS, numSelectors)},
+		{"selector", "[I", nullptr, 0, $field(CMap$UVS, selector)},
+		{"numUVSMapping", "[I", nullptr, 0, $field(CMap$UVS, numUVSMapping)},
+		{"unicodeValue", "[[I", nullptr, 0, $field(CMap$UVS, unicodeValue)},
+		{"glyphID", "[[C", nullptr, 0, $field(CMap$UVS, glyphID)},
+		{"VS_NOGLYPH", "I", nullptr, $STATIC | $FINAL, $constField(CMap$UVS, VS_NOGLYPH)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/nio/ByteBuffer;I)V", nullptr, 0, $method(CMap$UVS, init$, void, $ByteBuffer*, int32_t)},
+		{"getGlyph", "(II)I", nullptr, $PRIVATE, $method(CMap$UVS, getGlyph, int32_t, int32_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.font.CMap$UVS", "sun.font.CMap", "UVS", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.font.CMap$UVS",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.font.CMap"
+	};
+	$loadClass(CMap$UVS, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CMap$UVS);
+	});
 	return class$;
 }
 

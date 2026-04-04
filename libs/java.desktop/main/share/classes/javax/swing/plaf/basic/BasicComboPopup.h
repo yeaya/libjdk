@@ -102,6 +102,7 @@ public:
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
 	virtual bool isVisible() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::javax::swing::JComboBox* combo);
 	virtual void autoScrollDown();
 	virtual void autoScrollUp();

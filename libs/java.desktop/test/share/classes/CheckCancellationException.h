@@ -17,6 +17,7 @@ class $export CheckCancellationException : public ::java::lang::Object {
 	$class(CheckCancellationException, 0, ::java::lang::Object)
 public:
 	CheckCancellationException();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void main($StringArray* args);
 	static ::java::util::concurrent::CountDownLatch* go;

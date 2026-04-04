@@ -1,7 +1,5 @@
 #include <javax/swing/plaf/basic/BasicProgressBarUI$Animator.h>
-
 #include <java/awt/event/ActionEvent.h>
-#include <java/awt/event/ActionListener.h>
 #include <javax/swing/Timer.h>
 #include <javax/swing/plaf/basic/BasicProgressBarUI.h>
 #include <jcpp.h>
@@ -10,7 +8,6 @@
 #undef MINIMUM_DELAY
 
 using $ActionEvent = ::java::awt::event::ActionEvent;
-using $ActionListener = ::java::awt::event::ActionListener;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -23,49 +20,6 @@ namespace javax {
 		namespace plaf {
 			namespace basic {
 
-$FieldInfo _BasicProgressBarUI$Animator_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/plaf/basic/BasicProgressBarUI;", nullptr, $FINAL | $SYNTHETIC, $field(BasicProgressBarUI$Animator, this$0)},
-	{"timer", "Ljavax/swing/Timer;", nullptr, $PRIVATE, $field(BasicProgressBarUI$Animator, timer)},
-	{"previousDelay", "J", nullptr, $PRIVATE, $field(BasicProgressBarUI$Animator, previousDelay)},
-	{"interval", "I", nullptr, $PRIVATE, $field(BasicProgressBarUI$Animator, interval)},
-	{"lastCall", "J", nullptr, $PRIVATE, $field(BasicProgressBarUI$Animator, lastCall)},
-	{"MINIMUM_DELAY", "I", nullptr, $PRIVATE, $field(BasicProgressBarUI$Animator, MINIMUM_DELAY)},
-	{}
-};
-
-$MethodInfo _BasicProgressBarUI$Animator_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/plaf/basic/BasicProgressBarUI;)V", nullptr, $PRIVATE, $method(BasicProgressBarUI$Animator, init$, void, $BasicProgressBarUI*)},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicProgressBarUI$Animator, actionPerformed, void, $ActionEvent*)},
-	{"start", "(I)V", nullptr, $PRIVATE, $method(BasicProgressBarUI$Animator, start, void, int32_t)},
-	{"stop", "()V", nullptr, $PRIVATE, $method(BasicProgressBarUI$Animator, stop, void)},
-	{}
-};
-
-$InnerClassInfo _BasicProgressBarUI$Animator_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.basic.BasicProgressBarUI$Animator", "javax.swing.plaf.basic.BasicProgressBarUI", "Animator", $PRIVATE},
-	{}
-};
-
-$ClassInfo _BasicProgressBarUI$Animator_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.basic.BasicProgressBarUI$Animator",
-	"java.lang.Object",
-	"java.awt.event.ActionListener",
-	_BasicProgressBarUI$Animator_FieldInfo_,
-	_BasicProgressBarUI$Animator_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BasicProgressBarUI$Animator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.basic.BasicProgressBarUI"
-};
-
-$Object* allocate$BasicProgressBarUI$Animator($Class* clazz) {
-	return $of($alloc(BasicProgressBarUI$Animator));
-}
-
 void BasicProgressBarUI$Animator::init$($BasicProgressBarUI* this$0) {
 	$set(this, this$0, this$0);
 	this->MINIMUM_DELAY = 5;
@@ -77,7 +31,7 @@ void BasicProgressBarUI$Animator::start(int32_t interval) {
 	if (this->timer == nullptr) {
 		$set(this, timer, $new($Timer, interval, this));
 	} else {
-		$nc(this->timer)->setDelay(interval);
+		this->timer->setDelay(interval);
 	}
 	$init($BasicProgressBarUI);
 	if ($BasicProgressBarUI::ADJUSTTIMER) {
@@ -113,7 +67,44 @@ BasicProgressBarUI$Animator::BasicProgressBarUI$Animator() {
 }
 
 $Class* BasicProgressBarUI$Animator::load$($String* name, bool initialize) {
-	$loadClass(BasicProgressBarUI$Animator, name, initialize, &_BasicProgressBarUI$Animator_ClassInfo_, allocate$BasicProgressBarUI$Animator);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/plaf/basic/BasicProgressBarUI;", nullptr, $FINAL | $SYNTHETIC, $field(BasicProgressBarUI$Animator, this$0)},
+		{"timer", "Ljavax/swing/Timer;", nullptr, $PRIVATE, $field(BasicProgressBarUI$Animator, timer)},
+		{"previousDelay", "J", nullptr, $PRIVATE, $field(BasicProgressBarUI$Animator, previousDelay)},
+		{"interval", "I", nullptr, $PRIVATE, $field(BasicProgressBarUI$Animator, interval)},
+		{"lastCall", "J", nullptr, $PRIVATE, $field(BasicProgressBarUI$Animator, lastCall)},
+		{"MINIMUM_DELAY", "I", nullptr, $PRIVATE, $field(BasicProgressBarUI$Animator, MINIMUM_DELAY)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/plaf/basic/BasicProgressBarUI;)V", nullptr, $PRIVATE, $method(BasicProgressBarUI$Animator, init$, void, $BasicProgressBarUI*)},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicProgressBarUI$Animator, actionPerformed, void, $ActionEvent*)},
+		{"start", "(I)V", nullptr, $PRIVATE, $method(BasicProgressBarUI$Animator, start, void, int32_t)},
+		{"stop", "()V", nullptr, $PRIVATE, $method(BasicProgressBarUI$Animator, stop, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.basic.BasicProgressBarUI$Animator", "javax.swing.plaf.basic.BasicProgressBarUI", "Animator", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.basic.BasicProgressBarUI$Animator",
+		"java.lang.Object",
+		"java.awt.event.ActionListener",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.basic.BasicProgressBarUI"
+	};
+	$loadClass(BasicProgressBarUI$Animator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BasicProgressBarUI$Animator);
+	});
 	return class$;
 }
 

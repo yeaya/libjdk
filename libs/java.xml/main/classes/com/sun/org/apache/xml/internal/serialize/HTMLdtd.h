@@ -48,6 +48,7 @@ class HTMLdtd : public ::java::lang::Object {
 	$class(HTMLdtd, 0, ::java::lang::Object)
 public:
 	HTMLdtd();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static int32_t charFromName($String* name);
 	static void defineBoolean($String* tagName, $String* attrName);

@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/security/algorithms/implementations/IntegrityHmac$IntegrityHmacRIPEMD160.h>
-
 #include <com/sun/org/apache/xml/internal/security/algorithms/implementations/IntegrityHmac.h>
 #include <com/sun/org/apache/xml/internal/security/signature/XMLSignature.h>
 #include <java/security/Provider.h>
@@ -24,39 +23,6 @@ namespace com {
 							namespace algorithms {
 								namespace implementations {
 
-$MethodInfo _IntegrityHmac$IntegrityHmacRIPEMD160_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(IntegrityHmac$IntegrityHmacRIPEMD160, init$, void), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
-	{"<init>", "(Ljava/security/Provider;)V", nullptr, $PUBLIC, $method(IntegrityHmac$IntegrityHmacRIPEMD160, init$, void, $Provider*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
-	{"engineGetURI", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(IntegrityHmac$IntegrityHmacRIPEMD160, engineGetURI, $String*)},
-	{"getDigestLength", "()I", nullptr, 0, $virtualMethod(IntegrityHmac$IntegrityHmacRIPEMD160, getDigestLength, int32_t)},
-	{}
-};
-
-$InnerClassInfo _IntegrityHmac$IntegrityHmacRIPEMD160_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xml.internal.security.algorithms.implementations.IntegrityHmac$IntegrityHmacRIPEMD160", "com.sun.org.apache.xml.internal.security.algorithms.implementations.IntegrityHmac", "IntegrityHmacRIPEMD160", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _IntegrityHmac$IntegrityHmacRIPEMD160_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.security.algorithms.implementations.IntegrityHmac$IntegrityHmacRIPEMD160",
-	"com.sun.org.apache.xml.internal.security.algorithms.implementations.IntegrityHmac",
-	nullptr,
-	nullptr,
-	_IntegrityHmac$IntegrityHmacRIPEMD160_MethodInfo_,
-	nullptr,
-	nullptr,
-	_IntegrityHmac$IntegrityHmacRIPEMD160_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xml.internal.security.algorithms.implementations.IntegrityHmac"
-};
-
-$Object* allocate$IntegrityHmac$IntegrityHmacRIPEMD160($Class* clazz) {
-	return $of($alloc(IntegrityHmac$IntegrityHmacRIPEMD160));
-}
-
 void IntegrityHmac$IntegrityHmacRIPEMD160::init$() {
 	$IntegrityHmac::init$();
 }
@@ -78,7 +44,35 @@ IntegrityHmac$IntegrityHmacRIPEMD160::IntegrityHmac$IntegrityHmacRIPEMD160() {
 }
 
 $Class* IntegrityHmac$IntegrityHmacRIPEMD160::load$($String* name, bool initialize) {
-	$loadClass(IntegrityHmac$IntegrityHmacRIPEMD160, name, initialize, &_IntegrityHmac$IntegrityHmacRIPEMD160_ClassInfo_, allocate$IntegrityHmac$IntegrityHmacRIPEMD160);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(IntegrityHmac$IntegrityHmacRIPEMD160, init$, void), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
+		{"<init>", "(Ljava/security/Provider;)V", nullptr, $PUBLIC, $method(IntegrityHmac$IntegrityHmacRIPEMD160, init$, void, $Provider*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
+		{"engineGetURI", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(IntegrityHmac$IntegrityHmacRIPEMD160, engineGetURI, $String*)},
+		{"getDigestLength", "()I", nullptr, 0, $virtualMethod(IntegrityHmac$IntegrityHmacRIPEMD160, getDigestLength, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xml.internal.security.algorithms.implementations.IntegrityHmac$IntegrityHmacRIPEMD160", "com.sun.org.apache.xml.internal.security.algorithms.implementations.IntegrityHmac", "IntegrityHmacRIPEMD160", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.security.algorithms.implementations.IntegrityHmac$IntegrityHmacRIPEMD160",
+		"com.sun.org.apache.xml.internal.security.algorithms.implementations.IntegrityHmac",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xml.internal.security.algorithms.implementations.IntegrityHmac"
+	};
+	$loadClass(IntegrityHmac$IntegrityHmacRIPEMD160, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(IntegrityHmac$IntegrityHmacRIPEMD160);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/source/doctree/DocTree$Kind.h>
-
 #include <com/sun/source/doctree/DocTree.h>
 #include <java/lang/Enum.h>
 #include <jcpp.h>
@@ -55,85 +54,6 @@ namespace com {
 	namespace sun {
 		namespace source {
 			namespace doctree {
-
-$FieldInfo _DocTree$Kind_FieldInfo_[] = {
-	{"ATTRIBUTE", "Lcom/sun/source/doctree/DocTree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DocTree$Kind, ATTRIBUTE)},
-	{"AUTHOR", "Lcom/sun/source/doctree/DocTree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DocTree$Kind, AUTHOR)},
-	{"CODE", "Lcom/sun/source/doctree/DocTree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DocTree$Kind, CODE)},
-	{"COMMENT", "Lcom/sun/source/doctree/DocTree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DocTree$Kind, COMMENT)},
-	{"DEPRECATED", "Lcom/sun/source/doctree/DocTree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DocTree$Kind, DEPRECATED)},
-	{"DOC_COMMENT", "Lcom/sun/source/doctree/DocTree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DocTree$Kind, DOC_COMMENT)},
-	{"DOC_ROOT", "Lcom/sun/source/doctree/DocTree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DocTree$Kind, DOC_ROOT)},
-	{"DOC_TYPE", "Lcom/sun/source/doctree/DocTree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DocTree$Kind, DOC_TYPE)},
-	{"END_ELEMENT", "Lcom/sun/source/doctree/DocTree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DocTree$Kind, END_ELEMENT)},
-	{"ENTITY", "Lcom/sun/source/doctree/DocTree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DocTree$Kind, ENTITY)},
-	{"ERRONEOUS", "Lcom/sun/source/doctree/DocTree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DocTree$Kind, ERRONEOUS)},
-	{"EXCEPTION", "Lcom/sun/source/doctree/DocTree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DocTree$Kind, EXCEPTION)},
-	{"HIDDEN", "Lcom/sun/source/doctree/DocTree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DocTree$Kind, HIDDEN)},
-	{"IDENTIFIER", "Lcom/sun/source/doctree/DocTree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DocTree$Kind, IDENTIFIER)},
-	{"INDEX", "Lcom/sun/source/doctree/DocTree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DocTree$Kind, INDEX)},
-	{"INHERIT_DOC", "Lcom/sun/source/doctree/DocTree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DocTree$Kind, INHERIT_DOC)},
-	{"LINK", "Lcom/sun/source/doctree/DocTree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DocTree$Kind, LINK)},
-	{"LINK_PLAIN", "Lcom/sun/source/doctree/DocTree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DocTree$Kind, LINK_PLAIN)},
-	{"LITERAL", "Lcom/sun/source/doctree/DocTree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DocTree$Kind, LITERAL)},
-	{"PARAM", "Lcom/sun/source/doctree/DocTree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DocTree$Kind, PARAM)},
-	{"PROVIDES", "Lcom/sun/source/doctree/DocTree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DocTree$Kind, PROVIDES)},
-	{"REFERENCE", "Lcom/sun/source/doctree/DocTree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DocTree$Kind, REFERENCE)},
-	{"RETURN", "Lcom/sun/source/doctree/DocTree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DocTree$Kind, RETURN)},
-	{"SEE", "Lcom/sun/source/doctree/DocTree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DocTree$Kind, SEE)},
-	{"SERIAL", "Lcom/sun/source/doctree/DocTree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DocTree$Kind, SERIAL)},
-	{"SERIAL_DATA", "Lcom/sun/source/doctree/DocTree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DocTree$Kind, SERIAL_DATA)},
-	{"SERIAL_FIELD", "Lcom/sun/source/doctree/DocTree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DocTree$Kind, SERIAL_FIELD)},
-	{"SINCE", "Lcom/sun/source/doctree/DocTree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DocTree$Kind, SINCE)},
-	{"START_ELEMENT", "Lcom/sun/source/doctree/DocTree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DocTree$Kind, START_ELEMENT)},
-	{"SYSTEM_PROPERTY", "Lcom/sun/source/doctree/DocTree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DocTree$Kind, SYSTEM_PROPERTY)},
-	{"SUMMARY", "Lcom/sun/source/doctree/DocTree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DocTree$Kind, SUMMARY)},
-	{"TEXT", "Lcom/sun/source/doctree/DocTree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DocTree$Kind, TEXT)},
-	{"THROWS", "Lcom/sun/source/doctree/DocTree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DocTree$Kind, THROWS)},
-	{"UNKNOWN_BLOCK_TAG", "Lcom/sun/source/doctree/DocTree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DocTree$Kind, UNKNOWN_BLOCK_TAG)},
-	{"UNKNOWN_INLINE_TAG", "Lcom/sun/source/doctree/DocTree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DocTree$Kind, UNKNOWN_INLINE_TAG)},
-	{"USES", "Lcom/sun/source/doctree/DocTree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DocTree$Kind, USES)},
-	{"VALUE", "Lcom/sun/source/doctree/DocTree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DocTree$Kind, VALUE)},
-	{"VERSION", "Lcom/sun/source/doctree/DocTree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DocTree$Kind, VERSION)},
-	{"OTHER", "Lcom/sun/source/doctree/DocTree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DocTree$Kind, OTHER)},
-	{"$VALUES", "[Lcom/sun/source/doctree/DocTree$Kind;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(DocTree$Kind, $VALUES)},
-	{"tagName", "Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $field(DocTree$Kind, tagName)},
-	{}
-};
-
-$MethodInfo _DocTree$Kind_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/source/doctree/DocTree$Kind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(DocTree$Kind, $values, $DocTree$KindArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(DocTree$Kind, init$, void, $String*, int32_t)},
-	{"<init>", "(Ljava/lang/String;ILjava/lang/String;)V", "(Ljava/lang/String;)V", $PRIVATE, $method(DocTree$Kind, init$, void, $String*, int32_t, $String*)},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/source/doctree/DocTree$Kind;", nullptr, $PUBLIC | $STATIC, $staticMethod(DocTree$Kind, valueOf, DocTree$Kind*, $String*)},
-	{"values", "()[Lcom/sun/source/doctree/DocTree$Kind;", nullptr, $PUBLIC | $STATIC, $staticMethod(DocTree$Kind, values, $DocTree$KindArray*)},
-	{}
-};
-
-$InnerClassInfo _DocTree$Kind_InnerClassesInfo_[] = {
-	{"com.sun.source.doctree.DocTree$Kind", "com.sun.source.doctree.DocTree", "Kind", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _DocTree$Kind_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"com.sun.source.doctree.DocTree$Kind",
-	"java.lang.Enum",
-	nullptr,
-	_DocTree$Kind_FieldInfo_,
-	_DocTree$Kind_MethodInfo_,
-	"Ljava/lang/Enum<Lcom/sun/source/doctree/DocTree$Kind;>;",
-	nullptr,
-	_DocTree$Kind_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.source.doctree.DocTree"
-};
-
-$Object* allocate$DocTree$Kind($Class* clazz) {
-	return $of($alloc(DocTree$Kind));
-}
 
 DocTree$Kind* DocTree$Kind::ATTRIBUTE = nullptr;
 DocTree$Kind* DocTree$Kind::AUTHOR = nullptr;
@@ -241,7 +161,7 @@ void DocTree$Kind::init$($String* $enum$name, int32_t $enum$ordinal, $String* ta
 	$set(this, tagName, tagName);
 }
 
-void clinit$DocTree$Kind($Class* class$) {
+void DocTree$Kind::clinit$($Class* clazz) {
 	$assignStatic(DocTree$Kind::ATTRIBUTE, $new(DocTree$Kind, "ATTRIBUTE"_s, 0));
 	$assignStatic(DocTree$Kind::AUTHOR, $new(DocTree$Kind, "AUTHOR"_s, 1, "author"_s));
 	$assignStatic(DocTree$Kind::CODE, $new(DocTree$Kind, "CODE"_s, 2, "code"_s));
@@ -288,7 +208,80 @@ DocTree$Kind::DocTree$Kind() {
 }
 
 $Class* DocTree$Kind::load$($String* name, bool initialize) {
-	$loadClass(DocTree$Kind, name, initialize, &_DocTree$Kind_ClassInfo_, clinit$DocTree$Kind, allocate$DocTree$Kind);
+	$FieldInfo fieldInfos$$[] = {
+		{"ATTRIBUTE", "Lcom/sun/source/doctree/DocTree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DocTree$Kind, ATTRIBUTE)},
+		{"AUTHOR", "Lcom/sun/source/doctree/DocTree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DocTree$Kind, AUTHOR)},
+		{"CODE", "Lcom/sun/source/doctree/DocTree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DocTree$Kind, CODE)},
+		{"COMMENT", "Lcom/sun/source/doctree/DocTree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DocTree$Kind, COMMENT)},
+		{"DEPRECATED", "Lcom/sun/source/doctree/DocTree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DocTree$Kind, DEPRECATED)},
+		{"DOC_COMMENT", "Lcom/sun/source/doctree/DocTree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DocTree$Kind, DOC_COMMENT)},
+		{"DOC_ROOT", "Lcom/sun/source/doctree/DocTree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DocTree$Kind, DOC_ROOT)},
+		{"DOC_TYPE", "Lcom/sun/source/doctree/DocTree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DocTree$Kind, DOC_TYPE)},
+		{"END_ELEMENT", "Lcom/sun/source/doctree/DocTree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DocTree$Kind, END_ELEMENT)},
+		{"ENTITY", "Lcom/sun/source/doctree/DocTree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DocTree$Kind, ENTITY)},
+		{"ERRONEOUS", "Lcom/sun/source/doctree/DocTree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DocTree$Kind, ERRONEOUS)},
+		{"EXCEPTION", "Lcom/sun/source/doctree/DocTree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DocTree$Kind, EXCEPTION)},
+		{"HIDDEN", "Lcom/sun/source/doctree/DocTree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DocTree$Kind, HIDDEN)},
+		{"IDENTIFIER", "Lcom/sun/source/doctree/DocTree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DocTree$Kind, IDENTIFIER)},
+		{"INDEX", "Lcom/sun/source/doctree/DocTree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DocTree$Kind, INDEX)},
+		{"INHERIT_DOC", "Lcom/sun/source/doctree/DocTree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DocTree$Kind, INHERIT_DOC)},
+		{"LINK", "Lcom/sun/source/doctree/DocTree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DocTree$Kind, LINK)},
+		{"LINK_PLAIN", "Lcom/sun/source/doctree/DocTree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DocTree$Kind, LINK_PLAIN)},
+		{"LITERAL", "Lcom/sun/source/doctree/DocTree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DocTree$Kind, LITERAL)},
+		{"PARAM", "Lcom/sun/source/doctree/DocTree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DocTree$Kind, PARAM)},
+		{"PROVIDES", "Lcom/sun/source/doctree/DocTree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DocTree$Kind, PROVIDES)},
+		{"REFERENCE", "Lcom/sun/source/doctree/DocTree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DocTree$Kind, REFERENCE)},
+		{"RETURN", "Lcom/sun/source/doctree/DocTree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DocTree$Kind, RETURN)},
+		{"SEE", "Lcom/sun/source/doctree/DocTree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DocTree$Kind, SEE)},
+		{"SERIAL", "Lcom/sun/source/doctree/DocTree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DocTree$Kind, SERIAL)},
+		{"SERIAL_DATA", "Lcom/sun/source/doctree/DocTree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DocTree$Kind, SERIAL_DATA)},
+		{"SERIAL_FIELD", "Lcom/sun/source/doctree/DocTree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DocTree$Kind, SERIAL_FIELD)},
+		{"SINCE", "Lcom/sun/source/doctree/DocTree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DocTree$Kind, SINCE)},
+		{"START_ELEMENT", "Lcom/sun/source/doctree/DocTree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DocTree$Kind, START_ELEMENT)},
+		{"SYSTEM_PROPERTY", "Lcom/sun/source/doctree/DocTree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DocTree$Kind, SYSTEM_PROPERTY)},
+		{"SUMMARY", "Lcom/sun/source/doctree/DocTree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DocTree$Kind, SUMMARY)},
+		{"TEXT", "Lcom/sun/source/doctree/DocTree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DocTree$Kind, TEXT)},
+		{"THROWS", "Lcom/sun/source/doctree/DocTree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DocTree$Kind, THROWS)},
+		{"UNKNOWN_BLOCK_TAG", "Lcom/sun/source/doctree/DocTree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DocTree$Kind, UNKNOWN_BLOCK_TAG)},
+		{"UNKNOWN_INLINE_TAG", "Lcom/sun/source/doctree/DocTree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DocTree$Kind, UNKNOWN_INLINE_TAG)},
+		{"USES", "Lcom/sun/source/doctree/DocTree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DocTree$Kind, USES)},
+		{"VALUE", "Lcom/sun/source/doctree/DocTree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DocTree$Kind, VALUE)},
+		{"VERSION", "Lcom/sun/source/doctree/DocTree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DocTree$Kind, VERSION)},
+		{"OTHER", "Lcom/sun/source/doctree/DocTree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DocTree$Kind, OTHER)},
+		{"$VALUES", "[Lcom/sun/source/doctree/DocTree$Kind;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(DocTree$Kind, $VALUES)},
+		{"tagName", "Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $field(DocTree$Kind, tagName)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lcom/sun/source/doctree/DocTree$Kind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(DocTree$Kind, $values, $DocTree$KindArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(DocTree$Kind, init$, void, $String*, int32_t)},
+		{"<init>", "(Ljava/lang/String;ILjava/lang/String;)V", "(Ljava/lang/String;)V", $PRIVATE, $method(DocTree$Kind, init$, void, $String*, int32_t, $String*)},
+		{"valueOf", "(Ljava/lang/String;)Lcom/sun/source/doctree/DocTree$Kind;", nullptr, $PUBLIC | $STATIC, $staticMethod(DocTree$Kind, valueOf, DocTree$Kind*, $String*)},
+		{"values", "()[Lcom/sun/source/doctree/DocTree$Kind;", nullptr, $PUBLIC | $STATIC, $staticMethod(DocTree$Kind, values, $DocTree$KindArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.source.doctree.DocTree$Kind", "com.sun.source.doctree.DocTree", "Kind", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"com.sun.source.doctree.DocTree$Kind",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lcom/sun/source/doctree/DocTree$Kind;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.source.doctree.DocTree"
+	};
+	$loadClass(DocTree$Kind, name, initialize, &classInfo$$, DocTree$Kind::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DocTree$Kind));
+	});
 	return class$;
 }
 

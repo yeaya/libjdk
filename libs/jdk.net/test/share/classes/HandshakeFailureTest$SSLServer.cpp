@@ -1,5 +1,4 @@
 #include <HandshakeFailureTest$SSLServer.h>
-
 #include <HandshakeFailureTest$AbstractServer.h>
 #include <HandshakeFailureTest.h>
 #include <java/io/IOException.h>
@@ -22,8 +21,6 @@ using $HandshakeFailureTest$AbstractServer = ::HandshakeFailureTest$AbstractServ
 using $KeyManagerArray = $Array<::javax::net::ssl::KeyManager>;
 using $TrustManagerArray = $Array<::javax::net::ssl::TrustManager>;
 using $IOException = ::java::io::IOException;
-using $InputStream = ::java::io::InputStream;
-using $PrintStream = ::java::io::PrintStream;
 using $AssertionError = ::java::lang::AssertionError;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Error = ::java::lang::Error;
@@ -31,51 +28,11 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
-using $ServerSocket = ::java::net::ServerSocket;
 using $SecureRandom = ::java::security::SecureRandom;
 using $ServerSocketFactory = ::javax::net::ServerSocketFactory;
 using $SSLContext = ::javax::net::ssl::SSLContext;
 using $SSLHandshakeException = ::javax::net::ssl::SSLHandshakeException;
 using $SSLSocket = ::javax::net::ssl::SSLSocket;
-
-$FieldInfo _HandshakeFailureTest$SSLServer_FieldInfo_[] = {
-	{"sslContext", "Ljavax/net/ssl/SSLContext;", nullptr, $STATIC | $FINAL, $staticField(HandshakeFailureTest$SSLServer, sslContext)},
-	{"factory", "Ljavax/net/ServerSocketFactory;", nullptr, $STATIC | $FINAL, $staticField(HandshakeFailureTest$SSLServer, factory)},
-	{}
-};
-
-$MethodInfo _HandshakeFailureTest$SSLServer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(HandshakeFailureTest$SSLServer, init$, void), "java.io.IOException"},
-	{"createUntrustingContext", "()Ljavax/net/ssl/SSLContext;", nullptr, $STATIC, $staticMethod(HandshakeFailureTest$SSLServer, createUntrustingContext, $SSLContext*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(HandshakeFailureTest$SSLServer, run, void)},
-	{}
-};
-
-$InnerClassInfo _HandshakeFailureTest$SSLServer_InnerClassesInfo_[] = {
-	{"HandshakeFailureTest$SSLServer", "HandshakeFailureTest", "SSLServer", $STATIC},
-	{"HandshakeFailureTest$AbstractServer", "HandshakeFailureTest", "AbstractServer", $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _HandshakeFailureTest$SSLServer_ClassInfo_ = {
-	$ACC_SUPER,
-	"HandshakeFailureTest$SSLServer",
-	"HandshakeFailureTest$AbstractServer",
-	nullptr,
-	_HandshakeFailureTest$SSLServer_FieldInfo_,
-	_HandshakeFailureTest$SSLServer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_HandshakeFailureTest$SSLServer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"HandshakeFailureTest"
-};
-
-$Object* allocate$HandshakeFailureTest$SSLServer($Class* clazz) {
-	return $of($alloc(HandshakeFailureTest$SSLServer));
-}
 
 $SSLContext* HandshakeFailureTest$SSLServer::sslContext = nullptr;
 $ServerSocketFactory* HandshakeFailureTest$SSLServer::factory = nullptr;
@@ -97,39 +54,37 @@ void HandshakeFailureTest$SSLServer::init$() {
 }
 
 void HandshakeFailureTest$SSLServer::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	while (!this->closed) {
 		try {
 			$var($SSLSocket, s, $cast($SSLSocket, $nc(this->ss)->accept()));
-			{
-				$var($Throwable, var$0, nullptr);
+			$var($Throwable, var$0, nullptr);
+			try {
 				try {
-					try {
-						$nc($($nc(s)->getInputStream()))->read();
-						$throwNew($AssertionError, $of("Should not reach here"_s));
-					} catch ($Throwable& t$) {
-						if (s != nullptr) {
-							try {
-								s->close();
-							} catch ($Throwable& x2) {
-								t$->addSuppressed(x2);
-							}
-						}
-						$throw(t$);
-					}
-				} catch ($Throwable& var$1) {
-					$assign(var$0, var$1);
-				} /*finally*/ {
+					$$nc($nc(s)->getInputStream())->read();
+					$throwNew($AssertionError, $of("Should not reach here"_s));
+				} catch ($Throwable& t$) {
 					if (s != nullptr) {
-						s->close();
+						try {
+							s->close();
+						} catch ($Throwable& x2) {
+							t$->addSuppressed(x2);
+						}
 					}
+					$throw(t$);
 				}
-				if (var$0 != nullptr) {
-					$throw(var$0);
+			} catch ($Throwable& var$1) {
+				$assign(var$0, var$1);
+			} /*finally*/ {
+				if (s != nullptr) {
+					s->close();
 				}
 			}
+			if (var$0 != nullptr) {
+				$throw(var$0);
+			}
 		} catch ($SSLHandshakeException& expected) {
-			$nc($System::out)->printf("SSLServer: caught expected exception: %s%n"_s, $$new($ObjectArray, {$of(expected)}));
+			$nc($System::out)->printf("SSLServer: caught expected exception: %s%n"_s, $$new($ObjectArray, {expected}));
 		} catch ($IOException& e) {
 			if (!this->closed) {
 				$nc($System::out)->println($$str({"SSLServer: unexpected "_s, e}));
@@ -139,21 +94,21 @@ void HandshakeFailureTest$SSLServer::run() {
 			if (!this->closed) {
 				$nc($System::out)->println($$str({"SSLServer: unexpected "_s, e}));
 				e->printStackTrace($System::out);
-				$throwNew($RuntimeException, $cast($Throwable, e));
+				$throwNew($RuntimeException, e);
 			}
 			break;
 		} catch ($RuntimeException& e) {
 			if (!this->closed) {
 				$nc($System::out)->println($$str({"SSLServer: unexpected "_s, e}));
 				e->printStackTrace($System::out);
-				$throwNew($RuntimeException, $cast($Throwable, e));
+				$throwNew($RuntimeException, e);
 			}
 			break;
 		}
 	}
 }
 
-void clinit$HandshakeFailureTest$SSLServer($Class* class$) {
+void HandshakeFailureTest$SSLServer::clinit$($Class* clazz) {
 	$assignStatic(HandshakeFailureTest$SSLServer::sslContext, HandshakeFailureTest$SSLServer::createUntrustingContext());
 	$assignStatic(HandshakeFailureTest$SSLServer::factory, $nc(HandshakeFailureTest$SSLServer::sslContext)->getServerSocketFactory());
 }
@@ -162,7 +117,40 @@ HandshakeFailureTest$SSLServer::HandshakeFailureTest$SSLServer() {
 }
 
 $Class* HandshakeFailureTest$SSLServer::load$($String* name, bool initialize) {
-	$loadClass(HandshakeFailureTest$SSLServer, name, initialize, &_HandshakeFailureTest$SSLServer_ClassInfo_, clinit$HandshakeFailureTest$SSLServer, allocate$HandshakeFailureTest$SSLServer);
+	$FieldInfo fieldInfos$$[] = {
+		{"sslContext", "Ljavax/net/ssl/SSLContext;", nullptr, $STATIC | $FINAL, $staticField(HandshakeFailureTest$SSLServer, sslContext)},
+		{"factory", "Ljavax/net/ServerSocketFactory;", nullptr, $STATIC | $FINAL, $staticField(HandshakeFailureTest$SSLServer, factory)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(HandshakeFailureTest$SSLServer, init$, void), "java.io.IOException"},
+		{"createUntrustingContext", "()Ljavax/net/ssl/SSLContext;", nullptr, $STATIC, $staticMethod(HandshakeFailureTest$SSLServer, createUntrustingContext, $SSLContext*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(HandshakeFailureTest$SSLServer, run, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"HandshakeFailureTest$SSLServer", "HandshakeFailureTest", "SSLServer", $STATIC},
+		{"HandshakeFailureTest$AbstractServer", "HandshakeFailureTest", "AbstractServer", $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"HandshakeFailureTest$SSLServer",
+		"HandshakeFailureTest$AbstractServer",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"HandshakeFailureTest"
+	};
+	$loadClass(HandshakeFailureTest$SSLServer, name, initialize, &classInfo$$, HandshakeFailureTest$SSLServer::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(HandshakeFailureTest$SSLServer));
+	});
 	return class$;
 }
 

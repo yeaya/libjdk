@@ -1,5 +1,4 @@
 #include <jdk/internal/shellsupport/doc/JavadocHelper$1.h>
-
 #include <javax/lang/model/element/Element.h>
 #include <jdk/internal/shellsupport/doc/JavadocHelper.h>
 #include <jcpp.h>
@@ -15,45 +14,6 @@ namespace jdk {
 	namespace internal {
 		namespace shellsupport {
 			namespace doc {
-
-$MethodInfo _JavadocHelper$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(JavadocHelper$1, init$, void)},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(JavadocHelper$1, close, void), "java.io.IOException"},
-	{"getResolvedDocComment", "(Ljavax/lang/model/element/Element;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JavadocHelper$1, getResolvedDocComment, $String*, $Element*), "java.io.IOException"},
-	{"getSourceElement", "(Ljavax/lang/model/element/Element;)Ljavax/lang/model/element/Element;", nullptr, $PUBLIC, $virtualMethod(JavadocHelper$1, getSourceElement, $Element*, $Element*), "java.io.IOException"},
-	{}
-};
-
-$EnclosingMethodInfo _JavadocHelper$1_EnclosingMethodInfo_ = {
-	"jdk.internal.shellsupport.doc.JavadocHelper",
-	"create",
-	"(Lcom/sun/source/util/JavacTask;Ljava/util/Collection;)Ljdk/internal/shellsupport/doc/JavadocHelper;"
-};
-
-$InnerClassInfo _JavadocHelper$1_InnerClassesInfo_[] = {
-	{"jdk.internal.shellsupport.doc.JavadocHelper$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _JavadocHelper$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"jdk.internal.shellsupport.doc.JavadocHelper$1",
-	"jdk.internal.shellsupport.doc.JavadocHelper",
-	nullptr,
-	nullptr,
-	_JavadocHelper$1_MethodInfo_,
-	nullptr,
-	&_JavadocHelper$1_EnclosingMethodInfo_,
-	_JavadocHelper$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.shellsupport.doc.JavadocHelper"
-};
-
-$Object* allocate$JavadocHelper$1($Class* clazz) {
-	return $of($alloc(JavadocHelper$1));
-}
 
 void JavadocHelper$1::init$() {
 	$JavadocHelper::init$();
@@ -74,7 +34,40 @@ JavadocHelper$1::JavadocHelper$1() {
 }
 
 $Class* JavadocHelper$1::load$($String* name, bool initialize) {
-	$loadClass(JavadocHelper$1, name, initialize, &_JavadocHelper$1_ClassInfo_, allocate$JavadocHelper$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(JavadocHelper$1, init$, void)},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(JavadocHelper$1, close, void), "java.io.IOException"},
+		{"getResolvedDocComment", "(Ljavax/lang/model/element/Element;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JavadocHelper$1, getResolvedDocComment, $String*, $Element*), "java.io.IOException"},
+		{"getSourceElement", "(Ljavax/lang/model/element/Element;)Ljavax/lang/model/element/Element;", nullptr, $PUBLIC, $virtualMethod(JavadocHelper$1, getSourceElement, $Element*, $Element*), "java.io.IOException"},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"jdk.internal.shellsupport.doc.JavadocHelper",
+		"create",
+		"(Lcom/sun/source/util/JavacTask;Ljava/util/Collection;)Ljdk/internal/shellsupport/doc/JavadocHelper;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.shellsupport.doc.JavadocHelper$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"jdk.internal.shellsupport.doc.JavadocHelper$1",
+		"jdk.internal.shellsupport.doc.JavadocHelper",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.shellsupport.doc.JavadocHelper"
+	};
+	$loadClass(JavadocHelper$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JavadocHelper$1);
+	});
 	return class$;
 }
 

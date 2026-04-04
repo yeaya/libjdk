@@ -29,6 +29,7 @@ class $export EventListenerList : public ::java::io::Serializable {
 	$class(EventListenerList, 0, ::java::io::Serializable)
 public:
 	EventListenerList();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void add($Class* t, ::java::util::EventListener* l);
 	virtual int32_t getListenerCount();

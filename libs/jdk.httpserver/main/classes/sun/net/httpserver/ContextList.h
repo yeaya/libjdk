@@ -29,6 +29,7 @@ class ContextList : public ::java::lang::Object {
 	$class(ContextList, 0, ::java::lang::Object)
 public:
 	ContextList();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void add(::sun::net::httpserver::HttpContextImpl* ctx);
 	virtual ::sun::net::httpserver::HttpContextImpl* findContext($String* protocol, $String* path);

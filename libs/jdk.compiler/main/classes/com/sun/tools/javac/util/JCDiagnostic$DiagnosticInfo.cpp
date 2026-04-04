@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/util/JCDiagnostic$DiagnosticInfo.h>
-
 #include <com/sun/tools/javac/util/Assert.h>
 #include <com/sun/tools/javac/util/JCDiagnostic$1.h>
 #include <com/sun/tools/javac/util/JCDiagnostic$DiagnosticType.h>
@@ -28,49 +27,6 @@ namespace com {
 			namespace javac {
 				namespace util {
 
-$FieldInfo _JCDiagnostic$DiagnosticInfo_FieldInfo_[] = {
-	{"type", "Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticType;", nullptr, 0, $field(JCDiagnostic$DiagnosticInfo, type)},
-	{"prefix", "Ljava/lang/String;", nullptr, 0, $field(JCDiagnostic$DiagnosticInfo, prefix)},
-	{"code", "Ljava/lang/String;", nullptr, 0, $field(JCDiagnostic$DiagnosticInfo, code)},
-	{"args", "[Ljava/lang/Object;", nullptr, 0, $field(JCDiagnostic$DiagnosticInfo, args)},
-	{}
-};
-
-$MethodInfo _JCDiagnostic$DiagnosticInfo_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticType;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PRIVATE | $TRANSIENT, $method(JCDiagnostic$DiagnosticInfo, init$, void, $JCDiagnostic$DiagnosticType*, $String*, $String*, $ObjectArray*)},
-	{"getArgs", "()[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JCDiagnostic$DiagnosticInfo, getArgs, $ObjectArray*)},
-	{"getCode", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JCDiagnostic$DiagnosticInfo, getCode, $String*)},
-	{"key", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JCDiagnostic$DiagnosticInfo, key, $String*)},
-	{"of", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticType;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticInfo;", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(JCDiagnostic$DiagnosticInfo, of, JCDiagnostic$DiagnosticInfo*, $JCDiagnostic$DiagnosticType*, $String*, $String*, $ObjectArray*)},
-	{"setArgs", "([Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(JCDiagnostic$DiagnosticInfo, setArgs, void, $ObjectArray*)},
-	{}
-};
-
-$InnerClassInfo _JCDiagnostic$DiagnosticInfo_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.util.JCDiagnostic$DiagnosticInfo", "com.sun.tools.javac.util.JCDiagnostic", "DiagnosticInfo", $PUBLIC | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _JCDiagnostic$DiagnosticInfo_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"com.sun.tools.javac.util.JCDiagnostic$DiagnosticInfo",
-	"java.lang.Object",
-	nullptr,
-	_JCDiagnostic$DiagnosticInfo_FieldInfo_,
-	_JCDiagnostic$DiagnosticInfo_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JCDiagnostic$DiagnosticInfo_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.util.JCDiagnostic"
-};
-
-$Object* allocate$JCDiagnostic$DiagnosticInfo($Class* clazz) {
-	return $of($alloc(JCDiagnostic$DiagnosticInfo));
-}
-
 void JCDiagnostic$DiagnosticInfo::init$($JCDiagnostic$DiagnosticType* type, $String* prefix, $String* code, $ObjectArray* args) {
 	$set(this, type, type);
 	$set(this, prefix, prefix);
@@ -86,26 +42,16 @@ JCDiagnostic$DiagnosticInfo* JCDiagnostic$DiagnosticInfo::of($JCDiagnostic$Diagn
 	$init($JCDiagnostic$1);
 	switch ($nc($JCDiagnostic$1::$SwitchMap$com$sun$tools$javac$util$JCDiagnostic$DiagnosticType)->get($nc((type))->ordinal())) {
 	case 1:
-		{
-			return $new($JCDiagnostic$Error, prefix, code, args);
-		}
+		return $new($JCDiagnostic$Error, prefix, code, args);
 	case 2:
-		{
-			return $new($JCDiagnostic$Warning, prefix, code, args);
-		}
+		return $new($JCDiagnostic$Warning, prefix, code, args);
 	case 3:
-		{
-			return $new($JCDiagnostic$Note, prefix, code, args);
-		}
+		return $new($JCDiagnostic$Note, prefix, code, args);
 	case 4:
-		{
-			return $new($JCDiagnostic$Fragment, prefix, code, args);
-		}
+		return $new($JCDiagnostic$Fragment, prefix, code, args);
 	default:
-		{
-			$Assert::error($$str({"Wrong diagnostic type: "_s, type}));
-			return nullptr;
-		}
+		$Assert::error($$str({"Wrong diagnostic type: "_s, type}));
+		return nullptr;
 	}
 }
 
@@ -125,7 +71,44 @@ JCDiagnostic$DiagnosticInfo::JCDiagnostic$DiagnosticInfo() {
 }
 
 $Class* JCDiagnostic$DiagnosticInfo::load$($String* name, bool initialize) {
-	$loadClass(JCDiagnostic$DiagnosticInfo, name, initialize, &_JCDiagnostic$DiagnosticInfo_ClassInfo_, allocate$JCDiagnostic$DiagnosticInfo);
+	$FieldInfo fieldInfos$$[] = {
+		{"type", "Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticType;", nullptr, 0, $field(JCDiagnostic$DiagnosticInfo, type)},
+		{"prefix", "Ljava/lang/String;", nullptr, 0, $field(JCDiagnostic$DiagnosticInfo, prefix)},
+		{"code", "Ljava/lang/String;", nullptr, 0, $field(JCDiagnostic$DiagnosticInfo, code)},
+		{"args", "[Ljava/lang/Object;", nullptr, 0, $field(JCDiagnostic$DiagnosticInfo, args)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticType;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PRIVATE | $TRANSIENT, $method(JCDiagnostic$DiagnosticInfo, init$, void, $JCDiagnostic$DiagnosticType*, $String*, $String*, $ObjectArray*)},
+		{"getArgs", "()[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JCDiagnostic$DiagnosticInfo, getArgs, $ObjectArray*)},
+		{"getCode", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JCDiagnostic$DiagnosticInfo, getCode, $String*)},
+		{"key", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JCDiagnostic$DiagnosticInfo, key, $String*)},
+		{"of", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticType;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticInfo;", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(JCDiagnostic$DiagnosticInfo, of, JCDiagnostic$DiagnosticInfo*, $JCDiagnostic$DiagnosticType*, $String*, $String*, $ObjectArray*)},
+		{"setArgs", "([Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(JCDiagnostic$DiagnosticInfo, setArgs, void, $ObjectArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.util.JCDiagnostic$DiagnosticInfo", "com.sun.tools.javac.util.JCDiagnostic", "DiagnosticInfo", $PUBLIC | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"com.sun.tools.javac.util.JCDiagnostic$DiagnosticInfo",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.util.JCDiagnostic"
+	};
+	$loadClass(JCDiagnostic$DiagnosticInfo, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JCDiagnostic$DiagnosticInfo);
+	});
 	return class$;
 }
 

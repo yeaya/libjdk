@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/DeferredAttr$DeferredTypeMap.h>
-
 #include <com/sun/tools/javac/code/Symbol.h>
 #include <com/sun/tools/javac/code/Type$JCNoType.h>
 #include <com/sun/tools/javac/code/Type$StructuralTypeMapping.h>
@@ -45,45 +44,6 @@ namespace com {
 			namespace javac {
 				namespace comp {
 
-$FieldInfo _DeferredAttr$DeferredTypeMap_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/comp/DeferredAttr;", nullptr, $FINAL | $SYNTHETIC, $field(DeferredAttr$DeferredTypeMap, this$0)},
-	{"deferredAttrContext", "Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext;", nullptr, 0, $field(DeferredAttr$DeferredTypeMap, deferredAttrContext)},
-	{}
-};
-
-$MethodInfo _DeferredAttr$DeferredTypeMap_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/DeferredAttr;Lcom/sun/tools/javac/comp/DeferredAttr$AttrMode;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/comp/Resolve$MethodResolutionPhase;)V", nullptr, $PROTECTED, $method(DeferredAttr$DeferredTypeMap, init$, void, $DeferredAttr*, $DeferredAttr$AttrMode*, $Symbol*, $Resolve$MethodResolutionPhase*)},
-	{"typeOf", "(Lcom/sun/tools/javac/comp/DeferredAttr$DeferredType;Ljava/lang/Object;)Lcom/sun/tools/javac/code/Type;", "(Lcom/sun/tools/javac/comp/DeferredAttr$DeferredType;TT;)Lcom/sun/tools/javac/code/Type;", $PROTECTED, $virtualMethod(DeferredAttr$DeferredTypeMap, typeOf, $Type*, $DeferredAttr$DeferredType*, Object$*)},
-	{"visitType", "(Lcom/sun/tools/javac/code/Type;Ljava/lang/Object;)Lcom/sun/tools/javac/code/Type;", "(Lcom/sun/tools/javac/code/Type;TT;)Lcom/sun/tools/javac/code/Type;", $PUBLIC, $virtualMethod(DeferredAttr$DeferredTypeMap, visitType, $Object*, $Type*, Object$*)},
-	{}
-};
-
-$InnerClassInfo _DeferredAttr$DeferredTypeMap_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.DeferredAttr$DeferredTypeMap", "com.sun.tools.javac.comp.DeferredAttr", "DeferredTypeMap", 0},
-	{"com.sun.tools.javac.code.Type$StructuralTypeMapping", "com.sun.tools.javac.code.Type", "StructuralTypeMapping", $PUBLIC | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _DeferredAttr$DeferredTypeMap_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.comp.DeferredAttr$DeferredTypeMap",
-	"com.sun.tools.javac.code.Type$StructuralTypeMapping",
-	nullptr,
-	_DeferredAttr$DeferredTypeMap_FieldInfo_,
-	_DeferredAttr$DeferredTypeMap_MethodInfo_,
-	"<T:Ljava/lang/Object;>Lcom/sun/tools/javac/code/Type$StructuralTypeMapping<TT;>;",
-	nullptr,
-	_DeferredAttr$DeferredTypeMap_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.DeferredAttr"
-};
-
-$Object* allocate$DeferredAttr$DeferredTypeMap($Class* clazz) {
-	return $of($alloc(DeferredAttr$DeferredTypeMap));
-}
-
 void DeferredAttr$DeferredTypeMap::init$($DeferredAttr* this$0, $DeferredAttr$AttrMode* mode, $Symbol* msym, $Resolve$MethodResolutionPhase* phase) {
 	$set(this, this$0, this$0);
 	$Type$StructuralTypeMapping::init$();
@@ -93,7 +53,7 @@ void DeferredAttr$DeferredTypeMap::init$($DeferredAttr* this$0, $DeferredAttr$At
 $Object* DeferredAttr$DeferredTypeMap::visitType($Type* t, Object$* p) {
 	$init($TypeTag);
 	if (!$nc(t)->hasTag($TypeTag::DEFERRED)) {
-		return $of($Type$StructuralTypeMapping::visitType(t, p));
+		return $Type$StructuralTypeMapping::visitType(t, p);
 	} else {
 		$var($DeferredAttr$DeferredType, dt, $cast($DeferredAttr$DeferredType, t));
 		return $of(typeOf(dt, p));
@@ -104,14 +64,10 @@ $Type* DeferredAttr$DeferredTypeMap::typeOf($DeferredAttr$DeferredType* dt, Obje
 	$init($DeferredAttr$5);
 	switch ($nc($DeferredAttr$5::$SwitchMap$com$sun$tools$javac$comp$DeferredAttr$AttrMode)->get(($nc(this->deferredAttrContext)->mode)->ordinal())) {
 	case 2:
-		{
-			$init($Type);
-			return $nc($nc(dt)->tree)->type == nullptr ? static_cast<$Type*>($Type::noType) : $nc($nc(dt)->tree)->type;
-		}
+		$init($Type);
+		return $nc($nc(dt)->tree)->type == nullptr ? $cast($Type, $Type::noType) : dt->tree->type;
 	case 1:
-		{
-			return $nc(dt)->speculativeType($nc(this->deferredAttrContext)->msym, $nc(this->deferredAttrContext)->phase);
-		}
+		return $nc(dt)->speculativeType(this->deferredAttrContext->msym, this->deferredAttrContext->phase);
 	}
 	$Assert::error();
 	return nullptr;
@@ -121,7 +77,40 @@ DeferredAttr$DeferredTypeMap::DeferredAttr$DeferredTypeMap() {
 }
 
 $Class* DeferredAttr$DeferredTypeMap::load$($String* name, bool initialize) {
-	$loadClass(DeferredAttr$DeferredTypeMap, name, initialize, &_DeferredAttr$DeferredTypeMap_ClassInfo_, allocate$DeferredAttr$DeferredTypeMap);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/comp/DeferredAttr;", nullptr, $FINAL | $SYNTHETIC, $field(DeferredAttr$DeferredTypeMap, this$0)},
+		{"deferredAttrContext", "Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext;", nullptr, 0, $field(DeferredAttr$DeferredTypeMap, deferredAttrContext)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/comp/DeferredAttr;Lcom/sun/tools/javac/comp/DeferredAttr$AttrMode;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/comp/Resolve$MethodResolutionPhase;)V", nullptr, $PROTECTED, $method(DeferredAttr$DeferredTypeMap, init$, void, $DeferredAttr*, $DeferredAttr$AttrMode*, $Symbol*, $Resolve$MethodResolutionPhase*)},
+		{"typeOf", "(Lcom/sun/tools/javac/comp/DeferredAttr$DeferredType;Ljava/lang/Object;)Lcom/sun/tools/javac/code/Type;", "(Lcom/sun/tools/javac/comp/DeferredAttr$DeferredType;TT;)Lcom/sun/tools/javac/code/Type;", $PROTECTED, $virtualMethod(DeferredAttr$DeferredTypeMap, typeOf, $Type*, $DeferredAttr$DeferredType*, Object$*)},
+		{"visitType", "(Lcom/sun/tools/javac/code/Type;Ljava/lang/Object;)Lcom/sun/tools/javac/code/Type;", "(Lcom/sun/tools/javac/code/Type;TT;)Lcom/sun/tools/javac/code/Type;", $PUBLIC, $virtualMethod(DeferredAttr$DeferredTypeMap, visitType, $Object*, $Type*, Object$*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.DeferredAttr$DeferredTypeMap", "com.sun.tools.javac.comp.DeferredAttr", "DeferredTypeMap", 0},
+		{"com.sun.tools.javac.code.Type$StructuralTypeMapping", "com.sun.tools.javac.code.Type", "StructuralTypeMapping", $PUBLIC | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.comp.DeferredAttr$DeferredTypeMap",
+		"com.sun.tools.javac.code.Type$StructuralTypeMapping",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"<T:Ljava/lang/Object;>Lcom/sun/tools/javac/code/Type$StructuralTypeMapping<TT;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.DeferredAttr"
+	};
+	$loadClass(DeferredAttr$DeferredTypeMap, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DeferredAttr$DeferredTypeMap));
+	});
 	return class$;
 }
 

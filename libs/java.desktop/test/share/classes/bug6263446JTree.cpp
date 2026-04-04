@@ -1,5 +1,4 @@
 #include <bug6263446JTree.h>
-
 #include <bug6263446JTree$1.h>
 #include <bug6263446JTree$2.h>
 #include <bug6263446JTree$3.h>
@@ -44,7 +43,6 @@ using $bug6263446JTree$5 = ::bug6263446JTree$5;
 using $bug6263446JTree$6 = ::bug6263446JTree$6;
 using $bug6263446JTree$7 = ::bug6263446JTree$7;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Point = ::java::awt::Point;
 using $Robot = ::java::awt::Robot;
 using $InputEvent = ::java::awt::event::InputEvent;
@@ -61,7 +59,6 @@ using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $DefaultMutableTreeNode = ::javax::swing::tree::DefaultMutableTreeNode;
 using $DefaultTreeModel = ::javax::swing::tree::DefaultTreeModel;
 using $TreeModel = ::javax::swing::tree::TreeModel;
-using $TreeNode = ::javax::swing::tree::TreeNode;
 
 class bug6263446JTree$$Lambda$lambda$main$0 : public $Runnable {
 	$class(bug6263446JTree$$Lambda$lambda$main$0, $NO_CLASS_INIT, $Runnable)
@@ -71,89 +68,27 @@ public:
 	virtual void run() override {
 		bug6263446JTree::lambda$main$0();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<bug6263446JTree$$Lambda$lambda$main$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo bug6263446JTree$$Lambda$lambda$main$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(bug6263446JTree$$Lambda$lambda$main$0, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug6263446JTree$$Lambda$lambda$main$0, run, void)},
-	{}
-};
-$ClassInfo bug6263446JTree$$Lambda$lambda$main$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"bug6263446JTree$$Lambda$lambda$main$0",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* bug6263446JTree$$Lambda$lambda$main$0::load$($String* name, bool initialize) {
-	$loadClass(bug6263446JTree$$Lambda$lambda$main$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(bug6263446JTree$$Lambda$lambda$main$0, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug6263446JTree$$Lambda$lambda$main$0, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"bug6263446JTree$$Lambda$lambda$main$0",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(bug6263446JTree$$Lambda$lambda$main$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(bug6263446JTree$$Lambda$lambda$main$0);
+	});
 	return class$;
 }
 $Class* bug6263446JTree$$Lambda$lambda$main$0::class$ = nullptr;
-
-$FieldInfo _bug6263446JTree_FieldInfo_[] = {
-	{"FIRST", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(bug6263446JTree, FIRST)},
-	{"SECOND", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(bug6263446JTree, SECOND)},
-	{"ALL", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(bug6263446JTree, ALL)},
-	{"tree", "Ljavax/swing/JTree;", nullptr, $PRIVATE | $STATIC, $staticField(bug6263446JTree, tree)},
-	{"robot", "Ljava/awt/Robot;", nullptr, $PRIVATE | $STATIC, $staticField(bug6263446JTree, robot)},
-	{"frame", "Ljavax/swing/JFrame;", nullptr, $PRIVATE | $STATIC, $staticField(bug6263446JTree, frame)},
-	{}
-};
-
-$MethodInfo _bug6263446JTree_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(bug6263446JTree, init$, void)},
-	{"assertEditing", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(bug6263446JTree, assertEditing, void), "java.lang.Exception"},
-	{"assertEditingNoTreeLock", "(Z)V", nullptr, $PRIVATE | $STATIC, $staticMethod(bug6263446JTree, assertEditingNoTreeLock, void, bool), "java.lang.Exception"},
-	{"assertNotEditing", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(bug6263446JTree, assertNotEditing, void), "java.lang.Exception"},
-	{"cancelCellEditing", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(bug6263446JTree, cancelCellEditing, void), "java.lang.Exception"},
-	{"checkSelectedText", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(bug6263446JTree, checkSelectedText, void, $String*), "java.lang.Exception"},
-	{"checkSelection", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(bug6263446JTree, checkSelection, void, $String*), "java.lang.Exception"},
-	{"click", "(I)V", nullptr, $PRIVATE | $STATIC, $staticMethod(bug6263446JTree, click, void, int32_t)},
-	{"createAndShowGUI", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(bug6263446JTree, createAndShowGUI, void)},
-	{"createTreeModel", "()Ljavax/swing/tree/TreeModel;", nullptr, $PRIVATE | $STATIC, $staticMethod(bug6263446JTree, createTreeModel, $TreeModel*)},
-	{"getClickPoint", "()Ljava/awt/Point;", nullptr, $PRIVATE | $STATIC, $staticMethod(bug6263446JTree, getClickPoint, $Point*), "java.lang.Exception"},
-	{"lambda$main$0", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(bug6263446JTree, lambda$main$0, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(bug6263446JTree, main, void, $StringArray*), "java.lang.Exception"},
-	{"setClickCountToStart", "(I)V", nullptr, $PRIVATE | $STATIC, $staticMethod(bug6263446JTree, setClickCountToStart, void, int32_t), "java.lang.Exception"},
-	{"startPathEditing", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(bug6263446JTree, startPathEditing, void), "java.lang.Exception"},
-	{}
-};
-
-$InnerClassInfo _bug6263446JTree_InnerClassesInfo_[] = {
-	{"bug6263446JTree$7", nullptr, nullptr, 0},
-	{"bug6263446JTree$6", nullptr, nullptr, 0},
-	{"bug6263446JTree$5", nullptr, nullptr, 0},
-	{"bug6263446JTree$4", nullptr, nullptr, 0},
-	{"bug6263446JTree$3", nullptr, nullptr, 0},
-	{"bug6263446JTree$2", nullptr, nullptr, 0},
-	{"bug6263446JTree$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _bug6263446JTree_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"bug6263446JTree",
-	"java.lang.Object",
-	nullptr,
-	_bug6263446JTree_FieldInfo_,
-	_bug6263446JTree_MethodInfo_,
-	nullptr,
-	nullptr,
-	_bug6263446JTree_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"bug6263446JTree$7,bug6263446JTree$6,bug6263446JTree$5,bug6263446JTree$4,bug6263446JTree$3,bug6263446JTree$2,bug6263446JTree$1"
-};
-
-$Object* allocate$bug6263446JTree($Class* clazz) {
-	return $of($alloc(bug6263446JTree));
-}
 
 $String* bug6263446JTree::FIRST = nullptr;
 $String* bug6263446JTree::SECOND = nullptr;
@@ -167,62 +102,60 @@ void bug6263446JTree::init$() {
 
 void bug6263446JTree::main($StringArray* args) {
 	$init(bug6263446JTree);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$assignStatic(bug6263446JTree::robot, $new($Robot));
-	$nc(bug6263446JTree::robot)->setAutoDelay(100);
+	bug6263446JTree::robot->setAutoDelay(100);
 	$SwingUtilities::invokeAndWait($$new($bug6263446JTree$1));
 	$nc(bug6263446JTree::robot)->waitForIdle();
 	$nc(bug6263446JTree::robot)->delay(1000);
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$var($Point, point, getClickPoint());
-			$nc(bug6263446JTree::robot)->mouseMove($nc(point)->x, point->y);
-			click(1);
-			assertNotEditing();
-			click(2);
-			assertNotEditing();
-			click(3);
-			assertEditing();
-			cancelCellEditing();
-			assertNotEditing();
-			click(4);
-			checkSelectedText(bug6263446JTree::FIRST);
-			click(5);
-			checkSelectedText(bug6263446JTree::ALL);
-			setClickCountToStart(4);
-			click(1);
-			assertNotEditing();
-			click(2);
-			assertNotEditing();
-			click(3);
-			assertNotEditing();
-			click(4);
-			assertEditing();
-			cancelCellEditing();
-			assertNotEditing();
-			click(5);
-			checkSelectedText(bug6263446JTree::FIRST);
-			click(6);
-			checkSelectedText(bug6263446JTree::ALL);
-			startPathEditing();
-			assertEditing();
-			click(1);
-			checkSelection(nullptr);
-			click(2);
-			checkSelection(bug6263446JTree::FIRST);
-			click(3);
-			checkSelection(bug6263446JTree::ALL);
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			if (bug6263446JTree::frame != nullptr) {
-				$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(bug6263446JTree$$Lambda$lambda$main$0)));
-			}
+	$var($Throwable, var$0, nullptr);
+	try {
+		$var($Point, point, getClickPoint());
+		$nc(bug6263446JTree::robot)->mouseMove($nc(point)->x, $nc(point)->y);
+		click(1);
+		assertNotEditing();
+		click(2);
+		assertNotEditing();
+		click(3);
+		assertEditing();
+		cancelCellEditing();
+		assertNotEditing();
+		click(4);
+		checkSelectedText(bug6263446JTree::FIRST);
+		click(5);
+		checkSelectedText(bug6263446JTree::ALL);
+		setClickCountToStart(4);
+		click(1);
+		assertNotEditing();
+		click(2);
+		assertNotEditing();
+		click(3);
+		assertNotEditing();
+		click(4);
+		assertEditing();
+		cancelCellEditing();
+		assertNotEditing();
+		click(5);
+		checkSelectedText(bug6263446JTree::FIRST);
+		click(6);
+		checkSelectedText(bug6263446JTree::ALL);
+		startPathEditing();
+		assertEditing();
+		click(1);
+		checkSelection(nullptr);
+		click(2);
+		checkSelection(bug6263446JTree::FIRST);
+		click(3);
+		checkSelection(bug6263446JTree::ALL);
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		if (bug6263446JTree::frame != nullptr) {
+			$SwingUtilities::invokeAndWait($$new(bug6263446JTree$$Lambda$lambda$main$0));
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
@@ -238,7 +171,7 @@ void bug6263446JTree::click(int32_t times) {
 
 $Point* bug6263446JTree::getClickPoint() {
 	$init(bug6263446JTree);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($PointArray, result, $new($PointArray, 1));
 	$SwingUtilities::invokeAndWait($$new($bug6263446JTree$2, result));
 	return result->get(0);
@@ -251,13 +184,13 @@ $TreeModel* bug6263446JTree::createTreeModel() {
 
 void bug6263446JTree::createAndShowGUI() {
 	$init(bug6263446JTree);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$assignStatic(bug6263446JTree::frame, $new($JFrame));
-	$nc(bug6263446JTree::frame)->setDefaultCloseOperation($JFrame::EXIT_ON_CLOSE);
+	bug6263446JTree::frame->setDefaultCloseOperation($JFrame::EXIT_ON_CLOSE);
 	$assignStatic(bug6263446JTree::tree, $new($JTree, $(createTreeModel())));
 	$nc(bug6263446JTree::tree)->setRootVisible(true);
 	$nc(bug6263446JTree::tree)->setEditable(true);
-	$nc($($nc(bug6263446JTree::frame)->getContentPane()))->add(static_cast<$Component*>(bug6263446JTree::tree));
+	$$nc($nc(bug6263446JTree::frame)->getContentPane())->add(bug6263446JTree::tree);
 	$nc(bug6263446JTree::frame)->pack();
 	$nc(bug6263446JTree::frame)->setLocationRelativeTo(nullptr);
 	$nc(bug6263446JTree::frame)->setVisible(true);
@@ -316,7 +249,7 @@ void bug6263446JTree::lambda$main$0() {
 bug6263446JTree::bug6263446JTree() {
 }
 
-void clinit$bug6263446JTree($Class* class$) {
+void bug6263446JTree::clinit$($Class* clazz) {
 	$assignStatic(bug6263446JTree::FIRST, "AAAAAAAAAAA"_s);
 	$assignStatic(bug6263446JTree::SECOND, "BB"_s);
 	$init(bug6263446JTree);
@@ -325,11 +258,64 @@ void clinit$bug6263446JTree($Class* class$) {
 
 $Class* bug6263446JTree::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(bug6263446JTree$$Lambda$lambda$main$0::classInfo$.name)) {
+		if (name->equals("bug6263446JTree$$Lambda$lambda$main$0")) {
 			return bug6263446JTree$$Lambda$lambda$main$0::load$(name, initialize);
 		}
 	}
-	$loadClass(bug6263446JTree, name, initialize, &_bug6263446JTree_ClassInfo_, clinit$bug6263446JTree, allocate$bug6263446JTree);
+	$FieldInfo fieldInfos$$[] = {
+		{"FIRST", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(bug6263446JTree, FIRST)},
+		{"SECOND", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(bug6263446JTree, SECOND)},
+		{"ALL", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(bug6263446JTree, ALL)},
+		{"tree", "Ljavax/swing/JTree;", nullptr, $PRIVATE | $STATIC, $staticField(bug6263446JTree, tree)},
+		{"robot", "Ljava/awt/Robot;", nullptr, $PRIVATE | $STATIC, $staticField(bug6263446JTree, robot)},
+		{"frame", "Ljavax/swing/JFrame;", nullptr, $PRIVATE | $STATIC, $staticField(bug6263446JTree, frame)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(bug6263446JTree, init$, void)},
+		{"assertEditing", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(bug6263446JTree, assertEditing, void), "java.lang.Exception"},
+		{"assertEditingNoTreeLock", "(Z)V", nullptr, $PRIVATE | $STATIC, $staticMethod(bug6263446JTree, assertEditingNoTreeLock, void, bool), "java.lang.Exception"},
+		{"assertNotEditing", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(bug6263446JTree, assertNotEditing, void), "java.lang.Exception"},
+		{"cancelCellEditing", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(bug6263446JTree, cancelCellEditing, void), "java.lang.Exception"},
+		{"checkSelectedText", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(bug6263446JTree, checkSelectedText, void, $String*), "java.lang.Exception"},
+		{"checkSelection", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(bug6263446JTree, checkSelection, void, $String*), "java.lang.Exception"},
+		{"click", "(I)V", nullptr, $PRIVATE | $STATIC, $staticMethod(bug6263446JTree, click, void, int32_t)},
+		{"createAndShowGUI", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(bug6263446JTree, createAndShowGUI, void)},
+		{"createTreeModel", "()Ljavax/swing/tree/TreeModel;", nullptr, $PRIVATE | $STATIC, $staticMethod(bug6263446JTree, createTreeModel, $TreeModel*)},
+		{"getClickPoint", "()Ljava/awt/Point;", nullptr, $PRIVATE | $STATIC, $staticMethod(bug6263446JTree, getClickPoint, $Point*), "java.lang.Exception"},
+		{"lambda$main$0", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(bug6263446JTree, lambda$main$0, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(bug6263446JTree, main, void, $StringArray*), "java.lang.Exception"},
+		{"setClickCountToStart", "(I)V", nullptr, $PRIVATE | $STATIC, $staticMethod(bug6263446JTree, setClickCountToStart, void, int32_t), "java.lang.Exception"},
+		{"startPathEditing", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(bug6263446JTree, startPathEditing, void), "java.lang.Exception"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"bug6263446JTree$7", nullptr, nullptr, 0},
+		{"bug6263446JTree$6", nullptr, nullptr, 0},
+		{"bug6263446JTree$5", nullptr, nullptr, 0},
+		{"bug6263446JTree$4", nullptr, nullptr, 0},
+		{"bug6263446JTree$3", nullptr, nullptr, 0},
+		{"bug6263446JTree$2", nullptr, nullptr, 0},
+		{"bug6263446JTree$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"bug6263446JTree",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"bug6263446JTree$7,bug6263446JTree$6,bug6263446JTree$5,bug6263446JTree$4,bug6263446JTree$3,bug6263446JTree$2,bug6263446JTree$1"
+	};
+	$loadClass(bug6263446JTree, name, initialize, &classInfo$$, bug6263446JTree::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(bug6263446JTree);
+	});
 	return class$;
 }
 

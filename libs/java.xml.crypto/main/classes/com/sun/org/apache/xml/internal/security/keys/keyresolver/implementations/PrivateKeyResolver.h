@@ -105,6 +105,7 @@ class PrivateKeyResolver : public ::com::sun::org::apache::xml::internal::securi
 	$class(PrivateKeyResolver, 0, ::com::sun::org::apache::xml::internal::security::keys::keyresolver::KeyResolverSpi)
 public:
 	PrivateKeyResolver();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::security::KeyStore* keyStore, $chars* password);
 	virtual bool engineCanResolve(::org::w3c::dom::Element* element, $String* baseURI, ::com::sun::org::apache::xml::internal::security::keys::storage::StorageResolver* storage) override;
 	virtual ::java::security::PrivateKey* engineResolvePrivateKey(::org::w3c::dom::Element* element, $String* baseURI, ::com::sun::org::apache::xml::internal::security::keys::storage::StorageResolver* storage, bool secureValidation) override;

@@ -1,5 +1,4 @@
 #include <com/apple/laf/AquaInternalFrameUI$5.h>
-
 #include <com/apple/laf/AquaInternalFrameUI$5$1.h>
 #include <com/apple/laf/AquaInternalFrameUI$InternalFrameShadow.h>
 #include <com/apple/laf/AquaUtils$Painter.h>
@@ -22,46 +21,6 @@ namespace com {
 	namespace apple {
 		namespace laf {
 
-$MethodInfo _AquaInternalFrameUI$5_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(AquaInternalFrameUI$5, init$, void)},
-	{"getBackgroundShadowBorder", "()Ljavax/swing/border/Border;", nullptr, 0, $virtualMethod(AquaInternalFrameUI$5, getBackgroundShadowBorder, $Border*)},
-	{"getForegroundShadowBorder", "()Ljavax/swing/border/Border;", nullptr, 0, $virtualMethod(AquaInternalFrameUI$5, getForegroundShadowBorder, $Border*)},
-	{}
-};
-
-$EnclosingMethodInfo _AquaInternalFrameUI$5_EnclosingMethodInfo_ = {
-	"com.apple.laf.AquaInternalFrameUI",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _AquaInternalFrameUI$5_InnerClassesInfo_[] = {
-	{"com.apple.laf.AquaInternalFrameUI$5", nullptr, nullptr, 0},
-	{"com.apple.laf.AquaInternalFrameUI$InternalFrameShadow", "com.apple.laf.AquaInternalFrameUI", "InternalFrameShadow", $STATIC | $ABSTRACT},
-	{"com.apple.laf.AquaInternalFrameUI$5$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _AquaInternalFrameUI$5_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.apple.laf.AquaInternalFrameUI$5",
-	"com.apple.laf.AquaInternalFrameUI$InternalFrameShadow",
-	nullptr,
-	nullptr,
-	_AquaInternalFrameUI$5_MethodInfo_,
-	nullptr,
-	&_AquaInternalFrameUI$5_EnclosingMethodInfo_,
-	_AquaInternalFrameUI$5_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.apple.laf.AquaInternalFrameUI"
-};
-
-$Object* allocate$AquaInternalFrameUI$5($Class* clazz) {
-	return $of($alloc(AquaInternalFrameUI$5));
-}
-
 void AquaInternalFrameUI$5::init$() {
 	$AquaInternalFrameUI$InternalFrameShadow::init$();
 }
@@ -78,7 +37,41 @@ AquaInternalFrameUI$5::AquaInternalFrameUI$5() {
 }
 
 $Class* AquaInternalFrameUI$5::load$($String* name, bool initialize) {
-	$loadClass(AquaInternalFrameUI$5, name, initialize, &_AquaInternalFrameUI$5_ClassInfo_, allocate$AquaInternalFrameUI$5);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(AquaInternalFrameUI$5, init$, void)},
+		{"getBackgroundShadowBorder", "()Ljavax/swing/border/Border;", nullptr, 0, $virtualMethod(AquaInternalFrameUI$5, getBackgroundShadowBorder, $Border*)},
+		{"getForegroundShadowBorder", "()Ljavax/swing/border/Border;", nullptr, 0, $virtualMethod(AquaInternalFrameUI$5, getForegroundShadowBorder, $Border*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.apple.laf.AquaInternalFrameUI",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.laf.AquaInternalFrameUI$5", nullptr, nullptr, 0},
+		{"com.apple.laf.AquaInternalFrameUI$InternalFrameShadow", "com.apple.laf.AquaInternalFrameUI", "InternalFrameShadow", $STATIC | $ABSTRACT},
+		{"com.apple.laf.AquaInternalFrameUI$5$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.apple.laf.AquaInternalFrameUI$5",
+		"com.apple.laf.AquaInternalFrameUI$InternalFrameShadow",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.apple.laf.AquaInternalFrameUI"
+	};
+	$loadClass(AquaInternalFrameUI$5, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AquaInternalFrameUI$5);
+	});
 	return class$;
 }
 

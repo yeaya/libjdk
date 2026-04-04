@@ -1,5 +1,4 @@
 #include <java/awt/DefaultKeyboardFocusManager$1.h>
-
 #include <java/awt/DefaultKeyboardFocusManager.h>
 #include <java/awt/event/KeyEvent.h>
 #include <jcpp.h>
@@ -14,44 +13,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace java {
 	namespace awt {
 
-$MethodInfo _DefaultKeyboardFocusManager$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(DefaultKeyboardFocusManager$1, init$, void)},
-	{"consumeNextKeyTyped", "(Ljava/awt/DefaultKeyboardFocusManager;Ljava/awt/event/KeyEvent;)V", nullptr, $PUBLIC, $virtualMethod(DefaultKeyboardFocusManager$1, consumeNextKeyTyped, void, $DefaultKeyboardFocusManager*, $KeyEvent*)},
-	{}
-};
-
-$EnclosingMethodInfo _DefaultKeyboardFocusManager$1_EnclosingMethodInfo_ = {
-	"java.awt.DefaultKeyboardFocusManager",
-	"initStatic",
-	"()V"
-};
-
-$InnerClassInfo _DefaultKeyboardFocusManager$1_InnerClassesInfo_[] = {
-	{"java.awt.DefaultKeyboardFocusManager$1", nullptr, nullptr, 0},
-	{"sun.awt.AWTAccessor$DefaultKeyboardFocusManagerAccessor", "sun.awt.AWTAccessor", "DefaultKeyboardFocusManagerAccessor", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _DefaultKeyboardFocusManager$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.awt.DefaultKeyboardFocusManager$1",
-	"java.lang.Object",
-	"sun.awt.AWTAccessor$DefaultKeyboardFocusManagerAccessor",
-	nullptr,
-	_DefaultKeyboardFocusManager$1_MethodInfo_,
-	nullptr,
-	&_DefaultKeyboardFocusManager$1_EnclosingMethodInfo_,
-	_DefaultKeyboardFocusManager$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.awt.DefaultKeyboardFocusManager"
-};
-
-$Object* allocate$DefaultKeyboardFocusManager$1($Class* clazz) {
-	return $of($alloc(DefaultKeyboardFocusManager$1));
-}
-
 void DefaultKeyboardFocusManager$1::init$() {
 }
 
@@ -63,7 +24,39 @@ DefaultKeyboardFocusManager$1::DefaultKeyboardFocusManager$1() {
 }
 
 $Class* DefaultKeyboardFocusManager$1::load$($String* name, bool initialize) {
-	$loadClass(DefaultKeyboardFocusManager$1, name, initialize, &_DefaultKeyboardFocusManager$1_ClassInfo_, allocate$DefaultKeyboardFocusManager$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(DefaultKeyboardFocusManager$1, init$, void)},
+		{"consumeNextKeyTyped", "(Ljava/awt/DefaultKeyboardFocusManager;Ljava/awt/event/KeyEvent;)V", nullptr, $PUBLIC, $virtualMethod(DefaultKeyboardFocusManager$1, consumeNextKeyTyped, void, $DefaultKeyboardFocusManager*, $KeyEvent*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.awt.DefaultKeyboardFocusManager",
+		"initStatic",
+		"()V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.awt.DefaultKeyboardFocusManager$1", nullptr, nullptr, 0},
+		{"sun.awt.AWTAccessor$DefaultKeyboardFocusManagerAccessor", "sun.awt.AWTAccessor", "DefaultKeyboardFocusManagerAccessor", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.awt.DefaultKeyboardFocusManager$1",
+		"java.lang.Object",
+		"sun.awt.AWTAccessor$DefaultKeyboardFocusManagerAccessor",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.awt.DefaultKeyboardFocusManager"
+	};
+	$loadClass(DefaultKeyboardFocusManager$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DefaultKeyboardFocusManager$1);
+	});
 	return class$;
 }
 

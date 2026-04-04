@@ -105,6 +105,7 @@ class $import Compiler : public ::com::sun::org::apache::xpath::internal::compil
 public:
 	Compiler();
 	using ::com::sun::org::apache::xpath::internal::compiler::OpMap::equals;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::javax::xml::transform::ErrorListener* errorHandler, ::javax::xml::transform::SourceLocator* locator, ::com::sun::org::apache::xpath::internal::compiler::FunctionTable* fTable);
 	void init$();
 	virtual ::com::sun::org::apache::xpath::internal::Expression* and$(int32_t opPos);

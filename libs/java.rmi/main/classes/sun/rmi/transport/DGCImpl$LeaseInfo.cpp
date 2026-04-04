@@ -1,5 +1,4 @@
 #include <sun/rmi/transport/DGCImpl$LeaseInfo.h>
-
 #include <java/rmi/dgc/VMID.h>
 #include <java/util/HashSet.h>
 #include <java/util/Set.h>
@@ -16,52 +15,12 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $VMID = ::java::rmi::dgc::VMID;
 using $HashSet = ::java::util::HashSet;
-using $Set = ::java::util::Set;
 using $Log = ::sun::rmi::runtime::Log;
 using $DGCImpl = ::sun::rmi::transport::DGCImpl;
 
 namespace sun {
 	namespace rmi {
 		namespace transport {
-
-$FieldInfo _DGCImpl$LeaseInfo_FieldInfo_[] = {
-	{"vmid", "Ljava/rmi/dgc/VMID;", nullptr, 0, $field(DGCImpl$LeaseInfo, vmid)},
-	{"expiration", "J", nullptr, 0, $field(DGCImpl$LeaseInfo, expiration)},
-	{"notifySet", "Ljava/util/Set;", "Ljava/util/Set<Lsun/rmi/transport/Target;>;", 0, $field(DGCImpl$LeaseInfo, notifySet)},
-	{}
-};
-
-$MethodInfo _DGCImpl$LeaseInfo_MethodInfo_[] = {
-	{"<init>", "(Ljava/rmi/dgc/VMID;J)V", nullptr, 0, $method(DGCImpl$LeaseInfo, init$, void, $VMID*, int64_t)},
-	{"expired", "(J)Z", nullptr, 0, $virtualMethod(DGCImpl$LeaseInfo, expired, bool, int64_t)},
-	{"renew", "(J)V", nullptr, $SYNCHRONIZED, $virtualMethod(DGCImpl$LeaseInfo, renew, void, int64_t)},
-	{}
-};
-
-$InnerClassInfo _DGCImpl$LeaseInfo_InnerClassesInfo_[] = {
-	{"sun.rmi.transport.DGCImpl$LeaseInfo", "sun.rmi.transport.DGCImpl", "LeaseInfo", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _DGCImpl$LeaseInfo_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.rmi.transport.DGCImpl$LeaseInfo",
-	"java.lang.Object",
-	nullptr,
-	_DGCImpl$LeaseInfo_FieldInfo_,
-	_DGCImpl$LeaseInfo_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DGCImpl$LeaseInfo_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.rmi.transport.DGCImpl"
-};
-
-$Object* allocate$DGCImpl$LeaseInfo($Class* clazz) {
-	return $of($alloc(DGCImpl$LeaseInfo));
-}
 
 void DGCImpl$LeaseInfo::init$($VMID* vmid, int64_t lease) {
 	$set(this, notifySet, $new($HashSet));
@@ -83,7 +42,7 @@ bool DGCImpl$LeaseInfo::expired(int64_t time) {
 		$init($DGCImpl);
 		$init($Log);
 		if ($nc($DGCImpl::dgcLog)->isLoggable($Log::BRIEF)) {
-			$nc($DGCImpl::dgcLog)->log($Log::BRIEF, $($nc(this->vmid)->toString()));
+			$DGCImpl::dgcLog->log($Log::BRIEF, $($nc(this->vmid)->toString()));
 		}
 		return true;
 	} else {
@@ -95,7 +54,40 @@ DGCImpl$LeaseInfo::DGCImpl$LeaseInfo() {
 }
 
 $Class* DGCImpl$LeaseInfo::load$($String* name, bool initialize) {
-	$loadClass(DGCImpl$LeaseInfo, name, initialize, &_DGCImpl$LeaseInfo_ClassInfo_, allocate$DGCImpl$LeaseInfo);
+	$FieldInfo fieldInfos$$[] = {
+		{"vmid", "Ljava/rmi/dgc/VMID;", nullptr, 0, $field(DGCImpl$LeaseInfo, vmid)},
+		{"expiration", "J", nullptr, 0, $field(DGCImpl$LeaseInfo, expiration)},
+		{"notifySet", "Ljava/util/Set;", "Ljava/util/Set<Lsun/rmi/transport/Target;>;", 0, $field(DGCImpl$LeaseInfo, notifySet)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/rmi/dgc/VMID;J)V", nullptr, 0, $method(DGCImpl$LeaseInfo, init$, void, $VMID*, int64_t)},
+		{"expired", "(J)Z", nullptr, 0, $virtualMethod(DGCImpl$LeaseInfo, expired, bool, int64_t)},
+		{"renew", "(J)V", nullptr, $SYNCHRONIZED, $virtualMethod(DGCImpl$LeaseInfo, renew, void, int64_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.rmi.transport.DGCImpl$LeaseInfo", "sun.rmi.transport.DGCImpl", "LeaseInfo", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.rmi.transport.DGCImpl$LeaseInfo",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.rmi.transport.DGCImpl"
+	};
+	$loadClass(DGCImpl$LeaseInfo, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DGCImpl$LeaseInfo);
+	});
 	return class$;
 }
 

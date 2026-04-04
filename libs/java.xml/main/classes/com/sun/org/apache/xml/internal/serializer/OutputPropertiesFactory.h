@@ -62,6 +62,7 @@ class OutputPropertiesFactory : public ::java::lang::Object {
 	$class(OutputPropertiesFactory, 0, ::java::lang::Object)
 public:
 	OutputPropertiesFactory();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::util::Properties* getDefaultMethodProperties($String* method);
 	static ::java::util::Properties* initProperties($StringArray* keys, $StringArray* values, ::java::util::Properties* defaults);

@@ -1,5 +1,4 @@
 #include <sun/java2d/xr/XRGraphicsConfig.h>
-
 #include <java/awt/Transparency.h>
 #include <sun/awt/X11ComponentPeer.h>
 #include <sun/awt/X11GraphicsConfig.h>
@@ -27,28 +26,6 @@ using $XRSurfaceData = ::sun::java2d::xr::XRSurfaceData;
 namespace sun {
 	namespace java2d {
 		namespace xr {
-
-$MethodInfo _XRGraphicsConfig_MethodInfo_[] = {
-	{"<init>", "(Lsun/awt/X11GraphicsDevice;IIIZ)V", nullptr, $PRIVATE, $method(XRGraphicsConfig, init$, void, $X11GraphicsDevice*, int32_t, int32_t, int32_t, bool)},
-	{"createSurfaceData", "(Lsun/awt/X11ComponentPeer;)Lsun/java2d/SurfaceData;", nullptr, $PUBLIC, $virtualMethod(XRGraphicsConfig, createSurfaceData, $SurfaceData*, $X11ComponentPeer*)},
-	{"getConfig", "(Lsun/awt/X11GraphicsDevice;IIIZ)Lsun/java2d/xr/XRGraphicsConfig;", nullptr, $PUBLIC | $STATIC, $staticMethod(XRGraphicsConfig, getConfig, XRGraphicsConfig*, $X11GraphicsDevice*, int32_t, int32_t, int32_t, bool)},
-	{"getProxyKey", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(XRGraphicsConfig, getProxyKey, $Object*)},
-	{"getSurfaceType", "()Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(XRGraphicsConfig, getSurfaceType, $SurfaceType*)},
-	{}
-};
-
-$ClassInfo _XRGraphicsConfig_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.java2d.xr.XRGraphicsConfig",
-	"sun.awt.X11GraphicsConfig",
-	nullptr,
-	nullptr,
-	_XRGraphicsConfig_MethodInfo_
-};
-
-$Object* allocate$XRGraphicsConfig($Class* clazz) {
-	return $of($alloc(XRGraphicsConfig));
-}
 
 void XRGraphicsConfig::init$($X11GraphicsDevice* device, int32_t visualnum, int32_t depth, int32_t colormap, bool doubleBuffer) {
 	$X11GraphicsConfig::init$(device, visualnum, depth, colormap, doubleBuffer);
@@ -84,7 +61,25 @@ XRGraphicsConfig::XRGraphicsConfig() {
 }
 
 $Class* XRGraphicsConfig::load$($String* name, bool initialize) {
-	$loadClass(XRGraphicsConfig, name, initialize, &_XRGraphicsConfig_ClassInfo_, allocate$XRGraphicsConfig);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/awt/X11GraphicsDevice;IIIZ)V", nullptr, $PRIVATE, $method(XRGraphicsConfig, init$, void, $X11GraphicsDevice*, int32_t, int32_t, int32_t, bool)},
+		{"createSurfaceData", "(Lsun/awt/X11ComponentPeer;)Lsun/java2d/SurfaceData;", nullptr, $PUBLIC, $virtualMethod(XRGraphicsConfig, createSurfaceData, $SurfaceData*, $X11ComponentPeer*)},
+		{"getConfig", "(Lsun/awt/X11GraphicsDevice;IIIZ)Lsun/java2d/xr/XRGraphicsConfig;", nullptr, $PUBLIC | $STATIC, $staticMethod(XRGraphicsConfig, getConfig, XRGraphicsConfig*, $X11GraphicsDevice*, int32_t, int32_t, int32_t, bool)},
+		{"getProxyKey", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(XRGraphicsConfig, getProxyKey, $Object*)},
+		{"getSurfaceType", "()Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(XRGraphicsConfig, getSurfaceType, $SurfaceType*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.java2d.xr.XRGraphicsConfig",
+		"sun.awt.X11GraphicsConfig",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(XRGraphicsConfig, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(XRGraphicsConfig));
+	});
 	return class$;
 }
 

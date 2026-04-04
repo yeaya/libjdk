@@ -1,10 +1,8 @@
 #include <com/apple/laf/AquaMenuItemUI$IndeterminateListener.h>
-
 #include <com/apple/laf/AquaMenuItemUI.h>
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <java/beans/PropertyChangeEvent.h>
-#include <java/beans/PropertyChangeListener.h>
 #include <javax/swing/Icon.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JMenuItem.h>
@@ -18,7 +16,6 @@
 
 using $AquaMenuItemUI = ::com::apple::laf::AquaMenuItemUI;
 using $PropertyChangeEvent = ::java::beans::PropertyChangeEvent;
-using $PropertyChangeListener = ::java::beans::PropertyChangeListener;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -30,46 +27,6 @@ using $ButtonUI = ::javax::swing::plaf::ButtonUI;
 namespace com {
 	namespace apple {
 		namespace laf {
-
-$FieldInfo _AquaMenuItemUI$IndeterminateListener_FieldInfo_[] = {
-	{"CLIENT_PROPERTY_KEY", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(AquaMenuItemUI$IndeterminateListener, CLIENT_PROPERTY_KEY)},
-	{}
-};
-
-$MethodInfo _AquaMenuItemUI$IndeterminateListener_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(AquaMenuItemUI$IndeterminateListener, init$, void)},
-	{"apply", "(Ljavax/swing/JMenuItem;Ljava/lang/Object;)V", nullptr, $STATIC, $staticMethod(AquaMenuItemUI$IndeterminateListener, apply, void, $JMenuItem*, Object$*)},
-	{"install", "(Ljavax/swing/JMenuItem;)V", nullptr, $STATIC, $staticMethod(AquaMenuItemUI$IndeterminateListener, install, void, $JMenuItem*)},
-	{"isIndeterminate", "(Ljavax/swing/JMenuItem;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(AquaMenuItemUI$IndeterminateListener, isIndeterminate, bool, $JMenuItem*)},
-	{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaMenuItemUI$IndeterminateListener, propertyChange, void, $PropertyChangeEvent*)},
-	{"uninstall", "(Ljavax/swing/JMenuItem;)V", nullptr, $STATIC, $staticMethod(AquaMenuItemUI$IndeterminateListener, uninstall, void, $JMenuItem*)},
-	{}
-};
-
-$InnerClassInfo _AquaMenuItemUI$IndeterminateListener_InnerClassesInfo_[] = {
-	{"com.apple.laf.AquaMenuItemUI$IndeterminateListener", "com.apple.laf.AquaMenuItemUI", "IndeterminateListener", $STATIC},
-	{}
-};
-
-$ClassInfo _AquaMenuItemUI$IndeterminateListener_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.apple.laf.AquaMenuItemUI$IndeterminateListener",
-	"java.lang.Object",
-	"java.beans.PropertyChangeListener",
-	_AquaMenuItemUI$IndeterminateListener_FieldInfo_,
-	_AquaMenuItemUI$IndeterminateListener_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AquaMenuItemUI$IndeterminateListener_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.apple.laf.AquaMenuItemUI"
-};
-
-$Object* allocate$AquaMenuItemUI$IndeterminateListener($Class* clazz) {
-	return $of($alloc(AquaMenuItemUI$IndeterminateListener));
-}
 
 $String* AquaMenuItemUI$IndeterminateListener::CLIENT_PROPERTY_KEY = nullptr;
 
@@ -90,9 +47,9 @@ void AquaMenuItemUI$IndeterminateListener::uninstall($JMenuItem* menuItem) {
 }
 
 void AquaMenuItemUI$IndeterminateListener::propertyChange($PropertyChangeEvent* evt) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, key, $nc(evt)->getPropertyName());
-	if (!$nc(AquaMenuItemUI$IndeterminateListener::CLIENT_PROPERTY_KEY)->equalsIgnoreCase(key)) {
+	if (!AquaMenuItemUI$IndeterminateListener::CLIENT_PROPERTY_KEY->equalsIgnoreCase(key)) {
 		return;
 	}
 	$var($Object, source, evt->getSource());
@@ -105,7 +62,7 @@ void AquaMenuItemUI$IndeterminateListener::propertyChange($PropertyChangeEvent* 
 
 void AquaMenuItemUI$IndeterminateListener::apply($JMenuItem* menuItem, Object$* value) {
 	$init(AquaMenuItemUI$IndeterminateListener);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ButtonUI, ui, $cast($ButtonUI, $nc(menuItem)->getUI()));
 	if (!($instanceOf($AquaMenuItemUI, ui))) {
 		return;
@@ -126,12 +83,46 @@ bool AquaMenuItemUI$IndeterminateListener::isIndeterminate($JMenuItem* menuItem)
 AquaMenuItemUI$IndeterminateListener::AquaMenuItemUI$IndeterminateListener() {
 }
 
-void clinit$AquaMenuItemUI$IndeterminateListener($Class* class$) {
+void AquaMenuItemUI$IndeterminateListener::clinit$($Class* clazz) {
 	$assignStatic(AquaMenuItemUI$IndeterminateListener::CLIENT_PROPERTY_KEY, "JMenuItem.selectedState"_s);
 }
 
 $Class* AquaMenuItemUI$IndeterminateListener::load$($String* name, bool initialize) {
-	$loadClass(AquaMenuItemUI$IndeterminateListener, name, initialize, &_AquaMenuItemUI$IndeterminateListener_ClassInfo_, clinit$AquaMenuItemUI$IndeterminateListener, allocate$AquaMenuItemUI$IndeterminateListener);
+	$FieldInfo fieldInfos$$[] = {
+		{"CLIENT_PROPERTY_KEY", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(AquaMenuItemUI$IndeterminateListener, CLIENT_PROPERTY_KEY)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(AquaMenuItemUI$IndeterminateListener, init$, void)},
+		{"apply", "(Ljavax/swing/JMenuItem;Ljava/lang/Object;)V", nullptr, $STATIC, $staticMethod(AquaMenuItemUI$IndeterminateListener, apply, void, $JMenuItem*, Object$*)},
+		{"install", "(Ljavax/swing/JMenuItem;)V", nullptr, $STATIC, $staticMethod(AquaMenuItemUI$IndeterminateListener, install, void, $JMenuItem*)},
+		{"isIndeterminate", "(Ljavax/swing/JMenuItem;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(AquaMenuItemUI$IndeterminateListener, isIndeterminate, bool, $JMenuItem*)},
+		{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaMenuItemUI$IndeterminateListener, propertyChange, void, $PropertyChangeEvent*)},
+		{"uninstall", "(Ljavax/swing/JMenuItem;)V", nullptr, $STATIC, $staticMethod(AquaMenuItemUI$IndeterminateListener, uninstall, void, $JMenuItem*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.laf.AquaMenuItemUI$IndeterminateListener", "com.apple.laf.AquaMenuItemUI", "IndeterminateListener", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.apple.laf.AquaMenuItemUI$IndeterminateListener",
+		"java.lang.Object",
+		"java.beans.PropertyChangeListener",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.apple.laf.AquaMenuItemUI"
+	};
+	$loadClass(AquaMenuItemUI$IndeterminateListener, name, initialize, &classInfo$$, AquaMenuItemUI$IndeterminateListener::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(AquaMenuItemUI$IndeterminateListener);
+	});
 	return class$;
 }
 

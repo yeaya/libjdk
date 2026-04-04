@@ -1,5 +1,4 @@
 #include <SliderTickTest$2.h>
-
 #include <SliderTickTest.h>
 #include <TestUI.h>
 #include <jcpp.h>
@@ -12,48 +11,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
-
-$FieldInfo _SliderTickTest$2_FieldInfo_[] = {
-	{"val$test", "LTestUI;", nullptr, $FINAL | $SYNTHETIC, $field(SliderTickTest$2, val$test)},
-	{}
-};
-
-$MethodInfo _SliderTickTest$2_MethodInfo_[] = {
-	{"<init>", "(LTestUI;)V", "()V", 0, $method(SliderTickTest$2, init$, void, $TestUI*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(SliderTickTest$2, run, void)},
-	{}
-};
-
-$EnclosingMethodInfo _SliderTickTest$2_EnclosingMethodInfo_ = {
-	"SliderTickTest",
-	"main",
-	"([Ljava/lang/String;)V"
-};
-
-$InnerClassInfo _SliderTickTest$2_InnerClassesInfo_[] = {
-	{"SliderTickTest$2", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _SliderTickTest$2_ClassInfo_ = {
-	$ACC_SUPER,
-	"SliderTickTest$2",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	_SliderTickTest$2_FieldInfo_,
-	_SliderTickTest$2_MethodInfo_,
-	nullptr,
-	&_SliderTickTest$2_EnclosingMethodInfo_,
-	_SliderTickTest$2_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"SliderTickTest"
-};
-
-$Object* allocate$SliderTickTest$2($Class* clazz) {
-	return $of($alloc(SliderTickTest$2));
-}
 
 void SliderTickTest$2::init$($TestUI* val$test) {
 	$set(this, val$test, val$test);
@@ -71,7 +28,42 @@ SliderTickTest$2::SliderTickTest$2() {
 }
 
 $Class* SliderTickTest$2::load$($String* name, bool initialize) {
-	$loadClass(SliderTickTest$2, name, initialize, &_SliderTickTest$2_ClassInfo_, allocate$SliderTickTest$2);
+	$FieldInfo fieldInfos$$[] = {
+		{"val$test", "LTestUI;", nullptr, $FINAL | $SYNTHETIC, $field(SliderTickTest$2, val$test)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(LTestUI;)V", "()V", 0, $method(SliderTickTest$2, init$, void, $TestUI*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(SliderTickTest$2, run, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"SliderTickTest",
+		"main",
+		"([Ljava/lang/String;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"SliderTickTest$2", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"SliderTickTest$2",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"SliderTickTest"
+	};
+	$loadClass(SliderTickTest$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SliderTickTest$2);
+	});
 	return class$;
 }
 

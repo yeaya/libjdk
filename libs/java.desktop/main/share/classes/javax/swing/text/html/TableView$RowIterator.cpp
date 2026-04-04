@@ -1,5 +1,4 @@
 #include <javax/swing/text/html/TableView$RowIterator.h>
-
 #include <java/lang/Math.h>
 #include <java/util/Vector.h>
 #include <javax/swing/text/CompositeView.h>
@@ -13,7 +12,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Vector = ::java::util::Vector;
 using $View = ::javax::swing::text::View;
 using $TableView = ::javax::swing::text::html::TableView;
 using $TableView$RowView = ::javax::swing::text::html::TableView$RowView;
@@ -23,68 +21,12 @@ namespace javax {
 		namespace text {
 			namespace html {
 
-$FieldInfo _TableView$RowIterator_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/text/html/TableView;", nullptr, $FINAL | $SYNTHETIC, $field(TableView$RowIterator, this$0)},
-	{"row", "I", nullptr, $PRIVATE, $field(TableView$RowIterator, row)},
-	{"adjustments", "[I", nullptr, $PRIVATE, $field(TableView$RowIterator, adjustments)},
-	{"offsets", "[I", nullptr, $PRIVATE, $field(TableView$RowIterator, offsets)},
-	{"spans", "[I", nullptr, $PRIVATE, $field(TableView$RowIterator, spans)},
-	{}
-};
-
-$MethodInfo _TableView$RowIterator_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/text/html/TableView;)V", nullptr, 0, $method(TableView$RowIterator, init$, void, $TableView*)},
-	{"adjustMultiRowSpan", "(III)V", nullptr, 0, $virtualMethod(TableView$RowIterator, adjustMultiRowSpan, void, int32_t, int32_t, int32_t)},
-	{"getAdjustmentWeight", "()I", nullptr, $PUBLIC, $virtualMethod(TableView$RowIterator, getAdjustmentWeight, int32_t)},
-	{"getBorderWidth", "()F", nullptr, $PUBLIC, $virtualMethod(TableView$RowIterator, getBorderWidth, float)},
-	{"getCount", "()I", nullptr, $PUBLIC, $virtualMethod(TableView$RowIterator, getCount, int32_t)},
-	{"getLeadingCollapseSpan", "()F", nullptr, $PUBLIC, $virtualMethod(TableView$RowIterator, getLeadingCollapseSpan, float)},
-	{"getMaximumSpan", "(F)F", nullptr, $PUBLIC, $virtualMethod(TableView$RowIterator, getMaximumSpan, float, float)},
-	{"getMinimumSpan", "(F)F", nullptr, $PUBLIC, $virtualMethod(TableView$RowIterator, getMinimumSpan, float, float)},
-	{"getOffset", "()I", nullptr, $PUBLIC, $virtualMethod(TableView$RowIterator, getOffset, int32_t)},
-	{"getPreferredSpan", "(F)F", nullptr, $PUBLIC, $virtualMethod(TableView$RowIterator, getPreferredSpan, float, float)},
-	{"getSpan", "()I", nullptr, $PUBLIC, $virtualMethod(TableView$RowIterator, getSpan, int32_t)},
-	{"getTrailingCollapseSpan", "()F", nullptr, $PUBLIC, $virtualMethod(TableView$RowIterator, getTrailingCollapseSpan, float)},
-	{"setIndex", "(I)V", nullptr, $PUBLIC, $virtualMethod(TableView$RowIterator, setIndex, void, int32_t)},
-	{"setLayoutArrays", "([I[I)V", nullptr, 0, $virtualMethod(TableView$RowIterator, setLayoutArrays, void, $ints*, $ints*)},
-	{"setOffset", "(I)V", nullptr, $PUBLIC, $virtualMethod(TableView$RowIterator, setOffset, void, int32_t)},
-	{"setSpan", "(I)V", nullptr, $PUBLIC, $virtualMethod(TableView$RowIterator, setSpan, void, int32_t)},
-	{"updateAdjustments", "()V", nullptr, 0, $virtualMethod(TableView$RowIterator, updateAdjustments, void)},
-	{}
-};
-
-$InnerClassInfo _TableView$RowIterator_InnerClassesInfo_[] = {
-	{"javax.swing.text.html.TableView$RowIterator", "javax.swing.text.html.TableView", "RowIterator", 0},
-	{"javax.swing.text.html.CSS$LayoutIterator", "javax.swing.text.html.CSS", "LayoutIterator", $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _TableView$RowIterator_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.text.html.TableView$RowIterator",
-	"java.lang.Object",
-	"javax.swing.text.html.CSS$LayoutIterator",
-	_TableView$RowIterator_FieldInfo_,
-	_TableView$RowIterator_MethodInfo_,
-	nullptr,
-	nullptr,
-	_TableView$RowIterator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.html.TableView"
-};
-
-$Object* allocate$TableView$RowIterator($Class* clazz) {
-	return $of($alloc(TableView$RowIterator));
-}
-
 void TableView$RowIterator::init$($TableView* this$0) {
 	$set(this, this$0, this$0);
 }
 
 void TableView$RowIterator::updateAdjustments() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t axis = 1;
 	if (this->this$0->multiRowCells) {
 		int32_t n = this->this$0->getRowCount();
@@ -109,7 +51,7 @@ void TableView$RowIterator::updateAdjustments() {
 }
 
 void TableView$RowIterator::adjustMultiRowSpan(int32_t spanNeeded, int32_t nrows, int32_t rowIndex) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ((rowIndex + nrows) > getCount()) {
 		nrows = getCount() - rowIndex;
 		if (nrows < 1) {
@@ -128,7 +70,7 @@ void TableView$RowIterator::adjustMultiRowSpan(int32_t spanNeeded, int32_t nrows
 		$var($TableView$RowView, rv, this->this$0->getRow(rowIndex));
 		$nc(this->adjustments)->set(rowIndex, $Math::max($nc(this->adjustments)->get(rowIndex), firstAdjust));
 		for (int32_t i = 1; i < nrows; ++i) {
-			$nc(this->adjustments)->set(rowIndex + i, $Math::max($nc(this->adjustments)->get(rowIndex + i), rowAdjust));
+			this->adjustments->set(rowIndex + i, $Math::max(this->adjustments->get(rowIndex + i), rowAdjust));
 		}
 	}
 }
@@ -183,10 +125,10 @@ float TableView$RowIterator::getMinimumSpan(float parentSpan) {
 float TableView$RowIterator::getPreferredSpan(float parentSpan) {
 	$var($TableView$RowView, rv, this->this$0->getRow(this->row));
 	if (rv != nullptr) {
-		int32_t adjust = (this->adjustments != nullptr) ? $nc(this->adjustments)->get(this->row) : 0;
+		int32_t adjust = (this->adjustments != nullptr) ? this->adjustments->get(this->row) : 0;
 		return rv->getPreferredSpan(this->this$0->getAxis()) + adjust;
 	}
-	return (float)0;
+	return 0;
 }
 
 float TableView$RowIterator::getMaximumSpan(float parentSpan) {
@@ -213,7 +155,57 @@ TableView$RowIterator::TableView$RowIterator() {
 }
 
 $Class* TableView$RowIterator::load$($String* name, bool initialize) {
-	$loadClass(TableView$RowIterator, name, initialize, &_TableView$RowIterator_ClassInfo_, allocate$TableView$RowIterator);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/text/html/TableView;", nullptr, $FINAL | $SYNTHETIC, $field(TableView$RowIterator, this$0)},
+		{"row", "I", nullptr, $PRIVATE, $field(TableView$RowIterator, row)},
+		{"adjustments", "[I", nullptr, $PRIVATE, $field(TableView$RowIterator, adjustments)},
+		{"offsets", "[I", nullptr, $PRIVATE, $field(TableView$RowIterator, offsets)},
+		{"spans", "[I", nullptr, $PRIVATE, $field(TableView$RowIterator, spans)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/text/html/TableView;)V", nullptr, 0, $method(TableView$RowIterator, init$, void, $TableView*)},
+		{"adjustMultiRowSpan", "(III)V", nullptr, 0, $virtualMethod(TableView$RowIterator, adjustMultiRowSpan, void, int32_t, int32_t, int32_t)},
+		{"getAdjustmentWeight", "()I", nullptr, $PUBLIC, $virtualMethod(TableView$RowIterator, getAdjustmentWeight, int32_t)},
+		{"getBorderWidth", "()F", nullptr, $PUBLIC, $virtualMethod(TableView$RowIterator, getBorderWidth, float)},
+		{"getCount", "()I", nullptr, $PUBLIC, $virtualMethod(TableView$RowIterator, getCount, int32_t)},
+		{"getLeadingCollapseSpan", "()F", nullptr, $PUBLIC, $virtualMethod(TableView$RowIterator, getLeadingCollapseSpan, float)},
+		{"getMaximumSpan", "(F)F", nullptr, $PUBLIC, $virtualMethod(TableView$RowIterator, getMaximumSpan, float, float)},
+		{"getMinimumSpan", "(F)F", nullptr, $PUBLIC, $virtualMethod(TableView$RowIterator, getMinimumSpan, float, float)},
+		{"getOffset", "()I", nullptr, $PUBLIC, $virtualMethod(TableView$RowIterator, getOffset, int32_t)},
+		{"getPreferredSpan", "(F)F", nullptr, $PUBLIC, $virtualMethod(TableView$RowIterator, getPreferredSpan, float, float)},
+		{"getSpan", "()I", nullptr, $PUBLIC, $virtualMethod(TableView$RowIterator, getSpan, int32_t)},
+		{"getTrailingCollapseSpan", "()F", nullptr, $PUBLIC, $virtualMethod(TableView$RowIterator, getTrailingCollapseSpan, float)},
+		{"setIndex", "(I)V", nullptr, $PUBLIC, $virtualMethod(TableView$RowIterator, setIndex, void, int32_t)},
+		{"setLayoutArrays", "([I[I)V", nullptr, 0, $virtualMethod(TableView$RowIterator, setLayoutArrays, void, $ints*, $ints*)},
+		{"setOffset", "(I)V", nullptr, $PUBLIC, $virtualMethod(TableView$RowIterator, setOffset, void, int32_t)},
+		{"setSpan", "(I)V", nullptr, $PUBLIC, $virtualMethod(TableView$RowIterator, setSpan, void, int32_t)},
+		{"updateAdjustments", "()V", nullptr, 0, $virtualMethod(TableView$RowIterator, updateAdjustments, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.html.TableView$RowIterator", "javax.swing.text.html.TableView", "RowIterator", 0},
+		{"javax.swing.text.html.CSS$LayoutIterator", "javax.swing.text.html.CSS", "LayoutIterator", $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.text.html.TableView$RowIterator",
+		"java.lang.Object",
+		"javax.swing.text.html.CSS$LayoutIterator",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.html.TableView"
+	};
+	$loadClass(TableView$RowIterator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TableView$RowIterator);
+	});
 	return class$;
 }
 

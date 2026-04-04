@@ -51,6 +51,7 @@ class $export ByteArrayPublishers : public ::java::lang::Object {
 	$class(ByteArrayPublishers, 0, ::java::lang::Object)
 public:
 	ByteArrayPublishers();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::net::http::HttpClient* createClient();
 	static ::java::net::http::HttpRequest* createRequest(::java::net::URI* uri);

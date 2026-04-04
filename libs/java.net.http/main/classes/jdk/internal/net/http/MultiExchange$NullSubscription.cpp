@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/MultiExchange$NullSubscription.h>
-
 #include <jdk/internal/net/http/MultiExchange.h>
 #include <jcpp.h>
 
@@ -11,39 +10,6 @@ namespace jdk {
 	namespace internal {
 		namespace net {
 			namespace http {
-
-$MethodInfo _MultiExchange$NullSubscription_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(MultiExchange$NullSubscription, init$, void)},
-	{"cancel", "()V", nullptr, $PUBLIC, $virtualMethod(MultiExchange$NullSubscription, cancel, void)},
-	{"request", "(J)V", nullptr, $PUBLIC, $virtualMethod(MultiExchange$NullSubscription, request, void, int64_t)},
-	{}
-};
-
-$InnerClassInfo _MultiExchange$NullSubscription_InnerClassesInfo_[] = {
-	{"jdk.internal.net.http.MultiExchange$NullSubscription", "jdk.internal.net.http.MultiExchange", "NullSubscription", $STATIC},
-	{"java.util.concurrent.Flow$Subscription", "java.util.concurrent.Flow", "Subscription", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _MultiExchange$NullSubscription_ClassInfo_ = {
-	$ACC_SUPER,
-	"jdk.internal.net.http.MultiExchange$NullSubscription",
-	"java.lang.Object",
-	"java.util.concurrent.Flow$Subscription",
-	nullptr,
-	_MultiExchange$NullSubscription_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MultiExchange$NullSubscription_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.net.http.MultiExchange"
-};
-
-$Object* allocate$MultiExchange$NullSubscription($Class* clazz) {
-	return $of($alloc(MultiExchange$NullSubscription));
-}
 
 void MultiExchange$NullSubscription::init$() {
 }
@@ -58,7 +24,35 @@ MultiExchange$NullSubscription::MultiExchange$NullSubscription() {
 }
 
 $Class* MultiExchange$NullSubscription::load$($String* name, bool initialize) {
-	$loadClass(MultiExchange$NullSubscription, name, initialize, &_MultiExchange$NullSubscription_ClassInfo_, allocate$MultiExchange$NullSubscription);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(MultiExchange$NullSubscription, init$, void)},
+		{"cancel", "()V", nullptr, $PUBLIC, $virtualMethod(MultiExchange$NullSubscription, cancel, void)},
+		{"request", "(J)V", nullptr, $PUBLIC, $virtualMethod(MultiExchange$NullSubscription, request, void, int64_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.net.http.MultiExchange$NullSubscription", "jdk.internal.net.http.MultiExchange", "NullSubscription", $STATIC},
+		{"java.util.concurrent.Flow$Subscription", "java.util.concurrent.Flow", "Subscription", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"jdk.internal.net.http.MultiExchange$NullSubscription",
+		"java.lang.Object",
+		"java.util.concurrent.Flow$Subscription",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.net.http.MultiExchange"
+	};
+	$loadClass(MultiExchange$NullSubscription, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MultiExchange$NullSubscription);
+	});
 	return class$;
 }
 

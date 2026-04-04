@@ -1,5 +1,4 @@
 #include <sun/print/ServiceDialog$1.h>
-
 #include <java/awt/event/WindowAdapter.h>
 #include <java/awt/event/WindowEvent.h>
 #include <sun/print/ServiceDialog.h>
@@ -17,48 +16,6 @@ using $ServiceDialog = ::sun::print::ServiceDialog;
 namespace sun {
 	namespace print {
 
-$FieldInfo _ServiceDialog$1_FieldInfo_[] = {
-	{"this$0", "Lsun/print/ServiceDialog;", nullptr, $FINAL | $SYNTHETIC, $field(ServiceDialog$1, this$0)},
-	{}
-};
-
-$MethodInfo _ServiceDialog$1_MethodInfo_[] = {
-	{"<init>", "(Lsun/print/ServiceDialog;)V", nullptr, 0, $method(ServiceDialog$1, init$, void, $ServiceDialog*)},
-	{"windowClosing", "(Ljava/awt/event/WindowEvent;)V", nullptr, $PUBLIC, $virtualMethod(ServiceDialog$1, windowClosing, void, $WindowEvent*)},
-	{}
-};
-
-$EnclosingMethodInfo _ServiceDialog$1_EnclosingMethodInfo_ = {
-	"sun.print.ServiceDialog",
-	"initPrintDialog",
-	"(II[Ljavax/print/PrintService;ILjavax/print/DocFlavor;Ljavax/print/attribute/PrintRequestAttributeSet;)V"
-};
-
-$InnerClassInfo _ServiceDialog$1_InnerClassesInfo_[] = {
-	{"sun.print.ServiceDialog$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _ServiceDialog$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.print.ServiceDialog$1",
-	"java.awt.event.WindowAdapter",
-	nullptr,
-	_ServiceDialog$1_FieldInfo_,
-	_ServiceDialog$1_MethodInfo_,
-	nullptr,
-	&_ServiceDialog$1_EnclosingMethodInfo_,
-	_ServiceDialog$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.print.ServiceDialog"
-};
-
-$Object* allocate$ServiceDialog$1($Class* clazz) {
-	return $of($alloc(ServiceDialog$1));
-}
-
 void ServiceDialog$1::init$($ServiceDialog* this$0) {
 	$set(this, this$0, this$0);
 	$WindowAdapter::init$();
@@ -72,7 +29,42 @@ ServiceDialog$1::ServiceDialog$1() {
 }
 
 $Class* ServiceDialog$1::load$($String* name, bool initialize) {
-	$loadClass(ServiceDialog$1, name, initialize, &_ServiceDialog$1_ClassInfo_, allocate$ServiceDialog$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/print/ServiceDialog;", nullptr, $FINAL | $SYNTHETIC, $field(ServiceDialog$1, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/print/ServiceDialog;)V", nullptr, 0, $method(ServiceDialog$1, init$, void, $ServiceDialog*)},
+		{"windowClosing", "(Ljava/awt/event/WindowEvent;)V", nullptr, $PUBLIC, $virtualMethod(ServiceDialog$1, windowClosing, void, $WindowEvent*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.print.ServiceDialog",
+		"initPrintDialog",
+		"(II[Ljavax/print/PrintService;ILjavax/print/DocFlavor;Ljavax/print/attribute/PrintRequestAttributeSet;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.print.ServiceDialog$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.print.ServiceDialog$1",
+		"java.awt.event.WindowAdapter",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.print.ServiceDialog"
+	};
+	$loadClass(ServiceDialog$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ServiceDialog$1));
+	});
 	return class$;
 }
 

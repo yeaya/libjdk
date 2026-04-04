@@ -1,5 +1,4 @@
 #include <sun/awt/windows/WToolkitThreadBlockedHandler.h>
-
 #include <java/lang/IllegalMonitorStateException.h>
 #include <sun/awt/Mutex.h>
 #include <sun/awt/windows/WToolkit.h>
@@ -14,36 +13,6 @@ using $WToolkit = ::sun::awt::windows::WToolkit;
 namespace sun {
 	namespace awt {
 		namespace windows {
-
-$MethodInfo _WToolkitThreadBlockedHandler_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, 0, $method(WToolkitThreadBlockedHandler, init$, void)},
-	{"enter", "()V", nullptr, $PUBLIC, $virtualMethod(WToolkitThreadBlockedHandler, enter, void)},
-	{"exit", "()V", nullptr, $PUBLIC, $virtualMethod(WToolkitThreadBlockedHandler, exit, void)},
-	{"*lock", "()V", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"startSecondaryEventLoop", "()V", nullptr, $PRIVATE | $NATIVE, $method(WToolkitThreadBlockedHandler, startSecondaryEventLoop, void)},
-	{"*unlock", "()V", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-#define _METHOD_INDEX_startSecondaryEventLoop 8
-
-$ClassInfo _WToolkitThreadBlockedHandler_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.awt.windows.WToolkitThreadBlockedHandler",
-	"sun.awt.Mutex",
-	"sun.awt.datatransfer.ToolkitThreadBlockedHandler",
-	nullptr,
-	_WToolkitThreadBlockedHandler_MethodInfo_
-};
-
-$Object* allocate$WToolkitThreadBlockedHandler($Class* clazz) {
-	return $of($alloc(WToolkitThreadBlockedHandler));
-}
 
 void WToolkitThreadBlockedHandler::lock() {
 	this->$Mutex::lock();
@@ -94,7 +63,7 @@ void WToolkitThreadBlockedHandler::exit() {
 }
 
 void WToolkitThreadBlockedHandler::startSecondaryEventLoop() {
-	$prepareNative(WToolkitThreadBlockedHandler, startSecondaryEventLoop, void);
+	$prepareNative(startSecondaryEventLoop, void);
 	$invokeNative();
 	$finishNative();
 }
@@ -103,7 +72,31 @@ WToolkitThreadBlockedHandler::WToolkitThreadBlockedHandler() {
 }
 
 $Class* WToolkitThreadBlockedHandler::load$($String* name, bool initialize) {
-	$loadClass(WToolkitThreadBlockedHandler, name, initialize, &_WToolkitThreadBlockedHandler_ClassInfo_, allocate$WToolkitThreadBlockedHandler);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, 0, $method(WToolkitThreadBlockedHandler, init$, void)},
+		{"enter", "()V", nullptr, $PUBLIC, $virtualMethod(WToolkitThreadBlockedHandler, enter, void)},
+		{"exit", "()V", nullptr, $PUBLIC, $virtualMethod(WToolkitThreadBlockedHandler, exit, void)},
+		{"*lock", "()V", nullptr, $PUBLIC | $SYNCHRONIZED},
+		{"startSecondaryEventLoop", "()V", nullptr, $PRIVATE | $NATIVE, $method(WToolkitThreadBlockedHandler, startSecondaryEventLoop, void)},
+		{"*unlock", "()V", nullptr, $PUBLIC | $SYNCHRONIZED},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.awt.windows.WToolkitThreadBlockedHandler",
+		"sun.awt.Mutex",
+		"sun.awt.datatransfer.ToolkitThreadBlockedHandler",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(WToolkitThreadBlockedHandler, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(WToolkitThreadBlockedHandler));
+	});
 	return class$;
 }
 

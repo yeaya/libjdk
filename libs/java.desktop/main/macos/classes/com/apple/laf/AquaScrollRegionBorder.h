@@ -38,6 +38,7 @@ class AquaScrollRegionBorder : public ::com::apple::laf::AquaBorder {
 	$class(AquaScrollRegionBorder, 0, ::com::apple::laf::AquaBorder)
 public:
 	AquaScrollRegionBorder();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual ::com::apple::laf::AquaPainter* createPainter() override;
 	static ::com::apple::laf::AquaScrollRegionBorder* getScrollRegionBorder();

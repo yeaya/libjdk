@@ -1,5 +1,4 @@
 #include <javax/xml/stream/FactoryFinder$1.h>
-
 #include <java/lang/ClassLoader.h>
 #include <java/util/Iterator.h>
 #include <java/util/ServiceLoader.h>
@@ -19,56 +18,13 @@ namespace javax {
 	namespace xml {
 		namespace stream {
 
-$FieldInfo _FactoryFinder$1_FieldInfo_[] = {
-	{"val$type", "Ljava/lang/Class;", nullptr, $FINAL | $SYNTHETIC, $field(FactoryFinder$1, val$type)},
-	{"val$cl", "Ljava/lang/ClassLoader;", nullptr, $FINAL | $SYNTHETIC, $field(FactoryFinder$1, val$cl)},
-	{}
-};
-
-$MethodInfo _FactoryFinder$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/ClassLoader;Ljava/lang/Class;)V", "()V", 0, $method(FactoryFinder$1, init$, void, $ClassLoader*, $Class*)},
-	{"run", "()Ljava/lang/Object;", "()TT;", $PUBLIC, $virtualMethod(FactoryFinder$1, run, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _FactoryFinder$1_EnclosingMethodInfo_ = {
-	"javax.xml.stream.FactoryFinder",
-	"findServiceProvider",
-	"(Ljava/lang/Class;Ljava/lang/ClassLoader;)Ljava/lang/Object;"
-};
-
-$InnerClassInfo _FactoryFinder$1_InnerClassesInfo_[] = {
-	{"javax.xml.stream.FactoryFinder$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _FactoryFinder$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.xml.stream.FactoryFinder$1",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	_FactoryFinder$1_FieldInfo_,
-	_FactoryFinder$1_MethodInfo_,
-	"Ljava/lang/Object;Ljava/security/PrivilegedAction<TT;>;",
-	&_FactoryFinder$1_EnclosingMethodInfo_,
-	_FactoryFinder$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.xml.stream.FactoryFinder"
-};
-
-$Object* allocate$FactoryFinder$1($Class* clazz) {
-	return $of($alloc(FactoryFinder$1));
-}
-
 void FactoryFinder$1::init$($ClassLoader* val$cl, $Class* val$type) {
 	$set(this, val$cl, val$cl);
 	$set(this, val$type, val$type);
 }
 
 $Object* FactoryFinder$1::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$var($ServiceLoader, serviceLoader, nullptr);
 	if (this->val$cl == nullptr) {
@@ -78,9 +34,9 @@ $Object* FactoryFinder$1::run() {
 	}
 	$var($Iterator, iterator, $nc(serviceLoader)->iterator());
 	if ($nc(iterator)->hasNext()) {
-		return $of(iterator->next());
+		return iterator->next();
 	} else {
-		return $of(nullptr);
+		return nullptr;
 	}
 }
 
@@ -88,7 +44,43 @@ FactoryFinder$1::FactoryFinder$1() {
 }
 
 $Class* FactoryFinder$1::load$($String* name, bool initialize) {
-	$loadClass(FactoryFinder$1, name, initialize, &_FactoryFinder$1_ClassInfo_, allocate$FactoryFinder$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"val$type", "Ljava/lang/Class;", nullptr, $FINAL | $SYNTHETIC, $field(FactoryFinder$1, val$type)},
+		{"val$cl", "Ljava/lang/ClassLoader;", nullptr, $FINAL | $SYNTHETIC, $field(FactoryFinder$1, val$cl)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/ClassLoader;Ljava/lang/Class;)V", "()V", 0, $method(FactoryFinder$1, init$, void, $ClassLoader*, $Class*)},
+		{"run", "()Ljava/lang/Object;", "()TT;", $PUBLIC, $virtualMethod(FactoryFinder$1, run, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"javax.xml.stream.FactoryFinder",
+		"findServiceProvider",
+		"(Ljava/lang/Class;Ljava/lang/ClassLoader;)Ljava/lang/Object;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.xml.stream.FactoryFinder$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.xml.stream.FactoryFinder$1",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/security/PrivilegedAction<TT;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.xml.stream.FactoryFinder"
+	};
+	$loadClass(FactoryFinder$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FactoryFinder$1);
+	});
 	return class$;
 }
 

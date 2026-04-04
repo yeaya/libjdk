@@ -1,5 +1,4 @@
 #include <sun/net/httpserver/HttpsExchangeImpl.h>
-
 #include <com/sun/net/httpserver/Headers.h>
 #include <com/sun/net/httpserver/HttpContext.h>
 #include <com/sun/net/httpserver/HttpPrincipal.h>
@@ -30,48 +29,6 @@ using $ExchangeImpl = ::sun::net::httpserver::ExchangeImpl;
 namespace sun {
 	namespace net {
 		namespace httpserver {
-
-$FieldInfo _HttpsExchangeImpl_FieldInfo_[] = {
-	{"impl", "Lsun/net/httpserver/ExchangeImpl;", nullptr, 0, $field(HttpsExchangeImpl, impl)},
-	{}
-};
-
-$MethodInfo _HttpsExchangeImpl_MethodInfo_[] = {
-	{"<init>", "(Lsun/net/httpserver/ExchangeImpl;)V", nullptr, 0, $method(HttpsExchangeImpl, init$, void, $ExchangeImpl*), "java.io.IOException"},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(HttpsExchangeImpl, close, void)},
-	{"getAttribute", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(HttpsExchangeImpl, getAttribute, $Object*, $String*)},
-	{"getExchangeImpl", "()Lsun/net/httpserver/ExchangeImpl;", nullptr, 0, $virtualMethod(HttpsExchangeImpl, getExchangeImpl, $ExchangeImpl*)},
-	{"getHttpContext", "()Lsun/net/httpserver/HttpContextImpl;", nullptr, $PUBLIC, $virtualMethod(HttpsExchangeImpl, getHttpContext, $HttpContext*)},
-	{"getLocalAddress", "()Ljava/net/InetSocketAddress;", nullptr, $PUBLIC, $virtualMethod(HttpsExchangeImpl, getLocalAddress, $InetSocketAddress*)},
-	{"getPrincipal", "()Lcom/sun/net/httpserver/HttpPrincipal;", nullptr, $PUBLIC, $virtualMethod(HttpsExchangeImpl, getPrincipal, $HttpPrincipal*)},
-	{"getProtocol", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HttpsExchangeImpl, getProtocol, $String*)},
-	{"getRemoteAddress", "()Ljava/net/InetSocketAddress;", nullptr, $PUBLIC, $virtualMethod(HttpsExchangeImpl, getRemoteAddress, $InetSocketAddress*)},
-	{"getRequestBody", "()Ljava/io/InputStream;", nullptr, $PUBLIC, $virtualMethod(HttpsExchangeImpl, getRequestBody, $InputStream*)},
-	{"getRequestHeaders", "()Lcom/sun/net/httpserver/Headers;", nullptr, $PUBLIC, $virtualMethod(HttpsExchangeImpl, getRequestHeaders, $Headers*)},
-	{"getRequestMethod", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HttpsExchangeImpl, getRequestMethod, $String*)},
-	{"getRequestURI", "()Ljava/net/URI;", nullptr, $PUBLIC, $virtualMethod(HttpsExchangeImpl, getRequestURI, $URI*)},
-	{"getResponseBody", "()Ljava/io/OutputStream;", nullptr, $PUBLIC, $virtualMethod(HttpsExchangeImpl, getResponseBody, $OutputStream*)},
-	{"getResponseCode", "()I", nullptr, $PUBLIC, $virtualMethod(HttpsExchangeImpl, getResponseCode, int32_t)},
-	{"getResponseHeaders", "()Lcom/sun/net/httpserver/Headers;", nullptr, $PUBLIC, $virtualMethod(HttpsExchangeImpl, getResponseHeaders, $Headers*)},
-	{"getSSLSession", "()Ljavax/net/ssl/SSLSession;", nullptr, $PUBLIC, $virtualMethod(HttpsExchangeImpl, getSSLSession, $SSLSession*)},
-	{"sendResponseHeaders", "(IJ)V", nullptr, $PUBLIC, $virtualMethod(HttpsExchangeImpl, sendResponseHeaders, void, int32_t, int64_t), "java.io.IOException"},
-	{"setAttribute", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(HttpsExchangeImpl, setAttribute, void, $String*, Object$*)},
-	{"setStreams", "(Ljava/io/InputStream;Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $virtualMethod(HttpsExchangeImpl, setStreams, void, $InputStream*, $OutputStream*)},
-	{}
-};
-
-$ClassInfo _HttpsExchangeImpl_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.net.httpserver.HttpsExchangeImpl",
-	"com.sun.net.httpserver.HttpsExchange",
-	nullptr,
-	_HttpsExchangeImpl_FieldInfo_,
-	_HttpsExchangeImpl_MethodInfo_
-};
-
-$Object* allocate$HttpsExchangeImpl($Class* clazz) {
-	return $of($alloc(HttpsExchangeImpl));
-}
 
 void HttpsExchangeImpl::init$($ExchangeImpl* impl) {
 	$HttpsExchange::init$();
@@ -135,7 +92,7 @@ $SSLSession* HttpsExchangeImpl::getSSLSession() {
 }
 
 $Object* HttpsExchangeImpl::getAttribute($String* name) {
-	return $of($nc(this->impl)->getAttribute(name));
+	return $nc(this->impl)->getAttribute(name);
 }
 
 void HttpsExchangeImpl::setAttribute($String* name, Object$* value) {
@@ -158,7 +115,44 @@ HttpsExchangeImpl::HttpsExchangeImpl() {
 }
 
 $Class* HttpsExchangeImpl::load$($String* name, bool initialize) {
-	$loadClass(HttpsExchangeImpl, name, initialize, &_HttpsExchangeImpl_ClassInfo_, allocate$HttpsExchangeImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"impl", "Lsun/net/httpserver/ExchangeImpl;", nullptr, 0, $field(HttpsExchangeImpl, impl)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/net/httpserver/ExchangeImpl;)V", nullptr, 0, $method(HttpsExchangeImpl, init$, void, $ExchangeImpl*), "java.io.IOException"},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(HttpsExchangeImpl, close, void)},
+		{"getAttribute", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(HttpsExchangeImpl, getAttribute, $Object*, $String*)},
+		{"getExchangeImpl", "()Lsun/net/httpserver/ExchangeImpl;", nullptr, 0, $virtualMethod(HttpsExchangeImpl, getExchangeImpl, $ExchangeImpl*)},
+		{"getHttpContext", "()Lsun/net/httpserver/HttpContextImpl;", nullptr, $PUBLIC, $virtualMethod(HttpsExchangeImpl, getHttpContext, $HttpContext*)},
+		{"getLocalAddress", "()Ljava/net/InetSocketAddress;", nullptr, $PUBLIC, $virtualMethod(HttpsExchangeImpl, getLocalAddress, $InetSocketAddress*)},
+		{"getPrincipal", "()Lcom/sun/net/httpserver/HttpPrincipal;", nullptr, $PUBLIC, $virtualMethod(HttpsExchangeImpl, getPrincipal, $HttpPrincipal*)},
+		{"getProtocol", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HttpsExchangeImpl, getProtocol, $String*)},
+		{"getRemoteAddress", "()Ljava/net/InetSocketAddress;", nullptr, $PUBLIC, $virtualMethod(HttpsExchangeImpl, getRemoteAddress, $InetSocketAddress*)},
+		{"getRequestBody", "()Ljava/io/InputStream;", nullptr, $PUBLIC, $virtualMethod(HttpsExchangeImpl, getRequestBody, $InputStream*)},
+		{"getRequestHeaders", "()Lcom/sun/net/httpserver/Headers;", nullptr, $PUBLIC, $virtualMethod(HttpsExchangeImpl, getRequestHeaders, $Headers*)},
+		{"getRequestMethod", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HttpsExchangeImpl, getRequestMethod, $String*)},
+		{"getRequestURI", "()Ljava/net/URI;", nullptr, $PUBLIC, $virtualMethod(HttpsExchangeImpl, getRequestURI, $URI*)},
+		{"getResponseBody", "()Ljava/io/OutputStream;", nullptr, $PUBLIC, $virtualMethod(HttpsExchangeImpl, getResponseBody, $OutputStream*)},
+		{"getResponseCode", "()I", nullptr, $PUBLIC, $virtualMethod(HttpsExchangeImpl, getResponseCode, int32_t)},
+		{"getResponseHeaders", "()Lcom/sun/net/httpserver/Headers;", nullptr, $PUBLIC, $virtualMethod(HttpsExchangeImpl, getResponseHeaders, $Headers*)},
+		{"getSSLSession", "()Ljavax/net/ssl/SSLSession;", nullptr, $PUBLIC, $virtualMethod(HttpsExchangeImpl, getSSLSession, $SSLSession*)},
+		{"sendResponseHeaders", "(IJ)V", nullptr, $PUBLIC, $virtualMethod(HttpsExchangeImpl, sendResponseHeaders, void, int32_t, int64_t), "java.io.IOException"},
+		{"setAttribute", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(HttpsExchangeImpl, setAttribute, void, $String*, Object$*)},
+		{"setStreams", "(Ljava/io/InputStream;Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $virtualMethod(HttpsExchangeImpl, setStreams, void, $InputStream*, $OutputStream*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.net.httpserver.HttpsExchangeImpl",
+		"com.sun.net.httpserver.HttpsExchange",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(HttpsExchangeImpl, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HttpsExchangeImpl);
+	});
 	return class$;
 }
 

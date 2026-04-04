@@ -1,5 +1,4 @@
 #include <javax/sound/sampled/AudioPermission.h>
-
 #include <java/security/BasicPermission.h>
 #include <jcpp.h>
 
@@ -11,30 +10,6 @@ using $BasicPermission = ::java::security::BasicPermission;
 namespace javax {
 	namespace sound {
 		namespace sampled {
-
-$FieldInfo _AudioPermission_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AudioPermission, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _AudioPermission_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(AudioPermission, init$, void, $String*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(AudioPermission, init$, void, $String*, $String*)},
-	{}
-};
-
-$ClassInfo _AudioPermission_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.sound.sampled.AudioPermission",
-	"java.security.BasicPermission",
-	nullptr,
-	_AudioPermission_FieldInfo_,
-	_AudioPermission_MethodInfo_
-};
-
-$Object* allocate$AudioPermission($Class* clazz) {
-	return $of($alloc(AudioPermission));
-}
 
 void AudioPermission::init$($String* name) {
 	$BasicPermission::init$(name);
@@ -48,7 +23,26 @@ AudioPermission::AudioPermission() {
 }
 
 $Class* AudioPermission::load$($String* name, bool initialize) {
-	$loadClass(AudioPermission, name, initialize, &_AudioPermission_ClassInfo_, allocate$AudioPermission);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AudioPermission, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(AudioPermission, init$, void, $String*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(AudioPermission, init$, void, $String*, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.sound.sampled.AudioPermission",
+		"java.security.BasicPermission",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(AudioPermission, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AudioPermission));
+	});
 	return class$;
 }
 

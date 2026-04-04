@@ -188,6 +188,7 @@ public:
 	virtual $String* getStringValueX(int32_t nodeHandle) override;
 	virtual int32_t hashCode() override;
 	virtual void internalEntityDecl($String* name, $String* value) override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::com::sun::org::apache::xalan::internal::xsltc::dom::XSLTCDTMManager* mgr, ::javax::xml::transform::Source* source, int32_t dtmIdentity, ::com::sun::org::apache::xml::internal::dtm::DTMWSFilter* whiteSpaceFilter, ::com::sun::org::apache::xml::internal::utils::XMLStringFactory* xstringfactory, bool doIndexing, bool buildIdIndex);
 	void init$(::com::sun::org::apache::xalan::internal::xsltc::dom::XSLTCDTMManager* mgr, ::javax::xml::transform::Source* source, int32_t dtmIdentity, ::com::sun::org::apache::xml::internal::dtm::DTMWSFilter* whiteSpaceFilter, ::com::sun::org::apache::xml::internal::utils::XMLStringFactory* xstringfactory, bool doIndexing, int32_t blocksize, bool buildIdIndex, bool newNameTable);
 	static ::com::sun::org::apache::xml::internal::dtm::ref::ExpandedNameTable* access$000(::com::sun::org::apache::xalan::internal::xsltc::dom::SAXImpl* x0);

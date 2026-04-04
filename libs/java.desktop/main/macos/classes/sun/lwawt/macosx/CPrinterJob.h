@@ -71,6 +71,7 @@ public:
 	CPrinterJob();
 	using ::sun::print::RasterPrinterJob::defaultPage;
 	using ::sun::print::RasterPrinterJob::getPageFormat;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void _safePrintLoop(int64_t target, int64_t arg);
 	virtual void abortDoc() override;

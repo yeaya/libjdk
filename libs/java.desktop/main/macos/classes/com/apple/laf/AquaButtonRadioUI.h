@@ -35,6 +35,7 @@ class AquaButtonRadioUI : public ::com::apple::laf::AquaButtonLabeledUI {
 	$class(AquaButtonRadioUI, 0, ::com::apple::laf::AquaButtonLabeledUI)
 public:
 	AquaButtonRadioUI();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::javax::swing::plaf::ComponentUI* createUI(::javax::swing::JComponent* b);
 	virtual ::com::apple::laf::AquaButtonBorder* getPainter() override;

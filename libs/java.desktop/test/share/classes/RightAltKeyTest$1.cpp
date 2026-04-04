@@ -1,5 +1,4 @@
 #include <RightAltKeyTest$1.h>
-
 #include <RightAltKeyTest.h>
 #include <javax/swing/event/MenuEvent.h>
 #include <jcpp.h>
@@ -11,50 +10,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $MenuEvent = ::javax::swing::event::MenuEvent;
-
-$FieldInfo _RightAltKeyTest$1_FieldInfo_[] = {
-	{"this$0", "LRightAltKeyTest;", nullptr, $FINAL | $SYNTHETIC, $field(RightAltKeyTest$1, this$0)},
-	{}
-};
-
-$MethodInfo _RightAltKeyTest$1_MethodInfo_[] = {
-	{"<init>", "(LRightAltKeyTest;)V", nullptr, 0, $method(RightAltKeyTest$1, init$, void, $RightAltKeyTest*)},
-	{"menuCanceled", "(Ljavax/swing/event/MenuEvent;)V", nullptr, $PUBLIC, $virtualMethod(RightAltKeyTest$1, menuCanceled, void, $MenuEvent*)},
-	{"menuDeselected", "(Ljavax/swing/event/MenuEvent;)V", nullptr, $PUBLIC, $virtualMethod(RightAltKeyTest$1, menuDeselected, void, $MenuEvent*)},
-	{"menuSelected", "(Ljavax/swing/event/MenuEvent;)V", nullptr, $PUBLIC, $virtualMethod(RightAltKeyTest$1, menuSelected, void, $MenuEvent*)},
-	{}
-};
-
-$EnclosingMethodInfo _RightAltKeyTest$1_EnclosingMethodInfo_ = {
-	"RightAltKeyTest",
-	"testJMenu",
-	"()V"
-};
-
-$InnerClassInfo _RightAltKeyTest$1_InnerClassesInfo_[] = {
-	{"RightAltKeyTest$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _RightAltKeyTest$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"RightAltKeyTest$1",
-	"java.lang.Object",
-	"javax.swing.event.MenuListener",
-	_RightAltKeyTest$1_FieldInfo_,
-	_RightAltKeyTest$1_MethodInfo_,
-	nullptr,
-	&_RightAltKeyTest$1_EnclosingMethodInfo_,
-	_RightAltKeyTest$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"RightAltKeyTest"
-};
-
-$Object* allocate$RightAltKeyTest$1($Class* clazz) {
-	return $of($alloc(RightAltKeyTest$1));
-}
 
 void RightAltKeyTest$1::init$($RightAltKeyTest* this$0) {
 	$set(this, this$0, this$0);
@@ -75,7 +30,44 @@ RightAltKeyTest$1::RightAltKeyTest$1() {
 }
 
 $Class* RightAltKeyTest$1::load$($String* name, bool initialize) {
-	$loadClass(RightAltKeyTest$1, name, initialize, &_RightAltKeyTest$1_ClassInfo_, allocate$RightAltKeyTest$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "LRightAltKeyTest;", nullptr, $FINAL | $SYNTHETIC, $field(RightAltKeyTest$1, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(LRightAltKeyTest;)V", nullptr, 0, $method(RightAltKeyTest$1, init$, void, $RightAltKeyTest*)},
+		{"menuCanceled", "(Ljavax/swing/event/MenuEvent;)V", nullptr, $PUBLIC, $virtualMethod(RightAltKeyTest$1, menuCanceled, void, $MenuEvent*)},
+		{"menuDeselected", "(Ljavax/swing/event/MenuEvent;)V", nullptr, $PUBLIC, $virtualMethod(RightAltKeyTest$1, menuDeselected, void, $MenuEvent*)},
+		{"menuSelected", "(Ljavax/swing/event/MenuEvent;)V", nullptr, $PUBLIC, $virtualMethod(RightAltKeyTest$1, menuSelected, void, $MenuEvent*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"RightAltKeyTest",
+		"testJMenu",
+		"()V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"RightAltKeyTest$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"RightAltKeyTest$1",
+		"java.lang.Object",
+		"javax.swing.event.MenuListener",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"RightAltKeyTest"
+	};
+	$loadClass(RightAltKeyTest$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RightAltKeyTest$1);
+	});
 	return class$;
 }
 

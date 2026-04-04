@@ -1,5 +1,4 @@
 #include <TestJEditor.h>
-
 #include <TestJEditor$UserEditorKit.h>
 #include <java/io/Serializable.h>
 #include <java/lang/Runnable.h>
@@ -36,76 +35,42 @@ public:
 	virtual void run() override {
 		TestJEditor::testJEditorPane();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<TestJEditor$$Lambda$testJEditorPane>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo TestJEditor$$Lambda$testJEditorPane::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TestJEditor$$Lambda$testJEditorPane, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestJEditor$$Lambda$testJEditorPane, run, void)},
-	{}
-};
-$ClassInfo TestJEditor$$Lambda$testJEditorPane::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"TestJEditor$$Lambda$testJEditorPane",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* TestJEditor$$Lambda$testJEditorPane::load$($String* name, bool initialize) {
-	$loadClass(TestJEditor$$Lambda$testJEditorPane, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TestJEditor$$Lambda$testJEditorPane, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestJEditor$$Lambda$testJEditorPane, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"TestJEditor$$Lambda$testJEditorPane",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(TestJEditor$$Lambda$testJEditorPane, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TestJEditor$$Lambda$testJEditorPane);
+	});
 	return class$;
 }
 $Class* TestJEditor$$Lambda$testJEditorPane::class$ = nullptr;
-
-$MethodInfo _TestJEditor_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TestJEditor, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TestJEditor, main, void, $StringArray*), "java.lang.Exception"},
-	{"testJEditorPane", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(TestJEditor, testJEditorPane, void)},
-	{}
-};
-
-$InnerClassInfo _TestJEditor_InnerClassesInfo_[] = {
-	{"TestJEditor$UserEditorKit", "TestJEditor", "UserEditorKit", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _TestJEditor_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"TestJEditor",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_TestJEditor_MethodInfo_,
-	nullptr,
-	nullptr,
-	_TestJEditor_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"TestJEditor$UserEditorKit"
-};
-
-$Object* allocate$TestJEditor($Class* clazz) {
-	return $of($alloc(TestJEditor));
-}
 
 void TestJEditor::init$() {
 }
 
 void TestJEditor::main($StringArray* args) {
+	$useLocalObjectStack();
 	$load(TestJEditor);
-	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
-	$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(TestJEditor$$Lambda$testJEditorPane)));
+	$SwingUtilities::invokeAndWait($$new(TestJEditor$$Lambda$testJEditorPane));
 	$System::setSecurityManager($$new($SecurityManager));
-	$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(TestJEditor$$Lambda$testJEditorPane)));
+	$SwingUtilities::invokeAndWait($$new(TestJEditor$$Lambda$testJEditorPane));
 }
 
 void TestJEditor::testJEditorPane() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$load($TestJEditor$UserEditorKit);
 		$JEditorPane::registerEditorKitForContentType("text/html"_s, $($TestJEditor$UserEditorKit::class$->getName()));
@@ -114,7 +79,7 @@ void TestJEditor::testJEditorPane() {
 			$throwNew($RuntimeException, "Editor kit is not UserEditorKit!"_s);
 		}
 	} catch ($Exception& e) {
-		$throwNew($RuntimeException, static_cast<$Throwable*>(e));
+		$throwNew($RuntimeException, e);
 	}
 }
 
@@ -123,11 +88,37 @@ TestJEditor::TestJEditor() {
 
 $Class* TestJEditor::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(TestJEditor$$Lambda$testJEditorPane::classInfo$.name)) {
+		if (name->equals("TestJEditor$$Lambda$testJEditorPane")) {
 			return TestJEditor$$Lambda$testJEditorPane::load$(name, initialize);
 		}
 	}
-	$loadClass(TestJEditor, name, initialize, &_TestJEditor_ClassInfo_, allocate$TestJEditor);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TestJEditor, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TestJEditor, main, void, $StringArray*), "java.lang.Exception"},
+		{"testJEditorPane", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(TestJEditor, testJEditorPane, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"TestJEditor$UserEditorKit", "TestJEditor", "UserEditorKit", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"TestJEditor",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"TestJEditor$UserEditorKit"
+	};
+	$loadClass(TestJEditor, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TestJEditor);
+	});
 	return class$;
 }
 

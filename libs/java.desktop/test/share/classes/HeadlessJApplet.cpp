@@ -1,5 +1,4 @@
 #include <HeadlessJApplet.h>
-
 #include <java/awt/HeadlessException.h>
 #include <javax/swing/JApplet.h>
 #include <jcpp.h>
@@ -9,25 +8,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $JApplet = ::javax::swing::JApplet;
-
-$MethodInfo _HeadlessJApplet_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(HeadlessJApplet, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(HeadlessJApplet, main, void, $StringArray*)},
-	{}
-};
-
-$ClassInfo _HeadlessJApplet_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"HeadlessJApplet",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_HeadlessJApplet_MethodInfo_
-};
-
-$Object* allocate$HeadlessJApplet($Class* clazz) {
-	return $of($alloc(HeadlessJApplet));
-}
 
 void HeadlessJApplet::init$() {
 }
@@ -48,7 +28,22 @@ HeadlessJApplet::HeadlessJApplet() {
 }
 
 $Class* HeadlessJApplet::load$($String* name, bool initialize) {
-	$loadClass(HeadlessJApplet, name, initialize, &_HeadlessJApplet_ClassInfo_, allocate$HeadlessJApplet);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(HeadlessJApplet, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(HeadlessJApplet, main, void, $StringArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"HeadlessJApplet",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(HeadlessJApplet, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HeadlessJApplet);
+	});
 	return class$;
 }
 

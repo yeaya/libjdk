@@ -20,6 +20,7 @@ class $export GSSCaller : public ::java::lang::Object {
 	$class(GSSCaller, 0, ::java::lang::Object)
 public:
 	GSSCaller();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* s);
 	virtual $String* toString() override;
 	static ::sun::security::jgss::GSSCaller* CALLER_UNKNOWN;

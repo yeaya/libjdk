@@ -30,7 +30,7 @@ public:
 	void init$($String* lexicalRepresentation);
 	void convertToCanonicalYearMonth();
 	virtual int32_t getValue();
-	static const int64_t serialVersionUID = (int64_t)0xC284FA89FD20528A;
+	static const int64_t serialVersionUID = (int64_t)0xc284fa89fd20528a;
 };
 
 							} // datatype

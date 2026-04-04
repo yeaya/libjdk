@@ -1,5 +1,4 @@
 #include <java/lang/management/DefaultPlatformMBeanProvider$6.h>
-
 #include <java/lang/management/DefaultPlatformMBeanProvider.h>
 #include <java/lang/management/ManagementFactory.h>
 #include <java/lang/management/MemoryPoolMXBean.h>
@@ -29,60 +28,11 @@ using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
 using $Map = ::java::util::Map;
 using $Set = ::java::util::Set;
-using $ObjectName = ::javax::management::ObjectName;
 using $ManagementFactoryHelper = ::sun::management::ManagementFactoryHelper;
 
 namespace java {
 	namespace lang {
 		namespace management {
-
-$FieldInfo _DefaultPlatformMBeanProvider$6_FieldInfo_[] = {
-	{"this$0", "Ljava/lang/management/DefaultPlatformMBeanProvider;", nullptr, $FINAL | $SYNTHETIC, $field(DefaultPlatformMBeanProvider$6, this$0)},
-	{"memoryPoolMXBeanInterfaceNames", "Ljava/util/Set;", "Ljava/util/Set<Ljava/lang/String;>;", $PRIVATE | $FINAL, $field(DefaultPlatformMBeanProvider$6, memoryPoolMXBeanInterfaceNames)},
-	{}
-};
-
-$MethodInfo _DefaultPlatformMBeanProvider$6_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/management/DefaultPlatformMBeanProvider;)V", nullptr, 0, $method(DefaultPlatformMBeanProvider$6, init$, void, $DefaultPlatformMBeanProvider*)},
-	{"getObjectNamePattern", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DefaultPlatformMBeanProvider$6, getObjectNamePattern, $String*)},
-	{"isSingleton", "()Z", nullptr, $PUBLIC, $virtualMethod(DefaultPlatformMBeanProvider$6, isSingleton, bool)},
-	{"mbeanInterfaceNames", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(DefaultPlatformMBeanProvider$6, mbeanInterfaceNames, $Set*)},
-	{"mbeanInterfaces", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/Class<+Ljava/lang/management/MemoryPoolMXBean;>;>;", $PUBLIC, $virtualMethod(DefaultPlatformMBeanProvider$6, mbeanInterfaces, $Set*)},
-	{"nameToMBeanMap", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/lang/management/MemoryPoolMXBean;>;", $PUBLIC, $virtualMethod(DefaultPlatformMBeanProvider$6, nameToMBeanMap, $Map*)},
-	{}
-};
-
-$EnclosingMethodInfo _DefaultPlatformMBeanProvider$6_EnclosingMethodInfo_ = {
-	"java.lang.management.DefaultPlatformMBeanProvider",
-	"init",
-	"()Ljava/util/List;"
-};
-
-$InnerClassInfo _DefaultPlatformMBeanProvider$6_InnerClassesInfo_[] = {
-	{"java.lang.management.DefaultPlatformMBeanProvider$6", nullptr, nullptr, 0},
-	{"sun.management.spi.PlatformMBeanProvider$PlatformComponent", "sun.management.spi.PlatformMBeanProvider", "PlatformComponent", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _DefaultPlatformMBeanProvider$6_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.lang.management.DefaultPlatformMBeanProvider$6",
-	"java.lang.Object",
-	"sun.management.spi.PlatformMBeanProvider$PlatformComponent",
-	_DefaultPlatformMBeanProvider$6_FieldInfo_,
-	_DefaultPlatformMBeanProvider$6_MethodInfo_,
-	"Ljava/lang/Object;Lsun/management/spi/PlatformMBeanProvider$PlatformComponent<Ljava/lang/management/MemoryPoolMXBean;>;",
-	&_DefaultPlatformMBeanProvider$6_EnclosingMethodInfo_,
-	_DefaultPlatformMBeanProvider$6_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.lang.management.DefaultPlatformMBeanProvider"
-};
-
-$Object* allocate$DefaultPlatformMBeanProvider$6($Class* clazz) {
-	return $of($alloc(DefaultPlatformMBeanProvider$6));
-}
 
 void DefaultPlatformMBeanProvider$6::init$($DefaultPlatformMBeanProvider* this$0) {
 	$set(this, this$0, this$0);
@@ -108,7 +58,7 @@ bool DefaultPlatformMBeanProvider$6::isSingleton() {
 }
 
 $Map* DefaultPlatformMBeanProvider$6::nameToMBeanMap() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, list, $ManagementFactoryHelper::getMemoryPoolMXBeans());
 	$var($Map, map, nullptr);
 	if ($nc(list)->isEmpty()) {
@@ -120,7 +70,7 @@ $Map* DefaultPlatformMBeanProvider$6::nameToMBeanMap() {
 			for (; $nc(i$)->hasNext();) {
 				$var($MemoryPoolMXBean, mpm, $cast($MemoryPoolMXBean, i$->next()));
 				{
-					map->put($($nc($($nc(mpm)->getObjectName()))->getCanonicalName()), mpm);
+					map->put($($$nc($nc(mpm)->getObjectName())->getCanonicalName()), mpm);
 				}
 			}
 		}
@@ -132,7 +82,48 @@ DefaultPlatformMBeanProvider$6::DefaultPlatformMBeanProvider$6() {
 }
 
 $Class* DefaultPlatformMBeanProvider$6::load$($String* name, bool initialize) {
-	$loadClass(DefaultPlatformMBeanProvider$6, name, initialize, &_DefaultPlatformMBeanProvider$6_ClassInfo_, allocate$DefaultPlatformMBeanProvider$6);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljava/lang/management/DefaultPlatformMBeanProvider;", nullptr, $FINAL | $SYNTHETIC, $field(DefaultPlatformMBeanProvider$6, this$0)},
+		{"memoryPoolMXBeanInterfaceNames", "Ljava/util/Set;", "Ljava/util/Set<Ljava/lang/String;>;", $PRIVATE | $FINAL, $field(DefaultPlatformMBeanProvider$6, memoryPoolMXBeanInterfaceNames)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/management/DefaultPlatformMBeanProvider;)V", nullptr, 0, $method(DefaultPlatformMBeanProvider$6, init$, void, $DefaultPlatformMBeanProvider*)},
+		{"getObjectNamePattern", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DefaultPlatformMBeanProvider$6, getObjectNamePattern, $String*)},
+		{"isSingleton", "()Z", nullptr, $PUBLIC, $virtualMethod(DefaultPlatformMBeanProvider$6, isSingleton, bool)},
+		{"mbeanInterfaceNames", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(DefaultPlatformMBeanProvider$6, mbeanInterfaceNames, $Set*)},
+		{"mbeanInterfaces", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/Class<+Ljava/lang/management/MemoryPoolMXBean;>;>;", $PUBLIC, $virtualMethod(DefaultPlatformMBeanProvider$6, mbeanInterfaces, $Set*)},
+		{"nameToMBeanMap", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/lang/management/MemoryPoolMXBean;>;", $PUBLIC, $virtualMethod(DefaultPlatformMBeanProvider$6, nameToMBeanMap, $Map*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.lang.management.DefaultPlatformMBeanProvider",
+		"init",
+		"()Ljava/util/List;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.management.DefaultPlatformMBeanProvider$6", nullptr, nullptr, 0},
+		{"sun.management.spi.PlatformMBeanProvider$PlatformComponent", "sun.management.spi.PlatformMBeanProvider", "PlatformComponent", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.lang.management.DefaultPlatformMBeanProvider$6",
+		"java.lang.Object",
+		"sun.management.spi.PlatformMBeanProvider$PlatformComponent",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Lsun/management/spi/PlatformMBeanProvider$PlatformComponent<Ljava/lang/management/MemoryPoolMXBean;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.lang.management.DefaultPlatformMBeanProvider"
+	};
+	$loadClass(DefaultPlatformMBeanProvider$6, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DefaultPlatformMBeanProvider$6);
+	});
 	return class$;
 }
 

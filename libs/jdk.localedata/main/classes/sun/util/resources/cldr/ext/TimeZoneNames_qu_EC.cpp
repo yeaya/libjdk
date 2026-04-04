@@ -1,5 +1,4 @@
 #include <sun/util/resources/cldr/ext/TimeZoneNames_qu_EC.h>
-
 #include <sun/util/resources/TimeZoneNamesBundle.h>
 #include <jcpp.h>
 
@@ -16,31 +15,12 @@ namespace sun {
 			namespace cldr {
 				namespace ext {
 
-$MethodInfo _TimeZoneNames_qu_EC_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TimeZoneNames_qu_EC, init$, void)},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(TimeZoneNames_qu_EC, getContents, $ObjectArray2*)},
-	{}
-};
-
-$ClassInfo _TimeZoneNames_qu_EC_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.util.resources.cldr.ext.TimeZoneNames_qu_EC",
-	"sun.util.resources.TimeZoneNamesBundle",
-	nullptr,
-	nullptr,
-	_TimeZoneNames_qu_EC_MethodInfo_
-};
-
-$Object* allocate$TimeZoneNames_qu_EC($Class* clazz) {
-	return $of($alloc(TimeZoneNames_qu_EC));
-}
-
 void TimeZoneNames_qu_EC::init$() {
 	$TimeZoneNamesBundle::init$();
 }
 
 $ObjectArray2* TimeZoneNames_qu_EC::getContents() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringArray, Peru, $new($StringArray, {
 		u"Hora Estandar de Perú"_s,
 		u"∅∅∅"_s,
@@ -67,16 +47,16 @@ $ObjectArray2* TimeZoneNames_qu_EC::getContents() {
 	}));
 	$var($ObjectArray2, data, $new($ObjectArray2, {
 		$$new($ObjectArray, {
-			$of("UTC"_s),
-			$of(EMPTY_ZONE)
+			"UTC"_s,
+			EMPTY_ZONE
 		}),
 		$$new($ObjectArray, {
-			$of("America/Lima"_s),
-			$of(Peru)
+			"America/Lima"_s,
+			Peru
 		}),
 		$$new($ObjectArray, {
-			$of("America/Guayaquil"_s),
-			$of(Ecuador)
+			"America/Guayaquil"_s,
+			Ecuador
 		})
 	}));
 	return data;
@@ -86,7 +66,22 @@ TimeZoneNames_qu_EC::TimeZoneNames_qu_EC() {
 }
 
 $Class* TimeZoneNames_qu_EC::load$($String* name, bool initialize) {
-	$loadClass(TimeZoneNames_qu_EC, name, initialize, &_TimeZoneNames_qu_EC_ClassInfo_, allocate$TimeZoneNames_qu_EC);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TimeZoneNames_qu_EC, init$, void)},
+		{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(TimeZoneNames_qu_EC, getContents, $ObjectArray2*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.util.resources.cldr.ext.TimeZoneNames_qu_EC",
+		"sun.util.resources.TimeZoneNamesBundle",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(TimeZoneNames_qu_EC, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TimeZoneNames_qu_EC);
+	});
 	return class$;
 }
 

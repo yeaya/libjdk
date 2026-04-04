@@ -34,7 +34,7 @@ public:
 	CompilationSubResult();
 	void init$(::com::sun::tools::javac::main::Main$Result* result);
 	virtual void setResult(::com::sun::tools::javac::main::Main$Result* result);
-	static const int64_t serialVersionUID = (int64_t)0x0000000AE1DF4E39;
+	static const int64_t serialVersionUID = (int64_t)0x0000000ae1df4e39;
 	::com::sun::tools::javac::main::Main$Result* result = nullptr;
 	::java::util::Map* packageArtifacts = nullptr;
 	::java::util::Map* packageDependencies = nullptr;

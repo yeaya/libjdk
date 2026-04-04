@@ -29,6 +29,7 @@ class $export DNDTextToScaledArea : public ::java::lang::Object {
 	$class(DNDTextToScaledArea, 0, ::java::lang::Object)
 public:
 	DNDTextToScaledArea();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void createAndShowGUI(::java::awt::GraphicsDevice* device);
 	static void dragAndDrop(::java::awt::Robot* robot, ::java::awt::Point* src, ::java::awt::Point* dst);

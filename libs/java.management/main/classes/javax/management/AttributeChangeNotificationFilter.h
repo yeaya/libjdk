@@ -29,7 +29,7 @@ public:
 	virtual void enableAttribute($String* name);
 	virtual ::java::util::Vector* getEnabledAttributes();
 	virtual bool isNotificationEnabled(::javax::management::Notification* notification) override;
-	static const int64_t serialVersionUID = (int64_t)0xA7E9CC49419E9F53;
+	static const int64_t serialVersionUID = (int64_t)0xa7e9cc49419e9f53;
 	::java::util::Vector* enabledAttributes = nullptr;
 };
 

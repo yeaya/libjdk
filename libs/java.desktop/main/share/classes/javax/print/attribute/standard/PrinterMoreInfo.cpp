@@ -1,5 +1,4 @@
 #include <javax/print/attribute/standard/PrinterMoreInfo.h>
-
 #include <java/net/URI.h>
 #include <javax/print/attribute/URISyntax.h>
 #include <jcpp.h>
@@ -14,36 +13,6 @@ namespace javax {
 	namespace print {
 		namespace attribute {
 			namespace standard {
-
-$FieldInfo _PrinterMoreInfo_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PrinterMoreInfo, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _PrinterMoreInfo_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "(Ljava/net/URI;)V", nullptr, $PUBLIC, $method(PrinterMoreInfo, init$, void, $URI*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(PrinterMoreInfo, equals, bool, Object$*)},
-	{"getCategory", "()Ljava/lang/Class;", "()Ljava/lang/Class<+Ljavax/print/attribute/Attribute;>;", $PUBLIC | $FINAL, $virtualMethod(PrinterMoreInfo, getCategory, $Class*)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(PrinterMoreInfo, getName, $String*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _PrinterMoreInfo_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"javax.print.attribute.standard.PrinterMoreInfo",
-	"javax.print.attribute.URISyntax",
-	"javax.print.attribute.PrintServiceAttribute",
-	_PrinterMoreInfo_FieldInfo_,
-	_PrinterMoreInfo_MethodInfo_
-};
-
-$Object* allocate$PrinterMoreInfo($Class* clazz) {
-	return $of($alloc(PrinterMoreInfo));
-}
 
 int32_t PrinterMoreInfo::hashCode() {
 	 return this->$URISyntax::hashCode();
@@ -81,7 +50,32 @@ PrinterMoreInfo::PrinterMoreInfo() {
 }
 
 $Class* PrinterMoreInfo::load$($String* name, bool initialize) {
-	$loadClass(PrinterMoreInfo, name, initialize, &_PrinterMoreInfo_ClassInfo_, allocate$PrinterMoreInfo);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PrinterMoreInfo, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC},
+		{"<init>", "(Ljava/net/URI;)V", nullptr, $PUBLIC, $method(PrinterMoreInfo, init$, void, $URI*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(PrinterMoreInfo, equals, bool, Object$*)},
+		{"getCategory", "()Ljava/lang/Class;", "()Ljava/lang/Class<+Ljavax/print/attribute/Attribute;>;", $PUBLIC | $FINAL, $virtualMethod(PrinterMoreInfo, getCategory, $Class*)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(PrinterMoreInfo, getName, $String*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"javax.print.attribute.standard.PrinterMoreInfo",
+		"javax.print.attribute.URISyntax",
+		"javax.print.attribute.PrintServiceAttribute",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(PrinterMoreInfo, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(PrinterMoreInfo));
+	});
 	return class$;
 }
 

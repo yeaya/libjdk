@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/util/ArrayUtils.h>
-
 #include <java/lang/reflect/Array.h>
 #include <jcpp.h>
 
@@ -12,29 +11,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace util {
-
-$MethodInfo _ArrayUtils_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ArrayUtils, init$, void)},
-	{"calculateNewLength", "(II)I", nullptr, $PRIVATE | $STATIC, $staticMethod(ArrayUtils, calculateNewLength, int32_t, int32_t, int32_t)},
-	{"ensureCapacity", "([Ljava/lang/Object;I)[Ljava/lang/Object;", "<T:Ljava/lang/Object;>([TT;I)[TT;", $PUBLIC | $STATIC, $staticMethod(ArrayUtils, ensureCapacity, $ObjectArray*, $ObjectArray*, int32_t)},
-	{"ensureCapacity", "([BI)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(ArrayUtils, ensureCapacity, $bytes*, $bytes*, int32_t)},
-	{"ensureCapacity", "([CI)[C", nullptr, $PUBLIC | $STATIC, $staticMethod(ArrayUtils, ensureCapacity, $chars*, $chars*, int32_t)},
-	{"ensureCapacity", "([II)[I", nullptr, $PUBLIC | $STATIC, $staticMethod(ArrayUtils, ensureCapacity, $ints*, $ints*, int32_t)},
-	{}
-};
-
-$ClassInfo _ArrayUtils_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.util.ArrayUtils",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_ArrayUtils_MethodInfo_
-};
-
-$Object* allocate$ArrayUtils($Class* clazz) {
-	return $of($alloc(ArrayUtils));
-}
 
 void ArrayUtils::init$() {
 }
@@ -94,7 +70,26 @@ ArrayUtils::ArrayUtils() {
 }
 
 $Class* ArrayUtils::load$($String* name, bool initialize) {
-	$loadClass(ArrayUtils, name, initialize, &_ArrayUtils_ClassInfo_, allocate$ArrayUtils);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ArrayUtils, init$, void)},
+		{"calculateNewLength", "(II)I", nullptr, $PRIVATE | $STATIC, $staticMethod(ArrayUtils, calculateNewLength, int32_t, int32_t, int32_t)},
+		{"ensureCapacity", "([Ljava/lang/Object;I)[Ljava/lang/Object;", "<T:Ljava/lang/Object;>([TT;I)[TT;", $PUBLIC | $STATIC, $staticMethod(ArrayUtils, ensureCapacity, $ObjectArray*, $ObjectArray*, int32_t)},
+		{"ensureCapacity", "([BI)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(ArrayUtils, ensureCapacity, $bytes*, $bytes*, int32_t)},
+		{"ensureCapacity", "([CI)[C", nullptr, $PUBLIC | $STATIC, $staticMethod(ArrayUtils, ensureCapacity, $chars*, $chars*, int32_t)},
+		{"ensureCapacity", "([II)[I", nullptr, $PUBLIC | $STATIC, $staticMethod(ArrayUtils, ensureCapacity, $ints*, $ints*, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.util.ArrayUtils",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ArrayUtils, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ArrayUtils);
+	});
 	return class$;
 }
 

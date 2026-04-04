@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/basic/BasicTextUI$TextTransferHandler.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/datatransfer/DataFlavor.h>
 #include <java/awt/datatransfer/Transferable.h>
@@ -69,62 +68,6 @@ namespace javax {
 		namespace plaf {
 			namespace basic {
 
-$FieldInfo _BasicTextUI$TextTransferHandler_FieldInfo_[] = {
-	{"exportComp", "Ljavax/swing/text/JTextComponent;", nullptr, $PRIVATE, $field(BasicTextUI$TextTransferHandler, exportComp)},
-	{"shouldRemove", "Z", nullptr, $PRIVATE, $field(BasicTextUI$TextTransferHandler, shouldRemove)},
-	{"p0", "I", nullptr, $PRIVATE, $field(BasicTextUI$TextTransferHandler, p0)},
-	{"p1", "I", nullptr, $PRIVATE, $field(BasicTextUI$TextTransferHandler, p1)},
-	{"modeBetween", "Z", nullptr, $PRIVATE, $field(BasicTextUI$TextTransferHandler, modeBetween)},
-	{"isDrop", "Z", nullptr, $PRIVATE, $field(BasicTextUI$TextTransferHandler, isDrop)},
-	{"dropAction", "I", nullptr, $PRIVATE, $field(BasicTextUI$TextTransferHandler, dropAction)},
-	{"dropBias", "Ljavax/swing/text/Position$Bias;", nullptr, $PRIVATE, $field(BasicTextUI$TextTransferHandler, dropBias)},
-	{}
-};
-
-$MethodInfo _BasicTextUI$TextTransferHandler_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, 0, $method(BasicTextUI$TextTransferHandler, init$, void)},
-	{"canImport", "(Ljavax/swing/JComponent;[Ljava/awt/datatransfer/DataFlavor;)Z", nullptr, $PUBLIC, $virtualMethod(BasicTextUI$TextTransferHandler, canImport, bool, $JComponent*, $DataFlavorArray*)},
-	{"createTransferable", "(Ljavax/swing/JComponent;)Ljava/awt/datatransfer/Transferable;", nullptr, $PROTECTED, $virtualMethod(BasicTextUI$TextTransferHandler, createTransferable, $Transferable*, $JComponent*)},
-	{"exportDone", "(Ljavax/swing/JComponent;Ljava/awt/datatransfer/Transferable;I)V", nullptr, $PROTECTED, $virtualMethod(BasicTextUI$TextTransferHandler, exportDone, void, $JComponent*, $Transferable*, int32_t)},
-	{"getImportFlavor", "([Ljava/awt/datatransfer/DataFlavor;Ljavax/swing/text/JTextComponent;)Ljava/awt/datatransfer/DataFlavor;", nullptr, $PROTECTED, $virtualMethod(BasicTextUI$TextTransferHandler, getImportFlavor, $DataFlavor*, $DataFlavorArray*, $JTextComponent*)},
-	{"getSourceActions", "(Ljavax/swing/JComponent;)I", nullptr, $PUBLIC, $virtualMethod(BasicTextUI$TextTransferHandler, getSourceActions, int32_t, $JComponent*)},
-	{"handleReaderImport", "(Ljava/io/Reader;Ljavax/swing/text/JTextComponent;Z)V", nullptr, $PROTECTED, $virtualMethod(BasicTextUI$TextTransferHandler, handleReaderImport, void, $Reader*, $JTextComponent*, bool), "javax.swing.text.BadLocationException,java.io.IOException"},
-	{"importData", "(Ljavax/swing/TransferHandler$TransferSupport;)Z", nullptr, $PUBLIC, $virtualMethod(BasicTextUI$TextTransferHandler, importData, bool, $TransferHandler$TransferSupport*)},
-	{"importData", "(Ljavax/swing/JComponent;Ljava/awt/datatransfer/Transferable;)Z", nullptr, $PUBLIC, $virtualMethod(BasicTextUI$TextTransferHandler, importData, bool, $JComponent*, $Transferable*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _BasicTextUI$TextTransferHandler_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.basic.BasicTextUI$TextTransferHandler", "javax.swing.plaf.basic.BasicTextUI", "TextTransferHandler", $STATIC},
-	{"javax.swing.plaf.basic.BasicTextUI$TextTransferHandler$TextTransferable", "javax.swing.plaf.basic.BasicTextUI$TextTransferHandler", "TextTransferable", $STATIC},
-	{}
-};
-
-$ClassInfo _BasicTextUI$TextTransferHandler_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.basic.BasicTextUI$TextTransferHandler",
-	"javax.swing.TransferHandler",
-	"javax.swing.plaf.UIResource",
-	_BasicTextUI$TextTransferHandler_FieldInfo_,
-	_BasicTextUI$TextTransferHandler_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BasicTextUI$TextTransferHandler_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.basic.BasicTextUI"
-};
-
-$Object* allocate$BasicTextUI$TextTransferHandler($Class* clazz) {
-	return $of($alloc(BasicTextUI$TextTransferHandler));
-}
-
 int32_t BasicTextUI$TextTransferHandler::hashCode() {
 	 return this->$TransferHandler::hashCode();
 }
@@ -153,25 +96,23 @@ void BasicTextUI$TextTransferHandler::init$() {
 }
 
 $DataFlavor* BasicTextUI$TextTransferHandler::getImportFlavor($DataFlavorArray* flavors, $JTextComponent* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DataFlavor, plainFlavor, nullptr);
 	$var($DataFlavor, refFlavor, nullptr);
 	$var($DataFlavor, stringFlavor, nullptr);
 	if ($instanceOf($JEditorPane, c)) {
 		for (int32_t i = 0; i < $nc(flavors)->length; ++i) {
 			$var($String, mime, $nc(flavors->get(i))->getMimeType());
-			if ($nc(mime)->startsWith($($nc($($nc(($cast($JEditorPane, c)))->getEditorKit()))->getContentType()))) {
+			if ($nc(mime)->startsWith($($$nc($cast($JEditorPane, c)->getEditorKit())->getContentType()))) {
 				return flavors->get(i);
 			} else if (plainFlavor == nullptr && mime->startsWith("text/plain"_s)) {
 				$assign(plainFlavor, flavors->get(i));
 			} else {
-				bool var$1 = refFlavor == nullptr && mime->startsWith("application/x-java-jvm-local-objectref"_s);
-				if (var$1 && $nc(flavors->get(i))->getRepresentationClass() == $String::class$) {
+				bool var$0 = refFlavor == nullptr && mime->startsWith("application/x-java-jvm-local-objectref"_s);
+				if (var$0 && $nc(flavors->get(i))->getRepresentationClass() == $String::class$) {
 					$assign(refFlavor, flavors->get(i));
-				} else {
-					if (stringFlavor == nullptr && $nc(flavors->get(i))->equals($DataFlavor::stringFlavor)) {
-						$assign(stringFlavor, flavors->get(i));
-					}
+				} else if (stringFlavor == nullptr && $nc(flavors->get(i))->equals($DataFlavor::stringFlavor)) {
+					$assign(stringFlavor, flavors->get(i));
 				}
 			}
 		}
@@ -189,13 +130,11 @@ $DataFlavor* BasicTextUI$TextTransferHandler::getImportFlavor($DataFlavorArray* 
 		if ($nc(mime)->startsWith("text/plain"_s)) {
 			return flavors->get(i);
 		} else {
-			bool var$3 = refFlavor == nullptr && mime->startsWith("application/x-java-jvm-local-objectref"_s);
-			if (var$3 && $nc(flavors->get(i))->getRepresentationClass() == $String::class$) {
+			bool var$1 = refFlavor == nullptr && mime->startsWith("application/x-java-jvm-local-objectref"_s);
+			if (var$1 && $nc(flavors->get(i))->getRepresentationClass() == $String::class$) {
 				$assign(refFlavor, flavors->get(i));
-			} else {
-				if (stringFlavor == nullptr && $nc(flavors->get(i))->equals($DataFlavor::stringFlavor)) {
-					$assign(stringFlavor, flavors->get(i));
-				}
+			} else if (stringFlavor == nullptr && $nc(flavors->get(i))->equals($DataFlavor::stringFlavor)) {
+				$assign(stringFlavor, flavors->get(i));
 			}
 		}
 	}
@@ -208,12 +147,12 @@ $DataFlavor* BasicTextUI$TextTransferHandler::getImportFlavor($DataFlavorArray* 
 }
 
 void BasicTextUI$TextTransferHandler::handleReaderImport($Reader* in, $JTextComponent* c, bool useRead) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (useRead) {
 		int32_t startPosition = $nc(c)->getSelectionStart();
 		int32_t endPosition = c->getSelectionEnd();
 		int32_t length = endPosition - startPosition;
-		$var($EditorKit, kit, $nc($($cast($TextUI, c->getUI())))->getEditorKit(c));
+		$var($EditorKit, kit, $$sure($TextUI, c->getUI())->getEditorKit(c));
 		$var($Document, doc, c->getDocument());
 		if (length > 0) {
 			$nc(doc)->remove(startPosition, length);
@@ -233,41 +172,35 @@ void BasicTextUI$TextTransferHandler::handleReaderImport($Reader* in, $JTextComp
 			for (int32_t counter = 0; counter < nch; ++counter) {
 				switch (buff->get(counter)) {
 				case u'\r':
-					{
-						if (lastWasCR) {
-							if (counter == 0) {
-								$nc(sbuff)->append(u'\n');
-							} else {
-								buff->set(counter - 1, u'\n');
-							}
+					if (lastWasCR) {
+						if (counter == 0) {
+							$nc(sbuff)->append(u'\n');
 						} else {
-							lastWasCR = true;
+							buff->set(counter - 1, u'\n');
 						}
-						break;
+					} else {
+						lastWasCR = true;
 					}
+					break;
 				case u'\n':
-					{
-						if (lastWasCR) {
-							if (counter > (last + 1)) {
-								$nc(sbuff)->append(buff, last, counter - last - 1);
-							}
-							lastWasCR = false;
-							last = counter;
+					if (lastWasCR) {
+						if (counter > (last + 1)) {
+							$nc(sbuff)->append(buff, last, counter - last - 1);
 						}
-						break;
+						lastWasCR = false;
+						last = counter;
 					}
+					break;
 				default:
-					{
-						if (lastWasCR) {
-							if (counter == 0) {
-								$nc(sbuff)->append(u'\n');
-							} else {
-								buff->set(counter - 1, u'\n');
-							}
-							lastWasCR = false;
+					if (lastWasCR) {
+						if (counter == 0) {
+							$nc(sbuff)->append(u'\n');
+						} else {
+							buff->set(counter - 1, u'\n');
 						}
-						break;
+						lastWasCR = false;
 					}
+					break;
 				}
 			}
 			if (last < nch) {
@@ -283,16 +216,15 @@ void BasicTextUI$TextTransferHandler::handleReaderImport($Reader* in, $JTextComp
 		if (lastWasCR) {
 			$nc(sbuff)->append(u'\n');
 		}
-		$nc(c)->replaceSelection(sbuff != nullptr ? $($nc(sbuff)->toString()) : ""_s);
+		$nc(c)->replaceSelection(sbuff != nullptr ? $(sbuff->toString()) : ""_s);
 	}
 }
 
 int32_t BasicTextUI$TextTransferHandler::getSourceActions($JComponent* c) {
-	$init($Boolean);
-	if ($instanceOf($JPasswordField, c) && !$equals($nc(c)->getClientProperty("JPasswordField.cutCopyAllowed"_s), $Boolean::TRUE)) {
+	if ($instanceOf($JPasswordField, c) && !$equals(c->getClientProperty("JPasswordField.cutCopyAllowed"_s), $Boolean::TRUE)) {
 		return $TransferHandler::NONE;
 	}
-	return $nc(($cast($JTextComponent, c)))->isEditable() ? $TransferHandler::COPY_OR_MOVE : $TransferHandler::COPY;
+	return $nc($cast($JTextComponent, c))->isEditable() ? $TransferHandler::COPY_OR_MOVE : $TransferHandler::COPY;
 }
 
 $Transferable* BasicTextUI$TextTransferHandler::createTransferable($JComponent* comp) {
@@ -300,7 +232,7 @@ $Transferable* BasicTextUI$TextTransferHandler::createTransferable($JComponent* 
 	this->shouldRemove = true;
 	this->p0 = $nc(this->exportComp)->getSelectionStart();
 	this->p1 = $nc(this->exportComp)->getSelectionEnd();
-	return (this->p0 != this->p1) ? (static_cast<$Transferable*>($new($BasicTextUI$TextTransferHandler$TextTransferable, this->exportComp, this->p0, this->p1))) : ($Transferable*)nullptr;
+	return (this->p0 != this->p1) ? ($cast($Transferable, $new($BasicTextUI$TextTransferHandler$TextTransferable, this->exportComp, this->p0, this->p1))) : ($Transferable*)nullptr;
 }
 
 void BasicTextUI$TextTransferHandler::exportDone($JComponent* source, $Transferable* data, int32_t action) {
@@ -312,44 +244,42 @@ void BasicTextUI$TextTransferHandler::exportDone($JComponent* source, $Transfera
 }
 
 bool BasicTextUI$TextTransferHandler::importData($TransferHandler$TransferSupport* support) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->isDrop = $nc(support)->isDrop();
 	if (this->isDrop) {
 		$init($DropMode);
-		this->modeBetween = $nc(($cast($JTextComponent, $(support->getComponent()))))->getDropMode() == $DropMode::INSERT;
-		$set(this, dropBias, $nc(($cast($JTextComponent$DropLocation, $(support->getDropLocation()))))->getBias());
+		this->modeBetween = $$sure($JTextComponent, support->getComponent())->getDropMode() == $DropMode::INSERT;
+		$set(this, dropBias, $$sure($JTextComponent$DropLocation, support->getDropLocation())->getBias());
 		this->dropAction = support->getDropAction();
 	}
-	{
-		$var($Throwable, var$0, nullptr);
-		bool var$2 = false;
-		bool return$1 = false;
-		try {
-			var$2 = $TransferHandler::importData(support);
-			return$1 = true;
-			goto $finally;
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			this->isDrop = false;
-			this->modeBetween = false;
-			$set(this, dropBias, nullptr);
-			this->dropAction = $TransferHandler::MOVE;
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+	$var($Throwable, var$0, nullptr);
+	bool var$2 = false;
+	bool return$1 = false;
+	try {
+		var$2 = $TransferHandler::importData(support);
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		this->isDrop = false;
+		this->modeBetween = false;
+		$set(this, dropBias, nullptr);
+		this->dropAction = $TransferHandler::MOVE;
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
 
 bool BasicTextUI$TextTransferHandler::importData($JComponent* comp, $Transferable* t) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JTextComponent, c, $cast($JTextComponent, comp));
-	int32_t pos = this->modeBetween ? $nc($($nc(c)->getDropLocation()))->getIndex() : c->getCaretPosition();
+	int32_t pos = this->modeBetween ? $$nc($nc(c)->getDropLocation())->getIndex() : $nc(c)->getCaretPosition();
 	if (this->dropAction == $TransferHandler::MOVE && c == this->exportComp && pos >= this->p0 && pos <= this->p1) {
 		this->shouldRemove = false;
 		return true;
@@ -361,12 +291,12 @@ bool BasicTextUI$TextTransferHandler::importData($JComponent* comp, $Transferabl
 			bool useRead = false;
 			if ($instanceOf($JEditorPane, comp)) {
 				$var($JEditorPane, ep, $cast($JEditorPane, comp));
-				bool var$0 = !$nc($($nc(ep)->getContentType()))->startsWith("text/plain"_s);
-				if (var$0 && $nc($(importFlavor->getMimeType()))->startsWith($(ep->getContentType()))) {
+				bool var$0 = !$$nc(ep->getContentType())->startsWith("text/plain"_s);
+				if (var$0 && $$nc(importFlavor->getMimeType())->startsWith($(ep->getContentType()))) {
 					useRead = true;
 				}
 			}
-			$var($InputContext, ic, c->getInputContext());
+			$var($InputContext, ic, $nc(c)->getInputContext());
 			if (ic != nullptr) {
 				ic->endComposition();
 			}
@@ -374,7 +304,7 @@ bool BasicTextUI$TextTransferHandler::importData($JComponent* comp, $Transferabl
 			if (this->modeBetween) {
 				$var($Caret, caret, c->getCaret());
 				if ($instanceOf($DefaultCaret, caret)) {
-					$nc(($cast($DefaultCaret, caret)))->setDot(pos, this->dropBias);
+					$cast($DefaultCaret, caret)->setDot(pos, this->dropBias);
 				} else {
 					c->setCaretPosition(pos);
 				}
@@ -384,10 +314,10 @@ bool BasicTextUI$TextTransferHandler::importData($JComponent* comp, $Transferabl
 				c->requestFocus();
 				$var($Caret, caret, c->getCaret());
 				if ($instanceOf($DefaultCaret, caret)) {
-					int32_t newPos = $nc(caret)->getDot();
-					$var($Position$Bias, newBias, $nc(($cast($DefaultCaret, caret)))->getDotBias());
-					$nc(($cast($DefaultCaret, caret)))->setDot(pos, this->dropBias);
-					$nc(($cast($DefaultCaret, caret)))->moveDot(newPos, newBias);
+					int32_t newPos = caret->getDot();
+					$var($Position$Bias, newBias, $cast($DefaultCaret, caret)->getDotBias());
+					$cast($DefaultCaret, caret)->setDot(pos, this->dropBias);
+					$cast($DefaultCaret, caret)->moveDot(newPos, newBias);
 				} else {
 					c->select(pos, c->getCaretPosition());
 				}
@@ -414,7 +344,57 @@ BasicTextUI$TextTransferHandler::BasicTextUI$TextTransferHandler() {
 }
 
 $Class* BasicTextUI$TextTransferHandler::load$($String* name, bool initialize) {
-	$loadClass(BasicTextUI$TextTransferHandler, name, initialize, &_BasicTextUI$TextTransferHandler_ClassInfo_, allocate$BasicTextUI$TextTransferHandler);
+	$FieldInfo fieldInfos$$[] = {
+		{"exportComp", "Ljavax/swing/text/JTextComponent;", nullptr, $PRIVATE, $field(BasicTextUI$TextTransferHandler, exportComp)},
+		{"shouldRemove", "Z", nullptr, $PRIVATE, $field(BasicTextUI$TextTransferHandler, shouldRemove)},
+		{"p0", "I", nullptr, $PRIVATE, $field(BasicTextUI$TextTransferHandler, p0)},
+		{"p1", "I", nullptr, $PRIVATE, $field(BasicTextUI$TextTransferHandler, p1)},
+		{"modeBetween", "Z", nullptr, $PRIVATE, $field(BasicTextUI$TextTransferHandler, modeBetween)},
+		{"isDrop", "Z", nullptr, $PRIVATE, $field(BasicTextUI$TextTransferHandler, isDrop)},
+		{"dropAction", "I", nullptr, $PRIVATE, $field(BasicTextUI$TextTransferHandler, dropAction)},
+		{"dropBias", "Ljavax/swing/text/Position$Bias;", nullptr, $PRIVATE, $field(BasicTextUI$TextTransferHandler, dropBias)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, 0, $method(BasicTextUI$TextTransferHandler, init$, void)},
+		{"canImport", "(Ljavax/swing/JComponent;[Ljava/awt/datatransfer/DataFlavor;)Z", nullptr, $PUBLIC, $virtualMethod(BasicTextUI$TextTransferHandler, canImport, bool, $JComponent*, $DataFlavorArray*)},
+		{"createTransferable", "(Ljavax/swing/JComponent;)Ljava/awt/datatransfer/Transferable;", nullptr, $PROTECTED, $virtualMethod(BasicTextUI$TextTransferHandler, createTransferable, $Transferable*, $JComponent*)},
+		{"exportDone", "(Ljavax/swing/JComponent;Ljava/awt/datatransfer/Transferable;I)V", nullptr, $PROTECTED, $virtualMethod(BasicTextUI$TextTransferHandler, exportDone, void, $JComponent*, $Transferable*, int32_t)},
+		{"getImportFlavor", "([Ljava/awt/datatransfer/DataFlavor;Ljavax/swing/text/JTextComponent;)Ljava/awt/datatransfer/DataFlavor;", nullptr, $PROTECTED, $virtualMethod(BasicTextUI$TextTransferHandler, getImportFlavor, $DataFlavor*, $DataFlavorArray*, $JTextComponent*)},
+		{"getSourceActions", "(Ljavax/swing/JComponent;)I", nullptr, $PUBLIC, $virtualMethod(BasicTextUI$TextTransferHandler, getSourceActions, int32_t, $JComponent*)},
+		{"handleReaderImport", "(Ljava/io/Reader;Ljavax/swing/text/JTextComponent;Z)V", nullptr, $PROTECTED, $virtualMethod(BasicTextUI$TextTransferHandler, handleReaderImport, void, $Reader*, $JTextComponent*, bool), "javax.swing.text.BadLocationException,java.io.IOException"},
+		{"importData", "(Ljavax/swing/TransferHandler$TransferSupport;)Z", nullptr, $PUBLIC, $virtualMethod(BasicTextUI$TextTransferHandler, importData, bool, $TransferHandler$TransferSupport*)},
+		{"importData", "(Ljavax/swing/JComponent;Ljava/awt/datatransfer/Transferable;)Z", nullptr, $PUBLIC, $virtualMethod(BasicTextUI$TextTransferHandler, importData, bool, $JComponent*, $Transferable*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.basic.BasicTextUI$TextTransferHandler", "javax.swing.plaf.basic.BasicTextUI", "TextTransferHandler", $STATIC},
+		{"javax.swing.plaf.basic.BasicTextUI$TextTransferHandler$TextTransferable", "javax.swing.plaf.basic.BasicTextUI$TextTransferHandler", "TextTransferable", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.basic.BasicTextUI$TextTransferHandler",
+		"javax.swing.TransferHandler",
+		"javax.swing.plaf.UIResource",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.basic.BasicTextUI"
+	};
+	$loadClass(BasicTextUI$TextTransferHandler, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(BasicTextUI$TextTransferHandler));
+	});
 	return class$;
 }
 

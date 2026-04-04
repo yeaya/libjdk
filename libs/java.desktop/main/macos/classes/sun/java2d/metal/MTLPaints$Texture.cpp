@@ -1,7 +1,5 @@
 #include <sun/java2d/metal/MTLPaints$Texture.h>
-
 #include <java/awt/Color.h>
-#include <java/awt/Image.h>
 #include <java/awt/Paint.h>
 #include <java/awt/TexturePaint.h>
 #include <java/awt/image/BufferedImage.h>
@@ -16,7 +14,6 @@
 #undef TRANSFORM_ISIDENT
 
 using $Color = ::java::awt::Color;
-using $Image = ::java::awt::Image;
 using $TexturePaint = ::java::awt::TexturePaint;
 using $BufferedImage = ::java::awt::image::BufferedImage;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -32,43 +29,12 @@ namespace sun {
 	namespace java2d {
 		namespace metal {
 
-$MethodInfo _MTLPaints$Texture_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(MTLPaints$Texture, init$, void)},
-	{"isPaintValid", "(Lsun/java2d/SunGraphics2D;)Z", nullptr, 0, $virtualMethod(MTLPaints$Texture, isPaintValid, bool, $SunGraphics2D*)},
-	{}
-};
-
-$InnerClassInfo _MTLPaints$Texture_InnerClassesInfo_[] = {
-	{"sun.java2d.metal.MTLPaints$Texture", "sun.java2d.metal.MTLPaints", "Texture", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _MTLPaints$Texture_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.java2d.metal.MTLPaints$Texture",
-	"sun.java2d.metal.MTLPaints",
-	nullptr,
-	nullptr,
-	_MTLPaints$Texture_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MTLPaints$Texture_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.java2d.metal.MTLPaints"
-};
-
-$Object* allocate$MTLPaints$Texture($Class* clazz) {
-	return $of($alloc(MTLPaints$Texture));
-}
-
 void MTLPaints$Texture::init$() {
 	$MTLPaints::init$();
 }
 
 bool MTLPaints$Texture::isPaintValid($SunGraphics2D* sg2d) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($TexturePaint, paint, $cast($TexturePaint, $nc(sg2d)->paint));
 	$var($MTLSurfaceData, dstData, $cast($MTLSurfaceData, sg2d->surfaceData));
 	$var($BufferedImage, bi, $nc(paint)->getImage());
@@ -91,7 +57,33 @@ MTLPaints$Texture::MTLPaints$Texture() {
 }
 
 $Class* MTLPaints$Texture::load$($String* name, bool initialize) {
-	$loadClass(MTLPaints$Texture, name, initialize, &_MTLPaints$Texture_ClassInfo_, allocate$MTLPaints$Texture);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(MTLPaints$Texture, init$, void)},
+		{"isPaintValid", "(Lsun/java2d/SunGraphics2D;)Z", nullptr, 0, $virtualMethod(MTLPaints$Texture, isPaintValid, bool, $SunGraphics2D*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.java2d.metal.MTLPaints$Texture", "sun.java2d.metal.MTLPaints", "Texture", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.java2d.metal.MTLPaints$Texture",
+		"sun.java2d.metal.MTLPaints",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.java2d.metal.MTLPaints"
+	};
+	$loadClass(MTLPaints$Texture, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MTLPaints$Texture);
+	});
 	return class$;
 }
 

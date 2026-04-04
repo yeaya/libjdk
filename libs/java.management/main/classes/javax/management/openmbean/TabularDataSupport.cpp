@@ -1,5 +1,4 @@
 #include <javax/management/openmbean/TabularDataSupport.h>
-
 #include <com/sun/jmx/mbeanserver/GetPropertyAction.h>
 #include <com/sun/jmx/mbeanserver/Util.h>
 #include <java/io/ObjectInputStream.h>
@@ -8,7 +7,6 @@
 #include <java/lang/CloneNotSupportedException.h>
 #include <java/lang/InternalError.h>
 #include <java/security/AccessController.h>
-#include <java/security/PrivilegedAction.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Arrays.h>
 #include <java/util/Collection.h>
@@ -46,7 +44,6 @@ using $InternalError = ::java::lang::InternalError;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;
 using $AccessController = ::java::security::AccessController;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $ArrayList = ::java::util::ArrayList;
 using $Arrays = ::java::util::Arrays;
 using $Collection = ::java::util::Collection;
@@ -58,78 +55,17 @@ using $List = ::java::util::List;
 using $Map = ::java::util::Map;
 using $Set = ::java::util::Set;
 using $CompositeData = ::javax::management::openmbean::CompositeData;
-using $CompositeType = ::javax::management::openmbean::CompositeType;
 using $InvalidKeyException = ::javax::management::openmbean::InvalidKeyException;
 using $InvalidOpenTypeException = ::javax::management::openmbean::InvalidOpenTypeException;
 using $KeyAlreadyExistsException = ::javax::management::openmbean::KeyAlreadyExistsException;
 using $OpenType = ::javax::management::openmbean::OpenType;
 using $TabularData = ::javax::management::openmbean::TabularData;
 using $TabularType = ::javax::management::openmbean::TabularType;
-using $JavaObjectInputStreamAccess = ::jdk::internal::access::JavaObjectInputStreamAccess;
 using $SharedSecrets = ::jdk::internal::access::SharedSecrets;
 
 namespace javax {
 	namespace management {
 		namespace openmbean {
-
-$FieldInfo _TabularDataSupport_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(TabularDataSupport, serialVersionUID)},
-	{"dataMap", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/Object;Ljavax/management/openmbean/CompositeData;>;", $PRIVATE, $field(TabularDataSupport, dataMap)},
-	{"tabularType", "Ljavax/management/openmbean/TabularType;", nullptr, $PRIVATE | $FINAL, $field(TabularDataSupport, tabularType)},
-	{"indexNamesArray", "[Ljava/lang/String;", nullptr, $PRIVATE | $TRANSIENT, $field(TabularDataSupport, indexNamesArray)},
-	{}
-};
-
-$MethodInfo _TabularDataSupport_MethodInfo_[] = {
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"<init>", "(Ljavax/management/openmbean/TabularType;)V", nullptr, $PUBLIC, $method(TabularDataSupport, init$, void, $TabularType*)},
-	{"<init>", "(Ljavax/management/openmbean/TabularType;IF)V", nullptr, $PUBLIC, $method(TabularDataSupport, init$, void, $TabularType*, int32_t, float)},
-	{"calculateIndex", "(Ljavax/management/openmbean/CompositeData;)[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(TabularDataSupport, calculateIndex, $ObjectArray*, $CompositeData*)},
-	{"checkKeyType", "([Ljava/lang/Object;)V", nullptr, $PRIVATE, $method(TabularDataSupport, checkKeyType, void, $ObjectArray*)},
-	{"checkValueAndIndex", "(Ljavax/management/openmbean/CompositeData;)Ljava/util/List;", "(Ljavax/management/openmbean/CompositeData;)Ljava/util/List<*>;", $PRIVATE, $method(TabularDataSupport, checkValueAndIndex, $List*, $CompositeData*)},
-	{"checkValueType", "(Ljavax/management/openmbean/CompositeData;)V", nullptr, $PRIVATE, $method(TabularDataSupport, checkValueType, void, $CompositeData*)},
-	{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(TabularDataSupport, clear, void)},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(TabularDataSupport, clone, $Object*)},
-	{"containsKey", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(TabularDataSupport, containsKey, bool, Object$*)},
-	{"containsKey", "([Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(TabularDataSupport, containsKey, bool, $ObjectArray*)},
-	{"containsValue", "(Ljavax/management/openmbean/CompositeData;)Z", nullptr, $PUBLIC, $virtualMethod(TabularDataSupport, containsValue, bool, $CompositeData*)},
-	{"containsValue", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(TabularDataSupport, containsValue, bool, Object$*)},
-	{"entrySet", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/util/Map$Entry<Ljava/lang/Object;Ljava/lang/Object;>;>;", $PUBLIC, $virtualMethod(TabularDataSupport, entrySet, $Set*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(TabularDataSupport, equals, bool, Object$*)},
-	{"get", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(TabularDataSupport, get, $Object*, Object$*)},
-	{"get", "([Ljava/lang/Object;)Ljavax/management/openmbean/CompositeData;", nullptr, $PUBLIC, $virtualMethod(TabularDataSupport, get, $CompositeData*, $ObjectArray*)},
-	{"getTabularType", "()Ljavax/management/openmbean/TabularType;", nullptr, $PUBLIC, $virtualMethod(TabularDataSupport, getTabularType, $TabularType*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(TabularDataSupport, hashCode, int32_t)},
-	{"internalCalculateIndex", "(Ljavax/management/openmbean/CompositeData;)Ljava/util/List;", "(Ljavax/management/openmbean/CompositeData;)Ljava/util/List<*>;", $PRIVATE, $method(TabularDataSupport, internalCalculateIndex, $List*, $CompositeData*)},
-	{"internalPut", "(Ljavax/management/openmbean/CompositeData;)Ljavax/management/openmbean/CompositeData;", nullptr, $PRIVATE, $method(TabularDataSupport, internalPut, $CompositeData*, $CompositeData*)},
-	{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(TabularDataSupport, isEmpty, bool)},
-	{"keySet", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/Object;>;", $PUBLIC, $virtualMethod(TabularDataSupport, keySet, $Set*)},
-	{"put", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(TabularDataSupport, put, $Object*, Object$*, Object$*)},
-	{"put", "(Ljavax/management/openmbean/CompositeData;)V", nullptr, $PUBLIC, $virtualMethod(TabularDataSupport, put, void, $CompositeData*)},
-	{"putAll", "(Ljava/util/Map;)V", "(Ljava/util/Map<**>;)V", $PUBLIC, $virtualMethod(TabularDataSupport, putAll, void, $Map*)},
-	{"putAll", "([Ljavax/management/openmbean/CompositeData;)V", nullptr, $PUBLIC, $virtualMethod(TabularDataSupport, putAll, void, $CompositeDataArray*)},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(TabularDataSupport, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"remove", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(TabularDataSupport, remove, $Object*, Object$*)},
-	{"remove", "([Ljava/lang/Object;)Ljavax/management/openmbean/CompositeData;", nullptr, $PUBLIC, $virtualMethod(TabularDataSupport, remove, $CompositeData*, $ObjectArray*)},
-	{"size", "()I", nullptr, $PUBLIC, $virtualMethod(TabularDataSupport, size, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TabularDataSupport, toString, $String*)},
-	{"values", "()Ljava/util/Collection;", "()Ljava/util/Collection<Ljava/lang/Object;>;", $PUBLIC, $virtualMethod(TabularDataSupport, values, $Collection*)},
-	{}
-};
-
-$ClassInfo _TabularDataSupport_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.management.openmbean.TabularDataSupport",
-	"java.lang.Object",
-	"javax.management.openmbean.TabularData,java.util.Map,java.lang.Cloneable,java.io.Serializable",
-	_TabularDataSupport_FieldInfo_,
-	_TabularDataSupport_MethodInfo_,
-	"Ljava/lang/Object;Ljavax/management/openmbean/TabularData;Ljava/util/Map<Ljava/lang/Object;Ljava/lang/Object;>;Ljava/lang/Cloneable;Ljava/io/Serializable;"
-};
-
-$Object* allocate$TabularDataSupport($Class* clazz) {
-	return $of($alloc(TabularDataSupport));
-}
 
 void TabularDataSupport::finalize() {
 	this->$TabularData::finalize();
@@ -140,17 +76,17 @@ void TabularDataSupport::init$($TabularType* tabularType) {
 }
 
 void TabularDataSupport::init$($TabularType* tabularType, int32_t initialCapacity, float loadFactor) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	if (tabularType == nullptr) {
 		$throwNew($IllegalArgumentException, "Argument tabularType cannot be null."_s);
 	}
 	$set(this, tabularType, tabularType);
 	$var($List, tmpNames, $nc(tabularType)->getIndexNames());
-	$set(this, indexNamesArray, $fcast($StringArray, $nc(tmpNames)->toArray($$new($StringArray, tmpNames->size()))));
-	$var($String, useHashMapProp, $cast($String, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($GetPropertyAction, "jmx.tabular.data.hash.map"_s)))));
+	$set(this, indexNamesArray, $cast($StringArray, $nc(tmpNames)->toArray($$new($StringArray, $nc(tmpNames)->size()))));
+	$var($String, useHashMapProp, $cast($String, $AccessController::doPrivileged($$new($GetPropertyAction, "jmx.tabular.data.hash.map"_s))));
 	bool useHashMap = "true"_s->equalsIgnoreCase(useHashMapProp);
-	$set(this, dataMap, useHashMap ? static_cast<$Map*>($new($HashMap, initialCapacity, loadFactor)) : static_cast<$Map*>($new($LinkedHashMap, initialCapacity, loadFactor)));
+	$set(this, dataMap, useHashMap ? $cast($Map, $new($HashMap, initialCapacity, loadFactor)) : $cast($Map, $new($LinkedHashMap, initialCapacity, loadFactor)));
 }
 
 $TabularType* TabularDataSupport::getTabularType() {
@@ -159,7 +95,7 @@ $TabularType* TabularDataSupport::getTabularType() {
 
 $ObjectArray* TabularDataSupport::calculateIndex($CompositeData* value) {
 	checkValueType(value);
-	return $nc($(internalCalculateIndex(value)))->toArray();
+	return $$nc(internalCalculateIndex(value))->toArray();
 }
 
 bool TabularDataSupport::containsKey(Object$* key) {
@@ -185,7 +121,7 @@ bool TabularDataSupport::containsValue(Object$* value) {
 }
 
 $Object* TabularDataSupport::get(Object$* key) {
-	return $of(get($cast($ObjectArray, key)));
+	return get($cast($ObjectArray, key));
 }
 
 $CompositeData* TabularDataSupport::get($ObjectArray* key) {
@@ -208,7 +144,7 @@ $CompositeData* TabularDataSupport::internalPut($CompositeData* value) {
 }
 
 $Object* TabularDataSupport::remove(Object$* key) {
-	return $of(remove($cast($ObjectArray, key)));
+	return remove($cast($ObjectArray, key));
 }
 
 $CompositeData* TabularDataSupport::remove($ObjectArray* key) {
@@ -217,13 +153,13 @@ $CompositeData* TabularDataSupport::remove($ObjectArray* key) {
 }
 
 void TabularDataSupport::putAll($Map* t) {
-	$useLocalCurrentObjectStackCache();
-	if ((t == nullptr) || ($nc(t)->size() == 0)) {
+	$useLocalObjectStack();
+	if ((t == nullptr) || (t->size() == 0)) {
 		return;
 	}
 	$var($CompositeDataArray, values, nullptr);
 	try {
-		$assign(values, $fcast($CompositeDataArray, $nc($($nc(t)->values()))->toArray($$new($CompositeDataArray, t->size()))));
+		$assign(values, $cast($CompositeDataArray, $$nc($nc(t)->values())->toArray($$new($CompositeDataArray, $nc(t)->size()))));
 	} catch ($ArrayStoreException& e) {
 		$throwNew($ClassCastException, "Map argument t contains values which are not instances of {@code CompositeData}"_s);
 	}
@@ -231,20 +167,20 @@ void TabularDataSupport::putAll($Map* t) {
 }
 
 void TabularDataSupport::putAll($CompositeDataArray* values) {
-	$useLocalCurrentObjectStackCache();
-	if ((values == nullptr) || ($nc(values)->length == 0)) {
+	$useLocalObjectStack();
+	if ((values == nullptr) || (values->length == 0)) {
 		return;
 	}
 	$var($List, indexes, $new($ArrayList, $nc(values)->length + 1));
 	$var($List, index, nullptr);
-	for (int32_t i = 0; i < $nc(values)->length; ++i) {
+	for (int32_t i = 0; i < values->length; ++i) {
 		$assign(index, checkValueAndIndex(values->get(i)));
 		if (indexes->contains(index)) {
 			$throwNew($KeyAlreadyExistsException, $$str({"Argument elements values["_s, $$str(i), "] and values["_s, $$str(indexes->indexOf(index)), "] have the same indexes, calculated according to this TabularData instance\'s tabularType."_s}));
 		}
 		indexes->add(index);
 	}
-	for (int32_t i = 0; i < $nc(values)->length; ++i) {
+	for (int32_t i = 0; i < values->length; ++i) {
 		$nc(this->dataMap)->put($(indexes->get(i)), values->get(i));
 	}
 }
@@ -274,10 +210,10 @@ $Set* TabularDataSupport::entrySet() {
 }
 
 $Object* TabularDataSupport::clone() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$var(TabularDataSupport, c, $cast(TabularDataSupport, $TabularData::clone()));
-		$set($nc(c), dataMap, $new($HashMap, c->dataMap));
+		$set($nc(c), dataMap, $new($HashMap, $nc(c)->dataMap));
 		return $of(c);
 	} catch ($CloneNotSupportedException& e) {
 		$throwNew($InternalError, $(e->toString()), e);
@@ -286,7 +222,7 @@ $Object* TabularDataSupport::clone() {
 }
 
 bool TabularDataSupport::equals(Object$* obj) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (obj == nullptr) {
 		return false;
 	}
@@ -296,21 +232,19 @@ bool TabularDataSupport::equals(Object$* obj) {
 	} catch ($ClassCastException& e) {
 		return false;
 	}
-	if (!$nc($(this->getTabularType()))->equals($($nc(other)->getTabularType()))) {
+	if (!$$nc(this->getTabularType())->equals($($nc(other)->getTabularType()))) {
 		return false;
 	}
 	int32_t var$0 = this->size();
-	if (var$0 != $nc(other)->size()) {
+	if (var$0 != other->size()) {
 		return false;
 	}
 	{
-		$var($Iterator, i$, $nc($($nc(this->dataMap)->values()))->iterator());
+		$var($Iterator, i$, $$nc($nc(this->dataMap)->values())->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($CompositeData, value, $cast($CompositeData, i$->next()));
-			{
-				if (!$nc(other)->containsValue(value)) {
-					return false;
-				}
+			if (!other->containsValue(value)) {
+				return false;
 			}
 		}
 	}
@@ -318,40 +252,40 @@ bool TabularDataSupport::equals(Object$* obj) {
 }
 
 int32_t TabularDataSupport::hashCode() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t result = 0;
 	result += $nc(this->tabularType)->hashCode();
 	{
-		$var($Iterator, i$, $nc($(values()))->iterator());
+		$var($Iterator, i$, $$nc(values())->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Object, value, i$->next());
-			result += $nc($of(value))->hashCode();
+			result += $nc(value)->hashCode();
 		}
 	}
 	return result;
 }
 
 $String* TabularDataSupport::toString() {
-	$useLocalCurrentObjectStackCache();
-	return $$new($StringBuilder)->append($($of(this)->getClass()->getName()))->append("(tabularType="_s)->append($($nc(this->tabularType)->toString()))->append(",contents="_s)->append($($nc($of(this->dataMap))->toString()))->append(")"_s)->toString();
+	$useLocalObjectStack();
+	return $$new($StringBuilder)->append($($of(this)->getClass()->getName()))->append("(tabularType="_s)->append($($nc(this->tabularType)->toString()))->append(",contents="_s)->append($($nc(this->dataMap)->toString()))->append(")"_s)->toString();
 }
 
 $List* TabularDataSupport::internalCalculateIndex($CompositeData* value) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $Collections::unmodifiableList($($Arrays::asList($($nc(value)->getAll(this->indexNamesArray)))));
 }
 
 void TabularDataSupport::checkKeyType($ObjectArray* key) {
-	$useLocalCurrentObjectStackCache();
-	if ((key == nullptr) || ($nc(key)->length == 0)) {
+	$useLocalObjectStack();
+	if ((key == nullptr) || (key->length == 0)) {
 		$throwNew($NullPointerException, "Argument key cannot be null or empty."_s);
 	}
 	if ($nc(key)->length != $nc(this->indexNamesArray)->length) {
 		$throwNew($InvalidKeyException, $$str({"Argument key\'s length="_s, $$str(key->length), " is different from the number of item values, which is "_s, $$str($nc(this->indexNamesArray)->length), ", specified for the indexing rows in this TabularData instance."_s}));
 	}
 	$var($OpenType, keyElementType, nullptr);
-	for (int32_t i = 0; i < $nc(key)->length; ++i) {
-		$assign(keyElementType, $nc($($nc(this->tabularType)->getRowType()))->getType($nc(this->indexNamesArray)->get(i)));
+	for (int32_t i = 0; i < key->length; ++i) {
+		$assign(keyElementType, $$nc($nc(this->tabularType)->getRowType())->getType($nc(this->indexNamesArray)->get(i)));
 		if ((key->get(i) != nullptr) && (!$nc(keyElementType)->isValue(key->get(i)))) {
 			$throwNew($InvalidKeyException, $$str({"Argument element key["_s, $$str(i), "] is not a value for the open type expected for this element of the index, whose name is \""_s, $nc(this->indexNamesArray)->get(i), "\" and whose open type is "_s, keyElementType}));
 		}
@@ -359,14 +293,18 @@ void TabularDataSupport::checkKeyType($ObjectArray* key) {
 }
 
 void TabularDataSupport::checkValueType($CompositeData* value) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (value == nullptr) {
 		$throwNew($NullPointerException, "Argument value cannot be null."_s);
 	}
-	if (!$nc($($nc(this->tabularType)->getRowType()))->isValue(value)) {
-		$var($String, var$1, $$str({"Argument value\'s composite type ["_s, $($nc(value)->getCompositeType()), "] is not assignable to this TabularData instance\'s row type ["_s}));
-		$var($String, var$0, $$concat(var$1, $($nc(this->tabularType)->getRowType())));
-		$throwNew($InvalidOpenTypeException, $$concat(var$0, "]."_s));
+	if (!$$nc($nc(this->tabularType)->getRowType())->isValue(value)) {
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append("Argument value\'s composite type ["_s);
+		var$0->append($($nc(value)->getCompositeType()));
+		var$0->append("] is not assignable to this TabularData instance\'s row type ["_s);
+		var$0->append($(this->tabularType->getRowType()));
+		var$0->append("]."_s);
+		$throwNew($InvalidOpenTypeException, $$str(var$0));
 	}
 }
 
@@ -380,20 +318,73 @@ $List* TabularDataSupport::checkValueAndIndex($CompositeData* value) {
 }
 
 void TabularDataSupport::readObject($ObjectInputStream* in) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(in)->defaultReadObject();
 	$var($List, tmpNames, $nc(this->tabularType)->getIndexNames());
 	int32_t size = $nc(tmpNames)->size();
-	$load($StringArray);
-	$nc($($SharedSecrets::getJavaObjectInputStreamAccess()))->checkArray(in, $getClass($StringArray), size);
-	$set(this, indexNamesArray, $fcast($StringArray, tmpNames->toArray($$new($StringArray, size))));
+	$$nc($SharedSecrets::getJavaObjectInputStreamAccess())->checkArray(in, $getClass($StringArray), size);
+	$set(this, indexNamesArray, $cast($StringArray, tmpNames->toArray($$new($StringArray, size))));
 }
 
 TabularDataSupport::TabularDataSupport() {
 }
 
 $Class* TabularDataSupport::load$($String* name, bool initialize) {
-	$loadClass(TabularDataSupport, name, initialize, &_TabularDataSupport_ClassInfo_, allocate$TabularDataSupport);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(TabularDataSupport, serialVersionUID)},
+		{"dataMap", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/Object;Ljavax/management/openmbean/CompositeData;>;", $PRIVATE, $field(TabularDataSupport, dataMap)},
+		{"tabularType", "Ljavax/management/openmbean/TabularType;", nullptr, $PRIVATE | $FINAL, $field(TabularDataSupport, tabularType)},
+		{"indexNamesArray", "[Ljava/lang/String;", nullptr, $PRIVATE | $TRANSIENT, $field(TabularDataSupport, indexNamesArray)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"<init>", "(Ljavax/management/openmbean/TabularType;)V", nullptr, $PUBLIC, $method(TabularDataSupport, init$, void, $TabularType*)},
+		{"<init>", "(Ljavax/management/openmbean/TabularType;IF)V", nullptr, $PUBLIC, $method(TabularDataSupport, init$, void, $TabularType*, int32_t, float)},
+		{"calculateIndex", "(Ljavax/management/openmbean/CompositeData;)[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(TabularDataSupport, calculateIndex, $ObjectArray*, $CompositeData*)},
+		{"checkKeyType", "([Ljava/lang/Object;)V", nullptr, $PRIVATE, $method(TabularDataSupport, checkKeyType, void, $ObjectArray*)},
+		{"checkValueAndIndex", "(Ljavax/management/openmbean/CompositeData;)Ljava/util/List;", "(Ljavax/management/openmbean/CompositeData;)Ljava/util/List<*>;", $PRIVATE, $method(TabularDataSupport, checkValueAndIndex, $List*, $CompositeData*)},
+		{"checkValueType", "(Ljavax/management/openmbean/CompositeData;)V", nullptr, $PRIVATE, $method(TabularDataSupport, checkValueType, void, $CompositeData*)},
+		{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(TabularDataSupport, clear, void)},
+		{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(TabularDataSupport, clone, $Object*)},
+		{"containsKey", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(TabularDataSupport, containsKey, bool, Object$*)},
+		{"containsKey", "([Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(TabularDataSupport, containsKey, bool, $ObjectArray*)},
+		{"containsValue", "(Ljavax/management/openmbean/CompositeData;)Z", nullptr, $PUBLIC, $virtualMethod(TabularDataSupport, containsValue, bool, $CompositeData*)},
+		{"containsValue", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(TabularDataSupport, containsValue, bool, Object$*)},
+		{"entrySet", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/util/Map$Entry<Ljava/lang/Object;Ljava/lang/Object;>;>;", $PUBLIC, $virtualMethod(TabularDataSupport, entrySet, $Set*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(TabularDataSupport, equals, bool, Object$*)},
+		{"get", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(TabularDataSupport, get, $Object*, Object$*)},
+		{"get", "([Ljava/lang/Object;)Ljavax/management/openmbean/CompositeData;", nullptr, $PUBLIC, $virtualMethod(TabularDataSupport, get, $CompositeData*, $ObjectArray*)},
+		{"getTabularType", "()Ljavax/management/openmbean/TabularType;", nullptr, $PUBLIC, $virtualMethod(TabularDataSupport, getTabularType, $TabularType*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(TabularDataSupport, hashCode, int32_t)},
+		{"internalCalculateIndex", "(Ljavax/management/openmbean/CompositeData;)Ljava/util/List;", "(Ljavax/management/openmbean/CompositeData;)Ljava/util/List<*>;", $PRIVATE, $method(TabularDataSupport, internalCalculateIndex, $List*, $CompositeData*)},
+		{"internalPut", "(Ljavax/management/openmbean/CompositeData;)Ljavax/management/openmbean/CompositeData;", nullptr, $PRIVATE, $method(TabularDataSupport, internalPut, $CompositeData*, $CompositeData*)},
+		{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(TabularDataSupport, isEmpty, bool)},
+		{"keySet", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/Object;>;", $PUBLIC, $virtualMethod(TabularDataSupport, keySet, $Set*)},
+		{"put", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(TabularDataSupport, put, $Object*, Object$*, Object$*)},
+		{"put", "(Ljavax/management/openmbean/CompositeData;)V", nullptr, $PUBLIC, $virtualMethod(TabularDataSupport, put, void, $CompositeData*)},
+		{"putAll", "(Ljava/util/Map;)V", "(Ljava/util/Map<**>;)V", $PUBLIC, $virtualMethod(TabularDataSupport, putAll, void, $Map*)},
+		{"putAll", "([Ljavax/management/openmbean/CompositeData;)V", nullptr, $PUBLIC, $virtualMethod(TabularDataSupport, putAll, void, $CompositeDataArray*)},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(TabularDataSupport, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+		{"remove", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(TabularDataSupport, remove, $Object*, Object$*)},
+		{"remove", "([Ljava/lang/Object;)Ljavax/management/openmbean/CompositeData;", nullptr, $PUBLIC, $virtualMethod(TabularDataSupport, remove, $CompositeData*, $ObjectArray*)},
+		{"size", "()I", nullptr, $PUBLIC, $virtualMethod(TabularDataSupport, size, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TabularDataSupport, toString, $String*)},
+		{"values", "()Ljava/util/Collection;", "()Ljava/util/Collection<Ljava/lang/Object;>;", $PUBLIC, $virtualMethod(TabularDataSupport, values, $Collection*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.management.openmbean.TabularDataSupport",
+		"java.lang.Object",
+		"javax.management.openmbean.TabularData,java.util.Map,java.lang.Cloneable,java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljavax/management/openmbean/TabularData;Ljava/util/Map<Ljava/lang/Object;Ljava/lang/Object;>;Ljava/lang/Cloneable;Ljava/io/Serializable;"
+	};
+	$loadClass(TabularDataSupport, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(TabularDataSupport));
+	});
 	return class$;
 }
 

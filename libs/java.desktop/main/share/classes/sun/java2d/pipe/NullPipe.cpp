@@ -1,5 +1,4 @@
 #include <sun/java2d/pipe/NullPipe.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Image.h>
 #include <java/awt/Shape.h>
@@ -28,52 +27,6 @@ using $PixelDrawPipe = ::sun::java2d::pipe::PixelDrawPipe;
 namespace sun {
 	namespace java2d {
 		namespace pipe {
-
-$MethodInfo _NullPipe_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(NullPipe, init$, void)},
-	{"copyImage", "(Lsun/java2d/SunGraphics2D;Ljava/awt/Image;IILjava/awt/Color;Ljava/awt/image/ImageObserver;)Z", nullptr, $PUBLIC, $virtualMethod(NullPipe, copyImage, bool, $SunGraphics2D*, $Image*, int32_t, int32_t, $Color*, $ImageObserver*)},
-	{"copyImage", "(Lsun/java2d/SunGraphics2D;Ljava/awt/Image;IIIIIILjava/awt/Color;Ljava/awt/image/ImageObserver;)Z", nullptr, $PUBLIC, $virtualMethod(NullPipe, copyImage, bool, $SunGraphics2D*, $Image*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, $Color*, $ImageObserver*)},
-	{"draw", "(Lsun/java2d/SunGraphics2D;Ljava/awt/Shape;)V", nullptr, $PUBLIC, $virtualMethod(NullPipe, draw, void, $SunGraphics2D*, $Shape*)},
-	{"drawArc", "(Lsun/java2d/SunGraphics2D;IIIIII)V", nullptr, $PUBLIC, $virtualMethod(NullPipe, drawArc, void, $SunGraphics2D*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"drawChars", "(Lsun/java2d/SunGraphics2D;[CIIII)V", nullptr, $PUBLIC, $virtualMethod(NullPipe, drawChars, void, $SunGraphics2D*, $chars*, int32_t, int32_t, int32_t, int32_t)},
-	{"drawGlyphVector", "(Lsun/java2d/SunGraphics2D;Ljava/awt/font/GlyphVector;FF)V", nullptr, $PUBLIC, $virtualMethod(NullPipe, drawGlyphVector, void, $SunGraphics2D*, $GlyphVector*, float, float)},
-	{"drawLine", "(Lsun/java2d/SunGraphics2D;IIII)V", nullptr, $PUBLIC, $virtualMethod(NullPipe, drawLine, void, $SunGraphics2D*, int32_t, int32_t, int32_t, int32_t)},
-	{"drawOval", "(Lsun/java2d/SunGraphics2D;IIII)V", nullptr, $PUBLIC, $virtualMethod(NullPipe, drawOval, void, $SunGraphics2D*, int32_t, int32_t, int32_t, int32_t)},
-	{"drawPolygon", "(Lsun/java2d/SunGraphics2D;[I[II)V", nullptr, $PUBLIC, $virtualMethod(NullPipe, drawPolygon, void, $SunGraphics2D*, $ints*, $ints*, int32_t)},
-	{"drawPolyline", "(Lsun/java2d/SunGraphics2D;[I[II)V", nullptr, $PUBLIC, $virtualMethod(NullPipe, drawPolyline, void, $SunGraphics2D*, $ints*, $ints*, int32_t)},
-	{"drawRect", "(Lsun/java2d/SunGraphics2D;IIII)V", nullptr, $PUBLIC, $virtualMethod(NullPipe, drawRect, void, $SunGraphics2D*, int32_t, int32_t, int32_t, int32_t)},
-	{"drawRoundRect", "(Lsun/java2d/SunGraphics2D;IIIIII)V", nullptr, $PUBLIC, $virtualMethod(NullPipe, drawRoundRect, void, $SunGraphics2D*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"drawString", "(Lsun/java2d/SunGraphics2D;Ljava/lang/String;DD)V", nullptr, $PUBLIC, $virtualMethod(NullPipe, drawString, void, $SunGraphics2D*, $String*, double, double)},
-	{"fill", "(Lsun/java2d/SunGraphics2D;Ljava/awt/Shape;)V", nullptr, $PUBLIC, $virtualMethod(NullPipe, fill, void, $SunGraphics2D*, $Shape*)},
-	{"fillArc", "(Lsun/java2d/SunGraphics2D;IIIIII)V", nullptr, $PUBLIC, $virtualMethod(NullPipe, fillArc, void, $SunGraphics2D*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"fillOval", "(Lsun/java2d/SunGraphics2D;IIII)V", nullptr, $PUBLIC, $virtualMethod(NullPipe, fillOval, void, $SunGraphics2D*, int32_t, int32_t, int32_t, int32_t)},
-	{"fillPolygon", "(Lsun/java2d/SunGraphics2D;[I[II)V", nullptr, $PUBLIC, $virtualMethod(NullPipe, fillPolygon, void, $SunGraphics2D*, $ints*, $ints*, int32_t)},
-	{"fillRect", "(Lsun/java2d/SunGraphics2D;IIII)V", nullptr, $PUBLIC, $virtualMethod(NullPipe, fillRect, void, $SunGraphics2D*, int32_t, int32_t, int32_t, int32_t)},
-	{"fillRoundRect", "(Lsun/java2d/SunGraphics2D;IIIIII)V", nullptr, $PUBLIC, $virtualMethod(NullPipe, fillRoundRect, void, $SunGraphics2D*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"scaleImage", "(Lsun/java2d/SunGraphics2D;Ljava/awt/Image;IIIILjava/awt/Color;Ljava/awt/image/ImageObserver;)Z", nullptr, $PUBLIC, $virtualMethod(NullPipe, scaleImage, bool, $SunGraphics2D*, $Image*, int32_t, int32_t, int32_t, int32_t, $Color*, $ImageObserver*)},
-	{"scaleImage", "(Lsun/java2d/SunGraphics2D;Ljava/awt/Image;IIIIIIIILjava/awt/Color;Ljava/awt/image/ImageObserver;)Z", nullptr, $PUBLIC, $virtualMethod(NullPipe, scaleImage, bool, $SunGraphics2D*, $Image*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, $Color*, $ImageObserver*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"transformImage", "(Lsun/java2d/SunGraphics2D;Ljava/awt/Image;Ljava/awt/geom/AffineTransform;Ljava/awt/image/ImageObserver;)Z", nullptr, $PUBLIC, $virtualMethod(NullPipe, transformImage, bool, $SunGraphics2D*, $Image*, $AffineTransform*, $ImageObserver*)},
-	{"transformImage", "(Lsun/java2d/SunGraphics2D;Ljava/awt/image/BufferedImage;Ljava/awt/image/BufferedImageOp;II)V", nullptr, $PUBLIC, $virtualMethod(NullPipe, transformImage, void, $SunGraphics2D*, $BufferedImage*, $BufferedImageOp*, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _NullPipe_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.java2d.pipe.NullPipe",
-	"java.lang.Object",
-	"sun.java2d.pipe.PixelDrawPipe,sun.java2d.pipe.PixelFillPipe,sun.java2d.pipe.ShapeDrawPipe,sun.java2d.pipe.TextPipe,sun.java2d.pipe.DrawImagePipe",
-	nullptr,
-	_NullPipe_MethodInfo_
-};
-
-$Object* allocate$NullPipe($Class* clazz) {
-	return $of($alloc(NullPipe));
-}
 
 int32_t NullPipe::hashCode() {
 	 return this->$PixelDrawPipe::hashCode();
@@ -176,7 +129,49 @@ NullPipe::NullPipe() {
 }
 
 $Class* NullPipe::load$($String* name, bool initialize) {
-	$loadClass(NullPipe, name, initialize, &_NullPipe_ClassInfo_, allocate$NullPipe);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(NullPipe, init$, void)},
+		{"copyImage", "(Lsun/java2d/SunGraphics2D;Ljava/awt/Image;IILjava/awt/Color;Ljava/awt/image/ImageObserver;)Z", nullptr, $PUBLIC, $virtualMethod(NullPipe, copyImage, bool, $SunGraphics2D*, $Image*, int32_t, int32_t, $Color*, $ImageObserver*)},
+		{"copyImage", "(Lsun/java2d/SunGraphics2D;Ljava/awt/Image;IIIIIILjava/awt/Color;Ljava/awt/image/ImageObserver;)Z", nullptr, $PUBLIC, $virtualMethod(NullPipe, copyImage, bool, $SunGraphics2D*, $Image*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, $Color*, $ImageObserver*)},
+		{"draw", "(Lsun/java2d/SunGraphics2D;Ljava/awt/Shape;)V", nullptr, $PUBLIC, $virtualMethod(NullPipe, draw, void, $SunGraphics2D*, $Shape*)},
+		{"drawArc", "(Lsun/java2d/SunGraphics2D;IIIIII)V", nullptr, $PUBLIC, $virtualMethod(NullPipe, drawArc, void, $SunGraphics2D*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"drawChars", "(Lsun/java2d/SunGraphics2D;[CIIII)V", nullptr, $PUBLIC, $virtualMethod(NullPipe, drawChars, void, $SunGraphics2D*, $chars*, int32_t, int32_t, int32_t, int32_t)},
+		{"drawGlyphVector", "(Lsun/java2d/SunGraphics2D;Ljava/awt/font/GlyphVector;FF)V", nullptr, $PUBLIC, $virtualMethod(NullPipe, drawGlyphVector, void, $SunGraphics2D*, $GlyphVector*, float, float)},
+		{"drawLine", "(Lsun/java2d/SunGraphics2D;IIII)V", nullptr, $PUBLIC, $virtualMethod(NullPipe, drawLine, void, $SunGraphics2D*, int32_t, int32_t, int32_t, int32_t)},
+		{"drawOval", "(Lsun/java2d/SunGraphics2D;IIII)V", nullptr, $PUBLIC, $virtualMethod(NullPipe, drawOval, void, $SunGraphics2D*, int32_t, int32_t, int32_t, int32_t)},
+		{"drawPolygon", "(Lsun/java2d/SunGraphics2D;[I[II)V", nullptr, $PUBLIC, $virtualMethod(NullPipe, drawPolygon, void, $SunGraphics2D*, $ints*, $ints*, int32_t)},
+		{"drawPolyline", "(Lsun/java2d/SunGraphics2D;[I[II)V", nullptr, $PUBLIC, $virtualMethod(NullPipe, drawPolyline, void, $SunGraphics2D*, $ints*, $ints*, int32_t)},
+		{"drawRect", "(Lsun/java2d/SunGraphics2D;IIII)V", nullptr, $PUBLIC, $virtualMethod(NullPipe, drawRect, void, $SunGraphics2D*, int32_t, int32_t, int32_t, int32_t)},
+		{"drawRoundRect", "(Lsun/java2d/SunGraphics2D;IIIIII)V", nullptr, $PUBLIC, $virtualMethod(NullPipe, drawRoundRect, void, $SunGraphics2D*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"drawString", "(Lsun/java2d/SunGraphics2D;Ljava/lang/String;DD)V", nullptr, $PUBLIC, $virtualMethod(NullPipe, drawString, void, $SunGraphics2D*, $String*, double, double)},
+		{"fill", "(Lsun/java2d/SunGraphics2D;Ljava/awt/Shape;)V", nullptr, $PUBLIC, $virtualMethod(NullPipe, fill, void, $SunGraphics2D*, $Shape*)},
+		{"fillArc", "(Lsun/java2d/SunGraphics2D;IIIIII)V", nullptr, $PUBLIC, $virtualMethod(NullPipe, fillArc, void, $SunGraphics2D*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"fillOval", "(Lsun/java2d/SunGraphics2D;IIII)V", nullptr, $PUBLIC, $virtualMethod(NullPipe, fillOval, void, $SunGraphics2D*, int32_t, int32_t, int32_t, int32_t)},
+		{"fillPolygon", "(Lsun/java2d/SunGraphics2D;[I[II)V", nullptr, $PUBLIC, $virtualMethod(NullPipe, fillPolygon, void, $SunGraphics2D*, $ints*, $ints*, int32_t)},
+		{"fillRect", "(Lsun/java2d/SunGraphics2D;IIII)V", nullptr, $PUBLIC, $virtualMethod(NullPipe, fillRect, void, $SunGraphics2D*, int32_t, int32_t, int32_t, int32_t)},
+		{"fillRoundRect", "(Lsun/java2d/SunGraphics2D;IIIIII)V", nullptr, $PUBLIC, $virtualMethod(NullPipe, fillRoundRect, void, $SunGraphics2D*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"scaleImage", "(Lsun/java2d/SunGraphics2D;Ljava/awt/Image;IIIILjava/awt/Color;Ljava/awt/image/ImageObserver;)Z", nullptr, $PUBLIC, $virtualMethod(NullPipe, scaleImage, bool, $SunGraphics2D*, $Image*, int32_t, int32_t, int32_t, int32_t, $Color*, $ImageObserver*)},
+		{"scaleImage", "(Lsun/java2d/SunGraphics2D;Ljava/awt/Image;IIIIIIIILjava/awt/Color;Ljava/awt/image/ImageObserver;)Z", nullptr, $PUBLIC, $virtualMethod(NullPipe, scaleImage, bool, $SunGraphics2D*, $Image*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, $Color*, $ImageObserver*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"transformImage", "(Lsun/java2d/SunGraphics2D;Ljava/awt/Image;Ljava/awt/geom/AffineTransform;Ljava/awt/image/ImageObserver;)Z", nullptr, $PUBLIC, $virtualMethod(NullPipe, transformImage, bool, $SunGraphics2D*, $Image*, $AffineTransform*, $ImageObserver*)},
+		{"transformImage", "(Lsun/java2d/SunGraphics2D;Ljava/awt/image/BufferedImage;Ljava/awt/image/BufferedImageOp;II)V", nullptr, $PUBLIC, $virtualMethod(NullPipe, transformImage, void, $SunGraphics2D*, $BufferedImage*, $BufferedImageOp*, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.java2d.pipe.NullPipe",
+		"java.lang.Object",
+		"sun.java2d.pipe.PixelDrawPipe,sun.java2d.pipe.PixelFillPipe,sun.java2d.pipe.ShapeDrawPipe,sun.java2d.pipe.TextPipe,sun.java2d.pipe.DrawImagePipe",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(NullPipe, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(NullPipe));
+	});
 	return class$;
 }
 

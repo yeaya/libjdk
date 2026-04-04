@@ -1,5 +1,4 @@
 #include <com/sun/jndi/toolkit/url/UrlUtil.h>
-
 #include <java/io/UnsupportedEncodingException.h>
 #include <java/net/MalformedURLException.h>
 #include <java/net/URLDecoder.h>
@@ -19,27 +18,6 @@ namespace com {
 			namespace toolkit {
 				namespace url {
 
-$MethodInfo _UrlUtil_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(UrlUtil, init$, void)},
-	{"decode", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(UrlUtil, decode, $String*, $String*), "java.net.MalformedURLException"},
-	{"decode", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(UrlUtil, decode, $String*, $String*, $String*), "java.net.MalformedURLException,java.io.UnsupportedEncodingException"},
-	{"encode", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(UrlUtil, encode, $String*, $String*, $String*), "java.io.UnsupportedEncodingException"},
-	{}
-};
-
-$ClassInfo _UrlUtil_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.jndi.toolkit.url.UrlUtil",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_UrlUtil_MethodInfo_
-};
-
-$Object* allocate$UrlUtil($Class* clazz) {
-	return $of($alloc(UrlUtil));
-}
-
 void UrlUtil::init$() {
 }
 
@@ -53,7 +31,7 @@ $String* UrlUtil::decode($String* s) {
 }
 
 $String* UrlUtil::decode($String* s, $String* enc) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		return $URLDecoder::decode(s, enc);
 	} catch ($IllegalArgumentException& iae) {
@@ -65,19 +43,19 @@ $String* UrlUtil::decode($String* s, $String* enc) {
 }
 
 $String* UrlUtil::encode($String* s, $String* enc) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, bytes, $nc(s)->getBytes(enc));
 	int32_t count = bytes->length;
 	$var($String, allowed, "=,+;.\'-@&/$_()!~*:"_s);
 	$var($chars, buf, $new($chars, 3 * count));
 	int32_t j = 0;
 	for (int32_t i = 0; i < count; ++i) {
-		if ((bytes->get(i) >= 97 && bytes->get(i) <= 122) || (bytes->get(i) >= 65 && bytes->get(i) <= 90) || (bytes->get(i) >= 48 && bytes->get(i) <= 57) || (allowed->indexOf((int32_t)bytes->get(i)) >= 0)) {
+		if ((bytes->get(i) >= 97 && bytes->get(i) <= 122) || (bytes->get(i) >= 65 && bytes->get(i) <= 90) || (bytes->get(i) >= 48 && bytes->get(i) <= 57) || (allowed->indexOf(bytes->get(i)) >= 0)) {
 			buf->set(j++, (char16_t)bytes->get(i));
 		} else {
 			buf->set(j++, u'%');
-			buf->set(j++, $Character::forDigit((int32_t)(15 & (uint32_t)((int32_t)((uint32_t)bytes->get(i) >> 4))), 16));
-			buf->set(j++, $Character::forDigit((int32_t)(15 & (uint32_t)(int32_t)bytes->get(i)), 16));
+			buf->set(j++, $Character::forDigit(0x0f & ((int32_t)((uint32_t)bytes->get(i) >> 4)), 16));
+			buf->set(j++, $Character::forDigit(0x0f & bytes->get(i), 16));
 		}
 	}
 	return $new($String, buf, 0, j);
@@ -87,7 +65,24 @@ UrlUtil::UrlUtil() {
 }
 
 $Class* UrlUtil::load$($String* name, bool initialize) {
-	$loadClass(UrlUtil, name, initialize, &_UrlUtil_ClassInfo_, allocate$UrlUtil);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(UrlUtil, init$, void)},
+		{"decode", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(UrlUtil, decode, $String*, $String*), "java.net.MalformedURLException"},
+		{"decode", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(UrlUtil, decode, $String*, $String*, $String*), "java.net.MalformedURLException,java.io.UnsupportedEncodingException"},
+		{"encode", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(UrlUtil, encode, $String*, $String*, $String*), "java.io.UnsupportedEncodingException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.jndi.toolkit.url.UrlUtil",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(UrlUtil, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(UrlUtil);
+	});
 	return class$;
 }
 

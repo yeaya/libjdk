@@ -1,5 +1,4 @@
 #include <java/awt/image/BufferedImageOp.h>
-
 #include <java/awt/RenderingHints.h>
 #include <java/awt/geom/Point2D.h>
 #include <java/awt/geom/Rectangle2D.h>
@@ -19,30 +18,26 @@ namespace java {
 	namespace awt {
 		namespace image {
 
-$MethodInfo _BufferedImageOp_MethodInfo_[] = {
-	{"createCompatibleDestImage", "(Ljava/awt/image/BufferedImage;Ljava/awt/image/ColorModel;)Ljava/awt/image/BufferedImage;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(BufferedImageOp, createCompatibleDestImage, $BufferedImage*, $BufferedImage*, $ColorModel*)},
-	{"filter", "(Ljava/awt/image/BufferedImage;Ljava/awt/image/BufferedImage;)Ljava/awt/image/BufferedImage;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(BufferedImageOp, filter, $BufferedImage*, $BufferedImage*, $BufferedImage*)},
-	{"getBounds2D", "(Ljava/awt/image/BufferedImage;)Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(BufferedImageOp, getBounds2D, $Rectangle2D*, $BufferedImage*)},
-	{"getPoint2D", "(Ljava/awt/geom/Point2D;Ljava/awt/geom/Point2D;)Ljava/awt/geom/Point2D;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(BufferedImageOp, getPoint2D, $Point2D*, $Point2D*, $Point2D*)},
-	{"getRenderingHints", "()Ljava/awt/RenderingHints;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(BufferedImageOp, getRenderingHints, $RenderingHints*)},
-	{}
-};
-
-$ClassInfo _BufferedImageOp_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.awt.image.BufferedImageOp",
-	nullptr,
-	nullptr,
-	nullptr,
-	_BufferedImageOp_MethodInfo_
-};
-
-$Object* allocate$BufferedImageOp($Class* clazz) {
-	return $of($alloc(BufferedImageOp));
-}
-
 $Class* BufferedImageOp::load$($String* name, bool initialize) {
-	$loadClass(BufferedImageOp, name, initialize, &_BufferedImageOp_ClassInfo_, allocate$BufferedImageOp);
+	$MethodInfo methodInfos$$[] = {
+		{"createCompatibleDestImage", "(Ljava/awt/image/BufferedImage;Ljava/awt/image/ColorModel;)Ljava/awt/image/BufferedImage;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(BufferedImageOp, createCompatibleDestImage, $BufferedImage*, $BufferedImage*, $ColorModel*)},
+		{"filter", "(Ljava/awt/image/BufferedImage;Ljava/awt/image/BufferedImage;)Ljava/awt/image/BufferedImage;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(BufferedImageOp, filter, $BufferedImage*, $BufferedImage*, $BufferedImage*)},
+		{"getBounds2D", "(Ljava/awt/image/BufferedImage;)Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(BufferedImageOp, getBounds2D, $Rectangle2D*, $BufferedImage*)},
+		{"getPoint2D", "(Ljava/awt/geom/Point2D;Ljava/awt/geom/Point2D;)Ljava/awt/geom/Point2D;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(BufferedImageOp, getPoint2D, $Point2D*, $Point2D*, $Point2D*)},
+		{"getRenderingHints", "()Ljava/awt/RenderingHints;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(BufferedImageOp, getRenderingHints, $RenderingHints*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.awt.image.BufferedImageOp",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(BufferedImageOp, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BufferedImageOp);
+	});
 	return class$;
 }
 

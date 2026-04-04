@@ -1,5 +1,4 @@
 #include <javax/swing/PopupFactory$LightWeightPopup.h>
-
 #include <java/awt/BorderLayout.h>
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
@@ -27,7 +26,6 @@
 using $BorderLayout = ::java::awt::BorderLayout;
 using $Component = ::java::awt::Component;
 using $Container = ::java::awt::Container;
-using $LayoutManager = ::java::awt::LayoutManager;
 using $Point = ::java::awt::Point;
 using $Window = ::java::awt::Window;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -49,50 +47,6 @@ using $SwingUtilities = ::javax::swing::SwingUtilities;
 
 namespace javax {
 	namespace swing {
-
-$FieldInfo _PopupFactory$LightWeightPopup_FieldInfo_[] = {
-	{"lightWeightPopupCacheKey", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PopupFactory$LightWeightPopup, lightWeightPopupCacheKey)},
-	{}
-};
-
-$MethodInfo _PopupFactory$LightWeightPopup_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(PopupFactory$LightWeightPopup, init$, void)},
-	{"createComponent", "(Ljava/awt/Component;)Ljava/awt/Component;", nullptr, 0, $virtualMethod(PopupFactory$LightWeightPopup, createComponent, $Component*, $Component*)},
-	{"getLightWeightPopup", "(Ljava/awt/Component;Ljava/awt/Component;II)Ljavax/swing/Popup;", nullptr, $STATIC, $staticMethod(PopupFactory$LightWeightPopup, getLightWeightPopup, $Popup*, $Component*, $Component*, int32_t, int32_t)},
-	{"getLightWeightPopupCache", "()Ljava/util/List;", "()Ljava/util/List<Ljavax/swing/PopupFactory$LightWeightPopup;>;", $PRIVATE | $STATIC, $staticMethod(PopupFactory$LightWeightPopup, getLightWeightPopupCache, $List*)},
-	{"getRecycledLightWeightPopup", "()Ljavax/swing/PopupFactory$LightWeightPopup;", nullptr, $PRIVATE | $STATIC, $staticMethod(PopupFactory$LightWeightPopup, getRecycledLightWeightPopup, PopupFactory$LightWeightPopup*)},
-	{"hide", "()V", nullptr, $PUBLIC, $virtualMethod(PopupFactory$LightWeightPopup, hide, void)},
-	{"recycleLightWeightPopup", "(Ljavax/swing/PopupFactory$LightWeightPopup;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(PopupFactory$LightWeightPopup, recycleLightWeightPopup, void, PopupFactory$LightWeightPopup*)},
-	{"reset", "(Ljava/awt/Component;Ljava/awt/Component;II)V", nullptr, 0, $virtualMethod(PopupFactory$LightWeightPopup, reset, void, $Component*, $Component*, int32_t, int32_t)},
-	{"show", "()V", nullptr, $PUBLIC, $virtualMethod(PopupFactory$LightWeightPopup, show, void)},
-	{}
-};
-
-$InnerClassInfo _PopupFactory$LightWeightPopup_InnerClassesInfo_[] = {
-	{"javax.swing.PopupFactory$LightWeightPopup", "javax.swing.PopupFactory", "LightWeightPopup", $PRIVATE | $STATIC},
-	{"javax.swing.PopupFactory$ContainerPopup", "javax.swing.PopupFactory", "ContainerPopup", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _PopupFactory$LightWeightPopup_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.PopupFactory$LightWeightPopup",
-	"javax.swing.PopupFactory$ContainerPopup",
-	nullptr,
-	_PopupFactory$LightWeightPopup_FieldInfo_,
-	_PopupFactory$LightWeightPopup_MethodInfo_,
-	nullptr,
-	nullptr,
-	_PopupFactory$LightWeightPopup_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.PopupFactory"
-};
-
-$Object* allocate$PopupFactory$LightWeightPopup($Class* clazz) {
-	return $of($alloc(PopupFactory$LightWeightPopup));
-}
 
 $Object* PopupFactory$LightWeightPopup::lightWeightPopupCacheKey = nullptr;
 
@@ -137,7 +91,7 @@ void PopupFactory$LightWeightPopup::recycleLightWeightPopup(PopupFactory$LightWe
 
 PopupFactory$LightWeightPopup* PopupFactory$LightWeightPopup::getRecycledLightWeightPopup() {
 	$init(PopupFactory$LightWeightPopup);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized(PopupFactory$LightWeightPopup::class$) {
 		$var($List, lightPopupCache, getLightWeightPopupCache());
 		if ($nc(lightPopupCache)->size() > 0) {
@@ -157,19 +111,19 @@ void PopupFactory$LightWeightPopup::hide() {
 }
 
 void PopupFactory$LightWeightPopup::show() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Container, parent, nullptr);
 	if (this->owner != nullptr) {
-		$assign(parent, $instanceOf($Container, this->owner) ? $cast($Container, this->owner) : $nc(this->owner)->getParent());
+		$assign(parent, $instanceOf($Container, this->owner) ? $cast($Container, this->owner) : this->owner->getParent());
 	}
 	{
 		$var($Container, p, parent);
-		for (; p != nullptr; $assign(p, $nc(p)->getParent())) {
+		for (; p != nullptr; $assign(p, p->getParent())) {
 			if ($instanceOf($JRootPane, p)) {
 				if ($instanceOf($JInternalFrame, $(p->getParent()))) {
 					continue;
 				}
-				$assign(parent, $nc(($cast($JRootPane, p)))->getLayeredPane());
+				$assign(parent, $cast($JRootPane, p)->getLayeredPane());
 			} else if ($instanceOf($Window, p)) {
 				if (parent == nullptr) {
 					$assign(parent, p);
@@ -182,10 +136,10 @@ void PopupFactory$LightWeightPopup::show() {
 	}
 	$var($Point, p, $SwingUtilities::convertScreenLocationToParent(parent, this->x, this->y));
 	$var($Component, component, getComponent());
-	$nc(component)->setLocation(p->x, p->y);
+	$nc(component)->setLocation($nc(p)->x, $nc(p)->y);
 	if ($instanceOf($JLayeredPane, parent)) {
 		$init($JLayeredPane);
-		$nc(parent)->add(component, $JLayeredPane::POPUP_LAYER, 0);
+		parent->add(component, $JLayeredPane::POPUP_LAYER, 0);
 	} else {
 		$nc(parent)->add(component);
 	}
@@ -204,11 +158,11 @@ void PopupFactory$LightWeightPopup::reset($Component* owner, $Component* content
 	component->setLocation(ownerX, ownerY);
 	component->setOpaque($nc(contents)->isOpaque());
 	$init($BorderLayout);
-	component->add(contents, $of($BorderLayout::CENTER));
+	component->add(contents, $BorderLayout::CENTER);
 	pack();
 }
 
-void clinit$PopupFactory$LightWeightPopup($Class* class$) {
+void PopupFactory$LightWeightPopup::clinit$($Class* clazz) {
 	$assignStatic(PopupFactory$LightWeightPopup::lightWeightPopupCacheKey, $new($StringBuffer, "PopupFactory.lightPopupCache"_s));
 }
 
@@ -216,7 +170,45 @@ PopupFactory$LightWeightPopup::PopupFactory$LightWeightPopup() {
 }
 
 $Class* PopupFactory$LightWeightPopup::load$($String* name, bool initialize) {
-	$loadClass(PopupFactory$LightWeightPopup, name, initialize, &_PopupFactory$LightWeightPopup_ClassInfo_, clinit$PopupFactory$LightWeightPopup, allocate$PopupFactory$LightWeightPopup);
+	$FieldInfo fieldInfos$$[] = {
+		{"lightWeightPopupCacheKey", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PopupFactory$LightWeightPopup, lightWeightPopupCacheKey)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(PopupFactory$LightWeightPopup, init$, void)},
+		{"createComponent", "(Ljava/awt/Component;)Ljava/awt/Component;", nullptr, 0, $virtualMethod(PopupFactory$LightWeightPopup, createComponent, $Component*, $Component*)},
+		{"getLightWeightPopup", "(Ljava/awt/Component;Ljava/awt/Component;II)Ljavax/swing/Popup;", nullptr, $STATIC, $staticMethod(PopupFactory$LightWeightPopup, getLightWeightPopup, $Popup*, $Component*, $Component*, int32_t, int32_t)},
+		{"getLightWeightPopupCache", "()Ljava/util/List;", "()Ljava/util/List<Ljavax/swing/PopupFactory$LightWeightPopup;>;", $PRIVATE | $STATIC, $staticMethod(PopupFactory$LightWeightPopup, getLightWeightPopupCache, $List*)},
+		{"getRecycledLightWeightPopup", "()Ljavax/swing/PopupFactory$LightWeightPopup;", nullptr, $PRIVATE | $STATIC, $staticMethod(PopupFactory$LightWeightPopup, getRecycledLightWeightPopup, PopupFactory$LightWeightPopup*)},
+		{"hide", "()V", nullptr, $PUBLIC, $virtualMethod(PopupFactory$LightWeightPopup, hide, void)},
+		{"recycleLightWeightPopup", "(Ljavax/swing/PopupFactory$LightWeightPopup;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(PopupFactory$LightWeightPopup, recycleLightWeightPopup, void, PopupFactory$LightWeightPopup*)},
+		{"reset", "(Ljava/awt/Component;Ljava/awt/Component;II)V", nullptr, 0, $virtualMethod(PopupFactory$LightWeightPopup, reset, void, $Component*, $Component*, int32_t, int32_t)},
+		{"show", "()V", nullptr, $PUBLIC, $virtualMethod(PopupFactory$LightWeightPopup, show, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.PopupFactory$LightWeightPopup", "javax.swing.PopupFactory", "LightWeightPopup", $PRIVATE | $STATIC},
+		{"javax.swing.PopupFactory$ContainerPopup", "javax.swing.PopupFactory", "ContainerPopup", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.PopupFactory$LightWeightPopup",
+		"javax.swing.PopupFactory$ContainerPopup",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.PopupFactory"
+	};
+	$loadClass(PopupFactory$LightWeightPopup, name, initialize, &classInfo$$, PopupFactory$LightWeightPopup::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(PopupFactory$LightWeightPopup);
+	});
 	return class$;
 }
 

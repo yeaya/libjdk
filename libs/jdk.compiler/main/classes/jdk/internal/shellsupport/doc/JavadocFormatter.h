@@ -65,6 +65,7 @@ class $export JavadocFormatter : public ::java::lang::Object {
 	$class(JavadocFormatter, 0, ::java::lang::Object)
 public:
 	JavadocFormatter();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int32_t lineLimit, bool escapeSequencesSupported);
 	static void addNewLineIfNeeded(::java::lang::StringBuilder* text);
 	static void addSpaceIfNeeded(::java::lang::StringBuilder* text);

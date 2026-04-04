@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/parsers/XMLParser.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/Constants.h>
 #include <com/sun/org/apache/xerces/internal/utils/XMLSecurityManager.h>
 #include <com/sun/org/apache/xerces/internal/utils/XMLSecurityPropertyManager.h>
@@ -35,37 +34,6 @@ namespace com {
 					namespace internal {
 						namespace parsers {
 
-$FieldInfo _XMLParser_FieldInfo_[] = {
-	{"ENTITY_RESOLVER", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XMLParser, ENTITY_RESOLVER)},
-	{"ERROR_HANDLER", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XMLParser, ERROR_HANDLER)},
-	{"RECOGNIZED_PROPERTIES", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XMLParser, RECOGNIZED_PROPERTIES)},
-	{"fConfiguration", "Lcom/sun/org/apache/xerces/internal/xni/parser/XMLParserConfiguration;", nullptr, $PROTECTED, $field(XMLParser, fConfiguration)},
-	{"securityManager", "Lcom/sun/org/apache/xerces/internal/utils/XMLSecurityManager;", nullptr, 0, $field(XMLParser, securityManager)},
-	{"securityPropertyManager", "Lcom/sun/org/apache/xerces/internal/utils/XMLSecurityPropertyManager;", nullptr, 0, $field(XMLParser, securityPropertyManager)},
-	{}
-};
-
-$MethodInfo _XMLParser_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/org/apache/xerces/internal/xni/parser/XMLParserConfiguration;)V", nullptr, $PROTECTED, $method(XMLParser, init$, void, $XMLParserConfiguration*)},
-	{"getFeature", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(XMLParser, getFeature, bool, $String*), "org.xml.sax.SAXNotSupportedException,org.xml.sax.SAXNotRecognizedException"},
-	{"parse", "(Lcom/sun/org/apache/xerces/internal/xni/parser/XMLInputSource;)V", nullptr, $PUBLIC, $virtualMethod(XMLParser, parse, void, $XMLInputSource*), "com.sun.org.apache.xerces.internal.xni.XNIException,java.io.IOException"},
-	{"reset", "()V", nullptr, $PROTECTED, $virtualMethod(XMLParser, reset, void), "com.sun.org.apache.xerces.internal.xni.XNIException"},
-	{}
-};
-
-$ClassInfo _XMLParser_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"com.sun.org.apache.xerces.internal.parsers.XMLParser",
-	"java.lang.Object",
-	nullptr,
-	_XMLParser_FieldInfo_,
-	_XMLParser_MethodInfo_
-};
-
-$Object* allocate$XMLParser($Class* clazz) {
-	return $of($alloc(XMLParser));
-}
-
 $String* XMLParser::ENTITY_RESOLVER = nullptr;
 $String* XMLParser::ERROR_HANDLER = nullptr;
 $StringArray* XMLParser::RECOGNIZED_PROPERTIES = nullptr;
@@ -97,7 +65,7 @@ void XMLParser::parse($XMLInputSource* inputSource) {
 void XMLParser::reset() {
 }
 
-void clinit$XMLParser($Class* class$) {
+void XMLParser::clinit$($Class* clazz) {
 	$init($Constants);
 	$assignStatic(XMLParser::ENTITY_RESOLVER, $str({$Constants::XERCES_PROPERTY_PREFIX, $Constants::ENTITY_RESOLVER_PROPERTY}));
 	$assignStatic(XMLParser::ERROR_HANDLER, $str({$Constants::XERCES_PROPERTY_PREFIX, $Constants::ERROR_HANDLER_PROPERTY}));
@@ -111,7 +79,33 @@ XMLParser::XMLParser() {
 }
 
 $Class* XMLParser::load$($String* name, bool initialize) {
-	$loadClass(XMLParser, name, initialize, &_XMLParser_ClassInfo_, clinit$XMLParser, allocate$XMLParser);
+	$FieldInfo fieldInfos$$[] = {
+		{"ENTITY_RESOLVER", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XMLParser, ENTITY_RESOLVER)},
+		{"ERROR_HANDLER", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XMLParser, ERROR_HANDLER)},
+		{"RECOGNIZED_PROPERTIES", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XMLParser, RECOGNIZED_PROPERTIES)},
+		{"fConfiguration", "Lcom/sun/org/apache/xerces/internal/xni/parser/XMLParserConfiguration;", nullptr, $PROTECTED, $field(XMLParser, fConfiguration)},
+		{"securityManager", "Lcom/sun/org/apache/xerces/internal/utils/XMLSecurityManager;", nullptr, 0, $field(XMLParser, securityManager)},
+		{"securityPropertyManager", "Lcom/sun/org/apache/xerces/internal/utils/XMLSecurityPropertyManager;", nullptr, 0, $field(XMLParser, securityPropertyManager)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/org/apache/xerces/internal/xni/parser/XMLParserConfiguration;)V", nullptr, $PROTECTED, $method(XMLParser, init$, void, $XMLParserConfiguration*)},
+		{"getFeature", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(XMLParser, getFeature, bool, $String*), "org.xml.sax.SAXNotSupportedException,org.xml.sax.SAXNotRecognizedException"},
+		{"parse", "(Lcom/sun/org/apache/xerces/internal/xni/parser/XMLInputSource;)V", nullptr, $PUBLIC, $virtualMethod(XMLParser, parse, void, $XMLInputSource*), "com.sun.org.apache.xerces.internal.xni.XNIException,java.io.IOException"},
+		{"reset", "()V", nullptr, $PROTECTED, $virtualMethod(XMLParser, reset, void), "com.sun.org.apache.xerces.internal.xni.XNIException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"com.sun.org.apache.xerces.internal.parsers.XMLParser",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XMLParser, name, initialize, &classInfo$$, XMLParser::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(XMLParser);
+	});
 	return class$;
 }
 

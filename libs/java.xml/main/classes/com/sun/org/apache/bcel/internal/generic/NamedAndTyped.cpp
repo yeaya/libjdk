@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/bcel/internal/generic/NamedAndTyped.h>
-
 #include <com/sun/org/apache/bcel/internal/generic/Type.h>
 #include <jcpp.h>
 
@@ -15,29 +14,25 @@ namespace com {
 					namespace internal {
 						namespace generic {
 
-$MethodInfo _NamedAndTyped_MethodInfo_[] = {
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(NamedAndTyped, getName, $String*)},
-	{"getType", "()Lcom/sun/org/apache/bcel/internal/generic/Type;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(NamedAndTyped, getType, $Type*)},
-	{"setName", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(NamedAndTyped, setName, void, $String*)},
-	{"setType", "(Lcom/sun/org/apache/bcel/internal/generic/Type;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(NamedAndTyped, setType, void, $Type*)},
-	{}
-};
-
-$ClassInfo _NamedAndTyped_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.org.apache.bcel.internal.generic.NamedAndTyped",
-	nullptr,
-	nullptr,
-	nullptr,
-	_NamedAndTyped_MethodInfo_
-};
-
-$Object* allocate$NamedAndTyped($Class* clazz) {
-	return $of($alloc(NamedAndTyped));
-}
-
 $Class* NamedAndTyped::load$($String* name, bool initialize) {
-	$loadClass(NamedAndTyped, name, initialize, &_NamedAndTyped_ClassInfo_, allocate$NamedAndTyped);
+	$MethodInfo methodInfos$$[] = {
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(NamedAndTyped, getName, $String*)},
+		{"getType", "()Lcom/sun/org/apache/bcel/internal/generic/Type;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(NamedAndTyped, getType, $Type*)},
+		{"setName", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(NamedAndTyped, setName, void, $String*)},
+		{"setType", "(Lcom/sun/org/apache/bcel/internal/generic/Type;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(NamedAndTyped, setType, void, $Type*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.org.apache.bcel.internal.generic.NamedAndTyped",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(NamedAndTyped, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(NamedAndTyped);
+	});
 	return class$;
 }
 

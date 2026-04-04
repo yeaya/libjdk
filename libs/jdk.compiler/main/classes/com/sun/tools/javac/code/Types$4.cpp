@@ -1,9 +1,7 @@
 #include <com/sun/tools/javac/code/Types$4.h>
-
 #include <com/sun/tools/javac/code/BoundKind.h>
 #include <com/sun/tools/javac/code/Symbol$ClassSymbol.h>
 #include <com/sun/tools/javac/code/Symbol$TypeSymbol.h>
-#include <com/sun/tools/javac/code/Symbol.h>
 #include <com/sun/tools/javac/code/Symtab.h>
 #include <com/sun/tools/javac/code/Type$ArrayType.h>
 #include <com/sun/tools/javac/code/Type$ClassType.h>
@@ -41,7 +39,6 @@
 #undef UPPER
 
 using $BoundKind = ::com::sun::tools::javac::code::BoundKind;
-using $Symbol = ::com::sun::tools::javac::code::Symbol;
 using $Symbol$TypeSymbol = ::com::sun::tools::javac::code::Symbol$TypeSymbol;
 using $Type = ::com::sun::tools::javac::code::Type;
 using $Type$ArrayType = ::com::sun::tools::javac::code::Type$ArrayType;
@@ -67,68 +64,12 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $HashSet = ::java::util::HashSet;
 using $Iterator = ::java::util::Iterator;
-using $Set = ::java::util::Set;
 
 namespace com {
 	namespace sun {
 		namespace tools {
 			namespace javac {
 				namespace code {
-
-$FieldInfo _Types$4_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/code/Types;", nullptr, $FINAL | $SYNTHETIC, $field(Types$4, this$0)},
-	{"cache", "Ljava/util/Set;", "Ljava/util/Set<Lcom/sun/tools/javac/code/Types$TypePair;>;", $PRIVATE, $field(Types$4, cache)},
-	{}
-};
-
-$MethodInfo _Types$4_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Types;)V", nullptr, 0, $method(Types$4, init$, void, $Types*)},
-	{"containsTypeRecursive", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;)Z", nullptr, $PRIVATE, $method(Types$4, containsTypeRecursive, bool, $Type*, $Type*)},
-	{"rewriteSupers", "(Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Type;", nullptr, $PRIVATE, $method(Types$4, rewriteSupers, $Type*, $Type*)},
-	{"visitArrayType", "(Lcom/sun/tools/javac/code/Type$ArrayType;Lcom/sun/tools/javac/code/Type;)Ljava/lang/Boolean;", nullptr, $PUBLIC, $virtualMethod(Types$4, visitArrayType, $Boolean*, $Type$ArrayType*, $Type*)},
-	{"visitArrayType", "(Lcom/sun/tools/javac/code/Type$ArrayType;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Types$4, visitArrayType, $Object*, $Type$ArrayType*, Object$*)},
-	{"visitClassType", "(Lcom/sun/tools/javac/code/Type$ClassType;Lcom/sun/tools/javac/code/Type;)Ljava/lang/Boolean;", nullptr, $PUBLIC, $virtualMethod(Types$4, visitClassType, $Boolean*, $Type$ClassType*, $Type*)},
-	{"visitClassType", "(Lcom/sun/tools/javac/code/Type$ClassType;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Types$4, visitClassType, $Object*, $Type$ClassType*, Object$*)},
-	{"visitErrorType", "(Lcom/sun/tools/javac/code/Type$ErrorType;Lcom/sun/tools/javac/code/Type;)Ljava/lang/Boolean;", nullptr, $PUBLIC, $virtualMethod(Types$4, visitErrorType, $Boolean*, $Type$ErrorType*, $Type*)},
-	{"visitErrorType", "(Lcom/sun/tools/javac/code/Type$ErrorType;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Types$4, visitErrorType, $Object*, $Type$ErrorType*, Object$*)},
-	{"visitType", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;)Ljava/lang/Boolean;", nullptr, $PUBLIC, $virtualMethod(Types$4, visitType, $Boolean*, $Type*, $Type*)},
-	{"visitType", "(Lcom/sun/tools/javac/code/Type;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Types$4, visitType, $Object*, $Type*, Object$*)},
-	{"visitUndetVar", "(Lcom/sun/tools/javac/code/Type$UndetVar;Lcom/sun/tools/javac/code/Type;)Ljava/lang/Boolean;", nullptr, $PUBLIC, $virtualMethod(Types$4, visitUndetVar, $Boolean*, $Type$UndetVar*, $Type*)},
-	{"visitUndetVar", "(Lcom/sun/tools/javac/code/Type$UndetVar;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Types$4, visitUndetVar, $Object*, $Type$UndetVar*, Object$*)},
-	{}
-};
-
-$EnclosingMethodInfo _Types$4_EnclosingMethodInfo_ = {
-	"com.sun.tools.javac.code.Types",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _Types$4_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.code.Types$4", nullptr, nullptr, 0},
-	{"com.sun.tools.javac.code.Types$TypeRelation", "com.sun.tools.javac.code.Types", "TypeRelation", $PUBLIC | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Types$4_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.code.Types$4",
-	"com.sun.tools.javac.code.Types$TypeRelation",
-	nullptr,
-	_Types$4_FieldInfo_,
-	_Types$4_MethodInfo_,
-	nullptr,
-	&_Types$4_EnclosingMethodInfo_,
-	_Types$4_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.code.Types"
-};
-
-$Object* allocate$Types$4($Class* clazz) {
-	return $of($alloc(Types$4));
-}
 
 void Types$4::init$($Types* this$0) {
 	$set(this, this$0, this$0);
@@ -137,97 +78,76 @@ void Types$4::init$($Types* this$0) {
 }
 
 $Boolean* Types$4::visitType($Type* t, $Type* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Types$25);
-	switch ($nc($Types$25::$SwitchMap$com$sun$tools$javac$code$TypeTag)->get($nc(($($nc(t)->getTag())))->ordinal())) {
+	switch ($nc($Types$25::$SwitchMap$com$sun$tools$javac$code$TypeTag)->get(($$nc($nc(t)->getTag()))->ordinal())) {
 	case 3:
 		{
-			$init($TypeTag);
 			bool var$0 = !$nc(s)->hasTag($TypeTag::CHAR);
-			return $Boolean::valueOf((var$0 && $nc($(t->getTag()))->isSubRangeOf($(s->getTag()))));
+			return $Boolean::valueOf((var$0 && $$nc(t->getTag())->isSubRangeOf($(s->getTag()))));
 		}
 	case 4:
 		{
-			$init($TypeTag);
 			bool var$1 = !$nc(s)->hasTag($TypeTag::SHORT);
-			return $Boolean::valueOf((var$1 && $nc($(t->getTag()))->isSubRangeOf($(s->getTag()))));
+			return $Boolean::valueOf((var$1 && $$nc(t->getTag())->isSubRangeOf($(s->getTag()))));
 		}
 	case 5:
-		{}
 	case 6:
-		{}
 	case 7:
-		{}
 	case 8:
-		{}
 	case 9:
-		{
-			return $Boolean::valueOf($nc($(t->getTag()))->isSubRangeOf($($nc(s)->getTag())));
-		}
+		return $Boolean::valueOf($$nc(t->getTag())->isSubRangeOf($($nc(s)->getTag())));
 	case 10:
-		{}
 	case 11:
-		{
-			return $Boolean::valueOf(t->hasTag($($nc(s)->getTag())));
-		}
+		return $Boolean::valueOf(t->hasTag($($nc(s)->getTag())));
 	case 12:
-		{
-			return $Boolean::valueOf(this->this$0->isSubtypeNoCapture($(t->getUpperBound()), s));
-		}
+		return $Boolean::valueOf(this->this$0->isSubtypeNoCapture($(t->getUpperBound()), s));
 	case 13:
 		{
-			$init($TypeTag);
 			bool var$4 = $nc(s)->hasTag($TypeTag::BOT);
-			bool var$3 = var$4 || $nc(s)->hasTag($TypeTag::CLASS);
-			bool var$2 = var$3 || $nc(s)->hasTag($TypeTag::ARRAY);
-			return $Boolean::valueOf(var$2 || $nc(s)->hasTag($TypeTag::TYPEVAR));
+			bool var$3 = var$4 || s->hasTag($TypeTag::CLASS);
+			bool var$2 = var$3 || s->hasTag($TypeTag::ARRAY);
+			return $Boolean::valueOf(var$2 || s->hasTag($TypeTag::TYPEVAR));
 		}
 	case 14:
-		{}
 	case 15:
-		{
-			return $Boolean::valueOf(false);
-		}
+		return $Boolean::valueOf(false);
 	default:
-		{
-			$throwNew($AssertionError, $of($$str({"isSubtype "_s, $(t->getTag())})));
-		}
+		$throwNew($AssertionError, $$of($str({"isSubtype "_s, $(t->getTag())})));
 	}
 }
 
 bool Types$4::containsTypeRecursive($Type* t, $Type* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Types$TypePair, pair, $new($Types$TypePair, this->this$0, t, s));
 	if ($nc(this->cache)->add(pair)) {
-		{
-			$var($Throwable, var$0, nullptr);
-			bool var$2 = false;
-			bool return$1 = false;
-			try {
-				$var($List, var$3, $nc(t)->getTypeArguments());
-				var$2 = this->this$0->containsType(var$3, $($nc(s)->getTypeArguments()));
-				return$1 = true;
-				goto $finally;
-			} catch ($Throwable& var$4) {
-				$assign(var$0, var$4);
-			} $finally: {
-				$nc(this->cache)->remove(pair);
-			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
-			if (return$1) {
-				return var$2;
-			}
+		$var($Throwable, var$0, nullptr);
+		bool var$2 = false;
+		bool return$1 = false;
+		try {
+			$var($List, var$3, $nc(t)->getTypeArguments());
+			var$2 = this->this$0->containsType(var$3, $($nc(s)->getTypeArguments()));
+			return$1 = true;
+			goto $finally;
+		} catch ($Throwable& var$4) {
+			$assign(var$0, var$4);
+		} $finally: {
+			this->cache->remove(pair);
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
+		}
+		if (return$1) {
+			return var$2;
 		}
 	} else {
 		$var($List, var$5, $nc(t)->getTypeArguments());
-		return this->this$0->containsType(var$5, $($nc($(rewriteSupers(s)))->getTypeArguments()));
+		return this->this$0->containsType(var$5, $($$nc(rewriteSupers(s))->getTypeArguments()));
 	}
 }
 
 $Type* Types$4::rewriteSupers($Type* t) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!$nc(t)->isParameterized()) {
 		return t;
 	}
@@ -240,7 +160,7 @@ $Type* Types$4::rewriteSupers($Type* t) {
 	$var($ListBuffer, rewrite, $new($ListBuffer));
 	bool changed = false;
 	{
-		$var($Iterator, i$, $nc($(to->toList()))->iterator());
+		$var($Iterator, i$, $$nc(to->toList())->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Type, orig, $cast($Type, i$->next()));
 			{
@@ -248,13 +168,13 @@ $Type* Types$4::rewriteSupers($Type* t) {
 				bool var$0 = $nc(s)->isSuperBound();
 				if (var$0 && !s->isExtendsBound()) {
 					$init($BoundKind);
-					$assign(s, $new($Type$WildcardType, $nc(this->this$0->syms)->objectType, $BoundKind::UNBOUND, static_cast<$Symbol$TypeSymbol*>($nc(this->this$0->syms)->boundClass), $(s->getMetadata())));
+					$assign(s, $new($Type$WildcardType, $nc(this->this$0->syms)->objectType, $BoundKind::UNBOUND, $nc(this->this$0->syms)->boundClass, $(s->getMetadata())));
 					changed = true;
 				} else if (s != orig) {
 					$var($Type, var$1, this->this$0->wildUpperBound(s));
 					$init($BoundKind);
 					$var($BoundKind, var$2, $BoundKind::EXTENDS);
-					$var($Symbol$TypeSymbol, var$3, static_cast<$Symbol$TypeSymbol*>($nc(this->this$0->syms)->boundClass));
+					$var($Symbol$TypeSymbol, var$3, $nc(this->this$0->syms)->boundClass);
 					$assign(s, $new($Type$WildcardType, var$1, var$2, var$3, $(s->getMetadata())));
 					changed = true;
 				}
@@ -263,7 +183,7 @@ $Type* Types$4::rewriteSupers($Type* t) {
 		}
 	}
 	if (changed) {
-		$var($Type, var$4, $nc($nc(t)->tsym)->type);
+		$var($Type, var$4, $nc(t->tsym)->type);
 		$var($List, var$5, from->toList());
 		return this->this$0->subst(var$4, var$5, $(rewrite->toList()));
 	} else {
@@ -272,7 +192,7 @@ $Type* Types$4::rewriteSupers($Type* t) {
 }
 
 $Boolean* Types$4::visitClassType($Type$ClassType* t, $Type* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Type, sup, this->this$0->asSuper(t, $nc(s)->tsym));
 	if (sup == nullptr) {
 		return $Boolean::valueOf(false);
@@ -281,21 +201,21 @@ $Boolean* Types$4::visitClassType($Type$ClassType* t, $Type* s) {
 	if (!$nc(sup)->hasTag($TypeTag::CLASS)) {
 		return $Boolean::valueOf(this->this$0->isSubtypeNoCapture(sup, s));
 	}
-	bool var$1 = $nc(sup)->tsym == $nc(s)->tsym;
+	bool var$1 = sup->tsym == s->tsym;
 	if (var$1) {
 		bool var$2 = !s->isParameterized();
-		var$1 = (var$2 || containsTypeRecursive(s, sup));
+		var$1 = var$2 || containsTypeRecursive(s, sup);
 	}
 	bool var$0 = var$1;
 	if (var$0) {
-		$var($Type, var$3, $nc(sup)->getEnclosingType());
-		var$0 = this->this$0->isSubtypeNoCapture(var$3, $($nc(s)->getEnclosingType()));
+		$var($Type, var$3, sup->getEnclosingType());
+		var$0 = this->this$0->isSubtypeNoCapture(var$3, $(s->getEnclosingType()));
 	}
 	return $Boolean::valueOf(var$0);
 }
 
 $Boolean* Types$4::visitArrayType($Type$ArrayType* t, $Type* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($TypeTag);
 	if ($nc(s)->hasTag($TypeTag::ARRAY)) {
 		if ($nc($nc(t)->elemtype)->isPrimitive()) {
@@ -304,9 +224,9 @@ $Boolean* Types$4::visitArrayType($Type$ArrayType* t, $Type* s) {
 			return $Boolean::valueOf(this->this$0->isSubtypeNoCapture(t->elemtype, $(this->this$0->elemtype(s))));
 		}
 	}
-	if ($nc(s)->hasTag($TypeTag::CLASS)) {
+	if (s->hasTag($TypeTag::CLASS)) {
 		$var($Name, sname, $nc(s->tsym)->getQualifiedName());
-		return $Boolean::valueOf(sname == $nc(this->this$0->names)->java_lang_Object || sname == $nc(this->this$0->names)->java_lang_Cloneable || sname == $nc(this->this$0->names)->java_io_Serializable);
+		return $Boolean::valueOf(sname == $nc(this->this$0->names)->java_lang_Object || sname == this->this$0->names->java_lang_Cloneable || sname == this->this$0->names->java_io_Serializable);
 	}
 	return $Boolean::valueOf(false);
 }
@@ -316,10 +236,8 @@ $Boolean* Types$4::visitUndetVar($Type$UndetVar* t, $Type* s) {
 	bool var$0 = $equals(t, s) || $nc(t)->qtype == s || $nc(s)->hasTag($TypeTag::ERROR);
 	if (var$0 || $nc(s)->hasTag($TypeTag::UNKNOWN)) {
 		return $Boolean::valueOf(true);
-	} else {
-		if (s->hasTag($TypeTag::BOT)) {
-			return $Boolean::valueOf(false);
-		}
+	} else if ($nc(s)->hasTag($TypeTag::BOT)) {
+		return $Boolean::valueOf(false);
 	}
 	$init($Type$UndetVar$InferenceBound);
 	$nc(t)->addBound($Type$UndetVar$InferenceBound::UPPER, s, this->this$0);
@@ -354,7 +272,55 @@ Types$4::Types$4() {
 }
 
 $Class* Types$4::load$($String* name, bool initialize) {
-	$loadClass(Types$4, name, initialize, &_Types$4_ClassInfo_, allocate$Types$4);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/code/Types;", nullptr, $FINAL | $SYNTHETIC, $field(Types$4, this$0)},
+		{"cache", "Ljava/util/Set;", "Ljava/util/Set<Lcom/sun/tools/javac/code/Types$TypePair;>;", $PRIVATE, $field(Types$4, cache)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/code/Types;)V", nullptr, 0, $method(Types$4, init$, void, $Types*)},
+		{"containsTypeRecursive", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;)Z", nullptr, $PRIVATE, $method(Types$4, containsTypeRecursive, bool, $Type*, $Type*)},
+		{"rewriteSupers", "(Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Type;", nullptr, $PRIVATE, $method(Types$4, rewriteSupers, $Type*, $Type*)},
+		{"visitArrayType", "(Lcom/sun/tools/javac/code/Type$ArrayType;Lcom/sun/tools/javac/code/Type;)Ljava/lang/Boolean;", nullptr, $PUBLIC, $virtualMethod(Types$4, visitArrayType, $Boolean*, $Type$ArrayType*, $Type*)},
+		{"visitArrayType", "(Lcom/sun/tools/javac/code/Type$ArrayType;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Types$4, visitArrayType, $Object*, $Type$ArrayType*, Object$*)},
+		{"visitClassType", "(Lcom/sun/tools/javac/code/Type$ClassType;Lcom/sun/tools/javac/code/Type;)Ljava/lang/Boolean;", nullptr, $PUBLIC, $virtualMethod(Types$4, visitClassType, $Boolean*, $Type$ClassType*, $Type*)},
+		{"visitClassType", "(Lcom/sun/tools/javac/code/Type$ClassType;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Types$4, visitClassType, $Object*, $Type$ClassType*, Object$*)},
+		{"visitErrorType", "(Lcom/sun/tools/javac/code/Type$ErrorType;Lcom/sun/tools/javac/code/Type;)Ljava/lang/Boolean;", nullptr, $PUBLIC, $virtualMethod(Types$4, visitErrorType, $Boolean*, $Type$ErrorType*, $Type*)},
+		{"visitErrorType", "(Lcom/sun/tools/javac/code/Type$ErrorType;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Types$4, visitErrorType, $Object*, $Type$ErrorType*, Object$*)},
+		{"visitType", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;)Ljava/lang/Boolean;", nullptr, $PUBLIC, $virtualMethod(Types$4, visitType, $Boolean*, $Type*, $Type*)},
+		{"visitType", "(Lcom/sun/tools/javac/code/Type;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Types$4, visitType, $Object*, $Type*, Object$*)},
+		{"visitUndetVar", "(Lcom/sun/tools/javac/code/Type$UndetVar;Lcom/sun/tools/javac/code/Type;)Ljava/lang/Boolean;", nullptr, $PUBLIC, $virtualMethod(Types$4, visitUndetVar, $Boolean*, $Type$UndetVar*, $Type*)},
+		{"visitUndetVar", "(Lcom/sun/tools/javac/code/Type$UndetVar;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Types$4, visitUndetVar, $Object*, $Type$UndetVar*, Object$*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.tools.javac.code.Types",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.code.Types$4", nullptr, nullptr, 0},
+		{"com.sun.tools.javac.code.Types$TypeRelation", "com.sun.tools.javac.code.Types", "TypeRelation", $PUBLIC | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.code.Types$4",
+		"com.sun.tools.javac.code.Types$TypeRelation",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.code.Types"
+	};
+	$loadClass(Types$4, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Types$4);
+	});
 	return class$;
 }
 

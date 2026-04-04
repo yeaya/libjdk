@@ -1,5 +1,4 @@
 #include <sun/awt/X11/XUnmapEvent.h>
-
 #include <jdk/internal/misc/Unsafe.h>
 #include <sun/awt/X11/Native.h>
 #include <sun/awt/X11/XEvent.h>
@@ -11,64 +10,13 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Unsafe = ::jdk::internal::misc::Unsafe;
 using $Native = ::sun::awt::X11::Native;
 using $XWrapperBase = ::sun::awt::X11::XWrapperBase;
 using $XlibWrapper = ::sun::awt::X11::XlibWrapper;
-using $PlatformLogger = ::sun::util::logging::PlatformLogger;
 
 namespace sun {
 	namespace awt {
 		namespace X11 {
-
-$FieldInfo _XUnmapEvent_FieldInfo_[] = {
-	{"unsafe", "Ljdk/internal/misc/Unsafe;", nullptr, $PRIVATE, $field(XUnmapEvent, unsafe)},
-	{"should_free_memory", "Z", nullptr, $PRIVATE | $FINAL, $field(XUnmapEvent, should_free_memory)},
-	{"pData", "J", nullptr, 0, $field(XUnmapEvent, pData)},
-	{}
-};
-
-$MethodInfo _XUnmapEvent_MethodInfo_[] = {
-	{"<init>", "(J)V", nullptr, $PUBLIC, $method(XUnmapEvent, init$, void, int64_t)},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(XUnmapEvent, init$, void)},
-	{"clone", "()Lsun/awt/X11/XEvent;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XUnmapEvent, clone, $Object*)},
-	{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(XUnmapEvent, dispose, void)},
-	{"getDataSize", "()I", nullptr, $PUBLIC, $virtualMethod(XUnmapEvent, getDataSize, int32_t)},
-	{"getFieldsAsString", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(XUnmapEvent, getFieldsAsString, $String*)},
-	{"getName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(XUnmapEvent, getName, $String*)},
-	{"getPData", "()J", nullptr, $PUBLIC, $virtualMethod(XUnmapEvent, getPData, int64_t)},
-	{"getSize", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(XUnmapEvent, getSize, int32_t)},
-	{"get_display", "()J", nullptr, $PUBLIC, $virtualMethod(XUnmapEvent, get_display, int64_t)},
-	{"get_event", "()J", nullptr, $PUBLIC, $virtualMethod(XUnmapEvent, get_event, int64_t)},
-	{"get_from_configure", "()Z", nullptr, $PUBLIC, $virtualMethod(XUnmapEvent, get_from_configure, bool)},
-	{"get_send_event", "()Z", nullptr, $PUBLIC, $virtualMethod(XUnmapEvent, get_send_event, bool)},
-	{"get_serial", "()J", nullptr, $PUBLIC, $virtualMethod(XUnmapEvent, get_serial, int64_t)},
-	{"get_type", "()I", nullptr, $PUBLIC, $virtualMethod(XUnmapEvent, get_type, int32_t)},
-	{"get_window", "()J", nullptr, $PUBLIC, $virtualMethod(XUnmapEvent, get_window, int64_t)},
-	{"set_display", "(J)V", nullptr, $PUBLIC, $virtualMethod(XUnmapEvent, set_display, void, int64_t)},
-	{"set_event", "(J)V", nullptr, $PUBLIC, $virtualMethod(XUnmapEvent, set_event, void, int64_t)},
-	{"set_from_configure", "(Z)V", nullptr, $PUBLIC, $virtualMethod(XUnmapEvent, set_from_configure, void, bool)},
-	{"set_send_event", "(Z)V", nullptr, $PUBLIC, $virtualMethod(XUnmapEvent, set_send_event, void, bool)},
-	{"set_serial", "(J)V", nullptr, $PUBLIC, $virtualMethod(XUnmapEvent, set_serial, void, int64_t)},
-	{"set_type", "(I)V", nullptr, $PUBLIC, $virtualMethod(XUnmapEvent, set_type, void, int32_t)},
-	{"set_window", "(J)V", nullptr, $PUBLIC, $virtualMethod(XUnmapEvent, set_window, void, int64_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XUnmapEvent, toString, $String*)},
-	{"zero", "()V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XUnmapEvent, zero, void)},
-	{}
-};
-
-$ClassInfo _XUnmapEvent_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.awt.X11.XUnmapEvent",
-	"sun.awt.X11.XWrapperBase",
-	nullptr,
-	_XUnmapEvent_FieldInfo_,
-	_XUnmapEvent_MethodInfo_
-};
-
-$Object* allocate$XUnmapEvent($Class* clazz) {
-	return $of($alloc(XUnmapEvent));
-}
 
 int32_t XUnmapEvent::getSize() {
 	$init(XUnmapEvent);
@@ -107,7 +55,7 @@ void XUnmapEvent::dispose() {
 	$init($XWrapperBase);
 	$nc($XWrapperBase::log)->finest("Disposing"_s);
 	if (this->should_free_memory) {
-		$nc($XWrapperBase::log)->finest("freeing memory"_s);
+		$XWrapperBase::log->finest("freeing memory"_s);
 		$nc(this->unsafe)->freeMemory(this->pData);
 	}
 }
@@ -201,7 +149,7 @@ $String* XUnmapEvent::getName() {
 }
 
 $String* XUnmapEvent::getFieldsAsString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, ret, $new($StringBuilder, 280));
 	$init($XlibWrapper);
 	ret->append("type = "_s)->append($nc($XlibWrapper::eventToString)->get(get_type()))->append(", "_s);
@@ -215,7 +163,7 @@ $String* XUnmapEvent::getFieldsAsString() {
 }
 
 $Object* XUnmapEvent::clone() {
-	return $of($XWrapperBase::clone());
+	return $XWrapperBase::clone();
 }
 
 void XUnmapEvent::zero() {
@@ -230,7 +178,51 @@ XUnmapEvent::XUnmapEvent() {
 }
 
 $Class* XUnmapEvent::load$($String* name, bool initialize) {
-	$loadClass(XUnmapEvent, name, initialize, &_XUnmapEvent_ClassInfo_, allocate$XUnmapEvent);
+	$FieldInfo fieldInfos$$[] = {
+		{"unsafe", "Ljdk/internal/misc/Unsafe;", nullptr, $PRIVATE, $field(XUnmapEvent, unsafe)},
+		{"should_free_memory", "Z", nullptr, $PRIVATE | $FINAL, $field(XUnmapEvent, should_free_memory)},
+		{"pData", "J", nullptr, 0, $field(XUnmapEvent, pData)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(J)V", nullptr, $PUBLIC, $method(XUnmapEvent, init$, void, int64_t)},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(XUnmapEvent, init$, void)},
+		{"clone", "()Lsun/awt/X11/XEvent;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XUnmapEvent, clone, $Object*)},
+		{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(XUnmapEvent, dispose, void)},
+		{"getDataSize", "()I", nullptr, $PUBLIC, $virtualMethod(XUnmapEvent, getDataSize, int32_t)},
+		{"getFieldsAsString", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(XUnmapEvent, getFieldsAsString, $String*)},
+		{"getName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(XUnmapEvent, getName, $String*)},
+		{"getPData", "()J", nullptr, $PUBLIC, $virtualMethod(XUnmapEvent, getPData, int64_t)},
+		{"getSize", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(XUnmapEvent, getSize, int32_t)},
+		{"get_display", "()J", nullptr, $PUBLIC, $virtualMethod(XUnmapEvent, get_display, int64_t)},
+		{"get_event", "()J", nullptr, $PUBLIC, $virtualMethod(XUnmapEvent, get_event, int64_t)},
+		{"get_from_configure", "()Z", nullptr, $PUBLIC, $virtualMethod(XUnmapEvent, get_from_configure, bool)},
+		{"get_send_event", "()Z", nullptr, $PUBLIC, $virtualMethod(XUnmapEvent, get_send_event, bool)},
+		{"get_serial", "()J", nullptr, $PUBLIC, $virtualMethod(XUnmapEvent, get_serial, int64_t)},
+		{"get_type", "()I", nullptr, $PUBLIC, $virtualMethod(XUnmapEvent, get_type, int32_t)},
+		{"get_window", "()J", nullptr, $PUBLIC, $virtualMethod(XUnmapEvent, get_window, int64_t)},
+		{"set_display", "(J)V", nullptr, $PUBLIC, $virtualMethod(XUnmapEvent, set_display, void, int64_t)},
+		{"set_event", "(J)V", nullptr, $PUBLIC, $virtualMethod(XUnmapEvent, set_event, void, int64_t)},
+		{"set_from_configure", "(Z)V", nullptr, $PUBLIC, $virtualMethod(XUnmapEvent, set_from_configure, void, bool)},
+		{"set_send_event", "(Z)V", nullptr, $PUBLIC, $virtualMethod(XUnmapEvent, set_send_event, void, bool)},
+		{"set_serial", "(J)V", nullptr, $PUBLIC, $virtualMethod(XUnmapEvent, set_serial, void, int64_t)},
+		{"set_type", "(I)V", nullptr, $PUBLIC, $virtualMethod(XUnmapEvent, set_type, void, int32_t)},
+		{"set_window", "(J)V", nullptr, $PUBLIC, $virtualMethod(XUnmapEvent, set_window, void, int64_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XUnmapEvent, toString, $String*)},
+		{"zero", "()V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XUnmapEvent, zero, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.awt.X11.XUnmapEvent",
+		"sun.awt.X11.XWrapperBase",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XUnmapEvent, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XUnmapEvent);
+	});
 	return class$;
 }
 

@@ -23,6 +23,7 @@ class MimeTypeParameterList : public ::java::lang::Cloneable {
 	$class(MimeTypeParameterList, 0, ::java::lang::Cloneable)
 public:
 	MimeTypeParameterList();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$($String* rawdata);
 	virtual $Object* clone() override;

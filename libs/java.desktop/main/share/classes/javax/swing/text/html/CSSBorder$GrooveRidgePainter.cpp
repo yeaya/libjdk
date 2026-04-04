@@ -1,5 +1,4 @@
 #include <javax/swing/text/html/CSSBorder$GrooveRidgePainter.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Graphics.h>
 #include <java/awt/Polygon.h>
@@ -34,50 +33,13 @@ namespace javax {
 		namespace text {
 			namespace html {
 
-$FieldInfo _CSSBorder$GrooveRidgePainter_FieldInfo_[] = {
-	{"type", "Ljavax/swing/text/html/CSS$Value;", nullptr, $FINAL, $field(CSSBorder$GrooveRidgePainter, type)},
-	{}
-};
-
-$MethodInfo _CSSBorder$GrooveRidgePainter_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/text/html/CSS$Value;)V", nullptr, 0, $method(CSSBorder$GrooveRidgePainter, init$, void, $CSS$Value*)},
-	{"paint", "(Ljava/awt/Polygon;Ljava/awt/Graphics;Ljava/awt/Color;I)V", nullptr, $PUBLIC, $virtualMethod(CSSBorder$GrooveRidgePainter, paint, void, $Polygon*, $Graphics*, $Color*, int32_t)},
-	{}
-};
-
-$InnerClassInfo _CSSBorder$GrooveRidgePainter_InnerClassesInfo_[] = {
-	{"javax.swing.text.html.CSSBorder$GrooveRidgePainter", "javax.swing.text.html.CSSBorder", "GrooveRidgePainter", $STATIC},
-	{"javax.swing.text.html.CSSBorder$ShadowLightPainter", "javax.swing.text.html.CSSBorder", "ShadowLightPainter", $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _CSSBorder$GrooveRidgePainter_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.text.html.CSSBorder$GrooveRidgePainter",
-	"javax.swing.text.html.CSSBorder$ShadowLightPainter",
-	nullptr,
-	_CSSBorder$GrooveRidgePainter_FieldInfo_,
-	_CSSBorder$GrooveRidgePainter_MethodInfo_,
-	nullptr,
-	nullptr,
-	_CSSBorder$GrooveRidgePainter_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.html.CSSBorder"
-};
-
-$Object* allocate$CSSBorder$GrooveRidgePainter($Class* clazz) {
-	return $of($alloc(CSSBorder$GrooveRidgePainter));
-}
-
 void CSSBorder$GrooveRidgePainter::init$($CSS$Value* type) {
 	$CSSBorder$ShadowLightPainter::init$();
 	$set(this, type, type);
 }
 
 void CSSBorder$GrooveRidgePainter::paint($Polygon* shape, $Graphics* g, $Color* color, int32_t side) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle, r, $nc(shape)->getBounds());
 	int32_t length = $Math::max($nc(r)->height / 2, 1);
 	$var($ints, lengthPattern, $new($ints, {
@@ -99,7 +61,38 @@ CSSBorder$GrooveRidgePainter::CSSBorder$GrooveRidgePainter() {
 }
 
 $Class* CSSBorder$GrooveRidgePainter::load$($String* name, bool initialize) {
-	$loadClass(CSSBorder$GrooveRidgePainter, name, initialize, &_CSSBorder$GrooveRidgePainter_ClassInfo_, allocate$CSSBorder$GrooveRidgePainter);
+	$FieldInfo fieldInfos$$[] = {
+		{"type", "Ljavax/swing/text/html/CSS$Value;", nullptr, $FINAL, $field(CSSBorder$GrooveRidgePainter, type)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/text/html/CSS$Value;)V", nullptr, 0, $method(CSSBorder$GrooveRidgePainter, init$, void, $CSS$Value*)},
+		{"paint", "(Ljava/awt/Polygon;Ljava/awt/Graphics;Ljava/awt/Color;I)V", nullptr, $PUBLIC, $virtualMethod(CSSBorder$GrooveRidgePainter, paint, void, $Polygon*, $Graphics*, $Color*, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.html.CSSBorder$GrooveRidgePainter", "javax.swing.text.html.CSSBorder", "GrooveRidgePainter", $STATIC},
+		{"javax.swing.text.html.CSSBorder$ShadowLightPainter", "javax.swing.text.html.CSSBorder", "ShadowLightPainter", $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.text.html.CSSBorder$GrooveRidgePainter",
+		"javax.swing.text.html.CSSBorder$ShadowLightPainter",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.html.CSSBorder"
+	};
+	$loadClass(CSSBorder$GrooveRidgePainter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CSSBorder$GrooveRidgePainter);
+	});
 	return class$;
 }
 

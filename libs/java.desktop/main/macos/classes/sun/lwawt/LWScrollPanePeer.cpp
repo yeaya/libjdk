@@ -1,12 +1,10 @@
 #include <sun/lwawt/LWScrollPanePeer.h>
-
 #include <java/awt/AWTEvent.h>
 #include <java/awt/Adjustable.h>
 #include <java/awt/BufferCapabilities$FlipContents.h>
 #include <java/awt/BufferCapabilities.h>
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/Dimension.h>
 #include <java/awt/Font.h>
 #include <java/awt/FontMetrics.h>
@@ -25,7 +23,6 @@
 #include <java/awt/image/VolatileImage.h>
 #include <java/awt/peer/ComponentPeer.h>
 #include <java/awt/peer/ContainerPeer.h>
-#include <java/lang/Runnable.h>
 #include <java/util/List.h>
 #include <javax/swing/BorderFactory.h>
 #include <javax/swing/JComponent.h>
@@ -37,7 +34,6 @@
 #include <javax/swing/SwingUtilities.h>
 #include <javax/swing/border/Border.h>
 #include <javax/swing/event/ChangeEvent.h>
-#include <javax/swing/event/ChangeListener.h>
 #include <sun/java2d/pipe/Region.h>
 #include <sun/lwawt/LWComponentPeer.h>
 #include <sun/lwawt/LWContainerPeer.h>
@@ -61,7 +57,6 @@ using $BufferCapabilities = ::java::awt::BufferCapabilities;
 using $BufferCapabilities$FlipContents = ::java::awt::BufferCapabilities$FlipContents;
 using $Color = ::java::awt::Color;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Dimension = ::java::awt::Dimension;
 using $Font = ::java::awt::Font;
 using $FontMetrics = ::java::awt::FontMetrics;
@@ -82,18 +77,15 @@ using $ContainerPeer = ::java::awt::peer::ContainerPeer;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
 using $List = ::java::util::List;
 using $BorderFactory = ::javax::swing::BorderFactory;
 using $JComponent = ::javax::swing::JComponent;
 using $JPanel = ::javax::swing::JPanel;
-using $JScrollBar = ::javax::swing::JScrollBar;
 using $JScrollPane = ::javax::swing::JScrollPane;
 using $JViewport = ::javax::swing::JViewport;
 using $ScrollPaneConstants = ::javax::swing::ScrollPaneConstants;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $ChangeEvent = ::javax::swing::event::ChangeEvent;
-using $ChangeListener = ::javax::swing::event::ChangeListener;
 using $Region = ::sun::java2d::pipe::Region;
 using $LWComponentPeer = ::sun::lwawt::LWComponentPeer;
 using $LWContainerPeer = ::sun::lwawt::LWContainerPeer;
@@ -102,94 +94,6 @@ using $PlatformComponent = ::sun::lwawt::PlatformComponent;
 
 namespace sun {
 	namespace lwawt {
-
-$MethodInfo _LWScrollPanePeer_MethodInfo_[] = {
-	{"*applyShape", "(Lsun/java2d/pipe/Region;)V", nullptr, $PUBLIC | $FINAL},
-	{"*beginLayout", "()V", nullptr, $PUBLIC | $FINAL},
-	{"*beginValidate", "()V", nullptr, $PUBLIC | $FINAL},
-	{"*canDetermineObscurity", "()Z", nullptr, $PUBLIC},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*coalescePaintEvent", "(Ljava/awt/event/PaintEvent;)V", nullptr, $PUBLIC},
-	{"*createBuffers", "(ILjava/awt/BufferCapabilities;)V", nullptr, $PUBLIC | $FINAL},
-	{"*createImage", "(II)Ljava/awt/Image;", nullptr, $PUBLIC | $FINAL},
-	{"*createVolatileImage", "(II)Ljava/awt/image/VolatileImage;", nullptr, $PUBLIC | $FINAL},
-	{"*destroyBuffers", "()V", nullptr, $PUBLIC | $FINAL},
-	{"*dispose", "()V", nullptr, $PUBLIC | $FINAL},
-	{"*endLayout", "()V", nullptr, $PUBLIC | $FINAL},
-	{"*endValidate", "()V", nullptr, $PUBLIC | $FINAL},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*flip", "(IIIILjava/awt/BufferCapabilities$FlipContents;)V", nullptr, $PUBLIC | $FINAL},
-	{"*getBackBuffer", "()Ljava/awt/Image;", nullptr, $PUBLIC | $FINAL},
-	{"*getColorModel", "()Ljava/awt/image/ColorModel;", nullptr, $PUBLIC},
-	{"*getFontMetrics", "(Ljava/awt/Font;)Ljava/awt/FontMetrics;", nullptr, $PUBLIC},
-	{"*getGraphics", "()Ljava/awt/Graphics;", nullptr, $PUBLIC},
-	{"*getGraphicsConfiguration", "()Ljava/awt/GraphicsConfiguration;", nullptr, $PUBLIC},
-	{"*getInsets", "()Ljava/awt/Insets;", nullptr, $PUBLIC},
-	{"*getLocationOnScreen", "()Ljava/awt/Point;", nullptr, $PUBLIC},
-	{"*getMinimumSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC | $FINAL},
-	{"*getPreferredSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC | $FINAL},
-	{"*handlesWheelScrolling", "()Z", nullptr, $PUBLIC},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/awt/ScrollPane;Lsun/lwawt/PlatformComponent;)V", nullptr, 0, $method(LWScrollPanePeer, init$, void, $ScrollPane*, $PlatformComponent*)},
-	{"childResized", "(II)V", nullptr, $PUBLIC, $virtualMethod(LWScrollPanePeer, childResized, void, int32_t, int32_t)},
-	{"convertHPolicy", "(I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(LWScrollPanePeer, convertHPolicy, int32_t, int32_t)},
-	{"convertVPolicy", "(I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(LWScrollPanePeer, convertVPolicy, int32_t, int32_t)},
-	{"createDelegate", "()Ljavax/swing/JScrollPane;", nullptr, 0, $virtualMethod(LWScrollPanePeer, createDelegate, $JComponent*)},
-	{"getContentSize", "()Ljava/awt/Rectangle;", nullptr, 0, $virtualMethod(LWScrollPanePeer, getContentSize, $Rectangle*)},
-	{"getHScrollbarHeight", "()I", nullptr, $PUBLIC, $virtualMethod(LWScrollPanePeer, getHScrollbarHeight, int32_t)},
-	{"getVScrollbarWidth", "()I", nullptr, $PUBLIC, $virtualMethod(LWScrollPanePeer, getVScrollbarWidth, int32_t)},
-	{"getViewPeer", "()Lsun/lwawt/LWComponentPeer;", "()Lsun/lwawt/LWComponentPeer<**>;", 0, $method(LWScrollPanePeer, getViewPeer, $LWComponentPeer*)},
-	{"handleEvent", "(Ljava/awt/AWTEvent;)V", nullptr, $PUBLIC, $virtualMethod(LWScrollPanePeer, handleEvent, void, $AWTEvent*)},
-	{"initializeImpl", "()V", nullptr, 0, $virtualMethod(LWScrollPanePeer, initializeImpl, void)},
-	{"*isFocusable", "()Z", nullptr, $PUBLIC},
-	{"*isObscured", "()Z", nullptr, $PUBLIC},
-	{"*isReparentSupported", "()Z", nullptr, $PUBLIC},
-	{"layout", "()V", nullptr, $PUBLIC, $virtualMethod(LWScrollPanePeer, layout, void)},
-	{"*paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC | $FINAL},
-	{"*print", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC | $FINAL},
-	{"*reparent", "(Ljava/awt/peer/ContainerPeer;)V", nullptr, $PUBLIC},
-	{"*requestFocus", "(Ljava/awt/Component;ZZJLjava/awt/event/FocusEvent$Cause;)Z", nullptr, $PUBLIC},
-	{"*setBackground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC},
-	{"*setBounds", "(IIIII)V", nullptr, $PUBLIC},
-	{"*setEnabled", "(Z)V", nullptr, $PUBLIC},
-	{"*setFont", "(Ljava/awt/Font;)V", nullptr, $PUBLIC},
-	{"*setForeground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC},
-	{"setScrollPosition", "(II)V", nullptr, $PUBLIC, $virtualMethod(LWScrollPanePeer, setScrollPosition, void, int32_t, int32_t)},
-	{"setUnitIncrement", "(Ljava/awt/Adjustable;I)V", nullptr, $PUBLIC, $virtualMethod(LWScrollPanePeer, setUnitIncrement, void, $Adjustable*, int32_t)},
-	{"setValue", "(Ljava/awt/Adjustable;I)V", nullptr, $PUBLIC, $virtualMethod(LWScrollPanePeer, setValue, void, $Adjustable*, int32_t)},
-	{"*setVisible", "(Z)V", nullptr, $PUBLIC},
-	{"*setZOrder", "(Ljava/awt/peer/ComponentPeer;)V", nullptr, $PUBLIC},
-	{"stateChanged", "(Ljavax/swing/event/ChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(LWScrollPanePeer, stateChanged, void, $ChangeEvent*)},
-	{"*updateGraphicsData", "(Ljava/awt/GraphicsConfiguration;)Z", nullptr, $PUBLIC},
-	{"*updateCursorImmediately", "()V", nullptr, $PUBLIC},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _LWScrollPanePeer_InnerClassesInfo_[] = {
-	{"sun.lwawt.LWScrollPanePeer$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _LWScrollPanePeer_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.lwawt.LWScrollPanePeer",
-	"sun.lwawt.LWContainerPeer",
-	"java.awt.peer.ScrollPanePeer,javax.swing.event.ChangeListener",
-	nullptr,
-	_LWScrollPanePeer_MethodInfo_,
-	"Lsun/lwawt/LWContainerPeer<Ljava/awt/ScrollPane;Ljavax/swing/JScrollPane;>;Ljava/awt/peer/ScrollPanePeer;Ljavax/swing/event/ChangeListener;",
-	nullptr,
-	_LWScrollPanePeer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.lwawt.LWScrollPanePeer$1"
-};
-
-$Object* allocate$LWScrollPanePeer($Class* clazz) {
-	return $of($alloc(LWScrollPanePeer));
-}
 
 $Insets* LWScrollPanePeer::getInsets() {
 	 return this->$LWContainerPeer::getInsets();
@@ -372,23 +276,23 @@ void LWScrollPanePeer::init$($ScrollPane* target, $PlatformComponent* platformCo
 }
 
 $JComponent* LWScrollPanePeer::createDelegate() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JScrollPane, sp, $new($JScrollPane));
 	$var($JPanel, panel, $new($JPanel));
 	panel->setOpaque(false);
 	panel->setVisible(false);
-	$nc($(sp->getViewport()))->setView(panel);
+	$$nc(sp->getViewport())->setView(panel);
 	sp->setBorder($($BorderFactory::createEmptyBorder()));
-	$nc($(sp->getViewport()))->addChangeListener(this);
+	$$nc(sp->getViewport())->addChangeListener(this);
 	return sp;
 }
 
 void LWScrollPanePeer::handleEvent($AWTEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($instanceOf($MouseWheelEvent, e)) {
 		$var($MouseWheelEvent, wheelEvent, $cast($MouseWheelEvent, e));
-		bool var$0 = $nc(($cast($ScrollPane, $(getTarget()))))->isWheelScrollingEnabled();
-		if (var$0 && $nc(wheelEvent)->isConsumed()) {
+		bool var$0 = $$sure($ScrollPane, getTarget())->isWheelScrollingEnabled();
+		if (var$0 && wheelEvent->isConsumed()) {
 			sendEventToDelegate(wheelEvent);
 		}
 	} else {
@@ -401,39 +305,39 @@ void LWScrollPanePeer::stateChanged($ChangeEvent* e) {
 }
 
 void LWScrollPanePeer::initializeImpl() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$LWContainerPeer::initializeImpl();
-	int32_t policy = $nc(($cast($ScrollPane, $(getTarget()))))->getScrollbarDisplayPolicy();
+	int32_t policy = $$sure($ScrollPane, getTarget())->getScrollbarDisplayPolicy();
 	$synchronized(getDelegateLock()) {
-		$nc($($nc(($cast($JScrollPane, $(getDelegate()))))->getViewport()))->setScrollMode($JViewport::SIMPLE_SCROLL_MODE);
-		$nc(($cast($JScrollPane, $(getDelegate()))))->setVerticalScrollBarPolicy(convertVPolicy(policy));
-		$nc(($cast($JScrollPane, $(getDelegate()))))->setHorizontalScrollBarPolicy(convertHPolicy(policy));
+		$$nc($$sure($JScrollPane, getDelegate())->getViewport())->setScrollMode($JViewport::SIMPLE_SCROLL_MODE);
+		$$sure($JScrollPane, getDelegate())->setVerticalScrollBarPolicy(convertVPolicy(policy));
+		$$sure($JScrollPane, getDelegate())->setHorizontalScrollBarPolicy(convertHPolicy(policy));
 	}
 }
 
 $LWComponentPeer* LWScrollPanePeer::getViewPeer() {
 	$var($List, peerList, getChildren());
-	return $nc(peerList)->isEmpty() ? ($LWComponentPeer*)nullptr : $cast($LWComponentPeer, $nc(peerList)->get(0));
+	return $nc(peerList)->isEmpty() ? ($LWComponentPeer*)nullptr : $cast($LWComponentPeer, peerList->get(0));
 }
 
 $Rectangle* LWScrollPanePeer::getContentSize() {
-	$useLocalCurrentObjectStackCache();
-	$var($Rectangle, viewRect, $nc($($nc(($cast($JScrollPane, $(getDelegate()))))->getViewport()))->getViewRect());
-	return $new($Rectangle, $nc(viewRect)->width, viewRect->height);
+	$useLocalObjectStack();
+	$var($Rectangle, viewRect, $$nc($$sure($JScrollPane, getDelegate())->getViewport())->getViewRect());
+	return $new($Rectangle, $nc(viewRect)->width, $nc(viewRect)->height);
 }
 
 void LWScrollPanePeer::layout() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$LWContainerPeer::layout();
 	$synchronized(getDelegateLock()) {
 		$var($LWComponentPeer, viewPeer, getViewPeer());
 		if (viewPeer != nullptr) {
-			$var($Component, view, $nc($($nc(($cast($JScrollPane, $(getDelegate()))))->getViewport()))->getView());
+			$var($Component, view, $$nc($$sure($JScrollPane, getDelegate())->getViewport())->getView());
 			$nc(view)->setBounds($(viewPeer->getBounds()));
 			view->setPreferredSize($(viewPeer->getPreferredSize()));
 			view->setMinimumSize($(viewPeer->getMinimumSize()));
-			$nc(($cast($JScrollPane, $(getDelegate()))))->invalidate();
-			$nc(($cast($JScrollPane, $(getDelegate()))))->validate();
+			$$sure($JScrollPane, getDelegate())->invalidate();
+			$$sure($JScrollPane, getDelegate())->validate();
 			viewPeer->setBounds($(view->getBounds()));
 		}
 	}
@@ -443,24 +347,24 @@ void LWScrollPanePeer::setScrollPosition(int32_t x, int32_t y) {
 }
 
 int32_t LWScrollPanePeer::getHScrollbarHeight() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized(getDelegateLock()) {
-		return $nc($($nc(($cast($JScrollPane, $(getDelegate()))))->getHorizontalScrollBar()))->getHeight();
+		return $$nc($$sure($JScrollPane, getDelegate())->getHorizontalScrollBar())->getHeight();
 	}
 }
 
 int32_t LWScrollPanePeer::getVScrollbarWidth() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized(getDelegateLock()) {
-		return $nc($($nc(($cast($JScrollPane, $(getDelegate()))))->getVerticalScrollBar()))->getWidth();
+		return $$nc($$sure($JScrollPane, getDelegate())->getVerticalScrollBar())->getWidth();
 	}
 }
 
 void LWScrollPanePeer::childResized(int32_t w, int32_t h) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized(getDelegateLock()) {
-		$nc(($cast($JScrollPane, $(getDelegate()))))->invalidate();
-		$nc(($cast($JScrollPane, $(getDelegate()))))->validate();
+		$$sure($JScrollPane, getDelegate())->invalidate();
+		$$sure($JScrollPane, getDelegate())->validate();
 	}
 }
 
@@ -474,17 +378,11 @@ int32_t LWScrollPanePeer::convertHPolicy(int32_t policy) {
 	$init(LWScrollPanePeer);
 	switch (policy) {
 	case $ScrollPane::SCROLLBARS_NEVER:
-		{
-			return $ScrollPaneConstants::HORIZONTAL_SCROLLBAR_NEVER;
-		}
+		return $ScrollPaneConstants::HORIZONTAL_SCROLLBAR_NEVER;
 	case $ScrollPane::SCROLLBARS_ALWAYS:
-		{
-			return $ScrollPaneConstants::HORIZONTAL_SCROLLBAR_ALWAYS;
-		}
+		return $ScrollPaneConstants::HORIZONTAL_SCROLLBAR_ALWAYS;
 	default:
-		{
-			return $ScrollPaneConstants::HORIZONTAL_SCROLLBAR_AS_NEEDED;
-		}
+		return $ScrollPaneConstants::HORIZONTAL_SCROLLBAR_AS_NEEDED;
 	}
 }
 
@@ -492,17 +390,11 @@ int32_t LWScrollPanePeer::convertVPolicy(int32_t policy) {
 	$init(LWScrollPanePeer);
 	switch (policy) {
 	case $ScrollPane::SCROLLBARS_NEVER:
-		{
-			return $ScrollPaneConstants::VERTICAL_SCROLLBAR_NEVER;
-		}
+		return $ScrollPaneConstants::VERTICAL_SCROLLBAR_NEVER;
 	case $ScrollPane::SCROLLBARS_ALWAYS:
-		{
-			return $ScrollPaneConstants::VERTICAL_SCROLLBAR_ALWAYS;
-		}
+		return $ScrollPaneConstants::VERTICAL_SCROLLBAR_ALWAYS;
 	default:
-		{
-			return $ScrollPaneConstants::VERTICAL_SCROLLBAR_AS_NEEDED;
-		}
+		return $ScrollPaneConstants::VERTICAL_SCROLLBAR_AS_NEEDED;
 	}
 }
 
@@ -510,7 +402,90 @@ LWScrollPanePeer::LWScrollPanePeer() {
 }
 
 $Class* LWScrollPanePeer::load$($String* name, bool initialize) {
-	$loadClass(LWScrollPanePeer, name, initialize, &_LWScrollPanePeer_ClassInfo_, allocate$LWScrollPanePeer);
+	$MethodInfo methodInfos$$[] = {
+		{"*applyShape", "(Lsun/java2d/pipe/Region;)V", nullptr, $PUBLIC | $FINAL},
+		{"*beginLayout", "()V", nullptr, $PUBLIC | $FINAL},
+		{"*beginValidate", "()V", nullptr, $PUBLIC | $FINAL},
+		{"*canDetermineObscurity", "()Z", nullptr, $PUBLIC},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*coalescePaintEvent", "(Ljava/awt/event/PaintEvent;)V", nullptr, $PUBLIC},
+		{"*createBuffers", "(ILjava/awt/BufferCapabilities;)V", nullptr, $PUBLIC | $FINAL},
+		{"*createImage", "(II)Ljava/awt/Image;", nullptr, $PUBLIC | $FINAL},
+		{"*createVolatileImage", "(II)Ljava/awt/image/VolatileImage;", nullptr, $PUBLIC | $FINAL},
+		{"*destroyBuffers", "()V", nullptr, $PUBLIC | $FINAL},
+		{"*dispose", "()V", nullptr, $PUBLIC | $FINAL},
+		{"*endLayout", "()V", nullptr, $PUBLIC | $FINAL},
+		{"*endValidate", "()V", nullptr, $PUBLIC | $FINAL},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*flip", "(IIIILjava/awt/BufferCapabilities$FlipContents;)V", nullptr, $PUBLIC | $FINAL},
+		{"*getBackBuffer", "()Ljava/awt/Image;", nullptr, $PUBLIC | $FINAL},
+		{"*getColorModel", "()Ljava/awt/image/ColorModel;", nullptr, $PUBLIC},
+		{"*getFontMetrics", "(Ljava/awt/Font;)Ljava/awt/FontMetrics;", nullptr, $PUBLIC},
+		{"*getGraphics", "()Ljava/awt/Graphics;", nullptr, $PUBLIC},
+		{"*getGraphicsConfiguration", "()Ljava/awt/GraphicsConfiguration;", nullptr, $PUBLIC},
+		{"*getInsets", "()Ljava/awt/Insets;", nullptr, $PUBLIC},
+		{"*getLocationOnScreen", "()Ljava/awt/Point;", nullptr, $PUBLIC},
+		{"*getMinimumSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC | $FINAL},
+		{"*getPreferredSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC | $FINAL},
+		{"*handlesWheelScrolling", "()Z", nullptr, $PUBLIC},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/awt/ScrollPane;Lsun/lwawt/PlatformComponent;)V", nullptr, 0, $method(LWScrollPanePeer, init$, void, $ScrollPane*, $PlatformComponent*)},
+		{"childResized", "(II)V", nullptr, $PUBLIC, $virtualMethod(LWScrollPanePeer, childResized, void, int32_t, int32_t)},
+		{"convertHPolicy", "(I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(LWScrollPanePeer, convertHPolicy, int32_t, int32_t)},
+		{"convertVPolicy", "(I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(LWScrollPanePeer, convertVPolicy, int32_t, int32_t)},
+		{"createDelegate", "()Ljavax/swing/JScrollPane;", nullptr, 0, $virtualMethod(LWScrollPanePeer, createDelegate, $JComponent*)},
+		{"getContentSize", "()Ljava/awt/Rectangle;", nullptr, 0, $virtualMethod(LWScrollPanePeer, getContentSize, $Rectangle*)},
+		{"getHScrollbarHeight", "()I", nullptr, $PUBLIC, $virtualMethod(LWScrollPanePeer, getHScrollbarHeight, int32_t)},
+		{"getVScrollbarWidth", "()I", nullptr, $PUBLIC, $virtualMethod(LWScrollPanePeer, getVScrollbarWidth, int32_t)},
+		{"getViewPeer", "()Lsun/lwawt/LWComponentPeer;", "()Lsun/lwawt/LWComponentPeer<**>;", 0, $method(LWScrollPanePeer, getViewPeer, $LWComponentPeer*)},
+		{"handleEvent", "(Ljava/awt/AWTEvent;)V", nullptr, $PUBLIC, $virtualMethod(LWScrollPanePeer, handleEvent, void, $AWTEvent*)},
+		{"initializeImpl", "()V", nullptr, 0, $virtualMethod(LWScrollPanePeer, initializeImpl, void)},
+		{"*isFocusable", "()Z", nullptr, $PUBLIC},
+		{"*isObscured", "()Z", nullptr, $PUBLIC},
+		{"*isReparentSupported", "()Z", nullptr, $PUBLIC},
+		{"layout", "()V", nullptr, $PUBLIC, $virtualMethod(LWScrollPanePeer, layout, void)},
+		{"*paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC | $FINAL},
+		{"*print", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC | $FINAL},
+		{"*reparent", "(Ljava/awt/peer/ContainerPeer;)V", nullptr, $PUBLIC},
+		{"*requestFocus", "(Ljava/awt/Component;ZZJLjava/awt/event/FocusEvent$Cause;)Z", nullptr, $PUBLIC},
+		{"*setBackground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC},
+		{"*setBounds", "(IIIII)V", nullptr, $PUBLIC},
+		{"*setEnabled", "(Z)V", nullptr, $PUBLIC},
+		{"*setFont", "(Ljava/awt/Font;)V", nullptr, $PUBLIC},
+		{"*setForeground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC},
+		{"setScrollPosition", "(II)V", nullptr, $PUBLIC, $virtualMethod(LWScrollPanePeer, setScrollPosition, void, int32_t, int32_t)},
+		{"setUnitIncrement", "(Ljava/awt/Adjustable;I)V", nullptr, $PUBLIC, $virtualMethod(LWScrollPanePeer, setUnitIncrement, void, $Adjustable*, int32_t)},
+		{"setValue", "(Ljava/awt/Adjustable;I)V", nullptr, $PUBLIC, $virtualMethod(LWScrollPanePeer, setValue, void, $Adjustable*, int32_t)},
+		{"*setVisible", "(Z)V", nullptr, $PUBLIC},
+		{"*setZOrder", "(Ljava/awt/peer/ComponentPeer;)V", nullptr, $PUBLIC},
+		{"stateChanged", "(Ljavax/swing/event/ChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(LWScrollPanePeer, stateChanged, void, $ChangeEvent*)},
+		{"*updateGraphicsData", "(Ljava/awt/GraphicsConfiguration;)Z", nullptr, $PUBLIC},
+		{"*updateCursorImmediately", "()V", nullptr, $PUBLIC},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.lwawt.LWScrollPanePeer$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.lwawt.LWScrollPanePeer",
+		"sun.lwawt.LWContainerPeer",
+		"java.awt.peer.ScrollPanePeer,javax.swing.event.ChangeListener",
+		nullptr,
+		methodInfos$$,
+		"Lsun/lwawt/LWContainerPeer<Ljava/awt/ScrollPane;Ljavax/swing/JScrollPane;>;Ljava/awt/peer/ScrollPanePeer;Ljavax/swing/event/ChangeListener;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.lwawt.LWScrollPanePeer$1"
+	};
+	$loadClass(LWScrollPanePeer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(LWScrollPanePeer));
+	});
 	return class$;
 }
 

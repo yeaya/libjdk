@@ -73,6 +73,7 @@ class $import MediaSize$JIS : public ::java::lang::Object {
 	$class(MediaSize$JIS, 0, ::java::lang::Object)
 public:
 	MediaSize$JIS();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::javax::print::attribute::standard::MediaSize* B0;
 	static ::javax::print::attribute::standard::MediaSize* B1;

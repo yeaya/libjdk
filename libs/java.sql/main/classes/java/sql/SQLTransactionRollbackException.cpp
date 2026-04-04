@@ -1,5 +1,4 @@
 #include <java/sql/SQLTransactionRollbackException.h>
-
 #include <java/sql/SQLTransientException.h>
 #include <jcpp.h>
 
@@ -10,36 +9,6 @@ using $SQLTransientException = ::java::sql::SQLTransientException;
 
 namespace java {
 	namespace sql {
-
-$FieldInfo _SQLTransactionRollbackException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SQLTransactionRollbackException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _SQLTransactionRollbackException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SQLTransactionRollbackException, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SQLTransactionRollbackException, init$, void, $String*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SQLTransactionRollbackException, init$, void, $String*, $String*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(SQLTransactionRollbackException, init$, void, $String*, $String*, int32_t)},
-	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(SQLTransactionRollbackException, init$, void, $Throwable*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(SQLTransactionRollbackException, init$, void, $String*, $Throwable*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(SQLTransactionRollbackException, init$, void, $String*, $String*, $Throwable*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;ILjava/lang/Throwable;)V", nullptr, $PUBLIC, $method(SQLTransactionRollbackException, init$, void, $String*, $String*, int32_t, $Throwable*)},
-	{}
-};
-
-$ClassInfo _SQLTransactionRollbackException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.sql.SQLTransactionRollbackException",
-	"java.sql.SQLTransientException",
-	nullptr,
-	_SQLTransactionRollbackException_FieldInfo_,
-	_SQLTransactionRollbackException_MethodInfo_
-};
-
-$Object* allocate$SQLTransactionRollbackException($Class* clazz) {
-	return $of($alloc(SQLTransactionRollbackException));
-}
 
 void SQLTransactionRollbackException::init$() {
 	$SQLTransientException::init$();
@@ -84,7 +53,32 @@ void SQLTransactionRollbackException::throw$() {
 }
 
 $Class* SQLTransactionRollbackException::load$($String* name, bool initialize) {
-	$loadClass(SQLTransactionRollbackException, name, initialize, &_SQLTransactionRollbackException_ClassInfo_, allocate$SQLTransactionRollbackException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SQLTransactionRollbackException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SQLTransactionRollbackException, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SQLTransactionRollbackException, init$, void, $String*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SQLTransactionRollbackException, init$, void, $String*, $String*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(SQLTransactionRollbackException, init$, void, $String*, $String*, int32_t)},
+		{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(SQLTransactionRollbackException, init$, void, $Throwable*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(SQLTransactionRollbackException, init$, void, $String*, $Throwable*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(SQLTransactionRollbackException, init$, void, $String*, $String*, $Throwable*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;ILjava/lang/Throwable;)V", nullptr, $PUBLIC, $method(SQLTransactionRollbackException, init$, void, $String*, $String*, int32_t, $Throwable*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.sql.SQLTransactionRollbackException",
+		"java.sql.SQLTransientException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SQLTransactionRollbackException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SQLTransactionRollbackException));
+	});
 	return class$;
 }
 

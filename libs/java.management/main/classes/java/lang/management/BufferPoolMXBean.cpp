@@ -1,5 +1,4 @@
 #include <java/lang/management/BufferPoolMXBean.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -9,29 +8,25 @@ namespace java {
 	namespace lang {
 		namespace management {
 
-$MethodInfo _BufferPoolMXBean_MethodInfo_[] = {
-	{"getCount", "()J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(BufferPoolMXBean, getCount, int64_t)},
-	{"getMemoryUsed", "()J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(BufferPoolMXBean, getMemoryUsed, int64_t)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(BufferPoolMXBean, getName, $String*)},
-	{"getTotalCapacity", "()J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(BufferPoolMXBean, getTotalCapacity, int64_t)},
-	{}
-};
-
-$ClassInfo _BufferPoolMXBean_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.lang.management.BufferPoolMXBean",
-	nullptr,
-	"java.lang.management.PlatformManagedObject",
-	nullptr,
-	_BufferPoolMXBean_MethodInfo_
-};
-
-$Object* allocate$BufferPoolMXBean($Class* clazz) {
-	return $of($alloc(BufferPoolMXBean));
-}
-
 $Class* BufferPoolMXBean::load$($String* name, bool initialize) {
-	$loadClass(BufferPoolMXBean, name, initialize, &_BufferPoolMXBean_ClassInfo_, allocate$BufferPoolMXBean);
+	$MethodInfo methodInfos$$[] = {
+		{"getCount", "()J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(BufferPoolMXBean, getCount, int64_t)},
+		{"getMemoryUsed", "()J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(BufferPoolMXBean, getMemoryUsed, int64_t)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(BufferPoolMXBean, getName, $String*)},
+		{"getTotalCapacity", "()J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(BufferPoolMXBean, getTotalCapacity, int64_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.lang.management.BufferPoolMXBean",
+		nullptr,
+		"java.lang.management.PlatformManagedObject",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(BufferPoolMXBean, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BufferPoolMXBean);
+	});
 	return class$;
 }
 

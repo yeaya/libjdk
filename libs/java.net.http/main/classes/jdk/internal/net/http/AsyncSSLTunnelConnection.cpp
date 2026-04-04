@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/AsyncSSLTunnelConnection.h>
-
 #include <java/io/Serializable.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
@@ -61,7 +60,6 @@ using $HttpConnection$PlainHttpPublisher = ::jdk::internal::net::http::HttpConne
 using $PlainTunnelingConnection = ::jdk::internal::net::http::PlainTunnelingConnection;
 using $BufferSupplier = ::jdk::internal::net::http::common::BufferSupplier;
 using $FlowTube = ::jdk::internal::net::http::common::FlowTube;
-using $Logger = ::jdk::internal::net::http::common::Logger;
 using $MinimalFuture = ::jdk::internal::net::http::common::MinimalFuture;
 using $SSLTube = ::jdk::internal::net::http::common::SSLTube;
 using $Utils = ::jdk::internal::net::http::common::Utils;
@@ -80,35 +78,31 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* apply(Object$* unused) override {
-		 return $of($nc(inst$)->lambda$connectAsync$0($cast($Void, unused)));
-	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<AsyncSSLTunnelConnection$$Lambda$lambda$connectAsync$0>());
+		 return $nc(inst$)->lambda$connectAsync$0($cast($Void, unused));
 	}
 	AsyncSSLTunnelConnection* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo AsyncSSLTunnelConnection$$Lambda$lambda$connectAsync$0::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(AsyncSSLTunnelConnection$$Lambda$lambda$connectAsync$0, inst$)},
-	{}
-};
-$MethodInfo AsyncSSLTunnelConnection$$Lambda$lambda$connectAsync$0::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/AsyncSSLTunnelConnection;)V", nullptr, $PUBLIC, $method(AsyncSSLTunnelConnection$$Lambda$lambda$connectAsync$0, init$, void, AsyncSSLTunnelConnection*)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AsyncSSLTunnelConnection$$Lambda$lambda$connectAsync$0, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo AsyncSSLTunnelConnection$$Lambda$lambda$connectAsync$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.net.http.AsyncSSLTunnelConnection$$Lambda$lambda$connectAsync$0",
-	"java.lang.Object",
-	"java.util.function.Function",
-	fieldInfos,
-	methodInfos
 };
 $Class* AsyncSSLTunnelConnection$$Lambda$lambda$connectAsync$0::load$($String* name, bool initialize) {
-	$loadClass(AsyncSSLTunnelConnection$$Lambda$lambda$connectAsync$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(AsyncSSLTunnelConnection$$Lambda$lambda$connectAsync$0, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/internal/net/http/AsyncSSLTunnelConnection;)V", nullptr, $PUBLIC, $method(AsyncSSLTunnelConnection$$Lambda$lambda$connectAsync$0, init$, void, AsyncSSLTunnelConnection*)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AsyncSSLTunnelConnection$$Lambda$lambda$connectAsync$0, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.net.http.AsyncSSLTunnelConnection$$Lambda$lambda$connectAsync$0",
+		"java.lang.Object",
+		"java.util.function.Function",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(AsyncSSLTunnelConnection$$Lambda$lambda$connectAsync$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AsyncSSLTunnelConnection$$Lambda$lambda$connectAsync$0);
+	});
 	return class$;
 }
 $Class* AsyncSSLTunnelConnection$$Lambda$lambda$connectAsync$0::class$ = nullptr;
@@ -122,33 +116,29 @@ public:
 	virtual $Object* apply(Object$* unused, Object$* ex) override {
 		 return $of($nc(inst$)->lambda$finishConnect$1($cast($String, unused), $cast($Throwable, ex)));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<AsyncSSLTunnelConnection$$Lambda$lambda$finishConnect$1$1>());
-	}
 	AsyncSSLTunnelConnection* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo AsyncSSLTunnelConnection$$Lambda$lambda$finishConnect$1$1::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(AsyncSSLTunnelConnection$$Lambda$lambda$finishConnect$1$1, inst$)},
-	{}
-};
-$MethodInfo AsyncSSLTunnelConnection$$Lambda$lambda$finishConnect$1$1::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/AsyncSSLTunnelConnection;)V", nullptr, $PUBLIC, $method(AsyncSSLTunnelConnection$$Lambda$lambda$finishConnect$1$1, init$, void, AsyncSSLTunnelConnection*)},
-	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AsyncSSLTunnelConnection$$Lambda$lambda$finishConnect$1$1, apply, $Object*, Object$*, Object$*)},
-	{}
-};
-$ClassInfo AsyncSSLTunnelConnection$$Lambda$lambda$finishConnect$1$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.net.http.AsyncSSLTunnelConnection$$Lambda$lambda$finishConnect$1$1",
-	"java.lang.Object",
-	"java.util.function.BiFunction",
-	fieldInfos,
-	methodInfos
 };
 $Class* AsyncSSLTunnelConnection$$Lambda$lambda$finishConnect$1$1::load$($String* name, bool initialize) {
-	$loadClass(AsyncSSLTunnelConnection$$Lambda$lambda$finishConnect$1$1, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(AsyncSSLTunnelConnection$$Lambda$lambda$finishConnect$1$1, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/internal/net/http/AsyncSSLTunnelConnection;)V", nullptr, $PUBLIC, $method(AsyncSSLTunnelConnection$$Lambda$lambda$finishConnect$1$1, init$, void, AsyncSSLTunnelConnection*)},
+		{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AsyncSSLTunnelConnection$$Lambda$lambda$finishConnect$1$1, apply, $Object*, Object$*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.net.http.AsyncSSLTunnelConnection$$Lambda$lambda$finishConnect$1$1",
+		"java.lang.Object",
+		"java.util.function.BiFunction",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(AsyncSSLTunnelConnection$$Lambda$lambda$finishConnect$1$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AsyncSSLTunnelConnection$$Lambda$lambda$finishConnect$1$1);
+	});
 	return class$;
 }
 $Class* AsyncSSLTunnelConnection$$Lambda$lambda$finishConnect$1$1::class$ = nullptr;
@@ -162,97 +152,51 @@ public:
 	virtual void accept(Object$* buffer) override {
 		$nc(inst$)->recycle($cast($ByteBuffer, buffer));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<AsyncSSLTunnelConnection$$Lambda$recycle$2>());
-	}
 	$BufferSupplier* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo AsyncSSLTunnelConnection$$Lambda$recycle$2::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(AsyncSSLTunnelConnection$$Lambda$recycle$2, inst$)},
-	{}
-};
-$MethodInfo AsyncSSLTunnelConnection$$Lambda$recycle$2::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/common/BufferSupplier;)V", nullptr, $PUBLIC, $method(AsyncSSLTunnelConnection$$Lambda$recycle$2, init$, void, $BufferSupplier*)},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(AsyncSSLTunnelConnection$$Lambda$recycle$2, accept, void, Object$*)},
-	{}
-};
-$ClassInfo AsyncSSLTunnelConnection$$Lambda$recycle$2::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.net.http.AsyncSSLTunnelConnection$$Lambda$recycle$2",
-	"java.lang.Object",
-	"java.util.function.Consumer",
-	fieldInfos,
-	methodInfos
 };
 $Class* AsyncSSLTunnelConnection$$Lambda$recycle$2::load$($String* name, bool initialize) {
-	$loadClass(AsyncSSLTunnelConnection$$Lambda$recycle$2, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(AsyncSSLTunnelConnection$$Lambda$recycle$2, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/internal/net/http/common/BufferSupplier;)V", nullptr, $PUBLIC, $method(AsyncSSLTunnelConnection$$Lambda$recycle$2, init$, void, $BufferSupplier*)},
+		{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(AsyncSSLTunnelConnection$$Lambda$recycle$2, accept, void, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.net.http.AsyncSSLTunnelConnection$$Lambda$recycle$2",
+		"java.lang.Object",
+		"java.util.function.Consumer",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(AsyncSSLTunnelConnection$$Lambda$recycle$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AsyncSSLTunnelConnection$$Lambda$recycle$2);
+	});
 	return class$;
 }
 $Class* AsyncSSLTunnelConnection$$Lambda$recycle$2::class$ = nullptr;
 
-$FieldInfo _AsyncSSLTunnelConnection_FieldInfo_[] = {
-	{"plainConnection", "Ljdk/internal/net/http/PlainTunnelingConnection;", nullptr, $FINAL, $field(AsyncSSLTunnelConnection, plainConnection)},
-	{"writePublisher", "Ljdk/internal/net/http/HttpConnection$PlainHttpPublisher;", nullptr, $FINAL, $field(AsyncSSLTunnelConnection, writePublisher)},
-	{"flow", "Ljdk/internal/net/http/common/SSLTube;", nullptr, $VOLATILE, $field(AsyncSSLTunnelConnection, flow)},
-	{}
-};
-
-$MethodInfo _AsyncSSLTunnelConnection_MethodInfo_[] = {
-	{"<init>", "(Ljava/net/InetSocketAddress;Ljdk/internal/net/http/HttpClientImpl;[Ljava/lang/String;Ljava/net/InetSocketAddress;Ljdk/internal/net/http/common/Utils$ProxyHeaders;)V", nullptr, 0, $method(AsyncSSLTunnelConnection, init$, void, $InetSocketAddress*, $HttpClientImpl*, $StringArray*, $InetSocketAddress*, $Utils$ProxyHeaders*)},
-	{"cacheKey", "()Ljdk/internal/net/http/ConnectionPool$CacheKey;", nullptr, 0, $virtualMethod(AsyncSSLTunnelConnection, cacheKey, $ConnectionPool$CacheKey*)},
-	{"channel", "()Ljava/nio/channels/SocketChannel;", nullptr, 0, $virtualMethod(AsyncSSLTunnelConnection, channel, $SocketChannel*)},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(AsyncSSLTunnelConnection, close, void)},
-	{"connectAsync", "(Ljdk/internal/net/http/Exchange;)Ljava/util/concurrent/CompletableFuture;", "(Ljdk/internal/net/http/Exchange<*>;)Ljava/util/concurrent/CompletableFuture<Ljava/lang/Void;>;", $PUBLIC, $virtualMethod(AsyncSSLTunnelConnection, connectAsync, $CompletableFuture*, $Exchange*)},
-	{"connected", "()Z", nullptr, 0, $virtualMethod(AsyncSSLTunnelConnection, connected, bool)},
-	{"finishConnect", "()Ljava/util/concurrent/CompletableFuture;", "()Ljava/util/concurrent/CompletableFuture<Ljava/lang/Void;>;", $PUBLIC, $virtualMethod(AsyncSSLTunnelConnection, finishConnect, $CompletableFuture*)},
-	{"getConnectionFlow", "()Ljdk/internal/net/http/common/SSLTube;", nullptr, 0, $virtualMethod(AsyncSSLTunnelConnection, getConnectionFlow, $FlowTube*)},
-	{"isProxied", "()Z", nullptr, 0, $virtualMethod(AsyncSSLTunnelConnection, isProxied, bool)},
-	{"isTunnel", "()Z", nullptr, 0, $virtualMethod(AsyncSSLTunnelConnection, isTunnel, bool)},
-	{"lambda$connectAsync$0", "(Ljava/lang/Void;)Ljava/lang/Void;", nullptr, $PRIVATE | $SYNTHETIC, $method(AsyncSSLTunnelConnection, lambda$connectAsync$0, $Void*, $Void*)},
-	{"lambda$finishConnect$1", "(Ljava/lang/String;Ljava/lang/Throwable;)Ljava/util/concurrent/CompletableFuture;", nullptr, $PRIVATE | $SYNTHETIC, $method(AsyncSSLTunnelConnection, lambda$finishConnect$1, $CompletableFuture*, $String*, $Throwable*)},
-	{"proxy", "()Ljava/net/InetSocketAddress;", nullptr, 0, $virtualMethod(AsyncSSLTunnelConnection, proxy, $InetSocketAddress*)},
-	{"publisher", "()Ljdk/internal/net/http/HttpConnection$HttpPublisher;", nullptr, 0, $virtualMethod(AsyncSSLTunnelConnection, publisher, $HttpConnection$HttpPublisher*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AsyncSSLTunnelConnection, toString, $String*)},
-	{}
-};
-
-$ClassInfo _AsyncSSLTunnelConnection_ClassInfo_ = {
-	$ACC_SUPER,
-	"jdk.internal.net.http.AsyncSSLTunnelConnection",
-	"jdk.internal.net.http.AbstractAsyncSSLConnection",
-	nullptr,
-	_AsyncSSLTunnelConnection_FieldInfo_,
-	_AsyncSSLTunnelConnection_MethodInfo_
-};
-
-$Object* allocate$AsyncSSLTunnelConnection($Class* clazz) {
-	return $of($alloc(AsyncSSLTunnelConnection));
-}
-
 void AsyncSSLTunnelConnection::init$($InetSocketAddress* addr, $HttpClientImpl* client, $StringArray* alpn, $InetSocketAddress* proxy, $Utils$ProxyHeaders* proxyHeaders) {
-	$useLocalCurrentObjectStackCache();
-	$var($InetSocketAddress, var$0, addr);
-	$var($HttpClientImpl, var$1, client);
-	$var($Utils$ServerName, var$2, $Utils::getServerName(addr));
-	$AbstractAsyncSSLConnection::init$(var$0, var$1, var$2, $nc(addr)->getPort(), alpn);
+	$var($Utils$ServerName, var$0, $Utils::getServerName(addr));
+	$AbstractAsyncSSLConnection::init$(addr, client, var$0, $nc(addr)->getPort(), alpn);
 	$set(this, plainConnection, $new($PlainTunnelingConnection, addr, proxy, client, proxyHeaders));
 	$set(this, writePublisher, $new($HttpConnection$PlainHttpPublisher, this));
 }
 
 $CompletableFuture* AsyncSSLTunnelConnection::connectAsync($Exchange* exchange) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(this->debug)->on()) {
-		$nc(this->debug)->log("Connecting plain tunnel connection"_s);
+		this->debug->log("Connecting plain tunnel connection"_s);
 	}
-	return $cast($CompletableFuture, $nc($($nc(this->plainConnection)->connectAsync(exchange)))->thenApply(static_cast<$Function*>($$new(AsyncSSLTunnelConnection$$Lambda$lambda$connectAsync$0, this))));
+	return $cast($CompletableFuture, $$nc($nc(this->plainConnection)->connectAsync(exchange))->thenApply($$new(AsyncSSLTunnelConnection$$Lambda$lambda$connectAsync$0, this)));
 }
 
 $CompletableFuture* AsyncSSLTunnelConnection::finishConnect() {
-	$useLocalCurrentObjectStackCache();
-	return $cast($CompletableFuture, $nc($($cast($CompletableFuture, $nc($(getALPN()))->handle(static_cast<$BiFunction*>($$new(AsyncSSLTunnelConnection$$Lambda$lambda$finishConnect$1$1, this))))))->thenCompose($($Function::identity())));
+	$useLocalObjectStack();
+	return $cast($CompletableFuture, $$sure($CompletableFuture, $$nc(getALPN())->handle($$new(AsyncSSLTunnelConnection$$Lambda$lambda$finishConnect$1$1, this)))->thenCompose($($Function::identity())));
 }
 
 bool AsyncSSLTunnelConnection::isTunnel() {
@@ -305,13 +249,13 @@ $CompletableFuture* AsyncSSLTunnelConnection::lambda$finishConnect$1($String* un
 }
 
 $Void* AsyncSSLTunnelConnection::lambda$connectAsync$0($Void* unused) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(this->debug)->on()) {
-		$nc(this->debug)->log("creating SSLTube"_s);
+		this->debug->log("creating SSLTube"_s);
 	}
 	$var($SSLEngine, var$0, this->engine);
-	$var($Executor, var$1, static_cast<$Executor*>($nc($(client()))->theExecutor()));
-	$var($Consumer, var$2, static_cast<$Consumer*>($new(AsyncSSLTunnelConnection$$Lambda$recycle$2, static_cast<$BufferSupplier*>($nc($($nc($(client()))->getSSLBufferSupplier()))))));
+	$var($Executor, var$1, $$nc(client())->theExecutor());
+	$var($Consumer, var$2, $new(AsyncSSLTunnelConnection$$Lambda$recycle$2, $nc($($$nc(client())->getSSLBufferSupplier()))));
 	$set(this, flow, $new($SSLTube, var$0, var$1, var$2, $($nc(this->plainConnection)->getConnectionFlow())));
 	return nullptr;
 }
@@ -321,17 +265,51 @@ AsyncSSLTunnelConnection::AsyncSSLTunnelConnection() {
 
 $Class* AsyncSSLTunnelConnection::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(AsyncSSLTunnelConnection$$Lambda$lambda$connectAsync$0::classInfo$.name)) {
+		if (name->equals("jdk.internal.net.http.AsyncSSLTunnelConnection$$Lambda$lambda$connectAsync$0")) {
 			return AsyncSSLTunnelConnection$$Lambda$lambda$connectAsync$0::load$(name, initialize);
 		}
-		if (name->equals(AsyncSSLTunnelConnection$$Lambda$lambda$finishConnect$1$1::classInfo$.name)) {
+		if (name->equals("jdk.internal.net.http.AsyncSSLTunnelConnection$$Lambda$lambda$finishConnect$1$1")) {
 			return AsyncSSLTunnelConnection$$Lambda$lambda$finishConnect$1$1::load$(name, initialize);
 		}
-		if (name->equals(AsyncSSLTunnelConnection$$Lambda$recycle$2::classInfo$.name)) {
+		if (name->equals("jdk.internal.net.http.AsyncSSLTunnelConnection$$Lambda$recycle$2")) {
 			return AsyncSSLTunnelConnection$$Lambda$recycle$2::load$(name, initialize);
 		}
 	}
-	$loadClass(AsyncSSLTunnelConnection, name, initialize, &_AsyncSSLTunnelConnection_ClassInfo_, allocate$AsyncSSLTunnelConnection);
+	$FieldInfo fieldInfos$$[] = {
+		{"plainConnection", "Ljdk/internal/net/http/PlainTunnelingConnection;", nullptr, $FINAL, $field(AsyncSSLTunnelConnection, plainConnection)},
+		{"writePublisher", "Ljdk/internal/net/http/HttpConnection$PlainHttpPublisher;", nullptr, $FINAL, $field(AsyncSSLTunnelConnection, writePublisher)},
+		{"flow", "Ljdk/internal/net/http/common/SSLTube;", nullptr, $VOLATILE, $field(AsyncSSLTunnelConnection, flow)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/net/InetSocketAddress;Ljdk/internal/net/http/HttpClientImpl;[Ljava/lang/String;Ljava/net/InetSocketAddress;Ljdk/internal/net/http/common/Utils$ProxyHeaders;)V", nullptr, 0, $method(AsyncSSLTunnelConnection, init$, void, $InetSocketAddress*, $HttpClientImpl*, $StringArray*, $InetSocketAddress*, $Utils$ProxyHeaders*)},
+		{"cacheKey", "()Ljdk/internal/net/http/ConnectionPool$CacheKey;", nullptr, 0, $virtualMethod(AsyncSSLTunnelConnection, cacheKey, $ConnectionPool$CacheKey*)},
+		{"channel", "()Ljava/nio/channels/SocketChannel;", nullptr, 0, $virtualMethod(AsyncSSLTunnelConnection, channel, $SocketChannel*)},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(AsyncSSLTunnelConnection, close, void)},
+		{"connectAsync", "(Ljdk/internal/net/http/Exchange;)Ljava/util/concurrent/CompletableFuture;", "(Ljdk/internal/net/http/Exchange<*>;)Ljava/util/concurrent/CompletableFuture<Ljava/lang/Void;>;", $PUBLIC, $virtualMethod(AsyncSSLTunnelConnection, connectAsync, $CompletableFuture*, $Exchange*)},
+		{"connected", "()Z", nullptr, 0, $virtualMethod(AsyncSSLTunnelConnection, connected, bool)},
+		{"finishConnect", "()Ljava/util/concurrent/CompletableFuture;", "()Ljava/util/concurrent/CompletableFuture<Ljava/lang/Void;>;", $PUBLIC, $virtualMethod(AsyncSSLTunnelConnection, finishConnect, $CompletableFuture*)},
+		{"getConnectionFlow", "()Ljdk/internal/net/http/common/SSLTube;", nullptr, 0, $virtualMethod(AsyncSSLTunnelConnection, getConnectionFlow, $FlowTube*)},
+		{"isProxied", "()Z", nullptr, 0, $virtualMethod(AsyncSSLTunnelConnection, isProxied, bool)},
+		{"isTunnel", "()Z", nullptr, 0, $virtualMethod(AsyncSSLTunnelConnection, isTunnel, bool)},
+		{"lambda$connectAsync$0", "(Ljava/lang/Void;)Ljava/lang/Void;", nullptr, $PRIVATE | $SYNTHETIC, $method(AsyncSSLTunnelConnection, lambda$connectAsync$0, $Void*, $Void*)},
+		{"lambda$finishConnect$1", "(Ljava/lang/String;Ljava/lang/Throwable;)Ljava/util/concurrent/CompletableFuture;", nullptr, $PRIVATE | $SYNTHETIC, $method(AsyncSSLTunnelConnection, lambda$finishConnect$1, $CompletableFuture*, $String*, $Throwable*)},
+		{"proxy", "()Ljava/net/InetSocketAddress;", nullptr, 0, $virtualMethod(AsyncSSLTunnelConnection, proxy, $InetSocketAddress*)},
+		{"publisher", "()Ljdk/internal/net/http/HttpConnection$HttpPublisher;", nullptr, 0, $virtualMethod(AsyncSSLTunnelConnection, publisher, $HttpConnection$HttpPublisher*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AsyncSSLTunnelConnection, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"jdk.internal.net.http.AsyncSSLTunnelConnection",
+		"jdk.internal.net.http.AbstractAsyncSSLConnection",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(AsyncSSLTunnelConnection, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AsyncSSLTunnelConnection);
+	});
 	return class$;
 }
 

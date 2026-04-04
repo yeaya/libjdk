@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/jvm/JNIWriter$EncoderType.h>
-
 #include <com/sun/tools/javac/jvm/JNIWriter.h>
 #include <java/lang/Enum.h>
 #include <jcpp.h>
@@ -22,49 +21,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace jvm {
-
-$FieldInfo _JNIWriter$EncoderType_FieldInfo_[] = {
-	{"CLASS", "Lcom/sun/tools/javac/jvm/JNIWriter$EncoderType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JNIWriter$EncoderType, CLASS)},
-	{"FIELDSTUB", "Lcom/sun/tools/javac/jvm/JNIWriter$EncoderType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JNIWriter$EncoderType, FIELDSTUB)},
-	{"FIELD", "Lcom/sun/tools/javac/jvm/JNIWriter$EncoderType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JNIWriter$EncoderType, FIELD)},
-	{"JNI", "Lcom/sun/tools/javac/jvm/JNIWriter$EncoderType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JNIWriter$EncoderType, JNI)},
-	{"SIGNATURE", "Lcom/sun/tools/javac/jvm/JNIWriter$EncoderType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JNIWriter$EncoderType, SIGNATURE)},
-	{"$VALUES", "[Lcom/sun/tools/javac/jvm/JNIWriter$EncoderType;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(JNIWriter$EncoderType, $VALUES)},
-	{}
-};
-
-$MethodInfo _JNIWriter$EncoderType_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/javac/jvm/JNIWriter$EncoderType;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JNIWriter$EncoderType, $values, $JNIWriter$EncoderTypeArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(JNIWriter$EncoderType, init$, void, $String*, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/jvm/JNIWriter$EncoderType;", nullptr, $PUBLIC | $STATIC, $staticMethod(JNIWriter$EncoderType, valueOf, JNIWriter$EncoderType*, $String*)},
-	{"values", "()[Lcom/sun/tools/javac/jvm/JNIWriter$EncoderType;", nullptr, $PUBLIC | $STATIC, $staticMethod(JNIWriter$EncoderType, values, $JNIWriter$EncoderTypeArray*)},
-	{}
-};
-
-$InnerClassInfo _JNIWriter$EncoderType_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.jvm.JNIWriter$EncoderType", "com.sun.tools.javac.jvm.JNIWriter", "EncoderType", $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _JNIWriter$EncoderType_ClassInfo_ = {
-	$FINAL | $ACC_SUPER | $ENUM,
-	"com.sun.tools.javac.jvm.JNIWriter$EncoderType",
-	"java.lang.Enum",
-	nullptr,
-	_JNIWriter$EncoderType_FieldInfo_,
-	_JNIWriter$EncoderType_MethodInfo_,
-	"Ljava/lang/Enum<Lcom/sun/tools/javac/jvm/JNIWriter$EncoderType;>;",
-	nullptr,
-	_JNIWriter$EncoderType_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.jvm.JNIWriter"
-};
-
-$Object* allocate$JNIWriter$EncoderType($Class* clazz) {
-	return $of($alloc(JNIWriter$EncoderType));
-}
 
 JNIWriter$EncoderType* JNIWriter$EncoderType::CLASS = nullptr;
 JNIWriter$EncoderType* JNIWriter$EncoderType::FIELDSTUB = nullptr;
@@ -98,7 +54,7 @@ void JNIWriter$EncoderType::init$($String* $enum$name, int32_t $enum$ordinal) {
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$JNIWriter$EncoderType($Class* class$) {
+void JNIWriter$EncoderType::clinit$($Class* clazz) {
 	$assignStatic(JNIWriter$EncoderType::CLASS, $new(JNIWriter$EncoderType, "CLASS"_s, 0));
 	$assignStatic(JNIWriter$EncoderType::FIELDSTUB, $new(JNIWriter$EncoderType, "FIELDSTUB"_s, 1));
 	$assignStatic(JNIWriter$EncoderType::FIELD, $new(JNIWriter$EncoderType, "FIELD"_s, 2));
@@ -111,7 +67,44 @@ JNIWriter$EncoderType::JNIWriter$EncoderType() {
 }
 
 $Class* JNIWriter$EncoderType::load$($String* name, bool initialize) {
-	$loadClass(JNIWriter$EncoderType, name, initialize, &_JNIWriter$EncoderType_ClassInfo_, clinit$JNIWriter$EncoderType, allocate$JNIWriter$EncoderType);
+	$FieldInfo fieldInfos$$[] = {
+		{"CLASS", "Lcom/sun/tools/javac/jvm/JNIWriter$EncoderType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JNIWriter$EncoderType, CLASS)},
+		{"FIELDSTUB", "Lcom/sun/tools/javac/jvm/JNIWriter$EncoderType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JNIWriter$EncoderType, FIELDSTUB)},
+		{"FIELD", "Lcom/sun/tools/javac/jvm/JNIWriter$EncoderType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JNIWriter$EncoderType, FIELD)},
+		{"JNI", "Lcom/sun/tools/javac/jvm/JNIWriter$EncoderType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JNIWriter$EncoderType, JNI)},
+		{"SIGNATURE", "Lcom/sun/tools/javac/jvm/JNIWriter$EncoderType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JNIWriter$EncoderType, SIGNATURE)},
+		{"$VALUES", "[Lcom/sun/tools/javac/jvm/JNIWriter$EncoderType;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(JNIWriter$EncoderType, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lcom/sun/tools/javac/jvm/JNIWriter$EncoderType;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JNIWriter$EncoderType, $values, $JNIWriter$EncoderTypeArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(JNIWriter$EncoderType, init$, void, $String*, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/jvm/JNIWriter$EncoderType;", nullptr, $PUBLIC | $STATIC, $staticMethod(JNIWriter$EncoderType, valueOf, JNIWriter$EncoderType*, $String*)},
+		{"values", "()[Lcom/sun/tools/javac/jvm/JNIWriter$EncoderType;", nullptr, $PUBLIC | $STATIC, $staticMethod(JNIWriter$EncoderType, values, $JNIWriter$EncoderTypeArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.jvm.JNIWriter$EncoderType", "com.sun.tools.javac.jvm.JNIWriter", "EncoderType", $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER | $ENUM,
+		"com.sun.tools.javac.jvm.JNIWriter$EncoderType",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lcom/sun/tools/javac/jvm/JNIWriter$EncoderType;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.jvm.JNIWriter"
+	};
+	$loadClass(JNIWriter$EncoderType, name, initialize, &classInfo$$, JNIWriter$EncoderType::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JNIWriter$EncoderType));
+	});
 	return class$;
 }
 

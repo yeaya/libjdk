@@ -1,5 +1,4 @@
 #include <javax/swing/undo/CannotRedoException.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -9,24 +8,6 @@ using $RuntimeException = ::java::lang::RuntimeException;
 namespace javax {
 	namespace swing {
 		namespace undo {
-
-$MethodInfo _CannotRedoException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(CannotRedoException, init$, void)},
-	{}
-};
-
-$ClassInfo _CannotRedoException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.undo.CannotRedoException",
-	"java.lang.RuntimeException",
-	nullptr,
-	nullptr,
-	_CannotRedoException_MethodInfo_
-};
-
-$Object* allocate$CannotRedoException($Class* clazz) {
-	return $of($alloc(CannotRedoException));
-}
 
 void CannotRedoException::init$() {
 	$RuntimeException::init$();
@@ -43,7 +24,21 @@ void CannotRedoException::throw$() {
 }
 
 $Class* CannotRedoException::load$($String* name, bool initialize) {
-	$loadClass(CannotRedoException, name, initialize, &_CannotRedoException_ClassInfo_, allocate$CannotRedoException);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(CannotRedoException, init$, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.undo.CannotRedoException",
+		"java.lang.RuntimeException",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(CannotRedoException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CannotRedoException);
+	});
 	return class$;
 }
 

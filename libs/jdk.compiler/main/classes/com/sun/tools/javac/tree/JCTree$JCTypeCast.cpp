@@ -1,9 +1,7 @@
 #include <com/sun/tools/javac/tree/JCTree$JCTypeCast.h>
-
 #include <com/sun/source/tree/ExpressionTree.h>
 #include <com/sun/source/tree/Tree$Kind.h>
 #include <com/sun/source/tree/TreeVisitor.h>
-#include <com/sun/source/tree/TypeCastTree.h>
 #include <com/sun/tools/javac/tree/JCTree$JCExpression.h>
 #include <com/sun/tools/javac/tree/JCTree$Tag.h>
 #include <com/sun/tools/javac/tree/JCTree$Visitor.h>
@@ -16,7 +14,6 @@
 using $ExpressionTree = ::com::sun::source::tree::ExpressionTree;
 using $Tree$Kind = ::com::sun::source::tree::Tree$Kind;
 using $TreeVisitor = ::com::sun::source::tree::TreeVisitor;
-using $TypeCastTree = ::com::sun::source::tree::TypeCastTree;
 using $JCTree = ::com::sun::tools::javac::tree::JCTree;
 using $JCTree$JCExpression = ::com::sun::tools::javac::tree::JCTree$JCExpression;
 using $JCTree$Tag = ::com::sun::tools::javac::tree::JCTree$Tag;
@@ -31,54 +28,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace tree {
-
-$FieldInfo _JCTree$JCTypeCast_FieldInfo_[] = {
-	{"clazz", "Lcom/sun/tools/javac/tree/JCTree;", nullptr, $PUBLIC, $field(JCTree$JCTypeCast, clazz)},
-	{"expr", "Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, $PUBLIC, $field(JCTree$JCTypeCast, expr)},
-	{}
-};
-
-$MethodInfo _JCTree$JCTypeCast_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/tree/JCTree$JCExpression;)V", nullptr, $PROTECTED, $method(JCTree$JCTypeCast, init$, void, $JCTree*, $JCTree$JCExpression*)},
-	{"accept", "(Lcom/sun/tools/javac/tree/JCTree$Visitor;)V", nullptr, $PUBLIC, $virtualMethod(JCTree$JCTypeCast, accept, void, $JCTree$Visitor*)},
-	{"accept", "(Lcom/sun/source/tree/TreeVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;D:Ljava/lang/Object;>(Lcom/sun/source/tree/TreeVisitor<TR;TD;>;TD;)TR;", $PUBLIC, $virtualMethod(JCTree$JCTypeCast, accept, $Object*, $TreeVisitor*, Object$*)},
-	{"getExpression", "()Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCTypeCast, getExpression, $ExpressionTree*)},
-	{"getKind", "()Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCTypeCast, getKind, $Tree$Kind*)},
-	{"getTag", "()Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCTypeCast, getTag, $JCTree$Tag*)},
-	{"getType", "()Lcom/sun/tools/javac/tree/JCTree;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCTypeCast, getType, $JCTree*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _JCTree$JCTypeCast_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.tree.JCTree$JCTypeCast", "com.sun.tools.javac.tree.JCTree", "JCTypeCast", $PUBLIC | $STATIC},
-	{"com.sun.tools.javac.tree.JCTree$JCExpression", "com.sun.tools.javac.tree.JCTree", "JCExpression", $PUBLIC | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _JCTree$JCTypeCast_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.tree.JCTree$JCTypeCast",
-	"com.sun.tools.javac.tree.JCTree$JCExpression",
-	"com.sun.source.tree.TypeCastTree",
-	_JCTree$JCTypeCast_FieldInfo_,
-	_JCTree$JCTypeCast_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JCTree$JCTypeCast_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.tree.JCTree"
-};
-
-$Object* allocate$JCTree$JCTypeCast($Class* clazz) {
-	return $of($alloc(JCTree$JCTypeCast));
-}
 
 $String* JCTree$JCTypeCast::toString() {
 	 return this->$JCTree$JCExpression::toString();
@@ -124,7 +73,7 @@ $ExpressionTree* JCTree$JCTypeCast::getExpression() {
 }
 
 $Object* JCTree$JCTypeCast::accept($TreeVisitor* v, Object$* d) {
-	return $of($nc(v)->visitTypeCast(this, d));
+	return $nc(v)->visitTypeCast(this, d);
 }
 
 $JCTree$Tag* JCTree$JCTypeCast::getTag() {
@@ -136,7 +85,49 @@ JCTree$JCTypeCast::JCTree$JCTypeCast() {
 }
 
 $Class* JCTree$JCTypeCast::load$($String* name, bool initialize) {
-	$loadClass(JCTree$JCTypeCast, name, initialize, &_JCTree$JCTypeCast_ClassInfo_, allocate$JCTree$JCTypeCast);
+	$FieldInfo fieldInfos$$[] = {
+		{"clazz", "Lcom/sun/tools/javac/tree/JCTree;", nullptr, $PUBLIC, $field(JCTree$JCTypeCast, clazz)},
+		{"expr", "Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, $PUBLIC, $field(JCTree$JCTypeCast, expr)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/tree/JCTree$JCExpression;)V", nullptr, $PROTECTED, $method(JCTree$JCTypeCast, init$, void, $JCTree*, $JCTree$JCExpression*)},
+		{"accept", "(Lcom/sun/tools/javac/tree/JCTree$Visitor;)V", nullptr, $PUBLIC, $virtualMethod(JCTree$JCTypeCast, accept, void, $JCTree$Visitor*)},
+		{"accept", "(Lcom/sun/source/tree/TreeVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;D:Ljava/lang/Object;>(Lcom/sun/source/tree/TreeVisitor<TR;TD;>;TD;)TR;", $PUBLIC, $virtualMethod(JCTree$JCTypeCast, accept, $Object*, $TreeVisitor*, Object$*)},
+		{"getExpression", "()Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCTypeCast, getExpression, $ExpressionTree*)},
+		{"getKind", "()Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCTypeCast, getKind, $Tree$Kind*)},
+		{"getTag", "()Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCTypeCast, getTag, $JCTree$Tag*)},
+		{"getType", "()Lcom/sun/tools/javac/tree/JCTree;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCTypeCast, getType, $JCTree*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.tree.JCTree$JCTypeCast", "com.sun.tools.javac.tree.JCTree", "JCTypeCast", $PUBLIC | $STATIC},
+		{"com.sun.tools.javac.tree.JCTree$JCExpression", "com.sun.tools.javac.tree.JCTree", "JCExpression", $PUBLIC | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.tree.JCTree$JCTypeCast",
+		"com.sun.tools.javac.tree.JCTree$JCExpression",
+		"com.sun.source.tree.TypeCastTree",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.tree.JCTree"
+	};
+	$loadClass(JCTree$JCTypeCast, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JCTree$JCTypeCast));
+	});
 	return class$;
 }
 

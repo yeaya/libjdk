@@ -1,10 +1,8 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/trax/TrAXFilter.h>
-
 #include <com/sun/org/apache/xalan/internal/xsltc/trax/TransformerHandlerImpl.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/trax/TransformerImpl.h>
 #include <com/sun/org/apache/xml/internal/utils/XMLReaderManager.h>
 #include <javax/xml/transform/ErrorListener.h>
-#include <javax/xml/transform/Result.h>
 #include <javax/xml/transform/Templates.h>
 #include <javax/xml/transform/Transformer.h>
 #include <javax/xml/transform/sax/SAXResult.h>
@@ -23,7 +21,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ErrorListener = ::javax::xml::transform::ErrorListener;
-using $Result = ::javax::xml::transform::Result;
 using $Templates = ::javax::xml::transform::Templates;
 using $Transformer = ::javax::xml::transform::Transformer;
 using $SAXResult = ::javax::xml::transform::sax::SAXResult;
@@ -43,38 +40,6 @@ namespace com {
 						namespace xsltc {
 							namespace trax {
 
-$FieldInfo _TrAXFilter_FieldInfo_[] = {
-	{"_templates", "Ljavax/xml/transform/Templates;", nullptr, $PRIVATE, $field(TrAXFilter, _templates)},
-	{"_transformer", "Lcom/sun/org/apache/xalan/internal/xsltc/trax/TransformerImpl;", nullptr, $PRIVATE, $field(TrAXFilter, _transformer)},
-	{"_transformerHandler", "Lcom/sun/org/apache/xalan/internal/xsltc/trax/TransformerHandlerImpl;", nullptr, $PRIVATE, $field(TrAXFilter, _transformerHandler)},
-	{"_overrideDefaultParser", "Z", nullptr, $PRIVATE, $field(TrAXFilter, _overrideDefaultParser)},
-	{}
-};
-
-$MethodInfo _TrAXFilter_MethodInfo_[] = {
-	{"<init>", "(Ljavax/xml/transform/Templates;)V", nullptr, $PUBLIC, $method(TrAXFilter, init$, void, $Templates*), "javax.xml.transform.TransformerConfigurationException"},
-	{"createParent", "()V", nullptr, $PRIVATE, $method(TrAXFilter, createParent, void), "org.xml.sax.SAXException"},
-	{"getTransformer", "()Ljavax/xml/transform/Transformer;", nullptr, $PUBLIC, $virtualMethod(TrAXFilter, getTransformer, $Transformer*)},
-	{"parse", "(Lorg/xml/sax/InputSource;)V", nullptr, $PUBLIC, $virtualMethod(TrAXFilter, parse, void, $InputSource*), "org.xml.sax.SAXException,java.io.IOException"},
-	{"parse", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(TrAXFilter, parse, void, $String*), "org.xml.sax.SAXException,java.io.IOException"},
-	{"setContentHandler", "(Lorg/xml/sax/ContentHandler;)V", nullptr, $PUBLIC, $virtualMethod(TrAXFilter, setContentHandler, void, $ContentHandler*)},
-	{"setErrorListener", "(Ljavax/xml/transform/ErrorListener;)V", nullptr, $PUBLIC, $virtualMethod(TrAXFilter, setErrorListener, void, $ErrorListener*)},
-	{}
-};
-
-$ClassInfo _TrAXFilter_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xalan.internal.xsltc.trax.TrAXFilter",
-	"org.xml.sax.helpers.XMLFilterImpl",
-	nullptr,
-	_TrAXFilter_FieldInfo_,
-	_TrAXFilter_MethodInfo_
-};
-
-$Object* allocate$TrAXFilter($Class* clazz) {
-	return $of($alloc(TrAXFilter));
-}
-
 void TrAXFilter::init$($Templates* templates) {
 	$XMLFilterImpl::init$();
 	$set(this, _templates, templates);
@@ -93,30 +58,28 @@ void TrAXFilter::createParent() {
 }
 
 void TrAXFilter::parse($InputSource* input) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($XMLReader, managedReader, nullptr);
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			if (getParent() == nullptr) {
-				try {
-					$assign(managedReader, $nc($($XMLReaderManager::getInstance(this->_overrideDefaultParser)))->getXMLReader());
-					setParent(managedReader);
-				} catch ($SAXException& e) {
-					$throwNew($SAXException, $(e->toString()));
-				}
-			}
-			$nc($(getParent()))->parse(input);
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			if (managedReader != nullptr) {
-				$nc($($XMLReaderManager::getInstance(this->_overrideDefaultParser)))->releaseXMLReader(managedReader);
+	$var($Throwable, var$0, nullptr);
+	try {
+		if (getParent() == nullptr) {
+			try {
+				$assign(managedReader, $$nc($XMLReaderManager::getInstance(this->_overrideDefaultParser))->getXMLReader());
+				setParent(managedReader);
+			} catch ($SAXException& e) {
+				$throwNew($SAXException, $(e->toString()));
 			}
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+		$$nc(getParent())->parse(input);
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		if (managedReader != nullptr) {
+			$$nc($XMLReaderManager::getInstance(this->_overrideDefaultParser))->releaseXMLReader(managedReader);
 		}
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
@@ -125,7 +88,7 @@ void TrAXFilter::parse($String* systemId) {
 }
 
 void TrAXFilter::setContentHandler($ContentHandler* handler) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(this->_transformerHandler)->setResult($$new($SAXResult, handler));
 	if (getParent() == nullptr) {
 		try {
@@ -134,7 +97,7 @@ void TrAXFilter::setContentHandler($ContentHandler* handler) {
 			return;
 		}
 	}
-	$nc($(getParent()))->setContentHandler(this->_transformerHandler);
+	$$nc(getParent())->setContentHandler(this->_transformerHandler);
 }
 
 void TrAXFilter::setErrorListener($ErrorListener* handler) {
@@ -144,7 +107,34 @@ TrAXFilter::TrAXFilter() {
 }
 
 $Class* TrAXFilter::load$($String* name, bool initialize) {
-	$loadClass(TrAXFilter, name, initialize, &_TrAXFilter_ClassInfo_, allocate$TrAXFilter);
+	$FieldInfo fieldInfos$$[] = {
+		{"_templates", "Ljavax/xml/transform/Templates;", nullptr, $PRIVATE, $field(TrAXFilter, _templates)},
+		{"_transformer", "Lcom/sun/org/apache/xalan/internal/xsltc/trax/TransformerImpl;", nullptr, $PRIVATE, $field(TrAXFilter, _transformer)},
+		{"_transformerHandler", "Lcom/sun/org/apache/xalan/internal/xsltc/trax/TransformerHandlerImpl;", nullptr, $PRIVATE, $field(TrAXFilter, _transformerHandler)},
+		{"_overrideDefaultParser", "Z", nullptr, $PRIVATE, $field(TrAXFilter, _overrideDefaultParser)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/xml/transform/Templates;)V", nullptr, $PUBLIC, $method(TrAXFilter, init$, void, $Templates*), "javax.xml.transform.TransformerConfigurationException"},
+		{"createParent", "()V", nullptr, $PRIVATE, $method(TrAXFilter, createParent, void), "org.xml.sax.SAXException"},
+		{"getTransformer", "()Ljavax/xml/transform/Transformer;", nullptr, $PUBLIC, $virtualMethod(TrAXFilter, getTransformer, $Transformer*)},
+		{"parse", "(Lorg/xml/sax/InputSource;)V", nullptr, $PUBLIC, $virtualMethod(TrAXFilter, parse, void, $InputSource*), "org.xml.sax.SAXException,java.io.IOException"},
+		{"parse", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(TrAXFilter, parse, void, $String*), "org.xml.sax.SAXException,java.io.IOException"},
+		{"setContentHandler", "(Lorg/xml/sax/ContentHandler;)V", nullptr, $PUBLIC, $virtualMethod(TrAXFilter, setContentHandler, void, $ContentHandler*)},
+		{"setErrorListener", "(Ljavax/xml/transform/ErrorListener;)V", nullptr, $PUBLIC, $virtualMethod(TrAXFilter, setErrorListener, void, $ErrorListener*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xalan.internal.xsltc.trax.TrAXFilter",
+		"org.xml.sax.helpers.XMLFilterImpl",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TrAXFilter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(TrAXFilter));
+	});
 	return class$;
 }
 

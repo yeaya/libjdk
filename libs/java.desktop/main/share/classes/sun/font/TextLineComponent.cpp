@@ -1,5 +1,4 @@
 #include <sun/font/TextLineComponent.h>
-
 #include <java/awt/Graphics2D.h>
 #include <java/awt/Rectangle.h>
 #include <java/awt/Shape.h>
@@ -29,54 +28,49 @@ using $CoreMetrics = ::sun::font::CoreMetrics;
 namespace sun {
 	namespace font {
 
-$FieldInfo _TextLineComponent_FieldInfo_[] = {
-	{"LEFT_TO_RIGHT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TextLineComponent, LEFT_TO_RIGHT)},
-	{"RIGHT_TO_LEFT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TextLineComponent, RIGHT_TO_LEFT)},
-	{"UNCHANGED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TextLineComponent, UNCHANGED)},
-	{}
-};
-
-$MethodInfo _TextLineComponent_MethodInfo_[] = {
-	{"applyJustificationDeltas", "([FI[Z)Lsun/font/TextLineComponent;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TextLineComponent, applyJustificationDeltas, TextLineComponent*, $floats*, int32_t, $booleans*)},
-	{"caretAtOffsetIsValid", "(I)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TextLineComponent, caretAtOffsetIsValid, bool, int32_t)},
-	{"draw", "(Ljava/awt/Graphics2D;FF)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TextLineComponent, draw, void, $Graphics2D*, float, float)},
-	{"getAdvance", "()F", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TextLineComponent, getAdvance, float)},
-	{"getAdvanceBetween", "(II)F", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TextLineComponent, getAdvanceBetween, float, int32_t, int32_t)},
-	{"getBaselineTransform", "()Ljava/awt/geom/AffineTransform;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TextLineComponent, getBaselineTransform, $AffineTransform*)},
-	{"getCharAdvance", "(I)F", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TextLineComponent, getCharAdvance, float, int32_t)},
-	{"getCharVisualBounds", "(I)Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TextLineComponent, getCharVisualBounds, $Rectangle2D*, int32_t)},
-	{"getCharX", "(I)F", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TextLineComponent, getCharX, float, int32_t)},
-	{"getCharY", "(I)F", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TextLineComponent, getCharY, float, int32_t)},
-	{"getCoreMetrics", "()Lsun/font/CoreMetrics;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TextLineComponent, getCoreMetrics, $CoreMetrics*)},
-	{"getItalicBounds", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TextLineComponent, getItalicBounds, $Rectangle2D*)},
-	{"getJustificationInfos", "([Ljava/awt/font/GlyphJustificationInfo;III)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TextLineComponent, getJustificationInfos, void, $GlyphJustificationInfoArray*, int32_t, int32_t, int32_t)},
-	{"getLineBreakIndex", "(IF)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TextLineComponent, getLineBreakIndex, int32_t, int32_t, float)},
-	{"getLogicalBounds", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TextLineComponent, getLogicalBounds, $Rectangle2D*)},
-	{"getNumCharacters", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TextLineComponent, getNumCharacters, int32_t)},
-	{"getNumJustificationInfos", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TextLineComponent, getNumJustificationInfos, int32_t)},
-	{"getOutline", "(FF)Ljava/awt/Shape;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TextLineComponent, getOutline, $Shape*, float, float)},
-	{"getPixelBounds", "(Ljava/awt/font/FontRenderContext;FF)Ljava/awt/Rectangle;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TextLineComponent, getPixelBounds, $Rectangle*, $FontRenderContext*, float, float)},
-	{"getSubset", "(III)Lsun/font/TextLineComponent;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TextLineComponent, getSubset, TextLineComponent*, int32_t, int32_t, int32_t)},
-	{"getVisualBounds", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TextLineComponent, getVisualBounds, $Rectangle2D*)},
-	{"isSimple", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TextLineComponent, isSimple, bool)},
-	{}
-};
-
-$ClassInfo _TextLineComponent_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"sun.font.TextLineComponent",
-	nullptr,
-	nullptr,
-	_TextLineComponent_FieldInfo_,
-	_TextLineComponent_MethodInfo_
-};
-
-$Object* allocate$TextLineComponent($Class* clazz) {
-	return $of($alloc(TextLineComponent));
-}
-
 $Class* TextLineComponent::load$($String* name, bool initialize) {
-	$loadClass(TextLineComponent, name, initialize, &_TextLineComponent_ClassInfo_, allocate$TextLineComponent);
+	$FieldInfo fieldInfos$$[] = {
+		{"LEFT_TO_RIGHT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TextLineComponent, LEFT_TO_RIGHT)},
+		{"RIGHT_TO_LEFT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TextLineComponent, RIGHT_TO_LEFT)},
+		{"UNCHANGED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TextLineComponent, UNCHANGED)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"applyJustificationDeltas", "([FI[Z)Lsun/font/TextLineComponent;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TextLineComponent, applyJustificationDeltas, TextLineComponent*, $floats*, int32_t, $booleans*)},
+		{"caretAtOffsetIsValid", "(I)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TextLineComponent, caretAtOffsetIsValid, bool, int32_t)},
+		{"draw", "(Ljava/awt/Graphics2D;FF)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TextLineComponent, draw, void, $Graphics2D*, float, float)},
+		{"getAdvance", "()F", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TextLineComponent, getAdvance, float)},
+		{"getAdvanceBetween", "(II)F", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TextLineComponent, getAdvanceBetween, float, int32_t, int32_t)},
+		{"getBaselineTransform", "()Ljava/awt/geom/AffineTransform;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TextLineComponent, getBaselineTransform, $AffineTransform*)},
+		{"getCharAdvance", "(I)F", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TextLineComponent, getCharAdvance, float, int32_t)},
+		{"getCharVisualBounds", "(I)Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TextLineComponent, getCharVisualBounds, $Rectangle2D*, int32_t)},
+		{"getCharX", "(I)F", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TextLineComponent, getCharX, float, int32_t)},
+		{"getCharY", "(I)F", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TextLineComponent, getCharY, float, int32_t)},
+		{"getCoreMetrics", "()Lsun/font/CoreMetrics;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TextLineComponent, getCoreMetrics, $CoreMetrics*)},
+		{"getItalicBounds", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TextLineComponent, getItalicBounds, $Rectangle2D*)},
+		{"getJustificationInfos", "([Ljava/awt/font/GlyphJustificationInfo;III)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TextLineComponent, getJustificationInfos, void, $GlyphJustificationInfoArray*, int32_t, int32_t, int32_t)},
+		{"getLineBreakIndex", "(IF)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TextLineComponent, getLineBreakIndex, int32_t, int32_t, float)},
+		{"getLogicalBounds", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TextLineComponent, getLogicalBounds, $Rectangle2D*)},
+		{"getNumCharacters", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TextLineComponent, getNumCharacters, int32_t)},
+		{"getNumJustificationInfos", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TextLineComponent, getNumJustificationInfos, int32_t)},
+		{"getOutline", "(FF)Ljava/awt/Shape;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TextLineComponent, getOutline, $Shape*, float, float)},
+		{"getPixelBounds", "(Ljava/awt/font/FontRenderContext;FF)Ljava/awt/Rectangle;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TextLineComponent, getPixelBounds, $Rectangle*, $FontRenderContext*, float, float)},
+		{"getSubset", "(III)Lsun/font/TextLineComponent;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TextLineComponent, getSubset, TextLineComponent*, int32_t, int32_t, int32_t)},
+		{"getVisualBounds", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TextLineComponent, getVisualBounds, $Rectangle2D*)},
+		{"isSimple", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TextLineComponent, isSimple, bool)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"sun.font.TextLineComponent",
+		nullptr,
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TextLineComponent, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TextLineComponent);
+	});
 	return class$;
 }
 

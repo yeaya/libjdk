@@ -180,6 +180,7 @@ class $export TMSchema$State : public ::java::lang::Enum {
 public:
 	TMSchema$State();
 	static $Array<::com::sun::java::swing::plaf::windows::TMSchema$State>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static int32_t getValue(::com::sun::java::swing::plaf::windows::TMSchema$Part* part, ::com::sun::java::swing::plaf::windows::TMSchema$State* state);
 	static void initStates();

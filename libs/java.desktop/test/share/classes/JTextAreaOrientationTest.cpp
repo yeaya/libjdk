@@ -1,5 +1,4 @@
 #include <JTextAreaOrientationTest.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/ComponentOrientation.h>
 #include <java/awt/Container.h>
@@ -35,13 +34,10 @@
 using $UIManager$LookAndFeelInfoArray = $Array<::javax::swing::UIManager$LookAndFeelInfo>;
 using $Component = ::java::awt::Component;
 using $ComponentOrientation = ::java::awt::ComponentOrientation;
-using $Container = ::java::awt::Container;
 using $Graphics = ::java::awt::Graphics;
 using $Rectangle = ::java::awt::Rectangle;
 using $BufferedImage = ::java::awt::image::BufferedImage;
-using $RenderedImage = ::java::awt::image::RenderedImage;
 using $File = ::java::io::File;
-using $PrintStream = ::java::io::PrintStream;
 using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $ClassNotFoundException = ::java::lang::ClassNotFoundException;
@@ -49,7 +45,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalAccessException = ::java::lang::IllegalAccessException;
 using $InstantiationException = ::java::lang::InstantiationException;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $ReflectiveOperationException = ::java::lang::ReflectiveOperationException;
 using $Runnable = ::java::lang::Runnable;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
@@ -70,33 +65,29 @@ public:
 	virtual void run() override {
 		JTextAreaOrientationTest::lambda$main$0(laf);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<JTextAreaOrientationTest$$Lambda$lambda$main$0>());
-	}
 	$UIManager$LookAndFeelInfo* laf = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo JTextAreaOrientationTest$$Lambda$lambda$main$0::fieldInfos[2] = {
-	{"laf", "Ljavax/swing/UIManager$LookAndFeelInfo;", nullptr, $PUBLIC, $field(JTextAreaOrientationTest$$Lambda$lambda$main$0, laf)},
-	{}
-};
-$MethodInfo JTextAreaOrientationTest$$Lambda$lambda$main$0::methodInfos[3] = {
-	{"<init>", "(Ljavax/swing/UIManager$LookAndFeelInfo;)V", nullptr, $PUBLIC, $method(JTextAreaOrientationTest$$Lambda$lambda$main$0, init$, void, $UIManager$LookAndFeelInfo*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(JTextAreaOrientationTest$$Lambda$lambda$main$0, run, void)},
-	{}
-};
-$ClassInfo JTextAreaOrientationTest$$Lambda$lambda$main$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"JTextAreaOrientationTest$$Lambda$lambda$main$0",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	fieldInfos,
-	methodInfos
 };
 $Class* JTextAreaOrientationTest$$Lambda$lambda$main$0::load$($String* name, bool initialize) {
-	$loadClass(JTextAreaOrientationTest$$Lambda$lambda$main$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"laf", "Ljavax/swing/UIManager$LookAndFeelInfo;", nullptr, $PUBLIC, $field(JTextAreaOrientationTest$$Lambda$lambda$main$0, laf)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/UIManager$LookAndFeelInfo;)V", nullptr, $PUBLIC, $method(JTextAreaOrientationTest$$Lambda$lambda$main$0, init$, void, $UIManager$LookAndFeelInfo*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(JTextAreaOrientationTest$$Lambda$lambda$main$0, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"JTextAreaOrientationTest$$Lambda$lambda$main$0",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(JTextAreaOrientationTest$$Lambda$lambda$main$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JTextAreaOrientationTest$$Lambda$lambda$main$0);
+	});
 	return class$;
 }
 $Class* JTextAreaOrientationTest$$Lambda$lambda$main$0::class$ = nullptr;
@@ -110,33 +101,29 @@ public:
 	virtual void run() override {
 		JTextAreaOrientationTest::lambda$test$1(orientation);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<JTextAreaOrientationTest$$Lambda$lambda$test$1$1>());
-	}
 	$ComponentOrientation* orientation = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo JTextAreaOrientationTest$$Lambda$lambda$test$1$1::fieldInfos[2] = {
-	{"orientation", "Ljava/awt/ComponentOrientation;", nullptr, $PUBLIC, $field(JTextAreaOrientationTest$$Lambda$lambda$test$1$1, orientation)},
-	{}
-};
-$MethodInfo JTextAreaOrientationTest$$Lambda$lambda$test$1$1::methodInfos[3] = {
-	{"<init>", "(Ljava/awt/ComponentOrientation;)V", nullptr, $PUBLIC, $method(JTextAreaOrientationTest$$Lambda$lambda$test$1$1, init$, void, $ComponentOrientation*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(JTextAreaOrientationTest$$Lambda$lambda$test$1$1, run, void)},
-	{}
-};
-$ClassInfo JTextAreaOrientationTest$$Lambda$lambda$test$1$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"JTextAreaOrientationTest$$Lambda$lambda$test$1$1",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	fieldInfos,
-	methodInfos
 };
 $Class* JTextAreaOrientationTest$$Lambda$lambda$test$1$1::load$($String* name, bool initialize) {
-	$loadClass(JTextAreaOrientationTest$$Lambda$lambda$test$1$1, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"orientation", "Ljava/awt/ComponentOrientation;", nullptr, $PUBLIC, $field(JTextAreaOrientationTest$$Lambda$lambda$test$1$1, orientation)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/ComponentOrientation;)V", nullptr, $PUBLIC, $method(JTextAreaOrientationTest$$Lambda$lambda$test$1$1, init$, void, $ComponentOrientation*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(JTextAreaOrientationTest$$Lambda$lambda$test$1$1, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"JTextAreaOrientationTest$$Lambda$lambda$test$1$1",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(JTextAreaOrientationTest$$Lambda$lambda$test$1$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JTextAreaOrientationTest$$Lambda$lambda$test$1$1);
+	});
 	return class$;
 }
 $Class* JTextAreaOrientationTest$$Lambda$lambda$test$1$1::class$ = nullptr;
@@ -149,27 +136,24 @@ public:
 	virtual void run() override {
 		JTextAreaOrientationTest::lambda$test$2();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<JTextAreaOrientationTest$$Lambda$lambda$test$2$2>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo JTextAreaOrientationTest$$Lambda$lambda$test$2$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(JTextAreaOrientationTest$$Lambda$lambda$test$2$2, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(JTextAreaOrientationTest$$Lambda$lambda$test$2$2, run, void)},
-	{}
-};
-$ClassInfo JTextAreaOrientationTest$$Lambda$lambda$test$2$2::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"JTextAreaOrientationTest$$Lambda$lambda$test$2$2",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* JTextAreaOrientationTest$$Lambda$lambda$test$2$2::load$($String* name, bool initialize) {
-	$loadClass(JTextAreaOrientationTest$$Lambda$lambda$test$2$2, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(JTextAreaOrientationTest$$Lambda$lambda$test$2$2, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(JTextAreaOrientationTest$$Lambda$lambda$test$2$2, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"JTextAreaOrientationTest$$Lambda$lambda$test$2$2",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(JTextAreaOrientationTest$$Lambda$lambda$test$2$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JTextAreaOrientationTest$$Lambda$lambda$test$2$2);
+	});
 	return class$;
 }
 $Class* JTextAreaOrientationTest$$Lambda$lambda$test$2$2::class$ = nullptr;
@@ -182,62 +166,27 @@ public:
 	virtual void run() override {
 		JTextAreaOrientationTest::lambda$test$3();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<JTextAreaOrientationTest$$Lambda$lambda$test$3$3>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo JTextAreaOrientationTest$$Lambda$lambda$test$3$3::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(JTextAreaOrientationTest$$Lambda$lambda$test$3$3, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(JTextAreaOrientationTest$$Lambda$lambda$test$3$3, run, void)},
-	{}
-};
-$ClassInfo JTextAreaOrientationTest$$Lambda$lambda$test$3$3::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"JTextAreaOrientationTest$$Lambda$lambda$test$3$3",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* JTextAreaOrientationTest$$Lambda$lambda$test$3$3::load$($String* name, bool initialize) {
-	$loadClass(JTextAreaOrientationTest$$Lambda$lambda$test$3$3, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(JTextAreaOrientationTest$$Lambda$lambda$test$3$3, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(JTextAreaOrientationTest$$Lambda$lambda$test$3$3, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"JTextAreaOrientationTest$$Lambda$lambda$test$3$3",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(JTextAreaOrientationTest$$Lambda$lambda$test$3$3, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JTextAreaOrientationTest$$Lambda$lambda$test$3$3);
+	});
 	return class$;
 }
 $Class* JTextAreaOrientationTest$$Lambda$lambda$test$3$3::class$ = nullptr;
-
-$FieldInfo _JTextAreaOrientationTest_FieldInfo_[] = {
-	{"frame", "Ljavax/swing/JFrame;", nullptr, $STATIC, $staticField(JTextAreaOrientationTest, frame)},
-	{"bounds", "Ljava/awt/Rectangle;", nullptr, $STATIC, $staticField(JTextAreaOrientationTest, bounds)},
-	{}
-};
-
-$MethodInfo _JTextAreaOrientationTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(JTextAreaOrientationTest, init$, void)},
-	{"compareBufferedImages", "(Ljava/awt/image/BufferedImage;Ljava/awt/image/BufferedImage;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(JTextAreaOrientationTest, compareBufferedImages, bool, $BufferedImage*, $BufferedImage*)},
-	{"lambda$main$0", "(Ljavax/swing/UIManager$LookAndFeelInfo;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JTextAreaOrientationTest, lambda$main$0, void, $UIManager$LookAndFeelInfo*)},
-	{"lambda$test$1", "(Ljava/awt/ComponentOrientation;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JTextAreaOrientationTest, lambda$test$1, void, $ComponentOrientation*)},
-	{"lambda$test$2", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JTextAreaOrientationTest, lambda$test$2, void)},
-	{"lambda$test$3", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JTextAreaOrientationTest, lambda$test$3, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(JTextAreaOrientationTest, main, void, $StringArray*), "java.lang.Exception"},
-	{"setLookAndFeel", "(Ljavax/swing/UIManager$LookAndFeelInfo;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(JTextAreaOrientationTest, setLookAndFeel, void, $UIManager$LookAndFeelInfo*)},
-	{"test", "(Ljava/awt/ComponentOrientation;)Ljava/awt/image/BufferedImage;", nullptr, $PRIVATE | $STATIC, $staticMethod(JTextAreaOrientationTest, test, $BufferedImage*, $ComponentOrientation*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _JTextAreaOrientationTest_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"JTextAreaOrientationTest",
-	"java.lang.Object",
-	nullptr,
-	_JTextAreaOrientationTest_FieldInfo_,
-	_JTextAreaOrientationTest_MethodInfo_
-};
-
-$Object* allocate$JTextAreaOrientationTest($Class* clazz) {
-	return $of($alloc(JTextAreaOrientationTest));
-}
 
 $JFrame* JTextAreaOrientationTest::frame = nullptr;
 $Rectangle* JTextAreaOrientationTest::bounds = nullptr;
@@ -249,13 +198,13 @@ bool JTextAreaOrientationTest::compareBufferedImages($BufferedImage* bufferedIma
 	int32_t width = $nc(bufferedImage0)->getWidth();
 	int32_t height = bufferedImage0->getHeight();
 	bool var$0 = width != $nc(bufferedImage1)->getWidth();
-	if (var$0 || height != $nc(bufferedImage1)->getHeight()) {
+	if (var$0 || height != bufferedImage1->getHeight()) {
 		return false;
 	}
 	for (int32_t y = 0; y < height; ++y) {
 		for (int32_t x = 0; x < width; ++x) {
 			int32_t var$1 = bufferedImage0->getRGB(x, y);
-			if (var$1 != $nc(bufferedImage1)->getRGB(x, y)) {
+			if (var$1 != bufferedImage1->getRGB(x, y)) {
 				return false;
 			}
 		}
@@ -264,56 +213,52 @@ bool JTextAreaOrientationTest::compareBufferedImages($BufferedImage* bufferedIma
 }
 
 void JTextAreaOrientationTest::setLookAndFeel($UIManager$LookAndFeelInfo* laf) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$UIManager::setLookAndFeel($($nc(laf)->getClassName()));
 	} catch ($UnsupportedLookAndFeelException& ignored) {
 		$nc($System::out)->println($$str({"Unsupported L&F: "_s, $($nc(laf)->getClassName())}));
 	} catch ($ClassNotFoundException& e) {
-		$throwNew($RuntimeException, static_cast<$Throwable*>(e));
+		$throwNew($RuntimeException, e);
 	} catch ($InstantiationException& e) {
-		$throwNew($RuntimeException, static_cast<$Throwable*>(e));
+		$throwNew($RuntimeException, e);
 	} catch ($IllegalAccessException& e) {
-		$throwNew($RuntimeException, static_cast<$Throwable*>(e));
+		$throwNew($RuntimeException, e);
 	}
 }
 
 void JTextAreaOrientationTest::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($UIManager$LookAndFeelInfoArray, arr$, $UIManager::getInstalledLookAndFeels());
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
-			$var($UIManager$LookAndFeelInfo, laf, arr$->get(i$));
-			{
-				$nc($System::out)->println($$str({"Testing L&F: "_s, $($nc(laf)->getClassName())}));
-				$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(JTextAreaOrientationTest$$Lambda$lambda$main$0, laf)));
-				$init($ComponentOrientation);
-				$var($BufferedImage, left, test($ComponentOrientation::LEFT_TO_RIGHT));
-				$ImageIO::write(static_cast<$RenderedImage*>(left), "png"_s, $$new($File, "JTextAreaTest-left.png"_s));
-				$var($BufferedImage, right, test($ComponentOrientation::RIGHT_TO_LEFT));
-				$ImageIO::write(static_cast<$RenderedImage*>(right), "png"_s, $$new($File, "JTextAreaTest-right.png"_s));
-				if (compareBufferedImages(left, right)) {
-					$throwNew($RuntimeException, "Orientation change is not effected"_s);
-				}
+	$useLocalObjectStack();
+	$var($UIManager$LookAndFeelInfoArray, arr$, $UIManager::getInstalledLookAndFeels());
+	for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
+		$var($UIManager$LookAndFeelInfo, laf, arr$->get(i$));
+		{
+			$nc($System::out)->println($$str({"Testing L&F: "_s, $($nc(laf)->getClassName())}));
+			$SwingUtilities::invokeAndWait($$new(JTextAreaOrientationTest$$Lambda$lambda$main$0, laf));
+			$init($ComponentOrientation);
+			$var($BufferedImage, left, test($ComponentOrientation::LEFT_TO_RIGHT));
+			$ImageIO::write(left, "png"_s, $$new($File, "JTextAreaTest-left.png"_s));
+			$var($BufferedImage, right, test($ComponentOrientation::RIGHT_TO_LEFT));
+			$ImageIO::write(right, "png"_s, $$new($File, "JTextAreaTest-right.png"_s));
+			if (compareBufferedImages(left, right)) {
+				$throwNew($RuntimeException, "Orientation change is not effected"_s);
 			}
 		}
 	}
 }
 
 $BufferedImage* JTextAreaOrientationTest::test($ComponentOrientation* orientation) {
-	$useLocalCurrentObjectStackCache();
-	$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(JTextAreaOrientationTest$$Lambda$lambda$test$1$1, orientation)));
+	$useLocalObjectStack();
+	$SwingUtilities::invokeAndWait($$new(JTextAreaOrientationTest$$Lambda$lambda$test$1$1, orientation));
 	$Thread::sleep(1000);
-	$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(JTextAreaOrientationTest$$Lambda$lambda$test$2$2)));
+	$SwingUtilities::invokeAndWait($$new(JTextAreaOrientationTest$$Lambda$lambda$test$2$2));
 	$init(JTextAreaOrientationTest);
 	$var($BufferedImage, img, $new($BufferedImage, $nc(JTextAreaOrientationTest::bounds)->width, $nc(JTextAreaOrientationTest::bounds)->height, 1));
 	$var($Graphics, g, img->getGraphics());
 	$nc(JTextAreaOrientationTest::frame)->paint(g);
 	$nc(g)->dispose();
 	$Thread::sleep(1000);
-	$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(JTextAreaOrientationTest$$Lambda$lambda$test$3$3)));
+	$SwingUtilities::invokeAndWait($$new(JTextAreaOrientationTest$$Lambda$lambda$test$3$3));
 	return img;
 }
 
@@ -328,14 +273,14 @@ void JTextAreaOrientationTest::lambda$test$2() {
 }
 
 void JTextAreaOrientationTest::lambda$test$1($ComponentOrientation* orientation) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init(JTextAreaOrientationTest);
 	$assignStatic(JTextAreaOrientationTest::frame, $new($JFrame, "Swing JTextArea component"_s));
 	$var($JTextArea, ta, $new($JTextArea));
 	ta->setText("Swing JTextArea component"_s);
 	ta->setName("jtext"_s);
 	ta->setComponentOrientation(orientation);
-	$nc($($nc(JTextAreaOrientationTest::frame)->getContentPane()))->add(static_cast<$Component*>(ta));
+	$$nc($nc(JTextAreaOrientationTest::frame)->getContentPane())->add(ta);
 	$nc(JTextAreaOrientationTest::frame)->setSize(300, 100);
 	$nc(JTextAreaOrientationTest::frame)->setUndecorated(true);
 	$nc(JTextAreaOrientationTest::frame)->setLocationRelativeTo(nullptr);
@@ -351,20 +296,47 @@ JTextAreaOrientationTest::JTextAreaOrientationTest() {
 
 $Class* JTextAreaOrientationTest::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(JTextAreaOrientationTest$$Lambda$lambda$main$0::classInfo$.name)) {
+		if (name->equals("JTextAreaOrientationTest$$Lambda$lambda$main$0")) {
 			return JTextAreaOrientationTest$$Lambda$lambda$main$0::load$(name, initialize);
 		}
-		if (name->equals(JTextAreaOrientationTest$$Lambda$lambda$test$1$1::classInfo$.name)) {
+		if (name->equals("JTextAreaOrientationTest$$Lambda$lambda$test$1$1")) {
 			return JTextAreaOrientationTest$$Lambda$lambda$test$1$1::load$(name, initialize);
 		}
-		if (name->equals(JTextAreaOrientationTest$$Lambda$lambda$test$2$2::classInfo$.name)) {
+		if (name->equals("JTextAreaOrientationTest$$Lambda$lambda$test$2$2")) {
 			return JTextAreaOrientationTest$$Lambda$lambda$test$2$2::load$(name, initialize);
 		}
-		if (name->equals(JTextAreaOrientationTest$$Lambda$lambda$test$3$3::classInfo$.name)) {
+		if (name->equals("JTextAreaOrientationTest$$Lambda$lambda$test$3$3")) {
 			return JTextAreaOrientationTest$$Lambda$lambda$test$3$3::load$(name, initialize);
 		}
 	}
-	$loadClass(JTextAreaOrientationTest, name, initialize, &_JTextAreaOrientationTest_ClassInfo_, allocate$JTextAreaOrientationTest);
+	$FieldInfo fieldInfos$$[] = {
+		{"frame", "Ljavax/swing/JFrame;", nullptr, $STATIC, $staticField(JTextAreaOrientationTest, frame)},
+		{"bounds", "Ljava/awt/Rectangle;", nullptr, $STATIC, $staticField(JTextAreaOrientationTest, bounds)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(JTextAreaOrientationTest, init$, void)},
+		{"compareBufferedImages", "(Ljava/awt/image/BufferedImage;Ljava/awt/image/BufferedImage;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(JTextAreaOrientationTest, compareBufferedImages, bool, $BufferedImage*, $BufferedImage*)},
+		{"lambda$main$0", "(Ljavax/swing/UIManager$LookAndFeelInfo;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JTextAreaOrientationTest, lambda$main$0, void, $UIManager$LookAndFeelInfo*)},
+		{"lambda$test$1", "(Ljava/awt/ComponentOrientation;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JTextAreaOrientationTest, lambda$test$1, void, $ComponentOrientation*)},
+		{"lambda$test$2", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JTextAreaOrientationTest, lambda$test$2, void)},
+		{"lambda$test$3", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JTextAreaOrientationTest, lambda$test$3, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(JTextAreaOrientationTest, main, void, $StringArray*), "java.lang.Exception"},
+		{"setLookAndFeel", "(Ljavax/swing/UIManager$LookAndFeelInfo;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(JTextAreaOrientationTest, setLookAndFeel, void, $UIManager$LookAndFeelInfo*)},
+		{"test", "(Ljava/awt/ComponentOrientation;)Ljava/awt/image/BufferedImage;", nullptr, $PRIVATE | $STATIC, $staticMethod(JTextAreaOrientationTest, test, $BufferedImage*, $ComponentOrientation*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"JTextAreaOrientationTest",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(JTextAreaOrientationTest, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JTextAreaOrientationTest);
+	});
 	return class$;
 }
 

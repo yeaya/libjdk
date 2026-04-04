@@ -1,5 +1,4 @@
 #include <sun/awt/im/InputMethodLocator.h>
-
 #include <java/awt/AWTException.h>
 #include <java/awt/im/spi/InputMethodDescriptor.h>
 #include <java/lang/ClassLoader.h>
@@ -20,40 +19,6 @@ namespace sun {
 	namespace awt {
 		namespace im {
 
-$FieldInfo _InputMethodLocator_FieldInfo_[] = {
-	{"descriptor", "Ljava/awt/im/spi/InputMethodDescriptor;", nullptr, $PRIVATE, $field(InputMethodLocator, descriptor)},
-	{"loader", "Ljava/lang/ClassLoader;", nullptr, $PRIVATE, $field(InputMethodLocator, loader)},
-	{"locale", "Ljava/util/Locale;", nullptr, $PRIVATE, $field(InputMethodLocator, locale)},
-	{}
-};
-
-$MethodInfo _InputMethodLocator_MethodInfo_[] = {
-	{"<init>", "(Ljava/awt/im/spi/InputMethodDescriptor;Ljava/lang/ClassLoader;Ljava/util/Locale;)V", nullptr, 0, $method(InputMethodLocator, init$, void, $InputMethodDescriptor*, $ClassLoader*, $Locale*)},
-	{"deriveLocator", "(Ljava/util/Locale;)Lsun/awt/im/InputMethodLocator;", nullptr, 0, $method(InputMethodLocator, deriveLocator, InputMethodLocator*, $Locale*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(InputMethodLocator, equals, bool, Object$*)},
-	{"getActionCommandString", "()Ljava/lang/String;", nullptr, 0, $method(InputMethodLocator, getActionCommandString, $String*)},
-	{"getClassLoader", "()Ljava/lang/ClassLoader;", nullptr, 0, $method(InputMethodLocator, getClassLoader, $ClassLoader*)},
-	{"getDescriptor", "()Ljava/awt/im/spi/InputMethodDescriptor;", nullptr, 0, $method(InputMethodLocator, getDescriptor, $InputMethodDescriptor*)},
-	{"getLocale", "()Ljava/util/Locale;", nullptr, 0, $method(InputMethodLocator, getLocale, $Locale*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(InputMethodLocator, hashCode, int32_t)},
-	{"isLocaleAvailable", "(Ljava/util/Locale;)Z", nullptr, 0, $method(InputMethodLocator, isLocaleAvailable, bool, $Locale*)},
-	{"sameInputMethod", "(Lsun/awt/im/InputMethodLocator;)Z", nullptr, 0, $method(InputMethodLocator, sameInputMethod, bool, InputMethodLocator*)},
-	{}
-};
-
-$ClassInfo _InputMethodLocator_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.awt.im.InputMethodLocator",
-	"java.lang.Object",
-	nullptr,
-	_InputMethodLocator_FieldInfo_,
-	_InputMethodLocator_MethodInfo_
-};
-
-$Object* allocate$InputMethodLocator($Class* clazz) {
-	return $of($alloc(InputMethodLocator));
-}
-
 void InputMethodLocator::init$($InputMethodDescriptor* descriptor, $ClassLoader* loader, $Locale* locale) {
 	if (descriptor == nullptr) {
 		$throwNew($NullPointerException, "descriptor can\'t be null"_s);
@@ -69,31 +34,31 @@ bool InputMethodLocator::equals(Object$* other) {
 	}
 	bool var$0 = other == nullptr;
 	if (!var$0) {
-		var$0 = $of(this)->getClass() != $nc($of(other))->getClass();
+		var$0 = this->getClass() != $of(other)->getClass();
 	}
 	if (var$0) {
 		return false;
 	}
 	$var(InputMethodLocator, otherLocator, $cast(InputMethodLocator, other));
-	if (!$of($nc($of(this->descriptor))->getClass())->equals($nc($of($nc(otherLocator)->descriptor))->getClass())) {
+	if (!$nc(this->descriptor)->getClass()->equals($nc($nc(otherLocator)->descriptor)->getClass())) {
 		return false;
 	}
-	if (this->loader == nullptr && $nc(otherLocator)->loader != nullptr || this->loader != nullptr && !$nc($of(this->loader))->equals($nc(otherLocator)->loader)) {
+	if (this->loader == nullptr && otherLocator->loader != nullptr || this->loader != nullptr && !this->loader->equals(otherLocator->loader)) {
 		return false;
 	}
-	if (this->locale == nullptr && $nc(otherLocator)->locale != nullptr || this->locale != nullptr && !$nc(this->locale)->equals($nc(otherLocator)->locale)) {
+	if (this->locale == nullptr && otherLocator->locale != nullptr || this->locale != nullptr && !this->locale->equals(otherLocator->locale)) {
 		return false;
 	}
 	return true;
 }
 
 int32_t InputMethodLocator::hashCode() {
-	int32_t result = $nc($of(this->descriptor))->hashCode();
+	int32_t result = $nc(this->descriptor)->hashCode();
 	if (this->loader != nullptr) {
-		result |= $nc($of(this->loader))->hashCode() << 10;
+		result |= this->loader->hashCode() << 10;
 	}
 	if (this->locale != nullptr) {
-		result |= $nc(this->locale)->hashCode() << 20;
+		result |= this->locale->hashCode() << 20;
 	}
 	return result;
 }
@@ -138,22 +103,22 @@ bool InputMethodLocator::sameInputMethod(InputMethodLocator* other) {
 	if (other == nullptr) {
 		return false;
 	}
-	if (!$of($nc($of(this->descriptor))->getClass())->equals($nc($of($nc(other)->descriptor))->getClass())) {
+	if (!$nc(this->descriptor)->getClass()->equals($nc($nc(other)->descriptor)->getClass())) {
 		return false;
 	}
-	if (this->loader == nullptr && $nc(other)->loader != nullptr || this->loader != nullptr && !$nc($of(this->loader))->equals($nc(other)->loader)) {
+	if (this->loader == nullptr && other->loader != nullptr || this->loader != nullptr && !this->loader->equals(other->loader)) {
 		return false;
 	}
 	return true;
 }
 
 $String* InputMethodLocator::getActionCommandString() {
-	$useLocalCurrentObjectStackCache();
-	$var($String, inputMethodString, $nc($of(this->descriptor))->getClass()->getName());
+	$useLocalObjectStack();
+	$var($String, inputMethodString, $nc(this->descriptor)->getClass()->getName());
 	if (this->locale == nullptr) {
 		return inputMethodString;
 	} else {
-		return $str({inputMethodString, "\n"_s, $($nc(this->locale)->toString())});
+		return $str({inputMethodString, "\n"_s, $(this->locale->toString())});
 	}
 }
 
@@ -161,7 +126,36 @@ InputMethodLocator::InputMethodLocator() {
 }
 
 $Class* InputMethodLocator::load$($String* name, bool initialize) {
-	$loadClass(InputMethodLocator, name, initialize, &_InputMethodLocator_ClassInfo_, allocate$InputMethodLocator);
+	$FieldInfo fieldInfos$$[] = {
+		{"descriptor", "Ljava/awt/im/spi/InputMethodDescriptor;", nullptr, $PRIVATE, $field(InputMethodLocator, descriptor)},
+		{"loader", "Ljava/lang/ClassLoader;", nullptr, $PRIVATE, $field(InputMethodLocator, loader)},
+		{"locale", "Ljava/util/Locale;", nullptr, $PRIVATE, $field(InputMethodLocator, locale)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/im/spi/InputMethodDescriptor;Ljava/lang/ClassLoader;Ljava/util/Locale;)V", nullptr, 0, $method(InputMethodLocator, init$, void, $InputMethodDescriptor*, $ClassLoader*, $Locale*)},
+		{"deriveLocator", "(Ljava/util/Locale;)Lsun/awt/im/InputMethodLocator;", nullptr, 0, $method(InputMethodLocator, deriveLocator, InputMethodLocator*, $Locale*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(InputMethodLocator, equals, bool, Object$*)},
+		{"getActionCommandString", "()Ljava/lang/String;", nullptr, 0, $method(InputMethodLocator, getActionCommandString, $String*)},
+		{"getClassLoader", "()Ljava/lang/ClassLoader;", nullptr, 0, $method(InputMethodLocator, getClassLoader, $ClassLoader*)},
+		{"getDescriptor", "()Ljava/awt/im/spi/InputMethodDescriptor;", nullptr, 0, $method(InputMethodLocator, getDescriptor, $InputMethodDescriptor*)},
+		{"getLocale", "()Ljava/util/Locale;", nullptr, 0, $method(InputMethodLocator, getLocale, $Locale*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(InputMethodLocator, hashCode, int32_t)},
+		{"isLocaleAvailable", "(Ljava/util/Locale;)Z", nullptr, 0, $method(InputMethodLocator, isLocaleAvailable, bool, $Locale*)},
+		{"sameInputMethod", "(Lsun/awt/im/InputMethodLocator;)Z", nullptr, 0, $method(InputMethodLocator, sameInputMethod, bool, InputMethodLocator*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.awt.im.InputMethodLocator",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(InputMethodLocator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(InputMethodLocator);
+	});
 	return class$;
 }
 

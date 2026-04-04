@@ -1,8 +1,6 @@
 #include <com/sun/tools/javac/tree/JCTree$JCWildcard.h>
-
 #include <com/sun/source/tree/Tree$Kind.h>
 #include <com/sun/source/tree/TreeVisitor.h>
-#include <com/sun/source/tree/WildcardTree.h>
 #include <com/sun/tools/javac/code/BoundKind.h>
 #include <com/sun/tools/javac/tree/JCTree$1.h>
 #include <com/sun/tools/javac/tree/JCTree$JCExpression.h>
@@ -21,8 +19,6 @@
 
 using $Tree$Kind = ::com::sun::source::tree::Tree$Kind;
 using $TreeVisitor = ::com::sun::source::tree::TreeVisitor;
-using $WildcardTree = ::com::sun::source::tree::WildcardTree;
-using $BoundKind = ::com::sun::tools::javac::code::BoundKind;
 using $JCTree = ::com::sun::tools::javac::tree::JCTree;
 using $JCTree$1 = ::com::sun::tools::javac::tree::JCTree$1;
 using $JCTree$JCExpression = ::com::sun::tools::javac::tree::JCTree$JCExpression;
@@ -41,53 +37,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace tree {
-
-$FieldInfo _JCTree$JCWildcard_FieldInfo_[] = {
-	{"kind", "Lcom/sun/tools/javac/tree/JCTree$TypeBoundKind;", nullptr, $PUBLIC, $field(JCTree$JCWildcard, kind)},
-	{"inner", "Lcom/sun/tools/javac/tree/JCTree;", nullptr, $PUBLIC, $field(JCTree$JCWildcard, inner)},
-	{}
-};
-
-$MethodInfo _JCTree$JCWildcard_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lcom/sun/tools/javac/tree/JCTree$TypeBoundKind;Lcom/sun/tools/javac/tree/JCTree;)V", nullptr, $PROTECTED, $method(JCTree$JCWildcard, init$, void, $JCTree$TypeBoundKind*, $JCTree*)},
-	{"accept", "(Lcom/sun/tools/javac/tree/JCTree$Visitor;)V", nullptr, $PUBLIC, $virtualMethod(JCTree$JCWildcard, accept, void, $JCTree$Visitor*)},
-	{"accept", "(Lcom/sun/source/tree/TreeVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;D:Ljava/lang/Object;>(Lcom/sun/source/tree/TreeVisitor<TR;TD;>;TD;)TR;", $PUBLIC, $virtualMethod(JCTree$JCWildcard, accept, $Object*, $TreeVisitor*, Object$*)},
-	{"getBound", "()Lcom/sun/tools/javac/tree/JCTree;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCWildcard, getBound, $JCTree*)},
-	{"getKind", "()Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCWildcard, getKind, $Tree$Kind*)},
-	{"getTag", "()Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCWildcard, getTag, $JCTree$Tag*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _JCTree$JCWildcard_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.tree.JCTree$JCWildcard", "com.sun.tools.javac.tree.JCTree", "JCWildcard", $PUBLIC | $STATIC},
-	{"com.sun.tools.javac.tree.JCTree$JCExpression", "com.sun.tools.javac.tree.JCTree", "JCExpression", $PUBLIC | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _JCTree$JCWildcard_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.tree.JCTree$JCWildcard",
-	"com.sun.tools.javac.tree.JCTree$JCExpression",
-	"com.sun.source.tree.WildcardTree",
-	_JCTree$JCWildcard_FieldInfo_,
-	_JCTree$JCWildcard_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JCTree$JCWildcard_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.tree.JCTree"
-};
-
-$Object* allocate$JCTree$JCWildcard($Class* clazz) {
-	return $of($alloc(JCTree$JCWildcard));
-}
 
 $String* JCTree$JCWildcard::toString() {
 	 return this->$JCTree$JCExpression::toString();
@@ -123,24 +72,16 @@ $Tree$Kind* JCTree$JCWildcard::getKind() {
 	$init($JCTree$1);
 	switch ($nc($JCTree$1::$SwitchMap$com$sun$tools$javac$code$BoundKind)->get($nc(($nc(this->kind)->kind))->ordinal())) {
 	case 1:
-		{
-			$init($Tree$Kind);
-			return $Tree$Kind::UNBOUNDED_WILDCARD;
-		}
+		$init($Tree$Kind);
+		return $Tree$Kind::UNBOUNDED_WILDCARD;
 	case 2:
-		{
-			$init($Tree$Kind);
-			return $Tree$Kind::EXTENDS_WILDCARD;
-		}
+		$init($Tree$Kind);
+		return $Tree$Kind::EXTENDS_WILDCARD;
 	case 3:
-		{
-			$init($Tree$Kind);
-			return $Tree$Kind::SUPER_WILDCARD;
-		}
+		$init($Tree$Kind);
+		return $Tree$Kind::SUPER_WILDCARD;
 	default:
-		{
-			$throwNew($AssertionError, $of($$str({"Unknown wildcard bound "_s, this->kind})));
-		}
+		$throwNew($AssertionError, $$of($str({"Unknown wildcard bound "_s, this->kind})));
 	}
 }
 
@@ -149,7 +90,7 @@ $JCTree* JCTree$JCWildcard::getBound() {
 }
 
 $Object* JCTree$JCWildcard::accept($TreeVisitor* v, Object$* d) {
-	return $of($nc(v)->visitWildcard(this, d));
+	return $nc(v)->visitWildcard(this, d);
 }
 
 $JCTree$Tag* JCTree$JCWildcard::getTag() {
@@ -161,7 +102,48 @@ JCTree$JCWildcard::JCTree$JCWildcard() {
 }
 
 $Class* JCTree$JCWildcard::load$($String* name, bool initialize) {
-	$loadClass(JCTree$JCWildcard, name, initialize, &_JCTree$JCWildcard_ClassInfo_, allocate$JCTree$JCWildcard);
+	$FieldInfo fieldInfos$$[] = {
+		{"kind", "Lcom/sun/tools/javac/tree/JCTree$TypeBoundKind;", nullptr, $PUBLIC, $field(JCTree$JCWildcard, kind)},
+		{"inner", "Lcom/sun/tools/javac/tree/JCTree;", nullptr, $PUBLIC, $field(JCTree$JCWildcard, inner)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lcom/sun/tools/javac/tree/JCTree$TypeBoundKind;Lcom/sun/tools/javac/tree/JCTree;)V", nullptr, $PROTECTED, $method(JCTree$JCWildcard, init$, void, $JCTree$TypeBoundKind*, $JCTree*)},
+		{"accept", "(Lcom/sun/tools/javac/tree/JCTree$Visitor;)V", nullptr, $PUBLIC, $virtualMethod(JCTree$JCWildcard, accept, void, $JCTree$Visitor*)},
+		{"accept", "(Lcom/sun/source/tree/TreeVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;D:Ljava/lang/Object;>(Lcom/sun/source/tree/TreeVisitor<TR;TD;>;TD;)TR;", $PUBLIC, $virtualMethod(JCTree$JCWildcard, accept, $Object*, $TreeVisitor*, Object$*)},
+		{"getBound", "()Lcom/sun/tools/javac/tree/JCTree;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCWildcard, getBound, $JCTree*)},
+		{"getKind", "()Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCWildcard, getKind, $Tree$Kind*)},
+		{"getTag", "()Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCWildcard, getTag, $JCTree$Tag*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.tree.JCTree$JCWildcard", "com.sun.tools.javac.tree.JCTree", "JCWildcard", $PUBLIC | $STATIC},
+		{"com.sun.tools.javac.tree.JCTree$JCExpression", "com.sun.tools.javac.tree.JCTree", "JCExpression", $PUBLIC | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.tree.JCTree$JCWildcard",
+		"com.sun.tools.javac.tree.JCTree$JCExpression",
+		"com.sun.source.tree.WildcardTree",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.tree.JCTree"
+	};
+	$loadClass(JCTree$JCWildcard, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JCTree$JCWildcard));
+	});
 	return class$;
 }
 

@@ -1,12 +1,10 @@
 #include <javax/swing/plaf/nimbus/ComboBoxPainter.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Graphics2D.h>
 #include <java/awt/LinearGradientPaint.h>
 #include <java/awt/Paint.h>
 #include <java/awt/Shape.h>
 #include <java/awt/geom/Ellipse2D$Float.h>
-#include <java/awt/geom/Ellipse2D.h>
 #include <java/awt/geom/Path2D$Float.h>
 #include <java/awt/geom/Path2D.h>
 #include <java/awt/geom/Rectangle2D$Float.h>
@@ -38,7 +36,6 @@ using $Color = ::java::awt::Color;
 using $Graphics2D = ::java::awt::Graphics2D;
 using $Paint = ::java::awt::Paint;
 using $Shape = ::java::awt::Shape;
-using $Ellipse2D = ::java::awt::geom::Ellipse2D;
 using $Ellipse2D$Float = ::java::awt::geom::Ellipse2D$Float;
 using $Path2D = ::java::awt::geom::Path2D;
 using $Path2D$Float = ::java::awt::geom::Path2D$Float;
@@ -59,146 +56,12 @@ namespace javax {
 		namespace plaf {
 			namespace nimbus {
 
-$FieldInfo _ComboBoxPainter_FieldInfo_[] = {
-	{"BACKGROUND_DISABLED", "I", nullptr, $STATIC | $FINAL, $constField(ComboBoxPainter, BACKGROUND_DISABLED)},
-	{"BACKGROUND_DISABLED_PRESSED", "I", nullptr, $STATIC | $FINAL, $constField(ComboBoxPainter, BACKGROUND_DISABLED_PRESSED)},
-	{"BACKGROUND_ENABLED", "I", nullptr, $STATIC | $FINAL, $constField(ComboBoxPainter, BACKGROUND_ENABLED)},
-	{"BACKGROUND_FOCUSED", "I", nullptr, $STATIC | $FINAL, $constField(ComboBoxPainter, BACKGROUND_FOCUSED)},
-	{"BACKGROUND_MOUSEOVER_FOCUSED", "I", nullptr, $STATIC | $FINAL, $constField(ComboBoxPainter, BACKGROUND_MOUSEOVER_FOCUSED)},
-	{"BACKGROUND_MOUSEOVER", "I", nullptr, $STATIC | $FINAL, $constField(ComboBoxPainter, BACKGROUND_MOUSEOVER)},
-	{"BACKGROUND_PRESSED_FOCUSED", "I", nullptr, $STATIC | $FINAL, $constField(ComboBoxPainter, BACKGROUND_PRESSED_FOCUSED)},
-	{"BACKGROUND_PRESSED", "I", nullptr, $STATIC | $FINAL, $constField(ComboBoxPainter, BACKGROUND_PRESSED)},
-	{"BACKGROUND_ENABLED_SELECTED", "I", nullptr, $STATIC | $FINAL, $constField(ComboBoxPainter, BACKGROUND_ENABLED_SELECTED)},
-	{"BACKGROUND_DISABLED_EDITABLE", "I", nullptr, $STATIC | $FINAL, $constField(ComboBoxPainter, BACKGROUND_DISABLED_EDITABLE)},
-	{"BACKGROUND_ENABLED_EDITABLE", "I", nullptr, $STATIC | $FINAL, $constField(ComboBoxPainter, BACKGROUND_ENABLED_EDITABLE)},
-	{"BACKGROUND_FOCUSED_EDITABLE", "I", nullptr, $STATIC | $FINAL, $constField(ComboBoxPainter, BACKGROUND_FOCUSED_EDITABLE)},
-	{"BACKGROUND_MOUSEOVER_EDITABLE", "I", nullptr, $STATIC | $FINAL, $constField(ComboBoxPainter, BACKGROUND_MOUSEOVER_EDITABLE)},
-	{"BACKGROUND_PRESSED_EDITABLE", "I", nullptr, $STATIC | $FINAL, $constField(ComboBoxPainter, BACKGROUND_PRESSED_EDITABLE)},
-	{"state", "I", nullptr, $PRIVATE, $field(ComboBoxPainter, state)},
-	{"ctx", "Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext;", nullptr, $PRIVATE, $field(ComboBoxPainter, ctx)},
-	{"path", "Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $field(ComboBoxPainter, path)},
-	{"rect", "Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $field(ComboBoxPainter, rect)},
-	{"roundRect", "Ljava/awt/geom/RoundRectangle2D;", nullptr, $PRIVATE, $field(ComboBoxPainter, roundRect)},
-	{"ellipse", "Ljava/awt/geom/Ellipse2D;", nullptr, $PRIVATE, $field(ComboBoxPainter, ellipse)},
-	{"color1", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxPainter, color1)},
-	{"color2", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxPainter, color2)},
-	{"color3", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxPainter, color3)},
-	{"color4", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxPainter, color4)},
-	{"color5", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxPainter, color5)},
-	{"color6", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxPainter, color6)},
-	{"color7", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxPainter, color7)},
-	{"color8", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxPainter, color8)},
-	{"color9", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxPainter, color9)},
-	{"color10", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxPainter, color10)},
-	{"color11", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxPainter, color11)},
-	{"color12", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxPainter, color12)},
-	{"color13", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxPainter, color13)},
-	{"color14", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxPainter, color14)},
-	{"color15", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxPainter, color15)},
-	{"color16", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxPainter, color16)},
-	{"color17", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxPainter, color17)},
-	{"color18", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxPainter, color18)},
-	{"color19", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxPainter, color19)},
-	{"color20", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxPainter, color20)},
-	{"color21", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxPainter, color21)},
-	{"color22", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxPainter, color22)},
-	{"color23", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxPainter, color23)},
-	{"color24", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxPainter, color24)},
-	{"color25", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxPainter, color25)},
-	{"color26", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxPainter, color26)},
-	{"color27", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxPainter, color27)},
-	{"color28", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxPainter, color28)},
-	{"color29", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxPainter, color29)},
-	{"color30", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxPainter, color30)},
-	{"color31", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxPainter, color31)},
-	{"color32", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxPainter, color32)},
-	{"color33", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxPainter, color33)},
-	{"color34", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxPainter, color34)},
-	{"color35", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxPainter, color35)},
-	{"color36", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxPainter, color36)},
-	{"color37", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxPainter, color37)},
-	{"color38", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxPainter, color38)},
-	{"color39", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxPainter, color39)},
-	{"color40", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxPainter, color40)},
-	{"color41", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxPainter, color41)},
-	{"color42", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxPainter, color42)},
-	{"color43", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxPainter, color43)},
-	{"color44", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxPainter, color44)},
-	{"color45", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxPainter, color45)},
-	{"color46", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxPainter, color46)},
-	{"color47", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxPainter, color47)},
-	{"color48", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxPainter, color48)},
-	{"color49", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxPainter, color49)},
-	{"color50", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxPainter, color50)},
-	{"color51", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxPainter, color51)},
-	{"color52", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxPainter, color52)},
-	{"color53", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxPainter, color53)},
-	{"componentColors", "[Ljava/lang/Object;", nullptr, $PRIVATE, $field(ComboBoxPainter, componentColors)},
-	{}
-};
-
-$MethodInfo _ComboBoxPainter_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext;I)V", nullptr, $PUBLIC, $method(ComboBoxPainter, init$, void, $AbstractRegionPainter$PaintContext*, int32_t)},
-	{"decodeGradient1", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(ComboBoxPainter, decodeGradient1, $Paint*, $Shape*)},
-	{"decodeGradient10", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(ComboBoxPainter, decodeGradient10, $Paint*, $Shape*)},
-	{"decodeGradient11", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(ComboBoxPainter, decodeGradient11, $Paint*, $Shape*)},
-	{"decodeGradient12", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(ComboBoxPainter, decodeGradient12, $Paint*, $Shape*)},
-	{"decodeGradient2", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(ComboBoxPainter, decodeGradient2, $Paint*, $Shape*)},
-	{"decodeGradient3", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(ComboBoxPainter, decodeGradient3, $Paint*, $Shape*)},
-	{"decodeGradient4", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(ComboBoxPainter, decodeGradient4, $Paint*, $Shape*)},
-	{"decodeGradient5", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(ComboBoxPainter, decodeGradient5, $Paint*, $Shape*)},
-	{"decodeGradient6", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(ComboBoxPainter, decodeGradient6, $Paint*, $Shape*)},
-	{"decodeGradient7", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(ComboBoxPainter, decodeGradient7, $Paint*, $Shape*)},
-	{"decodeGradient8", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(ComboBoxPainter, decodeGradient8, $Paint*, $Shape*)},
-	{"decodeGradient9", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(ComboBoxPainter, decodeGradient9, $Paint*, $Shape*)},
-	{"decodePath1", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(ComboBoxPainter, decodePath1, $Path2D*)},
-	{"decodePath2", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(ComboBoxPainter, decodePath2, $Path2D*)},
-	{"decodePath3", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(ComboBoxPainter, decodePath3, $Path2D*)},
-	{"decodePath4", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(ComboBoxPainter, decodePath4, $Path2D*)},
-	{"decodePath5", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(ComboBoxPainter, decodePath5, $Path2D*)},
-	{"decodePath6", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(ComboBoxPainter, decodePath6, $Path2D*)},
-	{"decodeRect1", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(ComboBoxPainter, decodeRect1, $Rectangle2D*)},
-	{"decodeRect2", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(ComboBoxPainter, decodeRect2, $Rectangle2D*)},
-	{"decodeRoundRect1", "()Ljava/awt/geom/RoundRectangle2D;", nullptr, $PRIVATE, $method(ComboBoxPainter, decodeRoundRect1, $RoundRectangle2D*)},
-	{"doPaint", "(Ljava/awt/Graphics2D;Ljavax/swing/JComponent;II[Ljava/lang/Object;)V", nullptr, $PROTECTED, $virtualMethod(ComboBoxPainter, doPaint, void, $Graphics2D*, $JComponent*, int32_t, int32_t, $ObjectArray*)},
-	{"getExtendedCacheKeys", "(Ljavax/swing/JComponent;)[Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(ComboBoxPainter, getExtendedCacheKeys, $ObjectArray*, $JComponent*)},
-	{"getPaintContext", "()Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext;", nullptr, $PROTECTED | $FINAL, $virtualMethod(ComboBoxPainter, getPaintContext, $AbstractRegionPainter$PaintContext*)},
-	{"paintBackgroundDisabled", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(ComboBoxPainter, paintBackgroundDisabled, void, $Graphics2D*)},
-	{"paintBackgroundDisabledAndEditable", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(ComboBoxPainter, paintBackgroundDisabledAndEditable, void, $Graphics2D*)},
-	{"paintBackgroundDisabledAndPressed", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(ComboBoxPainter, paintBackgroundDisabledAndPressed, void, $Graphics2D*)},
-	{"paintBackgroundEnabled", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(ComboBoxPainter, paintBackgroundEnabled, void, $Graphics2D*)},
-	{"paintBackgroundEnabledAndEditable", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(ComboBoxPainter, paintBackgroundEnabledAndEditable, void, $Graphics2D*)},
-	{"paintBackgroundEnabledAndSelected", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(ComboBoxPainter, paintBackgroundEnabledAndSelected, void, $Graphics2D*)},
-	{"paintBackgroundFocused", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(ComboBoxPainter, paintBackgroundFocused, void, $Graphics2D*)},
-	{"paintBackgroundFocusedAndEditable", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(ComboBoxPainter, paintBackgroundFocusedAndEditable, void, $Graphics2D*)},
-	{"paintBackgroundMouseOver", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(ComboBoxPainter, paintBackgroundMouseOver, void, $Graphics2D*)},
-	{"paintBackgroundMouseOverAndEditable", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(ComboBoxPainter, paintBackgroundMouseOverAndEditable, void, $Graphics2D*)},
-	{"paintBackgroundMouseOverAndFocused", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(ComboBoxPainter, paintBackgroundMouseOverAndFocused, void, $Graphics2D*)},
-	{"paintBackgroundPressed", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(ComboBoxPainter, paintBackgroundPressed, void, $Graphics2D*)},
-	{"paintBackgroundPressedAndEditable", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(ComboBoxPainter, paintBackgroundPressedAndEditable, void, $Graphics2D*)},
-	{"paintBackgroundPressedAndFocused", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(ComboBoxPainter, paintBackgroundPressedAndFocused, void, $Graphics2D*)},
-	{}
-};
-
-$ClassInfo _ComboBoxPainter_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"javax.swing.plaf.nimbus.ComboBoxPainter",
-	"javax.swing.plaf.nimbus.AbstractRegionPainter",
-	nullptr,
-	_ComboBoxPainter_FieldInfo_,
-	_ComboBoxPainter_MethodInfo_
-};
-
-$Object* allocate$ComboBoxPainter($Class* clazz) {
-	return $of($alloc(ComboBoxPainter));
-}
-
 void ComboBoxPainter::init$($AbstractRegionPainter$PaintContext* ctx, int32_t state) {
 	$AbstractRegionPainter::init$();
 	$set(this, path, $new($Path2D$Float));
-	$set(this, rect, $new($Rectangle2D$Float, (float)0, (float)0, (float)0, (float)0));
-	$set(this, roundRect, $new($RoundRectangle2D$Float, (float)0, (float)0, (float)0, (float)0, (float)0, (float)0));
-	$set(this, ellipse, $new($Ellipse2D$Float, (float)0, (float)0, (float)0, (float)0));
+	$set(this, rect, $new($Rectangle2D$Float, 0, 0, 0, 0));
+	$set(this, roundRect, $new($RoundRectangle2D$Float, 0, 0, 0, 0, 0, 0));
+	$set(this, ellipse, $new($Ellipse2D$Float, 0, 0, 0, 0));
 	$set(this, color1, decodeColor("nimbusBlueGrey"_s, -0.6111111f, -0.110526316f, -0.74509805f, -247));
 	$set(this, color2, decodeColor("nimbusBase"_s, 0.032459438f, -0.5928571f, 0.2745098f, 0));
 	$set(this, color3, decodeColor("nimbusBase"_s, 0.032459438f, -0.590029f, 0.2235294f, 0));
@@ -260,182 +123,140 @@ void ComboBoxPainter::doPaint($Graphics2D* g, $JComponent* c, int32_t width, int
 	$set(this, componentColors, extendedCacheKeys);
 	switch (this->state) {
 	case ComboBoxPainter::BACKGROUND_DISABLED:
-		{
-			paintBackgroundDisabled(g);
-			break;
-		}
+		paintBackgroundDisabled(g);
+		break;
 	case ComboBoxPainter::BACKGROUND_DISABLED_PRESSED:
-		{
-			paintBackgroundDisabledAndPressed(g);
-			break;
-		}
+		paintBackgroundDisabledAndPressed(g);
+		break;
 	case ComboBoxPainter::BACKGROUND_ENABLED:
-		{
-			paintBackgroundEnabled(g);
-			break;
-		}
+		paintBackgroundEnabled(g);
+		break;
 	case ComboBoxPainter::BACKGROUND_FOCUSED:
-		{
-			paintBackgroundFocused(g);
-			break;
-		}
+		paintBackgroundFocused(g);
+		break;
 	case ComboBoxPainter::BACKGROUND_MOUSEOVER_FOCUSED:
-		{
-			paintBackgroundMouseOverAndFocused(g);
-			break;
-		}
+		paintBackgroundMouseOverAndFocused(g);
+		break;
 	case ComboBoxPainter::BACKGROUND_MOUSEOVER:
-		{
-			paintBackgroundMouseOver(g);
-			break;
-		}
+		paintBackgroundMouseOver(g);
+		break;
 	case ComboBoxPainter::BACKGROUND_PRESSED_FOCUSED:
-		{
-			paintBackgroundPressedAndFocused(g);
-			break;
-		}
+		paintBackgroundPressedAndFocused(g);
+		break;
 	case ComboBoxPainter::BACKGROUND_PRESSED:
-		{
-			paintBackgroundPressed(g);
-			break;
-		}
+		paintBackgroundPressed(g);
+		break;
 	case ComboBoxPainter::BACKGROUND_ENABLED_SELECTED:
-		{
-			paintBackgroundEnabledAndSelected(g);
-			break;
-		}
+		paintBackgroundEnabledAndSelected(g);
+		break;
 	case ComboBoxPainter::BACKGROUND_DISABLED_EDITABLE:
-		{
-			paintBackgroundDisabledAndEditable(g);
-			break;
-		}
+		paintBackgroundDisabledAndEditable(g);
+		break;
 	case ComboBoxPainter::BACKGROUND_ENABLED_EDITABLE:
-		{
-			paintBackgroundEnabledAndEditable(g);
-			break;
-		}
+		paintBackgroundEnabledAndEditable(g);
+		break;
 	case ComboBoxPainter::BACKGROUND_FOCUSED_EDITABLE:
-		{
-			paintBackgroundFocusedAndEditable(g);
-			break;
-		}
+		paintBackgroundFocusedAndEditable(g);
+		break;
 	case ComboBoxPainter::BACKGROUND_MOUSEOVER_EDITABLE:
-		{
-			paintBackgroundMouseOverAndEditable(g);
-			break;
-		}
+		paintBackgroundMouseOverAndEditable(g);
+		break;
 	case ComboBoxPainter::BACKGROUND_PRESSED_EDITABLE:
-		{
-			paintBackgroundPressedAndEditable(g);
-			break;
-		}
+		paintBackgroundPressedAndEditable(g);
+		break;
 	}
 }
 
 $ObjectArray* ComboBoxPainter::getExtendedCacheKeys($JComponent* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectArray, extendedCacheKeys, nullptr);
 	switch (this->state) {
 	case ComboBoxPainter::BACKGROUND_ENABLED:
-		{
-			$assign(extendedCacheKeys, $new($ObjectArray, {
-				$($of(getComponentColor(c, "background"_s, this->color17, -0.63174605f, 0.43921566f, 0))),
-				$($of(getComponentColor(c, "background"_s, this->color18, -0.6054113f, 0.35686272f, 0))),
-				$($of(getComponentColor(c, "background"_s, this->color6, -0.5953556f, 0.32549018f, 0))),
-				$($of(getComponentColor(c, "background"_s, this->color19, -0.5998577f, 0.4352941f, 0))),
-				$($of(getComponentColor(c, "background"_s, this->color22, -0.6197143f, 0.43137252f, 0))),
-				$($of(getComponentColor(c, "background"_s, this->color23, -0.4800539f, 0.28235292f, 0))),
-				$($of(getComponentColor(c, "background"_s, this->color24, -0.43866998f, 0.24705881f, 0))),
-				$($of(getComponentColor(c, "background"_s, this->color25, -0.4625541f, 0.35686272f, 0)))
-			}));
-			break;
-		}
+		$assign(extendedCacheKeys, $new($ObjectArray, {
+			$(getComponentColor(c, "background"_s, this->color17, -0.63174605f, 0.43921566f, 0)),
+			$(getComponentColor(c, "background"_s, this->color18, -0.6054113f, 0.35686272f, 0)),
+			$(getComponentColor(c, "background"_s, this->color6, -0.5953556f, 0.32549018f, 0)),
+			$(getComponentColor(c, "background"_s, this->color19, -0.5998577f, 0.4352941f, 0)),
+			$(getComponentColor(c, "background"_s, this->color22, -0.6197143f, 0.43137252f, 0)),
+			$(getComponentColor(c, "background"_s, this->color23, -0.4800539f, 0.28235292f, 0)),
+			$(getComponentColor(c, "background"_s, this->color24, -0.43866998f, 0.24705881f, 0)),
+			$(getComponentColor(c, "background"_s, this->color25, -0.4625541f, 0.35686272f, 0))
+		}));
+		break;
 	case ComboBoxPainter::BACKGROUND_FOCUSED:
-		{
-			$assign(extendedCacheKeys, $new($ObjectArray, {
-				$($of(getComponentColor(c, "background"_s, this->color17, -0.63174605f, 0.43921566f, 0))),
-				$($of(getComponentColor(c, "background"_s, this->color18, -0.6054113f, 0.35686272f, 0))),
-				$($of(getComponentColor(c, "background"_s, this->color6, -0.5953556f, 0.32549018f, 0))),
-				$($of(getComponentColor(c, "background"_s, this->color19, -0.5998577f, 0.4352941f, 0))),
-				$($of(getComponentColor(c, "background"_s, this->color22, -0.6197143f, 0.43137252f, 0))),
-				$($of(getComponentColor(c, "background"_s, this->color23, -0.4800539f, 0.28235292f, 0))),
-				$($of(getComponentColor(c, "background"_s, this->color24, -0.43866998f, 0.24705881f, 0))),
-				$($of(getComponentColor(c, "background"_s, this->color25, -0.4625541f, 0.35686272f, 0)))
-			}));
-			break;
-		}
+		$assign(extendedCacheKeys, $new($ObjectArray, {
+			$(getComponentColor(c, "background"_s, this->color17, -0.63174605f, 0.43921566f, 0)),
+			$(getComponentColor(c, "background"_s, this->color18, -0.6054113f, 0.35686272f, 0)),
+			$(getComponentColor(c, "background"_s, this->color6, -0.5953556f, 0.32549018f, 0)),
+			$(getComponentColor(c, "background"_s, this->color19, -0.5998577f, 0.4352941f, 0)),
+			$(getComponentColor(c, "background"_s, this->color22, -0.6197143f, 0.43137252f, 0)),
+			$(getComponentColor(c, "background"_s, this->color23, -0.4800539f, 0.28235292f, 0)),
+			$(getComponentColor(c, "background"_s, this->color24, -0.43866998f, 0.24705881f, 0)),
+			$(getComponentColor(c, "background"_s, this->color25, -0.4625541f, 0.35686272f, 0))
+		}));
+		break;
 	case ComboBoxPainter::BACKGROUND_MOUSEOVER_FOCUSED:
-		{
-			$assign(extendedCacheKeys, $new($ObjectArray, {
-				$($of(getComponentColor(c, "background"_s, this->color29, -0.6317773f, 0.4470588f, 0))),
-				$($of(getComponentColor(c, "background"_s, this->color30, -0.6113241f, 0.41568625f, 0))),
-				$($of(getComponentColor(c, "background"_s, this->color31, -0.5985242f, 0.39999998f, 0))),
-				$($of(getComponentColor(c, "background"_s, this->color32, -0.6357143f, 0.45098037f, 0))),
-				$($of(getComponentColor(c, "background"_s, this->color35, -0.6198413f, 0.43921566f, 0))),
-				$($of(getComponentColor(c, "background"_s, this->color36, -0.50527954f, 0.35294116f, 0))),
-				$($of(getComponentColor(c, "background"_s, this->color37, -0.4555341f, 0.3215686f, 0))),
-				$($of(getComponentColor(c, "background"_s, this->color25, -0.4625541f, 0.35686272f, 0))),
-				$($of(getComponentColor(c, "background"_s, this->color38, -0.4757143f, 0.43137252f, 0)))
-			}));
-			break;
-		}
+		$assign(extendedCacheKeys, $new($ObjectArray, {
+			$(getComponentColor(c, "background"_s, this->color29, -0.6317773f, 0.4470588f, 0)),
+			$(getComponentColor(c, "background"_s, this->color30, -0.6113241f, 0.41568625f, 0)),
+			$(getComponentColor(c, "background"_s, this->color31, -0.5985242f, 0.39999998f, 0)),
+			$(getComponentColor(c, "background"_s, this->color32, -0.6357143f, 0.45098037f, 0)),
+			$(getComponentColor(c, "background"_s, this->color35, -0.6198413f, 0.43921566f, 0)),
+			$(getComponentColor(c, "background"_s, this->color36, -0.50527954f, 0.35294116f, 0)),
+			$(getComponentColor(c, "background"_s, this->color37, -0.4555341f, 0.3215686f, 0)),
+			$(getComponentColor(c, "background"_s, this->color25, -0.4625541f, 0.35686272f, 0)),
+			$(getComponentColor(c, "background"_s, this->color38, -0.4757143f, 0.43137252f, 0))
+		}));
+		break;
 	case ComboBoxPainter::BACKGROUND_MOUSEOVER:
-		{
-			$assign(extendedCacheKeys, $new($ObjectArray, {
-				$($of(getComponentColor(c, "background"_s, this->color29, -0.6317773f, 0.4470588f, 0))),
-				$($of(getComponentColor(c, "background"_s, this->color30, -0.6113241f, 0.41568625f, 0))),
-				$($of(getComponentColor(c, "background"_s, this->color31, -0.5985242f, 0.39999998f, 0))),
-				$($of(getComponentColor(c, "background"_s, this->color32, -0.6357143f, 0.45098037f, 0))),
-				$($of(getComponentColor(c, "background"_s, this->color35, -0.6198413f, 0.43921566f, 0))),
-				$($of(getComponentColor(c, "background"_s, this->color36, -0.50527954f, 0.35294116f, 0))),
-				$($of(getComponentColor(c, "background"_s, this->color37, -0.4555341f, 0.3215686f, 0))),
-				$($of(getComponentColor(c, "background"_s, this->color25, -0.4625541f, 0.35686272f, 0))),
-				$($of(getComponentColor(c, "background"_s, this->color38, -0.4757143f, 0.43137252f, 0)))
-			}));
-			break;
-		}
+		$assign(extendedCacheKeys, $new($ObjectArray, {
+			$(getComponentColor(c, "background"_s, this->color29, -0.6317773f, 0.4470588f, 0)),
+			$(getComponentColor(c, "background"_s, this->color30, -0.6113241f, 0.41568625f, 0)),
+			$(getComponentColor(c, "background"_s, this->color31, -0.5985242f, 0.39999998f, 0)),
+			$(getComponentColor(c, "background"_s, this->color32, -0.6357143f, 0.45098037f, 0)),
+			$(getComponentColor(c, "background"_s, this->color35, -0.6198413f, 0.43921566f, 0)),
+			$(getComponentColor(c, "background"_s, this->color36, -0.50527954f, 0.35294116f, 0)),
+			$(getComponentColor(c, "background"_s, this->color37, -0.4555341f, 0.3215686f, 0)),
+			$(getComponentColor(c, "background"_s, this->color25, -0.4625541f, 0.35686272f, 0)),
+			$(getComponentColor(c, "background"_s, this->color38, -0.4757143f, 0.43137252f, 0))
+		}));
+		break;
 	case ComboBoxPainter::BACKGROUND_PRESSED_FOCUSED:
-		{
-			$assign(extendedCacheKeys, $new($ObjectArray, {
-				$($of(getComponentColor(c, "background"_s, this->color41, -0.5847884f, 0.2980392f, 0))),
-				$($of(getComponentColor(c, "background"_s, this->color42, -0.53623784f, 0.19999999f, 0))),
-				$($of(getComponentColor(c, "background"_s, this->color43, -0.52701867f, 0.17254901f, 0))),
-				$($of(getComponentColor(c, "background"_s, this->color44, -0.5456242f, 0.3215686f, 0))),
-				$($of(getComponentColor(c, "background"_s, this->color47, -0.38050595f, 0.20392156f, 0))),
-				$($of(getComponentColor(c, "background"_s, this->color48, -0.12922078f, 0.054901958f, 0))),
-				$($of(getComponentColor(c, "background"_s, this->color49, -0.00895375f, 0.007843137f, 0))),
-				$($of(getComponentColor(c, "background"_s, this->color50, -0.1436508f, 0.19215685f, 0)))
-			}));
-			break;
-		}
+		$assign(extendedCacheKeys, $new($ObjectArray, {
+			$(getComponentColor(c, "background"_s, this->color41, -0.5847884f, 0.2980392f, 0)),
+			$(getComponentColor(c, "background"_s, this->color42, -0.53623784f, 0.19999999f, 0)),
+			$(getComponentColor(c, "background"_s, this->color43, -0.52701867f, 0.17254901f, 0)),
+			$(getComponentColor(c, "background"_s, this->color44, -0.5456242f, 0.3215686f, 0)),
+			$(getComponentColor(c, "background"_s, this->color47, -0.38050595f, 0.20392156f, 0)),
+			$(getComponentColor(c, "background"_s, this->color48, -0.12922078f, 0.054901958f, 0)),
+			$(getComponentColor(c, "background"_s, this->color49, -0.00895375f, 0.007843137f, 0)),
+			$(getComponentColor(c, "background"_s, this->color50, -0.1436508f, 0.19215685f, 0))
+		}));
+		break;
 	case ComboBoxPainter::BACKGROUND_PRESSED:
-		{
-			$assign(extendedCacheKeys, $new($ObjectArray, {
-				$($of(getComponentColor(c, "background"_s, this->color41, -0.5847884f, 0.2980392f, 0))),
-				$($of(getComponentColor(c, "background"_s, this->color42, -0.53623784f, 0.19999999f, 0))),
-				$($of(getComponentColor(c, "background"_s, this->color43, -0.52701867f, 0.17254901f, 0))),
-				$($of(getComponentColor(c, "background"_s, this->color44, -0.5456242f, 0.3215686f, 0))),
-				$($of(getComponentColor(c, "background"_s, this->color47, -0.38050595f, 0.20392156f, 0))),
-				$($of(getComponentColor(c, "background"_s, this->color48, -0.12922078f, 0.054901958f, 0))),
-				$($of(getComponentColor(c, "background"_s, this->color49, -0.00895375f, 0.007843137f, 0))),
-				$($of(getComponentColor(c, "background"_s, this->color50, -0.1436508f, 0.19215685f, 0)))
-			}));
-			break;
-		}
+		$assign(extendedCacheKeys, $new($ObjectArray, {
+			$(getComponentColor(c, "background"_s, this->color41, -0.5847884f, 0.2980392f, 0)),
+			$(getComponentColor(c, "background"_s, this->color42, -0.53623784f, 0.19999999f, 0)),
+			$(getComponentColor(c, "background"_s, this->color43, -0.52701867f, 0.17254901f, 0)),
+			$(getComponentColor(c, "background"_s, this->color44, -0.5456242f, 0.3215686f, 0)),
+			$(getComponentColor(c, "background"_s, this->color47, -0.38050595f, 0.20392156f, 0)),
+			$(getComponentColor(c, "background"_s, this->color48, -0.12922078f, 0.054901958f, 0)),
+			$(getComponentColor(c, "background"_s, this->color49, -0.00895375f, 0.007843137f, 0)),
+			$(getComponentColor(c, "background"_s, this->color50, -0.1436508f, 0.19215685f, 0))
+		}));
+		break;
 	case ComboBoxPainter::BACKGROUND_ENABLED_SELECTED:
-		{
-			$assign(extendedCacheKeys, $new($ObjectArray, {
-				$($of(getComponentColor(c, "background"_s, this->color41, -0.5847884f, 0.2980392f, 0))),
-				$($of(getComponentColor(c, "background"_s, this->color42, -0.53623784f, 0.19999999f, 0))),
-				$($of(getComponentColor(c, "background"_s, this->color43, -0.52701867f, 0.17254901f, 0))),
-				$($of(getComponentColor(c, "background"_s, this->color44, -0.5456242f, 0.3215686f, 0))),
-				$($of(getComponentColor(c, "background"_s, this->color47, -0.38050595f, 0.20392156f, 0))),
-				$($of(getComponentColor(c, "background"_s, this->color48, -0.12922078f, 0.054901958f, 0))),
-				$($of(getComponentColor(c, "background"_s, this->color49, -0.00895375f, 0.007843137f, 0))),
-				$($of(getComponentColor(c, "background"_s, this->color50, -0.1436508f, 0.19215685f, 0)))
-			}));
-			break;
-		}
+		$assign(extendedCacheKeys, $new($ObjectArray, {
+			$(getComponentColor(c, "background"_s, this->color41, -0.5847884f, 0.2980392f, 0)),
+			$(getComponentColor(c, "background"_s, this->color42, -0.53623784f, 0.19999999f, 0)),
+			$(getComponentColor(c, "background"_s, this->color43, -0.52701867f, 0.17254901f, 0)),
+			$(getComponentColor(c, "background"_s, this->color44, -0.5456242f, 0.3215686f, 0)),
+			$(getComponentColor(c, "background"_s, this->color47, -0.38050595f, 0.20392156f, 0)),
+			$(getComponentColor(c, "background"_s, this->color48, -0.12922078f, 0.054901958f, 0)),
+			$(getComponentColor(c, "background"_s, this->color49, -0.00895375f, 0.007843137f, 0)),
+			$(getComponentColor(c, "background"_s, this->color50, -0.1436508f, 0.19215685f, 0))
+		}));
+		break;
 	}
 	return extendedCacheKeys;
 }
@@ -445,7 +266,7 @@ $AbstractRegionPainter$PaintContext* ComboBoxPainter::getPaintContext() {
 }
 
 void ComboBoxPainter::paintBackgroundDisabled($Graphics2D* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, path, decodePath1());
 	$nc(g)->setPaint(this->color1);
 	g->fill(this->path);
@@ -464,7 +285,7 @@ void ComboBoxPainter::paintBackgroundDisabled($Graphics2D* g) {
 }
 
 void ComboBoxPainter::paintBackgroundDisabledAndPressed($Graphics2D* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, path, decodePath1());
 	$nc(g)->setPaint(this->color1);
 	g->fill(this->path);
@@ -483,7 +304,7 @@ void ComboBoxPainter::paintBackgroundDisabledAndPressed($Graphics2D* g) {
 }
 
 void ComboBoxPainter::paintBackgroundEnabled($Graphics2D* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, path, decodePath1());
 	$nc(g)->setPaint(this->color14);
 	g->fill(this->path);
@@ -502,7 +323,7 @@ void ComboBoxPainter::paintBackgroundEnabled($Graphics2D* g) {
 }
 
 void ComboBoxPainter::paintBackgroundFocused($Graphics2D* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, roundRect, decodeRoundRect1());
 	$nc(g)->setPaint(this->color26);
 	g->fill(this->roundRect);
@@ -521,7 +342,7 @@ void ComboBoxPainter::paintBackgroundFocused($Graphics2D* g) {
 }
 
 void ComboBoxPainter::paintBackgroundMouseOverAndFocused($Graphics2D* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, roundRect, decodeRoundRect1());
 	$nc(g)->setPaint(this->color26);
 	g->fill(this->roundRect);
@@ -540,7 +361,7 @@ void ComboBoxPainter::paintBackgroundMouseOverAndFocused($Graphics2D* g) {
 }
 
 void ComboBoxPainter::paintBackgroundMouseOver($Graphics2D* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, path, decodePath1());
 	$nc(g)->setPaint(this->color14);
 	g->fill(this->path);
@@ -559,7 +380,7 @@ void ComboBoxPainter::paintBackgroundMouseOver($Graphics2D* g) {
 }
 
 void ComboBoxPainter::paintBackgroundPressedAndFocused($Graphics2D* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, roundRect, decodeRoundRect1());
 	$nc(g)->setPaint(this->color26);
 	g->fill(this->roundRect);
@@ -578,7 +399,7 @@ void ComboBoxPainter::paintBackgroundPressedAndFocused($Graphics2D* g) {
 }
 
 void ComboBoxPainter::paintBackgroundPressed($Graphics2D* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, path, decodePath1());
 	$nc(g)->setPaint(this->color51);
 	g->fill(this->path);
@@ -597,7 +418,7 @@ void ComboBoxPainter::paintBackgroundPressed($Graphics2D* g) {
 }
 
 void ComboBoxPainter::paintBackgroundEnabledAndSelected($Graphics2D* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, path, decodePath1());
 	$nc(g)->setPaint(this->color52);
 	g->fill(this->path);
@@ -647,27 +468,27 @@ void ComboBoxPainter::paintBackgroundPressedAndEditable($Graphics2D* g) {
 
 $Path2D* ComboBoxPainter::decodePath1() {
 	$nc(this->path)->reset();
-	double var$0 = (double)decodeX(0.22222222f);
+	double var$0 = decodeX(0.22222222f);
 	$nc(this->path)->moveTo(var$0, decodeY(2.0f));
-	double var$1 = (double)decodeX(0.22222222f);
+	double var$1 = decodeX(0.22222222f);
 	$nc(this->path)->lineTo(var$1, decodeY(2.25f));
-	double var$2 = (double)decodeAnchorX(0.22222222f, 0.0f);
-	double var$3 = (double)decodeAnchorY(2.25f, 3.0f);
-	double var$4 = (double)decodeAnchorX(0.7777778f, -3.0f);
-	double var$5 = (double)decodeAnchorY(2.875f, 0.0f);
-	double var$6 = (double)decodeX(0.7777778f);
+	double var$2 = decodeAnchorX(0.22222222f, 0.0f);
+	double var$3 = decodeAnchorY(2.25f, 3.0f);
+	double var$4 = decodeAnchorX(0.7777778f, -3.0f);
+	double var$5 = decodeAnchorY(2.875f, 0.0f);
+	double var$6 = decodeX(0.7777778f);
 	$nc(this->path)->curveTo(var$2, var$3, var$4, var$5, var$6, decodeY(2.875f));
-	double var$7 = (double)decodeX(2.631579f);
+	double var$7 = decodeX(2.631579f);
 	$nc(this->path)->lineTo(var$7, decodeY(2.875f));
-	double var$8 = (double)decodeAnchorX(2.631579f, 3.0f);
-	double var$9 = (double)decodeAnchorY(2.875f, 0.0f);
-	double var$10 = (double)decodeAnchorX(2.8947368f, 0.0f);
-	double var$11 = (double)decodeAnchorY(2.25f, 3.0f);
-	double var$12 = (double)decodeX(2.8947368f);
+	double var$8 = decodeAnchorX(2.631579f, 3.0f);
+	double var$9 = decodeAnchorY(2.875f, 0.0f);
+	double var$10 = decodeAnchorX(2.8947368f, 0.0f);
+	double var$11 = decodeAnchorY(2.25f, 3.0f);
+	double var$12 = decodeX(2.8947368f);
 	$nc(this->path)->curveTo(var$8, var$9, var$10, var$11, var$12, decodeY(2.25f));
-	double var$13 = (double)decodeX(2.8947368f);
+	double var$13 = decodeX(2.8947368f);
 	$nc(this->path)->lineTo(var$13, decodeY(2.0f));
-	double var$14 = (double)decodeX(0.22222222f);
+	double var$14 = decodeX(0.22222222f);
 	$nc(this->path)->lineTo(var$14, decodeY(2.0f));
 	$nc(this->path)->closePath();
 	return this->path;
@@ -675,27 +496,27 @@ $Path2D* ComboBoxPainter::decodePath1() {
 
 $Path2D* ComboBoxPainter::decodePath2() {
 	$nc(this->path)->reset();
-	double var$0 = (double)decodeX(0.22222222f);
+	double var$0 = decodeX(0.22222222f);
 	$nc(this->path)->moveTo(var$0, decodeY(0.875f));
-	double var$1 = (double)decodeX(0.22222222f);
+	double var$1 = decodeX(0.22222222f);
 	$nc(this->path)->lineTo(var$1, decodeY(2.125f));
-	double var$2 = (double)decodeAnchorX(0.22222222f, 0.0f);
-	double var$3 = (double)decodeAnchorY(2.125f, 3.0f);
-	double var$4 = (double)decodeAnchorX(0.7777778f, -3.0f);
-	double var$5 = (double)decodeAnchorY(2.75f, 0.0f);
-	double var$6 = (double)decodeX(0.7777778f);
+	double var$2 = decodeAnchorX(0.22222222f, 0.0f);
+	double var$3 = decodeAnchorY(2.125f, 3.0f);
+	double var$4 = decodeAnchorX(0.7777778f, -3.0f);
+	double var$5 = decodeAnchorY(2.75f, 0.0f);
+	double var$6 = decodeX(0.7777778f);
 	$nc(this->path)->curveTo(var$2, var$3, var$4, var$5, var$6, decodeY(2.75f));
-	double var$7 = (double)decodeX(2.0f);
+	double var$7 = decodeX(2.0f);
 	$nc(this->path)->lineTo(var$7, decodeY(2.75f));
-	double var$8 = (double)decodeX(2.0f);
+	double var$8 = decodeX(2.0f);
 	$nc(this->path)->lineTo(var$8, decodeY(0.25f));
-	double var$9 = (double)decodeX(0.7777778f);
+	double var$9 = decodeX(0.7777778f);
 	$nc(this->path)->lineTo(var$9, decodeY(0.25f));
-	double var$10 = (double)decodeAnchorX(0.7777778f, -3.0f);
-	double var$11 = (double)decodeAnchorY(0.25f, 0.0f);
-	double var$12 = (double)decodeAnchorX(0.22222222f, 0.0f);
-	double var$13 = (double)decodeAnchorY(0.875f, -3.0f);
-	double var$14 = (double)decodeX(0.22222222f);
+	double var$10 = decodeAnchorX(0.7777778f, -3.0f);
+	double var$11 = decodeAnchorY(0.25f, 0.0f);
+	double var$12 = decodeAnchorX(0.22222222f, 0.0f);
+	double var$13 = decodeAnchorY(0.875f, -3.0f);
+	double var$14 = decodeX(0.22222222f);
 	$nc(this->path)->curveTo(var$10, var$11, var$12, var$13, var$14, decodeY(0.875f));
 	$nc(this->path)->closePath();
 	return this->path;
@@ -703,27 +524,27 @@ $Path2D* ComboBoxPainter::decodePath2() {
 
 $Path2D* ComboBoxPainter::decodePath3() {
 	$nc(this->path)->reset();
-	double var$0 = (double)decodeX(0.8888889f);
+	double var$0 = decodeX(0.8888889f);
 	$nc(this->path)->moveTo(var$0, decodeY(0.375f));
-	double var$1 = (double)decodeX(2.0f);
+	double var$1 = decodeX(2.0f);
 	$nc(this->path)->lineTo(var$1, decodeY(0.375f));
-	double var$2 = (double)decodeX(2.0f);
+	double var$2 = decodeX(2.0f);
 	$nc(this->path)->lineTo(var$2, decodeY(2.625f));
-	double var$3 = (double)decodeX(0.8888889f);
+	double var$3 = decodeX(0.8888889f);
 	$nc(this->path)->lineTo(var$3, decodeY(2.625f));
-	double var$4 = (double)decodeAnchorX(0.8888889f, -4.0f);
-	double var$5 = (double)decodeAnchorY(2.625f, 0.0f);
-	double var$6 = (double)decodeAnchorX(0.33333334f, 0.0f);
-	double var$7 = (double)decodeAnchorY(2.0f, 4.0f);
-	double var$8 = (double)decodeX(0.33333334f);
+	double var$4 = decodeAnchorX(0.8888889f, -4.0f);
+	double var$5 = decodeAnchorY(2.625f, 0.0f);
+	double var$6 = decodeAnchorX(0.33333334f, 0.0f);
+	double var$7 = decodeAnchorY(2.0f, 4.0f);
+	double var$8 = decodeX(0.33333334f);
 	$nc(this->path)->curveTo(var$4, var$5, var$6, var$7, var$8, decodeY(2.0f));
-	double var$9 = (double)decodeX(0.33333334f);
+	double var$9 = decodeX(0.33333334f);
 	$nc(this->path)->lineTo(var$9, decodeY(0.875f));
-	double var$10 = (double)decodeAnchorX(0.33333334f, 0.0f);
-	double var$11 = (double)decodeAnchorY(0.875f, -3.0f);
-	double var$12 = (double)decodeAnchorX(0.8888889f, -4.0f);
-	double var$13 = (double)decodeAnchorY(0.375f, 0.0f);
-	double var$14 = (double)decodeX(0.8888889f);
+	double var$10 = decodeAnchorX(0.33333334f, 0.0f);
+	double var$11 = decodeAnchorY(0.875f, -3.0f);
+	double var$12 = decodeAnchorX(0.8888889f, -4.0f);
+	double var$13 = decodeAnchorY(0.375f, 0.0f);
+	double var$14 = decodeX(0.8888889f);
 	$nc(this->path)->curveTo(var$10, var$11, var$12, var$13, var$14, decodeY(0.375f));
 	$nc(this->path)->closePath();
 	return this->path;
@@ -731,27 +552,27 @@ $Path2D* ComboBoxPainter::decodePath3() {
 
 $Path2D* ComboBoxPainter::decodePath4() {
 	$nc(this->path)->reset();
-	double var$0 = (double)decodeX(2.0f);
+	double var$0 = decodeX(2.0f);
 	$nc(this->path)->moveTo(var$0, decodeY(0.25f));
-	double var$1 = (double)decodeX(2.631579f);
+	double var$1 = decodeX(2.631579f);
 	$nc(this->path)->lineTo(var$1, decodeY(0.25f));
-	double var$2 = (double)decodeAnchorX(2.631579f, 3.0f);
-	double var$3 = (double)decodeAnchorY(0.25f, 0.0f);
-	double var$4 = (double)decodeAnchorX(2.8947368f, 0.0f);
-	double var$5 = (double)decodeAnchorY(0.875f, -3.0f);
-	double var$6 = (double)decodeX(2.8947368f);
+	double var$2 = decodeAnchorX(2.631579f, 3.0f);
+	double var$3 = decodeAnchorY(0.25f, 0.0f);
+	double var$4 = decodeAnchorX(2.8947368f, 0.0f);
+	double var$5 = decodeAnchorY(0.875f, -3.0f);
+	double var$6 = decodeX(2.8947368f);
 	$nc(this->path)->curveTo(var$2, var$3, var$4, var$5, var$6, decodeY(0.875f));
-	double var$7 = (double)decodeX(2.8947368f);
+	double var$7 = decodeX(2.8947368f);
 	$nc(this->path)->lineTo(var$7, decodeY(2.125f));
-	double var$8 = (double)decodeAnchorX(2.8947368f, 0.0f);
-	double var$9 = (double)decodeAnchorY(2.125f, 3.0f);
-	double var$10 = (double)decodeAnchorX(2.631579f, 3.0f);
-	double var$11 = (double)decodeAnchorY(2.75f, 0.0f);
-	double var$12 = (double)decodeX(2.631579f);
+	double var$8 = decodeAnchorX(2.8947368f, 0.0f);
+	double var$9 = decodeAnchorY(2.125f, 3.0f);
+	double var$10 = decodeAnchorX(2.631579f, 3.0f);
+	double var$11 = decodeAnchorY(2.75f, 0.0f);
+	double var$12 = decodeX(2.631579f);
 	$nc(this->path)->curveTo(var$8, var$9, var$10, var$11, var$12, decodeY(2.75f));
-	double var$13 = (double)decodeX(2.0f);
+	double var$13 = decodeX(2.0f);
 	$nc(this->path)->lineTo(var$13, decodeY(2.75f));
-	double var$14 = (double)decodeX(2.0f);
+	double var$14 = decodeX(2.0f);
 	$nc(this->path)->lineTo(var$14, decodeY(0.25f));
 	$nc(this->path)->closePath();
 	return this->path;
@@ -759,47 +580,47 @@ $Path2D* ComboBoxPainter::decodePath4() {
 
 $Path2D* ComboBoxPainter::decodePath5() {
 	$nc(this->path)->reset();
-	double var$0 = (double)decodeX(2.0131578f);
+	double var$0 = decodeX(2.0131578f);
 	$nc(this->path)->moveTo(var$0, decodeY(0.375f));
-	double var$1 = (double)decodeX(2.5789473f);
+	double var$1 = decodeX(2.5789473f);
 	$nc(this->path)->lineTo(var$1, decodeY(0.375f));
-	double var$2 = (double)decodeAnchorX(2.5789473f, 4.0f);
-	double var$3 = (double)decodeAnchorY(0.375f, 0.0f);
-	double var$4 = (double)decodeAnchorX(2.8421054f, 0.0f);
-	double var$5 = (double)decodeAnchorY(1.0f, -4.0f);
-	double var$6 = (double)decodeX(2.8421054f);
+	double var$2 = decodeAnchorX(2.5789473f, 4.0f);
+	double var$3 = decodeAnchorY(0.375f, 0.0f);
+	double var$4 = decodeAnchorX(2.8421054f, 0.0f);
+	double var$5 = decodeAnchorY(1.0f, -4.0f);
+	double var$6 = decodeX(2.8421054f);
 	$nc(this->path)->curveTo(var$2, var$3, var$4, var$5, var$6, decodeY(1.0f));
-	double var$7 = (double)decodeX(2.8421054f);
+	double var$7 = decodeX(2.8421054f);
 	$nc(this->path)->lineTo(var$7, decodeY(2.0f));
-	double var$8 = (double)decodeAnchorX(2.8421054f, 0.0f);
-	double var$9 = (double)decodeAnchorY(2.0f, 4.0f);
-	double var$10 = (double)decodeAnchorX(2.5789473f, 4.0f);
-	double var$11 = (double)decodeAnchorY(2.625f, 0.0f);
-	double var$12 = (double)decodeX(2.5789473f);
+	double var$8 = decodeAnchorX(2.8421054f, 0.0f);
+	double var$9 = decodeAnchorY(2.0f, 4.0f);
+	double var$10 = decodeAnchorX(2.5789473f, 4.0f);
+	double var$11 = decodeAnchorY(2.625f, 0.0f);
+	double var$12 = decodeX(2.5789473f);
 	$nc(this->path)->curveTo(var$8, var$9, var$10, var$11, var$12, decodeY(2.625f));
-	double var$13 = (double)decodeX(2.0131578f);
+	double var$13 = decodeX(2.0131578f);
 	$nc(this->path)->lineTo(var$13, decodeY(2.625f));
-	double var$14 = (double)decodeX(2.0131578f);
+	double var$14 = decodeX(2.0131578f);
 	$nc(this->path)->lineTo(var$14, decodeY(0.375f));
 	$nc(this->path)->closePath();
 	return this->path;
 }
 
 $RoundRectangle2D* ComboBoxPainter::decodeRoundRect1() {
-	double var$0 = (double)decodeX(0.06666667f);
-	double var$1 = (double)decodeY(0.075f);
+	double var$0 = decodeX(0.06666667f);
+	double var$1 = decodeY(0.075f);
 	float var$3 = decodeX(2.9684212f);
-	double var$2 = (double)(var$3 - decodeX(0.06666667f));
+	double var$2 = var$3 - decodeX(0.06666667f);
 	float var$4 = decodeY(2.925f);
 	$nc(this->roundRect)->setRoundRect(var$0, var$1, var$2, var$4 - decodeY(0.075f), 13.0f, 13.0f);
 	return this->roundRect;
 }
 
 $Rectangle2D* ComboBoxPainter::decodeRect1() {
-	double var$0 = (double)decodeX(1.4385965f);
-	double var$1 = (double)decodeY(1.4444444f);
+	double var$0 = decodeX(1.4385965f);
+	double var$1 = decodeY(1.4444444f);
 	float var$3 = decodeX(1.4385965f);
-	double var$2 = (double)(var$3 - decodeX(1.4385965f));
+	double var$2 = var$3 - decodeX(1.4385965f);
 	float var$4 = decodeY(1.4444444f);
 	$nc(this->rect)->setRect(var$0, var$1, var$2, var$4 - decodeY(1.4444444f));
 	return this->rect;
@@ -807,44 +628,44 @@ $Rectangle2D* ComboBoxPainter::decodeRect1() {
 
 $Path2D* ComboBoxPainter::decodePath6() {
 	$nc(this->path)->reset();
-	double var$0 = (double)decodeX(0.120000005f);
+	double var$0 = decodeX(0.120000005f);
 	$nc(this->path)->moveTo(var$0, decodeY(0.120000005f));
-	double var$1 = (double)decodeX(1.9954545f);
+	double var$1 = decodeX(1.9954545f);
 	$nc(this->path)->lineTo(var$1, decodeY(0.120000005f));
-	double var$2 = (double)decodeAnchorX(1.9954545f, 3.0f);
-	double var$3 = (double)decodeAnchorY(0.120000005f, 0.0f);
-	double var$4 = (double)decodeAnchorX(2.8799987f, 0.0f);
-	double var$5 = (double)decodeAnchorY(1.0941176f, -3.0f);
-	double var$6 = (double)decodeX(2.8799987f);
+	double var$2 = decodeAnchorX(1.9954545f, 3.0f);
+	double var$3 = decodeAnchorY(0.120000005f, 0.0f);
+	double var$4 = decodeAnchorX(2.8799987f, 0.0f);
+	double var$5 = decodeAnchorY(1.0941176f, -3.0f);
+	double var$6 = decodeX(2.8799987f);
 	$nc(this->path)->curveTo(var$2, var$3, var$4, var$5, var$6, decodeY(1.0941176f));
-	double var$7 = (double)decodeX(2.8799987f);
+	double var$7 = decodeX(2.8799987f);
 	$nc(this->path)->lineTo(var$7, decodeY(1.964706f));
-	double var$8 = (double)decodeAnchorX(2.8799987f, 0.0f);
-	double var$9 = (double)decodeAnchorY(1.964706f, 3.0f);
-	double var$10 = (double)decodeAnchorX(1.9954545f, 3.0f);
-	double var$11 = (double)decodeAnchorY(2.8799999f, 0.0f);
-	double var$12 = (double)decodeX(1.9954545f);
+	double var$8 = decodeAnchorX(2.8799987f, 0.0f);
+	double var$9 = decodeAnchorY(1.964706f, 3.0f);
+	double var$10 = decodeAnchorX(1.9954545f, 3.0f);
+	double var$11 = decodeAnchorY(2.8799999f, 0.0f);
+	double var$12 = decodeX(1.9954545f);
 	$nc(this->path)->curveTo(var$8, var$9, var$10, var$11, var$12, decodeY(2.8799999f));
-	double var$13 = (double)decodeX(0.120000005f);
+	double var$13 = decodeX(0.120000005f);
 	$nc(this->path)->lineTo(var$13, decodeY(2.8799999f));
-	double var$14 = (double)decodeX(0.120000005f);
+	double var$14 = decodeX(0.120000005f);
 	$nc(this->path)->lineTo(var$14, decodeY(0.120000005f));
 	$nc(this->path)->closePath();
 	return this->path;
 }
 
 $Rectangle2D* ComboBoxPainter::decodeRect2() {
-	double var$0 = (double)decodeX(1.4385965f);
-	double var$1 = (double)decodeY(1.5f);
+	double var$0 = decodeX(1.4385965f);
+	double var$1 = decodeY(1.5f);
 	float var$3 = decodeX(1.4385965f);
-	double var$2 = (double)(var$3 - decodeX(1.4385965f));
+	double var$2 = var$3 - decodeX(1.4385965f);
 	float var$4 = decodeY(1.5f);
 	$nc(this->rect)->setRect(var$0, var$1, var$2, var$4 - decodeY(1.5f));
 	return this->rect;
 }
 
 $Paint* ComboBoxPainter::decodeGradient1($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -862,7 +683,7 @@ $Paint* ComboBoxPainter::decodeGradient1($Shape* s) {
 }
 
 $Paint* ComboBoxPainter::decodeGradient2($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -888,7 +709,7 @@ $Paint* ComboBoxPainter::decodeGradient2($Shape* s) {
 }
 
 $Paint* ComboBoxPainter::decodeGradient3($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -906,7 +727,7 @@ $Paint* ComboBoxPainter::decodeGradient3($Shape* s) {
 }
 
 $Paint* ComboBoxPainter::decodeGradient4($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -932,7 +753,7 @@ $Paint* ComboBoxPainter::decodeGradient4($Shape* s) {
 }
 
 $Paint* ComboBoxPainter::decodeGradient5($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -950,7 +771,7 @@ $Paint* ComboBoxPainter::decodeGradient5($Shape* s) {
 }
 
 $Paint* ComboBoxPainter::decodeGradient6($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -976,7 +797,7 @@ $Paint* ComboBoxPainter::decodeGradient6($Shape* s) {
 }
 
 $Paint* ComboBoxPainter::decodeGradient7($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -994,7 +815,7 @@ $Paint* ComboBoxPainter::decodeGradient7($Shape* s) {
 }
 
 $Paint* ComboBoxPainter::decodeGradient8($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -1020,7 +841,7 @@ $Paint* ComboBoxPainter::decodeGradient8($Shape* s) {
 }
 
 $Paint* ComboBoxPainter::decodeGradient9($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -1038,7 +859,7 @@ $Paint* ComboBoxPainter::decodeGradient9($Shape* s) {
 }
 
 $Paint* ComboBoxPainter::decodeGradient10($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -1056,7 +877,7 @@ $Paint* ComboBoxPainter::decodeGradient10($Shape* s) {
 }
 
 $Paint* ComboBoxPainter::decodeGradient11($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -1074,7 +895,7 @@ $Paint* ComboBoxPainter::decodeGradient11($Shape* s) {
 }
 
 $Paint* ComboBoxPainter::decodeGradient12($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -1095,7 +916,136 @@ ComboBoxPainter::ComboBoxPainter() {
 }
 
 $Class* ComboBoxPainter::load$($String* name, bool initialize) {
-	$loadClass(ComboBoxPainter, name, initialize, &_ComboBoxPainter_ClassInfo_, allocate$ComboBoxPainter);
+	$FieldInfo fieldInfos$$[] = {
+		{"BACKGROUND_DISABLED", "I", nullptr, $STATIC | $FINAL, $constField(ComboBoxPainter, BACKGROUND_DISABLED)},
+		{"BACKGROUND_DISABLED_PRESSED", "I", nullptr, $STATIC | $FINAL, $constField(ComboBoxPainter, BACKGROUND_DISABLED_PRESSED)},
+		{"BACKGROUND_ENABLED", "I", nullptr, $STATIC | $FINAL, $constField(ComboBoxPainter, BACKGROUND_ENABLED)},
+		{"BACKGROUND_FOCUSED", "I", nullptr, $STATIC | $FINAL, $constField(ComboBoxPainter, BACKGROUND_FOCUSED)},
+		{"BACKGROUND_MOUSEOVER_FOCUSED", "I", nullptr, $STATIC | $FINAL, $constField(ComboBoxPainter, BACKGROUND_MOUSEOVER_FOCUSED)},
+		{"BACKGROUND_MOUSEOVER", "I", nullptr, $STATIC | $FINAL, $constField(ComboBoxPainter, BACKGROUND_MOUSEOVER)},
+		{"BACKGROUND_PRESSED_FOCUSED", "I", nullptr, $STATIC | $FINAL, $constField(ComboBoxPainter, BACKGROUND_PRESSED_FOCUSED)},
+		{"BACKGROUND_PRESSED", "I", nullptr, $STATIC | $FINAL, $constField(ComboBoxPainter, BACKGROUND_PRESSED)},
+		{"BACKGROUND_ENABLED_SELECTED", "I", nullptr, $STATIC | $FINAL, $constField(ComboBoxPainter, BACKGROUND_ENABLED_SELECTED)},
+		{"BACKGROUND_DISABLED_EDITABLE", "I", nullptr, $STATIC | $FINAL, $constField(ComboBoxPainter, BACKGROUND_DISABLED_EDITABLE)},
+		{"BACKGROUND_ENABLED_EDITABLE", "I", nullptr, $STATIC | $FINAL, $constField(ComboBoxPainter, BACKGROUND_ENABLED_EDITABLE)},
+		{"BACKGROUND_FOCUSED_EDITABLE", "I", nullptr, $STATIC | $FINAL, $constField(ComboBoxPainter, BACKGROUND_FOCUSED_EDITABLE)},
+		{"BACKGROUND_MOUSEOVER_EDITABLE", "I", nullptr, $STATIC | $FINAL, $constField(ComboBoxPainter, BACKGROUND_MOUSEOVER_EDITABLE)},
+		{"BACKGROUND_PRESSED_EDITABLE", "I", nullptr, $STATIC | $FINAL, $constField(ComboBoxPainter, BACKGROUND_PRESSED_EDITABLE)},
+		{"state", "I", nullptr, $PRIVATE, $field(ComboBoxPainter, state)},
+		{"ctx", "Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext;", nullptr, $PRIVATE, $field(ComboBoxPainter, ctx)},
+		{"path", "Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $field(ComboBoxPainter, path)},
+		{"rect", "Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $field(ComboBoxPainter, rect)},
+		{"roundRect", "Ljava/awt/geom/RoundRectangle2D;", nullptr, $PRIVATE, $field(ComboBoxPainter, roundRect)},
+		{"ellipse", "Ljava/awt/geom/Ellipse2D;", nullptr, $PRIVATE, $field(ComboBoxPainter, ellipse)},
+		{"color1", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxPainter, color1)},
+		{"color2", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxPainter, color2)},
+		{"color3", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxPainter, color3)},
+		{"color4", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxPainter, color4)},
+		{"color5", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxPainter, color5)},
+		{"color6", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxPainter, color6)},
+		{"color7", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxPainter, color7)},
+		{"color8", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxPainter, color8)},
+		{"color9", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxPainter, color9)},
+		{"color10", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxPainter, color10)},
+		{"color11", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxPainter, color11)},
+		{"color12", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxPainter, color12)},
+		{"color13", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxPainter, color13)},
+		{"color14", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxPainter, color14)},
+		{"color15", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxPainter, color15)},
+		{"color16", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxPainter, color16)},
+		{"color17", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxPainter, color17)},
+		{"color18", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxPainter, color18)},
+		{"color19", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxPainter, color19)},
+		{"color20", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxPainter, color20)},
+		{"color21", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxPainter, color21)},
+		{"color22", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxPainter, color22)},
+		{"color23", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxPainter, color23)},
+		{"color24", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxPainter, color24)},
+		{"color25", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxPainter, color25)},
+		{"color26", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxPainter, color26)},
+		{"color27", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxPainter, color27)},
+		{"color28", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxPainter, color28)},
+		{"color29", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxPainter, color29)},
+		{"color30", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxPainter, color30)},
+		{"color31", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxPainter, color31)},
+		{"color32", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxPainter, color32)},
+		{"color33", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxPainter, color33)},
+		{"color34", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxPainter, color34)},
+		{"color35", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxPainter, color35)},
+		{"color36", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxPainter, color36)},
+		{"color37", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxPainter, color37)},
+		{"color38", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxPainter, color38)},
+		{"color39", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxPainter, color39)},
+		{"color40", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxPainter, color40)},
+		{"color41", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxPainter, color41)},
+		{"color42", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxPainter, color42)},
+		{"color43", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxPainter, color43)},
+		{"color44", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxPainter, color44)},
+		{"color45", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxPainter, color45)},
+		{"color46", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxPainter, color46)},
+		{"color47", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxPainter, color47)},
+		{"color48", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxPainter, color48)},
+		{"color49", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxPainter, color49)},
+		{"color50", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxPainter, color50)},
+		{"color51", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxPainter, color51)},
+		{"color52", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxPainter, color52)},
+		{"color53", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxPainter, color53)},
+		{"componentColors", "[Ljava/lang/Object;", nullptr, $PRIVATE, $field(ComboBoxPainter, componentColors)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext;I)V", nullptr, $PUBLIC, $method(ComboBoxPainter, init$, void, $AbstractRegionPainter$PaintContext*, int32_t)},
+		{"decodeGradient1", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(ComboBoxPainter, decodeGradient1, $Paint*, $Shape*)},
+		{"decodeGradient10", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(ComboBoxPainter, decodeGradient10, $Paint*, $Shape*)},
+		{"decodeGradient11", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(ComboBoxPainter, decodeGradient11, $Paint*, $Shape*)},
+		{"decodeGradient12", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(ComboBoxPainter, decodeGradient12, $Paint*, $Shape*)},
+		{"decodeGradient2", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(ComboBoxPainter, decodeGradient2, $Paint*, $Shape*)},
+		{"decodeGradient3", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(ComboBoxPainter, decodeGradient3, $Paint*, $Shape*)},
+		{"decodeGradient4", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(ComboBoxPainter, decodeGradient4, $Paint*, $Shape*)},
+		{"decodeGradient5", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(ComboBoxPainter, decodeGradient5, $Paint*, $Shape*)},
+		{"decodeGradient6", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(ComboBoxPainter, decodeGradient6, $Paint*, $Shape*)},
+		{"decodeGradient7", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(ComboBoxPainter, decodeGradient7, $Paint*, $Shape*)},
+		{"decodeGradient8", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(ComboBoxPainter, decodeGradient8, $Paint*, $Shape*)},
+		{"decodeGradient9", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(ComboBoxPainter, decodeGradient9, $Paint*, $Shape*)},
+		{"decodePath1", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(ComboBoxPainter, decodePath1, $Path2D*)},
+		{"decodePath2", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(ComboBoxPainter, decodePath2, $Path2D*)},
+		{"decodePath3", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(ComboBoxPainter, decodePath3, $Path2D*)},
+		{"decodePath4", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(ComboBoxPainter, decodePath4, $Path2D*)},
+		{"decodePath5", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(ComboBoxPainter, decodePath5, $Path2D*)},
+		{"decodePath6", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(ComboBoxPainter, decodePath6, $Path2D*)},
+		{"decodeRect1", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(ComboBoxPainter, decodeRect1, $Rectangle2D*)},
+		{"decodeRect2", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(ComboBoxPainter, decodeRect2, $Rectangle2D*)},
+		{"decodeRoundRect1", "()Ljava/awt/geom/RoundRectangle2D;", nullptr, $PRIVATE, $method(ComboBoxPainter, decodeRoundRect1, $RoundRectangle2D*)},
+		{"doPaint", "(Ljava/awt/Graphics2D;Ljavax/swing/JComponent;II[Ljava/lang/Object;)V", nullptr, $PROTECTED, $virtualMethod(ComboBoxPainter, doPaint, void, $Graphics2D*, $JComponent*, int32_t, int32_t, $ObjectArray*)},
+		{"getExtendedCacheKeys", "(Ljavax/swing/JComponent;)[Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(ComboBoxPainter, getExtendedCacheKeys, $ObjectArray*, $JComponent*)},
+		{"getPaintContext", "()Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext;", nullptr, $PROTECTED | $FINAL, $virtualMethod(ComboBoxPainter, getPaintContext, $AbstractRegionPainter$PaintContext*)},
+		{"paintBackgroundDisabled", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(ComboBoxPainter, paintBackgroundDisabled, void, $Graphics2D*)},
+		{"paintBackgroundDisabledAndEditable", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(ComboBoxPainter, paintBackgroundDisabledAndEditable, void, $Graphics2D*)},
+		{"paintBackgroundDisabledAndPressed", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(ComboBoxPainter, paintBackgroundDisabledAndPressed, void, $Graphics2D*)},
+		{"paintBackgroundEnabled", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(ComboBoxPainter, paintBackgroundEnabled, void, $Graphics2D*)},
+		{"paintBackgroundEnabledAndEditable", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(ComboBoxPainter, paintBackgroundEnabledAndEditable, void, $Graphics2D*)},
+		{"paintBackgroundEnabledAndSelected", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(ComboBoxPainter, paintBackgroundEnabledAndSelected, void, $Graphics2D*)},
+		{"paintBackgroundFocused", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(ComboBoxPainter, paintBackgroundFocused, void, $Graphics2D*)},
+		{"paintBackgroundFocusedAndEditable", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(ComboBoxPainter, paintBackgroundFocusedAndEditable, void, $Graphics2D*)},
+		{"paintBackgroundMouseOver", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(ComboBoxPainter, paintBackgroundMouseOver, void, $Graphics2D*)},
+		{"paintBackgroundMouseOverAndEditable", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(ComboBoxPainter, paintBackgroundMouseOverAndEditable, void, $Graphics2D*)},
+		{"paintBackgroundMouseOverAndFocused", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(ComboBoxPainter, paintBackgroundMouseOverAndFocused, void, $Graphics2D*)},
+		{"paintBackgroundPressed", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(ComboBoxPainter, paintBackgroundPressed, void, $Graphics2D*)},
+		{"paintBackgroundPressedAndEditable", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(ComboBoxPainter, paintBackgroundPressedAndEditable, void, $Graphics2D*)},
+		{"paintBackgroundPressedAndFocused", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(ComboBoxPainter, paintBackgroundPressedAndFocused, void, $Graphics2D*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"javax.swing.plaf.nimbus.ComboBoxPainter",
+		"javax.swing.plaf.nimbus.AbstractRegionPainter",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ComboBoxPainter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ComboBoxPainter);
+	});
 	return class$;
 }
 

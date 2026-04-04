@@ -92,6 +92,7 @@ class ServerImpl : public ::sun::net::httpserver::TimeSource {
 	$class(ServerImpl, 0, ::sun::net::httpserver::TimeSource)
 public:
 	ServerImpl();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::com::sun::net::httpserver::HttpServer* wrapper, $String* protocol, ::java::net::InetSocketAddress* addr, int32_t backlog);
 	virtual void addEvent(::sun::net::httpserver::Event* r);
 	virtual void bind(::java::net::InetSocketAddress* addr, int32_t backlog);

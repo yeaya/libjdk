@@ -50,6 +50,7 @@ public:
 	ObjectName();
 	virtual $Object* clone() override;
 	virtual void finalize() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* name);
 	void init$($String* domain, $String* key, $String* value);
 	void init$($String* domain, ::java::util::Hashtable* table);
@@ -102,10 +103,10 @@ public:
 	static const int32_t DOMAIN_PATTERN = 0x80000000;
 	static const int32_t PROPLIST_PATTERN = 0x40000000;
 	static const int32_t PROPVAL_PATTERN = 0x20000000;
-	static const int32_t FLAG_MASK = 0xE0000000; // DOMAIN_PATTERN | PROPLIST_PATTERN | PROPVAL_PATTERN
+	static const int32_t FLAG_MASK = 0xe0000000; // DOMAIN_PATTERN | PROPLIST_PATTERN | PROPVAL_PATTERN
 	static const int32_t DOMAIN_LENGTH_MASK = ~FLAG_MASK;
-	static const int64_t oldSerialVersionUID = (int64_t)0xB41E7D55CFD55210;
-	static const int64_t newSerialVersionUID = (int64_t)0x0F03A71BEB6D15CF;
+	static const int64_t oldSerialVersionUID = (int64_t)0xb41e7d55cfd55210;
+	static const int64_t newSerialVersionUID = (int64_t)0x0f03a71beb6d15cf;
 	static $Array<::java::io::ObjectStreamField>* oldSerialPersistentFields;
 	static $Array<::java::io::ObjectStreamField>* newSerialPersistentFields;
 	static int64_t serialVersionUID;

@@ -1,5 +1,4 @@
 #include <sun/lwawt/LWButtonPeer.h>
-
 #include <java/awt/AWTEvent.h>
 #include <java/awt/BufferCapabilities$FlipContents.h>
 #include <java/awt/BufferCapabilities.h>
@@ -14,7 +13,6 @@
 #include <java/awt/Image.h>
 #include <java/awt/Point.h>
 #include <java/awt/event/ActionEvent.h>
-#include <java/awt/event/ActionListener.h>
 #include <java/awt/event/FocusEvent$Cause.h>
 #include <java/awt/event/PaintEvent.h>
 #include <java/awt/image/ColorModel.h>
@@ -45,7 +43,6 @@ using $GraphicsConfiguration = ::java::awt::GraphicsConfiguration;
 using $Image = ::java::awt::Image;
 using $Point = ::java::awt::Point;
 using $ActionEvent = ::java::awt::event::ActionEvent;
-using $ActionListener = ::java::awt::event::ActionListener;
 using $FocusEvent$Cause = ::java::awt::event::FocusEvent$Cause;
 using $PaintEvent = ::java::awt::event::PaintEvent;
 using $ColorModel = ::java::awt::image::ColorModel;
@@ -64,80 +61,6 @@ using $PlatformComponent = ::sun::lwawt::PlatformComponent;
 
 namespace sun {
 	namespace lwawt {
-
-$MethodInfo _LWButtonPeer_MethodInfo_[] = {
-	{"*applyShape", "(Lsun/java2d/pipe/Region;)V", nullptr, $PUBLIC | $FINAL},
-	{"*canDetermineObscurity", "()Z", nullptr, $PUBLIC},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*coalescePaintEvent", "(Ljava/awt/event/PaintEvent;)V", nullptr, $PUBLIC},
-	{"*createBuffers", "(ILjava/awt/BufferCapabilities;)V", nullptr, $PUBLIC | $FINAL},
-	{"*createImage", "(II)Ljava/awt/Image;", nullptr, $PUBLIC | $FINAL},
-	{"*createVolatileImage", "(II)Ljava/awt/image/VolatileImage;", nullptr, $PUBLIC | $FINAL},
-	{"*destroyBuffers", "()V", nullptr, $PUBLIC | $FINAL},
-	{"*dispose", "()V", nullptr, $PUBLIC | $FINAL},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*flip", "(IIIILjava/awt/BufferCapabilities$FlipContents;)V", nullptr, $PUBLIC | $FINAL},
-	{"*getBackBuffer", "()Ljava/awt/Image;", nullptr, $PUBLIC | $FINAL},
-	{"*getColorModel", "()Ljava/awt/image/ColorModel;", nullptr, $PUBLIC},
-	{"*getFontMetrics", "(Ljava/awt/Font;)Ljava/awt/FontMetrics;", nullptr, $PUBLIC},
-	{"*getGraphics", "()Ljava/awt/Graphics;", nullptr, $PUBLIC},
-	{"*getGraphicsConfiguration", "()Ljava/awt/GraphicsConfiguration;", nullptr, $PUBLIC},
-	{"*getLocationOnScreen", "()Ljava/awt/Point;", nullptr, $PUBLIC},
-	{"*getMinimumSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC},
-	{"*getPreferredSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC},
-	{"*handleEvent", "(Ljava/awt/AWTEvent;)V", nullptr, $PUBLIC},
-	{"*handlesWheelScrolling", "()Z", nullptr, $PUBLIC},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/awt/Button;Lsun/lwawt/PlatformComponent;)V", nullptr, 0, $method(LWButtonPeer, init$, void, $Button*, $PlatformComponent*)},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(LWButtonPeer, actionPerformed, void, $ActionEvent*)},
-	{"createDelegate", "()Ljavax/swing/JButton;", nullptr, 0, $virtualMethod(LWButtonPeer, createDelegate, $JComponent*)},
-	{"initializeImpl", "()V", nullptr, 0, $virtualMethod(LWButtonPeer, initializeImpl, void)},
-	{"isFocusable", "()Z", nullptr, $PUBLIC, $virtualMethod(LWButtonPeer, isFocusable, bool)},
-	{"*isObscured", "()Z", nullptr, $PUBLIC},
-	{"*isReparentSupported", "()Z", nullptr, $PUBLIC},
-	{"*layout", "()V", nullptr, $PUBLIC},
-	{"*paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC},
-	{"*print", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC},
-	{"*reparent", "(Ljava/awt/peer/ContainerPeer;)V", nullptr, $PUBLIC},
-	{"*requestFocus", "(Ljava/awt/Component;ZZJLjava/awt/event/FocusEvent$Cause;)Z", nullptr, $PUBLIC},
-	{"*setBackground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC},
-	{"*setBounds", "(IIIII)V", nullptr, $PUBLIC},
-	{"*setEnabled", "(Z)V", nullptr, $PUBLIC},
-	{"*setFont", "(Ljava/awt/Font;)V", nullptr, $PUBLIC},
-	{"*setForeground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC},
-	{"setLabel", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(LWButtonPeer, setLabel, void, $String*)},
-	{"*updateGraphicsData", "(Ljava/awt/GraphicsConfiguration;)Z", nullptr, $PUBLIC},
-	{"*setVisible", "(Z)V", nullptr, $PUBLIC},
-	{"*setZOrder", "(Ljava/awt/peer/ComponentPeer;)V", nullptr, $PUBLIC},
-	{"*updateCursorImmediately", "()V", nullptr, $PUBLIC},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _LWButtonPeer_InnerClassesInfo_[] = {
-	{"sun.lwawt.LWButtonPeer$JButtonDelegate", "sun.lwawt.LWButtonPeer", "JButtonDelegate", $PRIVATE | $FINAL},
-	{}
-};
-
-$ClassInfo _LWButtonPeer_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.lwawt.LWButtonPeer",
-	"sun.lwawt.LWComponentPeer",
-	"java.awt.peer.ButtonPeer,java.awt.event.ActionListener",
-	nullptr,
-	_LWButtonPeer_MethodInfo_,
-	"Lsun/lwawt/LWComponentPeer<Ljava/awt/Button;Ljavax/swing/JButton;>;Ljava/awt/peer/ButtonPeer;Ljava/awt/event/ActionListener;",
-	nullptr,
-	_LWButtonPeer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.lwawt.LWButtonPeer$JButtonDelegate"
-};
-
-$Object* allocate$LWButtonPeer($Class* clazz) {
-	return $of($alloc(LWButtonPeer));
-}
 
 void LWButtonPeer::dispose() {
 	this->$LWComponentPeer::dispose();
@@ -308,25 +231,25 @@ $JComponent* LWButtonPeer::createDelegate() {
 }
 
 void LWButtonPeer::initializeImpl() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$LWComponentPeer::initializeImpl();
-	setLabel($($nc(($cast($Button, $(getTarget()))))->getLabel()));
+	setLabel($($$sure($Button, getTarget())->getLabel()));
 	$synchronized(getDelegateLock()) {
-		$nc(($cast($JButton, $(getDelegate()))))->addActionListener(this);
+		$$sure($JButton, getDelegate())->addActionListener(this);
 	}
 }
 
 void LWButtonPeer::actionPerformed($ActionEvent* e) {
-	$useLocalCurrentObjectStackCache();
-	$var($Object, var$0, $of(getTarget()));
-	$var($String, var$1, $nc(($cast($Button, $(getTarget()))))->getActionCommand());
+	$useLocalObjectStack();
+	$var($Object, var$0, getTarget());
+	$var($String, var$1, $$sure($Button, getTarget())->getActionCommand());
 	int64_t var$2 = $nc(e)->getWhen();
 	postEvent($$new($ActionEvent, var$0, $ActionEvent::ACTION_PERFORMED, var$1, var$2, e->getModifiers()));
 }
 
 void LWButtonPeer::setLabel($String* label) {
 	$synchronized(getDelegateLock()) {
-		$nc(($cast($JButton, $(getDelegate()))))->setText(label);
+		$$sure($JButton, getDelegate())->setText(label);
 	}
 }
 
@@ -338,7 +261,76 @@ LWButtonPeer::LWButtonPeer() {
 }
 
 $Class* LWButtonPeer::load$($String* name, bool initialize) {
-	$loadClass(LWButtonPeer, name, initialize, &_LWButtonPeer_ClassInfo_, allocate$LWButtonPeer);
+	$MethodInfo methodInfos$$[] = {
+		{"*applyShape", "(Lsun/java2d/pipe/Region;)V", nullptr, $PUBLIC | $FINAL},
+		{"*canDetermineObscurity", "()Z", nullptr, $PUBLIC},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*coalescePaintEvent", "(Ljava/awt/event/PaintEvent;)V", nullptr, $PUBLIC},
+		{"*createBuffers", "(ILjava/awt/BufferCapabilities;)V", nullptr, $PUBLIC | $FINAL},
+		{"*createImage", "(II)Ljava/awt/Image;", nullptr, $PUBLIC | $FINAL},
+		{"*createVolatileImage", "(II)Ljava/awt/image/VolatileImage;", nullptr, $PUBLIC | $FINAL},
+		{"*destroyBuffers", "()V", nullptr, $PUBLIC | $FINAL},
+		{"*dispose", "()V", nullptr, $PUBLIC | $FINAL},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*flip", "(IIIILjava/awt/BufferCapabilities$FlipContents;)V", nullptr, $PUBLIC | $FINAL},
+		{"*getBackBuffer", "()Ljava/awt/Image;", nullptr, $PUBLIC | $FINAL},
+		{"*getColorModel", "()Ljava/awt/image/ColorModel;", nullptr, $PUBLIC},
+		{"*getFontMetrics", "(Ljava/awt/Font;)Ljava/awt/FontMetrics;", nullptr, $PUBLIC},
+		{"*getGraphics", "()Ljava/awt/Graphics;", nullptr, $PUBLIC},
+		{"*getGraphicsConfiguration", "()Ljava/awt/GraphicsConfiguration;", nullptr, $PUBLIC},
+		{"*getLocationOnScreen", "()Ljava/awt/Point;", nullptr, $PUBLIC},
+		{"*getMinimumSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC},
+		{"*getPreferredSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC},
+		{"*handleEvent", "(Ljava/awt/AWTEvent;)V", nullptr, $PUBLIC},
+		{"*handlesWheelScrolling", "()Z", nullptr, $PUBLIC},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/awt/Button;Lsun/lwawt/PlatformComponent;)V", nullptr, 0, $method(LWButtonPeer, init$, void, $Button*, $PlatformComponent*)},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(LWButtonPeer, actionPerformed, void, $ActionEvent*)},
+		{"createDelegate", "()Ljavax/swing/JButton;", nullptr, 0, $virtualMethod(LWButtonPeer, createDelegate, $JComponent*)},
+		{"initializeImpl", "()V", nullptr, 0, $virtualMethod(LWButtonPeer, initializeImpl, void)},
+		{"isFocusable", "()Z", nullptr, $PUBLIC, $virtualMethod(LWButtonPeer, isFocusable, bool)},
+		{"*isObscured", "()Z", nullptr, $PUBLIC},
+		{"*isReparentSupported", "()Z", nullptr, $PUBLIC},
+		{"*layout", "()V", nullptr, $PUBLIC},
+		{"*paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC},
+		{"*print", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC},
+		{"*reparent", "(Ljava/awt/peer/ContainerPeer;)V", nullptr, $PUBLIC},
+		{"*requestFocus", "(Ljava/awt/Component;ZZJLjava/awt/event/FocusEvent$Cause;)Z", nullptr, $PUBLIC},
+		{"*setBackground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC},
+		{"*setBounds", "(IIIII)V", nullptr, $PUBLIC},
+		{"*setEnabled", "(Z)V", nullptr, $PUBLIC},
+		{"*setFont", "(Ljava/awt/Font;)V", nullptr, $PUBLIC},
+		{"*setForeground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC},
+		{"setLabel", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(LWButtonPeer, setLabel, void, $String*)},
+		{"*updateGraphicsData", "(Ljava/awt/GraphicsConfiguration;)Z", nullptr, $PUBLIC},
+		{"*setVisible", "(Z)V", nullptr, $PUBLIC},
+		{"*setZOrder", "(Ljava/awt/peer/ComponentPeer;)V", nullptr, $PUBLIC},
+		{"*updateCursorImmediately", "()V", nullptr, $PUBLIC},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.lwawt.LWButtonPeer$JButtonDelegate", "sun.lwawt.LWButtonPeer", "JButtonDelegate", $PRIVATE | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.lwawt.LWButtonPeer",
+		"sun.lwawt.LWComponentPeer",
+		"java.awt.peer.ButtonPeer,java.awt.event.ActionListener",
+		nullptr,
+		methodInfos$$,
+		"Lsun/lwawt/LWComponentPeer<Ljava/awt/Button;Ljavax/swing/JButton;>;Ljava/awt/peer/ButtonPeer;Ljava/awt/event/ActionListener;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.lwawt.LWButtonPeer$JButtonDelegate"
+	};
+	$loadClass(LWButtonPeer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(LWButtonPeer));
+	});
 	return class$;
 }
 

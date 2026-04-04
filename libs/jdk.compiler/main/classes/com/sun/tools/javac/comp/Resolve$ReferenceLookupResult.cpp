@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/Resolve$ReferenceLookupResult.h>
-
 #include <com/sun/tools/javac/code/Kinds$Kind.h>
 #include <com/sun/tools/javac/code/Symbol.h>
 #include <com/sun/tools/javac/comp/Resolve$18.h>
@@ -33,7 +32,6 @@
 #undef UNDEFINED
 
 using $Resolve$MethodResolutionDiagHelper$TemplateArray = $Array<::com::sun::tools::javac::comp::Resolve$MethodResolutionDiagHelper$Template>;
-using $Kinds$Kind = ::com::sun::tools::javac::code::Kinds$Kind;
 using $Symbol = ::com::sun::tools::javac::code::Symbol;
 using $Resolve$18 = ::com::sun::tools::javac::comp::Resolve$18;
 using $Resolve$InapplicableSymbolError = ::com::sun::tools::javac::comp::Resolve$InapplicableSymbolError;
@@ -43,19 +41,15 @@ using $Resolve$MethodResolutionContext = ::com::sun::tools::javac::comp::Resolve
 using $Resolve$MethodResolutionContext$Candidate = ::com::sun::tools::javac::comp::Resolve$MethodResolutionContext$Candidate;
 using $Resolve$MethodResolutionDiagHelper$Template = ::com::sun::tools::javac::comp::Resolve$MethodResolutionDiagHelper$Template;
 using $Resolve$ReferenceLookupResult$StaticKind = ::com::sun::tools::javac::comp::Resolve$ReferenceLookupResult$StaticKind;
-using $List = ::com::sun::tools::javac::util::List;
 using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $Map = ::java::util::Map;
-using $Optional = ::java::util::Optional;
 using $BinaryOperator = ::java::util::function::BinaryOperator;
 using $Function = ::java::util::function::Function;
 using $Predicate = ::java::util::function::Predicate;
-using $Stream = ::java::util::stream::Stream;
 
 namespace com {
 	namespace sun {
@@ -72,33 +66,29 @@ public:
 	virtual bool test(Object$* c) override {
 		 return Resolve$ReferenceLookupResult::lambda$staticKind$0(resolutionContext, $cast($Resolve$MethodResolutionContext$Candidate, c));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Resolve$ReferenceLookupResult$$Lambda$lambda$staticKind$0>());
-	}
 	$Resolve$MethodResolutionContext* resolutionContext = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Resolve$ReferenceLookupResult$$Lambda$lambda$staticKind$0::fieldInfos[2] = {
-	{"resolutionContext", "Lcom/sun/tools/javac/comp/Resolve$MethodResolutionContext;", nullptr, $PUBLIC, $field(Resolve$ReferenceLookupResult$$Lambda$lambda$staticKind$0, resolutionContext)},
-	{}
-};
-$MethodInfo Resolve$ReferenceLookupResult$$Lambda$lambda$staticKind$0::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Resolve$MethodResolutionContext;)V", nullptr, $PUBLIC, $method(Resolve$ReferenceLookupResult$$Lambda$lambda$staticKind$0, init$, void, $Resolve$MethodResolutionContext*)},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Resolve$ReferenceLookupResult$$Lambda$lambda$staticKind$0, test, bool, Object$*)},
-	{}
-};
-$ClassInfo Resolve$ReferenceLookupResult$$Lambda$lambda$staticKind$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.comp.Resolve$ReferenceLookupResult$$Lambda$lambda$staticKind$0",
-	"java.lang.Object",
-	"java.util.function.Predicate",
-	fieldInfos,
-	methodInfos
 };
 $Class* Resolve$ReferenceLookupResult$$Lambda$lambda$staticKind$0::load$($String* name, bool initialize) {
-	$loadClass(Resolve$ReferenceLookupResult$$Lambda$lambda$staticKind$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"resolutionContext", "Lcom/sun/tools/javac/comp/Resolve$MethodResolutionContext;", nullptr, $PUBLIC, $field(Resolve$ReferenceLookupResult$$Lambda$lambda$staticKind$0, resolutionContext)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/comp/Resolve$MethodResolutionContext;)V", nullptr, $PUBLIC, $method(Resolve$ReferenceLookupResult$$Lambda$lambda$staticKind$0, init$, void, $Resolve$MethodResolutionContext*)},
+		{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Resolve$ReferenceLookupResult$$Lambda$lambda$staticKind$0, test, bool, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.comp.Resolve$ReferenceLookupResult$$Lambda$lambda$staticKind$0",
+		"java.lang.Object",
+		"java.util.function.Predicate",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Resolve$ReferenceLookupResult$$Lambda$lambda$staticKind$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Resolve$ReferenceLookupResult$$Lambda$lambda$staticKind$0);
+	});
 	return class$;
 }
 $Class* Resolve$ReferenceLookupResult$$Lambda$lambda$staticKind$0::class$ = nullptr;
@@ -111,27 +101,24 @@ public:
 	virtual $Object* apply(Object$* c) override {
 		 return $of(Resolve$ReferenceLookupResult::lambda$staticKind$1($cast($Resolve$MethodResolutionContext$Candidate, c)));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Resolve$ReferenceLookupResult$$Lambda$lambda$staticKind$1$1>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo Resolve$ReferenceLookupResult$$Lambda$lambda$staticKind$1$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Resolve$ReferenceLookupResult$$Lambda$lambda$staticKind$1$1, init$, void)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Resolve$ReferenceLookupResult$$Lambda$lambda$staticKind$1$1, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo Resolve$ReferenceLookupResult$$Lambda$lambda$staticKind$1$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.comp.Resolve$ReferenceLookupResult$$Lambda$lambda$staticKind$1$1",
-	"java.lang.Object",
-	"java.util.function.Function",
-	nullptr,
-	methodInfos
 };
 $Class* Resolve$ReferenceLookupResult$$Lambda$lambda$staticKind$1$1::load$($String* name, bool initialize) {
-	$loadClass(Resolve$ReferenceLookupResult$$Lambda$lambda$staticKind$1$1, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Resolve$ReferenceLookupResult$$Lambda$lambda$staticKind$1$1, init$, void)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Resolve$ReferenceLookupResult$$Lambda$lambda$staticKind$1$1, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.comp.Resolve$ReferenceLookupResult$$Lambda$lambda$staticKind$1$1",
+		"java.lang.Object",
+		"java.util.function.Function",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Resolve$ReferenceLookupResult$$Lambda$lambda$staticKind$1$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Resolve$ReferenceLookupResult$$Lambda$lambda$staticKind$1$1);
+	});
 	return class$;
 }
 $Class* Resolve$ReferenceLookupResult$$Lambda$lambda$staticKind$1$1::class$ = nullptr;
@@ -144,75 +131,27 @@ public:
 	virtual $Object* apply(Object$* sk1, Object$* sk2) override {
 		 return $of($Resolve$ReferenceLookupResult$StaticKind::reduce($cast($Resolve$ReferenceLookupResult$StaticKind, sk1), $cast($Resolve$ReferenceLookupResult$StaticKind, sk2)));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Resolve$ReferenceLookupResult$$Lambda$reduce$2>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo Resolve$ReferenceLookupResult$$Lambda$reduce$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Resolve$ReferenceLookupResult$$Lambda$reduce$2, init$, void)},
-	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Resolve$ReferenceLookupResult$$Lambda$reduce$2, apply, $Object*, Object$*, Object$*)},
-	{}
-};
-$ClassInfo Resolve$ReferenceLookupResult$$Lambda$reduce$2::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.comp.Resolve$ReferenceLookupResult$$Lambda$reduce$2",
-	"java.lang.Object",
-	"java.util.function.BinaryOperator",
-	nullptr,
-	methodInfos
 };
 $Class* Resolve$ReferenceLookupResult$$Lambda$reduce$2::load$($String* name, bool initialize) {
-	$loadClass(Resolve$ReferenceLookupResult$$Lambda$reduce$2, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Resolve$ReferenceLookupResult$$Lambda$reduce$2, init$, void)},
+		{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Resolve$ReferenceLookupResult$$Lambda$reduce$2, apply, $Object*, Object$*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.comp.Resolve$ReferenceLookupResult$$Lambda$reduce$2",
+		"java.lang.Object",
+		"java.util.function.BinaryOperator",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Resolve$ReferenceLookupResult$$Lambda$reduce$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Resolve$ReferenceLookupResult$$Lambda$reduce$2);
+	});
 	return class$;
 }
 $Class* Resolve$ReferenceLookupResult$$Lambda$reduce$2::class$ = nullptr;
-
-$FieldInfo _Resolve$ReferenceLookupResult_FieldInfo_[] = {
-	{"staticKind", "Lcom/sun/tools/javac/comp/Resolve$ReferenceLookupResult$StaticKind;", nullptr, 0, $field(Resolve$ReferenceLookupResult, staticKind$)},
-	{"sym", "Lcom/sun/tools/javac/code/Symbol;", nullptr, 0, $field(Resolve$ReferenceLookupResult, sym)},
-	{}
-};
-
-$MethodInfo _Resolve$ReferenceLookupResult_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/comp/Resolve$MethodResolutionContext;)V", nullptr, 0, $method(Resolve$ReferenceLookupResult, init$, void, $Symbol*, $Resolve$MethodResolutionContext*)},
-	{"<init>", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/comp/Resolve$ReferenceLookupResult$StaticKind;)V", nullptr, $PRIVATE, $method(Resolve$ReferenceLookupResult, init$, void, $Symbol*, $Resolve$ReferenceLookupResult$StaticKind*)},
-	{"canIgnore", "()Z", nullptr, 0, $virtualMethod(Resolve$ReferenceLookupResult, canIgnore, bool)},
-	{"error", "(Lcom/sun/tools/javac/code/Symbol;)Lcom/sun/tools/javac/comp/Resolve$ReferenceLookupResult;", nullptr, $STATIC, $staticMethod(Resolve$ReferenceLookupResult, error, Resolve$ReferenceLookupResult*, $Symbol*)},
-	{"hasKind", "(Lcom/sun/tools/javac/comp/Resolve$ReferenceLookupResult$StaticKind;)Z", nullptr, 0, $virtualMethod(Resolve$ReferenceLookupResult, hasKind, bool, $Resolve$ReferenceLookupResult$StaticKind*)},
-	{"isSuccess", "()Z", nullptr, 0, $virtualMethod(Resolve$ReferenceLookupResult, isSuccess, bool)},
-	{"lambda$staticKind$0", "(Lcom/sun/tools/javac/comp/Resolve$MethodResolutionContext;Lcom/sun/tools/javac/comp/Resolve$MethodResolutionContext$Candidate;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Resolve$ReferenceLookupResult, lambda$staticKind$0, bool, $Resolve$MethodResolutionContext*, $Resolve$MethodResolutionContext$Candidate*)},
-	{"lambda$staticKind$1", "(Lcom/sun/tools/javac/comp/Resolve$MethodResolutionContext$Candidate;)Lcom/sun/tools/javac/comp/Resolve$ReferenceLookupResult$StaticKind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Resolve$ReferenceLookupResult, lambda$staticKind$1, $Resolve$ReferenceLookupResult$StaticKind*, $Resolve$MethodResolutionContext$Candidate*)},
-	{"staticKind", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/comp/Resolve$MethodResolutionContext;)Lcom/sun/tools/javac/comp/Resolve$ReferenceLookupResult$StaticKind;", nullptr, $PRIVATE | $STATIC, $staticMethod(Resolve$ReferenceLookupResult, staticKind, $Resolve$ReferenceLookupResult$StaticKind*, $Symbol*, $Resolve$MethodResolutionContext*)},
-	{}
-};
-
-$InnerClassInfo _Resolve$ReferenceLookupResult_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.Resolve$ReferenceLookupResult", "com.sun.tools.javac.comp.Resolve", "ReferenceLookupResult", $STATIC},
-	{"com.sun.tools.javac.comp.Resolve$ReferenceLookupResult$StaticKind", "com.sun.tools.javac.comp.Resolve$ReferenceLookupResult", "StaticKind", $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _Resolve$ReferenceLookupResult_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.comp.Resolve$ReferenceLookupResult",
-	"java.lang.Object",
-	nullptr,
-	_Resolve$ReferenceLookupResult_FieldInfo_,
-	_Resolve$ReferenceLookupResult_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Resolve$ReferenceLookupResult_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.Resolve"
-};
-
-$Object* allocate$Resolve$ReferenceLookupResult($Class* clazz) {
-	return $of($alloc(Resolve$ReferenceLookupResult));
-}
 
 void Resolve$ReferenceLookupResult::init$($Symbol* sym, $Resolve$MethodResolutionContext* resolutionContext) {
 	Resolve$ReferenceLookupResult::init$(sym, $(staticKind(sym, resolutionContext)));
@@ -224,21 +163,16 @@ void Resolve$ReferenceLookupResult::init$($Symbol* sym, $Resolve$ReferenceLookup
 }
 
 $Resolve$ReferenceLookupResult$StaticKind* Resolve$ReferenceLookupResult::staticKind($Symbol* sym, $Resolve$MethodResolutionContext* resolutionContext) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Resolve$18);
 	switch ($nc($Resolve$18::$SwitchMap$com$sun$tools$javac$code$Kinds$Kind)->get($nc(($nc(sym)->kind))->ordinal())) {
 	case 4:
-		{}
 	case 5:
-		{
-			$init($Resolve$ReferenceLookupResult$StaticKind);
-			return $cast($Resolve$ReferenceLookupResult$StaticKind, $nc($($nc($($nc($($nc($($nc($nc(resolutionContext)->candidates)->stream()))->filter(static_cast<$Predicate*>($$new(Resolve$ReferenceLookupResult$$Lambda$lambda$staticKind$0, resolutionContext)))))->map(static_cast<$Function*>($$new(Resolve$ReferenceLookupResult$$Lambda$lambda$staticKind$1$1)))))->reduce(static_cast<$BinaryOperator*>($$new(Resolve$ReferenceLookupResult$$Lambda$reduce$2)))))->orElse($Resolve$ReferenceLookupResult$StaticKind::UNDEFINED));
-		}
+		$init($Resolve$ReferenceLookupResult$StaticKind);
+		return $cast($Resolve$ReferenceLookupResult$StaticKind, $$nc($$nc($$nc($$nc($nc($nc(resolutionContext)->candidates)->stream())->filter($$new(Resolve$ReferenceLookupResult$$Lambda$lambda$staticKind$0, resolutionContext)))->map($$new(Resolve$ReferenceLookupResult$$Lambda$lambda$staticKind$1$1)))->reduce($$new(Resolve$ReferenceLookupResult$$Lambda$reduce$2)))->orElse($Resolve$ReferenceLookupResult$StaticKind::UNDEFINED));
 	default:
-		{
-			$init($Resolve$ReferenceLookupResult$StaticKind);
-			return $Resolve$ReferenceLookupResult$StaticKind::UNDEFINED;
-		}
+		$init($Resolve$ReferenceLookupResult$StaticKind);
+		return $Resolve$ReferenceLookupResult$StaticKind::UNDEFINED;
 	}
 }
 
@@ -252,32 +186,22 @@ bool Resolve$ReferenceLookupResult::hasKind($Resolve$ReferenceLookupResult$Stati
 }
 
 bool Resolve$ReferenceLookupResult::canIgnore() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Resolve$18);
-	{
-		$var($Resolve$InapplicableSymbolError, errSym, nullptr)
-		$var($Resolve$InapplicableSymbolsError, errSyms, nullptr)
-		switch ($nc($Resolve$18::$SwitchMap$com$sun$tools$javac$code$Kinds$Kind)->get($nc(($nc(this->sym)->kind))->ordinal())) {
-		case 1:
-			{
-				return true;
-			}
-		case 3:
-			{
-				$assign(errSym, $cast($Resolve$InapplicableSymbolError, $nc(this->sym)->baseSymbol()));
-				$init($Resolve$MethodCheckDiag);
-				return $$new($Resolve$MethodResolutionDiagHelper$Template, $($Resolve$MethodCheckDiag::ARITY_MISMATCH->regex()), $$new($Resolve$MethodResolutionDiagHelper$TemplateArray, 0))->matches($nc($($nc(errSym)->errCandidate()))->snd);
-			}
-		case 6:
-			{
-				$assign(errSyms, $cast($Resolve$InapplicableSymbolsError, $nc(this->sym)->baseSymbol()));
-				return $nc($($nc(errSyms)->filterCandidates($(errSyms->mapCandidates()))))->isEmpty();
-			}
-		default:
-			{
-				return false;
-			}
-		}
+	$var($Resolve$InapplicableSymbolError, errSym, nullptr);
+	$var($Resolve$InapplicableSymbolsError, errSyms, nullptr);
+	switch ($nc($Resolve$18::$SwitchMap$com$sun$tools$javac$code$Kinds$Kind)->get($nc(($nc(this->sym)->kind))->ordinal())) {
+	case 1:
+		return true;
+	case 3:
+		$assign(errSym, $cast($Resolve$InapplicableSymbolError, this->sym->baseSymbol()));
+		$init($Resolve$MethodCheckDiag);
+		return $$new($Resolve$MethodResolutionDiagHelper$Template, $($Resolve$MethodCheckDiag::ARITY_MISMATCH->regex()), $$new($Resolve$MethodResolutionDiagHelper$TemplateArray, 0))->matches($nc($($nc(errSym)->errCandidate()))->snd);
+	case 6:
+		$assign(errSyms, $cast($Resolve$InapplicableSymbolsError, this->sym->baseSymbol()));
+		return $$nc($nc(errSyms)->filterCandidates($($nc(errSyms)->mapCandidates())))->isEmpty();
+	default:
+		return false;
 	}
 }
 
@@ -299,17 +223,56 @@ Resolve$ReferenceLookupResult::Resolve$ReferenceLookupResult() {
 
 $Class* Resolve$ReferenceLookupResult::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(Resolve$ReferenceLookupResult$$Lambda$lambda$staticKind$0::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.comp.Resolve$ReferenceLookupResult$$Lambda$lambda$staticKind$0")) {
 			return Resolve$ReferenceLookupResult$$Lambda$lambda$staticKind$0::load$(name, initialize);
 		}
-		if (name->equals(Resolve$ReferenceLookupResult$$Lambda$lambda$staticKind$1$1::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.comp.Resolve$ReferenceLookupResult$$Lambda$lambda$staticKind$1$1")) {
 			return Resolve$ReferenceLookupResult$$Lambda$lambda$staticKind$1$1::load$(name, initialize);
 		}
-		if (name->equals(Resolve$ReferenceLookupResult$$Lambda$reduce$2::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.comp.Resolve$ReferenceLookupResult$$Lambda$reduce$2")) {
 			return Resolve$ReferenceLookupResult$$Lambda$reduce$2::load$(name, initialize);
 		}
 	}
-	$loadClass(Resolve$ReferenceLookupResult, name, initialize, &_Resolve$ReferenceLookupResult_ClassInfo_, allocate$Resolve$ReferenceLookupResult);
+	$FieldInfo fieldInfos$$[] = {
+		{"staticKind", "Lcom/sun/tools/javac/comp/Resolve$ReferenceLookupResult$StaticKind;", nullptr, 0, $field(Resolve$ReferenceLookupResult, staticKind$)},
+		{"sym", "Lcom/sun/tools/javac/code/Symbol;", nullptr, 0, $field(Resolve$ReferenceLookupResult, sym)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/comp/Resolve$MethodResolutionContext;)V", nullptr, 0, $method(Resolve$ReferenceLookupResult, init$, void, $Symbol*, $Resolve$MethodResolutionContext*)},
+		{"<init>", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/comp/Resolve$ReferenceLookupResult$StaticKind;)V", nullptr, $PRIVATE, $method(Resolve$ReferenceLookupResult, init$, void, $Symbol*, $Resolve$ReferenceLookupResult$StaticKind*)},
+		{"canIgnore", "()Z", nullptr, 0, $virtualMethod(Resolve$ReferenceLookupResult, canIgnore, bool)},
+		{"error", "(Lcom/sun/tools/javac/code/Symbol;)Lcom/sun/tools/javac/comp/Resolve$ReferenceLookupResult;", nullptr, $STATIC, $staticMethod(Resolve$ReferenceLookupResult, error, Resolve$ReferenceLookupResult*, $Symbol*)},
+		{"hasKind", "(Lcom/sun/tools/javac/comp/Resolve$ReferenceLookupResult$StaticKind;)Z", nullptr, 0, $virtualMethod(Resolve$ReferenceLookupResult, hasKind, bool, $Resolve$ReferenceLookupResult$StaticKind*)},
+		{"isSuccess", "()Z", nullptr, 0, $virtualMethod(Resolve$ReferenceLookupResult, isSuccess, bool)},
+		{"lambda$staticKind$0", "(Lcom/sun/tools/javac/comp/Resolve$MethodResolutionContext;Lcom/sun/tools/javac/comp/Resolve$MethodResolutionContext$Candidate;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Resolve$ReferenceLookupResult, lambda$staticKind$0, bool, $Resolve$MethodResolutionContext*, $Resolve$MethodResolutionContext$Candidate*)},
+		{"lambda$staticKind$1", "(Lcom/sun/tools/javac/comp/Resolve$MethodResolutionContext$Candidate;)Lcom/sun/tools/javac/comp/Resolve$ReferenceLookupResult$StaticKind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Resolve$ReferenceLookupResult, lambda$staticKind$1, $Resolve$ReferenceLookupResult$StaticKind*, $Resolve$MethodResolutionContext$Candidate*)},
+		{"staticKind", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/comp/Resolve$MethodResolutionContext;)Lcom/sun/tools/javac/comp/Resolve$ReferenceLookupResult$StaticKind;", nullptr, $PRIVATE | $STATIC, $staticMethod(Resolve$ReferenceLookupResult, staticKind, $Resolve$ReferenceLookupResult$StaticKind*, $Symbol*, $Resolve$MethodResolutionContext*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.Resolve$ReferenceLookupResult", "com.sun.tools.javac.comp.Resolve", "ReferenceLookupResult", $STATIC},
+		{"com.sun.tools.javac.comp.Resolve$ReferenceLookupResult$StaticKind", "com.sun.tools.javac.comp.Resolve$ReferenceLookupResult", "StaticKind", $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.comp.Resolve$ReferenceLookupResult",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.Resolve"
+	};
+	$loadClass(Resolve$ReferenceLookupResult, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Resolve$ReferenceLookupResult);
+	});
 	return class$;
 }
 

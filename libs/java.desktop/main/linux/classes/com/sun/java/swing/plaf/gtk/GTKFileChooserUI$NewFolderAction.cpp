@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/gtk/GTKFileChooserUI$NewFolderAction.h>
-
 #include <com/sun/java/swing/plaf/gtk/GTKFileChooserUI.h>
 #include <java/awt/Component.h>
 #include <java/awt/event/ActionEvent.h>
@@ -18,7 +17,6 @@
 #undef PLAIN_MESSAGE
 
 using $GTKFileChooserUI = ::com::sun::java::swing::plaf::gtk::GTKFileChooserUI;
-using $Component = ::java::awt::Component;
 using $ActionEvent = ::java::awt::event::ActionEvent;
 using $File = ::java::io::File;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -29,7 +27,6 @@ using $MessageFormat = ::java::text::MessageFormat;
 using $AbstractAction = ::javax::swing::AbstractAction;
 using $JFileChooser = ::javax::swing::JFileChooser;
 using $JOptionPane = ::javax::swing::JOptionPane;
-using $FileSystemView = ::javax::swing::filechooser::FileSystemView;
 using $FilePane = ::sun::swing::FilePane;
 
 namespace com {
@@ -39,42 +36,6 @@ namespace com {
 				namespace plaf {
 					namespace gtk {
 
-$FieldInfo _GTKFileChooserUI$NewFolderAction_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/java/swing/plaf/gtk/GTKFileChooserUI;", nullptr, $FINAL | $SYNTHETIC, $field(GTKFileChooserUI$NewFolderAction, this$0)},
-	{}
-};
-
-$MethodInfo _GTKFileChooserUI$NewFolderAction_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/java/swing/plaf/gtk/GTKFileChooserUI;)V", nullptr, $PROTECTED, $method(GTKFileChooserUI$NewFolderAction, init$, void, $GTKFileChooserUI*)},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(GTKFileChooserUI$NewFolderAction, actionPerformed, void, $ActionEvent*)},
-	{}
-};
-
-$InnerClassInfo _GTKFileChooserUI$NewFolderAction_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.gtk.GTKFileChooserUI$NewFolderAction", "com.sun.java.swing.plaf.gtk.GTKFileChooserUI", "NewFolderAction", $PRIVATE},
-	{}
-};
-
-$ClassInfo _GTKFileChooserUI$NewFolderAction_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.java.swing.plaf.gtk.GTKFileChooserUI$NewFolderAction",
-	"javax.swing.AbstractAction",
-	nullptr,
-	_GTKFileChooserUI$NewFolderAction_FieldInfo_,
-	_GTKFileChooserUI$NewFolderAction_MethodInfo_,
-	nullptr,
-	nullptr,
-	_GTKFileChooserUI$NewFolderAction_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.gtk.GTKFileChooserUI"
-};
-
-$Object* allocate$GTKFileChooserUI$NewFolderAction($Class* clazz) {
-	return $of($alloc(GTKFileChooserUI$NewFolderAction));
-}
-
 void GTKFileChooserUI$NewFolderAction::init$($GTKFileChooserUI* this$0) {
 	$set(this, this$0, this$0);
 	$init($FilePane);
@@ -82,7 +43,7 @@ void GTKFileChooserUI$NewFolderAction::init$($GTKFileChooserUI* this$0) {
 }
 
 void GTKFileChooserUI$NewFolderAction::actionPerformed($ActionEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->this$0->readOnly) {
 		return;
 	}
@@ -91,11 +52,11 @@ void GTKFileChooserUI$NewFolderAction::actionPerformed($ActionEvent* e) {
 	$var($String, dirName, $JOptionPane::showInputDialog(fc, this->this$0->newFolderDialogText, this->this$0->newFolderButtonText, $JOptionPane::PLAIN_MESSAGE));
 	if (dirName != nullptr) {
 		if (!$nc(currentDirectory)->exists()) {
-			$JOptionPane::showMessageDialog(fc, $($MessageFormat::format(this->this$0->newFolderNoDirectoryErrorText, $$new($ObjectArray, {$of(dirName)}))), this->this$0->newFolderNoDirectoryErrorTitleText, $JOptionPane::ERROR_MESSAGE);
+			$JOptionPane::showMessageDialog(fc, $($MessageFormat::format(this->this$0->newFolderNoDirectoryErrorText, $$new($ObjectArray, {dirName}))), this->this$0->newFolderNoDirectoryErrorTitleText, $JOptionPane::ERROR_MESSAGE);
 			return;
 		}
-		$var($File, newDir, $nc($(fc->getFileSystemView()))->createFileObject(currentDirectory, dirName));
-		if (newDir == nullptr || !$nc(newDir)->mkdir()) {
+		$var($File, newDir, $$nc(fc->getFileSystemView())->createFileObject(currentDirectory, dirName));
+		if (newDir == nullptr || !newDir->mkdir()) {
 			$JOptionPane::showMessageDialog(fc, $$str({this->this$0->newFolderErrorText, this->this$0->newFolderErrorSeparator, " \""_s, dirName, "\""_s}), this->this$0->newFolderErrorText, $JOptionPane::ERROR_MESSAGE);
 		}
 		fc->rescanCurrentDirectory();
@@ -106,7 +67,37 @@ GTKFileChooserUI$NewFolderAction::GTKFileChooserUI$NewFolderAction() {
 }
 
 $Class* GTKFileChooserUI$NewFolderAction::load$($String* name, bool initialize) {
-	$loadClass(GTKFileChooserUI$NewFolderAction, name, initialize, &_GTKFileChooserUI$NewFolderAction_ClassInfo_, allocate$GTKFileChooserUI$NewFolderAction);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/java/swing/plaf/gtk/GTKFileChooserUI;", nullptr, $FINAL | $SYNTHETIC, $field(GTKFileChooserUI$NewFolderAction, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/java/swing/plaf/gtk/GTKFileChooserUI;)V", nullptr, $PROTECTED, $method(GTKFileChooserUI$NewFolderAction, init$, void, $GTKFileChooserUI*)},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(GTKFileChooserUI$NewFolderAction, actionPerformed, void, $ActionEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.gtk.GTKFileChooserUI$NewFolderAction", "com.sun.java.swing.plaf.gtk.GTKFileChooserUI", "NewFolderAction", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.java.swing.plaf.gtk.GTKFileChooserUI$NewFolderAction",
+		"javax.swing.AbstractAction",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.gtk.GTKFileChooserUI"
+	};
+	$loadClass(GTKFileChooserUI$NewFolderAction, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(GTKFileChooserUI$NewFolderAction));
+	});
 	return class$;
 }
 

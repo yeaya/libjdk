@@ -1,5 +1,4 @@
 #include <com/sun/media/sound/ModelIdentifier.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -10,43 +9,6 @@ namespace com {
 	namespace sun {
 		namespace media {
 			namespace sound {
-
-$FieldInfo _ModelIdentifier_FieldInfo_[] = {
-	{"object", "Ljava/lang/String;", nullptr, $PRIVATE, $field(ModelIdentifier, object)},
-	{"variable", "Ljava/lang/String;", nullptr, $PRIVATE, $field(ModelIdentifier, variable)},
-	{"instance", "I", nullptr, $PRIVATE, $field(ModelIdentifier, instance)},
-	{}
-};
-
-$MethodInfo _ModelIdentifier_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ModelIdentifier, init$, void, $String*)},
-	{"<init>", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(ModelIdentifier, init$, void, $String*, int32_t)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ModelIdentifier, init$, void, $String*, $String*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(ModelIdentifier, init$, void, $String*, $String*, int32_t)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ModelIdentifier, equals, bool, Object$*)},
-	{"getInstance", "()I", nullptr, $PUBLIC, $method(ModelIdentifier, getInstance, int32_t)},
-	{"getObject", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(ModelIdentifier, getObject, $String*)},
-	{"getVariable", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(ModelIdentifier, getVariable, $String*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(ModelIdentifier, hashCode, int32_t)},
-	{"setInstance", "(I)V", nullptr, $PUBLIC, $method(ModelIdentifier, setInstance, void, int32_t)},
-	{"setObject", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ModelIdentifier, setObject, void, $String*)},
-	{"setVariable", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ModelIdentifier, setVariable, void, $String*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ModelIdentifier, toString, $String*)},
-	{}
-};
-
-$ClassInfo _ModelIdentifier_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.media.sound.ModelIdentifier",
-	"java.lang.Object",
-	nullptr,
-	_ModelIdentifier_FieldInfo_,
-	_ModelIdentifier_MethodInfo_
-};
-
-$Object* allocate$ModelIdentifier($Class* clazz) {
-	return $of($alloc(ModelIdentifier));
-}
 
 void ModelIdentifier::init$($String* object) {
 	$set(this, object, nullptr);
@@ -107,10 +69,10 @@ void ModelIdentifier::setVariable($String* variable) {
 int32_t ModelIdentifier::hashCode() {
 	int32_t hashcode = this->instance;
 	if (this->object != nullptr) {
-		hashcode |= $nc(this->object)->hashCode();
+		hashcode |= this->object->hashCode();
 	}
 	if (this->variable != nullptr) {
-		hashcode |= $nc(this->variable)->hashCode();
+		hashcode |= this->variable->hashCode();
 	}
 	return hashcode;
 }
@@ -123,24 +85,24 @@ bool ModelIdentifier::equals(Object$* obj) {
 	if ((this->object == nullptr) != ($nc(mobj)->object == nullptr)) {
 		return false;
 	}
-	if ((this->variable == nullptr) != ($nc(mobj)->variable == nullptr)) {
+	if ((this->variable == nullptr) != (mobj->variable == nullptr)) {
 		return false;
 	}
-	int32_t var$0 = $nc(mobj)->getInstance();
+	int32_t var$0 = mobj->getInstance();
 	if (var$0 != getInstance()) {
 		return false;
 	}
-	if (!(this->object == nullptr || $nc(this->object)->equals($nc(mobj)->object))) {
+	if (!(this->object == nullptr || this->object->equals(mobj->object))) {
 		return false;
 	}
-	if (!(this->variable == nullptr || $nc(this->variable)->equals($nc(mobj)->variable))) {
+	if (!(this->variable == nullptr || this->variable->equals(mobj->variable))) {
 		return false;
 	}
 	return true;
 }
 
 $String* ModelIdentifier::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->variable == nullptr) {
 		return $str({this->object, "["_s, $$str(this->instance), "]"_s});
 	} else {
@@ -152,7 +114,39 @@ ModelIdentifier::ModelIdentifier() {
 }
 
 $Class* ModelIdentifier::load$($String* name, bool initialize) {
-	$loadClass(ModelIdentifier, name, initialize, &_ModelIdentifier_ClassInfo_, allocate$ModelIdentifier);
+	$FieldInfo fieldInfos$$[] = {
+		{"object", "Ljava/lang/String;", nullptr, $PRIVATE, $field(ModelIdentifier, object)},
+		{"variable", "Ljava/lang/String;", nullptr, $PRIVATE, $field(ModelIdentifier, variable)},
+		{"instance", "I", nullptr, $PRIVATE, $field(ModelIdentifier, instance)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ModelIdentifier, init$, void, $String*)},
+		{"<init>", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(ModelIdentifier, init$, void, $String*, int32_t)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ModelIdentifier, init$, void, $String*, $String*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(ModelIdentifier, init$, void, $String*, $String*, int32_t)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ModelIdentifier, equals, bool, Object$*)},
+		{"getInstance", "()I", nullptr, $PUBLIC, $method(ModelIdentifier, getInstance, int32_t)},
+		{"getObject", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(ModelIdentifier, getObject, $String*)},
+		{"getVariable", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(ModelIdentifier, getVariable, $String*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(ModelIdentifier, hashCode, int32_t)},
+		{"setInstance", "(I)V", nullptr, $PUBLIC, $method(ModelIdentifier, setInstance, void, int32_t)},
+		{"setObject", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ModelIdentifier, setObject, void, $String*)},
+		{"setVariable", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ModelIdentifier, setVariable, void, $String*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ModelIdentifier, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.media.sound.ModelIdentifier",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ModelIdentifier, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ModelIdentifier);
+	});
 	return class$;
 }
 

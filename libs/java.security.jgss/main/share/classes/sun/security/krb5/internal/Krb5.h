@@ -392,6 +392,7 @@ class $export Krb5 : public ::java::lang::Object {
 	$class(Krb5, 0, ::java::lang::Object)
 public:
 	Krb5();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $String* getErrorMessage(int32_t i);
 	static const int32_t DEFAULT_ALLOWABLE_CLOCKSKEW = 300; // 5 * 60

@@ -32,6 +32,7 @@ class $import SocketTube$SliceBufferSource : public ::jdk::internal::net::http::
 	$class(SocketTube$SliceBufferSource, 0, ::jdk::internal::net::http::SocketTube$BufferSource)
 public:
 	SocketTube$SliceBufferSource();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(::java::util::function::Supplier* factory);
 	virtual ::java::util::List* append(::java::util::List* list, ::java::nio::ByteBuffer* buf, int32_t start) override;

@@ -30,6 +30,7 @@ class Frame$Opcode : public ::java::lang::Enum {
 public:
 	Frame$Opcode();
 	static $Array<::jdk::internal::net::http::websocket::Frame$Opcode>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal, int32_t code);
 	virtual bool isControl();
 	static ::jdk::internal::net::http::websocket::Frame$Opcode* ofCode(int32_t code);

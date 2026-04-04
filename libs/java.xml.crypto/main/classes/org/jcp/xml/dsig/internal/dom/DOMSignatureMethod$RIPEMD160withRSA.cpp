@@ -1,5 +1,4 @@
 #include <org/jcp/xml/dsig/internal/dom/DOMSignatureMethod$RIPEMD160withRSA.h>
-
 #include <java/security/spec/AlgorithmParameterSpec.h>
 #include <org/jcp/xml/dsig/internal/dom/AbstractDOMSignatureMethod$Type.h>
 #include <org/jcp/xml/dsig/internal/dom/DOMSignatureMethod$AbstractRSASignatureMethod.h>
@@ -25,41 +24,6 @@ namespace org {
 			namespace dsig {
 				namespace internal {
 					namespace dom {
-
-$MethodInfo _DOMSignatureMethod$RIPEMD160withRSA_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, 0, $method(DOMSignatureMethod$RIPEMD160withRSA, init$, void, $AlgorithmParameterSpec*), "java.security.InvalidAlgorithmParameterException"},
-	{"<init>", "(Lorg/w3c/dom/Element;)V", nullptr, 0, $method(DOMSignatureMethod$RIPEMD160withRSA, init$, void, $Element*), "javax.xml.crypto.MarshalException"},
-	{"getAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DOMSignatureMethod$RIPEMD160withRSA, getAlgorithm, $String*)},
-	{"getAlgorithmType", "()Lorg/jcp/xml/dsig/internal/dom/AbstractDOMSignatureMethod$Type;", nullptr, 0, $virtualMethod(DOMSignatureMethod$RIPEMD160withRSA, getAlgorithmType, $AbstractDOMSignatureMethod$Type*)},
-	{"getJCAAlgorithm", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(DOMSignatureMethod$RIPEMD160withRSA, getJCAAlgorithm, $String*)},
-	{}
-};
-
-$InnerClassInfo _DOMSignatureMethod$RIPEMD160withRSA_InnerClassesInfo_[] = {
-	{"org.jcp.xml.dsig.internal.dom.DOMSignatureMethod$RIPEMD160withRSA", "org.jcp.xml.dsig.internal.dom.DOMSignatureMethod", "RIPEMD160withRSA", $STATIC | $FINAL},
-	{"org.jcp.xml.dsig.internal.dom.DOMSignatureMethod$AbstractRSASignatureMethod", "org.jcp.xml.dsig.internal.dom.DOMSignatureMethod", "AbstractRSASignatureMethod", $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _DOMSignatureMethod$RIPEMD160withRSA_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"org.jcp.xml.dsig.internal.dom.DOMSignatureMethod$RIPEMD160withRSA",
-	"org.jcp.xml.dsig.internal.dom.DOMSignatureMethod$AbstractRSASignatureMethod",
-	nullptr,
-	nullptr,
-	_DOMSignatureMethod$RIPEMD160withRSA_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DOMSignatureMethod$RIPEMD160withRSA_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"org.jcp.xml.dsig.internal.dom.DOMSignatureMethod"
-};
-
-$Object* allocate$DOMSignatureMethod$RIPEMD160withRSA($Class* clazz) {
-	return $of($alloc(DOMSignatureMethod$RIPEMD160withRSA));
-}
 
 void DOMSignatureMethod$RIPEMD160withRSA::init$($AlgorithmParameterSpec* params) {
 	$DOMSignatureMethod$AbstractRSASignatureMethod::init$(params);
@@ -87,7 +51,37 @@ DOMSignatureMethod$RIPEMD160withRSA::DOMSignatureMethod$RIPEMD160withRSA() {
 }
 
 $Class* DOMSignatureMethod$RIPEMD160withRSA::load$($String* name, bool initialize) {
-	$loadClass(DOMSignatureMethod$RIPEMD160withRSA, name, initialize, &_DOMSignatureMethod$RIPEMD160withRSA_ClassInfo_, allocate$DOMSignatureMethod$RIPEMD160withRSA);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, 0, $method(DOMSignatureMethod$RIPEMD160withRSA, init$, void, $AlgorithmParameterSpec*), "java.security.InvalidAlgorithmParameterException"},
+		{"<init>", "(Lorg/w3c/dom/Element;)V", nullptr, 0, $method(DOMSignatureMethod$RIPEMD160withRSA, init$, void, $Element*), "javax.xml.crypto.MarshalException"},
+		{"getAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DOMSignatureMethod$RIPEMD160withRSA, getAlgorithm, $String*)},
+		{"getAlgorithmType", "()Lorg/jcp/xml/dsig/internal/dom/AbstractDOMSignatureMethod$Type;", nullptr, 0, $virtualMethod(DOMSignatureMethod$RIPEMD160withRSA, getAlgorithmType, $AbstractDOMSignatureMethod$Type*)},
+		{"getJCAAlgorithm", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(DOMSignatureMethod$RIPEMD160withRSA, getJCAAlgorithm, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"org.jcp.xml.dsig.internal.dom.DOMSignatureMethod$RIPEMD160withRSA", "org.jcp.xml.dsig.internal.dom.DOMSignatureMethod", "RIPEMD160withRSA", $STATIC | $FINAL},
+		{"org.jcp.xml.dsig.internal.dom.DOMSignatureMethod$AbstractRSASignatureMethod", "org.jcp.xml.dsig.internal.dom.DOMSignatureMethod", "AbstractRSASignatureMethod", $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"org.jcp.xml.dsig.internal.dom.DOMSignatureMethod$RIPEMD160withRSA",
+		"org.jcp.xml.dsig.internal.dom.DOMSignatureMethod$AbstractRSASignatureMethod",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"org.jcp.xml.dsig.internal.dom.DOMSignatureMethod"
+	};
+	$loadClass(DOMSignatureMethod$RIPEMD160withRSA, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DOMSignatureMethod$RIPEMD160withRSA));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/model/JavacElements$1TS.h>
-
 #include <com/sun/tools/javac/code/Symbol$MethodSymbol.h>
 #include <com/sun/tools/javac/code/Symbol.h>
 #include <com/sun/tools/javac/model/JavacElements.h>
@@ -21,10 +20,8 @@ using $JavacElements = ::com::sun::tools::javac::model::JavacElements;
 using $JCTree = ::com::sun::tools::javac::tree::JCTree;
 using $JCTree$JCAnnotation = ::com::sun::tools::javac::tree::JCTree$JCAnnotation;
 using $JCTree$JCAssign = ::com::sun::tools::javac::tree::JCTree$JCAssign;
-using $JCTree$JCExpression = ::com::sun::tools::javac::tree::JCTree$JCExpression;
 using $JCTree$JCIdent = ::com::sun::tools::javac::tree::JCTree$JCIdent;
 using $JCTree$Tag = ::com::sun::tools::javac::tree::JCTree$Tag;
-using $JCTree$Visitor = ::com::sun::tools::javac::tree::JCTree$Visitor;
 using $TreeScanner = ::com::sun::tools::javac::tree::TreeScanner;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
@@ -37,55 +34,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace model {
-
-$FieldInfo _JavacElements$1TS_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/model/JavacElements;", nullptr, $FINAL | $SYNTHETIC, $field(JavacElements$1TS, this$0)},
-	{"val$sym", "Lcom/sun/tools/javac/code/Symbol$MethodSymbol;", nullptr, $FINAL | $SYNTHETIC, $field(JavacElements$1TS, val$sym)},
-	{"val$tree", "Lcom/sun/tools/javac/tree/JCTree;", nullptr, $FINAL | $SYNTHETIC, $field(JavacElements$1TS, val$tree)},
-	{"result", "Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, 0, $field(JavacElements$1TS, result)},
-	{}
-};
-
-$MethodInfo _JavacElements$1TS_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/model/JavacElements;Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/code/Symbol$MethodSymbol;)V", "()V", 0, $method(JavacElements$1TS, init$, void, $JavacElements*, $JCTree*, $Symbol$MethodSymbol*)},
-	{"scan", "(Lcom/sun/tools/javac/tree/JCTree;)V", nullptr, $PUBLIC, $virtualMethod(JavacElements$1TS, scan, void, $JCTree*)},
-	{"visitAnnotation", "(Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;)V", nullptr, $PUBLIC, $virtualMethod(JavacElements$1TS, visitAnnotation, void, $JCTree$JCAnnotation*)},
-	{"visitAssign", "(Lcom/sun/tools/javac/tree/JCTree$JCAssign;)V", nullptr, $PUBLIC, $virtualMethod(JavacElements$1TS, visitAssign, void, $JCTree$JCAssign*)},
-	{}
-};
-
-$EnclosingMethodInfo _JavacElements$1TS_EnclosingMethodInfo_ = {
-	"com.sun.tools.javac.model.JavacElements",
-	"scanForAssign",
-	"(Lcom/sun/tools/javac/code/Symbol$MethodSymbol;Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;"
-};
-
-$InnerClassInfo _JavacElements$1TS_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.model.JavacElements$1TS", nullptr, "TS", 0},
-	{"com.sun.tools.javac.code.Symbol$MethodSymbol", "com.sun.tools.javac.code.Symbol", "MethodSymbol", $PUBLIC | $STATIC},
-	{"com.sun.tools.javac.tree.JCTree$JCExpression", "com.sun.tools.javac.tree.JCTree", "JCExpression", $PUBLIC | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _JavacElements$1TS_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.model.JavacElements$1TS",
-	"com.sun.tools.javac.tree.TreeScanner",
-	nullptr,
-	_JavacElements$1TS_FieldInfo_,
-	_JavacElements$1TS_MethodInfo_,
-	nullptr,
-	&_JavacElements$1TS_EnclosingMethodInfo_,
-	_JavacElements$1TS_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.model.JavacElements"
-};
-
-$Object* allocate$JavacElements$1TS($Class* clazz) {
-	return $of($alloc(JavacElements$1TS));
-}
 
 void JavacElements$1TS::init$($JavacElements* this$0, $JCTree* val$tree, $Symbol$MethodSymbol* val$sym) {
 	$set(this, this$0, this$0);
@@ -121,7 +69,49 @@ JavacElements$1TS::JavacElements$1TS() {
 }
 
 $Class* JavacElements$1TS::load$($String* name, bool initialize) {
-	$loadClass(JavacElements$1TS, name, initialize, &_JavacElements$1TS_ClassInfo_, allocate$JavacElements$1TS);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/model/JavacElements;", nullptr, $FINAL | $SYNTHETIC, $field(JavacElements$1TS, this$0)},
+		{"val$sym", "Lcom/sun/tools/javac/code/Symbol$MethodSymbol;", nullptr, $FINAL | $SYNTHETIC, $field(JavacElements$1TS, val$sym)},
+		{"val$tree", "Lcom/sun/tools/javac/tree/JCTree;", nullptr, $FINAL | $SYNTHETIC, $field(JavacElements$1TS, val$tree)},
+		{"result", "Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, 0, $field(JavacElements$1TS, result)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/model/JavacElements;Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/code/Symbol$MethodSymbol;)V", "()V", 0, $method(JavacElements$1TS, init$, void, $JavacElements*, $JCTree*, $Symbol$MethodSymbol*)},
+		{"scan", "(Lcom/sun/tools/javac/tree/JCTree;)V", nullptr, $PUBLIC, $virtualMethod(JavacElements$1TS, scan, void, $JCTree*)},
+		{"visitAnnotation", "(Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;)V", nullptr, $PUBLIC, $virtualMethod(JavacElements$1TS, visitAnnotation, void, $JCTree$JCAnnotation*)},
+		{"visitAssign", "(Lcom/sun/tools/javac/tree/JCTree$JCAssign;)V", nullptr, $PUBLIC, $virtualMethod(JavacElements$1TS, visitAssign, void, $JCTree$JCAssign*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.tools.javac.model.JavacElements",
+		"scanForAssign",
+		"(Lcom/sun/tools/javac/code/Symbol$MethodSymbol;Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.model.JavacElements$1TS", nullptr, "TS", 0},
+		{"com.sun.tools.javac.code.Symbol$MethodSymbol", "com.sun.tools.javac.code.Symbol", "MethodSymbol", $PUBLIC | $STATIC},
+		{"com.sun.tools.javac.tree.JCTree$JCExpression", "com.sun.tools.javac.tree.JCTree", "JCExpression", $PUBLIC | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.model.JavacElements$1TS",
+		"com.sun.tools.javac.tree.TreeScanner",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.model.JavacElements"
+	};
+	$loadClass(JavacElements$1TS, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JavacElements$1TS);
+	});
 	return class$;
 }
 

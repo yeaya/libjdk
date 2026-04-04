@@ -55,6 +55,7 @@ class $export JScrollPane : public ::javax::swing::JComponent, public ::javax::s
 	$class(JScrollPane, 0, ::javax::swing::JComponent, ::javax::swing::ScrollPaneConstants, ::javax::accessibility::Accessible)
 public:
 	JScrollPane();
+	static void clinit$(::java::lang::Class* clazz);
 	using ::javax::swing::JComponent::contains;
 	using ::javax::swing::JComponent::enable;
 	using ::javax::swing::JComponent::getBounds;

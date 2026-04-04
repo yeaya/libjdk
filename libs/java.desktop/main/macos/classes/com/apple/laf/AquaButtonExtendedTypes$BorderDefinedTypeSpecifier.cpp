@@ -1,5 +1,4 @@
 #include <com/apple/laf/AquaButtonExtendedTypes$BorderDefinedTypeSpecifier.h>
-
 #include <apple/laf/JRSUIConstants$Widget.h>
 #include <com/apple/laf/AquaBorder.h>
 #include <com/apple/laf/AquaButtonBorder$Named.h>
@@ -28,47 +27,6 @@ namespace com {
 	namespace apple {
 		namespace laf {
 
-$FieldInfo _AquaButtonExtendedTypes$BorderDefinedTypeSpecifier_FieldInfo_[] = {
-	{"border", "Lcom/apple/laf/AquaBorder;", nullptr, $FINAL, $field(AquaButtonExtendedTypes$BorderDefinedTypeSpecifier, border)},
-	{}
-};
-
-$MethodInfo _AquaButtonExtendedTypes$BorderDefinedTypeSpecifier_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Lapple/laf/JRSUIConstants$Widget;Lcom/apple/laf/AquaUtilControlSize$SizeVariant;)V", nullptr, 0, $method(AquaButtonExtendedTypes$BorderDefinedTypeSpecifier, init$, void, $String*, $JRSUIConstants$Widget*, $AquaUtilControlSize$SizeVariant*)},
-	{"<init>", "(Ljava/lang/String;Lapple/laf/JRSUIConstants$Widget;Lcom/apple/laf/AquaUtilControlSize$SizeVariant;IIII)V", nullptr, 0, $method(AquaButtonExtendedTypes$BorderDefinedTypeSpecifier, init$, void, $String*, $JRSUIConstants$Widget*, $AquaUtilControlSize$SizeVariant*, int32_t, int32_t, int32_t, int32_t)},
-	{"getBorder", "()Ljavax/swing/border/Border;", nullptr, 0, $virtualMethod(AquaButtonExtendedTypes$BorderDefinedTypeSpecifier, getBorder, $Border*)},
-	{"initBorder", "(Lapple/laf/JRSUIConstants$Widget;Lcom/apple/laf/AquaUtilControlSize$SizeDescriptor;)Lcom/apple/laf/AquaBorder;", nullptr, 0, $virtualMethod(AquaButtonExtendedTypes$BorderDefinedTypeSpecifier, initBorder, $AquaBorder*, $JRSUIConstants$Widget*, $AquaUtilControlSize$SizeDescriptor*)},
-	{"patchUp", "(Lcom/apple/laf/AquaUtilControlSize$SizeDescriptor;)V", nullptr, 0, $virtualMethod(AquaButtonExtendedTypes$BorderDefinedTypeSpecifier, patchUp, void, $AquaUtilControlSize$SizeDescriptor*)},
-	{}
-};
-
-$InnerClassInfo _AquaButtonExtendedTypes$BorderDefinedTypeSpecifier_InnerClassesInfo_[] = {
-	{"com.apple.laf.AquaButtonExtendedTypes$BorderDefinedTypeSpecifier", "com.apple.laf.AquaButtonExtendedTypes", "BorderDefinedTypeSpecifier", $STATIC},
-	{"com.apple.laf.AquaButtonExtendedTypes$TypeSpecifier", "com.apple.laf.AquaButtonExtendedTypes", "TypeSpecifier", $STATIC | $ABSTRACT},
-	{"com.apple.laf.AquaButtonExtendedTypes$BorderDefinedTypeSpecifier$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _AquaButtonExtendedTypes$BorderDefinedTypeSpecifier_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.apple.laf.AquaButtonExtendedTypes$BorderDefinedTypeSpecifier",
-	"com.apple.laf.AquaButtonExtendedTypes$TypeSpecifier",
-	nullptr,
-	_AquaButtonExtendedTypes$BorderDefinedTypeSpecifier_FieldInfo_,
-	_AquaButtonExtendedTypes$BorderDefinedTypeSpecifier_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AquaButtonExtendedTypes$BorderDefinedTypeSpecifier_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.apple.laf.AquaButtonExtendedTypes"
-};
-
-$Object* allocate$AquaButtonExtendedTypes$BorderDefinedTypeSpecifier($Class* clazz) {
-	return $of($alloc(AquaButtonExtendedTypes$BorderDefinedTypeSpecifier));
-}
-
 void AquaButtonExtendedTypes$BorderDefinedTypeSpecifier::init$($String* name, $JRSUIConstants$Widget* widget, $AquaUtilControlSize$SizeVariant* variant) {
 	AquaButtonExtendedTypes$BorderDefinedTypeSpecifier::init$(name, widget, variant, 0, 0, 0, 0);
 }
@@ -94,7 +52,42 @@ AquaButtonExtendedTypes$BorderDefinedTypeSpecifier::AquaButtonExtendedTypes$Bord
 }
 
 $Class* AquaButtonExtendedTypes$BorderDefinedTypeSpecifier::load$($String* name, bool initialize) {
-	$loadClass(AquaButtonExtendedTypes$BorderDefinedTypeSpecifier, name, initialize, &_AquaButtonExtendedTypes$BorderDefinedTypeSpecifier_ClassInfo_, allocate$AquaButtonExtendedTypes$BorderDefinedTypeSpecifier);
+	$FieldInfo fieldInfos$$[] = {
+		{"border", "Lcom/apple/laf/AquaBorder;", nullptr, $FINAL, $field(AquaButtonExtendedTypes$BorderDefinedTypeSpecifier, border)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Lapple/laf/JRSUIConstants$Widget;Lcom/apple/laf/AquaUtilControlSize$SizeVariant;)V", nullptr, 0, $method(AquaButtonExtendedTypes$BorderDefinedTypeSpecifier, init$, void, $String*, $JRSUIConstants$Widget*, $AquaUtilControlSize$SizeVariant*)},
+		{"<init>", "(Ljava/lang/String;Lapple/laf/JRSUIConstants$Widget;Lcom/apple/laf/AquaUtilControlSize$SizeVariant;IIII)V", nullptr, 0, $method(AquaButtonExtendedTypes$BorderDefinedTypeSpecifier, init$, void, $String*, $JRSUIConstants$Widget*, $AquaUtilControlSize$SizeVariant*, int32_t, int32_t, int32_t, int32_t)},
+		{"getBorder", "()Ljavax/swing/border/Border;", nullptr, 0, $virtualMethod(AquaButtonExtendedTypes$BorderDefinedTypeSpecifier, getBorder, $Border*)},
+		{"initBorder", "(Lapple/laf/JRSUIConstants$Widget;Lcom/apple/laf/AquaUtilControlSize$SizeDescriptor;)Lcom/apple/laf/AquaBorder;", nullptr, 0, $virtualMethod(AquaButtonExtendedTypes$BorderDefinedTypeSpecifier, initBorder, $AquaBorder*, $JRSUIConstants$Widget*, $AquaUtilControlSize$SizeDescriptor*)},
+		{"patchUp", "(Lcom/apple/laf/AquaUtilControlSize$SizeDescriptor;)V", nullptr, 0, $virtualMethod(AquaButtonExtendedTypes$BorderDefinedTypeSpecifier, patchUp, void, $AquaUtilControlSize$SizeDescriptor*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.laf.AquaButtonExtendedTypes$BorderDefinedTypeSpecifier", "com.apple.laf.AquaButtonExtendedTypes", "BorderDefinedTypeSpecifier", $STATIC},
+		{"com.apple.laf.AquaButtonExtendedTypes$TypeSpecifier", "com.apple.laf.AquaButtonExtendedTypes", "TypeSpecifier", $STATIC | $ABSTRACT},
+		{"com.apple.laf.AquaButtonExtendedTypes$BorderDefinedTypeSpecifier$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.apple.laf.AquaButtonExtendedTypes$BorderDefinedTypeSpecifier",
+		"com.apple.laf.AquaButtonExtendedTypes$TypeSpecifier",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.apple.laf.AquaButtonExtendedTypes"
+	};
+	$loadClass(AquaButtonExtendedTypes$BorderDefinedTypeSpecifier, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AquaButtonExtendedTypes$BorderDefinedTypeSpecifier);
+	});
 	return class$;
 }
 

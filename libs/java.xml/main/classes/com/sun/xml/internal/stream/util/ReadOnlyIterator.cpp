@@ -1,5 +1,4 @@
 #include <com/sun/xml/internal/stream/util/ReadOnlyIterator.h>
-
 #include <java/lang/UnsupportedOperationException.h>
 #include <java/util/Iterator.h>
 #include <jcpp.h>
@@ -17,34 +16,6 @@ namespace com {
 				namespace stream {
 					namespace util {
 
-$FieldInfo _ReadOnlyIterator_FieldInfo_[] = {
-	{"iterator", "Ljava/util/Iterator;", "Ljava/util/Iterator<TT;>;", 0, $field(ReadOnlyIterator, iterator)},
-	{}
-};
-
-$MethodInfo _ReadOnlyIterator_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ReadOnlyIterator, init$, void)},
-	{"<init>", "(Ljava/util/Iterator;)V", "(Ljava/util/Iterator<TT;>;)V", $PUBLIC, $method(ReadOnlyIterator, init$, void, $Iterator*)},
-	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(ReadOnlyIterator, hasNext, bool)},
-	{"next", "()Ljava/lang/Object;", "()TT;", $PUBLIC, $virtualMethod(ReadOnlyIterator, next, $Object*)},
-	{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(ReadOnlyIterator, remove, void)},
-	{}
-};
-
-$ClassInfo _ReadOnlyIterator_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.xml.internal.stream.util.ReadOnlyIterator",
-	"java.lang.Object",
-	"java.util.Iterator",
-	_ReadOnlyIterator_FieldInfo_,
-	_ReadOnlyIterator_MethodInfo_,
-	"<T:Ljava/lang/Object;>Ljava/lang/Object;Ljava/util/Iterator<TT;>;"
-};
-
-$Object* allocate$ReadOnlyIterator($Class* clazz) {
-	return $of($alloc(ReadOnlyIterator));
-}
-
 void ReadOnlyIterator::init$() {
 	$set(this, iterator, nullptr);
 }
@@ -56,16 +27,16 @@ void ReadOnlyIterator::init$($Iterator* itr) {
 
 bool ReadOnlyIterator::hasNext() {
 	if (this->iterator != nullptr) {
-		return $nc(this->iterator)->hasNext();
+		return this->iterator->hasNext();
 	}
 	return false;
 }
 
 $Object* ReadOnlyIterator::next() {
 	if (this->iterator != nullptr) {
-		return $of($nc(this->iterator)->next());
+		return this->iterator->next();
 	}
-	return $of(nullptr);
+	return nullptr;
 }
 
 void ReadOnlyIterator::remove() {
@@ -76,7 +47,30 @@ ReadOnlyIterator::ReadOnlyIterator() {
 }
 
 $Class* ReadOnlyIterator::load$($String* name, bool initialize) {
-	$loadClass(ReadOnlyIterator, name, initialize, &_ReadOnlyIterator_ClassInfo_, allocate$ReadOnlyIterator);
+	$FieldInfo fieldInfos$$[] = {
+		{"iterator", "Ljava/util/Iterator;", "Ljava/util/Iterator<TT;>;", 0, $field(ReadOnlyIterator, iterator)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ReadOnlyIterator, init$, void)},
+		{"<init>", "(Ljava/util/Iterator;)V", "(Ljava/util/Iterator<TT;>;)V", $PUBLIC, $method(ReadOnlyIterator, init$, void, $Iterator*)},
+		{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(ReadOnlyIterator, hasNext, bool)},
+		{"next", "()Ljava/lang/Object;", "()TT;", $PUBLIC, $virtualMethod(ReadOnlyIterator, next, $Object*)},
+		{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(ReadOnlyIterator, remove, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.xml.internal.stream.util.ReadOnlyIterator",
+		"java.lang.Object",
+		"java.util.Iterator",
+		fieldInfos$$,
+		methodInfos$$,
+		"<T:Ljava/lang/Object;>Ljava/lang/Object;Ljava/util/Iterator<TT;>;"
+	};
+	$loadClass(ReadOnlyIterator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ReadOnlyIterator);
+	});
 	return class$;
 }
 

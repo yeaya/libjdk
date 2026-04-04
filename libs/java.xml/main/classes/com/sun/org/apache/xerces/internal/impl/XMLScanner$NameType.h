@@ -40,6 +40,7 @@ class XMLScanner$NameType : public ::java::lang::Enum {
 public:
 	XMLScanner$NameType();
 	static $Array<::com::sun::org::apache::xerces::internal::impl::XMLScanner$NameType>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal, $String* literal);
 	virtual $String* literal();
 	static ::com::sun::org::apache::xerces::internal::impl::XMLScanner$NameType* valueOf($String* name);

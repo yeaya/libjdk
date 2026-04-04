@@ -84,7 +84,7 @@ public:
 	static $String* toString(::javax::management::openmbean::OpenMBeanParameterInfo* info);
 	static $Object* valueFrom(::javax::management::Descriptor* d, $String* name, ::javax::management::openmbean::OpenType* openType);
 	static ::java::util::Set* valuesFrom(::javax::management::Descriptor* d, $String* name, ::javax::management::openmbean::OpenType* openType);
-	static const int64_t serialVersionUID = (int64_t)0xBC742D2DE488B107;
+	static const int64_t serialVersionUID = (int64_t)0xbc742d2de488b107;
 	::javax::management::openmbean::OpenType* openType = nullptr;
 	$Object* defaultValue = nullptr;
 	::java::util::Set* legalValues = nullptr;

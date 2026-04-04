@@ -1,5 +1,4 @@
 #include <sun/util/resources/cldr/ext/TimeZoneNames_fa.h>
-
 #include <sun/util/resources/TimeZoneNamesBundle.h>
 #include <jcpp.h>
 
@@ -17,31 +16,12 @@ namespace sun {
 			namespace cldr {
 				namespace ext {
 
-$MethodInfo _TimeZoneNames_fa_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TimeZoneNames_fa, init$, void)},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(TimeZoneNames_fa, getContents, $ObjectArray2*)},
-	{}
-};
-
-$ClassInfo _TimeZoneNames_fa_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.util.resources.cldr.ext.TimeZoneNames_fa",
-	"sun.util.resources.TimeZoneNamesBundle",
-	nullptr,
-	nullptr,
-	_TimeZoneNames_fa_MethodInfo_
-};
-
-$Object* allocate$TimeZoneNames_fa($Class* clazz) {
-	return $of($alloc(TimeZoneNames_fa));
-}
-
 void TimeZoneNames_fa::init$() {
 	$TimeZoneNamesBundle::init$();
 }
 
 $ObjectArray2* TimeZoneNames_fa::getContents() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringArray, GMT, $new($StringArray, {
 		u"وقت گرینویچ"_s,
 		""_s,
@@ -1196,3577 +1176,3577 @@ $ObjectArray2* TimeZoneNames_fa::getContents() {
 	}));
 	$var($ObjectArray2, data, $new($ObjectArray2, {
 		$$new($ObjectArray, {
-			$of("America/Los_Angeles"_s),
-			$of(America_Pacific)
+			"America/Los_Angeles"_s,
+			America_Pacific
 		}),
 		$$new($ObjectArray, {
-			$of("America/Denver"_s),
-			$of(America_Mountain)
+			"America/Denver"_s,
+			America_Mountain
 		}),
 		$$new($ObjectArray, {
-			$of("America/Phoenix"_s),
-			$of(America_Mountain)
+			"America/Phoenix"_s,
+			America_Mountain
 		}),
 		$$new($ObjectArray, {
-			$of("America/Chicago"_s),
-			$of(America_Central)
+			"America/Chicago"_s,
+			America_Central
 		}),
 		$$new($ObjectArray, {
-			$of("America/New_York"_s),
-			$of(America_Eastern)
+			"America/New_York"_s,
+			America_Eastern
 		}),
 		$$new($ObjectArray, {
-			$of("America/Indianapolis"_s),
-			$of(America_Eastern)
+			"America/Indianapolis"_s,
+			America_Eastern
 		}),
 		$$new($ObjectArray, {
-			$of("Pacific/Honolulu"_s),
-			$of(Hawaii_Aleutian)
+			"Pacific/Honolulu"_s,
+			Hawaii_Aleutian
 		}),
 		$$new($ObjectArray, {
-			$of("America/Anchorage"_s),
-			$of(Alaska)
+			"America/Anchorage"_s,
+			Alaska
 		}),
 		$$new($ObjectArray, {
-			$of("America/Halifax"_s),
-			$of(Atlantic)
+			"America/Halifax"_s,
+			Atlantic
 		}),
 		$$new($ObjectArray, {
-			$of("America/Sitka"_s),
-			$of(Alaska)
+			"America/Sitka"_s,
+			Alaska
 		}),
 		$$new($ObjectArray, {
-			$of("America/St_Johns"_s),
-			$of(Newfoundland)
+			"America/St_Johns"_s,
+			Newfoundland
 		}),
 		$$new($ObjectArray, {
-			$of("Europe/Paris"_s),
-			$of(Europe_Central)
+			"Europe/Paris"_s,
+			Europe_Central
 		}),
 		$$new($ObjectArray, {
-			$of("GMT"_s),
-			$of(GMT)
+			"GMT"_s,
+			GMT
 		}),
 		$$new($ObjectArray, {
-			$of("Asia/Jerusalem"_s),
-			$of(Israel)
+			"Asia/Jerusalem"_s,
+			Israel
 		}),
 		$$new($ObjectArray, {
-			$of("Asia/Tokyo"_s),
-			$of(Japan)
+			"Asia/Tokyo"_s,
+			Japan
 		}),
 		$$new($ObjectArray, {
-			$of("Europe/Bucharest"_s),
-			$of(Europe_Eastern)
+			"Europe/Bucharest"_s,
+			Europe_Eastern
 		}),
 		$$new($ObjectArray, {
-			$of("Asia/Shanghai"_s),
-			$of(China)
+			"Asia/Shanghai"_s,
+			China
 		}),
 		$$new($ObjectArray, {
-			$of("UTC"_s),
-			$of(ETC_UTC)
+			"UTC"_s,
+			ETC_UTC
 		}),
 		$$new($ObjectArray, {
-			$of("ACT"_s),
-			$of(Australia_Central)
+			"ACT"_s,
+			Australia_Central
 		}),
 		$$new($ObjectArray, {
-			$of("AET"_s),
-			$of(Australia_Eastern)
+			"AET"_s,
+			Australia_Eastern
 		}),
 		$$new($ObjectArray, {
-			$of("ART"_s),
-			$of(Europe_Eastern)
+			"ART"_s,
+			Europe_Eastern
 		}),
 		$$new($ObjectArray, {
-			$of("AST"_s),
-			$of(Alaska)
+			"AST"_s,
+			Alaska
 		}),
 		$$new($ObjectArray, {
-			$of("BET"_s),
-			$of(Brasilia)
+			"BET"_s,
+			Brasilia
 		}),
 		$$new($ObjectArray, {
-			$of("BST"_s),
-			$of(Bangladesh)
+			"BST"_s,
+			Bangladesh
 		}),
 		$$new($ObjectArray, {
-			$of("CAT"_s),
-			$of(Africa_Central)
+			"CAT"_s,
+			Africa_Central
 		}),
 		$$new($ObjectArray, {
-			$of("CNT"_s),
-			$of(Newfoundland)
+			"CNT"_s,
+			Newfoundland
 		}),
 		$$new($ObjectArray, {
-			$of("CST"_s),
-			$of(America_Central)
+			"CST"_s,
+			America_Central
 		}),
 		$$new($ObjectArray, {
-			$of("CTT"_s),
-			$of(China)
+			"CTT"_s,
+			China
 		}),
 		$$new($ObjectArray, {
-			$of("EAT"_s),
-			$of(Africa_Eastern)
+			"EAT"_s,
+			Africa_Eastern
 		}),
 		$$new($ObjectArray, {
-			$of("ECT"_s),
-			$of(Europe_Central)
+			"ECT"_s,
+			Europe_Central
 		}),
 		$$new($ObjectArray, {
-			$of("JST"_s),
-			$of(Japan)
+			"JST"_s,
+			Japan
 		}),
 		$$new($ObjectArray, {
-			$of("MIT"_s),
-			$of(Apia)
+			"MIT"_s,
+			Apia
 		}),
 		$$new($ObjectArray, {
-			$of("NET"_s),
-			$of(Armenia)
+			"NET"_s,
+			Armenia
 		}),
 		$$new($ObjectArray, {
-			$of("NST"_s),
-			$of(New_Zealand)
+			"NST"_s,
+			New_Zealand
 		}),
 		$$new($ObjectArray, {
-			$of("PLT"_s),
-			$of(Pakistan)
+			"PLT"_s,
+			Pakistan
 		}),
 		$$new($ObjectArray, {
-			$of("PNT"_s),
-			$of(America_Mountain)
+			"PNT"_s,
+			America_Mountain
 		}),
 		$$new($ObjectArray, {
-			$of("PRT"_s),
-			$of(Atlantic)
+			"PRT"_s,
+			Atlantic
 		}),
 		$$new($ObjectArray, {
-			$of("PST"_s),
-			$of(America_Pacific)
+			"PST"_s,
+			America_Pacific
 		}),
 		$$new($ObjectArray, {
-			$of("SST"_s),
-			$of(Solomon)
+			"SST"_s,
+			Solomon
 		}),
 		$$new($ObjectArray, {
-			$of("CST6CDT"_s),
-			$of(America_Central)
+			"CST6CDT"_s,
+			America_Central
 		}),
 		$$new($ObjectArray, {
-			$of("EST5EDT"_s),
-			$of(America_Eastern)
+			"EST5EDT"_s,
+			America_Eastern
 		}),
 		$$new($ObjectArray, {
-			$of("Etc/GMT"_s),
-			$of(GMT)
+			"Etc/GMT"_s,
+			GMT
 		}),
 		$$new($ObjectArray, {
-			$of("Etc/UTC"_s),
-			$of(ETC_UTC)
+			"Etc/UTC"_s,
+			ETC_UTC
 		}),
 		$$new($ObjectArray, {
-			$of("MST7MDT"_s),
-			$of(America_Mountain)
+			"MST7MDT"_s,
+			America_Mountain
 		}),
 		$$new($ObjectArray, {
-			$of("PST8PDT"_s),
-			$of(America_Pacific)
+			"PST8PDT"_s,
+			America_Pacific
 		}),
 		$$new($ObjectArray, {
-			$of("Asia/Aden"_s),
-			$of(Arabian)
+			"Asia/Aden"_s,
+			Arabian
 		}),
 		$$new($ObjectArray, {
-			$of("Asia/Baku"_s),
-			$of(Azerbaijan)
+			"Asia/Baku"_s,
+			Azerbaijan
 		}),
 		$$new($ObjectArray, {
-			$of("Asia/Dili"_s),
-			$of(East_Timor)
+			"Asia/Dili"_s,
+			East_Timor
 		}),
 		$$new($ObjectArray, {
-			$of("Asia/Gaza"_s),
-			$of(Europe_Eastern)
+			"Asia/Gaza"_s,
+			Europe_Eastern
 		}),
 		$$new($ObjectArray, {
-			$of("Asia/Hovd"_s),
-			$of(Hovd)
+			"Asia/Hovd"_s,
+			Hovd
 		}),
 		$$new($ObjectArray, {
-			$of("Asia/Omsk"_s),
-			$of(Omsk)
+			"Asia/Omsk"_s,
+			Omsk
 		}),
 		$$new($ObjectArray, {
-			$of("Asia/Oral"_s),
-			$of(Kazakhstan_Western)
+			"Asia/Oral"_s,
+			Kazakhstan_Western
 		}),
 		$$new($ObjectArray, {
-			$of("Asia/Amman"_s),
-			$of(Europe_Eastern)
+			"Asia/Amman"_s,
+			Europe_Eastern
 		}),
 		$$new($ObjectArray, {
-			$of("Asia/Aqtau"_s),
-			$of(Kazakhstan_Western)
+			"Asia/Aqtau"_s,
+			Kazakhstan_Western
 		}),
 		$$new($ObjectArray, {
-			$of("Asia/Chita"_s),
-			$of(Yakutsk)
+			"Asia/Chita"_s,
+			Yakutsk
 		}),
 		$$new($ObjectArray, {
-			$of("Asia/Dhaka"_s),
-			$of(Bangladesh)
+			"Asia/Dhaka"_s,
+			Bangladesh
 		}),
 		$$new($ObjectArray, {
-			$of("Asia/Dubai"_s),
-			$of(Gulf)
+			"Asia/Dubai"_s,
+			Gulf
 		}),
 		$$new($ObjectArray, {
-			$of("Asia/Kabul"_s),
-			$of(Afghanistan)
+			"Asia/Kabul"_s,
+			Afghanistan
 		}),
 		$$new($ObjectArray, {
-			$of("Asia/Macau"_s),
-			$of(China)
+			"Asia/Macau"_s,
+			China
 		}),
 		$$new($ObjectArray, {
-			$of("Asia/Qatar"_s),
-			$of(Arabian)
+			"Asia/Qatar"_s,
+			Arabian
 		}),
 		$$new($ObjectArray, {
-			$of("Asia/Seoul"_s),
-			$of(Korea)
+			"Asia/Seoul"_s,
+			Korea
 		}),
 		$$new($ObjectArray, {
-			$of("Africa/Juba"_s),
-			$of(Africa_Central)
+			"Africa/Juba"_s,
+			Africa_Central
 		}),
 		$$new($ObjectArray, {
-			$of("Africa/Lome"_s),
-			$of(GMT)
+			"Africa/Lome"_s,
+			GMT
 		}),
 		$$new($ObjectArray, {
-			$of("Asia/Almaty"_s),
-			$of(Kazakhstan_Eastern)
+			"Asia/Almaty"_s,
+			Kazakhstan_Eastern
 		}),
 		$$new($ObjectArray, {
-			$of("Asia/Anadyr"_s),
-			$of(Anadyr)
+			"Asia/Anadyr"_s,
+			Anadyr
 		}),
 		$$new($ObjectArray, {
-			$of("Asia/Aqtobe"_s),
-			$of(Kazakhstan_Western)
+			"Asia/Aqtobe"_s,
+			Kazakhstan_Western
 		}),
 		$$new($ObjectArray, {
-			$of("Asia/Atyrau"_s),
-			$of(Kazakhstan_Western)
+			"Asia/Atyrau"_s,
+			Kazakhstan_Western
 		}),
 		$$new($ObjectArray, {
-			$of("Asia/Beirut"_s),
-			$of(Europe_Eastern)
+			"Asia/Beirut"_s,
+			Europe_Eastern
 		}),
 		$$new($ObjectArray, {
-			$of("Asia/Brunei"_s),
-			$of(Brunei)
+			"Asia/Brunei"_s,
+			Brunei
 		}),
 		$$new($ObjectArray, {
-			$of("Asia/Harbin"_s),
-			$of(China)
+			"Asia/Harbin"_s,
+			China
 		}),
 		$$new($ObjectArray, {
-			$of("Asia/Hebron"_s),
-			$of(Europe_Eastern)
+			"Asia/Hebron"_s,
+			Europe_Eastern
 		}),
 		$$new($ObjectArray, {
-			$of("Asia/Kuwait"_s),
-			$of(Arabian)
+			"Asia/Kuwait"_s,
+			Arabian
 		}),
 		$$new($ObjectArray, {
-			$of("Asia/Manila"_s),
-			$of(Philippines)
+			"Asia/Manila"_s,
+			Philippines
 		}),
 		$$new($ObjectArray, {
-			$of("Asia/Muscat"_s),
-			$of(Gulf)
+			"Asia/Muscat"_s,
+			Gulf
 		}),
 		$$new($ObjectArray, {
-			$of("Asia/Riyadh"_s),
-			$of(Arabian)
+			"Asia/Riyadh"_s,
+			Arabian
 		}),
 		$$new($ObjectArray, {
-			$of("Asia/Saigon"_s),
-			$of(Indochina)
+			"Asia/Saigon"_s,
+			Indochina
 		}),
 		$$new($ObjectArray, {
-			$of("Asia/Taipei"_s),
-			$of(Taipei)
+			"Asia/Taipei"_s,
+			Taipei
 		}),
 		$$new($ObjectArray, {
-			$of("Asia/Tehran"_s),
-			$of(Iran)
+			"Asia/Tehran"_s,
+			Iran
 		}),
 		$$new($ObjectArray, {
-			$of("Europe/Kiev"_s),
-			$of(Europe_Eastern)
+			"Europe/Kiev"_s,
+			Europe_Eastern
 		}),
 		$$new($ObjectArray, {
-			$of("Europe/Oslo"_s),
-			$of(Europe_Central)
+			"Europe/Oslo"_s,
+			Europe_Central
 		}),
 		$$new($ObjectArray, {
-			$of("Europe/Riga"_s),
-			$of(Europe_Eastern)
+			"Europe/Riga"_s,
+			Europe_Eastern
 		}),
 		$$new($ObjectArray, {
-			$of("Europe/Rome"_s),
-			$of(Europe_Central)
+			"Europe/Rome"_s,
+			Europe_Central
 		}),
 		$$new($ObjectArray, {
-			$of("Indian/Mahe"_s),
-			$of(Seychelles)
+			"Indian/Mahe"_s,
+			Seychelles
 		}),
 		$$new($ObjectArray, {
-			$of("Pacific/Yap"_s),
-			$of(Truk)
+			"Pacific/Yap"_s,
+			Truk
 		}),
 		$$new($ObjectArray, {
-			$of("Africa/Accra"_s),
-			$of(GMT)
+			"Africa/Accra"_s,
+			GMT
 		}),
 		$$new($ObjectArray, {
-			$of("Africa/Cairo"_s),
-			$of(Europe_Eastern)
+			"Africa/Cairo"_s,
+			Europe_Eastern
 		}),
 		$$new($ObjectArray, {
-			$of("Africa/Ceuta"_s),
-			$of(Europe_Central)
+			"Africa/Ceuta"_s,
+			Europe_Central
 		}),
 		$$new($ObjectArray, {
-			$of("Africa/Dakar"_s),
-			$of(GMT)
+			"Africa/Dakar"_s,
+			GMT
 		}),
 		$$new($ObjectArray, {
-			$of("Africa/Lagos"_s),
-			$of(Africa_Western)
+			"Africa/Lagos"_s,
+			Africa_Western
 		}),
 		$$new($ObjectArray, {
-			$of("Africa/Tunis"_s),
-			$of(Europe_Central)
+			"Africa/Tunis"_s,
+			Europe_Central
 		}),
 		$$new($ObjectArray, {
-			$of("America/Adak"_s),
-			$of(Hawaii_Aleutian)
+			"America/Adak"_s,
+			Hawaii_Aleutian
 		}),
 		$$new($ObjectArray, {
-			$of("America/Lima"_s),
-			$of(Peru)
+			"America/Lima"_s,
+			Peru
 		}),
 		$$new($ObjectArray, {
-			$of("America/Nome"_s),
-			$of(Alaska)
+			"America/Nome"_s,
+			Alaska
 		}),
 		$$new($ObjectArray, {
-			$of("Asia/Baghdad"_s),
-			$of(Arabian)
+			"Asia/Baghdad"_s,
+			Arabian
 		}),
 		$$new($ObjectArray, {
-			$of("Asia/Bahrain"_s),
-			$of(Arabian)
+			"Asia/Bahrain"_s,
+			Arabian
 		}),
 		$$new($ObjectArray, {
-			$of("Asia/Bangkok"_s),
-			$of(Indochina)
+			"Asia/Bangkok"_s,
+			Indochina
 		}),
 		$$new($ObjectArray, {
-			$of("Asia/Bishkek"_s),
-			$of(Kyrgystan)
+			"Asia/Bishkek"_s,
+			Kyrgystan
 		}),
 		$$new($ObjectArray, {
-			$of("Asia/Colombo"_s),
-			$of(India)
+			"Asia/Colombo"_s,
+			India
 		}),
 		$$new($ObjectArray, {
-			$of("Asia/Irkutsk"_s),
-			$of(Irkutsk)
+			"Asia/Irkutsk"_s,
+			Irkutsk
 		}),
 		$$new($ObjectArray, {
-			$of("Asia/Jakarta"_s),
-			$of(Indonesia_Western)
+			"Asia/Jakarta"_s,
+			Indonesia_Western
 		}),
 		$$new($ObjectArray, {
-			$of("Asia/Karachi"_s),
-			$of(Pakistan)
+			"Asia/Karachi"_s,
+			Pakistan
 		}),
 		$$new($ObjectArray, {
-			$of("Asia/Kuching"_s),
-			$of(Malaysia)
+			"Asia/Kuching"_s,
+			Malaysia
 		}),
 		$$new($ObjectArray, {
-			$of("Asia/Magadan"_s),
-			$of(Magadan)
+			"Asia/Magadan"_s,
+			Magadan
 		}),
 		$$new($ObjectArray, {
-			$of("Asia/Nicosia"_s),
-			$of(Europe_Eastern)
+			"Asia/Nicosia"_s,
+			Europe_Eastern
 		}),
 		$$new($ObjectArray, {
-			$of("Asia/Rangoon"_s),
-			$of(Myanmar)
+			"Asia/Rangoon"_s,
+			Myanmar
 		}),
 		$$new($ObjectArray, {
-			$of("Asia/Tbilisi"_s),
-			$of(Georgia)
+			"Asia/Tbilisi"_s,
+			Georgia
 		}),
 		$$new($ObjectArray, {
-			$of("Asia/Thimphu"_s),
-			$of(Bhutan)
+			"Asia/Thimphu"_s,
+			Bhutan
 		}),
 		$$new($ObjectArray, {
-			$of("Asia/Yakutsk"_s),
-			$of(Yakutsk)
+			"Asia/Yakutsk"_s,
+			Yakutsk
 		}),
 		$$new($ObjectArray, {
-			$of("Asia/Yerevan"_s),
-			$of(Armenia)
+			"Asia/Yerevan"_s,
+			Armenia
 		}),
 		$$new($ObjectArray, {
-			$of("Europe/Malta"_s),
-			$of(Europe_Central)
+			"Europe/Malta"_s,
+			Europe_Central
 		}),
 		$$new($ObjectArray, {
-			$of("Europe/Minsk"_s),
-			$of(Moscow)
+			"Europe/Minsk"_s,
+			Moscow
 		}),
 		$$new($ObjectArray, {
-			$of("Europe/Sofia"_s),
-			$of(Europe_Eastern)
+			"Europe/Sofia"_s,
+			Europe_Eastern
 		}),
 		$$new($ObjectArray, {
-			$of("Europe/Vaduz"_s),
-			$of(Europe_Central)
+			"Europe/Vaduz"_s,
+			Europe_Central
 		}),
 		$$new($ObjectArray, {
-			$of("Indian/Cocos"_s),
-			$of(Cocos)
+			"Indian/Cocos"_s,
+			Cocos
 		}),
 		$$new($ObjectArray, {
-			$of("Pacific/Apia"_s),
-			$of(Apia)
+			"Pacific/Apia"_s,
+			Apia
 		}),
 		$$new($ObjectArray, {
-			$of("Pacific/Fiji"_s),
-			$of(Fiji)
+			"Pacific/Fiji"_s,
+			Fiji
 		}),
 		$$new($ObjectArray, {
-			$of("Pacific/Guam"_s),
-			$of(Chamorro)
+			"Pacific/Guam"_s,
+			Chamorro
 		}),
 		$$new($ObjectArray, {
-			$of("Pacific/Niue"_s),
-			$of(Niue)
+			"Pacific/Niue"_s,
+			Niue
 		}),
 		$$new($ObjectArray, {
-			$of("Pacific/Truk"_s),
-			$of(Truk)
+			"Pacific/Truk"_s,
+			Truk
 		}),
 		$$new($ObjectArray, {
-			$of("Pacific/Wake"_s),
-			$of(Wake)
+			"Pacific/Wake"_s,
+			Wake
 		}),
 		$$new($ObjectArray, {
-			$of("SystemV/AST4"_s),
-			$of(Atlantic)
+			"SystemV/AST4"_s,
+			Atlantic
 		}),
 		$$new($ObjectArray, {
-			$of("SystemV/CST6"_s),
-			$of(America_Central)
+			"SystemV/CST6"_s,
+			America_Central
 		}),
 		$$new($ObjectArray, {
-			$of("SystemV/EST5"_s),
-			$of(America_Eastern)
+			"SystemV/EST5"_s,
+			America_Eastern
 		}),
 		$$new($ObjectArray, {
-			$of("SystemV/MST7"_s),
-			$of(America_Mountain)
+			"SystemV/MST7"_s,
+			America_Mountain
 		}),
 		$$new($ObjectArray, {
-			$of("SystemV/PST8"_s),
-			$of(Pitcairn)
+			"SystemV/PST8"_s,
+			Pitcairn
 		}),
 		$$new($ObjectArray, {
-			$of("SystemV/YST9"_s),
-			$of(Gambier)
+			"SystemV/YST9"_s,
+			Gambier
 		}),
 		$$new($ObjectArray, {
-			$of("Africa/Asmera"_s),
-			$of(Africa_Eastern)
+			"Africa/Asmera"_s,
+			Africa_Eastern
 		}),
 		$$new($ObjectArray, {
-			$of("Africa/Bamako"_s),
-			$of(GMT)
+			"Africa/Bamako"_s,
+			GMT
 		}),
 		$$new($ObjectArray, {
-			$of("Africa/Bangui"_s),
-			$of(Africa_Western)
+			"Africa/Bangui"_s,
+			Africa_Western
 		}),
 		$$new($ObjectArray, {
-			$of("Africa/Banjul"_s),
-			$of(GMT)
+			"Africa/Banjul"_s,
+			GMT
 		}),
 		$$new($ObjectArray, {
-			$of("Africa/Bissau"_s),
-			$of(GMT)
+			"Africa/Bissau"_s,
+			GMT
 		}),
 		$$new($ObjectArray, {
-			$of("Africa/Douala"_s),
-			$of(Africa_Western)
+			"Africa/Douala"_s,
+			Africa_Western
 		}),
 		$$new($ObjectArray, {
-			$of("Africa/Harare"_s),
-			$of(Africa_Central)
+			"Africa/Harare"_s,
+			Africa_Central
 		}),
 		$$new($ObjectArray, {
-			$of("Africa/Kigali"_s),
-			$of(Africa_Central)
+			"Africa/Kigali"_s,
+			Africa_Central
 		}),
 		$$new($ObjectArray, {
-			$of("Africa/Luanda"_s),
-			$of(Africa_Western)
+			"Africa/Luanda"_s,
+			Africa_Western
 		}),
 		$$new($ObjectArray, {
-			$of("Africa/Lusaka"_s),
-			$of(Africa_Central)
+			"Africa/Lusaka"_s,
+			Africa_Central
 		}),
 		$$new($ObjectArray, {
-			$of("Africa/Malabo"_s),
-			$of(Africa_Western)
+			"Africa/Malabo"_s,
+			Africa_Western
 		}),
 		$$new($ObjectArray, {
-			$of("Africa/Maputo"_s),
-			$of(Africa_Central)
+			"Africa/Maputo"_s,
+			Africa_Central
 		}),
 		$$new($ObjectArray, {
-			$of("Africa/Maseru"_s),
-			$of(Africa_Southern)
+			"Africa/Maseru"_s,
+			Africa_Southern
 		}),
 		$$new($ObjectArray, {
-			$of("Africa/Niamey"_s),
-			$of(Africa_Western)
+			"Africa/Niamey"_s,
+			Africa_Western
 		}),
 		$$new($ObjectArray, {
-			$of("America/Aruba"_s),
-			$of(Atlantic)
+			"America/Aruba"_s,
+			Atlantic
 		}),
 		$$new($ObjectArray, {
-			$of("America/Bahia"_s),
-			$of(Brasilia)
+			"America/Bahia"_s,
+			Brasilia
 		}),
 		$$new($ObjectArray, {
-			$of("America/Belem"_s),
-			$of(Brasilia)
+			"America/Belem"_s,
+			Brasilia
 		}),
 		$$new($ObjectArray, {
-			$of("America/Boise"_s),
-			$of(America_Mountain)
+			"America/Boise"_s,
+			America_Mountain
 		}),
 		$$new($ObjectArray, {
-			$of("America/Jujuy"_s),
-			$of(Argentina)
+			"America/Jujuy"_s,
+			Argentina
 		}),
 		$$new($ObjectArray, {
-			$of("America/Thule"_s),
-			$of(Atlantic)
+			"America/Thule"_s,
+			Atlantic
 		}),
 		$$new($ObjectArray, {
-			$of("Asia/Ashgabat"_s),
-			$of(Turkmenistan)
+			"Asia/Ashgabat"_s,
+			Turkmenistan
 		}),
 		$$new($ObjectArray, {
-			$of("Asia/Calcutta"_s),
-			$of(India)
+			"Asia/Calcutta"_s,
+			India
 		}),
 		$$new($ObjectArray, {
-			$of("Asia/Damascus"_s),
-			$of(Europe_Eastern)
+			"Asia/Damascus"_s,
+			Europe_Eastern
 		}),
 		$$new($ObjectArray, {
-			$of("Asia/Dushanbe"_s),
-			$of(Tajikistan)
+			"Asia/Dushanbe"_s,
+			Tajikistan
 		}),
 		$$new($ObjectArray, {
-			$of("Asia/Jayapura"_s),
-			$of(Indonesia_Eastern)
+			"Asia/Jayapura"_s,
+			Indonesia_Eastern
 		}),
 		$$new($ObjectArray, {
-			$of("Asia/Katmandu"_s),
-			$of(Nepal)
+			"Asia/Katmandu"_s,
+			Nepal
 		}),
 		$$new($ObjectArray, {
-			$of("Asia/Khandyga"_s),
-			$of(Yakutsk)
+			"Asia/Khandyga"_s,
+			Yakutsk
 		}),
 		$$new($ObjectArray, {
-			$of("Asia/Makassar"_s),
-			$of(Indonesia_Central)
+			"Asia/Makassar"_s,
+			Indonesia_Central
 		}),
 		$$new($ObjectArray, {
-			$of("Asia/Qostanay"_s),
-			$of(Kazakhstan_Eastern)
+			"Asia/Qostanay"_s,
+			Kazakhstan_Eastern
 		}),
 		$$new($ObjectArray, {
-			$of("Asia/Sakhalin"_s),
-			$of(Sakhalin)
+			"Asia/Sakhalin"_s,
+			Sakhalin
 		}),
 		$$new($ObjectArray, {
-			$of("Asia/Tashkent"_s),
-			$of(Uzbekistan)
+			"Asia/Tashkent"_s,
+			Uzbekistan
 		}),
 		$$new($ObjectArray, {
-			$of("Asia/Ust-Nera"_s),
-			$of(Vladivostok)
+			"Asia/Ust-Nera"_s,
+			Vladivostok
 		}),
 		$$new($ObjectArray, {
-			$of("Europe/Athens"_s),
-			$of(Europe_Eastern)
+			"Europe/Athens"_s,
+			Europe_Eastern
 		}),
 		$$new($ObjectArray, {
-			$of("Europe/Berlin"_s),
-			$of(Europe_Central)
+			"Europe/Berlin"_s,
+			Europe_Central
 		}),
 		$$new($ObjectArray, {
-			$of("Europe/Dublin"_s),
-			$of($$new($StringArray, {
+			"Europe/Dublin"_s,
+			$$new($StringArray, {
 				u"وقت گرینویچ"_s,
 				""_s,
 				u"وقت عادی ایرلند"_s,
 				""_s,
 				""_s,
 				""_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("Europe/Jersey"_s),
-			$of(GMT)
+			"Europe/Jersey"_s,
+			GMT
 		}),
 		$$new($ObjectArray, {
-			$of("Europe/Lisbon"_s),
-			$of(Europe_Western)
+			"Europe/Lisbon"_s,
+			Europe_Western
 		}),
 		$$new($ObjectArray, {
-			$of("Europe/London"_s),
-			$of($$new($StringArray, {
+			"Europe/London"_s,
+			$$new($StringArray, {
 				u"وقت گرینویچ"_s,
 				""_s,
 				u"وقت تابستانی بریتانیا"_s,
 				""_s,
 				""_s,
 				""_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("Europe/Madrid"_s),
-			$of(Europe_Central)
+			"Europe/Madrid"_s,
+			Europe_Central
 		}),
 		$$new($ObjectArray, {
-			$of("Europe/Monaco"_s),
-			$of(Europe_Central)
+			"Europe/Monaco"_s,
+			Europe_Central
 		}),
 		$$new($ObjectArray, {
-			$of("Europe/Moscow"_s),
-			$of(Moscow)
+			"Europe/Moscow"_s,
+			Moscow
 		}),
 		$$new($ObjectArray, {
-			$of("Europe/Prague"_s),
-			$of(Europe_Central)
+			"Europe/Prague"_s,
+			Europe_Central
 		}),
 		$$new($ObjectArray, {
-			$of("Europe/Samara"_s),
-			$of(Samara)
+			"Europe/Samara"_s,
+			Samara
 		}),
 		$$new($ObjectArray, {
-			$of("Europe/Skopje"_s),
-			$of(Europe_Central)
+			"Europe/Skopje"_s,
+			Europe_Central
 		}),
 		$$new($ObjectArray, {
-			$of("Europe/Tirane"_s),
-			$of(Europe_Central)
+			"Europe/Tirane"_s,
+			Europe_Central
 		}),
 		$$new($ObjectArray, {
-			$of("Europe/Vienna"_s),
-			$of(Europe_Central)
+			"Europe/Vienna"_s,
+			Europe_Central
 		}),
 		$$new($ObjectArray, {
-			$of("Europe/Warsaw"_s),
-			$of(Europe_Central)
+			"Europe/Warsaw"_s,
+			Europe_Central
 		}),
 		$$new($ObjectArray, {
-			$of("Europe/Zagreb"_s),
-			$of(Europe_Central)
+			"Europe/Zagreb"_s,
+			Europe_Central
 		}),
 		$$new($ObjectArray, {
-			$of("Europe/Zurich"_s),
-			$of(Europe_Central)
+			"Europe/Zurich"_s,
+			Europe_Central
 		}),
 		$$new($ObjectArray, {
-			$of("Indian/Chagos"_s),
-			$of(Indian_Ocean)
+			"Indian/Chagos"_s,
+			Indian_Ocean
 		}),
 		$$new($ObjectArray, {
-			$of("Indian/Comoro"_s),
-			$of(Africa_Eastern)
+			"Indian/Comoro"_s,
+			Africa_Eastern
 		}),
 		$$new($ObjectArray, {
-			$of("Pacific/Efate"_s),
-			$of(Vanuatu)
+			"Pacific/Efate"_s,
+			Vanuatu
 		}),
 		$$new($ObjectArray, {
-			$of("Pacific/Nauru"_s),
-			$of(Nauru)
+			"Pacific/Nauru"_s,
+			Nauru
 		}),
 		$$new($ObjectArray, {
-			$of("Pacific/Palau"_s),
-			$of(Palau)
+			"Pacific/Palau"_s,
+			Palau
 		}),
 		$$new($ObjectArray, {
-			$of("SystemV/HST10"_s),
-			$of(Hawaii_Aleutian)
+			"SystemV/HST10"_s,
+			Hawaii_Aleutian
 		}),
 		$$new($ObjectArray, {
-			$of("Africa/Abidjan"_s),
-			$of(GMT)
+			"Africa/Abidjan"_s,
+			GMT
 		}),
 		$$new($ObjectArray, {
-			$of("Africa/Algiers"_s),
-			$of(Europe_Central)
+			"Africa/Algiers"_s,
+			Europe_Central
 		}),
 		$$new($ObjectArray, {
-			$of("Africa/Conakry"_s),
-			$of(GMT)
+			"Africa/Conakry"_s,
+			GMT
 		}),
 		$$new($ObjectArray, {
-			$of("Africa/Kampala"_s),
-			$of(Africa_Eastern)
+			"Africa/Kampala"_s,
+			Africa_Eastern
 		}),
 		$$new($ObjectArray, {
-			$of("Africa/Mbabane"_s),
-			$of(Africa_Southern)
+			"Africa/Mbabane"_s,
+			Africa_Southern
 		}),
 		$$new($ObjectArray, {
-			$of("Africa/Nairobi"_s),
-			$of(Africa_Eastern)
+			"Africa/Nairobi"_s,
+			Africa_Eastern
 		}),
 		$$new($ObjectArray, {
-			$of("Africa/Tripoli"_s),
-			$of(Europe_Eastern)
+			"Africa/Tripoli"_s,
+			Europe_Eastern
 		}),
 		$$new($ObjectArray, {
-			$of("America/Belize"_s),
-			$of(America_Central)
+			"America/Belize"_s,
+			America_Central
 		}),
 		$$new($ObjectArray, {
-			$of("America/Bogota"_s),
-			$of(Colombia)
+			"America/Bogota"_s,
+			Colombia
 		}),
 		$$new($ObjectArray, {
-			$of("America/Cancun"_s),
-			$of(America_Eastern)
+			"America/Cancun"_s,
+			America_Eastern
 		}),
 		$$new($ObjectArray, {
-			$of("America/Cayman"_s),
-			$of(America_Eastern)
+			"America/Cayman"_s,
+			America_Eastern
 		}),
 		$$new($ObjectArray, {
-			$of("America/Cuiaba"_s),
-			$of(Amazon)
+			"America/Cuiaba"_s,
+			Amazon
 		}),
 		$$new($ObjectArray, {
-			$of("America/Dawson"_s),
-			$of(America_Mountain)
+			"America/Dawson"_s,
+			America_Mountain
 		}),
 		$$new($ObjectArray, {
-			$of("America/Guyana"_s),
-			$of(Guyana)
+			"America/Guyana"_s,
+			Guyana
 		}),
 		$$new($ObjectArray, {
-			$of("America/Havana"_s),
-			$of(Cuba)
+			"America/Havana"_s,
+			Cuba
 		}),
 		$$new($ObjectArray, {
-			$of("America/Inuvik"_s),
-			$of(America_Mountain)
+			"America/Inuvik"_s,
+			America_Mountain
 		}),
 		$$new($ObjectArray, {
-			$of("America/Juneau"_s),
-			$of(Alaska)
+			"America/Juneau"_s,
+			Alaska
 		}),
 		$$new($ObjectArray, {
-			$of("America/La_Paz"_s),
-			$of(Bolivia)
+			"America/La_Paz"_s,
+			Bolivia
 		}),
 		$$new($ObjectArray, {
-			$of("America/Maceio"_s),
-			$of(Brasilia)
+			"America/Maceio"_s,
+			Brasilia
 		}),
 		$$new($ObjectArray, {
-			$of("America/Manaus"_s),
-			$of(Amazon)
+			"America/Manaus"_s,
+			Amazon
 		}),
 		$$new($ObjectArray, {
-			$of("America/Merida"_s),
-			$of(America_Central)
+			"America/Merida"_s,
+			America_Central
 		}),
 		$$new($ObjectArray, {
-			$of("America/Nassau"_s),
-			$of(America_Eastern)
+			"America/Nassau"_s,
+			America_Eastern
 		}),
 		$$new($ObjectArray, {
-			$of("America/Panama"_s),
-			$of(America_Eastern)
+			"America/Panama"_s,
+			America_Eastern
 		}),
 		$$new($ObjectArray, {
-			$of("America/Recife"_s),
-			$of(Brasilia)
+			"America/Recife"_s,
+			Brasilia
 		}),
 		$$new($ObjectArray, {
-			$of("America/Regina"_s),
-			$of(America_Central)
+			"America/Regina"_s,
+			America_Central
 		}),
 		$$new($ObjectArray, {
-			$of("Asia/Chongqing"_s),
-			$of(China)
+			"Asia/Chongqing"_s,
+			China
 		}),
 		$$new($ObjectArray, {
-			$of("Asia/Hong_Kong"_s),
-			$of(Hong_Kong)
+			"Asia/Hong_Kong"_s,
+			Hong_Kong
 		}),
 		$$new($ObjectArray, {
-			$of("Asia/Kamchatka"_s),
-			$of(Kamchatka)
+			"Asia/Kamchatka"_s,
+			Kamchatka
 		}),
 		$$new($ObjectArray, {
-			$of("Asia/Pontianak"_s),
-			$of(Indonesia_Western)
+			"Asia/Pontianak"_s,
+			Indonesia_Western
 		}),
 		$$new($ObjectArray, {
-			$of("Asia/Pyongyang"_s),
-			$of(Korea)
+			"Asia/Pyongyang"_s,
+			Korea
 		}),
 		$$new($ObjectArray, {
-			$of("Asia/Qyzylorda"_s),
-			$of(Kazakhstan_Western)
+			"Asia/Qyzylorda"_s,
+			Kazakhstan_Western
 		}),
 		$$new($ObjectArray, {
-			$of("Asia/Samarkand"_s),
-			$of(Uzbekistan)
+			"Asia/Samarkand"_s,
+			Uzbekistan
 		}),
 		$$new($ObjectArray, {
-			$of("Asia/Singapore"_s),
-			$of(Singapore)
+			"Asia/Singapore"_s,
+			Singapore
 		}),
 		$$new($ObjectArray, {
-			$of("Asia/Vientiane"_s),
-			$of(Indochina)
+			"Asia/Vientiane"_s,
+			Indochina
 		}),
 		$$new($ObjectArray, {
-			$of("Europe/Andorra"_s),
-			$of(Europe_Central)
+			"Europe/Andorra"_s,
+			Europe_Central
 		}),
 		$$new($ObjectArray, {
-			$of("Europe/Belfast"_s),
-			$of($$new($StringArray, {
+			"Europe/Belfast"_s,
+			$$new($StringArray, {
 				u"وقت گرینویچ"_s,
 				""_s,
 				u"وقت تابستانی بریتانیا"_s,
 				""_s,
 				""_s,
 				""_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("Europe/Tallinn"_s),
-			$of(Europe_Eastern)
+			"Europe/Tallinn"_s,
+			Europe_Eastern
 		}),
 		$$new($ObjectArray, {
-			$of("Europe/Vatican"_s),
-			$of(Europe_Central)
+			"Europe/Vatican"_s,
+			Europe_Central
 		}),
 		$$new($ObjectArray, {
-			$of("Europe/Vilnius"_s),
-			$of(Europe_Eastern)
+			"Europe/Vilnius"_s,
+			Europe_Eastern
 		}),
 		$$new($ObjectArray, {
-			$of("Indian/Mayotte"_s),
-			$of(Africa_Eastern)
+			"Indian/Mayotte"_s,
+			Africa_Eastern
 		}),
 		$$new($ObjectArray, {
-			$of("Indian/Reunion"_s),
-			$of(Reunion)
+			"Indian/Reunion"_s,
+			Reunion
 		}),
 		$$new($ObjectArray, {
-			$of("Pacific/Easter"_s),
-			$of(Easter)
+			"Pacific/Easter"_s,
+			Easter
 		}),
 		$$new($ObjectArray, {
-			$of("Pacific/Kosrae"_s),
-			$of(Kosrae)
+			"Pacific/Kosrae"_s,
+			Kosrae
 		}),
 		$$new($ObjectArray, {
-			$of("Pacific/Majuro"_s),
-			$of(Marshall_Islands)
+			"Pacific/Majuro"_s,
+			Marshall_Islands
 		}),
 		$$new($ObjectArray, {
-			$of("Pacific/Midway"_s),
-			$of(Samoa)
+			"Pacific/Midway"_s,
+			Samoa
 		}),
 		$$new($ObjectArray, {
-			$of("Pacific/Noumea"_s),
-			$of(New_Caledonia)
+			"Pacific/Noumea"_s,
+			New_Caledonia
 		}),
 		$$new($ObjectArray, {
-			$of("Pacific/Ponape"_s),
-			$of(Ponape)
+			"Pacific/Ponape"_s,
+			Ponape
 		}),
 		$$new($ObjectArray, {
-			$of("Pacific/Saipan"_s),
-			$of(Chamorro)
+			"Pacific/Saipan"_s,
+			Chamorro
 		}),
 		$$new($ObjectArray, {
-			$of("Pacific/Tahiti"_s),
-			$of(Tahiti)
+			"Pacific/Tahiti"_s,
+			Tahiti
 		}),
 		$$new($ObjectArray, {
-			$of("Pacific/Tarawa"_s),
-			$of(Gilbert_Islands)
+			"Pacific/Tarawa"_s,
+			Gilbert_Islands
 		}),
 		$$new($ObjectArray, {
-			$of("Pacific/Wallis"_s),
-			$of(Wallis)
+			"Pacific/Wallis"_s,
+			Wallis
 		}),
 		$$new($ObjectArray, {
-			$of("Africa/Blantyre"_s),
-			$of(Africa_Central)
+			"Africa/Blantyre"_s,
+			Africa_Central
 		}),
 		$$new($ObjectArray, {
-			$of("Africa/Djibouti"_s),
-			$of(Africa_Eastern)
+			"Africa/Djibouti"_s,
+			Africa_Eastern
 		}),
 		$$new($ObjectArray, {
-			$of("Africa/Freetown"_s),
-			$of(GMT)
+			"Africa/Freetown"_s,
+			GMT
 		}),
 		$$new($ObjectArray, {
-			$of("Africa/Gaborone"_s),
-			$of(Africa_Central)
+			"Africa/Gaborone"_s,
+			Africa_Central
 		}),
 		$$new($ObjectArray, {
-			$of("Africa/Khartoum"_s),
-			$of(Africa_Central)
+			"Africa/Khartoum"_s,
+			Africa_Central
 		}),
 		$$new($ObjectArray, {
-			$of("Africa/Kinshasa"_s),
-			$of(Africa_Western)
+			"Africa/Kinshasa"_s,
+			Africa_Western
 		}),
 		$$new($ObjectArray, {
-			$of("Africa/Monrovia"_s),
-			$of(GMT)
+			"Africa/Monrovia"_s,
+			GMT
 		}),
 		$$new($ObjectArray, {
-			$of("Africa/Ndjamena"_s),
-			$of(Africa_Western)
+			"Africa/Ndjamena"_s,
+			Africa_Western
 		}),
 		$$new($ObjectArray, {
-			$of("Africa/Sao_Tome"_s),
-			$of(GMT)
+			"Africa/Sao_Tome"_s,
+			GMT
 		}),
 		$$new($ObjectArray, {
-			$of("Africa/Timbuktu"_s),
-			$of(GMT)
+			"Africa/Timbuktu"_s,
+			GMT
 		}),
 		$$new($ObjectArray, {
-			$of("Africa/Windhoek"_s),
-			$of(Africa_Central)
+			"Africa/Windhoek"_s,
+			Africa_Central
 		}),
 		$$new($ObjectArray, {
-			$of("America/Antigua"_s),
-			$of(Atlantic)
+			"America/Antigua"_s,
+			Atlantic
 		}),
 		$$new($ObjectArray, {
-			$of("America/Caracas"_s),
-			$of(Venezuela)
+			"America/Caracas"_s,
+			Venezuela
 		}),
 		$$new($ObjectArray, {
-			$of("America/Cayenne"_s),
-			$of(French_Guiana)
+			"America/Cayenne"_s,
+			French_Guiana
 		}),
 		$$new($ObjectArray, {
-			$of("America/Cordoba"_s),
-			$of(Argentina)
+			"America/Cordoba"_s,
+			Argentina
 		}),
 		$$new($ObjectArray, {
-			$of("America/Creston"_s),
-			$of(America_Mountain)
+			"America/Creston"_s,
+			America_Mountain
 		}),
 		$$new($ObjectArray, {
-			$of("America/Curacao"_s),
-			$of(Atlantic)
+			"America/Curacao"_s,
+			Atlantic
 		}),
 		$$new($ObjectArray, {
-			$of("America/Detroit"_s),
-			$of(America_Eastern)
+			"America/Detroit"_s,
+			America_Eastern
 		}),
 		$$new($ObjectArray, {
-			$of("America/Godthab"_s),
-			$of(Greenland_Western)
+			"America/Godthab"_s,
+			Greenland_Western
 		}),
 		$$new($ObjectArray, {
-			$of("America/Grenada"_s),
-			$of(Atlantic)
+			"America/Grenada"_s,
+			Atlantic
 		}),
 		$$new($ObjectArray, {
-			$of("America/Iqaluit"_s),
-			$of(America_Eastern)
+			"America/Iqaluit"_s,
+			America_Eastern
 		}),
 		$$new($ObjectArray, {
-			$of("America/Jamaica"_s),
-			$of(America_Eastern)
+			"America/Jamaica"_s,
+			America_Eastern
 		}),
 		$$new($ObjectArray, {
-			$of("America/Managua"_s),
-			$of(America_Central)
+			"America/Managua"_s,
+			America_Central
 		}),
 		$$new($ObjectArray, {
-			$of("America/Marigot"_s),
-			$of(Atlantic)
+			"America/Marigot"_s,
+			Atlantic
 		}),
 		$$new($ObjectArray, {
-			$of("America/Mendoza"_s),
-			$of(Argentina)
+			"America/Mendoza"_s,
+			Argentina
 		}),
 		$$new($ObjectArray, {
-			$of("America/Moncton"_s),
-			$of(Atlantic)
+			"America/Moncton"_s,
+			Atlantic
 		}),
 		$$new($ObjectArray, {
-			$of("America/Nipigon"_s),
-			$of(America_Eastern)
+			"America/Nipigon"_s,
+			America_Eastern
 		}),
 		$$new($ObjectArray, {
-			$of("America/Noronha"_s),
-			$of(Noronha)
+			"America/Noronha"_s,
+			Noronha
 		}),
 		$$new($ObjectArray, {
-			$of("America/Ojinaga"_s),
-			$of(America_Mountain)
+			"America/Ojinaga"_s,
+			America_Mountain
 		}),
 		$$new($ObjectArray, {
-			$of("America/Tijuana"_s),
-			$of(America_Pacific)
+			"America/Tijuana"_s,
+			America_Pacific
 		}),
 		$$new($ObjectArray, {
-			$of("America/Toronto"_s),
-			$of(America_Eastern)
+			"America/Toronto"_s,
+			America_Eastern
 		}),
 		$$new($ObjectArray, {
-			$of("America/Tortola"_s),
-			$of(Atlantic)
+			"America/Tortola"_s,
+			Atlantic
 		}),
 		$$new($ObjectArray, {
-			$of("America/Yakutat"_s),
-			$of(Alaska)
+			"America/Yakutat"_s,
+			Alaska
 		}),
 		$$new($ObjectArray, {
-			$of("Asia/Choibalsan"_s),
-			$of(Mongolia)
+			"Asia/Choibalsan"_s,
+			Mongolia
 		}),
 		$$new($ObjectArray, {
-			$of("Asia/Phnom_Penh"_s),
-			$of(Indochina)
+			"Asia/Phnom_Penh"_s,
+			Indochina
 		}),
 		$$new($ObjectArray, {
-			$of("Atlantic/Azores"_s),
-			$of(Azores)
+			"Atlantic/Azores"_s,
+			Azores
 		}),
 		$$new($ObjectArray, {
-			$of("Atlantic/Canary"_s),
-			$of(Europe_Western)
+			"Atlantic/Canary"_s,
+			Europe_Western
 		}),
 		$$new($ObjectArray, {
-			$of("Atlantic/Faeroe"_s),
-			$of(Europe_Western)
+			"Atlantic/Faeroe"_s,
+			Europe_Western
 		}),
 		$$new($ObjectArray, {
-			$of("Australia/Eucla"_s),
-			$of(Australia_CentralWestern)
+			"Australia/Eucla"_s,
+			Australia_CentralWestern
 		}),
 		$$new($ObjectArray, {
-			$of("Australia/Perth"_s),
-			$of(Australia_Western)
+			"Australia/Perth"_s,
+			Australia_Western
 		}),
 		$$new($ObjectArray, {
-			$of("Europe/Belgrade"_s),
-			$of(Europe_Central)
+			"Europe/Belgrade"_s,
+			Europe_Central
 		}),
 		$$new($ObjectArray, {
-			$of("Europe/Brussels"_s),
-			$of(Europe_Central)
+			"Europe/Brussels"_s,
+			Europe_Central
 		}),
 		$$new($ObjectArray, {
-			$of("Europe/Budapest"_s),
-			$of(Europe_Central)
+			"Europe/Budapest"_s,
+			Europe_Central
 		}),
 		$$new($ObjectArray, {
-			$of("Europe/Busingen"_s),
-			$of(Europe_Central)
+			"Europe/Busingen"_s,
+			Europe_Central
 		}),
 		$$new($ObjectArray, {
-			$of("Europe/Chisinau"_s),
-			$of(Europe_Eastern)
+			"Europe/Chisinau"_s,
+			Europe_Eastern
 		}),
 		$$new($ObjectArray, {
-			$of("Europe/Guernsey"_s),
-			$of(GMT)
+			"Europe/Guernsey"_s,
+			GMT
 		}),
 		$$new($ObjectArray, {
-			$of("Europe/Helsinki"_s),
-			$of(Europe_Eastern)
+			"Europe/Helsinki"_s,
+			Europe_Eastern
 		}),
 		$$new($ObjectArray, {
-			$of("Europe/Sarajevo"_s),
-			$of(Europe_Central)
+			"Europe/Sarajevo"_s,
+			Europe_Central
 		}),
 		$$new($ObjectArray, {
-			$of("Europe/Uzhgorod"_s),
-			$of(Europe_Eastern)
+			"Europe/Uzhgorod"_s,
+			Europe_Eastern
 		}),
 		$$new($ObjectArray, {
-			$of("Indian/Maldives"_s),
-			$of(Maldives)
+			"Indian/Maldives"_s,
+			Maldives
 		}),
 		$$new($ObjectArray, {
-			$of("Pacific/Chatham"_s),
-			$of(Chatham)
+			"Pacific/Chatham"_s,
+			Chatham
 		}),
 		$$new($ObjectArray, {
-			$of("Pacific/Fakaofo"_s),
-			$of(Tokelau)
+			"Pacific/Fakaofo"_s,
+			Tokelau
 		}),
 		$$new($ObjectArray, {
-			$of("Pacific/Gambier"_s),
-			$of(Gambier)
+			"Pacific/Gambier"_s,
+			Gambier
 		}),
 		$$new($ObjectArray, {
-			$of("Pacific/Norfolk"_s),
-			$of(Norfolk)
+			"Pacific/Norfolk"_s,
+			Norfolk
 		}),
 		$$new($ObjectArray, {
-			$of("SystemV/AST4ADT"_s),
-			$of(Atlantic)
+			"SystemV/AST4ADT"_s,
+			Atlantic
 		}),
 		$$new($ObjectArray, {
-			$of("SystemV/CST6CDT"_s),
-			$of(America_Central)
+			"SystemV/CST6CDT"_s,
+			America_Central
 		}),
 		$$new($ObjectArray, {
-			$of("SystemV/EST5EDT"_s),
-			$of(America_Eastern)
+			"SystemV/EST5EDT"_s,
+			America_Eastern
 		}),
 		$$new($ObjectArray, {
-			$of("SystemV/MST7MDT"_s),
-			$of(America_Mountain)
+			"SystemV/MST7MDT"_s,
+			America_Mountain
 		}),
 		$$new($ObjectArray, {
-			$of("SystemV/PST8PDT"_s),
-			$of(America_Pacific)
+			"SystemV/PST8PDT"_s,
+			America_Pacific
 		}),
 		$$new($ObjectArray, {
-			$of("SystemV/YST9YDT"_s),
-			$of(Alaska)
+			"SystemV/YST9YDT"_s,
+			Alaska
 		}),
 		$$new($ObjectArray, {
-			$of("Africa/Bujumbura"_s),
-			$of(Africa_Central)
+			"Africa/Bujumbura"_s,
+			Africa_Central
 		}),
 		$$new($ObjectArray, {
-			$of("Africa/Mogadishu"_s),
-			$of(Africa_Eastern)
+			"Africa/Mogadishu"_s,
+			Africa_Eastern
 		}),
 		$$new($ObjectArray, {
-			$of("America/Anguilla"_s),
-			$of(Atlantic)
+			"America/Anguilla"_s,
+			Atlantic
 		}),
 		$$new($ObjectArray, {
-			$of("America/Asuncion"_s),
-			$of(Paraguay)
+			"America/Asuncion"_s,
+			Paraguay
 		}),
 		$$new($ObjectArray, {
-			$of("America/Barbados"_s),
-			$of(Atlantic)
+			"America/Barbados"_s,
+			Atlantic
 		}),
 		$$new($ObjectArray, {
-			$of("America/Dominica"_s),
-			$of(Atlantic)
+			"America/Dominica"_s,
+			Atlantic
 		}),
 		$$new($ObjectArray, {
-			$of("America/Edmonton"_s),
-			$of(America_Mountain)
+			"America/Edmonton"_s,
+			America_Mountain
 		}),
 		$$new($ObjectArray, {
-			$of("America/Mazatlan"_s),
-			$of(Mexico_Pacific)
+			"America/Mazatlan"_s,
+			Mexico_Pacific
 		}),
 		$$new($ObjectArray, {
-			$of("America/Miquelon"_s),
-			$of(Pierre_Miquelon)
+			"America/Miquelon"_s,
+			Pierre_Miquelon
 		}),
 		$$new($ObjectArray, {
-			$of("America/Montreal"_s),
-			$of(America_Eastern)
+			"America/Montreal"_s,
+			America_Eastern
 		}),
 		$$new($ObjectArray, {
-			$of("America/Resolute"_s),
-			$of(America_Central)
+			"America/Resolute"_s,
+			America_Central
 		}),
 		$$new($ObjectArray, {
-			$of("America/Santarem"_s),
-			$of(Brasilia)
+			"America/Santarem"_s,
+			Brasilia
 		}),
 		$$new($ObjectArray, {
-			$of("America/Santiago"_s),
-			$of(Chile)
+			"America/Santiago"_s,
+			Chile
 		}),
 		$$new($ObjectArray, {
-			$of("America/Shiprock"_s),
-			$of(America_Mountain)
+			"America/Shiprock"_s,
+			America_Mountain
 		}),
 		$$new($ObjectArray, {
-			$of("America/St_Kitts"_s),
-			$of(Atlantic)
+			"America/St_Kitts"_s,
+			Atlantic
 		}),
 		$$new($ObjectArray, {
-			$of("America/St_Lucia"_s),
-			$of(Atlantic)
+			"America/St_Lucia"_s,
+			Atlantic
 		}),
 		$$new($ObjectArray, {
-			$of("America/Winnipeg"_s),
-			$of(America_Central)
+			"America/Winnipeg"_s,
+			America_Central
 		}),
 		$$new($ObjectArray, {
-			$of("Antarctica/Davis"_s),
-			$of(Davis)
+			"Antarctica/Davis"_s,
+			Davis
 		}),
 		$$new($ObjectArray, {
-			$of("Antarctica/Syowa"_s),
-			$of(Syowa)
+			"Antarctica/Syowa"_s,
+			Syowa
 		}),
 		$$new($ObjectArray, {
-			$of("Antarctica/Troll"_s),
-			$of(GMT)
+			"Antarctica/Troll"_s,
+			GMT
 		}),
 		$$new($ObjectArray, {
-			$of("Asia/Krasnoyarsk"_s),
-			$of(Krasnoyarsk)
+			"Asia/Krasnoyarsk"_s,
+			Krasnoyarsk
 		}),
 		$$new($ObjectArray, {
-			$of("Asia/Novosibirsk"_s),
-			$of(Novosibirsk)
+			"Asia/Novosibirsk"_s,
+			Novosibirsk
 		}),
 		$$new($ObjectArray, {
-			$of("Asia/Ulaanbaatar"_s),
-			$of(Mongolia)
+			"Asia/Ulaanbaatar"_s,
+			Mongolia
 		}),
 		$$new($ObjectArray, {
-			$of("Asia/Vladivostok"_s),
-			$of(Vladivostok)
+			"Asia/Vladivostok"_s,
+			Vladivostok
 		}),
 		$$new($ObjectArray, {
-			$of("Atlantic/Bermuda"_s),
-			$of(Atlantic)
+			"Atlantic/Bermuda"_s,
+			Atlantic
 		}),
 		$$new($ObjectArray, {
-			$of("Atlantic/Madeira"_s),
-			$of(Europe_Western)
+			"Atlantic/Madeira"_s,
+			Europe_Western
 		}),
 		$$new($ObjectArray, {
-			$of("Atlantic/Stanley"_s),
-			$of(Falkland)
+			"Atlantic/Stanley"_s,
+			Falkland
 		}),
 		$$new($ObjectArray, {
-			$of("Australia/Currie"_s),
-			$of(Australia_Eastern)
+			"Australia/Currie"_s,
+			Australia_Eastern
 		}),
 		$$new($ObjectArray, {
-			$of("Australia/Darwin"_s),
-			$of(Australia_Central)
+			"Australia/Darwin"_s,
+			Australia_Central
 		}),
 		$$new($ObjectArray, {
-			$of("Australia/Hobart"_s),
-			$of(Australia_Eastern)
+			"Australia/Hobart"_s,
+			Australia_Eastern
 		}),
 		$$new($ObjectArray, {
-			$of("Australia/Sydney"_s),
-			$of(Australia_Eastern)
+			"Australia/Sydney"_s,
+			Australia_Eastern
 		}),
 		$$new($ObjectArray, {
-			$of("Europe/Amsterdam"_s),
-			$of(Europe_Central)
+			"Europe/Amsterdam"_s,
+			Europe_Central
 		}),
 		$$new($ObjectArray, {
-			$of("Europe/Gibraltar"_s),
-			$of(Europe_Central)
+			"Europe/Gibraltar"_s,
+			Europe_Central
 		}),
 		$$new($ObjectArray, {
-			$of("Europe/Ljubljana"_s),
-			$of(Europe_Central)
+			"Europe/Ljubljana"_s,
+			Europe_Central
 		}),
 		$$new($ObjectArray, {
-			$of("Europe/Mariehamn"_s),
-			$of(Europe_Eastern)
+			"Europe/Mariehamn"_s,
+			Europe_Eastern
 		}),
 		$$new($ObjectArray, {
-			$of("Europe/Podgorica"_s),
-			$of(Europe_Central)
+			"Europe/Podgorica"_s,
+			Europe_Central
 		}),
 		$$new($ObjectArray, {
-			$of("Europe/Stockholm"_s),
-			$of(Europe_Central)
+			"Europe/Stockholm"_s,
+			Europe_Central
 		}),
 		$$new($ObjectArray, {
-			$of("Europe/Volgograd"_s),
-			$of(Volgograd)
+			"Europe/Volgograd"_s,
+			Volgograd
 		}),
 		$$new($ObjectArray, {
-			$of("Indian/Christmas"_s),
-			$of(Christmas)
+			"Indian/Christmas"_s,
+			Christmas
 		}),
 		$$new($ObjectArray, {
-			$of("Indian/Kerguelen"_s),
-			$of(French_Southern)
+			"Indian/Kerguelen"_s,
+			French_Southern
 		}),
 		$$new($ObjectArray, {
-			$of("Indian/Mauritius"_s),
-			$of(Mauritius)
+			"Indian/Mauritius"_s,
+			Mauritius
 		}),
 		$$new($ObjectArray, {
-			$of("Pacific/Auckland"_s),
-			$of(New_Zealand)
+			"Pacific/Auckland"_s,
+			New_Zealand
 		}),
 		$$new($ObjectArray, {
-			$of("Pacific/Funafuti"_s),
-			$of(Tuvalu)
+			"Pacific/Funafuti"_s,
+			Tuvalu
 		}),
 		$$new($ObjectArray, {
-			$of("Pacific/Johnston"_s),
-			$of(Hawaii_Aleutian)
+			"Pacific/Johnston"_s,
+			Hawaii_Aleutian
 		}),
 		$$new($ObjectArray, {
-			$of("Pacific/Pitcairn"_s),
-			$of(Pitcairn)
+			"Pacific/Pitcairn"_s,
+			Pitcairn
 		}),
 		$$new($ObjectArray, {
-			$of("Africa/Libreville"_s),
-			$of(Africa_Western)
+			"Africa/Libreville"_s,
+			Africa_Western
 		}),
 		$$new($ObjectArray, {
-			$of("Africa/Lubumbashi"_s),
-			$of(Africa_Central)
+			"Africa/Lubumbashi"_s,
+			Africa_Central
 		}),
 		$$new($ObjectArray, {
-			$of("Africa/Nouakchott"_s),
-			$of(GMT)
+			"Africa/Nouakchott"_s,
+			GMT
 		}),
 		$$new($ObjectArray, {
-			$of("Africa/Porto-Novo"_s),
-			$of(Africa_Western)
+			"Africa/Porto-Novo"_s,
+			Africa_Western
 		}),
 		$$new($ObjectArray, {
-			$of("America/Araguaina"_s),
-			$of(Brasilia)
+			"America/Araguaina"_s,
+			Brasilia
 		}),
 		$$new($ObjectArray, {
-			$of("America/Boa_Vista"_s),
-			$of(Amazon)
+			"America/Boa_Vista"_s,
+			Amazon
 		}),
 		$$new($ObjectArray, {
-			$of("America/Catamarca"_s),
-			$of(Argentina)
+			"America/Catamarca"_s,
+			Argentina
 		}),
 		$$new($ObjectArray, {
-			$of("America/Chihuahua"_s),
-			$of(Mexico_Pacific)
+			"America/Chihuahua"_s,
+			Mexico_Pacific
 		}),
 		$$new($ObjectArray, {
-			$of("America/Fortaleza"_s),
-			$of(Brasilia)
+			"America/Fortaleza"_s,
+			Brasilia
 		}),
 		$$new($ObjectArray, {
-			$of("America/Glace_Bay"_s),
-			$of(Atlantic)
+			"America/Glace_Bay"_s,
+			Atlantic
 		}),
 		$$new($ObjectArray, {
-			$of("America/Goose_Bay"_s),
-			$of(Atlantic)
+			"America/Goose_Bay"_s,
+			Atlantic
 		}),
 		$$new($ObjectArray, {
-			$of("America/Guatemala"_s),
-			$of(America_Central)
+			"America/Guatemala"_s,
+			America_Central
 		}),
 		$$new($ObjectArray, {
-			$of("America/Guayaquil"_s),
-			$of(Ecuador)
+			"America/Guayaquil"_s,
+			Ecuador
 		}),
 		$$new($ObjectArray, {
-			$of("America/Matamoros"_s),
-			$of(America_Central)
+			"America/Matamoros"_s,
+			America_Central
 		}),
 		$$new($ObjectArray, {
-			$of("America/Menominee"_s),
-			$of(America_Central)
+			"America/Menominee"_s,
+			America_Central
 		}),
 		$$new($ObjectArray, {
-			$of("America/Monterrey"_s),
-			$of(America_Central)
+			"America/Monterrey"_s,
+			America_Central
 		}),
 		$$new($ObjectArray, {
-			$of("America/Sao_Paulo"_s),
-			$of(Brasilia)
+			"America/Sao_Paulo"_s,
+			Brasilia
 		}),
 		$$new($ObjectArray, {
-			$of("America/St_Thomas"_s),
-			$of(Atlantic)
+			"America/St_Thomas"_s,
+			Atlantic
 		}),
 		$$new($ObjectArray, {
-			$of("America/Vancouver"_s),
-			$of(America_Pacific)
+			"America/Vancouver"_s,
+			America_Pacific
 		}),
 		$$new($ObjectArray, {
-			$of("Antarctica/Mawson"_s),
-			$of(Mawson)
+			"Antarctica/Mawson"_s,
+			Mawson
 		}),
 		$$new($ObjectArray, {
-			$of("Antarctica/Vostok"_s),
-			$of(Vostok)
+			"Antarctica/Vostok"_s,
+			Vostok
 		}),
 		$$new($ObjectArray, {
-			$of("Asia/Kuala_Lumpur"_s),
-			$of(Malaysia)
+			"Asia/Kuala_Lumpur"_s,
+			Malaysia
 		}),
 		$$new($ObjectArray, {
-			$of("Asia/Novokuznetsk"_s),
-			$of(Krasnoyarsk)
+			"Asia/Novokuznetsk"_s,
+			Krasnoyarsk
 		}),
 		$$new($ObjectArray, {
-			$of("Europe/Bratislava"_s),
-			$of(Europe_Central)
+			"Europe/Bratislava"_s,
+			Europe_Central
 		}),
 		$$new($ObjectArray, {
-			$of("Europe/Copenhagen"_s),
-			$of(Europe_Central)
+			"Europe/Copenhagen"_s,
+			Europe_Central
 		}),
 		$$new($ObjectArray, {
-			$of("Europe/Luxembourg"_s),
-			$of(Europe_Central)
+			"Europe/Luxembourg"_s,
+			Europe_Central
 		}),
 		$$new($ObjectArray, {
-			$of("Europe/San_Marino"_s),
-			$of(Europe_Central)
+			"Europe/San_Marino"_s,
+			Europe_Central
 		}),
 		$$new($ObjectArray, {
-			$of("Europe/Simferopol"_s),
-			$of(Moscow)
+			"Europe/Simferopol"_s,
+			Moscow
 		}),
 		$$new($ObjectArray, {
-			$of("Europe/Zaporozhye"_s),
-			$of(Europe_Eastern)
+			"Europe/Zaporozhye"_s,
+			Europe_Eastern
 		}),
 		$$new($ObjectArray, {
-			$of("Pacific/Enderbury"_s),
-			$of(Phoenix_Islands)
+			"Pacific/Enderbury"_s,
+			Phoenix_Islands
 		}),
 		$$new($ObjectArray, {
-			$of("Pacific/Galapagos"_s),
-			$of(Galapagos)
+			"Pacific/Galapagos"_s,
+			Galapagos
 		}),
 		$$new($ObjectArray, {
-			$of("Pacific/Kwajalein"_s),
-			$of(Marshall_Islands)
+			"Pacific/Kwajalein"_s,
+			Marshall_Islands
 		}),
 		$$new($ObjectArray, {
-			$of("Pacific/Marquesas"_s),
-			$of(Marquesas)
+			"Pacific/Marquesas"_s,
+			Marquesas
 		}),
 		$$new($ObjectArray, {
-			$of("Pacific/Pago_Pago"_s),
-			$of(Samoa)
+			"Pacific/Pago_Pago"_s,
+			Samoa
 		}),
 		$$new($ObjectArray, {
-			$of("Pacific/Rarotonga"_s),
-			$of(Cook)
+			"Pacific/Rarotonga"_s,
+			Cook
 		}),
 		$$new($ObjectArray, {
-			$of("Pacific/Tongatapu"_s),
-			$of(Tonga)
+			"Pacific/Tongatapu"_s,
+			Tonga
 		}),
 		$$new($ObjectArray, {
-			$of("Africa/Addis_Ababa"_s),
-			$of(Africa_Eastern)
+			"Africa/Addis_Ababa"_s,
+			Africa_Eastern
 		}),
 		$$new($ObjectArray, {
-			$of("Africa/Brazzaville"_s),
-			$of(Africa_Western)
+			"Africa/Brazzaville"_s,
+			Africa_Western
 		}),
 		$$new($ObjectArray, {
-			$of("Africa/Ouagadougou"_s),
-			$of(GMT)
+			"Africa/Ouagadougou"_s,
+			GMT
 		}),
 		$$new($ObjectArray, {
-			$of("America/Costa_Rica"_s),
-			$of(America_Central)
+			"America/Costa_Rica"_s,
+			America_Central
 		}),
 		$$new($ObjectArray, {
-			$of("America/Grand_Turk"_s),
-			$of(America_Eastern)
+			"America/Grand_Turk"_s,
+			America_Eastern
 		}),
 		$$new($ObjectArray, {
-			$of("America/Guadeloupe"_s),
-			$of(Atlantic)
+			"America/Guadeloupe"_s,
+			Atlantic
 		}),
 		$$new($ObjectArray, {
-			$of("America/Hermosillo"_s),
-			$of(Mexico_Pacific)
+			"America/Hermosillo"_s,
+			Mexico_Pacific
 		}),
 		$$new($ObjectArray, {
-			$of("America/Kralendijk"_s),
-			$of(Atlantic)
+			"America/Kralendijk"_s,
+			Atlantic
 		}),
 		$$new($ObjectArray, {
-			$of("America/Louisville"_s),
-			$of(America_Eastern)
+			"America/Louisville"_s,
+			America_Eastern
 		}),
 		$$new($ObjectArray, {
-			$of("America/Martinique"_s),
-			$of(Atlantic)
+			"America/Martinique"_s,
+			Atlantic
 		}),
 		$$new($ObjectArray, {
-			$of("America/Metlakatla"_s),
-			$of(Alaska)
+			"America/Metlakatla"_s,
+			Alaska
 		}),
 		$$new($ObjectArray, {
-			$of("America/Montevideo"_s),
-			$of(Uruguay)
+			"America/Montevideo"_s,
+			Uruguay
 		}),
 		$$new($ObjectArray, {
-			$of("America/Montserrat"_s),
-			$of(Atlantic)
+			"America/Montserrat"_s,
+			Atlantic
 		}),
 		$$new($ObjectArray, {
-			$of("America/Paramaribo"_s),
-			$of(Suriname)
+			"America/Paramaribo"_s,
+			Suriname
 		}),
 		$$new($ObjectArray, {
-			$of("America/St_Vincent"_s),
-			$of(Atlantic)
+			"America/St_Vincent"_s,
+			Atlantic
 		}),
 		$$new($ObjectArray, {
-			$of("America/Whitehorse"_s),
-			$of(America_Mountain)
+			"America/Whitehorse"_s,
+			America_Mountain
 		}),
 		$$new($ObjectArray, {
-			$of("Antarctica/McMurdo"_s),
-			$of(New_Zealand)
+			"Antarctica/McMurdo"_s,
+			New_Zealand
 		}),
 		$$new($ObjectArray, {
-			$of("Antarctica/Rothera"_s),
-			$of(Rothera)
+			"Antarctica/Rothera"_s,
+			Rothera
 		}),
 		$$new($ObjectArray, {
-			$of("Asia/Yekaterinburg"_s),
-			$of(Yekaterinburg)
+			"Asia/Yekaterinburg"_s,
+			Yekaterinburg
 		}),
 		$$new($ObjectArray, {
-			$of("Atlantic/Jan_Mayen"_s),
-			$of(Europe_Central)
+			"Atlantic/Jan_Mayen"_s,
+			Europe_Central
 		}),
 		$$new($ObjectArray, {
-			$of("Atlantic/Reykjavik"_s),
-			$of(GMT)
+			"Atlantic/Reykjavik"_s,
+			GMT
 		}),
 		$$new($ObjectArray, {
-			$of("Atlantic/St_Helena"_s),
-			$of(GMT)
+			"Atlantic/St_Helena"_s,
+			GMT
 		}),
 		$$new($ObjectArray, {
-			$of("Australia/Adelaide"_s),
-			$of(Australia_Central)
+			"Australia/Adelaide"_s,
+			Australia_Central
 		}),
 		$$new($ObjectArray, {
-			$of("Australia/Brisbane"_s),
-			$of(Australia_Eastern)
+			"Australia/Brisbane"_s,
+			Australia_Eastern
 		}),
 		$$new($ObjectArray, {
-			$of("Australia/Lindeman"_s),
-			$of(Australia_Eastern)
+			"Australia/Lindeman"_s,
+			Australia_Eastern
 		}),
 		$$new($ObjectArray, {
-			$of("Europe/Isle_of_Man"_s),
-			$of(GMT)
+			"Europe/Isle_of_Man"_s,
+			GMT
 		}),
 		$$new($ObjectArray, {
-			$of("Europe/Kaliningrad"_s),
-			$of(Europe_Eastern)
+			"Europe/Kaliningrad"_s,
+			Europe_Eastern
 		}),
 		$$new($ObjectArray, {
-			$of("Pacific/Kiritimati"_s),
-			$of(Line_Islands)
+			"Pacific/Kiritimati"_s,
+			Line_Islands
 		}),
 		$$new($ObjectArray, {
-			$of("Africa/Johannesburg"_s),
-			$of(Africa_Southern)
+			"Africa/Johannesburg"_s,
+			Africa_Southern
 		}),
 		$$new($ObjectArray, {
-			$of("America/El_Salvador"_s),
-			$of(America_Central)
+			"America/El_Salvador"_s,
+			America_Central
 		}),
 		$$new($ObjectArray, {
-			$of("America/Fort_Nelson"_s),
-			$of(America_Mountain)
+			"America/Fort_Nelson"_s,
+			America_Mountain
 		}),
 		$$new($ObjectArray, {
-			$of("America/Mexico_City"_s),
-			$of(America_Central)
+			"America/Mexico_City"_s,
+			America_Central
 		}),
 		$$new($ObjectArray, {
-			$of("America/Pangnirtung"_s),
-			$of(America_Eastern)
+			"America/Pangnirtung"_s,
+			America_Eastern
 		}),
 		$$new($ObjectArray, {
-			$of("America/Porto_Velho"_s),
-			$of(Amazon)
+			"America/Porto_Velho"_s,
+			Amazon
 		}),
 		$$new($ObjectArray, {
-			$of("America/Puerto_Rico"_s),
-			$of(Atlantic)
+			"America/Puerto_Rico"_s,
+			Atlantic
 		}),
 		$$new($ObjectArray, {
-			$of("America/Rainy_River"_s),
-			$of(America_Central)
+			"America/Rainy_River"_s,
+			America_Central
 		}),
 		$$new($ObjectArray, {
-			$of("America/Tegucigalpa"_s),
-			$of(America_Central)
+			"America/Tegucigalpa"_s,
+			America_Central
 		}),
 		$$new($ObjectArray, {
-			$of("America/Thunder_Bay"_s),
-			$of(America_Eastern)
+			"America/Thunder_Bay"_s,
+			America_Eastern
 		}),
 		$$new($ObjectArray, {
-			$of("America/Yellowknife"_s),
-			$of(America_Mountain)
+			"America/Yellowknife"_s,
+			America_Mountain
 		}),
 		$$new($ObjectArray, {
-			$of("Arctic/Longyearbyen"_s),
-			$of(Europe_Central)
+			"Arctic/Longyearbyen"_s,
+			Europe_Central
 		}),
 		$$new($ObjectArray, {
-			$of("Atlantic/Cape_Verde"_s),
-			$of(Cape_Verde)
+			"Atlantic/Cape_Verde"_s,
+			Cape_Verde
 		}),
 		$$new($ObjectArray, {
-			$of("Australia/Lord_Howe"_s),
-			$of(Lord_Howe)
+			"Australia/Lord_Howe"_s,
+			Lord_Howe
 		}),
 		$$new($ObjectArray, {
-			$of("Australia/Melbourne"_s),
-			$of(Australia_Eastern)
+			"Australia/Melbourne"_s,
+			Australia_Eastern
 		}),
 		$$new($ObjectArray, {
-			$of("Indian/Antananarivo"_s),
-			$of(Africa_Eastern)
+			"Indian/Antananarivo"_s,
+			Africa_Eastern
 		}),
 		$$new($ObjectArray, {
-			$of("Pacific/Guadalcanal"_s),
-			$of(Solomon)
+			"Pacific/Guadalcanal"_s,
+			Solomon
 		}),
 		$$new($ObjectArray, {
-			$of("Africa/Dar_es_Salaam"_s),
-			$of(Africa_Eastern)
+			"Africa/Dar_es_Salaam"_s,
+			Africa_Eastern
 		}),
 		$$new($ObjectArray, {
-			$of("America/Blanc-Sablon"_s),
-			$of(Atlantic)
+			"America/Blanc-Sablon"_s,
+			Atlantic
 		}),
 		$$new($ObjectArray, {
-			$of("America/Buenos_Aires"_s),
-			$of(Argentina)
+			"America/Buenos_Aires"_s,
+			Argentina
 		}),
 		$$new($ObjectArray, {
-			$of("America/Campo_Grande"_s),
-			$of(Amazon)
+			"America/Campo_Grande"_s,
+			Amazon
 		}),
 		$$new($ObjectArray, {
-			$of("America/Danmarkshavn"_s),
-			$of(GMT)
+			"America/Danmarkshavn"_s,
+			GMT
 		}),
 		$$new($ObjectArray, {
-			$of("America/Dawson_Creek"_s),
-			$of(America_Mountain)
+			"America/Dawson_Creek"_s,
+			America_Mountain
 		}),
 		$$new($ObjectArray, {
-			$of("America/Indiana/Knox"_s),
-			$of(America_Central)
+			"America/Indiana/Knox"_s,
+			America_Central
 		}),
 		$$new($ObjectArray, {
-			$of("America/Rankin_Inlet"_s),
-			$of(America_Central)
+			"America/Rankin_Inlet"_s,
+			America_Central
 		}),
 		$$new($ObjectArray, {
-			$of("America/Santa_Isabel"_s),
-			$of(Mexico_Northwest)
+			"America/Santa_Isabel"_s,
+			Mexico_Northwest
 		}),
 		$$new($ObjectArray, {
-			$of("America/Scoresbysund"_s),
-			$of(Greenland_Eastern)
+			"America/Scoresbysund"_s,
+			Greenland_Eastern
 		}),
 		$$new($ObjectArray, {
-			$of("Antarctica/Macquarie"_s),
-			$of(Australia_Eastern)
+			"Antarctica/Macquarie"_s,
+			Australia_Eastern
 		}),
 		$$new($ObjectArray, {
-			$of("Pacific/Port_Moresby"_s),
-			$of(Papua_New_Guinea)
+			"Pacific/Port_Moresby"_s,
+			Papua_New_Guinea
 		}),
 		$$new($ObjectArray, {
-			$of("America/Cambridge_Bay"_s),
-			$of(America_Mountain)
+			"America/Cambridge_Bay"_s,
+			America_Mountain
 		}),
 		$$new($ObjectArray, {
-			$of("America/Coral_Harbour"_s),
-			$of(America_Eastern)
+			"America/Coral_Harbour"_s,
+			America_Eastern
 		}),
 		$$new($ObjectArray, {
-			$of("America/Indiana/Vevay"_s),
-			$of(America_Eastern)
+			"America/Indiana/Vevay"_s,
+			America_Eastern
 		}),
 		$$new($ObjectArray, {
-			$of("America/Lower_Princes"_s),
-			$of(Atlantic)
+			"America/Lower_Princes"_s,
+			Atlantic
 		}),
 		$$new($ObjectArray, {
-			$of("America/Port_of_Spain"_s),
-			$of(Atlantic)
+			"America/Port_of_Spain"_s,
+			Atlantic
 		}),
 		$$new($ObjectArray, {
-			$of("America/Santo_Domingo"_s),
-			$of(Atlantic)
+			"America/Santo_Domingo"_s,
+			Atlantic
 		}),
 		$$new($ObjectArray, {
-			$of("America/St_Barthelemy"_s),
-			$of(Atlantic)
+			"America/St_Barthelemy"_s,
+			Atlantic
 		}),
 		$$new($ObjectArray, {
-			$of("America/Swift_Current"_s),
-			$of(America_Central)
+			"America/Swift_Current"_s,
+			America_Central
 		}),
 		$$new($ObjectArray, {
-			$of("Antarctica/South_Pole"_s),
-			$of(New_Zealand)
+			"Antarctica/South_Pole"_s,
+			New_Zealand
 		}),
 		$$new($ObjectArray, {
-			$of("Australia/Broken_Hill"_s),
-			$of(Australia_Central)
+			"Australia/Broken_Hill"_s,
+			Australia_Central
 		}),
 		$$new($ObjectArray, {
-			$of("America/Bahia_Banderas"_s),
-			$of(America_Central)
+			"America/Bahia_Banderas"_s,
+			America_Central
 		}),
 		$$new($ObjectArray, {
-			$of("America/Port-au-Prince"_s),
-			$of(America_Eastern)
+			"America/Port-au-Prince"_s,
+			America_Eastern
 		}),
 		$$new($ObjectArray, {
-			$of("Atlantic/South_Georgia"_s),
-			$of(South_Georgia)
+			"Atlantic/South_Georgia"_s,
+			South_Georgia
 		}),
 		$$new($ObjectArray, {
-			$of("America/Argentina/Salta"_s),
-			$of(Argentina)
+			"America/Argentina/Salta"_s,
+			Argentina
 		}),
 		$$new($ObjectArray, {
-			$of("America/Indiana/Marengo"_s),
-			$of(America_Eastern)
+			"America/Indiana/Marengo"_s,
+			America_Eastern
 		}),
 		$$new($ObjectArray, {
-			$of("America/Indiana/Winamac"_s),
-			$of(America_Eastern)
+			"America/Indiana/Winamac"_s,
+			America_Eastern
 		}),
 		$$new($ObjectArray, {
-			$of("America/Argentina/Tucuman"_s),
-			$of(Argentina)
+			"America/Argentina/Tucuman"_s,
+			Argentina
 		}),
 		$$new($ObjectArray, {
-			$of("America/Argentina/Ushuaia"_s),
-			$of(Argentina)
+			"America/Argentina/Ushuaia"_s,
+			Argentina
 		}),
 		$$new($ObjectArray, {
-			$of("America/Indiana/Tell_City"_s),
-			$of(America_Central)
+			"America/Indiana/Tell_City"_s,
+			America_Central
 		}),
 		$$new($ObjectArray, {
-			$of("America/Indiana/Vincennes"_s),
-			$of(America_Eastern)
+			"America/Indiana/Vincennes"_s,
+			America_Eastern
 		}),
 		$$new($ObjectArray, {
-			$of("Antarctica/DumontDUrville"_s),
-			$of(DumontDUrville)
+			"Antarctica/DumontDUrville"_s,
+			DumontDUrville
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Asia/Aden"_s),
-			$of(u"عدن"_s)
+			"timezone.excity.Asia/Aden"_s,
+			u"عدن"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Asia/Baku"_s),
-			$of(u"باکو"_s)
+			"timezone.excity.Asia/Baku"_s,
+			u"باکو"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Asia/Dili"_s),
-			$of(u"دیلی"_s)
+			"timezone.excity.Asia/Dili"_s,
+			u"دیلی"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Asia/Gaza"_s),
-			$of(u"غزه"_s)
+			"timezone.excity.Asia/Gaza"_s,
+			u"غزه"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Asia/Hovd"_s),
-			$of(u"خوود"_s)
+			"timezone.excity.Asia/Hovd"_s,
+			u"خوود"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Asia/Omsk"_s),
-			$of(u"اومسک"_s)
+			"timezone.excity.Asia/Omsk"_s,
+			u"اومسک"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Asia/Oral"_s),
-			$of(u"اورال"_s)
+			"timezone.excity.Asia/Oral"_s,
+			u"اورال"_s
 		}),
 		$$new($ObjectArray, {
-			$of("America/Argentina/La_Rioja"_s),
-			$of(Argentina)
+			"America/Argentina/La_Rioja"_s,
+			Argentina
 		}),
 		$$new($ObjectArray, {
-			$of("America/Argentina/San_Juan"_s),
-			$of(Argentina)
+			"America/Argentina/San_Juan"_s,
+			Argentina
 		}),
 		$$new($ObjectArray, {
-			$of("America/Argentina/San_Luis"_s),
-			$of(Argentina)
+			"America/Argentina/San_Luis"_s,
+			Argentina
 		}),
 		$$new($ObjectArray, {
-			$of("America/Indiana/Petersburg"_s),
-			$of(America_Eastern)
+			"America/Indiana/Petersburg"_s,
+			America_Eastern
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Asia/Amman"_s),
-			$of(u"عمّان"_s)
+			"timezone.excity.Asia/Amman"_s,
+			u"عمّان"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Asia/Aqtau"_s),
-			$of(u"آقتاو"_s)
+			"timezone.excity.Asia/Aqtau"_s,
+			u"آقتاو"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Asia/Chita"_s),
-			$of(u"چیتا"_s)
+			"timezone.excity.Asia/Chita"_s,
+			u"چیتا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Asia/Dhaka"_s),
-			$of(u"داکا"_s)
+			"timezone.excity.Asia/Dhaka"_s,
+			u"داکا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Asia/Dubai"_s),
-			$of(u"دبی"_s)
+			"timezone.excity.Asia/Dubai"_s,
+			u"دبی"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Asia/Kabul"_s),
-			$of(u"کابل"_s)
+			"timezone.excity.Asia/Kabul"_s,
+			u"کابل"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Asia/Macau"_s),
-			$of(u"ماکائو"_s)
+			"timezone.excity.Asia/Macau"_s,
+			u"ماکائو"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Asia/Qatar"_s),
-			$of(u"قطر"_s)
+			"timezone.excity.Asia/Qatar"_s,
+			u"قطر"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Asia/Seoul"_s),
-			$of(u"سئول"_s)
+			"timezone.excity.Asia/Seoul"_s,
+			u"سئول"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Asia/Tokyo"_s),
-			$of(u"توکیو"_s)
+			"timezone.excity.Asia/Tokyo"_s,
+			u"توکیو"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Asia/Tomsk"_s),
-			$of(u"تومسک"_s)
+			"timezone.excity.Asia/Tomsk"_s,
+			u"تومسک"_s
 		}),
 		$$new($ObjectArray, {
-			$of("America/Kentucky/Monticello"_s),
-			$of(America_Eastern)
+			"America/Kentucky/Monticello"_s,
+			America_Eastern
 		}),
 		$$new($ObjectArray, {
-			$of("America/North_Dakota/Beulah"_s),
-			$of(America_Central)
+			"America/North_Dakota/Beulah"_s,
+			America_Central
 		}),
 		$$new($ObjectArray, {
-			$of("America/North_Dakota/Center"_s),
-			$of(America_Central)
+			"America/North_Dakota/Center"_s,
+			America_Central
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Africa/Juba"_s),
-			$of(u"جوبا"_s)
+			"timezone.excity.Africa/Juba"_s,
+			u"جوبا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Africa/Lome"_s),
-			$of(u"لومه"_s)
+			"timezone.excity.Africa/Lome"_s,
+			u"لومه"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Asia/Almaty"_s),
-			$of(u"آلماتی"_s)
+			"timezone.excity.Asia/Almaty"_s,
+			u"آلماتی"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Asia/Anadyr"_s),
-			$of(u"آنادیر"_s)
+			"timezone.excity.Asia/Anadyr"_s,
+			u"آنادیر"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Asia/Aqtobe"_s),
-			$of(u"آقتوبه"_s)
+			"timezone.excity.Asia/Aqtobe"_s,
+			u"آقتوبه"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Asia/Atyrau"_s),
-			$of(u"آتیراو"_s)
+			"timezone.excity.Asia/Atyrau"_s,
+			u"آتیراو"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Asia/Beirut"_s),
-			$of(u"بیروت"_s)
+			"timezone.excity.Asia/Beirut"_s,
+			u"بیروت"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Asia/Brunei"_s),
-			$of(u"برونئی"_s)
+			"timezone.excity.Asia/Brunei"_s,
+			u"برونئی"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Asia/Hebron"_s),
-			$of(u"الخلیل"_s)
+			"timezone.excity.Asia/Hebron"_s,
+			u"الخلیل"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Asia/Kuwait"_s),
-			$of(u"کویت"_s)
+			"timezone.excity.Asia/Kuwait"_s,
+			u"کویت"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Asia/Manila"_s),
-			$of(u"مانیل"_s)
+			"timezone.excity.Asia/Manila"_s,
+			u"مانیل"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Asia/Muscat"_s),
-			$of(u"مسقط"_s)
+			"timezone.excity.Asia/Muscat"_s,
+			u"مسقط"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Asia/Riyadh"_s),
-			$of(u"ریاض"_s)
+			"timezone.excity.Asia/Riyadh"_s,
+			u"ریاض"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Asia/Saigon"_s),
-			$of(u"هوشی\u200cمین\u200cسیتی"_s)
+			"timezone.excity.Asia/Saigon"_s,
+			u"هوشی\u200cمین\u200cسیتی"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Asia/Taipei"_s),
-			$of(u"تایپه"_s)
+			"timezone.excity.Asia/Taipei"_s,
+			u"تایپه"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Asia/Tehran"_s),
-			$of(u"تهران"_s)
+			"timezone.excity.Asia/Tehran"_s,
+			u"تهران"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Asia/Urumqi"_s),
-			$of(u"ارومچی"_s)
+			"timezone.excity.Asia/Urumqi"_s,
+			u"ارومچی"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Etc/Unknown"_s),
-			$of(u"شهر نامشخص"_s)
+			"timezone.excity.Etc/Unknown"_s,
+			u"شهر نامشخص"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Europe/Kiev"_s),
-			$of(u"کیف"_s)
+			"timezone.excity.Europe/Kiev"_s,
+			u"کیف"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Europe/Oslo"_s),
-			$of(u"اسلو"_s)
+			"timezone.excity.Europe/Oslo"_s,
+			u"اسلو"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Europe/Riga"_s),
-			$of(u"ریگا"_s)
+			"timezone.excity.Europe/Riga"_s,
+			u"ریگا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Europe/Rome"_s),
-			$of(u"رم"_s)
+			"timezone.excity.Europe/Rome"_s,
+			u"رم"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Indian/Mahe"_s),
-			$of(u"ماهه"_s)
+			"timezone.excity.Indian/Mahe"_s,
+			u"ماهه"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Africa/Accra"_s),
-			$of(u"اکرا"_s)
+			"timezone.excity.Africa/Accra"_s,
+			u"اکرا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Africa/Cairo"_s),
-			$of(u"قاهره"_s)
+			"timezone.excity.Africa/Cairo"_s,
+			u"قاهره"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Africa/Ceuta"_s),
-			$of(u"سبته"_s)
+			"timezone.excity.Africa/Ceuta"_s,
+			u"سبته"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Africa/Dakar"_s),
-			$of(u"داکار"_s)
+			"timezone.excity.Africa/Dakar"_s,
+			u"داکار"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Africa/Lagos"_s),
-			$of(u"لاگوس"_s)
+			"timezone.excity.Africa/Lagos"_s,
+			u"لاگوس"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Africa/Tunis"_s),
-			$of(u"تونس"_s)
+			"timezone.excity.Africa/Tunis"_s,
+			u"تونس"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.America/Adak"_s),
-			$of(u"ایدک"_s)
+			"timezone.excity.America/Adak"_s,
+			u"ایدک"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.America/Lima"_s),
-			$of(u"لیما"_s)
+			"timezone.excity.America/Lima"_s,
+			u"لیما"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.America/Nome"_s),
-			$of(u"نوم"_s)
+			"timezone.excity.America/Nome"_s,
+			u"نوم"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Asia/Baghdad"_s),
-			$of(u"بغداد"_s)
+			"timezone.excity.Asia/Baghdad"_s,
+			u"بغداد"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Asia/Bahrain"_s),
-			$of(u"بحرین"_s)
+			"timezone.excity.Asia/Bahrain"_s,
+			u"بحرین"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Asia/Bangkok"_s),
-			$of(u"بانکوک"_s)
+			"timezone.excity.Asia/Bangkok"_s,
+			u"بانکوک"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Asia/Barnaul"_s),
-			$of(u"بارنائول"_s)
+			"timezone.excity.Asia/Barnaul"_s,
+			u"بارنائول"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Asia/Bishkek"_s),
-			$of(u"بیشکک"_s)
+			"timezone.excity.Asia/Bishkek"_s,
+			u"بیشکک"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Asia/Colombo"_s),
-			$of(u"کلمبو"_s)
+			"timezone.excity.Asia/Colombo"_s,
+			u"کلمبو"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Asia/Irkutsk"_s),
-			$of(u"ایرکوتسک"_s)
+			"timezone.excity.Asia/Irkutsk"_s,
+			u"ایرکوتسک"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Asia/Jakarta"_s),
-			$of(u"جاکارتا"_s)
+			"timezone.excity.Asia/Jakarta"_s,
+			u"جاکارتا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Asia/Karachi"_s),
-			$of(u"کراچی"_s)
+			"timezone.excity.Asia/Karachi"_s,
+			u"کراچی"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Asia/Kuching"_s),
-			$of(u"کوچینگ"_s)
+			"timezone.excity.Asia/Kuching"_s,
+			u"کوچینگ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Asia/Magadan"_s),
-			$of(u"ماگادان"_s)
+			"timezone.excity.Asia/Magadan"_s,
+			u"ماگادان"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Asia/Nicosia"_s),
-			$of(u"نیکوزیا"_s)
+			"timezone.excity.Asia/Nicosia"_s,
+			u"نیکوزیا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Asia/Rangoon"_s),
-			$of(u"یانگون"_s)
+			"timezone.excity.Asia/Rangoon"_s,
+			u"یانگون"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Asia/Tbilisi"_s),
-			$of(u"تفلیس"_s)
+			"timezone.excity.Asia/Tbilisi"_s,
+			u"تفلیس"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Asia/Thimphu"_s),
-			$of(u"تیمفو"_s)
+			"timezone.excity.Asia/Thimphu"_s,
+			u"تیمفو"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Asia/Yakutsk"_s),
-			$of(u"یاکوتسک"_s)
+			"timezone.excity.Asia/Yakutsk"_s,
+			u"یاکوتسک"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Asia/Yerevan"_s),
-			$of(u"ایروان"_s)
+			"timezone.excity.Asia/Yerevan"_s,
+			u"ایروان"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Europe/Kirov"_s),
-			$of(u"کیروف"_s)
+			"timezone.excity.Europe/Kirov"_s,
+			u"کیروف"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Europe/Malta"_s),
-			$of(u"مالت"_s)
+			"timezone.excity.Europe/Malta"_s,
+			u"مالت"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Europe/Minsk"_s),
-			$of(u"مینسک"_s)
+			"timezone.excity.Europe/Minsk"_s,
+			u"مینسک"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Europe/Paris"_s),
-			$of(u"پاریس"_s)
+			"timezone.excity.Europe/Paris"_s,
+			u"پاریس"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Europe/Sofia"_s),
-			$of(u"صوفیه"_s)
+			"timezone.excity.Europe/Sofia"_s,
+			u"صوفیه"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Europe/Vaduz"_s),
-			$of(u"فادوتس"_s)
+			"timezone.excity.Europe/Vaduz"_s,
+			u"فادوتس"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Indian/Cocos"_s),
-			$of(u"کوکوس"_s)
+			"timezone.excity.Indian/Cocos"_s,
+			u"کوکوس"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Pacific/Apia"_s),
-			$of(u"آپیا"_s)
+			"timezone.excity.Pacific/Apia"_s,
+			u"آپیا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Pacific/Fiji"_s),
-			$of(u"فیجی"_s)
+			"timezone.excity.Pacific/Fiji"_s,
+			u"فیجی"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Pacific/Guam"_s),
-			$of(u"گوام"_s)
+			"timezone.excity.Pacific/Guam"_s,
+			u"گوام"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Pacific/Niue"_s),
-			$of(u"نیوئه"_s)
+			"timezone.excity.Pacific/Niue"_s,
+			u"نیوئه"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Pacific/Truk"_s),
-			$of(u"چوک"_s)
+			"timezone.excity.Pacific/Truk"_s,
+			u"چوک"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Pacific/Wake"_s),
-			$of(u"ویک"_s)
+			"timezone.excity.Pacific/Wake"_s,
+			u"ویک"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Africa/Asmera"_s),
-			$of(u"اسمره"_s)
+			"timezone.excity.Africa/Asmera"_s,
+			u"اسمره"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Africa/Bamako"_s),
-			$of(u"باماکو"_s)
+			"timezone.excity.Africa/Bamako"_s,
+			u"باماکو"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Africa/Bangui"_s),
-			$of(u"بانگی"_s)
+			"timezone.excity.Africa/Bangui"_s,
+			u"بانگی"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Africa/Banjul"_s),
-			$of(u"بانجول"_s)
+			"timezone.excity.Africa/Banjul"_s,
+			u"بانجول"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Africa/Bissau"_s),
-			$of(u"بیسائو"_s)
+			"timezone.excity.Africa/Bissau"_s,
+			u"بیسائو"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Africa/Douala"_s),
-			$of(u"دوآلا"_s)
+			"timezone.excity.Africa/Douala"_s,
+			u"دوآلا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Africa/Harare"_s),
-			$of(u"هراره"_s)
+			"timezone.excity.Africa/Harare"_s,
+			u"هراره"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Africa/Kigali"_s),
-			$of(u"کیگالی"_s)
+			"timezone.excity.Africa/Kigali"_s,
+			u"کیگالی"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Africa/Luanda"_s),
-			$of(u"لواندا"_s)
+			"timezone.excity.Africa/Luanda"_s,
+			u"لواندا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Africa/Lusaka"_s),
-			$of(u"لوزاکا"_s)
+			"timezone.excity.Africa/Lusaka"_s,
+			u"لوزاکا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Africa/Malabo"_s),
-			$of(u"مالابو"_s)
+			"timezone.excity.Africa/Malabo"_s,
+			u"مالابو"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Africa/Maputo"_s),
-			$of(u"ماپوتو"_s)
+			"timezone.excity.Africa/Maputo"_s,
+			u"ماپوتو"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Africa/Maseru"_s),
-			$of(u"ماسرو"_s)
+			"timezone.excity.Africa/Maseru"_s,
+			u"ماسرو"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Africa/Niamey"_s),
-			$of(u"نیامی"_s)
+			"timezone.excity.Africa/Niamey"_s,
+			u"نیامی"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.America/Aruba"_s),
-			$of(u"اروبا"_s)
+			"timezone.excity.America/Aruba"_s,
+			u"اروبا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.America/Bahia"_s),
-			$of(u"بایا"_s)
+			"timezone.excity.America/Bahia"_s,
+			u"بایا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.America/Belem"_s),
-			$of(u"بلم"_s)
+			"timezone.excity.America/Belem"_s,
+			u"بلم"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.America/Boise"_s),
-			$of(u"بویسی"_s)
+			"timezone.excity.America/Boise"_s,
+			u"بویسی"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.America/Jujuy"_s),
-			$of(u"خوخوی"_s)
+			"timezone.excity.America/Jujuy"_s,
+			u"خوخوی"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.America/Sitka"_s),
-			$of(u"سیتکا"_s)
+			"timezone.excity.America/Sitka"_s,
+			u"سیتکا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.America/Thule"_s),
-			$of(u"تول"_s)
+			"timezone.excity.America/Thule"_s,
+			u"تول"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Asia/Ashgabat"_s),
-			$of(u"عشق\u200cآباد"_s)
+			"timezone.excity.Asia/Ashgabat"_s,
+			u"عشق\u200cآباد"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Asia/Calcutta"_s),
-			$of(u"کلکته"_s)
+			"timezone.excity.Asia/Calcutta"_s,
+			u"کلکته"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Asia/Damascus"_s),
-			$of(u"دمشق"_s)
+			"timezone.excity.Asia/Damascus"_s,
+			u"دمشق"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Asia/Dushanbe"_s),
-			$of(u"دوشنبه"_s)
+			"timezone.excity.Asia/Dushanbe"_s,
+			u"دوشنبه"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Asia/Jayapura"_s),
-			$of(u"جایاپورا"_s)
+			"timezone.excity.Asia/Jayapura"_s,
+			u"جایاپورا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Asia/Katmandu"_s),
-			$of(u"کاتماندو"_s)
+			"timezone.excity.Asia/Katmandu"_s,
+			u"کاتماندو"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Asia/Khandyga"_s),
-			$of(u"خاندیگا"_s)
+			"timezone.excity.Asia/Khandyga"_s,
+			u"خاندیگا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Asia/Makassar"_s),
-			$of(u"ماکاسار"_s)
+			"timezone.excity.Asia/Makassar"_s,
+			u"ماکاسار"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Asia/Qostanay"_s),
-			$of(u"قوستانای"_s)
+			"timezone.excity.Asia/Qostanay"_s,
+			u"قوستانای"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Asia/Sakhalin"_s),
-			$of(u"ساخالین"_s)
+			"timezone.excity.Asia/Sakhalin"_s,
+			u"ساخالین"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Asia/Shanghai"_s),
-			$of(u"شانگهای"_s)
+			"timezone.excity.Asia/Shanghai"_s,
+			u"شانگهای"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Asia/Tashkent"_s),
-			$of(u"تاشکند"_s)
+			"timezone.excity.Asia/Tashkent"_s,
+			u"تاشکند"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Asia/Ust-Nera"_s),
-			$of(u"اوست نرا"_s)
+			"timezone.excity.Asia/Ust-Nera"_s,
+			u"اوست نرا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Europe/Athens"_s),
-			$of(u"آتن"_s)
+			"timezone.excity.Europe/Athens"_s,
+			u"آتن"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Europe/Berlin"_s),
-			$of(u"برلین"_s)
+			"timezone.excity.Europe/Berlin"_s,
+			u"برلین"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Europe/Dublin"_s),
-			$of(u"دوبلین"_s)
+			"timezone.excity.Europe/Dublin"_s,
+			u"دوبلین"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Europe/Jersey"_s),
-			$of(u"جرزی"_s)
+			"timezone.excity.Europe/Jersey"_s,
+			u"جرزی"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Europe/Lisbon"_s),
-			$of(u"لیسبون"_s)
+			"timezone.excity.Europe/Lisbon"_s,
+			u"لیسبون"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Europe/London"_s),
-			$of(u"لندن"_s)
+			"timezone.excity.Europe/London"_s,
+			u"لندن"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Europe/Madrid"_s),
-			$of(u"مادرید"_s)
+			"timezone.excity.Europe/Madrid"_s,
+			u"مادرید"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Europe/Monaco"_s),
-			$of(u"موناکو"_s)
+			"timezone.excity.Europe/Monaco"_s,
+			u"موناکو"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Europe/Moscow"_s),
-			$of(u"مسکو"_s)
+			"timezone.excity.Europe/Moscow"_s,
+			u"مسکو"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Europe/Prague"_s),
-			$of(u"پراگ"_s)
+			"timezone.excity.Europe/Prague"_s,
+			u"پراگ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Europe/Samara"_s),
-			$of(u"سامارا"_s)
+			"timezone.excity.Europe/Samara"_s,
+			u"سامارا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Europe/Skopje"_s),
-			$of(u"اسکوپیه"_s)
+			"timezone.excity.Europe/Skopje"_s,
+			u"اسکوپیه"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Europe/Tirane"_s),
-			$of(u"تیرانا"_s)
+			"timezone.excity.Europe/Tirane"_s,
+			u"تیرانا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Europe/Vienna"_s),
-			$of(u"وین"_s)
+			"timezone.excity.Europe/Vienna"_s,
+			u"وین"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Europe/Warsaw"_s),
-			$of(u"ورشو"_s)
+			"timezone.excity.Europe/Warsaw"_s,
+			u"ورشو"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Europe/Zagreb"_s),
-			$of(u"زاگرب"_s)
+			"timezone.excity.Europe/Zagreb"_s,
+			u"زاگرب"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Europe/Zurich"_s),
-			$of(u"زوریخ"_s)
+			"timezone.excity.Europe/Zurich"_s,
+			u"زوریخ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Indian/Chagos"_s),
-			$of(u"شاگوس"_s)
+			"timezone.excity.Indian/Chagos"_s,
+			u"شاگوس"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Indian/Comoro"_s),
-			$of(u"کومورو"_s)
+			"timezone.excity.Indian/Comoro"_s,
+			u"کومورو"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Pacific/Efate"_s),
-			$of(u"افاته"_s)
+			"timezone.excity.Pacific/Efate"_s,
+			u"افاته"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Pacific/Nauru"_s),
-			$of(u"نائورو"_s)
+			"timezone.excity.Pacific/Nauru"_s,
+			u"نائورو"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Pacific/Palau"_s),
-			$of(u"پالائو"_s)
+			"timezone.excity.Pacific/Palau"_s,
+			u"پالائو"_s
 		}),
 		$$new($ObjectArray, {
-			$of("America/Argentina/Rio_Gallegos"_s),
-			$of(Argentina)
+			"America/Argentina/Rio_Gallegos"_s,
+			Argentina
 		}),
 		$$new($ObjectArray, {
-			$of("America/North_Dakota/New_Salem"_s),
-			$of(America_Central)
+			"America/North_Dakota/New_Salem"_s,
+			America_Central
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Africa/Abidjan"_s),
-			$of(u"آبیجان"_s)
+			"timezone.excity.Africa/Abidjan"_s,
+			u"آبیجان"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Africa/Algiers"_s),
-			$of(u"الجزیره"_s)
+			"timezone.excity.Africa/Algiers"_s,
+			u"الجزیره"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Africa/Conakry"_s),
-			$of(u"کوناکری"_s)
+			"timezone.excity.Africa/Conakry"_s,
+			u"کوناکری"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Africa/Kampala"_s),
-			$of(u"کامپالا"_s)
+			"timezone.excity.Africa/Kampala"_s,
+			u"کامپالا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Africa/Mbabane"_s),
-			$of(u"مبابانه"_s)
+			"timezone.excity.Africa/Mbabane"_s,
+			u"مبابانه"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Africa/Nairobi"_s),
-			$of(u"نایروبی"_s)
+			"timezone.excity.Africa/Nairobi"_s,
+			u"نایروبی"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Africa/Tripoli"_s),
-			$of(u"طرابلس"_s)
+			"timezone.excity.Africa/Tripoli"_s,
+			u"طرابلس"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.America/Belize"_s),
-			$of(u"بلیز"_s)
+			"timezone.excity.America/Belize"_s,
+			u"بلیز"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.America/Bogota"_s),
-			$of(u"بوگوتا"_s)
+			"timezone.excity.America/Bogota"_s,
+			u"بوگوتا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.America/Cancun"_s),
-			$of(u"کانکون"_s)
+			"timezone.excity.America/Cancun"_s,
+			u"کانکون"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.America/Cayman"_s),
-			$of(u"کیمن"_s)
+			"timezone.excity.America/Cayman"_s,
+			u"کیمن"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.America/Cuiaba"_s),
-			$of(u"کویاوا"_s)
+			"timezone.excity.America/Cuiaba"_s,
+			u"کویاوا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.America/Dawson"_s),
-			$of(u"داوسن"_s)
+			"timezone.excity.America/Dawson"_s,
+			u"داوسن"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.America/Denver"_s),
-			$of(u"دنور"_s)
+			"timezone.excity.America/Denver"_s,
+			u"دنور"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.America/Guyana"_s),
-			$of(u"گویان"_s)
+			"timezone.excity.America/Guyana"_s,
+			u"گویان"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.America/Havana"_s),
-			$of(u"هاوانا"_s)
+			"timezone.excity.America/Havana"_s,
+			u"هاوانا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.America/Inuvik"_s),
-			$of(u"اینوویک"_s)
+			"timezone.excity.America/Inuvik"_s,
+			u"اینوویک"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.America/Juneau"_s),
-			$of(u"جونو"_s)
+			"timezone.excity.America/Juneau"_s,
+			u"جونو"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.America/La_Paz"_s),
-			$of(u"لاپاز"_s)
+			"timezone.excity.America/La_Paz"_s,
+			u"لاپاز"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.America/Maceio"_s),
-			$of(u"ماسیو"_s)
+			"timezone.excity.America/Maceio"_s,
+			u"ماسیو"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.America/Manaus"_s),
-			$of(u"ماناوس"_s)
+			"timezone.excity.America/Manaus"_s,
+			u"ماناوس"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.America/Merida"_s),
-			$of(u"مریدا"_s)
+			"timezone.excity.America/Merida"_s,
+			u"مریدا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.America/Nassau"_s),
-			$of(u"ناسائو"_s)
+			"timezone.excity.America/Nassau"_s,
+			u"ناسائو"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.America/Panama"_s),
-			$of(u"پاناما"_s)
+			"timezone.excity.America/Panama"_s,
+			u"پاناما"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.America/Recife"_s),
-			$of(u"ریسیفی"_s)
+			"timezone.excity.America/Recife"_s,
+			u"ریسیفی"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.America/Regina"_s),
-			$of(u"رجاینا"_s)
+			"timezone.excity.America/Regina"_s,
+			u"رجاینا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Asia/Famagusta"_s),
-			$of(u"فاماگوستا"_s)
+			"timezone.excity.Asia/Famagusta"_s,
+			u"فاماگوستا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Asia/Hong_Kong"_s),
-			$of(u"هنگ\u200cکنگ"_s)
+			"timezone.excity.Asia/Hong_Kong"_s,
+			u"هنگ\u200cکنگ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Asia/Jerusalem"_s),
-			$of(u"اورشلیم"_s)
+			"timezone.excity.Asia/Jerusalem"_s,
+			u"اورشلیم"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Asia/Kamchatka"_s),
-			$of(u"کامچاتکا"_s)
+			"timezone.excity.Asia/Kamchatka"_s,
+			u"کامچاتکا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Asia/Pontianak"_s),
-			$of(u"پونتیاناک"_s)
+			"timezone.excity.Asia/Pontianak"_s,
+			u"پونتیاناک"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Asia/Pyongyang"_s),
-			$of(u"پیونگ\u200cیانگ"_s)
+			"timezone.excity.Asia/Pyongyang"_s,
+			u"پیونگ\u200cیانگ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Asia/Qyzylorda"_s),
-			$of(u"قیزیل\u200cاوردا"_s)
+			"timezone.excity.Asia/Qyzylorda"_s,
+			u"قیزیل\u200cاوردا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Asia/Samarkand"_s),
-			$of(u"سمرقند"_s)
+			"timezone.excity.Asia/Samarkand"_s,
+			u"سمرقند"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Asia/Singapore"_s),
-			$of(u"سنگاپور"_s)
+			"timezone.excity.Asia/Singapore"_s,
+			u"سنگاپور"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Asia/Vientiane"_s),
-			$of(u"وینتیان"_s)
+			"timezone.excity.Asia/Vientiane"_s,
+			u"وینتیان"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Europe/Andorra"_s),
-			$of(u"آندورا"_s)
+			"timezone.excity.Europe/Andorra"_s,
+			u"آندورا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Europe/Saratov"_s),
-			$of(u"ساراتوف"_s)
+			"timezone.excity.Europe/Saratov"_s,
+			u"ساراتوف"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Europe/Tallinn"_s),
-			$of(u"تالین"_s)
+			"timezone.excity.Europe/Tallinn"_s,
+			u"تالین"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Europe/Vatican"_s),
-			$of(u"واتیکان"_s)
+			"timezone.excity.Europe/Vatican"_s,
+			u"واتیکان"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Europe/Vilnius"_s),
-			$of(u"ویلنیوس"_s)
+			"timezone.excity.Europe/Vilnius"_s,
+			u"ویلنیوس"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Indian/Mayotte"_s),
-			$of(u"مایوت"_s)
+			"timezone.excity.Indian/Mayotte"_s,
+			u"مایوت"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Indian/Reunion"_s),
-			$of(u"رئونیون"_s)
+			"timezone.excity.Indian/Reunion"_s,
+			u"رئونیون"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Pacific/Easter"_s),
-			$of(u"ایستر"_s)
+			"timezone.excity.Pacific/Easter"_s,
+			u"ایستر"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Pacific/Kosrae"_s),
-			$of(u"کوسرای"_s)
+			"timezone.excity.Pacific/Kosrae"_s,
+			u"کوسرای"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Pacific/Majuro"_s),
-			$of(u"ماجورو"_s)
+			"timezone.excity.Pacific/Majuro"_s,
+			u"ماجورو"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Pacific/Midway"_s),
-			$of(u"میدوی"_s)
+			"timezone.excity.Pacific/Midway"_s,
+			u"میدوی"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Pacific/Noumea"_s),
-			$of(u"نومئا"_s)
+			"timezone.excity.Pacific/Noumea"_s,
+			u"نومئا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Pacific/Ponape"_s),
-			$of(u"پانپی"_s)
+			"timezone.excity.Pacific/Ponape"_s,
+			u"پانپی"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Pacific/Saipan"_s),
-			$of(u"سایپان"_s)
+			"timezone.excity.Pacific/Saipan"_s,
+			u"سایپان"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Pacific/Tahiti"_s),
-			$of(u"تاهیتی"_s)
+			"timezone.excity.Pacific/Tahiti"_s,
+			u"تاهیتی"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Pacific/Tarawa"_s),
-			$of(u"تاراوا"_s)
+			"timezone.excity.Pacific/Tarawa"_s,
+			u"تاراوا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Pacific/Wallis"_s),
-			$of(u"والیس"_s)
+			"timezone.excity.Pacific/Wallis"_s,
+			u"والیس"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Africa/Blantyre"_s),
-			$of(u"بلانتیره"_s)
+			"timezone.excity.Africa/Blantyre"_s,
+			u"بلانتیره"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Africa/Djibouti"_s),
-			$of(u"جیبوتی"_s)
+			"timezone.excity.Africa/Djibouti"_s,
+			u"جیبوتی"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Africa/El_Aaiun"_s),
-			$of(u"العیون"_s)
+			"timezone.excity.Africa/El_Aaiun"_s,
+			u"العیون"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Africa/Freetown"_s),
-			$of(u"فری\u200cتاون"_s)
+			"timezone.excity.Africa/Freetown"_s,
+			u"فری\u200cتاون"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Africa/Gaborone"_s),
-			$of(u"گابورون"_s)
+			"timezone.excity.Africa/Gaborone"_s,
+			u"گابورون"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Africa/Khartoum"_s),
-			$of(u"خارطوم"_s)
+			"timezone.excity.Africa/Khartoum"_s,
+			u"خارطوم"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Africa/Kinshasa"_s),
-			$of(u"کینشاسا"_s)
+			"timezone.excity.Africa/Kinshasa"_s,
+			u"کینشاسا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Africa/Monrovia"_s),
-			$of(u"مونروویا"_s)
+			"timezone.excity.Africa/Monrovia"_s,
+			u"مونروویا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Africa/Ndjamena"_s),
-			$of(u"انجامنا"_s)
+			"timezone.excity.Africa/Ndjamena"_s,
+			u"انجامنا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Africa/Sao_Tome"_s),
-			$of(u"سائوتومه"_s)
+			"timezone.excity.Africa/Sao_Tome"_s,
+			u"سائوتومه"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Africa/Windhoek"_s),
-			$of(u"ویندهوک"_s)
+			"timezone.excity.Africa/Windhoek"_s,
+			u"ویندهوک"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.America/Antigua"_s),
-			$of(u"آنتیگوا"_s)
+			"timezone.excity.America/Antigua"_s,
+			u"آنتیگوا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.America/Caracas"_s),
-			$of(u"کاراکاس"_s)
+			"timezone.excity.America/Caracas"_s,
+			u"کاراکاس"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.America/Cayenne"_s),
-			$of(u"کاین"_s)
+			"timezone.excity.America/Cayenne"_s,
+			u"کاین"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.America/Chicago"_s),
-			$of(u"شیکاگو"_s)
+			"timezone.excity.America/Chicago"_s,
+			u"شیکاگو"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.America/Cordoba"_s),
-			$of(u"کوردووا"_s)
+			"timezone.excity.America/Cordoba"_s,
+			u"کوردووا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.America/Creston"_s),
-			$of(u"کرستون"_s)
+			"timezone.excity.America/Creston"_s,
+			u"کرستون"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.America/Curacao"_s),
-			$of(u"کوراسائو"_s)
+			"timezone.excity.America/Curacao"_s,
+			u"کوراسائو"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.America/Detroit"_s),
-			$of(u"دیترویت"_s)
+			"timezone.excity.America/Detroit"_s,
+			u"دیترویت"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.America/Godthab"_s),
-			$of(u"نووک"_s)
+			"timezone.excity.America/Godthab"_s,
+			u"نووک"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.America/Grenada"_s),
-			$of(u"گرنادا"_s)
+			"timezone.excity.America/Grenada"_s,
+			u"گرنادا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.America/Halifax"_s),
-			$of(u"هلیفکس"_s)
+			"timezone.excity.America/Halifax"_s,
+			u"هلیفکس"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.America/Iqaluit"_s),
-			$of(u"ایکلوئت"_s)
+			"timezone.excity.America/Iqaluit"_s,
+			u"ایکلوئت"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.America/Jamaica"_s),
-			$of(u"جامائیکا"_s)
+			"timezone.excity.America/Jamaica"_s,
+			u"جامائیکا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.America/Managua"_s),
-			$of(u"ماناگوا"_s)
+			"timezone.excity.America/Managua"_s,
+			u"ماناگوا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.America/Marigot"_s),
-			$of(u"ماریگات"_s)
+			"timezone.excity.America/Marigot"_s,
+			u"ماریگات"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.America/Mendoza"_s),
-			$of(u"مندوسا"_s)
+			"timezone.excity.America/Mendoza"_s,
+			u"مندوسا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.America/Moncton"_s),
-			$of(u"مانکتون"_s)
+			"timezone.excity.America/Moncton"_s,
+			u"مانکتون"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.America/Nipigon"_s),
-			$of(u"نیپیگان"_s)
+			"timezone.excity.America/Nipigon"_s,
+			u"نیپیگان"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.America/Noronha"_s),
-			$of(u"نورونیا"_s)
+			"timezone.excity.America/Noronha"_s,
+			u"نورونیا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.America/Ojinaga"_s),
-			$of(u"اخیناگا"_s)
+			"timezone.excity.America/Ojinaga"_s,
+			u"اخیناگا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.America/Phoenix"_s),
-			$of(u"فینکس"_s)
+			"timezone.excity.America/Phoenix"_s,
+			u"فینکس"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.America/Tijuana"_s),
-			$of(u"تیخوانا"_s)
+			"timezone.excity.America/Tijuana"_s,
+			u"تیخوانا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.America/Toronto"_s),
-			$of(u"تورنتو"_s)
+			"timezone.excity.America/Toronto"_s,
+			u"تورنتو"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.America/Tortola"_s),
-			$of(u"تورتولا"_s)
+			"timezone.excity.America/Tortola"_s,
+			u"تورتولا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.America/Yakutat"_s),
-			$of(u"یاکوتات"_s)
+			"timezone.excity.America/Yakutat"_s,
+			u"یاکوتات"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Asia/Choibalsan"_s),
-			$of(u"چویبالسان"_s)
+			"timezone.excity.Asia/Choibalsan"_s,
+			u"چویبالسان"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Asia/Phnom_Penh"_s),
-			$of(u"پنوم\u200cپن"_s)
+			"timezone.excity.Asia/Phnom_Penh"_s,
+			u"پنوم\u200cپن"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Atlantic/Azores"_s),
-			$of(u"آزور"_s)
+			"timezone.excity.Atlantic/Azores"_s,
+			u"آزور"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Atlantic/Canary"_s),
-			$of(u"قناری"_s)
+			"timezone.excity.Atlantic/Canary"_s,
+			u"قناری"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Atlantic/Faeroe"_s),
-			$of(u"فارو"_s)
+			"timezone.excity.Atlantic/Faeroe"_s,
+			u"فارو"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Australia/Eucla"_s),
-			$of(u"اوکلا"_s)
+			"timezone.excity.Australia/Eucla"_s,
+			u"اوکلا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Australia/Perth"_s),
-			$of(u"پرت"_s)
+			"timezone.excity.Australia/Perth"_s,
+			u"پرت"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Europe/Belgrade"_s),
-			$of(u"بلگراد"_s)
+			"timezone.excity.Europe/Belgrade"_s,
+			u"بلگراد"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Europe/Brussels"_s),
-			$of(u"بروکسل"_s)
+			"timezone.excity.Europe/Brussels"_s,
+			u"بروکسل"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Europe/Budapest"_s),
-			$of(u"بوداپست"_s)
+			"timezone.excity.Europe/Budapest"_s,
+			u"بوداپست"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Europe/Busingen"_s),
-			$of(u"بازنگن"_s)
+			"timezone.excity.Europe/Busingen"_s,
+			u"بازنگن"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Europe/Chisinau"_s),
-			$of(u"کیشیناو"_s)
+			"timezone.excity.Europe/Chisinau"_s,
+			u"کیشیناو"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Europe/Guernsey"_s),
-			$of(u"گرنزی"_s)
+			"timezone.excity.Europe/Guernsey"_s,
+			u"گرنزی"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Europe/Helsinki"_s),
-			$of(u"هلسینکی"_s)
+			"timezone.excity.Europe/Helsinki"_s,
+			u"هلسینکی"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Europe/Istanbul"_s),
-			$of(u"استانبول"_s)
+			"timezone.excity.Europe/Istanbul"_s,
+			u"استانبول"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Europe/Sarajevo"_s),
-			$of(u"سارایوو"_s)
+			"timezone.excity.Europe/Sarajevo"_s,
+			u"سارایوو"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Europe/Uzhgorod"_s),
-			$of(u"اوژگورود"_s)
+			"timezone.excity.Europe/Uzhgorod"_s,
+			u"اوژگورود"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Indian/Maldives"_s),
-			$of(u"مالدیو"_s)
+			"timezone.excity.Indian/Maldives"_s,
+			u"مالدیو"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Pacific/Chatham"_s),
-			$of(u"چتم"_s)
+			"timezone.excity.Pacific/Chatham"_s,
+			u"چتم"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Pacific/Fakaofo"_s),
-			$of(u"فاکائوفو"_s)
+			"timezone.excity.Pacific/Fakaofo"_s,
+			u"فاکائوفو"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Pacific/Gambier"_s),
-			$of(u"گامبیر"_s)
+			"timezone.excity.Pacific/Gambier"_s,
+			u"گامبیر"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Pacific/Norfolk"_s),
-			$of(u"نورفولک"_s)
+			"timezone.excity.Pacific/Norfolk"_s,
+			u"نورفولک"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Africa/Bujumbura"_s),
-			$of(u"بوجومبورا"_s)
+			"timezone.excity.Africa/Bujumbura"_s,
+			u"بوجومبورا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Africa/Mogadishu"_s),
-			$of(u"موگادیشو"_s)
+			"timezone.excity.Africa/Mogadishu"_s,
+			u"موگادیشو"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.America/Anguilla"_s),
-			$of(u"آنگوئیلا"_s)
+			"timezone.excity.America/Anguilla"_s,
+			u"آنگوئیلا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.America/Asuncion"_s),
-			$of(u"آسونسیون"_s)
+			"timezone.excity.America/Asuncion"_s,
+			u"آسونسیون"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.America/Barbados"_s),
-			$of(u"باربادوس"_s)
+			"timezone.excity.America/Barbados"_s,
+			u"باربادوس"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.America/Dominica"_s),
-			$of(u"دومینیکا"_s)
+			"timezone.excity.America/Dominica"_s,
+			u"دومینیکا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.America/Edmonton"_s),
-			$of(u"ادمونتون"_s)
+			"timezone.excity.America/Edmonton"_s,
+			u"ادمونتون"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.America/Eirunepe"_s),
-			$of(u"ایرونپه"_s)
+			"timezone.excity.America/Eirunepe"_s,
+			u"ایرونپه"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.America/Mazatlan"_s),
-			$of(u"ماساتلان"_s)
+			"timezone.excity.America/Mazatlan"_s,
+			u"ماساتلان"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.America/Miquelon"_s),
-			$of(u"میکلون"_s)
+			"timezone.excity.America/Miquelon"_s,
+			u"میکلون"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.America/New_York"_s),
-			$of(u"نیویورک"_s)
+			"timezone.excity.America/New_York"_s,
+			u"نیویورک"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.America/Resolute"_s),
-			$of(u"رزولوت"_s)
+			"timezone.excity.America/Resolute"_s,
+			u"رزولوت"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.America/Santarem"_s),
-			$of(u"سنتارم"_s)
+			"timezone.excity.America/Santarem"_s,
+			u"سنتارم"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.America/Santiago"_s),
-			$of(u"سانتیاگو"_s)
+			"timezone.excity.America/Santiago"_s,
+			u"سانتیاگو"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.America/St_Johns"_s),
-			$of(u"سنت جان"_s)
+			"timezone.excity.America/St_Johns"_s,
+			u"سنت جان"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.America/St_Kitts"_s),
-			$of(u"سنت کیتس"_s)
+			"timezone.excity.America/St_Kitts"_s,
+			u"سنت کیتس"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.America/St_Lucia"_s),
-			$of(u"سنت لوسیا"_s)
+			"timezone.excity.America/St_Lucia"_s,
+			u"سنت لوسیا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.America/Winnipeg"_s),
-			$of(u"وینیپگ"_s)
+			"timezone.excity.America/Winnipeg"_s,
+			u"وینیپگ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Antarctica/Casey"_s),
-			$of(u"کیسی"_s)
+			"timezone.excity.Antarctica/Casey"_s,
+			u"کیسی"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Antarctica/Davis"_s),
-			$of(u"دیویس"_s)
+			"timezone.excity.Antarctica/Davis"_s,
+			u"دیویس"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Antarctica/Syowa"_s),
-			$of(u"شووا"_s)
+			"timezone.excity.Antarctica/Syowa"_s,
+			u"شووا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Antarctica/Troll"_s),
-			$of(u"ترول"_s)
+			"timezone.excity.Antarctica/Troll"_s,
+			u"ترول"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Asia/Krasnoyarsk"_s),
-			$of(u"کراسنویارسک"_s)
+			"timezone.excity.Asia/Krasnoyarsk"_s,
+			u"کراسنویارسک"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Asia/Novosibirsk"_s),
-			$of(u"نووسیبیریسک"_s)
+			"timezone.excity.Asia/Novosibirsk"_s,
+			u"نووسیبیریسک"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Asia/Ulaanbaatar"_s),
-			$of(u"اولان\u200cباتور"_s)
+			"timezone.excity.Asia/Ulaanbaatar"_s,
+			u"اولان\u200cباتور"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Asia/Vladivostok"_s),
-			$of(u"ولادی\u200cوستوک"_s)
+			"timezone.excity.Asia/Vladivostok"_s,
+			u"ولادی\u200cوستوک"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Atlantic/Bermuda"_s),
-			$of(u"برمودا"_s)
+			"timezone.excity.Atlantic/Bermuda"_s,
+			u"برمودا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Atlantic/Madeira"_s),
-			$of(u"مادیرا"_s)
+			"timezone.excity.Atlantic/Madeira"_s,
+			u"مادیرا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Atlantic/Stanley"_s),
-			$of(u"استانلی"_s)
+			"timezone.excity.Atlantic/Stanley"_s,
+			u"استانلی"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Australia/Currie"_s),
-			$of(u"کوری"_s)
+			"timezone.excity.Australia/Currie"_s,
+			u"کوری"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Australia/Darwin"_s),
-			$of(u"داروین"_s)
+			"timezone.excity.Australia/Darwin"_s,
+			u"داروین"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Australia/Hobart"_s),
-			$of(u"هوبارت"_s)
+			"timezone.excity.Australia/Hobart"_s,
+			u"هوبارت"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Australia/Sydney"_s),
-			$of(u"سیدنی"_s)
+			"timezone.excity.Australia/Sydney"_s,
+			u"سیدنی"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Europe/Amsterdam"_s),
-			$of(u"آمستردام"_s)
+			"timezone.excity.Europe/Amsterdam"_s,
+			u"آمستردام"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Europe/Astrakhan"_s),
-			$of(u"آستراخان"_s)
+			"timezone.excity.Europe/Astrakhan"_s,
+			u"آستراخان"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Europe/Bucharest"_s),
-			$of(u"بخارست"_s)
+			"timezone.excity.Europe/Bucharest"_s,
+			u"بخارست"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Europe/Gibraltar"_s),
-			$of(u"جبل\u200cالطارق"_s)
+			"timezone.excity.Europe/Gibraltar"_s,
+			u"جبل\u200cالطارق"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Europe/Ljubljana"_s),
-			$of(u"لیوبلیانا"_s)
+			"timezone.excity.Europe/Ljubljana"_s,
+			u"لیوبلیانا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Europe/Mariehamn"_s),
-			$of(u"ماریه\u200cهامن"_s)
+			"timezone.excity.Europe/Mariehamn"_s,
+			u"ماریه\u200cهامن"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Europe/Podgorica"_s),
-			$of(u"پادگاریتسا"_s)
+			"timezone.excity.Europe/Podgorica"_s,
+			u"پادگاریتسا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Europe/Stockholm"_s),
-			$of(u"استکهلم"_s)
+			"timezone.excity.Europe/Stockholm"_s,
+			u"استکهلم"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Europe/Ulyanovsk"_s),
-			$of(u"اولیانوفسک"_s)
+			"timezone.excity.Europe/Ulyanovsk"_s,
+			u"اولیانوفسک"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Europe/Volgograd"_s),
-			$of(u"ولگاگراد"_s)
+			"timezone.excity.Europe/Volgograd"_s,
+			u"ولگاگراد"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Indian/Christmas"_s),
-			$of(u"کریسمس"_s)
+			"timezone.excity.Indian/Christmas"_s,
+			u"کریسمس"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Indian/Kerguelen"_s),
-			$of(u"کرگولن"_s)
+			"timezone.excity.Indian/Kerguelen"_s,
+			u"کرگولن"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Indian/Mauritius"_s),
-			$of(u"موریس"_s)
+			"timezone.excity.Indian/Mauritius"_s,
+			u"موریس"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Pacific/Auckland"_s),
-			$of(u"اوکلند"_s)
+			"timezone.excity.Pacific/Auckland"_s,
+			u"اوکلند"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Pacific/Funafuti"_s),
-			$of(u"فونافوتی"_s)
+			"timezone.excity.Pacific/Funafuti"_s,
+			u"فونافوتی"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Pacific/Honolulu"_s),
-			$of(u"هونولولو"_s)
+			"timezone.excity.Pacific/Honolulu"_s,
+			u"هونولولو"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Pacific/Johnston"_s),
-			$of(u"جانستون"_s)
+			"timezone.excity.Pacific/Johnston"_s,
+			u"جانستون"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Pacific/Pitcairn"_s),
-			$of(u"پیت\u200cکرن"_s)
+			"timezone.excity.Pacific/Pitcairn"_s,
+			u"پیت\u200cکرن"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Africa/Casablanca"_s),
-			$of(u"کازابلانکا"_s)
+			"timezone.excity.Africa/Casablanca"_s,
+			u"کازابلانکا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Africa/Libreville"_s),
-			$of(u"لیبرویل"_s)
+			"timezone.excity.Africa/Libreville"_s,
+			u"لیبرویل"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Africa/Lubumbashi"_s),
-			$of(u"لوبومباشی"_s)
+			"timezone.excity.Africa/Lubumbashi"_s,
+			u"لوبومباشی"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Africa/Nouakchott"_s),
-			$of(u"نوآکشوت"_s)
+			"timezone.excity.Africa/Nouakchott"_s,
+			u"نوآکشوت"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Africa/Porto-Novo"_s),
-			$of(u"پورتو نووو"_s)
+			"timezone.excity.Africa/Porto-Novo"_s,
+			u"پورتو نووو"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.America/Anchorage"_s),
-			$of(u"انکوریج"_s)
+			"timezone.excity.America/Anchorage"_s,
+			u"انکوریج"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.America/Araguaina"_s),
-			$of(u"آراگواینا"_s)
+			"timezone.excity.America/Araguaina"_s,
+			u"آراگواینا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.America/Boa_Vista"_s),
-			$of(u"بوئاویستا"_s)
+			"timezone.excity.America/Boa_Vista"_s,
+			u"بوئاویستا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.America/Catamarca"_s),
-			$of(u"کاتامارکا"_s)
+			"timezone.excity.America/Catamarca"_s,
+			u"کاتامارکا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.America/Chihuahua"_s),
-			$of(u"چیواوا"_s)
+			"timezone.excity.America/Chihuahua"_s,
+			u"چیواوا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.America/Fortaleza"_s),
-			$of(u"فورتالزا"_s)
+			"timezone.excity.America/Fortaleza"_s,
+			u"فورتالزا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.America/Glace_Bay"_s),
-			$of(u"گلیس\u200cبی"_s)
+			"timezone.excity.America/Glace_Bay"_s,
+			u"گلیس\u200cبی"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.America/Goose_Bay"_s),
-			$of(u"گوس\u200cبی"_s)
+			"timezone.excity.America/Goose_Bay"_s,
+			u"گوس\u200cبی"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.America/Guatemala"_s),
-			$of(u"گواتمالا"_s)
+			"timezone.excity.America/Guatemala"_s,
+			u"گواتمالا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.America/Guayaquil"_s),
-			$of(u"گوایاکیل"_s)
+			"timezone.excity.America/Guayaquil"_s,
+			u"گوایاکیل"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.America/Matamoros"_s),
-			$of(u"ماتاموروس"_s)
+			"timezone.excity.America/Matamoros"_s,
+			u"ماتاموروس"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.America/Menominee"_s),
-			$of(u"منامینی"_s)
+			"timezone.excity.America/Menominee"_s,
+			u"منامینی"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.America/Monterrey"_s),
-			$of(u"مونتری"_s)
+			"timezone.excity.America/Monterrey"_s,
+			u"مونتری"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.America/Sao_Paulo"_s),
-			$of(u"سائوپائولو"_s)
+			"timezone.excity.America/Sao_Paulo"_s,
+			u"سائوپائولو"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.America/St_Thomas"_s),
-			$of(u"سنت توماس"_s)
+			"timezone.excity.America/St_Thomas"_s,
+			u"سنت توماس"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.America/Vancouver"_s),
-			$of(u"ونکوور"_s)
+			"timezone.excity.America/Vancouver"_s,
+			u"ونکوور"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Antarctica/Mawson"_s),
-			$of(u"ماوسون"_s)
+			"timezone.excity.Antarctica/Mawson"_s,
+			u"ماوسون"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Antarctica/Palmer"_s),
-			$of(u"پالمر"_s)
+			"timezone.excity.Antarctica/Palmer"_s,
+			u"پالمر"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Antarctica/Vostok"_s),
-			$of(u"وستوک"_s)
+			"timezone.excity.Antarctica/Vostok"_s,
+			u"وستوک"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Asia/Kuala_Lumpur"_s),
-			$of(u"کوالالامپور"_s)
+			"timezone.excity.Asia/Kuala_Lumpur"_s,
+			u"کوالالامپور"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Asia/Novokuznetsk"_s),
-			$of(u"نوووکوزنتسک"_s)
+			"timezone.excity.Asia/Novokuznetsk"_s,
+			u"نوووکوزنتسک"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Europe/Bratislava"_s),
-			$of(u"براتیسلاوا"_s)
+			"timezone.excity.Europe/Bratislava"_s,
+			u"براتیسلاوا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Europe/Copenhagen"_s),
-			$of(u"کپنهاگ"_s)
+			"timezone.excity.Europe/Copenhagen"_s,
+			u"کپنهاگ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Europe/Luxembourg"_s),
-			$of(u"لوکزامبورگ"_s)
+			"timezone.excity.Europe/Luxembourg"_s,
+			u"لوکزامبورگ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Europe/San_Marino"_s),
-			$of(u"سان\u200cمارینو"_s)
+			"timezone.excity.Europe/San_Marino"_s,
+			u"سان\u200cمارینو"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Europe/Simferopol"_s),
-			$of(u"سیمفروپل"_s)
+			"timezone.excity.Europe/Simferopol"_s,
+			u"سیمفروپل"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Europe/Zaporozhye"_s),
-			$of(u"زاپوروژیا"_s)
+			"timezone.excity.Europe/Zaporozhye"_s,
+			u"زاپوروژیا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Pacific/Enderbury"_s),
-			$of(u"اندربری"_s)
+			"timezone.excity.Pacific/Enderbury"_s,
+			u"اندربری"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Pacific/Galapagos"_s),
-			$of(u"گالاپاگوس"_s)
+			"timezone.excity.Pacific/Galapagos"_s,
+			u"گالاپاگوس"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Pacific/Kwajalein"_s),
-			$of(u"کواجیلین"_s)
+			"timezone.excity.Pacific/Kwajalein"_s,
+			u"کواجیلین"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Pacific/Marquesas"_s),
-			$of(u"مارکوزه"_s)
+			"timezone.excity.Pacific/Marquesas"_s,
+			u"مارکوزه"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Pacific/Pago_Pago"_s),
-			$of(u"پاگوپاگو"_s)
+			"timezone.excity.Pacific/Pago_Pago"_s,
+			u"پاگوپاگو"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Pacific/Rarotonga"_s),
-			$of(u"راروتونگا"_s)
+			"timezone.excity.Pacific/Rarotonga"_s,
+			u"راروتونگا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Pacific/Tongatapu"_s),
-			$of(u"تونگاتاپو"_s)
+			"timezone.excity.Pacific/Tongatapu"_s,
+			u"تونگاتاپو"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Africa/Addis_Ababa"_s),
-			$of(u"آدیس آبابا"_s)
+			"timezone.excity.Africa/Addis_Ababa"_s,
+			u"آدیس آبابا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Africa/Brazzaville"_s),
-			$of(u"برازویل"_s)
+			"timezone.excity.Africa/Brazzaville"_s,
+			u"برازویل"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Africa/Ouagadougou"_s),
-			$of(u"اوآگادوگو"_s)
+			"timezone.excity.Africa/Ouagadougou"_s,
+			u"اوآگادوگو"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.America/Costa_Rica"_s),
-			$of(u"کاستاریکا"_s)
+			"timezone.excity.America/Costa_Rica"_s,
+			u"کاستاریکا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.America/Grand_Turk"_s),
-			$of(u"گراند تورک"_s)
+			"timezone.excity.America/Grand_Turk"_s,
+			u"گراند تورک"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.America/Guadeloupe"_s),
-			$of(u"گوادلوپ"_s)
+			"timezone.excity.America/Guadeloupe"_s,
+			u"گوادلوپ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.America/Hermosillo"_s),
-			$of(u"ارموسیو"_s)
+			"timezone.excity.America/Hermosillo"_s,
+			u"ارموسیو"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.America/Kralendijk"_s),
-			$of(u"کرالندیک"_s)
+			"timezone.excity.America/Kralendijk"_s,
+			u"کرالندیک"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.America/Louisville"_s),
-			$of(u"لوئیزویل"_s)
+			"timezone.excity.America/Louisville"_s,
+			u"لوئیزویل"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.America/Martinique"_s),
-			$of(u"مارتینیک"_s)
+			"timezone.excity.America/Martinique"_s,
+			u"مارتینیک"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.America/Metlakatla"_s),
-			$of(u"متالاکاتلا"_s)
+			"timezone.excity.America/Metlakatla"_s,
+			u"متالاکاتلا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.America/Montevideo"_s),
-			$of(u"مونته\u200cویدئو"_s)
+			"timezone.excity.America/Montevideo"_s,
+			u"مونته\u200cویدئو"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.America/Montserrat"_s),
-			$of(u"مونتسرات"_s)
+			"timezone.excity.America/Montserrat"_s,
+			u"مونتسرات"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.America/Paramaribo"_s),
-			$of(u"پاراماریبو"_s)
+			"timezone.excity.America/Paramaribo"_s,
+			u"پاراماریبو"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.America/Rio_Branco"_s),
-			$of(u"ریوبرانکو"_s)
+			"timezone.excity.America/Rio_Branco"_s,
+			u"ریوبرانکو"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.America/St_Vincent"_s),
-			$of(u"سنت وینسنت"_s)
+			"timezone.excity.America/St_Vincent"_s,
+			u"سنت وینسنت"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.America/Whitehorse"_s),
-			$of(u"وایت\u200cهورس"_s)
+			"timezone.excity.America/Whitehorse"_s,
+			u"وایت\u200cهورس"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Antarctica/McMurdo"_s),
-			$of(u"مک\u200cموردو"_s)
+			"timezone.excity.Antarctica/McMurdo"_s,
+			u"مک\u200cموردو"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Antarctica/Rothera"_s),
-			$of(u"روترا"_s)
+			"timezone.excity.Antarctica/Rothera"_s,
+			u"روترا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Asia/Srednekolymsk"_s),
-			$of(u"اسردنکولیمسک"_s)
+			"timezone.excity.Asia/Srednekolymsk"_s,
+			u"اسردنکولیمسک"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Asia/Yekaterinburg"_s),
-			$of(u"یکاترینبرگ"_s)
+			"timezone.excity.Asia/Yekaterinburg"_s,
+			u"یکاترینبرگ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Atlantic/Reykjavik"_s),
-			$of(u"ریکیاویک"_s)
+			"timezone.excity.Atlantic/Reykjavik"_s,
+			u"ریکیاویک"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Atlantic/St_Helena"_s),
-			$of(u"سنت هلنا"_s)
+			"timezone.excity.Atlantic/St_Helena"_s,
+			u"سنت هلنا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Australia/Adelaide"_s),
-			$of(u"آدلاید"_s)
+			"timezone.excity.Australia/Adelaide"_s,
+			u"آدلاید"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Australia/Brisbane"_s),
-			$of(u"بریسبین"_s)
+			"timezone.excity.Australia/Brisbane"_s,
+			u"بریسبین"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Australia/Lindeman"_s),
-			$of(u"لیندمن"_s)
+			"timezone.excity.Australia/Lindeman"_s,
+			u"لیندمن"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Europe/Isle_of_Man"_s),
-			$of(u"جزیرهٔ من"_s)
+			"timezone.excity.Europe/Isle_of_Man"_s,
+			u"جزیرهٔ من"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Europe/Kaliningrad"_s),
-			$of(u"کالینینگراد"_s)
+			"timezone.excity.Europe/Kaliningrad"_s,
+			u"کالینینگراد"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Pacific/Kiritimati"_s),
-			$of(u"کریتیماتی"_s)
+			"timezone.excity.Pacific/Kiritimati"_s,
+			u"کریتیماتی"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Africa/Johannesburg"_s),
-			$of(u"ژوهانسبورگ"_s)
+			"timezone.excity.Africa/Johannesburg"_s,
+			u"ژوهانسبورگ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.America/El_Salvador"_s),
-			$of(u"السالوادور"_s)
+			"timezone.excity.America/El_Salvador"_s,
+			u"السالوادور"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.America/Fort_Nelson"_s),
-			$of(u"فورت نلسون"_s)
+			"timezone.excity.America/Fort_Nelson"_s,
+			u"فورت نلسون"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.America/Los_Angeles"_s),
-			$of(u"لوس\u200cآنجلس"_s)
+			"timezone.excity.America/Los_Angeles"_s,
+			u"لوس\u200cآنجلس"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.America/Mexico_City"_s),
-			$of(u"مکزیکوسیتی"_s)
+			"timezone.excity.America/Mexico_City"_s,
+			u"مکزیکوسیتی"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.America/Pangnirtung"_s),
-			$of(u"پانگنیرتونگ"_s)
+			"timezone.excity.America/Pangnirtung"_s,
+			u"پانگنیرتونگ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.America/Porto_Velho"_s),
-			$of(u"پورتوولیو"_s)
+			"timezone.excity.America/Porto_Velho"_s,
+			u"پورتوولیو"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.America/Puerto_Rico"_s),
-			$of(u"پورتوریکو"_s)
+			"timezone.excity.America/Puerto_Rico"_s,
+			u"پورتوریکو"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.America/Rainy_River"_s),
-			$of(u"رینی\u200cریور"_s)
+			"timezone.excity.America/Rainy_River"_s,
+			u"رینی\u200cریور"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.America/Tegucigalpa"_s),
-			$of(u"تگوسیگالپا"_s)
+			"timezone.excity.America/Tegucigalpa"_s,
+			u"تگوسیگالپا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.America/Thunder_Bay"_s),
-			$of(u"تاندربی"_s)
+			"timezone.excity.America/Thunder_Bay"_s,
+			u"تاندربی"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.America/Yellowknife"_s),
-			$of(u"یلونایف"_s)
+			"timezone.excity.America/Yellowknife"_s,
+			u"یلونایف"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Arctic/Longyearbyen"_s),
-			$of(u"لانگ\u200cیربین"_s)
+			"timezone.excity.Arctic/Longyearbyen"_s,
+			u"لانگ\u200cیربین"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Atlantic/Cape_Verde"_s),
-			$of(u"کیپ\u200cورد"_s)
+			"timezone.excity.Atlantic/Cape_Verde"_s,
+			u"کیپ\u200cورد"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Australia/Lord_Howe"_s),
-			$of(u"لردهاو"_s)
+			"timezone.excity.Australia/Lord_Howe"_s,
+			u"لردهاو"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Australia/Melbourne"_s),
-			$of(u"ملبورن"_s)
+			"timezone.excity.Australia/Melbourne"_s,
+			u"ملبورن"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Indian/Antananarivo"_s),
-			$of(u"آنتاناناریوو"_s)
+			"timezone.excity.Indian/Antananarivo"_s,
+			u"آنتاناناریوو"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Pacific/Guadalcanal"_s),
-			$of(u"گوادال\u200cکانال"_s)
+			"timezone.excity.Pacific/Guadalcanal"_s,
+			u"گوادال\u200cکانال"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Africa/Dar_es_Salaam"_s),
-			$of(u"دارالسلام"_s)
+			"timezone.excity.Africa/Dar_es_Salaam"_s,
+			u"دارالسلام"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.America/Blanc-Sablon"_s),
-			$of(u"بلان‐سابلون"_s)
+			"timezone.excity.America/Blanc-Sablon"_s,
+			u"بلان‐سابلون"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.America/Buenos_Aires"_s),
-			$of(u"بوئنوس\u200cآیرس"_s)
+			"timezone.excity.America/Buenos_Aires"_s,
+			u"بوئنوس\u200cآیرس"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.America/Campo_Grande"_s),
-			$of(u"کمپو گرانده"_s)
+			"timezone.excity.America/Campo_Grande"_s,
+			u"کمپو گرانده"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.America/Danmarkshavn"_s),
-			$of(u"دانمارکس\u200cهاون"_s)
+			"timezone.excity.America/Danmarkshavn"_s,
+			u"دانمارکس\u200cهاون"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.America/Dawson_Creek"_s),
-			$of(u"داوسن کریک"_s)
+			"timezone.excity.America/Dawson_Creek"_s,
+			u"داوسن کریک"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.America/Indiana/Knox"_s),
-			$of(u"ناکس، ایندیانا"_s)
+			"timezone.excity.America/Indiana/Knox"_s,
+			u"ناکس، ایندیانا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.America/Indianapolis"_s),
-			$of(u"ایندیاناپولیس"_s)
+			"timezone.excity.America/Indianapolis"_s,
+			u"ایندیاناپولیس"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.America/Punta_Arenas"_s),
-			$of(u"پونتا آرناس"_s)
+			"timezone.excity.America/Punta_Arenas"_s,
+			u"پونتا آرناس"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.America/Rankin_Inlet"_s),
-			$of(u"خلیجک رنکین"_s)
+			"timezone.excity.America/Rankin_Inlet"_s,
+			u"خلیجک رنکین"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.America/Santa_Isabel"_s),
-			$of(u"سانتا ایزابل"_s)
+			"timezone.excity.America/Santa_Isabel"_s,
+			u"سانتا ایزابل"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.America/Scoresbysund"_s),
-			$of(u"اسکورسبیسوند"_s)
+			"timezone.excity.America/Scoresbysund"_s,
+			u"اسکورسبیسوند"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Antarctica/Macquarie"_s),
-			$of(u"مکواری"_s)
+			"timezone.excity.Antarctica/Macquarie"_s,
+			u"مکواری"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Pacific/Bougainville"_s),
-			$of(u"بوگنویل"_s)
+			"timezone.excity.Pacific/Bougainville"_s,
+			u"بوگنویل"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Pacific/Port_Moresby"_s),
-			$of(u"پورت\u200cمورزبی"_s)
+			"timezone.excity.Pacific/Port_Moresby"_s,
+			u"پورت\u200cمورزبی"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.America/Cambridge_Bay"_s),
-			$of(u"کمبریج\u200cبی"_s)
+			"timezone.excity.America/Cambridge_Bay"_s,
+			u"کمبریج\u200cبی"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.America/Coral_Harbour"_s),
-			$of(u"اتکوکان"_s)
+			"timezone.excity.America/Coral_Harbour"_s,
+			u"اتکوکان"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.America/Indiana/Vevay"_s),
-			$of(u"ویوی، ایندیانا"_s)
+			"timezone.excity.America/Indiana/Vevay"_s,
+			u"ویوی، ایندیانا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.America/Lower_Princes"_s),
-			$of(u"بخش شاهزاده\u200c\u200cنشین پایین"_s)
+			"timezone.excity.America/Lower_Princes"_s,
+			u"بخش شاهزاده\u200c\u200cنشین پایین"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.America/Port_of_Spain"_s),
-			$of(u"پورت\u200cآواسپین"_s)
+			"timezone.excity.America/Port_of_Spain"_s,
+			u"پورت\u200cآواسپین"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.America/Santo_Domingo"_s),
-			$of(u"سانتو دومینگو"_s)
+			"timezone.excity.America/Santo_Domingo"_s,
+			u"سانتو دومینگو"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.America/St_Barthelemy"_s),
-			$of(u"سنت بارتلمی"_s)
+			"timezone.excity.America/St_Barthelemy"_s,
+			u"سنت بارتلمی"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.America/Swift_Current"_s),
-			$of(u"سویفت\u200cکارنت"_s)
+			"timezone.excity.America/Swift_Current"_s,
+			u"سویفت\u200cکارنت"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Australia/Broken_Hill"_s),
-			$of(u"بروکن\u200cهیل"_s)
+			"timezone.excity.Australia/Broken_Hill"_s,
+			u"بروکن\u200cهیل"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.America/Bahia_Banderas"_s),
-			$of(u"باهیا باندراس"_s)
+			"timezone.excity.America/Bahia_Banderas"_s,
+			u"باهیا باندراس"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.America/Port-au-Prince"_s),
-			$of(u"پورتوپرنس"_s)
+			"timezone.excity.America/Port-au-Prince"_s,
+			u"پورتوپرنس"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Atlantic/South_Georgia"_s),
-			$of(u"جورجیای جنوبی"_s)
+			"timezone.excity.Atlantic/South_Georgia"_s,
+			u"جورجیای جنوبی"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.America/Argentina/Salta"_s),
-			$of(u"سالتا"_s)
+			"timezone.excity.America/Argentina/Salta"_s,
+			u"سالتا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.America/Indiana/Marengo"_s),
-			$of(u"مارنگو، ایندیانا"_s)
+			"timezone.excity.America/Indiana/Marengo"_s,
+			u"مارنگو، ایندیانا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.America/Indiana/Winamac"_s),
-			$of(u"ویناماک، ایندیانا"_s)
+			"timezone.excity.America/Indiana/Winamac"_s,
+			u"ویناماک، ایندیانا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.America/Argentina/Tucuman"_s),
-			$of(u"توکومن"_s)
+			"timezone.excity.America/Argentina/Tucuman"_s,
+			u"توکومن"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.America/Argentina/Ushuaia"_s),
-			$of(u"اوشوایا"_s)
+			"timezone.excity.America/Argentina/Ushuaia"_s,
+			u"اوشوایا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.America/Indiana/Tell_City"_s),
-			$of(u"تل\u200cسیتی، ایندیانا"_s)
+			"timezone.excity.America/Indiana/Tell_City"_s,
+			u"تل\u200cسیتی، ایندیانا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.America/Indiana/Vincennes"_s),
-			$of(u"وینسنس، اندیانا"_s)
+			"timezone.excity.America/Indiana/Vincennes"_s,
+			u"وینسنس، اندیانا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.Antarctica/DumontDUrville"_s),
-			$of(u"دومون دورویل"_s)
+			"timezone.excity.Antarctica/DumontDUrville"_s,
+			u"دومون دورویل"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.America/Argentina/La_Rioja"_s),
-			$of(u"لاریوخا"_s)
+			"timezone.excity.America/Argentina/La_Rioja"_s,
+			u"لاریوخا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.America/Argentina/San_Juan"_s),
-			$of(u"سن\u200cخوان"_s)
+			"timezone.excity.America/Argentina/San_Juan"_s,
+			u"سن\u200cخوان"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.America/Argentina/San_Luis"_s),
-			$of(u"سن\u200cلوئیس"_s)
+			"timezone.excity.America/Argentina/San_Luis"_s,
+			u"سن\u200cلوئیس"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.America/Indiana/Petersburg"_s),
-			$of(u"پیترزبرگ، ایندیانا"_s)
+			"timezone.excity.America/Indiana/Petersburg"_s,
+			u"پیترزبرگ، ایندیانا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.America/Kentucky/Monticello"_s),
-			$of(u"مانتیسلو، کنتاکی"_s)
+			"timezone.excity.America/Kentucky/Monticello"_s,
+			u"مانتیسلو، کنتاکی"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.America/North_Dakota/Beulah"_s),
-			$of(u"بیولا، داکوتای شمالی"_s)
+			"timezone.excity.America/North_Dakota/Beulah"_s,
+			u"بیولا، داکوتای شمالی"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.America/North_Dakota/Center"_s),
-			$of(u"سنتر، داکوتای شمالی"_s)
+			"timezone.excity.America/North_Dakota/Center"_s,
+			u"سنتر، داکوتای شمالی"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.America/Argentina/Rio_Gallegos"_s),
-			$of(u"ریوگالگوس"_s)
+			"timezone.excity.America/Argentina/Rio_Gallegos"_s,
+			u"ریوگالگوس"_s
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.excity.America/North_Dakota/New_Salem"_s),
-			$of(u"نیوسالم، داکوتای شمالی"_s)
+			"timezone.excity.America/North_Dakota/New_Salem"_s,
+			u"نیوسالم، داکوتای شمالی"_s
 		})
 	}));
 	return data;
@@ -4776,7 +4756,22 @@ TimeZoneNames_fa::TimeZoneNames_fa() {
 }
 
 $Class* TimeZoneNames_fa::load$($String* name, bool initialize) {
-	$loadClass(TimeZoneNames_fa, name, initialize, &_TimeZoneNames_fa_ClassInfo_, allocate$TimeZoneNames_fa);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TimeZoneNames_fa, init$, void)},
+		{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(TimeZoneNames_fa, getContents, $ObjectArray2*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.util.resources.cldr.ext.TimeZoneNames_fa",
+		"sun.util.resources.TimeZoneNamesBundle",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(TimeZoneNames_fa, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TimeZoneNames_fa);
+	});
 	return class$;
 }
 

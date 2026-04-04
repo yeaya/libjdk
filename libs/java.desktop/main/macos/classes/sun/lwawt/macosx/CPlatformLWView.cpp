@@ -1,5 +1,4 @@
 #include <sun/lwawt/macosx/CPlatformLWView.h>
-
 #include <sun/java2d/SurfaceData.h>
 #include <sun/lwawt/LWWindowPeer.h>
 #include <sun/lwawt/macosx/CPlatformResponder.h>
@@ -16,31 +15,6 @@ using $CPlatformView = ::sun::lwawt::macosx::CPlatformView;
 namespace sun {
 	namespace lwawt {
 		namespace macosx {
-
-$MethodInfo _CPlatformLWView_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(CPlatformLWView, init$, void)},
-	{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(CPlatformLWView, dispose, void)},
-	{"getAWTView", "()J", nullptr, $PUBLIC, $virtualMethod(CPlatformLWView, getAWTView, int64_t)},
-	{"getSurfaceData", "()Lsun/java2d/SurfaceData;", nullptr, $PUBLIC, $virtualMethod(CPlatformLWView, getSurfaceData, $SurfaceData*)},
-	{"getWindowLayerPtr", "()J", nullptr, $PUBLIC, $virtualMethod(CPlatformLWView, getWindowLayerPtr, int64_t)},
-	{"initialize", "(Lsun/lwawt/LWWindowPeer;Lsun/lwawt/macosx/CPlatformResponder;)V", nullptr, $PUBLIC, $virtualMethod(CPlatformLWView, initialize, void, $LWWindowPeer*, $CPlatformResponder*)},
-	{"replaceSurfaceData", "()Lsun/java2d/SurfaceData;", nullptr, $PUBLIC, $virtualMethod(CPlatformLWView, replaceSurfaceData, $SurfaceData*)},
-	{"setBounds", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(CPlatformLWView, setBounds, void, int32_t, int32_t, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _CPlatformLWView_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.lwawt.macosx.CPlatformLWView",
-	"sun.lwawt.macosx.CPlatformView",
-	nullptr,
-	nullptr,
-	_CPlatformLWView_MethodInfo_
-};
-
-$Object* allocate$CPlatformLWView($Class* clazz) {
-	return $of($alloc(CPlatformLWView));
-}
 
 void CPlatformLWView::init$() {
 	$CPlatformView::init$();
@@ -76,7 +50,28 @@ CPlatformLWView::CPlatformLWView() {
 }
 
 $Class* CPlatformLWView::load$($String* name, bool initialize) {
-	$loadClass(CPlatformLWView, name, initialize, &_CPlatformLWView_ClassInfo_, allocate$CPlatformLWView);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(CPlatformLWView, init$, void)},
+		{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(CPlatformLWView, dispose, void)},
+		{"getAWTView", "()J", nullptr, $PUBLIC, $virtualMethod(CPlatformLWView, getAWTView, int64_t)},
+		{"getSurfaceData", "()Lsun/java2d/SurfaceData;", nullptr, $PUBLIC, $virtualMethod(CPlatformLWView, getSurfaceData, $SurfaceData*)},
+		{"getWindowLayerPtr", "()J", nullptr, $PUBLIC, $virtualMethod(CPlatformLWView, getWindowLayerPtr, int64_t)},
+		{"initialize", "(Lsun/lwawt/LWWindowPeer;Lsun/lwawt/macosx/CPlatformResponder;)V", nullptr, $PUBLIC, $virtualMethod(CPlatformLWView, initialize, void, $LWWindowPeer*, $CPlatformResponder*)},
+		{"replaceSurfaceData", "()Lsun/java2d/SurfaceData;", nullptr, $PUBLIC, $virtualMethod(CPlatformLWView, replaceSurfaceData, $SurfaceData*)},
+		{"setBounds", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(CPlatformLWView, setBounds, void, int32_t, int32_t, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.lwawt.macosx.CPlatformLWView",
+		"sun.lwawt.macosx.CPlatformView",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(CPlatformLWView, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CPlatformLWView);
+	});
 	return class$;
 }
 

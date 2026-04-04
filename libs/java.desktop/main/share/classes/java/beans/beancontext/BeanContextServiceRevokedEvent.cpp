@@ -1,5 +1,4 @@
 #include <java/beans/beancontext/BeanContextServiceRevokedEvent.h>
-
 #include <java/beans/beancontext/BeanContext.h>
 #include <java/beans/beancontext/BeanContextEvent.h>
 #include <java/beans/beancontext/BeanContextServices.h>
@@ -16,37 +15,8 @@ namespace java {
 	namespace beans {
 		namespace beancontext {
 
-$FieldInfo _BeanContextServiceRevokedEvent_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BeanContextServiceRevokedEvent, serialVersionUID)},
-	{"serviceClass", "Ljava/lang/Class;", "Ljava/lang/Class<*>;", $PROTECTED, $field(BeanContextServiceRevokedEvent, serviceClass)},
-	{"invalidateRefs", "Z", nullptr, $PRIVATE, $field(BeanContextServiceRevokedEvent, invalidateRefs)},
-	{}
-};
-
-$MethodInfo _BeanContextServiceRevokedEvent_MethodInfo_[] = {
-	{"<init>", "(Ljava/beans/beancontext/BeanContextServices;Ljava/lang/Class;Z)V", "(Ljava/beans/beancontext/BeanContextServices;Ljava/lang/Class<*>;Z)V", $PUBLIC, $method(BeanContextServiceRevokedEvent, init$, void, $BeanContextServices*, $Class*, bool)},
-	{"getServiceClass", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PUBLIC, $virtualMethod(BeanContextServiceRevokedEvent, getServiceClass, $Class*)},
-	{"getSourceAsBeanContextServices", "()Ljava/beans/beancontext/BeanContextServices;", nullptr, $PUBLIC, $virtualMethod(BeanContextServiceRevokedEvent, getSourceAsBeanContextServices, $BeanContextServices*)},
-	{"isCurrentServiceInvalidNow", "()Z", nullptr, $PUBLIC, $virtualMethod(BeanContextServiceRevokedEvent, isCurrentServiceInvalidNow, bool)},
-	{"isServiceClass", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;)Z", $PUBLIC, $virtualMethod(BeanContextServiceRevokedEvent, isServiceClass, bool, $Class*)},
-	{}
-};
-
-$ClassInfo _BeanContextServiceRevokedEvent_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.beans.beancontext.BeanContextServiceRevokedEvent",
-	"java.beans.beancontext.BeanContextEvent",
-	nullptr,
-	_BeanContextServiceRevokedEvent_FieldInfo_,
-	_BeanContextServiceRevokedEvent_MethodInfo_
-};
-
-$Object* allocate$BeanContextServiceRevokedEvent($Class* clazz) {
-	return $of($alloc(BeanContextServiceRevokedEvent));
-}
-
 void BeanContextServiceRevokedEvent::init$($BeanContextServices* bcs, $Class* sc, bool invalidate) {
-	$BeanContextEvent::init$(static_cast<$BeanContext*>(bcs));
+	$BeanContextEvent::init$($cast($BeanContext, bcs));
 	$set(this, serviceClass, sc);
 	this->invalidateRefs = invalidate;
 }
@@ -60,7 +30,7 @@ $Class* BeanContextServiceRevokedEvent::getServiceClass() {
 }
 
 bool BeanContextServiceRevokedEvent::isServiceClass($Class* service) {
-	return $nc($of(this->serviceClass))->equals(service);
+	return $nc(this->serviceClass)->equals(service);
 }
 
 bool BeanContextServiceRevokedEvent::isCurrentServiceInvalidNow() {
@@ -71,7 +41,31 @@ BeanContextServiceRevokedEvent::BeanContextServiceRevokedEvent() {
 }
 
 $Class* BeanContextServiceRevokedEvent::load$($String* name, bool initialize) {
-	$loadClass(BeanContextServiceRevokedEvent, name, initialize, &_BeanContextServiceRevokedEvent_ClassInfo_, allocate$BeanContextServiceRevokedEvent);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BeanContextServiceRevokedEvent, serialVersionUID)},
+		{"serviceClass", "Ljava/lang/Class;", "Ljava/lang/Class<*>;", $PROTECTED, $field(BeanContextServiceRevokedEvent, serviceClass)},
+		{"invalidateRefs", "Z", nullptr, $PRIVATE, $field(BeanContextServiceRevokedEvent, invalidateRefs)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/beans/beancontext/BeanContextServices;Ljava/lang/Class;Z)V", "(Ljava/beans/beancontext/BeanContextServices;Ljava/lang/Class<*>;Z)V", $PUBLIC, $method(BeanContextServiceRevokedEvent, init$, void, $BeanContextServices*, $Class*, bool)},
+		{"getServiceClass", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PUBLIC, $virtualMethod(BeanContextServiceRevokedEvent, getServiceClass, $Class*)},
+		{"getSourceAsBeanContextServices", "()Ljava/beans/beancontext/BeanContextServices;", nullptr, $PUBLIC, $virtualMethod(BeanContextServiceRevokedEvent, getSourceAsBeanContextServices, $BeanContextServices*)},
+		{"isCurrentServiceInvalidNow", "()Z", nullptr, $PUBLIC, $virtualMethod(BeanContextServiceRevokedEvent, isCurrentServiceInvalidNow, bool)},
+		{"isServiceClass", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;)Z", $PUBLIC, $virtualMethod(BeanContextServiceRevokedEvent, isServiceClass, bool, $Class*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.beans.beancontext.BeanContextServiceRevokedEvent",
+		"java.beans.beancontext.BeanContextEvent",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(BeanContextServiceRevokedEvent, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BeanContextServiceRevokedEvent);
+	});
 	return class$;
 }
 

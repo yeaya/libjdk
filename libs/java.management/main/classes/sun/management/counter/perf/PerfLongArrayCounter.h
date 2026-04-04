@@ -49,7 +49,7 @@ public:
 	virtual $String* toString() override;
 	virtual $Object* writeReplace();
 	::java::nio::LongBuffer* lb = nullptr;
-	static const int64_t serialVersionUID = (int64_t)0xDA103CFDCD4771EA;
+	static const int64_t serialVersionUID = (int64_t)0xda103cfdcd4771ea;
 };
 
 			} // perf

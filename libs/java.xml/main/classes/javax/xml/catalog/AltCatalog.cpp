@@ -1,5 +1,4 @@
 #include <javax/xml/catalog/AltCatalog.h>
-
 #include <java/net/URI.h>
 #include <java/net/URISyntaxException.h>
 #include <java/net/URL.h>
@@ -24,33 +23,6 @@ namespace javax {
 	namespace xml {
 		namespace catalog {
 
-$FieldInfo _AltCatalog_FieldInfo_[] = {
-	{"catalogURI", "Ljava/net/URI;", nullptr, 0, $field(AltCatalog, catalogURI)},
-	{}
-};
-
-$MethodInfo _AltCatalog_MethodInfo_[] = {
-	{"<init>", "(Ljavax/xml/catalog/BaseEntry$CatalogEntryType;Ljava/lang/String;)V", nullptr, 0, $method(AltCatalog, init$, void, $BaseEntry$CatalogEntryType*, $String*)},
-	{"getCatalogId", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(AltCatalog, getCatalogId, $String*)},
-	{"getCatalogURI", "()Ljava/net/URI;", nullptr, 0, $virtualMethod(AltCatalog, getCatalogURI, $URI*)},
-	{"matchURI", "(Ljava/lang/String;I)Ljava/net/URI;", nullptr, $PUBLIC, $virtualMethod(AltCatalog, matchURI, $URI*, $String*, int32_t)},
-	{"setCatalog", "(Ljava/lang/String;)V", nullptr, 0, $virtualMethod(AltCatalog, setCatalog, void, $String*)},
-	{}
-};
-
-$ClassInfo _AltCatalog_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.xml.catalog.AltCatalog",
-	"javax.xml.catalog.BaseEntry",
-	nullptr,
-	_AltCatalog_FieldInfo_,
-	_AltCatalog_MethodInfo_
-};
-
-$Object* allocate$AltCatalog($Class* clazz) {
-	return $of($alloc(AltCatalog));
-}
-
 void AltCatalog::init$($BaseEntry$CatalogEntryType* type, $String* base) {
 	$BaseEntry::init$(type, base);
 }
@@ -61,7 +33,7 @@ void AltCatalog::setCatalog($String* catalog) {
 		$set(this, catalogURI, $nc(url)->toURI());
 	} catch ($URISyntaxException& ex) {
 		$init($CatalogMessages);
-		$CatalogMessages::reportRunTimeError($CatalogMessages::ERR_OTHER, static_cast<$Throwable*>(ex));
+		$CatalogMessages::reportRunTimeError($CatalogMessages::ERR_OTHER, ex);
 	}
 }
 
@@ -81,7 +53,29 @@ AltCatalog::AltCatalog() {
 }
 
 $Class* AltCatalog::load$($String* name, bool initialize) {
-	$loadClass(AltCatalog, name, initialize, &_AltCatalog_ClassInfo_, allocate$AltCatalog);
+	$FieldInfo fieldInfos$$[] = {
+		{"catalogURI", "Ljava/net/URI;", nullptr, 0, $field(AltCatalog, catalogURI)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/xml/catalog/BaseEntry$CatalogEntryType;Ljava/lang/String;)V", nullptr, 0, $method(AltCatalog, init$, void, $BaseEntry$CatalogEntryType*, $String*)},
+		{"getCatalogId", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(AltCatalog, getCatalogId, $String*)},
+		{"getCatalogURI", "()Ljava/net/URI;", nullptr, 0, $virtualMethod(AltCatalog, getCatalogURI, $URI*)},
+		{"matchURI", "(Ljava/lang/String;I)Ljava/net/URI;", nullptr, $PUBLIC, $virtualMethod(AltCatalog, matchURI, $URI*, $String*, int32_t)},
+		{"setCatalog", "(Ljava/lang/String;)V", nullptr, 0, $virtualMethod(AltCatalog, setCatalog, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.xml.catalog.AltCatalog",
+		"javax.xml.catalog.BaseEntry",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(AltCatalog, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AltCatalog);
+	});
 	return class$;
 }
 

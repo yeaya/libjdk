@@ -1,9 +1,7 @@
 #include <jdk/internal/net/http/common/SSLFlowDelegate$Reader.h>
-
 #include <java/io/IOException.h>
 #include <java/io/Serializable.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Runnable.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
@@ -51,21 +49,15 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $Long = ::java::lang::Long;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
 using $AtomicInteger = ::java::util::concurrent::atomic::AtomicInteger;
-using $Consumer = ::java::util::function::Consumer;
 using $Supplier = ::java::util::function::Supplier;
-using $SSLEngine = ::javax::net::ssl::SSLEngine;
 using $SSLEngineResult = ::javax::net::ssl::SSLEngineResult;
 using $SSLEngineResult$HandshakeStatus = ::javax::net::ssl::SSLEngineResult$HandshakeStatus;
 using $SSLEngineResult$Status = ::javax::net::ssl::SSLEngineResult$Status;
-using $SSLSession = ::javax::net::ssl::SSLSession;
-using $Demand = ::jdk::internal::net::http::common::Demand;
-using $Logger = ::jdk::internal::net::http::common::Logger;
 using $SSLFlowDelegate = ::jdk::internal::net::http::common::SSLFlowDelegate;
 using $SSLFlowDelegate$1 = ::jdk::internal::net::http::common::SSLFlowDelegate$1;
 using $SSLFlowDelegate$EngineResult = ::jdk::internal::net::http::common::SSLFlowDelegate$EngineResult;
@@ -90,107 +82,42 @@ public:
 	virtual $Object* get() override {
 		 return $of($nc(inst$)->dbgString());
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<SSLFlowDelegate$Reader$$Lambda$dbgString>());
-	}
 	SSLFlowDelegate$Reader* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo SSLFlowDelegate$Reader$$Lambda$dbgString::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(SSLFlowDelegate$Reader$$Lambda$dbgString, inst$)},
-	{}
-};
-$MethodInfo SSLFlowDelegate$Reader$$Lambda$dbgString::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/common/SSLFlowDelegate$Reader;)V", nullptr, $PUBLIC, $method(SSLFlowDelegate$Reader$$Lambda$dbgString, init$, void, SSLFlowDelegate$Reader*)},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SSLFlowDelegate$Reader$$Lambda$dbgString, get, $Object*)},
-	{}
-};
-$ClassInfo SSLFlowDelegate$Reader$$Lambda$dbgString::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.net.http.common.SSLFlowDelegate$Reader$$Lambda$dbgString",
-	"java.lang.Object",
-	"java.util.function.Supplier",
-	fieldInfos,
-	methodInfos
 };
 $Class* SSLFlowDelegate$Reader$$Lambda$dbgString::load$($String* name, bool initialize) {
-	$loadClass(SSLFlowDelegate$Reader$$Lambda$dbgString, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(SSLFlowDelegate$Reader$$Lambda$dbgString, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/internal/net/http/common/SSLFlowDelegate$Reader;)V", nullptr, $PUBLIC, $method(SSLFlowDelegate$Reader$$Lambda$dbgString, init$, void, SSLFlowDelegate$Reader*)},
+		{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SSLFlowDelegate$Reader$$Lambda$dbgString, get, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.net.http.common.SSLFlowDelegate$Reader$$Lambda$dbgString",
+		"java.lang.Object",
+		"java.util.function.Supplier",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SSLFlowDelegate$Reader$$Lambda$dbgString, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SSLFlowDelegate$Reader$$Lambda$dbgString);
+	});
 	return class$;
 }
 $Class* SSLFlowDelegate$Reader$$Lambda$dbgString::class$ = nullptr;
 
-$FieldInfo _SSLFlowDelegate$Reader_FieldInfo_[] = {
-	{"this$0", "Ljdk/internal/net/http/common/SSLFlowDelegate;", nullptr, $FINAL | $SYNTHETIC, $field(SSLFlowDelegate$Reader, this$0)},
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(SSLFlowDelegate$Reader, $assertionsDisabled)},
-	{"TARGET_BUFSIZE", "I", nullptr, $STATIC | $FINAL, $constField(SSLFlowDelegate$Reader, TARGET_BUFSIZE)},
-	{"scheduler", "Ljdk/internal/net/http/common/SequentialScheduler;", nullptr, $FINAL, $field(SSLFlowDelegate$Reader, scheduler)},
-	{"readBuf", "Ljava/nio/ByteBuffer;", nullptr, $VOLATILE, $field(SSLFlowDelegate$Reader, readBuf)},
-	{"completing", "Z", nullptr, $VOLATILE, $field(SSLFlowDelegate$Reader, completing)},
-	{"readBufferLock", "Ljava/lang/Object;", nullptr, $FINAL, $field(SSLFlowDelegate$Reader, readBufferLock)},
-	{"debugr", "Ljdk/internal/net/http/common/Logger;", nullptr, $FINAL, $field(SSLFlowDelegate$Reader, debugr)},
-	{"count", "Ljava/util/concurrent/atomic/AtomicInteger;", nullptr, 0, $field(SSLFlowDelegate$Reader, count)},
-	{"minBytesRequired", "I", nullptr, $VOLATILE, $field(SSLFlowDelegate$Reader, minBytesRequired)},
-	{"lastUnwrapStatus", "Ljavax/net/ssl/SSLEngineResult$Status;", nullptr, $PRIVATE | $VOLATILE, $field(SSLFlowDelegate$Reader, lastUnwrapStatus)},
-	{}
-};
-
-$MethodInfo _SSLFlowDelegate$Reader_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/net/http/common/SSLFlowDelegate;)V", nullptr, 0, $method(SSLFlowDelegate$Reader, init$, void, $SSLFlowDelegate*)},
-	{"addToReadBuf", "(Ljava/util/List;Z)V", "(Ljava/util/List<Ljava/nio/ByteBuffer;>;Z)V", $PRIVATE, $method(SSLFlowDelegate$Reader, addToReadBuf, void, $List*, bool)},
-	{"dbgString", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(SSLFlowDelegate$Reader, dbgString, $String*)},
-	{"enterScheduling", "()Ljdk/internal/net/http/common/SubscriberWrapper$SchedulingAction;", nullptr, $PROTECTED, $virtualMethod(SSLFlowDelegate$Reader, enterScheduling, $SubscriberWrapper$SchedulingAction*)},
-	{"errorCommon", "(Ljava/lang/Throwable;)Z", nullptr, $PROTECTED, $virtualMethod(SSLFlowDelegate$Reader, errorCommon, bool, $Throwable*)},
-	{"incoming", "(Ljava/util/List;Z)V", "(Ljava/util/List<Ljava/nio/ByteBuffer;>;Z)V", $PUBLIC, $virtualMethod(SSLFlowDelegate$Reader, incoming, void, $List*, bool)},
-	{"needsMoreData", "()Z", nullptr, 0, $method(SSLFlowDelegate$Reader, needsMoreData, bool)},
-	{"processData", "()V", nullptr, $FINAL, $method(SSLFlowDelegate$Reader, processData, void)},
-	{"reallocReadBuf", "()V", nullptr, $PRIVATE, $method(SSLFlowDelegate$Reader, reallocReadBuf, void)},
-	{"requestMoreDataIfNeeded", "()V", nullptr, 0, $method(SSLFlowDelegate$Reader, requestMoreDataIfNeeded, void)},
-	{"schedule", "()V", nullptr, 0, $method(SSLFlowDelegate$Reader, schedule, void)},
-	{"stop", "()V", nullptr, 0, $method(SSLFlowDelegate$Reader, stop, void)},
-	{"supportsRecycling", "()Z", nullptr, $PUBLIC, $virtualMethod(SSLFlowDelegate$Reader, supportsRecycling, bool)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SSLFlowDelegate$Reader, toString, $String*)},
-	{"unwrapBuffer", "(Ljava/nio/ByteBuffer;)Ljdk/internal/net/http/common/SSLFlowDelegate$EngineResult;", nullptr, 0, $method(SSLFlowDelegate$Reader, unwrapBuffer, $SSLFlowDelegate$EngineResult*, $ByteBuffer*), "java.io.IOException"},
-	{"upstreamWindowUpdate", "(JJ)J", nullptr, $PROTECTED, $virtualMethod(SSLFlowDelegate$Reader, upstreamWindowUpdate, int64_t, int64_t, int64_t)},
-	{}
-};
-
-$InnerClassInfo _SSLFlowDelegate$Reader_InnerClassesInfo_[] = {
-	{"jdk.internal.net.http.common.SSLFlowDelegate$Reader", "jdk.internal.net.http.common.SSLFlowDelegate", "Reader", $FINAL},
-	{"jdk.internal.net.http.common.SSLFlowDelegate$Reader$ReaderDownstreamPusher", "jdk.internal.net.http.common.SSLFlowDelegate$Reader", "ReaderDownstreamPusher", $PRIVATE | $FINAL},
-	{}
-};
-
-$ClassInfo _SSLFlowDelegate$Reader_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"jdk.internal.net.http.common.SSLFlowDelegate$Reader",
-	"jdk.internal.net.http.common.SubscriberWrapper",
-	nullptr,
-	_SSLFlowDelegate$Reader_FieldInfo_,
-	_SSLFlowDelegate$Reader_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SSLFlowDelegate$Reader_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.net.http.common.SSLFlowDelegate"
-};
-
-$Object* allocate$SSLFlowDelegate$Reader($Class* clazz) {
-	return $of($alloc(SSLFlowDelegate$Reader));
-}
-
 bool SSLFlowDelegate$Reader::$assertionsDisabled = false;
 
 void SSLFlowDelegate$Reader::init$($SSLFlowDelegate* this$0) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, this$0, this$0);
 	$SubscriberWrapper::init$();
 	$set(this, readBufferLock, $new($Object));
 	$init($Utils);
-	$set(this, debugr, $Utils::getDebugLogger(static_cast<$Supplier*>($$new(SSLFlowDelegate$Reader$$Lambda$dbgString, this)), $Utils::DEBUG));
+	$set(this, debugr, $Utils::getDebugLogger($$new(SSLFlowDelegate$Reader$$Lambda$dbgString, this), $Utils::DEBUG));
 	$set(this, count, $new($AtomicInteger));
 	$set(this, scheduler, $SequentialScheduler::lockingScheduler($$new($SSLFlowDelegate$Reader$ReaderDownstreamPusher, this)));
 	$set(this, readBuf, $ByteBuffer::allocate(1024));
@@ -210,28 +137,32 @@ $String* SSLFlowDelegate$Reader::dbgString() {
 }
 
 void SSLFlowDelegate$Reader::incoming($List* buffers, bool complete) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(this->debugr)->on()) {
-		$nc(this->debugr)->log("Adding %d bytes to read buffer"_s, $$new($ObjectArray, {$($of($Long::valueOf($Utils::remaining(buffers))))}));
+		this->debugr->log("Adding %d bytes to read buffer"_s, $$new($ObjectArray, {$($Long::valueOf($Utils::remaining(buffers)))}));
 	}
 	addToReadBuf(buffers, complete);
 	$nc(this->scheduler)->runOrSchedule(this->this$0->exec);
 }
 
 $String* SSLFlowDelegate$Reader::toString() {
-	$useLocalCurrentObjectStackCache();
-	$var($String, var$10, $$str({"READER: "_s, $($SubscriberWrapper::toString()), ", readBuf: "_s}));
-	$var($String, var$9, $$concat(var$10, $($nc(this->readBuf)->toString())));
-	$var($String, var$8, $$concat(var$9, ", count: "_s));
-	$var($String, var$7, $$concat(var$8, $($nc(this->count)->toString())));
-	$var($String, var$6, $$concat(var$7, ", scheduler: "_s));
-	$var($String, var$5, $$concat(var$6, ($nc(this->scheduler)->isStopped() ? "stopped"_s : "running"_s)));
-	$var($String, var$4, $$concat(var$5, ", status: "_s));
-	$var($String, var$3, $$concat(var$4, this->lastUnwrapStatus));
-	$var($String, var$2, $$concat(var$3, ", handshakeState: "_s));
-	$var($String, var$1, $$concat(var$2, $$str($nc(this->this$0->handshakeState)->get())));
-	$var($String, var$0, $$concat(var$1, ", engine: "_s));
-	return $concat(var$0, $($nc(this->this$0->engine)->getHandshakeStatus()));
+	$useLocalObjectStack();
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append("READER: "_s);
+	var$0->append($($SubscriberWrapper::toString()));
+	var$0->append(", readBuf: "_s);
+	var$0->append($($nc(this->readBuf)->toString()));
+	var$0->append(", count: "_s);
+	var$0->append($($nc(this->count)->toString()));
+	var$0->append(", scheduler: "_s);
+	var$0->append($nc(this->scheduler)->isStopped() ? "stopped"_s : "running"_s);
+	var$0->append(", status: "_s);
+	var$0->append(this->lastUnwrapStatus);
+	var$0->append(", handshakeState: "_s);
+	var$0->append($nc(this->this$0->handshakeState)->get());
+	var$0->append(", engine: "_s);
+	var$0->append($($nc(this->this$0->engine)->getHandshakeStatus()));
+	return $str(var$0);
 }
 
 void SSLFlowDelegate$Reader::reallocReadBuf() {
@@ -243,12 +174,12 @@ void SSLFlowDelegate$Reader::reallocReadBuf() {
 }
 
 int64_t SSLFlowDelegate$Reader::upstreamWindowUpdate(int64_t currentWindow, int64_t downstreamQsize) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (needsMoreData()) {
 		if ($nc(this->debugr)->on()) {
 			int32_t remaining = $nc(this->readBuf)->remaining();
 			if (remaining > SSLFlowDelegate$Reader::TARGET_BUFSIZE) {
-				$nc(this->debugr)->log("readBuf has more than TARGET_BUFSIZE: %d"_s, $$new($ObjectArray, {$($of($Integer::valueOf(remaining)))}));
+				this->debugr->log("readBuf has more than TARGET_BUFSIZE: %d"_s, $$new($ObjectArray, {$($Integer::valueOf(remaining))}));
 			}
 		}
 		$nc(this->scheduler)->runOrSchedule();
@@ -257,7 +188,7 @@ int64_t SSLFlowDelegate$Reader::upstreamWindowUpdate(int64_t currentWindow, int6
 }
 
 void SSLFlowDelegate$Reader::addToReadBuf($List* buffers, bool complete) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool var$0 = !SSLFlowDelegate$Reader::$assertionsDisabled;
 	if (var$0) {
 		bool var$1 = $Utils::remaining(buffers) > 0;
@@ -285,7 +216,7 @@ void SSLFlowDelegate$Reader::addToReadBuf($List* buffers, bool complete) {
 					$nc(this->readBuf)->put(buf);
 					$nc(this->readBuf)->flip();
 					if (this->this$0->recycler != nullptr) {
-						$nc(this->this$0->recycler)->accept(buf);
+						this->this$0->recycler->accept(buf);
 					}
 				}
 			}
@@ -309,7 +240,7 @@ void SSLFlowDelegate$Reader::schedule() {
 
 void SSLFlowDelegate$Reader::stop() {
 	if ($nc(this->debugr)->on()) {
-		$nc(this->debugr)->log("stop"_s);
+		this->debugr->log("stop"_s);
 	}
 	$nc(this->scheduler)->stop();
 }
@@ -323,7 +254,7 @@ bool SSLFlowDelegate$Reader::needsMoreData() {
 			bool var$2 = !$nc($nc(this->downstreamSubscription)->demand)->isFulfilled();
 			var$1 = var$2 && hasNoOutputData();
 		}
-		var$0 = (var$1);
+		var$0 = var$1;
 	}
 	if (var$0) {
 		return true;
@@ -338,13 +269,17 @@ void SSLFlowDelegate$Reader::requestMoreDataIfNeeded() {
 }
 
 void SSLFlowDelegate$Reader::processData() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		if ($nc(this->debugr)->on()) {
-			$var($String, var$2, $$str({"processData: readBuf remaining:"_s, $$str($nc(this->readBuf)->remaining()), ", state:"_s}));
-			$var($String, var$1, $$concat(var$2, $($SSLFlowDelegate::states(this->this$0->handshakeState))));
-			$var($String, var$0, $$concat(var$1, ", engine handshake status:"_s));
-			$nc(this->debugr)->log($$concat(var$0, $($nc(this->this$0->engine)->getHandshakeStatus())));
+			$var($StringBuilder, var$0, $new($StringBuilder));
+			var$0->append("processData: readBuf remaining:"_s);
+			var$0->append($nc(this->readBuf)->remaining());
+			var$0->append(", state:"_s);
+			var$0->append($($SSLFlowDelegate::states(this->this$0->handshakeState)));
+			var$0->append(", engine handshake status:"_s);
+			var$0->append($($nc(this->this$0->engine)->getHandshakeStatus()));
+			this->debugr->log($$str(var$0));
 		}
 		int32_t len = 0;
 		bool complete = false;
@@ -354,28 +289,28 @@ void SSLFlowDelegate$Reader::processData() {
 				$var($SSLFlowDelegate$EngineResult, result, nullptr);
 				$synchronized(this->readBufferLock) {
 					complete = this->completing;
-					if ($nc(this->debugr)->on()) {
-						$nc(this->debugr)->log("Unwrapping: %s"_s, $$new($ObjectArray, {$($of($Integer::valueOf($nc(this->readBuf)->remaining())))}));
+					if (this->debugr->on()) {
+						this->debugr->log("Unwrapping: %s"_s, $$new($ObjectArray, {$($Integer::valueOf($nc(this->readBuf)->remaining()))}));
 					}
 					len = len > 0 ? this->minBytesRequired = 0 : len;
 					$assign(result, unwrapBuffer(this->readBuf));
 					len = $nc(this->readBuf)->remaining();
-					if ($nc(this->debugr)->on()) {
-						$nc(this->debugr)->log("Unwrapped: result: %s"_s, $$new($ObjectArray, {$of($nc(result)->result)}));
-						$nc(this->debugr)->log("Unwrapped: consumed: %s"_s, $$new($ObjectArray, {$($of($Integer::valueOf($nc(result)->bytesConsumed())))}));
+					if (this->debugr->on()) {
+						this->debugr->log("Unwrapped: result: %s"_s, $$new($ObjectArray, {$nc(result)->result}));
+						this->debugr->log("Unwrapped: consumed: %s"_s, $$new($ObjectArray, {$($Integer::valueOf(result->bytesConsumed()))}));
 					}
 				}
 				if ($nc(result)->bytesProduced() > 0) {
-					if ($nc(this->debugr)->on()) {
-						$nc(this->debugr)->log("sending %d"_s, $$new($ObjectArray, {$($of($Integer::valueOf(result->bytesProduced())))}));
+					if (this->debugr->on()) {
+						this->debugr->log("sending %d"_s, $$new($ObjectArray, {$($Integer::valueOf(result->bytesProduced()))}));
 					}
 					$nc(this->count)->addAndGet(result->bytesProduced());
 					outgoing(result->destBuffer, false);
 				}
 				$init($SSLEngineResult$Status);
-				if ($nc(result)->status() == $SSLEngineResult$Status::BUFFER_UNDERFLOW) {
-					if ($nc(this->debugr)->on()) {
-						$nc(this->debugr)->log("BUFFER_UNDERFLOW"_s);
+				if (result->status() == $SSLEngineResult$Status::BUFFER_UNDERFLOW) {
+					if (this->debugr->on()) {
+						this->debugr->log("BUFFER_UNDERFLOW"_s);
 					}
 					$synchronized(this->readBufferLock) {
 						this->minBytesRequired = len;
@@ -386,7 +321,7 @@ void SSLFlowDelegate$Reader::processData() {
 							continue;
 						} else if (this->completing) {
 							if ($nc(this->debug)->on()) {
-								$nc(this->debugr)->log("BUFFER_UNDERFLOW with EOF, %d bytes non decrypted."_s, $$new($ObjectArray, {$($of($Integer::valueOf(len)))}));
+								this->debugr->log("BUFFER_UNDERFLOW with EOF, %d bytes non decrypted."_s, $$new($ObjectArray, {$($Integer::valueOf(len))}));
 							}
 							$throwNew($IOException, $$str({"BUFFER_UNDERFLOW with EOF, "_s, $$str(len), " bytes non decrypted."_s}));
 						}
@@ -394,9 +329,9 @@ void SSLFlowDelegate$Reader::processData() {
 					requestMore();
 					return;
 				}
-				if (complete && $nc(result)->status() == $SSLEngineResult$Status::CLOSED) {
-					if ($nc(this->debugr)->on()) {
-						$nc(this->debugr)->log("Closed: completing"_s);
+				if (complete && result->status() == $SSLEngineResult$Status::CLOSED) {
+					if (this->debugr->on()) {
+						this->debugr->log("Closed: completing"_s);
 					}
 					$init($Utils);
 					outgoing($Utils::EMPTY_BB_LIST, true);
@@ -404,10 +339,10 @@ void SSLFlowDelegate$Reader::processData() {
 					requestMoreDataIfNeeded();
 					return;
 				}
-				if ($nc(result)->handshaking()) {
+				if (result->handshaking()) {
 					handshaking = true;
-					if ($nc(this->debugr)->on()) {
-						$nc(this->debugr)->log("handshaking"_s);
+					if (this->debugr->on()) {
+						this->debugr->log("handshaking"_s);
 					}
 					if (this->this$0->doHandshake(result, 1)) {
 						continue;
@@ -434,8 +369,8 @@ void SSLFlowDelegate$Reader::processData() {
 			}
 		}
 		if (complete) {
-			if ($nc(this->debugr)->on()) {
-				$nc(this->debugr)->log("completing"_s);
+			if (this->debugr->on()) {
+				this->debugr->log("completing"_s);
 			}
 			this->this$0->setALPN();
 			$init($Utils);
@@ -451,59 +386,59 @@ void SSLFlowDelegate$Reader::processData() {
 }
 
 $SSLFlowDelegate$EngineResult* SSLFlowDelegate$Reader::unwrapBuffer($ByteBuffer* src) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ByteBuffer, dst, this->this$0->getAppBuffer());
 	int32_t len = $nc(src)->remaining();
 	while (true) {
 		$var($SSLEngineResult, sslResult, $nc(this->this$0->engine)->unwrap(src, dst));
-		$init($SSLFlowDelegate$1);
 		{
+			$init($SSLFlowDelegate$1);
 			int32_t appSize = 0;
-			$var($ByteBuffer, b, nullptr)
+			$var($ByteBuffer, b, nullptr);
 			int32_t size = 0;
 			switch ($nc($SSLFlowDelegate$1::$SwitchMap$javax$net$ssl$SSLEngineResult$Status)->get($nc(($set(this, lastUnwrapStatus, $nc(sslResult)->getStatus())))->ordinal())) {
 			case 1:
-				{
-					appSize = (this->this$0->applicationBufferSize = $nc($($nc(this->this$0->engine)->getSession()))->getApplicationBufferSize());
-					$assign(b, $ByteBuffer::allocate(appSize + $nc(dst)->position()));
-					$nc(dst)->flip();
-					$nc(b)->put(dst);
-					$assign(dst, b);
-					break;
-				}
+				appSize = (this->this$0->applicationBufferSize = $$nc(this->this$0->engine->getSession())->getApplicationBufferSize());
+				$assign(b, $ByteBuffer::allocate(appSize + $nc(dst)->position()));
+				dst->flip();
+				$nc(b)->put(dst);
+				$assign(dst, b);
+				break;
 			case 2:
-				{
-					if (!SSLFlowDelegate$Reader::$assertionsDisabled && !($nc(dst)->position() == 0)) {
-						$throwNew($AssertionError);
-					}
-					return this->this$0->doClosure($$new($SSLFlowDelegate$EngineResult, sslResult));
+				if (!SSLFlowDelegate$Reader::$assertionsDisabled && !($nc(dst)->position() == 0)) {
+					$throwNew($AssertionError);
 				}
+				return this->this$0->doClosure($$new($SSLFlowDelegate$EngineResult, sslResult));
 			case 3:
-				{
-					if (!SSLFlowDelegate$Reader::$assertionsDisabled && !($nc(dst)->position() == 0)) {
-						$throwNew($AssertionError);
-					}
-					return $new($SSLFlowDelegate$EngineResult, sslResult);
+				if (!SSLFlowDelegate$Reader::$assertionsDisabled && !($nc(dst)->position() == 0)) {
+					$throwNew($AssertionError);
 				}
+				return $new($SSLFlowDelegate$EngineResult, sslResult);
 			case 4:
-				{
-					size = $nc(dst)->position();
-					if ($nc(this->debug)->on()) {
-						$var($String, var$0, $$str({"Decoded "_s, $$str(size), " bytes out of "_s, $$str(len), " into buffer of "_s, $$str(dst->capacity()), " remaining to decode: "_s}));
-						$nc(this->debugr)->log($$concat(var$0, $$str(src->remaining())));
-					}
-					if (size > this->this$0->adaptiveAppBufferSize) {
-						this->this$0->adaptiveAppBufferSize = ((int32_t)((uint32_t)(size + 7) >> 3)) << 3;
-					}
-					dst->flip();
-					return $new($SSLFlowDelegate$EngineResult, sslResult, dst);
+				size = $nc(dst)->position();
+				if ($nc(this->debug)->on()) {
+					$var($StringBuilder, var$0, $new($StringBuilder));
+					var$0->append("Decoded "_s);
+					var$0->append(size);
+					var$0->append(" bytes out of "_s);
+					var$0->append(len);
+					var$0->append(" into buffer of "_s);
+					var$0->append(dst->capacity());
+					var$0->append(" remaining to decode: "_s);
+					var$0->append(src->remaining());
+					$nc(this->debugr)->log($$str(var$0));
 				}
+				if (size > this->this$0->adaptiveAppBufferSize) {
+					this->this$0->adaptiveAppBufferSize = ((int32_t)((uint32_t)(size + 7) >> 3)) << 3;
+				}
+				dst->flip();
+				return $new($SSLFlowDelegate$EngineResult, sslResult, dst);
 			}
 		}
 	}
 }
 
-void clinit$SSLFlowDelegate$Reader($Class* class$) {
+void SSLFlowDelegate$Reader::clinit$($Class* clazz) {
 	$load($SSLFlowDelegate);
 	SSLFlowDelegate$Reader::$assertionsDisabled = !$SSLFlowDelegate::class$->desiredAssertionStatus();
 }
@@ -513,11 +448,66 @@ SSLFlowDelegate$Reader::SSLFlowDelegate$Reader() {
 
 $Class* SSLFlowDelegate$Reader::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(SSLFlowDelegate$Reader$$Lambda$dbgString::classInfo$.name)) {
+		if (name->equals("jdk.internal.net.http.common.SSLFlowDelegate$Reader$$Lambda$dbgString")) {
 			return SSLFlowDelegate$Reader$$Lambda$dbgString::load$(name, initialize);
 		}
 	}
-	$loadClass(SSLFlowDelegate$Reader, name, initialize, &_SSLFlowDelegate$Reader_ClassInfo_, clinit$SSLFlowDelegate$Reader, allocate$SSLFlowDelegate$Reader);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljdk/internal/net/http/common/SSLFlowDelegate;", nullptr, $FINAL | $SYNTHETIC, $field(SSLFlowDelegate$Reader, this$0)},
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(SSLFlowDelegate$Reader, $assertionsDisabled)},
+		{"TARGET_BUFSIZE", "I", nullptr, $STATIC | $FINAL, $constField(SSLFlowDelegate$Reader, TARGET_BUFSIZE)},
+		{"scheduler", "Ljdk/internal/net/http/common/SequentialScheduler;", nullptr, $FINAL, $field(SSLFlowDelegate$Reader, scheduler)},
+		{"readBuf", "Ljava/nio/ByteBuffer;", nullptr, $VOLATILE, $field(SSLFlowDelegate$Reader, readBuf)},
+		{"completing", "Z", nullptr, $VOLATILE, $field(SSLFlowDelegate$Reader, completing)},
+		{"readBufferLock", "Ljava/lang/Object;", nullptr, $FINAL, $field(SSLFlowDelegate$Reader, readBufferLock)},
+		{"debugr", "Ljdk/internal/net/http/common/Logger;", nullptr, $FINAL, $field(SSLFlowDelegate$Reader, debugr)},
+		{"count", "Ljava/util/concurrent/atomic/AtomicInteger;", nullptr, 0, $field(SSLFlowDelegate$Reader, count)},
+		{"minBytesRequired", "I", nullptr, $VOLATILE, $field(SSLFlowDelegate$Reader, minBytesRequired)},
+		{"lastUnwrapStatus", "Ljavax/net/ssl/SSLEngineResult$Status;", nullptr, $PRIVATE | $VOLATILE, $field(SSLFlowDelegate$Reader, lastUnwrapStatus)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/internal/net/http/common/SSLFlowDelegate;)V", nullptr, 0, $method(SSLFlowDelegate$Reader, init$, void, $SSLFlowDelegate*)},
+		{"addToReadBuf", "(Ljava/util/List;Z)V", "(Ljava/util/List<Ljava/nio/ByteBuffer;>;Z)V", $PRIVATE, $method(SSLFlowDelegate$Reader, addToReadBuf, void, $List*, bool)},
+		{"dbgString", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(SSLFlowDelegate$Reader, dbgString, $String*)},
+		{"enterScheduling", "()Ljdk/internal/net/http/common/SubscriberWrapper$SchedulingAction;", nullptr, $PROTECTED, $virtualMethod(SSLFlowDelegate$Reader, enterScheduling, $SubscriberWrapper$SchedulingAction*)},
+		{"errorCommon", "(Ljava/lang/Throwable;)Z", nullptr, $PROTECTED, $virtualMethod(SSLFlowDelegate$Reader, errorCommon, bool, $Throwable*)},
+		{"incoming", "(Ljava/util/List;Z)V", "(Ljava/util/List<Ljava/nio/ByteBuffer;>;Z)V", $PUBLIC, $virtualMethod(SSLFlowDelegate$Reader, incoming, void, $List*, bool)},
+		{"needsMoreData", "()Z", nullptr, 0, $method(SSLFlowDelegate$Reader, needsMoreData, bool)},
+		{"processData", "()V", nullptr, $FINAL, $method(SSLFlowDelegate$Reader, processData, void)},
+		{"reallocReadBuf", "()V", nullptr, $PRIVATE, $method(SSLFlowDelegate$Reader, reallocReadBuf, void)},
+		{"requestMoreDataIfNeeded", "()V", nullptr, 0, $method(SSLFlowDelegate$Reader, requestMoreDataIfNeeded, void)},
+		{"schedule", "()V", nullptr, 0, $method(SSLFlowDelegate$Reader, schedule, void)},
+		{"stop", "()V", nullptr, 0, $method(SSLFlowDelegate$Reader, stop, void)},
+		{"supportsRecycling", "()Z", nullptr, $PUBLIC, $virtualMethod(SSLFlowDelegate$Reader, supportsRecycling, bool)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SSLFlowDelegate$Reader, toString, $String*)},
+		{"unwrapBuffer", "(Ljava/nio/ByteBuffer;)Ljdk/internal/net/http/common/SSLFlowDelegate$EngineResult;", nullptr, 0, $method(SSLFlowDelegate$Reader, unwrapBuffer, $SSLFlowDelegate$EngineResult*, $ByteBuffer*), "java.io.IOException"},
+		{"upstreamWindowUpdate", "(JJ)J", nullptr, $PROTECTED, $virtualMethod(SSLFlowDelegate$Reader, upstreamWindowUpdate, int64_t, int64_t, int64_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.net.http.common.SSLFlowDelegate$Reader", "jdk.internal.net.http.common.SSLFlowDelegate", "Reader", $FINAL},
+		{"jdk.internal.net.http.common.SSLFlowDelegate$Reader$ReaderDownstreamPusher", "jdk.internal.net.http.common.SSLFlowDelegate$Reader", "ReaderDownstreamPusher", $PRIVATE | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"jdk.internal.net.http.common.SSLFlowDelegate$Reader",
+		"jdk.internal.net.http.common.SubscriberWrapper",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.net.http.common.SSLFlowDelegate"
+	};
+	$loadClass(SSLFlowDelegate$Reader, name, initialize, &classInfo$$, SSLFlowDelegate$Reader::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SSLFlowDelegate$Reader));
+	});
 	return class$;
 }
 

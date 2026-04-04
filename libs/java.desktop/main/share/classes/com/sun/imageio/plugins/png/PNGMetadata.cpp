@@ -1,5 +1,4 @@
 #include <com/sun/imageio/plugins/png/PNGMetadata.h>
-
 #include <com/sun/imageio/plugins/png/PNGImageReader.h>
 #include <java/awt/image/ColorModel.h>
 #include <java/awt/image/IndexColorModel.h>
@@ -72,7 +71,6 @@ using $DateTimeFormatter = ::java::time::format::DateTimeFormatter;
 using $DateTimeParseException = ::java::time::format::DateTimeParseException;
 using $TemporalAccessor = ::java::time::temporal::TemporalAccessor;
 using $TemporalQuery = ::java::time::temporal::TemporalQuery;
-using $ZoneRules = ::java::time::zone::ZoneRules;
 using $ArrayList = ::java::util::ArrayList;
 using $Iterator = ::java::util::Iterator;
 using $ListIterator = ::java::util::ListIterator;
@@ -82,7 +80,6 @@ using $IIOInvalidTreeException = ::javax::imageio::metadata::IIOInvalidTreeExcep
 using $IIOMetadata = ::javax::imageio::metadata::IIOMetadata;
 using $IIOMetadataFormatImpl = ::javax::imageio::metadata::IIOMetadataFormatImpl;
 using $IIOMetadataNode = ::javax::imageio::metadata::IIOMetadataNode;
-using $NamedNodeMap = ::org::w3c::dom::NamedNodeMap;
 using $Node = ::org::w3c::dom::Node;
 
 namespace com {
@@ -99,27 +96,24 @@ public:
 	virtual $Object* queryFrom($TemporalAccessor* arg0) override {
 		 return $of($OffsetDateTime::from(arg0));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<PNGMetadata$$Lambda$from>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo PNGMetadata$$Lambda$from::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(PNGMetadata$$Lambda$from, init$, void)},
-	{"queryFrom", "(Ljava/time/temporal/TemporalAccessor;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(PNGMetadata$$Lambda$from, queryFrom, $Object*, $TemporalAccessor*)},
-	{}
-};
-$ClassInfo PNGMetadata$$Lambda$from::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.imageio.plugins.png.PNGMetadata$$Lambda$from",
-	"java.lang.Object",
-	"java.time.temporal.TemporalQuery",
-	nullptr,
-	methodInfos
 };
 $Class* PNGMetadata$$Lambda$from::load$($String* name, bool initialize) {
-	$loadClass(PNGMetadata$$Lambda$from, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(PNGMetadata$$Lambda$from, init$, void)},
+		{"queryFrom", "(Ljava/time/temporal/TemporalAccessor;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(PNGMetadata$$Lambda$from, queryFrom, $Object*, $TemporalAccessor*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.imageio.plugins.png.PNGMetadata$$Lambda$from",
+		"java.lang.Object",
+		"java.time.temporal.TemporalQuery",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(PNGMetadata$$Lambda$from, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PNGMetadata$$Lambda$from);
+	});
 	return class$;
 }
 $Class* PNGMetadata$$Lambda$from::class$ = nullptr;
@@ -132,210 +126,27 @@ public:
 	virtual $Object* queryFrom($TemporalAccessor* arg0) override {
 		 return $of($LocalDateTime::from(arg0));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<PNGMetadata$$Lambda$from$1>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo PNGMetadata$$Lambda$from$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(PNGMetadata$$Lambda$from$1, init$, void)},
-	{"queryFrom", "(Ljava/time/temporal/TemporalAccessor;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(PNGMetadata$$Lambda$from$1, queryFrom, $Object*, $TemporalAccessor*)},
-	{}
-};
-$ClassInfo PNGMetadata$$Lambda$from$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.imageio.plugins.png.PNGMetadata$$Lambda$from$1",
-	"java.lang.Object",
-	"java.time.temporal.TemporalQuery",
-	nullptr,
-	methodInfos
 };
 $Class* PNGMetadata$$Lambda$from$1::load$($String* name, bool initialize) {
-	$loadClass(PNGMetadata$$Lambda$from$1, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(PNGMetadata$$Lambda$from$1, init$, void)},
+		{"queryFrom", "(Ljava/time/temporal/TemporalAccessor;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(PNGMetadata$$Lambda$from$1, queryFrom, $Object*, $TemporalAccessor*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.imageio.plugins.png.PNGMetadata$$Lambda$from$1",
+		"java.lang.Object",
+		"java.time.temporal.TemporalQuery",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(PNGMetadata$$Lambda$from$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PNGMetadata$$Lambda$from$1);
+	});
 	return class$;
 }
 $Class* PNGMetadata$$Lambda$from$1::class$ = nullptr;
-
-$FieldInfo _PNGMetadata_FieldInfo_[] = {
-	{"nativeMetadataFormatName", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PNGMetadata, nativeMetadataFormatName)},
-	{"nativeMetadataFormatClassName", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(PNGMetadata, nativeMetadataFormatClassName)},
-	{"IHDR_colorTypeNames", "[Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(PNGMetadata, IHDR_colorTypeNames)},
-	{"IHDR_numChannels", "[I", nullptr, $STATIC | $FINAL, $staticField(PNGMetadata, IHDR_numChannels)},
-	{"IHDR_bitDepths", "[Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(PNGMetadata, IHDR_bitDepths)},
-	{"IHDR_compressionMethodNames", "[Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(PNGMetadata, IHDR_compressionMethodNames)},
-	{"IHDR_filterMethodNames", "[Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(PNGMetadata, IHDR_filterMethodNames)},
-	{"IHDR_interlaceMethodNames", "[Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(PNGMetadata, IHDR_interlaceMethodNames)},
-	{"iCCP_compressionMethodNames", "[Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(PNGMetadata, iCCP_compressionMethodNames)},
-	{"zTXt_compressionMethodNames", "[Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(PNGMetadata, zTXt_compressionMethodNames)},
-	{"PHYS_UNIT_UNKNOWN", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(PNGMetadata, PHYS_UNIT_UNKNOWN)},
-	{"PHYS_UNIT_METER", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(PNGMetadata, PHYS_UNIT_METER)},
-	{"unitSpecifierNames", "[Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(PNGMetadata, unitSpecifierNames)},
-	{"renderingIntentNames", "[Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(PNGMetadata, renderingIntentNames)},
-	{"colorSpaceTypeNames", "[Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(PNGMetadata, colorSpaceTypeNames)},
-	{"IHDR_present", "Z", nullptr, $PUBLIC, $field(PNGMetadata, IHDR_present)},
-	{"IHDR_width", "I", nullptr, $PUBLIC, $field(PNGMetadata, IHDR_width)},
-	{"IHDR_height", "I", nullptr, $PUBLIC, $field(PNGMetadata, IHDR_height)},
-	{"IHDR_bitDepth", "I", nullptr, $PUBLIC, $field(PNGMetadata, IHDR_bitDepth)},
-	{"IHDR_colorType", "I", nullptr, $PUBLIC, $field(PNGMetadata, IHDR_colorType)},
-	{"IHDR_compressionMethod", "I", nullptr, $PUBLIC, $field(PNGMetadata, IHDR_compressionMethod)},
-	{"IHDR_filterMethod", "I", nullptr, $PUBLIC, $field(PNGMetadata, IHDR_filterMethod)},
-	{"IHDR_interlaceMethod", "I", nullptr, $PUBLIC, $field(PNGMetadata, IHDR_interlaceMethod)},
-	{"PLTE_present", "Z", nullptr, $PUBLIC, $field(PNGMetadata, PLTE_present)},
-	{"PLTE_red", "[B", nullptr, $PUBLIC, $field(PNGMetadata, PLTE_red)},
-	{"PLTE_green", "[B", nullptr, $PUBLIC, $field(PNGMetadata, PLTE_green)},
-	{"PLTE_blue", "[B", nullptr, $PUBLIC, $field(PNGMetadata, PLTE_blue)},
-	{"PLTE_order", "[I", nullptr, $PUBLIC, $field(PNGMetadata, PLTE_order)},
-	{"bKGD_present", "Z", nullptr, $PUBLIC, $field(PNGMetadata, bKGD_present)},
-	{"bKGD_colorType", "I", nullptr, $PUBLIC, $field(PNGMetadata, bKGD_colorType)},
-	{"bKGD_index", "I", nullptr, $PUBLIC, $field(PNGMetadata, bKGD_index)},
-	{"bKGD_gray", "I", nullptr, $PUBLIC, $field(PNGMetadata, bKGD_gray)},
-	{"bKGD_red", "I", nullptr, $PUBLIC, $field(PNGMetadata, bKGD_red)},
-	{"bKGD_green", "I", nullptr, $PUBLIC, $field(PNGMetadata, bKGD_green)},
-	{"bKGD_blue", "I", nullptr, $PUBLIC, $field(PNGMetadata, bKGD_blue)},
-	{"cHRM_present", "Z", nullptr, $PUBLIC, $field(PNGMetadata, cHRM_present)},
-	{"cHRM_whitePointX", "I", nullptr, $PUBLIC, $field(PNGMetadata, cHRM_whitePointX)},
-	{"cHRM_whitePointY", "I", nullptr, $PUBLIC, $field(PNGMetadata, cHRM_whitePointY)},
-	{"cHRM_redX", "I", nullptr, $PUBLIC, $field(PNGMetadata, cHRM_redX)},
-	{"cHRM_redY", "I", nullptr, $PUBLIC, $field(PNGMetadata, cHRM_redY)},
-	{"cHRM_greenX", "I", nullptr, $PUBLIC, $field(PNGMetadata, cHRM_greenX)},
-	{"cHRM_greenY", "I", nullptr, $PUBLIC, $field(PNGMetadata, cHRM_greenY)},
-	{"cHRM_blueX", "I", nullptr, $PUBLIC, $field(PNGMetadata, cHRM_blueX)},
-	{"cHRM_blueY", "I", nullptr, $PUBLIC, $field(PNGMetadata, cHRM_blueY)},
-	{"gAMA_present", "Z", nullptr, $PUBLIC, $field(PNGMetadata, gAMA_present)},
-	{"gAMA_gamma", "I", nullptr, $PUBLIC, $field(PNGMetadata, gAMA_gamma)},
-	{"hIST_present", "Z", nullptr, $PUBLIC, $field(PNGMetadata, hIST_present)},
-	{"hIST_histogram", "[C", nullptr, $PUBLIC, $field(PNGMetadata, hIST_histogram)},
-	{"iCCP_present", "Z", nullptr, $PUBLIC, $field(PNGMetadata, iCCP_present)},
-	{"iCCP_profileName", "Ljava/lang/String;", nullptr, $PUBLIC, $field(PNGMetadata, iCCP_profileName)},
-	{"iCCP_compressionMethod", "I", nullptr, $PUBLIC, $field(PNGMetadata, iCCP_compressionMethod)},
-	{"iCCP_compressedProfile", "[B", nullptr, $PUBLIC, $field(PNGMetadata, iCCP_compressedProfile)},
-	{"iTXt_keyword", "Ljava/util/ArrayList;", "Ljava/util/ArrayList<Ljava/lang/String;>;", $PUBLIC, $field(PNGMetadata, iTXt_keyword)},
-	{"iTXt_compressionFlag", "Ljava/util/ArrayList;", "Ljava/util/ArrayList<Ljava/lang/Boolean;>;", $PUBLIC, $field(PNGMetadata, iTXt_compressionFlag)},
-	{"iTXt_compressionMethod", "Ljava/util/ArrayList;", "Ljava/util/ArrayList<Ljava/lang/Integer;>;", $PUBLIC, $field(PNGMetadata, iTXt_compressionMethod)},
-	{"iTXt_languageTag", "Ljava/util/ArrayList;", "Ljava/util/ArrayList<Ljava/lang/String;>;", $PUBLIC, $field(PNGMetadata, iTXt_languageTag)},
-	{"iTXt_translatedKeyword", "Ljava/util/ArrayList;", "Ljava/util/ArrayList<Ljava/lang/String;>;", $PUBLIC, $field(PNGMetadata, iTXt_translatedKeyword)},
-	{"iTXt_text", "Ljava/util/ArrayList;", "Ljava/util/ArrayList<Ljava/lang/String;>;", $PUBLIC, $field(PNGMetadata, iTXt_text)},
-	{"pHYs_present", "Z", nullptr, $PUBLIC, $field(PNGMetadata, pHYs_present)},
-	{"pHYs_pixelsPerUnitXAxis", "I", nullptr, $PUBLIC, $field(PNGMetadata, pHYs_pixelsPerUnitXAxis)},
-	{"pHYs_pixelsPerUnitYAxis", "I", nullptr, $PUBLIC, $field(PNGMetadata, pHYs_pixelsPerUnitYAxis)},
-	{"pHYs_unitSpecifier", "I", nullptr, $PUBLIC, $field(PNGMetadata, pHYs_unitSpecifier)},
-	{"sBIT_present", "Z", nullptr, $PUBLIC, $field(PNGMetadata, sBIT_present)},
-	{"sBIT_colorType", "I", nullptr, $PUBLIC, $field(PNGMetadata, sBIT_colorType)},
-	{"sBIT_grayBits", "I", nullptr, $PUBLIC, $field(PNGMetadata, sBIT_grayBits)},
-	{"sBIT_redBits", "I", nullptr, $PUBLIC, $field(PNGMetadata, sBIT_redBits)},
-	{"sBIT_greenBits", "I", nullptr, $PUBLIC, $field(PNGMetadata, sBIT_greenBits)},
-	{"sBIT_blueBits", "I", nullptr, $PUBLIC, $field(PNGMetadata, sBIT_blueBits)},
-	{"sBIT_alphaBits", "I", nullptr, $PUBLIC, $field(PNGMetadata, sBIT_alphaBits)},
-	{"sPLT_present", "Z", nullptr, $PUBLIC, $field(PNGMetadata, sPLT_present)},
-	{"sPLT_paletteName", "Ljava/lang/String;", nullptr, $PUBLIC, $field(PNGMetadata, sPLT_paletteName)},
-	{"sPLT_sampleDepth", "I", nullptr, $PUBLIC, $field(PNGMetadata, sPLT_sampleDepth)},
-	{"sPLT_red", "[I", nullptr, $PUBLIC, $field(PNGMetadata, sPLT_red)},
-	{"sPLT_green", "[I", nullptr, $PUBLIC, $field(PNGMetadata, sPLT_green)},
-	{"sPLT_blue", "[I", nullptr, $PUBLIC, $field(PNGMetadata, sPLT_blue)},
-	{"sPLT_alpha", "[I", nullptr, $PUBLIC, $field(PNGMetadata, sPLT_alpha)},
-	{"sPLT_frequency", "[I", nullptr, $PUBLIC, $field(PNGMetadata, sPLT_frequency)},
-	{"sRGB_present", "Z", nullptr, $PUBLIC, $field(PNGMetadata, sRGB_present)},
-	{"sRGB_renderingIntent", "I", nullptr, $PUBLIC, $field(PNGMetadata, sRGB_renderingIntent)},
-	{"tEXt_keyword", "Ljava/util/ArrayList;", "Ljava/util/ArrayList<Ljava/lang/String;>;", $PUBLIC, $field(PNGMetadata, tEXt_keyword)},
-	{"tEXt_text", "Ljava/util/ArrayList;", "Ljava/util/ArrayList<Ljava/lang/String;>;", $PUBLIC, $field(PNGMetadata, tEXt_text)},
-	{"tIME_present", "Z", nullptr, $PUBLIC, $field(PNGMetadata, tIME_present)},
-	{"tIME_year", "I", nullptr, $PUBLIC, $field(PNGMetadata, tIME_year)},
-	{"tIME_month", "I", nullptr, $PUBLIC, $field(PNGMetadata, tIME_month)},
-	{"tIME_day", "I", nullptr, $PUBLIC, $field(PNGMetadata, tIME_day)},
-	{"tIME_hour", "I", nullptr, $PUBLIC, $field(PNGMetadata, tIME_hour)},
-	{"tIME_minute", "I", nullptr, $PUBLIC, $field(PNGMetadata, tIME_minute)},
-	{"tIME_second", "I", nullptr, $PUBLIC, $field(PNGMetadata, tIME_second)},
-	{"creation_time_present", "Z", nullptr, $PUBLIC, $field(PNGMetadata, creation_time_present)},
-	{"creation_time_year", "I", nullptr, $PUBLIC, $field(PNGMetadata, creation_time_year)},
-	{"creation_time_month", "I", nullptr, $PUBLIC, $field(PNGMetadata, creation_time_month)},
-	{"creation_time_day", "I", nullptr, $PUBLIC, $field(PNGMetadata, creation_time_day)},
-	{"creation_time_hour", "I", nullptr, $PUBLIC, $field(PNGMetadata, creation_time_hour)},
-	{"creation_time_minute", "I", nullptr, $PUBLIC, $field(PNGMetadata, creation_time_minute)},
-	{"creation_time_second", "I", nullptr, $PUBLIC, $field(PNGMetadata, creation_time_second)},
-	{"creation_time_offset", "Ljava/time/ZoneOffset;", nullptr, $PUBLIC, $field(PNGMetadata, creation_time_offset)},
-	{"tEXt_creation_time_present", "Z", nullptr, $PUBLIC, $field(PNGMetadata, tEXt_creation_time_present)},
-	{"tEXt_creation_time_iter", "Ljava/util/ListIterator;", "Ljava/util/ListIterator<Ljava/lang/String;>;", $PRIVATE, $field(PNGMetadata, tEXt_creation_time_iter)},
-	{"tEXt_creationTimeKey", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PNGMetadata, tEXt_creationTimeKey)},
-	{"tRNS_present", "Z", nullptr, $PUBLIC, $field(PNGMetadata, tRNS_present)},
-	{"tRNS_colorType", "I", nullptr, $PUBLIC, $field(PNGMetadata, tRNS_colorType)},
-	{"tRNS_alpha", "[B", nullptr, $PUBLIC, $field(PNGMetadata, tRNS_alpha)},
-	{"tRNS_gray", "I", nullptr, $PUBLIC, $field(PNGMetadata, tRNS_gray)},
-	{"tRNS_red", "I", nullptr, $PUBLIC, $field(PNGMetadata, tRNS_red)},
-	{"tRNS_green", "I", nullptr, $PUBLIC, $field(PNGMetadata, tRNS_green)},
-	{"tRNS_blue", "I", nullptr, $PUBLIC, $field(PNGMetadata, tRNS_blue)},
-	{"zTXt_keyword", "Ljava/util/ArrayList;", "Ljava/util/ArrayList<Ljava/lang/String;>;", $PUBLIC, $field(PNGMetadata, zTXt_keyword)},
-	{"zTXt_compressionMethod", "Ljava/util/ArrayList;", "Ljava/util/ArrayList<Ljava/lang/Integer;>;", $PUBLIC, $field(PNGMetadata, zTXt_compressionMethod)},
-	{"zTXt_text", "Ljava/util/ArrayList;", "Ljava/util/ArrayList<Ljava/lang/String;>;", $PUBLIC, $field(PNGMetadata, zTXt_text)},
-	{"unknownChunkType", "Ljava/util/ArrayList;", "Ljava/util/ArrayList<Ljava/lang/String;>;", $PUBLIC, $field(PNGMetadata, unknownChunkType)},
-	{"unknownChunkData", "Ljava/util/ArrayList;", "Ljava/util/ArrayList<[B>;", $PUBLIC, $field(PNGMetadata, unknownChunkData)},
-	{}
-};
-
-$MethodInfo _PNGMetadata_MethodInfo_[] = {
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(PNGMetadata, init$, void)},
-	{"<init>", "(Ljavax/imageio/metadata/IIOMetadata;)V", nullptr, $PUBLIC, $method(PNGMetadata, init$, void, $IIOMetadata*)},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(PNGMetadata, clone, $Object*)},
-	{"cloneBytesArrayList", "(Ljava/util/ArrayList;)Ljava/util/ArrayList;", "(Ljava/util/ArrayList<[B>;)Ljava/util/ArrayList<[B>;", $PRIVATE, $method(PNGMetadata, cloneBytesArrayList, $ArrayList*, $ArrayList*)},
-	{"decodeImageCreationTimeFromTextChunk", "(Ljava/util/ListIterator;)V", "(Ljava/util/ListIterator<Ljava/lang/String;>;)V", 0, $virtualMethod(PNGMetadata, decodeImageCreationTimeFromTextChunk, void, $ListIterator*)},
-	{"encodeImageCreationTimeToTextChunk", "()V", nullptr, 0, $virtualMethod(PNGMetadata, encodeImageCreationTimeToTextChunk, void)},
-	{"fatal", "(Lorg/w3c/dom/Node;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(PNGMetadata, fatal, void, $Node*, $String*), "javax.imageio.metadata.IIOInvalidTreeException"},
-	{"getAsTree", "(Ljava/lang/String;)Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(PNGMetadata, getAsTree, $Node*, $String*)},
-	{"getAttribute", "(Lorg/w3c/dom/Node;Ljava/lang/String;Ljava/lang/String;Z)Ljava/lang/String;", nullptr, $PRIVATE, $method(PNGMetadata, getAttribute, $String*, $Node*, $String*, $String*, bool), "javax.imageio.metadata.IIOInvalidTreeException"},
-	{"getAttribute", "(Lorg/w3c/dom/Node;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(PNGMetadata, getAttribute, $String*, $Node*, $String*), "javax.imageio.metadata.IIOInvalidTreeException"},
-	{"getBooleanAttribute", "(Lorg/w3c/dom/Node;Ljava/lang/String;ZZ)Z", nullptr, $PRIVATE, $method(PNGMetadata, getBooleanAttribute, bool, $Node*, $String*, bool, bool), "javax.imageio.metadata.IIOInvalidTreeException"},
-	{"getBooleanAttribute", "(Lorg/w3c/dom/Node;Ljava/lang/String;)Z", nullptr, $PRIVATE, $method(PNGMetadata, getBooleanAttribute, bool, $Node*, $String*), "javax.imageio.metadata.IIOInvalidTreeException"},
-	{"getEncodedTime", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(PNGMetadata, getEncodedTime, $String*)},
-	{"getEnumeratedAttribute", "(Lorg/w3c/dom/Node;Ljava/lang/String;[Ljava/lang/String;IZ)I", nullptr, $PRIVATE, $method(PNGMetadata, getEnumeratedAttribute, int32_t, $Node*, $String*, $StringArray*, int32_t, bool), "javax.imageio.metadata.IIOInvalidTreeException"},
-	{"getEnumeratedAttribute", "(Lorg/w3c/dom/Node;Ljava/lang/String;[Ljava/lang/String;)I", nullptr, $PRIVATE, $method(PNGMetadata, getEnumeratedAttribute, int32_t, $Node*, $String*, $StringArray*), "javax.imageio.metadata.IIOInvalidTreeException"},
-	{"getFloatAttribute", "(Lorg/w3c/dom/Node;Ljava/lang/String;FZ)F", nullptr, $PRIVATE, $method(PNGMetadata, getFloatAttribute, float, $Node*, $String*, float, bool), "javax.imageio.metadata.IIOInvalidTreeException"},
-	{"getFloatAttribute", "(Lorg/w3c/dom/Node;Ljava/lang/String;)F", nullptr, $PRIVATE, $method(PNGMetadata, getFloatAttribute, float, $Node*, $String*), "javax.imageio.metadata.IIOInvalidTreeException"},
-	{"getIntAttribute", "(Lorg/w3c/dom/Node;Ljava/lang/String;IZ)I", nullptr, $PRIVATE, $method(PNGMetadata, getIntAttribute, int32_t, $Node*, $String*, int32_t, bool), "javax.imageio.metadata.IIOInvalidTreeException"},
-	{"getIntAttribute", "(Lorg/w3c/dom/Node;Ljava/lang/String;)I", nullptr, $PRIVATE, $method(PNGMetadata, getIntAttribute, int32_t, $Node*, $String*), "javax.imageio.metadata.IIOInvalidTreeException"},
-	{"getNativeTree", "()Lorg/w3c/dom/Node;", nullptr, $PRIVATE, $method(PNGMetadata, getNativeTree, $Node*)},
-	{"getNumChannels", "()I", nullptr, $PRIVATE, $method(PNGMetadata, getNumChannels, int32_t)},
-	{"getStandardChromaNode", "()Ljavax/imageio/metadata/IIOMetadataNode;", nullptr, $PUBLIC, $virtualMethod(PNGMetadata, getStandardChromaNode, $IIOMetadataNode*)},
-	{"getStandardCompressionNode", "()Ljavax/imageio/metadata/IIOMetadataNode;", nullptr, $PUBLIC, $virtualMethod(PNGMetadata, getStandardCompressionNode, $IIOMetadataNode*)},
-	{"getStandardDataNode", "()Ljavax/imageio/metadata/IIOMetadataNode;", nullptr, $PUBLIC, $virtualMethod(PNGMetadata, getStandardDataNode, $IIOMetadataNode*)},
-	{"getStandardDimensionNode", "()Ljavax/imageio/metadata/IIOMetadataNode;", nullptr, $PUBLIC, $virtualMethod(PNGMetadata, getStandardDimensionNode, $IIOMetadataNode*)},
-	{"getStandardDocumentNode", "()Ljavax/imageio/metadata/IIOMetadataNode;", nullptr, $PUBLIC, $virtualMethod(PNGMetadata, getStandardDocumentNode, $IIOMetadataNode*)},
-	{"getStandardTextNode", "()Ljavax/imageio/metadata/IIOMetadataNode;", nullptr, $PUBLIC, $virtualMethod(PNGMetadata, getStandardTextNode, $IIOMetadataNode*)},
-	{"getStandardTransparencyNode", "()Ljavax/imageio/metadata/IIOMetadataNode;", nullptr, $PUBLIC, $virtualMethod(PNGMetadata, getStandardTransparencyNode, $IIOMetadataNode*)},
-	{"getStringAttribute", "(Lorg/w3c/dom/Node;Ljava/lang/String;Ljava/lang/String;Z)Ljava/lang/String;", nullptr, $PRIVATE, $method(PNGMetadata, getStringAttribute, $String*, $Node*, $String*, $String*, bool), "javax.imageio.metadata.IIOInvalidTreeException"},
-	{"hasTransparentColor", "()Z", nullptr, 0, $virtualMethod(PNGMetadata, hasTransparentColor, bool)},
-	{"initImageCreationTime", "(Ljava/time/OffsetDateTime;)V", nullptr, 0, $virtualMethod(PNGMetadata, initImageCreationTime, void, $OffsetDateTime*)},
-	{"initImageCreationTime", "(IIIIII)V", nullptr, 0, $virtualMethod(PNGMetadata, initImageCreationTime, void, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"initialize", "(Ljavax/imageio/ImageTypeSpecifier;I)V", nullptr, $PUBLIC, $virtualMethod(PNGMetadata, initialize, void, $ImageTypeSpecifier*, int32_t)},
-	{"isISOLatin", "(Ljava/lang/String;Z)Z", nullptr, $PRIVATE, $method(PNGMetadata, isISOLatin, bool, $String*, bool)},
-	{"isReadOnly", "()Z", nullptr, $PUBLIC, $virtualMethod(PNGMetadata, isReadOnly, bool)},
-	{"isValidKeyword", "(Ljava/lang/String;)Z", nullptr, $PRIVATE, $method(PNGMetadata, isValidKeyword, bool, $String*)},
-	{"mergeNativeTree", "(Lorg/w3c/dom/Node;)V", nullptr, $PRIVATE, $method(PNGMetadata, mergeNativeTree, void, $Node*), "javax.imageio.metadata.IIOInvalidTreeException"},
-	{"mergeStandardTree", "(Lorg/w3c/dom/Node;)V", nullptr, $PRIVATE, $method(PNGMetadata, mergeStandardTree, void, $Node*), "javax.imageio.metadata.IIOInvalidTreeException"},
-	{"mergeTree", "(Ljava/lang/String;Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC, $virtualMethod(PNGMetadata, mergeTree, void, $String*, $Node*), "javax.imageio.metadata.IIOInvalidTreeException"},
-	{"parseEncodedTime", "(Ljava/lang/String;)Ljava/time/OffsetDateTime;", nullptr, $PRIVATE, $method(PNGMetadata, parseEncodedTime, $OffsetDateTime*, $String*)},
-	{"repeat", "(Ljava/lang/String;I)Ljava/lang/String;", nullptr, $PRIVATE, $method(PNGMetadata, repeat, $String*, $String*, int32_t)},
-	{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(PNGMetadata, reset, void)},
-	{"setCreationTimeChunk", "(Ljava/util/ListIterator;)V", "(Ljava/util/ListIterator<Ljava/lang/String;>;)V", $PRIVATE, $method(PNGMetadata, setCreationTimeChunk, void, $ListIterator*)},
-	{"setEncodedTime", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(PNGMetadata, setEncodedTime, void, $String*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _PNGMetadata_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.imageio.plugins.png.PNGMetadata",
-	"javax.imageio.metadata.IIOMetadata",
-	"java.lang.Cloneable",
-	_PNGMetadata_FieldInfo_,
-	_PNGMetadata_MethodInfo_
-};
-
-$Object* allocate$PNGMetadata($Class* clazz) {
-	return $of($alloc(PNGMetadata));
-}
 
 int32_t PNGMetadata::hashCode() {
 	 return this->$IIOMetadata::hashCode();
@@ -407,7 +218,7 @@ void PNGMetadata::init$($IIOMetadata* metadata) {
 }
 
 void PNGMetadata::initialize($ImageTypeSpecifier* imageType, int32_t numBands) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ColorModel, colorModel, $nc(imageType)->getColorModel());
 	$var($SampleModel, sampleModel, imageType->getSampleModel());
 	$var($ints, sampleSize, $nc(sampleModel)->getSampleSize());
@@ -432,7 +243,7 @@ void PNGMetadata::initialize($ImageTypeSpecifier* imageType, int32_t numBands) {
 	this->IHDR_bitDepth = bitDepth;
 	if ($instanceOf($IndexColorModel, colorModel)) {
 		$var($IndexColorModel, icm, $cast($IndexColorModel, colorModel));
-		int32_t size = $nc(icm)->getMapSize();
+		int32_t size = icm->getMapSize();
 		$var($bytes, reds, $new($bytes, size));
 		icm->getReds(reds);
 		$var($bytes, greens, $new($bytes, size));
@@ -451,7 +262,7 @@ void PNGMetadata::initialize($ImageTypeSpecifier* imageType, int32_t numBands) {
 				}
 			}
 		}
-		bool hasAlpha = $nc(colorModel)->hasAlpha();
+		bool hasAlpha = colorModel->hasAlpha();
 		$var($bytes, alpha, nullptr);
 		if (hasAlpha) {
 			$assign(alpha, $new($bytes, size));
@@ -476,7 +287,7 @@ void PNGMetadata::initialize($ImageTypeSpecifier* imageType, int32_t numBands) {
 				int32_t newIndex = 0;
 				for (int32_t i = 0; i < alpha->length; ++i) {
 					if (alpha->get(i) != (int8_t)255) {
-						$nc(this->PLTE_order)->set(i, newIndex);
+						this->PLTE_order->set(i, newIndex);
 						newAlpha->set(newIndex, alpha->get(i));
 						++newIndex;
 					}
@@ -484,7 +295,7 @@ void PNGMetadata::initialize($ImageTypeSpecifier* imageType, int32_t numBands) {
 				int32_t numTransparent = newIndex;
 				for (int32_t i = 0; i < alpha->length; ++i) {
 					if (alpha->get(i) == (int8_t)255) {
-						$nc(this->PLTE_order)->set(i, newIndex++);
+						this->PLTE_order->set(i, newIndex++);
 					}
 				}
 				$var($bytes, oldRed, this->PLTE_red);
@@ -495,9 +306,9 @@ void PNGMetadata::initialize($ImageTypeSpecifier* imageType, int32_t numBands) {
 				$set(this, PLTE_green, $new($bytes, len));
 				$set(this, PLTE_blue, $new($bytes, len));
 				for (int32_t i = 0; i < len; ++i) {
-					$nc(this->PLTE_red)->set($nc(this->PLTE_order)->get(i), oldRed->get(i));
-					$nc(this->PLTE_green)->set($nc(this->PLTE_order)->get(i), $nc(oldGreen)->get(i));
-					$nc(this->PLTE_blue)->set($nc(this->PLTE_order)->get(i), $nc(oldBlue)->get(i));
+					this->PLTE_red->set(this->PLTE_order->get(i), oldRed->get(i));
+					this->PLTE_green->set(this->PLTE_order->get(i), $nc(oldGreen)->get(i));
+					this->PLTE_blue->set(this->PLTE_order->get(i), $nc(oldBlue)->get(i));
 				}
 				$set(this, tRNS_alpha, $new($bytes, numTransparent));
 				$System::arraycopy(newAlpha, 0, this->tRNS_alpha, 0, numTransparent);
@@ -522,17 +333,17 @@ bool PNGMetadata::isReadOnly() {
 }
 
 $ArrayList* PNGMetadata::cloneBytesArrayList($ArrayList* in) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (in == nullptr) {
 		return nullptr;
 	} else {
-		$var($ArrayList, list, $new($ArrayList, $nc(in)->size()));
+		$var($ArrayList, list, $new($ArrayList, in->size()));
 		{
-			$var($Iterator, i$, $nc(in)->iterator());
+			$var($Iterator, i$, in->iterator());
 			for (; $nc(i$)->hasNext();) {
 				$var($bytes, b, $cast($bytes, i$->next()));
 				{
-					list->add((b == nullptr) ? ($bytes*)nullptr : $cast($bytes, $($nc(b)->clone())));
+					list->add((b == nullptr) ? ($bytes*)nullptr : $$cast($bytes, b->clone()));
 				}
 			}
 		}
@@ -545,7 +356,7 @@ $Object* PNGMetadata::clone() {
 	try {
 		$assign(metadata, $cast(PNGMetadata, $IIOMetadata::clone()));
 	} catch ($CloneNotSupportedException& e) {
-		return $of(nullptr);
+		return nullptr;
 	}
 	$set($nc(metadata), unknownChunkData, cloneBytesArrayList(this->unknownChunkData));
 	return $of(metadata);
@@ -565,7 +376,7 @@ $Node* PNGMetadata::getAsTree($String* formatName) {
 }
 
 $Node* PNGMetadata::getNativeTree() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($IIOMetadataNode, node, nullptr);
 	$var($IIOMetadataNode, root, $new($IIOMetadataNode, PNGMetadata::nativeMetadataFormatName));
 	if (this->IHDR_present) {
@@ -573,10 +384,10 @@ $Node* PNGMetadata::getNativeTree() {
 		IHDR_node->setAttribute("width"_s, $($Integer::toString(this->IHDR_width)));
 		IHDR_node->setAttribute("height"_s, $($Integer::toString(this->IHDR_height)));
 		IHDR_node->setAttribute("bitDepth"_s, $($Integer::toString(this->IHDR_bitDepth)));
-		IHDR_node->setAttribute("colorType"_s, $nc(PNGMetadata::IHDR_colorTypeNames)->get(this->IHDR_colorType));
-		IHDR_node->setAttribute("compressionMethod"_s, $nc(PNGMetadata::IHDR_compressionMethodNames)->get(this->IHDR_compressionMethod));
-		IHDR_node->setAttribute("filterMethod"_s, $nc(PNGMetadata::IHDR_filterMethodNames)->get(this->IHDR_filterMethod));
-		IHDR_node->setAttribute("interlaceMethod"_s, $nc(PNGMetadata::IHDR_interlaceMethodNames)->get(this->IHDR_interlaceMethod));
+		IHDR_node->setAttribute("colorType"_s, PNGMetadata::IHDR_colorTypeNames->get(this->IHDR_colorType));
+		IHDR_node->setAttribute("compressionMethod"_s, PNGMetadata::IHDR_compressionMethodNames->get(this->IHDR_compressionMethod));
+		IHDR_node->setAttribute("filterMethod"_s, PNGMetadata::IHDR_filterMethodNames->get(this->IHDR_filterMethod));
+		IHDR_node->setAttribute("interlaceMethod"_s, PNGMetadata::IHDR_interlaceMethodNames->get(this->IHDR_interlaceMethod));
 		root->appendChild(IHDR_node);
 	}
 	if (this->PLTE_present) {
@@ -585,9 +396,9 @@ $Node* PNGMetadata::getNativeTree() {
 		for (int32_t i = 0; i < numEntries; ++i) {
 			$var($IIOMetadataNode, entry, $new($IIOMetadataNode, "PLTEEntry"_s));
 			entry->setAttribute("index"_s, $($Integer::toString(i)));
-			entry->setAttribute("red"_s, $($Integer::toString((int32_t)($nc(this->PLTE_red)->get(i) & (uint32_t)255))));
-			entry->setAttribute("green"_s, $($Integer::toString((int32_t)($nc(this->PLTE_green)->get(i) & (uint32_t)255))));
-			entry->setAttribute("blue"_s, $($Integer::toString((int32_t)($nc(this->PLTE_blue)->get(i) & (uint32_t)255))));
+			entry->setAttribute("red"_s, $($Integer::toString($nc(this->PLTE_red)->get(i) & 0xff)));
+			entry->setAttribute("green"_s, $($Integer::toString($nc(this->PLTE_green)->get(i) & 0xff)));
+			entry->setAttribute("blue"_s, $($Integer::toString($nc(this->PLTE_blue)->get(i) & 0xff)));
 			PLTE_node->appendChild(entry);
 		}
 		root->appendChild(PLTE_node);
@@ -639,10 +450,10 @@ $Node* PNGMetadata::getNativeTree() {
 	if (this->iCCP_present) {
 		$var($IIOMetadataNode, iCCP_node, $new($IIOMetadataNode, "iCCP"_s));
 		iCCP_node->setAttribute("profileName"_s, this->iCCP_profileName);
-		iCCP_node->setAttribute("compressionMethod"_s, $nc(PNGMetadata::iCCP_compressionMethodNames)->get(this->iCCP_compressionMethod));
+		iCCP_node->setAttribute("compressionMethod"_s, PNGMetadata::iCCP_compressionMethodNames->get(this->iCCP_compressionMethod));
 		$var($Object, profile, this->iCCP_compressedProfile);
 		if (profile != nullptr) {
-			$assign(profile, $nc(($cast($bytes, profile)))->clone());
+			$assign(profile, $cast($bytes, profile)->clone());
 		}
 		iCCP_node->setUserObject(profile);
 		root->appendChild(iCCP_node);
@@ -651,12 +462,12 @@ $Node* PNGMetadata::getNativeTree() {
 		$var($IIOMetadataNode, iTXt_parent, $new($IIOMetadataNode, "iTXt"_s));
 		for (int32_t i = 0; i < $nc(this->iTXt_keyword)->size(); ++i) {
 			$var($IIOMetadataNode, iTXt_node, $new($IIOMetadataNode, "iTXtEntry"_s));
-			iTXt_node->setAttribute("keyword"_s, $cast($String, $($nc(this->iTXt_keyword)->get(i))));
-			iTXt_node->setAttribute("compressionFlag"_s, $nc(($cast($Boolean, $($nc(this->iTXt_compressionFlag)->get(i)))))->booleanValue() ? "TRUE"_s : "FALSE"_s);
-			iTXt_node->setAttribute("compressionMethod"_s, $($nc(($cast($Integer, $($nc(this->iTXt_compressionMethod)->get(i)))))->toString()));
-			iTXt_node->setAttribute("languageTag"_s, $cast($String, $($nc(this->iTXt_languageTag)->get(i))));
-			iTXt_node->setAttribute("translatedKeyword"_s, $cast($String, $($nc(this->iTXt_translatedKeyword)->get(i))));
-			iTXt_node->setAttribute("text"_s, $cast($String, $($nc(this->iTXt_text)->get(i))));
+			iTXt_node->setAttribute("keyword"_s, $$cast($String, this->iTXt_keyword->get(i)));
+			iTXt_node->setAttribute("compressionFlag"_s, $$sure($Boolean, $nc(this->iTXt_compressionFlag)->get(i))->booleanValue() ? "TRUE"_s : "FALSE"_s);
+			iTXt_node->setAttribute("compressionMethod"_s, $($$sure($Integer, $nc(this->iTXt_compressionMethod)->get(i))->toString()));
+			iTXt_node->setAttribute("languageTag"_s, $$cast($String, $nc(this->iTXt_languageTag)->get(i)));
+			iTXt_node->setAttribute("translatedKeyword"_s, $$cast($String, $nc(this->iTXt_translatedKeyword)->get(i)));
+			iTXt_node->setAttribute("text"_s, $$cast($String, $nc(this->iTXt_text)->get(i)));
 			iTXt_parent->appendChild(iTXt_node);
 		}
 		root->appendChild(iTXt_parent);
@@ -665,7 +476,7 @@ $Node* PNGMetadata::getNativeTree() {
 		$var($IIOMetadataNode, pHYs_node, $new($IIOMetadataNode, "pHYs"_s));
 		pHYs_node->setAttribute("pixelsPerUnitXAxis"_s, $($Integer::toString(this->pHYs_pixelsPerUnitXAxis)));
 		pHYs_node->setAttribute("pixelsPerUnitYAxis"_s, $($Integer::toString(this->pHYs_pixelsPerUnitYAxis)));
-		pHYs_node->setAttribute("unitSpecifier"_s, $nc(PNGMetadata::unitSpecifierNames)->get(this->pHYs_unitSpecifier));
+		pHYs_node->setAttribute("unitSpecifier"_s, PNGMetadata::unitSpecifierNames->get(this->pHYs_unitSpecifier));
 		root->appendChild(pHYs_node);
 	}
 	if (this->sBIT_present) {
@@ -716,15 +527,15 @@ $Node* PNGMetadata::getNativeTree() {
 	}
 	if (this->sRGB_present) {
 		$var($IIOMetadataNode, sRGB_node, $new($IIOMetadataNode, "sRGB"_s));
-		sRGB_node->setAttribute("renderingIntent"_s, $nc(PNGMetadata::renderingIntentNames)->get(this->sRGB_renderingIntent));
+		sRGB_node->setAttribute("renderingIntent"_s, PNGMetadata::renderingIntentNames->get(this->sRGB_renderingIntent));
 		root->appendChild(sRGB_node);
 	}
 	if ($nc(this->tEXt_keyword)->size() > 0) {
 		$var($IIOMetadataNode, tEXt_parent, $new($IIOMetadataNode, "tEXt"_s));
 		for (int32_t i = 0; i < $nc(this->tEXt_keyword)->size(); ++i) {
 			$var($IIOMetadataNode, tEXt_node, $new($IIOMetadataNode, "tEXtEntry"_s));
-			tEXt_node->setAttribute("keyword"_s, $cast($String, $($nc(this->tEXt_keyword)->get(i))));
-			tEXt_node->setAttribute("value"_s, $cast($String, $($nc(this->tEXt_text)->get(i))));
+			tEXt_node->setAttribute("keyword"_s, $$cast($String, this->tEXt_keyword->get(i)));
+			tEXt_node->setAttribute("value"_s, $$cast($String, $nc(this->tEXt_text)->get(i)));
 			tEXt_parent->appendChild(tEXt_node);
 		}
 		root->appendChild(tEXt_parent);
@@ -746,7 +557,7 @@ $Node* PNGMetadata::getNativeTree() {
 			for (int32_t i = 0; i < $nc(this->tRNS_alpha)->length; ++i) {
 				$var($IIOMetadataNode, entry, $new($IIOMetadataNode, "tRNS_PaletteEntry"_s));
 				entry->setAttribute("index"_s, $($Integer::toString(i)));
-				entry->setAttribute("alpha"_s, $($Integer::toString((int32_t)($nc(this->tRNS_alpha)->get(i) & (uint32_t)255))));
+				entry->setAttribute("alpha"_s, $($Integer::toString($nc(this->tRNS_alpha)->get(i) & 0xff)));
 				node->appendChild(entry);
 			}
 		} else if (this->tRNS_colorType == $PNGImageReader::PNG_COLOR_GRAY) {
@@ -765,10 +576,10 @@ $Node* PNGMetadata::getNativeTree() {
 		$var($IIOMetadataNode, zTXt_parent, $new($IIOMetadataNode, "zTXt"_s));
 		for (int32_t i = 0; i < $nc(this->zTXt_keyword)->size(); ++i) {
 			$var($IIOMetadataNode, zTXt_node, $new($IIOMetadataNode, "zTXtEntry"_s));
-			zTXt_node->setAttribute("keyword"_s, $cast($String, $($nc(this->zTXt_keyword)->get(i))));
-			int32_t cm = $nc(($cast($Integer, $($nc(this->zTXt_compressionMethod)->get(i)))))->intValue();
-			zTXt_node->setAttribute("compressionMethod"_s, $nc(PNGMetadata::zTXt_compressionMethodNames)->get(cm));
-			zTXt_node->setAttribute("text"_s, $cast($String, $($nc(this->zTXt_text)->get(i))));
+			zTXt_node->setAttribute("keyword"_s, $$cast($String, this->zTXt_keyword->get(i)));
+			int32_t cm = $$sure($Integer, $nc(this->zTXt_compressionMethod)->get(i))->intValue();
+			zTXt_node->setAttribute("compressionMethod"_s, PNGMetadata::zTXt_compressionMethodNames->get(cm));
+			zTXt_node->setAttribute("text"_s, $$cast($String, $nc(this->zTXt_text)->get(i)));
 			zTXt_parent->appendChild(zTXt_node);
 		}
 		root->appendChild(zTXt_parent);
@@ -777,7 +588,7 @@ $Node* PNGMetadata::getNativeTree() {
 		$var($IIOMetadataNode, unknown_parent, $new($IIOMetadataNode, "UnknownChunks"_s));
 		for (int32_t i = 0; i < $nc(this->unknownChunkType)->size(); ++i) {
 			$var($IIOMetadataNode, unknown_node, $new($IIOMetadataNode, "UnknownChunk"_s));
-			unknown_node->setAttribute("type"_s, $cast($String, $($nc(this->unknownChunkType)->get(i))));
+			unknown_node->setAttribute("type"_s, $$cast($String, this->unknownChunkType->get(i)));
 			unknown_node->setUserObject($($nc(this->unknownChunkData)->get(i)));
 			unknown_parent->appendChild(unknown_node);
 		}
@@ -787,7 +598,7 @@ $Node* PNGMetadata::getNativeTree() {
 }
 
 int32_t PNGMetadata::getNumChannels() {
-	int32_t numChannels = $nc(PNGMetadata::IHDR_numChannels)->get(this->IHDR_colorType);
+	int32_t numChannels = PNGMetadata::IHDR_numChannels->get(this->IHDR_colorType);
 	if (this->IHDR_colorType == $PNGImageReader::PNG_COLOR_PALETTE && this->tRNS_present && this->tRNS_colorType == this->IHDR_colorType) {
 		numChannels = 4;
 	}
@@ -795,11 +606,11 @@ int32_t PNGMetadata::getNumChannels() {
 }
 
 $IIOMetadataNode* PNGMetadata::getStandardChromaNode() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($IIOMetadataNode, chroma_node, $new($IIOMetadataNode, "Chroma"_s));
 	$var($IIOMetadataNode, node, nullptr);
 	$assign(node, $new($IIOMetadataNode, "ColorSpaceType"_s));
-	node->setAttribute("name"_s, $nc(PNGMetadata::colorSpaceTypeNames)->get(this->IHDR_colorType));
+	node->setAttribute("name"_s, PNGMetadata::colorSpaceTypeNames->get(this->IHDR_colorType));
 	chroma_node->appendChild(node);
 	$assign(node, $new($IIOMetadataNode, "NumChannels"_s));
 	node->setAttribute("value"_s, $($Integer::toString(getNumChannels())));
@@ -818,11 +629,11 @@ $IIOMetadataNode* PNGMetadata::getStandardChromaNode() {
 		for (int32_t i = 0; i < $nc(this->PLTE_red)->length; ++i) {
 			$var($IIOMetadataNode, entry, $new($IIOMetadataNode, "PaletteEntry"_s));
 			entry->setAttribute("index"_s, $($Integer::toString(i)));
-			entry->setAttribute("red"_s, $($Integer::toString((int32_t)($nc(this->PLTE_red)->get(i) & (uint32_t)255))));
-			entry->setAttribute("green"_s, $($Integer::toString((int32_t)($nc(this->PLTE_green)->get(i) & (uint32_t)255))));
-			entry->setAttribute("blue"_s, $($Integer::toString((int32_t)($nc(this->PLTE_blue)->get(i) & (uint32_t)255))));
+			entry->setAttribute("red"_s, $($Integer::toString($nc(this->PLTE_red)->get(i) & 0xff)));
+			entry->setAttribute("green"_s, $($Integer::toString($nc(this->PLTE_green)->get(i) & 0xff)));
+			entry->setAttribute("blue"_s, $($Integer::toString($nc(this->PLTE_blue)->get(i) & 0xff)));
 			if (hasAlpha) {
-				int32_t alpha = (i < $nc(this->tRNS_alpha)->length) ? ((int32_t)($nc(this->tRNS_alpha)->get(i) & (uint32_t)255)) : 255;
+				int32_t alpha = (i < $nc(this->tRNS_alpha)->length) ? (this->tRNS_alpha->get(i) & 0xff) : 255;
 				entry->setAttribute("alpha"_s, $($Integer::toString(alpha)));
 			}
 			node->appendChild(entry);
@@ -855,7 +666,7 @@ $IIOMetadataNode* PNGMetadata::getStandardChromaNode() {
 }
 
 $IIOMetadataNode* PNGMetadata::getStandardCompressionNode() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($IIOMetadataNode, compression_node, $new($IIOMetadataNode, "Compression"_s));
 	$var($IIOMetadataNode, node, nullptr);
 	$assign(node, $new($IIOMetadataNode, "CompressionTypeName"_s));
@@ -884,7 +695,7 @@ $String* PNGMetadata::repeat($String* s, int32_t times) {
 }
 
 $IIOMetadataNode* PNGMetadata::getStandardDataNode() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($IIOMetadataNode, data_node, $new($IIOMetadataNode, "Data"_s));
 	$var($IIOMetadataNode, node, nullptr);
 	$assign(node, $new($IIOMetadataNode, "PlanarConfiguration"_s));
@@ -903,10 +714,13 @@ $IIOMetadataNode* PNGMetadata::getStandardDataNode() {
 		if (this->sBIT_colorType == $PNGImageReader::PNG_COLOR_GRAY || this->sBIT_colorType == $PNGImageReader::PNG_COLOR_GRAY_ALPHA) {
 			$assign(sbits, $Integer::toString(this->sBIT_grayBits));
 		} else {
-			$var($String, var$2, $$str({$($Integer::toString(this->sBIT_redBits)), " "_s}));
-			$var($String, var$1, $$concat(var$2, $($Integer::toString(this->sBIT_greenBits))));
-			$var($String, var$0, $$concat(var$1, " "_s));
-			$assign(sbits, $concat(var$0, $($Integer::toString(this->sBIT_blueBits))));
+			$var($StringBuilder, var$0, $new($StringBuilder));
+			var$0->append($($Integer::toString(this->sBIT_redBits)));
+			var$0->append(" "_s);
+			var$0->append($($Integer::toString(this->sBIT_greenBits)));
+			var$0->append(" "_s);
+			var$0->append($($Integer::toString(this->sBIT_blueBits)));
+			$assign(sbits, $str(var$0));
 		}
 		if (this->sBIT_colorType == $PNGImageReader::PNG_COLOR_GRAY_ALPHA || this->sBIT_colorType == $PNGImageReader::PNG_COLOR_RGB_ALPHA) {
 			$plusAssign(sbits, $$str({" "_s, $($Integer::toString(this->sBIT_alphaBits))}));
@@ -918,7 +732,7 @@ $IIOMetadataNode* PNGMetadata::getStandardDataNode() {
 }
 
 $IIOMetadataNode* PNGMetadata::getStandardDimensionNode() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($IIOMetadataNode, dimension_node, $new($IIOMetadataNode, "Dimension"_s));
 	$var($IIOMetadataNode, node, nullptr);
 	$assign(node, $new($IIOMetadataNode, "PixelAspectRatio"_s));
@@ -940,7 +754,7 @@ $IIOMetadataNode* PNGMetadata::getStandardDimensionNode() {
 }
 
 $IIOMetadataNode* PNGMetadata::getStandardDocumentNode() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($IIOMetadataNode, document_node, nullptr);
 	if (this->tIME_present) {
 		$assign(document_node, $new($IIOMetadataNode, "Document"_s));
@@ -970,7 +784,7 @@ $IIOMetadataNode* PNGMetadata::getStandardDocumentNode() {
 }
 
 $IIOMetadataNode* PNGMetadata::getStandardTextNode() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t var$1 = $nc(this->tEXt_keyword)->size();
 	int32_t var$0 = var$1 + $nc(this->iTXt_keyword)->size();
 	int32_t numEntries = var$0 + $nc(this->zTXt_keyword)->size();
@@ -981,18 +795,18 @@ $IIOMetadataNode* PNGMetadata::getStandardTextNode() {
 	$var($IIOMetadataNode, node, nullptr);
 	for (int32_t i = 0; i < $nc(this->tEXt_keyword)->size(); ++i) {
 		$assign(node, $new($IIOMetadataNode, "TextEntry"_s));
-		node->setAttribute("keyword"_s, $cast($String, $($nc(this->tEXt_keyword)->get(i))));
-		node->setAttribute("value"_s, $cast($String, $($nc(this->tEXt_text)->get(i))));
+		node->setAttribute("keyword"_s, $$cast($String, this->tEXt_keyword->get(i)));
+		node->setAttribute("value"_s, $$cast($String, $nc(this->tEXt_text)->get(i)));
 		node->setAttribute("encoding"_s, "ISO-8859-1"_s);
 		node->setAttribute("compression"_s, "none"_s);
 		text_node->appendChild(node);
 	}
 	for (int32_t i = 0; i < $nc(this->iTXt_keyword)->size(); ++i) {
 		$assign(node, $new($IIOMetadataNode, "TextEntry"_s));
-		node->setAttribute("keyword"_s, $cast($String, $($nc(this->iTXt_keyword)->get(i))));
-		node->setAttribute("value"_s, $cast($String, $($nc(this->iTXt_text)->get(i))));
-		node->setAttribute("language"_s, $cast($String, $($nc(this->iTXt_languageTag)->get(i))));
-		if ($nc(($cast($Boolean, $($nc(this->iTXt_compressionFlag)->get(i)))))->booleanValue()) {
+		node->setAttribute("keyword"_s, $$cast($String, this->iTXt_keyword->get(i)));
+		node->setAttribute("value"_s, $$cast($String, $nc(this->iTXt_text)->get(i)));
+		node->setAttribute("language"_s, $$cast($String, $nc(this->iTXt_languageTag)->get(i)));
+		if ($$sure($Boolean, $nc(this->iTXt_compressionFlag)->get(i))->booleanValue()) {
 			node->setAttribute("compression"_s, "zip"_s);
 		} else {
 			node->setAttribute("compression"_s, "none"_s);
@@ -1001,8 +815,8 @@ $IIOMetadataNode* PNGMetadata::getStandardTextNode() {
 	}
 	for (int32_t i = 0; i < $nc(this->zTXt_keyword)->size(); ++i) {
 		$assign(node, $new($IIOMetadataNode, "TextEntry"_s));
-		node->setAttribute("keyword"_s, $cast($String, $($nc(this->zTXt_keyword)->get(i))));
-		node->setAttribute("value"_s, $cast($String, $($nc(this->zTXt_text)->get(i))));
+		node->setAttribute("keyword"_s, $$cast($String, this->zTXt_keyword->get(i)));
+		node->setAttribute("value"_s, $$cast($String, $nc(this->zTXt_text)->get(i)));
 		node->setAttribute("compression"_s, "zip"_s);
 		text_node->appendChild(node);
 	}
@@ -1010,7 +824,7 @@ $IIOMetadataNode* PNGMetadata::getStandardTextNode() {
 }
 
 $IIOMetadataNode* PNGMetadata::getStandardTransparencyNode() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($IIOMetadataNode, transparency_node, $new($IIOMetadataNode, "Transparency"_s));
 	$var($IIOMetadataNode, node, nullptr);
 	$assign(node, $new($IIOMetadataNode, "Alpha"_s));
@@ -1020,10 +834,13 @@ $IIOMetadataNode* PNGMetadata::getStandardTransparencyNode() {
 	if (this->tRNS_present) {
 		$assign(node, $new($IIOMetadataNode, "TransparentColor"_s));
 		if (this->tRNS_colorType == $PNGImageReader::PNG_COLOR_RGB) {
-			$var($String, var$2, $$str({$($Integer::toString(this->tRNS_red)), " "_s}));
-			$var($String, var$1, $$concat(var$2, $($Integer::toString(this->tRNS_green))));
-			$var($String, var$0, $$concat(var$1, " "_s));
-			node->setAttribute("value"_s, $$concat(var$0, $($Integer::toString(this->tRNS_blue))));
+			$var($StringBuilder, var$0, $new($StringBuilder));
+			var$0->append($($Integer::toString(this->tRNS_red)));
+			var$0->append(" "_s);
+			var$0->append($($Integer::toString(this->tRNS_green)));
+			var$0->append(" "_s);
+			var$0->append($($Integer::toString(this->tRNS_blue)));
+			node->setAttribute("value"_s, $$str(var$0));
 		} else if (this->tRNS_colorType == $PNGImageReader::PNG_COLOR_GRAY) {
 			node->setAttribute("value"_s, $($Integer::toString(this->tRNS_gray)));
 		}
@@ -1037,8 +854,8 @@ void PNGMetadata::fatal($Node* node, $String* reason) {
 }
 
 $String* PNGMetadata::getStringAttribute($Node* node, $String* name, $String* defaultValue, bool required) {
-	$useLocalCurrentObjectStackCache();
-	$var($Node, attr, $nc($($nc(node)->getAttributes()))->getNamedItem(name));
+	$useLocalObjectStack();
+	$var($Node, attr, $$nc($nc(node)->getAttributes())->getNamedItem(name));
 	if (attr == nullptr) {
 		if (!required) {
 			return defaultValue;
@@ -1074,8 +891,8 @@ float PNGMetadata::getFloatAttribute($Node* node, $String* name) {
 }
 
 bool PNGMetadata::getBooleanAttribute($Node* node, $String* name, bool defaultValue, bool required) {
-	$useLocalCurrentObjectStackCache();
-	$var($Node, attr, $nc($($nc(node)->getAttributes()))->getNamedItem(name));
+	$useLocalObjectStack();
+	$var($Node, attr, $$nc($nc(node)->getAttributes())->getNamedItem(name));
 	if (attr == nullptr) {
 		if (!required) {
 			return defaultValue;
@@ -1085,11 +902,11 @@ bool PNGMetadata::getBooleanAttribute($Node* node, $String* name, bool defaultVa
 	}
 	$var($String, value, $nc(attr)->getNodeValue());
 	bool var$0 = $nc(value)->equals("TRUE"_s);
-	if (var$0 || $nc(value)->equals("true"_s)) {
+	if (var$0 || value->equals("true"_s)) {
 		return true;
 	} else {
-		bool var$2 = value->equals("FALSE"_s);
-		if (var$2 || value->equals("false"_s)) {
+		bool var$1 = value->equals("FALSE"_s);
+		if (var$1 || value->equals("false"_s)) {
 			return false;
 		} else {
 			fatal(node, $$str({"Attribute "_s, name, " must be \'TRUE\' or \'FALSE\'!"_s}));
@@ -1103,8 +920,8 @@ bool PNGMetadata::getBooleanAttribute($Node* node, $String* name) {
 }
 
 int32_t PNGMetadata::getEnumeratedAttribute($Node* node, $String* name, $StringArray* legalNames, int32_t defaultValue, bool required) {
-	$useLocalCurrentObjectStackCache();
-	$var($Node, attr, $nc($($nc(node)->getAttributes()))->getNamedItem(name));
+	$useLocalObjectStack();
+	$var($Node, attr, $$nc($nc(node)->getAttributes())->getNamedItem(name));
 	if (attr == nullptr) {
 		if (!required) {
 			return defaultValue;
@@ -1127,8 +944,8 @@ int32_t PNGMetadata::getEnumeratedAttribute($Node* node, $String* name, $StringA
 }
 
 $String* PNGMetadata::getAttribute($Node* node, $String* name, $String* defaultValue, bool required) {
-	$useLocalCurrentObjectStackCache();
-	$var($Node, attr, $nc($($nc(node)->getAttributes()))->getNamedItem(name));
+	$useLocalObjectStack();
+	$var($Node, attr, $$nc($nc(node)->getAttributes())->getNamedItem(name));
 	if (attr == nullptr) {
 		if (!required) {
 			return defaultValue;
@@ -1163,18 +980,18 @@ void PNGMetadata::mergeTree($String* formatName, $Node* root) {
 }
 
 void PNGMetadata::mergeNativeTree($Node* root) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Node, node, root);
-	if (!$nc($($nc(node)->getNodeName()))->equals(PNGMetadata::nativeMetadataFormatName)) {
+	if (!$$nc($nc(node)->getNodeName())->equals(PNGMetadata::nativeMetadataFormatName)) {
 		fatal(node, $$str({"Root must be "_s, PNGMetadata::nativeMetadataFormatName}));
 	}
-	$assign(node, $nc(node)->getFirstChild());
+	$assign(node, node->getFirstChild());
 	while (node != nullptr) {
 		$var($String, name, node->getNodeName());
 		if ($nc(name)->equals("IHDR"_s)) {
 			this->IHDR_width = getIntAttribute(node, "width"_s);
 			this->IHDR_height = getIntAttribute(node, "height"_s);
-			this->IHDR_bitDepth = $nc($($Integer::valueOf($nc(PNGMetadata::IHDR_bitDepths)->get(getEnumeratedAttribute(node, "bitDepth"_s, PNGMetadata::IHDR_bitDepths)))))->intValue();
+			this->IHDR_bitDepth = $($Integer::valueOf(PNGMetadata::IHDR_bitDepths->get(getEnumeratedAttribute(node, "bitDepth"_s, PNGMetadata::IHDR_bitDepths))))->intValue();
 			this->IHDR_colorType = getEnumeratedAttribute(node, "colorType"_s, PNGMetadata::IHDR_colorTypeNames);
 			this->IHDR_compressionMethod = getEnumeratedAttribute(node, "compressionMethod"_s, PNGMetadata::IHDR_compressionMethodNames);
 			this->IHDR_filterMethod = getEnumeratedAttribute(node, "filterMethod"_s, PNGMetadata::IHDR_filterMethodNames);
@@ -1190,7 +1007,7 @@ void PNGMetadata::mergeNativeTree($Node* root) {
 				fatal(node, "Palette has no entries!"_s);
 			}
 			while (PLTE_entry != nullptr) {
-				if (!$nc($(PLTE_entry->getNodeName()))->equals("PLTEEntry"_s)) {
+				if (!$$nc(PLTE_entry->getNodeName())->equals("PLTEEntry"_s)) {
 					fatal(node, "Only a PLTEEntry may be a child of a PLTE!"_s);
 				}
 				int32_t index = getIntAttribute(PLTE_entry, "index"_s);
@@ -1259,7 +1076,7 @@ void PNGMetadata::mergeNativeTree($Node* root) {
 				fatal(node, "hIST node has no children!"_s);
 			}
 			while (hIST_entry != nullptr) {
-				if (!$nc($(hIST_entry->getNodeName()))->equals("hISTEntry"_s)) {
+				if (!$$nc(hIST_entry->getNodeName())->equals("hISTEntry"_s)) {
 					fatal(node, "Only a hISTEntry may be a child of a hIST!"_s);
 				}
 				int32_t index = getIntAttribute(hIST_entry, "index"_s);
@@ -1279,19 +1096,19 @@ void PNGMetadata::mergeNativeTree($Node* root) {
 		} else if (name->equals("iCCP"_s)) {
 			$set(this, iCCP_profileName, getAttribute(node, "profileName"_s));
 			this->iCCP_compressionMethod = getEnumeratedAttribute(node, "compressionMethod"_s, PNGMetadata::iCCP_compressionMethodNames);
-			$var($Object, compressedProfile, $nc(($cast($IIOMetadataNode, node)))->getUserObject());
+			$var($Object, compressedProfile, $cast($IIOMetadataNode, node)->getUserObject());
 			if (compressedProfile == nullptr) {
 				fatal(node, "No ICCP profile present in user object!"_s);
 			}
 			if (!($instanceOf($bytes, compressedProfile))) {
 				fatal(node, "User object not a byte array!"_s);
 			}
-			$set(this, iCCP_compressedProfile, $cast($bytes, $nc(($cast($bytes, compressedProfile)))->clone()));
+			$set(this, iCCP_compressedProfile, $cast($bytes, $nc($cast($bytes, compressedProfile))->clone()));
 			this->iCCP_present = true;
 		} else if (name->equals("iTXt"_s)) {
 			$var($Node, iTXt_node, node->getFirstChild());
 			while (iTXt_node != nullptr) {
-				if (!$nc($(iTXt_node->getNodeName()))->equals("iTXtEntry"_s)) {
+				if (!$$nc(iTXt_node->getNodeName())->equals("iTXtEntry"_s)) {
 					fatal(node, "Only an iTXtEntry may be a child of an iTXt!"_s);
 				}
 				$var($String, keyword, getAttribute(iTXt_node, "keyword"_s));
@@ -1308,8 +1125,8 @@ void PNGMetadata::mergeNativeTree($Node* root) {
 					$var($String, text, getAttribute(iTXt_node, "text"_s));
 					$nc(this->iTXt_text)->add(text);
 					if ($nc(keyword)->equals(PNGMetadata::tEXt_creationTimeKey)) {
-						int32_t index = $nc(this->iTXt_text)->size() - 1;
-						decodeImageCreationTimeFromTextChunk($($nc(this->iTXt_text)->listIterator(index)));
+						int32_t index = this->iTXt_text->size() - 1;
+						decodeImageCreationTimeFromTextChunk($(this->iTXt_text->listIterator(index)));
 					}
 				}
 				$assign(iTXt_node, iTXt_node->getNextSibling());
@@ -1370,7 +1187,7 @@ void PNGMetadata::mergeNativeTree($Node* root) {
 				fatal(node, "sPLT node has no children!"_s);
 			}
 			while (sPLT_entry != nullptr) {
-				if (!$nc($(sPLT_entry->getNodeName()))->equals("sPLTEntry"_s)) {
+				if (!$$nc(sPLT_entry->getNodeName())->equals("sPLTEntry"_s)) {
 					fatal(node, "Only an sPLTEntry may be a child of an sPLT!"_s);
 				}
 				int32_t index = getIntAttribute(sPLT_entry, "index"_s);
@@ -1405,7 +1222,7 @@ void PNGMetadata::mergeNativeTree($Node* root) {
 		} else if (name->equals("tEXt"_s)) {
 			$var($Node, tEXt_node, node->getFirstChild());
 			while (tEXt_node != nullptr) {
-				if (!$nc($(tEXt_node->getNodeName()))->equals("tEXtEntry"_s)) {
+				if (!$$nc(tEXt_node->getNodeName())->equals("tEXtEntry"_s)) {
 					fatal(node, "Only an tEXtEntry may be a child of an tEXt!"_s);
 				}
 				$var($String, keyword, getAttribute(tEXt_node, "keyword"_s));
@@ -1413,8 +1230,8 @@ void PNGMetadata::mergeNativeTree($Node* root) {
 				$var($String, text, getAttribute(tEXt_node, "value"_s));
 				$nc(this->tEXt_text)->add(text);
 				if ($nc(keyword)->equals(PNGMetadata::tEXt_creationTimeKey)) {
-					int32_t index = $nc(this->tEXt_text)->size() - 1;
-					decodeImageCreationTimeFromTextChunk($($nc(this->tEXt_text)->listIterator(index)));
+					int32_t index = this->tEXt_text->size() - 1;
+					decodeImageCreationTimeFromTextChunk($(this->tEXt_text->listIterator(index)));
 				}
 				$assign(tEXt_node, tEXt_node->getNextSibling());
 			}
@@ -1441,7 +1258,7 @@ void PNGMetadata::mergeNativeTree($Node* root) {
 					fatal(node, "tRNS_Palette node has no children!"_s);
 				}
 				while (tRNS_paletteEntry != nullptr) {
-					if (!$nc($(tRNS_paletteEntry->getNodeName()))->equals("tRNS_PaletteEntry"_s)) {
+					if (!$$nc(tRNS_paletteEntry->getNodeName())->equals("tRNS_PaletteEntry"_s)) {
 						fatal(node, "Only a tRNS_PaletteEntry may be a child of a tRNS_Palette!"_s);
 					}
 					int32_t index = getIntAttribute(tRNS_paletteEntry, "index"_s);
@@ -1476,7 +1293,7 @@ void PNGMetadata::mergeNativeTree($Node* root) {
 		} else if (name->equals("zTXt"_s)) {
 			$var($Node, zTXt_node, node->getFirstChild());
 			while (zTXt_node != nullptr) {
-				if (!$nc($(zTXt_node->getNodeName()))->equals("zTXtEntry"_s)) {
+				if (!$$nc(zTXt_node->getNodeName())->equals("zTXtEntry"_s)) {
 					fatal(node, "Only an zTXtEntry may be a child of an zTXt!"_s);
 				}
 				$var($String, keyword, getAttribute(zTXt_node, "keyword"_s));
@@ -1486,19 +1303,19 @@ void PNGMetadata::mergeNativeTree($Node* root) {
 				$var($String, text, getAttribute(zTXt_node, "text"_s));
 				$nc(this->zTXt_text)->add(text);
 				if ($nc(keyword)->equals(PNGMetadata::tEXt_creationTimeKey)) {
-					int32_t index = $nc(this->zTXt_text)->size() - 1;
-					decodeImageCreationTimeFromTextChunk($($nc(this->zTXt_text)->listIterator(index)));
+					int32_t index = this->zTXt_text->size() - 1;
+					decodeImageCreationTimeFromTextChunk($(this->zTXt_text->listIterator(index)));
 				}
 				$assign(zTXt_node, zTXt_node->getNextSibling());
 			}
 		} else if (name->equals("UnknownChunks"_s)) {
 			$var($Node, unknown_node, node->getFirstChild());
 			while (unknown_node != nullptr) {
-				if (!$nc($(unknown_node->getNodeName()))->equals("UnknownChunk"_s)) {
+				if (!$$nc(unknown_node->getNodeName())->equals("UnknownChunk"_s)) {
 					fatal(node, "Only an UnknownChunk may be a child of an UnknownChunks!"_s);
 				}
 				$var($String, chunkType, getAttribute(unknown_node, "type"_s));
-				$var($Object, chunkData, $nc(($cast($IIOMetadataNode, unknown_node)))->getUserObject());
+				$var($Object, chunkData, $cast($IIOMetadataNode, unknown_node)->getUserObject());
 				if ($nc(chunkType)->length() != 4) {
 					fatal(unknown_node, "Chunk type must be 4 characters!"_s);
 				}
@@ -1509,7 +1326,7 @@ void PNGMetadata::mergeNativeTree($Node* root) {
 					fatal(unknown_node, "User object not a byte array!"_s);
 				}
 				$nc(this->unknownChunkType)->add(chunkType);
-				$nc(this->unknownChunkData)->add($cast($bytes, $($nc(($cast($bytes, chunkData)))->clone())));
+				$nc(this->unknownChunkData)->add($$cast($bytes, $nc($cast($bytes, chunkData))->clone()));
 				$assign(unknown_node, unknown_node->getNextSibling());
 			}
 		} else {
@@ -1546,13 +1363,13 @@ bool PNGMetadata::isISOLatin($String* s, bool isLineFeedAllowed) {
 }
 
 void PNGMetadata::mergeStandardTree($Node* root) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Node, node, root);
 	$init($IIOMetadataFormatImpl);
-	if (!$nc($($nc(node)->getNodeName()))->equals($IIOMetadataFormatImpl::standardMetadataFormatName)) {
+	if (!$$nc($nc(node)->getNodeName())->equals($IIOMetadataFormatImpl::standardMetadataFormatName)) {
 		fatal(node, $$str({"Root must be "_s, $IIOMetadataFormatImpl::standardMetadataFormatName}));
 	}
-	$assign(node, $nc(node)->getFirstChild());
+	$assign(node, node->getFirstChild());
 	while (node != nullptr) {
 		$var($String, name, node->getNodeName());
 		if ($nc(name)->equals("Chroma"_s)) {
@@ -1562,7 +1379,7 @@ void PNGMetadata::mergeStandardTree($Node* root) {
 				if ($nc(childName)->equals("Gamma"_s)) {
 					float gamma = getFloatAttribute(child, "value"_s);
 					this->gAMA_present = true;
-					this->gAMA_gamma = $cast(int32_t, (gamma * 0x000186A0 + 0.5));
+					this->gAMA_gamma = $cast(int32_t, (gamma * 100000 + 0.5));
 				} else if (childName->equals("Palette"_s)) {
 					$var($bytes, red, $new($bytes, 256));
 					$var($bytes, green, $new($bytes, 256));
@@ -1789,15 +1606,15 @@ void PNGMetadata::initImageCreationTime($OffsetDateTime* offsetDateTime) {
 }
 
 void PNGMetadata::initImageCreationTime(int32_t year, int32_t month, int32_t day, int32_t hour, int32_t min, int32_t second) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($LocalDateTime, locDT, $LocalDateTime::of(year, month, day, hour, min, second));
-	$var($ZoneOffset, offset, $nc($($nc($($ZoneId::systemDefault()))->getRules()))->getOffset(locDT));
+	$var($ZoneOffset, offset, $$nc($$nc($ZoneId::systemDefault())->getRules())->getOffset(locDT));
 	$var($OffsetDateTime, offDateTime, $OffsetDateTime::of(locDT, offset));
 	initImageCreationTime(offDateTime);
 }
 
 void PNGMetadata::decodeImageCreationTimeFromTextChunk($ListIterator* iterChunk) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (iterChunk != nullptr && iterChunk->hasNext()) {
 		setCreationTimeChunk(iterChunk);
 		$var($String, encodedTime, getEncodedTime());
@@ -1806,13 +1623,13 @@ void PNGMetadata::decodeImageCreationTimeFromTextChunk($ListIterator* iterChunk)
 }
 
 void PNGMetadata::encodeImageCreationTimeToTextChunk() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->creation_time_present) {
 		if (this->tEXt_creation_time_present == false) {
 			$nc(this->tEXt_keyword)->add(PNGMetadata::tEXt_creationTimeKey);
 			$nc(this->tEXt_text)->add("Creation Time Place Holder"_s);
 			int32_t index = $nc(this->tEXt_text)->size() - 1;
-			setCreationTimeChunk($($nc(this->tEXt_text)->listIterator(index)));
+			setCreationTimeChunk($(this->tEXt_text->listIterator(index)));
 		}
 		$var($OffsetDateTime, offDateTime, $OffsetDateTime::of(this->creation_time_year, this->creation_time_month, this->creation_time_day, this->creation_time_hour, this->creation_time_minute, this->creation_time_second, 0, this->creation_time_offset));
 		$init($DateTimeFormatter);
@@ -1830,24 +1647,24 @@ void PNGMetadata::setCreationTimeChunk($ListIterator* iter) {
 }
 
 void PNGMetadata::setEncodedTime($String* encodedTime) {
-	if (this->tEXt_creation_time_iter != nullptr && $nc(this->tEXt_creation_time_iter)->hasNext() && encodedTime != nullptr) {
-		$nc(this->tEXt_creation_time_iter)->next();
-		$nc(this->tEXt_creation_time_iter)->set(encodedTime);
-		$nc(this->tEXt_creation_time_iter)->previous();
+	if (this->tEXt_creation_time_iter != nullptr && this->tEXt_creation_time_iter->hasNext() && encodedTime != nullptr) {
+		this->tEXt_creation_time_iter->next();
+		this->tEXt_creation_time_iter->set(encodedTime);
+		this->tEXt_creation_time_iter->previous();
 	}
 }
 
 $String* PNGMetadata::getEncodedTime() {
 	$var($String, encodedTime, nullptr);
-	if (this->tEXt_creation_time_iter != nullptr && $nc(this->tEXt_creation_time_iter)->hasNext()) {
-		$assign(encodedTime, $cast($String, $nc(this->tEXt_creation_time_iter)->next()));
-		$nc(this->tEXt_creation_time_iter)->previous();
+	if (this->tEXt_creation_time_iter != nullptr && this->tEXt_creation_time_iter->hasNext()) {
+		$assign(encodedTime, $cast($String, this->tEXt_creation_time_iter->next()));
+		this->tEXt_creation_time_iter->previous();
 	}
 	return encodedTime;
 }
 
 $OffsetDateTime* PNGMetadata::parseEncodedTime($String* encodedTime) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($OffsetDateTime, retVal, nullptr);
 	bool timeDecoded = false;
 	try {
@@ -1861,8 +1678,8 @@ $OffsetDateTime* PNGMetadata::parseEncodedTime($String* encodedTime) {
 			$init($DateTimeFormatter);
 			$var($DateTimeFormatter, formatter, $DateTimeFormatter::ISO_DATE_TIME);
 			$var($TemporalAccessor, dt, $nc(formatter)->parseBest(encodedTime, $$new($TemporalQueryArray, {
-				static_cast<$TemporalQuery*>($$new(PNGMetadata$$Lambda$from)),
-				static_cast<$TemporalQuery*>($$new(PNGMetadata$$Lambda$from$1))
+				$$new(PNGMetadata$$Lambda$from),
+				$$new(PNGMetadata$$Lambda$from$1)
 			})));
 			if ($instanceOf($OffsetDateTime, dt)) {
 				$assign(retVal, $cast($OffsetDateTime, dt));
@@ -1913,17 +1730,17 @@ void PNGMetadata::reset() {
 	$set(this, unknownChunkData, $new($ArrayList));
 }
 
-void clinit$PNGMetadata($Class* class$) {
+void PNGMetadata::clinit$($Class* clazz) {
 	$assignStatic(PNGMetadata::nativeMetadataFormatName, "javax_imageio_png_1.0"_s);
 	$assignStatic(PNGMetadata::nativeMetadataFormatClassName, "com.sun.imageio.plugins.png.PNGMetadataFormat"_s);
 	$assignStatic(PNGMetadata::tEXt_creationTimeKey, "Creation Time"_s);
 	$assignStatic(PNGMetadata::IHDR_colorTypeNames, $new($StringArray, {
 		"Grayscale"_s,
-		($String*)nullptr,
+		nullptr,
 		"RGB"_s,
 		"Palette"_s,
 		"GrayAlpha"_s,
-		($String*)nullptr,
+		nullptr,
 		"RGBAlpha"_s
 	}));
 	$assignStatic(PNGMetadata::IHDR_numChannels, $new($ints, {
@@ -1962,11 +1779,11 @@ void clinit$PNGMetadata($Class* class$) {
 	}));
 	$assignStatic(PNGMetadata::colorSpaceTypeNames, $new($StringArray, {
 		"GRAY"_s,
-		($String*)nullptr,
+		nullptr,
 		"RGB"_s,
 		"RGB"_s,
 		"GRAY"_s,
-		($String*)nullptr,
+		nullptr,
 		"RGB"_s
 	}));
 }
@@ -1976,14 +1793,189 @@ PNGMetadata::PNGMetadata() {
 
 $Class* PNGMetadata::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(PNGMetadata$$Lambda$from::classInfo$.name)) {
+		if (name->equals("com.sun.imageio.plugins.png.PNGMetadata$$Lambda$from")) {
 			return PNGMetadata$$Lambda$from::load$(name, initialize);
 		}
-		if (name->equals(PNGMetadata$$Lambda$from$1::classInfo$.name)) {
+		if (name->equals("com.sun.imageio.plugins.png.PNGMetadata$$Lambda$from$1")) {
 			return PNGMetadata$$Lambda$from$1::load$(name, initialize);
 		}
 	}
-	$loadClass(PNGMetadata, name, initialize, &_PNGMetadata_ClassInfo_, clinit$PNGMetadata, allocate$PNGMetadata);
+	$FieldInfo fieldInfos$$[] = {
+		{"nativeMetadataFormatName", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PNGMetadata, nativeMetadataFormatName)},
+		{"nativeMetadataFormatClassName", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(PNGMetadata, nativeMetadataFormatClassName)},
+		{"IHDR_colorTypeNames", "[Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(PNGMetadata, IHDR_colorTypeNames)},
+		{"IHDR_numChannels", "[I", nullptr, $STATIC | $FINAL, $staticField(PNGMetadata, IHDR_numChannels)},
+		{"IHDR_bitDepths", "[Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(PNGMetadata, IHDR_bitDepths)},
+		{"IHDR_compressionMethodNames", "[Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(PNGMetadata, IHDR_compressionMethodNames)},
+		{"IHDR_filterMethodNames", "[Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(PNGMetadata, IHDR_filterMethodNames)},
+		{"IHDR_interlaceMethodNames", "[Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(PNGMetadata, IHDR_interlaceMethodNames)},
+		{"iCCP_compressionMethodNames", "[Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(PNGMetadata, iCCP_compressionMethodNames)},
+		{"zTXt_compressionMethodNames", "[Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(PNGMetadata, zTXt_compressionMethodNames)},
+		{"PHYS_UNIT_UNKNOWN", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(PNGMetadata, PHYS_UNIT_UNKNOWN)},
+		{"PHYS_UNIT_METER", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(PNGMetadata, PHYS_UNIT_METER)},
+		{"unitSpecifierNames", "[Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(PNGMetadata, unitSpecifierNames)},
+		{"renderingIntentNames", "[Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(PNGMetadata, renderingIntentNames)},
+		{"colorSpaceTypeNames", "[Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(PNGMetadata, colorSpaceTypeNames)},
+		{"IHDR_present", "Z", nullptr, $PUBLIC, $field(PNGMetadata, IHDR_present)},
+		{"IHDR_width", "I", nullptr, $PUBLIC, $field(PNGMetadata, IHDR_width)},
+		{"IHDR_height", "I", nullptr, $PUBLIC, $field(PNGMetadata, IHDR_height)},
+		{"IHDR_bitDepth", "I", nullptr, $PUBLIC, $field(PNGMetadata, IHDR_bitDepth)},
+		{"IHDR_colorType", "I", nullptr, $PUBLIC, $field(PNGMetadata, IHDR_colorType)},
+		{"IHDR_compressionMethod", "I", nullptr, $PUBLIC, $field(PNGMetadata, IHDR_compressionMethod)},
+		{"IHDR_filterMethod", "I", nullptr, $PUBLIC, $field(PNGMetadata, IHDR_filterMethod)},
+		{"IHDR_interlaceMethod", "I", nullptr, $PUBLIC, $field(PNGMetadata, IHDR_interlaceMethod)},
+		{"PLTE_present", "Z", nullptr, $PUBLIC, $field(PNGMetadata, PLTE_present)},
+		{"PLTE_red", "[B", nullptr, $PUBLIC, $field(PNGMetadata, PLTE_red)},
+		{"PLTE_green", "[B", nullptr, $PUBLIC, $field(PNGMetadata, PLTE_green)},
+		{"PLTE_blue", "[B", nullptr, $PUBLIC, $field(PNGMetadata, PLTE_blue)},
+		{"PLTE_order", "[I", nullptr, $PUBLIC, $field(PNGMetadata, PLTE_order)},
+		{"bKGD_present", "Z", nullptr, $PUBLIC, $field(PNGMetadata, bKGD_present)},
+		{"bKGD_colorType", "I", nullptr, $PUBLIC, $field(PNGMetadata, bKGD_colorType)},
+		{"bKGD_index", "I", nullptr, $PUBLIC, $field(PNGMetadata, bKGD_index)},
+		{"bKGD_gray", "I", nullptr, $PUBLIC, $field(PNGMetadata, bKGD_gray)},
+		{"bKGD_red", "I", nullptr, $PUBLIC, $field(PNGMetadata, bKGD_red)},
+		{"bKGD_green", "I", nullptr, $PUBLIC, $field(PNGMetadata, bKGD_green)},
+		{"bKGD_blue", "I", nullptr, $PUBLIC, $field(PNGMetadata, bKGD_blue)},
+		{"cHRM_present", "Z", nullptr, $PUBLIC, $field(PNGMetadata, cHRM_present)},
+		{"cHRM_whitePointX", "I", nullptr, $PUBLIC, $field(PNGMetadata, cHRM_whitePointX)},
+		{"cHRM_whitePointY", "I", nullptr, $PUBLIC, $field(PNGMetadata, cHRM_whitePointY)},
+		{"cHRM_redX", "I", nullptr, $PUBLIC, $field(PNGMetadata, cHRM_redX)},
+		{"cHRM_redY", "I", nullptr, $PUBLIC, $field(PNGMetadata, cHRM_redY)},
+		{"cHRM_greenX", "I", nullptr, $PUBLIC, $field(PNGMetadata, cHRM_greenX)},
+		{"cHRM_greenY", "I", nullptr, $PUBLIC, $field(PNGMetadata, cHRM_greenY)},
+		{"cHRM_blueX", "I", nullptr, $PUBLIC, $field(PNGMetadata, cHRM_blueX)},
+		{"cHRM_blueY", "I", nullptr, $PUBLIC, $field(PNGMetadata, cHRM_blueY)},
+		{"gAMA_present", "Z", nullptr, $PUBLIC, $field(PNGMetadata, gAMA_present)},
+		{"gAMA_gamma", "I", nullptr, $PUBLIC, $field(PNGMetadata, gAMA_gamma)},
+		{"hIST_present", "Z", nullptr, $PUBLIC, $field(PNGMetadata, hIST_present)},
+		{"hIST_histogram", "[C", nullptr, $PUBLIC, $field(PNGMetadata, hIST_histogram)},
+		{"iCCP_present", "Z", nullptr, $PUBLIC, $field(PNGMetadata, iCCP_present)},
+		{"iCCP_profileName", "Ljava/lang/String;", nullptr, $PUBLIC, $field(PNGMetadata, iCCP_profileName)},
+		{"iCCP_compressionMethod", "I", nullptr, $PUBLIC, $field(PNGMetadata, iCCP_compressionMethod)},
+		{"iCCP_compressedProfile", "[B", nullptr, $PUBLIC, $field(PNGMetadata, iCCP_compressedProfile)},
+		{"iTXt_keyword", "Ljava/util/ArrayList;", "Ljava/util/ArrayList<Ljava/lang/String;>;", $PUBLIC, $field(PNGMetadata, iTXt_keyword)},
+		{"iTXt_compressionFlag", "Ljava/util/ArrayList;", "Ljava/util/ArrayList<Ljava/lang/Boolean;>;", $PUBLIC, $field(PNGMetadata, iTXt_compressionFlag)},
+		{"iTXt_compressionMethod", "Ljava/util/ArrayList;", "Ljava/util/ArrayList<Ljava/lang/Integer;>;", $PUBLIC, $field(PNGMetadata, iTXt_compressionMethod)},
+		{"iTXt_languageTag", "Ljava/util/ArrayList;", "Ljava/util/ArrayList<Ljava/lang/String;>;", $PUBLIC, $field(PNGMetadata, iTXt_languageTag)},
+		{"iTXt_translatedKeyword", "Ljava/util/ArrayList;", "Ljava/util/ArrayList<Ljava/lang/String;>;", $PUBLIC, $field(PNGMetadata, iTXt_translatedKeyword)},
+		{"iTXt_text", "Ljava/util/ArrayList;", "Ljava/util/ArrayList<Ljava/lang/String;>;", $PUBLIC, $field(PNGMetadata, iTXt_text)},
+		{"pHYs_present", "Z", nullptr, $PUBLIC, $field(PNGMetadata, pHYs_present)},
+		{"pHYs_pixelsPerUnitXAxis", "I", nullptr, $PUBLIC, $field(PNGMetadata, pHYs_pixelsPerUnitXAxis)},
+		{"pHYs_pixelsPerUnitYAxis", "I", nullptr, $PUBLIC, $field(PNGMetadata, pHYs_pixelsPerUnitYAxis)},
+		{"pHYs_unitSpecifier", "I", nullptr, $PUBLIC, $field(PNGMetadata, pHYs_unitSpecifier)},
+		{"sBIT_present", "Z", nullptr, $PUBLIC, $field(PNGMetadata, sBIT_present)},
+		{"sBIT_colorType", "I", nullptr, $PUBLIC, $field(PNGMetadata, sBIT_colorType)},
+		{"sBIT_grayBits", "I", nullptr, $PUBLIC, $field(PNGMetadata, sBIT_grayBits)},
+		{"sBIT_redBits", "I", nullptr, $PUBLIC, $field(PNGMetadata, sBIT_redBits)},
+		{"sBIT_greenBits", "I", nullptr, $PUBLIC, $field(PNGMetadata, sBIT_greenBits)},
+		{"sBIT_blueBits", "I", nullptr, $PUBLIC, $field(PNGMetadata, sBIT_blueBits)},
+		{"sBIT_alphaBits", "I", nullptr, $PUBLIC, $field(PNGMetadata, sBIT_alphaBits)},
+		{"sPLT_present", "Z", nullptr, $PUBLIC, $field(PNGMetadata, sPLT_present)},
+		{"sPLT_paletteName", "Ljava/lang/String;", nullptr, $PUBLIC, $field(PNGMetadata, sPLT_paletteName)},
+		{"sPLT_sampleDepth", "I", nullptr, $PUBLIC, $field(PNGMetadata, sPLT_sampleDepth)},
+		{"sPLT_red", "[I", nullptr, $PUBLIC, $field(PNGMetadata, sPLT_red)},
+		{"sPLT_green", "[I", nullptr, $PUBLIC, $field(PNGMetadata, sPLT_green)},
+		{"sPLT_blue", "[I", nullptr, $PUBLIC, $field(PNGMetadata, sPLT_blue)},
+		{"sPLT_alpha", "[I", nullptr, $PUBLIC, $field(PNGMetadata, sPLT_alpha)},
+		{"sPLT_frequency", "[I", nullptr, $PUBLIC, $field(PNGMetadata, sPLT_frequency)},
+		{"sRGB_present", "Z", nullptr, $PUBLIC, $field(PNGMetadata, sRGB_present)},
+		{"sRGB_renderingIntent", "I", nullptr, $PUBLIC, $field(PNGMetadata, sRGB_renderingIntent)},
+		{"tEXt_keyword", "Ljava/util/ArrayList;", "Ljava/util/ArrayList<Ljava/lang/String;>;", $PUBLIC, $field(PNGMetadata, tEXt_keyword)},
+		{"tEXt_text", "Ljava/util/ArrayList;", "Ljava/util/ArrayList<Ljava/lang/String;>;", $PUBLIC, $field(PNGMetadata, tEXt_text)},
+		{"tIME_present", "Z", nullptr, $PUBLIC, $field(PNGMetadata, tIME_present)},
+		{"tIME_year", "I", nullptr, $PUBLIC, $field(PNGMetadata, tIME_year)},
+		{"tIME_month", "I", nullptr, $PUBLIC, $field(PNGMetadata, tIME_month)},
+		{"tIME_day", "I", nullptr, $PUBLIC, $field(PNGMetadata, tIME_day)},
+		{"tIME_hour", "I", nullptr, $PUBLIC, $field(PNGMetadata, tIME_hour)},
+		{"tIME_minute", "I", nullptr, $PUBLIC, $field(PNGMetadata, tIME_minute)},
+		{"tIME_second", "I", nullptr, $PUBLIC, $field(PNGMetadata, tIME_second)},
+		{"creation_time_present", "Z", nullptr, $PUBLIC, $field(PNGMetadata, creation_time_present)},
+		{"creation_time_year", "I", nullptr, $PUBLIC, $field(PNGMetadata, creation_time_year)},
+		{"creation_time_month", "I", nullptr, $PUBLIC, $field(PNGMetadata, creation_time_month)},
+		{"creation_time_day", "I", nullptr, $PUBLIC, $field(PNGMetadata, creation_time_day)},
+		{"creation_time_hour", "I", nullptr, $PUBLIC, $field(PNGMetadata, creation_time_hour)},
+		{"creation_time_minute", "I", nullptr, $PUBLIC, $field(PNGMetadata, creation_time_minute)},
+		{"creation_time_second", "I", nullptr, $PUBLIC, $field(PNGMetadata, creation_time_second)},
+		{"creation_time_offset", "Ljava/time/ZoneOffset;", nullptr, $PUBLIC, $field(PNGMetadata, creation_time_offset)},
+		{"tEXt_creation_time_present", "Z", nullptr, $PUBLIC, $field(PNGMetadata, tEXt_creation_time_present)},
+		{"tEXt_creation_time_iter", "Ljava/util/ListIterator;", "Ljava/util/ListIterator<Ljava/lang/String;>;", $PRIVATE, $field(PNGMetadata, tEXt_creation_time_iter)},
+		{"tEXt_creationTimeKey", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PNGMetadata, tEXt_creationTimeKey)},
+		{"tRNS_present", "Z", nullptr, $PUBLIC, $field(PNGMetadata, tRNS_present)},
+		{"tRNS_colorType", "I", nullptr, $PUBLIC, $field(PNGMetadata, tRNS_colorType)},
+		{"tRNS_alpha", "[B", nullptr, $PUBLIC, $field(PNGMetadata, tRNS_alpha)},
+		{"tRNS_gray", "I", nullptr, $PUBLIC, $field(PNGMetadata, tRNS_gray)},
+		{"tRNS_red", "I", nullptr, $PUBLIC, $field(PNGMetadata, tRNS_red)},
+		{"tRNS_green", "I", nullptr, $PUBLIC, $field(PNGMetadata, tRNS_green)},
+		{"tRNS_blue", "I", nullptr, $PUBLIC, $field(PNGMetadata, tRNS_blue)},
+		{"zTXt_keyword", "Ljava/util/ArrayList;", "Ljava/util/ArrayList<Ljava/lang/String;>;", $PUBLIC, $field(PNGMetadata, zTXt_keyword)},
+		{"zTXt_compressionMethod", "Ljava/util/ArrayList;", "Ljava/util/ArrayList<Ljava/lang/Integer;>;", $PUBLIC, $field(PNGMetadata, zTXt_compressionMethod)},
+		{"zTXt_text", "Ljava/util/ArrayList;", "Ljava/util/ArrayList<Ljava/lang/String;>;", $PUBLIC, $field(PNGMetadata, zTXt_text)},
+		{"unknownChunkType", "Ljava/util/ArrayList;", "Ljava/util/ArrayList<Ljava/lang/String;>;", $PUBLIC, $field(PNGMetadata, unknownChunkType)},
+		{"unknownChunkData", "Ljava/util/ArrayList;", "Ljava/util/ArrayList<[B>;", $PUBLIC, $field(PNGMetadata, unknownChunkData)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(PNGMetadata, init$, void)},
+		{"<init>", "(Ljavax/imageio/metadata/IIOMetadata;)V", nullptr, $PUBLIC, $method(PNGMetadata, init$, void, $IIOMetadata*)},
+		{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(PNGMetadata, clone, $Object*)},
+		{"cloneBytesArrayList", "(Ljava/util/ArrayList;)Ljava/util/ArrayList;", "(Ljava/util/ArrayList<[B>;)Ljava/util/ArrayList<[B>;", $PRIVATE, $method(PNGMetadata, cloneBytesArrayList, $ArrayList*, $ArrayList*)},
+		{"decodeImageCreationTimeFromTextChunk", "(Ljava/util/ListIterator;)V", "(Ljava/util/ListIterator<Ljava/lang/String;>;)V", 0, $virtualMethod(PNGMetadata, decodeImageCreationTimeFromTextChunk, void, $ListIterator*)},
+		{"encodeImageCreationTimeToTextChunk", "()V", nullptr, 0, $virtualMethod(PNGMetadata, encodeImageCreationTimeToTextChunk, void)},
+		{"fatal", "(Lorg/w3c/dom/Node;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(PNGMetadata, fatal, void, $Node*, $String*), "javax.imageio.metadata.IIOInvalidTreeException"},
+		{"getAsTree", "(Ljava/lang/String;)Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(PNGMetadata, getAsTree, $Node*, $String*)},
+		{"getAttribute", "(Lorg/w3c/dom/Node;Ljava/lang/String;Ljava/lang/String;Z)Ljava/lang/String;", nullptr, $PRIVATE, $method(PNGMetadata, getAttribute, $String*, $Node*, $String*, $String*, bool), "javax.imageio.metadata.IIOInvalidTreeException"},
+		{"getAttribute", "(Lorg/w3c/dom/Node;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(PNGMetadata, getAttribute, $String*, $Node*, $String*), "javax.imageio.metadata.IIOInvalidTreeException"},
+		{"getBooleanAttribute", "(Lorg/w3c/dom/Node;Ljava/lang/String;ZZ)Z", nullptr, $PRIVATE, $method(PNGMetadata, getBooleanAttribute, bool, $Node*, $String*, bool, bool), "javax.imageio.metadata.IIOInvalidTreeException"},
+		{"getBooleanAttribute", "(Lorg/w3c/dom/Node;Ljava/lang/String;)Z", nullptr, $PRIVATE, $method(PNGMetadata, getBooleanAttribute, bool, $Node*, $String*), "javax.imageio.metadata.IIOInvalidTreeException"},
+		{"getEncodedTime", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(PNGMetadata, getEncodedTime, $String*)},
+		{"getEnumeratedAttribute", "(Lorg/w3c/dom/Node;Ljava/lang/String;[Ljava/lang/String;IZ)I", nullptr, $PRIVATE, $method(PNGMetadata, getEnumeratedAttribute, int32_t, $Node*, $String*, $StringArray*, int32_t, bool), "javax.imageio.metadata.IIOInvalidTreeException"},
+		{"getEnumeratedAttribute", "(Lorg/w3c/dom/Node;Ljava/lang/String;[Ljava/lang/String;)I", nullptr, $PRIVATE, $method(PNGMetadata, getEnumeratedAttribute, int32_t, $Node*, $String*, $StringArray*), "javax.imageio.metadata.IIOInvalidTreeException"},
+		{"getFloatAttribute", "(Lorg/w3c/dom/Node;Ljava/lang/String;FZ)F", nullptr, $PRIVATE, $method(PNGMetadata, getFloatAttribute, float, $Node*, $String*, float, bool), "javax.imageio.metadata.IIOInvalidTreeException"},
+		{"getFloatAttribute", "(Lorg/w3c/dom/Node;Ljava/lang/String;)F", nullptr, $PRIVATE, $method(PNGMetadata, getFloatAttribute, float, $Node*, $String*), "javax.imageio.metadata.IIOInvalidTreeException"},
+		{"getIntAttribute", "(Lorg/w3c/dom/Node;Ljava/lang/String;IZ)I", nullptr, $PRIVATE, $method(PNGMetadata, getIntAttribute, int32_t, $Node*, $String*, int32_t, bool), "javax.imageio.metadata.IIOInvalidTreeException"},
+		{"getIntAttribute", "(Lorg/w3c/dom/Node;Ljava/lang/String;)I", nullptr, $PRIVATE, $method(PNGMetadata, getIntAttribute, int32_t, $Node*, $String*), "javax.imageio.metadata.IIOInvalidTreeException"},
+		{"getNativeTree", "()Lorg/w3c/dom/Node;", nullptr, $PRIVATE, $method(PNGMetadata, getNativeTree, $Node*)},
+		{"getNumChannels", "()I", nullptr, $PRIVATE, $method(PNGMetadata, getNumChannels, int32_t)},
+		{"getStandardChromaNode", "()Ljavax/imageio/metadata/IIOMetadataNode;", nullptr, $PUBLIC, $virtualMethod(PNGMetadata, getStandardChromaNode, $IIOMetadataNode*)},
+		{"getStandardCompressionNode", "()Ljavax/imageio/metadata/IIOMetadataNode;", nullptr, $PUBLIC, $virtualMethod(PNGMetadata, getStandardCompressionNode, $IIOMetadataNode*)},
+		{"getStandardDataNode", "()Ljavax/imageio/metadata/IIOMetadataNode;", nullptr, $PUBLIC, $virtualMethod(PNGMetadata, getStandardDataNode, $IIOMetadataNode*)},
+		{"getStandardDimensionNode", "()Ljavax/imageio/metadata/IIOMetadataNode;", nullptr, $PUBLIC, $virtualMethod(PNGMetadata, getStandardDimensionNode, $IIOMetadataNode*)},
+		{"getStandardDocumentNode", "()Ljavax/imageio/metadata/IIOMetadataNode;", nullptr, $PUBLIC, $virtualMethod(PNGMetadata, getStandardDocumentNode, $IIOMetadataNode*)},
+		{"getStandardTextNode", "()Ljavax/imageio/metadata/IIOMetadataNode;", nullptr, $PUBLIC, $virtualMethod(PNGMetadata, getStandardTextNode, $IIOMetadataNode*)},
+		{"getStandardTransparencyNode", "()Ljavax/imageio/metadata/IIOMetadataNode;", nullptr, $PUBLIC, $virtualMethod(PNGMetadata, getStandardTransparencyNode, $IIOMetadataNode*)},
+		{"getStringAttribute", "(Lorg/w3c/dom/Node;Ljava/lang/String;Ljava/lang/String;Z)Ljava/lang/String;", nullptr, $PRIVATE, $method(PNGMetadata, getStringAttribute, $String*, $Node*, $String*, $String*, bool), "javax.imageio.metadata.IIOInvalidTreeException"},
+		{"hasTransparentColor", "()Z", nullptr, 0, $virtualMethod(PNGMetadata, hasTransparentColor, bool)},
+		{"initImageCreationTime", "(Ljava/time/OffsetDateTime;)V", nullptr, 0, $virtualMethod(PNGMetadata, initImageCreationTime, void, $OffsetDateTime*)},
+		{"initImageCreationTime", "(IIIIII)V", nullptr, 0, $virtualMethod(PNGMetadata, initImageCreationTime, void, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"initialize", "(Ljavax/imageio/ImageTypeSpecifier;I)V", nullptr, $PUBLIC, $virtualMethod(PNGMetadata, initialize, void, $ImageTypeSpecifier*, int32_t)},
+		{"isISOLatin", "(Ljava/lang/String;Z)Z", nullptr, $PRIVATE, $method(PNGMetadata, isISOLatin, bool, $String*, bool)},
+		{"isReadOnly", "()Z", nullptr, $PUBLIC, $virtualMethod(PNGMetadata, isReadOnly, bool)},
+		{"isValidKeyword", "(Ljava/lang/String;)Z", nullptr, $PRIVATE, $method(PNGMetadata, isValidKeyword, bool, $String*)},
+		{"mergeNativeTree", "(Lorg/w3c/dom/Node;)V", nullptr, $PRIVATE, $method(PNGMetadata, mergeNativeTree, void, $Node*), "javax.imageio.metadata.IIOInvalidTreeException"},
+		{"mergeStandardTree", "(Lorg/w3c/dom/Node;)V", nullptr, $PRIVATE, $method(PNGMetadata, mergeStandardTree, void, $Node*), "javax.imageio.metadata.IIOInvalidTreeException"},
+		{"mergeTree", "(Ljava/lang/String;Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC, $virtualMethod(PNGMetadata, mergeTree, void, $String*, $Node*), "javax.imageio.metadata.IIOInvalidTreeException"},
+		{"parseEncodedTime", "(Ljava/lang/String;)Ljava/time/OffsetDateTime;", nullptr, $PRIVATE, $method(PNGMetadata, parseEncodedTime, $OffsetDateTime*, $String*)},
+		{"repeat", "(Ljava/lang/String;I)Ljava/lang/String;", nullptr, $PRIVATE, $method(PNGMetadata, repeat, $String*, $String*, int32_t)},
+		{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(PNGMetadata, reset, void)},
+		{"setCreationTimeChunk", "(Ljava/util/ListIterator;)V", "(Ljava/util/ListIterator<Ljava/lang/String;>;)V", $PRIVATE, $method(PNGMetadata, setCreationTimeChunk, void, $ListIterator*)},
+		{"setEncodedTime", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(PNGMetadata, setEncodedTime, void, $String*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.imageio.plugins.png.PNGMetadata",
+		"javax.imageio.metadata.IIOMetadata",
+		"java.lang.Cloneable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(PNGMetadata, name, initialize, &classInfo$$, PNGMetadata::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(PNGMetadata));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/util/resources/cldr/ext/CurrencyNames_tzm.h>
-
 #include <sun/util/resources/OpenListResourceBundle.h>
 #include <jcpp.h>
 
@@ -14,263 +13,244 @@ namespace sun {
 			namespace cldr {
 				namespace ext {
 
-$MethodInfo _CurrencyNames_tzm_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(CurrencyNames_tzm, init$, void)},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(CurrencyNames_tzm, getContents, $ObjectArray2*)},
-	{}
-};
-
-$ClassInfo _CurrencyNames_tzm_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.util.resources.cldr.ext.CurrencyNames_tzm",
-	"sun.util.resources.OpenListResourceBundle",
-	nullptr,
-	nullptr,
-	_CurrencyNames_tzm_MethodInfo_
-};
-
-$Object* allocate$CurrencyNames_tzm($Class* clazz) {
-	return $of($alloc(CurrencyNames_tzm));
-}
-
 void CurrencyNames_tzm::init$() {
 	$OpenListResourceBundle::init$();
 }
 
 $ObjectArray2* CurrencyNames_tzm::getContents() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectArray2, data, $new($ObjectArray2, {
 		$$new($ObjectArray, {
-			$of("aed"_s),
-			$of("Derhem Uymarati"_s)
+			"aed"_s,
+			"Derhem Uymarati"_s
 		}),
 		$$new($ObjectArray, {
-			$of("aoa"_s),
-			$of("Kwanza Unguli"_s)
+			"aoa"_s,
+			"Kwanza Unguli"_s
 		}),
 		$$new($ObjectArray, {
-			$of("aud"_s),
-			$of(u"Ḍular Usṭrali"_s)
+			"aud"_s,
+			u"Ḍular Usṭrali"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bhd"_s),
-			$of(u"Ḍinar Ubaḥrayni"_s)
+			"bhd"_s,
+			u"Ḍinar Ubaḥrayni"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bif"_s),
-			$of("Frank Uburundi"_s)
+			"bif"_s,
+			"Frank Uburundi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bwp"_s),
-			$of("Pula Ubutswani"_s)
+			"bwp"_s,
+			"Pula Ubutswani"_s
 		}),
 		$$new($ObjectArray, {
-			$of("cad"_s),
-			$of(u"Ḍular Ukanadi"_s)
+			"cad"_s,
+			u"Ḍular Ukanadi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("cdf"_s),
-			$of("Frank Ukunguli"_s)
+			"cdf"_s,
+			"Frank Ukunguli"_s
 		}),
 		$$new($ObjectArray, {
-			$of("chf"_s),
-			$of("Frank Uswisri"_s)
+			"chf"_s,
+			"Frank Uswisri"_s
 		}),
 		$$new($ObjectArray, {
-			$of("cny"_s),
-			$of("Ywan Renminbi Ucinwi"_s)
+			"cny"_s,
+			"Ywan Renminbi Ucinwi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("cve"_s),
-			$of("Iskudu Ukabuvirdyani"_s)
+			"cve"_s,
+			"Iskudu Ukabuvirdyani"_s
 		}),
 		$$new($ObjectArray, {
-			$of("djf"_s),
-			$of(u"Frank Uğibuti"_s)
+			"djf"_s,
+			u"Frank Uğibuti"_s
 		}),
 		$$new($ObjectArray, {
-			$of("dzd"_s),
-			$of(u"Ḍinar Udzayri"_s)
+			"dzd"_s,
+			u"Ḍinar Udzayri"_s
 		}),
 		$$new($ObjectArray, {
-			$of("egp"_s),
-			$of(u"Junih Umiṣṛi"_s)
+			"egp"_s,
+			u"Junih Umiṣṛi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ern"_s),
-			$of("Nakfa Uyritri"_s)
+			"ern"_s,
+			"Nakfa Uyritri"_s
 		}),
 		$$new($ObjectArray, {
-			$of("etb"_s),
-			$of("Birr Uyityuppi"_s)
+			"etb"_s,
+			"Birr Uyityuppi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("eur"_s),
-			$of(u"Uṛu"_s)
+			"eur"_s,
+			u"Uṛu"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gbp"_s),
-			$of(u"Junih Ubriṭani"_s)
+			"gbp"_s,
+			u"Junih Ubriṭani"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ghc"_s),
-			$of(u"Sidi Uɣani"_s)
+			"ghc"_s,
+			u"Sidi Uɣani"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gmd"_s),
-			$of("Dalasi Agambi"_s)
+			"gmd"_s,
+			"Dalasi Agambi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gns"_s),
-			$of(u"Frank Uɣini"_s)
+			"gns"_s,
+			u"Frank Uɣini"_s
 		}),
 		$$new($ObjectArray, {
-			$of("inr"_s),
-			$of(u"Rupi Uḥindi"_s)
+			"inr"_s,
+			u"Rupi Uḥindi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("jpy"_s),
-			$of("Yann Ujappuni"_s)
+			"jpy"_s,
+			"Yann Ujappuni"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kes"_s),
-			$of("Cillin Ukini"_s)
+			"kes"_s,
+			"Cillin Ukini"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kmf"_s),
-			$of("Frank Uqumuri"_s)
+			"kmf"_s,
+			"Frank Uqumuri"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lrd"_s),
-			$of(u"Ḍular Ulibiri"_s)
+			"lrd"_s,
+			u"Ḍular Ulibiri"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lsl"_s),
-			$of(u"Luti Ulusuṭi"_s)
+			"lsl"_s,
+			u"Luti Ulusuṭi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lyd"_s),
-			$of(u"Ḍinar Ulibi"_s)
+			"lyd"_s,
+			u"Ḍinar Ulibi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mad"_s),
-			$of(u"Derhem Umeṛṛuki"_s)
+			"mad"_s,
+			u"Derhem Umeṛṛuki"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mga"_s),
-			$of(u"Aryari Umalɣaci"_s)
+			"mga"_s,
+			u"Aryari Umalɣaci"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mro"_s),
-			$of(u"Uqiyya Umuritani (1973–2017)"_s)
+			"mro"_s,
+			u"Uqiyya Umuritani (1973–2017)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mru"_s),
-			$of("Uqiyya Umuritani"_s)
+			"mru"_s,
+			"Uqiyya Umuritani"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mur"_s),
-			$of("Rupi Umurisi"_s)
+			"mur"_s,
+			"Rupi Umurisi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mwk"_s),
-			$of(u"Kwača Umalawi"_s)
+			"mwk"_s,
+			u"Kwača Umalawi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mzm"_s),
-			$of("Mitikal Umuzambiqi"_s)
+			"mzm"_s,
+			"Mitikal Umuzambiqi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nad"_s),
-			$of(u"Ḍular Unamibi"_s)
+			"nad"_s,
+			u"Ḍular Unamibi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ngn"_s),
-			$of("Nayra Unijiri"_s)
+			"ngn"_s,
+			"Nayra Unijiri"_s
 		}),
 		$$new($ObjectArray, {
-			$of("rwf"_s),
-			$of("Frank Urwandi"_s)
+			"rwf"_s,
+			"Frank Urwandi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sar"_s),
-			$of(u"Ryal Usaεudi"_s)
+			"sar"_s,
+			u"Ryal Usaεudi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("scr"_s),
-			$of("Rupi Usicili"_s)
+			"scr"_s,
+			"Rupi Usicili"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sdg"_s),
-			$of("Junih Usudani"_s)
+			"sdg"_s,
+			"Junih Usudani"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sdp"_s),
-			$of(u"Junih Usudani (1956–2007)"_s)
+			"sdp"_s,
+			u"Junih Usudani (1956–2007)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("shp"_s),
-			$of("Junih Usantehilini"_s)
+			"shp"_s,
+			"Junih Usantehilini"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sll"_s),
-			$of("Lyun Usirralyuni"_s)
+			"sll"_s,
+			"Lyun Usirralyuni"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sos"_s),
-			$of(u"Cilin Uṣumali"_s)
+			"sos"_s,
+			u"Cilin Uṣumali"_s
 		}),
 		$$new($ObjectArray, {
-			$of("std"_s),
-			$of(u"Dubra Usawṭumi (1977–2017)"_s)
+			"std"_s,
+			u"Dubra Usawṭumi (1977–2017)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("stn"_s),
-			$of(u"Dubra Usawṭumi"_s)
+			"stn"_s,
+			u"Dubra Usawṭumi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("szl"_s),
-			$of("Lilanjini Uswazi"_s)
+			"szl"_s,
+			"Lilanjini Uswazi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tnd"_s),
-			$of(u"Ḍinar Utunsi"_s)
+			"tnd"_s,
+			u"Ḍinar Utunsi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tzs"_s),
-			$of(u"Cilin Uṭanzani"_s)
+			"tzs"_s,
+			u"Cilin Uṭanzani"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ugx"_s),
-			$of(u"Cilin Uɣandi (1966–1987)"_s)
+			"ugx"_s,
+			u"Cilin Uɣandi (1966–1987)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("usd"_s),
-			$of(u"Ḍular Umirikani"_s)
+			"usd"_s,
+			u"Ḍular Umirikani"_s
 		}),
 		$$new($ObjectArray, {
-			$of("xaf"_s),
-			$of("Frank CFA (BEAC)"_s)
+			"xaf"_s,
+			"Frank CFA (BEAC)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("xof"_s),
-			$of("Frank CFA (BCEAO)"_s)
+			"xof"_s,
+			"Frank CFA (BCEAO)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("zar"_s),
-			$of("Rand Ufriki Unzul"_s)
+			"zar"_s,
+			"Rand Ufriki Unzul"_s
 		}),
 		$$new($ObjectArray, {
-			$of("zmk"_s),
-			$of(u"Kwača Uzambi (1968–2012)"_s)
+			"zmk"_s,
+			u"Kwača Uzambi (1968–2012)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("zmw"_s),
-			$of(u"Kwača Uzambi"_s)
+			"zmw"_s,
+			u"Kwača Uzambi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("zwd"_s),
-			$of(u"Ḍular Uzimbabwi"_s)
+			"zwd"_s,
+			u"Ḍular Uzimbabwi"_s
 		})
 	}));
 	return data;
@@ -280,7 +260,22 @@ CurrencyNames_tzm::CurrencyNames_tzm() {
 }
 
 $Class* CurrencyNames_tzm::load$($String* name, bool initialize) {
-	$loadClass(CurrencyNames_tzm, name, initialize, &_CurrencyNames_tzm_ClassInfo_, allocate$CurrencyNames_tzm);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(CurrencyNames_tzm, init$, void)},
+		{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(CurrencyNames_tzm, getContents, $ObjectArray2*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.util.resources.cldr.ext.CurrencyNames_tzm",
+		"sun.util.resources.OpenListResourceBundle",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(CurrencyNames_tzm, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CurrencyNames_tzm);
+	});
 	return class$;
 }
 

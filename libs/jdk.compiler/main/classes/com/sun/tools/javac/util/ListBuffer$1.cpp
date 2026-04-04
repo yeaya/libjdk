@@ -1,12 +1,10 @@
 #include <com/sun/tools/javac/util/ListBuffer$1.h>
-
 #include <com/sun/tools/javac/util/List.h>
 #include <com/sun/tools/javac/util/ListBuffer.h>
 #include <java/lang/UnsupportedOperationException.h>
 #include <java/util/NoSuchElementException.h>
 #include <jcpp.h>
 
-using $List = ::com::sun::tools::javac::util::List;
 using $ListBuffer = ::com::sun::tools::javac::util::ListBuffer;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
@@ -22,51 +20,6 @@ namespace com {
 			namespace javac {
 				namespace util {
 
-$FieldInfo _ListBuffer$1_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/util/ListBuffer;", nullptr, $FINAL | $SYNTHETIC, $field(ListBuffer$1, this$0)},
-	{"elems", "Lcom/sun/tools/javac/util/List;", "Lcom/sun/tools/javac/util/List<TA;>;", 0, $field(ListBuffer$1, elems)},
-	{}
-};
-
-$MethodInfo _ListBuffer$1_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/util/ListBuffer;)V", nullptr, 0, $method(ListBuffer$1, init$, void, $ListBuffer*)},
-	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(ListBuffer$1, hasNext, bool)},
-	{"next", "()Ljava/lang/Object;", "()TA;", $PUBLIC, $virtualMethod(ListBuffer$1, next, $Object*)},
-	{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(ListBuffer$1, remove, void)},
-	{}
-};
-
-$EnclosingMethodInfo _ListBuffer$1_EnclosingMethodInfo_ = {
-	"com.sun.tools.javac.util.ListBuffer",
-	"iterator",
-	"()Ljava/util/Iterator;"
-};
-
-$InnerClassInfo _ListBuffer$1_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.util.ListBuffer$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _ListBuffer$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.util.ListBuffer$1",
-	"java.lang.Object",
-	"java.util.Iterator",
-	_ListBuffer$1_FieldInfo_,
-	_ListBuffer$1_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/Iterator<TA;>;",
-	&_ListBuffer$1_EnclosingMethodInfo_,
-	_ListBuffer$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.util.ListBuffer"
-};
-
-$Object* allocate$ListBuffer$1($Class* clazz) {
-	return $of($alloc(ListBuffer$1));
-}
-
 void ListBuffer$1::init$($ListBuffer* this$0) {
 	$set(this, this$0, this$0);
 	$set(this, elems, this->this$0->elems);
@@ -81,8 +34,8 @@ $Object* ListBuffer$1::next() {
 		$throwNew($NoSuchElementException);
 	}
 	$var($Object, elem, $nc(this->elems)->head);
-	$set(this, elems, $nc(this->elems)->tail);
-	return $of(elem);
+	$set(this, elems, this->elems->tail);
+	return elem;
 }
 
 void ListBuffer$1::remove() {
@@ -93,7 +46,45 @@ ListBuffer$1::ListBuffer$1() {
 }
 
 $Class* ListBuffer$1::load$($String* name, bool initialize) {
-	$loadClass(ListBuffer$1, name, initialize, &_ListBuffer$1_ClassInfo_, allocate$ListBuffer$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/util/ListBuffer;", nullptr, $FINAL | $SYNTHETIC, $field(ListBuffer$1, this$0)},
+		{"elems", "Lcom/sun/tools/javac/util/List;", "Lcom/sun/tools/javac/util/List<TA;>;", 0, $field(ListBuffer$1, elems)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/util/ListBuffer;)V", nullptr, 0, $method(ListBuffer$1, init$, void, $ListBuffer*)},
+		{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(ListBuffer$1, hasNext, bool)},
+		{"next", "()Ljava/lang/Object;", "()TA;", $PUBLIC, $virtualMethod(ListBuffer$1, next, $Object*)},
+		{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(ListBuffer$1, remove, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.tools.javac.util.ListBuffer",
+		"iterator",
+		"()Ljava/util/Iterator;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.util.ListBuffer$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.util.ListBuffer$1",
+		"java.lang.Object",
+		"java.util.Iterator",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/Iterator<TA;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.util.ListBuffer"
+	};
+	$loadClass(ListBuffer$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ListBuffer$1);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <MaximumSizeTest.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <java/awt/Dimension.h>
@@ -17,13 +16,9 @@
 #include <javax/swing/SwingUtilities.h>
 #include <jcpp.h>
 
-using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Dimension = ::java::awt::Dimension;
-using $PrintStream = ::java::io::PrintStream;
 using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Exception = ::java::lang::Exception;
 using $InterruptedException = ::java::lang::InterruptedException;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
@@ -42,78 +37,55 @@ public:
 	virtual void run() override {
 		MaximumSizeTest::lambda$main$0();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<MaximumSizeTest$$Lambda$lambda$main$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo MaximumSizeTest$$Lambda$lambda$main$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MaximumSizeTest$$Lambda$lambda$main$0, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(MaximumSizeTest$$Lambda$lambda$main$0, run, void)},
-	{}
-};
-$ClassInfo MaximumSizeTest$$Lambda$lambda$main$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"MaximumSizeTest$$Lambda$lambda$main$0",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* MaximumSizeTest$$Lambda$lambda$main$0::load$($String* name, bool initialize) {
-	$loadClass(MaximumSizeTest$$Lambda$lambda$main$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MaximumSizeTest$$Lambda$lambda$main$0, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(MaximumSizeTest$$Lambda$lambda$main$0, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"MaximumSizeTest$$Lambda$lambda$main$0",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(MaximumSizeTest$$Lambda$lambda$main$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MaximumSizeTest$$Lambda$lambda$main$0);
+	});
 	return class$;
 }
 $Class* MaximumSizeTest$$Lambda$lambda$main$0::class$ = nullptr;
-
-$MethodInfo _MaximumSizeTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MaximumSizeTest, init$, void)},
-	{"lambda$main$0", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MaximumSizeTest, lambda$main$0, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(MaximumSizeTest, main, void, $StringArray*)},
-	{}
-};
-
-$ClassInfo _MaximumSizeTest_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"MaximumSizeTest",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_MaximumSizeTest_MethodInfo_
-};
-
-$Object* allocate$MaximumSizeTest($Class* clazz) {
-	return $of($alloc(MaximumSizeTest));
-}
 
 void MaximumSizeTest::init$() {
 }
 
 void MaximumSizeTest::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
-		$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(MaximumSizeTest$$Lambda$lambda$main$0)));
+		$SwingUtilities::invokeAndWait($$new(MaximumSizeTest$$Lambda$lambda$main$0));
 	} catch ($InterruptedException& e) {
-		$nc($System::out)->println($($of(e->getCause())));
+		$nc($System::out)->println($(e->getCause()));
 		$throwNew($RuntimeException, $(e->getMessage()));
 	} catch ($InvocationTargetException& e) {
-		$nc($System::out)->println($($of(e->getCause())));
+		$nc($System::out)->println($(e->getCause()));
 		$throwNew($RuntimeException, $(e->getMessage()));
 	}
 }
 
 void MaximumSizeTest::lambda$main$0() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JRootPane, r, $new($JRootPane));
-	$nc($(r->getContentPane()))->add(static_cast<$Component*>($$new($JLabel, "foo"_s)));
+	$$nc(r->getContentPane())->add($$new($JLabel, "foo"_s));
 	$nc($System::out)->println($$str({"Min Size: "_s, $(r->getMinimumSize())}));
-	$nc($System::out)->println($$str({"Preferred Size: "_s, $(r->getPreferredSize())}));
+	$System::out->println($$str({"Preferred Size: "_s, $(r->getPreferredSize())}));
 	$var($Dimension, d, r->getMaximumSize());
-	if ($nc(d)->width == 0 || $nc(d)->height == 0) {
+	if ($nc(d)->width == 0 || d->height == 0) {
 		$throwNew($RuntimeException, $$str({"Maximum size is wrongly reported: "_s, d}));
 	}
-	$nc($System::out)->println($$str({"Max size: "_s, d}));
+	$System::out->println($$str({"Max size: "_s, d}));
 }
 
 MaximumSizeTest::MaximumSizeTest() {
@@ -121,11 +93,27 @@ MaximumSizeTest::MaximumSizeTest() {
 
 $Class* MaximumSizeTest::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(MaximumSizeTest$$Lambda$lambda$main$0::classInfo$.name)) {
+		if (name->equals("MaximumSizeTest$$Lambda$lambda$main$0")) {
 			return MaximumSizeTest$$Lambda$lambda$main$0::load$(name, initialize);
 		}
 	}
-	$loadClass(MaximumSizeTest, name, initialize, &_MaximumSizeTest_ClassInfo_, allocate$MaximumSizeTest);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MaximumSizeTest, init$, void)},
+		{"lambda$main$0", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MaximumSizeTest, lambda$main$0, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(MaximumSizeTest, main, void, $StringArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"MaximumSizeTest",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(MaximumSizeTest, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MaximumSizeTest);
+	});
 	return class$;
 }
 

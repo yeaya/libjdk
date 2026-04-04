@@ -1,18 +1,15 @@
 #include <javax/swing/plaf/nimbus/ComboBoxArrowButtonPainter.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Graphics2D.h>
 #include <java/awt/LinearGradientPaint.h>
 #include <java/awt/Paint.h>
 #include <java/awt/Shape.h>
 #include <java/awt/geom/Ellipse2D$Float.h>
-#include <java/awt/geom/Ellipse2D.h>
 #include <java/awt/geom/Path2D$Float.h>
 #include <java/awt/geom/Path2D.h>
 #include <java/awt/geom/Rectangle2D$Float.h>
 #include <java/awt/geom/Rectangle2D.h>
 #include <java/awt/geom/RoundRectangle2D$Float.h>
-#include <java/awt/geom/RoundRectangle2D.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext.h>
 #include <javax/swing/plaf/nimbus/AbstractRegionPainter.h>
@@ -38,13 +35,11 @@ using $Color = ::java::awt::Color;
 using $Graphics2D = ::java::awt::Graphics2D;
 using $Paint = ::java::awt::Paint;
 using $Shape = ::java::awt::Shape;
-using $Ellipse2D = ::java::awt::geom::Ellipse2D;
 using $Ellipse2D$Float = ::java::awt::geom::Ellipse2D$Float;
 using $Path2D = ::java::awt::geom::Path2D;
 using $Path2D$Float = ::java::awt::geom::Path2D$Float;
 using $Rectangle2D = ::java::awt::geom::Rectangle2D;
 using $Rectangle2D$Float = ::java::awt::geom::Rectangle2D$Float;
-using $RoundRectangle2D = ::java::awt::geom::RoundRectangle2D;
 using $RoundRectangle2D$Float = ::java::awt::geom::RoundRectangle2D$Float;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -59,115 +54,12 @@ namespace javax {
 		namespace plaf {
 			namespace nimbus {
 
-$FieldInfo _ComboBoxArrowButtonPainter_FieldInfo_[] = {
-	{"BACKGROUND_DISABLED", "I", nullptr, $STATIC | $FINAL, $constField(ComboBoxArrowButtonPainter, BACKGROUND_DISABLED)},
-	{"BACKGROUND_ENABLED", "I", nullptr, $STATIC | $FINAL, $constField(ComboBoxArrowButtonPainter, BACKGROUND_ENABLED)},
-	{"BACKGROUND_ENABLED_MOUSEOVER", "I", nullptr, $STATIC | $FINAL, $constField(ComboBoxArrowButtonPainter, BACKGROUND_ENABLED_MOUSEOVER)},
-	{"BACKGROUND_ENABLED_PRESSED", "I", nullptr, $STATIC | $FINAL, $constField(ComboBoxArrowButtonPainter, BACKGROUND_ENABLED_PRESSED)},
-	{"BACKGROUND_DISABLED_EDITABLE", "I", nullptr, $STATIC | $FINAL, $constField(ComboBoxArrowButtonPainter, BACKGROUND_DISABLED_EDITABLE)},
-	{"BACKGROUND_ENABLED_EDITABLE", "I", nullptr, $STATIC | $FINAL, $constField(ComboBoxArrowButtonPainter, BACKGROUND_ENABLED_EDITABLE)},
-	{"BACKGROUND_MOUSEOVER_EDITABLE", "I", nullptr, $STATIC | $FINAL, $constField(ComboBoxArrowButtonPainter, BACKGROUND_MOUSEOVER_EDITABLE)},
-	{"BACKGROUND_PRESSED_EDITABLE", "I", nullptr, $STATIC | $FINAL, $constField(ComboBoxArrowButtonPainter, BACKGROUND_PRESSED_EDITABLE)},
-	{"BACKGROUND_SELECTED_EDITABLE", "I", nullptr, $STATIC | $FINAL, $constField(ComboBoxArrowButtonPainter, BACKGROUND_SELECTED_EDITABLE)},
-	{"FOREGROUND_ENABLED", "I", nullptr, $STATIC | $FINAL, $constField(ComboBoxArrowButtonPainter, FOREGROUND_ENABLED)},
-	{"FOREGROUND_MOUSEOVER", "I", nullptr, $STATIC | $FINAL, $constField(ComboBoxArrowButtonPainter, FOREGROUND_MOUSEOVER)},
-	{"FOREGROUND_DISABLED", "I", nullptr, $STATIC | $FINAL, $constField(ComboBoxArrowButtonPainter, FOREGROUND_DISABLED)},
-	{"FOREGROUND_PRESSED", "I", nullptr, $STATIC | $FINAL, $constField(ComboBoxArrowButtonPainter, FOREGROUND_PRESSED)},
-	{"FOREGROUND_SELECTED", "I", nullptr, $STATIC | $FINAL, $constField(ComboBoxArrowButtonPainter, FOREGROUND_SELECTED)},
-	{"state", "I", nullptr, $PRIVATE, $field(ComboBoxArrowButtonPainter, state)},
-	{"ctx", "Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext;", nullptr, $PRIVATE, $field(ComboBoxArrowButtonPainter, ctx)},
-	{"path", "Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $field(ComboBoxArrowButtonPainter, path)},
-	{"rect", "Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $field(ComboBoxArrowButtonPainter, rect)},
-	{"roundRect", "Ljava/awt/geom/RoundRectangle2D;", nullptr, $PRIVATE, $field(ComboBoxArrowButtonPainter, roundRect)},
-	{"ellipse", "Ljava/awt/geom/Ellipse2D;", nullptr, $PRIVATE, $field(ComboBoxArrowButtonPainter, ellipse)},
-	{"color1", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxArrowButtonPainter, color1)},
-	{"color2", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxArrowButtonPainter, color2)},
-	{"color3", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxArrowButtonPainter, color3)},
-	{"color4", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxArrowButtonPainter, color4)},
-	{"color5", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxArrowButtonPainter, color5)},
-	{"color6", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxArrowButtonPainter, color6)},
-	{"color7", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxArrowButtonPainter, color7)},
-	{"color8", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxArrowButtonPainter, color8)},
-	{"color9", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxArrowButtonPainter, color9)},
-	{"color10", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxArrowButtonPainter, color10)},
-	{"color11", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxArrowButtonPainter, color11)},
-	{"color12", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxArrowButtonPainter, color12)},
-	{"color13", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxArrowButtonPainter, color13)},
-	{"color14", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxArrowButtonPainter, color14)},
-	{"color15", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxArrowButtonPainter, color15)},
-	{"color16", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxArrowButtonPainter, color16)},
-	{"color17", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxArrowButtonPainter, color17)},
-	{"color18", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxArrowButtonPainter, color18)},
-	{"color19", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxArrowButtonPainter, color19)},
-	{"color20", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxArrowButtonPainter, color20)},
-	{"color21", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxArrowButtonPainter, color21)},
-	{"color22", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxArrowButtonPainter, color22)},
-	{"color23", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxArrowButtonPainter, color23)},
-	{"color24", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxArrowButtonPainter, color24)},
-	{"color25", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxArrowButtonPainter, color25)},
-	{"color26", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxArrowButtonPainter, color26)},
-	{"color27", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxArrowButtonPainter, color27)},
-	{"color28", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxArrowButtonPainter, color28)},
-	{"color29", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxArrowButtonPainter, color29)},
-	{"color30", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxArrowButtonPainter, color30)},
-	{"color31", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxArrowButtonPainter, color31)},
-	{"componentColors", "[Ljava/lang/Object;", nullptr, $PRIVATE, $field(ComboBoxArrowButtonPainter, componentColors)},
-	{}
-};
-
-$MethodInfo _ComboBoxArrowButtonPainter_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext;I)V", nullptr, $PUBLIC, $method(ComboBoxArrowButtonPainter, init$, void, $AbstractRegionPainter$PaintContext*, int32_t)},
-	{"decodeGradient1", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(ComboBoxArrowButtonPainter, decodeGradient1, $Paint*, $Shape*)},
-	{"decodeGradient2", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(ComboBoxArrowButtonPainter, decodeGradient2, $Paint*, $Shape*)},
-	{"decodeGradient3", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(ComboBoxArrowButtonPainter, decodeGradient3, $Paint*, $Shape*)},
-	{"decodeGradient4", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(ComboBoxArrowButtonPainter, decodeGradient4, $Paint*, $Shape*)},
-	{"decodeGradient5", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(ComboBoxArrowButtonPainter, decodeGradient5, $Paint*, $Shape*)},
-	{"decodeGradient6", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(ComboBoxArrowButtonPainter, decodeGradient6, $Paint*, $Shape*)},
-	{"decodeGradient7", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(ComboBoxArrowButtonPainter, decodeGradient7, $Paint*, $Shape*)},
-	{"decodeGradient8", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(ComboBoxArrowButtonPainter, decodeGradient8, $Paint*, $Shape*)},
-	{"decodeGradient9", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(ComboBoxArrowButtonPainter, decodeGradient9, $Paint*, $Shape*)},
-	{"decodePath1", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(ComboBoxArrowButtonPainter, decodePath1, $Path2D*)},
-	{"decodePath2", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(ComboBoxArrowButtonPainter, decodePath2, $Path2D*)},
-	{"decodePath3", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(ComboBoxArrowButtonPainter, decodePath3, $Path2D*)},
-	{"decodePath4", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(ComboBoxArrowButtonPainter, decodePath4, $Path2D*)},
-	{"decodePath5", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(ComboBoxArrowButtonPainter, decodePath5, $Path2D*)},
-	{"decodePath6", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(ComboBoxArrowButtonPainter, decodePath6, $Path2D*)},
-	{"decodePath7", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(ComboBoxArrowButtonPainter, decodePath7, $Path2D*)},
-	{"decodePath8", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(ComboBoxArrowButtonPainter, decodePath8, $Path2D*)},
-	{"doPaint", "(Ljava/awt/Graphics2D;Ljavax/swing/JComponent;II[Ljava/lang/Object;)V", nullptr, $PROTECTED, $virtualMethod(ComboBoxArrowButtonPainter, doPaint, void, $Graphics2D*, $JComponent*, int32_t, int32_t, $ObjectArray*)},
-	{"getPaintContext", "()Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext;", nullptr, $PROTECTED | $FINAL, $virtualMethod(ComboBoxArrowButtonPainter, getPaintContext, $AbstractRegionPainter$PaintContext*)},
-	{"paintBackgroundDisabledAndEditable", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(ComboBoxArrowButtonPainter, paintBackgroundDisabledAndEditable, void, $Graphics2D*)},
-	{"paintBackgroundEnabledAndEditable", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(ComboBoxArrowButtonPainter, paintBackgroundEnabledAndEditable, void, $Graphics2D*)},
-	{"paintBackgroundMouseOverAndEditable", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(ComboBoxArrowButtonPainter, paintBackgroundMouseOverAndEditable, void, $Graphics2D*)},
-	{"paintBackgroundPressedAndEditable", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(ComboBoxArrowButtonPainter, paintBackgroundPressedAndEditable, void, $Graphics2D*)},
-	{"paintBackgroundSelectedAndEditable", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(ComboBoxArrowButtonPainter, paintBackgroundSelectedAndEditable, void, $Graphics2D*)},
-	{"paintForegroundDisabled", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(ComboBoxArrowButtonPainter, paintForegroundDisabled, void, $Graphics2D*)},
-	{"paintForegroundEnabled", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(ComboBoxArrowButtonPainter, paintForegroundEnabled, void, $Graphics2D*)},
-	{"paintForegroundMouseOver", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(ComboBoxArrowButtonPainter, paintForegroundMouseOver, void, $Graphics2D*)},
-	{"paintForegroundPressed", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(ComboBoxArrowButtonPainter, paintForegroundPressed, void, $Graphics2D*)},
-	{"paintForegroundSelected", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(ComboBoxArrowButtonPainter, paintForegroundSelected, void, $Graphics2D*)},
-	{}
-};
-
-$ClassInfo _ComboBoxArrowButtonPainter_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"javax.swing.plaf.nimbus.ComboBoxArrowButtonPainter",
-	"javax.swing.plaf.nimbus.AbstractRegionPainter",
-	nullptr,
-	_ComboBoxArrowButtonPainter_FieldInfo_,
-	_ComboBoxArrowButtonPainter_MethodInfo_
-};
-
-$Object* allocate$ComboBoxArrowButtonPainter($Class* clazz) {
-	return $of($alloc(ComboBoxArrowButtonPainter));
-}
-
 void ComboBoxArrowButtonPainter::init$($AbstractRegionPainter$PaintContext* ctx, int32_t state) {
 	$AbstractRegionPainter::init$();
 	$set(this, path, $new($Path2D$Float));
-	$set(this, rect, $new($Rectangle2D$Float, (float)0, (float)0, (float)0, (float)0));
-	$set(this, roundRect, $new($RoundRectangle2D$Float, (float)0, (float)0, (float)0, (float)0, (float)0, (float)0));
-	$set(this, ellipse, $new($Ellipse2D$Float, (float)0, (float)0, (float)0, (float)0));
+	$set(this, rect, $new($Rectangle2D$Float, 0, 0, 0, 0));
+	$set(this, roundRect, $new($RoundRectangle2D$Float, 0, 0, 0, 0, 0, 0));
+	$set(this, ellipse, $new($Ellipse2D$Float, 0, 0, 0, 0));
 	$set(this, color1, decodeColor("nimbusBlueGrey"_s, -0.6111111f, -0.110526316f, -0.74509805f, -247));
 	$set(this, color2, decodeColor("nimbusBase"_s, 0.021348298f, -0.56289876f, 0.2588235f, 0));
 	$set(this, color3, decodeColor("nimbusBase"_s, 0.010237217f, -0.55799407f, 0.20784312f, 0));
@@ -207,55 +99,35 @@ void ComboBoxArrowButtonPainter::doPaint($Graphics2D* g, $JComponent* c, int32_t
 	$set(this, componentColors, extendedCacheKeys);
 	switch (this->state) {
 	case ComboBoxArrowButtonPainter::BACKGROUND_DISABLED_EDITABLE:
-		{
-			paintBackgroundDisabledAndEditable(g);
-			break;
-		}
+		paintBackgroundDisabledAndEditable(g);
+		break;
 	case ComboBoxArrowButtonPainter::BACKGROUND_ENABLED_EDITABLE:
-		{
-			paintBackgroundEnabledAndEditable(g);
-			break;
-		}
+		paintBackgroundEnabledAndEditable(g);
+		break;
 	case ComboBoxArrowButtonPainter::BACKGROUND_MOUSEOVER_EDITABLE:
-		{
-			paintBackgroundMouseOverAndEditable(g);
-			break;
-		}
+		paintBackgroundMouseOverAndEditable(g);
+		break;
 	case ComboBoxArrowButtonPainter::BACKGROUND_PRESSED_EDITABLE:
-		{
-			paintBackgroundPressedAndEditable(g);
-			break;
-		}
+		paintBackgroundPressedAndEditable(g);
+		break;
 	case ComboBoxArrowButtonPainter::BACKGROUND_SELECTED_EDITABLE:
-		{
-			paintBackgroundSelectedAndEditable(g);
-			break;
-		}
+		paintBackgroundSelectedAndEditable(g);
+		break;
 	case ComboBoxArrowButtonPainter::FOREGROUND_ENABLED:
-		{
-			paintForegroundEnabled(g);
-			break;
-		}
+		paintForegroundEnabled(g);
+		break;
 	case ComboBoxArrowButtonPainter::FOREGROUND_MOUSEOVER:
-		{
-			paintForegroundMouseOver(g);
-			break;
-		}
+		paintForegroundMouseOver(g);
+		break;
 	case ComboBoxArrowButtonPainter::FOREGROUND_DISABLED:
-		{
-			paintForegroundDisabled(g);
-			break;
-		}
+		paintForegroundDisabled(g);
+		break;
 	case ComboBoxArrowButtonPainter::FOREGROUND_PRESSED:
-		{
-			paintForegroundPressed(g);
-			break;
-		}
+		paintForegroundPressed(g);
+		break;
 	case ComboBoxArrowButtonPainter::FOREGROUND_SELECTED:
-		{
-			paintForegroundSelected(g);
-			break;
-		}
+		paintForegroundSelected(g);
+		break;
 	}
 }
 
@@ -264,7 +136,7 @@ $AbstractRegionPainter$PaintContext* ComboBoxArrowButtonPainter::getPaintContext
 }
 
 void ComboBoxArrowButtonPainter::paintBackgroundDisabledAndEditable($Graphics2D* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, path, decodePath1());
 	$nc(g)->setPaint(this->color1);
 	g->fill(this->path);
@@ -280,7 +152,7 @@ void ComboBoxArrowButtonPainter::paintBackgroundDisabledAndEditable($Graphics2D*
 }
 
 void ComboBoxArrowButtonPainter::paintBackgroundEnabledAndEditable($Graphics2D* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, path, decodePath1());
 	$nc(g)->setPaint(this->color9);
 	g->fill(this->path);
@@ -296,7 +168,7 @@ void ComboBoxArrowButtonPainter::paintBackgroundEnabledAndEditable($Graphics2D* 
 }
 
 void ComboBoxArrowButtonPainter::paintBackgroundMouseOverAndEditable($Graphics2D* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, path, decodePath1());
 	$nc(g)->setPaint(this->color9);
 	g->fill(this->path);
@@ -312,7 +184,7 @@ void ComboBoxArrowButtonPainter::paintBackgroundMouseOverAndEditable($Graphics2D
 }
 
 void ComboBoxArrowButtonPainter::paintBackgroundPressedAndEditable($Graphics2D* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, path, decodePath1());
 	$nc(g)->setPaint(this->color9);
 	g->fill(this->path);
@@ -328,7 +200,7 @@ void ComboBoxArrowButtonPainter::paintBackgroundPressedAndEditable($Graphics2D* 
 }
 
 void ComboBoxArrowButtonPainter::paintBackgroundSelectedAndEditable($Graphics2D* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, path, decodePath1());
 	$nc(g)->setPaint(this->color9);
 	g->fill(this->path);
@@ -375,21 +247,21 @@ void ComboBoxArrowButtonPainter::paintForegroundSelected($Graphics2D* g) {
 
 $Path2D* ComboBoxArrowButtonPainter::decodePath1() {
 	$nc(this->path)->reset();
-	double var$0 = (double)decodeX(0.0f);
+	double var$0 = decodeX(0.0f);
 	$nc(this->path)->moveTo(var$0, decodeY(2.0f));
-	double var$1 = (double)decodeX(2.75f);
+	double var$1 = decodeX(2.75f);
 	$nc(this->path)->lineTo(var$1, decodeY(2.0f));
-	double var$2 = (double)decodeX(2.75f);
+	double var$2 = decodeX(2.75f);
 	$nc(this->path)->lineTo(var$2, decodeY(2.25f));
-	double var$3 = (double)decodeAnchorX(2.75f, 0.0f);
-	double var$4 = (double)decodeAnchorY(2.25f, 4.0f);
-	double var$5 = (double)decodeAnchorX(2.125f, 3.0f);
-	double var$6 = (double)decodeAnchorY(2.875f, 0.0f);
-	double var$7 = (double)decodeX(2.125f);
+	double var$3 = decodeAnchorX(2.75f, 0.0f);
+	double var$4 = decodeAnchorY(2.25f, 4.0f);
+	double var$5 = decodeAnchorX(2.125f, 3.0f);
+	double var$6 = decodeAnchorY(2.875f, 0.0f);
+	double var$7 = decodeX(2.125f);
 	$nc(this->path)->curveTo(var$3, var$4, var$5, var$6, var$7, decodeY(2.875f));
-	double var$8 = (double)decodeX(0.0f);
+	double var$8 = decodeX(0.0f);
 	$nc(this->path)->lineTo(var$8, decodeY(2.875f));
-	double var$9 = (double)decodeX(0.0f);
+	double var$9 = decodeX(0.0f);
 	$nc(this->path)->lineTo(var$9, decodeY(2.0f));
 	$nc(this->path)->closePath();
 	return this->path;
@@ -397,27 +269,27 @@ $Path2D* ComboBoxArrowButtonPainter::decodePath1() {
 
 $Path2D* ComboBoxArrowButtonPainter::decodePath2() {
 	$nc(this->path)->reset();
-	double var$0 = (double)decodeX(0.0f);
+	double var$0 = decodeX(0.0f);
 	$nc(this->path)->moveTo(var$0, decodeY(0.25f));
-	double var$1 = (double)decodeX(2.125f);
+	double var$1 = decodeX(2.125f);
 	$nc(this->path)->lineTo(var$1, decodeY(0.25f));
-	double var$2 = (double)decodeAnchorX(2.125f, 3.0f);
-	double var$3 = (double)decodeAnchorY(0.25f, 0.0f);
-	double var$4 = (double)decodeAnchorX(2.75f, 0.0f);
-	double var$5 = (double)decodeAnchorY(0.875f, -3.0f);
-	double var$6 = (double)decodeX(2.75f);
+	double var$2 = decodeAnchorX(2.125f, 3.0f);
+	double var$3 = decodeAnchorY(0.25f, 0.0f);
+	double var$4 = decodeAnchorX(2.75f, 0.0f);
+	double var$5 = decodeAnchorY(0.875f, -3.0f);
+	double var$6 = decodeX(2.75f);
 	$nc(this->path)->curveTo(var$2, var$3, var$4, var$5, var$6, decodeY(0.875f));
-	double var$7 = (double)decodeX(2.75f);
+	double var$7 = decodeX(2.75f);
 	$nc(this->path)->lineTo(var$7, decodeY(2.125f));
-	double var$8 = (double)decodeAnchorX(2.75f, 0.0f);
-	double var$9 = (double)decodeAnchorY(2.125f, 3.0f);
-	double var$10 = (double)decodeAnchorX(2.125f, 3.0f);
-	double var$11 = (double)decodeAnchorY(2.75f, 0.0f);
-	double var$12 = (double)decodeX(2.125f);
+	double var$8 = decodeAnchorX(2.75f, 0.0f);
+	double var$9 = decodeAnchorY(2.125f, 3.0f);
+	double var$10 = decodeAnchorX(2.125f, 3.0f);
+	double var$11 = decodeAnchorY(2.75f, 0.0f);
+	double var$12 = decodeX(2.125f);
 	$nc(this->path)->curveTo(var$8, var$9, var$10, var$11, var$12, decodeY(2.75f));
-	double var$13 = (double)decodeX(0.0f);
+	double var$13 = decodeX(0.0f);
 	$nc(this->path)->lineTo(var$13, decodeY(2.75f));
-	double var$14 = (double)decodeX(0.0f);
+	double var$14 = decodeX(0.0f);
 	$nc(this->path)->lineTo(var$14, decodeY(0.25f));
 	$nc(this->path)->closePath();
 	return this->path;
@@ -425,9 +297,9 @@ $Path2D* ComboBoxArrowButtonPainter::decodePath2() {
 
 $Path2D* ComboBoxArrowButtonPainter::decodePath3() {
 	$nc(this->path)->reset();
-	double var$0 = (double)decodeX(0.85294116f);
+	double var$0 = decodeX(0.85294116f);
 	$nc(this->path)->moveTo(var$0, decodeY(2.639706f));
-	double var$1 = (double)decodeX(0.85294116f);
+	double var$1 = decodeX(0.85294116f);
 	$nc(this->path)->lineTo(var$1, decodeY(2.639706f));
 	$nc(this->path)->closePath();
 	return this->path;
@@ -435,27 +307,27 @@ $Path2D* ComboBoxArrowButtonPainter::decodePath3() {
 
 $Path2D* ComboBoxArrowButtonPainter::decodePath4() {
 	$nc(this->path)->reset();
-	double var$0 = (double)decodeX(1.0f);
+	double var$0 = decodeX(1.0f);
 	$nc(this->path)->moveTo(var$0, decodeY(0.375f));
-	double var$1 = (double)decodeX(2.0f);
+	double var$1 = decodeX(2.0f);
 	$nc(this->path)->lineTo(var$1, decodeY(0.375f));
-	double var$2 = (double)decodeAnchorX(2.0f, 4.0f);
-	double var$3 = (double)decodeAnchorY(0.375f, 0.0f);
-	double var$4 = (double)decodeAnchorX(2.625f, 0.0f);
-	double var$5 = (double)decodeAnchorY(1.0f, -4.0f);
-	double var$6 = (double)decodeX(2.625f);
+	double var$2 = decodeAnchorX(2.0f, 4.0f);
+	double var$3 = decodeAnchorY(0.375f, 0.0f);
+	double var$4 = decodeAnchorX(2.625f, 0.0f);
+	double var$5 = decodeAnchorY(1.0f, -4.0f);
+	double var$6 = decodeX(2.625f);
 	$nc(this->path)->curveTo(var$2, var$3, var$4, var$5, var$6, decodeY(1.0f));
-	double var$7 = (double)decodeX(2.625f);
+	double var$7 = decodeX(2.625f);
 	$nc(this->path)->lineTo(var$7, decodeY(2.0f));
-	double var$8 = (double)decodeAnchorX(2.625f, 0.0f);
-	double var$9 = (double)decodeAnchorY(2.0f, 4.0f);
-	double var$10 = (double)decodeAnchorX(2.0f, 4.0f);
-	double var$11 = (double)decodeAnchorY(2.625f, 0.0f);
-	double var$12 = (double)decodeX(2.0f);
+	double var$8 = decodeAnchorX(2.625f, 0.0f);
+	double var$9 = decodeAnchorY(2.0f, 4.0f);
+	double var$10 = decodeAnchorX(2.0f, 4.0f);
+	double var$11 = decodeAnchorY(2.625f, 0.0f);
+	double var$12 = decodeX(2.0f);
 	$nc(this->path)->curveTo(var$8, var$9, var$10, var$11, var$12, decodeY(2.625f));
-	double var$13 = (double)decodeX(1.0f);
+	double var$13 = decodeX(1.0f);
 	$nc(this->path)->lineTo(var$13, decodeY(2.625f));
-	double var$14 = (double)decodeX(1.0f);
+	double var$14 = decodeX(1.0f);
 	$nc(this->path)->lineTo(var$14, decodeY(0.375f));
 	$nc(this->path)->closePath();
 	return this->path;
@@ -463,13 +335,13 @@ $Path2D* ComboBoxArrowButtonPainter::decodePath4() {
 
 $Path2D* ComboBoxArrowButtonPainter::decodePath5() {
 	$nc(this->path)->reset();
-	double var$0 = (double)decodeX(0.9995915f);
+	double var$0 = decodeX(0.9995915f);
 	$nc(this->path)->moveTo(var$0, decodeY(1.3616071f));
-	double var$1 = (double)decodeX(2.0f);
+	double var$1 = decodeX(2.0f);
 	$nc(this->path)->lineTo(var$1, decodeY(0.8333333f));
-	double var$2 = (double)decodeX(2.0f);
+	double var$2 = decodeX(2.0f);
 	$nc(this->path)->lineTo(var$2, decodeY(1.8571429f));
-	double var$3 = (double)decodeX(0.9995915f);
+	double var$3 = decodeX(0.9995915f);
 	$nc(this->path)->lineTo(var$3, decodeY(1.3616071f));
 	$nc(this->path)->closePath();
 	return this->path;
@@ -477,13 +349,13 @@ $Path2D* ComboBoxArrowButtonPainter::decodePath5() {
 
 $Path2D* ComboBoxArrowButtonPainter::decodePath6() {
 	$nc(this->path)->reset();
-	double var$0 = (double)decodeX(1.00625f);
+	double var$0 = decodeX(1.00625f);
 	$nc(this->path)->moveTo(var$0, decodeY(1.3526785f));
-	double var$1 = (double)decodeX(2.0f);
+	double var$1 = decodeX(2.0f);
 	$nc(this->path)->lineTo(var$1, decodeY(0.8333333f));
-	double var$2 = (double)decodeX(2.0f);
+	double var$2 = decodeX(2.0f);
 	$nc(this->path)->lineTo(var$2, decodeY(1.8571429f));
-	double var$3 = (double)decodeX(1.00625f);
+	double var$3 = decodeX(1.00625f);
 	$nc(this->path)->lineTo(var$3, decodeY(1.3526785f));
 	$nc(this->path)->closePath();
 	return this->path;
@@ -491,13 +363,13 @@ $Path2D* ComboBoxArrowButtonPainter::decodePath6() {
 
 $Path2D* ComboBoxArrowButtonPainter::decodePath7() {
 	$nc(this->path)->reset();
-	double var$0 = (double)decodeX(1.0117648f);
+	double var$0 = decodeX(1.0117648f);
 	$nc(this->path)->moveTo(var$0, decodeY(1.3616071f));
-	double var$1 = (double)decodeX(2.0f);
+	double var$1 = decodeX(2.0f);
 	$nc(this->path)->lineTo(var$1, decodeY(0.8333333f));
-	double var$2 = (double)decodeX(2.0f);
+	double var$2 = decodeX(2.0f);
 	$nc(this->path)->lineTo(var$2, decodeY(1.8571429f));
-	double var$3 = (double)decodeX(1.0117648f);
+	double var$3 = decodeX(1.0117648f);
 	$nc(this->path)->lineTo(var$3, decodeY(1.3616071f));
 	$nc(this->path)->closePath();
 	return this->path;
@@ -505,20 +377,20 @@ $Path2D* ComboBoxArrowButtonPainter::decodePath7() {
 
 $Path2D* ComboBoxArrowButtonPainter::decodePath8() {
 	$nc(this->path)->reset();
-	double var$0 = (double)decodeX(1.0242647f);
+	double var$0 = decodeX(1.0242647f);
 	$nc(this->path)->moveTo(var$0, decodeY(1.3526785f));
-	double var$1 = (double)decodeX(2.0f);
+	double var$1 = decodeX(2.0f);
 	$nc(this->path)->lineTo(var$1, decodeY(0.8333333f));
-	double var$2 = (double)decodeX(2.0f);
+	double var$2 = decodeX(2.0f);
 	$nc(this->path)->lineTo(var$2, decodeY(1.8571429f));
-	double var$3 = (double)decodeX(1.0242647f);
+	double var$3 = decodeX(1.0242647f);
 	$nc(this->path)->lineTo(var$3, decodeY(1.3526785f));
 	$nc(this->path)->closePath();
 	return this->path;
 }
 
 $Paint* ComboBoxArrowButtonPainter::decodeGradient1($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -536,7 +408,7 @@ $Paint* ComboBoxArrowButtonPainter::decodeGradient1($Shape* s) {
 }
 
 $Paint* ComboBoxArrowButtonPainter::decodeGradient2($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -562,7 +434,7 @@ $Paint* ComboBoxArrowButtonPainter::decodeGradient2($Shape* s) {
 }
 
 $Paint* ComboBoxArrowButtonPainter::decodeGradient3($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -580,7 +452,7 @@ $Paint* ComboBoxArrowButtonPainter::decodeGradient3($Shape* s) {
 }
 
 $Paint* ComboBoxArrowButtonPainter::decodeGradient4($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -606,7 +478,7 @@ $Paint* ComboBoxArrowButtonPainter::decodeGradient4($Shape* s) {
 }
 
 $Paint* ComboBoxArrowButtonPainter::decodeGradient5($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -624,7 +496,7 @@ $Paint* ComboBoxArrowButtonPainter::decodeGradient5($Shape* s) {
 }
 
 $Paint* ComboBoxArrowButtonPainter::decodeGradient6($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -650,7 +522,7 @@ $Paint* ComboBoxArrowButtonPainter::decodeGradient6($Shape* s) {
 }
 
 $Paint* ComboBoxArrowButtonPainter::decodeGradient7($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -668,7 +540,7 @@ $Paint* ComboBoxArrowButtonPainter::decodeGradient7($Shape* s) {
 }
 
 $Paint* ComboBoxArrowButtonPainter::decodeGradient8($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -694,7 +566,7 @@ $Paint* ComboBoxArrowButtonPainter::decodeGradient8($Shape* s) {
 }
 
 $Paint* ComboBoxArrowButtonPainter::decodeGradient9($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -715,7 +587,105 @@ ComboBoxArrowButtonPainter::ComboBoxArrowButtonPainter() {
 }
 
 $Class* ComboBoxArrowButtonPainter::load$($String* name, bool initialize) {
-	$loadClass(ComboBoxArrowButtonPainter, name, initialize, &_ComboBoxArrowButtonPainter_ClassInfo_, allocate$ComboBoxArrowButtonPainter);
+	$FieldInfo fieldInfos$$[] = {
+		{"BACKGROUND_DISABLED", "I", nullptr, $STATIC | $FINAL, $constField(ComboBoxArrowButtonPainter, BACKGROUND_DISABLED)},
+		{"BACKGROUND_ENABLED", "I", nullptr, $STATIC | $FINAL, $constField(ComboBoxArrowButtonPainter, BACKGROUND_ENABLED)},
+		{"BACKGROUND_ENABLED_MOUSEOVER", "I", nullptr, $STATIC | $FINAL, $constField(ComboBoxArrowButtonPainter, BACKGROUND_ENABLED_MOUSEOVER)},
+		{"BACKGROUND_ENABLED_PRESSED", "I", nullptr, $STATIC | $FINAL, $constField(ComboBoxArrowButtonPainter, BACKGROUND_ENABLED_PRESSED)},
+		{"BACKGROUND_DISABLED_EDITABLE", "I", nullptr, $STATIC | $FINAL, $constField(ComboBoxArrowButtonPainter, BACKGROUND_DISABLED_EDITABLE)},
+		{"BACKGROUND_ENABLED_EDITABLE", "I", nullptr, $STATIC | $FINAL, $constField(ComboBoxArrowButtonPainter, BACKGROUND_ENABLED_EDITABLE)},
+		{"BACKGROUND_MOUSEOVER_EDITABLE", "I", nullptr, $STATIC | $FINAL, $constField(ComboBoxArrowButtonPainter, BACKGROUND_MOUSEOVER_EDITABLE)},
+		{"BACKGROUND_PRESSED_EDITABLE", "I", nullptr, $STATIC | $FINAL, $constField(ComboBoxArrowButtonPainter, BACKGROUND_PRESSED_EDITABLE)},
+		{"BACKGROUND_SELECTED_EDITABLE", "I", nullptr, $STATIC | $FINAL, $constField(ComboBoxArrowButtonPainter, BACKGROUND_SELECTED_EDITABLE)},
+		{"FOREGROUND_ENABLED", "I", nullptr, $STATIC | $FINAL, $constField(ComboBoxArrowButtonPainter, FOREGROUND_ENABLED)},
+		{"FOREGROUND_MOUSEOVER", "I", nullptr, $STATIC | $FINAL, $constField(ComboBoxArrowButtonPainter, FOREGROUND_MOUSEOVER)},
+		{"FOREGROUND_DISABLED", "I", nullptr, $STATIC | $FINAL, $constField(ComboBoxArrowButtonPainter, FOREGROUND_DISABLED)},
+		{"FOREGROUND_PRESSED", "I", nullptr, $STATIC | $FINAL, $constField(ComboBoxArrowButtonPainter, FOREGROUND_PRESSED)},
+		{"FOREGROUND_SELECTED", "I", nullptr, $STATIC | $FINAL, $constField(ComboBoxArrowButtonPainter, FOREGROUND_SELECTED)},
+		{"state", "I", nullptr, $PRIVATE, $field(ComboBoxArrowButtonPainter, state)},
+		{"ctx", "Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext;", nullptr, $PRIVATE, $field(ComboBoxArrowButtonPainter, ctx)},
+		{"path", "Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $field(ComboBoxArrowButtonPainter, path)},
+		{"rect", "Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $field(ComboBoxArrowButtonPainter, rect)},
+		{"roundRect", "Ljava/awt/geom/RoundRectangle2D;", nullptr, $PRIVATE, $field(ComboBoxArrowButtonPainter, roundRect)},
+		{"ellipse", "Ljava/awt/geom/Ellipse2D;", nullptr, $PRIVATE, $field(ComboBoxArrowButtonPainter, ellipse)},
+		{"color1", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxArrowButtonPainter, color1)},
+		{"color2", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxArrowButtonPainter, color2)},
+		{"color3", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxArrowButtonPainter, color3)},
+		{"color4", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxArrowButtonPainter, color4)},
+		{"color5", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxArrowButtonPainter, color5)},
+		{"color6", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxArrowButtonPainter, color6)},
+		{"color7", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxArrowButtonPainter, color7)},
+		{"color8", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxArrowButtonPainter, color8)},
+		{"color9", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxArrowButtonPainter, color9)},
+		{"color10", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxArrowButtonPainter, color10)},
+		{"color11", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxArrowButtonPainter, color11)},
+		{"color12", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxArrowButtonPainter, color12)},
+		{"color13", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxArrowButtonPainter, color13)},
+		{"color14", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxArrowButtonPainter, color14)},
+		{"color15", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxArrowButtonPainter, color15)},
+		{"color16", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxArrowButtonPainter, color16)},
+		{"color17", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxArrowButtonPainter, color17)},
+		{"color18", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxArrowButtonPainter, color18)},
+		{"color19", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxArrowButtonPainter, color19)},
+		{"color20", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxArrowButtonPainter, color20)},
+		{"color21", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxArrowButtonPainter, color21)},
+		{"color22", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxArrowButtonPainter, color22)},
+		{"color23", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxArrowButtonPainter, color23)},
+		{"color24", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxArrowButtonPainter, color24)},
+		{"color25", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxArrowButtonPainter, color25)},
+		{"color26", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxArrowButtonPainter, color26)},
+		{"color27", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxArrowButtonPainter, color27)},
+		{"color28", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxArrowButtonPainter, color28)},
+		{"color29", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxArrowButtonPainter, color29)},
+		{"color30", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxArrowButtonPainter, color30)},
+		{"color31", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ComboBoxArrowButtonPainter, color31)},
+		{"componentColors", "[Ljava/lang/Object;", nullptr, $PRIVATE, $field(ComboBoxArrowButtonPainter, componentColors)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext;I)V", nullptr, $PUBLIC, $method(ComboBoxArrowButtonPainter, init$, void, $AbstractRegionPainter$PaintContext*, int32_t)},
+		{"decodeGradient1", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(ComboBoxArrowButtonPainter, decodeGradient1, $Paint*, $Shape*)},
+		{"decodeGradient2", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(ComboBoxArrowButtonPainter, decodeGradient2, $Paint*, $Shape*)},
+		{"decodeGradient3", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(ComboBoxArrowButtonPainter, decodeGradient3, $Paint*, $Shape*)},
+		{"decodeGradient4", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(ComboBoxArrowButtonPainter, decodeGradient4, $Paint*, $Shape*)},
+		{"decodeGradient5", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(ComboBoxArrowButtonPainter, decodeGradient5, $Paint*, $Shape*)},
+		{"decodeGradient6", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(ComboBoxArrowButtonPainter, decodeGradient6, $Paint*, $Shape*)},
+		{"decodeGradient7", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(ComboBoxArrowButtonPainter, decodeGradient7, $Paint*, $Shape*)},
+		{"decodeGradient8", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(ComboBoxArrowButtonPainter, decodeGradient8, $Paint*, $Shape*)},
+		{"decodeGradient9", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(ComboBoxArrowButtonPainter, decodeGradient9, $Paint*, $Shape*)},
+		{"decodePath1", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(ComboBoxArrowButtonPainter, decodePath1, $Path2D*)},
+		{"decodePath2", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(ComboBoxArrowButtonPainter, decodePath2, $Path2D*)},
+		{"decodePath3", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(ComboBoxArrowButtonPainter, decodePath3, $Path2D*)},
+		{"decodePath4", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(ComboBoxArrowButtonPainter, decodePath4, $Path2D*)},
+		{"decodePath5", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(ComboBoxArrowButtonPainter, decodePath5, $Path2D*)},
+		{"decodePath6", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(ComboBoxArrowButtonPainter, decodePath6, $Path2D*)},
+		{"decodePath7", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(ComboBoxArrowButtonPainter, decodePath7, $Path2D*)},
+		{"decodePath8", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(ComboBoxArrowButtonPainter, decodePath8, $Path2D*)},
+		{"doPaint", "(Ljava/awt/Graphics2D;Ljavax/swing/JComponent;II[Ljava/lang/Object;)V", nullptr, $PROTECTED, $virtualMethod(ComboBoxArrowButtonPainter, doPaint, void, $Graphics2D*, $JComponent*, int32_t, int32_t, $ObjectArray*)},
+		{"getPaintContext", "()Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext;", nullptr, $PROTECTED | $FINAL, $virtualMethod(ComboBoxArrowButtonPainter, getPaintContext, $AbstractRegionPainter$PaintContext*)},
+		{"paintBackgroundDisabledAndEditable", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(ComboBoxArrowButtonPainter, paintBackgroundDisabledAndEditable, void, $Graphics2D*)},
+		{"paintBackgroundEnabledAndEditable", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(ComboBoxArrowButtonPainter, paintBackgroundEnabledAndEditable, void, $Graphics2D*)},
+		{"paintBackgroundMouseOverAndEditable", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(ComboBoxArrowButtonPainter, paintBackgroundMouseOverAndEditable, void, $Graphics2D*)},
+		{"paintBackgroundPressedAndEditable", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(ComboBoxArrowButtonPainter, paintBackgroundPressedAndEditable, void, $Graphics2D*)},
+		{"paintBackgroundSelectedAndEditable", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(ComboBoxArrowButtonPainter, paintBackgroundSelectedAndEditable, void, $Graphics2D*)},
+		{"paintForegroundDisabled", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(ComboBoxArrowButtonPainter, paintForegroundDisabled, void, $Graphics2D*)},
+		{"paintForegroundEnabled", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(ComboBoxArrowButtonPainter, paintForegroundEnabled, void, $Graphics2D*)},
+		{"paintForegroundMouseOver", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(ComboBoxArrowButtonPainter, paintForegroundMouseOver, void, $Graphics2D*)},
+		{"paintForegroundPressed", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(ComboBoxArrowButtonPainter, paintForegroundPressed, void, $Graphics2D*)},
+		{"paintForegroundSelected", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(ComboBoxArrowButtonPainter, paintForegroundSelected, void, $Graphics2D*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"javax.swing.plaf.nimbus.ComboBoxArrowButtonPainter",
+		"javax.swing.plaf.nimbus.AbstractRegionPainter",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ComboBoxArrowButtonPainter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ComboBoxArrowButtonPainter);
+	});
 	return class$;
 }
 

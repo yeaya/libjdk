@@ -39,6 +39,7 @@ class $import SSLFlowDelegate$Monitor : public ::java::lang::Thread {
 	$class(SSLFlowDelegate$Monitor, 0, ::java::lang::Thread)
 public:
 	SSLFlowDelegate$Monitor();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void add(::jdk::internal::net::http::common::SSLFlowDelegate$Monitorable* o);
 	virtual void addTarget(::jdk::internal::net::http::common::SSLFlowDelegate$Monitorable* o);

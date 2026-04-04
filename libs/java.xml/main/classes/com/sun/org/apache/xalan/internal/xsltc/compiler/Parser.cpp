@@ -1,6 +1,4 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/Parser.h>
-
-#include <com/sun/java_cup/internal/runtime/Scanner.h>
 #include <com/sun/java_cup/internal/runtime/Symbol.h>
 #include <com/sun/org/apache/xalan/internal/utils/ObjectFactory.h>
 #include <com/sun/org/apache/xalan/internal/utils/XMLSecurityManager$Limit.h>
@@ -32,7 +30,6 @@
 #include <com/sun/org/apache/xml/internal/serializer/utils/SystemIDResolver.h>
 #include <java/io/File.h>
 #include <java/io/IOException.h>
-#include <java/io/Reader.h>
 #include <java/io/StringReader.h>
 #include <java/lang/ClassCastException.h>
 #include <java/lang/ClassNotFoundException.h>
@@ -55,8 +52,6 @@
 #include <jdk/xml/internal/JdkXmlUtils.h>
 #include <jdk/xml/internal/SecuritySupport.h>
 #include <org/xml/sax/Attributes.h>
-#include <org/xml/sax/ContentHandler.h>
-#include <org/xml/sax/ErrorHandler.h>
 #include <org/xml/sax/InputSource.h>
 #include <org/xml/sax/Locator.h>
 #include <org/xml/sax/SAXException.h>
@@ -149,7 +144,6 @@
 
 using $XMLSecurityManager$LimitArray = $Array<::com::sun::org::apache::xalan::internal::utils::XMLSecurityManager$Limit>;
 using $CatalogFeatures$FeatureArray = $Array<::javax::xml::catalog::CatalogFeatures$Feature>;
-using $Scanner = ::com::sun::java_cup::internal::runtime::Scanner;
 using $Symbol = ::com::sun::java_cup::internal::runtime::Symbol;
 using $ObjectFactory = ::com::sun::org::apache::xalan::internal::utils::ObjectFactory;
 using $XMLSecurityManager = ::com::sun::org::apache::xalan::internal::utils::XMLSecurityManager;
@@ -181,8 +175,6 @@ using $TypeCheckError = ::com::sun::org::apache::xalan::internal::xsltc::compile
 using $SystemIDResolver = ::com::sun::org::apache::xml::internal::serializer::utils::SystemIDResolver;
 using $File = ::java::io::File;
 using $IOException = ::java::io::IOException;
-using $PrintStream = ::java::io::PrintStream;
-using $Reader = ::java::io::Reader;
 using $StringReader = ::java::io::StringReader;
 using $ClassCastException = ::java::lang::ClassCastException;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -190,7 +182,6 @@ using $ClassNotFoundException = ::java::lang::ClassNotFoundException;
 using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Constructor = ::java::lang::reflect::Constructor;
 using $ArrayList = ::java::util::ArrayList;
 using $HashMap = ::java::util::HashMap;
 using $Iterator = ::java::util::Iterator;
@@ -209,8 +200,6 @@ using $JdkXmlFeatures$XmlFeature = ::jdk::xml::internal::JdkXmlFeatures$XmlFeatu
 using $JdkXmlUtils = ::jdk::xml::internal::JdkXmlUtils;
 using $SecuritySupport = ::jdk::xml::internal::SecuritySupport;
 using $Attributes = ::org::xml::sax::Attributes;
-using $ContentHandler = ::org::xml::sax::ContentHandler;
-using $ErrorHandler = ::org::xml::sax::ErrorHandler;
 using $InputSource = ::org::xml::sax::InputSource;
 using $Locator = ::org::xml::sax::Locator;
 using $SAXException = ::org::xml::sax::SAXException;
@@ -227,141 +216,6 @@ namespace com {
 					namespace internal {
 						namespace xsltc {
 							namespace compiler {
-
-$FieldInfo _Parser_FieldInfo_[] = {
-	{"XSL", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Parser, XSL)},
-	{"TRANSLET", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Parser, TRANSLET)},
-	{"_locator", "Lorg/xml/sax/Locator;", nullptr, $PRIVATE, $field(Parser, _locator)},
-	{"_xsltc", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/XSLTC;", nullptr, $PRIVATE, $field(Parser, _xsltc)},
-	{"_xpathParser", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/XPathParser;", nullptr, $PRIVATE, $field(Parser, _xpathParser)},
-	{"_errors", "Ljava/util/ArrayList;", "Ljava/util/ArrayList<Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ErrorMsg;>;", $PRIVATE, $field(Parser, _errors)},
-	{"_warnings", "Ljava/util/ArrayList;", "Ljava/util/ArrayList<Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ErrorMsg;>;", $PRIVATE, $field(Parser, _warnings)},
-	{"_instructionClasses", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;", $PRIVATE, $field(Parser, _instructionClasses)},
-	{"_instructionAttrs", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;[Ljava/lang/String;>;", $PRIVATE, $field(Parser, _instructionAttrs)},
-	{"_qNames", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;>;", $PRIVATE, $field(Parser, _qNames)},
-	{"_namespaces", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/util/Map<Ljava/lang/String;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;>;>;", $PRIVATE, $field(Parser, _namespaces)},
-	{"_useAttributeSets", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;", nullptr, $PRIVATE, $field(Parser, _useAttributeSets)},
-	{"_excludeResultPrefixes", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;", nullptr, $PRIVATE, $field(Parser, _excludeResultPrefixes)},
-	{"_extensionElementPrefixes", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;", nullptr, $PRIVATE, $field(Parser, _extensionElementPrefixes)},
-	{"_variableScope", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;", $PRIVATE, $field(Parser, _variableScope)},
-	{"_currentStylesheet", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Stylesheet;", nullptr, $PRIVATE, $field(Parser, _currentStylesheet)},
-	{"_symbolTable", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SymbolTable;", nullptr, $PRIVATE, $field(Parser, _symbolTable)},
-	{"_output", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Output;", nullptr, $PRIVATE, $field(Parser, _output)},
-	{"_template", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Template;", nullptr, $PRIVATE, $field(Parser, _template)},
-	{"_rootNamespaceDef", "Z", nullptr, $PRIVATE, $field(Parser, _rootNamespaceDef)},
-	{"_root", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SyntaxTreeNode;", nullptr, $PRIVATE, $field(Parser, _root)},
-	{"_target", "Ljava/lang/String;", nullptr, $PRIVATE, $field(Parser, _target)},
-	{"_currentImportPrecedence", "I", nullptr, $PRIVATE, $field(Parser, _currentImportPrecedence)},
-	{"_overrideDefaultParser", "Z", nullptr, $PRIVATE, $field(Parser, _overrideDefaultParser)},
-	{"_hasUserErrListener", "Z", nullptr, $PRIVATE, $field(Parser, _hasUserErrListener)},
-	{"_PImedia", "Ljava/lang/String;", nullptr, $PRIVATE, $field(Parser, _PImedia)},
-	{"_PItitle", "Ljava/lang/String;", nullptr, $PRIVATE, $field(Parser, _PItitle)},
-	{"_PIcharset", "Ljava/lang/String;", nullptr, $PRIVATE, $field(Parser, _PIcharset)},
-	{"_templateIndex", "I", nullptr, $PRIVATE, $field(Parser, _templateIndex)},
-	{"versionIsOne", "Z", nullptr, $PRIVATE, $field(Parser, versionIsOne)},
-	{"_parentStack", "Ljava/util/Stack;", "Ljava/util/Stack<Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SyntaxTreeNode;>;", $PRIVATE, $field(Parser, _parentStack)},
-	{"_prefixMapping", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;", $PRIVATE, $field(Parser, _prefixMapping)},
-	{}
-};
-
-$MethodInfo _Parser_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/XSLTC;ZZ)V", nullptr, $PUBLIC, $method(Parser, init$, void, $XSLTC*, bool, bool)},
-	{"addParameter", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Param;)V", nullptr, $PUBLIC, $virtualMethod(Parser, addParameter, void, $Param*)},
-	{"addVariable", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Variable;)V", nullptr, $PUBLIC, $virtualMethod(Parser, addVariable, void, $Variable*)},
-	{"addVariableOrParam", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/VariableBase;)V", nullptr, $PRIVATE, $method(Parser, addVariableOrParam, void, $VariableBase*)},
-	{"characters", "([CII)V", nullptr, $PUBLIC, $virtualMethod(Parser, characters, void, $chars*, int32_t, int32_t)},
-	{"checkForSuperfluousAttributes", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SyntaxTreeNode;Lorg/xml/sax/Attributes;)V", nullptr, $PRIVATE, $method(Parser, checkForSuperfluousAttributes, void, $SyntaxTreeNode*, $Attributes*)},
-	{"createAST", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Stylesheet;)V", nullptr, $PUBLIC, $virtualMethod(Parser, createAST, void, $Stylesheet*)},
-	{"elementSupported", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(Parser, elementSupported, bool, $String*, $String*)},
-	{"endDocument", "()V", nullptr, $PUBLIC, $virtualMethod(Parser, endDocument, void)},
-	{"endElement", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Parser, endElement, void, $String*, $String*, $String*)},
-	{"endPrefixMapping", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Parser, endPrefixMapping, void, $String*)},
-	{"errorsFound", "()Z", nullptr, $PUBLIC, $virtualMethod(Parser, errorsFound, bool)},
-	{"findStylesheet", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SyntaxTreeNode;Ljava/lang/String;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SyntaxTreeNode;", nullptr, $PRIVATE, $method(Parser, findStylesheet, $SyntaxTreeNode*, $SyntaxTreeNode*, $String*)},
-	{"functionSupported", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(Parser, functionSupported, bool, $String*)},
-	{"getCurrentImportPrecedence", "()I", nullptr, $PUBLIC, $virtualMethod(Parser, getCurrentImportPrecedence, int32_t)},
-	{"getCurrentStylesheet", "()Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Stylesheet;", nullptr, $PUBLIC, $virtualMethod(Parser, getCurrentStylesheet, $Stylesheet*)},
-	{"getDocumentRoot", "()Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SyntaxTreeNode;", nullptr, $PUBLIC, $virtualMethod(Parser, getDocumentRoot, $SyntaxTreeNode*)},
-	{"getErrors", "()Ljava/util/ArrayList;", "()Ljava/util/ArrayList<Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ErrorMsg;>;", $PUBLIC, $virtualMethod(Parser, getErrors, $ArrayList*)},
-	{"getExcludeResultPrefixes", "()Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;", nullptr, $PUBLIC, $virtualMethod(Parser, getExcludeResultPrefixes, $QName*)},
-	{"getExtensionElementPrefixes", "()Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;", nullptr, $PUBLIC, $virtualMethod(Parser, getExtensionElementPrefixes, $QName*)},
-	{"getLineNumber", "()I", nullptr, $PRIVATE, $method(Parser, getLineNumber, int32_t)},
-	{"getNextImportPrecedence", "()I", nullptr, $PUBLIC, $virtualMethod(Parser, getNextImportPrecedence, int32_t)},
-	{"getOutput", "()Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Output;", nullptr, $PUBLIC, $virtualMethod(Parser, getOutput, $Output*)},
-	{"getOutputProperties", "()Ljava/util/Properties;", nullptr, $PUBLIC, $virtualMethod(Parser, getOutputProperties, $Properties*)},
-	{"getQName", "(Ljava/lang/String;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;", nullptr, $PUBLIC, $virtualMethod(Parser, getQName, $QName*, $String*)},
-	{"getQName", "(Ljava/lang/String;Z)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;", nullptr, $PUBLIC, $virtualMethod(Parser, getQName, $QName*, $String*, bool)},
-	{"getQName", "(Ljava/lang/String;ZZ)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;", nullptr, $PRIVATE, $method(Parser, getQName, $QName*, $String*, bool, bool)},
-	{"getQName", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;", nullptr, $PUBLIC, $virtualMethod(Parser, getQName, $QName*, $String*, $String*, $String*)},
-	{"getQName", "(Ljava/lang/String;Ljava/lang/String;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;", nullptr, $PUBLIC, $virtualMethod(Parser, getQName, $QName*, $String*, $String*)},
-	{"getQName", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;", nullptr, $PUBLIC, $virtualMethod(Parser, getQName, $QName*, $QName*, $QName*)},
-	{"getQNameIgnoreDefaultNs", "(Ljava/lang/String;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;", nullptr, $PUBLIC, $virtualMethod(Parser, getQNameIgnoreDefaultNs, $QName*, $String*)},
-	{"getQNameSafe", "(Ljava/lang/String;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;", nullptr, $PUBLIC, $virtualMethod(Parser, getQNameSafe, $QName*, $String*)},
-	{"getStylesheet", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SyntaxTreeNode;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SyntaxTreeNode;", nullptr, $PRIVATE, $method(Parser, getStylesheet, $SyntaxTreeNode*, $SyntaxTreeNode*), "com.sun.org.apache.xalan.internal.xsltc.compiler.CompilerException"},
-	{"getSymbolTable", "()Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SymbolTable;", nullptr, $PUBLIC, $virtualMethod(Parser, getSymbolTable, $SymbolTable*)},
-	{"getTemplate", "()Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Template;", nullptr, $PUBLIC, $virtualMethod(Parser, getTemplate, $Template*)},
-	{"getTemplateIndex", "()I", nullptr, $PUBLIC, $virtualMethod(Parser, getTemplateIndex, int32_t)},
-	{"getTokenValue", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(Parser, getTokenValue, $String*, $String*)},
-	{"getTopLevelStylesheet", "()Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Stylesheet;", nullptr, $PUBLIC, $virtualMethod(Parser, getTopLevelStylesheet, $Stylesheet*)},
-	{"getUseAttributeSets", "()Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;", nullptr, $PUBLIC, $virtualMethod(Parser, getUseAttributeSets, $QName*)},
-	{"getWarnings", "()Ljava/util/ArrayList;", "()Ljava/util/ArrayList<Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ErrorMsg;>;", $PUBLIC, $virtualMethod(Parser, getWarnings, $ArrayList*)},
-	{"getXSLTC", "()Lcom/sun/org/apache/xalan/internal/xsltc/compiler/XSLTC;", nullptr, $PUBLIC, $virtualMethod(Parser, getXSLTC, $XSLTC*)},
-	{"ignorableWhitespace", "([CII)V", nullptr, $PUBLIC, $virtualMethod(Parser, ignorableWhitespace, void, $chars*, int32_t, int32_t)},
-	{"init", "()V", nullptr, $PUBLIC, $virtualMethod(Parser, init, void)},
-	{"initAttrTable", "(Ljava/lang/String;[Ljava/lang/String;)V", nullptr, $PRIVATE, $method(Parser, initAttrTable, void, $String*, $StringArray*)},
-	{"initExtClass", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(Parser, initExtClass, void, $String*, $String*)},
-	{"initExtClass", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(Parser, initExtClass, void, $String*, $String*, $String*)},
-	{"initExtClasses", "()V", nullptr, $PRIVATE, $method(Parser, initExtClasses, void)},
-	{"initInstructionAttrs", "()V", nullptr, $PRIVATE, $method(Parser, initInstructionAttrs, void)},
-	{"initStdClass", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(Parser, initStdClass, void, $String*, $String*)},
-	{"initStdClasses", "()V", nullptr, $PRIVATE, $method(Parser, initStdClasses, void)},
-	{"initSymbolTable", "()V", nullptr, $PRIVATE, $method(Parser, initSymbolTable, void)},
-	{"loadExternalStylesheet", "(Ljava/lang/String;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SyntaxTreeNode;", nullptr, $PRIVATE, $method(Parser, loadExternalStylesheet, $SyntaxTreeNode*, $String*), "com.sun.org.apache.xalan.internal.xsltc.compiler.CompilerException"},
-	{"lookupVariable", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/VariableBase;", nullptr, $PUBLIC, $virtualMethod(Parser, lookupVariable, $VariableBase*, $QName*)},
-	{"makeInstance", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lorg/xml/sax/Attributes;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SyntaxTreeNode;", nullptr, $PUBLIC, $virtualMethod(Parser, makeInstance, $SyntaxTreeNode*, $String*, $String*, $String*, $Attributes*)},
-	{"makeStylesheet", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SyntaxTreeNode;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Stylesheet;", nullptr, $PUBLIC, $virtualMethod(Parser, makeStylesheet, $Stylesheet*, $SyntaxTreeNode*), "com.sun.org.apache.xalan.internal.xsltc.compiler.CompilerException"},
-	{"parse", "(Lorg/xml/sax/XMLReader;Lorg/xml/sax/InputSource;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SyntaxTreeNode;", nullptr, $PUBLIC, $virtualMethod(Parser, parse, $SyntaxTreeNode*, $XMLReader*, $InputSource*)},
-	{"parse", "(Lorg/xml/sax/InputSource;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SyntaxTreeNode;", nullptr, $PUBLIC, $virtualMethod(Parser, parse, $SyntaxTreeNode*, $InputSource*)},
-	{"parseExpression", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SyntaxTreeNode;Ljava/lang/String;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Expression;", nullptr, $PUBLIC, $virtualMethod(Parser, parseExpression, $Expression*, $SyntaxTreeNode*, $String*)},
-	{"parseExpression", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SyntaxTreeNode;Ljava/lang/String;Ljava/lang/String;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Expression;", nullptr, $PUBLIC, $virtualMethod(Parser, parseExpression, $Expression*, $SyntaxTreeNode*, $String*, $String*)},
-	{"parsePattern", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SyntaxTreeNode;Ljava/lang/String;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Pattern;", nullptr, $PUBLIC, $virtualMethod(Parser, parsePattern, $Pattern*, $SyntaxTreeNode*, $String*)},
-	{"parsePattern", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SyntaxTreeNode;Ljava/lang/String;Ljava/lang/String;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Pattern;", nullptr, $PUBLIC, $virtualMethod(Parser, parsePattern, $Pattern*, $SyntaxTreeNode*, $String*, $String*)},
-	{"parseTopLevel", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SyntaxTreeNode;Ljava/lang/String;Ljava/lang/String;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SyntaxTreeNode;", nullptr, $PRIVATE, $method(Parser, parseTopLevel, $SyntaxTreeNode*, $SyntaxTreeNode*, $String*, $String*)},
-	{"printErrors", "()V", nullptr, $PUBLIC, $virtualMethod(Parser, printErrors, void)},
-	{"printWarnings", "()V", nullptr, $PUBLIC, $virtualMethod(Parser, printWarnings, void)},
-	{"processingInstruction", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Parser, processingInstruction, void, $String*, $String*)},
-	{"removeVariable", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;)V", nullptr, $PUBLIC, $virtualMethod(Parser, removeVariable, void, $QName*)},
-	{"reportError", "(ILcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ErrorMsg;)V", nullptr, $PUBLIC, $virtualMethod(Parser, reportError, void, int32_t, $ErrorMsg*)},
-	{"setCurrentStylesheet", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Stylesheet;)V", nullptr, $PUBLIC, $virtualMethod(Parser, setCurrentStylesheet, void, $Stylesheet*)},
-	{"setDocumentLocator", "(Lorg/xml/sax/Locator;)V", nullptr, $PUBLIC, $virtualMethod(Parser, setDocumentLocator, void, $Locator*)},
-	{"setOutput", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Output;)V", nullptr, $PUBLIC, $virtualMethod(Parser, setOutput, void, $Output*)},
-	{"setPIParameters", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(Parser, setPIParameters, void, $String*, $String*, $String*)},
-	{"setTemplate", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Template;)V", nullptr, $PUBLIC, $virtualMethod(Parser, setTemplate, void, $Template*)},
-	{"setXSLTC", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/XSLTC;)V", nullptr, $PUBLIC, $virtualMethod(Parser, setXSLTC, void, $XSLTC*)},
-	{"skippedEntity", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Parser, skippedEntity, void, $String*)},
-	{"startDocument", "()V", nullptr, $PUBLIC, $virtualMethod(Parser, startDocument, void)},
-	{"startElement", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lorg/xml/sax/Attributes;)V", nullptr, $PUBLIC, $virtualMethod(Parser, startElement, void, $String*, $String*, $String*, $Attributes*), "org.xml.sax.SAXException"},
-	{"startPrefixMapping", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Parser, startPrefixMapping, void, $String*, $String*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _Parser_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xalan.internal.xsltc.compiler.Parser",
-	"java.lang.Object",
-	"com.sun.org.apache.xalan.internal.xsltc.compiler.Constants,org.xml.sax.ContentHandler",
-	_Parser_FieldInfo_,
-	_Parser_MethodInfo_
-};
-
-$Object* allocate$Parser($Class* clazz) {
-	return $of($alloc(Parser));
-}
 
 int32_t Parser::hashCode() {
 	 return this->$Constants::hashCode();
@@ -428,7 +282,7 @@ void Parser::init() {
 
 void Parser::setOutput($Output* output) {
 	if (this->_output != nullptr) {
-		int32_t var$0 = $nc(this->_output)->getImportPrecedence();
+		int32_t var$0 = this->_output->getImportPrecedence();
 		if (var$0 <= $nc(output)->getImportPrecedence()) {
 			output->mergeOutput(this->_output);
 			$nc(this->_output)->disable();
@@ -446,7 +300,7 @@ $Output* Parser::getOutput() {
 }
 
 $Properties* Parser::getOutputProperties() {
-	return $nc($(getTopLevelStylesheet()))->getOutputProperties();
+	return $$nc(getTopLevelStylesheet())->getOutputProperties();
 }
 
 void Parser::addVariable($Variable* var) {
@@ -458,8 +312,8 @@ void Parser::addParameter($Param* param) {
 }
 
 void Parser::addVariableOrParam($VariableBase* var) {
-	$useLocalCurrentObjectStackCache();
-	$var($Object, existing, $nc(this->_variableScope)->get($($nc($($nc(var)->getName()))->getStringRep())));
+	$useLocalObjectStack();
+	$var($Object, existing, $nc(this->_variableScope)->get($($$nc($nc(var)->getName())->getStringRep())));
 	if (existing != nullptr) {
 		if ($instanceOf($Stack, existing)) {
 			$var($Stack, stack, $cast($Stack, existing));
@@ -468,36 +322,36 @@ void Parser::addVariableOrParam($VariableBase* var) {
 			$var($Stack, stack, $new($Stack));
 			stack->push($cast($VariableBase, existing));
 			stack->push(var);
-			$nc(this->_variableScope)->put($($nc($($nc(var)->getName()))->getStringRep()), stack);
+			$nc(this->_variableScope)->put($($$nc(var->getName())->getStringRep()), stack);
 		}
 	} else {
-		$nc(this->_variableScope)->put($($nc($($nc(var)->getName()))->getStringRep()), var);
+		$nc(this->_variableScope)->put($($$nc(var->getName())->getStringRep()), var);
 	}
 }
 
 void Parser::removeVariable($QName* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, existing, $nc(this->_variableScope)->get($($nc(name)->getStringRep())));
 	if ($instanceOf($Stack, existing)) {
 		$var($Stack, stack, $cast($Stack, existing));
-		if (!$nc(stack)->isEmpty()) {
+		if (!stack->isEmpty()) {
 			stack->pop();
 		}
-		if (!$nc(stack)->isEmpty()) {
+		if (!stack->isEmpty()) {
 			return;
 		}
 	}
-	$nc(this->_variableScope)->remove($($nc(name)->getStringRep()));
+	$nc(this->_variableScope)->remove($(name->getStringRep()));
 }
 
 $VariableBase* Parser::lookupVariable($QName* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, existing, $nc(this->_variableScope)->get($($nc(name)->getStringRep())));
 	if ($instanceOf($VariableBase, existing)) {
 		return $cast($VariableBase, existing);
 	} else if ($instanceOf($Stack, existing)) {
 		$var($Stack, stack, $cast($Stack, existing));
-		return $cast($VariableBase, $nc(stack)->peek());
+		return $cast($VariableBase, stack->peek());
 	}
 	return nullptr;
 }
@@ -531,8 +385,8 @@ $Stylesheet* Parser::getTopLevelStylesheet() {
 }
 
 $QName* Parser::getQNameSafe($String* stringRep) {
-	$useLocalCurrentObjectStackCache();
-	int32_t colon = $nc(stringRep)->lastIndexOf((int32_t)u':');
+	$useLocalObjectStack();
+	int32_t colon = $nc(stringRep)->lastIndexOf(u':');
 	if (colon != -1) {
 		$var($String, prefix, stringRep->substring(0, colon));
 		$var($String, localname, stringRep->substring(colon + 1));
@@ -548,7 +402,7 @@ $QName* Parser::getQNameSafe($String* stringRep) {
 	} else {
 		$init($Constants);
 		$var($String, uri, stringRep->equals($Constants::XMLNS_PREFIX) ? ($String*)nullptr : $nc(this->_symbolTable)->lookupNamespace($Constants::EMPTYSTRING));
-		return getQName(uri, ($String*)nullptr, stringRep);
+		return getQName(uri, nullptr, stringRep);
 	}
 }
 
@@ -565,8 +419,8 @@ $QName* Parser::getQName($String* stringRep, bool reportError) {
 }
 
 $QName* Parser::getQName($String* stringRep, bool reportError, bool ignoreDefaultNs) {
-	$useLocalCurrentObjectStackCache();
-	int32_t colon = $nc(stringRep)->lastIndexOf((int32_t)u':');
+	$useLocalObjectStack();
+	int32_t colon = $nc(stringRep)->lastIndexOf(u':');
 	if (colon != -1) {
 		$var($String, prefix, stringRep->substring(0, colon));
 		$var($String, localname, stringRep->substring(colon + 1));
@@ -577,7 +431,7 @@ $QName* Parser::getQName($String* stringRep, bool reportError, bool ignoreDefaul
 			if (namespace$ == nullptr && reportError) {
 				int32_t line = getLineNumber();
 				$init($ErrorMsg);
-				$var($ErrorMsg, err, $new($ErrorMsg, $ErrorMsg::NAMESPACE_UNDEF_ERR, line, $of(prefix)));
+				$var($ErrorMsg, err, $new($ErrorMsg, $ErrorMsg::NAMESPACE_UNDEF_ERR, line, prefix));
 				this->reportError($Constants::ERROR, err);
 			}
 		}
@@ -588,30 +442,30 @@ $QName* Parser::getQName($String* stringRep, bool reportError, bool ignoreDefaul
 			ignoreDefaultNs = true;
 		}
 		$var($String, defURI, ignoreDefaultNs ? ($String*)nullptr : $nc(this->_symbolTable)->lookupNamespace($Constants::EMPTYSTRING));
-		return getQName(defURI, ($String*)nullptr, stringRep);
+		return getQName(defURI, nullptr, stringRep);
 	}
 }
 
 $QName* Parser::getQName($String* namespace$, $String* prefix, $String* localname) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Constants);
-	if (namespace$ == nullptr || $nc(namespace$)->equals($Constants::EMPTYSTRING)) {
+	if (namespace$ == nullptr || namespace$->equals($Constants::EMPTYSTRING)) {
 		$var($QName, name, $cast($QName, $nc(this->_qNames)->get(localname)));
 		if (name == nullptr) {
 			$assign(name, $new($QName, nullptr, prefix, localname));
-			$nc(this->_qNames)->put(localname, name);
+			this->_qNames->put(localname, name);
 		}
 		return name;
 	} else {
 		$var($Map, space, $cast($Map, $nc(this->_namespaces)->get(namespace$)));
-		$var($String, lexicalQName, (prefix == nullptr || $nc(prefix)->length() == 0) ? localname : ($str({prefix, $$str(u':'), localname})));
+		$var($String, lexicalQName, (prefix == nullptr || prefix->length() == 0) ? localname : ($str({prefix, $$str(u':'), localname})));
 		if (space == nullptr) {
 			$var($QName, name, $new($QName, namespace$, prefix, localname));
-			$nc(this->_namespaces)->put(namespace$, $assign(space, $new($HashMap)));
-			$nc(space)->put(lexicalQName, name);
+			this->_namespaces->put(namespace$, $assign(space, $new($HashMap)));
+			space->put(lexicalQName, name);
 			return name;
 		} else {
-			$var($QName, name, $cast($QName, $nc(space)->get(lexicalQName)));
+			$var($QName, name, $cast($QName, space->get(lexicalQName)));
 			if (name == nullptr) {
 				$assign(name, $new($QName, namespace$, prefix, localname));
 				space->put(lexicalQName, name);
@@ -626,9 +480,11 @@ $QName* Parser::getQName($String* scope, $String* name) {
 }
 
 $QName* Parser::getQName($QName* scope, $QName* name) {
-	$useLocalCurrentObjectStackCache();
-	$var($String, var$0, $($nc(scope)->toString()));
-	return getQName($$concat(var$0, $($nc(name)->toString())));
+	$useLocalObjectStack();
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append($($nc(scope)->toString()));
+	var$0->append($($nc(name)->toString()));
+	return getQName($$str(var$0));
 }
 
 $QName* Parser::getUseAttributeSets() {
@@ -644,7 +500,7 @@ $QName* Parser::getExcludeResultPrefixes() {
 }
 
 $Stylesheet* Parser::makeStylesheet($SyntaxTreeNode* element) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$var($Stylesheet, stylesheet, nullptr);
 		if ($instanceOf($Stylesheet, element)) {
@@ -653,9 +509,9 @@ $Stylesheet* Parser::makeStylesheet($SyntaxTreeNode* element) {
 			$assign(stylesheet, $new($Stylesheet));
 			stylesheet->setSimplified();
 			stylesheet->addElement(element);
-			stylesheet->setAttributes($cast($AttributesImpl, $($nc(element)->getAttributes())));
+			stylesheet->setAttributes($$cast($AttributesImpl, $nc(element)->getAttributes()));
 			$init($Constants);
-			if ($nc(element)->lookupNamespace($Constants::EMPTYSTRING) == nullptr) {
+			if (element->lookupNamespace($Constants::EMPTYSTRING) == nullptr) {
 				element->addPrefixMapping($Constants::EMPTYSTRING, $Constants::EMPTYSTRING);
 			}
 		}
@@ -670,7 +526,7 @@ $Stylesheet* Parser::makeStylesheet($SyntaxTreeNode* element) {
 }
 
 void Parser::createAST($Stylesheet* stylesheet) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		if (stylesheet != nullptr) {
 			stylesheet->parseContents(this);
@@ -680,7 +536,7 @@ void Parser::createAST($Stylesheet* stylesheet) {
 				if ($instanceOf($Text, child)) {
 					int32_t l = getLineNumber();
 					$init($ErrorMsg);
-					$var($ErrorMsg, err, $new($ErrorMsg, $ErrorMsg::ILLEGAL_TEXT_NODE_ERR, l, ($Object*)nullptr));
+					$var($ErrorMsg, err, $new($ErrorMsg, $ErrorMsg::ILLEGAL_TEXT_NODE_ERR, l, nullptr));
 					reportError($Constants::ERROR, err);
 				}
 			}
@@ -690,12 +546,12 @@ void Parser::createAST($Stylesheet* stylesheet) {
 		}
 	} catch ($TypeCheckError& e) {
 		$init($ErrorMsg);
-		reportError($Constants::ERROR, $$new($ErrorMsg, $ErrorMsg::JAXP_COMPILE_ERR, static_cast<$Throwable*>(e)));
+		reportError($Constants::ERROR, $$new($ErrorMsg, $ErrorMsg::JAXP_COMPILE_ERR, e));
 	}
 }
 
 $SyntaxTreeNode* Parser::parse($XMLReader* reader, $InputSource* input) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$nc(reader)->setContentHandler(this);
 		if (this->_hasUserErrListener) {
@@ -708,7 +564,7 @@ $SyntaxTreeNode* Parser::parse($XMLReader* reader, $InputSource* input) {
 			e->printStackTrace();
 		}
 		$init($ErrorMsg);
-		reportError($Constants::ERROR, $$new($ErrorMsg, $ErrorMsg::JAXP_COMPILE_ERR, static_cast<$Throwable*>(e)));
+		reportError($Constants::ERROR, $$new($ErrorMsg, $ErrorMsg::JAXP_COMPILE_ERR, e));
 	} catch ($SAXException& e) {
 		$var($Throwable, ex, e->getException());
 		if ($nc(this->_xsltc)->debug()) {
@@ -718,25 +574,25 @@ $SyntaxTreeNode* Parser::parse($XMLReader* reader, $InputSource* input) {
 			}
 		}
 		$init($ErrorMsg);
-		reportError($Constants::ERROR, $$new($ErrorMsg, $ErrorMsg::JAXP_COMPILE_ERR, static_cast<$Throwable*>(e)));
+		reportError($Constants::ERROR, $$new($ErrorMsg, $ErrorMsg::JAXP_COMPILE_ERR, e));
 	} catch ($CompilerException& e) {
 		if ($nc(this->_xsltc)->debug()) {
 			e->printStackTrace();
 		}
 		$init($ErrorMsg);
-		reportError($Constants::ERROR, $$new($ErrorMsg, $ErrorMsg::JAXP_COMPILE_ERR, static_cast<$Throwable*>(e)));
+		reportError($Constants::ERROR, $$new($ErrorMsg, $ErrorMsg::JAXP_COMPILE_ERR, e));
 	} catch ($Exception& e) {
 		if ($nc(this->_xsltc)->debug()) {
 			e->printStackTrace();
 		}
 		$init($ErrorMsg);
-		reportError($Constants::ERROR, $$new($ErrorMsg, $ErrorMsg::JAXP_COMPILE_ERR, static_cast<$Throwable*>(e)));
+		reportError($Constants::ERROR, $$new($ErrorMsg, $ErrorMsg::JAXP_COMPILE_ERR, e));
 	}
 	return nullptr;
 }
 
 $SyntaxTreeNode* Parser::parse($InputSource* input) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$var($XMLReader, reader, $JdkXmlUtils::getXMLReader(this->_overrideDefaultParser, $nc(this->_xsltc)->isSecureProcessing()));
 		$init($XMLConstants);
@@ -756,16 +612,12 @@ $SyntaxTreeNode* Parser::parse($InputSource* input) {
 				$init($JdkXmlFeatures);
 				$var($CatalogFeatures, cf, $cast($CatalogFeatures, $nc(this->_xsltc)->getProperty($JdkXmlFeatures::CATALOG_FEATURES)));
 				if (cf != nullptr) {
-					{
-						$var($CatalogFeatures$FeatureArray, arr$, $CatalogFeatures$Feature::values());
-						int32_t len$ = $nc(arr$)->length;
-						int32_t i$ = 0;
-						for (; i$ < len$; ++i$) {
-							$CatalogFeatures$Feature* f = arr$->get(i$);
-							{
-								$var($String, var$0, $nc(f)->getPropertyName());
-								$nc(reader)->setProperty(var$0, $(cf->get(f)));
-							}
+					$var($CatalogFeatures$FeatureArray, arr$, $CatalogFeatures$Feature::values());
+					for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
+						$CatalogFeatures$Feature* f = arr$->get(i$);
+						{
+							$var($String, var$0, $nc(f)->getPropertyName());
+							$nc(reader)->setProperty(var$0, $(cf->get(f)));
 						}
 					}
 				}
@@ -778,9 +630,7 @@ $SyntaxTreeNode* Parser::parse($InputSource* input) {
 			$var($XMLSecurityManager, securityManager, $cast($XMLSecurityManager, $nc(this->_xsltc)->getProperty($JdkConstants::SECURITY_MANAGER)));
 			{
 				$var($XMLSecurityManager$LimitArray, arr$, $XMLSecurityManager$Limit::values());
-				int32_t len$ = $nc(arr$)->length;
-				int32_t i$ = 0;
-				for (; i$ < len$; ++i$) {
+				for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 					$XMLSecurityManager$Limit* limit = arr$->get(i$);
 					{
 						$assign(lastProperty, $nc(limit)->apiProperty());
@@ -793,7 +643,7 @@ $SyntaxTreeNode* Parser::parse($InputSource* input) {
 				$nc(reader)->setProperty(lastProperty, $JdkConstants::JDK_YES);
 			}
 		} catch ($SAXException& se) {
-			$XMLSecurityManager::printWarning($($nc($of(reader))->getClass()->getName()), lastProperty, se);
+			$XMLSecurityManager::printWarning($($nc(reader)->getClass()->getName()), lastProperty, se);
 		}
 		$init($JdkConstants);
 		$JdkXmlUtils::setXMLReaderPropertyIfSupport(reader, $JdkConstants::CDATA_CHUNK_SIZE, $($nc(this->_xsltc)->getProperty($JdkConstants::CDATA_CHUNK_SIZE)), false);
@@ -815,7 +665,7 @@ void Parser::setPIParameters($String* media, $String* title, $String* charset) {
 }
 
 $SyntaxTreeNode* Parser::getStylesheet($SyntaxTreeNode* root) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->_target == nullptr) {
 		if (!this->_rootNamespaceDef) {
 			$init($ErrorMsg);
@@ -825,10 +675,10 @@ $SyntaxTreeNode* Parser::getStylesheet($SyntaxTreeNode* root) {
 		return (root);
 	}
 	if ($nc(this->_target)->charAt(0) == u'#') {
-		$var($SyntaxTreeNode, element, findStylesheet(root, $($nc(this->_target)->substring(1))));
+		$var($SyntaxTreeNode, element, findStylesheet(root, $(this->_target->substring(1))));
 		if (element == nullptr) {
 			$init($ErrorMsg);
-			$var($ErrorMsg, msg, $new($ErrorMsg, $ErrorMsg::MISSING_XSLT_TARGET_ERR, $of(this->_target), root));
+			$var($ErrorMsg, msg, $new($ErrorMsg, $ErrorMsg::MISSING_XSLT_TARGET_ERR, this->_target, root));
 			$throwNew($CompilerException, $(msg->toString()));
 		}
 		return (element);
@@ -841,26 +691,26 @@ $SyntaxTreeNode* Parser::getStylesheet($SyntaxTreeNode* root) {
 			$assign(path, $SystemIDResolver::getAbsoluteURI(path));
 			$init($XMLConstants);
 			$init($JdkConstants);
-			$var($String, accessError, $SecuritySupport::checkAccess(path, $cast($String, $($nc(this->_xsltc)->getProperty($XMLConstants::ACCESS_EXTERNAL_STYLESHEET))), $JdkConstants::ACCESS_EXTERNAL_ALL));
+			$var($String, accessError, $SecuritySupport::checkAccess(path, $$cast($String, $nc(this->_xsltc)->getProperty($XMLConstants::ACCESS_EXTERNAL_STYLESHEET)), $JdkConstants::ACCESS_EXTERNAL_ALL));
 			if (accessError != nullptr) {
 				$init($ErrorMsg);
 				$var($ErrorMsg, msg, $new($ErrorMsg, $ErrorMsg::ACCESSING_XSLT_TARGET_ERR, $($SecuritySupport::sanitizePath(this->_target)), accessError, root));
 				$throwNew($CompilerException, $(msg->toString()));
 			}
 		} catch ($IOException& ex) {
-			$throwNew($CompilerException, static_cast<$Exception*>(ex));
+			$throwNew($CompilerException, ex);
 		}
 		return (loadExternalStylesheet(this->_target));
 	}
 }
 
 $SyntaxTreeNode* Parser::findStylesheet($SyntaxTreeNode* root, $String* href) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (root == nullptr) {
 		return nullptr;
 	}
 	if ($instanceOf($Stylesheet, root)) {
-		$var($String, id, $nc(root)->getAttribute("id"_s));
+		$var($String, id, root->getAttribute("id"_s));
 		if ($nc(id)->equals(href)) {
 			return root;
 		}
@@ -880,7 +730,7 @@ $SyntaxTreeNode* Parser::findStylesheet($SyntaxTreeNode* root, $String* href) {
 }
 
 $SyntaxTreeNode* Parser::loadExternalStylesheet($String* location) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($InputSource, source, nullptr);
 	if (($$new($File, location))->exists()) {
 		$assign(source, $new($InputSource, $$str({"file:"_s, location})));
@@ -892,13 +742,13 @@ $SyntaxTreeNode* Parser::loadExternalStylesheet($String* location) {
 }
 
 void Parser::initAttrTable($String* elementName, $StringArray* attrs) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Constants);
-	$nc(this->_instructionAttrs)->put($($nc($(getQName($Constants::XSLT_URI, Parser::XSL, elementName)))->getStringRep()), attrs);
+	$nc(this->_instructionAttrs)->put($($$nc(getQName($Constants::XSLT_URI, Parser::XSL, elementName))->getStringRep()), attrs);
 }
 
 void Parser::initInstructionAttrs() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	initAttrTable("template"_s, $$new($StringArray, {
 		"match"_s,
 		"name"_s,
@@ -1061,14 +911,14 @@ void Parser::initStdClasses() {
 }
 
 void Parser::initStdClass($String* elementName, $String* className) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Constants);
-	$nc(this->_instructionClasses)->put($($nc($(getQName($Constants::XSLT_URI, Parser::XSL, elementName)))->getStringRep()), $$str({$Constants::COMPILER_PACKAGE, $$str(u'.'), className}));
+	$nc(this->_instructionClasses)->put($($$nc(getQName($Constants::XSLT_URI, Parser::XSL, elementName))->getStringRep()), $$str({$Constants::COMPILER_PACKAGE, $$str(u'.'), className}));
 }
 
 bool Parser::elementSupported($String* namespace$, $String* localName) {
-	$useLocalCurrentObjectStackCache();
-	return ($nc(this->_instructionClasses)->get($($nc($(getQName(namespace$, Parser::XSL, localName)))->getStringRep())) != nullptr);
+	$useLocalObjectStack();
+	return ($nc(this->_instructionClasses)->get($($$nc(getQName(namespace$, Parser::XSL, localName))->getStringRep())) != nullptr);
 }
 
 bool Parser::functionSupported($String* fname) {
@@ -1082,19 +932,19 @@ void Parser::initExtClasses() {
 }
 
 void Parser::initExtClass($String* elementName, $String* className) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Constants);
-	$nc(this->_instructionClasses)->put($($nc($(getQName($Constants::TRANSLET_URI, Parser::TRANSLET, elementName)))->getStringRep()), $$str({$Constants::COMPILER_PACKAGE, $$str(u'.'), className}));
+	$nc(this->_instructionClasses)->put($($$nc(getQName($Constants::TRANSLET_URI, Parser::TRANSLET, elementName))->getStringRep()), $$str({$Constants::COMPILER_PACKAGE, $$str(u'.'), className}));
 }
 
 void Parser::initExtClass($String* namespace$, $String* elementName, $String* className) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Constants);
-	$nc(this->_instructionClasses)->put($($nc($(getQName(namespace$, Parser::TRANSLET, elementName)))->getStringRep()), $$str({$Constants::COMPILER_PACKAGE, $$str(u'.'), className}));
+	$nc(this->_instructionClasses)->put($($$nc(getQName(namespace$, Parser::TRANSLET, elementName))->getStringRep()), $$str({$Constants::COMPILER_PACKAGE, $$str(u'.'), className}));
 }
 
 void Parser::initSymbolTable() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Type);
 	$var($MethodType, I_V, $new($MethodType, $Type::Int, $Type::Void));
 	$var($MethodType, I_R, $new($MethodType, $Type::Int, $Type::Real));
@@ -1231,7 +1081,7 @@ int32_t Parser::getTemplateIndex() {
 }
 
 $SyntaxTreeNode* Parser::makeInstance($String* uri, $String* prefix, $String* local, $Attributes* attributes) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$var($SyntaxTreeNode, node, nullptr);
 	$var($QName, qname, getQName(uri, prefix, local));
@@ -1239,7 +1089,7 @@ $SyntaxTreeNode* Parser::makeInstance($String* uri, $String* prefix, $String* lo
 	if (className != nullptr) {
 		try {
 			$Class* clazz = $ObjectFactory::findProviderClass(className, true);
-			$assign(node, $cast($SyntaxTreeNode, $nc($($nc(clazz)->getDeclaredConstructor($$new($ClassArray, 0))))->newInstance($$new($ObjectArray, 0))));
+			$assign(node, $cast($SyntaxTreeNode, $$nc($nc(clazz)->getDeclaredConstructor($$new($ClassArray, 0)))->newInstance($$new($ObjectArray, 0))));
 			$nc(node)->setQName(qname);
 			node->setParser(this);
 			if (this->_locator != nullptr) {
@@ -1255,7 +1105,7 @@ $SyntaxTreeNode* Parser::makeInstance($String* uri, $String* prefix, $String* lo
 			reportError($Constants::ERROR, err);
 		} catch ($Exception& e) {
 			$init($ErrorMsg);
-			$var($ErrorMsg, err, $new($ErrorMsg, $ErrorMsg::INTERNAL_ERR, $($of(e->getMessage())), node));
+			$var($ErrorMsg, err, $new($ErrorMsg, $ErrorMsg::INTERNAL_ERR, $(e->getMessage()), node));
 			reportError($Constants::FATAL, err);
 		}
 	} else {
@@ -1265,28 +1115,26 @@ $SyntaxTreeNode* Parser::makeInstance($String* uri, $String* prefix, $String* lo
 				$assign(node, $new($UnsupportedElement, uri, prefix, local, false));
 				$var($UnsupportedElement, element, $cast($UnsupportedElement, node));
 				$init($ErrorMsg);
-				$var($ErrorMsg, msg, $new($ErrorMsg, $ErrorMsg::UNSUPPORTED_XSL_ERR, getLineNumber(), $of(local)));
+				$var($ErrorMsg, msg, $new($ErrorMsg, $ErrorMsg::UNSUPPORTED_XSL_ERR, getLineNumber(), local));
 				element->setErrorMessage(msg);
 				if (this->versionIsOne) {
 					reportError($Constants::UNSUPPORTED, msg);
 				}
+			} else if (uri->equals($Constants::TRANSLET_URI)) {
+				$assign(node, $new($UnsupportedElement, uri, prefix, local, true));
+				$var($UnsupportedElement, element, $cast($UnsupportedElement, node));
+				$init($ErrorMsg);
+				$var($ErrorMsg, msg, $new($ErrorMsg, $ErrorMsg::UNSUPPORTED_EXT_ERR, getLineNumber(), local));
+				element->setErrorMessage(msg);
 			} else {
-				if (uri->equals($Constants::TRANSLET_URI)) {
-					$assign(node, $new($UnsupportedElement, uri, prefix, local, true));
-					$var($UnsupportedElement, element, $cast($UnsupportedElement, node));
-					$init($ErrorMsg);
-					$var($ErrorMsg, msg, $new($ErrorMsg, $ErrorMsg::UNSUPPORTED_EXT_ERR, getLineNumber(), $of(local)));
-					element->setErrorMessage(msg);
-				} else {
-					$var($Stylesheet, sheet, $nc(this->_xsltc)->getStylesheet());
-					if ((sheet != nullptr) && (sheet->isExtension(uri))) {
-						if (!$equals(sheet, $nc(this->_parentStack)->peek())) {
-							$assign(node, $new($UnsupportedElement, uri, prefix, local, true));
-							$var($UnsupportedElement, elem, $cast($UnsupportedElement, node));
-							$init($ErrorMsg);
-							$var($ErrorMsg, msg, $new($ErrorMsg, $ErrorMsg::UNSUPPORTED_EXT_ERR, getLineNumber(), $of($$str({prefix, ":"_s, local}))));
-							elem->setErrorMessage(msg);
-						}
+				$var($Stylesheet, sheet, $nc(this->_xsltc)->getStylesheet());
+				if ((sheet != nullptr) && (sheet->isExtension(uri))) {
+					if (!$equals(sheet, $nc(this->_parentStack)->peek())) {
+						$assign(node, $new($UnsupportedElement, uri, prefix, local, true));
+						$var($UnsupportedElement, elem, $cast($UnsupportedElement, node));
+						$init($ErrorMsg);
+						$var($ErrorMsg, msg, $new($ErrorMsg, $ErrorMsg::UNSUPPORTED_EXT_ERR, getLineNumber(), $$str({prefix, ":"_s, local})));
+						elem->setErrorMessage(msg);
 					}
 				}
 			}
@@ -1297,13 +1145,13 @@ $SyntaxTreeNode* Parser::makeInstance($String* uri, $String* prefix, $String* lo
 		}
 	}
 	if ((node != nullptr) && ($instanceOf($LiteralElement, node))) {
-		$nc(($cast($LiteralElement, node)))->setQName(qname);
+		$cast($LiteralElement, node)->setQName(qname);
 	}
 	return (node);
 }
 
 void Parser::checkForSuperfluousAttributes($SyntaxTreeNode* node, $Attributes* attrs) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($QName, qname, $nc(node)->getQName());
 	bool isStylesheet = ($instanceOf($Stylesheet, node));
 	$var($StringArray, legal, $cast($StringArray, $nc(this->_instructionAttrs)->get($($nc(qname)->getStringRep()))));
@@ -1313,20 +1161,20 @@ void Parser::checkForSuperfluousAttributes($SyntaxTreeNode* node, $Attributes* a
 		for (int32_t i = 0; i < n; ++i) {
 			$var($String, attrQName, attrs->getQName(i));
 			if (isStylesheet && $nc(attrQName)->equals("version"_s)) {
-				this->versionIsOne = $nc($(attrs->getValue(i)))->equals("1.0"_s);
+				this->versionIsOne = $$nc(attrs->getValue(i))->equals("1.0"_s);
 			}
 			bool var$0 = $nc(attrQName)->startsWith("xml"_s);
-			if (var$0 || $nc(attrQName)->indexOf((int32_t)u':') > 0) {
+			if (var$0 || attrQName->indexOf(u':') > 0) {
 				continue;
 			}
 			for (j = 0; j < legal->length; ++j) {
-				if ($nc(attrQName)->equalsIgnoreCase(legal->get(j))) {
+				if (attrQName->equalsIgnoreCase(legal->get(j))) {
 					break;
 				}
 			}
 			if (j == legal->length) {
 				$init($ErrorMsg);
-				$var($ErrorMsg, err, $new($ErrorMsg, $ErrorMsg::ILLEGAL_ATTRIBUTE_ERR, $of(attrQName), node));
+				$var($ErrorMsg, err, $new($ErrorMsg, $ErrorMsg::ILLEGAL_ATTRIBUTE_ERR, attrQName, node));
 				err->setWarningError(true);
 				reportError($Constants::WARNING, err);
 			}
@@ -1339,7 +1187,7 @@ $Expression* Parser::parseExpression($SyntaxTreeNode* parent, $String* exp) {
 }
 
 $Expression* Parser::parseExpression($SyntaxTreeNode* parent, $String* attr, $String* def) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, exp, $nc(parent)->getAttribute(attr));
 	if (($nc(exp)->length() == 0) && (def != nullptr)) {
 		$assign(exp, def);
@@ -1352,7 +1200,7 @@ $Pattern* Parser::parsePattern($SyntaxTreeNode* parent, $String* pattern) {
 }
 
 $Pattern* Parser::parsePattern($SyntaxTreeNode* parent, $String* attr, $String* def) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, pattern, $nc(parent)->getAttribute(attr));
 	if (($nc(pattern)->length() == 0) && (def != nullptr)) {
 		$assign(pattern, def);
@@ -1361,10 +1209,10 @@ $Pattern* Parser::parsePattern($SyntaxTreeNode* parent, $String* attr, $String* 
 }
 
 $SyntaxTreeNode* Parser::parseTopLevel($SyntaxTreeNode* parent, $String* text, $String* expression) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t line = getLineNumber();
 	try {
-		$nc(this->_xpathParser)->setScanner($$new($XPathLexer, static_cast<$Reader*>($$new($StringReader, text))));
+		$nc(this->_xpathParser)->setScanner($$new($XPathLexer, $$new($StringReader, text)));
 		$var($Symbol, result, $nc(this->_xpathParser)->parse(expression, line));
 		if (result != nullptr) {
 			$var($SyntaxTreeNode, node, $cast($SyntaxTreeNode, result->value));
@@ -1376,13 +1224,13 @@ $SyntaxTreeNode* Parser::parseTopLevel($SyntaxTreeNode* parent, $String* text, $
 			}
 		}
 		$init($ErrorMsg);
-		reportError($Constants::ERROR, $$new($ErrorMsg, $ErrorMsg::XPATH_PARSER_ERR, $of(expression), parent));
+		reportError($Constants::ERROR, $$new($ErrorMsg, $ErrorMsg::XPATH_PARSER_ERR, expression, parent));
 	} catch ($Exception& e) {
 		if ($nc(this->_xsltc)->debug()) {
 			e->printStackTrace();
 		}
 		$init($ErrorMsg);
-		reportError($Constants::ERROR, $$new($ErrorMsg, $ErrorMsg::XPATH_PARSER_ERR, $of(expression), parent));
+		reportError($Constants::ERROR, $$new($ErrorMsg, $ErrorMsg::XPATH_PARSER_ERR, expression, parent));
 	}
 	$init($SyntaxTreeNode);
 	$nc($SyntaxTreeNode::Dummy)->setParser(this);
@@ -1394,25 +1242,25 @@ bool Parser::errorsFound() {
 }
 
 void Parser::printErrors() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t size = $nc(this->_errors)->size();
 	if (size > 0) {
 		$init($ErrorMsg);
-		$nc($System::err)->println($of($$new($ErrorMsg, $ErrorMsg::COMPILER_ERROR_KEY)));
+		$nc($System::err)->println($$new($ErrorMsg, $ErrorMsg::COMPILER_ERROR_KEY));
 		for (int32_t i = 0; i < size; ++i) {
-			$nc($System::err)->println($$str({"  "_s, $($nc(this->_errors)->get(i))}));
+			$System::err->println($$str({"  "_s, $(this->_errors->get(i))}));
 		}
 	}
 }
 
 void Parser::printWarnings() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t size = $nc(this->_warnings)->size();
 	if (size > 0) {
 		$init($ErrorMsg);
-		$nc($System::err)->println($of($$new($ErrorMsg, $ErrorMsg::COMPILER_WARNING_KEY)));
+		$nc($System::err)->println($$new($ErrorMsg, $ErrorMsg::COMPILER_WARNING_KEY));
 		for (int32_t i = 0; i < size; ++i) {
-			$nc($System::err)->println($$str({"  "_s, $($nc(this->_warnings)->get(i))}));
+			$System::err->println($$str({"  "_s, $(this->_warnings->get(i))}));
 		}
 	}
 }
@@ -1420,30 +1268,20 @@ void Parser::printWarnings() {
 void Parser::reportError(int32_t category, $ErrorMsg* error) {
 	switch (category) {
 	case $Constants::INTERNAL:
-		{
-			$nc(this->_errors)->add(error);
-			break;
-		}
+		$nc(this->_errors)->add(error);
+		break;
 	case $Constants::UNSUPPORTED:
-		{
-			$nc(this->_errors)->add(error);
-			break;
-		}
+		$nc(this->_errors)->add(error);
+		break;
 	case $Constants::FATAL:
-		{
-			$nc(this->_errors)->add(error);
-			break;
-		}
+		$nc(this->_errors)->add(error);
+		break;
 	case $Constants::ERROR:
-		{
-			$nc(this->_errors)->add(error);
-			break;
-		}
+		$nc(this->_errors)->add(error);
+		break;
 	case $Constants::WARNING:
-		{
-			$nc(this->_warnings)->add(error);
-			break;
-		}
+		$nc(this->_warnings)->add(error);
+		break;
 	}
 }
 
@@ -1476,18 +1314,18 @@ void Parser::endPrefixMapping($String* prefix) {
 }
 
 void Parser::startElement($String* uri, $String* localname, $String* qname, $Attributes* attributes) {
-	$useLocalCurrentObjectStackCache();
-	int32_t col = $nc(qname)->lastIndexOf((int32_t)u':');
+	$useLocalObjectStack();
+	int32_t col = $nc(qname)->lastIndexOf(u':');
 	$var($String, prefix, (col == -1) ? ($String*)nullptr : qname->substring(0, col));
 	$var($SyntaxTreeNode, element, makeInstance(uri, prefix, localname, attributes));
 	if (element == nullptr) {
 		$init($ErrorMsg);
-		$var($ErrorMsg, err, $new($ErrorMsg, $ErrorMsg::ELEMENT_PARSE_ERR, $of($$str({prefix, $$str(u':'), localname}))));
+		$var($ErrorMsg, err, $new($ErrorMsg, $ErrorMsg::ELEMENT_PARSE_ERR, $$str({prefix, $$str(u':'), localname})));
 		$throwNew($SAXException, $(err->toString()));
 	}
 	if (this->_root == nullptr) {
 		$init($Constants);
-		if ((this->_prefixMapping == nullptr) || ($nc(this->_prefixMapping)->containsValue($Constants::XSLT_URI) == false)) {
+		if ((this->_prefixMapping == nullptr) || (this->_prefixMapping->containsValue($Constants::XSLT_URI) == false)) {
 			this->_rootNamespaceDef = false;
 		} else {
 			this->_rootNamespaceDef = true;
@@ -1496,20 +1334,20 @@ void Parser::startElement($String* uri, $String* localname, $String* qname, $Att
 	} else {
 		$var($SyntaxTreeNode, parent, $cast($SyntaxTreeNode, $nc(this->_parentStack)->peek()));
 		$load($Import);
-		bool var$0 = $nc($of(element))->getClass()->isAssignableFrom($Import::class$);
+		bool var$0 = $nc(element)->getClass()->isAssignableFrom($Import::class$);
 		if (var$0 && $nc(parent)->notTypeOf($Import::class$)) {
 			$init($ErrorMsg);
-			$var($ErrorMsg, err, $new($ErrorMsg, $ErrorMsg::IMPORT_PRECEDE_OTHERS_ERR, $of($$str({prefix, $$str(u':'), localname}))));
+			$var($ErrorMsg, err, $new($ErrorMsg, $ErrorMsg::IMPORT_PRECEDE_OTHERS_ERR, $$str({prefix, $$str(u':'), localname})));
 			$throwNew($SAXException, $(err->toString()));
 		}
 		$nc(parent)->addElement(element);
-		$nc(element)->setParent(parent);
+		element->setParent(parent);
 	}
 	$nc(element)->setAttributes($$new($AttributesImpl, attributes));
 	element->setPrefixMapping(this->_prefixMapping);
 	if ($instanceOf($Stylesheet, element)) {
-		$nc($(getSymbolTable()))->setCurrentNode(element);
-		$nc(($cast($Stylesheet, element)))->declareExtensionPrefixes(this);
+		$$nc(getSymbolTable())->setCurrentNode(element);
+		$cast($Stylesheet, element)->declareExtensionPrefixes(this);
 	}
 	$set(this, _prefixMapping, nullptr);
 	$nc(this->_parentStack)->push(element);
@@ -1520,14 +1358,14 @@ void Parser::endElement($String* uri, $String* localname, $String* qname) {
 }
 
 void Parser::characters($chars* ch, int32_t start, int32_t length) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, string, $new($String, ch, start, length));
 	$var($SyntaxTreeNode, parent, $cast($SyntaxTreeNode, $nc(this->_parentStack)->peek()));
 	if (string->length() == 0) {
 		return;
 	}
 	if ($instanceOf($Text, parent)) {
-		$nc(($cast($Text, parent)))->setText(string);
+		$cast($Text, parent)->setText(string);
 		return;
 	}
 	if ($instanceOf($Stylesheet, parent)) {
@@ -1547,13 +1385,13 @@ void Parser::characters($chars* ch, int32_t start, int32_t length) {
 }
 
 $String* Parser::getTokenValue($String* token) {
-	int32_t start = $nc(token)->indexOf((int32_t)u'\"');
-	int32_t stop = token->lastIndexOf((int32_t)u'\"');
+	int32_t start = $nc(token)->indexOf(u'\"');
+	int32_t stop = token->lastIndexOf(u'\"');
 	return token->substring(start + 1, stop);
 }
 
 void Parser::processingInstruction($String* name, $String* value) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ((this->_target == nullptr) && ($nc(name)->equals("xml-stylesheet"_s))) {
 		$var($String, href, nullptr);
 		$var($String, media, nullptr);
@@ -1572,7 +1410,7 @@ void Parser::processingInstruction($String* name, $String* value) {
 				$assign(charset, getTokenValue(token));
 			}
 		}
-		bool var$1 = ((this->_PImedia == nullptr) || ($nc(this->_PImedia)->equals(media)));
+		bool var$1 = (this->_PImedia == nullptr) || (this->_PImedia->equals(media));
 		bool var$0 = var$1 && ((this->_PItitle == nullptr) || ($nc(this->_PImedia)->equals(title)));
 		if (var$0 && ((this->_PIcharset == nullptr) || ($nc(this->_PImedia)->equals(charset)))) {
 			$set(this, _target, href);
@@ -1593,7 +1431,7 @@ void Parser::setDocumentLocator($Locator* locator) {
 int32_t Parser::getLineNumber() {
 	int32_t line = 0;
 	if (this->_locator != nullptr) {
-		line = $nc(this->_locator)->getLineNumber();
+		line = this->_locator->getLineNumber();
 	}
 	return line;
 }
@@ -1601,13 +1439,143 @@ int32_t Parser::getLineNumber() {
 Parser::Parser() {
 }
 
-void clinit$Parser($Class* class$) {
+void Parser::clinit$($Class* clazz) {
 	$assignStatic(Parser::XSL, "xsl"_s);
 	$assignStatic(Parser::TRANSLET, "translet"_s);
 }
 
 $Class* Parser::load$($String* name, bool initialize) {
-	$loadClass(Parser, name, initialize, &_Parser_ClassInfo_, clinit$Parser, allocate$Parser);
+	$FieldInfo fieldInfos$$[] = {
+		{"XSL", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Parser, XSL)},
+		{"TRANSLET", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Parser, TRANSLET)},
+		{"_locator", "Lorg/xml/sax/Locator;", nullptr, $PRIVATE, $field(Parser, _locator)},
+		{"_xsltc", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/XSLTC;", nullptr, $PRIVATE, $field(Parser, _xsltc)},
+		{"_xpathParser", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/XPathParser;", nullptr, $PRIVATE, $field(Parser, _xpathParser)},
+		{"_errors", "Ljava/util/ArrayList;", "Ljava/util/ArrayList<Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ErrorMsg;>;", $PRIVATE, $field(Parser, _errors)},
+		{"_warnings", "Ljava/util/ArrayList;", "Ljava/util/ArrayList<Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ErrorMsg;>;", $PRIVATE, $field(Parser, _warnings)},
+		{"_instructionClasses", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;", $PRIVATE, $field(Parser, _instructionClasses)},
+		{"_instructionAttrs", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;[Ljava/lang/String;>;", $PRIVATE, $field(Parser, _instructionAttrs)},
+		{"_qNames", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;>;", $PRIVATE, $field(Parser, _qNames)},
+		{"_namespaces", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/util/Map<Ljava/lang/String;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;>;>;", $PRIVATE, $field(Parser, _namespaces)},
+		{"_useAttributeSets", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;", nullptr, $PRIVATE, $field(Parser, _useAttributeSets)},
+		{"_excludeResultPrefixes", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;", nullptr, $PRIVATE, $field(Parser, _excludeResultPrefixes)},
+		{"_extensionElementPrefixes", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;", nullptr, $PRIVATE, $field(Parser, _extensionElementPrefixes)},
+		{"_variableScope", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;", $PRIVATE, $field(Parser, _variableScope)},
+		{"_currentStylesheet", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Stylesheet;", nullptr, $PRIVATE, $field(Parser, _currentStylesheet)},
+		{"_symbolTable", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SymbolTable;", nullptr, $PRIVATE, $field(Parser, _symbolTable)},
+		{"_output", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Output;", nullptr, $PRIVATE, $field(Parser, _output)},
+		{"_template", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Template;", nullptr, $PRIVATE, $field(Parser, _template)},
+		{"_rootNamespaceDef", "Z", nullptr, $PRIVATE, $field(Parser, _rootNamespaceDef)},
+		{"_root", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SyntaxTreeNode;", nullptr, $PRIVATE, $field(Parser, _root)},
+		{"_target", "Ljava/lang/String;", nullptr, $PRIVATE, $field(Parser, _target)},
+		{"_currentImportPrecedence", "I", nullptr, $PRIVATE, $field(Parser, _currentImportPrecedence)},
+		{"_overrideDefaultParser", "Z", nullptr, $PRIVATE, $field(Parser, _overrideDefaultParser)},
+		{"_hasUserErrListener", "Z", nullptr, $PRIVATE, $field(Parser, _hasUserErrListener)},
+		{"_PImedia", "Ljava/lang/String;", nullptr, $PRIVATE, $field(Parser, _PImedia)},
+		{"_PItitle", "Ljava/lang/String;", nullptr, $PRIVATE, $field(Parser, _PItitle)},
+		{"_PIcharset", "Ljava/lang/String;", nullptr, $PRIVATE, $field(Parser, _PIcharset)},
+		{"_templateIndex", "I", nullptr, $PRIVATE, $field(Parser, _templateIndex)},
+		{"versionIsOne", "Z", nullptr, $PRIVATE, $field(Parser, versionIsOne)},
+		{"_parentStack", "Ljava/util/Stack;", "Ljava/util/Stack<Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SyntaxTreeNode;>;", $PRIVATE, $field(Parser, _parentStack)},
+		{"_prefixMapping", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;", $PRIVATE, $field(Parser, _prefixMapping)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/XSLTC;ZZ)V", nullptr, $PUBLIC, $method(Parser, init$, void, $XSLTC*, bool, bool)},
+		{"addParameter", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Param;)V", nullptr, $PUBLIC, $virtualMethod(Parser, addParameter, void, $Param*)},
+		{"addVariable", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Variable;)V", nullptr, $PUBLIC, $virtualMethod(Parser, addVariable, void, $Variable*)},
+		{"addVariableOrParam", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/VariableBase;)V", nullptr, $PRIVATE, $method(Parser, addVariableOrParam, void, $VariableBase*)},
+		{"characters", "([CII)V", nullptr, $PUBLIC, $virtualMethod(Parser, characters, void, $chars*, int32_t, int32_t)},
+		{"checkForSuperfluousAttributes", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SyntaxTreeNode;Lorg/xml/sax/Attributes;)V", nullptr, $PRIVATE, $method(Parser, checkForSuperfluousAttributes, void, $SyntaxTreeNode*, $Attributes*)},
+		{"createAST", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Stylesheet;)V", nullptr, $PUBLIC, $virtualMethod(Parser, createAST, void, $Stylesheet*)},
+		{"elementSupported", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(Parser, elementSupported, bool, $String*, $String*)},
+		{"endDocument", "()V", nullptr, $PUBLIC, $virtualMethod(Parser, endDocument, void)},
+		{"endElement", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Parser, endElement, void, $String*, $String*, $String*)},
+		{"endPrefixMapping", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Parser, endPrefixMapping, void, $String*)},
+		{"errorsFound", "()Z", nullptr, $PUBLIC, $virtualMethod(Parser, errorsFound, bool)},
+		{"findStylesheet", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SyntaxTreeNode;Ljava/lang/String;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SyntaxTreeNode;", nullptr, $PRIVATE, $method(Parser, findStylesheet, $SyntaxTreeNode*, $SyntaxTreeNode*, $String*)},
+		{"functionSupported", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(Parser, functionSupported, bool, $String*)},
+		{"getCurrentImportPrecedence", "()I", nullptr, $PUBLIC, $virtualMethod(Parser, getCurrentImportPrecedence, int32_t)},
+		{"getCurrentStylesheet", "()Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Stylesheet;", nullptr, $PUBLIC, $virtualMethod(Parser, getCurrentStylesheet, $Stylesheet*)},
+		{"getDocumentRoot", "()Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SyntaxTreeNode;", nullptr, $PUBLIC, $virtualMethod(Parser, getDocumentRoot, $SyntaxTreeNode*)},
+		{"getErrors", "()Ljava/util/ArrayList;", "()Ljava/util/ArrayList<Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ErrorMsg;>;", $PUBLIC, $virtualMethod(Parser, getErrors, $ArrayList*)},
+		{"getExcludeResultPrefixes", "()Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;", nullptr, $PUBLIC, $virtualMethod(Parser, getExcludeResultPrefixes, $QName*)},
+		{"getExtensionElementPrefixes", "()Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;", nullptr, $PUBLIC, $virtualMethod(Parser, getExtensionElementPrefixes, $QName*)},
+		{"getLineNumber", "()I", nullptr, $PRIVATE, $method(Parser, getLineNumber, int32_t)},
+		{"getNextImportPrecedence", "()I", nullptr, $PUBLIC, $virtualMethod(Parser, getNextImportPrecedence, int32_t)},
+		{"getOutput", "()Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Output;", nullptr, $PUBLIC, $virtualMethod(Parser, getOutput, $Output*)},
+		{"getOutputProperties", "()Ljava/util/Properties;", nullptr, $PUBLIC, $virtualMethod(Parser, getOutputProperties, $Properties*)},
+		{"getQName", "(Ljava/lang/String;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;", nullptr, $PUBLIC, $virtualMethod(Parser, getQName, $QName*, $String*)},
+		{"getQName", "(Ljava/lang/String;Z)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;", nullptr, $PUBLIC, $virtualMethod(Parser, getQName, $QName*, $String*, bool)},
+		{"getQName", "(Ljava/lang/String;ZZ)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;", nullptr, $PRIVATE, $method(Parser, getQName, $QName*, $String*, bool, bool)},
+		{"getQName", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;", nullptr, $PUBLIC, $virtualMethod(Parser, getQName, $QName*, $String*, $String*, $String*)},
+		{"getQName", "(Ljava/lang/String;Ljava/lang/String;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;", nullptr, $PUBLIC, $virtualMethod(Parser, getQName, $QName*, $String*, $String*)},
+		{"getQName", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;", nullptr, $PUBLIC, $virtualMethod(Parser, getQName, $QName*, $QName*, $QName*)},
+		{"getQNameIgnoreDefaultNs", "(Ljava/lang/String;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;", nullptr, $PUBLIC, $virtualMethod(Parser, getQNameIgnoreDefaultNs, $QName*, $String*)},
+		{"getQNameSafe", "(Ljava/lang/String;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;", nullptr, $PUBLIC, $virtualMethod(Parser, getQNameSafe, $QName*, $String*)},
+		{"getStylesheet", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SyntaxTreeNode;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SyntaxTreeNode;", nullptr, $PRIVATE, $method(Parser, getStylesheet, $SyntaxTreeNode*, $SyntaxTreeNode*), "com.sun.org.apache.xalan.internal.xsltc.compiler.CompilerException"},
+		{"getSymbolTable", "()Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SymbolTable;", nullptr, $PUBLIC, $virtualMethod(Parser, getSymbolTable, $SymbolTable*)},
+		{"getTemplate", "()Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Template;", nullptr, $PUBLIC, $virtualMethod(Parser, getTemplate, $Template*)},
+		{"getTemplateIndex", "()I", nullptr, $PUBLIC, $virtualMethod(Parser, getTemplateIndex, int32_t)},
+		{"getTokenValue", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(Parser, getTokenValue, $String*, $String*)},
+		{"getTopLevelStylesheet", "()Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Stylesheet;", nullptr, $PUBLIC, $virtualMethod(Parser, getTopLevelStylesheet, $Stylesheet*)},
+		{"getUseAttributeSets", "()Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;", nullptr, $PUBLIC, $virtualMethod(Parser, getUseAttributeSets, $QName*)},
+		{"getWarnings", "()Ljava/util/ArrayList;", "()Ljava/util/ArrayList<Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ErrorMsg;>;", $PUBLIC, $virtualMethod(Parser, getWarnings, $ArrayList*)},
+		{"getXSLTC", "()Lcom/sun/org/apache/xalan/internal/xsltc/compiler/XSLTC;", nullptr, $PUBLIC, $virtualMethod(Parser, getXSLTC, $XSLTC*)},
+		{"ignorableWhitespace", "([CII)V", nullptr, $PUBLIC, $virtualMethod(Parser, ignorableWhitespace, void, $chars*, int32_t, int32_t)},
+		{"init", "()V", nullptr, $PUBLIC, $virtualMethod(Parser, init, void)},
+		{"initAttrTable", "(Ljava/lang/String;[Ljava/lang/String;)V", nullptr, $PRIVATE, $method(Parser, initAttrTable, void, $String*, $StringArray*)},
+		{"initExtClass", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(Parser, initExtClass, void, $String*, $String*)},
+		{"initExtClass", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(Parser, initExtClass, void, $String*, $String*, $String*)},
+		{"initExtClasses", "()V", nullptr, $PRIVATE, $method(Parser, initExtClasses, void)},
+		{"initInstructionAttrs", "()V", nullptr, $PRIVATE, $method(Parser, initInstructionAttrs, void)},
+		{"initStdClass", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(Parser, initStdClass, void, $String*, $String*)},
+		{"initStdClasses", "()V", nullptr, $PRIVATE, $method(Parser, initStdClasses, void)},
+		{"initSymbolTable", "()V", nullptr, $PRIVATE, $method(Parser, initSymbolTable, void)},
+		{"loadExternalStylesheet", "(Ljava/lang/String;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SyntaxTreeNode;", nullptr, $PRIVATE, $method(Parser, loadExternalStylesheet, $SyntaxTreeNode*, $String*), "com.sun.org.apache.xalan.internal.xsltc.compiler.CompilerException"},
+		{"lookupVariable", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/VariableBase;", nullptr, $PUBLIC, $virtualMethod(Parser, lookupVariable, $VariableBase*, $QName*)},
+		{"makeInstance", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lorg/xml/sax/Attributes;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SyntaxTreeNode;", nullptr, $PUBLIC, $virtualMethod(Parser, makeInstance, $SyntaxTreeNode*, $String*, $String*, $String*, $Attributes*)},
+		{"makeStylesheet", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SyntaxTreeNode;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Stylesheet;", nullptr, $PUBLIC, $virtualMethod(Parser, makeStylesheet, $Stylesheet*, $SyntaxTreeNode*), "com.sun.org.apache.xalan.internal.xsltc.compiler.CompilerException"},
+		{"parse", "(Lorg/xml/sax/XMLReader;Lorg/xml/sax/InputSource;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SyntaxTreeNode;", nullptr, $PUBLIC, $virtualMethod(Parser, parse, $SyntaxTreeNode*, $XMLReader*, $InputSource*)},
+		{"parse", "(Lorg/xml/sax/InputSource;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SyntaxTreeNode;", nullptr, $PUBLIC, $virtualMethod(Parser, parse, $SyntaxTreeNode*, $InputSource*)},
+		{"parseExpression", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SyntaxTreeNode;Ljava/lang/String;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Expression;", nullptr, $PUBLIC, $virtualMethod(Parser, parseExpression, $Expression*, $SyntaxTreeNode*, $String*)},
+		{"parseExpression", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SyntaxTreeNode;Ljava/lang/String;Ljava/lang/String;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Expression;", nullptr, $PUBLIC, $virtualMethod(Parser, parseExpression, $Expression*, $SyntaxTreeNode*, $String*, $String*)},
+		{"parsePattern", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SyntaxTreeNode;Ljava/lang/String;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Pattern;", nullptr, $PUBLIC, $virtualMethod(Parser, parsePattern, $Pattern*, $SyntaxTreeNode*, $String*)},
+		{"parsePattern", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SyntaxTreeNode;Ljava/lang/String;Ljava/lang/String;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Pattern;", nullptr, $PUBLIC, $virtualMethod(Parser, parsePattern, $Pattern*, $SyntaxTreeNode*, $String*, $String*)},
+		{"parseTopLevel", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SyntaxTreeNode;Ljava/lang/String;Ljava/lang/String;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SyntaxTreeNode;", nullptr, $PRIVATE, $method(Parser, parseTopLevel, $SyntaxTreeNode*, $SyntaxTreeNode*, $String*, $String*)},
+		{"printErrors", "()V", nullptr, $PUBLIC, $virtualMethod(Parser, printErrors, void)},
+		{"printWarnings", "()V", nullptr, $PUBLIC, $virtualMethod(Parser, printWarnings, void)},
+		{"processingInstruction", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Parser, processingInstruction, void, $String*, $String*)},
+		{"removeVariable", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;)V", nullptr, $PUBLIC, $virtualMethod(Parser, removeVariable, void, $QName*)},
+		{"reportError", "(ILcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ErrorMsg;)V", nullptr, $PUBLIC, $virtualMethod(Parser, reportError, void, int32_t, $ErrorMsg*)},
+		{"setCurrentStylesheet", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Stylesheet;)V", nullptr, $PUBLIC, $virtualMethod(Parser, setCurrentStylesheet, void, $Stylesheet*)},
+		{"setDocumentLocator", "(Lorg/xml/sax/Locator;)V", nullptr, $PUBLIC, $virtualMethod(Parser, setDocumentLocator, void, $Locator*)},
+		{"setOutput", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Output;)V", nullptr, $PUBLIC, $virtualMethod(Parser, setOutput, void, $Output*)},
+		{"setPIParameters", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(Parser, setPIParameters, void, $String*, $String*, $String*)},
+		{"setTemplate", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Template;)V", nullptr, $PUBLIC, $virtualMethod(Parser, setTemplate, void, $Template*)},
+		{"setXSLTC", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/XSLTC;)V", nullptr, $PUBLIC, $virtualMethod(Parser, setXSLTC, void, $XSLTC*)},
+		{"skippedEntity", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Parser, skippedEntity, void, $String*)},
+		{"startDocument", "()V", nullptr, $PUBLIC, $virtualMethod(Parser, startDocument, void)},
+		{"startElement", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lorg/xml/sax/Attributes;)V", nullptr, $PUBLIC, $virtualMethod(Parser, startElement, void, $String*, $String*, $String*, $Attributes*), "org.xml.sax.SAXException"},
+		{"startPrefixMapping", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Parser, startPrefixMapping, void, $String*, $String*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xalan.internal.xsltc.compiler.Parser",
+		"java.lang.Object",
+		"com.sun.org.apache.xalan.internal.xsltc.compiler.Constants,org.xml.sax.ContentHandler",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Parser, name, initialize, &classInfo$$, Parser::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Parser));
+	});
 	return class$;
 }
 

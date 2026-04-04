@@ -1,5 +1,4 @@
 #include <Test4247606.h>
-
 #include <java/awt/BorderLayout.h>
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
@@ -18,9 +17,6 @@
 
 using $BorderLayout = ::java::awt::BorderLayout;
 using $Color = ::java::awt::Color;
-using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
-using $LayoutManager = ::java::awt::LayoutManager;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $BorderFactory = ::javax::swing::BorderFactory;
@@ -31,32 +27,12 @@ using $JPanel = ::javax::swing::JPanel;
 using $Border = ::javax::swing::border::Border;
 using $TitledBorder = ::javax::swing::border::TitledBorder;
 
-$MethodInfo _Test4247606_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Test4247606, init$, void)},
-	{"create", "(Ljavax/swing/JComponent;Ljavax/swing/border/Border;)Ljavax/swing/JPanel;", nullptr, $PRIVATE | $STATIC, $staticMethod(Test4247606, create, $JPanel*, $JComponent*, $Border*)},
-	{"init", "()V", nullptr, $PUBLIC, $virtualMethod(Test4247606, init, void)},
-	{}
-};
-
-$ClassInfo _Test4247606_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"Test4247606",
-	"javax.swing.JApplet",
-	nullptr,
-	nullptr,
-	_Test4247606_MethodInfo_
-};
-
-$Object* allocate$Test4247606($Class* clazz) {
-	return $of($alloc(Test4247606));
-}
-
 void Test4247606::init$() {
 	$JApplet::init$();
 }
 
 void Test4247606::init() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JButton, button, $new($JButton, "Button"_s));
 	$init($Color);
 	button->setBorder($($BorderFactory::createLineBorder($Color::red, 1)));
@@ -64,15 +40,15 @@ void Test4247606::init() {
 	border->setTitlePosition($TitledBorder::BELOW_BOTTOM);
 	$var($JPanel, panel, create(button, border));
 	$nc(panel)->setBackground($Color::green);
-	$nc($(getContentPane()))->add($(static_cast<$Component*>(create(panel, $($BorderFactory::createEmptyBorder(10, 10, 10, 10))))));
+	$$nc(getContentPane())->add($(create(panel, $($BorderFactory::createEmptyBorder(10, 10, 10, 10)))));
 }
 
 $JPanel* Test4247606::create($JComponent* component, $Border* border) {
 	$init(Test4247606);
-	$useLocalCurrentObjectStackCache();
-	$var($JPanel, panel, $new($JPanel, static_cast<$LayoutManager*>($$new($BorderLayout))));
+	$useLocalObjectStack();
+	$var($JPanel, panel, $new($JPanel, $$new($BorderLayout)));
 	panel->setBorder(border);
-	panel->add(static_cast<$Component*>(component));
+	panel->add(component);
 	return panel;
 }
 
@@ -80,7 +56,23 @@ Test4247606::Test4247606() {
 }
 
 $Class* Test4247606::load$($String* name, bool initialize) {
-	$loadClass(Test4247606, name, initialize, &_Test4247606_ClassInfo_, allocate$Test4247606);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Test4247606, init$, void)},
+		{"create", "(Ljavax/swing/JComponent;Ljavax/swing/border/Border;)Ljavax/swing/JPanel;", nullptr, $PRIVATE | $STATIC, $staticMethod(Test4247606, create, $JPanel*, $JComponent*, $Border*)},
+		{"init", "()V", nullptr, $PUBLIC, $virtualMethod(Test4247606, init, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"Test4247606",
+		"javax.swing.JApplet",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Test4247606, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Test4247606));
+	});
 	return class$;
 }
 

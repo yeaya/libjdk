@@ -15,7 +15,7 @@ public:
 	void init$($String* addrType, $String* addr);
 	virtual $Object* getContent() override;
 	$String* contents = nullptr;
-	static const int64_t serialVersionUID = (int64_t)0x844BF43CE111DCC9;
+	static const int64_t serialVersionUID = (int64_t)0x844bf43ce111dcc9;
 };
 
 	} // naming

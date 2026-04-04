@@ -1,5 +1,4 @@
 #include <com/sun/beans/decoder/ValueObject.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -10,27 +9,23 @@ namespace com {
 		namespace beans {
 			namespace decoder {
 
-$MethodInfo _ValueObject_MethodInfo_[] = {
-	{"getValue", "()Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ValueObject, getValue, $Object*)},
-	{"isVoid", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ValueObject, isVoid, bool)},
-	{}
-};
-
-$ClassInfo _ValueObject_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.beans.decoder.ValueObject",
-	nullptr,
-	nullptr,
-	nullptr,
-	_ValueObject_MethodInfo_
-};
-
-$Object* allocate$ValueObject($Class* clazz) {
-	return $of($alloc(ValueObject));
-}
-
 $Class* ValueObject::load$($String* name, bool initialize) {
-	$loadClass(ValueObject, name, initialize, &_ValueObject_ClassInfo_, allocate$ValueObject);
+	$MethodInfo methodInfos$$[] = {
+		{"getValue", "()Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ValueObject, getValue, $Object*)},
+		{"isVoid", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ValueObject, isVoid, bool)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.beans.decoder.ValueObject",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ValueObject, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ValueObject);
+	});
 	return class$;
 }
 

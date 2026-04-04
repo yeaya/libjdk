@@ -14,10 +14,13 @@ public:
 	CommunicationException();
 	void init$($String* explanation);
 	void init$();
-	static const int64_t serialVersionUID = (int64_t)0x323785A78DC496B3;
+	static const int64_t serialVersionUID = (int64_t)0x323785a78dc496b3;
 	CommunicationException(const CommunicationException& e);
 	virtual void throw$() override;
-	inline CommunicationException* operator ->() {
+	inline CommunicationException* operator ->() const {
+		return (CommunicationException*)throwing$;
+	}
+	inline operator CommunicationException*() const {
 		return (CommunicationException*)throwing$;
 	}
 };

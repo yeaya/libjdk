@@ -16,6 +16,7 @@ class $export TestProxyLazyValue$UserLazyClass : public ::java::lang::Object {
 	$class(TestProxyLazyValue$UserLazyClass, 0, ::java::lang::Object)
 public:
 	TestProxyLazyValue$UserLazyClass();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(int32_t arg);
 	static $String* method1();

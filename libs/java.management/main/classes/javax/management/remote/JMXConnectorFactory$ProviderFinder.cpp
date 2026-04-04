@@ -1,5 +1,4 @@
 #include <javax/management/remote/JMXConnectorFactory$ProviderFinder.h>
-
 #include <com/sun/jmx/remote/util/ClassLogger.h>
 #include <com/sun/jmx/remote/util/EnvHelp.h>
 #include <java/io/IOException.h>
@@ -12,7 +11,6 @@
 #include <javax/management/remote/JMXServiceURL.h>
 #include <jcpp.h>
 
-using $ClassLogger = ::com::sun::jmx::remote::util::ClassLogger;
 using $EnvHelp = ::com::sun::jmx::remote::util::EnvHelp;
 using $IOException = ::java::io::IOException;
 using $UncheckedIOException = ::java::io::UncheckedIOException;
@@ -32,48 +30,6 @@ namespace javax {
 	namespace management {
 		namespace remote {
 
-$FieldInfo _JMXConnectorFactory$ProviderFinder_FieldInfo_[] = {
-	{"factory", "Ljavax/management/remote/JMXConnectorFactory$ConnectorFactory;", "Ljavax/management/remote/JMXConnectorFactory$ConnectorFactory<TP;TC;>;", $FINAL, $field(JMXConnectorFactory$ProviderFinder, factory)},
-	{"url", "Ljavax/management/remote/JMXServiceURL;", nullptr, $FINAL, $field(JMXConnectorFactory$ProviderFinder, url)},
-	{"exception", "Ljava/io/IOException;", nullptr, $PRIVATE, $field(JMXConnectorFactory$ProviderFinder, exception)},
-	{"connection", "Ljava/lang/Object;", "TC;", $PRIVATE, $field(JMXConnectorFactory$ProviderFinder, connection)},
-	{}
-};
-
-$MethodInfo _JMXConnectorFactory$ProviderFinder_MethodInfo_[] = {
-	{"<init>", "(Ljavax/management/remote/JMXConnectorFactory$ConnectorFactory;Ljavax/management/remote/JMXServiceURL;)V", "(Ljavax/management/remote/JMXConnectorFactory$ConnectorFactory<TP;TC;>;Ljavax/management/remote/JMXServiceURL;)V", 0, $method(JMXConnectorFactory$ProviderFinder, init$, void, $JMXConnectorFactory$ConnectorFactory*, $JMXServiceURL*)},
-	{"get", "()Ljava/lang/Object;", "()TC;", 0, $method(JMXConnectorFactory$ProviderFinder, get, $Object*), "java.io.IOException"},
-	{"test", "(Ljava/util/ServiceLoader$Provider;)Z", "(Ljava/util/ServiceLoader$Provider<TP;>;)Z", $PUBLIC, $method(JMXConnectorFactory$ProviderFinder, test, bool, $ServiceLoader$Provider*)},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JMXConnectorFactory$ProviderFinder, test, bool, Object$*)},
-	{}
-};
-
-$InnerClassInfo _JMXConnectorFactory$ProviderFinder_InnerClassesInfo_[] = {
-	{"javax.management.remote.JMXConnectorFactory$ProviderFinder", "javax.management.remote.JMXConnectorFactory", "ProviderFinder", $PRIVATE | $STATIC | $FINAL},
-	{"java.util.ServiceLoader$Provider", "java.util.ServiceLoader", "Provider", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _JMXConnectorFactory$ProviderFinder_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"javax.management.remote.JMXConnectorFactory$ProviderFinder",
-	"java.lang.Object",
-	"java.util.function.Predicate",
-	_JMXConnectorFactory$ProviderFinder_FieldInfo_,
-	_JMXConnectorFactory$ProviderFinder_MethodInfo_,
-	"<P:Ljava/lang/Object;C:Ljava/lang/Object;>Ljava/lang/Object;Ljava/util/function/Predicate<Ljava/util/ServiceLoader$Provider<TP;>;>;",
-	nullptr,
-	_JMXConnectorFactory$ProviderFinder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.management.remote.JMXConnectorFactory"
-};
-
-$Object* allocate$JMXConnectorFactory$ProviderFinder($Class* clazz) {
-	return $of($alloc(JMXConnectorFactory$ProviderFinder));
-}
-
 void JMXConnectorFactory$ProviderFinder::init$($JMXConnectorFactory$ConnectorFactory* factory, $JMXServiceURL* url) {
 	$set(this, exception, nullptr);
 	$set(this, connection, nullptr);
@@ -82,7 +38,7 @@ void JMXConnectorFactory$ProviderFinder::init$($JMXConnectorFactory$ConnectorFac
 }
 
 bool JMXConnectorFactory$ProviderFinder::test($ServiceLoader$Provider* sp) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->connection == nullptr) {
 		$var($Object, provider, $nc(sp)->get());
 		try {
@@ -93,7 +49,7 @@ bool JMXConnectorFactory$ProviderFinder::test($ServiceLoader$Provider* sp) {
 		} catch ($Exception& e) {
 			$init($JMXConnectorFactory);
 			if ($nc($JMXConnectorFactory::logger)->traceOn()) {
-				$nc($JMXConnectorFactory::logger)->trace("getConnectorAsService"_s, $$str({"URL["_s, this->url, "] Service provider exception: "_s, e}));
+				$JMXConnectorFactory::logger->trace("getConnectorAsService"_s, $$str({"URL["_s, this->url, "] Service provider exception: "_s, e}));
 			}
 			if (!($instanceOf($MalformedURLException, e))) {
 				if (this->exception == nullptr) {
@@ -111,11 +67,11 @@ bool JMXConnectorFactory$ProviderFinder::test($ServiceLoader$Provider* sp) {
 
 $Object* JMXConnectorFactory$ProviderFinder::get() {
 	if (this->connection != nullptr) {
-		return $of(this->connection);
+		return this->connection;
 	} else if (this->exception != nullptr) {
 		$throw(this->exception);
 	} else {
-		return $of(nullptr);
+		return nullptr;
 	}
 }
 
@@ -127,7 +83,43 @@ JMXConnectorFactory$ProviderFinder::JMXConnectorFactory$ProviderFinder() {
 }
 
 $Class* JMXConnectorFactory$ProviderFinder::load$($String* name, bool initialize) {
-	$loadClass(JMXConnectorFactory$ProviderFinder, name, initialize, &_JMXConnectorFactory$ProviderFinder_ClassInfo_, allocate$JMXConnectorFactory$ProviderFinder);
+	$FieldInfo fieldInfos$$[] = {
+		{"factory", "Ljavax/management/remote/JMXConnectorFactory$ConnectorFactory;", "Ljavax/management/remote/JMXConnectorFactory$ConnectorFactory<TP;TC;>;", $FINAL, $field(JMXConnectorFactory$ProviderFinder, factory)},
+		{"url", "Ljavax/management/remote/JMXServiceURL;", nullptr, $FINAL, $field(JMXConnectorFactory$ProviderFinder, url)},
+		{"exception", "Ljava/io/IOException;", nullptr, $PRIVATE, $field(JMXConnectorFactory$ProviderFinder, exception)},
+		{"connection", "Ljava/lang/Object;", "TC;", $PRIVATE, $field(JMXConnectorFactory$ProviderFinder, connection)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/management/remote/JMXConnectorFactory$ConnectorFactory;Ljavax/management/remote/JMXServiceURL;)V", "(Ljavax/management/remote/JMXConnectorFactory$ConnectorFactory<TP;TC;>;Ljavax/management/remote/JMXServiceURL;)V", 0, $method(JMXConnectorFactory$ProviderFinder, init$, void, $JMXConnectorFactory$ConnectorFactory*, $JMXServiceURL*)},
+		{"get", "()Ljava/lang/Object;", "()TC;", 0, $method(JMXConnectorFactory$ProviderFinder, get, $Object*), "java.io.IOException"},
+		{"test", "(Ljava/util/ServiceLoader$Provider;)Z", "(Ljava/util/ServiceLoader$Provider<TP;>;)Z", $PUBLIC, $method(JMXConnectorFactory$ProviderFinder, test, bool, $ServiceLoader$Provider*)},
+		{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JMXConnectorFactory$ProviderFinder, test, bool, Object$*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.management.remote.JMXConnectorFactory$ProviderFinder", "javax.management.remote.JMXConnectorFactory", "ProviderFinder", $PRIVATE | $STATIC | $FINAL},
+		{"java.util.ServiceLoader$Provider", "java.util.ServiceLoader", "Provider", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"javax.management.remote.JMXConnectorFactory$ProviderFinder",
+		"java.lang.Object",
+		"java.util.function.Predicate",
+		fieldInfos$$,
+		methodInfos$$,
+		"<P:Ljava/lang/Object;C:Ljava/lang/Object;>Ljava/lang/Object;Ljava/util/function/Predicate<Ljava/util/ServiceLoader$Provider<TP;>;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.management.remote.JMXConnectorFactory"
+	};
+	$loadClass(JMXConnectorFactory$ProviderFinder, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JMXConnectorFactory$ProviderFinder);
+	});
 	return class$;
 }
 

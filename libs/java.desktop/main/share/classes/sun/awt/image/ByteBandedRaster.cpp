@@ -1,5 +1,4 @@
 #include <sun/awt/image/ByteBandedRaster.h>
-
 #include <java/awt/Point.h>
 #include <java/awt/Rectangle.h>
 #include <java/awt/image/BandedSampleModel.h>
@@ -19,7 +18,6 @@ using $byteArray2 = $Array<int8_t, 2>;
 using $Point = ::java::awt::Point;
 using $Rectangle = ::java::awt::Rectangle;
 using $BandedSampleModel = ::java::awt::image::BandedSampleModel;
-using $DataBuffer = ::java::awt::image::DataBuffer;
 using $DataBufferByte = ::java::awt::image::DataBufferByte;
 using $Raster = ::java::awt::image::Raster;
 using $RasterFormatException = ::java::awt::image::RasterFormatException;
@@ -36,65 +34,13 @@ namespace sun {
 	namespace awt {
 		namespace image {
 
-$FieldInfo _ByteBandedRaster_FieldInfo_[] = {
-	{"dataOffsets", "[I", nullptr, 0, $field(ByteBandedRaster, dataOffsets)},
-	{"scanlineStride", "I", nullptr, 0, $field(ByteBandedRaster, scanlineStride)},
-	{"data", "[[B", nullptr, 0, $field(ByteBandedRaster, data)},
-	{"maxX", "I", nullptr, $PRIVATE, $field(ByteBandedRaster, maxX)},
-	{"maxY", "I", nullptr, $PRIVATE, $field(ByteBandedRaster, maxY)},
-	{}
-};
-
-$MethodInfo _ByteBandedRaster_MethodInfo_[] = {
-	{"<init>", "(Ljava/awt/image/SampleModel;Ljava/awt/Point;)V", nullptr, $PUBLIC, $method(ByteBandedRaster, init$, void, $SampleModel*, $Point*)},
-	{"<init>", "(Ljava/awt/image/SampleModel;Ljava/awt/image/DataBufferByte;Ljava/awt/Point;)V", nullptr, $PUBLIC, $method(ByteBandedRaster, init$, void, $SampleModel*, $DataBufferByte*, $Point*)},
-	{"<init>", "(Ljava/awt/image/SampleModel;Ljava/awt/image/DataBufferByte;Ljava/awt/Rectangle;Ljava/awt/Point;Lsun/awt/image/ByteBandedRaster;)V", nullptr, $PUBLIC, $method(ByteBandedRaster, init$, void, $SampleModel*, $DataBufferByte*, $Rectangle*, $Point*, ByteBandedRaster*)},
-	{"createChild", "(IIIIII[I)Ljava/awt/image/Raster;", nullptr, $PUBLIC, $virtualMethod(ByteBandedRaster, createChild, $Raster*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, $ints*)},
-	{"createCompatibleWritableRaster", "(II)Ljava/awt/image/WritableRaster;", nullptr, $PUBLIC, $virtualMethod(ByteBandedRaster, createCompatibleWritableRaster, $WritableRaster*, int32_t, int32_t)},
-	{"createCompatibleWritableRaster", "()Ljava/awt/image/WritableRaster;", nullptr, $PUBLIC, $virtualMethod(ByteBandedRaster, createCompatibleWritableRaster, $WritableRaster*)},
-	{"createWritableChild", "(IIIIII[I)Ljava/awt/image/WritableRaster;", nullptr, $PUBLIC, $virtualMethod(ByteBandedRaster, createWritableChild, $WritableRaster*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, $ints*)},
-	{"getByteData", "(IIIII[B)[B", nullptr, $PUBLIC, $virtualMethod(ByteBandedRaster, getByteData, $bytes*, int32_t, int32_t, int32_t, int32_t, int32_t, $bytes*)},
-	{"getByteData", "(IIII[B)[B", nullptr, $PUBLIC, $virtualMethod(ByteBandedRaster, getByteData, $bytes*, int32_t, int32_t, int32_t, int32_t, $bytes*)},
-	{"getDataElements", "(IILjava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ByteBandedRaster, getDataElements, $Object*, int32_t, int32_t, Object$*)},
-	{"getDataElements", "(IIIILjava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ByteBandedRaster, getDataElements, $Object*, int32_t, int32_t, int32_t, int32_t, Object$*)},
-	{"getDataOffset", "(I)I", nullptr, $PUBLIC, $virtualMethod(ByteBandedRaster, getDataOffset, int32_t, int32_t)},
-	{"getDataOffsets", "()[I", nullptr, $PUBLIC, $virtualMethod(ByteBandedRaster, getDataOffsets, $ints*)},
-	{"getDataStorage", "()[[B", nullptr, $PUBLIC, $virtualMethod(ByteBandedRaster, getDataStorage, $byteArray2*)},
-	{"getDataStorage", "(I)[B", nullptr, $PUBLIC, $virtualMethod(ByteBandedRaster, getDataStorage, $bytes*, int32_t)},
-	{"getPixelStride", "()I", nullptr, $PUBLIC, $virtualMethod(ByteBandedRaster, getPixelStride, int32_t)},
-	{"getScanlineStride", "()I", nullptr, $PUBLIC, $virtualMethod(ByteBandedRaster, getScanlineStride, int32_t)},
-	{"putByteData", "(IIIII[B)V", nullptr, $PUBLIC, $virtualMethod(ByteBandedRaster, putByteData, void, int32_t, int32_t, int32_t, int32_t, int32_t, $bytes*)},
-	{"putByteData", "(IIII[B)V", nullptr, $PUBLIC, $virtualMethod(ByteBandedRaster, putByteData, void, int32_t, int32_t, int32_t, int32_t, $bytes*)},
-	{"setDataElements", "(IILjava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(ByteBandedRaster, setDataElements, void, int32_t, int32_t, Object$*)},
-	{"setDataElements", "(IILjava/awt/image/Raster;)V", nullptr, $PUBLIC, $virtualMethod(ByteBandedRaster, setDataElements, void, int32_t, int32_t, $Raster*)},
-	{"setDataElements", "(IIIILjava/awt/image/Raster;)V", nullptr, $PRIVATE, $method(ByteBandedRaster, setDataElements, void, int32_t, int32_t, int32_t, int32_t, $Raster*)},
-	{"setDataElements", "(IIIILjava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(ByteBandedRaster, setDataElements, void, int32_t, int32_t, int32_t, int32_t, Object$*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ByteBandedRaster, toString, $String*)},
-	{"verify", "()V", nullptr, $PRIVATE, $method(ByteBandedRaster, verify, void)},
-	{}
-};
-
-$ClassInfo _ByteBandedRaster_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.awt.image.ByteBandedRaster",
-	"sun.awt.image.SunWritableRaster",
-	nullptr,
-	_ByteBandedRaster_FieldInfo_,
-	_ByteBandedRaster_MethodInfo_
-};
-
-$Object* allocate$ByteBandedRaster($Class* clazz) {
-	return $of($alloc(ByteBandedRaster));
-}
-
 void ByteBandedRaster::init$($SampleModel* sampleModel, $Point* origin) {
-	$useLocalCurrentObjectStackCache();
-	$var($SampleModel, var$0, sampleModel);
-	$var($DataBufferByte, var$1, $cast($DataBufferByte, $nc(sampleModel)->createDataBuffer()));
-	int32_t var$2 = $nc(origin)->x;
-	int32_t var$3 = origin->y;
-	int32_t var$4 = sampleModel->getWidth();
-	ByteBandedRaster::init$(var$0, var$1, $$new($Rectangle, var$2, var$3, var$4, sampleModel->getHeight()), origin, nullptr);
+	$useLocalObjectStack();
+	$var($DataBufferByte, var$0, $cast($DataBufferByte, $nc(sampleModel)->createDataBuffer()));
+	int32_t var$1 = $nc(origin)->x;
+	int32_t var$2 = origin->y;
+	int32_t var$3 = sampleModel->getWidth();
+	ByteBandedRaster::init$(sampleModel, var$0, $$new($Rectangle, var$1, var$2, var$3, sampleModel->getHeight()), origin, nullptr);
 }
 
 void ByteBandedRaster::init$($SampleModel* sampleModel, $DataBufferByte* dataBuffer, $Point* origin) {
@@ -105,13 +51,13 @@ void ByteBandedRaster::init$($SampleModel* sampleModel, $DataBufferByte* dataBuf
 }
 
 void ByteBandedRaster::init$($SampleModel* sampleModel, $DataBufferByte* dataBuffer, $Rectangle* aRegion, $Point* origin, ByteBandedRaster* parent) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$SunWritableRaster::init$(sampleModel, dataBuffer, aRegion, origin, parent);
 	this->maxX = this->minX + this->width;
 	this->maxY = this->minY + this->height;
 	if ($instanceOf($BandedSampleModel, sampleModel)) {
 		$var($BandedSampleModel, bsm, $cast($BandedSampleModel, sampleModel));
-		this->scanlineStride = $nc(bsm)->getScanlineStride();
+		this->scanlineStride = bsm->getScanlineStride();
 		$var($ints, bankIndices, bsm->getBankIndices());
 		$var($ints, bandOffsets, bsm->getBandOffsets());
 		$var($ints, dOffsets, $nc(dataBuffer)->getOffsets());
@@ -167,11 +113,11 @@ $Object* ByteBandedRaster::getDataElements(int32_t x, int32_t y, Object$* obj) {
 	for (int32_t band = 0; band < this->numDataElements; ++band) {
 		$nc(outData)->set(band, $nc($nc(this->data)->get(band))->get($nc(this->dataOffsets)->get(band) + off));
 	}
-	return $of(outData);
+	return outData;
 }
 
 $Object* ByteBandedRaster::getDataElements(int32_t x, int32_t y, int32_t w, int32_t h, Object$* obj) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ((x < this->minX) || (y < this->minY) || (x + w > this->maxX) || (y + h > this->maxY)) {
 		$throwNew($ArrayIndexOutOfBoundsException, "Coordinate out of bounds!"_s);
 	}
@@ -195,7 +141,7 @@ $Object* ByteBandedRaster::getDataElements(int32_t x, int32_t y, int32_t w, int3
 			}
 		}
 	}
-	return $of(outData);
+	return outData;
 }
 
 $bytes* ByteBandedRaster::getByteData(int32_t x, int32_t y, int32_t w, int32_t h, int32_t band, $bytes* outData$renamed) {
@@ -220,7 +166,7 @@ $bytes* ByteBandedRaster::getByteData(int32_t x, int32_t y, int32_t w, int32_t h
 }
 
 $bytes* ByteBandedRaster::getByteData(int32_t x, int32_t y, int32_t w, int32_t h, $bytes* outData$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, outData, outData$renamed);
 	if ((x < this->minX) || (y < this->minY) || (x + w > this->maxX) || (y + h > this->maxY)) {
 		$throwNew($ArrayIndexOutOfBoundsException, "Coordinate out of bounds!"_s);
@@ -282,7 +228,7 @@ void ByteBandedRaster::setDataElements(int32_t dstX, int32_t dstY, int32_t width
 }
 
 void ByteBandedRaster::setDataElements(int32_t x, int32_t y, int32_t w, int32_t h, Object$* obj) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ((x < this->minX) || (y < this->minY) || (x + w > this->maxX) || (y + h > this->maxY)) {
 		$throwNew($ArrayIndexOutOfBoundsException, "Coordinate out of bounds!"_s);
 	}
@@ -325,7 +271,7 @@ void ByteBandedRaster::putByteData(int32_t x, int32_t y, int32_t w, int32_t h, i
 }
 
 void ByteBandedRaster::putByteData(int32_t x, int32_t y, int32_t w, int32_t h, $bytes* inData) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ((x < this->minX) || (y < this->minY) || (x + w > this->maxX) || (y + h > this->maxY)) {
 		$throwNew($ArrayIndexOutOfBoundsException, "Coordinate out of bounds!"_s);
 	}
@@ -347,7 +293,7 @@ void ByteBandedRaster::putByteData(int32_t x, int32_t y, int32_t w, int32_t h, $
 }
 
 $WritableRaster* ByteBandedRaster::createWritableChild(int32_t x, int32_t y, int32_t width, int32_t height, int32_t x0, int32_t y0, $ints* bandList) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (x < this->minX) {
 		$throwNew($RasterFormatException, "x lies outside raster"_s);
 	}
@@ -368,10 +314,9 @@ $WritableRaster* ByteBandedRaster::createWritableChild(int32_t x, int32_t y, int
 	}
 	int32_t deltaX = x0 - x;
 	int32_t deltaY = y0 - y;
-	$var($SampleModel, var$0, sm);
-	$var($DataBufferByte, var$1, $cast($DataBufferByte, this->dataBuffer));
-	$var($Rectangle, var$2, $new($Rectangle, x0, y0, width, height));
-	return $new(ByteBandedRaster, var$0, var$1, var$2, $$new($Point, this->sampleModelTranslateX + deltaX, this->sampleModelTranslateY + deltaY), this);
+	$var($DataBufferByte, var$0, $cast($DataBufferByte, this->dataBuffer));
+	$var($Rectangle, var$1, $new($Rectangle, x0, y0, width, height));
+	return $new(ByteBandedRaster, sm, var$0, var$1, $$new($Point, this->sampleModelTranslateX + deltaX, this->sampleModelTranslateY + deltaY), this);
 }
 
 $Raster* ByteBandedRaster::createChild(int32_t x, int32_t y, int32_t width, int32_t height, int32_t x0, int32_t y0, $ints* bandList) {
@@ -379,7 +324,7 @@ $Raster* ByteBandedRaster::createChild(int32_t x, int32_t y, int32_t width, int3
 }
 
 $WritableRaster* ByteBandedRaster::createCompatibleWritableRaster(int32_t w, int32_t h) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (w <= 0 || h <= 0) {
 		$throwNew($RasterFormatException, $$str({"negative "_s, ((w <= 0) ? "width"_s : "height"_s)}));
 	}
@@ -392,7 +337,7 @@ $WritableRaster* ByteBandedRaster::createCompatibleWritableRaster() {
 }
 
 void ByteBandedRaster::verify() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->width <= 0 || this->height <= 0 || this->height > ($div($Integer::MAX_VALUE, this->width))) {
 		$throwNew($RasterFormatException, "Invalid raster dimension"_s);
 	}
@@ -404,14 +349,14 @@ void ByteBandedRaster::verify() {
 	}
 	if (this->height > 1 || this->minY - this->sampleModelTranslateY > 0) {
 		for (int32_t i = 0; i < $nc(this->data)->length; ++i) {
-			if (this->scanlineStride > $nc($nc(this->data)->get(i))->length) {
+			if (this->scanlineStride > $nc(this->data->get(i))->length) {
 				$throwNew($RasterFormatException, $$str({"Incorrect scanline stride: "_s, $$str(this->scanlineStride)}));
 			}
 		}
 	}
 	for (int32_t i = 0; i < $nc(this->dataOffsets)->length; ++i) {
-		if ($nc(this->dataOffsets)->get(i) < 0) {
-			$throwNew($RasterFormatException, $$str({"Data offsets for band "_s, $$str(i), "("_s, $$str($nc(this->dataOffsets)->get(i)), ") must be >= 0"_s}));
+		if (this->dataOffsets->get(i) < 0) {
+			$throwNew($RasterFormatException, $$str({"Data offsets for band "_s, $$str(i), "("_s, $$str(this->dataOffsets->get(i)), ") must be >= 0"_s}));
 		}
 	}
 	int32_t lastScanOffset = (this->height - 1) * this->scanlineStride;
@@ -422,29 +367,29 @@ void ByteBandedRaster::verify() {
 	int32_t maxIndex = 0;
 	int32_t index = 0;
 	for (int32_t i = 0; i < this->numDataElements; ++i) {
-		if ($nc(this->dataOffsets)->get(i) > ($Integer::MAX_VALUE - lastPixelOffset)) {
+		if (this->dataOffsets->get(i) > ($Integer::MAX_VALUE - lastPixelOffset)) {
 			$throwNew($RasterFormatException, "Invalid raster dimension"_s);
 		}
-		index = lastPixelOffset + $nc(this->dataOffsets)->get(i);
+		index = lastPixelOffset + this->dataOffsets->get(i);
 		if (index > maxIndex) {
 			maxIndex = index;
 		}
 	}
 	if ($nc(this->data)->length == 1) {
-		if ($nc($nc(this->data)->get(0))->length <= maxIndex * this->numDataElements) {
-			$throwNew($RasterFormatException, $$str({"Data array too small (it is "_s, $$str($nc($nc(this->data)->get(0))->length), " and should be > "_s, $$str((maxIndex * this->numDataElements)), " )"_s}));
+		if ($nc(this->data->get(0))->length <= maxIndex * this->numDataElements) {
+			$throwNew($RasterFormatException, $$str({"Data array too small (it is "_s, $$str($nc(this->data->get(0))->length), " and should be > "_s, $$str((maxIndex * this->numDataElements)), " )"_s}));
 		}
 	} else {
 		for (int32_t i = 0; i < this->numDataElements; ++i) {
-			if ($nc($nc(this->data)->get(i))->length <= maxIndex) {
-				$throwNew($RasterFormatException, $$str({"Data array too small (it is "_s, $$str($nc($nc(this->data)->get(i))->length), " and should be > "_s, $$str(maxIndex), " )"_s}));
+			if ($nc(this->data->get(i))->length <= maxIndex) {
+				$throwNew($RasterFormatException, $$str({"Data array too small (it is "_s, $$str($nc(this->data->get(i))->length), " and should be > "_s, $$str(maxIndex), " )"_s}));
 			}
 		}
 	}
 }
 
 $String* ByteBandedRaster::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $new($String, $$str({"ByteBandedRaster: width = "_s, $$str(this->width), " height = "_s, $$str(this->height), " #bands "_s, $$str(this->numDataElements), " minX = "_s, $$str(this->minX), " minY = "_s, $$str(this->minY)}));
 }
 
@@ -452,7 +397,53 @@ ByteBandedRaster::ByteBandedRaster() {
 }
 
 $Class* ByteBandedRaster::load$($String* name, bool initialize) {
-	$loadClass(ByteBandedRaster, name, initialize, &_ByteBandedRaster_ClassInfo_, allocate$ByteBandedRaster);
+	$FieldInfo fieldInfos$$[] = {
+		{"dataOffsets", "[I", nullptr, 0, $field(ByteBandedRaster, dataOffsets)},
+		{"scanlineStride", "I", nullptr, 0, $field(ByteBandedRaster, scanlineStride)},
+		{"data", "[[B", nullptr, 0, $field(ByteBandedRaster, data)},
+		{"maxX", "I", nullptr, $PRIVATE, $field(ByteBandedRaster, maxX)},
+		{"maxY", "I", nullptr, $PRIVATE, $field(ByteBandedRaster, maxY)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/image/SampleModel;Ljava/awt/Point;)V", nullptr, $PUBLIC, $method(ByteBandedRaster, init$, void, $SampleModel*, $Point*)},
+		{"<init>", "(Ljava/awt/image/SampleModel;Ljava/awt/image/DataBufferByte;Ljava/awt/Point;)V", nullptr, $PUBLIC, $method(ByteBandedRaster, init$, void, $SampleModel*, $DataBufferByte*, $Point*)},
+		{"<init>", "(Ljava/awt/image/SampleModel;Ljava/awt/image/DataBufferByte;Ljava/awt/Rectangle;Ljava/awt/Point;Lsun/awt/image/ByteBandedRaster;)V", nullptr, $PUBLIC, $method(ByteBandedRaster, init$, void, $SampleModel*, $DataBufferByte*, $Rectangle*, $Point*, ByteBandedRaster*)},
+		{"createChild", "(IIIIII[I)Ljava/awt/image/Raster;", nullptr, $PUBLIC, $virtualMethod(ByteBandedRaster, createChild, $Raster*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, $ints*)},
+		{"createCompatibleWritableRaster", "(II)Ljava/awt/image/WritableRaster;", nullptr, $PUBLIC, $virtualMethod(ByteBandedRaster, createCompatibleWritableRaster, $WritableRaster*, int32_t, int32_t)},
+		{"createCompatibleWritableRaster", "()Ljava/awt/image/WritableRaster;", nullptr, $PUBLIC, $virtualMethod(ByteBandedRaster, createCompatibleWritableRaster, $WritableRaster*)},
+		{"createWritableChild", "(IIIIII[I)Ljava/awt/image/WritableRaster;", nullptr, $PUBLIC, $virtualMethod(ByteBandedRaster, createWritableChild, $WritableRaster*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, $ints*)},
+		{"getByteData", "(IIIII[B)[B", nullptr, $PUBLIC, $virtualMethod(ByteBandedRaster, getByteData, $bytes*, int32_t, int32_t, int32_t, int32_t, int32_t, $bytes*)},
+		{"getByteData", "(IIII[B)[B", nullptr, $PUBLIC, $virtualMethod(ByteBandedRaster, getByteData, $bytes*, int32_t, int32_t, int32_t, int32_t, $bytes*)},
+		{"getDataElements", "(IILjava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ByteBandedRaster, getDataElements, $Object*, int32_t, int32_t, Object$*)},
+		{"getDataElements", "(IIIILjava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ByteBandedRaster, getDataElements, $Object*, int32_t, int32_t, int32_t, int32_t, Object$*)},
+		{"getDataOffset", "(I)I", nullptr, $PUBLIC, $virtualMethod(ByteBandedRaster, getDataOffset, int32_t, int32_t)},
+		{"getDataOffsets", "()[I", nullptr, $PUBLIC, $virtualMethod(ByteBandedRaster, getDataOffsets, $ints*)},
+		{"getDataStorage", "()[[B", nullptr, $PUBLIC, $virtualMethod(ByteBandedRaster, getDataStorage, $byteArray2*)},
+		{"getDataStorage", "(I)[B", nullptr, $PUBLIC, $virtualMethod(ByteBandedRaster, getDataStorage, $bytes*, int32_t)},
+		{"getPixelStride", "()I", nullptr, $PUBLIC, $virtualMethod(ByteBandedRaster, getPixelStride, int32_t)},
+		{"getScanlineStride", "()I", nullptr, $PUBLIC, $virtualMethod(ByteBandedRaster, getScanlineStride, int32_t)},
+		{"putByteData", "(IIIII[B)V", nullptr, $PUBLIC, $virtualMethod(ByteBandedRaster, putByteData, void, int32_t, int32_t, int32_t, int32_t, int32_t, $bytes*)},
+		{"putByteData", "(IIII[B)V", nullptr, $PUBLIC, $virtualMethod(ByteBandedRaster, putByteData, void, int32_t, int32_t, int32_t, int32_t, $bytes*)},
+		{"setDataElements", "(IILjava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(ByteBandedRaster, setDataElements, void, int32_t, int32_t, Object$*)},
+		{"setDataElements", "(IILjava/awt/image/Raster;)V", nullptr, $PUBLIC, $virtualMethod(ByteBandedRaster, setDataElements, void, int32_t, int32_t, $Raster*)},
+		{"setDataElements", "(IIIILjava/awt/image/Raster;)V", nullptr, $PRIVATE, $method(ByteBandedRaster, setDataElements, void, int32_t, int32_t, int32_t, int32_t, $Raster*)},
+		{"setDataElements", "(IIIILjava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(ByteBandedRaster, setDataElements, void, int32_t, int32_t, int32_t, int32_t, Object$*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ByteBandedRaster, toString, $String*)},
+		{"verify", "()V", nullptr, $PRIVATE, $method(ByteBandedRaster, verify, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.awt.image.ByteBandedRaster",
+		"sun.awt.image.SunWritableRaster",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ByteBandedRaster, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ByteBandedRaster);
+	});
 	return class$;
 }
 

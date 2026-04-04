@@ -38,7 +38,7 @@ public:
 	virtual bool equals(Object$* obj) override;
 	virtual int32_t hashCode() override;
 	virtual $String* toString() override;
-	static const int64_t serialVersionUID = (int64_t)0x9392783E4D58609D;
+	static const int64_t serialVersionUID = (int64_t)0x9392783e4d58609d;
 	::java::util::Set* modifiers = nullptr;
 	::java::util::List* typeParams = nullptr;
 	::com::sun::tools::sjavac::pubapi::TypeDesc* returnType = nullptr;

@@ -1,5 +1,4 @@
 #include <javax/management/JMException.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -9,30 +8,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace javax {
 	namespace management {
-
-$FieldInfo _JMException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JMException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _JMException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(JMException, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(JMException, init$, void, $String*)},
-	{}
-};
-
-$ClassInfo _JMException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.management.JMException",
-	"java.lang.Exception",
-	nullptr,
-	_JMException_FieldInfo_,
-	_JMException_MethodInfo_
-};
-
-$Object* allocate$JMException($Class* clazz) {
-	return $of($alloc(JMException));
-}
 
 void JMException::init$() {
 	$Exception::init$();
@@ -53,7 +28,26 @@ void JMException::throw$() {
 }
 
 $Class* JMException::load$($String* name, bool initialize) {
-	$loadClass(JMException, name, initialize, &_JMException_ClassInfo_, allocate$JMException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JMException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(JMException, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(JMException, init$, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.management.JMException",
+		"java.lang.Exception",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(JMException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JMException);
+	});
 	return class$;
 }
 

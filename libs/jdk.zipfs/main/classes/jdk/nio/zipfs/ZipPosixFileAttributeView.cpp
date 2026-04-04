@@ -1,5 +1,4 @@
 #include <jdk/nio/zipfs/ZipPosixFileAttributeView.h>
-
 #include <java/nio/file/attribute/BasicFileAttributes.h>
 #include <java/nio/file/attribute/FileTime.h>
 #include <java/nio/file/attribute/GroupPrincipal.h>
@@ -32,53 +31,6 @@ using $ZipPosixFileAttributeView$1 = ::jdk::nio::zipfs::ZipPosixFileAttributeVie
 namespace jdk {
 	namespace nio {
 		namespace zipfs {
-
-$FieldInfo _ZipPosixFileAttributeView_FieldInfo_[] = {
-	{"isOwnerView", "Z", nullptr, $PRIVATE | $FINAL, $field(ZipPosixFileAttributeView, isOwnerView)},
-	{}
-};
-
-$MethodInfo _ZipPosixFileAttributeView_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljdk/nio/zipfs/ZipPath;Z)V", nullptr, 0, $method(ZipPosixFileAttributeView, init$, void, $ZipPath*, bool)},
-	{"attribute", "(Ljdk/nio/zipfs/ZipFileAttributeView$AttrID;Ljdk/nio/zipfs/ZipFileAttributes;)Ljava/lang/Object;", nullptr, 0, $virtualMethod(ZipPosixFileAttributeView, attribute, $Object*, $ZipFileAttributeView$AttrID*, $ZipFileAttributes*)},
-	{"getOwner", "()Ljava/nio/file/attribute/UserPrincipal;", nullptr, $PUBLIC, $virtualMethod(ZipPosixFileAttributeView, getOwner, $UserPrincipal*), "java.io.IOException"},
-	{"name", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ZipPosixFileAttributeView, name, $String*)},
-	{"readAttributes", "()Ljava/nio/file/attribute/PosixFileAttributes;", nullptr, $PUBLIC, $virtualMethod(ZipPosixFileAttributeView, readAttributes, $BasicFileAttributes*), "java.io.IOException"},
-	{"setGroup", "(Ljava/nio/file/attribute/GroupPrincipal;)V", nullptr, $PUBLIC, $virtualMethod(ZipPosixFileAttributeView, setGroup, void, $GroupPrincipal*), "java.io.IOException"},
-	{"setOwner", "(Ljava/nio/file/attribute/UserPrincipal;)V", nullptr, $PUBLIC, $virtualMethod(ZipPosixFileAttributeView, setOwner, void, $UserPrincipal*), "java.io.IOException"},
-	{"*setTimes", "(Ljava/nio/file/attribute/FileTime;Ljava/nio/file/attribute/FileTime;Ljava/nio/file/attribute/FileTime;)V", nullptr, $PUBLIC},
-	{"*setPermissions", "(Ljava/util/Set;)V", nullptr, $PUBLIC},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _ZipPosixFileAttributeView_InnerClassesInfo_[] = {
-	{"jdk.nio.zipfs.ZipPosixFileAttributeView$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{}
-};
-
-$ClassInfo _ZipPosixFileAttributeView_ClassInfo_ = {
-	$ACC_SUPER,
-	"jdk.nio.zipfs.ZipPosixFileAttributeView",
-	"jdk.nio.zipfs.ZipFileAttributeView",
-	"java.nio.file.attribute.PosixFileAttributeView",
-	_ZipPosixFileAttributeView_FieldInfo_,
-	_ZipPosixFileAttributeView_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ZipPosixFileAttributeView_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"jdk.nio.zipfs.ZipPosixFileAttributeView$1"
-};
-
-$Object* allocate$ZipPosixFileAttributeView($Class* clazz) {
-	return $of($alloc(ZipPosixFileAttributeView));
-}
 
 void ZipPosixFileAttributeView::setTimes($FileTime* lastModifiedTime, $FileTime* lastAccessTime, $FileTime* createTime) {
 	this->$ZipFileAttributeView::setTimes(lastModifiedTime, lastAccessTime, createTime);
@@ -122,7 +74,7 @@ $BasicFileAttributes* ZipPosixFileAttributeView::readAttributes() {
 }
 
 $UserPrincipal* ZipPosixFileAttributeView::getOwner() {
-	return $nc($($cast($PosixFileAttributes, readAttributes())))->owner();
+	return $$sure($PosixFileAttributes, readAttributes())->owner();
 }
 
 void ZipPosixFileAttributeView::setOwner($UserPrincipal* owner) {
@@ -138,25 +90,17 @@ $Object* ZipPosixFileAttributeView::attribute($ZipFileAttributeView$AttrID* id, 
 	$init($ZipPosixFileAttributeView$1);
 	switch ($nc($ZipPosixFileAttributeView$1::$SwitchMap$jdk$nio$zipfs$ZipFileAttributeView$AttrID)->get($nc((id))->ordinal())) {
 	case 1:
-		{
-			return $of($nc(pzfas)->owner());
-		}
+		return $nc(pzfas)->owner();
 	case 2:
-		{
-			return $of($nc(pzfas)->group());
-		}
+		return $nc(pzfas)->group();
 	case 3:
-		{
-			if (!this->isOwnerView) {
-				return $of($nc(pzfas)->permissions());
-			} else {
-				return $of($ZipFileAttributeView::attribute(id, zfas));
-			}
+		if (!this->isOwnerView) {
+			return $nc(pzfas)->permissions();
+		} else {
+			return $ZipFileAttributeView::attribute(id, zfas);
 		}
 	default:
-		{
-			return $of($ZipFileAttributeView::attribute(id, zfas));
-		}
+		return $ZipFileAttributeView::attribute(id, zfas);
 	}
 }
 
@@ -164,7 +108,48 @@ ZipPosixFileAttributeView::ZipPosixFileAttributeView() {
 }
 
 $Class* ZipPosixFileAttributeView::load$($String* name, bool initialize) {
-	$loadClass(ZipPosixFileAttributeView, name, initialize, &_ZipPosixFileAttributeView_ClassInfo_, allocate$ZipPosixFileAttributeView);
+	$FieldInfo fieldInfos$$[] = {
+		{"isOwnerView", "Z", nullptr, $PRIVATE | $FINAL, $field(ZipPosixFileAttributeView, isOwnerView)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljdk/nio/zipfs/ZipPath;Z)V", nullptr, 0, $method(ZipPosixFileAttributeView, init$, void, $ZipPath*, bool)},
+		{"attribute", "(Ljdk/nio/zipfs/ZipFileAttributeView$AttrID;Ljdk/nio/zipfs/ZipFileAttributes;)Ljava/lang/Object;", nullptr, 0, $virtualMethod(ZipPosixFileAttributeView, attribute, $Object*, $ZipFileAttributeView$AttrID*, $ZipFileAttributes*)},
+		{"getOwner", "()Ljava/nio/file/attribute/UserPrincipal;", nullptr, $PUBLIC, $virtualMethod(ZipPosixFileAttributeView, getOwner, $UserPrincipal*), "java.io.IOException"},
+		{"name", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ZipPosixFileAttributeView, name, $String*)},
+		{"readAttributes", "()Ljava/nio/file/attribute/PosixFileAttributes;", nullptr, $PUBLIC, $virtualMethod(ZipPosixFileAttributeView, readAttributes, $BasicFileAttributes*), "java.io.IOException"},
+		{"setGroup", "(Ljava/nio/file/attribute/GroupPrincipal;)V", nullptr, $PUBLIC, $virtualMethod(ZipPosixFileAttributeView, setGroup, void, $GroupPrincipal*), "java.io.IOException"},
+		{"setOwner", "(Ljava/nio/file/attribute/UserPrincipal;)V", nullptr, $PUBLIC, $virtualMethod(ZipPosixFileAttributeView, setOwner, void, $UserPrincipal*), "java.io.IOException"},
+		{"*setTimes", "(Ljava/nio/file/attribute/FileTime;Ljava/nio/file/attribute/FileTime;Ljava/nio/file/attribute/FileTime;)V", nullptr, $PUBLIC},
+		{"*setPermissions", "(Ljava/util/Set;)V", nullptr, $PUBLIC},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.nio.zipfs.ZipPosixFileAttributeView$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"jdk.nio.zipfs.ZipPosixFileAttributeView",
+		"jdk.nio.zipfs.ZipFileAttributeView",
+		"java.nio.file.attribute.PosixFileAttributeView",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"jdk.nio.zipfs.ZipPosixFileAttributeView$1"
+	};
+	$loadClass(ZipPosixFileAttributeView, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ZipPosixFileAttributeView));
+	});
 	return class$;
 }
 

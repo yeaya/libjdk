@@ -1,5 +1,4 @@
 #include <com/sun/imageio/plugins/tiff/TIFFCompressor.h>
-
 #include <com/sun/imageio/plugins/tiff/TIFFImageWriter.h>
 #include <javax/imageio/ImageWriter.h>
 #include <javax/imageio/metadata/IIOMetadata.h>
@@ -21,44 +20,6 @@ namespace com {
 		namespace imageio {
 			namespace plugins {
 				namespace tiff {
-
-$FieldInfo _TIFFCompressor_FieldInfo_[] = {
-	{"writer", "Ljavax/imageio/ImageWriter;", nullptr, $PROTECTED, $field(TIFFCompressor, writer)},
-	{"metadata", "Ljavax/imageio/metadata/IIOMetadata;", nullptr, $PROTECTED, $field(TIFFCompressor, metadata)},
-	{"compressionType", "Ljava/lang/String;", nullptr, $PROTECTED, $field(TIFFCompressor, compressionType)},
-	{"compressionTagValue", "I", nullptr, $PROTECTED, $field(TIFFCompressor, compressionTagValue)},
-	{"isCompressionLossless", "Z", nullptr, $PROTECTED, $field(TIFFCompressor, isCompressionLossless$)},
-	{"stream", "Ljavax/imageio/stream/ImageOutputStream;", nullptr, $PROTECTED, $field(TIFFCompressor, stream)},
-	{}
-};
-
-$MethodInfo _TIFFCompressor_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;IZ)V", nullptr, $PUBLIC, $method(TIFFCompressor, init$, void, $String*, int32_t, bool)},
-	{"encode", "([BIII[II)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TIFFCompressor, encode, int32_t, $bytes*, int32_t, int32_t, int32_t, $ints*, int32_t), "java.io.IOException"},
-	{"getCompressionTagValue", "()I", nullptr, $PUBLIC, $virtualMethod(TIFFCompressor, getCompressionTagValue, int32_t)},
-	{"getCompressionType", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TIFFCompressor, getCompressionType, $String*)},
-	{"getMetadata", "()Ljavax/imageio/metadata/IIOMetadata;", nullptr, $PUBLIC, $virtualMethod(TIFFCompressor, getMetadata, $IIOMetadata*)},
-	{"getStream", "()Ljavax/imageio/stream/ImageOutputStream;", nullptr, $PUBLIC, $virtualMethod(TIFFCompressor, getStream, $ImageOutputStream*)},
-	{"getWriter", "()Ljavax/imageio/ImageWriter;", nullptr, $PUBLIC, $virtualMethod(TIFFCompressor, getWriter, $ImageWriter*)},
-	{"isCompressionLossless", "()Z", nullptr, $PUBLIC, $virtualMethod(TIFFCompressor, isCompressionLossless, bool)},
-	{"setMetadata", "(Ljavax/imageio/metadata/IIOMetadata;)V", nullptr, $PUBLIC, $virtualMethod(TIFFCompressor, setMetadata, void, $IIOMetadata*)},
-	{"setStream", "(Ljavax/imageio/stream/ImageOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(TIFFCompressor, setStream, void, $ImageOutputStream*)},
-	{"setWriter", "(Ljavax/imageio/ImageWriter;)V", nullptr, $PUBLIC, $virtualMethod(TIFFCompressor, setWriter, void, $ImageWriter*)},
-	{}
-};
-
-$ClassInfo _TIFFCompressor_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"com.sun.imageio.plugins.tiff.TIFFCompressor",
-	"java.lang.Object",
-	nullptr,
-	_TIFFCompressor_FieldInfo_,
-	_TIFFCompressor_MethodInfo_
-};
-
-$Object* allocate$TIFFCompressor($Class* clazz) {
-	return $of($alloc(TIFFCompressor));
-}
 
 void TIFFCompressor::init$($String* compressionType, int32_t compressionTagValue, bool isCompressionLossless) {
 	if (compressionType == nullptr) {
@@ -126,7 +87,40 @@ TIFFCompressor::TIFFCompressor() {
 }
 
 $Class* TIFFCompressor::load$($String* name, bool initialize) {
-	$loadClass(TIFFCompressor, name, initialize, &_TIFFCompressor_ClassInfo_, allocate$TIFFCompressor);
+	$FieldInfo fieldInfos$$[] = {
+		{"writer", "Ljavax/imageio/ImageWriter;", nullptr, $PROTECTED, $field(TIFFCompressor, writer)},
+		{"metadata", "Ljavax/imageio/metadata/IIOMetadata;", nullptr, $PROTECTED, $field(TIFFCompressor, metadata)},
+		{"compressionType", "Ljava/lang/String;", nullptr, $PROTECTED, $field(TIFFCompressor, compressionType)},
+		{"compressionTagValue", "I", nullptr, $PROTECTED, $field(TIFFCompressor, compressionTagValue)},
+		{"isCompressionLossless", "Z", nullptr, $PROTECTED, $field(TIFFCompressor, isCompressionLossless$)},
+		{"stream", "Ljavax/imageio/stream/ImageOutputStream;", nullptr, $PROTECTED, $field(TIFFCompressor, stream)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;IZ)V", nullptr, $PUBLIC, $method(TIFFCompressor, init$, void, $String*, int32_t, bool)},
+		{"encode", "([BIII[II)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TIFFCompressor, encode, int32_t, $bytes*, int32_t, int32_t, int32_t, $ints*, int32_t), "java.io.IOException"},
+		{"getCompressionTagValue", "()I", nullptr, $PUBLIC, $virtualMethod(TIFFCompressor, getCompressionTagValue, int32_t)},
+		{"getCompressionType", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TIFFCompressor, getCompressionType, $String*)},
+		{"getMetadata", "()Ljavax/imageio/metadata/IIOMetadata;", nullptr, $PUBLIC, $virtualMethod(TIFFCompressor, getMetadata, $IIOMetadata*)},
+		{"getStream", "()Ljavax/imageio/stream/ImageOutputStream;", nullptr, $PUBLIC, $virtualMethod(TIFFCompressor, getStream, $ImageOutputStream*)},
+		{"getWriter", "()Ljavax/imageio/ImageWriter;", nullptr, $PUBLIC, $virtualMethod(TIFFCompressor, getWriter, $ImageWriter*)},
+		{"isCompressionLossless", "()Z", nullptr, $PUBLIC, $virtualMethod(TIFFCompressor, isCompressionLossless, bool)},
+		{"setMetadata", "(Ljavax/imageio/metadata/IIOMetadata;)V", nullptr, $PUBLIC, $virtualMethod(TIFFCompressor, setMetadata, void, $IIOMetadata*)},
+		{"setStream", "(Ljavax/imageio/stream/ImageOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(TIFFCompressor, setStream, void, $ImageOutputStream*)},
+		{"setWriter", "(Ljavax/imageio/ImageWriter;)V", nullptr, $PUBLIC, $virtualMethod(TIFFCompressor, setWriter, void, $ImageWriter*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"com.sun.imageio.plugins.tiff.TIFFCompressor",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TIFFCompressor, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TIFFCompressor);
+	});
 	return class$;
 }
 

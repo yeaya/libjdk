@@ -1,5 +1,4 @@
 #include <javax/swing/ButtonGroup.h>
-
 #include <java/util/Enumeration.h>
 #include <java/util/Vector.h>
 #include <javax/swing/AbstractButton.h>
@@ -16,38 +15,6 @@ using $ButtonModel = ::javax::swing::ButtonModel;
 
 namespace javax {
 	namespace swing {
-
-$FieldInfo _ButtonGroup_FieldInfo_[] = {
-	{"buttons", "Ljava/util/Vector;", "Ljava/util/Vector<Ljavax/swing/AbstractButton;>;", $PROTECTED, $field(ButtonGroup, buttons)},
-	{"selection", "Ljavax/swing/ButtonModel;", nullptr, 0, $field(ButtonGroup, selection)},
-	{}
-};
-
-$MethodInfo _ButtonGroup_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ButtonGroup, init$, void)},
-	{"add", "(Ljavax/swing/AbstractButton;)V", nullptr, $PUBLIC, $virtualMethod(ButtonGroup, add, void, $AbstractButton*)},
-	{"clearSelection", "()V", nullptr, $PUBLIC, $virtualMethod(ButtonGroup, clearSelection, void)},
-	{"getButtonCount", "()I", nullptr, $PUBLIC, $virtualMethod(ButtonGroup, getButtonCount, int32_t)},
-	{"getElements", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljavax/swing/AbstractButton;>;", $PUBLIC, $virtualMethod(ButtonGroup, getElements, $Enumeration*)},
-	{"getSelection", "()Ljavax/swing/ButtonModel;", nullptr, $PUBLIC, $virtualMethod(ButtonGroup, getSelection, $ButtonModel*)},
-	{"isSelected", "(Ljavax/swing/ButtonModel;)Z", nullptr, $PUBLIC, $virtualMethod(ButtonGroup, isSelected, bool, $ButtonModel*)},
-	{"remove", "(Ljavax/swing/AbstractButton;)V", nullptr, $PUBLIC, $virtualMethod(ButtonGroup, remove, void, $AbstractButton*)},
-	{"setSelected", "(Ljavax/swing/ButtonModel;Z)V", nullptr, $PUBLIC, $virtualMethod(ButtonGroup, setSelected, void, $ButtonModel*, bool)},
-	{}
-};
-
-$ClassInfo _ButtonGroup_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.ButtonGroup",
-	"java.lang.Object",
-	"java.io.Serializable",
-	_ButtonGroup_FieldInfo_,
-	_ButtonGroup_MethodInfo_
-};
-
-$Object* allocate$ButtonGroup($Class* clazz) {
-	return $of($alloc(ButtonGroup));
-}
 
 void ButtonGroup::init$() {
 	$set(this, buttons, $new($Vector));
@@ -66,7 +33,7 @@ void ButtonGroup::add($AbstractButton* b) {
 			b->setSelected(false);
 		}
 	}
-	$nc($($nc(b)->getModel()))->setGroup(this);
+	$$nc(b->getModel())->setGroup(this);
 }
 
 void ButtonGroup::remove($AbstractButton* b) {
@@ -77,7 +44,7 @@ void ButtonGroup::remove($AbstractButton* b) {
 	if ($nc(b)->getModel() == this->selection) {
 		$set(this, selection, nullptr);
 	}
-	$nc($($nc(b)->getModel()))->setGroup(nullptr);
+	$$nc(b->getModel())->setGroup(nullptr);
 }
 
 void ButtonGroup::clearSelection() {
@@ -115,7 +82,7 @@ int32_t ButtonGroup::getButtonCount() {
 	if (this->buttons == nullptr) {
 		return 0;
 	} else {
-		return $nc(this->buttons)->size();
+		return this->buttons->size();
 	}
 }
 
@@ -123,7 +90,34 @@ ButtonGroup::ButtonGroup() {
 }
 
 $Class* ButtonGroup::load$($String* name, bool initialize) {
-	$loadClass(ButtonGroup, name, initialize, &_ButtonGroup_ClassInfo_, allocate$ButtonGroup);
+	$FieldInfo fieldInfos$$[] = {
+		{"buttons", "Ljava/util/Vector;", "Ljava/util/Vector<Ljavax/swing/AbstractButton;>;", $PROTECTED, $field(ButtonGroup, buttons)},
+		{"selection", "Ljavax/swing/ButtonModel;", nullptr, 0, $field(ButtonGroup, selection)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ButtonGroup, init$, void)},
+		{"add", "(Ljavax/swing/AbstractButton;)V", nullptr, $PUBLIC, $virtualMethod(ButtonGroup, add, void, $AbstractButton*)},
+		{"clearSelection", "()V", nullptr, $PUBLIC, $virtualMethod(ButtonGroup, clearSelection, void)},
+		{"getButtonCount", "()I", nullptr, $PUBLIC, $virtualMethod(ButtonGroup, getButtonCount, int32_t)},
+		{"getElements", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljavax/swing/AbstractButton;>;", $PUBLIC, $virtualMethod(ButtonGroup, getElements, $Enumeration*)},
+		{"getSelection", "()Ljavax/swing/ButtonModel;", nullptr, $PUBLIC, $virtualMethod(ButtonGroup, getSelection, $ButtonModel*)},
+		{"isSelected", "(Ljavax/swing/ButtonModel;)Z", nullptr, $PUBLIC, $virtualMethod(ButtonGroup, isSelected, bool, $ButtonModel*)},
+		{"remove", "(Ljavax/swing/AbstractButton;)V", nullptr, $PUBLIC, $virtualMethod(ButtonGroup, remove, void, $AbstractButton*)},
+		{"setSelected", "(Ljavax/swing/ButtonModel;Z)V", nullptr, $PUBLIC, $virtualMethod(ButtonGroup, setSelected, void, $ButtonModel*, bool)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.ButtonGroup",
+		"java.lang.Object",
+		"java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ButtonGroup, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ButtonGroup);
+	});
 	return class$;
 }
 

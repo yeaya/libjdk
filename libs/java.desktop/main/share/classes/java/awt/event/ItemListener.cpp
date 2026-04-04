@@ -1,5 +1,4 @@
 #include <java/awt/event/ItemListener.h>
-
 #include <java/awt/event/ItemEvent.h>
 #include <jcpp.h>
 
@@ -11,26 +10,22 @@ namespace java {
 	namespace awt {
 		namespace event {
 
-$MethodInfo _ItemListener_MethodInfo_[] = {
-	{"itemStateChanged", "(Ljava/awt/event/ItemEvent;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ItemListener, itemStateChanged, void, $ItemEvent*)},
-	{}
-};
-
-$ClassInfo _ItemListener_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.awt.event.ItemListener",
-	nullptr,
-	"java.util.EventListener",
-	nullptr,
-	_ItemListener_MethodInfo_
-};
-
-$Object* allocate$ItemListener($Class* clazz) {
-	return $of($alloc(ItemListener));
-}
-
 $Class* ItemListener::load$($String* name, bool initialize) {
-	$loadClass(ItemListener, name, initialize, &_ItemListener_ClassInfo_, allocate$ItemListener);
+	$MethodInfo methodInfos$$[] = {
+		{"itemStateChanged", "(Ljava/awt/event/ItemEvent;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ItemListener, itemStateChanged, void, $ItemEvent*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.awt.event.ItemListener",
+		nullptr,
+		"java.util.EventListener",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ItemListener, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ItemListener);
+	});
 	return class$;
 }
 

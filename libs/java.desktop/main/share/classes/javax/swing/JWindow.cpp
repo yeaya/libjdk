@@ -1,5 +1,4 @@
 #include <javax/swing/JWindow.h>
-
 #include <java/awt/BorderLayout.h>
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
@@ -52,172 +51,6 @@ using $SunToolkit = ::sun::awt::SunToolkit;
 namespace javax {
 	namespace swing {
 
-$NamedAttribute JWindow_Attribute_var$0[] = {
-	{"defaultProperty", 's', "accessibleContext"},
-	{"description", 's', "A toplevel window which has no system border or controls."},
-	{}
-};
-
-$NamedAttribute JWindow_Attribute_var$1[] = {
-	{"delegate", 's', "getContentPane"},
-	{}
-};
-
-$CompoundAttribute _JWindow_Annotations_[] = {
-	{"Ljava/beans/JavaBean;", JWindow_Attribute_var$0},
-	{"Ljavax/swing/SwingContainer;", JWindow_Attribute_var$1},
-	{}
-};
-
-$NamedAttribute JWindow_Attribute_var$2[] = {
-	{"bound", 'Z', "false"},
-	{}
-};
-
-$CompoundAttribute _JWindow_MethodAnnotations_getGraphics10[] = {
-	{"Ljava/beans/BeanProperty;", JWindow_Attribute_var$2},
-	{}
-};
-
-$NamedAttribute JWindow_Attribute_var$3[] = {
-	{"bound", 'Z', "false"},
-	{"hidden", 'Z', "true"},
-	{"description", 's', "the RootPane object for this window."},
-	{}
-};
-
-$CompoundAttribute _JWindow_MethodAnnotations_getRootPane12[] = {
-	{"Ljava/beans/BeanProperty;", JWindow_Attribute_var$3},
-	{}
-};
-
-$NamedAttribute JWindow_Attribute_var$4[] = {
-	{"bound", 'Z', "false"},
-	{"hidden", 'Z', "true"},
-	{"description", 's', "The client area of the window where child components are normally inserted."},
-	{}
-};
-
-$CompoundAttribute _JWindow_MethodAnnotations_setContentPane18[] = {
-	{"Ljava/beans/BeanProperty;", JWindow_Attribute_var$4},
-	{}
-};
-
-$NamedAttribute JWindow_Attribute_var$5[] = {
-	{"bound", 'Z', "false"},
-	{"hidden", 'Z', "true"},
-	{"description", 's', "A transparent pane used for menu rendering."},
-	{}
-};
-
-$CompoundAttribute _JWindow_MethodAnnotations_setGlassPane19[] = {
-	{"Ljava/beans/BeanProperty;", JWindow_Attribute_var$5},
-	{}
-};
-
-$NamedAttribute JWindow_Attribute_var$6[] = {
-	{"bound", 'Z', "false"},
-	{"hidden", 'Z', "true"},
-	{"description", 's', "The pane which holds the various window layers."},
-	{}
-};
-
-$CompoundAttribute _JWindow_MethodAnnotations_setLayeredPane20[] = {
-	{"Ljava/beans/BeanProperty;", JWindow_Attribute_var$6},
-	{}
-};
-
-$NamedAttribute JWindow_Attribute_var$7[] = {
-	{"hidden", 'Z', "true"},
-	{"description", 's', "Whether the add and setLayout methods are forwarded"},
-	{}
-};
-
-$CompoundAttribute _JWindow_MethodAnnotations_setRootPaneCheckingEnabled23[] = {
-	{"Ljava/beans/BeanProperty;", JWindow_Attribute_var$7},
-	{}
-};
-
-$NamedAttribute JWindow_Attribute_var$8[] = {
-	{"hidden", 'Z', "true"},
-	{"description", 's', "Mechanism for transfer of data into the component"},
-	{}
-};
-
-$CompoundAttribute _JWindow_MethodAnnotations_setTransferHandler24[] = {
-	{"Ljava/beans/BeanProperty;", JWindow_Attribute_var$8},
-	{}
-};
-
-$FieldInfo _JWindow_FieldInfo_[] = {
-	{"rootPane", "Ljavax/swing/JRootPane;", nullptr, $PROTECTED, $field(JWindow, rootPane)},
-	{"rootPaneCheckingEnabled", "Z", nullptr, $PROTECTED, $field(JWindow, rootPaneCheckingEnabled)},
-	{"transferHandler", "Ljavax/swing/TransferHandler;", nullptr, $PRIVATE, $field(JWindow, transferHandler)},
-	{"accessibleContext", "Ljavax/accessibility/AccessibleContext;", nullptr, $PROTECTED, $field(JWindow, accessibleContext)},
-	{}
-};
-
-$MethodInfo _JWindow_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(JWindow, init$, void)},
-	{"<init>", "(Ljava/awt/GraphicsConfiguration;)V", nullptr, $PUBLIC, $method(JWindow, init$, void, $GraphicsConfiguration*)},
-	{"<init>", "(Ljava/awt/Frame;)V", nullptr, $PUBLIC, $method(JWindow, init$, void, $Frame*)},
-	{"<init>", "(Ljava/awt/Window;)V", nullptr, $PUBLIC, $method(JWindow, init$, void, $Window*)},
-	{"<init>", "(Ljava/awt/Window;Ljava/awt/GraphicsConfiguration;)V", nullptr, $PUBLIC, $method(JWindow, init$, void, $Window*, $GraphicsConfiguration*)},
-	{"addImpl", "(Ljava/awt/Component;Ljava/lang/Object;I)V", nullptr, $PROTECTED, $virtualMethod(JWindow, addImpl, void, $Component*, Object$*, int32_t)},
-	{"createRootPane", "()Ljavax/swing/JRootPane;", nullptr, $PROTECTED, $virtualMethod(JWindow, createRootPane, $JRootPane*)},
-	{"getAccessibleContext", "()Ljavax/accessibility/AccessibleContext;", nullptr, $PUBLIC, $virtualMethod(JWindow, getAccessibleContext, $AccessibleContext*)},
-	{"getContentPane", "()Ljava/awt/Container;", nullptr, $PUBLIC, $virtualMethod(JWindow, getContentPane, $Container*)},
-	{"getGlassPane", "()Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(JWindow, getGlassPane, $Component*)},
-	{"getGraphics", "()Ljava/awt/Graphics;", nullptr, $PUBLIC, $virtualMethod(JWindow, getGraphics, $Graphics*), nullptr, nullptr, _JWindow_MethodAnnotations_getGraphics10},
-	{"getLayeredPane", "()Ljavax/swing/JLayeredPane;", nullptr, $PUBLIC, $virtualMethod(JWindow, getLayeredPane, $JLayeredPane*)},
-	{"getRootPane", "()Ljavax/swing/JRootPane;", nullptr, $PUBLIC, $virtualMethod(JWindow, getRootPane, $JRootPane*), nullptr, nullptr, _JWindow_MethodAnnotations_getRootPane12},
-	{"getTransferHandler", "()Ljavax/swing/TransferHandler;", nullptr, $PUBLIC, $virtualMethod(JWindow, getTransferHandler, $TransferHandler*)},
-	{"isRootPaneCheckingEnabled", "()Z", nullptr, $PROTECTED, $virtualMethod(JWindow, isRootPaneCheckingEnabled, bool)},
-	{"paramString", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(JWindow, paramString, $String*)},
-	{"remove", "(Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(JWindow, remove, void, $Component*)},
-	{"repaint", "(JIIII)V", nullptr, $PUBLIC, $virtualMethod(JWindow, repaint, void, int64_t, int32_t, int32_t, int32_t, int32_t)},
-	{"setContentPane", "(Ljava/awt/Container;)V", nullptr, $PUBLIC, $virtualMethod(JWindow, setContentPane, void, $Container*), nullptr, nullptr, _JWindow_MethodAnnotations_setContentPane18},
-	{"setGlassPane", "(Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(JWindow, setGlassPane, void, $Component*), nullptr, nullptr, _JWindow_MethodAnnotations_setGlassPane19},
-	{"setLayeredPane", "(Ljavax/swing/JLayeredPane;)V", nullptr, $PUBLIC, $virtualMethod(JWindow, setLayeredPane, void, $JLayeredPane*), nullptr, nullptr, _JWindow_MethodAnnotations_setLayeredPane20},
-	{"setLayout", "(Ljava/awt/LayoutManager;)V", nullptr, $PUBLIC, $virtualMethod(JWindow, setLayout, void, $LayoutManager*)},
-	{"setRootPane", "(Ljavax/swing/JRootPane;)V", nullptr, $PROTECTED, $virtualMethod(JWindow, setRootPane, void, $JRootPane*)},
-	{"setRootPaneCheckingEnabled", "(Z)V", nullptr, $PROTECTED, $virtualMethod(JWindow, setRootPaneCheckingEnabled, void, bool), nullptr, nullptr, _JWindow_MethodAnnotations_setRootPaneCheckingEnabled23},
-	{"setTransferHandler", "(Ljavax/swing/TransferHandler;)V", nullptr, $PUBLIC, $virtualMethod(JWindow, setTransferHandler, void, $TransferHandler*), nullptr, nullptr, _JWindow_MethodAnnotations_setTransferHandler24},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"update", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(JWindow, update, void, $Graphics*)},
-	{"windowInit", "()V", nullptr, $PROTECTED, $virtualMethod(JWindow, windowInit, void)},
-	{}
-};
-
-$InnerClassInfo _JWindow_InnerClassesInfo_[] = {
-	{"javax.swing.TransferHandler$HasGetTransferHandler", "javax.swing.TransferHandler", "HasGetTransferHandler", $STATIC | $INTERFACE | $ABSTRACT},
-	{"javax.swing.JWindow$AccessibleJWindow", "javax.swing.JWindow", "AccessibleJWindow", $PROTECTED},
-	{}
-};
-
-$ClassInfo _JWindow_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.JWindow",
-	"java.awt.Window",
-	"javax.swing.RootPaneContainer,javax.swing.TransferHandler$HasGetTransferHandler",
-	_JWindow_FieldInfo_,
-	_JWindow_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JWindow_InnerClassesInfo_,
-	_JWindow_Annotations_,
-	nullptr,
-	"javax.swing.JWindow$AccessibleJWindow"
-};
-
-$Object* allocate$JWindow($Class* clazz) {
-	return $of($alloc(JWindow));
-}
-
 $String* JWindow::toString() {
 	 return this->$Window::toString();
 }
@@ -248,7 +81,7 @@ void JWindow::init$($GraphicsConfiguration* gc) {
 }
 
 void JWindow::init$($Frame* owner) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Window::init$(owner == nullptr ? $($SwingUtilities::getSharedOwnerFrame()) : owner);
 	this->rootPaneCheckingEnabled = false;
 	$set(this, accessibleContext, nullptr);
@@ -260,8 +93,8 @@ void JWindow::init$($Frame* owner) {
 }
 
 void JWindow::init$($Window* owner) {
-	$useLocalCurrentObjectStackCache();
-	$Window::init$(owner == nullptr ? static_cast<$Window*>($($SwingUtilities::getSharedOwnerFrame())) : owner);
+	$useLocalObjectStack();
+	$Window::init$(owner == nullptr ? $$cast($Window, $SwingUtilities::getSharedOwnerFrame()) : owner);
 	this->rootPaneCheckingEnabled = false;
 	$set(this, accessibleContext, nullptr);
 	if (owner == nullptr) {
@@ -272,8 +105,8 @@ void JWindow::init$($Window* owner) {
 }
 
 void JWindow::init$($Window* owner, $GraphicsConfiguration* gc) {
-	$useLocalCurrentObjectStackCache();
-	$Window::init$(owner == nullptr ? static_cast<$Window*>($($SwingUtilities::getSharedOwnerFrame())) : owner, gc);
+	$useLocalObjectStack();
+	$Window::init$(owner == nullptr ? $$cast($Window, $SwingUtilities::getSharedOwnerFrame()) : owner, gc);
 	this->rootPaneCheckingEnabled = false;
 	$set(this, accessibleContext, nullptr);
 	if (owner == nullptr) {
@@ -284,7 +117,7 @@ void JWindow::init$($Window* owner, $GraphicsConfiguration* gc) {
 }
 
 void JWindow::windowInit() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	setLocale($($JComponent::getDefaultLocale()));
 	setRootPane($(createRootPane()));
 	setRootPaneCheckingEnabled(true);
@@ -305,7 +138,7 @@ void JWindow::setTransferHandler($TransferHandler* newHandler) {
 	$var($TransferHandler, oldHandler, this->transferHandler);
 	$set(this, transferHandler, newHandler);
 	$SwingUtilities::installSwingDropTargetAsNecessary(this, this->transferHandler);
-	firePropertyChange("transferHandler"_s, $of(oldHandler), $of(newHandler));
+	firePropertyChange("transferHandler"_s, oldHandler, newHandler);
 }
 
 $TransferHandler* JWindow::getTransferHandler() {
@@ -322,7 +155,7 @@ void JWindow::setRootPaneCheckingEnabled(bool enabled) {
 
 void JWindow::addImpl($Component* comp, Object$* constraints, int32_t index) {
 	if (isRootPaneCheckingEnabled()) {
-		$nc($(getContentPane()))->add(comp, constraints, index);
+		$$nc(getContentPane())->add(comp, constraints, index);
 	} else {
 		$Window::addImpl(comp, constraints, index);
 	}
@@ -332,13 +165,13 @@ void JWindow::remove($Component* comp) {
 	if ($equals(comp, this->rootPane)) {
 		$Window::remove(comp);
 	} else {
-		$nc($(getContentPane()))->remove(comp);
+		$$nc(getContentPane())->remove(comp);
 	}
 }
 
 void JWindow::setLayout($LayoutManager* manager) {
 	if (isRootPaneCheckingEnabled()) {
-		$nc($(getContentPane()))->setLayout(manager);
+		$$nc(getContentPane())->setLayout(manager);
 	} else {
 		$Window::setLayout(manager);
 	}
@@ -350,51 +183,49 @@ $JRootPane* JWindow::getRootPane() {
 
 void JWindow::setRootPane($JRootPane* root) {
 	if (this->rootPane != nullptr) {
-		remove(static_cast<$Component*>(this->rootPane));
+		remove(this->rootPane);
 	}
 	$set(this, rootPane, root);
 	if (this->rootPane != nullptr) {
 		bool checkingEnabled = isRootPaneCheckingEnabled();
-		{
-			$var($Throwable, var$0, nullptr);
-			try {
-				setRootPaneCheckingEnabled(false);
-				$init($BorderLayout);
-				add(static_cast<$Component*>(this->rootPane), $of($BorderLayout::CENTER));
-			} catch ($Throwable& var$1) {
-				$assign(var$0, var$1);
-			} /*finally*/ {
-				setRootPaneCheckingEnabled(checkingEnabled);
-			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
+		$var($Throwable, var$0, nullptr);
+		try {
+			setRootPaneCheckingEnabled(false);
+			$init($BorderLayout);
+			add(this->rootPane, $BorderLayout::CENTER);
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
+		} /*finally*/ {
+			setRootPaneCheckingEnabled(checkingEnabled);
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	}
 }
 
 $Container* JWindow::getContentPane() {
-	return $nc($(getRootPane()))->getContentPane();
+	return $$nc(getRootPane())->getContentPane();
 }
 
 void JWindow::setContentPane($Container* contentPane) {
-	$nc($(getRootPane()))->setContentPane(contentPane);
+	$$nc(getRootPane())->setContentPane(contentPane);
 }
 
 $JLayeredPane* JWindow::getLayeredPane() {
-	return $nc($(getRootPane()))->getLayeredPane();
+	return $$nc(getRootPane())->getLayeredPane();
 }
 
 void JWindow::setLayeredPane($JLayeredPane* layeredPane) {
-	$nc($(getRootPane()))->setLayeredPane(layeredPane);
+	$$nc(getRootPane())->setLayeredPane(layeredPane);
 }
 
 $Component* JWindow::getGlassPane() {
-	return $nc($(getRootPane()))->getGlassPane();
+	return $$nc(getRootPane())->getGlassPane();
 }
 
 void JWindow::setGlassPane($Component* glassPane) {
-	$nc($(getRootPane()))->setGlassPane(glassPane);
+	$$nc(getRootPane())->setGlassPane(glassPane);
 }
 
 $Graphics* JWindow::getGraphics() {
@@ -405,14 +236,14 @@ $Graphics* JWindow::getGraphics() {
 void JWindow::repaint(int64_t time, int32_t x, int32_t y, int32_t width, int32_t height) {
 	$init($RepaintManager);
 	if ($RepaintManager::HANDLE_TOP_LEVEL_PAINT) {
-		$nc($($RepaintManager::currentManager(static_cast<$Component*>(this))))->addDirtyRegion(static_cast<$Window*>(this), x, y, width, height);
+		$$nc($RepaintManager::currentManager(this))->addDirtyRegion(this, x, y, width, height);
 	} else {
 		$Window::repaint(time, x, y, width, height);
 	}
 }
 
 $String* JWindow::paramString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, rootPaneCheckingEnabledString, this->rootPaneCheckingEnabled ? "true"_s : "false"_s);
 	return $str({$($Window::paramString()), ",rootPaneCheckingEnabled="_s, rootPaneCheckingEnabledString});
 }
@@ -428,7 +259,150 @@ JWindow::JWindow() {
 }
 
 $Class* JWindow::load$($String* name, bool initialize) {
-	$loadClass(JWindow, name, initialize, &_JWindow_ClassInfo_, allocate$JWindow);
+	$FieldInfo fieldInfos$$[] = {
+		{"rootPane", "Ljavax/swing/JRootPane;", nullptr, $PROTECTED, $field(JWindow, rootPane)},
+		{"rootPaneCheckingEnabled", "Z", nullptr, $PROTECTED, $field(JWindow, rootPaneCheckingEnabled)},
+		{"transferHandler", "Ljavax/swing/TransferHandler;", nullptr, $PRIVATE, $field(JWindow, transferHandler)},
+		{"accessibleContext", "Ljavax/accessibility/AccessibleContext;", nullptr, $PROTECTED, $field(JWindow, accessibleContext)},
+		{}
+	};
+	$NamedAttribute getGraphicsmethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{}
+	};
+	$CompoundAttribute getGraphicsmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", getGraphicsmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute getRootPanemethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{"hidden", 'Z', "true"},
+		{"description", 's', "the RootPane object for this window."},
+		{}
+	};
+	$CompoundAttribute getRootPanemethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", getRootPanemethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setContentPanemethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{"hidden", 'Z', "true"},
+		{"description", 's', "The client area of the window where child components are normally inserted."},
+		{}
+	};
+	$CompoundAttribute setContentPanemethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setContentPanemethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setGlassPanemethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{"hidden", 'Z', "true"},
+		{"description", 's', "A transparent pane used for menu rendering."},
+		{}
+	};
+	$CompoundAttribute setGlassPanemethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setGlassPanemethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setLayeredPanemethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{"hidden", 'Z', "true"},
+		{"description", 's', "The pane which holds the various window layers."},
+		{}
+	};
+	$CompoundAttribute setLayeredPanemethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setLayeredPanemethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setRootPaneCheckingEnabledmethodAnnotations$$$namedAttribute[] = {
+		{"hidden", 'Z', "true"},
+		{"description", 's', "Whether the add and setLayout methods are forwarded"},
+		{}
+	};
+	$CompoundAttribute setRootPaneCheckingEnabledmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setRootPaneCheckingEnabledmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setTransferHandlermethodAnnotations$$$namedAttribute[] = {
+		{"hidden", 'Z', "true"},
+		{"description", 's', "Mechanism for transfer of data into the component"},
+		{}
+	};
+	$CompoundAttribute setTransferHandlermethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setTransferHandlermethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(JWindow, init$, void)},
+		{"<init>", "(Ljava/awt/GraphicsConfiguration;)V", nullptr, $PUBLIC, $method(JWindow, init$, void, $GraphicsConfiguration*)},
+		{"<init>", "(Ljava/awt/Frame;)V", nullptr, $PUBLIC, $method(JWindow, init$, void, $Frame*)},
+		{"<init>", "(Ljava/awt/Window;)V", nullptr, $PUBLIC, $method(JWindow, init$, void, $Window*)},
+		{"<init>", "(Ljava/awt/Window;Ljava/awt/GraphicsConfiguration;)V", nullptr, $PUBLIC, $method(JWindow, init$, void, $Window*, $GraphicsConfiguration*)},
+		{"addImpl", "(Ljava/awt/Component;Ljava/lang/Object;I)V", nullptr, $PROTECTED, $virtualMethod(JWindow, addImpl, void, $Component*, Object$*, int32_t)},
+		{"createRootPane", "()Ljavax/swing/JRootPane;", nullptr, $PROTECTED, $virtualMethod(JWindow, createRootPane, $JRootPane*)},
+		{"getAccessibleContext", "()Ljavax/accessibility/AccessibleContext;", nullptr, $PUBLIC, $virtualMethod(JWindow, getAccessibleContext, $AccessibleContext*)},
+		{"getContentPane", "()Ljava/awt/Container;", nullptr, $PUBLIC, $virtualMethod(JWindow, getContentPane, $Container*)},
+		{"getGlassPane", "()Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(JWindow, getGlassPane, $Component*)},
+		{"getGraphics", "()Ljava/awt/Graphics;", nullptr, $PUBLIC, $virtualMethod(JWindow, getGraphics, $Graphics*), nullptr, nullptr, getGraphicsmethodAnnotations$$},
+		{"getLayeredPane", "()Ljavax/swing/JLayeredPane;", nullptr, $PUBLIC, $virtualMethod(JWindow, getLayeredPane, $JLayeredPane*)},
+		{"getRootPane", "()Ljavax/swing/JRootPane;", nullptr, $PUBLIC, $virtualMethod(JWindow, getRootPane, $JRootPane*), nullptr, nullptr, getRootPanemethodAnnotations$$},
+		{"getTransferHandler", "()Ljavax/swing/TransferHandler;", nullptr, $PUBLIC, $virtualMethod(JWindow, getTransferHandler, $TransferHandler*)},
+		{"isRootPaneCheckingEnabled", "()Z", nullptr, $PROTECTED, $virtualMethod(JWindow, isRootPaneCheckingEnabled, bool)},
+		{"paramString", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(JWindow, paramString, $String*)},
+		{"remove", "(Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(JWindow, remove, void, $Component*)},
+		{"repaint", "(JIIII)V", nullptr, $PUBLIC, $virtualMethod(JWindow, repaint, void, int64_t, int32_t, int32_t, int32_t, int32_t)},
+		{"setContentPane", "(Ljava/awt/Container;)V", nullptr, $PUBLIC, $virtualMethod(JWindow, setContentPane, void, $Container*), nullptr, nullptr, setContentPanemethodAnnotations$$},
+		{"setGlassPane", "(Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(JWindow, setGlassPane, void, $Component*), nullptr, nullptr, setGlassPanemethodAnnotations$$},
+		{"setLayeredPane", "(Ljavax/swing/JLayeredPane;)V", nullptr, $PUBLIC, $virtualMethod(JWindow, setLayeredPane, void, $JLayeredPane*), nullptr, nullptr, setLayeredPanemethodAnnotations$$},
+		{"setLayout", "(Ljava/awt/LayoutManager;)V", nullptr, $PUBLIC, $virtualMethod(JWindow, setLayout, void, $LayoutManager*)},
+		{"setRootPane", "(Ljavax/swing/JRootPane;)V", nullptr, $PROTECTED, $virtualMethod(JWindow, setRootPane, void, $JRootPane*)},
+		{"setRootPaneCheckingEnabled", "(Z)V", nullptr, $PROTECTED, $virtualMethod(JWindow, setRootPaneCheckingEnabled, void, bool), nullptr, nullptr, setRootPaneCheckingEnabledmethodAnnotations$$},
+		{"setTransferHandler", "(Ljavax/swing/TransferHandler;)V", nullptr, $PUBLIC, $virtualMethod(JWindow, setTransferHandler, void, $TransferHandler*), nullptr, nullptr, setTransferHandlermethodAnnotations$$},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"update", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(JWindow, update, void, $Graphics*)},
+		{"windowInit", "()V", nullptr, $PROTECTED, $virtualMethod(JWindow, windowInit, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.TransferHandler$HasGetTransferHandler", "javax.swing.TransferHandler", "HasGetTransferHandler", $STATIC | $INTERFACE | $ABSTRACT},
+		{"javax.swing.JWindow$AccessibleJWindow", "javax.swing.JWindow", "AccessibleJWindow", $PROTECTED},
+		{}
+	};
+	$NamedAttribute annotations$$$namedAttribute[] = {
+		{"defaultProperty", 's', "accessibleContext"},
+		{"description", 's', "A toplevel window which has no system border or controls."},
+		{}
+	};
+	$NamedAttribute annotations$$$namedAttribute$1[] = {
+		{"delegate", 's', "getContentPane"},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/beans/JavaBean;", annotations$$$namedAttribute},
+		{"Ljavax/swing/SwingContainer;", annotations$$$namedAttribute$1},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.JWindow",
+		"java.awt.Window",
+		"javax.swing.RootPaneContainer,javax.swing.TransferHandler$HasGetTransferHandler",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		annotations$$,
+		nullptr,
+		"javax.swing.JWindow$AccessibleJWindow"
+	};
+	$loadClass(JWindow, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JWindow));
+	});
 	return class$;
 }
 

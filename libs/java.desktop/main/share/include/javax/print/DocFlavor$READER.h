@@ -17,8 +17,9 @@ class $import DocFlavor$READER : public ::javax::print::DocFlavor {
 	$class(DocFlavor$READER, 0, ::javax::print::DocFlavor)
 public:
 	DocFlavor$READER();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* mimeType);
-	static const int64_t serialVersionUID = (int64_t)0x6289516C2CFC5C0F;
+	static const int64_t serialVersionUID = (int64_t)0x6289516c2cfc5c0f;
 	static ::javax::print::DocFlavor$READER* TEXT_PLAIN;
 	static ::javax::print::DocFlavor$READER* TEXT_HTML;
 };

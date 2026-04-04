@@ -20,10 +20,13 @@ public:
 	AccessException();
 	void init$($String* s);
 	void init$($String* s, ::java::lang::Exception* ex);
-	static const int64_t serialVersionUID = (int64_t)0x57A31F0978C5D8C8;
+	static const int64_t serialVersionUID = (int64_t)0x57a31f0978c5d8c8;
 	AccessException(const AccessException& e);
 	virtual void throw$() override;
-	inline AccessException* operator ->() {
+	inline AccessException* operator ->() const {
+		return (AccessException*)throwing$;
+	}
+	inline operator AccessException*() const {
 		return (AccessException*)throwing$;
 	}
 };

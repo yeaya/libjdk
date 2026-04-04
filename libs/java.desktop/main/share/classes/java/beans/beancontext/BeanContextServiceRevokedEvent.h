@@ -26,7 +26,7 @@ public:
 	virtual ::java::beans::beancontext::BeanContextServices* getSourceAsBeanContextServices();
 	virtual bool isCurrentServiceInvalidNow();
 	virtual bool isServiceClass($Class* service);
-	static const int64_t serialVersionUID = (int64_t)0xEE054E5D676E0226;
+	static const int64_t serialVersionUID = (int64_t)0xee054e5d676e0226;
 	$Class* serviceClass = nullptr;
 	bool invalidateRefs = false;
 };

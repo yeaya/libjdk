@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/Annotate$AnnotationTypeMetadata$1.h>
-
 #include <com/sun/tools/javac/code/Attribute$Compound.h>
 #include <com/sun/tools/javac/code/Symbol$ClassSymbol.h>
 #include <com/sun/tools/javac/comp/Annotate$AnnotationTypeCompleter.h>
@@ -24,50 +23,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace comp {
-
-$MethodInfo _Annotate$AnnotationTypeMetadata$1_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;Lcom/sun/tools/javac/comp/Annotate$AnnotationTypeCompleter;)V", nullptr, 0, $method(Annotate$AnnotationTypeMetadata$1, init$, void, $Symbol$ClassSymbol*, $Annotate$AnnotationTypeCompleter*)},
-	{"complete", "()V", nullptr, $PUBLIC, $virtualMethod(Annotate$AnnotationTypeMetadata$1, complete, void)},
-	{"getAnnotationElements", "()Ljava/util/Set;", "()Ljava/util/Set<Lcom/sun/tools/javac/code/Symbol$MethodSymbol;>;", $PUBLIC, $virtualMethod(Annotate$AnnotationTypeMetadata$1, getAnnotationElements, $Set*)},
-	{"getAnnotationElementsWithDefault", "()Ljava/util/Set;", "()Ljava/util/Set<Lcom/sun/tools/javac/code/Symbol$MethodSymbol;>;", $PUBLIC, $virtualMethod(Annotate$AnnotationTypeMetadata$1, getAnnotationElementsWithDefault, $Set*)},
-	{"getRepeatable", "()Lcom/sun/tools/javac/code/Attribute$Compound;", nullptr, $PUBLIC, $virtualMethod(Annotate$AnnotationTypeMetadata$1, getRepeatable, $Attribute$Compound*)},
-	{"getTarget", "()Lcom/sun/tools/javac/code/Attribute$Compound;", nullptr, $PUBLIC, $virtualMethod(Annotate$AnnotationTypeMetadata$1, getTarget, $Attribute$Compound*)},
-	{"isMetadataForAnnotationType", "()Z", nullptr, $PUBLIC, $virtualMethod(Annotate$AnnotationTypeMetadata$1, isMetadataForAnnotationType, bool)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Annotate$AnnotationTypeMetadata$1, toString, $String*)},
-	{}
-};
-
-$EnclosingMethodInfo _Annotate$AnnotationTypeMetadata$1_EnclosingMethodInfo_ = {
-	"com.sun.tools.javac.comp.Annotate$AnnotationTypeMetadata",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _Annotate$AnnotationTypeMetadata$1_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.Annotate$AnnotationTypeMetadata", "com.sun.tools.javac.comp.Annotate", "AnnotationTypeMetadata", $PUBLIC | $STATIC},
-	{"com.sun.tools.javac.comp.Annotate$AnnotationTypeMetadata$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Annotate$AnnotationTypeMetadata$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.comp.Annotate$AnnotationTypeMetadata$1",
-	"com.sun.tools.javac.comp.Annotate$AnnotationTypeMetadata",
-	nullptr,
-	nullptr,
-	_Annotate$AnnotationTypeMetadata$1_MethodInfo_,
-	nullptr,
-	&_Annotate$AnnotationTypeMetadata$1_EnclosingMethodInfo_,
-	_Annotate$AnnotationTypeMetadata$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.Annotate"
-};
-
-$Object* allocate$Annotate$AnnotationTypeMetadata$1($Class* clazz) {
-	return $of($alloc(Annotate$AnnotationTypeMetadata$1));
-}
 
 void Annotate$AnnotationTypeMetadata$1::init$($Symbol$ClassSymbol* metaDataFor, $Annotate$AnnotationTypeCompleter* annotationTypeCompleter) {
 	$Annotate$AnnotationTypeMetadata::init$(metaDataFor, annotationTypeCompleter);
@@ -104,7 +59,45 @@ Annotate$AnnotationTypeMetadata$1::Annotate$AnnotationTypeMetadata$1() {
 }
 
 $Class* Annotate$AnnotationTypeMetadata$1::load$($String* name, bool initialize) {
-	$loadClass(Annotate$AnnotationTypeMetadata$1, name, initialize, &_Annotate$AnnotationTypeMetadata$1_ClassInfo_, allocate$Annotate$AnnotationTypeMetadata$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;Lcom/sun/tools/javac/comp/Annotate$AnnotationTypeCompleter;)V", nullptr, 0, $method(Annotate$AnnotationTypeMetadata$1, init$, void, $Symbol$ClassSymbol*, $Annotate$AnnotationTypeCompleter*)},
+		{"complete", "()V", nullptr, $PUBLIC, $virtualMethod(Annotate$AnnotationTypeMetadata$1, complete, void)},
+		{"getAnnotationElements", "()Ljava/util/Set;", "()Ljava/util/Set<Lcom/sun/tools/javac/code/Symbol$MethodSymbol;>;", $PUBLIC, $virtualMethod(Annotate$AnnotationTypeMetadata$1, getAnnotationElements, $Set*)},
+		{"getAnnotationElementsWithDefault", "()Ljava/util/Set;", "()Ljava/util/Set<Lcom/sun/tools/javac/code/Symbol$MethodSymbol;>;", $PUBLIC, $virtualMethod(Annotate$AnnotationTypeMetadata$1, getAnnotationElementsWithDefault, $Set*)},
+		{"getRepeatable", "()Lcom/sun/tools/javac/code/Attribute$Compound;", nullptr, $PUBLIC, $virtualMethod(Annotate$AnnotationTypeMetadata$1, getRepeatable, $Attribute$Compound*)},
+		{"getTarget", "()Lcom/sun/tools/javac/code/Attribute$Compound;", nullptr, $PUBLIC, $virtualMethod(Annotate$AnnotationTypeMetadata$1, getTarget, $Attribute$Compound*)},
+		{"isMetadataForAnnotationType", "()Z", nullptr, $PUBLIC, $virtualMethod(Annotate$AnnotationTypeMetadata$1, isMetadataForAnnotationType, bool)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Annotate$AnnotationTypeMetadata$1, toString, $String*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.tools.javac.comp.Annotate$AnnotationTypeMetadata",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.Annotate$AnnotationTypeMetadata", "com.sun.tools.javac.comp.Annotate", "AnnotationTypeMetadata", $PUBLIC | $STATIC},
+		{"com.sun.tools.javac.comp.Annotate$AnnotationTypeMetadata$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.comp.Annotate$AnnotationTypeMetadata$1",
+		"com.sun.tools.javac.comp.Annotate$AnnotationTypeMetadata",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.Annotate"
+	};
+	$loadClass(Annotate$AnnotationTypeMetadata$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Annotate$AnnotationTypeMetadata$1);
+	});
 	return class$;
 }
 

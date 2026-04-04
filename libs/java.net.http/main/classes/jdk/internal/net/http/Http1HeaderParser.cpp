@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/Http1HeaderParser.h>
-
 #include <java/io/Serializable.h>
 #include <java/lang/AssertionError.h>
 #include <java/lang/CharSequence.h>
@@ -65,7 +64,6 @@ using $ArrayList = ::java::util::ArrayList;
 using $HashMap = ::java::util::HashMap;
 using $List = ::java::util::List;
 using $Locale = ::java::util::Locale;
-using $Map = ::java::util::Map;
 using $Objects = ::java::util::Objects;
 using $Function = ::java::util::function::Function;
 using $Http1HeaderParser$1 = ::jdk::internal::net::http::Http1HeaderParser$1;
@@ -83,95 +81,29 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* k) override {
-		 return $of(Http1HeaderParser::lambda$addHeaderFromString$0($cast($String, k)));
+		 return Http1HeaderParser::lambda$addHeaderFromString$0($cast($String, k));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Http1HeaderParser$$Lambda$lambda$addHeaderFromString$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo Http1HeaderParser$$Lambda$lambda$addHeaderFromString$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Http1HeaderParser$$Lambda$lambda$addHeaderFromString$0, init$, void)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Http1HeaderParser$$Lambda$lambda$addHeaderFromString$0, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo Http1HeaderParser$$Lambda$lambda$addHeaderFromString$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.net.http.Http1HeaderParser$$Lambda$lambda$addHeaderFromString$0",
-	"java.lang.Object",
-	"java.util.function.Function",
-	nullptr,
-	methodInfos
 };
 $Class* Http1HeaderParser$$Lambda$lambda$addHeaderFromString$0::load$($String* name, bool initialize) {
-	$loadClass(Http1HeaderParser$$Lambda$lambda$addHeaderFromString$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Http1HeaderParser$$Lambda$lambda$addHeaderFromString$0, init$, void)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Http1HeaderParser$$Lambda$lambda$addHeaderFromString$0, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.net.http.Http1HeaderParser$$Lambda$lambda$addHeaderFromString$0",
+		"java.lang.Object",
+		"java.util.function.Function",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Http1HeaderParser$$Lambda$lambda$addHeaderFromString$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Http1HeaderParser$$Lambda$lambda$addHeaderFromString$0);
+	});
 	return class$;
 }
 $Class* Http1HeaderParser$$Lambda$lambda$addHeaderFromString$0::class$ = nullptr;
-
-$FieldInfo _Http1HeaderParser_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(Http1HeaderParser, $assertionsDisabled)},
-	{"CR", "C", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Http1HeaderParser, CR)},
-	{"LF", "C", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Http1HeaderParser, LF)},
-	{"HT", "C", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Http1HeaderParser, HT)},
-	{"SP", "C", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Http1HeaderParser, SP)},
-	{"sb", "Ljava/lang/StringBuilder;", nullptr, $PRIVATE, $field(Http1HeaderParser, sb)},
-	{"statusLine", "Ljava/lang/String;", nullptr, $PRIVATE, $field(Http1HeaderParser, statusLine$)},
-	{"responseCode", "I", nullptr, $PRIVATE, $field(Http1HeaderParser, responseCode$)},
-	{"headers", "Ljava/net/http/HttpHeaders;", nullptr, $PRIVATE, $field(Http1HeaderParser, headers$)},
-	{"privateMap", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;>;", $PRIVATE, $field(Http1HeaderParser, privateMap)},
-	{"state", "Ljdk/internal/net/http/Http1HeaderParser$State;", nullptr, $PRIVATE, $field(Http1HeaderParser, state)},
-	{}
-};
-
-$MethodInfo _Http1HeaderParser_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(Http1HeaderParser, init$, void)},
-	{"addHeaderFromString", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(Http1HeaderParser, addHeaderFromString, void, $String*), "java.net.ProtocolException"},
-	{"canContinueParsing", "(Ljava/nio/ByteBuffer;)Z", nullptr, $PRIVATE, $method(Http1HeaderParser, canContinueParsing, bool, $ByteBuffer*)},
-	{"currentStateMessage", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Http1HeaderParser, currentStateMessage, $String*)},
-	{"get", "(Ljava/nio/ByteBuffer;)C", nullptr, $PRIVATE, $method(Http1HeaderParser, get, char16_t, $ByteBuffer*)},
-	{"headers", "()Ljava/net/http/HttpHeaders;", nullptr, 0, $virtualMethod(Http1HeaderParser, headers, $HttpHeaders*)},
-	{"lambda$addHeaderFromString$0", "(Ljava/lang/String;)Ljava/util/List;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Http1HeaderParser, lambda$addHeaderFromString$0, $List*, $String*)},
-	{"maybeEndHeaders", "(Ljava/nio/ByteBuffer;)V", nullptr, $PRIVATE, $method(Http1HeaderParser, maybeEndHeaders, void, $ByteBuffer*), "java.net.ProtocolException"},
-	{"maybeStartHeaders", "(Ljava/nio/ByteBuffer;)V", nullptr, $PRIVATE, $method(Http1HeaderParser, maybeStartHeaders, void, $ByteBuffer*)},
-	{"parse", "(Ljava/nio/ByteBuffer;)Z", nullptr, 0, $virtualMethod(Http1HeaderParser, parse, bool, $ByteBuffer*), "java.net.ProtocolException"},
-	{"protocolException", "(Ljava/lang/String;[Ljava/lang/Object;)Ljava/net/ProtocolException;", nullptr, $PRIVATE | $TRANSIENT, $method(Http1HeaderParser, protocolException, $ProtocolException*, $String*, $ObjectArray*)},
-	{"readResumeHeader", "(Ljava/nio/ByteBuffer;)V", nullptr, $PRIVATE, $method(Http1HeaderParser, readResumeHeader, void, $ByteBuffer*)},
-	{"readResumeStatusLine", "(Ljava/nio/ByteBuffer;)V", nullptr, $PRIVATE, $method(Http1HeaderParser, readResumeStatusLine, void, $ByteBuffer*)},
-	{"readStatusLineFeed", "(Ljava/nio/ByteBuffer;)V", nullptr, $PRIVATE, $method(Http1HeaderParser, readStatusLineFeed, void, $ByteBuffer*), "java.net.ProtocolException"},
-	{"responseCode", "()I", nullptr, 0, $virtualMethod(Http1HeaderParser, responseCode, int32_t)},
-	{"resumeOrEndHeaders", "(Ljava/nio/ByteBuffer;)V", nullptr, $PRIVATE, $method(Http1HeaderParser, resumeOrEndHeaders, void, $ByteBuffer*), "java.net.ProtocolException"},
-	{"resumeOrLF", "(Ljava/nio/ByteBuffer;)V", nullptr, $PRIVATE, $method(Http1HeaderParser, resumeOrLF, void, $ByteBuffer*)},
-	{"resumeOrSecondCR", "(Ljava/nio/ByteBuffer;)V", nullptr, $PRIVATE, $method(Http1HeaderParser, resumeOrSecondCR, void, $ByteBuffer*), "java.net.ProtocolException"},
-	{"statusLine", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(Http1HeaderParser, statusLine, $String*)},
-	{}
-};
-
-$InnerClassInfo _Http1HeaderParser_InnerClassesInfo_[] = {
-	{"jdk.internal.net.http.Http1HeaderParser$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{"jdk.internal.net.http.Http1HeaderParser$State", "jdk.internal.net.http.Http1HeaderParser", "State", $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _Http1HeaderParser_ClassInfo_ = {
-	$ACC_SUPER,
-	"jdk.internal.net.http.Http1HeaderParser",
-	"java.lang.Object",
-	nullptr,
-	_Http1HeaderParser_FieldInfo_,
-	_Http1HeaderParser_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Http1HeaderParser_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"jdk.internal.net.http.Http1HeaderParser$1,jdk.internal.net.http.Http1HeaderParser$State"
-};
-
-$Object* allocate$Http1HeaderParser($Class* clazz) {
-	return $of($alloc(Http1HeaderParser));
-}
 
 bool Http1HeaderParser::$assertionsDisabled = false;
 
@@ -193,96 +125,72 @@ int32_t Http1HeaderParser::responseCode() {
 $HttpHeaders* Http1HeaderParser::headers() {
 	$init($Http1HeaderParser$State);
 	if (!Http1HeaderParser::$assertionsDisabled && !(this->state == $Http1HeaderParser$State::FINISHED)) {
-		$throwNew($AssertionError, $of($$str({"Unexpected state "_s, this->state})));
+		$throwNew($AssertionError, $$of($str({"Unexpected state "_s, this->state})));
 	}
 	return this->headers$;
 }
 
 $String* Http1HeaderParser::currentStateMessage() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, stateName, $nc(this->state)->name());
 	$var($String, msg, nullptr);
 	if ($nc(stateName)->contains("INITIAL"_s)) {
 		return $String::format("HTTP/1.1 header parser received no bytes"_s, $$new($ObjectArray, 0));
 	} else if (stateName->contains("STATUS"_s)) {
-		$assign(msg, $String::format("parsing HTTP/1.1 status line, receiving [%s]"_s, $$new($ObjectArray, {$($of($nc(this->sb)->toString()))})));
+		$assign(msg, $String::format("parsing HTTP/1.1 status line, receiving [%s]"_s, $$new($ObjectArray, {$($nc(this->sb)->toString())})));
 	} else if (stateName->contains("HEADER"_s)) {
 		$var($String, headerName, $nc(this->sb)->toString());
-		if ($nc(headerName)->indexOf((int32_t)u':') != -1) {
-			$assign(headerName, $str({$(headerName->substring(0, headerName->indexOf((int32_t)u':') + 1)), "..."_s}));
+		if (headerName->indexOf(u':') != -1) {
+			$assign(headerName, $str({$(headerName->substring(0, headerName->indexOf(u':') + 1)), "..."_s}));
 		}
-		$assign(msg, $String::format("parsing HTTP/1.1 header, receiving [%s]"_s, $$new($ObjectArray, {$of(headerName)})));
+		$assign(msg, $String::format("parsing HTTP/1.1 header, receiving [%s]"_s, $$new($ObjectArray, {headerName})));
 	} else {
-		$assign(msg, $String::format("HTTP/1.1 parser receiving [%s]"_s, $$new($ObjectArray, {$($of($nc(this->sb)->toString()))})));
+		$assign(msg, $String::format("HTTP/1.1 parser receiving [%s]"_s, $$new($ObjectArray, {$($nc(this->sb)->toString())})));
 	}
 	return $String::format("%s, parser state [%s]"_s, $$new($ObjectArray, {
-		$of(msg),
-		$of(this->state)
+		msg,
+		this->state
 	}));
 }
 
 bool Http1HeaderParser::parse($ByteBuffer* input) {
-	$useLocalCurrentObjectStackCache();
-	$Objects::requireNonNull($of(input), "null input"_s);
+	$useLocalObjectStack();
+	$Objects::requireNonNull(input, "null input"_s);
 	while (canContinueParsing(input)) {
 		$init($Http1HeaderParser$1);
 		switch ($nc($Http1HeaderParser$1::$SwitchMap$jdk$internal$net$http$Http1HeaderParser$State)->get($nc((this->state))->ordinal())) {
 		case 1:
-			{
-				$init($Http1HeaderParser$State);
-				$set(this, state, $Http1HeaderParser$State::STATUS_LINE);
-				break;
-			}
+			$set(this, state, $Http1HeaderParser$State::STATUS_LINE);
+			break;
 		case 2:
-			{
-				readResumeStatusLine(input);
-				break;
-			}
+			readResumeStatusLine(input);
+			break;
 		case 3:
-			{}
 		case 4:
-			{
-				readStatusLineFeed(input);
-				break;
-			}
+			readStatusLineFeed(input);
+			break;
 		case 5:
-			{
-				maybeStartHeaders(input);
-				break;
-			}
+			maybeStartHeaders(input);
+			break;
 		case 6:
-			{}
 		case 7:
-			{
-				maybeEndHeaders(input);
-				break;
-			}
+			maybeEndHeaders(input);
+			break;
 		case 8:
-			{
-				readResumeHeader(input);
-				break;
-			}
+			readResumeHeader(input);
+			break;
 		case 9:
-			{}
 		case 10:
-			{
-				resumeOrLF(input);
-				break;
-			}
+			resumeOrLF(input);
+			break;
 		case 11:
-			{
-				resumeOrSecondCR(input);
-				break;
-			}
+			resumeOrSecondCR(input);
+			break;
 		case 12:
-			{
-				resumeOrEndHeaders(input);
-				break;
-			}
+			resumeOrEndHeaders(input);
+			break;
 		default:
-			{
-				$throwNew($InternalError, $$str({"Unexpected state: "_s, this->state}));
-			}
+			$throwNew($InternalError, $$str({"Unexpected state: "_s, this->state}));
 		}
 	}
 	$init($Http1HeaderParser$State);
@@ -291,38 +199,29 @@ bool Http1HeaderParser::parse($ByteBuffer* input) {
 
 bool Http1HeaderParser::canContinueParsing($ByteBuffer* buffer) {
 	$init($Http1HeaderParser$1);
-
 	bool var$0 = false;
 	switch ($nc($Http1HeaderParser$1::$SwitchMap$jdk$internal$net$http$Http1HeaderParser$State)->get($nc((this->state))->ordinal())) {
 	case 13:
-		{
-			var$0 = false;
-			break;
-		}
+		var$0 = false;
+		break;
 	case 4:
-		{}
 	case 7:
-		{}
 	case 10:
-		{
-			var$0 = true;
-			break;
-		}
+		var$0 = true;
+		break;
 	default:
-		{
-			var$0 = $nc(buffer)->hasRemaining();
-			break;
-		}
+		var$0 = $nc(buffer)->hasRemaining();
+		break;
 	}
 	return var$0;
 }
 
 char16_t Http1HeaderParser::get($ByteBuffer* input) {
-	return (char16_t)((int32_t)($nc(input)->get() & (uint32_t)255));
+	return (char16_t)($nc(input)->get() & 0xff);
 }
 
 void Http1HeaderParser::readResumeStatusLine($ByteBuffer* input) {
-	char16_t c = (char16_t)0;
+	char16_t c = 0;
 	while (true) {
 		bool var$0 = $nc(input)->hasRemaining();
 		if (!(var$0 && (c = get(input)) != Http1HeaderParser::CR)) {
@@ -345,30 +244,30 @@ void Http1HeaderParser::readResumeStatusLine($ByteBuffer* input) {
 }
 
 void Http1HeaderParser::readStatusLineFeed($ByteBuffer* input) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Http1HeaderParser$State);
 	char16_t c = this->state == $Http1HeaderParser$State::STATUS_LINE_FOUND_LF ? Http1HeaderParser::LF : get(input);
 	if (c != Http1HeaderParser::LF) {
 		$throw($(protocolException("Bad trailing char, \"%s\", when parsing status line, \"%s\""_s, $$new($ObjectArray, {
-			$($of($Character::valueOf(c))),
-			$($of($nc(this->sb)->toString()))
+			$($Character::valueOf(c)),
+			$($nc(this->sb)->toString())
 		}))));
 	}
 	$set(this, statusLine$, $nc(this->sb)->toString());
 	$set(this, sb, $new($StringBuilder));
-	if (!$nc(this->statusLine$)->startsWith("HTTP/1."_s)) {
-		$throw($(protocolException("Invalid status line: \"%s\""_s, $$new($ObjectArray, {$of(this->statusLine$)}))));
+	if (!this->statusLine$->startsWith("HTTP/1."_s)) {
+		$throw($(protocolException("Invalid status line: \"%s\""_s, $$new($ObjectArray, {this->statusLine$}))));
 	}
-	if ($nc(this->statusLine$)->length() < 12) {
-		$throw($(protocolException("Invalid status line: \"%s\""_s, $$new($ObjectArray, {$of(this->statusLine$)}))));
+	if (this->statusLine$->length() < 12) {
+		$throw($(protocolException("Invalid status line: \"%s\""_s, $$new($ObjectArray, {this->statusLine$}))));
 	}
 	try {
-		this->responseCode$ = $Integer::parseInt($($nc(this->statusLine$)->substring(9, 12)));
+		this->responseCode$ = $Integer::parseInt($(this->statusLine$->substring(9, 12)));
 	} catch ($NumberFormatException& nfe) {
-		$throw($(protocolException("Invalid status line: \"%s\""_s, $$new($ObjectArray, {$of(this->statusLine$)}))));
+		$throw($(protocolException("Invalid status line: \"%s\""_s, $$new($ObjectArray, {this->statusLine$}))));
 	}
 	if (this->responseCode$ < 100) {
-		$throw($(protocolException("Invalid status line: \"%s\""_s, $$new($ObjectArray, {$of(this->statusLine$)}))));
+		$throw($(protocolException("Invalid status line: \"%s\""_s, $$new($ObjectArray, {this->statusLine$}))));
 	}
 	$set(this, state, $Http1HeaderParser$State::STATUS_LINE_END);
 }
@@ -393,7 +292,7 @@ void Http1HeaderParser::maybeStartHeaders($ByteBuffer* input) {
 }
 
 void Http1HeaderParser::maybeEndHeaders($ByteBuffer* input) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Http1HeaderParser$State);
 	if (!Http1HeaderParser::$assertionsDisabled && !(this->state == $Http1HeaderParser$State::STATUS_LINE_END_CR || this->state == $Http1HeaderParser$State::STATUS_LINE_END_LF)) {
 		$throwNew($AssertionError);
@@ -408,7 +307,7 @@ void Http1HeaderParser::maybeEndHeaders($ByteBuffer* input) {
 		$set(this, privateMap, nullptr);
 		$set(this, state, $Http1HeaderParser$State::FINISHED);
 	} else {
-		$throw($(protocolException("Unexpected \"%s\", after status line CR"_s, $$new($ObjectArray, {$($of($Character::valueOf(c)))}))));
+		$throw($(protocolException("Unexpected \"%s\", after status line CR"_s, $$new($ObjectArray, {$($Character::valueOf(c))}))));
 	}
 }
 
@@ -437,11 +336,11 @@ void Http1HeaderParser::readResumeHeader($ByteBuffer* input) {
 }
 
 void Http1HeaderParser::addHeaderFromString($String* headerString) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!Http1HeaderParser::$assertionsDisabled && !($nc(this->sb)->length() == 0)) {
 		$throwNew($AssertionError);
 	}
-	int32_t idx = $nc(headerString)->indexOf((int32_t)u':');
+	int32_t idx = $nc(headerString)->indexOf(u':');
 	if (idx == -1) {
 		return;
 	}
@@ -450,18 +349,18 @@ void Http1HeaderParser::addHeaderFromString($String* headerString) {
 		return;
 	}
 	if (!$Utils::isValidName(name)) {
-		$throw($(protocolException("Invalid header name \"%s\""_s, $$new($ObjectArray, {$of(name)}))));
+		$throw($(protocolException("Invalid header name \"%s\""_s, $$new($ObjectArray, {name}))));
 	}
 	$var($String, value, $(headerString->substring(idx + 1))->trim());
 	if (!$Utils::isValidValue(value)) {
 		$throw($(protocolException("Invalid header value \"%s: %s\""_s, $$new($ObjectArray, {
-			$of(name),
-			$of(value)
+			name,
+			value
 		}))));
 	}
 	$init($Locale);
-	$var($Object, var$0, $of(name->toLowerCase($Locale::US)));
-	$nc(($cast($List, $($nc(this->privateMap)->computeIfAbsent(var$0, static_cast<$Function*>($$new(Http1HeaderParser$$Lambda$lambda$addHeaderFromString$0)))))))->add(value);
+	$var($Object, var$0, name->toLowerCase($Locale::US));
+	$$sure($List, $nc(this->privateMap)->computeIfAbsent(var$0, $$new(Http1HeaderParser$$Lambda$lambda$addHeaderFromString$0)))->add(value);
 }
 
 void Http1HeaderParser::resumeOrLF($ByteBuffer* input) {
@@ -477,13 +376,13 @@ void Http1HeaderParser::resumeOrLF($ByteBuffer* input) {
 		$set(this, state, $Http1HeaderParser$State::HEADER);
 	} else {
 		$set(this, sb, $new($StringBuilder));
-		$nc(this->sb)->append(c);
+		this->sb->append(c);
 		$set(this, state, $Http1HeaderParser$State::HEADER);
 	}
 }
 
 void Http1HeaderParser::resumeOrSecondCR($ByteBuffer* input) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Http1HeaderParser$State);
 	if (!Http1HeaderParser::$assertionsDisabled && !(this->state == $Http1HeaderParser$State::HEADER_FOUND_CR_LF)) {
 		$throwNew($AssertionError);
@@ -491,7 +390,7 @@ void Http1HeaderParser::resumeOrSecondCR($ByteBuffer* input) {
 	char16_t c = get(input);
 	if (c == Http1HeaderParser::CR || c == Http1HeaderParser::LF) {
 		if ($nc(this->sb)->length() > 0) {
-			$var($String, headerString, $nc(this->sb)->toString());
+			$var($String, headerString, this->sb->toString());
 			$set(this, sb, $new($StringBuilder));
 			addHeaderFromString(headerString);
 		}
@@ -511,7 +410,7 @@ void Http1HeaderParser::resumeOrSecondCR($ByteBuffer* input) {
 		$set(this, state, $Http1HeaderParser$State::HEADER);
 	} else {
 		if ($nc(this->sb)->length() > 0) {
-			$var($String, headerString, $nc(this->sb)->toString());
+			$var($String, headerString, this->sb->toString());
 			$set(this, sb, $new($StringBuilder));
 			addHeaderFromString(headerString);
 		}
@@ -521,7 +420,7 @@ void Http1HeaderParser::resumeOrSecondCR($ByteBuffer* input) {
 }
 
 void Http1HeaderParser::resumeOrEndHeaders($ByteBuffer* input) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Http1HeaderParser$State);
 	if (!Http1HeaderParser::$assertionsDisabled && !(this->state == $Http1HeaderParser$State::HEADER_FOUND_CR_LF_CR)) {
 		$throwNew($AssertionError);
@@ -533,7 +432,7 @@ void Http1HeaderParser::resumeOrEndHeaders($ByteBuffer* input) {
 		$set(this, headers$, $HttpHeaders::of(this->privateMap, $Utils::ACCEPT_ALL));
 		$set(this, privateMap, nullptr);
 	} else {
-		$throw($(protocolException("Unexpected \"%s\", after CR LF CR"_s, $$new($ObjectArray, {$($of($Character::valueOf(c)))}))));
+		$throw($(protocolException("Unexpected \"%s\", after CR LF CR"_s, $$new($ObjectArray, {$($Character::valueOf(c))}))));
 	}
 }
 
@@ -546,7 +445,7 @@ $List* Http1HeaderParser::lambda$addHeaderFromString$0($String* k) {
 	return $new($ArrayList);
 }
 
-void clinit$Http1HeaderParser($Class* class$) {
+void Http1HeaderParser::clinit$($Class* clazz) {
 	Http1HeaderParser::$assertionsDisabled = !Http1HeaderParser::class$->desiredAssertionStatus();
 }
 
@@ -555,11 +454,68 @@ Http1HeaderParser::Http1HeaderParser() {
 
 $Class* Http1HeaderParser::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(Http1HeaderParser$$Lambda$lambda$addHeaderFromString$0::classInfo$.name)) {
+		if (name->equals("jdk.internal.net.http.Http1HeaderParser$$Lambda$lambda$addHeaderFromString$0")) {
 			return Http1HeaderParser$$Lambda$lambda$addHeaderFromString$0::load$(name, initialize);
 		}
 	}
-	$loadClass(Http1HeaderParser, name, initialize, &_Http1HeaderParser_ClassInfo_, clinit$Http1HeaderParser, allocate$Http1HeaderParser);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(Http1HeaderParser, $assertionsDisabled)},
+		{"CR", "C", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Http1HeaderParser, CR)},
+		{"LF", "C", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Http1HeaderParser, LF)},
+		{"HT", "C", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Http1HeaderParser, HT)},
+		{"SP", "C", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Http1HeaderParser, SP)},
+		{"sb", "Ljava/lang/StringBuilder;", nullptr, $PRIVATE, $field(Http1HeaderParser, sb)},
+		{"statusLine", "Ljava/lang/String;", nullptr, $PRIVATE, $field(Http1HeaderParser, statusLine$)},
+		{"responseCode", "I", nullptr, $PRIVATE, $field(Http1HeaderParser, responseCode$)},
+		{"headers", "Ljava/net/http/HttpHeaders;", nullptr, $PRIVATE, $field(Http1HeaderParser, headers$)},
+		{"privateMap", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;>;", $PRIVATE, $field(Http1HeaderParser, privateMap)},
+		{"state", "Ljdk/internal/net/http/Http1HeaderParser$State;", nullptr, $PRIVATE, $field(Http1HeaderParser, state)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(Http1HeaderParser, init$, void)},
+		{"addHeaderFromString", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(Http1HeaderParser, addHeaderFromString, void, $String*), "java.net.ProtocolException"},
+		{"canContinueParsing", "(Ljava/nio/ByteBuffer;)Z", nullptr, $PRIVATE, $method(Http1HeaderParser, canContinueParsing, bool, $ByteBuffer*)},
+		{"currentStateMessage", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Http1HeaderParser, currentStateMessage, $String*)},
+		{"get", "(Ljava/nio/ByteBuffer;)C", nullptr, $PRIVATE, $method(Http1HeaderParser, get, char16_t, $ByteBuffer*)},
+		{"headers", "()Ljava/net/http/HttpHeaders;", nullptr, 0, $virtualMethod(Http1HeaderParser, headers, $HttpHeaders*)},
+		{"lambda$addHeaderFromString$0", "(Ljava/lang/String;)Ljava/util/List;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Http1HeaderParser, lambda$addHeaderFromString$0, $List*, $String*)},
+		{"maybeEndHeaders", "(Ljava/nio/ByteBuffer;)V", nullptr, $PRIVATE, $method(Http1HeaderParser, maybeEndHeaders, void, $ByteBuffer*), "java.net.ProtocolException"},
+		{"maybeStartHeaders", "(Ljava/nio/ByteBuffer;)V", nullptr, $PRIVATE, $method(Http1HeaderParser, maybeStartHeaders, void, $ByteBuffer*)},
+		{"parse", "(Ljava/nio/ByteBuffer;)Z", nullptr, 0, $virtualMethod(Http1HeaderParser, parse, bool, $ByteBuffer*), "java.net.ProtocolException"},
+		{"protocolException", "(Ljava/lang/String;[Ljava/lang/Object;)Ljava/net/ProtocolException;", nullptr, $PRIVATE | $TRANSIENT, $method(Http1HeaderParser, protocolException, $ProtocolException*, $String*, $ObjectArray*)},
+		{"readResumeHeader", "(Ljava/nio/ByteBuffer;)V", nullptr, $PRIVATE, $method(Http1HeaderParser, readResumeHeader, void, $ByteBuffer*)},
+		{"readResumeStatusLine", "(Ljava/nio/ByteBuffer;)V", nullptr, $PRIVATE, $method(Http1HeaderParser, readResumeStatusLine, void, $ByteBuffer*)},
+		{"readStatusLineFeed", "(Ljava/nio/ByteBuffer;)V", nullptr, $PRIVATE, $method(Http1HeaderParser, readStatusLineFeed, void, $ByteBuffer*), "java.net.ProtocolException"},
+		{"responseCode", "()I", nullptr, 0, $virtualMethod(Http1HeaderParser, responseCode, int32_t)},
+		{"resumeOrEndHeaders", "(Ljava/nio/ByteBuffer;)V", nullptr, $PRIVATE, $method(Http1HeaderParser, resumeOrEndHeaders, void, $ByteBuffer*), "java.net.ProtocolException"},
+		{"resumeOrLF", "(Ljava/nio/ByteBuffer;)V", nullptr, $PRIVATE, $method(Http1HeaderParser, resumeOrLF, void, $ByteBuffer*)},
+		{"resumeOrSecondCR", "(Ljava/nio/ByteBuffer;)V", nullptr, $PRIVATE, $method(Http1HeaderParser, resumeOrSecondCR, void, $ByteBuffer*), "java.net.ProtocolException"},
+		{"statusLine", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(Http1HeaderParser, statusLine, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.net.http.Http1HeaderParser$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{"jdk.internal.net.http.Http1HeaderParser$State", "jdk.internal.net.http.Http1HeaderParser", "State", $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"jdk.internal.net.http.Http1HeaderParser",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"jdk.internal.net.http.Http1HeaderParser$1,jdk.internal.net.http.Http1HeaderParser$State"
+	};
+	$loadClass(Http1HeaderParser, name, initialize, &classInfo$$, Http1HeaderParser::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Http1HeaderParser);
+	});
 	return class$;
 }
 

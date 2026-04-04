@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/code/Symbol$VarSymbol$1.h>
-
 #include <com/sun/tools/javac/code/Symbol$VarSymbol.h>
 #include <com/sun/tools/javac/code/Symbol.h>
 #include <com/sun/tools/javac/code/Type.h>
@@ -35,56 +34,6 @@ namespace com {
 			namespace javac {
 				namespace code {
 
-$FieldInfo _Symbol$VarSymbol$1_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/code/Symbol$VarSymbol;", nullptr, $FINAL | $SYNTHETIC, $field(Symbol$VarSymbol$1, this$0)},
-	{"val$newOwner", "Lcom/sun/tools/javac/code/Symbol;", nullptr, $FINAL | $SYNTHETIC, $field(Symbol$VarSymbol$1, val$newOwner)},
-	{}
-};
-
-$MethodInfo _Symbol$VarSymbol$1_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Symbol$VarSymbol;JLcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, 0, $method(Symbol$VarSymbol$1, init$, void, $Symbol$VarSymbol*, int64_t, $Name*, $Type*, $Symbol*, $Symbol*)},
-	{"asType", "()Ljavax/lang/model/type/TypeMirror;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Symbol$VarSymbol$1, asType, $TypeMirror*)},
-	{"baseSymbol", "()Lcom/sun/tools/javac/code/Symbol;", nullptr, $PUBLIC, $virtualMethod(Symbol$VarSymbol$1, baseSymbol, $Symbol*)},
-	{"clone", "(Lcom/sun/tools/javac/code/Symbol;)Lcom/sun/tools/javac/code/Symbol;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Symbol$VarSymbol$1, clone, $Symbol$VarSymbol*, $Symbol*)},
-	{"getAnnotationMirrors", "()Ljava/util/List;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Symbol$VarSymbol$1, getAnnotationMirrors, $List*)},
-	{"getEnclosingElement", "()Ljavax/lang/model/element/Element;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Symbol$VarSymbol$1, getEnclosingElement, $Element*)},
-	{"getSimpleName", "()Ljavax/lang/model/element/Name;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Symbol$VarSymbol$1, getSimpleName, $1Name*)},
-	{"poolKey", "(Lcom/sun/tools/javac/code/Types;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Symbol$VarSymbol$1, poolKey, $Object*, $Types*)},
-	{}
-};
-
-$EnclosingMethodInfo _Symbol$VarSymbol$1_EnclosingMethodInfo_ = {
-	"com.sun.tools.javac.code.Symbol$VarSymbol",
-	"clone",
-	"(Lcom/sun/tools/javac/code/Symbol;)Lcom/sun/tools/javac/code/Symbol$VarSymbol;"
-};
-
-$InnerClassInfo _Symbol$VarSymbol$1_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.code.Symbol$VarSymbol", "com.sun.tools.javac.code.Symbol", "VarSymbol", $PUBLIC | $STATIC},
-	{"com.sun.tools.javac.code.Symbol$VarSymbol$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Symbol$VarSymbol$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.code.Symbol$VarSymbol$1",
-	"com.sun.tools.javac.code.Symbol$VarSymbol",
-	nullptr,
-	_Symbol$VarSymbol$1_FieldInfo_,
-	_Symbol$VarSymbol$1_MethodInfo_,
-	nullptr,
-	&_Symbol$VarSymbol$1_EnclosingMethodInfo_,
-	_Symbol$VarSymbol$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.code.Symbol"
-};
-
-$Object* allocate$Symbol$VarSymbol$1($Class* clazz) {
-	return $of($alloc(Symbol$VarSymbol$1));
-}
-
 void Symbol$VarSymbol$1::init$($Symbol$VarSymbol* this$0, int64_t flags, $Name* name, $Type* type, $Symbol* owner, $Symbol* val$newOwner) {
 	$set(this, this$0, this$0);
 	$set(this, val$newOwner, val$newOwner);
@@ -96,7 +45,7 @@ $Symbol* Symbol$VarSymbol$1::baseSymbol() {
 }
 
 $Object* Symbol$VarSymbol$1::poolKey($Types* types) {
-	return $of($new($Pair, this->val$newOwner, $(baseSymbol())));
+	return $new($Pair, this->val$newOwner, $(baseSymbol()));
 }
 
 $Element* Symbol$VarSymbol$1::getEnclosingElement() {
@@ -123,7 +72,50 @@ Symbol$VarSymbol$1::Symbol$VarSymbol$1() {
 }
 
 $Class* Symbol$VarSymbol$1::load$($String* name, bool initialize) {
-	$loadClass(Symbol$VarSymbol$1, name, initialize, &_Symbol$VarSymbol$1_ClassInfo_, allocate$Symbol$VarSymbol$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/code/Symbol$VarSymbol;", nullptr, $FINAL | $SYNTHETIC, $field(Symbol$VarSymbol$1, this$0)},
+		{"val$newOwner", "Lcom/sun/tools/javac/code/Symbol;", nullptr, $FINAL | $SYNTHETIC, $field(Symbol$VarSymbol$1, val$newOwner)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/code/Symbol$VarSymbol;JLcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, 0, $method(Symbol$VarSymbol$1, init$, void, $Symbol$VarSymbol*, int64_t, $Name*, $Type*, $Symbol*, $Symbol*)},
+		{"asType", "()Ljavax/lang/model/type/TypeMirror;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Symbol$VarSymbol$1, asType, $TypeMirror*)},
+		{"baseSymbol", "()Lcom/sun/tools/javac/code/Symbol;", nullptr, $PUBLIC, $virtualMethod(Symbol$VarSymbol$1, baseSymbol, $Symbol*)},
+		{"clone", "(Lcom/sun/tools/javac/code/Symbol;)Lcom/sun/tools/javac/code/Symbol;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Symbol$VarSymbol$1, clone, $Symbol$VarSymbol*, $Symbol*)},
+		{"getAnnotationMirrors", "()Ljava/util/List;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Symbol$VarSymbol$1, getAnnotationMirrors, $List*)},
+		{"getEnclosingElement", "()Ljavax/lang/model/element/Element;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Symbol$VarSymbol$1, getEnclosingElement, $Element*)},
+		{"getSimpleName", "()Ljavax/lang/model/element/Name;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Symbol$VarSymbol$1, getSimpleName, $1Name*)},
+		{"poolKey", "(Lcom/sun/tools/javac/code/Types;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Symbol$VarSymbol$1, poolKey, $Object*, $Types*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.tools.javac.code.Symbol$VarSymbol",
+		"clone",
+		"(Lcom/sun/tools/javac/code/Symbol;)Lcom/sun/tools/javac/code/Symbol$VarSymbol;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.code.Symbol$VarSymbol", "com.sun.tools.javac.code.Symbol", "VarSymbol", $PUBLIC | $STATIC},
+		{"com.sun.tools.javac.code.Symbol$VarSymbol$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.code.Symbol$VarSymbol$1",
+		"com.sun.tools.javac.code.Symbol$VarSymbol",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.code.Symbol"
+	};
+	$loadClass(Symbol$VarSymbol$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Symbol$VarSymbol$1));
+	});
 	return class$;
 }
 

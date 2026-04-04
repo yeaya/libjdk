@@ -1,5 +1,4 @@
 #include <javax/swing/AbstractSpinnerModel.h>
-
 #include <java/util/EventListener.h>
 #include <javax/swing/SpinnerModel.h>
 #include <javax/swing/event/ChangeEvent.h>
@@ -12,7 +11,6 @@ using $ChangeListenerArray = $Array<::javax::swing::event::ChangeListener>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $EventListener = ::java::util::EventListener;
 using $SpinnerModel = ::javax::swing::SpinnerModel;
 using $ChangeEvent = ::javax::swing::event::ChangeEvent;
 using $ChangeListener = ::javax::swing::event::ChangeListener;
@@ -20,40 +18,6 @@ using $EventListenerList = ::javax::swing::event::EventListenerList;
 
 namespace javax {
 	namespace swing {
-
-$FieldInfo _AbstractSpinnerModel_FieldInfo_[] = {
-	{"changeEvent", "Ljavax/swing/event/ChangeEvent;", nullptr, $PRIVATE | $TRANSIENT, $field(AbstractSpinnerModel, changeEvent)},
-	{"listenerList", "Ljavax/swing/event/EventListenerList;", nullptr, $PROTECTED, $field(AbstractSpinnerModel, listenerList)},
-	{}
-};
-
-$MethodInfo _AbstractSpinnerModel_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PROTECTED, $method(AbstractSpinnerModel, init$, void)},
-	{"addChangeListener", "(Ljavax/swing/event/ChangeListener;)V", nullptr, $PUBLIC, $virtualMethod(AbstractSpinnerModel, addChangeListener, void, $ChangeListener*)},
-	{"fireStateChanged", "()V", nullptr, $PROTECTED, $virtualMethod(AbstractSpinnerModel, fireStateChanged, void)},
-	{"getChangeListeners", "()[Ljavax/swing/event/ChangeListener;", nullptr, $PUBLIC, $virtualMethod(AbstractSpinnerModel, getChangeListeners, $ChangeListenerArray*)},
-	{"getListeners", "(Ljava/lang/Class;)[Ljava/util/EventListener;", "<T::Ljava/util/EventListener;>(Ljava/lang/Class<TT;>;)[TT;", $PUBLIC, $virtualMethod(AbstractSpinnerModel, getListeners, $EventListenerArray*, $Class*)},
-	{"removeChangeListener", "(Ljavax/swing/event/ChangeListener;)V", nullptr, $PUBLIC, $virtualMethod(AbstractSpinnerModel, removeChangeListener, void, $ChangeListener*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _AbstractSpinnerModel_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"javax.swing.AbstractSpinnerModel",
-	"java.lang.Object",
-	"javax.swing.SpinnerModel,java.io.Serializable",
-	_AbstractSpinnerModel_FieldInfo_,
-	_AbstractSpinnerModel_MethodInfo_
-};
-
-$Object* allocate$AbstractSpinnerModel($Class* clazz) {
-	return $of($alloc(AbstractSpinnerModel));
-}
 
 int32_t AbstractSpinnerModel::hashCode() {
 	 return this->$SpinnerModel::hashCode();
@@ -92,7 +56,7 @@ void AbstractSpinnerModel::removeChangeListener($ChangeListener* l) {
 
 $ChangeListenerArray* AbstractSpinnerModel::getChangeListeners() {
 	$load($ChangeListener);
-	return $fcast($ChangeListenerArray, $nc(this->listenerList)->getListeners($ChangeListener::class$));
+	return $cast($ChangeListenerArray, $nc(this->listenerList)->getListeners($ChangeListener::class$));
 }
 
 void AbstractSpinnerModel::fireStateChanged() {
@@ -103,7 +67,7 @@ void AbstractSpinnerModel::fireStateChanged() {
 			if (this->changeEvent == nullptr) {
 				$set(this, changeEvent, $new($ChangeEvent, this));
 			}
-			$nc(($cast($ChangeListener, listeners->get(i + 1))))->stateChanged(this->changeEvent);
+			$nc($cast($ChangeListener, listeners->get(i + 1)))->stateChanged(this->changeEvent);
 		}
 	}
 }
@@ -116,7 +80,36 @@ AbstractSpinnerModel::AbstractSpinnerModel() {
 }
 
 $Class* AbstractSpinnerModel::load$($String* name, bool initialize) {
-	$loadClass(AbstractSpinnerModel, name, initialize, &_AbstractSpinnerModel_ClassInfo_, allocate$AbstractSpinnerModel);
+	$FieldInfo fieldInfos$$[] = {
+		{"changeEvent", "Ljavax/swing/event/ChangeEvent;", nullptr, $PRIVATE | $TRANSIENT, $field(AbstractSpinnerModel, changeEvent)},
+		{"listenerList", "Ljavax/swing/event/EventListenerList;", nullptr, $PROTECTED, $field(AbstractSpinnerModel, listenerList)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PROTECTED, $method(AbstractSpinnerModel, init$, void)},
+		{"addChangeListener", "(Ljavax/swing/event/ChangeListener;)V", nullptr, $PUBLIC, $virtualMethod(AbstractSpinnerModel, addChangeListener, void, $ChangeListener*)},
+		{"fireStateChanged", "()V", nullptr, $PROTECTED, $virtualMethod(AbstractSpinnerModel, fireStateChanged, void)},
+		{"getChangeListeners", "()[Ljavax/swing/event/ChangeListener;", nullptr, $PUBLIC, $virtualMethod(AbstractSpinnerModel, getChangeListeners, $ChangeListenerArray*)},
+		{"getListeners", "(Ljava/lang/Class;)[Ljava/util/EventListener;", "<T::Ljava/util/EventListener;>(Ljava/lang/Class<TT;>;)[TT;", $PUBLIC, $virtualMethod(AbstractSpinnerModel, getListeners, $EventListenerArray*, $Class*)},
+		{"removeChangeListener", "(Ljavax/swing/event/ChangeListener;)V", nullptr, $PUBLIC, $virtualMethod(AbstractSpinnerModel, removeChangeListener, void, $ChangeListener*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"javax.swing.AbstractSpinnerModel",
+		"java.lang.Object",
+		"javax.swing.SpinnerModel,java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(AbstractSpinnerModel, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AbstractSpinnerModel));
+	});
 	return class$;
 }
 

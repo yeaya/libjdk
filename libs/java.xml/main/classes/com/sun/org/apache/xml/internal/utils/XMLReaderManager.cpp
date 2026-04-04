@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/utils/XMLReaderManager.h>
-
 #include <com/sun/org/apache/xalan/internal/utils/XMLSecurityManager$Limit.h>
 #include <com/sun/org/apache/xalan/internal/utils/XMLSecurityManager.h>
 #include <com/sun/org/apache/xml/internal/utils/XMLReaderManager$ReaderWrapper.h>
@@ -62,58 +61,6 @@ namespace com {
 					namespace internal {
 						namespace utils {
 
-$FieldInfo _XMLReaderManager_FieldInfo_[] = {
-	{"m_singletonManager", "Lcom/sun/org/apache/xml/internal/utils/XMLReaderManager;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XMLReaderManager, m_singletonManager)},
-	{"property", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XMLReaderManager, property)},
-	{"m_readers", "Ljava/lang/ThreadLocal;", "Ljava/lang/ThreadLocal<Lcom/sun/org/apache/xml/internal/utils/XMLReaderManager$ReaderWrapper;>;", $PRIVATE, $field(XMLReaderManager, m_readers)},
-	{"m_inUse", "Ljava/util/HashMap;", "Ljava/util/HashMap<Lorg/xml/sax/XMLReader;Ljava/lang/Boolean;>;", $PRIVATE, $field(XMLReaderManager, m_inUse)},
-	{"m_overrideDefaultParser", "Z", nullptr, $PRIVATE, $field(XMLReaderManager, m_overrideDefaultParser)},
-	{"_secureProcessing", "Z", nullptr, $PRIVATE, $field(XMLReaderManager, _secureProcessing)},
-	{"_accessExternalDTD", "Ljava/lang/String;", nullptr, $PRIVATE, $field(XMLReaderManager, _accessExternalDTD)},
-	{"_xmlSecurityManager", "Lcom/sun/org/apache/xalan/internal/utils/XMLSecurityManager;", nullptr, $PRIVATE, $field(XMLReaderManager, _xmlSecurityManager)},
-	{"_useCatalog", "Z", nullptr, $PRIVATE, $field(XMLReaderManager, _useCatalog)},
-	{"_catalogFeatures", "Ljavax/xml/catalog/CatalogFeatures;", nullptr, $PRIVATE, $field(XMLReaderManager, _catalogFeatures)},
-	{"_cdataChunkSize", "I", nullptr, $PRIVATE, $field(XMLReaderManager, _cdataChunkSize)},
-	{}
-};
-
-$MethodInfo _XMLReaderManager_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(XMLReaderManager, init$, void)},
-	{"getInstance", "(Z)Lcom/sun/org/apache/xml/internal/utils/XMLReaderManager;", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLReaderManager, getInstance, XMLReaderManager*, bool)},
-	{"getProperty", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(XMLReaderManager, getProperty, $Object*, $String*)},
-	{"getXMLReader", "()Lorg/xml/sax/XMLReader;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(XMLReaderManager, getXMLReader, $XMLReader*), "org.xml.sax.SAXException"},
-	{"overrideDefaultParser", "()Z", nullptr, $PUBLIC, $virtualMethod(XMLReaderManager, overrideDefaultParser, bool)},
-	{"releaseXMLReader", "(Lorg/xml/sax/XMLReader;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(XMLReaderManager, releaseXMLReader, void, $XMLReader*)},
-	{"setFeature", "(Ljava/lang/String;Z)V", nullptr, $PUBLIC, $virtualMethod(XMLReaderManager, setFeature, void, $String*, bool)},
-	{"setOverrideDefaultParser", "(Z)V", nullptr, $PUBLIC, $virtualMethod(XMLReaderManager, setOverrideDefaultParser, void, bool)},
-	{"setProperty", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(XMLReaderManager, setProperty, void, $String*, Object$*)},
-	{}
-};
-
-$InnerClassInfo _XMLReaderManager_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xml.internal.utils.XMLReaderManager$ReaderWrapper", "com.sun.org.apache.xml.internal.utils.XMLReaderManager", "ReaderWrapper", 0},
-	{}
-};
-
-$ClassInfo _XMLReaderManager_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.utils.XMLReaderManager",
-	"java.lang.Object",
-	nullptr,
-	_XMLReaderManager_FieldInfo_,
-	_XMLReaderManager_MethodInfo_,
-	nullptr,
-	nullptr,
-	_XMLReaderManager_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xml.internal.utils.XMLReaderManager$ReaderWrapper"
-};
-
-$Object* allocate$XMLReaderManager($Class* clazz) {
-	return $of($alloc(XMLReaderManager));
-}
-
 XMLReaderManager* XMLReaderManager::m_singletonManager = nullptr;
 $String* XMLReaderManager::property = nullptr;
 
@@ -124,13 +71,13 @@ void XMLReaderManager::init$() {
 
 XMLReaderManager* XMLReaderManager::getInstance(bool overrideDefaultParser) {
 	$init(XMLReaderManager);
-	$nc(XMLReaderManager::m_singletonManager)->setOverrideDefaultParser(overrideDefaultParser);
+	XMLReaderManager::m_singletonManager->setOverrideDefaultParser(overrideDefaultParser);
 	return XMLReaderManager::m_singletonManager;
 }
 
 $XMLReader* XMLReaderManager::getXMLReader() {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$var($XMLReader, reader, nullptr);
 		if (this->m_readers == nullptr) {
 			$set(this, m_readers, $new($ThreadLocal));
@@ -140,12 +87,11 @@ $XMLReader* XMLReaderManager::getXMLReader() {
 		}
 		$var($XMLReaderManager$ReaderWrapper, rw, $cast($XMLReaderManager$ReaderWrapper, $nc(this->m_readers)->get()));
 		bool threadHasReader = (rw != nullptr);
-		$assign(reader, threadHasReader ? rw->reader : ($XMLReader*)nullptr);
+		$assign(reader, threadHasReader ? $nc(rw)->reader : ($XMLReader*)nullptr);
 		$var($String, factory, $SecuritySupport::getSystemProperty(XMLReaderManager::property));
-		$init($Boolean);
-		bool var$0 = threadHasReader && !$equals($nc(this->m_inUse)->get(reader), $Boolean::TRUE) && (rw->overrideDefaultParser == this->m_overrideDefaultParser);
-		if (var$0 && (factory == nullptr || $nc($($nc($of(reader))->getClass()->getName()))->equals(factory))) {
-			$nc(this->m_inUse)->put(reader, $Boolean::TRUE);
+		bool var$0 = threadHasReader && !$equals($nc(this->m_inUse)->get(reader), $Boolean::TRUE) && ($nc(rw)->overrideDefaultParser == this->m_overrideDefaultParser);
+		if (var$0 && (factory == nullptr || $$nc($nc(reader)->getClass()->getName())->equals(factory))) {
+			this->m_inUse->put(reader, $Boolean::TRUE);
 		} else {
 			$assign(reader, $JdkXmlUtils::getXMLReader(this->m_overrideDefaultParser, this->_secureProcessing));
 			if (!threadHasReader) {
@@ -162,9 +108,7 @@ $XMLReader* XMLReaderManager::getXMLReader() {
 			if (this->_xmlSecurityManager != nullptr) {
 				{
 					$var($XMLSecurityManager$LimitArray, arr$, $XMLSecurityManager$Limit::values());
-					int32_t len$ = $nc(arr$)->length;
-					int32_t i$ = 0;
-					for (; i$ < len$; ++i$) {
+					for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 						$XMLSecurityManager$Limit* limit = arr$->get(i$);
 						{
 							$assign(lastProperty, $nc(limit)->apiProperty());
@@ -178,7 +122,7 @@ $XMLReader* XMLReaderManager::getXMLReader() {
 				}
 			}
 		} catch ($SAXException& se) {
-			$XMLSecurityManager::printWarning($($nc($of(reader))->getClass()->getName()), lastProperty, se);
+			$XMLSecurityManager::printWarning($($nc(reader)->getClass()->getName()), lastProperty, se);
 		}
 		bool supportCatalog = true;
 		try {
@@ -190,16 +134,12 @@ $XMLReader* XMLReaderManager::getXMLReader() {
 		}
 		if (supportCatalog && this->_useCatalog && this->_catalogFeatures != nullptr) {
 			try {
-				{
-					$var($CatalogFeatures$FeatureArray, arr$, $CatalogFeatures$Feature::values());
-					int32_t len$ = $nc(arr$)->length;
-					int32_t i$ = 0;
-					for (; i$ < len$; ++i$) {
-						$CatalogFeatures$Feature* f = arr$->get(i$);
-						{
-							$var($String, var$1, $nc(f)->getPropertyName());
-							$nc(reader)->setProperty(var$1, $($nc(this->_catalogFeatures)->get(f)));
-						}
+				$var($CatalogFeatures$FeatureArray, arr$, $CatalogFeatures$Feature::values());
+				for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
+					$CatalogFeatures$Feature* f = arr$->get(i$);
+					{
+						$var($String, var$1, $nc(f)->getPropertyName());
+						$nc(reader)->setProperty(var$1, $($nc(this->_catalogFeatures)->get(f)));
 					}
 				}
 			} catch ($SAXNotRecognizedException& e) {
@@ -230,10 +170,8 @@ void XMLReaderManager::setFeature($String* name, bool value) {
 	$init($XMLConstants);
 	if ($nc(name)->equals($XMLConstants::FEATURE_SECURE_PROCESSING)) {
 		this->_secureProcessing = value;
-	} else {
-		if ($nc($XMLConstants::USE_CATALOG)->equals(name)) {
-			this->_useCatalog = value;
-		}
+	} else if ($nc($XMLConstants::USE_CATALOG)->equals(name)) {
+		this->_useCatalog = value;
 	}
 }
 
@@ -244,10 +182,10 @@ $Object* XMLReaderManager::getProperty($String* name) {
 	} else {
 		$init($JdkConstants);
 		if (name->equals($JdkConstants::SECURITY_MANAGER)) {
-			return $of(this->_xmlSecurityManager);
+			return this->_xmlSecurityManager;
 		}
 	}
-	return $of(nullptr);
+	return nullptr;
 }
 
 void XMLReaderManager::setProperty($String* name, Object$* value) {
@@ -262,16 +200,14 @@ void XMLReaderManager::setProperty($String* name, Object$* value) {
 			$init($JdkXmlFeatures);
 			if ($nc($JdkXmlFeatures::CATALOG_FEATURES)->equals(name)) {
 				$set(this, _catalogFeatures, $cast($CatalogFeatures, value));
-			} else {
-				if ($nc($JdkConstants::CDATA_CHUNK_SIZE)->equals(name)) {
-					this->_cdataChunkSize = $JdkXmlUtils::getValue(value, this->_cdataChunkSize);
-				}
+			} else if ($nc($JdkConstants::CDATA_CHUNK_SIZE)->equals(name)) {
+				this->_cdataChunkSize = $JdkXmlUtils::getValue(value, this->_cdataChunkSize);
 			}
 		}
 	}
 }
 
-void clinit$XMLReaderManager($Class* class$) {
+void XMLReaderManager::clinit$($Class* clazz) {
 	$assignStatic(XMLReaderManager::property, "org.xml.sax.driver"_s);
 	$assignStatic(XMLReaderManager::m_singletonManager, $new(XMLReaderManager));
 }
@@ -280,7 +216,53 @@ XMLReaderManager::XMLReaderManager() {
 }
 
 $Class* XMLReaderManager::load$($String* name, bool initialize) {
-	$loadClass(XMLReaderManager, name, initialize, &_XMLReaderManager_ClassInfo_, clinit$XMLReaderManager, allocate$XMLReaderManager);
+	$FieldInfo fieldInfos$$[] = {
+		{"m_singletonManager", "Lcom/sun/org/apache/xml/internal/utils/XMLReaderManager;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XMLReaderManager, m_singletonManager)},
+		{"property", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XMLReaderManager, property)},
+		{"m_readers", "Ljava/lang/ThreadLocal;", "Ljava/lang/ThreadLocal<Lcom/sun/org/apache/xml/internal/utils/XMLReaderManager$ReaderWrapper;>;", $PRIVATE, $field(XMLReaderManager, m_readers)},
+		{"m_inUse", "Ljava/util/HashMap;", "Ljava/util/HashMap<Lorg/xml/sax/XMLReader;Ljava/lang/Boolean;>;", $PRIVATE, $field(XMLReaderManager, m_inUse)},
+		{"m_overrideDefaultParser", "Z", nullptr, $PRIVATE, $field(XMLReaderManager, m_overrideDefaultParser)},
+		{"_secureProcessing", "Z", nullptr, $PRIVATE, $field(XMLReaderManager, _secureProcessing)},
+		{"_accessExternalDTD", "Ljava/lang/String;", nullptr, $PRIVATE, $field(XMLReaderManager, _accessExternalDTD)},
+		{"_xmlSecurityManager", "Lcom/sun/org/apache/xalan/internal/utils/XMLSecurityManager;", nullptr, $PRIVATE, $field(XMLReaderManager, _xmlSecurityManager)},
+		{"_useCatalog", "Z", nullptr, $PRIVATE, $field(XMLReaderManager, _useCatalog)},
+		{"_catalogFeatures", "Ljavax/xml/catalog/CatalogFeatures;", nullptr, $PRIVATE, $field(XMLReaderManager, _catalogFeatures)},
+		{"_cdataChunkSize", "I", nullptr, $PRIVATE, $field(XMLReaderManager, _cdataChunkSize)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(XMLReaderManager, init$, void)},
+		{"getInstance", "(Z)Lcom/sun/org/apache/xml/internal/utils/XMLReaderManager;", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLReaderManager, getInstance, XMLReaderManager*, bool)},
+		{"getProperty", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(XMLReaderManager, getProperty, $Object*, $String*)},
+		{"getXMLReader", "()Lorg/xml/sax/XMLReader;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(XMLReaderManager, getXMLReader, $XMLReader*), "org.xml.sax.SAXException"},
+		{"overrideDefaultParser", "()Z", nullptr, $PUBLIC, $virtualMethod(XMLReaderManager, overrideDefaultParser, bool)},
+		{"releaseXMLReader", "(Lorg/xml/sax/XMLReader;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(XMLReaderManager, releaseXMLReader, void, $XMLReader*)},
+		{"setFeature", "(Ljava/lang/String;Z)V", nullptr, $PUBLIC, $virtualMethod(XMLReaderManager, setFeature, void, $String*, bool)},
+		{"setOverrideDefaultParser", "(Z)V", nullptr, $PUBLIC, $virtualMethod(XMLReaderManager, setOverrideDefaultParser, void, bool)},
+		{"setProperty", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(XMLReaderManager, setProperty, void, $String*, Object$*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xml.internal.utils.XMLReaderManager$ReaderWrapper", "com.sun.org.apache.xml.internal.utils.XMLReaderManager", "ReaderWrapper", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.utils.XMLReaderManager",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xml.internal.utils.XMLReaderManager$ReaderWrapper"
+	};
+	$loadClass(XMLReaderManager, name, initialize, &classInfo$$, XMLReaderManager::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(XMLReaderManager);
+	});
 	return class$;
 }
 

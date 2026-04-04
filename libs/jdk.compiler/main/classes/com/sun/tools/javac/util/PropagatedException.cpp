@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/util/PropagatedException.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -13,32 +12,8 @@ namespace com {
 			namespace javac {
 				namespace util {
 
-$FieldInfo _PropagatedException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(PropagatedException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _PropagatedException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/RuntimeException;)V", nullptr, $PUBLIC, $method(PropagatedException, init$, void, $RuntimeException*)},
-	{"getCause", "()Ljava/lang/RuntimeException;", nullptr, $PUBLIC, $virtualMethod(PropagatedException, getCause, $RuntimeException*)},
-	{}
-};
-
-$ClassInfo _PropagatedException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.util.PropagatedException",
-	"java.lang.RuntimeException",
-	nullptr,
-	_PropagatedException_FieldInfo_,
-	_PropagatedException_MethodInfo_
-};
-
-$Object* allocate$PropagatedException($Class* clazz) {
-	return $of($alloc(PropagatedException));
-}
-
 void PropagatedException::init$($RuntimeException* cause) {
-	$RuntimeException::init$(static_cast<$Throwable*>(cause));
+	$RuntimeException::init$(cause);
 }
 
 $RuntimeException* PropagatedException::getCause() {
@@ -56,7 +31,26 @@ void PropagatedException::throw$() {
 }
 
 $Class* PropagatedException::load$($String* name, bool initialize) {
-	$loadClass(PropagatedException, name, initialize, &_PropagatedException_ClassInfo_, allocate$PropagatedException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(PropagatedException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/RuntimeException;)V", nullptr, $PUBLIC, $method(PropagatedException, init$, void, $RuntimeException*)},
+		{"getCause", "()Ljava/lang/RuntimeException;", nullptr, $PUBLIC, $virtualMethod(PropagatedException, getCause, $RuntimeException*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.util.PropagatedException",
+		"java.lang.RuntimeException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(PropagatedException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PropagatedException);
+	});
 	return class$;
 }
 

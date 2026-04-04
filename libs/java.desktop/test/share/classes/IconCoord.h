@@ -11,6 +11,7 @@ class $export IconCoord : public ::java::lang::Object {
 	$class(IconCoord, 0, ::java::lang::Object)
 public:
 	IconCoord();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void createAndShowGUI();
 	static void main($StringArray* args);

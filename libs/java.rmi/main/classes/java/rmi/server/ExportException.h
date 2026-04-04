@@ -21,10 +21,13 @@ public:
 	ExportException();
 	void init$($String* s);
 	void init$($String* s, ::java::lang::Exception* ex);
-	static const int64_t serialVersionUID = (int64_t)0x80F12E97ACC3B976;
+	static const int64_t serialVersionUID = (int64_t)0x80f12e97acc3b976;
 	ExportException(const ExportException& e);
 	virtual void throw$() override;
-	inline ExportException* operator ->() {
+	inline ExportException* operator ->() const {
+		return (ExportException*)throwing$;
+	}
+	inline operator ExportException*() const {
 		return (ExportException*)throwing$;
 	}
 };

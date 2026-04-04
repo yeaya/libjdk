@@ -1,5 +1,4 @@
 #include <java.naming.h>
-
 #include <java.base.h>
 #include <java.security.sasl.h>
 #include <java/lang/ClassEntry.h>
@@ -7,8 +6,6 @@
 #include <java/lang/ModuleInfo.h>
 #include <java/lang/ResourceEntry.h>
 #include <jcpp.h>
-#include <module-info>
-
 #include <com/sun/jndi/ldap/AbstractLdapNamingEnumeration.h>
 #include <com/sun/jndi/ldap/BasicControl.h>
 #include <com/sun/jndi/ldap/Ber.h>
@@ -580,6 +577,7 @@ $bytes* java$naming$GetResource($String* name) {
 void java$naming::init() {
 	::java$base::init();
 	::java$security$sasl::init();
+	#include <module-info.h>
 	::java::lang::Library lib = {
 		"java.naming", "17.35", "",
 		&_java$naming_ModuleInfo_,

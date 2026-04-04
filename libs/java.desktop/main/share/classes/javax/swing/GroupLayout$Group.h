@@ -28,6 +28,7 @@ class $export GroupLayout$Group : public ::javax::swing::GroupLayout$Spring {
 	$class(GroupLayout$Group, 0, ::javax::swing::GroupLayout$Spring)
 public:
 	GroupLayout$Group();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::javax::swing::GroupLayout* this$0);
 	virtual ::javax::swing::GroupLayout$Group* addComponent(::java::awt::Component* component);
 	virtual ::javax::swing::GroupLayout$Group* addComponent(::java::awt::Component* component, int32_t min, int32_t pref, int32_t max);

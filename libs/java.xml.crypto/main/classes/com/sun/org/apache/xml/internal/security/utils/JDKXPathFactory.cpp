@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/security/utils/JDKXPathFactory.h>
-
 #include <com/sun/org/apache/xml/internal/security/utils/JDKXPathAPI.h>
 #include <com/sun/org/apache/xml/internal/security/utils/XPathAPI.h>
 #include <com/sun/org/apache/xml/internal/security/utils/XPathFactory.h>
@@ -20,25 +19,6 @@ namespace com {
 						namespace security {
 							namespace utils {
 
-$MethodInfo _JDKXPathFactory_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(JDKXPathFactory, init$, void)},
-	{"newXPathAPI", "()Lcom/sun/org/apache/xml/internal/security/utils/XPathAPI;", nullptr, $PUBLIC, $virtualMethod(JDKXPathFactory, newXPathAPI, $XPathAPI*)},
-	{}
-};
-
-$ClassInfo _JDKXPathFactory_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.security.utils.JDKXPathFactory",
-	"com.sun.org.apache.xml.internal.security.utils.XPathFactory",
-	nullptr,
-	nullptr,
-	_JDKXPathFactory_MethodInfo_
-};
-
-$Object* allocate$JDKXPathFactory($Class* clazz) {
-	return $of($alloc(JDKXPathFactory));
-}
-
 void JDKXPathFactory::init$() {
 	$XPathFactory::init$();
 }
@@ -51,7 +31,22 @@ JDKXPathFactory::JDKXPathFactory() {
 }
 
 $Class* JDKXPathFactory::load$($String* name, bool initialize) {
-	$loadClass(JDKXPathFactory, name, initialize, &_JDKXPathFactory_ClassInfo_, allocate$JDKXPathFactory);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(JDKXPathFactory, init$, void)},
+		{"newXPathAPI", "()Lcom/sun/org/apache/xml/internal/security/utils/XPathAPI;", nullptr, $PUBLIC, $virtualMethod(JDKXPathFactory, newXPathAPI, $XPathAPI*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.security.utils.JDKXPathFactory",
+		"com.sun.org.apache.xml.internal.security.utils.XPathFactory",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(JDKXPathFactory, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JDKXPathFactory);
+	});
 	return class$;
 }
 

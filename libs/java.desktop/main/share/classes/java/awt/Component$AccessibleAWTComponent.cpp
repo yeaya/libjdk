@@ -1,5 +1,4 @@
 #include <java/awt/Component$AccessibleAWTComponent.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Component$AccessibleAWTComponent$AccessibleAWTComponentHandler.h>
 #include <java/awt/Component$AccessibleAWTComponent$AccessibleAWTFocusHandler.h>
@@ -39,7 +38,6 @@ using $Font = ::java::awt::Font;
 using $FontMetrics = ::java::awt::FontMetrics;
 using $Point = ::java::awt::Point;
 using $Rectangle = ::java::awt::Rectangle;
-using $ComponentListener = ::java::awt::event::ComponentListener;
 using $FocusListener = ::java::awt::event::FocusListener;
 using $PropertyChangeListener = ::java::beans::PropertyChangeListener;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -56,91 +54,6 @@ using $AccessibleStateSet = ::javax::accessibility::AccessibleStateSet;
 
 namespace java {
 	namespace awt {
-
-$FieldInfo _Component$AccessibleAWTComponent_FieldInfo_[] = {
-	{"this$0", "Ljava/awt/Component;", nullptr, $FINAL | $SYNTHETIC, $field(Component$AccessibleAWTComponent, this$0)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Component$AccessibleAWTComponent, serialVersionUID)},
-	{"propertyListenersCount", "I", nullptr, $PRIVATE | $VOLATILE | $TRANSIENT, $field(Component$AccessibleAWTComponent, propertyListenersCount)},
-	{"accessibleAWTComponentHandler", "Ljava/awt/event/ComponentListener;", nullptr, $PROTECTED, $field(Component$AccessibleAWTComponent, accessibleAWTComponentHandler)},
-	{"accessibleAWTFocusHandler", "Ljava/awt/event/FocusListener;", nullptr, $PROTECTED, $field(Component$AccessibleAWTComponent, accessibleAWTFocusHandler)},
-	{}
-};
-
-$MethodInfo _Component$AccessibleAWTComponent_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/awt/Component;)V", nullptr, $PROTECTED, $method(Component$AccessibleAWTComponent, init$, void, $Component*)},
-	{"addFocusListener", "(Ljava/awt/event/FocusListener;)V", nullptr, $PUBLIC, $virtualMethod(Component$AccessibleAWTComponent, addFocusListener, void, $FocusListener*)},
-	{"addPropertyChangeListener", "(Ljava/beans/PropertyChangeListener;)V", nullptr, $PUBLIC, $virtualMethod(Component$AccessibleAWTComponent, addPropertyChangeListener, void, $PropertyChangeListener*)},
-	{"contains", "(Ljava/awt/Point;)Z", nullptr, $PUBLIC, $virtualMethod(Component$AccessibleAWTComponent, contains, bool, $Point*)},
-	{"getAccessibleAt", "(Ljava/awt/Point;)Ljavax/accessibility/Accessible;", nullptr, $PUBLIC, $virtualMethod(Component$AccessibleAWTComponent, getAccessibleAt, $Accessible*, $Point*)},
-	{"getAccessibleChild", "(I)Ljavax/accessibility/Accessible;", nullptr, $PUBLIC, $virtualMethod(Component$AccessibleAWTComponent, getAccessibleChild, $Accessible*, int32_t)},
-	{"getAccessibleChildrenCount", "()I", nullptr, $PUBLIC, $virtualMethod(Component$AccessibleAWTComponent, getAccessibleChildrenCount, int32_t)},
-	{"getAccessibleComponent", "()Ljavax/accessibility/AccessibleComponent;", nullptr, $PUBLIC, $virtualMethod(Component$AccessibleAWTComponent, getAccessibleComponent, $AccessibleComponent*)},
-	{"getAccessibleDescription", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Component$AccessibleAWTComponent, getAccessibleDescription, $String*)},
-	{"getAccessibleIndexInParent", "()I", nullptr, $PUBLIC, $virtualMethod(Component$AccessibleAWTComponent, getAccessibleIndexInParent, int32_t)},
-	{"getAccessibleName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Component$AccessibleAWTComponent, getAccessibleName, $String*)},
-	{"getAccessibleParent", "()Ljavax/accessibility/Accessible;", nullptr, $PUBLIC, $virtualMethod(Component$AccessibleAWTComponent, getAccessibleParent, $Accessible*)},
-	{"getAccessibleRole", "()Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC, $virtualMethod(Component$AccessibleAWTComponent, getAccessibleRole, $AccessibleRole*)},
-	{"getAccessibleStateSet", "()Ljavax/accessibility/AccessibleStateSet;", nullptr, $PUBLIC, $virtualMethod(Component$AccessibleAWTComponent, getAccessibleStateSet, $AccessibleStateSet*)},
-	{"getBackground", "()Ljava/awt/Color;", nullptr, $PUBLIC, $virtualMethod(Component$AccessibleAWTComponent, getBackground, $Color*)},
-	{"getBounds", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(Component$AccessibleAWTComponent, getBounds, $Rectangle*)},
-	{"getCursor", "()Ljava/awt/Cursor;", nullptr, $PUBLIC, $virtualMethod(Component$AccessibleAWTComponent, getCursor, $Cursor*)},
-	{"getFont", "()Ljava/awt/Font;", nullptr, $PUBLIC, $virtualMethod(Component$AccessibleAWTComponent, getFont, $Font*)},
-	{"getFontMetrics", "(Ljava/awt/Font;)Ljava/awt/FontMetrics;", nullptr, $PUBLIC, $virtualMethod(Component$AccessibleAWTComponent, getFontMetrics, $FontMetrics*, $Font*)},
-	{"getForeground", "()Ljava/awt/Color;", nullptr, $PUBLIC, $virtualMethod(Component$AccessibleAWTComponent, getForeground, $Color*)},
-	{"getLocale", "()Ljava/util/Locale;", nullptr, $PUBLIC, $virtualMethod(Component$AccessibleAWTComponent, getLocale, $Locale*)},
-	{"getLocation", "()Ljava/awt/Point;", nullptr, $PUBLIC, $virtualMethod(Component$AccessibleAWTComponent, getLocation, $Point*)},
-	{"getLocationOnScreen", "()Ljava/awt/Point;", nullptr, $PUBLIC, $virtualMethod(Component$AccessibleAWTComponent, getLocationOnScreen, $Point*)},
-	{"getSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(Component$AccessibleAWTComponent, getSize, $Dimension*)},
-	{"isEnabled", "()Z", nullptr, $PUBLIC, $virtualMethod(Component$AccessibleAWTComponent, isEnabled, bool)},
-	{"isFocusTraversable", "()Z", nullptr, $PUBLIC, $virtualMethod(Component$AccessibleAWTComponent, isFocusTraversable, bool)},
-	{"isShowing", "()Z", nullptr, $PUBLIC, $virtualMethod(Component$AccessibleAWTComponent, isShowing, bool)},
-	{"isVisible", "()Z", nullptr, $PUBLIC, $virtualMethod(Component$AccessibleAWTComponent, isVisible, bool)},
-	{"removeFocusListener", "(Ljava/awt/event/FocusListener;)V", nullptr, $PUBLIC, $virtualMethod(Component$AccessibleAWTComponent, removeFocusListener, void, $FocusListener*)},
-	{"removePropertyChangeListener", "(Ljava/beans/PropertyChangeListener;)V", nullptr, $PUBLIC, $virtualMethod(Component$AccessibleAWTComponent, removePropertyChangeListener, void, $PropertyChangeListener*)},
-	{"requestFocus", "()V", nullptr, $PUBLIC, $virtualMethod(Component$AccessibleAWTComponent, requestFocus, void)},
-	{"setBackground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC, $virtualMethod(Component$AccessibleAWTComponent, setBackground, void, $Color*)},
-	{"setBounds", "(Ljava/awt/Rectangle;)V", nullptr, $PUBLIC, $virtualMethod(Component$AccessibleAWTComponent, setBounds, void, $Rectangle*)},
-	{"setCursor", "(Ljava/awt/Cursor;)V", nullptr, $PUBLIC, $virtualMethod(Component$AccessibleAWTComponent, setCursor, void, $Cursor*)},
-	{"setEnabled", "(Z)V", nullptr, $PUBLIC, $virtualMethod(Component$AccessibleAWTComponent, setEnabled, void, bool)},
-	{"setFont", "(Ljava/awt/Font;)V", nullptr, $PUBLIC, $virtualMethod(Component$AccessibleAWTComponent, setFont, void, $Font*)},
-	{"setForeground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC, $virtualMethod(Component$AccessibleAWTComponent, setForeground, void, $Color*)},
-	{"setLocation", "(Ljava/awt/Point;)V", nullptr, $PUBLIC, $virtualMethod(Component$AccessibleAWTComponent, setLocation, void, $Point*)},
-	{"setSize", "(Ljava/awt/Dimension;)V", nullptr, $PUBLIC, $virtualMethod(Component$AccessibleAWTComponent, setSize, void, $Dimension*)},
-	{"setVisible", "(Z)V", nullptr, $PUBLIC, $virtualMethod(Component$AccessibleAWTComponent, setVisible, void, bool)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _Component$AccessibleAWTComponent_InnerClassesInfo_[] = {
-	{"java.awt.Component$AccessibleAWTComponent", "java.awt.Component", "AccessibleAWTComponent", $PROTECTED | $ABSTRACT},
-	{"java.awt.Component$AccessibleAWTComponent$AccessibleAWTFocusHandler", "java.awt.Component$AccessibleAWTComponent", "AccessibleAWTFocusHandler", $PROTECTED},
-	{"java.awt.Component$AccessibleAWTComponent$AccessibleAWTComponentHandler", "java.awt.Component$AccessibleAWTComponent", "AccessibleAWTComponentHandler", $PROTECTED},
-	{}
-};
-
-$ClassInfo _Component$AccessibleAWTComponent_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"java.awt.Component$AccessibleAWTComponent",
-	"javax.accessibility.AccessibleContext",
-	"java.io.Serializable,javax.accessibility.AccessibleComponent",
-	_Component$AccessibleAWTComponent_FieldInfo_,
-	_Component$AccessibleAWTComponent_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Component$AccessibleAWTComponent_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.awt.Component"
-};
-
-$Object* allocate$Component$AccessibleAWTComponent($Class* clazz) {
-	return $of($alloc(Component$AccessibleAWTComponent));
-}
 
 int32_t Component$AccessibleAWTComponent::hashCode() {
 	 return this->$AccessibleContext::hashCode();
@@ -293,7 +206,7 @@ void Component$AccessibleAWTComponent::setEnabled(bool b) {
 			if (b) {
 				$init($AccessibleContext);
 				$init($AccessibleState);
-				$nc(this->this$0->accessibleContext)->firePropertyChange($AccessibleContext::ACCESSIBLE_STATE_PROPERTY, nullptr, $AccessibleState::ENABLED);
+				this->this$0->accessibleContext->firePropertyChange($AccessibleContext::ACCESSIBLE_STATE_PROPERTY, nullptr, $AccessibleState::ENABLED);
 			} else {
 				$init($AccessibleContext);
 				$init($AccessibleState);
@@ -315,7 +228,7 @@ void Component$AccessibleAWTComponent::setVisible(bool b) {
 			if (b) {
 				$init($AccessibleContext);
 				$init($AccessibleState);
-				$nc(this->this$0->accessibleContext)->firePropertyChange($AccessibleContext::ACCESSIBLE_STATE_PROPERTY, nullptr, $AccessibleState::VISIBLE);
+				this->this$0->accessibleContext->firePropertyChange($AccessibleContext::ACCESSIBLE_STATE_PROPERTY, nullptr, $AccessibleState::VISIBLE);
 			} else {
 				$init($AccessibleContext);
 				$init($AccessibleState);
@@ -391,7 +304,86 @@ Component$AccessibleAWTComponent::Component$AccessibleAWTComponent() {
 }
 
 $Class* Component$AccessibleAWTComponent::load$($String* name, bool initialize) {
-	$loadClass(Component$AccessibleAWTComponent, name, initialize, &_Component$AccessibleAWTComponent_ClassInfo_, allocate$Component$AccessibleAWTComponent);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljava/awt/Component;", nullptr, $FINAL | $SYNTHETIC, $field(Component$AccessibleAWTComponent, this$0)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Component$AccessibleAWTComponent, serialVersionUID)},
+		{"propertyListenersCount", "I", nullptr, $PRIVATE | $VOLATILE | $TRANSIENT, $field(Component$AccessibleAWTComponent, propertyListenersCount)},
+		{"accessibleAWTComponentHandler", "Ljava/awt/event/ComponentListener;", nullptr, $PROTECTED, $field(Component$AccessibleAWTComponent, accessibleAWTComponentHandler)},
+		{"accessibleAWTFocusHandler", "Ljava/awt/event/FocusListener;", nullptr, $PROTECTED, $field(Component$AccessibleAWTComponent, accessibleAWTFocusHandler)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/awt/Component;)V", nullptr, $PROTECTED, $method(Component$AccessibleAWTComponent, init$, void, $Component*)},
+		{"addFocusListener", "(Ljava/awt/event/FocusListener;)V", nullptr, $PUBLIC, $virtualMethod(Component$AccessibleAWTComponent, addFocusListener, void, $FocusListener*)},
+		{"addPropertyChangeListener", "(Ljava/beans/PropertyChangeListener;)V", nullptr, $PUBLIC, $virtualMethod(Component$AccessibleAWTComponent, addPropertyChangeListener, void, $PropertyChangeListener*)},
+		{"contains", "(Ljava/awt/Point;)Z", nullptr, $PUBLIC, $virtualMethod(Component$AccessibleAWTComponent, contains, bool, $Point*)},
+		{"getAccessibleAt", "(Ljava/awt/Point;)Ljavax/accessibility/Accessible;", nullptr, $PUBLIC, $virtualMethod(Component$AccessibleAWTComponent, getAccessibleAt, $Accessible*, $Point*)},
+		{"getAccessibleChild", "(I)Ljavax/accessibility/Accessible;", nullptr, $PUBLIC, $virtualMethod(Component$AccessibleAWTComponent, getAccessibleChild, $Accessible*, int32_t)},
+		{"getAccessibleChildrenCount", "()I", nullptr, $PUBLIC, $virtualMethod(Component$AccessibleAWTComponent, getAccessibleChildrenCount, int32_t)},
+		{"getAccessibleComponent", "()Ljavax/accessibility/AccessibleComponent;", nullptr, $PUBLIC, $virtualMethod(Component$AccessibleAWTComponent, getAccessibleComponent, $AccessibleComponent*)},
+		{"getAccessibleDescription", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Component$AccessibleAWTComponent, getAccessibleDescription, $String*)},
+		{"getAccessibleIndexInParent", "()I", nullptr, $PUBLIC, $virtualMethod(Component$AccessibleAWTComponent, getAccessibleIndexInParent, int32_t)},
+		{"getAccessibleName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Component$AccessibleAWTComponent, getAccessibleName, $String*)},
+		{"getAccessibleParent", "()Ljavax/accessibility/Accessible;", nullptr, $PUBLIC, $virtualMethod(Component$AccessibleAWTComponent, getAccessibleParent, $Accessible*)},
+		{"getAccessibleRole", "()Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC, $virtualMethod(Component$AccessibleAWTComponent, getAccessibleRole, $AccessibleRole*)},
+		{"getAccessibleStateSet", "()Ljavax/accessibility/AccessibleStateSet;", nullptr, $PUBLIC, $virtualMethod(Component$AccessibleAWTComponent, getAccessibleStateSet, $AccessibleStateSet*)},
+		{"getBackground", "()Ljava/awt/Color;", nullptr, $PUBLIC, $virtualMethod(Component$AccessibleAWTComponent, getBackground, $Color*)},
+		{"getBounds", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(Component$AccessibleAWTComponent, getBounds, $Rectangle*)},
+		{"getCursor", "()Ljava/awt/Cursor;", nullptr, $PUBLIC, $virtualMethod(Component$AccessibleAWTComponent, getCursor, $Cursor*)},
+		{"getFont", "()Ljava/awt/Font;", nullptr, $PUBLIC, $virtualMethod(Component$AccessibleAWTComponent, getFont, $Font*)},
+		{"getFontMetrics", "(Ljava/awt/Font;)Ljava/awt/FontMetrics;", nullptr, $PUBLIC, $virtualMethod(Component$AccessibleAWTComponent, getFontMetrics, $FontMetrics*, $Font*)},
+		{"getForeground", "()Ljava/awt/Color;", nullptr, $PUBLIC, $virtualMethod(Component$AccessibleAWTComponent, getForeground, $Color*)},
+		{"getLocale", "()Ljava/util/Locale;", nullptr, $PUBLIC, $virtualMethod(Component$AccessibleAWTComponent, getLocale, $Locale*)},
+		{"getLocation", "()Ljava/awt/Point;", nullptr, $PUBLIC, $virtualMethod(Component$AccessibleAWTComponent, getLocation, $Point*)},
+		{"getLocationOnScreen", "()Ljava/awt/Point;", nullptr, $PUBLIC, $virtualMethod(Component$AccessibleAWTComponent, getLocationOnScreen, $Point*)},
+		{"getSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(Component$AccessibleAWTComponent, getSize, $Dimension*)},
+		{"isEnabled", "()Z", nullptr, $PUBLIC, $virtualMethod(Component$AccessibleAWTComponent, isEnabled, bool)},
+		{"isFocusTraversable", "()Z", nullptr, $PUBLIC, $virtualMethod(Component$AccessibleAWTComponent, isFocusTraversable, bool)},
+		{"isShowing", "()Z", nullptr, $PUBLIC, $virtualMethod(Component$AccessibleAWTComponent, isShowing, bool)},
+		{"isVisible", "()Z", nullptr, $PUBLIC, $virtualMethod(Component$AccessibleAWTComponent, isVisible, bool)},
+		{"removeFocusListener", "(Ljava/awt/event/FocusListener;)V", nullptr, $PUBLIC, $virtualMethod(Component$AccessibleAWTComponent, removeFocusListener, void, $FocusListener*)},
+		{"removePropertyChangeListener", "(Ljava/beans/PropertyChangeListener;)V", nullptr, $PUBLIC, $virtualMethod(Component$AccessibleAWTComponent, removePropertyChangeListener, void, $PropertyChangeListener*)},
+		{"requestFocus", "()V", nullptr, $PUBLIC, $virtualMethod(Component$AccessibleAWTComponent, requestFocus, void)},
+		{"setBackground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC, $virtualMethod(Component$AccessibleAWTComponent, setBackground, void, $Color*)},
+		{"setBounds", "(Ljava/awt/Rectangle;)V", nullptr, $PUBLIC, $virtualMethod(Component$AccessibleAWTComponent, setBounds, void, $Rectangle*)},
+		{"setCursor", "(Ljava/awt/Cursor;)V", nullptr, $PUBLIC, $virtualMethod(Component$AccessibleAWTComponent, setCursor, void, $Cursor*)},
+		{"setEnabled", "(Z)V", nullptr, $PUBLIC, $virtualMethod(Component$AccessibleAWTComponent, setEnabled, void, bool)},
+		{"setFont", "(Ljava/awt/Font;)V", nullptr, $PUBLIC, $virtualMethod(Component$AccessibleAWTComponent, setFont, void, $Font*)},
+		{"setForeground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC, $virtualMethod(Component$AccessibleAWTComponent, setForeground, void, $Color*)},
+		{"setLocation", "(Ljava/awt/Point;)V", nullptr, $PUBLIC, $virtualMethod(Component$AccessibleAWTComponent, setLocation, void, $Point*)},
+		{"setSize", "(Ljava/awt/Dimension;)V", nullptr, $PUBLIC, $virtualMethod(Component$AccessibleAWTComponent, setSize, void, $Dimension*)},
+		{"setVisible", "(Z)V", nullptr, $PUBLIC, $virtualMethod(Component$AccessibleAWTComponent, setVisible, void, bool)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.awt.Component$AccessibleAWTComponent", "java.awt.Component", "AccessibleAWTComponent", $PROTECTED | $ABSTRACT},
+		{"java.awt.Component$AccessibleAWTComponent$AccessibleAWTFocusHandler", "java.awt.Component$AccessibleAWTComponent", "AccessibleAWTFocusHandler", $PROTECTED},
+		{"java.awt.Component$AccessibleAWTComponent$AccessibleAWTComponentHandler", "java.awt.Component$AccessibleAWTComponent", "AccessibleAWTComponentHandler", $PROTECTED},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"java.awt.Component$AccessibleAWTComponent",
+		"javax.accessibility.AccessibleContext",
+		"java.io.Serializable,javax.accessibility.AccessibleComponent",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.awt.Component"
+	};
+	$loadClass(Component$AccessibleAWTComponent, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Component$AccessibleAWTComponent));
+	});
 	return class$;
 }
 

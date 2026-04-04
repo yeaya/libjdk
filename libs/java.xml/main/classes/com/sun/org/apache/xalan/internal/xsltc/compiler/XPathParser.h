@@ -83,6 +83,7 @@ class XPathParser : public ::com::sun::java_cup::internal::runtime::lr_parser {
 	$class(XPathParser, 0, ::com::sun::java_cup::internal::runtime::lr_parser)
 public:
 	XPathParser();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(::com::sun::java_cup::internal::runtime::Scanner* s);
 	void init$(::com::sun::org::apache::xalan::internal::xsltc::compiler::Parser* parser);

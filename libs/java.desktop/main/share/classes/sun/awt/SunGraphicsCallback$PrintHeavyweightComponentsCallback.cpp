@@ -1,5 +1,4 @@
 #include <sun/awt/SunGraphicsCallback$PrintHeavyweightComponentsCallback.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <java/awt/Graphics.h>
@@ -21,43 +20,6 @@ using $SunGraphicsCallback = ::sun::awt::SunGraphicsCallback;
 namespace sun {
 	namespace awt {
 
-$FieldInfo _SunGraphicsCallback$PrintHeavyweightComponentsCallback_FieldInfo_[] = {
-	{"instance", "Lsun/awt/SunGraphicsCallback$PrintHeavyweightComponentsCallback;", nullptr, $PRIVATE | $STATIC, $staticField(SunGraphicsCallback$PrintHeavyweightComponentsCallback, instance)},
-	{}
-};
-
-$MethodInfo _SunGraphicsCallback$PrintHeavyweightComponentsCallback_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(SunGraphicsCallback$PrintHeavyweightComponentsCallback, init$, void)},
-	{"getInstance", "()Lsun/awt/SunGraphicsCallback$PrintHeavyweightComponentsCallback;", nullptr, $PUBLIC | $STATIC, $staticMethod(SunGraphicsCallback$PrintHeavyweightComponentsCallback, getInstance, SunGraphicsCallback$PrintHeavyweightComponentsCallback*)},
-	{"run", "(Ljava/awt/Component;Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(SunGraphicsCallback$PrintHeavyweightComponentsCallback, run, void, $Component*, $Graphics*)},
-	{}
-};
-
-$InnerClassInfo _SunGraphicsCallback$PrintHeavyweightComponentsCallback_InnerClassesInfo_[] = {
-	{"sun.awt.SunGraphicsCallback$PrintHeavyweightComponentsCallback", "sun.awt.SunGraphicsCallback", "PrintHeavyweightComponentsCallback", $PUBLIC | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _SunGraphicsCallback$PrintHeavyweightComponentsCallback_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.awt.SunGraphicsCallback$PrintHeavyweightComponentsCallback",
-	"sun.awt.SunGraphicsCallback",
-	nullptr,
-	_SunGraphicsCallback$PrintHeavyweightComponentsCallback_FieldInfo_,
-	_SunGraphicsCallback$PrintHeavyweightComponentsCallback_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SunGraphicsCallback$PrintHeavyweightComponentsCallback_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.awt.SunGraphicsCallback"
-};
-
-$Object* allocate$SunGraphicsCallback$PrintHeavyweightComponentsCallback($Class* clazz) {
-	return $of($alloc(SunGraphicsCallback$PrintHeavyweightComponentsCallback));
-}
-
 SunGraphicsCallback$PrintHeavyweightComponentsCallback* SunGraphicsCallback$PrintHeavyweightComponentsCallback::instance = nullptr;
 
 void SunGraphicsCallback$PrintHeavyweightComponentsCallback::init$() {
@@ -68,7 +30,7 @@ void SunGraphicsCallback$PrintHeavyweightComponentsCallback::run($Component* com
 	if (!$nc(comp)->isLightweight()) {
 		comp->printAll(cg);
 	} else if ($instanceOf($Container, comp)) {
-		runComponents($($nc(($cast($Container, comp)))->getComponents()), cg, $SunGraphicsCallback::LIGHTWEIGHTS | $SunGraphicsCallback::HEAVYWEIGHTS);
+		runComponents($($cast($Container, comp)->getComponents()), cg, $SunGraphicsCallback::LIGHTWEIGHTS | $SunGraphicsCallback::HEAVYWEIGHTS);
 	}
 }
 
@@ -77,7 +39,7 @@ SunGraphicsCallback$PrintHeavyweightComponentsCallback* SunGraphicsCallback$Prin
 	return SunGraphicsCallback$PrintHeavyweightComponentsCallback::instance;
 }
 
-void clinit$SunGraphicsCallback$PrintHeavyweightComponentsCallback($Class* class$) {
+void SunGraphicsCallback$PrintHeavyweightComponentsCallback::clinit$($Class* clazz) {
 	$assignStatic(SunGraphicsCallback$PrintHeavyweightComponentsCallback::instance, $new(SunGraphicsCallback$PrintHeavyweightComponentsCallback));
 }
 
@@ -85,7 +47,38 @@ SunGraphicsCallback$PrintHeavyweightComponentsCallback::SunGraphicsCallback$Prin
 }
 
 $Class* SunGraphicsCallback$PrintHeavyweightComponentsCallback::load$($String* name, bool initialize) {
-	$loadClass(SunGraphicsCallback$PrintHeavyweightComponentsCallback, name, initialize, &_SunGraphicsCallback$PrintHeavyweightComponentsCallback_ClassInfo_, clinit$SunGraphicsCallback$PrintHeavyweightComponentsCallback, allocate$SunGraphicsCallback$PrintHeavyweightComponentsCallback);
+	$FieldInfo fieldInfos$$[] = {
+		{"instance", "Lsun/awt/SunGraphicsCallback$PrintHeavyweightComponentsCallback;", nullptr, $PRIVATE | $STATIC, $staticField(SunGraphicsCallback$PrintHeavyweightComponentsCallback, instance)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(SunGraphicsCallback$PrintHeavyweightComponentsCallback, init$, void)},
+		{"getInstance", "()Lsun/awt/SunGraphicsCallback$PrintHeavyweightComponentsCallback;", nullptr, $PUBLIC | $STATIC, $staticMethod(SunGraphicsCallback$PrintHeavyweightComponentsCallback, getInstance, SunGraphicsCallback$PrintHeavyweightComponentsCallback*)},
+		{"run", "(Ljava/awt/Component;Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(SunGraphicsCallback$PrintHeavyweightComponentsCallback, run, void, $Component*, $Graphics*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.SunGraphicsCallback$PrintHeavyweightComponentsCallback", "sun.awt.SunGraphicsCallback", "PrintHeavyweightComponentsCallback", $PUBLIC | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.awt.SunGraphicsCallback$PrintHeavyweightComponentsCallback",
+		"sun.awt.SunGraphicsCallback",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.awt.SunGraphicsCallback"
+	};
+	$loadClass(SunGraphicsCallback$PrintHeavyweightComponentsCallback, name, initialize, &classInfo$$, SunGraphicsCallback$PrintHeavyweightComponentsCallback::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(SunGraphicsCallback$PrintHeavyweightComponentsCallback);
+	});
 	return class$;
 }
 

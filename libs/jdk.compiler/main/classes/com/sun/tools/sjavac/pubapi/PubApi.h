@@ -65,6 +65,7 @@ class PubApi : public ::java::io::Serializable {
 	$class(PubApi, 0, ::java::io::Serializable)
 public:
 	PubApi();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(::java::util::Collection* types, ::java::util::Collection* variables, ::java::util::Collection* methods);
 	virtual void addPubMethod(::com::sun::tools::sjavac::pubapi::PubMethod* m);
@@ -96,7 +97,7 @@ public:
 	virtual $String* toString() override;
 	static $String* typeLine(::com::sun::tools::sjavac::pubapi::PubType* type);
 	static $String* varLine(::com::sun::tools::sjavac::pubapi::PubVar* var);
-	static const int64_t serialVersionUID = (int64_t)0x523F9C2C15DA5722;
+	static const int64_t serialVersionUID = (int64_t)0x523f9c2c15da5722;
 	::java::util::Map* types = nullptr;
 	::java::util::Map* variables = nullptr;
 	::java::util::Map* methods = nullptr;

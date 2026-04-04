@@ -1,5 +1,4 @@
 #include <sun/security/krb5/internal/ReferralsCache$ReferralCacheEntry.h>
-
 #include <sun/security/krb5/Credentials.h>
 #include <sun/security/krb5/internal/ReferralsCache.h>
 #include <jcpp.h>
@@ -14,44 +13,6 @@ namespace sun {
 	namespace security {
 		namespace krb5 {
 			namespace internal {
-
-$FieldInfo _ReferralsCache$ReferralCacheEntry_FieldInfo_[] = {
-	{"creds", "Lsun/security/krb5/Credentials;", nullptr, $PRIVATE | $FINAL, $field(ReferralsCache$ReferralCacheEntry, creds)},
-	{"toRealm", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(ReferralsCache$ReferralCacheEntry, toRealm)},
-	{}
-};
-
-$MethodInfo _ReferralsCache$ReferralCacheEntry_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/krb5/Credentials;Ljava/lang/String;)V", nullptr, 0, $method(ReferralsCache$ReferralCacheEntry, init$, void, $Credentials*, $String*)},
-	{"getCreds", "()Lsun/security/krb5/Credentials;", nullptr, 0, $method(ReferralsCache$ReferralCacheEntry, getCreds, $Credentials*)},
-	{"getToRealm", "()Ljava/lang/String;", nullptr, 0, $method(ReferralsCache$ReferralCacheEntry, getToRealm, $String*)},
-	{}
-};
-
-$InnerClassInfo _ReferralsCache$ReferralCacheEntry_InnerClassesInfo_[] = {
-	{"sun.security.krb5.internal.ReferralsCache$ReferralCacheEntry", "sun.security.krb5.internal.ReferralsCache", "ReferralCacheEntry", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _ReferralsCache$ReferralCacheEntry_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.krb5.internal.ReferralsCache$ReferralCacheEntry",
-	"java.lang.Object",
-	nullptr,
-	_ReferralsCache$ReferralCacheEntry_FieldInfo_,
-	_ReferralsCache$ReferralCacheEntry_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ReferralsCache$ReferralCacheEntry_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.krb5.internal.ReferralsCache"
-};
-
-$Object* allocate$ReferralsCache$ReferralCacheEntry($Class* clazz) {
-	return $of($alloc(ReferralsCache$ReferralCacheEntry));
-}
 
 void ReferralsCache$ReferralCacheEntry::init$($Credentials* creds, $String* toRealm) {
 	$set(this, creds, creds);
@@ -70,7 +31,39 @@ ReferralsCache$ReferralCacheEntry::ReferralsCache$ReferralCacheEntry() {
 }
 
 $Class* ReferralsCache$ReferralCacheEntry::load$($String* name, bool initialize) {
-	$loadClass(ReferralsCache$ReferralCacheEntry, name, initialize, &_ReferralsCache$ReferralCacheEntry_ClassInfo_, allocate$ReferralsCache$ReferralCacheEntry);
+	$FieldInfo fieldInfos$$[] = {
+		{"creds", "Lsun/security/krb5/Credentials;", nullptr, $PRIVATE | $FINAL, $field(ReferralsCache$ReferralCacheEntry, creds)},
+		{"toRealm", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(ReferralsCache$ReferralCacheEntry, toRealm)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/security/krb5/Credentials;Ljava/lang/String;)V", nullptr, 0, $method(ReferralsCache$ReferralCacheEntry, init$, void, $Credentials*, $String*)},
+		{"getCreds", "()Lsun/security/krb5/Credentials;", nullptr, 0, $method(ReferralsCache$ReferralCacheEntry, getCreds, $Credentials*)},
+		{"getToRealm", "()Ljava/lang/String;", nullptr, 0, $method(ReferralsCache$ReferralCacheEntry, getToRealm, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.krb5.internal.ReferralsCache$ReferralCacheEntry", "sun.security.krb5.internal.ReferralsCache", "ReferralCacheEntry", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.krb5.internal.ReferralsCache$ReferralCacheEntry",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.krb5.internal.ReferralsCache"
+	};
+	$loadClass(ReferralsCache$ReferralCacheEntry, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ReferralsCache$ReferralCacheEntry);
+	});
 	return class$;
 }
 

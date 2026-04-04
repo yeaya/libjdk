@@ -1,8 +1,5 @@
 #include <sun/awt/X11/XIconWindow.h>
-
 #include <java/awt/AlphaComposite.h>
-#include <java/awt/Color.h>
-#include <java/awt/Composite.h>
 #include <java/awt/Dimension.h>
 #include <java/awt/Graphics.h>
 #include <java/awt/Graphics2D.h>
@@ -70,13 +67,10 @@
 
 using $XIconSizeArray = $Array<::sun::awt::X11::XIconSize>;
 using $AlphaComposite = ::java::awt::AlphaComposite;
-using $Color = ::java::awt::Color;
-using $Composite = ::java::awt::Composite;
 using $Dimension = ::java::awt::Dimension;
 using $Graphics = ::java::awt::Graphics;
 using $Graphics2D = ::java::awt::Graphics2D;
 using $GraphicsConfiguration = ::java::awt::GraphicsConfiguration;
-using $GraphicsDevice = ::java::awt::GraphicsDevice;
 using $Image = ::java::awt::Image;
 using $Rectangle = ::java::awt::Rectangle;
 using $SystemColor = ::java::awt::SystemColor;
@@ -87,7 +81,6 @@ using $DataBufferByte = ::java::awt::image::DataBufferByte;
 using $DataBufferInt = ::java::awt::image::DataBufferInt;
 using $DataBufferUShort = ::java::awt::image::DataBufferUShort;
 using $ImageObserver = ::java::awt::image::ImageObserver;
-using $Raster = ::java::awt::image::Raster;
 using $WritableRaster = ::java::awt::image::WritableRaster;
 using $Boolean = ::java::lang::Boolean;
 using $Byte = ::java::lang::Byte;
@@ -110,7 +103,6 @@ using $XConstants = ::sun::awt::X11::XConstants;
 using $XCreateWindowParams = ::sun::awt::X11::XCreateWindowParams;
 using $XDecoratedPeer = ::sun::awt::X11::XDecoratedPeer;
 using $XIconSize = ::sun::awt::X11::XIconSize;
-using $XPixmapFormatValues = ::sun::awt::X11::XPixmapFormatValues;
 using $XToolkit = ::sun::awt::X11::XToolkit;
 using $XUtilConstants = ::sun::awt::X11::XUtilConstants;
 using $XVisualInfo = ::sun::awt::X11::XVisualInfo;
@@ -127,55 +119,16 @@ namespace sun {
 	namespace awt {
 		namespace X11 {
 
-$FieldInfo _XIconWindow_FieldInfo_[] = {
-	{"log", "Lsun/util/logging/PlatformLogger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XIconWindow, log)},
-	{"parent", "Lsun/awt/X11/XDecoratedPeer;", nullptr, 0, $field(XIconWindow, parent)},
-	{"size", "Ljava/awt/Dimension;", nullptr, 0, $field(XIconWindow, size)},
-	{"iconPixmap", "J", nullptr, 0, $field(XIconWindow, iconPixmap)},
-	{"iconMask", "J", nullptr, 0, $field(XIconWindow, iconMask)},
-	{"iconWidth", "I", nullptr, 0, $field(XIconWindow, iconWidth)},
-	{"iconHeight", "I", nullptr, 0, $field(XIconWindow, iconHeight)},
-	{}
-};
-
-$MethodInfo _XIconWindow_MethodInfo_[] = {
-	{"<init>", "(Lsun/awt/X11/XDecoratedPeer;)V", nullptr, 0, $method(XIconWindow, init$, void, $XDecoratedPeer*)},
-	{"calcIconSize", "(II)Ljava/awt/Dimension;", nullptr, $PRIVATE, $method(XIconWindow, calcIconSize, $Dimension*, int32_t, int32_t)},
-	{"getIconSize", "(II)Ljava/awt/Dimension;", nullptr, 0, $virtualMethod(XIconWindow, getIconSize, $Dimension*, int32_t, int32_t)},
-	{"getIconSizes", "()[Lsun/awt/X11/XIconSize;", nullptr, $PRIVATE, $method(XIconWindow, getIconSizes, $XIconSizeArray*)},
-	{"instantPreInit", "(Lsun/awt/X11/XCreateWindowParams;)V", nullptr, 0, $virtualMethod(XIconWindow, instantPreInit, void, $XCreateWindowParams*)},
-	{"paddedwidth", "(II)I", nullptr, $STATIC, $staticMethod(XIconWindow, paddedwidth, int32_t, int32_t, int32_t)},
-	{"replaceImage", "(Ljava/awt/Image;)V", nullptr, 0, $virtualMethod(XIconWindow, replaceImage, void, $Image*)},
-	{"replaceMask", "(Ljava/awt/Image;)V", nullptr, 0, $virtualMethod(XIconWindow, replaceMask, void, $Image*)},
-	{"setIconImage", "(Ljava/awt/Image;)V", nullptr, 0, $virtualMethod(XIconWindow, setIconImage, void, $Image*)},
-	{"setIconImages", "(Ljava/util/List;)V", "(Ljava/util/List<Lsun/awt/IconInfo;>;)V", 0, $virtualMethod(XIconWindow, setIconImages, void, $List*)},
-	{}
-};
-
-$ClassInfo _XIconWindow_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.awt.X11.XIconWindow",
-	"sun.awt.X11.XBaseWindow",
-	nullptr,
-	_XIconWindow_FieldInfo_,
-	_XIconWindow_MethodInfo_
-};
-
-$Object* allocate$XIconWindow($Class* clazz) {
-	return $of($alloc(XIconWindow));
-}
-
 $PlatformLogger* XIconWindow::log = nullptr;
 
 void XIconWindow::init$($XDecoratedPeer* parent) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($XBaseWindow);
-	$init($Boolean);
 	$XBaseWindow::init$($$new($XCreateWindowParams, $$new($ObjectArray, {
-		$of($XBaseWindow::PARENT),
-		$of(parent),
-		$of($XBaseWindow::DELAYED),
-		$of($Boolean::TRUE)
+		$XBaseWindow::PARENT,
+		parent,
+		$XBaseWindow::DELAYED,
+		$Boolean::TRUE
 	})));
 	this->iconPixmap = 0;
 	this->iconMask = 0;
@@ -189,65 +142,63 @@ void XIconWindow::instantPreInit($XCreateWindowParams* params) {
 }
 
 $XIconSizeArray* XIconWindow::getIconSizes() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$XToolkit::awtLock();
-	{
-		$var($Throwable, var$0, nullptr);
-		$var($XIconSizeArray, var$2, nullptr);
-		bool return$1 = false;
-		try {
-			$var($AwtGraphicsConfigData, adata, $nc(this->parent)->getGraphicsConfigurationData());
-			int64_t screen = $nc($($nc(adata)->get_awt_visInfo()))->get_screen();
-			int64_t display = $XToolkit::getDisplay();
-			$init($PlatformLogger$Level);
-			if ($nc(XIconWindow::log)->isLoggable($PlatformLogger$Level::FINEST)) {
-				$nc(XIconWindow::log)->finest($(adata->toString()));
-			}
-			$init($XlibWrapper);
-			int64_t status = $XlibWrapper::XGetIconSizes(display, $XToolkit::getDefaultRootWindow(), $XlibWrapper::larg1, $XlibWrapper::iarg1);
-			if (status == 0) {
-				$assign(var$2, nullptr);
-				return$1 = true;
-				goto $finally;
-			}
-			int32_t count = $Native::getInt($XlibWrapper::iarg1);
-			int64_t sizes_ptr = $Native::getLong($XlibWrapper::larg1);
-			if ($nc(XIconWindow::log)->isLoggable($PlatformLogger$Level::FINEST)) {
-				$nc(XIconWindow::log)->finest("count = {1}, sizes_ptr = {0}"_s, $$new($ObjectArray, {
-					$($of($Long::valueOf(sizes_ptr))),
-					$($of($Integer::valueOf(count)))
-				}));
-			}
-			$var($XIconSizeArray, res, $new($XIconSizeArray, count));
-			for (int32_t i = 0; i < count; ++i, sizes_ptr += $XIconSize::getSize()) {
-				res->set(i, $$new($XIconSize, sizes_ptr));
-				if ($nc(XIconWindow::log)->isLoggable($PlatformLogger$Level::FINEST)) {
-					$nc(XIconWindow::log)->finest("sizes_ptr[{1}] = {0}"_s, $$new($ObjectArray, {
-						$of(res->get(i)),
-						$($of($Integer::valueOf(i)))
-					}));
-				}
-			}
-			$assign(var$2, res);
+	$var($Throwable, var$0, nullptr);
+	$var($XIconSizeArray, var$2, nullptr);
+	bool return$1 = false;
+	try {
+		$var($AwtGraphicsConfigData, adata, $nc(this->parent)->getGraphicsConfigurationData());
+		int64_t screen = $$nc($nc(adata)->get_awt_visInfo())->get_screen();
+		int64_t display = $XToolkit::getDisplay();
+		$init($PlatformLogger$Level);
+		if ($nc(XIconWindow::log)->isLoggable($PlatformLogger$Level::FINEST)) {
+			XIconWindow::log->finest($(adata->toString()));
+		}
+		$init($XlibWrapper);
+		int64_t status = $XlibWrapper::XGetIconSizes(display, $XToolkit::getDefaultRootWindow(), $XlibWrapper::larg1, $XlibWrapper::iarg1);
+		if (status == 0) {
+			$assign(var$2, nullptr);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			$XToolkit::awtUnlock();
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+		int32_t count = $Native::getInt($XlibWrapper::iarg1);
+		int64_t sizes_ptr = $Native::getLong($XlibWrapper::larg1);
+		if (XIconWindow::log->isLoggable($PlatformLogger$Level::FINEST)) {
+			XIconWindow::log->finest("count = {1}, sizes_ptr = {0}"_s, $$new($ObjectArray, {
+				$($Long::valueOf(sizes_ptr)),
+				$($Integer::valueOf(count))
+			}));
 		}
-		if (return$1) {
-			return var$2;
+		$var($XIconSizeArray, res, $new($XIconSizeArray, count));
+		for (int32_t i = 0; i < count; ++i, sizes_ptr += $XIconSize::getSize()) {
+			res->set(i, $$new($XIconSize, sizes_ptr));
+			if (XIconWindow::log->isLoggable($PlatformLogger$Level::FINEST)) {
+				XIconWindow::log->finest("sizes_ptr[{1}] = {0}"_s, $$new($ObjectArray, {
+					res->get(i),
+					$($Integer::valueOf(i))
+				}));
+			}
 		}
+		$assign(var$2, res);
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		$XToolkit::awtUnlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
 
 $Dimension* XIconWindow::calcIconSize(int32_t widthHint, int32_t heightHint) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($XWM::getWMID() == $XWM::ICE_WM) {
 		$nc(XIconWindow::log)->finest("Returning ICE_WM icon size: 16x16"_s);
 		return $new($Dimension, 16, 16);
@@ -255,7 +206,7 @@ $Dimension* XIconWindow::calcIconSize(int32_t widthHint, int32_t heightHint) {
 	$var($XIconSizeArray, sizeList, getIconSizes());
 	$init($PlatformLogger$Level);
 	if ($nc(XIconWindow::log)->isLoggable($PlatformLogger$Level::FINEST)) {
-		$nc(XIconWindow::log)->finest("Icon sizes: {0}"_s, sizeList);
+		XIconWindow::log->finest("Icon sizes: {0}"_s, $cast($ObjectArray, sizeList));
 	}
 	if (sizeList == nullptr) {
 		return $new($Dimension, 16, 16);
@@ -274,11 +225,11 @@ $Dimension* XIconWindow::calcIconSize(int32_t widthHint, int32_t heightHint) {
 		bool var$0 = var$1 && heightHint >= $nc(sizeList->get(i))->get_min_height();
 		if (var$0 && heightHint <= $nc(sizeList->get(i))->get_max_height()) {
 			found = true;
-			int32_t var$4 = (widthHint - $nc(sizeList->get(i))->get_min_width());
-			bool var$3 = (($mod(var$4, $nc(sizeList->get(i))->get_width_inc())) == 0);
+			int32_t var$4 = widthHint - $nc(sizeList->get(i))->get_min_width();
+			bool var$3 = ($mod(var$4, $nc(sizeList->get(i))->get_width_inc())) == 0;
 			if (var$3) {
-				int32_t var$5 = (heightHint - $nc(sizeList->get(i))->get_min_height());
-				var$3 = (($mod(var$5, $nc(sizeList->get(i))->get_height_inc())) == 0);
+				int32_t var$5 = heightHint - $nc(sizeList->get(i))->get_min_height();
+				var$3 = ($mod(var$5, $nc(sizeList->get(i))->get_height_inc())) == 0;
 			}
 			if (var$3) {
 				saveWidth = widthHint;
@@ -308,24 +259,36 @@ $Dimension* XIconWindow::calcIconSize(int32_t widthHint, int32_t heightHint) {
 			}
 		}
 	}
-	if ($nc(XIconWindow::log)->isLoggable($PlatformLogger$Level::FINEST)) {
-		$nc(XIconWindow::log)->finest($$str({"found="_s, $$str(found)}));
+	if (XIconWindow::log->isLoggable($PlatformLogger$Level::FINEST)) {
+		XIconWindow::log->finest($$str({"found="_s, $$str(found)}));
 	}
 	if (!found) {
-		if ($nc(XIconWindow::log)->isLoggable($PlatformLogger$Level::FINEST)) {
-			$var($String, var$10, $$str({"widthHint="_s, $$str(widthHint), ", heightHint="_s, $$str(heightHint), ", saveWidth="_s, $$str(saveWidth), ", saveHeight="_s, $$str(saveHeight), ", max_width="_s, $$str($nc($nc(sizeList)->get(0))->get_max_width()), ", max_height="_s}));
-			$var($String, var$9, $$concat(var$10, $$str($nc(sizeList->get(0))->get_max_height())));
-			$var($String, var$8, $$concat(var$9, ", min_width="_s));
-			$var($String, var$7, $$concat(var$8, $$str($nc(sizeList->get(0))->get_min_width())));
-			$var($String, var$6, $$concat(var$7, ", min_height="_s));
-			$nc(XIconWindow::log)->finest($$concat(var$6, $$str($nc(sizeList->get(0))->get_min_height())));
+		if (XIconWindow::log->isLoggable($PlatformLogger$Level::FINEST)) {
+			$var($StringBuilder, var$6, $new($StringBuilder));
+			var$6->append("widthHint="_s);
+			var$6->append(widthHint);
+			var$6->append(", heightHint="_s);
+			var$6->append(heightHint);
+			var$6->append(", saveWidth="_s);
+			var$6->append(saveWidth);
+			var$6->append(", saveHeight="_s);
+			var$6->append(saveHeight);
+			var$6->append(", max_width="_s);
+			var$6->append($nc(sizeList->get(0))->get_max_width());
+			var$6->append(", max_height="_s);
+			var$6->append($nc(sizeList->get(0))->get_max_height());
+			var$6->append(", min_width="_s);
+			var$6->append($nc(sizeList->get(0))->get_min_width());
+			var$6->append(", min_height="_s);
+			var$6->append($nc(sizeList->get(0))->get_min_height());
+			XIconWindow::log->finest($$str(var$6));
 		}
-		bool var$11 = widthHint > $nc($nc(sizeList)->get(0))->get_max_width();
-		if (var$11 || heightHint > $nc($nc(sizeList)->get(0))->get_max_height()) {
+		bool var$7 = widthHint > $nc(sizeList->get(0))->get_max_width();
+		if (var$7 || heightHint > $nc(sizeList->get(0))->get_max_height()) {
 			int32_t wdiff = widthHint - $nc(sizeList->get(0))->get_max_width();
 			int32_t hdiff = heightHint - $nc(sizeList->get(0))->get_max_height();
-			if ($nc(XIconWindow::log)->isLoggable($PlatformLogger$Level::FINEST)) {
-				$nc(XIconWindow::log)->finest($$str({"wdiff="_s, $$str(wdiff), ", hdiff="_s, $$str(hdiff)}));
+			if (XIconWindow::log->isLoggable($PlatformLogger$Level::FINEST)) {
+				XIconWindow::log->finest($$str({"wdiff="_s, $$str(wdiff), ", hdiff="_s, $$str(hdiff)}));
 			}
 			if (wdiff >= hdiff) {
 				saveWidth = $nc(sizeList->get(0))->get_max_width();
@@ -335,12 +298,12 @@ $Dimension* XIconWindow::calcIconSize(int32_t widthHint, int32_t heightHint) {
 				saveHeight = $nc(sizeList->get(0))->get_max_height();
 			}
 		} else {
-			bool var$13 = widthHint < $nc(sizeList->get(0))->get_min_width();
-			if (var$13 || heightHint < $nc(sizeList->get(0))->get_min_height()) {
-				int32_t var$14 = $nc(sizeList->get(0))->get_min_width();
-				saveWidth = (var$14 + $nc(sizeList->get(0))->get_max_width()) / 2;
-				int32_t var$15 = $nc(sizeList->get(0))->get_min_height();
-				saveHeight = (var$15 + $nc(sizeList->get(0))->get_max_height()) / 2;
+			bool var$8 = widthHint < $nc(sizeList->get(0))->get_min_width();
+			if (var$8 || heightHint < $nc(sizeList->get(0))->get_min_height()) {
+				int32_t var$9 = $nc(sizeList->get(0))->get_min_width();
+				saveWidth = (var$9 + $nc(sizeList->get(0))->get_max_width()) / 2;
+				int32_t var$10 = $nc(sizeList->get(0))->get_min_height();
+				saveHeight = (var$10 + $nc(sizeList->get(0))->get_max_height()) / 2;
 			} else {
 				saveWidth = widthHint;
 				saveHeight = widthHint;
@@ -348,21 +311,19 @@ $Dimension* XIconWindow::calcIconSize(int32_t widthHint, int32_t heightHint) {
 		}
 	}
 	$XToolkit::awtLock();
-	{
-		$var($Throwable, var$16, nullptr);
-		try {
-			$XlibWrapper::XFree($nc($nc(sizeList)->get(0))->pData);
-		} catch ($Throwable& var$17) {
-			$assign(var$16, var$17);
-		} /*finally*/ {
-			$XToolkit::awtUnlock();
-		}
-		if (var$16 != nullptr) {
-			$throw(var$16);
-		}
+	$var($Throwable, var$11, nullptr);
+	try {
+		$XlibWrapper::XFree($nc(sizeList->get(0))->pData);
+	} catch ($Throwable& var$12) {
+		$assign(var$11, var$12);
+	} /*finally*/ {
+		$XToolkit::awtUnlock();
 	}
-	if ($nc(XIconWindow::log)->isLoggable($PlatformLogger$Level::FINEST)) {
-		$nc(XIconWindow::log)->finest($$str({"return "_s, $$str(saveWidth), "x"_s, $$str(saveHeight)}));
+	if (var$11 != nullptr) {
+		$throw(var$11);
+	}
+	if (XIconWindow::log->isLoggable($PlatformLogger$Level::FINEST)) {
+		XIconWindow::log->finest($$str({"return "_s, $$str(saveWidth), "x"_s, $$str(saveHeight)}));
 	}
 	return $new($Dimension, saveWidth, saveHeight);
 }
@@ -375,143 +336,137 @@ $Dimension* XIconWindow::getIconSize(int32_t widthHint, int32_t heightHint) {
 }
 
 void XIconWindow::replaceImage($Image* img) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->parent == nullptr) {
 		return;
 	}
 	$var($BufferedImage, bi, nullptr);
 	if (img != nullptr && this->iconWidth != 0 && this->iconHeight != 0) {
-		$var($GraphicsConfiguration, defaultGC, $nc($($nc($($nc(this->parent)->getGraphicsConfiguration()))->getDevice()))->getDefaultConfiguration());
+		$var($GraphicsConfiguration, defaultGC, $$nc($$nc($nc(this->parent)->getGraphicsConfiguration())->getDevice())->getDefaultConfiguration());
 		$var($ColorModel, model, $nc(defaultGC)->getColorModel());
 		$var($WritableRaster, raster, $nc(model)->createCompatibleWritableRaster(this->iconWidth, this->iconHeight));
-		$assign(bi, $new($BufferedImage, model, raster, model->isAlphaPremultiplied(), ($Hashtable*)nullptr));
+		$assign(bi, $new($BufferedImage, model, raster, model->isAlphaPremultiplied(), nullptr));
 		$var($Graphics, g, bi->getGraphics());
-		{
-			$var($Throwable, var$0, nullptr);
-			try {
-				$init($SystemColor);
-				$nc(g)->setColor($SystemColor::window);
-				g->fillRect(0, 0, this->iconWidth, this->iconHeight);
-				if ($instanceOf($Graphics2D, g)) {
-					$init($AlphaComposite);
-					$nc(($cast($Graphics2D, g)))->setComposite($AlphaComposite::Src);
-				}
-				g->drawImage(img, 0, 0, this->iconWidth, this->iconHeight, nullptr);
-			} catch ($Throwable& var$1) {
-				$assign(var$0, var$1);
-			} /*finally*/ {
-				$nc(g)->dispose();
+		$var($Throwable, var$0, nullptr);
+		try {
+			$init($SystemColor);
+			$nc(g)->setColor($SystemColor::window);
+			g->fillRect(0, 0, this->iconWidth, this->iconHeight);
+			if ($instanceOf($Graphics2D, g)) {
+				$init($AlphaComposite);
+				$cast($Graphics2D, g)->setComposite($AlphaComposite::Src);
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
+			g->drawImage(img, 0, 0, this->iconWidth, this->iconHeight, nullptr);
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
+		} /*finally*/ {
+			$nc(g)->dispose();
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	}
 	$XToolkit::awtLock();
-	{
-		$var($Throwable, var$2, nullptr);
-		bool return$3 = false;
+	$var($Throwable, var$2, nullptr);
+	bool return$3 = false;
+	try {
+		if (this->iconPixmap != 0) {
+			$XlibWrapper::XFreePixmap($XToolkit::getDisplay(), this->iconPixmap);
+			this->iconPixmap = 0;
+			$nc(XIconWindow::log)->finest("Freed previous pixmap"_s);
+		}
+		if (bi == nullptr || this->iconWidth == 0 || this->iconHeight == 0) {
+			return$3 = true;
+			goto $finally1;
+		}
+		$var($AwtGraphicsConfigData, adata, $nc(this->parent)->getGraphicsConfigurationData());
+		$var($awtImageData, awtImage, $nc(adata)->get_awtImage(0));
+		$var($XVisualInfo, visInfo, adata->get_awt_visInfo());
+		int64_t var$4 = $XToolkit::getDisplay();
+		int64_t var$6 = $XToolkit::getDisplay();
+		int64_t var$5 = $XlibWrapper::RootWindow(var$6, $nc(visInfo)->get_screen());
+		int32_t var$7 = this->iconWidth;
+		int32_t var$8 = this->iconHeight;
+		this->iconPixmap = $XlibWrapper::XCreatePixmap(var$4, var$5, var$7, var$8, $nc(awtImage)->get_Depth());
+		if (this->iconPixmap == 0) {
+			$nc(XIconWindow::log)->finest("Can\'t create new pixmap for icon"_s);
+			return$3 = true;
+			goto $finally1;
+		}
+		int64_t bytes = 0;
+		$var($DataBuffer, srcBuf, $$nc($nc(bi)->getData())->getDataBuffer());
+		if ($instanceOf($DataBufferByte, srcBuf)) {
+			$var($bytes, buf, $cast($DataBufferByte, srcBuf)->getData());
+			$var($ColorData, cdata, adata->get_color_data(0));
+			int32_t num_colors = $nc(cdata)->get_awt_numICMcolors();
+			for (int32_t i = 0; i < $nc(buf)->length; ++i) {
+				int32_t b = $Byte::toUnsignedInt(buf->get(i));
+				buf->set(i, (b >= num_colors) ? 0 : cdata->get_awt_icmLUT2Colors(b));
+			}
+			bytes = $Native::toData(buf);
+		} else if ($instanceOf($DataBufferInt, srcBuf)) {
+			bytes = $Native::toData($($cast($DataBufferInt, srcBuf)->getData()));
+		} else if ($instanceOf($DataBufferUShort, srcBuf)) {
+			bytes = $Native::toData($($cast($DataBufferUShort, srcBuf)->getData()));
+		} else {
+			$throwNew($IllegalArgumentException, $$str({"Unknown data buffer: "_s, srcBuf}));
+		}
+		int32_t bpp = $$nc(awtImage->get_wsImageFormat())->get_bits_per_pixel();
+		int32_t slp = $$nc(awtImage->get_wsImageFormat())->get_scanline_pad();
+		int32_t bpsl = paddedwidth(this->iconWidth * bpp, slp) >> 3;
+		if (($div((bpsl << 3), bpp)) < this->iconWidth) {
+			$nc(XIconWindow::log)->finest("Image format doesn\'t fit to icon width"_s);
+			return$3 = true;
+			goto $finally1;
+		}
+		int64_t var$9 = $XToolkit::getDisplay();
+		int64_t var$10 = visInfo->get_visual();
+		int64_t dst = $XlibWrapper::XCreateImage(var$9, var$10, awtImage->get_Depth(), $XConstants::ZPixmap, 0, bytes, this->iconWidth, this->iconHeight, 32, bpsl);
+		if (dst == 0) {
+			$nc(XIconWindow::log)->finest("Can\'t create XImage for icon"_s);
+			$XlibWrapper::XFreePixmap($XToolkit::getDisplay(), this->iconPixmap);
+			this->iconPixmap = 0;
+			return$3 = true;
+			goto $finally1;
+		} else {
+			$nc(XIconWindow::log)->finest("Created XImage for icon"_s);
+		}
+		int64_t gc = $XlibWrapper::XCreateGC($XToolkit::getDisplay(), this->iconPixmap, 0, 0);
+		if (gc == 0) {
+			$nc(XIconWindow::log)->finest("Can\'t create GC for pixmap"_s);
+			$XlibWrapper::XFreePixmap($XToolkit::getDisplay(), this->iconPixmap);
+			this->iconPixmap = 0;
+			return$3 = true;
+			goto $finally1;
+		} else {
+			$nc(XIconWindow::log)->finest("Created GC for pixmap"_s);
+		}
+		$var($Throwable, var$11, nullptr);
 		try {
-			if (this->iconPixmap != 0) {
-				$XlibWrapper::XFreePixmap($XToolkit::getDisplay(), this->iconPixmap);
-				this->iconPixmap = 0;
-				$nc(XIconWindow::log)->finest("Freed previous pixmap"_s);
-			}
-			if (bi == nullptr || this->iconWidth == 0 || this->iconHeight == 0) {
-				return$3 = true;
-				goto $finally1;
-			}
-			$var($AwtGraphicsConfigData, adata, $nc(this->parent)->getGraphicsConfigurationData());
-			$var($awtImageData, awtImage, $nc(adata)->get_awtImage(0));
-			$var($XVisualInfo, visInfo, adata->get_awt_visInfo());
-			int64_t var$4 = $XToolkit::getDisplay();
-			int64_t var$6 = $XToolkit::getDisplay();
-			int64_t var$5 = $XlibWrapper::RootWindow(var$6, $nc(visInfo)->get_screen());
-			int32_t var$7 = this->iconWidth;
-			int32_t var$8 = this->iconHeight;
-			this->iconPixmap = $XlibWrapper::XCreatePixmap(var$4, var$5, var$7, var$8, $nc(awtImage)->get_Depth());
-			if (this->iconPixmap == 0) {
-				$nc(XIconWindow::log)->finest("Can\'t create new pixmap for icon"_s);
-				return$3 = true;
-				goto $finally1;
-			}
-			int64_t bytes = 0;
-			$var($DataBuffer, srcBuf, $nc($($nc(bi)->getData()))->getDataBuffer());
-			if ($instanceOf($DataBufferByte, srcBuf)) {
-				$var($bytes, buf, $nc(($cast($DataBufferByte, srcBuf)))->getData());
-				$var($ColorData, cdata, adata->get_color_data(0));
-				int32_t num_colors = $nc(cdata)->get_awt_numICMcolors();
-				for (int32_t i = 0; i < $nc(buf)->length; ++i) {
-					int32_t b = $Byte::toUnsignedInt(buf->get(i));
-					buf->set(i, (b >= num_colors) ? (int8_t)0 : cdata->get_awt_icmLUT2Colors(b));
-				}
-				bytes = $Native::toData(buf);
-			} else if ($instanceOf($DataBufferInt, srcBuf)) {
-				bytes = $Native::toData($($nc(($cast($DataBufferInt, srcBuf)))->getData()));
-			} else if ($instanceOf($DataBufferUShort, srcBuf)) {
-				bytes = $Native::toData($($nc(($cast($DataBufferUShort, srcBuf)))->getData()));
-			} else {
-				$throwNew($IllegalArgumentException, $$str({"Unknown data buffer: "_s, srcBuf}));
-			}
-			int32_t bpp = $nc($($nc(awtImage)->get_wsImageFormat()))->get_bits_per_pixel();
-			int32_t slp = $nc($(awtImage->get_wsImageFormat()))->get_scanline_pad();
-			int32_t bpsl = paddedwidth(this->iconWidth * bpp, slp) >> 3;
-			if (($div((bpsl << 3), bpp)) < this->iconWidth) {
-				$nc(XIconWindow::log)->finest("Image format doesn\'t fit to icon width"_s);
-				return$3 = true;
-				goto $finally1;
-			}
-			int64_t var$9 = $XToolkit::getDisplay();
-			int64_t var$10 = $nc(visInfo)->get_visual();
-			int64_t dst = $XlibWrapper::XCreateImage(var$9, var$10, awtImage->get_Depth(), $XConstants::ZPixmap, 0, bytes, this->iconWidth, this->iconHeight, 32, bpsl);
-			if (dst == 0) {
-				$nc(XIconWindow::log)->finest("Can\'t create XImage for icon"_s);
-				$XlibWrapper::XFreePixmap($XToolkit::getDisplay(), this->iconPixmap);
-				this->iconPixmap = 0;
-				return$3 = true;
-				goto $finally1;
-			} else {
-				$nc(XIconWindow::log)->finest("Created XImage for icon"_s);
-			}
-			int64_t gc = $XlibWrapper::XCreateGC($XToolkit::getDisplay(), this->iconPixmap, 0, 0);
-			if (gc == 0) {
-				$nc(XIconWindow::log)->finest("Can\'t create GC for pixmap"_s);
-				$XlibWrapper::XFreePixmap($XToolkit::getDisplay(), this->iconPixmap);
-				this->iconPixmap = 0;
-				return$3 = true;
-				goto $finally1;
-			} else {
-				$nc(XIconWindow::log)->finest("Created GC for pixmap"_s);
-			}
-			{
-				$var($Throwable, var$11, nullptr);
-				try {
-					$XlibWrapper::XPutImage($XToolkit::getDisplay(), this->iconPixmap, gc, dst, 0, 0, 0, 0, this->iconWidth, this->iconHeight);
-				} catch ($Throwable& var$12) {
-					$assign(var$11, var$12);
-				} /*finally*/ {
-					$XlibWrapper::XFreeGC($XToolkit::getDisplay(), gc);
-				}
-				if (var$11 != nullptr) {
-					$throw(var$11);
-				}
-			}
-		} catch ($Throwable& var$13) {
-			$assign(var$2, var$13);
-		} $finally1: {
-			$XToolkit::awtUnlock();
+			$XlibWrapper::XPutImage($XToolkit::getDisplay(), this->iconPixmap, gc, dst, 0, 0, 0, 0, this->iconWidth, this->iconHeight);
+		} catch ($Throwable& var$12) {
+			$assign(var$11, var$12);
+		} /*finally*/ {
+			$XlibWrapper::XFreeGC($XToolkit::getDisplay(), gc);
 		}
-		if (var$2 != nullptr) {
-			$throw(var$2);
+		if (var$11 != nullptr) {
+			$throw(var$11);
 		}
-		if (return$3) {
-			return;
-		}
+	} catch ($Throwable& var$13) {
+		$assign(var$2, var$13);
+	} $finally1: {
+		$XToolkit::awtUnlock();
+	}
+	if (var$2 != nullptr) {
+		$throw(var$2);
+	}
+	if (return$3) {
+		return;
 	}
 }
 
 void XIconWindow::replaceMask($Image* img) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->parent == nullptr) {
 		return;
 	}
@@ -519,81 +474,77 @@ void XIconWindow::replaceMask($Image* img) {
 	if (img != nullptr && this->iconWidth != 0 && this->iconHeight != 0) {
 		$assign(bi, $new($BufferedImage, this->iconWidth, this->iconHeight, $BufferedImage::TYPE_INT_ARGB));
 		$var($Graphics, g, bi->getGraphics());
-		{
-			$var($Throwable, var$0, nullptr);
-			try {
-				$nc(g)->drawImage(img, 0, 0, this->iconWidth, this->iconHeight, nullptr);
-			} catch ($Throwable& var$1) {
-				$assign(var$0, var$1);
-			} /*finally*/ {
-				$nc(g)->dispose();
-			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
+		$var($Throwable, var$0, nullptr);
+		try {
+			$nc(g)->drawImage(img, 0, 0, this->iconWidth, this->iconHeight, nullptr);
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
+		} /*finally*/ {
+			$nc(g)->dispose();
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	}
 	$XToolkit::awtLock();
-	{
-		$var($Throwable, var$2, nullptr);
-		bool return$3 = false;
-		try {
-			if (this->iconMask != 0) {
-				$XlibWrapper::XFreePixmap($XToolkit::getDisplay(), this->iconMask);
-				this->iconMask = 0;
-				$nc(XIconWindow::log)->finest("Freed previous mask"_s);
-			}
-			if (bi == nullptr || this->iconWidth == 0 || this->iconHeight == 0) {
-				return$3 = true;
-				goto $finally1;
-			}
-			$var($AwtGraphicsConfigData, adata, $nc(this->parent)->getGraphicsConfigurationData());
-			$var($awtImageData, awtImage, $nc(adata)->get_awtImage(0));
-			$var($XVisualInfo, visInfo, adata->get_awt_visInfo());
-			$var($ColorModel, cm, $nc(bi)->getColorModel());
-			$var($DataBuffer, srcBuf, $nc($(bi->getRaster()))->getDataBuffer());
-			int32_t sidx = 0;
-			int32_t bpl = (this->iconWidth + 7) >> 3;
-			$var($bytes, destBuf, $new($bytes, bpl * this->iconHeight));
-			int32_t didx = 0;
-			for (int32_t i = 0; i < this->iconHeight; ++i) {
-				int32_t dbit = 0;
-				int32_t cv = 0;
-				for (int32_t j = 0; j < this->iconWidth; ++j) {
-					if ($nc(cm)->getAlpha($nc(srcBuf)->getElem(sidx)) != 0) {
-						cv = cv + ($sl(1, dbit));
-					}
-					++dbit;
-					if (dbit == 8) {
-						destBuf->set(didx, (int8_t)cv);
-						cv = 0;
-						dbit = 0;
-						++didx;
-					}
-					++sidx;
+	$var($Throwable, var$2, nullptr);
+	bool return$3 = false;
+	try {
+		if (this->iconMask != 0) {
+			$XlibWrapper::XFreePixmap($XToolkit::getDisplay(), this->iconMask);
+			this->iconMask = 0;
+			$nc(XIconWindow::log)->finest("Freed previous mask"_s);
+		}
+		if (bi == nullptr || this->iconWidth == 0 || this->iconHeight == 0) {
+			return$3 = true;
+			goto $finally1;
+		}
+		$var($AwtGraphicsConfigData, adata, $nc(this->parent)->getGraphicsConfigurationData());
+		$var($awtImageData, awtImage, $nc(adata)->get_awtImage(0));
+		$var($XVisualInfo, visInfo, adata->get_awt_visInfo());
+		$var($ColorModel, cm, $nc(bi)->getColorModel());
+		$var($DataBuffer, srcBuf, $$nc(bi->getRaster())->getDataBuffer());
+		int32_t sidx = 0;
+		int32_t bpl = (this->iconWidth + 7) >> 3;
+		$var($bytes, destBuf, $new($bytes, bpl * this->iconHeight));
+		int32_t didx = 0;
+		for (int32_t i = 0; i < this->iconHeight; ++i) {
+			int32_t dbit = 0;
+			int32_t cv = 0;
+			for (int32_t j = 0; j < this->iconWidth; ++j) {
+				if ($nc(cm)->getAlpha($nc(srcBuf)->getElem(sidx)) != 0) {
+					cv = cv + ($sl(1, dbit));
 				}
+				++dbit;
+				if (dbit == 8) {
+					destBuf->set(didx, (int8_t)cv);
+					cv = 0;
+					dbit = 0;
+					++didx;
+				}
+				++sidx;
 			}
-			int64_t var$4 = $XToolkit::getDisplay();
-			int64_t var$6 = $XToolkit::getDisplay();
-			int64_t var$5 = $XlibWrapper::RootWindow(var$6, $nc(visInfo)->get_screen());
-			this->iconMask = $XlibWrapper::XCreateBitmapFromData(var$4, var$5, $Native::toData(destBuf), this->iconWidth, this->iconHeight);
-		} catch ($Throwable& var$7) {
-			$assign(var$2, var$7);
-		} $finally1: {
-			$XToolkit::awtUnlock();
 		}
-		if (var$2 != nullptr) {
-			$throw(var$2);
-		}
-		if (return$3) {
-			return;
-		}
+		int64_t var$4 = $XToolkit::getDisplay();
+		int64_t var$6 = $XToolkit::getDisplay();
+		int64_t var$5 = $XlibWrapper::RootWindow(var$6, $nc(visInfo)->get_screen());
+		this->iconMask = $XlibWrapper::XCreateBitmapFromData(var$4, var$5, $Native::toData(destBuf), this->iconWidth, this->iconHeight);
+	} catch ($Throwable& var$7) {
+		$assign(var$2, var$7);
+	} $finally1: {
+		$XToolkit::awtUnlock();
+	}
+	if (var$2 != nullptr) {
+		$throw(var$2);
+	}
+	if (return$3) {
+		return;
 	}
 }
 
 void XIconWindow::setIconImages($List* icons) {
-	$useLocalCurrentObjectStackCache();
-	if (icons == nullptr || $nc(icons)->size() == 0) {
+	$useLocalObjectStack();
+	if (icons == nullptr || icons->size() == 0) {
 		return;
 	}
 	int32_t minDiff = $Integer::MAX_VALUE;
@@ -602,17 +553,15 @@ void XIconWindow::setIconImages($List* icons) {
 		$var($Iterator, i$, $nc(icons)->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($IconInfo, iconInfo, $cast($IconInfo, i$->next()));
-			{
-				if ($nc(iconInfo)->isValid()) {
-					$var($Image, image, iconInfo->getImage());
-					int32_t var$0 = $nc(image)->getWidth(nullptr);
-					$var($Dimension, dim, calcIconSize(var$0, image->getHeight(nullptr)));
-					int32_t widthDiff = $Math::abs($nc(dim)->width - $nc(image)->getWidth(nullptr));
-					int32_t heightDiff = $Math::abs($nc(image)->getHeight(nullptr) - $nc(dim)->height);
-					if (minDiff >= (widthDiff + heightDiff)) {
-						minDiff = (widthDiff + heightDiff);
-						$assign(min, image);
-					}
+			if ($nc(iconInfo)->isValid()) {
+				$var($Image, image, iconInfo->getImage());
+				int32_t var$0 = $nc(image)->getWidth(nullptr);
+				$var($Dimension, dim, calcIconSize(var$0, image->getHeight(nullptr)));
+				int32_t widthDiff = $Math::abs($nc(dim)->width - image->getWidth(nullptr));
+				int32_t heightDiff = $Math::abs(image->getHeight(nullptr) - dim->height);
+				if (minDiff >= (widthDiff + heightDiff)) {
+					minDiff = (widthDiff + heightDiff);
+					$assign(min, image);
 				}
 			}
 		}
@@ -620,9 +569,9 @@ void XIconWindow::setIconImages($List* icons) {
 	if (min != nullptr) {
 		$init($PlatformLogger$Level);
 		if ($nc(XIconWindow::log)->isLoggable($PlatformLogger$Level::FINER)) {
-			$nc(XIconWindow::log)->finer("Icon: {0}x{1}"_s, $$new($ObjectArray, {
-				$($of($Integer::valueOf(min->getWidth(nullptr)))),
-				$($of($Integer::valueOf(min->getHeight(nullptr))))
+			XIconWindow::log->finer("Icon: {0}x{1}"_s, $$new($ObjectArray, {
+				$($Integer::valueOf(min->getWidth(nullptr))),
+				$($Integer::valueOf(min->getHeight(nullptr)))
 			}));
 		}
 		setIconImage(min);
@@ -630,7 +579,7 @@ void XIconWindow::setIconImages($List* icons) {
 }
 
 void XIconWindow::setIconImage($Image* img) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (img == nullptr) {
 		replaceImage(nullptr);
 		replaceMask(nullptr);
@@ -638,19 +587,19 @@ void XIconWindow::setIconImage($Image* img) {
 		int32_t width = 0;
 		int32_t height = 0;
 		if ($instanceOf($ToolkitImage, img)) {
-			$var($ImageRepresentation, ir, $nc(($cast($ToolkitImage, img)))->getImageRep());
+			$var($ImageRepresentation, ir, $cast($ToolkitImage, img)->getImageRep());
 			$nc(ir)->reconstruct($ImageObserver::ALLBITS);
 			width = ir->getWidth();
 			height = ir->getHeight();
 		} else {
-			width = $nc(img)->getWidth(nullptr);
+			width = img->getWidth(nullptr);
 			height = img->getHeight(nullptr);
 		}
 		$var($Dimension, iconSize, getIconSize(width, height));
 		if (iconSize != nullptr) {
 			$init($PlatformLogger$Level);
 			if ($nc(XIconWindow::log)->isLoggable($PlatformLogger$Level::FINEST)) {
-				$nc(XIconWindow::log)->finest("Icon size: {0}"_s, $$new($ObjectArray, {$of(iconSize)}));
+				XIconWindow::log->finest("Icon size: {0}"_s, $$new($ObjectArray, {iconSize}));
 			}
 			this->iconWidth = iconSize->width;
 			this->iconHeight = iconSize->height;
@@ -663,70 +612,68 @@ void XIconWindow::setIconImage($Image* img) {
 		replaceMask(img);
 	}
 	$XToolkit::awtLock();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$var($AwtGraphicsConfigData, adata, $nc(this->parent)->getGraphicsConfigurationData());
-			$var($awtImageData, awtImage, $nc(adata)->get_awtImage(0));
-			$var($XVisualInfo, visInfo, adata->get_awt_visInfo());
-			$var($XWMHints, hints, $nc(this->parent)->getWMHints());
-			this->window = $nc(hints)->get_icon_window();
-			if (this->window == 0) {
-				$nc(XIconWindow::log)->finest("Icon window wasn\'t set"_s);
-				$var($XCreateWindowParams, params, getDelayedParams());
-				$init($XBaseWindow);
-				$nc(params)->add($of($XBaseWindow::BORDER_PIXEL), $($of($Long::valueOf((int64_t)0))));
-				params->add($of($XBaseWindow::BACKGROUND_PIXMAP), this->iconPixmap);
-				params->add($of($XBaseWindow::COLORMAP), adata->get_awt_cmap());
-				params->add($of($XBaseWindow::DEPTH), $nc(awtImage)->get_Depth());
-				params->add($of($XBaseWindow::VISUAL_CLASS), $XConstants::InputOutput);
-				params->add($of($XBaseWindow::VISUAL), $nc(visInfo)->get_visual());
-				params->add($of($XBaseWindow::VALUE_MASK), ($XConstants::CWBorderPixel | $XConstants::CWColormap) | $XConstants::CWBackPixmap);
-				int64_t var$1 = $XToolkit::getDisplay();
-				params->add($of($XBaseWindow::PARENT_WINDOW), $XlibWrapper::RootWindow(var$1, $nc(visInfo)->get_screen()));
-				params->add($of($XBaseWindow::BOUNDS), $of($$new($Rectangle, 0, 0, this->iconWidth, this->iconHeight)));
-				params->remove($XBaseWindow::DELAYED);
-				init(params);
-				if (getWindow() == 0) {
-					$nc(XIconWindow::log)->finest("Can\'t create new icon window"_s);
-				} else {
-					$nc(XIconWindow::log)->finest("Created new icon window"_s);
-				}
+	$var($Throwable, var$0, nullptr);
+	try {
+		$var($AwtGraphicsConfigData, adata, $nc(this->parent)->getGraphicsConfigurationData());
+		$var($awtImageData, awtImage, $nc(adata)->get_awtImage(0));
+		$var($XVisualInfo, visInfo, adata->get_awt_visInfo());
+		$var($XWMHints, hints, $nc(this->parent)->getWMHints());
+		this->window = $nc(hints)->get_icon_window();
+		if (this->window == 0) {
+			$nc(XIconWindow::log)->finest("Icon window wasn\'t set"_s);
+			$var($XCreateWindowParams, params, getDelayedParams());
+			$init($XBaseWindow);
+			$nc(params)->add($XBaseWindow::BORDER_PIXEL, $($Long::valueOf((int64_t)0)));
+			params->add($XBaseWindow::BACKGROUND_PIXMAP, this->iconPixmap);
+			params->add($XBaseWindow::COLORMAP, adata->get_awt_cmap());
+			params->add($XBaseWindow::DEPTH, $nc(awtImage)->get_Depth());
+			params->add($XBaseWindow::VISUAL_CLASS, $XConstants::InputOutput);
+			params->add($XBaseWindow::VISUAL, $nc(visInfo)->get_visual());
+			params->add($XBaseWindow::VALUE_MASK, ($XConstants::CWBorderPixel | $XConstants::CWColormap) | $XConstants::CWBackPixmap);
+			int64_t var$1 = $XToolkit::getDisplay();
+			params->add($XBaseWindow::PARENT_WINDOW, $XlibWrapper::RootWindow(var$1, visInfo->get_screen()));
+			params->add($XBaseWindow::BOUNDS, $$new($Rectangle, 0, 0, this->iconWidth, this->iconHeight));
+			params->remove($XBaseWindow::DELAYED);
+			init(params);
+			if (getWindow() == 0) {
+				XIconWindow::log->finest("Can\'t create new icon window"_s);
+			} else {
+				XIconWindow::log->finest("Created new icon window"_s);
 			}
-			if (getWindow() != 0) {
-				int64_t var$2 = $XToolkit::getDisplay();
-				$XlibWrapper::XSetWindowBackgroundPixmap(var$2, getWindow(), this->iconPixmap);
-				int64_t var$3 = $XToolkit::getDisplay();
-				$XlibWrapper::XClearWindow(var$3, getWindow());
-			}
-			int64_t newFlags = (hints->get_flags() | $XUtilConstants::IconPixmapHint) | $XUtilConstants::IconMaskHint;
-			if (getWindow() != 0) {
-				newFlags |= $XUtilConstants::IconWindowHint;
-			}
-			hints->set_flags(newFlags);
-			hints->set_icon_pixmap(this->iconPixmap);
-			hints->set_icon_mask(this->iconMask);
-			hints->set_icon_window(getWindow());
-			int64_t var$4 = $XToolkit::getDisplay();
-			$XlibWrapper::XSetWMHints(var$4, $nc(this->parent)->getShell(), hints->pData);
-			$nc(XIconWindow::log)->finest("Set icon window hint"_s);
-		} catch ($Throwable& var$5) {
-			$assign(var$0, var$5);
-		} /*finally*/ {
-			$XToolkit::awtUnlock();
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+		if (getWindow() != 0) {
+			int64_t var$2 = $XToolkit::getDisplay();
+			$XlibWrapper::XSetWindowBackgroundPixmap(var$2, getWindow(), this->iconPixmap);
+			int64_t var$3 = $XToolkit::getDisplay();
+			$XlibWrapper::XClearWindow(var$3, getWindow());
 		}
+		int64_t newFlags = (hints->get_flags() | $XUtilConstants::IconPixmapHint) | $XUtilConstants::IconMaskHint;
+		if (getWindow() != 0) {
+			newFlags |= $XUtilConstants::IconWindowHint;
+		}
+		hints->set_flags(newFlags);
+		hints->set_icon_pixmap(this->iconPixmap);
+		hints->set_icon_mask(this->iconMask);
+		hints->set_icon_window(getWindow());
+		int64_t var$4 = $XToolkit::getDisplay();
+		$XlibWrapper::XSetWMHints(var$4, $nc(this->parent)->getShell(), hints->pData);
+		$nc(XIconWindow::log)->finest("Set icon window hint"_s);
+	} catch ($Throwable& var$5) {
+		$assign(var$0, var$5);
+	} /*finally*/ {
+		$XToolkit::awtUnlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 int32_t XIconWindow::paddedwidth(int32_t number, int32_t boundary) {
 	$init(XIconWindow);
-	return ((int32_t)(((number) + ((boundary) - 1)) & (uint32_t)(~((boundary) - 1))));
+	return (((number) + ((boundary) - 1)) & (~((boundary) - 1)));
 }
 
-void clinit$XIconWindow($Class* class$) {
+void XIconWindow::clinit$($Class* clazz) {
 	$assignStatic(XIconWindow::log, $PlatformLogger::getLogger("sun.awt.X11.XIconWindow"_s));
 }
 
@@ -734,7 +681,40 @@ XIconWindow::XIconWindow() {
 }
 
 $Class* XIconWindow::load$($String* name, bool initialize) {
-	$loadClass(XIconWindow, name, initialize, &_XIconWindow_ClassInfo_, clinit$XIconWindow, allocate$XIconWindow);
+	$FieldInfo fieldInfos$$[] = {
+		{"log", "Lsun/util/logging/PlatformLogger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XIconWindow, log)},
+		{"parent", "Lsun/awt/X11/XDecoratedPeer;", nullptr, 0, $field(XIconWindow, parent)},
+		{"size", "Ljava/awt/Dimension;", nullptr, 0, $field(XIconWindow, size)},
+		{"iconPixmap", "J", nullptr, 0, $field(XIconWindow, iconPixmap)},
+		{"iconMask", "J", nullptr, 0, $field(XIconWindow, iconMask)},
+		{"iconWidth", "I", nullptr, 0, $field(XIconWindow, iconWidth)},
+		{"iconHeight", "I", nullptr, 0, $field(XIconWindow, iconHeight)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/awt/X11/XDecoratedPeer;)V", nullptr, 0, $method(XIconWindow, init$, void, $XDecoratedPeer*)},
+		{"calcIconSize", "(II)Ljava/awt/Dimension;", nullptr, $PRIVATE, $method(XIconWindow, calcIconSize, $Dimension*, int32_t, int32_t)},
+		{"getIconSize", "(II)Ljava/awt/Dimension;", nullptr, 0, $virtualMethod(XIconWindow, getIconSize, $Dimension*, int32_t, int32_t)},
+		{"getIconSizes", "()[Lsun/awt/X11/XIconSize;", nullptr, $PRIVATE, $method(XIconWindow, getIconSizes, $XIconSizeArray*)},
+		{"instantPreInit", "(Lsun/awt/X11/XCreateWindowParams;)V", nullptr, 0, $virtualMethod(XIconWindow, instantPreInit, void, $XCreateWindowParams*)},
+		{"paddedwidth", "(II)I", nullptr, $STATIC, $staticMethod(XIconWindow, paddedwidth, int32_t, int32_t, int32_t)},
+		{"replaceImage", "(Ljava/awt/Image;)V", nullptr, 0, $virtualMethod(XIconWindow, replaceImage, void, $Image*)},
+		{"replaceMask", "(Ljava/awt/Image;)V", nullptr, 0, $virtualMethod(XIconWindow, replaceMask, void, $Image*)},
+		{"setIconImage", "(Ljava/awt/Image;)V", nullptr, 0, $virtualMethod(XIconWindow, setIconImage, void, $Image*)},
+		{"setIconImages", "(Ljava/util/List;)V", "(Ljava/util/List<Lsun/awt/IconInfo;>;)V", 0, $virtualMethod(XIconWindow, setIconImages, void, $List*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.awt.X11.XIconWindow",
+		"sun.awt.X11.XBaseWindow",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XIconWindow, name, initialize, &classInfo$$, XIconWindow::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(XIconWindow);
+	});
 	return class$;
 }
 

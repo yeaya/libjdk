@@ -1,12 +1,10 @@
 #include <jdk/net/Sockets.h>
-
 #include <java/net/DatagramSocket.h>
 #include <java/net/MulticastSocket.h>
 #include <java/net/ServerSocket.h>
 #include <java/net/Socket.h>
 #include <java/net/SocketOption.h>
 #include <java/net/StandardSocketOptions.h>
-#include <java/util/Collection.h>
 #include <java/util/Collections.h>
 #include <java/util/HashMap.h>
 #include <java/util/HashSet.h>
@@ -49,7 +47,6 @@ using $ServerSocket = ::java::net::ServerSocket;
 using $Socket = ::java::net::Socket;
 using $SocketOption = ::java::net::SocketOption;
 using $StandardSocketOptions = ::java::net::StandardSocketOptions;
-using $Collection = ::java::util::Collection;
 using $Collections = ::java::util::Collections;
 using $HashMap = ::java::util::HashMap;
 using $HashSet = ::java::util::HashSet;
@@ -62,134 +59,6 @@ using $Sockets$QuickAck = ::jdk::net::Sockets$QuickAck;
 
 namespace jdk {
 	namespace net {
-
-$NamedAttribute Sockets_Attribute_var$0[] = {
-	{"since", 's', "16"},
-	{}
-};
-
-$CompoundAttribute _Sockets_Annotations_[] = {
-	{"Ljava/lang/Deprecated;", Sockets_Attribute_var$0},
-	{}
-};
-
-$NamedAttribute Sockets_Attribute_var$1[] = {
-	{"since", 's', "16"},
-	{}
-};
-
-$CompoundAttribute _Sockets_MethodAnnotations_getOption2[] = {
-	{"Ljava/lang/Deprecated;", Sockets_Attribute_var$1},
-	{}
-};
-
-$NamedAttribute Sockets_Attribute_var$2[] = {
-	{"since", 's', "16"},
-	{}
-};
-
-$CompoundAttribute _Sockets_MethodAnnotations_getOption3[] = {
-	{"Ljava/lang/Deprecated;", Sockets_Attribute_var$2},
-	{}
-};
-
-$NamedAttribute Sockets_Attribute_var$3[] = {
-	{"since", 's', "16"},
-	{}
-};
-
-$CompoundAttribute _Sockets_MethodAnnotations_getOption4[] = {
-	{"Ljava/lang/Deprecated;", Sockets_Attribute_var$3},
-	{}
-};
-
-$NamedAttribute Sockets_Attribute_var$4[] = {
-	{"since", 's', "16"},
-	{}
-};
-
-$CompoundAttribute _Sockets_MethodAnnotations_setOption7[] = {
-	{"Ljava/lang/Deprecated;", Sockets_Attribute_var$4},
-	{}
-};
-
-$NamedAttribute Sockets_Attribute_var$5[] = {
-	{"since", 's', "16"},
-	{}
-};
-
-$CompoundAttribute _Sockets_MethodAnnotations_setOption8[] = {
-	{"Ljava/lang/Deprecated;", Sockets_Attribute_var$5},
-	{}
-};
-
-$NamedAttribute Sockets_Attribute_var$6[] = {
-	{"since", 's', "16"},
-	{}
-};
-
-$CompoundAttribute _Sockets_MethodAnnotations_setOption9[] = {
-	{"Ljava/lang/Deprecated;", Sockets_Attribute_var$6},
-	{}
-};
-
-$NamedAttribute Sockets_Attribute_var$7[] = {
-	{"since", 's', "16"},
-	{"forRemoval", 'Z', "true"},
-	{}
-};
-
-$CompoundAttribute _Sockets_MethodAnnotations_supportedOptions10[] = {
-	{"Ljava/lang/Deprecated;", Sockets_Attribute_var$7},
-	{}
-};
-
-$FieldInfo _Sockets_FieldInfo_[] = {
-	{"options", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/Class<*>;Ljava/util/Set<Ljava/net/SocketOption<*>;>;>;", $PRIVATE | $STATIC | $FINAL, $staticField(Sockets, options)},
-	{"checkedReusePort", "Z", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(Sockets, checkedReusePort)},
-	{"isReusePortAvailable", "Z", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(Sockets, isReusePortAvailable$)},
-	{}
-};
-
-$MethodInfo _Sockets_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(Sockets, init$, void)},
-	{"checkValueType", "(Ljava/lang/Object;Ljava/lang/Class;)V", "(Ljava/lang/Object;Ljava/lang/Class<*>;)V", $PRIVATE | $STATIC, $staticMethod(Sockets, checkValueType, void, Object$*, $Class*)},
-	{"getOption", "(Ljava/net/Socket;Ljava/net/SocketOption;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljava/net/Socket;Ljava/net/SocketOption<TT;>;)TT;", $PUBLIC | $STATIC | $DEPRECATED, $staticMethod(Sockets, getOption, $Object*, $Socket*, $SocketOption*), "java.io.IOException", nullptr, _Sockets_MethodAnnotations_getOption2},
-	{"getOption", "(Ljava/net/ServerSocket;Ljava/net/SocketOption;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljava/net/ServerSocket;Ljava/net/SocketOption<TT;>;)TT;", $PUBLIC | $STATIC | $DEPRECATED, $staticMethod(Sockets, getOption, $Object*, $ServerSocket*, $SocketOption*), "java.io.IOException", nullptr, _Sockets_MethodAnnotations_getOption3},
-	{"getOption", "(Ljava/net/DatagramSocket;Ljava/net/SocketOption;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljava/net/DatagramSocket;Ljava/net/SocketOption<TT;>;)TT;", $PUBLIC | $STATIC | $DEPRECATED, $staticMethod(Sockets, getOption, $Object*, $DatagramSocket*, $SocketOption*), "java.io.IOException", nullptr, _Sockets_MethodAnnotations_getOption4},
-	{"isReusePortAvailable", "()Z", nullptr, $STATIC, $staticMethod(Sockets, isReusePortAvailable, bool)},
-	{"optionSets", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/Class<*>;Ljava/util/Set<Ljava/net/SocketOption<*>;>;>;", $PRIVATE | $STATIC, $staticMethod(Sockets, optionSets, $Map*)},
-	{"setOption", "(Ljava/net/Socket;Ljava/net/SocketOption;Ljava/lang/Object;)V", "<T:Ljava/lang/Object;>(Ljava/net/Socket;Ljava/net/SocketOption<TT;>;TT;)V", $PUBLIC | $STATIC | $DEPRECATED, $staticMethod(Sockets, setOption, void, $Socket*, $SocketOption*, Object$*), "java.io.IOException", nullptr, _Sockets_MethodAnnotations_setOption7},
-	{"setOption", "(Ljava/net/ServerSocket;Ljava/net/SocketOption;Ljava/lang/Object;)V", "<T:Ljava/lang/Object;>(Ljava/net/ServerSocket;Ljava/net/SocketOption<TT;>;TT;)V", $PUBLIC | $STATIC | $DEPRECATED, $staticMethod(Sockets, setOption, void, $ServerSocket*, $SocketOption*, Object$*), "java.io.IOException", nullptr, _Sockets_MethodAnnotations_setOption8},
-	{"setOption", "(Ljava/net/DatagramSocket;Ljava/net/SocketOption;Ljava/lang/Object;)V", "<T:Ljava/lang/Object;>(Ljava/net/DatagramSocket;Ljava/net/SocketOption<TT;>;TT;)V", $PUBLIC | $STATIC | $DEPRECATED, $staticMethod(Sockets, setOption, void, $DatagramSocket*, $SocketOption*, Object$*), "java.io.IOException", nullptr, _Sockets_MethodAnnotations_setOption9},
-	{"supportedOptions", "(Ljava/lang/Class;)Ljava/util/Set;", "(Ljava/lang/Class<*>;)Ljava/util/Set<Ljava/net/SocketOption<*>;>;", $PUBLIC | $STATIC | $DEPRECATED, $staticMethod(Sockets, supportedOptions, $Set*, $Class*), nullptr, nullptr, _Sockets_MethodAnnotations_supportedOptions10},
-	{}
-};
-
-$InnerClassInfo _Sockets_InnerClassesInfo_[] = {
-	{"jdk.net.Sockets$KeepAliveOptions", "jdk.net.Sockets", "KeepAliveOptions", $STATIC},
-	{"jdk.net.Sockets$QuickAck", "jdk.net.Sockets", "QuickAck", $STATIC},
-	{}
-};
-
-$ClassInfo _Sockets_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"jdk.net.Sockets",
-	"java.lang.Object",
-	nullptr,
-	_Sockets_FieldInfo_,
-	_Sockets_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Sockets_InnerClassesInfo_,
-	_Sockets_Annotations_,
-	nullptr,
-	"jdk.net.Sockets$KeepAliveOptions,jdk.net.Sockets$QuickAck"
-};
-
-$Object* allocate$Sockets($Class* clazz) {
-	return $of($alloc(Sockets));
-}
 
 $Map* Sockets::options = nullptr;
 $volatile(bool) Sockets::checkedReusePort = false;
@@ -205,7 +74,7 @@ void Sockets::setOption($Socket* s, $SocketOption* name, Object$* value) {
 
 $Object* Sockets::getOption($Socket* s, $SocketOption* name) {
 	$init(Sockets);
-	return $of($nc(s)->getOption(name));
+	return $nc(s)->getOption(name);
 }
 
 void Sockets::setOption($ServerSocket* s, $SocketOption* name, Object$* value) {
@@ -215,7 +84,7 @@ void Sockets::setOption($ServerSocket* s, $SocketOption* name, Object$* value) {
 
 $Object* Sockets::getOption($ServerSocket* s, $SocketOption* name) {
 	$init(Sockets);
-	return $of($nc(s)->getOption(name));
+	return $nc(s)->getOption(name);
 }
 
 void Sockets::setOption($DatagramSocket* s, $SocketOption* name, Object$* value) {
@@ -225,7 +94,7 @@ void Sockets::setOption($DatagramSocket* s, $SocketOption* name, Object$* value)
 
 $Object* Sockets::getOption($DatagramSocket* s, $SocketOption* name) {
 	$init(Sockets);
-	return $of($nc(s)->getOption(name));
+	return $nc(s)->getOption(name);
 }
 
 $Set* Sockets::supportedOptions($Class* socketType) {
@@ -239,17 +108,21 @@ $Set* Sockets::supportedOptions($Class* socketType) {
 
 void Sockets::checkValueType(Object$* value, $Class* type) {
 	$init(Sockets);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!$nc(type)->isAssignableFrom($nc($of(value))->getClass())) {
-		$var($String, var$0, $$str({"Found: "_s, $($nc($of(value))->getClass()->toString()), " Expected: "_s}));
-		$var($String, s, $concat(var$0, $(type->toString())));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append("Found: "_s);
+		var$0->append($($of(value)->getClass()->toString()));
+		var$0->append(" Expected: "_s);
+		var$0->append($(type->toString()));
+		$var($String, s, $str(var$0));
 		$throwNew($IllegalArgumentException, s);
 	}
 }
 
 bool Sockets::isReusePortAvailable() {
 	$init(Sockets);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!Sockets::checkedReusePort) {
 		$var($Set, s, $$new($Socket)->supportedOptions());
 		$init($StandardSocketOptions);
@@ -261,9 +134,9 @@ bool Sockets::isReusePortAvailable() {
 
 $Map* Sockets::optionSets() {
 	$init(Sockets);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Map, options, $new($HashMap));
-	bool incomingNapiIdsupported = $nc($($ExtendedSocketOptions$PlatformSocketOptions::get()))->incomingNapiIdSupported();
+	bool incomingNapiIdsupported = $$nc($ExtendedSocketOptions$PlatformSocketOptions::get())->incomingNapiIdSupported();
 	bool reuseportsupported = isReusePortAvailable();
 	$var($Set, set, $new($HashSet));
 	$init($StandardSocketOptions);
@@ -348,7 +221,7 @@ $Map* Sockets::optionSets() {
 	return $Collections::unmodifiableMap(options);
 }
 
-void clinit$Sockets($Class* class$) {
+void Sockets::clinit$($Class* clazz) {
 	$assignStatic(Sockets::options, Sockets::optionSets());
 }
 
@@ -356,7 +229,113 @@ Sockets::Sockets() {
 }
 
 $Class* Sockets::load$($String* name, bool initialize) {
-	$loadClass(Sockets, name, initialize, &_Sockets_ClassInfo_, clinit$Sockets, allocate$Sockets);
+	$FieldInfo fieldInfos$$[] = {
+		{"options", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/Class<*>;Ljava/util/Set<Ljava/net/SocketOption<*>;>;>;", $PRIVATE | $STATIC | $FINAL, $staticField(Sockets, options)},
+		{"checkedReusePort", "Z", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(Sockets, checkedReusePort)},
+		{"isReusePortAvailable", "Z", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(Sockets, isReusePortAvailable$)},
+		{}
+	};
+	$NamedAttribute getOptionmethodAnnotations$$$namedAttribute[] = {
+		{"since", 's', "16"},
+		{}
+	};
+	$CompoundAttribute getOptionmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", getOptionmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute getOptionmethodAnnotations$$$1$namedAttribute[] = {
+		{"since", 's', "16"},
+		{}
+	};
+	$CompoundAttribute getOptionmethodAnnotations$$$1[] = {
+		{"Ljava/lang/Deprecated;", getOptionmethodAnnotations$$$1$namedAttribute},
+		{}
+	};
+	$NamedAttribute getOptionmethodAnnotations$$$2$namedAttribute[] = {
+		{"since", 's', "16"},
+		{}
+	};
+	$CompoundAttribute getOptionmethodAnnotations$$$2[] = {
+		{"Ljava/lang/Deprecated;", getOptionmethodAnnotations$$$2$namedAttribute},
+		{}
+	};
+	$NamedAttribute setOptionmethodAnnotations$$$namedAttribute[] = {
+		{"since", 's', "16"},
+		{}
+	};
+	$CompoundAttribute setOptionmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", setOptionmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setOptionmethodAnnotations$$$1$namedAttribute[] = {
+		{"since", 's', "16"},
+		{}
+	};
+	$CompoundAttribute setOptionmethodAnnotations$$$1[] = {
+		{"Ljava/lang/Deprecated;", setOptionmethodAnnotations$$$1$namedAttribute},
+		{}
+	};
+	$NamedAttribute setOptionmethodAnnotations$$$2$namedAttribute[] = {
+		{"since", 's', "16"},
+		{}
+	};
+	$CompoundAttribute setOptionmethodAnnotations$$$2[] = {
+		{"Ljava/lang/Deprecated;", setOptionmethodAnnotations$$$2$namedAttribute},
+		{}
+	};
+	$NamedAttribute supportedOptionsmethodAnnotations$$$namedAttribute[] = {
+		{"since", 's', "16"},
+		{"forRemoval", 'Z', "true"},
+		{}
+	};
+	$CompoundAttribute supportedOptionsmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", supportedOptionsmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(Sockets, init$, void)},
+		{"checkValueType", "(Ljava/lang/Object;Ljava/lang/Class;)V", "(Ljava/lang/Object;Ljava/lang/Class<*>;)V", $PRIVATE | $STATIC, $staticMethod(Sockets, checkValueType, void, Object$*, $Class*)},
+		{"getOption", "(Ljava/net/Socket;Ljava/net/SocketOption;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljava/net/Socket;Ljava/net/SocketOption<TT;>;)TT;", $PUBLIC | $STATIC | $DEPRECATED, $staticMethod(Sockets, getOption, $Object*, $Socket*, $SocketOption*), "java.io.IOException", nullptr, getOptionmethodAnnotations$$},
+		{"getOption", "(Ljava/net/ServerSocket;Ljava/net/SocketOption;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljava/net/ServerSocket;Ljava/net/SocketOption<TT;>;)TT;", $PUBLIC | $STATIC | $DEPRECATED, $staticMethod(Sockets, getOption, $Object*, $ServerSocket*, $SocketOption*), "java.io.IOException", nullptr, getOptionmethodAnnotations$$$1},
+		{"getOption", "(Ljava/net/DatagramSocket;Ljava/net/SocketOption;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljava/net/DatagramSocket;Ljava/net/SocketOption<TT;>;)TT;", $PUBLIC | $STATIC | $DEPRECATED, $staticMethod(Sockets, getOption, $Object*, $DatagramSocket*, $SocketOption*), "java.io.IOException", nullptr, getOptionmethodAnnotations$$$2},
+		{"isReusePortAvailable", "()Z", nullptr, $STATIC, $staticMethod(Sockets, isReusePortAvailable, bool)},
+		{"optionSets", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/Class<*>;Ljava/util/Set<Ljava/net/SocketOption<*>;>;>;", $PRIVATE | $STATIC, $staticMethod(Sockets, optionSets, $Map*)},
+		{"setOption", "(Ljava/net/Socket;Ljava/net/SocketOption;Ljava/lang/Object;)V", "<T:Ljava/lang/Object;>(Ljava/net/Socket;Ljava/net/SocketOption<TT;>;TT;)V", $PUBLIC | $STATIC | $DEPRECATED, $staticMethod(Sockets, setOption, void, $Socket*, $SocketOption*, Object$*), "java.io.IOException", nullptr, setOptionmethodAnnotations$$},
+		{"setOption", "(Ljava/net/ServerSocket;Ljava/net/SocketOption;Ljava/lang/Object;)V", "<T:Ljava/lang/Object;>(Ljava/net/ServerSocket;Ljava/net/SocketOption<TT;>;TT;)V", $PUBLIC | $STATIC | $DEPRECATED, $staticMethod(Sockets, setOption, void, $ServerSocket*, $SocketOption*, Object$*), "java.io.IOException", nullptr, setOptionmethodAnnotations$$$1},
+		{"setOption", "(Ljava/net/DatagramSocket;Ljava/net/SocketOption;Ljava/lang/Object;)V", "<T:Ljava/lang/Object;>(Ljava/net/DatagramSocket;Ljava/net/SocketOption<TT;>;TT;)V", $PUBLIC | $STATIC | $DEPRECATED, $staticMethod(Sockets, setOption, void, $DatagramSocket*, $SocketOption*, Object$*), "java.io.IOException", nullptr, setOptionmethodAnnotations$$$2},
+		{"supportedOptions", "(Ljava/lang/Class;)Ljava/util/Set;", "(Ljava/lang/Class<*>;)Ljava/util/Set<Ljava/net/SocketOption<*>;>;", $PUBLIC | $STATIC | $DEPRECATED, $staticMethod(Sockets, supportedOptions, $Set*, $Class*), nullptr, nullptr, supportedOptionsmethodAnnotations$$},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.net.Sockets$KeepAliveOptions", "jdk.net.Sockets", "KeepAliveOptions", $STATIC},
+		{"jdk.net.Sockets$QuickAck", "jdk.net.Sockets", "QuickAck", $STATIC},
+		{}
+	};
+	$NamedAttribute annotations$$$namedAttribute[] = {
+		{"since", 's', "16"},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/lang/Deprecated;", annotations$$$namedAttribute},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"jdk.net.Sockets",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		annotations$$,
+		nullptr,
+		"jdk.net.Sockets$KeepAliveOptions,jdk.net.Sockets$QuickAck"
+	};
+	$loadClass(Sockets, name, initialize, &classInfo$$, Sockets::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Sockets);
+	});
 	return class$;
 }
 

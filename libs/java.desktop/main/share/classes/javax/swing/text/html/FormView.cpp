@@ -1,5 +1,4 @@
 #include <javax/swing/text/html/FormView.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <java/awt/Point.h>
@@ -7,7 +6,6 @@
 #include <java/awt/event/ActionListener.h>
 #include <java/awt/event/ItemListener.h>
 #include <java/awt/event/MouseListener.h>
-#include <java/lang/Runnable.h>
 #include <java/net/MalformedURLException.h>
 #include <java/net/URL.h>
 #include <java/net/URLEncoder.h>
@@ -43,7 +41,6 @@
 #include <javax/swing/text/AttributeSet.h>
 #include <javax/swing/text/BadLocationException.h>
 #include <javax/swing/text/ComponentView.h>
-#include <javax/swing/text/DefaultStyledDocument.h>
 #include <javax/swing/text/Document.h>
 #include <javax/swing/text/EditorKit.h>
 #include <javax/swing/text/Element.h>
@@ -104,14 +101,12 @@ using $Point = ::java::awt::Point;
 using $ActionEvent = ::java::awt::event::ActionEvent;
 using $ActionListener = ::java::awt::event::ActionListener;
 using $ItemListener = ::java::awt::event::ItemListener;
-using $MouseListener = ::java::awt::event::MouseListener;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $Float = ::java::lang::Float;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
 using $MalformedURLException = ::java::net::MalformedURLException;
 using $URL = ::java::net::URL;
 using $URLEncoder = ::java::net::URLEncoder;
@@ -147,7 +142,6 @@ using $AbstractDocument = ::javax::swing::text::AbstractDocument;
 using $AttributeSet = ::javax::swing::text::AttributeSet;
 using $BadLocationException = ::javax::swing::text::BadLocationException;
 using $ComponentView = ::javax::swing::text::ComponentView;
-using $DefaultStyledDocument = ::javax::swing::text::DefaultStyledDocument;
 using $Document = ::javax::swing::text::Document;
 using $Element = ::javax::swing::text::Element;
 using $ElementIterator = ::javax::swing::text::ElementIterator;
@@ -175,79 +169,6 @@ namespace javax {
 	namespace swing {
 		namespace text {
 			namespace html {
-
-$CompoundAttribute _FormView_FieldAnnotations_SUBMIT[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _FormView_FieldAnnotations_RESET[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$FieldInfo _FormView_FieldInfo_[] = {
-	{"SUBMIT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL | $DEPRECATED, $staticField(FormView, SUBMIT), _FormView_FieldAnnotations_SUBMIT},
-	{"RESET", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL | $DEPRECATED, $staticField(FormView, RESET), _FormView_FieldAnnotations_RESET},
-	{"PostDataProperty", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(FormView, PostDataProperty)},
-	{"maxIsPreferred", "S", nullptr, $PRIVATE, $field(FormView, maxIsPreferred)},
-	{}
-};
-
-$MethodInfo _FormView_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljavax/swing/text/Element;)V", nullptr, $PUBLIC, $method(FormView, init$, void, $Element*)},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(FormView, actionPerformed, void, $ActionEvent*)},
-	{"appendBuffer", "(Ljava/lang/StringBuilder;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(FormView, appendBuffer, void, $StringBuilder*, $String*, $String*)},
-	{"createComponent", "()Ljava/awt/Component;", nullptr, $PROTECTED, $virtualMethod(FormView, createComponent, $Component*)},
-	{"createInputComponent", "(Ljavax/swing/text/AttributeSet;Ljava/lang/Object;)Ljavax/swing/JComponent;", nullptr, $PRIVATE, $method(FormView, createInputComponent, $JComponent*, $AttributeSet*, Object$*)},
-	{"getFormData", "(Ljava/lang/StringBuilder;)V", nullptr, $PRIVATE, $method(FormView, getFormData, void, $StringBuilder*)},
-	{"getFormElement", "()Ljavax/swing/text/Element;", nullptr, $PRIVATE, $method(FormView, getFormElement, $Element*)},
-	{"getImageData", "(Ljava/awt/Point;)Ljava/lang/String;", nullptr, $PRIVATE, $method(FormView, getImageData, $String*, $Point*)},
-	{"getInputElementData", "(Ljavax/swing/text/AttributeSet;)Ljava/lang/String;", nullptr, $PRIVATE, $method(FormView, getInputElementData, $String*, $AttributeSet*)},
-	{"getMaximumSpan", "(I)F", nullptr, $PUBLIC, $virtualMethod(FormView, getMaximumSpan, float, int32_t)},
-	{"getTextAreaData", "(Ljavax/swing/text/AttributeSet;)Ljava/lang/String;", nullptr, $PRIVATE, $method(FormView, getTextAreaData, $String*, $AttributeSet*)},
-	{"imageSubmit", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(FormView, imageSubmit, void, $String*)},
-	{"isControl", "(Ljavax/swing/text/Element;)Z", nullptr, $PRIVATE, $method(FormView, isControl, bool, $Element*)},
-	{"isLastTextOrPasswordField", "()Z", nullptr, 0, $virtualMethod(FormView, isLastTextOrPasswordField, bool)},
-	{"loadElementDataIntoBuffer", "(Ljavax/swing/text/Element;Ljava/lang/StringBuilder;)V", nullptr, $PRIVATE, $method(FormView, loadElementDataIntoBuffer, void, $Element*, $StringBuilder*)},
-	{"loadSelectData", "(Ljavax/swing/text/AttributeSet;Ljava/lang/StringBuilder;)V", nullptr, $PRIVATE, $method(FormView, loadSelectData, void, $AttributeSet*, $StringBuilder*)},
-	{"removeStaleListenerForModel", "(Ljava/lang/Object;)V", nullptr, $PRIVATE, $method(FormView, removeStaleListenerForModel, void, Object$*)},
-	{"resetForm", "()V", nullptr, 0, $virtualMethod(FormView, resetForm, void)},
-	{"storePostData", "(Ljavax/swing/text/html/HTMLDocument;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(FormView, storePostData, void, $HTMLDocument*, $String*, $String*)},
-	{"submitData", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(FormView, submitData, void, $String*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _FormView_InnerClassesInfo_[] = {
-	{"javax.swing.text.html.FormView$BrowseFileAction", "javax.swing.text.html.FormView", "BrowseFileAction", $PRIVATE},
-	{"javax.swing.text.html.FormView$MouseEventListener", "javax.swing.text.html.FormView", "MouseEventListener", $PROTECTED},
-	{"javax.swing.text.html.FormView$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _FormView_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.text.html.FormView",
-	"javax.swing.text.ComponentView",
-	"java.awt.event.ActionListener",
-	_FormView_FieldInfo_,
-	_FormView_MethodInfo_,
-	nullptr,
-	nullptr,
-	_FormView_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.swing.text.html.FormView$BrowseFileAction,javax.swing.text.html.FormView$MouseEventListener,javax.swing.text.html.FormView$1"
-};
-
-$Object* allocate$FormView($Class* clazz) {
-	return $of($alloc(FormView));
-}
 
 int32_t FormView::hashCode() {
 	 return this->$ComponentView::hashCode();
@@ -278,8 +199,8 @@ void FormView::init$($Element* elem) {
 }
 
 $Component* FormView::createComponent() {
-	$useLocalCurrentObjectStackCache();
-	$var($AttributeSet, attr, $nc($(getElement()))->getAttributes());
+	$useLocalObjectStack();
+	$var($AttributeSet, attr, $$nc(getElement())->getAttributes());
 	$init($StyleConstants);
 	$var($HTML$Tag, t, $cast($HTML$Tag, $nc(attr)->getAttribute($StyleConstants::NameAttribute)));
 	$var($JComponent, c, nullptr);
@@ -288,32 +209,28 @@ $Component* FormView::createComponent() {
 	$init($HTML$Tag);
 	if (t == $HTML$Tag::INPUT) {
 		$assign(c, createInputComponent(attr, model));
-	} else {
-		if (t == $HTML$Tag::SELECT) {
-			if ($instanceOf($OptionListModel, model)) {
-				$var($JList, list, $new($JList, $cast($ListModel, model)));
-				$init($HTML$Attribute);
-				int32_t size = $HTML::getIntegerAttributeValue(attr, $HTML$Attribute::SIZE, 1);
-				list->setVisibleRowCount(size);
-				list->setSelectionModel($cast($ListSelectionModel, model));
-				$assign(c, $new($JScrollPane, list));
-			} else {
-				$var($JComboBox, tmp, $new($JComboBox, $cast($ComboBoxModel, model)));
-				$assign(c, tmp);
-				this->maxIsPreferred = (int16_t)3;
-			}
+	} else if (t == $HTML$Tag::SELECT) {
+		if ($instanceOf($OptionListModel, model)) {
+			$var($JList, list, $new($JList, $cast($ListModel, model)));
+			$init($HTML$Attribute);
+			int32_t size = $HTML::getIntegerAttributeValue(attr, $HTML$Attribute::SIZE, 1);
+			list->setVisibleRowCount(size);
+			list->setSelectionModel($cast($ListSelectionModel, model));
+			$assign(c, $new($JScrollPane, list));
 		} else {
-			if (t == $HTML$Tag::TEXTAREA) {
-				$var($JTextArea, area, $new($JTextArea, $cast($Document, model)));
-				$init($HTML$Attribute);
-				int32_t rows = $HTML::getIntegerAttributeValue(attr, $HTML$Attribute::ROWS, 1);
-				area->setRows(rows);
-				int32_t cols = $HTML::getIntegerAttributeValue(attr, $HTML$Attribute::COLS, 20);
-				this->maxIsPreferred = (int16_t)3;
-				area->setColumns(cols);
-				$assign(c, $new($JScrollPane, area, $JScrollPane::VERTICAL_SCROLLBAR_ALWAYS, $JScrollPane::HORIZONTAL_SCROLLBAR_ALWAYS));
-			}
+			$var($JComboBox, tmp, $new($JComboBox, $cast($ComboBoxModel, model)));
+			$assign(c, tmp);
+			this->maxIsPreferred = 3;
 		}
+	} else if (t == $HTML$Tag::TEXTAREA) {
+		$var($JTextArea, area, $new($JTextArea, $cast($Document, model)));
+		$init($HTML$Attribute);
+		int32_t rows = $HTML::getIntegerAttributeValue(attr, $HTML$Attribute::ROWS, 1);
+		area->setRows(rows);
+		int32_t cols = $HTML::getIntegerAttributeValue(attr, $HTML$Attribute::COLS, 20);
+		this->maxIsPreferred = 3;
+		area->setColumns(cols);
+		$assign(c, $new($JScrollPane, area, $JScrollPane::VERTICAL_SCROLLBAR_ALWAYS, $JScrollPane::HORIZONTAL_SCROLLBAR_ALWAYS));
 	}
 	if (c != nullptr) {
 		c->setAlignmentY(1.0f);
@@ -322,12 +239,12 @@ $Component* FormView::createComponent() {
 }
 
 $JComponent* FormView::createInputComponent($AttributeSet* attr, Object$* model) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JComponent, c, nullptr);
 	$init($HTML$Attribute);
 	$var($String, type, $cast($String, $nc(attr)->getAttribute($HTML$Attribute::TYPE)));
 	bool var$0 = $nc(type)->equals("submit"_s);
-	if (var$0 || $nc(type)->equals("reset"_s)) {
+	if (var$0 || type->equals("reset"_s)) {
 		$var($String, value, $cast($String, attr->getAttribute($HTML$Attribute::VALUE)));
 		if (value == nullptr) {
 			if (type->equals("submit"_s)) {
@@ -342,12 +259,12 @@ $JComponent* FormView::createInputComponent($AttributeSet* attr, Object$* model)
 			button->addActionListener(this);
 		}
 		$assign(c, button);
-		this->maxIsPreferred = (int16_t)3;
+		this->maxIsPreferred = 3;
 	} else if (type->equals("image"_s)) {
 		$var($String, srcAtt, $cast($String, attr->getAttribute($HTML$Attribute::SRC)));
 		$var($JButton, button, nullptr);
 		try {
-			$var($URL, base, $nc(($cast($HTMLDocument, $($nc($(getElement()))->getDocument()))))->getBase());
+			$var($URL, base, $$sure($HTMLDocument, $$nc(getElement())->getDocument())->getBase());
 			$var($URL, srcURL, $new($URL, base, srcAtt));
 			$var($Icon, icon, $new($ImageIcon, srcURL));
 			$assign(button, $new($JButton, icon));
@@ -359,19 +276,19 @@ $JComponent* FormView::createInputComponent($AttributeSet* attr, Object$* model)
 			button->addMouseListener($$new($FormView$MouseEventListener, this));
 		}
 		$assign(c, button);
-		this->maxIsPreferred = (int16_t)3;
+		this->maxIsPreferred = 3;
 	} else if (type->equals("checkbox"_s)) {
 		$assign(c, $new($JCheckBox));
 		if (model != nullptr) {
-			$nc(($cast($JCheckBox, c)))->setModel($cast($JToggleButton$ToggleButtonModel, model));
+			$cast($JCheckBox, c)->setModel($cast($JToggleButton$ToggleButtonModel, model));
 		}
-		this->maxIsPreferred = (int16_t)3;
+		this->maxIsPreferred = 3;
 	} else if (type->equals("radio"_s)) {
 		$assign(c, $new($JRadioButton));
 		if (model != nullptr) {
-			$nc(($cast($JRadioButton, c)))->setModel($cast($JToggleButton$ToggleButtonModel, model));
+			$cast($JRadioButton, c)->setModel($cast($JToggleButton$ToggleButtonModel, model));
 		}
-		this->maxIsPreferred = (int16_t)3;
+		this->maxIsPreferred = 3;
 	} else if (type->equals("text"_s)) {
 		int32_t size = $HTML::getIntegerAttributeValue(attr, $HTML$Attribute::SIZE, -1);
 		$var($JTextField, field, nullptr);
@@ -387,7 +304,7 @@ $JComponent* FormView::createInputComponent($AttributeSet* attr, Object$* model)
 			$nc(field)->setDocument($cast($Document, model));
 		}
 		$nc(field)->addActionListener(this);
-		this->maxIsPreferred = (int16_t)3;
+		this->maxIsPreferred = 3;
 	} else if (type->equals("password"_s)) {
 		$var($JPasswordField, field, $new($JPasswordField));
 		$assign(c, field);
@@ -397,7 +314,7 @@ $JComponent* FormView::createInputComponent($AttributeSet* attr, Object$* model)
 		int32_t size = $HTML::getIntegerAttributeValue(attr, $HTML$Attribute::SIZE, -1);
 		field->setColumns((size > 0) ? size : 20);
 		field->addActionListener(this);
-		this->maxIsPreferred = (int16_t)3;
+		this->maxIsPreferred = 3;
 	} else if (type->equals("file"_s)) {
 		$var($JTextField, field, $new($JTextField));
 		if (model != nullptr) {
@@ -407,57 +324,45 @@ $JComponent* FormView::createInputComponent($AttributeSet* attr, Object$* model)
 		field->setColumns((size > 0) ? size : 20);
 		$var($JButton, browseButton, $new($JButton, $($UIManager::getString("FormView.browseFileButtonText"_s))));
 		$var($Box, box, $Box::createHorizontalBox());
-		$nc(box)->add(static_cast<$Component*>(field));
+		$nc(box)->add(field);
 		box->add($($Box::createHorizontalStrut(5)));
-		box->add(static_cast<$Component*>(browseButton));
+		box->add(browseButton);
 		browseButton->addActionListener($$new($FormView$BrowseFileAction, this, attr, $cast($Document, model)));
 		$assign(c, box);
-		this->maxIsPreferred = (int16_t)3;
+		this->maxIsPreferred = 3;
 	}
 	return c;
 }
 
 void FormView::removeStaleListenerForModel(Object$* model) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($instanceOf($DefaultButtonModel, model)) {
 		$var($DefaultButtonModel, buttonModel, $cast($DefaultButtonModel, model));
 		$var($String, listenerClass, "javax.swing.AbstractButton$Handler"_s);
 		{
-			$var($ActionListenerArray, arr$, $nc(buttonModel)->getActionListeners());
-			int32_t len$ = $nc(arr$)->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
+			$var($ActionListenerArray, arr$, buttonModel->getActionListeners());
+			for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 				$var($ActionListener, listener, arr$->get(i$));
-				{
-					if (listenerClass->equals($($nc($of(listener))->getClass()->getName()))) {
-						buttonModel->removeActionListener(listener);
-					}
+				if (listenerClass->equals($($nc(listener)->getClass()->getName()))) {
+					buttonModel->removeActionListener(listener);
 				}
 			}
 		}
 		{
 			$var($ChangeListenerArray, arr$, buttonModel->getChangeListeners());
-			int32_t len$ = arr$->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
+			for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 				$var($ChangeListener, listener, arr$->get(i$));
-				{
-					if (listenerClass->equals($($nc($of(listener))->getClass()->getName()))) {
-						buttonModel->removeChangeListener(listener);
-					}
+				if (listenerClass->equals($($nc(listener)->getClass()->getName()))) {
+					buttonModel->removeChangeListener(listener);
 				}
 			}
 		}
 		{
 			$var($ItemListenerArray, arr$, buttonModel->getItemListeners());
-			int32_t len$ = arr$->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
+			for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 				$var($ItemListener, listener, arr$->get(i$));
-				{
-					if (listenerClass->equals($($nc($of(listener))->getClass()->getName()))) {
-						buttonModel->removeItemListener(listener);
-					}
+				if (listenerClass->equals($($nc(listener)->getClass()->getName()))) {
+					buttonModel->removeItemListener(listener);
 				}
 			}
 		}
@@ -466,14 +371,12 @@ void FormView::removeStaleListenerForModel(Object$* model) {
 		$var($String, listenerClass1, "javax.swing.plaf.basic.BasicListUI$Handler"_s);
 		$var($String, listenerClass2, "javax.swing.plaf.basic.BasicComboBoxUI$Handler"_s);
 		{
-			$var($ListDataListenerArray, arr$, $nc(listModel)->getListDataListeners());
-			int32_t len$ = $nc(arr$)->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
+			$var($ListDataListenerArray, arr$, listModel->getListDataListeners());
+			for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 				$var($ListDataListener, listener, arr$->get(i$));
 				{
-					bool var$0 = listenerClass1->equals($($nc($of(listener))->getClass()->getName()));
-					if (var$0 || listenerClass2->equals($($nc($of(listener))->getClass()->getName()))) {
+					bool var$0 = listenerClass1->equals($($nc(listener)->getClass()->getName()));
+					if (var$0 || listenerClass2->equals($(listener->getClass()->getName()))) {
 						listModel->removeListDataListener(listener);
 					}
 				}
@@ -484,14 +387,12 @@ void FormView::removeStaleListenerForModel(Object$* model) {
 		$var($String, listenerClass2, "javax.swing.text.DefaultCaret$Handler"_s);
 		$var($AbstractDocument, docModel, $cast($AbstractDocument, model));
 		{
-			$var($DocumentListenerArray, arr$, $nc(docModel)->getDocumentListeners());
-			int32_t len$ = $nc(arr$)->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
+			$var($DocumentListenerArray, arr$, docModel->getDocumentListeners());
+			for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 				$var($DocumentListener, listener, arr$->get(i$));
 				{
-					bool var$1 = listenerClass1->equals($($nc($of(listener))->getClass()->getName()));
-					if (var$1 || listenerClass2->equals($($nc($of(listener))->getClass()->getName()))) {
+					bool var$1 = listenerClass1->equals($($nc(listener)->getClass()->getName()));
+					if (var$1 || listenerClass2->equals($(listener->getClass()->getName()))) {
 						docModel->removeDocumentListener(listener);
 					}
 				}
@@ -503,31 +404,25 @@ void FormView::removeStaleListenerForModel(Object$* model) {
 float FormView::getMaximumSpan(int32_t axis) {
 	switch (axis) {
 	case $View::X_AXIS:
-		{
-			if (((int32_t)(this->maxIsPreferred & (uint32_t)1)) == 1) {
-				$ComponentView::getMaximumSpan(axis);
-				return getPreferredSpan(axis);
-			}
-			return $ComponentView::getMaximumSpan(axis);
+		if ((this->maxIsPreferred & 1) == 1) {
+			$ComponentView::getMaximumSpan(axis);
+			return getPreferredSpan(axis);
 		}
+		return $ComponentView::getMaximumSpan(axis);
 	case $View::Y_AXIS:
-		{
-			if (((int32_t)(this->maxIsPreferred & (uint32_t)2)) == 2) {
-				$ComponentView::getMaximumSpan(axis);
-				return getPreferredSpan(axis);
-			}
-			return $ComponentView::getMaximumSpan(axis);
+		if ((this->maxIsPreferred & 2) == 2) {
+			$ComponentView::getMaximumSpan(axis);
+			return getPreferredSpan(axis);
 		}
+		return $ComponentView::getMaximumSpan(axis);
 	default:
-		{
-			break;
-		}
+		break;
 	}
 	return $ComponentView::getMaximumSpan(axis);
 }
 
 void FormView::actionPerformed($ActionEvent* evt) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Element, element, getElement());
 	$var($StringBuilder, dataBuffer, $new($StringBuilder));
 	$var($HTMLDocument, doc, $cast($HTMLDocument, getDocument()));
@@ -540,20 +435,20 @@ void FormView::actionPerformed($ActionEvent* evt) {
 	} else if (type->equals("reset"_s)) {
 		resetForm();
 	} else {
-		bool var$1 = type->equals("text"_s);
-		if (var$1 || type->equals("password"_s)) {
+		bool var$0 = type->equals("text"_s);
+		if (var$0 || type->equals("password"_s)) {
 			if (isLastTextOrPasswordField()) {
 				getFormData(dataBuffer);
 				submitData($(dataBuffer->toString()));
 			} else {
-				$nc($(getComponent()))->transferFocus();
+				$$nc(getComponent())->transferFocus();
 			}
 		}
 	}
 }
 
 void FormView::submitData($String* data) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Element, form, getFormElement());
 	$var($AttributeSet, attrs, $nc(form)->getAttributes());
 	$var($HTMLDocument, doc, $cast($HTMLDocument, form->getDocument()));
@@ -608,8 +503,8 @@ void FormView::submitData($String* data) {
 }
 
 void FormView::storePostData($HTMLDocument* doc, $String* target, $String* data) {
-	$useLocalCurrentObjectStackCache();
-	$var($Document, propDoc, static_cast<$Document*>(static_cast<$AbstractDocument*>(static_cast<$DefaultStyledDocument*>(doc))));
+	$useLocalObjectStack();
+	$var($Document, propDoc, $cast($AbstractDocument, doc));
 	$var($String, propName, FormView::PostDataProperty);
 	if ($nc(doc)->isFrameDocument()) {
 		$var($FrameView$FrameEditorPane, p, $cast($FrameView$FrameEditorPane, getContainer()));
@@ -624,7 +519,7 @@ void FormView::storePostData($HTMLDocument* doc, $String* target, $String* data)
 }
 
 void FormView::imageSubmit($String* imageData) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, dataBuffer, $new($StringBuilder));
 	$var($Element, elem, getElement());
 	$var($HTMLDocument, hdoc, $cast($HTMLDocument, $nc(elem)->getDocument()));
@@ -638,15 +533,15 @@ void FormView::imageSubmit($String* imageData) {
 }
 
 $String* FormView::getImageData($Point* point) {
-	$useLocalCurrentObjectStackCache();
-	$var($String, mouseCoords, $str({$$str($nc(point)->x), ":"_s, $$str(point->y)}));
-	int32_t sep = $nc(mouseCoords)->indexOf((int32_t)u':');
+	$useLocalObjectStack();
+	$var($String, mouseCoords, $str({$$str($nc(point)->x), ":"_s, $$str($nc(point)->y)}));
+	int32_t sep = mouseCoords->indexOf(u':');
 	$var($String, x, mouseCoords->substring(0, sep));
 	$var($String, y, mouseCoords->substring(++sep));
 	$init($HTML$Attribute);
-	$var($String, name, $cast($String, $nc($($nc($(getElement()))->getAttributes()))->getAttribute($HTML$Attribute::NAME)));
+	$var($String, name, $cast($String, $$nc($$nc(getElement())->getAttributes())->getAttribute($HTML$Attribute::NAME)));
 	$var($String, data, nullptr);
-	if (name == nullptr || $nc(name)->isEmpty()) {
+	if (name == nullptr || name->isEmpty()) {
 		$assign(data, $str({"x="_s, x, "&y="_s, y}));
 	} else {
 		$assign(name, $URLEncoder::encode(name));
@@ -656,12 +551,12 @@ $String* FormView::getImageData($Point* point) {
 }
 
 $Element* FormView::getFormElement() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Element, elem, getElement());
 	while (elem != nullptr) {
 		$init($StyleConstants);
 		$init($HTML$Tag);
-		if ($equals($nc($(elem->getAttributes()))->getAttribute($StyleConstants::NameAttribute), $HTML$Tag::FORM)) {
+		if ($equals($$nc(elem->getAttributes())->getAttribute($StyleConstants::NameAttribute), $HTML$Tag::FORM)) {
 			return elem;
 		}
 		$assign(elem, elem->getParentElement());
@@ -670,7 +565,7 @@ $Element* FormView::getFormElement() {
 }
 
 void FormView::getFormData($StringBuilder* buffer) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Element, formE, getFormElement());
 	if (formE != nullptr) {
 		$var($ElementIterator, it, $new($ElementIterator, formE));
@@ -678,7 +573,7 @@ void FormView::getFormData($StringBuilder* buffer) {
 		while (($assign(next, it->next())) != nullptr) {
 			if (isControl(next)) {
 				$init($HTML$Attribute);
-				$var($String, type, $cast($String, $nc($($nc(next)->getAttributes()))->getAttribute($HTML$Attribute::TYPE)));
+				$var($String, type, $cast($String, $$nc($nc(next)->getAttributes())->getAttribute($HTML$Attribute::TYPE)));
 				bool var$0 = type != nullptr && type->equals("submit"_s);
 				if (var$0 && next != getElement()) {
 				} else if (type == nullptr || !type->equals("image"_s)) {
@@ -690,7 +585,7 @@ void FormView::getFormData($StringBuilder* buffer) {
 }
 
 void FormView::loadElementDataIntoBuffer($Element* elem, $StringBuilder* buffer) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AttributeSet, attr, $nc(elem)->getAttributes());
 	$init($HTML$Attribute);
 	$var($String, name, $cast($String, $nc(attr)->getAttribute($HTML$Attribute::NAME)));
@@ -699,18 +594,14 @@ void FormView::loadElementDataIntoBuffer($Element* elem, $StringBuilder* buffer)
 	}
 	$var($String, value, nullptr);
 	$init($StyleConstants);
-	$var($HTML$Tag, tag, $cast($HTML$Tag, $nc($(elem->getAttributes()))->getAttribute($StyleConstants::NameAttribute)));
+	$var($HTML$Tag, tag, $cast($HTML$Tag, $$nc(elem->getAttributes())->getAttribute($StyleConstants::NameAttribute)));
 	$init($HTML$Tag);
 	if (tag == $HTML$Tag::INPUT) {
 		$assign(value, getInputElementData(attr));
-	} else {
-		if (tag == $HTML$Tag::TEXTAREA) {
-			$assign(value, getTextAreaData(attr));
-		} else {
-			if (tag == $HTML$Tag::SELECT) {
-				loadSelectData(attr, buffer);
-			}
-		}
+	} else if (tag == $HTML$Tag::TEXTAREA) {
+		$assign(value, getTextAreaData(attr));
+	} else if (tag == $HTML$Tag::SELECT) {
+		loadSelectData(attr, buffer);
 	}
 	if (name != nullptr && value != nullptr) {
 		appendBuffer(buffer, name, value);
@@ -718,30 +609,30 @@ void FormView::loadElementDataIntoBuffer($Element* elem, $StringBuilder* buffer)
 }
 
 $String* FormView::getInputElementData($AttributeSet* attr) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($StyleConstants);
 	$var($Object, model, $nc(attr)->getAttribute($StyleConstants::ModelAttribute));
 	$init($HTML$Attribute);
 	$var($String, type, $cast($String, attr->getAttribute($HTML$Attribute::TYPE)));
 	$var($String, value, nullptr);
 	bool var$0 = $nc(type)->equals("text"_s);
-	if (var$0 || $nc(type)->equals("password"_s)) {
+	if (var$0 || type->equals("password"_s)) {
 		$var($Document, doc, $cast($Document, model));
 		try {
-			$assign(value, $nc(doc)->getText(0, doc->getLength()));
+			$assign(value, $nc(doc)->getText(0, $nc(doc)->getLength()));
 		} catch ($BadLocationException& e) {
 			$assign(value, nullptr);
 		}
 	} else {
-		bool var$2 = type->equals("submit"_s);
-		if (var$2 || type->equals("hidden"_s)) {
+		bool var$1 = type->equals("submit"_s);
+		if (var$1 || type->equals("hidden"_s)) {
 			$assign(value, $cast($String, attr->getAttribute($HTML$Attribute::VALUE)));
 			if (value == nullptr) {
 				$assign(value, ""_s);
 			}
 		} else {
-			bool var$4 = type->equals("radio"_s);
-			if (var$4 || type->equals("checkbox"_s)) {
+			bool var$2 = type->equals("radio"_s);
+			if (var$2 || type->equals("checkbox"_s)) {
 				$var($ButtonModel, m, $cast($ButtonModel, model));
 				if ($nc(m)->isSelected()) {
 					$assign(value, $cast($String, attr->getAttribute($HTML$Attribute::VALUE)));
@@ -753,7 +644,7 @@ $String* FormView::getInputElementData($AttributeSet* attr) {
 				$var($Document, doc, $cast($Document, model));
 				$var($String, path, nullptr);
 				try {
-					$assign(path, $nc(doc)->getText(0, doc->getLength()));
+					$assign(path, $nc(doc)->getText(0, $nc(doc)->getLength()));
 				} catch ($BadLocationException& e) {
 					$assign(path, nullptr);
 				}
@@ -770,7 +661,7 @@ $String* FormView::getTextAreaData($AttributeSet* attr) {
 	$init($StyleConstants);
 	$var($Document, doc, $cast($Document, $nc(attr)->getAttribute($StyleConstants::ModelAttribute)));
 	try {
-		return $nc(doc)->getText(0, doc->getLength());
+		return $nc(doc)->getText(0, $nc(doc)->getLength());
 	} catch ($BadLocationException& e) {
 		return nullptr;
 	}
@@ -778,7 +669,7 @@ $String* FormView::getTextAreaData($AttributeSet* attr) {
 }
 
 void FormView::loadSelectData($AttributeSet* attr, $StringBuilder* buffer) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($HTML$Attribute);
 	$var($String, name, $cast($String, $nc(attr)->getAttribute($HTML$Attribute::NAME)));
 	if (name == nullptr) {
@@ -788,7 +679,7 @@ void FormView::loadSelectData($AttributeSet* attr, $StringBuilder* buffer) {
 	$var($Object, m, attr->getAttribute($StyleConstants::ModelAttribute));
 	if ($instanceOf($OptionListModel, m)) {
 		$var($OptionListModel, model, $cast($OptionListModel, m));
-		for (int32_t i = 0; i < $nc(model)->getSize(); ++i) {
+		for (int32_t i = 0; i < model->getSize(); ++i) {
 			if (model->isSelectedIndex(i)) {
 				$var($Option, option, $cast($Option, model->getElementAt(i)));
 				if (option != nullptr) {
@@ -801,7 +692,7 @@ void FormView::loadSelectData($AttributeSet* attr, $StringBuilder* buffer) {
 		}
 	} else if ($instanceOf($ComboBoxModel, m)) {
 		$var($ComboBoxModel, model, $cast($ComboBoxModel, m));
-		$var($Option, option, $cast($Option, $nc(model)->getSelectedItem()));
+		$var($Option, option, $cast($Option, model->getSelectedItem()));
 		if (option != nullptr) {
 			$var($String, value, option->getValue());
 			if (value != nullptr) {
@@ -812,12 +703,12 @@ void FormView::loadSelectData($AttributeSet* attr, $StringBuilder* buffer) {
 }
 
 void FormView::appendBuffer($StringBuilder* buffer, $String* name, $String* value) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(buffer)->length() > 0) {
 		buffer->append(u'&');
 	}
 	$var($String, encodedName, $URLEncoder::encode(name));
-	$nc(buffer)->append(encodedName);
+	buffer->append(encodedName);
 	buffer->append(u'=');
 	$var($String, encodedValue, $URLEncoder::encode(value));
 	buffer->append(encodedValue);
@@ -828,7 +719,7 @@ bool FormView::isControl($Element* elem) {
 }
 
 bool FormView::isLastTextOrPasswordField() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Element, parent, getFormElement());
 	$var($Element, elem, getElement());
 	if (parent != nullptr) {
@@ -856,7 +747,7 @@ bool FormView::isLastTextOrPasswordField() {
 }
 
 void FormView::resetForm() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Element, parent, getFormElement());
 	if (parent != nullptr) {
 		$var($ElementIterator, it, $new($ElementIterator, parent));
@@ -868,11 +759,11 @@ void FormView::resetForm() {
 				$var($Object, m, $nc(elemAttr)->getAttribute($StyleConstants::ModelAttribute));
 				if ($instanceOf($TextAreaDocument, m)) {
 					$var($TextAreaDocument, doc, $cast($TextAreaDocument, m));
-					$nc(doc)->reset();
+					doc->reset();
 				} else if ($instanceOf($PlainDocument, m)) {
 					try {
 						$var($PlainDocument, doc, $cast($PlainDocument, m));
-						$nc(doc)->remove(0, doc->getLength());
+						doc->remove(0, doc->getLength());
 						$init($HTML$Tag);
 						if ($HTMLDocument::matchNameAttribute(elemAttr, $HTML$Tag::INPUT)) {
 							$init($HTML$Attribute);
@@ -885,7 +776,7 @@ void FormView::resetForm() {
 					}
 				} else if ($instanceOf($OptionListModel, m)) {
 					$var($OptionListModel, model, $cast($OptionListModel, m));
-					int32_t size = $nc(model)->getSize();
+					int32_t size = model->getSize();
 					for (int32_t i = 0; i < size; ++i) {
 						model->removeIndexInterval(i, i);
 					}
@@ -897,7 +788,7 @@ void FormView::resetForm() {
 					}
 				} else if ($instanceOf($OptionComboBoxModel, m)) {
 					$var($OptionComboBoxModel, model, $cast($OptionComboBoxModel, m));
-					$var($Option, option, $nc(model)->getInitialSelection());
+					$var($Option, option, model->getInitialSelection());
 					if (option != nullptr) {
 						model->setSelectedItem(option);
 					}
@@ -905,14 +796,14 @@ void FormView::resetForm() {
 					$init($HTML$Attribute);
 					bool checked = ($cast($String, elemAttr->getAttribute($HTML$Attribute::CHECKED)) != nullptr);
 					$var($JToggleButton$ToggleButtonModel, model, $cast($JToggleButton$ToggleButtonModel, m));
-					$nc(model)->setSelected(checked);
+					model->setSelected(checked);
 				}
 			}
 		}
 	}
 }
 
-void clinit$FormView($Class* class$) {
+void FormView::clinit$($Class* clazz) {
 	$assignStatic(FormView::PostDataProperty, "javax.swing.JEditorPane.postdata"_s);
 	$assignStatic(FormView::SUBMIT, $new($String, "Submit Query"_s));
 	$assignStatic(FormView::RESET, $new($String, "Reset"_s));
@@ -922,7 +813,72 @@ FormView::FormView() {
 }
 
 $Class* FormView::load$($String* name, bool initialize) {
-	$loadClass(FormView, name, initialize, &_FormView_ClassInfo_, clinit$FormView, allocate$FormView);
+	$CompoundAttribute SUBMITfieldAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute RESETfieldAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$FieldInfo fieldInfos$$[] = {
+		{"SUBMIT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL | $DEPRECATED, $staticField(FormView, SUBMIT), SUBMITfieldAnnotations$$},
+		{"RESET", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL | $DEPRECATED, $staticField(FormView, RESET), RESETfieldAnnotations$$},
+		{"PostDataProperty", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(FormView, PostDataProperty)},
+		{"maxIsPreferred", "S", nullptr, $PRIVATE, $field(FormView, maxIsPreferred)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljavax/swing/text/Element;)V", nullptr, $PUBLIC, $method(FormView, init$, void, $Element*)},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(FormView, actionPerformed, void, $ActionEvent*)},
+		{"appendBuffer", "(Ljava/lang/StringBuilder;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(FormView, appendBuffer, void, $StringBuilder*, $String*, $String*)},
+		{"createComponent", "()Ljava/awt/Component;", nullptr, $PROTECTED, $virtualMethod(FormView, createComponent, $Component*)},
+		{"createInputComponent", "(Ljavax/swing/text/AttributeSet;Ljava/lang/Object;)Ljavax/swing/JComponent;", nullptr, $PRIVATE, $method(FormView, createInputComponent, $JComponent*, $AttributeSet*, Object$*)},
+		{"getFormData", "(Ljava/lang/StringBuilder;)V", nullptr, $PRIVATE, $method(FormView, getFormData, void, $StringBuilder*)},
+		{"getFormElement", "()Ljavax/swing/text/Element;", nullptr, $PRIVATE, $method(FormView, getFormElement, $Element*)},
+		{"getImageData", "(Ljava/awt/Point;)Ljava/lang/String;", nullptr, $PRIVATE, $method(FormView, getImageData, $String*, $Point*)},
+		{"getInputElementData", "(Ljavax/swing/text/AttributeSet;)Ljava/lang/String;", nullptr, $PRIVATE, $method(FormView, getInputElementData, $String*, $AttributeSet*)},
+		{"getMaximumSpan", "(I)F", nullptr, $PUBLIC, $virtualMethod(FormView, getMaximumSpan, float, int32_t)},
+		{"getTextAreaData", "(Ljavax/swing/text/AttributeSet;)Ljava/lang/String;", nullptr, $PRIVATE, $method(FormView, getTextAreaData, $String*, $AttributeSet*)},
+		{"imageSubmit", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(FormView, imageSubmit, void, $String*)},
+		{"isControl", "(Ljavax/swing/text/Element;)Z", nullptr, $PRIVATE, $method(FormView, isControl, bool, $Element*)},
+		{"isLastTextOrPasswordField", "()Z", nullptr, 0, $virtualMethod(FormView, isLastTextOrPasswordField, bool)},
+		{"loadElementDataIntoBuffer", "(Ljavax/swing/text/Element;Ljava/lang/StringBuilder;)V", nullptr, $PRIVATE, $method(FormView, loadElementDataIntoBuffer, void, $Element*, $StringBuilder*)},
+		{"loadSelectData", "(Ljavax/swing/text/AttributeSet;Ljava/lang/StringBuilder;)V", nullptr, $PRIVATE, $method(FormView, loadSelectData, void, $AttributeSet*, $StringBuilder*)},
+		{"removeStaleListenerForModel", "(Ljava/lang/Object;)V", nullptr, $PRIVATE, $method(FormView, removeStaleListenerForModel, void, Object$*)},
+		{"resetForm", "()V", nullptr, 0, $virtualMethod(FormView, resetForm, void)},
+		{"storePostData", "(Ljavax/swing/text/html/HTMLDocument;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(FormView, storePostData, void, $HTMLDocument*, $String*, $String*)},
+		{"submitData", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(FormView, submitData, void, $String*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.html.FormView$BrowseFileAction", "javax.swing.text.html.FormView", "BrowseFileAction", $PRIVATE},
+		{"javax.swing.text.html.FormView$MouseEventListener", "javax.swing.text.html.FormView", "MouseEventListener", $PROTECTED},
+		{"javax.swing.text.html.FormView$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.text.html.FormView",
+		"javax.swing.text.ComponentView",
+		"java.awt.event.ActionListener",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.swing.text.html.FormView$BrowseFileAction,javax.swing.text.html.FormView$MouseEventListener,javax.swing.text.html.FormView$1"
+	};
+	$loadClass(FormView, name, initialize, &classInfo$$, FormView::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(FormView));
+	});
 	return class$;
 }
 

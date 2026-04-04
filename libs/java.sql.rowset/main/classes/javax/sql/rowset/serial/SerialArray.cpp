@@ -1,5 +1,4 @@
 #include <javax/sql/rowset/serial/SerialArray.h>
-
 #include <java/io/InvalidObjectException.h>
 #include <java/io/ObjectInputStream$GetField.h>
 #include <java/io/ObjectInputStream.h>
@@ -66,53 +65,6 @@ namespace javax {
 		namespace rowset {
 			namespace serial {
 
-$FieldInfo _SerialArray_FieldInfo_[] = {
-	{"elements", "[Ljava/lang/Object;", nullptr, $PRIVATE, $field(SerialArray, elements)},
-	{"baseType", "I", nullptr, $PRIVATE, $field(SerialArray, baseType)},
-	{"baseTypeName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(SerialArray, baseTypeName)},
-	{"len", "I", nullptr, $PRIVATE, $field(SerialArray, len)},
-	{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(SerialArray, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _SerialArray_MethodInfo_[] = {
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"<init>", "(Ljava/sql/Array;Ljava/util/Map;)V", "(Ljava/sql/Array;Ljava/util/Map<Ljava/lang/String;Ljava/lang/Class<*>;>;)V", $PUBLIC, $method(SerialArray, init$, void, $1Array*, $Map*), "javax.sql.rowset.serial.SerialException,java.sql.SQLException"},
-	{"<init>", "(Ljava/sql/Array;)V", nullptr, $PUBLIC, $method(SerialArray, init$, void, $1Array*), "javax.sql.rowset.serial.SerialException,java.sql.SQLException"},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SerialArray, clone, $Object*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(SerialArray, equals, bool, Object$*)},
-	{"free", "()V", nullptr, $PUBLIC, $virtualMethod(SerialArray, free, void), "java.sql.SQLException"},
-	{"getArray", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SerialArray, getArray, $Object*), "javax.sql.rowset.serial.SerialException"},
-	{"getArray", "(Ljava/util/Map;)Ljava/lang/Object;", "(Ljava/util/Map<Ljava/lang/String;Ljava/lang/Class<*>;>;)Ljava/lang/Object;", $PUBLIC, $virtualMethod(SerialArray, getArray, $Object*, $Map*), "javax.sql.rowset.serial.SerialException"},
-	{"getArray", "(JI)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SerialArray, getArray, $Object*, int64_t, int32_t), "javax.sql.rowset.serial.SerialException"},
-	{"getArray", "(JILjava/util/Map;)Ljava/lang/Object;", "(JILjava/util/Map<Ljava/lang/String;Ljava/lang/Class<*>;>;)Ljava/lang/Object;", $PUBLIC, $virtualMethod(SerialArray, getArray, $Object*, int64_t, int32_t, $Map*), "javax.sql.rowset.serial.SerialException"},
-	{"getBaseType", "()I", nullptr, $PUBLIC, $virtualMethod(SerialArray, getBaseType, int32_t), "javax.sql.rowset.serial.SerialException"},
-	{"getBaseTypeName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SerialArray, getBaseTypeName, $String*), "javax.sql.rowset.serial.SerialException"},
-	{"getResultSet", "(JI)Ljava/sql/ResultSet;", nullptr, $PUBLIC, $virtualMethod(SerialArray, getResultSet, $ResultSet*, int64_t, int32_t), "javax.sql.rowset.serial.SerialException"},
-	{"getResultSet", "(Ljava/util/Map;)Ljava/sql/ResultSet;", "(Ljava/util/Map<Ljava/lang/String;Ljava/lang/Class<*>;>;)Ljava/sql/ResultSet;", $PUBLIC, $virtualMethod(SerialArray, getResultSet, $ResultSet*, $Map*), "javax.sql.rowset.serial.SerialException"},
-	{"getResultSet", "()Ljava/sql/ResultSet;", nullptr, $PUBLIC, $virtualMethod(SerialArray, getResultSet, $ResultSet*), "javax.sql.rowset.serial.SerialException"},
-	{"getResultSet", "(JILjava/util/Map;)Ljava/sql/ResultSet;", "(JILjava/util/Map<Ljava/lang/String;Ljava/lang/Class<*>;>;)Ljava/sql/ResultSet;", $PUBLIC, $virtualMethod(SerialArray, getResultSet, $ResultSet*, int64_t, int32_t, $Map*), "javax.sql.rowset.serial.SerialException"},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(SerialArray, hashCode, int32_t)},
-	{"isValid", "()V", nullptr, $PRIVATE, $method(SerialArray, isValid, void), "javax.sql.rowset.serial.SerialException"},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(SerialArray, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(SerialArray, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _SerialArray_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.sql.rowset.serial.SerialArray",
-	"java.lang.Object",
-	"java.sql.Array,java.io.Serializable,java.lang.Cloneable",
-	_SerialArray_FieldInfo_,
-	_SerialArray_MethodInfo_
-};
-
-$Object* allocate$SerialArray($Class* clazz) {
-	return $of($alloc(SerialArray));
-}
-
 $String* SerialArray::toString() {
 	 return this->$1Array::toString();
 }
@@ -122,58 +74,46 @@ void SerialArray::finalize() {
 }
 
 void SerialArray::init$($1Array* array, $Map* map) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ((array == nullptr) || (map == nullptr)) {
 		$throwNew($SQLException, "Cannot instantiate a SerialArray object with null parameters"_s);
 	}
 	if (($set(this, elements, $cast($ObjectArray, $nc(array)->getArray()))) == nullptr) {
 		$throwNew($SQLException, "Invalid Array object. Calls to Array.getArray() return null value which cannot be serialized"_s);
 	}
-	$set(this, elements, $cast($ObjectArray, $nc(array)->getArray(map)));
+	$set(this, elements, $cast($ObjectArray, array->getArray(map)));
 	this->baseType = array->getBaseType();
 	$set(this, baseTypeName, array->getBaseTypeName());
 	this->len = $nc(this->elements)->length;
 	switch (this->baseType) {
 	case $Types::STRUCT:
-		{
-			for (int32_t i = 0; i < this->len; ++i) {
-				$nc(this->elements)->set(i, $$new($SerialStruct, $cast($Struct, $nc(this->elements)->get(i)), map));
-			}
-			break;
+		for (int32_t i = 0; i < this->len; ++i) {
+			this->elements->set(i, $$new($SerialStruct, $cast($Struct, this->elements->get(i)), map));
 		}
+		break;
 	case $Types::ARRAY:
-		{
-			for (int32_t i = 0; i < this->len; ++i) {
-				$nc(this->elements)->set(i, $$new(SerialArray, $cast($1Array, $nc(this->elements)->get(i)), map));
-			}
-			break;
+		for (int32_t i = 0; i < this->len; ++i) {
+			this->elements->set(i, $$new(SerialArray, $cast($1Array, this->elements->get(i)), map));
 		}
+		break;
 	case $Types::BLOB:
-		{
-			for (int32_t i = 0; i < this->len; ++i) {
-				$nc(this->elements)->set(i, $$new($SerialBlob, $cast($Blob, $nc(this->elements)->get(i))));
-			}
-			break;
+		for (int32_t i = 0; i < this->len; ++i) {
+			this->elements->set(i, $$new($SerialBlob, $cast($Blob, this->elements->get(i))));
 		}
+		break;
 	case $Types::CLOB:
-		{
-			for (int32_t i = 0; i < this->len; ++i) {
-				$nc(this->elements)->set(i, $$new($SerialClob, $cast($Clob, $nc(this->elements)->get(i))));
-			}
-			break;
+		for (int32_t i = 0; i < this->len; ++i) {
+			this->elements->set(i, $$new($SerialClob, $cast($Clob, this->elements->get(i))));
 		}
+		break;
 	case $Types::DATALINK:
-		{
-			for (int32_t i = 0; i < this->len; ++i) {
-				$nc(this->elements)->set(i, $$new($SerialDatalink, $cast($URL, $nc(this->elements)->get(i))));
-			}
-			break;
+		for (int32_t i = 0; i < this->len; ++i) {
+			this->elements->set(i, $$new($SerialDatalink, $cast($URL, this->elements->get(i))));
 		}
+		break;
 	case $Types::JAVA_OBJECT:
-		{
-			for (int32_t i = 0; i < this->len; ++i) {
-				$nc(this->elements)->set(i, $$new($SerialJavaObject, $nc(this->elements)->get(i)));
-			}
+		for (int32_t i = 0; i < this->len; ++i) {
+			this->elements->set(i, $$new($SerialJavaObject, this->elements->get(i)));
 		}
 	}
 }
@@ -186,45 +126,37 @@ void SerialArray::free() {
 }
 
 void SerialArray::init$($1Array* array) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (array == nullptr) {
 		$throwNew($SQLException, "Cannot instantiate a SerialArray object with a null Array object"_s);
 	}
 	if (($set(this, elements, $cast($ObjectArray, $nc(array)->getArray()))) == nullptr) {
 		$throwNew($SQLException, "Invalid Array object. Calls to Array.getArray() return null value which cannot be serialized"_s);
 	}
-	this->baseType = $nc(array)->getBaseType();
+	this->baseType = array->getBaseType();
 	$set(this, baseTypeName, array->getBaseTypeName());
 	this->len = $nc(this->elements)->length;
 	switch (this->baseType) {
 	case $Types::BLOB:
-		{
-			for (int32_t i = 0; i < this->len; ++i) {
-				$nc(this->elements)->set(i, $$new($SerialBlob, $cast($Blob, $nc(this->elements)->get(i))));
-			}
-			break;
+		for (int32_t i = 0; i < this->len; ++i) {
+			this->elements->set(i, $$new($SerialBlob, $cast($Blob, this->elements->get(i))));
 		}
+		break;
 	case $Types::CLOB:
-		{
-			for (int32_t i = 0; i < this->len; ++i) {
-				$nc(this->elements)->set(i, $$new($SerialClob, $cast($Clob, $nc(this->elements)->get(i))));
-			}
-			break;
+		for (int32_t i = 0; i < this->len; ++i) {
+			this->elements->set(i, $$new($SerialClob, $cast($Clob, this->elements->get(i))));
 		}
+		break;
 	case $Types::DATALINK:
-		{
-			for (int32_t i = 0; i < this->len; ++i) {
-				$nc(this->elements)->set(i, $$new($SerialDatalink, $cast($URL, $nc(this->elements)->get(i))));
-			}
-			break;
+		for (int32_t i = 0; i < this->len; ++i) {
+			this->elements->set(i, $$new($SerialDatalink, $cast($URL, this->elements->get(i))));
 		}
+		break;
 	case $Types::JAVA_OBJECT:
-		{
-			for (int32_t i = 0; i < this->len; ++i) {
-				$nc(this->elements)->set(i, $$new($SerialJavaObject, $nc(this->elements)->get(i)));
-			}
-			break;
+		for (int32_t i = 0; i < this->len; ++i) {
+			this->elements->set(i, $$new($SerialJavaObject, this->elements->get(i)));
 		}
+		break;
 	}
 }
 
@@ -232,28 +164,28 @@ $Object* SerialArray::getArray() {
 	isValid();
 	$var($Object, dst, $new($ObjectArray, this->len));
 	$System::arraycopy($of(this->elements), 0, dst, 0, this->len);
-	return $of(dst);
+	return dst;
 }
 
 $Object* SerialArray::getArray($Map* map) {
 	isValid();
 	$var($ObjectArray, dst, $new($ObjectArray, this->len));
 	$System::arraycopy($of(this->elements), 0, dst, 0, this->len);
-	return $of(dst);
+	return dst;
 }
 
 $Object* SerialArray::getArray(int64_t index, int32_t count) {
 	isValid();
 	$var($Object, dst, $new($ObjectArray, count));
 	$System::arraycopy($of(this->elements), (int32_t)index, dst, 0, count);
-	return $of(dst);
+	return dst;
 }
 
 $Object* SerialArray::getArray(int64_t index, int32_t count, $Map* map) {
 	isValid();
 	$var($Object, dst, $new($ObjectArray, count));
 	$System::arraycopy($of(this->elements), (int32_t)index, dst, 0, count);
-	return $of(dst);
+	return dst;
 }
 
 int32_t SerialArray::getBaseType() {
@@ -267,7 +199,7 @@ $String* SerialArray::getBaseTypeName() {
 }
 
 $ResultSet* SerialArray::getResultSet(int64_t index, int32_t count) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SerialException, se, $new($SerialException));
 	se->initCause($$new($UnsupportedOperationException));
 	$throw(se);
@@ -275,7 +207,7 @@ $ResultSet* SerialArray::getResultSet(int64_t index, int32_t count) {
 }
 
 $ResultSet* SerialArray::getResultSet($Map* map) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SerialException, se, $new($SerialException));
 	se->initCause($$new($UnsupportedOperationException));
 	$throw(se);
@@ -283,7 +215,7 @@ $ResultSet* SerialArray::getResultSet($Map* map) {
 }
 
 $ResultSet* SerialArray::getResultSet() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SerialException, se, $new($SerialException));
 	se->initCause($$new($UnsupportedOperationException));
 	$throw(se);
@@ -291,7 +223,7 @@ $ResultSet* SerialArray::getResultSet() {
 }
 
 $ResultSet* SerialArray::getResultSet(int64_t index, int32_t count, $Map* map) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SerialException, se, $new($SerialException));
 	se->initCause($$new($UnsupportedOperationException));
 	$throw(se);
@@ -304,7 +236,7 @@ bool SerialArray::equals(Object$* obj) {
 	}
 	if ($instanceOf(SerialArray, obj)) {
 		$var(SerialArray, sa, $cast(SerialArray, obj));
-		bool var$0 = this->baseType == $nc(sa)->baseType && $nc(this->baseTypeName)->equals(sa->baseTypeName);
+		bool var$0 = this->baseType == sa->baseType && $nc(this->baseTypeName)->equals(sa->baseTypeName);
 		return var$0 && $Arrays::equals(this->elements, sa->elements);
 	}
 	return false;
@@ -327,27 +259,27 @@ $Object* SerialArray::clone() {
 }
 
 void SerialArray::readObject($ObjectInputStream* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectInputStream$GetField, fields, $nc(s)->readFields());
-	$var($ObjectArray, tmp, $cast($ObjectArray, $nc(fields)->get("elements"_s, ($Object*)nullptr)));
+	$var($ObjectArray, tmp, $cast($ObjectArray, $nc(fields)->get("elements"_s, nullptr)));
 	if (tmp == nullptr) {
 		$throwNew($InvalidObjectException, "elements is null and should not be!"_s);
 	}
 	$set(this, elements, $cast($ObjectArray, $nc(tmp)->clone()));
 	this->len = fields->get("len"_s, 0);
-	if ($nc(this->elements)->length != this->len) {
+	if (this->elements->length != this->len) {
 		$throwNew($InvalidObjectException, "elements is not the expected size"_s);
 	}
 	this->baseType = fields->get("baseType"_s, 0);
-	$set(this, baseTypeName, $cast($String, fields->get("baseTypeName"_s, ($Object*)nullptr)));
+	$set(this, baseTypeName, $cast($String, fields->get("baseTypeName"_s, nullptr)));
 }
 
 void SerialArray::writeObject($ObjectOutputStream* s) {
 	$var($ObjectOutputStream$PutField, fields, $nc(s)->putFields());
-	$nc(fields)->put("elements"_s, $of(this->elements));
+	$nc(fields)->put("elements"_s, this->elements);
 	fields->put("len"_s, this->len);
 	fields->put("baseType"_s, this->baseType);
-	fields->put("baseTypeName"_s, $of(this->baseTypeName));
+	fields->put("baseTypeName"_s, this->baseTypeName);
 	s->writeFields();
 }
 
@@ -361,7 +293,49 @@ SerialArray::SerialArray() {
 }
 
 $Class* SerialArray::load$($String* name, bool initialize) {
-	$loadClass(SerialArray, name, initialize, &_SerialArray_ClassInfo_, allocate$SerialArray);
+	$FieldInfo fieldInfos$$[] = {
+		{"elements", "[Ljava/lang/Object;", nullptr, $PRIVATE, $field(SerialArray, elements)},
+		{"baseType", "I", nullptr, $PRIVATE, $field(SerialArray, baseType)},
+		{"baseTypeName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(SerialArray, baseTypeName)},
+		{"len", "I", nullptr, $PRIVATE, $field(SerialArray, len)},
+		{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(SerialArray, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"<init>", "(Ljava/sql/Array;Ljava/util/Map;)V", "(Ljava/sql/Array;Ljava/util/Map<Ljava/lang/String;Ljava/lang/Class<*>;>;)V", $PUBLIC, $method(SerialArray, init$, void, $1Array*, $Map*), "javax.sql.rowset.serial.SerialException,java.sql.SQLException"},
+		{"<init>", "(Ljava/sql/Array;)V", nullptr, $PUBLIC, $method(SerialArray, init$, void, $1Array*), "javax.sql.rowset.serial.SerialException,java.sql.SQLException"},
+		{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SerialArray, clone, $Object*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(SerialArray, equals, bool, Object$*)},
+		{"free", "()V", nullptr, $PUBLIC, $virtualMethod(SerialArray, free, void), "java.sql.SQLException"},
+		{"getArray", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SerialArray, getArray, $Object*), "javax.sql.rowset.serial.SerialException"},
+		{"getArray", "(Ljava/util/Map;)Ljava/lang/Object;", "(Ljava/util/Map<Ljava/lang/String;Ljava/lang/Class<*>;>;)Ljava/lang/Object;", $PUBLIC, $virtualMethod(SerialArray, getArray, $Object*, $Map*), "javax.sql.rowset.serial.SerialException"},
+		{"getArray", "(JI)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SerialArray, getArray, $Object*, int64_t, int32_t), "javax.sql.rowset.serial.SerialException"},
+		{"getArray", "(JILjava/util/Map;)Ljava/lang/Object;", "(JILjava/util/Map<Ljava/lang/String;Ljava/lang/Class<*>;>;)Ljava/lang/Object;", $PUBLIC, $virtualMethod(SerialArray, getArray, $Object*, int64_t, int32_t, $Map*), "javax.sql.rowset.serial.SerialException"},
+		{"getBaseType", "()I", nullptr, $PUBLIC, $virtualMethod(SerialArray, getBaseType, int32_t), "javax.sql.rowset.serial.SerialException"},
+		{"getBaseTypeName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SerialArray, getBaseTypeName, $String*), "javax.sql.rowset.serial.SerialException"},
+		{"getResultSet", "(JI)Ljava/sql/ResultSet;", nullptr, $PUBLIC, $virtualMethod(SerialArray, getResultSet, $ResultSet*, int64_t, int32_t), "javax.sql.rowset.serial.SerialException"},
+		{"getResultSet", "(Ljava/util/Map;)Ljava/sql/ResultSet;", "(Ljava/util/Map<Ljava/lang/String;Ljava/lang/Class<*>;>;)Ljava/sql/ResultSet;", $PUBLIC, $virtualMethod(SerialArray, getResultSet, $ResultSet*, $Map*), "javax.sql.rowset.serial.SerialException"},
+		{"getResultSet", "()Ljava/sql/ResultSet;", nullptr, $PUBLIC, $virtualMethod(SerialArray, getResultSet, $ResultSet*), "javax.sql.rowset.serial.SerialException"},
+		{"getResultSet", "(JILjava/util/Map;)Ljava/sql/ResultSet;", "(JILjava/util/Map<Ljava/lang/String;Ljava/lang/Class<*>;>;)Ljava/sql/ResultSet;", $PUBLIC, $virtualMethod(SerialArray, getResultSet, $ResultSet*, int64_t, int32_t, $Map*), "javax.sql.rowset.serial.SerialException"},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(SerialArray, hashCode, int32_t)},
+		{"isValid", "()V", nullptr, $PRIVATE, $method(SerialArray, isValid, void), "javax.sql.rowset.serial.SerialException"},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(SerialArray, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(SerialArray, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.sql.rowset.serial.SerialArray",
+		"java.lang.Object",
+		"java.sql.Array,java.io.Serializable,java.lang.Cloneable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SerialArray, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SerialArray));
+	});
 	return class$;
 }
 

@@ -73,6 +73,7 @@ class FileSystemPreferences : public ::java::util::prefs::AbstractPreferences {
 	$class(FileSystemPreferences, 0, ::java::util::prefs::AbstractPreferences)
 public:
 	FileSystemPreferences();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(bool user);
 	void init$(::java::util::prefs::FileSystemPreferences* parent, $String* name);
 	static $bytes* byteArray($String* s);

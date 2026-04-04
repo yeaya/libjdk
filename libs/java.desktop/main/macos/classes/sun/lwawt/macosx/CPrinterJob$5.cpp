@@ -1,5 +1,4 @@
 #include <sun/lwawt/macosx/CPrinterJob$5.h>
-
 #include <java/awt/Graphics2D.h>
 #include <java/awt/geom/Rectangle2D.h>
 #include <java/awt/image/BufferedImage.h>
@@ -14,7 +13,6 @@
 
 #undef TYPE_INT_ARGB_PRE
 
-using $Graphics2D = ::java::awt::Graphics2D;
 using $Rectangle2D = ::java::awt::geom::Rectangle2D;
 using $BufferedImage = ::java::awt::image::BufferedImage;
 using $PageFormat = ::java::awt::print::PageFormat;
@@ -35,51 +33,6 @@ namespace sun {
 	namespace lwawt {
 		namespace macosx {
 
-$FieldInfo _CPrinterJob$5_FieldInfo_[] = {
-	{"this$0", "Lsun/lwawt/macosx/CPrinterJob;", nullptr, $FINAL | $SYNTHETIC, $field(CPrinterJob$5, this$0)},
-	{"val$printerJob", "Ljava/awt/print/PrinterJob;", nullptr, $FINAL | $SYNTHETIC, $field(CPrinterJob$5, val$printerJob)},
-	{"val$pageIndex", "I", nullptr, $FINAL | $SYNTHETIC, $field(CPrinterJob$5, val$pageIndex)},
-	{"val$ret", "[Ljava/lang/Object;", nullptr, $FINAL | $SYNTHETIC, $field(CPrinterJob$5, val$ret)},
-	{}
-};
-
-$MethodInfo _CPrinterJob$5_MethodInfo_[] = {
-	{"<init>", "(Lsun/lwawt/macosx/CPrinterJob;[Ljava/lang/Object;ILjava/awt/print/PrinterJob;)V", "()V", 0, $method(CPrinterJob$5, init$, void, $CPrinterJob*, $ObjectArray*, int32_t, $PrinterJob*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(CPrinterJob$5, run, void)},
-	{}
-};
-
-$EnclosingMethodInfo _CPrinterJob$5_EnclosingMethodInfo_ = {
-	"sun.lwawt.macosx.CPrinterJob",
-	"getPageformatPrintablePeekgraphics",
-	"(I)[Ljava/lang/Object;"
-};
-
-$InnerClassInfo _CPrinterJob$5_InnerClassesInfo_[] = {
-	{"sun.lwawt.macosx.CPrinterJob$5", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _CPrinterJob$5_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.lwawt.macosx.CPrinterJob$5",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	_CPrinterJob$5_FieldInfo_,
-	_CPrinterJob$5_MethodInfo_,
-	nullptr,
-	&_CPrinterJob$5_EnclosingMethodInfo_,
-	_CPrinterJob$5_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.lwawt.macosx.CPrinterJob"
-};
-
-$Object* allocate$CPrinterJob$5($Class* clazz) {
-	return $of($alloc(CPrinterJob$5));
-}
-
 void CPrinterJob$5::init$($CPrinterJob* this$0, $ObjectArray* val$ret, int32_t val$pageIndex, $PrinterJob* val$printerJob) {
 	$set(this, this$0, this$0);
 	$set(this, val$ret, val$ret);
@@ -88,7 +41,7 @@ void CPrinterJob$5::init$($CPrinterJob* this$0, $ObjectArray* val$ret, int32_t v
 }
 
 void CPrinterJob$5::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized(this->val$ret) {
 		try {
 			$var($Pageable, pageable, $CPrinterJob::access$200(this->this$0));
@@ -101,9 +54,9 @@ void CPrinterJob$5::run() {
 					$var($PeekGraphics, peekGraphics, $CPrinterJob::access$300(this->this$0, $(bimg->createGraphics()), this->val$printerJob));
 					$var($Rectangle2D, pageFormatArea, this->this$0->getPageFormatArea(pageFormat));
 					$CPrinterJob::access$400(this->this$0, peekGraphics, pageFormatArea);
-					$nc(this->val$ret)->set(0, pageFormat);
-					$nc(this->val$ret)->set(1, printable);
-					$nc(this->val$ret)->set(2, peekGraphics);
+					this->val$ret->set(0, pageFormat);
+					this->val$ret->set(1, printable);
+					this->val$ret->set(2, peekGraphics);
 				}
 			}
 		} catch ($Exception& e) {
@@ -115,7 +68,45 @@ CPrinterJob$5::CPrinterJob$5() {
 }
 
 $Class* CPrinterJob$5::load$($String* name, bool initialize) {
-	$loadClass(CPrinterJob$5, name, initialize, &_CPrinterJob$5_ClassInfo_, allocate$CPrinterJob$5);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/lwawt/macosx/CPrinterJob;", nullptr, $FINAL | $SYNTHETIC, $field(CPrinterJob$5, this$0)},
+		{"val$printerJob", "Ljava/awt/print/PrinterJob;", nullptr, $FINAL | $SYNTHETIC, $field(CPrinterJob$5, val$printerJob)},
+		{"val$pageIndex", "I", nullptr, $FINAL | $SYNTHETIC, $field(CPrinterJob$5, val$pageIndex)},
+		{"val$ret", "[Ljava/lang/Object;", nullptr, $FINAL | $SYNTHETIC, $field(CPrinterJob$5, val$ret)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/lwawt/macosx/CPrinterJob;[Ljava/lang/Object;ILjava/awt/print/PrinterJob;)V", "()V", 0, $method(CPrinterJob$5, init$, void, $CPrinterJob*, $ObjectArray*, int32_t, $PrinterJob*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(CPrinterJob$5, run, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.lwawt.macosx.CPrinterJob",
+		"getPageformatPrintablePeekgraphics",
+		"(I)[Ljava/lang/Object;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.lwawt.macosx.CPrinterJob$5", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.lwawt.macosx.CPrinterJob$5",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.lwawt.macosx.CPrinterJob"
+	};
+	$loadClass(CPrinterJob$5, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CPrinterJob$5);
+	});
 	return class$;
 }
 

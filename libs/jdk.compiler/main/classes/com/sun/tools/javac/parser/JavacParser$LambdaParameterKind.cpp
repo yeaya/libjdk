@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/parser/JavacParser$LambdaParameterKind.h>
-
 #include <com/sun/tools/javac/parser/JavacParser.h>
 #include <java/lang/Enum.h>
 #include <jcpp.h>
@@ -21,49 +20,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace parser {
-
-$FieldInfo _JavacParser$LambdaParameterKind_FieldInfo_[] = {
-	{"VAR", "Lcom/sun/tools/javac/parser/JavacParser$LambdaParameterKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JavacParser$LambdaParameterKind, VAR)},
-	{"EXPLICIT", "Lcom/sun/tools/javac/parser/JavacParser$LambdaParameterKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JavacParser$LambdaParameterKind, EXPLICIT)},
-	{"IMPLICIT", "Lcom/sun/tools/javac/parser/JavacParser$LambdaParameterKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JavacParser$LambdaParameterKind, IMPLICIT)},
-	{"ERROR", "Lcom/sun/tools/javac/parser/JavacParser$LambdaParameterKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JavacParser$LambdaParameterKind, ERROR)},
-	{"$VALUES", "[Lcom/sun/tools/javac/parser/JavacParser$LambdaParameterKind;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(JavacParser$LambdaParameterKind, $VALUES)},
-	{"index", "I", nullptr, $PRIVATE | $FINAL, $field(JavacParser$LambdaParameterKind, index)},
-	{}
-};
-
-$MethodInfo _JavacParser$LambdaParameterKind_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/javac/parser/JavacParser$LambdaParameterKind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JavacParser$LambdaParameterKind, $values, $JavacParser$LambdaParameterKindArray*)},
-	{"<init>", "(Ljava/lang/String;II)V", "(I)V", $PRIVATE, $method(JavacParser$LambdaParameterKind, init$, void, $String*, int32_t, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/parser/JavacParser$LambdaParameterKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(JavacParser$LambdaParameterKind, valueOf, JavacParser$LambdaParameterKind*, $String*)},
-	{"values", "()[Lcom/sun/tools/javac/parser/JavacParser$LambdaParameterKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(JavacParser$LambdaParameterKind, values, $JavacParser$LambdaParameterKindArray*)},
-	{}
-};
-
-$InnerClassInfo _JavacParser$LambdaParameterKind_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.parser.JavacParser$LambdaParameterKind", "com.sun.tools.javac.parser.JavacParser", "LambdaParameterKind", $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _JavacParser$LambdaParameterKind_ClassInfo_ = {
-	$FINAL | $ACC_SUPER | $ENUM,
-	"com.sun.tools.javac.parser.JavacParser$LambdaParameterKind",
-	"java.lang.Enum",
-	nullptr,
-	_JavacParser$LambdaParameterKind_FieldInfo_,
-	_JavacParser$LambdaParameterKind_MethodInfo_,
-	"Ljava/lang/Enum<Lcom/sun/tools/javac/parser/JavacParser$LambdaParameterKind;>;",
-	nullptr,
-	_JavacParser$LambdaParameterKind_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.parser.JavacParser"
-};
-
-$Object* allocate$JavacParser$LambdaParameterKind($Class* clazz) {
-	return $of($alloc(JavacParser$LambdaParameterKind));
-}
 
 JavacParser$LambdaParameterKind* JavacParser$LambdaParameterKind::VAR = nullptr;
 JavacParser$LambdaParameterKind* JavacParser$LambdaParameterKind::EXPLICIT = nullptr;
@@ -96,7 +52,7 @@ void JavacParser$LambdaParameterKind::init$($String* $enum$name, int32_t $enum$o
 	this->index = index;
 }
 
-void clinit$JavacParser$LambdaParameterKind($Class* class$) {
+void JavacParser$LambdaParameterKind::clinit$($Class* clazz) {
 	$assignStatic(JavacParser$LambdaParameterKind::VAR, $new(JavacParser$LambdaParameterKind, "VAR"_s, 0, 0));
 	$assignStatic(JavacParser$LambdaParameterKind::EXPLICIT, $new(JavacParser$LambdaParameterKind, "EXPLICIT"_s, 1, 1));
 	$assignStatic(JavacParser$LambdaParameterKind::IMPLICIT, $new(JavacParser$LambdaParameterKind, "IMPLICIT"_s, 2, 2));
@@ -108,7 +64,44 @@ JavacParser$LambdaParameterKind::JavacParser$LambdaParameterKind() {
 }
 
 $Class* JavacParser$LambdaParameterKind::load$($String* name, bool initialize) {
-	$loadClass(JavacParser$LambdaParameterKind, name, initialize, &_JavacParser$LambdaParameterKind_ClassInfo_, clinit$JavacParser$LambdaParameterKind, allocate$JavacParser$LambdaParameterKind);
+	$FieldInfo fieldInfos$$[] = {
+		{"VAR", "Lcom/sun/tools/javac/parser/JavacParser$LambdaParameterKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JavacParser$LambdaParameterKind, VAR)},
+		{"EXPLICIT", "Lcom/sun/tools/javac/parser/JavacParser$LambdaParameterKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JavacParser$LambdaParameterKind, EXPLICIT)},
+		{"IMPLICIT", "Lcom/sun/tools/javac/parser/JavacParser$LambdaParameterKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JavacParser$LambdaParameterKind, IMPLICIT)},
+		{"ERROR", "Lcom/sun/tools/javac/parser/JavacParser$LambdaParameterKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JavacParser$LambdaParameterKind, ERROR)},
+		{"$VALUES", "[Lcom/sun/tools/javac/parser/JavacParser$LambdaParameterKind;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(JavacParser$LambdaParameterKind, $VALUES)},
+		{"index", "I", nullptr, $PRIVATE | $FINAL, $field(JavacParser$LambdaParameterKind, index)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lcom/sun/tools/javac/parser/JavacParser$LambdaParameterKind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JavacParser$LambdaParameterKind, $values, $JavacParser$LambdaParameterKindArray*)},
+		{"<init>", "(Ljava/lang/String;II)V", "(I)V", $PRIVATE, $method(JavacParser$LambdaParameterKind, init$, void, $String*, int32_t, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/parser/JavacParser$LambdaParameterKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(JavacParser$LambdaParameterKind, valueOf, JavacParser$LambdaParameterKind*, $String*)},
+		{"values", "()[Lcom/sun/tools/javac/parser/JavacParser$LambdaParameterKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(JavacParser$LambdaParameterKind, values, $JavacParser$LambdaParameterKindArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.parser.JavacParser$LambdaParameterKind", "com.sun.tools.javac.parser.JavacParser", "LambdaParameterKind", $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER | $ENUM,
+		"com.sun.tools.javac.parser.JavacParser$LambdaParameterKind",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lcom/sun/tools/javac/parser/JavacParser$LambdaParameterKind;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.parser.JavacParser"
+	};
+	$loadClass(JavacParser$LambdaParameterKind, name, initialize, &classInfo$$, JavacParser$LambdaParameterKind::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JavacParser$LambdaParameterKind));
+	});
 	return class$;
 }
 

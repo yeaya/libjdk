@@ -14,7 +14,7 @@ class $export SystemSleepEvent : public ::java::awt::desktop::AppEvent {
 public:
 	SystemSleepEvent();
 	void init$();
-	static const int64_t serialVersionUID = (int64_t)0x00286704E73472F5;
+	static const int64_t serialVersionUID = (int64_t)0x00286704e73472f5;
 };
 
 		} // desktop

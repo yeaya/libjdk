@@ -14,10 +14,13 @@ public:
 	AuthenticationNotSupportedException();
 	void init$($String* explanation);
 	void init$();
-	static const int64_t serialVersionUID = (int64_t)0x9CC98783D0DAB434;
+	static const int64_t serialVersionUID = (int64_t)0x9cc98783d0dab434;
 	AuthenticationNotSupportedException(const AuthenticationNotSupportedException& e);
 	virtual void throw$() override;
-	inline AuthenticationNotSupportedException* operator ->() {
+	inline AuthenticationNotSupportedException* operator ->() const {
+		return (AuthenticationNotSupportedException*)throwing$;
+	}
+	inline operator AuthenticationNotSupportedException*() const {
 		return (AuthenticationNotSupportedException*)throwing$;
 	}
 };

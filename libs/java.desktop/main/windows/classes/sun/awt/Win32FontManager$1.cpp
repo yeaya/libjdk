@@ -1,5 +1,4 @@
 #include <sun/awt/Win32FontManager$1.h>
-
 #include <java/awt/FontFormatException.h>
 #include <sun/awt/Win32FontManager.h>
 #include <sun/font/TrueTypeFont.h>
@@ -16,43 +15,6 @@ using $TrueTypeFont = ::sun::font::TrueTypeFont;
 namespace sun {
 	namespace awt {
 
-$MethodInfo _Win32FontManager$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(Win32FontManager$1, init$, void)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Win32FontManager$1, run, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _Win32FontManager$1_EnclosingMethodInfo_ = {
-	"sun.awt.Win32FontManager",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _Win32FontManager$1_InnerClassesInfo_[] = {
-	{"sun.awt.Win32FontManager$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Win32FontManager$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.awt.Win32FontManager$1",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	nullptr,
-	_Win32FontManager$1_MethodInfo_,
-	"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/Object;>;",
-	&_Win32FontManager$1_EnclosingMethodInfo_,
-	_Win32FontManager$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.awt.Win32FontManager"
-};
-
-$Object* allocate$Win32FontManager$1($Class* clazz) {
-	return $of($alloc(Win32FontManager$1));
-}
-
 void Win32FontManager$1::init$() {
 }
 
@@ -64,14 +26,45 @@ $Object* Win32FontManager$1::run() {
 		} catch ($FontFormatException& e) {
 		}
 	}
-	return $of(nullptr);
+	return nullptr;
 }
 
 Win32FontManager$1::Win32FontManager$1() {
 }
 
 $Class* Win32FontManager$1::load$($String* name, bool initialize) {
-	$loadClass(Win32FontManager$1, name, initialize, &_Win32FontManager$1_ClassInfo_, allocate$Win32FontManager$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(Win32FontManager$1, init$, void)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Win32FontManager$1, run, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.awt.Win32FontManager",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.Win32FontManager$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.awt.Win32FontManager$1",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		nullptr,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/Object;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.awt.Win32FontManager"
+	};
+	$loadClass(Win32FontManager$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Win32FontManager$1);
+	});
 	return class$;
 }
 

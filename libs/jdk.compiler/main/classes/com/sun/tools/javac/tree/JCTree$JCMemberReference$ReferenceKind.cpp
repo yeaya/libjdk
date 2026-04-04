@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/tree/JCTree$JCMemberReference$ReferenceKind.h>
-
 #include <com/sun/source/tree/MemberReferenceTree$ReferenceMode.h>
 #include <com/sun/tools/javac/tree/JCTree$JCMemberReference.h>
 #include <com/sun/tools/javac/tree/JCTree.h>
@@ -29,55 +28,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace tree {
-
-$FieldInfo _JCTree$JCMemberReference$ReferenceKind_FieldInfo_[] = {
-	{"SUPER", "Lcom/sun/tools/javac/tree/JCTree$JCMemberReference$ReferenceKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$JCMemberReference$ReferenceKind, SUPER)},
-	{"UNBOUND", "Lcom/sun/tools/javac/tree/JCTree$JCMemberReference$ReferenceKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$JCMemberReference$ReferenceKind, UNBOUND)},
-	{"STATIC", "Lcom/sun/tools/javac/tree/JCTree$JCMemberReference$ReferenceKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$JCMemberReference$ReferenceKind, STATIC)},
-	{"BOUND", "Lcom/sun/tools/javac/tree/JCTree$JCMemberReference$ReferenceKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$JCMemberReference$ReferenceKind, BOUND)},
-	{"IMPLICIT_INNER", "Lcom/sun/tools/javac/tree/JCTree$JCMemberReference$ReferenceKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$JCMemberReference$ReferenceKind, IMPLICIT_INNER)},
-	{"TOPLEVEL", "Lcom/sun/tools/javac/tree/JCTree$JCMemberReference$ReferenceKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$JCMemberReference$ReferenceKind, TOPLEVEL)},
-	{"ARRAY_CTOR", "Lcom/sun/tools/javac/tree/JCTree$JCMemberReference$ReferenceKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$JCMemberReference$ReferenceKind, ARRAY_CTOR)},
-	{"$VALUES", "[Lcom/sun/tools/javac/tree/JCTree$JCMemberReference$ReferenceKind;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(JCTree$JCMemberReference$ReferenceKind, $VALUES)},
-	{"mode", "Lcom/sun/source/tree/MemberReferenceTree$ReferenceMode;", nullptr, $FINAL, $field(JCTree$JCMemberReference$ReferenceKind, mode)},
-	{"unbound", "Z", nullptr, $FINAL, $field(JCTree$JCMemberReference$ReferenceKind, unbound)},
-	{}
-};
-
-$MethodInfo _JCTree$JCMemberReference$ReferenceKind_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/javac/tree/JCTree$JCMemberReference$ReferenceKind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JCTree$JCMemberReference$ReferenceKind, $values, $JCTree$JCMemberReference$ReferenceKindArray*)},
-	{"<init>", "(Ljava/lang/String;ILcom/sun/source/tree/MemberReferenceTree$ReferenceMode;Z)V", "(Lcom/sun/source/tree/MemberReferenceTree$ReferenceMode;Z)V", $PRIVATE, $method(JCTree$JCMemberReference$ReferenceKind, init$, void, $String*, int32_t, $MemberReferenceTree$ReferenceMode*, bool)},
-	{"isUnbound", "()Z", nullptr, $PUBLIC, $method(JCTree$JCMemberReference$ReferenceKind, isUnbound, bool)},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/tree/JCTree$JCMemberReference$ReferenceKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(JCTree$JCMemberReference$ReferenceKind, valueOf, JCTree$JCMemberReference$ReferenceKind*, $String*)},
-	{"values", "()[Lcom/sun/tools/javac/tree/JCTree$JCMemberReference$ReferenceKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(JCTree$JCMemberReference$ReferenceKind, values, $JCTree$JCMemberReference$ReferenceKindArray*)},
-	{}
-};
-
-$InnerClassInfo _JCTree$JCMemberReference$ReferenceKind_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.tree.JCTree$JCMemberReference", "com.sun.tools.javac.tree.JCTree", "JCMemberReference", $PUBLIC | $STATIC},
-	{"com.sun.tools.javac.tree.JCTree$JCMemberReference$ReferenceKind", "com.sun.tools.javac.tree.JCTree$JCMemberReference", "ReferenceKind", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _JCTree$JCMemberReference$ReferenceKind_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"com.sun.tools.javac.tree.JCTree$JCMemberReference$ReferenceKind",
-	"java.lang.Enum",
-	nullptr,
-	_JCTree$JCMemberReference$ReferenceKind_FieldInfo_,
-	_JCTree$JCMemberReference$ReferenceKind_MethodInfo_,
-	"Ljava/lang/Enum<Lcom/sun/tools/javac/tree/JCTree$JCMemberReference$ReferenceKind;>;",
-	nullptr,
-	_JCTree$JCMemberReference$ReferenceKind_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.tree.JCTree"
-};
-
-$Object* allocate$JCTree$JCMemberReference$ReferenceKind($Class* clazz) {
-	return $of($alloc(JCTree$JCMemberReference$ReferenceKind));
-}
 
 JCTree$JCMemberReference$ReferenceKind* JCTree$JCMemberReference$ReferenceKind::SUPER = nullptr;
 JCTree$JCMemberReference$ReferenceKind* JCTree$JCMemberReference$ReferenceKind::UNBOUND = nullptr;
@@ -121,7 +71,7 @@ bool JCTree$JCMemberReference$ReferenceKind::isUnbound() {
 	return this->unbound;
 }
 
-void clinit$JCTree$JCMemberReference$ReferenceKind($Class* class$) {
+void JCTree$JCMemberReference$ReferenceKind::clinit$($Class* clazz) {
 	$init($MemberReferenceTree$ReferenceMode);
 	$assignStatic(JCTree$JCMemberReference$ReferenceKind::SUPER, $new(JCTree$JCMemberReference$ReferenceKind, "SUPER"_s, 0, $MemberReferenceTree$ReferenceMode::INVOKE, false));
 	$assignStatic(JCTree$JCMemberReference$ReferenceKind::UNBOUND, $new(JCTree$JCMemberReference$ReferenceKind, "UNBOUND"_s, 1, $MemberReferenceTree$ReferenceMode::INVOKE, true));
@@ -137,7 +87,50 @@ JCTree$JCMemberReference$ReferenceKind::JCTree$JCMemberReference$ReferenceKind()
 }
 
 $Class* JCTree$JCMemberReference$ReferenceKind::load$($String* name, bool initialize) {
-	$loadClass(JCTree$JCMemberReference$ReferenceKind, name, initialize, &_JCTree$JCMemberReference$ReferenceKind_ClassInfo_, clinit$JCTree$JCMemberReference$ReferenceKind, allocate$JCTree$JCMemberReference$ReferenceKind);
+	$FieldInfo fieldInfos$$[] = {
+		{"SUPER", "Lcom/sun/tools/javac/tree/JCTree$JCMemberReference$ReferenceKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$JCMemberReference$ReferenceKind, SUPER)},
+		{"UNBOUND", "Lcom/sun/tools/javac/tree/JCTree$JCMemberReference$ReferenceKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$JCMemberReference$ReferenceKind, UNBOUND)},
+		{"STATIC", "Lcom/sun/tools/javac/tree/JCTree$JCMemberReference$ReferenceKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$JCMemberReference$ReferenceKind, STATIC)},
+		{"BOUND", "Lcom/sun/tools/javac/tree/JCTree$JCMemberReference$ReferenceKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$JCMemberReference$ReferenceKind, BOUND)},
+		{"IMPLICIT_INNER", "Lcom/sun/tools/javac/tree/JCTree$JCMemberReference$ReferenceKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$JCMemberReference$ReferenceKind, IMPLICIT_INNER)},
+		{"TOPLEVEL", "Lcom/sun/tools/javac/tree/JCTree$JCMemberReference$ReferenceKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$JCMemberReference$ReferenceKind, TOPLEVEL)},
+		{"ARRAY_CTOR", "Lcom/sun/tools/javac/tree/JCTree$JCMemberReference$ReferenceKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$JCMemberReference$ReferenceKind, ARRAY_CTOR)},
+		{"$VALUES", "[Lcom/sun/tools/javac/tree/JCTree$JCMemberReference$ReferenceKind;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(JCTree$JCMemberReference$ReferenceKind, $VALUES)},
+		{"mode", "Lcom/sun/source/tree/MemberReferenceTree$ReferenceMode;", nullptr, $FINAL, $field(JCTree$JCMemberReference$ReferenceKind, mode)},
+		{"unbound", "Z", nullptr, $FINAL, $field(JCTree$JCMemberReference$ReferenceKind, unbound)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lcom/sun/tools/javac/tree/JCTree$JCMemberReference$ReferenceKind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JCTree$JCMemberReference$ReferenceKind, $values, $JCTree$JCMemberReference$ReferenceKindArray*)},
+		{"<init>", "(Ljava/lang/String;ILcom/sun/source/tree/MemberReferenceTree$ReferenceMode;Z)V", "(Lcom/sun/source/tree/MemberReferenceTree$ReferenceMode;Z)V", $PRIVATE, $method(JCTree$JCMemberReference$ReferenceKind, init$, void, $String*, int32_t, $MemberReferenceTree$ReferenceMode*, bool)},
+		{"isUnbound", "()Z", nullptr, $PUBLIC, $method(JCTree$JCMemberReference$ReferenceKind, isUnbound, bool)},
+		{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/tree/JCTree$JCMemberReference$ReferenceKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(JCTree$JCMemberReference$ReferenceKind, valueOf, JCTree$JCMemberReference$ReferenceKind*, $String*)},
+		{"values", "()[Lcom/sun/tools/javac/tree/JCTree$JCMemberReference$ReferenceKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(JCTree$JCMemberReference$ReferenceKind, values, $JCTree$JCMemberReference$ReferenceKindArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.tree.JCTree$JCMemberReference", "com.sun.tools.javac.tree.JCTree", "JCMemberReference", $PUBLIC | $STATIC},
+		{"com.sun.tools.javac.tree.JCTree$JCMemberReference$ReferenceKind", "com.sun.tools.javac.tree.JCTree$JCMemberReference", "ReferenceKind", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"com.sun.tools.javac.tree.JCTree$JCMemberReference$ReferenceKind",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lcom/sun/tools/javac/tree/JCTree$JCMemberReference$ReferenceKind;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.tree.JCTree"
+	};
+	$loadClass(JCTree$JCMemberReference$ReferenceKind, name, initialize, &classInfo$$, JCTree$JCMemberReference$ReferenceKind::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JCTree$JCMemberReference$ReferenceKind));
+	});
 	return class$;
 }
 

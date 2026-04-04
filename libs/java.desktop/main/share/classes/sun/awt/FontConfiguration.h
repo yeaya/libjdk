@@ -80,6 +80,7 @@ class $export FontConfiguration : public ::java::lang::Object {
 	$class(FontConfiguration, 0, ::java::lang::Object)
 public:
 	FontConfiguration();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::font::SunFontManager* fm);
 	void init$(::sun::font::SunFontManager* fm, bool preferLocaleFonts, bool preferPropFonts);
 	virtual $Array<::sun::awt::FontDescriptor>* buildFontDescriptors(int32_t fontIndex, int32_t styleIndex);

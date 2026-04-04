@@ -41,6 +41,7 @@ class $export SynthFileChooserUIImpl$FilterComboBoxRenderer : public ::javax::sw
 	$class(SynthFileChooserUIImpl$FilterComboBoxRenderer, 0, ::javax::swing::ListCellRenderer)
 public:
 	SynthFileChooserUIImpl$FilterComboBoxRenderer();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::swing::plaf::synth::SynthFileChooserUIImpl* this$0, ::javax::swing::ListCellRenderer* delegate);
 	virtual ::java::awt::Component* getListCellRendererComponent(::javax::swing::JList* list, ::javax::swing::filechooser::FileFilter* value, int32_t index, bool isSelected, bool cellHasFocus);
 	virtual ::java::awt::Component* getListCellRendererComponent(::javax::swing::JList* list, Object$* value, int32_t index, bool isSelected, bool cellHasFocus) override;

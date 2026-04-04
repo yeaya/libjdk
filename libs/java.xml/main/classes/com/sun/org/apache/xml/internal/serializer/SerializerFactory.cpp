@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/serializer/SerializerFactory.h>
-
 #include <com/sun/org/apache/xalan/internal/utils/ObjectFactory.h>
 #include <com/sun/org/apache/xml/internal/serializer/OutputPropertiesFactory.h>
 #include <com/sun/org/apache/xml/internal/serializer/SerializationHandler.h>
@@ -26,7 +25,6 @@ using $OutputPropertiesFactory = ::com::sun::org::apache::xml::internal::seriali
 using $SerializationHandler = ::com::sun::org::apache::xml::internal::serializer::SerializationHandler;
 using $Serializer = ::com::sun::org::apache::xml::internal::serializer::Serializer;
 using $SerializerConstants = ::com::sun::org::apache::xml::internal::serializer::SerializerConstants;
-using $Messages = ::com::sun::org::apache::xml::internal::serializer::utils::Messages;
 using $MsgKey = ::com::sun::org::apache::xml::internal::serializer::utils::MsgKey;
 using $Utils = ::com::sun::org::apache::xml::internal::serializer::utils::Utils;
 using $WrappedRuntimeException = ::com::sun::org::apache::xml::internal::serializer::utils::WrappedRuntimeException;
@@ -34,7 +32,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Constructor = ::java::lang::reflect::Constructor;
 using $Properties = ::java::util::Properties;
 using $OutputKeys = ::javax::xml::transform::OutputKeys;
 using $ContentHandler = ::org::xml::sax::ContentHandler;
@@ -47,31 +44,12 @@ namespace com {
 					namespace internal {
 						namespace serializer {
 
-$MethodInfo _SerializerFactory_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(SerializerFactory, init$, void)},
-	{"getSerializer", "(Ljava/util/Properties;)Lcom/sun/org/apache/xml/internal/serializer/Serializer;", nullptr, $PUBLIC | $STATIC, $staticMethod(SerializerFactory, getSerializer, $Serializer*, $Properties*)},
-	{}
-};
-
-$ClassInfo _SerializerFactory_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.serializer.SerializerFactory",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_SerializerFactory_MethodInfo_
-};
-
-$Object* allocate$SerializerFactory($Class* clazz) {
-	return $of($alloc(SerializerFactory));
-}
-
 void SerializerFactory::init$() {
 }
 
 $Serializer* SerializerFactory::getSerializer($Properties* format) {
+	$useLocalObjectStack();
 	$load(SerializerFactory);
-	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($Serializer, ser, nullptr);
 	try {
@@ -80,7 +58,7 @@ $Serializer* SerializerFactory::getSerializer($Properties* format) {
 		if (method == nullptr) {
 			$init($Utils);
 			$init($MsgKey);
-			$var($String, msg, $nc($Utils::messages)->createMessage($MsgKey::ER_FACTORY_PROPERTY_MISSING, $$new($ObjectArray, {$of($OutputKeys::METHOD)})));
+			$var($String, msg, $nc($Utils::messages)->createMessage($MsgKey::ER_FACTORY_PROPERTY_MISSING, $$new($ObjectArray, {$OutputKeys::METHOD})));
 			$throwNew($IllegalArgumentException, msg);
 		}
 		$init($OutputPropertiesFactory);
@@ -91,27 +69,27 @@ $Serializer* SerializerFactory::getSerializer($Properties* format) {
 			if (nullptr == className) {
 				$init($Utils);
 				$init($MsgKey);
-				$var($String, msg, $nc($Utils::messages)->createMessage($MsgKey::ER_FACTORY_PROPERTY_MISSING, $$new($ObjectArray, {$of($OutputPropertiesFactory::S_KEY_CONTENT_HANDLER)})));
+				$var($String, msg, $nc($Utils::messages)->createMessage($MsgKey::ER_FACTORY_PROPERTY_MISSING, $$new($ObjectArray, {$OutputPropertiesFactory::S_KEY_CONTENT_HANDLER})));
 				$throwNew($IllegalArgumentException, msg);
 			}
 		}
 		$Class* cls = $ObjectFactory::findProviderClass(className, true);
-		$var($Object, obj, $nc($($nc(cls)->getConstructor($$new($ClassArray, 0))))->newInstance($$new($ObjectArray, 0)));
+		$var($Object, obj, $$nc($nc(cls)->getConstructor($$new($ClassArray, 0)))->newInstance($$new($ObjectArray, 0)));
 		if ($instanceOf($SerializationHandler, obj)) {
 			$assign(ser, $cast($Serializer, obj));
-			$nc(ser)->setOutputFormat(format);
+			ser->setOutputFormat(format);
 		} else if ($instanceOf($ContentHandler, obj)) {
 			$init($SerializerConstants);
 			$assign(className, $SerializerConstants::DEFAULT_SAX_SERIALIZER);
 			cls = $ObjectFactory::findProviderClass(className, true);
-			$var($SerializationHandler, sh, $cast($SerializationHandler, $nc($(cls->getConstructor($$new($ClassArray, 0))))->newInstance($$new($ObjectArray, 0))));
+			$var($SerializationHandler, sh, $cast($SerializationHandler, $$nc($nc(cls)->getConstructor($$new($ClassArray, 0)))->newInstance($$new($ObjectArray, 0))));
 			$nc(sh)->setContentHandler($cast($ContentHandler, obj));
 			sh->setOutputFormat(format);
 			$assign(ser, sh);
 		} else {
 			$init($Utils);
 			$init($MsgKey);
-			$throwNew($Exception, $($nc($Utils::messages)->createMessage($MsgKey::ER_SERIALIZER_NOT_CONTENTHANDLER, $$new($ObjectArray, {$of(className)}))));
+			$throwNew($Exception, $($nc($Utils::messages)->createMessage($MsgKey::ER_SERIALIZER_NOT_CONTENTHANDLER, $$new($ObjectArray, {className}))));
 		}
 	} catch ($Exception& e) {
 		$throwNew($WrappedRuntimeException, e);
@@ -123,7 +101,22 @@ SerializerFactory::SerializerFactory() {
 }
 
 $Class* SerializerFactory::load$($String* name, bool initialize) {
-	$loadClass(SerializerFactory, name, initialize, &_SerializerFactory_ClassInfo_, allocate$SerializerFactory);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(SerializerFactory, init$, void)},
+		{"getSerializer", "(Ljava/util/Properties;)Lcom/sun/org/apache/xml/internal/serializer/Serializer;", nullptr, $PUBLIC | $STATIC, $staticMethod(SerializerFactory, getSerializer, $Serializer*, $Properties*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.serializer.SerializerFactory",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(SerializerFactory, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SerializerFactory);
+	});
 	return class$;
 }
 

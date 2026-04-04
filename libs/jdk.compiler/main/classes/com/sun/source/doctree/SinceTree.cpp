@@ -1,5 +1,4 @@
 #include <com/sun/source/doctree/SinceTree.h>
-
 #include <java/util/List.h>
 #include <jcpp.h>
 
@@ -12,26 +11,22 @@ namespace com {
 		namespace source {
 			namespace doctree {
 
-$MethodInfo _SinceTree_MethodInfo_[] = {
-	{"getBody", "()Ljava/util/List;", "()Ljava/util/List<+Lcom/sun/source/doctree/DocTree;>;", $PUBLIC | $ABSTRACT, $virtualMethod(SinceTree, getBody, $List*)},
-	{}
-};
-
-$ClassInfo _SinceTree_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.source.doctree.SinceTree",
-	nullptr,
-	"com.sun.source.doctree.BlockTagTree",
-	nullptr,
-	_SinceTree_MethodInfo_
-};
-
-$Object* allocate$SinceTree($Class* clazz) {
-	return $of($alloc(SinceTree));
-}
-
 $Class* SinceTree::load$($String* name, bool initialize) {
-	$loadClass(SinceTree, name, initialize, &_SinceTree_ClassInfo_, allocate$SinceTree);
+	$MethodInfo methodInfos$$[] = {
+		{"getBody", "()Ljava/util/List;", "()Ljava/util/List<+Lcom/sun/source/doctree/DocTree;>;", $PUBLIC | $ABSTRACT, $virtualMethod(SinceTree, getBody, $List*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.source.doctree.SinceTree",
+		nullptr,
+		"com.sun.source.doctree.BlockTagTree",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(SinceTree, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SinceTree);
+	});
 	return class$;
 }
 

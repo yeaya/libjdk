@@ -1,5 +1,4 @@
 #include <com/sun/xml/internal/stream/XMLEventReaderImpl.h>
-
 #include <com/sun/xml/internal/stream/events/XMLEventAllocatorImpl.h>
 #include <java/lang/StringBuffer.h>
 #include <java/lang/UnsupportedOperationException.h>
@@ -39,8 +38,6 @@ using $XMLInputFactory = ::javax::xml::stream::XMLInputFactory;
 using $XMLStreamConstants = ::javax::xml::stream::XMLStreamConstants;
 using $XMLStreamException = ::javax::xml::stream::XMLStreamException;
 using $XMLStreamReader = ::javax::xml::stream::XMLStreamReader;
-using $Characters = ::javax::xml::stream::events::Characters;
-using $EntityDeclaration = ::javax::xml::stream::events::EntityDeclaration;
 using $EntityReference = ::javax::xml::stream::events::EntityReference;
 using $XMLEvent = ::javax::xml::stream::events::XMLEvent;
 using $XMLEventAllocator = ::javax::xml::stream::util::XMLEventAllocator;
@@ -50,41 +47,6 @@ namespace com {
 		namespace xml {
 			namespace internal {
 				namespace stream {
-
-$FieldInfo _XMLEventReaderImpl_FieldInfo_[] = {
-	{"fXMLReader", "Ljavax/xml/stream/XMLStreamReader;", nullptr, $PROTECTED, $field(XMLEventReaderImpl, fXMLReader)},
-	{"fXMLEventAllocator", "Ljavax/xml/stream/util/XMLEventAllocator;", nullptr, $PROTECTED, $field(XMLEventReaderImpl, fXMLEventAllocator)},
-	{"fPeekedEvent", "Ljavax/xml/stream/events/XMLEvent;", nullptr, $PRIVATE, $field(XMLEventReaderImpl, fPeekedEvent)},
-	{"fLastEvent", "Ljavax/xml/stream/events/XMLEvent;", nullptr, $PRIVATE, $field(XMLEventReaderImpl, fLastEvent)},
-	{}
-};
-
-$MethodInfo _XMLEventReaderImpl_MethodInfo_[] = {
-	{"<init>", "(Ljavax/xml/stream/XMLStreamReader;)V", nullptr, $PUBLIC, $method(XMLEventReaderImpl, init$, void, $XMLStreamReader*), "javax.xml.stream.XMLStreamException"},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(XMLEventReaderImpl, close, void), "javax.xml.stream.XMLStreamException"},
-	{"getElementText", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLEventReaderImpl, getElementText, $String*), "javax.xml.stream.XMLStreamException"},
-	{"getProperty", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(XMLEventReaderImpl, getProperty, $Object*, $String*), "java.lang.IllegalArgumentException"},
-	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(XMLEventReaderImpl, hasNext, bool)},
-	{"next", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(XMLEventReaderImpl, next, $Object*)},
-	{"nextEvent", "()Ljavax/xml/stream/events/XMLEvent;", nullptr, $PUBLIC, $virtualMethod(XMLEventReaderImpl, nextEvent, $XMLEvent*), "javax.xml.stream.XMLStreamException"},
-	{"nextTag", "()Ljavax/xml/stream/events/XMLEvent;", nullptr, $PUBLIC, $virtualMethod(XMLEventReaderImpl, nextTag, $XMLEvent*), "javax.xml.stream.XMLStreamException"},
-	{"peek", "()Ljavax/xml/stream/events/XMLEvent;", nullptr, $PUBLIC, $virtualMethod(XMLEventReaderImpl, peek, $XMLEvent*), "javax.xml.stream.XMLStreamException"},
-	{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(XMLEventReaderImpl, remove, void)},
-	{}
-};
-
-$ClassInfo _XMLEventReaderImpl_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.xml.internal.stream.XMLEventReaderImpl",
-	"java.lang.Object",
-	"javax.xml.stream.XMLEventReader",
-	_XMLEventReaderImpl_FieldInfo_,
-	_XMLEventReaderImpl_MethodInfo_
-};
-
-$Object* allocate$XMLEventReaderImpl($Class* clazz) {
-	return $of($alloc(XMLEventReaderImpl));
-}
 
 void XMLEventReaderImpl::init$($XMLStreamReader* reader) {
 	$set(this, fXMLReader, reader);
@@ -132,7 +94,7 @@ void XMLEventReaderImpl::close() {
 }
 
 $String* XMLEventReaderImpl::getElementText() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(this->fLastEvent)->getEventType() != $XMLEvent::START_ELEMENT) {
 		$throwNew($XMLStreamException, "parser must be on START_ELEMENT to read next text"_s, $($nc(this->fLastEvent)->getLocation()));
 	}
@@ -142,9 +104,9 @@ $String* XMLEventReaderImpl::getElementText() {
 		$set(this, fPeekedEvent, nullptr);
 		int32_t type = $nc(event)->getEventType();
 		if (type == $XMLEvent::CHARACTERS || type == $XMLEvent::SPACE || type == $XMLEvent::CDATA) {
-			$assign(data, $nc($(event->asCharacters()))->getData());
+			$assign(data, $$nc(event->asCharacters())->getData());
 		} else if (type == $XMLEvent::ENTITY_REFERENCE) {
-			$assign(data, $nc($($nc(($cast($EntityReference, event)))->getDeclaration()))->getReplacementText());
+			$assign(data, $$nc($cast($EntityReference, event)->getDeclaration())->getReplacementText());
 		} else if (type == $XMLEvent::COMMENT || type == $XMLEvent::PROCESSING_INSTRUCTION) {
 		} else if (type == $XMLEvent::START_ELEMENT) {
 			$throwNew($XMLStreamException, "elementGetText() function expects text only elment but START_ELEMENT was encountered."_s, $(event->getLocation()));
@@ -156,11 +118,11 @@ $String* XMLEventReaderImpl::getElementText() {
 			buffer->append(data);
 		}
 		$assign(event, nextEvent());
-		while ((type = event->getEventType()) != $XMLEvent::END_ELEMENT) {
+		while ((type = $nc(event)->getEventType()) != $XMLEvent::END_ELEMENT) {
 			if (type == $XMLEvent::CHARACTERS || type == $XMLEvent::SPACE || type == $XMLEvent::CDATA) {
-				$assign(data, $nc($(event->asCharacters()))->getData());
+				$assign(data, $$nc(event->asCharacters())->getData());
 			} else if (type == $XMLEvent::ENTITY_REFERENCE) {
-				$assign(data, $nc($($nc(($cast($EntityReference, event)))->getDeclaration()))->getReplacementText());
+				$assign(data, $$nc($cast($EntityReference, event)->getDeclaration())->getReplacementText());
 			} else if (type == $XMLEvent::COMMENT || type == $XMLEvent::PROCESSING_INSTRUCTION) {
 				$assign(data, nullptr);
 			} else if (type == $XMLEvent::END_DOCUMENT) {
@@ -183,23 +145,23 @@ $String* XMLEventReaderImpl::getElementText() {
 }
 
 $Object* XMLEventReaderImpl::getProperty($String* name) {
-	return $of($nc(this->fXMLReader)->getProperty(name));
+	return $nc(this->fXMLReader)->getProperty(name);
 }
 
 $XMLEvent* XMLEventReaderImpl::nextTag() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->fPeekedEvent != nullptr) {
 		$var($XMLEvent, event, this->fPeekedEvent);
 		$set(this, fPeekedEvent, nullptr);
 		int32_t eventType = $nc(event)->getEventType();
 		bool var$0 = event->isCharacters();
-		if ((var$0 && $nc($(event->asCharacters()))->isWhiteSpace()) || eventType == $XMLStreamConstants::PROCESSING_INSTRUCTION || eventType == $XMLStreamConstants::COMMENT || eventType == $XMLStreamConstants::START_DOCUMENT) {
+		if ((var$0 && $$nc(event->asCharacters())->isWhiteSpace()) || eventType == $XMLStreamConstants::PROCESSING_INSTRUCTION || eventType == $XMLStreamConstants::COMMENT || eventType == $XMLStreamConstants::START_DOCUMENT) {
 			$assign(event, nextEvent());
 			eventType = $nc(event)->getEventType();
 		}
 		while (true) {
-			bool var$1 = event->isCharacters();
-			if (!((var$1 && $nc($($nc(event)->asCharacters()))->isWhiteSpace()) || eventType == $XMLStreamConstants::PROCESSING_INSTRUCTION || eventType == $XMLStreamConstants::COMMENT)) {
+			bool var$1 = $nc(event)->isCharacters();
+			if (!((var$1 && $$nc(event->asCharacters())->isWhiteSpace()) || eventType == $XMLStreamConstants::PROCESSING_INSTRUCTION || eventType == $XMLStreamConstants::COMMENT)) {
 				break;
 			}
 			{
@@ -217,7 +179,7 @@ $XMLEvent* XMLEventReaderImpl::nextTag() {
 }
 
 $Object* XMLEventReaderImpl::next() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, object, nullptr);
 	try {
 		$assign(object, nextEvent());
@@ -227,7 +189,7 @@ $Object* XMLEventReaderImpl::next() {
 		e->initCause($(streamException->getCause()));
 		$throw(e);
 	}
-	return $of(object);
+	return object;
 }
 
 $XMLEvent* XMLEventReaderImpl::peek() {
@@ -247,7 +209,37 @@ XMLEventReaderImpl::XMLEventReaderImpl() {
 }
 
 $Class* XMLEventReaderImpl::load$($String* name, bool initialize) {
-	$loadClass(XMLEventReaderImpl, name, initialize, &_XMLEventReaderImpl_ClassInfo_, allocate$XMLEventReaderImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"fXMLReader", "Ljavax/xml/stream/XMLStreamReader;", nullptr, $PROTECTED, $field(XMLEventReaderImpl, fXMLReader)},
+		{"fXMLEventAllocator", "Ljavax/xml/stream/util/XMLEventAllocator;", nullptr, $PROTECTED, $field(XMLEventReaderImpl, fXMLEventAllocator)},
+		{"fPeekedEvent", "Ljavax/xml/stream/events/XMLEvent;", nullptr, $PRIVATE, $field(XMLEventReaderImpl, fPeekedEvent)},
+		{"fLastEvent", "Ljavax/xml/stream/events/XMLEvent;", nullptr, $PRIVATE, $field(XMLEventReaderImpl, fLastEvent)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/xml/stream/XMLStreamReader;)V", nullptr, $PUBLIC, $method(XMLEventReaderImpl, init$, void, $XMLStreamReader*), "javax.xml.stream.XMLStreamException"},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(XMLEventReaderImpl, close, void), "javax.xml.stream.XMLStreamException"},
+		{"getElementText", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLEventReaderImpl, getElementText, $String*), "javax.xml.stream.XMLStreamException"},
+		{"getProperty", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(XMLEventReaderImpl, getProperty, $Object*, $String*), "java.lang.IllegalArgumentException"},
+		{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(XMLEventReaderImpl, hasNext, bool)},
+		{"next", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(XMLEventReaderImpl, next, $Object*)},
+		{"nextEvent", "()Ljavax/xml/stream/events/XMLEvent;", nullptr, $PUBLIC, $virtualMethod(XMLEventReaderImpl, nextEvent, $XMLEvent*), "javax.xml.stream.XMLStreamException"},
+		{"nextTag", "()Ljavax/xml/stream/events/XMLEvent;", nullptr, $PUBLIC, $virtualMethod(XMLEventReaderImpl, nextTag, $XMLEvent*), "javax.xml.stream.XMLStreamException"},
+		{"peek", "()Ljavax/xml/stream/events/XMLEvent;", nullptr, $PUBLIC, $virtualMethod(XMLEventReaderImpl, peek, $XMLEvent*), "javax.xml.stream.XMLStreamException"},
+		{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(XMLEventReaderImpl, remove, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.xml.internal.stream.XMLEventReaderImpl",
+		"java.lang.Object",
+		"javax.xml.stream.XMLEventReader",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XMLEventReaderImpl, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XMLEventReaderImpl);
+	});
 	return class$;
 }
 

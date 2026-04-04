@@ -1,5 +1,4 @@
 #include <javax/security/sasl/AuthenticationException.h>
-
 #include <javax/security/sasl/SaslException.h>
 #include <jcpp.h>
 
@@ -11,31 +10,6 @@ using $SaslException = ::javax::security::sasl::SaslException;
 namespace javax {
 	namespace security {
 		namespace sasl {
-
-$FieldInfo _AuthenticationException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AuthenticationException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _AuthenticationException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AuthenticationException, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(AuthenticationException, init$, void, $String*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(AuthenticationException, init$, void, $String*, $Throwable*)},
-	{}
-};
-
-$ClassInfo _AuthenticationException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.security.sasl.AuthenticationException",
-	"javax.security.sasl.SaslException",
-	nullptr,
-	_AuthenticationException_FieldInfo_,
-	_AuthenticationException_MethodInfo_
-};
-
-$Object* allocate$AuthenticationException($Class* clazz) {
-	return $of($alloc(AuthenticationException));
-}
 
 void AuthenticationException::init$() {
 	$SaslException::init$();
@@ -60,7 +34,27 @@ void AuthenticationException::throw$() {
 }
 
 $Class* AuthenticationException::load$($String* name, bool initialize) {
-	$loadClass(AuthenticationException, name, initialize, &_AuthenticationException_ClassInfo_, allocate$AuthenticationException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AuthenticationException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AuthenticationException, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(AuthenticationException, init$, void, $String*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(AuthenticationException, init$, void, $String*, $Throwable*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.security.sasl.AuthenticationException",
+		"javax.security.sasl.SaslException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(AuthenticationException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AuthenticationException);
+	});
 	return class$;
 }
 

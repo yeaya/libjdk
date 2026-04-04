@@ -1,5 +1,4 @@
 #include <com/apple/laf/AquaImageFactory$3.h>
-
 #include <com/apple/eio/FileManager.h>
 #include <com/apple/laf/AquaImageFactory.h>
 #include <jcpp.h>
@@ -14,43 +13,6 @@ namespace com {
 	namespace apple {
 		namespace laf {
 
-$MethodInfo _AquaImageFactory$3_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(AquaImageFactory$3, init$, void)},
-	{"run", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AquaImageFactory$3, run, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _AquaImageFactory$3_EnclosingMethodInfo_ = {
-	"com.apple.laf.AquaImageFactory",
-	"getPathToThisApplication",
-	"()Ljava/lang/String;"
-};
-
-$InnerClassInfo _AquaImageFactory$3_InnerClassesInfo_[] = {
-	{"com.apple.laf.AquaImageFactory$3", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _AquaImageFactory$3_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.apple.laf.AquaImageFactory$3",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	nullptr,
-	_AquaImageFactory$3_MethodInfo_,
-	"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/String;>;",
-	&_AquaImageFactory$3_EnclosingMethodInfo_,
-	_AquaImageFactory$3_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.apple.laf.AquaImageFactory"
-};
-
-$Object* allocate$AquaImageFactory$3($Class* clazz) {
-	return $of($alloc(AquaImageFactory$3));
-}
-
 void AquaImageFactory$3::init$() {
 }
 
@@ -62,7 +24,38 @@ AquaImageFactory$3::AquaImageFactory$3() {
 }
 
 $Class* AquaImageFactory$3::load$($String* name, bool initialize) {
-	$loadClass(AquaImageFactory$3, name, initialize, &_AquaImageFactory$3_ClassInfo_, allocate$AquaImageFactory$3);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(AquaImageFactory$3, init$, void)},
+		{"run", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AquaImageFactory$3, run, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.apple.laf.AquaImageFactory",
+		"getPathToThisApplication",
+		"()Ljava/lang/String;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.laf.AquaImageFactory$3", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.apple.laf.AquaImageFactory$3",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		nullptr,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/String;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.apple.laf.AquaImageFactory"
+	};
+	$loadClass(AquaImageFactory$3, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AquaImageFactory$3);
+	});
 	return class$;
 }
 

@@ -25,6 +25,7 @@ class WindowsFileSystemView : public ::javax::swing::filechooser::FileSystemView
 public:
 	WindowsFileSystemView();
 	using ::javax::swing::filechooser::FileSystemView::createFileObject;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual ::java::io::File* createFileObject($String* path) override;
 	virtual ::java::io::File* createFileSystemRoot(::java::io::File* f) override;

@@ -65,6 +65,7 @@ class $import ResponseSubscribers$PublishingBodySubscriber : public ::jdk::inter
 	$class(ResponseSubscribers$PublishingBodySubscriber, 0, ::jdk::internal::net::http::ResponseSubscribers$TrustedSubscriber)
 public:
 	ResponseSubscribers$PublishingBodySubscriber();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void complete(::jdk::internal::net::http::ResponseSubscribers$PublishingBodySubscriber$SubscriberRef* ref, $Throwable* t);
 	virtual ::java::util::concurrent::CompletionStage* getBody() override;

@@ -67,6 +67,7 @@ public:
 	virtual bool isObscured() override;
 	virtual bool isReparentSupported() override;
 	virtual void layout() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::awt::Dialog* target);
 	virtual void blockWindows(::java::util::List* toBlock) override;
 	virtual void create(::sun::awt::windows::WComponentPeer* parent) override;

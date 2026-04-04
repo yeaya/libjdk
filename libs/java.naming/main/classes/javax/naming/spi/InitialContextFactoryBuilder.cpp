@@ -1,5 +1,4 @@
 #include <javax/naming/spi/InitialContextFactoryBuilder.h>
-
 #include <java/util/Hashtable.h>
 #include <javax/naming/spi/InitialContextFactory.h>
 #include <jcpp.h>
@@ -13,26 +12,22 @@ namespace javax {
 	namespace naming {
 		namespace spi {
 
-$MethodInfo _InitialContextFactoryBuilder_MethodInfo_[] = {
-	{"createInitialContextFactory", "(Ljava/util/Hashtable;)Ljavax/naming/spi/InitialContextFactory;", "(Ljava/util/Hashtable<**>;)Ljavax/naming/spi/InitialContextFactory;", $PUBLIC | $ABSTRACT, $virtualMethod(InitialContextFactoryBuilder, createInitialContextFactory, $InitialContextFactory*, $Hashtable*), "javax.naming.NamingException"},
-	{}
-};
-
-$ClassInfo _InitialContextFactoryBuilder_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"javax.naming.spi.InitialContextFactoryBuilder",
-	nullptr,
-	nullptr,
-	nullptr,
-	_InitialContextFactoryBuilder_MethodInfo_
-};
-
-$Object* allocate$InitialContextFactoryBuilder($Class* clazz) {
-	return $of($alloc(InitialContextFactoryBuilder));
-}
-
 $Class* InitialContextFactoryBuilder::load$($String* name, bool initialize) {
-	$loadClass(InitialContextFactoryBuilder, name, initialize, &_InitialContextFactoryBuilder_ClassInfo_, allocate$InitialContextFactoryBuilder);
+	$MethodInfo methodInfos$$[] = {
+		{"createInitialContextFactory", "(Ljava/util/Hashtable;)Ljavax/naming/spi/InitialContextFactory;", "(Ljava/util/Hashtable<**>;)Ljavax/naming/spi/InitialContextFactory;", $PUBLIC | $ABSTRACT, $virtualMethod(InitialContextFactoryBuilder, createInitialContextFactory, $InitialContextFactory*, $Hashtable*), "javax.naming.NamingException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"javax.naming.spi.InitialContextFactoryBuilder",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(InitialContextFactoryBuilder, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(InitialContextFactoryBuilder);
+	});
 	return class$;
 }
 

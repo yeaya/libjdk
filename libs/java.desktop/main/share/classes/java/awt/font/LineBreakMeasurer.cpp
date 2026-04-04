@@ -1,5 +1,4 @@
 #include <java/awt/font/LineBreakMeasurer.h>
-
 #include <java/awt/font/CharArrayIterator.h>
 #include <java/awt/font/FontRenderContext.h>
 #include <java/awt/font/TextLayout.h>
@@ -7,7 +6,6 @@
 #include <java/lang/Math.h>
 #include <java/text/AttributedCharacterIterator.h>
 #include <java/text/BreakIterator.h>
-#include <java/text/CharacterIterator.h>
 #include <jcpp.h>
 
 using $CharArrayIterator = ::java::awt::font::CharArrayIterator;
@@ -22,48 +20,10 @@ using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AttributedCharacterIterator = ::java::text::AttributedCharacterIterator;
 using $BreakIterator = ::java::text::BreakIterator;
-using $CharacterIterator = ::java::text::CharacterIterator;
 
 namespace java {
 	namespace awt {
 		namespace font {
-
-$FieldInfo _LineBreakMeasurer_FieldInfo_[] = {
-	{"breakIter", "Ljava/text/BreakIterator;", nullptr, $PRIVATE, $field(LineBreakMeasurer, breakIter)},
-	{"start", "I", nullptr, $PRIVATE, $field(LineBreakMeasurer, start)},
-	{"pos", "I", nullptr, $PRIVATE, $field(LineBreakMeasurer, pos)},
-	{"limit", "I", nullptr, $PRIVATE, $field(LineBreakMeasurer, limit)},
-	{"measurer", "Ljava/awt/font/TextMeasurer;", nullptr, $PRIVATE, $field(LineBreakMeasurer, measurer)},
-	{"charIter", "Ljava/awt/font/CharArrayIterator;", nullptr, $PRIVATE, $field(LineBreakMeasurer, charIter)},
-	{}
-};
-
-$MethodInfo _LineBreakMeasurer_MethodInfo_[] = {
-	{"<init>", "(Ljava/text/AttributedCharacterIterator;Ljava/awt/font/FontRenderContext;)V", nullptr, $PUBLIC, $method(LineBreakMeasurer, init$, void, $AttributedCharacterIterator*, $FontRenderContext*)},
-	{"<init>", "(Ljava/text/AttributedCharacterIterator;Ljava/text/BreakIterator;Ljava/awt/font/FontRenderContext;)V", nullptr, $PUBLIC, $method(LineBreakMeasurer, init$, void, $AttributedCharacterIterator*, $BreakIterator*, $FontRenderContext*)},
-	{"deleteChar", "(Ljava/text/AttributedCharacterIterator;I)V", nullptr, $PUBLIC, $method(LineBreakMeasurer, deleteChar, void, $AttributedCharacterIterator*, int32_t)},
-	{"getPosition", "()I", nullptr, $PUBLIC, $method(LineBreakMeasurer, getPosition, int32_t)},
-	{"insertChar", "(Ljava/text/AttributedCharacterIterator;I)V", nullptr, $PUBLIC, $method(LineBreakMeasurer, insertChar, void, $AttributedCharacterIterator*, int32_t)},
-	{"nextLayout", "(F)Ljava/awt/font/TextLayout;", nullptr, $PUBLIC, $method(LineBreakMeasurer, nextLayout, $TextLayout*, float)},
-	{"nextLayout", "(FIZ)Ljava/awt/font/TextLayout;", nullptr, $PUBLIC, $method(LineBreakMeasurer, nextLayout, $TextLayout*, float, int32_t, bool)},
-	{"nextOffset", "(F)I", nullptr, $PUBLIC, $method(LineBreakMeasurer, nextOffset, int32_t, float)},
-	{"nextOffset", "(FIZ)I", nullptr, $PUBLIC, $method(LineBreakMeasurer, nextOffset, int32_t, float, int32_t, bool)},
-	{"setPosition", "(I)V", nullptr, $PUBLIC, $method(LineBreakMeasurer, setPosition, void, int32_t)},
-	{}
-};
-
-$ClassInfo _LineBreakMeasurer_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"java.awt.font.LineBreakMeasurer",
-	"java.lang.Object",
-	nullptr,
-	_LineBreakMeasurer_FieldInfo_,
-	_LineBreakMeasurer_MethodInfo_
-};
-
-$Object* allocate$LineBreakMeasurer($Class* clazz) {
-	return $of($alloc(LineBreakMeasurer));
-}
 
 void LineBreakMeasurer::init$($AttributedCharacterIterator* text, $FontRenderContext* frc) {
 	LineBreakMeasurer::init$(text, $($BreakIterator::getLineInstance()), frc);
@@ -76,10 +36,10 @@ void LineBreakMeasurer::init$($AttributedCharacterIterator* text, $BreakIterator
 	}
 	$set(this, breakIter, breakIter);
 	$set(this, measurer, $new($TextMeasurer, text, frc));
-	this->limit = $nc(text)->getEndIndex();
+	this->limit = text->getEndIndex();
 	this->pos = (this->start = text->getBeginIndex());
 	$set(this, charIter, $new($CharArrayIterator, $($nc(this->measurer)->getChars()), this->start));
-	$nc(this->breakIter)->setText(static_cast<$CharacterIterator*>(this->charIter));
+	$nc(this->breakIter)->setText(this->charIter);
 }
 
 int32_t LineBreakMeasurer::nextOffset(float wrappingWidth) {
@@ -87,7 +47,6 @@ int32_t LineBreakMeasurer::nextOffset(float wrappingWidth) {
 }
 
 int32_t LineBreakMeasurer::nextOffset(float wrappingWidth, int32_t offsetLimit, bool requireNextWord) {
-	$useLocalCurrentObjectStackCache();
 	int32_t nextOffset = this->pos;
 	if (this->pos < this->limit) {
 		if (offsetLimit <= this->pos) {
@@ -102,7 +61,7 @@ int32_t LineBreakMeasurer::nextOffset(float wrappingWidth, int32_t offsetLimit, 
 			int32_t testPos = charAtMaxAdvance + 1;
 			if (testPos == this->limit) {
 				$nc(this->breakIter)->last();
-				nextOffset = $nc(this->breakIter)->previous();
+				nextOffset = this->breakIter->previous();
 			} else {
 				nextOffset = $nc(this->breakIter)->preceding(testPos);
 			}
@@ -156,7 +115,7 @@ void LineBreakMeasurer::insertChar($AttributedCharacterIterator* newParagraph, i
 	this->pos = (this->start = newParagraph->getBeginIndex());
 	$var($chars, var$0, $nc(this->measurer)->getChars());
 	$nc(this->charIter)->reset(var$0, newParagraph->getBeginIndex());
-	$nc(this->breakIter)->setText(static_cast<$CharacterIterator*>(this->charIter));
+	$nc(this->breakIter)->setText(this->charIter);
 }
 
 void LineBreakMeasurer::deleteChar($AttributedCharacterIterator* newParagraph, int32_t deletePos) {
@@ -164,14 +123,46 @@ void LineBreakMeasurer::deleteChar($AttributedCharacterIterator* newParagraph, i
 	this->limit = $nc(newParagraph)->getEndIndex();
 	this->pos = (this->start = newParagraph->getBeginIndex());
 	$nc(this->charIter)->reset($($nc(this->measurer)->getChars()), this->start);
-	$nc(this->breakIter)->setText(static_cast<$CharacterIterator*>(this->charIter));
+	$nc(this->breakIter)->setText(this->charIter);
 }
 
 LineBreakMeasurer::LineBreakMeasurer() {
 }
 
 $Class* LineBreakMeasurer::load$($String* name, bool initialize) {
-	$loadClass(LineBreakMeasurer, name, initialize, &_LineBreakMeasurer_ClassInfo_, allocate$LineBreakMeasurer);
+	$FieldInfo fieldInfos$$[] = {
+		{"breakIter", "Ljava/text/BreakIterator;", nullptr, $PRIVATE, $field(LineBreakMeasurer, breakIter)},
+		{"start", "I", nullptr, $PRIVATE, $field(LineBreakMeasurer, start)},
+		{"pos", "I", nullptr, $PRIVATE, $field(LineBreakMeasurer, pos)},
+		{"limit", "I", nullptr, $PRIVATE, $field(LineBreakMeasurer, limit)},
+		{"measurer", "Ljava/awt/font/TextMeasurer;", nullptr, $PRIVATE, $field(LineBreakMeasurer, measurer)},
+		{"charIter", "Ljava/awt/font/CharArrayIterator;", nullptr, $PRIVATE, $field(LineBreakMeasurer, charIter)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/text/AttributedCharacterIterator;Ljava/awt/font/FontRenderContext;)V", nullptr, $PUBLIC, $method(LineBreakMeasurer, init$, void, $AttributedCharacterIterator*, $FontRenderContext*)},
+		{"<init>", "(Ljava/text/AttributedCharacterIterator;Ljava/text/BreakIterator;Ljava/awt/font/FontRenderContext;)V", nullptr, $PUBLIC, $method(LineBreakMeasurer, init$, void, $AttributedCharacterIterator*, $BreakIterator*, $FontRenderContext*)},
+		{"deleteChar", "(Ljava/text/AttributedCharacterIterator;I)V", nullptr, $PUBLIC, $method(LineBreakMeasurer, deleteChar, void, $AttributedCharacterIterator*, int32_t)},
+		{"getPosition", "()I", nullptr, $PUBLIC, $method(LineBreakMeasurer, getPosition, int32_t)},
+		{"insertChar", "(Ljava/text/AttributedCharacterIterator;I)V", nullptr, $PUBLIC, $method(LineBreakMeasurer, insertChar, void, $AttributedCharacterIterator*, int32_t)},
+		{"nextLayout", "(F)Ljava/awt/font/TextLayout;", nullptr, $PUBLIC, $method(LineBreakMeasurer, nextLayout, $TextLayout*, float)},
+		{"nextLayout", "(FIZ)Ljava/awt/font/TextLayout;", nullptr, $PUBLIC, $method(LineBreakMeasurer, nextLayout, $TextLayout*, float, int32_t, bool)},
+		{"nextOffset", "(F)I", nullptr, $PUBLIC, $method(LineBreakMeasurer, nextOffset, int32_t, float)},
+		{"nextOffset", "(FIZ)I", nullptr, $PUBLIC, $method(LineBreakMeasurer, nextOffset, int32_t, float, int32_t, bool)},
+		{"setPosition", "(I)V", nullptr, $PUBLIC, $method(LineBreakMeasurer, setPosition, void, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"java.awt.font.LineBreakMeasurer",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(LineBreakMeasurer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LineBreakMeasurer);
+	});
 	return class$;
 }
 

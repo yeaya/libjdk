@@ -1,5 +1,4 @@
 #include <com/sun/jndi/ldap/BerDecoder.h>
-
 #include <com/sun/jndi/ldap/Ber$DecodeException.h>
 #include <com/sun/jndi/ldap/Ber.h>
 #include <java/io/UnsupportedEncodingException.h>
@@ -23,44 +22,6 @@ namespace com {
 		namespace jndi {
 			namespace ldap {
 
-$FieldInfo _BerDecoder_FieldInfo_[] = {
-	{"origOffset", "I", nullptr, $PRIVATE, $field(BerDecoder, origOffset)},
-	{}
-};
-
-$MethodInfo _BerDecoder_MethodInfo_[] = {
-	{"<init>", "([BII)V", nullptr, $PUBLIC, $method(BerDecoder, init$, void, $bytes*, int32_t, int32_t)},
-	{"bytesLeft", "()I", nullptr, $PUBLIC, $method(BerDecoder, bytesLeft, int32_t)},
-	{"getParsePosition", "()I", nullptr, $PUBLIC, $method(BerDecoder, getParsePosition, int32_t)},
-	{"parseBoolean", "()Z", nullptr, $PUBLIC, $method(BerDecoder, parseBoolean, bool), "com.sun.jndi.ldap.Ber$DecodeException"},
-	{"parseByte", "()I", nullptr, $PUBLIC, $method(BerDecoder, parseByte, int32_t), "com.sun.jndi.ldap.Ber$DecodeException"},
-	{"parseEnumeration", "()I", nullptr, $PUBLIC, $method(BerDecoder, parseEnumeration, int32_t), "com.sun.jndi.ldap.Ber$DecodeException"},
-	{"parseInt", "()I", nullptr, $PUBLIC, $method(BerDecoder, parseInt, int32_t), "com.sun.jndi.ldap.Ber$DecodeException"},
-	{"parseIntWithTag", "(I)I", nullptr, $PRIVATE, $method(BerDecoder, parseIntWithTag, int32_t, int32_t), "com.sun.jndi.ldap.Ber$DecodeException"},
-	{"parseLength", "()I", nullptr, $PUBLIC, $method(BerDecoder, parseLength, int32_t), "com.sun.jndi.ldap.Ber$DecodeException"},
-	{"parseOctetString", "(I[I)[B", nullptr, $PUBLIC, $method(BerDecoder, parseOctetString, $bytes*, int32_t, $ints*), "com.sun.jndi.ldap.Ber$DecodeException"},
-	{"parseSeq", "([I)I", nullptr, $PUBLIC, $method(BerDecoder, parseSeq, int32_t, $ints*), "com.sun.jndi.ldap.Ber$DecodeException"},
-	{"parseString", "(Z)Ljava/lang/String;", nullptr, $PUBLIC, $method(BerDecoder, parseString, $String*, bool), "com.sun.jndi.ldap.Ber$DecodeException"},
-	{"parseStringWithTag", "(IZ[I)Ljava/lang/String;", nullptr, $PUBLIC, $method(BerDecoder, parseStringWithTag, $String*, int32_t, bool, $ints*), "com.sun.jndi.ldap.Ber$DecodeException"},
-	{"peekByte", "()I", nullptr, $PUBLIC, $method(BerDecoder, peekByte, int32_t), "com.sun.jndi.ldap.Ber$DecodeException"},
-	{"reset", "()V", nullptr, $PUBLIC, $method(BerDecoder, reset, void)},
-	{"seek", "(I)V", nullptr, 0, $method(BerDecoder, seek, void, int32_t), "com.sun.jndi.ldap.Ber$DecodeException"},
-	{}
-};
-
-$ClassInfo _BerDecoder_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.jndi.ldap.BerDecoder",
-	"com.sun.jndi.ldap.Ber",
-	nullptr,
-	_BerDecoder_FieldInfo_,
-	_BerDecoder_MethodInfo_
-};
-
-$Object* allocate$BerDecoder($Class* clazz) {
-	return $of($alloc(BerDecoder));
-}
-
 void BerDecoder::init$($bytes* buf, int32_t offset, int32_t bufsize) {
 	$Ber::init$();
 	$set(this, buf, buf);
@@ -79,7 +40,7 @@ int32_t BerDecoder::getParsePosition() {
 
 int32_t BerDecoder::parseLength() {
 	int32_t lengthbyte = parseByte();
-	if (((int32_t)(lengthbyte & (uint32_t)128)) == 128) {
+	if ((lengthbyte & 0x80) == 0x80) {
 		lengthbyte &= (uint32_t)127;
 		if (lengthbyte == 0) {
 			$throwNew($Ber$DecodeException, "Indefinite length not supported"_s);
@@ -92,7 +53,7 @@ int32_t BerDecoder::parseLength() {
 		}
 		int32_t retval = 0;
 		for (int32_t i = 0; i < lengthbyte; ++i) {
-			retval = (retval << 8) + ((int32_t)($nc(this->buf)->get(this->offset++) & (uint32_t)255));
+			retval = (retval << 8) + ($nc(this->buf)->get(this->offset++) & 0xff);
 		}
 		if (retval < 0) {
 			$throwNew($Ber$DecodeException, "Invalid length bytes"_s);
@@ -123,14 +84,14 @@ int32_t BerDecoder::parseByte() {
 	if (this->bufsize - this->offset < 1) {
 		$throwNew($Ber$DecodeException, "Insufficient data"_s);
 	}
-	return (int32_t)($nc(this->buf)->get(this->offset++) & (uint32_t)255);
+	return $nc(this->buf)->get(this->offset++) & 0xff;
 }
 
 int32_t BerDecoder::peekByte() {
 	if (this->bufsize - this->offset < 1) {
 		$throwNew($Ber$DecodeException, "Insufficient data"_s);
 	}
-	return (int32_t)($nc(this->buf)->get(this->offset) & (uint32_t)255);
+	return $nc(this->buf)->get(this->offset) & 0xff;
 }
 
 bool BerDecoder::parseBoolean() {
@@ -146,11 +107,11 @@ int32_t BerDecoder::parseInt() {
 }
 
 int32_t BerDecoder::parseIntWithTag(int32_t tag) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (parseByte() != tag) {
 		$var($String, s, nullptr);
 		if (this->offset > 0) {
-			$assign(s, $Integer::toString((int32_t)($nc(this->buf)->get(this->offset - 1) & (uint32_t)255)));
+			$assign(s, $Integer::toString($nc(this->buf)->get(this->offset - 1) & 0xff));
 		} else {
 			$assign(s, "Empty tag"_s);
 		}
@@ -164,12 +125,12 @@ int32_t BerDecoder::parseIntWithTag(int32_t tag) {
 	}
 	int8_t fb = $nc(this->buf)->get(this->offset++);
 	int32_t value = 0;
-	value = (int32_t)(fb & (uint32_t)127);
+	value = fb & 0x7f;
 	for (int32_t i = 1; i < len; ++i) {
 		value <<= 8;
-		value |= ((int32_t)($nc(this->buf)->get(this->offset++) & (uint32_t)255));
+		value |= (this->buf->get(this->offset++) & 0xff);
 	}
-	if (((int32_t)(fb & (uint32_t)128)) == 128) {
+	if ((fb & 0x80) == 0x80) {
 		value = -value;
 	}
 	return value;
@@ -180,7 +141,7 @@ $String* BerDecoder::parseString(bool decodeUTF8) {
 }
 
 $String* BerDecoder::parseStringWithTag(int32_t tag, bool decodeUTF8, $ints* rlen) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t st = 0;
 	int32_t origOffset = this->offset;
 	if ((st = parseByte()) != tag) {
@@ -218,13 +179,17 @@ $String* BerDecoder::parseStringWithTag(int32_t tag, bool decodeUTF8, $ints* rle
 }
 
 $bytes* BerDecoder::parseOctetString(int32_t tag, $ints* rlen) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t origOffset = this->offset;
 	int32_t st = 0;
 	if ((st = parseByte()) != tag) {
-		$var($String, var$1, $$str({"Encountered ASN.1 tag "_s, $($Integer::toString(st)), " (expected tag "_s}));
-		$var($String, var$0, $$concat(var$1, $($Integer::toString(tag))));
-		$throwNew($Ber$DecodeException, $$concat(var$0, ")"_s));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append("Encountered ASN.1 tag "_s);
+		var$0->append($($Integer::toString(st)));
+		var$0->append(" (expected tag "_s);
+		var$0->append($($Integer::toString(tag)));
+		var$0->append(")"_s);
+		$throwNew($Ber$DecodeException, $$str(var$0));
 	}
 	int32_t len = parseLength();
 	if (len > this->bufsize - this->offset) {
@@ -249,7 +214,40 @@ BerDecoder::BerDecoder() {
 }
 
 $Class* BerDecoder::load$($String* name, bool initialize) {
-	$loadClass(BerDecoder, name, initialize, &_BerDecoder_ClassInfo_, allocate$BerDecoder);
+	$FieldInfo fieldInfos$$[] = {
+		{"origOffset", "I", nullptr, $PRIVATE, $field(BerDecoder, origOffset)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "([BII)V", nullptr, $PUBLIC, $method(BerDecoder, init$, void, $bytes*, int32_t, int32_t)},
+		{"bytesLeft", "()I", nullptr, $PUBLIC, $method(BerDecoder, bytesLeft, int32_t)},
+		{"getParsePosition", "()I", nullptr, $PUBLIC, $method(BerDecoder, getParsePosition, int32_t)},
+		{"parseBoolean", "()Z", nullptr, $PUBLIC, $method(BerDecoder, parseBoolean, bool), "com.sun.jndi.ldap.Ber$DecodeException"},
+		{"parseByte", "()I", nullptr, $PUBLIC, $method(BerDecoder, parseByte, int32_t), "com.sun.jndi.ldap.Ber$DecodeException"},
+		{"parseEnumeration", "()I", nullptr, $PUBLIC, $method(BerDecoder, parseEnumeration, int32_t), "com.sun.jndi.ldap.Ber$DecodeException"},
+		{"parseInt", "()I", nullptr, $PUBLIC, $method(BerDecoder, parseInt, int32_t), "com.sun.jndi.ldap.Ber$DecodeException"},
+		{"parseIntWithTag", "(I)I", nullptr, $PRIVATE, $method(BerDecoder, parseIntWithTag, int32_t, int32_t), "com.sun.jndi.ldap.Ber$DecodeException"},
+		{"parseLength", "()I", nullptr, $PUBLIC, $method(BerDecoder, parseLength, int32_t), "com.sun.jndi.ldap.Ber$DecodeException"},
+		{"parseOctetString", "(I[I)[B", nullptr, $PUBLIC, $method(BerDecoder, parseOctetString, $bytes*, int32_t, $ints*), "com.sun.jndi.ldap.Ber$DecodeException"},
+		{"parseSeq", "([I)I", nullptr, $PUBLIC, $method(BerDecoder, parseSeq, int32_t, $ints*), "com.sun.jndi.ldap.Ber$DecodeException"},
+		{"parseString", "(Z)Ljava/lang/String;", nullptr, $PUBLIC, $method(BerDecoder, parseString, $String*, bool), "com.sun.jndi.ldap.Ber$DecodeException"},
+		{"parseStringWithTag", "(IZ[I)Ljava/lang/String;", nullptr, $PUBLIC, $method(BerDecoder, parseStringWithTag, $String*, int32_t, bool, $ints*), "com.sun.jndi.ldap.Ber$DecodeException"},
+		{"peekByte", "()I", nullptr, $PUBLIC, $method(BerDecoder, peekByte, int32_t), "com.sun.jndi.ldap.Ber$DecodeException"},
+		{"reset", "()V", nullptr, $PUBLIC, $method(BerDecoder, reset, void)},
+		{"seek", "(I)V", nullptr, 0, $method(BerDecoder, seek, void, int32_t), "com.sun.jndi.ldap.Ber$DecodeException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.jndi.ldap.BerDecoder",
+		"com.sun.jndi.ldap.Ber",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(BerDecoder, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BerDecoder);
+	});
 	return class$;
 }
 

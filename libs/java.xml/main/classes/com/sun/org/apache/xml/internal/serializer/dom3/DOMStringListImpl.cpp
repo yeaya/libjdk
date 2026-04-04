@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/serializer/dom3/DOMStringListImpl.h>
-
 #include <java/lang/IndexOutOfBoundsException.h>
 #include <java/util/ArrayList.h>
 #include <java/util/List.h>
@@ -21,35 +20,6 @@ namespace com {
 						namespace serializer {
 							namespace dom3 {
 
-$FieldInfo _DOMStringListImpl_FieldInfo_[] = {
-	{"fStrings", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/String;>;", $PRIVATE, $field(DOMStringListImpl, fStrings)},
-	{}
-};
-
-$MethodInfo _DOMStringListImpl_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(DOMStringListImpl, init$, void)},
-	{"<init>", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/lang/String;>;)V", 0, $method(DOMStringListImpl, init$, void, $List*)},
-	{"<init>", "([Ljava/lang/String;)V", nullptr, 0, $method(DOMStringListImpl, init$, void, $StringArray*)},
-	{"add", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(DOMStringListImpl, add, void, $String*)},
-	{"contains", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(DOMStringListImpl, contains, bool, $String*)},
-	{"getLength", "()I", nullptr, $PUBLIC, $virtualMethod(DOMStringListImpl, getLength, int32_t)},
-	{"item", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DOMStringListImpl, item, $String*, int32_t)},
-	{}
-};
-
-$ClassInfo _DOMStringListImpl_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.serializer.dom3.DOMStringListImpl",
-	"java.lang.Object",
-	"org.w3c.dom.DOMStringList",
-	_DOMStringListImpl_FieldInfo_,
-	_DOMStringListImpl_MethodInfo_
-};
-
-$Object* allocate$DOMStringListImpl($Class* clazz) {
-	return $of($alloc(DOMStringListImpl));
-}
-
 void DOMStringListImpl::init$() {
 	$set(this, fStrings, $new($ArrayList));
 }
@@ -62,7 +32,7 @@ void DOMStringListImpl::init$($StringArray* params) {
 	$set(this, fStrings, $new($ArrayList));
 	if (params != nullptr) {
 		for (int32_t i = 0; i < params->length; ++i) {
-			$nc(this->fStrings)->add(params->get(i));
+			this->fStrings->add(params->get(i));
 		}
 	}
 }
@@ -92,7 +62,31 @@ DOMStringListImpl::DOMStringListImpl() {
 }
 
 $Class* DOMStringListImpl::load$($String* name, bool initialize) {
-	$loadClass(DOMStringListImpl, name, initialize, &_DOMStringListImpl_ClassInfo_, allocate$DOMStringListImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"fStrings", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/String;>;", $PRIVATE, $field(DOMStringListImpl, fStrings)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(DOMStringListImpl, init$, void)},
+		{"<init>", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/lang/String;>;)V", 0, $method(DOMStringListImpl, init$, void, $List*)},
+		{"<init>", "([Ljava/lang/String;)V", nullptr, 0, $method(DOMStringListImpl, init$, void, $StringArray*)},
+		{"add", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(DOMStringListImpl, add, void, $String*)},
+		{"contains", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(DOMStringListImpl, contains, bool, $String*)},
+		{"getLength", "()I", nullptr, $PUBLIC, $virtualMethod(DOMStringListImpl, getLength, int32_t)},
+		{"item", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DOMStringListImpl, item, $String*, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.serializer.dom3.DOMStringListImpl",
+		"java.lang.Object",
+		"org.w3c.dom.DOMStringList",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DOMStringListImpl, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DOMStringListImpl);
+	});
 	return class$;
 }
 

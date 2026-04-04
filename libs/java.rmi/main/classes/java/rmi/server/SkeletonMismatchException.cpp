@@ -1,5 +1,4 @@
 #include <java/rmi/server/SkeletonMismatchException.h>
-
 #include <java/rmi/RemoteException.h>
 #include <jcpp.h>
 
@@ -12,43 +11,6 @@ using $RemoteException = ::java::rmi::RemoteException;
 namespace java {
 	namespace rmi {
 		namespace server {
-
-$CompoundAttribute _SkeletonMismatchException_Annotations_[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _SkeletonMismatchException_MethodAnnotations_init$0[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$FieldInfo _SkeletonMismatchException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SkeletonMismatchException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _SkeletonMismatchException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $DEPRECATED, $method(SkeletonMismatchException, init$, void, $String*), nullptr, nullptr, _SkeletonMismatchException_MethodAnnotations_init$0},
-	{}
-};
-
-$ClassInfo _SkeletonMismatchException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.rmi.server.SkeletonMismatchException",
-	"java.rmi.RemoteException",
-	nullptr,
-	_SkeletonMismatchException_FieldInfo_,
-	_SkeletonMismatchException_MethodInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	_SkeletonMismatchException_Annotations_
-};
-
-$Object* allocate$SkeletonMismatchException($Class* clazz) {
-	return $of($alloc(SkeletonMismatchException));
-}
 
 void SkeletonMismatchException::init$($String* s) {
 	$RemoteException::init$(s);
@@ -65,7 +27,37 @@ void SkeletonMismatchException::throw$() {
 }
 
 $Class* SkeletonMismatchException::load$($String* name, bool initialize) {
-	$loadClass(SkeletonMismatchException, name, initialize, &_SkeletonMismatchException_ClassInfo_, allocate$SkeletonMismatchException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SkeletonMismatchException, serialVersionUID)},
+		{}
+	};
+	$CompoundAttribute init$methodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $DEPRECATED, $method(SkeletonMismatchException, init$, void, $String*), nullptr, nullptr, init$methodAnnotations$$},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.rmi.server.SkeletonMismatchException",
+		"java.rmi.RemoteException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(SkeletonMismatchException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SkeletonMismatchException);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/serializer/dom3/DOMErrorImpl.h>
-
 #include <com/sun/org/apache/xml/internal/serializer/dom3/DOMLocatorImpl.h>
 #include <org/w3c/dom/DOMError.h>
 #include <org/w3c/dom/DOMLocator.h>
@@ -23,44 +22,6 @@ namespace com {
 					namespace internal {
 						namespace serializer {
 							namespace dom3 {
-
-$FieldInfo _DOMErrorImpl_FieldInfo_[] = {
-	{"fSeverity", "S", nullptr, $PRIVATE, $field(DOMErrorImpl, fSeverity)},
-	{"fMessage", "Ljava/lang/String;", nullptr, $PRIVATE, $field(DOMErrorImpl, fMessage)},
-	{"fType", "Ljava/lang/String;", nullptr, $PRIVATE, $field(DOMErrorImpl, fType)},
-	{"fException", "Ljava/lang/Exception;", nullptr, $PRIVATE, $field(DOMErrorImpl, fException)},
-	{"fRelatedData", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(DOMErrorImpl, fRelatedData)},
-	{"fLocation", "Lcom/sun/org/apache/xml/internal/serializer/dom3/DOMLocatorImpl;", nullptr, $PRIVATE, $field(DOMErrorImpl, fLocation)},
-	{}
-};
-
-$MethodInfo _DOMErrorImpl_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(DOMErrorImpl, init$, void)},
-	{"<init>", "(SLjava/lang/String;Ljava/lang/String;)V", nullptr, 0, $method(DOMErrorImpl, init$, void, int16_t, $String*, $String*)},
-	{"<init>", "(SLjava/lang/String;Ljava/lang/String;Ljava/lang/Exception;)V", nullptr, 0, $method(DOMErrorImpl, init$, void, int16_t, $String*, $String*, $Exception*)},
-	{"<init>", "(SLjava/lang/String;Ljava/lang/String;Ljava/lang/Exception;Ljava/lang/Object;Lcom/sun/org/apache/xml/internal/serializer/dom3/DOMLocatorImpl;)V", nullptr, 0, $method(DOMErrorImpl, init$, void, int16_t, $String*, $String*, $Exception*, Object$*, $DOMLocatorImpl*)},
-	{"getLocation", "()Lorg/w3c/dom/DOMLocator;", nullptr, $PUBLIC, $virtualMethod(DOMErrorImpl, getLocation, $DOMLocator*)},
-	{"getMessage", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DOMErrorImpl, getMessage, $String*)},
-	{"getRelatedData", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DOMErrorImpl, getRelatedData, $Object*)},
-	{"getRelatedException", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DOMErrorImpl, getRelatedException, $Object*)},
-	{"getSeverity", "()S", nullptr, $PUBLIC, $virtualMethod(DOMErrorImpl, getSeverity, int16_t)},
-	{"getType", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DOMErrorImpl, getType, $String*)},
-	{"reset", "()V", nullptr, $PUBLIC, $method(DOMErrorImpl, reset, void)},
-	{}
-};
-
-$ClassInfo _DOMErrorImpl_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.serializer.dom3.DOMErrorImpl",
-	"java.lang.Object",
-	"org.w3c.dom.DOMError",
-	_DOMErrorImpl_FieldInfo_,
-	_DOMErrorImpl_MethodInfo_
-};
-
-$Object* allocate$DOMErrorImpl($Class* clazz) {
-	return $of($alloc(DOMErrorImpl));
-}
 
 void DOMErrorImpl::init$() {
 	this->fSeverity = $DOMError::SEVERITY_WARNING;
@@ -116,7 +77,7 @@ $DOMLocator* DOMErrorImpl::getLocation() {
 }
 
 $Object* DOMErrorImpl::getRelatedException() {
-	return $of(this->fException);
+	return this->fException;
 }
 
 $String* DOMErrorImpl::getType() {
@@ -124,7 +85,7 @@ $String* DOMErrorImpl::getType() {
 }
 
 $Object* DOMErrorImpl::getRelatedData() {
-	return $of(this->fRelatedData);
+	return this->fRelatedData;
 }
 
 void DOMErrorImpl::reset() {
@@ -140,7 +101,40 @@ DOMErrorImpl::DOMErrorImpl() {
 }
 
 $Class* DOMErrorImpl::load$($String* name, bool initialize) {
-	$loadClass(DOMErrorImpl, name, initialize, &_DOMErrorImpl_ClassInfo_, allocate$DOMErrorImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"fSeverity", "S", nullptr, $PRIVATE, $field(DOMErrorImpl, fSeverity)},
+		{"fMessage", "Ljava/lang/String;", nullptr, $PRIVATE, $field(DOMErrorImpl, fMessage)},
+		{"fType", "Ljava/lang/String;", nullptr, $PRIVATE, $field(DOMErrorImpl, fType)},
+		{"fException", "Ljava/lang/Exception;", nullptr, $PRIVATE, $field(DOMErrorImpl, fException)},
+		{"fRelatedData", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(DOMErrorImpl, fRelatedData)},
+		{"fLocation", "Lcom/sun/org/apache/xml/internal/serializer/dom3/DOMLocatorImpl;", nullptr, $PRIVATE, $field(DOMErrorImpl, fLocation)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(DOMErrorImpl, init$, void)},
+		{"<init>", "(SLjava/lang/String;Ljava/lang/String;)V", nullptr, 0, $method(DOMErrorImpl, init$, void, int16_t, $String*, $String*)},
+		{"<init>", "(SLjava/lang/String;Ljava/lang/String;Ljava/lang/Exception;)V", nullptr, 0, $method(DOMErrorImpl, init$, void, int16_t, $String*, $String*, $Exception*)},
+		{"<init>", "(SLjava/lang/String;Ljava/lang/String;Ljava/lang/Exception;Ljava/lang/Object;Lcom/sun/org/apache/xml/internal/serializer/dom3/DOMLocatorImpl;)V", nullptr, 0, $method(DOMErrorImpl, init$, void, int16_t, $String*, $String*, $Exception*, Object$*, $DOMLocatorImpl*)},
+		{"getLocation", "()Lorg/w3c/dom/DOMLocator;", nullptr, $PUBLIC, $virtualMethod(DOMErrorImpl, getLocation, $DOMLocator*)},
+		{"getMessage", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DOMErrorImpl, getMessage, $String*)},
+		{"getRelatedData", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DOMErrorImpl, getRelatedData, $Object*)},
+		{"getRelatedException", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DOMErrorImpl, getRelatedException, $Object*)},
+		{"getSeverity", "()S", nullptr, $PUBLIC, $virtualMethod(DOMErrorImpl, getSeverity, int16_t)},
+		{"getType", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DOMErrorImpl, getType, $String*)},
+		{"reset", "()V", nullptr, $PUBLIC, $method(DOMErrorImpl, reset, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.serializer.dom3.DOMErrorImpl",
+		"java.lang.Object",
+		"org.w3c.dom.DOMError",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DOMErrorImpl, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DOMErrorImpl);
+	});
 	return class$;
 }
 

@@ -15,10 +15,13 @@ public:
 	RelationServiceNotRegisteredException();
 	void init$();
 	void init$($String* message);
-	static const int64_t serialVersionUID = (int64_t)0x755549AE018CE75E;
+	static const int64_t serialVersionUID = (int64_t)0x755549ae018ce75e;
 	RelationServiceNotRegisteredException(const RelationServiceNotRegisteredException& e);
 	virtual void throw$() override;
-	inline RelationServiceNotRegisteredException* operator ->() {
+	inline RelationServiceNotRegisteredException* operator ->() const {
+		return (RelationServiceNotRegisteredException*)throwing$;
+	}
+	inline operator RelationServiceNotRegisteredException*() const {
 		return (RelationServiceNotRegisteredException*)throwing$;
 	}
 };

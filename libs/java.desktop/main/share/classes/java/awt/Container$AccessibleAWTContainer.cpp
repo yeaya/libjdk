@@ -1,7 +1,5 @@
 #include <java/awt/Container$AccessibleAWTContainer.h>
-
 #include <java/awt/Component$AccessibleAWTComponent.h>
-#include <java/awt/Component.h>
 #include <java/awt/Container$AccessibleAWTContainer$AccessibleContainerHandler.h>
 #include <java/awt/Container.h>
 #include <java/awt/Point.h>
@@ -10,12 +8,10 @@
 #include <javax/accessibility/Accessible.h>
 #include <jcpp.h>
 
-using $Component = ::java::awt::Component;
 using $Component$AccessibleAWTComponent = ::java::awt::Component$AccessibleAWTComponent;
 using $Container = ::java::awt::Container;
 using $Container$AccessibleAWTContainer$AccessibleContainerHandler = ::java::awt::Container$AccessibleAWTContainer$AccessibleContainerHandler;
 using $Point = ::java::awt::Point;
-using $ContainerListener = ::java::awt::event::ContainerListener;
 using $PropertyChangeListener = ::java::beans::PropertyChangeListener;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -25,51 +21,6 @@ using $Accessible = ::javax::accessibility::Accessible;
 
 namespace java {
 	namespace awt {
-
-$FieldInfo _Container$AccessibleAWTContainer_FieldInfo_[] = {
-	{"this$0", "Ljava/awt/Container;", nullptr, $FINAL | $SYNTHETIC, $field(Container$AccessibleAWTContainer, this$0)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Container$AccessibleAWTContainer, serialVersionUID)},
-	{"propertyListenersCount", "I", nullptr, $PRIVATE | $VOLATILE | $TRANSIENT, $field(Container$AccessibleAWTContainer, propertyListenersCount)},
-	{"accessibleContainerHandler", "Ljava/awt/event/ContainerListener;", nullptr, $PROTECTED, $field(Container$AccessibleAWTContainer, accessibleContainerHandler)},
-	{}
-};
-
-$MethodInfo _Container$AccessibleAWTContainer_MethodInfo_[] = {
-	{"<init>", "(Ljava/awt/Container;)V", nullptr, $PROTECTED, $method(Container$AccessibleAWTContainer, init$, void, $Container*)},
-	{"addPropertyChangeListener", "(Ljava/beans/PropertyChangeListener;)V", nullptr, $PUBLIC, $virtualMethod(Container$AccessibleAWTContainer, addPropertyChangeListener, void, $PropertyChangeListener*)},
-	{"getAccessibleAt", "(Ljava/awt/Point;)Ljavax/accessibility/Accessible;", nullptr, $PUBLIC, $virtualMethod(Container$AccessibleAWTContainer, getAccessibleAt, $Accessible*, $Point*)},
-	{"getAccessibleChild", "(I)Ljavax/accessibility/Accessible;", nullptr, $PUBLIC, $virtualMethod(Container$AccessibleAWTContainer, getAccessibleChild, $Accessible*, int32_t)},
-	{"getAccessibleChildrenCount", "()I", nullptr, $PUBLIC, $virtualMethod(Container$AccessibleAWTContainer, getAccessibleChildrenCount, int32_t)},
-	{"removePropertyChangeListener", "(Ljava/beans/PropertyChangeListener;)V", nullptr, $PUBLIC, $virtualMethod(Container$AccessibleAWTContainer, removePropertyChangeListener, void, $PropertyChangeListener*)},
-	{}
-};
-
-$InnerClassInfo _Container$AccessibleAWTContainer_InnerClassesInfo_[] = {
-	{"java.awt.Container$AccessibleAWTContainer", "java.awt.Container", "AccessibleAWTContainer", $PROTECTED},
-	{"java.awt.Component$AccessibleAWTComponent", "java.awt.Component", "AccessibleAWTComponent", $PROTECTED | $ABSTRACT},
-	{"java.awt.Container$AccessibleAWTContainer$AccessibleContainerHandler", "java.awt.Container$AccessibleAWTContainer", "AccessibleContainerHandler", $PROTECTED},
-	{}
-};
-
-$ClassInfo _Container$AccessibleAWTContainer_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.awt.Container$AccessibleAWTContainer",
-	"java.awt.Component$AccessibleAWTComponent",
-	nullptr,
-	_Container$AccessibleAWTContainer_FieldInfo_,
-	_Container$AccessibleAWTContainer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Container$AccessibleAWTContainer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.awt.Container"
-};
-
-$Object* allocate$Container$AccessibleAWTContainer($Class* clazz) {
-	return $of($alloc(Container$AccessibleAWTContainer));
-}
 
 void Container$AccessibleAWTContainer::init$($Container* this$0) {
 	$set(this, this$0, this$0);
@@ -111,7 +62,46 @@ Container$AccessibleAWTContainer::Container$AccessibleAWTContainer() {
 }
 
 $Class* Container$AccessibleAWTContainer::load$($String* name, bool initialize) {
-	$loadClass(Container$AccessibleAWTContainer, name, initialize, &_Container$AccessibleAWTContainer_ClassInfo_, allocate$Container$AccessibleAWTContainer);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljava/awt/Container;", nullptr, $FINAL | $SYNTHETIC, $field(Container$AccessibleAWTContainer, this$0)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Container$AccessibleAWTContainer, serialVersionUID)},
+		{"propertyListenersCount", "I", nullptr, $PRIVATE | $VOLATILE | $TRANSIENT, $field(Container$AccessibleAWTContainer, propertyListenersCount)},
+		{"accessibleContainerHandler", "Ljava/awt/event/ContainerListener;", nullptr, $PROTECTED, $field(Container$AccessibleAWTContainer, accessibleContainerHandler)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/Container;)V", nullptr, $PROTECTED, $method(Container$AccessibleAWTContainer, init$, void, $Container*)},
+		{"addPropertyChangeListener", "(Ljava/beans/PropertyChangeListener;)V", nullptr, $PUBLIC, $virtualMethod(Container$AccessibleAWTContainer, addPropertyChangeListener, void, $PropertyChangeListener*)},
+		{"getAccessibleAt", "(Ljava/awt/Point;)Ljavax/accessibility/Accessible;", nullptr, $PUBLIC, $virtualMethod(Container$AccessibleAWTContainer, getAccessibleAt, $Accessible*, $Point*)},
+		{"getAccessibleChild", "(I)Ljavax/accessibility/Accessible;", nullptr, $PUBLIC, $virtualMethod(Container$AccessibleAWTContainer, getAccessibleChild, $Accessible*, int32_t)},
+		{"getAccessibleChildrenCount", "()I", nullptr, $PUBLIC, $virtualMethod(Container$AccessibleAWTContainer, getAccessibleChildrenCount, int32_t)},
+		{"removePropertyChangeListener", "(Ljava/beans/PropertyChangeListener;)V", nullptr, $PUBLIC, $virtualMethod(Container$AccessibleAWTContainer, removePropertyChangeListener, void, $PropertyChangeListener*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.awt.Container$AccessibleAWTContainer", "java.awt.Container", "AccessibleAWTContainer", $PROTECTED},
+		{"java.awt.Component$AccessibleAWTComponent", "java.awt.Component", "AccessibleAWTComponent", $PROTECTED | $ABSTRACT},
+		{"java.awt.Container$AccessibleAWTContainer$AccessibleContainerHandler", "java.awt.Container$AccessibleAWTContainer", "AccessibleContainerHandler", $PROTECTED},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.awt.Container$AccessibleAWTContainer",
+		"java.awt.Component$AccessibleAWTComponent",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.awt.Container"
+	};
+	$loadClass(Container$AccessibleAWTContainer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Container$AccessibleAWTContainer));
+	});
 	return class$;
 }
 

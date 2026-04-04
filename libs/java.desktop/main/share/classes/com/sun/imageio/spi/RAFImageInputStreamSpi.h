@@ -33,6 +33,7 @@ class RAFImageInputStreamSpi : public ::javax::imageio::spi::ImageInputStreamSpi
 public:
 	RAFImageInputStreamSpi();
 	using ::javax::imageio::spi::ImageInputStreamSpi::createInputStreamInstance;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual ::javax::imageio::stream::ImageInputStream* createInputStreamInstance(Object$* input, bool useCache, ::java::io::File* cacheDir) override;
 	virtual $String* getDescription(::java::util::Locale* locale) override;

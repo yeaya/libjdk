@@ -1,5 +1,4 @@
 #include <javax/swing/JMenu$WinListener.h>
-
 #include <java/awt/event/WindowAdapter.h>
 #include <java/awt/event/WindowEvent.h>
 #include <javax/swing/JMenu.h>
@@ -17,48 +16,6 @@ using $JPopupMenu = ::javax::swing::JPopupMenu;
 
 namespace javax {
 	namespace swing {
-
-$FieldInfo _JMenu$WinListener_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/JMenu;", nullptr, $FINAL | $SYNTHETIC, $field(JMenu$WinListener, this$0)},
-	{"popupMenu", "Ljavax/swing/JPopupMenu;", nullptr, 0, $field(JMenu$WinListener, popupMenu)},
-	{}
-};
-
-$MethodInfo _JMenu$WinListener_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljavax/swing/JMenu;Ljavax/swing/JPopupMenu;)V", nullptr, $PUBLIC, $method(JMenu$WinListener, init$, void, $JMenu*, $JPopupMenu*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"windowClosing", "(Ljava/awt/event/WindowEvent;)V", nullptr, $PUBLIC, $virtualMethod(JMenu$WinListener, windowClosing, void, $WindowEvent*)},
-	{}
-};
-
-$InnerClassInfo _JMenu$WinListener_InnerClassesInfo_[] = {
-	{"javax.swing.JMenu$WinListener", "javax.swing.JMenu", "WinListener", $PROTECTED},
-	{}
-};
-
-$ClassInfo _JMenu$WinListener_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.JMenu$WinListener",
-	"java.awt.event.WindowAdapter",
-	"java.io.Serializable",
-	_JMenu$WinListener_FieldInfo_,
-	_JMenu$WinListener_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JMenu$WinListener_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.JMenu"
-};
-
-$Object* allocate$JMenu$WinListener($Class* clazz) {
-	return $of($alloc(JMenu$WinListener));
-}
 
 int32_t JMenu$WinListener::hashCode() {
 	 return this->$WindowAdapter::hashCode();
@@ -94,7 +51,43 @@ JMenu$WinListener::JMenu$WinListener() {
 }
 
 $Class* JMenu$WinListener::load$($String* name, bool initialize) {
-	$loadClass(JMenu$WinListener, name, initialize, &_JMenu$WinListener_ClassInfo_, allocate$JMenu$WinListener);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/JMenu;", nullptr, $FINAL | $SYNTHETIC, $field(JMenu$WinListener, this$0)},
+		{"popupMenu", "Ljavax/swing/JPopupMenu;", nullptr, 0, $field(JMenu$WinListener, popupMenu)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljavax/swing/JMenu;Ljavax/swing/JPopupMenu;)V", nullptr, $PUBLIC, $method(JMenu$WinListener, init$, void, $JMenu*, $JPopupMenu*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"windowClosing", "(Ljava/awt/event/WindowEvent;)V", nullptr, $PUBLIC, $virtualMethod(JMenu$WinListener, windowClosing, void, $WindowEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.JMenu$WinListener", "javax.swing.JMenu", "WinListener", $PROTECTED},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.JMenu$WinListener",
+		"java.awt.event.WindowAdapter",
+		"java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.JMenu"
+	};
+	$loadClass(JMenu$WinListener, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JMenu$WinListener));
+	});
 	return class$;
 }
 

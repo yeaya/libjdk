@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/dtm/DTMException.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -14,31 +13,6 @@ namespace com {
 				namespace xml {
 					namespace internal {
 						namespace dtm {
-
-$FieldInfo _DTMException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(DTMException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _DTMException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(DTMException, init$, void, $String*)},
-	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(DTMException, init$, void, $Throwable*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(DTMException, init$, void, $String*, $Throwable*)},
-	{}
-};
-
-$ClassInfo _DTMException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.dtm.DTMException",
-	"java.lang.RuntimeException",
-	nullptr,
-	_DTMException_FieldInfo_,
-	_DTMException_MethodInfo_
-};
-
-$Object* allocate$DTMException($Class* clazz) {
-	return $of($alloc(DTMException));
-}
 
 void DTMException::init$($String* message) {
 	$RuntimeException::init$(message);
@@ -63,7 +37,27 @@ void DTMException::throw$() {
 }
 
 $Class* DTMException::load$($String* name, bool initialize) {
-	$loadClass(DTMException, name, initialize, &_DTMException_ClassInfo_, allocate$DTMException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(DTMException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(DTMException, init$, void, $String*)},
+		{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(DTMException, init$, void, $Throwable*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(DTMException, init$, void, $String*, $Throwable*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.dtm.DTMException",
+		"java.lang.RuntimeException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DTMException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DTMException);
+	});
 	return class$;
 }
 

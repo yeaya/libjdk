@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/DimensionUIResource.h>
-
 #include <java/awt/Dimension.h>
 #include <jcpp.h>
 
@@ -10,29 +9,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace javax {
 	namespace swing {
 		namespace plaf {
-
-$MethodInfo _DimensionUIResource_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "(II)V", nullptr, $PUBLIC, $method(DimensionUIResource, init$, void, int32_t, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _DimensionUIResource_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.DimensionUIResource",
-	"java.awt.Dimension",
-	"javax.swing.plaf.UIResource",
-	nullptr,
-	_DimensionUIResource_MethodInfo_
-};
-
-$Object* allocate$DimensionUIResource($Class* clazz) {
-	return $of($alloc(DimensionUIResource));
-}
 
 bool DimensionUIResource::equals(Object$* obj) {
 	 return this->$Dimension::equals(obj);
@@ -62,7 +38,26 @@ DimensionUIResource::DimensionUIResource() {
 }
 
 $Class* DimensionUIResource::load$($String* name, bool initialize) {
-	$loadClass(DimensionUIResource, name, initialize, &_DimensionUIResource_ClassInfo_, allocate$DimensionUIResource);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC},
+		{"<init>", "(II)V", nullptr, $PUBLIC, $method(DimensionUIResource, init$, void, int32_t, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.DimensionUIResource",
+		"java.awt.Dimension",
+		"javax.swing.plaf.UIResource",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(DimensionUIResource, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DimensionUIResource));
+	});
 	return class$;
 }
 

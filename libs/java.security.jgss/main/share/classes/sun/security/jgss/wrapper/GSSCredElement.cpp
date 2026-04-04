@@ -1,5 +1,4 @@
 #include <sun/security/jgss/wrapper/GSSCredElement.h>
-
 #include <java/lang/SecurityManager.h>
 #include <java/security/Provider.h>
 #include <org/ietf/jgss/GSSCredential.h>
@@ -40,47 +39,8 @@ namespace sun {
 		namespace jgss {
 			namespace wrapper {
 
-$FieldInfo _GSSCredElement_FieldInfo_[] = {
-	{"usage", "I", nullptr, $PRIVATE, $field(GSSCredElement, usage)},
-	{"pCred", "J", nullptr, 0, $field(GSSCredElement, pCred)},
-	{"name", "Lsun/security/jgss/wrapper/GSSNameElement;", nullptr, $PRIVATE, $field(GSSCredElement, name)},
-	{"cStub", "Lsun/security/jgss/wrapper/GSSLibStub;", nullptr, $PRIVATE, $field(GSSCredElement, cStub)},
-	{}
-};
-
-$MethodInfo _GSSCredElement_MethodInfo_[] = {
-	{"<init>", "(JLsun/security/jgss/wrapper/GSSNameElement;Lorg/ietf/jgss/Oid;)V", nullptr, 0, $method(GSSCredElement, init$, void, int64_t, $GSSNameElement*, $Oid*), "org.ietf.jgss.GSSException"},
-	{"<init>", "(Lsun/security/jgss/wrapper/GSSNameElement;IILsun/security/jgss/wrapper/GSSLibStub;)V", nullptr, 0, $method(GSSCredElement, init$, void, $GSSNameElement*, int32_t, int32_t, $GSSLibStub*), "org.ietf.jgss.GSSException"},
-	{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(GSSCredElement, dispose, void), "org.ietf.jgss.GSSException"},
-	{"doServicePermCheck", "()V", nullptr, 0, $virtualMethod(GSSCredElement, doServicePermCheck, void), "org.ietf.jgss.GSSException"},
-	{"finalize", "()V", nullptr, $PROTECTED, $virtualMethod(GSSCredElement, finalize, void), "java.lang.Throwable"},
-	{"getAcceptLifetime", "()I", nullptr, $PUBLIC, $virtualMethod(GSSCredElement, getAcceptLifetime, int32_t), "org.ietf.jgss.GSSException"},
-	{"getInitLifetime", "()I", nullptr, $PUBLIC, $virtualMethod(GSSCredElement, getInitLifetime, int32_t), "org.ietf.jgss.GSSException"},
-	{"getMechanism", "()Lorg/ietf/jgss/Oid;", nullptr, $PUBLIC, $virtualMethod(GSSCredElement, getMechanism, $Oid*)},
-	{"getName", "()Lsun/security/jgss/wrapper/GSSNameElement;", nullptr, $PUBLIC, $virtualMethod(GSSCredElement, getName, $GSSNameSpi*), "org.ietf.jgss.GSSException"},
-	{"getProvider", "()Ljava/security/Provider;", nullptr, $PUBLIC, $virtualMethod(GSSCredElement, getProvider, $Provider*)},
-	{"impersonate", "(Lsun/security/jgss/spi/GSSNameSpi;)Lsun/security/jgss/spi/GSSCredentialSpi;", nullptr, $PUBLIC, $virtualMethod(GSSCredElement, impersonate, $GSSCredentialSpi*, $GSSNameSpi*), "org.ietf.jgss.GSSException"},
-	{"isAcceptorCredential", "()Z", nullptr, $PUBLIC, $virtualMethod(GSSCredElement, isAcceptorCredential, bool)},
-	{"isInitiatorCredential", "()Z", nullptr, $PUBLIC, $virtualMethod(GSSCredElement, isInitiatorCredential, bool)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(GSSCredElement, toString, $String*)},
-	{}
-};
-
-$ClassInfo _GSSCredElement_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.jgss.wrapper.GSSCredElement",
-	"java.lang.Object",
-	"sun.security.jgss.spi.GSSCredentialSpi",
-	_GSSCredElement_FieldInfo_,
-	_GSSCredElement_MethodInfo_
-};
-
-$Object* allocate$GSSCredElement($Class* clazz) {
-	return $of($alloc(GSSCredElement));
-}
-
 void GSSCredElement::doServicePermCheck() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($GSSUtil::isKerberosMech($($nc(this->cStub)->getMech()))) {
 		if ($System::getSecurityManager() != nullptr) {
 			if (isInitiatorCredential()) {
@@ -133,7 +93,7 @@ void GSSCredElement::dispose() {
 
 $GSSNameSpi* GSSCredElement::getName() {
 	$init($GSSNameElement);
-	return ((this->name == $GSSNameElement::DEF_ACCEPTOR ? ($GSSNameElement*)nullptr : this->name));
+	return (this->name == $GSSNameElement::DEF_ACCEPTOR ? ($GSSNameElement*)nullptr : this->name);
 }
 
 int32_t GSSCredElement::getInitLifetime() {
@@ -181,7 +141,41 @@ GSSCredElement::GSSCredElement() {
 }
 
 $Class* GSSCredElement::load$($String* name, bool initialize) {
-	$loadClass(GSSCredElement, name, initialize, &_GSSCredElement_ClassInfo_, allocate$GSSCredElement);
+	$FieldInfo fieldInfos$$[] = {
+		{"usage", "I", nullptr, $PRIVATE, $field(GSSCredElement, usage)},
+		{"pCred", "J", nullptr, 0, $field(GSSCredElement, pCred)},
+		{"name", "Lsun/security/jgss/wrapper/GSSNameElement;", nullptr, $PRIVATE, $field(GSSCredElement, name)},
+		{"cStub", "Lsun/security/jgss/wrapper/GSSLibStub;", nullptr, $PRIVATE, $field(GSSCredElement, cStub)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(JLsun/security/jgss/wrapper/GSSNameElement;Lorg/ietf/jgss/Oid;)V", nullptr, 0, $method(GSSCredElement, init$, void, int64_t, $GSSNameElement*, $Oid*), "org.ietf.jgss.GSSException"},
+		{"<init>", "(Lsun/security/jgss/wrapper/GSSNameElement;IILsun/security/jgss/wrapper/GSSLibStub;)V", nullptr, 0, $method(GSSCredElement, init$, void, $GSSNameElement*, int32_t, int32_t, $GSSLibStub*), "org.ietf.jgss.GSSException"},
+		{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(GSSCredElement, dispose, void), "org.ietf.jgss.GSSException"},
+		{"doServicePermCheck", "()V", nullptr, 0, $virtualMethod(GSSCredElement, doServicePermCheck, void), "org.ietf.jgss.GSSException"},
+		{"finalize", "()V", nullptr, $PROTECTED, $virtualMethod(GSSCredElement, finalize, void), "java.lang.Throwable"},
+		{"getAcceptLifetime", "()I", nullptr, $PUBLIC, $virtualMethod(GSSCredElement, getAcceptLifetime, int32_t), "org.ietf.jgss.GSSException"},
+		{"getInitLifetime", "()I", nullptr, $PUBLIC, $virtualMethod(GSSCredElement, getInitLifetime, int32_t), "org.ietf.jgss.GSSException"},
+		{"getMechanism", "()Lorg/ietf/jgss/Oid;", nullptr, $PUBLIC, $virtualMethod(GSSCredElement, getMechanism, $Oid*)},
+		{"getName", "()Lsun/security/jgss/wrapper/GSSNameElement;", nullptr, $PUBLIC, $virtualMethod(GSSCredElement, getName, $GSSNameSpi*), "org.ietf.jgss.GSSException"},
+		{"getProvider", "()Ljava/security/Provider;", nullptr, $PUBLIC, $virtualMethod(GSSCredElement, getProvider, $Provider*)},
+		{"impersonate", "(Lsun/security/jgss/spi/GSSNameSpi;)Lsun/security/jgss/spi/GSSCredentialSpi;", nullptr, $PUBLIC, $virtualMethod(GSSCredElement, impersonate, $GSSCredentialSpi*, $GSSNameSpi*), "org.ietf.jgss.GSSException"},
+		{"isAcceptorCredential", "()Z", nullptr, $PUBLIC, $virtualMethod(GSSCredElement, isAcceptorCredential, bool)},
+		{"isInitiatorCredential", "()Z", nullptr, $PUBLIC, $virtualMethod(GSSCredElement, isInitiatorCredential, bool)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(GSSCredElement, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.jgss.wrapper.GSSCredElement",
+		"java.lang.Object",
+		"sun.security.jgss.spi.GSSCredentialSpi",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(GSSCredElement, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(GSSCredElement);
+	});
 	return class$;
 }
 

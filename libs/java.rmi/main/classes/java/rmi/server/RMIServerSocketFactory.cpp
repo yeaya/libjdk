@@ -1,5 +1,4 @@
 #include <java/rmi/server/RMIServerSocketFactory.h>
-
 #include <java/net/ServerSocket.h>
 #include <jcpp.h>
 
@@ -11,26 +10,22 @@ namespace java {
 	namespace rmi {
 		namespace server {
 
-$MethodInfo _RMIServerSocketFactory_MethodInfo_[] = {
-	{"createServerSocket", "(I)Ljava/net/ServerSocket;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RMIServerSocketFactory, createServerSocket, $ServerSocket*, int32_t), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _RMIServerSocketFactory_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.rmi.server.RMIServerSocketFactory",
-	nullptr,
-	nullptr,
-	nullptr,
-	_RMIServerSocketFactory_MethodInfo_
-};
-
-$Object* allocate$RMIServerSocketFactory($Class* clazz) {
-	return $of($alloc(RMIServerSocketFactory));
-}
-
 $Class* RMIServerSocketFactory::load$($String* name, bool initialize) {
-	$loadClass(RMIServerSocketFactory, name, initialize, &_RMIServerSocketFactory_ClassInfo_, allocate$RMIServerSocketFactory);
+	$MethodInfo methodInfos$$[] = {
+		{"createServerSocket", "(I)Ljava/net/ServerSocket;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RMIServerSocketFactory, createServerSocket, $ServerSocket*, int32_t), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.rmi.server.RMIServerSocketFactory",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(RMIServerSocketFactory, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RMIServerSocketFactory);
+	});
 	return class$;
 }
 

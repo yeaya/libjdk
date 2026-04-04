@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/common/SubscriberWrapper$SchedulingAction.h>
-
 #include <java/lang/Enum.h>
 #include <jdk/internal/net/http/common/SubscriberWrapper.h>
 #include <jcpp.h>
@@ -20,47 +19,6 @@ namespace jdk {
 		namespace net {
 			namespace http {
 				namespace common {
-
-$FieldInfo _SubscriberWrapper$SchedulingAction_FieldInfo_[] = {
-	{"CONTINUE", "Ljdk/internal/net/http/common/SubscriberWrapper$SchedulingAction;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SubscriberWrapper$SchedulingAction, CONTINUE)},
-	{"RETURN", "Ljdk/internal/net/http/common/SubscriberWrapper$SchedulingAction;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SubscriberWrapper$SchedulingAction, RETURN)},
-	{"RESCHEDULE", "Ljdk/internal/net/http/common/SubscriberWrapper$SchedulingAction;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SubscriberWrapper$SchedulingAction, RESCHEDULE)},
-	{"$VALUES", "[Ljdk/internal/net/http/common/SubscriberWrapper$SchedulingAction;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(SubscriberWrapper$SchedulingAction, $VALUES)},
-	{}
-};
-
-$MethodInfo _SubscriberWrapper$SchedulingAction_MethodInfo_[] = {
-	{"$values", "()[Ljdk/internal/net/http/common/SubscriberWrapper$SchedulingAction;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(SubscriberWrapper$SchedulingAction, $values, $SubscriberWrapper$SchedulingActionArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(SubscriberWrapper$SchedulingAction, init$, void, $String*, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)Ljdk/internal/net/http/common/SubscriberWrapper$SchedulingAction;", nullptr, $PUBLIC | $STATIC, $staticMethod(SubscriberWrapper$SchedulingAction, valueOf, SubscriberWrapper$SchedulingAction*, $String*)},
-	{"values", "()[Ljdk/internal/net/http/common/SubscriberWrapper$SchedulingAction;", nullptr, $PUBLIC | $STATIC, $staticMethod(SubscriberWrapper$SchedulingAction, values, $SubscriberWrapper$SchedulingActionArray*)},
-	{}
-};
-
-$InnerClassInfo _SubscriberWrapper$SchedulingAction_InnerClassesInfo_[] = {
-	{"jdk.internal.net.http.common.SubscriberWrapper$SchedulingAction", "jdk.internal.net.http.common.SubscriberWrapper", "SchedulingAction", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _SubscriberWrapper$SchedulingAction_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"jdk.internal.net.http.common.SubscriberWrapper$SchedulingAction",
-	"java.lang.Enum",
-	nullptr,
-	_SubscriberWrapper$SchedulingAction_FieldInfo_,
-	_SubscriberWrapper$SchedulingAction_MethodInfo_,
-	"Ljava/lang/Enum<Ljdk/internal/net/http/common/SubscriberWrapper$SchedulingAction;>;",
-	nullptr,
-	_SubscriberWrapper$SchedulingAction_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.net.http.common.SubscriberWrapper"
-};
-
-$Object* allocate$SubscriberWrapper$SchedulingAction($Class* clazz) {
-	return $of($alloc(SubscriberWrapper$SchedulingAction));
-}
 
 SubscriberWrapper$SchedulingAction* SubscriberWrapper$SchedulingAction::CONTINUE = nullptr;
 SubscriberWrapper$SchedulingAction* SubscriberWrapper$SchedulingAction::RETURN = nullptr;
@@ -90,7 +48,7 @@ void SubscriberWrapper$SchedulingAction::init$($String* $enum$name, int32_t $enu
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$SubscriberWrapper$SchedulingAction($Class* class$) {
+void SubscriberWrapper$SchedulingAction::clinit$($Class* clazz) {
 	$assignStatic(SubscriberWrapper$SchedulingAction::CONTINUE, $new(SubscriberWrapper$SchedulingAction, "CONTINUE"_s, 0));
 	$assignStatic(SubscriberWrapper$SchedulingAction::RETURN, $new(SubscriberWrapper$SchedulingAction, "RETURN"_s, 1));
 	$assignStatic(SubscriberWrapper$SchedulingAction::RESCHEDULE, $new(SubscriberWrapper$SchedulingAction, "RESCHEDULE"_s, 2));
@@ -101,7 +59,42 @@ SubscriberWrapper$SchedulingAction::SubscriberWrapper$SchedulingAction() {
 }
 
 $Class* SubscriberWrapper$SchedulingAction::load$($String* name, bool initialize) {
-	$loadClass(SubscriberWrapper$SchedulingAction, name, initialize, &_SubscriberWrapper$SchedulingAction_ClassInfo_, clinit$SubscriberWrapper$SchedulingAction, allocate$SubscriberWrapper$SchedulingAction);
+	$FieldInfo fieldInfos$$[] = {
+		{"CONTINUE", "Ljdk/internal/net/http/common/SubscriberWrapper$SchedulingAction;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SubscriberWrapper$SchedulingAction, CONTINUE)},
+		{"RETURN", "Ljdk/internal/net/http/common/SubscriberWrapper$SchedulingAction;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SubscriberWrapper$SchedulingAction, RETURN)},
+		{"RESCHEDULE", "Ljdk/internal/net/http/common/SubscriberWrapper$SchedulingAction;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SubscriberWrapper$SchedulingAction, RESCHEDULE)},
+		{"$VALUES", "[Ljdk/internal/net/http/common/SubscriberWrapper$SchedulingAction;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(SubscriberWrapper$SchedulingAction, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Ljdk/internal/net/http/common/SubscriberWrapper$SchedulingAction;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(SubscriberWrapper$SchedulingAction, $values, $SubscriberWrapper$SchedulingActionArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(SubscriberWrapper$SchedulingAction, init$, void, $String*, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)Ljdk/internal/net/http/common/SubscriberWrapper$SchedulingAction;", nullptr, $PUBLIC | $STATIC, $staticMethod(SubscriberWrapper$SchedulingAction, valueOf, SubscriberWrapper$SchedulingAction*, $String*)},
+		{"values", "()[Ljdk/internal/net/http/common/SubscriberWrapper$SchedulingAction;", nullptr, $PUBLIC | $STATIC, $staticMethod(SubscriberWrapper$SchedulingAction, values, $SubscriberWrapper$SchedulingActionArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.net.http.common.SubscriberWrapper$SchedulingAction", "jdk.internal.net.http.common.SubscriberWrapper", "SchedulingAction", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"jdk.internal.net.http.common.SubscriberWrapper$SchedulingAction",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Ljdk/internal/net/http/common/SubscriberWrapper$SchedulingAction;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.net.http.common.SubscriberWrapper"
+	};
+	$loadClass(SubscriberWrapper$SchedulingAction, name, initialize, &classInfo$$, SubscriberWrapper$SchedulingAction::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SubscriberWrapper$SchedulingAction));
+	});
 	return class$;
 }
 

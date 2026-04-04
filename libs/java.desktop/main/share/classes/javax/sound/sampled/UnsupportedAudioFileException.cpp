@@ -1,5 +1,4 @@
 #include <javax/sound/sampled/UnsupportedAudioFileException.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -10,30 +9,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace javax {
 	namespace sound {
 		namespace sampled {
-
-$FieldInfo _UnsupportedAudioFileException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(UnsupportedAudioFileException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _UnsupportedAudioFileException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(UnsupportedAudioFileException, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(UnsupportedAudioFileException, init$, void, $String*)},
-	{}
-};
-
-$ClassInfo _UnsupportedAudioFileException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.sound.sampled.UnsupportedAudioFileException",
-	"java.lang.Exception",
-	nullptr,
-	_UnsupportedAudioFileException_FieldInfo_,
-	_UnsupportedAudioFileException_MethodInfo_
-};
-
-$Object* allocate$UnsupportedAudioFileException($Class* clazz) {
-	return $of($alloc(UnsupportedAudioFileException));
-}
 
 void UnsupportedAudioFileException::init$() {
 	$Exception::init$();
@@ -54,7 +29,26 @@ void UnsupportedAudioFileException::throw$() {
 }
 
 $Class* UnsupportedAudioFileException::load$($String* name, bool initialize) {
-	$loadClass(UnsupportedAudioFileException, name, initialize, &_UnsupportedAudioFileException_ClassInfo_, allocate$UnsupportedAudioFileException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(UnsupportedAudioFileException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(UnsupportedAudioFileException, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(UnsupportedAudioFileException, init$, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.sound.sampled.UnsupportedAudioFileException",
+		"java.lang.Exception",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(UnsupportedAudioFileException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(UnsupportedAudioFileException);
+	});
 	return class$;
 }
 

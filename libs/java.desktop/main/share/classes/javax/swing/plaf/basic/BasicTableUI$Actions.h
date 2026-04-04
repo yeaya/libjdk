@@ -111,6 +111,7 @@ class BasicTableUI$Actions : public ::sun::swing::UIAction {
 	$class(BasicTableUI$Actions, 0, ::sun::swing::UIAction)
 public:
 	BasicTableUI$Actions();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* name);
 	void init$($String* name, int32_t dx, int32_t dy, bool extend, bool inSelection);
 	void init$($String* name, bool extend, bool forwards, bool vertically, bool toLimit);

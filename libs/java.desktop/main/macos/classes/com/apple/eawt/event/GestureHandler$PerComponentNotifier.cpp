@@ -1,5 +1,4 @@
 #include <com/apple/eawt/event/GestureHandler$PerComponentNotifier.h>
-
 #include <com/apple/eawt/event/GestureHandler.h>
 #include <com/apple/eawt/event/GesturePhaseEvent.h>
 #include <com/apple/eawt/event/GesturePhaseListener.h>
@@ -30,52 +29,11 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Iterator = ::java::util::Iterator;
-using $List = ::java::util::List;
 
 namespace com {
 	namespace apple {
 		namespace eawt {
 			namespace event {
-
-$FieldInfo _GestureHandler$PerComponentNotifier_FieldInfo_[] = {
-	{"component", "Ljava/awt/Component;", nullptr, $FINAL, $field(GestureHandler$PerComponentNotifier, component)},
-	{"handler", "Lcom/apple/eawt/event/GestureHandler;", nullptr, $FINAL, $field(GestureHandler$PerComponentNotifier, handler)},
-	{}
-};
-
-$MethodInfo _GestureHandler$PerComponentNotifier_MethodInfo_[] = {
-	{"<init>", "(Ljava/awt/Component;Lcom/apple/eawt/event/GestureHandler;)V", nullptr, $PUBLIC, $method(GestureHandler$PerComponentNotifier, init$, void, $Component*, $GestureHandler*)},
-	{"recursivelyHandleMagnify", "(Lcom/apple/eawt/event/MagnificationEvent;)V", nullptr, 0, $virtualMethod(GestureHandler$PerComponentNotifier, recursivelyHandleMagnify, void, $MagnificationEvent*)},
-	{"recursivelyHandlePhaseChange", "(DLcom/apple/eawt/event/GesturePhaseEvent;)V", nullptr, 0, $virtualMethod(GestureHandler$PerComponentNotifier, recursivelyHandlePhaseChange, void, double, $GesturePhaseEvent*)},
-	{"recursivelyHandleRotate", "(Lcom/apple/eawt/event/RotationEvent;)V", nullptr, 0, $virtualMethod(GestureHandler$PerComponentNotifier, recursivelyHandleRotate, void, $RotationEvent*)},
-	{"recursivelyHandleSwipe", "(DDLcom/apple/eawt/event/SwipeEvent;)V", nullptr, 0, $virtualMethod(GestureHandler$PerComponentNotifier, recursivelyHandleSwipe, void, double, double, $SwipeEvent*)},
-	{}
-};
-
-$InnerClassInfo _GestureHandler$PerComponentNotifier_InnerClassesInfo_[] = {
-	{"com.apple.eawt.event.GestureHandler$PerComponentNotifier", "com.apple.eawt.event.GestureHandler", "PerComponentNotifier", $STATIC},
-	{}
-};
-
-$ClassInfo _GestureHandler$PerComponentNotifier_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.apple.eawt.event.GestureHandler$PerComponentNotifier",
-	"java.lang.Object",
-	nullptr,
-	_GestureHandler$PerComponentNotifier_FieldInfo_,
-	_GestureHandler$PerComponentNotifier_MethodInfo_,
-	nullptr,
-	nullptr,
-	_GestureHandler$PerComponentNotifier_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.apple.eawt.event.GestureHandler"
-};
-
-$Object* allocate$GestureHandler$PerComponentNotifier($Class* clazz) {
-	return $of($alloc(GestureHandler$PerComponentNotifier));
-}
 
 void GestureHandler$PerComponentNotifier::init$($Component* component, $GestureHandler* handler) {
 	$set(this, component, component);
@@ -83,7 +41,7 @@ void GestureHandler$PerComponentNotifier::init$($Component* component, $GestureH
 }
 
 void GestureHandler$PerComponentNotifier::recursivelyHandlePhaseChange(double phase, $GesturePhaseEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	{
 		$var($Iterator, i$, $nc($nc(this->handler)->phasers)->iterator());
 		for (; $nc(i$)->hasNext();) {
@@ -107,7 +65,7 @@ void GestureHandler$PerComponentNotifier::recursivelyHandlePhaseChange(double ph
 }
 
 void GestureHandler$PerComponentNotifier::recursivelyHandleRotate($RotationEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	{
 		$var($Iterator, i$, $nc($nc(this->handler)->rotaters)->iterator());
 		for (; $nc(i$)->hasNext();) {
@@ -127,7 +85,7 @@ void GestureHandler$PerComponentNotifier::recursivelyHandleRotate($RotationEvent
 }
 
 void GestureHandler$PerComponentNotifier::recursivelyHandleMagnify($MagnificationEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	{
 		$var($Iterator, i$, $nc($nc(this->handler)->magnifiers)->iterator());
 		for (; $nc(i$)->hasNext();) {
@@ -147,7 +105,7 @@ void GestureHandler$PerComponentNotifier::recursivelyHandleMagnify($Magnificatio
 }
 
 void GestureHandler$PerComponentNotifier::recursivelyHandleSwipe(double x, double y, $SwipeEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	{
 		$var($Iterator, i$, $nc($nc(this->handler)->swipers)->iterator());
 		for (; $nc(i$)->hasNext();) {
@@ -181,7 +139,41 @@ GestureHandler$PerComponentNotifier::GestureHandler$PerComponentNotifier() {
 }
 
 $Class* GestureHandler$PerComponentNotifier::load$($String* name, bool initialize) {
-	$loadClass(GestureHandler$PerComponentNotifier, name, initialize, &_GestureHandler$PerComponentNotifier_ClassInfo_, allocate$GestureHandler$PerComponentNotifier);
+	$FieldInfo fieldInfos$$[] = {
+		{"component", "Ljava/awt/Component;", nullptr, $FINAL, $field(GestureHandler$PerComponentNotifier, component)},
+		{"handler", "Lcom/apple/eawt/event/GestureHandler;", nullptr, $FINAL, $field(GestureHandler$PerComponentNotifier, handler)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/Component;Lcom/apple/eawt/event/GestureHandler;)V", nullptr, $PUBLIC, $method(GestureHandler$PerComponentNotifier, init$, void, $Component*, $GestureHandler*)},
+		{"recursivelyHandleMagnify", "(Lcom/apple/eawt/event/MagnificationEvent;)V", nullptr, 0, $virtualMethod(GestureHandler$PerComponentNotifier, recursivelyHandleMagnify, void, $MagnificationEvent*)},
+		{"recursivelyHandlePhaseChange", "(DLcom/apple/eawt/event/GesturePhaseEvent;)V", nullptr, 0, $virtualMethod(GestureHandler$PerComponentNotifier, recursivelyHandlePhaseChange, void, double, $GesturePhaseEvent*)},
+		{"recursivelyHandleRotate", "(Lcom/apple/eawt/event/RotationEvent;)V", nullptr, 0, $virtualMethod(GestureHandler$PerComponentNotifier, recursivelyHandleRotate, void, $RotationEvent*)},
+		{"recursivelyHandleSwipe", "(DDLcom/apple/eawt/event/SwipeEvent;)V", nullptr, 0, $virtualMethod(GestureHandler$PerComponentNotifier, recursivelyHandleSwipe, void, double, double, $SwipeEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.eawt.event.GestureHandler$PerComponentNotifier", "com.apple.eawt.event.GestureHandler", "PerComponentNotifier", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.apple.eawt.event.GestureHandler$PerComponentNotifier",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.apple.eawt.event.GestureHandler"
+	};
+	$loadClass(GestureHandler$PerComponentNotifier, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(GestureHandler$PerComponentNotifier);
+	});
 	return class$;
 }
 

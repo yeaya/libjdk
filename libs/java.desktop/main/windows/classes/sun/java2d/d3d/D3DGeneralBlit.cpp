@@ -1,5 +1,4 @@
 #include <sun/java2d/d3d/D3DGeneralBlit.h>
-
 #include <java/awt/Composite.h>
 #include <java/awt/image/BufferedImage.h>
 #include <java/lang/ref/WeakReference.h>
@@ -29,31 +28,6 @@ namespace sun {
 	namespace java2d {
 		namespace d3d {
 
-$FieldInfo _D3DGeneralBlit_FieldInfo_[] = {
-	{"performop", "Lsun/java2d/loops/Blit;", nullptr, $PRIVATE | $FINAL, $field(D3DGeneralBlit, performop)},
-	{"srcTmp", "Ljava/lang/ref/WeakReference;", "Ljava/lang/ref/WeakReference<Lsun/java2d/SurfaceData;>;", $PRIVATE, $field(D3DGeneralBlit, srcTmp)},
-	{}
-};
-
-$MethodInfo _D3DGeneralBlit_MethodInfo_[] = {
-	{"<init>", "(Lsun/java2d/loops/SurfaceType;Lsun/java2d/loops/CompositeType;Lsun/java2d/loops/Blit;)V", nullptr, 0, $method(D3DGeneralBlit, init$, void, $SurfaceType*, $CompositeType*, $Blit*)},
-	{"Blit", "(Lsun/java2d/SurfaceData;Lsun/java2d/SurfaceData;Ljava/awt/Composite;Lsun/java2d/pipe/Region;IIIIII)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(D3DGeneralBlit, Blit$, void, $SurfaceData*, $SurfaceData*, $Composite*, $Region*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _D3DGeneralBlit_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.java2d.d3d.D3DGeneralBlit",
-	"sun.java2d.loops.Blit",
-	nullptr,
-	_D3DGeneralBlit_FieldInfo_,
-	_D3DGeneralBlit_MethodInfo_
-};
-
-$Object* allocate$D3DGeneralBlit($Class* clazz) {
-	return $of($alloc(D3DGeneralBlit));
-}
-
 void D3DGeneralBlit::init$($SurfaceType* dstType, $CompositeType* compType, $Blit* performop) {
 	$init($SurfaceType);
 	$Blit::init$($SurfaceType::Any, compType, dstType);
@@ -62,14 +36,14 @@ void D3DGeneralBlit::init$($SurfaceType* dstType, $CompositeType* compType, $Bli
 
 void D3DGeneralBlit::Blit$($SurfaceData* src$renamed, $SurfaceData* dst, $Composite* comp, $Region* clip, int32_t sx, int32_t sy, int32_t dx, int32_t dy, int32_t w, int32_t h) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$var($SurfaceData, src, src$renamed);
 		$init($CompositeType);
 		$init($SurfaceType);
 		$var($Blit, convertsrc, $Blit::getFromCache($($nc(src)->getSurfaceType()), $CompositeType::SrcNoEa, $SurfaceType::IntArgbPre));
 		$var($SurfaceData, cachedSrc, nullptr);
 		if (this->srcTmp != nullptr) {
-			$assign(cachedSrc, $cast($SurfaceData, $nc(this->srcTmp)->get()));
+			$assign(cachedSrc, $cast($SurfaceData, this->srcTmp->get()));
 		}
 		$assign(src, convertFrom(convertsrc, src, sx, sy, w, h, cachedSrc, $BufferedImage::TYPE_INT_ARGB_PRE));
 		$nc(this->performop)->Blit$(src, dst, comp, clip, 0, 0, dx, dy, w, h);
@@ -83,7 +57,27 @@ D3DGeneralBlit::D3DGeneralBlit() {
 }
 
 $Class* D3DGeneralBlit::load$($String* name, bool initialize) {
-	$loadClass(D3DGeneralBlit, name, initialize, &_D3DGeneralBlit_ClassInfo_, allocate$D3DGeneralBlit);
+	$FieldInfo fieldInfos$$[] = {
+		{"performop", "Lsun/java2d/loops/Blit;", nullptr, $PRIVATE | $FINAL, $field(D3DGeneralBlit, performop)},
+		{"srcTmp", "Ljava/lang/ref/WeakReference;", "Ljava/lang/ref/WeakReference<Lsun/java2d/SurfaceData;>;", $PRIVATE, $field(D3DGeneralBlit, srcTmp)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/java2d/loops/SurfaceType;Lsun/java2d/loops/CompositeType;Lsun/java2d/loops/Blit;)V", nullptr, 0, $method(D3DGeneralBlit, init$, void, $SurfaceType*, $CompositeType*, $Blit*)},
+		{"Blit", "(Lsun/java2d/SurfaceData;Lsun/java2d/SurfaceData;Ljava/awt/Composite;Lsun/java2d/pipe/Region;IIIIII)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(D3DGeneralBlit, Blit$, void, $SurfaceData*, $SurfaceData*, $Composite*, $Region*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.java2d.d3d.D3DGeneralBlit",
+		"sun.java2d.loops.Blit",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(D3DGeneralBlit, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(D3DGeneralBlit);
+	});
 	return class$;
 }
 

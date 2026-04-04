@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xpath/internal/patterns/NodeTestFilter.h>
-
 #include <com/sun/org/apache/xpath/internal/patterns/NodeTest.h>
 #include <jcpp.h>
 
@@ -15,26 +14,22 @@ namespace com {
 					namespace internal {
 						namespace patterns {
 
-$MethodInfo _NodeTestFilter_MethodInfo_[] = {
-	{"setNodeTest", "(Lcom/sun/org/apache/xpath/internal/patterns/NodeTest;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(NodeTestFilter, setNodeTest, void, $NodeTest*)},
-	{}
-};
-
-$ClassInfo _NodeTestFilter_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.org.apache.xpath.internal.patterns.NodeTestFilter",
-	nullptr,
-	nullptr,
-	nullptr,
-	_NodeTestFilter_MethodInfo_
-};
-
-$Object* allocate$NodeTestFilter($Class* clazz) {
-	return $of($alloc(NodeTestFilter));
-}
-
 $Class* NodeTestFilter::load$($String* name, bool initialize) {
-	$loadClass(NodeTestFilter, name, initialize, &_NodeTestFilter_ClassInfo_, allocate$NodeTestFilter);
+	$MethodInfo methodInfos$$[] = {
+		{"setNodeTest", "(Lcom/sun/org/apache/xpath/internal/patterns/NodeTest;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(NodeTestFilter, setNodeTest, void, $NodeTest*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.org.apache.xpath.internal.patterns.NodeTestFilter",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(NodeTestFilter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(NodeTestFilter);
+	});
 	return class$;
 }
 

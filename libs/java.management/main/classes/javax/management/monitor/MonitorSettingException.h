@@ -15,10 +15,13 @@ public:
 	MonitorSettingException();
 	void init$();
 	void init$($String* message);
-	static const int64_t serialVersionUID = (int64_t)0x85C4016998605B69;
+	static const int64_t serialVersionUID = (int64_t)0x85c4016998605b69;
 	MonitorSettingException(const MonitorSettingException& e);
 	virtual void throw$() override;
-	inline MonitorSettingException* operator ->() {
+	inline MonitorSettingException* operator ->() const {
+		return (MonitorSettingException*)throwing$;
+	}
+	inline operator MonitorSettingException*() const {
 		return (MonitorSettingException*)throwing$;
 	}
 };

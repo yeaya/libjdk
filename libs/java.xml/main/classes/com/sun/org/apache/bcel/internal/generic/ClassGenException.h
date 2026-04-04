@@ -26,10 +26,13 @@ public:
 	void init$();
 	void init$($String* s);
 	void init$($String* s, $Throwable* initCause);
-	static const int64_t serialVersionUID = (int64_t)0x6493D464DDBD3527;
+	static const int64_t serialVersionUID = (int64_t)0x6493d464ddbd3527;
 	ClassGenException(const ClassGenException& e);
 	virtual void throw$() override;
-	inline ClassGenException* operator ->() {
+	inline ClassGenException* operator ->() const {
+		return (ClassGenException*)throwing$;
+	}
+	inline operator ClassGenException*() const {
 		return (ClassGenException*)throwing$;
 	}
 };

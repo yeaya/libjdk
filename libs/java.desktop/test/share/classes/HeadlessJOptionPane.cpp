@@ -1,5 +1,4 @@
 #include <HeadlessJOptionPane.h>
-
 #include <HeadlessJOptionPane$1.h>
 #include <HeadlessJOptionPane$2.h>
 #include <HeadlessJOptionPane$3.h>
@@ -49,7 +48,6 @@ using $FlowLayout = ::java::awt::FlowLayout;
 using $Font = ::java::awt::Font;
 using $IllegalComponentStateException = ::java::awt::IllegalComponentStateException;
 using $Insets = ::java::awt::Insets;
-using $LayoutManager = ::java::awt::LayoutManager;
 using $Point = ::java::awt::Point;
 using $Rectangle = ::java::awt::Rectangle;
 using $Toolkit = ::java::awt::Toolkit;
@@ -60,43 +58,11 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $Locale = ::java::util::Locale;
 using $JOptionPane = ::javax::swing::JOptionPane;
 
-$MethodInfo _HeadlessJOptionPane_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(HeadlessJOptionPane, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(HeadlessJOptionPane, main, void, $StringArray*)},
-	{}
-};
-
-$InnerClassInfo _HeadlessJOptionPane_InnerClassesInfo_[] = {
-	{"HeadlessJOptionPane$3", nullptr, nullptr, 0},
-	{"HeadlessJOptionPane$2", nullptr, nullptr, 0},
-	{"HeadlessJOptionPane$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _HeadlessJOptionPane_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"HeadlessJOptionPane",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_HeadlessJOptionPane_MethodInfo_,
-	nullptr,
-	nullptr,
-	_HeadlessJOptionPane_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"HeadlessJOptionPane$3,HeadlessJOptionPane$2,HeadlessJOptionPane$1"
-};
-
-$Object* allocate$HeadlessJOptionPane($Class* clazz) {
-	return $of($alloc(HeadlessJOptionPane));
-}
-
 void HeadlessJOptionPane::init$() {
 }
 
 void HeadlessJOptionPane::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JOptionPane, op, $new($JOptionPane));
 	op->getAccessibleContext();
 	op->isFocusTraversable();
@@ -108,9 +74,9 @@ void HeadlessJOptionPane::main($StringArray* args) {
 	op->getMaximumSize();
 	op->getMinimumSize();
 	op->contains(1, 2);
-	$var($Component, c1, op->add(static_cast<$Component*>($$new($HeadlessJOptionPane$1))));
-	$var($Component, c2, op->add(static_cast<$Component*>($$new($HeadlessJOptionPane$2))));
-	$var($Component, c3, op->add(static_cast<$Component*>($$new($HeadlessJOptionPane$3))));
+	$var($Component, c1, op->add($$new($HeadlessJOptionPane$1)));
+	$var($Component, c2, op->add($$new($HeadlessJOptionPane$2)));
+	$var($Component, c3, op->add($$new($HeadlessJOptionPane$3)));
 	$var($Insets, ins, op->getInsets());
 	op->getAlignmentY();
 	op->getAlignmentX();
@@ -121,26 +87,22 @@ void HeadlessJOptionPane::main($StringArray* args) {
 	op->setForeground($Color::red);
 	op->setBackground($Color::red);
 	{
-		$var($StringArray, arr$, $nc($($Toolkit::getDefaultToolkit()))->getFontList());
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		$var($StringArray, arr$, $$nc($Toolkit::getDefaultToolkit())->getFontList());
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($String, font, arr$->get(i$));
-			{
-				for (int32_t j = 8; j < 17; ++j) {
-					$var($Font, f1, $new($Font, font, $Font::PLAIN, j));
-					$var($Font, f2, $new($Font, font, $Font::BOLD, j));
-					$var($Font, f3, $new($Font, font, $Font::ITALIC, j));
-					$var($Font, f4, $new($Font, font, $Font::BOLD | $Font::ITALIC, j));
-					op->setFont(f1);
-					op->setFont(f2);
-					op->setFont(f3);
-					op->setFont(f4);
-					op->getFontMetrics(f1);
-					op->getFontMetrics(f2);
-					op->getFontMetrics(f3);
-					op->getFontMetrics(f4);
-				}
+			for (int32_t j = 8; j < 17; ++j) {
+				$var($Font, f1, $new($Font, font, $Font::PLAIN, j));
+				$var($Font, f2, $new($Font, font, $Font::BOLD, j));
+				$var($Font, f3, $new($Font, font, $Font::ITALIC, j));
+				$var($Font, f4, $new($Font, font, $Font::BOLD | $Font::ITALIC, j));
+				op->setFont(f1);
+				op->setFont(f2);
+				op->setFont(f3);
+				op->setFont(f4);
+				op->getFontMetrics(f1);
+				op->getFontMetrics(f2);
+				op->getFontMetrics(f3);
+				op->getFontMetrics(f4);
 			}
 		}
 	}
@@ -205,13 +167,11 @@ void HeadlessJOptionPane::main($StringArray* args) {
 	op->getFont();
 	op->isFontSet();
 	$var($Container, c, $new($Container));
-	c->add(static_cast<$Component*>(op));
+	c->add(op);
 	op->getLocale();
 	{
 		$var($LocaleArray, arr$, $Locale::getAvailableLocales());
-		int32_t len$ = arr$->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($Locale, locale, arr$->get(i$));
 			op->setLocale(locale);
 		}
@@ -268,7 +228,34 @@ HeadlessJOptionPane::HeadlessJOptionPane() {
 }
 
 $Class* HeadlessJOptionPane::load$($String* name, bool initialize) {
-	$loadClass(HeadlessJOptionPane, name, initialize, &_HeadlessJOptionPane_ClassInfo_, allocate$HeadlessJOptionPane);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(HeadlessJOptionPane, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(HeadlessJOptionPane, main, void, $StringArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"HeadlessJOptionPane$3", nullptr, nullptr, 0},
+		{"HeadlessJOptionPane$2", nullptr, nullptr, 0},
+		{"HeadlessJOptionPane$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"HeadlessJOptionPane",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"HeadlessJOptionPane$3,HeadlessJOptionPane$2,HeadlessJOptionPane$1"
+	};
+	$loadClass(HeadlessJOptionPane, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HeadlessJOptionPane);
+	});
 	return class$;
 }
 

@@ -67,6 +67,7 @@ public:
 	UnixPrintService();
 	virtual $Object* clone() override;
 	virtual void finalize() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* name);
 	virtual void addPrintServiceAttributeListener(::javax::print::event::PrintServiceAttributeListener* listener) override;
 	virtual ::javax::print::DocPrintJob* createPrintJob() override;

@@ -1,5 +1,4 @@
 #include <sun/swing/plaf/synth/SynthFileChooserUI$FileNameCompletionAction.h>
-
 #include <java/awt/event/ActionEvent.h>
 #include <java/util/regex/PatternSyntaxException.h>
 #include <javax/swing/AbstractAction.h>
@@ -26,59 +25,23 @@ namespace sun {
 		namespace plaf {
 			namespace synth {
 
-$FieldInfo _SynthFileChooserUI$FileNameCompletionAction_FieldInfo_[] = {
-	{"this$0", "Lsun/swing/plaf/synth/SynthFileChooserUI;", nullptr, $FINAL | $SYNTHETIC, $field(SynthFileChooserUI$FileNameCompletionAction, this$0)},
-	{}
-};
-
-$MethodInfo _SynthFileChooserUI$FileNameCompletionAction_MethodInfo_[] = {
-	{"<init>", "(Lsun/swing/plaf/synth/SynthFileChooserUI;)V", nullptr, $PROTECTED, $method(SynthFileChooserUI$FileNameCompletionAction, init$, void, $SynthFileChooserUI*)},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(SynthFileChooserUI$FileNameCompletionAction, actionPerformed, void, $ActionEvent*)},
-	{}
-};
-
-$InnerClassInfo _SynthFileChooserUI$FileNameCompletionAction_InnerClassesInfo_[] = {
-	{"sun.swing.plaf.synth.SynthFileChooserUI$FileNameCompletionAction", "sun.swing.plaf.synth.SynthFileChooserUI", "FileNameCompletionAction", $PRIVATE},
-	{}
-};
-
-$ClassInfo _SynthFileChooserUI$FileNameCompletionAction_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.swing.plaf.synth.SynthFileChooserUI$FileNameCompletionAction",
-	"javax.swing.AbstractAction",
-	nullptr,
-	_SynthFileChooserUI$FileNameCompletionAction_FieldInfo_,
-	_SynthFileChooserUI$FileNameCompletionAction_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SynthFileChooserUI$FileNameCompletionAction_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.swing.plaf.synth.SynthFileChooserUI"
-};
-
-$Object* allocate$SynthFileChooserUI$FileNameCompletionAction($Class* clazz) {
-	return $of($alloc(SynthFileChooserUI$FileNameCompletionAction));
-}
-
 void SynthFileChooserUI$FileNameCompletionAction::init$($SynthFileChooserUI* this$0) {
 	$set(this, this$0, this$0);
 	$AbstractAction::init$("fileNameCompletion"_s);
 }
 
 void SynthFileChooserUI$FileNameCompletionAction::actionPerformed($ActionEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JFileChooser, chooser, this->this$0->getFileChooser());
 	$var($String, fileName, this->this$0->getFileName());
 	if (fileName != nullptr) {
 		$assign(fileName, fileName->trim());
 	}
 	this->this$0->resetGlobFilter();
-	bool var$0 = fileName == nullptr || $nc(fileName)->isEmpty();
+	bool var$0 = fileName == nullptr || fileName->isEmpty();
 	if (!var$0) {
 		bool var$1 = $nc(chooser)->isMultiSelectionEnabled();
-		var$0 = (var$1 && $nc(fileName)->startsWith("\""_s));
+		var$0 = var$1 && fileName->startsWith("\""_s);
 	}
 	if (var$0) {
 		return;
@@ -103,7 +66,37 @@ SynthFileChooserUI$FileNameCompletionAction::SynthFileChooserUI$FileNameCompleti
 }
 
 $Class* SynthFileChooserUI$FileNameCompletionAction::load$($String* name, bool initialize) {
-	$loadClass(SynthFileChooserUI$FileNameCompletionAction, name, initialize, &_SynthFileChooserUI$FileNameCompletionAction_ClassInfo_, allocate$SynthFileChooserUI$FileNameCompletionAction);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/swing/plaf/synth/SynthFileChooserUI;", nullptr, $FINAL | $SYNTHETIC, $field(SynthFileChooserUI$FileNameCompletionAction, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/swing/plaf/synth/SynthFileChooserUI;)V", nullptr, $PROTECTED, $method(SynthFileChooserUI$FileNameCompletionAction, init$, void, $SynthFileChooserUI*)},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(SynthFileChooserUI$FileNameCompletionAction, actionPerformed, void, $ActionEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.swing.plaf.synth.SynthFileChooserUI$FileNameCompletionAction", "sun.swing.plaf.synth.SynthFileChooserUI", "FileNameCompletionAction", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.swing.plaf.synth.SynthFileChooserUI$FileNameCompletionAction",
+		"javax.swing.AbstractAction",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.swing.plaf.synth.SynthFileChooserUI"
+	};
+	$loadClass(SynthFileChooserUI$FileNameCompletionAction, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SynthFileChooserUI$FileNameCompletionAction));
+	});
 	return class$;
 }
 

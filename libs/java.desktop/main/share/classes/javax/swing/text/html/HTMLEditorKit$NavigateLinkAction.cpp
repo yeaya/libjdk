@@ -1,5 +1,4 @@
 #include <javax/swing/text/html/HTMLEditorKit$NavigateLinkAction.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/event/ActionEvent.h>
 #include <java/lang/Math.h>
@@ -44,7 +43,6 @@ using $EditorKit = ::javax::swing::text::EditorKit;
 using $Element = ::javax::swing::text::Element;
 using $ElementIterator = ::javax::swing::text::ElementIterator;
 using $Highlighter = ::javax::swing::text::Highlighter;
-using $Highlighter$HighlightPainter = ::javax::swing::text::Highlighter$HighlightPainter;
 using $JTextComponent = ::javax::swing::text::JTextComponent;
 using $TextAction = ::javax::swing::text::TextAction;
 using $HTML$Attribute = ::javax::swing::text::html::HTML$Attribute;
@@ -56,52 +54,6 @@ namespace javax {
 	namespace swing {
 		namespace text {
 			namespace html {
-
-$FieldInfo _HTMLEditorKit$NavigateLinkAction_FieldInfo_[] = {
-	{"focusPainter", "Ljavax/swing/text/html/HTMLEditorKit$NavigateLinkAction$FocusHighlightPainter;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(HTMLEditorKit$NavigateLinkAction, focusPainter)},
-	{"focusBack", "Z", nullptr, $PRIVATE | $FINAL, $field(HTMLEditorKit$NavigateLinkAction, focusBack)},
-	{}
-};
-
-$MethodInfo _HTMLEditorKit$NavigateLinkAction_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(HTMLEditorKit$NavigateLinkAction, init$, void, $String*)},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(HTMLEditorKit$NavigateLinkAction, actionPerformed, void, $ActionEvent*)},
-	{"caretUpdate", "(Ljavax/swing/event/CaretEvent;)V", nullptr, $PUBLIC, $virtualMethod(HTMLEditorKit$NavigateLinkAction, caretUpdate, void, $CaretEvent*)},
-	{"getHTMLEditorKit", "(Ljavax/swing/text/JTextComponent;)Ljavax/swing/text/html/HTMLEditorKit;", nullptr, $PRIVATE, $method(HTMLEditorKit$NavigateLinkAction, getHTMLEditorKit, $HTMLEditorKit*, $JTextComponent*)},
-	{"moveCaretPosition", "(Ljavax/swing/text/JTextComponent;Ljavax/swing/text/html/HTMLEditorKit;II)V", nullptr, $PRIVATE, $method(HTMLEditorKit$NavigateLinkAction, moveCaretPosition, void, $JTextComponent*, $HTMLEditorKit*, int32_t, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _HTMLEditorKit$NavigateLinkAction_InnerClassesInfo_[] = {
-	{"javax.swing.text.html.HTMLEditorKit$NavigateLinkAction", "javax.swing.text.html.HTMLEditorKit", "NavigateLinkAction", $STATIC},
-	{"javax.swing.text.html.HTMLEditorKit$NavigateLinkAction$FocusHighlightPainter", "javax.swing.text.html.HTMLEditorKit$NavigateLinkAction", "FocusHighlightPainter", $STATIC},
-	{}
-};
-
-$ClassInfo _HTMLEditorKit$NavigateLinkAction_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.text.html.HTMLEditorKit$NavigateLinkAction",
-	"javax.swing.text.TextAction",
-	"javax.swing.event.CaretListener",
-	_HTMLEditorKit$NavigateLinkAction_FieldInfo_,
-	_HTMLEditorKit$NavigateLinkAction_MethodInfo_,
-	nullptr,
-	nullptr,
-	_HTMLEditorKit$NavigateLinkAction_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.html.HTMLEditorKit"
-};
-
-$Object* allocate$HTMLEditorKit$NavigateLinkAction($Class* clazz) {
-	return $of($alloc(HTMLEditorKit$NavigateLinkAction));
-}
 
 $Object* HTMLEditorKit$NavigateLinkAction::clone() {
 	 return this->$TextAction::clone();
@@ -131,7 +83,7 @@ void HTMLEditorKit$NavigateLinkAction::init$($String* actionName) {
 }
 
 void HTMLEditorKit$NavigateLinkAction::caretUpdate($CaretEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, src, $nc(e)->getSource());
 	if ($instanceOf($JTextComponent, src)) {
 		$var($JTextComponent, comp, $cast($JTextComponent, src));
@@ -140,16 +92,16 @@ void HTMLEditorKit$NavigateLinkAction::caretUpdate($CaretEvent* e) {
 			kit->foundLink = false;
 			$init($AccessibleContext);
 			$var($String, var$0, $AccessibleContext::ACCESSIBLE_HYPERTEXT_OFFSET);
-			$var($Object, var$1, $of($Integer::valueOf(kit->prevHypertextOffset)));
-			$nc($($nc(comp)->getAccessibleContext()))->firePropertyChange(var$0, var$1, $($Integer::valueOf(e->getDot())));
+			$var($Object, var$1, $Integer::valueOf(kit->prevHypertextOffset));
+			$$nc(comp->getAccessibleContext())->firePropertyChange(var$0, var$1, $($Integer::valueOf(e->getDot())));
 		}
 	}
 }
 
 void HTMLEditorKit$NavigateLinkAction::actionPerformed($ActionEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JTextComponent, comp, getTextComponent(e));
-	if (comp == nullptr || $nc(comp)->isEditable()) {
+	if (comp == nullptr || comp->isEditable()) {
 		return;
 	}
 	$var($Document, doc, $nc(comp)->getDocument());
@@ -216,7 +168,7 @@ void HTMLEditorKit$NavigateLinkAction::moveCaretPosition($JTextComponent* comp, 
 
 $HTMLEditorKit* HTMLEditorKit$NavigateLinkAction::getHTMLEditorKit($JTextComponent* comp) {
 	if ($instanceOf($JEditorPane, comp)) {
-		$var($EditorKit, kit, $nc(($cast($JEditorPane, comp)))->getEditorKit());
+		$var($EditorKit, kit, $cast($JEditorPane, comp)->getEditorKit());
 		if ($instanceOf($HTMLEditorKit, kit)) {
 			return $cast($HTMLEditorKit, kit);
 		}
@@ -224,7 +176,7 @@ $HTMLEditorKit* HTMLEditorKit$NavigateLinkAction::getHTMLEditorKit($JTextCompone
 	return nullptr;
 }
 
-void clinit$HTMLEditorKit$NavigateLinkAction($Class* class$) {
+void HTMLEditorKit$NavigateLinkAction::clinit$($Class* clazz) {
 	$assignStatic(HTMLEditorKit$NavigateLinkAction::focusPainter, $new($HTMLEditorKit$NavigateLinkAction$FocusHighlightPainter, nullptr));
 }
 
@@ -232,7 +184,47 @@ HTMLEditorKit$NavigateLinkAction::HTMLEditorKit$NavigateLinkAction() {
 }
 
 $Class* HTMLEditorKit$NavigateLinkAction::load$($String* name, bool initialize) {
-	$loadClass(HTMLEditorKit$NavigateLinkAction, name, initialize, &_HTMLEditorKit$NavigateLinkAction_ClassInfo_, clinit$HTMLEditorKit$NavigateLinkAction, allocate$HTMLEditorKit$NavigateLinkAction);
+	$FieldInfo fieldInfos$$[] = {
+		{"focusPainter", "Ljavax/swing/text/html/HTMLEditorKit$NavigateLinkAction$FocusHighlightPainter;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(HTMLEditorKit$NavigateLinkAction, focusPainter)},
+		{"focusBack", "Z", nullptr, $PRIVATE | $FINAL, $field(HTMLEditorKit$NavigateLinkAction, focusBack)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(HTMLEditorKit$NavigateLinkAction, init$, void, $String*)},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(HTMLEditorKit$NavigateLinkAction, actionPerformed, void, $ActionEvent*)},
+		{"caretUpdate", "(Ljavax/swing/event/CaretEvent;)V", nullptr, $PUBLIC, $virtualMethod(HTMLEditorKit$NavigateLinkAction, caretUpdate, void, $CaretEvent*)},
+		{"getHTMLEditorKit", "(Ljavax/swing/text/JTextComponent;)Ljavax/swing/text/html/HTMLEditorKit;", nullptr, $PRIVATE, $method(HTMLEditorKit$NavigateLinkAction, getHTMLEditorKit, $HTMLEditorKit*, $JTextComponent*)},
+		{"moveCaretPosition", "(Ljavax/swing/text/JTextComponent;Ljavax/swing/text/html/HTMLEditorKit;II)V", nullptr, $PRIVATE, $method(HTMLEditorKit$NavigateLinkAction, moveCaretPosition, void, $JTextComponent*, $HTMLEditorKit*, int32_t, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.html.HTMLEditorKit$NavigateLinkAction", "javax.swing.text.html.HTMLEditorKit", "NavigateLinkAction", $STATIC},
+		{"javax.swing.text.html.HTMLEditorKit$NavigateLinkAction$FocusHighlightPainter", "javax.swing.text.html.HTMLEditorKit$NavigateLinkAction", "FocusHighlightPainter", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.text.html.HTMLEditorKit$NavigateLinkAction",
+		"javax.swing.text.TextAction",
+		"javax.swing.event.CaretListener",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.html.HTMLEditorKit"
+	};
+	$loadClass(HTMLEditorKit$NavigateLinkAction, name, initialize, &classInfo$$, HTMLEditorKit$NavigateLinkAction::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(HTMLEditorKit$NavigateLinkAction));
+	});
 	return class$;
 }
 

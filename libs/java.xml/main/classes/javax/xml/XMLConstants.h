@@ -45,6 +45,7 @@ class $export XMLConstants : public ::java::lang::Object {
 	$class(XMLConstants, 0, ::java::lang::Object)
 public:
 	XMLConstants();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $String* NULL_NS_URI;
 	static $String* DEFAULT_NS_PREFIX;

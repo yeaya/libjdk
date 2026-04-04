@@ -1,5 +1,4 @@
 #include <sun/awt/shell/Win32ShellFolder2$8.h>
-
 #include <sun/awt/shell/Win32ShellFolder2$FolderDisposer.h>
 #include <sun/awt/shell/Win32ShellFolder2.h>
 #include <jcpp.h>
@@ -16,49 +15,6 @@ namespace sun {
 	namespace awt {
 		namespace shell {
 
-$FieldInfo _Win32ShellFolder2$8_FieldInfo_[] = {
-	{"this$0", "Lsun/awt/shell/Win32ShellFolder2;", nullptr, $FINAL | $SYNTHETIC, $field(Win32ShellFolder2$8, this$0)},
-	{"val$includeHiddenFiles", "Z", nullptr, $FINAL | $SYNTHETIC, $field(Win32ShellFolder2$8, val$includeHiddenFiles)},
-	{}
-};
-
-$MethodInfo _Win32ShellFolder2$8_MethodInfo_[] = {
-	{"<init>", "(Lsun/awt/shell/Win32ShellFolder2;Z)V", "()V", 0, $method(Win32ShellFolder2$8, init$, void, $Win32ShellFolder2*, bool)},
-	{"call", "()Ljava/lang/Long;", nullptr, $PUBLIC, $virtualMethod(Win32ShellFolder2$8, call, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _Win32ShellFolder2$8_EnclosingMethodInfo_ = {
-	"sun.awt.shell.Win32ShellFolder2",
-	"getEnumObjects",
-	"(Z)J"
-};
-
-$InnerClassInfo _Win32ShellFolder2$8_InnerClassesInfo_[] = {
-	{"sun.awt.shell.Win32ShellFolder2$8", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Win32ShellFolder2$8_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.awt.shell.Win32ShellFolder2$8",
-	"java.lang.Object",
-	"java.util.concurrent.Callable",
-	_Win32ShellFolder2$8_FieldInfo_,
-	_Win32ShellFolder2$8_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/concurrent/Callable<Ljava/lang/Long;>;",
-	&_Win32ShellFolder2$8_EnclosingMethodInfo_,
-	_Win32ShellFolder2$8_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.awt.shell.Win32ShellFolder2"
-};
-
-$Object* allocate$Win32ShellFolder2$8($Class* clazz) {
-	return $of($alloc(Win32ShellFolder2$8));
-}
-
 void Win32ShellFolder2$8::init$($Win32ShellFolder2* this$0, bool val$includeHiddenFiles) {
 	$set(this, this$0, this$0);
 	this->val$includeHiddenFiles = val$includeHiddenFiles;
@@ -73,7 +29,43 @@ Win32ShellFolder2$8::Win32ShellFolder2$8() {
 }
 
 $Class* Win32ShellFolder2$8::load$($String* name, bool initialize) {
-	$loadClass(Win32ShellFolder2$8, name, initialize, &_Win32ShellFolder2$8_ClassInfo_, allocate$Win32ShellFolder2$8);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/awt/shell/Win32ShellFolder2;", nullptr, $FINAL | $SYNTHETIC, $field(Win32ShellFolder2$8, this$0)},
+		{"val$includeHiddenFiles", "Z", nullptr, $FINAL | $SYNTHETIC, $field(Win32ShellFolder2$8, val$includeHiddenFiles)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/awt/shell/Win32ShellFolder2;Z)V", "()V", 0, $method(Win32ShellFolder2$8, init$, void, $Win32ShellFolder2*, bool)},
+		{"call", "()Ljava/lang/Long;", nullptr, $PUBLIC, $virtualMethod(Win32ShellFolder2$8, call, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.awt.shell.Win32ShellFolder2",
+		"getEnumObjects",
+		"(Z)J"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.shell.Win32ShellFolder2$8", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.awt.shell.Win32ShellFolder2$8",
+		"java.lang.Object",
+		"java.util.concurrent.Callable",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/concurrent/Callable<Ljava/lang/Long;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.awt.shell.Win32ShellFolder2"
+	};
+	$loadClass(Win32ShellFolder2$8, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Win32ShellFolder2$8);
+	});
 	return class$;
 }
 

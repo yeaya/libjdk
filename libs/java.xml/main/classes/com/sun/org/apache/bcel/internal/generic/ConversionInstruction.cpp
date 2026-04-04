@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/bcel/internal/generic/ConversionInstruction.h>
-
 #include <com/sun/org/apache/bcel/internal/Const.h>
 #include <com/sun/org/apache/bcel/internal/generic/BasicType.h>
 #include <com/sun/org/apache/bcel/internal/generic/ClassGenException.h>
@@ -47,33 +46,6 @@ namespace com {
 					namespace internal {
 						namespace generic {
 
-$MethodInfo _ConversionInstruction_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*consumeStack", "(Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;)I", nullptr, $PUBLIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "()V", nullptr, 0, $method(ConversionInstruction, init$, void)},
-	{"<init>", "(S)V", nullptr, $PROTECTED, $method(ConversionInstruction, init$, void, int16_t)},
-	{"getType", "(Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;)Lcom/sun/org/apache/bcel/internal/generic/Type;", nullptr, $PUBLIC, $virtualMethod(ConversionInstruction, getType, $Type*, $ConstantPoolGen*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*produceStack", "(Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;)I", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _ConversionInstruction_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"com.sun.org.apache.bcel.internal.generic.ConversionInstruction",
-	"com.sun.org.apache.bcel.internal.generic.Instruction",
-	"com.sun.org.apache.bcel.internal.generic.TypedInstruction,com.sun.org.apache.bcel.internal.generic.StackProducer,com.sun.org.apache.bcel.internal.generic.StackConsumer",
-	nullptr,
-	_ConversionInstruction_MethodInfo_
-};
-
-$Object* allocate$ConversionInstruction($Class* clazz) {
-	return $of($alloc(ConversionInstruction));
-}
-
 $String* ConversionInstruction::toString() {
 	 return this->$Instruction::toString();
 }
@@ -111,64 +83,40 @@ void ConversionInstruction::init$(int16_t opcode) {
 }
 
 $Type* ConversionInstruction::getType($ConstantPoolGen* cp) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int16_t _opcode = $Instruction::getOpcode();
 	switch (_opcode) {
 	case $Const::D2I:
-		{}
 	case $Const::F2I:
-		{}
 	case $Const::L2I:
-		{
-			$init($Type);
-			return $Type::INT;
-		}
+		$init($Type);
+		return $Type::INT;
 	case $Const::D2F:
-		{}
 	case $Const::I2F:
-		{}
 	case $Const::L2F:
-		{
-			$init($Type);
-			return $Type::FLOAT;
-		}
+		$init($Type);
+		return $Type::FLOAT;
 	case $Const::D2L:
-		{}
 	case $Const::F2L:
-		{}
 	case $Const::I2L:
-		{
-			$init($Type);
-			return $Type::LONG;
-		}
+		$init($Type);
+		return $Type::LONG;
 	case $Const::F2D:
-		{}
 	case $Const::I2D:
-		{}
 	case $Const::L2D:
-		{
-			$init($Type);
-			return $Type::DOUBLE;
-		}
+		$init($Type);
+		return $Type::DOUBLE;
 	case $Const::I2B:
-		{
-			$init($Type);
-			return $Type::BYTE;
-		}
+		$init($Type);
+		return $Type::BYTE;
 	case $Const::I2C:
-		{
-			$init($Type);
-			return $Type::CHAR;
-		}
+		$init($Type);
+		return $Type::CHAR;
 	case $Const::I2S:
-		{
-			$init($Type);
-			return $Type::SHORT;
-		}
+		$init($Type);
+		return $Type::SHORT;
 	default:
-		{
-			$throwNew($ClassGenException, $$str({"Unknown type "_s, $$str(_opcode)}));
-		}
+		$throwNew($ClassGenException, $$str({"Unknown type "_s, $$str(_opcode)}));
 	}
 }
 
@@ -176,7 +124,30 @@ ConversionInstruction::ConversionInstruction() {
 }
 
 $Class* ConversionInstruction::load$($String* name, bool initialize) {
-	$loadClass(ConversionInstruction, name, initialize, &_ConversionInstruction_ClassInfo_, allocate$ConversionInstruction);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*consumeStack", "(Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;)I", nullptr, $PUBLIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC},
+		{"<init>", "()V", nullptr, 0, $method(ConversionInstruction, init$, void)},
+		{"<init>", "(S)V", nullptr, $PROTECTED, $method(ConversionInstruction, init$, void, int16_t)},
+		{"getType", "(Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;)Lcom/sun/org/apache/bcel/internal/generic/Type;", nullptr, $PUBLIC, $virtualMethod(ConversionInstruction, getType, $Type*, $ConstantPoolGen*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*produceStack", "(Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;)I", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"com.sun.org.apache.bcel.internal.generic.ConversionInstruction",
+		"com.sun.org.apache.bcel.internal.generic.Instruction",
+		"com.sun.org.apache.bcel.internal.generic.TypedInstruction,com.sun.org.apache.bcel.internal.generic.StackProducer,com.sun.org.apache.bcel.internal.generic.StackConsumer",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ConversionInstruction, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ConversionInstruction));
+	});
 	return class$;
 }
 

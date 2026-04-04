@@ -26,10 +26,13 @@ public:
 	void init$();
 	void init$($String* s);
 	void init$($String* message, $Throwable* cause);
-	static const int64_t serialVersionUID = (int64_t)0xCE7804E054263F3F;
+	static const int64_t serialVersionUID = (int64_t)0xce7804e054263f3f;
 	ClassFormatException(const ClassFormatException& e);
 	virtual void throw$() override;
-	inline ClassFormatException* operator ->() {
+	inline ClassFormatException* operator ->() const {
+		return (ClassFormatException*)throwing$;
+	}
+	inline operator ClassFormatException*() const {
 		return (ClassFormatException*)throwing$;
 	}
 };

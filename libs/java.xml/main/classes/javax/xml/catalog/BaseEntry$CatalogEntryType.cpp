@@ -1,5 +1,4 @@
 #include <javax/xml/catalog/BaseEntry$CatalogEntryType.h>
-
 #include <java/lang/Enum.h>
 #include <javax/xml/catalog/BaseEntry.h>
 #include <jcpp.h>
@@ -29,61 +28,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace javax {
 	namespace xml {
 		namespace catalog {
-
-$FieldInfo _BaseEntry$CatalogEntryType_FieldInfo_[] = {
-	{"CATALOG", "Ljavax/xml/catalog/BaseEntry$CatalogEntryType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(BaseEntry$CatalogEntryType, CATALOG)},
-	{"CATALOGENTRY", "Ljavax/xml/catalog/BaseEntry$CatalogEntryType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(BaseEntry$CatalogEntryType, CATALOGENTRY)},
-	{"GROUP", "Ljavax/xml/catalog/BaseEntry$CatalogEntryType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(BaseEntry$CatalogEntryType, GROUP)},
-	{"PUBLIC", "Ljavax/xml/catalog/BaseEntry$CatalogEntryType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(BaseEntry$CatalogEntryType, PUBLIC)},
-	{"SYSTEM", "Ljavax/xml/catalog/BaseEntry$CatalogEntryType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(BaseEntry$CatalogEntryType, SYSTEM)},
-	{"REWRITESYSTEM", "Ljavax/xml/catalog/BaseEntry$CatalogEntryType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(BaseEntry$CatalogEntryType, REWRITESYSTEM)},
-	{"SYSTEMSUFFIX", "Ljavax/xml/catalog/BaseEntry$CatalogEntryType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(BaseEntry$CatalogEntryType, SYSTEMSUFFIX)},
-	{"DELEGATEPUBLIC", "Ljavax/xml/catalog/BaseEntry$CatalogEntryType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(BaseEntry$CatalogEntryType, DELEGATEPUBLIC)},
-	{"DELEGATESYSTEM", "Ljavax/xml/catalog/BaseEntry$CatalogEntryType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(BaseEntry$CatalogEntryType, DELEGATESYSTEM)},
-	{"URI", "Ljavax/xml/catalog/BaseEntry$CatalogEntryType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(BaseEntry$CatalogEntryType, URI)},
-	{"REWRITEURI", "Ljavax/xml/catalog/BaseEntry$CatalogEntryType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(BaseEntry$CatalogEntryType, REWRITEURI)},
-	{"URISUFFIX", "Ljavax/xml/catalog/BaseEntry$CatalogEntryType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(BaseEntry$CatalogEntryType, URISUFFIX)},
-	{"DELEGATEURI", "Ljavax/xml/catalog/BaseEntry$CatalogEntryType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(BaseEntry$CatalogEntryType, DELEGATEURI)},
-	{"NEXTCATALOG", "Ljavax/xml/catalog/BaseEntry$CatalogEntryType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(BaseEntry$CatalogEntryType, NEXTCATALOG)},
-	{"$VALUES", "[Ljavax/xml/catalog/BaseEntry$CatalogEntryType;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(BaseEntry$CatalogEntryType, $VALUES)},
-	{"literal", "Ljava/lang/String;", nullptr, $FINAL, $field(BaseEntry$CatalogEntryType, literal)},
-	{}
-};
-
-$MethodInfo _BaseEntry$CatalogEntryType_MethodInfo_[] = {
-	{"$values", "()[Ljavax/xml/catalog/BaseEntry$CatalogEntryType;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(BaseEntry$CatalogEntryType, $values, $BaseEntry$CatalogEntryTypeArray*)},
-	{"<init>", "(Ljava/lang/String;ILjava/lang/String;)V", "(Ljava/lang/String;)V", $PRIVATE, $method(BaseEntry$CatalogEntryType, init$, void, $String*, int32_t, $String*)},
-	{"getType", "(Ljava/lang/String;)Ljavax/xml/catalog/BaseEntry$CatalogEntryType;", nullptr, $PUBLIC | $STATIC, $staticMethod(BaseEntry$CatalogEntryType, getType, BaseEntry$CatalogEntryType*, $String*)},
-	{"isType", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $method(BaseEntry$CatalogEntryType, isType, bool, $String*)},
-	{"valueOf", "(Ljava/lang/String;)Ljavax/xml/catalog/BaseEntry$CatalogEntryType;", nullptr, $PUBLIC | $STATIC, $staticMethod(BaseEntry$CatalogEntryType, valueOf, BaseEntry$CatalogEntryType*, $String*)},
-	{"values", "()[Ljavax/xml/catalog/BaseEntry$CatalogEntryType;", nullptr, $PUBLIC | $STATIC, $staticMethod(BaseEntry$CatalogEntryType, values, $BaseEntry$CatalogEntryTypeArray*)},
-	{}
-};
-
-$InnerClassInfo _BaseEntry$CatalogEntryType_InnerClassesInfo_[] = {
-	{"javax.xml.catalog.BaseEntry$CatalogEntryType", "javax.xml.catalog.BaseEntry", "CatalogEntryType", $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _BaseEntry$CatalogEntryType_ClassInfo_ = {
-	$FINAL | $ACC_SUPER | $ENUM,
-	"javax.xml.catalog.BaseEntry$CatalogEntryType",
-	"java.lang.Enum",
-	nullptr,
-	_BaseEntry$CatalogEntryType_FieldInfo_,
-	_BaseEntry$CatalogEntryType_MethodInfo_,
-	"Ljava/lang/Enum<Ljavax/xml/catalog/BaseEntry$CatalogEntryType;>;",
-	nullptr,
-	_BaseEntry$CatalogEntryType_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.xml.catalog.BaseEntry"
-};
-
-$Object* allocate$BaseEntry$CatalogEntryType($Class* clazz) {
-	return $of($alloc(BaseEntry$CatalogEntryType));
-}
 
 BaseEntry$CatalogEntryType* BaseEntry$CatalogEntryType::CATALOG = nullptr;
 BaseEntry$CatalogEntryType* BaseEntry$CatalogEntryType::CATALOGENTRY = nullptr;
@@ -142,23 +86,17 @@ bool BaseEntry$CatalogEntryType::isType($String* type) {
 
 BaseEntry$CatalogEntryType* BaseEntry$CatalogEntryType::getType($String* entryType) {
 	$init(BaseEntry$CatalogEntryType);
-	{
-		$var($BaseEntry$CatalogEntryTypeArray, arr$, BaseEntry$CatalogEntryType::values());
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
-			BaseEntry$CatalogEntryType* type = arr$->get(i$);
-			{
-				if ($nc(type)->isType(entryType)) {
-					return type;
-				}
-			}
+	$var($BaseEntry$CatalogEntryTypeArray, arr$, BaseEntry$CatalogEntryType::values());
+	for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
+		BaseEntry$CatalogEntryType* type = arr$->get(i$);
+		if ($nc(type)->isType(entryType)) {
+			return type;
 		}
 	}
 	return nullptr;
 }
 
-void clinit$BaseEntry$CatalogEntryType($Class* class$) {
+void BaseEntry$CatalogEntryType::clinit$($Class* clazz) {
 	$assignStatic(BaseEntry$CatalogEntryType::CATALOG, $new(BaseEntry$CatalogEntryType, "CATALOG"_s, 0, "catalogfile"_s));
 	$assignStatic(BaseEntry$CatalogEntryType::CATALOGENTRY, $new(BaseEntry$CatalogEntryType, "CATALOGENTRY"_s, 1, "catalog"_s));
 	$assignStatic(BaseEntry$CatalogEntryType::GROUP, $new(BaseEntry$CatalogEntryType, "GROUP"_s, 2, "group"_s));
@@ -180,7 +118,56 @@ BaseEntry$CatalogEntryType::BaseEntry$CatalogEntryType() {
 }
 
 $Class* BaseEntry$CatalogEntryType::load$($String* name, bool initialize) {
-	$loadClass(BaseEntry$CatalogEntryType, name, initialize, &_BaseEntry$CatalogEntryType_ClassInfo_, clinit$BaseEntry$CatalogEntryType, allocate$BaseEntry$CatalogEntryType);
+	$FieldInfo fieldInfos$$[] = {
+		{"CATALOG", "Ljavax/xml/catalog/BaseEntry$CatalogEntryType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(BaseEntry$CatalogEntryType, CATALOG)},
+		{"CATALOGENTRY", "Ljavax/xml/catalog/BaseEntry$CatalogEntryType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(BaseEntry$CatalogEntryType, CATALOGENTRY)},
+		{"GROUP", "Ljavax/xml/catalog/BaseEntry$CatalogEntryType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(BaseEntry$CatalogEntryType, GROUP)},
+		{"PUBLIC", "Ljavax/xml/catalog/BaseEntry$CatalogEntryType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(BaseEntry$CatalogEntryType, PUBLIC)},
+		{"SYSTEM", "Ljavax/xml/catalog/BaseEntry$CatalogEntryType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(BaseEntry$CatalogEntryType, SYSTEM)},
+		{"REWRITESYSTEM", "Ljavax/xml/catalog/BaseEntry$CatalogEntryType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(BaseEntry$CatalogEntryType, REWRITESYSTEM)},
+		{"SYSTEMSUFFIX", "Ljavax/xml/catalog/BaseEntry$CatalogEntryType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(BaseEntry$CatalogEntryType, SYSTEMSUFFIX)},
+		{"DELEGATEPUBLIC", "Ljavax/xml/catalog/BaseEntry$CatalogEntryType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(BaseEntry$CatalogEntryType, DELEGATEPUBLIC)},
+		{"DELEGATESYSTEM", "Ljavax/xml/catalog/BaseEntry$CatalogEntryType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(BaseEntry$CatalogEntryType, DELEGATESYSTEM)},
+		{"URI", "Ljavax/xml/catalog/BaseEntry$CatalogEntryType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(BaseEntry$CatalogEntryType, URI)},
+		{"REWRITEURI", "Ljavax/xml/catalog/BaseEntry$CatalogEntryType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(BaseEntry$CatalogEntryType, REWRITEURI)},
+		{"URISUFFIX", "Ljavax/xml/catalog/BaseEntry$CatalogEntryType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(BaseEntry$CatalogEntryType, URISUFFIX)},
+		{"DELEGATEURI", "Ljavax/xml/catalog/BaseEntry$CatalogEntryType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(BaseEntry$CatalogEntryType, DELEGATEURI)},
+		{"NEXTCATALOG", "Ljavax/xml/catalog/BaseEntry$CatalogEntryType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(BaseEntry$CatalogEntryType, NEXTCATALOG)},
+		{"$VALUES", "[Ljavax/xml/catalog/BaseEntry$CatalogEntryType;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(BaseEntry$CatalogEntryType, $VALUES)},
+		{"literal", "Ljava/lang/String;", nullptr, $FINAL, $field(BaseEntry$CatalogEntryType, literal)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Ljavax/xml/catalog/BaseEntry$CatalogEntryType;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(BaseEntry$CatalogEntryType, $values, $BaseEntry$CatalogEntryTypeArray*)},
+		{"<init>", "(Ljava/lang/String;ILjava/lang/String;)V", "(Ljava/lang/String;)V", $PRIVATE, $method(BaseEntry$CatalogEntryType, init$, void, $String*, int32_t, $String*)},
+		{"getType", "(Ljava/lang/String;)Ljavax/xml/catalog/BaseEntry$CatalogEntryType;", nullptr, $PUBLIC | $STATIC, $staticMethod(BaseEntry$CatalogEntryType, getType, BaseEntry$CatalogEntryType*, $String*)},
+		{"isType", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $method(BaseEntry$CatalogEntryType, isType, bool, $String*)},
+		{"valueOf", "(Ljava/lang/String;)Ljavax/xml/catalog/BaseEntry$CatalogEntryType;", nullptr, $PUBLIC | $STATIC, $staticMethod(BaseEntry$CatalogEntryType, valueOf, BaseEntry$CatalogEntryType*, $String*)},
+		{"values", "()[Ljavax/xml/catalog/BaseEntry$CatalogEntryType;", nullptr, $PUBLIC | $STATIC, $staticMethod(BaseEntry$CatalogEntryType, values, $BaseEntry$CatalogEntryTypeArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.xml.catalog.BaseEntry$CatalogEntryType", "javax.xml.catalog.BaseEntry", "CatalogEntryType", $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER | $ENUM,
+		"javax.xml.catalog.BaseEntry$CatalogEntryType",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Ljavax/xml/catalog/BaseEntry$CatalogEntryType;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.xml.catalog.BaseEntry"
+	};
+	$loadClass(BaseEntry$CatalogEntryType, name, initialize, &classInfo$$, BaseEntry$CatalogEntryType::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(BaseEntry$CatalogEntryType));
+	});
 	return class$;
 }
 

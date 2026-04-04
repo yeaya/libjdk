@@ -1,8 +1,6 @@
 #include <com/sun/org/apache/xerces/internal/jaxp/validation/ValidatorHandlerImpl.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/Constants.h>
 #include <com/sun/org/apache/xerces/internal/impl/XMLErrorReporter.h>
-#include <com/sun/org/apache/xerces/internal/impl/validation/EntityState.h>
 #include <com/sun/org/apache/xerces/internal/impl/validation/ValidationManager.h>
 #include <com/sun/org/apache/xerces/internal/impl/xs/XMLSchemaValidator.h>
 #include <com/sun/org/apache/xerces/internal/jaxp/validation/DraconianErrorHandler.h>
@@ -27,7 +25,6 @@
 #include <com/sun/org/apache/xerces/internal/xni/NamespaceContext.h>
 #include <com/sun/org/apache/xerces/internal/xni/QName.h>
 #include <com/sun/org/apache/xerces/internal/xni/XMLAttributes.h>
-#include <com/sun/org/apache/xerces/internal/xni/XMLDocumentHandler.h>
 #include <com/sun/org/apache/xerces/internal/xni/XMLLocator.h>
 #include <com/sun/org/apache/xerces/internal/xni/XMLResourceIdentifier.h>
 #include <com/sun/org/apache/xerces/internal/xni/XMLString.h>
@@ -54,7 +51,6 @@
 #include <org/w3c/dom/ls/LSResourceResolver.h>
 #include <org/xml/sax/Attributes.h>
 #include <org/xml/sax/ContentHandler.h>
-#include <org/xml/sax/DTDHandler.h>
 #include <org/xml/sax/EntityResolver.h>
 #include <org/xml/sax/ErrorHandler.h>
 #include <org/xml/sax/InputSource.h>
@@ -97,7 +93,6 @@
 
 using $Constants = ::com::sun::org::apache::xerces::internal::impl::Constants;
 using $XMLErrorReporter = ::com::sun::org::apache::xerces::internal::impl::XMLErrorReporter;
-using $EntityState = ::com::sun::org::apache::xerces::internal::impl::validation::EntityState;
 using $ValidationManager = ::com::sun::org::apache::xerces::internal::impl::validation::ValidationManager;
 using $XMLSchemaValidator = ::com::sun::org::apache::xerces::internal::impl::xs::XMLSchemaValidator;
 using $DraconianErrorHandler = ::com::sun::org::apache::xerces::internal::jaxp::validation::DraconianErrorHandler;
@@ -122,12 +117,10 @@ using $Augmentations = ::com::sun::org::apache::xerces::internal::xni::Augmentat
 using $NamespaceContext = ::com::sun::org::apache::xerces::internal::xni::NamespaceContext;
 using $QName = ::com::sun::org::apache::xerces::internal::xni::QName;
 using $XMLAttributes = ::com::sun::org::apache::xerces::internal::xni::XMLAttributes;
-using $XMLDocumentHandler = ::com::sun::org::apache::xerces::internal::xni::XMLDocumentHandler;
 using $XMLLocator = ::com::sun::org::apache::xerces::internal::xni::XMLLocator;
 using $XMLResourceIdentifier = ::com::sun::org::apache::xerces::internal::xni::XMLResourceIdentifier;
 using $XMLString = ::com::sun::org::apache::xerces::internal::xni::XMLString;
 using $XNIException = ::com::sun::org::apache::xerces::internal::xni::XNIException;
-using $XMLComponentManager = ::com::sun::org::apache::xerces::internal::xni::parser::XMLComponentManager;
 using $XMLConfigurationException = ::com::sun::org::apache::xerces::internal::xni::parser::XMLConfigurationException;
 using $XMLDocumentSource = ::com::sun::org::apache::xerces::internal::xni::parser::XMLDocumentSource;
 using $XMLParseException = ::com::sun::org::apache::xerces::internal::xni::parser::XMLParseException;
@@ -143,7 +136,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;
 using $HashMap = ::java::util::HashMap;
 using $Locale = ::java::util::Locale;
-using $Map = ::java::util::Map;
 using $XMLConstants = ::javax::xml::XMLConstants;
 using $FactoryConfigurationError = ::javax::xml::parsers::FactoryConfigurationError;
 using $Result = ::javax::xml::transform::Result;
@@ -157,8 +149,6 @@ using $JdkXmlUtils = ::jdk::xml::internal::JdkXmlUtils;
 using $LSResourceResolver = ::org::w3c::dom::ls::LSResourceResolver;
 using $Attributes = ::org::xml::sax::Attributes;
 using $ContentHandler = ::org::xml::sax::ContentHandler;
-using $DTDHandler = ::org::xml::sax::DTDHandler;
-using $EntityResolver = ::org::xml::sax::EntityResolver;
 using $ErrorHandler = ::org::xml::sax::ErrorHandler;
 using $InputSource = ::org::xml::sax::InputSource;
 using $Locator = ::org::xml::sax::Locator;
@@ -176,125 +166,6 @@ namespace com {
 					namespace internal {
 						namespace jaxp {
 							namespace validation {
-
-$FieldInfo _ValidatorHandlerImpl_FieldInfo_[] = {
-	{"NAMESPACE_PREFIXES", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ValidatorHandlerImpl, NAMESPACE_PREFIXES)},
-	{"STRING_INTERNING", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(ValidatorHandlerImpl, STRING_INTERNING)},
-	{"ERROR_REPORTER", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ValidatorHandlerImpl, ERROR_REPORTER)},
-	{"NAMESPACE_CONTEXT", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ValidatorHandlerImpl, NAMESPACE_CONTEXT)},
-	{"SCHEMA_VALIDATOR", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ValidatorHandlerImpl, SCHEMA_VALIDATOR)},
-	{"SECURITY_MANAGER", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ValidatorHandlerImpl, SECURITY_MANAGER)},
-	{"SYMBOL_TABLE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ValidatorHandlerImpl, SYMBOL_TABLE)},
-	{"VALIDATION_MANAGER", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ValidatorHandlerImpl, VALIDATION_MANAGER)},
-	{"XML_SECURITY_PROPERTY_MANAGER", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ValidatorHandlerImpl, XML_SECURITY_PROPERTY_MANAGER)},
-	{"fErrorReporter", "Lcom/sun/org/apache/xerces/internal/impl/XMLErrorReporter;", nullptr, $PRIVATE, $field(ValidatorHandlerImpl, fErrorReporter)},
-	{"fNamespaceContext", "Lcom/sun/org/apache/xerces/internal/xni/NamespaceContext;", nullptr, $PRIVATE, $field(ValidatorHandlerImpl, fNamespaceContext)},
-	{"fSchemaValidator", "Lcom/sun/org/apache/xerces/internal/impl/xs/XMLSchemaValidator;", nullptr, $PRIVATE, $field(ValidatorHandlerImpl, fSchemaValidator)},
-	{"fSymbolTable", "Lcom/sun/org/apache/xerces/internal/util/SymbolTable;", nullptr, $PRIVATE, $field(ValidatorHandlerImpl, fSymbolTable)},
-	{"fValidationManager", "Lcom/sun/org/apache/xerces/internal/impl/validation/ValidationManager;", nullptr, $PRIVATE, $field(ValidatorHandlerImpl, fValidationManager)},
-	{"fComponentManager", "Lcom/sun/org/apache/xerces/internal/jaxp/validation/XMLSchemaValidatorComponentManager;", nullptr, $PRIVATE, $field(ValidatorHandlerImpl, fComponentManager)},
-	{"fSAXLocatorWrapper", "Lcom/sun/org/apache/xerces/internal/util/SAXLocatorWrapper;", nullptr, $PRIVATE | $FINAL, $field(ValidatorHandlerImpl, fSAXLocatorWrapper)},
-	{"fNeedPushNSContext", "Z", nullptr, $PRIVATE, $field(ValidatorHandlerImpl, fNeedPushNSContext)},
-	{"fUnparsedEntities", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;", $PRIVATE, $field(ValidatorHandlerImpl, fUnparsedEntities)},
-	{"fStringsInternalized", "Z", nullptr, $PRIVATE, $field(ValidatorHandlerImpl, fStringsInternalized)},
-	{"fElementQName", "Lcom/sun/org/apache/xerces/internal/xni/QName;", nullptr, $PRIVATE | $FINAL, $field(ValidatorHandlerImpl, fElementQName)},
-	{"fAttributeQName", "Lcom/sun/org/apache/xerces/internal/xni/QName;", nullptr, $PRIVATE | $FINAL, $field(ValidatorHandlerImpl, fAttributeQName)},
-	{"fAttributes", "Lcom/sun/org/apache/xerces/internal/util/XMLAttributesImpl;", nullptr, $PRIVATE | $FINAL, $field(ValidatorHandlerImpl, fAttributes)},
-	{"fAttrAdapter", "Lcom/sun/org/apache/xerces/internal/util/AttributesProxy;", nullptr, $PRIVATE | $FINAL, $field(ValidatorHandlerImpl, fAttrAdapter)},
-	{"fTempString", "Lcom/sun/org/apache/xerces/internal/xni/XMLString;", nullptr, $PRIVATE | $FINAL, $field(ValidatorHandlerImpl, fTempString)},
-	{"fContentHandler", "Lorg/xml/sax/ContentHandler;", nullptr, $PRIVATE, $field(ValidatorHandlerImpl, fContentHandler)},
-	{"fTypeInfoProvider", "Lcom/sun/org/apache/xerces/internal/jaxp/validation/ValidatorHandlerImpl$XMLSchemaTypeInfoProvider;", nullptr, $PRIVATE | $FINAL, $field(ValidatorHandlerImpl, fTypeInfoProvider)},
-	{"fResolutionForwarder", "Lcom/sun/org/apache/xerces/internal/jaxp/validation/ValidatorHandlerImpl$ResolutionForwarder;", nullptr, $PRIVATE | $FINAL, $field(ValidatorHandlerImpl, fResolutionForwarder)},
-	{}
-};
-
-$MethodInfo _ValidatorHandlerImpl_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lcom/sun/org/apache/xerces/internal/jaxp/validation/XSGrammarPoolContainer;)V", nullptr, $PUBLIC, $method(ValidatorHandlerImpl, init$, void, $XSGrammarPoolContainer*)},
-	{"<init>", "(Lcom/sun/org/apache/xerces/internal/jaxp/validation/XMLSchemaValidatorComponentManager;)V", nullptr, $PUBLIC, $method(ValidatorHandlerImpl, init$, void, $XMLSchemaValidatorComponentManager*)},
-	{"characters", "(Lcom/sun/org/apache/xerces/internal/xni/XMLString;Lcom/sun/org/apache/xerces/internal/xni/Augmentations;)V", nullptr, $PUBLIC, $virtualMethod(ValidatorHandlerImpl, characters, void, $XMLString*, $Augmentations*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
-	{"characters", "([CII)V", nullptr, $PUBLIC, $virtualMethod(ValidatorHandlerImpl, characters, void, $chars*, int32_t, int32_t), "org.xml.sax.SAXException"},
-	{"comment", "(Lcom/sun/org/apache/xerces/internal/xni/XMLString;Lcom/sun/org/apache/xerces/internal/xni/Augmentations;)V", nullptr, $PUBLIC, $virtualMethod(ValidatorHandlerImpl, comment, void, $XMLString*, $Augmentations*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
-	{"doctypeDecl", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/xni/Augmentations;)V", nullptr, $PUBLIC, $virtualMethod(ValidatorHandlerImpl, doctypeDecl, void, $String*, $String*, $String*, $Augmentations*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
-	{"emptyElement", "(Lcom/sun/org/apache/xerces/internal/xni/QName;Lcom/sun/org/apache/xerces/internal/xni/XMLAttributes;Lcom/sun/org/apache/xerces/internal/xni/Augmentations;)V", nullptr, $PUBLIC, $virtualMethod(ValidatorHandlerImpl, emptyElement, void, $QName*, $XMLAttributes*, $Augmentations*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
-	{"endCDATA", "(Lcom/sun/org/apache/xerces/internal/xni/Augmentations;)V", nullptr, $PUBLIC, $virtualMethod(ValidatorHandlerImpl, endCDATA, void, $Augmentations*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
-	{"endDocument", "(Lcom/sun/org/apache/xerces/internal/xni/Augmentations;)V", nullptr, $PUBLIC, $virtualMethod(ValidatorHandlerImpl, endDocument, void, $Augmentations*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
-	{"endDocument", "()V", nullptr, $PUBLIC, $virtualMethod(ValidatorHandlerImpl, endDocument, void), "org.xml.sax.SAXException"},
-	{"endElement", "(Lcom/sun/org/apache/xerces/internal/xni/QName;Lcom/sun/org/apache/xerces/internal/xni/Augmentations;)V", nullptr, $PUBLIC, $virtualMethod(ValidatorHandlerImpl, endElement, void, $QName*, $Augmentations*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
-	{"endElement", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ValidatorHandlerImpl, endElement, void, $String*, $String*, $String*), "org.xml.sax.SAXException"},
-	{"endGeneralEntity", "(Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/xni/Augmentations;)V", nullptr, $PUBLIC, $virtualMethod(ValidatorHandlerImpl, endGeneralEntity, void, $String*, $Augmentations*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
-	{"endPrefixMapping", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ValidatorHandlerImpl, endPrefixMapping, void, $String*), "org.xml.sax.SAXException"},
-	{"fillQName", "(Lcom/sun/org/apache/xerces/internal/xni/QName;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(ValidatorHandlerImpl, fillQName, void, $QName*, $String*, $String*, $String*)},
-	{"fillXMLAttribute", "(Lorg/xml/sax/Attributes;I)V", nullptr, $PRIVATE, $method(ValidatorHandlerImpl, fillXMLAttribute, void, $Attributes*, int32_t)},
-	{"fillXMLAttributes", "(Lorg/xml/sax/Attributes;)V", nullptr, $PRIVATE, $method(ValidatorHandlerImpl, fillXMLAttributes, void, $Attributes*)},
-	{"fillXMLAttributes2", "(Lorg/xml/sax/ext/Attributes2;)V", nullptr, $PRIVATE, $method(ValidatorHandlerImpl, fillXMLAttributes2, void, $Attributes2*)},
-	{"getAttributePSVI", "(I)Lcom/sun/org/apache/xerces/internal/xs/AttributePSVI;", nullptr, $PUBLIC, $virtualMethod(ValidatorHandlerImpl, getAttributePSVI, $AttributePSVI*, int32_t)},
-	{"getAttributePSVIByName", "(Ljava/lang/String;Ljava/lang/String;)Lcom/sun/org/apache/xerces/internal/xs/AttributePSVI;", nullptr, $PUBLIC, $virtualMethod(ValidatorHandlerImpl, getAttributePSVIByName, $AttributePSVI*, $String*, $String*)},
-	{"getContentHandler", "()Lorg/xml/sax/ContentHandler;", nullptr, $PUBLIC, $virtualMethod(ValidatorHandlerImpl, getContentHandler, $ContentHandler*)},
-	{"getDocumentSource", "()Lcom/sun/org/apache/xerces/internal/xni/parser/XMLDocumentSource;", nullptr, $PUBLIC, $virtualMethod(ValidatorHandlerImpl, getDocumentSource, $XMLDocumentSource*)},
-	{"getElementPSVI", "()Lcom/sun/org/apache/xerces/internal/xs/ElementPSVI;", nullptr, $PUBLIC, $virtualMethod(ValidatorHandlerImpl, getElementPSVI, $ElementPSVI*)},
-	{"getErrorHandler", "()Lorg/xml/sax/ErrorHandler;", nullptr, $PUBLIC, $virtualMethod(ValidatorHandlerImpl, getErrorHandler, $ErrorHandler*)},
-	{"getFeature", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(ValidatorHandlerImpl, getFeature, bool, $String*), "org.xml.sax.SAXNotRecognizedException,org.xml.sax.SAXNotSupportedException"},
-	{"getProperty", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ValidatorHandlerImpl, getProperty, $Object*, $String*), "org.xml.sax.SAXNotRecognizedException,org.xml.sax.SAXNotSupportedException"},
-	{"getResourceResolver", "()Lorg/w3c/dom/ls/LSResourceResolver;", nullptr, $PUBLIC, $virtualMethod(ValidatorHandlerImpl, getResourceResolver, $LSResourceResolver*)},
-	{"getTypeInfoProvider", "()Ljavax/xml/validation/TypeInfoProvider;", nullptr, $PUBLIC, $virtualMethod(ValidatorHandlerImpl, getTypeInfoProvider, $TypeInfoProvider*)},
-	{"ignorableWhitespace", "(Lcom/sun/org/apache/xerces/internal/xni/XMLString;Lcom/sun/org/apache/xerces/internal/xni/Augmentations;)V", nullptr, $PUBLIC, $virtualMethod(ValidatorHandlerImpl, ignorableWhitespace, void, $XMLString*, $Augmentations*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
-	{"ignorableWhitespace", "([CII)V", nullptr, $PUBLIC, $virtualMethod(ValidatorHandlerImpl, ignorableWhitespace, void, $chars*, int32_t, int32_t), "org.xml.sax.SAXException"},
-	{"isEntityDeclared", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(ValidatorHandlerImpl, isEntityDeclared, bool, $String*)},
-	{"isEntityUnparsed", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(ValidatorHandlerImpl, isEntityUnparsed, bool, $String*)},
-	{"notationDecl", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ValidatorHandlerImpl, notationDecl, void, $String*, $String*, $String*), "org.xml.sax.SAXException"},
-	{"processingInstruction", "(Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/xni/XMLString;Lcom/sun/org/apache/xerces/internal/xni/Augmentations;)V", nullptr, $PUBLIC, $virtualMethod(ValidatorHandlerImpl, processingInstruction, void, $String*, $XMLString*, $Augmentations*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
-	{"processingInstruction", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ValidatorHandlerImpl, processingInstruction, void, $String*, $String*), "org.xml.sax.SAXException"},
-	{"setContentHandler", "(Lorg/xml/sax/ContentHandler;)V", nullptr, $PUBLIC, $virtualMethod(ValidatorHandlerImpl, setContentHandler, void, $ContentHandler*)},
-	{"setDocumentLocator", "(Lorg/xml/sax/Locator;)V", nullptr, $PUBLIC, $virtualMethod(ValidatorHandlerImpl, setDocumentLocator, void, $Locator*)},
-	{"setDocumentSource", "(Lcom/sun/org/apache/xerces/internal/xni/parser/XMLDocumentSource;)V", nullptr, $PUBLIC, $virtualMethod(ValidatorHandlerImpl, setDocumentSource, void, $XMLDocumentSource*)},
-	{"setErrorHandler", "(Lorg/xml/sax/ErrorHandler;)V", nullptr, $PUBLIC, $virtualMethod(ValidatorHandlerImpl, setErrorHandler, void, $ErrorHandler*)},
-	{"setFeature", "(Ljava/lang/String;Z)V", nullptr, $PUBLIC, $virtualMethod(ValidatorHandlerImpl, setFeature, void, $String*, bool), "org.xml.sax.SAXNotRecognizedException,org.xml.sax.SAXNotSupportedException"},
-	{"setProperty", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(ValidatorHandlerImpl, setProperty, void, $String*, Object$*), "org.xml.sax.SAXNotRecognizedException,org.xml.sax.SAXNotSupportedException"},
-	{"setResourceResolver", "(Lorg/w3c/dom/ls/LSResourceResolver;)V", nullptr, $PUBLIC, $virtualMethod(ValidatorHandlerImpl, setResourceResolver, void, $LSResourceResolver*)},
-	{"skippedEntity", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ValidatorHandlerImpl, skippedEntity, void, $String*), "org.xml.sax.SAXException"},
-	{"startCDATA", "(Lcom/sun/org/apache/xerces/internal/xni/Augmentations;)V", nullptr, $PUBLIC, $virtualMethod(ValidatorHandlerImpl, startCDATA, void, $Augmentations*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
-	{"startDocument", "(Lcom/sun/org/apache/xerces/internal/xni/XMLLocator;Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/xni/NamespaceContext;Lcom/sun/org/apache/xerces/internal/xni/Augmentations;)V", nullptr, $PUBLIC, $virtualMethod(ValidatorHandlerImpl, startDocument, void, $XMLLocator*, $String*, $NamespaceContext*, $Augmentations*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
-	{"startDocument", "()V", nullptr, $PUBLIC, $virtualMethod(ValidatorHandlerImpl, startDocument, void), "org.xml.sax.SAXException"},
-	{"startElement", "(Lcom/sun/org/apache/xerces/internal/xni/QName;Lcom/sun/org/apache/xerces/internal/xni/XMLAttributes;Lcom/sun/org/apache/xerces/internal/xni/Augmentations;)V", nullptr, $PUBLIC, $virtualMethod(ValidatorHandlerImpl, startElement, void, $QName*, $XMLAttributes*, $Augmentations*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
-	{"startElement", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lorg/xml/sax/Attributes;)V", nullptr, $PUBLIC, $virtualMethod(ValidatorHandlerImpl, startElement, void, $String*, $String*, $String*, $Attributes*), "org.xml.sax.SAXException"},
-	{"startGeneralEntity", "(Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/xni/XMLResourceIdentifier;Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/xni/Augmentations;)V", nullptr, $PUBLIC, $virtualMethod(ValidatorHandlerImpl, startGeneralEntity, void, $String*, $XMLResourceIdentifier*, $String*, $Augmentations*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
-	{"startPrefixMapping", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ValidatorHandlerImpl, startPrefixMapping, void, $String*, $String*), "org.xml.sax.SAXException"},
-	{"textDecl", "(Ljava/lang/String;Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/xni/Augmentations;)V", nullptr, $PUBLIC, $virtualMethod(ValidatorHandlerImpl, textDecl, void, $String*, $String*, $Augmentations*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"unparsedEntityDecl", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ValidatorHandlerImpl, unparsedEntityDecl, void, $String*, $String*, $String*, $String*), "org.xml.sax.SAXException"},
-	{"validate", "(Ljavax/xml/transform/Source;Ljavax/xml/transform/Result;)V", nullptr, $PUBLIC, $virtualMethod(ValidatorHandlerImpl, validate, void, $Source*, $Result*), "org.xml.sax.SAXException,java.io.IOException"},
-	{"xmlDecl", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/xni/Augmentations;)V", nullptr, $PUBLIC, $virtualMethod(ValidatorHandlerImpl, xmlDecl, void, $String*, $String*, $String*, $Augmentations*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
-	{}
-};
-
-$InnerClassInfo _ValidatorHandlerImpl_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xerces.internal.jaxp.validation.ValidatorHandlerImpl$ResolutionForwarder", "com.sun.org.apache.xerces.internal.jaxp.validation.ValidatorHandlerImpl", "ResolutionForwarder", $STATIC | $FINAL},
-	{"com.sun.org.apache.xerces.internal.jaxp.validation.ValidatorHandlerImpl$XMLSchemaTypeInfoProvider", "com.sun.org.apache.xerces.internal.jaxp.validation.ValidatorHandlerImpl", "XMLSchemaTypeInfoProvider", $PRIVATE},
-	{}
-};
-
-$ClassInfo _ValidatorHandlerImpl_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.jaxp.validation.ValidatorHandlerImpl",
-	"javax.xml.validation.ValidatorHandler",
-	"org.xml.sax.DTDHandler,com.sun.org.apache.xerces.internal.impl.validation.EntityState,com.sun.org.apache.xerces.internal.xs.PSVIProvider,com.sun.org.apache.xerces.internal.jaxp.validation.ValidatorHelper,com.sun.org.apache.xerces.internal.xni.XMLDocumentHandler",
-	_ValidatorHandlerImpl_FieldInfo_,
-	_ValidatorHandlerImpl_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ValidatorHandlerImpl_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xerces.internal.jaxp.validation.ValidatorHandlerImpl$ResolutionForwarder,com.sun.org.apache.xerces.internal.jaxp.validation.ValidatorHandlerImpl$XMLSchemaTypeInfoProvider"
-};
-
-$Object* allocate$ValidatorHandlerImpl($Class* clazz) {
-	return $of($alloc(ValidatorHandlerImpl));
-}
 
 int32_t ValidatorHandlerImpl::hashCode() {
 	 return this->$ValidatorHandler::hashCode();
@@ -327,7 +198,7 @@ $String* ValidatorHandlerImpl::VALIDATION_MANAGER = nullptr;
 $String* ValidatorHandlerImpl::XML_SECURITY_PROPERTY_MANAGER = nullptr;
 
 void ValidatorHandlerImpl::init$($XSGrammarPoolContainer* grammarContainer) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	ValidatorHandlerImpl::init$($$new($XMLSchemaValidatorComponentManager, grammarContainer));
 	$nc(this->fComponentManager)->addRecognizedFeatures($$new($StringArray, {ValidatorHandlerImpl::NAMESPACE_PREFIXES}));
 	$nc(this->fComponentManager)->setFeature(ValidatorHandlerImpl::NAMESPACE_PREFIXES, false);
@@ -386,7 +257,7 @@ $TypeInfoProvider* ValidatorHandlerImpl::getTypeInfoProvider() {
 }
 
 bool ValidatorHandlerImpl::getFeature($String* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (name == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -396,13 +267,13 @@ bool ValidatorHandlerImpl::getFeature($String* name) {
 		$var($String, identifier, e->getIdentifier());
 		$init($Status);
 		$var($String, key, e->getType() == $Status::NOT_RECOGNIZED ? "feature-not-recognized"_s : "feature-not-supported"_s);
-		$throwNew($SAXNotRecognizedException, $($SAXMessageFormatter::formatMessage($($nc(this->fComponentManager)->getLocale()), key, $$new($ObjectArray, {$of(identifier)}))));
+		$throwNew($SAXNotRecognizedException, $($SAXMessageFormatter::formatMessage($($nc(this->fComponentManager)->getLocale()), key, $$new($ObjectArray, {identifier}))));
 	}
 	$shouldNotReachHere();
 }
 
 void ValidatorHandlerImpl::setFeature($String* name, bool value) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (name == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -414,35 +285,33 @@ void ValidatorHandlerImpl::setFeature($String* name, bool value) {
 		$init($Status);
 		if (e->getType() == $Status::NOT_ALLOWED) {
 			$throwNew($SAXNotSupportedException, $($SAXMessageFormatter::formatMessage($($nc(this->fComponentManager)->getLocale()), "jaxp-secureprocessing-feature"_s, nullptr)));
+		} else if (e->getType() == $Status::NOT_RECOGNIZED) {
+			$assign(key, "feature-not-recognized"_s);
 		} else {
-			if (e->getType() == $Status::NOT_RECOGNIZED) {
-				$assign(key, "feature-not-recognized"_s);
-			} else {
-				$assign(key, "feature-not-supported"_s);
-			}
+			$assign(key, "feature-not-supported"_s);
 		}
-		$throwNew($SAXNotRecognizedException, $($SAXMessageFormatter::formatMessage($($nc(this->fComponentManager)->getLocale()), key, $$new($ObjectArray, {$of(identifier)}))));
+		$throwNew($SAXNotRecognizedException, $($SAXMessageFormatter::formatMessage($($nc(this->fComponentManager)->getLocale()), key, $$new($ObjectArray, {identifier}))));
 	}
 }
 
 $Object* ValidatorHandlerImpl::getProperty($String* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (name == nullptr) {
 		$throwNew($NullPointerException);
 	}
 	try {
-		return $of($nc(this->fComponentManager)->getProperty(name));
+		return $nc(this->fComponentManager)->getProperty(name);
 	} catch ($XMLConfigurationException& e) {
 		$var($String, identifier, e->getIdentifier());
 		$init($Status);
 		$var($String, key, e->getType() == $Status::NOT_RECOGNIZED ? "property-not-recognized"_s : "property-not-supported"_s);
-		$throwNew($SAXNotRecognizedException, $($SAXMessageFormatter::formatMessage($($nc(this->fComponentManager)->getLocale()), key, $$new($ObjectArray, {$of(identifier)}))));
+		$throwNew($SAXNotRecognizedException, $($SAXMessageFormatter::formatMessage($($nc(this->fComponentManager)->getLocale()), key, $$new($ObjectArray, {identifier}))));
 	}
 	$shouldNotReachHere();
 }
 
 void ValidatorHandlerImpl::setProperty($String* name, Object$* object) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (name == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -452,7 +321,7 @@ void ValidatorHandlerImpl::setProperty($String* name, Object$* object) {
 		$var($String, identifier, e->getIdentifier());
 		$init($Status);
 		$var($String, key, e->getType() == $Status::NOT_RECOGNIZED ? "property-not-recognized"_s : "property-not-supported"_s);
-		$throwNew($SAXNotRecognizedException, $($SAXMessageFormatter::formatMessage($($nc(this->fComponentManager)->getLocale()), key, $$new($ObjectArray, {$of(identifier)}))));
+		$throwNew($SAXNotRecognizedException, $($SAXMessageFormatter::formatMessage($($nc(this->fComponentManager)->getLocale()), key, $$new($ObjectArray, {identifier}))));
 	}
 }
 
@@ -462,7 +331,7 @@ bool ValidatorHandlerImpl::isEntityDeclared($String* name) {
 
 bool ValidatorHandlerImpl::isEntityUnparsed($String* name) {
 	if (this->fUnparsedEntities != nullptr) {
-		return $nc(this->fUnparsedEntities)->containsKey(name);
+		return this->fUnparsedEntities->containsKey(name);
 	}
 	return false;
 }
@@ -470,9 +339,9 @@ bool ValidatorHandlerImpl::isEntityUnparsed($String* name) {
 void ValidatorHandlerImpl::startDocument($XMLLocator* locator, $String* encoding, $NamespaceContext* namespaceContext, $Augmentations* augs) {
 	if (this->fContentHandler != nullptr) {
 		try {
-			$nc(this->fContentHandler)->startDocument();
+			this->fContentHandler->startDocument();
 		} catch ($SAXException& e) {
-			$throwNew($XNIException, static_cast<$Exception*>(e));
+			$throwNew($XNIException, e);
 		}
 	}
 }
@@ -489,33 +358,31 @@ void ValidatorHandlerImpl::comment($XMLString* text, $Augmentations* augs) {
 void ValidatorHandlerImpl::processingInstruction($String* target, $XMLString* data, $Augmentations* augs) {
 	if (this->fContentHandler != nullptr) {
 		try {
-			$nc(this->fContentHandler)->processingInstruction(target, $($nc(data)->toString()));
+			this->fContentHandler->processingInstruction(target, $($nc(data)->toString()));
 		} catch ($SAXException& e) {
-			$throwNew($XNIException, static_cast<$Exception*>(e));
+			$throwNew($XNIException, e);
 		}
 	}
 }
 
 void ValidatorHandlerImpl::startElement($QName* element, $XMLAttributes* attributes, $Augmentations* augs) {
 	if (this->fContentHandler != nullptr) {
-		{
-			$var($Throwable, var$0, nullptr);
+		$var($Throwable, var$0, nullptr);
+		try {
 			try {
-				try {
-					$nc(this->fTypeInfoProvider)->beginStartElement(augs, attributes);
-					$init($XMLSymbols);
-					$nc(this->fContentHandler)->startElement(($nc(element)->uri != nullptr) ? $nc(element)->uri : $XMLSymbols::EMPTY_STRING, element->localpart, element->rawname, this->fAttrAdapter);
-				} catch ($SAXException& e) {
-					$throwNew($XNIException, static_cast<$Exception*>(e));
-				}
-			} catch ($Throwable& var$1) {
-				$assign(var$0, var$1);
-			} /*finally*/ {
-				$nc(this->fTypeInfoProvider)->finishStartElement();
+				$nc(this->fTypeInfoProvider)->beginStartElement(augs, attributes);
+				$init($XMLSymbols);
+				$nc(this->fContentHandler)->startElement(($nc(element)->uri != nullptr) ? element->uri : $XMLSymbols::EMPTY_STRING, element->localpart, element->rawname, this->fAttrAdapter);
+			} catch ($SAXException& e) {
+				$throwNew($XNIException, e);
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
+		} /*finally*/ {
+			$nc(this->fTypeInfoProvider)->finishStartElement();
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	}
 }
@@ -540,9 +407,9 @@ void ValidatorHandlerImpl::characters($XMLString* text, $Augmentations* augs) {
 			return;
 		}
 		try {
-			$nc(this->fContentHandler)->characters($nc(text)->ch, text->offset, text->length);
+			this->fContentHandler->characters(text->ch, text->offset, text->length);
 		} catch ($SAXException& e) {
-			$throwNew($XNIException, static_cast<$Exception*>(e));
+			$throwNew($XNIException, e);
 		}
 	}
 }
@@ -550,33 +417,31 @@ void ValidatorHandlerImpl::characters($XMLString* text, $Augmentations* augs) {
 void ValidatorHandlerImpl::ignorableWhitespace($XMLString* text, $Augmentations* augs) {
 	if (this->fContentHandler != nullptr) {
 		try {
-			$nc(this->fContentHandler)->ignorableWhitespace($nc(text)->ch, text->offset, text->length);
+			this->fContentHandler->ignorableWhitespace($nc(text)->ch, $nc(text)->offset, $nc(text)->length);
 		} catch ($SAXException& e) {
-			$throwNew($XNIException, static_cast<$Exception*>(e));
+			$throwNew($XNIException, e);
 		}
 	}
 }
 
 void ValidatorHandlerImpl::endElement($QName* element, $Augmentations* augs) {
 	if (this->fContentHandler != nullptr) {
-		{
-			$var($Throwable, var$0, nullptr);
+		$var($Throwable, var$0, nullptr);
+		try {
 			try {
-				try {
-					$nc(this->fTypeInfoProvider)->beginEndElement(augs);
-					$init($XMLSymbols);
-					$nc(this->fContentHandler)->endElement(($nc(element)->uri != nullptr) ? $nc(element)->uri : $XMLSymbols::EMPTY_STRING, element->localpart, element->rawname);
-				} catch ($SAXException& e) {
-					$throwNew($XNIException, static_cast<$Exception*>(e));
-				}
-			} catch ($Throwable& var$1) {
-				$assign(var$0, var$1);
-			} /*finally*/ {
-				$nc(this->fTypeInfoProvider)->finishEndElement();
+				$nc(this->fTypeInfoProvider)->beginEndElement(augs);
+				$init($XMLSymbols);
+				$nc(this->fContentHandler)->endElement(($nc(element)->uri != nullptr) ? element->uri : $XMLSymbols::EMPTY_STRING, element->localpart, element->rawname);
+			} catch ($SAXException& e) {
+				$throwNew($XNIException, e);
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
+		} /*finally*/ {
+			$nc(this->fTypeInfoProvider)->finishEndElement();
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	}
 }
@@ -590,9 +455,9 @@ void ValidatorHandlerImpl::endCDATA($Augmentations* augs) {
 void ValidatorHandlerImpl::endDocument($Augmentations* augs) {
 	if (this->fContentHandler != nullptr) {
 		try {
-			$nc(this->fContentHandler)->endDocument();
+			this->fContentHandler->endDocument();
 		} catch ($SAXException& e) {
-			$throwNew($XNIException, static_cast<$Exception*>(e));
+			$throwNew($XNIException, e);
 		}
 	}
 }
@@ -607,19 +472,19 @@ $XMLDocumentSource* ValidatorHandlerImpl::getDocumentSource() {
 void ValidatorHandlerImpl::setDocumentLocator($Locator* locator) {
 	$nc(this->fSAXLocatorWrapper)->setLocator(locator);
 	if (this->fContentHandler != nullptr) {
-		$nc(this->fContentHandler)->setDocumentLocator(locator);
+		this->fContentHandler->setDocumentLocator(locator);
 	}
 }
 
 void ValidatorHandlerImpl::startDocument() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(this->fComponentManager)->reset();
 	$nc(this->fSchemaValidator)->setDocumentHandler(this);
 	$nc(this->fValidationManager)->setEntityState(this);
 	$nc(this->fTypeInfoProvider)->finishStartElement();
 	this->fNeedPushNSContext = true;
-	if (this->fUnparsedEntities != nullptr && !$nc(this->fUnparsedEntities)->isEmpty()) {
-		$nc(this->fUnparsedEntities)->clear();
+	if (this->fUnparsedEntities != nullptr && !this->fUnparsedEntities->isEmpty()) {
+		this->fUnparsedEntities->clear();
 	}
 	$nc(this->fErrorReporter)->setDocumentLocator(this->fSAXLocatorWrapper);
 	try {
@@ -632,7 +497,7 @@ void ValidatorHandlerImpl::startDocument() {
 }
 
 void ValidatorHandlerImpl::endDocument() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(this->fSAXLocatorWrapper)->setLocator(nullptr);
 	try {
 		$nc(this->fSchemaValidator)->endDocument(nullptr);
@@ -644,7 +509,7 @@ void ValidatorHandlerImpl::endDocument() {
 }
 
 void ValidatorHandlerImpl::startPrefixMapping($String* prefix, $String* uri) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, prefixSymbol, nullptr);
 	$var($String, uriSymbol, nullptr);
 	if (!this->fStringsInternalized) {
@@ -662,18 +527,18 @@ void ValidatorHandlerImpl::startPrefixMapping($String* prefix, $String* uri) {
 	}
 	$nc(this->fNamespaceContext)->declarePrefix(prefixSymbol, uriSymbol);
 	if (this->fContentHandler != nullptr) {
-		$nc(this->fContentHandler)->startPrefixMapping(prefix, uri);
+		this->fContentHandler->startPrefixMapping(prefix, uri);
 	}
 }
 
 void ValidatorHandlerImpl::endPrefixMapping($String* prefix) {
 	if (this->fContentHandler != nullptr) {
-		$nc(this->fContentHandler)->endPrefixMapping(prefix);
+		this->fContentHandler->endPrefixMapping(prefix);
 	}
 }
 
 void ValidatorHandlerImpl::startElement($String* uri, $String* localName, $String* qName, $Attributes* atts) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->fNeedPushNSContext) {
 		$nc(this->fNamespaceContext)->pushContext();
 	}
@@ -694,31 +559,29 @@ void ValidatorHandlerImpl::startElement($String* uri, $String* localName, $Strin
 }
 
 void ValidatorHandlerImpl::endElement($String* uri, $String* localName, $String* qName) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	fillQName(this->fElementQName, uri, localName, qName);
-	{
-		$var($Throwable, var$0, nullptr);
+	$var($Throwable, var$0, nullptr);
+	try {
 		try {
-			try {
-				$nc(this->fSchemaValidator)->endElement(this->fElementQName, nullptr);
-			} catch ($XMLParseException& e) {
-				$throw($($Util::toSAXParseException(e)));
-			} catch ($XNIException& e) {
-				$throw($($Util::toSAXException(e)));
-			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$nc(this->fNamespaceContext)->popContext();
+			$nc(this->fSchemaValidator)->endElement(this->fElementQName, nullptr);
+		} catch ($XMLParseException& e) {
+			$throw($($Util::toSAXParseException(e)));
+		} catch ($XNIException& e) {
+			$throw($($Util::toSAXException(e)));
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$nc(this->fNamespaceContext)->popContext();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 void ValidatorHandlerImpl::characters($chars* ch, int32_t start, int32_t length) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$nc(this->fTempString)->setValues(ch, start, length);
 		$nc(this->fSchemaValidator)->characters(this->fTempString, nullptr);
@@ -730,7 +593,7 @@ void ValidatorHandlerImpl::characters($chars* ch, int32_t start, int32_t length)
 }
 
 void ValidatorHandlerImpl::ignorableWhitespace($chars* ch, int32_t start, int32_t length) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$nc(this->fTempString)->setValues(ch, start, length);
 		$nc(this->fSchemaValidator)->ignorableWhitespace(this->fTempString, nullptr);
@@ -743,13 +606,13 @@ void ValidatorHandlerImpl::ignorableWhitespace($chars* ch, int32_t start, int32_
 
 void ValidatorHandlerImpl::processingInstruction($String* target, $String* data) {
 	if (this->fContentHandler != nullptr) {
-		$nc(this->fContentHandler)->processingInstruction(target, data);
+		this->fContentHandler->processingInstruction(target, data);
 	}
 }
 
 void ValidatorHandlerImpl::skippedEntity($String* name) {
 	if (this->fContentHandler != nullptr) {
-		$nc(this->fContentHandler)->skippedEntity(name);
+		this->fContentHandler->skippedEntity(name);
 	}
 }
 
@@ -764,73 +627,71 @@ void ValidatorHandlerImpl::unparsedEntityDecl($String* name, $String* publicId, 
 }
 
 void ValidatorHandlerImpl::validate($Source* source, $Result* result) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($instanceOf($SAXResult, result) || result == nullptr) {
 		$var($SAXSource, saxSource, $cast($SAXSource, source));
 		$var($SAXResult, saxResult, $cast($SAXResult, result));
 		if (result != nullptr) {
 			setContentHandler($($nc(saxResult)->getHandler()));
 		}
-		{
-			$var($Throwable, var$0, nullptr);
-			try {
-				$var($XMLReader, reader, $nc(saxSource)->getXMLReader());
-				if (reader == nullptr) {
-					$init($JdkConstants);
-					bool var$1 = $nc(this->fComponentManager)->getFeature($JdkConstants::OVERRIDE_PARSER);
-					$init($XMLConstants);
-					$assign(reader, $JdkXmlUtils::getXMLReader(var$1, $nc(this->fComponentManager)->getFeature($XMLConstants::FEATURE_SECURE_PROCESSING)));
-					try {
-						if ($instanceOf($SAXParser, reader)) {
-							$var($XMLSecurityManager, securityManager, $cast($XMLSecurityManager, $nc(this->fComponentManager)->getProperty(ValidatorHandlerImpl::SECURITY_MANAGER)));
-							if (securityManager != nullptr) {
-								try {
-									$nc(reader)->setProperty(ValidatorHandlerImpl::SECURITY_MANAGER, securityManager);
-								} catch ($SAXException& exc) {
-								}
-							}
+		$var($Throwable, var$0, nullptr);
+		try {
+			$var($XMLReader, reader, $nc(saxSource)->getXMLReader());
+			if (reader == nullptr) {
+				$init($JdkConstants);
+				bool var$1 = $nc(this->fComponentManager)->getFeature($JdkConstants::OVERRIDE_PARSER);
+				$init($XMLConstants);
+				$assign(reader, $JdkXmlUtils::getXMLReader(var$1, this->fComponentManager->getFeature($XMLConstants::FEATURE_SECURE_PROCESSING)));
+				try {
+					if ($instanceOf($SAXParser, reader)) {
+						$var($XMLSecurityManager, securityManager, $cast($XMLSecurityManager, $nc(this->fComponentManager)->getProperty(ValidatorHandlerImpl::SECURITY_MANAGER)));
+						if (securityManager != nullptr) {
 							try {
-								$var($XMLSecurityPropertyManager, spm, $cast($XMLSecurityPropertyManager, $nc(this->fComponentManager)->getProperty(ValidatorHandlerImpl::XML_SECURITY_PROPERTY_MANAGER)));
-								$init($XMLSecurityPropertyManager$Property);
-								$nc(reader)->setProperty($XMLConstants::ACCESS_EXTERNAL_DTD, $($nc(spm)->getValue($XMLSecurityPropertyManager$Property::ACCESS_EXTERNAL_DTD)));
+								reader->setProperty(ValidatorHandlerImpl::SECURITY_MANAGER, securityManager);
 							} catch ($SAXException& exc) {
-								$XMLSecurityManager::printWarning($($nc($of(reader))->getClass()->getName()), $XMLConstants::ACCESS_EXTERNAL_DTD, exc);
 							}
 						}
-						$JdkXmlUtils::catalogFeaturesConfig2Reader(this->fComponentManager, reader);
-					} catch ($Exception& e) {
-						$throwNew($FactoryConfigurationError, $cast($Exception, e));
+						try {
+							$var($XMLSecurityPropertyManager, spm, $cast($XMLSecurityPropertyManager, $nc(this->fComponentManager)->getProperty(ValidatorHandlerImpl::XML_SECURITY_PROPERTY_MANAGER)));
+							$init($XMLSecurityPropertyManager$Property);
+							reader->setProperty($XMLConstants::ACCESS_EXTERNAL_DTD, $($nc(spm)->getValue($XMLSecurityPropertyManager$Property::ACCESS_EXTERNAL_DTD)));
+						} catch ($SAXException& exc) {
+							$XMLSecurityManager::printWarning($(reader->getClass()->getName()), $XMLConstants::ACCESS_EXTERNAL_DTD, exc);
+						}
 					}
+					$JdkXmlUtils::catalogFeaturesConfig2Reader(this->fComponentManager, reader);
+				} catch ($Exception& e) {
+					$throwNew($FactoryConfigurationError, e);
 				}
-				try {
-					this->fStringsInternalized = $nc(reader)->getFeature(ValidatorHandlerImpl::STRING_INTERNING);
-				} catch ($SAXException& exc) {
-					this->fStringsInternalized = false;
-				}
-				$var($ErrorHandler, errorHandler, $nc(this->fComponentManager)->getErrorHandler());
-				$nc(reader)->setErrorHandler(errorHandler != nullptr ? errorHandler : $(static_cast<$ErrorHandler*>($DraconianErrorHandler::getInstance())));
-				reader->setEntityResolver(this->fResolutionForwarder);
-				$nc(this->fResolutionForwarder)->setEntityResolver($($nc(this->fComponentManager)->getResourceResolver()));
-				reader->setContentHandler(this);
-				reader->setDTDHandler(this);
-				$var($InputSource, is, saxSource->getInputSource());
-				reader->parse(is);
-			} catch ($Throwable& var$2) {
-				$assign(var$0, var$2);
-			} /*finally*/ {
-				setContentHandler(nullptr);
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
+			try {
+				this->fStringsInternalized = $nc(reader)->getFeature(ValidatorHandlerImpl::STRING_INTERNING);
+			} catch ($SAXException& exc) {
+				this->fStringsInternalized = false;
 			}
+			$var($ErrorHandler, errorHandler, $nc(this->fComponentManager)->getErrorHandler());
+			$nc(reader)->setErrorHandler(errorHandler != nullptr ? errorHandler : $$cast($ErrorHandler, $DraconianErrorHandler::getInstance()));
+			reader->setEntityResolver(this->fResolutionForwarder);
+			$nc(this->fResolutionForwarder)->setEntityResolver($($nc(this->fComponentManager)->getResourceResolver()));
+			reader->setContentHandler(this);
+			reader->setDTDHandler(this);
+			$var($InputSource, is, saxSource->getInputSource());
+			reader->parse(is);
+		} catch ($Throwable& var$2) {
+			$assign(var$0, var$2);
+		} /*finally*/ {
+			setContentHandler(nullptr);
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 		return;
 	}
 	$var($Locale, var$3, $nc(this->fComponentManager)->getLocale());
 	$var($String, var$4, "SourceResultMismatch"_s);
 	$throwNew($IllegalArgumentException, $($JAXPValidationMessageFormatter::formatMessage(var$3, var$4, $$new($ObjectArray, {
-		$($of($nc($of(source))->getClass()->getName())),
-		$($of($nc($of(result))->getClass()->getName()))
+		$($nc($of(source))->getClass()->getName()),
+		$($nc($of(result))->getClass()->getName())
 	}))));
 }
 
@@ -847,7 +708,7 @@ $AttributePSVI* ValidatorHandlerImpl::getAttributePSVIByName($String* uri, $Stri
 }
 
 void ValidatorHandlerImpl::fillQName($QName* toFill, $String* uri$renamed, $String* localpart$renamed, $String* raw$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, localpart, localpart$renamed);
 	$var($String, raw, raw$renamed);
 	$var($String, uri, uri$renamed);
@@ -871,7 +732,7 @@ void ValidatorHandlerImpl::fillQName($QName* toFill, $String* uri$renamed, $Stri
 	}
 	$init($XMLSymbols);
 	$var($String, prefix, $XMLSymbols::EMPTY_STRING);
-	int32_t prefixIdx = $nc(raw)->indexOf((int32_t)u':');
+	int32_t prefixIdx = $nc(raw)->indexOf(u':');
 	if (prefixIdx != -1) {
 		$assign(prefix, $nc(this->fSymbolTable)->addSymbol($(raw->substring(0, prefixIdx))));
 	}
@@ -883,32 +744,31 @@ void ValidatorHandlerImpl::fillXMLAttributes($Attributes* att) {
 	int32_t len = $nc(att)->getLength();
 	for (int32_t i = 0; i < len; ++i) {
 		fillXMLAttribute(att, i);
-		$nc(this->fAttributes)->setSpecified(i, true);
+		this->fAttributes->setSpecified(i, true);
 	}
 }
 
 void ValidatorHandlerImpl::fillXMLAttributes2($Attributes2* att) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(this->fAttributes)->removeAllAttributes();
 	int32_t len = $nc(att)->getLength();
 	for (int32_t i = 0; i < len; ++i) {
 		fillXMLAttribute(att, i);
-		$nc(this->fAttributes)->setSpecified(i, att->isSpecified(i));
+		this->fAttributes->setSpecified(i, att->isSpecified(i));
 		if (att->isDeclared(i)) {
 			$init($Constants);
-			$init($Boolean);
-			$nc($($nc(this->fAttributes)->getAugmentations(i)))->putItem($Constants::ATTRIBUTE_DECLARED, $Boolean::TRUE);
+			$$nc(this->fAttributes->getAugmentations(i))->putItem($Constants::ATTRIBUTE_DECLARED, $Boolean::TRUE);
 		}
 	}
 }
 
 void ValidatorHandlerImpl::fillXMLAttribute($Attributes* att, int32_t index) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($QName, var$0, this->fAttributeQName);
 	$var($String, var$1, $nc(att)->getURI(index));
 	$var($String, var$2, att->getLocalName(index));
 	fillQName(var$0, var$1, var$2, $(att->getQName(index)));
-	$var($String, type, $nc(att)->getType(index));
+	$var($String, type, att->getType(index));
 	$init($XMLSymbols);
 	$nc(this->fAttributes)->addAttributeNS(this->fAttributeQName, (type != nullptr) ? type : $XMLSymbols::fCDATASymbol, $(att->getValue(index)));
 }
@@ -916,7 +776,7 @@ void ValidatorHandlerImpl::fillXMLAttribute($Attributes* att, int32_t index) {
 ValidatorHandlerImpl::ValidatorHandlerImpl() {
 }
 
-void clinit$ValidatorHandlerImpl($Class* class$) {
+void ValidatorHandlerImpl::clinit$($Class* clazz) {
 	$init($Constants);
 	$assignStatic(ValidatorHandlerImpl::NAMESPACE_PREFIXES, $str({$Constants::SAX_FEATURE_PREFIX, $Constants::NAMESPACE_PREFIXES_FEATURE}));
 	$assignStatic(ValidatorHandlerImpl::STRING_INTERNING, $str({$Constants::SAX_FEATURE_PREFIX, $Constants::STRING_INTERNING_FEATURE}));
@@ -931,7 +791,120 @@ void clinit$ValidatorHandlerImpl($Class* class$) {
 }
 
 $Class* ValidatorHandlerImpl::load$($String* name, bool initialize) {
-	$loadClass(ValidatorHandlerImpl, name, initialize, &_ValidatorHandlerImpl_ClassInfo_, clinit$ValidatorHandlerImpl, allocate$ValidatorHandlerImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"NAMESPACE_PREFIXES", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ValidatorHandlerImpl, NAMESPACE_PREFIXES)},
+		{"STRING_INTERNING", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(ValidatorHandlerImpl, STRING_INTERNING)},
+		{"ERROR_REPORTER", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ValidatorHandlerImpl, ERROR_REPORTER)},
+		{"NAMESPACE_CONTEXT", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ValidatorHandlerImpl, NAMESPACE_CONTEXT)},
+		{"SCHEMA_VALIDATOR", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ValidatorHandlerImpl, SCHEMA_VALIDATOR)},
+		{"SECURITY_MANAGER", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ValidatorHandlerImpl, SECURITY_MANAGER)},
+		{"SYMBOL_TABLE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ValidatorHandlerImpl, SYMBOL_TABLE)},
+		{"VALIDATION_MANAGER", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ValidatorHandlerImpl, VALIDATION_MANAGER)},
+		{"XML_SECURITY_PROPERTY_MANAGER", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ValidatorHandlerImpl, XML_SECURITY_PROPERTY_MANAGER)},
+		{"fErrorReporter", "Lcom/sun/org/apache/xerces/internal/impl/XMLErrorReporter;", nullptr, $PRIVATE, $field(ValidatorHandlerImpl, fErrorReporter)},
+		{"fNamespaceContext", "Lcom/sun/org/apache/xerces/internal/xni/NamespaceContext;", nullptr, $PRIVATE, $field(ValidatorHandlerImpl, fNamespaceContext)},
+		{"fSchemaValidator", "Lcom/sun/org/apache/xerces/internal/impl/xs/XMLSchemaValidator;", nullptr, $PRIVATE, $field(ValidatorHandlerImpl, fSchemaValidator)},
+		{"fSymbolTable", "Lcom/sun/org/apache/xerces/internal/util/SymbolTable;", nullptr, $PRIVATE, $field(ValidatorHandlerImpl, fSymbolTable)},
+		{"fValidationManager", "Lcom/sun/org/apache/xerces/internal/impl/validation/ValidationManager;", nullptr, $PRIVATE, $field(ValidatorHandlerImpl, fValidationManager)},
+		{"fComponentManager", "Lcom/sun/org/apache/xerces/internal/jaxp/validation/XMLSchemaValidatorComponentManager;", nullptr, $PRIVATE, $field(ValidatorHandlerImpl, fComponentManager)},
+		{"fSAXLocatorWrapper", "Lcom/sun/org/apache/xerces/internal/util/SAXLocatorWrapper;", nullptr, $PRIVATE | $FINAL, $field(ValidatorHandlerImpl, fSAXLocatorWrapper)},
+		{"fNeedPushNSContext", "Z", nullptr, $PRIVATE, $field(ValidatorHandlerImpl, fNeedPushNSContext)},
+		{"fUnparsedEntities", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;", $PRIVATE, $field(ValidatorHandlerImpl, fUnparsedEntities)},
+		{"fStringsInternalized", "Z", nullptr, $PRIVATE, $field(ValidatorHandlerImpl, fStringsInternalized)},
+		{"fElementQName", "Lcom/sun/org/apache/xerces/internal/xni/QName;", nullptr, $PRIVATE | $FINAL, $field(ValidatorHandlerImpl, fElementQName)},
+		{"fAttributeQName", "Lcom/sun/org/apache/xerces/internal/xni/QName;", nullptr, $PRIVATE | $FINAL, $field(ValidatorHandlerImpl, fAttributeQName)},
+		{"fAttributes", "Lcom/sun/org/apache/xerces/internal/util/XMLAttributesImpl;", nullptr, $PRIVATE | $FINAL, $field(ValidatorHandlerImpl, fAttributes)},
+		{"fAttrAdapter", "Lcom/sun/org/apache/xerces/internal/util/AttributesProxy;", nullptr, $PRIVATE | $FINAL, $field(ValidatorHandlerImpl, fAttrAdapter)},
+		{"fTempString", "Lcom/sun/org/apache/xerces/internal/xni/XMLString;", nullptr, $PRIVATE | $FINAL, $field(ValidatorHandlerImpl, fTempString)},
+		{"fContentHandler", "Lorg/xml/sax/ContentHandler;", nullptr, $PRIVATE, $field(ValidatorHandlerImpl, fContentHandler)},
+		{"fTypeInfoProvider", "Lcom/sun/org/apache/xerces/internal/jaxp/validation/ValidatorHandlerImpl$XMLSchemaTypeInfoProvider;", nullptr, $PRIVATE | $FINAL, $field(ValidatorHandlerImpl, fTypeInfoProvider)},
+		{"fResolutionForwarder", "Lcom/sun/org/apache/xerces/internal/jaxp/validation/ValidatorHandlerImpl$ResolutionForwarder;", nullptr, $PRIVATE | $FINAL, $field(ValidatorHandlerImpl, fResolutionForwarder)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lcom/sun/org/apache/xerces/internal/jaxp/validation/XSGrammarPoolContainer;)V", nullptr, $PUBLIC, $method(ValidatorHandlerImpl, init$, void, $XSGrammarPoolContainer*)},
+		{"<init>", "(Lcom/sun/org/apache/xerces/internal/jaxp/validation/XMLSchemaValidatorComponentManager;)V", nullptr, $PUBLIC, $method(ValidatorHandlerImpl, init$, void, $XMLSchemaValidatorComponentManager*)},
+		{"characters", "(Lcom/sun/org/apache/xerces/internal/xni/XMLString;Lcom/sun/org/apache/xerces/internal/xni/Augmentations;)V", nullptr, $PUBLIC, $virtualMethod(ValidatorHandlerImpl, characters, void, $XMLString*, $Augmentations*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
+		{"characters", "([CII)V", nullptr, $PUBLIC, $virtualMethod(ValidatorHandlerImpl, characters, void, $chars*, int32_t, int32_t), "org.xml.sax.SAXException"},
+		{"comment", "(Lcom/sun/org/apache/xerces/internal/xni/XMLString;Lcom/sun/org/apache/xerces/internal/xni/Augmentations;)V", nullptr, $PUBLIC, $virtualMethod(ValidatorHandlerImpl, comment, void, $XMLString*, $Augmentations*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
+		{"doctypeDecl", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/xni/Augmentations;)V", nullptr, $PUBLIC, $virtualMethod(ValidatorHandlerImpl, doctypeDecl, void, $String*, $String*, $String*, $Augmentations*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
+		{"emptyElement", "(Lcom/sun/org/apache/xerces/internal/xni/QName;Lcom/sun/org/apache/xerces/internal/xni/XMLAttributes;Lcom/sun/org/apache/xerces/internal/xni/Augmentations;)V", nullptr, $PUBLIC, $virtualMethod(ValidatorHandlerImpl, emptyElement, void, $QName*, $XMLAttributes*, $Augmentations*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
+		{"endCDATA", "(Lcom/sun/org/apache/xerces/internal/xni/Augmentations;)V", nullptr, $PUBLIC, $virtualMethod(ValidatorHandlerImpl, endCDATA, void, $Augmentations*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
+		{"endDocument", "(Lcom/sun/org/apache/xerces/internal/xni/Augmentations;)V", nullptr, $PUBLIC, $virtualMethod(ValidatorHandlerImpl, endDocument, void, $Augmentations*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
+		{"endDocument", "()V", nullptr, $PUBLIC, $virtualMethod(ValidatorHandlerImpl, endDocument, void), "org.xml.sax.SAXException"},
+		{"endElement", "(Lcom/sun/org/apache/xerces/internal/xni/QName;Lcom/sun/org/apache/xerces/internal/xni/Augmentations;)V", nullptr, $PUBLIC, $virtualMethod(ValidatorHandlerImpl, endElement, void, $QName*, $Augmentations*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
+		{"endElement", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ValidatorHandlerImpl, endElement, void, $String*, $String*, $String*), "org.xml.sax.SAXException"},
+		{"endGeneralEntity", "(Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/xni/Augmentations;)V", nullptr, $PUBLIC, $virtualMethod(ValidatorHandlerImpl, endGeneralEntity, void, $String*, $Augmentations*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
+		{"endPrefixMapping", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ValidatorHandlerImpl, endPrefixMapping, void, $String*), "org.xml.sax.SAXException"},
+		{"fillQName", "(Lcom/sun/org/apache/xerces/internal/xni/QName;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(ValidatorHandlerImpl, fillQName, void, $QName*, $String*, $String*, $String*)},
+		{"fillXMLAttribute", "(Lorg/xml/sax/Attributes;I)V", nullptr, $PRIVATE, $method(ValidatorHandlerImpl, fillXMLAttribute, void, $Attributes*, int32_t)},
+		{"fillXMLAttributes", "(Lorg/xml/sax/Attributes;)V", nullptr, $PRIVATE, $method(ValidatorHandlerImpl, fillXMLAttributes, void, $Attributes*)},
+		{"fillXMLAttributes2", "(Lorg/xml/sax/ext/Attributes2;)V", nullptr, $PRIVATE, $method(ValidatorHandlerImpl, fillXMLAttributes2, void, $Attributes2*)},
+		{"getAttributePSVI", "(I)Lcom/sun/org/apache/xerces/internal/xs/AttributePSVI;", nullptr, $PUBLIC, $virtualMethod(ValidatorHandlerImpl, getAttributePSVI, $AttributePSVI*, int32_t)},
+		{"getAttributePSVIByName", "(Ljava/lang/String;Ljava/lang/String;)Lcom/sun/org/apache/xerces/internal/xs/AttributePSVI;", nullptr, $PUBLIC, $virtualMethod(ValidatorHandlerImpl, getAttributePSVIByName, $AttributePSVI*, $String*, $String*)},
+		{"getContentHandler", "()Lorg/xml/sax/ContentHandler;", nullptr, $PUBLIC, $virtualMethod(ValidatorHandlerImpl, getContentHandler, $ContentHandler*)},
+		{"getDocumentSource", "()Lcom/sun/org/apache/xerces/internal/xni/parser/XMLDocumentSource;", nullptr, $PUBLIC, $virtualMethod(ValidatorHandlerImpl, getDocumentSource, $XMLDocumentSource*)},
+		{"getElementPSVI", "()Lcom/sun/org/apache/xerces/internal/xs/ElementPSVI;", nullptr, $PUBLIC, $virtualMethod(ValidatorHandlerImpl, getElementPSVI, $ElementPSVI*)},
+		{"getErrorHandler", "()Lorg/xml/sax/ErrorHandler;", nullptr, $PUBLIC, $virtualMethod(ValidatorHandlerImpl, getErrorHandler, $ErrorHandler*)},
+		{"getFeature", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(ValidatorHandlerImpl, getFeature, bool, $String*), "org.xml.sax.SAXNotRecognizedException,org.xml.sax.SAXNotSupportedException"},
+		{"getProperty", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ValidatorHandlerImpl, getProperty, $Object*, $String*), "org.xml.sax.SAXNotRecognizedException,org.xml.sax.SAXNotSupportedException"},
+		{"getResourceResolver", "()Lorg/w3c/dom/ls/LSResourceResolver;", nullptr, $PUBLIC, $virtualMethod(ValidatorHandlerImpl, getResourceResolver, $LSResourceResolver*)},
+		{"getTypeInfoProvider", "()Ljavax/xml/validation/TypeInfoProvider;", nullptr, $PUBLIC, $virtualMethod(ValidatorHandlerImpl, getTypeInfoProvider, $TypeInfoProvider*)},
+		{"ignorableWhitespace", "(Lcom/sun/org/apache/xerces/internal/xni/XMLString;Lcom/sun/org/apache/xerces/internal/xni/Augmentations;)V", nullptr, $PUBLIC, $virtualMethod(ValidatorHandlerImpl, ignorableWhitespace, void, $XMLString*, $Augmentations*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
+		{"ignorableWhitespace", "([CII)V", nullptr, $PUBLIC, $virtualMethod(ValidatorHandlerImpl, ignorableWhitespace, void, $chars*, int32_t, int32_t), "org.xml.sax.SAXException"},
+		{"isEntityDeclared", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(ValidatorHandlerImpl, isEntityDeclared, bool, $String*)},
+		{"isEntityUnparsed", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(ValidatorHandlerImpl, isEntityUnparsed, bool, $String*)},
+		{"notationDecl", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ValidatorHandlerImpl, notationDecl, void, $String*, $String*, $String*), "org.xml.sax.SAXException"},
+		{"processingInstruction", "(Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/xni/XMLString;Lcom/sun/org/apache/xerces/internal/xni/Augmentations;)V", nullptr, $PUBLIC, $virtualMethod(ValidatorHandlerImpl, processingInstruction, void, $String*, $XMLString*, $Augmentations*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
+		{"processingInstruction", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ValidatorHandlerImpl, processingInstruction, void, $String*, $String*), "org.xml.sax.SAXException"},
+		{"setContentHandler", "(Lorg/xml/sax/ContentHandler;)V", nullptr, $PUBLIC, $virtualMethod(ValidatorHandlerImpl, setContentHandler, void, $ContentHandler*)},
+		{"setDocumentLocator", "(Lorg/xml/sax/Locator;)V", nullptr, $PUBLIC, $virtualMethod(ValidatorHandlerImpl, setDocumentLocator, void, $Locator*)},
+		{"setDocumentSource", "(Lcom/sun/org/apache/xerces/internal/xni/parser/XMLDocumentSource;)V", nullptr, $PUBLIC, $virtualMethod(ValidatorHandlerImpl, setDocumentSource, void, $XMLDocumentSource*)},
+		{"setErrorHandler", "(Lorg/xml/sax/ErrorHandler;)V", nullptr, $PUBLIC, $virtualMethod(ValidatorHandlerImpl, setErrorHandler, void, $ErrorHandler*)},
+		{"setFeature", "(Ljava/lang/String;Z)V", nullptr, $PUBLIC, $virtualMethod(ValidatorHandlerImpl, setFeature, void, $String*, bool), "org.xml.sax.SAXNotRecognizedException,org.xml.sax.SAXNotSupportedException"},
+		{"setProperty", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(ValidatorHandlerImpl, setProperty, void, $String*, Object$*), "org.xml.sax.SAXNotRecognizedException,org.xml.sax.SAXNotSupportedException"},
+		{"setResourceResolver", "(Lorg/w3c/dom/ls/LSResourceResolver;)V", nullptr, $PUBLIC, $virtualMethod(ValidatorHandlerImpl, setResourceResolver, void, $LSResourceResolver*)},
+		{"skippedEntity", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ValidatorHandlerImpl, skippedEntity, void, $String*), "org.xml.sax.SAXException"},
+		{"startCDATA", "(Lcom/sun/org/apache/xerces/internal/xni/Augmentations;)V", nullptr, $PUBLIC, $virtualMethod(ValidatorHandlerImpl, startCDATA, void, $Augmentations*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
+		{"startDocument", "(Lcom/sun/org/apache/xerces/internal/xni/XMLLocator;Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/xni/NamespaceContext;Lcom/sun/org/apache/xerces/internal/xni/Augmentations;)V", nullptr, $PUBLIC, $virtualMethod(ValidatorHandlerImpl, startDocument, void, $XMLLocator*, $String*, $NamespaceContext*, $Augmentations*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
+		{"startDocument", "()V", nullptr, $PUBLIC, $virtualMethod(ValidatorHandlerImpl, startDocument, void), "org.xml.sax.SAXException"},
+		{"startElement", "(Lcom/sun/org/apache/xerces/internal/xni/QName;Lcom/sun/org/apache/xerces/internal/xni/XMLAttributes;Lcom/sun/org/apache/xerces/internal/xni/Augmentations;)V", nullptr, $PUBLIC, $virtualMethod(ValidatorHandlerImpl, startElement, void, $QName*, $XMLAttributes*, $Augmentations*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
+		{"startElement", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lorg/xml/sax/Attributes;)V", nullptr, $PUBLIC, $virtualMethod(ValidatorHandlerImpl, startElement, void, $String*, $String*, $String*, $Attributes*), "org.xml.sax.SAXException"},
+		{"startGeneralEntity", "(Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/xni/XMLResourceIdentifier;Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/xni/Augmentations;)V", nullptr, $PUBLIC, $virtualMethod(ValidatorHandlerImpl, startGeneralEntity, void, $String*, $XMLResourceIdentifier*, $String*, $Augmentations*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
+		{"startPrefixMapping", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ValidatorHandlerImpl, startPrefixMapping, void, $String*, $String*), "org.xml.sax.SAXException"},
+		{"textDecl", "(Ljava/lang/String;Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/xni/Augmentations;)V", nullptr, $PUBLIC, $virtualMethod(ValidatorHandlerImpl, textDecl, void, $String*, $String*, $Augmentations*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"unparsedEntityDecl", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ValidatorHandlerImpl, unparsedEntityDecl, void, $String*, $String*, $String*, $String*), "org.xml.sax.SAXException"},
+		{"validate", "(Ljavax/xml/transform/Source;Ljavax/xml/transform/Result;)V", nullptr, $PUBLIC, $virtualMethod(ValidatorHandlerImpl, validate, void, $Source*, $Result*), "org.xml.sax.SAXException,java.io.IOException"},
+		{"xmlDecl", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/xni/Augmentations;)V", nullptr, $PUBLIC, $virtualMethod(ValidatorHandlerImpl, xmlDecl, void, $String*, $String*, $String*, $Augmentations*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xerces.internal.jaxp.validation.ValidatorHandlerImpl$ResolutionForwarder", "com.sun.org.apache.xerces.internal.jaxp.validation.ValidatorHandlerImpl", "ResolutionForwarder", $STATIC | $FINAL},
+		{"com.sun.org.apache.xerces.internal.jaxp.validation.ValidatorHandlerImpl$XMLSchemaTypeInfoProvider", "com.sun.org.apache.xerces.internal.jaxp.validation.ValidatorHandlerImpl", "XMLSchemaTypeInfoProvider", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.jaxp.validation.ValidatorHandlerImpl",
+		"javax.xml.validation.ValidatorHandler",
+		"org.xml.sax.DTDHandler,com.sun.org.apache.xerces.internal.impl.validation.EntityState,com.sun.org.apache.xerces.internal.xs.PSVIProvider,com.sun.org.apache.xerces.internal.jaxp.validation.ValidatorHelper,com.sun.org.apache.xerces.internal.xni.XMLDocumentHandler",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xerces.internal.jaxp.validation.ValidatorHandlerImpl$ResolutionForwarder,com.sun.org.apache.xerces.internal.jaxp.validation.ValidatorHandlerImpl$XMLSchemaTypeInfoProvider"
+	};
+	$loadClass(ValidatorHandlerImpl, name, initialize, &classInfo$$, ValidatorHandlerImpl::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ValidatorHandlerImpl));
+	});
 	return class$;
 }
 

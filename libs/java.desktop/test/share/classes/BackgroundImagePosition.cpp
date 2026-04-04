@@ -1,9 +1,7 @@
 #include <BackgroundImagePosition.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/EventQueue.h>
-#include <java/awt/Graphics.h>
 #include <java/awt/Graphics2D.h>
 #include <java/awt/image/BufferedImage.h>
 #include <java/awt/image/RenderedImage.h>
@@ -30,10 +28,8 @@
 
 using $Color = ::java::awt::Color;
 using $EventQueue = ::java::awt::EventQueue;
-using $Graphics = ::java::awt::Graphics;
 using $Graphics2D = ::java::awt::Graphics2D;
 using $BufferedImage = ::java::awt::image::BufferedImage;
-using $RenderedImage = ::java::awt::image::RenderedImage;
 using $File = ::java::io::File;
 using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -47,7 +43,6 @@ using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
 using $ImageIO = ::javax::imageio::ImageIO;
 using $JEditorPane = ::javax::swing::JEditorPane;
-using $EditorKit = ::javax::swing::text::EditorKit;
 using $HTMLEditorKit = ::javax::swing::text::html::HTMLEditorKit;
 
 class BackgroundImagePosition$$Lambda$lambda$test$0 : public $Runnable {
@@ -61,68 +56,36 @@ public:
 	virtual void run() override {
 		BackgroundImagePosition::lambda$test$0(x, y, bi);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<BackgroundImagePosition$$Lambda$lambda$test$0>());
-	}
 	$String* x = nullptr;
 	$String* y = nullptr;
 	$BufferedImage* bi = nullptr;
-	static $FieldInfo fieldInfos[4];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo BackgroundImagePosition$$Lambda$lambda$test$0::fieldInfos[4] = {
-	{"x", "Ljava/lang/String;", nullptr, $PUBLIC, $field(BackgroundImagePosition$$Lambda$lambda$test$0, x)},
-	{"y", "Ljava/lang/String;", nullptr, $PUBLIC, $field(BackgroundImagePosition$$Lambda$lambda$test$0, y)},
-	{"bi", "Ljava/awt/image/BufferedImage;", nullptr, $PUBLIC, $field(BackgroundImagePosition$$Lambda$lambda$test$0, bi)},
-	{}
-};
-$MethodInfo BackgroundImagePosition$$Lambda$lambda$test$0::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/awt/image/BufferedImage;)V", nullptr, $PUBLIC, $method(BackgroundImagePosition$$Lambda$lambda$test$0, init$, void, $String*, $String*, $BufferedImage*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(BackgroundImagePosition$$Lambda$lambda$test$0, run, void)},
-	{}
-};
-$ClassInfo BackgroundImagePosition$$Lambda$lambda$test$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"BackgroundImagePosition$$Lambda$lambda$test$0",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	fieldInfos,
-	methodInfos
 };
 $Class* BackgroundImagePosition$$Lambda$lambda$test$0::load$($String* name, bool initialize) {
-	$loadClass(BackgroundImagePosition$$Lambda$lambda$test$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"x", "Ljava/lang/String;", nullptr, $PUBLIC, $field(BackgroundImagePosition$$Lambda$lambda$test$0, x)},
+		{"y", "Ljava/lang/String;", nullptr, $PUBLIC, $field(BackgroundImagePosition$$Lambda$lambda$test$0, y)},
+		{"bi", "Ljava/awt/image/BufferedImage;", nullptr, $PUBLIC, $field(BackgroundImagePosition$$Lambda$lambda$test$0, bi)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/awt/image/BufferedImage;)V", nullptr, $PUBLIC, $method(BackgroundImagePosition$$Lambda$lambda$test$0, init$, void, $String*, $String*, $BufferedImage*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(BackgroundImagePosition$$Lambda$lambda$test$0, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"BackgroundImagePosition$$Lambda$lambda$test$0",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(BackgroundImagePosition$$Lambda$lambda$test$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BackgroundImagePosition$$Lambda$lambda$test$0);
+	});
 	return class$;
 }
 $Class* BackgroundImagePosition$$Lambda$lambda$test$0::class$ = nullptr;
-
-$FieldInfo _BackgroundImagePosition_FieldInfo_[] = {
-	{"pos", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/String;>;", $STATIC | $FINAL, $staticField(BackgroundImagePosition, pos)},
-	{"SIZE", "I", nullptr, $STATIC | $FINAL, $constField(BackgroundImagePosition, SIZE)},
-	{}
-};
-
-$MethodInfo _BackgroundImagePosition_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(BackgroundImagePosition, init$, void)},
-	{"compareImages", "(Ljava/awt/image/BufferedImage;Ljava/awt/image/BufferedImage;)V", nullptr, $STATIC, $staticMethod(BackgroundImagePosition, compareImages, void, $BufferedImage*, $BufferedImage*), "java.io.IOException"},
-	{"lambda$test$0", "(Ljava/lang/String;Ljava/lang/String;Ljava/awt/image/BufferedImage;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(BackgroundImagePosition, lambda$test$0, void, $String*, $String*, $BufferedImage*)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(BackgroundImagePosition, main, void, $StringArray*), "java.lang.Exception"},
-	{"test", "(Ljava/lang/String;Ljava/lang/String;)Ljava/awt/image/BufferedImage;", nullptr, $STATIC, $staticMethod(BackgroundImagePosition, test, $BufferedImage*, $String*, $String*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _BackgroundImagePosition_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"BackgroundImagePosition",
-	"java.lang.Object",
-	nullptr,
-	_BackgroundImagePosition_FieldInfo_,
-	_BackgroundImagePosition_MethodInfo_
-};
-
-$Object* allocate$BackgroundImagePosition($Class* clazz) {
-	return $of($alloc(BackgroundImagePosition));
-}
 
 $List* BackgroundImagePosition::pos = nullptr;
 
@@ -131,7 +94,7 @@ void BackgroundImagePosition::init$() {
 
 void BackgroundImagePosition::main($StringArray* args) {
 	$init(BackgroundImagePosition);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($BufferedImage, bi, $new($BufferedImage, 50, 50, $BufferedImage::TYPE_INT_ARGB));
 	$var($Graphics2D, g, bi->createGraphics());
 	$init($Color);
@@ -139,7 +102,7 @@ void BackgroundImagePosition::main($StringArray* args) {
 	g->fillRect(0, 0, 50, 50);
 	g->dispose();
 	$var($File, file, $new($File, "file.png"_s));
-	$ImageIO::write(static_cast<$RenderedImage*>(bi), "png"_s, file);
+	$ImageIO::write(bi, "png"_s, file);
 	{
 		$var($Iterator, i$, $nc(BackgroundImagePosition::pos)->iterator());
 		for (; $nc(i$)->hasNext();) {
@@ -147,14 +110,12 @@ void BackgroundImagePosition::main($StringArray* args) {
 			{
 				$var($BufferedImage, img1, test(x, x));
 				{
-					$var($Iterator, i$, $nc(BackgroundImagePosition::pos)->iterator());
+					$var($Iterator, i$, BackgroundImagePosition::pos->iterator());
 					for (; $nc(i$)->hasNext();) {
 						$var($String, y, $cast($String, i$->next()));
-						{
-							if (!$nc(x)->equals(y)) {
-								compareImages(img1, $(test(x, y)));
-								compareImages(img1, $(test(y, x)));
-							}
+						if (!$nc(x)->equals(y)) {
+							compareImages(img1, $(test(x, y)));
+							compareImages(img1, $(test(y, x)));
 						}
 					}
 				}
@@ -165,7 +126,7 @@ void BackgroundImagePosition::main($StringArray* args) {
 
 void BackgroundImagePosition::compareImages($BufferedImage* img1, $BufferedImage* img2) {
 	$init(BackgroundImagePosition);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (int32_t imgX = 0; imgX < BackgroundImagePosition::SIZE; ++imgX) {
 		for (int32_t imgY = 0; imgY < BackgroundImagePosition::SIZE; ++imgY) {
 			int32_t var$0 = $nc(img1)->getRGB(imgX, imgY);
@@ -174,22 +135,22 @@ void BackgroundImagePosition::compareImages($BufferedImage* img1, $BufferedImage
 			}
 		}
 	}
-	$ImageIO::write(static_cast<$RenderedImage*>(img1), "png"_s, $$new($File, "img1.png"_s));
-	$ImageIO::write(static_cast<$RenderedImage*>(img2), "png"_s, $$new($File, "img2.png"_s));
+	$ImageIO::write(img1, "png"_s, $$new($File, "img1.png"_s));
+	$ImageIO::write(img2, "png"_s, $$new($File, "img2.png"_s));
 	$throwNew($RuntimeException, "Same images for different size"_s);
 }
 
 $BufferedImage* BackgroundImagePosition::test($String* x, $String* y) {
 	$init(BackgroundImagePosition);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($BufferedImage, bi, $new($BufferedImage, BackgroundImagePosition::SIZE, BackgroundImagePosition::SIZE, $BufferedImage::TYPE_INT_ARGB));
-	$EventQueue::invokeAndWait(static_cast<$Runnable*>($$new(BackgroundImagePosition$$Lambda$lambda$test$0, x, y, bi)));
+	$EventQueue::invokeAndWait($$new(BackgroundImagePosition$$Lambda$lambda$test$0, x, y, bi));
 	return bi;
 }
 
 void BackgroundImagePosition::lambda$test$0($String* x, $String* y, $BufferedImage* bi) {
 	$init(BackgroundImagePosition);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$var($JEditorPane, jep, $new($JEditorPane));
 		$var($HTMLEditorKit, kit, $new($HTMLEditorKit));
@@ -200,11 +161,11 @@ void BackgroundImagePosition::lambda$test$0($String* x, $String* y, $BufferedIma
 		jep->paint(graphics);
 		$nc(graphics)->dispose();
 	} catch ($Exception& e) {
-		$throwNew($RuntimeException, static_cast<$Throwable*>(e));
+		$throwNew($RuntimeException, e);
 	}
 }
 
-void clinit$BackgroundImagePosition($Class* class$) {
+void BackgroundImagePosition::clinit$($Class* clazz) {
 	$assignStatic(BackgroundImagePosition::pos, $List::of($$new($StringArray, {
 		""_s,
 		"-2"_s,
@@ -229,11 +190,34 @@ BackgroundImagePosition::BackgroundImagePosition() {
 
 $Class* BackgroundImagePosition::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(BackgroundImagePosition$$Lambda$lambda$test$0::classInfo$.name)) {
+		if (name->equals("BackgroundImagePosition$$Lambda$lambda$test$0")) {
 			return BackgroundImagePosition$$Lambda$lambda$test$0::load$(name, initialize);
 		}
 	}
-	$loadClass(BackgroundImagePosition, name, initialize, &_BackgroundImagePosition_ClassInfo_, clinit$BackgroundImagePosition, allocate$BackgroundImagePosition);
+	$FieldInfo fieldInfos$$[] = {
+		{"pos", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/String;>;", $STATIC | $FINAL, $staticField(BackgroundImagePosition, pos)},
+		{"SIZE", "I", nullptr, $STATIC | $FINAL, $constField(BackgroundImagePosition, SIZE)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(BackgroundImagePosition, init$, void)},
+		{"compareImages", "(Ljava/awt/image/BufferedImage;Ljava/awt/image/BufferedImage;)V", nullptr, $STATIC, $staticMethod(BackgroundImagePosition, compareImages, void, $BufferedImage*, $BufferedImage*), "java.io.IOException"},
+		{"lambda$test$0", "(Ljava/lang/String;Ljava/lang/String;Ljava/awt/image/BufferedImage;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(BackgroundImagePosition, lambda$test$0, void, $String*, $String*, $BufferedImage*)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(BackgroundImagePosition, main, void, $StringArray*), "java.lang.Exception"},
+		{"test", "(Ljava/lang/String;Ljava/lang/String;)Ljava/awt/image/BufferedImage;", nullptr, $STATIC, $staticMethod(BackgroundImagePosition, test, $BufferedImage*, $String*, $String*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"BackgroundImagePosition",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(BackgroundImagePosition, name, initialize, &classInfo$$, BackgroundImagePosition::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(BackgroundImagePosition);
+	});
 	return class$;
 }
 

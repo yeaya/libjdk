@@ -1,5 +1,4 @@
 #include <GetUI$CustomJComponent.h>
-
 #include <GetUI.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/plaf/ComponentUI.h>
@@ -10,38 +9,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $JComponent = ::javax::swing::JComponent;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
-
-$MethodInfo _GetUI$CustomJComponent_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(GetUI$CustomJComponent, init$, void)},
-	{"getUI", "()Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC, $virtualMethod(GetUI$CustomJComponent, getUI, $ComponentUI*)},
-	{"setUI", "(Ljavax/swing/plaf/ComponentUI;)V", nullptr, $PUBLIC, $virtualMethod(GetUI$CustomJComponent, setUI, void, $ComponentUI*)},
-	{}
-};
-
-$InnerClassInfo _GetUI$CustomJComponent_InnerClassesInfo_[] = {
-	{"GetUI$CustomJComponent", "GetUI", "CustomJComponent", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _GetUI$CustomJComponent_ClassInfo_ = {
-	$ACC_SUPER,
-	"GetUI$CustomJComponent",
-	"javax.swing.JComponent",
-	nullptr,
-	nullptr,
-	_GetUI$CustomJComponent_MethodInfo_,
-	nullptr,
-	nullptr,
-	_GetUI$CustomJComponent_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"GetUI"
-};
-
-$Object* allocate$GetUI$CustomJComponent($Class* clazz) {
-	return $of($alloc(GetUI$CustomJComponent));
-}
 
 void GetUI$CustomJComponent::init$() {
 	$JComponent::init$();
@@ -59,7 +26,34 @@ GetUI$CustomJComponent::GetUI$CustomJComponent() {
 }
 
 $Class* GetUI$CustomJComponent::load$($String* name, bool initialize) {
-	$loadClass(GetUI$CustomJComponent, name, initialize, &_GetUI$CustomJComponent_ClassInfo_, allocate$GetUI$CustomJComponent);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(GetUI$CustomJComponent, init$, void)},
+		{"getUI", "()Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC, $virtualMethod(GetUI$CustomJComponent, getUI, $ComponentUI*)},
+		{"setUI", "(Ljavax/swing/plaf/ComponentUI;)V", nullptr, $PUBLIC, $virtualMethod(GetUI$CustomJComponent, setUI, void, $ComponentUI*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"GetUI$CustomJComponent", "GetUI", "CustomJComponent", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"GetUI$CustomJComponent",
+		"javax.swing.JComponent",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"GetUI"
+	};
+	$loadClass(GetUI$CustomJComponent, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(GetUI$CustomJComponent));
+	});
 	return class$;
 }
 

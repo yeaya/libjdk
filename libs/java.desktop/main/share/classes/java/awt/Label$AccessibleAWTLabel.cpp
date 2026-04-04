@@ -1,7 +1,5 @@
 #include <java/awt/Label$AccessibleAWTLabel.h>
-
 #include <java/awt/Component$AccessibleAWTComponent.h>
-#include <java/awt/Component.h>
 #include <java/awt/Label.h>
 #include <javax/accessibility/AccessibleContext.h>
 #include <javax/accessibility/AccessibleRole.h>
@@ -9,7 +7,6 @@
 
 #undef LABEL
 
-using $Component = ::java::awt::Component;
 using $Component$AccessibleAWTComponent = ::java::awt::Component$AccessibleAWTComponent;
 using $Label = ::java::awt::Label;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -20,45 +17,6 @@ using $AccessibleRole = ::javax::accessibility::AccessibleRole;
 
 namespace java {
 	namespace awt {
-
-$FieldInfo _Label$AccessibleAWTLabel_FieldInfo_[] = {
-	{"this$0", "Ljava/awt/Label;", nullptr, $FINAL | $SYNTHETIC, $field(Label$AccessibleAWTLabel, this$0)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Label$AccessibleAWTLabel, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _Label$AccessibleAWTLabel_MethodInfo_[] = {
-	{"<init>", "(Ljava/awt/Label;)V", nullptr, $PUBLIC, $method(Label$AccessibleAWTLabel, init$, void, $Label*)},
-	{"getAccessibleName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Label$AccessibleAWTLabel, getAccessibleName, $String*)},
-	{"getAccessibleRole", "()Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC, $virtualMethod(Label$AccessibleAWTLabel, getAccessibleRole, $AccessibleRole*)},
-	{}
-};
-
-$InnerClassInfo _Label$AccessibleAWTLabel_InnerClassesInfo_[] = {
-	{"java.awt.Label$AccessibleAWTLabel", "java.awt.Label", "AccessibleAWTLabel", $PROTECTED},
-	{"java.awt.Component$AccessibleAWTComponent", "java.awt.Component", "AccessibleAWTComponent", $PROTECTED | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Label$AccessibleAWTLabel_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.awt.Label$AccessibleAWTLabel",
-	"java.awt.Component$AccessibleAWTComponent",
-	nullptr,
-	_Label$AccessibleAWTLabel_FieldInfo_,
-	_Label$AccessibleAWTLabel_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Label$AccessibleAWTLabel_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.awt.Label"
-};
-
-$Object* allocate$Label$AccessibleAWTLabel($Class* clazz) {
-	return $of($alloc(Label$AccessibleAWTLabel));
-}
 
 void Label$AccessibleAWTLabel::init$($Label* this$0) {
 	$set(this, this$0, this$0);
@@ -84,7 +42,40 @@ Label$AccessibleAWTLabel::Label$AccessibleAWTLabel() {
 }
 
 $Class* Label$AccessibleAWTLabel::load$($String* name, bool initialize) {
-	$loadClass(Label$AccessibleAWTLabel, name, initialize, &_Label$AccessibleAWTLabel_ClassInfo_, allocate$Label$AccessibleAWTLabel);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljava/awt/Label;", nullptr, $FINAL | $SYNTHETIC, $field(Label$AccessibleAWTLabel, this$0)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Label$AccessibleAWTLabel, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/Label;)V", nullptr, $PUBLIC, $method(Label$AccessibleAWTLabel, init$, void, $Label*)},
+		{"getAccessibleName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Label$AccessibleAWTLabel, getAccessibleName, $String*)},
+		{"getAccessibleRole", "()Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC, $virtualMethod(Label$AccessibleAWTLabel, getAccessibleRole, $AccessibleRole*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.awt.Label$AccessibleAWTLabel", "java.awt.Label", "AccessibleAWTLabel", $PROTECTED},
+		{"java.awt.Component$AccessibleAWTComponent", "java.awt.Component", "AccessibleAWTComponent", $PROTECTED | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.awt.Label$AccessibleAWTLabel",
+		"java.awt.Component$AccessibleAWTComponent",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.awt.Label"
+	};
+	$loadClass(Label$AccessibleAWTLabel, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Label$AccessibleAWTLabel));
+	});
 	return class$;
 }
 

@@ -66,6 +66,7 @@ public:
 	virtual $String* getAlgorithm() override;
 	virtual ::java::security::spec::AlgorithmParameterSpec* getParameterSpec() override;
 	virtual bool isFeatureSupported($String* feature) override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::javax::xml::crypto::dsig::TransformService* spi);
 	void init$(::org::w3c::dom::Element* cmElem, ::javax::xml::crypto::XMLCryptoContext* context, ::java::security::Provider* provider);
 	virtual ::javax::xml::crypto::Data* canonicalize(::javax::xml::crypto::Data* data, ::javax::xml::crypto::XMLCryptoContext* xc);

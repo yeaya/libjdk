@@ -1,5 +1,4 @@
 #include <com/sun/media/sound/SunFileReader.h>
-
 #include <com/sun/media/sound/StandardFileFormat.h>
 #include <java/io/BufferedInputStream.h>
 #include <java/io/DataInputStream.h>
@@ -41,107 +40,72 @@ namespace com {
 		namespace media {
 			namespace sound {
 
-$MethodInfo _SunFileReader_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(SunFileReader, init$, void)},
-	{"big2little", "(I)I", nullptr, $FINAL, $method(SunFileReader, big2little, int32_t, int32_t)},
-	{"big2littleShort", "(S)S", nullptr, $FINAL, $method(SunFileReader, big2littleShort, int16_t, int16_t)},
-	{"calculatePCMFrameSize", "(II)I", nullptr, $STATIC | $FINAL, $staticMethod(SunFileReader, calculatePCMFrameSize, int32_t, int32_t, int32_t)},
-	{"closeSilently", "(Ljava/io/InputStream;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(SunFileReader, closeSilently, void, $InputStream*)},
-	{"getAudioFileFormat", "(Ljava/io/InputStream;)Lcom/sun/media/sound/StandardFileFormat;", nullptr, $PUBLIC | $FINAL, $virtualMethod(SunFileReader, getAudioFileFormat, $AudioFileFormat*, $InputStream*), "javax.sound.sampled.UnsupportedAudioFileException,java.io.IOException"},
-	{"getAudioFileFormat", "(Ljava/net/URL;)Ljavax/sound/sampled/AudioFileFormat;", nullptr, $PUBLIC | $FINAL, $virtualMethod(SunFileReader, getAudioFileFormat, $AudioFileFormat*, $URL*), "javax.sound.sampled.UnsupportedAudioFileException,java.io.IOException"},
-	{"getAudioFileFormat", "(Ljava/io/File;)Ljavax/sound/sampled/AudioFileFormat;", nullptr, $PUBLIC | $FINAL, $virtualMethod(SunFileReader, getAudioFileFormat, $AudioFileFormat*, $File*), "javax.sound.sampled.UnsupportedAudioFileException,java.io.IOException"},
-	{"getAudioFileFormatImpl", "(Ljava/io/InputStream;)Lcom/sun/media/sound/StandardFileFormat;", nullptr, $ABSTRACT, $virtualMethod(SunFileReader, getAudioFileFormatImpl, $StandardFileFormat*, $InputStream*), "javax.sound.sampled.UnsupportedAudioFileException,java.io.IOException"},
-	{"getAudioInputStream", "(Ljava/io/InputStream;)Ljavax/sound/sampled/AudioInputStream;", nullptr, $PUBLIC, $virtualMethod(SunFileReader, getAudioInputStream, $AudioInputStream*, $InputStream*), "javax.sound.sampled.UnsupportedAudioFileException,java.io.IOException"},
-	{"getAudioInputStream", "(Ljava/net/URL;)Ljavax/sound/sampled/AudioInputStream;", nullptr, $PUBLIC | $FINAL, $virtualMethod(SunFileReader, getAudioInputStream, $AudioInputStream*, $URL*), "javax.sound.sampled.UnsupportedAudioFileException,java.io.IOException"},
-	{"getAudioInputStream", "(Ljava/io/File;)Ljavax/sound/sampled/AudioInputStream;", nullptr, $PUBLIC | $FINAL, $virtualMethod(SunFileReader, getAudioInputStream, $AudioInputStream*, $File*), "javax.sound.sampled.UnsupportedAudioFileException,java.io.IOException"},
-	{"rllong", "(Ljava/io/DataInputStream;)I", nullptr, $FINAL, $method(SunFileReader, rllong, int32_t, $DataInputStream*), "java.io.IOException"},
-	{"rlshort", "(Ljava/io/DataInputStream;)S", nullptr, $FINAL, $method(SunFileReader, rlshort, int16_t, $DataInputStream*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _SunFileReader_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"com.sun.media.sound.SunFileReader",
-	"javax.sound.sampled.spi.AudioFileReader",
-	nullptr,
-	nullptr,
-	_SunFileReader_MethodInfo_
-};
-
-$Object* allocate$SunFileReader($Class* clazz) {
-	return $of($alloc(SunFileReader));
-}
-
 void SunFileReader::init$() {
 	$AudioFileReader::init$();
 }
 
 $AudioFileFormat* SunFileReader::getAudioFileFormat($InputStream* stream) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(stream)->mark(200);
-	{
+	$var($Throwable, var$0, nullptr);
+	$var($AudioFileFormat, var$2, nullptr);
+	bool return$1 = false;
+	try {
+		try {
+			$assign(var$2, getAudioFileFormatImpl(stream));
+			return$1 = true;
+			goto $finally;
+		} catch ($EOFException& ignored) {
+			$throwNew($UnsupportedAudioFileException);
+		}
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		stream->reset();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
+	}
+	$shouldNotReachHere();
+}
+
+$AudioFileFormat* SunFileReader::getAudioFileFormat($URL* url) {
+	$useLocalObjectStack();
+	try {
+		$var($InputStream, is, $nc(url)->openStream());
 		$var($Throwable, var$0, nullptr);
 		$var($AudioFileFormat, var$2, nullptr);
 		bool return$1 = false;
 		try {
 			try {
-				$assign(var$2, getAudioFileFormatImpl(stream));
+				$assign(var$2, getAudioFileFormatImpl($$new($BufferedInputStream, is)));
 				return$1 = true;
 				goto $finally;
-			} catch ($EOFException& ignored) {
-				$throwNew($UnsupportedAudioFileException);
+			} catch ($Throwable& t$) {
+				if (is != nullptr) {
+					try {
+						is->close();
+					} catch ($Throwable& x2) {
+						t$->addSuppressed(x2);
+					}
+				}
+				$throw(t$);
 			}
 		} catch ($Throwable& var$3) {
 			$assign(var$0, var$3);
 		} $finally: {
-			stream->reset();
+			if (is != nullptr) {
+				is->close();
+			}
 		}
 		if (var$0 != nullptr) {
 			$throw(var$0);
 		}
 		if (return$1) {
 			return var$2;
-		}
-	}
-	$shouldNotReachHere();
-}
-
-$AudioFileFormat* SunFileReader::getAudioFileFormat($URL* url) {
-	$useLocalCurrentObjectStackCache();
-	try {
-		$var($InputStream, is, $nc(url)->openStream());
-		{
-			$var($Throwable, var$0, nullptr);
-			$var($AudioFileFormat, var$2, nullptr);
-			bool return$1 = false;
-			try {
-				try {
-					$assign(var$2, getAudioFileFormatImpl($$new($BufferedInputStream, is)));
-					return$1 = true;
-					goto $finally;
-				} catch ($Throwable& t$) {
-					if (is != nullptr) {
-						try {
-							is->close();
-						} catch ($Throwable& x2) {
-							t$->addSuppressed(x2);
-						}
-					}
-					$throw(t$);
-				}
-			} catch ($Throwable& var$3) {
-				$assign(var$0, var$3);
-			} $finally: {
-				if (is != nullptr) {
-					is->close();
-				}
-			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
-			if (return$1) {
-				return var$2;
-			}
 		}
 	} catch ($EOFException& ignored) {
 		$throwNew($UnsupportedAudioFileException);
@@ -150,37 +114,35 @@ $AudioFileFormat* SunFileReader::getAudioFileFormat($URL* url) {
 }
 
 $AudioFileFormat* SunFileReader::getAudioFileFormat($File* file) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$var($InputStream, is, $new($FileInputStream, file));
-		{
-			$var($Throwable, var$0, nullptr);
-			$var($AudioFileFormat, var$2, nullptr);
-			bool return$1 = false;
+		$var($Throwable, var$0, nullptr);
+		$var($AudioFileFormat, var$2, nullptr);
+		bool return$1 = false;
+		try {
 			try {
+				$assign(var$2, getAudioFileFormatImpl($$new($BufferedInputStream, is)));
+				return$1 = true;
+				goto $finally;
+			} catch ($Throwable& t$) {
 				try {
-					$assign(var$2, getAudioFileFormatImpl($$new($BufferedInputStream, is)));
-					return$1 = true;
-					goto $finally;
-				} catch ($Throwable& t$) {
-					try {
-						is->close();
-					} catch ($Throwable& x2) {
-						t$->addSuppressed(x2);
-					}
-					$throw(t$);
+					is->close();
+				} catch ($Throwable& x2) {
+					t$->addSuppressed(x2);
 				}
-			} catch ($Throwable& var$3) {
-				$assign(var$0, var$3);
-			} $finally: {
-				is->close();
+				$throw(t$);
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
-			if (return$1) {
-				return var$2;
-			}
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
+		} $finally: {
+			is->close();
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
+		}
+		if (return$1) {
+			return var$2;
 		}
 	} catch ($EOFException& ignored) {
 		$throwNew($UnsupportedAudioFileException);
@@ -189,13 +151,12 @@ $AudioFileFormat* SunFileReader::getAudioFileFormat($File* file) {
 }
 
 $AudioInputStream* SunFileReader::getAudioInputStream($InputStream* stream) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(stream)->mark(200);
 	try {
 		$var($StandardFileFormat, format, getAudioFileFormatImpl(stream));
-		$var($InputStream, var$0, stream);
-		$var($AudioFormat, var$1, $nc(format)->getFormat());
-		return $new($AudioInputStream, var$0, var$1, format->getLongFrameLength());
+		$var($AudioFormat, var$0, $nc(format)->getFormat());
+		return $new($AudioInputStream, stream, var$0, format->getLongFrameLength());
 	} catch ($UnsupportedAudioFileException& ignored) {
 		stream->reset();
 		$throwNew($UnsupportedAudioFileException);
@@ -207,10 +168,10 @@ $AudioInputStream* SunFileReader::getAudioInputStream($InputStream* stream) {
 }
 
 $AudioInputStream* SunFileReader::getAudioInputStream($URL* url) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($InputStream, urlStream, $nc(url)->openStream());
 	try {
-		return getAudioInputStream(static_cast<$InputStream*>($$new($BufferedInputStream, urlStream)));
+		return getAudioInputStream($$new($BufferedInputStream, urlStream));
 	} catch ($Throwable& e) {
 		closeSilently(urlStream);
 		$throw(e);
@@ -219,10 +180,10 @@ $AudioInputStream* SunFileReader::getAudioInputStream($URL* url) {
 }
 
 $AudioInputStream* SunFileReader::getAudioInputStream($File* file) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($InputStream, fileStream, $new($FileInputStream, file));
 	try {
-		return getAudioInputStream(static_cast<$InputStream*>($$new($BufferedInputStream, fileStream)));
+		return getAudioInputStream($$new($BufferedInputStream, fileStream));
 	} catch ($Throwable& e) {
 		closeSilently(fileStream);
 		$throw(e);
@@ -245,10 +206,10 @@ int32_t SunFileReader::rllong($DataInputStream* dis) {
 	int32_t b4 = 0;
 	int32_t i = 0;
 	i = $nc(dis)->readInt();
-	b1 = ((int32_t)(i & (uint32_t)255)) << 24;
-	b2 = ((int32_t)(i & (uint32_t)0x0000FF00)) << 8;
-	b3 = ((int32_t)(i & (uint32_t)0x00FF0000)) >> 8;
-	b4 = (int32_t)((uint32_t)((int32_t)(i & (uint32_t)(int32_t)0xFF000000)) >> 24);
+	b1 = (i & 0xff) << 24;
+	b2 = (i & 0xff00) << 8;
+	b3 = (i & 0x00ff0000) >> 8;
+	b4 = (int32_t)((uint32_t)(i & (int32_t)0xff000000) >> 24);
 	i = (((b1 | b2) | b3) | b4);
 	return i;
 }
@@ -258,21 +219,21 @@ int32_t SunFileReader::big2little(int32_t i) {
 	int32_t b2 = 0;
 	int32_t b3 = 0;
 	int32_t b4 = 0;
-	b1 = ((int32_t)(i & (uint32_t)255)) << 24;
-	b2 = ((int32_t)(i & (uint32_t)0x0000FF00)) << 8;
-	b3 = ((int32_t)(i & (uint32_t)0x00FF0000)) >> 8;
-	b4 = (int32_t)((uint32_t)((int32_t)(i & (uint32_t)(int32_t)0xFF000000)) >> 24);
+	b1 = (i & 0xff) << 24;
+	b2 = (i & 0xff00) << 8;
+	b3 = (i & 0x00ff0000) >> 8;
+	b4 = (int32_t)((uint32_t)(i & (int32_t)0xff000000) >> 24);
 	i = (((b1 | b2) | b3) | b4);
 	return i;
 }
 
 int16_t SunFileReader::rlshort($DataInputStream* dis) {
-	int16_t s = (int16_t)0;
+	int16_t s = 0;
 	int16_t high = 0;
 	int16_t low = 0;
 	s = $nc(dis)->readShort();
-	high = (int16_t)(((int32_t)(s & (uint32_t)255)) << 8);
-	low = (int16_t)((int32_t)((uint32_t)((int32_t)(s & (uint32_t)0x0000FF00)) >> 8));
+	high = (int16_t)((s & 0xff) << 8);
+	low = (int16_t)((int32_t)((uint32_t)(s & 0xff00) >> 8));
 	s = (int16_t)(high | low);
 	return s;
 }
@@ -280,8 +241,8 @@ int16_t SunFileReader::rlshort($DataInputStream* dis) {
 int16_t SunFileReader::big2littleShort(int16_t i) {
 	int16_t high = 0;
 	int16_t low = 0;
-	high = (int16_t)(((int32_t)(i & (uint32_t)255)) << 8);
-	low = (int16_t)((int32_t)((uint32_t)((int32_t)(i & (uint32_t)0x0000FF00)) >> 8));
+	high = (int16_t)((i & 0xff) << 8);
+	low = (int16_t)((int32_t)((uint32_t)(i & 0xff00) >> 8));
 	i = (int16_t)(high | low);
 	return i;
 }
@@ -300,7 +261,34 @@ SunFileReader::SunFileReader() {
 }
 
 $Class* SunFileReader::load$($String* name, bool initialize) {
-	$loadClass(SunFileReader, name, initialize, &_SunFileReader_ClassInfo_, allocate$SunFileReader);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(SunFileReader, init$, void)},
+		{"big2little", "(I)I", nullptr, $FINAL, $method(SunFileReader, big2little, int32_t, int32_t)},
+		{"big2littleShort", "(S)S", nullptr, $FINAL, $method(SunFileReader, big2littleShort, int16_t, int16_t)},
+		{"calculatePCMFrameSize", "(II)I", nullptr, $STATIC | $FINAL, $staticMethod(SunFileReader, calculatePCMFrameSize, int32_t, int32_t, int32_t)},
+		{"closeSilently", "(Ljava/io/InputStream;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(SunFileReader, closeSilently, void, $InputStream*)},
+		{"getAudioFileFormat", "(Ljava/io/InputStream;)Lcom/sun/media/sound/StandardFileFormat;", nullptr, $PUBLIC | $FINAL, $virtualMethod(SunFileReader, getAudioFileFormat, $AudioFileFormat*, $InputStream*), "javax.sound.sampled.UnsupportedAudioFileException,java.io.IOException"},
+		{"getAudioFileFormat", "(Ljava/net/URL;)Ljavax/sound/sampled/AudioFileFormat;", nullptr, $PUBLIC | $FINAL, $virtualMethod(SunFileReader, getAudioFileFormat, $AudioFileFormat*, $URL*), "javax.sound.sampled.UnsupportedAudioFileException,java.io.IOException"},
+		{"getAudioFileFormat", "(Ljava/io/File;)Ljavax/sound/sampled/AudioFileFormat;", nullptr, $PUBLIC | $FINAL, $virtualMethod(SunFileReader, getAudioFileFormat, $AudioFileFormat*, $File*), "javax.sound.sampled.UnsupportedAudioFileException,java.io.IOException"},
+		{"getAudioFileFormatImpl", "(Ljava/io/InputStream;)Lcom/sun/media/sound/StandardFileFormat;", nullptr, $ABSTRACT, $virtualMethod(SunFileReader, getAudioFileFormatImpl, $StandardFileFormat*, $InputStream*), "javax.sound.sampled.UnsupportedAudioFileException,java.io.IOException"},
+		{"getAudioInputStream", "(Ljava/io/InputStream;)Ljavax/sound/sampled/AudioInputStream;", nullptr, $PUBLIC, $virtualMethod(SunFileReader, getAudioInputStream, $AudioInputStream*, $InputStream*), "javax.sound.sampled.UnsupportedAudioFileException,java.io.IOException"},
+		{"getAudioInputStream", "(Ljava/net/URL;)Ljavax/sound/sampled/AudioInputStream;", nullptr, $PUBLIC | $FINAL, $virtualMethod(SunFileReader, getAudioInputStream, $AudioInputStream*, $URL*), "javax.sound.sampled.UnsupportedAudioFileException,java.io.IOException"},
+		{"getAudioInputStream", "(Ljava/io/File;)Ljavax/sound/sampled/AudioInputStream;", nullptr, $PUBLIC | $FINAL, $virtualMethod(SunFileReader, getAudioInputStream, $AudioInputStream*, $File*), "javax.sound.sampled.UnsupportedAudioFileException,java.io.IOException"},
+		{"rllong", "(Ljava/io/DataInputStream;)I", nullptr, $FINAL, $method(SunFileReader, rllong, int32_t, $DataInputStream*), "java.io.IOException"},
+		{"rlshort", "(Ljava/io/DataInputStream;)S", nullptr, $FINAL, $method(SunFileReader, rlshort, int16_t, $DataInputStream*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"com.sun.media.sound.SunFileReader",
+		"javax.sound.sampled.spi.AudioFileReader",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(SunFileReader, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SunFileReader);
+	});
 	return class$;
 }
 

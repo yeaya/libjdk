@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/synth/SynthScrollBarUI.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/ComponentOrientation.h>
 #include <java/awt/Dimension.h>
@@ -8,7 +7,6 @@
 #include <java/awt/LayoutManager.h>
 #include <java/awt/Rectangle.h>
 #include <java/beans/PropertyChangeEvent.h>
-#include <java/beans/PropertyChangeListener.h>
 #include <javax/swing/JButton.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JScrollBar.h>
@@ -25,7 +23,6 @@
 #include <javax/swing/plaf/synth/SynthScrollBarUI$1.h>
 #include <javax/swing/plaf/synth/SynthScrollBarUI$2.h>
 #include <javax/swing/plaf/synth/SynthStyle.h>
-#include <javax/swing/plaf/synth/SynthUI.h>
 #include <jcpp.h>
 
 #undef EAST
@@ -41,15 +38,11 @@
 #undef VERTICAL
 #undef WEST
 
-using $Component = ::java::awt::Component;
-using $ComponentOrientation = ::java::awt::ComponentOrientation;
 using $Dimension = ::java::awt::Dimension;
 using $Graphics = ::java::awt::Graphics;
 using $Insets = ::java::awt::Insets;
-using $LayoutManager = ::java::awt::LayoutManager;
 using $Rectangle = ::java::awt::Rectangle;
 using $PropertyChangeEvent = ::java::beans::PropertyChangeEvent;
-using $PropertyChangeListener = ::java::beans::PropertyChangeListener;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Double = ::java::lang::Double;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -67,95 +60,14 @@ using $SynthArrowButton = ::javax::swing::plaf::synth::SynthArrowButton;
 using $SynthConstants = ::javax::swing::plaf::synth::SynthConstants;
 using $SynthContext = ::javax::swing::plaf::synth::SynthContext;
 using $SynthLookAndFeel = ::javax::swing::plaf::synth::SynthLookAndFeel;
-using $SynthPainter = ::javax::swing::plaf::synth::SynthPainter;
 using $SynthScrollBarUI$1 = ::javax::swing::plaf::synth::SynthScrollBarUI$1;
 using $SynthScrollBarUI$2 = ::javax::swing::plaf::synth::SynthScrollBarUI$2;
 using $SynthStyle = ::javax::swing::plaf::synth::SynthStyle;
-using $SynthUI = ::javax::swing::plaf::synth::SynthUI;
 
 namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace synth {
-
-$FieldInfo _SynthScrollBarUI_FieldInfo_[] = {
-	{"style", "Ljavax/swing/plaf/synth/SynthStyle;", nullptr, $PRIVATE, $field(SynthScrollBarUI, style)},
-	{"thumbStyle", "Ljavax/swing/plaf/synth/SynthStyle;", nullptr, $PRIVATE, $field(SynthScrollBarUI, thumbStyle)},
-	{"trackStyle", "Ljavax/swing/plaf/synth/SynthStyle;", nullptr, $PRIVATE, $field(SynthScrollBarUI, trackStyle)},
-	{"validMinimumThumbSize", "Z", nullptr, $PRIVATE, $field(SynthScrollBarUI, validMinimumThumbSize)},
-	{}
-};
-
-$MethodInfo _SynthScrollBarUI_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SynthScrollBarUI, init$, void)},
-	{"access$000", "(Ljavax/swing/plaf/synth/SynthScrollBarUI;)I", nullptr, $STATIC | $SYNTHETIC, $staticMethod(SynthScrollBarUI, access$000, int32_t, SynthScrollBarUI*)},
-	{"access$100", "(Ljavax/swing/plaf/synth/SynthScrollBarUI;)Ljavax/swing/JScrollBar;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(SynthScrollBarUI, access$100, $JScrollBar*, SynthScrollBarUI*)},
-	{"access$200", "(Ljavax/swing/plaf/synth/SynthScrollBarUI;)I", nullptr, $STATIC | $SYNTHETIC, $staticMethod(SynthScrollBarUI, access$200, int32_t, SynthScrollBarUI*)},
-	{"access$300", "(Ljavax/swing/plaf/synth/SynthScrollBarUI;)I", nullptr, $STATIC | $SYNTHETIC, $staticMethod(SynthScrollBarUI, access$300, int32_t, SynthScrollBarUI*)},
-	{"access$400", "(Ljavax/swing/plaf/synth/SynthScrollBarUI;)I", nullptr, $STATIC | $SYNTHETIC, $staticMethod(SynthScrollBarUI, access$400, int32_t, SynthScrollBarUI*)},
-	{"access$500", "(Ljavax/swing/plaf/synth/SynthScrollBarUI;)Ljavax/swing/JScrollBar;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(SynthScrollBarUI, access$500, $JScrollBar*, SynthScrollBarUI*)},
-	{"access$600", "(Ljavax/swing/plaf/synth/SynthScrollBarUI;)I", nullptr, $STATIC | $SYNTHETIC, $staticMethod(SynthScrollBarUI, access$600, int32_t, SynthScrollBarUI*)},
-	{"access$700", "(Ljavax/swing/plaf/synth/SynthScrollBarUI;)I", nullptr, $STATIC | $SYNTHETIC, $staticMethod(SynthScrollBarUI, access$700, int32_t, SynthScrollBarUI*)},
-	{"access$800", "(Ljavax/swing/plaf/synth/SynthScrollBarUI;)I", nullptr, $STATIC | $SYNTHETIC, $staticMethod(SynthScrollBarUI, access$800, int32_t, SynthScrollBarUI*)},
-	{"access$900", "(Ljavax/swing/plaf/synth/SynthScrollBarUI;)I", nullptr, $STATIC | $SYNTHETIC, $staticMethod(SynthScrollBarUI, access$900, int32_t, SynthScrollBarUI*)},
-	{"configureScrollBarColors", "()V", nullptr, $PROTECTED, $virtualMethod(SynthScrollBarUI, configureScrollBarColors, void)},
-	{"createDecreaseButton", "(I)Ljavax/swing/JButton;", nullptr, $PROTECTED, $virtualMethod(SynthScrollBarUI, createDecreaseButton, $JButton*, int32_t)},
-	{"createIncreaseButton", "(I)Ljavax/swing/JButton;", nullptr, $PROTECTED, $virtualMethod(SynthScrollBarUI, createIncreaseButton, $JButton*, int32_t)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(SynthScrollBarUI, createUI, $ComponentUI*, $JComponent*)},
-	{"getComponentState", "(Ljavax/swing/JComponent;Ljavax/swing/plaf/synth/Region;)I", nullptr, $PRIVATE, $method(SynthScrollBarUI, getComponentState, int32_t, $JComponent*, $Region*)},
-	{"getContext", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/synth/SynthContext;", nullptr, $PUBLIC, $virtualMethod(SynthScrollBarUI, getContext, $SynthContext*, $JComponent*)},
-	{"getContext", "(Ljavax/swing/JComponent;I)Ljavax/swing/plaf/synth/SynthContext;", nullptr, $PRIVATE, $method(SynthScrollBarUI, getContext, $SynthContext*, $JComponent*, int32_t)},
-	{"getContext", "(Ljavax/swing/JComponent;Ljavax/swing/plaf/synth/Region;)Ljavax/swing/plaf/synth/SynthContext;", nullptr, $PRIVATE, $method(SynthScrollBarUI, getContext, $SynthContext*, $JComponent*, $Region*)},
-	{"getContext", "(Ljavax/swing/JComponent;Ljavax/swing/plaf/synth/Region;I)Ljavax/swing/plaf/synth/SynthContext;", nullptr, $PRIVATE, $method(SynthScrollBarUI, getContext, $SynthContext*, $JComponent*, $Region*, int32_t)},
-	{"getMinimumThumbSize", "()Ljava/awt/Dimension;", nullptr, $PROTECTED, $virtualMethod(SynthScrollBarUI, getMinimumThumbSize, $Dimension*)},
-	{"getPreferredSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(SynthScrollBarUI, getPreferredSize, $Dimension*, $JComponent*)},
-	{"getSupportsAbsolutePositioning", "()Z", nullptr, $PUBLIC, $virtualMethod(SynthScrollBarUI, getSupportsAbsolutePositioning, bool)},
-	{"installDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(SynthScrollBarUI, installDefaults, void)},
-	{"installListeners", "()V", nullptr, $PROTECTED, $virtualMethod(SynthScrollBarUI, installListeners, void)},
-	{"paint", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(SynthScrollBarUI, paint, void, $Graphics*, $JComponent*)},
-	{"paint", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;)V", nullptr, $PROTECTED, $virtualMethod(SynthScrollBarUI, paint, void, $SynthContext*, $Graphics*)},
-	{"paintBorder", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(SynthScrollBarUI, paintBorder, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{"paintThumb", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;Ljava/awt/Rectangle;)V", nullptr, $PROTECTED, $virtualMethod(SynthScrollBarUI, paintThumb, void, $SynthContext*, $Graphics*, $Rectangle*)},
-	{"paintTrack", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;Ljava/awt/Rectangle;)V", nullptr, $PROTECTED, $virtualMethod(SynthScrollBarUI, paintTrack, void, $SynthContext*, $Graphics*, $Rectangle*)},
-	{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(SynthScrollBarUI, propertyChange, void, $PropertyChangeEvent*)},
-	{"setThumbRollover", "(Z)V", nullptr, $PROTECTED, $virtualMethod(SynthScrollBarUI, setThumbRollover, void, bool)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"uninstallDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(SynthScrollBarUI, uninstallDefaults, void)},
-	{"uninstallListeners", "()V", nullptr, $PROTECTED, $virtualMethod(SynthScrollBarUI, uninstallListeners, void)},
-	{"update", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(SynthScrollBarUI, update, void, $Graphics*, $JComponent*)},
-	{"updateButtonDirections", "()V", nullptr, $PRIVATE, $method(SynthScrollBarUI, updateButtonDirections, void)},
-	{"updateStyle", "(Ljavax/swing/JScrollBar;)V", nullptr, $PRIVATE, $method(SynthScrollBarUI, updateStyle, void, $JScrollBar*)},
-	{}
-};
-
-$InnerClassInfo _SynthScrollBarUI_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.synth.SynthScrollBarUI$2", nullptr, nullptr, 0},
-	{"javax.swing.plaf.synth.SynthScrollBarUI$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _SynthScrollBarUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.synth.SynthScrollBarUI",
-	"javax.swing.plaf.basic.BasicScrollBarUI",
-	"java.beans.PropertyChangeListener,javax.swing.plaf.synth.SynthUI",
-	_SynthScrollBarUI_FieldInfo_,
-	_SynthScrollBarUI_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SynthScrollBarUI_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.synth.SynthScrollBarUI$2,javax.swing.plaf.synth.SynthScrollBarUI$1"
-};
-
-$Object* allocate$SynthScrollBarUI($Class* clazz) {
-	return $of($alloc(SynthScrollBarUI));
-}
 
 int32_t SynthScrollBarUI::hashCode() {
 	 return this->$BasicScrollBarUI::hashCode();
@@ -240,7 +152,7 @@ void SynthScrollBarUI::installDefaults() {
 	$BasicScrollBarUI::installDefaults();
 	this->trackHighlight = $BasicScrollBarUI::NO_HIGHLIGHT;
 	bool var$0 = $nc(this->scrollbar)->getLayout() == nullptr;
-	if (var$0 || ($instanceOf($UIResource, $($nc(this->scrollbar)->getLayout())))) {
+	if (var$0 || ($instanceOf($UIResource, $(this->scrollbar->getLayout())))) {
 		$nc(this->scrollbar)->setLayout(this);
 	}
 	configureScrollBarColors();
@@ -251,9 +163,9 @@ void SynthScrollBarUI::configureScrollBarColors() {
 }
 
 void SynthScrollBarUI::updateStyle($JScrollBar* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SynthStyle, oldStyle, this->style);
-	$var($SynthContext, context, getContext(static_cast<$JComponent*>(c), $SynthConstants::ENABLED));
+	$var($SynthContext, context, getContext(c, $SynthConstants::ENABLED));
 	$set(this, style, $SynthLookAndFeel::updateStyle(context, this));
 	if (this->style != oldStyle) {
 		this->scrollBarWidth = $nc(this->style)->getInt(context, "ScrollBar.thumbHeight"_s, 14);
@@ -309,7 +221,7 @@ void SynthScrollBarUI::uninstallListeners() {
 }
 
 void SynthScrollBarUI::uninstallDefaults() {
-	$var($SynthContext, context, getContext(static_cast<$JComponent*>(this->scrollbar), $SynthConstants::ENABLED));
+	$var($SynthContext, context, getContext(this->scrollbar, $SynthConstants::ENABLED));
 	$nc(this->style)->uninstallDefaults(context);
 	$set(this, style, nullptr);
 	$init($Region);
@@ -362,14 +274,12 @@ bool SynthScrollBarUI::getSupportsAbsolutePositioning() {
 }
 
 void SynthScrollBarUI::update($Graphics* g, $JComponent* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SynthContext, context, getContext(c));
 	$SynthLookAndFeel::update(context, g);
-	$var($SynthContext, var$0, context);
-	$var($Graphics, var$1, g);
-	int32_t var$2 = $nc(c)->getWidth();
-	int32_t var$3 = c->getHeight();
-	$nc($($nc(context)->getPainter()))->paintScrollBarBackground(var$0, var$1, 0, 0, var$2, var$3, $nc(this->scrollbar)->getOrientation());
+	int32_t var$0 = $nc(c)->getWidth();
+	int32_t var$1 = c->getHeight();
+	$$nc($nc(context)->getPainter())->paintScrollBarBackground(context, g, 0, 0, var$0, var$1, $nc(this->scrollbar)->getOrientation());
 	paint(context, g);
 }
 
@@ -379,46 +289,46 @@ void SynthScrollBarUI::paint($Graphics* g, $JComponent* c) {
 }
 
 void SynthScrollBarUI::paint($SynthContext* context, $Graphics* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Region);
-	$var($SynthContext, subcontext, getContext(static_cast<$JComponent*>(this->scrollbar), $Region::SCROLL_BAR_TRACK));
+	$var($SynthContext, subcontext, getContext(this->scrollbar, $Region::SCROLL_BAR_TRACK));
 	paintTrack(subcontext, g, $(getTrackBounds()));
-	$assign(subcontext, getContext(static_cast<$JComponent*>(this->scrollbar), $Region::SCROLL_BAR_THUMB));
+	$assign(subcontext, getContext(this->scrollbar, $Region::SCROLL_BAR_THUMB));
 	paintThumb(subcontext, g, $(getThumbBounds()));
 }
 
 void SynthScrollBarUI::paintBorder($SynthContext* context, $Graphics* g, int32_t x, int32_t y, int32_t w, int32_t h) {
-	$nc($($nc(context)->getPainter()))->paintScrollBarBorder(context, g, x, y, w, h, $nc(this->scrollbar)->getOrientation());
+	$$nc($nc(context)->getPainter())->paintScrollBarBorder(context, g, x, y, w, h, $nc(this->scrollbar)->getOrientation());
 }
 
 void SynthScrollBarUI::paintTrack($SynthContext* context, $Graphics* g, $Rectangle* trackBounds) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$SynthLookAndFeel::updateSubregion(context, g, trackBounds);
-	$nc($($nc(context)->getPainter()))->paintScrollBarTrackBackground(context, g, $nc(trackBounds)->x, trackBounds->y, trackBounds->width, trackBounds->height, $nc(this->scrollbar)->getOrientation());
-	$nc($(context->getPainter()))->paintScrollBarTrackBorder(context, g, $nc(trackBounds)->x, trackBounds->y, trackBounds->width, trackBounds->height, $nc(this->scrollbar)->getOrientation());
+	$$nc($nc(context)->getPainter())->paintScrollBarTrackBackground(context, g, $nc(trackBounds)->x, $nc(trackBounds)->y, $nc(trackBounds)->width, $nc(trackBounds)->height, $nc(this->scrollbar)->getOrientation());
+	$$nc(context->getPainter())->paintScrollBarTrackBorder(context, g, trackBounds->x, trackBounds->y, trackBounds->width, trackBounds->height, $nc(this->scrollbar)->getOrientation());
 }
 
 void SynthScrollBarUI::paintThumb($SynthContext* context, $Graphics* g, $Rectangle* thumbBounds) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$SynthLookAndFeel::updateSubregion(context, g, thumbBounds);
 	int32_t orientation = $nc(this->scrollbar)->getOrientation();
-	$nc($($nc(context)->getPainter()))->paintScrollBarThumbBackground(context, g, $nc(thumbBounds)->x, thumbBounds->y, thumbBounds->width, thumbBounds->height, orientation);
-	$nc($(context->getPainter()))->paintScrollBarThumbBorder(context, g, $nc(thumbBounds)->x, thumbBounds->y, thumbBounds->width, thumbBounds->height, orientation);
+	$$nc($nc(context)->getPainter())->paintScrollBarThumbBackground(context, g, $nc(thumbBounds)->x, $nc(thumbBounds)->y, $nc(thumbBounds)->width, $nc(thumbBounds)->height, orientation);
+	$$nc(context->getPainter())->paintScrollBarThumbBorder(context, g, thumbBounds->x, thumbBounds->y, thumbBounds->width, thumbBounds->height, orientation);
 }
 
 $Dimension* SynthScrollBarUI::getPreferredSize($JComponent* c) {
 	$var($Insets, insets, $nc(c)->getInsets());
-	return ($nc(this->scrollbar)->getOrientation() == $JScrollBar::VERTICAL) ? $new($Dimension, this->scrollBarWidth + $nc(insets)->left + insets->right, 48) : $new($Dimension, 48, this->scrollBarWidth + $nc(insets)->top + insets->bottom);
+	return ($nc(this->scrollbar)->getOrientation() == $JScrollBar::VERTICAL) ? $new($Dimension, this->scrollBarWidth + $nc(insets)->left + $nc(insets)->right, 48) : $new($Dimension, 48, this->scrollBarWidth + $nc(insets)->top + $nc(insets)->bottom);
 }
 
 $Dimension* SynthScrollBarUI::getMinimumThumbSize() {
 	if (!this->validMinimumThumbSize) {
 		if ($nc(this->scrollbar)->getOrientation() == $JScrollBar::VERTICAL) {
 			$nc(this->minimumThumbSize)->width = this->scrollBarWidth;
-			$nc(this->minimumThumbSize)->height = 7;
+			this->minimumThumbSize->height = 7;
 		} else {
 			$nc(this->minimumThumbSize)->width = 7;
-			$nc(this->minimumThumbSize)->height = this->scrollBarWidth;
+			this->minimumThumbSize->height = this->scrollBarWidth;
 		}
 	}
 	return this->minimumThumbSize;
@@ -445,20 +355,20 @@ void SynthScrollBarUI::setThumbRollover(bool active) {
 
 void SynthScrollBarUI::updateButtonDirections() {
 	int32_t orient = $nc(this->scrollbar)->getOrientation();
-	if ($nc($($nc(this->scrollbar)->getComponentOrientation()))->isLeftToRight()) {
-		$nc(($cast($SynthArrowButton, this->incrButton)))->setDirection(orient == $SwingConstants::HORIZONTAL ? $SwingConstants::EAST : $SwingConstants::SOUTH);
-		$nc(($cast($SynthArrowButton, this->decrButton)))->setDirection(orient == $SwingConstants::HORIZONTAL ? $SwingConstants::WEST : $SwingConstants::NORTH);
+	if ($$nc($nc(this->scrollbar)->getComponentOrientation())->isLeftToRight()) {
+		$nc($cast($SynthArrowButton, this->incrButton))->setDirection(orient == $SwingConstants::HORIZONTAL ? $SwingConstants::EAST : $SwingConstants::SOUTH);
+		$nc($cast($SynthArrowButton, this->decrButton))->setDirection(orient == $SwingConstants::HORIZONTAL ? $SwingConstants::WEST : $SwingConstants::NORTH);
 	} else {
-		$nc(($cast($SynthArrowButton, this->incrButton)))->setDirection(orient == $SwingConstants::HORIZONTAL ? $SwingConstants::WEST : $SwingConstants::SOUTH);
-		$nc(($cast($SynthArrowButton, this->decrButton)))->setDirection(orient == $SwingConstants::HORIZONTAL ? $SwingConstants::EAST : $SwingConstants::NORTH);
+		$nc($cast($SynthArrowButton, this->incrButton))->setDirection(orient == $SwingConstants::HORIZONTAL ? $SwingConstants::WEST : $SwingConstants::SOUTH);
+		$nc($cast($SynthArrowButton, this->decrButton))->setDirection(orient == $SwingConstants::HORIZONTAL ? $SwingConstants::EAST : $SwingConstants::NORTH);
 	}
 }
 
 void SynthScrollBarUI::propertyChange($PropertyChangeEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, propertyName, $nc(e)->getPropertyName());
 	if ($SynthLookAndFeel::shouldUpdateStyle(e)) {
-		updateStyle($cast($JScrollBar, $(e->getSource())));
+		updateStyle($$cast($JScrollBar, e->getSource()));
 	}
 	if ("orientation"_s == propertyName) {
 		updateButtonDirections();
@@ -471,7 +381,80 @@ SynthScrollBarUI::SynthScrollBarUI() {
 }
 
 $Class* SynthScrollBarUI::load$($String* name, bool initialize) {
-	$loadClass(SynthScrollBarUI, name, initialize, &_SynthScrollBarUI_ClassInfo_, allocate$SynthScrollBarUI);
+	$FieldInfo fieldInfos$$[] = {
+		{"style", "Ljavax/swing/plaf/synth/SynthStyle;", nullptr, $PRIVATE, $field(SynthScrollBarUI, style)},
+		{"thumbStyle", "Ljavax/swing/plaf/synth/SynthStyle;", nullptr, $PRIVATE, $field(SynthScrollBarUI, thumbStyle)},
+		{"trackStyle", "Ljavax/swing/plaf/synth/SynthStyle;", nullptr, $PRIVATE, $field(SynthScrollBarUI, trackStyle)},
+		{"validMinimumThumbSize", "Z", nullptr, $PRIVATE, $field(SynthScrollBarUI, validMinimumThumbSize)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SynthScrollBarUI, init$, void)},
+		{"access$000", "(Ljavax/swing/plaf/synth/SynthScrollBarUI;)I", nullptr, $STATIC | $SYNTHETIC, $staticMethod(SynthScrollBarUI, access$000, int32_t, SynthScrollBarUI*)},
+		{"access$100", "(Ljavax/swing/plaf/synth/SynthScrollBarUI;)Ljavax/swing/JScrollBar;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(SynthScrollBarUI, access$100, $JScrollBar*, SynthScrollBarUI*)},
+		{"access$200", "(Ljavax/swing/plaf/synth/SynthScrollBarUI;)I", nullptr, $STATIC | $SYNTHETIC, $staticMethod(SynthScrollBarUI, access$200, int32_t, SynthScrollBarUI*)},
+		{"access$300", "(Ljavax/swing/plaf/synth/SynthScrollBarUI;)I", nullptr, $STATIC | $SYNTHETIC, $staticMethod(SynthScrollBarUI, access$300, int32_t, SynthScrollBarUI*)},
+		{"access$400", "(Ljavax/swing/plaf/synth/SynthScrollBarUI;)I", nullptr, $STATIC | $SYNTHETIC, $staticMethod(SynthScrollBarUI, access$400, int32_t, SynthScrollBarUI*)},
+		{"access$500", "(Ljavax/swing/plaf/synth/SynthScrollBarUI;)Ljavax/swing/JScrollBar;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(SynthScrollBarUI, access$500, $JScrollBar*, SynthScrollBarUI*)},
+		{"access$600", "(Ljavax/swing/plaf/synth/SynthScrollBarUI;)I", nullptr, $STATIC | $SYNTHETIC, $staticMethod(SynthScrollBarUI, access$600, int32_t, SynthScrollBarUI*)},
+		{"access$700", "(Ljavax/swing/plaf/synth/SynthScrollBarUI;)I", nullptr, $STATIC | $SYNTHETIC, $staticMethod(SynthScrollBarUI, access$700, int32_t, SynthScrollBarUI*)},
+		{"access$800", "(Ljavax/swing/plaf/synth/SynthScrollBarUI;)I", nullptr, $STATIC | $SYNTHETIC, $staticMethod(SynthScrollBarUI, access$800, int32_t, SynthScrollBarUI*)},
+		{"access$900", "(Ljavax/swing/plaf/synth/SynthScrollBarUI;)I", nullptr, $STATIC | $SYNTHETIC, $staticMethod(SynthScrollBarUI, access$900, int32_t, SynthScrollBarUI*)},
+		{"configureScrollBarColors", "()V", nullptr, $PROTECTED, $virtualMethod(SynthScrollBarUI, configureScrollBarColors, void)},
+		{"createDecreaseButton", "(I)Ljavax/swing/JButton;", nullptr, $PROTECTED, $virtualMethod(SynthScrollBarUI, createDecreaseButton, $JButton*, int32_t)},
+		{"createIncreaseButton", "(I)Ljavax/swing/JButton;", nullptr, $PROTECTED, $virtualMethod(SynthScrollBarUI, createIncreaseButton, $JButton*, int32_t)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(SynthScrollBarUI, createUI, $ComponentUI*, $JComponent*)},
+		{"getComponentState", "(Ljavax/swing/JComponent;Ljavax/swing/plaf/synth/Region;)I", nullptr, $PRIVATE, $method(SynthScrollBarUI, getComponentState, int32_t, $JComponent*, $Region*)},
+		{"getContext", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/synth/SynthContext;", nullptr, $PUBLIC, $virtualMethod(SynthScrollBarUI, getContext, $SynthContext*, $JComponent*)},
+		{"getContext", "(Ljavax/swing/JComponent;I)Ljavax/swing/plaf/synth/SynthContext;", nullptr, $PRIVATE, $method(SynthScrollBarUI, getContext, $SynthContext*, $JComponent*, int32_t)},
+		{"getContext", "(Ljavax/swing/JComponent;Ljavax/swing/plaf/synth/Region;)Ljavax/swing/plaf/synth/SynthContext;", nullptr, $PRIVATE, $method(SynthScrollBarUI, getContext, $SynthContext*, $JComponent*, $Region*)},
+		{"getContext", "(Ljavax/swing/JComponent;Ljavax/swing/plaf/synth/Region;I)Ljavax/swing/plaf/synth/SynthContext;", nullptr, $PRIVATE, $method(SynthScrollBarUI, getContext, $SynthContext*, $JComponent*, $Region*, int32_t)},
+		{"getMinimumThumbSize", "()Ljava/awt/Dimension;", nullptr, $PROTECTED, $virtualMethod(SynthScrollBarUI, getMinimumThumbSize, $Dimension*)},
+		{"getPreferredSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(SynthScrollBarUI, getPreferredSize, $Dimension*, $JComponent*)},
+		{"getSupportsAbsolutePositioning", "()Z", nullptr, $PUBLIC, $virtualMethod(SynthScrollBarUI, getSupportsAbsolutePositioning, bool)},
+		{"installDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(SynthScrollBarUI, installDefaults, void)},
+		{"installListeners", "()V", nullptr, $PROTECTED, $virtualMethod(SynthScrollBarUI, installListeners, void)},
+		{"paint", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(SynthScrollBarUI, paint, void, $Graphics*, $JComponent*)},
+		{"paint", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;)V", nullptr, $PROTECTED, $virtualMethod(SynthScrollBarUI, paint, void, $SynthContext*, $Graphics*)},
+		{"paintBorder", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(SynthScrollBarUI, paintBorder, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{"paintThumb", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;Ljava/awt/Rectangle;)V", nullptr, $PROTECTED, $virtualMethod(SynthScrollBarUI, paintThumb, void, $SynthContext*, $Graphics*, $Rectangle*)},
+		{"paintTrack", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;Ljava/awt/Rectangle;)V", nullptr, $PROTECTED, $virtualMethod(SynthScrollBarUI, paintTrack, void, $SynthContext*, $Graphics*, $Rectangle*)},
+		{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(SynthScrollBarUI, propertyChange, void, $PropertyChangeEvent*)},
+		{"setThumbRollover", "(Z)V", nullptr, $PROTECTED, $virtualMethod(SynthScrollBarUI, setThumbRollover, void, bool)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"uninstallDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(SynthScrollBarUI, uninstallDefaults, void)},
+		{"uninstallListeners", "()V", nullptr, $PROTECTED, $virtualMethod(SynthScrollBarUI, uninstallListeners, void)},
+		{"update", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(SynthScrollBarUI, update, void, $Graphics*, $JComponent*)},
+		{"updateButtonDirections", "()V", nullptr, $PRIVATE, $method(SynthScrollBarUI, updateButtonDirections, void)},
+		{"updateStyle", "(Ljavax/swing/JScrollBar;)V", nullptr, $PRIVATE, $method(SynthScrollBarUI, updateStyle, void, $JScrollBar*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.synth.SynthScrollBarUI$2", nullptr, nullptr, 0},
+		{"javax.swing.plaf.synth.SynthScrollBarUI$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.synth.SynthScrollBarUI",
+		"javax.swing.plaf.basic.BasicScrollBarUI",
+		"java.beans.PropertyChangeListener,javax.swing.plaf.synth.SynthUI",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.synth.SynthScrollBarUI$2,javax.swing.plaf.synth.SynthScrollBarUI$1"
+	};
+	$loadClass(SynthScrollBarUI, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SynthScrollBarUI));
+	});
 	return class$;
 }
 

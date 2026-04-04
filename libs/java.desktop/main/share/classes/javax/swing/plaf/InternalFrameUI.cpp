@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/InternalFrameUI.h>
-
 #include <javax/swing/plaf/ComponentUI.h>
 #include <jcpp.h>
 
@@ -11,24 +10,6 @@ namespace javax {
 	namespace swing {
 		namespace plaf {
 
-$MethodInfo _InternalFrameUI_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(InternalFrameUI, init$, void)},
-	{}
-};
-
-$ClassInfo _InternalFrameUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"javax.swing.plaf.InternalFrameUI",
-	"javax.swing.plaf.ComponentUI",
-	nullptr,
-	nullptr,
-	_InternalFrameUI_MethodInfo_
-};
-
-$Object* allocate$InternalFrameUI($Class* clazz) {
-	return $of($alloc(InternalFrameUI));
-}
-
 void InternalFrameUI::init$() {
 	$ComponentUI::init$();
 }
@@ -37,7 +18,21 @@ InternalFrameUI::InternalFrameUI() {
 }
 
 $Class* InternalFrameUI::load$($String* name, bool initialize) {
-	$loadClass(InternalFrameUI, name, initialize, &_InternalFrameUI_ClassInfo_, allocate$InternalFrameUI);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PROTECTED, $method(InternalFrameUI, init$, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"javax.swing.plaf.InternalFrameUI",
+		"javax.swing.plaf.ComponentUI",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(InternalFrameUI, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(InternalFrameUI);
+	});
 	return class$;
 }
 

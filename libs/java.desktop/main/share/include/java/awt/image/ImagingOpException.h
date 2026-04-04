@@ -14,10 +14,13 @@ class $import ImagingOpException : public ::java::lang::RuntimeException {
 public:
 	ImagingOpException();
 	void init$($String* s);
-	static const int64_t serialVersionUID = (int64_t)0x6F631AD96141B232;
+	static const int64_t serialVersionUID = (int64_t)0x6f631ad96141b232;
 	ImagingOpException(const ImagingOpException& e);
 	virtual void throw$() override;
-	inline ImagingOpException* operator ->() {
+	inline ImagingOpException* operator ->() const {
+		return (ImagingOpException*)throwing$;
+	}
+	inline operator ImagingOpException*() const {
 		return (ImagingOpException*)throwing$;
 	}
 };

@@ -1,5 +1,4 @@
 #include <javax/imageio/plugins/tiff/BaselineTIFFTagSet$DotRange.h>
-
 #include <javax/imageio/plugins/tiff/BaselineTIFFTagSet.h>
 #include <javax/imageio/plugins/tiff/TIFFTag.h>
 #include <jcpp.h>
@@ -17,36 +16,6 @@ namespace javax {
 		namespace plugins {
 			namespace tiff {
 
-$MethodInfo _BaselineTIFFTagSet$DotRange_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(BaselineTIFFTagSet$DotRange, init$, void)},
-	{}
-};
-
-$InnerClassInfo _BaselineTIFFTagSet$DotRange_InnerClassesInfo_[] = {
-	{"javax.imageio.plugins.tiff.BaselineTIFFTagSet$DotRange", "javax.imageio.plugins.tiff.BaselineTIFFTagSet", "DotRange", $STATIC},
-	{}
-};
-
-$ClassInfo _BaselineTIFFTagSet$DotRange_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.imageio.plugins.tiff.BaselineTIFFTagSet$DotRange",
-	"javax.imageio.plugins.tiff.TIFFTag",
-	nullptr,
-	nullptr,
-	_BaselineTIFFTagSet$DotRange_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BaselineTIFFTagSet$DotRange_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.imageio.plugins.tiff.BaselineTIFFTagSet"
-};
-
-$Object* allocate$BaselineTIFFTagSet$DotRange($Class* clazz) {
-	return $of($alloc(BaselineTIFFTagSet$DotRange));
-}
-
 void BaselineTIFFTagSet$DotRange::init$() {
 	$TIFFTag::init$("DotRange"_s, 336, ($sl(1, $TIFFTag::TIFF_BYTE)) | ($sl(1, $TIFFTag::TIFF_SHORT)));
 }
@@ -55,7 +24,32 @@ BaselineTIFFTagSet$DotRange::BaselineTIFFTagSet$DotRange() {
 }
 
 $Class* BaselineTIFFTagSet$DotRange::load$($String* name, bool initialize) {
-	$loadClass(BaselineTIFFTagSet$DotRange, name, initialize, &_BaselineTIFFTagSet$DotRange_ClassInfo_, allocate$BaselineTIFFTagSet$DotRange);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(BaselineTIFFTagSet$DotRange, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.imageio.plugins.tiff.BaselineTIFFTagSet$DotRange", "javax.imageio.plugins.tiff.BaselineTIFFTagSet", "DotRange", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.imageio.plugins.tiff.BaselineTIFFTagSet$DotRange",
+		"javax.imageio.plugins.tiff.TIFFTag",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.imageio.plugins.tiff.BaselineTIFFTagSet"
+	};
+	$loadClass(BaselineTIFFTagSet$DotRange, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BaselineTIFFTagSet$DotRange);
+	});
 	return class$;
 }
 

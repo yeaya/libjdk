@@ -1,5 +1,4 @@
 #include <sun/awt/X11/XWindowAttributesData.h>
-
 #include <java/util/List.h>
 #include <jcpp.h>
 
@@ -26,54 +25,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace sun {
 	namespace awt {
 		namespace X11 {
-
-$FieldInfo _XWindowAttributesData_FieldInfo_[] = {
-	{"NORMAL", "I", nullptr, $STATIC, $staticField(XWindowAttributesData, NORMAL)},
-	{"ICONIC", "I", nullptr, $STATIC, $staticField(XWindowAttributesData, ICONIC)},
-	{"MAXIMIZED", "I", nullptr, $STATIC, $staticField(XWindowAttributesData, MAXIMIZED)},
-	{"AWT_DECOR_NONE", "I", nullptr, $STATIC, $staticField(XWindowAttributesData, AWT_DECOR_NONE)},
-	{"AWT_DECOR_ALL", "I", nullptr, $STATIC, $staticField(XWindowAttributesData, AWT_DECOR_ALL)},
-	{"AWT_DECOR_BORDER", "I", nullptr, $STATIC, $staticField(XWindowAttributesData, AWT_DECOR_BORDER)},
-	{"AWT_DECOR_RESIZEH", "I", nullptr, $STATIC, $staticField(XWindowAttributesData, AWT_DECOR_RESIZEH)},
-	{"AWT_DECOR_TITLE", "I", nullptr, $STATIC, $staticField(XWindowAttributesData, AWT_DECOR_TITLE)},
-	{"AWT_DECOR_MENU", "I", nullptr, $STATIC, $staticField(XWindowAttributesData, AWT_DECOR_MENU)},
-	{"AWT_DECOR_MINIMIZE", "I", nullptr, $STATIC, $staticField(XWindowAttributesData, AWT_DECOR_MINIMIZE)},
-	{"AWT_DECOR_MAXIMIZE", "I", nullptr, $STATIC, $staticField(XWindowAttributesData, AWT_DECOR_MAXIMIZE)},
-	{"AWT_UNOBSCURED", "I", nullptr, $STATIC, $staticField(XWindowAttributesData, AWT_UNOBSCURED)},
-	{"AWT_PARTIALLY_OBSCURED", "I", nullptr, $STATIC, $staticField(XWindowAttributesData, AWT_PARTIALLY_OBSCURED)},
-	{"AWT_FULLY_OBSCURED", "I", nullptr, $STATIC, $staticField(XWindowAttributesData, AWT_FULLY_OBSCURED)},
-	{"AWT_UNKNOWN_OBSCURITY", "I", nullptr, $STATIC, $staticField(XWindowAttributesData, AWT_UNKNOWN_OBSCURITY)},
-	{"nativeDecor", "Z", nullptr, 0, $field(XWindowAttributesData, nativeDecor)},
-	{"initialFocus", "Z", nullptr, 0, $field(XWindowAttributesData, initialFocus)},
-	{"isResizable", "Z", nullptr, 0, $field(XWindowAttributesData, isResizable)},
-	{"initialState", "I", nullptr, 0, $field(XWindowAttributesData, initialState)},
-	{"initialResizability", "Z", nullptr, 0, $field(XWindowAttributesData, initialResizability)},
-	{"visibilityState", "I", nullptr, 0, $field(XWindowAttributesData, visibilityState)},
-	{"title", "Ljava/lang/String;", nullptr, 0, $field(XWindowAttributesData, title)},
-	{"icons", "Ljava/util/List;", "Ljava/util/List<Lsun/awt/IconInfo;>;", 0, $field(XWindowAttributesData, icons)},
-	{"iconsInherited", "Z", nullptr, 0, $field(XWindowAttributesData, iconsInherited)},
-	{"decorations", "I", nullptr, 0, $field(XWindowAttributesData, decorations)},
-	{"functions", "I", nullptr, 0, $field(XWindowAttributesData, functions)},
-	{}
-};
-
-$MethodInfo _XWindowAttributesData_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(XWindowAttributesData, init$, void)},
-	{}
-};
-
-$ClassInfo _XWindowAttributesData_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.awt.X11.XWindowAttributesData",
-	"java.lang.Object",
-	nullptr,
-	_XWindowAttributesData_FieldInfo_,
-	_XWindowAttributesData_MethodInfo_
-};
-
-$Object* allocate$XWindowAttributesData($Class* clazz) {
-	return $of($alloc(XWindowAttributesData));
-}
 
 int32_t XWindowAttributesData::NORMAL = 0;
 int32_t XWindowAttributesData::ICONIC = 0;
@@ -105,7 +56,7 @@ void XWindowAttributesData::init$() {
 	this->initialResizability = true;
 }
 
-void clinit$XWindowAttributesData($Class* class$) {
+void XWindowAttributesData::clinit$($Class* clazz) {
 	XWindowAttributesData::NORMAL = 0;
 	XWindowAttributesData::ICONIC = 1;
 	XWindowAttributesData::MAXIMIZED = 2;
@@ -127,7 +78,50 @@ XWindowAttributesData::XWindowAttributesData() {
 }
 
 $Class* XWindowAttributesData::load$($String* name, bool initialize) {
-	$loadClass(XWindowAttributesData, name, initialize, &_XWindowAttributesData_ClassInfo_, clinit$XWindowAttributesData, allocate$XWindowAttributesData);
+	$FieldInfo fieldInfos$$[] = {
+		{"NORMAL", "I", nullptr, $STATIC, $staticField(XWindowAttributesData, NORMAL)},
+		{"ICONIC", "I", nullptr, $STATIC, $staticField(XWindowAttributesData, ICONIC)},
+		{"MAXIMIZED", "I", nullptr, $STATIC, $staticField(XWindowAttributesData, MAXIMIZED)},
+		{"AWT_DECOR_NONE", "I", nullptr, $STATIC, $staticField(XWindowAttributesData, AWT_DECOR_NONE)},
+		{"AWT_DECOR_ALL", "I", nullptr, $STATIC, $staticField(XWindowAttributesData, AWT_DECOR_ALL)},
+		{"AWT_DECOR_BORDER", "I", nullptr, $STATIC, $staticField(XWindowAttributesData, AWT_DECOR_BORDER)},
+		{"AWT_DECOR_RESIZEH", "I", nullptr, $STATIC, $staticField(XWindowAttributesData, AWT_DECOR_RESIZEH)},
+		{"AWT_DECOR_TITLE", "I", nullptr, $STATIC, $staticField(XWindowAttributesData, AWT_DECOR_TITLE)},
+		{"AWT_DECOR_MENU", "I", nullptr, $STATIC, $staticField(XWindowAttributesData, AWT_DECOR_MENU)},
+		{"AWT_DECOR_MINIMIZE", "I", nullptr, $STATIC, $staticField(XWindowAttributesData, AWT_DECOR_MINIMIZE)},
+		{"AWT_DECOR_MAXIMIZE", "I", nullptr, $STATIC, $staticField(XWindowAttributesData, AWT_DECOR_MAXIMIZE)},
+		{"AWT_UNOBSCURED", "I", nullptr, $STATIC, $staticField(XWindowAttributesData, AWT_UNOBSCURED)},
+		{"AWT_PARTIALLY_OBSCURED", "I", nullptr, $STATIC, $staticField(XWindowAttributesData, AWT_PARTIALLY_OBSCURED)},
+		{"AWT_FULLY_OBSCURED", "I", nullptr, $STATIC, $staticField(XWindowAttributesData, AWT_FULLY_OBSCURED)},
+		{"AWT_UNKNOWN_OBSCURITY", "I", nullptr, $STATIC, $staticField(XWindowAttributesData, AWT_UNKNOWN_OBSCURITY)},
+		{"nativeDecor", "Z", nullptr, 0, $field(XWindowAttributesData, nativeDecor)},
+		{"initialFocus", "Z", nullptr, 0, $field(XWindowAttributesData, initialFocus)},
+		{"isResizable", "Z", nullptr, 0, $field(XWindowAttributesData, isResizable)},
+		{"initialState", "I", nullptr, 0, $field(XWindowAttributesData, initialState)},
+		{"initialResizability", "Z", nullptr, 0, $field(XWindowAttributesData, initialResizability)},
+		{"visibilityState", "I", nullptr, 0, $field(XWindowAttributesData, visibilityState)},
+		{"title", "Ljava/lang/String;", nullptr, 0, $field(XWindowAttributesData, title)},
+		{"icons", "Ljava/util/List;", "Ljava/util/List<Lsun/awt/IconInfo;>;", 0, $field(XWindowAttributesData, icons)},
+		{"iconsInherited", "Z", nullptr, 0, $field(XWindowAttributesData, iconsInherited)},
+		{"decorations", "I", nullptr, 0, $field(XWindowAttributesData, decorations)},
+		{"functions", "I", nullptr, 0, $field(XWindowAttributesData, functions)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(XWindowAttributesData, init$, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.awt.X11.XWindowAttributesData",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XWindowAttributesData, name, initialize, &classInfo$$, XWindowAttributesData::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(XWindowAttributesData);
+	});
 	return class$;
 }
 

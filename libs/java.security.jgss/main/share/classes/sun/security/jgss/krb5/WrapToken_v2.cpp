@@ -1,5 +1,4 @@
 #include <sun/security/jgss/krb5/WrapToken_v2.h>
-
 #include <java/io/ByteArrayOutputStream.h>
 #include <java/io/InputStream.h>
 #include <java/io/OutputStream.h>
@@ -41,38 +40,6 @@ namespace sun {
 		namespace jgss {
 			namespace krb5 {
 
-$FieldInfo _WrapToken_v2_FieldInfo_[] = {
-	{"confounder", "[B", nullptr, 0, $field(WrapToken_v2, confounder)},
-	{"privacy", "Z", nullptr, $PRIVATE | $FINAL, $field(WrapToken_v2, privacy)},
-	{}
-};
-
-$MethodInfo _WrapToken_v2_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/jgss/krb5/Krb5Context;[BIILorg/ietf/jgss/MessageProp;)V", nullptr, $PUBLIC, $method(WrapToken_v2, init$, void, $Krb5Context*, $bytes*, int32_t, int32_t, $MessageProp*), "org.ietf.jgss.GSSException"},
-	{"<init>", "(Lsun/security/jgss/krb5/Krb5Context;Ljava/io/InputStream;Lorg/ietf/jgss/MessageProp;)V", nullptr, $PUBLIC, $method(WrapToken_v2, init$, void, $Krb5Context*, $InputStream*, $MessageProp*), "org.ietf.jgss.GSSException"},
-	{"<init>", "(Lsun/security/jgss/krb5/Krb5Context;Lorg/ietf/jgss/MessageProp;[BII)V", nullptr, $PUBLIC, $method(WrapToken_v2, init$, void, $Krb5Context*, $MessageProp*, $bytes*, int32_t, int32_t), "org.ietf.jgss.GSSException"},
-	{"encode", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $virtualMethod(WrapToken_v2, encode, void, $OutputStream*), "java.io.IOException"},
-	{"encode", "()[B", nullptr, $PUBLIC, $virtualMethod(WrapToken_v2, encode, $bytes*), "java.io.IOException"},
-	{"encode", "([BI)I", nullptr, $PUBLIC, $virtualMethod(WrapToken_v2, encode, int32_t, $bytes*, int32_t), "java.io.IOException"},
-	{"getData", "()[B", nullptr, $PUBLIC, $virtualMethod(WrapToken_v2, getData, $bytes*), "org.ietf.jgss.GSSException"},
-	{"getData", "([BI)I", nullptr, $PUBLIC, $virtualMethod(WrapToken_v2, getData, int32_t, $bytes*, int32_t), "org.ietf.jgss.GSSException"},
-	{"getSizeLimit", "(IZILsun/security/jgss/krb5/CipherHelper;)I", nullptr, $STATIC, $staticMethod(WrapToken_v2, getSizeLimit, int32_t, int32_t, bool, int32_t, $CipherHelper*), "org.ietf.jgss.GSSException"},
-	{}
-};
-
-$ClassInfo _WrapToken_v2_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.security.jgss.krb5.WrapToken_v2",
-	"sun.security.jgss.krb5.MessageToken_v2",
-	nullptr,
-	_WrapToken_v2_FieldInfo_,
-	_WrapToken_v2_MethodInfo_
-};
-
-$Object* allocate$WrapToken_v2($Class* clazz) {
-	return $of($alloc(WrapToken_v2));
-}
-
 void WrapToken_v2::init$($Krb5Context* context, $bytes* tokenBytes, int32_t tokenOffset, int32_t tokenLen, $MessageProp* prop) {
 	$MessageToken_v2::init$($Krb5Token::WRAP_ID_v2, context, tokenBytes, tokenOffset, tokenLen, prop);
 	$set(this, confounder, nullptr);
@@ -106,7 +73,7 @@ int32_t WrapToken_v2::getData($bytes* dataBuf, int32_t dataBufOffset) {
 }
 
 void WrapToken_v2::init$($Krb5Context* context, $MessageProp* prop, $bytes* dataBytes, int32_t dataOffset, int32_t dataLen) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$MessageToken_v2::init$($Krb5Token::WRAP_ID_v2, context);
 	$set(this, confounder, nullptr);
 	$set(this, confounder, $Confounder::bytes($MessageToken_v2::CONFOUNDER_SIZE));
@@ -118,14 +85,11 @@ void WrapToken_v2::init$($Krb5Context* context, $MessageProp* prop, $bytes* data
 	if (!this->privacy) {
 		$set(this, tokenData, $new($bytes, dataLen + $nc(this->checksum)->length));
 		$System::arraycopy(dataBytes, dataOffset, this->tokenData, 0, dataLen);
-		$System::arraycopy(this->checksum, 0, this->tokenData, dataLen, $nc(this->checksum)->length);
+		$System::arraycopy(this->checksum, 0, this->tokenData, dataLen, this->checksum->length);
 	} else {
 		$var($bytes, var$0, this->confounder);
 		$var($bytes, var$1, getTokenHeader());
-		$var($bytes, var$2, dataBytes);
-		int32_t var$3 = dataOffset;
-		int32_t var$4 = dataLen;
-		$set(this, tokenData, $nc(this->cipherHelper)->encryptData(this, var$0, var$1, var$2, var$3, var$4, getKeyUsage()));
+		$set(this, tokenData, $nc(this->cipherHelper)->encryptData(this, var$0, var$1, dataBytes, dataOffset, dataLen, getKeyUsage()));
 	}
 }
 
@@ -143,7 +107,7 @@ $bytes* WrapToken_v2::encode() {
 int32_t WrapToken_v2::encode($bytes* outToken, int32_t offset) {
 	$var($bytes, token, encode());
 	$System::arraycopy(token, 0, outToken, offset, $nc(token)->length);
-	return $nc(token)->length;
+	return token->length;
 }
 
 int32_t WrapToken_v2::getSizeLimit(int32_t qop, bool confReq, int32_t maxTokenSize, $CipherHelper* ch) {
@@ -157,7 +121,34 @@ WrapToken_v2::WrapToken_v2() {
 }
 
 $Class* WrapToken_v2::load$($String* name, bool initialize) {
-	$loadClass(WrapToken_v2, name, initialize, &_WrapToken_v2_ClassInfo_, allocate$WrapToken_v2);
+	$FieldInfo fieldInfos$$[] = {
+		{"confounder", "[B", nullptr, 0, $field(WrapToken_v2, confounder)},
+		{"privacy", "Z", nullptr, $PRIVATE | $FINAL, $field(WrapToken_v2, privacy)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/security/jgss/krb5/Krb5Context;[BIILorg/ietf/jgss/MessageProp;)V", nullptr, $PUBLIC, $method(WrapToken_v2, init$, void, $Krb5Context*, $bytes*, int32_t, int32_t, $MessageProp*), "org.ietf.jgss.GSSException"},
+		{"<init>", "(Lsun/security/jgss/krb5/Krb5Context;Ljava/io/InputStream;Lorg/ietf/jgss/MessageProp;)V", nullptr, $PUBLIC, $method(WrapToken_v2, init$, void, $Krb5Context*, $InputStream*, $MessageProp*), "org.ietf.jgss.GSSException"},
+		{"<init>", "(Lsun/security/jgss/krb5/Krb5Context;Lorg/ietf/jgss/MessageProp;[BII)V", nullptr, $PUBLIC, $method(WrapToken_v2, init$, void, $Krb5Context*, $MessageProp*, $bytes*, int32_t, int32_t), "org.ietf.jgss.GSSException"},
+		{"encode", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $virtualMethod(WrapToken_v2, encode, void, $OutputStream*), "java.io.IOException"},
+		{"encode", "()[B", nullptr, $PUBLIC, $virtualMethod(WrapToken_v2, encode, $bytes*), "java.io.IOException"},
+		{"encode", "([BI)I", nullptr, $PUBLIC, $virtualMethod(WrapToken_v2, encode, int32_t, $bytes*, int32_t), "java.io.IOException"},
+		{"getData", "()[B", nullptr, $PUBLIC, $virtualMethod(WrapToken_v2, getData, $bytes*), "org.ietf.jgss.GSSException"},
+		{"getData", "([BI)I", nullptr, $PUBLIC, $virtualMethod(WrapToken_v2, getData, int32_t, $bytes*, int32_t), "org.ietf.jgss.GSSException"},
+		{"getSizeLimit", "(IZILsun/security/jgss/krb5/CipherHelper;)I", nullptr, $STATIC, $staticMethod(WrapToken_v2, getSizeLimit, int32_t, int32_t, bool, int32_t, $CipherHelper*), "org.ietf.jgss.GSSException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.security.jgss.krb5.WrapToken_v2",
+		"sun.security.jgss.krb5.MessageToken_v2",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(WrapToken_v2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WrapToken_v2);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/apple/laf/AquaSpinnerUI$2.h>
-
 #include <com/apple/laf/AquaSpinnerUI$ArrowButtonHandler.h>
 #include <com/apple/laf/AquaUtils$RecyclableSingleton.h>
 #include <jcpp.h>
@@ -15,45 +14,6 @@ namespace com {
 	namespace apple {
 		namespace laf {
 
-$MethodInfo _AquaSpinnerUI$2_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(AquaSpinnerUI$2, init$, void)},
-	{"getInstance", "()Lcom/apple/laf/AquaSpinnerUI$ArrowButtonHandler;", nullptr, $PROTECTED, $virtualMethod(AquaSpinnerUI$2, getInstance, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _AquaSpinnerUI$2_EnclosingMethodInfo_ = {
-	"com.apple.laf.AquaSpinnerUI",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _AquaSpinnerUI$2_InnerClassesInfo_[] = {
-	{"com.apple.laf.AquaSpinnerUI$2", nullptr, nullptr, 0},
-	{"com.apple.laf.AquaUtils$RecyclableSingleton", "com.apple.laf.AquaUtils", "RecyclableSingleton", $STATIC | $ABSTRACT},
-	{"com.apple.laf.AquaSpinnerUI$ArrowButtonHandler", "com.apple.laf.AquaSpinnerUI", "ArrowButtonHandler", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _AquaSpinnerUI$2_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.apple.laf.AquaSpinnerUI$2",
-	"com.apple.laf.AquaUtils$RecyclableSingleton",
-	nullptr,
-	nullptr,
-	_AquaSpinnerUI$2_MethodInfo_,
-	"Lcom/apple/laf/AquaUtils$RecyclableSingleton<Lcom/apple/laf/AquaSpinnerUI$ArrowButtonHandler;>;",
-	&_AquaSpinnerUI$2_EnclosingMethodInfo_,
-	_AquaSpinnerUI$2_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.apple.laf.AquaSpinnerUI"
-};
-
-$Object* allocate$AquaSpinnerUI$2($Class* clazz) {
-	return $of($alloc(AquaSpinnerUI$2));
-}
-
 void AquaSpinnerUI$2::init$() {
 	$AquaUtils$RecyclableSingleton::init$();
 }
@@ -66,7 +26,40 @@ AquaSpinnerUI$2::AquaSpinnerUI$2() {
 }
 
 $Class* AquaSpinnerUI$2::load$($String* name, bool initialize) {
-	$loadClass(AquaSpinnerUI$2, name, initialize, &_AquaSpinnerUI$2_ClassInfo_, allocate$AquaSpinnerUI$2);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(AquaSpinnerUI$2, init$, void)},
+		{"getInstance", "()Lcom/apple/laf/AquaSpinnerUI$ArrowButtonHandler;", nullptr, $PROTECTED, $virtualMethod(AquaSpinnerUI$2, getInstance, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.apple.laf.AquaSpinnerUI",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.laf.AquaSpinnerUI$2", nullptr, nullptr, 0},
+		{"com.apple.laf.AquaUtils$RecyclableSingleton", "com.apple.laf.AquaUtils", "RecyclableSingleton", $STATIC | $ABSTRACT},
+		{"com.apple.laf.AquaSpinnerUI$ArrowButtonHandler", "com.apple.laf.AquaSpinnerUI", "ArrowButtonHandler", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.apple.laf.AquaSpinnerUI$2",
+		"com.apple.laf.AquaUtils$RecyclableSingleton",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		"Lcom/apple/laf/AquaUtils$RecyclableSingleton<Lcom/apple/laf/AquaSpinnerUI$ArrowButtonHandler;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.apple.laf.AquaSpinnerUI"
+	};
+	$loadClass(AquaSpinnerUI$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AquaSpinnerUI$2);
+	});
 	return class$;
 }
 

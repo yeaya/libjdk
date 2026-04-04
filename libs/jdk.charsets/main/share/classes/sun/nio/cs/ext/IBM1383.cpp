@@ -1,5 +1,4 @@
 #include <sun/nio/cs/ext/IBM1383.h>
-
 #include <java/nio/charset/Charset.h>
 #include <java/nio/charset/CharsetDecoder.h>
 #include <java/nio/charset/CharsetEncoder.h>
@@ -26,45 +25,6 @@ namespace sun {
 	namespace nio {
 		namespace cs {
 			namespace ext {
-
-$MethodInfo _IBM1383_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $FINAL},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(IBM1383, init$, void)},
-	{"contains", "(Ljava/nio/charset/Charset;)Z", nullptr, $PUBLIC, $virtualMethod(IBM1383, contains, bool, $Charset*)},
-	{"historicalName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(IBM1383, historicalName, $String*)},
-	{"newDecoder", "()Ljava/nio/charset/CharsetDecoder;", nullptr, $PUBLIC, $virtualMethod(IBM1383, newDecoder, $CharsetDecoder*)},
-	{"newEncoder", "()Ljava/nio/charset/CharsetEncoder;", nullptr, $PUBLIC, $virtualMethod(IBM1383, newEncoder, $CharsetEncoder*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL},
-	{}
-};
-
-$InnerClassInfo _IBM1383_InnerClassesInfo_[] = {
-	{"sun.nio.cs.ext.IBM1383$EncodeHolder", "sun.nio.cs.ext.IBM1383", "EncodeHolder", $STATIC},
-	{"sun.nio.cs.ext.IBM1383$DecodeHolder", "sun.nio.cs.ext.IBM1383", "DecodeHolder", $STATIC},
-	{}
-};
-
-$ClassInfo _IBM1383_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.nio.cs.ext.IBM1383",
-	"java.nio.charset.Charset",
-	"sun.nio.cs.HistoricallyNamedCharset",
-	nullptr,
-	_IBM1383_MethodInfo_,
-	nullptr,
-	nullptr,
-	_IBM1383_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.nio.cs.ext.IBM1383$EncodeHolder,sun.nio.cs.ext.IBM1383$DecodeHolder"
-};
-
-$Object* allocate$IBM1383($Class* clazz) {
-	return $of($alloc(IBM1383));
-}
 
 int32_t IBM1383::hashCode() {
 	 return this->$Charset::hashCode();
@@ -95,7 +55,7 @@ $String* IBM1383::historicalName() {
 }
 
 bool IBM1383::contains($Charset* cs) {
-	return (($nc($($nc(cs)->name()))->equals("US-ASCII"_s)) || ($instanceOf(IBM1383, cs)));
+	return (($$nc($nc(cs)->name())->equals("US-ASCII"_s)) || ($instanceOf(IBM1383, cs)));
 }
 
 $CharsetDecoder* IBM1383::newDecoder() {
@@ -112,7 +72,41 @@ IBM1383::IBM1383() {
 }
 
 $Class* IBM1383::load$($String* name, bool initialize) {
-	$loadClass(IBM1383, name, initialize, &_IBM1383_ClassInfo_, allocate$IBM1383);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $FINAL},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(IBM1383, init$, void)},
+		{"contains", "(Ljava/nio/charset/Charset;)Z", nullptr, $PUBLIC, $virtualMethod(IBM1383, contains, bool, $Charset*)},
+		{"historicalName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(IBM1383, historicalName, $String*)},
+		{"newDecoder", "()Ljava/nio/charset/CharsetDecoder;", nullptr, $PUBLIC, $virtualMethod(IBM1383, newDecoder, $CharsetDecoder*)},
+		{"newEncoder", "()Ljava/nio/charset/CharsetEncoder;", nullptr, $PUBLIC, $virtualMethod(IBM1383, newEncoder, $CharsetEncoder*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.cs.ext.IBM1383$EncodeHolder", "sun.nio.cs.ext.IBM1383", "EncodeHolder", $STATIC},
+		{"sun.nio.cs.ext.IBM1383$DecodeHolder", "sun.nio.cs.ext.IBM1383", "DecodeHolder", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.nio.cs.ext.IBM1383",
+		"java.nio.charset.Charset",
+		"sun.nio.cs.HistoricallyNamedCharset",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.nio.cs.ext.IBM1383$EncodeHolder,sun.nio.cs.ext.IBM1383$DecodeHolder"
+	};
+	$loadClass(IBM1383, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(IBM1383));
+	});
 	return class$;
 }
 

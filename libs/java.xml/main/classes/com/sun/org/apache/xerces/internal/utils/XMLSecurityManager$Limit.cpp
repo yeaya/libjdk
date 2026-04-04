@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/utils/XMLSecurityManager$Limit.h>
-
 #include <com/sun/org/apache/xerces/internal/utils/XMLSecurityManager.h>
 #include <java/lang/Enum.h>
 #include <jdk/xml/internal/JdkConstants.h>
@@ -53,65 +52,6 @@ namespace com {
 					namespace internal {
 						namespace utils {
 
-$FieldInfo _XMLSecurityManager$Limit_FieldInfo_[] = {
-	{"ENTITY_EXPANSION_LIMIT", "Lcom/sun/org/apache/xerces/internal/utils/XMLSecurityManager$Limit;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(XMLSecurityManager$Limit, ENTITY_EXPANSION_LIMIT)},
-	{"MAX_OCCUR_NODE_LIMIT", "Lcom/sun/org/apache/xerces/internal/utils/XMLSecurityManager$Limit;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(XMLSecurityManager$Limit, MAX_OCCUR_NODE_LIMIT)},
-	{"ELEMENT_ATTRIBUTE_LIMIT", "Lcom/sun/org/apache/xerces/internal/utils/XMLSecurityManager$Limit;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(XMLSecurityManager$Limit, ELEMENT_ATTRIBUTE_LIMIT)},
-	{"TOTAL_ENTITY_SIZE_LIMIT", "Lcom/sun/org/apache/xerces/internal/utils/XMLSecurityManager$Limit;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(XMLSecurityManager$Limit, TOTAL_ENTITY_SIZE_LIMIT)},
-	{"GENERAL_ENTITY_SIZE_LIMIT", "Lcom/sun/org/apache/xerces/internal/utils/XMLSecurityManager$Limit;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(XMLSecurityManager$Limit, GENERAL_ENTITY_SIZE_LIMIT)},
-	{"PARAMETER_ENTITY_SIZE_LIMIT", "Lcom/sun/org/apache/xerces/internal/utils/XMLSecurityManager$Limit;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(XMLSecurityManager$Limit, PARAMETER_ENTITY_SIZE_LIMIT)},
-	{"MAX_ELEMENT_DEPTH_LIMIT", "Lcom/sun/org/apache/xerces/internal/utils/XMLSecurityManager$Limit;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(XMLSecurityManager$Limit, MAX_ELEMENT_DEPTH_LIMIT)},
-	{"MAX_NAME_LIMIT", "Lcom/sun/org/apache/xerces/internal/utils/XMLSecurityManager$Limit;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(XMLSecurityManager$Limit, MAX_NAME_LIMIT)},
-	{"ENTITY_REPLACEMENT_LIMIT", "Lcom/sun/org/apache/xerces/internal/utils/XMLSecurityManager$Limit;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(XMLSecurityManager$Limit, ENTITY_REPLACEMENT_LIMIT)},
-	{"$VALUES", "[Lcom/sun/org/apache/xerces/internal/utils/XMLSecurityManager$Limit;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(XMLSecurityManager$Limit, $VALUES)},
-	{"key", "Ljava/lang/String;", nullptr, $FINAL, $field(XMLSecurityManager$Limit, key$)},
-	{"apiProperty", "Ljava/lang/String;", nullptr, $FINAL, $field(XMLSecurityManager$Limit, apiProperty$)},
-	{"systemProperty", "Ljava/lang/String;", nullptr, $FINAL, $field(XMLSecurityManager$Limit, systemProperty$)},
-	{"defaultValue", "I", nullptr, $FINAL, $field(XMLSecurityManager$Limit, defaultValue$)},
-	{"secureValue", "I", nullptr, $FINAL, $field(XMLSecurityManager$Limit, secureValue$)},
-	{}
-};
-
-$MethodInfo _XMLSecurityManager$Limit_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/org/apache/xerces/internal/utils/XMLSecurityManager$Limit;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(XMLSecurityManager$Limit, $values, $XMLSecurityManager$LimitArray*)},
-	{"<init>", "(Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;II)V", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;II)V", $PRIVATE, $method(XMLSecurityManager$Limit, init$, void, $String*, int32_t, $String*, $String*, $String*, int32_t, int32_t)},
-	{"apiProperty", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(XMLSecurityManager$Limit, apiProperty, $String*)},
-	{"defaultValue", "()I", nullptr, $PUBLIC, $method(XMLSecurityManager$Limit, defaultValue, int32_t)},
-	{"getState", "(Ljava/lang/String;)Ljdk/xml/internal/JdkProperty$State;", nullptr, $PUBLIC, $method(XMLSecurityManager$Limit, getState, $JdkProperty$State*, $String*)},
-	{"is", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $method(XMLSecurityManager$Limit, is, bool, $String*)},
-	{"key", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(XMLSecurityManager$Limit, key, $String*)},
-	{"secureValue", "()I", nullptr, 0, $method(XMLSecurityManager$Limit, secureValue, int32_t)},
-	{"systemProperty", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(XMLSecurityManager$Limit, systemProperty, $String*)},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/org/apache/xerces/internal/utils/XMLSecurityManager$Limit;", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLSecurityManager$Limit, valueOf, XMLSecurityManager$Limit*, $String*)},
-	{"values", "()[Lcom/sun/org/apache/xerces/internal/utils/XMLSecurityManager$Limit;", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLSecurityManager$Limit, values, $XMLSecurityManager$LimitArray*)},
-	{}
-};
-
-$InnerClassInfo _XMLSecurityManager$Limit_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xerces.internal.utils.XMLSecurityManager$Limit", "com.sun.org.apache.xerces.internal.utils.XMLSecurityManager", "Limit", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _XMLSecurityManager$Limit_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"com.sun.org.apache.xerces.internal.utils.XMLSecurityManager$Limit",
-	"java.lang.Enum",
-	nullptr,
-	_XMLSecurityManager$Limit_FieldInfo_,
-	_XMLSecurityManager$Limit_MethodInfo_,
-	"Ljava/lang/Enum<Lcom/sun/org/apache/xerces/internal/utils/XMLSecurityManager$Limit;>;",
-	nullptr,
-	_XMLSecurityManager$Limit_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xerces.internal.utils.XMLSecurityManager"
-};
-
-$Object* allocate$XMLSecurityManager$Limit($Class* clazz) {
-	return $of($alloc(XMLSecurityManager$Limit));
-}
-
 XMLSecurityManager$Limit* XMLSecurityManager$Limit::ENTITY_EXPANSION_LIMIT = nullptr;
 XMLSecurityManager$Limit* XMLSecurityManager$Limit::MAX_OCCUR_NODE_LIMIT = nullptr;
 XMLSecurityManager$Limit* XMLSecurityManager$Limit::ELEMENT_ATTRIBUTE_LIMIT = nullptr;
@@ -158,12 +98,12 @@ void XMLSecurityManager$Limit::init$($String* $enum$name, int32_t $enum$ordinal,
 }
 
 bool XMLSecurityManager$Limit::is($String* name) {
-	bool var$0 = (this->systemProperty$ != nullptr && $nc(this->systemProperty$)->equals(name));
+	bool var$0 = this->systemProperty$ != nullptr && this->systemProperty$->equals(name);
 	return var$0 || ($nc(this->apiProperty$)->equals(name));
 }
 
 $JdkProperty$State* XMLSecurityManager$Limit::getState($String* name) {
-	if (this->systemProperty$ != nullptr && $nc(this->systemProperty$)->equals(name)) {
+	if (this->systemProperty$ != nullptr && this->systemProperty$->equals(name)) {
 		$init($JdkProperty$State);
 		return $JdkProperty$State::APIPROPERTY;
 	} else if ($nc(this->apiProperty$)->equals(name)) {
@@ -193,17 +133,17 @@ int32_t XMLSecurityManager$Limit::secureValue() {
 	return this->secureValue$;
 }
 
-void clinit$XMLSecurityManager$Limit($Class* class$) {
+void XMLSecurityManager$Limit::clinit$($Class* clazz) {
 	$init($JdkConstants);
-	$assignStatic(XMLSecurityManager$Limit::ENTITY_EXPANSION_LIMIT, $new(XMLSecurityManager$Limit, "ENTITY_EXPANSION_LIMIT"_s, 0, "EntityExpansionLimit"_s, $JdkConstants::JDK_ENTITY_EXPANSION_LIMIT, $JdkConstants::SP_ENTITY_EXPANSION_LIMIT, 0, 0x0000FA00));
+	$assignStatic(XMLSecurityManager$Limit::ENTITY_EXPANSION_LIMIT, $new(XMLSecurityManager$Limit, "ENTITY_EXPANSION_LIMIT"_s, 0, "EntityExpansionLimit"_s, $JdkConstants::JDK_ENTITY_EXPANSION_LIMIT, $JdkConstants::SP_ENTITY_EXPANSION_LIMIT, 0, 64000));
 	$assignStatic(XMLSecurityManager$Limit::MAX_OCCUR_NODE_LIMIT, $new(XMLSecurityManager$Limit, "MAX_OCCUR_NODE_LIMIT"_s, 1, "MaxOccurLimit"_s, $JdkConstants::JDK_MAX_OCCUR_LIMIT, $JdkConstants::SP_MAX_OCCUR_LIMIT, 0, 5000));
 	$assignStatic(XMLSecurityManager$Limit::ELEMENT_ATTRIBUTE_LIMIT, $new(XMLSecurityManager$Limit, "ELEMENT_ATTRIBUTE_LIMIT"_s, 2, "ElementAttributeLimit"_s, $JdkConstants::JDK_ELEMENT_ATTRIBUTE_LIMIT, $JdkConstants::SP_ELEMENT_ATTRIBUTE_LIMIT, 0, 10000));
-	$assignStatic(XMLSecurityManager$Limit::TOTAL_ENTITY_SIZE_LIMIT, $new(XMLSecurityManager$Limit, "TOTAL_ENTITY_SIZE_LIMIT"_s, 3, "TotalEntitySizeLimit"_s, $JdkConstants::JDK_TOTAL_ENTITY_SIZE_LIMIT, $JdkConstants::SP_TOTAL_ENTITY_SIZE_LIMIT, 0, 0x02FAF080));
+	$assignStatic(XMLSecurityManager$Limit::TOTAL_ENTITY_SIZE_LIMIT, $new(XMLSecurityManager$Limit, "TOTAL_ENTITY_SIZE_LIMIT"_s, 3, "TotalEntitySizeLimit"_s, $JdkConstants::JDK_TOTAL_ENTITY_SIZE_LIMIT, $JdkConstants::SP_TOTAL_ENTITY_SIZE_LIMIT, 0, 50000000));
 	$assignStatic(XMLSecurityManager$Limit::GENERAL_ENTITY_SIZE_LIMIT, $new(XMLSecurityManager$Limit, "GENERAL_ENTITY_SIZE_LIMIT"_s, 4, "MaxEntitySizeLimit"_s, $JdkConstants::JDK_GENERAL_ENTITY_SIZE_LIMIT, $JdkConstants::SP_GENERAL_ENTITY_SIZE_LIMIT, 0, 0));
-	$assignStatic(XMLSecurityManager$Limit::PARAMETER_ENTITY_SIZE_LIMIT, $new(XMLSecurityManager$Limit, "PARAMETER_ENTITY_SIZE_LIMIT"_s, 5, "MaxEntitySizeLimit"_s, $JdkConstants::JDK_PARAMETER_ENTITY_SIZE_LIMIT, $JdkConstants::SP_PARAMETER_ENTITY_SIZE_LIMIT, 0, 0x000F4240));
+	$assignStatic(XMLSecurityManager$Limit::PARAMETER_ENTITY_SIZE_LIMIT, $new(XMLSecurityManager$Limit, "PARAMETER_ENTITY_SIZE_LIMIT"_s, 5, "MaxEntitySizeLimit"_s, $JdkConstants::JDK_PARAMETER_ENTITY_SIZE_LIMIT, $JdkConstants::SP_PARAMETER_ENTITY_SIZE_LIMIT, 0, 1000000));
 	$assignStatic(XMLSecurityManager$Limit::MAX_ELEMENT_DEPTH_LIMIT, $new(XMLSecurityManager$Limit, "MAX_ELEMENT_DEPTH_LIMIT"_s, 6, "MaxElementDepthLimit"_s, $JdkConstants::JDK_MAX_ELEMENT_DEPTH, $JdkConstants::SP_MAX_ELEMENT_DEPTH, 0, 0));
 	$assignStatic(XMLSecurityManager$Limit::MAX_NAME_LIMIT, $new(XMLSecurityManager$Limit, "MAX_NAME_LIMIT"_s, 7, "MaxXMLNameLimit"_s, $JdkConstants::JDK_XML_NAME_LIMIT, $JdkConstants::SP_XML_NAME_LIMIT, 1000, 1000));
-	$assignStatic(XMLSecurityManager$Limit::ENTITY_REPLACEMENT_LIMIT, $new(XMLSecurityManager$Limit, "ENTITY_REPLACEMENT_LIMIT"_s, 8, "EntityReplacementLimit"_s, $JdkConstants::JDK_ENTITY_REPLACEMENT_LIMIT, $JdkConstants::SP_ENTITY_REPLACEMENT_LIMIT, 0, 0x002DC6C0));
+	$assignStatic(XMLSecurityManager$Limit::ENTITY_REPLACEMENT_LIMIT, $new(XMLSecurityManager$Limit, "ENTITY_REPLACEMENT_LIMIT"_s, 8, "EntityReplacementLimit"_s, $JdkConstants::JDK_ENTITY_REPLACEMENT_LIMIT, $JdkConstants::SP_ENTITY_REPLACEMENT_LIMIT, 0, 3000000));
 	$assignStatic(XMLSecurityManager$Limit::$VALUES, XMLSecurityManager$Limit::$values());
 }
 
@@ -211,7 +151,60 @@ XMLSecurityManager$Limit::XMLSecurityManager$Limit() {
 }
 
 $Class* XMLSecurityManager$Limit::load$($String* name, bool initialize) {
-	$loadClass(XMLSecurityManager$Limit, name, initialize, &_XMLSecurityManager$Limit_ClassInfo_, clinit$XMLSecurityManager$Limit, allocate$XMLSecurityManager$Limit);
+	$FieldInfo fieldInfos$$[] = {
+		{"ENTITY_EXPANSION_LIMIT", "Lcom/sun/org/apache/xerces/internal/utils/XMLSecurityManager$Limit;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(XMLSecurityManager$Limit, ENTITY_EXPANSION_LIMIT)},
+		{"MAX_OCCUR_NODE_LIMIT", "Lcom/sun/org/apache/xerces/internal/utils/XMLSecurityManager$Limit;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(XMLSecurityManager$Limit, MAX_OCCUR_NODE_LIMIT)},
+		{"ELEMENT_ATTRIBUTE_LIMIT", "Lcom/sun/org/apache/xerces/internal/utils/XMLSecurityManager$Limit;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(XMLSecurityManager$Limit, ELEMENT_ATTRIBUTE_LIMIT)},
+		{"TOTAL_ENTITY_SIZE_LIMIT", "Lcom/sun/org/apache/xerces/internal/utils/XMLSecurityManager$Limit;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(XMLSecurityManager$Limit, TOTAL_ENTITY_SIZE_LIMIT)},
+		{"GENERAL_ENTITY_SIZE_LIMIT", "Lcom/sun/org/apache/xerces/internal/utils/XMLSecurityManager$Limit;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(XMLSecurityManager$Limit, GENERAL_ENTITY_SIZE_LIMIT)},
+		{"PARAMETER_ENTITY_SIZE_LIMIT", "Lcom/sun/org/apache/xerces/internal/utils/XMLSecurityManager$Limit;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(XMLSecurityManager$Limit, PARAMETER_ENTITY_SIZE_LIMIT)},
+		{"MAX_ELEMENT_DEPTH_LIMIT", "Lcom/sun/org/apache/xerces/internal/utils/XMLSecurityManager$Limit;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(XMLSecurityManager$Limit, MAX_ELEMENT_DEPTH_LIMIT)},
+		{"MAX_NAME_LIMIT", "Lcom/sun/org/apache/xerces/internal/utils/XMLSecurityManager$Limit;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(XMLSecurityManager$Limit, MAX_NAME_LIMIT)},
+		{"ENTITY_REPLACEMENT_LIMIT", "Lcom/sun/org/apache/xerces/internal/utils/XMLSecurityManager$Limit;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(XMLSecurityManager$Limit, ENTITY_REPLACEMENT_LIMIT)},
+		{"$VALUES", "[Lcom/sun/org/apache/xerces/internal/utils/XMLSecurityManager$Limit;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(XMLSecurityManager$Limit, $VALUES)},
+		{"key", "Ljava/lang/String;", nullptr, $FINAL, $field(XMLSecurityManager$Limit, key$)},
+		{"apiProperty", "Ljava/lang/String;", nullptr, $FINAL, $field(XMLSecurityManager$Limit, apiProperty$)},
+		{"systemProperty", "Ljava/lang/String;", nullptr, $FINAL, $field(XMLSecurityManager$Limit, systemProperty$)},
+		{"defaultValue", "I", nullptr, $FINAL, $field(XMLSecurityManager$Limit, defaultValue$)},
+		{"secureValue", "I", nullptr, $FINAL, $field(XMLSecurityManager$Limit, secureValue$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lcom/sun/org/apache/xerces/internal/utils/XMLSecurityManager$Limit;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(XMLSecurityManager$Limit, $values, $XMLSecurityManager$LimitArray*)},
+		{"<init>", "(Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;II)V", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;II)V", $PRIVATE, $method(XMLSecurityManager$Limit, init$, void, $String*, int32_t, $String*, $String*, $String*, int32_t, int32_t)},
+		{"apiProperty", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(XMLSecurityManager$Limit, apiProperty, $String*)},
+		{"defaultValue", "()I", nullptr, $PUBLIC, $method(XMLSecurityManager$Limit, defaultValue, int32_t)},
+		{"getState", "(Ljava/lang/String;)Ljdk/xml/internal/JdkProperty$State;", nullptr, $PUBLIC, $method(XMLSecurityManager$Limit, getState, $JdkProperty$State*, $String*)},
+		{"is", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $method(XMLSecurityManager$Limit, is, bool, $String*)},
+		{"key", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(XMLSecurityManager$Limit, key, $String*)},
+		{"secureValue", "()I", nullptr, 0, $method(XMLSecurityManager$Limit, secureValue, int32_t)},
+		{"systemProperty", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(XMLSecurityManager$Limit, systemProperty, $String*)},
+		{"valueOf", "(Ljava/lang/String;)Lcom/sun/org/apache/xerces/internal/utils/XMLSecurityManager$Limit;", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLSecurityManager$Limit, valueOf, XMLSecurityManager$Limit*, $String*)},
+		{"values", "()[Lcom/sun/org/apache/xerces/internal/utils/XMLSecurityManager$Limit;", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLSecurityManager$Limit, values, $XMLSecurityManager$LimitArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xerces.internal.utils.XMLSecurityManager$Limit", "com.sun.org.apache.xerces.internal.utils.XMLSecurityManager", "Limit", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"com.sun.org.apache.xerces.internal.utils.XMLSecurityManager$Limit",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lcom/sun/org/apache/xerces/internal/utils/XMLSecurityManager$Limit;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xerces.internal.utils.XMLSecurityManager"
+	};
+	$loadClass(XMLSecurityManager$Limit, name, initialize, &classInfo$$, XMLSecurityManager$Limit::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(XMLSecurityManager$Limit));
+	});
 	return class$;
 }
 

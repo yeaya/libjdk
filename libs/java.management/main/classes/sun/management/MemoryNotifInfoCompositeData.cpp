@@ -1,5 +1,4 @@
 #include <sun/management/MemoryNotifInfoCompositeData.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/lang/management/MemoryNotificationInfo.h>
 #include <java/lang/management/MemoryUsage.h>
@@ -27,7 +26,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;
 using $MemoryNotificationInfo = ::java::lang::management::MemoryNotificationInfo;
 using $MemoryUsage = ::java::lang::management::MemoryUsage;
-using $Type = ::java::lang::reflect::Type;
 using $CompositeData = ::javax::management::openmbean::CompositeData;
 using $CompositeDataSupport = ::javax::management::openmbean::CompositeDataSupport;
 using $CompositeType = ::javax::management::openmbean::CompositeType;
@@ -38,42 +36,6 @@ using $MemoryUsageCompositeData = ::sun::management::MemoryUsageCompositeData;
 
 namespace sun {
 	namespace management {
-
-$FieldInfo _MemoryNotifInfoCompositeData_FieldInfo_[] = {
-	{"memoryNotifInfo", "Ljava/lang/management/MemoryNotificationInfo;", nullptr, $PRIVATE | $FINAL, $field(MemoryNotifInfoCompositeData, memoryNotifInfo)},
-	{"memoryNotifInfoCompositeType", "Ljavax/management/openmbean/CompositeType;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MemoryNotifInfoCompositeData, memoryNotifInfoCompositeType)},
-	{"POOL_NAME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MemoryNotifInfoCompositeData, POOL_NAME)},
-	{"USAGE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MemoryNotifInfoCompositeData, USAGE)},
-	{"COUNT", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MemoryNotifInfoCompositeData, COUNT)},
-	{"memoryNotifInfoItemNames", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MemoryNotifInfoCompositeData, memoryNotifInfoItemNames)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MemoryNotifInfoCompositeData, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _MemoryNotifInfoCompositeData_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/management/MemoryNotificationInfo;)V", nullptr, $PRIVATE, $method(MemoryNotifInfoCompositeData, init$, void, $MemoryNotificationInfo*)},
-	{"getCompositeData", "()Ljavax/management/openmbean/CompositeData;", nullptr, $PROTECTED, $virtualMethod(MemoryNotifInfoCompositeData, getCompositeData, $CompositeData*)},
-	{"getCount", "(Ljavax/management/openmbean/CompositeData;)J", nullptr, $PUBLIC | $STATIC, $staticMethod(MemoryNotifInfoCompositeData, getCount, int64_t, $CompositeData*)},
-	{"getMemoryNotifInfo", "()Ljava/lang/management/MemoryNotificationInfo;", nullptr, $PUBLIC, $virtualMethod(MemoryNotifInfoCompositeData, getMemoryNotifInfo, $MemoryNotificationInfo*)},
-	{"getPoolName", "(Ljavax/management/openmbean/CompositeData;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(MemoryNotifInfoCompositeData, getPoolName, $String*, $CompositeData*)},
-	{"getUsage", "(Ljavax/management/openmbean/CompositeData;)Ljava/lang/management/MemoryUsage;", nullptr, $PUBLIC | $STATIC, $staticMethod(MemoryNotifInfoCompositeData, getUsage, $MemoryUsage*, $CompositeData*)},
-	{"toCompositeData", "(Ljava/lang/management/MemoryNotificationInfo;)Ljavax/management/openmbean/CompositeData;", nullptr, $PUBLIC | $STATIC, $staticMethod(MemoryNotifInfoCompositeData, toCompositeData, $CompositeData*, $MemoryNotificationInfo*)},
-	{"validateCompositeData", "(Ljavax/management/openmbean/CompositeData;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(MemoryNotifInfoCompositeData, validateCompositeData, void, $CompositeData*)},
-	{}
-};
-
-$ClassInfo _MemoryNotifInfoCompositeData_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.management.MemoryNotifInfoCompositeData",
-	"sun.management.LazyCompositeData",
-	nullptr,
-	_MemoryNotifInfoCompositeData_FieldInfo_,
-	_MemoryNotifInfoCompositeData_MethodInfo_
-};
-
-$Object* allocate$MemoryNotifInfoCompositeData($Class* clazz) {
-	return $of($alloc(MemoryNotifInfoCompositeData));
-}
 
 $CompositeType* MemoryNotifInfoCompositeData::memoryNotifInfoCompositeType = nullptr;
 $String* MemoryNotifInfoCompositeData::POOL_NAME = nullptr;
@@ -97,11 +59,11 @@ $CompositeData* MemoryNotifInfoCompositeData::toCompositeData($MemoryNotificatio
 }
 
 $CompositeData* MemoryNotifInfoCompositeData::getCompositeData() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectArray, memoryNotifInfoItemValues, $new($ObjectArray, {
-		$($of($nc(this->memoryNotifInfo)->getPoolName())),
-		$($of($MemoryUsageCompositeData::toCompositeData($($nc(this->memoryNotifInfo)->getUsage())))),
-		$($of($Long::valueOf($nc(this->memoryNotifInfo)->getCount())))
+		$($nc(this->memoryNotifInfo)->getPoolName()),
+		$($MemoryUsageCompositeData::toCompositeData($($nc(this->memoryNotifInfo)->getUsage()))),
+		$($Long::valueOf($nc(this->memoryNotifInfo)->getCount()))
 	}));
 	try {
 		return $new($CompositeDataSupport, MemoryNotifInfoCompositeData::memoryNotifInfoCompositeType, MemoryNotifInfoCompositeData::memoryNotifInfoItemNames, memoryNotifInfoItemValues);
@@ -113,7 +75,7 @@ $CompositeData* MemoryNotifInfoCompositeData::getCompositeData() {
 
 $String* MemoryNotifInfoCompositeData::getPoolName($CompositeData* cd) {
 	$init(MemoryNotifInfoCompositeData);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, poolname, getString(cd, MemoryNotifInfoCompositeData::POOL_NAME));
 	if (poolname == nullptr) {
 		$throwNew($IllegalArgumentException, $$str({"Invalid composite data: Attribute "_s, MemoryNotifInfoCompositeData::POOL_NAME, " has null value"_s}));
@@ -142,7 +104,7 @@ void MemoryNotifInfoCompositeData::validateCompositeData($CompositeData* cd) {
 	}
 }
 
-void clinit$MemoryNotifInfoCompositeData($Class* class$) {
+void MemoryNotifInfoCompositeData::clinit$($Class* clazz) {
 	$assignStatic(MemoryNotifInfoCompositeData::POOL_NAME, "poolName"_s);
 	$assignStatic(MemoryNotifInfoCompositeData::USAGE, "usage"_s);
 	$assignStatic(MemoryNotifInfoCompositeData::COUNT, "count"_s);
@@ -165,7 +127,38 @@ MemoryNotifInfoCompositeData::MemoryNotifInfoCompositeData() {
 }
 
 $Class* MemoryNotifInfoCompositeData::load$($String* name, bool initialize) {
-	$loadClass(MemoryNotifInfoCompositeData, name, initialize, &_MemoryNotifInfoCompositeData_ClassInfo_, clinit$MemoryNotifInfoCompositeData, allocate$MemoryNotifInfoCompositeData);
+	$FieldInfo fieldInfos$$[] = {
+		{"memoryNotifInfo", "Ljava/lang/management/MemoryNotificationInfo;", nullptr, $PRIVATE | $FINAL, $field(MemoryNotifInfoCompositeData, memoryNotifInfo)},
+		{"memoryNotifInfoCompositeType", "Ljavax/management/openmbean/CompositeType;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MemoryNotifInfoCompositeData, memoryNotifInfoCompositeType)},
+		{"POOL_NAME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MemoryNotifInfoCompositeData, POOL_NAME)},
+		{"USAGE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MemoryNotifInfoCompositeData, USAGE)},
+		{"COUNT", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MemoryNotifInfoCompositeData, COUNT)},
+		{"memoryNotifInfoItemNames", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MemoryNotifInfoCompositeData, memoryNotifInfoItemNames)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MemoryNotifInfoCompositeData, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/management/MemoryNotificationInfo;)V", nullptr, $PRIVATE, $method(MemoryNotifInfoCompositeData, init$, void, $MemoryNotificationInfo*)},
+		{"getCompositeData", "()Ljavax/management/openmbean/CompositeData;", nullptr, $PROTECTED, $virtualMethod(MemoryNotifInfoCompositeData, getCompositeData, $CompositeData*)},
+		{"getCount", "(Ljavax/management/openmbean/CompositeData;)J", nullptr, $PUBLIC | $STATIC, $staticMethod(MemoryNotifInfoCompositeData, getCount, int64_t, $CompositeData*)},
+		{"getMemoryNotifInfo", "()Ljava/lang/management/MemoryNotificationInfo;", nullptr, $PUBLIC, $virtualMethod(MemoryNotifInfoCompositeData, getMemoryNotifInfo, $MemoryNotificationInfo*)},
+		{"getPoolName", "(Ljavax/management/openmbean/CompositeData;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(MemoryNotifInfoCompositeData, getPoolName, $String*, $CompositeData*)},
+		{"getUsage", "(Ljavax/management/openmbean/CompositeData;)Ljava/lang/management/MemoryUsage;", nullptr, $PUBLIC | $STATIC, $staticMethod(MemoryNotifInfoCompositeData, getUsage, $MemoryUsage*, $CompositeData*)},
+		{"toCompositeData", "(Ljava/lang/management/MemoryNotificationInfo;)Ljavax/management/openmbean/CompositeData;", nullptr, $PUBLIC | $STATIC, $staticMethod(MemoryNotifInfoCompositeData, toCompositeData, $CompositeData*, $MemoryNotificationInfo*)},
+		{"validateCompositeData", "(Ljavax/management/openmbean/CompositeData;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(MemoryNotifInfoCompositeData, validateCompositeData, void, $CompositeData*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.management.MemoryNotifInfoCompositeData",
+		"sun.management.LazyCompositeData",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(MemoryNotifInfoCompositeData, name, initialize, &classInfo$$, MemoryNotifInfoCompositeData::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MemoryNotifInfoCompositeData));
+	});
 	return class$;
 }
 

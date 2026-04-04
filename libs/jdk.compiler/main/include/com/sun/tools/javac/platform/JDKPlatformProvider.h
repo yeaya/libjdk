@@ -62,6 +62,7 @@ class $import JDKPlatformProvider : public ::com::sun::tools::javac::platform::P
 	$class(JDKPlatformProvider, 0, ::com::sun::tools::javac::platform::PlatformProvider)
 public:
 	JDKPlatformProvider();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::nio::file::Path* findCtSym();
 	virtual ::com::sun::tools::javac::platform::PlatformDescription* getPlatform($String* platformName, $String* options) override;

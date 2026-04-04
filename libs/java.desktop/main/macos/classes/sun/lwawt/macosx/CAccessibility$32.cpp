@@ -1,5 +1,4 @@
 #include <sun/lwawt/macosx/CAccessibility$32.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/KeyboardFocusManager.h>
 #include <javax/accessibility/Accessible.h>
@@ -20,51 +19,14 @@ namespace sun {
 	namespace lwawt {
 		namespace macosx {
 
-$MethodInfo _CAccessibility$32_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(CAccessibility$32, init$, void)},
-	{"call", "()Ljavax/accessibility/Accessible;", nullptr, $PUBLIC, $virtualMethod(CAccessibility$32, call, $Object*), "java.lang.Exception"},
-	{}
-};
-
-$EnclosingMethodInfo _CAccessibility$32_EnclosingMethodInfo_ = {
-	"sun.lwawt.macosx.CAccessibility",
-	"getFocusOwner",
-	"(Ljava/awt/Component;)Ljavax/accessibility/Accessible;"
-};
-
-$InnerClassInfo _CAccessibility$32_InnerClassesInfo_[] = {
-	{"sun.lwawt.macosx.CAccessibility$32", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _CAccessibility$32_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.lwawt.macosx.CAccessibility$32",
-	"java.lang.Object",
-	"java.util.concurrent.Callable",
-	nullptr,
-	_CAccessibility$32_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/concurrent/Callable<Ljavax/accessibility/Accessible;>;",
-	&_CAccessibility$32_EnclosingMethodInfo_,
-	_CAccessibility$32_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.lwawt.macosx.CAccessibility"
-};
-
-$Object* allocate$CAccessibility$32($Class* clazz) {
-	return $of($alloc(CAccessibility$32));
-}
-
 void CAccessibility$32::init$() {
 }
 
 $Object* CAccessibility$32::call() {
-	$useLocalCurrentObjectStackCache();
-	$var($Component, c, $nc($($KeyboardFocusManager::getCurrentKeyboardFocusManager()))->getFocusOwner());
+	$useLocalObjectStack();
+	$var($Component, c, $$nc($KeyboardFocusManager::getCurrentKeyboardFocusManager())->getFocusOwner());
 	if (c == nullptr || !($instanceOf($Accessible, c))) {
-		return $of(nullptr);
+		return nullptr;
 	}
 	return $of($CAccessible::getCAccessible($cast($Accessible, c)));
 }
@@ -73,7 +35,38 @@ CAccessibility$32::CAccessibility$32() {
 }
 
 $Class* CAccessibility$32::load$($String* name, bool initialize) {
-	$loadClass(CAccessibility$32, name, initialize, &_CAccessibility$32_ClassInfo_, allocate$CAccessibility$32);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(CAccessibility$32, init$, void)},
+		{"call", "()Ljavax/accessibility/Accessible;", nullptr, $PUBLIC, $virtualMethod(CAccessibility$32, call, $Object*), "java.lang.Exception"},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.lwawt.macosx.CAccessibility",
+		"getFocusOwner",
+		"(Ljava/awt/Component;)Ljavax/accessibility/Accessible;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.lwawt.macosx.CAccessibility$32", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.lwawt.macosx.CAccessibility$32",
+		"java.lang.Object",
+		"java.util.concurrent.Callable",
+		nullptr,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/concurrent/Callable<Ljavax/accessibility/Accessible;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.lwawt.macosx.CAccessibility"
+	};
+	$loadClass(CAccessibility$32, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CAccessibility$32);
+	});
 	return class$;
 }
 

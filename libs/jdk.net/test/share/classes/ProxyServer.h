@@ -46,6 +46,7 @@ public:
 	virtual bool equals(Object$* arg0) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::lang::Integer* port);
 	void init$(::java::lang::Integer* port, ::java::lang::Boolean* debug, $String* username, $String* password);
 	void init$(::java::lang::Integer* port, ::java::lang::Boolean* debug);

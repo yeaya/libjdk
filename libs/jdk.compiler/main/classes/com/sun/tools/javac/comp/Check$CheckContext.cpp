@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/Check$CheckContext.h>
-
 #include <com/sun/tools/javac/code/Type.h>
 #include <com/sun/tools/javac/comp/Check.h>
 #include <com/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext.h>
@@ -25,42 +24,37 @@ namespace com {
 			namespace javac {
 				namespace comp {
 
-$MethodInfo _Check$CheckContext_MethodInfo_[] = {
-	{"checkWarner", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/util/Warner;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Check$CheckContext, checkWarner, $Warner*, $JCDiagnostic$DiagnosticPosition*, $Type*, $Type*)},
-	{"compatible", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/Warner;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Check$CheckContext, compatible, bool, $Type*, $Type*, $Warner*)},
-	{"deferredAttrContext", "()Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Check$CheckContext, deferredAttrContext, $DeferredAttr$DeferredAttrContext*)},
-	{"inferenceContext", "()Lcom/sun/tools/javac/comp/InferenceContext;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Check$CheckContext, inferenceContext, $InferenceContext*)},
-	{"report", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/util/JCDiagnostic;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Check$CheckContext, report, void, $JCDiagnostic$DiagnosticPosition*, $JCDiagnostic*)},
-	{}
-};
-
-$InnerClassInfo _Check$CheckContext_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.Check$CheckContext", "com.sun.tools.javac.comp.Check", "CheckContext", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Check$CheckContext_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.tools.javac.comp.Check$CheckContext",
-	nullptr,
-	nullptr,
-	nullptr,
-	_Check$CheckContext_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Check$CheckContext_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.Check"
-};
-
-$Object* allocate$Check$CheckContext($Class* clazz) {
-	return $of($alloc(Check$CheckContext));
-}
-
 $Class* Check$CheckContext::load$($String* name, bool initialize) {
-	$loadClass(Check$CheckContext, name, initialize, &_Check$CheckContext_ClassInfo_, allocate$Check$CheckContext);
+	$MethodInfo methodInfos$$[] = {
+		{"checkWarner", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/util/Warner;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Check$CheckContext, checkWarner, $Warner*, $JCDiagnostic$DiagnosticPosition*, $Type*, $Type*)},
+		{"compatible", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/Warner;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Check$CheckContext, compatible, bool, $Type*, $Type*, $Warner*)},
+		{"deferredAttrContext", "()Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Check$CheckContext, deferredAttrContext, $DeferredAttr$DeferredAttrContext*)},
+		{"inferenceContext", "()Lcom/sun/tools/javac/comp/InferenceContext;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Check$CheckContext, inferenceContext, $InferenceContext*)},
+		{"report", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/util/JCDiagnostic;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Check$CheckContext, report, void, $JCDiagnostic$DiagnosticPosition*, $JCDiagnostic*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.Check$CheckContext", "com.sun.tools.javac.comp.Check", "CheckContext", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.tools.javac.comp.Check$CheckContext",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.Check"
+	};
+	$loadClass(Check$CheckContext, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Check$CheckContext);
+	});
 	return class$;
 }
 

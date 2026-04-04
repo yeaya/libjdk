@@ -1,5 +1,4 @@
 #include <sun/awt/shell/ShellFolder$Invoker.h>
-
 #include <java/util/concurrent/Callable.h>
 #include <sun/awt/shell/ShellFolder.h>
 #include <jcpp.h>
@@ -13,38 +12,33 @@ namespace sun {
 	namespace awt {
 		namespace shell {
 
-$MethodInfo _ShellFolder$Invoker_MethodInfo_[] = {
-	{"invoke", "(Ljava/util/concurrent/Callable;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljava/util/concurrent/Callable<TT;>;)TT;", $PUBLIC | $ABSTRACT, $virtualMethod(ShellFolder$Invoker, invoke, $Object*, $Callable*), "java.lang.Exception"},
-	{}
-};
-
-$InnerClassInfo _ShellFolder$Invoker_InnerClassesInfo_[] = {
-	{"sun.awt.shell.ShellFolder$Invoker", "sun.awt.shell.ShellFolder", "Invoker", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _ShellFolder$Invoker_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"sun.awt.shell.ShellFolder$Invoker",
-	nullptr,
-	nullptr,
-	nullptr,
-	_ShellFolder$Invoker_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ShellFolder$Invoker_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.awt.shell.ShellFolder"
-};
-
-$Object* allocate$ShellFolder$Invoker($Class* clazz) {
-	return $of($alloc(ShellFolder$Invoker));
-}
-
 $Class* ShellFolder$Invoker::load$($String* name, bool initialize) {
-	$loadClass(ShellFolder$Invoker, name, initialize, &_ShellFolder$Invoker_ClassInfo_, allocate$ShellFolder$Invoker);
+	$MethodInfo methodInfos$$[] = {
+		{"invoke", "(Ljava/util/concurrent/Callable;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljava/util/concurrent/Callable<TT;>;)TT;", $PUBLIC | $ABSTRACT, $virtualMethod(ShellFolder$Invoker, invoke, $Object*, $Callable*), "java.lang.Exception"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.shell.ShellFolder$Invoker", "sun.awt.shell.ShellFolder", "Invoker", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"sun.awt.shell.ShellFolder$Invoker",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.awt.shell.ShellFolder"
+	};
+	$loadClass(ShellFolder$Invoker, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ShellFolder$Invoker);
+	});
 	return class$;
 }
 

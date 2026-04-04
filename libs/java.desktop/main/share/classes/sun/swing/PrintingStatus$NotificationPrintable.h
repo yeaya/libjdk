@@ -30,6 +30,7 @@ class PrintingStatus$NotificationPrintable : public ::java::awt::print::Printabl
 	$class(PrintingStatus$NotificationPrintable, 0, ::java::awt::print::Printable)
 public:
 	PrintingStatus$NotificationPrintable();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::swing::PrintingStatus* this$0, ::java::awt::print::Printable* delegatee);
 	virtual int32_t print(::java::awt::Graphics* graphics, ::java::awt::print::PageFormat* pageFormat, int32_t pageIndex) override;
 	void updateStatusOnEDT(int32_t pageIndex);

@@ -1,5 +1,4 @@
 #include <javax/swing/JColorChooser.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/Dialog.h>
@@ -41,7 +40,6 @@ using $GraphicsEnvironment = ::java::awt::GraphicsEnvironment;
 using $HeadlessException = ::java::awt::HeadlessException;
 using $Window = ::java::awt::Window;
 using $ActionListener = ::java::awt::event::ActionListener;
-using $ComponentListener = ::java::awt::event::ComponentListener;
 using $ObjectOutputStream = ::java::io::ObjectOutputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
@@ -69,182 +67,6 @@ using $ComponentUI = ::javax::swing::plaf::ComponentUI;
 
 namespace javax {
 	namespace swing {
-
-$NamedAttribute JColorChooser_Attribute_var$0[] = {
-	{"defaultProperty", 's', "UI"},
-	{"description", 's', "A component that supports selecting a Color."},
-	{}
-};
-
-$NamedAttribute JColorChooser_Attribute_var$1[] = {
-	{"value", 'Z', "false"},
-	{}
-};
-
-$CompoundAttribute _JColorChooser_Annotations_[] = {
-	{"Ljava/beans/JavaBean;", JColorChooser_Attribute_var$0},
-	{"Ljavax/swing/SwingContainer;", JColorChooser_Attribute_var$1},
-	{}
-};
-
-$NamedAttribute JColorChooser_Attribute_var$2[] = {
-	{"bound", 'Z', "false"},
-	{}
-};
-
-$CompoundAttribute _JColorChooser_MethodAnnotations_getAccessibleContext5[] = {
-	{"Ljava/beans/BeanProperty;", JColorChooser_Attribute_var$2},
-	{}
-};
-
-$NamedAttribute JColorChooser_Attribute_var$3[] = {
-	{"bound", 'Z', "false"},
-	{}
-};
-
-$CompoundAttribute _JColorChooser_MethodAnnotations_getUIClassID12[] = {
-	{"Ljava/beans/BeanProperty;", JColorChooser_Attribute_var$3},
-	{}
-};
-
-$NamedAttribute JColorChooser_Attribute_var$4[] = {
-	{"hidden", 'Z', "true"},
-	{"description", 's', "An array of different chooser types."},
-	{}
-};
-
-$CompoundAttribute _JColorChooser_MethodAnnotations_setChooserPanels15[] = {
-	{"Ljava/beans/BeanProperty;", JColorChooser_Attribute_var$4},
-	{}
-};
-
-$NamedAttribute JColorChooser_Attribute_var$5[] = {
-	{"bound", 'Z', "false"},
-	{"description", 's', "The current color the chooser is to display."},
-	{}
-};
-
-$CompoundAttribute _JColorChooser_MethodAnnotations_setColor16[] = {
-	{"Ljava/beans/BeanProperty;", JColorChooser_Attribute_var$5},
-	{}
-};
-
-$NamedAttribute JColorChooser_Attribute_var$6[] = {
-	{"bound", 'Z', "false"},
-	{"description", 's', "Determines whether automatic drag handling is enabled."},
-	{}
-};
-
-$CompoundAttribute _JColorChooser_MethodAnnotations_setDragEnabled19[] = {
-	{"Ljava/beans/BeanProperty;", JColorChooser_Attribute_var$6},
-	{}
-};
-
-$NamedAttribute JColorChooser_Attribute_var$7[] = {
-	{"hidden", 'Z', "true"},
-	{"description", 's', "The UI component which displays the current color."},
-	{}
-};
-
-$CompoundAttribute _JColorChooser_MethodAnnotations_setPreviewPanel20[] = {
-	{"Ljava/beans/BeanProperty;", JColorChooser_Attribute_var$7},
-	{}
-};
-
-$NamedAttribute JColorChooser_Attribute_var$8[] = {
-	{"hidden", 'Z', "true"},
-	{"description", 's', "The model which contains the currently selected color."},
-	{}
-};
-
-$CompoundAttribute _JColorChooser_MethodAnnotations_setSelectionModel21[] = {
-	{"Ljava/beans/BeanProperty;", JColorChooser_Attribute_var$8},
-	{}
-};
-
-$NamedAttribute JColorChooser_Attribute_var$9[] = {
-	{"hidden", 'Z', "true"},
-	{"description", 's', "The UI object that implements the color chooser\'s LookAndFeel."},
-	{}
-};
-
-$CompoundAttribute _JColorChooser_MethodAnnotations_setUI22[] = {
-	{"Ljava/beans/BeanProperty;", JColorChooser_Attribute_var$9},
-	{}
-};
-
-$FieldInfo _JColorChooser_FieldInfo_[] = {
-	{"uiClassID", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JColorChooser, uiClassID)},
-	{"selectionModel", "Ljavax/swing/colorchooser/ColorSelectionModel;", nullptr, $PRIVATE, $field(JColorChooser, selectionModel)},
-	{"previewPanel", "Ljavax/swing/JComponent;", nullptr, $PRIVATE, $field(JColorChooser, previewPanel)},
-	{"chooserPanels", "[Ljavax/swing/colorchooser/AbstractColorChooserPanel;", nullptr, $PRIVATE, $field(JColorChooser, chooserPanels)},
-	{"dragEnabled", "Z", nullptr, $PRIVATE, $field(JColorChooser, dragEnabled)},
-	{"SELECTION_MODEL_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JColorChooser, SELECTION_MODEL_PROPERTY)},
-	{"PREVIEW_PANEL_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JColorChooser, PREVIEW_PANEL_PROPERTY)},
-	{"CHOOSER_PANELS_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JColorChooser, CHOOSER_PANELS_PROPERTY)},
-	{"accessibleContext", "Ljavax/accessibility/AccessibleContext;", nullptr, $PROTECTED, $field(JColorChooser, accessibleContext)},
-	{}
-};
-
-$MethodInfo _JColorChooser_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(JColorChooser, init$, void)},
-	{"<init>", "(Ljava/awt/Color;)V", nullptr, $PUBLIC, $method(JColorChooser, init$, void, $Color*)},
-	{"<init>", "(Ljavax/swing/colorchooser/ColorSelectionModel;)V", nullptr, $PUBLIC, $method(JColorChooser, init$, void, $ColorSelectionModel*)},
-	{"addChooserPanel", "(Ljavax/swing/colorchooser/AbstractColorChooserPanel;)V", nullptr, $PUBLIC, $virtualMethod(JColorChooser, addChooserPanel, void, $AbstractColorChooserPanel*)},
-	{"createDialog", "(Ljava/awt/Component;Ljava/lang/String;ZLjavax/swing/JColorChooser;Ljava/awt/event/ActionListener;Ljava/awt/event/ActionListener;)Ljavax/swing/JDialog;", nullptr, $PUBLIC | $STATIC, $staticMethod(JColorChooser, createDialog, $JDialog*, $Component*, $String*, bool, JColorChooser*, $ActionListener*, $ActionListener*), "java.awt.HeadlessException"},
-	{"getAccessibleContext", "()Ljavax/accessibility/AccessibleContext;", nullptr, $PUBLIC, $virtualMethod(JColorChooser, getAccessibleContext, $AccessibleContext*), nullptr, nullptr, _JColorChooser_MethodAnnotations_getAccessibleContext5},
-	{"getChooserPanels", "()[Ljavax/swing/colorchooser/AbstractColorChooserPanel;", nullptr, $PUBLIC, $virtualMethod(JColorChooser, getChooserPanels, $AbstractColorChooserPanelArray*)},
-	{"getColor", "()Ljava/awt/Color;", nullptr, $PUBLIC, $virtualMethod(JColorChooser, getColor, $Color*)},
-	{"getDragEnabled", "()Z", nullptr, $PUBLIC, $virtualMethod(JColorChooser, getDragEnabled, bool)},
-	{"getPreviewPanel", "()Ljavax/swing/JComponent;", nullptr, $PUBLIC, $virtualMethod(JColorChooser, getPreviewPanel, $JComponent*)},
-	{"getSelectionModel", "()Ljavax/swing/colorchooser/ColorSelectionModel;", nullptr, $PUBLIC, $virtualMethod(JColorChooser, getSelectionModel, $ColorSelectionModel*)},
-	{"getUI", "()Ljavax/swing/plaf/ColorChooserUI;", nullptr, $PUBLIC, $virtualMethod(JColorChooser, getUI, $ComponentUI*)},
-	{"getUIClassID", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JColorChooser, getUIClassID, $String*), nullptr, nullptr, _JColorChooser_MethodAnnotations_getUIClassID12},
-	{"paramString", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(JColorChooser, paramString, $String*)},
-	{"removeChooserPanel", "(Ljavax/swing/colorchooser/AbstractColorChooserPanel;)Ljavax/swing/colorchooser/AbstractColorChooserPanel;", nullptr, $PUBLIC, $virtualMethod(JColorChooser, removeChooserPanel, $AbstractColorChooserPanel*, $AbstractColorChooserPanel*)},
-	{"setChooserPanels", "([Ljavax/swing/colorchooser/AbstractColorChooserPanel;)V", nullptr, $PUBLIC, $virtualMethod(JColorChooser, setChooserPanels, void, $AbstractColorChooserPanelArray*), nullptr, nullptr, _JColorChooser_MethodAnnotations_setChooserPanels15},
-	{"setColor", "(Ljava/awt/Color;)V", nullptr, $PUBLIC, $virtualMethod(JColorChooser, setColor, void, $Color*), nullptr, nullptr, _JColorChooser_MethodAnnotations_setColor16},
-	{"setColor", "(III)V", nullptr, $PUBLIC, $virtualMethod(JColorChooser, setColor, void, int32_t, int32_t, int32_t)},
-	{"setColor", "(I)V", nullptr, $PUBLIC, $virtualMethod(JColorChooser, setColor, void, int32_t)},
-	{"setDragEnabled", "(Z)V", nullptr, $PUBLIC, $virtualMethod(JColorChooser, setDragEnabled, void, bool), nullptr, nullptr, _JColorChooser_MethodAnnotations_setDragEnabled19},
-	{"setPreviewPanel", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(JColorChooser, setPreviewPanel, void, $JComponent*), nullptr, nullptr, _JColorChooser_MethodAnnotations_setPreviewPanel20},
-	{"setSelectionModel", "(Ljavax/swing/colorchooser/ColorSelectionModel;)V", nullptr, $PUBLIC, $virtualMethod(JColorChooser, setSelectionModel, void, $ColorSelectionModel*), nullptr, nullptr, _JColorChooser_MethodAnnotations_setSelectionModel21},
-	{"setUI", "(Ljavax/swing/plaf/ColorChooserUI;)V", nullptr, $PUBLIC, $virtualMethod(JColorChooser, setUI, void, $ColorChooserUI*), nullptr, nullptr, _JColorChooser_MethodAnnotations_setUI22},
-	{"showDialog", "(Ljava/awt/Component;Ljava/lang/String;Ljava/awt/Color;)Ljava/awt/Color;", nullptr, $PUBLIC | $STATIC, $staticMethod(JColorChooser, showDialog, $Color*, $Component*, $String*, $Color*), "java.awt.HeadlessException"},
-	{"showDialog", "(Ljava/awt/Component;Ljava/lang/String;Ljava/awt/Color;Z)Ljava/awt/Color;", nullptr, $PUBLIC | $STATIC, $staticMethod(JColorChooser, showDialog, $Color*, $Component*, $String*, $Color*, bool), "java.awt.HeadlessException"},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"updateUI", "()V", nullptr, $PUBLIC, $virtualMethod(JColorChooser, updateUI, void)},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(JColorChooser, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _JColorChooser_InnerClassesInfo_[] = {
-	{"javax.swing.JColorChooser$AccessibleJColorChooser", "javax.swing.JColorChooser", "AccessibleJColorChooser", $PROTECTED},
-	{}
-};
-
-$ClassInfo _JColorChooser_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.JColorChooser",
-	"javax.swing.JComponent",
-	"javax.accessibility.Accessible",
-	_JColorChooser_FieldInfo_,
-	_JColorChooser_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JColorChooser_InnerClassesInfo_,
-	_JColorChooser_Annotations_,
-	nullptr,
-	"javax.swing.JColorChooser$AccessibleJColorChooser"
-};
-
-$Object* allocate$JColorChooser($Class* clazz) {
-	return $of($alloc(JColorChooser));
-}
 
 $String* JColorChooser::toString() {
 	 return this->$JComponent::toString();
@@ -278,14 +100,12 @@ $Color* JColorChooser::showDialog($Component* component, $String* title, $Color*
 
 $Color* JColorChooser::showDialog($Component* component, $String* title, $Color* initialColor, bool colorTransparencySelectionEnabled) {
 	$init(JColorChooser);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Color);
 	$var(JColorChooser, pane, $new(JColorChooser, initialColor != nullptr ? initialColor : $Color::white));
 	{
 		$var($AbstractColorChooserPanelArray, arr$, pane->getChooserPanels());
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($AbstractColorChooserPanel, ccPanel, arr$->get(i$));
 			{
 				$nc(ccPanel)->setColorTransparencySelectionEnabled(colorTransparencySelectionEnabled);
@@ -301,7 +121,7 @@ $Color* JColorChooser::showDialog($Component* component, $String* title, $Color*
 
 $JDialog* JColorChooser::createDialog($Component* c, $String* title, bool modal, JColorChooser* chooserPane, $ActionListener* okListener, $ActionListener* cancelListener) {
 	$init(JColorChooser);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Window, window, $JOptionPane::getWindowForComponent(c));
 	$var($ColorChooserDialog, dialog, nullptr);
 	if ($instanceOf($Frame, window)) {
@@ -309,7 +129,7 @@ $JDialog* JColorChooser::createDialog($Component* c, $String* title, bool modal,
 	} else {
 		$assign(dialog, $new($ColorChooserDialog, $cast($Dialog, window), title, modal, c, chooserPane, okListener, cancelListener));
 	}
-	$nc($($nc(dialog)->getAccessibleContext()))->setAccessibleDescription(title);
+	$$nc($nc(dialog)->getAccessibleContext())->setAccessibleDescription(title);
 	return dialog;
 }
 
@@ -319,7 +139,7 @@ void JColorChooser::init$() {
 }
 
 void JColorChooser::init$($Color* initialColor) {
-	JColorChooser::init$(static_cast<$ColorSelectionModel*>($$new($DefaultColorSelectionModel, initialColor)));
+	JColorChooser::init$($$new($DefaultColorSelectionModel, initialColor));
 }
 
 void JColorChooser::init$($ColorSelectionModel* model) {
@@ -341,7 +161,7 @@ void JColorChooser::setUI($ColorChooserUI* ui) {
 }
 
 void JColorChooser::updateUI() {
-	setUI($cast($ColorChooserUI, $($UIManager::getUI(this))));
+	setUI($$cast($ColorChooserUI, $UIManager::getUI(this)));
 }
 
 $String* JColorChooser::getUIClassID() {
@@ -361,7 +181,7 @@ void JColorChooser::setColor(int32_t r, int32_t g, int32_t b) {
 }
 
 void JColorChooser::setColor(int32_t c) {
-	setColor((int32_t)((c >> 16) & (uint32_t)255), (int32_t)((c >> 8) & (uint32_t)255), (int32_t)(c & (uint32_t)255));
+	setColor((c >> 16) & 0xff, (c >> 8) & 0xff, c & 0xff);
 }
 
 void JColorChooser::setDragEnabled(bool b) {
@@ -379,7 +199,7 @@ void JColorChooser::setPreviewPanel($JComponent* preview) {
 	if (this->previewPanel != preview) {
 		$var($JComponent, oldPreview, this->previewPanel);
 		$set(this, previewPanel, preview);
-		firePropertyChange(JColorChooser::PREVIEW_PANEL_PROPERTY, $of(oldPreview), $of(preview));
+		firePropertyChange(JColorChooser::PREVIEW_PANEL_PROPERTY, oldPreview, preview);
 	}
 }
 
@@ -388,7 +208,7 @@ $JComponent* JColorChooser::getPreviewPanel() {
 }
 
 void JColorChooser::addChooserPanel($AbstractColorChooserPanel* panel) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AbstractColorChooserPanelArray, oldPanels, getChooserPanels());
 	$var($AbstractColorChooserPanelArray, newPanels, $new($AbstractColorChooserPanelArray, $nc(oldPanels)->length + 1));
 	$System::arraycopy(oldPanels, 0, newPanels, 0, oldPanels->length);
@@ -399,7 +219,7 @@ void JColorChooser::addChooserPanel($AbstractColorChooserPanel* panel) {
 $AbstractColorChooserPanel* JColorChooser::removeChooserPanel($AbstractColorChooserPanel* panel) {
 	int32_t containedAt = -1;
 	for (int32_t i = 0; i < $nc(this->chooserPanels)->length; ++i) {
-		if ($nc(this->chooserPanels)->get(i) == panel) {
+		if (this->chooserPanels->get(i) == panel) {
 			containedAt = i;
 			break;
 		}
@@ -407,14 +227,14 @@ $AbstractColorChooserPanel* JColorChooser::removeChooserPanel($AbstractColorChoo
 	if (containedAt == -1) {
 		$throwNew($IllegalArgumentException, "chooser panel not in this chooser"_s);
 	}
-	$var($AbstractColorChooserPanelArray, newArray, $new($AbstractColorChooserPanelArray, $nc(this->chooserPanels)->length - 1));
-	if (containedAt == $nc(this->chooserPanels)->length - 1) {
+	$var($AbstractColorChooserPanelArray, newArray, $new($AbstractColorChooserPanelArray, this->chooserPanels->length - 1));
+	if (containedAt == this->chooserPanels->length - 1) {
 		$System::arraycopy(this->chooserPanels, 0, newArray, 0, newArray->length);
 	} else if (containedAt == 0) {
 		$System::arraycopy(this->chooserPanels, 1, newArray, 0, newArray->length);
 	} else {
 		$System::arraycopy(this->chooserPanels, 0, newArray, 0, containedAt);
-		$System::arraycopy(this->chooserPanels, containedAt + 1, newArray, containedAt, ($nc(this->chooserPanels)->length - containedAt - 1));
+		$System::arraycopy(this->chooserPanels, containedAt + 1, newArray, containedAt, (this->chooserPanels->length - containedAt - 1));
 	}
 	setChooserPanels(newArray);
 	return panel;
@@ -422,12 +242,12 @@ $AbstractColorChooserPanel* JColorChooser::removeChooserPanel($AbstractColorChoo
 
 void JColorChooser::setChooserPanels($AbstractColorChooserPanelArray* panels) {
 	$var($AbstractColorChooserPanelArray, oldValue, this->chooserPanels);
-	$set(this, chooserPanels, $fcast($AbstractColorChooserPanelArray, $Arrays::copyOf(panels, $nc(panels)->length)));
-	firePropertyChange(JColorChooser::CHOOSER_PANELS_PROPERTY, $of(oldValue), $of(panels));
+	$set(this, chooserPanels, $cast($AbstractColorChooserPanelArray, $Arrays::copyOf(panels, $nc(panels)->length)));
+	firePropertyChange(JColorChooser::CHOOSER_PANELS_PROPERTY, oldValue, panels);
 }
 
 $AbstractColorChooserPanelArray* JColorChooser::getChooserPanels() {
-	return $fcast($AbstractColorChooserPanelArray, $Arrays::copyOf(this->chooserPanels, $nc(this->chooserPanels)->length));
+	return $cast($AbstractColorChooserPanelArray, $Arrays::copyOf(this->chooserPanels, $nc(this->chooserPanels)->length));
 }
 
 $ColorSelectionModel* JColorChooser::getSelectionModel() {
@@ -437,39 +257,40 @@ $ColorSelectionModel* JColorChooser::getSelectionModel() {
 void JColorChooser::setSelectionModel($ColorSelectionModel* newModel) {
 	$var($ColorSelectionModel, oldModel, this->selectionModel);
 	$set(this, selectionModel, newModel);
-	firePropertyChange(JColorChooser::SELECTION_MODEL_PROPERTY, $of(oldModel), $of(newModel));
+	firePropertyChange(JColorChooser::SELECTION_MODEL_PROPERTY, oldModel, newModel);
 }
 
 void JColorChooser::writeObject($ObjectOutputStream* s) {
 	$nc(s)->defaultWriteObject();
-	if ($nc($(getUIClassID()))->equals(JColorChooser::uiClassID)) {
+	if ($$nc(getUIClassID())->equals(JColorChooser::uiClassID)) {
 		int8_t count = $JComponent::getWriteObjCounter(this);
 		$JComponent::setWriteObjCounter(this, --count);
 		if (count == 0 && this->ui != nullptr) {
-			$nc(this->ui)->installUI(this);
+			this->ui->installUI(this);
 		}
 	}
 }
 
 $String* JColorChooser::paramString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, chooserPanelsString, $new($StringBuilder));
 	{
 		$var($AbstractColorChooserPanelArray, arr$, this->chooserPanels);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($AbstractColorChooserPanel, panel, arr$->get(i$));
 			{
-				chooserPanelsString->append(u'[')->append($of(panel))->append(u']');
+				chooserPanelsString->append(u'[')->append(panel)->append(u']');
 			}
 		}
 	}
-	$var($String, previewPanelString, this->previewPanel != nullptr ? $nc(this->previewPanel)->toString() : ""_s);
-	$var($String, var$2, $$str({$($JComponent::paramString()), ",chooserPanels="_s}));
-	$var($String, var$1, $$concat(var$2, $(chooserPanelsString->toString())));
-	$var($String, var$0, $$concat(var$1, ",previewPanel="_s));
-	return $concat(var$0, previewPanelString);
+	$var($String, previewPanelString, this->previewPanel != nullptr ? this->previewPanel->toString() : ""_s);
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append($($JComponent::paramString()));
+	var$0->append(",chooserPanels="_s);
+	var$0->append($(chooserPanelsString->toString()));
+	var$0->append(",previewPanel="_s);
+	var$0->append(previewPanelString);
+	return $str(var$0);
 }
 
 $AccessibleContext* JColorChooser::getAccessibleContext() {
@@ -482,7 +303,7 @@ $AccessibleContext* JColorChooser::getAccessibleContext() {
 JColorChooser::JColorChooser() {
 }
 
-void clinit$JColorChooser($Class* class$) {
+void JColorChooser::clinit$($Class* clazz) {
 	$assignStatic(JColorChooser::uiClassID, "ColorChooserUI"_s);
 	$assignStatic(JColorChooser::SELECTION_MODEL_PROPERTY, "selectionModel"_s);
 	$assignStatic(JColorChooser::PREVIEW_PANEL_PROPERTY, "previewPanel"_s);
@@ -490,7 +311,158 @@ void clinit$JColorChooser($Class* class$) {
 }
 
 $Class* JColorChooser::load$($String* name, bool initialize) {
-	$loadClass(JColorChooser, name, initialize, &_JColorChooser_ClassInfo_, clinit$JColorChooser, allocate$JColorChooser);
+	$FieldInfo fieldInfos$$[] = {
+		{"uiClassID", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JColorChooser, uiClassID)},
+		{"selectionModel", "Ljavax/swing/colorchooser/ColorSelectionModel;", nullptr, $PRIVATE, $field(JColorChooser, selectionModel)},
+		{"previewPanel", "Ljavax/swing/JComponent;", nullptr, $PRIVATE, $field(JColorChooser, previewPanel)},
+		{"chooserPanels", "[Ljavax/swing/colorchooser/AbstractColorChooserPanel;", nullptr, $PRIVATE, $field(JColorChooser, chooserPanels)},
+		{"dragEnabled", "Z", nullptr, $PRIVATE, $field(JColorChooser, dragEnabled)},
+		{"SELECTION_MODEL_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JColorChooser, SELECTION_MODEL_PROPERTY)},
+		{"PREVIEW_PANEL_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JColorChooser, PREVIEW_PANEL_PROPERTY)},
+		{"CHOOSER_PANELS_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JColorChooser, CHOOSER_PANELS_PROPERTY)},
+		{"accessibleContext", "Ljavax/accessibility/AccessibleContext;", nullptr, $PROTECTED, $field(JColorChooser, accessibleContext)},
+		{}
+	};
+	$NamedAttribute getAccessibleContextmethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{}
+	};
+	$CompoundAttribute getAccessibleContextmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", getAccessibleContextmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute getUIClassIDmethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{}
+	};
+	$CompoundAttribute getUIClassIDmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", getUIClassIDmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setChooserPanelsmethodAnnotations$$$namedAttribute[] = {
+		{"hidden", 'Z', "true"},
+		{"description", 's', "An array of different chooser types."},
+		{}
+	};
+	$CompoundAttribute setChooserPanelsmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setChooserPanelsmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setColormethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{"description", 's', "The current color the chooser is to display."},
+		{}
+	};
+	$CompoundAttribute setColormethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setColormethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setDragEnabledmethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{"description", 's', "Determines whether automatic drag handling is enabled."},
+		{}
+	};
+	$CompoundAttribute setDragEnabledmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setDragEnabledmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setPreviewPanelmethodAnnotations$$$namedAttribute[] = {
+		{"hidden", 'Z', "true"},
+		{"description", 's', "The UI component which displays the current color."},
+		{}
+	};
+	$CompoundAttribute setPreviewPanelmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setPreviewPanelmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setSelectionModelmethodAnnotations$$$namedAttribute[] = {
+		{"hidden", 'Z', "true"},
+		{"description", 's', "The model which contains the currently selected color."},
+		{}
+	};
+	$CompoundAttribute setSelectionModelmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setSelectionModelmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setUImethodAnnotations$$$namedAttribute[] = {
+		{"hidden", 'Z', "true"},
+		{"description", 's', "The UI object that implements the color chooser\'s LookAndFeel."},
+		{}
+	};
+	$CompoundAttribute setUImethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setUImethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(JColorChooser, init$, void)},
+		{"<init>", "(Ljava/awt/Color;)V", nullptr, $PUBLIC, $method(JColorChooser, init$, void, $Color*)},
+		{"<init>", "(Ljavax/swing/colorchooser/ColorSelectionModel;)V", nullptr, $PUBLIC, $method(JColorChooser, init$, void, $ColorSelectionModel*)},
+		{"addChooserPanel", "(Ljavax/swing/colorchooser/AbstractColorChooserPanel;)V", nullptr, $PUBLIC, $virtualMethod(JColorChooser, addChooserPanel, void, $AbstractColorChooserPanel*)},
+		{"createDialog", "(Ljava/awt/Component;Ljava/lang/String;ZLjavax/swing/JColorChooser;Ljava/awt/event/ActionListener;Ljava/awt/event/ActionListener;)Ljavax/swing/JDialog;", nullptr, $PUBLIC | $STATIC, $staticMethod(JColorChooser, createDialog, $JDialog*, $Component*, $String*, bool, JColorChooser*, $ActionListener*, $ActionListener*), "java.awt.HeadlessException"},
+		{"getAccessibleContext", "()Ljavax/accessibility/AccessibleContext;", nullptr, $PUBLIC, $virtualMethod(JColorChooser, getAccessibleContext, $AccessibleContext*), nullptr, nullptr, getAccessibleContextmethodAnnotations$$},
+		{"getChooserPanels", "()[Ljavax/swing/colorchooser/AbstractColorChooserPanel;", nullptr, $PUBLIC, $virtualMethod(JColorChooser, getChooserPanels, $AbstractColorChooserPanelArray*)},
+		{"getColor", "()Ljava/awt/Color;", nullptr, $PUBLIC, $virtualMethod(JColorChooser, getColor, $Color*)},
+		{"getDragEnabled", "()Z", nullptr, $PUBLIC, $virtualMethod(JColorChooser, getDragEnabled, bool)},
+		{"getPreviewPanel", "()Ljavax/swing/JComponent;", nullptr, $PUBLIC, $virtualMethod(JColorChooser, getPreviewPanel, $JComponent*)},
+		{"getSelectionModel", "()Ljavax/swing/colorchooser/ColorSelectionModel;", nullptr, $PUBLIC, $virtualMethod(JColorChooser, getSelectionModel, $ColorSelectionModel*)},
+		{"getUI", "()Ljavax/swing/plaf/ColorChooserUI;", nullptr, $PUBLIC, $virtualMethod(JColorChooser, getUI, $ComponentUI*)},
+		{"getUIClassID", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JColorChooser, getUIClassID, $String*), nullptr, nullptr, getUIClassIDmethodAnnotations$$},
+		{"paramString", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(JColorChooser, paramString, $String*)},
+		{"removeChooserPanel", "(Ljavax/swing/colorchooser/AbstractColorChooserPanel;)Ljavax/swing/colorchooser/AbstractColorChooserPanel;", nullptr, $PUBLIC, $virtualMethod(JColorChooser, removeChooserPanel, $AbstractColorChooserPanel*, $AbstractColorChooserPanel*)},
+		{"setChooserPanels", "([Ljavax/swing/colorchooser/AbstractColorChooserPanel;)V", nullptr, $PUBLIC, $virtualMethod(JColorChooser, setChooserPanels, void, $AbstractColorChooserPanelArray*), nullptr, nullptr, setChooserPanelsmethodAnnotations$$},
+		{"setColor", "(Ljava/awt/Color;)V", nullptr, $PUBLIC, $virtualMethod(JColorChooser, setColor, void, $Color*), nullptr, nullptr, setColormethodAnnotations$$},
+		{"setColor", "(III)V", nullptr, $PUBLIC, $virtualMethod(JColorChooser, setColor, void, int32_t, int32_t, int32_t)},
+		{"setColor", "(I)V", nullptr, $PUBLIC, $virtualMethod(JColorChooser, setColor, void, int32_t)},
+		{"setDragEnabled", "(Z)V", nullptr, $PUBLIC, $virtualMethod(JColorChooser, setDragEnabled, void, bool), nullptr, nullptr, setDragEnabledmethodAnnotations$$},
+		{"setPreviewPanel", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(JColorChooser, setPreviewPanel, void, $JComponent*), nullptr, nullptr, setPreviewPanelmethodAnnotations$$},
+		{"setSelectionModel", "(Ljavax/swing/colorchooser/ColorSelectionModel;)V", nullptr, $PUBLIC, $virtualMethod(JColorChooser, setSelectionModel, void, $ColorSelectionModel*), nullptr, nullptr, setSelectionModelmethodAnnotations$$},
+		{"setUI", "(Ljavax/swing/plaf/ColorChooserUI;)V", nullptr, $PUBLIC, $virtualMethod(JColorChooser, setUI, void, $ColorChooserUI*), nullptr, nullptr, setUImethodAnnotations$$},
+		{"showDialog", "(Ljava/awt/Component;Ljava/lang/String;Ljava/awt/Color;)Ljava/awt/Color;", nullptr, $PUBLIC | $STATIC, $staticMethod(JColorChooser, showDialog, $Color*, $Component*, $String*, $Color*), "java.awt.HeadlessException"},
+		{"showDialog", "(Ljava/awt/Component;Ljava/lang/String;Ljava/awt/Color;Z)Ljava/awt/Color;", nullptr, $PUBLIC | $STATIC, $staticMethod(JColorChooser, showDialog, $Color*, $Component*, $String*, $Color*, bool), "java.awt.HeadlessException"},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"updateUI", "()V", nullptr, $PUBLIC, $virtualMethod(JColorChooser, updateUI, void)},
+		{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(JColorChooser, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.JColorChooser$AccessibleJColorChooser", "javax.swing.JColorChooser", "AccessibleJColorChooser", $PROTECTED},
+		{}
+	};
+	$NamedAttribute annotations$$$namedAttribute[] = {
+		{"defaultProperty", 's', "UI"},
+		{"description", 's', "A component that supports selecting a Color."},
+		{}
+	};
+	$NamedAttribute annotations$$$namedAttribute$1[] = {
+		{"value", 'Z', "false"},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/beans/JavaBean;", annotations$$$namedAttribute},
+		{"Ljavax/swing/SwingContainer;", annotations$$$namedAttribute$1},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.JColorChooser",
+		"javax.swing.JComponent",
+		"javax.accessibility.Accessible",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		annotations$$,
+		nullptr,
+		"javax.swing.JColorChooser$AccessibleJColorChooser"
+	};
+	$loadClass(JColorChooser, name, initialize, &classInfo$$, JColorChooser::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JColorChooser));
+	});
 	return class$;
 }
 

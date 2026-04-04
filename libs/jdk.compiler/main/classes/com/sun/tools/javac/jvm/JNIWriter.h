@@ -72,6 +72,7 @@ class $export JNIWriter : public ::java::lang::Object {
 	$class(JNIWriter, 0, ::java::lang::Object)
 public:
 	JNIWriter();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::com::sun::tools::javac::util::Context* context);
 	virtual void cppGuardBegin(::java::io::PrintWriter* out);
 	virtual void cppGuardEnd(::java::io::PrintWriter* out);

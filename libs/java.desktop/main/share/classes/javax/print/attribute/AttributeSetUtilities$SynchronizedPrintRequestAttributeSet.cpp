@@ -1,5 +1,4 @@
 #include <javax/print/attribute/AttributeSetUtilities$SynchronizedPrintRequestAttributeSet.h>
-
 #include <javax/print/attribute/Attribute.h>
 #include <javax/print/attribute/AttributeSet.h>
 #include <javax/print/attribute/AttributeSetUtilities$SynchronizedAttributeSet.h>
@@ -20,58 +19,6 @@ using $PrintRequestAttributeSet = ::javax::print::attribute::PrintRequestAttribu
 namespace javax {
 	namespace print {
 		namespace attribute {
-
-$FieldInfo _AttributeSetUtilities$SynchronizedPrintRequestAttributeSet_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AttributeSetUtilities$SynchronizedPrintRequestAttributeSet, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _AttributeSetUtilities$SynchronizedPrintRequestAttributeSet_MethodInfo_[] = {
-	{"*add", "(Ljavax/print/attribute/Attribute;)Z", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"*addAll", "(Ljavax/print/attribute/AttributeSet;)Z", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"*clear", "()V", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*containsKey", "(Ljava/lang/Class;)Z", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"*containsValue", "(Ljavax/print/attribute/Attribute;)Z", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*get", "(Ljava/lang/Class;)Ljavax/print/attribute/Attribute;", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"<init>", "(Ljavax/print/attribute/PrintRequestAttributeSet;)V", nullptr, $PUBLIC, $method(AttributeSetUtilities$SynchronizedPrintRequestAttributeSet, init$, void, $PrintRequestAttributeSet*)},
-	{"*remove", "(Ljava/lang/Class;)Z", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"*remove", "(Ljavax/print/attribute/Attribute;)Z", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"*size", "()I", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"*toArray", "()[Ljavax/print/attribute/Attribute;", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"*isEmpty", "()Z", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _AttributeSetUtilities$SynchronizedPrintRequestAttributeSet_InnerClassesInfo_[] = {
-	{"javax.print.attribute.AttributeSetUtilities$SynchronizedPrintRequestAttributeSet", "javax.print.attribute.AttributeSetUtilities", "SynchronizedPrintRequestAttributeSet", $PRIVATE | $STATIC},
-	{"javax.print.attribute.AttributeSetUtilities$SynchronizedAttributeSet", "javax.print.attribute.AttributeSetUtilities", "SynchronizedAttributeSet", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _AttributeSetUtilities$SynchronizedPrintRequestAttributeSet_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.print.attribute.AttributeSetUtilities$SynchronizedPrintRequestAttributeSet",
-	"javax.print.attribute.AttributeSetUtilities$SynchronizedAttributeSet",
-	"javax.print.attribute.PrintRequestAttributeSet",
-	_AttributeSetUtilities$SynchronizedPrintRequestAttributeSet_FieldInfo_,
-	_AttributeSetUtilities$SynchronizedPrintRequestAttributeSet_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AttributeSetUtilities$SynchronizedPrintRequestAttributeSet_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.print.attribute.AttributeSetUtilities"
-};
-
-$Object* allocate$AttributeSetUtilities$SynchronizedPrintRequestAttributeSet($Class* clazz) {
-	return $of($alloc(AttributeSetUtilities$SynchronizedPrintRequestAttributeSet));
-}
 
 $Attribute* AttributeSetUtilities$SynchronizedPrintRequestAttributeSet::get($Class* category) {
 	 return this->$AttributeSetUtilities$SynchronizedAttributeSet::get(category);
@@ -145,7 +92,53 @@ AttributeSetUtilities$SynchronizedPrintRequestAttributeSet::AttributeSetUtilitie
 }
 
 $Class* AttributeSetUtilities$SynchronizedPrintRequestAttributeSet::load$($String* name, bool initialize) {
-	$loadClass(AttributeSetUtilities$SynchronizedPrintRequestAttributeSet, name, initialize, &_AttributeSetUtilities$SynchronizedPrintRequestAttributeSet_ClassInfo_, allocate$AttributeSetUtilities$SynchronizedPrintRequestAttributeSet);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AttributeSetUtilities$SynchronizedPrintRequestAttributeSet, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*add", "(Ljavax/print/attribute/Attribute;)Z", nullptr, $PUBLIC | $SYNCHRONIZED},
+		{"*addAll", "(Ljavax/print/attribute/AttributeSet;)Z", nullptr, $PUBLIC | $SYNCHRONIZED},
+		{"*clear", "()V", nullptr, $PUBLIC | $SYNCHRONIZED},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*containsKey", "(Ljava/lang/Class;)Z", nullptr, $PUBLIC | $SYNCHRONIZED},
+		{"*containsValue", "(Ljavax/print/attribute/Attribute;)Z", nullptr, $PUBLIC | $SYNCHRONIZED},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $SYNCHRONIZED},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*get", "(Ljava/lang/Class;)Ljavax/print/attribute/Attribute;", nullptr, $PUBLIC | $SYNCHRONIZED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $SYNCHRONIZED},
+		{"<init>", "(Ljavax/print/attribute/PrintRequestAttributeSet;)V", nullptr, $PUBLIC, $method(AttributeSetUtilities$SynchronizedPrintRequestAttributeSet, init$, void, $PrintRequestAttributeSet*)},
+		{"*remove", "(Ljava/lang/Class;)Z", nullptr, $PUBLIC | $SYNCHRONIZED},
+		{"*remove", "(Ljavax/print/attribute/Attribute;)Z", nullptr, $PUBLIC | $SYNCHRONIZED},
+		{"*size", "()I", nullptr, $PUBLIC | $SYNCHRONIZED},
+		{"*toArray", "()[Ljavax/print/attribute/Attribute;", nullptr, $PUBLIC | $SYNCHRONIZED},
+		{"*isEmpty", "()Z", nullptr, $PUBLIC | $SYNCHRONIZED},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.print.attribute.AttributeSetUtilities$SynchronizedPrintRequestAttributeSet", "javax.print.attribute.AttributeSetUtilities", "SynchronizedPrintRequestAttributeSet", $PRIVATE | $STATIC},
+		{"javax.print.attribute.AttributeSetUtilities$SynchronizedAttributeSet", "javax.print.attribute.AttributeSetUtilities", "SynchronizedAttributeSet", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.print.attribute.AttributeSetUtilities$SynchronizedPrintRequestAttributeSet",
+		"javax.print.attribute.AttributeSetUtilities$SynchronizedAttributeSet",
+		"javax.print.attribute.PrintRequestAttributeSet",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.print.attribute.AttributeSetUtilities"
+	};
+	$loadClass(AttributeSetUtilities$SynchronizedPrintRequestAttributeSet, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AttributeSetUtilities$SynchronizedPrintRequestAttributeSet));
+	});
 	return class$;
 }
 

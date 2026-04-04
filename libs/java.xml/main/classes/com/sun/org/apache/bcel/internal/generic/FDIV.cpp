@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/bcel/internal/generic/FDIV.h>
-
 #include <com/sun/org/apache/bcel/internal/Const.h>
 #include <com/sun/org/apache/bcel/internal/generic/ArithmeticInstruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/StackConsumer.h>
@@ -12,9 +11,6 @@
 
 using $Const = ::com::sun::org::apache::bcel::internal::Const;
 using $ArithmeticInstruction = ::com::sun::org::apache::bcel::internal::generic::ArithmeticInstruction;
-using $StackConsumer = ::com::sun::org::apache::bcel::internal::generic::StackConsumer;
-using $StackProducer = ::com::sun::org::apache::bcel::internal::generic::StackProducer;
-using $TypedInstruction = ::com::sun::org::apache::bcel::internal::generic::TypedInstruction;
 using $Visitor = ::com::sun::org::apache::bcel::internal::generic::Visitor;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -26,25 +22,6 @@ namespace com {
 				namespace bcel {
 					namespace internal {
 						namespace generic {
-
-$MethodInfo _FDIV_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(FDIV, init$, void)},
-	{"accept", "(Lcom/sun/org/apache/bcel/internal/generic/Visitor;)V", nullptr, $PUBLIC, $virtualMethod(FDIV, accept, void, $Visitor*)},
-	{}
-};
-
-$ClassInfo _FDIV_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.bcel.internal.generic.FDIV",
-	"com.sun.org.apache.bcel.internal.generic.ArithmeticInstruction",
-	nullptr,
-	nullptr,
-	_FDIV_MethodInfo_
-};
-
-$Object* allocate$FDIV($Class* clazz) {
-	return $of($alloc(FDIV));
-}
 
 void FDIV::init$() {
 	$ArithmeticInstruction::init$($Const::FDIV);
@@ -62,7 +39,22 @@ FDIV::FDIV() {
 }
 
 $Class* FDIV::load$($String* name, bool initialize) {
-	$loadClass(FDIV, name, initialize, &_FDIV_ClassInfo_, allocate$FDIV);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(FDIV, init$, void)},
+		{"accept", "(Lcom/sun/org/apache/bcel/internal/generic/Visitor;)V", nullptr, $PUBLIC, $virtualMethod(FDIV, accept, void, $Visitor*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.bcel.internal.generic.FDIV",
+		"com.sun.org.apache.bcel.internal.generic.ArithmeticInstruction",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(FDIV, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(FDIV));
+	});
 	return class$;
 }
 

@@ -39,6 +39,7 @@ class NegotiatorImpl : public ::sun::net::www::protocol::http::Negotiator {
 	$class(NegotiatorImpl, 0, ::sun::net::www::protocol::http::Negotiator)
 public:
 	NegotiatorImpl();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::net::www::protocol::http::HttpCallerInfo* hci);
 	virtual $bytes* firstToken() override;
 	void init(::sun::net::www::protocol::http::HttpCallerInfo* hci);

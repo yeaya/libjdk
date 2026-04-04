@@ -83,6 +83,7 @@ class $import EnvHelp : public ::java::lang::Object {
 	$class(EnvHelp, 0, ::java::lang::Object)
 public:
 	EnvHelp();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void checkAttributes(::java::util::Map* attributes);
 	static bool computeBooleanFromString($String* stringBoolean);

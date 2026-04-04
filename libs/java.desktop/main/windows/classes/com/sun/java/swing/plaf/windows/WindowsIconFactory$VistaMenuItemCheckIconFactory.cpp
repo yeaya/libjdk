@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/windows/WindowsIconFactory$VistaMenuItemCheckIconFactory.h>
-
 #include <com/sun/java/swing/plaf/windows/TMSchema$Part.h>
 #include <com/sun/java/swing/plaf/windows/WindowsIconFactory$VistaMenuItemCheckIconFactory$VistaMenuItemCheckIcon.h>
 #include <com/sun/java/swing/plaf/windows/WindowsIconFactory.h>
@@ -19,7 +18,6 @@
 using $TMSchema$Part = ::com::sun::java::swing::plaf::windows::TMSchema$Part;
 using $WindowsIconFactory$VistaMenuItemCheckIconFactory$VistaMenuItemCheckIcon = ::com::sun::java::swing::plaf::windows::WindowsIconFactory$VistaMenuItemCheckIconFactory$VistaMenuItemCheckIcon;
 using $XPStyle = ::com::sun::java::swing::plaf::windows::XPStyle;
-using $XPStyle$Skin = ::com::sun::java::swing::plaf::windows::XPStyle$Skin;
 using $Component = ::java::awt::Component;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -38,48 +36,6 @@ namespace com {
 				namespace plaf {
 					namespace windows {
 
-$FieldInfo _WindowsIconFactory$VistaMenuItemCheckIconFactory_FieldInfo_[] = {
-	{"OFFSET", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WindowsIconFactory$VistaMenuItemCheckIconFactory, OFFSET)},
-	{}
-};
-
-$MethodInfo _WindowsIconFactory$VistaMenuItemCheckIconFactory_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(WindowsIconFactory$VistaMenuItemCheckIconFactory, init$, void)},
-	{"getIcon", "(Ljavax/swing/JMenuItem;)Ljavax/swing/Icon;", nullptr, $PUBLIC, $virtualMethod(WindowsIconFactory$VistaMenuItemCheckIconFactory, getIcon, $Icon*, $JMenuItem*)},
-	{"getIcon", "(Ljava/lang/String;)Ljavax/swing/Icon;", nullptr, $PUBLIC, $virtualMethod(WindowsIconFactory$VistaMenuItemCheckIconFactory, getIcon, $Icon*, $String*)},
-	{"getIconWidth", "()I", nullptr, $STATIC, $staticMethod(WindowsIconFactory$VistaMenuItemCheckIconFactory, getIconWidth, int32_t)},
-	{"getType", "(Ljava/awt/Component;)Ljava/lang/Class;", "(Ljava/awt/Component;)Ljava/lang/Class<+Ljavax/swing/JMenuItem;>;", $PRIVATE | $STATIC, $staticMethod(WindowsIconFactory$VistaMenuItemCheckIconFactory, getType, $Class*, $Component*)},
-	{"getType", "(Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/String;)Ljava/lang/Class<+Ljavax/swing/JMenuItem;>;", $PRIVATE | $STATIC, $staticMethod(WindowsIconFactory$VistaMenuItemCheckIconFactory, getType, $Class*, $String*)},
-	{"isCompatible", "(Ljava/lang/Object;Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(WindowsIconFactory$VistaMenuItemCheckIconFactory, isCompatible, bool, Object$*, $String*)},
-	{}
-};
-
-$InnerClassInfo _WindowsIconFactory$VistaMenuItemCheckIconFactory_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.windows.WindowsIconFactory$VistaMenuItemCheckIconFactory", "com.sun.java.swing.plaf.windows.WindowsIconFactory", "VistaMenuItemCheckIconFactory", $STATIC},
-	{"com.sun.java.swing.plaf.windows.WindowsIconFactory$VistaMenuItemCheckIconFactory$VistaMenuItemCheckIcon", "com.sun.java.swing.plaf.windows.WindowsIconFactory$VistaMenuItemCheckIconFactory", "VistaMenuItemCheckIcon", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _WindowsIconFactory$VistaMenuItemCheckIconFactory_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.java.swing.plaf.windows.WindowsIconFactory$VistaMenuItemCheckIconFactory",
-	"java.lang.Object",
-	"sun.swing.MenuItemCheckIconFactory",
-	_WindowsIconFactory$VistaMenuItemCheckIconFactory_FieldInfo_,
-	_WindowsIconFactory$VistaMenuItemCheckIconFactory_MethodInfo_,
-	nullptr,
-	nullptr,
-	_WindowsIconFactory$VistaMenuItemCheckIconFactory_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.windows.WindowsIconFactory"
-};
-
-$Object* allocate$WindowsIconFactory$VistaMenuItemCheckIconFactory($Class* clazz) {
-	return $of($alloc(WindowsIconFactory$VistaMenuItemCheckIconFactory));
-}
-
 void WindowsIconFactory$VistaMenuItemCheckIconFactory::init$() {
 }
 
@@ -88,7 +44,7 @@ $Icon* WindowsIconFactory$VistaMenuItemCheckIconFactory::getIcon($JMenuItem* com
 }
 
 bool WindowsIconFactory$VistaMenuItemCheckIconFactory::isCompatible(Object$* icon, $String* prefix) {
-	return $instanceOf($WindowsIconFactory$VistaMenuItemCheckIconFactory$VistaMenuItemCheckIcon, icon) && $nc(($cast($WindowsIconFactory$VistaMenuItemCheckIconFactory$VistaMenuItemCheckIcon, icon)))->type == getType(prefix);
+	return $instanceOf($WindowsIconFactory$VistaMenuItemCheckIconFactory$VistaMenuItemCheckIcon, icon) && $cast($WindowsIconFactory$VistaMenuItemCheckIconFactory$VistaMenuItemCheckIcon, icon)->type == getType(prefix);
 }
 
 $Icon* WindowsIconFactory$VistaMenuItemCheckIconFactory::getIcon($String* type) {
@@ -97,10 +53,10 @@ $Icon* WindowsIconFactory$VistaMenuItemCheckIconFactory::getIcon($String* type) 
 
 int32_t WindowsIconFactory$VistaMenuItemCheckIconFactory::getIconWidth() {
 	$init(WindowsIconFactory$VistaMenuItemCheckIconFactory);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($XPStyle, xp, $XPStyle::getXP());
 	$init($TMSchema$Part);
-	return ((xp != nullptr) ? $nc($($nc(xp)->getSkin(nullptr, $TMSchema$Part::MP_POPUPCHECK)))->getWidth() : 16) + 2 * WindowsIconFactory$VistaMenuItemCheckIconFactory::OFFSET;
+	return ((xp != nullptr) ? $$nc(xp->getSkin(nullptr, $TMSchema$Part::MP_POPUPCHECK))->getWidth() : 16) + 2 * WindowsIconFactory$VistaMenuItemCheckIconFactory::OFFSET;
 }
 
 $Class* WindowsIconFactory$VistaMenuItemCheckIconFactory::getType($Component* c) {
@@ -148,7 +104,43 @@ WindowsIconFactory$VistaMenuItemCheckIconFactory::WindowsIconFactory$VistaMenuIt
 }
 
 $Class* WindowsIconFactory$VistaMenuItemCheckIconFactory::load$($String* name, bool initialize) {
-	$loadClass(WindowsIconFactory$VistaMenuItemCheckIconFactory, name, initialize, &_WindowsIconFactory$VistaMenuItemCheckIconFactory_ClassInfo_, allocate$WindowsIconFactory$VistaMenuItemCheckIconFactory);
+	$FieldInfo fieldInfos$$[] = {
+		{"OFFSET", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WindowsIconFactory$VistaMenuItemCheckIconFactory, OFFSET)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(WindowsIconFactory$VistaMenuItemCheckIconFactory, init$, void)},
+		{"getIcon", "(Ljavax/swing/JMenuItem;)Ljavax/swing/Icon;", nullptr, $PUBLIC, $virtualMethod(WindowsIconFactory$VistaMenuItemCheckIconFactory, getIcon, $Icon*, $JMenuItem*)},
+		{"getIcon", "(Ljava/lang/String;)Ljavax/swing/Icon;", nullptr, $PUBLIC, $virtualMethod(WindowsIconFactory$VistaMenuItemCheckIconFactory, getIcon, $Icon*, $String*)},
+		{"getIconWidth", "()I", nullptr, $STATIC, $staticMethod(WindowsIconFactory$VistaMenuItemCheckIconFactory, getIconWidth, int32_t)},
+		{"getType", "(Ljava/awt/Component;)Ljava/lang/Class;", "(Ljava/awt/Component;)Ljava/lang/Class<+Ljavax/swing/JMenuItem;>;", $PRIVATE | $STATIC, $staticMethod(WindowsIconFactory$VistaMenuItemCheckIconFactory, getType, $Class*, $Component*)},
+		{"getType", "(Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/String;)Ljava/lang/Class<+Ljavax/swing/JMenuItem;>;", $PRIVATE | $STATIC, $staticMethod(WindowsIconFactory$VistaMenuItemCheckIconFactory, getType, $Class*, $String*)},
+		{"isCompatible", "(Ljava/lang/Object;Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(WindowsIconFactory$VistaMenuItemCheckIconFactory, isCompatible, bool, Object$*, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.windows.WindowsIconFactory$VistaMenuItemCheckIconFactory", "com.sun.java.swing.plaf.windows.WindowsIconFactory", "VistaMenuItemCheckIconFactory", $STATIC},
+		{"com.sun.java.swing.plaf.windows.WindowsIconFactory$VistaMenuItemCheckIconFactory$VistaMenuItemCheckIcon", "com.sun.java.swing.plaf.windows.WindowsIconFactory$VistaMenuItemCheckIconFactory", "VistaMenuItemCheckIcon", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.java.swing.plaf.windows.WindowsIconFactory$VistaMenuItemCheckIconFactory",
+		"java.lang.Object",
+		"sun.swing.MenuItemCheckIconFactory",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.windows.WindowsIconFactory"
+	};
+	$loadClass(WindowsIconFactory$VistaMenuItemCheckIconFactory, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WindowsIconFactory$VistaMenuItemCheckIconFactory);
+	});
 	return class$;
 }
 

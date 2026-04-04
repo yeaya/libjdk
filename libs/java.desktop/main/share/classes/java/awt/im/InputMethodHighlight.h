@@ -32,6 +32,7 @@ class $export InputMethodHighlight : public ::java::lang::Object {
 	$class(InputMethodHighlight, 0, ::java::lang::Object)
 public:
 	InputMethodHighlight();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(bool selected, int32_t state);
 	void init$(bool selected, int32_t state, int32_t variation);
 	void init$(bool selected, int32_t state, int32_t variation, ::java::util::Map* style);

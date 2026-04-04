@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/util/BasicDiagnosticFormatter.h>
-
 #include <com/sun/tools/javac/api/DiagnosticFormatter$Configuration$DiagnosticPart.h>
 #include <com/sun/tools/javac/api/DiagnosticFormatter$Configuration.h>
 #include <com/sun/tools/javac/api/DiagnosticFormatter$PositionKind.h>
@@ -56,9 +55,7 @@ using $BasicDiagnosticFormatter$BasicConfiguration$BasicFormatKind = ::com::sun:
 using $BasicDiagnosticFormatter$BasicConfiguration$SourcePosition = ::com::sun::tools::javac::util::BasicDiagnosticFormatter$BasicConfiguration$SourcePosition;
 using $DiagnosticSource = ::com::sun::tools::javac::util::DiagnosticSource;
 using $JCDiagnostic = ::com::sun::tools::javac::util::JCDiagnostic;
-using $JCDiagnostic$DiagnosticType = ::com::sun::tools::javac::util::JCDiagnostic$DiagnosticType;
 using $JavacMessages = ::com::sun::tools::javac::util::JavacMessages;
-using $List = ::com::sun::tools::javac::util::List;
 using $Options = ::com::sun::tools::javac::util::Options;
 using $Position = ::com::sun::tools::javac::util::Position;
 using $CharSequence = ::java::lang::CharSequence;
@@ -71,7 +68,6 @@ using $Iterator = ::java::util::Iterator;
 using $Locale = ::java::util::Locale;
 using $Matcher = ::java::util::regex::Matcher;
 using $Diagnostic = ::javax::tools::Diagnostic;
-using $JavaFileObject = ::javax::tools::JavaFileObject;
 using $JavaFileObject$Kind = ::javax::tools::JavaFileObject$Kind;
 
 namespace com {
@@ -79,44 +75,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace util {
-
-$MethodInfo _BasicDiagnosticFormatter_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/util/Options;Lcom/sun/tools/javac/util/JavacMessages;)V", nullptr, $PUBLIC, $method(BasicDiagnosticFormatter, init$, void, $Options*, $JavacMessages*)},
-	{"<init>", "(Lcom/sun/tools/javac/util/JavacMessages;)V", nullptr, $PUBLIC, $method(BasicDiagnosticFormatter, init$, void, $JavacMessages*)},
-	{"addSourceLineIfNeeded", "(Lcom/sun/tools/javac/util/JCDiagnostic;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(BasicDiagnosticFormatter, addSourceLineIfNeeded, $String*, $JCDiagnostic*, $String*)},
-	{"formatDiagnostic", "(Lcom/sun/tools/javac/util/JCDiagnostic;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(BasicDiagnosticFormatter, formatDiagnostic, $String*, $JCDiagnostic*, $Locale*)},
-	{"formatMessage", "(Lcom/sun/tools/javac/util/JCDiagnostic;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(BasicDiagnosticFormatter, formatMessage, $String*, $JCDiagnostic*, $Locale*)},
-	{"formatMessage", "(Ljavax/tools/Diagnostic;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(BasicDiagnosticFormatter, formatMessage, $String*, $Diagnostic*, $Locale*)},
-	{"formatMeta", "(CLcom/sun/tools/javac/util/JCDiagnostic;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(BasicDiagnosticFormatter, formatMeta, $String*, char16_t, $JCDiagnostic*, $Locale*)},
-	{"getConfiguration", "()Lcom/sun/tools/javac/util/BasicDiagnosticFormatter$BasicConfiguration;", nullptr, $PUBLIC, $virtualMethod(BasicDiagnosticFormatter, getConfiguration, $DiagnosticFormatter$Configuration*)},
-	{"selectFormat", "(Lcom/sun/tools/javac/util/JCDiagnostic;)Ljava/lang/String;", nullptr, $PRIVATE, $method(BasicDiagnosticFormatter, selectFormat, $String*, $JCDiagnostic*)},
-	{}
-};
-
-$InnerClassInfo _BasicDiagnosticFormatter_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.util.BasicDiagnosticFormatter$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{"com.sun.tools.javac.util.BasicDiagnosticFormatter$BasicConfiguration", "com.sun.tools.javac.util.BasicDiagnosticFormatter", "BasicConfiguration", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _BasicDiagnosticFormatter_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.util.BasicDiagnosticFormatter",
-	"com.sun.tools.javac.util.AbstractDiagnosticFormatter",
-	nullptr,
-	nullptr,
-	_BasicDiagnosticFormatter_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BasicDiagnosticFormatter_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.util.BasicDiagnosticFormatter$1,com.sun.tools.javac.util.BasicDiagnosticFormatter$BasicConfiguration,com.sun.tools.javac.util.BasicDiagnosticFormatter$BasicConfiguration$BasicFormatKind,com.sun.tools.javac.util.BasicDiagnosticFormatter$BasicConfiguration$SourcePosition"
-};
-
-$Object* allocate$BasicDiagnosticFormatter($Class* clazz) {
-	return $of($alloc(BasicDiagnosticFormatter));
-}
 
 void BasicDiagnosticFormatter::init$($Options* options, $JavacMessages* msgs) {
 	$AbstractDiagnosticFormatter::init$(msgs, $$new($BasicDiagnosticFormatter$BasicConfiguration, options));
@@ -127,7 +85,7 @@ void BasicDiagnosticFormatter::init$($JavacMessages* msgs) {
 }
 
 $String* BasicDiagnosticFormatter::formatDiagnostic($JCDiagnostic* d, $Locale* l$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Locale, l, l$renamed);
 	if (l == nullptr) {
 		$assign(l, $nc(this->messages)->getCurrentLocale());
@@ -151,33 +109,32 @@ $String* BasicDiagnosticFormatter::formatDiagnostic($JCDiagnostic* d, $Locale* l
 }
 
 $String* BasicDiagnosticFormatter::formatMessage($JCDiagnostic* d, $Locale* l) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t currentIndentation = 0;
 	$var($StringBuilder, buf, $new($StringBuilder));
 	$var($Collection, args, formatArguments(d, l));
-	$var($Locale, var$0, l);
-	$var($String, var$1, $nc(d)->getCode());
-	$var($String, msg, localize(var$0, var$1, $($nc(args)->toArray())));
+	$var($String, var$0, $nc(d)->getCode());
+	$var($String, msg, localize(l, var$0, $($nc(args)->toArray())));
 	$var($StringArray, lines, $nc(msg)->split("\n"_s));
 	if (lines->length == 0) {
 		$assign(lines, $new($StringArray, {""_s}));
 	}
 	$init($DiagnosticFormatter$Configuration$DiagnosticPart);
-	if ($nc($($cast($EnumSet, $nc($($cast($BasicDiagnosticFormatter$BasicConfiguration, getConfiguration())))->getVisible())))->contains($DiagnosticFormatter$Configuration$DiagnosticPart::SUMMARY)) {
-		currentIndentation += $nc($($cast($BasicDiagnosticFormatter$BasicConfiguration, getConfiguration())))->getIndentation($DiagnosticFormatter$Configuration$DiagnosticPart::SUMMARY);
+	if ($$sure($EnumSet, $$sure($BasicDiagnosticFormatter$BasicConfiguration, getConfiguration())->getVisible())->contains($DiagnosticFormatter$Configuration$DiagnosticPart::SUMMARY)) {
+		currentIndentation += $$sure($BasicDiagnosticFormatter$BasicConfiguration, getConfiguration())->getIndentation($DiagnosticFormatter$Configuration$DiagnosticPart::SUMMARY);
 		buf->append($(indent(lines->get(0), currentIndentation)));
 	}
-	if (lines->length > 1 && $nc($($cast($EnumSet, $nc($($cast($BasicDiagnosticFormatter$BasicConfiguration, getConfiguration())))->getVisible())))->contains($DiagnosticFormatter$Configuration$DiagnosticPart::DETAILS)) {
-		currentIndentation += $nc($($cast($BasicDiagnosticFormatter$BasicConfiguration, getConfiguration())))->getIndentation($DiagnosticFormatter$Configuration$DiagnosticPart::DETAILS);
+	if (lines->length > 1 && $$sure($EnumSet, $$sure($BasicDiagnosticFormatter$BasicConfiguration, getConfiguration())->getVisible())->contains($DiagnosticFormatter$Configuration$DiagnosticPart::DETAILS)) {
+		currentIndentation += $$sure($BasicDiagnosticFormatter$BasicConfiguration, getConfiguration())->getIndentation($DiagnosticFormatter$Configuration$DiagnosticPart::DETAILS);
 		for (int32_t i = 1; i < lines->length; ++i) {
 			buf->append($$str({"\n"_s, $(indent(lines->get(i), currentIndentation))}));
 		}
 	}
-	bool var$2 = $nc(d)->isMultiline();
-	if (var$2 && $nc($($cast($EnumSet, $nc($($cast($BasicDiagnosticFormatter$BasicConfiguration, getConfiguration())))->getVisible())))->contains($DiagnosticFormatter$Configuration$DiagnosticPart::SUBDIAGNOSTICS)) {
-		currentIndentation += $nc($($cast($BasicDiagnosticFormatter$BasicConfiguration, getConfiguration())))->getIndentation($DiagnosticFormatter$Configuration$DiagnosticPart::SUBDIAGNOSTICS);
+	bool var$1 = d->isMultiline();
+	if (var$1 && $$sure($EnumSet, $$sure($BasicDiagnosticFormatter$BasicConfiguration, getConfiguration())->getVisible())->contains($DiagnosticFormatter$Configuration$DiagnosticPart::SUBDIAGNOSTICS)) {
+		currentIndentation += $$sure($BasicDiagnosticFormatter$BasicConfiguration, getConfiguration())->getIndentation($DiagnosticFormatter$Configuration$DiagnosticPart::SUBDIAGNOSTICS);
 		{
-			$var($Iterator, i$, $nc($(formatSubdiagnostics(d, l)))->iterator());
+			$var($Iterator, i$, $$nc(formatSubdiagnostics(d, l))->iterator());
 			for (; $nc(i$)->hasNext();) {
 				$var($String, sub, $cast($String, i$->next()));
 				{
@@ -190,7 +147,7 @@ $String* BasicDiagnosticFormatter::formatMessage($JCDiagnostic* d, $Locale* l) {
 }
 
 $String* BasicDiagnosticFormatter::addSourceLineIfNeeded($JCDiagnostic* d, $String* msg) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!displaySource(d)) {
 		return msg;
 	} else {
@@ -200,7 +157,7 @@ $String* BasicDiagnosticFormatter::addSourceLineIfNeeded($JCDiagnostic* d, $Stri
 		$var($String, sourceLine, $str({"\n"_s, $(formatSourceLine(d, indentSource))}));
 		bool singleLine = !$nc(msg)->contains("\n"_s);
 		$init($BasicDiagnosticFormatter$BasicConfiguration$SourcePosition);
-		if (singleLine || $nc($($cast($BasicDiagnosticFormatter$BasicConfiguration, getConfiguration())))->getSourcePosition() == $BasicDiagnosticFormatter$BasicConfiguration$SourcePosition::BOTTOM) {
+		if (singleLine || $$sure($BasicDiagnosticFormatter$BasicConfiguration, getConfiguration())->getSourcePosition() == $BasicDiagnosticFormatter$BasicConfiguration$SourcePosition::BOTTOM) {
 			return $str({msg, sourceLine});
 		} else {
 			return msg->replaceFirst("\n"_s, $$str({$($Matcher::quoteReplacement(sourceLine)), "\n"_s}));
@@ -211,107 +168,73 @@ $String* BasicDiagnosticFormatter::addSourceLineIfNeeded($JCDiagnostic* d, $Stri
 $String* BasicDiagnosticFormatter::formatMeta(char16_t c, $JCDiagnostic* d, $Locale* l) {
 	switch (c) {
 	case u'b':
-		{
-			return formatSource(d, false, l);
-		}
+		return formatSource(d, false, l);
 	case u'e':
-		{
-			$init($DiagnosticFormatter$PositionKind);
-			return formatPosition(d, $DiagnosticFormatter$PositionKind::END, l);
-		}
+		$init($DiagnosticFormatter$PositionKind);
+		return formatPosition(d, $DiagnosticFormatter$PositionKind::END, l);
 	case u'f':
-		{
-			return formatSource(d, true, l);
-		}
+		return formatSource(d, true, l);
 	case u'l':
-		{
-			$init($DiagnosticFormatter$PositionKind);
-			return formatPosition(d, $DiagnosticFormatter$PositionKind::LINE, l);
-		}
+		$init($DiagnosticFormatter$PositionKind);
+		return formatPosition(d, $DiagnosticFormatter$PositionKind::LINE, l);
 	case u'c':
-		{
-			$init($DiagnosticFormatter$PositionKind);
-			return formatPosition(d, $DiagnosticFormatter$PositionKind::COLUMN, l);
-		}
+		$init($DiagnosticFormatter$PositionKind);
+		return formatPosition(d, $DiagnosticFormatter$PositionKind::COLUMN, l);
 	case u'o':
-		{
-			$init($DiagnosticFormatter$PositionKind);
-			return formatPosition(d, $DiagnosticFormatter$PositionKind::OFFSET, l);
-		}
+		$init($DiagnosticFormatter$PositionKind);
+		return formatPosition(d, $DiagnosticFormatter$PositionKind::OFFSET, l);
 	case u'p':
-		{
-			return formatKind(d, l);
-		}
+		return formatKind(d, l);
 	case u's':
-		{
-			$init($DiagnosticFormatter$PositionKind);
-			return formatPosition(d, $DiagnosticFormatter$PositionKind::START, l);
-		}
+		$init($DiagnosticFormatter$PositionKind);
+		return formatPosition(d, $DiagnosticFormatter$PositionKind::START, l);
 	case u't':
 		{
-			{
-				bool usePrefix = false;
-				$init($BasicDiagnosticFormatter$1);
-				switch ($nc($BasicDiagnosticFormatter$1::$SwitchMap$com$sun$tools$javac$util$JCDiagnostic$DiagnosticType)->get($nc(($($nc(d)->getType())))->ordinal())) {
-				case 1:
-					{
-						usePrefix = false;
-						break;
-					}
-				case 2:
-					{
-						usePrefix = (d->getIntPosition() == $Position::NOPOS);
-						break;
-					}
-				default:
-					{
-						usePrefix = true;
-					}
-				}
-				if (usePrefix) {
-					return formatKind(d, l);
-				} else {
-					return ""_s;
-				}
+			bool usePrefix = false;
+			$init($BasicDiagnosticFormatter$1);
+			switch ($nc($BasicDiagnosticFormatter$1::$SwitchMap$com$sun$tools$javac$util$JCDiagnostic$DiagnosticType)->get(($$nc($nc(d)->getType()))->ordinal())) {
+			case 1:
+				usePrefix = false;
+				break;
+			case 2:
+				usePrefix = (d->getIntPosition() == $Position::NOPOS);
+				break;
+			default:
+				usePrefix = true;
+			}
+			if (usePrefix) {
+				return formatKind(d, l);
+			} else {
+				return ""_s;
 			}
 		}
 	case u'm':
-		{
-			return formatMessage(d, l);
-		}
+		return formatMessage(d, l);
 	case u'L':
-		{
-			return formatLintCategory(d, l);
-		}
+		return formatLintCategory(d, l);
 	case u'_':
-		{
-			return " "_s;
-		}
+		return " "_s;
 	case u'%':
-		{
-			return "%"_s;
-		}
+		return "%"_s;
 	default:
-		{
-			return $String::valueOf(c);
-		}
+		return $String::valueOf(c);
 	}
 }
 
 $String* BasicDiagnosticFormatter::selectFormat($JCDiagnostic* d) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DiagnosticSource, source, $nc(d)->getDiagnosticSource());
 	$init($BasicDiagnosticFormatter$BasicConfiguration$BasicFormatKind);
-	$var($String, format, $nc($($cast($BasicDiagnosticFormatter$BasicConfiguration, getConfiguration())))->getFormat($BasicDiagnosticFormatter$BasicConfiguration$BasicFormatKind::DEFAULT_NO_POS_FORMAT));
+	$var($String, format, $$sure($BasicDiagnosticFormatter$BasicConfiguration, getConfiguration())->getFormat($BasicDiagnosticFormatter$BasicConfiguration$BasicFormatKind::DEFAULT_NO_POS_FORMAT));
 	$init($DiagnosticSource);
 	if (source != nullptr && source != $DiagnosticSource::NO_SOURCE) {
 		if (d->getIntPosition() != $Position::NOPOS) {
-			$assign(format, $nc($($cast($BasicDiagnosticFormatter$BasicConfiguration, getConfiguration())))->getFormat($BasicDiagnosticFormatter$BasicConfiguration$BasicFormatKind::DEFAULT_POS_FORMAT));
+			$assign(format, $$sure($BasicDiagnosticFormatter$BasicConfiguration, getConfiguration())->getFormat($BasicDiagnosticFormatter$BasicConfiguration$BasicFormatKind::DEFAULT_POS_FORMAT));
 		} else {
-			bool var$1 = source->getFile() != nullptr;
+			bool var$0 = source->getFile() != nullptr;
 			$init($JavaFileObject$Kind);
-			if (var$1 && $nc($(source->getFile()))->getKind() == $JavaFileObject$Kind::CLASS) {
-				$assign(format, $nc($($cast($BasicDiagnosticFormatter$BasicConfiguration, getConfiguration())))->getFormat($BasicDiagnosticFormatter$BasicConfiguration$BasicFormatKind::DEFAULT_CLASS_FORMAT));
+			if (var$0 && $$nc(source->getFile())->getKind() == $JavaFileObject$Kind::CLASS) {
+				$assign(format, $$sure($BasicDiagnosticFormatter$BasicConfiguration, getConfiguration())->getFormat($BasicDiagnosticFormatter$BasicConfiguration$BasicFormatKind::DEFAULT_CLASS_FORMAT));
 			}
 		}
 	}
@@ -330,7 +253,40 @@ BasicDiagnosticFormatter::BasicDiagnosticFormatter() {
 }
 
 $Class* BasicDiagnosticFormatter::load$($String* name, bool initialize) {
-	$loadClass(BasicDiagnosticFormatter, name, initialize, &_BasicDiagnosticFormatter_ClassInfo_, allocate$BasicDiagnosticFormatter);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/util/Options;Lcom/sun/tools/javac/util/JavacMessages;)V", nullptr, $PUBLIC, $method(BasicDiagnosticFormatter, init$, void, $Options*, $JavacMessages*)},
+		{"<init>", "(Lcom/sun/tools/javac/util/JavacMessages;)V", nullptr, $PUBLIC, $method(BasicDiagnosticFormatter, init$, void, $JavacMessages*)},
+		{"addSourceLineIfNeeded", "(Lcom/sun/tools/javac/util/JCDiagnostic;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(BasicDiagnosticFormatter, addSourceLineIfNeeded, $String*, $JCDiagnostic*, $String*)},
+		{"formatDiagnostic", "(Lcom/sun/tools/javac/util/JCDiagnostic;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(BasicDiagnosticFormatter, formatDiagnostic, $String*, $JCDiagnostic*, $Locale*)},
+		{"formatMessage", "(Lcom/sun/tools/javac/util/JCDiagnostic;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(BasicDiagnosticFormatter, formatMessage, $String*, $JCDiagnostic*, $Locale*)},
+		{"formatMessage", "(Ljavax/tools/Diagnostic;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(BasicDiagnosticFormatter, formatMessage, $String*, $Diagnostic*, $Locale*)},
+		{"formatMeta", "(CLcom/sun/tools/javac/util/JCDiagnostic;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(BasicDiagnosticFormatter, formatMeta, $String*, char16_t, $JCDiagnostic*, $Locale*)},
+		{"getConfiguration", "()Lcom/sun/tools/javac/util/BasicDiagnosticFormatter$BasicConfiguration;", nullptr, $PUBLIC, $virtualMethod(BasicDiagnosticFormatter, getConfiguration, $DiagnosticFormatter$Configuration*)},
+		{"selectFormat", "(Lcom/sun/tools/javac/util/JCDiagnostic;)Ljava/lang/String;", nullptr, $PRIVATE, $method(BasicDiagnosticFormatter, selectFormat, $String*, $JCDiagnostic*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.util.BasicDiagnosticFormatter$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{"com.sun.tools.javac.util.BasicDiagnosticFormatter$BasicConfiguration", "com.sun.tools.javac.util.BasicDiagnosticFormatter", "BasicConfiguration", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.util.BasicDiagnosticFormatter",
+		"com.sun.tools.javac.util.AbstractDiagnosticFormatter",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.util.BasicDiagnosticFormatter$1,com.sun.tools.javac.util.BasicDiagnosticFormatter$BasicConfiguration,com.sun.tools.javac.util.BasicDiagnosticFormatter$BasicConfiguration$BasicFormatKind,com.sun.tools.javac.util.BasicDiagnosticFormatter$BasicConfiguration$SourcePosition"
+	};
+	$loadClass(BasicDiagnosticFormatter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BasicDiagnosticFormatter);
+	});
 	return class$;
 }
 

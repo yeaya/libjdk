@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/impl/dv/DatatypeValidator.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/dv/ValidationContext.h>
 #include <jcpp.h>
 
@@ -16,26 +15,22 @@ namespace com {
 						namespace impl {
 							namespace dv {
 
-$MethodInfo _DatatypeValidator_MethodInfo_[] = {
-	{"validate", "(Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/impl/dv/ValidationContext;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DatatypeValidator, validate, void, $String*, $ValidationContext*), "com.sun.org.apache.xerces.internal.impl.dv.InvalidDatatypeValueException"},
-	{}
-};
-
-$ClassInfo _DatatypeValidator_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.org.apache.xerces.internal.impl.dv.DatatypeValidator",
-	nullptr,
-	nullptr,
-	nullptr,
-	_DatatypeValidator_MethodInfo_
-};
-
-$Object* allocate$DatatypeValidator($Class* clazz) {
-	return $of($alloc(DatatypeValidator));
-}
-
 $Class* DatatypeValidator::load$($String* name, bool initialize) {
-	$loadClass(DatatypeValidator, name, initialize, &_DatatypeValidator_ClassInfo_, allocate$DatatypeValidator);
+	$MethodInfo methodInfos$$[] = {
+		{"validate", "(Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/impl/dv/ValidationContext;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DatatypeValidator, validate, void, $String*, $ValidationContext*), "com.sun.org.apache.xerces.internal.impl.dv.InvalidDatatypeValueException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.org.apache.xerces.internal.impl.dv.DatatypeValidator",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(DatatypeValidator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DatatypeValidator);
+	});
 	return class$;
 }
 

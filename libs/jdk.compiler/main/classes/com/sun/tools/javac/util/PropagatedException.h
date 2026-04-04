@@ -17,10 +17,13 @@ public:
 	PropagatedException();
 	void init$(::java::lang::RuntimeException* cause);
 	virtual ::java::lang::RuntimeException* getCause() override;
-	static const int64_t serialVersionUID = (int64_t)0xABD3B14A6F120F39;
+	static const int64_t serialVersionUID = (int64_t)0xabd3b14a6f120f39;
 	PropagatedException(const PropagatedException& e);
 	virtual void throw$() override;
-	inline PropagatedException* operator ->() {
+	inline PropagatedException* operator ->() const {
+		return (PropagatedException*)throwing$;
+	}
+	inline operator PropagatedException*() const {
 		return (PropagatedException*)throwing$;
 	}
 };

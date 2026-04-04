@@ -1,5 +1,4 @@
 #include <com/sun/imageio/plugins/jpeg/DHTMarkerSegment.h>
-
 #include <com/sun/imageio/plugins/jpeg/DHTMarkerSegment$Htable.h>
 #include <com/sun/imageio/plugins/jpeg/JPEG.h>
 #include <com/sun/imageio/plugins/jpeg/JPEGBuffer.h>
@@ -22,7 +21,6 @@ using $DHTMarkerSegment$Htable = ::com::sun::imageio::plugins::jpeg::DHTMarkerSe
 using $JPEG = ::com::sun::imageio::plugins::jpeg::JPEG;
 using $JPEGBuffer = ::com::sun::imageio::plugins::jpeg::JPEGBuffer;
 using $MarkerSegment = ::com::sun::imageio::plugins::jpeg::MarkerSegment;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -30,7 +28,6 @@ using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ArrayList = ::java::util::ArrayList;
 using $Iterator = ::java::util::Iterator;
-using $List = ::java::util::List;
 using $IIOInvalidTreeException = ::javax::imageio::metadata::IIOInvalidTreeException;
 using $IIOMetadataNode = ::javax::imageio::metadata::IIOMetadataNode;
 using $JPEGHuffmanTable = ::javax::imageio::plugins::jpeg::JPEGHuffmanTable;
@@ -44,91 +41,48 @@ namespace com {
 			namespace plugins {
 				namespace jpeg {
 
-$FieldInfo _DHTMarkerSegment_FieldInfo_[] = {
-	{"tables", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/imageio/plugins/jpeg/DHTMarkerSegment$Htable;>;", 0, $field(DHTMarkerSegment, tables)},
-	{}
-};
-
-$MethodInfo _DHTMarkerSegment_MethodInfo_[] = {
-	{"<init>", "(Z)V", nullptr, 0, $method(DHTMarkerSegment, init$, void, bool)},
-	{"<init>", "(Lcom/sun/imageio/plugins/jpeg/JPEGBuffer;)V", nullptr, 0, $method(DHTMarkerSegment, init$, void, $JPEGBuffer*), "java.io.IOException"},
-	{"<init>", "([Ljavax/imageio/plugins/jpeg/JPEGHuffmanTable;[Ljavax/imageio/plugins/jpeg/JPEGHuffmanTable;)V", nullptr, 0, $method(DHTMarkerSegment, init$, void, $JPEGHuffmanTableArray*, $JPEGHuffmanTableArray*)},
-	{"<init>", "(Lorg/w3c/dom/Node;)V", nullptr, 0, $method(DHTMarkerSegment, init$, void, $Node*), "javax.imageio.metadata.IIOInvalidTreeException"},
-	{"addHtable", "(Ljavax/imageio/plugins/jpeg/JPEGHuffmanTable;ZI)V", nullptr, 0, $virtualMethod(DHTMarkerSegment, addHtable, void, $JPEGHuffmanTable*, bool, int32_t)},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(DHTMarkerSegment, clone, $Object*)},
-	{"getHtableFromNode", "(Lorg/w3c/dom/Node;)Lcom/sun/imageio/plugins/jpeg/DHTMarkerSegment$Htable;", nullptr, 0, $virtualMethod(DHTMarkerSegment, getHtableFromNode, $DHTMarkerSegment$Htable*, $Node*), "javax.imageio.metadata.IIOInvalidTreeException"},
-	{"getNativeNode", "()Ljavax/imageio/metadata/IIOMetadataNode;", nullptr, 0, $virtualMethod(DHTMarkerSegment, getNativeNode, $IIOMetadataNode*)},
-	{"print", "()V", nullptr, 0, $virtualMethod(DHTMarkerSegment, print, void)},
-	{"write", "(Ljavax/imageio/stream/ImageOutputStream;)V", nullptr, 0, $virtualMethod(DHTMarkerSegment, write, void, $ImageOutputStream*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _DHTMarkerSegment_InnerClassesInfo_[] = {
-	{"com.sun.imageio.plugins.jpeg.DHTMarkerSegment$Htable", "com.sun.imageio.plugins.jpeg.DHTMarkerSegment", "Htable", 0},
-	{}
-};
-
-$ClassInfo _DHTMarkerSegment_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.imageio.plugins.jpeg.DHTMarkerSegment",
-	"com.sun.imageio.plugins.jpeg.MarkerSegment",
-	nullptr,
-	_DHTMarkerSegment_FieldInfo_,
-	_DHTMarkerSegment_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DHTMarkerSegment_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.imageio.plugins.jpeg.DHTMarkerSegment$Htable"
-};
-
-$Object* allocate$DHTMarkerSegment($Class* clazz) {
-	return $of($alloc(DHTMarkerSegment));
-}
-
 void DHTMarkerSegment::init$(bool needFour) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$MarkerSegment::init$($JPEG::DHT);
 	$set(this, tables, $new($ArrayList));
 	$init($JPEGHuffmanTable);
-	$nc(this->tables)->add($$new($DHTMarkerSegment$Htable, this, $JPEGHuffmanTable::StdDCLuminance, true, 0));
+	this->tables->add($$new($DHTMarkerSegment$Htable, this, $JPEGHuffmanTable::StdDCLuminance, true, 0));
 	if (needFour) {
-		$nc(this->tables)->add($$new($DHTMarkerSegment$Htable, this, $JPEGHuffmanTable::StdDCChrominance, true, 1));
+		this->tables->add($$new($DHTMarkerSegment$Htable, this, $JPEGHuffmanTable::StdDCChrominance, true, 1));
 	}
-	$nc(this->tables)->add($$new($DHTMarkerSegment$Htable, this, $JPEGHuffmanTable::StdACLuminance, false, 0));
+	this->tables->add($$new($DHTMarkerSegment$Htable, this, $JPEGHuffmanTable::StdACLuminance, false, 0));
 	if (needFour) {
-		$nc(this->tables)->add($$new($DHTMarkerSegment$Htable, this, $JPEGHuffmanTable::StdACChrominance, false, 1));
+		this->tables->add($$new($DHTMarkerSegment$Htable, this, $JPEGHuffmanTable::StdACChrominance, false, 1));
 	}
 }
 
 void DHTMarkerSegment::init$($JPEGBuffer* buffer) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$MarkerSegment::init$(buffer);
 	$set(this, tables, $new($ArrayList));
 	int32_t count = this->length;
 	while (count > 0) {
 		$var($DHTMarkerSegment$Htable, newGuy, $new($DHTMarkerSegment$Htable, this, buffer));
-		$nc(this->tables)->add(newGuy);
+		this->tables->add(newGuy);
 		count -= 1 + 16 + $nc(newGuy->values)->length;
 	}
 	$nc(buffer)->bufAvail -= this->length;
 }
 
 void DHTMarkerSegment::init$($JPEGHuffmanTableArray* dcTables, $JPEGHuffmanTableArray* acTables) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$MarkerSegment::init$($JPEG::DHT);
 	$set(this, tables, $new($ArrayList));
 	for (int32_t i = 0; i < $nc(dcTables)->length; ++i) {
-		$nc(this->tables)->add($$new($DHTMarkerSegment$Htable, this, dcTables->get(i), true, i));
+		this->tables->add($$new($DHTMarkerSegment$Htable, this, dcTables->get(i), true, i));
 	}
 	for (int32_t i = 0; i < $nc(acTables)->length; ++i) {
-		$nc(this->tables)->add($$new($DHTMarkerSegment$Htable, this, acTables->get(i), false, i));
+		this->tables->add($$new($DHTMarkerSegment$Htable, this, acTables->get(i), false, i));
 	}
 }
 
 void DHTMarkerSegment::init$($Node* node) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$MarkerSegment::init$($JPEG::DHT);
 	$set(this, tables, $new($ArrayList));
 	$var($NodeList, children, $nc(node)->getChildNodes());
@@ -142,26 +96,26 @@ void DHTMarkerSegment::init$($Node* node) {
 }
 
 $Object* DHTMarkerSegment::clone() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(DHTMarkerSegment, newGuy, $cast(DHTMarkerSegment, $MarkerSegment::clone()));
 	$set($nc(newGuy), tables, $new($ArrayList, $nc(this->tables)->size()));
 	{
-		$var($Iterator, i$, $nc(this->tables)->iterator());
+		$var($Iterator, i$, this->tables->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($DHTMarkerSegment$Htable, table, $cast($DHTMarkerSegment$Htable, i$->next()));
 			{
-				$nc(newGuy->tables)->add($cast($DHTMarkerSegment$Htable, $($nc(table)->clone())));
+				$nc(newGuy->tables)->add($$cast($DHTMarkerSegment$Htable, $nc(table)->clone()));
 			}
 		}
 	}
-	return $of(newGuy);
+	return newGuy;
 }
 
 $IIOMetadataNode* DHTMarkerSegment::getNativeNode() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($IIOMetadataNode, node, $new($IIOMetadataNode, "dht"_s));
 	for (int32_t i = 0; i < $nc(this->tables)->size(); ++i) {
-		$var($DHTMarkerSegment$Htable, table, $cast($DHTMarkerSegment$Htable, $nc(this->tables)->get(i)));
+		$var($DHTMarkerSegment$Htable, table, $cast($DHTMarkerSegment$Htable, this->tables->get(i)));
 		node->appendChild($($nc(table)->getNativeNode()));
 	}
 	return node;
@@ -171,14 +125,14 @@ void DHTMarkerSegment::write($ImageOutputStream* ios) {
 }
 
 void DHTMarkerSegment::print() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	printTag("DHT"_s);
 	$nc($System::out)->println($$str({"Num tables: "_s, $($Integer::toString($nc(this->tables)->size()))}));
 	for (int32_t i = 0; i < $nc(this->tables)->size(); ++i) {
-		$var($DHTMarkerSegment$Htable, table, $cast($DHTMarkerSegment$Htable, $nc(this->tables)->get(i)));
+		$var($DHTMarkerSegment$Htable, table, $cast($DHTMarkerSegment$Htable, this->tables->get(i)));
 		$nc(table)->print();
 	}
-	$nc($System::out)->println();
+	$System::out->println();
 }
 
 $DHTMarkerSegment$Htable* DHTMarkerSegment::getHtableFromNode($Node* node) {
@@ -193,7 +147,44 @@ DHTMarkerSegment::DHTMarkerSegment() {
 }
 
 $Class* DHTMarkerSegment::load$($String* name, bool initialize) {
-	$loadClass(DHTMarkerSegment, name, initialize, &_DHTMarkerSegment_ClassInfo_, allocate$DHTMarkerSegment);
+	$FieldInfo fieldInfos$$[] = {
+		{"tables", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/imageio/plugins/jpeg/DHTMarkerSegment$Htable;>;", 0, $field(DHTMarkerSegment, tables)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Z)V", nullptr, 0, $method(DHTMarkerSegment, init$, void, bool)},
+		{"<init>", "(Lcom/sun/imageio/plugins/jpeg/JPEGBuffer;)V", nullptr, 0, $method(DHTMarkerSegment, init$, void, $JPEGBuffer*), "java.io.IOException"},
+		{"<init>", "([Ljavax/imageio/plugins/jpeg/JPEGHuffmanTable;[Ljavax/imageio/plugins/jpeg/JPEGHuffmanTable;)V", nullptr, 0, $method(DHTMarkerSegment, init$, void, $JPEGHuffmanTableArray*, $JPEGHuffmanTableArray*)},
+		{"<init>", "(Lorg/w3c/dom/Node;)V", nullptr, 0, $method(DHTMarkerSegment, init$, void, $Node*), "javax.imageio.metadata.IIOInvalidTreeException"},
+		{"addHtable", "(Ljavax/imageio/plugins/jpeg/JPEGHuffmanTable;ZI)V", nullptr, 0, $virtualMethod(DHTMarkerSegment, addHtable, void, $JPEGHuffmanTable*, bool, int32_t)},
+		{"clone", "()Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(DHTMarkerSegment, clone, $Object*)},
+		{"getHtableFromNode", "(Lorg/w3c/dom/Node;)Lcom/sun/imageio/plugins/jpeg/DHTMarkerSegment$Htable;", nullptr, 0, $virtualMethod(DHTMarkerSegment, getHtableFromNode, $DHTMarkerSegment$Htable*, $Node*), "javax.imageio.metadata.IIOInvalidTreeException"},
+		{"getNativeNode", "()Ljavax/imageio/metadata/IIOMetadataNode;", nullptr, 0, $virtualMethod(DHTMarkerSegment, getNativeNode, $IIOMetadataNode*)},
+		{"print", "()V", nullptr, 0, $virtualMethod(DHTMarkerSegment, print, void)},
+		{"write", "(Ljavax/imageio/stream/ImageOutputStream;)V", nullptr, 0, $virtualMethod(DHTMarkerSegment, write, void, $ImageOutputStream*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.imageio.plugins.jpeg.DHTMarkerSegment$Htable", "com.sun.imageio.plugins.jpeg.DHTMarkerSegment", "Htable", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.imageio.plugins.jpeg.DHTMarkerSegment",
+		"com.sun.imageio.plugins.jpeg.MarkerSegment",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.imageio.plugins.jpeg.DHTMarkerSegment$Htable"
+	};
+	$loadClass(DHTMarkerSegment, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DHTMarkerSegment);
+	});
 	return class$;
 }
 

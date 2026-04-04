@@ -1,5 +1,4 @@
 #include <javax/swing/JFrame.h>
-
 #include <java/awt/AWTEvent.h>
 #include <java/awt/BorderLayout.h>
 #include <java/awt/Color.h>
@@ -52,7 +51,6 @@ using $Graphics = ::java::awt::Graphics;
 using $GraphicsConfiguration = ::java::awt::GraphicsConfiguration;
 using $Image = ::java::awt::Image;
 using $LayoutManager = ::java::awt::LayoutManager;
-using $Window = ::java::awt::Window;
 using $WindowEvent = ::java::awt::event::WindowEvent;
 using $Attribute = ::java::lang::Attribute;
 using $Boolean = ::java::lang::Boolean;
@@ -71,7 +69,6 @@ using $JFrame$AccessibleJFrame = ::javax::swing::JFrame$AccessibleJFrame;
 using $JLayeredPane = ::javax::swing::JLayeredPane;
 using $JMenuBar = ::javax::swing::JMenuBar;
 using $JRootPane = ::javax::swing::JRootPane;
-using $LookAndFeel = ::javax::swing::LookAndFeel;
 using $RepaintManager = ::javax::swing::RepaintManager;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $TransferHandler = ::javax::swing::TransferHandler;
@@ -81,213 +78,6 @@ using $SunToolkit = ::sun::awt::SunToolkit;
 
 namespace javax {
 	namespace swing {
-
-$NamedAttribute JFrame_Attribute_var$0[] = {
-	{"defaultProperty", 's', "JMenuBar"},
-	{"description", 's', "A toplevel window which can be minimized to an icon."},
-	{}
-};
-
-$NamedAttribute JFrame_Attribute_var$1[] = {
-	{"delegate", 's', "getContentPane"},
-	{}
-};
-
-$CompoundAttribute _JFrame_Annotations_[] = {
-	{"Ljava/beans/JavaBean;", JFrame_Attribute_var$0},
-	{"Ljavax/swing/SwingContainer;", JFrame_Attribute_var$1},
-	{}
-};
-
-$NamedAttribute JFrame_Attribute_var$2[] = {
-	{"bound", 'Z', "false"},
-	{}
-};
-
-$CompoundAttribute _JFrame_MethodAnnotations_getGraphics11[] = {
-	{"Ljava/beans/BeanProperty;", JFrame_Attribute_var$2},
-	{}
-};
-
-$NamedAttribute JFrame_Attribute_var$3[] = {
-	{"bound", 'Z', "false"},
-	{"hidden", 'Z', "true"},
-	{"description", 's', "the RootPane object for this frame."},
-	{}
-};
-
-$CompoundAttribute _JFrame_MethodAnnotations_getRootPane14[] = {
-	{"Ljava/beans/BeanProperty;", JFrame_Attribute_var$3},
-	{}
-};
-
-$NamedAttribute JFrame_Attribute_var$4[] = {
-	{"bound", 'Z', "false"},
-	{"hidden", 'Z', "true"},
-	{"description", 's', "The client area of the frame where child components are normally inserted."},
-	{}
-};
-
-$CompoundAttribute _JFrame_MethodAnnotations_setContentPane22[] = {
-	{"Ljava/beans/BeanProperty;", JFrame_Attribute_var$4},
-	{}
-};
-
-$Attribute JFrame_Attribute_var$6[] = {
-	{'s', "WindowConstants.DO_NOTHING_ON_CLOSE"},
-	{'s', "WindowConstants.HIDE_ON_CLOSE"},
-	{'s', "WindowConstants.DISPOSE_ON_CLOSE"},
-	{'s', "WindowConstants.EXIT_ON_CLOSE"},
-	{'-'}
-};
-
-$NamedAttribute JFrame_Attribute_var$5[] = {
-	{"preferred", 'Z', "true"},
-	{"enumerationValues", '[', JFrame_Attribute_var$6},
-	{"description", 's', "The frame\'s default close operation."},
-	{}
-};
-
-$CompoundAttribute _JFrame_MethodAnnotations_setDefaultCloseOperation23[] = {
-	{"Ljava/beans/BeanProperty;", JFrame_Attribute_var$5},
-	{}
-};
-
-$NamedAttribute JFrame_Attribute_var$7[] = {
-	{"bound", 'Z', "false"},
-	{"hidden", 'Z', "true"},
-	{"description", 's', "A transparent pane used for menu rendering."},
-	{}
-};
-
-$CompoundAttribute _JFrame_MethodAnnotations_setGlassPane25[] = {
-	{"Ljava/beans/BeanProperty;", JFrame_Attribute_var$7},
-	{}
-};
-
-$NamedAttribute JFrame_Attribute_var$8[] = {
-	{"bound", 'Z', "false"},
-	{"hidden", 'Z', "true"},
-	{"description", 's', "The menubar for accessing pulldown menus from this frame."},
-	{}
-};
-
-$CompoundAttribute _JFrame_MethodAnnotations_setJMenuBar27[] = {
-	{"Ljava/beans/BeanProperty;", JFrame_Attribute_var$8},
-	{}
-};
-
-$NamedAttribute JFrame_Attribute_var$9[] = {
-	{"bound", 'Z', "false"},
-	{"hidden", 'Z', "true"},
-	{"description", 's', "The pane that holds the various frame layers."},
-	{}
-};
-
-$CompoundAttribute _JFrame_MethodAnnotations_setLayeredPane28[] = {
-	{"Ljava/beans/BeanProperty;", JFrame_Attribute_var$9},
-	{}
-};
-
-$NamedAttribute JFrame_Attribute_var$10[] = {
-	{"hidden", 'Z', "true"},
-	{"description", 's', "Whether the add and setLayout methods are forwarded"},
-	{}
-};
-
-$CompoundAttribute _JFrame_MethodAnnotations_setRootPaneCheckingEnabled31[] = {
-	{"Ljava/beans/BeanProperty;", JFrame_Attribute_var$10},
-	{}
-};
-
-$NamedAttribute JFrame_Attribute_var$11[] = {
-	{"hidden", 'Z', "true"},
-	{"description", 's', "Mechanism for transfer of data into the component"},
-	{}
-};
-
-$CompoundAttribute _JFrame_MethodAnnotations_setTransferHandler32[] = {
-	{"Ljava/beans/BeanProperty;", JFrame_Attribute_var$11},
-	{}
-};
-
-$FieldInfo _JFrame_FieldInfo_[] = {
-	{"defaultLookAndFeelDecoratedKey", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JFrame, defaultLookAndFeelDecoratedKey)},
-	{"defaultCloseOperation", "I", nullptr, $PRIVATE, $field(JFrame, defaultCloseOperation)},
-	{"transferHandler", "Ljavax/swing/TransferHandler;", nullptr, $PRIVATE, $field(JFrame, transferHandler)},
-	{"rootPane", "Ljavax/swing/JRootPane;", nullptr, $PROTECTED, $field(JFrame, rootPane)},
-	{"rootPaneCheckingEnabled", "Z", nullptr, $PROTECTED, $field(JFrame, rootPaneCheckingEnabled)},
-	{"accessibleContext", "Ljavax/accessibility/AccessibleContext;", nullptr, $PROTECTED, $field(JFrame, accessibleContext)},
-	{}
-};
-
-$MethodInfo _JFrame_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(JFrame, init$, void), "java.awt.HeadlessException"},
-	{"<init>", "(Ljava/awt/GraphicsConfiguration;)V", nullptr, $PUBLIC, $method(JFrame, init$, void, $GraphicsConfiguration*)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(JFrame, init$, void, $String*), "java.awt.HeadlessException"},
-	{"<init>", "(Ljava/lang/String;Ljava/awt/GraphicsConfiguration;)V", nullptr, $PUBLIC, $method(JFrame, init$, void, $String*, $GraphicsConfiguration*)},
-	{"addImpl", "(Ljava/awt/Component;Ljava/lang/Object;I)V", nullptr, $PROTECTED, $virtualMethod(JFrame, addImpl, void, $Component*, Object$*, int32_t)},
-	{"createRootPane", "()Ljavax/swing/JRootPane;", nullptr, $PROTECTED, $virtualMethod(JFrame, createRootPane, $JRootPane*)},
-	{"frameInit", "()V", nullptr, $PROTECTED, $virtualMethod(JFrame, frameInit, void)},
-	{"getAccessibleContext", "()Ljavax/accessibility/AccessibleContext;", nullptr, $PUBLIC, $virtualMethod(JFrame, getAccessibleContext, $AccessibleContext*)},
-	{"getContentPane", "()Ljava/awt/Container;", nullptr, $PUBLIC, $virtualMethod(JFrame, getContentPane, $Container*)},
-	{"getDefaultCloseOperation", "()I", nullptr, $PUBLIC, $virtualMethod(JFrame, getDefaultCloseOperation, int32_t)},
-	{"getGlassPane", "()Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(JFrame, getGlassPane, $Component*)},
-	{"getGraphics", "()Ljava/awt/Graphics;", nullptr, $PUBLIC, $virtualMethod(JFrame, getGraphics, $Graphics*), nullptr, nullptr, _JFrame_MethodAnnotations_getGraphics11},
-	{"getJMenuBar", "()Ljavax/swing/JMenuBar;", nullptr, $PUBLIC, $virtualMethod(JFrame, getJMenuBar, $JMenuBar*)},
-	{"getLayeredPane", "()Ljavax/swing/JLayeredPane;", nullptr, $PUBLIC, $virtualMethod(JFrame, getLayeredPane, $JLayeredPane*)},
-	{"getRootPane", "()Ljavax/swing/JRootPane;", nullptr, $PUBLIC, $virtualMethod(JFrame, getRootPane, $JRootPane*), nullptr, nullptr, _JFrame_MethodAnnotations_getRootPane14},
-	{"getTransferHandler", "()Ljavax/swing/TransferHandler;", nullptr, $PUBLIC, $virtualMethod(JFrame, getTransferHandler, $TransferHandler*)},
-	{"isDefaultLookAndFeelDecorated", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(JFrame, isDefaultLookAndFeelDecorated, bool)},
-	{"isRootPaneCheckingEnabled", "()Z", nullptr, $PROTECTED, $virtualMethod(JFrame, isRootPaneCheckingEnabled, bool)},
-	{"paramString", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(JFrame, paramString, $String*)},
-	{"processWindowEvent", "(Ljava/awt/event/WindowEvent;)V", nullptr, $PROTECTED, $virtualMethod(JFrame, processWindowEvent, void, $WindowEvent*)},
-	{"remove", "(Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(JFrame, remove, void, $Component*)},
-	{"repaint", "(JIIII)V", nullptr, $PUBLIC, $virtualMethod(JFrame, repaint, void, int64_t, int32_t, int32_t, int32_t, int32_t)},
-	{"setContentPane", "(Ljava/awt/Container;)V", nullptr, $PUBLIC, $virtualMethod(JFrame, setContentPane, void, $Container*), nullptr, nullptr, _JFrame_MethodAnnotations_setContentPane22},
-	{"setDefaultCloseOperation", "(I)V", nullptr, $PUBLIC, $virtualMethod(JFrame, setDefaultCloseOperation, void, int32_t), nullptr, nullptr, _JFrame_MethodAnnotations_setDefaultCloseOperation23},
-	{"setDefaultLookAndFeelDecorated", "(Z)V", nullptr, $PUBLIC | $STATIC, $staticMethod(JFrame, setDefaultLookAndFeelDecorated, void, bool)},
-	{"setGlassPane", "(Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(JFrame, setGlassPane, void, $Component*), nullptr, nullptr, _JFrame_MethodAnnotations_setGlassPane25},
-	{"setIconImage", "(Ljava/awt/Image;)V", nullptr, $PUBLIC, $virtualMethod(JFrame, setIconImage, void, $Image*)},
-	{"setJMenuBar", "(Ljavax/swing/JMenuBar;)V", nullptr, $PUBLIC, $virtualMethod(JFrame, setJMenuBar, void, $JMenuBar*), nullptr, nullptr, _JFrame_MethodAnnotations_setJMenuBar27},
-	{"setLayeredPane", "(Ljavax/swing/JLayeredPane;)V", nullptr, $PUBLIC, $virtualMethod(JFrame, setLayeredPane, void, $JLayeredPane*), nullptr, nullptr, _JFrame_MethodAnnotations_setLayeredPane28},
-	{"setLayout", "(Ljava/awt/LayoutManager;)V", nullptr, $PUBLIC, $virtualMethod(JFrame, setLayout, void, $LayoutManager*)},
-	{"setRootPane", "(Ljavax/swing/JRootPane;)V", nullptr, $PROTECTED, $virtualMethod(JFrame, setRootPane, void, $JRootPane*)},
-	{"setRootPaneCheckingEnabled", "(Z)V", nullptr, $PROTECTED, $virtualMethod(JFrame, setRootPaneCheckingEnabled, void, bool), nullptr, nullptr, _JFrame_MethodAnnotations_setRootPaneCheckingEnabled31},
-	{"setTransferHandler", "(Ljavax/swing/TransferHandler;)V", nullptr, $PUBLIC, $virtualMethod(JFrame, setTransferHandler, void, $TransferHandler*), nullptr, nullptr, _JFrame_MethodAnnotations_setTransferHandler32},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"update", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(JFrame, update, void, $Graphics*)},
-	{}
-};
-
-$InnerClassInfo _JFrame_InnerClassesInfo_[] = {
-	{"javax.swing.TransferHandler$HasGetTransferHandler", "javax.swing.TransferHandler", "HasGetTransferHandler", $STATIC | $INTERFACE | $ABSTRACT},
-	{"javax.swing.JFrame$AccessibleJFrame", "javax.swing.JFrame", "AccessibleJFrame", $PROTECTED},
-	{}
-};
-
-$ClassInfo _JFrame_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.JFrame",
-	"java.awt.Frame",
-	"javax.swing.WindowConstants,javax.swing.RootPaneContainer,javax.swing.TransferHandler$HasGetTransferHandler",
-	_JFrame_FieldInfo_,
-	_JFrame_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JFrame_InnerClassesInfo_,
-	_JFrame_Annotations_,
-	nullptr,
-	"javax.swing.JFrame$AccessibleJFrame"
-};
-
-$Object* allocate$JFrame($Class* clazz) {
-	return $of($alloc(JFrame));
-}
 
 $String* JFrame::toString() {
 	 return this->$Frame::toString();
@@ -344,17 +134,17 @@ void JFrame::init$($String* title, $GraphicsConfiguration* gc) {
 }
 
 void JFrame::frameInit() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	enableEvents($AWTEvent::KEY_EVENT_MASK | $AWTEvent::WINDOW_EVENT_MASK);
 	setLocale($($JComponent::getDefaultLocale()));
 	setRootPane($(createRootPane()));
 	setBackground($($UIManager::getColor("control"_s)));
 	setRootPaneCheckingEnabled(true);
 	if (JFrame::isDefaultLookAndFeelDecorated()) {
-		bool supportsWindowDecorations = $nc($($UIManager::getLookAndFeel()))->getSupportsWindowDecorations();
+		bool supportsWindowDecorations = $$nc($UIManager::getLookAndFeel())->getSupportsWindowDecorations();
 		if (supportsWindowDecorations) {
 			setUndecorated(true);
-			$nc($(getRootPane()))->setWindowDecorationStyle($JRootPane::FRAME);
+			$$nc(getRootPane())->setWindowDecorationStyle($JRootPane::FRAME);
 		}
 	}
 	$SunToolkit::checkAndSetPolicy(this);
@@ -371,24 +161,17 @@ void JFrame::processWindowEvent($WindowEvent* e) {
 	if ($nc(e)->getID() == $WindowEvent::WINDOW_CLOSING) {
 		switch (this->defaultCloseOperation) {
 		case $WindowConstants::HIDE_ON_CLOSE:
-			{
-				setVisible(false);
-				break;
-			}
+			setVisible(false);
+			break;
 		case $WindowConstants::DISPOSE_ON_CLOSE:
-			{
-				dispose();
-				break;
-			}
+			dispose();
+			break;
 		case $WindowConstants::EXIT_ON_CLOSE:
-			{
-				$System::exit(0);
-				break;
-			}
+			$System::exit(0);
+			break;
 		case $WindowConstants::DO_NOTHING_ON_CLOSE:
-			{}
 		default:
-			{}
+			break;
 		}
 	}
 }
@@ -418,7 +201,7 @@ void JFrame::setTransferHandler($TransferHandler* newHandler) {
 	$var($TransferHandler, oldHandler, this->transferHandler);
 	$set(this, transferHandler, newHandler);
 	$SwingUtilities::installSwingDropTargetAsNecessary(this, this->transferHandler);
-	firePropertyChange("transferHandler"_s, $of(oldHandler), $of(newHandler));
+	firePropertyChange("transferHandler"_s, oldHandler, newHandler);
 }
 
 $TransferHandler* JFrame::getTransferHandler() {
@@ -430,11 +213,11 @@ void JFrame::update($Graphics* g) {
 }
 
 void JFrame::setJMenuBar($JMenuBar* menubar) {
-	$nc($(getRootPane()))->setJMenuBar(menubar);
+	$$nc(getRootPane())->setJMenuBar(menubar);
 }
 
 $JMenuBar* JFrame::getJMenuBar() {
-	return $nc($(getRootPane()))->getJMenuBar();
+	return $$nc(getRootPane())->getJMenuBar();
 }
 
 bool JFrame::isRootPaneCheckingEnabled() {
@@ -447,7 +230,7 @@ void JFrame::setRootPaneCheckingEnabled(bool enabled) {
 
 void JFrame::addImpl($Component* comp, Object$* constraints, int32_t index) {
 	if (isRootPaneCheckingEnabled()) {
-		$nc($(getContentPane()))->add(comp, constraints, index);
+		$$nc(getContentPane())->add(comp, constraints, index);
 	} else {
 		$Frame::addImpl(comp, constraints, index);
 	}
@@ -457,13 +240,13 @@ void JFrame::remove($Component* comp) {
 	if ($equals(comp, this->rootPane)) {
 		$Frame::remove(comp);
 	} else {
-		$nc($(getContentPane()))->remove(comp);
+		$$nc(getContentPane())->remove(comp);
 	}
 }
 
 void JFrame::setLayout($LayoutManager* manager) {
 	if (isRootPaneCheckingEnabled()) {
-		$nc($(getContentPane()))->setLayout(manager);
+		$$nc(getContentPane())->setLayout(manager);
 	} else {
 		$Frame::setLayout(manager);
 	}
@@ -475,25 +258,23 @@ $JRootPane* JFrame::getRootPane() {
 
 void JFrame::setRootPane($JRootPane* root) {
 	if (this->rootPane != nullptr) {
-		remove(static_cast<$Component*>(this->rootPane));
+		remove(this->rootPane);
 	}
 	$set(this, rootPane, root);
 	if (this->rootPane != nullptr) {
 		bool checkingEnabled = isRootPaneCheckingEnabled();
-		{
-			$var($Throwable, var$0, nullptr);
-			try {
-				setRootPaneCheckingEnabled(false);
-				$init($BorderLayout);
-				add(static_cast<$Component*>(this->rootPane), $of($BorderLayout::CENTER));
-			} catch ($Throwable& var$1) {
-				$assign(var$0, var$1);
-			} /*finally*/ {
-				setRootPaneCheckingEnabled(checkingEnabled);
-			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
+		$var($Throwable, var$0, nullptr);
+		try {
+			setRootPaneCheckingEnabled(false);
+			$init($BorderLayout);
+			add(this->rootPane, $BorderLayout::CENTER);
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
+		} /*finally*/ {
+			setRootPaneCheckingEnabled(checkingEnabled);
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	}
 }
@@ -503,27 +284,27 @@ void JFrame::setIconImage($Image* image) {
 }
 
 $Container* JFrame::getContentPane() {
-	return $nc($(getRootPane()))->getContentPane();
+	return $$nc(getRootPane())->getContentPane();
 }
 
 void JFrame::setContentPane($Container* contentPane) {
-	$nc($(getRootPane()))->setContentPane(contentPane);
+	$$nc(getRootPane())->setContentPane(contentPane);
 }
 
 $JLayeredPane* JFrame::getLayeredPane() {
-	return $nc($(getRootPane()))->getLayeredPane();
+	return $$nc(getRootPane())->getLayeredPane();
 }
 
 void JFrame::setLayeredPane($JLayeredPane* layeredPane) {
-	$nc($(getRootPane()))->setLayeredPane(layeredPane);
+	$$nc(getRootPane())->setLayeredPane(layeredPane);
 }
 
 $Component* JFrame::getGlassPane() {
-	return $nc($(getRootPane()))->getGlassPane();
+	return $$nc(getRootPane())->getGlassPane();
 }
 
 void JFrame::setGlassPane($Component* glassPane) {
-	$nc($(getRootPane()))->setGlassPane(glassPane);
+	$$nc(getRootPane())->setGlassPane(glassPane);
 }
 
 $Graphics* JFrame::getGraphics() {
@@ -534,7 +315,7 @@ $Graphics* JFrame::getGraphics() {
 void JFrame::repaint(int64_t time, int32_t x, int32_t y, int32_t width, int32_t height) {
 	$init($RepaintManager);
 	if ($RepaintManager::HANDLE_TOP_LEVEL_PAINT) {
-		$nc($($RepaintManager::currentManager(static_cast<$Component*>(this))))->addDirtyRegion(static_cast<$Window*>(this), x, y, width, height);
+		$$nc($RepaintManager::currentManager(this))->addDirtyRegion(this, x, y, width, height);
 	} else {
 		$Frame::repaint(time, x, y, width, height);
 	}
@@ -543,10 +324,8 @@ void JFrame::repaint(int64_t time, int32_t x, int32_t y, int32_t width, int32_t 
 void JFrame::setDefaultLookAndFeelDecorated(bool defaultLookAndFeelDecorated) {
 	$init(JFrame);
 	if (defaultLookAndFeelDecorated) {
-		$init($Boolean);
 		$SwingUtilities::appContextPut(JFrame::defaultLookAndFeelDecoratedKey, $Boolean::TRUE);
 	} else {
-		$init($Boolean);
 		$SwingUtilities::appContextPut(JFrame::defaultLookAndFeelDecoratedKey, $Boolean::FALSE);
 	}
 }
@@ -555,14 +334,13 @@ bool JFrame::isDefaultLookAndFeelDecorated() {
 	$init(JFrame);
 	$var($Boolean, defaultLookAndFeelDecorated, $cast($Boolean, $SwingUtilities::appContextGet(JFrame::defaultLookAndFeelDecoratedKey)));
 	if (defaultLookAndFeelDecorated == nullptr) {
-		$init($Boolean);
 		$assign(defaultLookAndFeelDecorated, $Boolean::FALSE);
 	}
 	return $nc(defaultLookAndFeelDecorated)->booleanValue();
 }
 
 $String* JFrame::paramString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, defaultCloseOperationString, nullptr);
 	if (this->defaultCloseOperation == $WindowConstants::HIDE_ON_CLOSE) {
 		$assign(defaultCloseOperationString, "HIDE_ON_CLOSE"_s);
@@ -575,7 +353,7 @@ $String* JFrame::paramString() {
 	} else {
 		$assign(defaultCloseOperationString, ""_s);
 	}
-	$var($String, rootPaneString, this->rootPane != nullptr ? $nc(this->rootPane)->toString() : ""_s);
+	$var($String, rootPaneString, this->rootPane != nullptr ? this->rootPane->toString() : ""_s);
 	$var($String, rootPaneCheckingEnabledString, this->rootPaneCheckingEnabled ? "true"_s : "false"_s);
 	return $str({$($Frame::paramString()), ",defaultCloseOperation="_s, defaultCloseOperationString, ",rootPane="_s, rootPaneString, ",rootPaneCheckingEnabled="_s, rootPaneCheckingEnabledString});
 }
@@ -587,7 +365,7 @@ $AccessibleContext* JFrame::getAccessibleContext() {
 	return this->accessibleContext;
 }
 
-void clinit$JFrame($Class* class$) {
+void JFrame::clinit$($Class* clazz) {
 	$assignStatic(JFrame::defaultLookAndFeelDecoratedKey, $new($StringBuffer, "JFrame.defaultLookAndFeelDecorated"_s));
 }
 
@@ -595,7 +373,186 @@ JFrame::JFrame() {
 }
 
 $Class* JFrame::load$($String* name, bool initialize) {
-	$loadClass(JFrame, name, initialize, &_JFrame_ClassInfo_, clinit$JFrame, allocate$JFrame);
+	$FieldInfo fieldInfos$$[] = {
+		{"defaultLookAndFeelDecoratedKey", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JFrame, defaultLookAndFeelDecoratedKey)},
+		{"defaultCloseOperation", "I", nullptr, $PRIVATE, $field(JFrame, defaultCloseOperation)},
+		{"transferHandler", "Ljavax/swing/TransferHandler;", nullptr, $PRIVATE, $field(JFrame, transferHandler)},
+		{"rootPane", "Ljavax/swing/JRootPane;", nullptr, $PROTECTED, $field(JFrame, rootPane)},
+		{"rootPaneCheckingEnabled", "Z", nullptr, $PROTECTED, $field(JFrame, rootPaneCheckingEnabled)},
+		{"accessibleContext", "Ljavax/accessibility/AccessibleContext;", nullptr, $PROTECTED, $field(JFrame, accessibleContext)},
+		{}
+	};
+	$NamedAttribute getGraphicsmethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{}
+	};
+	$CompoundAttribute getGraphicsmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", getGraphicsmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute getRootPanemethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{"hidden", 'Z', "true"},
+		{"description", 's', "the RootPane object for this frame."},
+		{}
+	};
+	$CompoundAttribute getRootPanemethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", getRootPanemethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setContentPanemethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{"hidden", 'Z', "true"},
+		{"description", 's', "The client area of the frame where child components are normally inserted."},
+		{}
+	};
+	$CompoundAttribute setContentPanemethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setContentPanemethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$Attribute $attribute[] = {
+		{'s', "WindowConstants.DO_NOTHING_ON_CLOSE"},
+		{'s', "WindowConstants.HIDE_ON_CLOSE"},
+		{'s', "WindowConstants.DISPOSE_ON_CLOSE"},
+		{'s', "WindowConstants.EXIT_ON_CLOSE"},
+		{'-'}
+	};
+	$NamedAttribute setDefaultCloseOperationmethodAnnotations$$$namedAttribute[] = {
+		{"preferred", 'Z', "true"},
+		{"enumerationValues", '[', $attribute},
+		{"description", 's', "The frame\'s default close operation."},
+		{}
+	};
+	$CompoundAttribute setDefaultCloseOperationmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setDefaultCloseOperationmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setGlassPanemethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{"hidden", 'Z', "true"},
+		{"description", 's', "A transparent pane used for menu rendering."},
+		{}
+	};
+	$CompoundAttribute setGlassPanemethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setGlassPanemethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setJMenuBarmethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{"hidden", 'Z', "true"},
+		{"description", 's', "The menubar for accessing pulldown menus from this frame."},
+		{}
+	};
+	$CompoundAttribute setJMenuBarmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setJMenuBarmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setLayeredPanemethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{"hidden", 'Z', "true"},
+		{"description", 's', "The pane that holds the various frame layers."},
+		{}
+	};
+	$CompoundAttribute setLayeredPanemethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setLayeredPanemethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setRootPaneCheckingEnabledmethodAnnotations$$$namedAttribute[] = {
+		{"hidden", 'Z', "true"},
+		{"description", 's', "Whether the add and setLayout methods are forwarded"},
+		{}
+	};
+	$CompoundAttribute setRootPaneCheckingEnabledmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setRootPaneCheckingEnabledmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setTransferHandlermethodAnnotations$$$namedAttribute[] = {
+		{"hidden", 'Z', "true"},
+		{"description", 's', "Mechanism for transfer of data into the component"},
+		{}
+	};
+	$CompoundAttribute setTransferHandlermethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setTransferHandlermethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(JFrame, init$, void), "java.awt.HeadlessException"},
+		{"<init>", "(Ljava/awt/GraphicsConfiguration;)V", nullptr, $PUBLIC, $method(JFrame, init$, void, $GraphicsConfiguration*)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(JFrame, init$, void, $String*), "java.awt.HeadlessException"},
+		{"<init>", "(Ljava/lang/String;Ljava/awt/GraphicsConfiguration;)V", nullptr, $PUBLIC, $method(JFrame, init$, void, $String*, $GraphicsConfiguration*)},
+		{"addImpl", "(Ljava/awt/Component;Ljava/lang/Object;I)V", nullptr, $PROTECTED, $virtualMethod(JFrame, addImpl, void, $Component*, Object$*, int32_t)},
+		{"createRootPane", "()Ljavax/swing/JRootPane;", nullptr, $PROTECTED, $virtualMethod(JFrame, createRootPane, $JRootPane*)},
+		{"frameInit", "()V", nullptr, $PROTECTED, $virtualMethod(JFrame, frameInit, void)},
+		{"getAccessibleContext", "()Ljavax/accessibility/AccessibleContext;", nullptr, $PUBLIC, $virtualMethod(JFrame, getAccessibleContext, $AccessibleContext*)},
+		{"getContentPane", "()Ljava/awt/Container;", nullptr, $PUBLIC, $virtualMethod(JFrame, getContentPane, $Container*)},
+		{"getDefaultCloseOperation", "()I", nullptr, $PUBLIC, $virtualMethod(JFrame, getDefaultCloseOperation, int32_t)},
+		{"getGlassPane", "()Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(JFrame, getGlassPane, $Component*)},
+		{"getGraphics", "()Ljava/awt/Graphics;", nullptr, $PUBLIC, $virtualMethod(JFrame, getGraphics, $Graphics*), nullptr, nullptr, getGraphicsmethodAnnotations$$},
+		{"getJMenuBar", "()Ljavax/swing/JMenuBar;", nullptr, $PUBLIC, $virtualMethod(JFrame, getJMenuBar, $JMenuBar*)},
+		{"getLayeredPane", "()Ljavax/swing/JLayeredPane;", nullptr, $PUBLIC, $virtualMethod(JFrame, getLayeredPane, $JLayeredPane*)},
+		{"getRootPane", "()Ljavax/swing/JRootPane;", nullptr, $PUBLIC, $virtualMethod(JFrame, getRootPane, $JRootPane*), nullptr, nullptr, getRootPanemethodAnnotations$$},
+		{"getTransferHandler", "()Ljavax/swing/TransferHandler;", nullptr, $PUBLIC, $virtualMethod(JFrame, getTransferHandler, $TransferHandler*)},
+		{"isDefaultLookAndFeelDecorated", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(JFrame, isDefaultLookAndFeelDecorated, bool)},
+		{"isRootPaneCheckingEnabled", "()Z", nullptr, $PROTECTED, $virtualMethod(JFrame, isRootPaneCheckingEnabled, bool)},
+		{"paramString", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(JFrame, paramString, $String*)},
+		{"processWindowEvent", "(Ljava/awt/event/WindowEvent;)V", nullptr, $PROTECTED, $virtualMethod(JFrame, processWindowEvent, void, $WindowEvent*)},
+		{"remove", "(Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(JFrame, remove, void, $Component*)},
+		{"repaint", "(JIIII)V", nullptr, $PUBLIC, $virtualMethod(JFrame, repaint, void, int64_t, int32_t, int32_t, int32_t, int32_t)},
+		{"setContentPane", "(Ljava/awt/Container;)V", nullptr, $PUBLIC, $virtualMethod(JFrame, setContentPane, void, $Container*), nullptr, nullptr, setContentPanemethodAnnotations$$},
+		{"setDefaultCloseOperation", "(I)V", nullptr, $PUBLIC, $virtualMethod(JFrame, setDefaultCloseOperation, void, int32_t), nullptr, nullptr, setDefaultCloseOperationmethodAnnotations$$},
+		{"setDefaultLookAndFeelDecorated", "(Z)V", nullptr, $PUBLIC | $STATIC, $staticMethod(JFrame, setDefaultLookAndFeelDecorated, void, bool)},
+		{"setGlassPane", "(Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(JFrame, setGlassPane, void, $Component*), nullptr, nullptr, setGlassPanemethodAnnotations$$},
+		{"setIconImage", "(Ljava/awt/Image;)V", nullptr, $PUBLIC, $virtualMethod(JFrame, setIconImage, void, $Image*)},
+		{"setJMenuBar", "(Ljavax/swing/JMenuBar;)V", nullptr, $PUBLIC, $virtualMethod(JFrame, setJMenuBar, void, $JMenuBar*), nullptr, nullptr, setJMenuBarmethodAnnotations$$},
+		{"setLayeredPane", "(Ljavax/swing/JLayeredPane;)V", nullptr, $PUBLIC, $virtualMethod(JFrame, setLayeredPane, void, $JLayeredPane*), nullptr, nullptr, setLayeredPanemethodAnnotations$$},
+		{"setLayout", "(Ljava/awt/LayoutManager;)V", nullptr, $PUBLIC, $virtualMethod(JFrame, setLayout, void, $LayoutManager*)},
+		{"setRootPane", "(Ljavax/swing/JRootPane;)V", nullptr, $PROTECTED, $virtualMethod(JFrame, setRootPane, void, $JRootPane*)},
+		{"setRootPaneCheckingEnabled", "(Z)V", nullptr, $PROTECTED, $virtualMethod(JFrame, setRootPaneCheckingEnabled, void, bool), nullptr, nullptr, setRootPaneCheckingEnabledmethodAnnotations$$},
+		{"setTransferHandler", "(Ljavax/swing/TransferHandler;)V", nullptr, $PUBLIC, $virtualMethod(JFrame, setTransferHandler, void, $TransferHandler*), nullptr, nullptr, setTransferHandlermethodAnnotations$$},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"update", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(JFrame, update, void, $Graphics*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.TransferHandler$HasGetTransferHandler", "javax.swing.TransferHandler", "HasGetTransferHandler", $STATIC | $INTERFACE | $ABSTRACT},
+		{"javax.swing.JFrame$AccessibleJFrame", "javax.swing.JFrame", "AccessibleJFrame", $PROTECTED},
+		{}
+	};
+	$NamedAttribute annotations$$$namedAttribute[] = {
+		{"defaultProperty", 's', "JMenuBar"},
+		{"description", 's', "A toplevel window which can be minimized to an icon."},
+		{}
+	};
+	$NamedAttribute annotations$$$namedAttribute$1[] = {
+		{"delegate", 's', "getContentPane"},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/beans/JavaBean;", annotations$$$namedAttribute},
+		{"Ljavax/swing/SwingContainer;", annotations$$$namedAttribute$1},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.JFrame",
+		"java.awt.Frame",
+		"javax.swing.WindowConstants,javax.swing.RootPaneContainer,javax.swing.TransferHandler$HasGetTransferHandler",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		annotations$$,
+		nullptr,
+		"javax.swing.JFrame$AccessibleJFrame"
+	};
+	$loadClass(JFrame, name, initialize, &classInfo$$, JFrame::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JFrame));
+	});
 	return class$;
 }
 

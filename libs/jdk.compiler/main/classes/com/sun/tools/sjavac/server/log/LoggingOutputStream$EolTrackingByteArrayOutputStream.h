@@ -20,6 +20,7 @@ class LoggingOutputStream$EolTrackingByteArrayOutputStream : public ::java::io::
 	$class(LoggingOutputStream$EolTrackingByteArrayOutputStream, 0, ::java::io::ByteArrayOutputStream)
 public:
 	LoggingOutputStream$EolTrackingByteArrayOutputStream();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	bool isLineComplete();
 	using ::java::io::ByteArrayOutputStream::write;

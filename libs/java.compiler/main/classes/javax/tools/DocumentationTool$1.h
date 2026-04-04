@@ -12,6 +12,7 @@ class DocumentationTool$1 : public ::java::lang::Object {
 	$class(DocumentationTool$1, 0, ::java::lang::Object)
 public:
 	DocumentationTool$1();
+	static void clinit$(::java::lang::Class* clazz);
 	static $ints* $SwitchMap$javax$tools$DocumentationTool$Location;
 };
 

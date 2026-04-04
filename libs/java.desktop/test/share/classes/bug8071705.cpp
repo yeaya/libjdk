@@ -1,5 +1,4 @@
 #include <bug8071705.h>
-
 #include <bug8071705$1.h>
 #include <java/awt/Component.h>
 #include <java/awt/Dimension.h>
@@ -10,7 +9,6 @@
 #include <java/awt/Rectangle.h>
 #include <java/awt/Toolkit.h>
 #include <java/awt/Window.h>
-#include <java/lang/Runnable.h>
 #include <java/util/concurrent/CountDownLatch.h>
 #include <javax/swing/JFrame.h>
 #include <javax/swing/JMenu.h>
@@ -33,11 +31,9 @@ using $GraphicsEnvironment = ::java::awt::GraphicsEnvironment;
 using $Point = ::java::awt::Point;
 using $Rectangle = ::java::awt::Rectangle;
 using $Toolkit = ::java::awt::Toolkit;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $CountDownLatch = ::java::util::concurrent::CountDownLatch;
 using $JFrame = ::javax::swing::JFrame;
@@ -48,47 +44,11 @@ using $JPopupMenu = ::javax::swing::JPopupMenu;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $UIManager = ::javax::swing::UIManager;
 
-$MethodInfo _bug8071705_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(bug8071705, init$, void)},
-	{"checkConfigs", "([Ljava/awt/GraphicsDevice;)Ljava/awt/GraphicsDevice;", nullptr, $PRIVATE | $STATIC, $staticMethod(bug8071705, checkConfigs, $GraphicsDevice*, $GraphicsDeviceArray*)},
-	{"checkScreens", "()[Ljava/awt/GraphicsDevice;", nullptr, $PRIVATE | $STATIC, $staticMethod(bug8071705, checkScreens, $GraphicsDeviceArray*)},
-	{"createGUI", "()Ljavax/swing/JFrame;", nullptr, $PRIVATE | $STATIC, $staticMethod(bug8071705, createGUI, $JFrame*)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(bug8071705, main, void, $StringArray*), "java.lang.Exception"},
-	{"runActualTest", "(Ljava/awt/GraphicsDevice;Ljava/util/concurrent/CountDownLatch;Ljavax/swing/JFrame;[Z)V", nullptr, $PRIVATE | $STATIC, $staticMethod(bug8071705, runActualTest, void, $GraphicsDevice*, $CountDownLatch*, $JFrame*, $booleans*)},
-	{"setLocation", "(Ljavax/swing/JFrame;Ljava/awt/GraphicsDevice;)Ljava/awt/Rectangle;", nullptr, $PRIVATE | $STATIC, $staticMethod(bug8071705, setLocation, $Rectangle*, $JFrame*, $GraphicsDevice*)},
-	{}
-};
-
-$InnerClassInfo _bug8071705_InnerClassesInfo_[] = {
-	{"bug8071705$FrameListener", "bug8071705", "FrameListener", $PRIVATE | $STATIC},
-	{"bug8071705$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _bug8071705_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"bug8071705",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_bug8071705_MethodInfo_,
-	nullptr,
-	nullptr,
-	_bug8071705_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"bug8071705$FrameListener,bug8071705$1"
-};
-
-$Object* allocate$bug8071705($Class* clazz) {
-	return $of($alloc(bug8071705));
-}
-
 void bug8071705::init$() {
 }
 
 void bug8071705::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($CountDownLatch, latch, $new($CountDownLatch, 1));
 	$var($booleans, result, $new($booleans, 1));
 	$SwingUtilities::invokeLater($$new($bug8071705$1, result, latch));
@@ -105,7 +65,7 @@ $GraphicsDeviceArray* bug8071705::checkScreens() {
 }
 
 $JFrame* bug8071705::createGUI() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JMenuBar, menuBar, $new($JMenuBar));
 	$var($JMenu, menu, $new($JMenu, "Some menu"_s));
 	menuBar->add(menu);
@@ -120,7 +80,7 @@ $JFrame* bug8071705::createGUI() {
 }
 
 $GraphicsDevice* bug8071705::checkConfigs($GraphicsDeviceArray* devices) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($GraphicsDevice, correctDevice, nullptr);
 	if ($nc(devices)->length < 2) {
 		return correctDevice;
@@ -128,7 +88,7 @@ $GraphicsDevice* bug8071705::checkConfigs($GraphicsDeviceArray* devices) {
 	$var($Toolkit, toolkit, $Toolkit::getDefaultToolkit());
 	$var($Rectangle, screenBounds, $new($Rectangle, $($nc(toolkit)->getScreenSize())));
 	int32_t halfScreen = screenBounds->height / 2;
-	for (int32_t i = 0; i < $nc(devices)->length; ++i) {
+	for (int32_t i = 0; i < devices->length; ++i) {
 		if ($nc(devices->get(i))->getType() == $GraphicsDevice::TYPE_RASTER_SCREEN) {
 			$var($GraphicsConfiguration, conf, $nc(devices->get(i))->getDefaultConfiguration());
 			$var($Rectangle, bounds, $nc(conf)->getBounds());
@@ -142,26 +102,26 @@ $GraphicsDevice* bug8071705::checkConfigs($GraphicsDeviceArray* devices) {
 }
 
 $Rectangle* bug8071705::setLocation($JFrame* frame, $GraphicsDevice* device) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($GraphicsConfiguration, conf, $nc(device)->getDefaultConfiguration());
 	$var($Rectangle, bounds, $nc(conf)->getBounds());
-	int32_t x = $nc(bounds)->x + bounds->width / 2;
+	int32_t x = $nc(bounds)->x + $nc(bounds)->width / 2;
 	int32_t y = bounds->y + bounds->height / 2;
 	$nc(frame)->setLocation(x, y);
 	return bounds;
 }
 
 void bug8071705::runActualTest($GraphicsDevice* device, $CountDownLatch* latch, $JFrame* frame, $booleans* result) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle, screenBounds, setLocation(frame, device));
-	$var($JMenu, menu, $nc($($nc(frame)->getJMenuBar()))->getMenu(0));
+	$var($JMenu, menu, $$nc($nc(frame)->getJMenuBar())->getMenu(0));
 	$nc(menu)->doClick();
 	$var($Point, location, menu->getLocationOnScreen());
 	$var($JPopupMenu, pm, menu->getPopupMenu());
 	$var($Dimension, pmSize, $nc(pm)->getSize());
 	int32_t yOffset = $UIManager::getInt("Menu.submenuPopupOffsetY"_s);
 	int32_t height = $nc(location)->y + yOffset + $nc(pmSize)->height + menu->getHeight();
-	int32_t available = $nc(screenBounds)->y + screenBounds->height - height;
+	int32_t available = $nc(screenBounds)->y + $nc(screenBounds)->height - height;
 	if (available > 0) {
 		$var($Point, origin, pm->getLocationOnScreen());
 		if ($nc(origin)->y < location->y) {
@@ -178,7 +138,38 @@ bug8071705::bug8071705() {
 }
 
 $Class* bug8071705::load$($String* name, bool initialize) {
-	$loadClass(bug8071705, name, initialize, &_bug8071705_ClassInfo_, allocate$bug8071705);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(bug8071705, init$, void)},
+		{"checkConfigs", "([Ljava/awt/GraphicsDevice;)Ljava/awt/GraphicsDevice;", nullptr, $PRIVATE | $STATIC, $staticMethod(bug8071705, checkConfigs, $GraphicsDevice*, $GraphicsDeviceArray*)},
+		{"checkScreens", "()[Ljava/awt/GraphicsDevice;", nullptr, $PRIVATE | $STATIC, $staticMethod(bug8071705, checkScreens, $GraphicsDeviceArray*)},
+		{"createGUI", "()Ljavax/swing/JFrame;", nullptr, $PRIVATE | $STATIC, $staticMethod(bug8071705, createGUI, $JFrame*)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(bug8071705, main, void, $StringArray*), "java.lang.Exception"},
+		{"runActualTest", "(Ljava/awt/GraphicsDevice;Ljava/util/concurrent/CountDownLatch;Ljavax/swing/JFrame;[Z)V", nullptr, $PRIVATE | $STATIC, $staticMethod(bug8071705, runActualTest, void, $GraphicsDevice*, $CountDownLatch*, $JFrame*, $booleans*)},
+		{"setLocation", "(Ljavax/swing/JFrame;Ljava/awt/GraphicsDevice;)Ljava/awt/Rectangle;", nullptr, $PRIVATE | $STATIC, $staticMethod(bug8071705, setLocation, $Rectangle*, $JFrame*, $GraphicsDevice*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"bug8071705$FrameListener", "bug8071705", "FrameListener", $PRIVATE | $STATIC},
+		{"bug8071705$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"bug8071705",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"bug8071705$FrameListener,bug8071705$1"
+	};
+	$loadClass(bug8071705, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(bug8071705);
+	});
 	return class$;
 }
 

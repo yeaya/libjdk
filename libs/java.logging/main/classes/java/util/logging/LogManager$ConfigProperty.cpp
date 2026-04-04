@@ -1,5 +1,4 @@
 #include <java/util/logging/LogManager$ConfigProperty.h>
-
 #include <java/io/Serializable.h>
 #include <java/lang/AssertionError.h>
 #include <java/lang/Enum.h>
@@ -43,7 +42,6 @@ using $Properties = ::java::util::Properties;
 using $BiFunction = ::java::util::function::BiFunction;
 using $Predicate = ::java::util::function::Predicate;
 using $LogManager = ::java::util::logging::LogManager;
-using $Stream = ::java::util::stream::Stream;
 
 namespace java {
 	namespace util {
@@ -58,90 +56,32 @@ public:
 	virtual bool test(Object$* p) override {
 		 return LogManager$ConfigProperty::lambda$find$0(property, $cast(LogManager$ConfigProperty, p));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<LogManager$ConfigProperty$$Lambda$lambda$find$0>());
-	}
 	$String* property = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo LogManager$ConfigProperty$$Lambda$lambda$find$0::fieldInfos[2] = {
-	{"property", "Ljava/lang/String;", nullptr, $PUBLIC, $field(LogManager$ConfigProperty$$Lambda$lambda$find$0, property)},
-	{}
-};
-$MethodInfo LogManager$ConfigProperty$$Lambda$lambda$find$0::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(LogManager$ConfigProperty$$Lambda$lambda$find$0, init$, void, $String*)},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(LogManager$ConfigProperty$$Lambda$lambda$find$0, test, bool, Object$*)},
-	{}
-};
-$ClassInfo LogManager$ConfigProperty$$Lambda$lambda$find$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.util.logging.LogManager$ConfigProperty$$Lambda$lambda$find$0",
-	"java.lang.Object",
-	"java.util.function.Predicate",
-	fieldInfos,
-	methodInfos
 };
 $Class* LogManager$ConfigProperty$$Lambda$lambda$find$0::load$($String* name, bool initialize) {
-	$loadClass(LogManager$ConfigProperty$$Lambda$lambda$find$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"property", "Ljava/lang/String;", nullptr, $PUBLIC, $field(LogManager$ConfigProperty$$Lambda$lambda$find$0, property)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(LogManager$ConfigProperty$$Lambda$lambda$find$0, init$, void, $String*)},
+		{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(LogManager$ConfigProperty$$Lambda$lambda$find$0, test, bool, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.util.logging.LogManager$ConfigProperty$$Lambda$lambda$find$0",
+		"java.lang.Object",
+		"java.util.function.Predicate",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(LogManager$ConfigProperty$$Lambda$lambda$find$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LogManager$ConfigProperty$$Lambda$lambda$find$0);
+	});
 	return class$;
 }
 $Class* LogManager$ConfigProperty$$Lambda$lambda$find$0::class$ = nullptr;
-
-$FieldInfo _LogManager$ConfigProperty_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(LogManager$ConfigProperty, $assertionsDisabled)},
-	{"LEVEL", "Ljava/util/logging/LogManager$ConfigProperty;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LogManager$ConfigProperty, LEVEL)},
-	{"HANDLERS", "Ljava/util/logging/LogManager$ConfigProperty;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LogManager$ConfigProperty, HANDLERS)},
-	{"USEPARENT", "Ljava/util/logging/LogManager$ConfigProperty;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LogManager$ConfigProperty, USEPARENT)},
-	{"$VALUES", "[Ljava/util/logging/LogManager$ConfigProperty;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(LogManager$ConfigProperty, $VALUES)},
-	{"suffix", "Ljava/lang/String;", nullptr, $FINAL, $field(LogManager$ConfigProperty, suffix)},
-	{"length", "I", nullptr, $FINAL, $field(LogManager$ConfigProperty, length)},
-	{"ALL", "Ljava/util/EnumSet;", "Ljava/util/EnumSet<Ljava/util/logging/LogManager$ConfigProperty;>;", $PRIVATE | $STATIC | $FINAL, $staticField(LogManager$ConfigProperty, ALL)},
-	{}
-};
-
-$MethodInfo _LogManager$ConfigProperty_MethodInfo_[] = {
-	{"$values", "()[Ljava/util/logging/LogManager$ConfigProperty;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(LogManager$ConfigProperty, $values, $LogManager$ConfigPropertyArray*)},
-	{"<init>", "(Ljava/lang/String;ILjava/lang/String;)V", "(Ljava/lang/String;)V", $PRIVATE, $method(LogManager$ConfigProperty, init$, void, $String*, int32_t, $String*)},
-	{"find", "(Ljava/lang/String;)Ljava/util/Optional;", "(Ljava/lang/String;)Ljava/util/Optional<Ljava/util/logging/LogManager$ConfigProperty;>;", $STATIC, $staticMethod(LogManager$ConfigProperty, find, $Optional*, $String*)},
-	{"getLoggerName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(LogManager$ConfigProperty, getLoggerName, $String*, $String*)},
-	{"handleKey", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $method(LogManager$ConfigProperty, handleKey, bool, $String*)},
-	{"key", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, 0, $method(LogManager$ConfigProperty, key, $String*, $String*)},
-	{"lambda$find$0", "(Ljava/lang/String;Ljava/util/logging/LogManager$ConfigProperty;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(LogManager$ConfigProperty, lambda$find$0, bool, $String*, LogManager$ConfigProperty*)},
-	{"loggerName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, 0, $method(LogManager$ConfigProperty, loggerName, $String*, $String*)},
-	{"matches", "(Ljava/lang/String;)Z", nullptr, $STATIC, $staticMethod(LogManager$ConfigProperty, matches, bool, $String*)},
-	{"merge", "(Ljava/lang/String;Ljava/util/Properties;Ljava/util/Properties;Ljava/util/function/BiFunction;)V", "(Ljava/lang/String;Ljava/util/Properties;Ljava/util/Properties;Ljava/util/function/BiFunction<Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;>;)V", $STATIC, $staticMethod(LogManager$ConfigProperty, merge, void, $String*, $Properties*, $Properties*, $BiFunction*)},
-	{"needsUpdating", "(Ljava/lang/String;Ljava/util/Properties;Ljava/util/Properties;)Z", nullptr, $STATIC, $staticMethod(LogManager$ConfigProperty, needsUpdating, bool, $String*, $Properties*, $Properties*)},
-	{"valueOf", "(Ljava/lang/String;)Ljava/util/logging/LogManager$ConfigProperty;", nullptr, $PUBLIC | $STATIC, $staticMethod(LogManager$ConfigProperty, valueOf, LogManager$ConfigProperty*, $String*)},
-	{"values", "()[Ljava/util/logging/LogManager$ConfigProperty;", nullptr, $PUBLIC | $STATIC, $staticMethod(LogManager$ConfigProperty, values, $LogManager$ConfigPropertyArray*)},
-	{}
-};
-
-$InnerClassInfo _LogManager$ConfigProperty_InnerClassesInfo_[] = {
-	{"java.util.logging.LogManager$ConfigProperty", "java.util.logging.LogManager", "ConfigProperty", $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _LogManager$ConfigProperty_ClassInfo_ = {
-	$FINAL | $ACC_SUPER | $ENUM,
-	"java.util.logging.LogManager$ConfigProperty",
-	"java.lang.Enum",
-	nullptr,
-	_LogManager$ConfigProperty_FieldInfo_,
-	_LogManager$ConfigProperty_MethodInfo_,
-	"Ljava/lang/Enum<Ljava/util/logging/LogManager$ConfigProperty;>;",
-	nullptr,
-	_LogManager$ConfigProperty_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.logging.LogManager"
-};
-
-$Object* allocate$LogManager$ConfigProperty($Class* clazz) {
-	return $of($alloc(LogManager$ConfigProperty));
-}
 
 bool LogManager$ConfigProperty::$assertionsDisabled = false;
 LogManager$ConfigProperty* LogManager$ConfigProperty::LEVEL = nullptr;
@@ -186,18 +126,18 @@ bool LogManager$ConfigProperty::handleKey($String* key) {
 }
 
 $String* LogManager$ConfigProperty::key($String* loggerName) {
-	if (this == LogManager$ConfigProperty::HANDLERS && (loggerName == nullptr || $nc(loggerName)->isEmpty())) {
+	if (this == LogManager$ConfigProperty::HANDLERS && (loggerName == nullptr || loggerName->isEmpty())) {
 		return $nc(this->suffix)->substring(1);
 	}
 	return $str({loggerName, this->suffix});
 }
 
 $String* LogManager$ConfigProperty::loggerName($String* key) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool var$0 = !LogManager$ConfigProperty::$assertionsDisabled;
 	if (var$0) {
 		bool var$1 = $nc(key)->equals($($nc(this->suffix)->substring(1))) && this == LogManager$ConfigProperty::HANDLERS;
-		var$0 = !(var$1 || $nc(key)->endsWith(this->suffix));
+		var$0 = !(var$1 || key->endsWith(this->suffix));
 	}
 	if (var$0) {
 		$throwNew($AssertionError);
@@ -205,20 +145,16 @@ $String* LogManager$ConfigProperty::loggerName($String* key) {
 	if (this == LogManager$ConfigProperty::HANDLERS && $($nc(this->suffix)->substring(1))->equals(key)) {
 		return ""_s;
 	}
-	return $nc(key)->substring(0, key->length() - this->length);
+	return $nc(key)->substring(0, $nc(key)->length() - this->length);
 }
 
 $String* LogManager$ConfigProperty::getLoggerName($String* property) {
 	$init(LogManager$ConfigProperty);
-	{
-		$var($Iterator, i$, $nc(LogManager$ConfigProperty::ALL)->iterator());
-		for (; $nc(i$)->hasNext();) {
-			LogManager$ConfigProperty* p = $cast(LogManager$ConfigProperty, i$->next());
-			{
-				if ($nc(p)->handleKey(property)) {
-					return p->loggerName(property);
-				}
-			}
+	$var($Iterator, i$, $nc(LogManager$ConfigProperty::ALL)->iterator());
+	for (; $nc(i$)->hasNext();) {
+		LogManager$ConfigProperty* p = $cast(LogManager$ConfigProperty, i$->next());
+		if ($nc(p)->handleKey(property)) {
+			return p->loggerName(property);
 		}
 	}
 	return nullptr;
@@ -226,18 +162,18 @@ $String* LogManager$ConfigProperty::getLoggerName($String* property) {
 
 $Optional* LogManager$ConfigProperty::find($String* property) {
 	$init(LogManager$ConfigProperty);
-	$useLocalCurrentObjectStackCache();
-	return $nc($($nc($($nc(LogManager$ConfigProperty::ALL)->stream()))->filter(static_cast<$Predicate*>($$new(LogManager$ConfigProperty$$Lambda$lambda$find$0, property)))))->findFirst();
+	$useLocalObjectStack();
+	return $$nc($$nc($nc(LogManager$ConfigProperty::ALL)->stream())->filter($$new(LogManager$ConfigProperty$$Lambda$lambda$find$0, property)))->findFirst();
 }
 
 bool LogManager$ConfigProperty::matches($String* property) {
 	$init(LogManager$ConfigProperty);
-	return $nc($(find(property)))->isPresent();
+	return $$nc(find(property))->isPresent();
 }
 
 bool LogManager$ConfigProperty::needsUpdating($String* k, $Properties* previous, $Properties* next) {
 	$init(LogManager$ConfigProperty);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, p, $LogManager::trim($($nc(previous)->getProperty(k, nullptr))));
 	$var($String, n, $LogManager::trim($($nc(next)->getProperty(k, nullptr))));
 	return !$Objects::equals(p, n);
@@ -245,15 +181,15 @@ bool LogManager$ConfigProperty::needsUpdating($String* k, $Properties* previous,
 
 void LogManager$ConfigProperty::merge($String* k, $Properties* previous, $Properties* next, $BiFunction* mappingFunction) {
 	$init(LogManager$ConfigProperty);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, p, $LogManager::trim($($nc(previous)->getProperty(k, nullptr))));
 	$var($String, n, $LogManager::trim($($nc(next)->getProperty(k, nullptr))));
-	$var($String, mapped, $LogManager::trim($cast($String, $($nc(mappingFunction)->apply(p, n)))));
+	$var($String, mapped, $LogManager::trim($$cast($String, $nc(mappingFunction)->apply(p, n))));
 	if (!$Objects::equals(n, mapped)) {
 		if (mapped == nullptr) {
-			$nc(next)->remove(k);
+			next->remove(k);
 		} else {
-			$nc(next)->setProperty(k, mapped);
+			next->setProperty(k, mapped);
 		}
 	}
 }
@@ -263,7 +199,7 @@ bool LogManager$ConfigProperty::lambda$find$0($String* property, LogManager$Conf
 	return $nc(p)->handleKey(property);
 }
 
-void clinit$LogManager$ConfigProperty($Class* class$) {
+void LogManager$ConfigProperty::clinit$($Class* clazz) {
 	$load($LogManager);
 	LogManager$ConfigProperty::$assertionsDisabled = !$LogManager::class$->desiredAssertionStatus();
 	$assignStatic(LogManager$ConfigProperty::LEVEL, $new(LogManager$ConfigProperty, "LEVEL"_s, 0, ".level"_s));
@@ -278,11 +214,59 @@ LogManager$ConfigProperty::LogManager$ConfigProperty() {
 
 $Class* LogManager$ConfigProperty::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(LogManager$ConfigProperty$$Lambda$lambda$find$0::classInfo$.name)) {
+		if (name->equals("java.util.logging.LogManager$ConfigProperty$$Lambda$lambda$find$0")) {
 			return LogManager$ConfigProperty$$Lambda$lambda$find$0::load$(name, initialize);
 		}
 	}
-	$loadClass(LogManager$ConfigProperty, name, initialize, &_LogManager$ConfigProperty_ClassInfo_, clinit$LogManager$ConfigProperty, allocate$LogManager$ConfigProperty);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(LogManager$ConfigProperty, $assertionsDisabled)},
+		{"LEVEL", "Ljava/util/logging/LogManager$ConfigProperty;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LogManager$ConfigProperty, LEVEL)},
+		{"HANDLERS", "Ljava/util/logging/LogManager$ConfigProperty;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LogManager$ConfigProperty, HANDLERS)},
+		{"USEPARENT", "Ljava/util/logging/LogManager$ConfigProperty;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LogManager$ConfigProperty, USEPARENT)},
+		{"$VALUES", "[Ljava/util/logging/LogManager$ConfigProperty;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(LogManager$ConfigProperty, $VALUES)},
+		{"suffix", "Ljava/lang/String;", nullptr, $FINAL, $field(LogManager$ConfigProperty, suffix)},
+		{"length", "I", nullptr, $FINAL, $field(LogManager$ConfigProperty, length)},
+		{"ALL", "Ljava/util/EnumSet;", "Ljava/util/EnumSet<Ljava/util/logging/LogManager$ConfigProperty;>;", $PRIVATE | $STATIC | $FINAL, $staticField(LogManager$ConfigProperty, ALL)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Ljava/util/logging/LogManager$ConfigProperty;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(LogManager$ConfigProperty, $values, $LogManager$ConfigPropertyArray*)},
+		{"<init>", "(Ljava/lang/String;ILjava/lang/String;)V", "(Ljava/lang/String;)V", $PRIVATE, $method(LogManager$ConfigProperty, init$, void, $String*, int32_t, $String*)},
+		{"find", "(Ljava/lang/String;)Ljava/util/Optional;", "(Ljava/lang/String;)Ljava/util/Optional<Ljava/util/logging/LogManager$ConfigProperty;>;", $STATIC, $staticMethod(LogManager$ConfigProperty, find, $Optional*, $String*)},
+		{"getLoggerName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(LogManager$ConfigProperty, getLoggerName, $String*, $String*)},
+		{"handleKey", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $method(LogManager$ConfigProperty, handleKey, bool, $String*)},
+		{"key", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, 0, $method(LogManager$ConfigProperty, key, $String*, $String*)},
+		{"lambda$find$0", "(Ljava/lang/String;Ljava/util/logging/LogManager$ConfigProperty;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(LogManager$ConfigProperty, lambda$find$0, bool, $String*, LogManager$ConfigProperty*)},
+		{"loggerName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, 0, $method(LogManager$ConfigProperty, loggerName, $String*, $String*)},
+		{"matches", "(Ljava/lang/String;)Z", nullptr, $STATIC, $staticMethod(LogManager$ConfigProperty, matches, bool, $String*)},
+		{"merge", "(Ljava/lang/String;Ljava/util/Properties;Ljava/util/Properties;Ljava/util/function/BiFunction;)V", "(Ljava/lang/String;Ljava/util/Properties;Ljava/util/Properties;Ljava/util/function/BiFunction<Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;>;)V", $STATIC, $staticMethod(LogManager$ConfigProperty, merge, void, $String*, $Properties*, $Properties*, $BiFunction*)},
+		{"needsUpdating", "(Ljava/lang/String;Ljava/util/Properties;Ljava/util/Properties;)Z", nullptr, $STATIC, $staticMethod(LogManager$ConfigProperty, needsUpdating, bool, $String*, $Properties*, $Properties*)},
+		{"valueOf", "(Ljava/lang/String;)Ljava/util/logging/LogManager$ConfigProperty;", nullptr, $PUBLIC | $STATIC, $staticMethod(LogManager$ConfigProperty, valueOf, LogManager$ConfigProperty*, $String*)},
+		{"values", "()[Ljava/util/logging/LogManager$ConfigProperty;", nullptr, $PUBLIC | $STATIC, $staticMethod(LogManager$ConfigProperty, values, $LogManager$ConfigPropertyArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.logging.LogManager$ConfigProperty", "java.util.logging.LogManager", "ConfigProperty", $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER | $ENUM,
+		"java.util.logging.LogManager$ConfigProperty",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Ljava/util/logging/LogManager$ConfigProperty;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.logging.LogManager"
+	};
+	$loadClass(LogManager$ConfigProperty, name, initialize, &classInfo$$, LogManager$ConfigProperty::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(LogManager$ConfigProperty));
+	});
 	return class$;
 }
 

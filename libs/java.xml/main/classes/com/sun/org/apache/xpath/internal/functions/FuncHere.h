@@ -64,7 +64,7 @@ public:
 	virtual ::com::sun::org::apache::xpath::internal::objects::XObject* execute(::com::sun::org::apache::xpath::internal::XPathContext* xctxt) override;
 	virtual void fixupVariables(::java::util::List* vars, int32_t globalsSize) override;
 	static ::org::w3c::dom::Document* getOwnerDocument(::org::w3c::dom::Node* node);
-	static const int64_t serialVersionUID = (int64_t)0x3C127E06ED2594A0;
+	static const int64_t serialVersionUID = (int64_t)0x3c127e06ed2594a0;
 };
 
 						} // functions

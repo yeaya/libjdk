@@ -39,6 +39,7 @@ class Win32MediaTray : public ::javax::print::attribute::standard::MediaTray {
 	$class(Win32MediaTray, 0, ::javax::print::attribute::standard::MediaTray)
 public:
 	Win32MediaTray();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int32_t value, int32_t id);
 	void init$(int32_t id, $String* name);
 	virtual int32_t getDMBinID();

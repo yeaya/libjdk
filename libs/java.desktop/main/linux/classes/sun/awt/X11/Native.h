@@ -26,6 +26,7 @@ class Native : public ::java::lang::Object {
 	$class(Native, 0, ::java::lang::Object)
 public:
 	Native();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static int64_t allocateLongArray(int32_t length);
 	static $longs* card32ToArray(int64_t ptr, int32_t length);

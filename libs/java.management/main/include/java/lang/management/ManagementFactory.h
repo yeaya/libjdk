@@ -83,6 +83,7 @@ class $import ManagementFactory : public ::java::lang::Object {
 	$class(ManagementFactory, 0, ::java::lang::Object)
 public:
 	ManagementFactory();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void addMXBean(::javax::management::MBeanServer* mbs, $String* name, Object$* pmo);
 	static ::java::lang::management::ClassLoadingMXBean* getClassLoadingMXBean();

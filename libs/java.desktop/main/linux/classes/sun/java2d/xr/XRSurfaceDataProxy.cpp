@@ -1,5 +1,4 @@
 #include <sun/java2d/xr/XRSurfaceDataProxy.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Image.h>
 #include <java/awt/Transparency.h>
@@ -33,40 +32,6 @@ using $XRSurfaceData = ::sun::java2d::xr::XRSurfaceData;
 namespace sun {
 	namespace java2d {
 		namespace xr {
-
-$FieldInfo _XRSurfaceDataProxy_FieldInfo_[] = {
-	{"xrgc", "Lsun/java2d/xr/XRGraphicsConfig;", nullptr, 0, $field(XRSurfaceDataProxy, xrgc)},
-	{"transparency", "I", nullptr, 0, $field(XRSurfaceDataProxy, transparency)},
-	{}
-};
-
-$MethodInfo _XRSurfaceDataProxy_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lsun/java2d/xr/XRGraphicsConfig;)V", nullptr, $PUBLIC, $method(XRSurfaceDataProxy, init$, void, $XRGraphicsConfig*)},
-	{"<init>", "(Lsun/java2d/xr/XRGraphicsConfig;I)V", nullptr, $PUBLIC, $method(XRSurfaceDataProxy, init$, void, $XRGraphicsConfig*, int32_t)},
-	{"createProxy", "(Lsun/java2d/SurfaceData;Lsun/java2d/xr/XRGraphicsConfig;)Lsun/java2d/SurfaceDataProxy;", nullptr, $PUBLIC | $STATIC, $staticMethod(XRSurfaceDataProxy, createProxy, $SurfaceDataProxy*, $SurfaceData*, $XRGraphicsConfig*)},
-	{"getTransparency", "()I", nullptr, $PUBLIC, $virtualMethod(XRSurfaceDataProxy, getTransparency, int32_t)},
-	{"isSupportedOperation", "(Lsun/java2d/SurfaceData;ILsun/java2d/loops/CompositeType;Ljava/awt/Color;)Z", nullptr, $PUBLIC, $virtualMethod(XRSurfaceDataProxy, isSupportedOperation, bool, $SurfaceData*, int32_t, $CompositeType*, $Color*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"validateSurfaceData", "(Lsun/java2d/SurfaceData;Lsun/java2d/SurfaceData;II)Lsun/java2d/SurfaceData;", nullptr, $PUBLIC, $virtualMethod(XRSurfaceDataProxy, validateSurfaceData, $SurfaceData*, $SurfaceData*, $SurfaceData*, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _XRSurfaceDataProxy_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.java2d.xr.XRSurfaceDataProxy",
-	"sun.java2d.SurfaceDataProxy",
-	"java.awt.Transparency",
-	_XRSurfaceDataProxy_FieldInfo_,
-	_XRSurfaceDataProxy_MethodInfo_
-};
-
-$Object* allocate$XRSurfaceDataProxy($Class* clazz) {
-	return $of($alloc(XRSurfaceDataProxy));
-}
 
 int32_t XRSurfaceDataProxy::hashCode() {
 	 return this->$SurfaceDataProxy::hashCode();
@@ -103,15 +68,13 @@ void XRSurfaceDataProxy::init$($XRGraphicsConfig* x11gc) {
 }
 
 $SurfaceData* XRSurfaceDataProxy::validateSurfaceData($SurfaceData* srcData, $SurfaceData* cachedData$renamed, int32_t w, int32_t h) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SurfaceData, cachedData, cachedData$renamed);
 	if (cachedData == nullptr) {
 		try {
 			$var($XRGraphicsConfig, var$0, this->xrgc);
-			int32_t var$1 = w;
-			int32_t var$2 = h;
-			$var($ColorModel, var$3, $nc(this->xrgc)->getColorModel());
-			$assign(cachedData, $XRSurfaceData::createData(var$0, var$1, var$2, var$3, nullptr, 0, getTransparency(), true));
+			$var($ColorModel, var$1, $nc(this->xrgc)->getColorModel());
+			$assign(cachedData, $XRSurfaceData::createData(var$0, w, h, var$1, nullptr, 0, getTransparency(), true));
 		} catch ($OutOfMemoryError& oome) {
 		}
 	}
@@ -136,7 +99,36 @@ XRSurfaceDataProxy::XRSurfaceDataProxy() {
 }
 
 $Class* XRSurfaceDataProxy::load$($String* name, bool initialize) {
-	$loadClass(XRSurfaceDataProxy, name, initialize, &_XRSurfaceDataProxy_ClassInfo_, allocate$XRSurfaceDataProxy);
+	$FieldInfo fieldInfos$$[] = {
+		{"xrgc", "Lsun/java2d/xr/XRGraphicsConfig;", nullptr, 0, $field(XRSurfaceDataProxy, xrgc)},
+		{"transparency", "I", nullptr, 0, $field(XRSurfaceDataProxy, transparency)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lsun/java2d/xr/XRGraphicsConfig;)V", nullptr, $PUBLIC, $method(XRSurfaceDataProxy, init$, void, $XRGraphicsConfig*)},
+		{"<init>", "(Lsun/java2d/xr/XRGraphicsConfig;I)V", nullptr, $PUBLIC, $method(XRSurfaceDataProxy, init$, void, $XRGraphicsConfig*, int32_t)},
+		{"createProxy", "(Lsun/java2d/SurfaceData;Lsun/java2d/xr/XRGraphicsConfig;)Lsun/java2d/SurfaceDataProxy;", nullptr, $PUBLIC | $STATIC, $staticMethod(XRSurfaceDataProxy, createProxy, $SurfaceDataProxy*, $SurfaceData*, $XRGraphicsConfig*)},
+		{"getTransparency", "()I", nullptr, $PUBLIC, $virtualMethod(XRSurfaceDataProxy, getTransparency, int32_t)},
+		{"isSupportedOperation", "(Lsun/java2d/SurfaceData;ILsun/java2d/loops/CompositeType;Ljava/awt/Color;)Z", nullptr, $PUBLIC, $virtualMethod(XRSurfaceDataProxy, isSupportedOperation, bool, $SurfaceData*, int32_t, $CompositeType*, $Color*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"validateSurfaceData", "(Lsun/java2d/SurfaceData;Lsun/java2d/SurfaceData;II)Lsun/java2d/SurfaceData;", nullptr, $PUBLIC, $virtualMethod(XRSurfaceDataProxy, validateSurfaceData, $SurfaceData*, $SurfaceData*, $SurfaceData*, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.java2d.xr.XRSurfaceDataProxy",
+		"sun.java2d.SurfaceDataProxy",
+		"java.awt.Transparency",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XRSurfaceDataProxy, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(XRSurfaceDataProxy));
+	});
 	return class$;
 }
 

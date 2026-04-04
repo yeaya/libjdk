@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/security/Init$2.h>
-
 #include <com/sun/org/apache/xml/internal/security/Init.h>
 #include <jcpp.h>
 
@@ -16,44 +15,6 @@ namespace com {
 					namespace internal {
 						namespace security {
 
-$MethodInfo _Init$2_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(Init$2, init$, void)},
-	{"hasMoreElements", "()Z", nullptr, $PUBLIC, $virtualMethod(Init$2, hasMoreElements, bool)},
-	{"nextElement", "()Ljava/net/URL;", nullptr, $PUBLIC, $virtualMethod(Init$2, nextElement, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _Init$2_EnclosingMethodInfo_ = {
-	"com.sun.org.apache.xml.internal.security.Init",
-	"getResources",
-	"(Ljava/lang/String;Ljava/lang/Class;)Ljava/util/List;"
-};
-
-$InnerClassInfo _Init$2_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xml.internal.security.Init$2", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Init$2_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.org.apache.xml.internal.security.Init$2",
-	"java.lang.Object",
-	"java.util.Enumeration",
-	nullptr,
-	_Init$2_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/Enumeration<Ljava/net/URL;>;",
-	&_Init$2_EnclosingMethodInfo_,
-	_Init$2_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xml.internal.security.Init"
-};
-
-$Object* allocate$Init$2($Class* clazz) {
-	return $of($alloc(Init$2));
-}
-
 void Init$2::init$() {
 }
 
@@ -62,14 +23,46 @@ bool Init$2::hasMoreElements() {
 }
 
 $Object* Init$2::nextElement() {
-	return $of(nullptr);
+	return nullptr;
 }
 
 Init$2::Init$2() {
 }
 
 $Class* Init$2::load$($String* name, bool initialize) {
-	$loadClass(Init$2, name, initialize, &_Init$2_ClassInfo_, allocate$Init$2);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(Init$2, init$, void)},
+		{"hasMoreElements", "()Z", nullptr, $PUBLIC, $virtualMethod(Init$2, hasMoreElements, bool)},
+		{"nextElement", "()Ljava/net/URL;", nullptr, $PUBLIC, $virtualMethod(Init$2, nextElement, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.org.apache.xml.internal.security.Init",
+		"getResources",
+		"(Ljava/lang/String;Ljava/lang/Class;)Ljava/util/List;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xml.internal.security.Init$2", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.org.apache.xml.internal.security.Init$2",
+		"java.lang.Object",
+		"java.util.Enumeration",
+		nullptr,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/Enumeration<Ljava/net/URL;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xml.internal.security.Init"
+	};
+	$loadClass(Init$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Init$2);
+	});
 	return class$;
 }
 

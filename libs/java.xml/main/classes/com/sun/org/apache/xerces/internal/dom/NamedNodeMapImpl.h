@@ -97,7 +97,7 @@ public:
 	virtual void setReadOnly(bool readOnly, bool deep);
 	virtual $String* toString() override;
 	void writeObject(::java::io::ObjectOutputStream* out);
-	static const int64_t serialVersionUID = (int64_t)0x9E4F96494982097C;
+	static const int64_t serialVersionUID = (int64_t)0x9e4f96494982097c;
 	int16_t flags = 0;
 	static const int16_t READONLY = 1; // 1 << 0
 	static const int16_t CHANGED = 2; // 1 << 1

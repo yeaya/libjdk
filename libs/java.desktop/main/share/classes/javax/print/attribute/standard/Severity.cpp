@@ -1,5 +1,4 @@
 #include <javax/print/attribute/standard/Severity.h>
-
 #include <javax/print/attribute/EnumSyntax.h>
 #include <jcpp.h>
 
@@ -18,43 +17,6 @@ namespace javax {
 	namespace print {
 		namespace attribute {
 			namespace standard {
-
-$FieldInfo _Severity_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Severity, serialVersionUID)},
-	{"REPORT", "Ljavax/print/attribute/standard/Severity;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Severity, REPORT)},
-	{"WARNING", "Ljavax/print/attribute/standard/Severity;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Severity, WARNING)},
-	{"ERROR", "Ljavax/print/attribute/standard/Severity;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Severity, ERROR)},
-	{"myStringTable", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Severity, myStringTable)},
-	{"myEnumValueTable", "[Ljavax/print/attribute/standard/Severity;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Severity, myEnumValueTable)},
-	{}
-};
-
-$MethodInfo _Severity_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "(I)V", nullptr, $PROTECTED, $method(Severity, init$, void, int32_t)},
-	{"getCategory", "()Ljava/lang/Class;", "()Ljava/lang/Class<+Ljavax/print/attribute/Attribute;>;", $PUBLIC | $FINAL, $virtualMethod(Severity, getCategory, $Class*)},
-	{"getEnumValueTable", "()[Ljavax/print/attribute/EnumSyntax;", nullptr, $PROTECTED, $virtualMethod(Severity, getEnumValueTable, $EnumSyntaxArray*)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(Severity, getName, $String*)},
-	{"getStringTable", "()[Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(Severity, getStringTable, $StringArray*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _Severity_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"javax.print.attribute.standard.Severity",
-	"javax.print.attribute.EnumSyntax",
-	"javax.print.attribute.Attribute",
-	_Severity_FieldInfo_,
-	_Severity_MethodInfo_
-};
-
-$Object* allocate$Severity($Class* clazz) {
-	return $of($alloc(Severity));
-}
 
 $Object* Severity::clone() {
 	 return this->$EnumSyntax::clone();
@@ -91,7 +53,7 @@ $StringArray* Severity::getStringTable() {
 }
 
 $EnumSyntaxArray* Severity::getEnumValueTable() {
-	return $fcast($EnumSyntaxArray, Severity::myEnumValueTable);
+	return $cast($EnumSyntaxArray, Severity::myEnumValueTable);
 }
 
 $Class* Severity::getCategory() {
@@ -102,7 +64,7 @@ $String* Severity::getName() {
 	return "severity"_s;
 }
 
-void clinit$Severity($Class* class$) {
+void Severity::clinit$($Class* clazz) {
 	$assignStatic(Severity::REPORT, $new(Severity, 0));
 	$assignStatic(Severity::WARNING, $new(Severity, 1));
 	$assignStatic(Severity::ERROR, $new(Severity, 2));
@@ -122,7 +84,39 @@ Severity::Severity() {
 }
 
 $Class* Severity::load$($String* name, bool initialize) {
-	$loadClass(Severity, name, initialize, &_Severity_ClassInfo_, clinit$Severity, allocate$Severity);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Severity, serialVersionUID)},
+		{"REPORT", "Ljavax/print/attribute/standard/Severity;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Severity, REPORT)},
+		{"WARNING", "Ljavax/print/attribute/standard/Severity;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Severity, WARNING)},
+		{"ERROR", "Ljavax/print/attribute/standard/Severity;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Severity, ERROR)},
+		{"myStringTable", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Severity, myStringTable)},
+		{"myEnumValueTable", "[Ljavax/print/attribute/standard/Severity;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Severity, myEnumValueTable)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC},
+		{"<init>", "(I)V", nullptr, $PROTECTED, $method(Severity, init$, void, int32_t)},
+		{"getCategory", "()Ljava/lang/Class;", "()Ljava/lang/Class<+Ljavax/print/attribute/Attribute;>;", $PUBLIC | $FINAL, $virtualMethod(Severity, getCategory, $Class*)},
+		{"getEnumValueTable", "()[Ljavax/print/attribute/EnumSyntax;", nullptr, $PROTECTED, $virtualMethod(Severity, getEnumValueTable, $EnumSyntaxArray*)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(Severity, getName, $String*)},
+		{"getStringTable", "()[Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(Severity, getStringTable, $StringArray*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"javax.print.attribute.standard.Severity",
+		"javax.print.attribute.EnumSyntax",
+		"javax.print.attribute.Attribute",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Severity, name, initialize, &classInfo$$, Severity::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Severity));
+	});
 	return class$;
 }
 

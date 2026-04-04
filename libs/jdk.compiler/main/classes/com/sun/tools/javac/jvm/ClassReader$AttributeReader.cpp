@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/jvm/ClassReader$AttributeReader.h>
-
 #include <com/sun/tools/javac/code/Lint$LintCategory.h>
 #include <com/sun/tools/javac/code/Symbol.h>
 #include <com/sun/tools/javac/jvm/ClassFile$Version.h>
@@ -24,7 +23,6 @@ using $ClassReader = ::com::sun::tools::javac::jvm::ClassReader;
 using $ClassReader$AttributeKind = ::com::sun::tools::javac::jvm::ClassReader$AttributeKind;
 using $CompilerProperties$Warnings = ::com::sun::tools::javac::resources::CompilerProperties$Warnings;
 using $JCDiagnostic$DiagnosticPosition = ::com::sun::tools::javac::util::JCDiagnostic$DiagnosticPosition;
-using $Log = ::com::sun::tools::javac::util::Log;
 using $Name = ::com::sun::tools::javac::util::Name;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -39,46 +37,6 @@ namespace com {
 			namespace javac {
 				namespace jvm {
 
-$FieldInfo _ClassReader$AttributeReader_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/jvm/ClassReader;", nullptr, $FINAL | $SYNTHETIC, $field(ClassReader$AttributeReader, this$0)},
-	{"name", "Lcom/sun/tools/javac/util/Name;", nullptr, $PROTECTED | $FINAL, $field(ClassReader$AttributeReader, name)},
-	{"version", "Lcom/sun/tools/javac/jvm/ClassFile$Version;", nullptr, $PROTECTED | $FINAL, $field(ClassReader$AttributeReader, version)},
-	{"kinds", "Ljava/util/Set;", "Ljava/util/Set<Lcom/sun/tools/javac/jvm/ClassReader$AttributeKind;>;", $PROTECTED | $FINAL, $field(ClassReader$AttributeReader, kinds)},
-	{}
-};
-
-$MethodInfo _ClassReader$AttributeReader_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/jvm/ClassReader;Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/jvm/ClassFile$Version;Ljava/util/Set;)V", "(Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/jvm/ClassFile$Version;Ljava/util/Set<Lcom/sun/tools/javac/jvm/ClassReader$AttributeKind;>;)V", $PROTECTED, $method(ClassReader$AttributeReader, init$, void, $ClassReader*, $Name*, $ClassFile$Version*, $Set*)},
-	{"accepts", "(Lcom/sun/tools/javac/jvm/ClassReader$AttributeKind;)Z", nullptr, $PROTECTED, $virtualMethod(ClassReader$AttributeReader, accepts, bool, $ClassReader$AttributeKind*)},
-	{"read", "(Lcom/sun/tools/javac/code/Symbol;I)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(ClassReader$AttributeReader, read, void, $Symbol*, int32_t)},
-	{}
-};
-
-$InnerClassInfo _ClassReader$AttributeReader_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.jvm.ClassReader$AttributeReader", "com.sun.tools.javac.jvm.ClassReader", "AttributeReader", $PROTECTED | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _ClassReader$AttributeReader_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"com.sun.tools.javac.jvm.ClassReader$AttributeReader",
-	"java.lang.Object",
-	nullptr,
-	_ClassReader$AttributeReader_FieldInfo_,
-	_ClassReader$AttributeReader_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ClassReader$AttributeReader_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.jvm.ClassReader"
-};
-
-$Object* allocate$ClassReader$AttributeReader($Class* clazz) {
-	return $of($alloc(ClassReader$AttributeReader));
-}
-
 void ClassReader$AttributeReader::init$($ClassReader* this$0, $Name* name, $ClassFile$Version* version, $Set* kinds) {
 	$set(this, this$0, this$0);
 	$set(this, name, name);
@@ -87,26 +45,24 @@ void ClassReader$AttributeReader::init$($ClassReader* this$0, $Name* name, $Clas
 }
 
 bool ClassReader$AttributeReader::accepts($ClassReader$AttributeKind* kind) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(this->kinds)->contains(kind)) {
 		if (this->this$0->majorVersion > this->version->major || (this->this$0->majorVersion == this->version->major && this->this$0->minorVersion >= this->version->minor)) {
 			return true;
 		}
 		if (this->this$0->lintClassfile && !$nc(this->this$0->warnedAttrs)->contains(this->name)) {
 			$var($JavaFileObject, prev, $nc(this->this$0->log)->useSource(this->this$0->currentClassFile));
-			{
-				$var($Throwable, var$0, nullptr);
-				try {
-					$init($Lint$LintCategory);
-					$nc(this->this$0->log)->warning($Lint$LintCategory::CLASSFILE, ($JCDiagnostic$DiagnosticPosition*)nullptr, $($CompilerProperties$Warnings::FutureAttr(this->name, this->version->major, this->version->minor, this->this$0->majorVersion, this->this$0->minorVersion)));
-				} catch ($Throwable& var$1) {
-					$assign(var$0, var$1);
-				} /*finally*/ {
-					$nc(this->this$0->log)->useSource(prev);
-				}
-				if (var$0 != nullptr) {
-					$throw(var$0);
-				}
+			$var($Throwable, var$0, nullptr);
+			try {
+				$init($Lint$LintCategory);
+				this->this$0->log->warning($Lint$LintCategory::CLASSFILE, ($JCDiagnostic$DiagnosticPosition*)nullptr, $($CompilerProperties$Warnings::FutureAttr(this->name, this->version->major, this->version->minor, this->this$0->majorVersion, this->this$0->minorVersion)));
+			} catch ($Throwable& var$1) {
+				$assign(var$0, var$1);
+			} /*finally*/ {
+				this->this$0->log->useSource(prev);
+			}
+			if (var$0 != nullptr) {
+				$throw(var$0);
 			}
 			$nc(this->this$0->warnedAttrs)->add(this->name);
 		}
@@ -118,7 +74,41 @@ ClassReader$AttributeReader::ClassReader$AttributeReader() {
 }
 
 $Class* ClassReader$AttributeReader::load$($String* name, bool initialize) {
-	$loadClass(ClassReader$AttributeReader, name, initialize, &_ClassReader$AttributeReader_ClassInfo_, allocate$ClassReader$AttributeReader);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/jvm/ClassReader;", nullptr, $FINAL | $SYNTHETIC, $field(ClassReader$AttributeReader, this$0)},
+		{"name", "Lcom/sun/tools/javac/util/Name;", nullptr, $PROTECTED | $FINAL, $field(ClassReader$AttributeReader, name)},
+		{"version", "Lcom/sun/tools/javac/jvm/ClassFile$Version;", nullptr, $PROTECTED | $FINAL, $field(ClassReader$AttributeReader, version)},
+		{"kinds", "Ljava/util/Set;", "Ljava/util/Set<Lcom/sun/tools/javac/jvm/ClassReader$AttributeKind;>;", $PROTECTED | $FINAL, $field(ClassReader$AttributeReader, kinds)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/jvm/ClassReader;Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/jvm/ClassFile$Version;Ljava/util/Set;)V", "(Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/jvm/ClassFile$Version;Ljava/util/Set<Lcom/sun/tools/javac/jvm/ClassReader$AttributeKind;>;)V", $PROTECTED, $method(ClassReader$AttributeReader, init$, void, $ClassReader*, $Name*, $ClassFile$Version*, $Set*)},
+		{"accepts", "(Lcom/sun/tools/javac/jvm/ClassReader$AttributeKind;)Z", nullptr, $PROTECTED, $virtualMethod(ClassReader$AttributeReader, accepts, bool, $ClassReader$AttributeKind*)},
+		{"read", "(Lcom/sun/tools/javac/code/Symbol;I)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(ClassReader$AttributeReader, read, void, $Symbol*, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.jvm.ClassReader$AttributeReader", "com.sun.tools.javac.jvm.ClassReader", "AttributeReader", $PROTECTED | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"com.sun.tools.javac.jvm.ClassReader$AttributeReader",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.jvm.ClassReader"
+	};
+	$loadClass(ClassReader$AttributeReader, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ClassReader$AttributeReader);
+	});
 	return class$;
 }
 

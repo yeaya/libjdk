@@ -50,6 +50,7 @@ class $import RedirectFilter : public ::jdk::internal::net::http::HeaderFilter {
 	$class(RedirectFilter, 0, ::jdk::internal::net::http::HeaderFilter)
 public:
 	RedirectFilter();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	bool canRedirect(::java::net::URI* redir);
 	::java::net::URI* getRedirectedURI(::java::net::http::HttpHeaders* headers);

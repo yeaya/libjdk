@@ -1,5 +1,4 @@
 #include <javax/xml/XMLConstants.h>
-
 #include <jcpp.h>
 
 #undef ACCESS_EXTERNAL_DTD
@@ -26,44 +25,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace javax {
 	namespace xml {
 
-$FieldInfo _XMLConstants_FieldInfo_[] = {
-	{"NULL_NS_URI", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLConstants, NULL_NS_URI)},
-	{"DEFAULT_NS_PREFIX", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLConstants, DEFAULT_NS_PREFIX)},
-	{"XML_NS_URI", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLConstants, XML_NS_URI)},
-	{"XML_NS_PREFIX", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLConstants, XML_NS_PREFIX)},
-	{"XMLNS_ATTRIBUTE_NS_URI", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLConstants, XMLNS_ATTRIBUTE_NS_URI)},
-	{"XMLNS_ATTRIBUTE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLConstants, XMLNS_ATTRIBUTE)},
-	{"W3C_XML_SCHEMA_NS_URI", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLConstants, W3C_XML_SCHEMA_NS_URI)},
-	{"W3C_XML_SCHEMA_INSTANCE_NS_URI", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLConstants, W3C_XML_SCHEMA_INSTANCE_NS_URI)},
-	{"W3C_XPATH_DATATYPE_NS_URI", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLConstants, W3C_XPATH_DATATYPE_NS_URI)},
-	{"XML_DTD_NS_URI", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLConstants, XML_DTD_NS_URI)},
-	{"RELAXNG_NS_URI", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLConstants, RELAXNG_NS_URI)},
-	{"FEATURE_SECURE_PROCESSING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLConstants, FEATURE_SECURE_PROCESSING)},
-	{"ACCESS_EXTERNAL_DTD", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLConstants, ACCESS_EXTERNAL_DTD)},
-	{"ACCESS_EXTERNAL_SCHEMA", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLConstants, ACCESS_EXTERNAL_SCHEMA)},
-	{"ACCESS_EXTERNAL_STYLESHEET", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLConstants, ACCESS_EXTERNAL_STYLESHEET)},
-	{"USE_CATALOG", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLConstants, USE_CATALOG)},
-	{}
-};
-
-$MethodInfo _XMLConstants_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(XMLConstants, init$, void)},
-	{}
-};
-
-$ClassInfo _XMLConstants_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"javax.xml.XMLConstants",
-	"java.lang.Object",
-	nullptr,
-	_XMLConstants_FieldInfo_,
-	_XMLConstants_MethodInfo_
-};
-
-$Object* allocate$XMLConstants($Class* clazz) {
-	return $of($alloc(XMLConstants));
-}
-
 $String* XMLConstants::NULL_NS_URI = nullptr;
 $String* XMLConstants::DEFAULT_NS_PREFIX = nullptr;
 $String* XMLConstants::XML_NS_URI = nullptr;
@@ -87,7 +48,7 @@ void XMLConstants::init$() {
 XMLConstants::XMLConstants() {
 }
 
-void clinit$XMLConstants($Class* class$) {
+void XMLConstants::clinit$($Class* clazz) {
 	$assignStatic(XMLConstants::NULL_NS_URI, ""_s);
 	$assignStatic(XMLConstants::DEFAULT_NS_PREFIX, ""_s);
 	$assignStatic(XMLConstants::XML_NS_URI, "http://www.w3.org/XML/1998/namespace"_s);
@@ -107,7 +68,40 @@ void clinit$XMLConstants($Class* class$) {
 }
 
 $Class* XMLConstants::load$($String* name, bool initialize) {
-	$loadClass(XMLConstants, name, initialize, &_XMLConstants_ClassInfo_, clinit$XMLConstants, allocate$XMLConstants);
+	$FieldInfo fieldInfos$$[] = {
+		{"NULL_NS_URI", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLConstants, NULL_NS_URI)},
+		{"DEFAULT_NS_PREFIX", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLConstants, DEFAULT_NS_PREFIX)},
+		{"XML_NS_URI", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLConstants, XML_NS_URI)},
+		{"XML_NS_PREFIX", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLConstants, XML_NS_PREFIX)},
+		{"XMLNS_ATTRIBUTE_NS_URI", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLConstants, XMLNS_ATTRIBUTE_NS_URI)},
+		{"XMLNS_ATTRIBUTE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLConstants, XMLNS_ATTRIBUTE)},
+		{"W3C_XML_SCHEMA_NS_URI", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLConstants, W3C_XML_SCHEMA_NS_URI)},
+		{"W3C_XML_SCHEMA_INSTANCE_NS_URI", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLConstants, W3C_XML_SCHEMA_INSTANCE_NS_URI)},
+		{"W3C_XPATH_DATATYPE_NS_URI", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLConstants, W3C_XPATH_DATATYPE_NS_URI)},
+		{"XML_DTD_NS_URI", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLConstants, XML_DTD_NS_URI)},
+		{"RELAXNG_NS_URI", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLConstants, RELAXNG_NS_URI)},
+		{"FEATURE_SECURE_PROCESSING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLConstants, FEATURE_SECURE_PROCESSING)},
+		{"ACCESS_EXTERNAL_DTD", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLConstants, ACCESS_EXTERNAL_DTD)},
+		{"ACCESS_EXTERNAL_SCHEMA", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLConstants, ACCESS_EXTERNAL_SCHEMA)},
+		{"ACCESS_EXTERNAL_STYLESHEET", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLConstants, ACCESS_EXTERNAL_STYLESHEET)},
+		{"USE_CATALOG", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLConstants, USE_CATALOG)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(XMLConstants, init$, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"javax.xml.XMLConstants",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XMLConstants, name, initialize, &classInfo$$, XMLConstants::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(XMLConstants);
+	});
 	return class$;
 }
 

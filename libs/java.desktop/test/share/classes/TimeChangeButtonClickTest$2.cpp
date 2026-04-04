@@ -1,5 +1,4 @@
 #include <TimeChangeButtonClickTest$2.h>
-
 #include <TestUI.h>
 #include <TimeChangeButtonClickTest.h>
 #include <jcpp.h>
@@ -12,48 +11,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
-
-$FieldInfo _TimeChangeButtonClickTest$2_FieldInfo_[] = {
-	{"val$test", "LTestUI;", nullptr, $FINAL | $SYNTHETIC, $field(TimeChangeButtonClickTest$2, val$test)},
-	{}
-};
-
-$MethodInfo _TimeChangeButtonClickTest$2_MethodInfo_[] = {
-	{"<init>", "(LTestUI;)V", "()V", 0, $method(TimeChangeButtonClickTest$2, init$, void, $TestUI*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TimeChangeButtonClickTest$2, run, void)},
-	{}
-};
-
-$EnclosingMethodInfo _TimeChangeButtonClickTest$2_EnclosingMethodInfo_ = {
-	"TimeChangeButtonClickTest",
-	"main",
-	"([Ljava/lang/String;)V"
-};
-
-$InnerClassInfo _TimeChangeButtonClickTest$2_InnerClassesInfo_[] = {
-	{"TimeChangeButtonClickTest$2", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _TimeChangeButtonClickTest$2_ClassInfo_ = {
-	$ACC_SUPER,
-	"TimeChangeButtonClickTest$2",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	_TimeChangeButtonClickTest$2_FieldInfo_,
-	_TimeChangeButtonClickTest$2_MethodInfo_,
-	nullptr,
-	&_TimeChangeButtonClickTest$2_EnclosingMethodInfo_,
-	_TimeChangeButtonClickTest$2_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"TimeChangeButtonClickTest"
-};
-
-$Object* allocate$TimeChangeButtonClickTest$2($Class* clazz) {
-	return $of($alloc(TimeChangeButtonClickTest$2));
-}
 
 void TimeChangeButtonClickTest$2::init$($TestUI* val$test) {
 	$set(this, val$test, val$test);
@@ -71,7 +28,42 @@ TimeChangeButtonClickTest$2::TimeChangeButtonClickTest$2() {
 }
 
 $Class* TimeChangeButtonClickTest$2::load$($String* name, bool initialize) {
-	$loadClass(TimeChangeButtonClickTest$2, name, initialize, &_TimeChangeButtonClickTest$2_ClassInfo_, allocate$TimeChangeButtonClickTest$2);
+	$FieldInfo fieldInfos$$[] = {
+		{"val$test", "LTestUI;", nullptr, $FINAL | $SYNTHETIC, $field(TimeChangeButtonClickTest$2, val$test)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(LTestUI;)V", "()V", 0, $method(TimeChangeButtonClickTest$2, init$, void, $TestUI*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TimeChangeButtonClickTest$2, run, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"TimeChangeButtonClickTest",
+		"main",
+		"([Ljava/lang/String;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"TimeChangeButtonClickTest$2", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"TimeChangeButtonClickTest$2",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"TimeChangeButtonClickTest"
+	};
+	$loadClass(TimeChangeButtonClickTest$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TimeChangeButtonClickTest$2);
+	});
 	return class$;
 }
 

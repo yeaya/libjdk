@@ -1,5 +1,4 @@
 #include <sun/nio/cs/ext/JISAutoDetect$Decoder.h>
-
 #include <java/io/Serializable.h>
 #include <java/lang/IllegalStateException.h>
 #include <java/lang/Math.h>
@@ -54,79 +53,27 @@ public:
 	virtual $Object* run() override {
 		 return $of(JISAutoDetect$Decoder::lambda$static$0());
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<JISAutoDetect$Decoder$$Lambda$lambda$static$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo JISAutoDetect$Decoder$$Lambda$lambda$static$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(JISAutoDetect$Decoder$$Lambda$lambda$static$0, init$, void)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JISAutoDetect$Decoder$$Lambda$lambda$static$0, run, $Object*)},
-	{}
-};
-$ClassInfo JISAutoDetect$Decoder$$Lambda$lambda$static$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.nio.cs.ext.JISAutoDetect$Decoder$$Lambda$lambda$static$0",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	nullptr,
-	methodInfos
 };
 $Class* JISAutoDetect$Decoder$$Lambda$lambda$static$0::load$($String* name, bool initialize) {
-	$loadClass(JISAutoDetect$Decoder$$Lambda$lambda$static$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(JISAutoDetect$Decoder$$Lambda$lambda$static$0, init$, void)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JISAutoDetect$Decoder$$Lambda$lambda$static$0, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.nio.cs.ext.JISAutoDetect$Decoder$$Lambda$lambda$static$0",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(JISAutoDetect$Decoder$$Lambda$lambda$static$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JISAutoDetect$Decoder$$Lambda$lambda$static$0);
+	});
 	return class$;
 }
 $Class* JISAutoDetect$Decoder$$Lambda$lambda$static$0::class$ = nullptr;
-
-$FieldInfo _JISAutoDetect$Decoder_FieldInfo_[] = {
-	{"osName", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JISAutoDetect$Decoder, osName)},
-	{"SJISName", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JISAutoDetect$Decoder, SJISName)},
-	{"EUCJPName", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JISAutoDetect$Decoder, EUCJPName)},
-	{"detectedDecoder", "Lsun/nio/cs/DelegatableDecoder;", nullptr, $PRIVATE, $field(JISAutoDetect$Decoder, detectedDecoder)},
-	{}
-};
-
-$MethodInfo _JISAutoDetect$Decoder_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/charset/Charset;)V", nullptr, $PUBLIC, $method(JISAutoDetect$Decoder, init$, void, $Charset*)},
-	{"copyLeadingASCII", "(Ljava/nio/ByteBuffer;Ljava/nio/CharBuffer;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(JISAutoDetect$Decoder, copyLeadingASCII, void, $ByteBuffer*, $CharBuffer*)},
-	{"decodeLoop", "(Lsun/nio/cs/DelegatableDecoder;Ljava/nio/ByteBuffer;Ljava/nio/CharBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PRIVATE, $method(JISAutoDetect$Decoder, decodeLoop, $CoderResult*, $DelegatableDecoder*, $ByteBuffer*, $CharBuffer*)},
-	{"decodeLoop", "(Ljava/nio/ByteBuffer;Ljava/nio/CharBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PROTECTED, $virtualMethod(JISAutoDetect$Decoder, decodeLoop, $CoderResult*, $ByteBuffer*, $CharBuffer*)},
-	{"detectedCharset", "()Ljava/nio/charset/Charset;", nullptr, $PUBLIC, $virtualMethod(JISAutoDetect$Decoder, detectedCharset, $Charset*)},
-	{"getSJISName", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(JISAutoDetect$Decoder, getSJISName, $String*)},
-	{"implFlush", "(Ljava/nio/CharBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PROTECTED, $virtualMethod(JISAutoDetect$Decoder, implFlush, $CoderResult*, $CharBuffer*)},
-	{"implReset", "()V", nullptr, $PROTECTED, $virtualMethod(JISAutoDetect$Decoder, implReset, void)},
-	{"isAutoDetecting", "()Z", nullptr, $PUBLIC, $virtualMethod(JISAutoDetect$Decoder, isAutoDetecting, bool)},
-	{"isCharsetDetected", "()Z", nullptr, $PUBLIC, $virtualMethod(JISAutoDetect$Decoder, isCharsetDetected, bool)},
-	{"isPlainASCII", "(B)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(JISAutoDetect$Decoder, isPlainASCII, bool, int8_t)},
-	{"lambda$static$0", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JISAutoDetect$Decoder, lambda$static$0, $String*)},
-	{}
-};
-
-$InnerClassInfo _JISAutoDetect$Decoder_InnerClassesInfo_[] = {
-	{"sun.nio.cs.ext.JISAutoDetect$Decoder", "sun.nio.cs.ext.JISAutoDetect", "Decoder", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _JISAutoDetect$Decoder_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.nio.cs.ext.JISAutoDetect$Decoder",
-	"java.nio.charset.CharsetDecoder",
-	nullptr,
-	_JISAutoDetect$Decoder_FieldInfo_,
-	_JISAutoDetect$Decoder_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JISAutoDetect$Decoder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.nio.cs.ext.JISAutoDetect"
-};
-
-$Object* allocate$JISAutoDetect$Decoder($Class* clazz) {
-	return $of($alloc(JISAutoDetect$Decoder));
-}
 
 $String* JISAutoDetect$Decoder::osName = nullptr;
 $String* JISAutoDetect$Decoder::SJISName = nullptr;
@@ -152,19 +99,19 @@ void JISAutoDetect$Decoder::copyLeadingASCII($ByteBuffer* src, $CharBuffer* dst)
 	int32_t p = 0;
 	int8_t b = 0;
 	for (p = start; p < limit && isPlainASCII(b = src->get(p)); ++p) {
-		$nc(dst)->put((char16_t)((int32_t)(b & (uint32_t)255)));
+		dst->put((char16_t)(b & 0xff));
 	}
 	src->position(p);
 }
 
 $CoderResult* JISAutoDetect$Decoder::decodeLoop($DelegatableDecoder* decoder, $ByteBuffer* src, $CharBuffer* dst) {
-	$nc(($cast($CharsetDecoder, decoder)))->reset();
+	$nc($cast($CharsetDecoder, decoder))->reset();
 	$set(this, detectedDecoder, decoder);
-	return $nc(this->detectedDecoder)->decodeLoop(src, dst);
+	return this->detectedDecoder->decodeLoop(src, dst);
 }
 
 $CoderResult* JISAutoDetect$Decoder::decodeLoop($ByteBuffer* src, $CharBuffer* dst) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->detectedDecoder == nullptr) {
 		copyLeadingASCII(src, dst);
 		if (!$nc(src)->hasRemaining()) {
@@ -172,11 +119,11 @@ $CoderResult* JISAutoDetect$Decoder::decodeLoop($ByteBuffer* src, $CharBuffer* d
 			return $CoderResult::UNDERFLOW;
 		}
 		bool var$0 = !$nc(dst)->hasRemaining();
-		if (var$0 && isPlainASCII($nc(src)->get(src->position()))) {
+		if (var$0 && isPlainASCII(src->get(src->position()))) {
 			$init($CoderResult);
 			return $CoderResult::OVERFLOW;
 		}
-		int32_t var$1 = $nc(src)->limit();
+		int32_t var$1 = src->limit();
 		int32_t cbufsiz = $cast(int32_t, (var$1 * (double)maxCharsPerByte()));
 		$var($CharBuffer, sandbox, $CharBuffer::allocate(cbufsiz));
 		$var($Charset, cs2022, $Charset::forName("ISO-2022-JP"_s));
@@ -206,12 +153,12 @@ $CoderResult* JISAutoDetect$Decoder::decodeLoop($ByteBuffer* src, $CharBuffer* d
 		if (var$2 > $nc(srcSJIS)->position()) {
 			return decodeLoop(ddEUCJ, src, dst);
 		}
-		int32_t var$3 = $nc(srcEUCJ)->position();
-		if (var$3 < $nc(srcSJIS)->position()) {
+		int32_t var$3 = srcEUCJ->position();
+		if (var$3 < srcSJIS->position()) {
 			return decodeLoop(ddSJIS, src, dst);
 		}
 		int32_t var$4 = src->position();
-		if (var$4 == $nc(srcEUCJ)->position()) {
+		if (var$4 == srcEUCJ->position()) {
 			return $CoderResult::UNDERFLOW;
 		}
 		sandbox->flip();
@@ -226,7 +173,7 @@ void JISAutoDetect$Decoder::implReset() {
 
 $CoderResult* JISAutoDetect$Decoder::implFlush($CharBuffer* out) {
 	if (this->detectedDecoder != nullptr) {
-		return $nc(this->detectedDecoder)->implFlush(out);
+		return this->detectedDecoder->implFlush(out);
 	} else {
 		return $CharsetDecoder::implFlush(out);
 	}
@@ -244,7 +191,7 @@ $Charset* JISAutoDetect$Decoder::detectedCharset() {
 	if (this->detectedDecoder == nullptr) {
 		$throwNew($IllegalStateException, "charset not yet detected"_s);
 	}
-	return $nc(($cast($CharsetDecoder, this->detectedDecoder)))->charset();
+	return $nc($cast($CharsetDecoder, this->detectedDecoder))->charset();
 }
 
 $String* JISAutoDetect$Decoder::getSJISName() {
@@ -261,10 +208,10 @@ $String* JISAutoDetect$Decoder::lambda$static$0() {
 	return $System::getProperty("os.name"_s);
 }
 
-void clinit$JISAutoDetect$Decoder($Class* class$) {
+void JISAutoDetect$Decoder::clinit$($Class* clazz) {
 	$assignStatic(JISAutoDetect$Decoder::EUCJPName, "EUC_JP"_s);
 	$beforeCallerSensitive();
-	$assignStatic(JISAutoDetect$Decoder::osName, $cast($String, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new(JISAutoDetect$Decoder$$Lambda$lambda$static$0)))));
+	$assignStatic(JISAutoDetect$Decoder::osName, $cast($String, $AccessController::doPrivileged($cast($PrivilegedAction, $$new(JISAutoDetect$Decoder$$Lambda$lambda$static$0)))));
 	$assignStatic(JISAutoDetect$Decoder::SJISName, JISAutoDetect$Decoder::getSJISName());
 }
 
@@ -273,11 +220,54 @@ JISAutoDetect$Decoder::JISAutoDetect$Decoder() {
 
 $Class* JISAutoDetect$Decoder::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(JISAutoDetect$Decoder$$Lambda$lambda$static$0::classInfo$.name)) {
+		if (name->equals("sun.nio.cs.ext.JISAutoDetect$Decoder$$Lambda$lambda$static$0")) {
 			return JISAutoDetect$Decoder$$Lambda$lambda$static$0::load$(name, initialize);
 		}
 	}
-	$loadClass(JISAutoDetect$Decoder, name, initialize, &_JISAutoDetect$Decoder_ClassInfo_, clinit$JISAutoDetect$Decoder, allocate$JISAutoDetect$Decoder);
+	$FieldInfo fieldInfos$$[] = {
+		{"osName", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JISAutoDetect$Decoder, osName)},
+		{"SJISName", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JISAutoDetect$Decoder, SJISName)},
+		{"EUCJPName", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JISAutoDetect$Decoder, EUCJPName)},
+		{"detectedDecoder", "Lsun/nio/cs/DelegatableDecoder;", nullptr, $PRIVATE, $field(JISAutoDetect$Decoder, detectedDecoder)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/nio/charset/Charset;)V", nullptr, $PUBLIC, $method(JISAutoDetect$Decoder, init$, void, $Charset*)},
+		{"copyLeadingASCII", "(Ljava/nio/ByteBuffer;Ljava/nio/CharBuffer;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(JISAutoDetect$Decoder, copyLeadingASCII, void, $ByteBuffer*, $CharBuffer*)},
+		{"decodeLoop", "(Lsun/nio/cs/DelegatableDecoder;Ljava/nio/ByteBuffer;Ljava/nio/CharBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PRIVATE, $method(JISAutoDetect$Decoder, decodeLoop, $CoderResult*, $DelegatableDecoder*, $ByteBuffer*, $CharBuffer*)},
+		{"decodeLoop", "(Ljava/nio/ByteBuffer;Ljava/nio/CharBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PROTECTED, $virtualMethod(JISAutoDetect$Decoder, decodeLoop, $CoderResult*, $ByteBuffer*, $CharBuffer*)},
+		{"detectedCharset", "()Ljava/nio/charset/Charset;", nullptr, $PUBLIC, $virtualMethod(JISAutoDetect$Decoder, detectedCharset, $Charset*)},
+		{"getSJISName", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(JISAutoDetect$Decoder, getSJISName, $String*)},
+		{"implFlush", "(Ljava/nio/CharBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PROTECTED, $virtualMethod(JISAutoDetect$Decoder, implFlush, $CoderResult*, $CharBuffer*)},
+		{"implReset", "()V", nullptr, $PROTECTED, $virtualMethod(JISAutoDetect$Decoder, implReset, void)},
+		{"isAutoDetecting", "()Z", nullptr, $PUBLIC, $virtualMethod(JISAutoDetect$Decoder, isAutoDetecting, bool)},
+		{"isCharsetDetected", "()Z", nullptr, $PUBLIC, $virtualMethod(JISAutoDetect$Decoder, isCharsetDetected, bool)},
+		{"isPlainASCII", "(B)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(JISAutoDetect$Decoder, isPlainASCII, bool, int8_t)},
+		{"lambda$static$0", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JISAutoDetect$Decoder, lambda$static$0, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.cs.ext.JISAutoDetect$Decoder", "sun.nio.cs.ext.JISAutoDetect", "Decoder", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.nio.cs.ext.JISAutoDetect$Decoder",
+		"java.nio.charset.CharsetDecoder",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.nio.cs.ext.JISAutoDetect"
+	};
+	$loadClass(JISAutoDetect$Decoder, name, initialize, &classInfo$$, JISAutoDetect$Decoder::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(JISAutoDetect$Decoder);
+	});
 	return class$;
 }
 

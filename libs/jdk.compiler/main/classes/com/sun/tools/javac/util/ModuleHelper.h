@@ -21,6 +21,7 @@ class $export ModuleHelper : public ::java::lang::Object {
 	$class(ModuleHelper, 0, ::java::lang::Object)
 public:
 	ModuleHelper();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void addExports(::java::lang::Module* from, ::java::lang::Module* to);
 	static $StringArray* javacInternalPackages;

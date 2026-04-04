@@ -38,6 +38,7 @@ class OutlineableChunkStart : public ::com::sun::org::apache::xalan::internal::x
 	$class(OutlineableChunkStart, 0, ::com::sun::org::apache::xalan::internal::xsltc::compiler::util::MarkerInstruction)
 public:
 	OutlineableChunkStart();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual $String* getName() override;
 	using ::com::sun::org::apache::xalan::internal::xsltc::compiler::util::MarkerInstruction::toString;

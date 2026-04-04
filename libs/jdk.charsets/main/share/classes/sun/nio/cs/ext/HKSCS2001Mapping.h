@@ -14,6 +14,7 @@ class HKSCS2001Mapping : public ::java::lang::Object {
 	$class(HKSCS2001Mapping, 0, ::java::lang::Object)
 public:
 	HKSCS2001Mapping();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $StringArray* b2cBmpStr;
 	static $StringArray* b2cSuppStr;

@@ -1,5 +1,4 @@
 #include <com/sun/imageio/plugins/wbmp/WBMPMetadataFormat.h>
-
 #include <com/sun/imageio/plugins/wbmp/WBMPMetadata.h>
 #include <javax/imageio/ImageTypeSpecifier.h>
 #include <javax/imageio/metadata/IIOMetadataFormat.h>
@@ -24,31 +23,6 @@ namespace com {
 			namespace plugins {
 				namespace wbmp {
 
-$FieldInfo _WBMPMetadataFormat_FieldInfo_[] = {
-	{"instance", "Ljavax/imageio/metadata/IIOMetadataFormat;", nullptr, $PRIVATE | $STATIC, $staticField(WBMPMetadataFormat, instance)},
-	{}
-};
-
-$MethodInfo _WBMPMetadataFormat_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(WBMPMetadataFormat, init$, void)},
-	{"canNodeAppear", "(Ljava/lang/String;Ljavax/imageio/ImageTypeSpecifier;)Z", nullptr, $PUBLIC, $virtualMethod(WBMPMetadataFormat, canNodeAppear, bool, $String*, $ImageTypeSpecifier*)},
-	{"getInstance", "()Ljavax/imageio/metadata/IIOMetadataFormat;", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(WBMPMetadataFormat, getInstance, $IIOMetadataFormat*)},
-	{}
-};
-
-$ClassInfo _WBMPMetadataFormat_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.imageio.plugins.wbmp.WBMPMetadataFormat",
-	"javax.imageio.metadata.IIOMetadataFormatImpl",
-	nullptr,
-	_WBMPMetadataFormat_FieldInfo_,
-	_WBMPMetadataFormat_MethodInfo_
-};
-
-$Object* allocate$WBMPMetadataFormat($Class* clazz) {
-	return $of($alloc(WBMPMetadataFormat));
-}
-
 $IIOMetadataFormat* WBMPMetadataFormat::instance = nullptr;
 
 void WBMPMetadataFormat::init$() {
@@ -65,9 +39,8 @@ bool WBMPMetadataFormat::canNodeAppear($String* elementName, $ImageTypeSpecifier
 }
 
 $IIOMetadataFormat* WBMPMetadataFormat::getInstance() {
-	$load(WBMPMetadataFormat);
+	$init(WBMPMetadataFormat);
 	$synchronized(class$) {
-		$init(WBMPMetadataFormat);
 		if (WBMPMetadataFormat::instance == nullptr) {
 			$assignStatic(WBMPMetadataFormat::instance, $new(WBMPMetadataFormat));
 		}
@@ -75,7 +48,7 @@ $IIOMetadataFormat* WBMPMetadataFormat::getInstance() {
 	}
 }
 
-void clinit$WBMPMetadataFormat($Class* class$) {
+void WBMPMetadataFormat::clinit$($Class* clazz) {
 	$assignStatic(WBMPMetadataFormat::instance, nullptr);
 }
 
@@ -83,7 +56,27 @@ WBMPMetadataFormat::WBMPMetadataFormat() {
 }
 
 $Class* WBMPMetadataFormat::load$($String* name, bool initialize) {
-	$loadClass(WBMPMetadataFormat, name, initialize, &_WBMPMetadataFormat_ClassInfo_, clinit$WBMPMetadataFormat, allocate$WBMPMetadataFormat);
+	$FieldInfo fieldInfos$$[] = {
+		{"instance", "Ljavax/imageio/metadata/IIOMetadataFormat;", nullptr, $PRIVATE | $STATIC, $staticField(WBMPMetadataFormat, instance)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(WBMPMetadataFormat, init$, void)},
+		{"canNodeAppear", "(Ljava/lang/String;Ljavax/imageio/ImageTypeSpecifier;)Z", nullptr, $PUBLIC, $virtualMethod(WBMPMetadataFormat, canNodeAppear, bool, $String*, $ImageTypeSpecifier*)},
+		{"getInstance", "()Ljavax/imageio/metadata/IIOMetadataFormat;", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(WBMPMetadataFormat, getInstance, $IIOMetadataFormat*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.imageio.plugins.wbmp.WBMPMetadataFormat",
+		"javax.imageio.metadata.IIOMetadataFormatImpl",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(WBMPMetadataFormat, name, initialize, &classInfo$$, WBMPMetadataFormat::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(WBMPMetadataFormat);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <java/rmi/dgc/VMID.h>
-
 #include <java/rmi/server/UID.h>
 #include <java/security/SecureRandom.h>
 #include <jcpp.h>
@@ -17,41 +16,6 @@ using $SecureRandom = ::java::security::SecureRandom;
 namespace java {
 	namespace rmi {
 		namespace dgc {
-
-$CompoundAttribute _VMID_MethodAnnotations_isUnique3[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$FieldInfo _VMID_FieldInfo_[] = {
-	{"randomBytes", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(VMID, randomBytes)},
-	{"addr", "[B", nullptr, $PRIVATE, $field(VMID, addr)},
-	{"uid", "Ljava/rmi/server/UID;", nullptr, $PRIVATE, $field(VMID, uid)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(VMID, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _VMID_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(VMID, init$, void)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(VMID, equals, bool, Object$*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(VMID, hashCode, int32_t)},
-	{"isUnique", "()Z", nullptr, $PUBLIC | $STATIC | $DEPRECATED, $staticMethod(VMID, isUnique, bool), nullptr, nullptr, _VMID_MethodAnnotations_isUnique3},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(VMID, toString, $String*)},
-	{}
-};
-
-$ClassInfo _VMID_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"java.rmi.dgc.VMID",
-	"java.lang.Object",
-	"java.io.Serializable",
-	_VMID_FieldInfo_,
-	_VMID_MethodInfo_
-};
-
-$Object* allocate$VMID($Class* clazz) {
-	return $of($alloc(VMID));
-}
 
 $bytes* VMID::randomBytes = nullptr;
 
@@ -72,18 +36,18 @@ int32_t VMID::hashCode() {
 bool VMID::equals(Object$* obj) {
 	if ($instanceOf(VMID, obj)) {
 		$var(VMID, vmid, $cast(VMID, obj));
-		if (!$nc(this->uid)->equals($nc(vmid)->uid)) {
+		if (!$nc(this->uid)->equals(vmid->uid)) {
 			return false;
 		}
-		if ((this->addr == nullptr) ^ ($nc(vmid)->addr == nullptr)) {
+		if ((this->addr == nullptr) ^ (vmid->addr == nullptr)) {
 			return false;
 		}
 		if (this->addr != nullptr) {
-			if ($nc(this->addr)->length != $nc($nc(vmid)->addr)->length) {
+			if (this->addr->length != $nc(vmid->addr)->length) {
 				return false;
 			}
-			for (int32_t i = 0; i < $nc(this->addr)->length; ++i) {
-				if ($nc(this->addr)->get(i) != $nc($nc(vmid)->addr)->get(i)) {
+			for (int32_t i = 0; i < this->addr->length; ++i) {
+				if (this->addr->get(i) != vmid->addr->get(i)) {
 					return false;
 				}
 			}
@@ -95,11 +59,11 @@ bool VMID::equals(Object$* obj) {
 }
 
 $String* VMID::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, sb, $new($StringBuilder));
 	if (this->addr != nullptr) {
-		for (int32_t i = 0; i < $nc(this->addr)->length; ++i) {
-			int32_t x = (int32_t)($nc(this->addr)->get(i) & (uint32_t)255);
+		for (int32_t i = 0; i < this->addr->length; ++i) {
+			int32_t x = this->addr->get(i) & 0xff;
 			sb->append($$str({(x < 16 ? "0"_s : ""_s), $($Integer::toString(x, 16))}));
 		}
 	}
@@ -108,8 +72,8 @@ $String* VMID::toString() {
 	return sb->toString();
 }
 
-void clinit$VMID($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void VMID::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	{
 		$var($SecureRandom, secureRandom, $new($SecureRandom));
 		$var($bytes, bytes, $new($bytes, 8));
@@ -122,7 +86,36 @@ VMID::VMID() {
 }
 
 $Class* VMID::load$($String* name, bool initialize) {
-	$loadClass(VMID, name, initialize, &_VMID_ClassInfo_, clinit$VMID, allocate$VMID);
+	$FieldInfo fieldInfos$$[] = {
+		{"randomBytes", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(VMID, randomBytes)},
+		{"addr", "[B", nullptr, $PRIVATE, $field(VMID, addr)},
+		{"uid", "Ljava/rmi/server/UID;", nullptr, $PRIVATE, $field(VMID, uid)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(VMID, serialVersionUID)},
+		{}
+	};
+	$CompoundAttribute isUniquemethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(VMID, init$, void)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(VMID, equals, bool, Object$*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(VMID, hashCode, int32_t)},
+		{"isUnique", "()Z", nullptr, $PUBLIC | $STATIC | $DEPRECATED, $staticMethod(VMID, isUnique, bool), nullptr, nullptr, isUniquemethodAnnotations$$},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(VMID, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"java.rmi.dgc.VMID",
+		"java.lang.Object",
+		"java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(VMID, name, initialize, &classInfo$$, VMID::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(VMID);
+	});
 	return class$;
 }
 

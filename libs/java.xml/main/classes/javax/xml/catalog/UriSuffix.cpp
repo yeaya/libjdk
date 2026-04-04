@@ -1,5 +1,4 @@
 #include <javax/xml/catalog/UriSuffix.h>
-
 #include <java/net/URL.h>
 #include <javax/xml/catalog/BaseEntry$CatalogEntryType.h>
 #include <javax/xml/catalog/BaseEntry.h>
@@ -12,7 +11,6 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $URL = ::java::net::URL;
 using $BaseEntry = ::javax::xml::catalog::BaseEntry;
 using $BaseEntry$CatalogEntryType = ::javax::xml::catalog::BaseEntry$CatalogEntryType;
 using $CatalogMessages = ::javax::xml::catalog::CatalogMessages;
@@ -21,36 +19,6 @@ using $Normalizer = ::javax::xml::catalog::Normalizer;
 namespace javax {
 	namespace xml {
 		namespace catalog {
-
-$FieldInfo _UriSuffix_FieldInfo_[] = {
-	{"uriSuffix", "Ljava/lang/String;", nullptr, 0, $field(UriSuffix, uriSuffix)},
-	{"uri", "Ljava/net/URL;", nullptr, 0, $field(UriSuffix, uri)},
-	{}
-};
-
-$MethodInfo _UriSuffix_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(UriSuffix, init$, void, $String*, $String*, $String*)},
-	{"getURI", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(UriSuffix, getURI, $String*)},
-	{"getURISuffix", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(UriSuffix, getURISuffix, $String*)},
-	{"match", "(Ljava/lang/String;I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(UriSuffix, match, $String*, $String*, int32_t)},
-	{"match", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(UriSuffix, match, $String*, $String*)},
-	{"setURI", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(UriSuffix, setURI, void, $String*)},
-	{"setURISuffix", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(UriSuffix, setURISuffix, void, $String*)},
-	{}
-};
-
-$ClassInfo _UriSuffix_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"javax.xml.catalog.UriSuffix",
-	"javax.xml.catalog.BaseEntry",
-	nullptr,
-	_UriSuffix_FieldInfo_,
-	_UriSuffix_MethodInfo_
-};
-
-$Object* allocate$UriSuffix($Class* clazz) {
-	return $of($alloc(UriSuffix));
-}
 
 void UriSuffix::init$($String* base, $String* uriSuffix, $String* uri) {
 	$init($BaseEntry$CatalogEntryType);
@@ -93,7 +61,32 @@ UriSuffix::UriSuffix() {
 }
 
 $Class* UriSuffix::load$($String* name, bool initialize) {
-	$loadClass(UriSuffix, name, initialize, &_UriSuffix_ClassInfo_, allocate$UriSuffix);
+	$FieldInfo fieldInfos$$[] = {
+		{"uriSuffix", "Ljava/lang/String;", nullptr, 0, $field(UriSuffix, uriSuffix)},
+		{"uri", "Ljava/net/URL;", nullptr, 0, $field(UriSuffix, uri)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(UriSuffix, init$, void, $String*, $String*, $String*)},
+		{"getURI", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(UriSuffix, getURI, $String*)},
+		{"getURISuffix", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(UriSuffix, getURISuffix, $String*)},
+		{"match", "(Ljava/lang/String;I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(UriSuffix, match, $String*, $String*, int32_t)},
+		{"match", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(UriSuffix, match, $String*, $String*)},
+		{"setURI", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(UriSuffix, setURI, void, $String*)},
+		{"setURISuffix", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(UriSuffix, setURISuffix, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"javax.xml.catalog.UriSuffix",
+		"javax.xml.catalog.BaseEntry",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(UriSuffix, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(UriSuffix);
+	});
 	return class$;
 }
 

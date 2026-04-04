@@ -1,5 +1,4 @@
 #include <sun/awt/X11/XListPeer.h>
-
 #include <java/awt/AWTEvent.h>
 #include <java/awt/BufferCapabilities$FlipContents.h>
 #include <java/awt/BufferCapabilities.h>
@@ -11,7 +10,6 @@
 #include <java/awt/Graphics.h>
 #include <java/awt/GraphicsConfiguration.h>
 #include <java/awt/Image.h>
-#include <java/awt/ItemSelectable.h>
 #include <java/awt/List.h>
 #include <java/awt/Point.h>
 #include <java/awt/Rectangle.h>
@@ -33,7 +31,6 @@
 #include <java/awt/peer/ContainerPeer.h>
 #include <java/lang/AssertionError.h>
 #include <java/lang/Math.h>
-#include <java/lang/Runnable.h>
 #include <java/util/Objects.h>
 #include <java/util/Vector.h>
 #include <sun/awt/X11/ListHelper.h>
@@ -45,7 +42,6 @@
 #include <sun/awt/X11/XListPeer$1.h>
 #include <sun/awt/X11/XListPeer$ListPainter.h>
 #include <sun/awt/X11/XScrollbar.h>
-#include <sun/awt/X11/XScrollbarClient.h>
 #include <sun/awt/X11/XVerticalScrollbar.h>
 #include <sun/awt/X11/XWindow.h>
 #include <sun/awt/X11/XWindowPeer.h>
@@ -118,7 +114,6 @@ using $FontMetrics = ::java::awt::FontMetrics;
 using $Graphics = ::java::awt::Graphics;
 using $GraphicsConfiguration = ::java::awt::GraphicsConfiguration;
 using $Image = ::java::awt::Image;
-using $ItemSelectable = ::java::awt::ItemSelectable;
 using $List = ::java::awt::List;
 using $Point = ::java::awt::Point;
 using $Rectangle = ::java::awt::Rectangle;
@@ -145,7 +140,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
 using $Objects = ::java::util::Objects;
 using $Vector = ::java::util::Vector;
 using $ListHelper = ::sun::awt::X11::ListHelper;
@@ -156,9 +150,7 @@ using $XHorizontalScrollbar = ::sun::awt::X11::XHorizontalScrollbar;
 using $XListPeer$1 = ::sun::awt::X11::XListPeer$1;
 using $XListPeer$ListPainter = ::sun::awt::X11::XListPeer$ListPainter;
 using $XScrollbar = ::sun::awt::X11::XScrollbar;
-using $XScrollbarClient = ::sun::awt::X11::XScrollbarClient;
 using $XVerticalScrollbar = ::sun::awt::X11::XVerticalScrollbar;
-using $XWindowPeer = ::sun::awt::X11::XWindowPeer;
 using $Region = ::sun::java2d::pipe::Region;
 using $PlatformLogger = ::sun::util::logging::PlatformLogger;
 using $PlatformLogger$Level = ::sun::util::logging::PlatformLogger$Level;
@@ -166,206 +158,6 @@ using $PlatformLogger$Level = ::sun::util::logging::PlatformLogger$Level;
 namespace sun {
 	namespace awt {
 		namespace X11 {
-
-$FieldInfo _XListPeer_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(XListPeer, $assertionsDisabled)},
-	{"log", "Lsun/util/logging/PlatformLogger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XListPeer, log)},
-	{"MARGIN", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XListPeer, MARGIN)},
-	{"SPACE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XListPeer, SPACE)},
-	{"SCROLLBAR_AREA", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XListPeer, SCROLLBAR_AREA)},
-	{"SCROLLBAR_WIDTH", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XListPeer, SCROLLBAR_WIDTH)},
-	{"NONE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XListPeer, NONE)},
-	{"WINDOW", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XListPeer, WINDOW)},
-	{"VERSCROLLBAR", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XListPeer, VERSCROLLBAR)},
-	{"HORSCROLLBAR", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XListPeer, HORSCROLLBAR)},
-	{"DEFAULT_VISIBLE_ROWS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XListPeer, DEFAULT_VISIBLE_ROWS)},
-	{"HORIZ_SCROLL_AMT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XListPeer, HORIZ_SCROLL_AMT)},
-	{"PAINT_VSCROLL", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XListPeer, PAINT_VSCROLL)},
-	{"PAINT_HSCROLL", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XListPeer, PAINT_HSCROLL)},
-	{"PAINT_ITEMS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XListPeer, PAINT_ITEMS)},
-	{"PAINT_FOCUS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XListPeer, PAINT_FOCUS)},
-	{"PAINT_BACKGROUND", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XListPeer, PAINT_BACKGROUND)},
-	{"PAINT_HIDEFOCUS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XListPeer, PAINT_HIDEFOCUS)},
-	{"PAINT_ALL", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XListPeer, PAINT_ALL)},
-	{"COPY_AREA", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XListPeer, COPY_AREA)},
-	{"vsb", "Lsun/awt/X11/XVerticalScrollbar;", nullptr, 0, $field(XListPeer, vsb)},
-	{"hsb", "Lsun/awt/X11/XHorizontalScrollbar;", nullptr, 0, $field(XListPeer, hsb)},
-	{"painter", "Lsun/awt/X11/XListPeer$ListPainter;", nullptr, 0, $field(XListPeer, painter)},
-	{"items", "Ljava/util/Vector;", "Ljava/util/Vector<Ljava/lang/String;>;", 0, $field(XListPeer, items)},
-	{"multipleSelections", "Z", nullptr, 0, $field(XListPeer, multipleSelections)},
-	{"active", "I", nullptr, 0, $field(XListPeer, active)},
-	{"selected", "[I", nullptr, 0, $field(XListPeer, selected)},
-	{"fontHeight", "I", nullptr, 0, $field(XListPeer, fontHeight)},
-	{"fontAscent", "I", nullptr, 0, $field(XListPeer, fontAscent)},
-	{"fontLeading", "I", nullptr, 0, $field(XListPeer, fontLeading)},
-	{"currentIndex", "I", nullptr, 0, $field(XListPeer, currentIndex)},
-	{"eventIndex", "I", nullptr, 0, $field(XListPeer, eventIndex)},
-	{"eventType", "I", nullptr, 0, $field(XListPeer, eventType)},
-	{"focusIndex", "I", nullptr, 0, $field(XListPeer, focusIndex)},
-	{"maxLength", "I", nullptr, 0, $field(XListPeer, maxLength$)},
-	{"vsbVis", "Z", nullptr, 0, $field(XListPeer, vsbVis)},
-	{"hsbVis", "Z", nullptr, 0, $field(XListPeer, hsbVis)},
-	{"listWidth", "I", nullptr, 0, $field(XListPeer, listWidth)},
-	{"listHeight", "I", nullptr, 0, $field(XListPeer, listHeight)},
-	{"firstTimeVisibleIndex", "I", nullptr, $PRIVATE, $field(XListPeer, firstTimeVisibleIndex)},
-	{"bgColorSet", "Z", nullptr, 0, $field(XListPeer, bgColorSet)},
-	{"fgColorSet", "Z", nullptr, 0, $field(XListPeer, fgColorSet)},
-	{"mouseDraggedOutHorizontally", "Z", nullptr, 0, $field(XListPeer, mouseDraggedOutHorizontally)},
-	{"mouseDraggedOutVertically", "Z", nullptr, 0, $field(XListPeer, mouseDraggedOutVertically)},
-	{"isScrollBarOriginated", "Z", nullptr, 0, $field(XListPeer, isScrollBarOriginated)},
-	{"isMousePressed", "Z", nullptr, 0, $field(XListPeer, isMousePressed)},
-	{}
-};
-
-$MethodInfo _XListPeer_MethodInfo_[] = {
-	{"*applyShape", "(Lsun/java2d/pipe/Region;)V", nullptr, $PUBLIC},
-	{"*canDetermineObscurity", "()Z", nullptr, $PUBLIC},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*coalescePaintEvent", "(Ljava/awt/event/PaintEvent;)V", nullptr, $PUBLIC},
-	{"*createBuffers", "(ILjava/awt/BufferCapabilities;)V", nullptr, $PUBLIC},
-	{"*createImage", "(II)Ljava/awt/Image;", nullptr, $PUBLIC},
-	{"*createVolatileImage", "(II)Ljava/awt/image/VolatileImage;", nullptr, $PUBLIC},
-	{"*destroyBuffers", "()V", nullptr, $PUBLIC},
-	{"*dispose", "()V", nullptr, $PUBLIC | $SYNTHETIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*flip", "(IIIILjava/awt/BufferCapabilities$FlipContents;)V", nullptr, $PUBLIC},
-	{"*getBackBuffer", "()Ljava/awt/Image;", nullptr, $PUBLIC},
-	{"*getColorModel", "()Ljava/awt/image/ColorModel;", nullptr, $PUBLIC | $SYNTHETIC},
-	{"*getEventSource", "()Ljava/awt/Component;", nullptr, $PUBLIC | $SYNTHETIC},
-	{"*getFontMetrics", "(Ljava/awt/Font;)Ljava/awt/FontMetrics;", nullptr, $PUBLIC},
-	{"*getGraphics", "()Ljava/awt/Graphics;", nullptr, $PUBLIC},
-	{"*getGraphicsConfiguration", "()Ljava/awt/GraphicsConfiguration;", nullptr, $PUBLIC | $SYNTHETIC},
-	{"*getLocationOnScreen", "()Ljava/awt/Point;", nullptr, $PUBLIC | $SYNTHETIC},
-	{"*getPreferredSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC},
-	{"*handleEvent", "(Ljava/awt/AWTEvent;)V", nullptr, $PUBLIC},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/awt/List;)V", nullptr, 0, $method(XListPeer, init$, void, $List*)},
-	{"add", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $virtualMethod(XListPeer, add, void, $String*, int32_t)},
-	{"addItem", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $virtualMethod(XListPeer, addItem, void, $String*, int32_t)},
-	{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(XListPeer, clear, void)},
-	{"createHorScrollbar", "()V", nullptr, 0, $virtualMethod(XListPeer, createHorScrollbar, void)},
-	{"createVerScrollbar", "()V", nullptr, 0, $virtualMethod(XListPeer, createVerScrollbar, void)},
-	{"delItems", "(II)V", nullptr, $PUBLIC, $virtualMethod(XListPeer, delItems, void, int32_t, int32_t)},
-	{"deselect", "(I)V", nullptr, $PUBLIC, $virtualMethod(XListPeer, deselect, void, int32_t)},
-	{"deselectAllItems", "()V", nullptr, $PRIVATE, $method(XListPeer, deselectAllItems, void)},
-	{"deselectItem", "(I)V", nullptr, 0, $virtualMethod(XListPeer, deselectItem, void, int32_t)},
-	{"focusGained", "(Ljava/awt/event/FocusEvent;)V", nullptr, $PUBLIC, $virtualMethod(XListPeer, focusGained, void, $FocusEvent*)},
-	{"focusLost", "(Ljava/awt/event/FocusEvent;)V", nullptr, $PUBLIC, $virtualMethod(XListPeer, focusLost, void, $FocusEvent*)},
-	{"getFirstVisibleItem", "()I", nullptr, 0, $virtualMethod(XListPeer, getFirstVisibleItem, int32_t)},
-	{"getFocusIndex", "()I", nullptr, 0, $virtualMethod(XListPeer, getFocusIndex, int32_t)},
-	{"getFocusRect", "()Ljava/awt/Rectangle;", nullptr, 0, $virtualMethod(XListPeer, getFocusRect, $Rectangle*)},
-	{"getHScrollBarRec", "()Ljava/awt/Rectangle;", nullptr, 0, $virtualMethod(XListPeer, getHScrollBarRec, $Rectangle*)},
-	{"getItemHeight", "()I", nullptr, 0, $virtualMethod(XListPeer, getItemHeight, int32_t)},
-	{"getItemWidth", "(I)I", nullptr, 0, $virtualMethod(XListPeer, getItemWidth, int32_t, int32_t)},
-	{"getItemWidth", "()I", nullptr, 0, $virtualMethod(XListPeer, getItemWidth, int32_t)},
-	{"getItemX", "()I", nullptr, 0, $virtualMethod(XListPeer, getItemX, int32_t)},
-	{"getItemY", "(I)I", nullptr, 0, $virtualMethod(XListPeer, getItemY, int32_t, int32_t)},
-	{"getLastVisibleItem", "()I", nullptr, 0, $virtualMethod(XListPeer, getLastVisibleItem, int32_t)},
-	{"getListBackground", "([Ljava/awt/Color;)Ljava/awt/Color;", nullptr, $PRIVATE, $method(XListPeer, getListBackground, $Color*, $ColorArray*)},
-	{"getListForeground", "([Ljava/awt/Color;)Ljava/awt/Color;", nullptr, $PRIVATE, $method(XListPeer, getListForeground, $Color*, $ColorArray*)},
-	{"getListWidth", "()I", nullptr, 0, $virtualMethod(XListPeer, getListWidth, int32_t)},
-	{"getMinimumSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(XListPeer, getMinimumSize, $Dimension*)},
-	{"getMinimumSize", "(I)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(XListPeer, getMinimumSize, $Dimension*, int32_t)},
-	{"getPreferredSize", "(I)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(XListPeer, getPreferredSize, $Dimension*, int32_t)},
-	{"getSelectedIndexes", "()[I", nullptr, $PUBLIC, $virtualMethod(XListPeer, getSelectedIndexes, $ints*)},
-	{"getVScrollBarRec", "()Ljava/awt/Rectangle;", nullptr, 0, $virtualMethod(XListPeer, getVScrollBarRec, $Rectangle*)},
-	{"handleConfigureNotifyEvent", "(Lsun/awt/X11/XEvent;)V", nullptr, $PUBLIC, $virtualMethod(XListPeer, handleConfigureNotifyEvent, void, $XEvent*)},
-	{"handleJavaKeyEvent", "(Ljava/awt/event/KeyEvent;)V", nullptr, 0, $virtualMethod(XListPeer, handleJavaKeyEvent, void, $KeyEvent*)},
-	{"handleJavaMouseEvent", "(Ljava/awt/event/MouseEvent;)V", nullptr, 0, $virtualMethod(XListPeer, handleJavaMouseEvent, void, $MouseEvent*)},
-	{"handleJavaMouseEventOnEDT", "(Ljava/awt/event/MouseEvent;)V", nullptr, 0, $virtualMethod(XListPeer, handleJavaMouseEventOnEDT, void, $MouseEvent*)},
-	{"handleJavaMouseWheelEvent", "(Ljava/awt/event/MouseWheelEvent;)V", nullptr, 0, $virtualMethod(XListPeer, handleJavaMouseWheelEvent, void, $MouseWheelEvent*)},
-	{"handlesWheelScrolling", "()Z", nullptr, $PUBLIC, $virtualMethod(XListPeer, handlesWheelScrolling, bool)},
-	{"hsbIsVisible", "(Z)Z", nullptr, 0, $virtualMethod(XListPeer, hsbIsVisible, bool, bool)},
-	{"inHorizontalScrollbar", "(II)Z", nullptr, 0, $virtualMethod(XListPeer, inHorizontalScrollbar, bool, int32_t, int32_t)},
-	{"inVerticalScrollbar", "(II)Z", nullptr, 0, $virtualMethod(XListPeer, inVerticalScrollbar, bool, int32_t, int32_t)},
-	{"inWindow", "(II)Z", nullptr, 0, $virtualMethod(XListPeer, inWindow, bool, int32_t, int32_t)},
-	{"index2y", "(I)I", nullptr, 0, $virtualMethod(XListPeer, index2y, int32_t, int32_t)},
-	{"initFontMetrics", "()V", nullptr, 0, $virtualMethod(XListPeer, initFontMetrics, void)},
-	{"isFocusable", "()Z", nullptr, $PUBLIC, $virtualMethod(XListPeer, isFocusable, bool)},
-	{"isIndexDisplayed", "(I)Z", nullptr, 0, $virtualMethod(XListPeer, isIndexDisplayed, bool, int32_t)},
-	{"isItemHidden", "(I)Z", nullptr, 0, $virtualMethod(XListPeer, isItemHidden, bool, int32_t)},
-	{"*isObscured", "()Z", nullptr, $PUBLIC},
-	{"*isReparentSupported", "()Z", nullptr, $PUBLIC},
-	{"isSelected", "(I)Z", nullptr, 0, $virtualMethod(XListPeer, isSelected, bool, int32_t)},
-	{"itemsDisplayed", "()I", nullptr, 0, $virtualMethod(XListPeer, itemsDisplayed, int32_t)},
-	{"itemsInWindow", "(Z)I", nullptr, 0, $virtualMethod(XListPeer, itemsInWindow, int32_t, bool)},
-	{"itemsInWindow", "()I", nullptr, 0, $virtualMethod(XListPeer, itemsInWindow, int32_t)},
-	{"keyPressed", "(Ljava/awt/event/KeyEvent;)V", nullptr, 0, $virtualMethod(XListPeer, keyPressed, void, $KeyEvent*)},
-	{"lastItemDisplayed", "()I", nullptr, 0, $virtualMethod(XListPeer, lastItemDisplayed, int32_t)},
-	{"layout", "()V", nullptr, $PUBLIC, $virtualMethod(XListPeer, layout, void)},
-	{"makeVisible", "(I)V", nullptr, $PUBLIC, $virtualMethod(XListPeer, makeVisible, void, int32_t)},
-	{"maxLength", "()I", nullptr, 0, $virtualMethod(XListPeer, maxLength, int32_t)},
-	{"mouseDragged", "(Ljava/awt/event/MouseEvent;)V", nullptr, 0, $virtualMethod(XListPeer, mouseDragged, void, $MouseEvent*)},
-	{"mousePressed", "(Ljava/awt/event/MouseEvent;)V", nullptr, 0, $virtualMethod(XListPeer, mousePressed, void, $MouseEvent*)},
-	{"mouseReleased", "(Ljava/awt/event/MouseEvent;)V", nullptr, 0, $virtualMethod(XListPeer, mouseReleased, void, $MouseEvent*)},
-	{"notifyValue", "(Lsun/awt/X11/XScrollbar;IIZ)V", nullptr, $PUBLIC, $virtualMethod(XListPeer, notifyValue, void, $XScrollbar*, int32_t, int32_t, bool)},
-	{"*paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC},
-	{"paintPeer", "(Ljava/awt/Graphics;)V", nullptr, 0, $virtualMethod(XListPeer, paintPeer, void, $Graphics*)},
-	{"posInSel", "(I)I", nullptr, 0, $virtualMethod(XListPeer, posInSel, int32_t, int32_t)},
-	{"postInit", "(Lsun/awt/X11/XCreateWindowParams;)V", nullptr, $PUBLIC, $virtualMethod(XListPeer, postInit, void, $XCreateWindowParams*)},
-	{"preInit", "(Lsun/awt/X11/XCreateWindowParams;)V", nullptr, $PUBLIC, $virtualMethod(XListPeer, preInit, void, $XCreateWindowParams*)},
-	{"prePostEvent", "(Ljava/awt/AWTEvent;)Z", nullptr, 0, $virtualMethod(XListPeer, prePostEvent, bool, $AWTEvent*)},
-	{"prePostMouseEvent", "(Ljava/awt/event/MouseEvent;)Z", nullptr, 0, $virtualMethod(XListPeer, prePostMouseEvent, bool, $MouseEvent*)},
-	{"*print", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC},
-	{"removeAll", "()V", nullptr, $PUBLIC, $virtualMethod(XListPeer, removeAll, void)},
-	{"repaint", "()V", nullptr, $PUBLIC, $virtualMethod(XListPeer, repaint, void)},
-	{"repaint", "(I)V", nullptr, $PRIVATE, $method(XListPeer, repaint, void, int32_t)},
-	{"repaint", "(III)V", nullptr, $PRIVATE, $method(XListPeer, repaint, void, int32_t, int32_t, int32_t)},
-	{"repaint", "(IIILjava/awt/Rectangle;Ljava/awt/Point;)V", nullptr, $PRIVATE, $method(XListPeer, repaint, void, int32_t, int32_t, int32_t, $Rectangle*, $Point*)},
-	{"repaintScrollbarRequest", "(Lsun/awt/X11/XScrollbar;)V", nullptr, $PUBLIC, $virtualMethod(XListPeer, repaintScrollbarRequest, void, $XScrollbar*)},
-	{"*reparent", "(Ljava/awt/peer/ContainerPeer;)V", nullptr, $PUBLIC},
-	{"*requestFocus", "(Ljava/awt/Component;ZZJLjava/awt/event/FocusEvent$Cause;)Z", nullptr, $PUBLIC | $FINAL},
-	{"scrollHorizontal", "(I)V", nullptr, 0, $virtualMethod(XListPeer, scrollHorizontal, void, int32_t)},
-	{"scrollVertical", "(I)V", nullptr, 0, $virtualMethod(XListPeer, scrollVertical, void, int32_t)},
-	{"select", "(I)V", nullptr, $PUBLIC, $virtualMethod(XListPeer, select, void, int32_t)},
-	{"selectItem", "(I)V", nullptr, 0, $virtualMethod(XListPeer, selectItem, void, int32_t)},
-	{"setBackground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC, $virtualMethod(XListPeer, setBackground, void, $Color*)},
-	{"*setBounds", "(IIIII)V", nullptr, $PUBLIC},
-	{"*setEnabled", "(Z)V", nullptr, $PUBLIC},
-	{"setFocusIndex", "(I)V", nullptr, 0, $virtualMethod(XListPeer, setFocusIndex, void, int32_t)},
-	{"setFont", "(Ljava/awt/Font;)V", nullptr, $PUBLIC, $virtualMethod(XListPeer, setFont, void, $Font*)},
-	{"setForeground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC, $virtualMethod(XListPeer, setForeground, void, $Color*)},
-	{"setMultipleMode", "(Z)V", nullptr, $PUBLIC, $virtualMethod(XListPeer, setMultipleMode, void, bool)},
-	{"setMultipleSelections", "(Z)V", nullptr, $PUBLIC, $virtualMethod(XListPeer, setMultipleSelections, void, bool)},
-	{"*setVisible", "(Z)V", nullptr, $PUBLIC},
-	{"*setZOrder", "(Ljava/awt/peer/ComponentPeer;)V", nullptr, $PUBLIC},
-	{"stringLength", "(Ljava/lang/String;)I", nullptr, 0, $virtualMethod(XListPeer, stringLength, int32_t, $String*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"trackMouseDraggedScroll", "(Ljava/awt/event/MouseEvent;)V", nullptr, 0, $virtualMethod(XListPeer, trackMouseDraggedScroll, void, $MouseEvent*)},
-	{"trackMouseReleasedScroll", "()V", nullptr, 0, $virtualMethod(XListPeer, trackMouseReleasedScroll, void)},
-	{"*updateCursorImmediately", "()V", nullptr, $PUBLIC},
-	{"*updateGraphicsData", "(Ljava/awt/GraphicsConfiguration;)Z", nullptr, $PUBLIC},
-	{"validY", "(I)Z", nullptr, 0, $virtualMethod(XListPeer, validY, bool, int32_t)},
-	{"vsbIsVisible", "(Z)Z", nullptr, 0, $virtualMethod(XListPeer, vsbIsVisible, bool, bool)},
-	{"y2index", "(I)I", nullptr, 0, $virtualMethod(XListPeer, y2index, int32_t, int32_t)},
-	{}
-};
-
-$InnerClassInfo _XListPeer_InnerClassesInfo_[] = {
-	{"sun.awt.X11.XListPeer$ListPainter", "sun.awt.X11.XListPeer", "ListPainter", 0},
-	{"sun.awt.X11.XListPeer$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _XListPeer_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.awt.X11.XListPeer",
-	"sun.awt.X11.XComponentPeer",
-	"java.awt.peer.ListPeer,sun.awt.X11.XScrollbarClient",
-	_XListPeer_FieldInfo_,
-	_XListPeer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_XListPeer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.awt.X11.XListPeer$ListPainter,sun.awt.X11.XListPeer$1"
-};
-
-$Object* allocate$XListPeer($Class* clazz) {
-	return $of($alloc(XListPeer));
-}
 
 void XListPeer::reparent($ContainerPeer* newNativeParent) {
 	this->$XComponentPeer::reparent(newNativeParent);
@@ -511,7 +303,7 @@ bool XListPeer::$assertionsDisabled = false;
 $PlatformLogger* XListPeer::log = nullptr;
 
 void XListPeer::init$($List* target) {
-	$XComponentPeer::init$(static_cast<$Component*>(target));
+	$XComponentPeer::init$(target);
 	this->active = XListPeer::NONE;
 	this->currentIndex = -1;
 	this->eventIndex = -1;
@@ -534,7 +326,7 @@ void XListPeer::preInit($XCreateWindowParams* params) {
 }
 
 void XListPeer::postInit($XCreateWindowParams* params) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$XComponentPeer::postInit(params);
 	initFontMetrics();
 	$var($List, l, $cast($List, this->target));
@@ -550,7 +342,7 @@ void XListPeer::postInit($XCreateWindowParams* params) {
 	$var($ints, sel, l->getSelectedIndexes());
 	$set(this, selected, $new($ints, $nc(sel)->length));
 	for (int32_t i = 0; i < sel->length; ++i) {
-		$nc(this->selected)->set(i, sel->get(i));
+		this->selected->set(i, sel->get(i));
 	}
 	if (sel->length > 0) {
 		setFocusIndex(sel->get(sel->length - 1));
@@ -562,12 +354,12 @@ void XListPeer::postInit($XCreateWindowParams* params) {
 
 void XListPeer::createVerScrollbar() {
 	$set(this, vsb, $new($XVerticalScrollbar, this));
-	$nc(this->vsb)->setValues(0, 0, 0, 0, 1, 1);
+	this->vsb->setValues(0, 0, 0, 0, 1, 1);
 }
 
 void XListPeer::createHorScrollbar() {
 	$set(this, hsb, $new($XHorizontalScrollbar, this));
-	$nc(this->hsb)->setValues(0, 0, 0, 0, XListPeer::HORIZ_SCROLL_AMT, XListPeer::HORIZ_SCROLL_AMT);
+	this->hsb->setValues(0, 0, 0, 0, XListPeer::HORIZ_SCROLL_AMT, XListPeer::HORIZ_SCROLL_AMT);
 }
 
 void XListPeer::add($String* item, int32_t index) {
@@ -592,7 +384,7 @@ $Dimension* XListPeer::getPreferredSize(int32_t rows) {
 }
 
 $Dimension* XListPeer::getMinimumSize(int32_t rows) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($FontMetrics, fm, getFontMetrics($(getFont())));
 	initFontMetrics();
 	int32_t var$0 = 20 + $nc(fm)->stringWidth("0123456789abcde"_s);
@@ -600,7 +392,7 @@ $Dimension* XListPeer::getMinimumSize(int32_t rows) {
 }
 
 void XListPeer::initFontMetrics() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($FontMetrics, fm, getFontMetrics($(getFont())));
 	this->fontHeight = $nc(fm)->getHeight();
 	this->fontAscent = fm->getAscent();
@@ -608,25 +400,25 @@ void XListPeer::initFontMetrics() {
 }
 
 int32_t XListPeer::maxLength() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($FontMetrics, fm, getFontMetrics($(getFont())));
 	int32_t m = 0;
 	int32_t end = $nc(this->items)->size();
 	for (int32_t i = 0; i < end; ++i) {
-		int32_t l = $nc(fm)->stringWidth($cast($String, $($nc(this->items)->elementAt(i))));
+		int32_t l = $nc(fm)->stringWidth($$cast($String, $nc(this->items)->elementAt(i)));
 		m = $Math::max(m, l);
 	}
 	return m;
 }
 
 int32_t XListPeer::getItemWidth(int32_t i) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($FontMetrics, fm, getFontMetrics($(getFont())));
-	return $nc(fm)->stringWidth($cast($String, $($nc(this->items)->elementAt(i))));
+	return $nc(fm)->stringWidth($$cast($String, $nc(this->items)->elementAt(i)));
 }
 
 int32_t XListPeer::stringLength($String* str) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($FontMetrics, fm, getFontMetrics($($nc(this->target)->getFont())));
 	return $nc(fm)->stringWidth(str);
 }
@@ -709,32 +501,29 @@ void XListPeer::repaint(int32_t firstItem, int32_t lastItem, int32_t options) {
 }
 
 void XListPeer::repaint(int32_t firstItem, int32_t lastItem, int32_t options, $Rectangle* source, $Point* distance) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Graphics, g, getGraphics());
 	if (g != nullptr) {
-		{
-			$var($Throwable, var$0, nullptr);
-			try {
-				$nc(this->painter)->paint(g, firstItem, lastItem, options, source, distance);
-				$var($Component, var$1, this->target);
-				int32_t var$2 = getWidth();
-				postPaintEvent(var$1, 0, 0, var$2, getHeight());
-			} catch ($Throwable& var$3) {
-				$assign(var$0, var$3);
-			} /*finally*/ {
-				g->dispose();
-			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
+		$var($Throwable, var$0, nullptr);
+		try {
+			$nc(this->painter)->paint(g, firstItem, lastItem, options, source, distance);
+			$var($Component, var$1, this->target);
+			int32_t var$2 = getWidth();
+			postPaintEvent(var$1, 0, 0, var$2, getHeight());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
+		} /*finally*/ {
+			g->dispose();
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	}
 }
 
 void XListPeer::paintPeer($Graphics* g) {
-	$var($Graphics, var$0, g);
-	int32_t var$1 = getFirstVisibleItem();
-	$nc(this->painter)->paint(var$0, var$1, getLastVisibleItem(), XListPeer::PAINT_ALL);
+	int32_t var$0 = getFirstVisibleItem();
+	$nc(this->painter)->paint(g, var$0, getLastVisibleItem(), XListPeer::PAINT_ALL);
 }
 
 bool XListPeer::isFocusable() {
@@ -761,23 +550,21 @@ void XListPeer::layout() {
 	}
 	origVSBVal = $nc(this->vsb)->getValue();
 	vis = itemsInWindow(false);
-	maximum = $nc(this->items)->size() < vis ? vis : $nc(this->items)->size();
+	maximum = $nc(this->items)->size() < vis ? vis : this->items->size();
 	int32_t var$0 = $nc(this->vsb)->getValue();
-	int32_t var$1 = vis;
-	$nc(this->vsb)->setValues(var$0, var$1, $nc(this->vsb)->getMinimum(), maximum);
+	$nc(this->vsb)->setValues(var$0, vis, this->vsb->getMinimum(), maximum);
 	this->vsbVis = (vsbWasVisible = vsbIsVisible(false));
 	this->listHeight = this->height;
 	this->listWidth = getListWidth();
 	vis = this->listWidth - ((2 * XListPeer::SPACE) + (2 * XListPeer::MARGIN));
 	maximum = this->maxLength$ < vis ? vis : this->maxLength$;
-	int32_t var$2 = $nc(this->hsb)->getValue();
-	int32_t var$3 = vis;
-	$nc(this->hsb)->setValues(var$2, var$3, $nc(this->hsb)->getMinimum(), maximum);
+	int32_t var$1 = $nc(this->hsb)->getValue();
+	$nc(this->hsb)->setValues(var$1, vis, this->hsb->getMinimum(), maximum);
 	this->hsbVis = hsbIsVisible(this->vsbVis);
 	if (this->hsbVis) {
 		this->listHeight = this->height - XListPeer::SCROLLBAR_AREA;
 		vis = itemsInWindow(true);
-		maximum = $nc(this->items)->size() < vis ? vis : $nc(this->items)->size();
+		maximum = $nc(this->items)->size() < vis ? vis : this->items->size();
 		$nc(this->vsb)->setValues(origVSBVal, vis, $nc(this->vsb)->getMinimum(), maximum);
 		this->vsbVis = vsbIsVisible(true);
 	}
@@ -785,9 +572,8 @@ void XListPeer::layout() {
 		this->listWidth = getListWidth();
 		vis = this->listWidth - ((2 * XListPeer::SPACE) + (2 * XListPeer::MARGIN));
 		maximum = this->maxLength$ < vis ? 0 : this->maxLength$;
-		int32_t var$4 = $nc(this->hsb)->getValue();
-		int32_t var$5 = vis;
-		$nc(this->hsb)->setValues(var$4, var$5, $nc(this->hsb)->getMinimum(), maximum);
+		int32_t var$2 = $nc(this->hsb)->getValue();
+		$nc(this->hsb)->setValues(var$2, vis, this->hsb->getMinimum(), maximum);
 		this->hsbVis = hsbIsVisible(this->vsbVis);
 	}
 	$nc(this->vsb)->setSize(XListPeer::SCROLLBAR_WIDTH, this->listHeight);
@@ -849,20 +635,14 @@ void XListPeer::handleJavaMouseEvent($MouseEvent* e) {
 	int32_t i = $nc(e)->getID();
 	switch (i) {
 	case $MouseEvent::MOUSE_PRESSED:
-		{
-			mousePressed(e);
-			break;
-		}
+		mousePressed(e);
+		break;
 	case $MouseEvent::MOUSE_RELEASED:
-		{
-			mouseReleased(e);
-			break;
-		}
+		mouseReleased(e);
+		break;
 	case $MouseEvent::MOUSE_DRAGGED:
-		{
-			mouseDragged(e);
-			break;
-		}
+		mouseDragged(e);
+		break;
 	}
 }
 
@@ -873,17 +653,17 @@ void XListPeer::handleJavaMouseWheelEvent($MouseWheelEvent* e) {
 }
 
 void XListPeer::mousePressed($MouseEvent* mouseEvent) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($PlatformLogger$Level);
 	if ($nc(XListPeer::log)->isLoggable($PlatformLogger$Level::FINER)) {
-		$nc(XListPeer::log)->finer($$str({$($nc(mouseEvent)->toString()), ", hsb "_s, $$str(this->hsbVis), ", vsb "_s, $$str(this->vsbVis)}));
+		XListPeer::log->finer($$str({$($nc(mouseEvent)->toString()), ", hsb "_s, $$str(this->hsbVis), ", vsb "_s, $$str(this->vsbVis)}));
 	}
 	bool var$0 = isEnabled();
 	if (var$0 && $nc(mouseEvent)->getButton() == $MouseEvent::BUTTON1) {
 		int32_t var$1 = mouseEvent->getX();
 		if (inWindow(var$1, mouseEvent->getY())) {
-			if ($nc(XListPeer::log)->isLoggable($PlatformLogger$Level::FINE)) {
-				$nc(XListPeer::log)->fine("Mouse press in items area"_s);
+			if (XListPeer::log->isLoggable($PlatformLogger$Level::FINE)) {
+				XListPeer::log->fine("Mouse press in items area"_s);
 			}
 			this->active = XListPeer::WINDOW;
 			int32_t i = y2index(mouseEvent->getY());
@@ -909,27 +689,27 @@ void XListPeer::mousePressed($MouseEvent* mouseEvent) {
 				this->currentIndex = -1;
 			}
 		} else {
-			int32_t var$3 = mouseEvent->getX();
-			if (inVerticalScrollbar(var$3, mouseEvent->getY())) {
-				if ($nc(XListPeer::log)->isLoggable($PlatformLogger$Level::FINE)) {
-					$nc(XListPeer::log)->fine("Mouse press in vertical scrollbar"_s);
+			int32_t var$2 = mouseEvent->getX();
+			if (inVerticalScrollbar(var$2, mouseEvent->getY())) {
+				if (XListPeer::log->isLoggable($PlatformLogger$Level::FINE)) {
+					XListPeer::log->fine("Mouse press in vertical scrollbar"_s);
 				}
 				this->active = XListPeer::VERSCROLLBAR;
-				int32_t var$4 = mouseEvent->getID();
-				int32_t var$5 = mouseEvent->getModifiers();
-				int32_t var$6 = mouseEvent->getX() - (this->width - XListPeer::SCROLLBAR_WIDTH);
-				$nc(this->vsb)->handleMouseEvent(var$4, var$5, var$6, mouseEvent->getY());
+				int32_t var$3 = mouseEvent->getID();
+				int32_t var$4 = mouseEvent->getModifiers();
+				int32_t var$5 = mouseEvent->getX() - (this->width - XListPeer::SCROLLBAR_WIDTH);
+				$nc(this->vsb)->handleMouseEvent(var$3, var$4, var$5, mouseEvent->getY());
 			} else {
-				int32_t var$8 = mouseEvent->getX();
-				if (inHorizontalScrollbar(var$8, mouseEvent->getY())) {
-					if ($nc(XListPeer::log)->isLoggable($PlatformLogger$Level::FINE)) {
-						$nc(XListPeer::log)->fine("Mouse press in horizontal scrollbar"_s);
+				int32_t var$6 = mouseEvent->getX();
+				if (inHorizontalScrollbar(var$6, mouseEvent->getY())) {
+					if (XListPeer::log->isLoggable($PlatformLogger$Level::FINE)) {
+						XListPeer::log->fine("Mouse press in horizontal scrollbar"_s);
 					}
 					this->active = XListPeer::HORSCROLLBAR;
-					int32_t var$9 = mouseEvent->getID();
-					int32_t var$10 = mouseEvent->getModifiers();
-					int32_t var$11 = mouseEvent->getX();
-					$nc(this->hsb)->handleMouseEvent(var$9, var$10, var$11, mouseEvent->getY() - (this->height - XListPeer::SCROLLBAR_WIDTH));
+					int32_t var$7 = mouseEvent->getID();
+					int32_t var$8 = mouseEvent->getModifiers();
+					int32_t var$9 = mouseEvent->getX();
+					$nc(this->hsb)->handleMouseEvent(var$7, var$8, var$9, mouseEvent->getY() - (this->height - XListPeer::SCROLLBAR_WIDTH));
 				}
 			}
 		}
@@ -938,7 +718,7 @@ void XListPeer::mousePressed($MouseEvent* mouseEvent) {
 }
 
 void XListPeer::mouseReleased($MouseEvent* mouseEvent) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool var$0 = isEnabled();
 	if (var$0 && $nc(mouseEvent)->getButton() == $MouseEvent::BUTTON1) {
 		int32_t clickCount = mouseEvent->getClickCount();
@@ -953,7 +733,7 @@ void XListPeer::mouseReleased($MouseEvent* mouseEvent) {
 			int32_t var$6 = mouseEvent->getX();
 			$nc(this->hsb)->handleMouseEvent(var$4, var$5, var$6, mouseEvent->getY() - (this->height - XListPeer::SCROLLBAR_WIDTH));
 		} else if ((this->currentIndex >= 0) && (clickCount >= 2) && (clickCount % 2 == 0)) {
-			$var($Object, var$7, $of(this->target));
+			$var($Object, var$7, this->target);
 			$var($String, var$8, $cast($String, $nc(this->items)->elementAt(this->currentIndex)));
 			int64_t var$9 = mouseEvent->getWhen();
 			postEvent($$new($ActionEvent, var$7, $ActionEvent::ACTION_PERFORMED, var$8, var$9, mouseEvent->getModifiers()));
@@ -978,7 +758,7 @@ void XListPeer::mouseReleased($MouseEvent* mouseEvent) {
 
 void XListPeer::mouseDragged($MouseEvent* mouseEvent) {
 	bool var$0 = isEnabled();
-	if (var$0 && ((int32_t)($nc(mouseEvent)->getModifiersEx() & (uint32_t)$InputEvent::BUTTON1_DOWN_MASK)) != 0) {
+	if (var$0 && ($nc(mouseEvent)->getModifiersEx() & $InputEvent::BUTTON1_DOWN_MASK) != 0) {
 		if (this->active == XListPeer::VERSCROLLBAR) {
 			int32_t var$1 = mouseEvent->getID();
 			int32_t var$2 = mouseEvent->getModifiers();
@@ -1022,8 +802,8 @@ void XListPeer::trackMouseDraggedScroll($MouseEvent* mouseEvent) {
 	} else {
 		$nc(this->vsb)->setMode($AdjustmentEvent::UNIT_INCREMENT);
 	}
-	bool var$1 = $nc(mouseEvent)->getY() < 0;
-	if (var$1 || $nc(mouseEvent)->getY() >= this->listHeight) {
+	bool var$1 = mouseEvent->getY() < 0;
+	if (var$1 || mouseEvent->getY() >= this->listHeight) {
 		if (!this->mouseDraggedOutVertically) {
 			this->mouseDraggedOutVertically = true;
 			$nc(this->vsb)->startScrollingInstance();
@@ -1032,14 +812,14 @@ void XListPeer::trackMouseDraggedScroll($MouseEvent* mouseEvent) {
 		this->mouseDraggedOutVertically = false;
 		$nc(this->vsb)->stopScrollingInstance();
 	}
-	int32_t var$2 = $nc(mouseEvent)->getX();
+	int32_t var$2 = mouseEvent->getX();
 	if ($nc(this->hsb)->beforeThumb(var$2, mouseEvent->getY())) {
 		$nc(this->hsb)->setMode($AdjustmentEvent::UNIT_DECREMENT);
 	} else {
 		$nc(this->hsb)->setMode($AdjustmentEvent::UNIT_INCREMENT);
 	}
-	bool var$3 = $nc(mouseEvent)->getX() < 0;
-	if (var$3 || $nc(mouseEvent)->getX() >= this->listWidth) {
+	bool var$3 = mouseEvent->getX() < 0;
+	if (var$3 || mouseEvent->getX() >= this->listWidth) {
 		if (!this->mouseDraggedOutHorizontally) {
 			this->mouseDraggedOutHorizontally = true;
 			$nc(this->hsb)->startScrollingInstance();
@@ -1064,46 +844,40 @@ void XListPeer::trackMouseReleasedScroll() {
 void XListPeer::handleJavaKeyEvent($KeyEvent* e) {
 	switch ($nc(e)->getID()) {
 	case $KeyEvent::KEY_PRESSED:
-		{
-			if (!this->isMousePressed) {
-				keyPressed(e);
-			}
-			break;
+		if (!this->isMousePressed) {
+			keyPressed(e);
 		}
+		break;
 	}
 }
 
 void XListPeer::keyPressed($KeyEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t keyCode = $nc(e)->getKeyCode();
 	$init($PlatformLogger$Level);
 	if ($nc(XListPeer::log)->isLoggable($PlatformLogger$Level::FINE)) {
-		$nc(XListPeer::log)->fine($(e->toString()));
+		XListPeer::log->fine($(e->toString()));
 	}
 	{
 		bool isSelected = false;
 		switch (keyCode) {
 		case $KeyEvent::VK_UP:
-			{}
 		case $KeyEvent::VK_KP_UP:
-			{
-				if (getFocusIndex() > 0) {
-					setFocusIndex(getFocusIndex() - 1);
-					repaint(XListPeer::PAINT_HIDEFOCUS);
-					if (!this->multipleSelections) {
-						selectItem(getFocusIndex());
-						postEvent($$new($ItemEvent, $cast($List, this->target), $ItemEvent::ITEM_STATE_CHANGED, $($Integer::valueOf(getFocusIndex())), $ItemEvent::SELECTED));
-					}
-					if (isItemHidden(getFocusIndex())) {
-						makeVisible(getFocusIndex());
-					} else {
-						repaint(XListPeer::PAINT_FOCUS);
-					}
+			if (getFocusIndex() > 0) {
+				setFocusIndex(getFocusIndex() - 1);
+				repaint(XListPeer::PAINT_HIDEFOCUS);
+				if (!this->multipleSelections) {
+					selectItem(getFocusIndex());
+					postEvent($$new($ItemEvent, $cast($List, this->target), $ItemEvent::ITEM_STATE_CHANGED, $($Integer::valueOf(getFocusIndex())), $ItemEvent::SELECTED));
 				}
-				break;
+				if (isItemHidden(getFocusIndex())) {
+					makeVisible(getFocusIndex());
+				} else {
+					repaint(XListPeer::PAINT_FOCUS);
+				}
 			}
+			break;
 		case $KeyEvent::VK_DOWN:
-			{}
 		case $KeyEvent::VK_KP_DOWN:
 			{
 				int32_t var$0 = getFocusIndex();
@@ -1124,67 +898,57 @@ void XListPeer::keyPressed($KeyEvent* e) {
 			}
 		case $KeyEvent::VK_PAGE_UP:
 			{
-				{
-					int32_t previousValue = $nc(this->vsb)->getValue();
-					int32_t var$1 = $nc(this->vsb)->getValue();
-					$nc(this->vsb)->setValue(var$1 - $nc(this->vsb)->getBlockIncrement());
-					int32_t currentValue = $nc(this->vsb)->getValue();
-					if (previousValue != currentValue) {
-						int32_t var$2 = getFocusIndex();
-						setFocusIndex($Math::max(var$2 - itemsInWindow(), 0));
-						if (!this->multipleSelections) {
-							selectItem(getFocusIndex());
-							postEvent($$new($ItemEvent, $cast($List, this->target), $ItemEvent::ITEM_STATE_CHANGED, $($Integer::valueOf(getFocusIndex())), $ItemEvent::SELECTED));
-						}
+				int32_t previousValue = $nc(this->vsb)->getValue();
+				int32_t var$1 = $nc(this->vsb)->getValue();
+				$nc(this->vsb)->setValue(var$1 - this->vsb->getBlockIncrement());
+				int32_t currentValue = $nc(this->vsb)->getValue();
+				if (previousValue != currentValue) {
+					int32_t var$2 = getFocusIndex();
+					setFocusIndex($Math::max(var$2 - itemsInWindow(), 0));
+					if (!this->multipleSelections) {
+						selectItem(getFocusIndex());
+						postEvent($$new($ItemEvent, $cast($List, this->target), $ItemEvent::ITEM_STATE_CHANGED, $($Integer::valueOf(getFocusIndex())), $ItemEvent::SELECTED));
 					}
-					repaint();
-					break;
 				}
+				repaint();
+				break;
 			}
 		case $KeyEvent::VK_PAGE_DOWN:
 			{
-				{
-					int32_t previousValue = $nc(this->vsb)->getValue();
-					int32_t var$3 = $nc(this->vsb)->getValue();
-					$nc(this->vsb)->setValue(var$3 + $nc(this->vsb)->getBlockIncrement());
-					int32_t currentValue = $nc(this->vsb)->getValue();
-					if (previousValue != currentValue) {
-						int32_t var$5 = getFocusIndex();
-						int32_t var$4 = var$5 + itemsInWindow();
-						setFocusIndex($Math::min(var$4, $nc(this->items)->size() - 1));
-						if (!this->multipleSelections) {
-							selectItem(getFocusIndex());
-							postEvent($$new($ItemEvent, $cast($List, this->target), $ItemEvent::ITEM_STATE_CHANGED, $($Integer::valueOf(getFocusIndex())), $ItemEvent::SELECTED));
-						}
+				int32_t previousValue = $nc(this->vsb)->getValue();
+				int32_t var$3 = $nc(this->vsb)->getValue();
+				$nc(this->vsb)->setValue(var$3 + this->vsb->getBlockIncrement());
+				int32_t currentValue = $nc(this->vsb)->getValue();
+				if (previousValue != currentValue) {
+					int32_t var$5 = getFocusIndex();
+					int32_t var$4 = var$5 + itemsInWindow();
+					setFocusIndex($Math::min(var$4, $nc(this->items)->size() - 1));
+					if (!this->multipleSelections) {
+						selectItem(getFocusIndex());
+						postEvent($$new($ItemEvent, $cast($List, this->target), $ItemEvent::ITEM_STATE_CHANGED, $($Integer::valueOf(getFocusIndex())), $ItemEvent::SELECTED));
 					}
-					repaint();
-					break;
 				}
+				repaint();
+				break;
 			}
 		case $KeyEvent::VK_LEFT:
-			{}
 		case $KeyEvent::VK_KP_LEFT:
-			{
-				if (this->hsbVis & ($nc(this->hsb)->getValue() > 0)) {
-					$nc(this->hsb)->setValue($nc(this->hsb)->getValue() - XListPeer::HORIZ_SCROLL_AMT);
-					repaint();
-				}
-				break;
+			if (this->hsbVis & ($nc(this->hsb)->getValue() > 0)) {
+				$nc(this->hsb)->setValue($nc(this->hsb)->getValue() - XListPeer::HORIZ_SCROLL_AMT);
+				repaint();
 			}
+			break;
 		case $KeyEvent::VK_RIGHT:
-			{}
 		case $KeyEvent::VK_KP_RIGHT:
-			{
-				if (this->hsbVis) {
-					$nc(this->hsb)->setValue($nc(this->hsb)->getValue() + XListPeer::HORIZ_SCROLL_AMT);
-					repaint();
-				}
-				break;
+			if (this->hsbVis) {
+				$nc(this->hsb)->setValue($nc(this->hsb)->getValue() + XListPeer::HORIZ_SCROLL_AMT);
+				repaint();
 			}
+			break;
 		case $KeyEvent::VK_HOME:
 			{
 				bool var$6 = !e->isControlDown();
-				if (var$6 || $nc(($cast($List, this->target)))->getItemCount() <= 0) {
+				if (var$6 || $nc($cast($List, this->target))->getItemCount() <= 0) {
 					break;
 				}
 				if (this->vsbVis) {
@@ -1201,7 +965,7 @@ void XListPeer::keyPressed($KeyEvent* e) {
 		case $KeyEvent::VK_END:
 			{
 				bool var$7 = !e->isControlDown();
-				if (var$7 || $nc(($cast($List, this->target)))->getItemCount() <= 0) {
+				if (var$7 || $nc($cast($List, this->target))->getItemCount() <= 0) {
 					break;
 				}
 				if (this->vsbVis) {
@@ -1218,7 +982,7 @@ void XListPeer::keyPressed($KeyEvent* e) {
 		case $KeyEvent::VK_SPACE:
 			{
 				bool var$8 = getFocusIndex() < 0;
-				if (var$8 || $nc(($cast($List, this->target)))->getItemCount() <= 0) {
+				if (var$8 || $nc($cast($List, this->target))->getItemCount() <= 0) {
 					break;
 				}
 				isSelected = this->isSelected(getFocusIndex());
@@ -1232,24 +996,22 @@ void XListPeer::keyPressed($KeyEvent* e) {
 				break;
 			}
 		case $KeyEvent::VK_ENTER:
-			{
-				if ($nc(this->selected)->length > 0) {
-					$var($Object, var$9, $cast($List, this->target));
-					$var($String, var$10, $cast($String, $nc(this->items)->elementAt(getFocusIndex())));
-					int64_t var$11 = e->getWhen();
-					postEvent($$new($ActionEvent, var$9, $ActionEvent::ACTION_PERFORMED, var$10, var$11, e->getModifiers()));
-				}
-				break;
+			if ($nc(this->selected)->length > 0) {
+				$var($Object, var$9, $cast($List, this->target));
+				$var($String, var$10, $cast($String, $nc(this->items)->elementAt(getFocusIndex())));
+				int64_t var$11 = e->getWhen();
+				postEvent($$new($ActionEvent, var$9, $ActionEvent::ACTION_PERFORMED, var$10, var$11, e->getModifiers()));
 			}
+			break;
 		}
 	}
 }
 
 void XListPeer::notifyValue($XScrollbar* obj, int32_t type, int32_t v, bool isAdjusting) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($PlatformLogger$Level);
 	if ($nc(XListPeer::log)->isLoggable($PlatformLogger$Level::FINE)) {
-		$nc(XListPeer::log)->fine($$str({"Notify value changed on "_s, obj, " to "_s, $$str(v)}));
+		XListPeer::log->fine($$str({"Notify value changed on "_s, obj, " to "_s, $$str(v)}));
 	}
 	int32_t value = $nc(obj)->getValue();
 	if ($equals(obj, this->vsb)) {
@@ -1287,7 +1049,7 @@ void XListPeer::setMultipleSelections(bool v) {
 }
 
 void XListPeer::addItem($String* item, int32_t i) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t oldMaxLength = this->maxLength$;
 	bool hsbWasVis = this->hsbVis;
 	bool vsbWasVis = this->vsbVis;
@@ -1299,19 +1061,19 @@ void XListPeer::addItem($String* item, int32_t i) {
 	if (i == -1) {
 		$nc(this->items)->addElement(item);
 		i = 0;
-		addedIndex = $nc(this->items)->size() - 1;
+		addedIndex = this->items->size() - 1;
 	} else {
 		$nc(this->items)->insertElementAt(item, i);
 		addedIndex = i;
 		for (int32_t j = 0; j < $nc(this->selected)->length; ++j) {
-			if ($nc(this->selected)->get(j) >= i) {
-				(*$nc(this->selected))[j] += 1;
+			if (this->selected->get(j) >= i) {
+				(*this->selected)[j] += 1;
 			}
 		}
 	}
 	$init($PlatformLogger$Level);
 	if ($nc(XListPeer::log)->isLoggable($PlatformLogger$Level::FINER)) {
-		$nc(XListPeer::log)->finer($$str({"Adding item \'"_s, item, "\' to "_s, $$str(addedIndex)}));
+		XListPeer::log->finer($$str({"Adding item \'"_s, item, "\' to "_s, $$str(addedIndex)}));
 	}
 	bool repaintItems = !isItemHidden(addedIndex);
 	this->maxLength$ = $Math::max(this->maxLength$, getItemWidth(addedIndex));
@@ -1322,24 +1084,30 @@ void XListPeer::addItem($String* item, int32_t i) {
 	} else {
 		options = ((repaintItems ? (XListPeer::PAINT_ITEMS) : 0) | ((this->maxLength$ != oldMaxLength || (hsbWasVis ^ this->hsbVis)) ? (XListPeer::PAINT_HSCROLL) : 0)) | (($nc(this->vsb)->needsRepaint()) ? (XListPeer::PAINT_VSCROLL) : 0);
 	}
-	if ($nc(XListPeer::log)->isLoggable($PlatformLogger$Level::FINEST)) {
-		$nc(XListPeer::log)->finest($$str({"Last visible: "_s, $$str(getLastVisibleItem()), ", hsb changed : "_s, $$str((hsbWasVis ^ this->hsbVis)), ", items changed "_s, $$str(repaintItems)}));
+	if (XListPeer::log->isLoggable($PlatformLogger$Level::FINEST)) {
+		XListPeer::log->finest($$str({"Last visible: "_s, $$str(getLastVisibleItem()), ", hsb changed : "_s, $$str((hsbWasVis ^ this->hsbVis)), ", items changed "_s, $$str(repaintItems)}));
 	}
 	repaint(addedIndex, getLastVisibleItem(), options);
 }
 
 void XListPeer::delItems(int32_t s, int32_t e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool hsbWasVisible = this->hsbVis;
 	bool vsbWasVisible = this->vsbVis;
 	int32_t oldLastDisplayed = lastItemDisplayed();
 	$init($PlatformLogger$Level);
 	if ($nc(XListPeer::log)->isLoggable($PlatformLogger$Level::FINE)) {
-		$nc(XListPeer::log)->fine($$str({"Deleting from "_s, $$str(s), " to "_s, $$str(e)}));
+		XListPeer::log->fine($$str({"Deleting from "_s, $$str(s), " to "_s, $$str(e)}));
 	}
-	if ($nc(XListPeer::log)->isLoggable($PlatformLogger$Level::FINEST)) {
-		$var($String, var$0, $$str({"Last displayed item: "_s, $$str(oldLastDisplayed), ", items in window "_s, $$str(itemsInWindow()), ", size "_s}));
-		$nc(XListPeer::log)->finest($$concat(var$0, $$str($nc(this->items)->size())));
+	if (XListPeer::log->isLoggable($PlatformLogger$Level::FINEST)) {
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append("Last displayed item: "_s);
+		var$0->append(oldLastDisplayed);
+		var$0->append(", items in window "_s);
+		var$0->append(itemsInWindow());
+		var$0->append(", size "_s);
+		var$0->append($nc(this->items)->size());
+		XListPeer::log->finest($$str(var$0));
 	}
 	if ($nc(this->items)->size() == 0) {
 		return;
@@ -1352,8 +1120,8 @@ void XListPeer::delItems(int32_t s, int32_t e) {
 	if (s < 0) {
 		s = 0;
 	}
-	if (e >= $nc(this->items)->size()) {
-		e = $nc(this->items)->size() - 1;
+	if (e >= this->items->size()) {
+		e = this->items->size() - 1;
 	}
 	bool var$1 = s >= getFirstVisibleItem();
 	bool repaintNeeded = (var$1 && s <= getLastVisibleItem());
@@ -1363,14 +1131,14 @@ void XListPeer::delItems(int32_t s, int32_t e) {
 		if (j != -1) {
 			$var($ints, newsel, $new($ints, $nc(this->selected)->length - 1));
 			$System::arraycopy(this->selected, 0, newsel, 0, j);
-			$System::arraycopy(this->selected, j + 1, newsel, j, $nc(this->selected)->length - (j + 1));
+			$System::arraycopy(this->selected, j + 1, newsel, j, this->selected->length - (j + 1));
 			$set(this, selected, newsel);
 		}
 	}
 	int32_t diff = (e - s) + 1;
 	for (int32_t i = 0; i < $nc(this->selected)->length; ++i) {
-		if ($nc(this->selected)->get(i) > e) {
-			(*$nc(this->selected))[i] -= diff;
+		if (this->selected->get(i) > e) {
+			(*this->selected)[i] -= diff;
 		}
 	}
 	int32_t options = XListPeer::PAINT_VSCROLL;
@@ -1378,15 +1146,15 @@ void XListPeer::delItems(int32_t s, int32_t e) {
 		setFocusIndex(getFocusIndex() - (e - s + 1));
 		options |= XListPeer::PAINT_FOCUS;
 	} else {
-		bool var$3 = getFocusIndex() >= s;
-		if (var$3 && getFocusIndex() <= e) {
+		bool var$2 = getFocusIndex() >= s;
+		if (var$2 && getFocusIndex() <= e) {
 			int32_t focusBound = ($nc(this->items)->size() > 0) ? 0 : -1;
 			setFocusIndex($Math::max(s - 1, focusBound));
 			options |= XListPeer::PAINT_FOCUS;
 		}
 	}
-	if ($nc(XListPeer::log)->isLoggable($PlatformLogger$Level::FINEST)) {
-		$nc(XListPeer::log)->finest($$str({"Multiple selections: "_s, $$str(this->multipleSelections)}));
+	if (XListPeer::log->isLoggable($PlatformLogger$Level::FINEST)) {
+		XListPeer::log->finest($$str({"Multiple selections: "_s, $$str(this->multipleSelections)}));
 	}
 	if ($nc(this->vsb)->getValue() >= s) {
 		if ($nc(this->vsb)->getValue() <= e) {
@@ -1422,10 +1190,10 @@ void XListPeer::selectItem(int32_t index) {
 	if (!this->multipleSelections) {
 		if ($nc(this->selected)->length == 0) {
 			$set(this, selected, $new($ints, 1));
-			$nc(this->selected)->set(0, index);
+			this->selected->set(0, index);
 		} else {
-			int32_t oldSel = $nc(this->selected)->get(0);
-			$nc(this->selected)->set(0, index);
+			int32_t oldSel = this->selected->get(0);
+			this->selected->set(0, index);
 			if (!isItemHidden(oldSel)) {
 				repaint(oldSel, oldSel, XListPeer::PAINT_ITEMS);
 			}
@@ -1433,12 +1201,12 @@ void XListPeer::selectItem(int32_t index) {
 	} else {
 		$var($ints, newsel, $new($ints, $nc(this->selected)->length + 1));
 		int32_t i = 0;
-		while (i < $nc(this->selected)->length && index > $nc(this->selected)->get(i)) {
-			newsel->set(i, $nc(this->selected)->get(i));
+		while (i < this->selected->length && index > this->selected->get(i)) {
+			newsel->set(i, this->selected->get(i));
 			++i;
 		}
 		newsel->set(i, index);
-		$System::arraycopy(this->selected, i, newsel, i + 1, $nc(this->selected)->length - i);
+		$System::arraycopy(this->selected, i, newsel, i + 1, this->selected->length - i);
 		$set(this, selected, newsel);
 	}
 	if (!isItemHidden(index)) {
@@ -1460,7 +1228,7 @@ void XListPeer::deselectItem(int32_t index) {
 		int32_t i = posInSel(index);
 		$var($ints, newsel, $new($ints, $nc(this->selected)->length - 1));
 		$System::arraycopy(this->selected, 0, newsel, 0, i);
-		$System::arraycopy(this->selected, i + 1, newsel, i, $nc(this->selected)->length - (i + 1));
+		$System::arraycopy(this->selected, i + 1, newsel, i, this->selected->length - (i + 1));
 		$set(this, selected, newsel);
 	}
 	this->currentIndex = index;
@@ -1517,7 +1285,7 @@ bool XListPeer::validY(int32_t y) {
 
 int32_t XListPeer::posInSel(int32_t index) {
 	for (int32_t i = 0; i < $nc(this->selected)->length; ++i) {
-		if (index == $nc(this->selected)->get(i)) {
+		if (index == this->selected->get(i)) {
 			return i;
 		}
 	}
@@ -1539,7 +1307,7 @@ bool XListPeer::isItemHidden(int32_t index) {
 	bool var$0 = index < $nc(this->vsb)->getValue();
 	if (!var$0) {
 		int32_t var$1 = index;
-		int32_t var$3 = $nc(this->vsb)->getValue();
+		int32_t var$3 = this->vsb->getValue();
 		int32_t var$2 = var$3 + itemsInWindow();
 		var$0 = var$1 >= var$2;
 	}
@@ -1557,10 +1325,10 @@ int32_t XListPeer::itemsDisplayed() {
 }
 
 void XListPeer::scrollVertical(int32_t y) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($PlatformLogger$Level);
 	if ($nc(XListPeer::log)->isLoggable($PlatformLogger$Level::FINE)) {
-		$nc(XListPeer::log)->fine($$str({"Scrolling vertically by "_s, $$str(y)}));
+		XListPeer::log->fine($$str({"Scrolling vertically by "_s, $$str(y)}));
 	}
 	int32_t itemsInWin = itemsInWindow();
 	int32_t h = getItemHeight();
@@ -1596,10 +1364,10 @@ void XListPeer::scrollVertical(int32_t y) {
 }
 
 void XListPeer::scrollHorizontal(int32_t x) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($PlatformLogger$Level);
 	if ($nc(XListPeer::log)->isLoggable($PlatformLogger$Level::FINE)) {
-		$nc(XListPeer::log)->fine($$str({"Scrolling horizontally by "_s, $$str(this->y)}));
+		XListPeer::log->fine($$str({"Scrolling horizontally by "_s, $$str(this->y)}));
 	}
 	int32_t w = getListWidth();
 	w -= ((2 * XListPeer::SPACE) + (2 * XListPeer::MARGIN));
@@ -1639,7 +1407,7 @@ bool XListPeer::isSelected(int32_t index) {
 		return true;
 	}
 	for (int32_t i = 0; i < $nc(this->selected)->length; ++i) {
-		if ($nc(this->selected)->get(i) == index) {
+		if (this->selected->get(i) == index) {
 			return true;
 		}
 	}
@@ -1696,7 +1464,7 @@ bool XListPeer::prePostEvent($AWTEvent* e) {
 }
 
 bool XListPeer::prePostMouseEvent($MouseEvent* me) {
-	if ($nc($(getToplevelXWindow()))->isModalBlocked()) {
+	if ($$nc(getToplevelXWindow())->isModalBlocked()) {
 		return false;
 	}
 	int32_t eventId = $nc(me)->getID();
@@ -1708,17 +1476,17 @@ bool XListPeer::prePostMouseEvent($MouseEvent* me) {
 		handleJavaMouseEventOnEDT(me);
 		return true;
 	} else {
-		bool var$4 = (eventId == $MouseEvent::MOUSE_PRESSED || eventId == $MouseEvent::MOUSE_CLICKED);
-		if (var$4) {
-			int32_t var$6 = me->getX();
-			bool var$5 = inVerticalScrollbar(var$6, me->getY());
-			if (!var$5) {
-				int32_t var$7 = me->getX();
-				var$5 = inHorizontalScrollbar(var$7, me->getY());
+		bool var$0 = eventId == $MouseEvent::MOUSE_PRESSED || eventId == $MouseEvent::MOUSE_CLICKED;
+		if (var$0) {
+			int32_t var$2 = me->getX();
+			bool var$1 = inVerticalScrollbar(var$2, me->getY());
+			if (!var$1) {
+				int32_t var$3 = me->getX();
+				var$1 = inHorizontalScrollbar(var$3, me->getY());
 			}
-			var$4 = (var$5);
+			var$0 = var$1;
 		}
-		if (var$4) {
+		if (var$0) {
 			if (eventId == $MouseEvent::MOUSE_PRESSED) {
 				this->isScrollBarOriginated = true;
 			}
@@ -1730,7 +1498,7 @@ bool XListPeer::prePostMouseEvent($MouseEvent* me) {
 }
 
 void XListPeer::handleJavaMouseEventOnEDT($MouseEvent* me) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($InvocationEvent, ev, $new($InvocationEvent, this->target, $$new($XListPeer$1, this, me)));
 	postEvent(ev);
 }
@@ -1744,7 +1512,7 @@ void XListPeer::setFont($Font* f) {
 	}
 }
 
-void clinit$XListPeer($Class* class$) {
+void XListPeer::clinit$($Class* clazz) {
 	XListPeer::$assertionsDisabled = !XListPeer::class$->desiredAssertionStatus();
 	$assignStatic(XListPeer::log, $PlatformLogger::getLogger("sun.awt.X11.XListPeer"_s));
 }
@@ -1753,7 +1521,201 @@ XListPeer::XListPeer() {
 }
 
 $Class* XListPeer::load$($String* name, bool initialize) {
-	$loadClass(XListPeer, name, initialize, &_XListPeer_ClassInfo_, clinit$XListPeer, allocate$XListPeer);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(XListPeer, $assertionsDisabled)},
+		{"log", "Lsun/util/logging/PlatformLogger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XListPeer, log)},
+		{"MARGIN", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XListPeer, MARGIN)},
+		{"SPACE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XListPeer, SPACE)},
+		{"SCROLLBAR_AREA", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XListPeer, SCROLLBAR_AREA)},
+		{"SCROLLBAR_WIDTH", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XListPeer, SCROLLBAR_WIDTH)},
+		{"NONE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XListPeer, NONE)},
+		{"WINDOW", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XListPeer, WINDOW)},
+		{"VERSCROLLBAR", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XListPeer, VERSCROLLBAR)},
+		{"HORSCROLLBAR", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XListPeer, HORSCROLLBAR)},
+		{"DEFAULT_VISIBLE_ROWS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XListPeer, DEFAULT_VISIBLE_ROWS)},
+		{"HORIZ_SCROLL_AMT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XListPeer, HORIZ_SCROLL_AMT)},
+		{"PAINT_VSCROLL", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XListPeer, PAINT_VSCROLL)},
+		{"PAINT_HSCROLL", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XListPeer, PAINT_HSCROLL)},
+		{"PAINT_ITEMS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XListPeer, PAINT_ITEMS)},
+		{"PAINT_FOCUS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XListPeer, PAINT_FOCUS)},
+		{"PAINT_BACKGROUND", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XListPeer, PAINT_BACKGROUND)},
+		{"PAINT_HIDEFOCUS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XListPeer, PAINT_HIDEFOCUS)},
+		{"PAINT_ALL", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XListPeer, PAINT_ALL)},
+		{"COPY_AREA", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XListPeer, COPY_AREA)},
+		{"vsb", "Lsun/awt/X11/XVerticalScrollbar;", nullptr, 0, $field(XListPeer, vsb)},
+		{"hsb", "Lsun/awt/X11/XHorizontalScrollbar;", nullptr, 0, $field(XListPeer, hsb)},
+		{"painter", "Lsun/awt/X11/XListPeer$ListPainter;", nullptr, 0, $field(XListPeer, painter)},
+		{"items", "Ljava/util/Vector;", "Ljava/util/Vector<Ljava/lang/String;>;", 0, $field(XListPeer, items)},
+		{"multipleSelections", "Z", nullptr, 0, $field(XListPeer, multipleSelections)},
+		{"active", "I", nullptr, 0, $field(XListPeer, active)},
+		{"selected", "[I", nullptr, 0, $field(XListPeer, selected)},
+		{"fontHeight", "I", nullptr, 0, $field(XListPeer, fontHeight)},
+		{"fontAscent", "I", nullptr, 0, $field(XListPeer, fontAscent)},
+		{"fontLeading", "I", nullptr, 0, $field(XListPeer, fontLeading)},
+		{"currentIndex", "I", nullptr, 0, $field(XListPeer, currentIndex)},
+		{"eventIndex", "I", nullptr, 0, $field(XListPeer, eventIndex)},
+		{"eventType", "I", nullptr, 0, $field(XListPeer, eventType)},
+		{"focusIndex", "I", nullptr, 0, $field(XListPeer, focusIndex)},
+		{"maxLength", "I", nullptr, 0, $field(XListPeer, maxLength$)},
+		{"vsbVis", "Z", nullptr, 0, $field(XListPeer, vsbVis)},
+		{"hsbVis", "Z", nullptr, 0, $field(XListPeer, hsbVis)},
+		{"listWidth", "I", nullptr, 0, $field(XListPeer, listWidth)},
+		{"listHeight", "I", nullptr, 0, $field(XListPeer, listHeight)},
+		{"firstTimeVisibleIndex", "I", nullptr, $PRIVATE, $field(XListPeer, firstTimeVisibleIndex)},
+		{"bgColorSet", "Z", nullptr, 0, $field(XListPeer, bgColorSet)},
+		{"fgColorSet", "Z", nullptr, 0, $field(XListPeer, fgColorSet)},
+		{"mouseDraggedOutHorizontally", "Z", nullptr, 0, $field(XListPeer, mouseDraggedOutHorizontally)},
+		{"mouseDraggedOutVertically", "Z", nullptr, 0, $field(XListPeer, mouseDraggedOutVertically)},
+		{"isScrollBarOriginated", "Z", nullptr, 0, $field(XListPeer, isScrollBarOriginated)},
+		{"isMousePressed", "Z", nullptr, 0, $field(XListPeer, isMousePressed)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*applyShape", "(Lsun/java2d/pipe/Region;)V", nullptr, $PUBLIC},
+		{"*canDetermineObscurity", "()Z", nullptr, $PUBLIC},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*coalescePaintEvent", "(Ljava/awt/event/PaintEvent;)V", nullptr, $PUBLIC},
+		{"*createBuffers", "(ILjava/awt/BufferCapabilities;)V", nullptr, $PUBLIC},
+		{"*createImage", "(II)Ljava/awt/Image;", nullptr, $PUBLIC},
+		{"*createVolatileImage", "(II)Ljava/awt/image/VolatileImage;", nullptr, $PUBLIC},
+		{"*destroyBuffers", "()V", nullptr, $PUBLIC},
+		{"*dispose", "()V", nullptr, $PUBLIC | $SYNTHETIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*flip", "(IIIILjava/awt/BufferCapabilities$FlipContents;)V", nullptr, $PUBLIC},
+		{"*getBackBuffer", "()Ljava/awt/Image;", nullptr, $PUBLIC},
+		{"*getColorModel", "()Ljava/awt/image/ColorModel;", nullptr, $PUBLIC | $SYNTHETIC},
+		{"*getEventSource", "()Ljava/awt/Component;", nullptr, $PUBLIC | $SYNTHETIC},
+		{"*getFontMetrics", "(Ljava/awt/Font;)Ljava/awt/FontMetrics;", nullptr, $PUBLIC},
+		{"*getGraphics", "()Ljava/awt/Graphics;", nullptr, $PUBLIC},
+		{"*getGraphicsConfiguration", "()Ljava/awt/GraphicsConfiguration;", nullptr, $PUBLIC | $SYNTHETIC},
+		{"*getLocationOnScreen", "()Ljava/awt/Point;", nullptr, $PUBLIC | $SYNTHETIC},
+		{"*getPreferredSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC},
+		{"*handleEvent", "(Ljava/awt/AWTEvent;)V", nullptr, $PUBLIC},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/awt/List;)V", nullptr, 0, $method(XListPeer, init$, void, $List*)},
+		{"add", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $virtualMethod(XListPeer, add, void, $String*, int32_t)},
+		{"addItem", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $virtualMethod(XListPeer, addItem, void, $String*, int32_t)},
+		{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(XListPeer, clear, void)},
+		{"createHorScrollbar", "()V", nullptr, 0, $virtualMethod(XListPeer, createHorScrollbar, void)},
+		{"createVerScrollbar", "()V", nullptr, 0, $virtualMethod(XListPeer, createVerScrollbar, void)},
+		{"delItems", "(II)V", nullptr, $PUBLIC, $virtualMethod(XListPeer, delItems, void, int32_t, int32_t)},
+		{"deselect", "(I)V", nullptr, $PUBLIC, $virtualMethod(XListPeer, deselect, void, int32_t)},
+		{"deselectAllItems", "()V", nullptr, $PRIVATE, $method(XListPeer, deselectAllItems, void)},
+		{"deselectItem", "(I)V", nullptr, 0, $virtualMethod(XListPeer, deselectItem, void, int32_t)},
+		{"focusGained", "(Ljava/awt/event/FocusEvent;)V", nullptr, $PUBLIC, $virtualMethod(XListPeer, focusGained, void, $FocusEvent*)},
+		{"focusLost", "(Ljava/awt/event/FocusEvent;)V", nullptr, $PUBLIC, $virtualMethod(XListPeer, focusLost, void, $FocusEvent*)},
+		{"getFirstVisibleItem", "()I", nullptr, 0, $virtualMethod(XListPeer, getFirstVisibleItem, int32_t)},
+		{"getFocusIndex", "()I", nullptr, 0, $virtualMethod(XListPeer, getFocusIndex, int32_t)},
+		{"getFocusRect", "()Ljava/awt/Rectangle;", nullptr, 0, $virtualMethod(XListPeer, getFocusRect, $Rectangle*)},
+		{"getHScrollBarRec", "()Ljava/awt/Rectangle;", nullptr, 0, $virtualMethod(XListPeer, getHScrollBarRec, $Rectangle*)},
+		{"getItemHeight", "()I", nullptr, 0, $virtualMethod(XListPeer, getItemHeight, int32_t)},
+		{"getItemWidth", "(I)I", nullptr, 0, $virtualMethod(XListPeer, getItemWidth, int32_t, int32_t)},
+		{"getItemWidth", "()I", nullptr, 0, $virtualMethod(XListPeer, getItemWidth, int32_t)},
+		{"getItemX", "()I", nullptr, 0, $virtualMethod(XListPeer, getItemX, int32_t)},
+		{"getItemY", "(I)I", nullptr, 0, $virtualMethod(XListPeer, getItemY, int32_t, int32_t)},
+		{"getLastVisibleItem", "()I", nullptr, 0, $virtualMethod(XListPeer, getLastVisibleItem, int32_t)},
+		{"getListBackground", "([Ljava/awt/Color;)Ljava/awt/Color;", nullptr, $PRIVATE, $method(XListPeer, getListBackground, $Color*, $ColorArray*)},
+		{"getListForeground", "([Ljava/awt/Color;)Ljava/awt/Color;", nullptr, $PRIVATE, $method(XListPeer, getListForeground, $Color*, $ColorArray*)},
+		{"getListWidth", "()I", nullptr, 0, $virtualMethod(XListPeer, getListWidth, int32_t)},
+		{"getMinimumSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(XListPeer, getMinimumSize, $Dimension*)},
+		{"getMinimumSize", "(I)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(XListPeer, getMinimumSize, $Dimension*, int32_t)},
+		{"getPreferredSize", "(I)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(XListPeer, getPreferredSize, $Dimension*, int32_t)},
+		{"getSelectedIndexes", "()[I", nullptr, $PUBLIC, $virtualMethod(XListPeer, getSelectedIndexes, $ints*)},
+		{"getVScrollBarRec", "()Ljava/awt/Rectangle;", nullptr, 0, $virtualMethod(XListPeer, getVScrollBarRec, $Rectangle*)},
+		{"handleConfigureNotifyEvent", "(Lsun/awt/X11/XEvent;)V", nullptr, $PUBLIC, $virtualMethod(XListPeer, handleConfigureNotifyEvent, void, $XEvent*)},
+		{"handleJavaKeyEvent", "(Ljava/awt/event/KeyEvent;)V", nullptr, 0, $virtualMethod(XListPeer, handleJavaKeyEvent, void, $KeyEvent*)},
+		{"handleJavaMouseEvent", "(Ljava/awt/event/MouseEvent;)V", nullptr, 0, $virtualMethod(XListPeer, handleJavaMouseEvent, void, $MouseEvent*)},
+		{"handleJavaMouseEventOnEDT", "(Ljava/awt/event/MouseEvent;)V", nullptr, 0, $virtualMethod(XListPeer, handleJavaMouseEventOnEDT, void, $MouseEvent*)},
+		{"handleJavaMouseWheelEvent", "(Ljava/awt/event/MouseWheelEvent;)V", nullptr, 0, $virtualMethod(XListPeer, handleJavaMouseWheelEvent, void, $MouseWheelEvent*)},
+		{"handlesWheelScrolling", "()Z", nullptr, $PUBLIC, $virtualMethod(XListPeer, handlesWheelScrolling, bool)},
+		{"hsbIsVisible", "(Z)Z", nullptr, 0, $virtualMethod(XListPeer, hsbIsVisible, bool, bool)},
+		{"inHorizontalScrollbar", "(II)Z", nullptr, 0, $virtualMethod(XListPeer, inHorizontalScrollbar, bool, int32_t, int32_t)},
+		{"inVerticalScrollbar", "(II)Z", nullptr, 0, $virtualMethod(XListPeer, inVerticalScrollbar, bool, int32_t, int32_t)},
+		{"inWindow", "(II)Z", nullptr, 0, $virtualMethod(XListPeer, inWindow, bool, int32_t, int32_t)},
+		{"index2y", "(I)I", nullptr, 0, $virtualMethod(XListPeer, index2y, int32_t, int32_t)},
+		{"initFontMetrics", "()V", nullptr, 0, $virtualMethod(XListPeer, initFontMetrics, void)},
+		{"isFocusable", "()Z", nullptr, $PUBLIC, $virtualMethod(XListPeer, isFocusable, bool)},
+		{"isIndexDisplayed", "(I)Z", nullptr, 0, $virtualMethod(XListPeer, isIndexDisplayed, bool, int32_t)},
+		{"isItemHidden", "(I)Z", nullptr, 0, $virtualMethod(XListPeer, isItemHidden, bool, int32_t)},
+		{"*isObscured", "()Z", nullptr, $PUBLIC},
+		{"*isReparentSupported", "()Z", nullptr, $PUBLIC},
+		{"isSelected", "(I)Z", nullptr, 0, $virtualMethod(XListPeer, isSelected, bool, int32_t)},
+		{"itemsDisplayed", "()I", nullptr, 0, $virtualMethod(XListPeer, itemsDisplayed, int32_t)},
+		{"itemsInWindow", "(Z)I", nullptr, 0, $virtualMethod(XListPeer, itemsInWindow, int32_t, bool)},
+		{"itemsInWindow", "()I", nullptr, 0, $virtualMethod(XListPeer, itemsInWindow, int32_t)},
+		{"keyPressed", "(Ljava/awt/event/KeyEvent;)V", nullptr, 0, $virtualMethod(XListPeer, keyPressed, void, $KeyEvent*)},
+		{"lastItemDisplayed", "()I", nullptr, 0, $virtualMethod(XListPeer, lastItemDisplayed, int32_t)},
+		{"layout", "()V", nullptr, $PUBLIC, $virtualMethod(XListPeer, layout, void)},
+		{"makeVisible", "(I)V", nullptr, $PUBLIC, $virtualMethod(XListPeer, makeVisible, void, int32_t)},
+		{"maxLength", "()I", nullptr, 0, $virtualMethod(XListPeer, maxLength, int32_t)},
+		{"mouseDragged", "(Ljava/awt/event/MouseEvent;)V", nullptr, 0, $virtualMethod(XListPeer, mouseDragged, void, $MouseEvent*)},
+		{"mousePressed", "(Ljava/awt/event/MouseEvent;)V", nullptr, 0, $virtualMethod(XListPeer, mousePressed, void, $MouseEvent*)},
+		{"mouseReleased", "(Ljava/awt/event/MouseEvent;)V", nullptr, 0, $virtualMethod(XListPeer, mouseReleased, void, $MouseEvent*)},
+		{"notifyValue", "(Lsun/awt/X11/XScrollbar;IIZ)V", nullptr, $PUBLIC, $virtualMethod(XListPeer, notifyValue, void, $XScrollbar*, int32_t, int32_t, bool)},
+		{"*paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC},
+		{"paintPeer", "(Ljava/awt/Graphics;)V", nullptr, 0, $virtualMethod(XListPeer, paintPeer, void, $Graphics*)},
+		{"posInSel", "(I)I", nullptr, 0, $virtualMethod(XListPeer, posInSel, int32_t, int32_t)},
+		{"postInit", "(Lsun/awt/X11/XCreateWindowParams;)V", nullptr, $PUBLIC, $virtualMethod(XListPeer, postInit, void, $XCreateWindowParams*)},
+		{"preInit", "(Lsun/awt/X11/XCreateWindowParams;)V", nullptr, $PUBLIC, $virtualMethod(XListPeer, preInit, void, $XCreateWindowParams*)},
+		{"prePostEvent", "(Ljava/awt/AWTEvent;)Z", nullptr, 0, $virtualMethod(XListPeer, prePostEvent, bool, $AWTEvent*)},
+		{"prePostMouseEvent", "(Ljava/awt/event/MouseEvent;)Z", nullptr, 0, $virtualMethod(XListPeer, prePostMouseEvent, bool, $MouseEvent*)},
+		{"*print", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC},
+		{"removeAll", "()V", nullptr, $PUBLIC, $virtualMethod(XListPeer, removeAll, void)},
+		{"repaint", "()V", nullptr, $PUBLIC, $virtualMethod(XListPeer, repaint, void)},
+		{"repaint", "(I)V", nullptr, $PRIVATE, $method(XListPeer, repaint, void, int32_t)},
+		{"repaint", "(III)V", nullptr, $PRIVATE, $method(XListPeer, repaint, void, int32_t, int32_t, int32_t)},
+		{"repaint", "(IIILjava/awt/Rectangle;Ljava/awt/Point;)V", nullptr, $PRIVATE, $method(XListPeer, repaint, void, int32_t, int32_t, int32_t, $Rectangle*, $Point*)},
+		{"repaintScrollbarRequest", "(Lsun/awt/X11/XScrollbar;)V", nullptr, $PUBLIC, $virtualMethod(XListPeer, repaintScrollbarRequest, void, $XScrollbar*)},
+		{"*reparent", "(Ljava/awt/peer/ContainerPeer;)V", nullptr, $PUBLIC},
+		{"*requestFocus", "(Ljava/awt/Component;ZZJLjava/awt/event/FocusEvent$Cause;)Z", nullptr, $PUBLIC | $FINAL},
+		{"scrollHorizontal", "(I)V", nullptr, 0, $virtualMethod(XListPeer, scrollHorizontal, void, int32_t)},
+		{"scrollVertical", "(I)V", nullptr, 0, $virtualMethod(XListPeer, scrollVertical, void, int32_t)},
+		{"select", "(I)V", nullptr, $PUBLIC, $virtualMethod(XListPeer, select, void, int32_t)},
+		{"selectItem", "(I)V", nullptr, 0, $virtualMethod(XListPeer, selectItem, void, int32_t)},
+		{"setBackground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC, $virtualMethod(XListPeer, setBackground, void, $Color*)},
+		{"*setBounds", "(IIIII)V", nullptr, $PUBLIC},
+		{"*setEnabled", "(Z)V", nullptr, $PUBLIC},
+		{"setFocusIndex", "(I)V", nullptr, 0, $virtualMethod(XListPeer, setFocusIndex, void, int32_t)},
+		{"setFont", "(Ljava/awt/Font;)V", nullptr, $PUBLIC, $virtualMethod(XListPeer, setFont, void, $Font*)},
+		{"setForeground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC, $virtualMethod(XListPeer, setForeground, void, $Color*)},
+		{"setMultipleMode", "(Z)V", nullptr, $PUBLIC, $virtualMethod(XListPeer, setMultipleMode, void, bool)},
+		{"setMultipleSelections", "(Z)V", nullptr, $PUBLIC, $virtualMethod(XListPeer, setMultipleSelections, void, bool)},
+		{"*setVisible", "(Z)V", nullptr, $PUBLIC},
+		{"*setZOrder", "(Ljava/awt/peer/ComponentPeer;)V", nullptr, $PUBLIC},
+		{"stringLength", "(Ljava/lang/String;)I", nullptr, 0, $virtualMethod(XListPeer, stringLength, int32_t, $String*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"trackMouseDraggedScroll", "(Ljava/awt/event/MouseEvent;)V", nullptr, 0, $virtualMethod(XListPeer, trackMouseDraggedScroll, void, $MouseEvent*)},
+		{"trackMouseReleasedScroll", "()V", nullptr, 0, $virtualMethod(XListPeer, trackMouseReleasedScroll, void)},
+		{"*updateCursorImmediately", "()V", nullptr, $PUBLIC},
+		{"*updateGraphicsData", "(Ljava/awt/GraphicsConfiguration;)Z", nullptr, $PUBLIC},
+		{"validY", "(I)Z", nullptr, 0, $virtualMethod(XListPeer, validY, bool, int32_t)},
+		{"vsbIsVisible", "(Z)Z", nullptr, 0, $virtualMethod(XListPeer, vsbIsVisible, bool, bool)},
+		{"y2index", "(I)I", nullptr, 0, $virtualMethod(XListPeer, y2index, int32_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.X11.XListPeer$ListPainter", "sun.awt.X11.XListPeer", "ListPainter", 0},
+		{"sun.awt.X11.XListPeer$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.awt.X11.XListPeer",
+		"sun.awt.X11.XComponentPeer",
+		"java.awt.peer.ListPeer,sun.awt.X11.XScrollbarClient",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.awt.X11.XListPeer$ListPainter,sun.awt.X11.XListPeer$1"
+	};
+	$loadClass(XListPeer, name, initialize, &classInfo$$, XListPeer::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(XListPeer));
+	});
 	return class$;
 }
 

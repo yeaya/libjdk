@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/basic/BasicPopupMenuSeparatorUI.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/Dimension.h>
@@ -22,27 +21,6 @@ namespace javax {
 		namespace plaf {
 			namespace basic {
 
-$MethodInfo _BasicPopupMenuSeparatorUI_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(BasicPopupMenuSeparatorUI, init$, void)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(BasicPopupMenuSeparatorUI, createUI, $ComponentUI*, $JComponent*)},
-	{"getPreferredSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BasicPopupMenuSeparatorUI, getPreferredSize, $Dimension*, $JComponent*)},
-	{"paint", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(BasicPopupMenuSeparatorUI, paint, void, $Graphics*, $JComponent*)},
-	{}
-};
-
-$ClassInfo _BasicPopupMenuSeparatorUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.basic.BasicPopupMenuSeparatorUI",
-	"javax.swing.plaf.basic.BasicSeparatorUI",
-	nullptr,
-	nullptr,
-	_BasicPopupMenuSeparatorUI_MethodInfo_
-};
-
-$Object* allocate$BasicPopupMenuSeparatorUI($Class* clazz) {
-	return $of($alloc(BasicPopupMenuSeparatorUI));
-}
-
 void BasicPopupMenuSeparatorUI::init$() {
 	$BasicSeparatorUI::init$();
 }
@@ -53,12 +31,12 @@ $ComponentUI* BasicPopupMenuSeparatorUI::createUI($JComponent* c) {
 }
 
 void BasicPopupMenuSeparatorUI::paint($Graphics* g, $JComponent* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Dimension, s, $nc(c)->getSize());
 	$nc(g)->setColor($(c->getForeground()));
 	g->drawLine(0, 0, $nc(s)->width, 0);
 	g->setColor($(c->getBackground()));
-	g->drawLine(0, 1, $nc(s)->width, 1);
+	g->drawLine(0, 1, s->width, 1);
 }
 
 $Dimension* BasicPopupMenuSeparatorUI::getPreferredSize($JComponent* c) {
@@ -69,7 +47,24 @@ BasicPopupMenuSeparatorUI::BasicPopupMenuSeparatorUI() {
 }
 
 $Class* BasicPopupMenuSeparatorUI::load$($String* name, bool initialize) {
-	$loadClass(BasicPopupMenuSeparatorUI, name, initialize, &_BasicPopupMenuSeparatorUI_ClassInfo_, allocate$BasicPopupMenuSeparatorUI);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(BasicPopupMenuSeparatorUI, init$, void)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(BasicPopupMenuSeparatorUI, createUI, $ComponentUI*, $JComponent*)},
+		{"getPreferredSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BasicPopupMenuSeparatorUI, getPreferredSize, $Dimension*, $JComponent*)},
+		{"paint", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(BasicPopupMenuSeparatorUI, paint, void, $Graphics*, $JComponent*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.basic.BasicPopupMenuSeparatorUI",
+		"javax.swing.plaf.basic.BasicSeparatorUI",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(BasicPopupMenuSeparatorUI, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BasicPopupMenuSeparatorUI);
+	});
 	return class$;
 }
 

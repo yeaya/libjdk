@@ -1,5 +1,4 @@
 #include <sun/java2d/loops/ProcessPath$DrawHandler.h>
-
 #include <sun/awt/SunHints.h>
 #include <sun/java2d/loops/ProcessPath.h>
 #include <jcpp.h>
@@ -16,56 +15,6 @@ using $SunHints = ::sun::awt::SunHints;
 namespace sun {
 	namespace java2d {
 		namespace loops {
-
-$FieldInfo _ProcessPath$DrawHandler_FieldInfo_[] = {
-	{"xMin", "I", nullptr, $PUBLIC, $field(ProcessPath$DrawHandler, xMin)},
-	{"yMin", "I", nullptr, $PUBLIC, $field(ProcessPath$DrawHandler, yMin)},
-	{"xMax", "I", nullptr, $PUBLIC, $field(ProcessPath$DrawHandler, xMax)},
-	{"yMax", "I", nullptr, $PUBLIC, $field(ProcessPath$DrawHandler, yMax)},
-	{"xMinf", "F", nullptr, $PUBLIC, $field(ProcessPath$DrawHandler, xMinf)},
-	{"yMinf", "F", nullptr, $PUBLIC, $field(ProcessPath$DrawHandler, yMinf)},
-	{"xMaxf", "F", nullptr, $PUBLIC, $field(ProcessPath$DrawHandler, xMaxf)},
-	{"yMaxf", "F", nullptr, $PUBLIC, $field(ProcessPath$DrawHandler, yMaxf)},
-	{"strokeControl", "I", nullptr, $PUBLIC, $field(ProcessPath$DrawHandler, strokeControl)},
-	{}
-};
-
-$MethodInfo _ProcessPath$DrawHandler_MethodInfo_[] = {
-	{"<init>", "(IIIII)V", nullptr, $PUBLIC, $method(ProcessPath$DrawHandler, init$, void, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"<init>", "(IIII)V", nullptr, $PUBLIC, $method(ProcessPath$DrawHandler, init$, void, int32_t, int32_t, int32_t, int32_t)},
-	{"adjustBounds", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(ProcessPath$DrawHandler, adjustBounds, void, int32_t, int32_t, int32_t, int32_t)},
-	{"drawLine", "(IIII)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ProcessPath$DrawHandler, drawLine, void, int32_t, int32_t, int32_t, int32_t)},
-	{"drawPixel", "(II)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ProcessPath$DrawHandler, drawPixel, void, int32_t, int32_t)},
-	{"drawScanline", "(III)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ProcessPath$DrawHandler, drawScanline, void, int32_t, int32_t, int32_t)},
-	{"setBounds", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(ProcessPath$DrawHandler, setBounds, void, int32_t, int32_t, int32_t, int32_t)},
-	{"setBounds", "(IIIII)V", nullptr, $PUBLIC, $virtualMethod(ProcessPath$DrawHandler, setBounds, void, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{}
-};
-
-$InnerClassInfo _ProcessPath$DrawHandler_InnerClassesInfo_[] = {
-	{"sun.java2d.loops.ProcessPath$DrawHandler", "sun.java2d.loops.ProcessPath", "DrawHandler", $PUBLIC | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _ProcessPath$DrawHandler_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"sun.java2d.loops.ProcessPath$DrawHandler",
-	"java.lang.Object",
-	nullptr,
-	_ProcessPath$DrawHandler_FieldInfo_,
-	_ProcessPath$DrawHandler_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ProcessPath$DrawHandler_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.java2d.loops.ProcessPath"
-};
-
-$Object* allocate$ProcessPath$DrawHandler($Class* clazz) {
-	return $of($alloc(ProcessPath$DrawHandler));
-}
 
 void ProcessPath$DrawHandler::init$(int32_t xMin, int32_t yMin, int32_t xMax, int32_t yMax, int32_t strokeControl) {
 	setBounds(xMin, yMin, xMax, yMax, strokeControl);
@@ -111,7 +60,51 @@ ProcessPath$DrawHandler::ProcessPath$DrawHandler() {
 }
 
 $Class* ProcessPath$DrawHandler::load$($String* name, bool initialize) {
-	$loadClass(ProcessPath$DrawHandler, name, initialize, &_ProcessPath$DrawHandler_ClassInfo_, allocate$ProcessPath$DrawHandler);
+	$FieldInfo fieldInfos$$[] = {
+		{"xMin", "I", nullptr, $PUBLIC, $field(ProcessPath$DrawHandler, xMin)},
+		{"yMin", "I", nullptr, $PUBLIC, $field(ProcessPath$DrawHandler, yMin)},
+		{"xMax", "I", nullptr, $PUBLIC, $field(ProcessPath$DrawHandler, xMax)},
+		{"yMax", "I", nullptr, $PUBLIC, $field(ProcessPath$DrawHandler, yMax)},
+		{"xMinf", "F", nullptr, $PUBLIC, $field(ProcessPath$DrawHandler, xMinf)},
+		{"yMinf", "F", nullptr, $PUBLIC, $field(ProcessPath$DrawHandler, yMinf)},
+		{"xMaxf", "F", nullptr, $PUBLIC, $field(ProcessPath$DrawHandler, xMaxf)},
+		{"yMaxf", "F", nullptr, $PUBLIC, $field(ProcessPath$DrawHandler, yMaxf)},
+		{"strokeControl", "I", nullptr, $PUBLIC, $field(ProcessPath$DrawHandler, strokeControl)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(IIIII)V", nullptr, $PUBLIC, $method(ProcessPath$DrawHandler, init$, void, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"<init>", "(IIII)V", nullptr, $PUBLIC, $method(ProcessPath$DrawHandler, init$, void, int32_t, int32_t, int32_t, int32_t)},
+		{"adjustBounds", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(ProcessPath$DrawHandler, adjustBounds, void, int32_t, int32_t, int32_t, int32_t)},
+		{"drawLine", "(IIII)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ProcessPath$DrawHandler, drawLine, void, int32_t, int32_t, int32_t, int32_t)},
+		{"drawPixel", "(II)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ProcessPath$DrawHandler, drawPixel, void, int32_t, int32_t)},
+		{"drawScanline", "(III)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ProcessPath$DrawHandler, drawScanline, void, int32_t, int32_t, int32_t)},
+		{"setBounds", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(ProcessPath$DrawHandler, setBounds, void, int32_t, int32_t, int32_t, int32_t)},
+		{"setBounds", "(IIIII)V", nullptr, $PUBLIC, $virtualMethod(ProcessPath$DrawHandler, setBounds, void, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.java2d.loops.ProcessPath$DrawHandler", "sun.java2d.loops.ProcessPath", "DrawHandler", $PUBLIC | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"sun.java2d.loops.ProcessPath$DrawHandler",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.java2d.loops.ProcessPath"
+	};
+	$loadClass(ProcessPath$DrawHandler, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ProcessPath$DrawHandler);
+	});
 	return class$;
 }
 

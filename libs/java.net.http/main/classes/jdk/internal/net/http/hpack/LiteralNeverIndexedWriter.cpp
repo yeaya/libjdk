@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/hpack/LiteralNeverIndexedWriter.h>
-
 #include <jdk/internal/net/http/hpack/IndexNameValueWriter.h>
 #include <jcpp.h>
 
@@ -13,24 +12,6 @@ namespace jdk {
 			namespace http {
 				namespace hpack {
 
-$MethodInfo _LiteralNeverIndexedWriter_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(LiteralNeverIndexedWriter, init$, void)},
-	{}
-};
-
-$ClassInfo _LiteralNeverIndexedWriter_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"jdk.internal.net.http.hpack.LiteralNeverIndexedWriter",
-	"jdk.internal.net.http.hpack.IndexNameValueWriter",
-	nullptr,
-	nullptr,
-	_LiteralNeverIndexedWriter_MethodInfo_
-};
-
-$Object* allocate$LiteralNeverIndexedWriter($Class* clazz) {
-	return $of($alloc(LiteralNeverIndexedWriter));
-}
-
 void LiteralNeverIndexedWriter::init$() {
 	$IndexNameValueWriter::init$(16, 4);
 }
@@ -39,7 +20,21 @@ LiteralNeverIndexedWriter::LiteralNeverIndexedWriter() {
 }
 
 $Class* LiteralNeverIndexedWriter::load$($String* name, bool initialize) {
-	$loadClass(LiteralNeverIndexedWriter, name, initialize, &_LiteralNeverIndexedWriter_ClassInfo_, allocate$LiteralNeverIndexedWriter);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(LiteralNeverIndexedWriter, init$, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"jdk.internal.net.http.hpack.LiteralNeverIndexedWriter",
+		"jdk.internal.net.http.hpack.IndexNameValueWriter",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(LiteralNeverIndexedWriter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LiteralNeverIndexedWriter);
+	});
 	return class$;
 }
 

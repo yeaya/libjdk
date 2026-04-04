@@ -1,5 +1,4 @@
 #include <javax/naming/spi/DirObjectFactory.h>
-
 #include <java/util/Hashtable.h>
 #include <javax/naming/Context.h>
 #include <javax/naming/Name.h>
@@ -17,26 +16,22 @@ namespace javax {
 	namespace naming {
 		namespace spi {
 
-$MethodInfo _DirObjectFactory_MethodInfo_[] = {
-	{"getObjectInstance", "(Ljava/lang/Object;Ljavax/naming/Name;Ljavax/naming/Context;Ljava/util/Hashtable;Ljavax/naming/directory/Attributes;)Ljava/lang/Object;", "(Ljava/lang/Object;Ljavax/naming/Name;Ljavax/naming/Context;Ljava/util/Hashtable<**>;Ljavax/naming/directory/Attributes;)Ljava/lang/Object;", $PUBLIC | $ABSTRACT, $virtualMethod(DirObjectFactory, getObjectInstance, $Object*, Object$*, $Name*, $Context*, $Hashtable*, $Attributes*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _DirObjectFactory_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"javax.naming.spi.DirObjectFactory",
-	nullptr,
-	"javax.naming.spi.ObjectFactory",
-	nullptr,
-	_DirObjectFactory_MethodInfo_
-};
-
-$Object* allocate$DirObjectFactory($Class* clazz) {
-	return $of($alloc(DirObjectFactory));
-}
-
 $Class* DirObjectFactory::load$($String* name, bool initialize) {
-	$loadClass(DirObjectFactory, name, initialize, &_DirObjectFactory_ClassInfo_, allocate$DirObjectFactory);
+	$MethodInfo methodInfos$$[] = {
+		{"getObjectInstance", "(Ljava/lang/Object;Ljavax/naming/Name;Ljavax/naming/Context;Ljava/util/Hashtable;Ljavax/naming/directory/Attributes;)Ljava/lang/Object;", "(Ljava/lang/Object;Ljavax/naming/Name;Ljavax/naming/Context;Ljava/util/Hashtable<**>;Ljavax/naming/directory/Attributes;)Ljava/lang/Object;", $PUBLIC | $ABSTRACT, $virtualMethod(DirObjectFactory, getObjectInstance, $Object*, Object$*, $Name*, $Context*, $Hashtable*, $Attributes*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"javax.naming.spi.DirObjectFactory",
+		nullptr,
+		"javax.naming.spi.ObjectFactory",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(DirObjectFactory, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DirObjectFactory);
+	});
 	return class$;
 }
 

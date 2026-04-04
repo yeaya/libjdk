@@ -1,7 +1,5 @@
 #include <sun/security/jgss/SunProvider.h>
-
 #include <java/security/AccessController.h>
-#include <java/security/PrivilegedAction.h>
 #include <java/security/Provider$Service.h>
 #include <java/security/Provider.h>
 #include <sun/security/jgss/SunProvider$1.h>
@@ -16,7 +14,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AccessController = ::java::security::AccessController;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $Provider = ::java::security::Provider;
 using $Provider$Service = ::java::security::Provider$Service;
 using $SunProvider$1 = ::sun::security::jgss::SunProvider$1;
@@ -25,44 +22,6 @@ using $SecurityConstants = ::sun::security::util::SecurityConstants;
 namespace sun {
 	namespace security {
 		namespace jgss {
-
-$FieldInfo _SunProvider_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SunProvider, serialVersionUID)},
-	{"INFO", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SunProvider, INFO)},
-	{}
-};
-
-$MethodInfo _SunProvider_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SunProvider, init$, void)},
-	{"access$000", "(Lsun/security/jgss/SunProvider;Ljava/security/Provider$Service;)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(SunProvider, access$000, void, SunProvider*, $Provider$Service*)},
-	{"access$100", "(Lsun/security/jgss/SunProvider;Ljava/security/Provider$Service;)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(SunProvider, access$100, void, SunProvider*, $Provider$Service*)},
-	{}
-};
-
-$InnerClassInfo _SunProvider_InnerClassesInfo_[] = {
-	{"sun.security.jgss.SunProvider$ProviderService", "sun.security.jgss.SunProvider", "ProviderService", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.jgss.SunProvider$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _SunProvider_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.security.jgss.SunProvider",
-	"java.security.Provider",
-	nullptr,
-	_SunProvider_FieldInfo_,
-	_SunProvider_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SunProvider_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.security.jgss.SunProvider$ProviderService,sun.security.jgss.SunProvider$1"
-};
-
-$Object* allocate$SunProvider($Class* clazz) {
-	return $of($alloc(SunProvider));
-}
 
 $String* SunProvider::INFO = nullptr;
 
@@ -77,23 +36,55 @@ void SunProvider::access$000(SunProvider* x0, $Provider$Service* x1) {
 }
 
 void SunProvider::init$() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$init($SecurityConstants);
 	$Provider::init$("SunJGSS"_s, $SecurityConstants::PROVIDER_VER, SunProvider::INFO);
 	$var($Provider, p, this);
-	$AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($SunProvider$1, this, p)));
+	$AccessController::doPrivileged($$new($SunProvider$1, this, p));
 }
 
 SunProvider::SunProvider() {
 }
 
-void clinit$SunProvider($Class* class$) {
+void SunProvider::clinit$($Class* clazz) {
 	$assignStatic(SunProvider::INFO, "Sun (Kerberos v5, SPNEGO)"_s);
 }
 
 $Class* SunProvider::load$($String* name, bool initialize) {
-	$loadClass(SunProvider, name, initialize, &_SunProvider_ClassInfo_, clinit$SunProvider, allocate$SunProvider);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SunProvider, serialVersionUID)},
+		{"INFO", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SunProvider, INFO)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SunProvider, init$, void)},
+		{"access$000", "(Lsun/security/jgss/SunProvider;Ljava/security/Provider$Service;)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(SunProvider, access$000, void, SunProvider*, $Provider$Service*)},
+		{"access$100", "(Lsun/security/jgss/SunProvider;Ljava/security/Provider$Service;)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(SunProvider, access$100, void, SunProvider*, $Provider$Service*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.jgss.SunProvider$ProviderService", "sun.security.jgss.SunProvider", "ProviderService", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.jgss.SunProvider$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.security.jgss.SunProvider",
+		"java.security.Provider",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.security.jgss.SunProvider$ProviderService,sun.security.jgss.SunProvider$1"
+	};
+	$loadClass(SunProvider, name, initialize, &classInfo$$, SunProvider::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SunProvider));
+	});
 	return class$;
 }
 

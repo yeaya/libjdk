@@ -1,5 +1,4 @@
 #include <java/beans/JavaBean.h>
-
 #include <jcpp.h>
 
 using $Attribute = ::java::lang::Attribute;
@@ -11,66 +10,58 @@ using $NamedAttribute = ::java::lang::NamedAttribute;
 namespace java {
 	namespace beans {
 
-$Attribute JavaBean_Attribute_var$1[] = {
-	{'e', "Ljava/lang/annotation/ElementType; TYPE"},
-	{'-'}
-};
-
-$NamedAttribute JavaBean_Attribute_var$0[] = {
-	{"value", '[', JavaBean_Attribute_var$1},
-	{}
-};
-
-$NamedAttribute JavaBean_Attribute_var$2[] = {
-	{"value", 'e', "Ljava/lang/annotation/RetentionPolicy; RUNTIME"},
-	{}
-};
-
-$CompoundAttribute _JavaBean_Annotations_[] = {
-	{"Ljava/lang/annotation/Documented;", nullptr},
-	{"Ljava/lang/annotation/Target;", JavaBean_Attribute_var$0},
-	{"Ljava/lang/annotation/Retention;", JavaBean_Attribute_var$2},
-	{}
-};
-
-$Attribute _JavaBean_DefaultValue_defaultEventSet0 = {
-	's', ""
-};
-
-$Attribute _JavaBean_DefaultValue_defaultProperty1 = {
-	's', ""
-};
-
-$Attribute _JavaBean_DefaultValue_description2 = {
-	's', ""
-};
-
-$MethodInfo _JavaBean_MethodInfo_[] = {
-	{"defaultEventSet", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(JavaBean, defaultEventSet, $String*), nullptr, &_JavaBean_DefaultValue_defaultEventSet0},
-	{"defaultProperty", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(JavaBean, defaultProperty, $String*), nullptr, &_JavaBean_DefaultValue_defaultProperty1},
-	{"description", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(JavaBean, description, $String*), nullptr, &_JavaBean_DefaultValue_description2},
-	{}
-};
-
-$ClassInfo _JavaBean_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT | $ANNOTATION,
-	"java.beans.JavaBean",
-	nullptr,
-	"java.lang.annotation.Annotation",
-	nullptr,
-	_JavaBean_MethodInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	_JavaBean_Annotations_
-};
-
-$Object* allocate$JavaBean($Class* clazz) {
-	return $of($alloc(JavaBean));
-}
-
 $Class* JavaBean::load$($String* name, bool initialize) {
-	$loadClass(JavaBean, name, initialize, &_JavaBean_ClassInfo_, allocate$JavaBean);
+
+	$Attribute defaultEventSetdefaultValue$$ = {
+		's', ""
+	};
+
+	$Attribute defaultPropertydefaultValue$$ = {
+		's', ""
+	};
+
+	$Attribute descriptiondefaultValue$$ = {
+		's', ""
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"defaultEventSet", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(JavaBean, defaultEventSet, $String*), nullptr, &defaultEventSetdefaultValue$$},
+		{"defaultProperty", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(JavaBean, defaultProperty, $String*), nullptr, &defaultPropertydefaultValue$$},
+		{"description", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(JavaBean, description, $String*), nullptr, &descriptiondefaultValue$$},
+		{}
+	};
+	$Attribute $attribute[] = {
+		{'e', "Ljava/lang/annotation/ElementType; TYPE"},
+		{'-'}
+	};
+	$NamedAttribute annotations$$$namedAttribute[] = {
+		{"value", '[', $attribute},
+		{}
+	};
+	$NamedAttribute annotations$$$namedAttribute$1[] = {
+		{"value", 'e', "Ljava/lang/annotation/RetentionPolicy; RUNTIME"},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/lang/annotation/Documented;", nullptr},
+		{"Ljava/lang/annotation/Target;", annotations$$$namedAttribute},
+		{"Ljava/lang/annotation/Retention;", annotations$$$namedAttribute$1},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT | $ANNOTATION,
+		"java.beans.JavaBean",
+		nullptr,
+		"java.lang.annotation.Annotation",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(JavaBean, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JavaBean);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <java/awt/GraphicsEnvironment$LocalGE.h>
-
 #include <java/awt/GraphicsEnvironment.h>
 #include <sun/awt/PlatformGraphicsInfo.h>
 #include <sun/java2d/HeadlessGraphicsEnvironment.h>
@@ -18,42 +17,6 @@ using $HeadlessGraphicsEnvironment = ::sun::java2d::HeadlessGraphicsEnvironment;
 namespace java {
 	namespace awt {
 
-$FieldInfo _GraphicsEnvironment$LocalGE_FieldInfo_[] = {
-	{"INSTANCE", "Ljava/awt/GraphicsEnvironment;", nullptr, $STATIC | $FINAL, $staticField(GraphicsEnvironment$LocalGE, INSTANCE)},
-	{}
-};
-
-$MethodInfo _GraphicsEnvironment$LocalGE_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(GraphicsEnvironment$LocalGE, init$, void)},
-	{"createGE", "()Ljava/awt/GraphicsEnvironment;", nullptr, $PRIVATE | $STATIC, $staticMethod(GraphicsEnvironment$LocalGE, createGE, $GraphicsEnvironment*)},
-	{}
-};
-
-$InnerClassInfo _GraphicsEnvironment$LocalGE_InnerClassesInfo_[] = {
-	{"java.awt.GraphicsEnvironment$LocalGE", "java.awt.GraphicsEnvironment", "LocalGE", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _GraphicsEnvironment$LocalGE_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.awt.GraphicsEnvironment$LocalGE",
-	"java.lang.Object",
-	nullptr,
-	_GraphicsEnvironment$LocalGE_FieldInfo_,
-	_GraphicsEnvironment$LocalGE_MethodInfo_,
-	nullptr,
-	nullptr,
-	_GraphicsEnvironment$LocalGE_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.awt.GraphicsEnvironment"
-};
-
-$Object* allocate$GraphicsEnvironment$LocalGE($Class* clazz) {
-	return $of($alloc(GraphicsEnvironment$LocalGE));
-}
-
 $GraphicsEnvironment* GraphicsEnvironment$LocalGE::INSTANCE = nullptr;
 
 void GraphicsEnvironment$LocalGE::init$() {
@@ -68,7 +31,7 @@ $GraphicsEnvironment* GraphicsEnvironment$LocalGE::createGE() {
 	return ge;
 }
 
-void clinit$GraphicsEnvironment$LocalGE($Class* class$) {
+void GraphicsEnvironment$LocalGE::clinit$($Class* clazz) {
 	$assignStatic(GraphicsEnvironment$LocalGE::INSTANCE, GraphicsEnvironment$LocalGE::createGE());
 }
 
@@ -76,7 +39,37 @@ GraphicsEnvironment$LocalGE::GraphicsEnvironment$LocalGE() {
 }
 
 $Class* GraphicsEnvironment$LocalGE::load$($String* name, bool initialize) {
-	$loadClass(GraphicsEnvironment$LocalGE, name, initialize, &_GraphicsEnvironment$LocalGE_ClassInfo_, clinit$GraphicsEnvironment$LocalGE, allocate$GraphicsEnvironment$LocalGE);
+	$FieldInfo fieldInfos$$[] = {
+		{"INSTANCE", "Ljava/awt/GraphicsEnvironment;", nullptr, $STATIC | $FINAL, $staticField(GraphicsEnvironment$LocalGE, INSTANCE)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(GraphicsEnvironment$LocalGE, init$, void)},
+		{"createGE", "()Ljava/awt/GraphicsEnvironment;", nullptr, $PRIVATE | $STATIC, $staticMethod(GraphicsEnvironment$LocalGE, createGE, $GraphicsEnvironment*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.awt.GraphicsEnvironment$LocalGE", "java.awt.GraphicsEnvironment", "LocalGE", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.awt.GraphicsEnvironment$LocalGE",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.awt.GraphicsEnvironment"
+	};
+	$loadClass(GraphicsEnvironment$LocalGE, name, initialize, &classInfo$$, GraphicsEnvironment$LocalGE::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(GraphicsEnvironment$LocalGE);
+	});
 	return class$;
 }
 

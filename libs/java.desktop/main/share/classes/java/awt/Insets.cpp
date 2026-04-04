@@ -1,5 +1,4 @@
 #include <java/awt/Insets.h>
-
 #include <java/awt/GraphicsEnvironment.h>
 #include <java/awt/Toolkit.h>
 #include <java/lang/CloneNotSupportedException.h>
@@ -18,42 +17,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace java {
 	namespace awt {
-
-$FieldInfo _Insets_FieldInfo_[] = {
-	{"top", "I", nullptr, $PUBLIC, $field(Insets, top)},
-	{"left", "I", nullptr, $PUBLIC, $field(Insets, left)},
-	{"bottom", "I", nullptr, $PUBLIC, $field(Insets, bottom)},
-	{"right", "I", nullptr, $PUBLIC, $field(Insets, right)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Insets, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _Insets_MethodInfo_[] = {
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"<init>", "(IIII)V", nullptr, $PUBLIC, $method(Insets, init$, void, int32_t, int32_t, int32_t, int32_t)},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Insets, clone, $Object*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Insets, equals, bool, Object$*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Insets, hashCode, int32_t)},
-	{"initIDs", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(Insets, initIDs, void)},
-	{"set", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(Insets, set, void, int32_t, int32_t, int32_t, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Insets, toString, $String*)},
-	{}
-};
-
-#define _METHOD_INDEX_initIDs 5
-
-$ClassInfo _Insets_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.awt.Insets",
-	"java.lang.Object",
-	"java.lang.Cloneable,java.io.Serializable",
-	_Insets_FieldInfo_,
-	_Insets_MethodInfo_
-};
-
-$Object* allocate$Insets($Class* clazz) {
-	return $of($alloc(Insets));
-}
 
 void Insets::finalize() {
 	this->$Cloneable::finalize();
@@ -76,7 +39,7 @@ void Insets::set(int32_t top, int32_t left, int32_t bottom, int32_t right) {
 bool Insets::equals(Object$* obj) {
 	if ($instanceOf(Insets, obj)) {
 		$var(Insets, insets, $cast(Insets, obj));
-		return ((this->top == $nc(insets)->top) && (this->left == insets->left) && (this->bottom == insets->bottom) && (this->right == insets->right));
+		return ((this->top == insets->top) && (this->left == insets->left) && (this->bottom == insets->bottom) && (this->right == insets->right));
 	}
 	return false;
 }
@@ -91,27 +54,27 @@ int32_t Insets::hashCode() {
 }
 
 $String* Insets::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $str({$($of(this)->getClass()->getName()), "[top="_s, $$str(this->top), ",left="_s, $$str(this->left), ",bottom="_s, $$str(this->bottom), ",right="_s, $$str(this->right), "]"_s});
 }
 
 $Object* Insets::clone() {
 	try {
-		return $of($Cloneable::clone());
+		return $Cloneable::clone();
 	} catch ($CloneNotSupportedException& e) {
-		$throwNew($InternalError, static_cast<$Throwable*>(e));
+		$throwNew($InternalError, e);
 	}
 	$shouldNotReachHere();
 }
 
 void Insets::initIDs() {
 	$init(Insets);
-	$prepareNativeStatic(Insets, initIDs, void);
+	$prepareNativeStatic(initIDs, void);
 	$invokeNativeStatic();
 	$finishNativeStatic();
 }
 
-void clinit$Insets($Class* class$) {
+void Insets::clinit$($Class* clazz) {
 	{
 		$Toolkit::loadLibraries();
 		if (!$GraphicsEnvironment::isHeadless()) {
@@ -124,7 +87,36 @@ Insets::Insets() {
 }
 
 $Class* Insets::load$($String* name, bool initialize) {
-	$loadClass(Insets, name, initialize, &_Insets_ClassInfo_, clinit$Insets, allocate$Insets);
+	$FieldInfo fieldInfos$$[] = {
+		{"top", "I", nullptr, $PUBLIC, $field(Insets, top)},
+		{"left", "I", nullptr, $PUBLIC, $field(Insets, left)},
+		{"bottom", "I", nullptr, $PUBLIC, $field(Insets, bottom)},
+		{"right", "I", nullptr, $PUBLIC, $field(Insets, right)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Insets, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"<init>", "(IIII)V", nullptr, $PUBLIC, $method(Insets, init$, void, int32_t, int32_t, int32_t, int32_t)},
+		{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Insets, clone, $Object*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Insets, equals, bool, Object$*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Insets, hashCode, int32_t)},
+		{"initIDs", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(Insets, initIDs, void)},
+		{"set", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(Insets, set, void, int32_t, int32_t, int32_t, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Insets, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.awt.Insets",
+		"java.lang.Object",
+		"java.lang.Cloneable,java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Insets, name, initialize, &classInfo$$, Insets::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Insets));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/dtm/ref/DTMNodeList.h>
-
 #include <com/sun/org/apache/xml/internal/dtm/DTM.h>
 #include <com/sun/org/apache/xml/internal/dtm/DTMIterator.h>
 #include <com/sun/org/apache/xml/internal/dtm/ref/DTMNodeListBase.h>
@@ -27,33 +26,6 @@ namespace com {
 						namespace dtm {
 							namespace ref {
 
-$FieldInfo _DTMNodeList_FieldInfo_[] = {
-	{"m_iter", "Lcom/sun/org/apache/xml/internal/dtm/DTMIterator;", nullptr, $PRIVATE, $field(DTMNodeList, m_iter)},
-	{}
-};
-
-$MethodInfo _DTMNodeList_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(DTMNodeList, init$, void)},
-	{"<init>", "(Lcom/sun/org/apache/xml/internal/dtm/DTMIterator;)V", nullptr, $PUBLIC, $method(DTMNodeList, init$, void, $DTMIterator*)},
-	{"getDTMIterator", "()Lcom/sun/org/apache/xml/internal/dtm/DTMIterator;", nullptr, $PUBLIC, $virtualMethod(DTMNodeList, getDTMIterator, $DTMIterator*)},
-	{"getLength", "()I", nullptr, $PUBLIC, $virtualMethod(DTMNodeList, getLength, int32_t)},
-	{"item", "(I)Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(DTMNodeList, item, $Node*, int32_t)},
-	{}
-};
-
-$ClassInfo _DTMNodeList_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.dtm.ref.DTMNodeList",
-	"com.sun.org.apache.xml.internal.dtm.ref.DTMNodeListBase",
-	nullptr,
-	_DTMNodeList_FieldInfo_,
-	_DTMNodeList_MethodInfo_
-};
-
-$Object* allocate$DTMNodeList($Class* clazz) {
-	return $of($alloc(DTMNodeList));
-}
-
 void DTMNodeList::init$() {
 	$DTMNodeListBase::init$();
 }
@@ -79,25 +51,47 @@ $DTMIterator* DTMNodeList::getDTMIterator() {
 
 $Node* DTMNodeList::item(int32_t index) {
 	if (this->m_iter != nullptr) {
-		int32_t handle = $nc(this->m_iter)->item(index);
+		int32_t handle = this->m_iter->item(index);
 		if (handle == $DTM::NULL) {
 			return nullptr;
 		}
-		return $nc($($nc(this->m_iter)->getDTM(handle)))->getNode(handle);
+		return $$nc($nc(this->m_iter)->getDTM(handle))->getNode(handle);
 	} else {
 		return nullptr;
 	}
 }
 
 int32_t DTMNodeList::getLength() {
-	return (this->m_iter != nullptr) ? $nc(this->m_iter)->getLength() : 0;
+	return (this->m_iter != nullptr) ? this->m_iter->getLength() : 0;
 }
 
 DTMNodeList::DTMNodeList() {
 }
 
 $Class* DTMNodeList::load$($String* name, bool initialize) {
-	$loadClass(DTMNodeList, name, initialize, &_DTMNodeList_ClassInfo_, allocate$DTMNodeList);
+	$FieldInfo fieldInfos$$[] = {
+		{"m_iter", "Lcom/sun/org/apache/xml/internal/dtm/DTMIterator;", nullptr, $PRIVATE, $field(DTMNodeList, m_iter)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(DTMNodeList, init$, void)},
+		{"<init>", "(Lcom/sun/org/apache/xml/internal/dtm/DTMIterator;)V", nullptr, $PUBLIC, $method(DTMNodeList, init$, void, $DTMIterator*)},
+		{"getDTMIterator", "()Lcom/sun/org/apache/xml/internal/dtm/DTMIterator;", nullptr, $PUBLIC, $virtualMethod(DTMNodeList, getDTMIterator, $DTMIterator*)},
+		{"getLength", "()I", nullptr, $PUBLIC, $virtualMethod(DTMNodeList, getLength, int32_t)},
+		{"item", "(I)Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(DTMNodeList, item, $Node*, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.dtm.ref.DTMNodeList",
+		"com.sun.org.apache.xml.internal.dtm.ref.DTMNodeListBase",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DTMNodeList, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DTMNodeList);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/security/keys/keyresolver/implementations/RetrievalMethodResolver.h>
-
 #include <com/sun/org/apache/xml/internal/security/exceptions/XMLSecurityException.h>
 #include <com/sun/org/apache/xml/internal/security/keys/content/RetrievalMethod.h>
 #include <com/sun/org/apache/xml/internal/security/keys/content/x509/XMLX509Certificate.h>
@@ -87,40 +86,6 @@ namespace com {
 								namespace keyresolver {
 									namespace implementations {
 
-$FieldInfo _RetrievalMethodResolver_FieldInfo_[] = {
-	{"LOG", "Lcom/sun/org/slf4j/internal/Logger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(RetrievalMethodResolver, LOG)},
-	{}
-};
-
-$MethodInfo _RetrievalMethodResolver_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(RetrievalMethodResolver, init$, void)},
-	{"engineCanResolve", "(Lorg/w3c/dom/Element;Ljava/lang/String;Lcom/sun/org/apache/xml/internal/security/keys/storage/StorageResolver;)Z", nullptr, $PROTECTED, $virtualMethod(RetrievalMethodResolver, engineCanResolve, bool, $Element*, $String*, $StorageResolver*)},
-	{"engineResolvePrivateKey", "(Lorg/w3c/dom/Element;Ljava/lang/String;Lcom/sun/org/apache/xml/internal/security/keys/storage/StorageResolver;Z)Ljava/security/PrivateKey;", nullptr, $PROTECTED, $virtualMethod(RetrievalMethodResolver, engineResolvePrivateKey, $PrivateKey*, $Element*, $String*, $StorageResolver*, bool)},
-	{"engineResolvePublicKey", "(Lorg/w3c/dom/Element;Ljava/lang/String;Lcom/sun/org/apache/xml/internal/security/keys/storage/StorageResolver;Z)Ljava/security/PublicKey;", nullptr, $PROTECTED, $virtualMethod(RetrievalMethodResolver, engineResolvePublicKey, $PublicKey*, $Element*, $String*, $StorageResolver*, bool)},
-	{"engineResolveSecretKey", "(Lorg/w3c/dom/Element;Ljava/lang/String;Lcom/sun/org/apache/xml/internal/security/keys/storage/StorageResolver;Z)Ljavax/crypto/SecretKey;", nullptr, $PUBLIC, $virtualMethod(RetrievalMethodResolver, engineResolveSecretKey, $SecretKey*, $Element*, $String*, $StorageResolver*, bool)},
-	{"engineResolveX509Certificate", "(Lorg/w3c/dom/Element;Ljava/lang/String;Lcom/sun/org/apache/xml/internal/security/keys/storage/StorageResolver;Z)Ljava/security/cert/X509Certificate;", nullptr, $PROTECTED, $virtualMethod(RetrievalMethodResolver, engineResolveX509Certificate, $X509Certificate*, $Element*, $String*, $StorageResolver*, bool)},
-	{"getDocumentElement", "(Ljava/util/Set;)Lorg/w3c/dom/Element;", "(Ljava/util/Set<Lorg/w3c/dom/Node;>;)Lorg/w3c/dom/Element;", $PRIVATE | $STATIC, $staticMethod(RetrievalMethodResolver, getDocumentElement, $Element*, $Set*)},
-	{"getRawCertificate", "(Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;)Ljava/security/cert/X509Certificate;", nullptr, $PRIVATE | $STATIC, $staticMethod(RetrievalMethodResolver, getRawCertificate, $X509Certificate*, $XMLSignatureInput*), "com.sun.org.apache.xml.internal.security.c14n.CanonicalizationException,java.io.IOException,java.security.cert.CertificateException"},
-	{"obtainReferenceElement", "(Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;Z)Lorg/w3c/dom/Element;", nullptr, $PRIVATE | $STATIC, $staticMethod(RetrievalMethodResolver, obtainReferenceElement, $Element*, $XMLSignatureInput*, bool), "com.sun.org.apache.xml.internal.security.c14n.CanonicalizationException,com.sun.org.apache.xml.internal.security.parser.XMLParserException,java.io.IOException,com.sun.org.apache.xml.internal.security.keys.keyresolver.KeyResolverException"},
-	{"resolveCertificate", "(Lorg/w3c/dom/Element;Ljava/lang/String;Lcom/sun/org/apache/xml/internal/security/keys/storage/StorageResolver;Z)Ljava/security/cert/X509Certificate;", nullptr, $PRIVATE | $STATIC, $staticMethod(RetrievalMethodResolver, resolveCertificate, $X509Certificate*, $Element*, $String*, $StorageResolver*, bool), "com.sun.org.apache.xml.internal.security.keys.keyresolver.KeyResolverException"},
-	{"resolveInput", "(Lcom/sun/org/apache/xml/internal/security/keys/content/RetrievalMethod;Ljava/lang/String;Z)Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;", nullptr, $PRIVATE | $STATIC, $staticMethod(RetrievalMethodResolver, resolveInput, $XMLSignatureInput*, $RetrievalMethod*, $String*, bool), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
-	{"resolveKey", "(Lorg/w3c/dom/Element;Ljava/lang/String;Lcom/sun/org/apache/xml/internal/security/keys/storage/StorageResolver;Z)Ljava/security/PublicKey;", nullptr, $PRIVATE | $STATIC, $staticMethod(RetrievalMethodResolver, resolveKey, $PublicKey*, $Element*, $String*, $StorageResolver*, bool), "com.sun.org.apache.xml.internal.security.keys.keyresolver.KeyResolverException"},
-	{}
-};
-
-$ClassInfo _RetrievalMethodResolver_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.security.keys.keyresolver.implementations.RetrievalMethodResolver",
-	"com.sun.org.apache.xml.internal.security.keys.keyresolver.KeyResolverSpi",
-	nullptr,
-	_RetrievalMethodResolver_FieldInfo_,
-	_RetrievalMethodResolver_MethodInfo_
-};
-
-$Object* allocate$RetrievalMethodResolver($Class* clazz) {
-	return $of($alloc(RetrievalMethodResolver));
-}
-
 $Logger* RetrievalMethodResolver::LOG = nullptr;
 
 void RetrievalMethodResolver::init$() {
@@ -133,7 +98,7 @@ bool RetrievalMethodResolver::engineCanResolve($Element* element, $String* baseU
 }
 
 $PublicKey* RetrievalMethodResolver::engineResolvePublicKey($Element* element, $String* baseURI, $StorageResolver* storage, bool secureValidation) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$var($RetrievalMethod, rm, $new($RetrievalMethod, element, baseURI));
 		$var($String, type, rm->getType());
@@ -151,7 +116,7 @@ $PublicKey* RetrievalMethodResolver::engineResolvePublicKey($Element* element, $
 			if (secureValidation) {
 				if ($nc(RetrievalMethodResolver::LOG)->isDebugEnabled()) {
 					$var($String, error, "Error: It is forbidden to have one RetrievalMethod point to another with secure validation"_s);
-					$nc(RetrievalMethodResolver::LOG)->debug(error);
+					RetrievalMethodResolver::LOG->debug(error);
 				}
 				return nullptr;
 			}
@@ -165,17 +130,17 @@ $PublicKey* RetrievalMethodResolver::engineResolvePublicKey($Element* element, $
 		}
 		return resolveKey(e, baseURI, storage, secureValidation);
 	} catch ($XMLSecurityException& ex) {
-		$nc(RetrievalMethodResolver::LOG)->debug("XMLSecurityException"_s, static_cast<$Throwable*>(ex));
+		$nc(RetrievalMethodResolver::LOG)->debug("XMLSecurityException"_s, ex);
 	} catch ($CertificateException& ex) {
-		$nc(RetrievalMethodResolver::LOG)->debug("CertificateException"_s, static_cast<$Throwable*>(ex));
+		$nc(RetrievalMethodResolver::LOG)->debug("CertificateException"_s, ex);
 	} catch ($IOException& ex) {
-		$nc(RetrievalMethodResolver::LOG)->debug("IOException"_s, static_cast<$Throwable*>(ex));
+		$nc(RetrievalMethodResolver::LOG)->debug("IOException"_s, ex);
 	}
 	return nullptr;
 }
 
 $X509Certificate* RetrievalMethodResolver::engineResolveX509Certificate($Element* element, $String* baseURI, $StorageResolver* storage, bool secureValidation) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$var($RetrievalMethod, rm, $new($RetrievalMethod, element, baseURI));
 		$var($String, type, rm->getType());
@@ -189,7 +154,7 @@ $X509Certificate* RetrievalMethodResolver::engineResolveX509Certificate($Element
 			if (secureValidation) {
 				if ($nc(RetrievalMethodResolver::LOG)->isDebugEnabled()) {
 					$var($String, error, "Error: It is forbidden to have one RetrievalMethod point to another with secure validation"_s);
-					$nc(RetrievalMethodResolver::LOG)->debug(error);
+					RetrievalMethodResolver::LOG->debug(error);
 				}
 				return nullptr;
 			}
@@ -203,23 +168,27 @@ $X509Certificate* RetrievalMethodResolver::engineResolveX509Certificate($Element
 		}
 		return resolveCertificate(e, baseURI, storage, secureValidation);
 	} catch ($XMLSecurityException& ex) {
-		$nc(RetrievalMethodResolver::LOG)->debug("XMLSecurityException"_s, static_cast<$Throwable*>(ex));
+		$nc(RetrievalMethodResolver::LOG)->debug("XMLSecurityException"_s, ex);
 	} catch ($CertificateException& ex) {
-		$nc(RetrievalMethodResolver::LOG)->debug("CertificateException"_s, static_cast<$Throwable*>(ex));
+		$nc(RetrievalMethodResolver::LOG)->debug("CertificateException"_s, ex);
 	} catch ($IOException& ex) {
-		$nc(RetrievalMethodResolver::LOG)->debug("IOException"_s, static_cast<$Throwable*>(ex));
+		$nc(RetrievalMethodResolver::LOG)->debug("IOException"_s, ex);
 	}
 	return nullptr;
 }
 
 $X509Certificate* RetrievalMethodResolver::resolveCertificate($Element* e, $String* baseURI, $StorageResolver* storage, bool secureValidation) {
 	$init(RetrievalMethodResolver);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (e != nullptr) {
 		if ($nc(RetrievalMethodResolver::LOG)->isDebugEnabled()) {
-			$var($String, var$1, $$str({"Now we have a {"_s, $(e->getNamespaceURI()), "}"_s}));
-			$var($String, var$0, $$concat(var$1, $(e->getLocalName())));
-			$nc(RetrievalMethodResolver::LOG)->debug($$concat(var$0, " Element"_s));
+			$var($StringBuilder, var$0, $new($StringBuilder));
+			var$0->append("Now we have a {"_s);
+			var$0->append($(e->getNamespaceURI()));
+			var$0->append("}"_s);
+			var$0->append($(e->getLocalName()));
+			var$0->append(" Element"_s);
+			RetrievalMethodResolver::LOG->debug($$str(var$0));
 		}
 		return $KeyResolver::getX509Certificate(e, baseURI, storage, secureValidation);
 	}
@@ -228,12 +197,16 @@ $X509Certificate* RetrievalMethodResolver::resolveCertificate($Element* e, $Stri
 
 $PublicKey* RetrievalMethodResolver::resolveKey($Element* e, $String* baseURI, $StorageResolver* storage, bool secureValidation) {
 	$init(RetrievalMethodResolver);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (e != nullptr) {
 		if ($nc(RetrievalMethodResolver::LOG)->isDebugEnabled()) {
-			$var($String, var$1, $$str({"Now we have a {"_s, $(e->getNamespaceURI()), "}"_s}));
-			$var($String, var$0, $$concat(var$1, $(e->getLocalName())));
-			$nc(RetrievalMethodResolver::LOG)->debug($$concat(var$0, " Element"_s));
+			$var($StringBuilder, var$0, $new($StringBuilder));
+			var$0->append("Now we have a {"_s);
+			var$0->append($(e->getNamespaceURI()));
+			var$0->append("}"_s);
+			var$0->append($(e->getLocalName()));
+			var$0->append(" Element"_s);
+			RetrievalMethodResolver::LOG->debug($$str(var$0));
 		}
 		return $KeyResolver::getPublicKey(e, baseURI, storage, secureValidation);
 	}
@@ -242,7 +215,7 @@ $PublicKey* RetrievalMethodResolver::resolveKey($Element* e, $String* baseURI, $
 
 $Element* RetrievalMethodResolver::obtainReferenceElement($XMLSignatureInput* resource, bool secureValidation) {
 	$init(RetrievalMethodResolver);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Element, e, nullptr);
 	if ($nc(resource)->isElement()) {
 		$assign(e, $cast($Element, resource->getSubNode()));
@@ -251,47 +224,45 @@ $Element* RetrievalMethodResolver::obtainReferenceElement($XMLSignatureInput* re
 	} else {
 		$var($bytes, inputBytes, resource->getBytes());
 		$assign(e, getDocFromBytes(inputBytes, secureValidation));
-		$nc(RetrievalMethodResolver::LOG)->debug("we have to parse {} bytes"_s, $$new($ObjectArray, {$($of($Integer::valueOf($nc(inputBytes)->length)))}));
+		$nc(RetrievalMethodResolver::LOG)->debug("we have to parse {} bytes"_s, $$new($ObjectArray, {$($Integer::valueOf($nc(inputBytes)->length))}));
 	}
 	return e;
 }
 
 $X509Certificate* RetrievalMethodResolver::getRawCertificate($XMLSignatureInput* resource) {
 	$init(RetrievalMethodResolver);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, inputBytes, $nc(resource)->getBytes());
 	$init($XMLX509Certificate);
 	$var($CertificateFactory, certFact, $CertificateFactory::getInstance($XMLX509Certificate::JCA_CERT_ID));
 	{
 		$var($InputStream, is, $new($ByteArrayInputStream, inputBytes));
-		{
-			$var($Throwable, var$0, nullptr);
-			$var($X509Certificate, var$2, nullptr);
-			bool return$1 = false;
+		$var($Throwable, var$0, nullptr);
+		$var($X509Certificate, var$2, nullptr);
+		bool return$1 = false;
+		try {
 			try {
+				$assign(var$2, $cast($X509Certificate, $nc(certFact)->generateCertificate(is)));
+				return$1 = true;
+				goto $finally;
+			} catch ($Throwable& t$) {
 				try {
-					$assign(var$2, $cast($X509Certificate, $nc(certFact)->generateCertificate(is)));
-					return$1 = true;
-					goto $finally;
-				} catch ($Throwable& t$) {
-					try {
-						is->close();
-					} catch ($Throwable& x2) {
-						t$->addSuppressed(x2);
-					}
-					$throw(t$);
+					is->close();
+				} catch ($Throwable& x2) {
+					t$->addSuppressed(x2);
 				}
-			} catch ($Throwable& var$3) {
-				$assign(var$0, var$3);
-			} $finally: {
-				is->close();
+				$throw(t$);
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
-			if (return$1) {
-				return var$2;
-			}
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
+		} $finally: {
+			is->close();
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
+		}
+		if (return$1) {
+			return var$2;
 		}
 	}
 	$shouldNotReachHere();
@@ -299,7 +270,7 @@ $X509Certificate* RetrievalMethodResolver::getRawCertificate($XMLSignatureInput*
 
 $XMLSignatureInput* RetrievalMethodResolver::resolveInput($RetrievalMethod* rm, $String* baseURI, bool secureValidation) {
 	$init(RetrievalMethodResolver);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Attr, uri, $nc(rm)->getURIAttr());
 	$var($Transforms, transforms, rm->getTransforms());
 	$var($ResourceResolverContext, resContext, $new($ResourceResolverContext, uri, baseURI, secureValidation));
@@ -321,7 +292,7 @@ $PrivateKey* RetrievalMethodResolver::engineResolvePrivateKey($Element* element,
 
 $Element* RetrievalMethodResolver::getDocumentElement($Set* set) {
 	$init(RetrievalMethodResolver);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Iterator, it, $nc(set)->iterator());
 	$var($Element, e, nullptr);
 	while ($nc(it)->hasNext()) {
@@ -335,7 +306,7 @@ $Element* RetrievalMethodResolver::getDocumentElement($Set* set) {
 	while (e != nullptr) {
 		parents->add(e);
 		$var($Node, n, e->getParentNode());
-		if (n == nullptr || $Node::ELEMENT_NODE != $nc(n)->getNodeType()) {
+		if (n == nullptr || $Node::ELEMENT_NODE != n->getNodeType()) {
 			break;
 		}
 		$assign(e, $cast($Element, n));
@@ -351,7 +322,7 @@ $Element* RetrievalMethodResolver::getDocumentElement($Set* set) {
 	return nullptr;
 }
 
-void clinit$RetrievalMethodResolver($Class* class$) {
+void RetrievalMethodResolver::clinit$($Class* clazz) {
 	$assignStatic(RetrievalMethodResolver::LOG, $LoggerFactory::getLogger(RetrievalMethodResolver::class$));
 }
 
@@ -359,7 +330,36 @@ RetrievalMethodResolver::RetrievalMethodResolver() {
 }
 
 $Class* RetrievalMethodResolver::load$($String* name, bool initialize) {
-	$loadClass(RetrievalMethodResolver, name, initialize, &_RetrievalMethodResolver_ClassInfo_, clinit$RetrievalMethodResolver, allocate$RetrievalMethodResolver);
+	$FieldInfo fieldInfos$$[] = {
+		{"LOG", "Lcom/sun/org/slf4j/internal/Logger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(RetrievalMethodResolver, LOG)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(RetrievalMethodResolver, init$, void)},
+		{"engineCanResolve", "(Lorg/w3c/dom/Element;Ljava/lang/String;Lcom/sun/org/apache/xml/internal/security/keys/storage/StorageResolver;)Z", nullptr, $PROTECTED, $virtualMethod(RetrievalMethodResolver, engineCanResolve, bool, $Element*, $String*, $StorageResolver*)},
+		{"engineResolvePrivateKey", "(Lorg/w3c/dom/Element;Ljava/lang/String;Lcom/sun/org/apache/xml/internal/security/keys/storage/StorageResolver;Z)Ljava/security/PrivateKey;", nullptr, $PROTECTED, $virtualMethod(RetrievalMethodResolver, engineResolvePrivateKey, $PrivateKey*, $Element*, $String*, $StorageResolver*, bool)},
+		{"engineResolvePublicKey", "(Lorg/w3c/dom/Element;Ljava/lang/String;Lcom/sun/org/apache/xml/internal/security/keys/storage/StorageResolver;Z)Ljava/security/PublicKey;", nullptr, $PROTECTED, $virtualMethod(RetrievalMethodResolver, engineResolvePublicKey, $PublicKey*, $Element*, $String*, $StorageResolver*, bool)},
+		{"engineResolveSecretKey", "(Lorg/w3c/dom/Element;Ljava/lang/String;Lcom/sun/org/apache/xml/internal/security/keys/storage/StorageResolver;Z)Ljavax/crypto/SecretKey;", nullptr, $PUBLIC, $virtualMethod(RetrievalMethodResolver, engineResolveSecretKey, $SecretKey*, $Element*, $String*, $StorageResolver*, bool)},
+		{"engineResolveX509Certificate", "(Lorg/w3c/dom/Element;Ljava/lang/String;Lcom/sun/org/apache/xml/internal/security/keys/storage/StorageResolver;Z)Ljava/security/cert/X509Certificate;", nullptr, $PROTECTED, $virtualMethod(RetrievalMethodResolver, engineResolveX509Certificate, $X509Certificate*, $Element*, $String*, $StorageResolver*, bool)},
+		{"getDocumentElement", "(Ljava/util/Set;)Lorg/w3c/dom/Element;", "(Ljava/util/Set<Lorg/w3c/dom/Node;>;)Lorg/w3c/dom/Element;", $PRIVATE | $STATIC, $staticMethod(RetrievalMethodResolver, getDocumentElement, $Element*, $Set*)},
+		{"getRawCertificate", "(Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;)Ljava/security/cert/X509Certificate;", nullptr, $PRIVATE | $STATIC, $staticMethod(RetrievalMethodResolver, getRawCertificate, $X509Certificate*, $XMLSignatureInput*), "com.sun.org.apache.xml.internal.security.c14n.CanonicalizationException,java.io.IOException,java.security.cert.CertificateException"},
+		{"obtainReferenceElement", "(Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;Z)Lorg/w3c/dom/Element;", nullptr, $PRIVATE | $STATIC, $staticMethod(RetrievalMethodResolver, obtainReferenceElement, $Element*, $XMLSignatureInput*, bool), "com.sun.org.apache.xml.internal.security.c14n.CanonicalizationException,com.sun.org.apache.xml.internal.security.parser.XMLParserException,java.io.IOException,com.sun.org.apache.xml.internal.security.keys.keyresolver.KeyResolverException"},
+		{"resolveCertificate", "(Lorg/w3c/dom/Element;Ljava/lang/String;Lcom/sun/org/apache/xml/internal/security/keys/storage/StorageResolver;Z)Ljava/security/cert/X509Certificate;", nullptr, $PRIVATE | $STATIC, $staticMethod(RetrievalMethodResolver, resolveCertificate, $X509Certificate*, $Element*, $String*, $StorageResolver*, bool), "com.sun.org.apache.xml.internal.security.keys.keyresolver.KeyResolverException"},
+		{"resolveInput", "(Lcom/sun/org/apache/xml/internal/security/keys/content/RetrievalMethod;Ljava/lang/String;Z)Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;", nullptr, $PRIVATE | $STATIC, $staticMethod(RetrievalMethodResolver, resolveInput, $XMLSignatureInput*, $RetrievalMethod*, $String*, bool), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
+		{"resolveKey", "(Lorg/w3c/dom/Element;Ljava/lang/String;Lcom/sun/org/apache/xml/internal/security/keys/storage/StorageResolver;Z)Ljava/security/PublicKey;", nullptr, $PRIVATE | $STATIC, $staticMethod(RetrievalMethodResolver, resolveKey, $PublicKey*, $Element*, $String*, $StorageResolver*, bool), "com.sun.org.apache.xml.internal.security.keys.keyresolver.KeyResolverException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.security.keys.keyresolver.implementations.RetrievalMethodResolver",
+		"com.sun.org.apache.xml.internal.security.keys.keyresolver.KeyResolverSpi",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(RetrievalMethodResolver, name, initialize, &classInfo$$, RetrievalMethodResolver::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(RetrievalMethodResolver);
+	});
 	return class$;
 }
 

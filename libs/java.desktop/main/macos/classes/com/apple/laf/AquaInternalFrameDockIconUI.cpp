@@ -1,5 +1,4 @@
 #include <com/apple/laf/AquaInternalFrameDockIconUI.h>
-
 #include <com/apple/laf/AquaInternalFrameDockIconUI$DockLabel.h>
 #include <com/apple/laf/AquaInternalFrameDockIconUI$ScaledImageLabel.h>
 #include <java/awt/BorderLayout.h>
@@ -9,8 +8,6 @@
 #include <java/awt/Rectangle.h>
 #include <java/awt/event/InputEvent.h>
 #include <java/awt/event/MouseEvent.h>
-#include <java/awt/event/MouseListener.h>
-#include <java/awt/event/MouseMotionListener.h>
 #include <java/beans/PropertyVetoException.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JInternalFrame$JDesktopIcon.h>
@@ -25,21 +22,16 @@
 using $AquaInternalFrameDockIconUI$DockLabel = ::com::apple::laf::AquaInternalFrameDockIconUI$DockLabel;
 using $AquaInternalFrameDockIconUI$ScaledImageLabel = ::com::apple::laf::AquaInternalFrameDockIconUI$ScaledImageLabel;
 using $BorderLayout = ::java::awt::BorderLayout;
-using $Component = ::java::awt::Component;
 using $Dimension = ::java::awt::Dimension;
 using $LayoutManager = ::java::awt::LayoutManager;
-using $Rectangle = ::java::awt::Rectangle;
 using $InputEvent = ::java::awt::event::InputEvent;
 using $MouseEvent = ::java::awt::event::MouseEvent;
-using $MouseListener = ::java::awt::event::MouseListener;
-using $MouseMotionListener = ::java::awt::event::MouseMotionListener;
 using $PropertyVetoException = ::java::beans::PropertyVetoException;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $JComponent = ::javax::swing::JComponent;
-using $JInternalFrame = ::javax::swing::JInternalFrame;
 using $JInternalFrame$JDesktopIcon = ::javax::swing::JInternalFrame$JDesktopIcon;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
 using $DesktopIconUI = ::javax::swing::plaf::DesktopIconUI;
@@ -47,68 +39,6 @@ using $DesktopIconUI = ::javax::swing::plaf::DesktopIconUI;
 namespace com {
 	namespace apple {
 		namespace laf {
-
-$FieldInfo _AquaInternalFrameDockIconUI_FieldInfo_[] = {
-	{"fDesktopIcon", "Ljavax/swing/JInternalFrame$JDesktopIcon;", nullptr, $PRIVATE, $field(AquaInternalFrameDockIconUI, fDesktopIcon)},
-	{"fFrame", "Ljavax/swing/JInternalFrame;", nullptr, $PRIVATE, $field(AquaInternalFrameDockIconUI, fFrame)},
-	{"fIconPane", "Lcom/apple/laf/AquaInternalFrameDockIconUI$ScaledImageLabel;", nullptr, $PRIVATE, $field(AquaInternalFrameDockIconUI, fIconPane)},
-	{"fDockLabel", "Lcom/apple/laf/AquaInternalFrameDockIconUI$DockLabel;", nullptr, $PRIVATE, $field(AquaInternalFrameDockIconUI, fDockLabel)},
-	{"fTrackingIcon", "Z", nullptr, $PRIVATE, $field(AquaInternalFrameDockIconUI, fTrackingIcon)},
-	{}
-};
-
-$MethodInfo _AquaInternalFrameDockIconUI_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AquaInternalFrameDockIconUI, init$, void)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(AquaInternalFrameDockIconUI, createUI, $ComponentUI*, $JComponent*)},
-	{"getMaximumSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(AquaInternalFrameDockIconUI, getMaximumSize, $Dimension*, $JComponent*)},
-	{"getMinimumSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(AquaInternalFrameDockIconUI, getMinimumSize, $Dimension*, $JComponent*)},
-	{"getPreferredSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(AquaInternalFrameDockIconUI, getPreferredSize, $Dimension*, $JComponent*)},
-	{"installComponents", "()V", nullptr, $PRIVATE, $method(AquaInternalFrameDockIconUI, installComponents, void)},
-	{"installListeners", "()V", nullptr, $PRIVATE, $method(AquaInternalFrameDockIconUI, installListeners, void)},
-	{"installUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(AquaInternalFrameDockIconUI, installUI, void, $JComponent*)},
-	{"mouseClicked", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaInternalFrameDockIconUI, mouseClicked, void, $MouseEvent*)},
-	{"mouseDragged", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaInternalFrameDockIconUI, mouseDragged, void, $MouseEvent*)},
-	{"mouseEntered", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaInternalFrameDockIconUI, mouseEntered, void, $MouseEvent*)},
-	{"mouseExited", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaInternalFrameDockIconUI, mouseExited, void, $MouseEvent*)},
-	{"mouseMoved", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaInternalFrameDockIconUI, mouseMoved, void, $MouseEvent*)},
-	{"mousePressed", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaInternalFrameDockIconUI, mousePressed, void, $MouseEvent*)},
-	{"mouseReleased", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaInternalFrameDockIconUI, mouseReleased, void, $MouseEvent*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"uninstallComponents", "()V", nullptr, $PRIVATE, $method(AquaInternalFrameDockIconUI, uninstallComponents, void)},
-	{"uninstallListeners", "()V", nullptr, $PRIVATE, $method(AquaInternalFrameDockIconUI, uninstallListeners, void)},
-	{"uninstallUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(AquaInternalFrameDockIconUI, uninstallUI, void, $JComponent*)},
-	{"updateIcon", "()V", nullptr, 0, $method(AquaInternalFrameDockIconUI, updateIcon, void)},
-	{}
-};
-
-$InnerClassInfo _AquaInternalFrameDockIconUI_InnerClassesInfo_[] = {
-	{"com.apple.laf.AquaInternalFrameDockIconUI$DockLabel", "com.apple.laf.AquaInternalFrameDockIconUI", "DockLabel", $PRIVATE | $STATIC | $FINAL},
-	{"com.apple.laf.AquaInternalFrameDockIconUI$ScaledImageLabel", "com.apple.laf.AquaInternalFrameDockIconUI", "ScaledImageLabel", $PRIVATE | $FINAL},
-	{}
-};
-
-$ClassInfo _AquaInternalFrameDockIconUI_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.apple.laf.AquaInternalFrameDockIconUI",
-	"javax.swing.plaf.DesktopIconUI",
-	"java.awt.event.MouseListener,java.awt.event.MouseMotionListener",
-	_AquaInternalFrameDockIconUI_FieldInfo_,
-	_AquaInternalFrameDockIconUI_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AquaInternalFrameDockIconUI_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.apple.laf.AquaInternalFrameDockIconUI$DockLabel,com.apple.laf.AquaInternalFrameDockIconUI$ScaledImageLabel"
-};
-
-$Object* allocate$AquaInternalFrameDockIconUI($Class* clazz) {
-	return $of($alloc(AquaInternalFrameDockIconUI));
-}
 
 int32_t AquaInternalFrameDockIconUI::hashCode() {
 	 return this->$DesktopIconUI::hashCode();
@@ -156,13 +86,12 @@ void AquaInternalFrameDockIconUI::installComponents() {
 	$set(this, fFrame, $nc(this->fDesktopIcon)->getInternalFrame());
 	$set(this, fIconPane, $new($AquaInternalFrameDockIconUI$ScaledImageLabel, this));
 	$nc(this->fDesktopIcon)->setLayout($$new($BorderLayout));
-	$init($BorderLayout);
-	$nc(this->fDesktopIcon)->add(static_cast<$Component*>(this->fIconPane), $of($BorderLayout::CENTER));
+	$nc(this->fDesktopIcon)->add(this->fIconPane, $BorderLayout::CENTER);
 }
 
 void AquaInternalFrameDockIconUI::uninstallComponents() {
 	$nc(this->fDesktopIcon)->setLayout(nullptr);
-	$nc(this->fDesktopIcon)->remove(static_cast<$Component*>(this->fIconPane));
+	$nc(this->fDesktopIcon)->remove(this->fIconPane);
 }
 
 void AquaInternalFrameDockIconUI::installListeners() {
@@ -200,12 +129,12 @@ void AquaInternalFrameDockIconUI::mousePressed($MouseEvent* e) {
 
 void AquaInternalFrameDockIconUI::mouseReleased($MouseEvent* e) {
 	bool var$0 = $nc(this->fFrame)->isIconifiable();
-	if (var$0 && $nc(this->fFrame)->isIcon()) {
+	if (var$0 && this->fFrame->isIcon()) {
 		if (this->fTrackingIcon) {
 			this->fTrackingIcon = false;
 			if ($nc(this->fIconPane)->mouseInIcon(e)) {
 				if (this->fDockLabel != nullptr) {
-					$nc(this->fDockLabel)->hide();
+					this->fDockLabel->hide();
 				}
 				try {
 					$nc(this->fFrame)->setIcon(false);
@@ -219,7 +148,7 @@ void AquaInternalFrameDockIconUI::mouseReleased($MouseEvent* e) {
 	bool var$1 = this->fDockLabel != nullptr;
 	if (var$1) {
 		int32_t var$2 = $nc(e)->getX();
-		var$1 = !$nc($($nc(this->fIconPane)->getBounds()))->contains(var$2, e->getY());
+		var$1 = !$$nc($nc(this->fIconPane)->getBounds())->contains(var$2, e->getY());
 	}
 	if (var$1) {
 		$nc(this->fDockLabel)->hide();
@@ -227,20 +156,20 @@ void AquaInternalFrameDockIconUI::mouseReleased($MouseEvent* e) {
 }
 
 void AquaInternalFrameDockIconUI::mouseEntered($MouseEvent* e) {
-	if (((int32_t)($nc(e)->getModifiers() & (uint32_t)$InputEvent::BUTTON1_MASK)) != 0) {
+	if (($nc(e)->getModifiers() & $InputEvent::BUTTON1_MASK) != 0) {
 		return;
 	}
 	$var($String, title, $nc(this->fFrame)->getTitle());
-	if (title == nullptr || $nc(title)->isEmpty()) {
+	if (title == nullptr || title->isEmpty()) {
 		$assign(title, "Untitled"_s);
 	}
 	$set(this, fDockLabel, $new($AquaInternalFrameDockIconUI$DockLabel, title));
-	$nc(this->fDockLabel)->show(static_cast<$Component*>(this->fDesktopIcon));
+	this->fDockLabel->show(this->fDesktopIcon);
 }
 
 void AquaInternalFrameDockIconUI::mouseExited($MouseEvent* e) {
-	if (this->fDockLabel != nullptr && ((int32_t)($nc(e)->getModifiers() & (uint32_t)$InputEvent::BUTTON1_MASK)) == 0) {
-		$nc(this->fDockLabel)->hide();
+	if (this->fDockLabel != nullptr && ($nc(e)->getModifiers() & $InputEvent::BUTTON1_MASK) == 0) {
+		this->fDockLabel->hide();
 	}
 }
 
@@ -257,7 +186,63 @@ AquaInternalFrameDockIconUI::AquaInternalFrameDockIconUI() {
 }
 
 $Class* AquaInternalFrameDockIconUI::load$($String* name, bool initialize) {
-	$loadClass(AquaInternalFrameDockIconUI, name, initialize, &_AquaInternalFrameDockIconUI_ClassInfo_, allocate$AquaInternalFrameDockIconUI);
+	$FieldInfo fieldInfos$$[] = {
+		{"fDesktopIcon", "Ljavax/swing/JInternalFrame$JDesktopIcon;", nullptr, $PRIVATE, $field(AquaInternalFrameDockIconUI, fDesktopIcon)},
+		{"fFrame", "Ljavax/swing/JInternalFrame;", nullptr, $PRIVATE, $field(AquaInternalFrameDockIconUI, fFrame)},
+		{"fIconPane", "Lcom/apple/laf/AquaInternalFrameDockIconUI$ScaledImageLabel;", nullptr, $PRIVATE, $field(AquaInternalFrameDockIconUI, fIconPane)},
+		{"fDockLabel", "Lcom/apple/laf/AquaInternalFrameDockIconUI$DockLabel;", nullptr, $PRIVATE, $field(AquaInternalFrameDockIconUI, fDockLabel)},
+		{"fTrackingIcon", "Z", nullptr, $PRIVATE, $field(AquaInternalFrameDockIconUI, fTrackingIcon)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AquaInternalFrameDockIconUI, init$, void)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(AquaInternalFrameDockIconUI, createUI, $ComponentUI*, $JComponent*)},
+		{"getMaximumSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(AquaInternalFrameDockIconUI, getMaximumSize, $Dimension*, $JComponent*)},
+		{"getMinimumSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(AquaInternalFrameDockIconUI, getMinimumSize, $Dimension*, $JComponent*)},
+		{"getPreferredSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(AquaInternalFrameDockIconUI, getPreferredSize, $Dimension*, $JComponent*)},
+		{"installComponents", "()V", nullptr, $PRIVATE, $method(AquaInternalFrameDockIconUI, installComponents, void)},
+		{"installListeners", "()V", nullptr, $PRIVATE, $method(AquaInternalFrameDockIconUI, installListeners, void)},
+		{"installUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(AquaInternalFrameDockIconUI, installUI, void, $JComponent*)},
+		{"mouseClicked", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaInternalFrameDockIconUI, mouseClicked, void, $MouseEvent*)},
+		{"mouseDragged", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaInternalFrameDockIconUI, mouseDragged, void, $MouseEvent*)},
+		{"mouseEntered", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaInternalFrameDockIconUI, mouseEntered, void, $MouseEvent*)},
+		{"mouseExited", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaInternalFrameDockIconUI, mouseExited, void, $MouseEvent*)},
+		{"mouseMoved", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaInternalFrameDockIconUI, mouseMoved, void, $MouseEvent*)},
+		{"mousePressed", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaInternalFrameDockIconUI, mousePressed, void, $MouseEvent*)},
+		{"mouseReleased", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaInternalFrameDockIconUI, mouseReleased, void, $MouseEvent*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"uninstallComponents", "()V", nullptr, $PRIVATE, $method(AquaInternalFrameDockIconUI, uninstallComponents, void)},
+		{"uninstallListeners", "()V", nullptr, $PRIVATE, $method(AquaInternalFrameDockIconUI, uninstallListeners, void)},
+		{"uninstallUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(AquaInternalFrameDockIconUI, uninstallUI, void, $JComponent*)},
+		{"updateIcon", "()V", nullptr, 0, $method(AquaInternalFrameDockIconUI, updateIcon, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.laf.AquaInternalFrameDockIconUI$DockLabel", "com.apple.laf.AquaInternalFrameDockIconUI", "DockLabel", $PRIVATE | $STATIC | $FINAL},
+		{"com.apple.laf.AquaInternalFrameDockIconUI$ScaledImageLabel", "com.apple.laf.AquaInternalFrameDockIconUI", "ScaledImageLabel", $PRIVATE | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.apple.laf.AquaInternalFrameDockIconUI",
+		"javax.swing.plaf.DesktopIconUI",
+		"java.awt.event.MouseListener,java.awt.event.MouseMotionListener",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.apple.laf.AquaInternalFrameDockIconUI$DockLabel,com.apple.laf.AquaInternalFrameDockIconUI$ScaledImageLabel"
+	};
+	$loadClass(AquaInternalFrameDockIconUI, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AquaInternalFrameDockIconUI));
+	});
 	return class$;
 }
 

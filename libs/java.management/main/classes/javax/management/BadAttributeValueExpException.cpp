@@ -1,5 +1,4 @@
 #include <javax/management/BadAttributeValueExpException.h>
-
 #include <java/io/ObjectInputStream$GetField.h>
 #include <java/io/ObjectInputStream.h>
 #include <jcpp.h>
@@ -14,35 +13,9 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace javax {
 	namespace management {
 
-$FieldInfo _BadAttributeValueExpException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BadAttributeValueExpException, serialVersionUID)},
-	{"val", "Ljava/lang/String;", nullptr, $PRIVATE, $field(BadAttributeValueExpException, val)},
-	{}
-};
-
-$MethodInfo _BadAttributeValueExpException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(BadAttributeValueExpException, init$, void, Object$*)},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(BadAttributeValueExpException, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(BadAttributeValueExpException, toString, $String*)},
-	{}
-};
-
-$ClassInfo _BadAttributeValueExpException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.management.BadAttributeValueExpException",
-	"java.lang.Exception",
-	nullptr,
-	_BadAttributeValueExpException_FieldInfo_,
-	_BadAttributeValueExpException_MethodInfo_
-};
-
-$Object* allocate$BadAttributeValueExpException($Class* clazz) {
-	return $of($alloc(BadAttributeValueExpException));
-}
-
 void BadAttributeValueExpException::init$(Object$* val) {
 	$Exception::init$();
-	$set(this, val, val == nullptr ? ($String*)nullptr : $nc($of(val))->toString());
+	$set(this, val, val == nullptr ? ($String*)nullptr : $of(val)->toString());
 }
 
 $String* BadAttributeValueExpException::toString() {
@@ -50,14 +23,17 @@ $String* BadAttributeValueExpException::toString() {
 }
 
 void BadAttributeValueExpException::readObject($ObjectInputStream* ois) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectInputStream$GetField, gf, $nc(ois)->readFields());
-	$var($Object, valObj, $nc(gf)->get("val"_s, ($Object*)nullptr));
+	$var($Object, valObj, $nc(gf)->get("val"_s, nullptr));
 	if ($instanceOf($String, valObj) || valObj == nullptr) {
 		$set(this, val, $cast($String, valObj));
 	} else {
-		$var($String, var$0, $$str({$$str($System::identityHashCode(valObj)), "@"_s}));
-		$set(this, val, $concat(var$0, $($nc($of(valObj))->getClass()->getName())));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append($System::identityHashCode(valObj));
+		var$0->append("@"_s);
+		var$0->append($(valObj->getClass()->getName()));
+		$set(this, val, $str(var$0));
 	}
 }
 
@@ -72,7 +48,28 @@ void BadAttributeValueExpException::throw$() {
 }
 
 $Class* BadAttributeValueExpException::load$($String* name, bool initialize) {
-	$loadClass(BadAttributeValueExpException, name, initialize, &_BadAttributeValueExpException_ClassInfo_, allocate$BadAttributeValueExpException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BadAttributeValueExpException, serialVersionUID)},
+		{"val", "Ljava/lang/String;", nullptr, $PRIVATE, $field(BadAttributeValueExpException, val)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(BadAttributeValueExpException, init$, void, Object$*)},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(BadAttributeValueExpException, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(BadAttributeValueExpException, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.management.BadAttributeValueExpException",
+		"java.lang.Exception",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(BadAttributeValueExpException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BadAttributeValueExpException);
+	});
 	return class$;
 }
 

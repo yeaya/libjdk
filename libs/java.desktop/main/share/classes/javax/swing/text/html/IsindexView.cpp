@@ -1,12 +1,10 @@
 #include <javax/swing/text/html/IsindexView.h>
-
 #include <java/awt/BorderLayout.h>
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <java/awt/LayoutManager.h>
 #include <java/awt/event/ActionEvent.h>
-#include <java/awt/event/ActionListener.h>
 #include <java/io/IOException.h>
 #include <java/net/MalformedURLException.h>
 #include <java/net/URL.h>
@@ -33,9 +31,7 @@
 using $BorderLayout = ::java::awt::BorderLayout;
 using $Color = ::java::awt::Color;
 using $Component = ::java::awt::Component;
-using $LayoutManager = ::java::awt::LayoutManager;
 using $ActionEvent = ::java::awt::event::ActionEvent;
-using $ActionListener = ::java::awt::event::ActionListener;
 using $IOException = ::java::io::IOException;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -59,36 +55,6 @@ namespace javax {
 	namespace swing {
 		namespace text {
 			namespace html {
-
-$FieldInfo _IsindexView_FieldInfo_[] = {
-	{"textField", "Ljavax/swing/JTextField;", nullptr, 0, $field(IsindexView, textField)},
-	{}
-};
-
-$MethodInfo _IsindexView_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljavax/swing/text/Element;)V", nullptr, $PUBLIC, $method(IsindexView, init$, void, $Element*)},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(IsindexView, actionPerformed, void, $ActionEvent*)},
-	{"createComponent", "()Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(IsindexView, createComponent, $Component*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _IsindexView_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.text.html.IsindexView",
-	"javax.swing.text.ComponentView",
-	"java.awt.event.ActionListener",
-	_IsindexView_FieldInfo_,
-	_IsindexView_MethodInfo_
-};
-
-$Object* allocate$IsindexView($Class* clazz) {
-	return $of($alloc(IsindexView));
-}
 
 int32_t IsindexView::hashCode() {
 	 return this->$ComponentView::hashCode();
@@ -115,9 +81,9 @@ void IsindexView::init$($Element* elem) {
 }
 
 $Component* IsindexView::createComponent() {
-	$useLocalCurrentObjectStackCache();
-	$var($AttributeSet, attr, $nc($(getElement()))->getAttributes());
-	$var($JPanel, panel, $new($JPanel, static_cast<$LayoutManager*>($$new($BorderLayout))));
+	$useLocalObjectStack();
+	$var($AttributeSet, attr, $$nc(getElement())->getAttributes());
+	$var($JPanel, panel, $new($JPanel, $$new($BorderLayout)));
 	panel->setBackground(nullptr);
 	$init($HTML$Attribute);
 	$var($String, prompt, $cast($String, $nc(attr)->getAttribute($HTML$Attribute::PROMPT)));
@@ -126,27 +92,26 @@ $Component* IsindexView::createComponent() {
 	}
 	$var($JLabel, label, $new($JLabel, prompt));
 	$set(this, textField, $new($JTextField));
-	$nc(this->textField)->addActionListener(this);
-	$init($BorderLayout);
-	panel->add(static_cast<$Component*>(label), $of($BorderLayout::WEST));
-	panel->add(static_cast<$Component*>(this->textField), $of($BorderLayout::CENTER));
+	this->textField->addActionListener(this);
+	panel->add(label, $BorderLayout::WEST);
+	panel->add(this->textField, $BorderLayout::CENTER);
 	panel->setAlignmentY(1.0f);
 	panel->setOpaque(false);
 	return panel;
 }
 
 void IsindexView::actionPerformed($ActionEvent* evt) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, data, $nc(this->textField)->getText());
 	if (data != nullptr) {
 		$assign(data, $URLEncoder::encode(data));
 	}
-	$var($AttributeSet, attr, $nc($(getElement()))->getAttributes());
-	$var($HTMLDocument, hdoc, $cast($HTMLDocument, $nc($(getElement()))->getDocument()));
+	$var($AttributeSet, attr, $$nc(getElement())->getAttributes());
+	$var($HTMLDocument, hdoc, $cast($HTMLDocument, $$nc(getElement())->getDocument()));
 	$init($HTML$Attribute);
 	$var($String, action, $cast($String, $nc(attr)->getAttribute($HTML$Attribute::ACTION)));
 	if (action == nullptr) {
-		$assign(action, $nc($($nc(hdoc)->getBase()))->toString());
+		$assign(action, $$nc($nc(hdoc)->getBase())->toString());
 	}
 	try {
 		$var($URL, url, $new($URL, $$str({action, "?"_s, data})));
@@ -161,7 +126,32 @@ IsindexView::IsindexView() {
 }
 
 $Class* IsindexView::load$($String* name, bool initialize) {
-	$loadClass(IsindexView, name, initialize, &_IsindexView_ClassInfo_, allocate$IsindexView);
+	$FieldInfo fieldInfos$$[] = {
+		{"textField", "Ljavax/swing/JTextField;", nullptr, 0, $field(IsindexView, textField)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljavax/swing/text/Element;)V", nullptr, $PUBLIC, $method(IsindexView, init$, void, $Element*)},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(IsindexView, actionPerformed, void, $ActionEvent*)},
+		{"createComponent", "()Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(IsindexView, createComponent, $Component*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.text.html.IsindexView",
+		"javax.swing.text.ComponentView",
+		"java.awt.event.ActionListener",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(IsindexView, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(IsindexView));
+	});
 	return class$;
 }
 

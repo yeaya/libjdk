@@ -49,6 +49,7 @@ class $export BorderLayout : public ::java::awt::LayoutManager2, public ::java::
 	$class(BorderLayout, 0, ::java::awt::LayoutManager2, ::java::io::Serializable)
 public:
 	BorderLayout();
+	static void clinit$(::java::lang::Class* clazz);
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* arg0) override;
 	virtual void finalize() override;
@@ -98,7 +99,7 @@ public:
 	static $String* PAGE_END;
 	static $String* LINE_START;
 	static $String* LINE_END;
-	static const int64_t serialVersionUID = (int64_t)0x87D7915F7073F21B;
+	static const int64_t serialVersionUID = (int64_t)0x87d7915f7073f21b;
 };
 
 	} // awt

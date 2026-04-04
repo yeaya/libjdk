@@ -1,8 +1,6 @@
 #include <com/apple/laf/AquaProgressBarUI$Animator.h>
-
 #include <com/apple/laf/AquaProgressBarUI.h>
 #include <java/awt/event/ActionEvent.h>
-#include <java/awt/event/ActionListener.h>
 #include <javax/swing/Timer.h>
 #include <javax/swing/UIManager.h>
 #include <jcpp.h>
@@ -11,7 +9,6 @@
 
 using $AquaProgressBarUI = ::com::apple::laf::AquaProgressBarUI;
 using $ActionEvent = ::java::awt::event::ActionEvent;
-using $ActionListener = ::java::awt::event::ActionListener;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -22,49 +19,6 @@ using $UIManager = ::javax::swing::UIManager;
 namespace com {
 	namespace apple {
 		namespace laf {
-
-$FieldInfo _AquaProgressBarUI$Animator_FieldInfo_[] = {
-	{"this$0", "Lcom/apple/laf/AquaProgressBarUI;", nullptr, $FINAL | $SYNTHETIC, $field(AquaProgressBarUI$Animator, this$0)},
-	{"MINIMUM_DELAY", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AquaProgressBarUI$Animator, MINIMUM_DELAY)},
-	{"timer", "Ljavax/swing/Timer;", nullptr, $PRIVATE, $field(AquaProgressBarUI$Animator, timer)},
-	{"previousDelay", "J", nullptr, $PRIVATE, $field(AquaProgressBarUI$Animator, previousDelay)},
-	{"lastCall", "J", nullptr, $PRIVATE, $field(AquaProgressBarUI$Animator, lastCall)},
-	{"repaintInterval", "I", nullptr, $PRIVATE, $field(AquaProgressBarUI$Animator, repaintInterval)},
-	{}
-};
-
-$MethodInfo _AquaProgressBarUI$Animator_MethodInfo_[] = {
-	{"<init>", "(Lcom/apple/laf/AquaProgressBarUI;)V", nullptr, $PUBLIC, $method(AquaProgressBarUI$Animator, init$, void, $AquaProgressBarUI*)},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaProgressBarUI$Animator, actionPerformed, void, $ActionEvent*)},
-	{"start", "()V", nullptr, $PROTECTED, $virtualMethod(AquaProgressBarUI$Animator, start, void)},
-	{"stop", "()V", nullptr, $PROTECTED, $virtualMethod(AquaProgressBarUI$Animator, stop, void)},
-	{}
-};
-
-$InnerClassInfo _AquaProgressBarUI$Animator_InnerClassesInfo_[] = {
-	{"com.apple.laf.AquaProgressBarUI$Animator", "com.apple.laf.AquaProgressBarUI", "Animator", $PROTECTED},
-	{}
-};
-
-$ClassInfo _AquaProgressBarUI$Animator_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.apple.laf.AquaProgressBarUI$Animator",
-	"java.lang.Object",
-	"java.awt.event.ActionListener",
-	_AquaProgressBarUI$Animator_FieldInfo_,
-	_AquaProgressBarUI$Animator_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AquaProgressBarUI$Animator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.apple.laf.AquaProgressBarUI"
-};
-
-$Object* allocate$AquaProgressBarUI$Animator($Class* clazz) {
-	return $of($alloc(AquaProgressBarUI$Animator));
-}
 
 void AquaProgressBarUI$Animator::init$($AquaProgressBarUI* this$0) {
 	$set(this, this$0, this$0);
@@ -80,7 +34,7 @@ void AquaProgressBarUI$Animator::start() {
 	if (this->timer == nullptr) {
 		$set(this, timer, $new($Timer, this->repaintInterval, this));
 	} else {
-		$nc(this->timer)->setDelay(this->repaintInterval);
+		this->timer->setDelay(this->repaintInterval);
 	}
 	{
 		$nc(this->timer)->setRepeats(false);
@@ -94,6 +48,7 @@ void AquaProgressBarUI$Animator::stop() {
 }
 
 void AquaProgressBarUI$Animator::actionPerformed($ActionEvent* e) {
+	;
 	int64_t time = $System::currentTimeMillis();
 	if (this->lastCall > 0) {
 		int32_t nextDelay = (int32_t)(this->previousDelay - time + this->lastCall + this->repaintInterval);
@@ -112,7 +67,44 @@ AquaProgressBarUI$Animator::AquaProgressBarUI$Animator() {
 }
 
 $Class* AquaProgressBarUI$Animator::load$($String* name, bool initialize) {
-	$loadClass(AquaProgressBarUI$Animator, name, initialize, &_AquaProgressBarUI$Animator_ClassInfo_, allocate$AquaProgressBarUI$Animator);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/apple/laf/AquaProgressBarUI;", nullptr, $FINAL | $SYNTHETIC, $field(AquaProgressBarUI$Animator, this$0)},
+		{"MINIMUM_DELAY", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AquaProgressBarUI$Animator, MINIMUM_DELAY)},
+		{"timer", "Ljavax/swing/Timer;", nullptr, $PRIVATE, $field(AquaProgressBarUI$Animator, timer)},
+		{"previousDelay", "J", nullptr, $PRIVATE, $field(AquaProgressBarUI$Animator, previousDelay)},
+		{"lastCall", "J", nullptr, $PRIVATE, $field(AquaProgressBarUI$Animator, lastCall)},
+		{"repaintInterval", "I", nullptr, $PRIVATE, $field(AquaProgressBarUI$Animator, repaintInterval)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/apple/laf/AquaProgressBarUI;)V", nullptr, $PUBLIC, $method(AquaProgressBarUI$Animator, init$, void, $AquaProgressBarUI*)},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaProgressBarUI$Animator, actionPerformed, void, $ActionEvent*)},
+		{"start", "()V", nullptr, $PROTECTED, $virtualMethod(AquaProgressBarUI$Animator, start, void)},
+		{"stop", "()V", nullptr, $PROTECTED, $virtualMethod(AquaProgressBarUI$Animator, stop, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.laf.AquaProgressBarUI$Animator", "com.apple.laf.AquaProgressBarUI", "Animator", $PROTECTED},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.apple.laf.AquaProgressBarUI$Animator",
+		"java.lang.Object",
+		"java.awt.event.ActionListener",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.apple.laf.AquaProgressBarUI"
+	};
+	$loadClass(AquaProgressBarUI$Animator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AquaProgressBarUI$Animator);
+	});
 	return class$;
 }
 

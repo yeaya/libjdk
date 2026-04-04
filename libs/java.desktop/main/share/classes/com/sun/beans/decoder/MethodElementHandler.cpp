@@ -1,5 +1,4 @@
 #include <com/sun/beans/decoder/MethodElementHandler.h>
-
 #include <com/sun/beans/decoder/NewElementHandler.h>
 #include <com/sun/beans/decoder/ValueObject.h>
 #include <com/sun/beans/decoder/ValueObjectImpl.h>
@@ -27,31 +26,6 @@ namespace com {
 		namespace beans {
 			namespace decoder {
 
-$FieldInfo _MethodElementHandler_FieldInfo_[] = {
-	{"name", "Ljava/lang/String;", nullptr, $PRIVATE, $field(MethodElementHandler, name)},
-	{}
-};
-
-$MethodInfo _MethodElementHandler_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(MethodElementHandler, init$, void)},
-	{"addAttribute", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(MethodElementHandler, addAttribute, void, $String*, $String*)},
-	{"getValueObject", "(Ljava/lang/Class;[Ljava/lang/Object;)Lcom/sun/beans/decoder/ValueObject;", "(Ljava/lang/Class<*>;[Ljava/lang/Object;)Lcom/sun/beans/decoder/ValueObject;", $PROTECTED, $virtualMethod(MethodElementHandler, getValueObject, $ValueObject*, $Class*, $ObjectArray*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _MethodElementHandler_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.beans.decoder.MethodElementHandler",
-	"com.sun.beans.decoder.NewElementHandler",
-	nullptr,
-	_MethodElementHandler_FieldInfo_,
-	_MethodElementHandler_MethodInfo_
-};
-
-$Object* allocate$MethodElementHandler($Class* clazz) {
-	return $of($alloc(MethodElementHandler));
-}
-
 void MethodElementHandler::init$() {
 	$NewElementHandler::init$();
 }
@@ -65,25 +39,44 @@ void MethodElementHandler::addAttribute($String* name, $String* value) {
 }
 
 $ValueObject* MethodElementHandler::getValueObject($Class* type, $ObjectArray* args$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectArray, args, args$renamed);
 	$var($Object, bean, getContextBean());
 	$var($ClassArray, types, getArgumentTypes(args));
-	$var($Method, method, (type != nullptr) ? $MethodFinder::findStaticMethod(type, this->name, types) : $MethodFinder::findMethod($nc($of(bean))->getClass(), this->name, types));
+	$var($Method, method, (type != nullptr) ? $MethodFinder::findStaticMethod(type, this->name, types) : $MethodFinder::findMethod($nc(bean)->getClass(), this->name, types));
 	if ($nc(method)->isVarArgs()) {
 		$assign(args, getArguments(args, $(method->getParameterTypes())));
 	}
 	$var($Object, value, $MethodUtil::invoke(method, bean, args));
-	$init($Void);
 	$init($ValueObjectImpl);
-	return $nc($of($nc(method)->getReturnType()))->equals($Void::TYPE) ? $ValueObjectImpl::VOID : $ValueObjectImpl::create(value);
+	return $nc(method->getReturnType())->equals($Void::TYPE) ? $ValueObjectImpl::VOID : $ValueObjectImpl::create(value);
 }
 
 MethodElementHandler::MethodElementHandler() {
 }
 
 $Class* MethodElementHandler::load$($String* name, bool initialize) {
-	$loadClass(MethodElementHandler, name, initialize, &_MethodElementHandler_ClassInfo_, allocate$MethodElementHandler);
+	$FieldInfo fieldInfos$$[] = {
+		{"name", "Ljava/lang/String;", nullptr, $PRIVATE, $field(MethodElementHandler, name)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(MethodElementHandler, init$, void)},
+		{"addAttribute", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(MethodElementHandler, addAttribute, void, $String*, $String*)},
+		{"getValueObject", "(Ljava/lang/Class;[Ljava/lang/Object;)Lcom/sun/beans/decoder/ValueObject;", "(Ljava/lang/Class<*>;[Ljava/lang/Object;)Lcom/sun/beans/decoder/ValueObject;", $PROTECTED, $virtualMethod(MethodElementHandler, getValueObject, $ValueObject*, $Class*, $ObjectArray*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.beans.decoder.MethodElementHandler",
+		"com.sun.beans.decoder.NewElementHandler",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(MethodElementHandler, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MethodElementHandler);
+	});
 	return class$;
 }
 

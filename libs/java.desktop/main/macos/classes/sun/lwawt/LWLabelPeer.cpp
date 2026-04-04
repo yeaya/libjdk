@@ -1,5 +1,4 @@
 #include <sun/lwawt/LWLabelPeer.h>
-
 #include <java/awt/AWTEvent.h>
 #include <java/awt/BufferCapabilities$FlipContents.h>
 #include <java/awt/BufferCapabilities.h>
@@ -61,71 +60,6 @@ using $PlatformComponent = ::sun::lwawt::PlatformComponent;
 
 namespace sun {
 	namespace lwawt {
-
-$MethodInfo _LWLabelPeer_MethodInfo_[] = {
-	{"*applyShape", "(Lsun/java2d/pipe/Region;)V", nullptr, $PUBLIC | $FINAL},
-	{"*canDetermineObscurity", "()Z", nullptr, $PUBLIC},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*coalescePaintEvent", "(Ljava/awt/event/PaintEvent;)V", nullptr, $PUBLIC},
-	{"*createBuffers", "(ILjava/awt/BufferCapabilities;)V", nullptr, $PUBLIC | $FINAL},
-	{"*createImage", "(II)Ljava/awt/Image;", nullptr, $PUBLIC | $FINAL},
-	{"*createVolatileImage", "(II)Ljava/awt/image/VolatileImage;", nullptr, $PUBLIC | $FINAL},
-	{"*destroyBuffers", "()V", nullptr, $PUBLIC | $FINAL},
-	{"*dispose", "()V", nullptr, $PUBLIC | $FINAL},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*flip", "(IIIILjava/awt/BufferCapabilities$FlipContents;)V", nullptr, $PUBLIC | $FINAL},
-	{"*getBackBuffer", "()Ljava/awt/Image;", nullptr, $PUBLIC | $FINAL},
-	{"*getColorModel", "()Ljava/awt/image/ColorModel;", nullptr, $PUBLIC},
-	{"*getFontMetrics", "(Ljava/awt/Font;)Ljava/awt/FontMetrics;", nullptr, $PUBLIC},
-	{"*getGraphics", "()Ljava/awt/Graphics;", nullptr, $PUBLIC},
-	{"*getGraphicsConfiguration", "()Ljava/awt/GraphicsConfiguration;", nullptr, $PUBLIC},
-	{"*getLocationOnScreen", "()Ljava/awt/Point;", nullptr, $PUBLIC},
-	{"*getMinimumSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC},
-	{"*getPreferredSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC},
-	{"*handleEvent", "(Ljava/awt/AWTEvent;)V", nullptr, $PUBLIC},
-	{"*handlesWheelScrolling", "()Z", nullptr, $PUBLIC},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/awt/Label;Lsun/lwawt/PlatformComponent;)V", nullptr, 0, $method(LWLabelPeer, init$, void, $Label*, $PlatformComponent*)},
-	{"convertAlignment", "(I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(LWLabelPeer, convertAlignment, int32_t, int32_t)},
-	{"createDelegate", "()Ljavax/swing/JLabel;", nullptr, 0, $virtualMethod(LWLabelPeer, createDelegate, $JComponent*)},
-	{"initializeImpl", "()V", nullptr, 0, $virtualMethod(LWLabelPeer, initializeImpl, void)},
-	{"*isFocusable", "()Z", nullptr, $PUBLIC},
-	{"*isObscured", "()Z", nullptr, $PUBLIC},
-	{"*isReparentSupported", "()Z", nullptr, $PUBLIC},
-	{"*layout", "()V", nullptr, $PUBLIC},
-	{"*paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC},
-	{"*print", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC},
-	{"*reparent", "(Ljava/awt/peer/ContainerPeer;)V", nullptr, $PUBLIC},
-	{"*requestFocus", "(Ljava/awt/Component;ZZJLjava/awt/event/FocusEvent$Cause;)Z", nullptr, $PUBLIC},
-	{"setAlignment", "(I)V", nullptr, $PUBLIC, $virtualMethod(LWLabelPeer, setAlignment, void, int32_t)},
-	{"*setBackground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC},
-	{"*setBounds", "(IIIII)V", nullptr, $PUBLIC},
-	{"*setEnabled", "(Z)V", nullptr, $PUBLIC},
-	{"*setFont", "(Ljava/awt/Font;)V", nullptr, $PUBLIC},
-	{"*setForeground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC},
-	{"setText", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(LWLabelPeer, setText, void, $String*)},
-	{"*updateGraphicsData", "(Ljava/awt/GraphicsConfiguration;)Z", nullptr, $PUBLIC},
-	{"*setVisible", "(Z)V", nullptr, $PUBLIC},
-	{"*setZOrder", "(Ljava/awt/peer/ComponentPeer;)V", nullptr, $PUBLIC},
-	{"*updateCursorImmediately", "()V", nullptr, $PUBLIC},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _LWLabelPeer_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.lwawt.LWLabelPeer",
-	"sun.lwawt.LWComponentPeer",
-	"java.awt.peer.LabelPeer",
-	nullptr,
-	_LWLabelPeer_MethodInfo_,
-	"Lsun/lwawt/LWComponentPeer<Ljava/awt/Label;Ljavax/swing/JLabel;>;Ljava/awt/peer/LabelPeer;"
-};
-
-$Object* allocate$LWLabelPeer($Class* clazz) {
-	return $of($alloc(LWLabelPeer));
-}
 
 void LWLabelPeer::dispose() {
 	this->$LWComponentPeer::dispose();
@@ -300,21 +234,21 @@ $JComponent* LWLabelPeer::createDelegate() {
 }
 
 void LWLabelPeer::initializeImpl() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$LWComponentPeer::initializeImpl();
-	setText($($nc(($cast($Label, $(getTarget()))))->getText()));
-	setAlignment($nc(($cast($Label, $(getTarget()))))->getAlignment());
+	setText($($$sure($Label, getTarget())->getText()));
+	setAlignment($$sure($Label, getTarget())->getAlignment());
 }
 
 void LWLabelPeer::setText($String* label) {
 	$synchronized(getDelegateLock()) {
-		$nc(($cast($JLabel, $(getDelegate()))))->setText(label);
+		$$sure($JLabel, getDelegate())->setText(label);
 	}
 }
 
 void LWLabelPeer::setAlignment(int32_t alignment) {
 	$synchronized(getDelegateLock()) {
-		$nc(($cast($JLabel, $(getDelegate()))))->setHorizontalAlignment(convertAlignment(alignment));
+		$$sure($JLabel, getDelegate())->setHorizontalAlignment(convertAlignment(alignment));
 	}
 }
 
@@ -322,17 +256,11 @@ int32_t LWLabelPeer::convertAlignment(int32_t alignment) {
 	$init(LWLabelPeer);
 	switch (alignment) {
 	case $Label::CENTER:
-		{
-			return $SwingConstants::CENTER;
-		}
+		return $SwingConstants::CENTER;
 	case $Label::RIGHT:
-		{
-			return $SwingConstants::RIGHT;
-		}
+		return $SwingConstants::RIGHT;
 	default:
-		{
-			return $SwingConstants::LEFT;
-		}
+		return $SwingConstants::LEFT;
 	}
 }
 
@@ -340,7 +268,68 @@ LWLabelPeer::LWLabelPeer() {
 }
 
 $Class* LWLabelPeer::load$($String* name, bool initialize) {
-	$loadClass(LWLabelPeer, name, initialize, &_LWLabelPeer_ClassInfo_, allocate$LWLabelPeer);
+	$MethodInfo methodInfos$$[] = {
+		{"*applyShape", "(Lsun/java2d/pipe/Region;)V", nullptr, $PUBLIC | $FINAL},
+		{"*canDetermineObscurity", "()Z", nullptr, $PUBLIC},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*coalescePaintEvent", "(Ljava/awt/event/PaintEvent;)V", nullptr, $PUBLIC},
+		{"*createBuffers", "(ILjava/awt/BufferCapabilities;)V", nullptr, $PUBLIC | $FINAL},
+		{"*createImage", "(II)Ljava/awt/Image;", nullptr, $PUBLIC | $FINAL},
+		{"*createVolatileImage", "(II)Ljava/awt/image/VolatileImage;", nullptr, $PUBLIC | $FINAL},
+		{"*destroyBuffers", "()V", nullptr, $PUBLIC | $FINAL},
+		{"*dispose", "()V", nullptr, $PUBLIC | $FINAL},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*flip", "(IIIILjava/awt/BufferCapabilities$FlipContents;)V", nullptr, $PUBLIC | $FINAL},
+		{"*getBackBuffer", "()Ljava/awt/Image;", nullptr, $PUBLIC | $FINAL},
+		{"*getColorModel", "()Ljava/awt/image/ColorModel;", nullptr, $PUBLIC},
+		{"*getFontMetrics", "(Ljava/awt/Font;)Ljava/awt/FontMetrics;", nullptr, $PUBLIC},
+		{"*getGraphics", "()Ljava/awt/Graphics;", nullptr, $PUBLIC},
+		{"*getGraphicsConfiguration", "()Ljava/awt/GraphicsConfiguration;", nullptr, $PUBLIC},
+		{"*getLocationOnScreen", "()Ljava/awt/Point;", nullptr, $PUBLIC},
+		{"*getMinimumSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC},
+		{"*getPreferredSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC},
+		{"*handleEvent", "(Ljava/awt/AWTEvent;)V", nullptr, $PUBLIC},
+		{"*handlesWheelScrolling", "()Z", nullptr, $PUBLIC},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/awt/Label;Lsun/lwawt/PlatformComponent;)V", nullptr, 0, $method(LWLabelPeer, init$, void, $Label*, $PlatformComponent*)},
+		{"convertAlignment", "(I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(LWLabelPeer, convertAlignment, int32_t, int32_t)},
+		{"createDelegate", "()Ljavax/swing/JLabel;", nullptr, 0, $virtualMethod(LWLabelPeer, createDelegate, $JComponent*)},
+		{"initializeImpl", "()V", nullptr, 0, $virtualMethod(LWLabelPeer, initializeImpl, void)},
+		{"*isFocusable", "()Z", nullptr, $PUBLIC},
+		{"*isObscured", "()Z", nullptr, $PUBLIC},
+		{"*isReparentSupported", "()Z", nullptr, $PUBLIC},
+		{"*layout", "()V", nullptr, $PUBLIC},
+		{"*paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC},
+		{"*print", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC},
+		{"*reparent", "(Ljava/awt/peer/ContainerPeer;)V", nullptr, $PUBLIC},
+		{"*requestFocus", "(Ljava/awt/Component;ZZJLjava/awt/event/FocusEvent$Cause;)Z", nullptr, $PUBLIC},
+		{"setAlignment", "(I)V", nullptr, $PUBLIC, $virtualMethod(LWLabelPeer, setAlignment, void, int32_t)},
+		{"*setBackground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC},
+		{"*setBounds", "(IIIII)V", nullptr, $PUBLIC},
+		{"*setEnabled", "(Z)V", nullptr, $PUBLIC},
+		{"*setFont", "(Ljava/awt/Font;)V", nullptr, $PUBLIC},
+		{"*setForeground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC},
+		{"setText", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(LWLabelPeer, setText, void, $String*)},
+		{"*updateGraphicsData", "(Ljava/awt/GraphicsConfiguration;)Z", nullptr, $PUBLIC},
+		{"*setVisible", "(Z)V", nullptr, $PUBLIC},
+		{"*setZOrder", "(Ljava/awt/peer/ComponentPeer;)V", nullptr, $PUBLIC},
+		{"*updateCursorImmediately", "()V", nullptr, $PUBLIC},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.lwawt.LWLabelPeer",
+		"sun.lwawt.LWComponentPeer",
+		"java.awt.peer.LabelPeer",
+		nullptr,
+		methodInfos$$,
+		"Lsun/lwawt/LWComponentPeer<Ljava/awt/Label;Ljavax/swing/JLabel;>;Ljava/awt/peer/LabelPeer;"
+	};
+	$loadClass(LWLabelPeer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(LWLabelPeer));
+	});
 	return class$;
 }
 

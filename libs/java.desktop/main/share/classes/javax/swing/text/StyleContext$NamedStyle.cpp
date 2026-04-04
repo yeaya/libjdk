@@ -1,5 +1,4 @@
 #include <javax/swing/text/StyleContext$NamedStyle.h>
-
 #include <java/io/ObjectInputStream.h>
 #include <java/io/ObjectOutputStream.h>
 #include <java/util/Enumeration.h>
@@ -8,7 +7,6 @@
 #include <javax/swing/event/ChangeListener.h>
 #include <javax/swing/event/EventListenerList.h>
 #include <javax/swing/text/AttributeSet.h>
-#include <javax/swing/text/MutableAttributeSet.h>
 #include <javax/swing/text/SimpleAttributeSet.h>
 #include <javax/swing/text/Style.h>
 #include <javax/swing/text/StyleConstants.h>
@@ -26,12 +24,10 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Enumeration = ::java::util::Enumeration;
-using $EventListener = ::java::util::EventListener;
 using $ChangeEvent = ::javax::swing::event::ChangeEvent;
 using $ChangeListener = ::javax::swing::event::ChangeListener;
 using $EventListenerList = ::javax::swing::event::EventListenerList;
 using $AttributeSet = ::javax::swing::text::AttributeSet;
-using $MutableAttributeSet = ::javax::swing::text::MutableAttributeSet;
 using $SimpleAttributeSet = ::javax::swing::text::SimpleAttributeSet;
 using $Style = ::javax::swing::text::Style;
 using $StyleConstants = ::javax::swing::text::StyleConstants;
@@ -40,75 +36,6 @@ using $StyleContext = ::javax::swing::text::StyleContext;
 namespace javax {
 	namespace swing {
 		namespace text {
-
-$FieldInfo _StyleContext$NamedStyle_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/text/StyleContext;", nullptr, $FINAL | $SYNTHETIC, $field(StyleContext$NamedStyle, this$0)},
-	{"listenerList", "Ljavax/swing/event/EventListenerList;", nullptr, $PROTECTED, $field(StyleContext$NamedStyle, listenerList)},
-	{"changeEvent", "Ljavax/swing/event/ChangeEvent;", nullptr, $PROTECTED | $TRANSIENT, $field(StyleContext$NamedStyle, changeEvent)},
-	{"attributes", "Ljavax/swing/text/AttributeSet;", nullptr, $PRIVATE | $TRANSIENT, $field(StyleContext$NamedStyle, attributes)},
-	{}
-};
-
-$MethodInfo _StyleContext$NamedStyle_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljavax/swing/text/StyleContext;Ljava/lang/String;Ljavax/swing/text/Style;)V", nullptr, $PUBLIC, $method(StyleContext$NamedStyle, init$, void, $StyleContext*, $String*, $Style*)},
-	{"<init>", "(Ljavax/swing/text/StyleContext;Ljavax/swing/text/Style;)V", nullptr, $PUBLIC, $method(StyleContext$NamedStyle, init$, void, $StyleContext*, $Style*)},
-	{"<init>", "(Ljavax/swing/text/StyleContext;)V", nullptr, $PUBLIC, $method(StyleContext$NamedStyle, init$, void, $StyleContext*)},
-	{"addAttribute", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(StyleContext$NamedStyle, addAttribute, void, Object$*, Object$*)},
-	{"addAttributes", "(Ljavax/swing/text/AttributeSet;)V", nullptr, $PUBLIC, $virtualMethod(StyleContext$NamedStyle, addAttributes, void, $AttributeSet*)},
-	{"addChangeListener", "(Ljavax/swing/event/ChangeListener;)V", nullptr, $PUBLIC, $virtualMethod(StyleContext$NamedStyle, addChangeListener, void, $ChangeListener*)},
-	{"containsAttribute", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(StyleContext$NamedStyle, containsAttribute, bool, Object$*, Object$*)},
-	{"containsAttributes", "(Ljavax/swing/text/AttributeSet;)Z", nullptr, $PUBLIC, $virtualMethod(StyleContext$NamedStyle, containsAttributes, bool, $AttributeSet*)},
-	{"copyAttributes", "()Ljavax/swing/text/AttributeSet;", nullptr, $PUBLIC, $virtualMethod(StyleContext$NamedStyle, copyAttributes, $AttributeSet*)},
-	{"fireStateChanged", "()V", nullptr, $PROTECTED, $virtualMethod(StyleContext$NamedStyle, fireStateChanged, void)},
-	{"getAttribute", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(StyleContext$NamedStyle, getAttribute, $Object*, Object$*)},
-	{"getAttributeCount", "()I", nullptr, $PUBLIC, $virtualMethod(StyleContext$NamedStyle, getAttributeCount, int32_t)},
-	{"getAttributeNames", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<*>;", $PUBLIC, $virtualMethod(StyleContext$NamedStyle, getAttributeNames, $Enumeration*)},
-	{"getChangeListeners", "()[Ljavax/swing/event/ChangeListener;", nullptr, $PUBLIC, $virtualMethod(StyleContext$NamedStyle, getChangeListeners, $ChangeListenerArray*)},
-	{"getListeners", "(Ljava/lang/Class;)[Ljava/util/EventListener;", "<T::Ljava/util/EventListener;>(Ljava/lang/Class<TT;>;)[TT;", $PUBLIC, $virtualMethod(StyleContext$NamedStyle, getListeners, $EventListenerArray*, $Class*)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StyleContext$NamedStyle, getName, $String*)},
-	{"getResolveParent", "()Ljavax/swing/text/AttributeSet;", nullptr, $PUBLIC, $virtualMethod(StyleContext$NamedStyle, getResolveParent, $AttributeSet*)},
-	{"isDefined", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(StyleContext$NamedStyle, isDefined, bool, Object$*)},
-	{"isEqual", "(Ljavax/swing/text/AttributeSet;)Z", nullptr, $PUBLIC, $virtualMethod(StyleContext$NamedStyle, isEqual, bool, $AttributeSet*)},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(StyleContext$NamedStyle, readObject, void, $ObjectInputStream*), "java.lang.ClassNotFoundException,java.io.IOException"},
-	{"removeAttribute", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(StyleContext$NamedStyle, removeAttribute, void, Object$*)},
-	{"removeAttributes", "(Ljava/util/Enumeration;)V", "(Ljava/util/Enumeration<*>;)V", $PUBLIC, $virtualMethod(StyleContext$NamedStyle, removeAttributes, void, $Enumeration*)},
-	{"removeAttributes", "(Ljavax/swing/text/AttributeSet;)V", nullptr, $PUBLIC, $virtualMethod(StyleContext$NamedStyle, removeAttributes, void, $AttributeSet*)},
-	{"removeChangeListener", "(Ljavax/swing/event/ChangeListener;)V", nullptr, $PUBLIC, $virtualMethod(StyleContext$NamedStyle, removeChangeListener, void, $ChangeListener*)},
-	{"setName", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(StyleContext$NamedStyle, setName, void, $String*)},
-	{"setResolveParent", "(Ljavax/swing/text/AttributeSet;)V", nullptr, $PUBLIC, $virtualMethod(StyleContext$NamedStyle, setResolveParent, void, $AttributeSet*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StyleContext$NamedStyle, toString, $String*)},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(StyleContext$NamedStyle, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _StyleContext$NamedStyle_InnerClassesInfo_[] = {
-	{"javax.swing.text.StyleContext$NamedStyle", "javax.swing.text.StyleContext", "NamedStyle", $PUBLIC},
-	{}
-};
-
-$ClassInfo _StyleContext$NamedStyle_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.text.StyleContext$NamedStyle",
-	"java.lang.Object",
-	"javax.swing.text.Style,java.io.Serializable",
-	_StyleContext$NamedStyle_FieldInfo_,
-	_StyleContext$NamedStyle_MethodInfo_,
-	nullptr,
-	nullptr,
-	_StyleContext$NamedStyle_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.StyleContext"
-};
-
-$Object* allocate$StyleContext$NamedStyle($Class* clazz) {
-	return $of($alloc(StyleContext$NamedStyle));
-}
 
 int32_t StyleContext$NamedStyle::hashCode() {
 	 return this->$Style::hashCode();
@@ -157,7 +84,7 @@ $String* StyleContext$NamedStyle::toString() {
 $String* StyleContext$NamedStyle::getName() {
 	$init($StyleConstants);
 	if (isDefined($StyleConstants::NameAttribute)) {
-		return $nc($of($(getAttribute($StyleConstants::NameAttribute))))->toString();
+		return $$nc(getAttribute($StyleConstants::NameAttribute))->toString();
 	}
 	return nullptr;
 }
@@ -181,7 +108,7 @@ void StyleContext$NamedStyle::removeChangeListener($ChangeListener* l) {
 
 $ChangeListenerArray* StyleContext$NamedStyle::getChangeListeners() {
 	$load($ChangeListener);
-	return $fcast($ChangeListenerArray, $nc(this->listenerList)->getListeners($ChangeListener::class$));
+	return $cast($ChangeListenerArray, $nc(this->listenerList)->getListeners($ChangeListener::class$));
 }
 
 void StyleContext$NamedStyle::fireStateChanged() {
@@ -192,7 +119,7 @@ void StyleContext$NamedStyle::fireStateChanged() {
 			if (this->changeEvent == nullptr) {
 				$set(this, changeEvent, $new($ChangeEvent, this));
 			}
-			$nc(($cast($ChangeListener, listeners->get(i + 1))))->stateChanged(this->changeEvent);
+			$nc($cast($ChangeListener, listeners->get(i + 1)))->stateChanged(this->changeEvent);
 		}
 	}
 }
@@ -220,7 +147,7 @@ $AttributeSet* StyleContext$NamedStyle::copyAttributes() {
 }
 
 $Object* StyleContext$NamedStyle::getAttribute(Object$* attrName) {
-	return $of($nc(this->attributes)->getAttribute(attrName));
+	return $nc(this->attributes)->getAttribute(attrName);
 }
 
 $Enumeration* StyleContext$NamedStyle::getAttributeNames() {
@@ -299,7 +226,70 @@ StyleContext$NamedStyle::StyleContext$NamedStyle() {
 }
 
 $Class* StyleContext$NamedStyle::load$($String* name, bool initialize) {
-	$loadClass(StyleContext$NamedStyle, name, initialize, &_StyleContext$NamedStyle_ClassInfo_, allocate$StyleContext$NamedStyle);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/text/StyleContext;", nullptr, $FINAL | $SYNTHETIC, $field(StyleContext$NamedStyle, this$0)},
+		{"listenerList", "Ljavax/swing/event/EventListenerList;", nullptr, $PROTECTED, $field(StyleContext$NamedStyle, listenerList)},
+		{"changeEvent", "Ljavax/swing/event/ChangeEvent;", nullptr, $PROTECTED | $TRANSIENT, $field(StyleContext$NamedStyle, changeEvent)},
+		{"attributes", "Ljavax/swing/text/AttributeSet;", nullptr, $PRIVATE | $TRANSIENT, $field(StyleContext$NamedStyle, attributes)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljavax/swing/text/StyleContext;Ljava/lang/String;Ljavax/swing/text/Style;)V", nullptr, $PUBLIC, $method(StyleContext$NamedStyle, init$, void, $StyleContext*, $String*, $Style*)},
+		{"<init>", "(Ljavax/swing/text/StyleContext;Ljavax/swing/text/Style;)V", nullptr, $PUBLIC, $method(StyleContext$NamedStyle, init$, void, $StyleContext*, $Style*)},
+		{"<init>", "(Ljavax/swing/text/StyleContext;)V", nullptr, $PUBLIC, $method(StyleContext$NamedStyle, init$, void, $StyleContext*)},
+		{"addAttribute", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(StyleContext$NamedStyle, addAttribute, void, Object$*, Object$*)},
+		{"addAttributes", "(Ljavax/swing/text/AttributeSet;)V", nullptr, $PUBLIC, $virtualMethod(StyleContext$NamedStyle, addAttributes, void, $AttributeSet*)},
+		{"addChangeListener", "(Ljavax/swing/event/ChangeListener;)V", nullptr, $PUBLIC, $virtualMethod(StyleContext$NamedStyle, addChangeListener, void, $ChangeListener*)},
+		{"containsAttribute", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(StyleContext$NamedStyle, containsAttribute, bool, Object$*, Object$*)},
+		{"containsAttributes", "(Ljavax/swing/text/AttributeSet;)Z", nullptr, $PUBLIC, $virtualMethod(StyleContext$NamedStyle, containsAttributes, bool, $AttributeSet*)},
+		{"copyAttributes", "()Ljavax/swing/text/AttributeSet;", nullptr, $PUBLIC, $virtualMethod(StyleContext$NamedStyle, copyAttributes, $AttributeSet*)},
+		{"fireStateChanged", "()V", nullptr, $PROTECTED, $virtualMethod(StyleContext$NamedStyle, fireStateChanged, void)},
+		{"getAttribute", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(StyleContext$NamedStyle, getAttribute, $Object*, Object$*)},
+		{"getAttributeCount", "()I", nullptr, $PUBLIC, $virtualMethod(StyleContext$NamedStyle, getAttributeCount, int32_t)},
+		{"getAttributeNames", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<*>;", $PUBLIC, $virtualMethod(StyleContext$NamedStyle, getAttributeNames, $Enumeration*)},
+		{"getChangeListeners", "()[Ljavax/swing/event/ChangeListener;", nullptr, $PUBLIC, $virtualMethod(StyleContext$NamedStyle, getChangeListeners, $ChangeListenerArray*)},
+		{"getListeners", "(Ljava/lang/Class;)[Ljava/util/EventListener;", "<T::Ljava/util/EventListener;>(Ljava/lang/Class<TT;>;)[TT;", $PUBLIC, $virtualMethod(StyleContext$NamedStyle, getListeners, $EventListenerArray*, $Class*)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StyleContext$NamedStyle, getName, $String*)},
+		{"getResolveParent", "()Ljavax/swing/text/AttributeSet;", nullptr, $PUBLIC, $virtualMethod(StyleContext$NamedStyle, getResolveParent, $AttributeSet*)},
+		{"isDefined", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(StyleContext$NamedStyle, isDefined, bool, Object$*)},
+		{"isEqual", "(Ljavax/swing/text/AttributeSet;)Z", nullptr, $PUBLIC, $virtualMethod(StyleContext$NamedStyle, isEqual, bool, $AttributeSet*)},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(StyleContext$NamedStyle, readObject, void, $ObjectInputStream*), "java.lang.ClassNotFoundException,java.io.IOException"},
+		{"removeAttribute", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(StyleContext$NamedStyle, removeAttribute, void, Object$*)},
+		{"removeAttributes", "(Ljava/util/Enumeration;)V", "(Ljava/util/Enumeration<*>;)V", $PUBLIC, $virtualMethod(StyleContext$NamedStyle, removeAttributes, void, $Enumeration*)},
+		{"removeAttributes", "(Ljavax/swing/text/AttributeSet;)V", nullptr, $PUBLIC, $virtualMethod(StyleContext$NamedStyle, removeAttributes, void, $AttributeSet*)},
+		{"removeChangeListener", "(Ljavax/swing/event/ChangeListener;)V", nullptr, $PUBLIC, $virtualMethod(StyleContext$NamedStyle, removeChangeListener, void, $ChangeListener*)},
+		{"setName", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(StyleContext$NamedStyle, setName, void, $String*)},
+		{"setResolveParent", "(Ljavax/swing/text/AttributeSet;)V", nullptr, $PUBLIC, $virtualMethod(StyleContext$NamedStyle, setResolveParent, void, $AttributeSet*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StyleContext$NamedStyle, toString, $String*)},
+		{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(StyleContext$NamedStyle, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.StyleContext$NamedStyle", "javax.swing.text.StyleContext", "NamedStyle", $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.text.StyleContext$NamedStyle",
+		"java.lang.Object",
+		"javax.swing.text.Style,java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.StyleContext"
+	};
+	$loadClass(StyleContext$NamedStyle, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(StyleContext$NamedStyle));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <javax/sql/rowset/serial/SerialDatalink.h>
-
 #include <java/io/Serializable.h>
 #include <java/lang/CloneNotSupportedException.h>
 #include <java/lang/InternalError.h>
@@ -23,38 +22,6 @@ namespace javax {
 		namespace rowset {
 			namespace serial {
 
-$FieldInfo _SerialDatalink_FieldInfo_[] = {
-	{"url", "Ljava/net/URL;", nullptr, $PRIVATE, $field(SerialDatalink, url)},
-	{"baseType", "I", nullptr, $PRIVATE, $field(SerialDatalink, baseType)},
-	{"baseTypeName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(SerialDatalink, baseTypeName)},
-	{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(SerialDatalink, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _SerialDatalink_MethodInfo_[] = {
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"<init>", "(Ljava/net/URL;)V", nullptr, $PUBLIC, $method(SerialDatalink, init$, void, $URL*), "javax.sql.rowset.serial.SerialException"},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SerialDatalink, clone, $Object*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(SerialDatalink, equals, bool, Object$*)},
-	{"getDatalink", "()Ljava/net/URL;", nullptr, $PUBLIC, $virtualMethod(SerialDatalink, getDatalink, $URL*), "javax.sql.rowset.serial.SerialException"},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(SerialDatalink, hashCode, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _SerialDatalink_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.sql.rowset.serial.SerialDatalink",
-	"java.lang.Object",
-	"java.io.Serializable,java.lang.Cloneable",
-	_SerialDatalink_FieldInfo_,
-	_SerialDatalink_MethodInfo_
-};
-
-$Object* allocate$SerialDatalink($Class* clazz) {
-	return $of($alloc(SerialDatalink));
-}
-
 $String* SerialDatalink::toString() {
 	 return this->$Serializable::toString();
 }
@@ -71,7 +38,7 @@ void SerialDatalink::init$($URL* url) {
 }
 
 $URL* SerialDatalink::getDatalink() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($URL, aURL, nullptr);
 	try {
 		$assign(aURL, $new($URL, $($nc((this->url))->toString())));
@@ -87,7 +54,7 @@ bool SerialDatalink::equals(Object$* obj) {
 	}
 	if ($instanceOf(SerialDatalink, obj)) {
 		$var(SerialDatalink, sdl, $cast(SerialDatalink, obj));
-		return $nc(this->url)->equals($nc(sdl)->url);
+		return $nc(this->url)->equals(sdl->url);
 	}
 	return false;
 }
@@ -110,7 +77,34 @@ SerialDatalink::SerialDatalink() {
 }
 
 $Class* SerialDatalink::load$($String* name, bool initialize) {
-	$loadClass(SerialDatalink, name, initialize, &_SerialDatalink_ClassInfo_, allocate$SerialDatalink);
+	$FieldInfo fieldInfos$$[] = {
+		{"url", "Ljava/net/URL;", nullptr, $PRIVATE, $field(SerialDatalink, url)},
+		{"baseType", "I", nullptr, $PRIVATE, $field(SerialDatalink, baseType)},
+		{"baseTypeName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(SerialDatalink, baseTypeName)},
+		{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(SerialDatalink, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"<init>", "(Ljava/net/URL;)V", nullptr, $PUBLIC, $method(SerialDatalink, init$, void, $URL*), "javax.sql.rowset.serial.SerialException"},
+		{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SerialDatalink, clone, $Object*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(SerialDatalink, equals, bool, Object$*)},
+		{"getDatalink", "()Ljava/net/URL;", nullptr, $PUBLIC, $virtualMethod(SerialDatalink, getDatalink, $URL*), "javax.sql.rowset.serial.SerialException"},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(SerialDatalink, hashCode, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.sql.rowset.serial.SerialDatalink",
+		"java.lang.Object",
+		"java.io.Serializable,java.lang.Cloneable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SerialDatalink, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SerialDatalink));
+	});
 	return class$;
 }
 

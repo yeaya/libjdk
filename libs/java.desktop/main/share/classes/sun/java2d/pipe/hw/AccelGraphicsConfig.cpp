@@ -1,5 +1,4 @@
 #include <sun/java2d/pipe/hw/AccelGraphicsConfig.h>
-
 #include <java/awt/image/VolatileImage.h>
 #include <sun/java2d/pipe/hw/ContextCapabilities.h>
 #include <jcpp.h>
@@ -14,27 +13,23 @@ namespace sun {
 		namespace pipe {
 			namespace hw {
 
-$MethodInfo _AccelGraphicsConfig_MethodInfo_[] = {
-	{"createCompatibleVolatileImage", "(IIII)Ljava/awt/image/VolatileImage;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AccelGraphicsConfig, createCompatibleVolatileImage, $VolatileImage*, int32_t, int32_t, int32_t, int32_t)},
-	{"getContextCapabilities", "()Lsun/java2d/pipe/hw/ContextCapabilities;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AccelGraphicsConfig, getContextCapabilities, $ContextCapabilities*)},
-	{}
-};
-
-$ClassInfo _AccelGraphicsConfig_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"sun.java2d.pipe.hw.AccelGraphicsConfig",
-	nullptr,
-	"sun.java2d.pipe.hw.BufferedContextProvider",
-	nullptr,
-	_AccelGraphicsConfig_MethodInfo_
-};
-
-$Object* allocate$AccelGraphicsConfig($Class* clazz) {
-	return $of($alloc(AccelGraphicsConfig));
-}
-
 $Class* AccelGraphicsConfig::load$($String* name, bool initialize) {
-	$loadClass(AccelGraphicsConfig, name, initialize, &_AccelGraphicsConfig_ClassInfo_, allocate$AccelGraphicsConfig);
+	$MethodInfo methodInfos$$[] = {
+		{"createCompatibleVolatileImage", "(IIII)Ljava/awt/image/VolatileImage;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AccelGraphicsConfig, createCompatibleVolatileImage, $VolatileImage*, int32_t, int32_t, int32_t, int32_t)},
+		{"getContextCapabilities", "()Lsun/java2d/pipe/hw/ContextCapabilities;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AccelGraphicsConfig, getContextCapabilities, $ContextCapabilities*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"sun.java2d.pipe.hw.AccelGraphicsConfig",
+		nullptr,
+		"sun.java2d.pipe.hw.BufferedContextProvider",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(AccelGraphicsConfig, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AccelGraphicsConfig);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/swing/CachedPainter$PainterMultiResolutionCachedImage.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Image.h>
 #include <java/awt/image/AbstractMultiResolutionImage.h>
@@ -26,51 +25,6 @@ using $CachedPainter = ::sun::swing::CachedPainter;
 
 namespace sun {
 	namespace swing {
-
-$FieldInfo _CachedPainter$PainterMultiResolutionCachedImage_FieldInfo_[] = {
-	{"this$0", "Lsun/swing/CachedPainter;", nullptr, $FINAL | $SYNTHETIC, $field(CachedPainter$PainterMultiResolutionCachedImage, this$0)},
-	{"baseWidth", "I", nullptr, $PRIVATE | $FINAL, $field(CachedPainter$PainterMultiResolutionCachedImage, baseWidth)},
-	{"baseHeight", "I", nullptr, $PRIVATE | $FINAL, $field(CachedPainter$PainterMultiResolutionCachedImage, baseHeight)},
-	{"c", "Ljava/awt/Component;", nullptr, $PRIVATE, $field(CachedPainter$PainterMultiResolutionCachedImage, c)},
-	{"args", "[Ljava/lang/Object;", nullptr, $PRIVATE, $field(CachedPainter$PainterMultiResolutionCachedImage, args)},
-	{}
-};
-
-$MethodInfo _CachedPainter$PainterMultiResolutionCachedImage_MethodInfo_[] = {
-	{"<init>", "(Lsun/swing/CachedPainter;II)V", nullptr, $PUBLIC, $method(CachedPainter$PainterMultiResolutionCachedImage, init$, void, $CachedPainter*, int32_t, int32_t)},
-	{"getBaseImage", "()Ljava/awt/Image;", nullptr, $PROTECTED, $virtualMethod(CachedPainter$PainterMultiResolutionCachedImage, getBaseImage, $Image*)},
-	{"getHeight", "(Ljava/awt/image/ImageObserver;)I", nullptr, $PUBLIC, $virtualMethod(CachedPainter$PainterMultiResolutionCachedImage, getHeight, int32_t, $ImageObserver*)},
-	{"getResolutionVariant", "(DD)Ljava/awt/Image;", nullptr, $PUBLIC, $virtualMethod(CachedPainter$PainterMultiResolutionCachedImage, getResolutionVariant, $Image*, double, double)},
-	{"getResolutionVariants", "()Ljava/util/List;", "()Ljava/util/List<Ljava/awt/Image;>;", $PUBLIC, $virtualMethod(CachedPainter$PainterMultiResolutionCachedImage, getResolutionVariants, $List*)},
-	{"getWidth", "(Ljava/awt/image/ImageObserver;)I", nullptr, $PUBLIC, $virtualMethod(CachedPainter$PainterMultiResolutionCachedImage, getWidth, int32_t, $ImageObserver*)},
-	{"setParams", "(Ljava/awt/Component;[Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(CachedPainter$PainterMultiResolutionCachedImage, setParams, void, $Component*, $ObjectArray*)},
-	{}
-};
-
-$InnerClassInfo _CachedPainter$PainterMultiResolutionCachedImage_InnerClassesInfo_[] = {
-	{"sun.swing.CachedPainter$PainterMultiResolutionCachedImage", "sun.swing.CachedPainter", "PainterMultiResolutionCachedImage", 0},
-	{}
-};
-
-$ClassInfo _CachedPainter$PainterMultiResolutionCachedImage_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.swing.CachedPainter$PainterMultiResolutionCachedImage",
-	"java.awt.image.AbstractMultiResolutionImage",
-	nullptr,
-	_CachedPainter$PainterMultiResolutionCachedImage_FieldInfo_,
-	_CachedPainter$PainterMultiResolutionCachedImage_MethodInfo_,
-	nullptr,
-	nullptr,
-	_CachedPainter$PainterMultiResolutionCachedImage_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.swing.CachedPainter"
-};
-
-$Object* allocate$CachedPainter$PainterMultiResolutionCachedImage($Class* clazz) {
-	return $of($alloc(CachedPainter$PainterMultiResolutionCachedImage));
-}
 
 void CachedPainter$PainterMultiResolutionCachedImage::init$($CachedPainter* this$0, int32_t baseWidth, int32_t baseHeight) {
 	$set(this, this$0, this$0);
@@ -103,7 +57,7 @@ $Image* CachedPainter$PainterMultiResolutionCachedImage::getBaseImage() {
 }
 
 $List* CachedPainter$PainterMultiResolutionCachedImage::getResolutionVariants() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $Arrays::asList($$new($ImageArray, {$(getResolutionVariant((double)this->baseWidth, (double)this->baseHeight))}));
 }
 
@@ -111,7 +65,46 @@ CachedPainter$PainterMultiResolutionCachedImage::CachedPainter$PainterMultiResol
 }
 
 $Class* CachedPainter$PainterMultiResolutionCachedImage::load$($String* name, bool initialize) {
-	$loadClass(CachedPainter$PainterMultiResolutionCachedImage, name, initialize, &_CachedPainter$PainterMultiResolutionCachedImage_ClassInfo_, allocate$CachedPainter$PainterMultiResolutionCachedImage);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/swing/CachedPainter;", nullptr, $FINAL | $SYNTHETIC, $field(CachedPainter$PainterMultiResolutionCachedImage, this$0)},
+		{"baseWidth", "I", nullptr, $PRIVATE | $FINAL, $field(CachedPainter$PainterMultiResolutionCachedImage, baseWidth)},
+		{"baseHeight", "I", nullptr, $PRIVATE | $FINAL, $field(CachedPainter$PainterMultiResolutionCachedImage, baseHeight)},
+		{"c", "Ljava/awt/Component;", nullptr, $PRIVATE, $field(CachedPainter$PainterMultiResolutionCachedImage, c)},
+		{"args", "[Ljava/lang/Object;", nullptr, $PRIVATE, $field(CachedPainter$PainterMultiResolutionCachedImage, args)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/swing/CachedPainter;II)V", nullptr, $PUBLIC, $method(CachedPainter$PainterMultiResolutionCachedImage, init$, void, $CachedPainter*, int32_t, int32_t)},
+		{"getBaseImage", "()Ljava/awt/Image;", nullptr, $PROTECTED, $virtualMethod(CachedPainter$PainterMultiResolutionCachedImage, getBaseImage, $Image*)},
+		{"getHeight", "(Ljava/awt/image/ImageObserver;)I", nullptr, $PUBLIC, $virtualMethod(CachedPainter$PainterMultiResolutionCachedImage, getHeight, int32_t, $ImageObserver*)},
+		{"getResolutionVariant", "(DD)Ljava/awt/Image;", nullptr, $PUBLIC, $virtualMethod(CachedPainter$PainterMultiResolutionCachedImage, getResolutionVariant, $Image*, double, double)},
+		{"getResolutionVariants", "()Ljava/util/List;", "()Ljava/util/List<Ljava/awt/Image;>;", $PUBLIC, $virtualMethod(CachedPainter$PainterMultiResolutionCachedImage, getResolutionVariants, $List*)},
+		{"getWidth", "(Ljava/awt/image/ImageObserver;)I", nullptr, $PUBLIC, $virtualMethod(CachedPainter$PainterMultiResolutionCachedImage, getWidth, int32_t, $ImageObserver*)},
+		{"setParams", "(Ljava/awt/Component;[Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(CachedPainter$PainterMultiResolutionCachedImage, setParams, void, $Component*, $ObjectArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.swing.CachedPainter$PainterMultiResolutionCachedImage", "sun.swing.CachedPainter", "PainterMultiResolutionCachedImage", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.swing.CachedPainter$PainterMultiResolutionCachedImage",
+		"java.awt.image.AbstractMultiResolutionImage",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.swing.CachedPainter"
+	};
+	$loadClass(CachedPainter$PainterMultiResolutionCachedImage, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(CachedPainter$PainterMultiResolutionCachedImage));
+	});
 	return class$;
 }
 

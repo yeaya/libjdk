@@ -1,5 +1,4 @@
 #include <java/awt/datatransfer/SystemFlavorMap$SoftCache.h>
-
 #include <java/awt/datatransfer/SystemFlavorMap.h>
 #include <java/lang/ref/SoftReference.h>
 #include <java/util/HashMap.h>
@@ -14,49 +13,10 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $SoftReference = ::java::lang::ref::SoftReference;
 using $HashMap = ::java::util::HashMap;
 using $LinkedHashSet = ::java::util::LinkedHashSet;
-using $Map = ::java::util::Map;
 
 namespace java {
 	namespace awt {
 		namespace datatransfer {
-
-$FieldInfo _SystemFlavorMap$SoftCache_FieldInfo_[] = {
-	{"cache", "Ljava/util/Map;", "Ljava/util/Map<TK;Ljava/lang/ref/SoftReference<Ljava/util/LinkedHashSet<TV;>;>;>;", 0, $field(SystemFlavorMap$SoftCache, cache)},
-	{}
-};
-
-$MethodInfo _SystemFlavorMap$SoftCache_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(SystemFlavorMap$SoftCache, init$, void)},
-	{"check", "(Ljava/lang/Object;)Ljava/util/LinkedHashSet;", "(TK;)Ljava/util/LinkedHashSet<TV;>;", $PUBLIC, $method(SystemFlavorMap$SoftCache, check, $LinkedHashSet*, Object$*)},
-	{"put", "(Ljava/lang/Object;Ljava/util/LinkedHashSet;)V", "(TK;Ljava/util/LinkedHashSet<TV;>;)V", $PUBLIC, $method(SystemFlavorMap$SoftCache, put, void, Object$*, $LinkedHashSet*)},
-	{"remove", "(Ljava/lang/Object;)V", "(TK;)V", $PUBLIC, $method(SystemFlavorMap$SoftCache, remove, void, Object$*)},
-	{}
-};
-
-$InnerClassInfo _SystemFlavorMap$SoftCache_InnerClassesInfo_[] = {
-	{"java.awt.datatransfer.SystemFlavorMap$SoftCache", "java.awt.datatransfer.SystemFlavorMap", "SoftCache", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _SystemFlavorMap$SoftCache_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.awt.datatransfer.SystemFlavorMap$SoftCache",
-	"java.lang.Object",
-	nullptr,
-	_SystemFlavorMap$SoftCache_FieldInfo_,
-	_SystemFlavorMap$SoftCache_MethodInfo_,
-	"<K:Ljava/lang/Object;V:Ljava/lang/Object;>Ljava/lang/Object;",
-	nullptr,
-	_SystemFlavorMap$SoftCache_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.awt.datatransfer.SystemFlavorMap"
-};
-
-$Object* allocate$SystemFlavorMap$SoftCache($Class* clazz) {
-	return $of($alloc(SystemFlavorMap$SoftCache));
-}
 
 void SystemFlavorMap$SoftCache::init$() {
 }
@@ -73,7 +33,7 @@ void SystemFlavorMap$SoftCache::remove(Object$* key) {
 		return;
 	}
 	$nc(this->cache)->remove(nullptr);
-	$nc(this->cache)->remove(key);
+	this->cache->remove(key);
 }
 
 $LinkedHashSet* SystemFlavorMap$SoftCache::check(Object$* key) {
@@ -91,7 +51,39 @@ SystemFlavorMap$SoftCache::SystemFlavorMap$SoftCache() {
 }
 
 $Class* SystemFlavorMap$SoftCache::load$($String* name, bool initialize) {
-	$loadClass(SystemFlavorMap$SoftCache, name, initialize, &_SystemFlavorMap$SoftCache_ClassInfo_, allocate$SystemFlavorMap$SoftCache);
+	$FieldInfo fieldInfos$$[] = {
+		{"cache", "Ljava/util/Map;", "Ljava/util/Map<TK;Ljava/lang/ref/SoftReference<Ljava/util/LinkedHashSet<TV;>;>;>;", 0, $field(SystemFlavorMap$SoftCache, cache)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(SystemFlavorMap$SoftCache, init$, void)},
+		{"check", "(Ljava/lang/Object;)Ljava/util/LinkedHashSet;", "(TK;)Ljava/util/LinkedHashSet<TV;>;", $PUBLIC, $method(SystemFlavorMap$SoftCache, check, $LinkedHashSet*, Object$*)},
+		{"put", "(Ljava/lang/Object;Ljava/util/LinkedHashSet;)V", "(TK;Ljava/util/LinkedHashSet<TV;>;)V", $PUBLIC, $method(SystemFlavorMap$SoftCache, put, void, Object$*, $LinkedHashSet*)},
+		{"remove", "(Ljava/lang/Object;)V", "(TK;)V", $PUBLIC, $method(SystemFlavorMap$SoftCache, remove, void, Object$*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.awt.datatransfer.SystemFlavorMap$SoftCache", "java.awt.datatransfer.SystemFlavorMap", "SoftCache", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.awt.datatransfer.SystemFlavorMap$SoftCache",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"<K:Ljava/lang/Object;V:Ljava/lang/Object;>Ljava/lang/Object;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.awt.datatransfer.SystemFlavorMap"
+	};
+	$loadClass(SystemFlavorMap$SoftCache, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SystemFlavorMap$SoftCache);
+	});
 	return class$;
 }
 

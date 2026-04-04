@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/tree/TreeInfo$1Result.h>
-
 #include <com/sun/tools/javac/tree/TreeInfo.h>
 #include <com/sun/tools/javac/util/List.h>
 #include <java/lang/Error.h>
@@ -19,49 +18,6 @@ namespace com {
 			namespace javac {
 				namespace tree {
 
-$FieldInfo _TreeInfo$1Result_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(TreeInfo$1Result, serialVersionUID)},
-	{"path", "Lcom/sun/tools/javac/util/List;", "Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree;>;", 0, $field(TreeInfo$1Result, path)},
-	{}
-};
-
-$MethodInfo _TreeInfo$1Result_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree;>;)V", 0, $method(TreeInfo$1Result, init$, void, $List*)},
-	{}
-};
-
-$EnclosingMethodInfo _TreeInfo$1Result_EnclosingMethodInfo_ = {
-	"com.sun.tools.javac.tree.TreeInfo",
-	"pathFor",
-	"(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;)Lcom/sun/tools/javac/util/List;"
-};
-
-$InnerClassInfo _TreeInfo$1Result_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.tree.TreeInfo$1Result", nullptr, "Result", 0},
-	{"com.sun.tools.javac.tree.JCTree$JCCompilationUnit", "com.sun.tools.javac.tree.JCTree", "JCCompilationUnit", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _TreeInfo$1Result_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.tree.TreeInfo$1Result",
-	"java.lang.Error",
-	nullptr,
-	_TreeInfo$1Result_FieldInfo_,
-	_TreeInfo$1Result_MethodInfo_,
-	nullptr,
-	&_TreeInfo$1Result_EnclosingMethodInfo_,
-	_TreeInfo$1Result_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.tree.TreeInfo"
-};
-
-$Object* allocate$TreeInfo$1Result($Class* clazz) {
-	return $of($alloc(TreeInfo$1Result));
-}
-
 void TreeInfo$1Result::init$($List* path) {
 	$Error::init$();
 	$set(this, path, path);
@@ -78,7 +34,43 @@ void TreeInfo$1Result::throw$() {
 }
 
 $Class* TreeInfo$1Result::load$($String* name, bool initialize) {
-	$loadClass(TreeInfo$1Result, name, initialize, &_TreeInfo$1Result_ClassInfo_, allocate$TreeInfo$1Result);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(TreeInfo$1Result, serialVersionUID)},
+		{"path", "Lcom/sun/tools/javac/util/List;", "Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree;>;", 0, $field(TreeInfo$1Result, path)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree;>;)V", 0, $method(TreeInfo$1Result, init$, void, $List*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.tools.javac.tree.TreeInfo",
+		"pathFor",
+		"(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;)Lcom/sun/tools/javac/util/List;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.tree.TreeInfo$1Result", nullptr, "Result", 0},
+		{"com.sun.tools.javac.tree.JCTree$JCCompilationUnit", "com.sun.tools.javac.tree.JCTree", "JCCompilationUnit", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.tree.TreeInfo$1Result",
+		"java.lang.Error",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.tree.TreeInfo"
+	};
+	$loadClass(TreeInfo$1Result, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TreeInfo$1Result);
+	});
 	return class$;
 }
 

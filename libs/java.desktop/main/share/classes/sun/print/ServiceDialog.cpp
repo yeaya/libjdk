@@ -1,5 +1,4 @@
 #include <sun/print/ServiceDialog.h>
-
 #include <java/awt/BorderLayout.h>
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
@@ -11,7 +10,6 @@
 #include <java/awt/GridBagConstraints.h>
 #include <java/awt/GridBagLayout.h>
 #include <java/awt/Insets.h>
-#include <java/awt/LayoutManager.h>
 #include <java/awt/Window.h>
 #include <java/awt/event/ActionEvent.h>
 #include <java/awt/event/ActionListener.h>
@@ -27,7 +25,6 @@
 #include <java/net/URISyntaxException.h>
 #include <java/net/URL.h>
 #include <java/security/AccessController.h>
-#include <java/security/PrivilegedAction.h>
 #include <java/util/EventObject.h>
 #include <java/util/MissingResourceException.h>
 #include <java/util/ResourceBundle.h>
@@ -93,12 +90,10 @@ using $GraphicsConfiguration = ::java::awt::GraphicsConfiguration;
 using $GridBagConstraints = ::java::awt::GridBagConstraints;
 using $GridBagLayout = ::java::awt::GridBagLayout;
 using $Insets = ::java::awt::Insets;
-using $LayoutManager = ::java::awt::LayoutManager;
 using $Window = ::java::awt::Window;
 using $ActionEvent = ::java::awt::event::ActionEvent;
 using $ActionListener = ::java::awt::event::ActionListener;
 using $KeyEvent = ::java::awt::event::KeyEvent;
-using $WindowListener = ::java::awt::event::WindowListener;
 using $File = ::java::io::File;
 using $CharSequence = ::java::lang::CharSequence;
 using $Character = ::java::lang::Character;
@@ -114,13 +109,10 @@ using $URI = ::java::net::URI;
 using $URISyntaxException = ::java::net::URISyntaxException;
 using $URL = ::java::net::URL;
 using $AccessController = ::java::security::AccessController;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $MissingResourceException = ::java::util::MissingResourceException;
 using $ResourceBundle = ::java::util::ResourceBundle;
-using $AccessibleContext = ::javax::accessibility::AccessibleContext;
 using $DocFlavor = ::javax::print::DocFlavor;
 using $PrintService = ::javax::print::PrintService;
-using $Attribute = ::javax::print::attribute::Attribute;
 using $HashPrintRequestAttributeSet = ::javax::print::attribute::HashPrintRequestAttributeSet;
 using $PrintJobAttribute = ::javax::print::attribute::PrintJobAttribute;
 using $PrintRequestAttributeSet = ::javax::print::attribute::PrintRequestAttributeSet;
@@ -139,10 +131,8 @@ using $JFileChooser = ::javax::swing::JFileChooser;
 using $JOptionPane = ::javax::swing::JOptionPane;
 using $JPanel = ::javax::swing::JPanel;
 using $JRadioButton = ::javax::swing::JRadioButton;
-using $JRootPane = ::javax::swing::JRootPane;
 using $JTabbedPane = ::javax::swing::JTabbedPane;
 using $KeyStroke = ::javax::swing::KeyStroke;
-using $Border = ::javax::swing::border::Border;
 using $EmptyBorder = ::javax::swing::border::EmptyBorder;
 using $ServiceDialog$1 = ::sun::print::ServiceDialog$1;
 using $ServiceDialog$2 = ::sun::print::ServiceDialog$2;
@@ -157,110 +147,6 @@ using $SunPageSelection = ::sun::print::SunPageSelection;
 
 namespace sun {
 	namespace print {
-
-$FieldInfo _ServiceDialog_FieldInfo_[] = {
-	{"WAITING", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ServiceDialog, WAITING)},
-	{"APPROVE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ServiceDialog, APPROVE)},
-	{"CANCEL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ServiceDialog, CANCEL)},
-	{"strBundle", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ServiceDialog, strBundle)},
-	{"panelInsets", "Ljava/awt/Insets;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ServiceDialog, panelInsets)},
-	{"compInsets", "Ljava/awt/Insets;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ServiceDialog, compInsets)},
-	{"messageRB", "Ljava/util/ResourceBundle;", nullptr, $PRIVATE | $STATIC, $staticField(ServiceDialog, messageRB)},
-	{"tpTabs", "Ljavax/swing/JTabbedPane;", nullptr, $PRIVATE, $field(ServiceDialog, tpTabs)},
-	{"btnCancel", "Ljavax/swing/JButton;", nullptr, $PRIVATE, $field(ServiceDialog, btnCancel)},
-	{"btnApprove", "Ljavax/swing/JButton;", nullptr, $PRIVATE, $field(ServiceDialog, btnApprove)},
-	{"services", "[Ljavax/print/PrintService;", nullptr, $PRIVATE, $field(ServiceDialog, services)},
-	{"defaultServiceIndex", "I", nullptr, $PRIVATE, $field(ServiceDialog, defaultServiceIndex)},
-	{"asOriginal", "Ljavax/print/attribute/PrintRequestAttributeSet;", nullptr, $PRIVATE, $field(ServiceDialog, asOriginal)},
-	{"asCurrent", "Ljavax/print/attribute/HashPrintRequestAttributeSet;", nullptr, $PRIVATE, $field(ServiceDialog, asCurrent)},
-	{"psCurrent", "Ljavax/print/PrintService;", nullptr, $PRIVATE, $field(ServiceDialog, psCurrent)},
-	{"docFlavor", "Ljavax/print/DocFlavor;", nullptr, $PRIVATE, $field(ServiceDialog, docFlavor)},
-	{"status", "I", nullptr, $PRIVATE, $field(ServiceDialog, status)},
-	{"jfc", "Lsun/print/ServiceDialog$ValidatingFileChooser;", nullptr, $PRIVATE, $field(ServiceDialog, jfc)},
-	{"pnlGeneral", "Lsun/print/ServiceDialog$GeneralPanel;", nullptr, $PRIVATE, $field(ServiceDialog, pnlGeneral)},
-	{"pnlPageSetup", "Lsun/print/ServiceDialog$PageSetupPanel;", nullptr, $PRIVATE, $field(ServiceDialog, pnlPageSetup)},
-	{"pnlAppearance", "Lsun/print/ServiceDialog$AppearancePanel;", nullptr, $PRIVATE, $field(ServiceDialog, pnlAppearance)},
-	{"isAWT", "Z", nullptr, $PRIVATE, $field(ServiceDialog, isAWT)},
-	{"_keyEventClazz", "Ljava/lang/Class;", "Ljava/lang/Class<*>;", $STATIC, $staticField(ServiceDialog, _keyEventClazz)},
-	{}
-};
-
-$MethodInfo _ServiceDialog_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/awt/GraphicsConfiguration;II[Ljavax/print/PrintService;ILjavax/print/DocFlavor;Ljavax/print/attribute/PrintRequestAttributeSet;Ljava/awt/Window;)V", nullptr, $PUBLIC, $method(ServiceDialog, init$, void, $GraphicsConfiguration*, int32_t, int32_t, $PrintServiceArray*, int32_t, $DocFlavor*, $PrintRequestAttributeSet*, $Window*)},
-	{"<init>", "(Ljava/awt/GraphicsConfiguration;IILjavax/print/PrintService;Ljavax/print/DocFlavor;Ljavax/print/attribute/PrintRequestAttributeSet;Ljava/awt/Window;)V", nullptr, $PUBLIC, $method(ServiceDialog, init$, void, $GraphicsConfiguration*, int32_t, int32_t, $PrintService*, $DocFlavor*, $PrintRequestAttributeSet*, $Window*)},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(ServiceDialog, actionPerformed, void, $ActionEvent*)},
-	{"addToBG", "(Ljavax/swing/AbstractButton;Ljava/awt/Container;Ljavax/swing/ButtonGroup;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ServiceDialog, addToBG, void, $AbstractButton*, $Container*, $ButtonGroup*)},
-	{"addToGB", "(Ljava/awt/Component;Ljava/awt/Container;Ljava/awt/GridBagLayout;Ljava/awt/GridBagConstraints;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ServiceDialog, addToGB, void, $Component*, $Container*, $GridBagLayout*, $GridBagConstraints*)},
-	{"createButton", "(Ljava/lang/String;Ljava/awt/event/ActionListener;)Ljavax/swing/JButton;", nullptr, $PRIVATE | $STATIC, $staticMethod(ServiceDialog, createButton, $JButton*, $String*, $ActionListener*)},
-	{"createCheckBox", "(Ljava/lang/String;Ljava/awt/event/ActionListener;)Ljavax/swing/JCheckBox;", nullptr, $PRIVATE | $STATIC, $staticMethod(ServiceDialog, createCheckBox, $JCheckBox*, $String*, $ActionListener*)},
-	{"createExitButton", "(Ljava/lang/String;Ljava/awt/event/ActionListener;)Ljavax/swing/JButton;", nullptr, $PRIVATE | $STATIC, $staticMethod(ServiceDialog, createExitButton, $JButton*, $String*, $ActionListener*)},
-	{"createRadioButton", "(Ljava/lang/String;Ljava/awt/event/ActionListener;)Ljavax/swing/JRadioButton;", nullptr, $PRIVATE | $STATIC, $staticMethod(ServiceDialog, createRadioButton, $JRadioButton*, $String*, $ActionListener*)},
-	{"dispose", "(I)V", nullptr, $PUBLIC, $virtualMethod(ServiceDialog, dispose, void, int32_t)},
-	{"getAttributes", "()Ljavax/print/attribute/PrintRequestAttributeSet;", nullptr, $PUBLIC, $virtualMethod(ServiceDialog, getAttributes, $PrintRequestAttributeSet*)},
-	{"getImageResource", "(Ljava/lang/String;)Ljava/net/URL;", nullptr, $PRIVATE | $STATIC, $staticMethod(ServiceDialog, getImageResource, $URL*, $String*)},
-	{"getMnemonic", "(Ljava/lang/String;)C", nullptr, $PRIVATE | $STATIC, $staticMethod(ServiceDialog, getMnemonic, char16_t, $String*)},
-	{"getMsg", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(ServiceDialog, getMsg, $String*, $String*)},
-	{"getPrintService", "()Ljavax/print/PrintService;", nullptr, $PUBLIC, $virtualMethod(ServiceDialog, getPrintService, $PrintService*)},
-	{"getStatus", "()I", nullptr, $PUBLIC, $virtualMethod(ServiceDialog, getStatus, int32_t)},
-	{"getVKMnemonic", "(Ljava/lang/String;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(ServiceDialog, getVKMnemonic, int32_t, $String*)},
-	{"handleEscKey", "(Ljavax/swing/JButton;)V", nullptr, $PRIVATE, $method(ServiceDialog, handleEscKey, void, $JButton*)},
-	{"initPageDialog", "(IILjavax/print/PrintService;Ljavax/print/DocFlavor;Ljavax/print/attribute/PrintRequestAttributeSet;)V", nullptr, 0, $virtualMethod(ServiceDialog, initPageDialog, void, int32_t, int32_t, $PrintService*, $DocFlavor*, $PrintRequestAttributeSet*)},
-	{"initPrintDialog", "(II[Ljavax/print/PrintService;ILjavax/print/DocFlavor;Ljavax/print/attribute/PrintRequestAttributeSet;)V", nullptr, 0, $virtualMethod(ServiceDialog, initPrintDialog, void, int32_t, int32_t, $PrintServiceArray*, int32_t, $DocFlavor*, $PrintRequestAttributeSet*)},
-	{"initResource", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(ServiceDialog, initResource, void)},
-	{"removeMnemonics", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(ServiceDialog, removeMnemonics, $String*, $String*)},
-	{"showFileChooser", "()Z", nullptr, $PRIVATE, $method(ServiceDialog, showFileChooser, bool)},
-	{"showNoPrintService", "(Ljava/awt/GraphicsConfiguration;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ServiceDialog, showNoPrintService, void, $GraphicsConfiguration*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"updatePanels", "()V", nullptr, $PRIVATE, $method(ServiceDialog, updatePanels, void)},
-	{}
-};
-
-$InnerClassInfo _ServiceDialog_InnerClassesInfo_[] = {
-	{"sun.print.ServiceDialog$ValidatingFileChooser", "sun.print.ServiceDialog", "ValidatingFileChooser", $PRIVATE},
-	{"sun.print.ServiceDialog$IconRadioButton", "sun.print.ServiceDialog", "IconRadioButton", $PRIVATE},
-	{"sun.print.ServiceDialog$JobAttributesPanel", "sun.print.ServiceDialog", "JobAttributesPanel", $PRIVATE},
-	{"sun.print.ServiceDialog$SidesPanel", "sun.print.ServiceDialog", "SidesPanel", $PRIVATE},
-	{"sun.print.ServiceDialog$QualityPanel", "sun.print.ServiceDialog", "QualityPanel", $PRIVATE},
-	{"sun.print.ServiceDialog$ChromaticityPanel", "sun.print.ServiceDialog", "ChromaticityPanel", $PRIVATE},
-	{"sun.print.ServiceDialog$AppearancePanel", "sun.print.ServiceDialog", "AppearancePanel", $PRIVATE},
-	{"sun.print.ServiceDialog$OrientationPanel", "sun.print.ServiceDialog", "OrientationPanel", $PRIVATE},
-	{"sun.print.ServiceDialog$MediaPanel", "sun.print.ServiceDialog", "MediaPanel", $PRIVATE},
-	{"sun.print.ServiceDialog$MarginsPanel", "sun.print.ServiceDialog", "MarginsPanel", $PRIVATE},
-	{"sun.print.ServiceDialog$PageSetupPanel", "sun.print.ServiceDialog", "PageSetupPanel", $PRIVATE},
-	{"sun.print.ServiceDialog$CopiesPanel", "sun.print.ServiceDialog", "CopiesPanel", $PRIVATE},
-	{"sun.print.ServiceDialog$PrintRangePanel", "sun.print.ServiceDialog", "PrintRangePanel", $PRIVATE},
-	{"sun.print.ServiceDialog$PrintServicePanel", "sun.print.ServiceDialog", "PrintServicePanel", $PRIVATE},
-	{"sun.print.ServiceDialog$GeneralPanel", "sun.print.ServiceDialog", "GeneralPanel", $PRIVATE},
-	{"sun.print.ServiceDialog$5", nullptr, nullptr, 0},
-	{"sun.print.ServiceDialog$4", nullptr, nullptr, 0},
-	{"sun.print.ServiceDialog$3", nullptr, nullptr, 0},
-	{"sun.print.ServiceDialog$2", nullptr, nullptr, 0},
-	{"sun.print.ServiceDialog$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _ServiceDialog_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.print.ServiceDialog",
-	"javax.swing.JDialog",
-	"java.awt.event.ActionListener",
-	_ServiceDialog_FieldInfo_,
-	_ServiceDialog_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ServiceDialog_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.print.ServiceDialog$ValidatingFileChooser,sun.print.ServiceDialog$IconRadioButton,sun.print.ServiceDialog$IconRadioButton$1,sun.print.ServiceDialog$JobAttributesPanel,sun.print.ServiceDialog$SidesPanel,sun.print.ServiceDialog$QualityPanel,sun.print.ServiceDialog$ChromaticityPanel,sun.print.ServiceDialog$AppearancePanel,sun.print.ServiceDialog$OrientationPanel,sun.print.ServiceDialog$MediaPanel,sun.print.ServiceDialog$MarginsPanel,sun.print.ServiceDialog$PageSetupPanel,sun.print.ServiceDialog$CopiesPanel,sun.print.ServiceDialog$PrintRangePanel,sun.print.ServiceDialog$PrintServicePanel,sun.print.ServiceDialog$GeneralPanel,sun.print.ServiceDialog$5,sun.print.ServiceDialog$4,sun.print.ServiceDialog$3,sun.print.ServiceDialog$2,sun.print.ServiceDialog$1"
-};
-
-$Object* allocate$ServiceDialog($Class* clazz) {
-	return $of($alloc(ServiceDialog));
-}
 
 $String* ServiceDialog::toString() {
 	 return this->$JDialog::toString();
@@ -296,7 +182,7 @@ void ServiceDialog::init$($GraphicsConfiguration* gc, int32_t x, int32_t y, $Pri
 }
 
 void ServiceDialog::initPrintDialog(int32_t x, int32_t y, $PrintServiceArray* services, int32_t defaultServiceIndex, $DocFlavor* flavor, $PrintRequestAttributeSet* attributes) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, services, services);
 	this->defaultServiceIndex = defaultServiceIndex;
 	$set(this, asOriginal, attributes);
@@ -311,9 +197,9 @@ void ServiceDialog::initPrintDialog(int32_t x, int32_t y, $PrintServiceArray* se
 	$load($DialogOwner);
 	if (attributes->get($DialogOwner::class$) != nullptr) {
 		$var($DialogOwner, owner, $cast($DialogOwner, attributes->get($DialogOwner::class$)));
-		bool var$0 = (getOwner() == nullptr);
+		bool var$0 = getOwner() == nullptr;
 		if (!var$0) {
-			var$0 = ($nc(owner)->getOwner() != getOwner());
+			var$0 = $nc(owner)->getOwner() != getOwner();
 		}
 		if (var$0) {
 			try {
@@ -325,35 +211,34 @@ void ServiceDialog::initPrintDialog(int32_t x, int32_t y, $PrintServiceArray* se
 	$var($Container, c, getContentPane());
 	$nc(c)->setLayout($$new($BorderLayout));
 	$set(this, tpTabs, $new($JTabbedPane));
-	$nc(this->tpTabs)->setBorder($$new($EmptyBorder, 5, 5, 5, 5));
+	this->tpTabs->setBorder($$new($EmptyBorder, 5, 5, 5, 5));
 	$var($String, gkey, getMsg("tab.general"_s));
 	int32_t gmnemonic = getVKMnemonic("tab.general"_s);
 	$set(this, pnlGeneral, $new($ServiceDialog$GeneralPanel, this));
-	$nc(this->tpTabs)->add(gkey, static_cast<$Component*>(this->pnlGeneral));
+	$nc(this->tpTabs)->add(gkey, this->pnlGeneral);
 	$nc(this->tpTabs)->setMnemonicAt(0, gmnemonic);
 	$var($String, pkey, getMsg("tab.pagesetup"_s));
 	int32_t pmnemonic = getVKMnemonic("tab.pagesetup"_s);
 	$set(this, pnlPageSetup, $new($ServiceDialog$PageSetupPanel, this));
-	$nc(this->tpTabs)->add(pkey, static_cast<$Component*>(this->pnlPageSetup));
+	$nc(this->tpTabs)->add(pkey, this->pnlPageSetup);
 	$nc(this->tpTabs)->setMnemonicAt(1, pmnemonic);
 	$var($String, akey, getMsg("tab.appearance"_s));
 	int32_t amnemonic = getVKMnemonic("tab.appearance"_s);
 	$set(this, pnlAppearance, $new($ServiceDialog$AppearancePanel, this));
-	$nc(this->tpTabs)->add(akey, static_cast<$Component*>(this->pnlAppearance));
+	$nc(this->tpTabs)->add(akey, this->pnlAppearance);
 	$nc(this->tpTabs)->setMnemonicAt(2, amnemonic);
-	$init($BorderLayout);
-	c->add(static_cast<$Component*>(this->tpTabs), $of($BorderLayout::CENTER));
+	c->add(this->tpTabs, $BorderLayout::CENTER);
 	updatePanels();
-	$var($JPanel, pnlSouth, $new($JPanel, static_cast<$LayoutManager*>($$new($FlowLayout, $FlowLayout::TRAILING))));
+	$var($JPanel, pnlSouth, $new($JPanel, $$new($FlowLayout, $FlowLayout::TRAILING)));
 	$set(this, btnApprove, createExitButton("button.print"_s, this));
-	pnlSouth->add(static_cast<$Component*>(this->btnApprove));
-	$nc($(getRootPane()))->setDefaultButton(this->btnApprove);
+	pnlSouth->add(this->btnApprove);
+	$$nc(getRootPane())->setDefaultButton(this->btnApprove);
 	$set(this, btnCancel, createExitButton("button.cancel"_s, this));
 	handleEscKey(this->btnCancel);
-	pnlSouth->add(static_cast<$Component*>(this->btnCancel));
-	c->add(static_cast<$Component*>(pnlSouth), $of($BorderLayout::SOUTH));
+	pnlSouth->add(this->btnCancel);
+	c->add(pnlSouth, $BorderLayout::SOUTH);
 	addWindowListener($$new($ServiceDialog$1, this));
-	$nc($(getAccessibleContext()))->setAccessibleDescription($(getMsg("dialog.printtitle"_s)));
+	$$nc(getAccessibleContext())->setAccessibleDescription($(getMsg("dialog.printtitle"_s)));
 	setResizable(false);
 	setLocation(x, y);
 	pack();
@@ -367,7 +252,7 @@ void ServiceDialog::init$($GraphicsConfiguration* gc, int32_t x, int32_t y, $Pri
 }
 
 void ServiceDialog::initPageDialog(int32_t x, int32_t y, $PrintService* ps, $DocFlavor* flavor, $PrintRequestAttributeSet* attributes) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, psCurrent, ps);
 	$set(this, docFlavor, flavor);
 	$set(this, asOriginal, attributes);
@@ -375,9 +260,9 @@ void ServiceDialog::initPageDialog(int32_t x, int32_t y, $PrintService* ps, $Doc
 	$load($DialogOwner);
 	if ($nc(attributes)->get($DialogOwner::class$) != nullptr) {
 		$var($DialogOwner, owner, $cast($DialogOwner, attributes->get($DialogOwner::class$)));
-		bool var$0 = (getOwner() == nullptr);
+		bool var$0 = getOwner() == nullptr;
 		if (!var$0) {
-			var$0 = ($nc(owner)->getOwner() != getOwner());
+			var$0 = $nc(owner)->getOwner() != getOwner();
 		}
 		if (var$0) {
 			try {
@@ -389,26 +274,25 @@ void ServiceDialog::initPageDialog(int32_t x, int32_t y, $PrintService* ps, $Doc
 	$var($Container, c, getContentPane());
 	$nc(c)->setLayout($$new($BorderLayout));
 	$set(this, pnlPageSetup, $new($ServiceDialog$PageSetupPanel, this));
-	$init($BorderLayout);
-	c->add(static_cast<$Component*>(this->pnlPageSetup), $of($BorderLayout::CENTER));
+	c->add(this->pnlPageSetup, $BorderLayout::CENTER);
 	$nc(this->pnlPageSetup)->updateInfo();
-	$var($JPanel, pnlSouth, $new($JPanel, static_cast<$LayoutManager*>($$new($FlowLayout, $FlowLayout::TRAILING))));
+	$var($JPanel, pnlSouth, $new($JPanel, $$new($FlowLayout, $FlowLayout::TRAILING)));
 	$set(this, btnApprove, createExitButton("button.ok"_s, this));
-	pnlSouth->add(static_cast<$Component*>(this->btnApprove));
-	$nc($(getRootPane()))->setDefaultButton(this->btnApprove);
+	pnlSouth->add(this->btnApprove);
+	$$nc(getRootPane())->setDefaultButton(this->btnApprove);
 	$set(this, btnCancel, createExitButton("button.cancel"_s, this));
 	handleEscKey(this->btnCancel);
-	pnlSouth->add(static_cast<$Component*>(this->btnCancel));
-	c->add(static_cast<$Component*>(pnlSouth), $of($BorderLayout::SOUTH));
+	pnlSouth->add(this->btnCancel);
+	c->add(pnlSouth, $BorderLayout::SOUTH);
 	addWindowListener($$new($ServiceDialog$2, this));
-	$nc($(getAccessibleContext()))->setAccessibleDescription($(getMsg("dialog.pstitle"_s)));
+	$$nc(getAccessibleContext())->setAccessibleDescription($(getMsg("dialog.pstitle"_s)));
 	setResizable(false);
 	setLocation(x, y);
 	pack();
 }
 
 void ServiceDialog::handleEscKey($JButton* btnCancel) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Action, cancelKeyAction, $new($ServiceDialog$3, this));
 	$var($KeyStroke, cancelKeyStroke, $KeyStroke::getKeyStroke((int32_t)(char16_t)$KeyEvent::VK_ESCAPE, 0));
 	$var($InputMap, inputMap, $nc(btnCancel)->getInputMap($JComponent::WHEN_IN_FOCUSED_WINDOW));
@@ -450,7 +334,7 @@ void ServiceDialog::actionPerformed($ActionEvent* e) {
 	if ($equals(source, this->btnApprove)) {
 		approved = true;
 		if (this->pnlGeneral != nullptr) {
-			if ($nc(this->pnlGeneral)->isPrintToFileRequested()) {
+			if (this->pnlGeneral->isPrintToFileRequested()) {
 				approved = showFileChooser();
 			} else {
 				$load($Destination);
@@ -462,7 +346,7 @@ void ServiceDialog::actionPerformed($ActionEvent* e) {
 }
 
 bool ServiceDialog::showFileChooser() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$load($Destination);
 	$Class* dstCategory = $Destination::class$;
 	$var($Destination, dst, $cast($Destination, $nc(this->asCurrent)->get(dstCategory)));
@@ -497,7 +381,7 @@ bool ServiceDialog::showFileChooser() {
 	if (returnVal == $JFileChooser::APPROVE_OPTION) {
 		$assign(fileDest, jfc->getSelectedFile());
 		try {
-			$nc(this->asCurrent)->add(static_cast<$Attribute*>(static_cast<$PrintJobAttribute*>($$new($Destination, $($nc(fileDest)->toURI())))));
+			$nc(this->asCurrent)->add($$cast($PrintJobAttribute, $new($Destination, $($nc(fileDest)->toURI()))));
 		} catch ($Exception& e) {
 			$nc(this->asCurrent)->remove(dstCategory);
 		}
@@ -516,12 +400,12 @@ void ServiceDialog::updatePanels() {
 void ServiceDialog::initResource() {
 	$init(ServiceDialog);
 	$beforeCallerSensitive();
-	$AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($ServiceDialog$4)));
+	$AccessController::doPrivileged($$new($ServiceDialog$4));
 }
 
 $String* ServiceDialog::getMsg($String* key) {
 	$init(ServiceDialog);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		return removeMnemonics($($nc(ServiceDialog::messageRB)->getString(key)));
 	} catch ($MissingResourceException& e) {
@@ -532,34 +416,38 @@ $String* ServiceDialog::getMsg($String* key) {
 
 $String* ServiceDialog::removeMnemonics($String* s) {
 	$init(ServiceDialog);
-	$useLocalCurrentObjectStackCache();
-	int32_t i = $nc(s)->indexOf((int32_t)u'&');
+	$useLocalObjectStack();
+	int32_t i = $nc(s)->indexOf(u'&');
 	int32_t len = s->length();
 	if (i < 0 || i == (len - 1)) {
 		return s;
 	}
-	int32_t j = s->indexOf((int32_t)u'&', i + 1);
+	int32_t j = s->indexOf(u'&', i + 1);
 	if (j == i + 1) {
 		if (j + 1 == len) {
 			return s->substring(0, i + 1);
 		} else {
-			$var($String, var$0, $(s->substring(0, i + 1)));
-			return $concat(var$0, $(removeMnemonics($(s->substring(j + 1)))));
+			$var($StringBuilder, var$0, $new($StringBuilder));
+			var$0->append($(s->substring(0, i + 1)));
+			var$0->append($(removeMnemonics($(s->substring(j + 1)))));
+			return $str(var$0);
 		}
 	}
 	if (i == 0) {
 		return removeMnemonics($(s->substring(1)));
 	} else {
-		$var($String, var$1, $(s->substring(0, i)));
-		return ($concat(var$1, $(removeMnemonics($(s->substring(i + 1))))));
+		$var($StringBuilder, var$1, $new($StringBuilder));
+		var$1->append($(s->substring(0, i)));
+		var$1->append($(removeMnemonics($(s->substring(i + 1)))));
+		return ($str(var$1));
 	}
 }
 
 char16_t ServiceDialog::getMnemonic($String* key) {
 	$init(ServiceDialog);
-	$useLocalCurrentObjectStackCache();
-	$var($String, str, $nc($($nc(ServiceDialog::messageRB)->getString(key)))->replace(static_cast<$CharSequence*>("&&"_s), static_cast<$CharSequence*>(""_s)));
-	int32_t index = str->indexOf((int32_t)u'&');
+	$useLocalObjectStack();
+	$var($String, str, $$nc($nc(ServiceDialog::messageRB)->getString(key))->replace("&&"_s, ""_s));
+	int32_t index = str->indexOf(u'&');
 	if (0 <= index && index < str->length() - 1) {
 		char16_t c = str->charAt(index + 1);
 		return $Character::toUpperCase(c);
@@ -570,7 +458,7 @@ char16_t ServiceDialog::getMnemonic($String* key) {
 
 int32_t ServiceDialog::getVKMnemonic($String* key) {
 	$init(ServiceDialog);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$var($String, s, $String::valueOf(getMnemonic(key)));
 	if (s == nullptr || s->length() != 1) {
@@ -591,9 +479,9 @@ int32_t ServiceDialog::getVKMnemonic($String* key) {
 
 $URL* ServiceDialog::getImageResource($String* key) {
 	$init(ServiceDialog);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
-	$var($URL, url, $cast($URL, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($ServiceDialog$5, key)))));
+	$var($URL, url, $cast($URL, $AccessController::doPrivileged($$new($ServiceDialog$5, key))));
 	if (url == nullptr) {
 		$throwNew($Error, $$str({"Fatal: Resource for ServiceUI is broken; there is no "_s, key, " key in resource"_s}));
 	}
@@ -602,7 +490,7 @@ $URL* ServiceDialog::getImageResource($String* key) {
 
 $JButton* ServiceDialog::createButton($String* key, $ActionListener* al) {
 	$init(ServiceDialog);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JButton, btn, $new($JButton, $(getMsg(key))));
 	btn->setMnemonic(getMnemonic(key));
 	btn->addActionListener(al);
@@ -611,17 +499,17 @@ $JButton* ServiceDialog::createButton($String* key, $ActionListener* al) {
 
 $JButton* ServiceDialog::createExitButton($String* key, $ActionListener* al) {
 	$init(ServiceDialog);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, str, getMsg(key));
 	$var($JButton, btn, $new($JButton, str));
 	btn->addActionListener(al);
-	$nc($(btn->getAccessibleContext()))->setAccessibleDescription(str);
+	$$nc(btn->getAccessibleContext())->setAccessibleDescription(str);
 	return btn;
 }
 
 $JCheckBox* ServiceDialog::createCheckBox($String* key, $ActionListener* al) {
 	$init(ServiceDialog);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JCheckBox, cb, $new($JCheckBox, $(getMsg(key))));
 	cb->setMnemonic(getMnemonic(key));
 	cb->addActionListener(al);
@@ -630,7 +518,7 @@ $JCheckBox* ServiceDialog::createCheckBox($String* key, $ActionListener* al) {
 
 $JRadioButton* ServiceDialog::createRadioButton($String* key, $ActionListener* al) {
 	$init(ServiceDialog);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JRadioButton, rb, $new($JRadioButton, $(getMsg(key))));
 	rb->setMnemonic(getMnemonic(key));
 	rb->addActionListener(al);
@@ -639,7 +527,7 @@ $JRadioButton* ServiceDialog::createRadioButton($String* key, $ActionListener* a
 
 void ServiceDialog::showNoPrintService($GraphicsConfiguration* gc) {
 	$init(ServiceDialog);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Frame, dlgFrame, $new($Frame, gc));
 	$JOptionPane::showMessageDialog(dlgFrame, $(getMsg("dialog.noprintermsg"_s)));
 	dlgFrame->dispose();
@@ -654,10 +542,10 @@ void ServiceDialog::addToGB($Component* comp, $Container* cont, $GridBagLayout* 
 void ServiceDialog::addToBG($AbstractButton* button, $Container* cont, $ButtonGroup* bg) {
 	$init(ServiceDialog);
 	$nc(bg)->add(button);
-	$nc(cont)->add(static_cast<$Component*>(button));
+	$nc(cont)->add(button);
 }
 
-void clinit$ServiceDialog($Class* class$) {
+void ServiceDialog::clinit$($Class* clazz) {
 	$assignStatic(ServiceDialog::strBundle, "sun.print.resources.serviceui"_s);
 	$assignStatic(ServiceDialog::panelInsets, $new($Insets, 6, 6, 6, 6));
 	$assignStatic(ServiceDialog::compInsets, $new($Insets, 3, 6, 3, 6));
@@ -671,7 +559,105 @@ ServiceDialog::ServiceDialog() {
 }
 
 $Class* ServiceDialog::load$($String* name, bool initialize) {
-	$loadClass(ServiceDialog, name, initialize, &_ServiceDialog_ClassInfo_, clinit$ServiceDialog, allocate$ServiceDialog);
+	$FieldInfo fieldInfos$$[] = {
+		{"WAITING", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ServiceDialog, WAITING)},
+		{"APPROVE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ServiceDialog, APPROVE)},
+		{"CANCEL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ServiceDialog, CANCEL)},
+		{"strBundle", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ServiceDialog, strBundle)},
+		{"panelInsets", "Ljava/awt/Insets;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ServiceDialog, panelInsets)},
+		{"compInsets", "Ljava/awt/Insets;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ServiceDialog, compInsets)},
+		{"messageRB", "Ljava/util/ResourceBundle;", nullptr, $PRIVATE | $STATIC, $staticField(ServiceDialog, messageRB)},
+		{"tpTabs", "Ljavax/swing/JTabbedPane;", nullptr, $PRIVATE, $field(ServiceDialog, tpTabs)},
+		{"btnCancel", "Ljavax/swing/JButton;", nullptr, $PRIVATE, $field(ServiceDialog, btnCancel)},
+		{"btnApprove", "Ljavax/swing/JButton;", nullptr, $PRIVATE, $field(ServiceDialog, btnApprove)},
+		{"services", "[Ljavax/print/PrintService;", nullptr, $PRIVATE, $field(ServiceDialog, services)},
+		{"defaultServiceIndex", "I", nullptr, $PRIVATE, $field(ServiceDialog, defaultServiceIndex)},
+		{"asOriginal", "Ljavax/print/attribute/PrintRequestAttributeSet;", nullptr, $PRIVATE, $field(ServiceDialog, asOriginal)},
+		{"asCurrent", "Ljavax/print/attribute/HashPrintRequestAttributeSet;", nullptr, $PRIVATE, $field(ServiceDialog, asCurrent)},
+		{"psCurrent", "Ljavax/print/PrintService;", nullptr, $PRIVATE, $field(ServiceDialog, psCurrent)},
+		{"docFlavor", "Ljavax/print/DocFlavor;", nullptr, $PRIVATE, $field(ServiceDialog, docFlavor)},
+		{"status", "I", nullptr, $PRIVATE, $field(ServiceDialog, status)},
+		{"jfc", "Lsun/print/ServiceDialog$ValidatingFileChooser;", nullptr, $PRIVATE, $field(ServiceDialog, jfc)},
+		{"pnlGeneral", "Lsun/print/ServiceDialog$GeneralPanel;", nullptr, $PRIVATE, $field(ServiceDialog, pnlGeneral)},
+		{"pnlPageSetup", "Lsun/print/ServiceDialog$PageSetupPanel;", nullptr, $PRIVATE, $field(ServiceDialog, pnlPageSetup)},
+		{"pnlAppearance", "Lsun/print/ServiceDialog$AppearancePanel;", nullptr, $PRIVATE, $field(ServiceDialog, pnlAppearance)},
+		{"isAWT", "Z", nullptr, $PRIVATE, $field(ServiceDialog, isAWT)},
+		{"_keyEventClazz", "Ljava/lang/Class;", "Ljava/lang/Class<*>;", $STATIC, $staticField(ServiceDialog, _keyEventClazz)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/awt/GraphicsConfiguration;II[Ljavax/print/PrintService;ILjavax/print/DocFlavor;Ljavax/print/attribute/PrintRequestAttributeSet;Ljava/awt/Window;)V", nullptr, $PUBLIC, $method(ServiceDialog, init$, void, $GraphicsConfiguration*, int32_t, int32_t, $PrintServiceArray*, int32_t, $DocFlavor*, $PrintRequestAttributeSet*, $Window*)},
+		{"<init>", "(Ljava/awt/GraphicsConfiguration;IILjavax/print/PrintService;Ljavax/print/DocFlavor;Ljavax/print/attribute/PrintRequestAttributeSet;Ljava/awt/Window;)V", nullptr, $PUBLIC, $method(ServiceDialog, init$, void, $GraphicsConfiguration*, int32_t, int32_t, $PrintService*, $DocFlavor*, $PrintRequestAttributeSet*, $Window*)},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(ServiceDialog, actionPerformed, void, $ActionEvent*)},
+		{"addToBG", "(Ljavax/swing/AbstractButton;Ljava/awt/Container;Ljavax/swing/ButtonGroup;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ServiceDialog, addToBG, void, $AbstractButton*, $Container*, $ButtonGroup*)},
+		{"addToGB", "(Ljava/awt/Component;Ljava/awt/Container;Ljava/awt/GridBagLayout;Ljava/awt/GridBagConstraints;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ServiceDialog, addToGB, void, $Component*, $Container*, $GridBagLayout*, $GridBagConstraints*)},
+		{"createButton", "(Ljava/lang/String;Ljava/awt/event/ActionListener;)Ljavax/swing/JButton;", nullptr, $PRIVATE | $STATIC, $staticMethod(ServiceDialog, createButton, $JButton*, $String*, $ActionListener*)},
+		{"createCheckBox", "(Ljava/lang/String;Ljava/awt/event/ActionListener;)Ljavax/swing/JCheckBox;", nullptr, $PRIVATE | $STATIC, $staticMethod(ServiceDialog, createCheckBox, $JCheckBox*, $String*, $ActionListener*)},
+		{"createExitButton", "(Ljava/lang/String;Ljava/awt/event/ActionListener;)Ljavax/swing/JButton;", nullptr, $PRIVATE | $STATIC, $staticMethod(ServiceDialog, createExitButton, $JButton*, $String*, $ActionListener*)},
+		{"createRadioButton", "(Ljava/lang/String;Ljava/awt/event/ActionListener;)Ljavax/swing/JRadioButton;", nullptr, $PRIVATE | $STATIC, $staticMethod(ServiceDialog, createRadioButton, $JRadioButton*, $String*, $ActionListener*)},
+		{"dispose", "(I)V", nullptr, $PUBLIC, $virtualMethod(ServiceDialog, dispose, void, int32_t)},
+		{"getAttributes", "()Ljavax/print/attribute/PrintRequestAttributeSet;", nullptr, $PUBLIC, $virtualMethod(ServiceDialog, getAttributes, $PrintRequestAttributeSet*)},
+		{"getImageResource", "(Ljava/lang/String;)Ljava/net/URL;", nullptr, $PRIVATE | $STATIC, $staticMethod(ServiceDialog, getImageResource, $URL*, $String*)},
+		{"getMnemonic", "(Ljava/lang/String;)C", nullptr, $PRIVATE | $STATIC, $staticMethod(ServiceDialog, getMnemonic, char16_t, $String*)},
+		{"getMsg", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(ServiceDialog, getMsg, $String*, $String*)},
+		{"getPrintService", "()Ljavax/print/PrintService;", nullptr, $PUBLIC, $virtualMethod(ServiceDialog, getPrintService, $PrintService*)},
+		{"getStatus", "()I", nullptr, $PUBLIC, $virtualMethod(ServiceDialog, getStatus, int32_t)},
+		{"getVKMnemonic", "(Ljava/lang/String;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(ServiceDialog, getVKMnemonic, int32_t, $String*)},
+		{"handleEscKey", "(Ljavax/swing/JButton;)V", nullptr, $PRIVATE, $method(ServiceDialog, handleEscKey, void, $JButton*)},
+		{"initPageDialog", "(IILjavax/print/PrintService;Ljavax/print/DocFlavor;Ljavax/print/attribute/PrintRequestAttributeSet;)V", nullptr, 0, $virtualMethod(ServiceDialog, initPageDialog, void, int32_t, int32_t, $PrintService*, $DocFlavor*, $PrintRequestAttributeSet*)},
+		{"initPrintDialog", "(II[Ljavax/print/PrintService;ILjavax/print/DocFlavor;Ljavax/print/attribute/PrintRequestAttributeSet;)V", nullptr, 0, $virtualMethod(ServiceDialog, initPrintDialog, void, int32_t, int32_t, $PrintServiceArray*, int32_t, $DocFlavor*, $PrintRequestAttributeSet*)},
+		{"initResource", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(ServiceDialog, initResource, void)},
+		{"removeMnemonics", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(ServiceDialog, removeMnemonics, $String*, $String*)},
+		{"showFileChooser", "()Z", nullptr, $PRIVATE, $method(ServiceDialog, showFileChooser, bool)},
+		{"showNoPrintService", "(Ljava/awt/GraphicsConfiguration;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ServiceDialog, showNoPrintService, void, $GraphicsConfiguration*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"updatePanels", "()V", nullptr, $PRIVATE, $method(ServiceDialog, updatePanels, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.print.ServiceDialog$ValidatingFileChooser", "sun.print.ServiceDialog", "ValidatingFileChooser", $PRIVATE},
+		{"sun.print.ServiceDialog$IconRadioButton", "sun.print.ServiceDialog", "IconRadioButton", $PRIVATE},
+		{"sun.print.ServiceDialog$JobAttributesPanel", "sun.print.ServiceDialog", "JobAttributesPanel", $PRIVATE},
+		{"sun.print.ServiceDialog$SidesPanel", "sun.print.ServiceDialog", "SidesPanel", $PRIVATE},
+		{"sun.print.ServiceDialog$QualityPanel", "sun.print.ServiceDialog", "QualityPanel", $PRIVATE},
+		{"sun.print.ServiceDialog$ChromaticityPanel", "sun.print.ServiceDialog", "ChromaticityPanel", $PRIVATE},
+		{"sun.print.ServiceDialog$AppearancePanel", "sun.print.ServiceDialog", "AppearancePanel", $PRIVATE},
+		{"sun.print.ServiceDialog$OrientationPanel", "sun.print.ServiceDialog", "OrientationPanel", $PRIVATE},
+		{"sun.print.ServiceDialog$MediaPanel", "sun.print.ServiceDialog", "MediaPanel", $PRIVATE},
+		{"sun.print.ServiceDialog$MarginsPanel", "sun.print.ServiceDialog", "MarginsPanel", $PRIVATE},
+		{"sun.print.ServiceDialog$PageSetupPanel", "sun.print.ServiceDialog", "PageSetupPanel", $PRIVATE},
+		{"sun.print.ServiceDialog$CopiesPanel", "sun.print.ServiceDialog", "CopiesPanel", $PRIVATE},
+		{"sun.print.ServiceDialog$PrintRangePanel", "sun.print.ServiceDialog", "PrintRangePanel", $PRIVATE},
+		{"sun.print.ServiceDialog$PrintServicePanel", "sun.print.ServiceDialog", "PrintServicePanel", $PRIVATE},
+		{"sun.print.ServiceDialog$GeneralPanel", "sun.print.ServiceDialog", "GeneralPanel", $PRIVATE},
+		{"sun.print.ServiceDialog$5", nullptr, nullptr, 0},
+		{"sun.print.ServiceDialog$4", nullptr, nullptr, 0},
+		{"sun.print.ServiceDialog$3", nullptr, nullptr, 0},
+		{"sun.print.ServiceDialog$2", nullptr, nullptr, 0},
+		{"sun.print.ServiceDialog$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.print.ServiceDialog",
+		"javax.swing.JDialog",
+		"java.awt.event.ActionListener",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.print.ServiceDialog$ValidatingFileChooser,sun.print.ServiceDialog$IconRadioButton,sun.print.ServiceDialog$IconRadioButton$1,sun.print.ServiceDialog$JobAttributesPanel,sun.print.ServiceDialog$SidesPanel,sun.print.ServiceDialog$QualityPanel,sun.print.ServiceDialog$ChromaticityPanel,sun.print.ServiceDialog$AppearancePanel,sun.print.ServiceDialog$OrientationPanel,sun.print.ServiceDialog$MediaPanel,sun.print.ServiceDialog$MarginsPanel,sun.print.ServiceDialog$PageSetupPanel,sun.print.ServiceDialog$CopiesPanel,sun.print.ServiceDialog$PrintRangePanel,sun.print.ServiceDialog$PrintServicePanel,sun.print.ServiceDialog$GeneralPanel,sun.print.ServiceDialog$5,sun.print.ServiceDialog$4,sun.print.ServiceDialog$3,sun.print.ServiceDialog$2,sun.print.ServiceDialog$1"
+	};
+	$loadClass(ServiceDialog, name, initialize, &classInfo$$, ServiceDialog::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ServiceDialog));
+	});
 	return class$;
 }
 

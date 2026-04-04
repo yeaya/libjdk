@@ -34,7 +34,7 @@ public:
 	virtual $Array<::javax::management::ValueExp>* getExplicitValues();
 	virtual void setMBeanServer(::javax::management::MBeanServer* s) override;
 	virtual $String* toString() override;
-	static const int64_t serialVersionUID = (int64_t)0xAF7D899A0657AE0E;
+	static const int64_t serialVersionUID = (int64_t)0xaf7d899a0657ae0e;
 	::javax::management::ValueExp* val = nullptr;
 	$Array<::javax::management::ValueExp>* valueList = nullptr;
 };

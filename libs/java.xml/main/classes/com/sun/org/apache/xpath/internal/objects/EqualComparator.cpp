@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xpath/internal/objects/EqualComparator.h>
-
 #include <com/sun/org/apache/xml/internal/utils/XMLString.h>
 #include <com/sun/org/apache/xpath/internal/objects/Comparator.h>
 #include <jcpp.h>
@@ -17,26 +16,6 @@ namespace com {
 					namespace internal {
 						namespace objects {
 
-$MethodInfo _EqualComparator_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(EqualComparator, init$, void)},
-	{"compareNumbers", "(DD)Z", nullptr, 0, $virtualMethod(EqualComparator, compareNumbers, bool, double, double)},
-	{"compareStrings", "(Lcom/sun/org/apache/xml/internal/utils/XMLString;Lcom/sun/org/apache/xml/internal/utils/XMLString;)Z", nullptr, 0, $virtualMethod(EqualComparator, compareStrings, bool, $XMLString*, $XMLString*)},
-	{}
-};
-
-$ClassInfo _EqualComparator_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.org.apache.xpath.internal.objects.EqualComparator",
-	"com.sun.org.apache.xpath.internal.objects.Comparator",
-	nullptr,
-	nullptr,
-	_EqualComparator_MethodInfo_
-};
-
-$Object* allocate$EqualComparator($Class* clazz) {
-	return $of($alloc(EqualComparator));
-}
-
 void EqualComparator::init$() {
 	$Comparator::init$();
 }
@@ -53,7 +32,23 @@ EqualComparator::EqualComparator() {
 }
 
 $Class* EqualComparator::load$($String* name, bool initialize) {
-	$loadClass(EqualComparator, name, initialize, &_EqualComparator_ClassInfo_, allocate$EqualComparator);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(EqualComparator, init$, void)},
+		{"compareNumbers", "(DD)Z", nullptr, 0, $virtualMethod(EqualComparator, compareNumbers, bool, double, double)},
+		{"compareStrings", "(Lcom/sun/org/apache/xml/internal/utils/XMLString;Lcom/sun/org/apache/xml/internal/utils/XMLString;)Z", nullptr, 0, $virtualMethod(EqualComparator, compareStrings, bool, $XMLString*, $XMLString*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.org.apache.xpath.internal.objects.EqualComparator",
+		"com.sun.org.apache.xpath.internal.objects.Comparator",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(EqualComparator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(EqualComparator);
+	});
 	return class$;
 }
 

@@ -14,6 +14,7 @@ class PCK$EncodeHolder : public ::java::lang::Object {
 	$class(PCK$EncodeHolder, 0, ::java::lang::Object)
 public:
 	PCK$EncodeHolder();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $chars* c2b;
 	static $chars* c2bIndex;

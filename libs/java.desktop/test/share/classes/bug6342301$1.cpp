@@ -1,9 +1,7 @@
 #include <bug6342301$1.h>
-
 #include <bug6342301$HackedFileChooser.h>
 #include <bug6342301.h>
 #include <java/io/File.h>
-#include <javax/swing/JFileChooser.h>
 #include <javax/swing/plaf/ComponentUI.h>
 #include <javax/swing/plaf/metal/MetalFileChooserUI.h>
 #include <jcpp.h>
@@ -15,52 +13,13 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $JFileChooser = ::javax::swing::JFileChooser;
-using $ComponentUI = ::javax::swing::plaf::ComponentUI;
 using $MetalFileChooserUI = ::javax::swing::plaf::metal::MetalFileChooserUI;
-
-$MethodInfo _bug6342301$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(bug6342301$1, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug6342301$1, run, void)},
-	{}
-};
-
-$EnclosingMethodInfo _bug6342301$1_EnclosingMethodInfo_ = {
-	"bug6342301",
-	"main",
-	"([Ljava/lang/String;)V"
-};
-
-$InnerClassInfo _bug6342301$1_InnerClassesInfo_[] = {
-	{"bug6342301$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _bug6342301$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"bug6342301$1",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	_bug6342301$1_MethodInfo_,
-	nullptr,
-	&_bug6342301$1_EnclosingMethodInfo_,
-	_bug6342301$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"bug6342301"
-};
-
-$Object* allocate$bug6342301$1($Class* clazz) {
-	return $of($alloc(bug6342301$1));
-}
 
 void bug6342301$1::init$() {
 }
 
 void bug6342301$1::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bug6342301$HackedFileChooser, openChooser, $new($bug6342301$HackedFileChooser));
 	openChooser->setUI($$new($MetalFileChooserUI, openChooser));
 	$init($bug6342301);
@@ -71,7 +30,38 @@ bug6342301$1::bug6342301$1() {
 }
 
 $Class* bug6342301$1::load$($String* name, bool initialize) {
-	$loadClass(bug6342301$1, name, initialize, &_bug6342301$1_ClassInfo_, allocate$bug6342301$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(bug6342301$1, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug6342301$1, run, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"bug6342301",
+		"main",
+		"([Ljava/lang/String;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"bug6342301$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"bug6342301$1",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"bug6342301"
+	};
+	$loadClass(bug6342301$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(bug6342301$1);
+	});
 	return class$;
 }
 

@@ -21,6 +21,7 @@ class ComponentBeanInfo : public ::java::beans::SimpleBeanInfo {
 	$class(ComponentBeanInfo, 0, ::java::beans::SimpleBeanInfo)
 public:
 	ComponentBeanInfo();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual $Array<::java::beans::PropertyDescriptor>* getPropertyDescriptors() override;
 	static $Class* beanClass;

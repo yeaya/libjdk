@@ -1,5 +1,4 @@
 #include <javax/swing/colorchooser/ColorChooserComponentFactory.h>
-
 #include <javax/swing/JComponent.h>
 #include <javax/swing/colorchooser/AbstractColorChooserPanel.h>
 #include <javax/swing/colorchooser/ColorChooserPanel.h>
@@ -15,7 +14,6 @@ using $AbstractColorChooserPanelArray = $Array<::javax::swing::colorchooser::Abs
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $JComponent = ::javax::swing::JComponent;
-using $AbstractColorChooserPanel = ::javax::swing::colorchooser::AbstractColorChooserPanel;
 using $ColorChooserPanel = ::javax::swing::colorchooser::ColorChooserPanel;
 using $ColorModel = ::javax::swing::colorchooser::ColorModel;
 using $ColorModelCMYK = ::javax::swing::colorchooser::ColorModelCMYK;
@@ -28,37 +26,17 @@ namespace javax {
 	namespace swing {
 		namespace colorchooser {
 
-$MethodInfo _ColorChooserComponentFactory_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(ColorChooserComponentFactory, init$, void)},
-	{"getDefaultChooserPanels", "()[Ljavax/swing/colorchooser/AbstractColorChooserPanel;", nullptr, $PUBLIC | $STATIC, $staticMethod(ColorChooserComponentFactory, getDefaultChooserPanels, $AbstractColorChooserPanelArray*)},
-	{"getPreviewPanel", "()Ljavax/swing/JComponent;", nullptr, $PUBLIC | $STATIC, $staticMethod(ColorChooserComponentFactory, getPreviewPanel, $JComponent*)},
-	{}
-};
-
-$ClassInfo _ColorChooserComponentFactory_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.colorchooser.ColorChooserComponentFactory",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_ColorChooserComponentFactory_MethodInfo_
-};
-
-$Object* allocate$ColorChooserComponentFactory($Class* clazz) {
-	return $of($alloc(ColorChooserComponentFactory));
-}
-
 void ColorChooserComponentFactory::init$() {
 }
 
 $AbstractColorChooserPanelArray* ColorChooserComponentFactory::getDefaultChooserPanels() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $new($AbstractColorChooserPanelArray, {
-		static_cast<$AbstractColorChooserPanel*>($$new($DefaultSwatchChooserPanel)),
-		static_cast<$AbstractColorChooserPanel*>($$new($ColorChooserPanel, $$new($ColorModelHSV))),
-		static_cast<$AbstractColorChooserPanel*>($$new($ColorChooserPanel, $$new($ColorModelHSL))),
-		static_cast<$AbstractColorChooserPanel*>($$new($ColorChooserPanel, $$new($ColorModel))),
-		static_cast<$AbstractColorChooserPanel*>($$new($ColorChooserPanel, $$new($ColorModelCMYK)))
+		$$new($DefaultSwatchChooserPanel),
+		$$new($ColorChooserPanel, $$new($ColorModelHSV)),
+		$$new($ColorChooserPanel, $$new($ColorModelHSL)),
+		$$new($ColorChooserPanel, $$new($ColorModel)),
+		$$new($ColorChooserPanel, $$new($ColorModelCMYK))
 	});
 }
 
@@ -70,7 +48,23 @@ ColorChooserComponentFactory::ColorChooserComponentFactory() {
 }
 
 $Class* ColorChooserComponentFactory::load$($String* name, bool initialize) {
-	$loadClass(ColorChooserComponentFactory, name, initialize, &_ColorChooserComponentFactory_ClassInfo_, allocate$ColorChooserComponentFactory);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(ColorChooserComponentFactory, init$, void)},
+		{"getDefaultChooserPanels", "()[Ljavax/swing/colorchooser/AbstractColorChooserPanel;", nullptr, $PUBLIC | $STATIC, $staticMethod(ColorChooserComponentFactory, getDefaultChooserPanels, $AbstractColorChooserPanelArray*)},
+		{"getPreviewPanel", "()Ljavax/swing/JComponent;", nullptr, $PUBLIC | $STATIC, $staticMethod(ColorChooserComponentFactory, getPreviewPanel, $JComponent*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.colorchooser.ColorChooserComponentFactory",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ColorChooserComponentFactory, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ColorChooserComponentFactory);
+	});
 	return class$;
 }
 

@@ -12,6 +12,7 @@ class JRSUIUtils : public ::java::lang::Object {
 	$class(JRSUIUtils, 0, ::java::lang::Object)
 public:
 	JRSUIUtils();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static bool currentMacOSXVersionMatchesGivenVersionRange(int32_t version, bool inclusive, bool matchBelow, bool matchAbove);
 	static bool currentMacOSXVersionMatchesGivenVersionRange(int32_t majorVersion, int32_t minorVersion, bool inclusive, bool matchBelow, bool matchAbove);

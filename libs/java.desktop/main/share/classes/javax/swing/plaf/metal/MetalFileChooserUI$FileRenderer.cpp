@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/metal/MetalFileChooserUI$FileRenderer.h>
-
 #include <javax/swing/DefaultListCellRenderer.h>
 #include <javax/swing/plaf/metal/MetalFileChooserUI.h>
 #include <jcpp.h>
@@ -18,51 +17,6 @@ namespace javax {
 		namespace plaf {
 			namespace metal {
 
-$NamedAttribute MetalFileChooserUI$FileRenderer_Attribute_var$0[] = {
-	{"since", 's', "9"},
-	{}
-};
-
-$CompoundAttribute _MetalFileChooserUI$FileRenderer_Annotations_[] = {
-	{"Ljava/lang/Deprecated;", MetalFileChooserUI$FileRenderer_Attribute_var$0},
-	{}
-};
-
-$FieldInfo _MetalFileChooserUI$FileRenderer_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/plaf/metal/MetalFileChooserUI;", nullptr, $FINAL | $SYNTHETIC, $field(MetalFileChooserUI$FileRenderer, this$0)},
-	{}
-};
-
-$MethodInfo _MetalFileChooserUI$FileRenderer_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/plaf/metal/MetalFileChooserUI;)V", nullptr, $PROTECTED, $method(MetalFileChooserUI$FileRenderer, init$, void, $MetalFileChooserUI*)},
-	{}
-};
-
-$InnerClassInfo _MetalFileChooserUI$FileRenderer_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.metal.MetalFileChooserUI$FileRenderer", "javax.swing.plaf.metal.MetalFileChooserUI", "FileRenderer", $PROTECTED},
-	{}
-};
-
-$ClassInfo _MetalFileChooserUI$FileRenderer_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.metal.MetalFileChooserUI$FileRenderer",
-	"javax.swing.DefaultListCellRenderer",
-	nullptr,
-	_MetalFileChooserUI$FileRenderer_FieldInfo_,
-	_MetalFileChooserUI$FileRenderer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MetalFileChooserUI$FileRenderer_InnerClassesInfo_,
-	_MetalFileChooserUI$FileRenderer_Annotations_,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.metal.MetalFileChooserUI"
-};
-
-$Object* allocate$MetalFileChooserUI$FileRenderer($Class* clazz) {
-	return $of($alloc(MetalFileChooserUI$FileRenderer));
-}
-
 void MetalFileChooserUI$FileRenderer::init$($MetalFileChooserUI* this$0) {
 	$set(this, this$0, this$0);
 	$DefaultListCellRenderer::init$();
@@ -72,7 +26,44 @@ MetalFileChooserUI$FileRenderer::MetalFileChooserUI$FileRenderer() {
 }
 
 $Class* MetalFileChooserUI$FileRenderer::load$($String* name, bool initialize) {
-	$loadClass(MetalFileChooserUI$FileRenderer, name, initialize, &_MetalFileChooserUI$FileRenderer_ClassInfo_, allocate$MetalFileChooserUI$FileRenderer);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/plaf/metal/MetalFileChooserUI;", nullptr, $FINAL | $SYNTHETIC, $field(MetalFileChooserUI$FileRenderer, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/plaf/metal/MetalFileChooserUI;)V", nullptr, $PROTECTED, $method(MetalFileChooserUI$FileRenderer, init$, void, $MetalFileChooserUI*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.metal.MetalFileChooserUI$FileRenderer", "javax.swing.plaf.metal.MetalFileChooserUI", "FileRenderer", $PROTECTED},
+		{}
+	};
+	$NamedAttribute annotations$$$namedAttribute[] = {
+		{"since", 's', "9"},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/lang/Deprecated;", annotations$$$namedAttribute},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.metal.MetalFileChooserUI$FileRenderer",
+		"javax.swing.DefaultListCellRenderer",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		annotations$$,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.metal.MetalFileChooserUI"
+	};
+	$loadClass(MetalFileChooserUI$FileRenderer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MetalFileChooserUI$FileRenderer));
+	});
 	return class$;
 }
 

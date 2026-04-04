@@ -193,6 +193,7 @@ class XMLSignature : public ::com::sun::org::apache::xml::internal::security::ut
 	$class(XMLSignature, 0, ::com::sun::org::apache::xml::internal::security::utils::SignatureElementProxy)
 public:
 	XMLSignature();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::org::w3c::dom::Document* doc, $String* baseURI, $String* signatureMethodURI);
 	void init$(::org::w3c::dom::Document* doc, $String* baseURI, $String* signatureMethodURI, ::java::security::Provider* provider);
 	void init$(::org::w3c::dom::Document* doc, $String* baseURI, $String* signatureMethodURI, int32_t hmacOutputLength);

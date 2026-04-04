@@ -1,5 +1,4 @@
 #include <com/sun/tools/sjavac/CompileProperties.h>
-
 #include <com/sun/tools/sjavac/Log.h>
 #include <com/sun/tools/sjavac/Util.h>
 #include <com/sun/tools/sjavac/comp/CompilationService.h>
@@ -9,8 +8,6 @@
 #include <java/io/FileInputStream.h>
 #include <java/io/FileOutputStream.h>
 #include <java/io/IOException.h>
-#include <java/io/InputStream.h>
-#include <java/io/OutputStream.h>
 #include <java/io/OutputStreamWriter.h>
 #include <java/io/Writer.h>
 #include <java/net/URI.h>
@@ -36,8 +33,6 @@ using $File = ::java::io::File;
 using $FileInputStream = ::java::io::FileInputStream;
 using $FileOutputStream = ::java::io::FileOutputStream;
 using $IOException = ::java::io::IOException;
-using $InputStream = ::java::io::InputStream;
-using $OutputStream = ::java::io::OutputStream;
 using $OutputStreamWriter = ::java::io::OutputStreamWriter;
 using $Writer = ::java::io::Writer;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -59,37 +54,6 @@ namespace com {
 		namespace tools {
 			namespace sjavac {
 
-$FieldInfo _CompileProperties_FieldInfo_[] = {
-	{"extra", "Ljava/lang/String;", nullptr, 0, $field(CompileProperties, extra)},
-	{"FORMAT", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CompileProperties, FORMAT)},
-	{"hexDigit", "[C", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CompileProperties, hexDigit)},
-	{}
-};
-
-$MethodInfo _CompileProperties_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(CompileProperties, init$, void)},
-	{"compile", "(Ljava/lang/String;Ljava/lang/String;Ljava/io/File;Ljava/io/File;ILjava/util/Map;)Z", "(Ljava/lang/String;Ljava/lang/String;Ljava/io/File;Ljava/io/File;ILjava/util/Map<Ljava/lang/String;Ljava/util/Set<Ljava/net/URI;>;>;)Z", 0, $virtualMethod(CompileProperties, compile, bool, $String*, $String*, $File*, $File*, int32_t, $Map*)},
-	{"escape", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(CompileProperties, escape, $String*, $String*)},
-	{"setExtra", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(CompileProperties, setExtra, void, $String*)},
-	{"setExtra", "(Lcom/sun/tools/sjavac/options/Options;)V", nullptr, $PUBLIC, $virtualMethod(CompileProperties, setExtra, void, $Options*)},
-	{"toHex", "(I)C", nullptr, $PRIVATE | $STATIC, $staticMethod(CompileProperties, toHex, char16_t, int32_t)},
-	{"transform", "(Lcom/sun/tools/sjavac/comp/CompilationService;Ljava/util/Map;Ljava/util/Set;Ljava/util/Map;Ljava/net/URI;Ljava/util/Map;Ljava/util/Map;Ljava/util/Map;Ljava/util/Map;Ljava/util/Map;IZI)Z", "(Lcom/sun/tools/sjavac/comp/CompilationService;Ljava/util/Map<Ljava/lang/String;Ljava/util/Set<Ljava/net/URI;>;>;Ljava/util/Set<Ljava/net/URI;>;Ljava/util/Map<Ljava/lang/String;Ljava/util/Set<Ljava/lang/String;>;>;Ljava/net/URI;Ljava/util/Map<Ljava/lang/String;Ljava/util/Set<Ljava/net/URI;>;>;Ljava/util/Map<Ljava/lang/String;Ljava/util/Map<Ljava/lang/String;Ljava/util/Set<Ljava/lang/String;>;>;>;Ljava/util/Map<Ljava/lang/String;Ljava/util/Map<Ljava/lang/String;Ljava/util/Set<Ljava/lang/String;>;>;>;Ljava/util/Map<Ljava/lang/String;Lcom/sun/tools/sjavac/pubapi/PubApi;>;Ljava/util/Map<Ljava/lang/String;Lcom/sun/tools/sjavac/pubapi/PubApi;>;IZI)Z", $PUBLIC, $virtualMethod(CompileProperties, transform, bool, $CompilationService*, $Map*, $Set*, $Map*, $URI*, $Map*, $Map*, $Map*, $Map*, $Map*, int32_t, bool, int32_t)},
-	{}
-};
-
-$ClassInfo _CompileProperties_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.sjavac.CompileProperties",
-	"java.lang.Object",
-	"com.sun.tools.sjavac.Transformer",
-	_CompileProperties_FieldInfo_,
-	_CompileProperties_MethodInfo_
-};
-
-$Object* allocate$CompileProperties($Class* clazz) {
-	return $of($alloc(CompileProperties));
-}
-
 $String* CompileProperties::FORMAT = nullptr;
 $chars* CompileProperties::hexDigit = nullptr;
 
@@ -104,16 +68,16 @@ void CompileProperties::setExtra($Options* a) {
 }
 
 bool CompileProperties::transform($CompilationService* compilationService, $Map* pkgSrcs, $Set* visibleSrcs, $Map* oldPackageDependents, $URI* destRoot, $Map* packageArtifacts, $Map* packageDependencies, $Map* packageCpDependencies, $Map* packagePublicApis, $Map* dependencyPublicApis, int32_t debugLevel, bool incremental, int32_t numCores) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool rc = true;
 	{
-		$var($Iterator, i$, $nc($($nc(pkgSrcs)->keySet()))->iterator());
+		$var($Iterator, i$, $$nc($nc(pkgSrcs)->keySet())->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($String, pkgName, $cast($String, i$->next()));
 			{
 				$var($String, pkgNameF, $Util::toFileSystemPath(pkgName));
 				{
-					$var($Iterator, i$, $nc(($cast($Set, $(pkgSrcs->get(pkgName)))))->iterator());
+					$var($Iterator, i$, $$sure($Set, pkgSrcs->get(pkgName))->iterator());
 					for (; $nc(i$)->hasNext();) {
 						$var($URI, u, $cast($URI, i$->next()));
 						{
@@ -132,23 +96,23 @@ bool CompileProperties::transform($CompilationService* compilationService, $Map*
 }
 
 bool CompileProperties::compile($String* pkgName, $String* pkgNameF, $File* src, $File* destRoot, int32_t debugLevel, $Map* packageArtifacts) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, superClass, "java.util.ListResourceBundle"_s);
 	if (this->extra != nullptr) {
 		$assign(superClass, this->extra);
 	}
 	$var($Properties, p, $new($Properties));
 	try {
-		p->load(static_cast<$InputStream*>($$new($FileInputStream, src)));
+		p->load($$new($FileInputStream, src));
 	} catch ($IOException& e) {
 		$Log::error($$str({"Error reading file "_s, $($nc(src)->getPath())}));
 		return false;
 	}
-	int32_t dp = $nc($($nc(src)->getName()))->lastIndexOf("."_s);
-	$var($String, classname, $nc($(src->getName()))->substring(0, dp));
+	int32_t dp = $$nc($nc(src)->getName())->lastIndexOf("."_s);
+	$var($String, classname, $$nc(src->getName())->substring(0, dp));
 	$var($List, sortedKeys, $new($ArrayList));
 	{
-		$var($Iterator, i$, $nc($(p->keySet()))->iterator());
+		$var($Iterator, i$, $$nc(p->keySet())->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Object, key, i$->next());
 			{
@@ -161,15 +125,19 @@ bool CompileProperties::compile($String* pkgName, $String* pkgNameF, $File* src,
 	$var($StringBuilder, data, $new($StringBuilder));
 	while ($nc(keys)->hasNext()) {
 		$var($String, key, $cast($String, keys->next()));
-		$var($String, var$1, $$str({"            { \""_s, $(escape(key)), "\", \""_s}));
-		$var($String, var$0, $$concat(var$1, $(escape($cast($String, $(p->get(key)))))));
-		data->append($$concat(var$0, "\" },\n"_s));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append("            { \""_s);
+		var$0->append($(escape(key)));
+		var$0->append("\", \""_s);
+		var$0->append($(escape($$cast($String, p->get(key)))));
+		var$0->append("\" },\n"_s);
+		data->append($$str(var$0));
 	}
 	$var($String, destFilename, $str({$($nc(destRoot)->getPath()), $File::separator, pkgNameF, $File::separator, classname, ".java"_s}));
 	$var($File, dest, $new($File, destFilename));
-	if (!$nc($(dest->getParentFile()))->isDirectory()) {
-		if (!$nc($(dest->getParentFile()))->mkdirs()) {
-			$Log::error($$str({"Could not create the directory "_s, $($nc($(dest->getParentFile()))->getPath())}));
+	if (!$$nc(dest->getParentFile())->isDirectory()) {
+		if (!$$nc(dest->getParentFile())->mkdirs()) {
+			$Log::error($$str({"Could not create the directory "_s, $($$nc(dest->getParentFile())->getPath())}));
 			return false;
 		}
 	}
@@ -179,45 +147,43 @@ bool CompileProperties::compile($String* pkgName, $String* pkgNameF, $File* src,
 		packageArtifacts->put(pkgName, as);
 	}
 	$nc(as)->add($(dest->toURI()));
-	bool var$2 = dest->exists();
-	if (var$2) {
-		int64_t var$3 = dest->lastModified();
-		var$2 = var$3 > src->lastModified();
+	bool var$1 = dest->exists();
+	if (var$1) {
+		int64_t var$2 = dest->lastModified();
+		var$1 = var$2 > src->lastModified();
 	}
-	if (var$2) {
+	if (var$1) {
 		return true;
 	}
 	$var($String, packageString, $str({"package "_s, $($nc(pkgNameF)->replace($File::separatorChar, u'.')), ";\n\n"_s}));
 	$Log::info($$str({"Compiling property file "_s, pkgNameF, $File::separator, $(src->getName())}));
 	try {
 		$var($Writer, writer, $new($BufferedWriter, $$new($OutputStreamWriter, $$new($FileOutputStream, dest))));
-		{
-			$var($Throwable, var$4, nullptr);
+		$var($Throwable, var$3, nullptr);
+		try {
 			try {
+				$var($MessageFormat, format, $new($MessageFormat, CompileProperties::FORMAT));
+				writer->write($(format->format($$new($ObjectArray, {
+					packageString,
+					classname,
+					superClass,
+					data
+				}))));
+			} catch ($Throwable& t$) {
 				try {
-					$var($MessageFormat, format, $new($MessageFormat, CompileProperties::FORMAT));
-					writer->write($(format->format($$new($ObjectArray, {
-						$of(packageString),
-						$of(classname),
-						$of(superClass),
-						$of(data)
-					}))));
-				} catch ($Throwable& t$) {
-					try {
-						writer->close();
-					} catch ($Throwable& x2) {
-						t$->addSuppressed(x2);
-					}
-					$throw(t$);
+					writer->close();
+				} catch ($Throwable& x2) {
+					t$->addSuppressed(x2);
 				}
-			} catch ($Throwable& var$5) {
-				$assign(var$4, var$5);
-			} /*finally*/ {
-				writer->close();
+				$throw(t$);
 			}
-			if (var$4 != nullptr) {
-				$throw(var$4);
-			}
+		} catch ($Throwable& var$4) {
+			$assign(var$3, var$4);
+		} /*finally*/ {
+			writer->close();
+		}
+		if (var$3 != nullptr) {
+			$throw(var$3);
 		}
 	} catch ($IOException& e) {
 		$Log::error($$str({"Could not write file "_s, $(dest->getPath())}));
@@ -234,50 +200,38 @@ $String* CompileProperties::escape($String* theString) {
 		char16_t aChar = theString->charAt(x);
 		switch (aChar) {
 		case u'\\':
-			{
-				outBuffer->append(u'\\');
-				outBuffer->append(u'\\');
-				break;
-			}
+			outBuffer->append(u'\\');
+			outBuffer->append(u'\\');
+			break;
 		case u'\t':
-			{
-				outBuffer->append(u'\\');
-				outBuffer->append(u't');
-				break;
-			}
+			outBuffer->append(u'\\');
+			outBuffer->append(u't');
+			break;
 		case u'\n':
-			{
-				outBuffer->append(u'\\');
-				outBuffer->append(u'n');
-				break;
-			}
+			outBuffer->append(u'\\');
+			outBuffer->append(u'n');
+			break;
 		case u'\r':
-			{
-				outBuffer->append(u'\\');
-				outBuffer->append(u'r');
-				break;
-			}
+			outBuffer->append(u'\\');
+			outBuffer->append(u'r');
+			break;
 		case u'\f':
-			{
-				outBuffer->append(u'\\');
-				outBuffer->append(u'f');
-				break;
-			}
+			outBuffer->append(u'\\');
+			outBuffer->append(u'f');
+			break;
 		default:
-			{
-				if ((aChar < 32) || (aChar > 126)) {
+			if ((aChar < 32) || (aChar > 126)) {
+				outBuffer->append(u'\\');
+				outBuffer->append(u'u');
+				outBuffer->append(toHex((aChar >> 12) & 0x0f));
+				outBuffer->append(toHex((aChar >> 8) & 0x0f));
+				outBuffer->append(toHex((aChar >> 4) & 0x0f));
+				outBuffer->append(toHex(aChar & 0x0f));
+			} else {
+				if (aChar == u'\"') {
 					outBuffer->append(u'\\');
-					outBuffer->append(u'u');
-					outBuffer->append(toHex((int32_t)((aChar >> 12) & (uint32_t)15)));
-					outBuffer->append(toHex((int32_t)((aChar >> 8) & (uint32_t)15)));
-					outBuffer->append(toHex((int32_t)((aChar >> 4) & (uint32_t)15)));
-					outBuffer->append(toHex((int32_t)(aChar & (uint32_t)15)));
-				} else {
-					if (aChar == u'\"') {
-						outBuffer->append(u'\\');
-					}
-					outBuffer->append(aChar);
 				}
+				outBuffer->append(aChar);
 			}
 		}
 	}
@@ -286,10 +240,10 @@ $String* CompileProperties::escape($String* theString) {
 
 char16_t CompileProperties::toHex(int32_t nibble) {
 	$init(CompileProperties);
-	return $nc(CompileProperties::hexDigit)->get((int32_t)(nibble & (uint32_t)15));
+	return CompileProperties::hexDigit->get(nibble & 0x0f);
 }
 
-void clinit$CompileProperties($Class* class$) {
+void CompileProperties::clinit$($Class* clazz) {
 	$assignStatic(CompileProperties::FORMAT, "{0}public final class {1} extends {2} \'{\'\n    protected final Object[][] getContents() \'{\'\n        return new Object[][] \'{\'\n{3}        };\n    }\n}\n"_s);
 	$assignStatic(CompileProperties::hexDigit, $new($chars, {
 		u'0',
@@ -315,7 +269,33 @@ CompileProperties::CompileProperties() {
 }
 
 $Class* CompileProperties::load$($String* name, bool initialize) {
-	$loadClass(CompileProperties, name, initialize, &_CompileProperties_ClassInfo_, clinit$CompileProperties, allocate$CompileProperties);
+	$FieldInfo fieldInfos$$[] = {
+		{"extra", "Ljava/lang/String;", nullptr, 0, $field(CompileProperties, extra)},
+		{"FORMAT", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CompileProperties, FORMAT)},
+		{"hexDigit", "[C", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CompileProperties, hexDigit)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(CompileProperties, init$, void)},
+		{"compile", "(Ljava/lang/String;Ljava/lang/String;Ljava/io/File;Ljava/io/File;ILjava/util/Map;)Z", "(Ljava/lang/String;Ljava/lang/String;Ljava/io/File;Ljava/io/File;ILjava/util/Map<Ljava/lang/String;Ljava/util/Set<Ljava/net/URI;>;>;)Z", 0, $virtualMethod(CompileProperties, compile, bool, $String*, $String*, $File*, $File*, int32_t, $Map*)},
+		{"escape", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(CompileProperties, escape, $String*, $String*)},
+		{"setExtra", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(CompileProperties, setExtra, void, $String*)},
+		{"setExtra", "(Lcom/sun/tools/sjavac/options/Options;)V", nullptr, $PUBLIC, $virtualMethod(CompileProperties, setExtra, void, $Options*)},
+		{"toHex", "(I)C", nullptr, $PRIVATE | $STATIC, $staticMethod(CompileProperties, toHex, char16_t, int32_t)},
+		{"transform", "(Lcom/sun/tools/sjavac/comp/CompilationService;Ljava/util/Map;Ljava/util/Set;Ljava/util/Map;Ljava/net/URI;Ljava/util/Map;Ljava/util/Map;Ljava/util/Map;Ljava/util/Map;Ljava/util/Map;IZI)Z", "(Lcom/sun/tools/sjavac/comp/CompilationService;Ljava/util/Map<Ljava/lang/String;Ljava/util/Set<Ljava/net/URI;>;>;Ljava/util/Set<Ljava/net/URI;>;Ljava/util/Map<Ljava/lang/String;Ljava/util/Set<Ljava/lang/String;>;>;Ljava/net/URI;Ljava/util/Map<Ljava/lang/String;Ljava/util/Set<Ljava/net/URI;>;>;Ljava/util/Map<Ljava/lang/String;Ljava/util/Map<Ljava/lang/String;Ljava/util/Set<Ljava/lang/String;>;>;>;Ljava/util/Map<Ljava/lang/String;Ljava/util/Map<Ljava/lang/String;Ljava/util/Set<Ljava/lang/String;>;>;>;Ljava/util/Map<Ljava/lang/String;Lcom/sun/tools/sjavac/pubapi/PubApi;>;Ljava/util/Map<Ljava/lang/String;Lcom/sun/tools/sjavac/pubapi/PubApi;>;IZI)Z", $PUBLIC, $virtualMethod(CompileProperties, transform, bool, $CompilationService*, $Map*, $Set*, $Map*, $URI*, $Map*, $Map*, $Map*, $Map*, $Map*, int32_t, bool, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.sjavac.CompileProperties",
+		"java.lang.Object",
+		"com.sun.tools.sjavac.Transformer",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CompileProperties, name, initialize, &classInfo$$, CompileProperties::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(CompileProperties);
+	});
 	return class$;
 }
 

@@ -1,15 +1,11 @@
 #include <sun/security/jgss/krb5/Krb5Context.h>
-
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
 #include <java/io/OutputStream.h>
 #include <java/lang/SecurityManager.h>
 #include <java/security/AccessControlContext.h>
 #include <java/security/AccessController.h>
-#include <java/security/Permission.h>
-#include <java/security/PrivilegedAction.h>
 #include <java/security/PrivilegedActionException.h>
-#include <java/security/PrivilegedExceptionAction.h>
 #include <java/security/Provider.h>
 #include <javax/security/auth/Subject.h>
 #include <javax/security/auth/kerberos/EncryptionKey.h>
@@ -81,7 +77,6 @@
 using $IOException = ::java::io::IOException;
 using $InputStream = ::java::io::InputStream;
 using $OutputStream = ::java::io::OutputStream;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
@@ -92,10 +87,7 @@ using $SecurityManager = ::java::lang::SecurityManager;
 using $Void = ::java::lang::Void;
 using $AccessControlContext = ::java::security::AccessControlContext;
 using $AccessController = ::java::security::AccessController;
-using $Permission = ::java::security::Permission;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $PrivilegedActionException = ::java::security::PrivilegedActionException;
-using $PrivilegedExceptionAction = ::java::security::PrivilegedExceptionAction;
 using $Provider = ::java::security::Provider;
 using $Subject = ::javax::security::auth::Subject;
 using $1EncryptionKey = ::javax::security::auth::kerberos::EncryptionKey;
@@ -137,7 +129,6 @@ using $GSSCredentialSpi = ::sun::security::jgss::spi::GSSCredentialSpi;
 using $GSSNameSpi = ::sun::security::jgss::spi::GSSNameSpi;
 using $Credentials = ::sun::security::krb5::Credentials;
 using $EncryptionKey = ::sun::security::krb5::EncryptionKey;
-using $KrbApReq = ::sun::security::krb5::KrbApReq;
 using $KrbCred = ::sun::security::krb5::KrbCred;
 using $KrbException = ::sun::security::krb5::KrbException;
 using $PrincipalName = ::sun::security::krb5::PrincipalName;
@@ -149,159 +140,6 @@ namespace sun {
 	namespace security {
 		namespace jgss {
 			namespace krb5 {
-
-$FieldInfo _Krb5Context_FieldInfo_[] = {
-	{"STATE_NEW", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Krb5Context, STATE_NEW)},
-	{"STATE_IN_PROCESS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Krb5Context, STATE_IN_PROCESS)},
-	{"STATE_DONE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Krb5Context, STATE_DONE)},
-	{"STATE_DELETED", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Krb5Context, STATE_DELETED)},
-	{"state", "I", nullptr, $PRIVATE, $field(Krb5Context, state)},
-	{"SESSION_KEY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Krb5Context, SESSION_KEY)},
-	{"INITIATOR_SUBKEY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Krb5Context, INITIATOR_SUBKEY)},
-	{"ACCEPTOR_SUBKEY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Krb5Context, ACCEPTOR_SUBKEY)},
-	{"credDelegState", "Z", nullptr, $PRIVATE, $field(Krb5Context, credDelegState)},
-	{"mutualAuthState", "Z", nullptr, $PRIVATE, $field(Krb5Context, mutualAuthState)},
-	{"replayDetState", "Z", nullptr, $PRIVATE, $field(Krb5Context, replayDetState)},
-	{"sequenceDetState", "Z", nullptr, $PRIVATE, $field(Krb5Context, sequenceDetState)},
-	{"confState", "Z", nullptr, $PRIVATE, $field(Krb5Context, confState)},
-	{"integState", "Z", nullptr, $PRIVATE, $field(Krb5Context, integState)},
-	{"delegPolicyState", "Z", nullptr, $PRIVATE, $field(Krb5Context, delegPolicyState)},
-	{"isConstrainedDelegationTried", "Z", nullptr, $PRIVATE, $field(Krb5Context, isConstrainedDelegationTried)},
-	{"mySeqNumber", "I", nullptr, $PRIVATE, $field(Krb5Context, mySeqNumber)},
-	{"peerSeqNumber", "I", nullptr, $PRIVATE, $field(Krb5Context, peerSeqNumber)},
-	{"keySrc", "I", nullptr, $PRIVATE, $field(Krb5Context, keySrc)},
-	{"peerTokenTracker", "Lsun/security/jgss/TokenTracker;", nullptr, $PRIVATE, $field(Krb5Context, peerTokenTracker)},
-	{"cipherHelper", "Lsun/security/jgss/krb5/CipherHelper;", nullptr, $PRIVATE, $field(Krb5Context, cipherHelper)},
-	{"mySeqNumberLock", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(Krb5Context, mySeqNumberLock)},
-	{"peerSeqNumberLock", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(Krb5Context, peerSeqNumberLock)},
-	{"key", "Lsun/security/krb5/EncryptionKey;", nullptr, $PRIVATE, $field(Krb5Context, key)},
-	{"myName", "Lsun/security/jgss/krb5/Krb5NameElement;", nullptr, $PRIVATE, $field(Krb5Context, myName)},
-	{"peerName", "Lsun/security/jgss/krb5/Krb5NameElement;", nullptr, $PRIVATE, $field(Krb5Context, peerName)},
-	{"lifetime", "I", nullptr, $PRIVATE, $field(Krb5Context, lifetime)},
-	{"initiator", "Z", nullptr, $PRIVATE, $field(Krb5Context, initiator)},
-	{"channelBinding", "Lorg/ietf/jgss/ChannelBinding;", nullptr, $PRIVATE, $field(Krb5Context, channelBinding)},
-	{"myCred", "Lsun/security/jgss/krb5/Krb5CredElement;", nullptr, $PRIVATE, $field(Krb5Context, myCred)},
-	{"delegatedCred", "Lsun/security/jgss/krb5/Krb5CredElement;", nullptr, $PRIVATE, $field(Krb5Context, delegatedCred)},
-	{"tgt", "Lsun/security/krb5/Credentials;", nullptr, $PRIVATE, $field(Krb5Context, tgt)},
-	{"serviceCreds", "Lsun/security/krb5/Credentials;", nullptr, $PRIVATE, $field(Krb5Context, serviceCreds)},
-	{"apReq", "Lsun/security/krb5/KrbApReq;", nullptr, $PRIVATE, $field(Krb5Context, apReq)},
-	{"serviceTicket", "Lsun/security/krb5/internal/Ticket;", nullptr, 0, $field(Krb5Context, serviceTicket)},
-	{"caller", "Lsun/security/jgss/GSSCaller;", nullptr, $PRIVATE | $FINAL, $field(Krb5Context, caller)},
-	{"DEBUG", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Krb5Context, DEBUG)},
-	{"tktFlags", "[Z", nullptr, $PRIVATE, $field(Krb5Context, tktFlags)},
-	{"authTime", "Ljava/lang/String;", nullptr, $PRIVATE, $field(Krb5Context, authTime)},
-	{"authzData", "Lsun/security/krb5/internal/AuthorizationData;", nullptr, $PRIVATE, $field(Krb5Context, authzData)},
-	{}
-};
-
-$MethodInfo _Krb5Context_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/jgss/GSSCaller;Lsun/security/jgss/krb5/Krb5NameElement;Lsun/security/jgss/krb5/Krb5CredElement;I)V", nullptr, 0, $method(Krb5Context, init$, void, $GSSCaller*, $Krb5NameElement*, $Krb5CredElement*, int32_t), "org.ietf.jgss.GSSException"},
-	{"<init>", "(Lsun/security/jgss/GSSCaller;Lsun/security/jgss/krb5/Krb5CredElement;)V", nullptr, 0, $method(Krb5Context, init$, void, $GSSCaller*, $Krb5CredElement*), "org.ietf.jgss.GSSException"},
-	{"<init>", "(Lsun/security/jgss/GSSCaller;[B)V", nullptr, $PUBLIC, $method(Krb5Context, init$, void, $GSSCaller*, $bytes*), "org.ietf.jgss.GSSException"},
-	{"acceptSecContext", "(Ljava/io/InputStream;I)[B", nullptr, $PUBLIC | $FINAL, $virtualMethod(Krb5Context, acceptSecContext, $bytes*, $InputStream*, int32_t), "org.ietf.jgss.GSSException"},
-	{"checkPermission", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(Krb5Context, checkPermission, void, $String*, $String*)},
-	{"dispose", "()V", nullptr, $PUBLIC | $FINAL, $virtualMethod(Krb5Context, dispose, void), "org.ietf.jgss.GSSException"},
-	{"export", "()[B", nullptr, $PUBLIC | $FINAL, $virtualMethod(Krb5Context, export$, $bytes*), "org.ietf.jgss.GSSException"},
-	{"getAnonymityState", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(Krb5Context, getAnonymityState, bool)},
-	{"getCaller", "()Lsun/security/jgss/GSSCaller;", nullptr, 0, $virtualMethod(Krb5Context, getCaller, $GSSCaller*)},
-	{"getChannelBinding", "()Lorg/ietf/jgss/ChannelBinding;", nullptr, $FINAL, $method(Krb5Context, getChannelBinding, $ChannelBinding*)},
-	{"getCipherHelper", "(Lsun/security/krb5/EncryptionKey;)Lsun/security/jgss/krb5/CipherHelper;", nullptr, $FINAL, $method(Krb5Context, getCipherHelper, $CipherHelper*, $EncryptionKey*), "org.ietf.jgss.GSSException"},
-	{"getConfState", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(Krb5Context, getConfState, bool)},
-	{"getCredDelegState", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(Krb5Context, getCredDelegState, bool)},
-	{"getDelegCred", "()Lsun/security/jgss/spi/GSSCredentialSpi;", nullptr, $PUBLIC | $FINAL, $virtualMethod(Krb5Context, getDelegCred, $GSSCredentialSpi*), "org.ietf.jgss.GSSException"},
-	{"getDelegPolicyState", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(Krb5Context, getDelegPolicyState, bool)},
-	{"getHexBytes", "([BII)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Krb5Context, getHexBytes, $String*, $bytes*, int32_t, int32_t)},
-	{"getIntegState", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(Krb5Context, getIntegState, bool)},
-	{"getKey", "()Lsun/security/krb5/EncryptionKey;", nullptr, $PRIVATE | $FINAL, $method(Krb5Context, getKey, $EncryptionKey*)},
-	{"getKeySrc", "()I", nullptr, $PUBLIC | $FINAL, $method(Krb5Context, getKeySrc, int32_t)},
-	{"getLifetime", "()I", nullptr, $PUBLIC | $FINAL, $virtualMethod(Krb5Context, getLifetime, int32_t)},
-	{"getMIC", "([BIILorg/ietf/jgss/MessageProp;)[B", nullptr, $PUBLIC | $FINAL, $virtualMethod(Krb5Context, getMIC, $bytes*, $bytes*, int32_t, int32_t, $MessageProp*), "org.ietf.jgss.GSSException"},
-	{"getMIC", "([BII[BILorg/ietf/jgss/MessageProp;)I", nullptr, $PRIVATE, $method(Krb5Context, getMIC, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t, $MessageProp*), "org.ietf.jgss.GSSException"},
-	{"getMIC", "([BIILjava/io/OutputStream;Lorg/ietf/jgss/MessageProp;)V", nullptr, $PRIVATE, $method(Krb5Context, getMIC, void, $bytes*, int32_t, int32_t, $OutputStream*, $MessageProp*), "org.ietf.jgss.GSSException"},
-	{"getMIC", "(Ljava/io/InputStream;Ljava/io/OutputStream;Lorg/ietf/jgss/MessageProp;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(Krb5Context, getMIC, void, $InputStream*, $OutputStream*, $MessageProp*), "org.ietf.jgss.GSSException"},
-	{"getMech", "()Lorg/ietf/jgss/Oid;", nullptr, $PUBLIC | $FINAL, $virtualMethod(Krb5Context, getMech, $Oid*)},
-	{"getMutualAuthState", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(Krb5Context, getMutualAuthState, bool)},
-	{"getProvider", "()Ljava/security/Provider;", nullptr, $PUBLIC | $FINAL, $virtualMethod(Krb5Context, getProvider, $Provider*)},
-	{"getReplayDetState", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(Krb5Context, getReplayDetState, bool)},
-	{"getSequenceDetState", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(Krb5Context, getSequenceDetState, bool)},
-	{"getSrcName", "()Lsun/security/jgss/spi/GSSNameSpi;", nullptr, $PUBLIC | $FINAL, $virtualMethod(Krb5Context, getSrcName, $GSSNameSpi*), "org.ietf.jgss.GSSException"},
-	{"getTargName", "()Lsun/security/jgss/spi/GSSNameSpi;", nullptr, $PUBLIC | $FINAL, $virtualMethod(Krb5Context, getTargName, $GSSNameSpi*), "org.ietf.jgss.GSSException"},
-	{"getWrapSizeLimit", "(IZI)I", nullptr, $PUBLIC | $FINAL, $virtualMethod(Krb5Context, getWrapSizeLimit, int32_t, int32_t, bool, int32_t), "org.ietf.jgss.GSSException"},
-	{"incrementMySequenceNumber", "()I", nullptr, $FINAL, $method(Krb5Context, incrementMySequenceNumber, int32_t)},
-	{"initSecContext", "(Ljava/io/InputStream;I)[B", nullptr, $PUBLIC | $FINAL, $virtualMethod(Krb5Context, initSecContext, $bytes*, $InputStream*, int32_t), "org.ietf.jgss.GSSException"},
-	{"inquireSecContext", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Krb5Context, inquireSecContext, $Object*, $String*), "org.ietf.jgss.GSSException"},
-	{"isEstablished", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(Krb5Context, isEstablished, bool)},
-	{"isInitiator", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(Krb5Context, isInitiator, bool)},
-	{"isProtReady", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(Krb5Context, isProtReady, bool)},
-	{"isTransferable", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(Krb5Context, isTransferable, bool), "org.ietf.jgss.GSSException"},
-	{"printState", "(I)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Krb5Context, printState, $String*, int32_t)},
-	{"requestAnonymity", "(Z)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(Krb5Context, requestAnonymity, void, bool), "org.ietf.jgss.GSSException"},
-	{"requestConf", "(Z)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(Krb5Context, requestConf, void, bool), "org.ietf.jgss.GSSException"},
-	{"requestCredDeleg", "(Z)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(Krb5Context, requestCredDeleg, void, bool), "org.ietf.jgss.GSSException"},
-	{"requestDelegPolicy", "(Z)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(Krb5Context, requestDelegPolicy, void, bool)},
-	{"requestInteg", "(Z)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(Krb5Context, requestInteg, void, bool), "org.ietf.jgss.GSSException"},
-	{"requestLifetime", "(I)V", nullptr, $PUBLIC, $virtualMethod(Krb5Context, requestLifetime, void, int32_t), "org.ietf.jgss.GSSException"},
-	{"requestMutualAuth", "(Z)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(Krb5Context, requestMutualAuth, void, bool), "org.ietf.jgss.GSSException"},
-	{"requestReplayDet", "(Z)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(Krb5Context, requestReplayDet, void, bool), "org.ietf.jgss.GSSException"},
-	{"requestSequenceDet", "(Z)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(Krb5Context, requestSequenceDet, void, bool), "org.ietf.jgss.GSSException"},
-	{"resetMySequenceNumber", "(I)V", nullptr, $FINAL, $method(Krb5Context, resetMySequenceNumber, void, int32_t)},
-	{"resetPeerSequenceNumber", "(I)V", nullptr, $FINAL, $method(Krb5Context, resetPeerSequenceNumber, void, int32_t)},
-	{"setAuthTime", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Krb5Context, setAuthTime, void, $String*)},
-	{"setAuthzData", "(Lsun/security/krb5/internal/AuthorizationData;)V", nullptr, $PUBLIC, $virtualMethod(Krb5Context, setAuthzData, void, $AuthorizationData*)},
-	{"setChannelBinding", "(Lorg/ietf/jgss/ChannelBinding;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(Krb5Context, setChannelBinding, void, $ChannelBinding*), "org.ietf.jgss.GSSException"},
-	{"setConfState", "(Z)V", nullptr, $FINAL, $method(Krb5Context, setConfState, void, bool)},
-	{"setCredDelegState", "(Z)V", nullptr, $FINAL, $method(Krb5Context, setCredDelegState, void, bool)},
-	{"setDelegCred", "(Lsun/security/jgss/krb5/Krb5CredElement;)V", nullptr, $FINAL, $method(Krb5Context, setDelegCred, void, $Krb5CredElement*)},
-	{"setDelegPolicyState", "(Z)V", nullptr, $FINAL, $method(Krb5Context, setDelegPolicyState, void, bool)},
-	{"setIntegState", "(Z)V", nullptr, $FINAL, $method(Krb5Context, setIntegState, void, bool)},
-	{"setKey", "(ILsun/security/krb5/EncryptionKey;)V", nullptr, $FINAL, $method(Krb5Context, setKey, void, int32_t, $EncryptionKey*), "org.ietf.jgss.GSSException"},
-	{"setMutualAuthState", "(Z)V", nullptr, $FINAL, $method(Krb5Context, setMutualAuthState, void, bool)},
-	{"setReplayDetState", "(Z)V", nullptr, $FINAL, $method(Krb5Context, setReplayDetState, void, bool)},
-	{"setSequenceDetState", "(Z)V", nullptr, $FINAL, $method(Krb5Context, setSequenceDetState, void, bool)},
-	{"setSequencingAndReplayProps", "(Lsun/security/jgss/krb5/MessageToken;Lorg/ietf/jgss/MessageProp;)V", nullptr, $PRIVATE, $method(Krb5Context, setSequencingAndReplayProps, void, $MessageToken*, $MessageProp*)},
-	{"setSequencingAndReplayProps", "(Lsun/security/jgss/krb5/MessageToken_v2;Lorg/ietf/jgss/MessageProp;)V", nullptr, $PRIVATE, $method(Krb5Context, setSequencingAndReplayProps, void, $MessageToken_v2*, $MessageProp*)},
-	{"setTktFlags", "([Z)V", nullptr, $PUBLIC, $virtualMethod(Krb5Context, setTktFlags, void, $booleans*)},
-	{"tryConstrainedDelegation", "()V", nullptr, $PRIVATE, $method(Krb5Context, tryConstrainedDelegation, void)},
-	{"unwrap", "([BIILorg/ietf/jgss/MessageProp;)[B", nullptr, $PUBLIC | $FINAL, $virtualMethod(Krb5Context, unwrap, $bytes*, $bytes*, int32_t, int32_t, $MessageProp*), "org.ietf.jgss.GSSException"},
-	{"unwrap", "([BII[BILorg/ietf/jgss/MessageProp;)I", nullptr, $PUBLIC | $FINAL, $method(Krb5Context, unwrap, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t, $MessageProp*), "org.ietf.jgss.GSSException"},
-	{"unwrap", "(Ljava/io/InputStream;[BILorg/ietf/jgss/MessageProp;)I", nullptr, $PUBLIC | $FINAL, $method(Krb5Context, unwrap, int32_t, $InputStream*, $bytes*, int32_t, $MessageProp*), "org.ietf.jgss.GSSException"},
-	{"unwrap", "(Ljava/io/InputStream;Ljava/io/OutputStream;Lorg/ietf/jgss/MessageProp;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(Krb5Context, unwrap, void, $InputStream*, $OutputStream*, $MessageProp*), "org.ietf.jgss.GSSException"},
-	{"verifyMIC", "([BII[BIILorg/ietf/jgss/MessageProp;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(Krb5Context, verifyMIC, void, $bytes*, int32_t, int32_t, $bytes*, int32_t, int32_t, $MessageProp*), "org.ietf.jgss.GSSException"},
-	{"verifyMIC", "(Ljava/io/InputStream;[BIILorg/ietf/jgss/MessageProp;)V", nullptr, $PRIVATE, $method(Krb5Context, verifyMIC, void, $InputStream*, $bytes*, int32_t, int32_t, $MessageProp*), "org.ietf.jgss.GSSException"},
-	{"verifyMIC", "(Ljava/io/InputStream;Ljava/io/InputStream;Lorg/ietf/jgss/MessageProp;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(Krb5Context, verifyMIC, void, $InputStream*, $InputStream*, $MessageProp*), "org.ietf.jgss.GSSException"},
-	{"wrap", "([BIILorg/ietf/jgss/MessageProp;)[B", nullptr, $PUBLIC | $FINAL, $virtualMethod(Krb5Context, wrap, $bytes*, $bytes*, int32_t, int32_t, $MessageProp*), "org.ietf.jgss.GSSException"},
-	{"wrap", "([BII[BILorg/ietf/jgss/MessageProp;)I", nullptr, $PUBLIC | $FINAL, $method(Krb5Context, wrap, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t, $MessageProp*), "org.ietf.jgss.GSSException"},
-	{"wrap", "([BIILjava/io/OutputStream;Lorg/ietf/jgss/MessageProp;)V", nullptr, $PUBLIC | $FINAL, $method(Krb5Context, wrap, void, $bytes*, int32_t, int32_t, $OutputStream*, $MessageProp*), "org.ietf.jgss.GSSException"},
-	{"wrap", "(Ljava/io/InputStream;Ljava/io/OutputStream;Lorg/ietf/jgss/MessageProp;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(Krb5Context, wrap, void, $InputStream*, $OutputStream*, $MessageProp*), "org.ietf.jgss.GSSException"},
-	{}
-};
-
-$InnerClassInfo _Krb5Context_InnerClassesInfo_[] = {
-	{"sun.security.jgss.krb5.Krb5Context$KerberosSessionKey", "sun.security.jgss.krb5.Krb5Context", "KerberosSessionKey", $STATIC},
-	{"sun.security.jgss.krb5.Krb5Context$3", nullptr, nullptr, 0},
-	{"sun.security.jgss.krb5.Krb5Context$2", nullptr, nullptr, 0},
-	{"sun.security.jgss.krb5.Krb5Context$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Krb5Context_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.security.jgss.krb5.Krb5Context",
-	"java.lang.Object",
-	"sun.security.jgss.spi.GSSContextSpi",
-	_Krb5Context_FieldInfo_,
-	_Krb5Context_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Krb5Context_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.security.jgss.krb5.Krb5Context$KerberosSessionKey,sun.security.jgss.krb5.Krb5Context$3,sun.security.jgss.krb5.Krb5Context$2,sun.security.jgss.krb5.Krb5Context$1"
-};
-
-$Object* allocate$Krb5Context($Class* clazz) {
-	return $of($alloc(Krb5Context));
-}
 
 bool Krb5Context::DEBUG = false;
 
@@ -479,7 +317,7 @@ int32_t Krb5Context::incrementMySequenceNumber() {
 }
 
 void Krb5Context::resetMySequenceNumber(int32_t seqNumber) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (Krb5Context::DEBUG) {
 		$nc($System::out)->println($$str({"Krb5Context setting mySeqNumber to: "_s, $$str(seqNumber)}));
 	}
@@ -489,7 +327,7 @@ void Krb5Context::resetMySequenceNumber(int32_t seqNumber) {
 }
 
 void Krb5Context::resetPeerSequenceNumber(int32_t seqNumber) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (Krb5Context::DEBUG) {
 		$nc($System::out)->println($$str({"Krb5Context setting peerSeqNumber to: "_s, $$str(seqNumber)}));
 	}
@@ -559,11 +397,11 @@ $Oid* Krb5Context::getMech() {
 }
 
 $GSSNameSpi* Krb5Context::getSrcName() {
-	return (isInitiator() ? static_cast<$GSSNameSpi*>(this->myName) : static_cast<$GSSNameSpi*>(this->peerName));
+	return (isInitiator() ? this->myName : this->peerName);
 }
 
 $GSSNameSpi* Krb5Context::getTargName() {
-	return (!isInitiator() ? static_cast<$GSSNameSpi*>(this->myName) : static_cast<$GSSNameSpi*>(this->peerName));
+	return (!isInitiator() ? this->myName : this->peerName);
 }
 
 $GSSCredentialSpi* Krb5Context::getDelegCred() {
@@ -581,7 +419,7 @@ $GSSCredentialSpi* Krb5Context::getDelegCred() {
 }
 
 void Krb5Context::tryConstrainedDelegation() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->state != Krb5Context::STATE_IN_PROCESS && this->state != Krb5Context::STATE_DONE) {
 		return;
 	}
@@ -609,7 +447,7 @@ bool Krb5Context::isProtReady() {
 }
 
 $bytes* Krb5Context::initSecContext($InputStream* is, int32_t mechTokenSize) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$var($bytes, retVal, nullptr);
 	$var($InitialToken, token, nullptr);
@@ -627,24 +465,24 @@ $bytes* Krb5Context::initSecContext($InputStream* is, int32_t mechTokenSize) {
 			if (this->myCred == nullptr) {
 				$set(this, myCred, $Krb5InitCredential::getInstance(this->caller, this->myName, $GSSCredential::DEFAULT_LIFETIME));
 				$set(this, myCred, $Krb5ProxyCredential::tryImpersonation(this->caller, $cast($Krb5InitCredential, this->myCred)));
-			} else if (!$nc(this->myCred)->isInitiatorCredential()) {
+			} else if (!this->myCred->isInitiatorCredential()) {
 				$throwNew($GSSException, errorCode, -1, "No TGT available"_s);
 			}
 			$set(this, myName, $cast($Krb5NameElement, $nc(this->myCred)->getName()));
 			$var($Krb5ProxyCredential, second, nullptr);
 			if ($instanceOf($Krb5InitCredential, this->myCred)) {
 				$assign(second, nullptr);
-				$set(this, tgt, $nc(($cast($Krb5InitCredential, this->myCred)))->getKrb5Credentials());
+				$set(this, tgt, $cast($Krb5InitCredential, this->myCred)->getKrb5Credentials());
 			} else {
 				$assign(second, $cast($Krb5ProxyCredential, this->myCred));
 				$set(this, tgt, $nc($nc(second)->self)->getKrb5Credentials());
 			}
-			checkPermission($($nc($($nc(this->peerName)->getKrb5PrincipalName()))->getName()), "initiate"_s);
+			checkPermission($($$nc($nc(this->peerName)->getKrb5PrincipalName())->getName()), "initiate"_s);
 			$var($AccessControlContext, acc, $AccessController::getContext());
 			if ($GSSUtil::useSubjectCredsOnly(this->caller)) {
 				$var($KerberosTicket, kerbTicket, nullptr);
 				try {
-					$var($KerberosTicket, tmp, $cast($KerberosTicket, $AccessController::doPrivileged(static_cast<$PrivilegedExceptionAction*>($$new($Krb5Context$1, this, second, acc)))));
+					$var($KerberosTicket, tmp, $cast($KerberosTicket, $AccessController::doPrivileged($$new($Krb5Context$1, this, second, acc))));
 					$assign(kerbTicket, tmp);
 				} catch ($PrivilegedActionException& e) {
 					if (Krb5Context::DEBUG) {
@@ -663,17 +501,17 @@ $bytes* Krb5Context::initSecContext($InputStream* is, int32_t mechTokenSize) {
 					$nc($System::out)->println("Service ticket not found in the subject"_s);
 				}
 				if (second == nullptr) {
-					$set(this, serviceCreds, $Credentials::acquireServiceCreds($($nc($($nc(this->peerName)->getKrb5PrincipalName()))->getName()), this->tgt));
+					$set(this, serviceCreds, $Credentials::acquireServiceCreds($($$nc($nc(this->peerName)->getKrb5PrincipalName())->getName()), this->tgt));
 				} else {
-					$var($String, var$0, $nc($($nc(this->peerName)->getKrb5PrincipalName()))->getName());
-					$var($Ticket, var$1, $nc(second)->tkt);
-					$set(this, serviceCreds, $Credentials::acquireS4U2proxyCreds(var$0, var$1, $($nc($($cast($Krb5NameElement, second->getName())))->getKrb5PrincipalName()), this->tgt));
+					$var($String, var$0, $$nc($nc(this->peerName)->getKrb5PrincipalName())->getName());
+					$var($Ticket, var$1, second->tkt);
+					$set(this, serviceCreds, $Credentials::acquireS4U2proxyCreds(var$0, var$1, $($$sure($Krb5NameElement, second->getName())->getKrb5PrincipalName()), this->tgt));
 				}
 				if ($GSSUtil::useSubjectCredsOnly(this->caller)) {
-					$var($Subject, subject, $cast($Subject, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($Krb5Context$2, this, acc)))));
+					$var($Subject, subject, $cast($Subject, $AccessController::doPrivileged($$new($Krb5Context$2, this, acc))));
 					if (subject != nullptr && !subject->isReadOnly()) {
 						$var($KerberosTicket, kt, $Krb5Util::credsToTicket(this->serviceCreds));
-						$var($Void, dummy, $cast($Void, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($Krb5Context$3, this, subject, kt)))));
+						$var($Void, dummy, $cast($Void, $AccessController::doPrivileged($$new($Krb5Context$3, this, subject, kt))));
 					} else if (Krb5Context::DEBUG) {
 						$nc($System::out)->println("Subject is readOnly;Kerberos Service ticket not stored"_s);
 					}
@@ -681,7 +519,7 @@ $bytes* Krb5Context::initSecContext($InputStream* is, int32_t mechTokenSize) {
 			}
 			errorCode = $GSSException::FAILURE;
 			$assign(token, $new($InitSecContextToken, this, this->tgt, this->serviceCreds));
-			$set(this, apReq, $nc(($cast($InitSecContextToken, token)))->getKrbApReq());
+			$set(this, apReq, $cast($InitSecContextToken, token)->getKrbApReq());
 			$assign(retVal, token->encode());
 			$set(this, myCred, nullptr);
 			if (!getMutualAuthState()) {
@@ -717,7 +555,7 @@ bool Krb5Context::isEstablished() {
 }
 
 $bytes* Krb5Context::acceptSecContext($InputStream* is, int32_t mechTokenSize) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, retVal, nullptr);
 	if (Krb5Context::DEBUG) {
 		$nc($System::out)->println($$str({"Entered Krb5Context.acceptSecContext with state="_s, $(printState(this->state))}));
@@ -730,7 +568,7 @@ $bytes* Krb5Context::acceptSecContext($InputStream* is, int32_t mechTokenSize) {
 			this->state = Krb5Context::STATE_IN_PROCESS;
 			if (this->myCred == nullptr) {
 				$set(this, myCred, $Krb5AcceptCredential::getInstance(this->caller, this->myName));
-			} else if (!$nc(this->myCred)->isAcceptorCredential()) {
+			} else if (!this->myCred->isAcceptorCredential()) {
 				$throwNew($GSSException, $GSSException::NO_CRED, -1, "No Secret Key available"_s);
 			}
 			$set(this, myName, $cast($Krb5NameElement, $nc(this->myCred)->getName()));
@@ -738,16 +576,16 @@ $bytes* Krb5Context::acceptSecContext($InputStream* is, int32_t mechTokenSize) {
 				$Krb5MechFactory::checkAcceptCredPermission(this->myName, this->myName);
 			}
 			$var($InitSecContextToken, token, $new($InitSecContextToken, this, $cast($Krb5AcceptCredential, this->myCred), is));
-			$var($PrincipalName, clientName, $nc($(token->getKrbApReq()))->getClient());
+			$var($PrincipalName, clientName, $$nc(token->getKrbApReq())->getClient());
 			$set(this, peerName, $Krb5NameElement::getInstance(clientName));
 			if (this->myName == nullptr) {
-				$set(this, myName, $Krb5NameElement::getInstance($($nc($($nc($(token->getKrbApReq()))->getCreds()))->getServer())));
+				$set(this, myName, $Krb5NameElement::getInstance($($$nc($$nc(token->getKrbApReq())->getCreds())->getServer())));
 				$Krb5MechFactory::checkAcceptCredPermission(this->myName, this->myName);
 			}
 			if (getMutualAuthState()) {
 				$assign(retVal, $$new($AcceptSecContextToken, this, $(token->getKrbApReq()))->encode());
 			}
-			$set(this, serviceTicket, $nc($($nc($(token->getKrbApReq()))->getCreds()))->getTicket());
+			$set(this, serviceTicket, $$nc($$nc(token->getKrbApReq())->getCreds())->getTicket());
 			$set(this, myCred, nullptr);
 			this->state = Krb5Context::STATE_DONE;
 		} else if (Krb5Context::DEBUG) {
@@ -769,7 +607,7 @@ $bytes* Krb5Context::acceptSecContext($InputStream* is, int32_t mechTokenSize) {
 }
 
 int32_t Krb5Context::getWrapSizeLimit(int32_t qop, bool confReq, int32_t maxTokSize) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t retVal = 0;
 	if ($nc(this->cipherHelper)->getProto() == 0) {
 		retVal = $WrapToken::getSizeLimit(qop, confReq, maxTokSize, $(getCipherHelper(nullptr)));
@@ -780,7 +618,7 @@ int32_t Krb5Context::getWrapSizeLimit(int32_t qop, bool confReq, int32_t maxTokS
 }
 
 $bytes* Krb5Context::wrap($bytes* inBuf, int32_t offset, int32_t len, $MessageProp* msgProp) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (Krb5Context::DEBUG) {
 		$nc($System::out)->println($$str({"Krb5Context.wrap: data=["_s, $(getHexBytes(inBuf, offset, len)), "]"_s}));
 	}
@@ -810,7 +648,7 @@ $bytes* Krb5Context::wrap($bytes* inBuf, int32_t offset, int32_t len, $MessagePr
 }
 
 int32_t Krb5Context::wrap($bytes* inBuf, int32_t inOffset, int32_t len, $bytes* outBuf, int32_t outOffset, $MessageProp* msgProp) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->state != Krb5Context::STATE_DONE) {
 		$throwNew($GSSException, $GSSException::NO_CONTEXT, -1, "Wrap called in invalid state!"_s);
 	}
@@ -837,7 +675,7 @@ int32_t Krb5Context::wrap($bytes* inBuf, int32_t inOffset, int32_t len, $bytes* 
 }
 
 void Krb5Context::wrap($bytes* inBuf, int32_t offset, int32_t len, $OutputStream* os, $MessageProp* msgProp) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->state != Krb5Context::STATE_DONE) {
 		$throwNew($GSSException, $GSSException::NO_CONTEXT, -1, "Wrap called in invalid state!"_s);
 	}
@@ -867,7 +705,7 @@ void Krb5Context::wrap($bytes* inBuf, int32_t offset, int32_t len, $OutputStream
 }
 
 void Krb5Context::wrap($InputStream* is, $OutputStream* os, $MessageProp* msgProp) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, data, nullptr);
 	try {
 		$assign(data, $new($bytes, $nc(is)->available()));
@@ -881,7 +719,7 @@ void Krb5Context::wrap($InputStream* is, $OutputStream* os, $MessageProp* msgPro
 }
 
 $bytes* Krb5Context::unwrap($bytes* inBuf, int32_t offset, int32_t len, $MessageProp* msgProp) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (Krb5Context::DEBUG) {
 		$nc($System::out)->println($$str({"Krb5Context.unwrap: token=["_s, $(getHexBytes(inBuf, offset, len)), "]"_s}));
 	}
@@ -892,11 +730,11 @@ $bytes* Krb5Context::unwrap($bytes* inBuf, int32_t offset, int32_t len, $Message
 	if ($nc(this->cipherHelper)->getProto() == 0) {
 		$var($WrapToken, token, $new($WrapToken, this, inBuf, offset, len, msgProp));
 		$assign(data, token->getData());
-		setSequencingAndReplayProps(static_cast<$MessageToken*>(token), msgProp);
+		setSequencingAndReplayProps(token, msgProp);
 	} else if ($nc(this->cipherHelper)->getProto() == 1) {
 		$var($WrapToken_v2, token, $new($WrapToken_v2, this, inBuf, offset, len, msgProp));
 		$assign(data, token->getData());
-		setSequencingAndReplayProps(static_cast<$MessageToken_v2*>(token), msgProp);
+		setSequencingAndReplayProps(token, msgProp);
 	}
 	if (Krb5Context::DEBUG) {
 		$nc($System::out)->println($$str({"Krb5Context.unwrap: data=["_s, $(getHexBytes(data, 0, $nc(data)->length)), "]"_s}));
@@ -905,24 +743,24 @@ $bytes* Krb5Context::unwrap($bytes* inBuf, int32_t offset, int32_t len, $Message
 }
 
 int32_t Krb5Context::unwrap($bytes* inBuf, int32_t inOffset, int32_t len, $bytes* outBuf, int32_t outOffset, $MessageProp* msgProp) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->state != Krb5Context::STATE_DONE) {
 		$throwNew($GSSException, $GSSException::NO_CONTEXT, -1, "Unwrap called in invalid state!"_s);
 	}
 	if ($nc(this->cipherHelper)->getProto() == 0) {
 		$var($WrapToken, token, $new($WrapToken, this, inBuf, inOffset, len, msgProp));
 		len = token->getData(outBuf, outOffset);
-		setSequencingAndReplayProps(static_cast<$MessageToken*>(token), msgProp);
+		setSequencingAndReplayProps(token, msgProp);
 	} else if ($nc(this->cipherHelper)->getProto() == 1) {
 		$var($WrapToken_v2, token, $new($WrapToken_v2, this, inBuf, inOffset, len, msgProp));
 		len = token->getData(outBuf, outOffset);
-		setSequencingAndReplayProps(static_cast<$MessageToken_v2*>(token), msgProp);
+		setSequencingAndReplayProps(token, msgProp);
 	}
 	return len;
 }
 
 int32_t Krb5Context::unwrap($InputStream* is, $bytes* outBuf, int32_t outOffset, $MessageProp* msgProp) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->state != Krb5Context::STATE_DONE) {
 		$throwNew($GSSException, $GSSException::NO_CONTEXT, -1, "Unwrap called in invalid state!"_s);
 	}
@@ -930,17 +768,17 @@ int32_t Krb5Context::unwrap($InputStream* is, $bytes* outBuf, int32_t outOffset,
 	if ($nc(this->cipherHelper)->getProto() == 0) {
 		$var($WrapToken, token, $new($WrapToken, this, is, msgProp));
 		len = token->getData(outBuf, outOffset);
-		setSequencingAndReplayProps(static_cast<$MessageToken*>(token), msgProp);
+		setSequencingAndReplayProps(token, msgProp);
 	} else if ($nc(this->cipherHelper)->getProto() == 1) {
 		$var($WrapToken_v2, token, $new($WrapToken_v2, this, is, msgProp));
 		len = token->getData(outBuf, outOffset);
-		setSequencingAndReplayProps(static_cast<$MessageToken_v2*>(token), msgProp);
+		setSequencingAndReplayProps(token, msgProp);
 	}
 	return len;
 }
 
 void Krb5Context::unwrap($InputStream* is, $OutputStream* os, $MessageProp* msgProp) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->state != Krb5Context::STATE_DONE) {
 		$throwNew($GSSException, $GSSException::NO_CONTEXT, -1, "Unwrap called in invalid state!"_s);
 	}
@@ -948,11 +786,11 @@ void Krb5Context::unwrap($InputStream* is, $OutputStream* os, $MessageProp* msgP
 	if ($nc(this->cipherHelper)->getProto() == 0) {
 		$var($WrapToken, token, $new($WrapToken, this, is, msgProp));
 		$assign(data, token->getData());
-		setSequencingAndReplayProps(static_cast<$MessageToken*>(token), msgProp);
+		setSequencingAndReplayProps(token, msgProp);
 	} else if ($nc(this->cipherHelper)->getProto() == 1) {
 		$var($WrapToken_v2, token, $new($WrapToken_v2, this, is, msgProp));
 		$assign(data, token->getData());
-		setSequencingAndReplayProps(static_cast<$MessageToken_v2*>(token), msgProp);
+		setSequencingAndReplayProps(token, msgProp);
 	}
 	try {
 		$nc(os)->write(data);
@@ -964,7 +802,7 @@ void Krb5Context::unwrap($InputStream* is, $OutputStream* os, $MessageProp* msgP
 }
 
 $bytes* Krb5Context::getMIC($bytes* inMsg, int32_t offset, int32_t len, $MessageProp* msgProp) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, micToken, nullptr);
 	try {
 		if ($nc(this->cipherHelper)->getProto() == 0) {
@@ -985,7 +823,7 @@ $bytes* Krb5Context::getMIC($bytes* inMsg, int32_t offset, int32_t len, $Message
 }
 
 int32_t Krb5Context::getMIC($bytes* inMsg, int32_t offset, int32_t len, $bytes* outBuf, int32_t outOffset, $MessageProp* msgProp) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t retVal = 0;
 	try {
 		if ($nc(this->cipherHelper)->getProto() == 0) {
@@ -1006,7 +844,7 @@ int32_t Krb5Context::getMIC($bytes* inMsg, int32_t offset, int32_t len, $bytes* 
 }
 
 void Krb5Context::getMIC($bytes* inMsg, int32_t offset, int32_t len, $OutputStream* os, $MessageProp* msgProp) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		if ($nc(this->cipherHelper)->getProto() == 0) {
 			$var($MicToken, token, $new($MicToken, this, msgProp, inMsg, offset, len));
@@ -1023,7 +861,7 @@ void Krb5Context::getMIC($bytes* inMsg, int32_t offset, int32_t len, $OutputStre
 }
 
 void Krb5Context::getMIC($InputStream* is, $OutputStream* os, $MessageProp* msgProp) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, data, nullptr);
 	try {
 		$assign(data, $new($bytes, $nc(is)->available()));
@@ -1037,33 +875,33 @@ void Krb5Context::getMIC($InputStream* is, $OutputStream* os, $MessageProp* msgP
 }
 
 void Krb5Context::verifyMIC($bytes* inTok, int32_t tokOffset, int32_t tokLen, $bytes* inMsg, int32_t msgOffset, int32_t msgLen, $MessageProp* msgProp) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(this->cipherHelper)->getProto() == 0) {
 		$var($MicToken, token, $new($MicToken, this, inTok, tokOffset, tokLen, msgProp));
 		token->verify(inMsg, msgOffset, msgLen);
-		setSequencingAndReplayProps(static_cast<$MessageToken*>(token), msgProp);
+		setSequencingAndReplayProps(token, msgProp);
 	} else if ($nc(this->cipherHelper)->getProto() == 1) {
 		$var($MicToken_v2, token, $new($MicToken_v2, this, inTok, tokOffset, tokLen, msgProp));
 		token->verify(inMsg, msgOffset, msgLen);
-		setSequencingAndReplayProps(static_cast<$MessageToken_v2*>(token), msgProp);
+		setSequencingAndReplayProps(token, msgProp);
 	}
 }
 
 void Krb5Context::verifyMIC($InputStream* is, $bytes* inMsg, int32_t msgOffset, int32_t msgLen, $MessageProp* msgProp) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(this->cipherHelper)->getProto() == 0) {
 		$var($MicToken, token, $new($MicToken, this, is, msgProp));
 		token->verify(inMsg, msgOffset, msgLen);
-		setSequencingAndReplayProps(static_cast<$MessageToken*>(token), msgProp);
+		setSequencingAndReplayProps(token, msgProp);
 	} else if ($nc(this->cipherHelper)->getProto() == 1) {
 		$var($MicToken_v2, token, $new($MicToken_v2, this, is, msgProp));
 		token->verify(inMsg, msgOffset, msgLen);
-		setSequencingAndReplayProps(static_cast<$MessageToken_v2*>(token), msgProp);
+		setSequencingAndReplayProps(token, msgProp);
 	}
 }
 
 void Krb5Context::verifyMIC($InputStream* is, $InputStream* msgStr, $MessageProp* mProp) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, msg, nullptr);
 	try {
 		$assign(msg, $new($bytes, $nc(msgStr)->available()));
@@ -1109,7 +947,7 @@ void Krb5Context::setSequencingAndReplayProps($MessageToken_v2* token, $MessageP
 }
 
 void Krb5Context::checkPermission($String* principal, $String* action) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	if (sm != nullptr) {
 		$var($ServicePermission, perm, $new($ServicePermission, principal, action));
@@ -1119,11 +957,11 @@ void Krb5Context::checkPermission($String* principal, $String* action) {
 
 $String* Krb5Context::getHexBytes($bytes* bytes, int32_t pos, int32_t len) {
 	$init(Krb5Context);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, sb, $new($StringBuilder));
 	for (int32_t i = 0; i < len; ++i) {
-		int32_t b1 = (int32_t)(($nc(bytes)->get(i) >> 4) & (uint32_t)15);
-		int32_t b2 = (int32_t)(bytes->get(i) & (uint32_t)15);
+		int32_t b1 = ($nc(bytes)->get(i) >> 4) & 0x0f;
+		int32_t b2 = bytes->get(i) & 0x0f;
 		sb->append($($Integer::toHexString(b1)));
 		sb->append($($Integer::toHexString(b2)));
 		sb->append(u' ');
@@ -1135,25 +973,15 @@ $String* Krb5Context::printState(int32_t state) {
 	$init(Krb5Context);
 	switch (state) {
 	case Krb5Context::STATE_NEW:
-		{
-			return ("STATE_NEW"_s);
-		}
+		return ("STATE_NEW"_s);
 	case Krb5Context::STATE_IN_PROCESS:
-		{
-			return ("STATE_IN_PROCESS"_s);
-		}
+		return ("STATE_IN_PROCESS"_s);
 	case Krb5Context::STATE_DONE:
-		{
-			return ("STATE_DONE"_s);
-		}
+		return ("STATE_DONE"_s);
 	case Krb5Context::STATE_DELETED:
-		{
-			return ("STATE_DELETED"_s);
-		}
+		return ("STATE_DELETED"_s);
 	default:
-		{
-			return ($str({"Unknown state "_s, $$str(state)}));
-		}
+		return ($str({"Unknown state "_s, $$str(state)}));
 	}
 }
 
@@ -1162,7 +990,7 @@ $GSSCaller* Krb5Context::getCaller() {
 }
 
 $Object* Krb5Context::inquireSecContext($String* type) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!isEstablished()) {
 		$throwNew($GSSException, $GSSException::NO_CONTEXT, -1, "Security context not established."_s);
 	}
@@ -1170,97 +998,75 @@ $Object* Krb5Context::inquireSecContext($String* type) {
 		$var($String, s52897$, type);
 		int32_t tmp52897$ = -1;
 		switch ($nc(s52897$)->hashCode()) {
-		case 0x3C823B08:
-			{
-				if (s52897$->equals("KRB5_GET_SESSION_KEY"_s)) {
-					tmp52897$ = 0;
-				}
-				break;
+		case 0x3c823b08:
+			if (s52897$->equals("KRB5_GET_SESSION_KEY"_s)) {
+				tmp52897$ = 0;
 			}
-		case 0x7714F54A:
-			{
-				if (s52897$->equals("KRB5_GET_SESSION_KEY_EX"_s)) {
-					tmp52897$ = 1;
-				}
-				break;
+			break;
+		case 0x7714f54a:
+			if (s52897$->equals("KRB5_GET_SESSION_KEY_EX"_s)) {
+				tmp52897$ = 1;
 			}
-		case (int32_t)0xD312BEF7:
-			{
-				if (s52897$->equals("KRB5_GET_TKT_FLAGS"_s)) {
-					tmp52897$ = 2;
-				}
-				break;
+			break;
+		case (int32_t)0xd312bef7:
+			if (s52897$->equals("KRB5_GET_TKT_FLAGS"_s)) {
+				tmp52897$ = 2;
 			}
-		case (int32_t)0x9AFCAFC5:
-			{
-				if (s52897$->equals("KRB5_GET_AUTHZ_DATA"_s)) {
-					tmp52897$ = 3;
-				}
-				break;
+			break;
+		case (int32_t)0x9afcafc5:
+			if (s52897$->equals("KRB5_GET_AUTHZ_DATA"_s)) {
+				tmp52897$ = 3;
 			}
-		case 0x48130FA3:
-			{
-				if (s52897$->equals("KRB5_GET_AUTHTIME"_s)) {
-					tmp52897$ = 4;
-				}
-				break;
+			break;
+		case 0x48130fa3:
+			if (s52897$->equals("KRB5_GET_AUTHTIME"_s)) {
+				tmp52897$ = 4;
 			}
-		case (int32_t)0x9AB16680:
-			{
-				if (s52897$->equals("KRB5_GET_KRB_CRED"_s)) {
-					tmp52897$ = 5;
-				}
-				break;
+			break;
+		case (int32_t)0x9ab16680:
+			if (s52897$->equals("KRB5_GET_KRB_CRED"_s)) {
+				tmp52897$ = 5;
 			}
+			break;
 		}
 		{
-			$var($KerberosPrincipal, sender, nullptr)
-			$var($KerberosPrincipal, recipient, nullptr)
+			$var($KerberosPrincipal, sender, nullptr);
+			$var($KerberosPrincipal, recipient, nullptr);
 			switch (tmp52897$) {
 			case 0:
-				{
-					return $of($new($Krb5Context$KerberosSessionKey, this->key));
-				}
+				return $new($Krb5Context$KerberosSessionKey, this->key);
 			case 1:
 				{
 					$var($bytes, var$0, $nc(this->key)->getBytes());
-					return $of($new($1EncryptionKey, var$0, $nc(this->key)->getEType()));
+					return $of($new($1EncryptionKey, var$0, this->key->getEType()));
 				}
 			case 2:
-				{
-					return $of($nc(this->tktFlags)->clone());
-				}
+				return $nc(this->tktFlags)->clone();
 			case 3:
-				{
-					if (isInitiator()) {
-						$throwNew($GSSException, $GSSException::UNAVAILABLE, -1, "AuthzData not available on initiator side."_s);
-					} else {
-						return $of(this->authzData);
-					}
+				if (isInitiator()) {
+					$throwNew($GSSException, $GSSException::UNAVAILABLE, -1, "AuthzData not available on initiator side."_s);
+				} else {
+					return this->authzData;
 				}
 			case 4:
-				{
-					return $of(this->authTime);
-				}
+				return $of(this->authTime);
 			case 5:
-				{
-					if (!isInitiator()) {
-						$throwNew($GSSException, $GSSException::UNAVAILABLE, -1, "KRB_CRED not available on acceptor side."_s);
-					}
-					$assign(sender, $new($KerberosPrincipal, $($nc($($nc(this->myName)->getKrb5PrincipalName()))->getName())));
-					$assign(recipient, $new($KerberosPrincipal, $($nc($($nc(this->peerName)->getKrb5PrincipalName()))->getName())));
-					try {
-						$var($bytes, krbCred, $$new($KrbCred, this->tgt, this->serviceCreds, this->key)->getMessage());
-						return $of($new($KerberosCredMessage, sender, recipient, krbCred));
-					} catch ($KrbException& e) {
-						$var($GSSException, gsse, $new($GSSException, $GSSException::UNAVAILABLE, -1, "KRB_CRED not generated correctly."_s));
-						gsse->initCause(e);
-						$throw(gsse);
-					} catch ($IOException& e) {
-						$var($GSSException, gsse, $new($GSSException, $GSSException::UNAVAILABLE, -1, "KRB_CRED not generated correctly."_s));
-						gsse->initCause(e);
-						$throw(gsse);
-					}
+				if (!isInitiator()) {
+					$throwNew($GSSException, $GSSException::UNAVAILABLE, -1, "KRB_CRED not available on acceptor side."_s);
+				}
+				$assign(sender, $new($KerberosPrincipal, $($$nc($nc(this->myName)->getKrb5PrincipalName())->getName())));
+				$assign(recipient, $new($KerberosPrincipal, $($$nc($nc(this->peerName)->getKrb5PrincipalName())->getName())));
+				try {
+					$var($bytes, krbCred, $$new($KrbCred, this->tgt, this->serviceCreds, this->key)->getMessage());
+					return $new($KerberosCredMessage, sender, recipient, krbCred);
+				} catch ($KrbException& e) {
+					$var($GSSException, gsse, $new($GSSException, $GSSException::UNAVAILABLE, -1, "KRB_CRED not generated correctly."_s));
+					gsse->initCause(e);
+					$throw(gsse);
+				} catch ($IOException& e) {
+					$var($GSSException, gsse, $new($GSSException, $GSSException::UNAVAILABLE, -1, "KRB_CRED not generated correctly."_s));
+					gsse->initCause(e);
+					$throw(gsse);
 				}
 			}
 		}
@@ -1281,7 +1087,7 @@ void Krb5Context::setAuthzData($AuthorizationData* authzData) {
 	$set(this, authzData, authzData);
 }
 
-void clinit$Krb5Context($Class* class$) {
+void Krb5Context::clinit$($Class* clazz) {
 	$init($Krb5Util);
 	Krb5Context::DEBUG = $Krb5Util::DEBUG;
 }
@@ -1290,7 +1096,154 @@ Krb5Context::Krb5Context() {
 }
 
 $Class* Krb5Context::load$($String* name, bool initialize) {
-	$loadClass(Krb5Context, name, initialize, &_Krb5Context_ClassInfo_, clinit$Krb5Context, allocate$Krb5Context);
+	$FieldInfo fieldInfos$$[] = {
+		{"STATE_NEW", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Krb5Context, STATE_NEW)},
+		{"STATE_IN_PROCESS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Krb5Context, STATE_IN_PROCESS)},
+		{"STATE_DONE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Krb5Context, STATE_DONE)},
+		{"STATE_DELETED", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Krb5Context, STATE_DELETED)},
+		{"state", "I", nullptr, $PRIVATE, $field(Krb5Context, state)},
+		{"SESSION_KEY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Krb5Context, SESSION_KEY)},
+		{"INITIATOR_SUBKEY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Krb5Context, INITIATOR_SUBKEY)},
+		{"ACCEPTOR_SUBKEY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Krb5Context, ACCEPTOR_SUBKEY)},
+		{"credDelegState", "Z", nullptr, $PRIVATE, $field(Krb5Context, credDelegState)},
+		{"mutualAuthState", "Z", nullptr, $PRIVATE, $field(Krb5Context, mutualAuthState)},
+		{"replayDetState", "Z", nullptr, $PRIVATE, $field(Krb5Context, replayDetState)},
+		{"sequenceDetState", "Z", nullptr, $PRIVATE, $field(Krb5Context, sequenceDetState)},
+		{"confState", "Z", nullptr, $PRIVATE, $field(Krb5Context, confState)},
+		{"integState", "Z", nullptr, $PRIVATE, $field(Krb5Context, integState)},
+		{"delegPolicyState", "Z", nullptr, $PRIVATE, $field(Krb5Context, delegPolicyState)},
+		{"isConstrainedDelegationTried", "Z", nullptr, $PRIVATE, $field(Krb5Context, isConstrainedDelegationTried)},
+		{"mySeqNumber", "I", nullptr, $PRIVATE, $field(Krb5Context, mySeqNumber)},
+		{"peerSeqNumber", "I", nullptr, $PRIVATE, $field(Krb5Context, peerSeqNumber)},
+		{"keySrc", "I", nullptr, $PRIVATE, $field(Krb5Context, keySrc)},
+		{"peerTokenTracker", "Lsun/security/jgss/TokenTracker;", nullptr, $PRIVATE, $field(Krb5Context, peerTokenTracker)},
+		{"cipherHelper", "Lsun/security/jgss/krb5/CipherHelper;", nullptr, $PRIVATE, $field(Krb5Context, cipherHelper)},
+		{"mySeqNumberLock", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(Krb5Context, mySeqNumberLock)},
+		{"peerSeqNumberLock", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(Krb5Context, peerSeqNumberLock)},
+		{"key", "Lsun/security/krb5/EncryptionKey;", nullptr, $PRIVATE, $field(Krb5Context, key)},
+		{"myName", "Lsun/security/jgss/krb5/Krb5NameElement;", nullptr, $PRIVATE, $field(Krb5Context, myName)},
+		{"peerName", "Lsun/security/jgss/krb5/Krb5NameElement;", nullptr, $PRIVATE, $field(Krb5Context, peerName)},
+		{"lifetime", "I", nullptr, $PRIVATE, $field(Krb5Context, lifetime)},
+		{"initiator", "Z", nullptr, $PRIVATE, $field(Krb5Context, initiator)},
+		{"channelBinding", "Lorg/ietf/jgss/ChannelBinding;", nullptr, $PRIVATE, $field(Krb5Context, channelBinding)},
+		{"myCred", "Lsun/security/jgss/krb5/Krb5CredElement;", nullptr, $PRIVATE, $field(Krb5Context, myCred)},
+		{"delegatedCred", "Lsun/security/jgss/krb5/Krb5CredElement;", nullptr, $PRIVATE, $field(Krb5Context, delegatedCred)},
+		{"tgt", "Lsun/security/krb5/Credentials;", nullptr, $PRIVATE, $field(Krb5Context, tgt)},
+		{"serviceCreds", "Lsun/security/krb5/Credentials;", nullptr, $PRIVATE, $field(Krb5Context, serviceCreds)},
+		{"apReq", "Lsun/security/krb5/KrbApReq;", nullptr, $PRIVATE, $field(Krb5Context, apReq)},
+		{"serviceTicket", "Lsun/security/krb5/internal/Ticket;", nullptr, 0, $field(Krb5Context, serviceTicket)},
+		{"caller", "Lsun/security/jgss/GSSCaller;", nullptr, $PRIVATE | $FINAL, $field(Krb5Context, caller)},
+		{"DEBUG", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Krb5Context, DEBUG)},
+		{"tktFlags", "[Z", nullptr, $PRIVATE, $field(Krb5Context, tktFlags)},
+		{"authTime", "Ljava/lang/String;", nullptr, $PRIVATE, $field(Krb5Context, authTime)},
+		{"authzData", "Lsun/security/krb5/internal/AuthorizationData;", nullptr, $PRIVATE, $field(Krb5Context, authzData)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/security/jgss/GSSCaller;Lsun/security/jgss/krb5/Krb5NameElement;Lsun/security/jgss/krb5/Krb5CredElement;I)V", nullptr, 0, $method(Krb5Context, init$, void, $GSSCaller*, $Krb5NameElement*, $Krb5CredElement*, int32_t), "org.ietf.jgss.GSSException"},
+		{"<init>", "(Lsun/security/jgss/GSSCaller;Lsun/security/jgss/krb5/Krb5CredElement;)V", nullptr, 0, $method(Krb5Context, init$, void, $GSSCaller*, $Krb5CredElement*), "org.ietf.jgss.GSSException"},
+		{"<init>", "(Lsun/security/jgss/GSSCaller;[B)V", nullptr, $PUBLIC, $method(Krb5Context, init$, void, $GSSCaller*, $bytes*), "org.ietf.jgss.GSSException"},
+		{"acceptSecContext", "(Ljava/io/InputStream;I)[B", nullptr, $PUBLIC | $FINAL, $virtualMethod(Krb5Context, acceptSecContext, $bytes*, $InputStream*, int32_t), "org.ietf.jgss.GSSException"},
+		{"checkPermission", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(Krb5Context, checkPermission, void, $String*, $String*)},
+		{"dispose", "()V", nullptr, $PUBLIC | $FINAL, $virtualMethod(Krb5Context, dispose, void), "org.ietf.jgss.GSSException"},
+		{"export", "()[B", nullptr, $PUBLIC | $FINAL, $virtualMethod(Krb5Context, export$, $bytes*), "org.ietf.jgss.GSSException"},
+		{"getAnonymityState", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(Krb5Context, getAnonymityState, bool)},
+		{"getCaller", "()Lsun/security/jgss/GSSCaller;", nullptr, 0, $virtualMethod(Krb5Context, getCaller, $GSSCaller*)},
+		{"getChannelBinding", "()Lorg/ietf/jgss/ChannelBinding;", nullptr, $FINAL, $method(Krb5Context, getChannelBinding, $ChannelBinding*)},
+		{"getCipherHelper", "(Lsun/security/krb5/EncryptionKey;)Lsun/security/jgss/krb5/CipherHelper;", nullptr, $FINAL, $method(Krb5Context, getCipherHelper, $CipherHelper*, $EncryptionKey*), "org.ietf.jgss.GSSException"},
+		{"getConfState", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(Krb5Context, getConfState, bool)},
+		{"getCredDelegState", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(Krb5Context, getCredDelegState, bool)},
+		{"getDelegCred", "()Lsun/security/jgss/spi/GSSCredentialSpi;", nullptr, $PUBLIC | $FINAL, $virtualMethod(Krb5Context, getDelegCred, $GSSCredentialSpi*), "org.ietf.jgss.GSSException"},
+		{"getDelegPolicyState", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(Krb5Context, getDelegPolicyState, bool)},
+		{"getHexBytes", "([BII)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Krb5Context, getHexBytes, $String*, $bytes*, int32_t, int32_t)},
+		{"getIntegState", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(Krb5Context, getIntegState, bool)},
+		{"getKey", "()Lsun/security/krb5/EncryptionKey;", nullptr, $PRIVATE | $FINAL, $method(Krb5Context, getKey, $EncryptionKey*)},
+		{"getKeySrc", "()I", nullptr, $PUBLIC | $FINAL, $method(Krb5Context, getKeySrc, int32_t)},
+		{"getLifetime", "()I", nullptr, $PUBLIC | $FINAL, $virtualMethod(Krb5Context, getLifetime, int32_t)},
+		{"getMIC", "([BIILorg/ietf/jgss/MessageProp;)[B", nullptr, $PUBLIC | $FINAL, $virtualMethod(Krb5Context, getMIC, $bytes*, $bytes*, int32_t, int32_t, $MessageProp*), "org.ietf.jgss.GSSException"},
+		{"getMIC", "([BII[BILorg/ietf/jgss/MessageProp;)I", nullptr, $PRIVATE, $method(Krb5Context, getMIC, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t, $MessageProp*), "org.ietf.jgss.GSSException"},
+		{"getMIC", "([BIILjava/io/OutputStream;Lorg/ietf/jgss/MessageProp;)V", nullptr, $PRIVATE, $method(Krb5Context, getMIC, void, $bytes*, int32_t, int32_t, $OutputStream*, $MessageProp*), "org.ietf.jgss.GSSException"},
+		{"getMIC", "(Ljava/io/InputStream;Ljava/io/OutputStream;Lorg/ietf/jgss/MessageProp;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(Krb5Context, getMIC, void, $InputStream*, $OutputStream*, $MessageProp*), "org.ietf.jgss.GSSException"},
+		{"getMech", "()Lorg/ietf/jgss/Oid;", nullptr, $PUBLIC | $FINAL, $virtualMethod(Krb5Context, getMech, $Oid*)},
+		{"getMutualAuthState", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(Krb5Context, getMutualAuthState, bool)},
+		{"getProvider", "()Ljava/security/Provider;", nullptr, $PUBLIC | $FINAL, $virtualMethod(Krb5Context, getProvider, $Provider*)},
+		{"getReplayDetState", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(Krb5Context, getReplayDetState, bool)},
+		{"getSequenceDetState", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(Krb5Context, getSequenceDetState, bool)},
+		{"getSrcName", "()Lsun/security/jgss/spi/GSSNameSpi;", nullptr, $PUBLIC | $FINAL, $virtualMethod(Krb5Context, getSrcName, $GSSNameSpi*), "org.ietf.jgss.GSSException"},
+		{"getTargName", "()Lsun/security/jgss/spi/GSSNameSpi;", nullptr, $PUBLIC | $FINAL, $virtualMethod(Krb5Context, getTargName, $GSSNameSpi*), "org.ietf.jgss.GSSException"},
+		{"getWrapSizeLimit", "(IZI)I", nullptr, $PUBLIC | $FINAL, $virtualMethod(Krb5Context, getWrapSizeLimit, int32_t, int32_t, bool, int32_t), "org.ietf.jgss.GSSException"},
+		{"incrementMySequenceNumber", "()I", nullptr, $FINAL, $method(Krb5Context, incrementMySequenceNumber, int32_t)},
+		{"initSecContext", "(Ljava/io/InputStream;I)[B", nullptr, $PUBLIC | $FINAL, $virtualMethod(Krb5Context, initSecContext, $bytes*, $InputStream*, int32_t), "org.ietf.jgss.GSSException"},
+		{"inquireSecContext", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Krb5Context, inquireSecContext, $Object*, $String*), "org.ietf.jgss.GSSException"},
+		{"isEstablished", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(Krb5Context, isEstablished, bool)},
+		{"isInitiator", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(Krb5Context, isInitiator, bool)},
+		{"isProtReady", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(Krb5Context, isProtReady, bool)},
+		{"isTransferable", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(Krb5Context, isTransferable, bool), "org.ietf.jgss.GSSException"},
+		{"printState", "(I)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Krb5Context, printState, $String*, int32_t)},
+		{"requestAnonymity", "(Z)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(Krb5Context, requestAnonymity, void, bool), "org.ietf.jgss.GSSException"},
+		{"requestConf", "(Z)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(Krb5Context, requestConf, void, bool), "org.ietf.jgss.GSSException"},
+		{"requestCredDeleg", "(Z)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(Krb5Context, requestCredDeleg, void, bool), "org.ietf.jgss.GSSException"},
+		{"requestDelegPolicy", "(Z)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(Krb5Context, requestDelegPolicy, void, bool)},
+		{"requestInteg", "(Z)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(Krb5Context, requestInteg, void, bool), "org.ietf.jgss.GSSException"},
+		{"requestLifetime", "(I)V", nullptr, $PUBLIC, $virtualMethod(Krb5Context, requestLifetime, void, int32_t), "org.ietf.jgss.GSSException"},
+		{"requestMutualAuth", "(Z)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(Krb5Context, requestMutualAuth, void, bool), "org.ietf.jgss.GSSException"},
+		{"requestReplayDet", "(Z)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(Krb5Context, requestReplayDet, void, bool), "org.ietf.jgss.GSSException"},
+		{"requestSequenceDet", "(Z)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(Krb5Context, requestSequenceDet, void, bool), "org.ietf.jgss.GSSException"},
+		{"resetMySequenceNumber", "(I)V", nullptr, $FINAL, $method(Krb5Context, resetMySequenceNumber, void, int32_t)},
+		{"resetPeerSequenceNumber", "(I)V", nullptr, $FINAL, $method(Krb5Context, resetPeerSequenceNumber, void, int32_t)},
+		{"setAuthTime", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Krb5Context, setAuthTime, void, $String*)},
+		{"setAuthzData", "(Lsun/security/krb5/internal/AuthorizationData;)V", nullptr, $PUBLIC, $virtualMethod(Krb5Context, setAuthzData, void, $AuthorizationData*)},
+		{"setChannelBinding", "(Lorg/ietf/jgss/ChannelBinding;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(Krb5Context, setChannelBinding, void, $ChannelBinding*), "org.ietf.jgss.GSSException"},
+		{"setConfState", "(Z)V", nullptr, $FINAL, $method(Krb5Context, setConfState, void, bool)},
+		{"setCredDelegState", "(Z)V", nullptr, $FINAL, $method(Krb5Context, setCredDelegState, void, bool)},
+		{"setDelegCred", "(Lsun/security/jgss/krb5/Krb5CredElement;)V", nullptr, $FINAL, $method(Krb5Context, setDelegCred, void, $Krb5CredElement*)},
+		{"setDelegPolicyState", "(Z)V", nullptr, $FINAL, $method(Krb5Context, setDelegPolicyState, void, bool)},
+		{"setIntegState", "(Z)V", nullptr, $FINAL, $method(Krb5Context, setIntegState, void, bool)},
+		{"setKey", "(ILsun/security/krb5/EncryptionKey;)V", nullptr, $FINAL, $method(Krb5Context, setKey, void, int32_t, $EncryptionKey*), "org.ietf.jgss.GSSException"},
+		{"setMutualAuthState", "(Z)V", nullptr, $FINAL, $method(Krb5Context, setMutualAuthState, void, bool)},
+		{"setReplayDetState", "(Z)V", nullptr, $FINAL, $method(Krb5Context, setReplayDetState, void, bool)},
+		{"setSequenceDetState", "(Z)V", nullptr, $FINAL, $method(Krb5Context, setSequenceDetState, void, bool)},
+		{"setSequencingAndReplayProps", "(Lsun/security/jgss/krb5/MessageToken;Lorg/ietf/jgss/MessageProp;)V", nullptr, $PRIVATE, $method(Krb5Context, setSequencingAndReplayProps, void, $MessageToken*, $MessageProp*)},
+		{"setSequencingAndReplayProps", "(Lsun/security/jgss/krb5/MessageToken_v2;Lorg/ietf/jgss/MessageProp;)V", nullptr, $PRIVATE, $method(Krb5Context, setSequencingAndReplayProps, void, $MessageToken_v2*, $MessageProp*)},
+		{"setTktFlags", "([Z)V", nullptr, $PUBLIC, $virtualMethod(Krb5Context, setTktFlags, void, $booleans*)},
+		{"tryConstrainedDelegation", "()V", nullptr, $PRIVATE, $method(Krb5Context, tryConstrainedDelegation, void)},
+		{"unwrap", "([BIILorg/ietf/jgss/MessageProp;)[B", nullptr, $PUBLIC | $FINAL, $virtualMethod(Krb5Context, unwrap, $bytes*, $bytes*, int32_t, int32_t, $MessageProp*), "org.ietf.jgss.GSSException"},
+		{"unwrap", "([BII[BILorg/ietf/jgss/MessageProp;)I", nullptr, $PUBLIC | $FINAL, $method(Krb5Context, unwrap, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t, $MessageProp*), "org.ietf.jgss.GSSException"},
+		{"unwrap", "(Ljava/io/InputStream;[BILorg/ietf/jgss/MessageProp;)I", nullptr, $PUBLIC | $FINAL, $method(Krb5Context, unwrap, int32_t, $InputStream*, $bytes*, int32_t, $MessageProp*), "org.ietf.jgss.GSSException"},
+		{"unwrap", "(Ljava/io/InputStream;Ljava/io/OutputStream;Lorg/ietf/jgss/MessageProp;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(Krb5Context, unwrap, void, $InputStream*, $OutputStream*, $MessageProp*), "org.ietf.jgss.GSSException"},
+		{"verifyMIC", "([BII[BIILorg/ietf/jgss/MessageProp;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(Krb5Context, verifyMIC, void, $bytes*, int32_t, int32_t, $bytes*, int32_t, int32_t, $MessageProp*), "org.ietf.jgss.GSSException"},
+		{"verifyMIC", "(Ljava/io/InputStream;[BIILorg/ietf/jgss/MessageProp;)V", nullptr, $PRIVATE, $method(Krb5Context, verifyMIC, void, $InputStream*, $bytes*, int32_t, int32_t, $MessageProp*), "org.ietf.jgss.GSSException"},
+		{"verifyMIC", "(Ljava/io/InputStream;Ljava/io/InputStream;Lorg/ietf/jgss/MessageProp;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(Krb5Context, verifyMIC, void, $InputStream*, $InputStream*, $MessageProp*), "org.ietf.jgss.GSSException"},
+		{"wrap", "([BIILorg/ietf/jgss/MessageProp;)[B", nullptr, $PUBLIC | $FINAL, $virtualMethod(Krb5Context, wrap, $bytes*, $bytes*, int32_t, int32_t, $MessageProp*), "org.ietf.jgss.GSSException"},
+		{"wrap", "([BII[BILorg/ietf/jgss/MessageProp;)I", nullptr, $PUBLIC | $FINAL, $method(Krb5Context, wrap, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t, $MessageProp*), "org.ietf.jgss.GSSException"},
+		{"wrap", "([BIILjava/io/OutputStream;Lorg/ietf/jgss/MessageProp;)V", nullptr, $PUBLIC | $FINAL, $method(Krb5Context, wrap, void, $bytes*, int32_t, int32_t, $OutputStream*, $MessageProp*), "org.ietf.jgss.GSSException"},
+		{"wrap", "(Ljava/io/InputStream;Ljava/io/OutputStream;Lorg/ietf/jgss/MessageProp;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(Krb5Context, wrap, void, $InputStream*, $OutputStream*, $MessageProp*), "org.ietf.jgss.GSSException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.jgss.krb5.Krb5Context$KerberosSessionKey", "sun.security.jgss.krb5.Krb5Context", "KerberosSessionKey", $STATIC},
+		{"sun.security.jgss.krb5.Krb5Context$3", nullptr, nullptr, 0},
+		{"sun.security.jgss.krb5.Krb5Context$2", nullptr, nullptr, 0},
+		{"sun.security.jgss.krb5.Krb5Context$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.security.jgss.krb5.Krb5Context",
+		"java.lang.Object",
+		"sun.security.jgss.spi.GSSContextSpi",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.security.jgss.krb5.Krb5Context$KerberosSessionKey,sun.security.jgss.krb5.Krb5Context$3,sun.security.jgss.krb5.Krb5Context$2,sun.security.jgss.krb5.Krb5Context$1"
+	};
+	$loadClass(Krb5Context, name, initialize, &classInfo$$, Krb5Context::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Krb5Context);
+	});
 	return class$;
 }
 

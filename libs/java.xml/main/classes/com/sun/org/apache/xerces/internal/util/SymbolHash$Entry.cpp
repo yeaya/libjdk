@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/util/SymbolHash$Entry.h>
-
 #include <com/sun/org/apache/xerces/internal/util/SymbolHash.h>
 #include <jcpp.h>
 
@@ -15,45 +14,6 @@ namespace com {
 				namespace xerces {
 					namespace internal {
 						namespace util {
-
-$FieldInfo _SymbolHash$Entry_FieldInfo_[] = {
-	{"key", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(SymbolHash$Entry, key)},
-	{"value", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(SymbolHash$Entry, value)},
-	{"next", "Lcom/sun/org/apache/xerces/internal/util/SymbolHash$Entry;", nullptr, $PUBLIC, $field(SymbolHash$Entry, next)},
-	{}
-};
-
-$MethodInfo _SymbolHash$Entry_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SymbolHash$Entry, init$, void)},
-	{"<init>", "(Ljava/lang/Object;Ljava/lang/Object;Lcom/sun/org/apache/xerces/internal/util/SymbolHash$Entry;)V", nullptr, $PUBLIC, $method(SymbolHash$Entry, init$, void, Object$*, Object$*, SymbolHash$Entry*)},
-	{"makeClone", "()Lcom/sun/org/apache/xerces/internal/util/SymbolHash$Entry;", nullptr, $PUBLIC, $method(SymbolHash$Entry, makeClone, SymbolHash$Entry*)},
-	{}
-};
-
-$InnerClassInfo _SymbolHash$Entry_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xerces.internal.util.SymbolHash$Entry", "com.sun.org.apache.xerces.internal.util.SymbolHash", "Entry", $PROTECTED | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _SymbolHash$Entry_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.util.SymbolHash$Entry",
-	"java.lang.Object",
-	nullptr,
-	_SymbolHash$Entry_FieldInfo_,
-	_SymbolHash$Entry_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SymbolHash$Entry_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xerces.internal.util.SymbolHash"
-};
-
-$Object* allocate$SymbolHash$Entry($Class* clazz) {
-	return $of($alloc(SymbolHash$Entry));
-}
 
 void SymbolHash$Entry::init$() {
 	$set(this, key, nullptr);
@@ -72,7 +32,7 @@ SymbolHash$Entry* SymbolHash$Entry::makeClone() {
 	$set(entry, key, this->key);
 	$set(entry, value, this->value);
 	if (this->next != nullptr) {
-		$set(entry, next, $nc(this->next)->makeClone());
+		$set(entry, next, this->next->makeClone());
 	}
 	return entry;
 }
@@ -81,7 +41,40 @@ SymbolHash$Entry::SymbolHash$Entry() {
 }
 
 $Class* SymbolHash$Entry::load$($String* name, bool initialize) {
-	$loadClass(SymbolHash$Entry, name, initialize, &_SymbolHash$Entry_ClassInfo_, allocate$SymbolHash$Entry);
+	$FieldInfo fieldInfos$$[] = {
+		{"key", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(SymbolHash$Entry, key)},
+		{"value", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(SymbolHash$Entry, value)},
+		{"next", "Lcom/sun/org/apache/xerces/internal/util/SymbolHash$Entry;", nullptr, $PUBLIC, $field(SymbolHash$Entry, next)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SymbolHash$Entry, init$, void)},
+		{"<init>", "(Ljava/lang/Object;Ljava/lang/Object;Lcom/sun/org/apache/xerces/internal/util/SymbolHash$Entry;)V", nullptr, $PUBLIC, $method(SymbolHash$Entry, init$, void, Object$*, Object$*, SymbolHash$Entry*)},
+		{"makeClone", "()Lcom/sun/org/apache/xerces/internal/util/SymbolHash$Entry;", nullptr, $PUBLIC, $method(SymbolHash$Entry, makeClone, SymbolHash$Entry*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xerces.internal.util.SymbolHash$Entry", "com.sun.org.apache.xerces.internal.util.SymbolHash", "Entry", $PROTECTED | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.util.SymbolHash$Entry",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xerces.internal.util.SymbolHash"
+	};
+	$loadClass(SymbolHash$Entry, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SymbolHash$Entry);
+	});
 	return class$;
 }
 

@@ -26,7 +26,7 @@ public:
 	void init$(::java::awt::ScrollPane* this$0);
 	virtual ::javax::accessibility::AccessibleRole* getAccessibleRole() override;
 	::java::awt::ScrollPane* this$0 = nullptr;
-	static const int64_t serialVersionUID = (int64_t)0x0015AC8EC2C4112D;
+	static const int64_t serialVersionUID = (int64_t)0x0015ac8ec2c4112d;
 };
 
 	} // awt

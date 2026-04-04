@@ -1,5 +1,4 @@
 #include <sun/rmi/transport/ObjectTable$Reaper.h>
-
 #include <java/lang/Error.h>
 #include <java/lang/InterruptedException.h>
 #include <java/lang/ref/Reference.h>
@@ -15,8 +14,6 @@ using $Error = ::java::lang::Error;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $InterruptedException = ::java::lang::InterruptedException;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $ReferenceQueue = ::java::lang::ref::ReferenceQueue;
-using $Map = ::java::util::Map;
 using $ObjectTable = ::sun::rmi::transport::ObjectTable;
 using $Target = ::sun::rmi::transport::Target;
 using $WeakRef = ::sun::rmi::transport::WeakRef;
@@ -25,42 +22,11 @@ namespace sun {
 	namespace rmi {
 		namespace transport {
 
-$MethodInfo _ObjectTable$Reaper_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(ObjectTable$Reaper, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(ObjectTable$Reaper, run, void)},
-	{}
-};
-
-$InnerClassInfo _ObjectTable$Reaper_InnerClassesInfo_[] = {
-	{"sun.rmi.transport.ObjectTable$Reaper", "sun.rmi.transport.ObjectTable", "Reaper", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _ObjectTable$Reaper_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.rmi.transport.ObjectTable$Reaper",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	_ObjectTable$Reaper_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ObjectTable$Reaper_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.rmi.transport.ObjectTable"
-};
-
-$Object* allocate$ObjectTable$Reaper($Class* clazz) {
-	return $of($alloc(ObjectTable$Reaper));
-}
-
 void ObjectTable$Reaper::init$() {
 }
 
 void ObjectTable$Reaper::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		do {
 			$init($ObjectTable);
@@ -85,7 +51,33 @@ ObjectTable$Reaper::ObjectTable$Reaper() {
 }
 
 $Class* ObjectTable$Reaper::load$($String* name, bool initialize) {
-	$loadClass(ObjectTable$Reaper, name, initialize, &_ObjectTable$Reaper_ClassInfo_, allocate$ObjectTable$Reaper);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(ObjectTable$Reaper, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(ObjectTable$Reaper, run, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.rmi.transport.ObjectTable$Reaper", "sun.rmi.transport.ObjectTable", "Reaper", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.rmi.transport.ObjectTable$Reaper",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.rmi.transport.ObjectTable"
+	};
+	$loadClass(ObjectTable$Reaper, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ObjectTable$Reaper);
+	});
 	return class$;
 }
 

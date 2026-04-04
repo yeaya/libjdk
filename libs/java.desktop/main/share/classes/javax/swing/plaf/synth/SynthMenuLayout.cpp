@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/synth/SynthMenuLayout.h>
-
 #include <java/awt/Container.h>
 #include <java/awt/Dimension.h>
 #include <javax/swing/JPopupMenu.h>
@@ -23,25 +22,6 @@ namespace javax {
 		namespace plaf {
 			namespace synth {
 
-$MethodInfo _SynthMenuLayout_MethodInfo_[] = {
-	{"<init>", "(Ljava/awt/Container;I)V", nullptr, $PUBLIC, $method(SynthMenuLayout, init$, void, $Container*, int32_t)},
-	{"preferredLayoutSize", "(Ljava/awt/Container;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(SynthMenuLayout, preferredLayoutSize, $Dimension*, $Container*)},
-	{}
-};
-
-$ClassInfo _SynthMenuLayout_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.synth.SynthMenuLayout",
-	"javax.swing.plaf.basic.DefaultMenuLayout",
-	nullptr,
-	nullptr,
-	_SynthMenuLayout_MethodInfo_
-};
-
-$Object* allocate$SynthMenuLayout($Class* clazz) {
-	return $of($alloc(SynthMenuLayout));
-}
-
 void SynthMenuLayout::init$($Container* target, int32_t axis) {
 	$DefaultMenuLayout::init$(target, axis);
 }
@@ -50,7 +30,7 @@ $Dimension* SynthMenuLayout::preferredLayoutSize($Container* target) {
 	if ($instanceOf($JPopupMenu, target)) {
 		$var($JPopupMenu, popupMenu, $cast($JPopupMenu, target));
 		$init($SynthMenuItemLayoutHelper);
-		$nc(popupMenu)->putClientProperty($SynthMenuItemLayoutHelper::MAX_ACC_OR_ARROW_WIDTH, nullptr);
+		popupMenu->putClientProperty($SynthMenuItemLayoutHelper::MAX_ACC_OR_ARROW_WIDTH, nullptr);
 	}
 	return $DefaultMenuLayout::preferredLayoutSize(target);
 }
@@ -59,7 +39,22 @@ SynthMenuLayout::SynthMenuLayout() {
 }
 
 $Class* SynthMenuLayout::load$($String* name, bool initialize) {
-	$loadClass(SynthMenuLayout, name, initialize, &_SynthMenuLayout_ClassInfo_, allocate$SynthMenuLayout);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/Container;I)V", nullptr, $PUBLIC, $method(SynthMenuLayout, init$, void, $Container*, int32_t)},
+		{"preferredLayoutSize", "(Ljava/awt/Container;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(SynthMenuLayout, preferredLayoutSize, $Dimension*, $Container*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.synth.SynthMenuLayout",
+		"javax.swing.plaf.basic.DefaultMenuLayout",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(SynthMenuLayout, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SynthMenuLayout));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <javax/management/remote/JMXPrincipal.h>
-
 #include <java/io/InvalidObjectException.h>
 #include <java/io/ObjectInputStream$GetField.h>
 #include <java/io/ObjectInputStream.h>
@@ -18,38 +17,6 @@ using $Principal = ::java::security::Principal;
 namespace javax {
 	namespace management {
 		namespace remote {
-
-$FieldInfo _JMXPrincipal_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JMXPrincipal, serialVersionUID)},
-	{"name", "Ljava/lang/String;", nullptr, $PRIVATE, $field(JMXPrincipal, name)},
-	{}
-};
-
-$MethodInfo _JMXPrincipal_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(JMXPrincipal, init$, void, $String*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(JMXPrincipal, equals, bool, Object$*)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JMXPrincipal, getName, $String*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(JMXPrincipal, hashCode, int32_t)},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(JMXPrincipal, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JMXPrincipal, toString, $String*)},
-	{"validate", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(JMXPrincipal, validate, void, $String*), "java.lang.NullPointerException"},
-	{}
-};
-
-$ClassInfo _JMXPrincipal_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.management.remote.JMXPrincipal",
-	"java.lang.Object",
-	"java.security.Principal,java.io.Serializable",
-	_JMXPrincipal_FieldInfo_,
-	_JMXPrincipal_MethodInfo_
-};
-
-$Object* allocate$JMXPrincipal($Class* clazz) {
-	return $of($alloc(JMXPrincipal));
-}
 
 $Object* JMXPrincipal::clone() {
 	 return this->$Principal::clone();
@@ -73,7 +40,7 @@ $String* JMXPrincipal::toString() {
 }
 
 bool JMXPrincipal::equals(Object$* o) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (o == nullptr) {
 		return false;
 	}
@@ -84,7 +51,7 @@ bool JMXPrincipal::equals(Object$* o) {
 		return false;
 	}
 	$var(JMXPrincipal, that, $cast(JMXPrincipal, o));
-	return ($nc($(this->getName()))->equals($($nc(that)->getName())));
+	return ($$nc(this->getName())->equals($($nc(that)->getName())));
 }
 
 int32_t JMXPrincipal::hashCode() {
@@ -92,9 +59,9 @@ int32_t JMXPrincipal::hashCode() {
 }
 
 void JMXPrincipal::readObject($ObjectInputStream* ois) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectInputStream$GetField, gf, $nc(ois)->readFields());
-	$var($String, principalName, $cast($String, $nc(gf)->get("name"_s, ($Object*)nullptr)));
+	$var($String, principalName, $cast($String, $nc(gf)->get("name"_s, nullptr)));
 	try {
 		validate(principalName);
 		$set(this, name, principalName);
@@ -114,7 +81,34 @@ JMXPrincipal::JMXPrincipal() {
 }
 
 $Class* JMXPrincipal::load$($String* name, bool initialize) {
-	$loadClass(JMXPrincipal, name, initialize, &_JMXPrincipal_ClassInfo_, allocate$JMXPrincipal);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JMXPrincipal, serialVersionUID)},
+		{"name", "Ljava/lang/String;", nullptr, $PRIVATE, $field(JMXPrincipal, name)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(JMXPrincipal, init$, void, $String*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(JMXPrincipal, equals, bool, Object$*)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JMXPrincipal, getName, $String*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(JMXPrincipal, hashCode, int32_t)},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(JMXPrincipal, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JMXPrincipal, toString, $String*)},
+		{"validate", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(JMXPrincipal, validate, void, $String*), "java.lang.NullPointerException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.management.remote.JMXPrincipal",
+		"java.lang.Object",
+		"java.security.Principal,java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(JMXPrincipal, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JMXPrincipal));
+	});
 	return class$;
 }
 

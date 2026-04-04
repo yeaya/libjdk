@@ -1,5 +1,4 @@
 #include <javax/swing/tree/PathPlaceHolder.h>
-
 #include <javax/swing/tree/TreePath.h>
 #include <jcpp.h>
 
@@ -12,30 +11,6 @@ namespace javax {
 	namespace swing {
 		namespace tree {
 
-$FieldInfo _PathPlaceHolder_FieldInfo_[] = {
-	{"isNew", "Z", nullptr, $PROTECTED, $field(PathPlaceHolder, isNew)},
-	{"path", "Ljavax/swing/tree/TreePath;", nullptr, $PROTECTED, $field(PathPlaceHolder, path)},
-	{}
-};
-
-$MethodInfo _PathPlaceHolder_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/tree/TreePath;Z)V", nullptr, 0, $method(PathPlaceHolder, init$, void, $TreePath*, bool)},
-	{}
-};
-
-$ClassInfo _PathPlaceHolder_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.tree.PathPlaceHolder",
-	"java.lang.Object",
-	nullptr,
-	_PathPlaceHolder_FieldInfo_,
-	_PathPlaceHolder_MethodInfo_
-};
-
-$Object* allocate$PathPlaceHolder($Class* clazz) {
-	return $of($alloc(PathPlaceHolder));
-}
-
 void PathPlaceHolder::init$($TreePath* path, bool isNew) {
 	$set(this, path, path);
 	this->isNew = isNew;
@@ -45,7 +20,26 @@ PathPlaceHolder::PathPlaceHolder() {
 }
 
 $Class* PathPlaceHolder::load$($String* name, bool initialize) {
-	$loadClass(PathPlaceHolder, name, initialize, &_PathPlaceHolder_ClassInfo_, allocate$PathPlaceHolder);
+	$FieldInfo fieldInfos$$[] = {
+		{"isNew", "Z", nullptr, $PROTECTED, $field(PathPlaceHolder, isNew)},
+		{"path", "Ljavax/swing/tree/TreePath;", nullptr, $PROTECTED, $field(PathPlaceHolder, path)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/tree/TreePath;Z)V", nullptr, 0, $method(PathPlaceHolder, init$, void, $TreePath*, bool)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.tree.PathPlaceHolder",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(PathPlaceHolder, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PathPlaceHolder);
+	});
 	return class$;
 }
 

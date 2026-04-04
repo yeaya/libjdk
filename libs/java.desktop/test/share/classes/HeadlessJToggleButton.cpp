@@ -1,5 +1,4 @@
 #include <HeadlessJToggleButton.h>
-
 #include <HeadlessJToggleButton$1.h>
 #include <HeadlessJToggleButton$2.h>
 #include <HeadlessJToggleButton$3.h>
@@ -50,7 +49,6 @@ using $FlowLayout = ::java::awt::FlowLayout;
 using $Font = ::java::awt::Font;
 using $IllegalComponentStateException = ::java::awt::IllegalComponentStateException;
 using $Insets = ::java::awt::Insets;
-using $LayoutManager = ::java::awt::LayoutManager;
 using $Point = ::java::awt::Point;
 using $Rectangle = ::java::awt::Rectangle;
 using $Toolkit = ::java::awt::Toolkit;
@@ -61,43 +59,11 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $Locale = ::java::util::Locale;
 using $JToggleButton = ::javax::swing::JToggleButton;
 
-$MethodInfo _HeadlessJToggleButton_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(HeadlessJToggleButton, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(HeadlessJToggleButton, main, void, $StringArray*)},
-	{}
-};
-
-$InnerClassInfo _HeadlessJToggleButton_InnerClassesInfo_[] = {
-	{"HeadlessJToggleButton$3", nullptr, nullptr, 0},
-	{"HeadlessJToggleButton$2", nullptr, nullptr, 0},
-	{"HeadlessJToggleButton$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _HeadlessJToggleButton_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"HeadlessJToggleButton",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_HeadlessJToggleButton_MethodInfo_,
-	nullptr,
-	nullptr,
-	_HeadlessJToggleButton_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"HeadlessJToggleButton$3,HeadlessJToggleButton$2,HeadlessJToggleButton$1"
-};
-
-$Object* allocate$HeadlessJToggleButton($Class* clazz) {
-	return $of($alloc(HeadlessJToggleButton));
-}
-
 void HeadlessJToggleButton::init$() {
 }
 
 void HeadlessJToggleButton::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JToggleButton, tb, $new($JToggleButton));
 	tb->getAccessibleContext();
 	tb->isFocusTraversable();
@@ -109,9 +75,9 @@ void HeadlessJToggleButton::main($StringArray* args) {
 	tb->getMaximumSize();
 	tb->getMinimumSize();
 	tb->contains(1, 2);
-	$var($Component, c1, tb->add(static_cast<$Component*>($$new($HeadlessJToggleButton$1))));
-	$var($Component, c2, tb->add(static_cast<$Component*>($$new($HeadlessJToggleButton$2))));
-	$var($Component, c3, tb->add(static_cast<$Component*>($$new($HeadlessJToggleButton$3))));
+	$var($Component, c1, tb->add($$new($HeadlessJToggleButton$1)));
+	$var($Component, c2, tb->add($$new($HeadlessJToggleButton$2)));
+	$var($Component, c3, tb->add($$new($HeadlessJToggleButton$3)));
 	$var($Insets, ins, tb->getInsets());
 	tb->getAlignmentY();
 	tb->getAlignmentX();
@@ -122,26 +88,22 @@ void HeadlessJToggleButton::main($StringArray* args) {
 	tb->setForeground($Color::red);
 	tb->setBackground($Color::red);
 	{
-		$var($StringArray, arr$, $nc($($Toolkit::getDefaultToolkit()))->getFontList());
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		$var($StringArray, arr$, $$nc($Toolkit::getDefaultToolkit())->getFontList());
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($String, font, arr$->get(i$));
-			{
-				for (int32_t j = 8; j < 17; ++j) {
-					$var($Font, f1, $new($Font, font, $Font::PLAIN, j));
-					$var($Font, f2, $new($Font, font, $Font::BOLD, j));
-					$var($Font, f3, $new($Font, font, $Font::ITALIC, j));
-					$var($Font, f4, $new($Font, font, $Font::BOLD | $Font::ITALIC, j));
-					tb->setFont(f1);
-					tb->setFont(f2);
-					tb->setFont(f3);
-					tb->setFont(f4);
-					tb->getFontMetrics(f1);
-					tb->getFontMetrics(f2);
-					tb->getFontMetrics(f3);
-					tb->getFontMetrics(f4);
-				}
+			for (int32_t j = 8; j < 17; ++j) {
+				$var($Font, f1, $new($Font, font, $Font::PLAIN, j));
+				$var($Font, f2, $new($Font, font, $Font::BOLD, j));
+				$var($Font, f3, $new($Font, font, $Font::ITALIC, j));
+				$var($Font, f4, $new($Font, font, $Font::BOLD | $Font::ITALIC, j));
+				tb->setFont(f1);
+				tb->setFont(f2);
+				tb->setFont(f3);
+				tb->setFont(f4);
+				tb->getFontMetrics(f1);
+				tb->getFontMetrics(f2);
+				tb->getFontMetrics(f3);
+				tb->getFontMetrics(f4);
 			}
 		}
 	}
@@ -206,13 +168,11 @@ void HeadlessJToggleButton::main($StringArray* args) {
 	tb->getFont();
 	tb->isFontSet();
 	$var($Container, c, $new($Container));
-	c->add(static_cast<$Component*>(tb));
+	c->add(tb);
 	tb->getLocale();
 	{
 		$var($LocaleArray, arr$, $Locale::getAvailableLocales());
-		int32_t len$ = arr$->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($Locale, locale, arr$->get(i$));
 			tb->setLocale(locale);
 		}
@@ -269,7 +229,34 @@ HeadlessJToggleButton::HeadlessJToggleButton() {
 }
 
 $Class* HeadlessJToggleButton::load$($String* name, bool initialize) {
-	$loadClass(HeadlessJToggleButton, name, initialize, &_HeadlessJToggleButton_ClassInfo_, allocate$HeadlessJToggleButton);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(HeadlessJToggleButton, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(HeadlessJToggleButton, main, void, $StringArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"HeadlessJToggleButton$3", nullptr, nullptr, 0},
+		{"HeadlessJToggleButton$2", nullptr, nullptr, 0},
+		{"HeadlessJToggleButton$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"HeadlessJToggleButton",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"HeadlessJToggleButton$3,HeadlessJToggleButton$2,HeadlessJToggleButton$1"
+	};
+	$loadClass(HeadlessJToggleButton, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HeadlessJToggleButton);
+	});
 	return class$;
 }
 

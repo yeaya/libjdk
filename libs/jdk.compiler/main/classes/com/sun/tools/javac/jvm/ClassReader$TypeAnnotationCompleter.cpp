@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/jvm/ClassReader$TypeAnnotationCompleter.h>
-
 #include <com/sun/tools/javac/code/Attribute$Compound.h>
 #include <com/sun/tools/javac/code/Attribute$TypeCompound.h>
 #include <com/sun/tools/javac/code/Symbol.h>
@@ -36,45 +35,6 @@ namespace com {
 			namespace javac {
 				namespace jvm {
 
-$FieldInfo _ClassReader$TypeAnnotationCompleter_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/jvm/ClassReader;", nullptr, $FINAL | $SYNTHETIC, $field(ClassReader$TypeAnnotationCompleter, this$0)},
-	{"proxies", "Lcom/sun/tools/javac/util/List;", "Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/jvm/ClassReader$TypeAnnotationProxy;>;", 0, $field(ClassReader$TypeAnnotationCompleter, proxies)},
-	{}
-};
-
-$MethodInfo _ClassReader$TypeAnnotationCompleter_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/jvm/ClassReader;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/jvm/ClassReader$TypeAnnotationProxy;>;)V", 0, $method(ClassReader$TypeAnnotationCompleter, init$, void, $ClassReader*, $Symbol*, $List*)},
-	{"deproxyTypeCompoundList", "(Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/jvm/ClassReader$TypeAnnotationProxy;>;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute$TypeCompound;>;", 0, $virtualMethod(ClassReader$TypeAnnotationCompleter, deproxyTypeCompoundList, $List*, $List*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(ClassReader$TypeAnnotationCompleter, run, void)},
-	{}
-};
-
-$InnerClassInfo _ClassReader$TypeAnnotationCompleter_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.jvm.ClassReader$TypeAnnotationCompleter", "com.sun.tools.javac.jvm.ClassReader", "TypeAnnotationCompleter", 0},
-	{"com.sun.tools.javac.jvm.ClassReader$AnnotationCompleter", "com.sun.tools.javac.jvm.ClassReader", "AnnotationCompleter", 0},
-	{}
-};
-
-$ClassInfo _ClassReader$TypeAnnotationCompleter_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.jvm.ClassReader$TypeAnnotationCompleter",
-	"com.sun.tools.javac.jvm.ClassReader$AnnotationCompleter",
-	nullptr,
-	_ClassReader$TypeAnnotationCompleter_FieldInfo_,
-	_ClassReader$TypeAnnotationCompleter_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ClassReader$TypeAnnotationCompleter_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.jvm.ClassReader"
-};
-
-$Object* allocate$ClassReader$TypeAnnotationCompleter($Class* clazz) {
-	return $of($alloc(ClassReader$TypeAnnotationCompleter));
-}
-
 void ClassReader$TypeAnnotationCompleter::init$($ClassReader* this$0, $Symbol* sym, $List* proxies) {
 	$set(this, this$0, this$0);
 	$ClassReader$AnnotationCompleter::init$(this$0, sym, $($List::nil()));
@@ -82,7 +42,7 @@ void ClassReader$TypeAnnotationCompleter::init$($ClassReader* this$0, $Symbol* s
 }
 
 $List* ClassReader$TypeAnnotationCompleter::deproxyTypeCompoundList($List* proxies) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ListBuffer, buf, $new($ListBuffer));
 	{
 		$var($Iterator, i$, $nc(proxies)->iterator());
@@ -90,7 +50,7 @@ $List* ClassReader$TypeAnnotationCompleter::deproxyTypeCompoundList($List* proxi
 			$var($ClassReader$TypeAnnotationProxy, proxy, $cast($ClassReader$TypeAnnotationProxy, i$->next()));
 			{
 				$var($Attribute$Compound, compound, deproxyCompound($nc(proxy)->compound));
-				$var($Attribute$TypeCompound, typeCompound, $new($Attribute$TypeCompound, compound, $nc(proxy)->position));
+				$var($Attribute$TypeCompound, typeCompound, $new($Attribute$TypeCompound, compound, proxy->position));
 				buf->add(typeCompound);
 			}
 		}
@@ -99,22 +59,20 @@ $List* ClassReader$TypeAnnotationCompleter::deproxyTypeCompoundList($List* proxi
 }
 
 void ClassReader$TypeAnnotationCompleter::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JavaFileObject, previousClassFile, this->this$0->currentClassFile);
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$set(this->this$0, currentClassFile, this->classFile);
-			$var($List, newList, deproxyTypeCompoundList(this->proxies));
-			$nc(this->sym)->setTypeAttributes($($nc(newList)->prependList($($nc(this->sym)->getRawTypeAttributes()))));
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$set(this->this$0, currentClassFile, previousClassFile);
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	$var($Throwable, var$0, nullptr);
+	try {
+		$set(this->this$0, currentClassFile, this->classFile);
+		$var($List, newList, deproxyTypeCompoundList(this->proxies));
+		$nc(this->sym)->setTypeAttributes($($nc(newList)->prependList($($nc(this->sym)->getRawTypeAttributes()))));
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$set(this->this$0, currentClassFile, previousClassFile);
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
@@ -122,7 +80,40 @@ ClassReader$TypeAnnotationCompleter::ClassReader$TypeAnnotationCompleter() {
 }
 
 $Class* ClassReader$TypeAnnotationCompleter::load$($String* name, bool initialize) {
-	$loadClass(ClassReader$TypeAnnotationCompleter, name, initialize, &_ClassReader$TypeAnnotationCompleter_ClassInfo_, allocate$ClassReader$TypeAnnotationCompleter);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/jvm/ClassReader;", nullptr, $FINAL | $SYNTHETIC, $field(ClassReader$TypeAnnotationCompleter, this$0)},
+		{"proxies", "Lcom/sun/tools/javac/util/List;", "Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/jvm/ClassReader$TypeAnnotationProxy;>;", 0, $field(ClassReader$TypeAnnotationCompleter, proxies)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/jvm/ClassReader;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/jvm/ClassReader$TypeAnnotationProxy;>;)V", 0, $method(ClassReader$TypeAnnotationCompleter, init$, void, $ClassReader*, $Symbol*, $List*)},
+		{"deproxyTypeCompoundList", "(Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/jvm/ClassReader$TypeAnnotationProxy;>;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute$TypeCompound;>;", 0, $virtualMethod(ClassReader$TypeAnnotationCompleter, deproxyTypeCompoundList, $List*, $List*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(ClassReader$TypeAnnotationCompleter, run, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.jvm.ClassReader$TypeAnnotationCompleter", "com.sun.tools.javac.jvm.ClassReader", "TypeAnnotationCompleter", 0},
+		{"com.sun.tools.javac.jvm.ClassReader$AnnotationCompleter", "com.sun.tools.javac.jvm.ClassReader", "AnnotationCompleter", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.jvm.ClassReader$TypeAnnotationCompleter",
+		"com.sun.tools.javac.jvm.ClassReader$AnnotationCompleter",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.jvm.ClassReader"
+	};
+	$loadClass(ClassReader$TypeAnnotationCompleter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ClassReader$TypeAnnotationCompleter));
+	});
 	return class$;
 }
 

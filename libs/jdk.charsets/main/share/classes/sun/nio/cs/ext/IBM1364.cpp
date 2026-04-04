@@ -1,5 +1,4 @@
 #include <sun/nio/cs/ext/IBM1364.h>
-
 #include <java/nio/charset/Charset.h>
 #include <java/nio/charset/CharsetDecoder.h>
 #include <java/nio/charset/CharsetEncoder.h>
@@ -26,45 +25,6 @@ namespace sun {
 	namespace nio {
 		namespace cs {
 			namespace ext {
-
-$MethodInfo _IBM1364_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $FINAL},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(IBM1364, init$, void)},
-	{"contains", "(Ljava/nio/charset/Charset;)Z", nullptr, $PUBLIC, $virtualMethod(IBM1364, contains, bool, $Charset*)},
-	{"historicalName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(IBM1364, historicalName, $String*)},
-	{"newDecoder", "()Ljava/nio/charset/CharsetDecoder;", nullptr, $PUBLIC, $virtualMethod(IBM1364, newDecoder, $CharsetDecoder*)},
-	{"newEncoder", "()Ljava/nio/charset/CharsetEncoder;", nullptr, $PUBLIC, $virtualMethod(IBM1364, newEncoder, $CharsetEncoder*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL},
-	{}
-};
-
-$InnerClassInfo _IBM1364_InnerClassesInfo_[] = {
-	{"sun.nio.cs.ext.IBM1364$EncodeHolder", "sun.nio.cs.ext.IBM1364", "EncodeHolder", $STATIC},
-	{"sun.nio.cs.ext.IBM1364$DecodeHolder", "sun.nio.cs.ext.IBM1364", "DecodeHolder", $STATIC},
-	{}
-};
-
-$ClassInfo _IBM1364_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.nio.cs.ext.IBM1364",
-	"java.nio.charset.Charset",
-	"sun.nio.cs.HistoricallyNamedCharset",
-	nullptr,
-	_IBM1364_MethodInfo_,
-	nullptr,
-	nullptr,
-	_IBM1364_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.nio.cs.ext.IBM1364$EncodeHolder,sun.nio.cs.ext.IBM1364$DecodeHolder"
-};
-
-$Object* allocate$IBM1364($Class* clazz) {
-	return $of($alloc(IBM1364));
-}
 
 int32_t IBM1364::hashCode() {
 	 return this->$Charset::hashCode();
@@ -112,7 +72,41 @@ IBM1364::IBM1364() {
 }
 
 $Class* IBM1364::load$($String* name, bool initialize) {
-	$loadClass(IBM1364, name, initialize, &_IBM1364_ClassInfo_, allocate$IBM1364);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $FINAL},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(IBM1364, init$, void)},
+		{"contains", "(Ljava/nio/charset/Charset;)Z", nullptr, $PUBLIC, $virtualMethod(IBM1364, contains, bool, $Charset*)},
+		{"historicalName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(IBM1364, historicalName, $String*)},
+		{"newDecoder", "()Ljava/nio/charset/CharsetDecoder;", nullptr, $PUBLIC, $virtualMethod(IBM1364, newDecoder, $CharsetDecoder*)},
+		{"newEncoder", "()Ljava/nio/charset/CharsetEncoder;", nullptr, $PUBLIC, $virtualMethod(IBM1364, newEncoder, $CharsetEncoder*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.cs.ext.IBM1364$EncodeHolder", "sun.nio.cs.ext.IBM1364", "EncodeHolder", $STATIC},
+		{"sun.nio.cs.ext.IBM1364$DecodeHolder", "sun.nio.cs.ext.IBM1364", "DecodeHolder", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.nio.cs.ext.IBM1364",
+		"java.nio.charset.Charset",
+		"sun.nio.cs.HistoricallyNamedCharset",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.nio.cs.ext.IBM1364$EncodeHolder,sun.nio.cs.ext.IBM1364$DecodeHolder"
+	};
+	$loadClass(IBM1364, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(IBM1364));
+	});
 	return class$;
 }
 

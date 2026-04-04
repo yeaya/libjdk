@@ -21,6 +21,7 @@ class EventFilter$FilterAction : public ::java::lang::Enum {
 public:
 	EventFilter$FilterAction();
 	static $Array<::java::awt::EventFilter$FilterAction>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::java::awt::EventFilter$FilterAction* valueOf($String* name);
 	static $Array<::java::awt::EventFilter$FilterAction>* values();

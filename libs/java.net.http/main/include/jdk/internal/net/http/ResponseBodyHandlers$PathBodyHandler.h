@@ -45,6 +45,7 @@ class $import ResponseBodyHandlers$PathBodyHandler : public ::java::net::http::H
 	$class(ResponseBodyHandlers$PathBodyHandler, 0, ::java::net::http::HttpResponse$BodyHandler)
 public:
 	ResponseBodyHandlers$PathBodyHandler();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::nio::file::Path* file, ::java::util::List* openOptions, ::java::security::AccessControlContext* acc, ::java::io::FilePermission* filePermission);
 	virtual ::java::net::http::HttpResponse$BodySubscriber* apply(::java::net::http::HttpResponse$ResponseInfo* responseInfo) override;
 	static ::jdk::internal::net::http::ResponseBodyHandlers$PathBodyHandler* create(::java::nio::file::Path* file, ::java::util::List* openOptions);

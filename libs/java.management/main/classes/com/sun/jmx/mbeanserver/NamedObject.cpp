@@ -1,5 +1,4 @@
 #include <com/sun/jmx/mbeanserver/NamedObject.h>
-
 #include <javax/management/DynamicMBean.h>
 #include <javax/management/ObjectName.h>
 #include <javax/management/RuntimeOperationsException.h>
@@ -9,7 +8,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $RuntimeException = ::java::lang::RuntimeException;
 using $DynamicMBean = ::javax::management::DynamicMBean;
 using $ObjectName = ::javax::management::ObjectName;
 using $RuntimeOperationsException = ::javax::management::RuntimeOperationsException;
@@ -19,37 +17,8 @@ namespace com {
 		namespace jmx {
 			namespace mbeanserver {
 
-$FieldInfo _NamedObject_FieldInfo_[] = {
-	{"name", "Ljavax/management/ObjectName;", nullptr, $PRIVATE | $FINAL, $field(NamedObject, name)},
-	{"object", "Ljavax/management/DynamicMBean;", nullptr, $PRIVATE | $FINAL, $field(NamedObject, object)},
-	{}
-};
-
-$MethodInfo _NamedObject_MethodInfo_[] = {
-	{"<init>", "(Ljavax/management/ObjectName;Ljavax/management/DynamicMBean;)V", nullptr, $PUBLIC, $method(NamedObject, init$, void, $ObjectName*, $DynamicMBean*)},
-	{"<init>", "(Ljava/lang/String;Ljavax/management/DynamicMBean;)V", nullptr, $PUBLIC, $method(NamedObject, init$, void, $String*, $DynamicMBean*), "javax.management.MalformedObjectNameException"},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(NamedObject, equals, bool, Object$*)},
-	{"getName", "()Ljavax/management/ObjectName;", nullptr, $PUBLIC, $virtualMethod(NamedObject, getName, $ObjectName*)},
-	{"getObject", "()Ljavax/management/DynamicMBean;", nullptr, $PUBLIC, $virtualMethod(NamedObject, getObject, $DynamicMBean*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(NamedObject, hashCode, int32_t)},
-	{}
-};
-
-$ClassInfo _NamedObject_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.jmx.mbeanserver.NamedObject",
-	"java.lang.Object",
-	nullptr,
-	_NamedObject_FieldInfo_,
-	_NamedObject_MethodInfo_
-};
-
-$Object* allocate$NamedObject($Class* clazz) {
-	return $of($alloc(NamedObject));
-}
-
 void NamedObject::init$($ObjectName* objectName, $DynamicMBean* object) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(objectName)->isPattern()) {
 		$throwNew($RuntimeOperationsException, $$new($IllegalArgumentException, $$str({"Invalid name->"_s, $(objectName->toString())})));
 	}
@@ -58,7 +27,7 @@ void NamedObject::init$($ObjectName* objectName, $DynamicMBean* object) {
 }
 
 void NamedObject::init$($String* objectName, $DynamicMBean* object) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectName, objName, $new($ObjectName, objectName));
 	if (objName->isPattern()) {
 		$throwNew($RuntimeOperationsException, $$new($IllegalArgumentException, $$str({"Invalid name->"_s, $(objName->toString())})));
@@ -68,7 +37,7 @@ void NamedObject::init$($String* objectName, $DynamicMBean* object) {
 }
 
 bool NamedObject::equals(Object$* object) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($equals(this, object)) {
 		return true;
 	}
@@ -98,7 +67,31 @@ NamedObject::NamedObject() {
 }
 
 $Class* NamedObject::load$($String* name, bool initialize) {
-	$loadClass(NamedObject, name, initialize, &_NamedObject_ClassInfo_, allocate$NamedObject);
+	$FieldInfo fieldInfos$$[] = {
+		{"name", "Ljavax/management/ObjectName;", nullptr, $PRIVATE | $FINAL, $field(NamedObject, name)},
+		{"object", "Ljavax/management/DynamicMBean;", nullptr, $PRIVATE | $FINAL, $field(NamedObject, object)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/management/ObjectName;Ljavax/management/DynamicMBean;)V", nullptr, $PUBLIC, $method(NamedObject, init$, void, $ObjectName*, $DynamicMBean*)},
+		{"<init>", "(Ljava/lang/String;Ljavax/management/DynamicMBean;)V", nullptr, $PUBLIC, $method(NamedObject, init$, void, $String*, $DynamicMBean*), "javax.management.MalformedObjectNameException"},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(NamedObject, equals, bool, Object$*)},
+		{"getName", "()Ljavax/management/ObjectName;", nullptr, $PUBLIC, $virtualMethod(NamedObject, getName, $ObjectName*)},
+		{"getObject", "()Ljavax/management/DynamicMBean;", nullptr, $PUBLIC, $virtualMethod(NamedObject, getObject, $DynamicMBean*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(NamedObject, hashCode, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.jmx.mbeanserver.NamedObject",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(NamedObject, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(NamedObject);
+	});
 	return class$;
 }
 

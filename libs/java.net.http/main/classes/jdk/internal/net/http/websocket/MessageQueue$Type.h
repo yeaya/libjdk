@@ -28,6 +28,7 @@ class MessageQueue$Type : public ::java::lang::Enum {
 public:
 	MessageQueue$Type();
 	static $Array<::jdk::internal::net::http::websocket::MessageQueue$Type>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::jdk::internal::net::http::websocket::MessageQueue$Type* valueOf($String* name);
 	static $Array<::jdk::internal::net::http::websocket::MessageQueue$Type>* values();

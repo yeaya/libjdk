@@ -1,5 +1,4 @@
 #include <java/awt/Cursor$1.h>
-
 #include <java/awt/Cursor.h>
 #include <jcpp.h>
 
@@ -11,46 +10,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace java {
 	namespace awt {
-
-$MethodInfo _Cursor$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(Cursor$1, init$, void)},
-	{"getPData", "(Ljava/awt/Cursor;)J", nullptr, $PUBLIC, $virtualMethod(Cursor$1, getPData, int64_t, $Cursor*)},
-	{"getType", "(Ljava/awt/Cursor;)I", nullptr, $PUBLIC, $virtualMethod(Cursor$1, getType, int32_t, $Cursor*)},
-	{"setPData", "(Ljava/awt/Cursor;J)V", nullptr, $PUBLIC, $virtualMethod(Cursor$1, setPData, void, $Cursor*, int64_t)},
-	{}
-};
-
-$EnclosingMethodInfo _Cursor$1_EnclosingMethodInfo_ = {
-	"java.awt.Cursor",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _Cursor$1_InnerClassesInfo_[] = {
-	{"java.awt.Cursor$1", nullptr, nullptr, 0},
-	{"sun.awt.AWTAccessor$CursorAccessor", "sun.awt.AWTAccessor", "CursorAccessor", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Cursor$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.awt.Cursor$1",
-	"java.lang.Object",
-	"sun.awt.AWTAccessor$CursorAccessor",
-	nullptr,
-	_Cursor$1_MethodInfo_,
-	nullptr,
-	&_Cursor$1_EnclosingMethodInfo_,
-	_Cursor$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.awt.Cursor"
-};
-
-$Object* allocate$Cursor$1($Class* clazz) {
-	return $of($alloc(Cursor$1));
-}
 
 void Cursor$1::init$() {
 }
@@ -71,7 +30,41 @@ Cursor$1::Cursor$1() {
 }
 
 $Class* Cursor$1::load$($String* name, bool initialize) {
-	$loadClass(Cursor$1, name, initialize, &_Cursor$1_ClassInfo_, allocate$Cursor$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(Cursor$1, init$, void)},
+		{"getPData", "(Ljava/awt/Cursor;)J", nullptr, $PUBLIC, $virtualMethod(Cursor$1, getPData, int64_t, $Cursor*)},
+		{"getType", "(Ljava/awt/Cursor;)I", nullptr, $PUBLIC, $virtualMethod(Cursor$1, getType, int32_t, $Cursor*)},
+		{"setPData", "(Ljava/awt/Cursor;J)V", nullptr, $PUBLIC, $virtualMethod(Cursor$1, setPData, void, $Cursor*, int64_t)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.awt.Cursor",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.awt.Cursor$1", nullptr, nullptr, 0},
+		{"sun.awt.AWTAccessor$CursorAccessor", "sun.awt.AWTAccessor", "CursorAccessor", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.awt.Cursor$1",
+		"java.lang.Object",
+		"sun.awt.AWTAccessor$CursorAccessor",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.awt.Cursor"
+	};
+	$loadClass(Cursor$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Cursor$1);
+	});
 	return class$;
 }
 

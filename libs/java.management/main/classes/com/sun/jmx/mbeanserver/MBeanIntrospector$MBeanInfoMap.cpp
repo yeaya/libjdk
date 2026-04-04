@@ -1,5 +1,4 @@
 #include <com/sun/jmx/mbeanserver/MBeanIntrospector$MBeanInfoMap.h>
-
 #include <com/sun/jmx/mbeanserver/MBeanIntrospector.h>
 #include <java/util/WeakHashMap.h>
 #include <jcpp.h>
@@ -14,36 +13,6 @@ namespace com {
 		namespace jmx {
 			namespace mbeanserver {
 
-$MethodInfo _MBeanIntrospector$MBeanInfoMap_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(MBeanIntrospector$MBeanInfoMap, init$, void)},
-	{}
-};
-
-$InnerClassInfo _MBeanIntrospector$MBeanInfoMap_InnerClassesInfo_[] = {
-	{"com.sun.jmx.mbeanserver.MBeanIntrospector$MBeanInfoMap", "com.sun.jmx.mbeanserver.MBeanIntrospector", "MBeanInfoMap", $STATIC},
-	{}
-};
-
-$ClassInfo _MBeanIntrospector$MBeanInfoMap_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.jmx.mbeanserver.MBeanIntrospector$MBeanInfoMap",
-	"java.util.WeakHashMap",
-	nullptr,
-	nullptr,
-	_MBeanIntrospector$MBeanInfoMap_MethodInfo_,
-	"Ljava/util/WeakHashMap<Ljava/lang/Class<*>;Ljava/util/WeakHashMap<Ljava/lang/Class<*>;Ljavax/management/MBeanInfo;>;>;",
-	nullptr,
-	_MBeanIntrospector$MBeanInfoMap_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.jmx.mbeanserver.MBeanIntrospector"
-};
-
-$Object* allocate$MBeanIntrospector$MBeanInfoMap($Class* clazz) {
-	return $of($alloc(MBeanIntrospector$MBeanInfoMap));
-}
-
 void MBeanIntrospector$MBeanInfoMap::init$() {
 	$WeakHashMap::init$();
 }
@@ -52,7 +21,32 @@ MBeanIntrospector$MBeanInfoMap::MBeanIntrospector$MBeanInfoMap() {
 }
 
 $Class* MBeanIntrospector$MBeanInfoMap::load$($String* name, bool initialize) {
-	$loadClass(MBeanIntrospector$MBeanInfoMap, name, initialize, &_MBeanIntrospector$MBeanInfoMap_ClassInfo_, allocate$MBeanIntrospector$MBeanInfoMap);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(MBeanIntrospector$MBeanInfoMap, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.jmx.mbeanserver.MBeanIntrospector$MBeanInfoMap", "com.sun.jmx.mbeanserver.MBeanIntrospector", "MBeanInfoMap", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.jmx.mbeanserver.MBeanIntrospector$MBeanInfoMap",
+		"java.util.WeakHashMap",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		"Ljava/util/WeakHashMap<Ljava/lang/Class<*>;Ljava/util/WeakHashMap<Ljava/lang/Class<*>;Ljavax/management/MBeanInfo;>;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.jmx.mbeanserver.MBeanIntrospector"
+	};
+	$loadClass(MBeanIntrospector$MBeanInfoMap, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MBeanIntrospector$MBeanInfoMap);
+	});
 	return class$;
 }
 

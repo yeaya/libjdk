@@ -1,5 +1,4 @@
 #include <com/sun/media/sound/SF2Layer.h>
-
 #include <com/sun/media/sound/SF2GlobalRegion.h>
 #include <com/sun/media/sound/SF2Soundbank.h>
 #include <java/util/ArrayList.h>
@@ -23,39 +22,6 @@ namespace com {
 		namespace media {
 			namespace sound {
 
-$FieldInfo _SF2Layer_FieldInfo_[] = {
-	{"name", "Ljava/lang/String;", nullptr, 0, $field(SF2Layer, name)},
-	{"globalregion", "Lcom/sun/media/sound/SF2GlobalRegion;", nullptr, 0, $field(SF2Layer, globalregion)},
-	{"regions", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/media/sound/SF2LayerRegion;>;", 0, $field(SF2Layer, regions)},
-	{}
-};
-
-$MethodInfo _SF2Layer_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/media/sound/SF2Soundbank;)V", nullptr, $PUBLIC, $method(SF2Layer, init$, void, $SF2Soundbank*)},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SF2Layer, init$, void)},
-	{"getData", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SF2Layer, getData, $Object*)},
-	{"getGlobalRegion", "()Lcom/sun/media/sound/SF2GlobalRegion;", nullptr, $PUBLIC, $method(SF2Layer, getGlobalRegion, $SF2GlobalRegion*)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SF2Layer, getName, $String*)},
-	{"getRegions", "()Ljava/util/List;", "()Ljava/util/List<Lcom/sun/media/sound/SF2LayerRegion;>;", $PUBLIC, $method(SF2Layer, getRegions, $List*)},
-	{"setGlobalZone", "(Lcom/sun/media/sound/SF2GlobalRegion;)V", nullptr, $PUBLIC, $method(SF2Layer, setGlobalZone, void, $SF2GlobalRegion*)},
-	{"setName", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SF2Layer, setName, void, $String*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SF2Layer, toString, $String*)},
-	{}
-};
-
-$ClassInfo _SF2Layer_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.media.sound.SF2Layer",
-	"javax.sound.midi.SoundbankResource",
-	nullptr,
-	_SF2Layer_FieldInfo_,
-	_SF2Layer_MethodInfo_
-};
-
-$Object* allocate$SF2Layer($Class* clazz) {
-	return $of($alloc(SF2Layer));
-}
-
 void SF2Layer::init$($SF2Soundbank* soundBank) {
 	$SoundbankResource::init$(soundBank, nullptr, nullptr);
 	$set(this, name, ""_s);
@@ -71,7 +37,7 @@ void SF2Layer::init$() {
 }
 
 $Object* SF2Layer::getData() {
-	return $of(nullptr);
+	return nullptr;
 }
 
 $String* SF2Layer::getName() {
@@ -102,7 +68,35 @@ SF2Layer::SF2Layer() {
 }
 
 $Class* SF2Layer::load$($String* name, bool initialize) {
-	$loadClass(SF2Layer, name, initialize, &_SF2Layer_ClassInfo_, allocate$SF2Layer);
+	$FieldInfo fieldInfos$$[] = {
+		{"name", "Ljava/lang/String;", nullptr, 0, $field(SF2Layer, name)},
+		{"globalregion", "Lcom/sun/media/sound/SF2GlobalRegion;", nullptr, 0, $field(SF2Layer, globalregion)},
+		{"regions", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/media/sound/SF2LayerRegion;>;", 0, $field(SF2Layer, regions)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/media/sound/SF2Soundbank;)V", nullptr, $PUBLIC, $method(SF2Layer, init$, void, $SF2Soundbank*)},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SF2Layer, init$, void)},
+		{"getData", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SF2Layer, getData, $Object*)},
+		{"getGlobalRegion", "()Lcom/sun/media/sound/SF2GlobalRegion;", nullptr, $PUBLIC, $method(SF2Layer, getGlobalRegion, $SF2GlobalRegion*)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SF2Layer, getName, $String*)},
+		{"getRegions", "()Ljava/util/List;", "()Ljava/util/List<Lcom/sun/media/sound/SF2LayerRegion;>;", $PUBLIC, $method(SF2Layer, getRegions, $List*)},
+		{"setGlobalZone", "(Lcom/sun/media/sound/SF2GlobalRegion;)V", nullptr, $PUBLIC, $method(SF2Layer, setGlobalZone, void, $SF2GlobalRegion*)},
+		{"setName", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SF2Layer, setName, void, $String*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SF2Layer, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.media.sound.SF2Layer",
+		"javax.sound.midi.SoundbankResource",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SF2Layer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SF2Layer);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/apple/laf/AquaFileChooserUI$SaveTextFocusListener.h>
-
 #include <com/apple/laf/AquaFileChooserUI.h>
 #include <java/awt/event/FocusEvent.h>
 #include <javax/swing/JFileChooser.h>
@@ -16,43 +15,6 @@ namespace com {
 	namespace apple {
 		namespace laf {
 
-$FieldInfo _AquaFileChooserUI$SaveTextFocusListener_FieldInfo_[] = {
-	{"this$0", "Lcom/apple/laf/AquaFileChooserUI;", nullptr, $FINAL | $SYNTHETIC, $field(AquaFileChooserUI$SaveTextFocusListener, this$0)},
-	{}
-};
-
-$MethodInfo _AquaFileChooserUI$SaveTextFocusListener_MethodInfo_[] = {
-	{"<init>", "(Lcom/apple/laf/AquaFileChooserUI;)V", nullptr, $PROTECTED, $method(AquaFileChooserUI$SaveTextFocusListener, init$, void, $AquaFileChooserUI*)},
-	{"focusGained", "(Ljava/awt/event/FocusEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaFileChooserUI$SaveTextFocusListener, focusGained, void, $FocusEvent*)},
-	{"focusLost", "(Ljava/awt/event/FocusEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaFileChooserUI$SaveTextFocusListener, focusLost, void, $FocusEvent*)},
-	{}
-};
-
-$InnerClassInfo _AquaFileChooserUI$SaveTextFocusListener_InnerClassesInfo_[] = {
-	{"com.apple.laf.AquaFileChooserUI$SaveTextFocusListener", "com.apple.laf.AquaFileChooserUI", "SaveTextFocusListener", $PROTECTED},
-	{}
-};
-
-$ClassInfo _AquaFileChooserUI$SaveTextFocusListener_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.apple.laf.AquaFileChooserUI$SaveTextFocusListener",
-	"java.lang.Object",
-	"java.awt.event.FocusListener",
-	_AquaFileChooserUI$SaveTextFocusListener_FieldInfo_,
-	_AquaFileChooserUI$SaveTextFocusListener_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AquaFileChooserUI$SaveTextFocusListener_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.apple.laf.AquaFileChooserUI"
-};
-
-$Object* allocate$AquaFileChooserUI$SaveTextFocusListener($Class* clazz) {
-	return $of($alloc(AquaFileChooserUI$SaveTextFocusListener));
-}
-
 void AquaFileChooserUI$SaveTextFocusListener::init$($AquaFileChooserUI* this$0) {
 	$set(this, this$0, this$0);
 }
@@ -68,7 +30,38 @@ AquaFileChooserUI$SaveTextFocusListener::AquaFileChooserUI$SaveTextFocusListener
 }
 
 $Class* AquaFileChooserUI$SaveTextFocusListener::load$($String* name, bool initialize) {
-	$loadClass(AquaFileChooserUI$SaveTextFocusListener, name, initialize, &_AquaFileChooserUI$SaveTextFocusListener_ClassInfo_, allocate$AquaFileChooserUI$SaveTextFocusListener);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/apple/laf/AquaFileChooserUI;", nullptr, $FINAL | $SYNTHETIC, $field(AquaFileChooserUI$SaveTextFocusListener, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/apple/laf/AquaFileChooserUI;)V", nullptr, $PROTECTED, $method(AquaFileChooserUI$SaveTextFocusListener, init$, void, $AquaFileChooserUI*)},
+		{"focusGained", "(Ljava/awt/event/FocusEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaFileChooserUI$SaveTextFocusListener, focusGained, void, $FocusEvent*)},
+		{"focusLost", "(Ljava/awt/event/FocusEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaFileChooserUI$SaveTextFocusListener, focusLost, void, $FocusEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.laf.AquaFileChooserUI$SaveTextFocusListener", "com.apple.laf.AquaFileChooserUI", "SaveTextFocusListener", $PROTECTED},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.apple.laf.AquaFileChooserUI$SaveTextFocusListener",
+		"java.lang.Object",
+		"java.awt.event.FocusListener",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.apple.laf.AquaFileChooserUI"
+	};
+	$loadClass(AquaFileChooserUI$SaveTextFocusListener, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AquaFileChooserUI$SaveTextFocusListener);
+	});
 	return class$;
 }
 

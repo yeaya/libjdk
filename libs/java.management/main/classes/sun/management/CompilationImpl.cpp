@@ -1,5 +1,4 @@
 #include <sun/management/CompilationImpl.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/lang/UnsupportedOperationException.h>
 #include <java/lang/management/ManagementFactory.h>
@@ -22,34 +21,6 @@ using $VMManagement = ::sun::management::VMManagement;
 
 namespace sun {
 	namespace management {
-
-$FieldInfo _CompilationImpl_FieldInfo_[] = {
-	{"jvm", "Lsun/management/VMManagement;", nullptr, $PRIVATE | $FINAL, $field(CompilationImpl, jvm)},
-	{"name", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(CompilationImpl, name)},
-	{}
-};
-
-$MethodInfo _CompilationImpl_MethodInfo_[] = {
-	{"<init>", "(Lsun/management/VMManagement;)V", nullptr, 0, $method(CompilationImpl, init$, void, $VMManagement*)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CompilationImpl, getName, $String*)},
-	{"getObjectName", "()Ljavax/management/ObjectName;", nullptr, $PUBLIC, $virtualMethod(CompilationImpl, getObjectName, $ObjectName*)},
-	{"getTotalCompilationTime", "()J", nullptr, $PUBLIC, $virtualMethod(CompilationImpl, getTotalCompilationTime, int64_t)},
-	{"isCompilationTimeMonitoringSupported", "()Z", nullptr, $PUBLIC, $virtualMethod(CompilationImpl, isCompilationTimeMonitoringSupported, bool)},
-	{}
-};
-
-$ClassInfo _CompilationImpl_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.management.CompilationImpl",
-	"java.lang.Object",
-	"java.lang.management.CompilationMXBean",
-	_CompilationImpl_FieldInfo_,
-	_CompilationImpl_MethodInfo_
-};
-
-$Object* allocate$CompilationImpl($Class* clazz) {
-	return $of($alloc(CompilationImpl));
-}
 
 void CompilationImpl::init$($VMManagement* vm) {
 	$set(this, jvm, vm);
@@ -83,7 +54,30 @@ CompilationImpl::CompilationImpl() {
 }
 
 $Class* CompilationImpl::load$($String* name, bool initialize) {
-	$loadClass(CompilationImpl, name, initialize, &_CompilationImpl_ClassInfo_, allocate$CompilationImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"jvm", "Lsun/management/VMManagement;", nullptr, $PRIVATE | $FINAL, $field(CompilationImpl, jvm)},
+		{"name", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(CompilationImpl, name)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/management/VMManagement;)V", nullptr, 0, $method(CompilationImpl, init$, void, $VMManagement*)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CompilationImpl, getName, $String*)},
+		{"getObjectName", "()Ljavax/management/ObjectName;", nullptr, $PUBLIC, $virtualMethod(CompilationImpl, getObjectName, $ObjectName*)},
+		{"getTotalCompilationTime", "()J", nullptr, $PUBLIC, $virtualMethod(CompilationImpl, getTotalCompilationTime, int64_t)},
+		{"isCompilationTimeMonitoringSupported", "()Z", nullptr, $PUBLIC, $virtualMethod(CompilationImpl, isCompilationTimeMonitoringSupported, bool)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.management.CompilationImpl",
+		"java.lang.Object",
+		"java.lang.management.CompilationMXBean",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CompilationImpl, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CompilationImpl);
+	});
 	return class$;
 }
 

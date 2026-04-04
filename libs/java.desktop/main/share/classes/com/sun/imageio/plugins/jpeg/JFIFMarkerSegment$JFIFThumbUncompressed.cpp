@@ -1,5 +1,4 @@
 #include <com/sun/imageio/plugins/jpeg/JFIFMarkerSegment$JFIFThumbUncompressed.h>
-
 #include <com/sun/imageio/plugins/jpeg/JFIFMarkerSegment$JFIFThumb.h>
 #include <com/sun/imageio/plugins/jpeg/JFIFMarkerSegment.h>
 #include <com/sun/imageio/plugins/jpeg/JPEGBuffer.h>
@@ -26,8 +25,6 @@ using $JPEGImageReader = ::com::sun::imageio::plugins::jpeg::JPEGImageReader;
 using $JPEGImageWriter = ::com::sun::imageio::plugins::jpeg::JPEGImageWriter;
 using $MarkerSegment = ::com::sun::imageio::plugins::jpeg::MarkerSegment;
 using $BufferedImage = ::java::awt::image::BufferedImage;
-using $WritableRaster = ::java::awt::image::WritableRaster;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $Float = ::java::lang::Float;
@@ -48,55 +45,6 @@ namespace com {
 			namespace plugins {
 				namespace jpeg {
 
-$FieldInfo _JFIFMarkerSegment$JFIFThumbUncompressed_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/imageio/plugins/jpeg/JFIFMarkerSegment;", nullptr, $FINAL | $SYNTHETIC, $field(JFIFMarkerSegment$JFIFThumbUncompressed, this$0)},
-	{"thumbnail", "Ljava/awt/image/BufferedImage;", nullptr, 0, $field(JFIFMarkerSegment$JFIFThumbUncompressed, thumbnail)},
-	{"thumbWidth", "I", nullptr, 0, $field(JFIFMarkerSegment$JFIFThumbUncompressed, thumbWidth)},
-	{"thumbHeight", "I", nullptr, 0, $field(JFIFMarkerSegment$JFIFThumbUncompressed, thumbHeight)},
-	{"name", "Ljava/lang/String;", nullptr, 0, $field(JFIFMarkerSegment$JFIFThumbUncompressed, name)},
-	{}
-};
-
-$MethodInfo _JFIFMarkerSegment$JFIFThumbUncompressed_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/imageio/plugins/jpeg/JFIFMarkerSegment;Lcom/sun/imageio/plugins/jpeg/JPEGBuffer;IIILjava/lang/String;)V", nullptr, 0, $method(JFIFMarkerSegment$JFIFThumbUncompressed, init$, void, $JFIFMarkerSegment*, $JPEGBuffer*, int32_t, int32_t, int32_t, $String*), "java.io.IOException"},
-	{"<init>", "(Lcom/sun/imageio/plugins/jpeg/JFIFMarkerSegment;Lorg/w3c/dom/Node;Ljava/lang/String;)V", nullptr, 0, $method(JFIFMarkerSegment$JFIFThumbUncompressed, init$, void, $JFIFMarkerSegment*, $Node*, $String*), "javax.imageio.metadata.IIOInvalidTreeException"},
-	{"<init>", "(Lcom/sun/imageio/plugins/jpeg/JFIFMarkerSegment;Ljava/awt/image/BufferedImage;)V", nullptr, 0, $method(JFIFMarkerSegment$JFIFThumbUncompressed, init$, void, $JFIFMarkerSegment*, $BufferedImage*)},
-	{"getHeight", "()I", nullptr, 0, $virtualMethod(JFIFMarkerSegment$JFIFThumbUncompressed, getHeight, int32_t)},
-	{"getNativeNode", "()Ljavax/imageio/metadata/IIOMetadataNode;", nullptr, 0, $virtualMethod(JFIFMarkerSegment$JFIFThumbUncompressed, getNativeNode, $IIOMetadataNode*)},
-	{"getWidth", "()I", nullptr, 0, $virtualMethod(JFIFMarkerSegment$JFIFThumbUncompressed, getWidth, int32_t)},
-	{"print", "()V", nullptr, 0, $virtualMethod(JFIFMarkerSegment$JFIFThumbUncompressed, print, void)},
-	{"readByteBuffer", "(Ljavax/imageio/stream/ImageInputStream;[BLcom/sun/imageio/plugins/jpeg/JPEGImageReader;FF)V", nullptr, 0, $virtualMethod(JFIFMarkerSegment$JFIFThumbUncompressed, readByteBuffer, void, $ImageInputStream*, $bytes*, $JPEGImageReader*, float, float), "java.io.IOException"},
-	{"write", "(Ljavax/imageio/stream/ImageOutputStream;Lcom/sun/imageio/plugins/jpeg/JPEGImageWriter;)V", nullptr, 0, $virtualMethod(JFIFMarkerSegment$JFIFThumbUncompressed, write, void, $ImageOutputStream*, $JPEGImageWriter*), "java.io.IOException"},
-	{"writePixels", "(Ljavax/imageio/stream/ImageOutputStream;Lcom/sun/imageio/plugins/jpeg/JPEGImageWriter;)V", nullptr, 0, $virtualMethod(JFIFMarkerSegment$JFIFThumbUncompressed, writePixels, void, $ImageOutputStream*, $JPEGImageWriter*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _JFIFMarkerSegment$JFIFThumbUncompressed_InnerClassesInfo_[] = {
-	{"com.sun.imageio.plugins.jpeg.JFIFMarkerSegment$JFIFThumbUncompressed", "com.sun.imageio.plugins.jpeg.JFIFMarkerSegment", "JFIFThumbUncompressed", $ABSTRACT},
-	{"com.sun.imageio.plugins.jpeg.JFIFMarkerSegment$JFIFThumb", "com.sun.imageio.plugins.jpeg.JFIFMarkerSegment", "JFIFThumb", $ABSTRACT},
-	{}
-};
-
-$ClassInfo _JFIFMarkerSegment$JFIFThumbUncompressed_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"com.sun.imageio.plugins.jpeg.JFIFMarkerSegment$JFIFThumbUncompressed",
-	"com.sun.imageio.plugins.jpeg.JFIFMarkerSegment$JFIFThumb",
-	nullptr,
-	_JFIFMarkerSegment$JFIFThumbUncompressed_FieldInfo_,
-	_JFIFMarkerSegment$JFIFThumbUncompressed_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JFIFMarkerSegment$JFIFThumbUncompressed_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.imageio.plugins.jpeg.JFIFMarkerSegment"
-};
-
-$Object* allocate$JFIFMarkerSegment$JFIFThumbUncompressed($Class* clazz) {
-	return $of($alloc(JFIFMarkerSegment$JFIFThumbUncompressed));
-}
-
 void JFIFMarkerSegment$JFIFThumbUncompressed::init$($JFIFMarkerSegment* this$0, $JPEGBuffer* buffer, int32_t width, int32_t height, int32_t skip, $String* name) {
 	$set(this, this$0, this$0);
 	$JFIFMarkerSegment$JFIFThumb::init$(this$0, buffer);
@@ -108,7 +56,7 @@ void JFIFMarkerSegment$JFIFThumbUncompressed::init$($JFIFMarkerSegment* this$0, 
 }
 
 void JFIFMarkerSegment$JFIFThumbUncompressed::init$($JFIFMarkerSegment* this$0, $Node* node, $String* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, this$0, this$0);
 	$JFIFMarkerSegment$JFIFThumb::init$(this$0);
 	$set(this, thumbnail, nullptr);
@@ -140,7 +88,7 @@ void JFIFMarkerSegment$JFIFThumbUncompressed::init$($JFIFMarkerSegment* this$0, 
 
 void JFIFMarkerSegment$JFIFThumbUncompressed::readByteBuffer($ImageInputStream* iis, $bytes* data, $JPEGImageReader* reader, float workPortion, float workOffset) {
 	int32_t progInterval = $Math::max($cast(int32_t, ($nc(data)->length / 20 / workPortion)), 1);
-	for (int32_t offset = 0; offset < $nc(data)->length;) {
+	for (int32_t offset = 0; offset < data->length;) {
 		int32_t len = $Math::min(progInterval, data->length - offset);
 		$nc(iis)->read(data, offset, len);
 		offset += progInterval;
@@ -161,7 +109,7 @@ int32_t JFIFMarkerSegment$JFIFThumbUncompressed::getHeight() {
 }
 
 $IIOMetadataNode* JFIFMarkerSegment$JFIFThumbUncompressed::getNativeNode() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($IIOMetadataNode, node, $new($IIOMetadataNode, this->name));
 	node->setAttribute("thumbWidth"_s, $($Integer::toString(this->thumbWidth)));
 	node->setAttribute("thumbHeight"_s, $($Integer::toString(this->thumbHeight)));
@@ -179,29 +127,72 @@ void JFIFMarkerSegment$JFIFThumbUncompressed::write($ImageOutputStream* ios, $JP
 }
 
 void JFIFMarkerSegment$JFIFThumbUncompressed::writePixels($ImageOutputStream* ios, $JPEGImageWriter* writer) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ((this->thumbWidth > 255) || (this->thumbHeight > 255)) {
 		$nc(writer)->warningOccurred($JPEGImageWriter::WARNING_THUMB_CLIPPED);
 	}
 	this->thumbWidth = $Math::min(this->thumbWidth, 255);
 	this->thumbHeight = $Math::min(this->thumbHeight, 255);
-	$var($ints, data, $nc($($nc(this->thumbnail)->getRaster()))->getPixels(0, 0, this->thumbWidth, this->thumbHeight, ($ints*)nullptr));
+	$var($ints, data, $$nc($nc(this->thumbnail)->getRaster())->getPixels(0, 0, this->thumbWidth, this->thumbHeight, ($ints*)nullptr));
 	this->this$0->writeThumbnailData(ios, data, writer);
 }
 
 void JFIFMarkerSegment$JFIFThumbUncompressed::print() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc($System::out)->print($$str({this->name, " width: "_s}));
-	$nc($System::out)->println(this->thumbWidth);
-	$nc($System::out)->print($$str({this->name, " height: "_s}));
-	$nc($System::out)->println(this->thumbHeight);
+	$System::out->println(this->thumbWidth);
+	$System::out->print($$str({this->name, " height: "_s}));
+	$System::out->println(this->thumbHeight);
 }
 
 JFIFMarkerSegment$JFIFThumbUncompressed::JFIFMarkerSegment$JFIFThumbUncompressed() {
 }
 
 $Class* JFIFMarkerSegment$JFIFThumbUncompressed::load$($String* name, bool initialize) {
-	$loadClass(JFIFMarkerSegment$JFIFThumbUncompressed, name, initialize, &_JFIFMarkerSegment$JFIFThumbUncompressed_ClassInfo_, allocate$JFIFMarkerSegment$JFIFThumbUncompressed);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/imageio/plugins/jpeg/JFIFMarkerSegment;", nullptr, $FINAL | $SYNTHETIC, $field(JFIFMarkerSegment$JFIFThumbUncompressed, this$0)},
+		{"thumbnail", "Ljava/awt/image/BufferedImage;", nullptr, 0, $field(JFIFMarkerSegment$JFIFThumbUncompressed, thumbnail)},
+		{"thumbWidth", "I", nullptr, 0, $field(JFIFMarkerSegment$JFIFThumbUncompressed, thumbWidth)},
+		{"thumbHeight", "I", nullptr, 0, $field(JFIFMarkerSegment$JFIFThumbUncompressed, thumbHeight)},
+		{"name", "Ljava/lang/String;", nullptr, 0, $field(JFIFMarkerSegment$JFIFThumbUncompressed, name)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/imageio/plugins/jpeg/JFIFMarkerSegment;Lcom/sun/imageio/plugins/jpeg/JPEGBuffer;IIILjava/lang/String;)V", nullptr, 0, $method(JFIFMarkerSegment$JFIFThumbUncompressed, init$, void, $JFIFMarkerSegment*, $JPEGBuffer*, int32_t, int32_t, int32_t, $String*), "java.io.IOException"},
+		{"<init>", "(Lcom/sun/imageio/plugins/jpeg/JFIFMarkerSegment;Lorg/w3c/dom/Node;Ljava/lang/String;)V", nullptr, 0, $method(JFIFMarkerSegment$JFIFThumbUncompressed, init$, void, $JFIFMarkerSegment*, $Node*, $String*), "javax.imageio.metadata.IIOInvalidTreeException"},
+		{"<init>", "(Lcom/sun/imageio/plugins/jpeg/JFIFMarkerSegment;Ljava/awt/image/BufferedImage;)V", nullptr, 0, $method(JFIFMarkerSegment$JFIFThumbUncompressed, init$, void, $JFIFMarkerSegment*, $BufferedImage*)},
+		{"getHeight", "()I", nullptr, 0, $virtualMethod(JFIFMarkerSegment$JFIFThumbUncompressed, getHeight, int32_t)},
+		{"getNativeNode", "()Ljavax/imageio/metadata/IIOMetadataNode;", nullptr, 0, $virtualMethod(JFIFMarkerSegment$JFIFThumbUncompressed, getNativeNode, $IIOMetadataNode*)},
+		{"getWidth", "()I", nullptr, 0, $virtualMethod(JFIFMarkerSegment$JFIFThumbUncompressed, getWidth, int32_t)},
+		{"print", "()V", nullptr, 0, $virtualMethod(JFIFMarkerSegment$JFIFThumbUncompressed, print, void)},
+		{"readByteBuffer", "(Ljavax/imageio/stream/ImageInputStream;[BLcom/sun/imageio/plugins/jpeg/JPEGImageReader;FF)V", nullptr, 0, $virtualMethod(JFIFMarkerSegment$JFIFThumbUncompressed, readByteBuffer, void, $ImageInputStream*, $bytes*, $JPEGImageReader*, float, float), "java.io.IOException"},
+		{"write", "(Ljavax/imageio/stream/ImageOutputStream;Lcom/sun/imageio/plugins/jpeg/JPEGImageWriter;)V", nullptr, 0, $virtualMethod(JFIFMarkerSegment$JFIFThumbUncompressed, write, void, $ImageOutputStream*, $JPEGImageWriter*), "java.io.IOException"},
+		{"writePixels", "(Ljavax/imageio/stream/ImageOutputStream;Lcom/sun/imageio/plugins/jpeg/JPEGImageWriter;)V", nullptr, 0, $virtualMethod(JFIFMarkerSegment$JFIFThumbUncompressed, writePixels, void, $ImageOutputStream*, $JPEGImageWriter*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.imageio.plugins.jpeg.JFIFMarkerSegment$JFIFThumbUncompressed", "com.sun.imageio.plugins.jpeg.JFIFMarkerSegment", "JFIFThumbUncompressed", $ABSTRACT},
+		{"com.sun.imageio.plugins.jpeg.JFIFMarkerSegment$JFIFThumb", "com.sun.imageio.plugins.jpeg.JFIFMarkerSegment", "JFIFThumb", $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"com.sun.imageio.plugins.jpeg.JFIFMarkerSegment$JFIFThumbUncompressed",
+		"com.sun.imageio.plugins.jpeg.JFIFMarkerSegment$JFIFThumb",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.imageio.plugins.jpeg.JFIFMarkerSegment"
+	};
+	$loadClass(JFIFMarkerSegment$JFIFThumbUncompressed, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JFIFMarkerSegment$JFIFThumbUncompressed);
+	});
 	return class$;
 }
 

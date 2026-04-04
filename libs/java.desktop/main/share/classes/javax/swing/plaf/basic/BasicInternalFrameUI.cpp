@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/basic/BasicInternalFrameUI.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
@@ -10,8 +9,6 @@
 #include <java/awt/Rectangle.h>
 #include <java/awt/event/ComponentListener.h>
 #include <java/awt/event/MouseAdapter.h>
-#include <java/awt/event/MouseListener.h>
-#include <java/awt/event/MouseMotionListener.h>
 #include <java/awt/event/WindowFocusListener.h>
 #include <java/beans/PropertyChangeListener.h>
 #include <javax/swing/Action.h>
@@ -50,7 +47,6 @@
 #undef WHEN_IN_FOCUSED_WINDOW
 
 using $Color = ::java::awt::Color;
-using $Component = ::java::awt::Component;
 using $Container = ::java::awt::Container;
 using $Cursor = ::java::awt::Cursor;
 using $Dimension = ::java::awt::Dimension;
@@ -58,8 +54,6 @@ using $IllegalComponentStateException = ::java::awt::IllegalComponentStateExcept
 using $LayoutManager = ::java::awt::LayoutManager;
 using $ComponentListener = ::java::awt::event::ComponentListener;
 using $MouseAdapter = ::java::awt::event::MouseAdapter;
-using $MouseListener = ::java::awt::event::MouseListener;
-using $MouseMotionListener = ::java::awt::event::MouseMotionListener;
 using $WindowFocusListener = ::java::awt::event::WindowFocusListener;
 using $PropertyChangeListener = ::java::beans::PropertyChangeListener;
 using $Boolean = ::java::lang::Boolean;
@@ -69,20 +63,16 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Action = ::javax::swing::Action;
 using $ActionMap = ::javax::swing::ActionMap;
 using $DefaultDesktopManager = ::javax::swing::DefaultDesktopManager;
 using $DesktopManager = ::javax::swing::DesktopManager;
 using $Icon = ::javax::swing::Icon;
 using $InputMap = ::javax::swing::InputMap;
 using $JComponent = ::javax::swing::JComponent;
-using $JDesktopPane = ::javax::swing::JDesktopPane;
 using $JInternalFrame = ::javax::swing::JInternalFrame;
 using $LookAndFeel = ::javax::swing::LookAndFeel;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
-using $UIDefaults = ::javax::swing::UIDefaults;
 using $UIManager = ::javax::swing::UIManager;
-using $InternalFrameListener = ::javax::swing::event::InternalFrameListener;
 using $MouseInputAdapter = ::javax::swing::event::MouseInputAdapter;
 using $MouseInputListener = ::javax::swing::event::MouseInputListener;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
@@ -101,129 +91,6 @@ namespace javax {
 		namespace plaf {
 			namespace basic {
 
-$CompoundAttribute _BasicInternalFrameUI_FieldAnnotations_openMenuKey[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$FieldInfo _BasicInternalFrameUI_FieldInfo_[] = {
-	{"frame", "Ljavax/swing/JInternalFrame;", nullptr, $PROTECTED, $field(BasicInternalFrameUI, frame)},
-	{"handler", "Ljavax/swing/plaf/basic/BasicInternalFrameUI$Handler;", nullptr, $PRIVATE, $field(BasicInternalFrameUI, handler)},
-	{"borderListener", "Ljavax/swing/event/MouseInputAdapter;", nullptr, $PROTECTED, $field(BasicInternalFrameUI, borderListener)},
-	{"propertyChangeListener", "Ljava/beans/PropertyChangeListener;", nullptr, $PROTECTED, $field(BasicInternalFrameUI, propertyChangeListener)},
-	{"internalFrameLayout", "Ljava/awt/LayoutManager;", nullptr, $PROTECTED, $field(BasicInternalFrameUI, internalFrameLayout)},
-	{"componentListener", "Ljava/awt/event/ComponentListener;", nullptr, $PROTECTED, $field(BasicInternalFrameUI, componentListener)},
-	{"glassPaneDispatcher", "Ljavax/swing/event/MouseInputListener;", nullptr, $PROTECTED, $field(BasicInternalFrameUI, glassPaneDispatcher)},
-	{"internalFrameListener", "Ljavax/swing/event/InternalFrameListener;", nullptr, $PRIVATE, $field(BasicInternalFrameUI, internalFrameListener)},
-	{"northPane", "Ljavax/swing/JComponent;", nullptr, $PROTECTED, $field(BasicInternalFrameUI, northPane)},
-	{"southPane", "Ljavax/swing/JComponent;", nullptr, $PROTECTED, $field(BasicInternalFrameUI, southPane)},
-	{"westPane", "Ljavax/swing/JComponent;", nullptr, $PROTECTED, $field(BasicInternalFrameUI, westPane)},
-	{"eastPane", "Ljavax/swing/JComponent;", nullptr, $PROTECTED, $field(BasicInternalFrameUI, eastPane)},
-	{"titlePane", "Ljavax/swing/plaf/basic/BasicInternalFrameTitlePane;", nullptr, $PROTECTED, $field(BasicInternalFrameUI, titlePane)},
-	{"sharedDesktopManager", "Ljavax/swing/DesktopManager;", nullptr, $PRIVATE | $STATIC, $staticField(BasicInternalFrameUI, sharedDesktopManager)},
-	{"componentListenerAdded", "Z", nullptr, $PRIVATE, $field(BasicInternalFrameUI, componentListenerAdded)},
-	{"parentBounds", "Ljava/awt/Rectangle;", nullptr, $PRIVATE, $field(BasicInternalFrameUI, parentBounds)},
-	{"dragging", "Z", nullptr, $PRIVATE, $field(BasicInternalFrameUI, dragging)},
-	{"resizing", "Z", nullptr, $PRIVATE, $field(BasicInternalFrameUI, resizing)},
-	{"openMenuKey", "Ljavax/swing/KeyStroke;", nullptr, $PROTECTED | $DEPRECATED, $field(BasicInternalFrameUI, openMenuKey), _BasicInternalFrameUI_FieldAnnotations_openMenuKey},
-	{"keyBindingRegistered", "Z", nullptr, $PRIVATE, $field(BasicInternalFrameUI, keyBindingRegistered)},
-	{"keyBindingActive", "Z", nullptr, $PRIVATE, $field(BasicInternalFrameUI, keyBindingActive)},
-	{}
-};
-
-$MethodInfo _BasicInternalFrameUI_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/JInternalFrame;)V", nullptr, $PUBLIC, $method(BasicInternalFrameUI, init$, void, $JInternalFrame*)},
-	{"activateFrame", "(Ljavax/swing/JInternalFrame;)V", nullptr, $PROTECTED, $virtualMethod(BasicInternalFrameUI, activateFrame, void, $JInternalFrame*)},
-	{"cancelResize", "()V", nullptr, $PRIVATE, $method(BasicInternalFrameUI, cancelResize, void)},
-	{"closeFrame", "(Ljavax/swing/JInternalFrame;)V", nullptr, $PROTECTED, $virtualMethod(BasicInternalFrameUI, closeFrame, void, $JInternalFrame*)},
-	{"createBorderListener", "(Ljavax/swing/JInternalFrame;)Ljavax/swing/event/MouseInputAdapter;", nullptr, $PROTECTED, $virtualMethod(BasicInternalFrameUI, createBorderListener, $MouseInputAdapter*, $JInternalFrame*)},
-	{"createComponentListener", "()Ljava/awt/event/ComponentListener;", nullptr, $PROTECTED, $virtualMethod(BasicInternalFrameUI, createComponentListener, $ComponentListener*)},
-	{"createDesktopManager", "()Ljavax/swing/DesktopManager;", nullptr, $PROTECTED, $virtualMethod(BasicInternalFrameUI, createDesktopManager, $DesktopManager*)},
-	{"createEastPane", "(Ljavax/swing/JInternalFrame;)Ljavax/swing/JComponent;", nullptr, $PROTECTED, $virtualMethod(BasicInternalFrameUI, createEastPane, $JComponent*, $JInternalFrame*)},
-	{"createGlassPaneDispatcher", "()Ljavax/swing/event/MouseInputListener;", nullptr, $PROTECTED, $virtualMethod(BasicInternalFrameUI, createGlassPaneDispatcher, $MouseInputListener*)},
-	{"createInputMap", "(I)Ljavax/swing/InputMap;", nullptr, 0, $virtualMethod(BasicInternalFrameUI, createInputMap, $InputMap*, int32_t)},
-	{"createInternalFrameListener", "()V", nullptr, $PROTECTED, $virtualMethod(BasicInternalFrameUI, createInternalFrameListener, void)},
-	{"createLayoutManager", "()Ljava/awt/LayoutManager;", nullptr, $PROTECTED, $virtualMethod(BasicInternalFrameUI, createLayoutManager, $LayoutManager*)},
-	{"createNorthPane", "(Ljavax/swing/JInternalFrame;)Ljavax/swing/JComponent;", nullptr, $PROTECTED, $virtualMethod(BasicInternalFrameUI, createNorthPane, $JComponent*, $JInternalFrame*)},
-	{"createPropertyChangeListener", "()Ljava/beans/PropertyChangeListener;", nullptr, $PROTECTED, $virtualMethod(BasicInternalFrameUI, createPropertyChangeListener, $PropertyChangeListener*)},
-	{"createSouthPane", "(Ljavax/swing/JInternalFrame;)Ljavax/swing/JComponent;", nullptr, $PROTECTED, $virtualMethod(BasicInternalFrameUI, createSouthPane, $JComponent*, $JInternalFrame*)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(BasicInternalFrameUI, createUI, $ComponentUI*, $JComponent*)},
-	{"createWestPane", "(Ljavax/swing/JInternalFrame;)Ljavax/swing/JComponent;", nullptr, $PROTECTED, $virtualMethod(BasicInternalFrameUI, createWestPane, $JComponent*, $JInternalFrame*)},
-	{"deactivateFrame", "(Ljavax/swing/JInternalFrame;)V", nullptr, $PROTECTED, $virtualMethod(BasicInternalFrameUI, deactivateFrame, void, $JInternalFrame*)},
-	{"deiconifyFrame", "(Ljavax/swing/JInternalFrame;)V", nullptr, $PROTECTED, $virtualMethod(BasicInternalFrameUI, deiconifyFrame, void, $JInternalFrame*)},
-	{"deinstallMouseHandlers", "(Ljavax/swing/JComponent;)V", nullptr, $PROTECTED, $virtualMethod(BasicInternalFrameUI, deinstallMouseHandlers, void, $JComponent*)},
-	{"getDesktopManager", "()Ljavax/swing/DesktopManager;", nullptr, $PROTECTED, $virtualMethod(BasicInternalFrameUI, getDesktopManager, $DesktopManager*)},
-	{"getEastPane", "()Ljavax/swing/JComponent;", nullptr, $PUBLIC, $virtualMethod(BasicInternalFrameUI, getEastPane, $JComponent*)},
-	{"getHandler", "()Ljavax/swing/plaf/basic/BasicInternalFrameUI$Handler;", nullptr, $PRIVATE, $method(BasicInternalFrameUI, getHandler, $BasicInternalFrameUI$Handler*)},
-	{"getInputMap", "(I)Ljavax/swing/InputMap;", nullptr, 0, $virtualMethod(BasicInternalFrameUI, getInputMap, $InputMap*, int32_t)},
-	{"getMaximumSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BasicInternalFrameUI, getMaximumSize, $Dimension*, $JComponent*)},
-	{"getMinimumSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BasicInternalFrameUI, getMinimumSize, $Dimension*, $JComponent*)},
-	{"getNorthPane", "()Ljavax/swing/JComponent;", nullptr, $PUBLIC, $virtualMethod(BasicInternalFrameUI, getNorthPane, $JComponent*)},
-	{"getPreferredSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BasicInternalFrameUI, getPreferredSize, $Dimension*, $JComponent*)},
-	{"getSouthPane", "()Ljavax/swing/JComponent;", nullptr, $PUBLIC, $virtualMethod(BasicInternalFrameUI, getSouthPane, $JComponent*)},
-	{"getWestPane", "()Ljavax/swing/JComponent;", nullptr, $PUBLIC, $virtualMethod(BasicInternalFrameUI, getWestPane, $JComponent*)},
-	{"getWindowFocusListener", "()Ljava/awt/event/WindowFocusListener;", nullptr, $PRIVATE, $method(BasicInternalFrameUI, getWindowFocusListener, $WindowFocusListener*)},
-	{"iconifyFrame", "(Ljavax/swing/JInternalFrame;)V", nullptr, $PROTECTED, $virtualMethod(BasicInternalFrameUI, iconifyFrame, void, $JInternalFrame*)},
-	{"installComponents", "()V", nullptr, $PROTECTED, $virtualMethod(BasicInternalFrameUI, installComponents, void)},
-	{"installDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(BasicInternalFrameUI, installDefaults, void)},
-	{"installKeyboardActions", "()V", nullptr, $PROTECTED, $virtualMethod(BasicInternalFrameUI, installKeyboardActions, void)},
-	{"installListeners", "()V", nullptr, $PROTECTED, $virtualMethod(BasicInternalFrameUI, installListeners, void)},
-	{"installMouseHandlers", "(Ljavax/swing/JComponent;)V", nullptr, $PROTECTED, $virtualMethod(BasicInternalFrameUI, installMouseHandlers, void, $JComponent*)},
-	{"installUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(BasicInternalFrameUI, installUI, void, $JComponent*)},
-	{"isKeyBindingActive", "()Z", nullptr, $PUBLIC | $FINAL, $method(BasicInternalFrameUI, isKeyBindingActive, bool)},
-	{"isKeyBindingRegistered", "()Z", nullptr, $PROTECTED | $FINAL, $method(BasicInternalFrameUI, isKeyBindingRegistered, bool)},
-	{"loadActionMap", "(Ljavax/swing/plaf/basic/LazyActionMap;)V", nullptr, $STATIC, $staticMethod(BasicInternalFrameUI, loadActionMap, void, $LazyActionMap*)},
-	{"maximizeFrame", "(Ljavax/swing/JInternalFrame;)V", nullptr, $PROTECTED, $virtualMethod(BasicInternalFrameUI, maximizeFrame, void, $JInternalFrame*)},
-	{"minimizeFrame", "(Ljavax/swing/JInternalFrame;)V", nullptr, $PROTECTED, $virtualMethod(BasicInternalFrameUI, minimizeFrame, void, $JInternalFrame*)},
-	{"replacePane", "(Ljavax/swing/JComponent;Ljavax/swing/JComponent;)V", nullptr, $PROTECTED, $virtualMethod(BasicInternalFrameUI, replacePane, void, $JComponent*, $JComponent*)},
-	{"setEastPane", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(BasicInternalFrameUI, setEastPane, void, $JComponent*)},
-	{"setKeyBindingActive", "(Z)V", nullptr, $PROTECTED | $FINAL, $method(BasicInternalFrameUI, setKeyBindingActive, void, bool)},
-	{"setKeyBindingRegistered", "(Z)V", nullptr, $PROTECTED | $FINAL, $method(BasicInternalFrameUI, setKeyBindingRegistered, void, bool)},
-	{"setNorthPane", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(BasicInternalFrameUI, setNorthPane, void, $JComponent*)},
-	{"setSouthPane", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(BasicInternalFrameUI, setSouthPane, void, $JComponent*)},
-	{"setWestPane", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(BasicInternalFrameUI, setWestPane, void, $JComponent*)},
-	{"setupMenuCloseKey", "()V", nullptr, $PROTECTED, $virtualMethod(BasicInternalFrameUI, setupMenuCloseKey, void)},
-	{"setupMenuOpenKey", "()V", nullptr, $PROTECTED, $virtualMethod(BasicInternalFrameUI, setupMenuOpenKey, void)},
-	{"uninstallComponents", "()V", nullptr, $PROTECTED, $virtualMethod(BasicInternalFrameUI, uninstallComponents, void)},
-	{"uninstallDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(BasicInternalFrameUI, uninstallDefaults, void)},
-	{"uninstallKeyboardActions", "()V", nullptr, $PROTECTED, $virtualMethod(BasicInternalFrameUI, uninstallKeyboardActions, void)},
-	{"uninstallListeners", "()V", nullptr, $PROTECTED, $virtualMethod(BasicInternalFrameUI, uninstallListeners, void)},
-	{"uninstallUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(BasicInternalFrameUI, uninstallUI, void, $JComponent*)},
-	{"updateFrameCursor", "()V", nullptr, 0, $virtualMethod(BasicInternalFrameUI, updateFrameCursor, void)},
-	{}
-};
-
-$InnerClassInfo _BasicInternalFrameUI_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.basic.BasicInternalFrameUI$Handler", "javax.swing.plaf.basic.BasicInternalFrameUI", "Handler", $PRIVATE},
-	{"javax.swing.plaf.basic.BasicInternalFrameUI$BasicInternalFrameListener", "javax.swing.plaf.basic.BasicInternalFrameUI", "BasicInternalFrameListener", $PROTECTED},
-	{"javax.swing.plaf.basic.BasicInternalFrameUI$GlassPaneDispatcher", "javax.swing.plaf.basic.BasicInternalFrameUI", "GlassPaneDispatcher", $PROTECTED},
-	{"javax.swing.plaf.basic.BasicInternalFrameUI$ComponentHandler", "javax.swing.plaf.basic.BasicInternalFrameUI", "ComponentHandler", $PROTECTED},
-	{"javax.swing.plaf.basic.BasicInternalFrameUI$BorderListener", "javax.swing.plaf.basic.BasicInternalFrameUI", "BorderListener", $PROTECTED},
-	{"javax.swing.plaf.basic.BasicInternalFrameUI$InternalFrameLayout", "javax.swing.plaf.basic.BasicInternalFrameUI", "InternalFrameLayout", $PUBLIC},
-	{"javax.swing.plaf.basic.BasicInternalFrameUI$InternalFramePropertyChangeListener", "javax.swing.plaf.basic.BasicInternalFrameUI", "InternalFramePropertyChangeListener", $PUBLIC},
-	{"javax.swing.plaf.basic.BasicInternalFrameUI$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _BasicInternalFrameUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.basic.BasicInternalFrameUI",
-	"javax.swing.plaf.InternalFrameUI",
-	nullptr,
-	_BasicInternalFrameUI_FieldInfo_,
-	_BasicInternalFrameUI_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BasicInternalFrameUI_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.basic.BasicInternalFrameUI$Handler,javax.swing.plaf.basic.BasicInternalFrameUI$BasicInternalFrameListener,javax.swing.plaf.basic.BasicInternalFrameUI$GlassPaneDispatcher,javax.swing.plaf.basic.BasicInternalFrameUI$ComponentHandler,javax.swing.plaf.basic.BasicInternalFrameUI$BorderListener,javax.swing.plaf.basic.BasicInternalFrameUI$InternalFrameLayout,javax.swing.plaf.basic.BasicInternalFrameUI$InternalFramePropertyChangeListener,javax.swing.plaf.basic.BasicInternalFrameUI$1"
-};
-
-$Object* allocate$BasicInternalFrameUI($Class* clazz) {
-	return $of($alloc(BasicInternalFrameUI));
-}
-
 $DesktopManager* BasicInternalFrameUI::sharedDesktopManager = nullptr;
 
 $ComponentUI* BasicInternalFrameUI::createUI($JComponent* b) {
@@ -240,7 +107,7 @@ void BasicInternalFrameUI::init$($JInternalFrame* b) {
 	this->keyBindingActive = false;
 	$var($LookAndFeel, laf, $UIManager::getLookAndFeel());
 	if ($instanceOf($BasicLookAndFeel, laf)) {
-		$nc(($cast($BasicLookAndFeel, laf)))->installAWTEventListener();
+		$cast($BasicLookAndFeel, laf)->installAWTEventListener();
 	}
 }
 
@@ -250,7 +117,6 @@ void BasicInternalFrameUI::installUI($JComponent* c) {
 	installListeners();
 	installComponents();
 	installKeyboardActions();
-	$init($Boolean);
 	$LookAndFeel::installProperty(this->frame, "opaque"_s, $Boolean::TRUE);
 }
 
@@ -268,7 +134,7 @@ void BasicInternalFrameUI::uninstallUI($JComponent* c) {
 }
 
 void BasicInternalFrameUI::installDefaults() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Icon, frameIcon, $nc(this->frame)->getFrameIcon());
 	if (frameIcon == nullptr || $instanceOf($UIResource, frameIcon)) {
 		$nc(this->frame)->setFrameIcon($($UIManager::getIcon("InternalFrame.icon"_s)));
@@ -281,7 +147,7 @@ void BasicInternalFrameUI::installDefaults() {
 		}
 	}
 	$nc(this->frame)->setLayout($set(this, internalFrameLayout, createLayoutManager()));
-	$nc(this->frame)->setBackground($($nc($($UIManager::getLookAndFeelDefaults()))->getColor("control"_s)));
+	$nc(this->frame)->setBackground($($$nc($UIManager::getLookAndFeelDefaults())->getColor("control"_s)));
 	$LookAndFeel::installBorder(this->frame, "InternalFrame.border"_s);
 }
 
@@ -300,7 +166,7 @@ void BasicInternalFrameUI::loadActionMap($LazyActionMap* map) {
 }
 
 void BasicInternalFrameUI::installComponents() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	setNorthPane($(createNorthPane(this->frame)));
 	setSouthPane($(createSouthPane(this->frame)));
 	setEastPane($(createEastPane(this->frame)));
@@ -308,22 +174,22 @@ void BasicInternalFrameUI::installComponents() {
 }
 
 void BasicInternalFrameUI::installListeners() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, borderListener, createBorderListener(this->frame));
 	$set(this, propertyChangeListener, createPropertyChangeListener());
 	$nc(this->frame)->addPropertyChangeListener(this->propertyChangeListener);
 	installMouseHandlers(this->frame);
 	$set(this, glassPaneDispatcher, createGlassPaneDispatcher());
 	if (this->glassPaneDispatcher != nullptr) {
-		$nc($($nc(this->frame)->getGlassPane()))->addMouseListener(this->glassPaneDispatcher);
-		$nc($($nc(this->frame)->getGlassPane()))->addMouseMotionListener(this->glassPaneDispatcher);
+		$$nc($nc(this->frame)->getGlassPane())->addMouseListener(this->glassPaneDispatcher);
+		$$nc($nc(this->frame)->getGlassPane())->addMouseMotionListener(this->glassPaneDispatcher);
 	}
 	$set(this, componentListener, createComponentListener());
 	if ($nc(this->frame)->getParent() != nullptr) {
-		$set(this, parentBounds, $nc($($nc(this->frame)->getParent()))->getBounds());
+		$set(this, parentBounds, $$nc($nc(this->frame)->getParent())->getBounds());
 	}
 	if (($nc(this->frame)->getParent() != nullptr) && !this->componentListenerAdded) {
-		$nc($($nc(this->frame)->getParent()))->addComponentListener(this->componentListener);
+		$$nc($nc(this->frame)->getParent())->addComponentListener(this->componentListener);
 		this->componentListenerAdded = true;
 	}
 }
@@ -335,7 +201,7 @@ $WindowFocusListener* BasicInternalFrameUI::getWindowFocusListener() {
 void BasicInternalFrameUI::cancelResize() {
 	if (this->resizing) {
 		if ($instanceOf($BasicInternalFrameUI$BorderListener, this->borderListener)) {
-			$nc(($cast($BasicInternalFrameUI$BorderListener, this->borderListener)))->finishMouseReleased();
+			$cast($BasicInternalFrameUI$BorderListener, this->borderListener)->finishMouseReleased();
 		}
 	}
 }
@@ -380,21 +246,21 @@ void BasicInternalFrameUI::uninstallComponents() {
 	setEastPane(nullptr);
 	setWestPane(nullptr);
 	if (this->titlePane != nullptr) {
-		$nc(this->titlePane)->uninstallDefaults();
+		this->titlePane->uninstallDefaults();
 	}
 	$set(this, titlePane, nullptr);
 }
 
 void BasicInternalFrameUI::uninstallListeners() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (($nc(this->frame)->getParent() != nullptr) && this->componentListenerAdded) {
-		$nc($($nc(this->frame)->getParent()))->removeComponentListener(this->componentListener);
+		$$nc($nc(this->frame)->getParent())->removeComponentListener(this->componentListener);
 		this->componentListenerAdded = false;
 	}
 	$set(this, componentListener, nullptr);
 	if (this->glassPaneDispatcher != nullptr) {
-		$nc($($nc(this->frame)->getGlassPane()))->removeMouseListener(this->glassPaneDispatcher);
-		$nc($($nc(this->frame)->getGlassPane()))->removeMouseMotionListener(this->glassPaneDispatcher);
+		$$nc($nc(this->frame)->getGlassPane())->removeMouseListener(this->glassPaneDispatcher);
+		$$nc($nc(this->frame)->getGlassPane())->removeMouseMotionListener(this->glassPaneDispatcher);
 		$set(this, glassPaneDispatcher, nullptr);
 	}
 	deinstallMouseHandlers(this->frame);
@@ -433,14 +299,14 @@ $PropertyChangeListener* BasicInternalFrameUI::createPropertyChangeListener() {
 
 $Dimension* BasicInternalFrameUI::getPreferredSize($JComponent* x) {
 	if ($equals(this->frame, x)) {
-		return $nc($($nc(this->frame)->getLayout()))->preferredLayoutSize(x);
+		return $$nc($nc(this->frame)->getLayout())->preferredLayoutSize(x);
 	}
 	return $new($Dimension, 100, 100);
 }
 
 $Dimension* BasicInternalFrameUI::getMinimumSize($JComponent* x) {
 	if ($equals(this->frame, x)) {
-		return $nc($($nc(this->frame)->getLayout()))->minimumLayoutSize(x);
+		return $$nc($nc(this->frame)->getLayout())->minimumLayoutSize(x);
 	}
 	return $new($Dimension, 0, 0);
 }
@@ -452,22 +318,22 @@ $Dimension* BasicInternalFrameUI::getMaximumSize($JComponent* x) {
 void BasicInternalFrameUI::replacePane($JComponent* currentPane, $JComponent* newPane) {
 	if (currentPane != nullptr) {
 		deinstallMouseHandlers(currentPane);
-		$nc(this->frame)->remove(static_cast<$Component*>(currentPane));
+		$nc(this->frame)->remove(currentPane);
 	}
 	if (newPane != nullptr) {
-		$nc(this->frame)->add(static_cast<$Component*>(newPane));
+		$nc(this->frame)->add(newPane);
 		installMouseHandlers(newPane);
 	}
 }
 
 void BasicInternalFrameUI::deinstallMouseHandlers($JComponent* c) {
-	$nc(c)->removeMouseListener(static_cast<$MouseListener*>(static_cast<$MouseAdapter*>(this->borderListener)));
-	c->removeMouseMotionListener(static_cast<$MouseMotionListener*>(static_cast<$MouseAdapter*>(this->borderListener)));
+	$nc(c)->removeMouseListener($cast($MouseAdapter, this->borderListener));
+	c->removeMouseMotionListener($cast($MouseAdapter, this->borderListener));
 }
 
 void BasicInternalFrameUI::installMouseHandlers($JComponent* c) {
-	$nc(c)->addMouseListener(static_cast<$MouseListener*>(static_cast<$MouseAdapter*>(this->borderListener)));
-	c->addMouseMotionListener(static_cast<$MouseMotionListener*>(static_cast<$MouseAdapter*>(this->borderListener)));
+	$nc(c)->addMouseListener($cast($MouseAdapter, this->borderListener));
+	c->addMouseMotionListener($cast($MouseAdapter, this->borderListener));
 }
 
 $JComponent* BasicInternalFrameUI::createNorthPane($JInternalFrame* w) {
@@ -525,7 +391,7 @@ $JComponent* BasicInternalFrameUI::getNorthPane() {
 
 void BasicInternalFrameUI::setNorthPane($JComponent* c) {
 	if (this->northPane != nullptr && $instanceOf($BasicInternalFrameTitlePane, this->northPane)) {
-		$nc(($cast($BasicInternalFrameTitlePane, this->northPane)))->uninstallListeners();
+		$cast($BasicInternalFrameTitlePane, this->northPane)->uninstallListeners();
 	}
 	replacePane(this->northPane, c);
 	$set(this, northPane, c);
@@ -559,10 +425,10 @@ void BasicInternalFrameUI::setEastPane($JComponent* c) {
 }
 
 $DesktopManager* BasicInternalFrameUI::getDesktopManager() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool var$0 = $nc(this->frame)->getDesktopPane() != nullptr;
-	if (var$0 && $nc($($nc(this->frame)->getDesktopPane()))->getDesktopManager() != nullptr) {
-		return $nc($($nc(this->frame)->getDesktopPane()))->getDesktopManager();
+	if (var$0 && $$nc(this->frame->getDesktopPane())->getDesktopManager() != nullptr) {
+		return $$nc($nc(this->frame)->getDesktopPane())->getDesktopManager();
 	}
 	if (BasicInternalFrameUI::sharedDesktopManager == nullptr) {
 		$assignStatic(BasicInternalFrameUI::sharedDesktopManager, createDesktopManager());
@@ -576,39 +442,39 @@ $DesktopManager* BasicInternalFrameUI::createDesktopManager() {
 
 void BasicInternalFrameUI::closeFrame($JInternalFrame* f) {
 	$BasicLookAndFeel::playSound(this->frame, "InternalFrame.closeSound"_s);
-	$nc($(getDesktopManager()))->closeFrame(f);
+	$$nc(getDesktopManager())->closeFrame(f);
 }
 
 void BasicInternalFrameUI::maximizeFrame($JInternalFrame* f) {
 	$BasicLookAndFeel::playSound(this->frame, "InternalFrame.maximizeSound"_s);
-	$nc($(getDesktopManager()))->maximizeFrame(f);
+	$$nc(getDesktopManager())->maximizeFrame(f);
 }
 
 void BasicInternalFrameUI::minimizeFrame($JInternalFrame* f) {
 	if (!$nc(f)->isIcon()) {
 		$BasicLookAndFeel::playSound(this->frame, "InternalFrame.restoreDownSound"_s);
 	}
-	$nc($(getDesktopManager()))->minimizeFrame(f);
+	$$nc(getDesktopManager())->minimizeFrame(f);
 }
 
 void BasicInternalFrameUI::iconifyFrame($JInternalFrame* f) {
 	$BasicLookAndFeel::playSound(this->frame, "InternalFrame.minimizeSound"_s);
-	$nc($(getDesktopManager()))->iconifyFrame(f);
+	$$nc(getDesktopManager())->iconifyFrame(f);
 }
 
 void BasicInternalFrameUI::deiconifyFrame($JInternalFrame* f) {
 	if (!$nc(f)->isMaximum()) {
 		$BasicLookAndFeel::playSound(this->frame, "InternalFrame.restoreUpSound"_s);
 	}
-	$nc($(getDesktopManager()))->deiconifyFrame(f);
+	$$nc(getDesktopManager())->deiconifyFrame(f);
 }
 
 void BasicInternalFrameUI::activateFrame($JInternalFrame* f) {
-	$nc($(getDesktopManager()))->activateFrame(f);
+	$$nc(getDesktopManager())->activateFrame(f);
 }
 
 void BasicInternalFrameUI::deactivateFrame($JInternalFrame* f) {
-	$nc($(getDesktopManager()))->deactivateFrame(f);
+	$$nc(getDesktopManager())->deactivateFrame(f);
 }
 
 $ComponentListener* BasicInternalFrameUI::createComponentListener() {
@@ -623,7 +489,123 @@ BasicInternalFrameUI::BasicInternalFrameUI() {
 }
 
 $Class* BasicInternalFrameUI::load$($String* name, bool initialize) {
-	$loadClass(BasicInternalFrameUI, name, initialize, &_BasicInternalFrameUI_ClassInfo_, allocate$BasicInternalFrameUI);
+	$CompoundAttribute openMenuKeyfieldAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$FieldInfo fieldInfos$$[] = {
+		{"frame", "Ljavax/swing/JInternalFrame;", nullptr, $PROTECTED, $field(BasicInternalFrameUI, frame)},
+		{"handler", "Ljavax/swing/plaf/basic/BasicInternalFrameUI$Handler;", nullptr, $PRIVATE, $field(BasicInternalFrameUI, handler)},
+		{"borderListener", "Ljavax/swing/event/MouseInputAdapter;", nullptr, $PROTECTED, $field(BasicInternalFrameUI, borderListener)},
+		{"propertyChangeListener", "Ljava/beans/PropertyChangeListener;", nullptr, $PROTECTED, $field(BasicInternalFrameUI, propertyChangeListener)},
+		{"internalFrameLayout", "Ljava/awt/LayoutManager;", nullptr, $PROTECTED, $field(BasicInternalFrameUI, internalFrameLayout)},
+		{"componentListener", "Ljava/awt/event/ComponentListener;", nullptr, $PROTECTED, $field(BasicInternalFrameUI, componentListener)},
+		{"glassPaneDispatcher", "Ljavax/swing/event/MouseInputListener;", nullptr, $PROTECTED, $field(BasicInternalFrameUI, glassPaneDispatcher)},
+		{"internalFrameListener", "Ljavax/swing/event/InternalFrameListener;", nullptr, $PRIVATE, $field(BasicInternalFrameUI, internalFrameListener)},
+		{"northPane", "Ljavax/swing/JComponent;", nullptr, $PROTECTED, $field(BasicInternalFrameUI, northPane)},
+		{"southPane", "Ljavax/swing/JComponent;", nullptr, $PROTECTED, $field(BasicInternalFrameUI, southPane)},
+		{"westPane", "Ljavax/swing/JComponent;", nullptr, $PROTECTED, $field(BasicInternalFrameUI, westPane)},
+		{"eastPane", "Ljavax/swing/JComponent;", nullptr, $PROTECTED, $field(BasicInternalFrameUI, eastPane)},
+		{"titlePane", "Ljavax/swing/plaf/basic/BasicInternalFrameTitlePane;", nullptr, $PROTECTED, $field(BasicInternalFrameUI, titlePane)},
+		{"sharedDesktopManager", "Ljavax/swing/DesktopManager;", nullptr, $PRIVATE | $STATIC, $staticField(BasicInternalFrameUI, sharedDesktopManager)},
+		{"componentListenerAdded", "Z", nullptr, $PRIVATE, $field(BasicInternalFrameUI, componentListenerAdded)},
+		{"parentBounds", "Ljava/awt/Rectangle;", nullptr, $PRIVATE, $field(BasicInternalFrameUI, parentBounds)},
+		{"dragging", "Z", nullptr, $PRIVATE, $field(BasicInternalFrameUI, dragging)},
+		{"resizing", "Z", nullptr, $PRIVATE, $field(BasicInternalFrameUI, resizing)},
+		{"openMenuKey", "Ljavax/swing/KeyStroke;", nullptr, $PROTECTED | $DEPRECATED, $field(BasicInternalFrameUI, openMenuKey), openMenuKeyfieldAnnotations$$},
+		{"keyBindingRegistered", "Z", nullptr, $PRIVATE, $field(BasicInternalFrameUI, keyBindingRegistered)},
+		{"keyBindingActive", "Z", nullptr, $PRIVATE, $field(BasicInternalFrameUI, keyBindingActive)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/JInternalFrame;)V", nullptr, $PUBLIC, $method(BasicInternalFrameUI, init$, void, $JInternalFrame*)},
+		{"activateFrame", "(Ljavax/swing/JInternalFrame;)V", nullptr, $PROTECTED, $virtualMethod(BasicInternalFrameUI, activateFrame, void, $JInternalFrame*)},
+		{"cancelResize", "()V", nullptr, $PRIVATE, $method(BasicInternalFrameUI, cancelResize, void)},
+		{"closeFrame", "(Ljavax/swing/JInternalFrame;)V", nullptr, $PROTECTED, $virtualMethod(BasicInternalFrameUI, closeFrame, void, $JInternalFrame*)},
+		{"createBorderListener", "(Ljavax/swing/JInternalFrame;)Ljavax/swing/event/MouseInputAdapter;", nullptr, $PROTECTED, $virtualMethod(BasicInternalFrameUI, createBorderListener, $MouseInputAdapter*, $JInternalFrame*)},
+		{"createComponentListener", "()Ljava/awt/event/ComponentListener;", nullptr, $PROTECTED, $virtualMethod(BasicInternalFrameUI, createComponentListener, $ComponentListener*)},
+		{"createDesktopManager", "()Ljavax/swing/DesktopManager;", nullptr, $PROTECTED, $virtualMethod(BasicInternalFrameUI, createDesktopManager, $DesktopManager*)},
+		{"createEastPane", "(Ljavax/swing/JInternalFrame;)Ljavax/swing/JComponent;", nullptr, $PROTECTED, $virtualMethod(BasicInternalFrameUI, createEastPane, $JComponent*, $JInternalFrame*)},
+		{"createGlassPaneDispatcher", "()Ljavax/swing/event/MouseInputListener;", nullptr, $PROTECTED, $virtualMethod(BasicInternalFrameUI, createGlassPaneDispatcher, $MouseInputListener*)},
+		{"createInputMap", "(I)Ljavax/swing/InputMap;", nullptr, 0, $virtualMethod(BasicInternalFrameUI, createInputMap, $InputMap*, int32_t)},
+		{"createInternalFrameListener", "()V", nullptr, $PROTECTED, $virtualMethod(BasicInternalFrameUI, createInternalFrameListener, void)},
+		{"createLayoutManager", "()Ljava/awt/LayoutManager;", nullptr, $PROTECTED, $virtualMethod(BasicInternalFrameUI, createLayoutManager, $LayoutManager*)},
+		{"createNorthPane", "(Ljavax/swing/JInternalFrame;)Ljavax/swing/JComponent;", nullptr, $PROTECTED, $virtualMethod(BasicInternalFrameUI, createNorthPane, $JComponent*, $JInternalFrame*)},
+		{"createPropertyChangeListener", "()Ljava/beans/PropertyChangeListener;", nullptr, $PROTECTED, $virtualMethod(BasicInternalFrameUI, createPropertyChangeListener, $PropertyChangeListener*)},
+		{"createSouthPane", "(Ljavax/swing/JInternalFrame;)Ljavax/swing/JComponent;", nullptr, $PROTECTED, $virtualMethod(BasicInternalFrameUI, createSouthPane, $JComponent*, $JInternalFrame*)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(BasicInternalFrameUI, createUI, $ComponentUI*, $JComponent*)},
+		{"createWestPane", "(Ljavax/swing/JInternalFrame;)Ljavax/swing/JComponent;", nullptr, $PROTECTED, $virtualMethod(BasicInternalFrameUI, createWestPane, $JComponent*, $JInternalFrame*)},
+		{"deactivateFrame", "(Ljavax/swing/JInternalFrame;)V", nullptr, $PROTECTED, $virtualMethod(BasicInternalFrameUI, deactivateFrame, void, $JInternalFrame*)},
+		{"deiconifyFrame", "(Ljavax/swing/JInternalFrame;)V", nullptr, $PROTECTED, $virtualMethod(BasicInternalFrameUI, deiconifyFrame, void, $JInternalFrame*)},
+		{"deinstallMouseHandlers", "(Ljavax/swing/JComponent;)V", nullptr, $PROTECTED, $virtualMethod(BasicInternalFrameUI, deinstallMouseHandlers, void, $JComponent*)},
+		{"getDesktopManager", "()Ljavax/swing/DesktopManager;", nullptr, $PROTECTED, $virtualMethod(BasicInternalFrameUI, getDesktopManager, $DesktopManager*)},
+		{"getEastPane", "()Ljavax/swing/JComponent;", nullptr, $PUBLIC, $virtualMethod(BasicInternalFrameUI, getEastPane, $JComponent*)},
+		{"getHandler", "()Ljavax/swing/plaf/basic/BasicInternalFrameUI$Handler;", nullptr, $PRIVATE, $method(BasicInternalFrameUI, getHandler, $BasicInternalFrameUI$Handler*)},
+		{"getInputMap", "(I)Ljavax/swing/InputMap;", nullptr, 0, $virtualMethod(BasicInternalFrameUI, getInputMap, $InputMap*, int32_t)},
+		{"getMaximumSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BasicInternalFrameUI, getMaximumSize, $Dimension*, $JComponent*)},
+		{"getMinimumSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BasicInternalFrameUI, getMinimumSize, $Dimension*, $JComponent*)},
+		{"getNorthPane", "()Ljavax/swing/JComponent;", nullptr, $PUBLIC, $virtualMethod(BasicInternalFrameUI, getNorthPane, $JComponent*)},
+		{"getPreferredSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BasicInternalFrameUI, getPreferredSize, $Dimension*, $JComponent*)},
+		{"getSouthPane", "()Ljavax/swing/JComponent;", nullptr, $PUBLIC, $virtualMethod(BasicInternalFrameUI, getSouthPane, $JComponent*)},
+		{"getWestPane", "()Ljavax/swing/JComponent;", nullptr, $PUBLIC, $virtualMethod(BasicInternalFrameUI, getWestPane, $JComponent*)},
+		{"getWindowFocusListener", "()Ljava/awt/event/WindowFocusListener;", nullptr, $PRIVATE, $method(BasicInternalFrameUI, getWindowFocusListener, $WindowFocusListener*)},
+		{"iconifyFrame", "(Ljavax/swing/JInternalFrame;)V", nullptr, $PROTECTED, $virtualMethod(BasicInternalFrameUI, iconifyFrame, void, $JInternalFrame*)},
+		{"installComponents", "()V", nullptr, $PROTECTED, $virtualMethod(BasicInternalFrameUI, installComponents, void)},
+		{"installDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(BasicInternalFrameUI, installDefaults, void)},
+		{"installKeyboardActions", "()V", nullptr, $PROTECTED, $virtualMethod(BasicInternalFrameUI, installKeyboardActions, void)},
+		{"installListeners", "()V", nullptr, $PROTECTED, $virtualMethod(BasicInternalFrameUI, installListeners, void)},
+		{"installMouseHandlers", "(Ljavax/swing/JComponent;)V", nullptr, $PROTECTED, $virtualMethod(BasicInternalFrameUI, installMouseHandlers, void, $JComponent*)},
+		{"installUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(BasicInternalFrameUI, installUI, void, $JComponent*)},
+		{"isKeyBindingActive", "()Z", nullptr, $PUBLIC | $FINAL, $method(BasicInternalFrameUI, isKeyBindingActive, bool)},
+		{"isKeyBindingRegistered", "()Z", nullptr, $PROTECTED | $FINAL, $method(BasicInternalFrameUI, isKeyBindingRegistered, bool)},
+		{"loadActionMap", "(Ljavax/swing/plaf/basic/LazyActionMap;)V", nullptr, $STATIC, $staticMethod(BasicInternalFrameUI, loadActionMap, void, $LazyActionMap*)},
+		{"maximizeFrame", "(Ljavax/swing/JInternalFrame;)V", nullptr, $PROTECTED, $virtualMethod(BasicInternalFrameUI, maximizeFrame, void, $JInternalFrame*)},
+		{"minimizeFrame", "(Ljavax/swing/JInternalFrame;)V", nullptr, $PROTECTED, $virtualMethod(BasicInternalFrameUI, minimizeFrame, void, $JInternalFrame*)},
+		{"replacePane", "(Ljavax/swing/JComponent;Ljavax/swing/JComponent;)V", nullptr, $PROTECTED, $virtualMethod(BasicInternalFrameUI, replacePane, void, $JComponent*, $JComponent*)},
+		{"setEastPane", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(BasicInternalFrameUI, setEastPane, void, $JComponent*)},
+		{"setKeyBindingActive", "(Z)V", nullptr, $PROTECTED | $FINAL, $method(BasicInternalFrameUI, setKeyBindingActive, void, bool)},
+		{"setKeyBindingRegistered", "(Z)V", nullptr, $PROTECTED | $FINAL, $method(BasicInternalFrameUI, setKeyBindingRegistered, void, bool)},
+		{"setNorthPane", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(BasicInternalFrameUI, setNorthPane, void, $JComponent*)},
+		{"setSouthPane", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(BasicInternalFrameUI, setSouthPane, void, $JComponent*)},
+		{"setWestPane", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(BasicInternalFrameUI, setWestPane, void, $JComponent*)},
+		{"setupMenuCloseKey", "()V", nullptr, $PROTECTED, $virtualMethod(BasicInternalFrameUI, setupMenuCloseKey, void)},
+		{"setupMenuOpenKey", "()V", nullptr, $PROTECTED, $virtualMethod(BasicInternalFrameUI, setupMenuOpenKey, void)},
+		{"uninstallComponents", "()V", nullptr, $PROTECTED, $virtualMethod(BasicInternalFrameUI, uninstallComponents, void)},
+		{"uninstallDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(BasicInternalFrameUI, uninstallDefaults, void)},
+		{"uninstallKeyboardActions", "()V", nullptr, $PROTECTED, $virtualMethod(BasicInternalFrameUI, uninstallKeyboardActions, void)},
+		{"uninstallListeners", "()V", nullptr, $PROTECTED, $virtualMethod(BasicInternalFrameUI, uninstallListeners, void)},
+		{"uninstallUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(BasicInternalFrameUI, uninstallUI, void, $JComponent*)},
+		{"updateFrameCursor", "()V", nullptr, 0, $virtualMethod(BasicInternalFrameUI, updateFrameCursor, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.basic.BasicInternalFrameUI$Handler", "javax.swing.plaf.basic.BasicInternalFrameUI", "Handler", $PRIVATE},
+		{"javax.swing.plaf.basic.BasicInternalFrameUI$BasicInternalFrameListener", "javax.swing.plaf.basic.BasicInternalFrameUI", "BasicInternalFrameListener", $PROTECTED},
+		{"javax.swing.plaf.basic.BasicInternalFrameUI$GlassPaneDispatcher", "javax.swing.plaf.basic.BasicInternalFrameUI", "GlassPaneDispatcher", $PROTECTED},
+		{"javax.swing.plaf.basic.BasicInternalFrameUI$ComponentHandler", "javax.swing.plaf.basic.BasicInternalFrameUI", "ComponentHandler", $PROTECTED},
+		{"javax.swing.plaf.basic.BasicInternalFrameUI$BorderListener", "javax.swing.plaf.basic.BasicInternalFrameUI", "BorderListener", $PROTECTED},
+		{"javax.swing.plaf.basic.BasicInternalFrameUI$InternalFrameLayout", "javax.swing.plaf.basic.BasicInternalFrameUI", "InternalFrameLayout", $PUBLIC},
+		{"javax.swing.plaf.basic.BasicInternalFrameUI$InternalFramePropertyChangeListener", "javax.swing.plaf.basic.BasicInternalFrameUI", "InternalFramePropertyChangeListener", $PUBLIC},
+		{"javax.swing.plaf.basic.BasicInternalFrameUI$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.basic.BasicInternalFrameUI",
+		"javax.swing.plaf.InternalFrameUI",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.basic.BasicInternalFrameUI$Handler,javax.swing.plaf.basic.BasicInternalFrameUI$BasicInternalFrameListener,javax.swing.plaf.basic.BasicInternalFrameUI$GlassPaneDispatcher,javax.swing.plaf.basic.BasicInternalFrameUI$ComponentHandler,javax.swing.plaf.basic.BasicInternalFrameUI$BorderListener,javax.swing.plaf.basic.BasicInternalFrameUI$InternalFrameLayout,javax.swing.plaf.basic.BasicInternalFrameUI$InternalFramePropertyChangeListener,javax.swing.plaf.basic.BasicInternalFrameUI$1"
+	};
+	$loadClass(BasicInternalFrameUI, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BasicInternalFrameUI);
+	});
 	return class$;
 }
 

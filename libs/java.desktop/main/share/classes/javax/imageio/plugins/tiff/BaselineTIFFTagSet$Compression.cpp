@@ -1,5 +1,4 @@
 #include <javax/imageio/plugins/tiff/BaselineTIFFTagSet$Compression.h>
-
 #include <javax/imageio/plugins/tiff/BaselineTIFFTagSet.h>
 #include <javax/imageio/plugins/tiff/TIFFTag.h>
 #include <jcpp.h>
@@ -16,36 +15,6 @@ namespace javax {
 		namespace plugins {
 			namespace tiff {
 
-$MethodInfo _BaselineTIFFTagSet$Compression_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(BaselineTIFFTagSet$Compression, init$, void)},
-	{}
-};
-
-$InnerClassInfo _BaselineTIFFTagSet$Compression_InnerClassesInfo_[] = {
-	{"javax.imageio.plugins.tiff.BaselineTIFFTagSet$Compression", "javax.imageio.plugins.tiff.BaselineTIFFTagSet", "Compression", $STATIC},
-	{}
-};
-
-$ClassInfo _BaselineTIFFTagSet$Compression_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.imageio.plugins.tiff.BaselineTIFFTagSet$Compression",
-	"javax.imageio.plugins.tiff.TIFFTag",
-	nullptr,
-	nullptr,
-	_BaselineTIFFTagSet$Compression_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BaselineTIFFTagSet$Compression_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.imageio.plugins.tiff.BaselineTIFFTagSet"
-};
-
-$Object* allocate$BaselineTIFFTagSet$Compression($Class* clazz) {
-	return $of($alloc(BaselineTIFFTagSet$Compression));
-}
-
 void BaselineTIFFTagSet$Compression::init$() {
 	$TIFFTag::init$("Compression"_s, 259, $sl(1, $TIFFTag::TIFF_SHORT), 1);
 	addValueName(1, "Uncompressed"_s);
@@ -57,14 +26,39 @@ void BaselineTIFFTagSet$Compression::init$() {
 	addValueName(7, "JPEG"_s);
 	addValueName(8, "ZLib"_s);
 	addValueName(0x00008005, "PackBits"_s);
-	addValueName(0x000080B2, "Deflate"_s);
+	addValueName(0x000080b2, "Deflate"_s);
 }
 
 BaselineTIFFTagSet$Compression::BaselineTIFFTagSet$Compression() {
 }
 
 $Class* BaselineTIFFTagSet$Compression::load$($String* name, bool initialize) {
-	$loadClass(BaselineTIFFTagSet$Compression, name, initialize, &_BaselineTIFFTagSet$Compression_ClassInfo_, allocate$BaselineTIFFTagSet$Compression);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(BaselineTIFFTagSet$Compression, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.imageio.plugins.tiff.BaselineTIFFTagSet$Compression", "javax.imageio.plugins.tiff.BaselineTIFFTagSet", "Compression", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.imageio.plugins.tiff.BaselineTIFFTagSet$Compression",
+		"javax.imageio.plugins.tiff.TIFFTag",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.imageio.plugins.tiff.BaselineTIFFTagSet"
+	};
+	$loadClass(BaselineTIFFTagSet$Compression, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BaselineTIFFTagSet$Compression);
+	});
 	return class$;
 }
 

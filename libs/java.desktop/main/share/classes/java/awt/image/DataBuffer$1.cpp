@@ -1,5 +1,4 @@
 #include <java/awt/image/DataBuffer$1.h>
-
 #include <java/awt/image/DataBuffer.h>
 #include <java/awt/image/DataBufferByte.h>
 #include <java/awt/image/DataBufferInt.h>
@@ -20,48 +19,6 @@ using $StateTrackableDelegate = ::sun::java2d::StateTrackableDelegate;
 namespace java {
 	namespace awt {
 		namespace image {
-
-$MethodInfo _DataBuffer$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(DataBuffer$1, init$, void)},
-	{"getData", "(Ljava/awt/image/DataBufferByte;I)[B", nullptr, $PUBLIC, $virtualMethod(DataBuffer$1, getData, $bytes*, $DataBufferByte*, int32_t)},
-	{"getData", "(Ljava/awt/image/DataBufferUShort;I)[S", nullptr, $PUBLIC, $virtualMethod(DataBuffer$1, getData, $shorts*, $DataBufferUShort*, int32_t)},
-	{"getData", "(Ljava/awt/image/DataBufferInt;I)[I", nullptr, $PUBLIC, $virtualMethod(DataBuffer$1, getData, $ints*, $DataBufferInt*, int32_t)},
-	{"getTrackable", "(Ljava/awt/image/DataBuffer;)Lsun/java2d/StateTrackableDelegate;", nullptr, $PUBLIC, $virtualMethod(DataBuffer$1, getTrackable, $StateTrackableDelegate*, $DataBuffer*)},
-	{"setTrackable", "(Ljava/awt/image/DataBuffer;Lsun/java2d/StateTrackableDelegate;)V", nullptr, $PUBLIC, $virtualMethod(DataBuffer$1, setTrackable, void, $DataBuffer*, $StateTrackableDelegate*)},
-	{}
-};
-
-$EnclosingMethodInfo _DataBuffer$1_EnclosingMethodInfo_ = {
-	"java.awt.image.DataBuffer",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _DataBuffer$1_InnerClassesInfo_[] = {
-	{"java.awt.image.DataBuffer$1", nullptr, nullptr, 0},
-	{"sun.awt.image.SunWritableRaster$DataStealer", "sun.awt.image.SunWritableRaster", "DataStealer", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _DataBuffer$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.awt.image.DataBuffer$1",
-	"java.lang.Object",
-	"sun.awt.image.SunWritableRaster$DataStealer",
-	nullptr,
-	_DataBuffer$1_MethodInfo_,
-	nullptr,
-	&_DataBuffer$1_EnclosingMethodInfo_,
-	_DataBuffer$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.awt.image.DataBuffer"
-};
-
-$Object* allocate$DataBuffer$1($Class* clazz) {
-	return $of($alloc(DataBuffer$1));
-}
 
 void DataBuffer$1::init$() {
 }
@@ -90,7 +47,43 @@ DataBuffer$1::DataBuffer$1() {
 }
 
 $Class* DataBuffer$1::load$($String* name, bool initialize) {
-	$loadClass(DataBuffer$1, name, initialize, &_DataBuffer$1_ClassInfo_, allocate$DataBuffer$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(DataBuffer$1, init$, void)},
+		{"getData", "(Ljava/awt/image/DataBufferByte;I)[B", nullptr, $PUBLIC, $virtualMethod(DataBuffer$1, getData, $bytes*, $DataBufferByte*, int32_t)},
+		{"getData", "(Ljava/awt/image/DataBufferUShort;I)[S", nullptr, $PUBLIC, $virtualMethod(DataBuffer$1, getData, $shorts*, $DataBufferUShort*, int32_t)},
+		{"getData", "(Ljava/awt/image/DataBufferInt;I)[I", nullptr, $PUBLIC, $virtualMethod(DataBuffer$1, getData, $ints*, $DataBufferInt*, int32_t)},
+		{"getTrackable", "(Ljava/awt/image/DataBuffer;)Lsun/java2d/StateTrackableDelegate;", nullptr, $PUBLIC, $virtualMethod(DataBuffer$1, getTrackable, $StateTrackableDelegate*, $DataBuffer*)},
+		{"setTrackable", "(Ljava/awt/image/DataBuffer;Lsun/java2d/StateTrackableDelegate;)V", nullptr, $PUBLIC, $virtualMethod(DataBuffer$1, setTrackable, void, $DataBuffer*, $StateTrackableDelegate*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.awt.image.DataBuffer",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.awt.image.DataBuffer$1", nullptr, nullptr, 0},
+		{"sun.awt.image.SunWritableRaster$DataStealer", "sun.awt.image.SunWritableRaster", "DataStealer", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.awt.image.DataBuffer$1",
+		"java.lang.Object",
+		"sun.awt.image.SunWritableRaster$DataStealer",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.awt.image.DataBuffer"
+	};
+	$loadClass(DataBuffer$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DataBuffer$1);
+	});
 	return class$;
 }
 

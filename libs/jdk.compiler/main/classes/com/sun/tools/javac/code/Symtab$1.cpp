@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/code/Symtab$1.h>
-
 #include <com/sun/tools/javac/code/Symbol$Completer.h>
 #include <com/sun/tools/javac/code/Symbol$CompletionFailure.h>
 #include <com/sun/tools/javac/code/Symbol.h>
@@ -25,51 +24,6 @@ namespace com {
 			namespace javac {
 				namespace code {
 
-$FieldInfo _Symtab$1_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/code/Symtab;", nullptr, $FINAL | $SYNTHETIC, $field(Symtab$1, this$0)},
-	{"val$completer", "Lcom/sun/tools/javac/code/Symbol$Completer;", nullptr, $FINAL | $SYNTHETIC, $field(Symtab$1, val$completer)},
-	{}
-};
-
-$MethodInfo _Symtab$1_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Symtab;Lcom/sun/tools/javac/code/Symbol$Completer;)V", "()V", 0, $method(Symtab$1, init$, void, $Symtab*, $Symbol$Completer*)},
-	{"complete", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, $virtualMethod(Symtab$1, complete, void, $Symbol*), "com.sun.tools.javac.code.Symbol$CompletionFailure"},
-	{"isTerminal", "()Z", nullptr, $PUBLIC, $virtualMethod(Symtab$1, isTerminal, bool)},
-	{}
-};
-
-$EnclosingMethodInfo _Symtab$1_EnclosingMethodInfo_ = {
-	"com.sun.tools.javac.code.Symtab",
-	"synthesizeEmptyInterfaceIfMissing",
-	"(Lcom/sun/tools/javac/code/Type;)V"
-};
-
-$InnerClassInfo _Symtab$1_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.code.Symtab$1", nullptr, nullptr, 0},
-	{"com.sun.tools.javac.code.Symbol$Completer", "com.sun.tools.javac.code.Symbol", "Completer", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Symtab$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.code.Symtab$1",
-	"java.lang.Object",
-	"com.sun.tools.javac.code.Symbol$Completer",
-	_Symtab$1_FieldInfo_,
-	_Symtab$1_MethodInfo_,
-	nullptr,
-	&_Symtab$1_EnclosingMethodInfo_,
-	_Symtab$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.code.Symtab"
-};
-
-$Object* allocate$Symtab$1($Class* clazz) {
-	return $of($alloc(Symtab$1));
-}
-
 void Symtab$1::init$($Symtab* this$0, $Symbol$Completer* val$completer) {
 	$set(this, this$0, this$0);
 	$set(this, val$completer, val$completer);
@@ -79,7 +33,7 @@ void Symtab$1::complete($Symbol* sym) {
 	try {
 		$nc(this->val$completer)->complete(sym);
 	} catch ($Symbol$CompletionFailure& e) {
-		$nc(sym)->flags_field |= (1 | 512);
+		$nc(sym)->flags_field |= (1 | 0x0200);
 		$set($nc($cast($Type$ClassType, sym->type)), supertype_field, this->this$0->objectType);
 	}
 }
@@ -92,7 +46,45 @@ Symtab$1::Symtab$1() {
 }
 
 $Class* Symtab$1::load$($String* name, bool initialize) {
-	$loadClass(Symtab$1, name, initialize, &_Symtab$1_ClassInfo_, allocate$Symtab$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/code/Symtab;", nullptr, $FINAL | $SYNTHETIC, $field(Symtab$1, this$0)},
+		{"val$completer", "Lcom/sun/tools/javac/code/Symbol$Completer;", nullptr, $FINAL | $SYNTHETIC, $field(Symtab$1, val$completer)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/code/Symtab;Lcom/sun/tools/javac/code/Symbol$Completer;)V", "()V", 0, $method(Symtab$1, init$, void, $Symtab*, $Symbol$Completer*)},
+		{"complete", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, $virtualMethod(Symtab$1, complete, void, $Symbol*), "com.sun.tools.javac.code.Symbol$CompletionFailure"},
+		{"isTerminal", "()Z", nullptr, $PUBLIC, $virtualMethod(Symtab$1, isTerminal, bool)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.tools.javac.code.Symtab",
+		"synthesizeEmptyInterfaceIfMissing",
+		"(Lcom/sun/tools/javac/code/Type;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.code.Symtab$1", nullptr, nullptr, 0},
+		{"com.sun.tools.javac.code.Symbol$Completer", "com.sun.tools.javac.code.Symbol", "Completer", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.code.Symtab$1",
+		"java.lang.Object",
+		"com.sun.tools.javac.code.Symbol$Completer",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.code.Symtab"
+	};
+	$loadClass(Symtab$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Symtab$1);
+	});
 	return class$;
 }
 

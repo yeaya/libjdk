@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/main/Arguments$ErrorReporter.h>
-
 #include <com/sun/tools/javac/main/Arguments.h>
 #include <com/sun/tools/javac/main/Option.h>
 #include <jcpp.h>
@@ -15,38 +14,33 @@ namespace com {
 			namespace javac {
 				namespace main {
 
-$MethodInfo _Arguments$ErrorReporter_MethodInfo_[] = {
-	{"report", "(Lcom/sun/tools/javac/main/Option;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Arguments$ErrorReporter, report, void, $Option*)},
-	{}
-};
-
-$InnerClassInfo _Arguments$ErrorReporter_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.main.Arguments$ErrorReporter", "com.sun.tools.javac.main.Arguments", "ErrorReporter", $PRIVATE | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Arguments$ErrorReporter_ClassInfo_ = {
-	$INTERFACE | $ABSTRACT,
-	"com.sun.tools.javac.main.Arguments$ErrorReporter",
-	nullptr,
-	nullptr,
-	nullptr,
-	_Arguments$ErrorReporter_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Arguments$ErrorReporter_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.main.Arguments"
-};
-
-$Object* allocate$Arguments$ErrorReporter($Class* clazz) {
-	return $of($alloc(Arguments$ErrorReporter));
-}
-
 $Class* Arguments$ErrorReporter::load$($String* name, bool initialize) {
-	$loadClass(Arguments$ErrorReporter, name, initialize, &_Arguments$ErrorReporter_ClassInfo_, allocate$Arguments$ErrorReporter);
+	$MethodInfo methodInfos$$[] = {
+		{"report", "(Lcom/sun/tools/javac/main/Option;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Arguments$ErrorReporter, report, void, $Option*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.main.Arguments$ErrorReporter", "com.sun.tools.javac.main.Arguments", "ErrorReporter", $PRIVATE | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$INTERFACE | $ABSTRACT,
+		"com.sun.tools.javac.main.Arguments$ErrorReporter",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.main.Arguments"
+	};
+	$loadClass(Arguments$ErrorReporter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Arguments$ErrorReporter);
+	});
 	return class$;
 }
 

@@ -228,6 +228,7 @@ class $export JCTree$Tag : public ::java::lang::Enum {
 public:
 	JCTree$Tag();
 	static $Array<::com::sun::tools::javac::tree::JCTree$Tag>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal, ::com::sun::tools::javac::tree::JCTree$Tag* noAssignTag);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static int32_t getNumberOfOperators();

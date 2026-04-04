@@ -1,5 +1,4 @@
 #include <com/sun/source/util/TreePath$1PathFinder.h>
-
 #include <com/sun/source/tree/Tree.h>
 #include <com/sun/source/util/TreePath$1Result.h>
 #include <com/sun/source/util/TreePath.h>
@@ -20,65 +19,59 @@ namespace com {
 		namespace source {
 			namespace util {
 
-$MethodInfo _TreePath$1PathFinder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(TreePath$1PathFinder, init$, void)},
-	{"scan", "(Lcom/sun/source/tree/Tree;Lcom/sun/source/tree/Tree;)Lcom/sun/source/util/TreePath;", nullptr, $PUBLIC, $virtualMethod(TreePath$1PathFinder, scan, $TreePath*, $Tree*, $Tree*)},
-	{"scan", "(Lcom/sun/source/tree/Tree;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(TreePath$1PathFinder, scan, $Object*, $Tree*, Object$*)},
-	{}
-};
-
-$EnclosingMethodInfo _TreePath$1PathFinder_EnclosingMethodInfo_ = {
-	"com.sun.source.util.TreePath",
-	"getPath",
-	"(Lcom/sun/source/util/TreePath;Lcom/sun/source/tree/Tree;)Lcom/sun/source/util/TreePath;"
-};
-
-$InnerClassInfo _TreePath$1PathFinder_InnerClassesInfo_[] = {
-	{"com.sun.source.util.TreePath$1PathFinder", nullptr, "PathFinder", 0},
-	{}
-};
-
-$ClassInfo _TreePath$1PathFinder_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.source.util.TreePath$1PathFinder",
-	"com.sun.source.util.TreePathScanner",
-	nullptr,
-	nullptr,
-	_TreePath$1PathFinder_MethodInfo_,
-	"Lcom/sun/source/util/TreePathScanner<Lcom/sun/source/util/TreePath;Lcom/sun/source/tree/Tree;>;",
-	&_TreePath$1PathFinder_EnclosingMethodInfo_,
-	_TreePath$1PathFinder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.source.util.TreePath"
-};
-
-$Object* allocate$TreePath$1PathFinder($Class* clazz) {
-	return $of($alloc(TreePath$1PathFinder));
-}
-
 void TreePath$1PathFinder::init$() {
 	$TreePathScanner::init$();
 }
 
 $TreePath* TreePath$1PathFinder::scan($Tree* tree, $Tree* target) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (tree == target) {
 		$throwNew($TreePath$1Result, $$new($TreePath, $(getCurrentPath()), target));
 	}
-	return $cast($TreePath, $TreePathScanner::scan(tree, $of(target)));
+	return $cast($TreePath, $TreePathScanner::scan(tree, target));
 }
 
 $Object* TreePath$1PathFinder::scan($Tree* tree, Object$* target) {
-	return $of(this->scan(tree, $cast($Tree, target)));
+	return this->scan(tree, $cast($Tree, target));
 }
 
 TreePath$1PathFinder::TreePath$1PathFinder() {
 }
 
 $Class* TreePath$1PathFinder::load$($String* name, bool initialize) {
-	$loadClass(TreePath$1PathFinder, name, initialize, &_TreePath$1PathFinder_ClassInfo_, allocate$TreePath$1PathFinder);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(TreePath$1PathFinder, init$, void)},
+		{"scan", "(Lcom/sun/source/tree/Tree;Lcom/sun/source/tree/Tree;)Lcom/sun/source/util/TreePath;", nullptr, $PUBLIC, $virtualMethod(TreePath$1PathFinder, scan, $TreePath*, $Tree*, $Tree*)},
+		{"scan", "(Lcom/sun/source/tree/Tree;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(TreePath$1PathFinder, scan, $Object*, $Tree*, Object$*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.source.util.TreePath",
+		"getPath",
+		"(Lcom/sun/source/util/TreePath;Lcom/sun/source/tree/Tree;)Lcom/sun/source/util/TreePath;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.source.util.TreePath$1PathFinder", nullptr, "PathFinder", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.source.util.TreePath$1PathFinder",
+		"com.sun.source.util.TreePathScanner",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		"Lcom/sun/source/util/TreePathScanner<Lcom/sun/source/util/TreePath;Lcom/sun/source/tree/Tree;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.source.util.TreePath"
+	};
+	$loadClass(TreePath$1PathFinder, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TreePath$1PathFinder);
+	});
 	return class$;
 }
 

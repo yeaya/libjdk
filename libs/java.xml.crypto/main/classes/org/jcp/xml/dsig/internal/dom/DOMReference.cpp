@@ -1,5 +1,4 @@
 #include <org/jcp/xml/dsig/internal/dom/DOMReference.h>
-
 #include <com/sun/org/apache/xml/internal/security/c14n/CanonicalizationException.h>
 #include <com/sun/org/apache/xml/internal/security/signature/XMLSignatureInput.h>
 #include <com/sun/org/apache/xml/internal/security/utils/UnsyncBufferedOutputStream.h>
@@ -25,7 +24,6 @@
 #include <java/security/Provider.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Arrays.h>
-#include <java/util/Collection.h>
 #include <java/util/Collections.h>
 #include <java/util/Iterator.h>
 #include <java/util/List.h>
@@ -102,7 +100,6 @@ using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $Provider = ::java::security::Provider;
 using $ArrayList = ::java::util::ArrayList;
 using $Arrays = ::java::util::Arrays;
-using $Collection = ::java::util::Collection;
 using $Collections = ::java::util::Collections;
 using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
@@ -112,7 +109,6 @@ using $MarshalException = ::javax::xml::crypto::MarshalException;
 using $NodeSetData = ::javax::xml::crypto::NodeSetData;
 using $OctetStreamData = ::javax::xml::crypto::OctetStreamData;
 using $URIDereferencer = ::javax::xml::crypto::URIDereferencer;
-using $URIReference = ::javax::xml::crypto::URIReference;
 using $URIReferenceException = ::javax::xml::crypto::URIReferenceException;
 using $XMLCryptoContext = ::javax::xml::crypto::XMLCryptoContext;
 using $DOMCryptoContext = ::javax::xml::crypto::dom::DOMCryptoContext;
@@ -157,111 +153,27 @@ public:
 	virtual $Object* run() override {
 		 return $of(DOMReference::lambda$static$0());
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<DOMReference$$Lambda$lambda$static$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo DOMReference$$Lambda$lambda$static$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(DOMReference$$Lambda$lambda$static$0, init$, void)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DOMReference$$Lambda$lambda$static$0, run, $Object*)},
-	{}
-};
-$ClassInfo DOMReference$$Lambda$lambda$static$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"org.jcp.xml.dsig.internal.dom.DOMReference$$Lambda$lambda$static$0",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	nullptr,
-	methodInfos
 };
 $Class* DOMReference$$Lambda$lambda$static$0::load$($String* name, bool initialize) {
-	$loadClass(DOMReference$$Lambda$lambda$static$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(DOMReference$$Lambda$lambda$static$0, init$, void)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DOMReference$$Lambda$lambda$static$0, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"org.jcp.xml.dsig.internal.dom.DOMReference$$Lambda$lambda$static$0",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(DOMReference$$Lambda$lambda$static$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DOMReference$$Lambda$lambda$static$0);
+	});
 	return class$;
 }
 $Class* DOMReference$$Lambda$lambda$static$0::class$ = nullptr;
-
-$FieldInfo _DOMReference_FieldInfo_[] = {
-	{"MAXIMUM_TRANSFORM_COUNT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DOMReference, MAXIMUM_TRANSFORM_COUNT)},
-	{"useC14N11", "Z", nullptr, $PRIVATE | $STATIC, $staticField(DOMReference, useC14N11)},
-	{"LOG", "Lcom/sun/org/slf4j/internal/Logger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DOMReference, LOG)},
-	{"digestMethod", "Ljavax/xml/crypto/dsig/DigestMethod;", nullptr, $PRIVATE | $FINAL, $field(DOMReference, digestMethod)},
-	{"id", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(DOMReference, id)},
-	{"transforms", "Ljava/util/List;", "Ljava/util/List<Ljavax/xml/crypto/dsig/Transform;>;", $PRIVATE | $FINAL, $field(DOMReference, transforms)},
-	{"allTransforms", "Ljava/util/List;", "Ljava/util/List<Ljavax/xml/crypto/dsig/Transform;>;", $PRIVATE, $field(DOMReference, allTransforms)},
-	{"appliedTransformData", "Ljavax/xml/crypto/Data;", nullptr, $PRIVATE | $FINAL, $field(DOMReference, appliedTransformData)},
-	{"here", "Lorg/w3c/dom/Attr;", nullptr, $PRIVATE, $field(DOMReference, here)},
-	{"uri", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(DOMReference, uri)},
-	{"type", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(DOMReference, type)},
-	{"digestValue", "[B", nullptr, $PRIVATE, $field(DOMReference, digestValue)},
-	{"calcDigestValue", "[B", nullptr, $PRIVATE, $field(DOMReference, calcDigestValue)},
-	{"refElem", "Lorg/w3c/dom/Element;", nullptr, $PRIVATE, $field(DOMReference, refElem)},
-	{"digested", "Z", nullptr, $PRIVATE, $field(DOMReference, digested)},
-	{"validated", "Z", nullptr, $PRIVATE, $field(DOMReference, validated)},
-	{"validationStatus", "Z", nullptr, $PRIVATE, $field(DOMReference, validationStatus)},
-	{"derefData", "Ljavax/xml/crypto/Data;", nullptr, $PRIVATE, $field(DOMReference, derefData)},
-	{"dis", "Ljava/io/InputStream;", nullptr, $PRIVATE, $field(DOMReference, dis)},
-	{"md", "Ljava/security/MessageDigest;", nullptr, $PRIVATE, $field(DOMReference, md)},
-	{"provider", "Ljava/security/Provider;", nullptr, $PRIVATE, $field(DOMReference, provider)},
-	{}
-};
-
-$MethodInfo _DOMReference_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljavax/xml/crypto/dsig/DigestMethod;Ljava/util/List;Ljava/lang/String;Ljava/security/Provider;)V", "(Ljava/lang/String;Ljava/lang/String;Ljavax/xml/crypto/dsig/DigestMethod;Ljava/util/List<+Ljavax/xml/crypto/dsig/Transform;>;Ljava/lang/String;Ljava/security/Provider;)V", $PUBLIC, $method(DOMReference, init$, void, $String*, $String*, $DigestMethod*, $List*, $String*, $Provider*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljavax/xml/crypto/dsig/DigestMethod;Ljava/util/List;Ljavax/xml/crypto/Data;Ljava/util/List;Ljava/lang/String;Ljava/security/Provider;)V", "(Ljava/lang/String;Ljava/lang/String;Ljavax/xml/crypto/dsig/DigestMethod;Ljava/util/List<+Ljavax/xml/crypto/dsig/Transform;>;Ljavax/xml/crypto/Data;Ljava/util/List<+Ljavax/xml/crypto/dsig/Transform;>;Ljava/lang/String;Ljava/security/Provider;)V", $PUBLIC, $method(DOMReference, init$, void, $String*, $String*, $DigestMethod*, $List*, $Data*, $List*, $String*, $Provider*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljavax/xml/crypto/dsig/DigestMethod;Ljava/util/List;Ljavax/xml/crypto/Data;Ljava/util/List;Ljava/lang/String;[BLjava/security/Provider;)V", "(Ljava/lang/String;Ljava/lang/String;Ljavax/xml/crypto/dsig/DigestMethod;Ljava/util/List<+Ljavax/xml/crypto/dsig/Transform;>;Ljavax/xml/crypto/Data;Ljava/util/List<+Ljavax/xml/crypto/dsig/Transform;>;Ljava/lang/String;[BLjava/security/Provider;)V", $PUBLIC, $method(DOMReference, init$, void, $String*, $String*, $DigestMethod*, $List*, $Data*, $List*, $String*, $bytes*, $Provider*)},
-	{"<init>", "(Lorg/w3c/dom/Element;Ljavax/xml/crypto/XMLCryptoContext;Ljava/security/Provider;)V", nullptr, $PUBLIC, $method(DOMReference, init$, void, $Element*, $XMLCryptoContext*, $Provider*), "javax.xml.crypto.MarshalException"},
-	{"copyDerefData", "(Ljavax/xml/crypto/Data;)Ljavax/xml/crypto/Data;", nullptr, $PRIVATE | $STATIC, $staticMethod(DOMReference, copyDerefData, $Data*, $Data*)},
-	{"dereference", "(Ljavax/xml/crypto/XMLCryptoContext;)Ljavax/xml/crypto/Data;", nullptr, $PRIVATE, $method(DOMReference, dereference, $Data*, $XMLCryptoContext*), "javax.xml.crypto.dsig.XMLSignatureException"},
-	{"digest", "(Ljavax/xml/crypto/dsig/XMLSignContext;)V", nullptr, $PUBLIC, $method(DOMReference, digest, void, $XMLSignContext*), "javax.xml.crypto.dsig.XMLSignatureException"},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(DOMReference, equals, bool, Object$*)},
-	{"getCalculatedDigestValue", "()[B", nullptr, $PUBLIC, $virtualMethod(DOMReference, getCalculatedDigestValue, $bytes*)},
-	{"getDereferencedData", "()Ljavax/xml/crypto/Data;", nullptr, $PUBLIC, $virtualMethod(DOMReference, getDereferencedData, $Data*)},
-	{"getDigestInputStream", "()Ljava/io/InputStream;", nullptr, $PUBLIC, $virtualMethod(DOMReference, getDigestInputStream, $InputStream*)},
-	{"getDigestMethod", "()Ljavax/xml/crypto/dsig/DigestMethod;", nullptr, $PUBLIC, $virtualMethod(DOMReference, getDigestMethod, $DigestMethod*)},
-	{"getDigestValue", "()[B", nullptr, $PUBLIC, $virtualMethod(DOMReference, getDigestValue, $bytes*)},
-	{"getHere", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(DOMReference, getHere, $Node*)},
-	{"getId", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DOMReference, getId, $String*)},
-	{"getTransforms", "()Ljava/util/List;", "()Ljava/util/List<Ljavax/xml/crypto/dsig/Transform;>;", $PUBLIC, $virtualMethod(DOMReference, getTransforms, $List*)},
-	{"getType", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DOMReference, getType, $String*)},
-	{"getURI", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DOMReference, getURI, $String*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(DOMReference, hashCode, int32_t)},
-	{"isDigested", "()Z", nullptr, 0, $method(DOMReference, isDigested, bool)},
-	{"*isFeatureSupported", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $FINAL},
-	{"lambda$static$0", "()Ljava/lang/Boolean;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(DOMReference, lambda$static$0, $Boolean*)},
-	{"marshal", "(Lorg/w3c/dom/Node;Ljava/lang/String;Ljavax/xml/crypto/dom/DOMCryptoContext;)V", nullptr, $PUBLIC, $virtualMethod(DOMReference, marshal, void, $Node*, $String*, $DOMCryptoContext*), "javax.xml.crypto.MarshalException"},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"transform", "(Ljavax/xml/crypto/Data;Ljavax/xml/crypto/XMLCryptoContext;)[B", nullptr, $PRIVATE, $method(DOMReference, transform, $bytes*, $Data*, $XMLCryptoContext*), "javax.xml.crypto.dsig.XMLSignatureException"},
-	{"validate", "(Ljavax/xml/crypto/dsig/XMLValidateContext;)Z", nullptr, $PUBLIC, $virtualMethod(DOMReference, validate, bool, $XMLValidateContext*), "javax.xml.crypto.dsig.XMLSignatureException"},
-	{}
-};
-
-$InnerClassInfo _DOMReference_InnerClassesInfo_[] = {
-	{"org.jcp.xml.dsig.internal.dom.DOMReference$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _DOMReference_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"org.jcp.xml.dsig.internal.dom.DOMReference",
-	"org.jcp.xml.dsig.internal.dom.DOMStructure",
-	"javax.xml.crypto.dsig.Reference,javax.xml.crypto.dom.DOMURIReference",
-	_DOMReference_FieldInfo_,
-	_DOMReference_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DOMReference_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"org.jcp.xml.dsig.internal.dom.DOMReference$1"
-};
-
-$Object* allocate$DOMReference($Class* clazz) {
-	return $of($alloc(DOMReference));
-}
 
 bool DOMReference::isFeatureSupported($String* feature) {
 	 return this->$DOMStructure::isFeatureSupported(feature);
@@ -291,7 +203,7 @@ void DOMReference::init$($String* uri, $String* type, $DigestMethod* dm, $List* 
 }
 
 void DOMReference::init$($String* uri, $String* type, $DigestMethod* dm, $List* appliedTransforms, $Data* result, $List* transforms, $String* id, $bytes* digestValue, $Provider* provider) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$DOMStructure::init$();
 	this->digested = false;
 	this->validated = false;
@@ -301,28 +213,20 @@ void DOMReference::init$($String* uri, $String* type, $DigestMethod* dm, $List* 
 	if (appliedTransforms == nullptr) {
 		$set(this, allTransforms, $new($ArrayList));
 	} else {
-		$set(this, allTransforms, $new($ArrayList, static_cast<$Collection*>(appliedTransforms)));
-		{
-			int32_t i = 0;
-			int32_t size = $nc(this->allTransforms)->size();
-			for (; i < size; ++i) {
-				if (!($instanceOf($Transform, $($nc(this->allTransforms)->get(i))))) {
-					$throwNew($ClassCastException, $$str({"appliedTransforms["_s, $$str(i), "] is not a valid type"_s}));
-				}
+		$set(this, allTransforms, $new($ArrayList, appliedTransforms));
+		for (int32_t i = 0, size = this->allTransforms->size(); i < size; ++i) {
+			if (!($instanceOf($Transform, $(this->allTransforms->get(i))))) {
+				$throwNew($ClassCastException, $$str({"appliedTransforms["_s, $$str(i), "] is not a valid type"_s}));
 			}
 		}
 	}
 	if (transforms == nullptr) {
 		$set(this, transforms, $Collections::emptyList());
 	} else {
-		$set(this, transforms, $new($ArrayList, static_cast<$Collection*>(transforms)));
-		{
-			int32_t i = 0;
-			int32_t size = $nc(this->transforms)->size();
-			for (; i < size; ++i) {
-				if (!($instanceOf($Transform, $($nc(this->transforms)->get(i))))) {
-					$throwNew($ClassCastException, $$str({"transforms["_s, $$str(i), "] is not a valid type"_s}));
-				}
+		$set(this, transforms, $new($ArrayList, transforms));
+		for (int32_t i = 0, size = this->transforms->size(); i < size; ++i) {
+			if (!($instanceOf($Transform, $(this->transforms->get(i))))) {
+				$throwNew($ClassCastException, $$str({"transforms["_s, $$str(i), "] is not a valid type"_s}));
 			}
 		}
 		$nc(this->allTransforms)->addAll(this->transforms);
@@ -347,7 +251,7 @@ void DOMReference::init$($String* uri, $String* type, $DigestMethod* dm, $List* 
 }
 
 void DOMReference::init$($Element* refElem, $XMLCryptoContext* context, $Provider* provider) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$DOMStructure::init$();
 	this->digested = false;
 	this->validated = false;
@@ -356,7 +260,7 @@ void DOMReference::init$($Element* refElem, $XMLCryptoContext* context, $Provide
 	$var($List, newTransforms, $new($ArrayList, DOMReference::MAXIMUM_TRANSFORM_COUNT));
 	bool var$0 = "Transforms"_s->equals($($nc(nextSibling)->getLocalName()));
 	$init($XMLSignature);
-	if (var$0 && $nc($XMLSignature::XMLNS)->equals($($nc(nextSibling)->getNamespaceURI()))) {
+	if (var$0 && $nc($XMLSignature::XMLNS)->equals($(nextSibling->getNamespaceURI()))) {
 		$var($Element, transformElem, $DOMUtils::getFirstChildElement(nextSibling, "Transform"_s, $XMLSignature::XMLNS));
 		newTransforms->add($$new($DOMTransform, transformElem, context, provider));
 		$assign(transformElem, $DOMUtils::getNextSiblingElement(transformElem));
@@ -364,7 +268,7 @@ void DOMReference::init$($Element* refElem, $XMLCryptoContext* context, $Provide
 			$var($String, localName, transformElem->getLocalName());
 			$var($String, namespace$, transformElem->getNamespaceURI());
 			bool var$1 = !"Transform"_s->equals(localName);
-			if (var$1 || !$nc($XMLSignature::XMLNS)->equals(namespace$)) {
+			if (var$1 || !$XMLSignature::XMLNS->equals(namespace$)) {
 				$throwNew($MarshalException, $$str({"Invalid element name: "_s, localName, ", expected Transform"_s}));
 			}
 			newTransforms->add($$new($DOMTransform, transformElem, context, provider));
@@ -377,8 +281,8 @@ void DOMReference::init$($Element* refElem, $XMLCryptoContext* context, $Provide
 		$assign(nextSibling, $DOMUtils::getNextSiblingElement(nextSibling));
 	}
 	bool var$2 = !"DigestMethod"_s->equals($($nc(nextSibling)->getLocalName()));
-	if (var$2 && $nc($XMLSignature::XMLNS)->equals($($nc(nextSibling)->getNamespaceURI()))) {
-		$throwNew($MarshalException, $$str({"Invalid element name: "_s, $($nc(nextSibling)->getLocalName()), ", expected DigestMethod"_s}));
+	if (var$2 && $nc($XMLSignature::XMLNS)->equals($(nextSibling->getNamespaceURI()))) {
+		$throwNew($MarshalException, $$str({"Invalid element name: "_s, $(nextSibling->getLocalName()), ", expected DigestMethod"_s}));
 	}
 	$var($Element, dmElem, nextSibling);
 	$set(this, digestMethod, $DOMDigestMethod::unmarshal(dmElem));
@@ -430,15 +334,15 @@ $List* DOMReference::getTransforms() {
 }
 
 $bytes* DOMReference::getDigestValue() {
-	return this->digestValue == nullptr ? ($bytes*)nullptr : $cast($bytes, $nc(this->digestValue)->clone());
+	return this->digestValue == nullptr ? ($bytes*)nullptr : $cast($bytes, this->digestValue->clone());
 }
 
 $bytes* DOMReference::getCalculatedDigestValue() {
-	return this->calcDigestValue == nullptr ? ($bytes*)nullptr : $cast($bytes, $nc(this->calcDigestValue)->clone());
+	return this->calcDigestValue == nullptr ? ($bytes*)nullptr : $cast($bytes, this->calcDigestValue->clone());
 }
 
 void DOMReference::marshal($Node* parent, $String* dsPrefix, $DOMCryptoContext* context) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(DOMReference::LOG)->debug("Marshalling Reference"_s);
 	$var($Document, ownerDoc, $DOMUtils::getOwnerDocument(parent));
 	$init($XMLSignature);
@@ -454,13 +358,13 @@ void DOMReference::marshal($Node* parent, $String* dsPrefix, $DOMCryptoContext* 
 			for (; $nc(i$)->hasNext();) {
 				$var($Transform, transform, $cast($Transform, i$->next()));
 				{
-					$nc(($cast($DOMStructure, transform)))->marshal(transformsElem, dsPrefix, context);
+					$nc($cast($DOMStructure, transform))->marshal(transformsElem, dsPrefix, context);
 				}
 			}
 		}
 	}
-	$nc(($cast($DOMDigestMethod, this->digestMethod)))->marshal(this->refElem, dsPrefix, context);
-	$nc(DOMReference::LOG)->debug("Adding digestValueElem"_s);
+	$nc($cast($DOMDigestMethod, this->digestMethod))->marshal(this->refElem, dsPrefix, context);
+	DOMReference::LOG->debug("Adding digestValueElem"_s);
 	$var($Element, digestValueElem, $DOMUtils::createElement(ownerDoc, "DigestValue"_s, $XMLSignature::XMLNS, dsPrefix));
 	if (this->digestValue != nullptr) {
 		$nc(digestValueElem)->appendChild($($nc(ownerDoc)->createTextNode($($XMLUtils::encodeToString(this->digestValue)))));
@@ -471,7 +375,7 @@ void DOMReference::marshal($Node* parent, $String* dsPrefix, $DOMCryptoContext* 
 }
 
 void DOMReference::digest($XMLSignContext* signContext) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Data, data, nullptr);
 	if (this->appliedTransformData == nullptr) {
 		$assign(data, dereference(signContext));
@@ -480,19 +384,19 @@ void DOMReference::digest($XMLSignContext* signContext) {
 	}
 	$set(this, digestValue, transform(data, signContext));
 	$var($String, encodedDV, $XMLUtils::encodeToString(this->digestValue));
-	$nc(DOMReference::LOG)->debug("Reference object uri = {}"_s, $$new($ObjectArray, {$of(this->uri)}));
+	$nc(DOMReference::LOG)->debug("Reference object uri = {}"_s, $$new($ObjectArray, {this->uri}));
 	$var($Element, digestElem, $DOMUtils::getLastChildElement(this->refElem));
 	if (digestElem == nullptr) {
 		$throwNew($XMLSignatureException, "DigestValue element expected"_s);
 	}
 	$DOMUtils::removeAllChildren(digestElem);
-	$nc(digestElem)->appendChild($($nc($($nc(this->refElem)->getOwnerDocument()))->createTextNode(encodedDV)));
+	$nc(digestElem)->appendChild($($$nc($nc(this->refElem)->getOwnerDocument())->createTextNode(encodedDV)));
 	this->digested = true;
-	$nc(DOMReference::LOG)->debug("Reference digesting completed"_s);
+	DOMReference::LOG->debug("Reference digesting completed"_s);
 }
 
 bool DOMReference::validate($XMLValidateContext* validateContext) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (validateContext == nullptr) {
 		$throwNew($NullPointerException, "validateContext cannot be null"_s);
 	}
@@ -502,8 +406,8 @@ bool DOMReference::validate($XMLValidateContext* validateContext) {
 	$var($Data, data, dereference(validateContext));
 	$set(this, calcDigestValue, transform(data, validateContext));
 	if ($nc(DOMReference::LOG)->isDebugEnabled()) {
-		$nc(DOMReference::LOG)->debug($$str({"Expected digest: "_s, $($XMLUtils::encodeToString(this->digestValue))}));
-		$nc(DOMReference::LOG)->debug($$str({"Actual digest: "_s, $($XMLUtils::encodeToString(this->calcDigestValue))}));
+		DOMReference::LOG->debug($$str({"Expected digest: "_s, $($XMLUtils::encodeToString(this->digestValue))}));
+		DOMReference::LOG->debug($$str({"Actual digest: "_s, $($XMLUtils::encodeToString(this->calcDigestValue))}));
 	}
 	this->validationStatus = $Arrays::equals(this->digestValue, this->calcDigestValue);
 	this->validated = true;
@@ -519,7 +423,7 @@ $InputStream* DOMReference::getDigestInputStream() {
 }
 
 $Data* DOMReference::dereference($XMLCryptoContext* context) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Data, data, nullptr);
 	$var($URIDereferencer, deref, $nc(context)->getURIDereferencer());
 	if (deref == nullptr) {
@@ -527,22 +431,22 @@ $Data* DOMReference::dereference($XMLCryptoContext* context) {
 		$assign(deref, $DOMURIDereferencer::INSTANCE);
 	}
 	try {
-		$assign(data, $nc(deref)->dereference(static_cast<$URIReference*>(static_cast<$Reference*>(this)), context));
-		$nc(DOMReference::LOG)->debug("URIDereferencer class name: {}"_s, $$new($ObjectArray, {$($of($of(deref)->getClass()->getName()))}));
-		$nc(DOMReference::LOG)->debug("Data class name: {}"_s, $$new($ObjectArray, {$($of($nc($of(data))->getClass()->getName()))}));
+		$assign(data, $nc(deref)->dereference($cast($Reference, this), context));
+		$nc(DOMReference::LOG)->debug("URIDereferencer class name: {}"_s, $$new($ObjectArray, {$(deref->getClass()->getName())}));
+		DOMReference::LOG->debug("Data class name: {}"_s, $$new($ObjectArray, {$($nc(data)->getClass()->getName())}));
 	} catch ($URIReferenceException& ure) {
-		$throwNew($XMLSignatureException, static_cast<$Throwable*>(ure));
+		$throwNew($XMLSignatureException, ure);
 	}
 	return data;
 }
 
 $bytes* DOMReference::transform($Data* dereferencedData, $XMLCryptoContext* context) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->md == nullptr) {
 		try {
-			$set(this, md, $MessageDigest::getInstance($($nc(($cast($DOMDigestMethod, this->digestMethod)))->getMessageDigestAlgorithm())));
+			$set(this, md, $MessageDigest::getInstance($($nc($cast($DOMDigestMethod, this->digestMethod))->getMessageDigestAlgorithm())));
 		} catch ($NoSuchAlgorithmException& nsae) {
-			$throwNew($XMLSignatureException, static_cast<$Throwable*>(nsae));
+			$throwNew($XMLSignatureException, nsae);
 		}
 	}
 	$nc(this->md)->reset();
@@ -556,177 +460,167 @@ $bytes* DOMReference::transform($Data* dereferencedData, $XMLCryptoContext* cont
 	}
 	$var($Data, data, dereferencedData);
 	$var($XMLSignatureInput, xi, nullptr);
-	{
-		$var($Throwable, var$0, nullptr);
-		$var($bytes, var$2, nullptr);
-		bool return$1 = false;
+	$var($Throwable, var$0, nullptr);
+	$var($bytes, var$2, nullptr);
+	bool return$1 = false;
+	try {
 		try {
+			$var($OutputStream, os, $new($UnsyncBufferedOutputStream, dos));
+			$var($Throwable, var$3, nullptr);
+			$var($bytes, var$5, nullptr);
+			bool return$4 = false;
 			try {
-				$var($OutputStream, os, $new($UnsyncBufferedOutputStream, dos));
-				{
-					$var($Throwable, var$3, nullptr);
-					$var($bytes, var$5, nullptr);
-					bool return$4 = false;
-					try {
-						try {
-							{
-								int32_t i = 0;
-								int32_t size = $nc(this->transforms)->size();
-								for (; i < size; ++i) {
-									$var($DOMTransform, transform, $cast($DOMTransform, $nc(this->transforms)->get(i)));
-									if (i < size - 1) {
-										$assign(data, $nc(transform)->transform(data, context));
-									} else {
-										$assign(data, $nc(transform)->transform(data, context, os));
-									}
-								}
-							}
-							if (data != nullptr) {
-								bool c14n11 = DOMReference::useC14N11;
-								$init($CanonicalizationMethod);
-								$var($String, c14nalg, $CanonicalizationMethod::INCLUSIVE);
-								if ($instanceOf($XMLSignContext, context)) {
-									if (!c14n11) {
-										$var($Boolean, prop, $cast($Boolean, context->getProperty("com.sun.org.apache.xml.internal.security.useC14N11"_s)));
-										c14n11 = prop != nullptr && prop->booleanValue();
-										if (c14n11) {
-											$assign(c14nalg, "http://www.w3.org/2006/12/xml-c14n11"_s);
-										}
-									} else {
-										$assign(c14nalg, "http://www.w3.org/2006/12/xml-c14n11"_s);
-									}
-								}
-								if ($instanceOf($ApacheData, data)) {
-									$assign(xi, $nc(($cast($ApacheData, data)))->getXMLSignatureInput());
-								} else if ($instanceOf($OctetStreamData, data)) {
-									$assign(xi, $new($XMLSignatureInput, $($nc(($cast($OctetStreamData, data)))->getOctetStream())));
-								} else if ($instanceOf($NodeSetData, data)) {
-									$var($TransformService, spi, nullptr);
-									if (this->provider == nullptr) {
-										$assign(spi, $TransformService::getInstance(c14nalg, "DOM"_s));
-									} else {
-										try {
-											$assign(spi, $TransformService::getInstance(c14nalg, "DOM"_s, this->provider));
-										} catch ($NoSuchAlgorithmException& nsae) {
-											$assign(spi, $TransformService::getInstance(c14nalg, "DOM"_s));
-										}
-									}
-									$assign(data, $nc(spi)->transform(data, context));
-									$assign(xi, $new($XMLSignatureInput, $($nc(($cast($OctetStreamData, data)))->getOctetStream())));
-								} else {
-									$throwNew($XMLSignatureException, "unrecognized Data type"_s);
-								}
-								bool secVal = $Utils::secureValidation(context);
-								{
-									$var($Throwable, var$6, nullptr);
-									try {
-										$nc(xi)->setSecureValidation(secVal);
-										bool var$7 = $instanceOf($XMLSignContext, context) && c14n11 && !xi->isOctetStream();
-										if (var$7 && !xi->isOutputStreamSet()) {
-											$var($TransformService, spi, nullptr);
-											if (this->provider == nullptr) {
-												$assign(spi, $TransformService::getInstance(c14nalg, "DOM"_s));
-											} else {
-												try {
-													$assign(spi, $TransformService::getInstance(c14nalg, "DOM"_s, this->provider));
-												} catch ($NoSuchAlgorithmException& nsae) {
-													$assign(spi, $TransformService::getInstance(c14nalg, "DOM"_s));
-												}
-											}
-											$var($DOMTransform, t, $new($DOMTransform, spi));
-											$var($Element, transformsElem, nullptr);
-											$var($String, dsPrefix, $DOMUtils::getSignaturePrefix(context));
-											if ($nc(this->allTransforms)->isEmpty()) {
-												$init($XMLSignature);
-												$assign(transformsElem, $DOMUtils::createElement($($nc(this->refElem)->getOwnerDocument()), "Transforms"_s, $XMLSignature::XMLNS, dsPrefix));
-												$nc(this->refElem)->insertBefore(transformsElem, $($DOMUtils::getFirstChildElement(this->refElem)));
-											} else {
-												$assign(transformsElem, $DOMUtils::getFirstChildElement(this->refElem));
-											}
-											t->marshal(transformsElem, dsPrefix, $cast($DOMCryptoContext, context));
-											$nc(this->allTransforms)->add(t);
-											xi->updateOutputStream(os, true);
-										} else {
-											xi->updateOutputStream(os);
-										}
-									} catch ($Throwable& var$8) {
-										$assign(var$6, var$8);
-									} /*finally*/ {
-										if ($nc(xi)->getOctetStreamReal() != nullptr) {
-											$nc($(xi->getOctetStreamReal()))->close();
-										}
-									}
-									if (var$6 != nullptr) {
-										$throw(var$6);
-									}
+				try {
+					for (int32_t i = 0, size = $nc(this->transforms)->size(); i < size; ++i) {
+						$var($DOMTransform, transform, $cast($DOMTransform, this->transforms->get(i)));
+						if (i < size - 1) {
+							$assign(data, $nc(transform)->transform(data, context));
+						} else {
+							$assign(data, $nc(transform)->transform(data, context, os));
+						}
+					}
+					if (data != nullptr) {
+						bool c14n11 = DOMReference::useC14N11;
+						$init($CanonicalizationMethod);
+						$var($String, c14nalg, $CanonicalizationMethod::INCLUSIVE);
+						if ($instanceOf($XMLSignContext, context)) {
+							if (!c14n11) {
+								$var($Boolean, prop, $cast($Boolean, context->getProperty("com.sun.org.apache.xml.internal.security.useC14N11"_s)));
+								c14n11 = prop != nullptr && prop->booleanValue();
+								if (c14n11) {
+									$assign(c14nalg, "http://www.w3.org/2006/12/xml-c14n11"_s);
 								}
 							} else {
-								$nc(DOMReference::LOG)->warn("The input bytes to the digest operation are null. This may be due to a problem with the Reference URI or its Transforms."_s);
+								$assign(c14nalg, "http://www.w3.org/2006/12/xml-c14n11"_s);
 							}
-							os->flush();
-							if (cache != nullptr && cache->booleanValue()) {
-								$set(this, dis, $nc(dos)->getInputStream());
-							}
-							$assign(var$5, $nc(dos)->getDigestValue());
-							return$4 = true;
-							goto $finally1;
-						} catch ($Throwable& t$) {
-							try {
-								os->close();
-							} catch ($Throwable& x2) {
-								t$->addSuppressed(x2);
-							}
-							$throw(t$);
 						}
-					} catch ($Throwable& var$9) {
-						$assign(var$3, var$9);
-					} $finally1: {
+						if ($instanceOf($ApacheData, data)) {
+							$assign(xi, $cast($ApacheData, data)->getXMLSignatureInput());
+						} else if ($instanceOf($OctetStreamData, data)) {
+							$assign(xi, $new($XMLSignatureInput, $($cast($OctetStreamData, data)->getOctetStream())));
+						} else if ($instanceOf($NodeSetData, data)) {
+							$var($TransformService, spi, nullptr);
+							if (this->provider == nullptr) {
+								$assign(spi, $TransformService::getInstance(c14nalg, "DOM"_s));
+							} else {
+								try {
+									$assign(spi, $TransformService::getInstance(c14nalg, "DOM"_s, this->provider));
+								} catch ($NoSuchAlgorithmException& nsae) {
+									$assign(spi, $TransformService::getInstance(c14nalg, "DOM"_s));
+								}
+							}
+							$assign(data, $nc(spi)->transform(data, context));
+							$assign(xi, $new($XMLSignatureInput, $($nc($cast($OctetStreamData, data))->getOctetStream())));
+						} else {
+							$throwNew($XMLSignatureException, "unrecognized Data type"_s);
+						}
+						bool secVal = $Utils::secureValidation(context);
+						$var($Throwable, var$6, nullptr);
+						try {
+							$nc(xi)->setSecureValidation(secVal);
+							bool var$7 = $instanceOf($XMLSignContext, context) && c14n11 && !xi->isOctetStream();
+							if (var$7 && !xi->isOutputStreamSet()) {
+								$var($TransformService, spi, nullptr);
+								if (this->provider == nullptr) {
+									$assign(spi, $TransformService::getInstance(c14nalg, "DOM"_s));
+								} else {
+									try {
+										$assign(spi, $TransformService::getInstance(c14nalg, "DOM"_s, this->provider));
+									} catch ($NoSuchAlgorithmException& nsae) {
+										$assign(spi, $TransformService::getInstance(c14nalg, "DOM"_s));
+									}
+								}
+								$var($DOMTransform, t, $new($DOMTransform, spi));
+								$var($Element, transformsElem, nullptr);
+								$var($String, dsPrefix, $DOMUtils::getSignaturePrefix(context));
+								if ($nc(this->allTransforms)->isEmpty()) {
+									$init($XMLSignature);
+									$assign(transformsElem, $DOMUtils::createElement($($nc(this->refElem)->getOwnerDocument()), "Transforms"_s, $XMLSignature::XMLNS, dsPrefix));
+									$nc(this->refElem)->insertBefore(transformsElem, $($DOMUtils::getFirstChildElement(this->refElem)));
+								} else {
+									$assign(transformsElem, $DOMUtils::getFirstChildElement(this->refElem));
+								}
+								t->marshal(transformsElem, dsPrefix, $cast($DOMCryptoContext, context));
+								$nc(this->allTransforms)->add(t);
+								xi->updateOutputStream(os, true);
+							} else {
+								xi->updateOutputStream(os);
+							}
+						} catch ($Throwable& var$8) {
+							$assign(var$6, var$8);
+						} /*finally*/ {
+							if ($nc(xi)->getOctetStreamReal() != nullptr) {
+								$$nc(xi->getOctetStreamReal())->close();
+							}
+						}
+						if (var$6 != nullptr) {
+							$throw(var$6);
+						}
+					} else {
+						$nc(DOMReference::LOG)->warn("The input bytes to the digest operation are null. This may be due to a problem with the Reference URI or its Transforms."_s);
+					}
+					os->flush();
+					if (cache != nullptr && cache->booleanValue()) {
+						$set(this, dis, $nc(dos)->getInputStream());
+					}
+					$assign(var$5, $nc(dos)->getDigestValue());
+					return$4 = true;
+					goto $finally1;
+				} catch ($Throwable& t$) {
+					try {
 						os->close();
+					} catch ($Throwable& x2) {
+						t$->addSuppressed(x2);
 					}
-					if (var$3 != nullptr) {
-						$throw(var$3);
-					}
-					if (return$4) {
-						$assign(var$2, var$5);
-						return$1 = true;
-						goto $finally;
-					}
+					$throw(t$);
 				}
-			} catch ($NoSuchAlgorithmException& e) {
-				$throwNew($XMLSignatureException, static_cast<$Throwable*>(e));
-			} catch ($TransformException& e) {
-				$throwNew($XMLSignatureException, static_cast<$Throwable*>(e));
-			} catch ($MarshalException& e) {
-				$throwNew($XMLSignatureException, static_cast<$Throwable*>(e));
+			} catch ($Throwable& var$9) {
+				$assign(var$3, var$9);
+			} $finally1: {
+				os->close();
+			}
+			if (var$3 != nullptr) {
+				$throw(var$3);
+			}
+			if (return$4) {
+				$assign(var$2, var$5);
+				return$1 = true;
+				goto $finally;
+			}
+		} catch ($NoSuchAlgorithmException& e) {
+			$throwNew($XMLSignatureException, e);
+		} catch ($TransformException& e) {
+			$throwNew($XMLSignatureException, e);
+		} catch ($MarshalException& e) {
+			$throwNew($XMLSignatureException, e);
+		} catch ($IOException& e) {
+			$throwNew($XMLSignatureException, e);
+		} catch ($CanonicalizationException& e) {
+			$throwNew($XMLSignatureException, e);
+		}
+	} catch ($Throwable& var$10) {
+		$assign(var$0, var$10);
+	} $finally: {
+		if (xi != nullptr && xi->getOctetStreamReal() != nullptr) {
+			try {
+				$$nc(xi->getOctetStreamReal())->close();
 			} catch ($IOException& e) {
-				$throwNew($XMLSignatureException, static_cast<$Throwable*>(e));
-			} catch ($CanonicalizationException& e) {
-				$throwNew($XMLSignatureException, static_cast<$Throwable*>(e));
-			}
-		} catch ($Throwable& var$10) {
-			$assign(var$0, var$10);
-		} $finally: {
-			if (xi != nullptr && xi->getOctetStreamReal() != nullptr) {
-				try {
-					$nc($(xi->getOctetStreamReal()))->close();
-				} catch ($IOException& e) {
-					$throwNew($XMLSignatureException, static_cast<$Throwable*>(e));
-				}
-			}
-			if (dos != nullptr) {
-				try {
-					dos->close();
-				} catch ($IOException& e) {
-					$throwNew($XMLSignatureException, static_cast<$Throwable*>(e));
-				}
+				$throwNew($XMLSignatureException, e);
 			}
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+		if (dos != nullptr) {
+			try {
+				dos->close();
+			} catch ($IOException& e) {
+				$throwNew($XMLSignatureException, e);
+			}
 		}
-		if (return$1) {
-			return var$2;
-		}
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
@@ -736,7 +630,7 @@ $Node* DOMReference::getHere() {
 }
 
 bool DOMReference::equals(Object$* o) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($equals(this, o)) {
 		return true;
 	}
@@ -744,29 +638,29 @@ bool DOMReference::equals(Object$* o) {
 		return false;
 	}
 	$var($Reference, oref, $cast($Reference, o));
-	bool idsEqual = this->id == nullptr ? $nc(oref)->getId() == nullptr : $nc(this->id)->equals($(oref->getId()));
-	bool urisEqual = this->uri == nullptr ? oref->getURI() == nullptr : $nc(this->uri)->equals($(oref->getURI()));
-	bool typesEqual = this->type == nullptr ? oref->getType() == nullptr : $nc(this->type)->equals($(oref->getType()));
-	bool digestValuesEqual = $Arrays::equals(this->digestValue, $(oref->getDigestValue()));
-	bool var$0 = $nc($of(this->digestMethod))->equals($(oref->getDigestMethod())) && idsEqual && urisEqual && typesEqual;
+	bool idsEqual = this->id == nullptr ? $nc(oref)->getId() == nullptr : this->id->equals($($nc(oref)->getId()));
+	bool urisEqual = this->uri == nullptr ? $nc(oref)->getURI() == nullptr : this->uri->equals($($nc(oref)->getURI()));
+	bool typesEqual = this->type == nullptr ? $nc(oref)->getType() == nullptr : this->type->equals($($nc(oref)->getType()));
+	bool digestValuesEqual = $Arrays::equals(this->digestValue, $($nc(oref)->getDigestValue()));
+	bool var$0 = $nc(this->digestMethod)->equals($(oref->getDigestMethod())) && idsEqual && urisEqual && typesEqual;
 	return var$0 && $nc(this->allTransforms)->equals($(oref->getTransforms())) && digestValuesEqual;
 }
 
 int32_t DOMReference::hashCode() {
 	int32_t result = 17;
 	if (this->id != nullptr) {
-		result = 31 * result + $nc(this->id)->hashCode();
+		result = 31 * result + this->id->hashCode();
 	}
 	if (this->uri != nullptr) {
-		result = 31 * result + $nc(this->uri)->hashCode();
+		result = 31 * result + this->uri->hashCode();
 	}
 	if (this->type != nullptr) {
-		result = 31 * result + $nc(this->type)->hashCode();
+		result = 31 * result + this->type->hashCode();
 	}
 	if (this->digestValue != nullptr) {
 		result = 31 * result + $Arrays::hashCode(this->digestValue);
 	}
-	result = 31 * result + $nc($of(this->digestMethod))->hashCode();
+	result = 31 * result + $nc(this->digestMethod)->hashCode();
 	result = 31 * result + $nc(this->allTransforms)->hashCode();
 	return result;
 }
@@ -777,10 +671,10 @@ bool DOMReference::isDigested() {
 
 $Data* DOMReference::copyDerefData($Data* dereferencedData) {
 	$init(DOMReference);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($instanceOf($ApacheData, dereferencedData)) {
 		$var($ApacheData, ad, $cast($ApacheData, dereferencedData));
-		$var($XMLSignatureInput, xsi, $nc(ad)->getXMLSignatureInput());
+		$var($XMLSignatureInput, xsi, ad->getXMLSignatureInput());
 		if ($nc(xsi)->isNodeSet()) {
 			try {
 				$var($Set, s, xsi->getNodeSet());
@@ -793,12 +687,12 @@ $Data* DOMReference::copyDerefData($Data* dereferencedData) {
 			$var($Node, var$0, xsi->getSubNode());
 			return $new($DOMSubTreeData, var$0, xsi->isExcludeComments());
 		} else {
-			bool var$2 = xsi->isOctetStream();
-			if (var$2 || xsi->isByteArray()) {
+			bool var$1 = xsi->isOctetStream();
+			if (var$1 || xsi->isByteArray()) {
 				try {
-					$var($InputStream, var$3, xsi->getOctetStream());
-					$var($String, var$4, xsi->getSourceURI());
-					return $new($OctetStreamData, var$3, var$4, $(xsi->getMIMEType()));
+					$var($InputStream, var$2, xsi->getOctetStream());
+					$var($String, var$3, xsi->getSourceURI());
+					return $new($OctetStreamData, var$2, var$3, $(xsi->getMIMEType()));
 				} catch ($IOException& ioe) {
 					$nc(DOMReference::LOG)->warn($$str({"cannot cache dereferenced data: "_s, ioe}));
 					return nullptr;
@@ -814,10 +708,10 @@ $Boolean* DOMReference::lambda$static$0() {
 	return $Boolean::valueOf($Boolean::getBoolean("com.sun.org.apache.xml.internal.security.useC14N11"_s));
 }
 
-void clinit$DOMReference($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void DOMReference::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
-	DOMReference::useC14N11 = $nc(($cast($Boolean, $($AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new(DOMReference$$Lambda$lambda$static$0)))))))->booleanValue();
+	DOMReference::useC14N11 = $$sure($Boolean, $AccessController::doPrivileged($cast($PrivilegedAction, $$new(DOMReference$$Lambda$lambda$static$0))))->booleanValue();
 	$assignStatic(DOMReference::LOG, $LoggerFactory::getLogger(DOMReference::class$));
 }
 
@@ -826,11 +720,86 @@ DOMReference::DOMReference() {
 
 $Class* DOMReference::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(DOMReference$$Lambda$lambda$static$0::classInfo$.name)) {
+		if (name->equals("org.jcp.xml.dsig.internal.dom.DOMReference$$Lambda$lambda$static$0")) {
 			return DOMReference$$Lambda$lambda$static$0::load$(name, initialize);
 		}
 	}
-	$loadClass(DOMReference, name, initialize, &_DOMReference_ClassInfo_, clinit$DOMReference, allocate$DOMReference);
+	$FieldInfo fieldInfos$$[] = {
+		{"MAXIMUM_TRANSFORM_COUNT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DOMReference, MAXIMUM_TRANSFORM_COUNT)},
+		{"useC14N11", "Z", nullptr, $PRIVATE | $STATIC, $staticField(DOMReference, useC14N11)},
+		{"LOG", "Lcom/sun/org/slf4j/internal/Logger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DOMReference, LOG)},
+		{"digestMethod", "Ljavax/xml/crypto/dsig/DigestMethod;", nullptr, $PRIVATE | $FINAL, $field(DOMReference, digestMethod)},
+		{"id", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(DOMReference, id)},
+		{"transforms", "Ljava/util/List;", "Ljava/util/List<Ljavax/xml/crypto/dsig/Transform;>;", $PRIVATE | $FINAL, $field(DOMReference, transforms)},
+		{"allTransforms", "Ljava/util/List;", "Ljava/util/List<Ljavax/xml/crypto/dsig/Transform;>;", $PRIVATE, $field(DOMReference, allTransforms)},
+		{"appliedTransformData", "Ljavax/xml/crypto/Data;", nullptr, $PRIVATE | $FINAL, $field(DOMReference, appliedTransformData)},
+		{"here", "Lorg/w3c/dom/Attr;", nullptr, $PRIVATE, $field(DOMReference, here)},
+		{"uri", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(DOMReference, uri)},
+		{"type", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(DOMReference, type)},
+		{"digestValue", "[B", nullptr, $PRIVATE, $field(DOMReference, digestValue)},
+		{"calcDigestValue", "[B", nullptr, $PRIVATE, $field(DOMReference, calcDigestValue)},
+		{"refElem", "Lorg/w3c/dom/Element;", nullptr, $PRIVATE, $field(DOMReference, refElem)},
+		{"digested", "Z", nullptr, $PRIVATE, $field(DOMReference, digested)},
+		{"validated", "Z", nullptr, $PRIVATE, $field(DOMReference, validated)},
+		{"validationStatus", "Z", nullptr, $PRIVATE, $field(DOMReference, validationStatus)},
+		{"derefData", "Ljavax/xml/crypto/Data;", nullptr, $PRIVATE, $field(DOMReference, derefData)},
+		{"dis", "Ljava/io/InputStream;", nullptr, $PRIVATE, $field(DOMReference, dis)},
+		{"md", "Ljava/security/MessageDigest;", nullptr, $PRIVATE, $field(DOMReference, md)},
+		{"provider", "Ljava/security/Provider;", nullptr, $PRIVATE, $field(DOMReference, provider)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljavax/xml/crypto/dsig/DigestMethod;Ljava/util/List;Ljava/lang/String;Ljava/security/Provider;)V", "(Ljava/lang/String;Ljava/lang/String;Ljavax/xml/crypto/dsig/DigestMethod;Ljava/util/List<+Ljavax/xml/crypto/dsig/Transform;>;Ljava/lang/String;Ljava/security/Provider;)V", $PUBLIC, $method(DOMReference, init$, void, $String*, $String*, $DigestMethod*, $List*, $String*, $Provider*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljavax/xml/crypto/dsig/DigestMethod;Ljava/util/List;Ljavax/xml/crypto/Data;Ljava/util/List;Ljava/lang/String;Ljava/security/Provider;)V", "(Ljava/lang/String;Ljava/lang/String;Ljavax/xml/crypto/dsig/DigestMethod;Ljava/util/List<+Ljavax/xml/crypto/dsig/Transform;>;Ljavax/xml/crypto/Data;Ljava/util/List<+Ljavax/xml/crypto/dsig/Transform;>;Ljava/lang/String;Ljava/security/Provider;)V", $PUBLIC, $method(DOMReference, init$, void, $String*, $String*, $DigestMethod*, $List*, $Data*, $List*, $String*, $Provider*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljavax/xml/crypto/dsig/DigestMethod;Ljava/util/List;Ljavax/xml/crypto/Data;Ljava/util/List;Ljava/lang/String;[BLjava/security/Provider;)V", "(Ljava/lang/String;Ljava/lang/String;Ljavax/xml/crypto/dsig/DigestMethod;Ljava/util/List<+Ljavax/xml/crypto/dsig/Transform;>;Ljavax/xml/crypto/Data;Ljava/util/List<+Ljavax/xml/crypto/dsig/Transform;>;Ljava/lang/String;[BLjava/security/Provider;)V", $PUBLIC, $method(DOMReference, init$, void, $String*, $String*, $DigestMethod*, $List*, $Data*, $List*, $String*, $bytes*, $Provider*)},
+		{"<init>", "(Lorg/w3c/dom/Element;Ljavax/xml/crypto/XMLCryptoContext;Ljava/security/Provider;)V", nullptr, $PUBLIC, $method(DOMReference, init$, void, $Element*, $XMLCryptoContext*, $Provider*), "javax.xml.crypto.MarshalException"},
+		{"copyDerefData", "(Ljavax/xml/crypto/Data;)Ljavax/xml/crypto/Data;", nullptr, $PRIVATE | $STATIC, $staticMethod(DOMReference, copyDerefData, $Data*, $Data*)},
+		{"dereference", "(Ljavax/xml/crypto/XMLCryptoContext;)Ljavax/xml/crypto/Data;", nullptr, $PRIVATE, $method(DOMReference, dereference, $Data*, $XMLCryptoContext*), "javax.xml.crypto.dsig.XMLSignatureException"},
+		{"digest", "(Ljavax/xml/crypto/dsig/XMLSignContext;)V", nullptr, $PUBLIC, $method(DOMReference, digest, void, $XMLSignContext*), "javax.xml.crypto.dsig.XMLSignatureException"},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(DOMReference, equals, bool, Object$*)},
+		{"getCalculatedDigestValue", "()[B", nullptr, $PUBLIC, $virtualMethod(DOMReference, getCalculatedDigestValue, $bytes*)},
+		{"getDereferencedData", "()Ljavax/xml/crypto/Data;", nullptr, $PUBLIC, $virtualMethod(DOMReference, getDereferencedData, $Data*)},
+		{"getDigestInputStream", "()Ljava/io/InputStream;", nullptr, $PUBLIC, $virtualMethod(DOMReference, getDigestInputStream, $InputStream*)},
+		{"getDigestMethod", "()Ljavax/xml/crypto/dsig/DigestMethod;", nullptr, $PUBLIC, $virtualMethod(DOMReference, getDigestMethod, $DigestMethod*)},
+		{"getDigestValue", "()[B", nullptr, $PUBLIC, $virtualMethod(DOMReference, getDigestValue, $bytes*)},
+		{"getHere", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(DOMReference, getHere, $Node*)},
+		{"getId", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DOMReference, getId, $String*)},
+		{"getTransforms", "()Ljava/util/List;", "()Ljava/util/List<Ljavax/xml/crypto/dsig/Transform;>;", $PUBLIC, $virtualMethod(DOMReference, getTransforms, $List*)},
+		{"getType", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DOMReference, getType, $String*)},
+		{"getURI", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DOMReference, getURI, $String*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(DOMReference, hashCode, int32_t)},
+		{"isDigested", "()Z", nullptr, 0, $method(DOMReference, isDigested, bool)},
+		{"*isFeatureSupported", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $FINAL},
+		{"lambda$static$0", "()Ljava/lang/Boolean;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(DOMReference, lambda$static$0, $Boolean*)},
+		{"marshal", "(Lorg/w3c/dom/Node;Ljava/lang/String;Ljavax/xml/crypto/dom/DOMCryptoContext;)V", nullptr, $PUBLIC, $virtualMethod(DOMReference, marshal, void, $Node*, $String*, $DOMCryptoContext*), "javax.xml.crypto.MarshalException"},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"transform", "(Ljavax/xml/crypto/Data;Ljavax/xml/crypto/XMLCryptoContext;)[B", nullptr, $PRIVATE, $method(DOMReference, transform, $bytes*, $Data*, $XMLCryptoContext*), "javax.xml.crypto.dsig.XMLSignatureException"},
+		{"validate", "(Ljavax/xml/crypto/dsig/XMLValidateContext;)Z", nullptr, $PUBLIC, $virtualMethod(DOMReference, validate, bool, $XMLValidateContext*), "javax.xml.crypto.dsig.XMLSignatureException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"org.jcp.xml.dsig.internal.dom.DOMReference$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"org.jcp.xml.dsig.internal.dom.DOMReference",
+		"org.jcp.xml.dsig.internal.dom.DOMStructure",
+		"javax.xml.crypto.dsig.Reference,javax.xml.crypto.dom.DOMURIReference",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"org.jcp.xml.dsig.internal.dom.DOMReference$1"
+	};
+	$loadClass(DOMReference, name, initialize, &classInfo$$, DOMReference::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DOMReference));
+	});
 	return class$;
 }
 

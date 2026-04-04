@@ -22,6 +22,7 @@ class $import KeySelector$Purpose : public ::java::lang::Object {
 	$class(KeySelector$Purpose, 0, ::java::lang::Object)
 public:
 	KeySelector$Purpose();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* name);
 	virtual $String* toString() override;
 	$String* name = nullptr;

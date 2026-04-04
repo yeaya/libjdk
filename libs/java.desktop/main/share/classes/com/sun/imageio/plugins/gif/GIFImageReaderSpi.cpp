@@ -1,5 +1,4 @@
 #include <com/sun/imageio/plugins/gif/GIFImageReaderSpi.h>
-
 #include <com/sun/imageio/plugins/gif/GIFImageMetadata.h>
 #include <com/sun/imageio/plugins/gif/GIFImageReader.h>
 #include <com/sun/imageio/plugins/gif/GIFStreamMetadata.h>
@@ -26,38 +25,6 @@ namespace com {
 			namespace plugins {
 				namespace gif {
 
-$FieldInfo _GIFImageReaderSpi_FieldInfo_[] = {
-	{"vendorName", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(GIFImageReaderSpi, vendorName)},
-	{"version", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(GIFImageReaderSpi, version)},
-	{"names", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(GIFImageReaderSpi, names)},
-	{"suffixes", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(GIFImageReaderSpi, suffixes)},
-	{"MIMETypes", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(GIFImageReaderSpi, MIMETypes)},
-	{"readerClassName", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(GIFImageReaderSpi, readerClassName)},
-	{"writerSpiNames", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(GIFImageReaderSpi, writerSpiNames)},
-	{}
-};
-
-$MethodInfo _GIFImageReaderSpi_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(GIFImageReaderSpi, init$, void)},
-	{"canDecodeInput", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(GIFImageReaderSpi, canDecodeInput, bool, Object$*), "java.io.IOException"},
-	{"createReaderInstance", "(Ljava/lang/Object;)Ljavax/imageio/ImageReader;", nullptr, $PUBLIC, $virtualMethod(GIFImageReaderSpi, createReaderInstance, $ImageReader*, Object$*)},
-	{"getDescription", "(Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(GIFImageReaderSpi, getDescription, $String*, $Locale*)},
-	{}
-};
-
-$ClassInfo _GIFImageReaderSpi_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.imageio.plugins.gif.GIFImageReaderSpi",
-	"javax.imageio.spi.ImageReaderSpi",
-	nullptr,
-	_GIFImageReaderSpi_FieldInfo_,
-	_GIFImageReaderSpi_MethodInfo_
-};
-
-$Object* allocate$GIFImageReaderSpi($Class* clazz) {
-	return $of($alloc(GIFImageReaderSpi));
-}
-
 $String* GIFImageReaderSpi::vendorName = nullptr;
 $String* GIFImageReaderSpi::version = nullptr;
 $StringArray* GIFImageReaderSpi::names = nullptr;
@@ -78,7 +45,7 @@ $String* GIFImageReaderSpi::getDescription($Locale* locale) {
 }
 
 bool GIFImageReaderSpi::canDecodeInput(Object$* input) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!($instanceOf($ImageInputStream, input))) {
 		return false;
 	}
@@ -94,7 +61,7 @@ $ImageReader* GIFImageReaderSpi::createReaderInstance(Object$* extension) {
 	return $new($GIFImageReader, this);
 }
 
-void clinit$GIFImageReaderSpi($Class* class$) {
+void GIFImageReaderSpi::clinit$($Class* clazz) {
 	$assignStatic(GIFImageReaderSpi::vendorName, "Oracle Corporation"_s);
 	$assignStatic(GIFImageReaderSpi::version, "1.0"_s);
 	$assignStatic(GIFImageReaderSpi::readerClassName, "com.sun.imageio.plugins.gif.GIFImageReader"_s);
@@ -111,7 +78,34 @@ GIFImageReaderSpi::GIFImageReaderSpi() {
 }
 
 $Class* GIFImageReaderSpi::load$($String* name, bool initialize) {
-	$loadClass(GIFImageReaderSpi, name, initialize, &_GIFImageReaderSpi_ClassInfo_, clinit$GIFImageReaderSpi, allocate$GIFImageReaderSpi);
+	$FieldInfo fieldInfos$$[] = {
+		{"vendorName", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(GIFImageReaderSpi, vendorName)},
+		{"version", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(GIFImageReaderSpi, version)},
+		{"names", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(GIFImageReaderSpi, names)},
+		{"suffixes", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(GIFImageReaderSpi, suffixes)},
+		{"MIMETypes", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(GIFImageReaderSpi, MIMETypes)},
+		{"readerClassName", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(GIFImageReaderSpi, readerClassName)},
+		{"writerSpiNames", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(GIFImageReaderSpi, writerSpiNames)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(GIFImageReaderSpi, init$, void)},
+		{"canDecodeInput", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(GIFImageReaderSpi, canDecodeInput, bool, Object$*), "java.io.IOException"},
+		{"createReaderInstance", "(Ljava/lang/Object;)Ljavax/imageio/ImageReader;", nullptr, $PUBLIC, $virtualMethod(GIFImageReaderSpi, createReaderInstance, $ImageReader*, Object$*)},
+		{"getDescription", "(Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(GIFImageReaderSpi, getDescription, $String*, $Locale*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.imageio.plugins.gif.GIFImageReaderSpi",
+		"javax.imageio.spi.ImageReaderSpi",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(GIFImageReaderSpi, name, initialize, &classInfo$$, GIFImageReaderSpi::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(GIFImageReaderSpi);
+	});
 	return class$;
 }
 

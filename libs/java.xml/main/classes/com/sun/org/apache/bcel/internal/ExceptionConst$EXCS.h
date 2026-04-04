@@ -29,6 +29,7 @@ class ExceptionConst$EXCS : public ::java::lang::Enum {
 public:
 	ExceptionConst$EXCS();
 	static $Array<::com::sun::org::apache::bcel::internal::ExceptionConst$EXCS>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::com::sun::org::apache::bcel::internal::ExceptionConst$EXCS* valueOf($String* name);
 	static $Array<::com::sun::org::apache::bcel::internal::ExceptionConst$EXCS>* values();

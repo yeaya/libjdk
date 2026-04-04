@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/code/TypeAnnotations$AnnotationType.h>
-
 #include <com/sun/tools/javac/code/TypeAnnotations.h>
 #include <java/lang/Enum.h>
 #include <jcpp.h>
@@ -21,48 +20,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace code {
-
-$FieldInfo _TypeAnnotations$AnnotationType_FieldInfo_[] = {
-	{"DECLARATION", "Lcom/sun/tools/javac/code/TypeAnnotations$AnnotationType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TypeAnnotations$AnnotationType, DECLARATION)},
-	{"TYPE", "Lcom/sun/tools/javac/code/TypeAnnotations$AnnotationType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TypeAnnotations$AnnotationType, TYPE)},
-	{"NONE", "Lcom/sun/tools/javac/code/TypeAnnotations$AnnotationType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TypeAnnotations$AnnotationType, NONE)},
-	{"BOTH", "Lcom/sun/tools/javac/code/TypeAnnotations$AnnotationType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TypeAnnotations$AnnotationType, BOTH)},
-	{"$VALUES", "[Lcom/sun/tools/javac/code/TypeAnnotations$AnnotationType;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(TypeAnnotations$AnnotationType, $VALUES)},
-	{}
-};
-
-$MethodInfo _TypeAnnotations$AnnotationType_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/javac/code/TypeAnnotations$AnnotationType;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TypeAnnotations$AnnotationType, $values, $TypeAnnotations$AnnotationTypeArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(TypeAnnotations$AnnotationType, init$, void, $String*, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/code/TypeAnnotations$AnnotationType;", nullptr, $PUBLIC | $STATIC, $staticMethod(TypeAnnotations$AnnotationType, valueOf, TypeAnnotations$AnnotationType*, $String*)},
-	{"values", "()[Lcom/sun/tools/javac/code/TypeAnnotations$AnnotationType;", nullptr, $PUBLIC | $STATIC, $staticMethod(TypeAnnotations$AnnotationType, values, $TypeAnnotations$AnnotationTypeArray*)},
-	{}
-};
-
-$InnerClassInfo _TypeAnnotations$AnnotationType_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.code.TypeAnnotations$AnnotationType", "com.sun.tools.javac.code.TypeAnnotations", "AnnotationType", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _TypeAnnotations$AnnotationType_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"com.sun.tools.javac.code.TypeAnnotations$AnnotationType",
-	"java.lang.Enum",
-	nullptr,
-	_TypeAnnotations$AnnotationType_FieldInfo_,
-	_TypeAnnotations$AnnotationType_MethodInfo_,
-	"Ljava/lang/Enum<Lcom/sun/tools/javac/code/TypeAnnotations$AnnotationType;>;",
-	nullptr,
-	_TypeAnnotations$AnnotationType_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.code.TypeAnnotations"
-};
-
-$Object* allocate$TypeAnnotations$AnnotationType($Class* clazz) {
-	return $of($alloc(TypeAnnotations$AnnotationType));
-}
 
 TypeAnnotations$AnnotationType* TypeAnnotations$AnnotationType::DECLARATION = nullptr;
 TypeAnnotations$AnnotationType* TypeAnnotations$AnnotationType::TYPE = nullptr;
@@ -94,7 +51,7 @@ void TypeAnnotations$AnnotationType::init$($String* $enum$name, int32_t $enum$or
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$TypeAnnotations$AnnotationType($Class* class$) {
+void TypeAnnotations$AnnotationType::clinit$($Class* clazz) {
 	$assignStatic(TypeAnnotations$AnnotationType::DECLARATION, $new(TypeAnnotations$AnnotationType, "DECLARATION"_s, 0));
 	$assignStatic(TypeAnnotations$AnnotationType::TYPE, $new(TypeAnnotations$AnnotationType, "TYPE"_s, 1));
 	$assignStatic(TypeAnnotations$AnnotationType::NONE, $new(TypeAnnotations$AnnotationType, "NONE"_s, 2));
@@ -106,7 +63,43 @@ TypeAnnotations$AnnotationType::TypeAnnotations$AnnotationType() {
 }
 
 $Class* TypeAnnotations$AnnotationType::load$($String* name, bool initialize) {
-	$loadClass(TypeAnnotations$AnnotationType, name, initialize, &_TypeAnnotations$AnnotationType_ClassInfo_, clinit$TypeAnnotations$AnnotationType, allocate$TypeAnnotations$AnnotationType);
+	$FieldInfo fieldInfos$$[] = {
+		{"DECLARATION", "Lcom/sun/tools/javac/code/TypeAnnotations$AnnotationType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TypeAnnotations$AnnotationType, DECLARATION)},
+		{"TYPE", "Lcom/sun/tools/javac/code/TypeAnnotations$AnnotationType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TypeAnnotations$AnnotationType, TYPE)},
+		{"NONE", "Lcom/sun/tools/javac/code/TypeAnnotations$AnnotationType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TypeAnnotations$AnnotationType, NONE)},
+		{"BOTH", "Lcom/sun/tools/javac/code/TypeAnnotations$AnnotationType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TypeAnnotations$AnnotationType, BOTH)},
+		{"$VALUES", "[Lcom/sun/tools/javac/code/TypeAnnotations$AnnotationType;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(TypeAnnotations$AnnotationType, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lcom/sun/tools/javac/code/TypeAnnotations$AnnotationType;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TypeAnnotations$AnnotationType, $values, $TypeAnnotations$AnnotationTypeArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(TypeAnnotations$AnnotationType, init$, void, $String*, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/code/TypeAnnotations$AnnotationType;", nullptr, $PUBLIC | $STATIC, $staticMethod(TypeAnnotations$AnnotationType, valueOf, TypeAnnotations$AnnotationType*, $String*)},
+		{"values", "()[Lcom/sun/tools/javac/code/TypeAnnotations$AnnotationType;", nullptr, $PUBLIC | $STATIC, $staticMethod(TypeAnnotations$AnnotationType, values, $TypeAnnotations$AnnotationTypeArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.code.TypeAnnotations$AnnotationType", "com.sun.tools.javac.code.TypeAnnotations", "AnnotationType", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"com.sun.tools.javac.code.TypeAnnotations$AnnotationType",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lcom/sun/tools/javac/code/TypeAnnotations$AnnotationType;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.code.TypeAnnotations"
+	};
+	$loadClass(TypeAnnotations$AnnotationType, name, initialize, &classInfo$$, TypeAnnotations$AnnotationType::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(TypeAnnotations$AnnotationType));
+	});
 	return class$;
 }
 

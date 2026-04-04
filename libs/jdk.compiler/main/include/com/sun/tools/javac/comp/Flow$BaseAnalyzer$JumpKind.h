@@ -37,6 +37,7 @@ class $import Flow$BaseAnalyzer$JumpKind : public ::java::lang::Enum {
 public:
 	Flow$BaseAnalyzer$JumpKind();
 	static $Array<::com::sun::tools::javac::comp::Flow$BaseAnalyzer$JumpKind>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal, ::com::sun::tools::javac::tree::JCTree$Tag* treeTag);
 	virtual ::com::sun::tools::javac::tree::JCTree* getTarget(::com::sun::tools::javac::tree::JCTree* tree) {return nullptr;}
 	static ::com::sun::tools::javac::comp::Flow$BaseAnalyzer$JumpKind* valueOf($String* name);

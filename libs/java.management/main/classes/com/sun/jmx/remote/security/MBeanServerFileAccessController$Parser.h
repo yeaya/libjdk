@@ -40,6 +40,7 @@ class MBeanServerFileAccessController$Parser : public ::java::lang::Object {
 	$class(MBeanServerFileAccessController$Parser, 0, ::java::lang::Object)
 public:
 	MBeanServerFileAccessController$Parser();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* identity, $String* s);
 	void next();
 	static ::com::sun::jmx::remote::security::MBeanServerFileAccessController$Access* parseAccess($String* identity, $String* s);

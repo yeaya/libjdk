@@ -14,6 +14,7 @@ class IBM943$DecodeHolder : public ::java::lang::Object {
 	$class(IBM943$DecodeHolder, 0, ::java::lang::Object)
 public:
 	IBM943$DecodeHolder();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $String* b2cSBStr;
 	static $StringArray* b2cStr;

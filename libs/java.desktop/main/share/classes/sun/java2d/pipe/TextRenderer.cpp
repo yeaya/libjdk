@@ -1,5 +1,4 @@
 #include <sun/java2d/pipe/TextRenderer.h>
-
 #include <java/awt/Rectangle.h>
 #include <java/awt/Shape.h>
 #include <sun/font/GlyphList.h>
@@ -24,37 +23,13 @@ namespace sun {
 	namespace java2d {
 		namespace pipe {
 
-$FieldInfo _TextRenderer_FieldInfo_[] = {
-	{"outpipe", "Lsun/java2d/pipe/CompositePipe;", nullptr, 0, $field(TextRenderer, outpipe)},
-	{}
-};
-
-$MethodInfo _TextRenderer_MethodInfo_[] = {
-	{"<init>", "(Lsun/java2d/pipe/CompositePipe;)V", nullptr, $PUBLIC, $method(TextRenderer, init$, void, $CompositePipe*)},
-	{"drawGlyphList", "(Lsun/java2d/SunGraphics2D;Lsun/font/GlyphList;)V", nullptr, $PROTECTED, $virtualMethod(TextRenderer, drawGlyphList, void, $SunGraphics2D*, $GlyphList*)},
-	{}
-};
-
-$ClassInfo _TextRenderer_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.java2d.pipe.TextRenderer",
-	"sun.java2d.pipe.GlyphListPipe",
-	nullptr,
-	_TextRenderer_FieldInfo_,
-	_TextRenderer_MethodInfo_
-};
-
-$Object* allocate$TextRenderer($Class* clazz) {
-	return $of($alloc(TextRenderer));
-}
-
 void TextRenderer::init$($CompositePipe* pipe) {
 	$GlyphListPipe::init$();
 	$set(this, outpipe, pipe);
 }
 
 void TextRenderer::drawGlyphList($SunGraphics2D* sg2d, $GlyphList* gl) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t num = $nc(gl)->getNumGlyphs();
 	$var($Region, clipRegion, $nc(sg2d)->getCompClip());
 	int32_t cx1 = $nc(clipRegion)->getLoX();
@@ -62,55 +37,53 @@ void TextRenderer::drawGlyphList($SunGraphics2D* sg2d, $GlyphList* gl) {
 	int32_t cx2 = clipRegion->getHiX();
 	int32_t cy2 = clipRegion->getHiY();
 	$var($Object, ctx, nullptr);
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			gl->startGlyphIteration();
-			$var($ints, bounds, gl->getBounds(num));
-			$var($Rectangle, r, $new($Rectangle, $nc(bounds)->get(0), bounds->get(1), bounds->get(2) - bounds->get(0), bounds->get(3) - bounds->get(1)));
-			$var($Shape, s, sg2d->untransformShape(r));
-			$assign(ctx, $nc(this->outpipe)->startSequence(sg2d, s, r, bounds));
-			for (int32_t i = 0; i < num; ++i) {
-				gl->setGlyphIndex(i);
-				$var($ints, metrics, gl->getMetrics());
-				int32_t gx1 = $nc(metrics)->get(0);
-				int32_t gy1 = metrics->get(1);
-				int32_t w = metrics->get(2);
-				int32_t gx2 = gx1 + w;
-				int32_t gy2 = gy1 + metrics->get(3);
-				int32_t off = 0;
-				if (gx1 < cx1) {
-					off = cx1 - gx1;
-					gx1 = cx1;
-				}
-				if (gy1 < cy1) {
-					off += (cy1 - gy1) * w;
-					gy1 = cy1;
-				}
-				if (gx2 > cx2) {
-					gx2 = cx2;
-				}
-				if (gy2 > cy2) {
-					gy2 = cy2;
-				}
-				bool var$1 = gx2 > gx1 && gy2 > gy1 && !gl->isColorGlyph(i);
-				if (var$1 && $nc(this->outpipe)->needTile(ctx, gx1, gy1, gx2 - gx1, gy2 - gy1)) {
-					$var($bytes, alpha, gl->getGrayBits());
-					$nc(this->outpipe)->renderPathTile(ctx, alpha, off, w, gx1, gy1, gx2 - gx1, gy2 - gy1);
-				} else {
-					$nc(this->outpipe)->skipTile(ctx, gx1, gy1);
-				}
+	$var($Throwable, var$0, nullptr);
+	try {
+		gl->startGlyphIteration();
+		$var($ints, bounds, gl->getBounds(num));
+		$var($Rectangle, r, $new($Rectangle, $nc(bounds)->get(0), $nc(bounds)->get(1), $nc(bounds)->get(2) - $nc(bounds)->get(0), $nc(bounds)->get(3) - $nc(bounds)->get(1)));
+		$var($Shape, s, sg2d->untransformShape(r));
+		$assign(ctx, $nc(this->outpipe)->startSequence(sg2d, s, r, bounds));
+		for (int32_t i = 0; i < num; ++i) {
+			gl->setGlyphIndex(i);
+			$var($ints, metrics, gl->getMetrics());
+			int32_t gx1 = $nc(metrics)->get(0);
+			int32_t gy1 = metrics->get(1);
+			int32_t w = metrics->get(2);
+			int32_t gx2 = gx1 + w;
+			int32_t gy2 = gy1 + metrics->get(3);
+			int32_t off = 0;
+			if (gx1 < cx1) {
+				off = cx1 - gx1;
+				gx1 = cx1;
 			}
-		} catch ($Throwable& var$2) {
-			$assign(var$0, var$2);
-		} /*finally*/ {
-			if (ctx != nullptr) {
-				$nc(this->outpipe)->endSequence(ctx);
+			if (gy1 < cy1) {
+				off += (cy1 - gy1) * w;
+				gy1 = cy1;
+			}
+			if (gx2 > cx2) {
+				gx2 = cx2;
+			}
+			if (gy2 > cy2) {
+				gy2 = cy2;
+			}
+			bool var$1 = gx2 > gx1 && gy2 > gy1 && !gl->isColorGlyph(i);
+			if (var$1 && $nc(this->outpipe)->needTile(ctx, gx1, gy1, gx2 - gx1, gy2 - gy1)) {
+				$var($bytes, alpha, gl->getGrayBits());
+				$nc(this->outpipe)->renderPathTile(ctx, alpha, off, w, gx1, gy1, gx2 - gx1, gy2 - gy1);
+			} else {
+				$nc(this->outpipe)->skipTile(ctx, gx1, gy1);
 			}
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+	} catch ($Throwable& var$2) {
+		$assign(var$0, var$2);
+	} /*finally*/ {
+		if (ctx != nullptr) {
+			$nc(this->outpipe)->endSequence(ctx);
 		}
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
@@ -118,7 +91,26 @@ TextRenderer::TextRenderer() {
 }
 
 $Class* TextRenderer::load$($String* name, bool initialize) {
-	$loadClass(TextRenderer, name, initialize, &_TextRenderer_ClassInfo_, allocate$TextRenderer);
+	$FieldInfo fieldInfos$$[] = {
+		{"outpipe", "Lsun/java2d/pipe/CompositePipe;", nullptr, 0, $field(TextRenderer, outpipe)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/java2d/pipe/CompositePipe;)V", nullptr, $PUBLIC, $method(TextRenderer, init$, void, $CompositePipe*)},
+		{"drawGlyphList", "(Lsun/java2d/SunGraphics2D;Lsun/font/GlyphList;)V", nullptr, $PROTECTED, $virtualMethod(TextRenderer, drawGlyphList, void, $SunGraphics2D*, $GlyphList*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.java2d.pipe.TextRenderer",
+		"sun.java2d.pipe.GlyphListPipe",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TextRenderer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TextRenderer);
+	});
 	return class$;
 }
 

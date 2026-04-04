@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/security/keys/keyresolver/implementations/DSAKeyValueResolver.h>
-
 #include <com/sun/org/apache/xml/internal/security/exceptions/XMLSecurityException.h>
 #include <com/sun/org/apache/xml/internal/security/keys/content/keyvalues/DSAKeyValue.h>
 #include <com/sun/org/apache/xml/internal/security/keys/keyresolver/KeyResolverSpi.h>
@@ -48,34 +47,6 @@ namespace com {
 								namespace keyresolver {
 									namespace implementations {
 
-$FieldInfo _DSAKeyValueResolver_FieldInfo_[] = {
-	{"LOG", "Lcom/sun/org/slf4j/internal/Logger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DSAKeyValueResolver, LOG)},
-	{}
-};
-
-$MethodInfo _DSAKeyValueResolver_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(DSAKeyValueResolver, init$, void)},
-	{"engineCanResolve", "(Lorg/w3c/dom/Element;Ljava/lang/String;Lcom/sun/org/apache/xml/internal/security/keys/storage/StorageResolver;)Z", nullptr, $PROTECTED, $virtualMethod(DSAKeyValueResolver, engineCanResolve, bool, $Element*, $String*, $StorageResolver*)},
-	{"engineResolvePrivateKey", "(Lorg/w3c/dom/Element;Ljava/lang/String;Lcom/sun/org/apache/xml/internal/security/keys/storage/StorageResolver;Z)Ljava/security/PrivateKey;", nullptr, $PROTECTED, $virtualMethod(DSAKeyValueResolver, engineResolvePrivateKey, $PrivateKey*, $Element*, $String*, $StorageResolver*, bool)},
-	{"engineResolvePublicKey", "(Lorg/w3c/dom/Element;Ljava/lang/String;Lcom/sun/org/apache/xml/internal/security/keys/storage/StorageResolver;Z)Ljava/security/PublicKey;", nullptr, $PROTECTED, $virtualMethod(DSAKeyValueResolver, engineResolvePublicKey, $PublicKey*, $Element*, $String*, $StorageResolver*, bool)},
-	{"engineResolveSecretKey", "(Lorg/w3c/dom/Element;Ljava/lang/String;Lcom/sun/org/apache/xml/internal/security/keys/storage/StorageResolver;Z)Ljavax/crypto/SecretKey;", nullptr, $PROTECTED, $virtualMethod(DSAKeyValueResolver, engineResolveSecretKey, $SecretKey*, $Element*, $String*, $StorageResolver*, bool)},
-	{"engineResolveX509Certificate", "(Lorg/w3c/dom/Element;Ljava/lang/String;Lcom/sun/org/apache/xml/internal/security/keys/storage/StorageResolver;Z)Ljava/security/cert/X509Certificate;", nullptr, $PROTECTED, $virtualMethod(DSAKeyValueResolver, engineResolveX509Certificate, $X509Certificate*, $Element*, $String*, $StorageResolver*, bool)},
-	{}
-};
-
-$ClassInfo _DSAKeyValueResolver_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.security.keys.keyresolver.implementations.DSAKeyValueResolver",
-	"com.sun.org.apache.xml.internal.security.keys.keyresolver.KeyResolverSpi",
-	nullptr,
-	_DSAKeyValueResolver_FieldInfo_,
-	_DSAKeyValueResolver_MethodInfo_
-};
-
-$Object* allocate$DSAKeyValueResolver($Class* clazz) {
-	return $of($alloc(DSAKeyValueResolver));
-}
-
 $Logger* DSAKeyValueResolver::LOG = nullptr;
 
 void DSAKeyValueResolver::init$() {
@@ -89,7 +60,7 @@ bool DSAKeyValueResolver::engineCanResolve($Element* element, $String* baseURI, 
 }
 
 $PublicKey* DSAKeyValueResolver::engineResolvePublicKey($Element* element, $String* baseURI, $StorageResolver* storage, bool secureValidation) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (element == nullptr) {
 		return nullptr;
 	}
@@ -98,10 +69,8 @@ $PublicKey* DSAKeyValueResolver::engineResolvePublicKey($Element* element, $Stri
 	bool isKeyValue = $XMLUtils::elementIsInSignatureSpace(element, $Constants::_TAG_KEYVALUE);
 	if (isKeyValue) {
 		$assign(dsaKeyElement, $XMLUtils::selectDsNode($($nc(element)->getFirstChild()), $Constants::_TAG_DSAKEYVALUE, 0));
-	} else {
-		if ($XMLUtils::elementIsInSignatureSpace(element, $Constants::_TAG_DSAKEYVALUE)) {
-			$assign(dsaKeyElement, element);
-		}
+	} else if ($XMLUtils::elementIsInSignatureSpace(element, $Constants::_TAG_DSAKEYVALUE)) {
+		$assign(dsaKeyElement, element);
 	}
 	if (dsaKeyElement == nullptr) {
 		return nullptr;
@@ -111,7 +80,7 @@ $PublicKey* DSAKeyValueResolver::engineResolvePublicKey($Element* element, $Stri
 		$var($PublicKey, pk, dsaKeyValue->getPublicKey());
 		return pk;
 	} catch ($XMLSecurityException& ex) {
-		$nc(DSAKeyValueResolver::LOG)->debug($(ex->getMessage()), static_cast<$Throwable*>(ex));
+		$nc(DSAKeyValueResolver::LOG)->debug($(ex->getMessage()), ex);
 	}
 	return nullptr;
 }
@@ -128,7 +97,7 @@ $PrivateKey* DSAKeyValueResolver::engineResolvePrivateKey($Element* element, $St
 	return nullptr;
 }
 
-void clinit$DSAKeyValueResolver($Class* class$) {
+void DSAKeyValueResolver::clinit$($Class* clazz) {
 	$assignStatic(DSAKeyValueResolver::LOG, $LoggerFactory::getLogger(DSAKeyValueResolver::class$));
 }
 
@@ -136,7 +105,30 @@ DSAKeyValueResolver::DSAKeyValueResolver() {
 }
 
 $Class* DSAKeyValueResolver::load$($String* name, bool initialize) {
-	$loadClass(DSAKeyValueResolver, name, initialize, &_DSAKeyValueResolver_ClassInfo_, clinit$DSAKeyValueResolver, allocate$DSAKeyValueResolver);
+	$FieldInfo fieldInfos$$[] = {
+		{"LOG", "Lcom/sun/org/slf4j/internal/Logger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DSAKeyValueResolver, LOG)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(DSAKeyValueResolver, init$, void)},
+		{"engineCanResolve", "(Lorg/w3c/dom/Element;Ljava/lang/String;Lcom/sun/org/apache/xml/internal/security/keys/storage/StorageResolver;)Z", nullptr, $PROTECTED, $virtualMethod(DSAKeyValueResolver, engineCanResolve, bool, $Element*, $String*, $StorageResolver*)},
+		{"engineResolvePrivateKey", "(Lorg/w3c/dom/Element;Ljava/lang/String;Lcom/sun/org/apache/xml/internal/security/keys/storage/StorageResolver;Z)Ljava/security/PrivateKey;", nullptr, $PROTECTED, $virtualMethod(DSAKeyValueResolver, engineResolvePrivateKey, $PrivateKey*, $Element*, $String*, $StorageResolver*, bool)},
+		{"engineResolvePublicKey", "(Lorg/w3c/dom/Element;Ljava/lang/String;Lcom/sun/org/apache/xml/internal/security/keys/storage/StorageResolver;Z)Ljava/security/PublicKey;", nullptr, $PROTECTED, $virtualMethod(DSAKeyValueResolver, engineResolvePublicKey, $PublicKey*, $Element*, $String*, $StorageResolver*, bool)},
+		{"engineResolveSecretKey", "(Lorg/w3c/dom/Element;Ljava/lang/String;Lcom/sun/org/apache/xml/internal/security/keys/storage/StorageResolver;Z)Ljavax/crypto/SecretKey;", nullptr, $PROTECTED, $virtualMethod(DSAKeyValueResolver, engineResolveSecretKey, $SecretKey*, $Element*, $String*, $StorageResolver*, bool)},
+		{"engineResolveX509Certificate", "(Lorg/w3c/dom/Element;Ljava/lang/String;Lcom/sun/org/apache/xml/internal/security/keys/storage/StorageResolver;Z)Ljava/security/cert/X509Certificate;", nullptr, $PROTECTED, $virtualMethod(DSAKeyValueResolver, engineResolveX509Certificate, $X509Certificate*, $Element*, $String*, $StorageResolver*, bool)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.security.keys.keyresolver.implementations.DSAKeyValueResolver",
+		"com.sun.org.apache.xml.internal.security.keys.keyresolver.KeyResolverSpi",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DSAKeyValueResolver, name, initialize, &classInfo$$, DSAKeyValueResolver::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(DSAKeyValueResolver);
+	});
 	return class$;
 }
 

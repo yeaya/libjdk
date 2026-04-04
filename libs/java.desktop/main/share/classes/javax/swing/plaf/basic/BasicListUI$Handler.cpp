@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/basic/BasicListUI$Handler.h>
-
 #include <java/awt/AWTEvent.h>
 #include <java/awt/Component.h>
 #include <java/awt/ComponentOrientation.h>
@@ -7,7 +6,6 @@
 #include <java/awt/Rectangle.h>
 #include <java/awt/event/FocusEvent.h>
 #include <java/awt/event/FocusListener.h>
-#include <java/awt/event/InputEvent.h>
 #include <java/awt/event/KeyEvent.h>
 #include <java/awt/event/MouseEvent.h>
 #include <java/beans/PropertyChangeEvent.h>
@@ -26,7 +24,6 @@
 #include <javax/swing/event/ListSelectionListener.h>
 #include <javax/swing/plaf/basic/BasicGraphicsUtils.h>
 #include <javax/swing/plaf/basic/BasicListUI.h>
-#include <javax/swing/plaf/basic/DragRecognitionSupport$BeforeDrag.h>
 #include <javax/swing/plaf/basic/DragRecognitionSupport.h>
 #include <javax/swing/text/Position$Bias.h>
 #include <sun/swing/SwingUtilities2.h>
@@ -38,11 +35,9 @@
 #undef WHEN_ANCESTOR_OF_FOCUSED_COMPONENT
 #undef WHEN_FOCUSED
 
-using $ComponentOrientation = ::java::awt::ComponentOrientation;
 using $Rectangle = ::java::awt::Rectangle;
 using $FocusEvent = ::java::awt::event::FocusEvent;
 using $FocusListener = ::java::awt::event::FocusListener;
-using $InputEvent = ::java::awt::event::InputEvent;
 using $KeyEvent = ::java::awt::event::KeyEvent;
 using $MouseEvent = ::java::awt::event::MouseEvent;
 using $PropertyChangeEvent = ::java::beans::PropertyChangeEvent;
@@ -64,7 +59,6 @@ using $ListSelectionEvent = ::javax::swing::event::ListSelectionEvent;
 using $BasicGraphicsUtils = ::javax::swing::plaf::basic::BasicGraphicsUtils;
 using $BasicListUI = ::javax::swing::plaf::basic::BasicListUI;
 using $DragRecognitionSupport = ::javax::swing::plaf::basic::DragRecognitionSupport;
-using $DragRecognitionSupport$BeforeDrag = ::javax::swing::plaf::basic::DragRecognitionSupport$BeforeDrag;
 using $Position$Bias = ::javax::swing::text::Position$Bias;
 using $SwingUtilities2 = ::sun::swing::SwingUtilities2;
 
@@ -72,73 +66,6 @@ namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace basic {
-
-$FieldInfo _BasicListUI$Handler_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/plaf/basic/BasicListUI;", nullptr, $FINAL | $SYNTHETIC, $field(BasicListUI$Handler, this$0)},
-	{"prefix", "Ljava/lang/String;", nullptr, $PRIVATE, $field(BasicListUI$Handler, prefix)},
-	{"typedString", "Ljava/lang/String;", nullptr, $PRIVATE, $field(BasicListUI$Handler, typedString)},
-	{"lastTime", "J", nullptr, $PRIVATE, $field(BasicListUI$Handler, lastTime)},
-	{"dragPressDidSelection", "Z", nullptr, $PRIVATE, $field(BasicListUI$Handler, dragPressDidSelection)},
-	{}
-};
-
-$MethodInfo _BasicListUI$Handler_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljavax/swing/plaf/basic/BasicListUI;)V", nullptr, $PRIVATE, $method(BasicListUI$Handler, init$, void, $BasicListUI*)},
-	{"adjustSelection", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PRIVATE, $method(BasicListUI$Handler, adjustSelection, void, $MouseEvent*)},
-	{"contentsChanged", "(Ljavax/swing/event/ListDataEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicListUI$Handler, contentsChanged, void, $ListDataEvent*)},
-	{"dragStarting", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicListUI$Handler, dragStarting, void, $MouseEvent*)},
-	{"focusGained", "(Ljava/awt/event/FocusEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicListUI$Handler, focusGained, void, $FocusEvent*)},
-	{"focusLost", "(Ljava/awt/event/FocusEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicListUI$Handler, focusLost, void, $FocusEvent*)},
-	{"intervalAdded", "(Ljavax/swing/event/ListDataEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicListUI$Handler, intervalAdded, void, $ListDataEvent*)},
-	{"intervalRemoved", "(Ljavax/swing/event/ListDataEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicListUI$Handler, intervalRemoved, void, $ListDataEvent*)},
-	{"isNavigationKey", "(Ljava/awt/event/KeyEvent;)Z", nullptr, $PRIVATE, $method(BasicListUI$Handler, isNavigationKey, bool, $KeyEvent*)},
-	{"keyPressed", "(Ljava/awt/event/KeyEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicListUI$Handler, keyPressed, void, $KeyEvent*)},
-	{"keyReleased", "(Ljava/awt/event/KeyEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicListUI$Handler, keyReleased, void, $KeyEvent*)},
-	{"keyTyped", "(Ljava/awt/event/KeyEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicListUI$Handler, keyTyped, void, $KeyEvent*)},
-	{"mouseClicked", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicListUI$Handler, mouseClicked, void, $MouseEvent*)},
-	{"mouseDragged", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicListUI$Handler, mouseDragged, void, $MouseEvent*)},
-	{"mouseEntered", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicListUI$Handler, mouseEntered, void, $MouseEvent*)},
-	{"mouseExited", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicListUI$Handler, mouseExited, void, $MouseEvent*)},
-	{"mouseMoved", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicListUI$Handler, mouseMoved, void, $MouseEvent*)},
-	{"mousePressed", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicListUI$Handler, mousePressed, void, $MouseEvent*)},
-	{"mouseReleased", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicListUI$Handler, mouseReleased, void, $MouseEvent*)},
-	{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicListUI$Handler, propertyChange, void, $PropertyChangeEvent*)},
-	{"repaintCellFocus", "()V", nullptr, $PROTECTED, $virtualMethod(BasicListUI$Handler, repaintCellFocus, void)},
-	{"repaintDropLocation", "(Ljavax/swing/JList$DropLocation;)V", nullptr, $PRIVATE, $method(BasicListUI$Handler, repaintDropLocation, void, $JList$DropLocation*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"valueChanged", "(Ljavax/swing/event/ListSelectionEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicListUI$Handler, valueChanged, void, $ListSelectionEvent*)},
-	{}
-};
-
-$InnerClassInfo _BasicListUI$Handler_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.basic.BasicListUI$Handler", "javax.swing.plaf.basic.BasicListUI", "Handler", $PRIVATE},
-	{"javax.swing.plaf.basic.DragRecognitionSupport$BeforeDrag", "javax.swing.plaf.basic.DragRecognitionSupport", "BeforeDrag", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _BasicListUI$Handler_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.basic.BasicListUI$Handler",
-	"java.lang.Object",
-	"java.awt.event.FocusListener,java.awt.event.KeyListener,javax.swing.event.ListDataListener,javax.swing.event.ListSelectionListener,javax.swing.event.MouseInputListener,java.beans.PropertyChangeListener,javax.swing.plaf.basic.DragRecognitionSupport$BeforeDrag",
-	_BasicListUI$Handler_FieldInfo_,
-	_BasicListUI$Handler_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BasicListUI$Handler_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.basic.BasicListUI"
-};
-
-$Object* allocate$BasicListUI$Handler($Class* clazz) {
-	return $of($alloc(BasicListUI$Handler));
-}
 
 int32_t BasicListUI$Handler::hashCode() {
 	 return this->$FocusListener::hashCode();
@@ -168,7 +95,7 @@ void BasicListUI$Handler::init$($BasicListUI* this$0) {
 }
 
 void BasicListUI$Handler::keyTyped($KeyEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JList, src, $cast($JList, $nc(e)->getSource()));
 	$var($ListModel, model, $nc(src)->getModel());
 	bool var$2 = $nc(model)->getSize() == 0;
@@ -183,8 +110,8 @@ void BasicListUI$Handler::keyTyped($KeyEvent* e) {
 	int32_t startIndex = $BasicListUI::adjustIndex(src->getLeadSelectionIndex(), this->this$0->list);
 	if (time - this->lastTime < this->this$0->timeFactor) {
 		$plusAssignField(this, typedString, c);
-		bool var$3 = ($nc(this->prefix)->length() == 1);
-		if (var$3 && (c == $nc(this->prefix)->charAt(0))) {
+		bool var$3 = $nc(this->prefix)->length() == 1;
+		if (var$3 && (c == this->prefix->charAt(0))) {
 			++startIndex;
 		} else {
 			$set(this, prefix, this->typedString);
@@ -195,7 +122,7 @@ void BasicListUI$Handler::keyTyped($KeyEvent* e) {
 		$set(this, prefix, this->typedString);
 	}
 	this->lastTime = time;
-	if (startIndex < 0 || startIndex >= $nc(model)->getSize()) {
+	if (startIndex < 0 || startIndex >= model->getSize()) {
 		startingFromSelection = false;
 		startIndex = 0;
 	}
@@ -225,7 +152,7 @@ void BasicListUI$Handler::keyReleased($KeyEvent* e) {
 }
 
 bool BasicListUI$Handler::isNavigationKey($KeyEvent* event) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($InputMap, inputMap, $nc(this->this$0->list)->getInputMap($JComponent::WHEN_ANCESTOR_OF_FOCUSED_COMPONENT));
 	$var($KeyStroke, key, $KeyStroke::getKeyStrokeForEvent(event));
 	if (inputMap != nullptr && inputMap->get(key) != nullptr) {
@@ -235,7 +162,7 @@ bool BasicListUI$Handler::isNavigationKey($KeyEvent* event) {
 }
 
 void BasicListUI$Handler::propertyChange($PropertyChangeEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, propertyName, $nc(e)->getPropertyName());
 	if (propertyName == "model"_s) {
 		$var($ListModel, oldModel, $cast($ListModel, e->getOldValue()));
@@ -288,7 +215,7 @@ void BasicListUI$Handler::propertyChange($PropertyChangeEvent* e) {
 			this->this$0->redrawList();
 		}
 	} else if ("componentOrientation"_s == propertyName) {
-		this->this$0->isLeftToRight = $nc($($nc(this->this$0->list)->getComponentOrientation()))->isLeftToRight();
+		this->this$0->isLeftToRight = $$nc($nc(this->this$0->list)->getComponentOrientation())->isLeftToRight();
 		this->this$0->updateLayoutStateNeeded |= 1024;
 		this->this$0->redrawList();
 		$var($InputMap, inputMap, this->this$0->getInputMap($JComponent::WHEN_FOCUSED));
@@ -322,7 +249,7 @@ void BasicListUI$Handler::intervalAdded($ListDataEvent* e) {
 	this->this$0->updateLayoutStateNeeded = 1;
 	int32_t var$0 = $nc(e)->getIndex0();
 	int32_t minIndex = $Math::min(var$0, e->getIndex1());
-	int32_t var$1 = $nc(e)->getIndex0();
+	int32_t var$1 = e->getIndex0();
 	int32_t maxIndex = $Math::max(var$1, e->getIndex1());
 	$var($ListSelectionModel, sm, $nc(this->this$0->list)->getSelectionModel());
 	if (sm != nullptr) {
@@ -347,11 +274,11 @@ void BasicListUI$Handler::contentsChanged($ListDataEvent* e) {
 }
 
 void BasicListUI$Handler::valueChanged($ListSelectionEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->this$0->maybeUpdateLayoutState();
-	int32_t size = $nc($($nc(this->this$0->list)->getModel()))->getSize();
+	int32_t size = $$nc($nc(this->this$0->list)->getModel())->getSize();
 	int32_t firstIndex = $Math::min(size - 1, $Math::max($nc(e)->getFirstIndex(), 0));
-	int32_t lastIndex = $Math::min(size - 1, $Math::max($nc(e)->getLastIndex(), 0));
+	int32_t lastIndex = $Math::min(size - 1, $Math::max(e->getLastIndex(), 0));
 	$var($Rectangle, bounds, this->this$0->getCellBounds(this->this$0->list, firstIndex, lastIndex));
 	if (bounds != nullptr) {
 		$nc(this->this$0->list)->repaint(bounds->x, bounds->y, bounds->width, bounds->height);
@@ -380,8 +307,8 @@ void BasicListUI$Handler::mousePressed($MouseEvent* e) {
 			if ($BasicGraphicsUtils::isMenuShortcutKeyDown(e)) {
 				return;
 			} else {
-				bool var$1 = !$nc(e)->isShiftDown();
-				if (var$1 && $nc(this->this$0->list)->isSelectedIndex(row)) {
+				bool var$0 = !e->isShiftDown();
+				if (var$0 && $nc(this->this$0->list)->isSelectedIndex(row)) {
 					$nc(this->this$0->list)->addSelectionInterval(row, row);
 					return;
 				}
@@ -399,13 +326,13 @@ void BasicListUI$Handler::mousePressed($MouseEvent* e) {
 }
 
 void BasicListUI$Handler::adjustSelection($MouseEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t row = $SwingUtilities2::loc2IndexFileList(this->this$0->list, $($nc(e)->getPoint()));
 	if (row < 0) {
-		bool var$0 = this->this$0->isFileList && $nc(e)->getID() == $MouseEvent::MOUSE_PRESSED;
+		bool var$0 = this->this$0->isFileList && e->getID() == $MouseEvent::MOUSE_PRESSED;
 		if (var$0) {
 			bool var$1 = !e->isShiftDown();
-			var$0 = (var$1 || $nc(this->this$0->list)->getSelectionMode() == $ListSelectionModel::SINGLE_SELECTION);
+			var$0 = var$1 || $nc(this->this$0->list)->getSelectionMode() == $ListSelectionModel::SINGLE_SELECTION;
 		}
 		if (var$0) {
 			$nc(this->this$0->list)->clearSelection();
@@ -420,14 +347,14 @@ void BasicListUI$Handler::adjustSelection($MouseEvent* e) {
 			anchorSelected = $nc(this->this$0->list)->isSelectedIndex(anchorIndex);
 		}
 		if ($BasicGraphicsUtils::isMenuShortcutKeyDown(e)) {
-			if ($nc(e)->isShiftDown()) {
+			if (e->isShiftDown()) {
 				if (anchorSelected) {
 					$nc(this->this$0->list)->addSelectionInterval(anchorIndex, row);
 				} else {
 					$nc(this->this$0->list)->removeSelectionInterval(anchorIndex, row);
 					if (this->this$0->isFileList) {
 						$nc(this->this$0->list)->addSelectionInterval(row, row);
-						$nc($($nc(this->this$0->list)->getSelectionModel()))->setAnchorSelectionIndex(anchorIndex);
+						$$nc($nc(this->this$0->list)->getSelectionModel())->setAnchorSelectionIndex(anchorIndex);
 					}
 				}
 			} else if ($nc(this->this$0->list)->isSelectedIndex(row)) {
@@ -435,7 +362,7 @@ void BasicListUI$Handler::adjustSelection($MouseEvent* e) {
 			} else {
 				$nc(this->this$0->list)->addSelectionInterval(row, row);
 			}
-		} else if ($nc(e)->isShiftDown()) {
+		} else if (e->isShiftDown()) {
 			$nc(this->this$0->list)->setSelectionInterval(anchorIndex, row);
 		} else {
 			$nc(this->this$0->list)->setSelectionInterval(row, row);
@@ -451,7 +378,7 @@ void BasicListUI$Handler::dragStarting($MouseEvent* me) {
 }
 
 void BasicListUI$Handler::mouseDragged($MouseEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($SwingUtilities2::shouldIgnore(e, this->this$0->list)) {
 		return;
 	}
@@ -463,7 +390,7 @@ void BasicListUI$Handler::mouseDragged($MouseEvent* e) {
 	if (var$0 || $BasicGraphicsUtils::isMenuShortcutKeyDown(e)) {
 		return;
 	}
-	int32_t row = this->this$0->locationToIndex(this->this$0->list, $($nc(e)->getPoint()));
+	int32_t row = this->this$0->locationToIndex(this->this$0->list, $(e->getPoint()));
 	if (row != -1) {
 		if (this->this$0->isFileList) {
 			return;
@@ -518,7 +445,68 @@ BasicListUI$Handler::BasicListUI$Handler() {
 }
 
 $Class* BasicListUI$Handler::load$($String* name, bool initialize) {
-	$loadClass(BasicListUI$Handler, name, initialize, &_BasicListUI$Handler_ClassInfo_, allocate$BasicListUI$Handler);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/plaf/basic/BasicListUI;", nullptr, $FINAL | $SYNTHETIC, $field(BasicListUI$Handler, this$0)},
+		{"prefix", "Ljava/lang/String;", nullptr, $PRIVATE, $field(BasicListUI$Handler, prefix)},
+		{"typedString", "Ljava/lang/String;", nullptr, $PRIVATE, $field(BasicListUI$Handler, typedString)},
+		{"lastTime", "J", nullptr, $PRIVATE, $field(BasicListUI$Handler, lastTime)},
+		{"dragPressDidSelection", "Z", nullptr, $PRIVATE, $field(BasicListUI$Handler, dragPressDidSelection)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljavax/swing/plaf/basic/BasicListUI;)V", nullptr, $PRIVATE, $method(BasicListUI$Handler, init$, void, $BasicListUI*)},
+		{"adjustSelection", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PRIVATE, $method(BasicListUI$Handler, adjustSelection, void, $MouseEvent*)},
+		{"contentsChanged", "(Ljavax/swing/event/ListDataEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicListUI$Handler, contentsChanged, void, $ListDataEvent*)},
+		{"dragStarting", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicListUI$Handler, dragStarting, void, $MouseEvent*)},
+		{"focusGained", "(Ljava/awt/event/FocusEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicListUI$Handler, focusGained, void, $FocusEvent*)},
+		{"focusLost", "(Ljava/awt/event/FocusEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicListUI$Handler, focusLost, void, $FocusEvent*)},
+		{"intervalAdded", "(Ljavax/swing/event/ListDataEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicListUI$Handler, intervalAdded, void, $ListDataEvent*)},
+		{"intervalRemoved", "(Ljavax/swing/event/ListDataEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicListUI$Handler, intervalRemoved, void, $ListDataEvent*)},
+		{"isNavigationKey", "(Ljava/awt/event/KeyEvent;)Z", nullptr, $PRIVATE, $method(BasicListUI$Handler, isNavigationKey, bool, $KeyEvent*)},
+		{"keyPressed", "(Ljava/awt/event/KeyEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicListUI$Handler, keyPressed, void, $KeyEvent*)},
+		{"keyReleased", "(Ljava/awt/event/KeyEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicListUI$Handler, keyReleased, void, $KeyEvent*)},
+		{"keyTyped", "(Ljava/awt/event/KeyEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicListUI$Handler, keyTyped, void, $KeyEvent*)},
+		{"mouseClicked", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicListUI$Handler, mouseClicked, void, $MouseEvent*)},
+		{"mouseDragged", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicListUI$Handler, mouseDragged, void, $MouseEvent*)},
+		{"mouseEntered", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicListUI$Handler, mouseEntered, void, $MouseEvent*)},
+		{"mouseExited", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicListUI$Handler, mouseExited, void, $MouseEvent*)},
+		{"mouseMoved", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicListUI$Handler, mouseMoved, void, $MouseEvent*)},
+		{"mousePressed", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicListUI$Handler, mousePressed, void, $MouseEvent*)},
+		{"mouseReleased", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicListUI$Handler, mouseReleased, void, $MouseEvent*)},
+		{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicListUI$Handler, propertyChange, void, $PropertyChangeEvent*)},
+		{"repaintCellFocus", "()V", nullptr, $PROTECTED, $virtualMethod(BasicListUI$Handler, repaintCellFocus, void)},
+		{"repaintDropLocation", "(Ljavax/swing/JList$DropLocation;)V", nullptr, $PRIVATE, $method(BasicListUI$Handler, repaintDropLocation, void, $JList$DropLocation*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"valueChanged", "(Ljavax/swing/event/ListSelectionEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicListUI$Handler, valueChanged, void, $ListSelectionEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.basic.BasicListUI$Handler", "javax.swing.plaf.basic.BasicListUI", "Handler", $PRIVATE},
+		{"javax.swing.plaf.basic.DragRecognitionSupport$BeforeDrag", "javax.swing.plaf.basic.DragRecognitionSupport", "BeforeDrag", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.basic.BasicListUI$Handler",
+		"java.lang.Object",
+		"java.awt.event.FocusListener,java.awt.event.KeyListener,javax.swing.event.ListDataListener,javax.swing.event.ListSelectionListener,javax.swing.event.MouseInputListener,java.beans.PropertyChangeListener,javax.swing.plaf.basic.DragRecognitionSupport$BeforeDrag",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.basic.BasicListUI"
+	};
+	$loadClass(BasicListUI$Handler, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(BasicListUI$Handler));
+	});
 	return class$;
 }
 

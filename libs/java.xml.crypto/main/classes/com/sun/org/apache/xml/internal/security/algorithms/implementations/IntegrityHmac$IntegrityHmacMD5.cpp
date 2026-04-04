@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/security/algorithms/implementations/IntegrityHmac$IntegrityHmacMD5.h>
-
 #include <com/sun/org/apache/xml/internal/security/algorithms/implementations/IntegrityHmac.h>
 #include <com/sun/org/apache/xml/internal/security/signature/XMLSignature.h>
 #include <java/security/Provider.h>
@@ -24,39 +23,6 @@ namespace com {
 							namespace algorithms {
 								namespace implementations {
 
-$MethodInfo _IntegrityHmac$IntegrityHmacMD5_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(IntegrityHmac$IntegrityHmacMD5, init$, void), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
-	{"<init>", "(Ljava/security/Provider;)V", nullptr, $PUBLIC, $method(IntegrityHmac$IntegrityHmacMD5, init$, void, $Provider*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
-	{"engineGetURI", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(IntegrityHmac$IntegrityHmacMD5, engineGetURI, $String*)},
-	{"getDigestLength", "()I", nullptr, 0, $virtualMethod(IntegrityHmac$IntegrityHmacMD5, getDigestLength, int32_t)},
-	{}
-};
-
-$InnerClassInfo _IntegrityHmac$IntegrityHmacMD5_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xml.internal.security.algorithms.implementations.IntegrityHmac$IntegrityHmacMD5", "com.sun.org.apache.xml.internal.security.algorithms.implementations.IntegrityHmac", "IntegrityHmacMD5", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _IntegrityHmac$IntegrityHmacMD5_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.security.algorithms.implementations.IntegrityHmac$IntegrityHmacMD5",
-	"com.sun.org.apache.xml.internal.security.algorithms.implementations.IntegrityHmac",
-	nullptr,
-	nullptr,
-	_IntegrityHmac$IntegrityHmacMD5_MethodInfo_,
-	nullptr,
-	nullptr,
-	_IntegrityHmac$IntegrityHmacMD5_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xml.internal.security.algorithms.implementations.IntegrityHmac"
-};
-
-$Object* allocate$IntegrityHmac$IntegrityHmacMD5($Class* clazz) {
-	return $of($alloc(IntegrityHmac$IntegrityHmacMD5));
-}
-
 void IntegrityHmac$IntegrityHmacMD5::init$() {
 	$IntegrityHmac::init$();
 }
@@ -78,7 +44,35 @@ IntegrityHmac$IntegrityHmacMD5::IntegrityHmac$IntegrityHmacMD5() {
 }
 
 $Class* IntegrityHmac$IntegrityHmacMD5::load$($String* name, bool initialize) {
-	$loadClass(IntegrityHmac$IntegrityHmacMD5, name, initialize, &_IntegrityHmac$IntegrityHmacMD5_ClassInfo_, allocate$IntegrityHmac$IntegrityHmacMD5);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(IntegrityHmac$IntegrityHmacMD5, init$, void), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
+		{"<init>", "(Ljava/security/Provider;)V", nullptr, $PUBLIC, $method(IntegrityHmac$IntegrityHmacMD5, init$, void, $Provider*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
+		{"engineGetURI", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(IntegrityHmac$IntegrityHmacMD5, engineGetURI, $String*)},
+		{"getDigestLength", "()I", nullptr, 0, $virtualMethod(IntegrityHmac$IntegrityHmacMD5, getDigestLength, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xml.internal.security.algorithms.implementations.IntegrityHmac$IntegrityHmacMD5", "com.sun.org.apache.xml.internal.security.algorithms.implementations.IntegrityHmac", "IntegrityHmacMD5", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.security.algorithms.implementations.IntegrityHmac$IntegrityHmacMD5",
+		"com.sun.org.apache.xml.internal.security.algorithms.implementations.IntegrityHmac",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xml.internal.security.algorithms.implementations.IntegrityHmac"
+	};
+	$loadClass(IntegrityHmac$IntegrityHmacMD5, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(IntegrityHmac$IntegrityHmacMD5);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <bug6510999.h>
-
 #include <bug6510999$1.h>
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
@@ -43,8 +42,6 @@ using $DefaultListModel = ::javax::swing::DefaultListModel;
 using $JFrame = ::javax::swing::JFrame;
 using $JList = ::javax::swing::JList;
 using $JScrollPane = ::javax::swing::JScrollPane;
-using $JViewport = ::javax::swing::JViewport;
-using $ListModel = ::javax::swing::ListModel;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 
 class bug6510999$$Lambda$lambda$main$0 : public $Runnable {
@@ -55,68 +52,27 @@ public:
 	virtual void run() override {
 		bug6510999::lambda$main$0();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<bug6510999$$Lambda$lambda$main$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo bug6510999$$Lambda$lambda$main$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(bug6510999$$Lambda$lambda$main$0, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug6510999$$Lambda$lambda$main$0, run, void)},
-	{}
-};
-$ClassInfo bug6510999$$Lambda$lambda$main$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"bug6510999$$Lambda$lambda$main$0",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* bug6510999$$Lambda$lambda$main$0::load$($String* name, bool initialize) {
-	$loadClass(bug6510999$$Lambda$lambda$main$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(bug6510999$$Lambda$lambda$main$0, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug6510999$$Lambda$lambda$main$0, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"bug6510999$$Lambda$lambda$main$0",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(bug6510999$$Lambda$lambda$main$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(bug6510999$$Lambda$lambda$main$0);
+	});
 	return class$;
 }
 $Class* bug6510999$$Lambda$lambda$main$0::class$ = nullptr;
-
-$FieldInfo _bug6510999_FieldInfo_[] = {
-	{"s", "Ljavax/swing/JScrollPane;", nullptr, $PRIVATE | $STATIC, $staticField(bug6510999, s)},
-	{"frame", "Ljavax/swing/JFrame;", nullptr, $STATIC, $staticField(bug6510999, frame)},
-	{}
-};
-
-$MethodInfo _bug6510999_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(bug6510999, init$, void)},
-	{"createGui", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(bug6510999, createGui, void)},
-	{"lambda$main$0", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(bug6510999, lambda$main$0, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(bug6510999, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$InnerClassInfo _bug6510999_InnerClassesInfo_[] = {
-	{"bug6510999$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _bug6510999_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"bug6510999",
-	"java.lang.Object",
-	nullptr,
-	_bug6510999_FieldInfo_,
-	_bug6510999_MethodInfo_,
-	nullptr,
-	nullptr,
-	_bug6510999_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"bug6510999$1"
-};
-
-$Object* allocate$bug6510999($Class* clazz) {
-	return $of($alloc(bug6510999));
-}
 
 $JScrollPane* bug6510999::s = nullptr;
 $JFrame* bug6510999::frame = nullptr;
@@ -125,10 +81,10 @@ void bug6510999::init$() {
 }
 
 void bug6510999::createGui() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init(bug6510999);
 	$assignStatic(bug6510999::frame, $new($JFrame));
-	$nc(bug6510999::frame)->setDefaultCloseOperation($JFrame::EXIT_ON_CLOSE);
+	bug6510999::frame->setDefaultCloseOperation($JFrame::EXIT_ON_CLOSE);
 	$var($DefaultListModel, dlm, $new($DefaultListModel));
 	for (int32_t i = 0; i < 100; ++i) {
 		dlm->addElement($$str({$$str(i), " listItemlistItemlistItemlistItemItem"_s}));
@@ -138,40 +94,38 @@ void bug6510999::createGui() {
 	$assignStatic(bug6510999::s, $new($JScrollPane, l));
 	l->setSelectedIndex(50);
 	l->ensureIndexIsVisible(50);
-	$nc(bug6510999::frame)->add(static_cast<$Component*>(bug6510999::s));
+	$nc(bug6510999::frame)->add(bug6510999::s);
 	$nc(bug6510999::frame)->setSize(200, 200);
 	$nc(bug6510999::frame)->setLocationRelativeTo(nullptr);
 	$nc(bug6510999::frame)->setVisible(true);
 }
 
 void bug6510999::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$var($Robot, robot, $new($Robot));
-			robot->setAutoDelay(10);
-			$SwingUtilities::invokeAndWait($$new($bug6510999$1));
-			robot->waitForIdle();
-			$init(bug6510999);
-			$var($Point, viewPosition, $nc($($nc(bug6510999::s)->getViewport()))->getViewPosition());
-			robot->keyPress($KeyEvent::VK_DOWN);
-			robot->keyRelease($KeyEvent::VK_DOWN);
-			robot->waitForIdle();
-			if (!$nc($($nc($($nc(bug6510999::s)->getViewport()))->getViewPosition()))->equals(viewPosition)) {
-				$throwNew($RuntimeException, "JScrollPane was unexpectedly scrolled"_s);
-			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$init(bug6510999);
-			if (bug6510999::frame != nullptr) {
-				$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(bug6510999$$Lambda$lambda$main$0)));
-			}
+	$useLocalObjectStack();
+	$var($Throwable, var$0, nullptr);
+	try {
+		$var($Robot, robot, $new($Robot));
+		robot->setAutoDelay(10);
+		$SwingUtilities::invokeAndWait($$new($bug6510999$1));
+		robot->waitForIdle();
+		$init(bug6510999);
+		$var($Point, viewPosition, $$nc($nc(bug6510999::s)->getViewport())->getViewPosition());
+		robot->keyPress($KeyEvent::VK_DOWN);
+		robot->keyRelease($KeyEvent::VK_DOWN);
+		robot->waitForIdle();
+		if (!$$nc($$nc($nc(bug6510999::s)->getViewport())->getViewPosition())->equals(viewPosition)) {
+			$throwNew($RuntimeException, "JScrollPane was unexpectedly scrolled"_s);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$init(bug6510999);
+		if (bug6510999::frame != nullptr) {
+			$SwingUtilities::invokeAndWait($$new(bug6510999$$Lambda$lambda$main$0));
 		}
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
@@ -185,11 +139,43 @@ bug6510999::bug6510999() {
 
 $Class* bug6510999::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(bug6510999$$Lambda$lambda$main$0::classInfo$.name)) {
+		if (name->equals("bug6510999$$Lambda$lambda$main$0")) {
 			return bug6510999$$Lambda$lambda$main$0::load$(name, initialize);
 		}
 	}
-	$loadClass(bug6510999, name, initialize, &_bug6510999_ClassInfo_, allocate$bug6510999);
+	$FieldInfo fieldInfos$$[] = {
+		{"s", "Ljavax/swing/JScrollPane;", nullptr, $PRIVATE | $STATIC, $staticField(bug6510999, s)},
+		{"frame", "Ljavax/swing/JFrame;", nullptr, $STATIC, $staticField(bug6510999, frame)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(bug6510999, init$, void)},
+		{"createGui", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(bug6510999, createGui, void)},
+		{"lambda$main$0", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(bug6510999, lambda$main$0, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(bug6510999, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"bug6510999$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"bug6510999",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"bug6510999$1"
+	};
+	$loadClass(bug6510999, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(bug6510999);
+	});
 	return class$;
 }
 

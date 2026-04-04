@@ -1,5 +1,4 @@
 #include <sun/rmi/transport/ObjectTable$1.h>
-
 #include <sun/rmi/transport/ObjectTable.h>
 #include <jcpp.h>
 
@@ -13,57 +12,51 @@ namespace sun {
 	namespace rmi {
 		namespace transport {
 
-$MethodInfo _ObjectTable$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(ObjectTable$1, init$, void)},
-	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(ObjectTable$1, run, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _ObjectTable$1_EnclosingMethodInfo_ = {
-	"sun.rmi.transport.ObjectTable",
-	"decrementKeepAliveCount",
-	"()V"
-};
-
-$InnerClassInfo _ObjectTable$1_InnerClassesInfo_[] = {
-	{"sun.rmi.transport.ObjectTable$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _ObjectTable$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.rmi.transport.ObjectTable$1",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	nullptr,
-	_ObjectTable$1_MethodInfo_,
-	"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/Void;>;",
-	&_ObjectTable$1_EnclosingMethodInfo_,
-	_ObjectTable$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.rmi.transport.ObjectTable"
-};
-
-$Object* allocate$ObjectTable$1($Class* clazz) {
-	return $of($alloc(ObjectTable$1));
-}
-
 void ObjectTable$1::init$() {
 }
 
 $Object* ObjectTable$1::run() {
 	$init($ObjectTable);
 	$nc($ObjectTable::reaper)->interrupt();
-	return $of(nullptr);
+	return nullptr;
 }
 
 ObjectTable$1::ObjectTable$1() {
 }
 
 $Class* ObjectTable$1::load$($String* name, bool initialize) {
-	$loadClass(ObjectTable$1, name, initialize, &_ObjectTable$1_ClassInfo_, allocate$ObjectTable$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(ObjectTable$1, init$, void)},
+		{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(ObjectTable$1, run, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.rmi.transport.ObjectTable",
+		"decrementKeepAliveCount",
+		"()V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.rmi.transport.ObjectTable$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.rmi.transport.ObjectTable$1",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		nullptr,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/Void;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.rmi.transport.ObjectTable"
+	};
+	$loadClass(ObjectTable$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ObjectTable$1);
+	});
 	return class$;
 }
 

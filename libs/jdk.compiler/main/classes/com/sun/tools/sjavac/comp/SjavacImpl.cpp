@@ -1,5 +1,4 @@
 #include <com/sun/tools/sjavac/comp/SjavacImpl.h>
-
 #include <com/sun/tools/javac/file/JavacFileManager.h>
 #include <com/sun/tools/javac/main/Main$Result.h>
 #include <com/sun/tools/javac/main/Main.h>
@@ -22,7 +21,6 @@
 #include <java/io/Serializable.h>
 #include <java/io/StringWriter.h>
 #include <java/io/UncheckedIOException.h>
-#include <java/io/Writer.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
@@ -33,7 +31,6 @@
 #include <java/nio/file/Path.h>
 #include <java/nio/file/attribute/FileAttribute.h>
 #include <java/util/ArrayList.h>
-#include <java/util/Collection.h>
 #include <java/util/Collections.h>
 #include <java/util/HashMap.h>
 #include <java/util/HashSet.h>
@@ -60,7 +57,6 @@ using $Main = ::com::sun::tools::javac::main::Main;
 using $Main$Result = ::com::sun::tools::javac::main::Main$Result;
 using $Context = ::com::sun::tools::javac::util::Context;
 using $1Log = ::com::sun::tools::javac::util::Log;
-using $BuildState = ::com::sun::tools::sjavac::BuildState;
 using $JavacState = ::com::sun::tools::sjavac::JavacState;
 using $Log = ::com::sun::tools::sjavac::Log;
 using $Module = ::com::sun::tools::sjavac::Module;
@@ -77,7 +73,6 @@ using $PrintWriter = ::java::io::PrintWriter;
 using $Serializable = ::java::io::Serializable;
 using $StringWriter = ::java::io::StringWriter;
 using $UncheckedIOException = ::java::io::UncheckedIOException;
-using $Writer = ::java::io::Writer;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
@@ -86,7 +81,6 @@ using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $Files = ::java::nio::file::Files;
 using $Path = ::java::nio::file::Path;
 using $ArrayList = ::java::util::ArrayList;
-using $Collection = ::java::util::Collection;
 using $Collections = ::java::util::Collections;
 using $HashMap = ::java::util::HashMap;
 using $HashSet = ::java::util::HashSet;
@@ -114,27 +108,24 @@ public:
 	virtual bool test(Object$* arg) override {
 		 return SjavacImpl::lambda$compile$0($cast($String, arg));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<SjavacImpl$$Lambda$lambda$compile$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo SjavacImpl$$Lambda$lambda$compile$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SjavacImpl$$Lambda$lambda$compile$0, init$, void)},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(SjavacImpl$$Lambda$lambda$compile$0, test, bool, Object$*)},
-	{}
-};
-$ClassInfo SjavacImpl$$Lambda$lambda$compile$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.sjavac.comp.SjavacImpl$$Lambda$lambda$compile$0",
-	"java.lang.Object",
-	"java.util.function.Predicate",
-	nullptr,
-	methodInfos
 };
 $Class* SjavacImpl$$Lambda$lambda$compile$0::load$($String* name, bool initialize) {
-	$loadClass(SjavacImpl$$Lambda$lambda$compile$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SjavacImpl$$Lambda$lambda$compile$0, init$, void)},
+		{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(SjavacImpl$$Lambda$lambda$compile$0, test, bool, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.sjavac.comp.SjavacImpl$$Lambda$lambda$compile$0",
+		"java.lang.Object",
+		"java.util.function.Predicate",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(SjavacImpl$$Lambda$lambda$compile$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SjavacImpl$$Lambda$lambda$compile$0);
+	});
 	return class$;
 }
 $Class* SjavacImpl$$Lambda$lambda$compile$0::class$ = nullptr;
@@ -145,29 +136,26 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(int32_t x$0) override {
-		 return $of(SjavacImpl::lambda$compile$1(x$0));
+		 return SjavacImpl::lambda$compile$1(x$0);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<SjavacImpl$$Lambda$lambda$compile$1$1>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo SjavacImpl$$Lambda$lambda$compile$1$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SjavacImpl$$Lambda$lambda$compile$1$1, init$, void)},
-	{"apply", "(I)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SjavacImpl$$Lambda$lambda$compile$1$1, apply, $Object*, int32_t)},
-	{}
-};
-$ClassInfo SjavacImpl$$Lambda$lambda$compile$1$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.sjavac.comp.SjavacImpl$$Lambda$lambda$compile$1$1",
-	"java.lang.Object",
-	"java.util.function.IntFunction",
-	nullptr,
-	methodInfos
 };
 $Class* SjavacImpl$$Lambda$lambda$compile$1$1::load$($String* name, bool initialize) {
-	$loadClass(SjavacImpl$$Lambda$lambda$compile$1$1, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SjavacImpl$$Lambda$lambda$compile$1$1, init$, void)},
+		{"apply", "(I)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SjavacImpl$$Lambda$lambda$compile$1$1, apply, $Object*, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.sjavac.comp.SjavacImpl$$Lambda$lambda$compile$1$1",
+		"java.lang.Object",
+		"java.util.function.IntFunction",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(SjavacImpl$$Lambda$lambda$compile$1$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SjavacImpl$$Lambda$lambda$compile$1$1);
+	});
 	return class$;
 }
 $Class* SjavacImpl$$Lambda$lambda$compile$1$1::class$ = nullptr;
@@ -180,64 +168,33 @@ public:
 	virtual void accept(Object$* msg) override {
 		$Log::error($cast($String, msg));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<SjavacImpl$$Lambda$error$2>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo SjavacImpl$$Lambda$error$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SjavacImpl$$Lambda$error$2, init$, void)},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(SjavacImpl$$Lambda$error$2, accept, void, Object$*)},
-	{}
-};
-$ClassInfo SjavacImpl$$Lambda$error$2::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.sjavac.comp.SjavacImpl$$Lambda$error$2",
-	"java.lang.Object",
-	"java.util.function.Consumer",
-	nullptr,
-	methodInfos
 };
 $Class* SjavacImpl$$Lambda$error$2::load$($String* name, bool initialize) {
-	$loadClass(SjavacImpl$$Lambda$error$2, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SjavacImpl$$Lambda$error$2, init$, void)},
+		{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(SjavacImpl$$Lambda$error$2, accept, void, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.sjavac.comp.SjavacImpl$$Lambda$error$2",
+		"java.lang.Object",
+		"java.util.function.Consumer",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(SjavacImpl$$Lambda$error$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SjavacImpl$$Lambda$error$2);
+	});
 	return class$;
 }
 $Class* SjavacImpl$$Lambda$error$2::class$ = nullptr;
-
-$MethodInfo _SjavacImpl_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SjavacImpl, init$, void)},
-	{"compile", "([Ljava/lang/String;)Lcom/sun/tools/javac/main/Main$Result;", nullptr, $PUBLIC, $virtualMethod(SjavacImpl, compile, $Main$Result*, $StringArray*)},
-	{"createIfMissing", "(Ljava/nio/file/Path;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(SjavacImpl, createIfMissing, bool, $Path*)},
-	{"findSourceFiles", "(Ljava/util/List;Ljava/util/Set;Ljava/util/Map;Ljava/util/Map;Lcom/sun/tools/sjavac/Module;ZZ)V", "(Ljava/util/List<Lcom/sun/tools/sjavac/options/SourceLocation;>;Ljava/util/Set<Ljava/lang/String;>;Ljava/util/Map<Ljava/lang/String;Lcom/sun/tools/sjavac/Source;>;Ljava/util/Map<Ljava/lang/String;Lcom/sun/tools/sjavac/Module;>;Lcom/sun/tools/sjavac/Module;ZZ)V", $PUBLIC | $STATIC, $staticMethod(SjavacImpl, findSourceFiles, void, $List*, $Set*, $Map*, $Map*, $Module*, bool, bool), "java.io.IOException"},
-	{"isOverlapping", "(Ljava/nio/file/Path;Ljava/nio/file/Path;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(SjavacImpl, isOverlapping, bool, $Path*, $Path*)},
-	{"lambda$compile$0", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(SjavacImpl, lambda$compile$0, bool, $String*)},
-	{"lambda$compile$1", "(I)[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(SjavacImpl, lambda$compile$1, $StringArray*, int32_t)},
-	{"printRound", "(I)V", nullptr, $PRIVATE | $STATIC, $staticMethod(SjavacImpl, printRound, void, int32_t)},
-	{"shutdown", "()V", nullptr, $PUBLIC, $virtualMethod(SjavacImpl, shutdown, void)},
-	{"srcDstOverlap", "(Ljava/util/List;Ljava/nio/file/Path;)Z", "(Ljava/util/List<Lcom/sun/tools/sjavac/options/SourceLocation;>;Ljava/nio/file/Path;)Z", $PRIVATE | $STATIC, $staticMethod(SjavacImpl, srcDstOverlap, bool, $List*, $Path*)},
-	{"validateOptions", "(Lcom/sun/tools/sjavac/options/Options;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(SjavacImpl, validateOptions, bool, $Options*)},
-	{}
-};
-
-$ClassInfo _SjavacImpl_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.sjavac.comp.SjavacImpl",
-	"java.lang.Object",
-	"com.sun.tools.sjavac.server.Sjavac",
-	nullptr,
-	_SjavacImpl_MethodInfo_
-};
-
-$Object* allocate$SjavacImpl($Class* clazz) {
-	return $of($alloc(SjavacImpl));
-}
 
 void SjavacImpl::init$() {
 }
 
 $Main$Result* SjavacImpl::compile($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Options, options, nullptr);
 	try {
 		$assign(options, $Options::parseArgs(args));
@@ -255,11 +212,11 @@ $Main$Result* SjavacImpl::compile($StringArray* args) {
 		$init($Main$Result);
 		return $Main$Result::CMDERR;
 	}
-	if (!createIfMissing($($nc(options)->getDestDir()))) {
+	if (!createIfMissing($(options->getDestDir()))) {
 		$init($Main$Result);
 		return $Main$Result::ERROR;
 	}
-	$var($Path, stateDir, $nc(options)->getStateDir());
+	$var($Path, stateDir, options->getStateDir());
 	if (stateDir != nullptr && !createIfMissing($(options->getStateDir()))) {
 		$init($Main$Result);
 		return $Main$Result::ERROR;
@@ -277,13 +234,13 @@ $Main$Result* SjavacImpl::compile($StringArray* args) {
 	if (stateDir == nullptr) {
 		$var($Context, context, $new($Context));
 		$var($StringWriter, strWriter, $new($StringWriter));
-		$var($PrintWriter, printWriter, $new($PrintWriter, static_cast<$Writer*>(strWriter)));
+		$var($PrintWriter, printWriter, $new($PrintWriter, strWriter));
 		$1Log::preRegister(context, printWriter);
 		$JavacFileManager::preRegister(context);
-		$var($StringArray, passThroughArgs, $fcast($StringArray, $nc($($nc($($Stream::of(args)))->filter(static_cast<$Predicate*>($$new(SjavacImpl$$Lambda$lambda$compile$0)))))->toArray(static_cast<$IntFunction*>($$new(SjavacImpl$$Lambda$lambda$compile$1$1)))));
+		$var($StringArray, passThroughArgs, $cast($StringArray, $$nc($$nc($Stream::of(args))->filter($$new(SjavacImpl$$Lambda$lambda$compile$0)))->toArray($$new(SjavacImpl$$Lambda$lambda$compile$1$1))));
 		$Main$Result* result = $$new($Main, "javac"_s, printWriter)->compile(passThroughArgs, context);
 		printWriter->flush();
-		$nc($($Util::getLines($(strWriter->toString()))))->forEach(static_cast<$Consumer*>($$new(SjavacImpl$$Lambda$error$2)));
+		$$nc($Util::getLines($(strWriter->toString())))->forEach($$new(SjavacImpl$$Lambda$error$2));
 		$load($JavaFileManager);
 		$var($JavaFileManager, fileManager, $cast($JavaFileManager, context->get($JavaFileManager::class$)));
 		{
@@ -314,10 +271,7 @@ $Main$Result* SjavacImpl::compile($StringArray* args) {
 			$var($Map, sources, $new($HashMap));
 			$var($List, var$2, options->getSources());
 			$var($Set, var$3, suffixRules->keySet());
-			$var($Map, var$4, sources);
-			$var($Map, var$5, modules);
-			$var($Module, var$6, current_module);
-			findSourceFiles(var$2, var$3, var$4, var$5, var$6, options->isDefaultPackagePermitted(), false);
+			findSourceFiles(var$2, var$3, sources, modules, current_module, options->isDefaultPackagePermitted(), false);
 			if (sources->isEmpty()) {
 				$Log::error("Found nothing to compile!"_s);
 				$init($Main$Result);
@@ -327,15 +281,11 @@ $Main$Result* SjavacImpl::compile($StringArray* args) {
 			$var($List, sourceResolutionLocations, $new($ArrayList));
 			sourceResolutionLocations->addAll($(options->getSources()));
 			sourceResolutionLocations->addAll($(options->getSourceSearchPaths()));
-			$var($List, var$7, sourceResolutionLocations);
-			$var($Set, var$8, $Collections::singleton(".java"_s));
-			$var($Map, var$9, sources_to_link_to);
-			$var($Map, var$10, modules);
-			$var($Module, var$11, current_module);
-			findSourceFiles(var$7, var$8, var$9, var$10, var$11, options->isDefaultPackagePermitted(), true);
-			$nc($($nc(javac_state)->now()))->flattenPackagesSourcesAndArtifacts(modules);
-			$nc($(javac_state->now()))->checkInternalState("checking sources"_s, false, sources);
-			$nc($(javac_state->now()))->checkInternalState("checking linked sources"_s, true, sources_to_link_to);
+			$var($Set, var$4, $Collections::singleton(".java"_s));
+			findSourceFiles(sourceResolutionLocations, var$4, sources_to_link_to, modules, current_module, options->isDefaultPackagePermitted(), true);
+			$$nc(javac_state->now())->flattenPackagesSourcesAndArtifacts(modules);
+			$$nc(javac_state->now())->checkInternalState("checking sources"_s, false, sources);
+			$$nc(javac_state->now())->checkInternalState("checking linked sources"_s, true, sources_to_link_to);
 			javac_state->setVisibleSources(sources_to_link_to);
 			int32_t round = 0;
 			printRound(round);
@@ -350,11 +300,11 @@ $Main$Result* SjavacImpl::compile($StringArray* args) {
 			javac_state->performCopying($($Util::pathToFile($(options->getDestDir()))), suffixRules);
 			javac_state->performTranslation($($Util::pathToFile(gensrc)), suffixRules);
 			$var($Map, generated_sources, $new($HashMap));
-			$var($File, var$12, $Util::pathToFile($(options->getGenSrcDir())));
-			$var($Set, var$13, $Util::set($$new($StringArray, {".java"_s})));
-			$var($List, var$14, $Collections::emptyList());
-			$Source::scanRoot(var$12, var$13, var$14, $($Collections::emptyList()), generated_sources, modules, current_module, false, true, false);
-			$nc($(javac_state->now()))->flattenPackagesSourcesAndArtifacts(modules);
+			$var($File, var$5, $Util::pathToFile($(options->getGenSrcDir())));
+			$var($Set, var$6, $Util::set($$new($StringArray, {".java"_s})));
+			$var($List, var$7, $Collections::emptyList());
+			$Source::scanRoot(var$5, var$6, var$7, $($Collections::emptyList()), generated_sources, modules, current_module, false, true, false);
+			$$nc(javac_state->now())->flattenPackagesSourcesAndArtifacts(modules);
 			javac_state->checkSourceStatus(true);
 			javac_state->compareWithMakefileList($($Util::pathToFile($(options->getSourceReferenceList()))));
 			bool again = false;
@@ -379,18 +329,18 @@ $Main$Result* SjavacImpl::compile($StringArray* args) {
 			$Log::debug("No need to do another round."_s);
 			if (rc->get(0)) {
 				javac_state->save();
-				$nc($(javac_state->now()))->flattenArtifacts(modules);
+				$$nc(javac_state->now())->flattenArtifacts(modules);
 				javac_state->removeSuperfluousArtifacts(recently_compiled);
 			}
 			$init($Main$Result);
 			return rc->get(0) ? $Main$Result::OK : $Main$Result::ERROR;
 		} catch ($ProblemException& e) {
 			$Log::error($(e->getMessage()));
-			$Log::debug(static_cast<$Throwable*>(e));
+			$Log::debug(e);
 			$init($Main$Result);
 			return $Main$Result::ERROR;
 		} catch ($Exception& e) {
-			$Log::error(static_cast<$Throwable*>(e));
+			$Log::error(e);
 			$init($Main$Result);
 			return $Main$Result::ERROR;
 		}
@@ -403,21 +353,21 @@ void SjavacImpl::shutdown() {
 
 bool SjavacImpl::validateOptions($Options* options) {
 	$init(SjavacImpl);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, err, nullptr);
 	if ($nc(options)->getDestDir() == nullptr) {
 		$assign(err, "Please specify output directory."_s);
 	} else if (options->isJavaFilesAmongJavacArgs()) {
 		$assign(err, "Sjavac does not handle explicit compilation of single .java files."_s);
-	} else if (!$nc($(options->getImplicitPolicy()))->equals("none"_s)) {
+	} else if (!$$nc(options->getImplicitPolicy())->equals("none"_s)) {
 		$assign(err, "The only allowed setting for sjavac is -implicit:none"_s);
 	} else {
-		bool var$1 = $nc($(options->getSources()))->isEmpty();
-		if (var$1 && options->getStateDir() != nullptr) {
+		bool var$0 = $$nc(options->getSources())->isEmpty();
+		if (var$0 && options->getStateDir() != nullptr) {
 			$assign(err, "You have to specify -src when using --state-dir."_s);
 		} else {
-			bool var$3 = $nc($(options->getTranslationRules()))->size() > 1;
-			if (var$3 && options->getGenSrcDir() == nullptr) {
+			bool var$1 = $$nc(options->getTranslationRules())->size() > 1;
+			if (var$1 && options->getGenSrcDir() == nullptr) {
 				$assign(err, "You have translators but no gensrc dir (-s) specified!"_s);
 			}
 		}
@@ -430,17 +380,13 @@ bool SjavacImpl::validateOptions($Options* options) {
 
 bool SjavacImpl::srcDstOverlap($List* locs, $Path* dest) {
 	$init(SjavacImpl);
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Iterator, i$, $nc(locs)->iterator());
-		for (; $nc(i$)->hasNext();) {
-			$var($SourceLocation, loc, $cast($SourceLocation, i$->next()));
-			{
-				if (isOverlapping($($nc(loc)->getPath()), dest)) {
-					$Log::error($$str({"Source location "_s, $($nc(loc)->getPath()), " overlaps with destination "_s, dest}));
-					return true;
-				}
-			}
+	$useLocalObjectStack();
+	$var($Iterator, i$, $nc(locs)->iterator());
+	for (; $nc(i$)->hasNext();) {
+		$var($SourceLocation, loc, $cast($SourceLocation, i$->next()));
+		if (isOverlapping($($nc(loc)->getPath()), dest)) {
+			$Log::error($$str({"Source location "_s, $(loc->getPath()), " overlaps with destination "_s, dest}));
+			return true;
 		}
 	}
 	return false;
@@ -448,18 +394,18 @@ bool SjavacImpl::srcDstOverlap($List* locs, $Path* dest) {
 
 bool SjavacImpl::isOverlapping($Path* p1$renamed, $Path* p2$renamed) {
 	$init(SjavacImpl);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Path, p1, p1$renamed);
 	$var($Path, p2, p2$renamed);
-	$assign(p1, $nc($($nc(p1)->toAbsolutePath()))->normalize());
-	$assign(p2, $nc($($nc(p2)->toAbsolutePath()))->normalize());
-	bool var$0 = p1->startsWith(p2);
-	return var$0 || p2->startsWith(p1);
+	$assign(p1, $$nc($nc(p1)->toAbsolutePath())->normalize());
+	$assign(p2, $$nc($nc(p2)->toAbsolutePath())->normalize());
+	bool var$0 = $nc(p1)->startsWith(p2);
+	return var$0 || $nc(p2)->startsWith(p1);
 }
 
 bool SjavacImpl::createIfMissing($Path* dir) {
 	$init(SjavacImpl);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($Files::isDirectory(dir, $$new($LinkOptionArray, 0))) {
 		return true;
 	}
@@ -478,21 +424,19 @@ bool SjavacImpl::createIfMissing($Path* dir) {
 
 void SjavacImpl::findSourceFiles($List* sourceLocations, $Set* sourceTypes, $Map* foundFiles, $Map* foundModules, $Module* currentModule, bool permitSourcesInDefaultPackage, bool inLinksrc) {
 	$init(SjavacImpl);
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Iterator, i$, $nc(sourceLocations)->iterator());
-		for (; $nc(i$)->hasNext();) {
-			$var($SourceLocation, source, $cast($SourceLocation, i$->next()));
-			{
-				$nc(source)->findSourceFiles(sourceTypes, foundFiles, foundModules, currentModule, permitSourcesInDefaultPackage, inLinksrc);
-			}
+	$useLocalObjectStack();
+	$var($Iterator, i$, $nc(sourceLocations)->iterator());
+	for (; $nc(i$)->hasNext();) {
+		$var($SourceLocation, source, $cast($SourceLocation, i$->next()));
+		{
+			$nc(source)->findSourceFiles(sourceTypes, foundFiles, foundModules, currentModule, permitSourcesInDefaultPackage, inLinksrc);
 		}
 	}
 }
 
 void SjavacImpl::printRound(int32_t round) {
 	$init(SjavacImpl);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Log::debug("****************************************"_s);
 	$Log::debug($$str({"* Round "_s, $$str(round), "                              *"_s}));
 	$Log::debug("****************************************"_s);
@@ -514,17 +458,41 @@ SjavacImpl::SjavacImpl() {
 
 $Class* SjavacImpl::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(SjavacImpl$$Lambda$lambda$compile$0::classInfo$.name)) {
+		if (name->equals("com.sun.tools.sjavac.comp.SjavacImpl$$Lambda$lambda$compile$0")) {
 			return SjavacImpl$$Lambda$lambda$compile$0::load$(name, initialize);
 		}
-		if (name->equals(SjavacImpl$$Lambda$lambda$compile$1$1::classInfo$.name)) {
+		if (name->equals("com.sun.tools.sjavac.comp.SjavacImpl$$Lambda$lambda$compile$1$1")) {
 			return SjavacImpl$$Lambda$lambda$compile$1$1::load$(name, initialize);
 		}
-		if (name->equals(SjavacImpl$$Lambda$error$2::classInfo$.name)) {
+		if (name->equals("com.sun.tools.sjavac.comp.SjavacImpl$$Lambda$error$2")) {
 			return SjavacImpl$$Lambda$error$2::load$(name, initialize);
 		}
 	}
-	$loadClass(SjavacImpl, name, initialize, &_SjavacImpl_ClassInfo_, allocate$SjavacImpl);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SjavacImpl, init$, void)},
+		{"compile", "([Ljava/lang/String;)Lcom/sun/tools/javac/main/Main$Result;", nullptr, $PUBLIC, $virtualMethod(SjavacImpl, compile, $Main$Result*, $StringArray*)},
+		{"createIfMissing", "(Ljava/nio/file/Path;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(SjavacImpl, createIfMissing, bool, $Path*)},
+		{"findSourceFiles", "(Ljava/util/List;Ljava/util/Set;Ljava/util/Map;Ljava/util/Map;Lcom/sun/tools/sjavac/Module;ZZ)V", "(Ljava/util/List<Lcom/sun/tools/sjavac/options/SourceLocation;>;Ljava/util/Set<Ljava/lang/String;>;Ljava/util/Map<Ljava/lang/String;Lcom/sun/tools/sjavac/Source;>;Ljava/util/Map<Ljava/lang/String;Lcom/sun/tools/sjavac/Module;>;Lcom/sun/tools/sjavac/Module;ZZ)V", $PUBLIC | $STATIC, $staticMethod(SjavacImpl, findSourceFiles, void, $List*, $Set*, $Map*, $Map*, $Module*, bool, bool), "java.io.IOException"},
+		{"isOverlapping", "(Ljava/nio/file/Path;Ljava/nio/file/Path;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(SjavacImpl, isOverlapping, bool, $Path*, $Path*)},
+		{"lambda$compile$0", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(SjavacImpl, lambda$compile$0, bool, $String*)},
+		{"lambda$compile$1", "(I)[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(SjavacImpl, lambda$compile$1, $StringArray*, int32_t)},
+		{"printRound", "(I)V", nullptr, $PRIVATE | $STATIC, $staticMethod(SjavacImpl, printRound, void, int32_t)},
+		{"shutdown", "()V", nullptr, $PUBLIC, $virtualMethod(SjavacImpl, shutdown, void)},
+		{"srcDstOverlap", "(Ljava/util/List;Ljava/nio/file/Path;)Z", "(Ljava/util/List<Lcom/sun/tools/sjavac/options/SourceLocation;>;Ljava/nio/file/Path;)Z", $PRIVATE | $STATIC, $staticMethod(SjavacImpl, srcDstOverlap, bool, $List*, $Path*)},
+		{"validateOptions", "(Lcom/sun/tools/sjavac/options/Options;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(SjavacImpl, validateOptions, bool, $Options*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.sjavac.comp.SjavacImpl",
+		"java.lang.Object",
+		"com.sun.tools.sjavac.server.Sjavac",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(SjavacImpl, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SjavacImpl);
+	});
 	return class$;
 }
 

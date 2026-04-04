@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/impl/xs/opti/SchemaDOMParser$BooleanStack.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/xs/opti/SchemaDOMParser.h>
 #include <jcpp.h>
 
@@ -17,47 +16,6 @@ namespace com {
 						namespace impl {
 							namespace xs {
 								namespace opti {
-
-$FieldInfo _SchemaDOMParser$BooleanStack_FieldInfo_[] = {
-	{"fDepth", "I", nullptr, $PRIVATE, $field(SchemaDOMParser$BooleanStack, fDepth)},
-	{"fData", "[Z", nullptr, $PRIVATE, $field(SchemaDOMParser$BooleanStack, fData)},
-	{}
-};
-
-$MethodInfo _SchemaDOMParser$BooleanStack_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SchemaDOMParser$BooleanStack, init$, void)},
-	{"clear", "()V", nullptr, $PUBLIC, $method(SchemaDOMParser$BooleanStack, clear, void)},
-	{"ensureCapacity", "(I)V", nullptr, $PRIVATE, $method(SchemaDOMParser$BooleanStack, ensureCapacity, void, int32_t)},
-	{"pop", "()Z", nullptr, $PUBLIC, $method(SchemaDOMParser$BooleanStack, pop, bool)},
-	{"push", "(Z)V", nullptr, $PUBLIC, $method(SchemaDOMParser$BooleanStack, push, void, bool)},
-	{"size", "()I", nullptr, $PUBLIC, $method(SchemaDOMParser$BooleanStack, size, int32_t)},
-	{}
-};
-
-$InnerClassInfo _SchemaDOMParser$BooleanStack_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xerces.internal.impl.xs.opti.SchemaDOMParser$BooleanStack", "com.sun.org.apache.xerces.internal.impl.xs.opti.SchemaDOMParser", "BooleanStack", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _SchemaDOMParser$BooleanStack_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.impl.xs.opti.SchemaDOMParser$BooleanStack",
-	"java.lang.Object",
-	nullptr,
-	_SchemaDOMParser$BooleanStack_FieldInfo_,
-	_SchemaDOMParser$BooleanStack_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SchemaDOMParser$BooleanStack_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xerces.internal.impl.xs.opti.SchemaDOMParser"
-};
-
-$Object* allocate$SchemaDOMParser$BooleanStack($Class* clazz) {
-	return $of($alloc(SchemaDOMParser$BooleanStack));
-}
 
 void SchemaDOMParser$BooleanStack::init$() {
 }
@@ -82,9 +40,9 @@ void SchemaDOMParser$BooleanStack::clear() {
 void SchemaDOMParser$BooleanStack::ensureCapacity(int32_t size) {
 	if (this->fData == nullptr) {
 		$set(this, fData, $new($booleans, 32));
-	} else if ($nc(this->fData)->length <= size) {
-		$var($booleans, newdata, $new($booleans, $nc(this->fData)->length * 2));
-		$System::arraycopy(this->fData, 0, newdata, 0, $nc(this->fData)->length);
+	} else if (this->fData->length <= size) {
+		$var($booleans, newdata, $new($booleans, this->fData->length * 2));
+		$System::arraycopy(this->fData, 0, newdata, 0, this->fData->length);
 		$set(this, fData, newdata);
 	}
 }
@@ -93,7 +51,42 @@ SchemaDOMParser$BooleanStack::SchemaDOMParser$BooleanStack() {
 }
 
 $Class* SchemaDOMParser$BooleanStack::load$($String* name, bool initialize) {
-	$loadClass(SchemaDOMParser$BooleanStack, name, initialize, &_SchemaDOMParser$BooleanStack_ClassInfo_, allocate$SchemaDOMParser$BooleanStack);
+	$FieldInfo fieldInfos$$[] = {
+		{"fDepth", "I", nullptr, $PRIVATE, $field(SchemaDOMParser$BooleanStack, fDepth)},
+		{"fData", "[Z", nullptr, $PRIVATE, $field(SchemaDOMParser$BooleanStack, fData)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SchemaDOMParser$BooleanStack, init$, void)},
+		{"clear", "()V", nullptr, $PUBLIC, $method(SchemaDOMParser$BooleanStack, clear, void)},
+		{"ensureCapacity", "(I)V", nullptr, $PRIVATE, $method(SchemaDOMParser$BooleanStack, ensureCapacity, void, int32_t)},
+		{"pop", "()Z", nullptr, $PUBLIC, $method(SchemaDOMParser$BooleanStack, pop, bool)},
+		{"push", "(Z)V", nullptr, $PUBLIC, $method(SchemaDOMParser$BooleanStack, push, void, bool)},
+		{"size", "()I", nullptr, $PUBLIC, $method(SchemaDOMParser$BooleanStack, size, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xerces.internal.impl.xs.opti.SchemaDOMParser$BooleanStack", "com.sun.org.apache.xerces.internal.impl.xs.opti.SchemaDOMParser", "BooleanStack", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.impl.xs.opti.SchemaDOMParser$BooleanStack",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xerces.internal.impl.xs.opti.SchemaDOMParser"
+	};
+	$loadClass(SchemaDOMParser$BooleanStack, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SchemaDOMParser$BooleanStack);
+	});
 	return class$;
 }
 

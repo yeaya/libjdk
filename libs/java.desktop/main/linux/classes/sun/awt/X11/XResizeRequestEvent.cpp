@@ -1,5 +1,4 @@
 #include <sun/awt/X11/XResizeRequestEvent.h>
-
 #include <jdk/internal/misc/Unsafe.h>
 #include <sun/awt/X11/Native.h>
 #include <sun/awt/X11/XEvent.h>
@@ -11,64 +10,13 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Unsafe = ::jdk::internal::misc::Unsafe;
 using $Native = ::sun::awt::X11::Native;
 using $XWrapperBase = ::sun::awt::X11::XWrapperBase;
 using $XlibWrapper = ::sun::awt::X11::XlibWrapper;
-using $PlatformLogger = ::sun::util::logging::PlatformLogger;
 
 namespace sun {
 	namespace awt {
 		namespace X11 {
-
-$FieldInfo _XResizeRequestEvent_FieldInfo_[] = {
-	{"unsafe", "Ljdk/internal/misc/Unsafe;", nullptr, $PRIVATE, $field(XResizeRequestEvent, unsafe)},
-	{"should_free_memory", "Z", nullptr, $PRIVATE | $FINAL, $field(XResizeRequestEvent, should_free_memory)},
-	{"pData", "J", nullptr, 0, $field(XResizeRequestEvent, pData)},
-	{}
-};
-
-$MethodInfo _XResizeRequestEvent_MethodInfo_[] = {
-	{"<init>", "(J)V", nullptr, $PUBLIC, $method(XResizeRequestEvent, init$, void, int64_t)},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(XResizeRequestEvent, init$, void)},
-	{"clone", "()Lsun/awt/X11/XEvent;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XResizeRequestEvent, clone, $Object*)},
-	{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(XResizeRequestEvent, dispose, void)},
-	{"getDataSize", "()I", nullptr, $PUBLIC, $virtualMethod(XResizeRequestEvent, getDataSize, int32_t)},
-	{"getFieldsAsString", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(XResizeRequestEvent, getFieldsAsString, $String*)},
-	{"getName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(XResizeRequestEvent, getName, $String*)},
-	{"getPData", "()J", nullptr, $PUBLIC, $virtualMethod(XResizeRequestEvent, getPData, int64_t)},
-	{"getSize", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(XResizeRequestEvent, getSize, int32_t)},
-	{"get_display", "()J", nullptr, $PUBLIC, $virtualMethod(XResizeRequestEvent, get_display, int64_t)},
-	{"get_height", "()I", nullptr, $PUBLIC, $virtualMethod(XResizeRequestEvent, get_height, int32_t)},
-	{"get_send_event", "()Z", nullptr, $PUBLIC, $virtualMethod(XResizeRequestEvent, get_send_event, bool)},
-	{"get_serial", "()J", nullptr, $PUBLIC, $virtualMethod(XResizeRequestEvent, get_serial, int64_t)},
-	{"get_type", "()I", nullptr, $PUBLIC, $virtualMethod(XResizeRequestEvent, get_type, int32_t)},
-	{"get_width", "()I", nullptr, $PUBLIC, $virtualMethod(XResizeRequestEvent, get_width, int32_t)},
-	{"get_window", "()J", nullptr, $PUBLIC, $virtualMethod(XResizeRequestEvent, get_window, int64_t)},
-	{"set_display", "(J)V", nullptr, $PUBLIC, $virtualMethod(XResizeRequestEvent, set_display, void, int64_t)},
-	{"set_height", "(I)V", nullptr, $PUBLIC, $virtualMethod(XResizeRequestEvent, set_height, void, int32_t)},
-	{"set_send_event", "(Z)V", nullptr, $PUBLIC, $virtualMethod(XResizeRequestEvent, set_send_event, void, bool)},
-	{"set_serial", "(J)V", nullptr, $PUBLIC, $virtualMethod(XResizeRequestEvent, set_serial, void, int64_t)},
-	{"set_type", "(I)V", nullptr, $PUBLIC, $virtualMethod(XResizeRequestEvent, set_type, void, int32_t)},
-	{"set_width", "(I)V", nullptr, $PUBLIC, $virtualMethod(XResizeRequestEvent, set_width, void, int32_t)},
-	{"set_window", "(J)V", nullptr, $PUBLIC, $virtualMethod(XResizeRequestEvent, set_window, void, int64_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XResizeRequestEvent, toString, $String*)},
-	{"zero", "()V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XResizeRequestEvent, zero, void)},
-	{}
-};
-
-$ClassInfo _XResizeRequestEvent_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.awt.X11.XResizeRequestEvent",
-	"sun.awt.X11.XWrapperBase",
-	nullptr,
-	_XResizeRequestEvent_FieldInfo_,
-	_XResizeRequestEvent_MethodInfo_
-};
-
-$Object* allocate$XResizeRequestEvent($Class* clazz) {
-	return $of($alloc(XResizeRequestEvent));
-}
 
 int32_t XResizeRequestEvent::getSize() {
 	$init(XResizeRequestEvent);
@@ -107,7 +55,7 @@ void XResizeRequestEvent::dispose() {
 	$init($XWrapperBase);
 	$nc($XWrapperBase::log)->finest("Disposing"_s);
 	if (this->should_free_memory) {
-		$nc($XWrapperBase::log)->finest("freeing memory"_s);
+		$XWrapperBase::log->finest("freeing memory"_s);
 		$nc(this->unsafe)->freeMemory(this->pData);
 	}
 }
@@ -201,7 +149,7 @@ $String* XResizeRequestEvent::getName() {
 }
 
 $String* XResizeRequestEvent::getFieldsAsString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, ret, $new($StringBuilder, 280));
 	$init($XlibWrapper);
 	ret->append("type = "_s)->append($nc($XlibWrapper::eventToString)->get(get_type()))->append(", "_s);
@@ -215,7 +163,7 @@ $String* XResizeRequestEvent::getFieldsAsString() {
 }
 
 $Object* XResizeRequestEvent::clone() {
-	return $of($XWrapperBase::clone());
+	return $XWrapperBase::clone();
 }
 
 void XResizeRequestEvent::zero() {
@@ -230,7 +178,51 @@ XResizeRequestEvent::XResizeRequestEvent() {
 }
 
 $Class* XResizeRequestEvent::load$($String* name, bool initialize) {
-	$loadClass(XResizeRequestEvent, name, initialize, &_XResizeRequestEvent_ClassInfo_, allocate$XResizeRequestEvent);
+	$FieldInfo fieldInfos$$[] = {
+		{"unsafe", "Ljdk/internal/misc/Unsafe;", nullptr, $PRIVATE, $field(XResizeRequestEvent, unsafe)},
+		{"should_free_memory", "Z", nullptr, $PRIVATE | $FINAL, $field(XResizeRequestEvent, should_free_memory)},
+		{"pData", "J", nullptr, 0, $field(XResizeRequestEvent, pData)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(J)V", nullptr, $PUBLIC, $method(XResizeRequestEvent, init$, void, int64_t)},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(XResizeRequestEvent, init$, void)},
+		{"clone", "()Lsun/awt/X11/XEvent;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XResizeRequestEvent, clone, $Object*)},
+		{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(XResizeRequestEvent, dispose, void)},
+		{"getDataSize", "()I", nullptr, $PUBLIC, $virtualMethod(XResizeRequestEvent, getDataSize, int32_t)},
+		{"getFieldsAsString", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(XResizeRequestEvent, getFieldsAsString, $String*)},
+		{"getName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(XResizeRequestEvent, getName, $String*)},
+		{"getPData", "()J", nullptr, $PUBLIC, $virtualMethod(XResizeRequestEvent, getPData, int64_t)},
+		{"getSize", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(XResizeRequestEvent, getSize, int32_t)},
+		{"get_display", "()J", nullptr, $PUBLIC, $virtualMethod(XResizeRequestEvent, get_display, int64_t)},
+		{"get_height", "()I", nullptr, $PUBLIC, $virtualMethod(XResizeRequestEvent, get_height, int32_t)},
+		{"get_send_event", "()Z", nullptr, $PUBLIC, $virtualMethod(XResizeRequestEvent, get_send_event, bool)},
+		{"get_serial", "()J", nullptr, $PUBLIC, $virtualMethod(XResizeRequestEvent, get_serial, int64_t)},
+		{"get_type", "()I", nullptr, $PUBLIC, $virtualMethod(XResizeRequestEvent, get_type, int32_t)},
+		{"get_width", "()I", nullptr, $PUBLIC, $virtualMethod(XResizeRequestEvent, get_width, int32_t)},
+		{"get_window", "()J", nullptr, $PUBLIC, $virtualMethod(XResizeRequestEvent, get_window, int64_t)},
+		{"set_display", "(J)V", nullptr, $PUBLIC, $virtualMethod(XResizeRequestEvent, set_display, void, int64_t)},
+		{"set_height", "(I)V", nullptr, $PUBLIC, $virtualMethod(XResizeRequestEvent, set_height, void, int32_t)},
+		{"set_send_event", "(Z)V", nullptr, $PUBLIC, $virtualMethod(XResizeRequestEvent, set_send_event, void, bool)},
+		{"set_serial", "(J)V", nullptr, $PUBLIC, $virtualMethod(XResizeRequestEvent, set_serial, void, int64_t)},
+		{"set_type", "(I)V", nullptr, $PUBLIC, $virtualMethod(XResizeRequestEvent, set_type, void, int32_t)},
+		{"set_width", "(I)V", nullptr, $PUBLIC, $virtualMethod(XResizeRequestEvent, set_width, void, int32_t)},
+		{"set_window", "(J)V", nullptr, $PUBLIC, $virtualMethod(XResizeRequestEvent, set_window, void, int64_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XResizeRequestEvent, toString, $String*)},
+		{"zero", "()V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XResizeRequestEvent, zero, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.awt.X11.XResizeRequestEvent",
+		"sun.awt.X11.XWrapperBase",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XResizeRequestEvent, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XResizeRequestEvent);
+	});
 	return class$;
 }
 

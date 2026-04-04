@@ -31,6 +31,7 @@ class JdbcRowSetResourceBundle : public ::java::io::Serializable {
 	$class(JdbcRowSetResourceBundle, 0, ::java::io::Serializable)
 public:
 	JdbcRowSetResourceBundle();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::com::sun::rowset::JdbcRowSetResourceBundle* getJdbcRowSetResourceBundle();
 	virtual ::java::util::Enumeration* getKeys();
@@ -43,7 +44,7 @@ public:
 	static $String* DOT;
 	static $String* SLASH;
 	static $String* PATH;
-	static const int64_t serialVersionUID = (int64_t)0x060DB107DB34BC52;
+	static const int64_t serialVersionUID = (int64_t)0x060db107db34bc52;
 };
 
 		} // rowset

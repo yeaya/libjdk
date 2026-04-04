@@ -1,5 +1,4 @@
 #include <java/beans/beancontext/BeanContextServicesSupport.h>
-
 #include <java/beans/PropertyChangeListener.h>
 #include <java/beans/VetoableChangeListener.h>
 #include <java/beans/beancontext/BeanContext.h>
@@ -27,7 +26,6 @@
 #include <java/lang/UnsupportedOperationException.h>
 #include <java/net/URL.h>
 #include <java/util/AbstractCollection.h>
-#include <java/util/AbstractList.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Collection.h>
 #include <java/util/HashMap.h>
@@ -75,14 +73,12 @@ using $NullPointerException = ::java::lang::NullPointerException;
 using $UnsupportedOperationException = ::java::lang::UnsupportedOperationException;
 using $URL = ::java::net::URL;
 using $AbstractCollection = ::java::util::AbstractCollection;
-using $AbstractList = ::java::util::AbstractList;
 using $ArrayList = ::java::util::ArrayList;
 using $Collection = ::java::util::Collection;
 using $HashMap = ::java::util::HashMap;
 using $Iterator = ::java::util::Iterator;
 using $Locale = ::java::util::Locale;
 using $Map$Entry = ::java::util::Map$Entry;
-using $Set = ::java::util::Set;
 using $Spliterator = ::java::util::Spliterator;
 using $TooManyListenersException = ::java::util::TooManyListenersException;
 using $Consumer = ::java::util::function::Consumer;
@@ -93,119 +89,6 @@ using $Stream = ::java::util::stream::Stream;
 namespace java {
 	namespace beans {
 		namespace beancontext {
-
-$FieldInfo _BeanContextServicesSupport_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BeanContextServicesSupport, serialVersionUID)},
-	{"services", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/lang/Object;Ljava/beans/beancontext/BeanContextServicesSupport$BCSSServiceProvider;>;", $PROTECTED | $TRANSIENT, $field(BeanContextServicesSupport, services)},
-	{"serializable", "I", nullptr, $PROTECTED | $TRANSIENT, $field(BeanContextServicesSupport, serializable)},
-	{"proxy", "Ljava/beans/beancontext/BeanContextServicesSupport$BCSSProxyServiceProvider;", nullptr, $PROTECTED | $TRANSIENT, $field(BeanContextServicesSupport, proxy)},
-	{"bcsListeners", "Ljava/util/ArrayList;", "Ljava/util/ArrayList<Ljava/beans/beancontext/BeanContextServicesListener;>;", $PROTECTED | $TRANSIENT, $field(BeanContextServicesSupport, bcsListeners)},
-	{}
-};
-
-$MethodInfo _BeanContextServicesSupport_MethodInfo_[] = {
-	{"*add", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*addAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
-	{"*addBeanContextMembershipListener", "(Ljava/beans/beancontext/BeanContextMembershipListener;)V", nullptr, $PUBLIC},
-	{"*addPropertyChangeListener", "(Ljava/lang/String;Ljava/beans/PropertyChangeListener;)V", nullptr, $PUBLIC},
-	{"*addVetoableChangeListener", "(Ljava/lang/String;Ljava/beans/VetoableChangeListener;)V", nullptr, $PUBLIC},
-	{"*avoidingGui", "()Z", nullptr, $PUBLIC},
-	{"*clear", "()V", nullptr, $PUBLIC},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*containsAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
-	{"*dontUseGui", "()V", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*forEach", "(Ljava/util/function/Consumer;)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"*getBeanContext", "()Ljava/beans/beancontext/BeanContext;", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"*getResource", "(Ljava/lang/String;Ljava/beans/beancontext/BeanContextChild;)Ljava/net/URL;", nullptr, $PUBLIC},
-	{"*getResourceAsStream", "(Ljava/lang/String;Ljava/beans/beancontext/BeanContextChild;)Ljava/io/InputStream;", nullptr, $PUBLIC},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/beans/beancontext/BeanContextServices;Ljava/util/Locale;ZZ)V", nullptr, $PUBLIC, $method(BeanContextServicesSupport, init$, void, $BeanContextServices*, $Locale*, bool, bool)},
-	{"<init>", "(Ljava/beans/beancontext/BeanContextServices;Ljava/util/Locale;Z)V", nullptr, $PUBLIC, $method(BeanContextServicesSupport, init$, void, $BeanContextServices*, $Locale*, bool)},
-	{"<init>", "(Ljava/beans/beancontext/BeanContextServices;Ljava/util/Locale;)V", nullptr, $PUBLIC, $method(BeanContextServicesSupport, init$, void, $BeanContextServices*, $Locale*)},
-	{"<init>", "(Ljava/beans/beancontext/BeanContextServices;)V", nullptr, $PUBLIC, $method(BeanContextServicesSupport, init$, void, $BeanContextServices*)},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(BeanContextServicesSupport, init$, void)},
-	{"addBeanContextServicesListener", "(Ljava/beans/beancontext/BeanContextServicesListener;)V", nullptr, $PUBLIC, $virtualMethod(BeanContextServicesSupport, addBeanContextServicesListener, void, $BeanContextServicesListener*)},
-	{"addService", "(Ljava/lang/Class;Ljava/beans/beancontext/BeanContextServiceProvider;)Z", "(Ljava/lang/Class<*>;Ljava/beans/beancontext/BeanContextServiceProvider;)Z", $PUBLIC, $virtualMethod(BeanContextServicesSupport, addService, bool, $Class*, $BeanContextServiceProvider*)},
-	{"addService", "(Ljava/lang/Class;Ljava/beans/beancontext/BeanContextServiceProvider;Z)Z", "(Ljava/lang/Class<*>;Ljava/beans/beancontext/BeanContextServiceProvider;Z)Z", $PROTECTED, $virtualMethod(BeanContextServicesSupport, addService, bool, $Class*, $BeanContextServiceProvider*, bool)},
-	{"bcsPreDeserializationHook", "(Ljava/io/ObjectInputStream;)V", nullptr, $PROTECTED | $SYNCHRONIZED, $virtualMethod(BeanContextServicesSupport, bcsPreDeserializationHook, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"bcsPreSerializationHook", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PROTECTED | $SYNCHRONIZED, $virtualMethod(BeanContextServicesSupport, bcsPreSerializationHook, void, $ObjectOutputStream*), "java.io.IOException"},
-	{"childJustRemovedHook", "(Ljava/lang/Object;Ljava/beans/beancontext/BeanContextSupport$BCSChild;)V", nullptr, $PROTECTED, $virtualMethod(BeanContextServicesSupport, childJustRemovedHook, void, Object$*, $BeanContextSupport$BCSChild*)},
-	{"createBCSChild", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/beans/beancontext/BeanContextSupport$BCSChild;", nullptr, $PROTECTED, $virtualMethod(BeanContextServicesSupport, createBCSChild, $BeanContextSupport$BCSChild*, Object$*, Object$*)},
-	{"createBCSSServiceProvider", "(Ljava/lang/Class;Ljava/beans/beancontext/BeanContextServiceProvider;)Ljava/beans/beancontext/BeanContextServicesSupport$BCSSServiceProvider;", "(Ljava/lang/Class<*>;Ljava/beans/beancontext/BeanContextServiceProvider;)Ljava/beans/beancontext/BeanContextServicesSupport$BCSSServiceProvider;", $PROTECTED, $virtualMethod(BeanContextServicesSupport, createBCSSServiceProvider, $BeanContextServicesSupport$BCSSServiceProvider*, $Class*, $BeanContextServiceProvider*)},
-	{"fireServiceAdded", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;)V", $PROTECTED | $FINAL, $method(BeanContextServicesSupport, fireServiceAdded, void, $Class*)},
-	{"fireServiceAdded", "(Ljava/beans/beancontext/BeanContextServiceAvailableEvent;)V", nullptr, $PROTECTED | $FINAL, $method(BeanContextServicesSupport, fireServiceAdded, void, $BeanContextServiceAvailableEvent*)},
-	{"fireServiceRevoked", "(Ljava/beans/beancontext/BeanContextServiceRevokedEvent;)V", nullptr, $PROTECTED | $FINAL, $method(BeanContextServicesSupport, fireServiceRevoked, void, $BeanContextServiceRevokedEvent*)},
-	{"fireServiceRevoked", "(Ljava/lang/Class;Z)V", "(Ljava/lang/Class<*>;Z)V", $PROTECTED | $FINAL, $method(BeanContextServicesSupport, fireServiceRevoked, void, $Class*, bool)},
-	{"getBeanContextServicesPeer", "()Ljava/beans/beancontext/BeanContextServices;", nullptr, $PUBLIC, $virtualMethod(BeanContextServicesSupport, getBeanContextServicesPeer, $BeanContextServices*)},
-	{"getChildBeanContextServicesListener", "(Ljava/lang/Object;)Ljava/beans/beancontext/BeanContextServicesListener;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticMethod(BeanContextServicesSupport, getChildBeanContextServicesListener, $BeanContextServicesListener*, Object$*)},
-	{"getCurrentServiceClasses", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljava/lang/Object;>;", $PUBLIC, $virtualMethod(BeanContextServicesSupport, getCurrentServiceClasses, $Iterator*)},
-	{"getCurrentServiceSelectors", "(Ljava/lang/Class;)Ljava/util/Iterator;", "(Ljava/lang/Class<*>;)Ljava/util/Iterator<*>;", $PUBLIC, $virtualMethod(BeanContextServicesSupport, getCurrentServiceSelectors, $Iterator*, $Class*)},
-	{"getService", "(Ljava/beans/beancontext/BeanContextChild;Ljava/lang/Object;Ljava/lang/Class;Ljava/lang/Object;Ljava/beans/beancontext/BeanContextServiceRevokedListener;)Ljava/lang/Object;", "(Ljava/beans/beancontext/BeanContextChild;Ljava/lang/Object;Ljava/lang/Class<*>;Ljava/lang/Object;Ljava/beans/beancontext/BeanContextServiceRevokedListener;)Ljava/lang/Object;", $PUBLIC, $virtualMethod(BeanContextServicesSupport, getService, $Object*, $BeanContextChild*, Object$*, $Class*, Object$*, $BeanContextServiceRevokedListener*), "java.util.TooManyListenersException"},
-	{"hasService", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;)Z", $PUBLIC | $SYNCHRONIZED, $virtualMethod(BeanContextServicesSupport, hasService, bool, $Class*)},
-	{"initialize", "()V", nullptr, $PUBLIC, $virtualMethod(BeanContextServicesSupport, initialize, void)},
-	{"initializeBeanContextResources", "()V", nullptr, $PROTECTED | $SYNCHRONIZED, $virtualMethod(BeanContextServicesSupport, initializeBeanContextResources, void)},
-	{"*instantiateChild", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*isDesignTime", "()Z", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"*isEmpty", "()Z", nullptr, $PUBLIC},
-	{"*iterator", "()Ljava/util/Iterator;", nullptr, $PUBLIC},
-	{"*needsGui", "()Z", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"*okToUseGui", "()V", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"*parallelStream", "()Ljava/util/stream/Stream;", nullptr, $PUBLIC | $ABSTRACT},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(BeanContextServicesSupport, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"releaseBeanContextResources", "()V", nullptr, $PROTECTED | $SYNCHRONIZED, $virtualMethod(BeanContextServicesSupport, releaseBeanContextResources, void)},
-	{"releaseService", "(Ljava/beans/beancontext/BeanContextChild;Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(BeanContextServicesSupport, releaseService, void, $BeanContextChild*, Object$*, Object$*)},
-	{"*remove", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*removeAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
-	{"*removeBeanContextMembershipListener", "(Ljava/beans/beancontext/BeanContextMembershipListener;)V", nullptr, $PUBLIC},
-	{"removeBeanContextServicesListener", "(Ljava/beans/beancontext/BeanContextServicesListener;)V", nullptr, $PUBLIC, $virtualMethod(BeanContextServicesSupport, removeBeanContextServicesListener, void, $BeanContextServicesListener*)},
-	{"*removeIf", "(Ljava/util/function/Predicate;)Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"*removePropertyChangeListener", "(Ljava/lang/String;Ljava/beans/PropertyChangeListener;)V", nullptr, $PUBLIC},
-	{"*removeVetoableChangeListener", "(Ljava/lang/String;Ljava/beans/VetoableChangeListener;)V", nullptr, $PUBLIC},
-	{"*retainAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
-	{"revokeService", "(Ljava/lang/Class;Ljava/beans/beancontext/BeanContextServiceProvider;Z)V", "(Ljava/lang/Class<*>;Ljava/beans/beancontext/BeanContextServiceProvider;Z)V", $PUBLIC, $virtualMethod(BeanContextServicesSupport, revokeService, void, $Class*, $BeanContextServiceProvider*, bool)},
-	{"serviceAvailable", "(Ljava/beans/beancontext/BeanContextServiceAvailableEvent;)V", nullptr, $PUBLIC, $virtualMethod(BeanContextServicesSupport, serviceAvailable, void, $BeanContextServiceAvailableEvent*)},
-	{"serviceRevoked", "(Ljava/beans/beancontext/BeanContextServiceRevokedEvent;)V", nullptr, $PUBLIC, $virtualMethod(BeanContextServicesSupport, serviceRevoked, void, $BeanContextServiceRevokedEvent*)},
-	{"*setBeanContext", "(Ljava/beans/beancontext/BeanContext;)V", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"*setDesignTime", "(Z)V", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"*size", "()I", nullptr, $PUBLIC},
-	{"*spliterator", "()Ljava/util/Spliterator;", nullptr, $PUBLIC | $ABSTRACT},
-	{"*stream", "()Ljava/util/stream/Stream;", nullptr, $PUBLIC | $ABSTRACT},
-	{"*toArray", "()[Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*toArray", "([Ljava/lang/Object;)[Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*toArray", "(Ljava/util/function/IntFunction;)[Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(BeanContextServicesSupport, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _BeanContextServicesSupport_InnerClassesInfo_[] = {
-	{"java.beans.beancontext.BeanContextServicesSupport$BCSSProxyServiceProvider", "java.beans.beancontext.BeanContextServicesSupport", "BCSSProxyServiceProvider", $PROTECTED},
-	{"java.beans.beancontext.BeanContextServicesSupport$BCSSServiceProvider", "java.beans.beancontext.BeanContextServicesSupport", "BCSSServiceProvider", $PROTECTED | $STATIC},
-	{"java.beans.beancontext.BeanContextServicesSupport$BCSSChild", "java.beans.beancontext.BeanContextServicesSupport", "BCSSChild", $PROTECTED},
-	{}
-};
-
-$ClassInfo _BeanContextServicesSupport_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.beans.beancontext.BeanContextServicesSupport",
-	"java.beans.beancontext.BeanContextSupport",
-	"java.beans.beancontext.BeanContextServices",
-	_BeanContextServicesSupport_FieldInfo_,
-	_BeanContextServicesSupport_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BeanContextServicesSupport_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.beans.beancontext.BeanContextServicesSupport$BCSSProxyServiceProvider,java.beans.beancontext.BeanContextServicesSupport$BCSSServiceProvider,java.beans.beancontext.BeanContextServicesSupport$BCSSChild,java.beans.beancontext.BeanContextServicesSupport$BCSSChild$BCSSCServiceRef,java.beans.beancontext.BeanContextServicesSupport$BCSSChild$BCSSCServiceClassRef"
-};
-
-$Object* allocate$BeanContextServicesSupport($Class* clazz) {
-	return $of($alloc(BeanContextServicesSupport));
-}
 
 $Object* BeanContextServicesSupport::instantiateChild($String* beanName) {
 	 return this->$BeanContextSupport::instantiateChild(beanName);
@@ -415,10 +298,10 @@ void BeanContextServicesSupport::addBeanContextServicesListener($BeanContextServ
 		$throwNew($NullPointerException, "bcsl"_s);
 	}
 	$synchronized(this->bcsListeners) {
-		if ($nc(this->bcsListeners)->contains(bcsl)) {
+		if (this->bcsListeners->contains(bcsl)) {
 			return;
 		} else {
-			$nc(this->bcsListeners)->add(bcsl);
+			this->bcsListeners->add(bcsl);
 		}
 	}
 }
@@ -428,10 +311,10 @@ void BeanContextServicesSupport::removeBeanContextServicesListener($BeanContextS
 		$throwNew($NullPointerException, "bcsl"_s);
 	}
 	$synchronized(this->bcsListeners) {
-		if (!$nc(this->bcsListeners)->contains(bcsl)) {
+		if (!this->bcsListeners->contains(bcsl)) {
 			return;
 		} else {
-			$nc(this->bcsListeners)->remove($of(bcsl));
+			this->bcsListeners->remove(bcsl);
 		}
 	}
 }
@@ -441,7 +324,7 @@ bool BeanContextServicesSupport::addService($Class* serviceClass, $BeanContextSe
 }
 
 bool BeanContextServicesSupport::addService($Class* serviceClass, $BeanContextServiceProvider* bcsp, bool fireEvent) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (serviceClass == nullptr) {
 		$throwNew($NullPointerException, "serviceClass"_s);
 	}
@@ -453,7 +336,7 @@ bool BeanContextServicesSupport::addService($Class* serviceClass, $BeanContextSe
 		if ($nc(this->services)->containsKey(serviceClass)) {
 			return false;
 		} else {
-			$nc(this->services)->put(serviceClass, $(createBCSSServiceProvider(serviceClass, bcsp)));
+			this->services->put(serviceClass, $(createBCSSServiceProvider(serviceClass, bcsp)));
 			if ($instanceOf($Serializable, bcsp)) {
 				++this->serializable;
 			}
@@ -463,15 +346,11 @@ bool BeanContextServicesSupport::addService($Class* serviceClass, $BeanContextSe
 			$var($BeanContextServiceAvailableEvent, bcssae, $new($BeanContextServiceAvailableEvent, $(getBeanContextServicesPeer()), serviceClass));
 			fireServiceAdded(bcssae);
 			$synchronized(this->children) {
-				{
-					$var($Iterator, i$, $nc($($nc(this->children)->keySet()))->iterator());
-					for (; $nc(i$)->hasNext();) {
-						$var($Object, c, i$->next());
-						{
-							if ($instanceOf($BeanContextServices, c)) {
-								$nc(($cast($BeanContextServicesListener, c)))->serviceAvailable(bcssae);
-							}
-						}
+				$var($Iterator, i$, $$nc(this->children->keySet())->iterator());
+				for (; $nc(i$)->hasNext();) {
+					$var($Object, c, i$->next());
+					if ($instanceOf($BeanContextServices, c)) {
+						$cast($BeanContextServicesListener, c)->serviceAvailable(bcssae);
 					}
 				}
 			}
@@ -481,7 +360,7 @@ bool BeanContextServicesSupport::addService($Class* serviceClass, $BeanContextSe
 }
 
 void BeanContextServicesSupport::revokeService($Class* serviceClass, $BeanContextServiceProvider* bcsp, bool revokeCurrentServicesNow) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (serviceClass == nullptr) {
 		$throwNew($NullPointerException, "serviceClass"_s);
 	}
@@ -493,8 +372,8 @@ void BeanContextServicesSupport::revokeService($Class* serviceClass, $BeanContex
 		if (!$nc(this->services)->containsKey(serviceClass)) {
 			return;
 		}
-		$var($BeanContextServicesSupport$BCSSServiceProvider, bcsssp, $cast($BeanContextServicesSupport$BCSSServiceProvider, $nc(this->services)->get(serviceClass)));
-		if (!$nc($of($($nc(bcsssp)->getServiceProvider())))->equals(bcsp)) {
+		$var($BeanContextServicesSupport$BCSSServiceProvider, bcsssp, $cast($BeanContextServicesSupport$BCSSServiceProvider, this->services->get(serviceClass)));
+		if (!$$nc($nc(bcsssp)->getServiceProvider())->equals(bcsp)) {
 			$throwNew($IllegalArgumentException, "service provider mismatch"_s);
 		}
 		$nc(this->services)->remove(serviceClass);
@@ -503,7 +382,7 @@ void BeanContextServicesSupport::revokeService($Class* serviceClass, $BeanContex
 		}
 		$var($Iterator, i, bcsChildren());
 		while ($nc(i)->hasNext()) {
-			$nc(($cast($BeanContextServicesSupport$BCSSChild, $(i->next()))))->revokeService(serviceClass, false, revokeCurrentServicesNow);
+			$$sure($BeanContextServicesSupport$BCSSChild, i->next())->revokeService(serviceClass, false, revokeCurrentServicesNow);
 		}
 		fireServiceRevoked(serviceClass, revokeCurrentServicesNow);
 	}
@@ -525,13 +404,13 @@ bool BeanContextServicesSupport::hasService($Class* serviceClass) {
 			} catch ($ClassCastException& cce) {
 				return false;
 			}
-			return bcs == nullptr ? false : $nc(bcs)->hasService(serviceClass);
+			return bcs == nullptr ? false : bcs->hasService(serviceClass);
 		}
 	}
 }
 
 $Object* BeanContextServicesSupport::getService($BeanContextChild* child, Object$* requestor, $Class* serviceClass, Object$* serviceSelector, $BeanContextServiceRevokedListener* bcsrl) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (child == nullptr) {
 		$throwNew($NullPointerException, "child"_s);
 	}
@@ -550,7 +429,7 @@ $Object* BeanContextServicesSupport::getService($BeanContextChild* child, Object
 	$init($BeanContext);
 	$synchronized($BeanContext::globalHierarchyLock) {
 		$synchronized(this->children) {
-			$assign(bcsc, $cast($BeanContextServicesSupport$BCSSChild, $nc(this->children)->get(child)));
+			$assign(bcsc, $cast($BeanContextServicesSupport$BCSSChild, this->children->get(child)));
 		}
 		if (bcsc == nullptr) {
 			$throwNew($IllegalArgumentException, "not a child of this context"_s);
@@ -569,11 +448,11 @@ $Object* BeanContextServicesSupport::getService($BeanContextChild* child, Object
 					bcsp->releaseService(bcssp, requestor, service);
 					$throw(uope);
 				}
-				return $of(service);
+				return service;
 			}
 		}
 		if (this->proxy != nullptr) {
-			$assign(service, $nc(this->proxy)->getService(bcssp, requestor, serviceClass, serviceSelector));
+			$assign(service, this->proxy->getService(bcssp, requestor, serviceClass, serviceSelector));
 			if (service != nullptr) {
 				try {
 					$nc(bcsc)->usingService(requestor, service, serviceClass, this->proxy, true, bcsrl);
@@ -584,11 +463,11 @@ $Object* BeanContextServicesSupport::getService($BeanContextChild* child, Object
 					$nc(this->proxy)->releaseService(bcssp, requestor, service);
 					$throw(uope);
 				}
-				return $of(service);
+				return service;
 			}
 		}
 	}
-	return $of(nullptr);
+	return nullptr;
 }
 
 void BeanContextServicesSupport::releaseService($BeanContextChild* child, Object$* requestor, Object$* service) {
@@ -605,7 +484,7 @@ void BeanContextServicesSupport::releaseService($BeanContextChild* child, Object
 	$init($BeanContext);
 	$synchronized($BeanContext::globalHierarchyLock) {
 		$synchronized(this->children) {
-			$assign(bcsc, $cast($BeanContextServicesSupport$BCSSChild, $nc(this->children)->get(child)));
+			$assign(bcsc, $cast($BeanContextServicesSupport$BCSSChild, this->children->get(child)));
 		}
 		if (bcsc != nullptr) {
 			bcsc->releaseService(requestor, service);
@@ -616,18 +495,18 @@ void BeanContextServicesSupport::releaseService($BeanContextChild* child, Object
 }
 
 $Iterator* BeanContextServicesSupport::getCurrentServiceClasses() {
-	$useLocalCurrentObjectStackCache();
-	return $new($BeanContextSupport$BCSIterator, $($nc($($nc(this->services)->keySet()))->iterator()));
+	$useLocalObjectStack();
+	return $new($BeanContextSupport$BCSIterator, $($$nc($nc(this->services)->keySet())->iterator()));
 }
 
 $Iterator* BeanContextServicesSupport::getCurrentServiceSelectors($Class* serviceClass) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($BeanContextServicesSupport$BCSSServiceProvider, bcsssp, $cast($BeanContextServicesSupport$BCSSServiceProvider, $nc(this->services)->get(serviceClass)));
-	return bcsssp != nullptr ? static_cast<$Iterator*>($new($BeanContextSupport$BCSIterator, $($nc($($nc(bcsssp)->getServiceProvider()))->getCurrentServiceSelectors($(getBeanContextServicesPeer()), serviceClass)))) : ($Iterator*)nullptr;
+	return bcsssp != nullptr ? $cast($Iterator, $new($BeanContextSupport$BCSIterator, $($$nc(bcsssp->getServiceProvider())->getCurrentServiceSelectors($(getBeanContextServicesPeer()), serviceClass)))) : ($Iterator*)nullptr;
 }
 
 void BeanContextServicesSupport::serviceAvailable($BeanContextServiceAvailableEvent* bcssae) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($BeanContext);
 	$synchronized($BeanContext::globalHierarchyLock) {
 		if ($nc(this->services)->containsKey($nc(bcssae)->getServiceClass())) {
@@ -636,19 +515,19 @@ void BeanContextServicesSupport::serviceAvailable($BeanContextServiceAvailableEv
 		fireServiceAdded(bcssae);
 		$var($Iterator, i, nullptr);
 		$synchronized(this->children) {
-			$assign(i, $nc($($nc(this->children)->keySet()))->iterator());
+			$assign(i, $$nc(this->children->keySet())->iterator());
 		}
 		while ($nc(i)->hasNext()) {
 			$var($Object, c, i->next());
 			if ($instanceOf($BeanContextServices, c)) {
-				$nc(($cast($BeanContextServicesListener, c)))->serviceAvailable(bcssae);
+				$cast($BeanContextServicesListener, c)->serviceAvailable(bcssae);
 			}
 		}
 	}
 }
 
 void BeanContextServicesSupport::serviceRevoked($BeanContextServiceRevokedEvent* bcssre) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($BeanContext);
 	$synchronized($BeanContext::globalHierarchyLock) {
 		if ($nc(this->services)->containsKey($nc(bcssre)->getServiceClass())) {
@@ -657,12 +536,12 @@ void BeanContextServicesSupport::serviceRevoked($BeanContextServiceRevokedEvent*
 		fireServiceRevoked(bcssre);
 		$var($Iterator, i, nullptr);
 		$synchronized(this->children) {
-			$assign(i, $nc($($nc(this->children)->keySet()))->iterator());
+			$assign(i, $$nc(this->children->keySet())->iterator());
 		}
 		while ($nc(i)->hasNext()) {
 			$var($Object, c, i->next());
 			if ($instanceOf($BeanContextServices, c)) {
-				$nc(($cast($BeanContextServicesListener, c)))->serviceRevoked(bcssre);
+				$cast($BeanContextServicesListener, c)->serviceRevoked(bcssre);
 			}
 		}
 	}
@@ -685,17 +564,17 @@ void BeanContextServicesSupport::childJustRemovedHook(Object$* child, $BeanConte
 
 void BeanContextServicesSupport::releaseBeanContextResources() {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$var($ObjectArray, bcssc, nullptr);
 		$BeanContextSupport::releaseBeanContextResources();
 		$synchronized(this->children) {
-			if ($nc(this->children)->isEmpty()) {
+			if (this->children->isEmpty()) {
 				return;
 			}
-			$assign(bcssc, $nc($($nc(this->children)->values()))->toArray());
+			$assign(bcssc, $$nc(this->children->values())->toArray());
 		}
 		for (int32_t i = 0; i < $nc(bcssc)->length; ++i) {
-			$nc(($cast($BeanContextServicesSupport$BCSSChild, bcssc->get(i))))->revokeAllDelegatedServicesNow();
+			$nc($cast($BeanContextServicesSupport$BCSSChild, bcssc->get(i)))->revokeAllDelegatedServicesNow();
 		}
 		$set(this, proxy, nullptr);
 	}
@@ -703,7 +582,7 @@ void BeanContextServicesSupport::releaseBeanContextResources() {
 
 void BeanContextServicesSupport::initializeBeanContextResources() {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$BeanContextSupport::initializeBeanContextResources();
 		$var($BeanContext, nbc, getBeanContext());
 		if (nbc == nullptr) {
@@ -718,7 +597,7 @@ void BeanContextServicesSupport::initializeBeanContextResources() {
 }
 
 void BeanContextServicesSupport::fireServiceAdded($Class* serviceClass) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($BeanContextServiceAvailableEvent, bcssae, $new($BeanContextServiceAvailableEvent, $(getBeanContextServicesPeer()), serviceClass));
 	fireServiceAdded(bcssae);
 }
@@ -726,44 +605,44 @@ void BeanContextServicesSupport::fireServiceAdded($Class* serviceClass) {
 void BeanContextServicesSupport::fireServiceAdded($BeanContextServiceAvailableEvent* bcssae) {
 	$var($ObjectArray, copy, nullptr);
 	$synchronized(this->bcsListeners) {
-		$assign(copy, $nc(this->bcsListeners)->toArray());
+		$assign(copy, this->bcsListeners->toArray());
 	}
 	for (int32_t i = 0; i < $nc(copy)->length; ++i) {
-		$nc(($cast($BeanContextServicesListener, copy->get(i))))->serviceAvailable(bcssae);
+		$nc($cast($BeanContextServicesListener, copy->get(i)))->serviceAvailable(bcssae);
 	}
 }
 
 void BeanContextServicesSupport::fireServiceRevoked($BeanContextServiceRevokedEvent* bcsre) {
 	$var($ObjectArray, copy, nullptr);
 	$synchronized(this->bcsListeners) {
-		$assign(copy, $nc(this->bcsListeners)->toArray());
+		$assign(copy, this->bcsListeners->toArray());
 	}
 	for (int32_t i = 0; i < $nc(copy)->length; ++i) {
-		$nc(($cast($BeanContextServiceRevokedListener, copy->get(i))))->serviceRevoked(bcsre);
+		$nc($cast($BeanContextServiceRevokedListener, copy->get(i)))->serviceRevoked(bcsre);
 	}
 }
 
 void BeanContextServicesSupport::fireServiceRevoked($Class* serviceClass, bool revokeNow) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectArray, copy, nullptr);
 	$var($BeanContextServiceRevokedEvent, bcsre, $new($BeanContextServiceRevokedEvent, $(getBeanContextServicesPeer()), serviceClass, revokeNow));
 	$synchronized(this->bcsListeners) {
-		$assign(copy, $nc(this->bcsListeners)->toArray());
+		$assign(copy, this->bcsListeners->toArray());
 	}
 	for (int32_t i = 0; i < $nc(copy)->length; ++i) {
-		$nc(($cast($BeanContextServicesListener, copy->get(i))))->serviceRevoked(bcsre);
+		$nc($cast($BeanContextServicesListener, copy->get(i)))->serviceRevoked(bcsre);
 	}
 }
 
 void BeanContextServicesSupport::bcsPreSerializationHook($ObjectOutputStream* oos) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$nc(oos)->writeInt(this->serializable);
 		if (this->serializable <= 0) {
 			return;
 		}
 		int32_t count = 0;
-		$var($Iterator, i, $nc($($nc(this->services)->entrySet()))->iterator());
+		$var($Iterator, i, $$nc($nc(this->services)->entrySet())->iterator());
 		while ($nc(i)->hasNext() && count < this->serializable) {
 			$var($Map$Entry, entry, $cast($Map$Entry, i->next()));
 			$var($BeanContextServicesSupport$BCSSServiceProvider, bcsp, nullptr);
@@ -786,12 +665,12 @@ void BeanContextServicesSupport::bcsPreSerializationHook($ObjectOutputStream* oo
 
 void BeanContextServicesSupport::bcsPreDeserializationHook($ObjectInputStream* ois) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		this->serializable = $nc(ois)->readInt();
 		int32_t count = this->serializable;
 		while (count > 0) {
 			$var($Object, var$0, ois->readObject());
-			$nc(this->services)->put(var$0, $cast($BeanContextServicesSupport$BCSSServiceProvider, $(ois->readObject())));
+			$nc(this->services)->put(var$0, $$cast($BeanContextServicesSupport$BCSSServiceProvider, ois->readObject()));
 			--count;
 		}
 	}
@@ -800,14 +679,14 @@ void BeanContextServicesSupport::bcsPreDeserializationHook($ObjectInputStream* o
 void BeanContextServicesSupport::writeObject($ObjectOutputStream* oos) {
 	$synchronized(this) {
 		$nc(oos)->defaultWriteObject();
-		serialize(oos, static_cast<$Collection*>(static_cast<$AbstractCollection*>(static_cast<$AbstractList*>(this->bcsListeners))));
+		serialize(oos, $cast($Collection, $cast($AbstractCollection, this->bcsListeners)));
 	}
 }
 
 void BeanContextServicesSupport::readObject($ObjectInputStream* ois) {
 	$synchronized(this) {
 		$nc(ois)->defaultReadObject();
-		deserialize(ois, static_cast<$Collection*>(static_cast<$AbstractCollection*>(static_cast<$AbstractList*>(this->bcsListeners))));
+		deserialize(ois, $cast($Collection, $cast($AbstractCollection, this->bcsListeners)));
 	}
 }
 
@@ -815,7 +694,114 @@ BeanContextServicesSupport::BeanContextServicesSupport() {
 }
 
 $Class* BeanContextServicesSupport::load$($String* name, bool initialize) {
-	$loadClass(BeanContextServicesSupport, name, initialize, &_BeanContextServicesSupport_ClassInfo_, allocate$BeanContextServicesSupport);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BeanContextServicesSupport, serialVersionUID)},
+		{"services", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/lang/Object;Ljava/beans/beancontext/BeanContextServicesSupport$BCSSServiceProvider;>;", $PROTECTED | $TRANSIENT, $field(BeanContextServicesSupport, services)},
+		{"serializable", "I", nullptr, $PROTECTED | $TRANSIENT, $field(BeanContextServicesSupport, serializable)},
+		{"proxy", "Ljava/beans/beancontext/BeanContextServicesSupport$BCSSProxyServiceProvider;", nullptr, $PROTECTED | $TRANSIENT, $field(BeanContextServicesSupport, proxy)},
+		{"bcsListeners", "Ljava/util/ArrayList;", "Ljava/util/ArrayList<Ljava/beans/beancontext/BeanContextServicesListener;>;", $PROTECTED | $TRANSIENT, $field(BeanContextServicesSupport, bcsListeners)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*add", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*addAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
+		{"*addBeanContextMembershipListener", "(Ljava/beans/beancontext/BeanContextMembershipListener;)V", nullptr, $PUBLIC},
+		{"*addPropertyChangeListener", "(Ljava/lang/String;Ljava/beans/PropertyChangeListener;)V", nullptr, $PUBLIC},
+		{"*addVetoableChangeListener", "(Ljava/lang/String;Ljava/beans/VetoableChangeListener;)V", nullptr, $PUBLIC},
+		{"*avoidingGui", "()Z", nullptr, $PUBLIC},
+		{"*clear", "()V", nullptr, $PUBLIC},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*containsAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
+		{"*dontUseGui", "()V", nullptr, $PUBLIC | $SYNCHRONIZED},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*forEach", "(Ljava/util/function/Consumer;)V", nullptr, $PUBLIC | $ABSTRACT},
+		{"*getBeanContext", "()Ljava/beans/beancontext/BeanContext;", nullptr, $PUBLIC | $SYNCHRONIZED},
+		{"*getResource", "(Ljava/lang/String;Ljava/beans/beancontext/BeanContextChild;)Ljava/net/URL;", nullptr, $PUBLIC},
+		{"*getResourceAsStream", "(Ljava/lang/String;Ljava/beans/beancontext/BeanContextChild;)Ljava/io/InputStream;", nullptr, $PUBLIC},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/beans/beancontext/BeanContextServices;Ljava/util/Locale;ZZ)V", nullptr, $PUBLIC, $method(BeanContextServicesSupport, init$, void, $BeanContextServices*, $Locale*, bool, bool)},
+		{"<init>", "(Ljava/beans/beancontext/BeanContextServices;Ljava/util/Locale;Z)V", nullptr, $PUBLIC, $method(BeanContextServicesSupport, init$, void, $BeanContextServices*, $Locale*, bool)},
+		{"<init>", "(Ljava/beans/beancontext/BeanContextServices;Ljava/util/Locale;)V", nullptr, $PUBLIC, $method(BeanContextServicesSupport, init$, void, $BeanContextServices*, $Locale*)},
+		{"<init>", "(Ljava/beans/beancontext/BeanContextServices;)V", nullptr, $PUBLIC, $method(BeanContextServicesSupport, init$, void, $BeanContextServices*)},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(BeanContextServicesSupport, init$, void)},
+		{"addBeanContextServicesListener", "(Ljava/beans/beancontext/BeanContextServicesListener;)V", nullptr, $PUBLIC, $virtualMethod(BeanContextServicesSupport, addBeanContextServicesListener, void, $BeanContextServicesListener*)},
+		{"addService", "(Ljava/lang/Class;Ljava/beans/beancontext/BeanContextServiceProvider;)Z", "(Ljava/lang/Class<*>;Ljava/beans/beancontext/BeanContextServiceProvider;)Z", $PUBLIC, $virtualMethod(BeanContextServicesSupport, addService, bool, $Class*, $BeanContextServiceProvider*)},
+		{"addService", "(Ljava/lang/Class;Ljava/beans/beancontext/BeanContextServiceProvider;Z)Z", "(Ljava/lang/Class<*>;Ljava/beans/beancontext/BeanContextServiceProvider;Z)Z", $PROTECTED, $virtualMethod(BeanContextServicesSupport, addService, bool, $Class*, $BeanContextServiceProvider*, bool)},
+		{"bcsPreDeserializationHook", "(Ljava/io/ObjectInputStream;)V", nullptr, $PROTECTED | $SYNCHRONIZED, $virtualMethod(BeanContextServicesSupport, bcsPreDeserializationHook, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+		{"bcsPreSerializationHook", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PROTECTED | $SYNCHRONIZED, $virtualMethod(BeanContextServicesSupport, bcsPreSerializationHook, void, $ObjectOutputStream*), "java.io.IOException"},
+		{"childJustRemovedHook", "(Ljava/lang/Object;Ljava/beans/beancontext/BeanContextSupport$BCSChild;)V", nullptr, $PROTECTED, $virtualMethod(BeanContextServicesSupport, childJustRemovedHook, void, Object$*, $BeanContextSupport$BCSChild*)},
+		{"createBCSChild", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/beans/beancontext/BeanContextSupport$BCSChild;", nullptr, $PROTECTED, $virtualMethod(BeanContextServicesSupport, createBCSChild, $BeanContextSupport$BCSChild*, Object$*, Object$*)},
+		{"createBCSSServiceProvider", "(Ljava/lang/Class;Ljava/beans/beancontext/BeanContextServiceProvider;)Ljava/beans/beancontext/BeanContextServicesSupport$BCSSServiceProvider;", "(Ljava/lang/Class<*>;Ljava/beans/beancontext/BeanContextServiceProvider;)Ljava/beans/beancontext/BeanContextServicesSupport$BCSSServiceProvider;", $PROTECTED, $virtualMethod(BeanContextServicesSupport, createBCSSServiceProvider, $BeanContextServicesSupport$BCSSServiceProvider*, $Class*, $BeanContextServiceProvider*)},
+		{"fireServiceAdded", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;)V", $PROTECTED | $FINAL, $method(BeanContextServicesSupport, fireServiceAdded, void, $Class*)},
+		{"fireServiceAdded", "(Ljava/beans/beancontext/BeanContextServiceAvailableEvent;)V", nullptr, $PROTECTED | $FINAL, $method(BeanContextServicesSupport, fireServiceAdded, void, $BeanContextServiceAvailableEvent*)},
+		{"fireServiceRevoked", "(Ljava/beans/beancontext/BeanContextServiceRevokedEvent;)V", nullptr, $PROTECTED | $FINAL, $method(BeanContextServicesSupport, fireServiceRevoked, void, $BeanContextServiceRevokedEvent*)},
+		{"fireServiceRevoked", "(Ljava/lang/Class;Z)V", "(Ljava/lang/Class<*>;Z)V", $PROTECTED | $FINAL, $method(BeanContextServicesSupport, fireServiceRevoked, void, $Class*, bool)},
+		{"getBeanContextServicesPeer", "()Ljava/beans/beancontext/BeanContextServices;", nullptr, $PUBLIC, $virtualMethod(BeanContextServicesSupport, getBeanContextServicesPeer, $BeanContextServices*)},
+		{"getChildBeanContextServicesListener", "(Ljava/lang/Object;)Ljava/beans/beancontext/BeanContextServicesListener;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticMethod(BeanContextServicesSupport, getChildBeanContextServicesListener, $BeanContextServicesListener*, Object$*)},
+		{"getCurrentServiceClasses", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljava/lang/Object;>;", $PUBLIC, $virtualMethod(BeanContextServicesSupport, getCurrentServiceClasses, $Iterator*)},
+		{"getCurrentServiceSelectors", "(Ljava/lang/Class;)Ljava/util/Iterator;", "(Ljava/lang/Class<*>;)Ljava/util/Iterator<*>;", $PUBLIC, $virtualMethod(BeanContextServicesSupport, getCurrentServiceSelectors, $Iterator*, $Class*)},
+		{"getService", "(Ljava/beans/beancontext/BeanContextChild;Ljava/lang/Object;Ljava/lang/Class;Ljava/lang/Object;Ljava/beans/beancontext/BeanContextServiceRevokedListener;)Ljava/lang/Object;", "(Ljava/beans/beancontext/BeanContextChild;Ljava/lang/Object;Ljava/lang/Class<*>;Ljava/lang/Object;Ljava/beans/beancontext/BeanContextServiceRevokedListener;)Ljava/lang/Object;", $PUBLIC, $virtualMethod(BeanContextServicesSupport, getService, $Object*, $BeanContextChild*, Object$*, $Class*, Object$*, $BeanContextServiceRevokedListener*), "java.util.TooManyListenersException"},
+		{"hasService", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;)Z", $PUBLIC | $SYNCHRONIZED, $virtualMethod(BeanContextServicesSupport, hasService, bool, $Class*)},
+		{"initialize", "()V", nullptr, $PUBLIC, $virtualMethod(BeanContextServicesSupport, initialize, void)},
+		{"initializeBeanContextResources", "()V", nullptr, $PROTECTED | $SYNCHRONIZED, $virtualMethod(BeanContextServicesSupport, initializeBeanContextResources, void)},
+		{"*instantiateChild", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*isDesignTime", "()Z", nullptr, $PUBLIC | $SYNCHRONIZED},
+		{"*isEmpty", "()Z", nullptr, $PUBLIC},
+		{"*iterator", "()Ljava/util/Iterator;", nullptr, $PUBLIC},
+		{"*needsGui", "()Z", nullptr, $PUBLIC | $SYNCHRONIZED},
+		{"*okToUseGui", "()V", nullptr, $PUBLIC | $SYNCHRONIZED},
+		{"*parallelStream", "()Ljava/util/stream/Stream;", nullptr, $PUBLIC | $ABSTRACT},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(BeanContextServicesSupport, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+		{"releaseBeanContextResources", "()V", nullptr, $PROTECTED | $SYNCHRONIZED, $virtualMethod(BeanContextServicesSupport, releaseBeanContextResources, void)},
+		{"releaseService", "(Ljava/beans/beancontext/BeanContextChild;Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(BeanContextServicesSupport, releaseService, void, $BeanContextChild*, Object$*, Object$*)},
+		{"*remove", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*removeAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
+		{"*removeBeanContextMembershipListener", "(Ljava/beans/beancontext/BeanContextMembershipListener;)V", nullptr, $PUBLIC},
+		{"removeBeanContextServicesListener", "(Ljava/beans/beancontext/BeanContextServicesListener;)V", nullptr, $PUBLIC, $virtualMethod(BeanContextServicesSupport, removeBeanContextServicesListener, void, $BeanContextServicesListener*)},
+		{"*removeIf", "(Ljava/util/function/Predicate;)Z", nullptr, $PUBLIC | $ABSTRACT},
+		{"*removePropertyChangeListener", "(Ljava/lang/String;Ljava/beans/PropertyChangeListener;)V", nullptr, $PUBLIC},
+		{"*removeVetoableChangeListener", "(Ljava/lang/String;Ljava/beans/VetoableChangeListener;)V", nullptr, $PUBLIC},
+		{"*retainAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
+		{"revokeService", "(Ljava/lang/Class;Ljava/beans/beancontext/BeanContextServiceProvider;Z)V", "(Ljava/lang/Class<*>;Ljava/beans/beancontext/BeanContextServiceProvider;Z)V", $PUBLIC, $virtualMethod(BeanContextServicesSupport, revokeService, void, $Class*, $BeanContextServiceProvider*, bool)},
+		{"serviceAvailable", "(Ljava/beans/beancontext/BeanContextServiceAvailableEvent;)V", nullptr, $PUBLIC, $virtualMethod(BeanContextServicesSupport, serviceAvailable, void, $BeanContextServiceAvailableEvent*)},
+		{"serviceRevoked", "(Ljava/beans/beancontext/BeanContextServiceRevokedEvent;)V", nullptr, $PUBLIC, $virtualMethod(BeanContextServicesSupport, serviceRevoked, void, $BeanContextServiceRevokedEvent*)},
+		{"*setBeanContext", "(Ljava/beans/beancontext/BeanContext;)V", nullptr, $PUBLIC | $SYNCHRONIZED},
+		{"*setDesignTime", "(Z)V", nullptr, $PUBLIC | $SYNCHRONIZED},
+		{"*size", "()I", nullptr, $PUBLIC},
+		{"*spliterator", "()Ljava/util/Spliterator;", nullptr, $PUBLIC | $ABSTRACT},
+		{"*stream", "()Ljava/util/stream/Stream;", nullptr, $PUBLIC | $ABSTRACT},
+		{"*toArray", "()[Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*toArray", "([Ljava/lang/Object;)[Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*toArray", "(Ljava/util/function/IntFunction;)[Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(BeanContextServicesSupport, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.beans.beancontext.BeanContextServicesSupport$BCSSProxyServiceProvider", "java.beans.beancontext.BeanContextServicesSupport", "BCSSProxyServiceProvider", $PROTECTED},
+		{"java.beans.beancontext.BeanContextServicesSupport$BCSSServiceProvider", "java.beans.beancontext.BeanContextServicesSupport", "BCSSServiceProvider", $PROTECTED | $STATIC},
+		{"java.beans.beancontext.BeanContextServicesSupport$BCSSChild", "java.beans.beancontext.BeanContextServicesSupport", "BCSSChild", $PROTECTED},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.beans.beancontext.BeanContextServicesSupport",
+		"java.beans.beancontext.BeanContextSupport",
+		"java.beans.beancontext.BeanContextServices",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.beans.beancontext.BeanContextServicesSupport$BCSSProxyServiceProvider,java.beans.beancontext.BeanContextServicesSupport$BCSSServiceProvider,java.beans.beancontext.BeanContextServicesSupport$BCSSChild,java.beans.beancontext.BeanContextServicesSupport$BCSSChild$BCSSCServiceRef,java.beans.beancontext.BeanContextServicesSupport$BCSSChild$BCSSCServiceClassRef"
+	};
+	$loadClass(BeanContextServicesSupport, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(BeanContextServicesSupport));
+	});
 	return class$;
 }
 

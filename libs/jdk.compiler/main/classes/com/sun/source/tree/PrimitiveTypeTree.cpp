@@ -1,5 +1,4 @@
 #include <com/sun/source/tree/PrimitiveTypeTree.h>
-
 #include <javax/lang/model/type/TypeKind.h>
 #include <jcpp.h>
 
@@ -12,26 +11,22 @@ namespace com {
 		namespace source {
 			namespace tree {
 
-$MethodInfo _PrimitiveTypeTree_MethodInfo_[] = {
-	{"getPrimitiveTypeKind", "()Ljavax/lang/model/type/TypeKind;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(PrimitiveTypeTree, getPrimitiveTypeKind, $TypeKind*)},
-	{}
-};
-
-$ClassInfo _PrimitiveTypeTree_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.source.tree.PrimitiveTypeTree",
-	nullptr,
-	"com.sun.source.tree.Tree",
-	nullptr,
-	_PrimitiveTypeTree_MethodInfo_
-};
-
-$Object* allocate$PrimitiveTypeTree($Class* clazz) {
-	return $of($alloc(PrimitiveTypeTree));
-}
-
 $Class* PrimitiveTypeTree::load$($String* name, bool initialize) {
-	$loadClass(PrimitiveTypeTree, name, initialize, &_PrimitiveTypeTree_ClassInfo_, allocate$PrimitiveTypeTree);
+	$MethodInfo methodInfos$$[] = {
+		{"getPrimitiveTypeKind", "()Ljavax/lang/model/type/TypeKind;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(PrimitiveTypeTree, getPrimitiveTypeKind, $TypeKind*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.source.tree.PrimitiveTypeTree",
+		nullptr,
+		"com.sun.source.tree.Tree",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(PrimitiveTypeTree, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PrimitiveTypeTree);
+	});
 	return class$;
 }
 

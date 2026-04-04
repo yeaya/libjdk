@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/windows/WindowsPopupMenuUI$MnemonicListener.h>
-
 #include <com/sun/java/swing/plaf/windows/WindowsGraphicsUtils.h>
 #include <com/sun/java/swing/plaf/windows/WindowsLookAndFeel.h>
 #include <com/sun/java/swing/plaf/windows/WindowsPopupMenuUI.h>
@@ -34,48 +33,12 @@ namespace com {
 				namespace plaf {
 					namespace windows {
 
-$FieldInfo _WindowsPopupMenuUI$MnemonicListener_FieldInfo_[] = {
-	{"repaintRoot", "Ljavax/swing/JRootPane;", nullptr, 0, $field(WindowsPopupMenuUI$MnemonicListener, repaintRoot)},
-	{}
-};
-
-$MethodInfo _WindowsPopupMenuUI$MnemonicListener_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(WindowsPopupMenuUI$MnemonicListener, init$, void)},
-	{"stateChanged", "(Ljavax/swing/event/ChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(WindowsPopupMenuUI$MnemonicListener, stateChanged, void, $ChangeEvent*)},
-	{}
-};
-
-$InnerClassInfo _WindowsPopupMenuUI$MnemonicListener_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.windows.WindowsPopupMenuUI$MnemonicListener", "com.sun.java.swing.plaf.windows.WindowsPopupMenuUI", "MnemonicListener", $STATIC},
-	{}
-};
-
-$ClassInfo _WindowsPopupMenuUI$MnemonicListener_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.java.swing.plaf.windows.WindowsPopupMenuUI$MnemonicListener",
-	"java.lang.Object",
-	"javax.swing.event.ChangeListener",
-	_WindowsPopupMenuUI$MnemonicListener_FieldInfo_,
-	_WindowsPopupMenuUI$MnemonicListener_MethodInfo_,
-	nullptr,
-	nullptr,
-	_WindowsPopupMenuUI$MnemonicListener_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.windows.WindowsPopupMenuUI"
-};
-
-$Object* allocate$WindowsPopupMenuUI$MnemonicListener($Class* clazz) {
-	return $of($alloc(WindowsPopupMenuUI$MnemonicListener));
-}
-
 void WindowsPopupMenuUI$MnemonicListener::init$() {
 	$set(this, repaintRoot, nullptr);
 }
 
 void WindowsPopupMenuUI$MnemonicListener::stateChanged($ChangeEvent* ev) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($MenuSelectionManager, msm, $cast($MenuSelectionManager, $nc(ev)->getSource()));
 	$var($MenuElementArray, path, $nc(msm)->getSelectedPath());
 	if ($nc(path)->length == 0) {
@@ -90,7 +53,7 @@ void WindowsPopupMenuUI$MnemonicListener::stateChanged($ChangeEvent* ev) {
 	} else {
 		$var($Component, c, $cast($Component, path->get(0)));
 		if ($instanceOf($JPopupMenu, c)) {
-			$assign(c, $nc(($cast($JPopupMenu, c)))->getInvoker());
+			$assign(c, $cast($JPopupMenu, c)->getInvoker());
 		}
 		$set(this, repaintRoot, $SwingUtilities::getRootPane(c));
 	}
@@ -100,7 +63,37 @@ WindowsPopupMenuUI$MnemonicListener::WindowsPopupMenuUI$MnemonicListener() {
 }
 
 $Class* WindowsPopupMenuUI$MnemonicListener::load$($String* name, bool initialize) {
-	$loadClass(WindowsPopupMenuUI$MnemonicListener, name, initialize, &_WindowsPopupMenuUI$MnemonicListener_ClassInfo_, allocate$WindowsPopupMenuUI$MnemonicListener);
+	$FieldInfo fieldInfos$$[] = {
+		{"repaintRoot", "Ljavax/swing/JRootPane;", nullptr, 0, $field(WindowsPopupMenuUI$MnemonicListener, repaintRoot)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(WindowsPopupMenuUI$MnemonicListener, init$, void)},
+		{"stateChanged", "(Ljavax/swing/event/ChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(WindowsPopupMenuUI$MnemonicListener, stateChanged, void, $ChangeEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.windows.WindowsPopupMenuUI$MnemonicListener", "com.sun.java.swing.plaf.windows.WindowsPopupMenuUI", "MnemonicListener", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.java.swing.plaf.windows.WindowsPopupMenuUI$MnemonicListener",
+		"java.lang.Object",
+		"javax.swing.event.ChangeListener",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.windows.WindowsPopupMenuUI"
+	};
+	$loadClass(WindowsPopupMenuUI$MnemonicListener, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WindowsPopupMenuUI$MnemonicListener);
+	});
 	return class$;
 }
 

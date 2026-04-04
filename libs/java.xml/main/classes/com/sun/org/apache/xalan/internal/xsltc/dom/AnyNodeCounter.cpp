@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/dom/AnyNodeCounter.h>
-
 #include <com/sun/org/apache/xalan/internal/xsltc/DOM.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/Translet.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/dom/AnyNodeCounter$DefaultAnyNodeCounter.h>
@@ -28,39 +27,6 @@ namespace com {
 					namespace internal {
 						namespace xsltc {
 							namespace dom {
-
-$MethodInfo _AnyNodeCounter_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/org/apache/xalan/internal/xsltc/Translet;Lcom/sun/org/apache/xalan/internal/xsltc/DOM;Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;)V", nullptr, $PUBLIC, $method(AnyNodeCounter, init$, void, $Translet*, $DOM*, $DTMAxisIterator*)},
-	{"<init>", "(Lcom/sun/org/apache/xalan/internal/xsltc/Translet;Lcom/sun/org/apache/xalan/internal/xsltc/DOM;Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;Z)V", nullptr, $PUBLIC, $method(AnyNodeCounter, init$, void, $Translet*, $DOM*, $DTMAxisIterator*, bool)},
-	{"getCounter", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AnyNodeCounter, getCounter, $String*)},
-	{"getDefaultNodeCounter", "(Lcom/sun/org/apache/xalan/internal/xsltc/Translet;Lcom/sun/org/apache/xalan/internal/xsltc/DOM;Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;)Lcom/sun/org/apache/xalan/internal/xsltc/dom/NodeCounter;", nullptr, $PUBLIC | $STATIC, $staticMethod(AnyNodeCounter, getDefaultNodeCounter, $NodeCounter*, $Translet*, $DOM*, $DTMAxisIterator*)},
-	{"setStartNode", "(I)Lcom/sun/org/apache/xalan/internal/xsltc/dom/NodeCounter;", nullptr, $PUBLIC, $virtualMethod(AnyNodeCounter, setStartNode, $NodeCounter*, int32_t)},
-	{}
-};
-
-$InnerClassInfo _AnyNodeCounter_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xalan.internal.xsltc.dom.AnyNodeCounter$DefaultAnyNodeCounter", "com.sun.org.apache.xalan.internal.xsltc.dom.AnyNodeCounter", "DefaultAnyNodeCounter", $STATIC},
-	{}
-};
-
-$ClassInfo _AnyNodeCounter_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"com.sun.org.apache.xalan.internal.xsltc.dom.AnyNodeCounter",
-	"com.sun.org.apache.xalan.internal.xsltc.dom.NodeCounter",
-	nullptr,
-	nullptr,
-	_AnyNodeCounter_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AnyNodeCounter_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xalan.internal.xsltc.dom.AnyNodeCounter$DefaultAnyNodeCounter"
-};
-
-$Object* allocate$AnyNodeCounter($Class* clazz) {
-	return $of($alloc(AnyNodeCounter));
-}
 
 void AnyNodeCounter::init$($Translet* translet, $DOM* document, $DTMAxisIterator* iterator) {
 	$NodeCounter::init$(translet, document, iterator);
@@ -113,7 +79,35 @@ AnyNodeCounter::AnyNodeCounter() {
 }
 
 $Class* AnyNodeCounter::load$($String* name, bool initialize) {
-	$loadClass(AnyNodeCounter, name, initialize, &_AnyNodeCounter_ClassInfo_, allocate$AnyNodeCounter);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/org/apache/xalan/internal/xsltc/Translet;Lcom/sun/org/apache/xalan/internal/xsltc/DOM;Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;)V", nullptr, $PUBLIC, $method(AnyNodeCounter, init$, void, $Translet*, $DOM*, $DTMAxisIterator*)},
+		{"<init>", "(Lcom/sun/org/apache/xalan/internal/xsltc/Translet;Lcom/sun/org/apache/xalan/internal/xsltc/DOM;Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;Z)V", nullptr, $PUBLIC, $method(AnyNodeCounter, init$, void, $Translet*, $DOM*, $DTMAxisIterator*, bool)},
+		{"getCounter", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AnyNodeCounter, getCounter, $String*)},
+		{"getDefaultNodeCounter", "(Lcom/sun/org/apache/xalan/internal/xsltc/Translet;Lcom/sun/org/apache/xalan/internal/xsltc/DOM;Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;)Lcom/sun/org/apache/xalan/internal/xsltc/dom/NodeCounter;", nullptr, $PUBLIC | $STATIC, $staticMethod(AnyNodeCounter, getDefaultNodeCounter, $NodeCounter*, $Translet*, $DOM*, $DTMAxisIterator*)},
+		{"setStartNode", "(I)Lcom/sun/org/apache/xalan/internal/xsltc/dom/NodeCounter;", nullptr, $PUBLIC, $virtualMethod(AnyNodeCounter, setStartNode, $NodeCounter*, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xalan.internal.xsltc.dom.AnyNodeCounter$DefaultAnyNodeCounter", "com.sun.org.apache.xalan.internal.xsltc.dom.AnyNodeCounter", "DefaultAnyNodeCounter", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"com.sun.org.apache.xalan.internal.xsltc.dom.AnyNodeCounter",
+		"com.sun.org.apache.xalan.internal.xsltc.dom.NodeCounter",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xalan.internal.xsltc.dom.AnyNodeCounter$DefaultAnyNodeCounter"
+	};
+	$loadClass(AnyNodeCounter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AnyNodeCounter);
+	});
 	return class$;
 }
 

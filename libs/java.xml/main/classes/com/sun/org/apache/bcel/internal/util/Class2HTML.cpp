@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/bcel/internal/util/Class2HTML.h>
-
 #include <com/sun/org/apache/bcel/internal/Const.h>
 #include <com/sun/org/apache/bcel/internal/classfile/Attribute.h>
 #include <com/sun/org/apache/bcel/internal/classfile/ClassParser.h>
@@ -14,7 +13,6 @@
 #include <com/sun/org/apache/bcel/internal/util/MethodHTML.h>
 #include <java/io/File.h>
 #include <java/io/FileOutputStream.h>
-#include <java/io/OutputStream.h>
 #include <java/io/PrintWriter.h>
 #include <java/util/HashSet.h>
 #include <java/util/Set.h>
@@ -33,8 +31,6 @@ using $ConstantHTML = ::com::sun::org::apache::bcel::internal::util::ConstantHTM
 using $MethodHTML = ::com::sun::org::apache::bcel::internal::util::MethodHTML;
 using $File = ::java::io::File;
 using $FileOutputStream = ::java::io::FileOutputStream;
-using $OutputStream = ::java::io::OutputStream;
-using $PrintStream = ::java::io::PrintStream;
 using $PrintWriter = ::java::io::PrintWriter;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -50,54 +46,21 @@ namespace com {
 					namespace internal {
 						namespace util {
 
-$FieldInfo _Class2HTML_FieldInfo_[] = {
-	{"java_class", "Lcom/sun/org/apache/bcel/internal/classfile/JavaClass;", nullptr, $PRIVATE | $FINAL, $field(Class2HTML, java_class)},
-	{"dir", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(Class2HTML, dir)},
-	{"class_package", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(Class2HTML, class_package)},
-	{"class_name", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(Class2HTML, class_name)},
-	{"constant_pool", "Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;", nullptr, $PRIVATE | $STATIC, $staticField(Class2HTML, constant_pool)},
-	{"basic_types", "Ljava/util/Set;", "Ljava/util/Set<Ljava/lang/String;>;", $PRIVATE | $STATIC | $FINAL, $staticField(Class2HTML, basic_types)},
-	{}
-};
-
-$MethodInfo _Class2HTML_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/org/apache/bcel/internal/classfile/JavaClass;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Class2HTML, init$, void, $JavaClass*, $String*), "java.io.IOException"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Class2HTML, main, void, $StringArray*), "java.io.IOException"},
-	{"referenceClass", "(I)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(Class2HTML, referenceClass, $String*, int32_t)},
-	{"referenceType", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(Class2HTML, referenceType, $String*, $String*)},
-	{"toHTML", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(Class2HTML, toHTML, $String*, $String*)},
-	{"writeMainHTML", "(Lcom/sun/org/apache/bcel/internal/util/AttributeHTML;)V", nullptr, $PRIVATE, $method(Class2HTML, writeMainHTML, void, $AttributeHTML*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _Class2HTML_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.bcel.internal.util.Class2HTML",
-	"java.lang.Object",
-	nullptr,
-	_Class2HTML_FieldInfo_,
-	_Class2HTML_MethodInfo_
-};
-
-$Object* allocate$Class2HTML($Class* clazz) {
-	return $of($alloc(Class2HTML));
-}
-
 $String* Class2HTML::class_package = nullptr;
 $String* Class2HTML::class_name = nullptr;
 $ConstantPool* Class2HTML::constant_pool = nullptr;
 $Set* Class2HTML::basic_types = nullptr;
 
 void Class2HTML::init$($JavaClass* java_class, $String* dir) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($MethodArray, methods, $nc(java_class)->getMethods());
 	$set(this, java_class, java_class);
 	$set(this, dir, dir);
 	$assignStatic(Class2HTML::class_name, java_class->getClassName());
 	$assignStatic(Class2HTML::constant_pool, java_class->getConstantPool());
-	int32_t index = $nc(Class2HTML::class_name)->lastIndexOf((int32_t)u'.');
+	int32_t index = $nc(Class2HTML::class_name)->lastIndexOf(u'.');
 	if (index > -1) {
-		$assignStatic(Class2HTML::class_package, $nc(Class2HTML::class_name)->substring(0, index));
+		$assignStatic(Class2HTML::class_package, Class2HTML::class_name->substring(0, index));
 	} else {
 		$assignStatic(Class2HTML::class_package, ""_s);
 	}
@@ -111,7 +74,7 @@ void Class2HTML::init$($JavaClass* java_class, $String* dir) {
 
 void Class2HTML::main($StringArray* argv) {
 	$init(Class2HTML);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringArray, file_name, $new($StringArray, $nc(argv)->length));
 	int32_t files = 0;
 	$var($ClassParser, parser, nullptr);
@@ -157,14 +120,14 @@ void Class2HTML::main($StringArray* argv) {
 			}
 			$assign(java_class, $nc(parser)->parse());
 			$new(Class2HTML, java_class, dir);
-			$nc($System::out)->println("Done."_s);
+			$System::out->println("Done."_s);
 		}
 	}
 }
 
 $String* Class2HTML::referenceClass(int32_t index) {
 	$init(Class2HTML);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, str, $nc(Class2HTML::constant_pool)->getConstantString(index, $Const::CONSTANT_Class));
 	$assign(str, $Utility::compactClassName(str));
 	$assign(str, $Utility::compactClassName(str, $$str({Class2HTML::class_package, "."_s}), true));
@@ -173,15 +136,15 @@ $String* Class2HTML::referenceClass(int32_t index) {
 
 $String* Class2HTML::referenceType($String* type) {
 	$init(Class2HTML);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, short_type, $Utility::compactClassName(type));
 	$assign(short_type, $Utility::compactClassName(short_type, $$str({Class2HTML::class_package, "."_s}), true));
-	int32_t index = $nc(type)->indexOf((int32_t)u'[');
+	int32_t index = $nc(type)->indexOf(u'[');
 	$var($String, base_type, type);
 	if (index > -1) {
 		$assign(base_type, type->substring(0, index));
 	}
-	if ($nc(Class2HTML::basic_types)->contains(base_type)) {
+	if (Class2HTML::basic_types->contains(base_type)) {
 		return $str({"<FONT COLOR=\"#00FF00\">"_s, type, "</FONT>"_s});
 	}
 	return $str({"<A HREF=\""_s, base_type, ".html\" TARGET=_top>"_s, short_type, "</A>"_s});
@@ -194,59 +157,47 @@ $String* Class2HTML::toHTML($String* str) {
 		char16_t ch = 0;
 		switch (ch = str->charAt(i)) {
 		case u'<':
-			{
-				buf->append("&lt;"_s);
-				break;
-			}
+			buf->append("&lt;"_s);
+			break;
 		case u'>':
-			{
-				buf->append("&gt;"_s);
-				break;
-			}
+			buf->append("&gt;"_s);
+			break;
 		case u'\n':
-			{
-				buf->append("\\n"_s);
-				break;
-			}
+			buf->append("\\n"_s);
+			break;
 		case u'\r':
-			{
-				buf->append("\\r"_s);
-				break;
-			}
+			buf->append("\\r"_s);
+			break;
 		default:
-			{
-				buf->append(ch);
-			}
+			buf->append(ch);
 		}
 	}
 	return buf->toString();
 }
 
 void Class2HTML::writeMainHTML($AttributeHTML* attribute_html) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	{
-		$var($PrintWriter, file, $new($PrintWriter, static_cast<$OutputStream*>($$new($FileOutputStream, $$str({this->dir, Class2HTML::class_name, ".html"_s})))));
-		{
-			$var($Throwable, var$0, nullptr);
+		$var($PrintWriter, file, $new($PrintWriter, $$new($FileOutputStream, $$str({this->dir, Class2HTML::class_name, ".html"_s}))));
+		$var($Throwable, var$0, nullptr);
+		try {
 			try {
+				file->println($$str({"<HTML>\n<HEAD><TITLE>Documentation for "_s, Class2HTML::class_name, "</TITLE></HEAD>\n<FRAMESET BORDER=1 cols=\"30%,*\">\n<FRAMESET BORDER=1 rows=\"80%,*\">\n<FRAME NAME=\"ConstantPool\" SRC=\""_s, Class2HTML::class_name, "_cp.html\"\n MARGINWIDTH=\"0\" MARGINHEIGHT=\"0\" FRAMEBORDER=\"1\" SCROLLING=\"AUTO\">\n<FRAME NAME=\"Attributes\" SRC=\""_s, Class2HTML::class_name, "_attributes.html\"\n MARGINWIDTH=\"0\" MARGINHEIGHT=\"0\" FRAMEBORDER=\"1\" SCROLLING=\"AUTO\">\n</FRAMESET>\n<FRAMESET BORDER=1 rows=\"80%,*\">\n<FRAME NAME=\"Code\" SRC=\""_s, Class2HTML::class_name, "_code.html\"\n MARGINWIDTH=0 MARGINHEIGHT=0 FRAMEBORDER=1 SCROLLING=\"AUTO\">\n<FRAME NAME=\"Methods\" SRC=\""_s, Class2HTML::class_name, "_methods.html\"\n MARGINWIDTH=0 MARGINHEIGHT=0 FRAMEBORDER=1 SCROLLING=\"AUTO\">\n</FRAMESET></FRAMESET></HTML>"_s}));
+			} catch ($Throwable& t$) {
 				try {
-					file->println($$str({"<HTML>\n<HEAD><TITLE>Documentation for "_s, Class2HTML::class_name, "</TITLE></HEAD>\n<FRAMESET BORDER=1 cols=\"30%,*\">\n<FRAMESET BORDER=1 rows=\"80%,*\">\n<FRAME NAME=\"ConstantPool\" SRC=\""_s, Class2HTML::class_name, "_cp.html\"\n MARGINWIDTH=\"0\" MARGINHEIGHT=\"0\" FRAMEBORDER=\"1\" SCROLLING=\"AUTO\">\n<FRAME NAME=\"Attributes\" SRC=\""_s, Class2HTML::class_name, "_attributes.html\"\n MARGINWIDTH=\"0\" MARGINHEIGHT=\"0\" FRAMEBORDER=\"1\" SCROLLING=\"AUTO\">\n</FRAMESET>\n<FRAMESET BORDER=1 rows=\"80%,*\">\n<FRAME NAME=\"Code\" SRC=\""_s, Class2HTML::class_name, "_code.html\"\n MARGINWIDTH=0 MARGINHEIGHT=0 FRAMEBORDER=1 SCROLLING=\"AUTO\">\n<FRAME NAME=\"Methods\" SRC=\""_s, Class2HTML::class_name, "_methods.html\"\n MARGINWIDTH=0 MARGINHEIGHT=0 FRAMEBORDER=1 SCROLLING=\"AUTO\">\n</FRAMESET></FRAMESET></HTML>"_s}));
-				} catch ($Throwable& t$) {
-					try {
-						file->close();
-					} catch ($Throwable& x2) {
-						t$->addSuppressed(x2);
-					}
-					$throw(t$);
+					file->close();
+				} catch ($Throwable& x2) {
+					t$->addSuppressed(x2);
 				}
-			} catch ($Throwable& var$1) {
-				$assign(var$0, var$1);
-			} /*finally*/ {
-				file->close();
+				$throw(t$);
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
+		} /*finally*/ {
+			file->close();
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	}
 	$var($AttributeArray, attributes, $nc(this->java_class)->getAttributes());
@@ -255,18 +206,18 @@ void Class2HTML::writeMainHTML($AttributeHTML* attribute_html) {
 	}
 }
 
-void clinit$Class2HTML($Class* class$) {
+void Class2HTML::clinit$($Class* clazz) {
 	$assignStatic(Class2HTML::basic_types, $new($HashSet));
 	{
-		$nc(Class2HTML::basic_types)->add("int"_s);
-		$nc(Class2HTML::basic_types)->add("short"_s);
-		$nc(Class2HTML::basic_types)->add("boolean"_s);
-		$nc(Class2HTML::basic_types)->add("void"_s);
-		$nc(Class2HTML::basic_types)->add("char"_s);
-		$nc(Class2HTML::basic_types)->add("byte"_s);
-		$nc(Class2HTML::basic_types)->add("long"_s);
-		$nc(Class2HTML::basic_types)->add("double"_s);
-		$nc(Class2HTML::basic_types)->add("float"_s);
+		Class2HTML::basic_types->add("int"_s);
+		Class2HTML::basic_types->add("short"_s);
+		Class2HTML::basic_types->add("boolean"_s);
+		Class2HTML::basic_types->add("void"_s);
+		Class2HTML::basic_types->add("char"_s);
+		Class2HTML::basic_types->add("byte"_s);
+		Class2HTML::basic_types->add("long"_s);
+		Class2HTML::basic_types->add("double"_s);
+		Class2HTML::basic_types->add("float"_s);
 	}
 }
 
@@ -274,7 +225,35 @@ Class2HTML::Class2HTML() {
 }
 
 $Class* Class2HTML::load$($String* name, bool initialize) {
-	$loadClass(Class2HTML, name, initialize, &_Class2HTML_ClassInfo_, clinit$Class2HTML, allocate$Class2HTML);
+	$FieldInfo fieldInfos$$[] = {
+		{"java_class", "Lcom/sun/org/apache/bcel/internal/classfile/JavaClass;", nullptr, $PRIVATE | $FINAL, $field(Class2HTML, java_class)},
+		{"dir", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(Class2HTML, dir)},
+		{"class_package", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(Class2HTML, class_package)},
+		{"class_name", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(Class2HTML, class_name)},
+		{"constant_pool", "Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;", nullptr, $PRIVATE | $STATIC, $staticField(Class2HTML, constant_pool)},
+		{"basic_types", "Ljava/util/Set;", "Ljava/util/Set<Ljava/lang/String;>;", $PRIVATE | $STATIC | $FINAL, $staticField(Class2HTML, basic_types)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/org/apache/bcel/internal/classfile/JavaClass;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Class2HTML, init$, void, $JavaClass*, $String*), "java.io.IOException"},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Class2HTML, main, void, $StringArray*), "java.io.IOException"},
+		{"referenceClass", "(I)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(Class2HTML, referenceClass, $String*, int32_t)},
+		{"referenceType", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(Class2HTML, referenceType, $String*, $String*)},
+		{"toHTML", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(Class2HTML, toHTML, $String*, $String*)},
+		{"writeMainHTML", "(Lcom/sun/org/apache/bcel/internal/util/AttributeHTML;)V", nullptr, $PRIVATE, $method(Class2HTML, writeMainHTML, void, $AttributeHTML*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.bcel.internal.util.Class2HTML",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Class2HTML, name, initialize, &classInfo$$, Class2HTML::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Class2HTML);
+	});
 	return class$;
 }
 

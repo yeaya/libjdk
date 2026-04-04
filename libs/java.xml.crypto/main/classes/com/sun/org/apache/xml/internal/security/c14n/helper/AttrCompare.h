@@ -36,6 +36,7 @@ class AttrCompare : public ::java::util::Comparator, public ::java::io::Serializ
 	$class(AttrCompare, 0, ::java::util::Comparator, ::java::io::Serializable)
 public:
 	AttrCompare();
+	static void clinit$(::java::lang::Class* clazz);
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* arg0) override;
 	virtual void finalize() override;
@@ -44,7 +45,7 @@ public:
 	virtual int32_t compare(::org::w3c::dom::Attr* attr0, ::org::w3c::dom::Attr* attr1);
 	virtual int32_t compare(Object$* attr0, Object$* attr1) override;
 	virtual $String* toString() override;
-	static const int64_t serialVersionUID = (int64_t)0x9D48A00DE2DC869A;
+	static const int64_t serialVersionUID = (int64_t)0x9d48a00de2dc869a;
 	static const int32_t ATTR0_BEFORE_ATTR1 = (-1);
 	static const int32_t ATTR1_BEFORE_ATTR0 = 1;
 	static $String* XMLNS;

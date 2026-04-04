@@ -1,5 +1,4 @@
 #include <javax/tools/ForwardingJavaFileManager.h>
-
 #include <java/lang/ClassLoader.h>
 #include <java/lang/Iterable.h>
 #include <java/util/Iterator.h>
@@ -31,49 +30,6 @@ using $JavaFileObject$Kind = ::javax::tools::JavaFileObject$Kind;
 
 namespace javax {
 	namespace tools {
-
-$FieldInfo _ForwardingJavaFileManager_FieldInfo_[] = {
-	{"fileManager", "Ljavax/tools/JavaFileManager;", "TM;", $PROTECTED | $FINAL, $field(ForwardingJavaFileManager, fileManager)},
-	{}
-};
-
-$MethodInfo _ForwardingJavaFileManager_MethodInfo_[] = {
-	{"<init>", "(Ljavax/tools/JavaFileManager;)V", "(TM;)V", $PROTECTED, $method(ForwardingJavaFileManager, init$, void, $JavaFileManager*)},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(ForwardingJavaFileManager, close, void), "java.io.IOException"},
-	{"contains", "(Ljavax/tools/JavaFileManager$Location;Ljavax/tools/FileObject;)Z", nullptr, $PUBLIC, $virtualMethod(ForwardingJavaFileManager, contains, bool, $JavaFileManager$Location*, $FileObject*), "java.io.IOException"},
-	{"flush", "()V", nullptr, $PUBLIC, $virtualMethod(ForwardingJavaFileManager, flush, void), "java.io.IOException"},
-	{"getClassLoader", "(Ljavax/tools/JavaFileManager$Location;)Ljava/lang/ClassLoader;", nullptr, $PUBLIC, $virtualMethod(ForwardingJavaFileManager, getClassLoader, $ClassLoader*, $JavaFileManager$Location*)},
-	{"getFileForInput", "(Ljavax/tools/JavaFileManager$Location;Ljava/lang/String;Ljava/lang/String;)Ljavax/tools/FileObject;", nullptr, $PUBLIC, $virtualMethod(ForwardingJavaFileManager, getFileForInput, $FileObject*, $JavaFileManager$Location*, $String*, $String*), "java.io.IOException"},
-	{"getFileForOutput", "(Ljavax/tools/JavaFileManager$Location;Ljava/lang/String;Ljava/lang/String;Ljavax/tools/FileObject;)Ljavax/tools/FileObject;", nullptr, $PUBLIC, $virtualMethod(ForwardingJavaFileManager, getFileForOutput, $FileObject*, $JavaFileManager$Location*, $String*, $String*, $FileObject*), "java.io.IOException"},
-	{"getJavaFileForInput", "(Ljavax/tools/JavaFileManager$Location;Ljava/lang/String;Ljavax/tools/JavaFileObject$Kind;)Ljavax/tools/JavaFileObject;", nullptr, $PUBLIC, $virtualMethod(ForwardingJavaFileManager, getJavaFileForInput, $JavaFileObject*, $JavaFileManager$Location*, $String*, $JavaFileObject$Kind*), "java.io.IOException"},
-	{"getJavaFileForOutput", "(Ljavax/tools/JavaFileManager$Location;Ljava/lang/String;Ljavax/tools/JavaFileObject$Kind;Ljavax/tools/FileObject;)Ljavax/tools/JavaFileObject;", nullptr, $PUBLIC, $virtualMethod(ForwardingJavaFileManager, getJavaFileForOutput, $JavaFileObject*, $JavaFileManager$Location*, $String*, $JavaFileObject$Kind*, $FileObject*), "java.io.IOException"},
-	{"getLocationForModule", "(Ljavax/tools/JavaFileManager$Location;Ljava/lang/String;)Ljavax/tools/JavaFileManager$Location;", nullptr, $PUBLIC, $virtualMethod(ForwardingJavaFileManager, getLocationForModule, $JavaFileManager$Location*, $JavaFileManager$Location*, $String*), "java.io.IOException"},
-	{"getLocationForModule", "(Ljavax/tools/JavaFileManager$Location;Ljavax/tools/JavaFileObject;)Ljavax/tools/JavaFileManager$Location;", nullptr, $PUBLIC, $virtualMethod(ForwardingJavaFileManager, getLocationForModule, $JavaFileManager$Location*, $JavaFileManager$Location*, $JavaFileObject*), "java.io.IOException"},
-	{"getServiceLoader", "(Ljavax/tools/JavaFileManager$Location;Ljava/lang/Class;)Ljava/util/ServiceLoader;", "<S:Ljava/lang/Object;>(Ljavax/tools/JavaFileManager$Location;Ljava/lang/Class<TS;>;)Ljava/util/ServiceLoader<TS;>;", $PUBLIC, $virtualMethod(ForwardingJavaFileManager, getServiceLoader, $ServiceLoader*, $JavaFileManager$Location*, $Class*), "java.io.IOException"},
-	{"handleOption", "(Ljava/lang/String;Ljava/util/Iterator;)Z", "(Ljava/lang/String;Ljava/util/Iterator<Ljava/lang/String;>;)Z", $PUBLIC, $virtualMethod(ForwardingJavaFileManager, handleOption, bool, $String*, $Iterator*)},
-	{"hasLocation", "(Ljavax/tools/JavaFileManager$Location;)Z", nullptr, $PUBLIC, $virtualMethod(ForwardingJavaFileManager, hasLocation, bool, $JavaFileManager$Location*)},
-	{"inferBinaryName", "(Ljavax/tools/JavaFileManager$Location;Ljavax/tools/JavaFileObject;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ForwardingJavaFileManager, inferBinaryName, $String*, $JavaFileManager$Location*, $JavaFileObject*)},
-	{"inferModuleName", "(Ljavax/tools/JavaFileManager$Location;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ForwardingJavaFileManager, inferModuleName, $String*, $JavaFileManager$Location*), "java.io.IOException"},
-	{"isSameFile", "(Ljavax/tools/FileObject;Ljavax/tools/FileObject;)Z", nullptr, $PUBLIC, $virtualMethod(ForwardingJavaFileManager, isSameFile, bool, $FileObject*, $FileObject*)},
-	{"isSupportedOption", "(Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(ForwardingJavaFileManager, isSupportedOption, int32_t, $String*)},
-	{"list", "(Ljavax/tools/JavaFileManager$Location;Ljava/lang/String;Ljava/util/Set;Z)Ljava/lang/Iterable;", "(Ljavax/tools/JavaFileManager$Location;Ljava/lang/String;Ljava/util/Set<Ljavax/tools/JavaFileObject$Kind;>;Z)Ljava/lang/Iterable<Ljavax/tools/JavaFileObject;>;", $PUBLIC, $virtualMethod(ForwardingJavaFileManager, list, $Iterable*, $JavaFileManager$Location*, $String*, $Set*, bool), "java.io.IOException"},
-	{"listLocationsForModules", "(Ljavax/tools/JavaFileManager$Location;)Ljava/lang/Iterable;", "(Ljavax/tools/JavaFileManager$Location;)Ljava/lang/Iterable<Ljava/util/Set<Ljavax/tools/JavaFileManager$Location;>;>;", $PUBLIC, $virtualMethod(ForwardingJavaFileManager, listLocationsForModules, $Iterable*, $JavaFileManager$Location*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _ForwardingJavaFileManager_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.tools.ForwardingJavaFileManager",
-	"java.lang.Object",
-	"javax.tools.JavaFileManager",
-	_ForwardingJavaFileManager_FieldInfo_,
-	_ForwardingJavaFileManager_MethodInfo_,
-	"<M::Ljavax/tools/JavaFileManager;>Ljava/lang/Object;Ljavax/tools/JavaFileManager;"
-};
-
-$Object* allocate$ForwardingJavaFileManager($Class* clazz) {
-	return $of($alloc(ForwardingJavaFileManager));
-}
 
 void ForwardingJavaFileManager::init$($JavaFileManager* fileManager) {
 	$set(this, fileManager, $cast($JavaFileManager, $Objects::requireNonNull(fileManager)));
@@ -159,7 +115,45 @@ ForwardingJavaFileManager::ForwardingJavaFileManager() {
 }
 
 $Class* ForwardingJavaFileManager::load$($String* name, bool initialize) {
-	$loadClass(ForwardingJavaFileManager, name, initialize, &_ForwardingJavaFileManager_ClassInfo_, allocate$ForwardingJavaFileManager);
+	$FieldInfo fieldInfos$$[] = {
+		{"fileManager", "Ljavax/tools/JavaFileManager;", "TM;", $PROTECTED | $FINAL, $field(ForwardingJavaFileManager, fileManager)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/tools/JavaFileManager;)V", "(TM;)V", $PROTECTED, $method(ForwardingJavaFileManager, init$, void, $JavaFileManager*)},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(ForwardingJavaFileManager, close, void), "java.io.IOException"},
+		{"contains", "(Ljavax/tools/JavaFileManager$Location;Ljavax/tools/FileObject;)Z", nullptr, $PUBLIC, $virtualMethod(ForwardingJavaFileManager, contains, bool, $JavaFileManager$Location*, $FileObject*), "java.io.IOException"},
+		{"flush", "()V", nullptr, $PUBLIC, $virtualMethod(ForwardingJavaFileManager, flush, void), "java.io.IOException"},
+		{"getClassLoader", "(Ljavax/tools/JavaFileManager$Location;)Ljava/lang/ClassLoader;", nullptr, $PUBLIC, $virtualMethod(ForwardingJavaFileManager, getClassLoader, $ClassLoader*, $JavaFileManager$Location*)},
+		{"getFileForInput", "(Ljavax/tools/JavaFileManager$Location;Ljava/lang/String;Ljava/lang/String;)Ljavax/tools/FileObject;", nullptr, $PUBLIC, $virtualMethod(ForwardingJavaFileManager, getFileForInput, $FileObject*, $JavaFileManager$Location*, $String*, $String*), "java.io.IOException"},
+		{"getFileForOutput", "(Ljavax/tools/JavaFileManager$Location;Ljava/lang/String;Ljava/lang/String;Ljavax/tools/FileObject;)Ljavax/tools/FileObject;", nullptr, $PUBLIC, $virtualMethod(ForwardingJavaFileManager, getFileForOutput, $FileObject*, $JavaFileManager$Location*, $String*, $String*, $FileObject*), "java.io.IOException"},
+		{"getJavaFileForInput", "(Ljavax/tools/JavaFileManager$Location;Ljava/lang/String;Ljavax/tools/JavaFileObject$Kind;)Ljavax/tools/JavaFileObject;", nullptr, $PUBLIC, $virtualMethod(ForwardingJavaFileManager, getJavaFileForInput, $JavaFileObject*, $JavaFileManager$Location*, $String*, $JavaFileObject$Kind*), "java.io.IOException"},
+		{"getJavaFileForOutput", "(Ljavax/tools/JavaFileManager$Location;Ljava/lang/String;Ljavax/tools/JavaFileObject$Kind;Ljavax/tools/FileObject;)Ljavax/tools/JavaFileObject;", nullptr, $PUBLIC, $virtualMethod(ForwardingJavaFileManager, getJavaFileForOutput, $JavaFileObject*, $JavaFileManager$Location*, $String*, $JavaFileObject$Kind*, $FileObject*), "java.io.IOException"},
+		{"getLocationForModule", "(Ljavax/tools/JavaFileManager$Location;Ljava/lang/String;)Ljavax/tools/JavaFileManager$Location;", nullptr, $PUBLIC, $virtualMethod(ForwardingJavaFileManager, getLocationForModule, $JavaFileManager$Location*, $JavaFileManager$Location*, $String*), "java.io.IOException"},
+		{"getLocationForModule", "(Ljavax/tools/JavaFileManager$Location;Ljavax/tools/JavaFileObject;)Ljavax/tools/JavaFileManager$Location;", nullptr, $PUBLIC, $virtualMethod(ForwardingJavaFileManager, getLocationForModule, $JavaFileManager$Location*, $JavaFileManager$Location*, $JavaFileObject*), "java.io.IOException"},
+		{"getServiceLoader", "(Ljavax/tools/JavaFileManager$Location;Ljava/lang/Class;)Ljava/util/ServiceLoader;", "<S:Ljava/lang/Object;>(Ljavax/tools/JavaFileManager$Location;Ljava/lang/Class<TS;>;)Ljava/util/ServiceLoader<TS;>;", $PUBLIC, $virtualMethod(ForwardingJavaFileManager, getServiceLoader, $ServiceLoader*, $JavaFileManager$Location*, $Class*), "java.io.IOException"},
+		{"handleOption", "(Ljava/lang/String;Ljava/util/Iterator;)Z", "(Ljava/lang/String;Ljava/util/Iterator<Ljava/lang/String;>;)Z", $PUBLIC, $virtualMethod(ForwardingJavaFileManager, handleOption, bool, $String*, $Iterator*)},
+		{"hasLocation", "(Ljavax/tools/JavaFileManager$Location;)Z", nullptr, $PUBLIC, $virtualMethod(ForwardingJavaFileManager, hasLocation, bool, $JavaFileManager$Location*)},
+		{"inferBinaryName", "(Ljavax/tools/JavaFileManager$Location;Ljavax/tools/JavaFileObject;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ForwardingJavaFileManager, inferBinaryName, $String*, $JavaFileManager$Location*, $JavaFileObject*)},
+		{"inferModuleName", "(Ljavax/tools/JavaFileManager$Location;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ForwardingJavaFileManager, inferModuleName, $String*, $JavaFileManager$Location*), "java.io.IOException"},
+		{"isSameFile", "(Ljavax/tools/FileObject;Ljavax/tools/FileObject;)Z", nullptr, $PUBLIC, $virtualMethod(ForwardingJavaFileManager, isSameFile, bool, $FileObject*, $FileObject*)},
+		{"isSupportedOption", "(Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(ForwardingJavaFileManager, isSupportedOption, int32_t, $String*)},
+		{"list", "(Ljavax/tools/JavaFileManager$Location;Ljava/lang/String;Ljava/util/Set;Z)Ljava/lang/Iterable;", "(Ljavax/tools/JavaFileManager$Location;Ljava/lang/String;Ljava/util/Set<Ljavax/tools/JavaFileObject$Kind;>;Z)Ljava/lang/Iterable<Ljavax/tools/JavaFileObject;>;", $PUBLIC, $virtualMethod(ForwardingJavaFileManager, list, $Iterable*, $JavaFileManager$Location*, $String*, $Set*, bool), "java.io.IOException"},
+		{"listLocationsForModules", "(Ljavax/tools/JavaFileManager$Location;)Ljava/lang/Iterable;", "(Ljavax/tools/JavaFileManager$Location;)Ljava/lang/Iterable<Ljava/util/Set<Ljavax/tools/JavaFileManager$Location;>;>;", $PUBLIC, $virtualMethod(ForwardingJavaFileManager, listLocationsForModules, $Iterable*, $JavaFileManager$Location*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.tools.ForwardingJavaFileManager",
+		"java.lang.Object",
+		"javax.tools.JavaFileManager",
+		fieldInfos$$,
+		methodInfos$$,
+		"<M::Ljavax/tools/JavaFileManager;>Ljava/lang/Object;Ljavax/tools/JavaFileManager;"
+	};
+	$loadClass(ForwardingJavaFileManager, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ForwardingJavaFileManager));
+	});
 	return class$;
 }
 

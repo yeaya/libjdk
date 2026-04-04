@@ -1,5 +1,4 @@
 #include <sun/net/httpserver/HttpConnection$State.h>
-
 #include <java/lang/Enum.h>
 #include <sun/net/httpserver/HttpConnection.h>
 #include <jcpp.h>
@@ -18,47 +17,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace sun {
 	namespace net {
 		namespace httpserver {
-
-$FieldInfo _HttpConnection$State_FieldInfo_[] = {
-	{"IDLE", "Lsun/net/httpserver/HttpConnection$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(HttpConnection$State, IDLE)},
-	{"REQUEST", "Lsun/net/httpserver/HttpConnection$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(HttpConnection$State, REQUEST)},
-	{"RESPONSE", "Lsun/net/httpserver/HttpConnection$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(HttpConnection$State, RESPONSE)},
-	{"$VALUES", "[Lsun/net/httpserver/HttpConnection$State;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(HttpConnection$State, $VALUES)},
-	{}
-};
-
-$MethodInfo _HttpConnection$State_MethodInfo_[] = {
-	{"$values", "()[Lsun/net/httpserver/HttpConnection$State;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(HttpConnection$State, $values, $HttpConnection$StateArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(HttpConnection$State, init$, void, $String*, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)Lsun/net/httpserver/HttpConnection$State;", nullptr, $PUBLIC | $STATIC, $staticMethod(HttpConnection$State, valueOf, HttpConnection$State*, $String*)},
-	{"values", "()[Lsun/net/httpserver/HttpConnection$State;", nullptr, $PUBLIC | $STATIC, $staticMethod(HttpConnection$State, values, $HttpConnection$StateArray*)},
-	{}
-};
-
-$InnerClassInfo _HttpConnection$State_InnerClassesInfo_[] = {
-	{"sun.net.httpserver.HttpConnection$State", "sun.net.httpserver.HttpConnection", "State", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _HttpConnection$State_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"sun.net.httpserver.HttpConnection$State",
-	"java.lang.Enum",
-	nullptr,
-	_HttpConnection$State_FieldInfo_,
-	_HttpConnection$State_MethodInfo_,
-	"Ljava/lang/Enum<Lsun/net/httpserver/HttpConnection$State;>;",
-	nullptr,
-	_HttpConnection$State_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.net.httpserver.HttpConnection"
-};
-
-$Object* allocate$HttpConnection$State($Class* clazz) {
-	return $of($alloc(HttpConnection$State));
-}
 
 HttpConnection$State* HttpConnection$State::IDLE = nullptr;
 HttpConnection$State* HttpConnection$State::REQUEST = nullptr;
@@ -88,7 +46,7 @@ void HttpConnection$State::init$($String* $enum$name, int32_t $enum$ordinal) {
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$HttpConnection$State($Class* class$) {
+void HttpConnection$State::clinit$($Class* clazz) {
 	$assignStatic(HttpConnection$State::IDLE, $new(HttpConnection$State, "IDLE"_s, 0));
 	$assignStatic(HttpConnection$State::REQUEST, $new(HttpConnection$State, "REQUEST"_s, 1));
 	$assignStatic(HttpConnection$State::RESPONSE, $new(HttpConnection$State, "RESPONSE"_s, 2));
@@ -99,7 +57,42 @@ HttpConnection$State::HttpConnection$State() {
 }
 
 $Class* HttpConnection$State::load$($String* name, bool initialize) {
-	$loadClass(HttpConnection$State, name, initialize, &_HttpConnection$State_ClassInfo_, clinit$HttpConnection$State, allocate$HttpConnection$State);
+	$FieldInfo fieldInfos$$[] = {
+		{"IDLE", "Lsun/net/httpserver/HttpConnection$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(HttpConnection$State, IDLE)},
+		{"REQUEST", "Lsun/net/httpserver/HttpConnection$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(HttpConnection$State, REQUEST)},
+		{"RESPONSE", "Lsun/net/httpserver/HttpConnection$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(HttpConnection$State, RESPONSE)},
+		{"$VALUES", "[Lsun/net/httpserver/HttpConnection$State;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(HttpConnection$State, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lsun/net/httpserver/HttpConnection$State;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(HttpConnection$State, $values, $HttpConnection$StateArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(HttpConnection$State, init$, void, $String*, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)Lsun/net/httpserver/HttpConnection$State;", nullptr, $PUBLIC | $STATIC, $staticMethod(HttpConnection$State, valueOf, HttpConnection$State*, $String*)},
+		{"values", "()[Lsun/net/httpserver/HttpConnection$State;", nullptr, $PUBLIC | $STATIC, $staticMethod(HttpConnection$State, values, $HttpConnection$StateArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.net.httpserver.HttpConnection$State", "sun.net.httpserver.HttpConnection", "State", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"sun.net.httpserver.HttpConnection$State",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lsun/net/httpserver/HttpConnection$State;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.net.httpserver.HttpConnection"
+	};
+	$loadClass(HttpConnection$State, name, initialize, &classInfo$$, HttpConnection$State::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(HttpConnection$State));
+	});
 	return class$;
 }
 

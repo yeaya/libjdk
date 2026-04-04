@@ -33,6 +33,7 @@ class $import JCheckBox : public ::javax::swing::JToggleButton {
 	$class(JCheckBox, 0, ::javax::swing::JToggleButton)
 public:
 	JCheckBox();
+	static void clinit$(::java::lang::Class* clazz);
 	using ::javax::swing::JToggleButton::contains;
 	using ::javax::swing::JToggleButton::enable;
 	using ::javax::swing::JToggleButton::getBounds;

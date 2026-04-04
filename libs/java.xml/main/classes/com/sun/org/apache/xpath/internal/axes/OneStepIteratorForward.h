@@ -53,7 +53,7 @@ public:
 	virtual int32_t getAxis() override;
 	virtual int32_t getNextNode() override;
 	virtual void setRoot(int32_t context, Object$* environment) override;
-	static const int64_t serialVersionUID = (int64_t)0xEA1D9882FB705B1A;
+	static const int64_t serialVersionUID = (int64_t)0xea1d9882fb705b1a;
 	int32_t m_axis = 0;
 };
 

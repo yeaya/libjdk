@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/util/Dependencies$DummyDependencies.h>
-
 #include <com/sun/tools/javac/code/Symbol$ClassSymbol.h>
 #include <com/sun/tools/javac/util/Context.h>
 #include <com/sun/tools/javac/util/Dependencies$CompletionCause.h>
@@ -20,38 +19,6 @@ namespace com {
 			namespace javac {
 				namespace util {
 
-$MethodInfo _Dependencies$DummyDependencies_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/util/Context;)V", nullptr, $PRIVATE, $method(Dependencies$DummyDependencies, init$, void, $Context*)},
-	{"pop", "()V", nullptr, $PUBLIC, $virtualMethod(Dependencies$DummyDependencies, pop, void)},
-	{"push", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;Lcom/sun/tools/javac/util/Dependencies$CompletionCause;)V", nullptr, $PUBLIC, $virtualMethod(Dependencies$DummyDependencies, push, void, $Symbol$ClassSymbol*, $Dependencies$CompletionCause*)},
-	{}
-};
-
-$InnerClassInfo _Dependencies$DummyDependencies_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.util.Dependencies$DummyDependencies", "com.sun.tools.javac.util.Dependencies", "DummyDependencies", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _Dependencies$DummyDependencies_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.util.Dependencies$DummyDependencies",
-	"com.sun.tools.javac.util.Dependencies",
-	nullptr,
-	nullptr,
-	_Dependencies$DummyDependencies_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Dependencies$DummyDependencies_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.util.Dependencies"
-};
-
-$Object* allocate$Dependencies$DummyDependencies($Class* clazz) {
-	return $of($alloc(Dependencies$DummyDependencies));
-}
-
 void Dependencies$DummyDependencies::init$($Context* context) {
 	$Dependencies::init$(context);
 }
@@ -66,7 +33,34 @@ Dependencies$DummyDependencies::Dependencies$DummyDependencies() {
 }
 
 $Class* Dependencies$DummyDependencies::load$($String* name, bool initialize) {
-	$loadClass(Dependencies$DummyDependencies, name, initialize, &_Dependencies$DummyDependencies_ClassInfo_, allocate$Dependencies$DummyDependencies);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/util/Context;)V", nullptr, $PRIVATE, $method(Dependencies$DummyDependencies, init$, void, $Context*)},
+		{"pop", "()V", nullptr, $PUBLIC, $virtualMethod(Dependencies$DummyDependencies, pop, void)},
+		{"push", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;Lcom/sun/tools/javac/util/Dependencies$CompletionCause;)V", nullptr, $PUBLIC, $virtualMethod(Dependencies$DummyDependencies, push, void, $Symbol$ClassSymbol*, $Dependencies$CompletionCause*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.util.Dependencies$DummyDependencies", "com.sun.tools.javac.util.Dependencies", "DummyDependencies", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.util.Dependencies$DummyDependencies",
+		"com.sun.tools.javac.util.Dependencies",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.util.Dependencies"
+	};
+	$loadClass(Dependencies$DummyDependencies, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Dependencies$DummyDependencies);
+	});
 	return class$;
 }
 

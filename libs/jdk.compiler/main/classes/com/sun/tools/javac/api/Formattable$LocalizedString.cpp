@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/api/Formattable$LocalizedString.h>
-
 #include <com/sun/tools/javac/api/Messages.h>
 #include <java/util/Locale.h>
 #include <jcpp.h>
@@ -16,44 +15,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace api {
-
-$FieldInfo _Formattable$LocalizedString_FieldInfo_[] = {
-	{"key", "Ljava/lang/String;", nullptr, 0, $field(Formattable$LocalizedString, key)},
-	{}
-};
-
-$MethodInfo _Formattable$LocalizedString_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Formattable$LocalizedString, init$, void, $String*)},
-	{"getKind", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Formattable$LocalizedString, getKind, $String*)},
-	{"toString", "(Ljava/util/Locale;Lcom/sun/tools/javac/api/Messages;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Formattable$LocalizedString, toString, $String*, $Locale*, $Messages*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Formattable$LocalizedString, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _Formattable$LocalizedString_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.api.Formattable$LocalizedString", "com.sun.tools.javac.api.Formattable", "LocalizedString", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _Formattable$LocalizedString_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.api.Formattable$LocalizedString",
-	"java.lang.Object",
-	"com.sun.tools.javac.api.Formattable",
-	_Formattable$LocalizedString_FieldInfo_,
-	_Formattable$LocalizedString_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Formattable$LocalizedString_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.api.Formattable"
-};
-
-$Object* allocate$Formattable$LocalizedString($Class* clazz) {
-	return $of($alloc(Formattable$LocalizedString));
-}
 
 void Formattable$LocalizedString::init$($String* key) {
 	$set(this, key, key);
@@ -75,7 +36,39 @@ Formattable$LocalizedString::Formattable$LocalizedString() {
 }
 
 $Class* Formattable$LocalizedString::load$($String* name, bool initialize) {
-	$loadClass(Formattable$LocalizedString, name, initialize, &_Formattable$LocalizedString_ClassInfo_, allocate$Formattable$LocalizedString);
+	$FieldInfo fieldInfos$$[] = {
+		{"key", "Ljava/lang/String;", nullptr, 0, $field(Formattable$LocalizedString, key)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Formattable$LocalizedString, init$, void, $String*)},
+		{"getKind", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Formattable$LocalizedString, getKind, $String*)},
+		{"toString", "(Ljava/util/Locale;Lcom/sun/tools/javac/api/Messages;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Formattable$LocalizedString, toString, $String*, $Locale*, $Messages*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Formattable$LocalizedString, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.api.Formattable$LocalizedString", "com.sun.tools.javac.api.Formattable", "LocalizedString", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.api.Formattable$LocalizedString",
+		"java.lang.Object",
+		"com.sun.tools.javac.api.Formattable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.api.Formattable"
+	};
+	$loadClass(Formattable$LocalizedString, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Formattable$LocalizedString);
+	});
 	return class$;
 }
 

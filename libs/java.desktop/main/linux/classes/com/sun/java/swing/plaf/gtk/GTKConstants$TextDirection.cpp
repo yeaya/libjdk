@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/gtk/GTKConstants$TextDirection.h>
-
 #include <com/sun/java/swing/plaf/gtk/GTKConstants.h>
 #include <java/lang/Enum.h>
 #include <jcpp.h>
@@ -21,47 +20,6 @@ namespace com {
 			namespace swing {
 				namespace plaf {
 					namespace gtk {
-
-$FieldInfo _GTKConstants$TextDirection_FieldInfo_[] = {
-	{"NONE", "Lcom/sun/java/swing/plaf/gtk/GTKConstants$TextDirection;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKConstants$TextDirection, NONE)},
-	{"LTR", "Lcom/sun/java/swing/plaf/gtk/GTKConstants$TextDirection;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKConstants$TextDirection, LTR)},
-	{"RTL", "Lcom/sun/java/swing/plaf/gtk/GTKConstants$TextDirection;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKConstants$TextDirection, RTL)},
-	{"$VALUES", "[Lcom/sun/java/swing/plaf/gtk/GTKConstants$TextDirection;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(GTKConstants$TextDirection, $VALUES)},
-	{}
-};
-
-$MethodInfo _GTKConstants$TextDirection_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/java/swing/plaf/gtk/GTKConstants$TextDirection;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(GTKConstants$TextDirection, $values, $GTKConstants$TextDirectionArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(GTKConstants$TextDirection, init$, void, $String*, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/java/swing/plaf/gtk/GTKConstants$TextDirection;", nullptr, $PUBLIC | $STATIC, $staticMethod(GTKConstants$TextDirection, valueOf, GTKConstants$TextDirection*, $String*)},
-	{"values", "()[Lcom/sun/java/swing/plaf/gtk/GTKConstants$TextDirection;", nullptr, $PUBLIC | $STATIC, $staticMethod(GTKConstants$TextDirection, values, $GTKConstants$TextDirectionArray*)},
-	{}
-};
-
-$InnerClassInfo _GTKConstants$TextDirection_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.gtk.GTKConstants$TextDirection", "com.sun.java.swing.plaf.gtk.GTKConstants", "TextDirection", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _GTKConstants$TextDirection_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"com.sun.java.swing.plaf.gtk.GTKConstants$TextDirection",
-	"java.lang.Enum",
-	nullptr,
-	_GTKConstants$TextDirection_FieldInfo_,
-	_GTKConstants$TextDirection_MethodInfo_,
-	"Ljava/lang/Enum<Lcom/sun/java/swing/plaf/gtk/GTKConstants$TextDirection;>;",
-	nullptr,
-	_GTKConstants$TextDirection_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.gtk.GTKConstants"
-};
-
-$Object* allocate$GTKConstants$TextDirection($Class* clazz) {
-	return $of($alloc(GTKConstants$TextDirection));
-}
 
 GTKConstants$TextDirection* GTKConstants$TextDirection::NONE = nullptr;
 GTKConstants$TextDirection* GTKConstants$TextDirection::LTR = nullptr;
@@ -91,7 +49,7 @@ void GTKConstants$TextDirection::init$($String* $enum$name, int32_t $enum$ordina
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$GTKConstants$TextDirection($Class* class$) {
+void GTKConstants$TextDirection::clinit$($Class* clazz) {
 	$assignStatic(GTKConstants$TextDirection::NONE, $new(GTKConstants$TextDirection, "NONE"_s, 0));
 	$assignStatic(GTKConstants$TextDirection::LTR, $new(GTKConstants$TextDirection, "LTR"_s, 1));
 	$assignStatic(GTKConstants$TextDirection::RTL, $new(GTKConstants$TextDirection, "RTL"_s, 2));
@@ -102,7 +60,42 @@ GTKConstants$TextDirection::GTKConstants$TextDirection() {
 }
 
 $Class* GTKConstants$TextDirection::load$($String* name, bool initialize) {
-	$loadClass(GTKConstants$TextDirection, name, initialize, &_GTKConstants$TextDirection_ClassInfo_, clinit$GTKConstants$TextDirection, allocate$GTKConstants$TextDirection);
+	$FieldInfo fieldInfos$$[] = {
+		{"NONE", "Lcom/sun/java/swing/plaf/gtk/GTKConstants$TextDirection;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKConstants$TextDirection, NONE)},
+		{"LTR", "Lcom/sun/java/swing/plaf/gtk/GTKConstants$TextDirection;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKConstants$TextDirection, LTR)},
+		{"RTL", "Lcom/sun/java/swing/plaf/gtk/GTKConstants$TextDirection;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKConstants$TextDirection, RTL)},
+		{"$VALUES", "[Lcom/sun/java/swing/plaf/gtk/GTKConstants$TextDirection;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(GTKConstants$TextDirection, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lcom/sun/java/swing/plaf/gtk/GTKConstants$TextDirection;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(GTKConstants$TextDirection, $values, $GTKConstants$TextDirectionArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(GTKConstants$TextDirection, init$, void, $String*, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)Lcom/sun/java/swing/plaf/gtk/GTKConstants$TextDirection;", nullptr, $PUBLIC | $STATIC, $staticMethod(GTKConstants$TextDirection, valueOf, GTKConstants$TextDirection*, $String*)},
+		{"values", "()[Lcom/sun/java/swing/plaf/gtk/GTKConstants$TextDirection;", nullptr, $PUBLIC | $STATIC, $staticMethod(GTKConstants$TextDirection, values, $GTKConstants$TextDirectionArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.gtk.GTKConstants$TextDirection", "com.sun.java.swing.plaf.gtk.GTKConstants", "TextDirection", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"com.sun.java.swing.plaf.gtk.GTKConstants$TextDirection",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lcom/sun/java/swing/plaf/gtk/GTKConstants$TextDirection;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.gtk.GTKConstants"
+	};
+	$loadClass(GTKConstants$TextDirection, name, initialize, &classInfo$$, GTKConstants$TextDirection::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(GTKConstants$TextDirection));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/basic/BasicSliderUI$ActionScroller.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/event/ActionEvent.h>
 #include <javax/swing/AbstractAction.h>
@@ -18,52 +17,11 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $AbstractAction = ::javax::swing::AbstractAction;
 using $JSlider = ::javax::swing::JSlider;
 using $BasicSliderUI = ::javax::swing::plaf::basic::BasicSliderUI;
-using $BasicSliderUI$Actions = ::javax::swing::plaf::basic::BasicSliderUI$Actions;
 
 namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace basic {
-
-$FieldInfo _BasicSliderUI$ActionScroller_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/plaf/basic/BasicSliderUI;", nullptr, $FINAL | $SYNTHETIC, $field(BasicSliderUI$ActionScroller, this$0)},
-	{"dir", "I", nullptr, 0, $field(BasicSliderUI$ActionScroller, dir)},
-	{"block", "Z", nullptr, 0, $field(BasicSliderUI$ActionScroller, block)},
-	{"slider", "Ljavax/swing/JSlider;", nullptr, 0, $field(BasicSliderUI$ActionScroller, slider)},
-	{}
-};
-
-$MethodInfo _BasicSliderUI$ActionScroller_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/plaf/basic/BasicSliderUI;Ljavax/swing/JSlider;IZ)V", nullptr, $PUBLIC, $method(BasicSliderUI$ActionScroller, init$, void, $BasicSliderUI*, $JSlider*, int32_t, bool)},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicSliderUI$ActionScroller, actionPerformed, void, $ActionEvent*)},
-	{"isEnabled", "()Z", nullptr, $PUBLIC, $virtualMethod(BasicSliderUI$ActionScroller, isEnabled, bool)},
-	{}
-};
-
-$InnerClassInfo _BasicSliderUI$ActionScroller_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.basic.BasicSliderUI$ActionScroller", "javax.swing.plaf.basic.BasicSliderUI", "ActionScroller", $PUBLIC},
-	{}
-};
-
-$ClassInfo _BasicSliderUI$ActionScroller_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.basic.BasicSliderUI$ActionScroller",
-	"javax.swing.AbstractAction",
-	nullptr,
-	_BasicSliderUI$ActionScroller_FieldInfo_,
-	_BasicSliderUI$ActionScroller_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BasicSliderUI$ActionScroller_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.basic.BasicSliderUI"
-};
-
-$Object* allocate$BasicSliderUI$ActionScroller($Class* clazz) {
-	return $of($alloc(BasicSliderUI$ActionScroller));
-}
 
 void BasicSliderUI$ActionScroller::init$($BasicSliderUI* this$0, $JSlider* slider, int32_t dir, bool block) {
 	$set(this, this$0, this$0);
@@ -81,7 +39,7 @@ void BasicSliderUI$ActionScroller::actionPerformed($ActionEvent* e) {
 bool BasicSliderUI$ActionScroller::isEnabled() {
 	bool b = true;
 	if (this->slider != nullptr) {
-		b = $nc(this->slider)->isEnabled();
+		b = this->slider->isEnabled();
 	}
 	return b;
 }
@@ -90,7 +48,41 @@ BasicSliderUI$ActionScroller::BasicSliderUI$ActionScroller() {
 }
 
 $Class* BasicSliderUI$ActionScroller::load$($String* name, bool initialize) {
-	$loadClass(BasicSliderUI$ActionScroller, name, initialize, &_BasicSliderUI$ActionScroller_ClassInfo_, allocate$BasicSliderUI$ActionScroller);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/plaf/basic/BasicSliderUI;", nullptr, $FINAL | $SYNTHETIC, $field(BasicSliderUI$ActionScroller, this$0)},
+		{"dir", "I", nullptr, 0, $field(BasicSliderUI$ActionScroller, dir)},
+		{"block", "Z", nullptr, 0, $field(BasicSliderUI$ActionScroller, block)},
+		{"slider", "Ljavax/swing/JSlider;", nullptr, 0, $field(BasicSliderUI$ActionScroller, slider)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/plaf/basic/BasicSliderUI;Ljavax/swing/JSlider;IZ)V", nullptr, $PUBLIC, $method(BasicSliderUI$ActionScroller, init$, void, $BasicSliderUI*, $JSlider*, int32_t, bool)},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicSliderUI$ActionScroller, actionPerformed, void, $ActionEvent*)},
+		{"isEnabled", "()Z", nullptr, $PUBLIC, $virtualMethod(BasicSliderUI$ActionScroller, isEnabled, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.basic.BasicSliderUI$ActionScroller", "javax.swing.plaf.basic.BasicSliderUI", "ActionScroller", $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.basic.BasicSliderUI$ActionScroller",
+		"javax.swing.AbstractAction",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.basic.BasicSliderUI"
+	};
+	$loadClass(BasicSliderUI$ActionScroller, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(BasicSliderUI$ActionScroller));
+	});
 	return class$;
 }
 

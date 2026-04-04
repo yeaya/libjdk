@@ -1,9 +1,7 @@
 #include <SpanTest.h>
-
 #include <SpanTest$1.h>
 #include <SpanTest$2.h>
 #include <java/awt/Window.h>
-#include <java/lang/Runnable.h>
 #include <java/util/concurrent/CountDownLatch.h>
 #include <javax/swing/JDialog.h>
 #include <javax/swing/JFrame.h>
@@ -17,54 +15,11 @@ using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $CountDownLatch = ::java::util::concurrent::CountDownLatch;
 using $JDialog = ::javax::swing::JDialog;
 using $JFrame = ::javax::swing::JFrame;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
-
-$FieldInfo _SpanTest_FieldInfo_[] = {
-	{"f", "Ljavax/swing/JFrame;", nullptr, $STATIC, $staticField(SpanTest, f)},
-	{"dialog", "Ljavax/swing/JDialog;", nullptr, $STATIC, $staticField(SpanTest, dialog)},
-	{"testResult", "Z", nullptr, $PUBLIC, $field(SpanTest, testResult)},
-	{"latch", "Ljava/util/concurrent/CountDownLatch;", nullptr, $PRIVATE | $FINAL, $field(SpanTest, latch)},
-	{}
-};
-
-$MethodInfo _SpanTest_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/concurrent/CountDownLatch;)V", nullptr, $PUBLIC, $method(SpanTest, init$, void, $CountDownLatch*), "java.lang.Exception"},
-	{"createUI", "()V", nullptr, $PRIVATE | $FINAL, $method(SpanTest, createUI, void), "java.lang.Exception"},
-	{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(SpanTest, dispose, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(SpanTest, run, void)},
-	{"spanTest", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(SpanTest, spanTest, void), "java.lang.Exception"},
-	{}
-};
-
-$InnerClassInfo _SpanTest_InnerClassesInfo_[] = {
-	{"SpanTest$2", nullptr, nullptr, 0},
-	{"SpanTest$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _SpanTest_ClassInfo_ = {
-	$ACC_SUPER,
-	"SpanTest",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	_SpanTest_FieldInfo_,
-	_SpanTest_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SpanTest_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"SpanTest$2,SpanTest$1"
-};
-
-$Object* allocate$SpanTest($Class* clazz) {
-	return $of($alloc(SpanTest));
-}
 
 $JFrame* SpanTest::f = nullptr;
 $JDialog* SpanTest::dialog = nullptr;
@@ -75,7 +30,7 @@ void SpanTest::init$($CountDownLatch* latch) {
 }
 
 void SpanTest::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		createUI();
 		spanTest();
@@ -88,10 +43,10 @@ void SpanTest::run() {
 
 void SpanTest::dispose() {
 	if (SpanTest::dialog != nullptr) {
-		$nc(SpanTest::dialog)->dispose();
+		SpanTest::dialog->dispose();
 	}
 	if (SpanTest::f != nullptr) {
-		$nc(SpanTest::f)->dispose();
+		SpanTest::f->dispose();
 	}
 }
 
@@ -108,7 +63,43 @@ SpanTest::SpanTest() {
 }
 
 $Class* SpanTest::load$($String* name, bool initialize) {
-	$loadClass(SpanTest, name, initialize, &_SpanTest_ClassInfo_, allocate$SpanTest);
+	$FieldInfo fieldInfos$$[] = {
+		{"f", "Ljavax/swing/JFrame;", nullptr, $STATIC, $staticField(SpanTest, f)},
+		{"dialog", "Ljavax/swing/JDialog;", nullptr, $STATIC, $staticField(SpanTest, dialog)},
+		{"testResult", "Z", nullptr, $PUBLIC, $field(SpanTest, testResult)},
+		{"latch", "Ljava/util/concurrent/CountDownLatch;", nullptr, $PRIVATE | $FINAL, $field(SpanTest, latch)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/concurrent/CountDownLatch;)V", nullptr, $PUBLIC, $method(SpanTest, init$, void, $CountDownLatch*), "java.lang.Exception"},
+		{"createUI", "()V", nullptr, $PRIVATE | $FINAL, $method(SpanTest, createUI, void), "java.lang.Exception"},
+		{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(SpanTest, dispose, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(SpanTest, run, void)},
+		{"spanTest", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(SpanTest, spanTest, void), "java.lang.Exception"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"SpanTest$2", nullptr, nullptr, 0},
+		{"SpanTest$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"SpanTest",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"SpanTest$2,SpanTest$1"
+	};
+	$loadClass(SpanTest, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SpanTest);
+	});
 	return class$;
 }
 

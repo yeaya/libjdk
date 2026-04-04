@@ -1,5 +1,4 @@
 #include <javax/swing/RowFilter.h>
-
 #include <java/lang/Iterable.h>
 #include <java/lang/Number.h>
 #include <java/util/Date.h>
@@ -33,52 +32,6 @@ using $RowFilter$RegexFilter = ::javax::swing::RowFilter$RegexFilter;
 
 namespace javax {
 	namespace swing {
-
-$MethodInfo _RowFilter_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(RowFilter, init$, void)},
-	{"andFilter", "(Ljava/lang/Iterable;)Ljavax/swing/RowFilter;", "<M:Ljava/lang/Object;I:Ljava/lang/Object;>(Ljava/lang/Iterable<+Ljavax/swing/RowFilter<-TM;-TI;>;>;)Ljavax/swing/RowFilter<TM;TI;>;", $PUBLIC | $STATIC, $staticMethod(RowFilter, andFilter, RowFilter*, $Iterable*)},
-	{"checkIndices", "([I)V", nullptr, $PRIVATE | $STATIC, $staticMethod(RowFilter, checkIndices, void, $ints*)},
-	{"dateFilter", "(Ljavax/swing/RowFilter$ComparisonType;Ljava/util/Date;[I)Ljavax/swing/RowFilter;", "<M:Ljava/lang/Object;I:Ljava/lang/Object;>(Ljavax/swing/RowFilter$ComparisonType;Ljava/util/Date;[I)Ljavax/swing/RowFilter<TM;TI;>;", $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(RowFilter, dateFilter, RowFilter*, $RowFilter$ComparisonType*, $Date*, $ints*)},
-	{"include", "(Ljavax/swing/RowFilter$Entry;)Z", "(Ljavax/swing/RowFilter$Entry<+TM;+TI;>;)Z", $PUBLIC | $ABSTRACT, $virtualMethod(RowFilter, include, bool, $RowFilter$Entry*)},
-	{"notFilter", "(Ljavax/swing/RowFilter;)Ljavax/swing/RowFilter;", "<M:Ljava/lang/Object;I:Ljava/lang/Object;>(Ljavax/swing/RowFilter<TM;TI;>;)Ljavax/swing/RowFilter<TM;TI;>;", $PUBLIC | $STATIC, $staticMethod(RowFilter, notFilter, RowFilter*, RowFilter*)},
-	{"numberFilter", "(Ljavax/swing/RowFilter$ComparisonType;Ljava/lang/Number;[I)Ljavax/swing/RowFilter;", "<M:Ljava/lang/Object;I:Ljava/lang/Object;>(Ljavax/swing/RowFilter$ComparisonType;Ljava/lang/Number;[I)Ljavax/swing/RowFilter<TM;TI;>;", $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(RowFilter, numberFilter, RowFilter*, $RowFilter$ComparisonType*, $Number*, $ints*)},
-	{"orFilter", "(Ljava/lang/Iterable;)Ljavax/swing/RowFilter;", "<M:Ljava/lang/Object;I:Ljava/lang/Object;>(Ljava/lang/Iterable<+Ljavax/swing/RowFilter<-TM;-TI;>;>;)Ljavax/swing/RowFilter<TM;TI;>;", $PUBLIC | $STATIC, $staticMethod(RowFilter, orFilter, RowFilter*, $Iterable*)},
-	{"regexFilter", "(Ljava/lang/String;[I)Ljavax/swing/RowFilter;", "<M:Ljava/lang/Object;I:Ljava/lang/Object;>(Ljava/lang/String;[I)Ljavax/swing/RowFilter<TM;TI;>;", $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(RowFilter, regexFilter, RowFilter*, $String*, $ints*)},
-	{}
-};
-
-$InnerClassInfo _RowFilter_InnerClassesInfo_[] = {
-	{"javax.swing.RowFilter$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{"javax.swing.RowFilter$NotFilter", "javax.swing.RowFilter", "NotFilter", $PRIVATE | $STATIC},
-	{"javax.swing.RowFilter$AndFilter", "javax.swing.RowFilter", "AndFilter", $PRIVATE | $STATIC},
-	{"javax.swing.RowFilter$OrFilter", "javax.swing.RowFilter", "OrFilter", $PRIVATE | $STATIC},
-	{"javax.swing.RowFilter$NumberFilter", "javax.swing.RowFilter", "NumberFilter", $PRIVATE | $STATIC},
-	{"javax.swing.RowFilter$DateFilter", "javax.swing.RowFilter", "DateFilter", $PRIVATE | $STATIC},
-	{"javax.swing.RowFilter$RegexFilter", "javax.swing.RowFilter", "RegexFilter", $PRIVATE | $STATIC},
-	{"javax.swing.RowFilter$GeneralFilter", "javax.swing.RowFilter", "GeneralFilter", $PRIVATE | $STATIC | $ABSTRACT},
-	{"javax.swing.RowFilter$Entry", "javax.swing.RowFilter", "Entry", $PUBLIC | $STATIC | $ABSTRACT},
-	{"javax.swing.RowFilter$ComparisonType", "javax.swing.RowFilter", "ComparisonType", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _RowFilter_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"javax.swing.RowFilter",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_RowFilter_MethodInfo_,
-	"<M:Ljava/lang/Object;I:Ljava/lang/Object;>Ljava/lang/Object;",
-	nullptr,
-	_RowFilter_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.swing.RowFilter$1,javax.swing.RowFilter$NotFilter,javax.swing.RowFilter$AndFilter,javax.swing.RowFilter$OrFilter,javax.swing.RowFilter$NumberFilter,javax.swing.RowFilter$DateFilter,javax.swing.RowFilter$RegexFilter,javax.swing.RowFilter$GeneralFilter,javax.swing.RowFilter$Entry,javax.swing.RowFilter$ComparisonType"
-};
-
-$Object* allocate$RowFilter($Class* clazz) {
-	return $of($alloc(RowFilter));
-}
 
 void RowFilter::init$() {
 }
@@ -119,7 +72,48 @@ RowFilter::RowFilter() {
 }
 
 $Class* RowFilter::load$($String* name, bool initialize) {
-	$loadClass(RowFilter, name, initialize, &_RowFilter_ClassInfo_, allocate$RowFilter);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PROTECTED, $method(RowFilter, init$, void)},
+		{"andFilter", "(Ljava/lang/Iterable;)Ljavax/swing/RowFilter;", "<M:Ljava/lang/Object;I:Ljava/lang/Object;>(Ljava/lang/Iterable<+Ljavax/swing/RowFilter<-TM;-TI;>;>;)Ljavax/swing/RowFilter<TM;TI;>;", $PUBLIC | $STATIC, $staticMethod(RowFilter, andFilter, RowFilter*, $Iterable*)},
+		{"checkIndices", "([I)V", nullptr, $PRIVATE | $STATIC, $staticMethod(RowFilter, checkIndices, void, $ints*)},
+		{"dateFilter", "(Ljavax/swing/RowFilter$ComparisonType;Ljava/util/Date;[I)Ljavax/swing/RowFilter;", "<M:Ljava/lang/Object;I:Ljava/lang/Object;>(Ljavax/swing/RowFilter$ComparisonType;Ljava/util/Date;[I)Ljavax/swing/RowFilter<TM;TI;>;", $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(RowFilter, dateFilter, RowFilter*, $RowFilter$ComparisonType*, $Date*, $ints*)},
+		{"include", "(Ljavax/swing/RowFilter$Entry;)Z", "(Ljavax/swing/RowFilter$Entry<+TM;+TI;>;)Z", $PUBLIC | $ABSTRACT, $virtualMethod(RowFilter, include, bool, $RowFilter$Entry*)},
+		{"notFilter", "(Ljavax/swing/RowFilter;)Ljavax/swing/RowFilter;", "<M:Ljava/lang/Object;I:Ljava/lang/Object;>(Ljavax/swing/RowFilter<TM;TI;>;)Ljavax/swing/RowFilter<TM;TI;>;", $PUBLIC | $STATIC, $staticMethod(RowFilter, notFilter, RowFilter*, RowFilter*)},
+		{"numberFilter", "(Ljavax/swing/RowFilter$ComparisonType;Ljava/lang/Number;[I)Ljavax/swing/RowFilter;", "<M:Ljava/lang/Object;I:Ljava/lang/Object;>(Ljavax/swing/RowFilter$ComparisonType;Ljava/lang/Number;[I)Ljavax/swing/RowFilter<TM;TI;>;", $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(RowFilter, numberFilter, RowFilter*, $RowFilter$ComparisonType*, $Number*, $ints*)},
+		{"orFilter", "(Ljava/lang/Iterable;)Ljavax/swing/RowFilter;", "<M:Ljava/lang/Object;I:Ljava/lang/Object;>(Ljava/lang/Iterable<+Ljavax/swing/RowFilter<-TM;-TI;>;>;)Ljavax/swing/RowFilter<TM;TI;>;", $PUBLIC | $STATIC, $staticMethod(RowFilter, orFilter, RowFilter*, $Iterable*)},
+		{"regexFilter", "(Ljava/lang/String;[I)Ljavax/swing/RowFilter;", "<M:Ljava/lang/Object;I:Ljava/lang/Object;>(Ljava/lang/String;[I)Ljavax/swing/RowFilter<TM;TI;>;", $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(RowFilter, regexFilter, RowFilter*, $String*, $ints*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.RowFilter$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{"javax.swing.RowFilter$NotFilter", "javax.swing.RowFilter", "NotFilter", $PRIVATE | $STATIC},
+		{"javax.swing.RowFilter$AndFilter", "javax.swing.RowFilter", "AndFilter", $PRIVATE | $STATIC},
+		{"javax.swing.RowFilter$OrFilter", "javax.swing.RowFilter", "OrFilter", $PRIVATE | $STATIC},
+		{"javax.swing.RowFilter$NumberFilter", "javax.swing.RowFilter", "NumberFilter", $PRIVATE | $STATIC},
+		{"javax.swing.RowFilter$DateFilter", "javax.swing.RowFilter", "DateFilter", $PRIVATE | $STATIC},
+		{"javax.swing.RowFilter$RegexFilter", "javax.swing.RowFilter", "RegexFilter", $PRIVATE | $STATIC},
+		{"javax.swing.RowFilter$GeneralFilter", "javax.swing.RowFilter", "GeneralFilter", $PRIVATE | $STATIC | $ABSTRACT},
+		{"javax.swing.RowFilter$Entry", "javax.swing.RowFilter", "Entry", $PUBLIC | $STATIC | $ABSTRACT},
+		{"javax.swing.RowFilter$ComparisonType", "javax.swing.RowFilter", "ComparisonType", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"javax.swing.RowFilter",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		"<M:Ljava/lang/Object;I:Ljava/lang/Object;>Ljava/lang/Object;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.swing.RowFilter$1,javax.swing.RowFilter$NotFilter,javax.swing.RowFilter$AndFilter,javax.swing.RowFilter$OrFilter,javax.swing.RowFilter$NumberFilter,javax.swing.RowFilter$DateFilter,javax.swing.RowFilter$RegexFilter,javax.swing.RowFilter$GeneralFilter,javax.swing.RowFilter$Entry,javax.swing.RowFilter$ComparisonType"
+	};
+	$loadClass(RowFilter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RowFilter);
+	});
 	return class$;
 }
 

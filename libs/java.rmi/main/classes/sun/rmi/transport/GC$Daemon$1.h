@@ -13,6 +13,7 @@ class GC$Daemon$1 : public ::java::security::PrivilegedAction {
 	$class(GC$Daemon$1, 0, ::java::security::PrivilegedAction)
 public:
 	GC$Daemon$1();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual $Object* run() override;
 	static bool $assertionsDisabled;

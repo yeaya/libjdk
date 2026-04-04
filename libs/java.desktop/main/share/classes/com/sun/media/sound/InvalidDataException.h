@@ -19,7 +19,10 @@ public:
 	static const int64_t serialVersionUID = (int64_t)1;
 	InvalidDataException(const InvalidDataException& e);
 	virtual void throw$() override;
-	inline InvalidDataException* operator ->() {
+	inline InvalidDataException* operator ->() const {
+		return (InvalidDataException*)throwing$;
+	}
+	inline operator InvalidDataException*() const {
 		return (InvalidDataException*)throwing$;
 	}
 };

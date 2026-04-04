@@ -1,8 +1,6 @@
 #include <apple/laf/JRSUIUtils.h>
-
 #include <java/lang/NumberFormatException.h>
 #include <java/security/AccessController.h>
-#include <java/security/PrivilegedAction.h>
 #include <sun/security/action/GetPropertyAction.h>
 #include <jcpp.h>
 
@@ -13,59 +11,10 @@ using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NumberFormatException = ::java::lang::NumberFormatException;
 using $AccessController = ::java::security::AccessController;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $GetPropertyAction = ::sun::security::action::GetPropertyAction;
 
 namespace apple {
 	namespace laf {
-
-$FieldInfo _JRSUIUtils_FieldInfo_[] = {
-	{"isLeopard", "Z", nullptr, $STATIC, $staticField(JRSUIUtils, isLeopard)},
-	{"isSnowLeopardOrBelow", "Z", nullptr, $STATIC, $staticField(JRSUIUtils, isSnowLeopardOrBelow)},
-	{}
-};
-
-$MethodInfo _JRSUIUtils_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(JRSUIUtils, init$, void)},
-	{"currentMacOSXVersionMatchesGivenVersionRange", "(IZZZ)Z", nullptr, $STATIC, $staticMethod(JRSUIUtils, currentMacOSXVersionMatchesGivenVersionRange, bool, int32_t, bool, bool, bool)},
-	{"currentMacOSXVersionMatchesGivenVersionRange", "(IIZZZ)Z", nullptr, $STATIC, $staticMethod(JRSUIUtils, currentMacOSXVersionMatchesGivenVersionRange, bool, int32_t, int32_t, bool, bool, bool)},
-	{"isCurrentMacOSXVersion", "(I)Z", nullptr, $STATIC, $staticMethod(JRSUIUtils, isCurrentMacOSXVersion, bool, int32_t)},
-	{"isCurrentMacOSXVersion", "(II)Z", nullptr, $STATIC, $staticMethod(JRSUIUtils, isCurrentMacOSXVersion, bool, int32_t, int32_t)},
-	{"isMacOSXBigSurOrAbove", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(JRSUIUtils, isMacOSXBigSurOrAbove, bool)},
-	{"isMacOSXLeopard", "()Z", nullptr, $STATIC, $staticMethod(JRSUIUtils, isMacOSXLeopard, bool)},
-	{"isMacOSXSnowLeopardOrBelow", "()Z", nullptr, $STATIC, $staticMethod(JRSUIUtils, isMacOSXSnowLeopardOrBelow, bool)},
-	{}
-};
-
-$InnerClassInfo _JRSUIUtils_InnerClassesInfo_[] = {
-	{"apple.laf.JRSUIUtils$NineSliceMetricsProvider", "apple.laf.JRSUIUtils", "NineSliceMetricsProvider", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"apple.laf.JRSUIUtils$HitDetection", "apple.laf.JRSUIUtils", "HitDetection", $PUBLIC | $STATIC},
-	{"apple.laf.JRSUIUtils$Images", "apple.laf.JRSUIUtils", "Images", $PUBLIC | $STATIC},
-	{"apple.laf.JRSUIUtils$ScrollBar", "apple.laf.JRSUIUtils", "ScrollBar", $PUBLIC | $STATIC},
-	{"apple.laf.JRSUIUtils$Tree", "apple.laf.JRSUIUtils", "Tree", $PUBLIC | $STATIC},
-	{"apple.laf.JRSUIUtils$InternalFrame", "apple.laf.JRSUIUtils", "InternalFrame", $PUBLIC | $STATIC},
-	{"apple.laf.JRSUIUtils$TabbedPane", "apple.laf.JRSUIUtils", "TabbedPane", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _JRSUIUtils_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"apple.laf.JRSUIUtils",
-	"java.lang.Object",
-	nullptr,
-	_JRSUIUtils_FieldInfo_,
-	_JRSUIUtils_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JRSUIUtils_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"apple.laf.JRSUIUtils$NineSliceMetricsProvider,apple.laf.JRSUIUtils$HitDetection,apple.laf.JRSUIUtils$Images,apple.laf.JRSUIUtils$ScrollBar,apple.laf.JRSUIUtils$Tree,apple.laf.JRSUIUtils$InternalFrame,apple.laf.JRSUIUtils$TabbedPane"
-};
-
-$Object* allocate$JRSUIUtils($Class* clazz) {
-	return $of($alloc(JRSUIUtils));
-}
 
 bool JRSUIUtils::isLeopard = false;
 bool JRSUIUtils::isSnowLeopardOrBelow = false;
@@ -105,9 +54,9 @@ bool JRSUIUtils::currentMacOSXVersionMatchesGivenVersionRange(int32_t version, b
 
 bool JRSUIUtils::currentMacOSXVersionMatchesGivenVersionRange(int32_t majorVersion, int32_t minorVersion, bool inclusive, bool matchBelow, bool matchAbove) {
 	$init(JRSUIUtils);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
-	$var($String, osVersion, $cast($String, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($GetPropertyAction, "os.version"_s)))));
+	$var($String, osVersion, $cast($String, $AccessController::doPrivileged($$new($GetPropertyAction, "os.version"_s))));
 	$var($StringArray, fragments, $nc(osVersion)->split("\\."_s));
 	if (fragments->length < 2) {
 		return false;
@@ -129,7 +78,7 @@ bool JRSUIUtils::currentMacOSXVersionMatchesGivenVersionRange(int32_t majorVersi
 	return false;
 }
 
-void clinit$JRSUIUtils($Class* class$) {
+void JRSUIUtils::clinit$($Class* clazz) {
 	JRSUIUtils::isLeopard = JRSUIUtils::isMacOSXLeopard();
 	JRSUIUtils::isSnowLeopardOrBelow = JRSUIUtils::isMacOSXSnowLeopardOrBelow();
 }
@@ -138,7 +87,49 @@ JRSUIUtils::JRSUIUtils() {
 }
 
 $Class* JRSUIUtils::load$($String* name, bool initialize) {
-	$loadClass(JRSUIUtils, name, initialize, &_JRSUIUtils_ClassInfo_, clinit$JRSUIUtils, allocate$JRSUIUtils);
+	$FieldInfo fieldInfos$$[] = {
+		{"isLeopard", "Z", nullptr, $STATIC, $staticField(JRSUIUtils, isLeopard)},
+		{"isSnowLeopardOrBelow", "Z", nullptr, $STATIC, $staticField(JRSUIUtils, isSnowLeopardOrBelow)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(JRSUIUtils, init$, void)},
+		{"currentMacOSXVersionMatchesGivenVersionRange", "(IZZZ)Z", nullptr, $STATIC, $staticMethod(JRSUIUtils, currentMacOSXVersionMatchesGivenVersionRange, bool, int32_t, bool, bool, bool)},
+		{"currentMacOSXVersionMatchesGivenVersionRange", "(IIZZZ)Z", nullptr, $STATIC, $staticMethod(JRSUIUtils, currentMacOSXVersionMatchesGivenVersionRange, bool, int32_t, int32_t, bool, bool, bool)},
+		{"isCurrentMacOSXVersion", "(I)Z", nullptr, $STATIC, $staticMethod(JRSUIUtils, isCurrentMacOSXVersion, bool, int32_t)},
+		{"isCurrentMacOSXVersion", "(II)Z", nullptr, $STATIC, $staticMethod(JRSUIUtils, isCurrentMacOSXVersion, bool, int32_t, int32_t)},
+		{"isMacOSXBigSurOrAbove", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(JRSUIUtils, isMacOSXBigSurOrAbove, bool)},
+		{"isMacOSXLeopard", "()Z", nullptr, $STATIC, $staticMethod(JRSUIUtils, isMacOSXLeopard, bool)},
+		{"isMacOSXSnowLeopardOrBelow", "()Z", nullptr, $STATIC, $staticMethod(JRSUIUtils, isMacOSXSnowLeopardOrBelow, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"apple.laf.JRSUIUtils$NineSliceMetricsProvider", "apple.laf.JRSUIUtils", "NineSliceMetricsProvider", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"apple.laf.JRSUIUtils$HitDetection", "apple.laf.JRSUIUtils", "HitDetection", $PUBLIC | $STATIC},
+		{"apple.laf.JRSUIUtils$Images", "apple.laf.JRSUIUtils", "Images", $PUBLIC | $STATIC},
+		{"apple.laf.JRSUIUtils$ScrollBar", "apple.laf.JRSUIUtils", "ScrollBar", $PUBLIC | $STATIC},
+		{"apple.laf.JRSUIUtils$Tree", "apple.laf.JRSUIUtils", "Tree", $PUBLIC | $STATIC},
+		{"apple.laf.JRSUIUtils$InternalFrame", "apple.laf.JRSUIUtils", "InternalFrame", $PUBLIC | $STATIC},
+		{"apple.laf.JRSUIUtils$TabbedPane", "apple.laf.JRSUIUtils", "TabbedPane", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"apple.laf.JRSUIUtils",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"apple.laf.JRSUIUtils$NineSliceMetricsProvider,apple.laf.JRSUIUtils$HitDetection,apple.laf.JRSUIUtils$Images,apple.laf.JRSUIUtils$ScrollBar,apple.laf.JRSUIUtils$Tree,apple.laf.JRSUIUtils$InternalFrame,apple.laf.JRSUIUtils$TabbedPane"
+	};
+	$loadClass(JRSUIUtils, name, initialize, &classInfo$$, JRSUIUtils::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(JRSUIUtils);
+	});
 	return class$;
 }
 

@@ -30,6 +30,7 @@ class $export Dependencies$GraphDependencies$DependenciesMode : public ::java::l
 public:
 	Dependencies$GraphDependencies$DependenciesMode();
 	static $Array<::com::sun::tools::javac::util::Dependencies$GraphDependencies$DependenciesMode>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal, $String* opt);
 	static ::java::util::EnumSet* getDependenciesModes($StringArray* modes);
 	static ::com::sun::tools::javac::util::Dependencies$GraphDependencies$DependenciesMode* valueOf($String* name);

@@ -1,5 +1,4 @@
 #include <sun/font/CMap$CMapFormat6.h>
-
 #include <java/nio/ByteBuffer.h>
 #include <java/nio/CharBuffer.h>
 #include <sun/font/CMap.h>
@@ -15,44 +14,6 @@ using $CMap = ::sun::font::CMap;
 
 namespace sun {
 	namespace font {
-
-$FieldInfo _CMap$CMapFormat6_FieldInfo_[] = {
-	{"firstCode", "C", nullptr, 0, $field(CMap$CMapFormat6, firstCode)},
-	{"entryCount", "C", nullptr, 0, $field(CMap$CMapFormat6, entryCount)},
-	{"glyphIdArray", "[C", nullptr, 0, $field(CMap$CMapFormat6, glyphIdArray)},
-	{}
-};
-
-$MethodInfo _CMap$CMapFormat6_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/ByteBuffer;I[C)V", nullptr, 0, $method(CMap$CMapFormat6, init$, void, $ByteBuffer*, int32_t, $chars*)},
-	{"getGlyph", "(I)C", nullptr, 0, $virtualMethod(CMap$CMapFormat6, getGlyph, char16_t, int32_t)},
-	{}
-};
-
-$InnerClassInfo _CMap$CMapFormat6_InnerClassesInfo_[] = {
-	{"sun.font.CMap$CMapFormat6", "sun.font.CMap", "CMapFormat6", $STATIC},
-	{}
-};
-
-$ClassInfo _CMap$CMapFormat6_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.font.CMap$CMapFormat6",
-	"sun.font.CMap",
-	nullptr,
-	_CMap$CMapFormat6_FieldInfo_,
-	_CMap$CMapFormat6_MethodInfo_,
-	nullptr,
-	nullptr,
-	_CMap$CMapFormat6_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.font.CMap"
-};
-
-$Object* allocate$CMap$CMapFormat6($Class* clazz) {
-	return $of($alloc(CMap$CMapFormat6));
-}
 
 void CMap$CMapFormat6::init$($ByteBuffer* bbuffer, int32_t offset, $chars* xlat) {
 	$CMap::init$();
@@ -73,7 +34,7 @@ char16_t CMap$CMapFormat6::getGlyph(int32_t charCode) {
 		return (char16_t)controlGlyph;
 	}
 	if (this->xlat != nullptr) {
-		charCode = $nc(this->xlat)->get(charCode);
+		charCode = this->xlat->get(charCode);
 	}
 	charCode -= this->firstCode;
 	if (charCode < 0 || charCode >= this->entryCount) {
@@ -87,7 +48,39 @@ CMap$CMapFormat6::CMap$CMapFormat6() {
 }
 
 $Class* CMap$CMapFormat6::load$($String* name, bool initialize) {
-	$loadClass(CMap$CMapFormat6, name, initialize, &_CMap$CMapFormat6_ClassInfo_, allocate$CMap$CMapFormat6);
+	$FieldInfo fieldInfos$$[] = {
+		{"firstCode", "C", nullptr, 0, $field(CMap$CMapFormat6, firstCode)},
+		{"entryCount", "C", nullptr, 0, $field(CMap$CMapFormat6, entryCount)},
+		{"glyphIdArray", "[C", nullptr, 0, $field(CMap$CMapFormat6, glyphIdArray)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/nio/ByteBuffer;I[C)V", nullptr, 0, $method(CMap$CMapFormat6, init$, void, $ByteBuffer*, int32_t, $chars*)},
+		{"getGlyph", "(I)C", nullptr, 0, $virtualMethod(CMap$CMapFormat6, getGlyph, char16_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.font.CMap$CMapFormat6", "sun.font.CMap", "CMapFormat6", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.font.CMap$CMapFormat6",
+		"sun.font.CMap",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.font.CMap"
+	};
+	$loadClass(CMap$CMapFormat6, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CMap$CMapFormat6);
+	});
 	return class$;
 }
 

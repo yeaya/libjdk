@@ -1,5 +1,4 @@
 #include <javax/swing/text/DefaultCaret$DefaultFilterBypass.h>
-
 #include <javax/swing/text/Caret.h>
 #include <javax/swing/text/DefaultCaret.h>
 #include <javax/swing/text/NavigationFilter$FilterBypass.h>
@@ -18,45 +17,6 @@ using $Position$Bias = ::javax::swing::text::Position$Bias;
 namespace javax {
 	namespace swing {
 		namespace text {
-
-$FieldInfo _DefaultCaret$DefaultFilterBypass_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/text/DefaultCaret;", nullptr, $FINAL | $SYNTHETIC, $field(DefaultCaret$DefaultFilterBypass, this$0)},
-	{}
-};
-
-$MethodInfo _DefaultCaret$DefaultFilterBypass_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/text/DefaultCaret;)V", nullptr, $PRIVATE, $method(DefaultCaret$DefaultFilterBypass, init$, void, $DefaultCaret*)},
-	{"getCaret", "()Ljavax/swing/text/Caret;", nullptr, $PUBLIC, $virtualMethod(DefaultCaret$DefaultFilterBypass, getCaret, $Caret*)},
-	{"moveDot", "(ILjavax/swing/text/Position$Bias;)V", nullptr, $PUBLIC, $virtualMethod(DefaultCaret$DefaultFilterBypass, moveDot, void, int32_t, $Position$Bias*)},
-	{"setDot", "(ILjavax/swing/text/Position$Bias;)V", nullptr, $PUBLIC, $virtualMethod(DefaultCaret$DefaultFilterBypass, setDot, void, int32_t, $Position$Bias*)},
-	{}
-};
-
-$InnerClassInfo _DefaultCaret$DefaultFilterBypass_InnerClassesInfo_[] = {
-	{"javax.swing.text.DefaultCaret$DefaultFilterBypass", "javax.swing.text.DefaultCaret", "DefaultFilterBypass", $PRIVATE},
-	{"javax.swing.text.NavigationFilter$FilterBypass", "javax.swing.text.NavigationFilter", "FilterBypass", $PUBLIC | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _DefaultCaret$DefaultFilterBypass_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.text.DefaultCaret$DefaultFilterBypass",
-	"javax.swing.text.NavigationFilter$FilterBypass",
-	nullptr,
-	_DefaultCaret$DefaultFilterBypass_FieldInfo_,
-	_DefaultCaret$DefaultFilterBypass_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DefaultCaret$DefaultFilterBypass_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.DefaultCaret"
-};
-
-$Object* allocate$DefaultCaret$DefaultFilterBypass($Class* clazz) {
-	return $of($alloc(DefaultCaret$DefaultFilterBypass));
-}
 
 void DefaultCaret$DefaultFilterBypass::init$($DefaultCaret* this$0) {
 	$set(this, this$0, this$0);
@@ -79,7 +39,40 @@ DefaultCaret$DefaultFilterBypass::DefaultCaret$DefaultFilterBypass() {
 }
 
 $Class* DefaultCaret$DefaultFilterBypass::load$($String* name, bool initialize) {
-	$loadClass(DefaultCaret$DefaultFilterBypass, name, initialize, &_DefaultCaret$DefaultFilterBypass_ClassInfo_, allocate$DefaultCaret$DefaultFilterBypass);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/text/DefaultCaret;", nullptr, $FINAL | $SYNTHETIC, $field(DefaultCaret$DefaultFilterBypass, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/text/DefaultCaret;)V", nullptr, $PRIVATE, $method(DefaultCaret$DefaultFilterBypass, init$, void, $DefaultCaret*)},
+		{"getCaret", "()Ljavax/swing/text/Caret;", nullptr, $PUBLIC, $virtualMethod(DefaultCaret$DefaultFilterBypass, getCaret, $Caret*)},
+		{"moveDot", "(ILjavax/swing/text/Position$Bias;)V", nullptr, $PUBLIC, $virtualMethod(DefaultCaret$DefaultFilterBypass, moveDot, void, int32_t, $Position$Bias*)},
+		{"setDot", "(ILjavax/swing/text/Position$Bias;)V", nullptr, $PUBLIC, $virtualMethod(DefaultCaret$DefaultFilterBypass, setDot, void, int32_t, $Position$Bias*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.DefaultCaret$DefaultFilterBypass", "javax.swing.text.DefaultCaret", "DefaultFilterBypass", $PRIVATE},
+		{"javax.swing.text.NavigationFilter$FilterBypass", "javax.swing.text.NavigationFilter", "FilterBypass", $PUBLIC | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.text.DefaultCaret$DefaultFilterBypass",
+		"javax.swing.text.NavigationFilter$FilterBypass",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.DefaultCaret"
+	};
+	$loadClass(DefaultCaret$DefaultFilterBypass, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DefaultCaret$DefaultFilterBypass);
+	});
 	return class$;
 }
 

@@ -47,6 +47,7 @@ class $import DefaultLookup : public ::java::lang::Object {
 	$class(DefaultLookup, 0, ::java::lang::Object)
 public:
 	DefaultLookup();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $Object* get(::javax::swing::JComponent* c, ::javax::swing::plaf::ComponentUI* ui, $String* key);
 	static bool getBoolean(::javax::swing::JComponent* c, ::javax::swing::plaf::ComponentUI* ui, $String* key, bool defaultValue);

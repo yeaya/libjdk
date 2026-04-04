@@ -111,7 +111,7 @@ public:
 	virtual $String* str() override;
 	using ::com::sun::org::apache::xpath::internal::objects::XObject::xstr;
 	virtual ::com::sun::org::apache::xml::internal::utils::XMLString* xstr() override;
-	static const int64_t serialVersionUID = (int64_t)0xD391CBC2DF33AFB1;
+	static const int64_t serialVersionUID = (int64_t)0xd391cbc2df33afb1;
 	::com::sun::org::apache::xpath::internal::objects::DTMXRTreeFrag* m_DTMXRTreeFrag = nullptr;
 	int32_t m_dtmRoot = 0;
 	bool m_allowRelease = false;

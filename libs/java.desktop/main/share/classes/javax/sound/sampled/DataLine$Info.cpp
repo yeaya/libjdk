@@ -1,5 +1,4 @@
 #include <javax/sound/sampled/DataLine$Info.h>
-
 #include <java/util/Arrays.h>
 #include <javax/sound/sampled/AudioFormat.h>
 #include <javax/sound/sampled/AudioSystem.h>
@@ -23,58 +22,12 @@ namespace javax {
 	namespace sound {
 		namespace sampled {
 
-$FieldInfo _DataLine$Info_FieldInfo_[] = {
-	{"formats", "[Ljavax/sound/sampled/AudioFormat;", nullptr, $PRIVATE | $FINAL, $field(DataLine$Info, formats)},
-	{"minBufferSize", "I", nullptr, $PRIVATE | $FINAL, $field(DataLine$Info, minBufferSize)},
-	{"maxBufferSize", "I", nullptr, $PRIVATE | $FINAL, $field(DataLine$Info, maxBufferSize)},
-	{}
-};
-
-$MethodInfo _DataLine$Info_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Class;[Ljavax/sound/sampled/AudioFormat;II)V", "(Ljava/lang/Class<*>;[Ljavax/sound/sampled/AudioFormat;II)V", $PUBLIC, $method(DataLine$Info, init$, void, $Class*, $AudioFormatArray*, int32_t, int32_t)},
-	{"<init>", "(Ljava/lang/Class;Ljavax/sound/sampled/AudioFormat;I)V", "(Ljava/lang/Class<*>;Ljavax/sound/sampled/AudioFormat;I)V", $PUBLIC, $method(DataLine$Info, init$, void, $Class*, $AudioFormat*, int32_t)},
-	{"<init>", "(Ljava/lang/Class;Ljavax/sound/sampled/AudioFormat;)V", "(Ljava/lang/Class<*>;Ljavax/sound/sampled/AudioFormat;)V", $PUBLIC, $method(DataLine$Info, init$, void, $Class*, $AudioFormat*)},
-	{"getFormats", "()[Ljavax/sound/sampled/AudioFormat;", nullptr, $PUBLIC, $virtualMethod(DataLine$Info, getFormats, $AudioFormatArray*)},
-	{"getMaxBufferSize", "()I", nullptr, $PUBLIC, $virtualMethod(DataLine$Info, getMaxBufferSize, int32_t)},
-	{"getMinBufferSize", "()I", nullptr, $PUBLIC, $virtualMethod(DataLine$Info, getMinBufferSize, int32_t)},
-	{"isFormatSupported", "(Ljavax/sound/sampled/AudioFormat;)Z", nullptr, $PUBLIC, $virtualMethod(DataLine$Info, isFormatSupported, bool, $AudioFormat*)},
-	{"matches", "(Ljavax/sound/sampled/Line$Info;)Z", nullptr, $PUBLIC, $virtualMethod(DataLine$Info, matches, bool, $Line$Info*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DataLine$Info, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _DataLine$Info_InnerClassesInfo_[] = {
-	{"javax.sound.sampled.DataLine$Info", "javax.sound.sampled.DataLine", "Info", $PUBLIC | $STATIC},
-	{"javax.sound.sampled.Line$Info", "javax.sound.sampled.Line", "Info", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _DataLine$Info_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.sound.sampled.DataLine$Info",
-	"javax.sound.sampled.Line$Info",
-	nullptr,
-	_DataLine$Info_FieldInfo_,
-	_DataLine$Info_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DataLine$Info_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.sound.sampled.DataLine"
-};
-
-$Object* allocate$DataLine$Info($Class* clazz) {
-	return $of($alloc(DataLine$Info));
-}
-
 void DataLine$Info::init$($Class* lineClass, $AudioFormatArray* formats, int32_t minBufferSize, int32_t maxBufferSize) {
 	$Line$Info::init$(lineClass);
 	if (formats == nullptr) {
 		$set(this, formats, $new($AudioFormatArray, 0));
 	} else {
-		$set(this, formats, $fcast($AudioFormatArray, $Arrays::copyOf(formats, $nc(formats)->length)));
+		$set(this, formats, $cast($AudioFormatArray, $Arrays::copyOf(formats, formats->length)));
 	}
 	this->minBufferSize = minBufferSize;
 	this->maxBufferSize = maxBufferSize;
@@ -96,12 +49,12 @@ void DataLine$Info::init$($Class* lineClass, $AudioFormat* format) {
 }
 
 $AudioFormatArray* DataLine$Info::getFormats() {
-	return $fcast($AudioFormatArray, $Arrays::copyOf(this->formats, $nc(this->formats)->length));
+	return $cast($AudioFormatArray, $Arrays::copyOf(this->formats, $nc(this->formats)->length));
 }
 
 bool DataLine$Info::isFormatSupported($AudioFormat* format) {
 	for (int32_t i = 0; i < $nc(this->formats)->length; ++i) {
-		if ($nc(format)->matches($nc(this->formats)->get(i))) {
+		if ($nc(format)->matches(this->formats->get(i))) {
 			return true;
 		}
 	}
@@ -117,19 +70,19 @@ int32_t DataLine$Info::getMaxBufferSize() {
 }
 
 bool DataLine$Info::matches($Line$Info* info) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!($Line$Info::matches(info))) {
 		return false;
 	}
 	$var(DataLine$Info, dataLineInfo, $cast(DataLine$Info, info));
-	bool var$0 = (getMaxBufferSize() >= 0);
+	bool var$0 = getMaxBufferSize() >= 0;
 	if (var$0 && ($nc(dataLineInfo)->getMaxBufferSize() >= 0)) {
 		int32_t var$1 = getMaxBufferSize();
 		if (var$1 > dataLineInfo->getMaxBufferSize()) {
 			return false;
 		}
 	}
-	bool var$2 = (getMinBufferSize() >= 0);
+	bool var$2 = getMinBufferSize() >= 0;
 	if (var$2 && ($nc(dataLineInfo)->getMinBufferSize() >= 0)) {
 		int32_t var$3 = getMinBufferSize();
 		if (var$3 < dataLineInfo->getMinBufferSize()) {
@@ -150,7 +103,7 @@ bool DataLine$Info::matches($Line$Info* info) {
 }
 
 $String* DataLine$Info::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, format, ""_s);
 	$var($AudioFormatArray, formats, getFormats());
 	if ($nc(formats)->length == 1 && formats->get(0) != nullptr) {
@@ -169,9 +122,9 @@ $String* DataLine$Info::toString() {
 		$assign(buffers, $str({", and buffers of up to "_s, $$str(max), " bytes"_s}));
 	}
 	return $String::format("%s%s%s"_s, $$new($ObjectArray, {
-		$($of($Line$Info::toString())),
-		$of(format),
-		$of(buffers)
+		$($Line$Info::toString()),
+		format,
+		buffers
 	}));
 }
 
@@ -179,7 +132,47 @@ DataLine$Info::DataLine$Info() {
 }
 
 $Class* DataLine$Info::load$($String* name, bool initialize) {
-	$loadClass(DataLine$Info, name, initialize, &_DataLine$Info_ClassInfo_, allocate$DataLine$Info);
+	$FieldInfo fieldInfos$$[] = {
+		{"formats", "[Ljavax/sound/sampled/AudioFormat;", nullptr, $PRIVATE | $FINAL, $field(DataLine$Info, formats)},
+		{"minBufferSize", "I", nullptr, $PRIVATE | $FINAL, $field(DataLine$Info, minBufferSize)},
+		{"maxBufferSize", "I", nullptr, $PRIVATE | $FINAL, $field(DataLine$Info, maxBufferSize)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Class;[Ljavax/sound/sampled/AudioFormat;II)V", "(Ljava/lang/Class<*>;[Ljavax/sound/sampled/AudioFormat;II)V", $PUBLIC, $method(DataLine$Info, init$, void, $Class*, $AudioFormatArray*, int32_t, int32_t)},
+		{"<init>", "(Ljava/lang/Class;Ljavax/sound/sampled/AudioFormat;I)V", "(Ljava/lang/Class<*>;Ljavax/sound/sampled/AudioFormat;I)V", $PUBLIC, $method(DataLine$Info, init$, void, $Class*, $AudioFormat*, int32_t)},
+		{"<init>", "(Ljava/lang/Class;Ljavax/sound/sampled/AudioFormat;)V", "(Ljava/lang/Class<*>;Ljavax/sound/sampled/AudioFormat;)V", $PUBLIC, $method(DataLine$Info, init$, void, $Class*, $AudioFormat*)},
+		{"getFormats", "()[Ljavax/sound/sampled/AudioFormat;", nullptr, $PUBLIC, $virtualMethod(DataLine$Info, getFormats, $AudioFormatArray*)},
+		{"getMaxBufferSize", "()I", nullptr, $PUBLIC, $virtualMethod(DataLine$Info, getMaxBufferSize, int32_t)},
+		{"getMinBufferSize", "()I", nullptr, $PUBLIC, $virtualMethod(DataLine$Info, getMinBufferSize, int32_t)},
+		{"isFormatSupported", "(Ljavax/sound/sampled/AudioFormat;)Z", nullptr, $PUBLIC, $virtualMethod(DataLine$Info, isFormatSupported, bool, $AudioFormat*)},
+		{"matches", "(Ljavax/sound/sampled/Line$Info;)Z", nullptr, $PUBLIC, $virtualMethod(DataLine$Info, matches, bool, $Line$Info*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DataLine$Info, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.sound.sampled.DataLine$Info", "javax.sound.sampled.DataLine", "Info", $PUBLIC | $STATIC},
+		{"javax.sound.sampled.Line$Info", "javax.sound.sampled.Line", "Info", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.sound.sampled.DataLine$Info",
+		"javax.sound.sampled.Line$Info",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.sound.sampled.DataLine"
+	};
+	$loadClass(DataLine$Info, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DataLine$Info);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/code/SymbolMetadata.h>
-
 #include <com/sun/tools/javac/code/Attribute$Array.h>
 #include <com/sun/tools/javac/code/Attribute$Compound.h>
 #include <com/sun/tools/javac/code/Attribute$TypeCompound.h>
@@ -34,7 +33,6 @@ using $Flags = ::com::sun::tools::javac::code::Flags;
 using $Kinds$Kind = ::com::sun::tools::javac::code::Kinds$Kind;
 using $Symbol = ::com::sun::tools::javac::code::Symbol;
 using $Symbol$MethodSymbol = ::com::sun::tools::javac::code::Symbol$MethodSymbol;
-using $TargetType = ::com::sun::tools::javac::code::TargetType;
 using $Assert = ::com::sun::tools::javac::util::Assert;
 using $List = ::com::sun::tools::javac::util::List;
 using $ListBuffer = ::com::sun::tools::javac::util::ListBuffer;
@@ -52,57 +50,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace code {
-
-$FieldInfo _SymbolMetadata_FieldInfo_[] = {
-	{"DECL_NOT_STARTED", "Lcom/sun/tools/javac/util/List;", "Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute$Compound;>;", $PRIVATE | $STATIC | $FINAL, $staticField(SymbolMetadata, DECL_NOT_STARTED)},
-	{"DECL_IN_PROGRESS", "Lcom/sun/tools/javac/util/List;", "Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute$Compound;>;", $PRIVATE | $STATIC | $FINAL, $staticField(SymbolMetadata, DECL_IN_PROGRESS)},
-	{"attributes", "Lcom/sun/tools/javac/util/List;", "Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute$Compound;>;", $PRIVATE, $field(SymbolMetadata, attributes)},
-	{"type_attributes", "Lcom/sun/tools/javac/util/List;", "Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute$TypeCompound;>;", $PRIVATE, $field(SymbolMetadata, type_attributes)},
-	{"init_type_attributes", "Lcom/sun/tools/javac/util/List;", "Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute$TypeCompound;>;", $PRIVATE, $field(SymbolMetadata, init_type_attributes)},
-	{"clinit_type_attributes", "Lcom/sun/tools/javac/util/List;", "Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute$TypeCompound;>;", $PRIVATE, $field(SymbolMetadata, clinit_type_attributes)},
-	{"sym", "Lcom/sun/tools/javac/code/Symbol;", nullptr, $PRIVATE | $FINAL, $field(SymbolMetadata, sym)},
-	{}
-};
-
-$MethodInfo _SymbolMetadata_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, $method(SymbolMetadata, init$, void, $Symbol*)},
-	{"append", "(Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/code/SymbolMetadata;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute$Compound;>;)Lcom/sun/tools/javac/code/SymbolMetadata;", $PUBLIC, $virtualMethod(SymbolMetadata, append, SymbolMetadata*, $List*)},
-	{"appendClassInitTypeAttributes", "(Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/code/SymbolMetadata;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute$TypeCompound;>;)Lcom/sun/tools/javac/code/SymbolMetadata;", $PUBLIC, $virtualMethod(SymbolMetadata, appendClassInitTypeAttributes, SymbolMetadata*, $List*)},
-	{"appendInitTypeAttributes", "(Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/code/SymbolMetadata;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute$TypeCompound;>;)Lcom/sun/tools/javac/code/SymbolMetadata;", $PUBLIC, $virtualMethod(SymbolMetadata, appendInitTypeAttributes, SymbolMetadata*, $List*)},
-	{"appendUniqueTypes", "(Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/code/SymbolMetadata;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute$TypeCompound;>;)Lcom/sun/tools/javac/code/SymbolMetadata;", $PUBLIC, $virtualMethod(SymbolMetadata, appendUniqueTypes, SymbolMetadata*, $List*)},
-	{"filterDeclSentinels", "(Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute$Compound;>;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute$Compound;>;", $PRIVATE, $method(SymbolMetadata, filterDeclSentinels, $List*, $List*)},
-	{"getClassInitTypeAttributes", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute$TypeCompound;>;", $PUBLIC, $virtualMethod(SymbolMetadata, getClassInitTypeAttributes, $List*)},
-	{"getDeclarationAttributes", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute$Compound;>;", $PUBLIC, $virtualMethod(SymbolMetadata, getDeclarationAttributes, $List*)},
-	{"getInitTypeAttributes", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute$TypeCompound;>;", $PUBLIC, $virtualMethod(SymbolMetadata, getInitTypeAttributes, $List*)},
-	{"getTypeAttributes", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute$TypeCompound;>;", $PUBLIC, $virtualMethod(SymbolMetadata, getTypeAttributes, $List*)},
-	{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(SymbolMetadata, isEmpty, bool)},
-	{"isStarted", "()Z", nullptr, $PRIVATE, $method(SymbolMetadata, isStarted, bool)},
-	{"isTypesEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(SymbolMetadata, isTypesEmpty, bool)},
-	{"pendingCompletion", "()Z", nullptr, $PUBLIC, $virtualMethod(SymbolMetadata, pendingCompletion, bool)},
-	{"prepend", "(Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/code/SymbolMetadata;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute$Compound;>;)Lcom/sun/tools/javac/code/SymbolMetadata;", $PUBLIC, $virtualMethod(SymbolMetadata, prepend, SymbolMetadata*, $List*)},
-	{"removeDeclarationMetadata", "(Lcom/sun/tools/javac/code/Attribute$Compound;)V", nullptr, $PUBLIC, $virtualMethod(SymbolMetadata, removeDeclarationMetadata, void, $Attribute$Compound*)},
-	{"removeFromCompoundList", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/code/Attribute$Compound;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute$Compound;>;Lcom/sun/tools/javac/code/Attribute$Compound;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute$Compound;>;", $PRIVATE, $method(SymbolMetadata, removeFromCompoundList, $List*, $List*, $Attribute$Compound*)},
-	{"reset", "()Lcom/sun/tools/javac/code/SymbolMetadata;", nullptr, $PUBLIC, $virtualMethod(SymbolMetadata, reset, SymbolMetadata*)},
-	{"setAttributes", "(Lcom/sun/tools/javac/code/SymbolMetadata;)V", nullptr, $PUBLIC, $virtualMethod(SymbolMetadata, setAttributes, void, SymbolMetadata*)},
-	{"setClassInitTypeAttributes", "(Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute$TypeCompound;>;)V", $PUBLIC, $virtualMethod(SymbolMetadata, setClassInitTypeAttributes, void, $List*)},
-	{"setDeclarationAttributes", "(Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute$Compound;>;)V", $PUBLIC, $virtualMethod(SymbolMetadata, setDeclarationAttributes, void, $List*)},
-	{"setInitTypeAttributes", "(Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute$TypeCompound;>;)V", $PUBLIC, $virtualMethod(SymbolMetadata, setInitTypeAttributes, void, $List*)},
-	{"setTypeAttributes", "(Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute$TypeCompound;>;)V", $PUBLIC, $virtualMethod(SymbolMetadata, setTypeAttributes, void, $List*)},
-	{}
-};
-
-$ClassInfo _SymbolMetadata_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.code.SymbolMetadata",
-	"java.lang.Object",
-	nullptr,
-	_SymbolMetadata_FieldInfo_,
-	_SymbolMetadata_MethodInfo_
-};
-
-$Object* allocate$SymbolMetadata($Class* clazz) {
-	return $of($alloc(SymbolMetadata));
-}
 
 $List* SymbolMetadata::DECL_NOT_STARTED = nullptr;
 $List* SymbolMetadata::DECL_IN_PROGRESS = nullptr;
@@ -162,34 +109,32 @@ void SymbolMetadata::setClassInitTypeAttributes($List* a) {
 }
 
 void SymbolMetadata::setAttributes(SymbolMetadata* other) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (other == nullptr) {
 		$throwNew($NullPointerException);
 	}
 	setDeclarationAttributes($($nc(other)->getDeclarationAttributes()));
-	if (((int64_t)($nc(this->sym)->flags() & (uint64_t)$Flags::BRIDGE)) != 0) {
+	if (($nc(this->sym)->flags() & $Flags::BRIDGE) != 0) {
 		$init($Kinds$Kind);
-		$Assert::check($nc($nc(other)->sym)->kind == $Kinds$Kind::MTH);
+		$Assert::check($nc(other->sym)->kind == $Kinds$Kind::MTH);
 		$var($ListBuffer, typeAttributes, $new($ListBuffer));
 		{
-			$var($Iterator, i$, $nc($($nc(other)->getTypeAttributes()))->iterator());
+			$var($Iterator, i$, $$nc(other->getTypeAttributes())->iterator());
 			for (; $nc(i$)->hasNext();) {
 				$var($Attribute$TypeCompound, tc, $cast($Attribute$TypeCompound, i$->next()));
-				{
-					if (!$nc($nc(tc)->position)->type->isLocal()) {
-						typeAttributes->append(tc);
-					}
+				if (!$nc($nc(tc)->position)->type->isLocal()) {
+					typeAttributes->append(tc);
 				}
 			}
 		}
 		setTypeAttributes($(typeAttributes->toList()));
 	} else {
-		setTypeAttributes($($nc(other)->getTypeAttributes()));
+		setTypeAttributes($(other->getTypeAttributes()));
 	}
 	$init($Kinds$Kind);
-	if ($nc(this->sym)->kind == $Kinds$Kind::TYP) {
-		setInitTypeAttributes($($nc(other)->getInitTypeAttributes()));
-		setClassInitTypeAttributes($($nc(other)->getClassInitTypeAttributes()));
+	if (this->sym->kind == $Kinds$Kind::TYP) {
+		setInitTypeAttributes($(other->getInitTypeAttributes()));
+		setClassInitTypeAttributes($(other->getClassInitTypeAttributes()));
 	}
 }
 
@@ -224,20 +169,16 @@ SymbolMetadata* SymbolMetadata::append($List* l) {
 }
 
 SymbolMetadata* SymbolMetadata::appendUniqueTypes($List* l) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(l)->isEmpty()) {
 	} else if ($nc(this->type_attributes)->isEmpty()) {
 		$set(this, type_attributes, l);
 	} else {
-		{
-			$var($Iterator, i$, l->iterator());
-			for (; $nc(i$)->hasNext();) {
-				$var($Attribute$TypeCompound, tc, $cast($Attribute$TypeCompound, i$->next()));
-				{
-					if (!$nc(this->type_attributes)->contains(tc)) {
-						$set(this, type_attributes, $nc(this->type_attributes)->append(tc));
-					}
-				}
+		$var($Iterator, i$, l->iterator());
+		for (; $nc(i$)->hasNext();) {
+			$var($Attribute$TypeCompound, tc, $cast($Attribute$TypeCompound, i$->next()));
+			if (!$nc(this->type_attributes)->contains(tc)) {
+				$set(this, type_attributes, $nc(this->type_attributes)->append(tc));
 			}
 		}
 	}
@@ -284,16 +225,14 @@ bool SymbolMetadata::isStarted() {
 }
 
 $List* SymbolMetadata::removeFromCompoundList($List* l, $Attribute$Compound* compound) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ListBuffer, lb, $new($ListBuffer));
 	{
 		$var($Iterator, i$, $nc(l)->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Attribute$Compound, c, $cast($Attribute$Compound, i$->next()));
-			{
-				if (c != compound) {
-					lb->add(c);
-				}
+			if (c != compound) {
+				lb->add(c);
 			}
 		}
 	}
@@ -301,34 +240,32 @@ $List* SymbolMetadata::removeFromCompoundList($List* l, $Attribute$Compound* com
 }
 
 void SymbolMetadata::removeDeclarationMetadata($Attribute$Compound* compound) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(this->attributes)->contains(compound)) {
 		$set(this, attributes, removeFromCompoundList(this->attributes, compound));
 	} else {
-		{
-			$var($Iterator, i$, $nc(this->attributes)->iterator());
-			for (; $nc(i$)->hasNext();) {
-				$var($Attribute$Compound, attrCompound, $cast($Attribute$Compound, i$->next()));
-				{
-					bool var$0 = $nc(attrCompound)->isSynthesized();
-					if (var$0 && !$nc(attrCompound->values)->isEmpty()) {
-						$var($Pair, val, $cast($Pair, $nc(attrCompound->values)->get(0)));
-						{
-							$var($Attribute$Array, arr, nullptr);
-							bool var$1 = $nc($($cast($Name, $nc(($cast($Symbol$MethodSymbol, $nc(val)->fst)))->getSimpleName())))->contentEquals("value"_s);
-							if (var$1) {
-								$var($Object, patt9820$temp, val->snd);
-								bool var$2 = $instanceOf($Attribute$Array, patt9820$temp);
-								if (var$2) {
-									$assign(arr, $cast($Attribute$Array, patt9820$temp));
-									var$2 = true;
-								}
-								var$1 = var$2;
+		$var($Iterator, i$, $nc(this->attributes)->iterator());
+		for (; $nc(i$)->hasNext();) {
+			$var($Attribute$Compound, attrCompound, $cast($Attribute$Compound, i$->next()));
+			{
+				bool var$0 = $nc(attrCompound)->isSynthesized();
+				if (var$0 && !$nc(attrCompound->values)->isEmpty()) {
+					$var($Pair, val, $cast($Pair, attrCompound->values->get(0)));
+					{
+						$var($Attribute$Array, arr, nullptr);
+						bool var$1 = $$sure($Name, $nc($cast($Symbol$MethodSymbol, $nc(val)->fst))->getSimpleName())->contentEquals("value"_s);
+						if (var$1) {
+							$var($Object, patt9820$temp, val->snd);
+							bool var$2 = $instanceOf($Attribute$Array, patt9820$temp);
+							if (var$2) {
+								$assign(arr, $cast($Attribute$Array, patt9820$temp));
+								var$2 = true;
 							}
-							if (var$1) {
-								if ($nc($nc(arr)->values)->length != 0 && $instanceOf($Attribute$Compound, $nc(arr->values)->get(0)) && $nc($nc(arr->values)->get(0))->type == $nc(compound)->type) {
-									$set(this, attributes, removeFromCompoundList(this->attributes, attrCompound));
-								}
+							var$1 = var$2;
+						}
+						if (var$1) {
+							if ($nc($nc(arr)->values)->length != 0 && $instanceOf($Attribute$Compound, arr->values->get(0)) && $nc(arr->values->get(0))->type == $nc(compound)->type) {
+								$set(this, attributes, removeFromCompoundList(this->attributes, attrCompound));
 							}
 						}
 					}
@@ -338,7 +275,7 @@ void SymbolMetadata::removeDeclarationMetadata($Attribute$Compound* compound) {
 	}
 }
 
-void clinit$SymbolMetadata($Class* class$) {
+void SymbolMetadata::clinit$($Class* clazz) {
 	$assignStatic(SymbolMetadata::DECL_NOT_STARTED, $List::of(nullptr));
 	$assignStatic(SymbolMetadata::DECL_IN_PROGRESS, $List::of(nullptr));
 }
@@ -347,7 +284,53 @@ SymbolMetadata::SymbolMetadata() {
 }
 
 $Class* SymbolMetadata::load$($String* name, bool initialize) {
-	$loadClass(SymbolMetadata, name, initialize, &_SymbolMetadata_ClassInfo_, clinit$SymbolMetadata, allocate$SymbolMetadata);
+	$FieldInfo fieldInfos$$[] = {
+		{"DECL_NOT_STARTED", "Lcom/sun/tools/javac/util/List;", "Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute$Compound;>;", $PRIVATE | $STATIC | $FINAL, $staticField(SymbolMetadata, DECL_NOT_STARTED)},
+		{"DECL_IN_PROGRESS", "Lcom/sun/tools/javac/util/List;", "Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute$Compound;>;", $PRIVATE | $STATIC | $FINAL, $staticField(SymbolMetadata, DECL_IN_PROGRESS)},
+		{"attributes", "Lcom/sun/tools/javac/util/List;", "Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute$Compound;>;", $PRIVATE, $field(SymbolMetadata, attributes)},
+		{"type_attributes", "Lcom/sun/tools/javac/util/List;", "Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute$TypeCompound;>;", $PRIVATE, $field(SymbolMetadata, type_attributes)},
+		{"init_type_attributes", "Lcom/sun/tools/javac/util/List;", "Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute$TypeCompound;>;", $PRIVATE, $field(SymbolMetadata, init_type_attributes)},
+		{"clinit_type_attributes", "Lcom/sun/tools/javac/util/List;", "Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute$TypeCompound;>;", $PRIVATE, $field(SymbolMetadata, clinit_type_attributes)},
+		{"sym", "Lcom/sun/tools/javac/code/Symbol;", nullptr, $PRIVATE | $FINAL, $field(SymbolMetadata, sym)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, $method(SymbolMetadata, init$, void, $Symbol*)},
+		{"append", "(Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/code/SymbolMetadata;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute$Compound;>;)Lcom/sun/tools/javac/code/SymbolMetadata;", $PUBLIC, $virtualMethod(SymbolMetadata, append, SymbolMetadata*, $List*)},
+		{"appendClassInitTypeAttributes", "(Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/code/SymbolMetadata;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute$TypeCompound;>;)Lcom/sun/tools/javac/code/SymbolMetadata;", $PUBLIC, $virtualMethod(SymbolMetadata, appendClassInitTypeAttributes, SymbolMetadata*, $List*)},
+		{"appendInitTypeAttributes", "(Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/code/SymbolMetadata;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute$TypeCompound;>;)Lcom/sun/tools/javac/code/SymbolMetadata;", $PUBLIC, $virtualMethod(SymbolMetadata, appendInitTypeAttributes, SymbolMetadata*, $List*)},
+		{"appendUniqueTypes", "(Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/code/SymbolMetadata;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute$TypeCompound;>;)Lcom/sun/tools/javac/code/SymbolMetadata;", $PUBLIC, $virtualMethod(SymbolMetadata, appendUniqueTypes, SymbolMetadata*, $List*)},
+		{"filterDeclSentinels", "(Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute$Compound;>;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute$Compound;>;", $PRIVATE, $method(SymbolMetadata, filterDeclSentinels, $List*, $List*)},
+		{"getClassInitTypeAttributes", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute$TypeCompound;>;", $PUBLIC, $virtualMethod(SymbolMetadata, getClassInitTypeAttributes, $List*)},
+		{"getDeclarationAttributes", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute$Compound;>;", $PUBLIC, $virtualMethod(SymbolMetadata, getDeclarationAttributes, $List*)},
+		{"getInitTypeAttributes", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute$TypeCompound;>;", $PUBLIC, $virtualMethod(SymbolMetadata, getInitTypeAttributes, $List*)},
+		{"getTypeAttributes", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute$TypeCompound;>;", $PUBLIC, $virtualMethod(SymbolMetadata, getTypeAttributes, $List*)},
+		{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(SymbolMetadata, isEmpty, bool)},
+		{"isStarted", "()Z", nullptr, $PRIVATE, $method(SymbolMetadata, isStarted, bool)},
+		{"isTypesEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(SymbolMetadata, isTypesEmpty, bool)},
+		{"pendingCompletion", "()Z", nullptr, $PUBLIC, $virtualMethod(SymbolMetadata, pendingCompletion, bool)},
+		{"prepend", "(Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/code/SymbolMetadata;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute$Compound;>;)Lcom/sun/tools/javac/code/SymbolMetadata;", $PUBLIC, $virtualMethod(SymbolMetadata, prepend, SymbolMetadata*, $List*)},
+		{"removeDeclarationMetadata", "(Lcom/sun/tools/javac/code/Attribute$Compound;)V", nullptr, $PUBLIC, $virtualMethod(SymbolMetadata, removeDeclarationMetadata, void, $Attribute$Compound*)},
+		{"removeFromCompoundList", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/code/Attribute$Compound;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute$Compound;>;Lcom/sun/tools/javac/code/Attribute$Compound;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute$Compound;>;", $PRIVATE, $method(SymbolMetadata, removeFromCompoundList, $List*, $List*, $Attribute$Compound*)},
+		{"reset", "()Lcom/sun/tools/javac/code/SymbolMetadata;", nullptr, $PUBLIC, $virtualMethod(SymbolMetadata, reset, SymbolMetadata*)},
+		{"setAttributes", "(Lcom/sun/tools/javac/code/SymbolMetadata;)V", nullptr, $PUBLIC, $virtualMethod(SymbolMetadata, setAttributes, void, SymbolMetadata*)},
+		{"setClassInitTypeAttributes", "(Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute$TypeCompound;>;)V", $PUBLIC, $virtualMethod(SymbolMetadata, setClassInitTypeAttributes, void, $List*)},
+		{"setDeclarationAttributes", "(Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute$Compound;>;)V", $PUBLIC, $virtualMethod(SymbolMetadata, setDeclarationAttributes, void, $List*)},
+		{"setInitTypeAttributes", "(Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute$TypeCompound;>;)V", $PUBLIC, $virtualMethod(SymbolMetadata, setInitTypeAttributes, void, $List*)},
+		{"setTypeAttributes", "(Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute$TypeCompound;>;)V", $PUBLIC, $virtualMethod(SymbolMetadata, setTypeAttributes, void, $List*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.code.SymbolMetadata",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SymbolMetadata, name, initialize, &classInfo$$, SymbolMetadata::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(SymbolMetadata);
+	});
 	return class$;
 }
 

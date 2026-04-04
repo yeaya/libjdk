@@ -52,6 +52,7 @@ class AquaSpinnerUI : public ::javax::swing::plaf::SpinnerUI {
 	$class(AquaSpinnerUI, 0, ::javax::swing::plaf::SpinnerUI)
 public:
 	AquaSpinnerUI();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	::javax::swing::ActionMap* createActionMap();
 	virtual ::javax::swing::JComponent* createEditor();

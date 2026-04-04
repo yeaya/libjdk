@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/security/algorithms/MessageDigestAlgorithm.h>
-
 #include <com/sun/org/apache/xml/internal/security/algorithms/Algorithm.h>
 #include <com/sun/org/apache/xml/internal/security/algorithms/JCEMapper.h>
 #include <com/sun/org/apache/xml/internal/security/signature/XMLSignatureException.h>
@@ -31,7 +30,6 @@ using $EncryptionConstants = ::com::sun::org::apache::xml::internal::security::u
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $GeneralSecurityException = ::java::security::GeneralSecurityException;
 using $MessageDigest = ::java::security::MessageDigest;
 using $NoSuchAlgorithmException = ::java::security::NoSuchAlgorithmException;
 using $NoSuchProviderException = ::java::security::NoSuchProviderException;
@@ -46,57 +44,6 @@ namespace com {
 					namespace internal {
 						namespace security {
 							namespace algorithms {
-
-$FieldInfo _MessageDigestAlgorithm_FieldInfo_[] = {
-	{"ALGO_ID_DIGEST_NOT_RECOMMENDED_MD5", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MessageDigestAlgorithm, ALGO_ID_DIGEST_NOT_RECOMMENDED_MD5)},
-	{"ALGO_ID_DIGEST_SHA1", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MessageDigestAlgorithm, ALGO_ID_DIGEST_SHA1)},
-	{"ALGO_ID_DIGEST_SHA224", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MessageDigestAlgorithm, ALGO_ID_DIGEST_SHA224)},
-	{"ALGO_ID_DIGEST_SHA256", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MessageDigestAlgorithm, ALGO_ID_DIGEST_SHA256)},
-	{"ALGO_ID_DIGEST_SHA384", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MessageDigestAlgorithm, ALGO_ID_DIGEST_SHA384)},
-	{"ALGO_ID_DIGEST_SHA512", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MessageDigestAlgorithm, ALGO_ID_DIGEST_SHA512)},
-	{"ALGO_ID_DIGEST_RIPEMD160", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MessageDigestAlgorithm, ALGO_ID_DIGEST_RIPEMD160)},
-	{"ALGO_ID_DIGEST_WHIRLPOOL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MessageDigestAlgorithm, ALGO_ID_DIGEST_WHIRLPOOL)},
-	{"ALGO_ID_DIGEST_SHA3_224", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MessageDigestAlgorithm, ALGO_ID_DIGEST_SHA3_224)},
-	{"ALGO_ID_DIGEST_SHA3_256", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MessageDigestAlgorithm, ALGO_ID_DIGEST_SHA3_256)},
-	{"ALGO_ID_DIGEST_SHA3_384", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MessageDigestAlgorithm, ALGO_ID_DIGEST_SHA3_384)},
-	{"ALGO_ID_DIGEST_SHA3_512", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MessageDigestAlgorithm, ALGO_ID_DIGEST_SHA3_512)},
-	{"algorithm", "Ljava/security/MessageDigest;", nullptr, $PRIVATE | $FINAL, $field(MessageDigestAlgorithm, algorithm)},
-	{}
-};
-
-$MethodInfo _MessageDigestAlgorithm_MethodInfo_[] = {
-	{"<init>", "(Lorg/w3c/dom/Document;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(MessageDigestAlgorithm, init$, void, $Document*, $String*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
-	{"digest", "()[B", nullptr, $PUBLIC, $method(MessageDigestAlgorithm, digest, $bytes*)},
-	{"digest", "([B)[B", nullptr, $PUBLIC, $method(MessageDigestAlgorithm, digest, $bytes*, $bytes*)},
-	{"digest", "([BII)I", nullptr, $PUBLIC, $method(MessageDigestAlgorithm, digest, int32_t, $bytes*, int32_t, int32_t), "java.security.DigestException"},
-	{"getAlgorithm", "()Ljava/security/MessageDigest;", nullptr, $PUBLIC, $method(MessageDigestAlgorithm, getAlgorithm, $MessageDigest*)},
-	{"getBaseLocalName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MessageDigestAlgorithm, getBaseLocalName, $String*)},
-	{"getBaseNamespace", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MessageDigestAlgorithm, getBaseNamespace, $String*)},
-	{"getDigestInstance", "(Ljava/lang/String;)Ljava/security/MessageDigest;", nullptr, $PRIVATE | $STATIC, $staticMethod(MessageDigestAlgorithm, getDigestInstance, $MessageDigest*, $String*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
-	{"getDigestLength", "()I", nullptr, $PUBLIC, $method(MessageDigestAlgorithm, getDigestLength, int32_t)},
-	{"getInstance", "(Lorg/w3c/dom/Document;Ljava/lang/String;)Lcom/sun/org/apache/xml/internal/security/algorithms/MessageDigestAlgorithm;", nullptr, $PUBLIC | $STATIC, $staticMethod(MessageDigestAlgorithm, getInstance, MessageDigestAlgorithm*, $Document*, $String*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
-	{"getJCEAlgorithmString", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(MessageDigestAlgorithm, getJCEAlgorithmString, $String*)},
-	{"getJCEProvider", "()Ljava/security/Provider;", nullptr, $PUBLIC, $method(MessageDigestAlgorithm, getJCEProvider, $Provider*)},
-	{"isEqual", "([B[B)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(MessageDigestAlgorithm, isEqual, bool, $bytes*, $bytes*)},
-	{"reset", "()V", nullptr, $PUBLIC, $method(MessageDigestAlgorithm, reset, void)},
-	{"update", "([B)V", nullptr, $PUBLIC, $method(MessageDigestAlgorithm, update, void, $bytes*)},
-	{"update", "(B)V", nullptr, $PUBLIC, $method(MessageDigestAlgorithm, update, void, int8_t)},
-	{"update", "([BII)V", nullptr, $PUBLIC, $method(MessageDigestAlgorithm, update, void, $bytes*, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _MessageDigestAlgorithm_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.security.algorithms.MessageDigestAlgorithm",
-	"com.sun.org.apache.xml.internal.security.algorithms.Algorithm",
-	nullptr,
-	_MessageDigestAlgorithm_FieldInfo_,
-	_MessageDigestAlgorithm_MethodInfo_
-};
-
-$Object* allocate$MessageDigestAlgorithm($Class* clazz) {
-	return $of($alloc(MessageDigestAlgorithm));
-}
 
 $String* MessageDigestAlgorithm::ALGO_ID_DIGEST_NOT_RECOMMENDED_MD5 = nullptr;
 $String* MessageDigestAlgorithm::ALGO_ID_DIGEST_SHA1 = nullptr;
@@ -123,10 +70,10 @@ MessageDigestAlgorithm* MessageDigestAlgorithm::getInstance($Document* doc, $Str
 
 $MessageDigest* MessageDigestAlgorithm::getDigestInstance($String* algorithmURI) {
 	$init(MessageDigestAlgorithm);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, algorithmID, $JCEMapper::translateURItoJCEID(algorithmURI));
 	if (algorithmID == nullptr) {
-		$var($ObjectArray, exArgs, $new($ObjectArray, {$of(algorithmURI)}));
+		$var($ObjectArray, exArgs, $new($ObjectArray, {algorithmURI}));
 		$throwNew($XMLSignatureException, "algorithms.NoSuchMap"_s, exArgs);
 	}
 	$var($MessageDigest, md, nullptr);
@@ -139,14 +86,14 @@ $MessageDigest* MessageDigestAlgorithm::getDigestInstance($String* algorithmURI)
 		}
 	} catch ($NoSuchAlgorithmException& ex) {
 		$var($ObjectArray, exArgs, $new($ObjectArray, {
-			$of(algorithmID),
-			$($of(ex->getLocalizedMessage()))
+			algorithmID,
+			$(ex->getLocalizedMessage())
 		}));
 		$throwNew($XMLSignatureException, "algorithms.NoSuchAlgorithm"_s, exArgs);
 	} catch ($NoSuchProviderException& ex) {
 		$var($ObjectArray, exArgs, $new($ObjectArray, {
-			$of(algorithmID),
-			$($of(ex->getLocalizedMessage()))
+			algorithmID,
+			$(ex->getLocalizedMessage())
 		}));
 		$throwNew($XMLSignatureException, "algorithms.NoSuchAlgorithm"_s, exArgs);
 	}
@@ -215,7 +162,7 @@ $String* MessageDigestAlgorithm::getBaseLocalName() {
 MessageDigestAlgorithm::MessageDigestAlgorithm() {
 }
 
-void clinit$MessageDigestAlgorithm($Class* class$) {
+void MessageDigestAlgorithm::clinit$($Class* clazz) {
 	$init($Constants);
 	$assignStatic(MessageDigestAlgorithm::ALGO_ID_DIGEST_NOT_RECOMMENDED_MD5, $str({$Constants::MoreAlgorithmsSpecNS, "md5"_s}));
 	$assignStatic(MessageDigestAlgorithm::ALGO_ID_DIGEST_SHA1, $str({$Constants::SignatureSpecNS, "sha1"_s}));
@@ -233,7 +180,53 @@ void clinit$MessageDigestAlgorithm($Class* class$) {
 }
 
 $Class* MessageDigestAlgorithm::load$($String* name, bool initialize) {
-	$loadClass(MessageDigestAlgorithm, name, initialize, &_MessageDigestAlgorithm_ClassInfo_, clinit$MessageDigestAlgorithm, allocate$MessageDigestAlgorithm);
+	$FieldInfo fieldInfos$$[] = {
+		{"ALGO_ID_DIGEST_NOT_RECOMMENDED_MD5", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MessageDigestAlgorithm, ALGO_ID_DIGEST_NOT_RECOMMENDED_MD5)},
+		{"ALGO_ID_DIGEST_SHA1", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MessageDigestAlgorithm, ALGO_ID_DIGEST_SHA1)},
+		{"ALGO_ID_DIGEST_SHA224", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MessageDigestAlgorithm, ALGO_ID_DIGEST_SHA224)},
+		{"ALGO_ID_DIGEST_SHA256", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MessageDigestAlgorithm, ALGO_ID_DIGEST_SHA256)},
+		{"ALGO_ID_DIGEST_SHA384", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MessageDigestAlgorithm, ALGO_ID_DIGEST_SHA384)},
+		{"ALGO_ID_DIGEST_SHA512", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MessageDigestAlgorithm, ALGO_ID_DIGEST_SHA512)},
+		{"ALGO_ID_DIGEST_RIPEMD160", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MessageDigestAlgorithm, ALGO_ID_DIGEST_RIPEMD160)},
+		{"ALGO_ID_DIGEST_WHIRLPOOL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MessageDigestAlgorithm, ALGO_ID_DIGEST_WHIRLPOOL)},
+		{"ALGO_ID_DIGEST_SHA3_224", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MessageDigestAlgorithm, ALGO_ID_DIGEST_SHA3_224)},
+		{"ALGO_ID_DIGEST_SHA3_256", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MessageDigestAlgorithm, ALGO_ID_DIGEST_SHA3_256)},
+		{"ALGO_ID_DIGEST_SHA3_384", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MessageDigestAlgorithm, ALGO_ID_DIGEST_SHA3_384)},
+		{"ALGO_ID_DIGEST_SHA3_512", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MessageDigestAlgorithm, ALGO_ID_DIGEST_SHA3_512)},
+		{"algorithm", "Ljava/security/MessageDigest;", nullptr, $PRIVATE | $FINAL, $field(MessageDigestAlgorithm, algorithm)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lorg/w3c/dom/Document;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(MessageDigestAlgorithm, init$, void, $Document*, $String*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
+		{"digest", "()[B", nullptr, $PUBLIC, $method(MessageDigestAlgorithm, digest, $bytes*)},
+		{"digest", "([B)[B", nullptr, $PUBLIC, $method(MessageDigestAlgorithm, digest, $bytes*, $bytes*)},
+		{"digest", "([BII)I", nullptr, $PUBLIC, $method(MessageDigestAlgorithm, digest, int32_t, $bytes*, int32_t, int32_t), "java.security.DigestException"},
+		{"getAlgorithm", "()Ljava/security/MessageDigest;", nullptr, $PUBLIC, $method(MessageDigestAlgorithm, getAlgorithm, $MessageDigest*)},
+		{"getBaseLocalName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MessageDigestAlgorithm, getBaseLocalName, $String*)},
+		{"getBaseNamespace", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MessageDigestAlgorithm, getBaseNamespace, $String*)},
+		{"getDigestInstance", "(Ljava/lang/String;)Ljava/security/MessageDigest;", nullptr, $PRIVATE | $STATIC, $staticMethod(MessageDigestAlgorithm, getDigestInstance, $MessageDigest*, $String*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
+		{"getDigestLength", "()I", nullptr, $PUBLIC, $method(MessageDigestAlgorithm, getDigestLength, int32_t)},
+		{"getInstance", "(Lorg/w3c/dom/Document;Ljava/lang/String;)Lcom/sun/org/apache/xml/internal/security/algorithms/MessageDigestAlgorithm;", nullptr, $PUBLIC | $STATIC, $staticMethod(MessageDigestAlgorithm, getInstance, MessageDigestAlgorithm*, $Document*, $String*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
+		{"getJCEAlgorithmString", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(MessageDigestAlgorithm, getJCEAlgorithmString, $String*)},
+		{"getJCEProvider", "()Ljava/security/Provider;", nullptr, $PUBLIC, $method(MessageDigestAlgorithm, getJCEProvider, $Provider*)},
+		{"isEqual", "([B[B)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(MessageDigestAlgorithm, isEqual, bool, $bytes*, $bytes*)},
+		{"reset", "()V", nullptr, $PUBLIC, $method(MessageDigestAlgorithm, reset, void)},
+		{"update", "([B)V", nullptr, $PUBLIC, $method(MessageDigestAlgorithm, update, void, $bytes*)},
+		{"update", "(B)V", nullptr, $PUBLIC, $method(MessageDigestAlgorithm, update, void, int8_t)},
+		{"update", "([BII)V", nullptr, $PUBLIC, $method(MessageDigestAlgorithm, update, void, $bytes*, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.security.algorithms.MessageDigestAlgorithm",
+		"com.sun.org.apache.xml.internal.security.algorithms.Algorithm",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(MessageDigestAlgorithm, name, initialize, &classInfo$$, MessageDigestAlgorithm::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(MessageDigestAlgorithm);
+	});
 	return class$;
 }
 

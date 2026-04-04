@@ -11,6 +11,7 @@
 #include <B4849451.h>
 #include <B4923906.h>
 #include <B4962064.h>
+#include <B5086147.h>
 #include <B5087907.h>
 #include <B6246242.h>
 #include <B6277794.h>
@@ -25,6 +26,7 @@
 #include <B6563259.h>
 #include <B6644726.h>
 #include <B6737819.h>
+#include <B6791927.h>
 #include <B6827999.h>
 #include <B6896088.h>
 #include <B8035158.h>
@@ -37,10 +39,12 @@
 #include <BindFailTest.h>
 #include <BodyProcessorInputStreamTest.h>
 #include <ByteArrayPublishers.h>
+#include <CachedUnknownHostName.h>
 #include <CheckBoundaries.h>
 #include <CheckDiscard.h>
 #include <Child.h>
 #include <Concurrent.h>
+#include <Connect4URLConnection.h>
 #include <Constructor.h>
 #include <CookieNegativeMaxAge.h>
 #include <CreateUnresolved.h>
@@ -131,6 +135,7 @@
 #include <RestoreURL.h>
 #include <RestrictedHeadersTest.h>
 #include <Reuse.h>
+#include <ReuseAddressTest.h>
 #include <ReuseBuf.h>
 #include <SelectFdsLimit.h>
 #include <Send12k.h>
@@ -327,6 +332,7 @@ void TestCases::runCases() {
 	run("B4849451", ::B4849451);
 	run("B4923906", ::B4923906);
 	run("B4962064", ::B4962064);
+	run("B5086147", ::B5086147);
 	run("B5087907", ::B5087907);
 	run("B6246242", ::B6246242);
 	run("B6277794", ::B6277794);
@@ -341,6 +347,7 @@ void TestCases::runCases() {
 	run("B6563259", ::B6563259);
 	run("B6644726", ::B6644726);
 	run("B6737819", ::B6737819);
+	run("B6791927", ::B6791927);
 	run("B6827999", ::B6827999);
 	run("B6896088", ::B6896088);
 	run("B8035158", ::B8035158);
@@ -353,10 +360,12 @@ void TestCases::runCases() {
 	run("BindFailTest", ::BindFailTest);
 	run("BodyProcessorInputStreamTest", ::BodyProcessorInputStreamTest);
 	run("ByteArrayPublishers", ::ByteArrayPublishers);
+	run("CachedUnknownHostName", ::CachedUnknownHostName);
 	run("CheckBoundaries", ::CheckBoundaries);
 	run("CheckDiscard", ::CheckDiscard);
 	run("Child", ::Child);
 	run("Concurrent", ::Concurrent);
+	run("Connect4URLConnection", ::Connect4URLConnection);
 	run("Constructor", ::Constructor);
 	run("CookieNegativeMaxAge", ::CookieNegativeMaxAge);
 	run("CreateUnresolved", ::CreateUnresolved);
@@ -447,6 +456,7 @@ void TestCases::runCases() {
 	run("RestoreURL", ::RestoreURL);
 	run("RestrictedHeadersTest", ::RestrictedHeadersTest);
 	run("Reuse", ::Reuse);
+	run("ReuseAddressTest", ::ReuseAddressTest);
 	run("ReuseBuf", ::ReuseBuf);
 	run("SelectFdsLimit", ::SelectFdsLimit);
 	run("Send12k", ::Send12k);
@@ -512,14 +522,14 @@ void TestCases::runCases() {
 #ifdef JCPP_SUBSYSTEM_WINDOWS
 #include <windows.h>
 int WINAPI WinMain(HINSTANCE inst, HINSTANCE previnst, LPSTR cmdline, int cmdshow) {
-	return $System::launchw(::jdk$net$test::init, []($StringArray* args)->void {
+	return $System::launchw(::jdk$net$test::init, []($StringArray* args) -> void {
 		$var(TestCases, testcases, $new(TestCases, args));
 		testcases->runCases();
 	});
 }
 #else
 int main(int argc, char** argv) {
-	return $System::launch(argc, argv, ::jdk$net$test::init, []($StringArray* args)->void {
+	return $System::launch(argc, argv, ::jdk$net$test::init, []($StringArray* args) -> void {
 		$var(TestCases, testcases, $new(TestCases, args));
 		testcases->runCases();
 	});

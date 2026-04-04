@@ -45,7 +45,7 @@ public:
 	void readObject(::java::io::ObjectInputStream* ois);
 	virtual $String* toString() override;
 	void writeObject(::java::io::ObjectOutputStream* oos);
-	static const int64_t serialVersionUID = (int64_t)0x928386E83CAF4BD7;
+	static const int64_t serialVersionUID = (int64_t)0x928386e83caf4bd7;
 	$bytes* keyBytes = nullptr;
 	int32_t keyType = 0;
 	$volatile(bool) destroyed = false;

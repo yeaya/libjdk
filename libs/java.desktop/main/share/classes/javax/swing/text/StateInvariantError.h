@@ -16,7 +16,10 @@ public:
 	void init$($String* s);
 	StateInvariantError(const StateInvariantError& e);
 	virtual void throw$() override;
-	inline StateInvariantError* operator ->() {
+	inline StateInvariantError* operator ->() const {
+		return (StateInvariantError*)throwing$;
+	}
+	inline operator StateInvariantError*() const {
 		return (StateInvariantError*)throwing$;
 	}
 };

@@ -42,6 +42,7 @@ class IDATOutputStream : public ::javax::imageio::stream::ImageOutputStreamImpl 
 	$class(IDATOutputStream, $HAS_FINALIZE, ::javax::imageio::stream::ImageOutputStreamImpl)
 public:
 	IDATOutputStream();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::javax::imageio::stream::ImageOutputStream* stream, int32_t chunkLength, int32_t deflaterLevel);
 	void deflate();
 	virtual void finalize() override;

@@ -68,6 +68,7 @@ class TIFFImageMetadata : public ::javax::imageio::metadata::IIOMetadata {
 	$class(TIFFImageMetadata, 0, ::javax::imageio::metadata::IIOMetadata)
 public:
 	TIFFImageMetadata();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::util::List* tagSets);
 	void init$(::com::sun::imageio::plugins::tiff::TIFFIFD* ifd);
 	virtual void addShortOrLongField(int32_t tagNumber, int64_t value);

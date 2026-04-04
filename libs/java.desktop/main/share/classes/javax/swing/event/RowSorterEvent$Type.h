@@ -20,6 +20,7 @@ class $export RowSorterEvent$Type : public ::java::lang::Enum {
 public:
 	RowSorterEvent$Type();
 	static $Array<::javax::swing::event::RowSorterEvent$Type>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::javax::swing::event::RowSorterEvent$Type* valueOf($String* name);
 	static $Array<::javax::swing::event::RowSorterEvent$Type>* values();

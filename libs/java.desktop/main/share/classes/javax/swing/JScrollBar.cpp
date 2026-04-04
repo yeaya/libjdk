@@ -1,5 +1,4 @@
 #include <javax/swing/JScrollBar.h>
-
 #include <java/awt/Adjustable.h>
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
@@ -47,7 +46,6 @@ using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NamedAttribute = ::java::lang::NamedAttribute;
 using $Short = ::java::lang::Short;
-using $EventListener = ::java::util::EventListener;
 using $AccessibleContext = ::javax::accessibility::AccessibleContext;
 using $AccessibleState = ::javax::accessibility::AccessibleState;
 using $BoundedRangeModel = ::javax::swing::BoundedRangeModel;
@@ -56,268 +54,11 @@ using $JComponent = ::javax::swing::JComponent;
 using $JScrollBar$AccessibleJScrollBar = ::javax::swing::JScrollBar$AccessibleJScrollBar;
 using $JScrollBar$ModelListener = ::javax::swing::JScrollBar$ModelListener;
 using $UIManager = ::javax::swing::UIManager;
-using $ChangeListener = ::javax::swing::event::ChangeListener;
-using $EventListenerList = ::javax::swing::event::EventListenerList;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
 using $ScrollBarUI = ::javax::swing::plaf::ScrollBarUI;
 
 namespace javax {
 	namespace swing {
-
-$NamedAttribute JScrollBar_Attribute_var$0[] = {
-	{"defaultProperty", 's', "UI"},
-	{"description", 's', "A component that helps determine the visible content range of an area."},
-	{}
-};
-
-$NamedAttribute JScrollBar_Attribute_var$1[] = {
-	{"value", 'Z', "false"},
-	{}
-};
-
-$CompoundAttribute _JScrollBar_Annotations_[] = {
-	{"Ljava/beans/JavaBean;", JScrollBar_Attribute_var$0},
-	{"Ljavax/swing/SwingContainer;", JScrollBar_Attribute_var$1},
-	{}
-};
-
-$NamedAttribute JScrollBar_Attribute_var$2[] = {
-	{"bound", 'Z', "false"},
-	{}
-};
-
-$CompoundAttribute _JScrollBar_MethodAnnotations_getAccessibleContext7[] = {
-	{"Ljava/beans/BeanProperty;", JScrollBar_Attribute_var$2},
-	{}
-};
-
-$NamedAttribute JScrollBar_Attribute_var$3[] = {
-	{"bound", 'Z', "false"},
-	{}
-};
-
-$CompoundAttribute _JScrollBar_MethodAnnotations_getAdjustmentListeners8[] = {
-	{"Ljava/beans/BeanProperty;", JScrollBar_Attribute_var$3},
-	{}
-};
-
-$NamedAttribute JScrollBar_Attribute_var$4[] = {
-	{"bound", 'Z', "false"},
-	{}
-};
-
-$CompoundAttribute _JScrollBar_MethodAnnotations_getUIClassID18[] = {
-	{"Ljava/beans/BeanProperty;", JScrollBar_Attribute_var$4},
-	{}
-};
-
-$NamedAttribute JScrollBar_Attribute_var$5[] = {
-	{"preferred", 'Z', "true"},
-	{"description", 's', "The scrollbar\'s block increment."},
-	{}
-};
-
-$CompoundAttribute _JScrollBar_MethodAnnotations_setBlockIncrement26[] = {
-	{"Ljava/beans/BeanProperty;", JScrollBar_Attribute_var$5},
-	{}
-};
-
-$NamedAttribute JScrollBar_Attribute_var$6[] = {
-	{"bound", 'Z', "false"},
-	{"preferred", 'Z', "true"},
-	{"description", 's', "The scrollbar\'s maximum value."},
-	{}
-};
-
-$CompoundAttribute _JScrollBar_MethodAnnotations_setMaximum28[] = {
-	{"Ljava/beans/BeanProperty;", JScrollBar_Attribute_var$6},
-	{}
-};
-
-$NamedAttribute JScrollBar_Attribute_var$7[] = {
-	{"bound", 'Z', "false"},
-	{"preferred", 'Z', "true"},
-	{"description", 's', "The scrollbar\'s minimum value."},
-	{}
-};
-
-$CompoundAttribute _JScrollBar_MethodAnnotations_setMinimum29[] = {
-	{"Ljava/beans/BeanProperty;", JScrollBar_Attribute_var$7},
-	{}
-};
-
-$NamedAttribute JScrollBar_Attribute_var$8[] = {
-	{"expert", 'Z', "true"},
-	{"description", 's', "The scrollbar\'s BoundedRangeModel."},
-	{}
-};
-
-$CompoundAttribute _JScrollBar_MethodAnnotations_setModel30[] = {
-	{"Ljava/beans/BeanProperty;", JScrollBar_Attribute_var$8},
-	{}
-};
-
-$Attribute JScrollBar_Attribute_var$10[] = {
-	{'s', "JScrollBar.VERTICAL"},
-	{'s', "JScrollBar.HORIZONTAL"},
-	{'-'}
-};
-
-$NamedAttribute JScrollBar_Attribute_var$9[] = {
-	{"preferred", 'Z', "true"},
-	{"visualUpdate", 'Z', "true"},
-	{"enumerationValues", '[', JScrollBar_Attribute_var$10},
-	{"description", 's', "The scrollbar\'s orientation."},
-	{}
-};
-
-$CompoundAttribute _JScrollBar_MethodAnnotations_setOrientation31[] = {
-	{"Ljava/beans/BeanProperty;", JScrollBar_Attribute_var$9},
-	{}
-};
-
-$NamedAttribute JScrollBar_Attribute_var$11[] = {
-	{"hidden", 'Z', "true"},
-	{"visualUpdate", 'Z', "true"},
-	{"description", 's', "The UI object that implements the Component\'s LookAndFeel"},
-	{}
-};
-
-$CompoundAttribute _JScrollBar_MethodAnnotations_setUI32[] = {
-	{"Ljava/beans/BeanProperty;", JScrollBar_Attribute_var$11},
-	{}
-};
-
-$NamedAttribute JScrollBar_Attribute_var$12[] = {
-	{"preferred", 'Z', "true"},
-	{"description", 's', "The scrollbar\'s unit increment."},
-	{}
-};
-
-$CompoundAttribute _JScrollBar_MethodAnnotations_setUnitIncrement33[] = {
-	{"Ljava/beans/BeanProperty;", JScrollBar_Attribute_var$12},
-	{}
-};
-
-$NamedAttribute JScrollBar_Attribute_var$13[] = {
-	{"bound", 'Z', "false"},
-	{"preferred", 'Z', "true"},
-	{"description", 's', "The scrollbar\'s current value."},
-	{}
-};
-
-$CompoundAttribute _JScrollBar_MethodAnnotations_setValue34[] = {
-	{"Ljava/beans/BeanProperty;", JScrollBar_Attribute_var$13},
-	{}
-};
-
-$NamedAttribute JScrollBar_Attribute_var$14[] = {
-	{"bound", 'Z', "false"},
-	{"expert", 'Z', "true"},
-	{"description", 's', "True if the scrollbar thumb is being dragged."},
-	{}
-};
-
-$CompoundAttribute _JScrollBar_MethodAnnotations_setValueIsAdjusting35[] = {
-	{"Ljava/beans/BeanProperty;", JScrollBar_Attribute_var$14},
-	{}
-};
-
-$NamedAttribute JScrollBar_Attribute_var$15[] = {
-	{"bound", 'Z', "false"},
-	{"preferred", 'Z', "true"},
-	{"description", 's', "The amount of the view that is currently visible."},
-	{}
-};
-
-$CompoundAttribute _JScrollBar_MethodAnnotations_setVisibleAmount37[] = {
-	{"Ljava/beans/BeanProperty;", JScrollBar_Attribute_var$15},
-	{}
-};
-
-$FieldInfo _JScrollBar_FieldInfo_[] = {
-	{"uiClassID", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JScrollBar, uiClassID)},
-	{"fwdAdjustmentEvents", "Ljavax/swing/event/ChangeListener;", nullptr, $PRIVATE, $field(JScrollBar, fwdAdjustmentEvents)},
-	{"model", "Ljavax/swing/BoundedRangeModel;", nullptr, $PROTECTED, $field(JScrollBar, model)},
-	{"orientation", "I", nullptr, $PROTECTED, $field(JScrollBar, orientation)},
-	{"unitIncrement", "I", nullptr, $PROTECTED, $field(JScrollBar, unitIncrement)},
-	{"blockIncrement", "I", nullptr, $PROTECTED, $field(JScrollBar, blockIncrement)},
-	{}
-};
-
-$MethodInfo _JScrollBar_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(IIIII)V", nullptr, $PUBLIC, $method(JScrollBar, init$, void, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(JScrollBar, init$, void, int32_t)},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(JScrollBar, init$, void)},
-	{"addAdjustmentListener", "(Ljava/awt/event/AdjustmentListener;)V", nullptr, $PUBLIC, $virtualMethod(JScrollBar, addAdjustmentListener, void, $AdjustmentListener*)},
-	{"checkOrientation", "(I)V", nullptr, $PRIVATE, $method(JScrollBar, checkOrientation, void, int32_t)},
-	{"fireAdjustmentValueChanged", "(III)V", nullptr, $PROTECTED, $virtualMethod(JScrollBar, fireAdjustmentValueChanged, void, int32_t, int32_t, int32_t)},
-	{"fireAdjustmentValueChanged", "(IIIZ)V", nullptr, $PRIVATE, $method(JScrollBar, fireAdjustmentValueChanged, void, int32_t, int32_t, int32_t, bool)},
-	{"getAccessibleContext", "()Ljavax/accessibility/AccessibleContext;", nullptr, $PUBLIC, $virtualMethod(JScrollBar, getAccessibleContext, $AccessibleContext*), nullptr, nullptr, _JScrollBar_MethodAnnotations_getAccessibleContext7},
-	{"getAdjustmentListeners", "()[Ljava/awt/event/AdjustmentListener;", nullptr, $PUBLIC, $virtualMethod(JScrollBar, getAdjustmentListeners, $AdjustmentListenerArray*), nullptr, nullptr, _JScrollBar_MethodAnnotations_getAdjustmentListeners8},
-	{"getBlockIncrement", "(I)I", nullptr, $PUBLIC, $virtualMethod(JScrollBar, getBlockIncrement, int32_t, int32_t)},
-	{"getBlockIncrement", "()I", nullptr, $PUBLIC, $virtualMethod(JScrollBar, getBlockIncrement, int32_t)},
-	{"getMaximum", "()I", nullptr, $PUBLIC, $virtualMethod(JScrollBar, getMaximum, int32_t)},
-	{"getMaximumSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(JScrollBar, getMaximumSize, $Dimension*)},
-	{"getMinimum", "()I", nullptr, $PUBLIC, $virtualMethod(JScrollBar, getMinimum, int32_t)},
-	{"getMinimumSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(JScrollBar, getMinimumSize, $Dimension*)},
-	{"getModel", "()Ljavax/swing/BoundedRangeModel;", nullptr, $PUBLIC, $virtualMethod(JScrollBar, getModel, $BoundedRangeModel*)},
-	{"getOrientation", "()I", nullptr, $PUBLIC, $virtualMethod(JScrollBar, getOrientation, int32_t)},
-	{"getUI", "()Ljavax/swing/plaf/ScrollBarUI;", nullptr, $PUBLIC, $virtualMethod(JScrollBar, getUI, $ComponentUI*)},
-	{"getUIClassID", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JScrollBar, getUIClassID, $String*), nullptr, nullptr, _JScrollBar_MethodAnnotations_getUIClassID18},
-	{"getUnitIncrement", "(I)I", nullptr, $PUBLIC, $virtualMethod(JScrollBar, getUnitIncrement, int32_t, int32_t)},
-	{"getUnitIncrement", "()I", nullptr, $PUBLIC, $virtualMethod(JScrollBar, getUnitIncrement, int32_t)},
-	{"getValue", "()I", nullptr, $PUBLIC, $virtualMethod(JScrollBar, getValue, int32_t)},
-	{"getValueIsAdjusting", "()Z", nullptr, $PUBLIC, $virtualMethod(JScrollBar, getValueIsAdjusting, bool)},
-	{"getVisibleAmount", "()I", nullptr, $PUBLIC, $virtualMethod(JScrollBar, getVisibleAmount, int32_t)},
-	{"paramString", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(JScrollBar, paramString, $String*)},
-	{"removeAdjustmentListener", "(Ljava/awt/event/AdjustmentListener;)V", nullptr, $PUBLIC, $virtualMethod(JScrollBar, removeAdjustmentListener, void, $AdjustmentListener*)},
-	{"setBlockIncrement", "(I)V", nullptr, $PUBLIC, $virtualMethod(JScrollBar, setBlockIncrement, void, int32_t), nullptr, nullptr, _JScrollBar_MethodAnnotations_setBlockIncrement26},
-	{"setEnabled", "(Z)V", nullptr, $PUBLIC, $virtualMethod(JScrollBar, setEnabled, void, bool)},
-	{"setMaximum", "(I)V", nullptr, $PUBLIC, $virtualMethod(JScrollBar, setMaximum, void, int32_t), nullptr, nullptr, _JScrollBar_MethodAnnotations_setMaximum28},
-	{"setMinimum", "(I)V", nullptr, $PUBLIC, $virtualMethod(JScrollBar, setMinimum, void, int32_t), nullptr, nullptr, _JScrollBar_MethodAnnotations_setMinimum29},
-	{"setModel", "(Ljavax/swing/BoundedRangeModel;)V", nullptr, $PUBLIC, $virtualMethod(JScrollBar, setModel, void, $BoundedRangeModel*), nullptr, nullptr, _JScrollBar_MethodAnnotations_setModel30},
-	{"setOrientation", "(I)V", nullptr, $PUBLIC, $virtualMethod(JScrollBar, setOrientation, void, int32_t), nullptr, nullptr, _JScrollBar_MethodAnnotations_setOrientation31},
-	{"setUI", "(Ljavax/swing/plaf/ScrollBarUI;)V", nullptr, $PUBLIC, $virtualMethod(JScrollBar, setUI, void, $ScrollBarUI*), nullptr, nullptr, _JScrollBar_MethodAnnotations_setUI32},
-	{"setUnitIncrement", "(I)V", nullptr, $PUBLIC, $virtualMethod(JScrollBar, setUnitIncrement, void, int32_t), nullptr, nullptr, _JScrollBar_MethodAnnotations_setUnitIncrement33},
-	{"setValue", "(I)V", nullptr, $PUBLIC, $virtualMethod(JScrollBar, setValue, void, int32_t), nullptr, nullptr, _JScrollBar_MethodAnnotations_setValue34},
-	{"setValueIsAdjusting", "(Z)V", nullptr, $PUBLIC, $virtualMethod(JScrollBar, setValueIsAdjusting, void, bool), nullptr, nullptr, _JScrollBar_MethodAnnotations_setValueIsAdjusting35},
-	{"setValues", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(JScrollBar, setValues, void, int32_t, int32_t, int32_t, int32_t)},
-	{"setVisibleAmount", "(I)V", nullptr, $PUBLIC, $virtualMethod(JScrollBar, setVisibleAmount, void, int32_t), nullptr, nullptr, _JScrollBar_MethodAnnotations_setVisibleAmount37},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"updateUI", "()V", nullptr, $PUBLIC, $virtualMethod(JScrollBar, updateUI, void)},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(JScrollBar, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _JScrollBar_InnerClassesInfo_[] = {
-	{"javax.swing.JScrollBar$AccessibleJScrollBar", "javax.swing.JScrollBar", "AccessibleJScrollBar", $PROTECTED},
-	{"javax.swing.JScrollBar$ModelListener", "javax.swing.JScrollBar", "ModelListener", $PRIVATE},
-	{}
-};
-
-$ClassInfo _JScrollBar_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.JScrollBar",
-	"javax.swing.JComponent",
-	"java.awt.Adjustable,javax.accessibility.Accessible",
-	_JScrollBar_FieldInfo_,
-	_JScrollBar_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JScrollBar_InnerClassesInfo_,
-	_JScrollBar_Annotations_,
-	nullptr,
-	"javax.swing.JScrollBar$AccessibleJScrollBar,javax.swing.JScrollBar$ModelListener"
-};
-
-$Object* allocate$JScrollBar($Class* clazz) {
-	return $of($alloc(JScrollBar));
-}
 
 $String* JScrollBar::toString() {
 	 return this->$JComponent::toString();
@@ -344,15 +85,10 @@ $String* JScrollBar::uiClassID = nullptr;
 void JScrollBar::checkOrientation(int32_t orientation) {
 	switch (orientation) {
 	case $Adjustable::VERTICAL:
-		{}
 	case $Adjustable::HORIZONTAL:
-		{
-			break;
-		}
+		break;
 	default:
-		{
-			$throwNew($IllegalArgumentException, "orientation must be one of: VERTICAL, HORIZONTAL"_s);
-		}
+		$throwNew($IllegalArgumentException, "orientation must be one of: VERTICAL, HORIZONTAL"_s);
 	}
 }
 
@@ -364,7 +100,7 @@ void JScrollBar::init$(int32_t orientation, int32_t value, int32_t extent, int32
 	this->blockIncrement = (extent == 0) ? 1 : extent;
 	this->orientation = orientation;
 	$set(this, model, $new($DefaultBoundedRangeModel, value, extent, min, max));
-	$nc(this->model)->addChangeListener(this->fwdAdjustmentEvents);
+	this->model->addChangeListener(this->fwdAdjustmentEvents);
 	setRequestFocusEnabled(false);
 	updateUI();
 }
@@ -386,7 +122,7 @@ $ComponentUI* JScrollBar::getUI() {
 }
 
 void JScrollBar::updateUI() {
-	setUI($cast($ScrollBarUI, $($UIManager::getUI(this))));
+	setUI($$cast($ScrollBarUI, $UIManager::getUI(this)));
 }
 
 $String* JScrollBar::getUIClassID() {
@@ -405,7 +141,7 @@ void JScrollBar::setOrientation(int32_t orientation) {
 	if ((oldValue != orientation) && (this->accessibleContext != nullptr)) {
 		$init($AccessibleContext);
 		$init($AccessibleState);
-		$nc(this->accessibleContext)->firePropertyChange($AccessibleContext::ACCESSIBLE_STATE_PROPERTY, ((oldValue == $Adjustable::VERTICAL) ? $of($AccessibleState::VERTICAL) : $of($AccessibleState::HORIZONTAL)), ((orientation == $Adjustable::VERTICAL) ? $of($AccessibleState::VERTICAL) : $of($AccessibleState::HORIZONTAL)));
+		this->accessibleContext->firePropertyChange($AccessibleContext::ACCESSIBLE_STATE_PROPERTY, ((oldValue == $Adjustable::VERTICAL) ? $AccessibleState::VERTICAL : $AccessibleState::HORIZONTAL), ((orientation == $Adjustable::VERTICAL) ? $AccessibleState::VERTICAL : $AccessibleState::HORIZONTAL));
 	}
 	if (orientation != oldValue) {
 		revalidate();
@@ -417,21 +153,21 @@ $BoundedRangeModel* JScrollBar::getModel() {
 }
 
 void JScrollBar::setModel($BoundedRangeModel* newModel) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Integer, oldValue, nullptr);
 	$var($BoundedRangeModel, oldModel, this->model);
 	if (this->model != nullptr) {
-		$nc(this->model)->removeChangeListener(this->fwdAdjustmentEvents);
+		this->model->removeChangeListener(this->fwdAdjustmentEvents);
 		$assign(oldValue, $Integer::valueOf($nc(this->model)->getValue()));
 	}
 	$set(this, model, newModel);
 	if (this->model != nullptr) {
-		$nc(this->model)->addChangeListener(this->fwdAdjustmentEvents);
+		this->model->addChangeListener(this->fwdAdjustmentEvents);
 	}
-	firePropertyChange("model"_s, $of(oldModel), $of(this->model));
+	firePropertyChange("model"_s, oldModel, this->model);
 	if (this->accessibleContext != nullptr) {
 		$init($AccessibleContext);
-		$nc(this->accessibleContext)->firePropertyChange($AccessibleContext::ACCESSIBLE_VALUE_PROPERTY, oldValue, $($Integer::valueOf($nc(this->model)->getValue())));
+		this->accessibleContext->firePropertyChange($AccessibleContext::ACCESSIBLE_VALUE_PROPERTY, oldValue, $($Integer::valueOf($nc(this->model)->getValue())));
 	}
 }
 
@@ -464,48 +200,48 @@ int32_t JScrollBar::getBlockIncrement() {
 }
 
 int32_t JScrollBar::getValue() {
-	return $nc($(getModel()))->getValue();
+	return $$nc(getModel())->getValue();
 }
 
 void JScrollBar::setValue(int32_t value) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($BoundedRangeModel, m, getModel());
 	int32_t oldValue = $nc(m)->getValue();
 	m->setValue(value);
 	if (this->accessibleContext != nullptr) {
 		$init($AccessibleContext);
 		$var($String, var$0, $AccessibleContext::ACCESSIBLE_VALUE_PROPERTY);
-		$var($Object, var$1, $of($Integer::valueOf(oldValue)));
-		$nc(this->accessibleContext)->firePropertyChange(var$0, var$1, $($Integer::valueOf(m->getValue())));
+		$var($Object, var$1, $Integer::valueOf(oldValue));
+		this->accessibleContext->firePropertyChange(var$0, var$1, $($Integer::valueOf(m->getValue())));
 	}
 }
 
 int32_t JScrollBar::getVisibleAmount() {
-	return $nc($(getModel()))->getExtent();
+	return $$nc(getModel())->getExtent();
 }
 
 void JScrollBar::setVisibleAmount(int32_t extent) {
-	$nc($(getModel()))->setExtent(extent);
+	$$nc(getModel())->setExtent(extent);
 }
 
 int32_t JScrollBar::getMinimum() {
-	return $nc($(getModel()))->getMinimum();
+	return $$nc(getModel())->getMinimum();
 }
 
 void JScrollBar::setMinimum(int32_t minimum) {
-	$nc($(getModel()))->setMinimum(minimum);
+	$$nc(getModel())->setMinimum(minimum);
 }
 
 int32_t JScrollBar::getMaximum() {
-	return $nc($(getModel()))->getMaximum();
+	return $$nc(getModel())->getMaximum();
 }
 
 void JScrollBar::setMaximum(int32_t maximum) {
-	$nc($(getModel()))->setMaximum(maximum);
+	$$nc(getModel())->setMaximum(maximum);
 }
 
 bool JScrollBar::getValueIsAdjusting() {
-	return $nc($(getModel()))->getValueIsAdjusting();
+	return $$nc(getModel())->getValueIsAdjusting();
 }
 
 void JScrollBar::setValueIsAdjusting(bool b) {
@@ -515,20 +251,20 @@ void JScrollBar::setValueIsAdjusting(bool b) {
 	if ((oldValue != b) && (this->accessibleContext != nullptr)) {
 		$init($AccessibleContext);
 		$init($AccessibleState);
-		$nc(this->accessibleContext)->firePropertyChange($AccessibleContext::ACCESSIBLE_STATE_PROPERTY, ((oldValue) ? $of($AccessibleState::BUSY) : ($Object*)nullptr), ((b) ? $of($AccessibleState::BUSY) : ($Object*)nullptr));
+		this->accessibleContext->firePropertyChange($AccessibleContext::ACCESSIBLE_STATE_PROPERTY, ((oldValue) ? $of($AccessibleState::BUSY) : ($Object*)nullptr), ((b) ? $of($AccessibleState::BUSY) : ($Object*)nullptr));
 	}
 }
 
 void JScrollBar::setValues(int32_t newValue, int32_t newExtent, int32_t newMin, int32_t newMax) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($BoundedRangeModel, m, getModel());
 	int32_t oldValue = $nc(m)->getValue();
 	m->setRangeProperties(newValue, newExtent, newMin, newMax, m->getValueIsAdjusting());
 	if (this->accessibleContext != nullptr) {
 		$init($AccessibleContext);
 		$var($String, var$0, $AccessibleContext::ACCESSIBLE_VALUE_PROPERTY);
-		$var($Object, var$1, $of($Integer::valueOf(oldValue)));
-		$nc(this->accessibleContext)->firePropertyChange(var$0, var$1, $($Integer::valueOf(m->getValue())));
+		$var($Object, var$1, $Integer::valueOf(oldValue));
+		this->accessibleContext->firePropertyChange(var$0, var$1, $($Integer::valueOf(m->getValue())));
 	}
 }
 
@@ -544,7 +280,7 @@ void JScrollBar::removeAdjustmentListener($AdjustmentListener* l) {
 
 $AdjustmentListenerArray* JScrollBar::getAdjustmentListeners() {
 	$load($AdjustmentListener);
-	return $fcast($AdjustmentListenerArray, $nc(this->listenerList)->getListeners($AdjustmentListener::class$));
+	return $cast($AdjustmentListenerArray, $nc(this->listenerList)->getListeners($AdjustmentListener::class$));
 }
 
 void JScrollBar::fireAdjustmentValueChanged(int32_t id, int32_t type, int32_t value) {
@@ -552,7 +288,7 @@ void JScrollBar::fireAdjustmentValueChanged(int32_t id, int32_t type, int32_t va
 }
 
 void JScrollBar::fireAdjustmentValueChanged(int32_t id, int32_t type, int32_t value, bool isAdjusting) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectArray, listeners, $nc(this->listenerList)->getListenerList());
 	$var($AdjustmentEvent, e, nullptr);
 	for (int32_t i = $nc(listeners)->length - 2; i >= 0; i -= 2) {
@@ -561,7 +297,7 @@ void JScrollBar::fireAdjustmentValueChanged(int32_t id, int32_t type, int32_t va
 			if (e == nullptr) {
 				$assign(e, $new($AdjustmentEvent, this, id, type, value, isAdjusting));
 			}
-			$nc(($cast($AdjustmentListener, listeners->get(i + 1))))->adjustmentValueChanged(e);
+			$nc($cast($AdjustmentListener, listeners->get(i + 1)))->adjustmentValueChanged(e);
 		}
 	}
 }
@@ -585,14 +321,12 @@ $Dimension* JScrollBar::getMaximumSize() {
 }
 
 void JScrollBar::setEnabled(bool x) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$JComponent::setEnabled(x);
 	$var($ComponentArray, children, getComponents());
 	{
 		$var($ComponentArray, arr$, children);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($Component, child, arr$->get(i$));
 			{
 				$nc(child)->setEnabled(x);
@@ -603,17 +337,17 @@ void JScrollBar::setEnabled(bool x) {
 
 void JScrollBar::writeObject($ObjectOutputStream* s) {
 	$nc(s)->defaultWriteObject();
-	if ($nc($(getUIClassID()))->equals(JScrollBar::uiClassID)) {
+	if ($$nc(getUIClassID())->equals(JScrollBar::uiClassID)) {
 		int8_t count = $JComponent::getWriteObjCounter(this);
 		$JComponent::setWriteObjCounter(this, --count);
 		if (count == 0 && this->ui != nullptr) {
-			$nc(this->ui)->installUI(this);
+			this->ui->installUI(this);
 		}
 	}
 }
 
 $String* JScrollBar::paramString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, orientationString, this->orientation == $Adjustable::HORIZONTAL ? "HORIZONTAL"_s : "VERTICAL"_s);
 	return $str({$($JComponent::paramString()), ",blockIncrement="_s, $$str(this->blockIncrement), ",orientation="_s, orientationString, ",unitIncrement="_s, $$str(this->unitIncrement)});
 }
@@ -628,12 +362,231 @@ $AccessibleContext* JScrollBar::getAccessibleContext() {
 JScrollBar::JScrollBar() {
 }
 
-void clinit$JScrollBar($Class* class$) {
+void JScrollBar::clinit$($Class* clazz) {
 	$assignStatic(JScrollBar::uiClassID, "ScrollBarUI"_s);
 }
 
 $Class* JScrollBar::load$($String* name, bool initialize) {
-	$loadClass(JScrollBar, name, initialize, &_JScrollBar_ClassInfo_, clinit$JScrollBar, allocate$JScrollBar);
+	$FieldInfo fieldInfos$$[] = {
+		{"uiClassID", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JScrollBar, uiClassID)},
+		{"fwdAdjustmentEvents", "Ljavax/swing/event/ChangeListener;", nullptr, $PRIVATE, $field(JScrollBar, fwdAdjustmentEvents)},
+		{"model", "Ljavax/swing/BoundedRangeModel;", nullptr, $PROTECTED, $field(JScrollBar, model)},
+		{"orientation", "I", nullptr, $PROTECTED, $field(JScrollBar, orientation)},
+		{"unitIncrement", "I", nullptr, $PROTECTED, $field(JScrollBar, unitIncrement)},
+		{"blockIncrement", "I", nullptr, $PROTECTED, $field(JScrollBar, blockIncrement)},
+		{}
+	};
+	$NamedAttribute getAccessibleContextmethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{}
+	};
+	$CompoundAttribute getAccessibleContextmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", getAccessibleContextmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute getAdjustmentListenersmethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{}
+	};
+	$CompoundAttribute getAdjustmentListenersmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", getAdjustmentListenersmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute getUIClassIDmethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{}
+	};
+	$CompoundAttribute getUIClassIDmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", getUIClassIDmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setBlockIncrementmethodAnnotations$$$namedAttribute[] = {
+		{"preferred", 'Z', "true"},
+		{"description", 's', "The scrollbar\'s block increment."},
+		{}
+	};
+	$CompoundAttribute setBlockIncrementmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setBlockIncrementmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setMaximummethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{"preferred", 'Z', "true"},
+		{"description", 's', "The scrollbar\'s maximum value."},
+		{}
+	};
+	$CompoundAttribute setMaximummethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setMaximummethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setMinimummethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{"preferred", 'Z', "true"},
+		{"description", 's', "The scrollbar\'s minimum value."},
+		{}
+	};
+	$CompoundAttribute setMinimummethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setMinimummethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setModelmethodAnnotations$$$namedAttribute[] = {
+		{"expert", 'Z', "true"},
+		{"description", 's', "The scrollbar\'s BoundedRangeModel."},
+		{}
+	};
+	$CompoundAttribute setModelmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setModelmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$Attribute $attribute[] = {
+		{'s', "JScrollBar.VERTICAL"},
+		{'s', "JScrollBar.HORIZONTAL"},
+		{'-'}
+	};
+	$NamedAttribute setOrientationmethodAnnotations$$$namedAttribute[] = {
+		{"preferred", 'Z', "true"},
+		{"visualUpdate", 'Z', "true"},
+		{"enumerationValues", '[', $attribute},
+		{"description", 's', "The scrollbar\'s orientation."},
+		{}
+	};
+	$CompoundAttribute setOrientationmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setOrientationmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setUImethodAnnotations$$$namedAttribute[] = {
+		{"hidden", 'Z', "true"},
+		{"visualUpdate", 'Z', "true"},
+		{"description", 's', "The UI object that implements the Component\'s LookAndFeel"},
+		{}
+	};
+	$CompoundAttribute setUImethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setUImethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setUnitIncrementmethodAnnotations$$$namedAttribute[] = {
+		{"preferred", 'Z', "true"},
+		{"description", 's', "The scrollbar\'s unit increment."},
+		{}
+	};
+	$CompoundAttribute setUnitIncrementmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setUnitIncrementmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setValuemethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{"preferred", 'Z', "true"},
+		{"description", 's', "The scrollbar\'s current value."},
+		{}
+	};
+	$CompoundAttribute setValuemethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setValuemethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setValueIsAdjustingmethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{"expert", 'Z', "true"},
+		{"description", 's', "True if the scrollbar thumb is being dragged."},
+		{}
+	};
+	$CompoundAttribute setValueIsAdjustingmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setValueIsAdjustingmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setVisibleAmountmethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{"preferred", 'Z', "true"},
+		{"description", 's', "The amount of the view that is currently visible."},
+		{}
+	};
+	$CompoundAttribute setVisibleAmountmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setVisibleAmountmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(IIIII)V", nullptr, $PUBLIC, $method(JScrollBar, init$, void, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(JScrollBar, init$, void, int32_t)},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(JScrollBar, init$, void)},
+		{"addAdjustmentListener", "(Ljava/awt/event/AdjustmentListener;)V", nullptr, $PUBLIC, $virtualMethod(JScrollBar, addAdjustmentListener, void, $AdjustmentListener*)},
+		{"checkOrientation", "(I)V", nullptr, $PRIVATE, $method(JScrollBar, checkOrientation, void, int32_t)},
+		{"fireAdjustmentValueChanged", "(III)V", nullptr, $PROTECTED, $virtualMethod(JScrollBar, fireAdjustmentValueChanged, void, int32_t, int32_t, int32_t)},
+		{"fireAdjustmentValueChanged", "(IIIZ)V", nullptr, $PRIVATE, $method(JScrollBar, fireAdjustmentValueChanged, void, int32_t, int32_t, int32_t, bool)},
+		{"getAccessibleContext", "()Ljavax/accessibility/AccessibleContext;", nullptr, $PUBLIC, $virtualMethod(JScrollBar, getAccessibleContext, $AccessibleContext*), nullptr, nullptr, getAccessibleContextmethodAnnotations$$},
+		{"getAdjustmentListeners", "()[Ljava/awt/event/AdjustmentListener;", nullptr, $PUBLIC, $virtualMethod(JScrollBar, getAdjustmentListeners, $AdjustmentListenerArray*), nullptr, nullptr, getAdjustmentListenersmethodAnnotations$$},
+		{"getBlockIncrement", "(I)I", nullptr, $PUBLIC, $virtualMethod(JScrollBar, getBlockIncrement, int32_t, int32_t)},
+		{"getBlockIncrement", "()I", nullptr, $PUBLIC, $virtualMethod(JScrollBar, getBlockIncrement, int32_t)},
+		{"getMaximum", "()I", nullptr, $PUBLIC, $virtualMethod(JScrollBar, getMaximum, int32_t)},
+		{"getMaximumSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(JScrollBar, getMaximumSize, $Dimension*)},
+		{"getMinimum", "()I", nullptr, $PUBLIC, $virtualMethod(JScrollBar, getMinimum, int32_t)},
+		{"getMinimumSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(JScrollBar, getMinimumSize, $Dimension*)},
+		{"getModel", "()Ljavax/swing/BoundedRangeModel;", nullptr, $PUBLIC, $virtualMethod(JScrollBar, getModel, $BoundedRangeModel*)},
+		{"getOrientation", "()I", nullptr, $PUBLIC, $virtualMethod(JScrollBar, getOrientation, int32_t)},
+		{"getUI", "()Ljavax/swing/plaf/ScrollBarUI;", nullptr, $PUBLIC, $virtualMethod(JScrollBar, getUI, $ComponentUI*)},
+		{"getUIClassID", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JScrollBar, getUIClassID, $String*), nullptr, nullptr, getUIClassIDmethodAnnotations$$},
+		{"getUnitIncrement", "(I)I", nullptr, $PUBLIC, $virtualMethod(JScrollBar, getUnitIncrement, int32_t, int32_t)},
+		{"getUnitIncrement", "()I", nullptr, $PUBLIC, $virtualMethod(JScrollBar, getUnitIncrement, int32_t)},
+		{"getValue", "()I", nullptr, $PUBLIC, $virtualMethod(JScrollBar, getValue, int32_t)},
+		{"getValueIsAdjusting", "()Z", nullptr, $PUBLIC, $virtualMethod(JScrollBar, getValueIsAdjusting, bool)},
+		{"getVisibleAmount", "()I", nullptr, $PUBLIC, $virtualMethod(JScrollBar, getVisibleAmount, int32_t)},
+		{"paramString", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(JScrollBar, paramString, $String*)},
+		{"removeAdjustmentListener", "(Ljava/awt/event/AdjustmentListener;)V", nullptr, $PUBLIC, $virtualMethod(JScrollBar, removeAdjustmentListener, void, $AdjustmentListener*)},
+		{"setBlockIncrement", "(I)V", nullptr, $PUBLIC, $virtualMethod(JScrollBar, setBlockIncrement, void, int32_t), nullptr, nullptr, setBlockIncrementmethodAnnotations$$},
+		{"setEnabled", "(Z)V", nullptr, $PUBLIC, $virtualMethod(JScrollBar, setEnabled, void, bool)},
+		{"setMaximum", "(I)V", nullptr, $PUBLIC, $virtualMethod(JScrollBar, setMaximum, void, int32_t), nullptr, nullptr, setMaximummethodAnnotations$$},
+		{"setMinimum", "(I)V", nullptr, $PUBLIC, $virtualMethod(JScrollBar, setMinimum, void, int32_t), nullptr, nullptr, setMinimummethodAnnotations$$},
+		{"setModel", "(Ljavax/swing/BoundedRangeModel;)V", nullptr, $PUBLIC, $virtualMethod(JScrollBar, setModel, void, $BoundedRangeModel*), nullptr, nullptr, setModelmethodAnnotations$$},
+		{"setOrientation", "(I)V", nullptr, $PUBLIC, $virtualMethod(JScrollBar, setOrientation, void, int32_t), nullptr, nullptr, setOrientationmethodAnnotations$$},
+		{"setUI", "(Ljavax/swing/plaf/ScrollBarUI;)V", nullptr, $PUBLIC, $virtualMethod(JScrollBar, setUI, void, $ScrollBarUI*), nullptr, nullptr, setUImethodAnnotations$$},
+		{"setUnitIncrement", "(I)V", nullptr, $PUBLIC, $virtualMethod(JScrollBar, setUnitIncrement, void, int32_t), nullptr, nullptr, setUnitIncrementmethodAnnotations$$},
+		{"setValue", "(I)V", nullptr, $PUBLIC, $virtualMethod(JScrollBar, setValue, void, int32_t), nullptr, nullptr, setValuemethodAnnotations$$},
+		{"setValueIsAdjusting", "(Z)V", nullptr, $PUBLIC, $virtualMethod(JScrollBar, setValueIsAdjusting, void, bool), nullptr, nullptr, setValueIsAdjustingmethodAnnotations$$},
+		{"setValues", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(JScrollBar, setValues, void, int32_t, int32_t, int32_t, int32_t)},
+		{"setVisibleAmount", "(I)V", nullptr, $PUBLIC, $virtualMethod(JScrollBar, setVisibleAmount, void, int32_t), nullptr, nullptr, setVisibleAmountmethodAnnotations$$},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"updateUI", "()V", nullptr, $PUBLIC, $virtualMethod(JScrollBar, updateUI, void)},
+		{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(JScrollBar, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.JScrollBar$AccessibleJScrollBar", "javax.swing.JScrollBar", "AccessibleJScrollBar", $PROTECTED},
+		{"javax.swing.JScrollBar$ModelListener", "javax.swing.JScrollBar", "ModelListener", $PRIVATE},
+		{}
+	};
+	$NamedAttribute annotations$$$namedAttribute[] = {
+		{"defaultProperty", 's', "UI"},
+		{"description", 's', "A component that helps determine the visible content range of an area."},
+		{}
+	};
+	$NamedAttribute annotations$$$namedAttribute$1[] = {
+		{"value", 'Z', "false"},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/beans/JavaBean;", annotations$$$namedAttribute},
+		{"Ljavax/swing/SwingContainer;", annotations$$$namedAttribute$1},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.JScrollBar",
+		"javax.swing.JComponent",
+		"java.awt.Adjustable,javax.accessibility.Accessible",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		annotations$$,
+		nullptr,
+		"javax.swing.JScrollBar$AccessibleJScrollBar,javax.swing.JScrollBar$ModelListener"
+	};
+	$loadClass(JScrollBar, name, initialize, &classInfo$$, JScrollBar::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JScrollBar));
+	});
 	return class$;
 }
 

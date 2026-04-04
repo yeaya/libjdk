@@ -1,5 +1,4 @@
 #include <javax/imageio/ImageTypeSpecifier$Packed.h>
-
 #include <java/awt/color/ColorSpace.h>
 #include <java/awt/image/ColorModel.h>
 #include <java/awt/image/DataBuffer.h>
@@ -14,7 +13,6 @@
 #undef TYPE_USHORT
 
 using $ColorSpace = ::java::awt::color::ColorSpace;
-using $ColorModel = ::java::awt::image::ColorModel;
 using $DataBuffer = ::java::awt::image::DataBuffer;
 using $DirectColorModel = ::java::awt::image::DirectColorModel;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -26,47 +24,6 @@ using $ImageTypeSpecifier = ::javax::imageio::ImageTypeSpecifier;
 
 namespace javax {
 	namespace imageio {
-
-$FieldInfo _ImageTypeSpecifier$Packed_FieldInfo_[] = {
-	{"colorSpace", "Ljava/awt/color/ColorSpace;", nullptr, 0, $field(ImageTypeSpecifier$Packed, colorSpace)},
-	{"redMask", "I", nullptr, 0, $field(ImageTypeSpecifier$Packed, redMask)},
-	{"greenMask", "I", nullptr, 0, $field(ImageTypeSpecifier$Packed, greenMask)},
-	{"blueMask", "I", nullptr, 0, $field(ImageTypeSpecifier$Packed, blueMask)},
-	{"alphaMask", "I", nullptr, 0, $field(ImageTypeSpecifier$Packed, alphaMask)},
-	{"transferType", "I", nullptr, 0, $field(ImageTypeSpecifier$Packed, transferType)},
-	{"isAlphaPremultiplied", "Z", nullptr, 0, $field(ImageTypeSpecifier$Packed, isAlphaPremultiplied)},
-	{}
-};
-
-$MethodInfo _ImageTypeSpecifier$Packed_MethodInfo_[] = {
-	{"<init>", "(Ljava/awt/color/ColorSpace;IIIIIZ)V", nullptr, $PUBLIC, $method(ImageTypeSpecifier$Packed, init$, void, $ColorSpace*, int32_t, int32_t, int32_t, int32_t, int32_t, bool)},
-	{}
-};
-
-$InnerClassInfo _ImageTypeSpecifier$Packed_InnerClassesInfo_[] = {
-	{"javax.imageio.ImageTypeSpecifier$Packed", "javax.imageio.ImageTypeSpecifier", "Packed", $STATIC},
-	{}
-};
-
-$ClassInfo _ImageTypeSpecifier$Packed_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.imageio.ImageTypeSpecifier$Packed",
-	"javax.imageio.ImageTypeSpecifier",
-	nullptr,
-	_ImageTypeSpecifier$Packed_FieldInfo_,
-	_ImageTypeSpecifier$Packed_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ImageTypeSpecifier$Packed_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.imageio.ImageTypeSpecifier"
-};
-
-$Object* allocate$ImageTypeSpecifier$Packed($Class* clazz) {
-	return $of($alloc(ImageTypeSpecifier$Packed));
-}
 
 void ImageTypeSpecifier$Packed::init$($ColorSpace* colorSpace, int32_t redMask, int32_t greenMask, int32_t blueMask, int32_t alphaMask, int32_t transferType, bool isAlphaPremultiplied) {
 	$ImageTypeSpecifier::init$();
@@ -98,7 +55,42 @@ ImageTypeSpecifier$Packed::ImageTypeSpecifier$Packed() {
 }
 
 $Class* ImageTypeSpecifier$Packed::load$($String* name, bool initialize) {
-	$loadClass(ImageTypeSpecifier$Packed, name, initialize, &_ImageTypeSpecifier$Packed_ClassInfo_, allocate$ImageTypeSpecifier$Packed);
+	$FieldInfo fieldInfos$$[] = {
+		{"colorSpace", "Ljava/awt/color/ColorSpace;", nullptr, 0, $field(ImageTypeSpecifier$Packed, colorSpace)},
+		{"redMask", "I", nullptr, 0, $field(ImageTypeSpecifier$Packed, redMask)},
+		{"greenMask", "I", nullptr, 0, $field(ImageTypeSpecifier$Packed, greenMask)},
+		{"blueMask", "I", nullptr, 0, $field(ImageTypeSpecifier$Packed, blueMask)},
+		{"alphaMask", "I", nullptr, 0, $field(ImageTypeSpecifier$Packed, alphaMask)},
+		{"transferType", "I", nullptr, 0, $field(ImageTypeSpecifier$Packed, transferType)},
+		{"isAlphaPremultiplied", "Z", nullptr, 0, $field(ImageTypeSpecifier$Packed, isAlphaPremultiplied)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/color/ColorSpace;IIIIIZ)V", nullptr, $PUBLIC, $method(ImageTypeSpecifier$Packed, init$, void, $ColorSpace*, int32_t, int32_t, int32_t, int32_t, int32_t, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.imageio.ImageTypeSpecifier$Packed", "javax.imageio.ImageTypeSpecifier", "Packed", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.imageio.ImageTypeSpecifier$Packed",
+		"javax.imageio.ImageTypeSpecifier",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.imageio.ImageTypeSpecifier"
+	};
+	$loadClass(ImageTypeSpecifier$Packed, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ImageTypeSpecifier$Packed);
+	});
 	return class$;
 }
 

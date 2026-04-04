@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/bcel/internal/classfile/InnerClasses.h>
-
 #include <com/sun/org/apache/bcel/internal/Const.h>
 #include <com/sun/org/apache/bcel/internal/classfile/Attribute.h>
 #include <com/sun/org/apache/bcel/internal/classfile/ConstantPool.h>
@@ -31,39 +30,8 @@ namespace com {
 					namespace internal {
 						namespace classfile {
 
-$FieldInfo _InnerClasses_FieldInfo_[] = {
-	{"innerClasses", "[Lcom/sun/org/apache/bcel/internal/classfile/InnerClass;", nullptr, $PRIVATE, $field(InnerClasses, innerClasses)},
-	{}
-};
-
-$MethodInfo _InnerClasses_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/org/apache/bcel/internal/classfile/InnerClasses;)V", nullptr, $PUBLIC, $method(InnerClasses, init$, void, InnerClasses*)},
-	{"<init>", "(II[Lcom/sun/org/apache/bcel/internal/classfile/InnerClass;Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;)V", nullptr, $PUBLIC, $method(InnerClasses, init$, void, int32_t, int32_t, $InnerClassArray*, $ConstantPool*)},
-	{"<init>", "(IILjava/io/DataInput;Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;)V", nullptr, 0, $method(InnerClasses, init$, void, int32_t, int32_t, $DataInput*, $ConstantPool*), "java.io.IOException"},
-	{"accept", "(Lcom/sun/org/apache/bcel/internal/classfile/Visitor;)V", nullptr, $PUBLIC, $virtualMethod(InnerClasses, accept, void, $Visitor*)},
-	{"copy", "(Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;)Lcom/sun/org/apache/bcel/internal/classfile/Attribute;", nullptr, $PUBLIC, $virtualMethod(InnerClasses, copy, $Attribute*, $ConstantPool*)},
-	{"dump", "(Ljava/io/DataOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(InnerClasses, dump, void, $DataOutputStream*), "java.io.IOException"},
-	{"getInnerClasses", "()[Lcom/sun/org/apache/bcel/internal/classfile/InnerClass;", nullptr, $PUBLIC, $method(InnerClasses, getInnerClasses, $InnerClassArray*)},
-	{"setInnerClasses", "([Lcom/sun/org/apache/bcel/internal/classfile/InnerClass;)V", nullptr, $PUBLIC, $method(InnerClasses, setInnerClasses, void, $InnerClassArray*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(InnerClasses, toString, $String*)},
-	{}
-};
-
-$ClassInfo _InnerClasses_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.org.apache.bcel.internal.classfile.InnerClasses",
-	"com.sun.org.apache.bcel.internal.classfile.Attribute",
-	nullptr,
-	_InnerClasses_FieldInfo_,
-	_InnerClasses_MethodInfo_
-};
-
-$Object* allocate$InnerClasses($Class* clazz) {
-	return $of($alloc(InnerClasses));
-}
-
 void InnerClasses::init$(InnerClasses* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t var$0 = $nc(c)->getNameIndex();
 	int32_t var$1 = c->getLength();
 	$var($InnerClassArray, var$2, c->getInnerClasses());
@@ -76,12 +44,12 @@ void InnerClasses::init$(int32_t name_index, int32_t length, $InnerClassArray* i
 }
 
 void InnerClasses::init$(int32_t name_index, int32_t length, $DataInput* input, $ConstantPool* constant_pool) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	InnerClasses::init$(name_index, length, ($InnerClassArray*)nullptr, constant_pool);
 	int32_t number_of_classes = $nc(input)->readUnsignedShort();
 	$set(this, innerClasses, $new($InnerClassArray, number_of_classes));
 	for (int32_t i = 0; i < number_of_classes; ++i) {
-		$nc(this->innerClasses)->set(i, $$new($InnerClass, input));
+		this->innerClasses->set(i, $$new($InnerClass, input));
 	}
 }
 
@@ -90,14 +58,12 @@ void InnerClasses::accept($Visitor* v) {
 }
 
 void InnerClasses::dump($DataOutputStream* file) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Attribute::dump(file);
 	$nc(file)->writeShort($nc(this->innerClasses)->length);
 	{
 		$var($InnerClassArray, arr$, this->innerClasses);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($InnerClass, inner_class, arr$->get(i$));
 			{
 				$nc(inner_class)->dump(file);
@@ -115,16 +81,14 @@ void InnerClasses::setInnerClasses($InnerClassArray* innerClasses) {
 }
 
 $String* InnerClasses::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, buf, $new($StringBuilder));
 	buf->append("InnerClasses("_s);
 	buf->append($nc(this->innerClasses)->length);
 	buf->append("):\n"_s);
 	{
 		$var($InnerClassArray, arr$, this->innerClasses);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($InnerClass, inner_class, arr$->get(i$));
 			{
 				buf->append($($nc(inner_class)->toString($($Attribute::getConstantPool()))))->append("\n"_s);
@@ -135,11 +99,11 @@ $String* InnerClasses::toString() {
 }
 
 $Attribute* InnerClasses::copy($ConstantPool* _constant_pool) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(InnerClasses, c, $cast(InnerClasses, clone()));
 	$set($nc(c), innerClasses, $new($InnerClassArray, $nc(this->innerClasses)->length));
 	for (int32_t i = 0; i < $nc(this->innerClasses)->length; ++i) {
-		$nc(c->innerClasses)->set(i, $($nc($nc(this->innerClasses)->get(i))->copy()));
+		$nc(c->innerClasses)->set(i, $($nc(this->innerClasses->get(i))->copy()));
 	}
 	c->setConstantPool(_constant_pool);
 	return c;
@@ -149,7 +113,33 @@ InnerClasses::InnerClasses() {
 }
 
 $Class* InnerClasses::load$($String* name, bool initialize) {
-	$loadClass(InnerClasses, name, initialize, &_InnerClasses_ClassInfo_, allocate$InnerClasses);
+	$FieldInfo fieldInfos$$[] = {
+		{"innerClasses", "[Lcom/sun/org/apache/bcel/internal/classfile/InnerClass;", nullptr, $PRIVATE, $field(InnerClasses, innerClasses)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/org/apache/bcel/internal/classfile/InnerClasses;)V", nullptr, $PUBLIC, $method(InnerClasses, init$, void, InnerClasses*)},
+		{"<init>", "(II[Lcom/sun/org/apache/bcel/internal/classfile/InnerClass;Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;)V", nullptr, $PUBLIC, $method(InnerClasses, init$, void, int32_t, int32_t, $InnerClassArray*, $ConstantPool*)},
+		{"<init>", "(IILjava/io/DataInput;Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;)V", nullptr, 0, $method(InnerClasses, init$, void, int32_t, int32_t, $DataInput*, $ConstantPool*), "java.io.IOException"},
+		{"accept", "(Lcom/sun/org/apache/bcel/internal/classfile/Visitor;)V", nullptr, $PUBLIC, $virtualMethod(InnerClasses, accept, void, $Visitor*)},
+		{"copy", "(Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;)Lcom/sun/org/apache/bcel/internal/classfile/Attribute;", nullptr, $PUBLIC, $virtualMethod(InnerClasses, copy, $Attribute*, $ConstantPool*)},
+		{"dump", "(Ljava/io/DataOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(InnerClasses, dump, void, $DataOutputStream*), "java.io.IOException"},
+		{"getInnerClasses", "()[Lcom/sun/org/apache/bcel/internal/classfile/InnerClass;", nullptr, $PUBLIC, $method(InnerClasses, getInnerClasses, $InnerClassArray*)},
+		{"setInnerClasses", "([Lcom/sun/org/apache/bcel/internal/classfile/InnerClass;)V", nullptr, $PUBLIC, $method(InnerClasses, setInnerClasses, void, $InnerClassArray*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(InnerClasses, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.org.apache.bcel.internal.classfile.InnerClasses",
+		"com.sun.org.apache.bcel.internal.classfile.Attribute",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(InnerClasses, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(InnerClasses));
+	});
 	return class$;
 }
 

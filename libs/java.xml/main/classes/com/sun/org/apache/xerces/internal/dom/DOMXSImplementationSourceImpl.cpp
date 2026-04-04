@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/dom/DOMXSImplementationSourceImpl.h>
-
 #include <com/sun/org/apache/xerces/internal/dom/DOMImplementationListImpl.h>
 #include <com/sun/org/apache/xerces/internal/dom/DOMImplementationSourceImpl.h>
 #include <com/sun/org/apache/xerces/internal/dom/PSVIDOMImplementationImpl.h>
@@ -29,26 +28,6 @@ namespace com {
 					namespace internal {
 						namespace dom {
 
-$MethodInfo _DOMXSImplementationSourceImpl_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(DOMXSImplementationSourceImpl, init$, void)},
-	{"getDOMImplementation", "(Ljava/lang/String;)Lorg/w3c/dom/DOMImplementation;", nullptr, $PUBLIC, $virtualMethod(DOMXSImplementationSourceImpl, getDOMImplementation, $DOMImplementation*, $String*)},
-	{"getDOMImplementationList", "(Ljava/lang/String;)Lorg/w3c/dom/DOMImplementationList;", nullptr, $PUBLIC, $virtualMethod(DOMXSImplementationSourceImpl, getDOMImplementationList, $DOMImplementationList*, $String*)},
-	{}
-};
-
-$ClassInfo _DOMXSImplementationSourceImpl_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.dom.DOMXSImplementationSourceImpl",
-	"com.sun.org.apache.xerces.internal.dom.DOMImplementationSourceImpl",
-	nullptr,
-	nullptr,
-	_DOMXSImplementationSourceImpl_MethodInfo_
-};
-
-$Object* allocate$DOMXSImplementationSourceImpl($Class* clazz) {
-	return $of($alloc(DOMXSImplementationSourceImpl));
-}
-
 void DOMXSImplementationSourceImpl::init$() {
 	$DOMImplementationSourceImpl::init$();
 }
@@ -70,7 +49,7 @@ $DOMImplementation* DOMXSImplementationSourceImpl::getDOMImplementation($String*
 }
 
 $DOMImplementationList* DOMXSImplementationSourceImpl::getDOMImplementationList($String* features) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, implementations, $new($ArrayList));
 	$var($DOMImplementationList, list, $DOMImplementationSourceImpl::getDOMImplementationList(features));
 	for (int32_t i = 0; i < $nc(list)->getLength(); ++i) {
@@ -91,7 +70,23 @@ DOMXSImplementationSourceImpl::DOMXSImplementationSourceImpl() {
 }
 
 $Class* DOMXSImplementationSourceImpl::load$($String* name, bool initialize) {
-	$loadClass(DOMXSImplementationSourceImpl, name, initialize, &_DOMXSImplementationSourceImpl_ClassInfo_, allocate$DOMXSImplementationSourceImpl);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(DOMXSImplementationSourceImpl, init$, void)},
+		{"getDOMImplementation", "(Ljava/lang/String;)Lorg/w3c/dom/DOMImplementation;", nullptr, $PUBLIC, $virtualMethod(DOMXSImplementationSourceImpl, getDOMImplementation, $DOMImplementation*, $String*)},
+		{"getDOMImplementationList", "(Ljava/lang/String;)Lorg/w3c/dom/DOMImplementationList;", nullptr, $PUBLIC, $virtualMethod(DOMXSImplementationSourceImpl, getDOMImplementationList, $DOMImplementationList*, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.dom.DOMXSImplementationSourceImpl",
+		"com.sun.org.apache.xerces.internal.dom.DOMImplementationSourceImpl",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(DOMXSImplementationSourceImpl, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DOMXSImplementationSourceImpl);
+	});
 	return class$;
 }
 

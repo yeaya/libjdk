@@ -1,5 +1,4 @@
 #include <javax/xml/crypto/NodeSetData.h>
-
 #include <javax/xml/crypto/Data.h>
 #include <jcpp.h>
 
@@ -10,30 +9,6 @@ using $Data = ::javax::xml::crypto::Data;
 namespace javax {
 	namespace xml {
 		namespace crypto {
-
-$MethodInfo _NodeSetData_MethodInfo_[] = {
-	{"iterator", "()Ljava/util/Iterator;", nullptr, $PUBLIC | $ABSTRACT},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{}
-};
-
-$ClassInfo _NodeSetData_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"javax.xml.crypto.NodeSetData",
-	nullptr,
-	"javax.xml.crypto.Data,java.lang.Iterable",
-	nullptr,
-	_NodeSetData_MethodInfo_,
-	"<T:Ljava/lang/Object;>Ljava/lang/Object;Ljavax/xml/crypto/Data;Ljava/lang/Iterable<TT;>;"
-};
-
-$Object* allocate$NodeSetData($Class* clazz) {
-	return $of($alloc(NodeSetData));
-}
 
 int32_t NodeSetData::hashCode() {
 	 return this->$Data::hashCode();
@@ -56,7 +31,27 @@ void NodeSetData::finalize() {
 }
 
 $Class* NodeSetData::load$($String* name, bool initialize) {
-	$loadClass(NodeSetData, name, initialize, &_NodeSetData_ClassInfo_, allocate$NodeSetData);
+	$MethodInfo methodInfos$$[] = {
+		{"iterator", "()Ljava/util/Iterator;", nullptr, $PUBLIC | $ABSTRACT},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"javax.xml.crypto.NodeSetData",
+		nullptr,
+		"javax.xml.crypto.Data,java.lang.Iterable",
+		nullptr,
+		methodInfos$$,
+		"<T:Ljava/lang/Object;>Ljava/lang/Object;Ljavax/xml/crypto/Data;Ljava/lang/Iterable<TT;>;"
+	};
+	$loadClass(NodeSetData, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(NodeSetData));
+	});
 	return class$;
 }
 

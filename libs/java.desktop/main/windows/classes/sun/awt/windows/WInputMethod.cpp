@@ -1,5 +1,4 @@
 #include <sun/awt/windows/WInputMethod.h>
-
 #include <java/awt/AWTEvent.h>
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
@@ -134,126 +133,6 @@ namespace sun {
 	namespace awt {
 		namespace windows {
 
-$FieldInfo _WInputMethod_FieldInfo_[] = {
-	{"inputContext", "Ljava/awt/im/spi/InputMethodContext;", nullptr, $PRIVATE, $field(WInputMethod, inputContext)},
-	{"awtFocussedComponent", "Ljava/awt/Component;", nullptr, $PRIVATE, $field(WInputMethod, awtFocussedComponent)},
-	{"awtFocussedComponentPeer", "Lsun/awt/windows/WComponentPeer;", nullptr, $PRIVATE, $field(WInputMethod, awtFocussedComponentPeer)},
-	{"lastFocussedComponentPeer", "Lsun/awt/windows/WComponentPeer;", nullptr, $PRIVATE, $field(WInputMethod, lastFocussedComponentPeer)},
-	{"isLastFocussedActiveClient", "Z", nullptr, $PRIVATE, $field(WInputMethod, isLastFocussedActiveClient)},
-	{"isActive", "Z", nullptr, $PRIVATE, $field(WInputMethod, isActive)},
-	{"context", "I", nullptr, $PRIVATE, $field(WInputMethod, context)},
-	{"open", "Z", nullptr, $PRIVATE, $field(WInputMethod, open)},
-	{"cmode", "I", nullptr, $PRIVATE, $field(WInputMethod, cmode)},
-	{"currentLocale", "Ljava/util/Locale;", nullptr, $PRIVATE, $field(WInputMethod, currentLocale)},
-	{"statusWindowHidden", "Z", nullptr, $PRIVATE, $field(WInputMethod, statusWindowHidden)},
-	{"hasCompositionString", "Z", nullptr, $PRIVATE, $field(WInputMethod, hasCompositionString)},
-	{"ATTR_INPUT", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(WInputMethod, ATTR_INPUT)},
-	{"ATTR_TARGET_CONVERTED", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(WInputMethod, ATTR_TARGET_CONVERTED)},
-	{"ATTR_CONVERTED", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(WInputMethod, ATTR_CONVERTED)},
-	{"ATTR_TARGET_NOTCONVERTED", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(WInputMethod, ATTR_TARGET_NOTCONVERTED)},
-	{"ATTR_INPUT_ERROR", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(WInputMethod, ATTR_INPUT_ERROR)},
-	{"IME_CMODE_ALPHANUMERIC", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(WInputMethod, IME_CMODE_ALPHANUMERIC)},
-	{"IME_CMODE_NATIVE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(WInputMethod, IME_CMODE_NATIVE)},
-	{"IME_CMODE_KATAKANA", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(WInputMethod, IME_CMODE_KATAKANA)},
-	{"IME_CMODE_LANGUAGE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(WInputMethod, IME_CMODE_LANGUAGE)},
-	{"IME_CMODE_FULLSHAPE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(WInputMethod, IME_CMODE_FULLSHAPE)},
-	{"IME_CMODE_HANJACONVERT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(WInputMethod, IME_CMODE_HANJACONVERT)},
-	{"IME_CMODE_ROMAN", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(WInputMethod, IME_CMODE_ROMAN)},
-	{"COMMIT_INPUT", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WInputMethod, COMMIT_INPUT)},
-	{"DISCARD_INPUT", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WInputMethod, DISCARD_INPUT)},
-	{"highlightStyles", "[Ljava/util/Map;", "[Ljava/util/Map<Ljava/awt/font/TextAttribute;Ljava/lang/Object;>;", $PRIVATE | $STATIC, $staticField(WInputMethod, highlightStyles)},
-	{}
-};
-
-$MethodInfo _WInputMethod_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(WInputMethod, init$, void)},
-	{"access$000", "(Lsun/awt/windows/WInputMethod;)Ljava/awt/Component;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(WInputMethod, access$000, $Component*, WInputMethod*)},
-	{"access$100", "(Lsun/awt/windows/WInputMethod;)Z", nullptr, $STATIC | $SYNTHETIC, $staticMethod(WInputMethod, access$100, bool, WInputMethod*)},
-	{"activate", "()V", nullptr, $PUBLIC, $virtualMethod(WInputMethod, activate, void)},
-	{"createNativeContext", "()I", nullptr, $PRIVATE | $NATIVE, $method(WInputMethod, createNativeContext, int32_t)},
-	{"deactivate", "(Z)V", nullptr, $PUBLIC, $virtualMethod(WInputMethod, deactivate, void, bool)},
-	{"destroyNativeContext", "(I)V", nullptr, $PRIVATE | $NATIVE, $method(WInputMethod, destroyNativeContext, void, int32_t)},
-	{"disableInputMethod", "()V", nullptr, $PUBLIC, $virtualMethod(WInputMethod, disableInputMethod, void)},
-	{"disableNativeIME", "(Lsun/awt/windows/WComponentPeer;)V", nullptr, $PRIVATE | $NATIVE, $method(WInputMethod, disableNativeIME, void, $WComponentPeer*)},
-	{"dispatchEvent", "(Ljava/awt/AWTEvent;)V", nullptr, $PUBLIC, $virtualMethod(WInputMethod, dispatchEvent, void, $AWTEvent*)},
-	{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(WInputMethod, dispose, void)},
-	{"enableNativeIME", "(Lsun/awt/windows/WComponentPeer;IZ)V", nullptr, $PRIVATE | $NATIVE, $method(WInputMethod, enableNativeIME, void, $WComponentPeer*, int32_t, bool)},
-	{"endComposition", "()V", nullptr, $PUBLIC, $virtualMethod(WInputMethod, endComposition, void)},
-	{"endCompositionNative", "(IZ)V", nullptr, $PRIVATE | $NATIVE, $method(WInputMethod, endCompositionNative, void, int32_t, bool)},
-	{"finalize", "()V", nullptr, $PROTECTED, $virtualMethod(WInputMethod, finalize, void), "java.lang.Throwable"},
-	{"getControlObject", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(WInputMethod, getControlObject, $Object*)},
-	{"getConversionStatus", "(I)I", nullptr, $PRIVATE | $NATIVE, $method(WInputMethod, getConversionStatus, int32_t, int32_t)},
-	{"getLocale", "()Ljava/util/Locale;", nullptr, $PUBLIC, $virtualMethod(WInputMethod, getLocale, $Locale*)},
-	{"getNativeIMMDescription", "()Ljava/lang/String;", nullptr, $PRIVATE | $NATIVE, $method(WInputMethod, getNativeIMMDescription, $String*)},
-	{"getNativeInputMethodInfo", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(WInputMethod, getNativeInputMethodInfo, $String*)},
-	{"getNativeLocale", "()Ljava/util/Locale;", nullptr, $STATIC | $NATIVE, $staticMethod(WInputMethod, getNativeLocale, $Locale*)},
-	{"getNearestNativePeer", "(Ljava/awt/Component;)Lsun/awt/windows/WComponentPeer;", nullptr, $PRIVATE, $method(WInputMethod, getNearestNativePeer, $WComponentPeer*, $Component*)},
-	{"getOpenStatus", "(I)Z", nullptr, $PRIVATE | $NATIVE, $method(WInputMethod, getOpenStatus, bool, int32_t)},
-	{"handleNativeIMEEvent", "(Lsun/awt/windows/WComponentPeer;Ljava/awt/AWTEvent;)V", nullptr, $PRIVATE | $NATIVE, $method(WInputMethod, handleNativeIMEEvent, void, $WComponentPeer*, $AWTEvent*)},
-	{"hideWindows", "()V", nullptr, $PUBLIC, $virtualMethod(WInputMethod, hideWindows, void)},
-	{"inquireCandidatePosition", "()V", nullptr, $PUBLIC, $method(WInputMethod, inquireCandidatePosition, void)},
-	{"isCompositionEnabled", "()Z", nullptr, $PUBLIC, $virtualMethod(WInputMethod, isCompositionEnabled, bool)},
-	{"isCompositionStringAvailable", "(I)Z", nullptr, $PRIVATE | $NATIVE, $method(WInputMethod, isCompositionStringAvailable, bool, int32_t)},
-	{"mapInputMethodHighlight", "(Ljava/awt/im/InputMethodHighlight;)Ljava/util/Map;", "(Ljava/awt/im/InputMethodHighlight;)Ljava/util/Map<Ljava/awt/font/TextAttribute;*>;", $STATIC, $staticMethod(WInputMethod, mapInputMethodHighlight, $Map*, $InputMethodHighlight*)},
-	{"openCandidateWindow", "(Lsun/awt/windows/WComponentPeer;II)V", nullptr, $PRIVATE | $NATIVE, $method(WInputMethod, openCandidateWindow, void, $WComponentPeer*, int32_t, int32_t)},
-	{"removeNotify", "()V", nullptr, $PUBLIC, $virtualMethod(WInputMethod, removeNotify, void)},
-	{"sendInputMethodEvent", "(IJLjava/lang/String;[I[Ljava/lang/String;[I[BIII)V", nullptr, $PUBLIC, $method(WInputMethod, sendInputMethodEvent, void, int32_t, int64_t, $String*, $ints*, $StringArray*, $ints*, $bytes*, int32_t, int32_t, int32_t)},
-	{"setAWTFocussedComponent", "(Ljava/awt/Component;)V", nullptr, $PROTECTED, $virtualMethod(WInputMethod, setAWTFocussedComponent, void, $Component*)},
-	{"setCharacterSubsets", "([Ljava/lang/Character$Subset;)V", nullptr, $PUBLIC, $virtualMethod(WInputMethod, setCharacterSubsets, void, $Character$SubsetArray*)},
-	{"setCompositionEnabled", "(Z)V", nullptr, $PUBLIC, $virtualMethod(WInputMethod, setCompositionEnabled, void, bool)},
-	{"setConversionStatus", "(II)V", nullptr, $PRIVATE | $NATIVE, $method(WInputMethod, setConversionStatus, void, int32_t, int32_t)},
-	{"setInputMethodContext", "(Ljava/awt/im/spi/InputMethodContext;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(WInputMethod, setInputMethodContext, void, $InputMethodContext*)},
-	{"setLocale", "(Ljava/util/Locale;)Z", nullptr, $PUBLIC, $virtualMethod(WInputMethod, setLocale, bool, $Locale*)},
-	{"setLocale", "(Ljava/util/Locale;Z)Z", nullptr, $PRIVATE, $method(WInputMethod, setLocale, bool, $Locale*, bool)},
-	{"setNativeLocale", "(Ljava/lang/String;Z)Z", nullptr, $STATIC | $NATIVE, $staticMethod(WInputMethod, setNativeLocale, bool, $String*, bool)},
-	{"setOpenStatus", "(IZ)V", nullptr, $PRIVATE | $NATIVE, $method(WInputMethod, setOpenStatus, void, int32_t, bool)},
-	{"setStatusWindowVisible", "(Lsun/awt/windows/WComponentPeer;Z)V", nullptr, $PRIVATE | $NATIVE, $method(WInputMethod, setStatusWindowVisible, void, $WComponentPeer*, bool)},
-	{"stopListening", "()V", nullptr, $PROTECTED, $virtualMethod(WInputMethod, stopListening, void)},
-	{"supportsBelowTheSpot", "()Z", nullptr, $PROTECTED, $virtualMethod(WInputMethod, supportsBelowTheSpot, bool)},
-	{}
-};
-
-#define _METHOD_INDEX_createNativeContext 4
-#define _METHOD_INDEX_destroyNativeContext 6
-#define _METHOD_INDEX_disableNativeIME 8
-#define _METHOD_INDEX_enableNativeIME 11
-#define _METHOD_INDEX_endCompositionNative 13
-#define _METHOD_INDEX_getConversionStatus 16
-#define _METHOD_INDEX_getNativeIMMDescription 18
-#define _METHOD_INDEX_getNativeLocale 20
-#define _METHOD_INDEX_getOpenStatus 22
-#define _METHOD_INDEX_handleNativeIMEEvent 23
-#define _METHOD_INDEX_isCompositionStringAvailable 27
-#define _METHOD_INDEX_openCandidateWindow 29
-#define _METHOD_INDEX_setConversionStatus 35
-#define _METHOD_INDEX_setNativeLocale 39
-#define _METHOD_INDEX_setOpenStatus 40
-#define _METHOD_INDEX_setStatusWindowVisible 41
-
-$InnerClassInfo _WInputMethod_InnerClassesInfo_[] = {
-	{"sun.awt.windows.WInputMethod$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _WInputMethod_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.awt.windows.WInputMethod",
-	"sun.awt.im.InputMethodAdapter",
-	nullptr,
-	_WInputMethod_FieldInfo_,
-	_WInputMethod_MethodInfo_,
-	nullptr,
-	nullptr,
-	_WInputMethod_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.awt.windows.WInputMethod$1"
-};
-
-$Object* allocate$WInputMethod($Class* clazz) {
-	return $of($alloc(WInputMethod));
-}
-
 $MapArray* WInputMethod::highlightStyles = nullptr;
 
 bool WInputMethod::access$100(WInputMethod* x0) {
@@ -300,7 +179,7 @@ void WInputMethod::dispose() {
 }
 
 $Object* WInputMethod::getControlObject() {
-	return $of(nullptr);
+	return nullptr;
 }
 
 bool WInputMethod::setLocale($Locale* lang) {
@@ -308,24 +187,23 @@ bool WInputMethod::setLocale($Locale* lang) {
 }
 
 bool WInputMethod::setLocale($Locale* lang, bool onActivate) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($LocaleArray, available, $WInputMethodDescriptor::getAvailableLocalesInternal());
 	for (int32_t i = 0; i < $nc(available)->length; ++i) {
 		$var($Locale, locale, available->get(i));
 		bool var$1 = $nc(lang)->equals(locale);
 		if (!var$1) {
-			$init($Locale);
 			bool var$2 = $nc(locale)->equals($Locale::JAPAN);
-			var$1 = var$2 && $nc(lang)->equals($Locale::JAPANESE);
+			var$1 = var$2 && lang->equals($Locale::JAPANESE);
 		}
 		bool var$0 = var$1;
 		if (!var$0) {
 			bool var$3 = $nc(locale)->equals($Locale::KOREA);
-			var$0 = var$3 && $nc(lang)->equals($Locale::KOREAN);
+			var$0 = var$3 && lang->equals($Locale::KOREAN);
 		}
 		if (var$0) {
 			if (this->isActive) {
-				setNativeLocale($(locale->toLanguageTag()), onActivate);
+				setNativeLocale($($nc(locale)->toLanguageTag()), onActivate);
 			}
 			$set(this, currentLocale, locale);
 			return true;
@@ -345,7 +223,7 @@ $Locale* WInputMethod::getLocale() {
 }
 
 void WInputMethod::setCharacterSubsets($Character$SubsetArray* subsets) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (subsets == nullptr) {
 		setConversionStatus(this->context, this->cmode);
 		setOpenStatus(this->context, this->open);
@@ -358,7 +236,7 @@ void WInputMethod::setCharacterSubsets($Character$SubsetArray* subsets) {
 		return;
 	}
 	$init($Locale);
-	if ($nc($($nc(locale)->getLanguage()))->equals($($nc($Locale::JAPANESE)->getLanguage()))) {
+	if ($$nc($nc(locale)->getLanguage())->equals($($nc($Locale::JAPANESE)->getLanguage()))) {
 		$init($Character$UnicodeBlock);
 		$init($InputSubset);
 		if ($equals(subset1, $Character$UnicodeBlock::BASIC_LATIN) || $equals(subset1, $InputSubset::LATIN_DIGITS)) {
@@ -366,77 +244,63 @@ void WInputMethod::setCharacterSubsets($Character$SubsetArray* subsets) {
 		} else {
 			if ($equals(subset1, $Character$UnicodeBlock::CJK_UNIFIED_IDEOGRAPHS) || $equals(subset1, $InputSubset::KANJI) || $equals(subset1, $Character$UnicodeBlock::HIRAGANA)) {
 				newmode = WInputMethod::IME_CMODE_NATIVE | WInputMethod::IME_CMODE_FULLSHAPE;
+			} else if ($equals(subset1, $Character$UnicodeBlock::KATAKANA)) {
+				newmode = (WInputMethod::IME_CMODE_NATIVE | WInputMethod::IME_CMODE_KATAKANA) | WInputMethod::IME_CMODE_FULLSHAPE;
+			} else if ($equals(subset1, $InputSubset::HALFWIDTH_KATAKANA)) {
+				newmode = WInputMethod::IME_CMODE_NATIVE | WInputMethod::IME_CMODE_KATAKANA;
+			} else if ($equals(subset1, $InputSubset::FULLWIDTH_LATIN)) {
+				newmode = WInputMethod::IME_CMODE_FULLSHAPE;
 			} else {
-				if ($equals(subset1, $Character$UnicodeBlock::KATAKANA)) {
-					newmode = (WInputMethod::IME_CMODE_NATIVE | WInputMethod::IME_CMODE_KATAKANA) | WInputMethod::IME_CMODE_FULLSHAPE;
-				} else {
-					if ($equals(subset1, $InputSubset::HALFWIDTH_KATAKANA)) {
-						newmode = WInputMethod::IME_CMODE_NATIVE | WInputMethod::IME_CMODE_KATAKANA;
-					} else {
-						if ($equals(subset1, $InputSubset::FULLWIDTH_LATIN)) {
-							newmode = WInputMethod::IME_CMODE_FULLSHAPE;
-						} else {
-							return;
-						}
-					}
-				}
+				return;
 			}
 			setOpenStatus(this->context, true);
-			newmode |= ((int32_t)(getConversionStatus(this->context) & (uint32_t)WInputMethod::IME_CMODE_ROMAN));
+			newmode |= (getConversionStatus(this->context) & WInputMethod::IME_CMODE_ROMAN);
 			setConversionStatus(this->context, newmode);
 		}
-	} else {
-		if ($nc($(locale->getLanguage()))->equals($($nc($Locale::KOREAN)->getLanguage()))) {
-			$init($Character$UnicodeBlock);
-			$init($InputSubset);
-			if ($equals(subset1, $Character$UnicodeBlock::BASIC_LATIN) || $equals(subset1, $InputSubset::LATIN_DIGITS)) {
-				setOpenStatus(this->context, false);
-				setConversionStatus(this->context, WInputMethod::IME_CMODE_ALPHANUMERIC);
-			} else {
-				if ($equals(subset1, $Character$UnicodeBlock::CJK_UNIFIED_IDEOGRAPHS) || $equals(subset1, $InputSubset::HANJA) || $equals(subset1, $Character$UnicodeBlock::HANGUL_SYLLABLES) || $equals(subset1, $Character$UnicodeBlock::HANGUL_JAMO) || $equals(subset1, $Character$UnicodeBlock::HANGUL_COMPATIBILITY_JAMO)) {
-					newmode = WInputMethod::IME_CMODE_NATIVE;
-				} else {
-					if ($equals(subset1, $InputSubset::FULLWIDTH_LATIN)) {
-						newmode = WInputMethod::IME_CMODE_FULLSHAPE;
-					} else {
-						return;
-					}
-				}
-				setOpenStatus(this->context, true);
-				setConversionStatus(this->context, newmode);
-			}
+	} else if ($$nc(locale->getLanguage())->equals($($nc($Locale::KOREAN)->getLanguage()))) {
+		$init($Character$UnicodeBlock);
+		$init($InputSubset);
+		if ($equals(subset1, $Character$UnicodeBlock::BASIC_LATIN) || $equals(subset1, $InputSubset::LATIN_DIGITS)) {
+			setOpenStatus(this->context, false);
+			setConversionStatus(this->context, WInputMethod::IME_CMODE_ALPHANUMERIC);
 		} else {
-			if ($nc($(locale->getLanguage()))->equals($($nc($Locale::CHINESE)->getLanguage()))) {
-				$init($Character$UnicodeBlock);
-				$init($InputSubset);
-				if ($equals(subset1, $Character$UnicodeBlock::BASIC_LATIN) || $equals(subset1, $InputSubset::LATIN_DIGITS)) {
-					setOpenStatus(this->context, false);
-					newmode = getConversionStatus(this->context);
-					newmode &= (uint32_t)~WInputMethod::IME_CMODE_FULLSHAPE;
-					setConversionStatus(this->context, newmode);
-				} else {
-					if ($equals(subset1, $Character$UnicodeBlock::CJK_UNIFIED_IDEOGRAPHS) || $equals(subset1, $InputSubset::TRADITIONAL_HANZI) || $equals(subset1, $InputSubset::SIMPLIFIED_HANZI)) {
-						newmode = WInputMethod::IME_CMODE_NATIVE | WInputMethod::IME_CMODE_FULLSHAPE;
-					} else {
-						if ($equals(subset1, $InputSubset::FULLWIDTH_LATIN)) {
-							newmode = WInputMethod::IME_CMODE_FULLSHAPE;
-						} else {
-							return;
-						}
-					}
-					setOpenStatus(this->context, true);
-					setConversionStatus(this->context, newmode);
-				}
+			if ($equals(subset1, $Character$UnicodeBlock::CJK_UNIFIED_IDEOGRAPHS) || $equals(subset1, $InputSubset::HANJA) || $equals(subset1, $Character$UnicodeBlock::HANGUL_SYLLABLES) || $equals(subset1, $Character$UnicodeBlock::HANGUL_JAMO) || $equals(subset1, $Character$UnicodeBlock::HANGUL_COMPATIBILITY_JAMO)) {
+				newmode = WInputMethod::IME_CMODE_NATIVE;
+			} else if ($equals(subset1, $InputSubset::FULLWIDTH_LATIN)) {
+				newmode = WInputMethod::IME_CMODE_FULLSHAPE;
+			} else {
+				return;
 			}
+			setOpenStatus(this->context, true);
+			setConversionStatus(this->context, newmode);
+		}
+	} else if ($$nc(locale->getLanguage())->equals($($nc($Locale::CHINESE)->getLanguage()))) {
+		$init($Character$UnicodeBlock);
+		$init($InputSubset);
+		if ($equals(subset1, $Character$UnicodeBlock::BASIC_LATIN) || $equals(subset1, $InputSubset::LATIN_DIGITS)) {
+			setOpenStatus(this->context, false);
+			newmode = getConversionStatus(this->context);
+			newmode &= (uint32_t)~WInputMethod::IME_CMODE_FULLSHAPE;
+			setConversionStatus(this->context, newmode);
+		} else {
+			if ($equals(subset1, $Character$UnicodeBlock::CJK_UNIFIED_IDEOGRAPHS) || $equals(subset1, $InputSubset::TRADITIONAL_HANZI) || $equals(subset1, $InputSubset::SIMPLIFIED_HANZI)) {
+				newmode = WInputMethod::IME_CMODE_NATIVE | WInputMethod::IME_CMODE_FULLSHAPE;
+			} else if ($equals(subset1, $InputSubset::FULLWIDTH_LATIN)) {
+				newmode = WInputMethod::IME_CMODE_FULLSHAPE;
+			} else {
+				return;
+			}
+			setOpenStatus(this->context, true);
+			setConversionStatus(this->context, newmode);
 		}
 	}
 }
 
 void WInputMethod::dispatchEvent($AWTEvent* e) {
 	if ($instanceOf($ComponentEvent, e)) {
-		$var($Component, comp, $nc(($cast($ComponentEvent, e)))->getComponent());
+		$var($Component, comp, $cast($ComponentEvent, e)->getComponent());
 		if (comp == this->awtFocussedComponent) {
-			if (this->awtFocussedComponentPeer == nullptr || $nc(this->awtFocussedComponentPeer)->isDisposed()) {
+			if (this->awtFocussedComponentPeer == nullptr || this->awtFocussedComponentPeer->isDisposed()) {
 				$set(this, awtFocussedComponentPeer, getNearestNativePeer(comp));
 			}
 			if (this->awtFocussedComponentPeer != nullptr) {
@@ -566,13 +430,13 @@ bool WInputMethod::isCompositionEnabled() {
 }
 
 void WInputMethod::sendInputMethodEvent(int32_t id, int64_t when, $String* text, $ints* clauseBoundary, $StringArray* clauseReading, $ints* attributeBoundary, $bytes* attributeValue, int32_t commitedTextLength, int32_t caretPos, int32_t visiblePos) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AttributedCharacterIterator, iterator, nullptr);
 	if (text != nullptr) {
 		$var($AttributedString, attrStr, $new($AttributedString, text));
 		$init($AttributedCharacterIterator$Attribute);
 		$var($AttributedCharacterIterator$Attribute, var$0, $AttributedCharacterIterator$Attribute::LANGUAGE);
-		$var($Object, var$1, $of($Locale::getDefault()));
+		$var($Object, var$1, $Locale::getDefault());
 		attrStr->addAttribute(var$0, var$1, 0, text->length());
 		if (clauseBoundary != nullptr && clauseReading != nullptr && clauseReading->length != 0 && clauseBoundary->length == clauseReading->length + 1 && clauseBoundary->get(0) == 0 && clauseBoundary->get(clauseReading->length) <= text->length()) {
 			for (int32_t i = 0; i < clauseBoundary->length - 1; ++i) {
@@ -581,10 +445,10 @@ void WInputMethod::sendInputMethodEvent(int32_t id, int64_t when, $String* text,
 			}
 		} else {
 			$var($AttributedCharacterIterator$Attribute, var$2, $AttributedCharacterIterator$Attribute::INPUT_METHOD_SEGMENT);
-			$var($Object, var$3, $of($new($Annotation, nullptr)));
+			$var($Object, var$3, $new($Annotation, nullptr));
 			attrStr->addAttribute(var$2, var$3, 0, text->length());
 			$var($AttributedCharacterIterator$Attribute, var$4, $AttributedCharacterIterator$Attribute::READING);
-			$var($Object, var$5, $of($new($Annotation, ""_s)));
+			$var($Object, var$5, $new($Annotation, ""_s));
 			attrStr->addAttribute(var$4, var$5, 0, text->length());
 		}
 		if (attributeBoundary != nullptr && attributeValue != nullptr && attributeValue->length != 0 && attributeBoundary->length == attributeValue->length + 1 && attributeBoundary->get(0) == 0 && attributeBoundary->get(attributeValue->length) == text->length()) {
@@ -592,33 +456,23 @@ void WInputMethod::sendInputMethodEvent(int32_t id, int64_t when, $String* text,
 				$var($InputMethodHighlight, highlight, nullptr);
 				switch (attributeValue->get(i)) {
 				case WInputMethod::ATTR_TARGET_CONVERTED:
-					{
-						$init($InputMethodHighlight);
-						$assign(highlight, $InputMethodHighlight::SELECTED_CONVERTED_TEXT_HIGHLIGHT);
-						break;
-					}
+					$init($InputMethodHighlight);
+					$assign(highlight, $InputMethodHighlight::SELECTED_CONVERTED_TEXT_HIGHLIGHT);
+					break;
 				case WInputMethod::ATTR_CONVERTED:
-					{
-						$init($InputMethodHighlight);
-						$assign(highlight, $InputMethodHighlight::UNSELECTED_CONVERTED_TEXT_HIGHLIGHT);
-						break;
-					}
+					$init($InputMethodHighlight);
+					$assign(highlight, $InputMethodHighlight::UNSELECTED_CONVERTED_TEXT_HIGHLIGHT);
+					break;
 				case WInputMethod::ATTR_TARGET_NOTCONVERTED:
-					{
-						$init($InputMethodHighlight);
-						$assign(highlight, $InputMethodHighlight::SELECTED_RAW_TEXT_HIGHLIGHT);
-						break;
-					}
+					$init($InputMethodHighlight);
+					$assign(highlight, $InputMethodHighlight::SELECTED_RAW_TEXT_HIGHLIGHT);
+					break;
 				case WInputMethod::ATTR_INPUT:
-					{}
 				case WInputMethod::ATTR_INPUT_ERROR:
-					{}
 				default:
-					{
-						$init($InputMethodHighlight);
-						$assign(highlight, $InputMethodHighlight::UNSELECTED_RAW_TEXT_HIGHLIGHT);
-						break;
-					}
+					$init($InputMethodHighlight);
+					$assign(highlight, $InputMethodHighlight::UNSELECTED_RAW_TEXT_HIGHLIGHT);
+					break;
 				}
 				$init($TextAttribute);
 				attrStr->addAttribute($TextAttribute::INPUT_METHOD_HIGHLIGHT, highlight, attributeBoundary->get(i), attributeBoundary->get(i + 1));
@@ -634,18 +488,13 @@ void WInputMethod::sendInputMethodEvent(int32_t id, int64_t when, $String* text,
 	if (source == nullptr) {
 		return;
 	}
-	$var($Component, var$6, source);
-	int32_t var$7 = id;
-	int64_t var$8 = when;
-	$var($AttributedCharacterIterator, var$9, iterator);
-	int32_t var$10 = commitedTextLength;
-	$var($TextHitInfo, var$11, $TextHitInfo::leading(caretPos));
-	$var($InputMethodEvent, event, $new($InputMethodEvent, var$6, var$7, var$8, var$9, var$10, var$11, $($TextHitInfo::leading(visiblePos))));
+	$var($TextHitInfo, var$6, $TextHitInfo::leading(caretPos));
+	$var($InputMethodEvent, event, $new($InputMethodEvent, source, id, when, iterator, commitedTextLength, var$6, $($TextHitInfo::leading(visiblePos))));
 	$WToolkit::postEvent($($WToolkit::targetToAppContext(source)), event);
 }
 
 void WInputMethod::inquireCandidatePosition() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Component, source, getClientComponent());
 	if (source == nullptr) {
 		return;
@@ -656,7 +505,7 @@ void WInputMethod::inquireCandidatePosition() {
 }
 
 $WComponentPeer* WInputMethod::getNearestNativePeer($Component* comp$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Component, comp, comp$renamed);
 	if (comp == nullptr) {
 		return nullptr;
@@ -684,119 +533,112 @@ $WComponentPeer* WInputMethod::getNearestNativePeer($Component* comp$renamed) {
 }
 
 int32_t WInputMethod::createNativeContext() {
-	int32_t $ret = 0;
-	$prepareNative(WInputMethod, createNativeContext, int32_t);
-	$ret = $invokeNative();
+	$prepareNative(createNativeContext, int32_t);
+	int32_t $ret = $invokeNative();
 	$finishNative();
 	return $ret;
 }
 
 void WInputMethod::destroyNativeContext(int32_t context) {
-	$prepareNative(WInputMethod, destroyNativeContext, void, int32_t context);
+	$prepareNative(destroyNativeContext, void, int32_t context);
 	$invokeNative(context);
 	$finishNative();
 }
 
 void WInputMethod::enableNativeIME($WComponentPeer* peer, int32_t context, bool useNativeCompWindow) {
-	$prepareNative(WInputMethod, enableNativeIME, void, $WComponentPeer* peer, int32_t context, bool useNativeCompWindow);
+	$prepareNative(enableNativeIME, void, $WComponentPeer* peer, int32_t context, bool useNativeCompWindow);
 	$invokeNative(peer, context, useNativeCompWindow);
 	$finishNative();
 }
 
 void WInputMethod::disableNativeIME($WComponentPeer* peer) {
-	$prepareNative(WInputMethod, disableNativeIME, void, $WComponentPeer* peer);
+	$prepareNative(disableNativeIME, void, $WComponentPeer* peer);
 	$invokeNative(peer);
 	$finishNative();
 }
 
 void WInputMethod::handleNativeIMEEvent($WComponentPeer* peer, $AWTEvent* e) {
-	$prepareNative(WInputMethod, handleNativeIMEEvent, void, $WComponentPeer* peer, $AWTEvent* e);
+	$prepareNative(handleNativeIMEEvent, void, $WComponentPeer* peer, $AWTEvent* e);
 	$invokeNative(peer, e);
 	$finishNative();
 }
 
 void WInputMethod::endCompositionNative(int32_t context, bool flag) {
-	$prepareNative(WInputMethod, endCompositionNative, void, int32_t context, bool flag);
+	$prepareNative(endCompositionNative, void, int32_t context, bool flag);
 	$invokeNative(context, flag);
 	$finishNative();
 }
 
 void WInputMethod::setConversionStatus(int32_t context, int32_t cmode) {
-	$prepareNative(WInputMethod, setConversionStatus, void, int32_t context, int32_t cmode);
+	$prepareNative(setConversionStatus, void, int32_t context, int32_t cmode);
 	$invokeNative(context, cmode);
 	$finishNative();
 }
 
 int32_t WInputMethod::getConversionStatus(int32_t context) {
-	int32_t $ret = 0;
-	$prepareNative(WInputMethod, getConversionStatus, int32_t, int32_t context);
-	$ret = $invokeNative(context);
+	$prepareNative(getConversionStatus, int32_t, int32_t context);
+	int32_t $ret = $invokeNative(context);
 	$finishNative();
 	return $ret;
 }
 
 void WInputMethod::setOpenStatus(int32_t context, bool flag) {
-	$prepareNative(WInputMethod, setOpenStatus, void, int32_t context, bool flag);
+	$prepareNative(setOpenStatus, void, int32_t context, bool flag);
 	$invokeNative(context, flag);
 	$finishNative();
 }
 
 bool WInputMethod::getOpenStatus(int32_t context) {
-	bool $ret = false;
-	$prepareNative(WInputMethod, getOpenStatus, bool, int32_t context);
-	$ret = $invokeNative(context);
+	$prepareNative(getOpenStatus, bool, int32_t context);
+	bool $ret = $invokeNative(context);
 	$finishNative();
 	return $ret;
 }
 
 void WInputMethod::setStatusWindowVisible($WComponentPeer* peer, bool visible) {
-	$prepareNative(WInputMethod, setStatusWindowVisible, void, $WComponentPeer* peer, bool visible);
+	$prepareNative(setStatusWindowVisible, void, $WComponentPeer* peer, bool visible);
 	$invokeNative(peer, visible);
 	$finishNative();
 }
 
 $String* WInputMethod::getNativeIMMDescription() {
-	$var($String, $ret, nullptr);
-	$prepareNative(WInputMethod, getNativeIMMDescription, $String*);
-	$assign($ret, $invokeNativeObject());
+	$prepareNative(getNativeIMMDescription, $String*);
+	$var($String, $ret, $invokeNativeObject());
 	$finishNative();
 	return $ret;
 }
 
 $Locale* WInputMethod::getNativeLocale() {
 	$init(WInputMethod);
-	$var($Locale, $ret, nullptr);
-	$prepareNativeStatic(WInputMethod, getNativeLocale, $Locale*);
-	$assign($ret, $invokeNativeStaticObject());
+	$prepareNativeStatic(getNativeLocale, $Locale*);
+	$var($Locale, $ret, $invokeNativeStaticObject());
 	$finishNativeStatic();
 	return $ret;
 }
 
 bool WInputMethod::setNativeLocale($String* localeName, bool onActivate) {
 	$init(WInputMethod);
-	bool $ret = false;
-	$prepareNativeStatic(WInputMethod, setNativeLocale, bool, $String* localeName, bool onActivate);
-	$ret = $invokeNativeStatic(localeName, onActivate);
+	$prepareNativeStatic(setNativeLocale, bool, $String* localeName, bool onActivate);
+	bool $ret = $invokeNativeStatic(localeName, onActivate);
 	$finishNativeStatic();
 	return $ret;
 }
 
 void WInputMethod::openCandidateWindow($WComponentPeer* peer, int32_t x, int32_t y) {
-	$prepareNative(WInputMethod, openCandidateWindow, void, $WComponentPeer* peer, int32_t x, int32_t y);
+	$prepareNative(openCandidateWindow, void, $WComponentPeer* peer, int32_t x, int32_t y);
 	$invokeNative(peer, x, y);
 	$finishNative();
 }
 
 bool WInputMethod::isCompositionStringAvailable(int32_t context) {
-	bool $ret = false;
-	$prepareNative(WInputMethod, isCompositionStringAvailable, bool, int32_t context);
-	$ret = $invokeNative(context);
+	$prepareNative(isCompositionStringAvailable, bool, int32_t context);
+	bool $ret = $invokeNative(context);
 	$finishNative();
 	return $ret;
 }
 
-void clinit$WInputMethod($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void WInputMethod::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	{
 		$var($MapArray, styles, $new($MapArray, 4));
 		$var($HashMap, map, nullptr);
@@ -813,7 +655,6 @@ void clinit$WInputMethod($Class* class$) {
 		$assign(map, $new($HashMap, 4));
 		$var($Color, navyBlue, $new($Color, 0, 0, 128));
 		map->put($TextAttribute::FOREGROUND, navyBlue);
-		$init($Color);
 		map->put($TextAttribute::BACKGROUND, $Color::white);
 		map->put($TextAttribute::SWAP_COLORS, $TextAttribute::SWAP_COLORS_ON);
 		map->put($TextAttribute::INPUT_METHOD_UNDERLINE, $TextAttribute::UNDERLINE_LOW_ONE_PIXEL);
@@ -826,7 +667,104 @@ WInputMethod::WInputMethod() {
 }
 
 $Class* WInputMethod::load$($String* name, bool initialize) {
-	$loadClass(WInputMethod, name, initialize, &_WInputMethod_ClassInfo_, clinit$WInputMethod, allocate$WInputMethod);
+	$FieldInfo fieldInfos$$[] = {
+		{"inputContext", "Ljava/awt/im/spi/InputMethodContext;", nullptr, $PRIVATE, $field(WInputMethod, inputContext)},
+		{"awtFocussedComponent", "Ljava/awt/Component;", nullptr, $PRIVATE, $field(WInputMethod, awtFocussedComponent)},
+		{"awtFocussedComponentPeer", "Lsun/awt/windows/WComponentPeer;", nullptr, $PRIVATE, $field(WInputMethod, awtFocussedComponentPeer)},
+		{"lastFocussedComponentPeer", "Lsun/awt/windows/WComponentPeer;", nullptr, $PRIVATE, $field(WInputMethod, lastFocussedComponentPeer)},
+		{"isLastFocussedActiveClient", "Z", nullptr, $PRIVATE, $field(WInputMethod, isLastFocussedActiveClient)},
+		{"isActive", "Z", nullptr, $PRIVATE, $field(WInputMethod, isActive)},
+		{"context", "I", nullptr, $PRIVATE, $field(WInputMethod, context)},
+		{"open", "Z", nullptr, $PRIVATE, $field(WInputMethod, open)},
+		{"cmode", "I", nullptr, $PRIVATE, $field(WInputMethod, cmode)},
+		{"currentLocale", "Ljava/util/Locale;", nullptr, $PRIVATE, $field(WInputMethod, currentLocale)},
+		{"statusWindowHidden", "Z", nullptr, $PRIVATE, $field(WInputMethod, statusWindowHidden)},
+		{"hasCompositionString", "Z", nullptr, $PRIVATE, $field(WInputMethod, hasCompositionString)},
+		{"ATTR_INPUT", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(WInputMethod, ATTR_INPUT)},
+		{"ATTR_TARGET_CONVERTED", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(WInputMethod, ATTR_TARGET_CONVERTED)},
+		{"ATTR_CONVERTED", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(WInputMethod, ATTR_CONVERTED)},
+		{"ATTR_TARGET_NOTCONVERTED", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(WInputMethod, ATTR_TARGET_NOTCONVERTED)},
+		{"ATTR_INPUT_ERROR", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(WInputMethod, ATTR_INPUT_ERROR)},
+		{"IME_CMODE_ALPHANUMERIC", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(WInputMethod, IME_CMODE_ALPHANUMERIC)},
+		{"IME_CMODE_NATIVE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(WInputMethod, IME_CMODE_NATIVE)},
+		{"IME_CMODE_KATAKANA", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(WInputMethod, IME_CMODE_KATAKANA)},
+		{"IME_CMODE_LANGUAGE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(WInputMethod, IME_CMODE_LANGUAGE)},
+		{"IME_CMODE_FULLSHAPE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(WInputMethod, IME_CMODE_FULLSHAPE)},
+		{"IME_CMODE_HANJACONVERT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(WInputMethod, IME_CMODE_HANJACONVERT)},
+		{"IME_CMODE_ROMAN", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(WInputMethod, IME_CMODE_ROMAN)},
+		{"COMMIT_INPUT", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WInputMethod, COMMIT_INPUT)},
+		{"DISCARD_INPUT", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WInputMethod, DISCARD_INPUT)},
+		{"highlightStyles", "[Ljava/util/Map;", "[Ljava/util/Map<Ljava/awt/font/TextAttribute;Ljava/lang/Object;>;", $PRIVATE | $STATIC, $staticField(WInputMethod, highlightStyles)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(WInputMethod, init$, void)},
+		{"access$000", "(Lsun/awt/windows/WInputMethod;)Ljava/awt/Component;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(WInputMethod, access$000, $Component*, WInputMethod*)},
+		{"access$100", "(Lsun/awt/windows/WInputMethod;)Z", nullptr, $STATIC | $SYNTHETIC, $staticMethod(WInputMethod, access$100, bool, WInputMethod*)},
+		{"activate", "()V", nullptr, $PUBLIC, $virtualMethod(WInputMethod, activate, void)},
+		{"createNativeContext", "()I", nullptr, $PRIVATE | $NATIVE, $method(WInputMethod, createNativeContext, int32_t)},
+		{"deactivate", "(Z)V", nullptr, $PUBLIC, $virtualMethod(WInputMethod, deactivate, void, bool)},
+		{"destroyNativeContext", "(I)V", nullptr, $PRIVATE | $NATIVE, $method(WInputMethod, destroyNativeContext, void, int32_t)},
+		{"disableInputMethod", "()V", nullptr, $PUBLIC, $virtualMethod(WInputMethod, disableInputMethod, void)},
+		{"disableNativeIME", "(Lsun/awt/windows/WComponentPeer;)V", nullptr, $PRIVATE | $NATIVE, $method(WInputMethod, disableNativeIME, void, $WComponentPeer*)},
+		{"dispatchEvent", "(Ljava/awt/AWTEvent;)V", nullptr, $PUBLIC, $virtualMethod(WInputMethod, dispatchEvent, void, $AWTEvent*)},
+		{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(WInputMethod, dispose, void)},
+		{"enableNativeIME", "(Lsun/awt/windows/WComponentPeer;IZ)V", nullptr, $PRIVATE | $NATIVE, $method(WInputMethod, enableNativeIME, void, $WComponentPeer*, int32_t, bool)},
+		{"endComposition", "()V", nullptr, $PUBLIC, $virtualMethod(WInputMethod, endComposition, void)},
+		{"endCompositionNative", "(IZ)V", nullptr, $PRIVATE | $NATIVE, $method(WInputMethod, endCompositionNative, void, int32_t, bool)},
+		{"finalize", "()V", nullptr, $PROTECTED, $virtualMethod(WInputMethod, finalize, void), "java.lang.Throwable"},
+		{"getControlObject", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(WInputMethod, getControlObject, $Object*)},
+		{"getConversionStatus", "(I)I", nullptr, $PRIVATE | $NATIVE, $method(WInputMethod, getConversionStatus, int32_t, int32_t)},
+		{"getLocale", "()Ljava/util/Locale;", nullptr, $PUBLIC, $virtualMethod(WInputMethod, getLocale, $Locale*)},
+		{"getNativeIMMDescription", "()Ljava/lang/String;", nullptr, $PRIVATE | $NATIVE, $method(WInputMethod, getNativeIMMDescription, $String*)},
+		{"getNativeInputMethodInfo", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(WInputMethod, getNativeInputMethodInfo, $String*)},
+		{"getNativeLocale", "()Ljava/util/Locale;", nullptr, $STATIC | $NATIVE, $staticMethod(WInputMethod, getNativeLocale, $Locale*)},
+		{"getNearestNativePeer", "(Ljava/awt/Component;)Lsun/awt/windows/WComponentPeer;", nullptr, $PRIVATE, $method(WInputMethod, getNearestNativePeer, $WComponentPeer*, $Component*)},
+		{"getOpenStatus", "(I)Z", nullptr, $PRIVATE | $NATIVE, $method(WInputMethod, getOpenStatus, bool, int32_t)},
+		{"handleNativeIMEEvent", "(Lsun/awt/windows/WComponentPeer;Ljava/awt/AWTEvent;)V", nullptr, $PRIVATE | $NATIVE, $method(WInputMethod, handleNativeIMEEvent, void, $WComponentPeer*, $AWTEvent*)},
+		{"hideWindows", "()V", nullptr, $PUBLIC, $virtualMethod(WInputMethod, hideWindows, void)},
+		{"inquireCandidatePosition", "()V", nullptr, $PUBLIC, $method(WInputMethod, inquireCandidatePosition, void)},
+		{"isCompositionEnabled", "()Z", nullptr, $PUBLIC, $virtualMethod(WInputMethod, isCompositionEnabled, bool)},
+		{"isCompositionStringAvailable", "(I)Z", nullptr, $PRIVATE | $NATIVE, $method(WInputMethod, isCompositionStringAvailable, bool, int32_t)},
+		{"mapInputMethodHighlight", "(Ljava/awt/im/InputMethodHighlight;)Ljava/util/Map;", "(Ljava/awt/im/InputMethodHighlight;)Ljava/util/Map<Ljava/awt/font/TextAttribute;*>;", $STATIC, $staticMethod(WInputMethod, mapInputMethodHighlight, $Map*, $InputMethodHighlight*)},
+		{"openCandidateWindow", "(Lsun/awt/windows/WComponentPeer;II)V", nullptr, $PRIVATE | $NATIVE, $method(WInputMethod, openCandidateWindow, void, $WComponentPeer*, int32_t, int32_t)},
+		{"removeNotify", "()V", nullptr, $PUBLIC, $virtualMethod(WInputMethod, removeNotify, void)},
+		{"sendInputMethodEvent", "(IJLjava/lang/String;[I[Ljava/lang/String;[I[BIII)V", nullptr, $PUBLIC, $method(WInputMethod, sendInputMethodEvent, void, int32_t, int64_t, $String*, $ints*, $StringArray*, $ints*, $bytes*, int32_t, int32_t, int32_t)},
+		{"setAWTFocussedComponent", "(Ljava/awt/Component;)V", nullptr, $PROTECTED, $virtualMethod(WInputMethod, setAWTFocussedComponent, void, $Component*)},
+		{"setCharacterSubsets", "([Ljava/lang/Character$Subset;)V", nullptr, $PUBLIC, $virtualMethod(WInputMethod, setCharacterSubsets, void, $Character$SubsetArray*)},
+		{"setCompositionEnabled", "(Z)V", nullptr, $PUBLIC, $virtualMethod(WInputMethod, setCompositionEnabled, void, bool)},
+		{"setConversionStatus", "(II)V", nullptr, $PRIVATE | $NATIVE, $method(WInputMethod, setConversionStatus, void, int32_t, int32_t)},
+		{"setInputMethodContext", "(Ljava/awt/im/spi/InputMethodContext;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(WInputMethod, setInputMethodContext, void, $InputMethodContext*)},
+		{"setLocale", "(Ljava/util/Locale;)Z", nullptr, $PUBLIC, $virtualMethod(WInputMethod, setLocale, bool, $Locale*)},
+		{"setLocale", "(Ljava/util/Locale;Z)Z", nullptr, $PRIVATE, $method(WInputMethod, setLocale, bool, $Locale*, bool)},
+		{"setNativeLocale", "(Ljava/lang/String;Z)Z", nullptr, $STATIC | $NATIVE, $staticMethod(WInputMethod, setNativeLocale, bool, $String*, bool)},
+		{"setOpenStatus", "(IZ)V", nullptr, $PRIVATE | $NATIVE, $method(WInputMethod, setOpenStatus, void, int32_t, bool)},
+		{"setStatusWindowVisible", "(Lsun/awt/windows/WComponentPeer;Z)V", nullptr, $PRIVATE | $NATIVE, $method(WInputMethod, setStatusWindowVisible, void, $WComponentPeer*, bool)},
+		{"stopListening", "()V", nullptr, $PROTECTED, $virtualMethod(WInputMethod, stopListening, void)},
+		{"supportsBelowTheSpot", "()Z", nullptr, $PROTECTED, $virtualMethod(WInputMethod, supportsBelowTheSpot, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.windows.WInputMethod$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.awt.windows.WInputMethod",
+		"sun.awt.im.InputMethodAdapter",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.awt.windows.WInputMethod$1"
+	};
+	$loadClass(WInputMethod, name, initialize, &classInfo$$, WInputMethod::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(WInputMethod);
+	});
 	return class$;
 }
 

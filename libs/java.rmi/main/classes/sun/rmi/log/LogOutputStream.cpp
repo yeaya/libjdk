@@ -1,5 +1,4 @@
 #include <sun/rmi/log/LogOutputStream.h>
-
 #include <java/io/OutputStream.h>
 #include <java/io/RandomAccessFile.h>
 #include <jcpp.h>
@@ -13,33 +12,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace sun {
 	namespace rmi {
 		namespace log {
-
-$FieldInfo _LogOutputStream_FieldInfo_[] = {
-	{"raf", "Ljava/io/RandomAccessFile;", nullptr, $PRIVATE, $field(LogOutputStream, raf)},
-	{}
-};
-
-$MethodInfo _LogOutputStream_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/RandomAccessFile;)V", nullptr, $PUBLIC, $method(LogOutputStream, init$, void, $RandomAccessFile*), "java.io.IOException"},
-	{"close", "()V", nullptr, $PUBLIC | $FINAL, $virtualMethod(LogOutputStream, close, void), "java.io.IOException"},
-	{"write", "(I)V", nullptr, $PUBLIC, $virtualMethod(LogOutputStream, write, void, int32_t), "java.io.IOException"},
-	{"write", "([B)V", nullptr, $PUBLIC, $virtualMethod(LogOutputStream, write, void, $bytes*), "java.io.IOException"},
-	{"write", "([BII)V", nullptr, $PUBLIC, $virtualMethod(LogOutputStream, write, void, $bytes*, int32_t, int32_t), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _LogOutputStream_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.rmi.log.LogOutputStream",
-	"java.io.OutputStream",
-	nullptr,
-	_LogOutputStream_FieldInfo_,
-	_LogOutputStream_MethodInfo_
-};
-
-$Object* allocate$LogOutputStream($Class* clazz) {
-	return $of($alloc(LogOutputStream));
-}
 
 void LogOutputStream::init$($RandomAccessFile* raf) {
 	$OutputStream::init$();
@@ -65,7 +37,29 @@ LogOutputStream::LogOutputStream() {
 }
 
 $Class* LogOutputStream::load$($String* name, bool initialize) {
-	$loadClass(LogOutputStream, name, initialize, &_LogOutputStream_ClassInfo_, allocate$LogOutputStream);
+	$FieldInfo fieldInfos$$[] = {
+		{"raf", "Ljava/io/RandomAccessFile;", nullptr, $PRIVATE, $field(LogOutputStream, raf)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/io/RandomAccessFile;)V", nullptr, $PUBLIC, $method(LogOutputStream, init$, void, $RandomAccessFile*), "java.io.IOException"},
+		{"close", "()V", nullptr, $PUBLIC | $FINAL, $virtualMethod(LogOutputStream, close, void), "java.io.IOException"},
+		{"write", "(I)V", nullptr, $PUBLIC, $virtualMethod(LogOutputStream, write, void, int32_t), "java.io.IOException"},
+		{"write", "([B)V", nullptr, $PUBLIC, $virtualMethod(LogOutputStream, write, void, $bytes*), "java.io.IOException"},
+		{"write", "([BII)V", nullptr, $PUBLIC, $virtualMethod(LogOutputStream, write, void, $bytes*, int32_t, int32_t), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.rmi.log.LogOutputStream",
+		"java.io.OutputStream",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(LogOutputStream, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(LogOutputStream));
+	});
 	return class$;
 }
 

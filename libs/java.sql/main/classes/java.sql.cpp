@@ -1,5 +1,4 @@
 #include <java.sql.h>
-
 #include <java.base.h>
 #include <java.logging.h>
 #include <java.transaction.xa.h>
@@ -9,8 +8,6 @@
 #include <java/lang/ModuleInfo.h>
 #include <java/lang/ResourceEntry.h>
 #include <jcpp.h>
-#include <module-info>
-
 #include <java/sql/Array.h>
 #include <java/sql/BatchUpdateException.h>
 #include <java/sql/Blob.h>
@@ -243,6 +240,7 @@ void java$sql::init() {
 	::java$logging::init();
 	::java$transaction$xa::init();
 	::java$xml::init();
+	#include <module-info.h>
 	::java::lang::Library lib = {
 		"java.sql", "17.35", "",
 		&_java$sql_ModuleInfo_,

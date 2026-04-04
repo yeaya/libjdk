@@ -1,5 +1,4 @@
 #include <javax/swing/text/html/CSSBorder.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/Graphics.h>
@@ -75,7 +74,6 @@ using $Graphics = ::java::awt::Graphics;
 using $Graphics2D = ::java::awt::Graphics2D;
 using $Insets = ::java::awt::Insets;
 using $Polygon = ::java::awt::Polygon;
-using $Shape = ::java::awt::Shape;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -89,7 +87,6 @@ using $CSS$Attribute = ::javax::swing::text::html::CSS$Attribute;
 using $CSS$BorderStyle = ::javax::swing::text::html::CSS$BorderStyle;
 using $CSS$BorderWidthValue = ::javax::swing::text::html::CSS$BorderWidthValue;
 using $CSS$ColorValue = ::javax::swing::text::html::CSS$ColorValue;
-using $CSS$CssValue = ::javax::swing::text::html::CSS$CssValue;
 using $CSS$LengthValue = ::javax::swing::text::html::CSS$LengthValue;
 using $CSS$Value = ::javax::swing::text::html::CSS$Value;
 using $CSSBorder$BorderPainter = ::javax::swing::text::html::CSSBorder$BorderPainter;
@@ -105,69 +102,6 @@ namespace javax {
 		namespace text {
 			namespace html {
 
-$FieldInfo _CSSBorder_FieldInfo_[] = {
-	{"COLOR", "I", nullptr, $STATIC | $FINAL, $constField(CSSBorder, COLOR)},
-	{"STYLE", "I", nullptr, $STATIC | $FINAL, $constField(CSSBorder, STYLE)},
-	{"WIDTH", "I", nullptr, $STATIC | $FINAL, $constField(CSSBorder, WIDTH)},
-	{"TOP", "I", nullptr, $STATIC | $FINAL, $constField(CSSBorder, TOP)},
-	{"RIGHT", "I", nullptr, $STATIC | $FINAL, $constField(CSSBorder, RIGHT)},
-	{"BOTTOM", "I", nullptr, $STATIC | $FINAL, $constField(CSSBorder, BOTTOM)},
-	{"LEFT", "I", nullptr, $STATIC | $FINAL, $constField(CSSBorder, LEFT)},
-	{"ATTRIBUTES", "[[Ljavax/swing/text/html/CSS$Attribute;", nullptr, $STATIC | $FINAL, $staticField(CSSBorder, ATTRIBUTES)},
-	{"PARSERS", "[Ljavax/swing/text/html/CSS$CssValue;", nullptr, $STATIC | $FINAL, $staticField(CSSBorder, PARSERS)},
-	{"DEFAULTS", "[Ljava/lang/Object;", nullptr, $STATIC | $FINAL, $staticField(CSSBorder, DEFAULTS)},
-	{"attrs", "Ljavax/swing/text/AttributeSet;", nullptr, $FINAL, $field(CSSBorder, attrs)},
-	{"borderPainters", "Ljava/util/Map;", "Ljava/util/Map<Ljavax/swing/text/html/CSS$Value;Ljavax/swing/text/html/CSSBorder$BorderPainter;>;", $STATIC, $staticField(CSSBorder, borderPainters)},
-	{}
-};
-
-$MethodInfo _CSSBorder_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/text/AttributeSet;)V", nullptr, 0, $method(CSSBorder, init$, void, $AttributeSet*)},
-	{"getAdjustedColor", "(Ljava/awt/Color;D)Ljava/awt/Color;", nullptr, $STATIC, $staticMethod(CSSBorder, getAdjustedColor, $Color*, $Color*, double)},
-	{"getBorderColor", "(I)Ljava/awt/Color;", nullptr, $PRIVATE, $method(CSSBorder, getBorderColor, $Color*, int32_t)},
-	{"getBorderInsets", "(Ljava/awt/Component;Ljava/awt/Insets;)Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(CSSBorder, getBorderInsets, $Insets*, $Component*, $Insets*)},
-	{"getBorderPainter", "(I)Ljavax/swing/text/html/CSSBorder$BorderPainter;", nullptr, $PRIVATE, $method(CSSBorder, getBorderPainter, $CSSBorder$BorderPainter*, int32_t)},
-	{"getBorderShape", "(I)Ljava/awt/Polygon;", nullptr, $PRIVATE, $method(CSSBorder, getBorderShape, $Polygon*, int32_t)},
-	{"getBorderStyle", "(I)Ljavax/swing/text/html/CSS$Value;", nullptr, $PRIVATE, $method(CSSBorder, getBorderStyle, $CSS$Value*, int32_t)},
-	{"getBorderWidth", "(I)I", nullptr, $PRIVATE, $method(CSSBorder, getBorderWidth, int32_t, int32_t)},
-	{"getWidths", "()[I", nullptr, $PRIVATE, $method(CSSBorder, getWidths, $ints*)},
-	{"paintBorder", "(Ljava/awt/Component;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(CSSBorder, paintBorder, void, $Component*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{"registerBorderPainter", "(Ljavax/swing/text/html/CSS$Value;Ljavax/swing/text/html/CSSBorder$BorderPainter;)V", nullptr, $STATIC, $staticMethod(CSSBorder, registerBorderPainter, void, $CSS$Value*, $CSSBorder$BorderPainter*)},
-	{}
-};
-
-$InnerClassInfo _CSSBorder_InnerClassesInfo_[] = {
-	{"javax.swing.text.html.CSSBorder$InsetOutsetPainter", "javax.swing.text.html.CSSBorder", "InsetOutsetPainter", $STATIC},
-	{"javax.swing.text.html.CSSBorder$GrooveRidgePainter", "javax.swing.text.html.CSSBorder", "GrooveRidgePainter", $STATIC},
-	{"javax.swing.text.html.CSSBorder$ShadowLightPainter", "javax.swing.text.html.CSSBorder", "ShadowLightPainter", $STATIC | $ABSTRACT},
-	{"javax.swing.text.html.CSSBorder$DottedDashedPainter", "javax.swing.text.html.CSSBorder", "DottedDashedPainter", $STATIC},
-	{"javax.swing.text.html.CSSBorder$DoublePainter", "javax.swing.text.html.CSSBorder", "DoublePainter", $STATIC},
-	{"javax.swing.text.html.CSSBorder$StrokePainter", "javax.swing.text.html.CSSBorder", "StrokePainter", $STATIC | $ABSTRACT},
-	{"javax.swing.text.html.CSSBorder$SolidPainter", "javax.swing.text.html.CSSBorder", "SolidPainter", $STATIC},
-	{"javax.swing.text.html.CSSBorder$NullPainter", "javax.swing.text.html.CSSBorder", "NullPainter", $STATIC},
-	{"javax.swing.text.html.CSSBorder$BorderPainter", "javax.swing.text.html.CSSBorder", "BorderPainter", $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _CSSBorder_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.text.html.CSSBorder",
-	"javax.swing.border.AbstractBorder",
-	nullptr,
-	_CSSBorder_FieldInfo_,
-	_CSSBorder_MethodInfo_,
-	nullptr,
-	nullptr,
-	_CSSBorder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.swing.text.html.CSSBorder$InsetOutsetPainter,javax.swing.text.html.CSSBorder$GrooveRidgePainter,javax.swing.text.html.CSSBorder$ShadowLightPainter,javax.swing.text.html.CSSBorder$DottedDashedPainter,javax.swing.text.html.CSSBorder$DoublePainter,javax.swing.text.html.CSSBorder$StrokePainter,javax.swing.text.html.CSSBorder$SolidPainter,javax.swing.text.html.CSSBorder$NullPainter,javax.swing.text.html.CSSBorder$BorderPainter"
-};
-
-$Object* allocate$CSSBorder($Class* clazz) {
-	return $of($alloc(CSSBorder));
-}
-
 $CSS$AttributeArray2* CSSBorder::ATTRIBUTES = nullptr;
 $CSS$CssValueArray* CSSBorder::PARSERS = nullptr;
 $ObjectArray* CSSBorder::DEFAULTS = nullptr;
@@ -179,30 +113,30 @@ void CSSBorder::init$($AttributeSet* attrs) {
 }
 
 $Color* CSSBorder::getBorderColor(int32_t side) {
-	$useLocalCurrentObjectStackCache();
-	$var($Object, o, $nc(this->attrs)->getAttribute($nc($nc(CSSBorder::ATTRIBUTES)->get(CSSBorder::COLOR))->get(side)));
+	$useLocalObjectStack();
+	$var($Object, o, $nc(this->attrs)->getAttribute($nc(CSSBorder::ATTRIBUTES->get(CSSBorder::COLOR))->get(side)));
 	$var($CSS$ColorValue, cv, nullptr);
 	if ($instanceOf($CSS$ColorValue, o)) {
 		$assign(cv, $cast($CSS$ColorValue, o));
 	} else {
 		$init($CSS$Attribute);
-		$assign(cv, $cast($CSS$ColorValue, $nc(this->attrs)->getAttribute($CSS$Attribute::COLOR)));
+		$assign(cv, $cast($CSS$ColorValue, this->attrs->getAttribute($CSS$Attribute::COLOR)));
 		if (cv == nullptr) {
-			$assign(cv, $cast($CSS$ColorValue, $nc($nc(CSSBorder::PARSERS)->get(CSSBorder::COLOR))->parseCssValue($($nc($CSS$Attribute::COLOR)->getDefaultValue()))));
+			$assign(cv, $cast($CSS$ColorValue, $nc(CSSBorder::PARSERS->get(CSSBorder::COLOR))->parseCssValue($($nc($CSS$Attribute::COLOR)->getDefaultValue()))));
 		}
 	}
 	return $nc(cv)->getValue();
 }
 
 int32_t CSSBorder::getBorderWidth(int32_t side) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t width = 0;
-	$var($CSS$BorderStyle, bs, $cast($CSS$BorderStyle, $nc(this->attrs)->getAttribute($nc($nc(CSSBorder::ATTRIBUTES)->get(CSSBorder::STYLE))->get(side))));
+	$var($CSS$BorderStyle, bs, $cast($CSS$BorderStyle, $nc(this->attrs)->getAttribute($nc(CSSBorder::ATTRIBUTES->get(CSSBorder::STYLE))->get(side))));
 	$init($CSS$Value);
 	if ((bs != nullptr) && (bs->getValue() != $CSS$Value::NONE)) {
-		$var($CSS$LengthValue, bw, $cast($CSS$LengthValue, $nc(this->attrs)->getAttribute($nc($nc(CSSBorder::ATTRIBUTES)->get(CSSBorder::WIDTH))->get(side))));
+		$var($CSS$LengthValue, bw, $cast($CSS$LengthValue, this->attrs->getAttribute($nc(CSSBorder::ATTRIBUTES->get(CSSBorder::WIDTH))->get(side))));
 		if (bw == nullptr) {
-			$assign(bw, $cast($CSS$LengthValue, $nc(CSSBorder::DEFAULTS)->get(CSSBorder::WIDTH)));
+			$assign(bw, $cast($CSS$LengthValue, CSSBorder::DEFAULTS->get(CSSBorder::WIDTH)));
 		}
 		width = $cast(int32_t, $nc(bw)->getValue(true));
 	}
@@ -218,15 +152,15 @@ $ints* CSSBorder::getWidths() {
 }
 
 $CSS$Value* CSSBorder::getBorderStyle(int32_t side) {
-	$var($CSS$BorderStyle, style, $cast($CSS$BorderStyle, $nc(this->attrs)->getAttribute($nc($nc(CSSBorder::ATTRIBUTES)->get(CSSBorder::STYLE))->get(side))));
+	$var($CSS$BorderStyle, style, $cast($CSS$BorderStyle, $nc(this->attrs)->getAttribute($nc(CSSBorder::ATTRIBUTES->get(CSSBorder::STYLE))->get(side))));
 	if (style == nullptr) {
-		$assign(style, $cast($CSS$BorderStyle, $nc(CSSBorder::DEFAULTS)->get(CSSBorder::STYLE)));
+		$assign(style, $cast($CSS$BorderStyle, CSSBorder::DEFAULTS->get(CSSBorder::STYLE)));
 	}
 	return $nc(style)->getValue();
 }
 
 $Polygon* CSSBorder::getBorderShape(int32_t side) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Polygon, shape, nullptr);
 	$var($ints, widths, getWidths());
 	if ($nc(widths)->get(side) != 0) {
@@ -247,7 +181,7 @@ $CSSBorder$BorderPainter* CSSBorder::getBorderPainter(int32_t side) {
 $Color* CSSBorder::getAdjustedColor($Color* c, double factor) {
 	$init(CSSBorder);
 	double f = 1 - $Math::min($Math::abs(factor), (double)1);
-	double inc = (factor > 0 ? 255 * (1 - f) : (double)0);
+	double inc = (factor > 0 ? 255 * (1 - f) : 0);
 	int32_t var$0 = $cast(int32_t, ($nc(c)->getRed() * f + inc));
 	int32_t var$1 = $cast(int32_t, (c->getGreen() * f + inc));
 	return $new($Color, var$0, var$1, $cast(int32_t, (c->getBlue() * f + inc)));
@@ -255,12 +189,12 @@ $Color* CSSBorder::getAdjustedColor($Color* c, double factor) {
 
 $Insets* CSSBorder::getBorderInsets($Component* c, $Insets* insets) {
 	$var($ints, widths, getWidths());
-	$nc(insets)->set($nc(widths)->get(CSSBorder::TOP), widths->get(CSSBorder::LEFT), widths->get(CSSBorder::BOTTOM), widths->get(CSSBorder::RIGHT));
+	$nc(insets)->set($nc(widths)->get(CSSBorder::TOP), $nc(widths)->get(CSSBorder::LEFT), $nc(widths)->get(CSSBorder::BOTTOM), $nc(widths)->get(CSSBorder::RIGHT));
 	return insets;
 }
 
 void CSSBorder::paintBorder($Component* c, $Graphics* g, int32_t x, int32_t y, int32_t width, int32_t height) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!($instanceOf($Graphics2D, g))) {
 		return;
 	}
@@ -295,7 +229,7 @@ void CSSBorder::paintBorder($Component* c, $Graphics* g, int32_t x, int32_t y, i
 		if ((style != $CSS$Value::NONE) && (shape != nullptr)) {
 			int32_t sideLength = (i % 2 == 0 ? intWidth : intHeight);
 			(*$nc(shape->xpoints))[2] += sideLength;
-			(*$nc(shape->xpoints))[3] += sideLength;
+			(*shape->xpoints)[3] += sideLength;
 			$var($Color, color, getBorderColor(i));
 			$var($CSSBorder$BorderPainter, painter, getBorderPainter(i));
 			$init($Math);
@@ -317,8 +251,8 @@ void CSSBorder::registerBorderPainter($CSS$Value* style, $CSSBorder$BorderPainte
 	$nc(CSSBorder::borderPainters)->put(style, painter);
 }
 
-void clinit$CSSBorder($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void CSSBorder::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$init($CSS$Attribute);
 	$assignStatic(CSSBorder::ATTRIBUTES, $new($CSS$AttributeArray2, {
 		$$new($CSS$AttributeArray, {
@@ -341,14 +275,14 @@ void clinit$CSSBorder($Class* class$) {
 		})
 	}));
 	$assignStatic(CSSBorder::PARSERS, $new($CSS$CssValueArray, {
-		static_cast<$CSS$CssValue*>($$new($CSS$ColorValue)),
-		static_cast<$CSS$CssValue*>($$new($CSS$BorderStyle)),
-		static_cast<$CSS$CssValue*>($$new($CSS$BorderWidthValue, nullptr, 0))
+		$$new($CSS$ColorValue),
+		$$new($CSS$BorderStyle),
+		$$new($CSS$BorderWidthValue, nullptr, 0)
 	}));
 	$assignStatic(CSSBorder::DEFAULTS, $new($ObjectArray, {
-		$of($CSS$Attribute::BORDER_COLOR),
-		$($nc($nc(CSSBorder::PARSERS)->get(1))->parseCssValue($($nc($CSS$Attribute::BORDER_STYLE)->getDefaultValue()))),
-		$($nc($nc(CSSBorder::PARSERS)->get(2))->parseCssValue($($nc($CSS$Attribute::BORDER_WIDTH)->getDefaultValue())))
+		$CSS$Attribute::BORDER_COLOR,
+		$($nc(CSSBorder::PARSERS->get(1))->parseCssValue($($nc($CSS$Attribute::BORDER_STYLE)->getDefaultValue()))),
+		$($nc(CSSBorder::PARSERS->get(2))->parseCssValue($($nc($CSS$Attribute::BORDER_WIDTH)->getDefaultValue())))
 	}));
 	$assignStatic(CSSBorder::borderPainters, $new($HashMap));
 	{
@@ -370,7 +304,64 @@ CSSBorder::CSSBorder() {
 }
 
 $Class* CSSBorder::load$($String* name, bool initialize) {
-	$loadClass(CSSBorder, name, initialize, &_CSSBorder_ClassInfo_, clinit$CSSBorder, allocate$CSSBorder);
+	$FieldInfo fieldInfos$$[] = {
+		{"COLOR", "I", nullptr, $STATIC | $FINAL, $constField(CSSBorder, COLOR)},
+		{"STYLE", "I", nullptr, $STATIC | $FINAL, $constField(CSSBorder, STYLE)},
+		{"WIDTH", "I", nullptr, $STATIC | $FINAL, $constField(CSSBorder, WIDTH)},
+		{"TOP", "I", nullptr, $STATIC | $FINAL, $constField(CSSBorder, TOP)},
+		{"RIGHT", "I", nullptr, $STATIC | $FINAL, $constField(CSSBorder, RIGHT)},
+		{"BOTTOM", "I", nullptr, $STATIC | $FINAL, $constField(CSSBorder, BOTTOM)},
+		{"LEFT", "I", nullptr, $STATIC | $FINAL, $constField(CSSBorder, LEFT)},
+		{"ATTRIBUTES", "[[Ljavax/swing/text/html/CSS$Attribute;", nullptr, $STATIC | $FINAL, $staticField(CSSBorder, ATTRIBUTES)},
+		{"PARSERS", "[Ljavax/swing/text/html/CSS$CssValue;", nullptr, $STATIC | $FINAL, $staticField(CSSBorder, PARSERS)},
+		{"DEFAULTS", "[Ljava/lang/Object;", nullptr, $STATIC | $FINAL, $staticField(CSSBorder, DEFAULTS)},
+		{"attrs", "Ljavax/swing/text/AttributeSet;", nullptr, $FINAL, $field(CSSBorder, attrs)},
+		{"borderPainters", "Ljava/util/Map;", "Ljava/util/Map<Ljavax/swing/text/html/CSS$Value;Ljavax/swing/text/html/CSSBorder$BorderPainter;>;", $STATIC, $staticField(CSSBorder, borderPainters)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/text/AttributeSet;)V", nullptr, 0, $method(CSSBorder, init$, void, $AttributeSet*)},
+		{"getAdjustedColor", "(Ljava/awt/Color;D)Ljava/awt/Color;", nullptr, $STATIC, $staticMethod(CSSBorder, getAdjustedColor, $Color*, $Color*, double)},
+		{"getBorderColor", "(I)Ljava/awt/Color;", nullptr, $PRIVATE, $method(CSSBorder, getBorderColor, $Color*, int32_t)},
+		{"getBorderInsets", "(Ljava/awt/Component;Ljava/awt/Insets;)Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(CSSBorder, getBorderInsets, $Insets*, $Component*, $Insets*)},
+		{"getBorderPainter", "(I)Ljavax/swing/text/html/CSSBorder$BorderPainter;", nullptr, $PRIVATE, $method(CSSBorder, getBorderPainter, $CSSBorder$BorderPainter*, int32_t)},
+		{"getBorderShape", "(I)Ljava/awt/Polygon;", nullptr, $PRIVATE, $method(CSSBorder, getBorderShape, $Polygon*, int32_t)},
+		{"getBorderStyle", "(I)Ljavax/swing/text/html/CSS$Value;", nullptr, $PRIVATE, $method(CSSBorder, getBorderStyle, $CSS$Value*, int32_t)},
+		{"getBorderWidth", "(I)I", nullptr, $PRIVATE, $method(CSSBorder, getBorderWidth, int32_t, int32_t)},
+		{"getWidths", "()[I", nullptr, $PRIVATE, $method(CSSBorder, getWidths, $ints*)},
+		{"paintBorder", "(Ljava/awt/Component;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(CSSBorder, paintBorder, void, $Component*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{"registerBorderPainter", "(Ljavax/swing/text/html/CSS$Value;Ljavax/swing/text/html/CSSBorder$BorderPainter;)V", nullptr, $STATIC, $staticMethod(CSSBorder, registerBorderPainter, void, $CSS$Value*, $CSSBorder$BorderPainter*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.html.CSSBorder$InsetOutsetPainter", "javax.swing.text.html.CSSBorder", "InsetOutsetPainter", $STATIC},
+		{"javax.swing.text.html.CSSBorder$GrooveRidgePainter", "javax.swing.text.html.CSSBorder", "GrooveRidgePainter", $STATIC},
+		{"javax.swing.text.html.CSSBorder$ShadowLightPainter", "javax.swing.text.html.CSSBorder", "ShadowLightPainter", $STATIC | $ABSTRACT},
+		{"javax.swing.text.html.CSSBorder$DottedDashedPainter", "javax.swing.text.html.CSSBorder", "DottedDashedPainter", $STATIC},
+		{"javax.swing.text.html.CSSBorder$DoublePainter", "javax.swing.text.html.CSSBorder", "DoublePainter", $STATIC},
+		{"javax.swing.text.html.CSSBorder$StrokePainter", "javax.swing.text.html.CSSBorder", "StrokePainter", $STATIC | $ABSTRACT},
+		{"javax.swing.text.html.CSSBorder$SolidPainter", "javax.swing.text.html.CSSBorder", "SolidPainter", $STATIC},
+		{"javax.swing.text.html.CSSBorder$NullPainter", "javax.swing.text.html.CSSBorder", "NullPainter", $STATIC},
+		{"javax.swing.text.html.CSSBorder$BorderPainter", "javax.swing.text.html.CSSBorder", "BorderPainter", $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.text.html.CSSBorder",
+		"javax.swing.border.AbstractBorder",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.swing.text.html.CSSBorder$InsetOutsetPainter,javax.swing.text.html.CSSBorder$GrooveRidgePainter,javax.swing.text.html.CSSBorder$ShadowLightPainter,javax.swing.text.html.CSSBorder$DottedDashedPainter,javax.swing.text.html.CSSBorder$DoublePainter,javax.swing.text.html.CSSBorder$StrokePainter,javax.swing.text.html.CSSBorder$SolidPainter,javax.swing.text.html.CSSBorder$NullPainter,javax.swing.text.html.CSSBorder$BorderPainter"
+	};
+	$loadClass(CSSBorder, name, initialize, &classInfo$$, CSSBorder::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(CSSBorder));
+	});
 	return class$;
 }
 

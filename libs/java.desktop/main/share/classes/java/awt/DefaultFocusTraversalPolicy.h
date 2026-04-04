@@ -20,7 +20,7 @@ public:
 	DefaultFocusTraversalPolicy();
 	void init$();
 	virtual bool accept(::java::awt::Component* aComponent) override;
-	static const int64_t serialVersionUID = (int64_t)0x7B3152052140A6B9;
+	static const int64_t serialVersionUID = (int64_t)0x7b3152052140a6b9;
 };
 
 	} // awt

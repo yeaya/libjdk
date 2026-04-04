@@ -1,5 +1,4 @@
 #include <sun/java2d/loops/MaskFill.h>
-
 #include <java/awt/Composite.h>
 #include <java/lang/InternalError.h>
 #include <sun/java2d/SunGraphics2D.h>
@@ -33,60 +32,6 @@ namespace sun {
 	namespace java2d {
 		namespace loops {
 
-$FieldInfo _MaskFill_FieldInfo_[] = {
-	{"methodSignature", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MaskFill, methodSignature)},
-	{"fillPgramSignature", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MaskFill, fillPgramSignature)},
-	{"drawPgramSignature", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MaskFill, drawPgramSignature)},
-	{"primTypeID", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MaskFill, primTypeID)},
-	{"fillcache", "Lsun/java2d/loops/RenderCache;", nullptr, $PRIVATE | $STATIC, $staticField(MaskFill, fillcache)},
-	{}
-};
-
-$MethodInfo _MaskFill_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Lsun/java2d/loops/SurfaceType;Lsun/java2d/loops/CompositeType;Lsun/java2d/loops/SurfaceType;)V", nullptr, $PROTECTED, $method(MaskFill, init$, void, $String*, $SurfaceType*, $CompositeType*, $SurfaceType*)},
-	{"<init>", "(Lsun/java2d/loops/SurfaceType;Lsun/java2d/loops/CompositeType;Lsun/java2d/loops/SurfaceType;)V", nullptr, $PROTECTED, $method(MaskFill, init$, void, $SurfaceType*, $CompositeType*, $SurfaceType*)},
-	{"<init>", "(JLsun/java2d/loops/SurfaceType;Lsun/java2d/loops/CompositeType;Lsun/java2d/loops/SurfaceType;)V", nullptr, $PUBLIC, $method(MaskFill, init$, void, int64_t, $SurfaceType*, $CompositeType*, $SurfaceType*)},
-	{"DrawAAPgram", "(Lsun/java2d/SunGraphics2D;Lsun/java2d/SurfaceData;Ljava/awt/Composite;DDDDDDDD)V", nullptr, $PUBLIC | $NATIVE, $virtualMethod(MaskFill, DrawAAPgram, void, $SunGraphics2D*, $SurfaceData*, $Composite*, double, double, double, double, double, double, double, double)},
-	{"FillAAPgram", "(Lsun/java2d/SunGraphics2D;Lsun/java2d/SurfaceData;Ljava/awt/Composite;DDDDDD)V", nullptr, $PUBLIC | $NATIVE, $virtualMethod(MaskFill, FillAAPgram, void, $SunGraphics2D*, $SurfaceData*, $Composite*, double, double, double, double, double, double)},
-	{"MaskFill", "(Lsun/java2d/SunGraphics2D;Lsun/java2d/SurfaceData;Ljava/awt/Composite;IIII[BII)V", nullptr, $PUBLIC | $NATIVE, $virtualMethod(MaskFill, MaskFill$, void, $SunGraphics2D*, $SurfaceData*, $Composite*, int32_t, int32_t, int32_t, int32_t, $bytes*, int32_t, int32_t)},
-	{"canDoParallelograms", "()Z", nullptr, $PUBLIC, $virtualMethod(MaskFill, canDoParallelograms, bool)},
-	{"getFromCache", "(Lsun/java2d/loops/SurfaceType;Lsun/java2d/loops/CompositeType;Lsun/java2d/loops/SurfaceType;)Lsun/java2d/loops/MaskFill;", nullptr, $PUBLIC | $STATIC, $staticMethod(MaskFill, getFromCache, MaskFill*, $SurfaceType*, $CompositeType*, $SurfaceType*)},
-	{"locate", "(Lsun/java2d/loops/SurfaceType;Lsun/java2d/loops/CompositeType;Lsun/java2d/loops/SurfaceType;)Lsun/java2d/loops/MaskFill;", nullptr, $PUBLIC | $STATIC, $staticMethod(MaskFill, locate, MaskFill*, $SurfaceType*, $CompositeType*, $SurfaceType*)},
-	{"locatePrim", "(Lsun/java2d/loops/SurfaceType;Lsun/java2d/loops/CompositeType;Lsun/java2d/loops/SurfaceType;)Lsun/java2d/loops/MaskFill;", nullptr, $PUBLIC | $STATIC, $staticMethod(MaskFill, locatePrim, MaskFill*, $SurfaceType*, $CompositeType*, $SurfaceType*)},
-	{"makePrimitive", "(Lsun/java2d/loops/SurfaceType;Lsun/java2d/loops/CompositeType;Lsun/java2d/loops/SurfaceType;)Lsun/java2d/loops/GraphicsPrimitive;", nullptr, $PROTECTED, $virtualMethod(MaskFill, makePrimitive, $GraphicsPrimitive*, $SurfaceType*, $CompositeType*, $SurfaceType*)},
-	{"traceWrap", "()Lsun/java2d/loops/GraphicsPrimitive;", nullptr, $PUBLIC, $virtualMethod(MaskFill, traceWrap, $GraphicsPrimitive*)},
-	{}
-};
-
-#define _METHOD_INDEX_DrawAAPgram 3
-#define _METHOD_INDEX_FillAAPgram 4
-#define _METHOD_INDEX_MaskFill$ 5
-
-$InnerClassInfo _MaskFill_InnerClassesInfo_[] = {
-	{"sun.java2d.loops.MaskFill$TraceMaskFill", "sun.java2d.loops.MaskFill", "TraceMaskFill", $PRIVATE | $STATIC},
-	{"sun.java2d.loops.MaskFill$General", "sun.java2d.loops.MaskFill", "General", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _MaskFill_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.java2d.loops.MaskFill",
-	"sun.java2d.loops.GraphicsPrimitive",
-	nullptr,
-	_MaskFill_FieldInfo_,
-	_MaskFill_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MaskFill_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.java2d.loops.MaskFill$TraceMaskFill,sun.java2d.loops.MaskFill$General"
-};
-
-$Object* allocate$MaskFill($Class* clazz) {
-	return $of($alloc(MaskFill));
-}
-
 $String* MaskFill::methodSignature = nullptr;
 $String* MaskFill::fillPgramSignature = nullptr;
 $String* MaskFill::drawPgramSignature = nullptr;
@@ -105,7 +50,7 @@ MaskFill* MaskFill::locatePrim($SurfaceType* srctype, $CompositeType* comptype, 
 
 MaskFill* MaskFill::getFromCache($SurfaceType* src, $CompositeType* comp, $SurfaceType* dst) {
 	$init(MaskFill);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, o, $nc(MaskFill::fillcache)->get(src, comp, dst));
 	if (o != nullptr) {
 		return $cast(MaskFill, o);
@@ -130,19 +75,19 @@ void MaskFill::init$(int64_t pNativePrim, $SurfaceType* srctype, $CompositeType*
 }
 
 void MaskFill::MaskFill$($SunGraphics2D* sg2d, $SurfaceData* sData, $Composite* comp, int32_t x, int32_t y, int32_t w, int32_t h, $bytes* mask, int32_t maskoff, int32_t maskscan) {
-	$prepareNative(MaskFill, MaskFill$, void, $SunGraphics2D* sg2d, $SurfaceData* sData, $Composite* comp, int32_t x, int32_t y, int32_t w, int32_t h, $bytes* mask, int32_t maskoff, int32_t maskscan);
+	$prepareNative(MaskFill, void, $SunGraphics2D* sg2d, $SurfaceData* sData, $Composite* comp, int32_t x, int32_t y, int32_t w, int32_t h, $bytes* mask, int32_t maskoff, int32_t maskscan);
 	$invokeNative(sg2d, sData, comp, x, y, w, h, mask, maskoff, maskscan);
 	$finishNative();
 }
 
 void MaskFill::FillAAPgram($SunGraphics2D* sg2d, $SurfaceData* sData, $Composite* comp, double x, double y, double dx1, double dy1, double dx2, double dy2) {
-	$prepareNative(MaskFill, FillAAPgram, void, $SunGraphics2D* sg2d, $SurfaceData* sData, $Composite* comp, double x, double y, double dx1, double dy1, double dx2, double dy2);
+	$prepareNative(FillAAPgram, void, $SunGraphics2D* sg2d, $SurfaceData* sData, $Composite* comp, double x, double y, double dx1, double dy1, double dx2, double dy2);
 	$invokeNative(sg2d, sData, comp, x, y, dx1, dy1, dx2, dy2);
 	$finishNative();
 }
 
 void MaskFill::DrawAAPgram($SunGraphics2D* sg2d, $SurfaceData* sData, $Composite* comp, double x, double y, double dx1, double dy1, double dx2, double dy2, double lw1, double lw2) {
-	$prepareNative(MaskFill, DrawAAPgram, void, $SunGraphics2D* sg2d, $SurfaceData* sData, $Composite* comp, double x, double y, double dx1, double dy1, double dx2, double dy2, double lw1, double lw2);
+	$prepareNative(DrawAAPgram, void, $SunGraphics2D* sg2d, $SurfaceData* sData, $Composite* comp, double x, double y, double dx1, double dy1, double dx2, double dy2, double lw1, double lw2);
 	$invokeNative(sg2d, sData, comp, x, y, dx1, dy1, dx2, dy2, lw1, lw2);
 	$finishNative();
 }
@@ -170,7 +115,7 @@ $GraphicsPrimitive* MaskFill::traceWrap() {
 	return $new($MaskFill$TraceMaskFill, this);
 }
 
-void clinit$MaskFill($Class* class$) {
+void MaskFill::clinit$($Class* clazz) {
 	$assignStatic(MaskFill::methodSignature, "MaskFill(...)"_s->toString());
 	$assignStatic(MaskFill::fillPgramSignature, "FillAAPgram(...)"_s->toString());
 	$assignStatic(MaskFill::drawPgramSignature, "DrawAAPgram(...)"_s->toString());
@@ -185,7 +130,51 @@ MaskFill::MaskFill() {
 }
 
 $Class* MaskFill::load$($String* name, bool initialize) {
-	$loadClass(MaskFill, name, initialize, &_MaskFill_ClassInfo_, clinit$MaskFill, allocate$MaskFill);
+	$FieldInfo fieldInfos$$[] = {
+		{"methodSignature", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MaskFill, methodSignature)},
+		{"fillPgramSignature", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MaskFill, fillPgramSignature)},
+		{"drawPgramSignature", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MaskFill, drawPgramSignature)},
+		{"primTypeID", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MaskFill, primTypeID)},
+		{"fillcache", "Lsun/java2d/loops/RenderCache;", nullptr, $PRIVATE | $STATIC, $staticField(MaskFill, fillcache)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Lsun/java2d/loops/SurfaceType;Lsun/java2d/loops/CompositeType;Lsun/java2d/loops/SurfaceType;)V", nullptr, $PROTECTED, $method(MaskFill, init$, void, $String*, $SurfaceType*, $CompositeType*, $SurfaceType*)},
+		{"<init>", "(Lsun/java2d/loops/SurfaceType;Lsun/java2d/loops/CompositeType;Lsun/java2d/loops/SurfaceType;)V", nullptr, $PROTECTED, $method(MaskFill, init$, void, $SurfaceType*, $CompositeType*, $SurfaceType*)},
+		{"<init>", "(JLsun/java2d/loops/SurfaceType;Lsun/java2d/loops/CompositeType;Lsun/java2d/loops/SurfaceType;)V", nullptr, $PUBLIC, $method(MaskFill, init$, void, int64_t, $SurfaceType*, $CompositeType*, $SurfaceType*)},
+		{"DrawAAPgram", "(Lsun/java2d/SunGraphics2D;Lsun/java2d/SurfaceData;Ljava/awt/Composite;DDDDDDDD)V", nullptr, $PUBLIC | $NATIVE, $virtualMethod(MaskFill, DrawAAPgram, void, $SunGraphics2D*, $SurfaceData*, $Composite*, double, double, double, double, double, double, double, double)},
+		{"FillAAPgram", "(Lsun/java2d/SunGraphics2D;Lsun/java2d/SurfaceData;Ljava/awt/Composite;DDDDDD)V", nullptr, $PUBLIC | $NATIVE, $virtualMethod(MaskFill, FillAAPgram, void, $SunGraphics2D*, $SurfaceData*, $Composite*, double, double, double, double, double, double)},
+		{"MaskFill", "(Lsun/java2d/SunGraphics2D;Lsun/java2d/SurfaceData;Ljava/awt/Composite;IIII[BII)V", nullptr, $PUBLIC | $NATIVE, $virtualMethod(MaskFill, MaskFill$, void, $SunGraphics2D*, $SurfaceData*, $Composite*, int32_t, int32_t, int32_t, int32_t, $bytes*, int32_t, int32_t)},
+		{"canDoParallelograms", "()Z", nullptr, $PUBLIC, $virtualMethod(MaskFill, canDoParallelograms, bool)},
+		{"getFromCache", "(Lsun/java2d/loops/SurfaceType;Lsun/java2d/loops/CompositeType;Lsun/java2d/loops/SurfaceType;)Lsun/java2d/loops/MaskFill;", nullptr, $PUBLIC | $STATIC, $staticMethod(MaskFill, getFromCache, MaskFill*, $SurfaceType*, $CompositeType*, $SurfaceType*)},
+		{"locate", "(Lsun/java2d/loops/SurfaceType;Lsun/java2d/loops/CompositeType;Lsun/java2d/loops/SurfaceType;)Lsun/java2d/loops/MaskFill;", nullptr, $PUBLIC | $STATIC, $staticMethod(MaskFill, locate, MaskFill*, $SurfaceType*, $CompositeType*, $SurfaceType*)},
+		{"locatePrim", "(Lsun/java2d/loops/SurfaceType;Lsun/java2d/loops/CompositeType;Lsun/java2d/loops/SurfaceType;)Lsun/java2d/loops/MaskFill;", nullptr, $PUBLIC | $STATIC, $staticMethod(MaskFill, locatePrim, MaskFill*, $SurfaceType*, $CompositeType*, $SurfaceType*)},
+		{"makePrimitive", "(Lsun/java2d/loops/SurfaceType;Lsun/java2d/loops/CompositeType;Lsun/java2d/loops/SurfaceType;)Lsun/java2d/loops/GraphicsPrimitive;", nullptr, $PROTECTED, $virtualMethod(MaskFill, makePrimitive, $GraphicsPrimitive*, $SurfaceType*, $CompositeType*, $SurfaceType*)},
+		{"traceWrap", "()Lsun/java2d/loops/GraphicsPrimitive;", nullptr, $PUBLIC, $virtualMethod(MaskFill, traceWrap, $GraphicsPrimitive*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.java2d.loops.MaskFill$TraceMaskFill", "sun.java2d.loops.MaskFill", "TraceMaskFill", $PRIVATE | $STATIC},
+		{"sun.java2d.loops.MaskFill$General", "sun.java2d.loops.MaskFill", "General", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.java2d.loops.MaskFill",
+		"sun.java2d.loops.GraphicsPrimitive",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.java2d.loops.MaskFill$TraceMaskFill,sun.java2d.loops.MaskFill$General"
+	};
+	$loadClass(MaskFill, name, initialize, &classInfo$$, MaskFill::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(MaskFill);
+	});
 	return class$;
 }
 

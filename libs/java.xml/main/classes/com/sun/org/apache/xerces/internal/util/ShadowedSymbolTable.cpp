@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/util/ShadowedSymbolTable.h>
-
 #include <com/sun/org/apache/xerces/internal/util/SymbolTable.h>
 #include <jcpp.h>
 
@@ -15,33 +14,6 @@ namespace com {
 				namespace xerces {
 					namespace internal {
 						namespace util {
-
-$FieldInfo _ShadowedSymbolTable_FieldInfo_[] = {
-	{"fSymbolTable", "Lcom/sun/org/apache/xerces/internal/util/SymbolTable;", nullptr, $PROTECTED, $field(ShadowedSymbolTable, fSymbolTable)},
-	{}
-};
-
-$MethodInfo _ShadowedSymbolTable_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/org/apache/xerces/internal/util/SymbolTable;)V", nullptr, $PUBLIC, $method(ShadowedSymbolTable, init$, void, $SymbolTable*)},
-	{"addSymbol", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ShadowedSymbolTable, addSymbol, $String*, $String*)},
-	{"addSymbol", "([CII)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ShadowedSymbolTable, addSymbol, $String*, $chars*, int32_t, int32_t)},
-	{"hash", "(Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(ShadowedSymbolTable, hash, int32_t, $String*)},
-	{"hash", "([CII)I", nullptr, $PUBLIC, $virtualMethod(ShadowedSymbolTable, hash, int32_t, $chars*, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _ShadowedSymbolTable_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.util.ShadowedSymbolTable",
-	"com.sun.org.apache.xerces.internal.util.SymbolTable",
-	nullptr,
-	_ShadowedSymbolTable_FieldInfo_,
-	_ShadowedSymbolTable_MethodInfo_
-};
-
-$Object* allocate$ShadowedSymbolTable($Class* clazz) {
-	return $of($alloc(ShadowedSymbolTable));
-}
 
 void ShadowedSymbolTable::init$($SymbolTable* symbolTable) {
 	$SymbolTable::init$();
@@ -74,7 +46,29 @@ ShadowedSymbolTable::ShadowedSymbolTable() {
 }
 
 $Class* ShadowedSymbolTable::load$($String* name, bool initialize) {
-	$loadClass(ShadowedSymbolTable, name, initialize, &_ShadowedSymbolTable_ClassInfo_, allocate$ShadowedSymbolTable);
+	$FieldInfo fieldInfos$$[] = {
+		{"fSymbolTable", "Lcom/sun/org/apache/xerces/internal/util/SymbolTable;", nullptr, $PROTECTED, $field(ShadowedSymbolTable, fSymbolTable)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/org/apache/xerces/internal/util/SymbolTable;)V", nullptr, $PUBLIC, $method(ShadowedSymbolTable, init$, void, $SymbolTable*)},
+		{"addSymbol", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ShadowedSymbolTable, addSymbol, $String*, $String*)},
+		{"addSymbol", "([CII)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ShadowedSymbolTable, addSymbol, $String*, $chars*, int32_t, int32_t)},
+		{"hash", "(Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(ShadowedSymbolTable, hash, int32_t, $String*)},
+		{"hash", "([CII)I", nullptr, $PUBLIC, $virtualMethod(ShadowedSymbolTable, hash, int32_t, $chars*, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.util.ShadowedSymbolTable",
+		"com.sun.org.apache.xerces.internal.util.SymbolTable",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ShadowedSymbolTable, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ShadowedSymbolTable);
+	});
 	return class$;
 }
 

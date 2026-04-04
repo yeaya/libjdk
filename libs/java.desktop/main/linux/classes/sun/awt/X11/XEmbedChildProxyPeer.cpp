@@ -1,5 +1,4 @@
 #include <sun/awt/X11/XEmbedChildProxyPeer.h>
-
 #include <java/awt/AWTEvent.h>
 #include <java/awt/BufferCapabilities$FlipContents.h>
 #include <java/awt/BufferCapabilities.h>
@@ -27,7 +26,6 @@
 #include <java/awt/image/VolatileImage.h>
 #include <java/awt/peer/ComponentPeer.h>
 #include <java/awt/peer/ContainerPeer.h>
-#include <java/lang/Runnable.h>
 #include <sun/awt/AppContext.h>
 #include <sun/awt/SunToolkit.h>
 #include <sun/awt/X11/XAtom.h>
@@ -37,7 +35,6 @@
 #include <sun/awt/X11/XEmbedChildProxyPeer$1.h>
 #include <sun/awt/X11/XEmbeddingContainer.h>
 #include <sun/awt/X11/XEvent.h>
-#include <sun/awt/X11/XEventDispatcher.h>
 #include <sun/awt/X11/XKeyboardFocusManagerPeer.h>
 #include <sun/awt/X11/XPropertyEvent.h>
 #include <sun/awt/X11/XSizeHints.h>
@@ -88,16 +85,13 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
 using $AppContext = ::sun::awt::AppContext;
 using $XAtom = ::sun::awt::X11::XAtom;
 using $XComponentPeer = ::sun::awt::X11::XComponentPeer;
 using $XConstants = ::sun::awt::X11::XConstants;
 using $XEmbedChildProxy = ::sun::awt::X11::XEmbedChildProxy;
 using $XEmbedChildProxyPeer$1 = ::sun::awt::X11::XEmbedChildProxyPeer$1;
-using $XEmbeddingContainer = ::sun::awt::X11::XEmbeddingContainer;
 using $XEvent = ::sun::awt::X11::XEvent;
-using $XEventDispatcher = ::sun::awt::X11::XEventDispatcher;
 using $XKeyboardFocusManagerPeer = ::sun::awt::X11::XKeyboardFocusManagerPeer;
 using $XPropertyEvent = ::sun::awt::X11::XPropertyEvent;
 using $XSizeHints = ::sun::awt::X11::XSizeHints;
@@ -109,95 +103,6 @@ using $Region = ::sun::java2d::pipe::Region;
 namespace sun {
 	namespace awt {
 		namespace X11 {
-
-$FieldInfo _XEmbedChildProxyPeer_FieldInfo_[] = {
-	{"container", "Lsun/awt/X11/XEmbeddingContainer;", nullptr, 0, $field(XEmbedChildProxyPeer, container)},
-	{"proxy", "Lsun/awt/X11/XEmbedChildProxy;", nullptr, 0, $field(XEmbedChildProxyPeer, proxy)},
-	{"handle", "J", nullptr, 0, $field(XEmbedChildProxyPeer, handle)},
-	{}
-};
-
-$MethodInfo _XEmbedChildProxyPeer_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lsun/awt/X11/XEmbedChildProxy;)V", nullptr, 0, $method(XEmbedChildProxyPeer, init$, void, $XEmbedChildProxy*)},
-	{"applyShape", "(Lsun/java2d/pipe/Region;)V", nullptr, $PUBLIC, $virtualMethod(XEmbedChildProxyPeer, applyShape, void, $Region*)},
-	{"canDetermineObscurity", "()Z", nullptr, $PUBLIC, $virtualMethod(XEmbedChildProxyPeer, canDetermineObscurity, bool)},
-	{"childResized", "()V", nullptr, 0, $virtualMethod(XEmbedChildProxyPeer, childResized, void)},
-	{"coalescePaintEvent", "(Ljava/awt/event/PaintEvent;)V", nullptr, $PUBLIC, $virtualMethod(XEmbedChildProxyPeer, coalescePaintEvent, void, $PaintEvent*)},
-	{"createBuffers", "(ILjava/awt/BufferCapabilities;)V", nullptr, $PUBLIC, $virtualMethod(XEmbedChildProxyPeer, createBuffers, void, int32_t, $BufferCapabilities*), "java.awt.AWTException"},
-	{"createImage", "(II)Ljava/awt/Image;", nullptr, $PUBLIC, $virtualMethod(XEmbedChildProxyPeer, createImage, $Image*, int32_t, int32_t)},
-	{"createVolatileImage", "(II)Ljava/awt/image/VolatileImage;", nullptr, $PUBLIC, $virtualMethod(XEmbedChildProxyPeer, createVolatileImage, $VolatileImage*, int32_t, int32_t)},
-	{"destroyBuffers", "()V", nullptr, $PUBLIC, $virtualMethod(XEmbedChildProxyPeer, destroyBuffers, void)},
-	{"dispatchEvent", "(Lsun/awt/X11/XEvent;)V", nullptr, $PUBLIC, $virtualMethod(XEmbedChildProxyPeer, dispatchEvent, void, $XEvent*)},
-	{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(XEmbedChildProxyPeer, dispose, void)},
-	{"flip", "(IIIILjava/awt/BufferCapabilities$FlipContents;)V", nullptr, $PUBLIC, $virtualMethod(XEmbedChildProxyPeer, flip, void, int32_t, int32_t, int32_t, int32_t, $BufferCapabilities$FlipContents*)},
-	{"getBackBuffer", "()Ljava/awt/Image;", nullptr, $PUBLIC, $virtualMethod(XEmbedChildProxyPeer, getBackBuffer, $Image*)},
-	{"getBounds", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(XEmbedChildProxyPeer, getBounds, $Rectangle*)},
-	{"getColorModel", "()Ljava/awt/image/ColorModel;", nullptr, $PUBLIC, $virtualMethod(XEmbedChildProxyPeer, getColorModel, $ColorModel*)},
-	{"getFontMetrics", "(Ljava/awt/Font;)Ljava/awt/FontMetrics;", nullptr, $PUBLIC, $virtualMethod(XEmbedChildProxyPeer, getFontMetrics, $FontMetrics*, $Font*)},
-	{"getGraphics", "()Ljava/awt/Graphics;", nullptr, $PUBLIC, $virtualMethod(XEmbedChildProxyPeer, getGraphics, $Graphics*)},
-	{"getGraphicsConfiguration", "()Ljava/awt/GraphicsConfiguration;", nullptr, $PUBLIC, $virtualMethod(XEmbedChildProxyPeer, getGraphicsConfiguration, $GraphicsConfiguration*)},
-	{"getLocationOnScreen", "()Ljava/awt/Point;", nullptr, $PUBLIC, $virtualMethod(XEmbedChildProxyPeer, getLocationOnScreen, $Point*)},
-	{"getMinimumSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(XEmbedChildProxyPeer, getMinimumSize, $Dimension*)},
-	{"getPreferredSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(XEmbedChildProxyPeer, getPreferredSize, $Dimension*)},
-	{"getToolkit", "()Ljava/awt/Toolkit;", nullptr, $PUBLIC, $virtualMethod(XEmbedChildProxyPeer, getToolkit, $Toolkit*)},
-	{"getTopLevel", "(Ljava/awt/Component;)Ljava/awt/Window;", nullptr, 0, $virtualMethod(XEmbedChildProxyPeer, getTopLevel, $Window*, $Component*)},
-	{"handleConfigureNotify", "(Lsun/awt/X11/XEvent;)V", nullptr, 0, $virtualMethod(XEmbedChildProxyPeer, handleConfigureNotify, void, $XEvent*)},
-	{"handleEvent", "(Ljava/awt/AWTEvent;)V", nullptr, $PUBLIC, $virtualMethod(XEmbedChildProxyPeer, handleEvent, void, $AWTEvent*)},
-	{"handlePropertyNotify", "(Lsun/awt/X11/XEvent;)V", nullptr, 0, $virtualMethod(XEmbedChildProxyPeer, handlePropertyNotify, void, $XEvent*)},
-	{"handlesWheelScrolling", "()Z", nullptr, $PUBLIC, $virtualMethod(XEmbedChildProxyPeer, handlesWheelScrolling, bool)},
-	{"initDispatching", "()V", nullptr, 0, $virtualMethod(XEmbedChildProxyPeer, initDispatching, void)},
-	{"isFocusable", "()Z", nullptr, $PUBLIC, $virtualMethod(XEmbedChildProxyPeer, isFocusable, bool)},
-	{"isObscured", "()Z", nullptr, $PUBLIC, $virtualMethod(XEmbedChildProxyPeer, isObscured, bool)},
-	{"isReparentSupported", "()Z", nullptr, $PUBLIC, $virtualMethod(XEmbedChildProxyPeer, isReparentSupported, bool)},
-	{"layout", "()V", nullptr, $PUBLIC, $virtualMethod(XEmbedChildProxyPeer, layout, void)},
-	{"paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(XEmbedChildProxyPeer, paint, void, $Graphics*)},
-	{"postEvent", "(Ljava/awt/AWTEvent;)V", nullptr, 0, $virtualMethod(XEmbedChildProxyPeer, postEvent, void, $AWTEvent*)},
-	{"print", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(XEmbedChildProxyPeer, print, void, $Graphics*)},
-	{"reparent", "(Ljava/awt/peer/ContainerPeer;)V", nullptr, $PUBLIC, $virtualMethod(XEmbedChildProxyPeer, reparent, void, $ContainerPeer*)},
-	{"requestFocus", "(Ljava/awt/Component;ZZJLjava/awt/event/FocusEvent$Cause;)Z", nullptr, $PUBLIC, $virtualMethod(XEmbedChildProxyPeer, requestFocus, bool, $Component*, bool, bool, int64_t, $FocusEvent$Cause*)},
-	{"requestXEmbedFocus", "()V", nullptr, 0, $virtualMethod(XEmbedChildProxyPeer, requestXEmbedFocus, void)},
-	{"setBackground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC, $virtualMethod(XEmbedChildProxyPeer, setBackground, void, $Color*)},
-	{"setBounds", "(IIIII)V", nullptr, $PUBLIC, $virtualMethod(XEmbedChildProxyPeer, setBounds, void, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"setBoundsOperation", "(I)V", nullptr, $PUBLIC, $virtualMethod(XEmbedChildProxyPeer, setBoundsOperation, void, int32_t)},
-	{"setEnabled", "(Z)V", nullptr, $PUBLIC, $virtualMethod(XEmbedChildProxyPeer, setEnabled, void, bool)},
-	{"setFont", "(Ljava/awt/Font;)V", nullptr, $PUBLIC, $virtualMethod(XEmbedChildProxyPeer, setFont, void, $Font*)},
-	{"setForeground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC, $virtualMethod(XEmbedChildProxyPeer, setForeground, void, $Color*)},
-	{"setVisible", "(Z)V", nullptr, $PUBLIC, $virtualMethod(XEmbedChildProxyPeer, setVisible, void, bool)},
-	{"setZOrder", "(Ljava/awt/peer/ComponentPeer;)V", nullptr, $PUBLIC, $virtualMethod(XEmbedChildProxyPeer, setZOrder, void, $ComponentPeer*)},
-	{"simulateMotifRequestFocus", "(Ljava/awt/Component;ZZJ)Z", nullptr, 0, $virtualMethod(XEmbedChildProxyPeer, simulateMotifRequestFocus, bool, $Component*, bool, bool, int64_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"updateCursorImmediately", "()V", nullptr, $PUBLIC, $virtualMethod(XEmbedChildProxyPeer, updateCursorImmediately, void)},
-	{"updateGraphicsData", "(Ljava/awt/GraphicsConfiguration;)Z", nullptr, $PUBLIC, $virtualMethod(XEmbedChildProxyPeer, updateGraphicsData, bool, $GraphicsConfiguration*)},
-	{}
-};
-
-$InnerClassInfo _XEmbedChildProxyPeer_InnerClassesInfo_[] = {
-	{"sun.awt.X11.XEmbedChildProxyPeer$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _XEmbedChildProxyPeer_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.awt.X11.XEmbedChildProxyPeer",
-	"java.lang.Object",
-	"java.awt.peer.ComponentPeer,sun.awt.X11.XEventDispatcher",
-	_XEmbedChildProxyPeer_FieldInfo_,
-	_XEmbedChildProxyPeer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_XEmbedChildProxyPeer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.awt.X11.XEmbedChildProxyPeer$1"
-};
-
-$Object* allocate$XEmbedChildProxyPeer($Class* clazz) {
-	return $of($alloc(XEmbedChildProxyPeer));
-}
 
 int32_t XEmbedChildProxyPeer::hashCode() {
 	 return this->$ComponentPeer::hashCode();
@@ -228,19 +133,17 @@ void XEmbedChildProxyPeer::init$($XEmbedChildProxy* proxy) {
 
 void XEmbedChildProxyPeer::initDispatching() {
 	$XToolkit::awtLock();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$XToolkit::addEventDispatcher(this->handle, this);
-			$XlibWrapper::XSelectInput($XToolkit::getDisplay(), this->handle, $XConstants::StructureNotifyMask | $XConstants::PropertyChangeMask);
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$XToolkit::awtUnlock();
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	$var($Throwable, var$0, nullptr);
+	try {
+		$XToolkit::addEventDispatcher(this->handle, this);
+		$XlibWrapper::XSelectInput($XToolkit::getDisplay(), this->handle, $XConstants::StructureNotifyMask | $XConstants::PropertyChangeMask);
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$XToolkit::awtUnlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 	$nc(this->container)->notifyChildEmbedded(this->handle);
 }
@@ -254,36 +157,32 @@ bool XEmbedChildProxyPeer::canDetermineObscurity() {
 }
 
 void XEmbedChildProxyPeer::setVisible(bool b) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!b) {
 		$XToolkit::awtLock();
-		{
-			$var($Throwable, var$0, nullptr);
-			try {
-				$XlibWrapper::XUnmapWindow($XToolkit::getDisplay(), this->handle);
-			} catch ($Throwable& var$1) {
-				$assign(var$0, var$1);
-			} /*finally*/ {
-				$XToolkit::awtUnlock();
-			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
+		$var($Throwable, var$0, nullptr);
+		try {
+			$XlibWrapper::XUnmapWindow($XToolkit::getDisplay(), this->handle);
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
+		} /*finally*/ {
+			$XToolkit::awtUnlock();
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	} else {
 		$XToolkit::awtLock();
-		{
-			$var($Throwable, var$2, nullptr);
-			try {
-				$XlibWrapper::XMapWindow($XToolkit::getDisplay(), this->handle);
-			} catch ($Throwable& var$3) {
-				$assign(var$2, var$3);
-			} /*finally*/ {
-				$XToolkit::awtUnlock();
-			}
-			if (var$2 != nullptr) {
-				$throw(var$2);
-			}
+		$var($Throwable, var$2, nullptr);
+		try {
+			$XlibWrapper::XMapWindow($XToolkit::getDisplay(), this->handle);
+		} catch ($Throwable& var$3) {
+			$assign(var$2, var$3);
+		} /*finally*/ {
+			$XToolkit::awtUnlock();
+		}
+		if (var$2 != nullptr) {
+			$throw(var$2);
 		}
 	}
 }
@@ -299,45 +198,36 @@ void XEmbedChildProxyPeer::print($Graphics* g) {
 
 void XEmbedChildProxyPeer::setBounds(int32_t x, int32_t y, int32_t width, int32_t height, int32_t op) {
 	$XToolkit::awtLock();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$XlibWrapper::XMoveResizeWindow($XToolkit::getDisplay(), this->handle, x, y, width, height);
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$XToolkit::awtUnlock();
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	$var($Throwable, var$0, nullptr);
+	try {
+		$XlibWrapper::XMoveResizeWindow($XToolkit::getDisplay(), this->handle, x, y, width, height);
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$XToolkit::awtUnlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 void XEmbedChildProxyPeer::handleEvent($AWTEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	switch ($nc(e)->getID()) {
 	case $FocusEvent::FOCUS_GAINED:
-		{
-			$nc($($XKeyboardFocusManagerPeer::getInstance()))->setCurrentFocusOwner(this->proxy);
-			$nc(this->container)->focusGained(this->handle);
-			break;
-		}
+		$$nc($XKeyboardFocusManagerPeer::getInstance())->setCurrentFocusOwner(this->proxy);
+		$nc(this->container)->focusGained(this->handle);
+		break;
 	case $FocusEvent::FOCUS_LOST:
-		{
-			$nc($($XKeyboardFocusManagerPeer::getInstance()))->setCurrentFocusOwner(nullptr);
-			$nc(this->container)->focusLost(this->handle);
-			break;
-		}
+		$$nc($XKeyboardFocusManagerPeer::getInstance())->setCurrentFocusOwner(nullptr);
+		$nc(this->container)->focusLost(this->handle);
+		break;
 	case $KeyEvent::KEY_PRESSED:
-		{}
 	case $KeyEvent::KEY_RELEASED:
-		{
-			if (!$nc(($cast($InputEvent, e)))->isConsumed()) {
-				$nc(this->container)->forwardKeyEvent(this->handle, $cast($KeyEvent, e));
-			}
-			break;
+		if (!$cast($InputEvent, e)->isConsumed()) {
+			$nc(this->container)->forwardKeyEvent(this->handle, $cast($KeyEvent, e));
 		}
+		break;
 	}
 }
 
@@ -345,95 +235,89 @@ void XEmbedChildProxyPeer::coalescePaintEvent($PaintEvent* e) {
 }
 
 $Point* XEmbedChildProxyPeer::getLocationOnScreen() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($XWindowAttributes, attr, $new($XWindowAttributes));
 	$XToolkit::awtLock();
-	{
-		$var($Throwable, var$0, nullptr);
-		$var($Point, var$2, nullptr);
-		bool return$1 = false;
-		try {
-			$XlibWrapper::XGetWindowAttributes($XToolkit::getDisplay(), this->handle, attr->pData);
-			int32_t var$3 = attr->get_x();
-			$assign(var$2, $new($Point, var$3, attr->get_y()));
-			return$1 = true;
-			goto $finally;
-		} catch ($Throwable& var$4) {
-			$assign(var$0, var$4);
-		} $finally: {
-			$XToolkit::awtUnlock();
-			attr->dispose();
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+	$var($Throwable, var$0, nullptr);
+	$var($Point, var$2, nullptr);
+	bool return$1 = false;
+	try {
+		$XlibWrapper::XGetWindowAttributes($XToolkit::getDisplay(), this->handle, attr->pData);
+		int32_t var$3 = attr->get_x();
+		$assign(var$2, $new($Point, var$3, attr->get_y()));
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$4) {
+		$assign(var$0, var$4);
+	} $finally: {
+		$XToolkit::awtUnlock();
+		attr->dispose();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
 
 $Dimension* XEmbedChildProxyPeer::getPreferredSize() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$XToolkit::awtLock();
 	int64_t p_hints = $XlibWrapper::XAllocSizeHints();
-	{
-		$var($Throwable, var$0, nullptr);
-		$var($Dimension, var$2, nullptr);
-		bool return$1 = false;
-		try {
-			$var($XSizeHints, hints, $new($XSizeHints, p_hints));
-			$XlibWrapper::XGetWMNormalHints($XToolkit::getDisplay(), this->handle, p_hints, $XlibWrapper::larg1);
-			int32_t var$3 = hints->get_width();
-			$var($Dimension, res, $new($Dimension, var$3, hints->get_height()));
-			$assign(var$2, res);
-			return$1 = true;
-			goto $finally;
-		} catch ($Throwable& var$4) {
-			$assign(var$0, var$4);
-		} $finally: {
-			$XlibWrapper::XFree(p_hints);
-			$XToolkit::awtUnlock();
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+	$var($Throwable, var$0, nullptr);
+	$var($Dimension, var$2, nullptr);
+	bool return$1 = false;
+	try {
+		$var($XSizeHints, hints, $new($XSizeHints, p_hints));
+		$XlibWrapper::XGetWMNormalHints($XToolkit::getDisplay(), this->handle, p_hints, $XlibWrapper::larg1);
+		int32_t var$3 = hints->get_width();
+		$var($Dimension, res, $new($Dimension, var$3, hints->get_height()));
+		$assign(var$2, res);
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$4) {
+		$assign(var$0, var$4);
+	} $finally: {
+		$XlibWrapper::XFree(p_hints);
+		$XToolkit::awtUnlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
 
 $Dimension* XEmbedChildProxyPeer::getMinimumSize() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$XToolkit::awtLock();
 	int64_t p_hints = $XlibWrapper::XAllocSizeHints();
-	{
-		$var($Throwable, var$0, nullptr);
-		$var($Dimension, var$2, nullptr);
-		bool return$1 = false;
-		try {
-			$var($XSizeHints, hints, $new($XSizeHints, p_hints));
-			$XlibWrapper::XGetWMNormalHints($XToolkit::getDisplay(), this->handle, p_hints, $XlibWrapper::larg1);
-			int32_t var$3 = hints->get_min_width();
-			$var($Dimension, res, $new($Dimension, var$3, hints->get_min_height()));
-			$assign(var$2, res);
-			return$1 = true;
-			goto $finally;
-		} catch ($Throwable& var$4) {
-			$assign(var$0, var$4);
-		} $finally: {
-			$XlibWrapper::XFree(p_hints);
-			$XToolkit::awtUnlock();
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+	$var($Throwable, var$0, nullptr);
+	$var($Dimension, var$2, nullptr);
+	bool return$1 = false;
+	try {
+		$var($XSizeHints, hints, $new($XSizeHints, p_hints));
+		$XlibWrapper::XGetWMNormalHints($XToolkit::getDisplay(), this->handle, p_hints, $XlibWrapper::larg1);
+		int32_t var$3 = hints->get_min_width();
+		$var($Dimension, res, $new($Dimension, var$3, hints->get_min_height()));
+		$assign(var$2, res);
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$4) {
+		$assign(var$0, var$4);
+	} $finally: {
+		$XlibWrapper::XFree(p_hints);
+		$XToolkit::awtUnlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
@@ -475,12 +359,12 @@ void XEmbedChildProxyPeer::postEvent($AWTEvent* event) {
 }
 
 bool XEmbedChildProxyPeer::simulateMotifRequestFocus($Component* lightweightChild$renamed, bool temporary, bool focusedWindowChangeAllowed, int64_t time) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Component, lightweightChild, lightweightChild$renamed);
 	if (lightweightChild == nullptr) {
-		$assign(lightweightChild, static_cast<$Component*>(this->proxy));
+		$assign(lightweightChild, $cast($Component, this->proxy));
 	}
-	$var($Component, currentOwner, $nc($($XKeyboardFocusManagerPeer::getInstance()))->getCurrentFocusOwner());
+	$var($Component, currentOwner, $$nc($XKeyboardFocusManagerPeer::getInstance())->getCurrentFocusOwner());
 	if (currentOwner != nullptr && !currentOwner->isDisplayable()) {
 		$assign(currentOwner, nullptr);
 	}
@@ -497,34 +381,28 @@ bool XEmbedChildProxyPeer::simulateMotifRequestFocus($Component* lightweightChil
 }
 
 bool XEmbedChildProxyPeer::requestFocus($Component* lightweightChild, bool temporary, bool focusedWindowChangeAllowed, int64_t time, $FocusEvent$Cause* cause) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t result = $XKeyboardFocusManagerPeer::shouldNativelyFocusHeavyweight(this->proxy, lightweightChild, temporary, false, time, cause);
 	{
-		$var($Container, parent, nullptr)
+		$var($Container, parent, nullptr);
 		switch (result) {
 		case $XKeyboardFocusManagerPeer::SNFH_FAILURE:
-			{
-				return false;
-			}
+			return false;
 		case $XKeyboardFocusManagerPeer::SNFH_SUCCESS_PROCEED:
-			{
-				$assign(parent, $nc(this->proxy)->getParent());
-				while (parent != nullptr && !($instanceOf($Window, parent))) {
-					$assign(parent, parent->getParent());
-				}
-				if (parent != nullptr) {
-					$var($Window, parentWindow, $cast($Window, parent));
-					bool var$0 = !parentWindow->isFocused();
-					if (var$0 && $nc($($XKeyboardFocusManagerPeer::getInstance()))->getCurrentFocusedWindow() == parentWindow) {
-						return true;
-					}
-				}
-				return simulateMotifRequestFocus(lightweightChild, temporary, focusedWindowChangeAllowed, time);
+			$assign(parent, $nc(this->proxy)->getParent());
+			while (parent != nullptr && !($instanceOf($Window, parent))) {
+				$assign(parent, parent->getParent());
 			}
+			if (parent != nullptr) {
+				$var($Window, parentWindow, $cast($Window, parent));
+				bool var$0 = !parentWindow->isFocused();
+				if (var$0 && $$nc($XKeyboardFocusManagerPeer::getInstance())->getCurrentFocusedWindow() == parentWindow) {
+					return true;
+				}
+			}
+			return simulateMotifRequestFocus(lightweightChild, temporary, focusedWindowChangeAllowed, time);
 		case $XKeyboardFocusManagerPeer::SNFH_SUCCESS_HANDLED:
-			{
-				return true;
-			}
+			return true;
 		}
 	}
 	return false;
@@ -575,7 +453,7 @@ $Window* XEmbedChildProxyPeer::getTopLevel($Component* comp$renamed) {
 }
 
 void XEmbedChildProxyPeer::childResized() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AppContext, var$0, $XToolkit::targetToAppContext(this->proxy));
 	$XToolkit::postEvent(var$0, $$new($ComponentEvent, this->proxy, $ComponentEvent::COMPONENT_RESIZED));
 	$nc(this->container)->childResized(this->proxy);
@@ -596,20 +474,16 @@ void XEmbedChildProxyPeer::dispatchEvent($XEvent* xev) {
 	int32_t type = $nc(xev)->get_type();
 	switch (type) {
 	case $XConstants::PropertyNotify:
-		{
-			handlePropertyNotify(xev);
-			break;
-		}
+		handlePropertyNotify(xev);
+		break;
 	case $XConstants::ConfigureNotify:
-		{
-			handleConfigureNotify(xev);
-			break;
-		}
+		handleConfigureNotify(xev);
+		break;
 	}
 }
 
 void XEmbedChildProxyPeer::requestXEmbedFocus() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	postEvent($$new($InvocationEvent, this->proxy, $$new($XEmbedChildProxyPeer$1, this)));
 }
 
@@ -621,33 +495,31 @@ bool XEmbedChildProxyPeer::isReparentSupported() {
 }
 
 $Rectangle* XEmbedChildProxyPeer::getBounds() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($XWindowAttributes, attrs, $new($XWindowAttributes));
 	$XToolkit::awtLock();
-	{
-		$var($Throwable, var$0, nullptr);
-		$var($Rectangle, var$2, nullptr);
-		bool return$1 = false;
-		try {
-			$XlibWrapper::XGetWindowAttributes($XToolkit::getDisplay(), this->handle, attrs->pData);
-			int32_t var$3 = attrs->get_x();
-			int32_t var$4 = attrs->get_y();
-			int32_t var$5 = attrs->get_width();
-			$assign(var$2, $new($Rectangle, var$3, var$4, var$5, attrs->get_height()));
-			return$1 = true;
-			goto $finally;
-		} catch ($Throwable& var$6) {
-			$assign(var$0, var$6);
-		} $finally: {
-			$XToolkit::awtUnlock();
-			attrs->dispose();
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+	$var($Throwable, var$0, nullptr);
+	$var($Rectangle, var$2, nullptr);
+	bool return$1 = false;
+	try {
+		$XlibWrapper::XGetWindowAttributes($XToolkit::getDisplay(), this->handle, attrs->pData);
+		int32_t var$3 = attrs->get_x();
+		int32_t var$4 = attrs->get_y();
+		int32_t var$5 = attrs->get_width();
+		$assign(var$2, $new($Rectangle, var$3, var$4, var$5, attrs->get_height()));
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$6) {
+		$assign(var$0, var$6);
+	} $finally: {
+		$XToolkit::awtUnlock();
+		attrs->dispose();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
@@ -669,7 +541,90 @@ XEmbedChildProxyPeer::XEmbedChildProxyPeer() {
 }
 
 $Class* XEmbedChildProxyPeer::load$($String* name, bool initialize) {
-	$loadClass(XEmbedChildProxyPeer, name, initialize, &_XEmbedChildProxyPeer_ClassInfo_, allocate$XEmbedChildProxyPeer);
+	$FieldInfo fieldInfos$$[] = {
+		{"container", "Lsun/awt/X11/XEmbeddingContainer;", nullptr, 0, $field(XEmbedChildProxyPeer, container)},
+		{"proxy", "Lsun/awt/X11/XEmbedChildProxy;", nullptr, 0, $field(XEmbedChildProxyPeer, proxy)},
+		{"handle", "J", nullptr, 0, $field(XEmbedChildProxyPeer, handle)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lsun/awt/X11/XEmbedChildProxy;)V", nullptr, 0, $method(XEmbedChildProxyPeer, init$, void, $XEmbedChildProxy*)},
+		{"applyShape", "(Lsun/java2d/pipe/Region;)V", nullptr, $PUBLIC, $virtualMethod(XEmbedChildProxyPeer, applyShape, void, $Region*)},
+		{"canDetermineObscurity", "()Z", nullptr, $PUBLIC, $virtualMethod(XEmbedChildProxyPeer, canDetermineObscurity, bool)},
+		{"childResized", "()V", nullptr, 0, $virtualMethod(XEmbedChildProxyPeer, childResized, void)},
+		{"coalescePaintEvent", "(Ljava/awt/event/PaintEvent;)V", nullptr, $PUBLIC, $virtualMethod(XEmbedChildProxyPeer, coalescePaintEvent, void, $PaintEvent*)},
+		{"createBuffers", "(ILjava/awt/BufferCapabilities;)V", nullptr, $PUBLIC, $virtualMethod(XEmbedChildProxyPeer, createBuffers, void, int32_t, $BufferCapabilities*), "java.awt.AWTException"},
+		{"createImage", "(II)Ljava/awt/Image;", nullptr, $PUBLIC, $virtualMethod(XEmbedChildProxyPeer, createImage, $Image*, int32_t, int32_t)},
+		{"createVolatileImage", "(II)Ljava/awt/image/VolatileImage;", nullptr, $PUBLIC, $virtualMethod(XEmbedChildProxyPeer, createVolatileImage, $VolatileImage*, int32_t, int32_t)},
+		{"destroyBuffers", "()V", nullptr, $PUBLIC, $virtualMethod(XEmbedChildProxyPeer, destroyBuffers, void)},
+		{"dispatchEvent", "(Lsun/awt/X11/XEvent;)V", nullptr, $PUBLIC, $virtualMethod(XEmbedChildProxyPeer, dispatchEvent, void, $XEvent*)},
+		{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(XEmbedChildProxyPeer, dispose, void)},
+		{"flip", "(IIIILjava/awt/BufferCapabilities$FlipContents;)V", nullptr, $PUBLIC, $virtualMethod(XEmbedChildProxyPeer, flip, void, int32_t, int32_t, int32_t, int32_t, $BufferCapabilities$FlipContents*)},
+		{"getBackBuffer", "()Ljava/awt/Image;", nullptr, $PUBLIC, $virtualMethod(XEmbedChildProxyPeer, getBackBuffer, $Image*)},
+		{"getBounds", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(XEmbedChildProxyPeer, getBounds, $Rectangle*)},
+		{"getColorModel", "()Ljava/awt/image/ColorModel;", nullptr, $PUBLIC, $virtualMethod(XEmbedChildProxyPeer, getColorModel, $ColorModel*)},
+		{"getFontMetrics", "(Ljava/awt/Font;)Ljava/awt/FontMetrics;", nullptr, $PUBLIC, $virtualMethod(XEmbedChildProxyPeer, getFontMetrics, $FontMetrics*, $Font*)},
+		{"getGraphics", "()Ljava/awt/Graphics;", nullptr, $PUBLIC, $virtualMethod(XEmbedChildProxyPeer, getGraphics, $Graphics*)},
+		{"getGraphicsConfiguration", "()Ljava/awt/GraphicsConfiguration;", nullptr, $PUBLIC, $virtualMethod(XEmbedChildProxyPeer, getGraphicsConfiguration, $GraphicsConfiguration*)},
+		{"getLocationOnScreen", "()Ljava/awt/Point;", nullptr, $PUBLIC, $virtualMethod(XEmbedChildProxyPeer, getLocationOnScreen, $Point*)},
+		{"getMinimumSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(XEmbedChildProxyPeer, getMinimumSize, $Dimension*)},
+		{"getPreferredSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(XEmbedChildProxyPeer, getPreferredSize, $Dimension*)},
+		{"getToolkit", "()Ljava/awt/Toolkit;", nullptr, $PUBLIC, $virtualMethod(XEmbedChildProxyPeer, getToolkit, $Toolkit*)},
+		{"getTopLevel", "(Ljava/awt/Component;)Ljava/awt/Window;", nullptr, 0, $virtualMethod(XEmbedChildProxyPeer, getTopLevel, $Window*, $Component*)},
+		{"handleConfigureNotify", "(Lsun/awt/X11/XEvent;)V", nullptr, 0, $virtualMethod(XEmbedChildProxyPeer, handleConfigureNotify, void, $XEvent*)},
+		{"handleEvent", "(Ljava/awt/AWTEvent;)V", nullptr, $PUBLIC, $virtualMethod(XEmbedChildProxyPeer, handleEvent, void, $AWTEvent*)},
+		{"handlePropertyNotify", "(Lsun/awt/X11/XEvent;)V", nullptr, 0, $virtualMethod(XEmbedChildProxyPeer, handlePropertyNotify, void, $XEvent*)},
+		{"handlesWheelScrolling", "()Z", nullptr, $PUBLIC, $virtualMethod(XEmbedChildProxyPeer, handlesWheelScrolling, bool)},
+		{"initDispatching", "()V", nullptr, 0, $virtualMethod(XEmbedChildProxyPeer, initDispatching, void)},
+		{"isFocusable", "()Z", nullptr, $PUBLIC, $virtualMethod(XEmbedChildProxyPeer, isFocusable, bool)},
+		{"isObscured", "()Z", nullptr, $PUBLIC, $virtualMethod(XEmbedChildProxyPeer, isObscured, bool)},
+		{"isReparentSupported", "()Z", nullptr, $PUBLIC, $virtualMethod(XEmbedChildProxyPeer, isReparentSupported, bool)},
+		{"layout", "()V", nullptr, $PUBLIC, $virtualMethod(XEmbedChildProxyPeer, layout, void)},
+		{"paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(XEmbedChildProxyPeer, paint, void, $Graphics*)},
+		{"postEvent", "(Ljava/awt/AWTEvent;)V", nullptr, 0, $virtualMethod(XEmbedChildProxyPeer, postEvent, void, $AWTEvent*)},
+		{"print", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(XEmbedChildProxyPeer, print, void, $Graphics*)},
+		{"reparent", "(Ljava/awt/peer/ContainerPeer;)V", nullptr, $PUBLIC, $virtualMethod(XEmbedChildProxyPeer, reparent, void, $ContainerPeer*)},
+		{"requestFocus", "(Ljava/awt/Component;ZZJLjava/awt/event/FocusEvent$Cause;)Z", nullptr, $PUBLIC, $virtualMethod(XEmbedChildProxyPeer, requestFocus, bool, $Component*, bool, bool, int64_t, $FocusEvent$Cause*)},
+		{"requestXEmbedFocus", "()V", nullptr, 0, $virtualMethod(XEmbedChildProxyPeer, requestXEmbedFocus, void)},
+		{"setBackground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC, $virtualMethod(XEmbedChildProxyPeer, setBackground, void, $Color*)},
+		{"setBounds", "(IIIII)V", nullptr, $PUBLIC, $virtualMethod(XEmbedChildProxyPeer, setBounds, void, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"setBoundsOperation", "(I)V", nullptr, $PUBLIC, $virtualMethod(XEmbedChildProxyPeer, setBoundsOperation, void, int32_t)},
+		{"setEnabled", "(Z)V", nullptr, $PUBLIC, $virtualMethod(XEmbedChildProxyPeer, setEnabled, void, bool)},
+		{"setFont", "(Ljava/awt/Font;)V", nullptr, $PUBLIC, $virtualMethod(XEmbedChildProxyPeer, setFont, void, $Font*)},
+		{"setForeground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC, $virtualMethod(XEmbedChildProxyPeer, setForeground, void, $Color*)},
+		{"setVisible", "(Z)V", nullptr, $PUBLIC, $virtualMethod(XEmbedChildProxyPeer, setVisible, void, bool)},
+		{"setZOrder", "(Ljava/awt/peer/ComponentPeer;)V", nullptr, $PUBLIC, $virtualMethod(XEmbedChildProxyPeer, setZOrder, void, $ComponentPeer*)},
+		{"simulateMotifRequestFocus", "(Ljava/awt/Component;ZZJ)Z", nullptr, 0, $virtualMethod(XEmbedChildProxyPeer, simulateMotifRequestFocus, bool, $Component*, bool, bool, int64_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"updateCursorImmediately", "()V", nullptr, $PUBLIC, $virtualMethod(XEmbedChildProxyPeer, updateCursorImmediately, void)},
+		{"updateGraphicsData", "(Ljava/awt/GraphicsConfiguration;)Z", nullptr, $PUBLIC, $virtualMethod(XEmbedChildProxyPeer, updateGraphicsData, bool, $GraphicsConfiguration*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.X11.XEmbedChildProxyPeer$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.awt.X11.XEmbedChildProxyPeer",
+		"java.lang.Object",
+		"java.awt.peer.ComponentPeer,sun.awt.X11.XEventDispatcher",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.awt.X11.XEmbedChildProxyPeer$1"
+	};
+	$loadClass(XEmbedChildProxyPeer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(XEmbedChildProxyPeer));
+	});
 	return class$;
 }
 

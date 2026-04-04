@@ -1,5 +1,4 @@
 #include <java/beans/MetaData$java_awt_Component_PersistenceDelegate.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
@@ -17,8 +16,6 @@
 
 using $Component = ::java::awt::Component;
 using $Container = ::java::awt::Container;
-using $Dimension = ::java::awt::Dimension;
-using $Point = ::java::awt::Point;
 using $Window = ::java::awt::Window;
 using $DefaultPersistenceDelegate = ::java::beans::DefaultPersistenceDelegate;
 using $Encoder = ::java::beans::Encoder;
@@ -30,49 +27,18 @@ using $Objects = ::java::util::Objects;
 namespace java {
 	namespace beans {
 
-$MethodInfo _MetaData$java_awt_Component_PersistenceDelegate_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(MetaData$java_awt_Component_PersistenceDelegate, init$, void)},
-	{"initialize", "(Ljava/lang/Class;Ljava/lang/Object;Ljava/lang/Object;Ljava/beans/Encoder;)V", "(Ljava/lang/Class<*>;Ljava/lang/Object;Ljava/lang/Object;Ljava/beans/Encoder;)V", $PROTECTED, $virtualMethod(MetaData$java_awt_Component_PersistenceDelegate, initialize, void, $Class*, Object$*, Object$*, $Encoder*)},
-	{}
-};
-
-$InnerClassInfo _MetaData$java_awt_Component_PersistenceDelegate_InnerClassesInfo_[] = {
-	{"java.beans.MetaData$java_awt_Component_PersistenceDelegate", "java.beans.MetaData", "java_awt_Component_PersistenceDelegate", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _MetaData$java_awt_Component_PersistenceDelegate_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.beans.MetaData$java_awt_Component_PersistenceDelegate",
-	"java.beans.DefaultPersistenceDelegate",
-	nullptr,
-	nullptr,
-	_MetaData$java_awt_Component_PersistenceDelegate_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MetaData$java_awt_Component_PersistenceDelegate_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.beans.MetaData"
-};
-
-$Object* allocate$MetaData$java_awt_Component_PersistenceDelegate($Class* clazz) {
-	return $of($alloc(MetaData$java_awt_Component_PersistenceDelegate));
-}
-
 void MetaData$java_awt_Component_PersistenceDelegate::init$() {
 	$DefaultPersistenceDelegate::init$();
 }
 
 void MetaData$java_awt_Component_PersistenceDelegate::initialize($Class* type, Object$* oldInstance, Object$* newInstance, $Encoder* out) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$DefaultPersistenceDelegate::initialize(type, oldInstance, newInstance, out);
 	$var($Component, c, $cast($Component, oldInstance));
 	$var($Component, c2, $cast($Component, newInstance));
 	if (!($instanceOf($Window, oldInstance))) {
-		$var($Object, oldBackground, $nc(c)->isBackgroundSet() ? $of($nc(c)->getBackground()) : ($Object*)nullptr);
-		$var($Object, newBackground, $nc(c2)->isBackgroundSet() ? $of($nc(c2)->getBackground()) : ($Object*)nullptr);
+		$var($Object, oldBackground, $nc(c)->isBackgroundSet() ? $of(c->getBackground()) : ($Object*)nullptr);
+		$var($Object, newBackground, $nc(c2)->isBackgroundSet() ? $of(c2->getBackground()) : ($Object*)nullptr);
 		if (!$Objects::equals(oldBackground, newBackground)) {
 			invokeStatement(oldInstance, "setBackground"_s, $$new($ObjectArray, {oldBackground}), out);
 		}
@@ -88,15 +54,15 @@ void MetaData$java_awt_Component_PersistenceDelegate::initialize($Class* type, O
 		}
 	}
 	$var($Container, p, $nc(c)->getParent());
-	if (p == nullptr || $nc(p)->getLayout() == nullptr) {
-		bool locationCorrect = $nc($(c->getLocation()))->equals($($nc(c2)->getLocation()));
-		bool sizeCorrect = $nc($(c->getSize()))->equals($($nc(c2)->getSize()));
+	if (p == nullptr || p->getLayout() == nullptr) {
+		bool locationCorrect = $$nc(c->getLocation())->equals($($nc(c2)->getLocation()));
+		bool sizeCorrect = $$nc(c->getSize())->equals($(c2->getSize()));
 		if (!locationCorrect && !sizeCorrect) {
-			invokeStatement(oldInstance, "setBounds"_s, $$new($ObjectArray, {$($of(c->getBounds()))}), out);
+			invokeStatement(oldInstance, "setBounds"_s, $$new($ObjectArray, {$(c->getBounds())}), out);
 		} else if (!locationCorrect) {
-			invokeStatement(oldInstance, "setLocation"_s, $$new($ObjectArray, {$($of(c->getLocation()))}), out);
+			invokeStatement(oldInstance, "setLocation"_s, $$new($ObjectArray, {$(c->getLocation())}), out);
 		} else if (!sizeCorrect) {
-			invokeStatement(oldInstance, "setSize"_s, $$new($ObjectArray, {$($of(c->getSize()))}), out);
+			invokeStatement(oldInstance, "setSize"_s, $$new($ObjectArray, {$(c->getSize())}), out);
 		}
 	}
 }
@@ -105,7 +71,33 @@ MetaData$java_awt_Component_PersistenceDelegate::MetaData$java_awt_Component_Per
 }
 
 $Class* MetaData$java_awt_Component_PersistenceDelegate::load$($String* name, bool initialize) {
-	$loadClass(MetaData$java_awt_Component_PersistenceDelegate, name, initialize, &_MetaData$java_awt_Component_PersistenceDelegate_ClassInfo_, allocate$MetaData$java_awt_Component_PersistenceDelegate);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(MetaData$java_awt_Component_PersistenceDelegate, init$, void)},
+		{"initialize", "(Ljava/lang/Class;Ljava/lang/Object;Ljava/lang/Object;Ljava/beans/Encoder;)V", "(Ljava/lang/Class<*>;Ljava/lang/Object;Ljava/lang/Object;Ljava/beans/Encoder;)V", $PROTECTED, $virtualMethod(MetaData$java_awt_Component_PersistenceDelegate, initialize, void, $Class*, Object$*, Object$*, $Encoder*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.beans.MetaData$java_awt_Component_PersistenceDelegate", "java.beans.MetaData", "java_awt_Component_PersistenceDelegate", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.beans.MetaData$java_awt_Component_PersistenceDelegate",
+		"java.beans.DefaultPersistenceDelegate",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.beans.MetaData"
+	};
+	$loadClass(MetaData$java_awt_Component_PersistenceDelegate, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MetaData$java_awt_Component_PersistenceDelegate);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <javax/swing/Painter.h>
-
 #include <java/awt/Graphics2D.h>
 #include <jcpp.h>
 
@@ -10,27 +9,23 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace javax {
 	namespace swing {
 
-$MethodInfo _Painter_MethodInfo_[] = {
-	{"paint", "(Ljava/awt/Graphics2D;Ljava/lang/Object;II)V", "(Ljava/awt/Graphics2D;TT;II)V", $PUBLIC | $ABSTRACT, $virtualMethod(Painter, paint, void, $Graphics2D*, Object$*, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _Painter_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"javax.swing.Painter",
-	nullptr,
-	nullptr,
-	nullptr,
-	_Painter_MethodInfo_,
-	"<T:Ljava/lang/Object;>Ljava/lang/Object;"
-};
-
-$Object* allocate$Painter($Class* clazz) {
-	return $of($alloc(Painter));
-}
-
 $Class* Painter::load$($String* name, bool initialize) {
-	$loadClass(Painter, name, initialize, &_Painter_ClassInfo_, allocate$Painter);
+	$MethodInfo methodInfos$$[] = {
+		{"paint", "(Ljava/awt/Graphics2D;Ljava/lang/Object;II)V", "(Ljava/awt/Graphics2D;TT;II)V", $PUBLIC | $ABSTRACT, $virtualMethod(Painter, paint, void, $Graphics2D*, Object$*, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"javax.swing.Painter",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		"<T:Ljava/lang/Object;>Ljava/lang/Object;"
+	};
+	$loadClass(Painter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Painter);
+	});
 	return class$;
 }
 

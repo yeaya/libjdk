@@ -14,10 +14,13 @@ public:
 	IntrospectionException();
 	void init$();
 	void init$($String* message);
-	static const int64_t serialVersionUID = (int64_t)0x0EA26590EC7DD07D;
+	static const int64_t serialVersionUID = (int64_t)0x0ea26590ec7dd07d;
 	IntrospectionException(const IntrospectionException& e);
 	virtual void throw$() override;
-	inline IntrospectionException* operator ->() {
+	inline IntrospectionException* operator ->() const {
+		return (IntrospectionException*)throwing$;
+	}
+	inline operator IntrospectionException*() const {
 		return (IntrospectionException*)throwing$;
 	}
 };

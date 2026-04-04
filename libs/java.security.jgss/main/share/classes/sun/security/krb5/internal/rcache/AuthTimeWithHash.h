@@ -23,6 +23,7 @@ public:
 	AuthTimeWithHash();
 	virtual $Object* clone() override;
 	virtual void finalize() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* client, $String* server, int32_t ctime, int32_t cusec, $String* hashAlg, $String* hash);
 	virtual int32_t compareTo(::sun::security::krb5::internal::rcache::AuthTimeWithHash* other);
 	virtual int32_t compareTo(Object$* other) override;

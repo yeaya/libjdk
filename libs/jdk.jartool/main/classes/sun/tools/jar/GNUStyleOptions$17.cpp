@@ -1,5 +1,4 @@
 #include <sun/tools/jar/GNUStyleOptions$17.h>
-
 #include <jdk/internal/module/ModuleResolution.h>
 #include <sun/tools/jar/GNUStyleOptions$BadArgs.h>
 #include <sun/tools/jar/GNUStyleOptions$Option.h>
@@ -21,45 +20,6 @@ namespace sun {
 	namespace tools {
 		namespace jar {
 
-$MethodInfo _GNUStyleOptions$17_MethodInfo_[] = {
-	{"<init>", "(ZLsun/tools/jar/GNUStyleOptions$OptionType;[Ljava/lang/String;)V", nullptr, $TRANSIENT, $method(GNUStyleOptions$17, init$, void, bool, $GNUStyleOptions$OptionType*, $StringArray*)},
-	{"isExtra", "()Z", nullptr, 0, $virtualMethod(GNUStyleOptions$17, isExtra, bool)},
-	{"process", "(Lsun/tools/jar/Main;Ljava/lang/String;Ljava/lang/String;)V", nullptr, 0, $virtualMethod(GNUStyleOptions$17, process, void, $Main*, $String*, $String*), "sun.tools.jar.GNUStyleOptions$BadArgs"},
-	{}
-};
-
-$EnclosingMethodInfo _GNUStyleOptions$17_EnclosingMethodInfo_ = {
-	"sun.tools.jar.GNUStyleOptions",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _GNUStyleOptions$17_InnerClassesInfo_[] = {
-	{"sun.tools.jar.GNUStyleOptions$17", nullptr, nullptr, 0},
-	{"sun.tools.jar.GNUStyleOptions$Option", "sun.tools.jar.GNUStyleOptions", "Option", $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _GNUStyleOptions$17_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.tools.jar.GNUStyleOptions$17",
-	"sun.tools.jar.GNUStyleOptions$Option",
-	nullptr,
-	nullptr,
-	_GNUStyleOptions$17_MethodInfo_,
-	nullptr,
-	&_GNUStyleOptions$17_EnclosingMethodInfo_,
-	_GNUStyleOptions$17_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.tools.jar.GNUStyleOptions"
-};
-
-$Object* allocate$GNUStyleOptions$17($Class* clazz) {
-	return $of($alloc(GNUStyleOptions$17));
-}
-
 void GNUStyleOptions$17::init$(bool hasArg, $GNUStyleOptions$OptionType* type, $StringArray* aliases) {
 	$GNUStyleOptions$Option::init$(hasArg, type, aliases);
 }
@@ -70,11 +30,11 @@ void GNUStyleOptions$17::process($Main* jartool, $String* opt, $String* arg) {
 		$nc(mres)->withDoNotResolveByDefault();
 	}
 	if ($nc(arg)->equals("deprecated"_s)) {
-		$set($nc(jartool), moduleResolution, $nc(mres)->withDeprecated());
+		$set(jartool, moduleResolution, $nc(mres)->withDeprecated());
 	} else if (arg->equals("deprecated-for-removal"_s)) {
-		$set($nc(jartool), moduleResolution, $nc(mres)->withDeprecatedForRemoval());
+		$set(jartool, moduleResolution, $nc(mres)->withDeprecatedForRemoval());
 	} else if (arg->equals("incubating"_s)) {
-		$set($nc(jartool), moduleResolution, $nc(mres)->withIncubating());
+		$set(jartool, moduleResolution, $nc(mres)->withIncubating());
 	} else {
 		$throwNew($GNUStyleOptions$BadArgs, "error.bad.reason"_s, arg);
 	}
@@ -88,7 +48,40 @@ GNUStyleOptions$17::GNUStyleOptions$17() {
 }
 
 $Class* GNUStyleOptions$17::load$($String* name, bool initialize) {
-	$loadClass(GNUStyleOptions$17, name, initialize, &_GNUStyleOptions$17_ClassInfo_, allocate$GNUStyleOptions$17);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(ZLsun/tools/jar/GNUStyleOptions$OptionType;[Ljava/lang/String;)V", nullptr, $TRANSIENT, $method(GNUStyleOptions$17, init$, void, bool, $GNUStyleOptions$OptionType*, $StringArray*)},
+		{"isExtra", "()Z", nullptr, 0, $virtualMethod(GNUStyleOptions$17, isExtra, bool)},
+		{"process", "(Lsun/tools/jar/Main;Ljava/lang/String;Ljava/lang/String;)V", nullptr, 0, $virtualMethod(GNUStyleOptions$17, process, void, $Main*, $String*, $String*), "sun.tools.jar.GNUStyleOptions$BadArgs"},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.tools.jar.GNUStyleOptions",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.tools.jar.GNUStyleOptions$17", nullptr, nullptr, 0},
+		{"sun.tools.jar.GNUStyleOptions$Option", "sun.tools.jar.GNUStyleOptions", "Option", $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.tools.jar.GNUStyleOptions$17",
+		"sun.tools.jar.GNUStyleOptions$Option",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.tools.jar.GNUStyleOptions"
+	};
+	$loadClass(GNUStyleOptions$17, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(GNUStyleOptions$17);
+	});
 	return class$;
 }
 

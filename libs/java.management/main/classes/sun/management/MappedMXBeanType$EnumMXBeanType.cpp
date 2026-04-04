@@ -1,9 +1,7 @@
 #include <sun/management/MappedMXBeanType$EnumMXBeanType.h>
-
 #include <java/io/InvalidObjectException.h>
 #include <java/lang/Enum.h>
 #include <java/lang/reflect/Type.h>
-#include <javax/management/openmbean/OpenType.h>
 #include <javax/management/openmbean/SimpleType.h>
 #include <sun/management/MappedMXBeanType.h>
 #include <jcpp.h>
@@ -18,51 +16,11 @@ using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Type = ::java::lang::reflect::Type;
-using $OpenType = ::javax::management::openmbean::OpenType;
 using $SimpleType = ::javax::management::openmbean::SimpleType;
 using $MappedMXBeanType = ::sun::management::MappedMXBeanType;
 
 namespace sun {
 	namespace management {
-
-$FieldInfo _MappedMXBeanType$EnumMXBeanType_FieldInfo_[] = {
-	{"enumClass", "Ljava/lang/Class;", nullptr, $FINAL, $field(MappedMXBeanType$EnumMXBeanType, enumClass)},
-	{}
-};
-
-$MethodInfo _MappedMXBeanType$EnumMXBeanType_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;)V", 0, $method(MappedMXBeanType$EnumMXBeanType, init$, void, $Class*)},
-	{"getJavaType", "()Ljava/lang/reflect/Type;", nullptr, 0, $virtualMethod(MappedMXBeanType$EnumMXBeanType, getJavaType, $Type*)},
-	{"getName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(MappedMXBeanType$EnumMXBeanType, getName, $String*)},
-	{"toJavaTypeData", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MappedMXBeanType$EnumMXBeanType, toJavaTypeData, $Object*, Object$*), "javax.management.openmbean.OpenDataException,java.io.InvalidObjectException"},
-	{"toOpenTypeData", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MappedMXBeanType$EnumMXBeanType, toOpenTypeData, $Object*, Object$*), "javax.management.openmbean.OpenDataException"},
-	{}
-};
-
-$InnerClassInfo _MappedMXBeanType$EnumMXBeanType_InnerClassesInfo_[] = {
-	{"sun.management.MappedMXBeanType$EnumMXBeanType", "sun.management.MappedMXBeanType", "EnumMXBeanType", $STATIC},
-	{}
-};
-
-$ClassInfo _MappedMXBeanType$EnumMXBeanType_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.management.MappedMXBeanType$EnumMXBeanType",
-	"sun.management.MappedMXBeanType",
-	nullptr,
-	_MappedMXBeanType$EnumMXBeanType_FieldInfo_,
-	_MappedMXBeanType$EnumMXBeanType_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MappedMXBeanType$EnumMXBeanType_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.management.MappedMXBeanType"
-};
-
-$Object* allocate$MappedMXBeanType$EnumMXBeanType($Class* clazz) {
-	return $of($alloc(MappedMXBeanType$EnumMXBeanType));
-}
 
 void MappedMXBeanType$EnumMXBeanType::init$($Class* c) {
 	$MappedMXBeanType::init$();
@@ -81,11 +39,11 @@ $String* MappedMXBeanType$EnumMXBeanType::getName() {
 }
 
 $Object* MappedMXBeanType$EnumMXBeanType::toOpenTypeData(Object$* data) {
-	return $of($nc(($cast($Enum, data)))->name());
+	return $of($nc($cast($Enum, data))->name());
 }
 
 $Object* MappedMXBeanType$EnumMXBeanType::toJavaTypeData(Object$* data) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		return $of($Enum::valueOf(this->enumClass, $cast($String, data)));
 	} catch ($IllegalArgumentException& e) {
@@ -100,7 +58,40 @@ MappedMXBeanType$EnumMXBeanType::MappedMXBeanType$EnumMXBeanType() {
 }
 
 $Class* MappedMXBeanType$EnumMXBeanType::load$($String* name, bool initialize) {
-	$loadClass(MappedMXBeanType$EnumMXBeanType, name, initialize, &_MappedMXBeanType$EnumMXBeanType_ClassInfo_, allocate$MappedMXBeanType$EnumMXBeanType);
+	$FieldInfo fieldInfos$$[] = {
+		{"enumClass", "Ljava/lang/Class;", nullptr, $FINAL, $field(MappedMXBeanType$EnumMXBeanType, enumClass)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;)V", 0, $method(MappedMXBeanType$EnumMXBeanType, init$, void, $Class*)},
+		{"getJavaType", "()Ljava/lang/reflect/Type;", nullptr, 0, $virtualMethod(MappedMXBeanType$EnumMXBeanType, getJavaType, $Type*)},
+		{"getName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(MappedMXBeanType$EnumMXBeanType, getName, $String*)},
+		{"toJavaTypeData", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MappedMXBeanType$EnumMXBeanType, toJavaTypeData, $Object*, Object$*), "javax.management.openmbean.OpenDataException,java.io.InvalidObjectException"},
+		{"toOpenTypeData", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MappedMXBeanType$EnumMXBeanType, toOpenTypeData, $Object*, Object$*), "javax.management.openmbean.OpenDataException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.management.MappedMXBeanType$EnumMXBeanType", "sun.management.MappedMXBeanType", "EnumMXBeanType", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.management.MappedMXBeanType$EnumMXBeanType",
+		"sun.management.MappedMXBeanType",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.management.MappedMXBeanType"
+	};
+	$loadClass(MappedMXBeanType$EnumMXBeanType, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MappedMXBeanType$EnumMXBeanType);
+	});
 	return class$;
 }
 

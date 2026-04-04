@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/Check$1AnnotationValidator.h>
-
 #include <com/sun/tools/javac/code/Symbol$TypeSymbol.h>
 #include <com/sun/tools/javac/code/Type.h>
 #include <com/sun/tools/javac/comp/Check.h>
@@ -8,8 +7,6 @@
 #include <com/sun/tools/javac/tree/TreeScanner.h>
 #include <jcpp.h>
 
-using $Symbol$TypeSymbol = ::com::sun::tools::javac::code::Symbol$TypeSymbol;
-using $Type = ::com::sun::tools::javac::code::Type;
 using $Check = ::com::sun::tools::javac::comp::Check;
 using $JCTree$JCAnnotation = ::com::sun::tools::javac::tree::JCTree$JCAnnotation;
 using $TreeScanner = ::com::sun::tools::javac::tree::TreeScanner;
@@ -25,48 +22,6 @@ namespace com {
 			namespace javac {
 				namespace comp {
 
-$FieldInfo _Check$1AnnotationValidator_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/comp/Check;", nullptr, $FINAL | $SYNTHETIC, $field(Check$1AnnotationValidator, this$0)},
-	{}
-};
-
-$MethodInfo _Check$1AnnotationValidator_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Check;)V", nullptr, 0, $method(Check$1AnnotationValidator, init$, void, $Check*)},
-	{"visitAnnotation", "(Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;)V", nullptr, $PUBLIC, $virtualMethod(Check$1AnnotationValidator, visitAnnotation, void, $JCTree$JCAnnotation*)},
-	{}
-};
-
-$EnclosingMethodInfo _Check$1AnnotationValidator_EnclosingMethodInfo_ = {
-	"com.sun.tools.javac.comp.Check",
-	"validateAnnotationTree",
-	"(Lcom/sun/tools/javac/tree/JCTree;)V"
-};
-
-$InnerClassInfo _Check$1AnnotationValidator_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.Check$1AnnotationValidator", nullptr, "AnnotationValidator", 0},
-	{}
-};
-
-$ClassInfo _Check$1AnnotationValidator_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.comp.Check$1AnnotationValidator",
-	"com.sun.tools.javac.tree.TreeScanner",
-	nullptr,
-	_Check$1AnnotationValidator_FieldInfo_,
-	_Check$1AnnotationValidator_MethodInfo_,
-	nullptr,
-	&_Check$1AnnotationValidator_EnclosingMethodInfo_,
-	_Check$1AnnotationValidator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.Check"
-};
-
-$Object* allocate$Check$1AnnotationValidator($Class* clazz) {
-	return $of($alloc(Check$1AnnotationValidator));
-}
-
 void Check$1AnnotationValidator::init$($Check* this$0) {
 	$set(this, this$0, this$0);
 	$TreeScanner::init$();
@@ -74,7 +29,7 @@ void Check$1AnnotationValidator::init$($Check* this$0) {
 
 void Check$1AnnotationValidator::visitAnnotation($JCTree$JCAnnotation* tree) {
 	bool var$0 = !$nc($nc(tree)->type)->isErroneous();
-	if (var$0 && $nc($nc(tree->type)->tsym)->isAnnotationType()) {
+	if (var$0 && $nc(tree->type->tsym)->isAnnotationType()) {
 		$TreeScanner::visitAnnotation(tree);
 		this->this$0->validateAnnotation(tree);
 	}
@@ -84,7 +39,42 @@ Check$1AnnotationValidator::Check$1AnnotationValidator() {
 }
 
 $Class* Check$1AnnotationValidator::load$($String* name, bool initialize) {
-	$loadClass(Check$1AnnotationValidator, name, initialize, &_Check$1AnnotationValidator_ClassInfo_, allocate$Check$1AnnotationValidator);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/comp/Check;", nullptr, $FINAL | $SYNTHETIC, $field(Check$1AnnotationValidator, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/comp/Check;)V", nullptr, 0, $method(Check$1AnnotationValidator, init$, void, $Check*)},
+		{"visitAnnotation", "(Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;)V", nullptr, $PUBLIC, $virtualMethod(Check$1AnnotationValidator, visitAnnotation, void, $JCTree$JCAnnotation*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.tools.javac.comp.Check",
+		"validateAnnotationTree",
+		"(Lcom/sun/tools/javac/tree/JCTree;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.Check$1AnnotationValidator", nullptr, "AnnotationValidator", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.comp.Check$1AnnotationValidator",
+		"com.sun.tools.javac.tree.TreeScanner",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.Check"
+	};
+	$loadClass(Check$1AnnotationValidator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Check$1AnnotationValidator);
+	});
 	return class$;
 }
 

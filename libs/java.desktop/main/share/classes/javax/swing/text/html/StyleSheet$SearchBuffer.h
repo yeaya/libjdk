@@ -27,6 +27,7 @@ class StyleSheet$SearchBuffer : public ::java::lang::Object {
 	$class(StyleSheet$SearchBuffer, 0, ::java::lang::Object)
 public:
 	StyleSheet$SearchBuffer();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void empty();
 	virtual ::java::util::Hashtable* getHashtable();

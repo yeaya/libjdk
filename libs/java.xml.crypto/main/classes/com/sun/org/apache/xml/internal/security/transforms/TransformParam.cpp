@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/security/transforms/TransformParam.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -13,17 +12,14 @@ namespace com {
 						namespace security {
 							namespace transforms {
 
-$ClassInfo _TransformParam_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.org.apache.xml.internal.security.transforms.TransformParam"
-};
-
-$Object* allocate$TransformParam($Class* clazz) {
-	return $of($alloc(TransformParam));
-}
-
 $Class* TransformParam::load$($String* name, bool initialize) {
-	$loadClass(TransformParam, name, initialize, &_TransformParam_ClassInfo_, allocate$TransformParam);
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.org.apache.xml.internal.security.transforms.TransformParam"
+	};
+	$loadClass(TransformParam, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TransformParam);
+	});
 	return class$;
 }
 

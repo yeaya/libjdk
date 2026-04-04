@@ -1,5 +1,4 @@
 #include <sun/tools/jar/Validator$InvalidJarException.h>
-
 #include <sun/tools/jar/Validator.h>
 #include <jcpp.h>
 
@@ -12,41 +11,6 @@ using $RuntimeException = ::java::lang::RuntimeException;
 namespace sun {
 	namespace tools {
 		namespace jar {
-
-$FieldInfo _Validator$InvalidJarException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Validator$InvalidJarException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _Validator$InvalidJarException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(Validator$InvalidJarException, init$, void, $String*)},
-	{}
-};
-
-$InnerClassInfo _Validator$InvalidJarException_InnerClassesInfo_[] = {
-	{"sun.tools.jar.Validator$InvalidJarException", "sun.tools.jar.Validator", "InvalidJarException", $STATIC},
-	{}
-};
-
-$ClassInfo _Validator$InvalidJarException_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.tools.jar.Validator$InvalidJarException",
-	"java.lang.RuntimeException",
-	nullptr,
-	_Validator$InvalidJarException_FieldInfo_,
-	_Validator$InvalidJarException_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Validator$InvalidJarException_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.tools.jar.Validator"
-};
-
-$Object* allocate$Validator$InvalidJarException($Class* clazz) {
-	return $of($alloc(Validator$InvalidJarException));
-}
 
 void Validator$InvalidJarException::init$($String* msg) {
 	$RuntimeException::init$(msg);
@@ -63,7 +27,36 @@ void Validator$InvalidJarException::throw$() {
 }
 
 $Class* Validator$InvalidJarException::load$($String* name, bool initialize) {
-	$loadClass(Validator$InvalidJarException, name, initialize, &_Validator$InvalidJarException_ClassInfo_, allocate$Validator$InvalidJarException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Validator$InvalidJarException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(Validator$InvalidJarException, init$, void, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.tools.jar.Validator$InvalidJarException", "sun.tools.jar.Validator", "InvalidJarException", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.tools.jar.Validator$InvalidJarException",
+		"java.lang.RuntimeException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.tools.jar.Validator"
+	};
+	$loadClass(Validator$InvalidJarException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Validator$InvalidJarException);
+	});
 	return class$;
 }
 

@@ -25,7 +25,10 @@ public:
 	::sun::awt::image::PNGImageDecoder* this$0 = nullptr;
 	PNGImageDecoder$PNGException(const PNGImageDecoder$PNGException& e);
 	virtual void throw$() override;
-	inline PNGImageDecoder$PNGException* operator ->() {
+	inline PNGImageDecoder$PNGException* operator ->() const {
+		return (PNGImageDecoder$PNGException*)throwing$;
+	}
+	inline operator PNGImageDecoder$PNGException*() const {
 		return (PNGImageDecoder$PNGException*)throwing$;
 	}
 };

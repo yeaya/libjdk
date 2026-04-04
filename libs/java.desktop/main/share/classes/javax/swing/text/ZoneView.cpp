@@ -1,5 +1,4 @@
 #include <javax/swing/text/ZoneView.h>
-
 #include <java/awt/Shape.h>
 #include <java/lang/Math.h>
 #include <java/util/Vector.h>
@@ -44,60 +43,6 @@ namespace javax {
 	namespace swing {
 		namespace text {
 
-$FieldInfo _ZoneView_FieldInfo_[] = {
-	{"maxZoneSize", "I", nullptr, 0, $field(ZoneView, maxZoneSize)},
-	{"maxZonesLoaded", "I", nullptr, 0, $field(ZoneView, maxZonesLoaded)},
-	{"loadedZones", "Ljava/util/Vector;", "Ljava/util/Vector<Ljavax/swing/text/View;>;", 0, $field(ZoneView, loadedZones)},
-	{}
-};
-
-$MethodInfo _ZoneView_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/text/Element;I)V", nullptr, $PUBLIC, $method(ZoneView, init$, void, $Element*, int32_t)},
-	{"createZone", "(II)Ljavax/swing/text/View;", nullptr, $PROTECTED, $virtualMethod(ZoneView, createZone, $View*, int32_t, int32_t)},
-	{"getDesiredZoneEnd", "(I)I", nullptr, 0, $virtualMethod(ZoneView, getDesiredZoneEnd, int32_t, int32_t)},
-	{"getMaxZonesLoaded", "()I", nullptr, $PUBLIC, $virtualMethod(ZoneView, getMaxZonesLoaded, int32_t)},
-	{"getMaximumZoneSize", "()I", nullptr, $PUBLIC, $virtualMethod(ZoneView, getMaximumZoneSize, int32_t)},
-	{"getViewIndexAtPosition", "(I)I", nullptr, $PROTECTED, $virtualMethod(ZoneView, getViewIndexAtPosition, int32_t, int32_t)},
-	{"handleInsert", "(II)V", nullptr, 0, $virtualMethod(ZoneView, handleInsert, void, int32_t, int32_t)},
-	{"handleRemove", "(II)V", nullptr, 0, $virtualMethod(ZoneView, handleRemove, void, int32_t, int32_t)},
-	{"insertUpdate", "(Ljavax/swing/event/DocumentEvent;Ljava/awt/Shape;Ljavax/swing/text/ViewFactory;)V", nullptr, $PUBLIC, $virtualMethod(ZoneView, insertUpdate, void, $DocumentEvent*, $Shape*, $ViewFactory*)},
-	{"isZoneLoaded", "(Ljavax/swing/text/View;)Z", nullptr, $PROTECTED, $virtualMethod(ZoneView, isZoneLoaded, bool, $View*)},
-	{"loadChildren", "(Ljavax/swing/text/ViewFactory;)V", nullptr, $PROTECTED, $virtualMethod(ZoneView, loadChildren, void, $ViewFactory*)},
-	{"removeUpdate", "(Ljavax/swing/event/DocumentEvent;Ljava/awt/Shape;Ljavax/swing/text/ViewFactory;)V", nullptr, $PUBLIC, $virtualMethod(ZoneView, removeUpdate, void, $DocumentEvent*, $Shape*, $ViewFactory*)},
-	{"setMaxZonesLoaded", "(I)V", nullptr, $PUBLIC, $virtualMethod(ZoneView, setMaxZonesLoaded, void, int32_t)},
-	{"setMaximumZoneSize", "(I)V", nullptr, $PUBLIC, $virtualMethod(ZoneView, setMaximumZoneSize, void, int32_t)},
-	{"splitZone", "(III)V", nullptr, 0, $virtualMethod(ZoneView, splitZone, void, int32_t, int32_t, int32_t)},
-	{"unloadOldZones", "()V", nullptr, 0, $virtualMethod(ZoneView, unloadOldZones, void)},
-	{"unloadZone", "(Ljavax/swing/text/View;)V", nullptr, $PROTECTED, $virtualMethod(ZoneView, unloadZone, void, $View*)},
-	{"updateChildren", "(Ljavax/swing/event/DocumentEvent$ElementChange;Ljavax/swing/event/DocumentEvent;Ljavax/swing/text/ViewFactory;)Z", nullptr, $PROTECTED, $virtualMethod(ZoneView, updateChildren, bool, $DocumentEvent$ElementChange*, $DocumentEvent*, $ViewFactory*)},
-	{"zoneWasLoaded", "(Ljavax/swing/text/View;)V", nullptr, $PROTECTED, $virtualMethod(ZoneView, zoneWasLoaded, void, $View*)},
-	{}
-};
-
-$InnerClassInfo _ZoneView_InnerClassesInfo_[] = {
-	{"javax.swing.text.ZoneView$Zone", "javax.swing.text.ZoneView", "Zone", 0},
-	{}
-};
-
-$ClassInfo _ZoneView_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.text.ZoneView",
-	"javax.swing.text.BoxView",
-	nullptr,
-	_ZoneView_FieldInfo_,
-	_ZoneView_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ZoneView_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.swing.text.ZoneView$Zone"
-};
-
-$Object* allocate$ZoneView($Class* clazz) {
-	return $of($alloc(ZoneView));
-}
-
 void ZoneView::init$($Element* elem, int32_t axis) {
 	$BoxView::init$(elem, axis);
 	this->maxZoneSize = 8 * 1024;
@@ -131,15 +76,15 @@ void ZoneView::zoneWasLoaded($View* zone) {
 }
 
 void ZoneView::unloadOldZones() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	while (true) {
 		int32_t var$0 = $nc(this->loadedZones)->size();
 		if (!(var$0 > getMaxZonesLoaded())) {
 			break;
 		}
 		{
-			$var($View, zone, $cast($View, $nc(this->loadedZones)->elementAt(0)));
-			$nc(this->loadedZones)->removeElementAt(0);
+			$var($View, zone, $cast($View, this->loadedZones->elementAt(0)));
+			this->loadedZones->removeElementAt(0);
 			unloadZone(zone);
 		}
 	}
@@ -154,7 +99,7 @@ bool ZoneView::isZoneLoaded($View* zone) {
 }
 
 $View* ZoneView::createZone(int32_t p0, int32_t p1) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Document, doc, getDocument());
 	$var($View, zone, nullptr);
 	try {
@@ -168,7 +113,7 @@ $View* ZoneView::createZone(int32_t p0, int32_t p1) {
 }
 
 void ZoneView::loadChildren($ViewFactory* f) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Document, doc, getDocument());
 	int32_t offs0 = getStartOffset();
 	int32_t offs1 = getEndOffset();
@@ -177,7 +122,7 @@ void ZoneView::loadChildren($ViewFactory* f) {
 }
 
 int32_t ZoneView::getViewIndexAtPosition(int32_t pos) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t n = getViewCount();
 	if (pos == getEndOffset()) {
 		return n - 1;
@@ -207,7 +152,7 @@ void ZoneView::handleRemove(int32_t pos, int32_t length) {
 }
 
 void ZoneView::splitZone(int32_t index, int32_t offs0, int32_t offs1) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Element, elem, getElement());
 	$var($Document, doc, $nc(elem)->getDocument());
 	$var($Vector, zones, $new($Vector));
@@ -224,7 +169,7 @@ void ZoneView::splitZone(int32_t index, int32_t offs0, int32_t offs1) {
 }
 
 int32_t ZoneView::getDesiredZoneEnd(int32_t pos) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Element, elem, getElement());
 	int32_t index = $nc(elem)->getElementIndex(pos + (this->maxZoneSize / 2));
 	$var($Element, child, elem->getElement(index));
@@ -258,7 +203,55 @@ ZoneView::ZoneView() {
 }
 
 $Class* ZoneView::load$($String* name, bool initialize) {
-	$loadClass(ZoneView, name, initialize, &_ZoneView_ClassInfo_, allocate$ZoneView);
+	$FieldInfo fieldInfos$$[] = {
+		{"maxZoneSize", "I", nullptr, 0, $field(ZoneView, maxZoneSize)},
+		{"maxZonesLoaded", "I", nullptr, 0, $field(ZoneView, maxZonesLoaded)},
+		{"loadedZones", "Ljava/util/Vector;", "Ljava/util/Vector<Ljavax/swing/text/View;>;", 0, $field(ZoneView, loadedZones)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/text/Element;I)V", nullptr, $PUBLIC, $method(ZoneView, init$, void, $Element*, int32_t)},
+		{"createZone", "(II)Ljavax/swing/text/View;", nullptr, $PROTECTED, $virtualMethod(ZoneView, createZone, $View*, int32_t, int32_t)},
+		{"getDesiredZoneEnd", "(I)I", nullptr, 0, $virtualMethod(ZoneView, getDesiredZoneEnd, int32_t, int32_t)},
+		{"getMaxZonesLoaded", "()I", nullptr, $PUBLIC, $virtualMethod(ZoneView, getMaxZonesLoaded, int32_t)},
+		{"getMaximumZoneSize", "()I", nullptr, $PUBLIC, $virtualMethod(ZoneView, getMaximumZoneSize, int32_t)},
+		{"getViewIndexAtPosition", "(I)I", nullptr, $PROTECTED, $virtualMethod(ZoneView, getViewIndexAtPosition, int32_t, int32_t)},
+		{"handleInsert", "(II)V", nullptr, 0, $virtualMethod(ZoneView, handleInsert, void, int32_t, int32_t)},
+		{"handleRemove", "(II)V", nullptr, 0, $virtualMethod(ZoneView, handleRemove, void, int32_t, int32_t)},
+		{"insertUpdate", "(Ljavax/swing/event/DocumentEvent;Ljava/awt/Shape;Ljavax/swing/text/ViewFactory;)V", nullptr, $PUBLIC, $virtualMethod(ZoneView, insertUpdate, void, $DocumentEvent*, $Shape*, $ViewFactory*)},
+		{"isZoneLoaded", "(Ljavax/swing/text/View;)Z", nullptr, $PROTECTED, $virtualMethod(ZoneView, isZoneLoaded, bool, $View*)},
+		{"loadChildren", "(Ljavax/swing/text/ViewFactory;)V", nullptr, $PROTECTED, $virtualMethod(ZoneView, loadChildren, void, $ViewFactory*)},
+		{"removeUpdate", "(Ljavax/swing/event/DocumentEvent;Ljava/awt/Shape;Ljavax/swing/text/ViewFactory;)V", nullptr, $PUBLIC, $virtualMethod(ZoneView, removeUpdate, void, $DocumentEvent*, $Shape*, $ViewFactory*)},
+		{"setMaxZonesLoaded", "(I)V", nullptr, $PUBLIC, $virtualMethod(ZoneView, setMaxZonesLoaded, void, int32_t)},
+		{"setMaximumZoneSize", "(I)V", nullptr, $PUBLIC, $virtualMethod(ZoneView, setMaximumZoneSize, void, int32_t)},
+		{"splitZone", "(III)V", nullptr, 0, $virtualMethod(ZoneView, splitZone, void, int32_t, int32_t, int32_t)},
+		{"unloadOldZones", "()V", nullptr, 0, $virtualMethod(ZoneView, unloadOldZones, void)},
+		{"unloadZone", "(Ljavax/swing/text/View;)V", nullptr, $PROTECTED, $virtualMethod(ZoneView, unloadZone, void, $View*)},
+		{"updateChildren", "(Ljavax/swing/event/DocumentEvent$ElementChange;Ljavax/swing/event/DocumentEvent;Ljavax/swing/text/ViewFactory;)Z", nullptr, $PROTECTED, $virtualMethod(ZoneView, updateChildren, bool, $DocumentEvent$ElementChange*, $DocumentEvent*, $ViewFactory*)},
+		{"zoneWasLoaded", "(Ljavax/swing/text/View;)V", nullptr, $PROTECTED, $virtualMethod(ZoneView, zoneWasLoaded, void, $View*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.ZoneView$Zone", "javax.swing.text.ZoneView", "Zone", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.text.ZoneView",
+		"javax.swing.text.BoxView",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.swing.text.ZoneView$Zone"
+	};
+	$loadClass(ZoneView, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ZoneView);
+	});
 	return class$;
 }
 

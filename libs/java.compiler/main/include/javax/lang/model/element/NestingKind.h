@@ -25,6 +25,7 @@ class $import NestingKind : public ::java::lang::Enum {
 public:
 	NestingKind();
 	static $Array<::javax::lang::model::element::NestingKind>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	virtual bool isNested();
 	static ::javax::lang::model::element::NestingKind* valueOf($String* name);

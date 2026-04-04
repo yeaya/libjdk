@@ -14,10 +14,13 @@ public:
 	NoInitialContextException();
 	void init$();
 	void init$($String* explanation);
-	static const int64_t serialVersionUID = (int64_t)0xD09FFBC0D4C9CE81;
+	static const int64_t serialVersionUID = (int64_t)0xd09ffbc0d4c9ce81;
 	NoInitialContextException(const NoInitialContextException& e);
 	virtual void throw$() override;
-	inline NoInitialContextException* operator ->() {
+	inline NoInitialContextException* operator ->() const {
+		return (NoInitialContextException*)throwing$;
+	}
+	inline operator NoInitialContextException*() const {
 		return (NoInitialContextException*)throwing$;
 	}
 };

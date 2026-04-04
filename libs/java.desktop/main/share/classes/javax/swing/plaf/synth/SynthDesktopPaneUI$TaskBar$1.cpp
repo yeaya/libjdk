@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/synth/SynthDesktopPaneUI$TaskBar$1.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <java/awt/Dimension.h>
@@ -28,65 +27,20 @@ namespace javax {
 		namespace plaf {
 			namespace synth {
 
-$FieldInfo _SynthDesktopPaneUI$TaskBar$1_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/plaf/synth/SynthDesktopPaneUI$TaskBar;", nullptr, $FINAL | $SYNTHETIC, $field(SynthDesktopPaneUI$TaskBar$1, this$0)},
-	{}
-};
-
-$MethodInfo _SynthDesktopPaneUI$TaskBar$1_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/plaf/synth/SynthDesktopPaneUI$TaskBar;III)V", nullptr, 0, $method(SynthDesktopPaneUI$TaskBar$1, init$, void, $SynthDesktopPaneUI$TaskBar*, int32_t, int32_t, int32_t)},
-	{"layoutContainer", "(Ljava/awt/Container;)V", nullptr, $PUBLIC, $virtualMethod(SynthDesktopPaneUI$TaskBar$1, layoutContainer, void, $Container*)},
-	{}
-};
-
-$EnclosingMethodInfo _SynthDesktopPaneUI$TaskBar$1_EnclosingMethodInfo_ = {
-	"javax.swing.plaf.synth.SynthDesktopPaneUI$TaskBar",
-	"<init>",
-	"()V"
-};
-
-$InnerClassInfo _SynthDesktopPaneUI$TaskBar$1_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.synth.SynthDesktopPaneUI$TaskBar", "javax.swing.plaf.synth.SynthDesktopPaneUI", "TaskBar", $STATIC},
-	{"javax.swing.plaf.synth.SynthDesktopPaneUI$TaskBar$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _SynthDesktopPaneUI$TaskBar$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.synth.SynthDesktopPaneUI$TaskBar$1",
-	"java.awt.FlowLayout",
-	nullptr,
-	_SynthDesktopPaneUI$TaskBar$1_FieldInfo_,
-	_SynthDesktopPaneUI$TaskBar$1_MethodInfo_,
-	nullptr,
-	&_SynthDesktopPaneUI$TaskBar$1_EnclosingMethodInfo_,
-	_SynthDesktopPaneUI$TaskBar$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.synth.SynthDesktopPaneUI"
-};
-
-$Object* allocate$SynthDesktopPaneUI$TaskBar$1($Class* clazz) {
-	return $of($alloc(SynthDesktopPaneUI$TaskBar$1));
-}
-
 void SynthDesktopPaneUI$TaskBar$1::init$($SynthDesktopPaneUI$TaskBar* this$0, int32_t align, int32_t hgap, int32_t vgap) {
 	$set(this, this$0, this$0);
 	$FlowLayout::init$(align, hgap, vgap);
 }
 
 void SynthDesktopPaneUI$TaskBar$1::layoutContainer($Container* target) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ComponentArray, comps, $nc(target)->getComponents());
 	int32_t n = $nc(comps)->length;
 	if (n > 0) {
 		int32_t prefWidth = 0;
 		{
 			$var($ComponentArray, arr$, comps);
-			int32_t len$ = arr$->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
+			for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 				$var($Component, c, arr$->get(i$));
 				{
 					$nc(c)->setPreferredSize(nullptr);
@@ -98,13 +52,11 @@ void SynthDesktopPaneUI$TaskBar$1::layoutContainer($Container* target) {
 			}
 		}
 		$var($Insets, insets, target->getInsets());
-		int32_t tw = target->getWidth() - $nc(insets)->left - insets->right;
+		int32_t tw = target->getWidth() - $nc(insets)->left - $nc(insets)->right;
 		int32_t w = $Math::min(prefWidth, $Math::max(10, $div(tw, n)));
 		{
 			$var($ComponentArray, arr$, comps);
-			int32_t len$ = arr$->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
+			for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 				$var($Component, c, arr$->get(i$));
 				{
 					$var($Dimension, prefSize, $nc(c)->getPreferredSize());
@@ -120,7 +72,43 @@ SynthDesktopPaneUI$TaskBar$1::SynthDesktopPaneUI$TaskBar$1() {
 }
 
 $Class* SynthDesktopPaneUI$TaskBar$1::load$($String* name, bool initialize) {
-	$loadClass(SynthDesktopPaneUI$TaskBar$1, name, initialize, &_SynthDesktopPaneUI$TaskBar$1_ClassInfo_, allocate$SynthDesktopPaneUI$TaskBar$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/plaf/synth/SynthDesktopPaneUI$TaskBar;", nullptr, $FINAL | $SYNTHETIC, $field(SynthDesktopPaneUI$TaskBar$1, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/plaf/synth/SynthDesktopPaneUI$TaskBar;III)V", nullptr, 0, $method(SynthDesktopPaneUI$TaskBar$1, init$, void, $SynthDesktopPaneUI$TaskBar*, int32_t, int32_t, int32_t)},
+		{"layoutContainer", "(Ljava/awt/Container;)V", nullptr, $PUBLIC, $virtualMethod(SynthDesktopPaneUI$TaskBar$1, layoutContainer, void, $Container*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"javax.swing.plaf.synth.SynthDesktopPaneUI$TaskBar",
+		"<init>",
+		"()V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.synth.SynthDesktopPaneUI$TaskBar", "javax.swing.plaf.synth.SynthDesktopPaneUI", "TaskBar", $STATIC},
+		{"javax.swing.plaf.synth.SynthDesktopPaneUI$TaskBar$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.synth.SynthDesktopPaneUI$TaskBar$1",
+		"java.awt.FlowLayout",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.synth.SynthDesktopPaneUI"
+	};
+	$loadClass(SynthDesktopPaneUI$TaskBar$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SynthDesktopPaneUI$TaskBar$1));
+	});
 	return class$;
 }
 

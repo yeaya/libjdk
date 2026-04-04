@@ -30,6 +30,7 @@ class FontFamily : public ::java::lang::Object {
 	$class(FontFamily, 0, ::java::lang::Object)
 public:
 	FontFamily();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* name, bool isLogFont, int32_t rank);
 	void init$($String* name);
 	static void addLocaleNames(::sun::font::FontFamily* family, $StringArray* names);

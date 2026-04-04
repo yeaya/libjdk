@@ -37,7 +37,10 @@ public:
 	static const int64_t serialVersionUID = (int64_t)1;
 	CanonicalizationException(const CanonicalizationException& e);
 	virtual void throw$() override;
-	inline CanonicalizationException* operator ->() {
+	inline CanonicalizationException* operator ->() const {
+		return (CanonicalizationException*)throwing$;
+	}
+	inline operator CanonicalizationException*() const {
 		return (CanonicalizationException*)throwing$;
 	}
 };

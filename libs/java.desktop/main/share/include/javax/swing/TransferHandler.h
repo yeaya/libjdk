@@ -68,6 +68,7 @@ class $import TransferHandler : public ::java::io::Serializable {
 	$class(TransferHandler, 0, ::java::io::Serializable)
 public:
 	TransferHandler();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* property);
 	void init$();
 	virtual bool canImport(::javax::swing::TransferHandler$TransferSupport* support);

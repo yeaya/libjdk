@@ -1,5 +1,4 @@
 #include <sun/awt/X11/XMouseDragGestureRecognizer.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Point.h>
 #include <java/awt/dnd/DnDConstants.h>
@@ -31,48 +30,11 @@ using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $ArrayList = ::java::util::ArrayList;
 using $SunDragSourceContextPeer = ::sun::awt::dnd::SunDragSourceContextPeer;
 
 namespace sun {
 	namespace awt {
 		namespace X11 {
-
-$FieldInfo _XMouseDragGestureRecognizer_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XMouseDragGestureRecognizer, serialVersionUID)},
-	{"motionThreshold", "I", nullptr, $PROTECTED | $STATIC, $staticField(XMouseDragGestureRecognizer, motionThreshold)},
-	{"ButtonMask", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(XMouseDragGestureRecognizer, ButtonMask)},
-	{}
-};
-
-$MethodInfo _XMouseDragGestureRecognizer_MethodInfo_[] = {
-	{"<init>", "(Ljava/awt/dnd/DragSource;Ljava/awt/Component;ILjava/awt/dnd/DragGestureListener;)V", nullptr, $PROTECTED, $method(XMouseDragGestureRecognizer, init$, void, $DragSource*, $Component*, int32_t, $DragGestureListener*)},
-	{"<init>", "(Ljava/awt/dnd/DragSource;Ljava/awt/Component;I)V", nullptr, $PROTECTED, $method(XMouseDragGestureRecognizer, init$, void, $DragSource*, $Component*, int32_t)},
-	{"<init>", "(Ljava/awt/dnd/DragSource;Ljava/awt/Component;)V", nullptr, $PROTECTED, $method(XMouseDragGestureRecognizer, init$, void, $DragSource*, $Component*)},
-	{"<init>", "(Ljava/awt/dnd/DragSource;)V", nullptr, $PROTECTED, $method(XMouseDragGestureRecognizer, init$, void, $DragSource*)},
-	{"mapDragOperationFromModifiers", "(Ljava/awt/event/MouseEvent;)I", nullptr, $PROTECTED, $virtualMethod(XMouseDragGestureRecognizer, mapDragOperationFromModifiers, int32_t, $MouseEvent*)},
-	{"mouseClicked", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(XMouseDragGestureRecognizer, mouseClicked, void, $MouseEvent*)},
-	{"mouseDragged", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(XMouseDragGestureRecognizer, mouseDragged, void, $MouseEvent*)},
-	{"mouseEntered", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(XMouseDragGestureRecognizer, mouseEntered, void, $MouseEvent*)},
-	{"mouseExited", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(XMouseDragGestureRecognizer, mouseExited, void, $MouseEvent*)},
-	{"mouseMoved", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(XMouseDragGestureRecognizer, mouseMoved, void, $MouseEvent*)},
-	{"mousePressed", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(XMouseDragGestureRecognizer, mousePressed, void, $MouseEvent*)},
-	{"mouseReleased", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(XMouseDragGestureRecognizer, mouseReleased, void, $MouseEvent*)},
-	{}
-};
-
-$ClassInfo _XMouseDragGestureRecognizer_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.awt.X11.XMouseDragGestureRecognizer",
-	"java.awt.dnd.MouseDragGestureRecognizer",
-	nullptr,
-	_XMouseDragGestureRecognizer_FieldInfo_,
-	_XMouseDragGestureRecognizer_MethodInfo_
-};
-
-$Object* allocate$XMouseDragGestureRecognizer($Class* clazz) {
-	return $of($alloc(XMouseDragGestureRecognizer));
-}
 
 int32_t XMouseDragGestureRecognizer::motionThreshold = 0;
 
@@ -94,7 +56,7 @@ void XMouseDragGestureRecognizer::init$($DragSource* ds) {
 
 int32_t XMouseDragGestureRecognizer::mapDragOperationFromModifiers($MouseEvent* e) {
 	int32_t mods = $nc(e)->getModifiersEx();
-	int32_t btns = (int32_t)(mods & (uint32_t)XMouseDragGestureRecognizer::ButtonMask);
+	int32_t btns = mods & XMouseDragGestureRecognizer::ButtonMask;
 	if (!(btns == $InputEvent::BUTTON1_DOWN_MASK || btns == $InputEvent::BUTTON2_DOWN_MASK)) {
 		return $DnDConstants::ACTION_NONE;
 	}
@@ -134,7 +96,7 @@ void XMouseDragGestureRecognizer::mouseExited($MouseEvent* e) {
 }
 
 void XMouseDragGestureRecognizer::mouseDragged($MouseEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!$nc(this->events)->isEmpty()) {
 		int32_t dop = mapDragOperationFromModifiers(e);
 		if (dop == $DnDConstants::ACTION_NONE) {
@@ -144,9 +106,9 @@ void XMouseDragGestureRecognizer::mouseDragged($MouseEvent* e) {
 		$var($Point, origin, $nc(trigger)->getPoint());
 		$var($Point, current, $nc(e)->getPoint());
 		int32_t dx = $Math::abs($nc(origin)->x - $nc(current)->x);
-		int32_t dy = $Math::abs($nc(origin)->y - $nc(current)->y);
+		int32_t dy = $Math::abs(origin->y - current->y);
 		if (dx > XMouseDragGestureRecognizer::motionThreshold || dy > XMouseDragGestureRecognizer::motionThreshold) {
-			fireDragGestureRecognized(dop, $($nc(($cast($MouseEvent, $(getTriggerEvent()))))->getPoint()));
+			fireDragGestureRecognized(dop, $($$sure($MouseEvent, getTriggerEvent())->getPoint()));
 		} else {
 			appendEvent(e);
 		}
@@ -160,7 +122,38 @@ XMouseDragGestureRecognizer::XMouseDragGestureRecognizer() {
 }
 
 $Class* XMouseDragGestureRecognizer::load$($String* name, bool initialize) {
-	$loadClass(XMouseDragGestureRecognizer, name, initialize, &_XMouseDragGestureRecognizer_ClassInfo_, allocate$XMouseDragGestureRecognizer);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XMouseDragGestureRecognizer, serialVersionUID)},
+		{"motionThreshold", "I", nullptr, $PROTECTED | $STATIC, $staticField(XMouseDragGestureRecognizer, motionThreshold)},
+		{"ButtonMask", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(XMouseDragGestureRecognizer, ButtonMask)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/dnd/DragSource;Ljava/awt/Component;ILjava/awt/dnd/DragGestureListener;)V", nullptr, $PROTECTED, $method(XMouseDragGestureRecognizer, init$, void, $DragSource*, $Component*, int32_t, $DragGestureListener*)},
+		{"<init>", "(Ljava/awt/dnd/DragSource;Ljava/awt/Component;I)V", nullptr, $PROTECTED, $method(XMouseDragGestureRecognizer, init$, void, $DragSource*, $Component*, int32_t)},
+		{"<init>", "(Ljava/awt/dnd/DragSource;Ljava/awt/Component;)V", nullptr, $PROTECTED, $method(XMouseDragGestureRecognizer, init$, void, $DragSource*, $Component*)},
+		{"<init>", "(Ljava/awt/dnd/DragSource;)V", nullptr, $PROTECTED, $method(XMouseDragGestureRecognizer, init$, void, $DragSource*)},
+		{"mapDragOperationFromModifiers", "(Ljava/awt/event/MouseEvent;)I", nullptr, $PROTECTED, $virtualMethod(XMouseDragGestureRecognizer, mapDragOperationFromModifiers, int32_t, $MouseEvent*)},
+		{"mouseClicked", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(XMouseDragGestureRecognizer, mouseClicked, void, $MouseEvent*)},
+		{"mouseDragged", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(XMouseDragGestureRecognizer, mouseDragged, void, $MouseEvent*)},
+		{"mouseEntered", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(XMouseDragGestureRecognizer, mouseEntered, void, $MouseEvent*)},
+		{"mouseExited", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(XMouseDragGestureRecognizer, mouseExited, void, $MouseEvent*)},
+		{"mouseMoved", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(XMouseDragGestureRecognizer, mouseMoved, void, $MouseEvent*)},
+		{"mousePressed", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(XMouseDragGestureRecognizer, mousePressed, void, $MouseEvent*)},
+		{"mouseReleased", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(XMouseDragGestureRecognizer, mouseReleased, void, $MouseEvent*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.awt.X11.XMouseDragGestureRecognizer",
+		"java.awt.dnd.MouseDragGestureRecognizer",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XMouseDragGestureRecognizer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(XMouseDragGestureRecognizer));
+	});
 	return class$;
 }
 

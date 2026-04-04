@@ -1,5 +1,4 @@
 #include <sun/security/jgss/krb5/Krb5ProxyCredential.h>
-
 #include <java/io/IOException.h>
 #include <java/security/Provider.h>
 #include <javax/security/auth/DestroyFailedException.h>
@@ -51,41 +50,6 @@ namespace sun {
 		namespace jgss {
 			namespace krb5 {
 
-$FieldInfo _Krb5ProxyCredential_FieldInfo_[] = {
-	{"self", "Lsun/security/jgss/krb5/Krb5InitCredential;", nullptr, $PUBLIC | $FINAL, $field(Krb5ProxyCredential, self)},
-	{"client", "Lsun/security/jgss/krb5/Krb5NameElement;", nullptr, $PRIVATE | $FINAL, $field(Krb5ProxyCredential, client)},
-	{"tkt", "Lsun/security/krb5/internal/Ticket;", nullptr, $PUBLIC | $FINAL, $field(Krb5ProxyCredential, tkt)},
-	{}
-};
-
-$MethodInfo _Krb5ProxyCredential_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/jgss/krb5/Krb5InitCredential;Lsun/security/jgss/krb5/Krb5NameElement;Lsun/security/krb5/internal/Ticket;)V", nullptr, 0, $method(Krb5ProxyCredential, init$, void, $Krb5InitCredential*, $Krb5NameElement*, $Ticket*)},
-	{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(Krb5ProxyCredential, dispose, void), "org.ietf.jgss.GSSException"},
-	{"getAcceptLifetime", "()I", nullptr, $PUBLIC, $virtualMethod(Krb5ProxyCredential, getAcceptLifetime, int32_t), "org.ietf.jgss.GSSException"},
-	{"getInitLifetime", "()I", nullptr, $PUBLIC, $virtualMethod(Krb5ProxyCredential, getInitLifetime, int32_t), "org.ietf.jgss.GSSException"},
-	{"getMechanism", "()Lorg/ietf/jgss/Oid;", nullptr, $PUBLIC | $FINAL, $virtualMethod(Krb5ProxyCredential, getMechanism, $Oid*)},
-	{"getName", "()Lsun/security/jgss/krb5/Krb5NameElement;", nullptr, $PUBLIC | $FINAL, $virtualMethod(Krb5ProxyCredential, getName, $GSSNameSpi*), "org.ietf.jgss.GSSException"},
-	{"getProvider", "()Ljava/security/Provider;", nullptr, $PUBLIC | $FINAL, $virtualMethod(Krb5ProxyCredential, getProvider, $Provider*)},
-	{"impersonate", "(Lsun/security/jgss/spi/GSSNameSpi;)Lsun/security/jgss/spi/GSSCredentialSpi;", nullptr, $PUBLIC, $virtualMethod(Krb5ProxyCredential, impersonate, $GSSCredentialSpi*, $GSSNameSpi*), "org.ietf.jgss.GSSException"},
-	{"isAcceptorCredential", "()Z", nullptr, $PUBLIC, $virtualMethod(Krb5ProxyCredential, isAcceptorCredential, bool), "org.ietf.jgss.GSSException"},
-	{"isInitiatorCredential", "()Z", nullptr, $PUBLIC, $virtualMethod(Krb5ProxyCredential, isInitiatorCredential, bool), "org.ietf.jgss.GSSException"},
-	{"tryImpersonation", "(Lsun/security/jgss/GSSCaller;Lsun/security/jgss/krb5/Krb5InitCredential;)Lsun/security/jgss/krb5/Krb5CredElement;", nullptr, $STATIC, $staticMethod(Krb5ProxyCredential, tryImpersonation, $Krb5CredElement*, $GSSCaller*, $Krb5InitCredential*), "org.ietf.jgss.GSSException"},
-	{}
-};
-
-$ClassInfo _Krb5ProxyCredential_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.jgss.krb5.Krb5ProxyCredential",
-	"java.lang.Object",
-	"sun.security.jgss.krb5.Krb5CredElement",
-	_Krb5ProxyCredential_FieldInfo_,
-	_Krb5ProxyCredential_MethodInfo_
-};
-
-$Object* allocate$Krb5ProxyCredential($Class* clazz) {
-	return $of($alloc(Krb5ProxyCredential));
-}
-
 void Krb5ProxyCredential::init$($Krb5InitCredential* self, $Krb5NameElement* client, $Ticket* tkt) {
 	$set(this, self, self);
 	$set(this, tkt, tkt);
@@ -123,7 +87,7 @@ $Provider* Krb5ProxyCredential::getProvider() {
 }
 
 void Krb5ProxyCredential::dispose() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$nc(this->self)->destroy();
 	} catch ($DestroyFailedException& e) {
@@ -139,14 +103,13 @@ $GSSCredentialSpi* Krb5ProxyCredential::impersonate($GSSNameSpi* name) {
 
 $Krb5CredElement* Krb5ProxyCredential::tryImpersonation($GSSCaller* caller, $Krb5InitCredential* initiator) {
 	$init(Krb5ProxyCredential);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$var($KerberosTicket, proxy, $nc(initiator)->proxyTicket);
 		if (proxy != nullptr) {
 			$var($Credentials, proxyCreds, $Krb5Util::ticketToCreds(proxy));
-			$var($Krb5InitCredential, var$0, initiator);
-			$var($Krb5NameElement, var$1, $Krb5NameElement::getInstance($($nc(proxyCreds)->getClient())));
-			return $new(Krb5ProxyCredential, var$0, var$1, $($nc(proxyCreds)->getTicket()));
+			$var($Krb5NameElement, var$0, $Krb5NameElement::getInstance($($nc(proxyCreds)->getClient())));
+			return $new(Krb5ProxyCredential, initiator, var$0, $(proxyCreds->getTicket()));
 		} else {
 			return initiator;
 		}
@@ -162,7 +125,37 @@ Krb5ProxyCredential::Krb5ProxyCredential() {
 }
 
 $Class* Krb5ProxyCredential::load$($String* name, bool initialize) {
-	$loadClass(Krb5ProxyCredential, name, initialize, &_Krb5ProxyCredential_ClassInfo_, allocate$Krb5ProxyCredential);
+	$FieldInfo fieldInfos$$[] = {
+		{"self", "Lsun/security/jgss/krb5/Krb5InitCredential;", nullptr, $PUBLIC | $FINAL, $field(Krb5ProxyCredential, self)},
+		{"client", "Lsun/security/jgss/krb5/Krb5NameElement;", nullptr, $PRIVATE | $FINAL, $field(Krb5ProxyCredential, client)},
+		{"tkt", "Lsun/security/krb5/internal/Ticket;", nullptr, $PUBLIC | $FINAL, $field(Krb5ProxyCredential, tkt)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/security/jgss/krb5/Krb5InitCredential;Lsun/security/jgss/krb5/Krb5NameElement;Lsun/security/krb5/internal/Ticket;)V", nullptr, 0, $method(Krb5ProxyCredential, init$, void, $Krb5InitCredential*, $Krb5NameElement*, $Ticket*)},
+		{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(Krb5ProxyCredential, dispose, void), "org.ietf.jgss.GSSException"},
+		{"getAcceptLifetime", "()I", nullptr, $PUBLIC, $virtualMethod(Krb5ProxyCredential, getAcceptLifetime, int32_t), "org.ietf.jgss.GSSException"},
+		{"getInitLifetime", "()I", nullptr, $PUBLIC, $virtualMethod(Krb5ProxyCredential, getInitLifetime, int32_t), "org.ietf.jgss.GSSException"},
+		{"getMechanism", "()Lorg/ietf/jgss/Oid;", nullptr, $PUBLIC | $FINAL, $virtualMethod(Krb5ProxyCredential, getMechanism, $Oid*)},
+		{"getName", "()Lsun/security/jgss/krb5/Krb5NameElement;", nullptr, $PUBLIC | $FINAL, $virtualMethod(Krb5ProxyCredential, getName, $GSSNameSpi*), "org.ietf.jgss.GSSException"},
+		{"getProvider", "()Ljava/security/Provider;", nullptr, $PUBLIC | $FINAL, $virtualMethod(Krb5ProxyCredential, getProvider, $Provider*)},
+		{"impersonate", "(Lsun/security/jgss/spi/GSSNameSpi;)Lsun/security/jgss/spi/GSSCredentialSpi;", nullptr, $PUBLIC, $virtualMethod(Krb5ProxyCredential, impersonate, $GSSCredentialSpi*, $GSSNameSpi*), "org.ietf.jgss.GSSException"},
+		{"isAcceptorCredential", "()Z", nullptr, $PUBLIC, $virtualMethod(Krb5ProxyCredential, isAcceptorCredential, bool), "org.ietf.jgss.GSSException"},
+		{"isInitiatorCredential", "()Z", nullptr, $PUBLIC, $virtualMethod(Krb5ProxyCredential, isInitiatorCredential, bool), "org.ietf.jgss.GSSException"},
+		{"tryImpersonation", "(Lsun/security/jgss/GSSCaller;Lsun/security/jgss/krb5/Krb5InitCredential;)Lsun/security/jgss/krb5/Krb5CredElement;", nullptr, $STATIC, $staticMethod(Krb5ProxyCredential, tryImpersonation, $Krb5CredElement*, $GSSCaller*, $Krb5InitCredential*), "org.ietf.jgss.GSSException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.jgss.krb5.Krb5ProxyCredential",
+		"java.lang.Object",
+		"sun.security.jgss.krb5.Krb5CredElement",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Krb5ProxyCredential, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Krb5ProxyCredential);
+	});
 	return class$;
 }
 

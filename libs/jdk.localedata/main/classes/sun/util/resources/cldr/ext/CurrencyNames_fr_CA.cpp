@@ -1,5 +1,4 @@
 #include <sun/util/resources/cldr/ext/CurrencyNames_fr_CA.h>
-
 #include <sun/util/resources/OpenListResourceBundle.h>
 #include <jcpp.h>
 
@@ -14,223 +13,204 @@ namespace sun {
 			namespace cldr {
 				namespace ext {
 
-$MethodInfo _CurrencyNames_fr_CA_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(CurrencyNames_fr_CA, init$, void)},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(CurrencyNames_fr_CA, getContents, $ObjectArray2*)},
-	{}
-};
-
-$ClassInfo _CurrencyNames_fr_CA_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.util.resources.cldr.ext.CurrencyNames_fr_CA",
-	"sun.util.resources.OpenListResourceBundle",
-	nullptr,
-	nullptr,
-	_CurrencyNames_fr_CA_MethodInfo_
-};
-
-$Object* allocate$CurrencyNames_fr_CA($Class* clazz) {
-	return $of($alloc(CurrencyNames_fr_CA));
-}
-
 void CurrencyNames_fr_CA::init$() {
 	$OpenListResourceBundle::init$();
 }
 
 $ObjectArray2* CurrencyNames_fr_CA::getContents() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectArray2, data, $new($ObjectArray2, {
 		$$new($ObjectArray, {
-			$of("ARS"_s),
-			$of("ARS"_s)
+			"ARS"_s,
+			"ARS"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AUD"_s),
-			$of(u"$ AU"_s)
+			"AUD"_s,
+			u"$ AU"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BMD"_s),
-			$of("BMD"_s)
+			"BMD"_s,
+			"BMD"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BND"_s),
-			$of("BND"_s)
+			"BND"_s,
+			"BND"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BZD"_s),
-			$of("BZD"_s)
+			"BZD"_s,
+			"BZD"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CAD"_s),
-			$of(u"$ CA"_s)
+			"CAD"_s,
+			u"$ CA"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CLP"_s),
-			$of("CLP"_s)
+			"CLP"_s,
+			"CLP"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CNY"_s),
-			$of(u"CN¥"_s)
+			"CNY"_s,
+			u"CN¥"_s
 		}),
 		$$new($ObjectArray, {
-			$of("COP"_s),
-			$of("COP"_s)
+			"COP"_s,
+			"COP"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FJD"_s),
-			$of("FJD"_s)
+			"FJD"_s,
+			"FJD"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FKP"_s),
-			$of("FKP"_s)
+			"FKP"_s,
+			"FKP"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GBP"_s),
-			$of(u"£"_s)
+			"GBP"_s,
+			u"£"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GIP"_s),
-			$of("GIP"_s)
+			"GIP"_s,
+			"GIP"_s
 		}),
 		$$new($ObjectArray, {
-			$of("HKD"_s),
-			$of(u"$ HK"_s)
+			"HKD"_s,
+			u"$ HK"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ILS"_s),
-			$of("ILS"_s)
+			"ILS"_s,
+			"ILS"_s
 		}),
 		$$new($ObjectArray, {
-			$of("INR"_s),
-			$of("INR"_s)
+			"INR"_s,
+			"INR"_s
 		}),
 		$$new($ObjectArray, {
-			$of("JPY"_s),
-			$of(u"¥"_s)
+			"JPY"_s,
+			u"¥"_s
 		}),
 		$$new($ObjectArray, {
-			$of("KRW"_s),
-			$of("KRW"_s)
+			"KRW"_s,
+			"KRW"_s
 		}),
 		$$new($ObjectArray, {
-			$of("LBP"_s),
-			$of("LBP"_s)
+			"LBP"_s,
+			"LBP"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MXN"_s),
-			$of("MXN"_s)
+			"MXN"_s,
+			"MXN"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NAD"_s),
-			$of("NAD"_s)
+			"NAD"_s,
+			"NAD"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NZD"_s),
-			$of(u"$ NZ"_s)
+			"NZD"_s,
+			u"$ NZ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SBD"_s),
-			$of("SBD"_s)
+			"SBD"_s,
+			"SBD"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SGD"_s),
-			$of(u"$ SG"_s)
+			"SGD"_s,
+			u"$ SG"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SRD"_s),
-			$of("SRD"_s)
+			"SRD"_s,
+			"SRD"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TTD"_s),
-			$of("TTD"_s)
+			"TTD"_s,
+			"TTD"_s
 		}),
 		$$new($ObjectArray, {
-			$of("USD"_s),
-			$of(u"$ US"_s)
+			"USD"_s,
+			u"$ US"_s
 		}),
 		$$new($ObjectArray, {
-			$of("UYU"_s),
-			$of("UYU"_s)
+			"UYU"_s,
+			"UYU"_s
 		}),
 		$$new($ObjectArray, {
-			$of("VND"_s),
-			$of("VND"_s)
+			"VND"_s,
+			"VND"_s
 		}),
 		$$new($ObjectArray, {
-			$of("WST"_s),
-			$of("WST"_s)
+			"WST"_s,
+			"WST"_s
 		}),
 		$$new($ObjectArray, {
-			$of("XAF"_s),
-			$of("XAF"_s)
+			"XAF"_s,
+			"XAF"_s
 		}),
 		$$new($ObjectArray, {
-			$of("XOF"_s),
-			$of("XOF"_s)
+			"XOF"_s,
+			"XOF"_s
 		}),
 		$$new($ObjectArray, {
-			$of("XPF"_s),
-			$of("XPF"_s)
+			"XPF"_s,
+			"XPF"_s
 		}),
 		$$new($ObjectArray, {
-			$of("azn"_s),
-			$of(u"manat azerbaïdjanais"_s)
+			"azn"_s,
+			u"manat azerbaïdjanais"_s
 		}),
 		$$new($ObjectArray, {
-			$of("cve"_s),
-			$of("escudo cap-verdien"_s)
+			"cve"_s,
+			"escudo cap-verdien"_s
 		}),
 		$$new($ObjectArray, {
-			$of("irr"_s),
-			$of("rial iranien"_s)
+			"irr"_s,
+			"rial iranien"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lak"_s),
-			$of("kip laotien"_s)
+			"lak"_s,
+			"kip laotien"_s
 		}),
 		$$new($ObjectArray, {
-			$of("omr"_s),
-			$of("rial omanais"_s)
+			"omr"_s,
+			"rial omanais"_s
 		}),
 		$$new($ObjectArray, {
-			$of("pen"_s),
-			$of(u"nouveau sol péruvien"_s)
+			"pen"_s,
+			u"nouveau sol péruvien"_s
 		}),
 		$$new($ObjectArray, {
-			$of("pgk"_s),
-			$of(u"kina papou-néo-guinéen"_s)
+			"pgk"_s,
+			u"kina papou-néo-guinéen"_s
 		}),
 		$$new($ObjectArray, {
-			$of("qar"_s),
-			$of("riyal du Qatar"_s)
+			"qar"_s,
+			"riyal du Qatar"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sar"_s),
-			$of("rial saoudien"_s)
+			"sar"_s,
+			"rial saoudien"_s
 		}),
 		$$new($ObjectArray, {
-			$of("srd"_s),
-			$of("dollar du Suriname"_s)
+			"srd"_s,
+			"dollar du Suriname"_s
 		}),
 		$$new($ObjectArray, {
-			$of("top"_s),
-			$of(u"pa’anga"_s)
+			"top"_s,
+			u"pa’anga"_s
 		}),
 		$$new($ObjectArray, {
-			$of("vuv"_s),
-			$of("vatu"_s)
+			"vuv"_s,
+			"vatu"_s
 		}),
 		$$new($ObjectArray, {
-			$of("wst"_s),
-			$of("tala"_s)
+			"wst"_s,
+			"tala"_s
 		}),
 		$$new($ObjectArray, {
-			$of("xxx"_s),
-			$of("Devise inconnue"_s)
+			"xxx"_s,
+			"Devise inconnue"_s
 		}),
 		$$new($ObjectArray, {
-			$of("yer"_s),
-			$of(u"rial yéménite"_s)
+			"yer"_s,
+			u"rial yéménite"_s
 		})
 	}));
 	return data;
@@ -240,7 +220,22 @@ CurrencyNames_fr_CA::CurrencyNames_fr_CA() {
 }
 
 $Class* CurrencyNames_fr_CA::load$($String* name, bool initialize) {
-	$loadClass(CurrencyNames_fr_CA, name, initialize, &_CurrencyNames_fr_CA_ClassInfo_, allocate$CurrencyNames_fr_CA);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(CurrencyNames_fr_CA, init$, void)},
+		{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(CurrencyNames_fr_CA, getContents, $ObjectArray2*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.util.resources.cldr.ext.CurrencyNames_fr_CA",
+		"sun.util.resources.OpenListResourceBundle",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(CurrencyNames_fr_CA, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CurrencyNames_fr_CA);
+	});
 	return class$;
 }
 

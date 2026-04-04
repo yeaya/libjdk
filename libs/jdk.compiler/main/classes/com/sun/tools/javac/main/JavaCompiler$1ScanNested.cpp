@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/main/JavaCompiler$1ScanNested.h>
-
 #include <com/sun/tools/javac/code/Symbol$ClassSymbol.h>
 #include <com/sun/tools/javac/code/Symbol$TypeSymbol.h>
 #include <com/sun/tools/javac/code/Type.h>
@@ -20,11 +19,8 @@
 #undef CLASS
 
 using $Symbol$ClassSymbol = ::com::sun::tools::javac::code::Symbol$ClassSymbol;
-using $Symbol$TypeSymbol = ::com::sun::tools::javac::code::Symbol$TypeSymbol;
 using $Type = ::com::sun::tools::javac::code::Type;
 using $TypeTag = ::com::sun::tools::javac::code::TypeTag;
-using $Types = ::com::sun::tools::javac::code::Types;
-using $Enter = ::com::sun::tools::javac::comp::Enter;
 using $Env = ::com::sun::tools::javac::comp::Env;
 using $JavaCompiler = ::com::sun::tools::javac::main::JavaCompiler;
 using $JCTree$JCClassDecl = ::com::sun::tools::javac::tree::JCTree$JCClassDecl;
@@ -37,60 +33,12 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $LinkedHashSet = ::java::util::LinkedHashSet;
-using $Set = ::java::util::Set;
 
 namespace com {
 	namespace sun {
 		namespace tools {
 			namespace javac {
 				namespace main {
-
-$FieldInfo _JavaCompiler$1ScanNested_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/main/JavaCompiler;", nullptr, $FINAL | $SYNTHETIC, $field(JavaCompiler$1ScanNested, this$0)},
-	{"val$env", "Lcom/sun/tools/javac/comp/Env;", nullptr, $FINAL | $SYNTHETIC, $field(JavaCompiler$1ScanNested, val$env)},
-	{"dependencies", "Ljava/util/Set;", "Ljava/util/Set<Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;>;", 0, $field(JavaCompiler$1ScanNested, dependencies)},
-	{"hasLambdas", "Z", nullptr, $PROTECTED, $field(JavaCompiler$1ScanNested, hasLambdas)},
-	{}
-};
-
-$MethodInfo _JavaCompiler$1ScanNested_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/main/JavaCompiler;Lcom/sun/tools/javac/comp/Env;)V", "()V", 0, $method(JavaCompiler$1ScanNested, init$, void, $JavaCompiler*, $Env*)},
-	{"visitClassDef", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)V", nullptr, $PUBLIC, $virtualMethod(JavaCompiler$1ScanNested, visitClassDef, void, $JCTree$JCClassDecl*)},
-	{"visitLambda", "(Lcom/sun/tools/javac/tree/JCTree$JCLambda;)V", nullptr, $PUBLIC, $virtualMethod(JavaCompiler$1ScanNested, visitLambda, void, $JCTree$JCLambda*)},
-	{"visitReference", "(Lcom/sun/tools/javac/tree/JCTree$JCMemberReference;)V", nullptr, $PUBLIC, $virtualMethod(JavaCompiler$1ScanNested, visitReference, void, $JCTree$JCMemberReference*)},
-	{}
-};
-
-$EnclosingMethodInfo _JavaCompiler$1ScanNested_EnclosingMethodInfo_ = {
-	"com.sun.tools.javac.main.JavaCompiler",
-	"desugar",
-	"(Lcom/sun/tools/javac/comp/Env;Ljava/util/Queue;)V"
-};
-
-$InnerClassInfo _JavaCompiler$1ScanNested_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.main.JavaCompiler$1ScanNested", nullptr, "ScanNested", 0},
-	{}
-};
-
-$ClassInfo _JavaCompiler$1ScanNested_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.main.JavaCompiler$1ScanNested",
-	"com.sun.tools.javac.tree.TreeScanner",
-	nullptr,
-	_JavaCompiler$1ScanNested_FieldInfo_,
-	_JavaCompiler$1ScanNested_MethodInfo_,
-	nullptr,
-	&_JavaCompiler$1ScanNested_EnclosingMethodInfo_,
-	_JavaCompiler$1ScanNested_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.main.JavaCompiler"
-};
-
-$Object* allocate$JavaCompiler$1ScanNested($Class* clazz) {
-	return $of($alloc(JavaCompiler$1ScanNested));
-}
 
 void JavaCompiler$1ScanNested::init$($JavaCompiler* this$0, $Env* val$env) {
 	$set(this, this$0, this$0);
@@ -100,7 +48,7 @@ void JavaCompiler$1ScanNested::init$($JavaCompiler* this$0, $Env* val$env) {
 }
 
 void JavaCompiler$1ScanNested::visitClassDef($JCTree$JCClassDecl* node) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Type, st, $nc(this->this$0->types)->supertype($nc($nc(node)->sym)->type));
 	bool envForSuperTypeFound = false;
 	$init($TypeTag);
@@ -110,18 +58,16 @@ void JavaCompiler$1ScanNested::visitClassDef($JCTree$JCClassDecl* node) {
 		if (stEnv != nullptr && this->val$env != stEnv) {
 			if ($nc(this->dependencies)->add(stEnv)) {
 				bool prevHasLambdas = this->hasLambdas;
-				{
-					$var($Throwable, var$0, nullptr);
-					try {
-						scan(stEnv->tree);
-					} catch ($Throwable& var$1) {
-						$assign(var$0, var$1);
-					} /*finally*/ {
-						this->hasLambdas = prevHasLambdas;
-					}
-					if (var$0 != nullptr) {
-						$throw(var$0);
-					}
+				$var($Throwable, var$0, nullptr);
+				try {
+					scan(stEnv->tree);
+				} catch ($Throwable& var$1) {
+					$assign(var$0, var$1);
+				} /*finally*/ {
+					this->hasLambdas = prevHasLambdas;
+				}
+				if (var$0 != nullptr) {
+					$throw(var$0);
 				}
 			}
 			envForSuperTypeFound = true;
@@ -145,7 +91,47 @@ JavaCompiler$1ScanNested::JavaCompiler$1ScanNested() {
 }
 
 $Class* JavaCompiler$1ScanNested::load$($String* name, bool initialize) {
-	$loadClass(JavaCompiler$1ScanNested, name, initialize, &_JavaCompiler$1ScanNested_ClassInfo_, allocate$JavaCompiler$1ScanNested);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/main/JavaCompiler;", nullptr, $FINAL | $SYNTHETIC, $field(JavaCompiler$1ScanNested, this$0)},
+		{"val$env", "Lcom/sun/tools/javac/comp/Env;", nullptr, $FINAL | $SYNTHETIC, $field(JavaCompiler$1ScanNested, val$env)},
+		{"dependencies", "Ljava/util/Set;", "Ljava/util/Set<Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;>;", 0, $field(JavaCompiler$1ScanNested, dependencies)},
+		{"hasLambdas", "Z", nullptr, $PROTECTED, $field(JavaCompiler$1ScanNested, hasLambdas)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/main/JavaCompiler;Lcom/sun/tools/javac/comp/Env;)V", "()V", 0, $method(JavaCompiler$1ScanNested, init$, void, $JavaCompiler*, $Env*)},
+		{"visitClassDef", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)V", nullptr, $PUBLIC, $virtualMethod(JavaCompiler$1ScanNested, visitClassDef, void, $JCTree$JCClassDecl*)},
+		{"visitLambda", "(Lcom/sun/tools/javac/tree/JCTree$JCLambda;)V", nullptr, $PUBLIC, $virtualMethod(JavaCompiler$1ScanNested, visitLambda, void, $JCTree$JCLambda*)},
+		{"visitReference", "(Lcom/sun/tools/javac/tree/JCTree$JCMemberReference;)V", nullptr, $PUBLIC, $virtualMethod(JavaCompiler$1ScanNested, visitReference, void, $JCTree$JCMemberReference*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.tools.javac.main.JavaCompiler",
+		"desugar",
+		"(Lcom/sun/tools/javac/comp/Env;Ljava/util/Queue;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.main.JavaCompiler$1ScanNested", nullptr, "ScanNested", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.main.JavaCompiler$1ScanNested",
+		"com.sun.tools.javac.tree.TreeScanner",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.main.JavaCompiler"
+	};
+	$loadClass(JavaCompiler$1ScanNested, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JavaCompiler$1ScanNested);
+	});
 	return class$;
 }
 

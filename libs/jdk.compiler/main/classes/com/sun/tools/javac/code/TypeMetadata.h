@@ -36,6 +36,7 @@ class $export TypeMetadata : public ::java::lang::Object {
 	$class(TypeMetadata, 0, ::java::lang::Object)
 public:
 	TypeMetadata();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(::com::sun::tools::javac::code::TypeMetadata$Entry* elem);
 	void init$(::com::sun::tools::javac::code::TypeMetadata* other);

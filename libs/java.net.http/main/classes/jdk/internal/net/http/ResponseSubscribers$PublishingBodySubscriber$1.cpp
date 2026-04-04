@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/ResponseSubscribers$PublishingBodySubscriber$1.h>
-
 #include <jdk/internal/net/http/ResponseSubscribers$PublishingBodySubscriber.h>
 #include <jcpp.h>
 
@@ -15,52 +14,6 @@ namespace jdk {
 		namespace net {
 			namespace http {
 
-$FieldInfo _ResponseSubscribers$PublishingBodySubscriber$1_FieldInfo_[] = {
-	{"this$0", "Ljdk/internal/net/http/ResponseSubscribers$PublishingBodySubscriber;", nullptr, $FINAL | $SYNTHETIC, $field(ResponseSubscribers$PublishingBodySubscriber$1, this$0)},
-	{}
-};
-
-$MethodInfo _ResponseSubscribers$PublishingBodySubscriber$1_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/net/http/ResponseSubscribers$PublishingBodySubscriber;)V", nullptr, 0, $method(ResponseSubscribers$PublishingBodySubscriber$1, init$, void, $ResponseSubscribers$PublishingBodySubscriber*)},
-	{"cancel", "()V", nullptr, $PUBLIC, $virtualMethod(ResponseSubscribers$PublishingBodySubscriber$1, cancel, void)},
-	{"request", "(J)V", nullptr, $PUBLIC, $virtualMethod(ResponseSubscribers$PublishingBodySubscriber$1, request, void, int64_t)},
-	{}
-};
-
-$EnclosingMethodInfo _ResponseSubscribers$PublishingBodySubscriber$1_EnclosingMethodInfo_ = {
-	"jdk.internal.net.http.ResponseSubscribers$PublishingBodySubscriber",
-	"subscribe",
-	"(Ljava/util/concurrent/Flow$Subscriber;)V"
-};
-
-$InnerClassInfo _ResponseSubscribers$PublishingBodySubscriber$1_InnerClassesInfo_[] = {
-	{"jdk.internal.net.http.ResponseSubscribers$PublishingBodySubscriber", "jdk.internal.net.http.ResponseSubscribers", "PublishingBodySubscriber", $STATIC},
-	{"jdk.internal.net.http.ResponseSubscribers$PublishingBodySubscriber$1", nullptr, nullptr, 0},
-	{"java.util.concurrent.Flow$Subscription", "java.util.concurrent.Flow", "Subscription", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"java.util.concurrent.Flow$Subscriber", "java.util.concurrent.Flow", "Subscriber", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _ResponseSubscribers$PublishingBodySubscriber$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"jdk.internal.net.http.ResponseSubscribers$PublishingBodySubscriber$1",
-	"java.lang.Object",
-	"java.util.concurrent.Flow$Subscription",
-	_ResponseSubscribers$PublishingBodySubscriber$1_FieldInfo_,
-	_ResponseSubscribers$PublishingBodySubscriber$1_MethodInfo_,
-	nullptr,
-	&_ResponseSubscribers$PublishingBodySubscriber$1_EnclosingMethodInfo_,
-	_ResponseSubscribers$PublishingBodySubscriber$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.net.http.ResponseSubscribers"
-};
-
-$Object* allocate$ResponseSubscribers$PublishingBodySubscriber$1($Class* clazz) {
-	return $of($alloc(ResponseSubscribers$PublishingBodySubscriber$1));
-}
-
 void ResponseSubscribers$PublishingBodySubscriber$1::init$($ResponseSubscribers$PublishingBodySubscriber* this$0) {
 	$set(this, this$0, this$0);
 }
@@ -75,7 +28,46 @@ ResponseSubscribers$PublishingBodySubscriber$1::ResponseSubscribers$PublishingBo
 }
 
 $Class* ResponseSubscribers$PublishingBodySubscriber$1::load$($String* name, bool initialize) {
-	$loadClass(ResponseSubscribers$PublishingBodySubscriber$1, name, initialize, &_ResponseSubscribers$PublishingBodySubscriber$1_ClassInfo_, allocate$ResponseSubscribers$PublishingBodySubscriber$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljdk/internal/net/http/ResponseSubscribers$PublishingBodySubscriber;", nullptr, $FINAL | $SYNTHETIC, $field(ResponseSubscribers$PublishingBodySubscriber$1, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/internal/net/http/ResponseSubscribers$PublishingBodySubscriber;)V", nullptr, 0, $method(ResponseSubscribers$PublishingBodySubscriber$1, init$, void, $ResponseSubscribers$PublishingBodySubscriber*)},
+		{"cancel", "()V", nullptr, $PUBLIC, $virtualMethod(ResponseSubscribers$PublishingBodySubscriber$1, cancel, void)},
+		{"request", "(J)V", nullptr, $PUBLIC, $virtualMethod(ResponseSubscribers$PublishingBodySubscriber$1, request, void, int64_t)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"jdk.internal.net.http.ResponseSubscribers$PublishingBodySubscriber",
+		"subscribe",
+		"(Ljava/util/concurrent/Flow$Subscriber;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.net.http.ResponseSubscribers$PublishingBodySubscriber", "jdk.internal.net.http.ResponseSubscribers", "PublishingBodySubscriber", $STATIC},
+		{"jdk.internal.net.http.ResponseSubscribers$PublishingBodySubscriber$1", nullptr, nullptr, 0},
+		{"java.util.concurrent.Flow$Subscription", "java.util.concurrent.Flow", "Subscription", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"java.util.concurrent.Flow$Subscriber", "java.util.concurrent.Flow", "Subscriber", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"jdk.internal.net.http.ResponseSubscribers$PublishingBodySubscriber$1",
+		"java.lang.Object",
+		"java.util.concurrent.Flow$Subscription",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.net.http.ResponseSubscribers"
+	};
+	$loadClass(ResponseSubscribers$PublishingBodySubscriber$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ResponseSubscribers$PublishingBodySubscriber$1);
+	});
 	return class$;
 }
 

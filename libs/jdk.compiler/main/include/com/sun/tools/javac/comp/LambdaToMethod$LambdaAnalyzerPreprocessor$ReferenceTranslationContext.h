@@ -49,6 +49,7 @@ class $import LambdaToMethod$LambdaAnalyzerPreprocessor$ReferenceTranslationCont
 	$class(LambdaToMethod$LambdaAnalyzerPreprocessor$ReferenceTranslationContext, 0, ::com::sun::tools::javac::comp::LambdaToMethod$LambdaAnalyzerPreprocessor$TranslationContext)
 public:
 	LambdaToMethod$LambdaAnalyzerPreprocessor$ReferenceTranslationContext();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::com::sun::tools::javac::comp::LambdaToMethod$LambdaAnalyzerPreprocessor* this$1, ::com::sun::tools::javac::tree::JCTree$JCMemberReference* tree);
 	::com::sun::tools::javac::code::Type* bridgedRefSig();
 	::com::sun::tools::javac::code::Type* generatedRefSig();

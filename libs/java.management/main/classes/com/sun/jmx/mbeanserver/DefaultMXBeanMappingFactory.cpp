@@ -1,5 +1,4 @@
 #include <com/sun/jmx/mbeanserver/DefaultMXBeanMappingFactory.h>
-
 #include <com/sun/jmx/mbeanserver/DefaultMXBeanMappingFactory$ArrayMapping.h>
 #include <com/sun/jmx/mbeanserver/DefaultMXBeanMappingFactory$CollectionMapping.h>
 #include <com/sun/jmx/mbeanserver/DefaultMXBeanMappingFactory$CompositeMapping.h>
@@ -17,7 +16,6 @@
 #include <com/sun/jmx/remote/util/EnvHelp.h>
 #include <java/io/InvalidObjectException.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/CharSequence.h>
 #include <java/lang/ClassLoader.h>
 #include <java/lang/ClassNotFoundException.h>
 #include <java/lang/Comparable.h>
@@ -91,7 +89,6 @@ using $EnvHelp = ::com::sun::jmx::remote::util::EnvHelp;
 using $InvalidObjectException = ::java::io::InvalidObjectException;
 using $AssertionError = ::java::lang::AssertionError;
 using $Boolean = ::java::lang::Boolean;
-using $CharSequence = ::java::lang::CharSequence;
 using $Character = ::java::lang::Character;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $ClassNotFoundException = ::java::lang::ClassNotFoundException;
@@ -135,80 +132,6 @@ namespace com {
 		namespace jmx {
 			namespace mbeanserver {
 
-$FieldInfo _DefaultMXBeanMappingFactory_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(DefaultMXBeanMappingFactory, $assertionsDisabled)},
-	{"mappings", "Lcom/sun/jmx/mbeanserver/DefaultMXBeanMappingFactory$Mappings;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DefaultMXBeanMappingFactory, mappings)},
-	{"permanentMappings", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/jmx/mbeanserver/MXBeanMapping;>;", $PRIVATE | $STATIC | $FINAL, $staticField(DefaultMXBeanMappingFactory, permanentMappings)},
-	{"keyArray", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DefaultMXBeanMappingFactory, keyArray)},
-	{"keyValueArray", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DefaultMXBeanMappingFactory, keyValueArray)},
-	{"inProgress", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/reflect/Type;Ljava/lang/reflect/Type;>;", $PRIVATE | $STATIC | $FINAL, $staticField(DefaultMXBeanMappingFactory, inProgress)},
-	{}
-};
-
-$MethodInfo _DefaultMXBeanMappingFactory_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(DefaultMXBeanMappingFactory, init$, void)},
-	{"capitalize", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(DefaultMXBeanMappingFactory, capitalize, $String*, $String*)},
-	{"decapitalize", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(DefaultMXBeanMappingFactory, decapitalize, $String*, $String*)},
-	{"getMapping", "(Ljava/lang/reflect/Type;)Lcom/sun/jmx/mbeanserver/MXBeanMapping;", nullptr, $PRIVATE | $STATIC | $SYNCHRONIZED, $staticMethod(DefaultMXBeanMappingFactory, getMapping, $MXBeanMapping*, $Type*)},
-	{"invalidObjectException", "(Ljava/lang/String;Ljava/lang/Throwable;)Ljava/io/InvalidObjectException;", nullptr, $STATIC, $staticMethod(DefaultMXBeanMappingFactory, invalidObjectException, $InvalidObjectException*, $String*, $Throwable*)},
-	{"invalidObjectException", "(Ljava/lang/Throwable;)Ljava/io/InvalidObjectException;", nullptr, $STATIC, $staticMethod(DefaultMXBeanMappingFactory, invalidObjectException, $InvalidObjectException*, $Throwable*)},
-	{"isIdentity", "(Lcom/sun/jmx/mbeanserver/MXBeanMapping;)Z", nullptr, $STATIC, $staticMethod(DefaultMXBeanMappingFactory, isIdentity, bool, $MXBeanMapping*)},
-	{"makeArrayOrCollectionMapping", "(Ljava/lang/reflect/Type;Ljava/lang/reflect/Type;Lcom/sun/jmx/mbeanserver/MXBeanMappingFactory;)Lcom/sun/jmx/mbeanserver/MXBeanMapping;", nullptr, $PRIVATE, $method(DefaultMXBeanMappingFactory, makeArrayOrCollectionMapping, $MXBeanMapping*, $Type*, $Type*, $MXBeanMappingFactory*), "javax.management.openmbean.OpenDataException"},
-	{"makeCompositeMapping", "(Ljava/lang/Class;Lcom/sun/jmx/mbeanserver/MXBeanMappingFactory;)Lcom/sun/jmx/mbeanserver/MXBeanMapping;", "(Ljava/lang/Class<*>;Lcom/sun/jmx/mbeanserver/MXBeanMappingFactory;)Lcom/sun/jmx/mbeanserver/MXBeanMapping;", $PRIVATE, $method(DefaultMXBeanMappingFactory, makeCompositeMapping, $MXBeanMapping*, $Class*, $MXBeanMappingFactory*), "javax.management.openmbean.OpenDataException"},
-	{"makeEnumMapping", "(Ljava/lang/Class;Ljava/lang/Class;)Lcom/sun/jmx/mbeanserver/MXBeanMapping;", "<T:Ljava/lang/Enum<TT;>;>(Ljava/lang/Class<*>;Ljava/lang/Class<TT;>;)Lcom/sun/jmx/mbeanserver/MXBeanMapping;", $PRIVATE | $STATIC, $staticMethod(DefaultMXBeanMappingFactory, makeEnumMapping, $MXBeanMapping*, $Class*, $Class*)},
-	{"makeMXBeanRefMapping", "(Ljava/lang/reflect/Type;)Lcom/sun/jmx/mbeanserver/MXBeanMapping;", nullptr, $PRIVATE | $STATIC, $staticMethod(DefaultMXBeanMappingFactory, makeMXBeanRefMapping, $MXBeanMapping*, $Type*), "javax.management.openmbean.OpenDataException"},
-	{"makeMapping", "(Ljava/lang/reflect/Type;Lcom/sun/jmx/mbeanserver/MXBeanMappingFactory;)Lcom/sun/jmx/mbeanserver/MXBeanMapping;", nullptr, $PRIVATE, $method(DefaultMXBeanMappingFactory, makeMapping, $MXBeanMapping*, $Type*, $MXBeanMappingFactory*), "javax.management.openmbean.OpenDataException"},
-	{"makeParameterizedTypeMapping", "(Ljava/lang/reflect/ParameterizedType;Lcom/sun/jmx/mbeanserver/MXBeanMappingFactory;)Lcom/sun/jmx/mbeanserver/MXBeanMapping;", nullptr, $PRIVATE, $method(DefaultMXBeanMappingFactory, makeParameterizedTypeMapping, $MXBeanMapping*, $ParameterizedType*, $MXBeanMappingFactory*), "javax.management.openmbean.OpenDataException"},
-	{"makeTabularMapping", "(Ljava/lang/reflect/Type;ZLjava/lang/reflect/Type;Ljava/lang/reflect/Type;Lcom/sun/jmx/mbeanserver/MXBeanMappingFactory;)Lcom/sun/jmx/mbeanserver/MXBeanMapping;", nullptr, $PRIVATE, $method(DefaultMXBeanMappingFactory, makeTabularMapping, $MXBeanMapping*, $Type*, bool, $Type*, $Type*, $MXBeanMappingFactory*), "javax.management.openmbean.OpenDataException"},
-	{"mappingForType", "(Ljava/lang/reflect/Type;Lcom/sun/jmx/mbeanserver/MXBeanMappingFactory;)Lcom/sun/jmx/mbeanserver/MXBeanMapping;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(DefaultMXBeanMappingFactory, mappingForType, $MXBeanMapping*, $Type*, $MXBeanMappingFactory*), "javax.management.openmbean.OpenDataException"},
-	{"mustBeComparable", "(Ljava/lang/Class;Ljava/lang/reflect/Type;)V", "(Ljava/lang/Class<*>;Ljava/lang/reflect/Type;)V", $STATIC, $staticMethod(DefaultMXBeanMappingFactory, mustBeComparable, void, $Class*, $Type*), "javax.management.openmbean.OpenDataException"},
-	{"openDataException", "(Ljava/lang/String;Ljava/lang/Throwable;)Ljavax/management/openmbean/OpenDataException;", nullptr, $STATIC, $staticMethod(DefaultMXBeanMappingFactory, openDataException, $OpenDataException*, $String*, $Throwable*)},
-	{"openDataException", "(Ljava/lang/Throwable;)Ljavax/management/openmbean/OpenDataException;", nullptr, $STATIC, $staticMethod(DefaultMXBeanMappingFactory, openDataException, $OpenDataException*, $Throwable*)},
-	{"propertyName", "(Ljava/lang/reflect/Method;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(DefaultMXBeanMappingFactory, propertyName, $String*, $Method*)},
-	{"putMapping", "(Ljava/lang/reflect/Type;Lcom/sun/jmx/mbeanserver/MXBeanMapping;)V", nullptr, $PRIVATE | $STATIC | $SYNCHRONIZED, $staticMethod(DefaultMXBeanMappingFactory, putMapping, void, $Type*, $MXBeanMapping*)},
-	{"putPermanentMapping", "(Ljava/lang/reflect/Type;Lcom/sun/jmx/mbeanserver/MXBeanMapping;)V", nullptr, $PRIVATE | $STATIC | $SYNCHRONIZED, $staticMethod(DefaultMXBeanMappingFactory, putPermanentMapping, void, $Type*, $MXBeanMapping*)},
-	{}
-};
-
-$InnerClassInfo _DefaultMXBeanMappingFactory_InnerClassesInfo_[] = {
-	{"com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory$CompositeBuilderViaProxy", "com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory", "CompositeBuilderViaProxy", $PRIVATE | $STATIC | $FINAL},
-	{"com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory$RecordCompositeBuilder", "com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory", "RecordCompositeBuilder", $PRIVATE | $STATIC | $FINAL},
-	{"com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory$CompositeBuilderViaConstructor", "com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory", "CompositeBuilderViaConstructor", $PRIVATE | $STATIC},
-	{"com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory$CompositeBuilderViaSetters", "com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory", "CompositeBuilderViaSetters", $PRIVATE | $STATIC},
-	{"com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory$CompositeBuilderCheckGetters", "com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory", "CompositeBuilderCheckGetters", $PRIVATE | $STATIC},
-	{"com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory$CompositeBuilderViaFrom", "com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory", "CompositeBuilderViaFrom", $PRIVATE | $STATIC | $FINAL},
-	{"com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory$CompositeBuilder", "com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory", "CompositeBuilder", $PRIVATE | $STATIC | $ABSTRACT},
-	{"com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory$CompositeMapping", "com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory", "CompositeMapping", $PRIVATE | $FINAL},
-	{"com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory$TabularMapping", "com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory", "TabularMapping", $PRIVATE | $STATIC | $FINAL},
-	{"com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory$MXBeanRefMapping", "com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory", "MXBeanRefMapping", $PRIVATE | $STATIC | $FINAL},
-	{"com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory$CollectionMapping", "com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory", "CollectionMapping", $PRIVATE | $STATIC | $FINAL},
-	{"com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory$ArrayMapping", "com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory", "ArrayMapping", $PRIVATE | $STATIC | $FINAL},
-	{"com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory$EnumMapping", "com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory", "EnumMapping", $PRIVATE | $STATIC | $FINAL},
-	{"com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory$IdentityMapping", "com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory", "IdentityMapping", $PRIVATE | $STATIC | $FINAL},
-	{"com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory$Mappings", "com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory", "Mappings", $PRIVATE | $STATIC | $FINAL},
-	{"com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory$NonNullMXBeanMapping", "com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory", "NonNullMXBeanMapping", $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _DefaultMXBeanMappingFactory_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory",
-	"com.sun.jmx.mbeanserver.MXBeanMappingFactory",
-	nullptr,
-	_DefaultMXBeanMappingFactory_FieldInfo_,
-	_DefaultMXBeanMappingFactory_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DefaultMXBeanMappingFactory_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory$CompositeBuilderViaProxy,com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory$RecordCompositeBuilder,com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory$CompositeBuilderViaConstructor,com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory$CompositeBuilderViaConstructor$Constr,com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory$CompositeBuilderViaSetters,com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory$CompositeBuilderCheckGetters,com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory$CompositeBuilderViaFrom,com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory$CompositeBuilder,com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory$CompositeMapping,com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory$TabularMapping,com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory$MXBeanRefMapping,com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory$CollectionMapping,com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory$ArrayMapping,com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory$EnumMapping,com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory$IdentityMapping,com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory$Mappings,com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory$NonNullMXBeanMapping"
-};
-
-$Object* allocate$DefaultMXBeanMappingFactory($Class* clazz) {
-	return $of($alloc(DefaultMXBeanMappingFactory));
-}
-
 bool DefaultMXBeanMappingFactory::$assertionsDisabled = false;
 $DefaultMXBeanMappingFactory$Mappings* DefaultMXBeanMappingFactory::mappings = nullptr;
 $List* DefaultMXBeanMappingFactory::permanentMappings = nullptr;
@@ -222,31 +145,28 @@ void DefaultMXBeanMappingFactory::init$() {
 
 bool DefaultMXBeanMappingFactory::isIdentity($MXBeanMapping* mapping) {
 	$init(DefaultMXBeanMappingFactory);
-	return ($instanceOf($DefaultMXBeanMappingFactory$NonNullMXBeanMapping, mapping) && $nc(($cast($DefaultMXBeanMappingFactory$NonNullMXBeanMapping, mapping)))->isIdentity());
+	return ($instanceOf($DefaultMXBeanMappingFactory$NonNullMXBeanMapping, mapping) && $cast($DefaultMXBeanMappingFactory$NonNullMXBeanMapping, mapping)->isIdentity());
 }
 
 $MXBeanMapping* DefaultMXBeanMappingFactory::getMapping($Type* type) {
-	$load(DefaultMXBeanMappingFactory);
+	$init(DefaultMXBeanMappingFactory);
 	$synchronized(class$) {
-		$init(DefaultMXBeanMappingFactory);
-		$var($WeakReference, wr, $cast($WeakReference, $nc(DefaultMXBeanMappingFactory::mappings)->get(type)));
-		return (wr == nullptr) ? ($MXBeanMapping*)nullptr : $cast($MXBeanMapping, $nc(wr)->get());
+		$var($WeakReference, wr, $cast($WeakReference, DefaultMXBeanMappingFactory::mappings->get(type)));
+		return (wr == nullptr) ? ($MXBeanMapping*)nullptr : $cast($MXBeanMapping, wr->get());
 	}
 }
 
 void DefaultMXBeanMappingFactory::putMapping($Type* type, $MXBeanMapping* mapping) {
-	$load(DefaultMXBeanMappingFactory);
+	$init(DefaultMXBeanMappingFactory);
 	$synchronized(class$) {
-		$init(DefaultMXBeanMappingFactory);
 		$var($WeakReference, wr, $new($WeakReference, mapping));
-		$nc(DefaultMXBeanMappingFactory::mappings)->put(type, wr);
+		DefaultMXBeanMappingFactory::mappings->put(type, wr);
 	}
 }
 
 void DefaultMXBeanMappingFactory::putPermanentMapping($Type* type, $MXBeanMapping* mapping) {
-	$load(DefaultMXBeanMappingFactory);
+	$init(DefaultMXBeanMappingFactory);
 	$synchronized(class$) {
-		$init(DefaultMXBeanMappingFactory);
 		putMapping(type, mapping);
 		$nc(DefaultMXBeanMappingFactory::permanentMappings)->add(mapping);
 	}
@@ -254,7 +174,7 @@ void DefaultMXBeanMappingFactory::putPermanentMapping($Type* type, $MXBeanMappin
 
 $MXBeanMapping* DefaultMXBeanMappingFactory::mappingForType($Type* objType, $MXBeanMappingFactory* factory) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		if ($nc(DefaultMXBeanMappingFactory::inProgress)->containsKey(objType)) {
 			$throwNew($OpenDataException, $$str({"Recursive data structure, including "_s, $($MXBeanIntrospector::typeName(objType))}));
 		}
@@ -263,23 +183,21 @@ $MXBeanMapping* DefaultMXBeanMappingFactory::mappingForType($Type* objType, $MXB
 		if (mapping != nullptr) {
 			return mapping;
 		}
-		$nc(DefaultMXBeanMappingFactory::inProgress)->put(objType, objType);
-		{
-			$var($Throwable, var$0, nullptr);
+		DefaultMXBeanMappingFactory::inProgress->put(objType, objType);
+		$var($Throwable, var$0, nullptr);
+		try {
 			try {
-				try {
-					$assign(mapping, makeMapping(objType, factory));
-				} catch ($OpenDataException& e) {
-					$throw($(openDataException($$str({"Cannot convert type: "_s, $($MXBeanIntrospector::typeName(objType))}), e)));
-				}
-			} catch ($Throwable& var$1) {
-				$assign(var$0, var$1);
-			} /*finally*/ {
-				$nc(DefaultMXBeanMappingFactory::inProgress)->remove(objType);
+				$assign(mapping, makeMapping(objType, factory));
+			} catch ($OpenDataException& e) {
+				$throw($(openDataException($$str({"Cannot convert type: "_s, $($MXBeanIntrospector::typeName(objType))}), e)));
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
+		} /*finally*/ {
+			DefaultMXBeanMappingFactory::inProgress->remove(objType);
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 		putMapping(objType, mapping);
 		return mapping;
@@ -287,13 +205,13 @@ $MXBeanMapping* DefaultMXBeanMappingFactory::mappingForType($Type* objType, $MXB
 }
 
 $MXBeanMapping* DefaultMXBeanMappingFactory::makeMapping($Type* objType, $MXBeanMappingFactory* factory) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($instanceOf($GenericArrayType, objType)) {
-		$var($Type, componentType, $nc(($cast($GenericArrayType, objType)))->getGenericComponentType());
+		$var($Type, componentType, $cast($GenericArrayType, objType)->getGenericComponentType());
 		return makeArrayOrCollectionMapping(objType, componentType, factory);
 	} else if ($instanceOf($Class, objType)) {
 		$Class* objClass = $cast($Class, objType);
-		if ($nc(objClass)->isEnum()) {
+		if (objClass->isEnum()) {
 			$load($ElementType);
 			return makeEnumMapping(objClass, $ElementType::class$);
 		} else if (objClass->isArray()) {
@@ -314,11 +232,11 @@ $MXBeanMapping* DefaultMXBeanMappingFactory::makeMapping($Type* objType, $MXBean
 $MXBeanMapping* DefaultMXBeanMappingFactory::makeEnumMapping($Class* enumClass, $Class* fake) {
 	$init(DefaultMXBeanMappingFactory);
 	$ReflectUtil::checkPackageAccess(enumClass);
-	return $new($DefaultMXBeanMappingFactory$EnumMapping, $cast($Class, $($Util::cast(enumClass))));
+	return $new($DefaultMXBeanMappingFactory$EnumMapping, $$cast($Class, $Util::cast(enumClass)));
 }
 
 $MXBeanMapping* DefaultMXBeanMappingFactory::makeArrayOrCollectionMapping($Type* collectionType, $Type* elementType, $MXBeanMappingFactory* factory) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$var($MXBeanMapping, elementMapping, $nc(factory)->mappingForType(elementType, factory));
 	$var($OpenType, elementOpenType, $nc(elementMapping)->getOpenType());
@@ -346,7 +264,7 @@ $MXBeanMapping* DefaultMXBeanMappingFactory::makeArrayOrCollectionMapping($Type*
 }
 
 $MXBeanMapping* DefaultMXBeanMappingFactory::makeTabularMapping($Type* objType, bool sortedMap, $Type* keyType, $Type* valueType, $MXBeanMappingFactory* factory) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, objTypeName, $MXBeanIntrospector::typeName(objType));
 	$var($MXBeanMapping, keyMapping, $nc(factory)->mappingForType(keyType, factory));
 	$var($MXBeanMapping, valueMapping, factory->mappingForType(valueType, factory));
@@ -361,7 +279,7 @@ $MXBeanMapping* DefaultMXBeanMappingFactory::makeTabularMapping($Type* objType, 
 }
 
 $MXBeanMapping* DefaultMXBeanMappingFactory::makeParameterizedTypeMapping($ParameterizedType* objType, $MXBeanMappingFactory* factory) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Type, rawType, $nc(objType)->getRawType());
 	if ($instanceOf($Class, rawType)) {
 		$Class* c = $cast($Class, rawType);
@@ -389,7 +307,7 @@ $MXBeanMapping* DefaultMXBeanMappingFactory::makeParameterizedTypeMapping($Param
 				if (sortedMap) {
 					mustBeComparable(c, $nc(actuals)->get(0));
 				}
-				return makeTabularMapping(objType, sortedMap, $nc(actuals)->get(0), actuals->get(1), factory);
+				return makeTabularMapping(objType, sortedMap, $nc(actuals)->get(0), $nc(actuals)->get(1), factory);
 			}
 		}
 	}
@@ -402,9 +320,9 @@ $MXBeanMapping* DefaultMXBeanMappingFactory::makeMXBeanRefMapping($Type* t) {
 }
 
 $MXBeanMapping* DefaultMXBeanMappingFactory::makeCompositeMapping($Class* c, $MXBeanMappingFactory* factory) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
-	bool var$0 = $nc($($nc(c)->getName()))->equals("com.sun.management.GcInfo"_s);
+	bool var$0 = $$nc($nc(c)->getName())->equals("com.sun.management.GcInfo"_s);
 	bool gcInfoHack = (var$0 && c->getClassLoader() == nullptr);
 	$ReflectUtil::checkPackageAccess(c);
 	$var($List, methods, $MBeanAnalyzer::eliminateCovariantMethods($($Arrays::asList($(c->getMethods())))));
@@ -422,13 +340,17 @@ $MXBeanMapping* DefaultMXBeanMappingFactory::makeCompositeMapping($Class* c, $MX
 					continue;
 				}
 				bool var$1 = c->isRecord();
-				$var($String, name, var$1 && $nc($($nc(method)->getName()))->equals(propertyName) ? propertyName : decapitalize(propertyName));
+				$var($String, name, var$1 && $$nc($nc(method)->getName())->equals(propertyName) ? propertyName : decapitalize(propertyName));
 				$var($Method, old, $cast($Method, $nc(getterMap)->put(name, method)));
 				if (old != nullptr) {
-					$var($String, var$4, $$str({"Class "_s, $(c->getName()), " has method name clash: "_s}));
-					$var($String, var$3, $$concat(var$4, $(old->getName())));
-					$var($String, var$2, $$concat(var$3, ", "_s));
-					$var($String, msg, $concat(var$2, $($nc(method)->getName())));
+					$var($StringBuilder, var$2, $new($StringBuilder));
+					var$2->append("Class "_s);
+					var$2->append($(c->getName()));
+					var$2->append(" has method name clash: "_s);
+					var$2->append($(old->getName()));
+					var$2->append(", "_s);
+					var$2->append($($nc(method)->getName()));
+					$var($String, msg, $str(var$2));
 					$throwNew($OpenDataException, msg);
 				}
 			}
@@ -443,21 +365,21 @@ $MXBeanMapping* DefaultMXBeanMappingFactory::makeCompositeMapping($Class* c, $MX
 	$var($OpenTypeArray, openTypes, $new($OpenTypeArray, nitems));
 	int32_t i = 0;
 	{
-		$var($Iterator, i$, $nc($(getterMap->entrySet()))->iterator());
+		$var($Iterator, i$, $$nc(getterMap->entrySet())->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Map$Entry, entry, $cast($Map$Entry, i$->next()));
 			{
-				itemNames->set(i, $cast($String, $($nc(entry)->getKey())));
+				itemNames->set(i, $$cast($String, $nc(entry)->getKey()));
 				$var($Method, getter, $cast($Method, entry->getValue()));
 				getters->set(i, getter);
 				$var($Type, retType, $nc(getter)->getGenericReturnType());
-				openTypes->set(i, $($nc($($nc(factory)->mappingForType(retType, factory)))->getOpenType()));
+				openTypes->set(i, $($$nc($nc(factory)->mappingForType(retType, factory))->getOpenType()));
 				++i;
 			}
 		}
 	}
-	$var($String, var$5, c->getName());
-	$var($CompositeType, compositeType, $new($CompositeType, var$5, $(c->getName()), itemNames, itemNames, openTypes));
+	$var($String, var$3, c->getName());
+	$var($CompositeType, compositeType, $new($CompositeType, var$3, $(c->getName()), itemNames, itemNames, openTypes));
 	return $new($DefaultMXBeanMappingFactory$CompositeMapping, this, c, compositeType, itemNames, getters, factory);
 }
 
@@ -483,21 +405,25 @@ $OpenDataException* DefaultMXBeanMappingFactory::openDataException($Throwable* c
 
 void DefaultMXBeanMappingFactory::mustBeComparable($Class* collection, $Type* element) {
 	$init(DefaultMXBeanMappingFactory);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$load($Comparable);
 	if (!($instanceOf($Class, element)) || !$Comparable::class$->isAssignableFrom($cast($Class, element))) {
-		$var($String, var$2, $$str({"Parameter class "_s, element, " of "_s}));
-		$var($String, var$1, $$concat(var$2, $($nc(collection)->getName())));
-		$var($String, var$0, $$concat(var$1, " does not implement "_s));
-		$var($String, msg, $concat(var$0, $($Comparable::class$->getName())));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append("Parameter class "_s);
+		var$0->append(element);
+		var$0->append(" of "_s);
+		var$0->append($($nc(collection)->getName()));
+		var$0->append(" does not implement "_s);
+		var$0->append($($Comparable::class$->getName()));
+		$var($String, msg, $str(var$0));
 		$throwNew($OpenDataException, msg);
 	}
 }
 
 $String* DefaultMXBeanMappingFactory::decapitalize($String* name) {
 	$init(DefaultMXBeanMappingFactory);
-	$useLocalCurrentObjectStackCache();
-	if (name == nullptr || $nc(name)->length() == 0) {
+	$useLocalObjectStack();
+	if (name == nullptr || name->length() == 0) {
 		return name;
 	}
 	int32_t offset1 = $Character::offsetByCodePoints(name, 0, 1);
@@ -505,68 +431,66 @@ $String* DefaultMXBeanMappingFactory::decapitalize($String* name) {
 	if (var$0 && $Character::isUpperCase(name->codePointAt(offset1))) {
 		return name;
 	}
-	$var($String, var$1, $($($nc(name)->substring(0, offset1))->toLowerCase()));
-	return $concat(var$1, $(name->substring(offset1)));
+	$var($StringBuilder, var$1, $new($StringBuilder));
+	var$1->append($($(name->substring(0, offset1))->toLowerCase()));
+	var$1->append($(name->substring(offset1)));
+	return $str(var$1);
 }
 
 $String* DefaultMXBeanMappingFactory::capitalize($String* name) {
 	$init(DefaultMXBeanMappingFactory);
-	$useLocalCurrentObjectStackCache();
-	if (name == nullptr || $nc(name)->length() == 0) {
+	$useLocalObjectStack();
+	if (name == nullptr || name->length() == 0) {
 		return name;
 	}
 	int32_t offset1 = $nc(name)->offsetByCodePoints(0, 1);
-	$var($String, var$0, $($(name->substring(0, offset1))->toUpperCase()));
-	return $concat(var$0, $(name->substring(offset1)));
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append($($(name->substring(0, offset1))->toUpperCase()));
+	var$0->append($(name->substring(offset1)));
+	return $str(var$0);
 }
 
 $String* DefaultMXBeanMappingFactory::propertyName($Method* m) {
 	$init(DefaultMXBeanMappingFactory);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$var($String, rest, nullptr);
 	$var($String, name, $nc(m)->getName());
 	$Class* c = m->getDeclaringClass();
 	if ($nc(c)->isRecord()) {
-		{
-			$var($RecordComponentArray, arr$, c->getRecordComponents());
-			int32_t len$ = $nc(arr$)->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
-				$var($RecordComponent, rc, arr$->get(i$));
-				{
-					bool var$0 = $nc(name)->equals($($nc(rc)->getName()));
-					if (var$0) {
-						var$0 = m->getReturnType() == $nc(rc)->getType();
-					}
-					if (var$0) {
-						$assign(rest, name);
-						break;
-					}
+		$var($RecordComponentArray, arr$, c->getRecordComponents());
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
+			$var($RecordComponent, rc, arr$->get(i$));
+			{
+				bool var$0 = $nc(name)->equals($($nc(rc)->getName()));
+				if (var$0) {
+					var$0 = m->getReturnType() == rc->getType();
+				}
+				if (var$0) {
+					$assign(rest, name);
+					break;
 				}
 			}
 		}
 	} else if ($nc(name)->startsWith("get"_s)) {
 		$assign(rest, name->substring(3));
 	} else {
-		bool var$2 = name->startsWith("is"_s);
-		$init($Boolean);
-		if (var$2 && m->getReturnType() == $Boolean::TYPE) {
+		bool var$1 = name->startsWith("is"_s);
+		if (var$1 && m->getReturnType() == $Boolean::TYPE) {
 			$assign(rest, name->substring(2));
 		}
 	}
-	bool var$5 = rest == nullptr || $nc(rest)->length() == 0;
-	bool var$4 = var$5 || $nc($(m->getParameterTypes()))->length > 0;
-	$init($Void);
-	bool var$3 = var$4 || m->getReturnType() == $Void::TYPE;
-	if (var$3 || $nc(name)->equals("getClass"_s)) {
+	bool var$4 = rest == nullptr || rest->length() == 0;
+	bool var$3 = var$4 || $nc($(m->getParameterTypes()))->length > 0;
+	bool var$2 = var$3 || m->getReturnType() == $Void::TYPE;
+	if (var$2 || $nc(name)->equals("getClass"_s)) {
 		return nullptr;
 	}
 	return rest;
 }
 
-void clinit$DefaultMXBeanMappingFactory($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void DefaultMXBeanMappingFactory::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	DefaultMXBeanMappingFactory::$assertionsDisabled = !DefaultMXBeanMappingFactory::class$->desiredAssertionStatus();
 	$assignStatic(DefaultMXBeanMappingFactory::mappings, $new($DefaultMXBeanMappingFactory$Mappings));
@@ -574,20 +498,20 @@ void clinit$DefaultMXBeanMappingFactory($Class* class$) {
 	{
 		$init($SimpleType);
 		$var($OpenTypeArray, simpleTypes, $new($OpenTypeArray, {
-			static_cast<$OpenType*>($SimpleType::BIGDECIMAL),
-			static_cast<$OpenType*>($SimpleType::BIGINTEGER),
-			static_cast<$OpenType*>($SimpleType::BOOLEAN),
-			static_cast<$OpenType*>($SimpleType::BYTE),
-			static_cast<$OpenType*>($SimpleType::CHARACTER),
-			static_cast<$OpenType*>($SimpleType::DATE),
-			static_cast<$OpenType*>($SimpleType::DOUBLE),
-			static_cast<$OpenType*>($SimpleType::FLOAT),
-			static_cast<$OpenType*>($SimpleType::INTEGER),
-			static_cast<$OpenType*>($SimpleType::LONG),
-			static_cast<$OpenType*>($SimpleType::OBJECTNAME),
-			static_cast<$OpenType*>($SimpleType::SHORT),
-			static_cast<$OpenType*>($SimpleType::STRING),
-			static_cast<$OpenType*>($SimpleType::VOID)
+			$SimpleType::BIGDECIMAL,
+			$SimpleType::BIGINTEGER,
+			$SimpleType::BOOLEAN,
+			$SimpleType::BYTE,
+			$SimpleType::CHARACTER,
+			$SimpleType::DATE,
+			$SimpleType::DOUBLE,
+			$SimpleType::FLOAT,
+			$SimpleType::INTEGER,
+			$SimpleType::LONG,
+			$SimpleType::OBJECTNAME,
+			$SimpleType::SHORT,
+			$SimpleType::STRING,
+			$SimpleType::VOID
 		}));
 		for (int32_t i = 0; i < simpleTypes->length; ++i) {
 			$var($OpenType, t, simpleTypes->get(i));
@@ -597,19 +521,18 @@ void clinit$DefaultMXBeanMappingFactory($Class* class$) {
 				$load($ObjectName);
 				c = $Class::forName(var$0, false, $($ObjectName::class$->getClassLoader()));
 			} catch ($ClassNotFoundException& e) {
-				$throwNew($Error, static_cast<$Throwable*>(e));
+				$throwNew($Error, e);
 			}
 			$var($MXBeanMapping, mapping, $new($DefaultMXBeanMappingFactory$IdentityMapping, c, t));
 			DefaultMXBeanMappingFactory::putPermanentMapping(c, mapping);
-			if ($nc($($nc(c)->getName()))->startsWith("java.lang."_s)) {
+			if ($$nc($nc(c)->getName())->startsWith("java.lang."_s)) {
 				try {
 					$var($Field, typeField, c->getField("TYPE"_s));
 					$Class* primitiveType = $cast($Class, $nc(typeField)->get(nullptr));
 					$var($MXBeanMapping, primitiveMapping, $new($DefaultMXBeanMappingFactory$IdentityMapping, primitiveType, t));
 					DefaultMXBeanMappingFactory::putPermanentMapping(primitiveType, primitiveMapping);
-					$init($Void);
 					if (primitiveType != $Void::TYPE) {
-						$Class* primitiveArrayType = $of($($1Array::newInstance(primitiveType, 0)))->getClass();
+						$Class* primitiveArrayType = $($1Array::newInstance(primitiveType, 0))->getClass();
 						$var($OpenType, primitiveArrayOpenType, $ArrayType::getPrimitiveArrayType(primitiveArrayType));
 						$var($MXBeanMapping, primitiveArrayMapping, $new($DefaultMXBeanMappingFactory$IdentityMapping, primitiveArrayType, primitiveArrayOpenType));
 						DefaultMXBeanMappingFactory::putPermanentMapping(primitiveArrayType, primitiveArrayMapping);
@@ -635,7 +558,75 @@ DefaultMXBeanMappingFactory::DefaultMXBeanMappingFactory() {
 }
 
 $Class* DefaultMXBeanMappingFactory::load$($String* name, bool initialize) {
-	$loadClass(DefaultMXBeanMappingFactory, name, initialize, &_DefaultMXBeanMappingFactory_ClassInfo_, clinit$DefaultMXBeanMappingFactory, allocate$DefaultMXBeanMappingFactory);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(DefaultMXBeanMappingFactory, $assertionsDisabled)},
+		{"mappings", "Lcom/sun/jmx/mbeanserver/DefaultMXBeanMappingFactory$Mappings;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DefaultMXBeanMappingFactory, mappings)},
+		{"permanentMappings", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/jmx/mbeanserver/MXBeanMapping;>;", $PRIVATE | $STATIC | $FINAL, $staticField(DefaultMXBeanMappingFactory, permanentMappings)},
+		{"keyArray", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DefaultMXBeanMappingFactory, keyArray)},
+		{"keyValueArray", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DefaultMXBeanMappingFactory, keyValueArray)},
+		{"inProgress", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/reflect/Type;Ljava/lang/reflect/Type;>;", $PRIVATE | $STATIC | $FINAL, $staticField(DefaultMXBeanMappingFactory, inProgress)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(DefaultMXBeanMappingFactory, init$, void)},
+		{"capitalize", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(DefaultMXBeanMappingFactory, capitalize, $String*, $String*)},
+		{"decapitalize", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(DefaultMXBeanMappingFactory, decapitalize, $String*, $String*)},
+		{"getMapping", "(Ljava/lang/reflect/Type;)Lcom/sun/jmx/mbeanserver/MXBeanMapping;", nullptr, $PRIVATE | $STATIC | $SYNCHRONIZED, $staticMethod(DefaultMXBeanMappingFactory, getMapping, $MXBeanMapping*, $Type*)},
+		{"invalidObjectException", "(Ljava/lang/String;Ljava/lang/Throwable;)Ljava/io/InvalidObjectException;", nullptr, $STATIC, $staticMethod(DefaultMXBeanMappingFactory, invalidObjectException, $InvalidObjectException*, $String*, $Throwable*)},
+		{"invalidObjectException", "(Ljava/lang/Throwable;)Ljava/io/InvalidObjectException;", nullptr, $STATIC, $staticMethod(DefaultMXBeanMappingFactory, invalidObjectException, $InvalidObjectException*, $Throwable*)},
+		{"isIdentity", "(Lcom/sun/jmx/mbeanserver/MXBeanMapping;)Z", nullptr, $STATIC, $staticMethod(DefaultMXBeanMappingFactory, isIdentity, bool, $MXBeanMapping*)},
+		{"makeArrayOrCollectionMapping", "(Ljava/lang/reflect/Type;Ljava/lang/reflect/Type;Lcom/sun/jmx/mbeanserver/MXBeanMappingFactory;)Lcom/sun/jmx/mbeanserver/MXBeanMapping;", nullptr, $PRIVATE, $method(DefaultMXBeanMappingFactory, makeArrayOrCollectionMapping, $MXBeanMapping*, $Type*, $Type*, $MXBeanMappingFactory*), "javax.management.openmbean.OpenDataException"},
+		{"makeCompositeMapping", "(Ljava/lang/Class;Lcom/sun/jmx/mbeanserver/MXBeanMappingFactory;)Lcom/sun/jmx/mbeanserver/MXBeanMapping;", "(Ljava/lang/Class<*>;Lcom/sun/jmx/mbeanserver/MXBeanMappingFactory;)Lcom/sun/jmx/mbeanserver/MXBeanMapping;", $PRIVATE, $method(DefaultMXBeanMappingFactory, makeCompositeMapping, $MXBeanMapping*, $Class*, $MXBeanMappingFactory*), "javax.management.openmbean.OpenDataException"},
+		{"makeEnumMapping", "(Ljava/lang/Class;Ljava/lang/Class;)Lcom/sun/jmx/mbeanserver/MXBeanMapping;", "<T:Ljava/lang/Enum<TT;>;>(Ljava/lang/Class<*>;Ljava/lang/Class<TT;>;)Lcom/sun/jmx/mbeanserver/MXBeanMapping;", $PRIVATE | $STATIC, $staticMethod(DefaultMXBeanMappingFactory, makeEnumMapping, $MXBeanMapping*, $Class*, $Class*)},
+		{"makeMXBeanRefMapping", "(Ljava/lang/reflect/Type;)Lcom/sun/jmx/mbeanserver/MXBeanMapping;", nullptr, $PRIVATE | $STATIC, $staticMethod(DefaultMXBeanMappingFactory, makeMXBeanRefMapping, $MXBeanMapping*, $Type*), "javax.management.openmbean.OpenDataException"},
+		{"makeMapping", "(Ljava/lang/reflect/Type;Lcom/sun/jmx/mbeanserver/MXBeanMappingFactory;)Lcom/sun/jmx/mbeanserver/MXBeanMapping;", nullptr, $PRIVATE, $method(DefaultMXBeanMappingFactory, makeMapping, $MXBeanMapping*, $Type*, $MXBeanMappingFactory*), "javax.management.openmbean.OpenDataException"},
+		{"makeParameterizedTypeMapping", "(Ljava/lang/reflect/ParameterizedType;Lcom/sun/jmx/mbeanserver/MXBeanMappingFactory;)Lcom/sun/jmx/mbeanserver/MXBeanMapping;", nullptr, $PRIVATE, $method(DefaultMXBeanMappingFactory, makeParameterizedTypeMapping, $MXBeanMapping*, $ParameterizedType*, $MXBeanMappingFactory*), "javax.management.openmbean.OpenDataException"},
+		{"makeTabularMapping", "(Ljava/lang/reflect/Type;ZLjava/lang/reflect/Type;Ljava/lang/reflect/Type;Lcom/sun/jmx/mbeanserver/MXBeanMappingFactory;)Lcom/sun/jmx/mbeanserver/MXBeanMapping;", nullptr, $PRIVATE, $method(DefaultMXBeanMappingFactory, makeTabularMapping, $MXBeanMapping*, $Type*, bool, $Type*, $Type*, $MXBeanMappingFactory*), "javax.management.openmbean.OpenDataException"},
+		{"mappingForType", "(Ljava/lang/reflect/Type;Lcom/sun/jmx/mbeanserver/MXBeanMappingFactory;)Lcom/sun/jmx/mbeanserver/MXBeanMapping;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(DefaultMXBeanMappingFactory, mappingForType, $MXBeanMapping*, $Type*, $MXBeanMappingFactory*), "javax.management.openmbean.OpenDataException"},
+		{"mustBeComparable", "(Ljava/lang/Class;Ljava/lang/reflect/Type;)V", "(Ljava/lang/Class<*>;Ljava/lang/reflect/Type;)V", $STATIC, $staticMethod(DefaultMXBeanMappingFactory, mustBeComparable, void, $Class*, $Type*), "javax.management.openmbean.OpenDataException"},
+		{"openDataException", "(Ljava/lang/String;Ljava/lang/Throwable;)Ljavax/management/openmbean/OpenDataException;", nullptr, $STATIC, $staticMethod(DefaultMXBeanMappingFactory, openDataException, $OpenDataException*, $String*, $Throwable*)},
+		{"openDataException", "(Ljava/lang/Throwable;)Ljavax/management/openmbean/OpenDataException;", nullptr, $STATIC, $staticMethod(DefaultMXBeanMappingFactory, openDataException, $OpenDataException*, $Throwable*)},
+		{"propertyName", "(Ljava/lang/reflect/Method;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(DefaultMXBeanMappingFactory, propertyName, $String*, $Method*)},
+		{"putMapping", "(Ljava/lang/reflect/Type;Lcom/sun/jmx/mbeanserver/MXBeanMapping;)V", nullptr, $PRIVATE | $STATIC | $SYNCHRONIZED, $staticMethod(DefaultMXBeanMappingFactory, putMapping, void, $Type*, $MXBeanMapping*)},
+		{"putPermanentMapping", "(Ljava/lang/reflect/Type;Lcom/sun/jmx/mbeanserver/MXBeanMapping;)V", nullptr, $PRIVATE | $STATIC | $SYNCHRONIZED, $staticMethod(DefaultMXBeanMappingFactory, putPermanentMapping, void, $Type*, $MXBeanMapping*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory$CompositeBuilderViaProxy", "com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory", "CompositeBuilderViaProxy", $PRIVATE | $STATIC | $FINAL},
+		{"com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory$RecordCompositeBuilder", "com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory", "RecordCompositeBuilder", $PRIVATE | $STATIC | $FINAL},
+		{"com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory$CompositeBuilderViaConstructor", "com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory", "CompositeBuilderViaConstructor", $PRIVATE | $STATIC},
+		{"com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory$CompositeBuilderViaSetters", "com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory", "CompositeBuilderViaSetters", $PRIVATE | $STATIC},
+		{"com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory$CompositeBuilderCheckGetters", "com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory", "CompositeBuilderCheckGetters", $PRIVATE | $STATIC},
+		{"com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory$CompositeBuilderViaFrom", "com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory", "CompositeBuilderViaFrom", $PRIVATE | $STATIC | $FINAL},
+		{"com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory$CompositeBuilder", "com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory", "CompositeBuilder", $PRIVATE | $STATIC | $ABSTRACT},
+		{"com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory$CompositeMapping", "com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory", "CompositeMapping", $PRIVATE | $FINAL},
+		{"com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory$TabularMapping", "com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory", "TabularMapping", $PRIVATE | $STATIC | $FINAL},
+		{"com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory$MXBeanRefMapping", "com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory", "MXBeanRefMapping", $PRIVATE | $STATIC | $FINAL},
+		{"com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory$CollectionMapping", "com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory", "CollectionMapping", $PRIVATE | $STATIC | $FINAL},
+		{"com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory$ArrayMapping", "com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory", "ArrayMapping", $PRIVATE | $STATIC | $FINAL},
+		{"com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory$EnumMapping", "com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory", "EnumMapping", $PRIVATE | $STATIC | $FINAL},
+		{"com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory$IdentityMapping", "com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory", "IdentityMapping", $PRIVATE | $STATIC | $FINAL},
+		{"com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory$Mappings", "com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory", "Mappings", $PRIVATE | $STATIC | $FINAL},
+		{"com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory$NonNullMXBeanMapping", "com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory", "NonNullMXBeanMapping", $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory",
+		"com.sun.jmx.mbeanserver.MXBeanMappingFactory",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory$CompositeBuilderViaProxy,com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory$RecordCompositeBuilder,com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory$CompositeBuilderViaConstructor,com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory$CompositeBuilderViaConstructor$Constr,com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory$CompositeBuilderViaSetters,com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory$CompositeBuilderCheckGetters,com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory$CompositeBuilderViaFrom,com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory$CompositeBuilder,com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory$CompositeMapping,com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory$TabularMapping,com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory$MXBeanRefMapping,com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory$CollectionMapping,com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory$ArrayMapping,com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory$EnumMapping,com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory$IdentityMapping,com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory$Mappings,com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory$NonNullMXBeanMapping"
+	};
+	$loadClass(DefaultMXBeanMappingFactory, name, initialize, &classInfo$$, DefaultMXBeanMappingFactory::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(DefaultMXBeanMappingFactory);
+	});
 	return class$;
 }
 

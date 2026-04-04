@@ -81,6 +81,7 @@ class UnixPrintJob : public ::javax::print::CancelablePrintJob {
 	$class(UnixPrintJob, 0, ::javax::print::CancelablePrintJob)
 public:
 	UnixPrintJob();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::javax::print::PrintService* service);
 	virtual void addPrintJobAttributeListener(::javax::print::event::PrintJobAttributeListener* listener, ::javax::print::attribute::PrintJobAttributeSet* attributes) override;
 	virtual void addPrintJobListener(::javax::print::event::PrintJobListener* listener) override;

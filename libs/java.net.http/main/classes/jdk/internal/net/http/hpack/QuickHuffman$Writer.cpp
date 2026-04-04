@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/hpack/QuickHuffman$Writer.h>
-
 #include <java/io/Serializable.h>
 #include <java/lang/CharSequence.h>
 #include <java/lang/invoke/CallSite.h>
@@ -45,86 +44,35 @@ public:
 	virtual void accept(int64_t buf, int32_t bufLen) override {
 		$nc(inst$)->lambda$new$0(buf, bufLen);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<QuickHuffman$Writer$$Lambda$lambda$new$0>());
-	}
 	QuickHuffman$Writer* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo QuickHuffman$Writer$$Lambda$lambda$new$0::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(QuickHuffman$Writer$$Lambda$lambda$new$0, inst$)},
-	{}
-};
-$MethodInfo QuickHuffman$Writer$$Lambda$lambda$new$0::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/hpack/QuickHuffman$Writer;)V", nullptr, $PUBLIC, $method(QuickHuffman$Writer$$Lambda$lambda$new$0, init$, void, QuickHuffman$Writer*)},
-	{"accept", "(JI)V", nullptr, $PUBLIC, $virtualMethod(QuickHuffman$Writer$$Lambda$lambda$new$0, accept, void, int64_t, int32_t)},
-	{}
-};
-$ClassInfo QuickHuffman$Writer$$Lambda$lambda$new$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.net.http.hpack.QuickHuffman$Writer$$Lambda$lambda$new$0",
-	"java.lang.Object",
-	"jdk.internal.net.http.hpack.HPACK$BufferUpdateConsumer",
-	fieldInfos,
-	methodInfos
 };
 $Class* QuickHuffman$Writer$$Lambda$lambda$new$0::load$($String* name, bool initialize) {
-	$loadClass(QuickHuffman$Writer$$Lambda$lambda$new$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(QuickHuffman$Writer$$Lambda$lambda$new$0, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/internal/net/http/hpack/QuickHuffman$Writer;)V", nullptr, $PUBLIC, $method(QuickHuffman$Writer$$Lambda$lambda$new$0, init$, void, QuickHuffman$Writer*)},
+		{"accept", "(JI)V", nullptr, $PUBLIC, $virtualMethod(QuickHuffman$Writer$$Lambda$lambda$new$0, accept, void, int64_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.net.http.hpack.QuickHuffman$Writer$$Lambda$lambda$new$0",
+		"java.lang.Object",
+		"jdk.internal.net.http.hpack.HPACK$BufferUpdateConsumer",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(QuickHuffman$Writer$$Lambda$lambda$new$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(QuickHuffman$Writer$$Lambda$lambda$new$0);
+	});
 	return class$;
 }
 $Class* QuickHuffman$Writer$$Lambda$lambda$new$0::class$ = nullptr;
 
-$FieldInfo _QuickHuffman$Writer_FieldInfo_[] = {
-	{"UPDATER", "Ljdk/internal/net/http/hpack/HPACK$BufferUpdateConsumer;", nullptr, $PRIVATE | $FINAL, $field(QuickHuffman$Writer, UPDATER)},
-	{"source", "Ljava/lang/CharSequence;", nullptr, $PRIVATE, $field(QuickHuffman$Writer, source)},
-	{"padded", "Z", nullptr, $PRIVATE, $field(QuickHuffman$Writer, padded)},
-	{"pos", "I", nullptr, $PRIVATE, $field(QuickHuffman$Writer, pos)},
-	{"end", "I", nullptr, $PRIVATE, $field(QuickHuffman$Writer, end)},
-	{"buffer", "J", nullptr, $PRIVATE, $field(QuickHuffman$Writer, buffer)},
-	{"bufferLen", "I", nullptr, $PRIVATE, $field(QuickHuffman$Writer, bufferLen)},
-	{}
-};
-
-$MethodInfo _QuickHuffman$Writer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(QuickHuffman$Writer, init$, void)},
-	{"from", "(Ljava/lang/CharSequence;II)Ljdk/internal/net/http/hpack/QuickHuffman$Writer;", nullptr, $PUBLIC, $virtualMethod(QuickHuffman$Writer, from, QuickHuffman$Writer*, $CharSequence*, int32_t, int32_t)},
-	{"lambda$new$0", "(JI)V", nullptr, $PRIVATE | $SYNTHETIC, $method(QuickHuffman$Writer, lambda$new$0, void, int64_t, int32_t)},
-	{"lengthOf", "(Ljava/lang/CharSequence;II)I", nullptr, $PUBLIC, $virtualMethod(QuickHuffman$Writer, lengthOf, int32_t, $CharSequence*, int32_t, int32_t)},
-	{"reset", "()Ljdk/internal/net/http/hpack/QuickHuffman$Writer;", nullptr, $PUBLIC, $virtualMethod(QuickHuffman$Writer, reset, QuickHuffman$Writer*)},
-	{"write", "(Ljava/nio/ByteBuffer;)Z", nullptr, $PUBLIC, $virtualMethod(QuickHuffman$Writer, write, bool, $ByteBuffer*)},
-	{}
-};
-
-$InnerClassInfo _QuickHuffman$Writer_InnerClassesInfo_[] = {
-	{"jdk.internal.net.http.hpack.QuickHuffman$Writer", "jdk.internal.net.http.hpack.QuickHuffman", "Writer", $STATIC | $FINAL},
-	{"jdk.internal.net.http.hpack.Huffman$Writer", "jdk.internal.net.http.hpack.Huffman", "Writer", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _QuickHuffman$Writer_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"jdk.internal.net.http.hpack.QuickHuffman$Writer",
-	"java.lang.Object",
-	"jdk.internal.net.http.hpack.Huffman$Writer",
-	_QuickHuffman$Writer_FieldInfo_,
-	_QuickHuffman$Writer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_QuickHuffman$Writer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.net.http.hpack.QuickHuffman"
-};
-
-$Object* allocate$QuickHuffman$Writer($Class* clazz) {
-	return $of($alloc(QuickHuffman$Writer));
-}
-
 void QuickHuffman$Writer::init$() {
-	$set(this, UPDATER, static_cast<$HPACK$BufferUpdateConsumer*>($new(QuickHuffman$Writer$$Lambda$lambda$new$0, this)));
+	$set(this, UPDATER, $new(QuickHuffman$Writer$$Lambda$lambda$new$0, this));
 }
 
 QuickHuffman$Writer* QuickHuffman$Writer::from($CharSequence* input, int32_t start, int32_t end) {
@@ -136,7 +84,7 @@ QuickHuffman$Writer* QuickHuffman$Writer::from($CharSequence* input, int32_t sta
 }
 
 bool QuickHuffman$Writer::write($ByteBuffer* destination) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	while (true) {
 		while (true) {
 			if (this->pos >= this->end) {
@@ -161,7 +109,7 @@ bool QuickHuffman$Writer::write($ByteBuffer* destination) {
 		if (this->pos >= this->end && !this->padded) {
 			this->padded = true;
 			if (this->bufferLen != 64) {
-				this->buffer |= ($usr((int64_t)0xFFFFFFFC00000000, this->bufferLen));
+				this->buffer |= ($usr((int64_t)0xfffffffc00000000, this->bufferLen));
 				this->bufferLen = $HPACK::bytesForBits(this->bufferLen) << 3;
 			}
 		}
@@ -201,11 +149,52 @@ QuickHuffman$Writer::QuickHuffman$Writer() {
 
 $Class* QuickHuffman$Writer::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(QuickHuffman$Writer$$Lambda$lambda$new$0::classInfo$.name)) {
+		if (name->equals("jdk.internal.net.http.hpack.QuickHuffman$Writer$$Lambda$lambda$new$0")) {
 			return QuickHuffman$Writer$$Lambda$lambda$new$0::load$(name, initialize);
 		}
 	}
-	$loadClass(QuickHuffman$Writer, name, initialize, &_QuickHuffman$Writer_ClassInfo_, allocate$QuickHuffman$Writer);
+	$FieldInfo fieldInfos$$[] = {
+		{"UPDATER", "Ljdk/internal/net/http/hpack/HPACK$BufferUpdateConsumer;", nullptr, $PRIVATE | $FINAL, $field(QuickHuffman$Writer, UPDATER)},
+		{"source", "Ljava/lang/CharSequence;", nullptr, $PRIVATE, $field(QuickHuffman$Writer, source)},
+		{"padded", "Z", nullptr, $PRIVATE, $field(QuickHuffman$Writer, padded)},
+		{"pos", "I", nullptr, $PRIVATE, $field(QuickHuffman$Writer, pos)},
+		{"end", "I", nullptr, $PRIVATE, $field(QuickHuffman$Writer, end)},
+		{"buffer", "J", nullptr, $PRIVATE, $field(QuickHuffman$Writer, buffer)},
+		{"bufferLen", "I", nullptr, $PRIVATE, $field(QuickHuffman$Writer, bufferLen)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(QuickHuffman$Writer, init$, void)},
+		{"from", "(Ljava/lang/CharSequence;II)Ljdk/internal/net/http/hpack/QuickHuffman$Writer;", nullptr, $PUBLIC, $virtualMethod(QuickHuffman$Writer, from, QuickHuffman$Writer*, $CharSequence*, int32_t, int32_t)},
+		{"lambda$new$0", "(JI)V", nullptr, $PRIVATE | $SYNTHETIC, $method(QuickHuffman$Writer, lambda$new$0, void, int64_t, int32_t)},
+		{"lengthOf", "(Ljava/lang/CharSequence;II)I", nullptr, $PUBLIC, $virtualMethod(QuickHuffman$Writer, lengthOf, int32_t, $CharSequence*, int32_t, int32_t)},
+		{"reset", "()Ljdk/internal/net/http/hpack/QuickHuffman$Writer;", nullptr, $PUBLIC, $virtualMethod(QuickHuffman$Writer, reset, QuickHuffman$Writer*)},
+		{"write", "(Ljava/nio/ByteBuffer;)Z", nullptr, $PUBLIC, $virtualMethod(QuickHuffman$Writer, write, bool, $ByteBuffer*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.net.http.hpack.QuickHuffman$Writer", "jdk.internal.net.http.hpack.QuickHuffman", "Writer", $STATIC | $FINAL},
+		{"jdk.internal.net.http.hpack.Huffman$Writer", "jdk.internal.net.http.hpack.Huffman", "Writer", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"jdk.internal.net.http.hpack.QuickHuffman$Writer",
+		"java.lang.Object",
+		"jdk.internal.net.http.hpack.Huffman$Writer",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.net.http.hpack.QuickHuffman"
+	};
+	$loadClass(QuickHuffman$Writer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(QuickHuffman$Writer);
+	});
 	return class$;
 }
 

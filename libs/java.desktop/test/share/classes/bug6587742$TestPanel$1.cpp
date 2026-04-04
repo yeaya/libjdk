@@ -1,5 +1,4 @@
 #include <bug6587742$TestPanel$1.h>
-
 #include <bug6587742$TestPanel.h>
 #include <bug6587742.h>
 #include <java/awt/Component.h>
@@ -18,65 +17,18 @@
 
 using $bug6587742 = ::bug6587742;
 using $bug6587742$TestPanel = ::bug6587742$TestPanel;
-using $Component = ::java::awt::Component;
 using $ItemEvent = ::java::awt::event::ItemEvent;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $JComboBox = ::javax::swing::JComboBox;
 using $JOptionPane = ::javax::swing::JOptionPane;
-using $LookAndFeel = ::javax::swing::LookAndFeel;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $UIManager = ::javax::swing::UIManager;
 using $UnsupportedLookAndFeelException = ::javax::swing::UnsupportedLookAndFeelException;
 using $MetalLookAndFeel = ::javax::swing::plaf::metal::MetalLookAndFeel;
 using $MetalTheme = ::javax::swing::plaf::metal::MetalTheme;
-
-$FieldInfo _bug6587742$TestPanel$1_FieldInfo_[] = {
-	{"this$1", "Lbug6587742$TestPanel;", nullptr, $FINAL | $SYNTHETIC, $field(bug6587742$TestPanel$1, this$1)},
-	{"val$this$0", "Lbug6587742;", nullptr, $FINAL | $SYNTHETIC, $field(bug6587742$TestPanel$1, val$this$0)},
-	{}
-};
-
-$MethodInfo _bug6587742$TestPanel$1_MethodInfo_[] = {
-	{"<init>", "(Lbug6587742$TestPanel;Lbug6587742;)V", "()V", 0, $method(bug6587742$TestPanel$1, init$, void, $bug6587742$TestPanel*, $bug6587742*)},
-	{"itemStateChanged", "(Ljava/awt/event/ItemEvent;)V", nullptr, $PUBLIC, $virtualMethod(bug6587742$TestPanel$1, itemStateChanged, void, $ItemEvent*)},
-	{}
-};
-
-$EnclosingMethodInfo _bug6587742$TestPanel$1_EnclosingMethodInfo_ = {
-	"bug6587742$TestPanel",
-	"<init>",
-	"(Lbug6587742;)V"
-};
-
-$InnerClassInfo _bug6587742$TestPanel$1_InnerClassesInfo_[] = {
-	{"bug6587742$TestPanel", "bug6587742", "TestPanel", $PRIVATE},
-	{"bug6587742$TestPanel$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _bug6587742$TestPanel$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"bug6587742$TestPanel$1",
-	"java.lang.Object",
-	"java.awt.event.ItemListener",
-	_bug6587742$TestPanel$1_FieldInfo_,
-	_bug6587742$TestPanel$1_MethodInfo_,
-	nullptr,
-	&_bug6587742$TestPanel$1_EnclosingMethodInfo_,
-	_bug6587742$TestPanel$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"bug6587742"
-};
-
-$Object* allocate$bug6587742$TestPanel$1($Class* clazz) {
-	return $of($alloc(bug6587742$TestPanel$1));
-}
 
 void bug6587742$TestPanel$1::init$($bug6587742$TestPanel* this$1, $bug6587742* val$this$0) {
 	$set(this, this$1, this$1);
@@ -84,12 +36,12 @@ void bug6587742$TestPanel$1::init$($bug6587742$TestPanel* this$1, $bug6587742* v
 }
 
 void bug6587742$TestPanel$1::itemStateChanged($ItemEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($MetalTheme, theme, $cast($MetalTheme, $nc(this->this$1->cbThemes)->getSelectedItem()));
 	if (theme != nullptr) {
 		$MetalLookAndFeel::setCurrentTheme(theme);
 		try {
-			$UIManager::setLookAndFeel(static_cast<$LookAndFeel*>($$new($MetalLookAndFeel)));
+			$UIManager::setLookAndFeel($$new($MetalLookAndFeel));
 		} catch ($UnsupportedLookAndFeelException& e1) {
 			$JOptionPane::showMessageDialog(this->this$1, $$str({"Can\'t change theme: "_s, $(e1->getMessage())}), "Error"_s, $JOptionPane::ERROR_MESSAGE);
 			return;
@@ -102,7 +54,44 @@ bug6587742$TestPanel$1::bug6587742$TestPanel$1() {
 }
 
 $Class* bug6587742$TestPanel$1::load$($String* name, bool initialize) {
-	$loadClass(bug6587742$TestPanel$1, name, initialize, &_bug6587742$TestPanel$1_ClassInfo_, allocate$bug6587742$TestPanel$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$1", "Lbug6587742$TestPanel;", nullptr, $FINAL | $SYNTHETIC, $field(bug6587742$TestPanel$1, this$1)},
+		{"val$this$0", "Lbug6587742;", nullptr, $FINAL | $SYNTHETIC, $field(bug6587742$TestPanel$1, val$this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lbug6587742$TestPanel;Lbug6587742;)V", "()V", 0, $method(bug6587742$TestPanel$1, init$, void, $bug6587742$TestPanel*, $bug6587742*)},
+		{"itemStateChanged", "(Ljava/awt/event/ItemEvent;)V", nullptr, $PUBLIC, $virtualMethod(bug6587742$TestPanel$1, itemStateChanged, void, $ItemEvent*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"bug6587742$TestPanel",
+		"<init>",
+		"(Lbug6587742;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"bug6587742$TestPanel", "bug6587742", "TestPanel", $PRIVATE},
+		{"bug6587742$TestPanel$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"bug6587742$TestPanel$1",
+		"java.lang.Object",
+		"java.awt.event.ItemListener",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"bug6587742"
+	};
+	$loadClass(bug6587742$TestPanel$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(bug6587742$TestPanel$1);
+	});
 	return class$;
 }
 

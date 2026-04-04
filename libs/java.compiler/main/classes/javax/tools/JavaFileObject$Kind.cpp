@@ -1,5 +1,4 @@
 #include <javax/tools/JavaFileObject$Kind.h>
-
 #include <java/lang/Enum.h>
 #include <java/util/Objects.h>
 #include <javax/tools/JavaFileObject.h>
@@ -20,49 +19,6 @@ using $Objects = ::java::util::Objects;
 
 namespace javax {
 	namespace tools {
-
-$FieldInfo _JavaFileObject$Kind_FieldInfo_[] = {
-	{"SOURCE", "Ljavax/tools/JavaFileObject$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JavaFileObject$Kind, SOURCE)},
-	{"CLASS", "Ljavax/tools/JavaFileObject$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JavaFileObject$Kind, CLASS)},
-	{"HTML", "Ljavax/tools/JavaFileObject$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JavaFileObject$Kind, HTML)},
-	{"OTHER", "Ljavax/tools/JavaFileObject$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JavaFileObject$Kind, OTHER)},
-	{"$VALUES", "[Ljavax/tools/JavaFileObject$Kind;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(JavaFileObject$Kind, $VALUES)},
-	{"extension", "Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $field(JavaFileObject$Kind, extension)},
-	{}
-};
-
-$MethodInfo _JavaFileObject$Kind_MethodInfo_[] = {
-	{"$values", "()[Ljavax/tools/JavaFileObject$Kind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JavaFileObject$Kind, $values, $JavaFileObject$KindArray*)},
-	{"<init>", "(Ljava/lang/String;ILjava/lang/String;)V", "(Ljava/lang/String;)V", $PRIVATE, $method(JavaFileObject$Kind, init$, void, $String*, int32_t, $String*)},
-	{"valueOf", "(Ljava/lang/String;)Ljavax/tools/JavaFileObject$Kind;", nullptr, $PUBLIC | $STATIC, $staticMethod(JavaFileObject$Kind, valueOf, JavaFileObject$Kind*, $String*)},
-	{"values", "()[Ljavax/tools/JavaFileObject$Kind;", nullptr, $PUBLIC | $STATIC, $staticMethod(JavaFileObject$Kind, values, $JavaFileObject$KindArray*)},
-	{}
-};
-
-$InnerClassInfo _JavaFileObject$Kind_InnerClassesInfo_[] = {
-	{"javax.tools.JavaFileObject$Kind", "javax.tools.JavaFileObject", "Kind", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _JavaFileObject$Kind_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"javax.tools.JavaFileObject$Kind",
-	"java.lang.Enum",
-	nullptr,
-	_JavaFileObject$Kind_FieldInfo_,
-	_JavaFileObject$Kind_MethodInfo_,
-	"Ljava/lang/Enum<Ljavax/tools/JavaFileObject$Kind;>;",
-	nullptr,
-	_JavaFileObject$Kind_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.tools.JavaFileObject"
-};
-
-$Object* allocate$JavaFileObject$Kind($Class* clazz) {
-	return $of($alloc(JavaFileObject$Kind));
-}
 
 JavaFileObject$Kind* JavaFileObject$Kind::SOURCE = nullptr;
 JavaFileObject$Kind* JavaFileObject$Kind::CLASS = nullptr;
@@ -95,7 +51,7 @@ void JavaFileObject$Kind::init$($String* $enum$name, int32_t $enum$ordinal, $Str
 	$set(this, extension, $cast($String, $Objects::requireNonNull(extension)));
 }
 
-void clinit$JavaFileObject$Kind($Class* class$) {
+void JavaFileObject$Kind::clinit$($Class* clazz) {
 	$assignStatic(JavaFileObject$Kind::SOURCE, $new(JavaFileObject$Kind, "SOURCE"_s, 0, ".java"_s));
 	$assignStatic(JavaFileObject$Kind::CLASS, $new(JavaFileObject$Kind, "CLASS"_s, 1, ".class"_s));
 	$assignStatic(JavaFileObject$Kind::HTML, $new(JavaFileObject$Kind, "HTML"_s, 2, ".html"_s));
@@ -107,7 +63,44 @@ JavaFileObject$Kind::JavaFileObject$Kind() {
 }
 
 $Class* JavaFileObject$Kind::load$($String* name, bool initialize) {
-	$loadClass(JavaFileObject$Kind, name, initialize, &_JavaFileObject$Kind_ClassInfo_, clinit$JavaFileObject$Kind, allocate$JavaFileObject$Kind);
+	$FieldInfo fieldInfos$$[] = {
+		{"SOURCE", "Ljavax/tools/JavaFileObject$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JavaFileObject$Kind, SOURCE)},
+		{"CLASS", "Ljavax/tools/JavaFileObject$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JavaFileObject$Kind, CLASS)},
+		{"HTML", "Ljavax/tools/JavaFileObject$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JavaFileObject$Kind, HTML)},
+		{"OTHER", "Ljavax/tools/JavaFileObject$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JavaFileObject$Kind, OTHER)},
+		{"$VALUES", "[Ljavax/tools/JavaFileObject$Kind;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(JavaFileObject$Kind, $VALUES)},
+		{"extension", "Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $field(JavaFileObject$Kind, extension)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Ljavax/tools/JavaFileObject$Kind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JavaFileObject$Kind, $values, $JavaFileObject$KindArray*)},
+		{"<init>", "(Ljava/lang/String;ILjava/lang/String;)V", "(Ljava/lang/String;)V", $PRIVATE, $method(JavaFileObject$Kind, init$, void, $String*, int32_t, $String*)},
+		{"valueOf", "(Ljava/lang/String;)Ljavax/tools/JavaFileObject$Kind;", nullptr, $PUBLIC | $STATIC, $staticMethod(JavaFileObject$Kind, valueOf, JavaFileObject$Kind*, $String*)},
+		{"values", "()[Ljavax/tools/JavaFileObject$Kind;", nullptr, $PUBLIC | $STATIC, $staticMethod(JavaFileObject$Kind, values, $JavaFileObject$KindArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.tools.JavaFileObject$Kind", "javax.tools.JavaFileObject", "Kind", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"javax.tools.JavaFileObject$Kind",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Ljavax/tools/JavaFileObject$Kind;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.tools.JavaFileObject"
+	};
+	$loadClass(JavaFileObject$Kind, name, initialize, &classInfo$$, JavaFileObject$Kind::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JavaFileObject$Kind));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/apple/laf/AquaBorder$Default.h>
-
 #include <com/apple/laf/AquaBorder.h>
 #include <com/apple/laf/AquaUtilControlSize$SizeDescriptor.h>
 #include <com/apple/laf/AquaUtilControlSize$SizeVariant.h>
@@ -16,38 +15,8 @@ namespace com {
 	namespace apple {
 		namespace laf {
 
-$MethodInfo _AquaBorder$Default_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(AquaBorder$Default, init$, void)},
-	{}
-};
-
-$InnerClassInfo _AquaBorder$Default_InnerClassesInfo_[] = {
-	{"com.apple.laf.AquaBorder$Default", "com.apple.laf.AquaBorder", "Default", $STATIC},
-	{}
-};
-
-$ClassInfo _AquaBorder$Default_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.apple.laf.AquaBorder$Default",
-	"com.apple.laf.AquaBorder",
-	nullptr,
-	nullptr,
-	_AquaBorder$Default_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AquaBorder$Default_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.apple.laf.AquaBorder"
-};
-
-$Object* allocate$AquaBorder$Default($Class* clazz) {
-	return $of($alloc(AquaBorder$Default));
-}
-
 void AquaBorder$Default::init$() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$AquaBorder::init$($$new($AquaUtilControlSize$SizeDescriptor, $$new($AquaUtilControlSize$SizeVariant)));
 }
 
@@ -55,7 +24,32 @@ AquaBorder$Default::AquaBorder$Default() {
 }
 
 $Class* AquaBorder$Default::load$($String* name, bool initialize) {
-	$loadClass(AquaBorder$Default, name, initialize, &_AquaBorder$Default_ClassInfo_, allocate$AquaBorder$Default);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(AquaBorder$Default, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.laf.AquaBorder$Default", "com.apple.laf.AquaBorder", "Default", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.apple.laf.AquaBorder$Default",
+		"com.apple.laf.AquaBorder",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.apple.laf.AquaBorder"
+	};
+	$loadClass(AquaBorder$Default, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AquaBorder$Default));
+	});
 	return class$;
 }
 

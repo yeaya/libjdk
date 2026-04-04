@@ -1,10 +1,8 @@
 #include <sun/lwawt/macosx/CPrinterJob$1.h>
-
 #include <java/awt/SecondaryLoop.h>
 #include <sun/lwawt/macosx/CPrinterJob.h>
 #include <jcpp.h>
 
-using $SecondaryLoop = ::java::awt::SecondaryLoop;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -15,48 +13,6 @@ using $CPrinterJob = ::sun::lwawt::macosx::CPrinterJob;
 namespace sun {
 	namespace lwawt {
 		namespace macosx {
-
-$FieldInfo _CPrinterJob$1_FieldInfo_[] = {
-	{"this$0", "Lsun/lwawt/macosx/CPrinterJob;", nullptr, $FINAL | $SYNTHETIC, $field(CPrinterJob$1, this$0)},
-	{}
-};
-
-$MethodInfo _CPrinterJob$1_MethodInfo_[] = {
-	{"<init>", "(Lsun/lwawt/macosx/CPrinterJob;)V", nullptr, 0, $method(CPrinterJob$1, init$, void, $CPrinterJob*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(CPrinterJob$1, run, void)},
-	{}
-};
-
-$EnclosingMethodInfo _CPrinterJob$1_EnclosingMethodInfo_ = {
-	"sun.lwawt.macosx.CPrinterJob",
-	"completePrintLoop",
-	"()V"
-};
-
-$InnerClassInfo _CPrinterJob$1_InnerClassesInfo_[] = {
-	{"sun.lwawt.macosx.CPrinterJob$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _CPrinterJob$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.lwawt.macosx.CPrinterJob$1",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	_CPrinterJob$1_FieldInfo_,
-	_CPrinterJob$1_MethodInfo_,
-	nullptr,
-	&_CPrinterJob$1_EnclosingMethodInfo_,
-	_CPrinterJob$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.lwawt.macosx.CPrinterJob"
-};
-
-$Object* allocate$CPrinterJob$1($Class* clazz) {
-	return $of($alloc(CPrinterJob$1));
-}
 
 void CPrinterJob$1::init$($CPrinterJob* this$0) {
 	$set(this, this$0, this$0);
@@ -75,7 +31,42 @@ CPrinterJob$1::CPrinterJob$1() {
 }
 
 $Class* CPrinterJob$1::load$($String* name, bool initialize) {
-	$loadClass(CPrinterJob$1, name, initialize, &_CPrinterJob$1_ClassInfo_, allocate$CPrinterJob$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/lwawt/macosx/CPrinterJob;", nullptr, $FINAL | $SYNTHETIC, $field(CPrinterJob$1, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/lwawt/macosx/CPrinterJob;)V", nullptr, 0, $method(CPrinterJob$1, init$, void, $CPrinterJob*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(CPrinterJob$1, run, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.lwawt.macosx.CPrinterJob",
+		"completePrintLoop",
+		"()V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.lwawt.macosx.CPrinterJob$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.lwawt.macosx.CPrinterJob$1",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.lwawt.macosx.CPrinterJob"
+	};
+	$loadClass(CPrinterJob$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CPrinterJob$1);
+	});
 	return class$;
 }
 

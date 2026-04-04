@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/code/Attribute$Compound.h>
-
 #include <com/sun/tools/javac/code/Attribute$Array.h>
 #include <com/sun/tools/javac/code/Attribute$TypeCompound.h>
 #include <com/sun/tools/javac/code/Attribute$Visitor.h>
@@ -17,7 +16,6 @@
 #include <java/util/Iterator.h>
 #include <java/util/LinkedHashMap.h>
 #include <java/util/Map.h>
-#include <javax/lang/model/element/AnnotationMirror.h>
 #include <javax/lang/model/element/AnnotationValueVisitor.h>
 #include <javax/lang/model/element/Name.h>
 #include <javax/lang/model/type/DeclaredType.h>
@@ -44,7 +42,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Iterator = ::java::util::Iterator;
 using $LinkedHashMap = ::java::util::LinkedHashMap;
 using $Map = ::java::util::Map;
-using $AnnotationMirror = ::javax::lang::model::element::AnnotationMirror;
 using $AnnotationValueVisitor = ::javax::lang::model::element::AnnotationValueVisitor;
 using $DeclaredType = ::javax::lang::model::type::DeclaredType;
 
@@ -53,63 +50,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace code {
-
-$FieldInfo _Attribute$Compound_FieldInfo_[] = {
-	{"values", "Lcom/sun/tools/javac/util/List;", "Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/util/Pair<Lcom/sun/tools/javac/code/Symbol$MethodSymbol;Lcom/sun/tools/javac/code/Attribute;>;>;", $PUBLIC | $FINAL, $field(Attribute$Compound, values)},
-	{"position", "Lcom/sun/tools/javac/code/TypeAnnotationPosition;", nullptr, $PUBLIC, $field(Attribute$Compound, position)},
-	{"synthesized", "Z", nullptr, $PRIVATE, $field(Attribute$Compound, synthesized)},
-	{}
-};
-
-$MethodInfo _Attribute$Compound_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/code/TypeAnnotationPosition;)V", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/util/Pair<Lcom/sun/tools/javac/code/Symbol$MethodSymbol;Lcom/sun/tools/javac/code/Attribute;>;>;Lcom/sun/tools/javac/code/TypeAnnotationPosition;)V", $PUBLIC, $method(Attribute$Compound, init$, void, $Type*, $List*, $TypeAnnotationPosition*)},
-	{"<init>", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/util/Pair<Lcom/sun/tools/javac/code/Symbol$MethodSymbol;Lcom/sun/tools/javac/code/Attribute;>;>;)V", $PUBLIC, $method(Attribute$Compound, init$, void, $Type*, $List*)},
-	{"accept", "(Lcom/sun/tools/javac/code/Attribute$Visitor;)V", nullptr, $PUBLIC, $virtualMethod(Attribute$Compound, accept, void, $Attribute$Visitor*)},
-	{"accept", "(Ljavax/lang/model/element/AnnotationValueVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;P:Ljava/lang/Object;>(Ljavax/lang/model/element/AnnotationValueVisitor<TR;TP;>;TP;)TR;", $PUBLIC, $virtualMethod(Attribute$Compound, accept, $Object*, $AnnotationValueVisitor*, Object$*)},
-	{"getAnnotationType", "()Ljavax/lang/model/type/DeclaredType;", nullptr, $PUBLIC, $virtualMethod(Attribute$Compound, getAnnotationType, $DeclaredType*)},
-	{"getElemPair", "(Lcom/sun/tools/javac/util/Name;)Lcom/sun/tools/javac/util/Pair;", "(Lcom/sun/tools/javac/util/Name;)Lcom/sun/tools/javac/util/Pair<Lcom/sun/tools/javac/code/Symbol$MethodSymbol;Lcom/sun/tools/javac/code/Attribute;>;", $PRIVATE, $method(Attribute$Compound, getElemPair, $Pair*, $Name*)},
-	{"getElementValues", "()Ljava/util/Map;", "()Ljava/util/Map<Lcom/sun/tools/javac/code/Symbol$MethodSymbol;Lcom/sun/tools/javac/code/Attribute;>;", $PUBLIC, $virtualMethod(Attribute$Compound, getElementValues, $Map*)},
-	{"getFirstEmbeddedTC", "()Lcom/sun/tools/javac/code/Attribute$Compound;", nullptr, $PRIVATE, $method(Attribute$Compound, getFirstEmbeddedTC, Attribute$Compound*)},
-	{"getPosition", "()Lcom/sun/tools/javac/code/TypeAnnotationPosition;", nullptr, $PUBLIC, $virtualMethod(Attribute$Compound, getPosition, $TypeAnnotationPosition*)},
-	{"getValue", "()Lcom/sun/tools/javac/code/Attribute$Compound;", nullptr, $PUBLIC, $virtualMethod(Attribute$Compound, getValue, $Object*)},
-	{"hasUnknownPosition", "()Z", nullptr, $PUBLIC, $virtualMethod(Attribute$Compound, hasUnknownPosition, bool)},
-	{"isContainerTypeCompound", "()Z", nullptr, $PUBLIC, $virtualMethod(Attribute$Compound, isContainerTypeCompound, bool)},
-	{"isSynthesized", "()Z", nullptr, $PUBLIC, $virtualMethod(Attribute$Compound, isSynthesized, bool)},
-	{"member", "(Lcom/sun/tools/javac/util/Name;)Lcom/sun/tools/javac/code/Attribute;", nullptr, $PUBLIC, $virtualMethod(Attribute$Compound, member, $Attribute*, $Name*)},
-	{"setSynthesized", "(Z)V", nullptr, $PUBLIC, $virtualMethod(Attribute$Compound, setSynthesized, void, bool)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Attribute$Compound, toString, $String*)},
-	{"tryFixPosition", "()Z", nullptr, $PUBLIC, $virtualMethod(Attribute$Compound, tryFixPosition, bool)},
-	{}
-};
-
-$InnerClassInfo _Attribute$Compound_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.code.Attribute$Compound", "com.sun.tools.javac.code.Attribute", "Compound", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _Attribute$Compound_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.code.Attribute$Compound",
-	"com.sun.tools.javac.code.Attribute",
-	"javax.lang.model.element.AnnotationMirror",
-	_Attribute$Compound_FieldInfo_,
-	_Attribute$Compound_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Attribute$Compound_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.code.Attribute"
-};
-
-$Object* allocate$Attribute$Compound($Class* clazz) {
-	return $of($alloc(Attribute$Compound));
-}
 
 int32_t Attribute$Compound::hashCode() {
 	 return this->$Attribute::hashCode();
@@ -147,12 +87,12 @@ void Attribute$Compound::init$($Type* type, $List* values) {
 }
 
 $TypeAnnotationPosition* Attribute$Compound::getPosition() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (hasUnknownPosition()) {
 		if ($nc(this->values)->size() != 0) {
-			$var($Name, valueName, $nc($nc($nc($nc(($cast($Symbol$MethodSymbol, $nc(($cast($Pair, $nc(this->values)->head)))->fst)))->name)->table)->names)->value);
+			$var($Name, valueName, $nc($nc($nc($nc(($cast($Symbol$MethodSymbol, $nc(($cast($Pair, this->values->head)))->fst)))->name)->table)->names)->value);
 			$var($Pair, res, getElemPair(valueName));
-			$set(this, position, res == nullptr ? ($TypeAnnotationPosition*)nullptr : $nc(($cast($Attribute, $nc(res)->snd)))->getPosition());
+			$set(this, position, res == nullptr ? ($TypeAnnotationPosition*)nullptr : $nc($cast($Attribute, res->snd))->getPosition());
 		}
 	}
 	return this->position;
@@ -167,13 +107,13 @@ bool Attribute$Compound::isContainerTypeCompound() {
 }
 
 Attribute$Compound* Attribute$Compound::getFirstEmbeddedTC() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(this->values)->size() == 1) {
-		$var($Pair, val, $cast($Pair, $nc(this->values)->get(0)));
+		$var($Pair, val, $cast($Pair, this->values->get(0)));
 		{
 			$var($Attribute$Array, arr, nullptr);
 			$var($Attribute$TypeCompound, compound, nullptr);
-			bool var$1 = $nc($($cast($Name, $nc(($cast($Symbol$MethodSymbol, $nc(val)->fst)))->getSimpleName())))->contentEquals("value"_s);
+			bool var$1 = $$sure($Name, $nc($cast($Symbol$MethodSymbol, $nc(val)->fst))->getSimpleName())->contentEquals("value"_s);
 			if (var$1) {
 				$var($Object, patt7548$temp, val->snd);
 				bool var$2 = $instanceOf($Attribute$Array, patt7548$temp);
@@ -185,7 +125,7 @@ Attribute$Compound* Attribute$Compound::getFirstEmbeddedTC() {
 			}
 			bool var$0 = var$1 && $nc($nc(arr)->values)->length != 0;
 			if (var$0) {
-				$var($Attribute, patt7660$temp, $nc(arr->values)->get(0));
+				$var($Attribute, patt7660$temp, arr->values->get(0));
 				bool var$3 = $instanceOf($Attribute$TypeCompound, patt7660$temp);
 				if (var$3) {
 					$assign(compound, $cast($Attribute$TypeCompound, patt7660$temp));
@@ -207,7 +147,7 @@ bool Attribute$Compound::tryFixPosition() {
 	}
 	$var(Attribute$Compound, from, getFirstEmbeddedTC());
 	$init($TargetType);
-	if (from != nullptr && from->position != nullptr && $nc(from->position)->type != $TargetType::UNKNOWN) {
+	if (from != nullptr && from->position != nullptr && from->position->type != $TargetType::UNKNOWN) {
 		$set(this, position, from->position);
 		return true;
 	}
@@ -224,16 +164,16 @@ void Attribute$Compound::accept($Attribute$Visitor* v) {
 }
 
 $String* Attribute$Compound::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, buf, $new($StringBuilder));
 	buf->append("@"_s);
-	buf->append($of(this->type));
+	buf->append(this->type);
 	int32_t len = $nc(this->values)->length();
 	if (len > 0) {
 		buf->append(u'(');
 		bool first = true;
 		{
-			$var($Iterator, i$, $nc(this->values)->iterator());
+			$var($Iterator, i$, this->values->iterator());
 			for (; $nc(i$)->hasNext();) {
 				$var($Pair, value, $cast($Pair, i$->next()));
 				{
@@ -243,7 +183,7 @@ $String* Attribute$Compound::toString() {
 					first = false;
 					$var($Name, name, $nc(($cast($Symbol$MethodSymbol, $nc(value)->fst)))->name);
 					if (len > 1 || name != $nc($nc($nc(name)->table)->names)->value) {
-						buf->append(static_cast<$CharSequence*>(name));
+						buf->append(name);
 						buf->append(u'=');
 					}
 					buf->append(value->snd);
@@ -257,18 +197,16 @@ $String* Attribute$Compound::toString() {
 
 $Attribute* Attribute$Compound::member($Name* member) {
 	$var($Pair, res, getElemPair(member));
-	return res == nullptr ? ($Attribute*)nullptr : $cast($Attribute, $nc(res)->snd);
+	return res == nullptr ? ($Attribute*)nullptr : $cast($Attribute, res->snd);
 }
 
 $Pair* Attribute$Compound::getElemPair($Name* member) {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Iterator, i$, $nc(this->values)->iterator());
-		for (; $nc(i$)->hasNext();) {
-			$var($Pair, pair, $cast($Pair, i$->next()));
-			if ($nc(($cast($Symbol$MethodSymbol, $nc(pair)->fst)))->name == member) {
-				return pair;
-			}
+	$useLocalObjectStack();
+	$var($Iterator, i$, $nc(this->values)->iterator());
+	for (; $nc(i$)->hasNext();) {
+		$var($Pair, pair, $cast($Pair, i$->next()));
+		if ($nc(($cast($Symbol$MethodSymbol, $nc(pair)->fst)))->name == member) {
+			return pair;
 		}
 	}
 	return nullptr;
@@ -279,7 +217,7 @@ $Object* Attribute$Compound::getValue() {
 }
 
 $Object* Attribute$Compound::accept($AnnotationValueVisitor* v, Object$* p) {
-	return $of($nc(v)->visitAnnotation(this, p));
+	return $nc(v)->visitAnnotation(this, p);
 }
 
 $DeclaredType* Attribute$Compound::getAnnotationType() {
@@ -287,13 +225,13 @@ $DeclaredType* Attribute$Compound::getAnnotationType() {
 }
 
 $Map* Attribute$Compound::getElementValues() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Map, valmap, $new($LinkedHashMap));
 	{
 		$var($Iterator, i$, $nc(this->values)->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Pair, value, $cast($Pair, i$->next()));
-			valmap->put($cast($Symbol$MethodSymbol, $nc(value)->fst), $cast($Attribute, value->snd));
+			valmap->put($cast($Symbol$MethodSymbol, $nc(value)->fst), $cast($Attribute, $nc(value)->snd));
 		}
 	}
 	return valmap;
@@ -303,7 +241,58 @@ Attribute$Compound::Attribute$Compound() {
 }
 
 $Class* Attribute$Compound::load$($String* name, bool initialize) {
-	$loadClass(Attribute$Compound, name, initialize, &_Attribute$Compound_ClassInfo_, allocate$Attribute$Compound);
+	$FieldInfo fieldInfos$$[] = {
+		{"values", "Lcom/sun/tools/javac/util/List;", "Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/util/Pair<Lcom/sun/tools/javac/code/Symbol$MethodSymbol;Lcom/sun/tools/javac/code/Attribute;>;>;", $PUBLIC | $FINAL, $field(Attribute$Compound, values)},
+		{"position", "Lcom/sun/tools/javac/code/TypeAnnotationPosition;", nullptr, $PUBLIC, $field(Attribute$Compound, position)},
+		{"synthesized", "Z", nullptr, $PRIVATE, $field(Attribute$Compound, synthesized)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/code/TypeAnnotationPosition;)V", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/util/Pair<Lcom/sun/tools/javac/code/Symbol$MethodSymbol;Lcom/sun/tools/javac/code/Attribute;>;>;Lcom/sun/tools/javac/code/TypeAnnotationPosition;)V", $PUBLIC, $method(Attribute$Compound, init$, void, $Type*, $List*, $TypeAnnotationPosition*)},
+		{"<init>", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/util/Pair<Lcom/sun/tools/javac/code/Symbol$MethodSymbol;Lcom/sun/tools/javac/code/Attribute;>;>;)V", $PUBLIC, $method(Attribute$Compound, init$, void, $Type*, $List*)},
+		{"accept", "(Lcom/sun/tools/javac/code/Attribute$Visitor;)V", nullptr, $PUBLIC, $virtualMethod(Attribute$Compound, accept, void, $Attribute$Visitor*)},
+		{"accept", "(Ljavax/lang/model/element/AnnotationValueVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;P:Ljava/lang/Object;>(Ljavax/lang/model/element/AnnotationValueVisitor<TR;TP;>;TP;)TR;", $PUBLIC, $virtualMethod(Attribute$Compound, accept, $Object*, $AnnotationValueVisitor*, Object$*)},
+		{"getAnnotationType", "()Ljavax/lang/model/type/DeclaredType;", nullptr, $PUBLIC, $virtualMethod(Attribute$Compound, getAnnotationType, $DeclaredType*)},
+		{"getElemPair", "(Lcom/sun/tools/javac/util/Name;)Lcom/sun/tools/javac/util/Pair;", "(Lcom/sun/tools/javac/util/Name;)Lcom/sun/tools/javac/util/Pair<Lcom/sun/tools/javac/code/Symbol$MethodSymbol;Lcom/sun/tools/javac/code/Attribute;>;", $PRIVATE, $method(Attribute$Compound, getElemPair, $Pair*, $Name*)},
+		{"getElementValues", "()Ljava/util/Map;", "()Ljava/util/Map<Lcom/sun/tools/javac/code/Symbol$MethodSymbol;Lcom/sun/tools/javac/code/Attribute;>;", $PUBLIC, $virtualMethod(Attribute$Compound, getElementValues, $Map*)},
+		{"getFirstEmbeddedTC", "()Lcom/sun/tools/javac/code/Attribute$Compound;", nullptr, $PRIVATE, $method(Attribute$Compound, getFirstEmbeddedTC, Attribute$Compound*)},
+		{"getPosition", "()Lcom/sun/tools/javac/code/TypeAnnotationPosition;", nullptr, $PUBLIC, $virtualMethod(Attribute$Compound, getPosition, $TypeAnnotationPosition*)},
+		{"getValue", "()Lcom/sun/tools/javac/code/Attribute$Compound;", nullptr, $PUBLIC, $virtualMethod(Attribute$Compound, getValue, $Object*)},
+		{"hasUnknownPosition", "()Z", nullptr, $PUBLIC, $virtualMethod(Attribute$Compound, hasUnknownPosition, bool)},
+		{"isContainerTypeCompound", "()Z", nullptr, $PUBLIC, $virtualMethod(Attribute$Compound, isContainerTypeCompound, bool)},
+		{"isSynthesized", "()Z", nullptr, $PUBLIC, $virtualMethod(Attribute$Compound, isSynthesized, bool)},
+		{"member", "(Lcom/sun/tools/javac/util/Name;)Lcom/sun/tools/javac/code/Attribute;", nullptr, $PUBLIC, $virtualMethod(Attribute$Compound, member, $Attribute*, $Name*)},
+		{"setSynthesized", "(Z)V", nullptr, $PUBLIC, $virtualMethod(Attribute$Compound, setSynthesized, void, bool)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Attribute$Compound, toString, $String*)},
+		{"tryFixPosition", "()Z", nullptr, $PUBLIC, $virtualMethod(Attribute$Compound, tryFixPosition, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.code.Attribute$Compound", "com.sun.tools.javac.code.Attribute", "Compound", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.code.Attribute$Compound",
+		"com.sun.tools.javac.code.Attribute",
+		"javax.lang.model.element.AnnotationMirror",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.code.Attribute"
+	};
+	$loadClass(Attribute$Compound, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Attribute$Compound));
+	});
 	return class$;
 }
 

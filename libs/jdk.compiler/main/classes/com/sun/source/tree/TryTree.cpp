@@ -1,5 +1,4 @@
 #include <com/sun/source/tree/TryTree.h>
-
 #include <com/sun/source/tree/BlockTree.h>
 #include <java/util/List.h>
 #include <jcpp.h>
@@ -14,29 +13,25 @@ namespace com {
 		namespace source {
 			namespace tree {
 
-$MethodInfo _TryTree_MethodInfo_[] = {
-	{"getBlock", "()Lcom/sun/source/tree/BlockTree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TryTree, getBlock, $BlockTree*)},
-	{"getCatches", "()Ljava/util/List;", "()Ljava/util/List<+Lcom/sun/source/tree/CatchTree;>;", $PUBLIC | $ABSTRACT, $virtualMethod(TryTree, getCatches, $List*)},
-	{"getFinallyBlock", "()Lcom/sun/source/tree/BlockTree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TryTree, getFinallyBlock, $BlockTree*)},
-	{"getResources", "()Ljava/util/List;", "()Ljava/util/List<+Lcom/sun/source/tree/Tree;>;", $PUBLIC | $ABSTRACT, $virtualMethod(TryTree, getResources, $List*)},
-	{}
-};
-
-$ClassInfo _TryTree_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.source.tree.TryTree",
-	nullptr,
-	"com.sun.source.tree.StatementTree",
-	nullptr,
-	_TryTree_MethodInfo_
-};
-
-$Object* allocate$TryTree($Class* clazz) {
-	return $of($alloc(TryTree));
-}
-
 $Class* TryTree::load$($String* name, bool initialize) {
-	$loadClass(TryTree, name, initialize, &_TryTree_ClassInfo_, allocate$TryTree);
+	$MethodInfo methodInfos$$[] = {
+		{"getBlock", "()Lcom/sun/source/tree/BlockTree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TryTree, getBlock, $BlockTree*)},
+		{"getCatches", "()Ljava/util/List;", "()Ljava/util/List<+Lcom/sun/source/tree/CatchTree;>;", $PUBLIC | $ABSTRACT, $virtualMethod(TryTree, getCatches, $List*)},
+		{"getFinallyBlock", "()Lcom/sun/source/tree/BlockTree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TryTree, getFinallyBlock, $BlockTree*)},
+		{"getResources", "()Ljava/util/List;", "()Ljava/util/List<+Lcom/sun/source/tree/Tree;>;", $PUBLIC | $ABSTRACT, $virtualMethod(TryTree, getResources, $List*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.source.tree.TryTree",
+		nullptr,
+		"com.sun.source.tree.StatementTree",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(TryTree, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TryTree);
+	});
 	return class$;
 }
 

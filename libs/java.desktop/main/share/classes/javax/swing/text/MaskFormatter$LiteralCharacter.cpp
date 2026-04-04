@@ -1,5 +1,4 @@
 #include <javax/swing/text/MaskFormatter$LiteralCharacter.h>
-
 #include <javax/swing/text/MaskFormatter$MaskCharacter.h>
 #include <javax/swing/text/MaskFormatter.h>
 #include <jcpp.h>
@@ -14,45 +13,6 @@ using $MaskFormatter$MaskCharacter = ::javax::swing::text::MaskFormatter$MaskCha
 namespace javax {
 	namespace swing {
 		namespace text {
-
-$FieldInfo _MaskFormatter$LiteralCharacter_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/text/MaskFormatter;", nullptr, $FINAL | $SYNTHETIC, $field(MaskFormatter$LiteralCharacter, this$0)},
-	{"fixedChar", "C", nullptr, $PRIVATE, $field(MaskFormatter$LiteralCharacter, fixedChar)},
-	{}
-};
-
-$MethodInfo _MaskFormatter$LiteralCharacter_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/text/MaskFormatter;C)V", nullptr, $PUBLIC, $method(MaskFormatter$LiteralCharacter, init$, void, $MaskFormatter*, char16_t)},
-	{"getChar", "(C)C", nullptr, $PUBLIC, $virtualMethod(MaskFormatter$LiteralCharacter, getChar, char16_t, char16_t)},
-	{"isLiteral", "()Z", nullptr, $PUBLIC, $virtualMethod(MaskFormatter$LiteralCharacter, isLiteral, bool)},
-	{}
-};
-
-$InnerClassInfo _MaskFormatter$LiteralCharacter_InnerClassesInfo_[] = {
-	{"javax.swing.text.MaskFormatter$LiteralCharacter", "javax.swing.text.MaskFormatter", "LiteralCharacter", $PRIVATE},
-	{"javax.swing.text.MaskFormatter$MaskCharacter", "javax.swing.text.MaskFormatter", "MaskCharacter", $PRIVATE},
-	{}
-};
-
-$ClassInfo _MaskFormatter$LiteralCharacter_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.text.MaskFormatter$LiteralCharacter",
-	"javax.swing.text.MaskFormatter$MaskCharacter",
-	nullptr,
-	_MaskFormatter$LiteralCharacter_FieldInfo_,
-	_MaskFormatter$LiteralCharacter_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MaskFormatter$LiteralCharacter_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.MaskFormatter"
-};
-
-$Object* allocate$MaskFormatter$LiteralCharacter($Class* clazz) {
-	return $of($alloc(MaskFormatter$LiteralCharacter));
-}
 
 void MaskFormatter$LiteralCharacter::init$($MaskFormatter* this$0, char16_t fixedChar) {
 	$set(this, this$0, this$0);
@@ -72,7 +32,40 @@ MaskFormatter$LiteralCharacter::MaskFormatter$LiteralCharacter() {
 }
 
 $Class* MaskFormatter$LiteralCharacter::load$($String* name, bool initialize) {
-	$loadClass(MaskFormatter$LiteralCharacter, name, initialize, &_MaskFormatter$LiteralCharacter_ClassInfo_, allocate$MaskFormatter$LiteralCharacter);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/text/MaskFormatter;", nullptr, $FINAL | $SYNTHETIC, $field(MaskFormatter$LiteralCharacter, this$0)},
+		{"fixedChar", "C", nullptr, $PRIVATE, $field(MaskFormatter$LiteralCharacter, fixedChar)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/text/MaskFormatter;C)V", nullptr, $PUBLIC, $method(MaskFormatter$LiteralCharacter, init$, void, $MaskFormatter*, char16_t)},
+		{"getChar", "(C)C", nullptr, $PUBLIC, $virtualMethod(MaskFormatter$LiteralCharacter, getChar, char16_t, char16_t)},
+		{"isLiteral", "()Z", nullptr, $PUBLIC, $virtualMethod(MaskFormatter$LiteralCharacter, isLiteral, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.MaskFormatter$LiteralCharacter", "javax.swing.text.MaskFormatter", "LiteralCharacter", $PRIVATE},
+		{"javax.swing.text.MaskFormatter$MaskCharacter", "javax.swing.text.MaskFormatter", "MaskCharacter", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.text.MaskFormatter$LiteralCharacter",
+		"javax.swing.text.MaskFormatter$MaskCharacter",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.MaskFormatter"
+	};
+	$loadClass(MaskFormatter$LiteralCharacter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MaskFormatter$LiteralCharacter);
+	});
 	return class$;
 }
 

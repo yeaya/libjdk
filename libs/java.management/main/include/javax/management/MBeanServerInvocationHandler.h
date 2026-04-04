@@ -41,6 +41,7 @@ class $import MBeanServerInvocationHandler : public ::java::lang::reflect::Invoc
 	$class(MBeanServerInvocationHandler, 0, ::java::lang::reflect::InvocationHandler)
 public:
 	MBeanServerInvocationHandler();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::javax::management::MBeanServerConnection* connection, ::javax::management::ObjectName* objectName);
 	void init$(::javax::management::MBeanServerConnection* connection, ::javax::management::ObjectName* objectName, bool isMXBean);
 	$Object* doLocally(Object$* proxy, ::java::lang::reflect::Method* method, $ObjectArray* args);

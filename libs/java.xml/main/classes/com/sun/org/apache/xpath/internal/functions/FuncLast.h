@@ -72,7 +72,7 @@ public:
 	virtual void fixupVariables(::java::util::List* vars, int32_t globalsSize) override;
 	virtual int32_t getCountOfContextNodeList(::com::sun::org::apache::xpath::internal::XPathContext* xctxt);
 	virtual void postCompileStep(::com::sun::org::apache::xpath::internal::compiler::Compiler* compiler) override;
-	static const int64_t serialVersionUID = (int64_t)0x7FC19D9B2ACAD86F;
+	static const int64_t serialVersionUID = (int64_t)0x7fc19d9b2acad86f;
 	bool m_isTopLevel = false;
 };
 

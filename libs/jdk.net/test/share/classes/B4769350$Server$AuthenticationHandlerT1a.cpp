@@ -1,5 +1,4 @@
 #include <B4769350$Server$AuthenticationHandlerT1a.h>
-
 #include <B4769350$AuthenticationHandler.h>
 #include <B4769350$Server.h>
 #include <B4769350.h>
@@ -13,54 +12,13 @@ using $B4769350 = ::B4769350;
 using $B4769350$AuthenticationHandler = ::B4769350$AuthenticationHandler;
 using $B4769350$Server = ::B4769350$Server;
 using $HttpExchange = ::com::sun::net::httpserver::HttpExchange;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $InterruptedException = ::java::lang::InterruptedException;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $BrokenBarrierException = ::java::util::concurrent::BrokenBarrierException;
-using $CyclicBarrier = ::java::util::concurrent::CyclicBarrier;
-
-$FieldInfo _B4769350$Server$AuthenticationHandlerT1a_FieldInfo_[] = {
-	{"this$1", "LB4769350$Server;", nullptr, $FINAL | $SYNTHETIC, $field(B4769350$Server$AuthenticationHandlerT1a, this$1)},
-	{"count", "I", nullptr, $VOLATILE, $field(B4769350$Server$AuthenticationHandlerT1a, count)},
-	{}
-};
-
-$MethodInfo _B4769350$Server$AuthenticationHandlerT1a_MethodInfo_[] = {
-	{"<init>", "(LB4769350$Server;)V", nullptr, 0, $method(B4769350$Server$AuthenticationHandlerT1a, init$, void, $B4769350$Server*)},
-	{"handle", "(Lcom/sun/net/httpserver/HttpExchange;)V", nullptr, $PUBLIC, $virtualMethod(B4769350$Server$AuthenticationHandlerT1a, handle, void, $HttpExchange*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _B4769350$Server$AuthenticationHandlerT1a_InnerClassesInfo_[] = {
-	{"B4769350$Server", "B4769350", "Server", 0},
-	{"B4769350$Server$AuthenticationHandlerT1a", "B4769350$Server", "AuthenticationHandlerT1a", 0},
-	{}
-};
-
-$ClassInfo _B4769350$Server$AuthenticationHandlerT1a_ClassInfo_ = {
-	$ACC_SUPER,
-	"B4769350$Server$AuthenticationHandlerT1a",
-	"java.lang.Object",
-	"com.sun.net.httpserver.HttpHandler",
-	_B4769350$Server$AuthenticationHandlerT1a_FieldInfo_,
-	_B4769350$Server$AuthenticationHandlerT1a_MethodInfo_,
-	nullptr,
-	nullptr,
-	_B4769350$Server$AuthenticationHandlerT1a_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"B4769350"
-};
-
-$Object* allocate$B4769350$Server$AuthenticationHandlerT1a($Class* clazz) {
-	return $of($alloc(B4769350$Server$AuthenticationHandlerT1a));
-}
 
 void B4769350$Server$AuthenticationHandlerT1a::init$($B4769350$Server* this$1) {
 	$set(this, this$1, this$1);
@@ -72,26 +30,20 @@ void B4769350$Server$AuthenticationHandlerT1a::handle($HttpExchange* exchange) {
 	try {
 		switch (this->count) {
 		case 0:
-			{
-				$B4769350$AuthenticationHandler::errorReply(exchange, "Basic realm=\"realm1\""_s);
-				break;
-			}
+			$B4769350$AuthenticationHandler::errorReply(exchange, "Basic realm=\"realm1\""_s);
+			break;
 		case 1:
-			{
-				$init($B4769350);
-				$nc($B4769350::t1Cond1)->await();
-				$B4769350$AuthenticationHandler::okReply(exchange);
-				break;
-			}
+			$init($B4769350);
+			$nc($B4769350::t1Cond1)->await();
+			$B4769350$AuthenticationHandler::okReply(exchange);
+			break;
 		default:
-			{
-				$nc($System::out)->println("Unexpected request"_s);
-			}
+			$nc($System::out)->println("Unexpected request"_s);
 		}
 	} catch ($InterruptedException& e) {
-		$throwNew($RuntimeException, static_cast<$Throwable*>(e));
+		$throwNew($RuntimeException, e);
 	} catch ($BrokenBarrierException& e) {
-		$throwNew($RuntimeException, static_cast<$Throwable*>(e));
+		$throwNew($RuntimeException, e);
 	}
 }
 
@@ -99,7 +51,39 @@ B4769350$Server$AuthenticationHandlerT1a::B4769350$Server$AuthenticationHandlerT
 }
 
 $Class* B4769350$Server$AuthenticationHandlerT1a::load$($String* name, bool initialize) {
-	$loadClass(B4769350$Server$AuthenticationHandlerT1a, name, initialize, &_B4769350$Server$AuthenticationHandlerT1a_ClassInfo_, allocate$B4769350$Server$AuthenticationHandlerT1a);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$1", "LB4769350$Server;", nullptr, $FINAL | $SYNTHETIC, $field(B4769350$Server$AuthenticationHandlerT1a, this$1)},
+		{"count", "I", nullptr, $VOLATILE, $field(B4769350$Server$AuthenticationHandlerT1a, count)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(LB4769350$Server;)V", nullptr, 0, $method(B4769350$Server$AuthenticationHandlerT1a, init$, void, $B4769350$Server*)},
+		{"handle", "(Lcom/sun/net/httpserver/HttpExchange;)V", nullptr, $PUBLIC, $virtualMethod(B4769350$Server$AuthenticationHandlerT1a, handle, void, $HttpExchange*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"B4769350$Server", "B4769350", "Server", 0},
+		{"B4769350$Server$AuthenticationHandlerT1a", "B4769350$Server", "AuthenticationHandlerT1a", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"B4769350$Server$AuthenticationHandlerT1a",
+		"java.lang.Object",
+		"com.sun.net.httpserver.HttpHandler",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"B4769350"
+	};
+	$loadClass(B4769350$Server$AuthenticationHandlerT1a, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(B4769350$Server$AuthenticationHandlerT1a);
+	});
 	return class$;
 }
 

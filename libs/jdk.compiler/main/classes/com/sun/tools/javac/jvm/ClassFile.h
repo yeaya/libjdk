@@ -47,7 +47,7 @@ public:
 	static $bytes* externalize(::com::sun::tools::javac::util::Name* name);
 	static $bytes* internalize($bytes* buf, int32_t offset, int32_t len);
 	static $bytes* internalize(::com::sun::tools::javac::util::Name* name);
-	static const int32_t JAVA_MAGIC = 0xCAFEBABE;
+	static const int32_t JAVA_MAGIC = 0xcafebabe;
 	static const int32_t CONSTANT_Utf8 = 1;
 	static const int32_t CONSTANT_Unicode = 2;
 	static const int32_t CONSTANT_Integer = 3;
@@ -77,10 +77,10 @@ public:
 	static const int32_t REF_invokeInterface = 9;
 	static const int32_t MAX_PARAMETERS = 255;
 	static const int32_t MAX_DIMENSIONS = 255;
-	static const int32_t MAX_CODE = 0x0000FFFF;
-	static const int32_t MAX_LOCALS = 0x0000FFFF;
-	static const int32_t MAX_STACK = 0x0000FFFF;
-	static const int32_t PREVIEW_MINOR_VERSION = 0x0000FFFF;
+	static const int32_t MAX_CODE = 0x0000ffff;
+	static const int32_t MAX_LOCALS = 0x0000ffff;
+	static const int32_t MAX_STACK = 0x0000ffff;
+	static const int32_t PREVIEW_MINOR_VERSION = 0x0000ffff;
 };
 
 				} // jvm

@@ -18,10 +18,13 @@ class AbortException : public ::java::lang::RuntimeException {
 public:
 	AbortException();
 	void init$();
-	static const int64_t serialVersionUID = (int64_t)0x24328D025C1C2F01;
+	static const int64_t serialVersionUID = (int64_t)0x24328d025c1c2f01;
 	AbortException(const AbortException& e);
 	virtual void throw$() override;
-	inline AbortException* operator ->() {
+	inline AbortException* operator ->() const {
+		return (AbortException*)throwing$;
+	}
+	inline operator AbortException*() const {
 		return (AbortException*)throwing$;
 	}
 };

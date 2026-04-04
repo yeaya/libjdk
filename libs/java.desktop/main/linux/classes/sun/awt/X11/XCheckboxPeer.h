@@ -85,6 +85,7 @@ public:
 	virtual int32_t hashCode() override;
 	virtual bool isObscured() override;
 	virtual bool isReparentSupported() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::awt::Checkbox* target);
 	virtual void action(bool state);
 	virtual void focusGained(::java::awt::event::FocusEvent* e) override;

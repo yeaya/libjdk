@@ -1,17 +1,11 @@
 #include <javax/swing/plaf/nimbus/ArrowButtonPainter.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Graphics2D.h>
-#include <java/awt/Paint.h>
-#include <java/awt/Shape.h>
 #include <java/awt/geom/Ellipse2D$Float.h>
-#include <java/awt/geom/Ellipse2D.h>
 #include <java/awt/geom/Path2D$Float.h>
 #include <java/awt/geom/Path2D.h>
 #include <java/awt/geom/Rectangle2D$Float.h>
-#include <java/awt/geom/Rectangle2D.h>
 #include <java/awt/geom/RoundRectangle2D$Float.h>
-#include <java/awt/geom/RoundRectangle2D.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext.h>
 #include <javax/swing/plaf/nimbus/AbstractRegionPainter.h>
@@ -22,15 +16,10 @@
 #undef FOREGROUND_ENABLED
 
 using $Graphics2D = ::java::awt::Graphics2D;
-using $Paint = ::java::awt::Paint;
-using $Shape = ::java::awt::Shape;
-using $Ellipse2D = ::java::awt::geom::Ellipse2D;
 using $Ellipse2D$Float = ::java::awt::geom::Ellipse2D$Float;
 using $Path2D = ::java::awt::geom::Path2D;
 using $Path2D$Float = ::java::awt::geom::Path2D$Float;
-using $Rectangle2D = ::java::awt::geom::Rectangle2D;
 using $Rectangle2D$Float = ::java::awt::geom::Rectangle2D$Float;
-using $RoundRectangle2D = ::java::awt::geom::RoundRectangle2D;
 using $RoundRectangle2D$Float = ::java::awt::geom::RoundRectangle2D$Float;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -45,51 +34,12 @@ namespace javax {
 		namespace plaf {
 			namespace nimbus {
 
-$FieldInfo _ArrowButtonPainter_FieldInfo_[] = {
-	{"BACKGROUND_ENABLED", "I", nullptr, $STATIC | $FINAL, $constField(ArrowButtonPainter, BACKGROUND_ENABLED)},
-	{"FOREGROUND_DISABLED", "I", nullptr, $STATIC | $FINAL, $constField(ArrowButtonPainter, FOREGROUND_DISABLED)},
-	{"FOREGROUND_ENABLED", "I", nullptr, $STATIC | $FINAL, $constField(ArrowButtonPainter, FOREGROUND_ENABLED)},
-	{"state", "I", nullptr, $PRIVATE, $field(ArrowButtonPainter, state)},
-	{"ctx", "Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext;", nullptr, $PRIVATE, $field(ArrowButtonPainter, ctx)},
-	{"path", "Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $field(ArrowButtonPainter, path)},
-	{"rect", "Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $field(ArrowButtonPainter, rect)},
-	{"roundRect", "Ljava/awt/geom/RoundRectangle2D;", nullptr, $PRIVATE, $field(ArrowButtonPainter, roundRect)},
-	{"ellipse", "Ljava/awt/geom/Ellipse2D;", nullptr, $PRIVATE, $field(ArrowButtonPainter, ellipse)},
-	{"color1", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ArrowButtonPainter, color1)},
-	{"color2", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ArrowButtonPainter, color2)},
-	{"componentColors", "[Ljava/lang/Object;", nullptr, $PRIVATE, $field(ArrowButtonPainter, componentColors)},
-	{}
-};
-
-$MethodInfo _ArrowButtonPainter_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext;I)V", nullptr, $PUBLIC, $method(ArrowButtonPainter, init$, void, $AbstractRegionPainter$PaintContext*, int32_t)},
-	{"decodePath1", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(ArrowButtonPainter, decodePath1, $Path2D*)},
-	{"doPaint", "(Ljava/awt/Graphics2D;Ljavax/swing/JComponent;II[Ljava/lang/Object;)V", nullptr, $PROTECTED, $virtualMethod(ArrowButtonPainter, doPaint, void, $Graphics2D*, $JComponent*, int32_t, int32_t, $ObjectArray*)},
-	{"getPaintContext", "()Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext;", nullptr, $PROTECTED | $FINAL, $virtualMethod(ArrowButtonPainter, getPaintContext, $AbstractRegionPainter$PaintContext*)},
-	{"paintForegroundDisabled", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(ArrowButtonPainter, paintForegroundDisabled, void, $Graphics2D*)},
-	{"paintForegroundEnabled", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(ArrowButtonPainter, paintForegroundEnabled, void, $Graphics2D*)},
-	{}
-};
-
-$ClassInfo _ArrowButtonPainter_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"javax.swing.plaf.nimbus.ArrowButtonPainter",
-	"javax.swing.plaf.nimbus.AbstractRegionPainter",
-	nullptr,
-	_ArrowButtonPainter_FieldInfo_,
-	_ArrowButtonPainter_MethodInfo_
-};
-
-$Object* allocate$ArrowButtonPainter($Class* clazz) {
-	return $of($alloc(ArrowButtonPainter));
-}
-
 void ArrowButtonPainter::init$($AbstractRegionPainter$PaintContext* ctx, int32_t state) {
 	$AbstractRegionPainter::init$();
 	$set(this, path, $new($Path2D$Float));
-	$set(this, rect, $new($Rectangle2D$Float, (float)0, (float)0, (float)0, (float)0));
-	$set(this, roundRect, $new($RoundRectangle2D$Float, (float)0, (float)0, (float)0, (float)0, (float)0, (float)0));
-	$set(this, ellipse, $new($Ellipse2D$Float, (float)0, (float)0, (float)0, (float)0));
+	$set(this, rect, $new($Rectangle2D$Float, 0, 0, 0, 0));
+	$set(this, roundRect, $new($RoundRectangle2D$Float, 0, 0, 0, 0, 0, 0));
+	$set(this, ellipse, $new($Ellipse2D$Float, 0, 0, 0, 0));
 	$set(this, color1, decodeColor("nimbusBase"_s, 0.027408898f, -0.57391655f, 0.1490196f, 0));
 	$set(this, color2, decodeColor("nimbusBase"_s, -0.57865167f, -0.6357143f, -0.37254906f, 0));
 	this->state = state;
@@ -100,15 +50,11 @@ void ArrowButtonPainter::doPaint($Graphics2D* g, $JComponent* c, int32_t width, 
 	$set(this, componentColors, extendedCacheKeys);
 	switch (this->state) {
 	case ArrowButtonPainter::FOREGROUND_DISABLED:
-		{
-			paintForegroundDisabled(g);
-			break;
-		}
+		paintForegroundDisabled(g);
+		break;
 	case ArrowButtonPainter::FOREGROUND_ENABLED:
-		{
-			paintForegroundEnabled(g);
-			break;
-		}
+		paintForegroundEnabled(g);
+		break;
 	}
 }
 
@@ -130,13 +76,13 @@ void ArrowButtonPainter::paintForegroundEnabled($Graphics2D* g) {
 
 $Path2D* ArrowButtonPainter::decodePath1() {
 	$nc(this->path)->reset();
-	double var$0 = (double)decodeX(1.8f);
+	double var$0 = decodeX(1.8f);
 	$nc(this->path)->moveTo(var$0, decodeY(1.2f));
-	double var$1 = (double)decodeX(1.2f);
+	double var$1 = decodeX(1.2f);
 	$nc(this->path)->lineTo(var$1, decodeY(1.5f));
-	double var$2 = (double)decodeX(1.8f);
+	double var$2 = decodeX(1.8f);
 	$nc(this->path)->lineTo(var$2, decodeY(1.8f));
-	double var$3 = (double)decodeX(1.8f);
+	double var$3 = decodeX(1.8f);
 	$nc(this->path)->lineTo(var$3, decodeY(1.2f));
 	$nc(this->path)->closePath();
 	return this->path;
@@ -146,7 +92,41 @@ ArrowButtonPainter::ArrowButtonPainter() {
 }
 
 $Class* ArrowButtonPainter::load$($String* name, bool initialize) {
-	$loadClass(ArrowButtonPainter, name, initialize, &_ArrowButtonPainter_ClassInfo_, allocate$ArrowButtonPainter);
+	$FieldInfo fieldInfos$$[] = {
+		{"BACKGROUND_ENABLED", "I", nullptr, $STATIC | $FINAL, $constField(ArrowButtonPainter, BACKGROUND_ENABLED)},
+		{"FOREGROUND_DISABLED", "I", nullptr, $STATIC | $FINAL, $constField(ArrowButtonPainter, FOREGROUND_DISABLED)},
+		{"FOREGROUND_ENABLED", "I", nullptr, $STATIC | $FINAL, $constField(ArrowButtonPainter, FOREGROUND_ENABLED)},
+		{"state", "I", nullptr, $PRIVATE, $field(ArrowButtonPainter, state)},
+		{"ctx", "Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext;", nullptr, $PRIVATE, $field(ArrowButtonPainter, ctx)},
+		{"path", "Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $field(ArrowButtonPainter, path)},
+		{"rect", "Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $field(ArrowButtonPainter, rect)},
+		{"roundRect", "Ljava/awt/geom/RoundRectangle2D;", nullptr, $PRIVATE, $field(ArrowButtonPainter, roundRect)},
+		{"ellipse", "Ljava/awt/geom/Ellipse2D;", nullptr, $PRIVATE, $field(ArrowButtonPainter, ellipse)},
+		{"color1", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ArrowButtonPainter, color1)},
+		{"color2", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ArrowButtonPainter, color2)},
+		{"componentColors", "[Ljava/lang/Object;", nullptr, $PRIVATE, $field(ArrowButtonPainter, componentColors)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext;I)V", nullptr, $PUBLIC, $method(ArrowButtonPainter, init$, void, $AbstractRegionPainter$PaintContext*, int32_t)},
+		{"decodePath1", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(ArrowButtonPainter, decodePath1, $Path2D*)},
+		{"doPaint", "(Ljava/awt/Graphics2D;Ljavax/swing/JComponent;II[Ljava/lang/Object;)V", nullptr, $PROTECTED, $virtualMethod(ArrowButtonPainter, doPaint, void, $Graphics2D*, $JComponent*, int32_t, int32_t, $ObjectArray*)},
+		{"getPaintContext", "()Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext;", nullptr, $PROTECTED | $FINAL, $virtualMethod(ArrowButtonPainter, getPaintContext, $AbstractRegionPainter$PaintContext*)},
+		{"paintForegroundDisabled", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(ArrowButtonPainter, paintForegroundDisabled, void, $Graphics2D*)},
+		{"paintForegroundEnabled", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(ArrowButtonPainter, paintForegroundEnabled, void, $Graphics2D*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"javax.swing.plaf.nimbus.ArrowButtonPainter",
+		"javax.swing.plaf.nimbus.AbstractRegionPainter",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ArrowButtonPainter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ArrowButtonPainter);
+	});
 	return class$;
 }
 

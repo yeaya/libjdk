@@ -31,6 +31,7 @@ class $export bug8032878 : public ::java::lang::Runnable {
 	$class(bug8032878, 0, ::java::lang::Runnable)
 public:
 	bug8032878();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void checkResult();
 	void lambda$test$0();

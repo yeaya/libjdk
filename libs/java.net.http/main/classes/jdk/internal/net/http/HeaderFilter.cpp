@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/HeaderFilter.h>
-
 #include <jdk/internal/net/http/HttpRequestImpl.h>
 #include <jdk/internal/net/http/MultiExchange.h>
 #include <jdk/internal/net/http/Response.h>
@@ -16,27 +15,23 @@ namespace jdk {
 		namespace net {
 			namespace http {
 
-$MethodInfo _HeaderFilter_MethodInfo_[] = {
-	{"request", "(Ljdk/internal/net/http/HttpRequestImpl;Ljdk/internal/net/http/MultiExchange;)V", "(Ljdk/internal/net/http/HttpRequestImpl;Ljdk/internal/net/http/MultiExchange<*>;)V", $PUBLIC | $ABSTRACT, $virtualMethod(HeaderFilter, request, void, $HttpRequestImpl*, $MultiExchange*), "java.io.IOException"},
-	{"response", "(Ljdk/internal/net/http/Response;)Ljdk/internal/net/http/HttpRequestImpl;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(HeaderFilter, response, $HttpRequestImpl*, $Response*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _HeaderFilter_ClassInfo_ = {
-	$INTERFACE | $ABSTRACT,
-	"jdk.internal.net.http.HeaderFilter",
-	nullptr,
-	nullptr,
-	nullptr,
-	_HeaderFilter_MethodInfo_
-};
-
-$Object* allocate$HeaderFilter($Class* clazz) {
-	return $of($alloc(HeaderFilter));
-}
-
 $Class* HeaderFilter::load$($String* name, bool initialize) {
-	$loadClass(HeaderFilter, name, initialize, &_HeaderFilter_ClassInfo_, allocate$HeaderFilter);
+	$MethodInfo methodInfos$$[] = {
+		{"request", "(Ljdk/internal/net/http/HttpRequestImpl;Ljdk/internal/net/http/MultiExchange;)V", "(Ljdk/internal/net/http/HttpRequestImpl;Ljdk/internal/net/http/MultiExchange<*>;)V", $PUBLIC | $ABSTRACT, $virtualMethod(HeaderFilter, request, void, $HttpRequestImpl*, $MultiExchange*), "java.io.IOException"},
+		{"response", "(Ljdk/internal/net/http/Response;)Ljdk/internal/net/http/HttpRequestImpl;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(HeaderFilter, response, $HttpRequestImpl*, $Response*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$INTERFACE | $ABSTRACT,
+		"jdk.internal.net.http.HeaderFilter",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(HeaderFilter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HeaderFilter);
+	});
 	return class$;
 }
 

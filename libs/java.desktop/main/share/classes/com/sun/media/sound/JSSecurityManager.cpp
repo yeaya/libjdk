@@ -1,5 +1,4 @@
 #include <com/sun/media/sound/JSSecurityManager.h>
-
 #include <com/sun/media/sound/JSSecurityManager$1.h>
 #include <com/sun/media/sound/JSSecurityManager$2.h>
 #include <com/sun/media/sound/Printer.h>
@@ -48,7 +47,6 @@ using $Files = ::java::nio::file::Files;
 using $Path = ::java::nio::file::Path;
 using $Paths = ::java::nio::file::Paths;
 using $AccessController = ::java::security::AccessController;
-using $Permission = ::java::security::Permission;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $ArrayList = ::java::util::ArrayList;
 using $Iterator = ::java::util::Iterator;
@@ -69,27 +67,24 @@ public:
 	virtual $Object* run() override {
 		 return $of(JSSecurityManager::lambda$loadProperties$0());
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<JSSecurityManager$$Lambda$lambda$loadProperties$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo JSSecurityManager$$Lambda$lambda$loadProperties$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(JSSecurityManager$$Lambda$lambda$loadProperties$0, init$, void)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JSSecurityManager$$Lambda$lambda$loadProperties$0, run, $Object*)},
-	{}
-};
-$ClassInfo JSSecurityManager$$Lambda$lambda$loadProperties$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.media.sound.JSSecurityManager$$Lambda$lambda$loadProperties$0",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	nullptr,
-	methodInfos
 };
 $Class* JSSecurityManager$$Lambda$lambda$loadProperties$0::load$($String* name, bool initialize) {
-	$loadClass(JSSecurityManager$$Lambda$lambda$loadProperties$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(JSSecurityManager$$Lambda$lambda$loadProperties$0, init$, void)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JSSecurityManager$$Lambda$lambda$loadProperties$0, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.media.sound.JSSecurityManager$$Lambda$lambda$loadProperties$0",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(JSSecurityManager$$Lambda$lambda$loadProperties$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JSSecurityManager$$Lambda$lambda$loadProperties$0);
+	});
 	return class$;
 }
 $Class* JSSecurityManager$$Lambda$lambda$loadProperties$0::class$ = nullptr;
@@ -101,81 +96,40 @@ public:
 		$set(this, properties, properties);
 	}
 	virtual $Object* run() override {
-		 return $of(JSSecurityManager::lambda$loadProperties$1(properties));
-	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<JSSecurityManager$$Lambda$lambda$loadProperties$1$1>());
+		 return JSSecurityManager::lambda$loadProperties$1(properties);
 	}
 	$Properties* properties = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo JSSecurityManager$$Lambda$lambda$loadProperties$1$1::fieldInfos[2] = {
-	{"properties", "Ljava/util/Properties;", nullptr, $PUBLIC, $field(JSSecurityManager$$Lambda$lambda$loadProperties$1$1, properties)},
-	{}
-};
-$MethodInfo JSSecurityManager$$Lambda$lambda$loadProperties$1$1::methodInfos[3] = {
-	{"<init>", "(Ljava/util/Properties;)V", nullptr, $PUBLIC, $method(JSSecurityManager$$Lambda$lambda$loadProperties$1$1, init$, void, $Properties*)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JSSecurityManager$$Lambda$lambda$loadProperties$1$1, run, $Object*)},
-	{}
-};
-$ClassInfo JSSecurityManager$$Lambda$lambda$loadProperties$1$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.media.sound.JSSecurityManager$$Lambda$lambda$loadProperties$1$1",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	fieldInfos,
-	methodInfos
 };
 $Class* JSSecurityManager$$Lambda$lambda$loadProperties$1$1::load$($String* name, bool initialize) {
-	$loadClass(JSSecurityManager$$Lambda$lambda$loadProperties$1$1, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"properties", "Ljava/util/Properties;", nullptr, $PUBLIC, $field(JSSecurityManager$$Lambda$lambda$loadProperties$1$1, properties)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/Properties;)V", nullptr, $PUBLIC, $method(JSSecurityManager$$Lambda$lambda$loadProperties$1$1, init$, void, $Properties*)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JSSecurityManager$$Lambda$lambda$loadProperties$1$1, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.media.sound.JSSecurityManager$$Lambda$lambda$loadProperties$1$1",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(JSSecurityManager$$Lambda$lambda$loadProperties$1$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JSSecurityManager$$Lambda$lambda$loadProperties$1$1);
+	});
 	return class$;
 }
 $Class* JSSecurityManager$$Lambda$lambda$loadProperties$1$1::class$ = nullptr;
-
-$MethodInfo _JSSecurityManager_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(JSSecurityManager, init$, void)},
-	{"checkRecordPermission", "()V", nullptr, $STATIC, $staticMethod(JSSecurityManager, checkRecordPermission, void), "java.lang.SecurityException"},
-	{"createThread", "(Ljava/lang/Runnable;Ljava/lang/String;ZIZ)Ljava/lang/Thread;", nullptr, $STATIC, $staticMethod(JSSecurityManager, createThread, $Thread*, $Runnable*, $String*, bool, int32_t, bool)},
-	{"getProviders", "(Ljava/lang/Class;)Ljava/util/List;", "<T:Ljava/lang/Object;>(Ljava/lang/Class<TT;>;)Ljava/util/List<TT;>;", $STATIC | $SYNCHRONIZED, $staticMethod(JSSecurityManager, getProviders, $List*, $Class*)},
-	{"lambda$loadProperties$0", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JSSecurityManager, lambda$loadProperties$0, $String*)},
-	{"lambda$loadProperties$1", "(Ljava/util/Properties;)Ljava/lang/Void;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JSSecurityManager, lambda$loadProperties$1, $Void*, $Properties*)},
-	{"loadProperties", "(Ljava/util/Properties;)V", nullptr, $STATIC, $staticMethod(JSSecurityManager, loadProperties, void, $Properties*)},
-	{"loadPropertiesImpl", "(Ljava/util/Properties;Ljava/lang/String;[Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $TRANSIENT, $staticMethod(JSSecurityManager, loadPropertiesImpl, bool, $Properties*, $String*, $StringArray*)},
-	{}
-};
-
-$InnerClassInfo _JSSecurityManager_InnerClassesInfo_[] = {
-	{"com.sun.media.sound.JSSecurityManager$2", nullptr, nullptr, 0},
-	{"com.sun.media.sound.JSSecurityManager$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _JSSecurityManager_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.media.sound.JSSecurityManager",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_JSSecurityManager_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JSSecurityManager_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.media.sound.JSSecurityManager$2,com.sun.media.sound.JSSecurityManager$1"
-};
-
-$Object* allocate$JSSecurityManager($Class* clazz) {
-	return $of($alloc(JSSecurityManager));
-}
 
 void JSSecurityManager::init$() {
 }
 
 void JSSecurityManager::checkRecordPermission() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	if (sm != nullptr) {
 		sm->checkPermission($$new($AudioPermission, "record"_s));
@@ -183,56 +137,54 @@ void JSSecurityManager::checkRecordPermission() {
 }
 
 void JSSecurityManager::loadProperties($Properties* properties) {
+	$useLocalObjectStack();
 	$load(JSSecurityManager);
-	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
-	$var($String, customFile, $cast($String, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new(JSSecurityManager$$Lambda$lambda$loadProperties$0)))));
+	$var($String, customFile, $cast($String, $AccessController::doPrivileged($cast($PrivilegedAction, $$new(JSSecurityManager$$Lambda$lambda$loadProperties$0)))));
 	if (customFile != nullptr) {
 		if (loadPropertiesImpl(properties, customFile, $$new($StringArray, 0))) {
 			return;
 		}
 	}
-	$AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new(JSSecurityManager$$Lambda$lambda$loadProperties$1$1, properties)));
+	$AccessController::doPrivileged($cast($PrivilegedAction, $$new(JSSecurityManager$$Lambda$lambda$loadProperties$1$1, properties)));
 }
 
 bool JSSecurityManager::loadPropertiesImpl($Properties* properties, $String* first, $StringArray* more) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Path, fname, $Paths::get(first, more));
 	try {
 		$var($Reader, reader, $Files::newBufferedReader(fname));
-		{
-			$var($Throwable, var$0, nullptr);
-			bool var$2 = false;
-			bool return$1 = false;
+		$var($Throwable, var$0, nullptr);
+		bool var$2 = false;
+		bool return$1 = false;
+		try {
 			try {
-				try {
-					$nc(properties)->load(reader);
-					var$2 = true;
-					return$1 = true;
-					goto $finally;
-				} catch ($Throwable& t$) {
-					if (reader != nullptr) {
-						try {
-							reader->close();
-						} catch ($Throwable& x2) {
-							t$->addSuppressed(x2);
-						}
-					}
-					$throw(t$);
-				}
-			} catch ($Throwable& var$3) {
-				$assign(var$0, var$3);
-			} $finally: {
+				$nc(properties)->load(reader);
+				var$2 = true;
+				return$1 = true;
+				goto $finally;
+			} catch ($Throwable& t$) {
 				if (reader != nullptr) {
-					reader->close();
+					try {
+						reader->close();
+					} catch ($Throwable& x2) {
+						t$->addSuppressed(x2);
+					}
 				}
+				$throw(t$);
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
+		} $finally: {
+			if (reader != nullptr) {
+				reader->close();
 			}
-			if (return$1) {
-				return var$2;
-			}
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
+		}
+		if (return$1) {
+			return var$2;
 		}
 	} catch ($Throwable& t) {
 		return false;
@@ -241,7 +193,7 @@ bool JSSecurityManager::loadPropertiesImpl($Properties* properties, $String* fir
 }
 
 $Thread* JSSecurityManager::createThread($Runnable* runnable, $String* threadName, bool isDaemon, int32_t priority, bool doStart) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, name, (threadName != nullptr) ? threadName : "JSSM Thread"_s);
 	$var($Thread, thread, $new($Thread, nullptr, runnable, threadName, 0, false));
 	thread->setDaemon(isDaemon);
@@ -257,14 +209,13 @@ $Thread* JSSecurityManager::createThread($Runnable* runnable, $String* threadNam
 $List* JSSecurityManager::getProviders($Class* providerClass) {
 	$load(JSSecurityManager);
 	$synchronized(class$) {
-		$load(JSSecurityManager);
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$beforeCallerSensitive();
 		$var($List, p, $new($ArrayList, 7));
 		$var($PrivilegedAction, psAction, $new($JSSecurityManager$1, providerClass));
 		$var($Iterator, ps, $cast($Iterator, $AccessController::doPrivileged(psAction)));
 		$var($PrivilegedAction, hasNextAction, $new($JSSecurityManager$2, ps));
-		while ($nc(($cast($Boolean, $($AccessController::doPrivileged(hasNextAction)))))->booleanValue()) {
+		while ($$sure($Boolean, $AccessController::doPrivileged(hasNextAction))->booleanValue()) {
 			try {
 				$var($Object, provider, $nc(ps)->next());
 				if ($nc(providerClass)->isInstance(provider)) {
@@ -282,7 +233,7 @@ $List* JSSecurityManager::getProviders($Class* providerClass) {
 }
 
 $Void* JSSecurityManager::lambda$loadProperties$1($Properties* properties) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, home, $System::getProperty("java.home"_s));
 	if (home == nullptr) {
 		$throwNew($Error, "Can\'t find java.home ??"_s);
@@ -303,14 +254,46 @@ JSSecurityManager::JSSecurityManager() {
 
 $Class* JSSecurityManager::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(JSSecurityManager$$Lambda$lambda$loadProperties$0::classInfo$.name)) {
+		if (name->equals("com.sun.media.sound.JSSecurityManager$$Lambda$lambda$loadProperties$0")) {
 			return JSSecurityManager$$Lambda$lambda$loadProperties$0::load$(name, initialize);
 		}
-		if (name->equals(JSSecurityManager$$Lambda$lambda$loadProperties$1$1::classInfo$.name)) {
+		if (name->equals("com.sun.media.sound.JSSecurityManager$$Lambda$lambda$loadProperties$1$1")) {
 			return JSSecurityManager$$Lambda$lambda$loadProperties$1$1::load$(name, initialize);
 		}
 	}
-	$loadClass(JSSecurityManager, name, initialize, &_JSSecurityManager_ClassInfo_, allocate$JSSecurityManager);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(JSSecurityManager, init$, void)},
+		{"checkRecordPermission", "()V", nullptr, $STATIC, $staticMethod(JSSecurityManager, checkRecordPermission, void), "java.lang.SecurityException"},
+		{"createThread", "(Ljava/lang/Runnable;Ljava/lang/String;ZIZ)Ljava/lang/Thread;", nullptr, $STATIC, $staticMethod(JSSecurityManager, createThread, $Thread*, $Runnable*, $String*, bool, int32_t, bool)},
+		{"getProviders", "(Ljava/lang/Class;)Ljava/util/List;", "<T:Ljava/lang/Object;>(Ljava/lang/Class<TT;>;)Ljava/util/List<TT;>;", $STATIC | $SYNCHRONIZED, $staticMethod(JSSecurityManager, getProviders, $List*, $Class*)},
+		{"lambda$loadProperties$0", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JSSecurityManager, lambda$loadProperties$0, $String*)},
+		{"lambda$loadProperties$1", "(Ljava/util/Properties;)Ljava/lang/Void;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JSSecurityManager, lambda$loadProperties$1, $Void*, $Properties*)},
+		{"loadProperties", "(Ljava/util/Properties;)V", nullptr, $STATIC, $staticMethod(JSSecurityManager, loadProperties, void, $Properties*)},
+		{"loadPropertiesImpl", "(Ljava/util/Properties;Ljava/lang/String;[Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $TRANSIENT, $staticMethod(JSSecurityManager, loadPropertiesImpl, bool, $Properties*, $String*, $StringArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.media.sound.JSSecurityManager$2", nullptr, nullptr, 0},
+		{"com.sun.media.sound.JSSecurityManager$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.media.sound.JSSecurityManager",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.media.sound.JSSecurityManager$2,com.sun.media.sound.JSSecurityManager$1"
+	};
+	$loadClass(JSSecurityManager, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JSSecurityManager);
+	});
 	return class$;
 }
 

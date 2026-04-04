@@ -1,5 +1,4 @@
 #include <com/apple/laf/AquaTextPasswordFieldUI.h>
-
 #include <com/apple/laf/AquaTextFieldUI.h>
 #include <com/apple/laf/AquaTextPasswordFieldUI$AquaPasswordView.h>
 #include <com/apple/laf/AquaTextPasswordFieldUI$CapsLockSymbolPainter.h>
@@ -26,12 +25,10 @@ using $AquaTextPasswordFieldUI$AquaPasswordView = ::com::apple::laf::AquaTextPas
 using $AquaTextPasswordFieldUI$CapsLockSymbolPainter = ::com::apple::laf::AquaTextPasswordFieldUI$CapsLockSymbolPainter;
 using $AquaUtils$RecyclableSingleton = ::com::apple::laf::AquaUtils$RecyclableSingleton;
 using $AquaUtils$RecyclableSingletonFromDefaultConstructor = ::com::apple::laf::AquaUtils$RecyclableSingletonFromDefaultConstructor;
-using $Component = ::java::awt::Component;
 using $Graphics = ::java::awt::Graphics;
 using $Rectangle = ::java::awt::Rectangle;
 using $Toolkit = ::java::awt::Toolkit;
 using $KeyEvent = ::java::awt::event::KeyEvent;
-using $KeyListener = ::java::awt::event::KeyListener;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -46,49 +43,6 @@ namespace com {
 	namespace apple {
 		namespace laf {
 
-$FieldInfo _AquaTextPasswordFieldUI_FieldInfo_[] = {
-	{"capsLockPainter", "Lcom/apple/laf/AquaUtils$RecyclableSingleton;", "Lcom/apple/laf/AquaUtils$RecyclableSingleton<Lcom/apple/laf/AquaTextPasswordFieldUI$CapsLockSymbolPainter;>;", $PRIVATE | $STATIC | $FINAL, $staticField(AquaTextPasswordFieldUI, capsLockPainter)},
-	{}
-};
-
-$MethodInfo _AquaTextPasswordFieldUI_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AquaTextPasswordFieldUI, init$, void)},
-	{"access$000", "(Lcom/apple/laf/AquaTextPasswordFieldUI;)Ljavax/swing/text/JTextComponent;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaTextPasswordFieldUI, access$000, $JTextComponent*, AquaTextPasswordFieldUI*)},
-	{"create", "(Ljavax/swing/text/Element;)Ljavax/swing/text/View;", nullptr, $PUBLIC, $virtualMethod(AquaTextPasswordFieldUI, create, $View*, $Element*)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(AquaTextPasswordFieldUI, createUI, $ComponentUI*, $JComponent*)},
-	{"getCapsLockPainter", "()Lcom/apple/laf/AquaTextPasswordFieldUI$CapsLockSymbolPainter;", nullptr, $STATIC, $staticMethod(AquaTextPasswordFieldUI, getCapsLockPainter, $AquaTextPasswordFieldUI$CapsLockSymbolPainter*)},
-	{"getPropertyPrefix", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(AquaTextPasswordFieldUI, getPropertyPrefix, $String*)},
-	{"installListeners", "()V", nullptr, $PROTECTED, $virtualMethod(AquaTextPasswordFieldUI, installListeners, void)},
-	{"paintBackgroundSafely", "(Ljava/awt/Graphics;)V", nullptr, $PROTECTED, $virtualMethod(AquaTextPasswordFieldUI, paintBackgroundSafely, void, $Graphics*)},
-	{"uninstallListeners", "()V", nullptr, $PROTECTED, $virtualMethod(AquaTextPasswordFieldUI, uninstallListeners, void)},
-	{}
-};
-
-$InnerClassInfo _AquaTextPasswordFieldUI_InnerClassesInfo_[] = {
-	{"com.apple.laf.AquaTextPasswordFieldUI$CapsLockSymbolPainter", "com.apple.laf.AquaTextPasswordFieldUI", "CapsLockSymbolPainter", $STATIC},
-	{"com.apple.laf.AquaTextPasswordFieldUI$AquaPasswordView", "com.apple.laf.AquaTextPasswordFieldUI", "AquaPasswordView", $PROTECTED},
-	{}
-};
-
-$ClassInfo _AquaTextPasswordFieldUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.apple.laf.AquaTextPasswordFieldUI",
-	"com.apple.laf.AquaTextFieldUI",
-	nullptr,
-	_AquaTextPasswordFieldUI_FieldInfo_,
-	_AquaTextPasswordFieldUI_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AquaTextPasswordFieldUI_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.apple.laf.AquaTextPasswordFieldUI$CapsLockSymbolPainter,com.apple.laf.AquaTextPasswordFieldUI$AquaPasswordView"
-};
-
-$Object* allocate$AquaTextPasswordFieldUI($Class* clazz) {
-	return $of($alloc(AquaTextPasswordFieldUI));
-}
-
 $AquaUtils$RecyclableSingleton* AquaTextPasswordFieldUI::capsLockPainter = nullptr;
 
 $JTextComponent* AquaTextPasswordFieldUI::access$000(AquaTextPasswordFieldUI* x0) {
@@ -102,7 +56,7 @@ void AquaTextPasswordFieldUI::init$() {
 
 $AquaTextPasswordFieldUI$CapsLockSymbolPainter* AquaTextPasswordFieldUI::getCapsLockPainter() {
 	$init(AquaTextPasswordFieldUI);
-	return $cast($AquaTextPasswordFieldUI$CapsLockSymbolPainter, $nc(AquaTextPasswordFieldUI::capsLockPainter)->get());
+	return $cast($AquaTextPasswordFieldUI$CapsLockSymbolPainter, AquaTextPasswordFieldUI::capsLockPainter->get());
 }
 
 $ComponentUI* AquaTextPasswordFieldUI::createUI($JComponent* c) {
@@ -119,19 +73,19 @@ $View* AquaTextPasswordFieldUI::create($Element* elem) {
 }
 
 void AquaTextPasswordFieldUI::installListeners() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$AquaTextFieldUI::installListeners();
-	$nc($(getComponent()))->addKeyListener($(getCapsLockPainter()));
+	$$nc(getComponent())->addKeyListener($(getCapsLockPainter()));
 }
 
 void AquaTextPasswordFieldUI::uninstallListeners() {
-	$useLocalCurrentObjectStackCache();
-	$nc($(getComponent()))->removeKeyListener($(getCapsLockPainter()));
+	$useLocalObjectStack();
+	$$nc(getComponent())->removeKeyListener($(getCapsLockPainter()));
 	$AquaTextFieldUI::uninstallListeners();
 }
 
 void AquaTextPasswordFieldUI::paintBackgroundSafely($Graphics* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$AquaTextFieldUI::paintBackgroundSafely(g);
 	$var($JTextComponent, component, getComponent());
 	if (component == nullptr) {
@@ -140,15 +94,15 @@ void AquaTextPasswordFieldUI::paintBackgroundSafely($Graphics* g) {
 	if (!$nc(component)->isFocusOwner()) {
 		return;
 	}
-	bool capsLockDown = $nc($($Toolkit::getDefaultToolkit()))->getLockingKeyState($KeyEvent::VK_CAPS_LOCK);
+	bool capsLockDown = $$nc($Toolkit::getDefaultToolkit())->getLockingKeyState($KeyEvent::VK_CAPS_LOCK);
 	if (!capsLockDown) {
 		return;
 	}
-	$var($Rectangle, bounds, $nc(component)->getBounds());
-	$nc($(getCapsLockPainter()))->paintBorder(component, g, $nc(bounds)->x, bounds->y, bounds->width, bounds->height);
+	$var($Rectangle, bounds, component->getBounds());
+	$$nc(getCapsLockPainter())->paintBorder(component, g, $nc(bounds)->x, $nc(bounds)->y, $nc(bounds)->width, $nc(bounds)->height);
 }
 
-void clinit$AquaTextPasswordFieldUI($Class* class$) {
+void AquaTextPasswordFieldUI::clinit$($Class* clazz) {
 	$load($AquaTextPasswordFieldUI$CapsLockSymbolPainter);
 	$assignStatic(AquaTextPasswordFieldUI::capsLockPainter, $new($AquaUtils$RecyclableSingletonFromDefaultConstructor, $AquaTextPasswordFieldUI$CapsLockSymbolPainter::class$));
 }
@@ -157,7 +111,44 @@ AquaTextPasswordFieldUI::AquaTextPasswordFieldUI() {
 }
 
 $Class* AquaTextPasswordFieldUI::load$($String* name, bool initialize) {
-	$loadClass(AquaTextPasswordFieldUI, name, initialize, &_AquaTextPasswordFieldUI_ClassInfo_, clinit$AquaTextPasswordFieldUI, allocate$AquaTextPasswordFieldUI);
+	$FieldInfo fieldInfos$$[] = {
+		{"capsLockPainter", "Lcom/apple/laf/AquaUtils$RecyclableSingleton;", "Lcom/apple/laf/AquaUtils$RecyclableSingleton<Lcom/apple/laf/AquaTextPasswordFieldUI$CapsLockSymbolPainter;>;", $PRIVATE | $STATIC | $FINAL, $staticField(AquaTextPasswordFieldUI, capsLockPainter)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AquaTextPasswordFieldUI, init$, void)},
+		{"access$000", "(Lcom/apple/laf/AquaTextPasswordFieldUI;)Ljavax/swing/text/JTextComponent;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaTextPasswordFieldUI, access$000, $JTextComponent*, AquaTextPasswordFieldUI*)},
+		{"create", "(Ljavax/swing/text/Element;)Ljavax/swing/text/View;", nullptr, $PUBLIC, $virtualMethod(AquaTextPasswordFieldUI, create, $View*, $Element*)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(AquaTextPasswordFieldUI, createUI, $ComponentUI*, $JComponent*)},
+		{"getCapsLockPainter", "()Lcom/apple/laf/AquaTextPasswordFieldUI$CapsLockSymbolPainter;", nullptr, $STATIC, $staticMethod(AquaTextPasswordFieldUI, getCapsLockPainter, $AquaTextPasswordFieldUI$CapsLockSymbolPainter*)},
+		{"getPropertyPrefix", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(AquaTextPasswordFieldUI, getPropertyPrefix, $String*)},
+		{"installListeners", "()V", nullptr, $PROTECTED, $virtualMethod(AquaTextPasswordFieldUI, installListeners, void)},
+		{"paintBackgroundSafely", "(Ljava/awt/Graphics;)V", nullptr, $PROTECTED, $virtualMethod(AquaTextPasswordFieldUI, paintBackgroundSafely, void, $Graphics*)},
+		{"uninstallListeners", "()V", nullptr, $PROTECTED, $virtualMethod(AquaTextPasswordFieldUI, uninstallListeners, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.laf.AquaTextPasswordFieldUI$CapsLockSymbolPainter", "com.apple.laf.AquaTextPasswordFieldUI", "CapsLockSymbolPainter", $STATIC},
+		{"com.apple.laf.AquaTextPasswordFieldUI$AquaPasswordView", "com.apple.laf.AquaTextPasswordFieldUI", "AquaPasswordView", $PROTECTED},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.apple.laf.AquaTextPasswordFieldUI",
+		"com.apple.laf.AquaTextFieldUI",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.apple.laf.AquaTextPasswordFieldUI$CapsLockSymbolPainter,com.apple.laf.AquaTextPasswordFieldUI$AquaPasswordView"
+	};
+	$loadClass(AquaTextPasswordFieldUI, name, initialize, &classInfo$$, AquaTextPasswordFieldUI::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AquaTextPasswordFieldUI));
+	});
 	return class$;
 }
 

@@ -33,6 +33,7 @@ class $export MBeanConstructorInfo : public ::javax::management::MBeanFeatureInf
 public:
 	MBeanConstructorInfo();
 	virtual void finalize() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* description, ::java::lang::reflect::Constructor* constructor);
 	void init$($String* name, $String* description, $Array<::javax::management::MBeanParameterInfo>* signature);
 	void init$($String* name, $String* description, $Array<::javax::management::MBeanParameterInfo>* signature, ::javax::management::Descriptor* descriptor);
@@ -43,7 +44,7 @@ public:
 	virtual $Array<::javax::management::MBeanParameterInfo>* getSignature();
 	virtual int32_t hashCode() override;
 	virtual $String* toString() override;
-	static const int64_t serialVersionUID = (int64_t)0x3D88B27899C4304B;
+	static const int64_t serialVersionUID = (int64_t)0x3d88b27899c4304b;
 	static $Array<::javax::management::MBeanConstructorInfo>* NO_CONSTRUCTORS;
 	bool arrayGettersSafe = false;
 	$Array<::javax::management::MBeanParameterInfo>* signature = nullptr;

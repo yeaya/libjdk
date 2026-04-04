@@ -1,5 +1,4 @@
 #include <com/sun/media/sound/WaveExtensibleFileReader.h>
-
 #include <com/sun/media/sound/RIFFReader.h>
 #include <com/sun/media/sound/StandardFileFormat.h>
 #include <com/sun/media/sound/SunFileReader.h>
@@ -49,46 +48,6 @@ namespace com {
 		namespace media {
 			namespace sound {
 
-$FieldInfo _WaveExtensibleFileReader_FieldInfo_[] = {
-	{"channelnames", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(WaveExtensibleFileReader, channelnames)},
-	{"allchannelnames", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(WaveExtensibleFileReader, allchannelnames)},
-	{"SUBTYPE_PCM", "Lcom/sun/media/sound/WaveExtensibleFileReader$GUID;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(WaveExtensibleFileReader, SUBTYPE_PCM)},
-	{"SUBTYPE_IEEE_FLOAT", "Lcom/sun/media/sound/WaveExtensibleFileReader$GUID;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(WaveExtensibleFileReader, SUBTYPE_IEEE_FLOAT)},
-	{}
-};
-
-$MethodInfo _WaveExtensibleFileReader_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(WaveExtensibleFileReader, init$, void)},
-	{"decodeChannelMask", "(J)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(WaveExtensibleFileReader, decodeChannelMask, $String*, int64_t)},
-	{"getAudioFileFormatImpl", "(Ljava/io/InputStream;)Lcom/sun/media/sound/StandardFileFormat;", nullptr, 0, $virtualMethod(WaveExtensibleFileReader, getAudioFileFormatImpl, $StandardFileFormat*, $InputStream*), "javax.sound.sampled.UnsupportedAudioFileException,java.io.IOException"},
-	{"getAudioInputStream", "(Ljava/io/InputStream;)Ljavax/sound/sampled/AudioInputStream;", nullptr, $PUBLIC, $virtualMethod(WaveExtensibleFileReader, getAudioInputStream, $AudioInputStream*, $InputStream*), "javax.sound.sampled.UnsupportedAudioFileException,java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _WaveExtensibleFileReader_InnerClassesInfo_[] = {
-	{"com.sun.media.sound.WaveExtensibleFileReader$GUID", "com.sun.media.sound.WaveExtensibleFileReader", "GUID", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _WaveExtensibleFileReader_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.media.sound.WaveExtensibleFileReader",
-	"com.sun.media.sound.SunFileReader",
-	nullptr,
-	_WaveExtensibleFileReader_FieldInfo_,
-	_WaveExtensibleFileReader_MethodInfo_,
-	nullptr,
-	nullptr,
-	_WaveExtensibleFileReader_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.media.sound.WaveExtensibleFileReader$GUID"
-};
-
-$Object* allocate$WaveExtensibleFileReader($Class* clazz) {
-	return $of($alloc(WaveExtensibleFileReader));
-}
-
 $StringArray* WaveExtensibleFileReader::channelnames = nullptr;
 $StringArray* WaveExtensibleFileReader::allchannelnames = nullptr;
 $WaveExtensibleFileReader$GUID* WaveExtensibleFileReader::SUBTYPE_PCM = nullptr;
@@ -102,12 +61,12 @@ $String* WaveExtensibleFileReader::decodeChannelMask(int64_t channelmask) {
 	$init(WaveExtensibleFileReader);
 	$var($StringBuilder, sb, $new($StringBuilder));
 	int64_t m = 1;
-	for (int32_t i = 0; i < $nc(WaveExtensibleFileReader::allchannelnames)->length; ++i) {
-		if (((int64_t)(channelmask & (uint64_t)m)) != (int64_t)0) {
-			if (i < $nc(WaveExtensibleFileReader::channelnames)->length) {
-				sb->append($nc(WaveExtensibleFileReader::channelnames)->get(i))->append(u' ');
+	for (int32_t i = 0; i < WaveExtensibleFileReader::allchannelnames->length; ++i) {
+		if ((channelmask & m) != 0) {
+			if (i < WaveExtensibleFileReader::channelnames->length) {
+				sb->append(WaveExtensibleFileReader::channelnames->get(i))->append(u' ');
 			} else {
-				sb->append($nc(WaveExtensibleFileReader::allchannelnames)->get(i))->append(u' ');
+				sb->append(WaveExtensibleFileReader::allchannelnames->get(i))->append(u' ');
 			}
 		}
 		m *= 2;
@@ -119,12 +78,12 @@ $String* WaveExtensibleFileReader::decodeChannelMask(int64_t channelmask) {
 }
 
 $StandardFileFormat* WaveExtensibleFileReader::getAudioFileFormatImpl($InputStream* stream) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($RIFFReader, riffiterator, $new($RIFFReader, stream));
-	if (!$nc($(riffiterator->getFormat()))->equals("RIFF"_s)) {
+	if (!$$nc(riffiterator->getFormat())->equals("RIFF"_s)) {
 		$throwNew($UnsupportedAudioFileException);
 	}
-	if (!$nc($(riffiterator->getType()))->equals("WAVE"_s)) {
+	if (!$$nc(riffiterator->getType())->equals("WAVE"_s)) {
 		$throwNew($UnsupportedAudioFileException);
 	}
 	bool fmt_found = false;
@@ -139,7 +98,7 @@ $StandardFileFormat* WaveExtensibleFileReader::getAudioFileFormatImpl($InputStre
 	$var($WaveExtensibleFileReader$GUID, subFormat, nullptr);
 	while (riffiterator->hasNextChunk()) {
 		$var($RIFFReader, chunk, riffiterator->nextChunk());
-		if ($nc($($nc(chunk)->getFormat()))->equals("fmt "_s)) {
+		if ($$nc($nc(chunk)->getFormat())->equals("fmt "_s)) {
 			fmt_found = true;
 			int32_t format = chunk->readUnsignedShort();
 			if (format != $WaveFileFormat::WAVE_FORMAT_EXTENSIBLE) {
@@ -161,7 +120,7 @@ $StandardFileFormat* WaveExtensibleFileReader::getAudioFileFormatImpl($InputStre
 			channelMask = chunk->readUnsignedInt();
 			$assign(subFormat, $WaveExtensibleFileReader$GUID::read(chunk));
 		}
-		if ($nc($($nc(chunk)->getFormat()))->equals("data"_s)) {
+		if ($$nc(chunk->getFormat())->equals("data"_s)) {
 			dataSize = chunk->getSize();
 			data_found = true;
 			break;
@@ -199,21 +158,21 @@ $StandardFileFormat* WaveExtensibleFileReader::getAudioFileFormatImpl($InputStre
 }
 
 $AudioInputStream* WaveExtensibleFileReader::getAudioInputStream($InputStream* stream) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StandardFileFormat, format, $cast($StandardFileFormat, getAudioFileFormat(stream)));
 	$var($AudioFormat, af, $nc(format)->getFormat());
 	int64_t length = format->getLongFrameLength();
 	$var($RIFFReader, riffiterator, $new($RIFFReader, stream));
 	while (riffiterator->hasNextChunk()) {
 		$var($RIFFReader, chunk, riffiterator->nextChunk());
-		if ($nc($($nc(chunk)->getFormat()))->equals("data"_s)) {
+		if ($$nc($nc(chunk)->getFormat())->equals("data"_s)) {
 			return $new($AudioInputStream, chunk, af, length);
 		}
 	}
 	$throwNew($UnsupportedAudioFileException);
 }
 
-void clinit$WaveExtensibleFileReader($Class* class$) {
+void WaveExtensibleFileReader::clinit$($Class* clazz) {
 	$assignStatic(WaveExtensibleFileReader::channelnames, $new($StringArray, {
 		"FL"_s,
 		"FR"_s,
@@ -308,7 +267,41 @@ WaveExtensibleFileReader::WaveExtensibleFileReader() {
 }
 
 $Class* WaveExtensibleFileReader::load$($String* name, bool initialize) {
-	$loadClass(WaveExtensibleFileReader, name, initialize, &_WaveExtensibleFileReader_ClassInfo_, clinit$WaveExtensibleFileReader, allocate$WaveExtensibleFileReader);
+	$FieldInfo fieldInfos$$[] = {
+		{"channelnames", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(WaveExtensibleFileReader, channelnames)},
+		{"allchannelnames", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(WaveExtensibleFileReader, allchannelnames)},
+		{"SUBTYPE_PCM", "Lcom/sun/media/sound/WaveExtensibleFileReader$GUID;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(WaveExtensibleFileReader, SUBTYPE_PCM)},
+		{"SUBTYPE_IEEE_FLOAT", "Lcom/sun/media/sound/WaveExtensibleFileReader$GUID;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(WaveExtensibleFileReader, SUBTYPE_IEEE_FLOAT)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(WaveExtensibleFileReader, init$, void)},
+		{"decodeChannelMask", "(J)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(WaveExtensibleFileReader, decodeChannelMask, $String*, int64_t)},
+		{"getAudioFileFormatImpl", "(Ljava/io/InputStream;)Lcom/sun/media/sound/StandardFileFormat;", nullptr, 0, $virtualMethod(WaveExtensibleFileReader, getAudioFileFormatImpl, $StandardFileFormat*, $InputStream*), "javax.sound.sampled.UnsupportedAudioFileException,java.io.IOException"},
+		{"getAudioInputStream", "(Ljava/io/InputStream;)Ljavax/sound/sampled/AudioInputStream;", nullptr, $PUBLIC, $virtualMethod(WaveExtensibleFileReader, getAudioInputStream, $AudioInputStream*, $InputStream*), "javax.sound.sampled.UnsupportedAudioFileException,java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.media.sound.WaveExtensibleFileReader$GUID", "com.sun.media.sound.WaveExtensibleFileReader", "GUID", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.media.sound.WaveExtensibleFileReader",
+		"com.sun.media.sound.SunFileReader",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.media.sound.WaveExtensibleFileReader$GUID"
+	};
+	$loadClass(WaveExtensibleFileReader, name, initialize, &classInfo$$, WaveExtensibleFileReader::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(WaveExtensibleFileReader);
+	});
 	return class$;
 }
 

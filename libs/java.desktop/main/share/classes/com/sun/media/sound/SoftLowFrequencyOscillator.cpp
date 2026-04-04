@@ -1,5 +1,4 @@
 #include <com/sun/media/sound/SoftLowFrequencyOscillator.h>
-
 #include <com/sun/media/sound/SoftSynthesizer.h>
 #include <java/lang/Math.h>
 #include <jcpp.h>
@@ -21,45 +20,6 @@ namespace com {
 		namespace media {
 			namespace sound {
 
-$FieldInfo _SoftLowFrequencyOscillator_FieldInfo_[] = {
-	{"max_count", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SoftLowFrequencyOscillator, max_count)},
-	{"used_count", "I", nullptr, $PRIVATE, $field(SoftLowFrequencyOscillator, used_count)},
-	{"out", "[[D", nullptr, $PRIVATE | $FINAL, $field(SoftLowFrequencyOscillator, out)},
-	{"delay", "[[D", nullptr, $PRIVATE | $FINAL, $field(SoftLowFrequencyOscillator, delay)},
-	{"delay2", "[[D", nullptr, $PRIVATE | $FINAL, $field(SoftLowFrequencyOscillator, delay2)},
-	{"freq", "[[D", nullptr, $PRIVATE | $FINAL, $field(SoftLowFrequencyOscillator, freq)},
-	{"delay_counter", "[I", nullptr, $PRIVATE | $FINAL, $field(SoftLowFrequencyOscillator, delay_counter)},
-	{"sin_phase", "[D", nullptr, $PRIVATE | $FINAL, $field(SoftLowFrequencyOscillator, sin_phase)},
-	{"sin_stepfreq", "[D", nullptr, $PRIVATE | $FINAL, $field(SoftLowFrequencyOscillator, sin_stepfreq)},
-	{"sin_step", "[D", nullptr, $PRIVATE | $FINAL, $field(SoftLowFrequencyOscillator, sin_step)},
-	{"control_time", "D", nullptr, $PRIVATE, $field(SoftLowFrequencyOscillator, control_time)},
-	{"sin_factor", "D", nullptr, $PRIVATE, $field(SoftLowFrequencyOscillator, sin_factor)},
-	{"PI2", "D", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SoftLowFrequencyOscillator, PI2)},
-	{}
-};
-
-$MethodInfo _SoftLowFrequencyOscillator_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SoftLowFrequencyOscillator, init$, void)},
-	{"get", "(ILjava/lang/String;)[D", nullptr, $PUBLIC, $virtualMethod(SoftLowFrequencyOscillator, get, $doubles*, int32_t, $String*)},
-	{"init", "(Lcom/sun/media/sound/SoftSynthesizer;)V", nullptr, $PUBLIC, $virtualMethod(SoftLowFrequencyOscillator, init, void, $SoftSynthesizer*)},
-	{"processControlLogic", "()V", nullptr, $PUBLIC, $virtualMethod(SoftLowFrequencyOscillator, processControlLogic, void)},
-	{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(SoftLowFrequencyOscillator, reset, void)},
-	{}
-};
-
-$ClassInfo _SoftLowFrequencyOscillator_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.media.sound.SoftLowFrequencyOscillator",
-	"java.lang.Object",
-	"com.sun.media.sound.SoftProcess",
-	_SoftLowFrequencyOscillator_FieldInfo_,
-	_SoftLowFrequencyOscillator_MethodInfo_
-};
-
-$Object* allocate$SoftLowFrequencyOscillator($Class* clazz) {
-	return $of($alloc(SoftLowFrequencyOscillator));
-}
-
 double SoftLowFrequencyOscillator::PI2 = 0.0;
 
 void SoftLowFrequencyOscillator::init$() {
@@ -72,25 +32,23 @@ void SoftLowFrequencyOscillator::init$() {
 	$set(this, sin_phase, $new($doubles, SoftLowFrequencyOscillator::max_count));
 	$set(this, sin_stepfreq, $new($doubles, SoftLowFrequencyOscillator::max_count));
 	$set(this, sin_step, $new($doubles, SoftLowFrequencyOscillator::max_count));
-	this->control_time = (double)0;
-	this->sin_factor = (double)0;
-	for (int32_t i = 0; i < $nc(this->sin_stepfreq)->length; ++i) {
-		$init($Double);
-		$nc(this->sin_stepfreq)->set(i, $Double::NEGATIVE_INFINITY);
+	this->control_time = 0;
+	this->sin_factor = 0;
+	for (int32_t i = 0; i < this->sin_stepfreq->length; ++i) {
+		this->sin_stepfreq->set(i, $Double::NEGATIVE_INFINITY);
 	}
 }
 
 void SoftLowFrequencyOscillator::reset() {
 	for (int32_t i = 0; i < this->used_count; ++i) {
-		$nc($nc(this->out)->get(i))->set(0, (double)0);
-		$nc($nc(this->delay)->get(i))->set(0, (double)0);
-		$nc($nc(this->delay2)->get(i))->set(0, (double)0);
-		$nc($nc(this->freq)->get(i))->set(0, (double)0);
-		$nc(this->delay_counter)->set(i, 0);
-		$nc(this->sin_phase)->set(i, (double)0);
-		$init($Double);
-		$nc(this->sin_stepfreq)->set(i, $Double::NEGATIVE_INFINITY);
-		$nc(this->sin_step)->set(i, (double)0);
+		$nc(this->out->get(i))->set(0, 0);
+		$nc(this->delay->get(i))->set(0, 0);
+		$nc(this->delay2->get(i))->set(0, 0);
+		$nc(this->freq->get(i))->set(0, 0);
+		this->delay_counter->set(i, 0);
+		this->sin_phase->set(i, 0);
+		this->sin_stepfreq->set(i, $Double::NEGATIVE_INFINITY);
+		this->sin_step->set(i, 0);
 	}
 	this->used_count = 0;
 }
@@ -100,31 +58,31 @@ void SoftLowFrequencyOscillator::init($SoftSynthesizer* synth) {
 	$init($Math);
 	this->sin_factor = this->control_time * 2 * $Math::PI;
 	for (int32_t i = 0; i < this->used_count; ++i) {
-		$nc(this->delay_counter)->set(i, $cast(int32_t, ($Math::pow((double)2, $nc($nc(this->delay)->get(i))->get(0) / 1200.0) / this->control_time)));
-		(*$nc(this->delay_counter))[i] += $cast(int32_t, ($nc($nc(this->delay2)->get(i))->get(0) / (this->control_time * 1000)));
+		this->delay_counter->set(i, $cast(int32_t, ($Math::pow(2, $nc($nc(this->delay)->get(i))->get(0) / 1200.0) / this->control_time)));
+		(*this->delay_counter)[i] += $cast(int32_t, ($nc(this->delay2->get(i))->get(0) / (this->control_time * 1000)));
 	}
 	processControlLogic();
 }
 
 void SoftLowFrequencyOscillator::processControlLogic() {
 	for (int32_t i = 0; i < this->used_count; ++i) {
-		if ($nc(this->delay_counter)->get(i) > 0) {
-			--(*$nc(this->delay_counter))[i];
-			$nc($nc(this->out)->get(i))->set(0, 0.5);
+		if (this->delay_counter->get(i) > 0) {
+			--(*this->delay_counter)[i];
+			$nc(this->out->get(i))->set(0, 0.5);
 		} else {
-			double f = $nc($nc(this->freq)->get(i))->get(0);
-			if ($nc(this->sin_stepfreq)->get(i) != f) {
-				$nc(this->sin_stepfreq)->set(i, f);
-				double fr = 440.0 * $Math::exp((f - 6900.0) * ($Math::log((double)2) / 1200.0));
-				$nc(this->sin_step)->set(i, fr * this->sin_factor);
+			double f = $nc(this->freq->get(i))->get(0);
+			if (this->sin_stepfreq->get(i) != f) {
+				this->sin_stepfreq->set(i, f);
+				double fr = 440.0 * $Math::exp((f - 6900.0) * ($Math::log(2) / 1200.0));
+				this->sin_step->set(i, fr * this->sin_factor);
 			}
-			double p = $nc(this->sin_phase)->get(i);
-			p += $nc(this->sin_step)->get(i);
+			double p = this->sin_phase->get(i);
+			p += this->sin_step->get(i);
 			while (p > SoftLowFrequencyOscillator::PI2) {
 				p -= SoftLowFrequencyOscillator::PI2;
 			}
-			$nc($nc(this->out)->get(i))->set(0, 0.5 + $Math::sin(p) * 0.5);
-			$nc(this->sin_phase)->set(i, p);
+			$nc(this->out->get(i))->set(0, 0.5 + $Math::sin(p) * 0.5);
+			this->sin_phase->set(i, p);
 		}
 	}
 }
@@ -134,16 +92,16 @@ $doubles* SoftLowFrequencyOscillator::get(int32_t instance, $String* name) {
 		this->used_count = instance + 1;
 	}
 	if (name == nullptr) {
-		return $nc(this->out)->get(instance);
+		return this->out->get(instance);
 	}
 	if ($nc(name)->equals("delay"_s)) {
-		return $nc(this->delay)->get(instance);
+		return this->delay->get(instance);
 	}
-	if ($nc(name)->equals("delay2"_s)) {
-		return $nc(this->delay2)->get(instance);
+	if (name->equals("delay2"_s)) {
+		return this->delay2->get(instance);
 	}
-	if ($nc(name)->equals("freq"_s)) {
-		return $nc(this->freq)->get(instance);
+	if (name->equals("freq"_s)) {
+		return this->freq->get(instance);
 	}
 	return nullptr;
 }
@@ -151,13 +109,47 @@ $doubles* SoftLowFrequencyOscillator::get(int32_t instance, $String* name) {
 SoftLowFrequencyOscillator::SoftLowFrequencyOscillator() {
 }
 
-void clinit$SoftLowFrequencyOscillator($Class* class$) {
+void SoftLowFrequencyOscillator::clinit$($Class* clazz) {
 	$init($Math);
 	SoftLowFrequencyOscillator::PI2 = 2.0 * $Math::PI;
 }
 
 $Class* SoftLowFrequencyOscillator::load$($String* name, bool initialize) {
-	$loadClass(SoftLowFrequencyOscillator, name, initialize, &_SoftLowFrequencyOscillator_ClassInfo_, clinit$SoftLowFrequencyOscillator, allocate$SoftLowFrequencyOscillator);
+	$FieldInfo fieldInfos$$[] = {
+		{"max_count", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SoftLowFrequencyOscillator, max_count)},
+		{"used_count", "I", nullptr, $PRIVATE, $field(SoftLowFrequencyOscillator, used_count)},
+		{"out", "[[D", nullptr, $PRIVATE | $FINAL, $field(SoftLowFrequencyOscillator, out)},
+		{"delay", "[[D", nullptr, $PRIVATE | $FINAL, $field(SoftLowFrequencyOscillator, delay)},
+		{"delay2", "[[D", nullptr, $PRIVATE | $FINAL, $field(SoftLowFrequencyOscillator, delay2)},
+		{"freq", "[[D", nullptr, $PRIVATE | $FINAL, $field(SoftLowFrequencyOscillator, freq)},
+		{"delay_counter", "[I", nullptr, $PRIVATE | $FINAL, $field(SoftLowFrequencyOscillator, delay_counter)},
+		{"sin_phase", "[D", nullptr, $PRIVATE | $FINAL, $field(SoftLowFrequencyOscillator, sin_phase)},
+		{"sin_stepfreq", "[D", nullptr, $PRIVATE | $FINAL, $field(SoftLowFrequencyOscillator, sin_stepfreq)},
+		{"sin_step", "[D", nullptr, $PRIVATE | $FINAL, $field(SoftLowFrequencyOscillator, sin_step)},
+		{"control_time", "D", nullptr, $PRIVATE, $field(SoftLowFrequencyOscillator, control_time)},
+		{"sin_factor", "D", nullptr, $PRIVATE, $field(SoftLowFrequencyOscillator, sin_factor)},
+		{"PI2", "D", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SoftLowFrequencyOscillator, PI2)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SoftLowFrequencyOscillator, init$, void)},
+		{"get", "(ILjava/lang/String;)[D", nullptr, $PUBLIC, $virtualMethod(SoftLowFrequencyOscillator, get, $doubles*, int32_t, $String*)},
+		{"init", "(Lcom/sun/media/sound/SoftSynthesizer;)V", nullptr, $PUBLIC, $virtualMethod(SoftLowFrequencyOscillator, init, void, $SoftSynthesizer*)},
+		{"processControlLogic", "()V", nullptr, $PUBLIC, $virtualMethod(SoftLowFrequencyOscillator, processControlLogic, void)},
+		{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(SoftLowFrequencyOscillator, reset, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.media.sound.SoftLowFrequencyOscillator",
+		"java.lang.Object",
+		"com.sun.media.sound.SoftProcess",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SoftLowFrequencyOscillator, name, initialize, &classInfo$$, SoftLowFrequencyOscillator::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(SoftLowFrequencyOscillator);
+	});
 	return class$;
 }
 

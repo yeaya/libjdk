@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/motif/MotifIconFactory.h>
-
 #include <com/sun/java/swing/plaf/motif/MotifIconFactory$CheckBoxIcon.h>
 #include <com/sun/java/swing/plaf/motif/MotifIconFactory$MenuArrowIcon.h>
 #include <com/sun/java/swing/plaf/motif/MotifIconFactory$MenuItemArrowIcon.h>
@@ -23,53 +22,6 @@ namespace com {
 			namespace swing {
 				namespace plaf {
 					namespace motif {
-
-$FieldInfo _MotifIconFactory_FieldInfo_[] = {
-	{"checkBoxIcon", "Ljavax/swing/Icon;", nullptr, $PRIVATE | $STATIC, $staticField(MotifIconFactory, checkBoxIcon)},
-	{"radioButtonIcon", "Ljavax/swing/Icon;", nullptr, $PRIVATE | $STATIC, $staticField(MotifIconFactory, radioButtonIcon)},
-	{"menuItemCheckIcon", "Ljavax/swing/Icon;", nullptr, $PRIVATE | $STATIC, $staticField(MotifIconFactory, menuItemCheckIcon)},
-	{"menuItemArrowIcon", "Ljavax/swing/Icon;", nullptr, $PRIVATE | $STATIC, $staticField(MotifIconFactory, menuItemArrowIcon)},
-	{"menuArrowIcon", "Ljavax/swing/Icon;", nullptr, $PRIVATE | $STATIC, $staticField(MotifIconFactory, menuArrowIcon)},
-	{}
-};
-
-$MethodInfo _MotifIconFactory_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MotifIconFactory, init$, void)},
-	{"getCheckBoxIcon", "()Ljavax/swing/Icon;", nullptr, $PUBLIC | $STATIC, $staticMethod(MotifIconFactory, getCheckBoxIcon, $Icon*)},
-	{"getMenuArrowIcon", "()Ljavax/swing/Icon;", nullptr, $PUBLIC | $STATIC, $staticMethod(MotifIconFactory, getMenuArrowIcon, $Icon*)},
-	{"getMenuItemArrowIcon", "()Ljavax/swing/Icon;", nullptr, $PUBLIC | $STATIC, $staticMethod(MotifIconFactory, getMenuItemArrowIcon, $Icon*)},
-	{"getMenuItemCheckIcon", "()Ljavax/swing/Icon;", nullptr, $PUBLIC | $STATIC, $staticMethod(MotifIconFactory, getMenuItemCheckIcon, $Icon*)},
-	{"getRadioButtonIcon", "()Ljavax/swing/Icon;", nullptr, $PUBLIC | $STATIC, $staticMethod(MotifIconFactory, getRadioButtonIcon, $Icon*)},
-	{}
-};
-
-$InnerClassInfo _MotifIconFactory_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.motif.MotifIconFactory$MenuArrowIcon", "com.sun.java.swing.plaf.motif.MotifIconFactory", "MenuArrowIcon", $PRIVATE | $STATIC},
-	{"com.sun.java.swing.plaf.motif.MotifIconFactory$MenuItemArrowIcon", "com.sun.java.swing.plaf.motif.MotifIconFactory", "MenuItemArrowIcon", $PRIVATE | $STATIC},
-	{"com.sun.java.swing.plaf.motif.MotifIconFactory$MenuItemCheckIcon", "com.sun.java.swing.plaf.motif.MotifIconFactory", "MenuItemCheckIcon", $PRIVATE | $STATIC},
-	{"com.sun.java.swing.plaf.motif.MotifIconFactory$RadioButtonIcon", "com.sun.java.swing.plaf.motif.MotifIconFactory", "RadioButtonIcon", $PRIVATE | $STATIC},
-	{"com.sun.java.swing.plaf.motif.MotifIconFactory$CheckBoxIcon", "com.sun.java.swing.plaf.motif.MotifIconFactory", "CheckBoxIcon", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _MotifIconFactory_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.java.swing.plaf.motif.MotifIconFactory",
-	"java.lang.Object",
-	"java.io.Serializable",
-	_MotifIconFactory_FieldInfo_,
-	_MotifIconFactory_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MotifIconFactory_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.motif.MotifIconFactory$MenuArrowIcon,com.sun.java.swing.plaf.motif.MotifIconFactory$MenuItemArrowIcon,com.sun.java.swing.plaf.motif.MotifIconFactory$MenuItemCheckIcon,com.sun.java.swing.plaf.motif.MotifIconFactory$RadioButtonIcon,com.sun.java.swing.plaf.motif.MotifIconFactory$CheckBoxIcon"
-};
-
-$Object* allocate$MotifIconFactory($Class* clazz) {
-	return $of($alloc(MotifIconFactory));
-}
 
 $Icon* MotifIconFactory::checkBoxIcon = nullptr;
 $Icon* MotifIconFactory::radioButtonIcon = nullptr;
@@ -121,7 +73,48 @@ MotifIconFactory::MotifIconFactory() {
 }
 
 $Class* MotifIconFactory::load$($String* name, bool initialize) {
-	$loadClass(MotifIconFactory, name, initialize, &_MotifIconFactory_ClassInfo_, allocate$MotifIconFactory);
+	$FieldInfo fieldInfos$$[] = {
+		{"checkBoxIcon", "Ljavax/swing/Icon;", nullptr, $PRIVATE | $STATIC, $staticField(MotifIconFactory, checkBoxIcon)},
+		{"radioButtonIcon", "Ljavax/swing/Icon;", nullptr, $PRIVATE | $STATIC, $staticField(MotifIconFactory, radioButtonIcon)},
+		{"menuItemCheckIcon", "Ljavax/swing/Icon;", nullptr, $PRIVATE | $STATIC, $staticField(MotifIconFactory, menuItemCheckIcon)},
+		{"menuItemArrowIcon", "Ljavax/swing/Icon;", nullptr, $PRIVATE | $STATIC, $staticField(MotifIconFactory, menuItemArrowIcon)},
+		{"menuArrowIcon", "Ljavax/swing/Icon;", nullptr, $PRIVATE | $STATIC, $staticField(MotifIconFactory, menuArrowIcon)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MotifIconFactory, init$, void)},
+		{"getCheckBoxIcon", "()Ljavax/swing/Icon;", nullptr, $PUBLIC | $STATIC, $staticMethod(MotifIconFactory, getCheckBoxIcon, $Icon*)},
+		{"getMenuArrowIcon", "()Ljavax/swing/Icon;", nullptr, $PUBLIC | $STATIC, $staticMethod(MotifIconFactory, getMenuArrowIcon, $Icon*)},
+		{"getMenuItemArrowIcon", "()Ljavax/swing/Icon;", nullptr, $PUBLIC | $STATIC, $staticMethod(MotifIconFactory, getMenuItemArrowIcon, $Icon*)},
+		{"getMenuItemCheckIcon", "()Ljavax/swing/Icon;", nullptr, $PUBLIC | $STATIC, $staticMethod(MotifIconFactory, getMenuItemCheckIcon, $Icon*)},
+		{"getRadioButtonIcon", "()Ljavax/swing/Icon;", nullptr, $PUBLIC | $STATIC, $staticMethod(MotifIconFactory, getRadioButtonIcon, $Icon*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.motif.MotifIconFactory$MenuArrowIcon", "com.sun.java.swing.plaf.motif.MotifIconFactory", "MenuArrowIcon", $PRIVATE | $STATIC},
+		{"com.sun.java.swing.plaf.motif.MotifIconFactory$MenuItemArrowIcon", "com.sun.java.swing.plaf.motif.MotifIconFactory", "MenuItemArrowIcon", $PRIVATE | $STATIC},
+		{"com.sun.java.swing.plaf.motif.MotifIconFactory$MenuItemCheckIcon", "com.sun.java.swing.plaf.motif.MotifIconFactory", "MenuItemCheckIcon", $PRIVATE | $STATIC},
+		{"com.sun.java.swing.plaf.motif.MotifIconFactory$RadioButtonIcon", "com.sun.java.swing.plaf.motif.MotifIconFactory", "RadioButtonIcon", $PRIVATE | $STATIC},
+		{"com.sun.java.swing.plaf.motif.MotifIconFactory$CheckBoxIcon", "com.sun.java.swing.plaf.motif.MotifIconFactory", "CheckBoxIcon", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.java.swing.plaf.motif.MotifIconFactory",
+		"java.lang.Object",
+		"java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.motif.MotifIconFactory$MenuArrowIcon,com.sun.java.swing.plaf.motif.MotifIconFactory$MenuItemArrowIcon,com.sun.java.swing.plaf.motif.MotifIconFactory$MenuItemCheckIcon,com.sun.java.swing.plaf.motif.MotifIconFactory$RadioButtonIcon,com.sun.java.swing.plaf.motif.MotifIconFactory$CheckBoxIcon"
+	};
+	$loadClass(MotifIconFactory, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MotifIconFactory);
+	});
 	return class$;
 }
 

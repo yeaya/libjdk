@@ -23,6 +23,7 @@ class JRSUIConstants$Key : public ::java::lang::Object {
 	$class(JRSUIConstants$Key, 0, ::java::lang::Object)
 public:
 	JRSUIConstants$Key();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int32_t constant);
 	$String* getConstantName(::apple::laf::JRSUIConstants$Key* hit);
 	virtual int64_t getConstantPtr();

@@ -1,7 +1,5 @@
 #include <sun/awt/shell/Win32ShellFolder2$16.h>
-
 #include <java/util/ArrayList.h>
-#include <java/util/Comparator.h>
 #include <java/util/List.h>
 #include <javax/swing/SwingConstants.h>
 #include <sun/awt/shell/ShellFolderColumnInfo.h>
@@ -21,7 +19,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ArrayList = ::java::util::ArrayList;
-using $Comparator = ::java::util::Comparator;
 using $List = ::java::util::List;
 using $SwingConstants = ::javax::swing::SwingConstants;
 using $ShellFolderColumnInfo = ::sun::awt::shell::ShellFolderColumnInfo;
@@ -32,61 +29,19 @@ namespace sun {
 	namespace awt {
 		namespace shell {
 
-$FieldInfo _Win32ShellFolder2$16_FieldInfo_[] = {
-	{"this$0", "Lsun/awt/shell/Win32ShellFolder2;", nullptr, $FINAL | $SYNTHETIC, $field(Win32ShellFolder2$16, this$0)},
-	{}
-};
-
-$MethodInfo _Win32ShellFolder2$16_MethodInfo_[] = {
-	{"<init>", "(Lsun/awt/shell/Win32ShellFolder2;)V", nullptr, 0, $method(Win32ShellFolder2$16, init$, void, $Win32ShellFolder2*)},
-	{"call", "()[Lsun/awt/shell/ShellFolderColumnInfo;", nullptr, $PUBLIC, $virtualMethod(Win32ShellFolder2$16, call, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _Win32ShellFolder2$16_EnclosingMethodInfo_ = {
-	"sun.awt.shell.Win32ShellFolder2",
-	"getFolderColumns",
-	"()[Lsun/awt/shell/ShellFolderColumnInfo;"
-};
-
-$InnerClassInfo _Win32ShellFolder2$16_InnerClassesInfo_[] = {
-	{"sun.awt.shell.Win32ShellFolder2$16", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Win32ShellFolder2$16_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.awt.shell.Win32ShellFolder2$16",
-	"java.lang.Object",
-	"java.util.concurrent.Callable",
-	_Win32ShellFolder2$16_FieldInfo_,
-	_Win32ShellFolder2$16_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/concurrent/Callable<[Lsun/awt/shell/ShellFolderColumnInfo;>;",
-	&_Win32ShellFolder2$16_EnclosingMethodInfo_,
-	_Win32ShellFolder2$16_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.awt.shell.Win32ShellFolder2"
-};
-
-$Object* allocate$Win32ShellFolder2$16($Class* clazz) {
-	return $of($alloc(Win32ShellFolder2$16));
-}
-
 void Win32ShellFolder2$16::init$($Win32ShellFolder2* this$0) {
 	$set(this, this$0, this$0);
 }
 
 $Object* Win32ShellFolder2$16::call() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ShellFolderColumnInfoArray, columns, this->this$0->doGetColumnInfo(this->this$0->getIShellFolder()));
 	if (columns != nullptr) {
 		$var($List, notNullColumns, $new($ArrayList));
 		for (int32_t i = 0; i < columns->length; ++i) {
 			$var($ShellFolderColumnInfo, column, columns->get(i));
 			if (column != nullptr) {
-				column->setAlignment($($Integer::valueOf($nc($(column->getAlignment()))->intValue() == 1 ? $SwingConstants::RIGHT : $nc($(column->getAlignment()))->intValue() == 2 ? $SwingConstants::CENTER : $SwingConstants::LEADING)));
+				column->setAlignment($($Integer::valueOf($$nc(column->getAlignment())->intValue() == 1 ? $SwingConstants::RIGHT : $$nc(column->getAlignment())->intValue() == 2 ? $SwingConstants::CENTER : $SwingConstants::LEADING)));
 				column->setComparator($$new($Win32ShellFolder2$ColumnComparator, this->this$0, i));
 				notNullColumns->add(column);
 			}
@@ -94,14 +49,49 @@ $Object* Win32ShellFolder2$16::call() {
 		$assign(columns, $new($ShellFolderColumnInfoArray, notNullColumns->size()));
 		notNullColumns->toArray(columns);
 	}
-	return $of(columns);
+	return columns;
 }
 
 Win32ShellFolder2$16::Win32ShellFolder2$16() {
 }
 
 $Class* Win32ShellFolder2$16::load$($String* name, bool initialize) {
-	$loadClass(Win32ShellFolder2$16, name, initialize, &_Win32ShellFolder2$16_ClassInfo_, allocate$Win32ShellFolder2$16);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/awt/shell/Win32ShellFolder2;", nullptr, $FINAL | $SYNTHETIC, $field(Win32ShellFolder2$16, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/awt/shell/Win32ShellFolder2;)V", nullptr, 0, $method(Win32ShellFolder2$16, init$, void, $Win32ShellFolder2*)},
+		{"call", "()[Lsun/awt/shell/ShellFolderColumnInfo;", nullptr, $PUBLIC, $virtualMethod(Win32ShellFolder2$16, call, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.awt.shell.Win32ShellFolder2",
+		"getFolderColumns",
+		"()[Lsun/awt/shell/ShellFolderColumnInfo;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.shell.Win32ShellFolder2$16", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.awt.shell.Win32ShellFolder2$16",
+		"java.lang.Object",
+		"java.util.concurrent.Callable",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/concurrent/Callable<[Lsun/awt/shell/ShellFolderColumnInfo;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.awt.shell.Win32ShellFolder2"
+	};
+	$loadClass(Win32ShellFolder2$16, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Win32ShellFolder2$16);
+	});
 	return class$;
 }
 

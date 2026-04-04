@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/KeyPattern.h>
-
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/IdKeyPattern.h>
 #include <jcpp.h>
 
@@ -16,24 +15,6 @@ namespace com {
 						namespace xsltc {
 							namespace compiler {
 
-$MethodInfo _KeyPattern_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(KeyPattern, init$, void, $String*, $String*)},
-	{}
-};
-
-$ClassInfo _KeyPattern_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xalan.internal.xsltc.compiler.KeyPattern",
-	"com.sun.org.apache.xalan.internal.xsltc.compiler.IdKeyPattern",
-	nullptr,
-	nullptr,
-	_KeyPattern_MethodInfo_
-};
-
-$Object* allocate$KeyPattern($Class* clazz) {
-	return $of($alloc(KeyPattern));
-}
-
 void KeyPattern::init$($String* index, $String* value) {
 	$IdKeyPattern::init$(index, value);
 }
@@ -42,7 +23,21 @@ KeyPattern::KeyPattern() {
 }
 
 $Class* KeyPattern::load$($String* name, bool initialize) {
-	$loadClass(KeyPattern, name, initialize, &_KeyPattern_ClassInfo_, allocate$KeyPattern);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(KeyPattern, init$, void, $String*, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xalan.internal.xsltc.compiler.KeyPattern",
+		"com.sun.org.apache.xalan.internal.xsltc.compiler.IdKeyPattern",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(KeyPattern, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(KeyPattern);
+	});
 	return class$;
 }
 

@@ -22,6 +22,7 @@ class $import HttpClient$Redirect : public ::java::lang::Enum {
 public:
 	HttpClient$Redirect();
 	static $Array<::java::net::http::HttpClient$Redirect>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::java::net::http::HttpClient$Redirect* valueOf($String* name);
 	static $Array<::java::net::http::HttpClient$Redirect>* values();

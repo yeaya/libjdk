@@ -1,5 +1,4 @@
 #include <javax/sql/rowset/spi/SyncProviderException.h>
-
 #include <com/sun/rowset/internal/SyncResolverImpl.h>
 #include <java/sql/SQLException.h>
 #include <javax/sql/rowset/spi/SyncResolver.h>
@@ -17,34 +16,6 @@ namespace javax {
 	namespace sql {
 		namespace rowset {
 			namespace spi {
-
-$FieldInfo _SyncProviderException_FieldInfo_[] = {
-	{"syncResolver", "Ljavax/sql/rowset/spi/SyncResolver;", nullptr, $PRIVATE, $field(SyncProviderException, syncResolver)},
-	{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(SyncProviderException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _SyncProviderException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SyncProviderException, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SyncProviderException, init$, void, $String*)},
-	{"<init>", "(Ljavax/sql/rowset/spi/SyncResolver;)V", nullptr, $PUBLIC, $method(SyncProviderException, init$, void, $SyncResolver*)},
-	{"getSyncResolver", "()Ljavax/sql/rowset/spi/SyncResolver;", nullptr, $PUBLIC, $virtualMethod(SyncProviderException, getSyncResolver, $SyncResolver*)},
-	{"setSyncResolver", "(Ljavax/sql/rowset/spi/SyncResolver;)V", nullptr, $PUBLIC, $virtualMethod(SyncProviderException, setSyncResolver, void, $SyncResolver*)},
-	{}
-};
-
-$ClassInfo _SyncProviderException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.sql.rowset.spi.SyncProviderException",
-	"java.sql.SQLException",
-	nullptr,
-	_SyncProviderException_FieldInfo_,
-	_SyncProviderException_MethodInfo_
-};
-
-$Object* allocate$SyncProviderException($Class* clazz) {
-	return $of($alloc(SyncProviderException));
-}
 
 void SyncProviderException::init$() {
 	$SQLException::init$();
@@ -97,7 +68,30 @@ void SyncProviderException::throw$() {
 }
 
 $Class* SyncProviderException::load$($String* name, bool initialize) {
-	$loadClass(SyncProviderException, name, initialize, &_SyncProviderException_ClassInfo_, allocate$SyncProviderException);
+	$FieldInfo fieldInfos$$[] = {
+		{"syncResolver", "Ljavax/sql/rowset/spi/SyncResolver;", nullptr, $PRIVATE, $field(SyncProviderException, syncResolver)},
+		{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(SyncProviderException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SyncProviderException, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SyncProviderException, init$, void, $String*)},
+		{"<init>", "(Ljavax/sql/rowset/spi/SyncResolver;)V", nullptr, $PUBLIC, $method(SyncProviderException, init$, void, $SyncResolver*)},
+		{"getSyncResolver", "()Ljavax/sql/rowset/spi/SyncResolver;", nullptr, $PUBLIC, $virtualMethod(SyncProviderException, getSyncResolver, $SyncResolver*)},
+		{"setSyncResolver", "(Ljavax/sql/rowset/spi/SyncResolver;)V", nullptr, $PUBLIC, $virtualMethod(SyncProviderException, setSyncResolver, void, $SyncResolver*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.sql.rowset.spi.SyncProviderException",
+		"java.sql.SQLException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SyncProviderException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SyncProviderException));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <javax/swing/text/html/CSS$ColorValue.h>
-
 #include <java/awt/Color.h>
 #include <javax/swing/text/StyleConstants.h>
 #include <javax/swing/text/View.h>
@@ -22,47 +21,6 @@ namespace javax {
 		namespace text {
 			namespace html {
 
-$FieldInfo _CSS$ColorValue_FieldInfo_[] = {
-	{"c", "Ljava/awt/Color;", nullptr, 0, $field(CSS$ColorValue, c)},
-	{}
-};
-
-$MethodInfo _CSS$ColorValue_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(CSS$ColorValue, init$, void)},
-	{"fromStyleConstants", "(Ljavax/swing/text/StyleConstants;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, 0, $virtualMethod(CSS$ColorValue, fromStyleConstants, $Object*, $StyleConstants*, Object$*)},
-	{"getValue", "()Ljava/awt/Color;", nullptr, 0, $virtualMethod(CSS$ColorValue, getValue, $Color*)},
-	{"parseCssValue", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, 0, $virtualMethod(CSS$ColorValue, parseCssValue, $Object*, $String*)},
-	{"parseHtmlValue", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, 0, $virtualMethod(CSS$ColorValue, parseHtmlValue, $Object*, $String*)},
-	{"toStyleConstants", "(Ljavax/swing/text/StyleConstants;Ljavax/swing/text/View;)Ljava/lang/Object;", nullptr, 0, $virtualMethod(CSS$ColorValue, toStyleConstants, $Object*, $StyleConstants*, $View*)},
-	{}
-};
-
-$InnerClassInfo _CSS$ColorValue_InnerClassesInfo_[] = {
-	{"javax.swing.text.html.CSS$ColorValue", "javax.swing.text.html.CSS", "ColorValue", $STATIC},
-	{"javax.swing.text.html.CSS$CssValue", "javax.swing.text.html.CSS", "CssValue", $STATIC},
-	{}
-};
-
-$ClassInfo _CSS$ColorValue_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.text.html.CSS$ColorValue",
-	"javax.swing.text.html.CSS$CssValue",
-	nullptr,
-	_CSS$ColorValue_FieldInfo_,
-	_CSS$ColorValue_MethodInfo_,
-	nullptr,
-	nullptr,
-	_CSS$ColorValue_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.html.CSS"
-};
-
-$Object* allocate$CSS$ColorValue($Class* clazz) {
-	return $of($alloc(CSS$ColorValue));
-}
-
 void CSS$ColorValue::init$() {
 	$CSS$CssValue::init$();
 }
@@ -72,26 +30,26 @@ $Color* CSS$ColorValue::getValue() {
 }
 
 $Object* CSS$ColorValue::parseCssValue($String* value) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Color, c, $CSS::stringToColor(value));
 	if (c != nullptr) {
 		$var(CSS$ColorValue, cv, $new(CSS$ColorValue));
 		$set(cv, svalue, value);
 		$set(cv, c, c);
-		return $of(cv);
+		return cv;
 	}
-	return $of(nullptr);
+	return nullptr;
 }
 
 $Object* CSS$ColorValue::parseHtmlValue($String* value) {
-	return $of(parseCssValue(value));
+	return parseCssValue(value);
 }
 
 $Object* CSS$ColorValue::fromStyleConstants($StyleConstants* key, Object$* value) {
 	$var(CSS$ColorValue, colorValue, $new(CSS$ColorValue));
 	$set(colorValue, c, $cast($Color, value));
 	$set(colorValue, svalue, $CSS::colorToHex(colorValue->c));
-	return $of(colorValue);
+	return colorValue;
 }
 
 $Object* CSS$ColorValue::toStyleConstants($StyleConstants* key, $View* v) {
@@ -102,7 +60,42 @@ CSS$ColorValue::CSS$ColorValue() {
 }
 
 $Class* CSS$ColorValue::load$($String* name, bool initialize) {
-	$loadClass(CSS$ColorValue, name, initialize, &_CSS$ColorValue_ClassInfo_, allocate$CSS$ColorValue);
+	$FieldInfo fieldInfos$$[] = {
+		{"c", "Ljava/awt/Color;", nullptr, 0, $field(CSS$ColorValue, c)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(CSS$ColorValue, init$, void)},
+		{"fromStyleConstants", "(Ljavax/swing/text/StyleConstants;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, 0, $virtualMethod(CSS$ColorValue, fromStyleConstants, $Object*, $StyleConstants*, Object$*)},
+		{"getValue", "()Ljava/awt/Color;", nullptr, 0, $virtualMethod(CSS$ColorValue, getValue, $Color*)},
+		{"parseCssValue", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, 0, $virtualMethod(CSS$ColorValue, parseCssValue, $Object*, $String*)},
+		{"parseHtmlValue", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, 0, $virtualMethod(CSS$ColorValue, parseHtmlValue, $Object*, $String*)},
+		{"toStyleConstants", "(Ljavax/swing/text/StyleConstants;Ljavax/swing/text/View;)Ljava/lang/Object;", nullptr, 0, $virtualMethod(CSS$ColorValue, toStyleConstants, $Object*, $StyleConstants*, $View*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.html.CSS$ColorValue", "javax.swing.text.html.CSS", "ColorValue", $STATIC},
+		{"javax.swing.text.html.CSS$CssValue", "javax.swing.text.html.CSS", "CssValue", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.text.html.CSS$ColorValue",
+		"javax.swing.text.html.CSS$CssValue",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.html.CSS"
+	};
+	$loadClass(CSS$ColorValue, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CSS$ColorValue);
+	});
 	return class$;
 }
 

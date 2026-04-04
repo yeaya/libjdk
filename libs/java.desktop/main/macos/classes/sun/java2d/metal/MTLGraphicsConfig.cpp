@@ -1,5 +1,4 @@
 #include <sun/java2d/metal/MTLGraphicsConfig.h>
-
 #include <java/awt/AWTException.h>
 #include <java/awt/BufferCapabilities$FlipContents.h>
 #include <java/awt/BufferCapabilities.h>
@@ -37,7 +36,6 @@
 #include <sun/awt/image/OffScreenImage.h>
 #include <sun/awt/image/SunVolatileImage.h>
 #include <sun/java2d/Disposer.h>
-#include <sun/java2d/DisposerRecord.h>
 #include <sun/java2d/Surface.h>
 #include <sun/java2d/SurfaceData.h>
 #include <sun/java2d/metal/MTLContext$MTLContextCaps.h>
@@ -51,7 +49,6 @@
 #include <sun/java2d/metal/MTLSurfaceData$MTLOffScreenSurfaceData.h>
 #include <sun/java2d/metal/MTLSurfaceData.h>
 #include <sun/java2d/pipe/BufferedContext.h>
-#include <sun/java2d/pipe/RenderQueue.h>
 #include <sun/java2d/pipe/hw/AccelSurface.h>
 #include <sun/java2d/pipe/hw/AccelTypedVolatileImage.h>
 #include <sun/java2d/pipe/hw/ContextCapabilities.h>
@@ -73,7 +70,6 @@ using $BufferCapabilities$FlipContents = ::java::awt::BufferCapabilities$FlipCon
 using $Component = ::java::awt::Component;
 using $Graphics = ::java::awt::Graphics;
 using $Graphics2D = ::java::awt::Graphics2D;
-using $GraphicsConfiguration = ::java::awt::GraphicsConfiguration;
 using $Image = ::java::awt::Image;
 using $ImageCapabilities = ::java::awt::ImageCapabilities;
 using $Rectangle = ::java::awt::Rectangle;
@@ -102,7 +98,6 @@ using $CGraphicsDevice = ::sun::awt::CGraphicsDevice;
 using $OffScreenImage = ::sun::awt::image::OffScreenImage;
 using $SunVolatileImage = ::sun::awt::image::SunVolatileImage;
 using $Disposer = ::sun::java2d::Disposer;
-using $DisposerRecord = ::sun::java2d::DisposerRecord;
 using $Surface = ::sun::java2d::Surface;
 using $SurfaceData = ::sun::java2d::SurfaceData;
 using $MTLContext = ::sun::java2d::metal::MTLContext;
@@ -114,7 +109,6 @@ using $MTLLayer = ::sun::java2d::metal::MTLLayer;
 using $MTLRenderQueue = ::sun::java2d::metal::MTLRenderQueue;
 using $MTLSurfaceData = ::sun::java2d::metal::MTLSurfaceData;
 using $BufferedContext = ::sun::java2d::pipe::BufferedContext;
-using $RenderQueue = ::sun::java2d::pipe::RenderQueue;
 using $AccelSurface = ::sun::java2d::pipe::hw::AccelSurface;
 using $AccelTypedVolatileImage = ::sun::java2d::pipe::hw::AccelTypedVolatileImage;
 using $ContextCapabilities = ::sun::java2d::pipe::hw::ContextCapabilities;
@@ -133,112 +127,27 @@ public:
 	virtual $Object* run() override {
 		 return $of(MTLGraphicsConfig::lambda$static$0());
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<MTLGraphicsConfig$$Lambda$lambda$static$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo MTLGraphicsConfig$$Lambda$lambda$static$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MTLGraphicsConfig$$Lambda$lambda$static$0, init$, void)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MTLGraphicsConfig$$Lambda$lambda$static$0, run, $Object*)},
-	{}
-};
-$ClassInfo MTLGraphicsConfig$$Lambda$lambda$static$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.java2d.metal.MTLGraphicsConfig$$Lambda$lambda$static$0",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	nullptr,
-	methodInfos
 };
 $Class* MTLGraphicsConfig$$Lambda$lambda$static$0::load$($String* name, bool initialize) {
-	$loadClass(MTLGraphicsConfig$$Lambda$lambda$static$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MTLGraphicsConfig$$Lambda$lambda$static$0, init$, void)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MTLGraphicsConfig$$Lambda$lambda$static$0, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.java2d.metal.MTLGraphicsConfig$$Lambda$lambda$static$0",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(MTLGraphicsConfig$$Lambda$lambda$static$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MTLGraphicsConfig$$Lambda$lambda$static$0);
+	});
 	return class$;
 }
 $Class* MTLGraphicsConfig$$Lambda$lambda$static$0::class$ = nullptr;
-
-$FieldInfo _MTLGraphicsConfig_FieldInfo_[] = {
-	{"mtlAvailable", "Z", nullptr, $PRIVATE | $STATIC, $staticField(MTLGraphicsConfig, mtlAvailable)},
-	{"imageCaps", "Ljava/awt/ImageCapabilities;", nullptr, $PRIVATE | $STATIC, $staticField(MTLGraphicsConfig, imageCaps)},
-	{"mtlShadersLib", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MTLGraphicsConfig, mtlShadersLib)},
-	{"bufferCaps", "Ljava/awt/BufferCapabilities;", nullptr, $PRIVATE, $field(MTLGraphicsConfig, bufferCaps)},
-	{"pConfigInfo", "J", nullptr, $PRIVATE, $field(MTLGraphicsConfig, pConfigInfo)},
-	{"mtlCaps", "Lsun/java2d/pipe/hw/ContextCapabilities;", nullptr, $PRIVATE, $field(MTLGraphicsConfig, mtlCaps)},
-	{"context", "Lsun/java2d/metal/MTLContext;", nullptr, $PRIVATE | $FINAL, $field(MTLGraphicsConfig, context)},
-	{"disposerReferent", "Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $field(MTLGraphicsConfig, disposerReferent)},
-	{"maxTextureSize", "I", nullptr, $PRIVATE | $FINAL, $field(MTLGraphicsConfig, maxTextureSize)},
-	{}
-};
-
-$MethodInfo _MTLGraphicsConfig_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lsun/awt/CGraphicsDevice;JILsun/java2d/pipe/hw/ContextCapabilities;)V", nullptr, $PRIVATE, $method(MTLGraphicsConfig, init$, void, $CGraphicsDevice*, int64_t, int32_t, $ContextCapabilities*)},
-	{"assertOperationSupported", "(ILjava/awt/BufferCapabilities;)V", nullptr, $PUBLIC, $virtualMethod(MTLGraphicsConfig, assertOperationSupported, void, int32_t, $BufferCapabilities*), "java.awt.AWTException"},
-	{"createAcceleratedImage", "(Ljava/awt/Component;II)Ljava/awt/Image;", nullptr, $PUBLIC, $virtualMethod(MTLGraphicsConfig, createAcceleratedImage, $Image*, $Component*, int32_t, int32_t)},
-	{"createBackBuffer", "(Lsun/lwawt/LWComponentPeer;)Ljava/awt/Image;", "(Lsun/lwawt/LWComponentPeer<**>;)Ljava/awt/Image;", $PUBLIC, $virtualMethod(MTLGraphicsConfig, createBackBuffer, $Image*, $LWComponentPeer*)},
-	{"createCompatibleImage", "(II)Ljava/awt/image/BufferedImage;", nullptr, $PUBLIC, $virtualMethod(MTLGraphicsConfig, createCompatibleImage, $BufferedImage*, int32_t, int32_t)},
-	{"createCompatibleVolatileImage", "(IIII)Ljava/awt/image/VolatileImage;", nullptr, $PUBLIC, $virtualMethod(MTLGraphicsConfig, createCompatibleVolatileImage, $VolatileImage*, int32_t, int32_t, int32_t, int32_t)},
-	{"createManagedSurface", "(III)Lsun/java2d/SurfaceData;", nullptr, $PUBLIC, $method(MTLGraphicsConfig, createManagedSurface, $SurfaceData*, int32_t, int32_t, int32_t)},
-	{"createSurfaceData", "(Lsun/lwawt/macosx/CFRetainedResource;)Lsun/java2d/SurfaceData;", nullptr, $PUBLIC, $virtualMethod(MTLGraphicsConfig, createSurfaceData, $SurfaceData*, $CFRetainedResource*)},
-	{"destroyBackBuffer", "(Ljava/awt/Image;)V", nullptr, $PUBLIC, $virtualMethod(MTLGraphicsConfig, destroyBackBuffer, void, $Image*)},
-	{"flip", "(Lsun/lwawt/LWComponentPeer;Ljava/awt/Image;IIIILjava/awt/BufferCapabilities$FlipContents;)V", "(Lsun/lwawt/LWComponentPeer<**>;Ljava/awt/Image;IIIILjava/awt/BufferCapabilities$FlipContents;)V", $PUBLIC, $virtualMethod(MTLGraphicsConfig, flip, void, $LWComponentPeer*, $Image*, int32_t, int32_t, int32_t, int32_t, $BufferCapabilities$FlipContents*)},
-	{"getBufferCapabilities", "()Ljava/awt/BufferCapabilities;", nullptr, $PUBLIC, $virtualMethod(MTLGraphicsConfig, getBufferCapabilities, $BufferCapabilities*)},
-	{"getColorModel", "(I)Ljava/awt/image/ColorModel;", nullptr, $PUBLIC, $virtualMethod(MTLGraphicsConfig, getColorModel, $ColorModel*, int32_t)},
-	{"getConfig", "(Lsun/awt/CGraphicsDevice;I)Lsun/java2d/metal/MTLGraphicsConfig;", nullptr, $PUBLIC | $STATIC, $staticMethod(MTLGraphicsConfig, getConfig, MTLGraphicsConfig*, $CGraphicsDevice*, int32_t)},
-	{"getContext", "()Lsun/java2d/metal/MTLContext;", nullptr, $PUBLIC, $virtualMethod(MTLGraphicsConfig, getContext, $BufferedContext*)},
-	{"getContextCapabilities", "()Lsun/java2d/pipe/hw/ContextCapabilities;", nullptr, $PUBLIC, $virtualMethod(MTLGraphicsConfig, getContextCapabilities, $ContextCapabilities*)},
-	{"getImageCapabilities", "()Ljava/awt/ImageCapabilities;", nullptr, $PUBLIC, $virtualMethod(MTLGraphicsConfig, getImageCapabilities, $ImageCapabilities*)},
-	{"getMTLConfigInfo", "(ILjava/lang/String;)J", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(MTLGraphicsConfig, getMTLConfigInfo, int64_t, int32_t, $String*)},
-	{"getMaxTextureHeight", "()I", nullptr, $PUBLIC, $virtualMethod(MTLGraphicsConfig, getMaxTextureHeight, int32_t)},
-	{"getMaxTextureWidth", "()I", nullptr, $PUBLIC, $virtualMethod(MTLGraphicsConfig, getMaxTextureWidth, int32_t)},
-	{"getNativeConfigInfo", "()J", nullptr, $PUBLIC, $method(MTLGraphicsConfig, getNativeConfigInfo, int64_t)},
-	{"getProxyKey", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MTLGraphicsConfig, getProxyKey, $Object*)},
-	{"isCapPresent", "(I)Z", nullptr, $PUBLIC, $method(MTLGraphicsConfig, isCapPresent, bool, int32_t)},
-	{"isDoubleBuffered", "()Z", nullptr, $PUBLIC, $method(MTLGraphicsConfig, isDoubleBuffered, bool)},
-	{"isMetalAvailable", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(MTLGraphicsConfig, isMetalAvailable, bool)},
-	{"isMetalFrameworkAvailable", "()Z", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(MTLGraphicsConfig, isMetalFrameworkAvailable, bool)},
-	{"lambda$static$0", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MTLGraphicsConfig, lambda$static$0, $String*)},
-	{"nativeGetMaxTextureSize", "()I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(MTLGraphicsConfig, nativeGetMaxTextureSize, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MTLGraphicsConfig, toString, $String*)},
-	{"tryLoadMetalLibrary", "(ILjava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(MTLGraphicsConfig, tryLoadMetalLibrary, bool, int32_t, $String*)},
-	{}
-};
-
-#define _METHOD_INDEX_getMTLConfigInfo 20
-#define _METHOD_INDEX_isMetalFrameworkAvailable 28
-#define _METHOD_INDEX_nativeGetMaxTextureSize 30
-#define _METHOD_INDEX_tryLoadMetalLibrary 32
-
-$InnerClassInfo _MTLGraphicsConfig_InnerClassesInfo_[] = {
-	{"sun.awt.image.SurfaceManager$ProxiedGraphicsConfig", "sun.awt.image.SurfaceManager", "ProxiedGraphicsConfig", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"sun.java2d.metal.MTLGraphicsConfig$MTLImageCaps", "sun.java2d.metal.MTLGraphicsConfig", "MTLImageCaps", $PRIVATE | $STATIC},
-	{"sun.java2d.metal.MTLGraphicsConfig$MTLBufferCaps", "sun.java2d.metal.MTLGraphicsConfig", "MTLBufferCaps", $PRIVATE | $STATIC},
-	{"sun.java2d.metal.MTLGraphicsConfig$MTLGCDisposerRecord", "sun.java2d.metal.MTLGraphicsConfig", "MTLGCDisposerRecord", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _MTLGraphicsConfig_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.java2d.metal.MTLGraphicsConfig",
-	"sun.awt.CGraphicsConfig",
-	"sun.java2d.pipe.hw.AccelGraphicsConfig,sun.awt.image.SurfaceManager$ProxiedGraphicsConfig",
-	_MTLGraphicsConfig_FieldInfo_,
-	_MTLGraphicsConfig_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MTLGraphicsConfig_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.java2d.metal.MTLGraphicsConfig$MTLImageCaps,sun.java2d.metal.MTLGraphicsConfig$MTLBufferCaps,sun.java2d.metal.MTLGraphicsConfig$MTLGCDisposerRecord"
-};
-
-$Object* allocate$MTLGraphicsConfig($Class* clazz) {
-	return $of($alloc(MTLGraphicsConfig));
-}
 
 int32_t MTLGraphicsConfig::hashCode() {
 	 return this->$CGraphicsConfig::hashCode();
@@ -262,42 +171,38 @@ $String* MTLGraphicsConfig::mtlShadersLib = nullptr;
 
 bool MTLGraphicsConfig::isMetalFrameworkAvailable() {
 	$init(MTLGraphicsConfig);
-	bool $ret = false;
-	$prepareNativeStatic(MTLGraphicsConfig, isMetalFrameworkAvailable, bool);
-	$ret = $invokeNativeStatic();
+	$prepareNativeStatic(isMetalFrameworkAvailable, bool);
+	bool $ret = $invokeNativeStatic();
 	$finishNativeStatic();
 	return $ret;
 }
 
 bool MTLGraphicsConfig::tryLoadMetalLibrary(int32_t displayID, $String* shaderLib) {
 	$init(MTLGraphicsConfig);
-	bool $ret = false;
-	$prepareNativeStatic(MTLGraphicsConfig, tryLoadMetalLibrary, bool, int32_t displayID, $String* shaderLib);
-	$ret = $invokeNativeStatic(displayID, shaderLib);
+	$prepareNativeStatic(tryLoadMetalLibrary, bool, int32_t displayID, $String* shaderLib);
+	bool $ret = $invokeNativeStatic(displayID, shaderLib);
 	$finishNativeStatic();
 	return $ret;
 }
 
 int64_t MTLGraphicsConfig::getMTLConfigInfo(int32_t displayID, $String* mtlShadersLib) {
 	$init(MTLGraphicsConfig);
-	int64_t $ret = 0;
-	$prepareNativeStatic(MTLGraphicsConfig, getMTLConfigInfo, int64_t, int32_t displayID, $String* mtlShadersLib);
-	$ret = $invokeNativeStatic(displayID, mtlShadersLib);
+	$prepareNativeStatic(getMTLConfigInfo, int64_t, int32_t displayID, $String* mtlShadersLib);
+	int64_t $ret = $invokeNativeStatic(displayID, mtlShadersLib);
 	$finishNativeStatic();
 	return $ret;
 }
 
 int32_t MTLGraphicsConfig::nativeGetMaxTextureSize() {
 	$init(MTLGraphicsConfig);
-	int32_t $ret = 0;
-	$prepareNativeStatic(MTLGraphicsConfig, nativeGetMaxTextureSize, int32_t);
-	$ret = $invokeNativeStatic();
+	$prepareNativeStatic(nativeGetMaxTextureSize, int32_t);
+	int32_t $ret = $invokeNativeStatic();
 	$finishNativeStatic();
 	return $ret;
 }
 
 void MTLGraphicsConfig::init$($CGraphicsDevice* device, int64_t configInfo, int32_t maxTextureSize, $ContextCapabilities* mtlCaps) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$CGraphicsConfig::init$(device);
 	$set(this, disposerReferent, $new($Object));
 	this->pConfigInfo = configInfo;
@@ -317,7 +222,7 @@ $SurfaceData* MTLGraphicsConfig::createManagedSurface(int32_t w, int32_t h, int3
 
 MTLGraphicsConfig* MTLGraphicsConfig::getConfig($CGraphicsDevice* device, int32_t displayID) {
 	$init(MTLGraphicsConfig);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!MTLGraphicsConfig::mtlAvailable) {
 		return nullptr;
 	}
@@ -328,28 +233,26 @@ MTLGraphicsConfig* MTLGraphicsConfig::getConfig($CGraphicsDevice* device, int32_
 	int32_t textureSize = 0;
 	$var($MTLRenderQueue, rq, $MTLRenderQueue::getInstance());
 	$nc(rq)->lock();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			cfginfo = getMTLConfigInfo(displayID, MTLGraphicsConfig::mtlShadersLib);
-			if (cfginfo != (int64_t)0) {
-				textureSize = nativeGetMaxTextureSize();
-				textureSize = textureSize <= 16384 ? textureSize / 2 : 8192;
-				$MTLContext::setScratchSurface(cfginfo);
-			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			rq->unlock();
+	$var($Throwable, var$0, nullptr);
+	try {
+		cfginfo = getMTLConfigInfo(displayID, MTLGraphicsConfig::mtlShadersLib);
+		if (cfginfo != 0) {
+			textureSize = nativeGetMaxTextureSize();
+			textureSize = textureSize <= 16384 ? textureSize / 2 : 8192;
+			$MTLContext::setScratchSurface(cfginfo);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		rq->unlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 	if (cfginfo == 0) {
 		return nullptr;
 	}
-	$var($ContextCapabilities, caps, $new($MTLContext$MTLContextCaps, (((((((256 | 128) | 4) | 8) | 16) | 32) | 64) | 0x00040000) | 0x00080000, nullptr));
+	$var($ContextCapabilities, caps, $new($MTLContext$MTLContextCaps, (((((((0x0100 | 0x80) | 4) | 8) | 0x10) | 0x20) | 0x40) | 0x00040000) | 0x00080000, nullptr));
 	return $new(MTLGraphicsConfig, device, cfginfo, textureSize, caps);
 }
 
@@ -359,7 +262,7 @@ bool MTLGraphicsConfig::isMetalAvailable() {
 }
 
 bool MTLGraphicsConfig::isCapPresent(int32_t cap) {
-	return (((int32_t)($nc(this->mtlCaps)->getCaps() & (uint32_t)cap)) != 0);
+	return (($nc(this->mtlCaps)->getCaps() & cap) != 0);
 }
 
 int64_t MTLGraphicsConfig::getNativeConfigInfo() {
@@ -371,34 +274,24 @@ $BufferedContext* MTLGraphicsConfig::getContext() {
 }
 
 $BufferedImage* MTLGraphicsConfig::createCompatibleImage(int32_t width, int32_t height) {
-	$useLocalCurrentObjectStackCache();
-	$var($ColorModel, model, $new($DirectColorModel, 24, 0x00FF0000, 0x0000FF00, 255));
+	$useLocalObjectStack();
+	$var($ColorModel, model, $new($DirectColorModel, 24, 0x00ff0000, 0x0000ff00, 255));
 	$var($WritableRaster, raster, model->createCompatibleWritableRaster(width, height));
-	return $new($BufferedImage, model, raster, model->isAlphaPremultiplied(), ($Hashtable*)nullptr);
+	return $new($BufferedImage, model, raster, model->isAlphaPremultiplied(), nullptr);
 }
 
 $ColorModel* MTLGraphicsConfig::getColorModel(int32_t transparency) {
-	{
-		$var($ColorSpace, cs, nullptr)
-		switch (transparency) {
-		case $Transparency::OPAQUE:
-			{
-				return $new($DirectColorModel, 24, 0x00FF0000, 0x0000FF00, 255);
-			}
-		case $Transparency::BITMASK:
-			{
-				return $new($DirectColorModel, 25, 0x00FF0000, 0x0000FF00, 255, 0x01000000);
-			}
-		case $Transparency::TRANSLUCENT:
-			{
-				$assign(cs, $ColorSpace::getInstance($ColorSpace::CS_sRGB));
-				return $new($DirectColorModel, cs, 32, 0x00FF0000, 0x0000FF00, 255, (int32_t)0xFF000000, true, $DataBuffer::TYPE_INT);
-			}
-		default:
-			{
-				return nullptr;
-			}
-		}
+	$var($ColorSpace, cs, nullptr);
+	switch (transparency) {
+	case $Transparency::OPAQUE:
+		return $new($DirectColorModel, 24, 0x00ff0000, 0x0000ff00, 255);
+	case $Transparency::BITMASK:
+		return $new($DirectColorModel, 25, 0x00ff0000, 0x0000ff00, 255, 0x01000000);
+	case $Transparency::TRANSLUCENT:
+		$assign(cs, $ColorSpace::getInstance($ColorSpace::CS_sRGB));
+		return $new($DirectColorModel, cs, 32, 0x00ff0000, 0x0000ff00, 255, (int32_t)0xff000000, true, $DataBuffer::TYPE_INT);
+	default:
+		return nullptr;
 	}
 }
 
@@ -407,8 +300,8 @@ bool MTLGraphicsConfig::isDoubleBuffered() {
 }
 
 $String* MTLGraphicsConfig::toString() {
-	$useLocalCurrentObjectStackCache();
-	return ($str({"MTLGraphicsConfig["_s, $($nc($($cast($CGraphicsDevice, getDevice())))->getIDstring()), "]"_s}));
+	$useLocalObjectStack();
+	return ($str({"MTLGraphicsConfig["_s, $($$sure($CGraphicsDevice, getDevice())->getIDstring()), "]"_s}));
 }
 
 $SurfaceData* MTLGraphicsConfig::createSurfaceData($CFRetainedResource* layer) {
@@ -416,7 +309,7 @@ $SurfaceData* MTLGraphicsConfig::createSurfaceData($CFRetainedResource* layer) {
 }
 
 $Image* MTLGraphicsConfig::createAcceleratedImage($Component* target, int32_t width, int32_t height) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ColorModel, model, getColorModel($Transparency::OPAQUE));
 	$var($WritableRaster, wr, $nc(model)->createCompatibleWritableRaster(width, height));
 	return $new($OffScreenImage, target, model, wr, model->isAlphaPremultiplied());
@@ -439,7 +332,7 @@ void MTLGraphicsConfig::assertOperationSupported(int32_t numBuffers, $BufferCapa
 $Image* MTLGraphicsConfig::createBackBuffer($LWComponentPeer* peer) {
 	$var($Rectangle, r, $nc(peer)->getBounds());
 	int32_t w = $Math::max(1, $nc(r)->width);
-	int32_t h = $Math::max(1, $nc(r)->height);
+	int32_t h = $Math::max(1, r->height);
 	int32_t transparency = peer->isTranslucent() ? $Transparency::TRANSLUCENT : $Transparency::OPAQUE;
 	return $new($SunVolatileImage, this, w, h, transparency, nullptr);
 }
@@ -451,38 +344,34 @@ void MTLGraphicsConfig::destroyBackBuffer($Image* backBuffer) {
 }
 
 void MTLGraphicsConfig::flip($LWComponentPeer* peer, $Image* backBuffer, int32_t x1, int32_t y1, int32_t x2, int32_t y2, $BufferCapabilities$FlipContents* flipAction) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Graphics, g, $nc(peer)->getGraphics());
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$nc(g)->drawImage(backBuffer, x1, y1, x2, y2, x1, y1, x2, y2, nullptr);
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$nc(g)->dispose();
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	$var($Throwable, var$0, nullptr);
+	try {
+		$nc(g)->drawImage(backBuffer, x1, y1, x2, y2, x1, y1, x2, y2, nullptr);
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$nc(g)->dispose();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 	$init($BufferCapabilities$FlipContents);
 	if (flipAction == $BufferCapabilities$FlipContents::BACKGROUND) {
 		$var($Graphics2D, bg, $cast($Graphics2D, $nc(backBuffer)->getGraphics()));
-		{
-			$var($Throwable, var$2, nullptr);
-			try {
-				$nc(bg)->setBackground($(peer->getBackground()));
-				int32_t var$3 = backBuffer->getWidth(nullptr);
-				bg->clearRect(0, 0, var$3, backBuffer->getHeight(nullptr));
-			} catch ($Throwable& var$4) {
-				$assign(var$2, var$4);
-			} /*finally*/ {
-				$nc(bg)->dispose();
-			}
-			if (var$2 != nullptr) {
-				$throw(var$2);
-			}
+		$var($Throwable, var$2, nullptr);
+		try {
+			$nc(bg)->setBackground($(peer->getBackground()));
+			int32_t var$3 = backBuffer->getWidth(nullptr);
+			bg->clearRect(0, 0, var$3, backBuffer->getHeight(nullptr));
+		} catch ($Throwable& var$4) {
+			$assign(var$2, var$4);
+		} /*finally*/ {
+			$nc(bg)->dispose();
+		}
+		if (var$2 != nullptr) {
+			$throw(var$2);
 		}
 	}
 }
@@ -499,13 +388,13 @@ $ImageCapabilities* MTLGraphicsConfig::getImageCapabilities() {
 }
 
 $VolatileImage* MTLGraphicsConfig::createCompatibleVolatileImage(int32_t width, int32_t height, int32_t transparency, int32_t type) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ((type != 5 && type != 3) || transparency == $Transparency::BITMASK) {
 		return nullptr;
 	}
 	$var($SunVolatileImage, vi, $new($AccelTypedVolatileImage, this, width, height, transparency, type));
 	$var($Surface, sd, vi->getDestSurface());
-	if (!($instanceOf($AccelSurface, sd)) || $nc(($cast($AccelSurface, sd)))->getType() != type) {
+	if (!($instanceOf($AccelSurface, sd)) || $cast($AccelSurface, sd)->getType() != type) {
 		vi->flush();
 		$assign(vi, nullptr);
 	}
@@ -517,14 +406,14 @@ $ContextCapabilities* MTLGraphicsConfig::getContextCapabilities() {
 }
 
 int32_t MTLGraphicsConfig::getMaxTextureWidth() {
-	$useLocalCurrentObjectStackCache();
-	int32_t var$0 = $div(this->maxTextureSize, $nc($($cast($CGraphicsDevice, getDevice())))->getScaleFactor());
+	$useLocalObjectStack();
+	int32_t var$0 = $div(this->maxTextureSize, $$sure($CGraphicsDevice, getDevice())->getScaleFactor());
 	return $Math::max(var$0, $nc($(getBounds()))->width);
 }
 
 int32_t MTLGraphicsConfig::getMaxTextureHeight() {
-	$useLocalCurrentObjectStackCache();
-	int32_t var$0 = $div(this->maxTextureSize, $nc($($cast($CGraphicsDevice, getDevice())))->getScaleFactor());
+	$useLocalObjectStack();
+	int32_t var$0 = $div(this->maxTextureSize, $$sure($CGraphicsDevice, getDevice())->getScaleFactor());
 	return $Math::max(var$0, $nc($(getBounds()))->height);
 }
 
@@ -534,10 +423,10 @@ $String* MTLGraphicsConfig::lambda$static$0() {
 	return $str({$($System::getProperty("java.home"_s, ""_s)), $File::separator, "lib"_s, $File::separator, "shaders.metallib"_s});
 }
 
-void clinit$MTLGraphicsConfig($Class* class$) {
+void MTLGraphicsConfig::clinit$($Class* clazz) {
 	$beforeCallerSensitive();
 	$assignStatic(MTLGraphicsConfig::imageCaps, $new($MTLGraphicsConfig$MTLImageCaps));
-	$assignStatic(MTLGraphicsConfig::mtlShadersLib, $cast($String, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new(MTLGraphicsConfig$$Lambda$lambda$static$0)))));
+	$assignStatic(MTLGraphicsConfig::mtlShadersLib, $cast($String, $AccessController::doPrivileged($cast($PrivilegedAction, $$new(MTLGraphicsConfig$$Lambda$lambda$static$0)))));
 	{
 		MTLGraphicsConfig::mtlAvailable = MTLGraphicsConfig::isMetalFrameworkAvailable();
 	}
@@ -548,11 +437,82 @@ MTLGraphicsConfig::MTLGraphicsConfig() {
 
 $Class* MTLGraphicsConfig::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(MTLGraphicsConfig$$Lambda$lambda$static$0::classInfo$.name)) {
+		if (name->equals("sun.java2d.metal.MTLGraphicsConfig$$Lambda$lambda$static$0")) {
 			return MTLGraphicsConfig$$Lambda$lambda$static$0::load$(name, initialize);
 		}
 	}
-	$loadClass(MTLGraphicsConfig, name, initialize, &_MTLGraphicsConfig_ClassInfo_, clinit$MTLGraphicsConfig, allocate$MTLGraphicsConfig);
+	$FieldInfo fieldInfos$$[] = {
+		{"mtlAvailable", "Z", nullptr, $PRIVATE | $STATIC, $staticField(MTLGraphicsConfig, mtlAvailable)},
+		{"imageCaps", "Ljava/awt/ImageCapabilities;", nullptr, $PRIVATE | $STATIC, $staticField(MTLGraphicsConfig, imageCaps)},
+		{"mtlShadersLib", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MTLGraphicsConfig, mtlShadersLib)},
+		{"bufferCaps", "Ljava/awt/BufferCapabilities;", nullptr, $PRIVATE, $field(MTLGraphicsConfig, bufferCaps)},
+		{"pConfigInfo", "J", nullptr, $PRIVATE, $field(MTLGraphicsConfig, pConfigInfo)},
+		{"mtlCaps", "Lsun/java2d/pipe/hw/ContextCapabilities;", nullptr, $PRIVATE, $field(MTLGraphicsConfig, mtlCaps)},
+		{"context", "Lsun/java2d/metal/MTLContext;", nullptr, $PRIVATE | $FINAL, $field(MTLGraphicsConfig, context)},
+		{"disposerReferent", "Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $field(MTLGraphicsConfig, disposerReferent)},
+		{"maxTextureSize", "I", nullptr, $PRIVATE | $FINAL, $field(MTLGraphicsConfig, maxTextureSize)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lsun/awt/CGraphicsDevice;JILsun/java2d/pipe/hw/ContextCapabilities;)V", nullptr, $PRIVATE, $method(MTLGraphicsConfig, init$, void, $CGraphicsDevice*, int64_t, int32_t, $ContextCapabilities*)},
+		{"assertOperationSupported", "(ILjava/awt/BufferCapabilities;)V", nullptr, $PUBLIC, $virtualMethod(MTLGraphicsConfig, assertOperationSupported, void, int32_t, $BufferCapabilities*), "java.awt.AWTException"},
+		{"createAcceleratedImage", "(Ljava/awt/Component;II)Ljava/awt/Image;", nullptr, $PUBLIC, $virtualMethod(MTLGraphicsConfig, createAcceleratedImage, $Image*, $Component*, int32_t, int32_t)},
+		{"createBackBuffer", "(Lsun/lwawt/LWComponentPeer;)Ljava/awt/Image;", "(Lsun/lwawt/LWComponentPeer<**>;)Ljava/awt/Image;", $PUBLIC, $virtualMethod(MTLGraphicsConfig, createBackBuffer, $Image*, $LWComponentPeer*)},
+		{"createCompatibleImage", "(II)Ljava/awt/image/BufferedImage;", nullptr, $PUBLIC, $virtualMethod(MTLGraphicsConfig, createCompatibleImage, $BufferedImage*, int32_t, int32_t)},
+		{"createCompatibleVolatileImage", "(IIII)Ljava/awt/image/VolatileImage;", nullptr, $PUBLIC, $virtualMethod(MTLGraphicsConfig, createCompatibleVolatileImage, $VolatileImage*, int32_t, int32_t, int32_t, int32_t)},
+		{"createManagedSurface", "(III)Lsun/java2d/SurfaceData;", nullptr, $PUBLIC, $method(MTLGraphicsConfig, createManagedSurface, $SurfaceData*, int32_t, int32_t, int32_t)},
+		{"createSurfaceData", "(Lsun/lwawt/macosx/CFRetainedResource;)Lsun/java2d/SurfaceData;", nullptr, $PUBLIC, $virtualMethod(MTLGraphicsConfig, createSurfaceData, $SurfaceData*, $CFRetainedResource*)},
+		{"destroyBackBuffer", "(Ljava/awt/Image;)V", nullptr, $PUBLIC, $virtualMethod(MTLGraphicsConfig, destroyBackBuffer, void, $Image*)},
+		{"flip", "(Lsun/lwawt/LWComponentPeer;Ljava/awt/Image;IIIILjava/awt/BufferCapabilities$FlipContents;)V", "(Lsun/lwawt/LWComponentPeer<**>;Ljava/awt/Image;IIIILjava/awt/BufferCapabilities$FlipContents;)V", $PUBLIC, $virtualMethod(MTLGraphicsConfig, flip, void, $LWComponentPeer*, $Image*, int32_t, int32_t, int32_t, int32_t, $BufferCapabilities$FlipContents*)},
+		{"getBufferCapabilities", "()Ljava/awt/BufferCapabilities;", nullptr, $PUBLIC, $virtualMethod(MTLGraphicsConfig, getBufferCapabilities, $BufferCapabilities*)},
+		{"getColorModel", "(I)Ljava/awt/image/ColorModel;", nullptr, $PUBLIC, $virtualMethod(MTLGraphicsConfig, getColorModel, $ColorModel*, int32_t)},
+		{"getConfig", "(Lsun/awt/CGraphicsDevice;I)Lsun/java2d/metal/MTLGraphicsConfig;", nullptr, $PUBLIC | $STATIC, $staticMethod(MTLGraphicsConfig, getConfig, MTLGraphicsConfig*, $CGraphicsDevice*, int32_t)},
+		{"getContext", "()Lsun/java2d/metal/MTLContext;", nullptr, $PUBLIC, $virtualMethod(MTLGraphicsConfig, getContext, $BufferedContext*)},
+		{"getContextCapabilities", "()Lsun/java2d/pipe/hw/ContextCapabilities;", nullptr, $PUBLIC, $virtualMethod(MTLGraphicsConfig, getContextCapabilities, $ContextCapabilities*)},
+		{"getImageCapabilities", "()Ljava/awt/ImageCapabilities;", nullptr, $PUBLIC, $virtualMethod(MTLGraphicsConfig, getImageCapabilities, $ImageCapabilities*)},
+		{"getMTLConfigInfo", "(ILjava/lang/String;)J", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(MTLGraphicsConfig, getMTLConfigInfo, int64_t, int32_t, $String*)},
+		{"getMaxTextureHeight", "()I", nullptr, $PUBLIC, $virtualMethod(MTLGraphicsConfig, getMaxTextureHeight, int32_t)},
+		{"getMaxTextureWidth", "()I", nullptr, $PUBLIC, $virtualMethod(MTLGraphicsConfig, getMaxTextureWidth, int32_t)},
+		{"getNativeConfigInfo", "()J", nullptr, $PUBLIC, $method(MTLGraphicsConfig, getNativeConfigInfo, int64_t)},
+		{"getProxyKey", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MTLGraphicsConfig, getProxyKey, $Object*)},
+		{"isCapPresent", "(I)Z", nullptr, $PUBLIC, $method(MTLGraphicsConfig, isCapPresent, bool, int32_t)},
+		{"isDoubleBuffered", "()Z", nullptr, $PUBLIC, $method(MTLGraphicsConfig, isDoubleBuffered, bool)},
+		{"isMetalAvailable", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(MTLGraphicsConfig, isMetalAvailable, bool)},
+		{"isMetalFrameworkAvailable", "()Z", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(MTLGraphicsConfig, isMetalFrameworkAvailable, bool)},
+		{"lambda$static$0", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MTLGraphicsConfig, lambda$static$0, $String*)},
+		{"nativeGetMaxTextureSize", "()I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(MTLGraphicsConfig, nativeGetMaxTextureSize, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MTLGraphicsConfig, toString, $String*)},
+		{"tryLoadMetalLibrary", "(ILjava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(MTLGraphicsConfig, tryLoadMetalLibrary, bool, int32_t, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.image.SurfaceManager$ProxiedGraphicsConfig", "sun.awt.image.SurfaceManager", "ProxiedGraphicsConfig", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"sun.java2d.metal.MTLGraphicsConfig$MTLImageCaps", "sun.java2d.metal.MTLGraphicsConfig", "MTLImageCaps", $PRIVATE | $STATIC},
+		{"sun.java2d.metal.MTLGraphicsConfig$MTLBufferCaps", "sun.java2d.metal.MTLGraphicsConfig", "MTLBufferCaps", $PRIVATE | $STATIC},
+		{"sun.java2d.metal.MTLGraphicsConfig$MTLGCDisposerRecord", "sun.java2d.metal.MTLGraphicsConfig", "MTLGCDisposerRecord", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.java2d.metal.MTLGraphicsConfig",
+		"sun.awt.CGraphicsConfig",
+		"sun.java2d.pipe.hw.AccelGraphicsConfig,sun.awt.image.SurfaceManager$ProxiedGraphicsConfig",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.java2d.metal.MTLGraphicsConfig$MTLImageCaps,sun.java2d.metal.MTLGraphicsConfig$MTLBufferCaps,sun.java2d.metal.MTLGraphicsConfig$MTLGCDisposerRecord"
+	};
+	$loadClass(MTLGraphicsConfig, name, initialize, &classInfo$$, MTLGraphicsConfig::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MTLGraphicsConfig));
+	});
 	return class$;
 }
 

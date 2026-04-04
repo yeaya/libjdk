@@ -24,6 +24,7 @@ class $export RichDiagnosticFormatter$WhereClauseKind : public ::java::lang::Enu
 public:
 	RichDiagnosticFormatter$WhereClauseKind();
 	static $Array<::com::sun::tools::javac::util::RichDiagnosticFormatter$WhereClauseKind>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal, $String* key);
 	virtual $String* key();
 	static ::com::sun::tools::javac::util::RichDiagnosticFormatter$WhereClauseKind* valueOf($String* name);

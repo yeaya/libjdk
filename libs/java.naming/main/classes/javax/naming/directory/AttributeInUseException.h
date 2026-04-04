@@ -15,10 +15,13 @@ public:
 	AttributeInUseException();
 	void init$($String* explanation);
 	void init$();
-	static const int64_t serialVersionUID = (int64_t)0x3D95EA02C92A5C44;
+	static const int64_t serialVersionUID = (int64_t)0x3d95ea02c92a5c44;
 	AttributeInUseException(const AttributeInUseException& e);
 	virtual void throw$() override;
-	inline AttributeInUseException* operator ->() {
+	inline AttributeInUseException* operator ->() const {
+		return (AttributeInUseException*)throwing$;
+	}
+	inline operator AttributeInUseException*() const {
 		return (AttributeInUseException*)throwing$;
 	}
 };

@@ -79,7 +79,7 @@ public:
 	virtual void start();
 	virtual void stop();
 	::java::applet::AppletStub* stub = nullptr;
-	static const int64_t serialVersionUID = (int64_t)0xAEFF5B3DEC26A5B9;
+	static const int64_t serialVersionUID = (int64_t)0xaeff5b3dec26a5b9;
 	::javax::accessibility::AccessibleContext* accessibleContext = nullptr;
 };
 

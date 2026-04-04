@@ -15,7 +15,7 @@ public:
 	AudioPermission();
 	void init$($String* name);
 	void init$($String* name, $String* actions);
-	static const int64_t serialVersionUID = (int64_t)0xB36BEF9A0DBECB5A;
+	static const int64_t serialVersionUID = (int64_t)0xb36bef9a0dbecb5a;
 };
 
 		} // sampled

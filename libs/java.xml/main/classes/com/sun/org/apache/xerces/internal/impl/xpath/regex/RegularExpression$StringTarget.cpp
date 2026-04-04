@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/impl/xpath/regex/RegularExpression$StringTarget.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/xpath/regex/RegularExpression$ExpressionTarget.h>
 #include <com/sun/org/apache/xerces/internal/impl/xpath/regex/RegularExpression.h>
 #include <jcpp.h>
@@ -19,46 +18,6 @@ namespace com {
 						namespace impl {
 							namespace xpath {
 								namespace regex {
-
-$FieldInfo _RegularExpression$StringTarget_FieldInfo_[] = {
-	{"target", "Ljava/lang/String;", nullptr, $PRIVATE, $field(RegularExpression$StringTarget, target)},
-	{}
-};
-
-$MethodInfo _RegularExpression$StringTarget_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(RegularExpression$StringTarget, init$, void, $String*)},
-	{"charAt", "(I)C", nullptr, $FINAL, $virtualMethod(RegularExpression$StringTarget, charAt, char16_t, int32_t)},
-	{"regionMatches", "(ZIILjava/lang/String;I)Z", nullptr, $FINAL, $virtualMethod(RegularExpression$StringTarget, regionMatches, bool, bool, int32_t, int32_t, $String*, int32_t)},
-	{"regionMatches", "(ZIIII)Z", nullptr, $FINAL, $virtualMethod(RegularExpression$StringTarget, regionMatches, bool, bool, int32_t, int32_t, int32_t, int32_t)},
-	{"resetTarget", "(Ljava/lang/String;)V", nullptr, $FINAL, $method(RegularExpression$StringTarget, resetTarget, void, $String*)},
-	{}
-};
-
-$InnerClassInfo _RegularExpression$StringTarget_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xerces.internal.impl.xpath.regex.RegularExpression$StringTarget", "com.sun.org.apache.xerces.internal.impl.xpath.regex.RegularExpression", "StringTarget", $STATIC | $FINAL},
-	{"com.sun.org.apache.xerces.internal.impl.xpath.regex.RegularExpression$ExpressionTarget", "com.sun.org.apache.xerces.internal.impl.xpath.regex.RegularExpression", "ExpressionTarget", $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _RegularExpression$StringTarget_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.impl.xpath.regex.RegularExpression$StringTarget",
-	"com.sun.org.apache.xerces.internal.impl.xpath.regex.RegularExpression$ExpressionTarget",
-	nullptr,
-	_RegularExpression$StringTarget_FieldInfo_,
-	_RegularExpression$StringTarget_MethodInfo_,
-	nullptr,
-	nullptr,
-	_RegularExpression$StringTarget_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xerces.internal.impl.xpath.regex.RegularExpression"
-};
-
-$Object* allocate$RegularExpression$StringTarget($Class* clazz) {
-	return $of($alloc(RegularExpression$StringTarget));
-}
 
 void RegularExpression$StringTarget::init$($String* target) {
 	$RegularExpression$ExpressionTarget::init$();
@@ -91,7 +50,41 @@ RegularExpression$StringTarget::RegularExpression$StringTarget() {
 }
 
 $Class* RegularExpression$StringTarget::load$($String* name, bool initialize) {
-	$loadClass(RegularExpression$StringTarget, name, initialize, &_RegularExpression$StringTarget_ClassInfo_, allocate$RegularExpression$StringTarget);
+	$FieldInfo fieldInfos$$[] = {
+		{"target", "Ljava/lang/String;", nullptr, $PRIVATE, $field(RegularExpression$StringTarget, target)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(RegularExpression$StringTarget, init$, void, $String*)},
+		{"charAt", "(I)C", nullptr, $FINAL, $virtualMethod(RegularExpression$StringTarget, charAt, char16_t, int32_t)},
+		{"regionMatches", "(ZIILjava/lang/String;I)Z", nullptr, $FINAL, $virtualMethod(RegularExpression$StringTarget, regionMatches, bool, bool, int32_t, int32_t, $String*, int32_t)},
+		{"regionMatches", "(ZIIII)Z", nullptr, $FINAL, $virtualMethod(RegularExpression$StringTarget, regionMatches, bool, bool, int32_t, int32_t, int32_t, int32_t)},
+		{"resetTarget", "(Ljava/lang/String;)V", nullptr, $FINAL, $method(RegularExpression$StringTarget, resetTarget, void, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xerces.internal.impl.xpath.regex.RegularExpression$StringTarget", "com.sun.org.apache.xerces.internal.impl.xpath.regex.RegularExpression", "StringTarget", $STATIC | $FINAL},
+		{"com.sun.org.apache.xerces.internal.impl.xpath.regex.RegularExpression$ExpressionTarget", "com.sun.org.apache.xerces.internal.impl.xpath.regex.RegularExpression", "ExpressionTarget", $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.impl.xpath.regex.RegularExpression$StringTarget",
+		"com.sun.org.apache.xerces.internal.impl.xpath.regex.RegularExpression$ExpressionTarget",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xerces.internal.impl.xpath.regex.RegularExpression"
+	};
+	$loadClass(RegularExpression$StringTarget, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RegularExpression$StringTarget);
+	});
 	return class$;
 }
 

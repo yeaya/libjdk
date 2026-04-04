@@ -22,6 +22,7 @@ class $import Types$ProjectionKind : public ::java::lang::Enum {
 public:
 	Types$ProjectionKind();
 	static $Array<::com::sun::tools::javac::code::Types$ProjectionKind>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	virtual ::com::sun::tools::javac::code::Types$ProjectionKind* complement() {return nullptr;}
 	static ::com::sun::tools::javac::code::Types$ProjectionKind* valueOf($String* name);

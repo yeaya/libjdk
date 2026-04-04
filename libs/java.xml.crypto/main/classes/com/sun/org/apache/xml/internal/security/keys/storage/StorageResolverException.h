@@ -38,7 +38,10 @@ public:
 	static const int64_t serialVersionUID = (int64_t)1;
 	StorageResolverException(const StorageResolverException& e);
 	virtual void throw$() override;
-	inline StorageResolverException* operator ->() {
+	inline StorageResolverException* operator ->() const {
+		return (StorageResolverException*)throwing$;
+	}
+	inline operator StorageResolverException*() const {
 		return (StorageResolverException*)throwing$;
 	}
 };

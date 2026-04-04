@@ -14,10 +14,13 @@ public:
 	NotCompliantMBeanException();
 	void init$();
 	void init$($String* message);
-	static const int64_t serialVersionUID = (int64_t)0x47D35A35A3DFFBB9;
+	static const int64_t serialVersionUID = (int64_t)0x47d35a35a3dffbb9;
 	NotCompliantMBeanException(const NotCompliantMBeanException& e);
 	virtual void throw$() override;
-	inline NotCompliantMBeanException* operator ->() {
+	inline NotCompliantMBeanException* operator ->() const {
+		return (NotCompliantMBeanException*)throwing$;
+	}
+	inline operator NotCompliantMBeanException*() const {
 		return (NotCompliantMBeanException*)throwing$;
 	}
 };

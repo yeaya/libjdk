@@ -50,6 +50,7 @@ class NTLMClient : public ::javax::security::sasl::SaslClient {
 	$class(NTLMClient, 0, ::javax::security::sasl::SaslClient)
 public:
 	NTLMClient();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* mech, $String* authzid, $String* protocol, $String* serverName, ::java::util::Map* props, ::javax::security::auth::callback::CallbackHandler* cbh);
 	virtual void dispose() override;
 	virtual $bytes* evaluateChallenge($bytes* challenge) override;

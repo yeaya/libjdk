@@ -1,6 +1,4 @@
 #include <javax/lang/model/util/ElementFilter.h>
-
-#include <java/lang/Enum.h>
 #include <java/lang/Iterable.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Collections.h>
@@ -52,7 +50,6 @@
 #undef USES
 
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $Iterable = ::java::lang::Iterable;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -83,57 +80,6 @@ namespace javax {
 	namespace lang {
 		namespace model {
 			namespace util {
-
-$FieldInfo _ElementFilter_FieldInfo_[] = {
-	{"CONSTRUCTOR_KIND", "Ljava/util/Set;", "Ljava/util/Set<Ljavax/lang/model/element/ElementKind;>;", $PRIVATE | $STATIC | $FINAL, $staticField(ElementFilter, CONSTRUCTOR_KIND)},
-	{"FIELD_KINDS", "Ljava/util/Set;", "Ljava/util/Set<Ljavax/lang/model/element/ElementKind;>;", $PRIVATE | $STATIC | $FINAL, $staticField(ElementFilter, FIELD_KINDS)},
-	{"METHOD_KIND", "Ljava/util/Set;", "Ljava/util/Set<Ljavax/lang/model/element/ElementKind;>;", $PRIVATE | $STATIC | $FINAL, $staticField(ElementFilter, METHOD_KIND)},
-	{"PACKAGE_KIND", "Ljava/util/Set;", "Ljava/util/Set<Ljavax/lang/model/element/ElementKind;>;", $PRIVATE | $STATIC | $FINAL, $staticField(ElementFilter, PACKAGE_KIND)},
-	{"MODULE_KIND", "Ljava/util/Set;", "Ljava/util/Set<Ljavax/lang/model/element/ElementKind;>;", $PRIVATE | $STATIC | $FINAL, $staticField(ElementFilter, MODULE_KIND)},
-	{"TYPE_KINDS", "Ljava/util/Set;", "Ljava/util/Set<Ljavax/lang/model/element/ElementKind;>;", $PRIVATE | $STATIC | $FINAL, $staticField(ElementFilter, TYPE_KINDS)},
-	{"RECORD_COMPONENT_KIND", "Ljava/util/Set;", "Ljava/util/Set<Ljavax/lang/model/element/ElementKind;>;", $PRIVATE | $STATIC | $FINAL, $staticField(ElementFilter, RECORD_COMPONENT_KIND)},
-	{}
-};
-
-$MethodInfo _ElementFilter_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(ElementFilter, init$, void)},
-	{"constructorsIn", "(Ljava/lang/Iterable;)Ljava/util/List;", "(Ljava/lang/Iterable<+Ljavax/lang/model/element/Element;>;)Ljava/util/List<Ljavax/lang/model/element/ExecutableElement;>;", $PUBLIC | $STATIC, $staticMethod(ElementFilter, constructorsIn, $List*, $Iterable*)},
-	{"constructorsIn", "(Ljava/util/Set;)Ljava/util/Set;", "(Ljava/util/Set<+Ljavax/lang/model/element/Element;>;)Ljava/util/Set<Ljavax/lang/model/element/ExecutableElement;>;", $PUBLIC | $STATIC, $staticMethod(ElementFilter, constructorsIn, $Set*, $Set*)},
-	{"exportsIn", "(Ljava/lang/Iterable;)Ljava/util/List;", "(Ljava/lang/Iterable<+Ljavax/lang/model/element/ModuleElement$Directive;>;)Ljava/util/List<Ljavax/lang/model/element/ModuleElement$ExportsDirective;>;", $PUBLIC | $STATIC, $staticMethod(ElementFilter, exportsIn, $List*, $Iterable*)},
-	{"fieldsIn", "(Ljava/lang/Iterable;)Ljava/util/List;", "(Ljava/lang/Iterable<+Ljavax/lang/model/element/Element;>;)Ljava/util/List<Ljavax/lang/model/element/VariableElement;>;", $PUBLIC | $STATIC, $staticMethod(ElementFilter, fieldsIn, $List*, $Iterable*)},
-	{"fieldsIn", "(Ljava/util/Set;)Ljava/util/Set;", "(Ljava/util/Set<+Ljavax/lang/model/element/Element;>;)Ljava/util/Set<Ljavax/lang/model/element/VariableElement;>;", $PUBLIC | $STATIC, $staticMethod(ElementFilter, fieldsIn, $Set*, $Set*)},
-	{"listFilter", "(Ljava/lang/Iterable;Ljava/util/Set;Ljava/lang/Class;)Ljava/util/List;", "<E::Ljavax/lang/model/element/Element;>(Ljava/lang/Iterable<+Ljavax/lang/model/element/Element;>;Ljava/util/Set<Ljavax/lang/model/element/ElementKind;>;Ljava/lang/Class<TE;>;)Ljava/util/List<TE;>;", $PRIVATE | $STATIC, $staticMethod(ElementFilter, listFilter, $List*, $Iterable*, $Set*, $Class*)},
-	{"listFilter", "(Ljava/lang/Iterable;Ljavax/lang/model/element/ModuleElement$DirectiveKind;Ljava/lang/Class;)Ljava/util/List;", "<D::Ljavax/lang/model/element/ModuleElement$Directive;>(Ljava/lang/Iterable<+Ljavax/lang/model/element/ModuleElement$Directive;>;Ljavax/lang/model/element/ModuleElement$DirectiveKind;Ljava/lang/Class<TD;>;)Ljava/util/List<TD;>;", $PRIVATE | $STATIC, $staticMethod(ElementFilter, listFilter, $List*, $Iterable*, $ModuleElement$DirectiveKind*, $Class*)},
-	{"methodsIn", "(Ljava/lang/Iterable;)Ljava/util/List;", "(Ljava/lang/Iterable<+Ljavax/lang/model/element/Element;>;)Ljava/util/List<Ljavax/lang/model/element/ExecutableElement;>;", $PUBLIC | $STATIC, $staticMethod(ElementFilter, methodsIn, $List*, $Iterable*)},
-	{"methodsIn", "(Ljava/util/Set;)Ljava/util/Set;", "(Ljava/util/Set<+Ljavax/lang/model/element/Element;>;)Ljava/util/Set<Ljavax/lang/model/element/ExecutableElement;>;", $PUBLIC | $STATIC, $staticMethod(ElementFilter, methodsIn, $Set*, $Set*)},
-	{"modulesIn", "(Ljava/lang/Iterable;)Ljava/util/List;", "(Ljava/lang/Iterable<+Ljavax/lang/model/element/Element;>;)Ljava/util/List<Ljavax/lang/model/element/ModuleElement;>;", $PUBLIC | $STATIC, $staticMethod(ElementFilter, modulesIn, $List*, $Iterable*)},
-	{"modulesIn", "(Ljava/util/Set;)Ljava/util/Set;", "(Ljava/util/Set<+Ljavax/lang/model/element/Element;>;)Ljava/util/Set<Ljavax/lang/model/element/ModuleElement;>;", $PUBLIC | $STATIC, $staticMethod(ElementFilter, modulesIn, $Set*, $Set*)},
-	{"opensIn", "(Ljava/lang/Iterable;)Ljava/util/List;", "(Ljava/lang/Iterable<+Ljavax/lang/model/element/ModuleElement$Directive;>;)Ljava/util/List<Ljavax/lang/model/element/ModuleElement$OpensDirective;>;", $PUBLIC | $STATIC, $staticMethod(ElementFilter, opensIn, $List*, $Iterable*)},
-	{"packagesIn", "(Ljava/lang/Iterable;)Ljava/util/List;", "(Ljava/lang/Iterable<+Ljavax/lang/model/element/Element;>;)Ljava/util/List<Ljavax/lang/model/element/PackageElement;>;", $PUBLIC | $STATIC, $staticMethod(ElementFilter, packagesIn, $List*, $Iterable*)},
-	{"packagesIn", "(Ljava/util/Set;)Ljava/util/Set;", "(Ljava/util/Set<+Ljavax/lang/model/element/Element;>;)Ljava/util/Set<Ljavax/lang/model/element/PackageElement;>;", $PUBLIC | $STATIC, $staticMethod(ElementFilter, packagesIn, $Set*, $Set*)},
-	{"providesIn", "(Ljava/lang/Iterable;)Ljava/util/List;", "(Ljava/lang/Iterable<+Ljavax/lang/model/element/ModuleElement$Directive;>;)Ljava/util/List<Ljavax/lang/model/element/ModuleElement$ProvidesDirective;>;", $PUBLIC | $STATIC, $staticMethod(ElementFilter, providesIn, $List*, $Iterable*)},
-	{"recordComponentsIn", "(Ljava/lang/Iterable;)Ljava/util/List;", "(Ljava/lang/Iterable<+Ljavax/lang/model/element/Element;>;)Ljava/util/List<Ljavax/lang/model/element/RecordComponentElement;>;", $PUBLIC | $STATIC, $staticMethod(ElementFilter, recordComponentsIn, $List*, $Iterable*)},
-	{"recordComponentsIn", "(Ljava/util/Set;)Ljava/util/Set;", "(Ljava/util/Set<+Ljavax/lang/model/element/Element;>;)Ljava/util/Set<Ljavax/lang/model/element/RecordComponentElement;>;", $PUBLIC | $STATIC, $staticMethod(ElementFilter, recordComponentsIn, $Set*, $Set*)},
-	{"requiresIn", "(Ljava/lang/Iterable;)Ljava/util/List;", "(Ljava/lang/Iterable<+Ljavax/lang/model/element/ModuleElement$Directive;>;)Ljava/util/List<Ljavax/lang/model/element/ModuleElement$RequiresDirective;>;", $PUBLIC | $STATIC, $staticMethod(ElementFilter, requiresIn, $List*, $Iterable*)},
-	{"setFilter", "(Ljava/util/Set;Ljava/util/Set;Ljava/lang/Class;)Ljava/util/Set;", "<E::Ljavax/lang/model/element/Element;>(Ljava/util/Set<+Ljavax/lang/model/element/Element;>;Ljava/util/Set<Ljavax/lang/model/element/ElementKind;>;Ljava/lang/Class<TE;>;)Ljava/util/Set<TE;>;", $PRIVATE | $STATIC, $staticMethod(ElementFilter, setFilter, $Set*, $Set*, $Set*, $Class*)},
-	{"typesIn", "(Ljava/lang/Iterable;)Ljava/util/List;", "(Ljava/lang/Iterable<+Ljavax/lang/model/element/Element;>;)Ljava/util/List<Ljavax/lang/model/element/TypeElement;>;", $PUBLIC | $STATIC, $staticMethod(ElementFilter, typesIn, $List*, $Iterable*)},
-	{"typesIn", "(Ljava/util/Set;)Ljava/util/Set;", "(Ljava/util/Set<+Ljavax/lang/model/element/Element;>;)Ljava/util/Set<Ljavax/lang/model/element/TypeElement;>;", $PUBLIC | $STATIC, $staticMethod(ElementFilter, typesIn, $Set*, $Set*)},
-	{"usesIn", "(Ljava/lang/Iterable;)Ljava/util/List;", "(Ljava/lang/Iterable<+Ljavax/lang/model/element/ModuleElement$Directive;>;)Ljava/util/List<Ljavax/lang/model/element/ModuleElement$UsesDirective;>;", $PUBLIC | $STATIC, $staticMethod(ElementFilter, usesIn, $List*, $Iterable*)},
-	{}
-};
-
-$ClassInfo _ElementFilter_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.lang.model.util.ElementFilter",
-	"java.lang.Object",
-	nullptr,
-	_ElementFilter_FieldInfo_,
-	_ElementFilter_MethodInfo_
-};
-
-$Object* allocate$ElementFilter($Class* clazz) {
-	return $of($alloc(ElementFilter));
-}
 
 $Set* ElementFilter::CONSTRUCTOR_KIND = nullptr;
 $Set* ElementFilter::FIELD_KINDS = nullptr;
@@ -232,16 +178,14 @@ $Set* ElementFilter::modulesIn($Set* elements) {
 
 $List* ElementFilter::listFilter($Iterable* elements, $Set* targetKinds, $Class* clazz) {
 	$init(ElementFilter);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, list, $new($ArrayList));
 	{
 		$var($Iterator, i$, $nc(elements)->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Element, e, $cast($Element, i$->next()));
-			{
-				if ($nc(targetKinds)->contains($($nc(e)->getKind()))) {
-					list->add($cast($Element, $($nc(clazz)->cast(e))));
-				}
+			if ($nc(targetKinds)->contains($($nc(e)->getKind()))) {
+				list->add($$cast($Element, $nc(clazz)->cast(e)));
 			}
 		}
 	}
@@ -250,16 +194,14 @@ $List* ElementFilter::listFilter($Iterable* elements, $Set* targetKinds, $Class*
 
 $Set* ElementFilter::setFilter($Set* elements, $Set* targetKinds, $Class* clazz) {
 	$init(ElementFilter);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Set, set, $new($LinkedHashSet));
 	{
 		$var($Iterator, i$, $nc(elements)->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Element, e, $cast($Element, i$->next()));
-			{
-				if ($nc(targetKinds)->contains($($nc(e)->getKind()))) {
-					set->add($cast($Element, $($nc(clazz)->cast(e))));
-				}
+			if ($nc(targetKinds)->contains($($nc(e)->getKind()))) {
+				set->add($$cast($Element, $nc(clazz)->cast(e)));
 			}
 		}
 	}
@@ -303,39 +245,83 @@ $List* ElementFilter::usesIn($Iterable* directives) {
 
 $List* ElementFilter::listFilter($Iterable* directives, $ModuleElement$DirectiveKind* directiveKind, $Class* clazz) {
 	$init(ElementFilter);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, list, $new($ArrayList));
 	{
 		$var($Iterator, i$, $nc(directives)->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($ModuleElement$Directive, d, $cast($ModuleElement$Directive, i$->next()));
-			{
-				if ($nc(d)->getKind() == directiveKind) {
-					list->add($cast($ModuleElement$Directive, $($nc(clazz)->cast(d))));
-				}
+			if ($nc(d)->getKind() == directiveKind) {
+				list->add($$cast($ModuleElement$Directive, $nc(clazz)->cast(d)));
 			}
 		}
 	}
 	return list;
 }
 
-void clinit$ElementFilter($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void ElementFilter::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$init($ElementKind);
 	$assignStatic(ElementFilter::CONSTRUCTOR_KIND, $Collections::unmodifiableSet($($EnumSet::of($ElementKind::CONSTRUCTOR))));
-	$assignStatic(ElementFilter::FIELD_KINDS, $Collections::unmodifiableSet($($EnumSet::of(static_cast<$Enum*>($ElementKind::FIELD), static_cast<$Enum*>($ElementKind::ENUM_CONSTANT)))));
+	$assignStatic(ElementFilter::FIELD_KINDS, $Collections::unmodifiableSet($($EnumSet::of($ElementKind::FIELD, $ElementKind::ENUM_CONSTANT))));
 	$assignStatic(ElementFilter::METHOD_KIND, $Collections::unmodifiableSet($($EnumSet::of($ElementKind::METHOD))));
 	$assignStatic(ElementFilter::PACKAGE_KIND, $Collections::unmodifiableSet($($EnumSet::of($ElementKind::PACKAGE))));
 	$assignStatic(ElementFilter::MODULE_KIND, $Collections::unmodifiableSet($($EnumSet::of($ElementKind::MODULE))));
 	$assignStatic(ElementFilter::TYPE_KINDS, $Collections::unmodifiableSet($($EnumSet::of($ElementKind::CLASS, $ElementKind::ENUM, $ElementKind::INTERFACE, $ElementKind::RECORD, $ElementKind::ANNOTATION_TYPE))));
-	$assignStatic(ElementFilter::RECORD_COMPONENT_KIND, $Set::of($of($ElementKind::RECORD_COMPONENT)));
+	$assignStatic(ElementFilter::RECORD_COMPONENT_KIND, $Set::of($ElementKind::RECORD_COMPONENT));
 }
 
 ElementFilter::ElementFilter() {
 }
 
 $Class* ElementFilter::load$($String* name, bool initialize) {
-	$loadClass(ElementFilter, name, initialize, &_ElementFilter_ClassInfo_, clinit$ElementFilter, allocate$ElementFilter);
+	$FieldInfo fieldInfos$$[] = {
+		{"CONSTRUCTOR_KIND", "Ljava/util/Set;", "Ljava/util/Set<Ljavax/lang/model/element/ElementKind;>;", $PRIVATE | $STATIC | $FINAL, $staticField(ElementFilter, CONSTRUCTOR_KIND)},
+		{"FIELD_KINDS", "Ljava/util/Set;", "Ljava/util/Set<Ljavax/lang/model/element/ElementKind;>;", $PRIVATE | $STATIC | $FINAL, $staticField(ElementFilter, FIELD_KINDS)},
+		{"METHOD_KIND", "Ljava/util/Set;", "Ljava/util/Set<Ljavax/lang/model/element/ElementKind;>;", $PRIVATE | $STATIC | $FINAL, $staticField(ElementFilter, METHOD_KIND)},
+		{"PACKAGE_KIND", "Ljava/util/Set;", "Ljava/util/Set<Ljavax/lang/model/element/ElementKind;>;", $PRIVATE | $STATIC | $FINAL, $staticField(ElementFilter, PACKAGE_KIND)},
+		{"MODULE_KIND", "Ljava/util/Set;", "Ljava/util/Set<Ljavax/lang/model/element/ElementKind;>;", $PRIVATE | $STATIC | $FINAL, $staticField(ElementFilter, MODULE_KIND)},
+		{"TYPE_KINDS", "Ljava/util/Set;", "Ljava/util/Set<Ljavax/lang/model/element/ElementKind;>;", $PRIVATE | $STATIC | $FINAL, $staticField(ElementFilter, TYPE_KINDS)},
+		{"RECORD_COMPONENT_KIND", "Ljava/util/Set;", "Ljava/util/Set<Ljavax/lang/model/element/ElementKind;>;", $PRIVATE | $STATIC | $FINAL, $staticField(ElementFilter, RECORD_COMPONENT_KIND)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(ElementFilter, init$, void)},
+		{"constructorsIn", "(Ljava/lang/Iterable;)Ljava/util/List;", "(Ljava/lang/Iterable<+Ljavax/lang/model/element/Element;>;)Ljava/util/List<Ljavax/lang/model/element/ExecutableElement;>;", $PUBLIC | $STATIC, $staticMethod(ElementFilter, constructorsIn, $List*, $Iterable*)},
+		{"constructorsIn", "(Ljava/util/Set;)Ljava/util/Set;", "(Ljava/util/Set<+Ljavax/lang/model/element/Element;>;)Ljava/util/Set<Ljavax/lang/model/element/ExecutableElement;>;", $PUBLIC | $STATIC, $staticMethod(ElementFilter, constructorsIn, $Set*, $Set*)},
+		{"exportsIn", "(Ljava/lang/Iterable;)Ljava/util/List;", "(Ljava/lang/Iterable<+Ljavax/lang/model/element/ModuleElement$Directive;>;)Ljava/util/List<Ljavax/lang/model/element/ModuleElement$ExportsDirective;>;", $PUBLIC | $STATIC, $staticMethod(ElementFilter, exportsIn, $List*, $Iterable*)},
+		{"fieldsIn", "(Ljava/lang/Iterable;)Ljava/util/List;", "(Ljava/lang/Iterable<+Ljavax/lang/model/element/Element;>;)Ljava/util/List<Ljavax/lang/model/element/VariableElement;>;", $PUBLIC | $STATIC, $staticMethod(ElementFilter, fieldsIn, $List*, $Iterable*)},
+		{"fieldsIn", "(Ljava/util/Set;)Ljava/util/Set;", "(Ljava/util/Set<+Ljavax/lang/model/element/Element;>;)Ljava/util/Set<Ljavax/lang/model/element/VariableElement;>;", $PUBLIC | $STATIC, $staticMethod(ElementFilter, fieldsIn, $Set*, $Set*)},
+		{"listFilter", "(Ljava/lang/Iterable;Ljava/util/Set;Ljava/lang/Class;)Ljava/util/List;", "<E::Ljavax/lang/model/element/Element;>(Ljava/lang/Iterable<+Ljavax/lang/model/element/Element;>;Ljava/util/Set<Ljavax/lang/model/element/ElementKind;>;Ljava/lang/Class<TE;>;)Ljava/util/List<TE;>;", $PRIVATE | $STATIC, $staticMethod(ElementFilter, listFilter, $List*, $Iterable*, $Set*, $Class*)},
+		{"listFilter", "(Ljava/lang/Iterable;Ljavax/lang/model/element/ModuleElement$DirectiveKind;Ljava/lang/Class;)Ljava/util/List;", "<D::Ljavax/lang/model/element/ModuleElement$Directive;>(Ljava/lang/Iterable<+Ljavax/lang/model/element/ModuleElement$Directive;>;Ljavax/lang/model/element/ModuleElement$DirectiveKind;Ljava/lang/Class<TD;>;)Ljava/util/List<TD;>;", $PRIVATE | $STATIC, $staticMethod(ElementFilter, listFilter, $List*, $Iterable*, $ModuleElement$DirectiveKind*, $Class*)},
+		{"methodsIn", "(Ljava/lang/Iterable;)Ljava/util/List;", "(Ljava/lang/Iterable<+Ljavax/lang/model/element/Element;>;)Ljava/util/List<Ljavax/lang/model/element/ExecutableElement;>;", $PUBLIC | $STATIC, $staticMethod(ElementFilter, methodsIn, $List*, $Iterable*)},
+		{"methodsIn", "(Ljava/util/Set;)Ljava/util/Set;", "(Ljava/util/Set<+Ljavax/lang/model/element/Element;>;)Ljava/util/Set<Ljavax/lang/model/element/ExecutableElement;>;", $PUBLIC | $STATIC, $staticMethod(ElementFilter, methodsIn, $Set*, $Set*)},
+		{"modulesIn", "(Ljava/lang/Iterable;)Ljava/util/List;", "(Ljava/lang/Iterable<+Ljavax/lang/model/element/Element;>;)Ljava/util/List<Ljavax/lang/model/element/ModuleElement;>;", $PUBLIC | $STATIC, $staticMethod(ElementFilter, modulesIn, $List*, $Iterable*)},
+		{"modulesIn", "(Ljava/util/Set;)Ljava/util/Set;", "(Ljava/util/Set<+Ljavax/lang/model/element/Element;>;)Ljava/util/Set<Ljavax/lang/model/element/ModuleElement;>;", $PUBLIC | $STATIC, $staticMethod(ElementFilter, modulesIn, $Set*, $Set*)},
+		{"opensIn", "(Ljava/lang/Iterable;)Ljava/util/List;", "(Ljava/lang/Iterable<+Ljavax/lang/model/element/ModuleElement$Directive;>;)Ljava/util/List<Ljavax/lang/model/element/ModuleElement$OpensDirective;>;", $PUBLIC | $STATIC, $staticMethod(ElementFilter, opensIn, $List*, $Iterable*)},
+		{"packagesIn", "(Ljava/lang/Iterable;)Ljava/util/List;", "(Ljava/lang/Iterable<+Ljavax/lang/model/element/Element;>;)Ljava/util/List<Ljavax/lang/model/element/PackageElement;>;", $PUBLIC | $STATIC, $staticMethod(ElementFilter, packagesIn, $List*, $Iterable*)},
+		{"packagesIn", "(Ljava/util/Set;)Ljava/util/Set;", "(Ljava/util/Set<+Ljavax/lang/model/element/Element;>;)Ljava/util/Set<Ljavax/lang/model/element/PackageElement;>;", $PUBLIC | $STATIC, $staticMethod(ElementFilter, packagesIn, $Set*, $Set*)},
+		{"providesIn", "(Ljava/lang/Iterable;)Ljava/util/List;", "(Ljava/lang/Iterable<+Ljavax/lang/model/element/ModuleElement$Directive;>;)Ljava/util/List<Ljavax/lang/model/element/ModuleElement$ProvidesDirective;>;", $PUBLIC | $STATIC, $staticMethod(ElementFilter, providesIn, $List*, $Iterable*)},
+		{"recordComponentsIn", "(Ljava/lang/Iterable;)Ljava/util/List;", "(Ljava/lang/Iterable<+Ljavax/lang/model/element/Element;>;)Ljava/util/List<Ljavax/lang/model/element/RecordComponentElement;>;", $PUBLIC | $STATIC, $staticMethod(ElementFilter, recordComponentsIn, $List*, $Iterable*)},
+		{"recordComponentsIn", "(Ljava/util/Set;)Ljava/util/Set;", "(Ljava/util/Set<+Ljavax/lang/model/element/Element;>;)Ljava/util/Set<Ljavax/lang/model/element/RecordComponentElement;>;", $PUBLIC | $STATIC, $staticMethod(ElementFilter, recordComponentsIn, $Set*, $Set*)},
+		{"requiresIn", "(Ljava/lang/Iterable;)Ljava/util/List;", "(Ljava/lang/Iterable<+Ljavax/lang/model/element/ModuleElement$Directive;>;)Ljava/util/List<Ljavax/lang/model/element/ModuleElement$RequiresDirective;>;", $PUBLIC | $STATIC, $staticMethod(ElementFilter, requiresIn, $List*, $Iterable*)},
+		{"setFilter", "(Ljava/util/Set;Ljava/util/Set;Ljava/lang/Class;)Ljava/util/Set;", "<E::Ljavax/lang/model/element/Element;>(Ljava/util/Set<+Ljavax/lang/model/element/Element;>;Ljava/util/Set<Ljavax/lang/model/element/ElementKind;>;Ljava/lang/Class<TE;>;)Ljava/util/Set<TE;>;", $PRIVATE | $STATIC, $staticMethod(ElementFilter, setFilter, $Set*, $Set*, $Set*, $Class*)},
+		{"typesIn", "(Ljava/lang/Iterable;)Ljava/util/List;", "(Ljava/lang/Iterable<+Ljavax/lang/model/element/Element;>;)Ljava/util/List<Ljavax/lang/model/element/TypeElement;>;", $PUBLIC | $STATIC, $staticMethod(ElementFilter, typesIn, $List*, $Iterable*)},
+		{"typesIn", "(Ljava/util/Set;)Ljava/util/Set;", "(Ljava/util/Set<+Ljavax/lang/model/element/Element;>;)Ljava/util/Set<Ljavax/lang/model/element/TypeElement;>;", $PUBLIC | $STATIC, $staticMethod(ElementFilter, typesIn, $Set*, $Set*)},
+		{"usesIn", "(Ljava/lang/Iterable;)Ljava/util/List;", "(Ljava/lang/Iterable<+Ljavax/lang/model/element/ModuleElement$Directive;>;)Ljava/util/List<Ljavax/lang/model/element/ModuleElement$UsesDirective;>;", $PUBLIC | $STATIC, $staticMethod(ElementFilter, usesIn, $List*, $Iterable*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.lang.model.util.ElementFilter",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ElementFilter, name, initialize, &classInfo$$, ElementFilter::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ElementFilter);
+	});
 	return class$;
 }
 

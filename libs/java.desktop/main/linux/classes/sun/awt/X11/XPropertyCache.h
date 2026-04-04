@@ -27,6 +27,7 @@ class XPropertyCache : public ::java::lang::Object {
 	$class(XPropertyCache, 0, ::java::lang::Object)
 public:
 	XPropertyCache();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void clearCache(int64_t window);
 	static void clearCache(int64_t window, ::sun::awt::X11::XAtom* property);

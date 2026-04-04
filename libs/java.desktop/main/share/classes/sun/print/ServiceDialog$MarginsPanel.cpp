@@ -1,25 +1,18 @@
 #include <sun/print/ServiceDialog$MarginsPanel.h>
-
-#include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <java/awt/GridBagConstraints.h>
 #include <java/awt/GridBagLayout.h>
 #include <java/awt/Insets.h>
 #include <java/awt/LayoutManager.h>
 #include <java/awt/event/ActionEvent.h>
-#include <java/awt/event/ActionListener.h>
 #include <java/awt/event/FocusEvent.h>
-#include <java/awt/event/FocusListener.h>
-#include <java/lang/Comparable.h>
 #include <java/text/DecimalFormat.h>
-#include <java/text/NumberFormat.h>
 #include <java/util/EventObject.h>
 #include <java/util/Locale.h>
 #include <javax/accessibility/AccessibleContext.h>
 #include <javax/print/DocFlavor.h>
 #include <javax/print/PrintService.h>
 #include <javax/print/attribute/Attribute.h>
-#include <javax/print/attribute/AttributeSet.h>
 #include <javax/print/attribute/DocAttribute.h>
 #include <javax/print/attribute/HashPrintRequestAttributeSet.h>
 #include <javax/print/attribute/PrintRequestAttributeSet.h>
@@ -54,29 +47,18 @@
 #undef US
 
 using $MediaPrintableAreaArray = $Array<::javax::print::attribute::standard::MediaPrintableArea>;
-using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $GridBagConstraints = ::java::awt::GridBagConstraints;
 using $GridBagLayout = ::java::awt::GridBagLayout;
-using $LayoutManager = ::java::awt::LayoutManager;
 using $ActionEvent = ::java::awt::event::ActionEvent;
-using $ActionListener = ::java::awt::event::ActionListener;
 using $FocusEvent = ::java::awt::event::FocusEvent;
-using $FocusListener = ::java::awt::event::FocusListener;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Comparable = ::java::lang::Comparable;
 using $Double = ::java::lang::Double;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $Float = ::java::lang::Float;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $DecimalFormat = ::java::text::DecimalFormat;
-using $NumberFormat = ::java::text::NumberFormat;
 using $Locale = ::java::util::Locale;
-using $AccessibleContext = ::javax::accessibility::AccessibleContext;
-using $PrintService = ::javax::print::PrintService;
-using $Attribute = ::javax::print::attribute::Attribute;
-using $AttributeSet = ::javax::print::attribute::AttributeSet;
 using $DocAttribute = ::javax::print::attribute::DocAttribute;
 using $HashPrintRequestAttributeSet = ::javax::print::attribute::HashPrintRequestAttributeSet;
 using $PrintRequestAttributeSet = ::javax::print::attribute::PrintRequestAttributeSet;
@@ -88,79 +70,13 @@ using $MediaSizeName = ::javax::print::attribute::standard::MediaSizeName;
 using $OrientationRequested = ::javax::print::attribute::standard::OrientationRequested;
 using $BorderFactory = ::javax::swing::BorderFactory;
 using $JFormattedTextField = ::javax::swing::JFormattedTextField;
-using $JFormattedTextField$AbstractFormatter = ::javax::swing::JFormattedTextField$AbstractFormatter;
 using $JLabel = ::javax::swing::JLabel;
 using $JPanel = ::javax::swing::JPanel;
-using $Border = ::javax::swing::border::Border;
 using $NumberFormatter = ::javax::swing::text::NumberFormatter;
 using $ServiceDialog = ::sun::print::ServiceDialog;
 
 namespace sun {
 	namespace print {
-
-$FieldInfo _ServiceDialog$MarginsPanel_FieldInfo_[] = {
-	{"this$0", "Lsun/print/ServiceDialog;", nullptr, $FINAL | $SYNTHETIC, $field(ServiceDialog$MarginsPanel, this$0)},
-	{"strTitle", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(ServiceDialog$MarginsPanel, strTitle)},
-	{"leftMargin", "Ljavax/swing/JFormattedTextField;", nullptr, $PRIVATE, $field(ServiceDialog$MarginsPanel, leftMargin)},
-	{"rightMargin", "Ljavax/swing/JFormattedTextField;", nullptr, $PRIVATE, $field(ServiceDialog$MarginsPanel, rightMargin)},
-	{"topMargin", "Ljavax/swing/JFormattedTextField;", nullptr, $PRIVATE, $field(ServiceDialog$MarginsPanel, topMargin)},
-	{"bottomMargin", "Ljavax/swing/JFormattedTextField;", nullptr, $PRIVATE, $field(ServiceDialog$MarginsPanel, bottomMargin)},
-	{"lblLeft", "Ljavax/swing/JLabel;", nullptr, $PRIVATE, $field(ServiceDialog$MarginsPanel, lblLeft)},
-	{"lblRight", "Ljavax/swing/JLabel;", nullptr, $PRIVATE, $field(ServiceDialog$MarginsPanel, lblRight)},
-	{"lblTop", "Ljavax/swing/JLabel;", nullptr, $PRIVATE, $field(ServiceDialog$MarginsPanel, lblTop)},
-	{"lblBottom", "Ljavax/swing/JLabel;", nullptr, $PRIVATE, $field(ServiceDialog$MarginsPanel, lblBottom)},
-	{"units", "I", nullptr, $PRIVATE, $field(ServiceDialog$MarginsPanel, units)},
-	{"lmVal", "F", nullptr, $PRIVATE, $field(ServiceDialog$MarginsPanel, lmVal)},
-	{"rmVal", "F", nullptr, $PRIVATE, $field(ServiceDialog$MarginsPanel, rmVal)},
-	{"tmVal", "F", nullptr, $PRIVATE, $field(ServiceDialog$MarginsPanel, tmVal)},
-	{"bmVal", "F", nullptr, $PRIVATE, $field(ServiceDialog$MarginsPanel, bmVal)},
-	{"lmObj", "Ljava/lang/Float;", nullptr, $PRIVATE, $field(ServiceDialog$MarginsPanel, lmObj)},
-	{"rmObj", "Ljava/lang/Float;", nullptr, $PRIVATE, $field(ServiceDialog$MarginsPanel, rmObj)},
-	{"tmObj", "Ljava/lang/Float;", nullptr, $PRIVATE, $field(ServiceDialog$MarginsPanel, tmObj)},
-	{"bmObj", "Ljava/lang/Float;", nullptr, $PRIVATE, $field(ServiceDialog$MarginsPanel, bmObj)},
-	{}
-};
-
-$MethodInfo _ServiceDialog$MarginsPanel_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lsun/print/ServiceDialog;)V", nullptr, $PUBLIC, $method(ServiceDialog$MarginsPanel, init$, void, $ServiceDialog*)},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(ServiceDialog$MarginsPanel, actionPerformed, void, $ActionEvent*)},
-	{"focusGained", "(Ljava/awt/event/FocusEvent;)V", nullptr, $PUBLIC, $virtualMethod(ServiceDialog$MarginsPanel, focusGained, void, $FocusEvent*)},
-	{"focusLost", "(Ljava/awt/event/FocusEvent;)V", nullptr, $PUBLIC, $virtualMethod(ServiceDialog$MarginsPanel, focusLost, void, $FocusEvent*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"updateInfo", "()V", nullptr, $PUBLIC, $virtualMethod(ServiceDialog$MarginsPanel, updateInfo, void)},
-	{"updateMargins", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(ServiceDialog$MarginsPanel, updateMargins, void, Object$*)},
-	{"validateMargins", "(FFFF)Ljavax/print/attribute/standard/MediaPrintableArea;", nullptr, $PRIVATE, $method(ServiceDialog$MarginsPanel, validateMargins, $MediaPrintableArea*, float, float, float, float)},
-	{}
-};
-
-$InnerClassInfo _ServiceDialog$MarginsPanel_InnerClassesInfo_[] = {
-	{"sun.print.ServiceDialog$MarginsPanel", "sun.print.ServiceDialog", "MarginsPanel", $PRIVATE},
-	{}
-};
-
-$ClassInfo _ServiceDialog$MarginsPanel_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.print.ServiceDialog$MarginsPanel",
-	"javax.swing.JPanel",
-	"java.awt.event.ActionListener,java.awt.event.FocusListener",
-	_ServiceDialog$MarginsPanel_FieldInfo_,
-	_ServiceDialog$MarginsPanel_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ServiceDialog$MarginsPanel_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.print.ServiceDialog"
-};
-
-$Object* allocate$ServiceDialog$MarginsPanel($Class* clazz) {
-	return $of($alloc(ServiceDialog$MarginsPanel));
-}
 
 $String* ServiceDialog$MarginsPanel::toString() {
 	 return this->$JPanel::toString();
@@ -183,7 +99,7 @@ void ServiceDialog$MarginsPanel::finalize() {
 }
 
 void ServiceDialog$MarginsPanel::init$($ServiceDialog* this$0) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, this$0, this$0);
 	$JPanel::init$();
 	$set(this, strTitle, $ServiceDialog::getMsg("border.margins"_s));
@@ -201,12 +117,12 @@ void ServiceDialog$MarginsPanel::init$($ServiceDialog* this$0) {
 	setLayout(gridbag);
 	setBorder($($BorderFactory::createTitledBorder(this->strTitle)));
 	$var($String, unitsKey, "label.millimetres"_s);
-	$var($String, defaultCountry, $nc($($Locale::getDefault()))->getCountry());
+	$var($String, defaultCountry, $$nc($Locale::getDefault())->getCountry());
 	bool var$0 = defaultCountry != nullptr;
 	if (var$0) {
 		bool var$2 = defaultCountry->isEmpty();
-		bool var$1 = var$2 || $nc(defaultCountry)->equals($($nc($Locale::US)->getCountry()));
-		var$0 = (var$1 || defaultCountry->equals($($nc($Locale::CANADA)->getCountry())));
+		bool var$1 = var$2 || defaultCountry->equals($($nc($Locale::US)->getCountry()));
+		var$0 = var$1 || defaultCountry->equals($($nc($Locale::CANADA)->getCountry()));
 	}
 	if (var$0) {
 		$assign(unitsKey, "label.inches"_s);
@@ -231,22 +147,22 @@ void ServiceDialog$MarginsPanel::init$($ServiceDialog* this$0) {
 	nf->setMaximum($($Float::valueOf(999.0f)));
 	nf->setAllowsInvalid(true);
 	nf->setCommitsOnValidEdit(true);
-	$set(this, leftMargin, $new($JFormattedTextField, static_cast<$JFormattedTextField$AbstractFormatter*>(nf)));
-	$nc(this->leftMargin)->addFocusListener(this);
+	$set(this, leftMargin, $new($JFormattedTextField, nf));
+	this->leftMargin->addFocusListener(this);
 	$nc(this->leftMargin)->addActionListener(this);
-	$nc($($nc(this->leftMargin)->getAccessibleContext()))->setAccessibleName($($ServiceDialog::getMsg("label.leftmargin"_s)));
-	$set(this, rightMargin, $new($JFormattedTextField, static_cast<$JFormattedTextField$AbstractFormatter*>(nf)));
-	$nc(this->rightMargin)->addFocusListener(this);
+	$$nc($nc(this->leftMargin)->getAccessibleContext())->setAccessibleName($($ServiceDialog::getMsg("label.leftmargin"_s)));
+	$set(this, rightMargin, $new($JFormattedTextField, nf));
+	this->rightMargin->addFocusListener(this);
 	$nc(this->rightMargin)->addActionListener(this);
-	$nc($($nc(this->rightMargin)->getAccessibleContext()))->setAccessibleName($($ServiceDialog::getMsg("label.rightmargin"_s)));
-	$set(this, topMargin, $new($JFormattedTextField, static_cast<$JFormattedTextField$AbstractFormatter*>(nf)));
-	$nc(this->topMargin)->addFocusListener(this);
+	$$nc($nc(this->rightMargin)->getAccessibleContext())->setAccessibleName($($ServiceDialog::getMsg("label.rightmargin"_s)));
+	$set(this, topMargin, $new($JFormattedTextField, nf));
+	this->topMargin->addFocusListener(this);
 	$nc(this->topMargin)->addActionListener(this);
-	$nc($($nc(this->topMargin)->getAccessibleContext()))->setAccessibleName($($ServiceDialog::getMsg("label.topmargin"_s)));
-	$set(this, bottomMargin, $new($JFormattedTextField, static_cast<$JFormattedTextField$AbstractFormatter*>(nf)));
-	$nc(this->bottomMargin)->addFocusListener(this);
+	$$nc($nc(this->topMargin)->getAccessibleContext())->setAccessibleName($($ServiceDialog::getMsg("label.topmargin"_s)));
+	$set(this, bottomMargin, $new($JFormattedTextField, nf));
+	this->bottomMargin->addFocusListener(this);
 	$nc(this->bottomMargin)->addActionListener(this);
-	$nc($($nc(this->bottomMargin)->getAccessibleContext()))->setAccessibleName($($ServiceDialog::getMsg("label.bottommargin"_s)));
+	$$nc($nc(this->bottomMargin)->getAccessibleContext())->setAccessibleName($($ServiceDialog::getMsg("label.bottommargin"_s)));
 	c->gridwidth = $GridBagConstraints::RELATIVE;
 	$set(this, lblLeft, $new($JLabel, $$str({$($ServiceDialog::getMsg("label.leftmargin"_s)), " "_s, unitsMsg}), $JLabel::LEADING));
 	$nc(this->lblLeft)->setDisplayedMnemonic($ServiceDialog::getMnemonic("label.leftmargin"_s));
@@ -292,12 +208,12 @@ void ServiceDialog$MarginsPanel::focusGained($FocusEvent* e) {
 }
 
 void ServiceDialog$MarginsPanel::updateMargins(Object$* source) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!($instanceOf($JFormattedTextField, source))) {
 		return;
 	} else {
 		$var($JFormattedTextField, tf, $cast($JFormattedTextField, source));
-		$var($Float, val, $cast($Float, $nc(tf)->getValue()));
+		$var($Float, val, $cast($Float, tf->getValue()));
 		if (val == nullptr) {
 			return;
 		}
@@ -337,26 +253,22 @@ void ServiceDialog$MarginsPanel::updateMargins(Object$* source) {
 		tmp = tm;
 		tm = bm;
 		bm = tmp;
-	} else {
-		if (or$ == $OrientationRequested::LANDSCAPE) {
-			tmp = lm;
-			lm = tm;
-			tm = rm;
-			rm = bm;
-			bm = tmp;
-		} else {
-			if (or$ == $OrientationRequested::REVERSE_LANDSCAPE) {
-				tmp = lm;
-				lm = bm;
-				bm = rm;
-				rm = tm;
-				tm = tmp;
-			}
-		}
+	} else if (or$ == $OrientationRequested::LANDSCAPE) {
+		tmp = lm;
+		lm = tm;
+		tm = rm;
+		rm = bm;
+		bm = tmp;
+	} else if (or$ == $OrientationRequested::REVERSE_LANDSCAPE) {
+		tmp = lm;
+		lm = bm;
+		bm = rm;
+		rm = tm;
+		tm = tmp;
 	}
 	$var($MediaPrintableArea, mpa, nullptr);
 	if (($assign(mpa, validateMargins(lm, rm, tm, bm))) != nullptr) {
-		$nc(this->this$0->asCurrent)->add(static_cast<$Attribute*>(static_cast<$DocAttribute*>(mpa)));
+		$nc(this->this$0->asCurrent)->add($cast($DocAttribute, mpa));
 		this->lmVal = lm;
 		this->rmVal = rm;
 		this->tmVal = tm;
@@ -376,7 +288,7 @@ void ServiceDialog$MarginsPanel::updateMargins(Object$* source) {
 }
 
 $MediaPrintableArea* ServiceDialog$MarginsPanel::validateMargins(float lm, float rm, float tm, float bm) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$load($MediaPrintableArea);
 	$Class* mpaCategory = $MediaPrintableArea::class$;
 	$var($MediaPrintableArea, mpa, nullptr);
@@ -395,11 +307,11 @@ $MediaPrintableArea* ServiceDialog$MarginsPanel::validateMargins(float lm, float
 		$assign(mediaSize, $new($MediaSize, 8.5f, 11.0f, $Size2DSyntax::INCH));
 	}
 	if (media != nullptr) {
-		$var($PrintRequestAttributeSet, tmpASet, $new($HashPrintRequestAttributeSet, static_cast<$PrintRequestAttributeSet*>(this->this$0->asCurrent)));
-		tmpASet->add(static_cast<$Attribute*>(static_cast<$DocAttribute*>(media)));
+		$var($PrintRequestAttributeSet, tmpASet, $new($HashPrintRequestAttributeSet, this->this$0->asCurrent));
+		tmpASet->add($cast($DocAttribute, media));
 		$var($Object, values, $nc(this->this$0->psCurrent)->getSupportedAttributeValues(mpaCategory, this->this$0->docFlavor, tmpASet));
-		if ($instanceOf($MediaPrintableAreaArray, values) && $nc(($cast($MediaPrintableAreaArray, values)))->length > 0) {
-			$assign(mpaMax, $nc(($cast($MediaPrintableAreaArray, values)))->get(0));
+		if ($instanceOf($MediaPrintableAreaArray, values) && $cast($MediaPrintableAreaArray, values)->length > 0) {
+			$assign(mpaMax, $cast($MediaPrintableAreaArray, values)->get(0));
 		}
 	}
 	if (mpaMax == nullptr) {
@@ -425,7 +337,7 @@ $MediaPrintableArea* ServiceDialog$MarginsPanel::validateMargins(float lm, float
 }
 
 void ServiceDialog$MarginsPanel::updateInfo() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->this$0->isAWT) {
 		$nc(this->leftMargin)->setEnabled(false);
 		$nc(this->rightMargin)->setEnabled(false);
@@ -455,11 +367,11 @@ void ServiceDialog$MarginsPanel::updateInfo() {
 		$assign(mediaSize, $new($MediaSize, 8.5f, 11.0f, $Size2DSyntax::INCH));
 	}
 	if (media != nullptr) {
-		$var($PrintRequestAttributeSet, tmpASet, $new($HashPrintRequestAttributeSet, static_cast<$PrintRequestAttributeSet*>(this->this$0->asCurrent)));
-		tmpASet->add(static_cast<$Attribute*>(static_cast<$DocAttribute*>(media)));
+		$var($PrintRequestAttributeSet, tmpASet, $new($HashPrintRequestAttributeSet, this->this$0->asCurrent));
+		tmpASet->add($cast($DocAttribute, media));
 		$var($Object, values, $nc(this->this$0->psCurrent)->getSupportedAttributeValues(mpaCategory, this->this$0->docFlavor, tmpASet));
-		if ($instanceOf($MediaPrintableAreaArray, values) && $nc(($cast($MediaPrintableAreaArray, values)))->length > 0) {
-			$assign(mpaMax, $nc(($cast($MediaPrintableAreaArray, values)))->get(0));
+		if ($instanceOf($MediaPrintableAreaArray, values) && $cast($MediaPrintableAreaArray, values)->length > 0) {
+			$assign(mpaMax, $cast($MediaPrintableAreaArray, values)->get(0));
 		} else if ($instanceOf($MediaPrintableArea, values)) {
 			$assign(mpaMax, $cast($MediaPrintableArea, values));
 		}
@@ -485,7 +397,7 @@ void ServiceDialog$MarginsPanel::updateInfo() {
 	}
 	if (mpa == nullptr) {
 		$assign(mpa, $new($MediaPrintableArea, xMgn, yMgn, wid - (2 * xMgn), hgt - (2 * yMgn), $MediaPrintableArea::INCH));
-		$nc(this->this$0->asCurrent)->add(static_cast<$Attribute*>(static_cast<$DocAttribute*>(mpa)));
+		$nc(this->this$0->asCurrent)->add($cast($DocAttribute, mpa));
 	}
 	float pax = $nc(mpa)->getX(this->units);
 	float pay = mpa->getY(this->units);
@@ -547,7 +459,7 @@ void ServiceDialog$MarginsPanel::updateInfo() {
 	}
 	if (invalid) {
 		$assign(mpa, $new($MediaPrintableArea, pax, pay, paw, pah, this->units));
-		$nc(this->this$0->asCurrent)->add(static_cast<$Attribute*>(static_cast<$DocAttribute*>(mpa)));
+		$nc(this->this$0->asCurrent)->add($cast($DocAttribute, mpa));
 	}
 	this->lmVal = pax;
 	this->tmVal = pay;
@@ -572,22 +484,18 @@ void ServiceDialog$MarginsPanel::updateInfo() {
 		$assign(tmp, this->tmObj);
 		$set(this, tmObj, this->bmObj);
 		$set(this, bmObj, tmp);
-	} else {
-		if (or$ == $OrientationRequested::LANDSCAPE) {
-			$assign(tmp, this->lmObj);
-			$set(this, lmObj, this->bmObj);
-			$set(this, bmObj, this->rmObj);
-			$set(this, rmObj, this->tmObj);
-			$set(this, tmObj, tmp);
-		} else {
-			if (or$ == $OrientationRequested::REVERSE_LANDSCAPE) {
-				$assign(tmp, this->lmObj);
-				$set(this, lmObj, this->tmObj);
-				$set(this, tmObj, this->rmObj);
-				$set(this, rmObj, this->bmObj);
-				$set(this, bmObj, tmp);
-			}
-		}
+	} else if (or$ == $OrientationRequested::LANDSCAPE) {
+		$assign(tmp, this->lmObj);
+		$set(this, lmObj, this->bmObj);
+		$set(this, bmObj, this->rmObj);
+		$set(this, rmObj, this->tmObj);
+		$set(this, tmObj, tmp);
+	} else if (or$ == $OrientationRequested::REVERSE_LANDSCAPE) {
+		$assign(tmp, this->lmObj);
+		$set(this, lmObj, this->tmObj);
+		$set(this, tmObj, this->rmObj);
+		$set(this, rmObj, this->bmObj);
+		$set(this, bmObj, tmp);
 	}
 	$nc(this->leftMargin)->setValue(this->lmObj);
 	$nc(this->rightMargin)->setValue(this->rmObj);
@@ -599,7 +507,65 @@ ServiceDialog$MarginsPanel::ServiceDialog$MarginsPanel() {
 }
 
 $Class* ServiceDialog$MarginsPanel::load$($String* name, bool initialize) {
-	$loadClass(ServiceDialog$MarginsPanel, name, initialize, &_ServiceDialog$MarginsPanel_ClassInfo_, allocate$ServiceDialog$MarginsPanel);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/print/ServiceDialog;", nullptr, $FINAL | $SYNTHETIC, $field(ServiceDialog$MarginsPanel, this$0)},
+		{"strTitle", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(ServiceDialog$MarginsPanel, strTitle)},
+		{"leftMargin", "Ljavax/swing/JFormattedTextField;", nullptr, $PRIVATE, $field(ServiceDialog$MarginsPanel, leftMargin)},
+		{"rightMargin", "Ljavax/swing/JFormattedTextField;", nullptr, $PRIVATE, $field(ServiceDialog$MarginsPanel, rightMargin)},
+		{"topMargin", "Ljavax/swing/JFormattedTextField;", nullptr, $PRIVATE, $field(ServiceDialog$MarginsPanel, topMargin)},
+		{"bottomMargin", "Ljavax/swing/JFormattedTextField;", nullptr, $PRIVATE, $field(ServiceDialog$MarginsPanel, bottomMargin)},
+		{"lblLeft", "Ljavax/swing/JLabel;", nullptr, $PRIVATE, $field(ServiceDialog$MarginsPanel, lblLeft)},
+		{"lblRight", "Ljavax/swing/JLabel;", nullptr, $PRIVATE, $field(ServiceDialog$MarginsPanel, lblRight)},
+		{"lblTop", "Ljavax/swing/JLabel;", nullptr, $PRIVATE, $field(ServiceDialog$MarginsPanel, lblTop)},
+		{"lblBottom", "Ljavax/swing/JLabel;", nullptr, $PRIVATE, $field(ServiceDialog$MarginsPanel, lblBottom)},
+		{"units", "I", nullptr, $PRIVATE, $field(ServiceDialog$MarginsPanel, units)},
+		{"lmVal", "F", nullptr, $PRIVATE, $field(ServiceDialog$MarginsPanel, lmVal)},
+		{"rmVal", "F", nullptr, $PRIVATE, $field(ServiceDialog$MarginsPanel, rmVal)},
+		{"tmVal", "F", nullptr, $PRIVATE, $field(ServiceDialog$MarginsPanel, tmVal)},
+		{"bmVal", "F", nullptr, $PRIVATE, $field(ServiceDialog$MarginsPanel, bmVal)},
+		{"lmObj", "Ljava/lang/Float;", nullptr, $PRIVATE, $field(ServiceDialog$MarginsPanel, lmObj)},
+		{"rmObj", "Ljava/lang/Float;", nullptr, $PRIVATE, $field(ServiceDialog$MarginsPanel, rmObj)},
+		{"tmObj", "Ljava/lang/Float;", nullptr, $PRIVATE, $field(ServiceDialog$MarginsPanel, tmObj)},
+		{"bmObj", "Ljava/lang/Float;", nullptr, $PRIVATE, $field(ServiceDialog$MarginsPanel, bmObj)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lsun/print/ServiceDialog;)V", nullptr, $PUBLIC, $method(ServiceDialog$MarginsPanel, init$, void, $ServiceDialog*)},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(ServiceDialog$MarginsPanel, actionPerformed, void, $ActionEvent*)},
+		{"focusGained", "(Ljava/awt/event/FocusEvent;)V", nullptr, $PUBLIC, $virtualMethod(ServiceDialog$MarginsPanel, focusGained, void, $FocusEvent*)},
+		{"focusLost", "(Ljava/awt/event/FocusEvent;)V", nullptr, $PUBLIC, $virtualMethod(ServiceDialog$MarginsPanel, focusLost, void, $FocusEvent*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"updateInfo", "()V", nullptr, $PUBLIC, $virtualMethod(ServiceDialog$MarginsPanel, updateInfo, void)},
+		{"updateMargins", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(ServiceDialog$MarginsPanel, updateMargins, void, Object$*)},
+		{"validateMargins", "(FFFF)Ljavax/print/attribute/standard/MediaPrintableArea;", nullptr, $PRIVATE, $method(ServiceDialog$MarginsPanel, validateMargins, $MediaPrintableArea*, float, float, float, float)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.print.ServiceDialog$MarginsPanel", "sun.print.ServiceDialog", "MarginsPanel", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.print.ServiceDialog$MarginsPanel",
+		"javax.swing.JPanel",
+		"java.awt.event.ActionListener,java.awt.event.FocusListener",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.print.ServiceDialog"
+	};
+	$loadClass(ServiceDialog$MarginsPanel, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ServiceDialog$MarginsPanel));
+	});
 	return class$;
 }
 

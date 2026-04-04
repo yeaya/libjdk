@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/windows/TMSchema$State.h>
-
 #include <com/sun/java/swing/plaf/windows/TMSchema$Control.h>
 #include <com/sun/java/swing/plaf/windows/TMSchema$Part.h>
 #include <com/sun/java/swing/plaf/windows/TMSchema$Prop.h>
@@ -158,118 +157,6 @@ namespace com {
 			namespace swing {
 				namespace plaf {
 					namespace windows {
-
-$FieldInfo _TMSchema$State_FieldInfo_[] = {
-	{"ACTIVE", "Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$State, ACTIVE)},
-	{"ASSIST", "Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$State, ASSIST)},
-	{"BITMAP", "Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$State, BITMAP)},
-	{"CHECKED", "Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$State, CHECKED)},
-	{"CHECKEDDISABLED", "Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$State, CHECKEDDISABLED)},
-	{"CHECKEDHOT", "Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$State, CHECKEDHOT)},
-	{"CHECKEDNORMAL", "Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$State, CHECKEDNORMAL)},
-	{"CHECKEDPRESSED", "Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$State, CHECKEDPRESSED)},
-	{"CHECKMARKNORMAL", "Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$State, CHECKMARKNORMAL)},
-	{"CHECKMARKDISABLED", "Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$State, CHECKMARKDISABLED)},
-	{"BULLETNORMAL", "Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$State, BULLETNORMAL)},
-	{"BULLETDISABLED", "Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$State, BULLETDISABLED)},
-	{"CLOSED", "Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$State, CLOSED)},
-	{"DEFAULTED", "Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$State, DEFAULTED)},
-	{"DISABLED", "Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$State, DISABLED)},
-	{"DISABLEDHOT", "Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$State, DISABLEDHOT)},
-	{"DISABLEDPUSHED", "Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$State, DISABLEDPUSHED)},
-	{"DOWNDISABLED", "Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$State, DOWNDISABLED)},
-	{"DOWNHOT", "Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$State, DOWNHOT)},
-	{"DOWNNORMAL", "Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$State, DOWNNORMAL)},
-	{"DOWNPRESSED", "Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$State, DOWNPRESSED)},
-	{"FOCUSED", "Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$State, FOCUSED)},
-	{"HOT", "Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$State, HOT)},
-	{"HOTCHECKED", "Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$State, HOTCHECKED)},
-	{"ICONHOT", "Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$State, ICONHOT)},
-	{"ICONNORMAL", "Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$State, ICONNORMAL)},
-	{"ICONPRESSED", "Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$State, ICONPRESSED)},
-	{"ICONSORTEDHOT", "Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$State, ICONSORTEDHOT)},
-	{"ICONSORTEDNORMAL", "Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$State, ICONSORTEDNORMAL)},
-	{"ICONSORTEDPRESSED", "Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$State, ICONSORTEDPRESSED)},
-	{"INACTIVE", "Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$State, INACTIVE)},
-	{"INACTIVENORMAL", "Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$State, INACTIVENORMAL)},
-	{"INACTIVEHOT", "Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$State, INACTIVEHOT)},
-	{"INACTIVEPUSHED", "Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$State, INACTIVEPUSHED)},
-	{"INACTIVEDISABLED", "Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$State, INACTIVEDISABLED)},
-	{"LEFTDISABLED", "Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$State, LEFTDISABLED)},
-	{"LEFTHOT", "Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$State, LEFTHOT)},
-	{"LEFTNORMAL", "Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$State, LEFTNORMAL)},
-	{"LEFTPRESSED", "Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$State, LEFTPRESSED)},
-	{"MIXEDDISABLED", "Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$State, MIXEDDISABLED)},
-	{"MIXEDHOT", "Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$State, MIXEDHOT)},
-	{"MIXEDNORMAL", "Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$State, MIXEDNORMAL)},
-	{"MIXEDPRESSED", "Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$State, MIXEDPRESSED)},
-	{"NORMAL", "Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$State, NORMAL)},
-	{"PRESSED", "Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$State, PRESSED)},
-	{"OPENED", "Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$State, OPENED)},
-	{"PUSHED", "Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$State, PUSHED)},
-	{"READONLY", "Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$State, READONLY)},
-	{"RIGHTDISABLED", "Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$State, RIGHTDISABLED)},
-	{"RIGHTHOT", "Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$State, RIGHTHOT)},
-	{"RIGHTNORMAL", "Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$State, RIGHTNORMAL)},
-	{"RIGHTPRESSED", "Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$State, RIGHTPRESSED)},
-	{"SELECTED", "Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$State, SELECTED)},
-	{"UNCHECKEDDISABLED", "Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$State, UNCHECKEDDISABLED)},
-	{"UNCHECKEDHOT", "Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$State, UNCHECKEDHOT)},
-	{"UNCHECKEDNORMAL", "Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$State, UNCHECKEDNORMAL)},
-	{"UNCHECKEDPRESSED", "Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$State, UNCHECKEDPRESSED)},
-	{"UPDISABLED", "Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$State, UPDISABLED)},
-	{"UPHOT", "Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$State, UPHOT)},
-	{"UPNORMAL", "Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$State, UPNORMAL)},
-	{"UPPRESSED", "Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$State, UPPRESSED)},
-	{"HOVER", "Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$State, HOVER)},
-	{"UPHOVER", "Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$State, UPHOVER)},
-	{"DOWNHOVER", "Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$State, DOWNHOVER)},
-	{"LEFTHOVER", "Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$State, LEFTHOVER)},
-	{"RIGHTHOVER", "Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$State, RIGHTHOVER)},
-	{"SORTEDDOWN", "Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$State, SORTEDDOWN)},
-	{"SORTEDHOT", "Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$State, SORTEDHOT)},
-	{"SORTEDNORMAL", "Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$State, SORTEDNORMAL)},
-	{"SORTEDPRESSED", "Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$State, SORTEDPRESSED)},
-	{"SORTEDUP", "Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$State, SORTEDUP)},
-	{"$VALUES", "[Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(TMSchema$State, $VALUES)},
-	{"stateMap", "Ljava/util/EnumMap;", "Ljava/util/EnumMap<Lcom/sun/java/swing/plaf/windows/TMSchema$Part;[Lcom/sun/java/swing/plaf/windows/TMSchema$State;>;", $PRIVATE | $STATIC, $staticField(TMSchema$State, stateMap)},
-	{}
-};
-
-$MethodInfo _TMSchema$State_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TMSchema$State, $values, $TMSchema$StateArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(TMSchema$State, init$, void, $String*, int32_t)},
-	{"getValue", "(Lcom/sun/java/swing/plaf/windows/TMSchema$Part;Lcom/sun/java/swing/plaf/windows/TMSchema$State;)I", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(TMSchema$State, getValue, int32_t, $TMSchema$Part*, TMSchema$State*)},
-	{"initStates", "()V", nullptr, $PRIVATE | $STATIC | $SYNCHRONIZED, $staticMethod(TMSchema$State, initStates, void)},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $PUBLIC | $STATIC, $staticMethod(TMSchema$State, valueOf, TMSchema$State*, $String*)},
-	{"values", "()[Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $PUBLIC | $STATIC, $staticMethod(TMSchema$State, values, $TMSchema$StateArray*)},
-	{}
-};
-
-$InnerClassInfo _TMSchema$State_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.windows.TMSchema$State", "com.sun.java.swing.plaf.windows.TMSchema", "State", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _TMSchema$State_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"com.sun.java.swing.plaf.windows.TMSchema$State",
-	"java.lang.Enum",
-	nullptr,
-	_TMSchema$State_FieldInfo_,
-	_TMSchema$State_MethodInfo_,
-	"Ljava/lang/Enum<Lcom/sun/java/swing/plaf/windows/TMSchema$State;>;",
-	nullptr,
-	_TMSchema$State_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.windows.TMSchema"
-};
-
-$Object* allocate$TMSchema$State($Class* clazz) {
-	return $of($alloc(TMSchema$State));
-}
 
 TMSchema$State* TMSchema$State::ACTIVE = nullptr;
 TMSchema$State* TMSchema$State::ASSIST = nullptr;
@@ -437,14 +324,13 @@ void TMSchema$State::init$($String* $enum$name, int32_t $enum$ordinal) {
 }
 
 void TMSchema$State::initStates() {
-	$load(TMSchema$State);
+	$init(TMSchema$State);
 	$synchronized(class$) {
-		$init(TMSchema$State);
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$load($TMSchema$Part);
 		$assignStatic(TMSchema$State::stateMap, $new($EnumMap, $TMSchema$Part::class$));
 		$init($TMSchema$Part);
-		$nc(TMSchema$State::stateMap)->put(static_cast<$Enum*>($TMSchema$Part::EP_EDITTEXT), $of($$new($TMSchema$StateArray, {
+		TMSchema$State::stateMap->put($TMSchema$Part::EP_EDITTEXT, $$new($TMSchema$StateArray, {
 			TMSchema$State::NORMAL,
 			TMSchema$State::HOT,
 			TMSchema$State::SELECTED,
@@ -452,15 +338,15 @@ void TMSchema$State::initStates() {
 			TMSchema$State::FOCUSED,
 			TMSchema$State::READONLY,
 			TMSchema$State::ASSIST
-		})));
-		$nc(TMSchema$State::stateMap)->put(static_cast<$Enum*>($TMSchema$Part::BP_PUSHBUTTON), $of($$new($TMSchema$StateArray, {
+		}));
+		TMSchema$State::stateMap->put($TMSchema$Part::BP_PUSHBUTTON, $$new($TMSchema$StateArray, {
 			TMSchema$State::NORMAL,
 			TMSchema$State::HOT,
 			TMSchema$State::PRESSED,
 			TMSchema$State::DISABLED,
 			TMSchema$State::DEFAULTED
-		})));
-		$nc(TMSchema$State::stateMap)->put(static_cast<$Enum*>($TMSchema$Part::BP_RADIOBUTTON), $of($$new($TMSchema$StateArray, {
+		}));
+		TMSchema$State::stateMap->put($TMSchema$Part::BP_RADIOBUTTON, $$new($TMSchema$StateArray, {
 			TMSchema$State::UNCHECKEDNORMAL,
 			TMSchema$State::UNCHECKEDHOT,
 			TMSchema$State::UNCHECKEDPRESSED,
@@ -469,8 +355,8 @@ void TMSchema$State::initStates() {
 			TMSchema$State::CHECKEDHOT,
 			TMSchema$State::CHECKEDPRESSED,
 			TMSchema$State::CHECKEDDISABLED
-		})));
-		$nc(TMSchema$State::stateMap)->put(static_cast<$Enum*>($TMSchema$Part::BP_CHECKBOX), $of($$new($TMSchema$StateArray, {
+		}));
+		TMSchema$State::stateMap->put($TMSchema$Part::BP_CHECKBOX, $$new($TMSchema$StateArray, {
 			TMSchema$State::UNCHECKEDNORMAL,
 			TMSchema$State::UNCHECKEDHOT,
 			TMSchema$State::UNCHECKEDPRESSED,
@@ -483,23 +369,23 @@ void TMSchema$State::initStates() {
 			TMSchema$State::MIXEDHOT,
 			TMSchema$State::MIXEDPRESSED,
 			TMSchema$State::MIXEDDISABLED
-		})));
+		}));
 		$var($TMSchema$StateArray, comboBoxStates, $new($TMSchema$StateArray, {
 			TMSchema$State::NORMAL,
 			TMSchema$State::HOT,
 			TMSchema$State::PRESSED,
 			TMSchema$State::DISABLED
 		}));
-		$nc(TMSchema$State::stateMap)->put(static_cast<$Enum*>($TMSchema$Part::CP_COMBOBOX), $of(comboBoxStates));
-		$nc(TMSchema$State::stateMap)->put(static_cast<$Enum*>($TMSchema$Part::CP_DROPDOWNBUTTON), $of(comboBoxStates));
-		$nc(TMSchema$State::stateMap)->put(static_cast<$Enum*>($TMSchema$Part::CP_BACKGROUND), $of(comboBoxStates));
-		$nc(TMSchema$State::stateMap)->put(static_cast<$Enum*>($TMSchema$Part::CP_TRANSPARENTBACKGROUND), $of(comboBoxStates));
-		$nc(TMSchema$State::stateMap)->put(static_cast<$Enum*>($TMSchema$Part::CP_BORDER), $of(comboBoxStates));
-		$nc(TMSchema$State::stateMap)->put(static_cast<$Enum*>($TMSchema$Part::CP_READONLY), $of(comboBoxStates));
-		$nc(TMSchema$State::stateMap)->put(static_cast<$Enum*>($TMSchema$Part::CP_DROPDOWNBUTTONRIGHT), $of(comboBoxStates));
-		$nc(TMSchema$State::stateMap)->put(static_cast<$Enum*>($TMSchema$Part::CP_DROPDOWNBUTTONLEFT), $of(comboBoxStates));
-		$nc(TMSchema$State::stateMap)->put(static_cast<$Enum*>($TMSchema$Part::CP_CUEBANNER), $of(comboBoxStates));
-		$nc(TMSchema$State::stateMap)->put(static_cast<$Enum*>($TMSchema$Part::HP_HEADERITEM), $of($$new($TMSchema$StateArray, {
+		TMSchema$State::stateMap->put($TMSchema$Part::CP_COMBOBOX, comboBoxStates);
+		TMSchema$State::stateMap->put($TMSchema$Part::CP_DROPDOWNBUTTON, comboBoxStates);
+		TMSchema$State::stateMap->put($TMSchema$Part::CP_BACKGROUND, comboBoxStates);
+		TMSchema$State::stateMap->put($TMSchema$Part::CP_TRANSPARENTBACKGROUND, comboBoxStates);
+		TMSchema$State::stateMap->put($TMSchema$Part::CP_BORDER, comboBoxStates);
+		TMSchema$State::stateMap->put($TMSchema$Part::CP_READONLY, comboBoxStates);
+		TMSchema$State::stateMap->put($TMSchema$Part::CP_DROPDOWNBUTTONRIGHT, comboBoxStates);
+		TMSchema$State::stateMap->put($TMSchema$Part::CP_DROPDOWNBUTTONLEFT, comboBoxStates);
+		TMSchema$State::stateMap->put($TMSchema$Part::CP_CUEBANNER, comboBoxStates);
+		TMSchema$State::stateMap->put($TMSchema$Part::HP_HEADERITEM, $$new($TMSchema$StateArray, {
 			TMSchema$State::NORMAL,
 			TMSchema$State::HOT,
 			TMSchema$State::PRESSED,
@@ -512,21 +398,21 @@ void TMSchema$State::initStates() {
 			TMSchema$State::ICONSORTEDNORMAL,
 			TMSchema$State::ICONSORTEDHOT,
 			TMSchema$State::ICONSORTEDPRESSED
-		})));
-		$nc(TMSchema$State::stateMap)->put(static_cast<$Enum*>($TMSchema$Part::HP_HEADERSORTARROW), $of($$new($TMSchema$StateArray, {
+		}));
+		TMSchema$State::stateMap->put($TMSchema$Part::HP_HEADERSORTARROW, $$new($TMSchema$StateArray, {
 			TMSchema$State::SORTEDDOWN,
 			TMSchema$State::SORTEDUP
-		})));
+		}));
 		$var($TMSchema$StateArray, listBoxStates, $new($TMSchema$StateArray, {
 			TMSchema$State::NORMAL,
 			TMSchema$State::PRESSED,
 			TMSchema$State::HOT,
 			TMSchema$State::DISABLED
 		}));
-		$nc(TMSchema$State::stateMap)->put(static_cast<$Enum*>($TMSchema$Part::LBCP_BORDER_HSCROLL), $of(listBoxStates));
-		$nc(TMSchema$State::stateMap)->put(static_cast<$Enum*>($TMSchema$Part::LBCP_BORDER_HVSCROLL), $of(listBoxStates));
-		$nc(TMSchema$State::stateMap)->put(static_cast<$Enum*>($TMSchema$Part::LBCP_BORDER_NOSCROLL), $of(listBoxStates));
-		$nc(TMSchema$State::stateMap)->put(static_cast<$Enum*>($TMSchema$Part::LBCP_BORDER_VSCROLL), $of(listBoxStates));
+		TMSchema$State::stateMap->put($TMSchema$Part::LBCP_BORDER_HSCROLL, listBoxStates);
+		TMSchema$State::stateMap->put($TMSchema$Part::LBCP_BORDER_HVSCROLL, listBoxStates);
+		TMSchema$State::stateMap->put($TMSchema$Part::LBCP_BORDER_NOSCROLL, listBoxStates);
+		TMSchema$State::stateMap->put($TMSchema$Part::LBCP_BORDER_VSCROLL, listBoxStates);
 		$var($TMSchema$StateArray, scrollBarStates, $new($TMSchema$StateArray, {
 			TMSchema$State::NORMAL,
 			TMSchema$State::HOT,
@@ -534,12 +420,12 @@ void TMSchema$State::initStates() {
 			TMSchema$State::DISABLED,
 			TMSchema$State::HOVER
 		}));
-		$nc(TMSchema$State::stateMap)->put(static_cast<$Enum*>($TMSchema$Part::SBP_SCROLLBAR), $of(scrollBarStates));
-		$nc(TMSchema$State::stateMap)->put(static_cast<$Enum*>($TMSchema$Part::SBP_THUMBBTNVERT), $of(scrollBarStates));
-		$nc(TMSchema$State::stateMap)->put(static_cast<$Enum*>($TMSchema$Part::SBP_THUMBBTNHORZ), $of(scrollBarStates));
-		$nc(TMSchema$State::stateMap)->put(static_cast<$Enum*>($TMSchema$Part::SBP_GRIPPERVERT), $of(scrollBarStates));
-		$nc(TMSchema$State::stateMap)->put(static_cast<$Enum*>($TMSchema$Part::SBP_GRIPPERHORZ), $of(scrollBarStates));
-		$nc(TMSchema$State::stateMap)->put(static_cast<$Enum*>($TMSchema$Part::SBP_ARROWBTN), $of($$new($TMSchema$StateArray, {
+		TMSchema$State::stateMap->put($TMSchema$Part::SBP_SCROLLBAR, scrollBarStates);
+		TMSchema$State::stateMap->put($TMSchema$Part::SBP_THUMBBTNVERT, scrollBarStates);
+		TMSchema$State::stateMap->put($TMSchema$Part::SBP_THUMBBTNHORZ, scrollBarStates);
+		TMSchema$State::stateMap->put($TMSchema$Part::SBP_GRIPPERVERT, scrollBarStates);
+		TMSchema$State::stateMap->put($TMSchema$Part::SBP_GRIPPERHORZ, scrollBarStates);
+		TMSchema$State::stateMap->put($TMSchema$Part::SBP_ARROWBTN, $$new($TMSchema$StateArray, {
 			TMSchema$State::UPNORMAL,
 			TMSchema$State::UPHOT,
 			TMSchema$State::UPPRESSED,
@@ -560,19 +446,19 @@ void TMSchema$State::initStates() {
 			TMSchema$State::DOWNHOVER,
 			TMSchema$State::LEFTHOVER,
 			TMSchema$State::RIGHTHOVER
-		})));
+		}));
 		$var($TMSchema$StateArray, spinnerStates, $new($TMSchema$StateArray, {
 			TMSchema$State::NORMAL,
 			TMSchema$State::HOT,
 			TMSchema$State::PRESSED,
 			TMSchema$State::DISABLED
 		}));
-		$nc(TMSchema$State::stateMap)->put(static_cast<$Enum*>($TMSchema$Part::SPNP_UP), $of(spinnerStates));
-		$nc(TMSchema$State::stateMap)->put(static_cast<$Enum*>($TMSchema$Part::SPNP_DOWN), $of(spinnerStates));
-		$nc(TMSchema$State::stateMap)->put(static_cast<$Enum*>($TMSchema$Part::TVP_GLYPH), $of($$new($TMSchema$StateArray, {
+		TMSchema$State::stateMap->put($TMSchema$Part::SPNP_UP, spinnerStates);
+		TMSchema$State::stateMap->put($TMSchema$Part::SPNP_DOWN, spinnerStates);
+		TMSchema$State::stateMap->put($TMSchema$Part::TVP_GLYPH, $$new($TMSchema$StateArray, {
 			TMSchema$State::CLOSED,
 			TMSchema$State::OPENED
-		})));
+		}));
 		$var($TMSchema$StateArray, frameButtonStates, $new($TMSchema$StateArray, {
 			TMSchema$State::NORMAL,
 			TMSchema$State::HOT,
@@ -593,20 +479,20 @@ void TMSchema$State::initStates() {
 				TMSchema$State::HOT,
 				TMSchema$State::PUSHED,
 				TMSchema$State::DISABLED,
-				(TMSchema$State*)nullptr,
+				nullptr,
 				TMSchema$State::INACTIVENORMAL,
 				TMSchema$State::INACTIVEHOT,
 				TMSchema$State::INACTIVEPUSHED,
 				TMSchema$State::INACTIVEDISABLED,
-				(TMSchema$State*)nullptr
+				nullptr
 			}));
 		}
-		$nc(TMSchema$State::stateMap)->put(static_cast<$Enum*>($TMSchema$Part::WP_MINBUTTON), $of(frameButtonStates));
-		$nc(TMSchema$State::stateMap)->put(static_cast<$Enum*>($TMSchema$Part::WP_MAXBUTTON), $of(frameButtonStates));
-		$nc(TMSchema$State::stateMap)->put(static_cast<$Enum*>($TMSchema$Part::WP_RESTOREBUTTON), $of(frameButtonStates));
-		$nc(TMSchema$State::stateMap)->put(static_cast<$Enum*>($TMSchema$Part::WP_CLOSEBUTTON), $of(frameButtonStates));
-		$nc(TMSchema$State::stateMap)->put(static_cast<$Enum*>($TMSchema$Part::TKP_TRACK), $of($$new($TMSchema$StateArray, {TMSchema$State::NORMAL})));
-		$nc(TMSchema$State::stateMap)->put(static_cast<$Enum*>($TMSchema$Part::TKP_TRACKVERT), $of($$new($TMSchema$StateArray, {TMSchema$State::NORMAL})));
+		$nc(TMSchema$State::stateMap)->put($TMSchema$Part::WP_MINBUTTON, frameButtonStates);
+		TMSchema$State::stateMap->put($TMSchema$Part::WP_MAXBUTTON, frameButtonStates);
+		TMSchema$State::stateMap->put($TMSchema$Part::WP_RESTOREBUTTON, frameButtonStates);
+		TMSchema$State::stateMap->put($TMSchema$Part::WP_CLOSEBUTTON, frameButtonStates);
+		TMSchema$State::stateMap->put($TMSchema$Part::TKP_TRACK, $$new($TMSchema$StateArray, {TMSchema$State::NORMAL}));
+		TMSchema$State::stateMap->put($TMSchema$Part::TKP_TRACKVERT, $$new($TMSchema$StateArray, {TMSchema$State::NORMAL}));
 		$var($TMSchema$StateArray, sliderThumbStates, $new($TMSchema$StateArray, {
 			TMSchema$State::NORMAL,
 			TMSchema$State::HOT,
@@ -614,11 +500,11 @@ void TMSchema$State::initStates() {
 			TMSchema$State::FOCUSED,
 			TMSchema$State::DISABLED
 		}));
-		$nc(TMSchema$State::stateMap)->put(static_cast<$Enum*>($TMSchema$Part::TKP_THUMB), $of(sliderThumbStates));
-		$nc(TMSchema$State::stateMap)->put(static_cast<$Enum*>($TMSchema$Part::TKP_THUMBBOTTOM), $of(sliderThumbStates));
-		$nc(TMSchema$State::stateMap)->put(static_cast<$Enum*>($TMSchema$Part::TKP_THUMBTOP), $of(sliderThumbStates));
-		$nc(TMSchema$State::stateMap)->put(static_cast<$Enum*>($TMSchema$Part::TKP_THUMBVERT), $of(sliderThumbStates));
-		$nc(TMSchema$State::stateMap)->put(static_cast<$Enum*>($TMSchema$Part::TKP_THUMBRIGHT), $of(sliderThumbStates));
+		TMSchema$State::stateMap->put($TMSchema$Part::TKP_THUMB, sliderThumbStates);
+		TMSchema$State::stateMap->put($TMSchema$Part::TKP_THUMBBOTTOM, sliderThumbStates);
+		TMSchema$State::stateMap->put($TMSchema$Part::TKP_THUMBTOP, sliderThumbStates);
+		TMSchema$State::stateMap->put($TMSchema$Part::TKP_THUMBVERT, sliderThumbStates);
+		TMSchema$State::stateMap->put($TMSchema$Part::TKP_THUMBRIGHT, sliderThumbStates);
 		$var($TMSchema$StateArray, tabStates, $new($TMSchema$StateArray, {
 			TMSchema$State::NORMAL,
 			TMSchema$State::HOT,
@@ -626,73 +512,72 @@ void TMSchema$State::initStates() {
 			TMSchema$State::DISABLED,
 			TMSchema$State::FOCUSED
 		}));
-		$nc(TMSchema$State::stateMap)->put(static_cast<$Enum*>($TMSchema$Part::TABP_TABITEM), $of(tabStates));
-		$nc(TMSchema$State::stateMap)->put(static_cast<$Enum*>($TMSchema$Part::TABP_TABITEMLEFTEDGE), $of(tabStates));
-		$nc(TMSchema$State::stateMap)->put(static_cast<$Enum*>($TMSchema$Part::TABP_TABITEMRIGHTEDGE), $of(tabStates));
-		$nc(TMSchema$State::stateMap)->put(static_cast<$Enum*>($TMSchema$Part::TP_BUTTON), $of($$new($TMSchema$StateArray, {
+		TMSchema$State::stateMap->put($TMSchema$Part::TABP_TABITEM, tabStates);
+		TMSchema$State::stateMap->put($TMSchema$Part::TABP_TABITEMLEFTEDGE, tabStates);
+		TMSchema$State::stateMap->put($TMSchema$Part::TABP_TABITEMRIGHTEDGE, tabStates);
+		TMSchema$State::stateMap->put($TMSchema$Part::TP_BUTTON, $$new($TMSchema$StateArray, {
 			TMSchema$State::NORMAL,
 			TMSchema$State::HOT,
 			TMSchema$State::PRESSED,
 			TMSchema$State::DISABLED,
 			TMSchema$State::CHECKED,
 			TMSchema$State::HOTCHECKED
-		})));
+		}));
 		$var($TMSchema$StateArray, frameStates, $new($TMSchema$StateArray, {
 			TMSchema$State::ACTIVE,
 			TMSchema$State::INACTIVE
 		}));
-		$nc(TMSchema$State::stateMap)->put(static_cast<$Enum*>($TMSchema$Part::WP_WINDOW), $of(frameStates));
-		$nc(TMSchema$State::stateMap)->put(static_cast<$Enum*>($TMSchema$Part::WP_FRAMELEFT), $of(frameStates));
-		$nc(TMSchema$State::stateMap)->put(static_cast<$Enum*>($TMSchema$Part::WP_FRAMERIGHT), $of(frameStates));
-		$nc(TMSchema$State::stateMap)->put(static_cast<$Enum*>($TMSchema$Part::WP_FRAMEBOTTOM), $of(frameStates));
+		TMSchema$State::stateMap->put($TMSchema$Part::WP_WINDOW, frameStates);
+		TMSchema$State::stateMap->put($TMSchema$Part::WP_FRAMELEFT, frameStates);
+		TMSchema$State::stateMap->put($TMSchema$Part::WP_FRAMERIGHT, frameStates);
+		TMSchema$State::stateMap->put($TMSchema$Part::WP_FRAMEBOTTOM, frameStates);
 		$var($TMSchema$StateArray, captionStates, $new($TMSchema$StateArray, {
 			TMSchema$State::ACTIVE,
 			TMSchema$State::INACTIVE,
 			TMSchema$State::DISABLED
 		}));
-		$nc(TMSchema$State::stateMap)->put(static_cast<$Enum*>($TMSchema$Part::WP_CAPTION), $of(captionStates));
-		$nc(TMSchema$State::stateMap)->put(static_cast<$Enum*>($TMSchema$Part::WP_MINCAPTION), $of(captionStates));
-		$nc(TMSchema$State::stateMap)->put(static_cast<$Enum*>($TMSchema$Part::WP_MAXCAPTION), $of(captionStates));
-		$nc(TMSchema$State::stateMap)->put(static_cast<$Enum*>($TMSchema$Part::MP_BARBACKGROUND), $of($$new($TMSchema$StateArray, {
+		TMSchema$State::stateMap->put($TMSchema$Part::WP_CAPTION, captionStates);
+		TMSchema$State::stateMap->put($TMSchema$Part::WP_MINCAPTION, captionStates);
+		TMSchema$State::stateMap->put($TMSchema$Part::WP_MAXCAPTION, captionStates);
+		TMSchema$State::stateMap->put($TMSchema$Part::MP_BARBACKGROUND, $$new($TMSchema$StateArray, {
 			TMSchema$State::ACTIVE,
 			TMSchema$State::INACTIVE
-		})));
-		$nc(TMSchema$State::stateMap)->put(static_cast<$Enum*>($TMSchema$Part::MP_BARITEM), $of($$new($TMSchema$StateArray, {
+		}));
+		TMSchema$State::stateMap->put($TMSchema$Part::MP_BARITEM, $$new($TMSchema$StateArray, {
 			TMSchema$State::NORMAL,
 			TMSchema$State::HOT,
 			TMSchema$State::PUSHED,
 			TMSchema$State::DISABLED,
 			TMSchema$State::DISABLEDHOT,
 			TMSchema$State::DISABLEDPUSHED
-		})));
-		$nc(TMSchema$State::stateMap)->put(static_cast<$Enum*>($TMSchema$Part::MP_POPUPCHECK), $of($$new($TMSchema$StateArray, {
+		}));
+		TMSchema$State::stateMap->put($TMSchema$Part::MP_POPUPCHECK, $$new($TMSchema$StateArray, {
 			TMSchema$State::CHECKMARKNORMAL,
 			TMSchema$State::CHECKMARKDISABLED,
 			TMSchema$State::BULLETNORMAL,
 			TMSchema$State::BULLETDISABLED
-		})));
-		$nc(TMSchema$State::stateMap)->put(static_cast<$Enum*>($TMSchema$Part::MP_POPUPCHECKBACKGROUND), $of($$new($TMSchema$StateArray, {
+		}));
+		TMSchema$State::stateMap->put($TMSchema$Part::MP_POPUPCHECKBACKGROUND, $$new($TMSchema$StateArray, {
 			TMSchema$State::DISABLEDPUSHED,
 			TMSchema$State::NORMAL,
 			TMSchema$State::BITMAP
-		})));
-		$nc(TMSchema$State::stateMap)->put(static_cast<$Enum*>($TMSchema$Part::MP_POPUPITEM), $of($$new($TMSchema$StateArray, {
+		}));
+		TMSchema$State::stateMap->put($TMSchema$Part::MP_POPUPITEM, $$new($TMSchema$StateArray, {
 			TMSchema$State::NORMAL,
 			TMSchema$State::HOT,
 			TMSchema$State::DISABLED,
 			TMSchema$State::DISABLEDHOT
-		})));
-		$nc(TMSchema$State::stateMap)->put(static_cast<$Enum*>($TMSchema$Part::MP_POPUPSUBMENU), $of($$new($TMSchema$StateArray, {
+		}));
+		TMSchema$State::stateMap->put($TMSchema$Part::MP_POPUPSUBMENU, $$new($TMSchema$StateArray, {
 			TMSchema$State::NORMAL,
 			TMSchema$State::DISABLED
-		})));
+		}));
 	}
 }
 
 int32_t TMSchema$State::getValue($TMSchema$Part* part, TMSchema$State* state) {
-	$load(TMSchema$State);
+	$init(TMSchema$State);
 	$synchronized(class$) {
-		$init(TMSchema$State);
 		if (TMSchema$State::stateMap == nullptr) {
 			initStates();
 		}
@@ -711,7 +596,7 @@ int32_t TMSchema$State::getValue($TMSchema$Part* part, TMSchema$State* state) {
 	}
 }
 
-void clinit$TMSchema$State($Class* class$) {
+void TMSchema$State::clinit$($Class* clazz) {
 	$assignStatic(TMSchema$State::ACTIVE, $new(TMSchema$State, "ACTIVE"_s, 0));
 	$assignStatic(TMSchema$State::ASSIST, $new(TMSchema$State, "ASSIST"_s, 1));
 	$assignStatic(TMSchema$State::BITMAP, $new(TMSchema$State, "BITMAP"_s, 2));
@@ -790,7 +675,113 @@ TMSchema$State::TMSchema$State() {
 }
 
 $Class* TMSchema$State::load$($String* name, bool initialize) {
-	$loadClass(TMSchema$State, name, initialize, &_TMSchema$State_ClassInfo_, clinit$TMSchema$State, allocate$TMSchema$State);
+	$FieldInfo fieldInfos$$[] = {
+		{"ACTIVE", "Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$State, ACTIVE)},
+		{"ASSIST", "Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$State, ASSIST)},
+		{"BITMAP", "Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$State, BITMAP)},
+		{"CHECKED", "Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$State, CHECKED)},
+		{"CHECKEDDISABLED", "Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$State, CHECKEDDISABLED)},
+		{"CHECKEDHOT", "Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$State, CHECKEDHOT)},
+		{"CHECKEDNORMAL", "Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$State, CHECKEDNORMAL)},
+		{"CHECKEDPRESSED", "Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$State, CHECKEDPRESSED)},
+		{"CHECKMARKNORMAL", "Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$State, CHECKMARKNORMAL)},
+		{"CHECKMARKDISABLED", "Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$State, CHECKMARKDISABLED)},
+		{"BULLETNORMAL", "Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$State, BULLETNORMAL)},
+		{"BULLETDISABLED", "Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$State, BULLETDISABLED)},
+		{"CLOSED", "Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$State, CLOSED)},
+		{"DEFAULTED", "Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$State, DEFAULTED)},
+		{"DISABLED", "Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$State, DISABLED)},
+		{"DISABLEDHOT", "Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$State, DISABLEDHOT)},
+		{"DISABLEDPUSHED", "Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$State, DISABLEDPUSHED)},
+		{"DOWNDISABLED", "Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$State, DOWNDISABLED)},
+		{"DOWNHOT", "Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$State, DOWNHOT)},
+		{"DOWNNORMAL", "Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$State, DOWNNORMAL)},
+		{"DOWNPRESSED", "Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$State, DOWNPRESSED)},
+		{"FOCUSED", "Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$State, FOCUSED)},
+		{"HOT", "Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$State, HOT)},
+		{"HOTCHECKED", "Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$State, HOTCHECKED)},
+		{"ICONHOT", "Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$State, ICONHOT)},
+		{"ICONNORMAL", "Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$State, ICONNORMAL)},
+		{"ICONPRESSED", "Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$State, ICONPRESSED)},
+		{"ICONSORTEDHOT", "Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$State, ICONSORTEDHOT)},
+		{"ICONSORTEDNORMAL", "Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$State, ICONSORTEDNORMAL)},
+		{"ICONSORTEDPRESSED", "Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$State, ICONSORTEDPRESSED)},
+		{"INACTIVE", "Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$State, INACTIVE)},
+		{"INACTIVENORMAL", "Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$State, INACTIVENORMAL)},
+		{"INACTIVEHOT", "Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$State, INACTIVEHOT)},
+		{"INACTIVEPUSHED", "Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$State, INACTIVEPUSHED)},
+		{"INACTIVEDISABLED", "Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$State, INACTIVEDISABLED)},
+		{"LEFTDISABLED", "Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$State, LEFTDISABLED)},
+		{"LEFTHOT", "Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$State, LEFTHOT)},
+		{"LEFTNORMAL", "Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$State, LEFTNORMAL)},
+		{"LEFTPRESSED", "Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$State, LEFTPRESSED)},
+		{"MIXEDDISABLED", "Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$State, MIXEDDISABLED)},
+		{"MIXEDHOT", "Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$State, MIXEDHOT)},
+		{"MIXEDNORMAL", "Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$State, MIXEDNORMAL)},
+		{"MIXEDPRESSED", "Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$State, MIXEDPRESSED)},
+		{"NORMAL", "Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$State, NORMAL)},
+		{"PRESSED", "Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$State, PRESSED)},
+		{"OPENED", "Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$State, OPENED)},
+		{"PUSHED", "Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$State, PUSHED)},
+		{"READONLY", "Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$State, READONLY)},
+		{"RIGHTDISABLED", "Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$State, RIGHTDISABLED)},
+		{"RIGHTHOT", "Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$State, RIGHTHOT)},
+		{"RIGHTNORMAL", "Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$State, RIGHTNORMAL)},
+		{"RIGHTPRESSED", "Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$State, RIGHTPRESSED)},
+		{"SELECTED", "Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$State, SELECTED)},
+		{"UNCHECKEDDISABLED", "Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$State, UNCHECKEDDISABLED)},
+		{"UNCHECKEDHOT", "Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$State, UNCHECKEDHOT)},
+		{"UNCHECKEDNORMAL", "Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$State, UNCHECKEDNORMAL)},
+		{"UNCHECKEDPRESSED", "Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$State, UNCHECKEDPRESSED)},
+		{"UPDISABLED", "Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$State, UPDISABLED)},
+		{"UPHOT", "Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$State, UPHOT)},
+		{"UPNORMAL", "Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$State, UPNORMAL)},
+		{"UPPRESSED", "Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$State, UPPRESSED)},
+		{"HOVER", "Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$State, HOVER)},
+		{"UPHOVER", "Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$State, UPHOVER)},
+		{"DOWNHOVER", "Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$State, DOWNHOVER)},
+		{"LEFTHOVER", "Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$State, LEFTHOVER)},
+		{"RIGHTHOVER", "Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$State, RIGHTHOVER)},
+		{"SORTEDDOWN", "Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$State, SORTEDDOWN)},
+		{"SORTEDHOT", "Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$State, SORTEDHOT)},
+		{"SORTEDNORMAL", "Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$State, SORTEDNORMAL)},
+		{"SORTEDPRESSED", "Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$State, SORTEDPRESSED)},
+		{"SORTEDUP", "Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$State, SORTEDUP)},
+		{"$VALUES", "[Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(TMSchema$State, $VALUES)},
+		{"stateMap", "Ljava/util/EnumMap;", "Ljava/util/EnumMap<Lcom/sun/java/swing/plaf/windows/TMSchema$Part;[Lcom/sun/java/swing/plaf/windows/TMSchema$State;>;", $PRIVATE | $STATIC, $staticField(TMSchema$State, stateMap)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TMSchema$State, $values, $TMSchema$StateArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(TMSchema$State, init$, void, $String*, int32_t)},
+		{"getValue", "(Lcom/sun/java/swing/plaf/windows/TMSchema$Part;Lcom/sun/java/swing/plaf/windows/TMSchema$State;)I", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(TMSchema$State, getValue, int32_t, $TMSchema$Part*, TMSchema$State*)},
+		{"initStates", "()V", nullptr, $PRIVATE | $STATIC | $SYNCHRONIZED, $staticMethod(TMSchema$State, initStates, void)},
+		{"valueOf", "(Ljava/lang/String;)Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $PUBLIC | $STATIC, $staticMethod(TMSchema$State, valueOf, TMSchema$State*, $String*)},
+		{"values", "()[Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $PUBLIC | $STATIC, $staticMethod(TMSchema$State, values, $TMSchema$StateArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.windows.TMSchema$State", "com.sun.java.swing.plaf.windows.TMSchema", "State", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"com.sun.java.swing.plaf.windows.TMSchema$State",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lcom/sun/java/swing/plaf/windows/TMSchema$State;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.windows.TMSchema"
+	};
+	$loadClass(TMSchema$State, name, initialize, &classInfo$$, TMSchema$State::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(TMSchema$State));
+	});
 	return class$;
 }
 

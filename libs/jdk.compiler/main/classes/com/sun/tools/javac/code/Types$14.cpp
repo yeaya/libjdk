@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/code/Types$14.h>
-
 #include <com/sun/tools/javac/code/Symbol$TypeSymbol.h>
 #include <com/sun/tools/javac/code/Type$ClassType.h>
 #include <com/sun/tools/javac/code/Type$ErasedClassType.h>
@@ -35,7 +34,6 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $TypeKind = ::javax::lang::model::type::TypeKind;
 
 namespace com {
 	namespace sun {
@@ -43,91 +41,29 @@ namespace com {
 			namespace javac {
 				namespace code {
 
-$FieldInfo _Types$14_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/code/Types;", nullptr, $FINAL | $SYNTHETIC, $field(Types$14, this$0)},
-	{}
-};
-
-$MethodInfo _Types$14_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Types;)V", nullptr, 0, $method(Types$14, init$, void, $Types*)},
-	{"combineMetadata", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Type;", nullptr, $PRIVATE, $method(Types$14, combineMetadata, $Type*, $Type*, $Type*)},
-	{"visitClassType", "(Lcom/sun/tools/javac/code/Type$ClassType;Ljava/lang/Boolean;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(Types$14, visitClassType, $Type*, $Type$ClassType*, $Boolean*)},
-	{"visitClassType", "(Lcom/sun/tools/javac/code/Type$ClassType;Ljava/lang/Object;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Types$14, visitClassType, $Object*, $Type$ClassType*, Object$*)},
-	{"visitType", "(Lcom/sun/tools/javac/code/Type;Ljava/lang/Boolean;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(Types$14, visitType, $Type*, $Type*, $Boolean*)},
-	{"visitType", "(Lcom/sun/tools/javac/code/Type;Ljava/lang/Object;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Types$14, visitType, $Object*, $Type*, Object$*)},
-	{"visitTypeVar", "(Lcom/sun/tools/javac/code/Type$TypeVar;Ljava/lang/Boolean;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(Types$14, visitTypeVar, $Type*, $Type$TypeVar*, $Boolean*)},
-	{"visitTypeVar", "(Lcom/sun/tools/javac/code/Type$TypeVar;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Types$14, visitTypeVar, $Object*, $Type$TypeVar*, Object$*)},
-	{"visitWildcardType", "(Lcom/sun/tools/javac/code/Type$WildcardType;Ljava/lang/Boolean;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(Types$14, visitWildcardType, $Type*, $Type$WildcardType*, $Boolean*)},
-	{"visitWildcardType", "(Lcom/sun/tools/javac/code/Type$WildcardType;Ljava/lang/Object;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Types$14, visitWildcardType, $Object*, $Type$WildcardType*, Object$*)},
-	{}
-};
-
-$EnclosingMethodInfo _Types$14_EnclosingMethodInfo_ = {
-	"com.sun.tools.javac.code.Types",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _Types$14_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.code.Types$14", nullptr, nullptr, 0},
-	{"com.sun.tools.javac.code.Type$StructuralTypeMapping", "com.sun.tools.javac.code.Type", "StructuralTypeMapping", $PUBLIC | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Types$14_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.code.Types$14",
-	"com.sun.tools.javac.code.Type$StructuralTypeMapping",
-	nullptr,
-	_Types$14_FieldInfo_,
-	_Types$14_MethodInfo_,
-	"Lcom/sun/tools/javac/code/Type$StructuralTypeMapping<Ljava/lang/Boolean;>;",
-	&_Types$14_EnclosingMethodInfo_,
-	_Types$14_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.code.Types"
-};
-
-$Object* allocate$Types$14($Class* clazz) {
-	return $of($alloc(Types$14));
-}
-
 void Types$14::init$($Types* this$0) {
 	$set(this, this$0, this$0);
 	$Type$StructuralTypeMapping::init$();
 }
 
 $Type* Types$14::combineMetadata($Type* s, $Type* t) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($TypeMetadata);
 	if ($nc(t)->getMetadata() != $TypeMetadata::EMPTY) {
 		$init($Types$25);
-		switch ($nc($Types$25::$SwitchMap$javax$lang$model$type$TypeKind)->get($nc(($($nc(s)->getKind())))->ordinal())) {
+		switch ($nc($Types$25::$SwitchMap$javax$lang$model$type$TypeKind)->get(($$nc($nc(s)->getKind()))->ordinal())) {
 		case 1:
-			{}
 		case 2:
-			{}
 		case 3:
-			{}
 		case 4:
-			{}
 		case 5:
-			{}
 		case 6:
-			{}
 		case 7:
-			{}
 		case 8:
-			{
-				return s;
-			}
+			return s;
 		default:
-			{
-				$init($TypeMetadata$Entry$Kind);
-				return s->cloneWithMetadata($($nc($(s->getMetadata()))->without($TypeMetadata$Entry$Kind::ANNOTATIONS)));
-			}
+			$init($TypeMetadata$Entry$Kind);
+			return s->cloneWithMetadata($($$nc(s->getMetadata())->without($TypeMetadata$Entry$Kind::ANNOTATIONS)));
 		}
 	} else {
 		return s;
@@ -143,20 +79,20 @@ $Type* Types$14::visitType($Type* t, $Boolean* recurse) {
 }
 
 $Type* Types$14::visitWildcardType($Type$WildcardType* t, $Boolean* recurse) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Type, var$0, this->this$0->wildUpperBound(t));
 	$var($Type, erased, this->this$0->erasure(var$0, $nc(recurse)->booleanValue()));
 	return combineMetadata(erased, t);
 }
 
 $Type* Types$14::visitClassType($Type$ClassType* t, $Boolean* recurse) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Type, erased, $nc($nc(t)->tsym)->erasure(this->this$0));
 	if ($nc((recurse))->booleanValue()) {
 		$var($Type, var$0, $nc(erased)->getEnclosingType());
 		$var($Symbol$TypeSymbol, var$1, erased->tsym);
 		$init($TypeMetadata$Entry$Kind);
-		$assign(erased, $new($Type$ErasedClassType, var$0, var$1, $($nc($(t->getMetadata()))->without($TypeMetadata$Entry$Kind::ANNOTATIONS))));
+		$assign(erased, $new($Type$ErasedClassType, var$0, var$1, $($$nc(t->getMetadata())->without($TypeMetadata$Entry$Kind::ANNOTATIONS))));
 		return erased;
 	} else {
 		return combineMetadata(erased, t);
@@ -164,7 +100,7 @@ $Type* Types$14::visitClassType($Type$ClassType* t, $Boolean* recurse) {
 }
 
 $Type* Types$14::visitTypeVar($Type$TypeVar* t, $Boolean* recurse) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Type, var$0, $nc(t)->getUpperBound());
 	$var($Type, erased, this->this$0->erasure(var$0, $nc(recurse)->booleanValue()));
 	return combineMetadata(erased, t);
@@ -190,7 +126,51 @@ Types$14::Types$14() {
 }
 
 $Class* Types$14::load$($String* name, bool initialize) {
-	$loadClass(Types$14, name, initialize, &_Types$14_ClassInfo_, allocate$Types$14);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/code/Types;", nullptr, $FINAL | $SYNTHETIC, $field(Types$14, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/code/Types;)V", nullptr, 0, $method(Types$14, init$, void, $Types*)},
+		{"combineMetadata", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Type;", nullptr, $PRIVATE, $method(Types$14, combineMetadata, $Type*, $Type*, $Type*)},
+		{"visitClassType", "(Lcom/sun/tools/javac/code/Type$ClassType;Ljava/lang/Boolean;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(Types$14, visitClassType, $Type*, $Type$ClassType*, $Boolean*)},
+		{"visitClassType", "(Lcom/sun/tools/javac/code/Type$ClassType;Ljava/lang/Object;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Types$14, visitClassType, $Object*, $Type$ClassType*, Object$*)},
+		{"visitType", "(Lcom/sun/tools/javac/code/Type;Ljava/lang/Boolean;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(Types$14, visitType, $Type*, $Type*, $Boolean*)},
+		{"visitType", "(Lcom/sun/tools/javac/code/Type;Ljava/lang/Object;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Types$14, visitType, $Object*, $Type*, Object$*)},
+		{"visitTypeVar", "(Lcom/sun/tools/javac/code/Type$TypeVar;Ljava/lang/Boolean;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(Types$14, visitTypeVar, $Type*, $Type$TypeVar*, $Boolean*)},
+		{"visitTypeVar", "(Lcom/sun/tools/javac/code/Type$TypeVar;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Types$14, visitTypeVar, $Object*, $Type$TypeVar*, Object$*)},
+		{"visitWildcardType", "(Lcom/sun/tools/javac/code/Type$WildcardType;Ljava/lang/Boolean;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(Types$14, visitWildcardType, $Type*, $Type$WildcardType*, $Boolean*)},
+		{"visitWildcardType", "(Lcom/sun/tools/javac/code/Type$WildcardType;Ljava/lang/Object;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Types$14, visitWildcardType, $Object*, $Type$WildcardType*, Object$*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.tools.javac.code.Types",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.code.Types$14", nullptr, nullptr, 0},
+		{"com.sun.tools.javac.code.Type$StructuralTypeMapping", "com.sun.tools.javac.code.Type", "StructuralTypeMapping", $PUBLIC | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.code.Types$14",
+		"com.sun.tools.javac.code.Type$StructuralTypeMapping",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Lcom/sun/tools/javac/code/Type$StructuralTypeMapping<Ljava/lang/Boolean;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.code.Types"
+	};
+	$loadClass(Types$14, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Types$14));
+	});
 	return class$;
 }
 

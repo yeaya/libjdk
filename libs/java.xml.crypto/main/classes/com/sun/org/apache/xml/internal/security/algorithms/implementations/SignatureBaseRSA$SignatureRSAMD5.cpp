@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/security/algorithms/implementations/SignatureBaseRSA$SignatureRSAMD5.h>
-
 #include <com/sun/org/apache/xml/internal/security/algorithms/implementations/SignatureBaseRSA.h>
 #include <com/sun/org/apache/xml/internal/security/signature/XMLSignature.h>
 #include <java/security/Provider.h>
@@ -24,38 +23,6 @@ namespace com {
 							namespace algorithms {
 								namespace implementations {
 
-$MethodInfo _SignatureBaseRSA$SignatureRSAMD5_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SignatureBaseRSA$SignatureRSAMD5, init$, void), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
-	{"<init>", "(Ljava/security/Provider;)V", nullptr, $PUBLIC, $method(SignatureBaseRSA$SignatureRSAMD5, init$, void, $Provider*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
-	{"engineGetURI", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SignatureBaseRSA$SignatureRSAMD5, engineGetURI, $String*)},
-	{}
-};
-
-$InnerClassInfo _SignatureBaseRSA$SignatureRSAMD5_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureBaseRSA$SignatureRSAMD5", "com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureBaseRSA", "SignatureRSAMD5", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _SignatureBaseRSA$SignatureRSAMD5_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureBaseRSA$SignatureRSAMD5",
-	"com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureBaseRSA",
-	nullptr,
-	nullptr,
-	_SignatureBaseRSA$SignatureRSAMD5_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SignatureBaseRSA$SignatureRSAMD5_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureBaseRSA"
-};
-
-$Object* allocate$SignatureBaseRSA$SignatureRSAMD5($Class* clazz) {
-	return $of($alloc(SignatureBaseRSA$SignatureRSAMD5));
-}
-
 void SignatureBaseRSA$SignatureRSAMD5::init$() {
 	$SignatureBaseRSA::init$();
 }
@@ -73,7 +40,34 @@ SignatureBaseRSA$SignatureRSAMD5::SignatureBaseRSA$SignatureRSAMD5() {
 }
 
 $Class* SignatureBaseRSA$SignatureRSAMD5::load$($String* name, bool initialize) {
-	$loadClass(SignatureBaseRSA$SignatureRSAMD5, name, initialize, &_SignatureBaseRSA$SignatureRSAMD5_ClassInfo_, allocate$SignatureBaseRSA$SignatureRSAMD5);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SignatureBaseRSA$SignatureRSAMD5, init$, void), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
+		{"<init>", "(Ljava/security/Provider;)V", nullptr, $PUBLIC, $method(SignatureBaseRSA$SignatureRSAMD5, init$, void, $Provider*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
+		{"engineGetURI", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SignatureBaseRSA$SignatureRSAMD5, engineGetURI, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureBaseRSA$SignatureRSAMD5", "com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureBaseRSA", "SignatureRSAMD5", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureBaseRSA$SignatureRSAMD5",
+		"com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureBaseRSA",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureBaseRSA"
+	};
+	$loadClass(SignatureBaseRSA$SignatureRSAMD5, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SignatureBaseRSA$SignatureRSAMD5);
+	});
 	return class$;
 }
 

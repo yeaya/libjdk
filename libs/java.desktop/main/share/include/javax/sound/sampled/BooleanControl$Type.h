@@ -18,6 +18,7 @@ class $import BooleanControl$Type : public ::javax::sound::sampled::Control$Type
 	$class(BooleanControl$Type, 0, ::javax::sound::sampled::Control$Type)
 public:
 	BooleanControl$Type();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* name);
 	static ::javax::sound::sampled::BooleanControl$Type* MUTE;
 	static ::javax::sound::sampled::BooleanControl$Type* APPLY_REVERB;

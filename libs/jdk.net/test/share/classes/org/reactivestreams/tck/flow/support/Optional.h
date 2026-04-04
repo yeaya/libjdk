@@ -18,6 +18,7 @@ class $export Optional : public ::java::lang::Object {
 	$class(Optional, 0, ::java::lang::Object)
 public:
 	Optional();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::org::reactivestreams::tck::flow::support::Optional* empty();
 	virtual $Object* get() {return nullptr;}

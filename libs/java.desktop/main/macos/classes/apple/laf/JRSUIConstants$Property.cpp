@@ -1,5 +1,4 @@
 #include <apple/laf/JRSUIConstants$Property.h>
-
 #include <apple/laf/JRSUIConstants$PropertyEncoding.h>
 #include <apple/laf/JRSUIConstants.h>
 #include <jcpp.h>
@@ -13,45 +12,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace apple {
 	namespace laf {
 
-$FieldInfo _JRSUIConstants$Property_FieldInfo_[] = {
-	{"encoding", "Lapple/laf/JRSUIConstants$PropertyEncoding;", nullptr, $FINAL, $field(JRSUIConstants$Property, encoding)},
-	{"value", "J", nullptr, $FINAL, $field(JRSUIConstants$Property, value)},
-	{"ordinal", "B", nullptr, $FINAL, $field(JRSUIConstants$Property, ordinal)},
-	{}
-};
-
-$MethodInfo _JRSUIConstants$Property_MethodInfo_[] = {
-	{"<init>", "(Lapple/laf/JRSUIConstants$PropertyEncoding;B)V", nullptr, 0, $method(JRSUIConstants$Property, init$, void, $JRSUIConstants$PropertyEncoding*, int8_t)},
-	{"apply", "(J)J", nullptr, $PUBLIC, $virtualMethod(JRSUIConstants$Property, apply, int64_t, int64_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JRSUIConstants$Property, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _JRSUIConstants$Property_InnerClassesInfo_[] = {
-	{"apple.laf.JRSUIConstants$Property", "apple.laf.JRSUIConstants", "Property", $STATIC},
-	{}
-};
-
-$ClassInfo _JRSUIConstants$Property_ClassInfo_ = {
-	$ACC_SUPER,
-	"apple.laf.JRSUIConstants$Property",
-	"java.lang.Object",
-	nullptr,
-	_JRSUIConstants$Property_FieldInfo_,
-	_JRSUIConstants$Property_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JRSUIConstants$Property_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"apple.laf.JRSUIConstants"
-};
-
-$Object* allocate$JRSUIConstants$Property($Class* clazz) {
-	return $of($alloc(JRSUIConstants$Property));
-}
-
 void JRSUIConstants$Property::init$($JRSUIConstants$PropertyEncoding* encoding, int8_t ordinal) {
 	$set(this, encoding, encoding);
 	this->value = $sl((int64_t)ordinal, $nc(encoding)->shift);
@@ -59,7 +19,7 @@ void JRSUIConstants$Property::init$($JRSUIConstants$PropertyEncoding* encoding, 
 }
 
 int64_t JRSUIConstants$Property::apply(int64_t encodedState) {
-	return ((int64_t)(encodedState & (uint64_t)~$nc(this->encoding)->mask)) | this->value;
+	return (encodedState & ~$nc(this->encoding)->mask) | this->value;
 }
 
 $String* JRSUIConstants$Property::toString() {
@@ -70,7 +30,40 @@ JRSUIConstants$Property::JRSUIConstants$Property() {
 }
 
 $Class* JRSUIConstants$Property::load$($String* name, bool initialize) {
-	$loadClass(JRSUIConstants$Property, name, initialize, &_JRSUIConstants$Property_ClassInfo_, allocate$JRSUIConstants$Property);
+	$FieldInfo fieldInfos$$[] = {
+		{"encoding", "Lapple/laf/JRSUIConstants$PropertyEncoding;", nullptr, $FINAL, $field(JRSUIConstants$Property, encoding)},
+		{"value", "J", nullptr, $FINAL, $field(JRSUIConstants$Property, value)},
+		{"ordinal", "B", nullptr, $FINAL, $field(JRSUIConstants$Property, ordinal)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lapple/laf/JRSUIConstants$PropertyEncoding;B)V", nullptr, 0, $method(JRSUIConstants$Property, init$, void, $JRSUIConstants$PropertyEncoding*, int8_t)},
+		{"apply", "(J)J", nullptr, $PUBLIC, $virtualMethod(JRSUIConstants$Property, apply, int64_t, int64_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JRSUIConstants$Property, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"apple.laf.JRSUIConstants$Property", "apple.laf.JRSUIConstants", "Property", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"apple.laf.JRSUIConstants$Property",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"apple.laf.JRSUIConstants"
+	};
+	$loadClass(JRSUIConstants$Property, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JRSUIConstants$Property);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/apple/laf/AquaTabbedPaneCopyFromBasicUI$CroppedEdge.h>
-
 #include <com/apple/laf/AquaTabbedPaneCopyFromBasicUI$TabContainer.h>
 #include <com/apple/laf/AquaTabbedPaneCopyFromBasicUI.h>
 #include <java/awt/Color.h>
@@ -17,77 +16,21 @@
 #include <jcpp.h>
 
 using $AquaTabbedPaneCopyFromBasicUI = ::com::apple::laf::AquaTabbedPaneCopyFromBasicUI;
-using $AquaTabbedPaneCopyFromBasicUI$TabContainer = ::com::apple::laf::AquaTabbedPaneCopyFromBasicUI$TabContainer;
 using $Color = ::java::awt::Color;
 using $Component = ::java::awt::Component;
 using $Graphics = ::java::awt::Graphics;
 using $Graphics2D = ::java::awt::Graphics2D;
 using $Rectangle = ::java::awt::Rectangle;
-using $Shape = ::java::awt::Shape;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $JPanel = ::javax::swing::JPanel;
-using $JTabbedPane = ::javax::swing::JTabbedPane;
 using $UIManager = ::javax::swing::UIManager;
 
 namespace com {
 	namespace apple {
 		namespace laf {
-
-$FieldInfo _AquaTabbedPaneCopyFromBasicUI$CroppedEdge_FieldInfo_[] = {
-	{"this$0", "Lcom/apple/laf/AquaTabbedPaneCopyFromBasicUI;", nullptr, $FINAL | $SYNTHETIC, $field(AquaTabbedPaneCopyFromBasicUI$CroppedEdge, this$0)},
-	{"shape", "Ljava/awt/Shape;", nullptr, $PRIVATE, $field(AquaTabbedPaneCopyFromBasicUI$CroppedEdge, shape)},
-	{"tabIndex", "I", nullptr, $PRIVATE, $field(AquaTabbedPaneCopyFromBasicUI$CroppedEdge, tabIndex)},
-	{"cropline", "I", nullptr, $PRIVATE, $field(AquaTabbedPaneCopyFromBasicUI$CroppedEdge, cropline)},
-	{"cropx", "I", nullptr, $PRIVATE, $field(AquaTabbedPaneCopyFromBasicUI$CroppedEdge, cropx)},
-	{"cropy", "I", nullptr, $PRIVATE, $field(AquaTabbedPaneCopyFromBasicUI$CroppedEdge, cropy)},
-	{}
-};
-
-$MethodInfo _AquaTabbedPaneCopyFromBasicUI$CroppedEdge_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lcom/apple/laf/AquaTabbedPaneCopyFromBasicUI;)V", nullptr, $PUBLIC, $method(AquaTabbedPaneCopyFromBasicUI$CroppedEdge, init$, void, $AquaTabbedPaneCopyFromBasicUI*)},
-	{"getBgColor", "()Ljava/awt/Color;", nullptr, $PRIVATE, $method(AquaTabbedPaneCopyFromBasicUI$CroppedEdge, getBgColor, $Color*)},
-	{"getCropline", "()I", nullptr, $PUBLIC, $virtualMethod(AquaTabbedPaneCopyFromBasicUI$CroppedEdge, getCropline, int32_t)},
-	{"getCroppedSideWidth", "()I", nullptr, $PUBLIC, $virtualMethod(AquaTabbedPaneCopyFromBasicUI$CroppedEdge, getCroppedSideWidth, int32_t)},
-	{"getTabIndex", "()I", nullptr, $PUBLIC, $virtualMethod(AquaTabbedPaneCopyFromBasicUI$CroppedEdge, getTabIndex, int32_t)},
-	{"isParamsSet", "()Z", nullptr, $PUBLIC, $virtualMethod(AquaTabbedPaneCopyFromBasicUI$CroppedEdge, isParamsSet, bool)},
-	{"paintComponent", "(Ljava/awt/Graphics;)V", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneCopyFromBasicUI$CroppedEdge, paintComponent, void, $Graphics*)},
-	{"resetParams", "()V", nullptr, $PUBLIC, $virtualMethod(AquaTabbedPaneCopyFromBasicUI$CroppedEdge, resetParams, void)},
-	{"setParams", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(AquaTabbedPaneCopyFromBasicUI$CroppedEdge, setParams, void, int32_t, int32_t, int32_t, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _AquaTabbedPaneCopyFromBasicUI$CroppedEdge_InnerClassesInfo_[] = {
-	{"com.apple.laf.AquaTabbedPaneCopyFromBasicUI$CroppedEdge", "com.apple.laf.AquaTabbedPaneCopyFromBasicUI", "CroppedEdge", $PRIVATE},
-	{}
-};
-
-$ClassInfo _AquaTabbedPaneCopyFromBasicUI$CroppedEdge_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.apple.laf.AquaTabbedPaneCopyFromBasicUI$CroppedEdge",
-	"javax.swing.JPanel",
-	"javax.swing.plaf.UIResource",
-	_AquaTabbedPaneCopyFromBasicUI$CroppedEdge_FieldInfo_,
-	_AquaTabbedPaneCopyFromBasicUI$CroppedEdge_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AquaTabbedPaneCopyFromBasicUI$CroppedEdge_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.apple.laf.AquaTabbedPaneCopyFromBasicUI"
-};
-
-$Object* allocate$AquaTabbedPaneCopyFromBasicUI$CroppedEdge($Class* clazz) {
-	return $of($alloc(AquaTabbedPaneCopyFromBasicUI$CroppedEdge));
-}
 
 $String* AquaTabbedPaneCopyFromBasicUI$CroppedEdge::toString() {
 	 return this->$JPanel::toString();
@@ -124,14 +67,14 @@ void AquaTabbedPaneCopyFromBasicUI$CroppedEdge::setParams(int32_t tabIndex, int3
 	setBounds(tabRect);
 	$set(this, shape, $AquaTabbedPaneCopyFromBasicUI::createCroppedTabShape($nc(this->this$0->tabPane)->getTabPlacement(), tabRect, cropline));
 	if (getParent() == nullptr && this->this$0->tabContainer != nullptr) {
-		$nc(this->this$0->tabContainer)->add(static_cast<$Component*>(this), 0);
+		this->this$0->tabContainer->add(this, 0);
 	}
 }
 
 void AquaTabbedPaneCopyFromBasicUI$CroppedEdge::resetParams() {
 	$set(this, shape, nullptr);
 	if ($equals(getParent(), this->this$0->tabContainer) && this->this$0->tabContainer != nullptr) {
-		$nc(this->this$0->tabContainer)->remove(static_cast<$Component*>(this));
+		this->this$0->tabContainer->remove(this);
 	}
 }
 
@@ -152,7 +95,7 @@ int32_t AquaTabbedPaneCopyFromBasicUI$CroppedEdge::getCroppedSideWidth() {
 }
 
 $Color* AquaTabbedPaneCopyFromBasicUI$CroppedEdge::getBgColor() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Component, parent, $nc(this->this$0->tabPane)->getParent());
 	if (parent != nullptr) {
 		$var($Color, bg, parent->getBackground());
@@ -164,12 +107,12 @@ $Color* AquaTabbedPaneCopyFromBasicUI$CroppedEdge::getBgColor() {
 }
 
 void AquaTabbedPaneCopyFromBasicUI$CroppedEdge::paintComponent($Graphics* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$JPanel::paintComponent(g);
 	if (isParamsSet() && $instanceOf($Graphics2D, g)) {
 		$var($Graphics2D, g2, $cast($Graphics2D, g));
 		int32_t var$0 = getWidth();
-		$nc(g2)->clipRect(0, 0, var$0, getHeight());
+		g2->clipRect(0, 0, var$0, getHeight());
 		g2->setColor($(getBgColor()));
 		g2->translate(this->cropx, this->cropy);
 		g2->fill(this->shape);
@@ -182,7 +125,54 @@ AquaTabbedPaneCopyFromBasicUI$CroppedEdge::AquaTabbedPaneCopyFromBasicUI$Cropped
 }
 
 $Class* AquaTabbedPaneCopyFromBasicUI$CroppedEdge::load$($String* name, bool initialize) {
-	$loadClass(AquaTabbedPaneCopyFromBasicUI$CroppedEdge, name, initialize, &_AquaTabbedPaneCopyFromBasicUI$CroppedEdge_ClassInfo_, allocate$AquaTabbedPaneCopyFromBasicUI$CroppedEdge);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/apple/laf/AquaTabbedPaneCopyFromBasicUI;", nullptr, $FINAL | $SYNTHETIC, $field(AquaTabbedPaneCopyFromBasicUI$CroppedEdge, this$0)},
+		{"shape", "Ljava/awt/Shape;", nullptr, $PRIVATE, $field(AquaTabbedPaneCopyFromBasicUI$CroppedEdge, shape)},
+		{"tabIndex", "I", nullptr, $PRIVATE, $field(AquaTabbedPaneCopyFromBasicUI$CroppedEdge, tabIndex)},
+		{"cropline", "I", nullptr, $PRIVATE, $field(AquaTabbedPaneCopyFromBasicUI$CroppedEdge, cropline)},
+		{"cropx", "I", nullptr, $PRIVATE, $field(AquaTabbedPaneCopyFromBasicUI$CroppedEdge, cropx)},
+		{"cropy", "I", nullptr, $PRIVATE, $field(AquaTabbedPaneCopyFromBasicUI$CroppedEdge, cropy)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lcom/apple/laf/AquaTabbedPaneCopyFromBasicUI;)V", nullptr, $PUBLIC, $method(AquaTabbedPaneCopyFromBasicUI$CroppedEdge, init$, void, $AquaTabbedPaneCopyFromBasicUI*)},
+		{"getBgColor", "()Ljava/awt/Color;", nullptr, $PRIVATE, $method(AquaTabbedPaneCopyFromBasicUI$CroppedEdge, getBgColor, $Color*)},
+		{"getCropline", "()I", nullptr, $PUBLIC, $virtualMethod(AquaTabbedPaneCopyFromBasicUI$CroppedEdge, getCropline, int32_t)},
+		{"getCroppedSideWidth", "()I", nullptr, $PUBLIC, $virtualMethod(AquaTabbedPaneCopyFromBasicUI$CroppedEdge, getCroppedSideWidth, int32_t)},
+		{"getTabIndex", "()I", nullptr, $PUBLIC, $virtualMethod(AquaTabbedPaneCopyFromBasicUI$CroppedEdge, getTabIndex, int32_t)},
+		{"isParamsSet", "()Z", nullptr, $PUBLIC, $virtualMethod(AquaTabbedPaneCopyFromBasicUI$CroppedEdge, isParamsSet, bool)},
+		{"paintComponent", "(Ljava/awt/Graphics;)V", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneCopyFromBasicUI$CroppedEdge, paintComponent, void, $Graphics*)},
+		{"resetParams", "()V", nullptr, $PUBLIC, $virtualMethod(AquaTabbedPaneCopyFromBasicUI$CroppedEdge, resetParams, void)},
+		{"setParams", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(AquaTabbedPaneCopyFromBasicUI$CroppedEdge, setParams, void, int32_t, int32_t, int32_t, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.laf.AquaTabbedPaneCopyFromBasicUI$CroppedEdge", "com.apple.laf.AquaTabbedPaneCopyFromBasicUI", "CroppedEdge", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.apple.laf.AquaTabbedPaneCopyFromBasicUI$CroppedEdge",
+		"javax.swing.JPanel",
+		"javax.swing.plaf.UIResource",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.apple.laf.AquaTabbedPaneCopyFromBasicUI"
+	};
+	$loadClass(AquaTabbedPaneCopyFromBasicUI$CroppedEdge, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AquaTabbedPaneCopyFromBasicUI$CroppedEdge));
+	});
 	return class$;
 }
 

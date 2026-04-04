@@ -20,10 +20,13 @@ public:
 	UnexpectedException();
 	void init$($String* s);
 	void init$($String* s, ::java::lang::Exception* ex);
-	static const int64_t serialVersionUID = (int64_t)0x18FC8BA33916AF47;
+	static const int64_t serialVersionUID = (int64_t)0x18fc8ba33916af47;
 	UnexpectedException(const UnexpectedException& e);
 	virtual void throw$() override;
-	inline UnexpectedException* operator ->() {
+	inline UnexpectedException* operator ->() const {
+		return (UnexpectedException*)throwing$;
+	}
+	inline operator UnexpectedException*() const {
 		return (UnexpectedException*)throwing$;
 	}
 };

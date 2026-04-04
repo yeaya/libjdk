@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/motif/MotifLabelUI.h>
-
 #include <javax/swing/JComponent.h>
 #include <javax/swing/plaf/ComponentUI.h>
 #include <javax/swing/plaf/basic/BasicLabelUI.h>
@@ -23,30 +22,6 @@ namespace com {
 				namespace plaf {
 					namespace motif {
 
-$FieldInfo _MotifLabelUI_FieldInfo_[] = {
-	{"MOTIF_LABEL_UI_KEY", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MotifLabelUI, MOTIF_LABEL_UI_KEY)},
-	{}
-};
-
-$MethodInfo _MotifLabelUI_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MotifLabelUI, init$, void)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(MotifLabelUI, createUI, $ComponentUI*, $JComponent*)},
-	{}
-};
-
-$ClassInfo _MotifLabelUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.java.swing.plaf.motif.MotifLabelUI",
-	"javax.swing.plaf.basic.BasicLabelUI",
-	nullptr,
-	_MotifLabelUI_FieldInfo_,
-	_MotifLabelUI_MethodInfo_
-};
-
-$Object* allocate$MotifLabelUI($Class* clazz) {
-	return $of($alloc(MotifLabelUI));
-}
-
 $Object* MotifLabelUI::MOTIF_LABEL_UI_KEY = nullptr;
 
 void MotifLabelUI::init$() {
@@ -55,7 +30,7 @@ void MotifLabelUI::init$() {
 
 $ComponentUI* MotifLabelUI::createUI($JComponent* c) {
 	$init(MotifLabelUI);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AppContext, appContext, $AppContext::getAppContext());
 	$var(MotifLabelUI, motifLabelUI, $cast(MotifLabelUI, $nc(appContext)->get(MotifLabelUI::MOTIF_LABEL_UI_KEY)));
 	if (motifLabelUI == nullptr) {
@@ -65,7 +40,7 @@ $ComponentUI* MotifLabelUI::createUI($JComponent* c) {
 	return motifLabelUI;
 }
 
-void clinit$MotifLabelUI($Class* class$) {
+void MotifLabelUI::clinit$($Class* clazz) {
 	$assignStatic(MotifLabelUI::MOTIF_LABEL_UI_KEY, $new($Object));
 }
 
@@ -73,7 +48,26 @@ MotifLabelUI::MotifLabelUI() {
 }
 
 $Class* MotifLabelUI::load$($String* name, bool initialize) {
-	$loadClass(MotifLabelUI, name, initialize, &_MotifLabelUI_ClassInfo_, clinit$MotifLabelUI, allocate$MotifLabelUI);
+	$FieldInfo fieldInfos$$[] = {
+		{"MOTIF_LABEL_UI_KEY", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MotifLabelUI, MOTIF_LABEL_UI_KEY)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MotifLabelUI, init$, void)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(MotifLabelUI, createUI, $ComponentUI*, $JComponent*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.java.swing.plaf.motif.MotifLabelUI",
+		"javax.swing.plaf.basic.BasicLabelUI",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(MotifLabelUI, name, initialize, &classInfo$$, MotifLabelUI::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MotifLabelUI));
+	});
 	return class$;
 }
 

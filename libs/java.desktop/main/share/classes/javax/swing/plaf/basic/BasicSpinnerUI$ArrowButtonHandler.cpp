@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/basic/BasicSpinnerUI$ArrowButtonHandler.h>
-
 #include <java/awt/AWTEvent.h>
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
@@ -9,7 +8,6 @@
 #include <java/awt/event/ActionListener.h>
 #include <java/awt/event/FocusEvent.h>
 #include <java/awt/event/MouseEvent.h>
-#include <java/text/AttributedCharacterIterator$Attribute.h>
 #include <java/text/AttributedCharacterIterator.h>
 #include <java/text/CharacterIterator.h>
 #include <java/text/DateFormat$Field.h>
@@ -51,7 +49,6 @@ using $Container = ::java::awt::Container;
 using $FocusTraversalPolicy = ::java::awt::FocusTraversalPolicy;
 using $KeyboardFocusManager = ::java::awt::KeyboardFocusManager;
 using $ActionEvent = ::java::awt::event::ActionEvent;
-using $ActionListener = ::java::awt::event::ActionListener;
 using $FocusEvent = ::java::awt::event::FocusEvent;
 using $MouseEvent = ::java::awt::event::MouseEvent;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -60,7 +57,6 @@ using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AttributedCharacterIterator = ::java::text::AttributedCharacterIterator;
-using $AttributedCharacterIterator$Attribute = ::java::text::AttributedCharacterIterator$Attribute;
 using $CharacterIterator = ::java::text::CharacterIterator;
 using $DateFormat$Field = ::java::text::DateFormat$Field;
 using $Format = ::java::text::Format;
@@ -75,74 +71,16 @@ using $JFormattedTextField = ::javax::swing::JFormattedTextField;
 using $JFormattedTextField$AbstractFormatter = ::javax::swing::JFormattedTextField$AbstractFormatter;
 using $JSpinner = ::javax::swing::JSpinner;
 using $JSpinner$DateEditor = ::javax::swing::JSpinner$DateEditor;
-using $LookAndFeel = ::javax::swing::LookAndFeel;
 using $SpinnerDateModel = ::javax::swing::SpinnerDateModel;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $Timer = ::javax::swing::Timer;
 using $UIManager = ::javax::swing::UIManager;
-using $Document = ::javax::swing::text::Document;
 using $InternationalFormatter = ::javax::swing::text::InternationalFormatter;
 
 namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace basic {
-
-$FieldInfo _BasicSpinnerUI$ArrowButtonHandler_FieldInfo_[] = {
-	{"autoRepeatTimer", "Ljavax/swing/Timer;", nullptr, $FINAL, $field(BasicSpinnerUI$ArrowButtonHandler, autoRepeatTimer)},
-	{"isNext", "Z", nullptr, $FINAL, $field(BasicSpinnerUI$ArrowButtonHandler, isNext)},
-	{"spinner", "Ljavax/swing/JSpinner;", nullptr, 0, $field(BasicSpinnerUI$ArrowButtonHandler, spinner)},
-	{"arrowButton", "Ljavax/swing/JButton;", nullptr, 0, $field(BasicSpinnerUI$ArrowButtonHandler, arrowButton)},
-	{}
-};
-
-$MethodInfo _BasicSpinnerUI$ArrowButtonHandler_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/lang/String;Z)V", nullptr, 0, $method(BasicSpinnerUI$ArrowButtonHandler, init$, void, $String*, bool)},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicSpinnerUI$ArrowButtonHandler, actionPerformed, void, $ActionEvent*)},
-	{"eventToSpinner", "(Ljava/awt/AWTEvent;)Ljavax/swing/JSpinner;", nullptr, $PRIVATE, $method(BasicSpinnerUI$ArrowButtonHandler, eventToSpinner, $JSpinner*, $AWTEvent*)},
-	{"focusGained", "(Ljava/awt/event/FocusEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicSpinnerUI$ArrowButtonHandler, focusGained, void, $FocusEvent*)},
-	{"focusLost", "(Ljava/awt/event/FocusEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicSpinnerUI$ArrowButtonHandler, focusLost, void, $FocusEvent*)},
-	{"focusSpinnerIfNecessary", "()V", nullptr, $PRIVATE, $method(BasicSpinnerUI$ArrowButtonHandler, focusSpinnerIfNecessary, void)},
-	{"getCalendarField", "(Ljavax/swing/JSpinner;)I", nullptr, $PRIVATE, $method(BasicSpinnerUI$ArrowButtonHandler, getCalendarField, int32_t, $JSpinner*)},
-	{"mouseClicked", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicSpinnerUI$ArrowButtonHandler, mouseClicked, void, $MouseEvent*)},
-	{"mouseEntered", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicSpinnerUI$ArrowButtonHandler, mouseEntered, void, $MouseEvent*)},
-	{"mouseExited", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicSpinnerUI$ArrowButtonHandler, mouseExited, void, $MouseEvent*)},
-	{"mousePressed", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicSpinnerUI$ArrowButtonHandler, mousePressed, void, $MouseEvent*)},
-	{"mouseReleased", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicSpinnerUI$ArrowButtonHandler, mouseReleased, void, $MouseEvent*)},
-	{"select", "(Ljavax/swing/JSpinner;)V", nullptr, $PRIVATE, $method(BasicSpinnerUI$ArrowButtonHandler, select, void, $JSpinner*)},
-	{"select", "(Ljavax/swing/JFormattedTextField;Ljava/text/AttributedCharacterIterator;Ljava/text/DateFormat$Field;)Z", nullptr, $PRIVATE, $method(BasicSpinnerUI$ArrowButtonHandler, select, bool, $JFormattedTextField*, $AttributedCharacterIterator*, $DateFormat$Field*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _BasicSpinnerUI$ArrowButtonHandler_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.basic.BasicSpinnerUI$ArrowButtonHandler", "javax.swing.plaf.basic.BasicSpinnerUI", "ArrowButtonHandler", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _BasicSpinnerUI$ArrowButtonHandler_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.basic.BasicSpinnerUI$ArrowButtonHandler",
-	"javax.swing.AbstractAction",
-	"java.awt.event.FocusListener,java.awt.event.MouseListener,javax.swing.plaf.UIResource",
-	_BasicSpinnerUI$ArrowButtonHandler_FieldInfo_,
-	_BasicSpinnerUI$ArrowButtonHandler_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BasicSpinnerUI$ArrowButtonHandler_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.basic.BasicSpinnerUI"
-};
-
-$Object* allocate$BasicSpinnerUI$ArrowButtonHandler($Class* clazz) {
-	return $of($alloc(BasicSpinnerUI$ArrowButtonHandler));
-}
 
 $Object* BasicSpinnerUI$ArrowButtonHandler::clone() {
 	 return this->$AbstractAction::clone();
@@ -170,19 +108,19 @@ void BasicSpinnerUI$ArrowButtonHandler::init$($String* name, bool isNext) {
 	$set(this, arrowButton, nullptr);
 	this->isNext = isNext;
 	$set(this, autoRepeatTimer, $new($Timer, 60, this));
-	$nc(this->autoRepeatTimer)->setInitialDelay(300);
+	this->autoRepeatTimer->setInitialDelay(300);
 }
 
 $JSpinner* BasicSpinnerUI$ArrowButtonHandler::eventToSpinner($AWTEvent* e) {
 	$var($Object, src, $nc(e)->getSource());
 	while (($instanceOf($Component, src)) && !($instanceOf($JSpinner, src))) {
-		$assign(src, $nc(($cast($Component, src)))->getParent());
+		$assign(src, $cast($Component, src)->getParent());
 	}
 	return ($instanceOf($JSpinner, src)) ? $cast($JSpinner, src) : ($JSpinner*)nullptr;
 }
 
 void BasicSpinnerUI$ArrowButtonHandler::actionPerformed($ActionEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JSpinner, spinner, this->spinner);
 	if (!($instanceOf($Timer, $($nc(e)->getSource())))) {
 		$assign(spinner, eventToSpinner(e));
@@ -190,9 +128,9 @@ void BasicSpinnerUI$ArrowButtonHandler::actionPerformed($ActionEvent* e) {
 			$set(this, arrowButton, $cast($JButton, e->getSource()));
 		}
 	} else {
-		bool var$1 = this->arrowButton != nullptr && !$nc($($nc(this->arrowButton)->getModel()))->isPressed();
-		if (var$1 && $nc(this->autoRepeatTimer)->isRunning()) {
-			$nc(this->autoRepeatTimer)->stop();
+		bool var$0 = this->arrowButton != nullptr && !$$nc(this->arrowButton->getModel())->isPressed();
+		if (var$0 && this->autoRepeatTimer->isRunning()) {
+			this->autoRepeatTimer->stop();
 			$assign(spinner, nullptr);
 			$set(this, arrowButton, nullptr);
 		}
@@ -202,7 +140,7 @@ void BasicSpinnerUI$ArrowButtonHandler::actionPerformed($ActionEvent* e) {
 			int32_t calendarField = getCalendarField(spinner);
 			spinner->commitEdit();
 			if (calendarField != -1) {
-				$nc(($cast($SpinnerDateModel, $(spinner->getModel()))))->setCalendarField(calendarField);
+				$$sure($SpinnerDateModel, spinner->getModel())->setCalendarField(calendarField);
 			}
 			$var($Object, value, (this->isNext) ? spinner->getNextValue() : spinner->getPreviousValue());
 			if (value != nullptr) {
@@ -210,19 +148,19 @@ void BasicSpinnerUI$ArrowButtonHandler::actionPerformed($ActionEvent* e) {
 				select(spinner);
 			}
 		} catch ($IllegalArgumentException& iae) {
-			$nc($($UIManager::getLookAndFeel()))->provideErrorFeedback(spinner);
+			$$nc($UIManager::getLookAndFeel())->provideErrorFeedback(spinner);
 		} catch ($ParseException& pe) {
-			$nc($($UIManager::getLookAndFeel()))->provideErrorFeedback(spinner);
+			$$nc($UIManager::getLookAndFeel())->provideErrorFeedback(spinner);
 		}
 	}
 }
 
 void BasicSpinnerUI$ArrowButtonHandler::select($JSpinner* spinner) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JComponent, editor, $nc(spinner)->getEditor());
 	if ($instanceOf($JSpinner$DateEditor, editor)) {
 		$var($JSpinner$DateEditor, dateEditor, $cast($JSpinner$DateEditor, editor));
-		$var($JFormattedTextField, ftf, $nc(dateEditor)->getTextField());
+		$var($JFormattedTextField, ftf, dateEditor->getTextField());
 		$var($Format, format, dateEditor->getFormat());
 		$var($Object, value, nullptr);
 		if (format != nullptr && ($assign(value, spinner->getValue())) != nullptr) {
@@ -242,14 +180,14 @@ void BasicSpinnerUI$ArrowButtonHandler::select($JSpinner* spinner) {
 }
 
 bool BasicSpinnerUI$ArrowButtonHandler::select($JFormattedTextField* ftf, $AttributedCharacterIterator* iterator, $DateFormat$Field* field) {
-	$useLocalCurrentObjectStackCache();
-	int32_t max = $nc($($nc(ftf)->getDocument()))->getLength();
+	$useLocalObjectStack();
+	int32_t max = $$nc($nc(ftf)->getDocument())->getLength();
 	$nc(iterator)->first();
 	do {
 		$var($Map, attrs, iterator->getAttributes());
 		if (attrs != nullptr && attrs->containsKey(field)) {
-			int32_t start = iterator->getRunStart(static_cast<$AttributedCharacterIterator$Attribute*>(field));
-			int32_t end = iterator->getRunLimit(static_cast<$AttributedCharacterIterator$Attribute*>(field));
+			int32_t start = iterator->getRunStart(field);
+			int32_t end = iterator->getRunLimit(field);
 			if (start != -1 && end != -1 && start <= max && end <= max) {
 				ftf->select(start, end);
 			}
@@ -260,15 +198,15 @@ bool BasicSpinnerUI$ArrowButtonHandler::select($JFormattedTextField* ftf, $Attri
 }
 
 int32_t BasicSpinnerUI$ArrowButtonHandler::getCalendarField($JSpinner* spinner) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JComponent, editor, $nc(spinner)->getEditor());
 	if ($instanceOf($JSpinner$DateEditor, editor)) {
 		$var($JSpinner$DateEditor, dateEditor, $cast($JSpinner$DateEditor, editor));
-		$var($JFormattedTextField, ftf, $nc(dateEditor)->getTextField());
+		$var($JFormattedTextField, ftf, dateEditor->getTextField());
 		int32_t start = $nc(ftf)->getSelectionStart();
 		$var($JFormattedTextField$AbstractFormatter, formatter, ftf->getFormatter());
 		if ($instanceOf($InternationalFormatter, formatter)) {
-			$var($Format$FieldArray, fields, $nc(($cast($InternationalFormatter, formatter)))->getFields(start));
+			$var($Format$FieldArray, fields, $cast($InternationalFormatter, formatter)->getFields(start));
 			for (int32_t counter = 0; counter < $nc(fields)->length; ++counter) {
 				if ($instanceOf($DateFormat$Field, fields->get(counter))) {
 					int32_t calendarField = 0;
@@ -276,7 +214,7 @@ int32_t BasicSpinnerUI$ArrowButtonHandler::getCalendarField($JSpinner* spinner) 
 					if ($equals(fields->get(counter), $DateFormat$Field::HOUR1)) {
 						calendarField = $Calendar::HOUR;
 					} else {
-						calendarField = $nc(($cast($DateFormat$Field, fields->get(counter))))->getCalendarField();
+						calendarField = $nc($cast($DateFormat$Field, fields->get(counter)))->getCalendarField();
 					}
 					if (calendarField != -1) {
 						return calendarField;
@@ -290,15 +228,15 @@ int32_t BasicSpinnerUI$ArrowButtonHandler::getCalendarField($JSpinner* spinner) 
 
 void BasicSpinnerUI$ArrowButtonHandler::mousePressed($MouseEvent* e) {
 	bool var$0 = $SwingUtilities::isLeftMouseButton(e);
-	if (var$0 && $nc($($nc(e)->getComponent()))->isEnabled()) {
+	if (var$0 && $$nc($nc(e)->getComponent())->isEnabled()) {
 		$set(this, spinner, eventToSpinner(e));
-		$nc(this->autoRepeatTimer)->start();
+		this->autoRepeatTimer->start();
 		focusSpinnerIfNecessary();
 	}
 }
 
 void BasicSpinnerUI$ArrowButtonHandler::mouseReleased($MouseEvent* e) {
-	$nc(this->autoRepeatTimer)->stop();
+	this->autoRepeatTimer->stop();
 	$set(this, arrowButton, nullptr);
 	$set(this, spinner, nullptr);
 }
@@ -307,21 +245,21 @@ void BasicSpinnerUI$ArrowButtonHandler::mouseClicked($MouseEvent* e) {
 }
 
 void BasicSpinnerUI$ArrowButtonHandler::mouseEntered($MouseEvent* e) {
-	bool var$0 = this->spinner != nullptr && !$nc(this->autoRepeatTimer)->isRunning();
+	bool var$0 = this->spinner != nullptr && !this->autoRepeatTimer->isRunning();
 	if (var$0 && this->spinner == eventToSpinner(e)) {
-		$nc(this->autoRepeatTimer)->start();
+		this->autoRepeatTimer->start();
 	}
 }
 
 void BasicSpinnerUI$ArrowButtonHandler::mouseExited($MouseEvent* e) {
-	if ($nc(this->autoRepeatTimer)->isRunning()) {
-		$nc(this->autoRepeatTimer)->stop();
+	if (this->autoRepeatTimer->isRunning()) {
+		this->autoRepeatTimer->stop();
 	}
 }
 
 void BasicSpinnerUI$ArrowButtonHandler::focusSpinnerIfNecessary() {
-	$useLocalCurrentObjectStackCache();
-	$var($Component, fo, $nc($($KeyboardFocusManager::getCurrentKeyboardFocusManager()))->getFocusOwner());
+	$useLocalObjectStack();
+	$var($Component, fo, $$nc($KeyboardFocusManager::getCurrentKeyboardFocusManager())->getFocusOwner());
 	bool var$0 = $nc(this->spinner)->isRequestFocusEnabled();
 	if (var$0 && (fo == nullptr || !$SwingUtilities::isDescendingFrom(fo, this->spinner))) {
 		$var($Container, root, this->spinner);
@@ -343,12 +281,12 @@ void BasicSpinnerUI$ArrowButtonHandler::focusGained($FocusEvent* e) {
 
 void BasicSpinnerUI$ArrowButtonHandler::focusLost($FocusEvent* e) {
 	if (this->spinner == eventToSpinner(e)) {
-		if ($nc(this->autoRepeatTimer)->isRunning()) {
-			$nc(this->autoRepeatTimer)->stop();
+		if (this->autoRepeatTimer->isRunning()) {
+			this->autoRepeatTimer->stop();
 		}
 		$set(this, spinner, nullptr);
 		if (this->arrowButton != nullptr) {
-			$var($ButtonModel, model, $nc(this->arrowButton)->getModel());
+			$var($ButtonModel, model, this->arrowButton->getModel());
 			$nc(model)->setPressed(false);
 			model->setArmed(false);
 			$set(this, arrowButton, nullptr);
@@ -360,7 +298,57 @@ BasicSpinnerUI$ArrowButtonHandler::BasicSpinnerUI$ArrowButtonHandler() {
 }
 
 $Class* BasicSpinnerUI$ArrowButtonHandler::load$($String* name, bool initialize) {
-	$loadClass(BasicSpinnerUI$ArrowButtonHandler, name, initialize, &_BasicSpinnerUI$ArrowButtonHandler_ClassInfo_, allocate$BasicSpinnerUI$ArrowButtonHandler);
+	$FieldInfo fieldInfos$$[] = {
+		{"autoRepeatTimer", "Ljavax/swing/Timer;", nullptr, $FINAL, $field(BasicSpinnerUI$ArrowButtonHandler, autoRepeatTimer)},
+		{"isNext", "Z", nullptr, $FINAL, $field(BasicSpinnerUI$ArrowButtonHandler, isNext)},
+		{"spinner", "Ljavax/swing/JSpinner;", nullptr, 0, $field(BasicSpinnerUI$ArrowButtonHandler, spinner)},
+		{"arrowButton", "Ljavax/swing/JButton;", nullptr, 0, $field(BasicSpinnerUI$ArrowButtonHandler, arrowButton)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/lang/String;Z)V", nullptr, 0, $method(BasicSpinnerUI$ArrowButtonHandler, init$, void, $String*, bool)},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicSpinnerUI$ArrowButtonHandler, actionPerformed, void, $ActionEvent*)},
+		{"eventToSpinner", "(Ljava/awt/AWTEvent;)Ljavax/swing/JSpinner;", nullptr, $PRIVATE, $method(BasicSpinnerUI$ArrowButtonHandler, eventToSpinner, $JSpinner*, $AWTEvent*)},
+		{"focusGained", "(Ljava/awt/event/FocusEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicSpinnerUI$ArrowButtonHandler, focusGained, void, $FocusEvent*)},
+		{"focusLost", "(Ljava/awt/event/FocusEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicSpinnerUI$ArrowButtonHandler, focusLost, void, $FocusEvent*)},
+		{"focusSpinnerIfNecessary", "()V", nullptr, $PRIVATE, $method(BasicSpinnerUI$ArrowButtonHandler, focusSpinnerIfNecessary, void)},
+		{"getCalendarField", "(Ljavax/swing/JSpinner;)I", nullptr, $PRIVATE, $method(BasicSpinnerUI$ArrowButtonHandler, getCalendarField, int32_t, $JSpinner*)},
+		{"mouseClicked", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicSpinnerUI$ArrowButtonHandler, mouseClicked, void, $MouseEvent*)},
+		{"mouseEntered", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicSpinnerUI$ArrowButtonHandler, mouseEntered, void, $MouseEvent*)},
+		{"mouseExited", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicSpinnerUI$ArrowButtonHandler, mouseExited, void, $MouseEvent*)},
+		{"mousePressed", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicSpinnerUI$ArrowButtonHandler, mousePressed, void, $MouseEvent*)},
+		{"mouseReleased", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicSpinnerUI$ArrowButtonHandler, mouseReleased, void, $MouseEvent*)},
+		{"select", "(Ljavax/swing/JSpinner;)V", nullptr, $PRIVATE, $method(BasicSpinnerUI$ArrowButtonHandler, select, void, $JSpinner*)},
+		{"select", "(Ljavax/swing/JFormattedTextField;Ljava/text/AttributedCharacterIterator;Ljava/text/DateFormat$Field;)Z", nullptr, $PRIVATE, $method(BasicSpinnerUI$ArrowButtonHandler, select, bool, $JFormattedTextField*, $AttributedCharacterIterator*, $DateFormat$Field*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.basic.BasicSpinnerUI$ArrowButtonHandler", "javax.swing.plaf.basic.BasicSpinnerUI", "ArrowButtonHandler", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.basic.BasicSpinnerUI$ArrowButtonHandler",
+		"javax.swing.AbstractAction",
+		"java.awt.event.FocusListener,java.awt.event.MouseListener,javax.swing.plaf.UIResource",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.basic.BasicSpinnerUI"
+	};
+	$loadClass(BasicSpinnerUI$ArrowButtonHandler, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(BasicSpinnerUI$ArrowButtonHandler));
+	});
 	return class$;
 }
 

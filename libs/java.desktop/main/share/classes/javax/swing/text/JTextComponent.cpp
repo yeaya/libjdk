@@ -1,10 +1,8 @@
 #include <javax/swing/text/JTextComponent.h>
-
 #include <com/sun/beans/util/Cache$Kind.h>
 #include <com/sun/beans/util/Cache.h>
 #include <java/awt/AWTEvent.h>
 #include <java/awt/Color.h>
-#include <java/awt/Component.h>
 #include <java/awt/ComponentOrientation.h>
 #include <java/awt/Container.h>
 #include <java/awt/Dimension.h>
@@ -16,13 +14,11 @@
 #include <java/awt/Point.h>
 #include <java/awt/Rectangle.h>
 #include <java/awt/event/ActionEvent.h>
-#include <java/awt/event/FocusListener.h>
 #include <java/awt/event/InputEvent.h>
 #include <java/awt/event/InputMethodEvent.h>
 #include <java/awt/event/InputMethodListener.h>
 #include <java/awt/event/KeyEvent.h>
 #include <java/awt/event/MouseEvent.h>
-#include <java/awt/event/MouseListener.h>
 #include <java/awt/font/TextAttribute.h>
 #include <java/awt/font/TextHitInfo.h>
 #include <java/awt/geom/Point2D.h>
@@ -72,7 +68,6 @@
 #include <javax/swing/UIManager.h>
 #include <javax/swing/event/CaretEvent.h>
 #include <javax/swing/event/CaretListener.h>
-#include <javax/swing/event/ChangeListener.h>
 #include <javax/swing/event/DocumentListener.h>
 #include <javax/swing/event/EventListenerList.h>
 #include <javax/swing/plaf/ComponentUI.h>
@@ -109,7 +104,6 @@
 #include <javax/swing/text/StyleConstants.h>
 #include <sun/awt/AppContext.h>
 #include <sun/swing/PrintingStatus.h>
-#include <sun/swing/SwingAccessor$JTextComponentAccessor.h>
 #include <sun/swing/SwingAccessor.h>
 #include <sun/swing/text/TextComponentPrintable.h>
 #include <jcpp.h>
@@ -146,7 +140,6 @@ using $Cache = ::com::sun::beans::util::Cache;
 using $Cache$Kind = ::com::sun::beans::util::Cache$Kind;
 using $AWTEvent = ::java::awt::AWTEvent;
 using $Color = ::java::awt::Color;
-using $Component = ::java::awt::Component;
 using $ComponentOrientation = ::java::awt::ComponentOrientation;
 using $Container = ::java::awt::Container;
 using $Dimension = ::java::awt::Dimension;
@@ -158,13 +151,11 @@ using $LayoutManager = ::java::awt::LayoutManager;
 using $Point = ::java::awt::Point;
 using $Rectangle = ::java::awt::Rectangle;
 using $ActionEvent = ::java::awt::event::ActionEvent;
-using $FocusListener = ::java::awt::event::FocusListener;
 using $InputEvent = ::java::awt::event::InputEvent;
 using $InputMethodEvent = ::java::awt::event::InputMethodEvent;
 using $InputMethodListener = ::java::awt::event::InputMethodListener;
 using $KeyEvent = ::java::awt::event::KeyEvent;
 using $MouseEvent = ::java::awt::event::MouseEvent;
-using $MouseListener = ::java::awt::event::MouseListener;
 using $TextAttribute = ::java::awt::font::TextAttribute;
 using $TextHitInfo = ::java::awt::font::TextHitInfo;
 using $Point2D = ::java::awt::geom::Point2D;
@@ -200,7 +191,6 @@ using $AttributedCharacterIterator = ::java::text::AttributedCharacterIterator;
 using $AttributedString = ::java::text::AttributedString;
 using $CharacterIterator = ::java::text::CharacterIterator;
 using $MessageFormat = ::java::text::MessageFormat;
-using $EventListener = ::java::util::EventListener;
 using $HashMap = ::java::util::HashMap;
 using $Hashtable = ::java::util::Hashtable;
 using $Callable = ::java::util::concurrent::Callable;
@@ -217,7 +207,6 @@ using $InputMap = ::javax::swing::InputMap;
 using $JComponent = ::javax::swing::JComponent;
 using $JViewport = ::javax::swing::JViewport;
 using $KeyStroke = ::javax::swing::KeyStroke;
-using $LookAndFeel = ::javax::swing::LookAndFeel;
 using $SwingConstants = ::javax::swing::SwingConstants;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $TransferHandler = ::javax::swing::TransferHandler;
@@ -225,9 +214,7 @@ using $TransferHandler$DropLocation = ::javax::swing::TransferHandler$DropLocati
 using $UIManager = ::javax::swing::UIManager;
 using $CaretEvent = ::javax::swing::event::CaretEvent;
 using $CaretListener = ::javax::swing::event::CaretListener;
-using $ChangeListener = ::javax::swing::event::ChangeListener;
 using $DocumentListener = ::javax::swing::event::DocumentListener;
-using $EventListenerList = ::javax::swing::event::EventListenerList;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
 using $TextUI = ::javax::swing::plaf::TextUI;
 using $AbstractDocument = ::javax::swing::text::AbstractDocument;
@@ -263,517 +250,11 @@ using $StyleConstants = ::javax::swing::text::StyleConstants;
 using $AppContext = ::sun::awt::AppContext;
 using $PrintingStatus = ::sun::swing::PrintingStatus;
 using $SwingAccessor = ::sun::swing::SwingAccessor;
-using $SwingAccessor$JTextComponentAccessor = ::sun::swing::SwingAccessor$JTextComponentAccessor;
 using $TextComponentPrintable = ::sun::swing::text::TextComponentPrintable;
 
 namespace javax {
 	namespace swing {
 		namespace text {
-
-$NamedAttribute JTextComponent_Attribute_var$0[] = {
-	{"defaultProperty", 's', "UI"},
-	{}
-};
-
-$NamedAttribute JTextComponent_Attribute_var$1[] = {
-	{"value", 'Z', "false"},
-	{}
-};
-
-$CompoundAttribute _JTextComponent_Annotations_[] = {
-	{"Ljava/beans/JavaBean;", JTextComponent_Attribute_var$0},
-	{"Ljavax/swing/SwingContainer;", JTextComponent_Attribute_var$1},
-	{}
-};
-
-$NamedAttribute JTextComponent_Attribute_var$2[] = {
-	{"bound", 'Z', "false"},
-	{}
-};
-
-$CompoundAttribute _JTextComponent_MethodAnnotations_getAccessibleContext13[] = {
-	{"Ljava/beans/BeanProperty;", JTextComponent_Attribute_var$2},
-	{}
-};
-
-$NamedAttribute JTextComponent_Attribute_var$3[] = {
-	{"bound", 'Z', "false"},
-	{}
-};
-
-$CompoundAttribute _JTextComponent_MethodAnnotations_getActions14[] = {
-	{"Ljava/beans/BeanProperty;", JTextComponent_Attribute_var$3},
-	{}
-};
-
-$CompoundAttribute _JTextComponent_MethodAnnotations_getCaret15[] = {
-	{"Ljava/beans/Transient;", nullptr},
-	{}
-};
-
-$NamedAttribute JTextComponent_Attribute_var$4[] = {
-	{"bound", 'Z', "false"},
-	{}
-};
-
-$CompoundAttribute _JTextComponent_MethodAnnotations_getCaretListeners17[] = {
-	{"Ljava/beans/BeanProperty;", JTextComponent_Attribute_var$4},
-	{}
-};
-
-$CompoundAttribute _JTextComponent_MethodAnnotations_getCaretPosition18[] = {
-	{"Ljava/beans/Transient;", nullptr},
-	{}
-};
-
-$NamedAttribute JTextComponent_Attribute_var$5[] = {
-	{"bound", 'Z', "false"},
-	{}
-};
-
-$CompoundAttribute _JTextComponent_MethodAnnotations_getDropLocation23[] = {
-	{"Ljava/beans/BeanProperty;", JTextComponent_Attribute_var$5},
-	{}
-};
-
-$NamedAttribute JTextComponent_Attribute_var$6[] = {
-	{"bound", 'Z', "false"},
-	{}
-};
-
-$CompoundAttribute _JTextComponent_MethodAnnotations_getInputMethodRequests28[] = {
-	{"Ljava/beans/BeanProperty;", JTextComponent_Attribute_var$6},
-	{}
-};
-
-$NamedAttribute JTextComponent_Attribute_var$7[] = {
-	{"bound", 'Z', "false"},
-	{}
-};
-
-$CompoundAttribute _JTextComponent_MethodAnnotations_getPreferredScrollableViewportSize34[] = {
-	{"Ljava/beans/BeanProperty;", JTextComponent_Attribute_var$7},
-	{}
-};
-
-$NamedAttribute JTextComponent_Attribute_var$8[] = {
-	{"bound", 'Z', "false"},
-	{}
-};
-
-$CompoundAttribute _JTextComponent_MethodAnnotations_getScrollableTracksViewportHeight37[] = {
-	{"Ljava/beans/BeanProperty;", JTextComponent_Attribute_var$8},
-	{}
-};
-
-$NamedAttribute JTextComponent_Attribute_var$9[] = {
-	{"bound", 'Z', "false"},
-	{}
-};
-
-$CompoundAttribute _JTextComponent_MethodAnnotations_getScrollableTracksViewportWidth38[] = {
-	{"Ljava/beans/BeanProperty;", JTextComponent_Attribute_var$9},
-	{}
-};
-
-$NamedAttribute JTextComponent_Attribute_var$10[] = {
-	{"bound", 'Z', "false"},
-	{}
-};
-
-$CompoundAttribute _JTextComponent_MethodAnnotations_getSelectedText40[] = {
-	{"Ljava/beans/BeanProperty;", JTextComponent_Attribute_var$10},
-	{}
-};
-
-$CompoundAttribute _JTextComponent_MethodAnnotations_getSelectionEnd43[] = {
-	{"Ljava/beans/Transient;", nullptr},
-	{}
-};
-
-$CompoundAttribute _JTextComponent_MethodAnnotations_getSelectionStart44[] = {
-	{"Ljava/beans/Transient;", nullptr},
-	{}
-};
-
-$NamedAttribute JTextComponent_Attribute_var$11[] = {
-	{"since", 's', "9"},
-	{}
-};
-
-$CompoundAttribute _JTextComponent_MethodAnnotations_modelToView54[] = {
-	{"Ljava/lang/Deprecated;", JTextComponent_Attribute_var$11},
-	{}
-};
-
-$NamedAttribute JTextComponent_Attribute_var$12[] = {
-	{"expert", 'Z', "true"},
-	{"description", 's', "the caret used to select/navigate"},
-	{}
-};
-
-$CompoundAttribute _JTextComponent_MethodAnnotations_setCaret74[] = {
-	{"Ljava/beans/BeanProperty;", JTextComponent_Attribute_var$12},
-	{}
-};
-
-$NamedAttribute JTextComponent_Attribute_var$13[] = {
-	{"preferred", 'Z', "true"},
-	{"description", 's', "the color used to render the caret"},
-	{}
-};
-
-$CompoundAttribute _JTextComponent_MethodAnnotations_setCaretColor75[] = {
-	{"Ljava/beans/BeanProperty;", JTextComponent_Attribute_var$13},
-	{}
-};
-
-$NamedAttribute JTextComponent_Attribute_var$14[] = {
-	{"bound", 'Z', "false"},
-	{"description", 's', "the caret position"},
-	{}
-};
-
-$CompoundAttribute _JTextComponent_MethodAnnotations_setCaretPosition76[] = {
-	{"Ljava/beans/BeanProperty;", JTextComponent_Attribute_var$14},
-	{}
-};
-
-$NamedAttribute JTextComponent_Attribute_var$15[] = {
-	{"preferred", 'Z', "true"},
-	{"description", 's', "color used to render disabled text"},
-	{}
-};
-
-$CompoundAttribute _JTextComponent_MethodAnnotations_setDisabledTextColor78[] = {
-	{"Ljava/beans/BeanProperty;", JTextComponent_Attribute_var$15},
-	{}
-};
-
-$NamedAttribute JTextComponent_Attribute_var$16[] = {
-	{"expert", 'Z', "true"},
-	{"description", 's', "the text document model"},
-	{}
-};
-
-$CompoundAttribute _JTextComponent_MethodAnnotations_setDocument79[] = {
-	{"Ljava/beans/BeanProperty;", JTextComponent_Attribute_var$16},
-	{}
-};
-
-$NamedAttribute JTextComponent_Attribute_var$17[] = {
-	{"bound", 'Z', "false"},
-	{"description", 's', "determines whether automatic drag handling is enabled"},
-	{}
-};
-
-$CompoundAttribute _JTextComponent_MethodAnnotations_setDragEnabled80[] = {
-	{"Ljava/beans/BeanProperty;", JTextComponent_Attribute_var$17},
-	{}
-};
-
-$NamedAttribute JTextComponent_Attribute_var$18[] = {
-	{"description", 's', "specifies if the text can be edited"},
-	{}
-};
-
-$CompoundAttribute _JTextComponent_MethodAnnotations_setEditable83[] = {
-	{"Ljava/beans/BeanProperty;", JTextComponent_Attribute_var$18},
-	{}
-};
-
-$NamedAttribute JTextComponent_Attribute_var$19[] = {
-	{"description", 's', "accelerator character used to grab focus"},
-	{}
-};
-
-$CompoundAttribute _JTextComponent_MethodAnnotations_setFocusAccelerator84[] = {
-	{"Ljava/beans/BeanProperty;", JTextComponent_Attribute_var$19},
-	{}
-};
-
-$NamedAttribute JTextComponent_Attribute_var$20[] = {
-	{"expert", 'Z', "true"},
-	{"description", 's', "object responsible for background highlights"},
-	{}
-};
-
-$CompoundAttribute _JTextComponent_MethodAnnotations_setHighlighter85[] = {
-	{"Ljava/beans/BeanProperty;", JTextComponent_Attribute_var$20},
-	{}
-};
-
-$NamedAttribute JTextComponent_Attribute_var$21[] = {
-	{"description", 's', "set of key event to action bindings to use"},
-	{}
-};
-
-$CompoundAttribute _JTextComponent_MethodAnnotations_setKeymap87[] = {
-	{"Ljava/beans/BeanProperty;", JTextComponent_Attribute_var$21},
-	{}
-};
-
-$NamedAttribute JTextComponent_Attribute_var$22[] = {
-	{"description", 's', "desired space between the border and text area"},
-	{}
-};
-
-$CompoundAttribute _JTextComponent_MethodAnnotations_setMargin88[] = {
-	{"Ljava/beans/BeanProperty;", JTextComponent_Attribute_var$22},
-	{}
-};
-
-$NamedAttribute JTextComponent_Attribute_var$23[] = {
-	{"preferred", 'Z', "true"},
-	{"description", 's', "color used to render selected text"},
-	{}
-};
-
-$CompoundAttribute _JTextComponent_MethodAnnotations_setSelectedTextColor90[] = {
-	{"Ljava/beans/BeanProperty;", JTextComponent_Attribute_var$23},
-	{}
-};
-
-$NamedAttribute JTextComponent_Attribute_var$24[] = {
-	{"preferred", 'Z', "true"},
-	{"description", 's', "color used to render selection background"},
-	{}
-};
-
-$CompoundAttribute _JTextComponent_MethodAnnotations_setSelectionColor91[] = {
-	{"Ljava/beans/BeanProperty;", JTextComponent_Attribute_var$24},
-	{}
-};
-
-$NamedAttribute JTextComponent_Attribute_var$25[] = {
-	{"bound", 'Z', "false"},
-	{"description", 's', "ending location of the selection."},
-	{}
-};
-
-$CompoundAttribute _JTextComponent_MethodAnnotations_setSelectionEnd92[] = {
-	{"Ljava/beans/BeanProperty;", JTextComponent_Attribute_var$25},
-	{}
-};
-
-$NamedAttribute JTextComponent_Attribute_var$26[] = {
-	{"bound", 'Z', "false"},
-	{"description", 's', "starting location of the selection."},
-	{}
-};
-
-$CompoundAttribute _JTextComponent_MethodAnnotations_setSelectionStart93[] = {
-	{"Ljava/beans/BeanProperty;", JTextComponent_Attribute_var$26},
-	{}
-};
-
-$NamedAttribute JTextComponent_Attribute_var$27[] = {
-	{"bound", 'Z', "false"},
-	{"description", 's', "the text of this component"},
-	{}
-};
-
-$CompoundAttribute _JTextComponent_MethodAnnotations_setText94[] = {
-	{"Ljava/beans/BeanProperty;", JTextComponent_Attribute_var$27},
-	{}
-};
-
-$NamedAttribute JTextComponent_Attribute_var$28[] = {
-	{"since", 's', "9"},
-	{}
-};
-
-$CompoundAttribute _JTextComponent_MethodAnnotations_viewToModel99[] = {
-	{"Ljava/lang/Deprecated;", JTextComponent_Attribute_var$28},
-	{}
-};
-
-$FieldInfo _JTextComponent_FieldInfo_[] = {
-	{"FOCUS_ACCELERATOR_KEY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JTextComponent, FOCUS_ACCELERATOR_KEY)},
-	{"model", "Ljavax/swing/text/Document;", nullptr, $PRIVATE, $field(JTextComponent, model)},
-	{"caret", "Ljavax/swing/text/Caret;", nullptr, $PRIVATE | $TRANSIENT, $field(JTextComponent, caret)},
-	{"navigationFilter", "Ljavax/swing/text/NavigationFilter;", nullptr, $PRIVATE, $field(JTextComponent, navigationFilter)},
-	{"highlighter", "Ljavax/swing/text/Highlighter;", nullptr, $PRIVATE | $TRANSIENT, $field(JTextComponent, highlighter)},
-	{"keymap", "Ljavax/swing/text/Keymap;", nullptr, $PRIVATE | $TRANSIENT, $field(JTextComponent, keymap)},
-	{"caretEvent", "Ljavax/swing/text/JTextComponent$MutableCaretEvent;", nullptr, $PRIVATE | $TRANSIENT, $field(JTextComponent, caretEvent)},
-	{"caretColor", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(JTextComponent, caretColor)},
-	{"selectionColor", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(JTextComponent, selectionColor)},
-	{"selectedTextColor", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(JTextComponent, selectedTextColor)},
-	{"disabledTextColor", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(JTextComponent, disabledTextColor)},
-	{"editable", "Z", nullptr, $PRIVATE, $field(JTextComponent, editable)},
-	{"margin", "Ljava/awt/Insets;", nullptr, $PRIVATE, $field(JTextComponent, margin)},
-	{"focusAccelerator", "C", nullptr, $PRIVATE, $field(JTextComponent, focusAccelerator)},
-	{"dragEnabled", "Z", nullptr, $PRIVATE, $field(JTextComponent, dragEnabled)},
-	{"dropMode", "Ljavax/swing/DropMode;", nullptr, $PRIVATE, $field(JTextComponent, dropMode)},
-	{"dropLocation", "Ljavax/swing/text/JTextComponent$DropLocation;", nullptr, $PRIVATE | $TRANSIENT, $field(JTextComponent, dropLocation)},
-	{"defaultTransferHandler", "Ljavax/swing/text/JTextComponent$DefaultTransferHandler;", nullptr, $PRIVATE | $STATIC, $staticField(JTextComponent, defaultTransferHandler)},
-	{"METHOD_OVERRIDDEN", "Lcom/sun/beans/util/Cache;", "Lcom/sun/beans/util/Cache<Ljava/lang/Class<*>;Ljava/lang/Boolean;>;", $PRIVATE | $STATIC, $staticField(JTextComponent, METHOD_OVERRIDDEN)},
-	{"KEYMAP_TABLE", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JTextComponent, KEYMAP_TABLE)},
-	{"inputMethodRequestsHandler", "Ljava/awt/im/InputMethodRequests;", nullptr, $PRIVATE | $TRANSIENT, $field(JTextComponent, inputMethodRequestsHandler)},
-	{"composedTextAttribute", "Ljavax/swing/text/SimpleAttributeSet;", nullptr, $PRIVATE, $field(JTextComponent, composedTextAttribute)},
-	{"composedTextContent", "Ljava/lang/String;", nullptr, $PRIVATE, $field(JTextComponent, composedTextContent)},
-	{"composedTextStart", "Ljavax/swing/text/Position;", nullptr, $PRIVATE, $field(JTextComponent, composedTextStart)},
-	{"composedTextEnd", "Ljavax/swing/text/Position;", nullptr, $PRIVATE, $field(JTextComponent, composedTextEnd)},
-	{"latestCommittedTextStart", "Ljavax/swing/text/Position;", nullptr, $PRIVATE, $field(JTextComponent, latestCommittedTextStart)},
-	{"latestCommittedTextEnd", "Ljavax/swing/text/Position;", nullptr, $PRIVATE, $field(JTextComponent, latestCommittedTextEnd)},
-	{"composedTextCaret", "Ljavax/swing/text/JTextComponent$ComposedTextCaret;", nullptr, $PRIVATE, $field(JTextComponent, composedTextCaret)},
-	{"originalCaret", "Ljavax/swing/text/Caret;", nullptr, $PRIVATE | $TRANSIENT, $field(JTextComponent, originalCaret)},
-	{"checkedInputOverride", "Z", nullptr, $PRIVATE, $field(JTextComponent, checkedInputOverride)},
-	{"needToSendKeyTypedEvent", "Z", nullptr, $PRIVATE, $field(JTextComponent, needToSendKeyTypedEvent)},
-	{"FOCUSED_COMPONENT", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JTextComponent, FOCUSED_COMPONENT)},
-	{"DEFAULT_KEYMAP", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JTextComponent, DEFAULT_KEYMAP)},
-	{}
-};
-
-$MethodInfo _JTextComponent_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(JTextComponent, init$, void)},
-	{"addCaretListener", "(Ljavax/swing/event/CaretListener;)V", nullptr, $PUBLIC, $virtualMethod(JTextComponent, addCaretListener, void, $CaretListener*)},
-	{"addInputMethodListener", "(Ljava/awt/event/InputMethodListener;)V", nullptr, $PUBLIC, $virtualMethod(JTextComponent, addInputMethodListener, void, $InputMethodListener*)},
-	{"addKeymap", "(Ljava/lang/String;Ljavax/swing/text/Keymap;)Ljavax/swing/text/Keymap;", nullptr, $PUBLIC | $STATIC, $staticMethod(JTextComponent, addKeymap, $Keymap*, $String*, $Keymap*)},
-	{"checkDragEnabled", "(Z)V", nullptr, $PRIVATE | $STATIC, $staticMethod(JTextComponent, checkDragEnabled, void, bool)},
-	{"checkDropMode", "(Ljavax/swing/DropMode;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(JTextComponent, checkDropMode, void, $DropMode*)},
-	{"composedTextExists", "()Z", nullptr, 0, $virtualMethod(JTextComponent, composedTextExists, bool)},
-	{"copy", "()V", nullptr, $PUBLIC, $virtualMethod(JTextComponent, copy, void)},
-	{"createComposedTextAttribute", "(ILjava/text/AttributedCharacterIterator;)V", nullptr, $PRIVATE, $method(JTextComponent, createComposedTextAttribute, void, int32_t, $AttributedCharacterIterator*)},
-	{"cut", "()V", nullptr, $PUBLIC, $virtualMethod(JTextComponent, cut, void)},
-	{"dropLocationForPoint", "(Ljava/awt/Point;)Ljavax/swing/text/JTextComponent$DropLocation;", nullptr, 0, $virtualMethod(JTextComponent, dropLocationForPoint, $TransferHandler$DropLocation*, $Point*)},
-	{"exchangeCaret", "(Ljavax/swing/text/Caret;Ljavax/swing/text/Caret;)V", nullptr, $PRIVATE, $method(JTextComponent, exchangeCaret, void, $Caret*, $Caret*)},
-	{"fireCaretUpdate", "(Ljavax/swing/event/CaretEvent;)V", nullptr, $PROTECTED, $virtualMethod(JTextComponent, fireCaretUpdate, void, $CaretEvent*)},
-	{"getAccessibleContext", "()Ljavax/accessibility/AccessibleContext;", nullptr, $PUBLIC, $virtualMethod(JTextComponent, getAccessibleContext, $AccessibleContext*), nullptr, nullptr, _JTextComponent_MethodAnnotations_getAccessibleContext13},
-	{"getActions", "()[Ljavax/swing/Action;", nullptr, $PUBLIC, $virtualMethod(JTextComponent, getActions, $ActionArray*), nullptr, nullptr, _JTextComponent_MethodAnnotations_getActions14},
-	{"getCaret", "()Ljavax/swing/text/Caret;", nullptr, $PUBLIC, $virtualMethod(JTextComponent, getCaret, $Caret*), nullptr, nullptr, _JTextComponent_MethodAnnotations_getCaret15},
-	{"getCaretColor", "()Ljava/awt/Color;", nullptr, $PUBLIC, $virtualMethod(JTextComponent, getCaretColor, $Color*)},
-	{"getCaretListeners", "()[Ljavax/swing/event/CaretListener;", nullptr, $PUBLIC, $virtualMethod(JTextComponent, getCaretListeners, $CaretListenerArray*), nullptr, nullptr, _JTextComponent_MethodAnnotations_getCaretListeners17},
-	{"getCaretPosition", "()I", nullptr, $PUBLIC, $virtualMethod(JTextComponent, getCaretPosition, int32_t), nullptr, nullptr, _JTextComponent_MethodAnnotations_getCaretPosition18},
-	{"getCurrentEventModifiers", "()I", nullptr, $PRIVATE, $method(JTextComponent, getCurrentEventModifiers, int32_t)},
-	{"getDisabledTextColor", "()Ljava/awt/Color;", nullptr, $PUBLIC, $virtualMethod(JTextComponent, getDisabledTextColor, $Color*)},
-	{"getDocument", "()Ljavax/swing/text/Document;", nullptr, $PUBLIC, $virtualMethod(JTextComponent, getDocument, $Document*)},
-	{"getDragEnabled", "()Z", nullptr, $PUBLIC, $virtualMethod(JTextComponent, getDragEnabled, bool)},
-	{"getDropLocation", "()Ljavax/swing/text/JTextComponent$DropLocation;", nullptr, $PUBLIC | $FINAL, $method(JTextComponent, getDropLocation, $JTextComponent$DropLocation*), nullptr, nullptr, _JTextComponent_MethodAnnotations_getDropLocation23},
-	{"getDropMode", "()Ljavax/swing/DropMode;", nullptr, $PUBLIC | $FINAL, $method(JTextComponent, getDropMode, $DropMode*)},
-	{"getFocusAccelerator", "()C", nullptr, $PUBLIC, $virtualMethod(JTextComponent, getFocusAccelerator, char16_t)},
-	{"getFocusedComponent", "()Ljavax/swing/text/JTextComponent;", nullptr, $STATIC | $FINAL, $staticMethod(JTextComponent, getFocusedComponent, JTextComponent*)},
-	{"getHighlighter", "()Ljavax/swing/text/Highlighter;", nullptr, $PUBLIC, $virtualMethod(JTextComponent, getHighlighter, $Highlighter*)},
-	{"getInputMethodRequests", "()Ljava/awt/im/InputMethodRequests;", nullptr, $PUBLIC, $virtualMethod(JTextComponent, getInputMethodRequests, $InputMethodRequests*), nullptr, nullptr, _JTextComponent_MethodAnnotations_getInputMethodRequests28},
-	{"getKeymap", "()Ljavax/swing/text/Keymap;", nullptr, $PUBLIC, $virtualMethod(JTextComponent, getKeymap, $Keymap*)},
-	{"getKeymap", "(Ljava/lang/String;)Ljavax/swing/text/Keymap;", nullptr, $PUBLIC | $STATIC, $staticMethod(JTextComponent, getKeymap, $Keymap*, $String*)},
-	{"getKeymapTable", "()Ljava/util/HashMap;", "()Ljava/util/HashMap<Ljava/lang/String;Ljavax/swing/text/Keymap;>;", $PRIVATE | $STATIC, $staticMethod(JTextComponent, getKeymapTable, $HashMap*)},
-	{"getMargin", "()Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(JTextComponent, getMargin, $Insets*)},
-	{"getNavigationFilter", "()Ljavax/swing/text/NavigationFilter;", nullptr, $PUBLIC, $virtualMethod(JTextComponent, getNavigationFilter, $NavigationFilter*)},
-	{"getPreferredScrollableViewportSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(JTextComponent, getPreferredScrollableViewportSize, $Dimension*), nullptr, nullptr, _JTextComponent_MethodAnnotations_getPreferredScrollableViewportSize34},
-	{"getPrintable", "(Ljava/text/MessageFormat;Ljava/text/MessageFormat;)Ljava/awt/print/Printable;", nullptr, $PUBLIC, $virtualMethod(JTextComponent, getPrintable, $Printable*, $MessageFormat*, $MessageFormat*)},
-	{"getScrollableBlockIncrement", "(Ljava/awt/Rectangle;II)I", nullptr, $PUBLIC, $virtualMethod(JTextComponent, getScrollableBlockIncrement, int32_t, $Rectangle*, int32_t, int32_t)},
-	{"getScrollableTracksViewportHeight", "()Z", nullptr, $PUBLIC, $virtualMethod(JTextComponent, getScrollableTracksViewportHeight, bool), nullptr, nullptr, _JTextComponent_MethodAnnotations_getScrollableTracksViewportHeight37},
-	{"getScrollableTracksViewportWidth", "()Z", nullptr, $PUBLIC, $virtualMethod(JTextComponent, getScrollableTracksViewportWidth, bool), nullptr, nullptr, _JTextComponent_MethodAnnotations_getScrollableTracksViewportWidth38},
-	{"getScrollableUnitIncrement", "(Ljava/awt/Rectangle;II)I", nullptr, $PUBLIC, $virtualMethod(JTextComponent, getScrollableUnitIncrement, int32_t, $Rectangle*, int32_t, int32_t)},
-	{"getSelectedText", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JTextComponent, getSelectedText, $String*), nullptr, nullptr, _JTextComponent_MethodAnnotations_getSelectedText40},
-	{"getSelectedTextColor", "()Ljava/awt/Color;", nullptr, $PUBLIC, $virtualMethod(JTextComponent, getSelectedTextColor, $Color*)},
-	{"getSelectionColor", "()Ljava/awt/Color;", nullptr, $PUBLIC, $virtualMethod(JTextComponent, getSelectionColor, $Color*)},
-	{"getSelectionEnd", "()I", nullptr, $PUBLIC, $virtualMethod(JTextComponent, getSelectionEnd, int32_t), nullptr, nullptr, _JTextComponent_MethodAnnotations_getSelectionEnd43},
-	{"getSelectionStart", "()I", nullptr, $PUBLIC, $virtualMethod(JTextComponent, getSelectionStart, int32_t), nullptr, nullptr, _JTextComponent_MethodAnnotations_getSelectionStart44},
-	{"getText", "(II)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JTextComponent, getText, $String*, int32_t, int32_t), "javax.swing.text.BadLocationException"},
-	{"getText", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JTextComponent, getText, $String*)},
-	{"getToolTipText", "(Ljava/awt/event/MouseEvent;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JTextComponent, getToolTipText, $String*, $MouseEvent*)},
-	{"getUI", "()Ljavax/swing/plaf/TextUI;", nullptr, $PUBLIC, $virtualMethod(JTextComponent, getUI, $ComponentUI*)},
-	{"installDefaultTransferHandlerIfNecessary", "()V", nullptr, $PRIVATE, $method(JTextComponent, installDefaultTransferHandlerIfNecessary, void)},
-	{"invokeAction", "(Ljava/lang/String;Ljavax/swing/Action;)V", nullptr, $PRIVATE, $method(JTextComponent, invokeAction, void, $String*, $Action*)},
-	{"isEditable", "()Z", nullptr, $PUBLIC, $virtualMethod(JTextComponent, isEditable, bool)},
-	{"loadKeymap", "(Ljavax/swing/text/Keymap;[Ljavax/swing/text/JTextComponent$KeyBinding;[Ljavax/swing/Action;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(JTextComponent, loadKeymap, void, $Keymap*, $JTextComponent$KeyBindingArray*, $ActionArray*)},
-	{"mapCommittedTextToAction", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(JTextComponent, mapCommittedTextToAction, void, $String*)},
-	{"modelToView", "(I)Ljava/awt/Rectangle;", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(JTextComponent, modelToView, $Rectangle*, int32_t), "javax.swing.text.BadLocationException", nullptr, _JTextComponent_MethodAnnotations_modelToView54},
-	{"modelToView2D", "(I)Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC, $virtualMethod(JTextComponent, modelToView2D, $Rectangle2D*, int32_t), "javax.swing.text.BadLocationException"},
-	{"moveCaretPosition", "(I)V", nullptr, $PUBLIC, $virtualMethod(JTextComponent, moveCaretPosition, void, int32_t)},
-	{"paramString", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(JTextComponent, paramString, $String*)},
-	{"paste", "()V", nullptr, $PUBLIC, $virtualMethod(JTextComponent, paste, void)},
-	{"print", "()Z", nullptr, $PUBLIC, $virtualMethod(JTextComponent, print, bool), "java.awt.print.PrinterException"},
-	{"print", "(Ljava/text/MessageFormat;Ljava/text/MessageFormat;)Z", nullptr, $PUBLIC, $virtualMethod(JTextComponent, print, bool, $MessageFormat*, $MessageFormat*), "java.awt.print.PrinterException"},
-	{"print", "(Ljava/text/MessageFormat;Ljava/text/MessageFormat;ZLjavax/print/PrintService;Ljavax/print/attribute/PrintRequestAttributeSet;Z)Z", nullptr, $PUBLIC, $virtualMethod(JTextComponent, print, bool, $MessageFormat*, $MessageFormat*, bool, $PrintService*, $PrintRequestAttributeSet*, bool), "java.awt.print.PrinterException"},
-	{"processInputMethodEvent", "(Ljava/awt/event/InputMethodEvent;)V", nullptr, $PROTECTED, $virtualMethod(JTextComponent, processInputMethodEvent, void, $InputMethodEvent*)},
-	{"read", "(Ljava/io/Reader;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(JTextComponent, read, void, $Reader*, Object$*), "java.io.IOException"},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(JTextComponent, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"removeCaretListener", "(Ljavax/swing/event/CaretListener;)V", nullptr, $PUBLIC, $virtualMethod(JTextComponent, removeCaretListener, void, $CaretListener*)},
-	{"removeKeymap", "(Ljava/lang/String;)Ljavax/swing/text/Keymap;", nullptr, $PUBLIC | $STATIC, $staticMethod(JTextComponent, removeKeymap, $Keymap*, $String*)},
-	{"removeNotify", "()V", nullptr, $PUBLIC, $virtualMethod(JTextComponent, removeNotify, void)},
-	{"replaceInputMethodText", "(Ljava/awt/event/InputMethodEvent;)V", nullptr, $PRIVATE, $method(JTextComponent, replaceInputMethodText, void, $InputMethodEvent*)},
-	{"replaceSelection", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(JTextComponent, replaceSelection, void, $String*)},
-	{"restoreComposedText", "()V", nullptr, $PROTECTED, $virtualMethod(JTextComponent, restoreComposedText, void)},
-	{"saveComposedText", "(I)Z", nullptr, $PROTECTED, $virtualMethod(JTextComponent, saveComposedText, bool, int32_t)},
-	{"select", "(II)V", nullptr, $PUBLIC, $virtualMethod(JTextComponent, select, void, int32_t, int32_t)},
-	{"selectAll", "()V", nullptr, $PUBLIC, $virtualMethod(JTextComponent, selectAll, void)},
-	{"setCaret", "(Ljavax/swing/text/Caret;)V", nullptr, $PUBLIC, $virtualMethod(JTextComponent, setCaret, void, $Caret*), nullptr, nullptr, _JTextComponent_MethodAnnotations_setCaret74},
-	{"setCaretColor", "(Ljava/awt/Color;)V", nullptr, $PUBLIC, $virtualMethod(JTextComponent, setCaretColor, void, $Color*), nullptr, nullptr, _JTextComponent_MethodAnnotations_setCaretColor75},
-	{"setCaretPosition", "(I)V", nullptr, $PUBLIC, $virtualMethod(JTextComponent, setCaretPosition, void, int32_t), nullptr, nullptr, _JTextComponent_MethodAnnotations_setCaretPosition76},
-	{"setComponentOrientation", "(Ljava/awt/ComponentOrientation;)V", nullptr, $PUBLIC, $virtualMethod(JTextComponent, setComponentOrientation, void, $ComponentOrientation*)},
-	{"setDisabledTextColor", "(Ljava/awt/Color;)V", nullptr, $PUBLIC, $virtualMethod(JTextComponent, setDisabledTextColor, void, $Color*), nullptr, nullptr, _JTextComponent_MethodAnnotations_setDisabledTextColor78},
-	{"setDocument", "(Ljavax/swing/text/Document;)V", nullptr, $PUBLIC, $virtualMethod(JTextComponent, setDocument, void, $Document*), nullptr, nullptr, _JTextComponent_MethodAnnotations_setDocument79},
-	{"setDragEnabled", "(Z)V", nullptr, $PUBLIC, $virtualMethod(JTextComponent, setDragEnabled, void, bool), nullptr, nullptr, _JTextComponent_MethodAnnotations_setDragEnabled80},
-	{"setDropLocation", "(Ljavax/swing/TransferHandler$DropLocation;Ljava/lang/Object;Z)Ljava/lang/Object;", nullptr, 0, $virtualMethod(JTextComponent, setDropLocation, $Object*, $TransferHandler$DropLocation*, Object$*, bool)},
-	{"setDropMode", "(Ljavax/swing/DropMode;)V", nullptr, $PUBLIC | $FINAL, $method(JTextComponent, setDropMode, void, $DropMode*)},
-	{"setEditable", "(Z)V", nullptr, $PUBLIC, $virtualMethod(JTextComponent, setEditable, void, bool), nullptr, nullptr, _JTextComponent_MethodAnnotations_setEditable83},
-	{"setFocusAccelerator", "(C)V", nullptr, $PUBLIC, $virtualMethod(JTextComponent, setFocusAccelerator, void, char16_t), nullptr, nullptr, _JTextComponent_MethodAnnotations_setFocusAccelerator84},
-	{"setHighlighter", "(Ljavax/swing/text/Highlighter;)V", nullptr, $PUBLIC, $virtualMethod(JTextComponent, setHighlighter, void, $Highlighter*), nullptr, nullptr, _JTextComponent_MethodAnnotations_setHighlighter85},
-	{"setInputMethodCaretPosition", "(Ljava/awt/event/InputMethodEvent;)V", nullptr, $PRIVATE, $method(JTextComponent, setInputMethodCaretPosition, void, $InputMethodEvent*)},
-	{"setKeymap", "(Ljavax/swing/text/Keymap;)V", nullptr, $PUBLIC, $virtualMethod(JTextComponent, setKeymap, void, $Keymap*), nullptr, nullptr, _JTextComponent_MethodAnnotations_setKeymap87},
-	{"setMargin", "(Ljava/awt/Insets;)V", nullptr, $PUBLIC, $virtualMethod(JTextComponent, setMargin, void, $Insets*), nullptr, nullptr, _JTextComponent_MethodAnnotations_setMargin88},
-	{"setNavigationFilter", "(Ljavax/swing/text/NavigationFilter;)V", nullptr, $PUBLIC, $virtualMethod(JTextComponent, setNavigationFilter, void, $NavigationFilter*)},
-	{"setSelectedTextColor", "(Ljava/awt/Color;)V", nullptr, $PUBLIC, $virtualMethod(JTextComponent, setSelectedTextColor, void, $Color*), nullptr, nullptr, _JTextComponent_MethodAnnotations_setSelectedTextColor90},
-	{"setSelectionColor", "(Ljava/awt/Color;)V", nullptr, $PUBLIC, $virtualMethod(JTextComponent, setSelectionColor, void, $Color*), nullptr, nullptr, _JTextComponent_MethodAnnotations_setSelectionColor91},
-	{"setSelectionEnd", "(I)V", nullptr, $PUBLIC, $virtualMethod(JTextComponent, setSelectionEnd, void, int32_t), nullptr, nullptr, _JTextComponent_MethodAnnotations_setSelectionEnd92},
-	{"setSelectionStart", "(I)V", nullptr, $PUBLIC, $virtualMethod(JTextComponent, setSelectionStart, void, int32_t), nullptr, nullptr, _JTextComponent_MethodAnnotations_setSelectionStart93},
-	{"setText", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(JTextComponent, setText, void, $String*), nullptr, nullptr, _JTextComponent_MethodAnnotations_setText94},
-	{"setUI", "(Ljavax/swing/plaf/TextUI;)V", nullptr, $PUBLIC, $virtualMethod(JTextComponent, setUI, void, $TextUI*)},
-	{"shouldSynthensizeKeyEvents", "()Z", nullptr, $PRIVATE, $method(JTextComponent, shouldSynthensizeKeyEvents, bool)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"updateInputMap", "(Ljavax/swing/text/Keymap;Ljavax/swing/text/Keymap;)V", nullptr, 0, $virtualMethod(JTextComponent, updateInputMap, void, $Keymap*, $Keymap*)},
-	{"updateUI", "()V", nullptr, $PUBLIC, $virtualMethod(JTextComponent, updateUI, void)},
-	{"viewToModel", "(Ljava/awt/Point;)I", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(JTextComponent, viewToModel, int32_t, $Point*), nullptr, nullptr, _JTextComponent_MethodAnnotations_viewToModel99},
-	{"viewToModel2D", "(Ljava/awt/geom/Point2D;)I", nullptr, $PUBLIC, $virtualMethod(JTextComponent, viewToModel2D, int32_t, $Point2D*)},
-	{"write", "(Ljava/io/Writer;)V", nullptr, $PUBLIC, $virtualMethod(JTextComponent, write, void, $Writer*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _JTextComponent_InnerClassesInfo_[] = {
-	{"javax.swing.text.JTextComponent$5", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{"javax.swing.text.JTextComponent$DoSetCaretPosition", "javax.swing.text.JTextComponent", "DoSetCaretPosition", $PRIVATE},
-	{"javax.swing.text.JTextComponent$ComposedTextCaret", "javax.swing.text.JTextComponent", "ComposedTextCaret", 0},
-	{"javax.swing.text.JTextComponent$InputMethodRequestsHandler", "javax.swing.text.JTextComponent", "InputMethodRequestsHandler", 0},
-	{"javax.swing.text.JTextComponent$MutableCaretEvent", "javax.swing.text.JTextComponent", "MutableCaretEvent", $STATIC},
-	{"javax.swing.text.JTextComponent$KeymapActionMap", "javax.swing.text.JTextComponent", "KeymapActionMap", $STATIC},
-	{"javax.swing.text.JTextComponent$KeymapWrapper", "javax.swing.text.JTextComponent", "KeymapWrapper", $STATIC},
-	{"javax.swing.text.JTextComponent$DefaultKeymap", "javax.swing.text.JTextComponent", "DefaultKeymap", $STATIC},
-	{"javax.swing.text.JTextComponent$DefaultTransferHandler", "javax.swing.text.JTextComponent", "DefaultTransferHandler", $STATIC},
-	{"javax.swing.text.JTextComponent$DropLocation", "javax.swing.text.JTextComponent", "DropLocation", $PUBLIC | $STATIC | $FINAL},
-	{"javax.swing.text.JTextComponent$AccessibleJTextComponent", "javax.swing.text.JTextComponent", "AccessibleJTextComponent", $PUBLIC},
-	{"javax.swing.text.JTextComponent$KeyBinding", "javax.swing.text.JTextComponent", "KeyBinding", $PUBLIC | $STATIC},
-	{"javax.swing.text.JTextComponent$4", nullptr, nullptr, 0},
-	{"javax.swing.text.JTextComponent$3", nullptr, nullptr, 0},
-	{"javax.swing.text.JTextComponent$2", nullptr, nullptr, 0},
-	{"javax.swing.text.JTextComponent$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _JTextComponent_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"javax.swing.text.JTextComponent",
-	"javax.swing.JComponent",
-	"javax.swing.Scrollable,javax.accessibility.Accessible",
-	_JTextComponent_FieldInfo_,
-	_JTextComponent_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JTextComponent_InnerClassesInfo_,
-	_JTextComponent_Annotations_,
-	nullptr,
-	"javax.swing.text.JTextComponent$5,javax.swing.text.JTextComponent$DoSetCaretPosition,javax.swing.text.JTextComponent$ComposedTextCaret,javax.swing.text.JTextComponent$InputMethodRequestsHandler,javax.swing.text.JTextComponent$MutableCaretEvent,javax.swing.text.JTextComponent$KeymapActionMap,javax.swing.text.JTextComponent$KeymapWrapper,javax.swing.text.JTextComponent$DefaultKeymap,javax.swing.text.JTextComponent$DefaultTransferHandler,javax.swing.text.JTextComponent$DropLocation,javax.swing.text.JTextComponent$AccessibleJTextComponent,javax.swing.text.JTextComponent$AccessibleJTextComponent$IndexedSegment,javax.swing.text.JTextComponent$AccessibleJTextComponent$4,javax.swing.text.JTextComponent$AccessibleJTextComponent$3,javax.swing.text.JTextComponent$AccessibleJTextComponent$2,javax.swing.text.JTextComponent$AccessibleJTextComponent$1,javax.swing.text.JTextComponent$KeyBinding,javax.swing.text.JTextComponent$4,javax.swing.text.JTextComponent$4$1,javax.swing.text.JTextComponent$3,javax.swing.text.JTextComponent$3$2,javax.swing.text.JTextComponent$3$1,javax.swing.text.JTextComponent$2,javax.swing.text.JTextComponent$1"
-};
-
-$Object* allocate$JTextComponent($Class* clazz) {
-	return $of($alloc(JTextComponent));
-}
 
 $String* JTextComponent::toString() {
 	 return this->$JComponent::toString();
@@ -825,7 +306,7 @@ void JTextComponent::setUI($TextUI* ui) {
 }
 
 void JTextComponent::updateUI() {
-	setUI($cast($TextUI, $($UIManager::getUI(this))));
+	setUI($$cast($TextUI, $UIManager::getUI(this)));
 	invalidate();
 }
 
@@ -841,7 +322,7 @@ void JTextComponent::removeCaretListener($CaretListener* listener) {
 
 $CaretListenerArray* JTextComponent::getCaretListeners() {
 	$load($CaretListener);
-	return $fcast($CaretListenerArray, $nc(this->listenerList)->getListeners($CaretListener::class$));
+	return $cast($CaretListenerArray, $nc(this->listenerList)->getListeners($CaretListener::class$));
 }
 
 void JTextComponent::fireCaretUpdate($CaretEvent* e) {
@@ -849,48 +330,46 @@ void JTextComponent::fireCaretUpdate($CaretEvent* e) {
 	for (int32_t i = $nc(listeners)->length - 2; i >= 0; i -= 2) {
 		$load($CaretListener);
 		if ($equals(listeners->get(i), $CaretListener::class$)) {
-			$nc(($cast($CaretListener, listeners->get(i + 1))))->caretUpdate(e);
+			$nc($cast($CaretListener, listeners->get(i + 1)))->caretUpdate(e);
 		}
 	}
 }
 
 void JTextComponent::setDocument($Document* doc) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Document, old, this->model);
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			if ($instanceOf($AbstractDocument, old)) {
-				$nc(($cast($AbstractDocument, old)))->readLock();
-			}
-			if (this->accessibleContext != nullptr) {
-				$nc(this->model)->removeDocumentListener(($cast($JTextComponent$AccessibleJTextComponent, this->accessibleContext)));
-			}
-			if (this->inputMethodRequestsHandler != nullptr) {
-				$nc(this->model)->removeDocumentListener($cast($DocumentListener, this->inputMethodRequestsHandler));
-			}
-			$set(this, model, doc);
-			$init($TextAttribute);
-			$var($Boolean, runDir, $nc($(getComponentOrientation()))->isLeftToRight() ? $TextAttribute::RUN_DIRECTION_LTR : $TextAttribute::RUN_DIRECTION_RTL);
-			if (!$equals(runDir, $nc(doc)->getProperty($TextAttribute::RUN_DIRECTION))) {
-				doc->putProperty($TextAttribute::RUN_DIRECTION, runDir);
-			}
-			firePropertyChange("document"_s, $of(old), $of(doc));
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			if ($instanceOf($AbstractDocument, old)) {
-				$nc(($cast($AbstractDocument, old)))->readUnlock();
-			}
+	$var($Throwable, var$0, nullptr);
+	try {
+		if ($instanceOf($AbstractDocument, old)) {
+			$cast($AbstractDocument, old)->readLock();
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+		if (this->accessibleContext != nullptr) {
+			$nc(this->model)->removeDocumentListener($cast($JTextComponent$AccessibleJTextComponent, this->accessibleContext));
 		}
+		if (this->inputMethodRequestsHandler != nullptr) {
+			$nc(this->model)->removeDocumentListener($cast($DocumentListener, this->inputMethodRequestsHandler));
+		}
+		$set(this, model, doc);
+		$init($TextAttribute);
+		$var($Boolean, runDir, $$nc(getComponentOrientation())->isLeftToRight() ? $TextAttribute::RUN_DIRECTION_LTR : $TextAttribute::RUN_DIRECTION_RTL);
+		if (!$equals(runDir, $nc(doc)->getProperty($TextAttribute::RUN_DIRECTION))) {
+			doc->putProperty($TextAttribute::RUN_DIRECTION, runDir);
+		}
+		firePropertyChange("document"_s, old, doc);
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		if ($instanceOf($AbstractDocument, old)) {
+			$cast($AbstractDocument, old)->readUnlock();
+		}
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 	revalidate();
 	repaint();
 	if (this->accessibleContext != nullptr) {
-		$nc(this->model)->addDocumentListener(($cast($JTextComponent$AccessibleJTextComponent, this->accessibleContext)));
+		$nc(this->model)->addDocumentListener($cast($JTextComponent$AccessibleJTextComponent, this->accessibleContext));
 	}
 	if (this->inputMethodRequestsHandler != nullptr) {
 		$nc(this->model)->addDocumentListener($cast($DocumentListener, this->inputMethodRequestsHandler));
@@ -902,7 +381,7 @@ $Document* JTextComponent::getDocument() {
 }
 
 void JTextComponent::setComponentOrientation($ComponentOrientation* o) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Document, doc, getDocument());
 	if (doc != nullptr) {
 		$init($TextAttribute);
@@ -913,14 +392,14 @@ void JTextComponent::setComponentOrientation($ComponentOrientation* o) {
 }
 
 $ActionArray* JTextComponent::getActions() {
-	$useLocalCurrentObjectStackCache();
-	return $nc($($nc($($cast($TextUI, getUI())))->getEditorKit(this)))->getActions();
+	$useLocalObjectStack();
+	return $$nc($$sure($TextUI, getUI())->getEditorKit(this))->getActions();
 }
 
 void JTextComponent::setMargin($Insets* m) {
 	$var($Insets, old, this->margin);
 	$set(this, margin, m);
-	firePropertyChange("margin"_s, $of(old), $of(m));
+	firePropertyChange("margin"_s, old, m);
 	invalidate();
 }
 
@@ -942,16 +421,16 @@ $Caret* JTextComponent::getCaret() {
 
 void JTextComponent::setCaret($Caret* c) {
 	if (this->caret != nullptr) {
-		$nc(this->caret)->removeChangeListener(this->caretEvent);
+		this->caret->removeChangeListener(this->caretEvent);
 		$nc(this->caret)->deinstall(this);
 	}
 	$var($Caret, old, this->caret);
 	$set(this, caret, c);
 	if (this->caret != nullptr) {
-		$nc(this->caret)->install(this);
+		this->caret->install(this);
 		$nc(this->caret)->addChangeListener(this->caretEvent);
 	}
-	firePropertyChange("caret"_s, $of(old), $of(this->caret));
+	firePropertyChange("caret"_s, old, this->caret);
 }
 
 $Highlighter* JTextComponent::getHighlighter() {
@@ -960,20 +439,20 @@ $Highlighter* JTextComponent::getHighlighter() {
 
 void JTextComponent::setHighlighter($Highlighter* h) {
 	if (this->highlighter != nullptr) {
-		$nc(this->highlighter)->deinstall(this);
+		this->highlighter->deinstall(this);
 	}
 	$var($Highlighter, old, this->highlighter);
 	$set(this, highlighter, h);
 	if (this->highlighter != nullptr) {
-		$nc(this->highlighter)->install(this);
+		this->highlighter->install(this);
 	}
-	firePropertyChange("highlighter"_s, $of(old), $of(h));
+	firePropertyChange("highlighter"_s, old, h);
 }
 
 void JTextComponent::setKeymap($Keymap* map) {
 	$var($Keymap, old, this->keymap);
 	$set(this, keymap, map);
-	firePropertyChange("keymap"_s, $of(old), $of(this->keymap));
+	firePropertyChange("keymap"_s, old, this->keymap);
 	updateInputMap(old, map);
 }
 
@@ -1004,11 +483,8 @@ void JTextComponent::checkDropMode($DropMode* dropMode) {
 		$init($JTextComponent$5);
 		switch ($nc($JTextComponent$5::$SwitchMap$javax$swing$DropMode)->get((dropMode)->ordinal())) {
 		case 1:
-			{}
 		case 2:
-			{
-				return;
-			}
+			return;
 		}
 	}
 	$throwNew($IllegalArgumentException, $$str({dropMode, ": Unsupported drop mode for text"_s}));
@@ -1019,18 +495,17 @@ $DropMode* JTextComponent::getDropMode() {
 }
 
 $TransferHandler$DropLocation* JTextComponent::dropLocationForPoint($Point* p) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Position$BiasArray, bias, $new($Position$BiasArray, 1));
-	int32_t index = $nc($($cast($TextUI, getUI())))->viewToModel(this, p, bias);
+	int32_t index = $$sure($TextUI, getUI())->viewToModel(this, p, bias);
 	if (bias->get(0) == nullptr) {
-		$init($Position$Bias);
 		bias->set(0, $Position$Bias::Forward);
 	}
 	return $new($JTextComponent$DropLocation, p, index, bias->get(0));
 }
 
 $Object* JTextComponent::setDropLocation($TransferHandler$DropLocation* location, Object$* state, bool forDrop) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, retVal, nullptr);
 	$var($JTextComponent$DropLocation, textLocation, $cast($JTextComponent$DropLocation, location));
 	$init($DropMode);
@@ -1040,14 +515,14 @@ $Object* JTextComponent::setDropLocation($TransferHandler$DropLocation* location
 				$var($ObjectArray, vals, $cast($ObjectArray, state));
 				if (!forDrop) {
 					if ($instanceOf($DefaultCaret, this->caret)) {
-						$nc(($cast($DefaultCaret, this->caret)))->setDot($nc(($cast($Integer, vals->get(0))))->intValue(), $cast($Position$Bias, vals->get(3)));
-						$nc(($cast($DefaultCaret, this->caret)))->moveDot($nc(($cast($Integer, vals->get(1))))->intValue(), $cast($Position$Bias, vals->get(4)));
+						$cast($DefaultCaret, this->caret)->setDot($nc($cast($Integer, vals->get(0)))->intValue(), $cast($Position$Bias, vals->get(3)));
+						$nc($cast($DefaultCaret, this->caret))->moveDot($nc($cast($Integer, vals->get(1)))->intValue(), $cast($Position$Bias, vals->get(4)));
 					} else {
-						$nc(this->caret)->setDot($nc(($cast($Integer, vals->get(0))))->intValue());
-						$nc(this->caret)->moveDot($nc(($cast($Integer, vals->get(1))))->intValue());
+						$nc(this->caret)->setDot($nc($cast($Integer, vals->get(0)))->intValue());
+						$nc(this->caret)->moveDot($nc($cast($Integer, vals->get(1)))->intValue());
 					}
 				}
-				$nc(this->caret)->setVisible($nc(($cast($Boolean, vals->get(2))))->booleanValue());
+				$nc(this->caret)->setVisible($nc($cast($Boolean, vals->get(2)))->booleanValue());
 			}
 		} else {
 			if (this->dropLocation == nullptr) {
@@ -1056,18 +531,18 @@ $Object* JTextComponent::setDropLocation($TransferHandler$DropLocation* location
 					$var($DefaultCaret, dc, $cast($DefaultCaret, this->caret));
 					visible = $nc(dc)->isActive();
 					$assign(retVal, $new($ObjectArray, {
-						$($of($Integer::valueOf(dc->getMark()))),
-						$($of($Integer::valueOf(dc->getDot()))),
-						$($of($Boolean::valueOf(visible))),
-						$($of(dc->getMarkBias())),
-						$($of(dc->getDotBias()))
+						$($Integer::valueOf(dc->getMark())),
+						$($Integer::valueOf(dc->getDot())),
+						$($Boolean::valueOf(visible)),
+						$(dc->getMarkBias()),
+						$(dc->getDotBias())
 					}));
 				} else {
 					visible = $nc(this->caret)->isVisible();
 					$assign(retVal, $new($ObjectArray, {
-						$($of($Integer::valueOf($nc(this->caret)->getMark()))),
-						$($of($Integer::valueOf($nc(this->caret)->getDot()))),
-						$($of($Boolean::valueOf(visible)))
+						$($Integer::valueOf($nc(this->caret)->getMark())),
+						$($Integer::valueOf($nc(this->caret)->getDot())),
+						$($Boolean::valueOf(visible))
 					}));
 				}
 				$nc(this->caret)->setVisible(true);
@@ -1075,18 +550,18 @@ $Object* JTextComponent::setDropLocation($TransferHandler$DropLocation* location
 				$assign(retVal, state);
 			}
 			if ($instanceOf($DefaultCaret, this->caret)) {
-				int32_t var$0 = $nc(textLocation)->getIndex();
-				$nc(($cast($DefaultCaret, this->caret)))->setDot(var$0, $(textLocation->getBias()));
+				int32_t var$0 = textLocation->getIndex();
+				$cast($DefaultCaret, this->caret)->setDot(var$0, $(textLocation->getBias()));
 			} else {
-				$nc(this->caret)->setDot($nc(textLocation)->getIndex());
+				$nc(this->caret)->setDot(textLocation->getIndex());
 			}
 		}
 	} else if (textLocation == nullptr) {
 		if (state != nullptr) {
-			$nc(this->caret)->setVisible($nc(($cast($Boolean, state)))->booleanValue());
+			$nc(this->caret)->setVisible($cast($Boolean, state)->booleanValue());
 		}
 	} else if (this->dropLocation == nullptr) {
-		bool visible = $instanceOf($DefaultCaret, this->caret) ? $nc(($cast($DefaultCaret, this->caret)))->isActive() : $nc(this->caret)->isVisible();
+		bool visible = $instanceOf($DefaultCaret, this->caret) ? $cast($DefaultCaret, this->caret)->isActive() : $nc(this->caret)->isVisible();
 		$assign(retVal, $Boolean::valueOf(visible));
 		$nc(this->caret)->setVisible(false);
 	} else {
@@ -1094,8 +569,8 @@ $Object* JTextComponent::setDropLocation($TransferHandler$DropLocation* location
 	}
 	$var($JTextComponent$DropLocation, old, this->dropLocation);
 	$set(this, dropLocation, textLocation);
-	firePropertyChange("dropLocation"_s, $of(old), $of(this->dropLocation));
-	return $of(retVal);
+	firePropertyChange("dropLocation"_s, old, this->dropLocation);
+	return retVal;
 }
 
 $JTextComponent$DropLocation* JTextComponent::getDropLocation() {
@@ -1103,7 +578,7 @@ $JTextComponent$DropLocation* JTextComponent::getDropLocation() {
 }
 
 void JTextComponent::updateInputMap($Keymap* oldKm, $Keymap* newKm) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($InputMap, km, getInputMap($JComponent::WHEN_FOCUSED));
 	$var($InputMap, last, km);
 	while (km != nullptr && !($instanceOf($JTextComponent$KeymapWrapper, km))) {
@@ -1168,27 +643,27 @@ $Keymap* JTextComponent::getKeymap() {
 
 $Keymap* JTextComponent::addKeymap($String* nm, $Keymap* parent) {
 	$init(JTextComponent);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Keymap, map, $new($JTextComponent$DefaultKeymap, nm, parent));
 	if (nm != nullptr) {
-		$nc($(getKeymapTable()))->put(nm, map);
+		$$nc(getKeymapTable())->put(nm, map);
 	}
 	return map;
 }
 
 $Keymap* JTextComponent::removeKeymap($String* nm) {
 	$init(JTextComponent);
-	return $cast($Keymap, $nc($(getKeymapTable()))->remove(nm));
+	return $cast($Keymap, $$nc(getKeymapTable())->remove(nm));
 }
 
 $Keymap* JTextComponent::getKeymap($String* nm) {
 	$init(JTextComponent);
-	return $cast($Keymap, $nc($(getKeymapTable()))->get(nm));
+	return $cast($Keymap, $$nc(getKeymapTable())->get(nm));
 }
 
 $HashMap* JTextComponent::getKeymapTable() {
 	$init(JTextComponent);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized(JTextComponent::KEYMAP_TABLE) {
 		$var($AppContext, appContext, $AppContext::getAppContext());
 		$var($HashMap, keymapTable, $cast($HashMap, $nc(appContext)->get(JTextComponent::KEYMAP_TABLE)));
@@ -1204,16 +679,13 @@ $HashMap* JTextComponent::getKeymapTable() {
 
 void JTextComponent::loadKeymap($Keymap* map, $JTextComponent$KeyBindingArray* bindings, $ActionArray* actions) {
 	$init(JTextComponent);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Hashtable, h, $new($Hashtable));
 	{
 		$var($ActionArray, arr$, actions);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($Action, a, arr$->get(i$));
 			{
-				$init($Action);
 				$var($String, value, $cast($String, $nc(a)->getValue($Action::NAME)));
 				h->put((value != nullptr ? value : ""_s), a);
 			}
@@ -1221,14 +693,12 @@ void JTextComponent::loadKeymap($Keymap* map, $JTextComponent$KeyBindingArray* b
 	}
 	{
 		$var($JTextComponent$KeyBindingArray, arr$, bindings);
-		int32_t len$ = arr$->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($JTextComponent$KeyBinding, binding, arr$->get(i$));
 			{
 				$var($Action, a, $cast($Action, h->get($nc(binding)->actionName)));
 				if (a != nullptr) {
-					$nc(map)->addActionForKeyStroke($nc(binding)->key, a);
+					$nc(map)->addActionForKeyStroke(binding->key, a);
 				}
 			}
 		}
@@ -1242,7 +712,7 @@ $Color* JTextComponent::getCaretColor() {
 void JTextComponent::setCaretColor($Color* c) {
 	$var($Color, old, this->caretColor);
 	$set(this, caretColor, c);
-	firePropertyChange("caretColor"_s, $of(old), $of(this->caretColor));
+	firePropertyChange("caretColor"_s, old, this->caretColor);
 }
 
 $Color* JTextComponent::getSelectionColor() {
@@ -1252,7 +722,7 @@ $Color* JTextComponent::getSelectionColor() {
 void JTextComponent::setSelectionColor($Color* c) {
 	$var($Color, old, this->selectionColor);
 	$set(this, selectionColor, c);
-	firePropertyChange("selectionColor"_s, $of(old), $of(this->selectionColor));
+	firePropertyChange("selectionColor"_s, old, this->selectionColor);
 }
 
 $Color* JTextComponent::getSelectedTextColor() {
@@ -1262,7 +732,7 @@ $Color* JTextComponent::getSelectedTextColor() {
 void JTextComponent::setSelectedTextColor($Color* c) {
 	$var($Color, old, this->selectedTextColor);
 	$set(this, selectedTextColor, c);
-	firePropertyChange("selectedTextColor"_s, $of(old), $of(this->selectedTextColor));
+	firePropertyChange("selectedTextColor"_s, old, this->selectedTextColor);
 }
 
 $Color* JTextComponent::getDisabledTextColor() {
@@ -1272,21 +742,21 @@ $Color* JTextComponent::getDisabledTextColor() {
 void JTextComponent::setDisabledTextColor($Color* c) {
 	$var($Color, old, this->disabledTextColor);
 	$set(this, disabledTextColor, c);
-	firePropertyChange("disabledTextColor"_s, $of(old), $of(this->disabledTextColor));
+	firePropertyChange("disabledTextColor"_s, old, this->disabledTextColor);
 }
 
 void JTextComponent::replaceSelection($String* content) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Document, doc, getDocument());
 	if (doc != nullptr) {
 		try {
 			bool composedTextSaved = saveComposedText($nc(this->caret)->getDot());
 			int32_t var$0 = $nc(this->caret)->getDot();
-			int32_t p0 = $Math::min(var$0, $nc(this->caret)->getMark());
+			int32_t p0 = $Math::min(var$0, this->caret->getMark());
 			int32_t var$1 = $nc(this->caret)->getDot();
-			int32_t p1 = $Math::max(var$1, $nc(this->caret)->getMark());
+			int32_t p1 = $Math::max(var$1, this->caret->getMark());
 			if ($instanceOf($AbstractDocument, doc)) {
-				$nc(($cast($AbstractDocument, doc)))->replace(p0, p1 - p0, content, nullptr);
+				$cast($AbstractDocument, doc)->replace(p0, p1 - p0, content, nullptr);
 			} else {
 				if (p0 != p1) {
 					doc->remove(p0, p1 - p0);
@@ -1299,31 +769,31 @@ void JTextComponent::replaceSelection($String* content) {
 				restoreComposedText();
 			}
 		} catch ($BadLocationException& e) {
-			$nc($($UIManager::getLookAndFeel()))->provideErrorFeedback(this);
+			$$nc($UIManager::getLookAndFeel())->provideErrorFeedback(this);
 		}
 	}
 }
 
 $String* JTextComponent::getText(int32_t offs, int32_t len) {
-	return $nc($(getDocument()))->getText(offs, len);
+	return $$nc(getDocument())->getText(offs, len);
 }
 
 $Rectangle* JTextComponent::modelToView(int32_t pos) {
-	return $nc($($cast($TextUI, getUI())))->modelToView(this, pos);
+	return $$sure($TextUI, getUI())->modelToView(this, pos);
 }
 
 $Rectangle2D* JTextComponent::modelToView2D(int32_t pos) {
 	$init($Position$Bias);
-	return $nc($($cast($TextUI, getUI())))->modelToView2D(this, pos, $Position$Bias::Forward);
+	return $$sure($TextUI, getUI())->modelToView2D(this, pos, $Position$Bias::Forward);
 }
 
 int32_t JTextComponent::viewToModel($Point* pt) {
-	return $nc($($cast($TextUI, getUI())))->viewToModel(this, pt);
+	return $$sure($TextUI, getUI())->viewToModel(this, pt);
 }
 
 int32_t JTextComponent::viewToModel2D($Point2D* pt) {
-	$useLocalCurrentObjectStackCache();
-	return $nc($($cast($TextUI, getUI())))->viewToModel2D(this, pt, $$new($Position$BiasArray, 1));
+	$useLocalObjectStack();
+	return $$sure($TextUI, getUI())->viewToModel2D(this, pt, $$new($Position$BiasArray, 1));
 }
 
 void JTextComponent::cut() {
@@ -1345,7 +815,7 @@ void JTextComponent::paste() {
 }
 
 void JTextComponent::invokeAction($String* name, $Action* altAction) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ActionMap, map, getActionMap());
 	$var($Action, action, nullptr);
 	if (map != nullptr) {
@@ -1356,7 +826,7 @@ void JTextComponent::invokeAction($String* name, $Action* altAction) {
 		$assign(action, altAction);
 	}
 	$init($Action);
-	$var($String, var$0, $cast($String, action->getValue($Action::NAME)));
+	$var($String, var$0, $cast($String, $nc(action)->getValue($Action::NAME)));
 	int64_t var$1 = $EventQueue::getMostRecentEventTime();
 	$nc(action)->actionPerformed($$new($ActionEvent, this, $ActionEvent::ACTION_PERFORMED, var$0, var$1, getCurrentEventModifiers()));
 }
@@ -1371,7 +841,7 @@ void JTextComponent::installDefaultTransferHandlerIfNecessary() {
 }
 
 void JTextComponent::moveCaretPosition(int32_t pos) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Document, doc, getDocument());
 	if (doc != nullptr) {
 		if (pos > doc->getLength() || pos < 0) {
@@ -1394,8 +864,8 @@ char16_t JTextComponent::getFocusAccelerator() {
 }
 
 void JTextComponent::read($Reader* in, Object$* desc) {
-	$useLocalCurrentObjectStackCache();
-	$var($EditorKit, kit, $nc($($cast($TextUI, getUI())))->getEditorKit(this));
+	$useLocalObjectStack();
+	$var($EditorKit, kit, $$sure($TextUI, getUI())->getEditorKit(this));
 	$var($Document, doc, $nc(kit)->createDefaultDocument());
 	if (desc != nullptr) {
 		$init($Document);
@@ -1410,10 +880,10 @@ void JTextComponent::read($Reader* in, Object$* desc) {
 }
 
 void JTextComponent::write($Writer* out) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Document, doc, getDocument());
 	try {
-		$nc($($nc($($cast($TextUI, getUI())))->getEditorKit(this)))->write(out, doc, 0, $nc(doc)->getLength());
+		$$nc($$sure($TextUI, getUI())->getEditorKit(this))->write(out, doc, 0, $nc(doc)->getLength());
 	} catch ($BadLocationException& e) {
 		$throwNew($IOException, $(e->getMessage()));
 	}
@@ -1422,12 +892,12 @@ void JTextComponent::write($Writer* out) {
 void JTextComponent::removeNotify() {
 	$JComponent::removeNotify();
 	if (getFocusedComponent() == this) {
-		$nc($($AppContext::getAppContext()))->remove(JTextComponent::FOCUSED_COMPONENT);
+		$$nc($AppContext::getAppContext())->remove(JTextComponent::FOCUSED_COMPONENT);
 	}
 }
 
 void JTextComponent::setCaretPosition(int32_t position) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Document, doc, getDocument());
 	if (doc != nullptr) {
 		if (position > doc->getLength() || position < 0) {
@@ -1442,26 +912,26 @@ int32_t JTextComponent::getCaretPosition() {
 }
 
 void JTextComponent::setText($String* t) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$var($Document, doc, getDocument());
 		if ($instanceOf($AbstractDocument, doc)) {
-			$nc(($cast($AbstractDocument, doc)))->replace(0, $nc(doc)->getLength(), t, nullptr);
+			$cast($AbstractDocument, doc)->replace(0, doc->getLength(), t, nullptr);
 		} else {
-			$nc(doc)->remove(0, doc->getLength());
+			$nc(doc)->remove(0, $nc(doc)->getLength());
 			doc->insertString(0, t, nullptr);
 		}
 	} catch ($BadLocationException& e) {
-		$nc($($UIManager::getLookAndFeel()))->provideErrorFeedback(this);
+		$$nc($UIManager::getLookAndFeel())->provideErrorFeedback(this);
 	}
 }
 
 $String* JTextComponent::getText() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Document, doc, getDocument());
 	$var($String, txt, nullptr);
 	try {
-		$assign(txt, $nc(doc)->getText(0, doc->getLength()));
+		$assign(txt, $nc(doc)->getText(0, $nc(doc)->getLength()));
 	} catch ($BadLocationException& e) {
 		$assign(txt, nullptr);
 	}
@@ -1469,12 +939,12 @@ $String* JTextComponent::getText() {
 }
 
 $String* JTextComponent::getSelectedText() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, txt, nullptr);
 	int32_t var$0 = $nc(this->caret)->getDot();
-	int32_t p0 = $Math::min(var$0, $nc(this->caret)->getMark());
+	int32_t p0 = $Math::min(var$0, this->caret->getMark());
 	int32_t var$1 = $nc(this->caret)->getDot();
-	int32_t p1 = $Math::max(var$1, $nc(this->caret)->getMark());
+	int32_t p1 = $Math::max(var$1, this->caret->getMark());
 	if (p0 != p1) {
 		try {
 			$var($Document, doc, getDocument());
@@ -1491,21 +961,21 @@ bool JTextComponent::isEditable() {
 }
 
 void JTextComponent::setEditable(bool b) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (b != this->editable) {
 		bool oldVal = this->editable;
 		this->editable = b;
 		enableInputMethods(this->editable);
 		$var($String, var$0, "editable"_s);
-		$var($Object, var$1, $of($Boolean::valueOf(oldVal)));
-		firePropertyChange(var$0, var$1, $($of($Boolean::valueOf(this->editable))));
+		$var($Object, var$1, $Boolean::valueOf(oldVal));
+		firePropertyChange(var$0, var$1, $($Boolean::valueOf(this->editable)));
 		repaint();
 	}
 }
 
 int32_t JTextComponent::getSelectionStart() {
 	int32_t var$0 = $nc(this->caret)->getDot();
-	int32_t start = $Math::min(var$0, $nc(this->caret)->getMark());
+	int32_t start = $Math::min(var$0, this->caret->getMark());
 	return start;
 }
 
@@ -1515,7 +985,7 @@ void JTextComponent::setSelectionStart(int32_t selectionStart) {
 
 int32_t JTextComponent::getSelectionEnd() {
 	int32_t var$0 = $nc(this->caret)->getDot();
-	int32_t end = $Math::max(var$0, $nc(this->caret)->getMark());
+	int32_t end = $Math::max(var$0, this->caret->getMark());
 	return end;
 }
 
@@ -1524,7 +994,7 @@ void JTextComponent::setSelectionEnd(int32_t selectionEnd) {
 }
 
 void JTextComponent::select(int32_t selectionStart, int32_t selectionEnd) {
-	int32_t docLength = $nc($(getDocument()))->getLength();
+	int32_t docLength = $$nc(getDocument())->getLength();
 	if (selectionStart < 0) {
 		selectionStart = 0;
 	}
@@ -1550,7 +1020,7 @@ void JTextComponent::selectAll() {
 }
 
 $String* JTextComponent::getToolTipText($MouseEvent* event) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, retValue, $JComponent::getToolTipText(event));
 	if (retValue == nullptr) {
 		$var($TextUI, ui, $cast($TextUI, getUI()));
@@ -1567,56 +1037,44 @@ $Dimension* JTextComponent::getPreferredScrollableViewportSize() {
 }
 
 int32_t JTextComponent::getScrollableUnitIncrement($Rectangle* visibleRect, int32_t orientation, int32_t direction) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	switch (orientation) {
 	case $SwingConstants::VERTICAL:
-		{
-			return $nc(visibleRect)->height / 10;
-		}
+		return $nc(visibleRect)->height / 10;
 	case $SwingConstants::HORIZONTAL:
-		{
-			return $nc(visibleRect)->width / 10;
-		}
+		return $nc(visibleRect)->width / 10;
 	default:
-		{
-			$throwNew($IllegalArgumentException, $$str({"Invalid orientation: "_s, $$str(orientation)}));
-		}
+		$throwNew($IllegalArgumentException, $$str({"Invalid orientation: "_s, $$str(orientation)}));
 	}
 }
 
 int32_t JTextComponent::getScrollableBlockIncrement($Rectangle* visibleRect, int32_t orientation, int32_t direction) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	switch (orientation) {
 	case $SwingConstants::VERTICAL:
-		{
-			return $nc(visibleRect)->height;
-		}
+		return $nc(visibleRect)->height;
 	case $SwingConstants::HORIZONTAL:
-		{
-			return $nc(visibleRect)->width;
-		}
+		return $nc(visibleRect)->width;
 	default:
-		{
-			$throwNew($IllegalArgumentException, $$str({"Invalid orientation: "_s, $$str(orientation)}));
-		}
+		$throwNew($IllegalArgumentException, $$str({"Invalid orientation: "_s, $$str(orientation)}));
 	}
 }
 
 bool JTextComponent::getScrollableTracksViewportWidth() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Container, parent, $SwingUtilities::getUnwrappedParent(this));
 	if ($instanceOf($JViewport, parent)) {
-		int32_t var$0 = $nc(parent)->getWidth();
+		int32_t var$0 = parent->getWidth();
 		return var$0 > $nc($(getPreferredSize()))->width;
 	}
 	return false;
 }
 
 bool JTextComponent::getScrollableTracksViewportHeight() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Container, parent, $SwingUtilities::getUnwrappedParent(this));
 	if ($instanceOf($JViewport, parent)) {
-		int32_t var$0 = $nc(parent)->getHeight();
+		int32_t var$0 = parent->getHeight();
 		return var$0 > $nc($(getPreferredSize()))->height;
 	}
 	return false;
@@ -1631,7 +1089,7 @@ bool JTextComponent::print($MessageFormat* headerFormat, $MessageFormat* footerF
 }
 
 bool JTextComponent::print($MessageFormat* headerFormat, $MessageFormat* footerFormat, bool showPrintDialog, $PrintService* service, $PrintRequestAttributeSet* attributes, bool interactive) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($PrinterJob, job, $PrinterJob::getPrinterJob());
 	$var($Printable, printable, nullptr);
 	$var($PrintingStatus, printingStatus, nullptr);
@@ -1649,7 +1107,7 @@ bool JTextComponent::print($MessageFormat* headerFormat, $MessageFormat* footerF
 		$nc(job)->setPrintService(service);
 	}
 	$nc(job)->setPrintable(printable);
-	$var($PrintRequestAttributeSet, attr, (attributes == nullptr) ? static_cast<$PrintRequestAttributeSet*>($new($HashPrintRequestAttributeSet)) : attributes);
+	$var($PrintRequestAttributeSet, attr, (attributes == nullptr) ? $cast($PrintRequestAttributeSet, $new($HashPrintRequestAttributeSet)) : attributes);
 	if (showPrintDialog && !isHeadless && !job->printDialog(attr)) {
 		return false;
 	}
@@ -1668,7 +1126,7 @@ bool JTextComponent::print($MessageFormat* headerFormat, $MessageFormat* footerF
 	try {
 		futurePrinting->get();
 	} catch ($InterruptedException& e) {
-		$throwNew($RuntimeException, static_cast<$Throwable*>(e));
+		$throwNew($RuntimeException, e);
 	} catch ($ExecutionException& e) {
 		$var($Throwable, cause, e->getCause());
 		if ($instanceOf($PrinterAbortException, cause)) {
@@ -1684,7 +1142,7 @@ bool JTextComponent::print($MessageFormat* headerFormat, $MessageFormat* footerF
 		} else if ($instanceOf($Error, cause)) {
 			$throw($cast($Error, cause));
 		} else {
-			$throwNew($AssertionError, $of(cause));
+			$throwNew($AssertionError, cause);
 		}
 	}
 	return true;
@@ -1703,29 +1161,29 @@ $AccessibleContext* JTextComponent::getAccessibleContext() {
 
 void JTextComponent::readObject($ObjectInputStream* s) {
 	$var($ObjectInputStream$GetField, f, $nc(s)->readFields());
-	$set(this, model, $cast($Document, $nc(f)->get("model"_s, ($Object*)nullptr)));
-	$set(this, navigationFilter, $cast($NavigationFilter, f->get("navigationFilter"_s, ($Object*)nullptr)));
-	$set(this, caretColor, $cast($Color, f->get("caretColor"_s, ($Object*)nullptr)));
-	$set(this, selectionColor, $cast($Color, f->get("selectionColor"_s, ($Object*)nullptr)));
-	$set(this, selectedTextColor, $cast($Color, f->get("selectedTextColor"_s, ($Object*)nullptr)));
-	$set(this, disabledTextColor, $cast($Color, f->get("disabledTextColor"_s, ($Object*)nullptr)));
+	$set(this, model, $cast($Document, $nc(f)->get("model"_s, nullptr)));
+	$set(this, navigationFilter, $cast($NavigationFilter, f->get("navigationFilter"_s, nullptr)));
+	$set(this, caretColor, $cast($Color, f->get("caretColor"_s, nullptr)));
+	$set(this, selectionColor, $cast($Color, f->get("selectionColor"_s, nullptr)));
+	$set(this, selectedTextColor, $cast($Color, f->get("selectedTextColor"_s, nullptr)));
+	$set(this, disabledTextColor, $cast($Color, f->get("disabledTextColor"_s, nullptr)));
 	this->editable = f->get("editable"_s, false);
-	$set(this, margin, $cast($Insets, f->get("margin"_s, ($Object*)nullptr)));
+	$set(this, margin, $cast($Insets, f->get("margin"_s, nullptr)));
 	this->focusAccelerator = f->get("focusAccelerator"_s, u'\0');
 	bool newDragEnabled = f->get("dragEnabled"_s, false);
 	checkDragEnabled(newDragEnabled);
 	this->dragEnabled = newDragEnabled;
 	$init($DropMode);
-	$DropMode* newDropMode = $cast($DropMode, f->get("dropMode"_s, $of($DropMode::USE_SELECTION)));
+	$DropMode* newDropMode = $cast($DropMode, f->get("dropMode"_s, $DropMode::USE_SELECTION));
 	checkDropMode(newDropMode);
 	$set(this, dropMode, newDropMode);
-	$set(this, composedTextAttribute, $cast($SimpleAttributeSet, f->get("composedTextAttribute"_s, ($Object*)nullptr)));
-	$set(this, composedTextContent, $cast($String, f->get("composedTextContent"_s, ($Object*)nullptr)));
-	$set(this, composedTextStart, $cast($Position, f->get("composedTextStart"_s, ($Object*)nullptr)));
-	$set(this, composedTextEnd, $cast($Position, f->get("composedTextEnd"_s, ($Object*)nullptr)));
-	$set(this, latestCommittedTextStart, $cast($Position, f->get("latestCommittedTextStart"_s, ($Object*)nullptr)));
-	$set(this, latestCommittedTextEnd, $cast($Position, f->get("latestCommittedTextEnd"_s, ($Object*)nullptr)));
-	$set(this, composedTextCaret, $cast($JTextComponent$ComposedTextCaret, f->get("composedTextCaret"_s, ($Object*)nullptr)));
+	$set(this, composedTextAttribute, $cast($SimpleAttributeSet, f->get("composedTextAttribute"_s, nullptr)));
+	$set(this, composedTextContent, $cast($String, f->get("composedTextContent"_s, nullptr)));
+	$set(this, composedTextStart, $cast($Position, f->get("composedTextStart"_s, nullptr)));
+	$set(this, composedTextEnd, $cast($Position, f->get("composedTextEnd"_s, nullptr)));
+	$set(this, latestCommittedTextStart, $cast($Position, f->get("latestCommittedTextStart"_s, nullptr)));
+	$set(this, latestCommittedTextEnd, $cast($Position, f->get("latestCommittedTextEnd"_s, nullptr)));
+	$set(this, composedTextCaret, $cast($JTextComponent$ComposedTextCaret, f->get("composedTextCaret"_s, nullptr)));
 	this->checkedInputOverride = f->get("checkedInputOverride"_s, false);
 	this->needToSendKeyTypedEvent = f->get("needToSendKeyTypedEvent"_s, false);
 	$set(this, caretEvent, $new($JTextComponent$MutableCaretEvent, this));
@@ -1734,28 +1192,28 @@ void JTextComponent::readObject($ObjectInputStream* s) {
 }
 
 $String* JTextComponent::paramString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, editableString, this->editable ? "true"_s : "false"_s);
-	$var($String, caretColorString, this->caretColor != nullptr ? $nc(this->caretColor)->toString() : ""_s);
-	$var($String, selectionColorString, this->selectionColor != nullptr ? $nc(this->selectionColor)->toString() : ""_s);
-	$var($String, selectedTextColorString, this->selectedTextColor != nullptr ? $nc(this->selectedTextColor)->toString() : ""_s);
-	$var($String, disabledTextColorString, this->disabledTextColor != nullptr ? $nc(this->disabledTextColor)->toString() : ""_s);
-	$var($String, marginString, this->margin != nullptr ? $nc(this->margin)->toString() : ""_s);
+	$var($String, caretColorString, this->caretColor != nullptr ? this->caretColor->toString() : ""_s);
+	$var($String, selectionColorString, this->selectionColor != nullptr ? this->selectionColor->toString() : ""_s);
+	$var($String, selectedTextColorString, this->selectedTextColor != nullptr ? this->selectedTextColor->toString() : ""_s);
+	$var($String, disabledTextColorString, this->disabledTextColor != nullptr ? this->disabledTextColor->toString() : ""_s);
+	$var($String, marginString, this->margin != nullptr ? this->margin->toString() : ""_s);
 	return $str({$($JComponent::paramString()), ",caretColor="_s, caretColorString, ",disabledTextColor="_s, disabledTextColorString, ",editable="_s, editableString, ",margin="_s, marginString, ",selectedTextColor="_s, selectedTextColorString, ",selectionColor="_s, selectionColorString});
 }
 
 JTextComponent* JTextComponent::getFocusedComponent() {
 	$init(JTextComponent);
-	return $cast(JTextComponent, $nc($($AppContext::getAppContext()))->get(JTextComponent::FOCUSED_COMPONENT));
+	return $cast(JTextComponent, $$nc($AppContext::getAppContext())->get(JTextComponent::FOCUSED_COMPONENT));
 }
 
 int32_t JTextComponent::getCurrentEventModifiers() {
 	int32_t modifiers = 0;
 	$var($AWTEvent, currentEvent, $EventQueue::getCurrentEvent());
 	if ($instanceOf($InputEvent, currentEvent)) {
-		modifiers = $nc(($cast($InputEvent, currentEvent)))->getModifiers();
+		modifiers = $cast($InputEvent, currentEvent)->getModifiers();
 	} else if ($instanceOf($ActionEvent, currentEvent)) {
-		modifiers = $nc(($cast($ActionEvent, currentEvent)))->getModifiers();
+		modifiers = $cast($ActionEvent, currentEvent)->getModifiers();
 	}
 	return modifiers;
 }
@@ -1768,14 +1226,10 @@ void JTextComponent::processInputMethodEvent($InputMethodEvent* e) {
 		} else {
 			switch (e->getID()) {
 			case $InputMethodEvent::INPUT_METHOD_TEXT_CHANGED:
-				{
-					replaceInputMethodText(e);
-				}
+				replaceInputMethodText(e);
 			case $InputMethodEvent::CARET_POSITION_CHANGED:
-				{
-					setInputMethodCaretPosition(e);
-					break;
-				}
+				setInputMethodCaretPosition(e);
+				break;
 			}
 		}
 		e->consume();
@@ -1802,7 +1256,7 @@ void JTextComponent::addInputMethodListener($InputMethodListener* l) {
 }
 
 void JTextComponent::replaceInputMethodText($InputMethodEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t commitCount = $nc(e)->getCommittedCharacterCount();
 	$var($AttributedCharacterIterator, text, e->getText());
 	int32_t composedTextIndex = 0;
@@ -1811,10 +1265,10 @@ void JTextComponent::replaceInputMethodText($InputMethodEvent* e) {
 		try {
 			int32_t var$0 = $nc(this->composedTextStart)->getOffset();
 			int32_t var$1 = $nc(this->composedTextEnd)->getOffset();
-			$nc(doc)->remove(var$0, var$1 - $nc(this->composedTextStart)->getOffset());
+			$nc(doc)->remove(var$0, var$1 - this->composedTextStart->getOffset());
 		} catch ($BadLocationException& ble) {
 		}
-		$set(this, composedTextStart, ($set(this, composedTextEnd, nullptr)));
+		$set(this, composedTextStart, $set(this, composedTextEnd, nullptr));
 		$set(this, composedTextAttribute, nullptr);
 		$set(this, composedTextContent, nullptr);
 	}
@@ -1848,7 +1302,7 @@ void JTextComponent::replaceInputMethodText($InputMethodEvent* e) {
 				$set(this, composedTextStart, doc->createPosition(var$2 - $nc(this->composedTextContent)->length()));
 				$set(this, composedTextEnd, doc->createPosition($nc(this->caret)->getDot()));
 			} catch ($BadLocationException& ble) {
-				$set(this, composedTextStart, ($set(this, composedTextEnd, nullptr)));
+				$set(this, composedTextStart, $set(this, composedTextEnd, nullptr));
 				$set(this, composedTextAttribute, nullptr);
 				$set(this, composedTextContent, nullptr);
 			}
@@ -1858,16 +1312,16 @@ void JTextComponent::replaceInputMethodText($InputMethodEvent* e) {
 				$set(this, latestCommittedTextStart, $nc(doc)->createPosition(committedTextStartIndex));
 				$set(this, latestCommittedTextEnd, doc->createPosition(committedTextEndIndex));
 			} catch ($BadLocationException& ble) {
-				$set(this, latestCommittedTextStart, ($set(this, latestCommittedTextEnd, nullptr)));
+				$set(this, latestCommittedTextStart, $set(this, latestCommittedTextEnd, nullptr));
 			}
 		} else {
-			$set(this, latestCommittedTextStart, ($set(this, latestCommittedTextEnd, nullptr)));
+			$set(this, latestCommittedTextStart, $set(this, latestCommittedTextEnd, nullptr));
 		}
 	}
 }
 
 void JTextComponent::createComposedTextAttribute(int32_t composedIndex, $AttributedCharacterIterator* text) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Document, doc, getDocument());
 	$var($StringBuilder, strBuf, $new($StringBuilder));
 	for (char16_t c = $nc(text)->setIndex(composedIndex); c != $CharacterIterator::DONE; c = text->next()) {
@@ -1876,7 +1330,7 @@ void JTextComponent::createComposedTextAttribute(int32_t composedIndex, $Attribu
 	$set(this, composedTextContent, strBuf->toString());
 	$set(this, composedTextAttribute, $new($SimpleAttributeSet));
 	$init($StyleConstants);
-	$nc(this->composedTextAttribute)->addAttribute($StyleConstants::ComposedTextAttribute, $$new($AttributedString, text, composedIndex, text->getEndIndex()));
+	this->composedTextAttribute->addAttribute($StyleConstants::ComposedTextAttribute, $$new($AttributedString, text, composedIndex, text->getEndIndex()));
 }
 
 bool JTextComponent::saveComposedText(int32_t pos) {
@@ -1886,7 +1340,7 @@ bool JTextComponent::saveComposedText(int32_t pos) {
 		int32_t len = var$0 - $nc(this->composedTextStart)->getOffset();
 		if (pos >= start && pos <= start + len) {
 			try {
-				$nc($(getDocument()))->remove(start, len);
+				$$nc(getDocument())->remove(start, len);
 				return true;
 			} catch ($BadLocationException& ble) {
 			}
@@ -1907,7 +1361,7 @@ void JTextComponent::restoreComposedText() {
 }
 
 void JTextComponent::mapCommittedTextToAction($String* committedText) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Keymap, binding, getKeymap());
 	if (binding != nullptr) {
 		$var($Action, a, nullptr);
@@ -1919,16 +1373,15 @@ void JTextComponent::mapCommittedTextToAction($String* committedText) {
 			$assign(a, binding->getDefaultAction());
 		}
 		if (a != nullptr) {
-			$var($String, var$0, committedText);
-			int64_t var$1 = $EventQueue::getMostRecentEventTime();
-			$var($ActionEvent, ae, $new($ActionEvent, this, $ActionEvent::ACTION_PERFORMED, var$0, var$1, getCurrentEventModifiers()));
+			int64_t var$0 = $EventQueue::getMostRecentEventTime();
+			$var($ActionEvent, ae, $new($ActionEvent, this, $ActionEvent::ACTION_PERFORMED, committedText, var$0, getCurrentEventModifiers()));
 			a->actionPerformed(ae);
 		}
 	}
 }
 
 void JTextComponent::setInputMethodCaretPosition($InputMethodEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t dot = 0;
 	if (composedTextExists()) {
 		dot = $nc(this->composedTextStart)->getOffset();
@@ -1948,7 +1401,7 @@ void JTextComponent::setInputMethodCaretPosition($InputMethodEvent* e) {
 					$var($Rectangle, d, modelToView(dot));
 					$var($Rectangle, end, modelToView($nc(this->composedTextEnd)->getOffset()));
 					$var($Rectangle, b, getBounds());
-					$nc(d)->x += $Math::min($nc(end)->x - d->x, $nc(b)->width);
+					$nc(d)->x += $Math::min($nc(end)->x - $nc(d)->x, $nc(b)->width);
 					scrollRectToVisible(d);
 				} catch ($BadLocationException& ble) {
 				}
@@ -1956,7 +1409,7 @@ void JTextComponent::setInputMethodCaretPosition($InputMethodEvent* e) {
 		}
 		$nc(this->caret)->setDot(dot);
 	} else if ($instanceOf($JTextComponent$ComposedTextCaret, this->caret)) {
-		dot = $nc(this->caret)->getDot();
+		dot = this->caret->getDot();
 		exchangeCaret(this->caret, this->originalCaret);
 		$nc(this->caret)->setDot(dot);
 	}
@@ -1971,7 +1424,7 @@ void JTextComponent::exchangeCaret($Caret* oldCaret, $Caret* newCaret) {
 
 bool JTextComponent::shouldSynthensizeKeyEvents() {
 	if (!this->checkedInputOverride) {
-		this->needToSendKeyTypedEvent = !$nc(($cast($Boolean, $($nc(JTextComponent::METHOD_OVERRIDDEN)->get($of(this)->getClass())))))->booleanValue();
+		this->needToSendKeyTypedEvent = !$$sure($Boolean, $nc(JTextComponent::METHOD_OVERRIDDEN)->get($of(this)->getClass()))->booleanValue();
 		this->checkedInputOverride = true;
 	}
 	return this->needToSendKeyTypedEvent;
@@ -1981,7 +1434,7 @@ bool JTextComponent::composedTextExists() {
 	return (this->composedTextStart != nullptr);
 }
 
-void clinit$JTextComponent($Class* class$) {
+void JTextComponent::clinit$($Class* clazz) {
 	$assignStatic(JTextComponent::FOCUS_ACCELERATOR_KEY, "focusAcceleratorKey"_s);
 	$assignStatic(JTextComponent::DEFAULT_KEYMAP, "default"_s);
 	{
@@ -1997,7 +1450,445 @@ JTextComponent::JTextComponent() {
 }
 
 $Class* JTextComponent::load$($String* name, bool initialize) {
-	$loadClass(JTextComponent, name, initialize, &_JTextComponent_ClassInfo_, clinit$JTextComponent, allocate$JTextComponent);
+	$FieldInfo fieldInfos$$[] = {
+		{"FOCUS_ACCELERATOR_KEY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JTextComponent, FOCUS_ACCELERATOR_KEY)},
+		{"model", "Ljavax/swing/text/Document;", nullptr, $PRIVATE, $field(JTextComponent, model)},
+		{"caret", "Ljavax/swing/text/Caret;", nullptr, $PRIVATE | $TRANSIENT, $field(JTextComponent, caret)},
+		{"navigationFilter", "Ljavax/swing/text/NavigationFilter;", nullptr, $PRIVATE, $field(JTextComponent, navigationFilter)},
+		{"highlighter", "Ljavax/swing/text/Highlighter;", nullptr, $PRIVATE | $TRANSIENT, $field(JTextComponent, highlighter)},
+		{"keymap", "Ljavax/swing/text/Keymap;", nullptr, $PRIVATE | $TRANSIENT, $field(JTextComponent, keymap)},
+		{"caretEvent", "Ljavax/swing/text/JTextComponent$MutableCaretEvent;", nullptr, $PRIVATE | $TRANSIENT, $field(JTextComponent, caretEvent)},
+		{"caretColor", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(JTextComponent, caretColor)},
+		{"selectionColor", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(JTextComponent, selectionColor)},
+		{"selectedTextColor", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(JTextComponent, selectedTextColor)},
+		{"disabledTextColor", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(JTextComponent, disabledTextColor)},
+		{"editable", "Z", nullptr, $PRIVATE, $field(JTextComponent, editable)},
+		{"margin", "Ljava/awt/Insets;", nullptr, $PRIVATE, $field(JTextComponent, margin)},
+		{"focusAccelerator", "C", nullptr, $PRIVATE, $field(JTextComponent, focusAccelerator)},
+		{"dragEnabled", "Z", nullptr, $PRIVATE, $field(JTextComponent, dragEnabled)},
+		{"dropMode", "Ljavax/swing/DropMode;", nullptr, $PRIVATE, $field(JTextComponent, dropMode)},
+		{"dropLocation", "Ljavax/swing/text/JTextComponent$DropLocation;", nullptr, $PRIVATE | $TRANSIENT, $field(JTextComponent, dropLocation)},
+		{"defaultTransferHandler", "Ljavax/swing/text/JTextComponent$DefaultTransferHandler;", nullptr, $PRIVATE | $STATIC, $staticField(JTextComponent, defaultTransferHandler)},
+		{"METHOD_OVERRIDDEN", "Lcom/sun/beans/util/Cache;", "Lcom/sun/beans/util/Cache<Ljava/lang/Class<*>;Ljava/lang/Boolean;>;", $PRIVATE | $STATIC, $staticField(JTextComponent, METHOD_OVERRIDDEN)},
+		{"KEYMAP_TABLE", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JTextComponent, KEYMAP_TABLE)},
+		{"inputMethodRequestsHandler", "Ljava/awt/im/InputMethodRequests;", nullptr, $PRIVATE | $TRANSIENT, $field(JTextComponent, inputMethodRequestsHandler)},
+		{"composedTextAttribute", "Ljavax/swing/text/SimpleAttributeSet;", nullptr, $PRIVATE, $field(JTextComponent, composedTextAttribute)},
+		{"composedTextContent", "Ljava/lang/String;", nullptr, $PRIVATE, $field(JTextComponent, composedTextContent)},
+		{"composedTextStart", "Ljavax/swing/text/Position;", nullptr, $PRIVATE, $field(JTextComponent, composedTextStart)},
+		{"composedTextEnd", "Ljavax/swing/text/Position;", nullptr, $PRIVATE, $field(JTextComponent, composedTextEnd)},
+		{"latestCommittedTextStart", "Ljavax/swing/text/Position;", nullptr, $PRIVATE, $field(JTextComponent, latestCommittedTextStart)},
+		{"latestCommittedTextEnd", "Ljavax/swing/text/Position;", nullptr, $PRIVATE, $field(JTextComponent, latestCommittedTextEnd)},
+		{"composedTextCaret", "Ljavax/swing/text/JTextComponent$ComposedTextCaret;", nullptr, $PRIVATE, $field(JTextComponent, composedTextCaret)},
+		{"originalCaret", "Ljavax/swing/text/Caret;", nullptr, $PRIVATE | $TRANSIENT, $field(JTextComponent, originalCaret)},
+		{"checkedInputOverride", "Z", nullptr, $PRIVATE, $field(JTextComponent, checkedInputOverride)},
+		{"needToSendKeyTypedEvent", "Z", nullptr, $PRIVATE, $field(JTextComponent, needToSendKeyTypedEvent)},
+		{"FOCUSED_COMPONENT", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JTextComponent, FOCUSED_COMPONENT)},
+		{"DEFAULT_KEYMAP", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JTextComponent, DEFAULT_KEYMAP)},
+		{}
+	};
+	$NamedAttribute getAccessibleContextmethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{}
+	};
+	$CompoundAttribute getAccessibleContextmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", getAccessibleContextmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute getActionsmethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{}
+	};
+	$CompoundAttribute getActionsmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", getActionsmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$CompoundAttribute getCaretmethodAnnotations$$[] = {
+		{"Ljava/beans/Transient;", nullptr},
+		{}
+	};
+	$NamedAttribute getCaretListenersmethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{}
+	};
+	$CompoundAttribute getCaretListenersmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", getCaretListenersmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$CompoundAttribute getCaretPositionmethodAnnotations$$[] = {
+		{"Ljava/beans/Transient;", nullptr},
+		{}
+	};
+	$NamedAttribute getDropLocationmethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{}
+	};
+	$CompoundAttribute getDropLocationmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", getDropLocationmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute getInputMethodRequestsmethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{}
+	};
+	$CompoundAttribute getInputMethodRequestsmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", getInputMethodRequestsmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute getPreferredScrollableViewportSizemethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{}
+	};
+	$CompoundAttribute getPreferredScrollableViewportSizemethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", getPreferredScrollableViewportSizemethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute getScrollableTracksViewportHeightmethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{}
+	};
+	$CompoundAttribute getScrollableTracksViewportHeightmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", getScrollableTracksViewportHeightmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute getScrollableTracksViewportWidthmethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{}
+	};
+	$CompoundAttribute getScrollableTracksViewportWidthmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", getScrollableTracksViewportWidthmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute getSelectedTextmethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{}
+	};
+	$CompoundAttribute getSelectedTextmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", getSelectedTextmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$CompoundAttribute getSelectionEndmethodAnnotations$$[] = {
+		{"Ljava/beans/Transient;", nullptr},
+		{}
+	};
+	$CompoundAttribute getSelectionStartmethodAnnotations$$[] = {
+		{"Ljava/beans/Transient;", nullptr},
+		{}
+	};
+	$NamedAttribute modelToViewmethodAnnotations$$$namedAttribute[] = {
+		{"since", 's', "9"},
+		{}
+	};
+	$CompoundAttribute modelToViewmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", modelToViewmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setCaretmethodAnnotations$$$namedAttribute[] = {
+		{"expert", 'Z', "true"},
+		{"description", 's', "the caret used to select/navigate"},
+		{}
+	};
+	$CompoundAttribute setCaretmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setCaretmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setCaretColormethodAnnotations$$$namedAttribute[] = {
+		{"preferred", 'Z', "true"},
+		{"description", 's', "the color used to render the caret"},
+		{}
+	};
+	$CompoundAttribute setCaretColormethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setCaretColormethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setCaretPositionmethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{"description", 's', "the caret position"},
+		{}
+	};
+	$CompoundAttribute setCaretPositionmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setCaretPositionmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setDisabledTextColormethodAnnotations$$$namedAttribute[] = {
+		{"preferred", 'Z', "true"},
+		{"description", 's', "color used to render disabled text"},
+		{}
+	};
+	$CompoundAttribute setDisabledTextColormethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setDisabledTextColormethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setDocumentmethodAnnotations$$$namedAttribute[] = {
+		{"expert", 'Z', "true"},
+		{"description", 's', "the text document model"},
+		{}
+	};
+	$CompoundAttribute setDocumentmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setDocumentmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setDragEnabledmethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{"description", 's', "determines whether automatic drag handling is enabled"},
+		{}
+	};
+	$CompoundAttribute setDragEnabledmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setDragEnabledmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setEditablemethodAnnotations$$$namedAttribute[] = {
+		{"description", 's', "specifies if the text can be edited"},
+		{}
+	};
+	$CompoundAttribute setEditablemethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setEditablemethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setFocusAcceleratormethodAnnotations$$$namedAttribute[] = {
+		{"description", 's', "accelerator character used to grab focus"},
+		{}
+	};
+	$CompoundAttribute setFocusAcceleratormethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setFocusAcceleratormethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setHighlightermethodAnnotations$$$namedAttribute[] = {
+		{"expert", 'Z', "true"},
+		{"description", 's', "object responsible for background highlights"},
+		{}
+	};
+	$CompoundAttribute setHighlightermethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setHighlightermethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setKeymapmethodAnnotations$$$namedAttribute[] = {
+		{"description", 's', "set of key event to action bindings to use"},
+		{}
+	};
+	$CompoundAttribute setKeymapmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setKeymapmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setMarginmethodAnnotations$$$namedAttribute[] = {
+		{"description", 's', "desired space between the border and text area"},
+		{}
+	};
+	$CompoundAttribute setMarginmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setMarginmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setSelectedTextColormethodAnnotations$$$namedAttribute[] = {
+		{"preferred", 'Z', "true"},
+		{"description", 's', "color used to render selected text"},
+		{}
+	};
+	$CompoundAttribute setSelectedTextColormethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setSelectedTextColormethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setSelectionColormethodAnnotations$$$namedAttribute[] = {
+		{"preferred", 'Z', "true"},
+		{"description", 's', "color used to render selection background"},
+		{}
+	};
+	$CompoundAttribute setSelectionColormethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setSelectionColormethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setSelectionEndmethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{"description", 's', "ending location of the selection."},
+		{}
+	};
+	$CompoundAttribute setSelectionEndmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setSelectionEndmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setSelectionStartmethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{"description", 's', "starting location of the selection."},
+		{}
+	};
+	$CompoundAttribute setSelectionStartmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setSelectionStartmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setTextmethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{"description", 's', "the text of this component"},
+		{}
+	};
+	$CompoundAttribute setTextmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setTextmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute viewToModelmethodAnnotations$$$namedAttribute[] = {
+		{"since", 's', "9"},
+		{}
+	};
+	$CompoundAttribute viewToModelmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", viewToModelmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(JTextComponent, init$, void)},
+		{"addCaretListener", "(Ljavax/swing/event/CaretListener;)V", nullptr, $PUBLIC, $virtualMethod(JTextComponent, addCaretListener, void, $CaretListener*)},
+		{"addInputMethodListener", "(Ljava/awt/event/InputMethodListener;)V", nullptr, $PUBLIC, $virtualMethod(JTextComponent, addInputMethodListener, void, $InputMethodListener*)},
+		{"addKeymap", "(Ljava/lang/String;Ljavax/swing/text/Keymap;)Ljavax/swing/text/Keymap;", nullptr, $PUBLIC | $STATIC, $staticMethod(JTextComponent, addKeymap, $Keymap*, $String*, $Keymap*)},
+		{"checkDragEnabled", "(Z)V", nullptr, $PRIVATE | $STATIC, $staticMethod(JTextComponent, checkDragEnabled, void, bool)},
+		{"checkDropMode", "(Ljavax/swing/DropMode;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(JTextComponent, checkDropMode, void, $DropMode*)},
+		{"composedTextExists", "()Z", nullptr, 0, $virtualMethod(JTextComponent, composedTextExists, bool)},
+		{"copy", "()V", nullptr, $PUBLIC, $virtualMethod(JTextComponent, copy, void)},
+		{"createComposedTextAttribute", "(ILjava/text/AttributedCharacterIterator;)V", nullptr, $PRIVATE, $method(JTextComponent, createComposedTextAttribute, void, int32_t, $AttributedCharacterIterator*)},
+		{"cut", "()V", nullptr, $PUBLIC, $virtualMethod(JTextComponent, cut, void)},
+		{"dropLocationForPoint", "(Ljava/awt/Point;)Ljavax/swing/text/JTextComponent$DropLocation;", nullptr, 0, $virtualMethod(JTextComponent, dropLocationForPoint, $TransferHandler$DropLocation*, $Point*)},
+		{"exchangeCaret", "(Ljavax/swing/text/Caret;Ljavax/swing/text/Caret;)V", nullptr, $PRIVATE, $method(JTextComponent, exchangeCaret, void, $Caret*, $Caret*)},
+		{"fireCaretUpdate", "(Ljavax/swing/event/CaretEvent;)V", nullptr, $PROTECTED, $virtualMethod(JTextComponent, fireCaretUpdate, void, $CaretEvent*)},
+		{"getAccessibleContext", "()Ljavax/accessibility/AccessibleContext;", nullptr, $PUBLIC, $virtualMethod(JTextComponent, getAccessibleContext, $AccessibleContext*), nullptr, nullptr, getAccessibleContextmethodAnnotations$$},
+		{"getActions", "()[Ljavax/swing/Action;", nullptr, $PUBLIC, $virtualMethod(JTextComponent, getActions, $ActionArray*), nullptr, nullptr, getActionsmethodAnnotations$$},
+		{"getCaret", "()Ljavax/swing/text/Caret;", nullptr, $PUBLIC, $virtualMethod(JTextComponent, getCaret, $Caret*), nullptr, nullptr, getCaretmethodAnnotations$$},
+		{"getCaretColor", "()Ljava/awt/Color;", nullptr, $PUBLIC, $virtualMethod(JTextComponent, getCaretColor, $Color*)},
+		{"getCaretListeners", "()[Ljavax/swing/event/CaretListener;", nullptr, $PUBLIC, $virtualMethod(JTextComponent, getCaretListeners, $CaretListenerArray*), nullptr, nullptr, getCaretListenersmethodAnnotations$$},
+		{"getCaretPosition", "()I", nullptr, $PUBLIC, $virtualMethod(JTextComponent, getCaretPosition, int32_t), nullptr, nullptr, getCaretPositionmethodAnnotations$$},
+		{"getCurrentEventModifiers", "()I", nullptr, $PRIVATE, $method(JTextComponent, getCurrentEventModifiers, int32_t)},
+		{"getDisabledTextColor", "()Ljava/awt/Color;", nullptr, $PUBLIC, $virtualMethod(JTextComponent, getDisabledTextColor, $Color*)},
+		{"getDocument", "()Ljavax/swing/text/Document;", nullptr, $PUBLIC, $virtualMethod(JTextComponent, getDocument, $Document*)},
+		{"getDragEnabled", "()Z", nullptr, $PUBLIC, $virtualMethod(JTextComponent, getDragEnabled, bool)},
+		{"getDropLocation", "()Ljavax/swing/text/JTextComponent$DropLocation;", nullptr, $PUBLIC | $FINAL, $method(JTextComponent, getDropLocation, $JTextComponent$DropLocation*), nullptr, nullptr, getDropLocationmethodAnnotations$$},
+		{"getDropMode", "()Ljavax/swing/DropMode;", nullptr, $PUBLIC | $FINAL, $method(JTextComponent, getDropMode, $DropMode*)},
+		{"getFocusAccelerator", "()C", nullptr, $PUBLIC, $virtualMethod(JTextComponent, getFocusAccelerator, char16_t)},
+		{"getFocusedComponent", "()Ljavax/swing/text/JTextComponent;", nullptr, $STATIC | $FINAL, $staticMethod(JTextComponent, getFocusedComponent, JTextComponent*)},
+		{"getHighlighter", "()Ljavax/swing/text/Highlighter;", nullptr, $PUBLIC, $virtualMethod(JTextComponent, getHighlighter, $Highlighter*)},
+		{"getInputMethodRequests", "()Ljava/awt/im/InputMethodRequests;", nullptr, $PUBLIC, $virtualMethod(JTextComponent, getInputMethodRequests, $InputMethodRequests*), nullptr, nullptr, getInputMethodRequestsmethodAnnotations$$},
+		{"getKeymap", "()Ljavax/swing/text/Keymap;", nullptr, $PUBLIC, $virtualMethod(JTextComponent, getKeymap, $Keymap*)},
+		{"getKeymap", "(Ljava/lang/String;)Ljavax/swing/text/Keymap;", nullptr, $PUBLIC | $STATIC, $staticMethod(JTextComponent, getKeymap, $Keymap*, $String*)},
+		{"getKeymapTable", "()Ljava/util/HashMap;", "()Ljava/util/HashMap<Ljava/lang/String;Ljavax/swing/text/Keymap;>;", $PRIVATE | $STATIC, $staticMethod(JTextComponent, getKeymapTable, $HashMap*)},
+		{"getMargin", "()Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(JTextComponent, getMargin, $Insets*)},
+		{"getNavigationFilter", "()Ljavax/swing/text/NavigationFilter;", nullptr, $PUBLIC, $virtualMethod(JTextComponent, getNavigationFilter, $NavigationFilter*)},
+		{"getPreferredScrollableViewportSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(JTextComponent, getPreferredScrollableViewportSize, $Dimension*), nullptr, nullptr, getPreferredScrollableViewportSizemethodAnnotations$$},
+		{"getPrintable", "(Ljava/text/MessageFormat;Ljava/text/MessageFormat;)Ljava/awt/print/Printable;", nullptr, $PUBLIC, $virtualMethod(JTextComponent, getPrintable, $Printable*, $MessageFormat*, $MessageFormat*)},
+		{"getScrollableBlockIncrement", "(Ljava/awt/Rectangle;II)I", nullptr, $PUBLIC, $virtualMethod(JTextComponent, getScrollableBlockIncrement, int32_t, $Rectangle*, int32_t, int32_t)},
+		{"getScrollableTracksViewportHeight", "()Z", nullptr, $PUBLIC, $virtualMethod(JTextComponent, getScrollableTracksViewportHeight, bool), nullptr, nullptr, getScrollableTracksViewportHeightmethodAnnotations$$},
+		{"getScrollableTracksViewportWidth", "()Z", nullptr, $PUBLIC, $virtualMethod(JTextComponent, getScrollableTracksViewportWidth, bool), nullptr, nullptr, getScrollableTracksViewportWidthmethodAnnotations$$},
+		{"getScrollableUnitIncrement", "(Ljava/awt/Rectangle;II)I", nullptr, $PUBLIC, $virtualMethod(JTextComponent, getScrollableUnitIncrement, int32_t, $Rectangle*, int32_t, int32_t)},
+		{"getSelectedText", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JTextComponent, getSelectedText, $String*), nullptr, nullptr, getSelectedTextmethodAnnotations$$},
+		{"getSelectedTextColor", "()Ljava/awt/Color;", nullptr, $PUBLIC, $virtualMethod(JTextComponent, getSelectedTextColor, $Color*)},
+		{"getSelectionColor", "()Ljava/awt/Color;", nullptr, $PUBLIC, $virtualMethod(JTextComponent, getSelectionColor, $Color*)},
+		{"getSelectionEnd", "()I", nullptr, $PUBLIC, $virtualMethod(JTextComponent, getSelectionEnd, int32_t), nullptr, nullptr, getSelectionEndmethodAnnotations$$},
+		{"getSelectionStart", "()I", nullptr, $PUBLIC, $virtualMethod(JTextComponent, getSelectionStart, int32_t), nullptr, nullptr, getSelectionStartmethodAnnotations$$},
+		{"getText", "(II)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JTextComponent, getText, $String*, int32_t, int32_t), "javax.swing.text.BadLocationException"},
+		{"getText", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JTextComponent, getText, $String*)},
+		{"getToolTipText", "(Ljava/awt/event/MouseEvent;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JTextComponent, getToolTipText, $String*, $MouseEvent*)},
+		{"getUI", "()Ljavax/swing/plaf/TextUI;", nullptr, $PUBLIC, $virtualMethod(JTextComponent, getUI, $ComponentUI*)},
+		{"installDefaultTransferHandlerIfNecessary", "()V", nullptr, $PRIVATE, $method(JTextComponent, installDefaultTransferHandlerIfNecessary, void)},
+		{"invokeAction", "(Ljava/lang/String;Ljavax/swing/Action;)V", nullptr, $PRIVATE, $method(JTextComponent, invokeAction, void, $String*, $Action*)},
+		{"isEditable", "()Z", nullptr, $PUBLIC, $virtualMethod(JTextComponent, isEditable, bool)},
+		{"loadKeymap", "(Ljavax/swing/text/Keymap;[Ljavax/swing/text/JTextComponent$KeyBinding;[Ljavax/swing/Action;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(JTextComponent, loadKeymap, void, $Keymap*, $JTextComponent$KeyBindingArray*, $ActionArray*)},
+		{"mapCommittedTextToAction", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(JTextComponent, mapCommittedTextToAction, void, $String*)},
+		{"modelToView", "(I)Ljava/awt/Rectangle;", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(JTextComponent, modelToView, $Rectangle*, int32_t), "javax.swing.text.BadLocationException", nullptr, modelToViewmethodAnnotations$$},
+		{"modelToView2D", "(I)Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC, $virtualMethod(JTextComponent, modelToView2D, $Rectangle2D*, int32_t), "javax.swing.text.BadLocationException"},
+		{"moveCaretPosition", "(I)V", nullptr, $PUBLIC, $virtualMethod(JTextComponent, moveCaretPosition, void, int32_t)},
+		{"paramString", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(JTextComponent, paramString, $String*)},
+		{"paste", "()V", nullptr, $PUBLIC, $virtualMethod(JTextComponent, paste, void)},
+		{"print", "()Z", nullptr, $PUBLIC, $virtualMethod(JTextComponent, print, bool), "java.awt.print.PrinterException"},
+		{"print", "(Ljava/text/MessageFormat;Ljava/text/MessageFormat;)Z", nullptr, $PUBLIC, $virtualMethod(JTextComponent, print, bool, $MessageFormat*, $MessageFormat*), "java.awt.print.PrinterException"},
+		{"print", "(Ljava/text/MessageFormat;Ljava/text/MessageFormat;ZLjavax/print/PrintService;Ljavax/print/attribute/PrintRequestAttributeSet;Z)Z", nullptr, $PUBLIC, $virtualMethod(JTextComponent, print, bool, $MessageFormat*, $MessageFormat*, bool, $PrintService*, $PrintRequestAttributeSet*, bool), "java.awt.print.PrinterException"},
+		{"processInputMethodEvent", "(Ljava/awt/event/InputMethodEvent;)V", nullptr, $PROTECTED, $virtualMethod(JTextComponent, processInputMethodEvent, void, $InputMethodEvent*)},
+		{"read", "(Ljava/io/Reader;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(JTextComponent, read, void, $Reader*, Object$*), "java.io.IOException"},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(JTextComponent, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+		{"removeCaretListener", "(Ljavax/swing/event/CaretListener;)V", nullptr, $PUBLIC, $virtualMethod(JTextComponent, removeCaretListener, void, $CaretListener*)},
+		{"removeKeymap", "(Ljava/lang/String;)Ljavax/swing/text/Keymap;", nullptr, $PUBLIC | $STATIC, $staticMethod(JTextComponent, removeKeymap, $Keymap*, $String*)},
+		{"removeNotify", "()V", nullptr, $PUBLIC, $virtualMethod(JTextComponent, removeNotify, void)},
+		{"replaceInputMethodText", "(Ljava/awt/event/InputMethodEvent;)V", nullptr, $PRIVATE, $method(JTextComponent, replaceInputMethodText, void, $InputMethodEvent*)},
+		{"replaceSelection", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(JTextComponent, replaceSelection, void, $String*)},
+		{"restoreComposedText", "()V", nullptr, $PROTECTED, $virtualMethod(JTextComponent, restoreComposedText, void)},
+		{"saveComposedText", "(I)Z", nullptr, $PROTECTED, $virtualMethod(JTextComponent, saveComposedText, bool, int32_t)},
+		{"select", "(II)V", nullptr, $PUBLIC, $virtualMethod(JTextComponent, select, void, int32_t, int32_t)},
+		{"selectAll", "()V", nullptr, $PUBLIC, $virtualMethod(JTextComponent, selectAll, void)},
+		{"setCaret", "(Ljavax/swing/text/Caret;)V", nullptr, $PUBLIC, $virtualMethod(JTextComponent, setCaret, void, $Caret*), nullptr, nullptr, setCaretmethodAnnotations$$},
+		{"setCaretColor", "(Ljava/awt/Color;)V", nullptr, $PUBLIC, $virtualMethod(JTextComponent, setCaretColor, void, $Color*), nullptr, nullptr, setCaretColormethodAnnotations$$},
+		{"setCaretPosition", "(I)V", nullptr, $PUBLIC, $virtualMethod(JTextComponent, setCaretPosition, void, int32_t), nullptr, nullptr, setCaretPositionmethodAnnotations$$},
+		{"setComponentOrientation", "(Ljava/awt/ComponentOrientation;)V", nullptr, $PUBLIC, $virtualMethod(JTextComponent, setComponentOrientation, void, $ComponentOrientation*)},
+		{"setDisabledTextColor", "(Ljava/awt/Color;)V", nullptr, $PUBLIC, $virtualMethod(JTextComponent, setDisabledTextColor, void, $Color*), nullptr, nullptr, setDisabledTextColormethodAnnotations$$},
+		{"setDocument", "(Ljavax/swing/text/Document;)V", nullptr, $PUBLIC, $virtualMethod(JTextComponent, setDocument, void, $Document*), nullptr, nullptr, setDocumentmethodAnnotations$$},
+		{"setDragEnabled", "(Z)V", nullptr, $PUBLIC, $virtualMethod(JTextComponent, setDragEnabled, void, bool), nullptr, nullptr, setDragEnabledmethodAnnotations$$},
+		{"setDropLocation", "(Ljavax/swing/TransferHandler$DropLocation;Ljava/lang/Object;Z)Ljava/lang/Object;", nullptr, 0, $virtualMethod(JTextComponent, setDropLocation, $Object*, $TransferHandler$DropLocation*, Object$*, bool)},
+		{"setDropMode", "(Ljavax/swing/DropMode;)V", nullptr, $PUBLIC | $FINAL, $method(JTextComponent, setDropMode, void, $DropMode*)},
+		{"setEditable", "(Z)V", nullptr, $PUBLIC, $virtualMethod(JTextComponent, setEditable, void, bool), nullptr, nullptr, setEditablemethodAnnotations$$},
+		{"setFocusAccelerator", "(C)V", nullptr, $PUBLIC, $virtualMethod(JTextComponent, setFocusAccelerator, void, char16_t), nullptr, nullptr, setFocusAcceleratormethodAnnotations$$},
+		{"setHighlighter", "(Ljavax/swing/text/Highlighter;)V", nullptr, $PUBLIC, $virtualMethod(JTextComponent, setHighlighter, void, $Highlighter*), nullptr, nullptr, setHighlightermethodAnnotations$$},
+		{"setInputMethodCaretPosition", "(Ljava/awt/event/InputMethodEvent;)V", nullptr, $PRIVATE, $method(JTextComponent, setInputMethodCaretPosition, void, $InputMethodEvent*)},
+		{"setKeymap", "(Ljavax/swing/text/Keymap;)V", nullptr, $PUBLIC, $virtualMethod(JTextComponent, setKeymap, void, $Keymap*), nullptr, nullptr, setKeymapmethodAnnotations$$},
+		{"setMargin", "(Ljava/awt/Insets;)V", nullptr, $PUBLIC, $virtualMethod(JTextComponent, setMargin, void, $Insets*), nullptr, nullptr, setMarginmethodAnnotations$$},
+		{"setNavigationFilter", "(Ljavax/swing/text/NavigationFilter;)V", nullptr, $PUBLIC, $virtualMethod(JTextComponent, setNavigationFilter, void, $NavigationFilter*)},
+		{"setSelectedTextColor", "(Ljava/awt/Color;)V", nullptr, $PUBLIC, $virtualMethod(JTextComponent, setSelectedTextColor, void, $Color*), nullptr, nullptr, setSelectedTextColormethodAnnotations$$},
+		{"setSelectionColor", "(Ljava/awt/Color;)V", nullptr, $PUBLIC, $virtualMethod(JTextComponent, setSelectionColor, void, $Color*), nullptr, nullptr, setSelectionColormethodAnnotations$$},
+		{"setSelectionEnd", "(I)V", nullptr, $PUBLIC, $virtualMethod(JTextComponent, setSelectionEnd, void, int32_t), nullptr, nullptr, setSelectionEndmethodAnnotations$$},
+		{"setSelectionStart", "(I)V", nullptr, $PUBLIC, $virtualMethod(JTextComponent, setSelectionStart, void, int32_t), nullptr, nullptr, setSelectionStartmethodAnnotations$$},
+		{"setText", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(JTextComponent, setText, void, $String*), nullptr, nullptr, setTextmethodAnnotations$$},
+		{"setUI", "(Ljavax/swing/plaf/TextUI;)V", nullptr, $PUBLIC, $virtualMethod(JTextComponent, setUI, void, $TextUI*)},
+		{"shouldSynthensizeKeyEvents", "()Z", nullptr, $PRIVATE, $method(JTextComponent, shouldSynthensizeKeyEvents, bool)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"updateInputMap", "(Ljavax/swing/text/Keymap;Ljavax/swing/text/Keymap;)V", nullptr, 0, $virtualMethod(JTextComponent, updateInputMap, void, $Keymap*, $Keymap*)},
+		{"updateUI", "()V", nullptr, $PUBLIC, $virtualMethod(JTextComponent, updateUI, void)},
+		{"viewToModel", "(Ljava/awt/Point;)I", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(JTextComponent, viewToModel, int32_t, $Point*), nullptr, nullptr, viewToModelmethodAnnotations$$},
+		{"viewToModel2D", "(Ljava/awt/geom/Point2D;)I", nullptr, $PUBLIC, $virtualMethod(JTextComponent, viewToModel2D, int32_t, $Point2D*)},
+		{"write", "(Ljava/io/Writer;)V", nullptr, $PUBLIC, $virtualMethod(JTextComponent, write, void, $Writer*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.JTextComponent$5", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{"javax.swing.text.JTextComponent$DoSetCaretPosition", "javax.swing.text.JTextComponent", "DoSetCaretPosition", $PRIVATE},
+		{"javax.swing.text.JTextComponent$ComposedTextCaret", "javax.swing.text.JTextComponent", "ComposedTextCaret", 0},
+		{"javax.swing.text.JTextComponent$InputMethodRequestsHandler", "javax.swing.text.JTextComponent", "InputMethodRequestsHandler", 0},
+		{"javax.swing.text.JTextComponent$MutableCaretEvent", "javax.swing.text.JTextComponent", "MutableCaretEvent", $STATIC},
+		{"javax.swing.text.JTextComponent$KeymapActionMap", "javax.swing.text.JTextComponent", "KeymapActionMap", $STATIC},
+		{"javax.swing.text.JTextComponent$KeymapWrapper", "javax.swing.text.JTextComponent", "KeymapWrapper", $STATIC},
+		{"javax.swing.text.JTextComponent$DefaultKeymap", "javax.swing.text.JTextComponent", "DefaultKeymap", $STATIC},
+		{"javax.swing.text.JTextComponent$DefaultTransferHandler", "javax.swing.text.JTextComponent", "DefaultTransferHandler", $STATIC},
+		{"javax.swing.text.JTextComponent$DropLocation", "javax.swing.text.JTextComponent", "DropLocation", $PUBLIC | $STATIC | $FINAL},
+		{"javax.swing.text.JTextComponent$AccessibleJTextComponent", "javax.swing.text.JTextComponent", "AccessibleJTextComponent", $PUBLIC},
+		{"javax.swing.text.JTextComponent$KeyBinding", "javax.swing.text.JTextComponent", "KeyBinding", $PUBLIC | $STATIC},
+		{"javax.swing.text.JTextComponent$4", nullptr, nullptr, 0},
+		{"javax.swing.text.JTextComponent$3", nullptr, nullptr, 0},
+		{"javax.swing.text.JTextComponent$2", nullptr, nullptr, 0},
+		{"javax.swing.text.JTextComponent$1", nullptr, nullptr, 0},
+		{}
+	};
+	$NamedAttribute annotations$$$namedAttribute[] = {
+		{"defaultProperty", 's', "UI"},
+		{}
+	};
+	$NamedAttribute annotations$$$namedAttribute$1[] = {
+		{"value", 'Z', "false"},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/beans/JavaBean;", annotations$$$namedAttribute},
+		{"Ljavax/swing/SwingContainer;", annotations$$$namedAttribute$1},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"javax.swing.text.JTextComponent",
+		"javax.swing.JComponent",
+		"javax.swing.Scrollable,javax.accessibility.Accessible",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		annotations$$,
+		nullptr,
+		"javax.swing.text.JTextComponent$5,javax.swing.text.JTextComponent$DoSetCaretPosition,javax.swing.text.JTextComponent$ComposedTextCaret,javax.swing.text.JTextComponent$InputMethodRequestsHandler,javax.swing.text.JTextComponent$MutableCaretEvent,javax.swing.text.JTextComponent$KeymapActionMap,javax.swing.text.JTextComponent$KeymapWrapper,javax.swing.text.JTextComponent$DefaultKeymap,javax.swing.text.JTextComponent$DefaultTransferHandler,javax.swing.text.JTextComponent$DropLocation,javax.swing.text.JTextComponent$AccessibleJTextComponent,javax.swing.text.JTextComponent$AccessibleJTextComponent$IndexedSegment,javax.swing.text.JTextComponent$AccessibleJTextComponent$4,javax.swing.text.JTextComponent$AccessibleJTextComponent$3,javax.swing.text.JTextComponent$AccessibleJTextComponent$2,javax.swing.text.JTextComponent$AccessibleJTextComponent$1,javax.swing.text.JTextComponent$KeyBinding,javax.swing.text.JTextComponent$4,javax.swing.text.JTextComponent$4$1,javax.swing.text.JTextComponent$3,javax.swing.text.JTextComponent$3$2,javax.swing.text.JTextComponent$3$1,javax.swing.text.JTextComponent$2,javax.swing.text.JTextComponent$1"
+	};
+	$loadClass(JTextComponent, name, initialize, &classInfo$$, JTextComponent::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JTextComponent));
+	});
 	return class$;
 }
 

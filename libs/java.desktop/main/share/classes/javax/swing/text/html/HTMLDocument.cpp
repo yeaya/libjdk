@@ -1,7 +1,5 @@
 #include <javax/swing/text/html/HTMLDocument.h>
-
 #include <java/io/IOException.h>
-#include <java/io/Reader.h>
 #include <java/io/StringReader.h>
 #include <java/lang/IllegalStateException.h>
 #include <java/lang/Math.h>
@@ -31,7 +29,6 @@
 #include <javax/swing/text/MutableAttributeSet.h>
 #include <javax/swing/text/SimpleAttributeSet.h>
 #include <javax/swing/text/StyleConstants.h>
-#include <javax/swing/text/StyleContext.h>
 #include <javax/swing/text/html/CSS$Attribute.h>
 #include <javax/swing/text/html/HTML$Attribute.h>
 #include <javax/swing/text/html/HTML$Tag.h>
@@ -68,7 +65,6 @@
 using $DefaultStyledDocument$ElementSpecArray = $Array<::javax::swing::text::DefaultStyledDocument$ElementSpec>;
 using $ElementArray = $Array<::javax::swing::text::Element>;
 using $IOException = ::java::io::IOException;
-using $Reader = ::java::io::Reader;
 using $StringReader = ::java::io::StringReader;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -101,7 +97,6 @@ using $GapContent = ::javax::swing::text::GapContent;
 using $MutableAttributeSet = ::javax::swing::text::MutableAttributeSet;
 using $SimpleAttributeSet = ::javax::swing::text::SimpleAttributeSet;
 using $StyleConstants = ::javax::swing::text::StyleConstants;
-using $StyleContext = ::javax::swing::text::StyleContext;
 using $CSS$Attribute = ::javax::swing::text::html::CSS$Attribute;
 using $HTML$Attribute = ::javax::swing::text::html::HTML$Attribute;
 using $HTML$Tag = ::javax::swing::text::html::HTML$Tag;
@@ -122,123 +117,6 @@ namespace javax {
 	namespace swing {
 		namespace text {
 			namespace html {
-
-$FieldInfo _HTMLDocument_FieldInfo_[] = {
-	{"frameDocument", "Z", nullptr, $PRIVATE, $field(HTMLDocument, frameDocument)},
-	{"preservesUnknownTags", "Z", nullptr, $PRIVATE, $field(HTMLDocument, preservesUnknownTags)},
-	{"radioButtonGroupsMap", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/lang/String;Ljavax/swing/ButtonGroup;>;", $PRIVATE, $field(HTMLDocument, radioButtonGroupsMap)},
-	{"TokenThreshold", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(HTMLDocument, TokenThreshold)},
-	{"MaxThreshold", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(HTMLDocument, MaxThreshold)},
-	{"StepThreshold", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(HTMLDocument, StepThreshold)},
-	{"AdditionalComments", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTMLDocument, AdditionalComments)},
-	{"StyleType", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(HTMLDocument, StyleType)},
-	{"base", "Ljava/net/URL;", nullptr, 0, $field(HTMLDocument, base)},
-	{"hasBaseTag", "Z", nullptr, 0, $field(HTMLDocument, hasBaseTag$)},
-	{"baseTarget", "Ljava/lang/String;", nullptr, $PRIVATE, $field(HTMLDocument, baseTarget)},
-	{"parser", "Ljavax/swing/text/html/HTMLEditorKit$Parser;", nullptr, $PRIVATE, $field(HTMLDocument, parser)},
-	{"contentAttributeSet", "Ljavax/swing/text/AttributeSet;", nullptr, $PRIVATE | $STATIC, $staticField(HTMLDocument, contentAttributeSet)},
-	{"MAP_PROPERTY", "Ljava/lang/String;", nullptr, $STATIC, $staticField(HTMLDocument, MAP_PROPERTY)},
-	{"NEWLINE", "[C", nullptr, $PRIVATE | $STATIC, $staticField(HTMLDocument, NEWLINE)},
-	{"insertInBody", "Z", nullptr, $PRIVATE, $field(HTMLDocument, insertInBody)},
-	{"I18NProperty", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(HTMLDocument, I18NProperty)},
-	{}
-};
-
-$MethodInfo _HTMLDocument_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(HTMLDocument, init$, void)},
-	{"<init>", "(Ljavax/swing/text/html/StyleSheet;)V", nullptr, $PUBLIC, $method(HTMLDocument, init$, void, $StyleSheet*)},
-	{"<init>", "(Ljavax/swing/text/AbstractDocument$Content;Ljavax/swing/text/html/StyleSheet;)V", nullptr, $PUBLIC, $method(HTMLDocument, init$, void, $AbstractDocument$Content*, $StyleSheet*)},
-	{"access$000", "(Ljavax/swing/text/html/HTMLDocument;Ljavax/swing/text/AbstractDocument$DefaultDocumentEvent;)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(HTMLDocument, access$000, void, HTMLDocument*, $AbstractDocument$DefaultDocumentEvent*)},
-	{"access$100", "(Ljavax/swing/text/html/HTMLDocument;)Ljavax/swing/text/AbstractDocument$Content;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(HTMLDocument, access$100, $AbstractDocument$Content*, HTMLDocument*)},
-	{"access$200", "(Ljavax/swing/text/html/HTMLDocument;Ljavax/swing/text/AbstractDocument$DefaultDocumentEvent;)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(HTMLDocument, access$200, void, HTMLDocument*, $AbstractDocument$DefaultDocumentEvent*)},
-	{"access$300", "(Ljavax/swing/text/html/HTMLDocument;Ljavax/swing/event/DocumentEvent;)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(HTMLDocument, access$300, void, HTMLDocument*, $DocumentEvent*)},
-	{"addMap", "(Ljavax/swing/text/html/Map;)V", nullptr, 0, $virtualMethod(HTMLDocument, addMap, void, $Map*)},
-	{"create", "([Ljavax/swing/text/DefaultStyledDocument$ElementSpec;)V", nullptr, $PROTECTED, $virtualMethod(HTMLDocument, create, void, $DefaultStyledDocument$ElementSpecArray*)},
-	{"createBranchElement", "(Ljavax/swing/text/Element;Ljavax/swing/text/AttributeSet;)Ljavax/swing/text/Element;", nullptr, $PROTECTED, $virtualMethod(HTMLDocument, createBranchElement, $Element*, $Element*, $AttributeSet*)},
-	{"createDefaultRoot", "()Ljavax/swing/text/AbstractDocument$AbstractElement;", nullptr, $PROTECTED, $virtualMethod(HTMLDocument, createDefaultRoot, $AbstractDocument$AbstractElement*)},
-	{"createLeafElement", "(Ljavax/swing/text/Element;Ljavax/swing/text/AttributeSet;II)Ljavax/swing/text/Element;", nullptr, $PROTECTED, $virtualMethod(HTMLDocument, createLeafElement, $Element*, $Element*, $AttributeSet*, int32_t, int32_t)},
-	{"findFrame", "(Ljava/lang/String;)Ljavax/swing/text/Element;", nullptr, $PRIVATE, $method(HTMLDocument, findFrame, $Element*, $String*)},
-	{"fireChangedUpdate", "(Ljavax/swing/event/DocumentEvent;)V", nullptr, $PROTECTED, $virtualMethod(HTMLDocument, fireChangedUpdate, void, $DocumentEvent*)},
-	{"fireUndoableEditUpdate", "(Ljavax/swing/event/UndoableEditEvent;)V", nullptr, $PROTECTED, $virtualMethod(HTMLDocument, fireUndoableEditUpdate, void, $UndoableEditEvent*)},
-	{"getBase", "()Ljava/net/URL;", nullptr, $PUBLIC, $virtualMethod(HTMLDocument, getBase, $URL*)},
-	{"getBaseTarget", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(HTMLDocument, getBaseTarget, $String*)},
-	{"getDefaultStyleSheetType", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(HTMLDocument, getDefaultStyleSheetType, $String*)},
-	{"getElement", "(Ljava/lang/String;)Ljavax/swing/text/Element;", nullptr, $PUBLIC, $virtualMethod(HTMLDocument, getElement, $Element*, $String*)},
-	{"getElement", "(Ljavax/swing/text/Element;Ljava/lang/Object;Ljava/lang/Object;)Ljavax/swing/text/Element;", nullptr, $PUBLIC, $virtualMethod(HTMLDocument, getElement, $Element*, $Element*, Object$*, Object$*)},
-	{"getElement", "(Ljavax/swing/text/Element;Ljava/lang/Object;Ljava/lang/Object;Z)Ljavax/swing/text/Element;", nullptr, $PRIVATE, $method(HTMLDocument, getElement, $Element*, $Element*, Object$*, Object$*, bool)},
-	{"getIterator", "(Ljavax/swing/text/html/HTML$Tag;)Ljavax/swing/text/html/HTMLDocument$Iterator;", nullptr, $PUBLIC, $virtualMethod(HTMLDocument, getIterator, $HTMLDocument$Iterator*, $HTML$Tag*)},
-	{"getMap", "(Ljava/lang/String;)Ljavax/swing/text/html/Map;", nullptr, 0, $virtualMethod(HTMLDocument, getMap, $Map*, $String*)},
-	{"getMaps", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/lang/Object;>;", 0, $virtualMethod(HTMLDocument, getMaps, $Enumeration*)},
-	{"getParser", "()Ljavax/swing/text/html/HTMLEditorKit$Parser;", nullptr, $PUBLIC, $virtualMethod(HTMLDocument, getParser, $HTMLEditorKit$Parser*)},
-	{"getPreservesUnknownTags", "()Z", nullptr, $PUBLIC, $virtualMethod(HTMLDocument, getPreservesUnknownTags, bool)},
-	{"getReader", "(I)Ljavax/swing/text/html/HTMLEditorKit$ParserCallback;", nullptr, $PUBLIC, $virtualMethod(HTMLDocument, getReader, $HTMLEditorKit$ParserCallback*, int32_t)},
-	{"getReader", "(IIILjavax/swing/text/html/HTML$Tag;)Ljavax/swing/text/html/HTMLEditorKit$ParserCallback;", nullptr, $PUBLIC, $virtualMethod(HTMLDocument, getReader, $HTMLEditorKit$ParserCallback*, int32_t, int32_t, int32_t, $HTML$Tag*)},
-	{"getReader", "(IIILjavax/swing/text/html/HTML$Tag;Z)Ljavax/swing/text/html/HTMLEditorKit$ParserCallback;", nullptr, 0, $virtualMethod(HTMLDocument, getReader, $HTMLEditorKit$ParserCallback*, int32_t, int32_t, int32_t, $HTML$Tag*, bool)},
-	{"getStyleSheet", "()Ljavax/swing/text/html/StyleSheet;", nullptr, $PUBLIC, $virtualMethod(HTMLDocument, getStyleSheet, $StyleSheet*)},
-	{"getTokenThreshold", "()I", nullptr, $PUBLIC, $virtualMethod(HTMLDocument, getTokenThreshold, int32_t)},
-	{"hasBaseTag", "()Z", nullptr, 0, $virtualMethod(HTMLDocument, hasBaseTag, bool)},
-	{"insert", "(I[Ljavax/swing/text/DefaultStyledDocument$ElementSpec;)V", nullptr, $PROTECTED, $virtualMethod(HTMLDocument, insert, void, int32_t, $DefaultStyledDocument$ElementSpecArray*), "javax.swing.text.BadLocationException"},
-	{"insertAfterEnd", "(Ljavax/swing/text/Element;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(HTMLDocument, insertAfterEnd, void, $Element*, $String*), "javax.swing.text.BadLocationException,java.io.IOException"},
-	{"insertAfterStart", "(Ljavax/swing/text/Element;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(HTMLDocument, insertAfterStart, void, $Element*, $String*), "javax.swing.text.BadLocationException,java.io.IOException"},
-	{"insertBeforeEnd", "(Ljavax/swing/text/Element;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(HTMLDocument, insertBeforeEnd, void, $Element*, $String*), "javax.swing.text.BadLocationException,java.io.IOException"},
-	{"insertBeforeStart", "(Ljavax/swing/text/Element;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(HTMLDocument, insertBeforeStart, void, $Element*, $String*), "javax.swing.text.BadLocationException,java.io.IOException"},
-	{"insertHTML", "(Ljavax/swing/text/Element;ILjava/lang/String;Z)V", nullptr, $PRIVATE, $method(HTMLDocument, insertHTML, void, $Element*, int32_t, $String*, bool), "javax.swing.text.BadLocationException,java.io.IOException"},
-	{"insertUpdate", "(Ljavax/swing/text/AbstractDocument$DefaultDocumentEvent;Ljavax/swing/text/AttributeSet;)V", nullptr, $PROTECTED, $virtualMethod(HTMLDocument, insertUpdate, void, $AbstractDocument$DefaultDocumentEvent*, $AttributeSet*)},
-	{"installParserIfNecessary", "()V", nullptr, $PRIVATE, $method(HTMLDocument, installParserIfNecessary, void)},
-	{"isFrameDocument", "()Z", nullptr, 0, $virtualMethod(HTMLDocument, isFrameDocument, bool)},
-	{"matchNameAttribute", "(Ljavax/swing/text/AttributeSet;Ljavax/swing/text/html/HTML$Tag;)Z", nullptr, $STATIC, $staticMethod(HTMLDocument, matchNameAttribute, bool, $AttributeSet*, $HTML$Tag*)},
-	{"obtainLock", "()V", nullptr, 0, $virtualMethod(HTMLDocument, obtainLock, void)},
-	{"processHTMLFrameHyperlinkEvent", "(Ljavax/swing/text/html/HTMLFrameHyperlinkEvent;)V", nullptr, $PUBLIC, $virtualMethod(HTMLDocument, processHTMLFrameHyperlinkEvent, void, $HTMLFrameHyperlinkEvent*)},
-	{"releaseLock", "()V", nullptr, 0, $virtualMethod(HTMLDocument, releaseLock, void)},
-	{"removeElements", "(Ljavax/swing/text/Element;II)V", nullptr, $PRIVATE, $method(HTMLDocument, removeElements, void, $Element*, int32_t, int32_t), "javax.swing.text.BadLocationException"},
-	{"removeElements", "(Ljavax/swing/text/Element;IIII)V", nullptr, $PRIVATE, $method(HTMLDocument, removeElements, void, $Element*, int32_t, int32_t, int32_t, int32_t), "javax.swing.text.BadLocationException"},
-	{"removeElementsAtEnd", "(Ljavax/swing/text/Element;IIII)V", nullptr, $PRIVATE, $method(HTMLDocument, removeElementsAtEnd, void, $Element*, int32_t, int32_t, int32_t, int32_t), "javax.swing.text.BadLocationException"},
-	{"removeMap", "(Ljavax/swing/text/html/Map;)V", nullptr, 0, $virtualMethod(HTMLDocument, removeMap, void, $Map*)},
-	{"replace", "(Ljavax/swing/text/AbstractDocument$DefaultDocumentEvent;Ljavax/swing/text/Element;IIIIZZ)V", nullptr, $PRIVATE, $method(HTMLDocument, replace, void, $AbstractDocument$DefaultDocumentEvent*, $Element*, int32_t, int32_t, int32_t, int32_t, bool, bool), "javax.swing.text.BadLocationException"},
-	{"setBase", "(Ljava/net/URL;)V", nullptr, $PUBLIC, $virtualMethod(HTMLDocument, setBase, void, $URL*)},
-	{"setDefaultStyleSheetType", "(Ljava/lang/String;)V", nullptr, 0, $virtualMethod(HTMLDocument, setDefaultStyleSheetType, void, $String*)},
-	{"setFrameDocumentState", "(Z)V", nullptr, 0, $virtualMethod(HTMLDocument, setFrameDocumentState, void, bool)},
-	{"setInnerHTML", "(Ljavax/swing/text/Element;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(HTMLDocument, setInnerHTML, void, $Element*, $String*), "javax.swing.text.BadLocationException,java.io.IOException"},
-	{"setOuterHTML", "(Ljavax/swing/text/Element;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(HTMLDocument, setOuterHTML, void, $Element*, $String*), "javax.swing.text.BadLocationException,java.io.IOException"},
-	{"setParagraphAttributes", "(IILjavax/swing/text/AttributeSet;Z)V", nullptr, $PUBLIC, $virtualMethod(HTMLDocument, setParagraphAttributes, void, int32_t, int32_t, $AttributeSet*, bool)},
-	{"setParser", "(Ljavax/swing/text/html/HTMLEditorKit$Parser;)V", nullptr, $PUBLIC, $virtualMethod(HTMLDocument, setParser, void, $HTMLEditorKit$Parser*)},
-	{"setPreservesUnknownTags", "(Z)V", nullptr, $PUBLIC, $virtualMethod(HTMLDocument, setPreservesUnknownTags, void, bool)},
-	{"setTokenThreshold", "(I)V", nullptr, $PUBLIC, $virtualMethod(HTMLDocument, setTokenThreshold, void, int32_t)},
-	{"updateFrame", "(Ljavax/swing/text/Element;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(HTMLDocument, updateFrame, void, $Element*, $String*)},
-	{"updateFrameSet", "(Ljavax/swing/text/Element;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(HTMLDocument, updateFrameSet, void, $Element*, $String*)},
-	{"verifyParser", "()V", nullptr, $PRIVATE, $method(HTMLDocument, verifyParser, void)},
-	{}
-};
-
-$InnerClassInfo _HTMLDocument_InnerClassesInfo_[] = {
-	{"javax.swing.text.html.HTMLDocument$FixedLengthDocument", "javax.swing.text.html.HTMLDocument", "FixedLengthDocument", $PRIVATE | $STATIC},
-	{"javax.swing.text.html.HTMLDocument$BlockElement", "javax.swing.text.html.HTMLDocument", "BlockElement", $PUBLIC},
-	{"javax.swing.text.html.HTMLDocument$RunElement", "javax.swing.text.html.HTMLDocument", "RunElement", $PUBLIC},
-	{"javax.swing.text.html.HTMLDocument$TaggedAttributeSet", "javax.swing.text.html.HTMLDocument", "TaggedAttributeSet", $STATIC},
-	{"javax.swing.text.html.HTMLDocument$HTMLReader", "javax.swing.text.html.HTMLDocument", "HTMLReader", $PUBLIC},
-	{"javax.swing.text.html.HTMLDocument$LeafIterator", "javax.swing.text.html.HTMLDocument", "LeafIterator", $STATIC},
-	{"javax.swing.text.html.HTMLDocument$Iterator", "javax.swing.text.html.HTMLDocument", "Iterator", $PUBLIC | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _HTMLDocument_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.text.html.HTMLDocument",
-	"javax.swing.text.DefaultStyledDocument",
-	nullptr,
-	_HTMLDocument_FieldInfo_,
-	_HTMLDocument_MethodInfo_,
-	nullptr,
-	nullptr,
-	_HTMLDocument_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.swing.text.html.HTMLDocument$FixedLengthDocument,javax.swing.text.html.HTMLDocument$BlockElement,javax.swing.text.html.HTMLDocument$RunElement,javax.swing.text.html.HTMLDocument$TaggedAttributeSet,javax.swing.text.html.HTMLDocument$HTMLReader,javax.swing.text.html.HTMLDocument$HTMLReader$FormAction,javax.swing.text.html.HTMLDocument$HTMLReader$ObjectAction,javax.swing.text.html.HTMLDocument$HTMLReader$BaseAction,javax.swing.text.html.HTMLDocument$HTMLReader$TitleAction,javax.swing.text.html.HTMLDocument$HTMLReader$AnchorAction,javax.swing.text.html.HTMLDocument$HTMLReader$ConvertAction,javax.swing.text.html.HTMLDocument$HTMLReader$CharacterAction,javax.swing.text.html.HTMLDocument$HTMLReader$PreAction,javax.swing.text.html.HTMLDocument$HTMLReader$StyleAction,javax.swing.text.html.HTMLDocument$HTMLReader$AreaAction,javax.swing.text.html.HTMLDocument$HTMLReader$MapAction,javax.swing.text.html.HTMLDocument$HTMLReader$LinkAction,javax.swing.text.html.HTMLDocument$HTMLReader$HeadAction,javax.swing.text.html.HTMLDocument$HTMLReader$MetaAction,javax.swing.text.html.HTMLDocument$HTMLReader$HiddenAction,javax.swing.text.html.HTMLDocument$HTMLReader$IsindexAction,javax.swing.text.html.HTMLDocument$HTMLReader$SpecialAction,javax.swing.text.html.HTMLDocument$HTMLReader$ParagraphAction,javax.swing.text.html.HTMLDocument$HTMLReader$FormTagAction,javax.swing.text.html.HTMLDocument$HTMLReader$BlockAction,javax.swing.text.html.HTMLDocument$HTMLReader$TagAction,javax.swing.text.html.HTMLDocument$LeafIterator,javax.swing.text.html.HTMLDocument$Iterator"
-};
-
-$Object* allocate$HTMLDocument($Class* clazz) {
-	return $of($alloc(HTMLDocument));
-}
 
 $String* HTMLDocument::TokenThreshold = nullptr;
 $String* HTMLDocument::AdditionalComments = nullptr;
@@ -269,8 +147,8 @@ void HTMLDocument::access$000(HTMLDocument* x0, $AbstractDocument$DefaultDocumen
 }
 
 void HTMLDocument::init$() {
-	$useLocalCurrentObjectStackCache();
-	$var($AbstractDocument$Content, var$0, static_cast<$AbstractDocument$Content*>($new($GapContent, $DefaultStyledDocument::BUFFER_SIZE_DEFAULT)));
+	$useLocalObjectStack();
+	$var($AbstractDocument$Content, var$0, $new($GapContent, $DefaultStyledDocument::BUFFER_SIZE_DEFAULT));
 	HTMLDocument::init$(var$0, $$new($StyleSheet));
 }
 
@@ -288,7 +166,7 @@ void HTMLDocument::init$($AbstractDocument$Content* c, $StyleSheet* styles) {
 }
 
 $HTMLEditorKit$ParserCallback* HTMLDocument::getReader(int32_t pos) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Document);
 	$var($Object, desc, getProperty($Document::StreamDescriptionProperty));
 	if ($instanceOf($URL, desc)) {
@@ -303,7 +181,7 @@ $HTMLEditorKit$ParserCallback* HTMLDocument::getReader(int32_t pos, int32_t popD
 }
 
 $HTMLEditorKit$ParserCallback* HTMLDocument::getReader(int32_t pos, int32_t popDepth, int32_t pushDepth, $HTML$Tag* insertTag, bool insertInsertTag) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Document);
 	$var($Object, desc, getProperty($Document::StreamDescriptionProperty));
 	if ($instanceOf($URL, desc)) {
@@ -319,7 +197,7 @@ $URL* HTMLDocument::getBase() {
 
 void HTMLDocument::setBase($URL* u) {
 	$set(this, base, u);
-	$nc($(getStyleSheet()))->setBase(u);
+	$$nc(getStyleSheet())->setBase(u);
 }
 
 void HTMLDocument::insert(int32_t offset, $DefaultStyledDocument$ElementSpecArray* data) {
@@ -332,12 +210,12 @@ void HTMLDocument::insertUpdate($AbstractDocument$DefaultDocumentEvent* chng, $A
 		$assign(attr, HTMLDocument::contentAttributeSet);
 	} else {
 		$init($StyleConstants);
-		if ($nc(attr)->isDefined($StyleConstants::ComposedTextAttribute)) {
-			$nc(($cast($MutableAttributeSet, attr)))->addAttributes(HTMLDocument::contentAttributeSet);
+		if (attr->isDefined($StyleConstants::ComposedTextAttribute)) {
+			$cast($MutableAttributeSet, attr)->addAttributes(HTMLDocument::contentAttributeSet);
 		}
 	}
 	if ($nc(attr)->isDefined("CR"_s)) {
-		$nc(($cast($MutableAttributeSet, attr)))->removeAttribute("CR"_s);
+		$cast($MutableAttributeSet, attr)->removeAttribute("CR"_s);
 	}
 	$DefaultStyledDocument::insertUpdate(chng, attr);
 }
@@ -347,45 +225,43 @@ void HTMLDocument::create($DefaultStyledDocument$ElementSpecArray* data) {
 }
 
 void HTMLDocument::setParagraphAttributes(int32_t offset, int32_t length, $AttributeSet* s, bool replace) {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			writeLock();
-			int32_t end = $Math::min(offset + length, getLength());
-			$var($Element, e, getParagraphElement(offset));
-			offset = $nc(e)->getStartOffset();
-			$assign(e, getParagraphElement(end));
-			length = $Math::max(0, e->getEndOffset() - offset);
-			$init($DocumentEvent$EventType);
-			$var($AbstractDocument$DefaultDocumentEvent, changes, $new($AbstractDocument$DefaultDocumentEvent, this, offset, length, $DocumentEvent$EventType::CHANGE));
-			$var($AttributeSet, sCopy, $nc(s)->copyAttributes());
-			int32_t lastEnd = $Integer::MAX_VALUE;
-			for (int32_t pos = offset; pos <= end; pos = lastEnd) {
-				$var($Element, paragraph, getParagraphElement(pos));
-				if (lastEnd == $nc(paragraph)->getEndOffset()) {
-					++lastEnd;
-				} else {
-					lastEnd = paragraph->getEndOffset();
-				}
-				$var($MutableAttributeSet, attr, $cast($MutableAttributeSet, $nc(paragraph)->getAttributes()));
-				changes->addEdit($$new($DefaultStyledDocument$AttributeUndoableEdit, paragraph, sCopy, replace));
-				if (replace) {
-					$nc(attr)->removeAttributes(static_cast<$AttributeSet*>(attr));
-				}
-				$nc(attr)->addAttributes(s);
+	$useLocalObjectStack();
+	$var($Throwable, var$0, nullptr);
+	try {
+		writeLock();
+		int32_t end = $Math::min(offset + length, getLength());
+		$var($Element, e, getParagraphElement(offset));
+		offset = $nc(e)->getStartOffset();
+		$assign(e, getParagraphElement(end));
+		length = $Math::max(0, $nc(e)->getEndOffset() - offset);
+		$init($DocumentEvent$EventType);
+		$var($AbstractDocument$DefaultDocumentEvent, changes, $new($AbstractDocument$DefaultDocumentEvent, this, offset, length, $DocumentEvent$EventType::CHANGE));
+		$var($AttributeSet, sCopy, $nc(s)->copyAttributes());
+		int32_t lastEnd = $Integer::MAX_VALUE;
+		for (int32_t pos = offset; pos <= end; pos = lastEnd) {
+			$var($Element, paragraph, getParagraphElement(pos));
+			if (lastEnd == $nc(paragraph)->getEndOffset()) {
+				++lastEnd;
+			} else {
+				lastEnd = paragraph->getEndOffset();
 			}
-			changes->end();
-			fireChangedUpdate(changes);
-			fireUndoableEditUpdate($$new($UndoableEditEvent, this, changes));
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			writeUnlock();
+			$var($MutableAttributeSet, attr, $cast($MutableAttributeSet, paragraph->getAttributes()));
+			changes->addEdit($$new($DefaultStyledDocument$AttributeUndoableEdit, paragraph, sCopy, replace));
+			if (replace) {
+				$nc(attr)->removeAttributes(attr);
+			}
+			$nc(attr)->addAttributes(s);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+		changes->end();
+		fireChangedUpdate(changes);
+		fireUndoableEditUpdate($$new($UndoableEditEvent, this, changes));
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		writeUnlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
@@ -397,7 +273,7 @@ $HTMLDocument$Iterator* HTMLDocument::getIterator($HTML$Tag* t) {
 	if ($nc(t)->isBlock()) {
 		return nullptr;
 	}
-	return $new($HTMLDocument$LeafIterator, t, static_cast<$Document*>(static_cast<$AbstractDocument*>(static_cast<$DefaultStyledDocument*>(this))));
+	return $new($HTMLDocument$LeafIterator, t, $cast($AbstractDocument, this));
 }
 
 $Element* HTMLDocument::createLeafElement($Element* parent, $AttributeSet* a, int32_t p0, int32_t p1) {
@@ -409,22 +285,22 @@ $Element* HTMLDocument::createBranchElement($Element* parent, $AttributeSet* a) 
 }
 
 $AbstractDocument$AbstractElement* HTMLDocument::createDefaultRoot() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	writeLock();
 	$var($MutableAttributeSet, a, $new($SimpleAttributeSet));
 	$init($StyleConstants);
 	$init($HTML$Tag);
 	a->addAttribute($StyleConstants::NameAttribute, $HTML$Tag::HTML);
 	$var($HTMLDocument$BlockElement, html, $new($HTMLDocument$BlockElement, this, nullptr, $(a->copyAttributes())));
-	a->removeAttributes(static_cast<$AttributeSet*>(a));
+	a->removeAttributes(a);
 	a->addAttribute($StyleConstants::NameAttribute, $HTML$Tag::BODY);
 	$var($HTMLDocument$BlockElement, body, $new($HTMLDocument$BlockElement, this, html, $(a->copyAttributes())));
-	a->removeAttributes(static_cast<$AttributeSet*>(a));
+	a->removeAttributes(a);
 	a->addAttribute($StyleConstants::NameAttribute, $HTML$Tag::P);
 	$init($CSS$Attribute);
-	$nc($(getStyleSheet()))->addCSSAttributeFromHTML(a, $CSS$Attribute::MARGIN_TOP, "0"_s);
+	$$nc(getStyleSheet())->addCSSAttributeFromHTML(a, $CSS$Attribute::MARGIN_TOP, "0"_s);
 	$var($HTMLDocument$BlockElement, paragraph, $new($HTMLDocument$BlockElement, this, body, $(a->copyAttributes())));
-	a->removeAttributes(static_cast<$AttributeSet*>(a));
+	a->removeAttributes(a);
 	a->addAttribute($StyleConstants::NameAttribute, $HTML$Tag::CONTENT);
 	$var($HTMLDocument$RunElement, brk, $new($HTMLDocument$RunElement, this, paragraph, a, 0, 1));
 	$var($ElementArray, buff, $new($ElementArray, 1));
@@ -459,10 +335,10 @@ bool HTMLDocument::getPreservesUnknownTags() {
 }
 
 void HTMLDocument::processHTMLFrameHyperlinkEvent($HTMLFrameHyperlinkEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, frameName, $nc(e)->getTarget());
 	$var($Element, element, e->getSourceElement());
-	$var($String, urlStr, $nc($(e->getURL()))->toString());
+	$var($String, urlStr, $$nc(e->getURL())->toString());
 	if ($nc(frameName)->equals("_self"_s)) {
 		updateFrame(element, urlStr);
 	} else if (frameName->equals("_parent"_s)) {
@@ -476,8 +352,8 @@ void HTMLDocument::processHTMLFrameHyperlinkEvent($HTMLFrameHyperlinkEvent* e) {
 }
 
 $Element* HTMLDocument::findFrame($String* frameName) {
-	$useLocalCurrentObjectStackCache();
-	$var($ElementIterator, it, $new($ElementIterator, static_cast<$Document*>(static_cast<$AbstractDocument*>(static_cast<$DefaultStyledDocument*>(this)))));
+	$useLocalObjectStack();
+	$var($ElementIterator, it, $new($ElementIterator, $cast($AbstractDocument, this)));
 	$var($Element, next, nullptr);
 	while (($assign(next, it->next())) != nullptr) {
 		$var($AttributeSet, attr, $nc(next)->getAttributes());
@@ -495,7 +371,7 @@ $Element* HTMLDocument::findFrame($String* frameName) {
 
 bool HTMLDocument::matchNameAttribute($AttributeSet* attr, $HTML$Tag* tag) {
 	$init(HTMLDocument);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($StyleConstants);
 	$var($Object, o, $nc(attr)->getAttribute($StyleConstants::NameAttribute));
 	if ($instanceOf($HTML$Tag, o)) {
@@ -508,7 +384,7 @@ bool HTMLDocument::matchNameAttribute($AttributeSet* attr, $HTML$Tag* tag) {
 }
 
 void HTMLDocument::updateFrameSet($Element* element, $String* url) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		int32_t startOffset = $nc(element)->getStartOffset();
 		int32_t var$0 = getLength();
@@ -526,30 +402,28 @@ void HTMLDocument::updateFrameSet($Element* element, $String* url) {
 }
 
 void HTMLDocument::updateFrame($Element* element, $String* url) {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			writeLock();
-			$init($DocumentEvent$EventType);
-			$var($AbstractDocument$DefaultDocumentEvent, changes, $new($AbstractDocument$DefaultDocumentEvent, this, $nc(element)->getStartOffset(), 1, $DocumentEvent$EventType::CHANGE));
-			$var($AttributeSet, sCopy, $nc($($nc(element)->getAttributes()))->copyAttributes());
-			$var($MutableAttributeSet, attr, $cast($MutableAttributeSet, element->getAttributes()));
-			changes->addEdit($$new($DefaultStyledDocument$AttributeUndoableEdit, element, sCopy, false));
-			$init($HTML$Attribute);
-			$nc(attr)->removeAttribute($HTML$Attribute::SRC);
-			attr->addAttribute($HTML$Attribute::SRC, url);
-			changes->end();
-			fireChangedUpdate(changes);
-			fireUndoableEditUpdate($$new($UndoableEditEvent, this, changes));
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			writeUnlock();
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	$useLocalObjectStack();
+	$var($Throwable, var$0, nullptr);
+	try {
+		writeLock();
+		$init($DocumentEvent$EventType);
+		$var($AbstractDocument$DefaultDocumentEvent, changes, $new($AbstractDocument$DefaultDocumentEvent, this, $nc(element)->getStartOffset(), 1, $DocumentEvent$EventType::CHANGE));
+		$var($AttributeSet, sCopy, $$nc(element->getAttributes())->copyAttributes());
+		$var($MutableAttributeSet, attr, $cast($MutableAttributeSet, element->getAttributes()));
+		changes->addEdit($$new($DefaultStyledDocument$AttributeUndoableEdit, element, sCopy, false));
+		$init($HTML$Attribute);
+		$nc(attr)->removeAttribute($HTML$Attribute::SRC);
+		attr->addAttribute($HTML$Attribute::SRC, url);
+		changes->end();
+		fireChangedUpdate(changes);
+		fireUndoableEditUpdate($$new($UndoableEditEvent, this, changes));
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		writeUnlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
@@ -562,7 +436,7 @@ void HTMLDocument::setFrameDocumentState(bool frameDoc) {
 }
 
 void HTMLDocument::addMap($Map* map) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, name, $nc(map)->getName());
 	if (name != nullptr) {
 		$var($Object, maps, getProperty(HTMLDocument::MAP_PROPERTY));
@@ -572,18 +446,18 @@ void HTMLDocument::addMap($Map* map) {
 		}
 		if ($instanceOf($Hashtable, maps)) {
 			$var($Hashtable, tmp, $cast($Hashtable, maps));
-			$nc(tmp)->put($$str({"#"_s, name}), map);
+			tmp->put($$str({"#"_s, name}), map);
 		}
 	}
 }
 
 void HTMLDocument::removeMap($Map* map) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, name, $nc(map)->getName());
 	if (name != nullptr) {
 		$var($Object, maps, getProperty(HTMLDocument::MAP_PROPERTY));
 		if ($instanceOf($Hashtable, maps)) {
-			$nc(($cast($Hashtable, maps)))->remove($$str({"#"_s, name}));
+			$cast($Hashtable, maps)->remove($$str({"#"_s, name}));
 		}
 	}
 }
@@ -592,18 +466,18 @@ $Map* HTMLDocument::getMap($String* name) {
 	if (name != nullptr) {
 		$var($Object, maps, getProperty(HTMLDocument::MAP_PROPERTY));
 		if (maps != nullptr && ($instanceOf($Hashtable, maps))) {
-			return $cast($Map, $nc(($cast($Hashtable, maps)))->get(name));
+			return $cast($Map, $cast($Hashtable, maps)->get(name));
 		}
 	}
 	return nullptr;
 }
 
 $Enumeration* HTMLDocument::getMaps() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, maps, getProperty(HTMLDocument::MAP_PROPERTY));
 	if ($instanceOf($Hashtable, maps)) {
 		$var($Hashtable, tmp, $cast($Hashtable, maps));
-		return $nc(tmp)->elements();
+		return tmp->elements();
 	}
 	return nullptr;
 }
@@ -649,14 +523,14 @@ void HTMLDocument::setInnerHTML($Element* elem, $String* htmlText) {
 }
 
 void HTMLDocument::setOuterHTML($Element* elem, $String* htmlText) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	verifyParser();
 	if (elem != nullptr && elem->getParentElement() != nullptr && htmlText != nullptr) {
 		int32_t start = elem->getStartOffset();
 		int32_t end = elem->getEndOffset();
 		int32_t startLength = getLength();
 		bool wantsNewline = !elem->isLeaf();
-		if (!wantsNewline && (end > startLength || $nc($(getText(end - 1, 1)))->charAt(0) == $nc(HTMLDocument::NEWLINE)->get(0))) {
+		if (!wantsNewline && (end > startLength || $$nc(getText(end - 1, 1))->charAt(0) == $nc(HTMLDocument::NEWLINE)->get(0))) {
 			wantsNewline = true;
 		}
 		$var($Element, parent, elem->getParentElement());
@@ -678,19 +552,19 @@ void HTMLDocument::insertAfterStart($Element* elem, $String* htmlText) {
 	if ($nc(elem)->isLeaf()) {
 		$throwNew($IllegalArgumentException, "Can not insert HTML after start of a leaf"_s);
 	}
-	insertHTML(elem, $nc(elem)->getStartOffset(), htmlText, false);
+	insertHTML(elem, elem->getStartOffset(), htmlText, false);
 }
 
 void HTMLDocument::insertBeforeEnd($Element* elem, $String* htmlText) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	verifyParser();
 	if (elem != nullptr && elem->isLeaf()) {
 		$throwNew($IllegalArgumentException, "Can not set inner HTML before end of leaf"_s);
 	}
 	if (elem != nullptr) {
 		int32_t offset = elem->getEndOffset();
-		bool var$0 = $nc($(elem->getElement(elem->getElementIndex(offset - 1))))->isLeaf();
-		if (var$0 && $nc($(getText(offset - 1, 1)))->charAt(0) == $nc(HTMLDocument::NEWLINE)->get(0)) {
+		bool var$0 = $$nc(elem->getElement(elem->getElementIndex(offset - 1)))->isLeaf();
+		if (var$0 && $$nc(getText(offset - 1, 1))->charAt(0) == $nc(HTMLDocument::NEWLINE)->get(0)) {
 			--offset;
 		}
 		insertHTML(elem, offset, htmlText, false);
@@ -708,7 +582,7 @@ void HTMLDocument::insertBeforeStart($Element* elem, $String* htmlText) {
 }
 
 void HTMLDocument::insertAfterEnd($Element* elem, $String* htmlText) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	verifyParser();
 	if (elem != nullptr) {
 		$var($Element, parent, elem->getParentElement());
@@ -721,8 +595,8 @@ void HTMLDocument::insertAfterEnd($Element* elem, $String* htmlText) {
 			if (offset > (getLength() + 1)) {
 				--offset;
 			} else {
-				bool var$1 = elem->isLeaf();
-				if (var$1 && $nc($(getText(offset - 1, 1)))->charAt(0) == $nc(HTMLDocument::NEWLINE)->get(0)) {
+				bool var$0 = elem->isLeaf();
+				if (var$0 && $$nc(getText(offset - 1, 1))->charAt(0) == $nc(HTMLDocument::NEWLINE)->get(0)) {
 					--offset;
 				}
 			}
@@ -747,7 +621,7 @@ $Element* HTMLDocument::getElement($Element* e, Object$* attribute, Object$* val
 }
 
 $Element* HTMLDocument::getElement($Element* e, Object$* attribute, Object$* value, bool searchLeafAttributes) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AttributeSet, attr, $nc(e)->getAttributes());
 	if (attr != nullptr && attr->isDefined(attribute)) {
 		if ($nc($of(value))->equals($(attr->getAttribute(attribute)))) {
@@ -755,14 +629,10 @@ $Element* HTMLDocument::getElement($Element* e, Object$* attribute, Object$* val
 		}
 	}
 	if (!e->isLeaf()) {
-		{
-			int32_t counter = 0;
-			int32_t maxCounter = e->getElementCount();
-			for (; counter < maxCounter; ++counter) {
-				$var($Element, retValue, getElement($(e->getElement(counter)), attribute, value, searchLeafAttributes));
-				if (retValue != nullptr) {
-					return retValue;
-				}
+		for (int32_t counter = 0, maxCounter = e->getElementCount(); counter < maxCounter; ++counter) {
+			$var($Element, retValue, getElement($(e->getElement(counter)), attribute, value, searchLeafAttributes));
+			if (retValue != nullptr) {
+				return retValue;
 			}
 		}
 	} else if (searchLeafAttributes && attr != nullptr) {
@@ -790,14 +660,14 @@ void HTMLDocument::verifyParser() {
 }
 
 void HTMLDocument::installParserIfNecessary() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (getParser() == nullptr) {
 		setParser($($$new($HTMLEditorKit)->getParser()));
 	}
 }
 
 void HTMLDocument::insertHTML($Element* parent, int32_t offset, $String* html, bool wantsTrailingNewline) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (parent != nullptr && html != nullptr) {
 		$var($HTMLEditorKit$Parser, parser, getParser());
 		if (parser != nullptr) {
@@ -829,32 +699,30 @@ void HTMLDocument::insertHTML($Element* parent, int32_t offset, $String* html, b
 }
 
 void HTMLDocument::removeElements($Element* e, int32_t index, int32_t count) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	writeLock();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			int32_t start = $nc($($nc(e)->getElement(index)))->getStartOffset();
-			int32_t end = $nc($(e->getElement(index + count - 1)))->getEndOffset();
-			if (end > getLength()) {
-				removeElementsAtEnd(e, index, count, start, end);
-			} else {
-				removeElements(e, index, count, start, end);
-			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			writeUnlock();
+	$var($Throwable, var$0, nullptr);
+	try {
+		int32_t start = $$nc($nc(e)->getElement(index))->getStartOffset();
+		int32_t end = $$nc(e->getElement(index + count - 1))->getEndOffset();
+		if (end > getLength()) {
+			removeElementsAtEnd(e, index, count, start, end);
+		} else {
+			removeElements(e, index, count, start, end);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		writeUnlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 void HTMLDocument::removeElementsAtEnd($Element* e, int32_t index, int32_t count, int32_t start, int32_t end) {
-	$useLocalCurrentObjectStackCache();
-	bool isLeaf = ($nc($($nc(e)->getElement(index - 1)))->isLeaf());
+	$useLocalObjectStack();
+	bool isLeaf = ($$nc($nc(e)->getElement(index - 1))->isLeaf());
 	$init($DocumentEvent$EventType);
 	$var($AbstractDocument$DefaultDocumentEvent, dde, $new($AbstractDocument$DefaultDocumentEvent, this, start - 1, end - start + 1, $DocumentEvent$EventType::REMOVE));
 	if (isLeaf) {
@@ -872,7 +740,7 @@ void HTMLDocument::removeElementsAtEnd($Element* e, int32_t index, int32_t count
 		}
 		$assign(newLineE, $nc(newLineE)->getParentElement());
 		replace(dde, e, index, count, start, end, false, false);
-		replace(dde, newLineE, newLineE->getElementCount() - 1, 1, start, end, true, true);
+		replace(dde, newLineE, $nc(newLineE)->getElementCount() - 1, 1, start, end, true, true);
 	}
 	postRemoveUpdate(dde);
 	dde->end();
@@ -881,15 +749,15 @@ void HTMLDocument::removeElementsAtEnd($Element* e, int32_t index, int32_t count
 }
 
 void HTMLDocument::replace($AbstractDocument$DefaultDocumentEvent* dde, $Element* e, int32_t index, int32_t count, int32_t start, int32_t end, bool remove, bool create) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ElementArray, added, nullptr);
-	$var($AttributeSet, attrs, $nc($($nc(e)->getElement(index)))->getAttributes());
+	$var($AttributeSet, attrs, $$nc($nc(e)->getElement(index))->getAttributes());
 	$var($ElementArray, removed, $new($ElementArray, count));
 	for (int32_t counter = 0; counter < count; ++counter) {
 		removed->set(counter, $(e->getElement(counter + index)));
 	}
 	if (remove) {
-		$var($UndoableEdit, u, $nc($(getContent()))->remove(start - 1, end - start));
+		$var($UndoableEdit, u, $$nc(getContent())->remove(start - 1, end - start));
 		if (u != nullptr) {
 			$nc(dde)->addEdit(u);
 		}
@@ -901,11 +769,11 @@ void HTMLDocument::replace($AbstractDocument$DefaultDocumentEvent* dde, $Element
 		$assign(added, $new($ElementArray, 0));
 	}
 	$nc(dde)->addEdit($$new($AbstractDocument$ElementEdit, e, index, removed, added));
-	$nc(($cast($AbstractDocument$BranchElement, e)))->replace(index, removed->length, added);
+	$cast($AbstractDocument$BranchElement, e)->replace(index, removed->length, added);
 }
 
 void HTMLDocument::removeElements($Element* e, int32_t index, int32_t count, int32_t start, int32_t end) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ElementArray, removed, $new($ElementArray, count));
 	$var($ElementArray, added, $new($ElementArray, 0));
 	for (int32_t counter = 0; counter < count; ++counter) {
@@ -913,9 +781,9 @@ void HTMLDocument::removeElements($Element* e, int32_t index, int32_t count, int
 	}
 	$init($DocumentEvent$EventType);
 	$var($AbstractDocument$DefaultDocumentEvent, dde, $new($AbstractDocument$DefaultDocumentEvent, this, start, end - start, $DocumentEvent$EventType::REMOVE));
-	$nc(($cast($AbstractDocument$BranchElement, e)))->replace(index, removed->length, added);
+	$nc($cast($AbstractDocument$BranchElement, e))->replace(index, removed->length, added);
 	dde->addEdit($$new($AbstractDocument$ElementEdit, e, index, removed, added));
-	$var($UndoableEdit, u, $nc($(getContent()))->remove(start, end - start));
+	$var($UndoableEdit, u, $$nc(getContent())->remove(start, end - start));
 	if (u != nullptr) {
 		dde->addEdit(u);
 	}
@@ -951,7 +819,7 @@ $String* HTMLDocument::getBaseTarget() {
 	return this->baseTarget;
 }
 
-void clinit$HTMLDocument($Class* class$) {
+void HTMLDocument::clinit$($Class* clazz) {
 	$assignStatic(HTMLDocument::TokenThreshold, "token threshold"_s);
 	$assignStatic(HTMLDocument::AdditionalComments, "AdditionalComments"_s);
 	$assignStatic(HTMLDocument::StyleType, "StyleType"_s);
@@ -961,9 +829,9 @@ void clinit$HTMLDocument($Class* class$) {
 		$assignStatic(HTMLDocument::contentAttributeSet, $new($SimpleAttributeSet));
 		$init($StyleConstants);
 		$init($HTML$Tag);
-		$nc(($cast($MutableAttributeSet, HTMLDocument::contentAttributeSet)))->addAttribute($StyleConstants::NameAttribute, $HTML$Tag::CONTENT);
+		$cast($MutableAttributeSet, HTMLDocument::contentAttributeSet)->addAttribute($StyleConstants::NameAttribute, $HTML$Tag::CONTENT);
 		$assignStatic(HTMLDocument::NEWLINE, $new($chars, 1));
-		$nc(HTMLDocument::NEWLINE)->set(0, u'\n');
+		HTMLDocument::NEWLINE->set(0, u'\n');
 	}
 }
 
@@ -971,7 +839,118 @@ HTMLDocument::HTMLDocument() {
 }
 
 $Class* HTMLDocument::load$($String* name, bool initialize) {
-	$loadClass(HTMLDocument, name, initialize, &_HTMLDocument_ClassInfo_, clinit$HTMLDocument, allocate$HTMLDocument);
+	$FieldInfo fieldInfos$$[] = {
+		{"frameDocument", "Z", nullptr, $PRIVATE, $field(HTMLDocument, frameDocument)},
+		{"preservesUnknownTags", "Z", nullptr, $PRIVATE, $field(HTMLDocument, preservesUnknownTags)},
+		{"radioButtonGroupsMap", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/lang/String;Ljavax/swing/ButtonGroup;>;", $PRIVATE, $field(HTMLDocument, radioButtonGroupsMap)},
+		{"TokenThreshold", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(HTMLDocument, TokenThreshold)},
+		{"MaxThreshold", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(HTMLDocument, MaxThreshold)},
+		{"StepThreshold", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(HTMLDocument, StepThreshold)},
+		{"AdditionalComments", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTMLDocument, AdditionalComments)},
+		{"StyleType", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(HTMLDocument, StyleType)},
+		{"base", "Ljava/net/URL;", nullptr, 0, $field(HTMLDocument, base)},
+		{"hasBaseTag", "Z", nullptr, 0, $field(HTMLDocument, hasBaseTag$)},
+		{"baseTarget", "Ljava/lang/String;", nullptr, $PRIVATE, $field(HTMLDocument, baseTarget)},
+		{"parser", "Ljavax/swing/text/html/HTMLEditorKit$Parser;", nullptr, $PRIVATE, $field(HTMLDocument, parser)},
+		{"contentAttributeSet", "Ljavax/swing/text/AttributeSet;", nullptr, $PRIVATE | $STATIC, $staticField(HTMLDocument, contentAttributeSet)},
+		{"MAP_PROPERTY", "Ljava/lang/String;", nullptr, $STATIC, $staticField(HTMLDocument, MAP_PROPERTY)},
+		{"NEWLINE", "[C", nullptr, $PRIVATE | $STATIC, $staticField(HTMLDocument, NEWLINE)},
+		{"insertInBody", "Z", nullptr, $PRIVATE, $field(HTMLDocument, insertInBody)},
+		{"I18NProperty", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(HTMLDocument, I18NProperty)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(HTMLDocument, init$, void)},
+		{"<init>", "(Ljavax/swing/text/html/StyleSheet;)V", nullptr, $PUBLIC, $method(HTMLDocument, init$, void, $StyleSheet*)},
+		{"<init>", "(Ljavax/swing/text/AbstractDocument$Content;Ljavax/swing/text/html/StyleSheet;)V", nullptr, $PUBLIC, $method(HTMLDocument, init$, void, $AbstractDocument$Content*, $StyleSheet*)},
+		{"access$000", "(Ljavax/swing/text/html/HTMLDocument;Ljavax/swing/text/AbstractDocument$DefaultDocumentEvent;)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(HTMLDocument, access$000, void, HTMLDocument*, $AbstractDocument$DefaultDocumentEvent*)},
+		{"access$100", "(Ljavax/swing/text/html/HTMLDocument;)Ljavax/swing/text/AbstractDocument$Content;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(HTMLDocument, access$100, $AbstractDocument$Content*, HTMLDocument*)},
+		{"access$200", "(Ljavax/swing/text/html/HTMLDocument;Ljavax/swing/text/AbstractDocument$DefaultDocumentEvent;)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(HTMLDocument, access$200, void, HTMLDocument*, $AbstractDocument$DefaultDocumentEvent*)},
+		{"access$300", "(Ljavax/swing/text/html/HTMLDocument;Ljavax/swing/event/DocumentEvent;)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(HTMLDocument, access$300, void, HTMLDocument*, $DocumentEvent*)},
+		{"addMap", "(Ljavax/swing/text/html/Map;)V", nullptr, 0, $virtualMethod(HTMLDocument, addMap, void, $Map*)},
+		{"create", "([Ljavax/swing/text/DefaultStyledDocument$ElementSpec;)V", nullptr, $PROTECTED, $virtualMethod(HTMLDocument, create, void, $DefaultStyledDocument$ElementSpecArray*)},
+		{"createBranchElement", "(Ljavax/swing/text/Element;Ljavax/swing/text/AttributeSet;)Ljavax/swing/text/Element;", nullptr, $PROTECTED, $virtualMethod(HTMLDocument, createBranchElement, $Element*, $Element*, $AttributeSet*)},
+		{"createDefaultRoot", "()Ljavax/swing/text/AbstractDocument$AbstractElement;", nullptr, $PROTECTED, $virtualMethod(HTMLDocument, createDefaultRoot, $AbstractDocument$AbstractElement*)},
+		{"createLeafElement", "(Ljavax/swing/text/Element;Ljavax/swing/text/AttributeSet;II)Ljavax/swing/text/Element;", nullptr, $PROTECTED, $virtualMethod(HTMLDocument, createLeafElement, $Element*, $Element*, $AttributeSet*, int32_t, int32_t)},
+		{"findFrame", "(Ljava/lang/String;)Ljavax/swing/text/Element;", nullptr, $PRIVATE, $method(HTMLDocument, findFrame, $Element*, $String*)},
+		{"fireChangedUpdate", "(Ljavax/swing/event/DocumentEvent;)V", nullptr, $PROTECTED, $virtualMethod(HTMLDocument, fireChangedUpdate, void, $DocumentEvent*)},
+		{"fireUndoableEditUpdate", "(Ljavax/swing/event/UndoableEditEvent;)V", nullptr, $PROTECTED, $virtualMethod(HTMLDocument, fireUndoableEditUpdate, void, $UndoableEditEvent*)},
+		{"getBase", "()Ljava/net/URL;", nullptr, $PUBLIC, $virtualMethod(HTMLDocument, getBase, $URL*)},
+		{"getBaseTarget", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(HTMLDocument, getBaseTarget, $String*)},
+		{"getDefaultStyleSheetType", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(HTMLDocument, getDefaultStyleSheetType, $String*)},
+		{"getElement", "(Ljava/lang/String;)Ljavax/swing/text/Element;", nullptr, $PUBLIC, $virtualMethod(HTMLDocument, getElement, $Element*, $String*)},
+		{"getElement", "(Ljavax/swing/text/Element;Ljava/lang/Object;Ljava/lang/Object;)Ljavax/swing/text/Element;", nullptr, $PUBLIC, $virtualMethod(HTMLDocument, getElement, $Element*, $Element*, Object$*, Object$*)},
+		{"getElement", "(Ljavax/swing/text/Element;Ljava/lang/Object;Ljava/lang/Object;Z)Ljavax/swing/text/Element;", nullptr, $PRIVATE, $method(HTMLDocument, getElement, $Element*, $Element*, Object$*, Object$*, bool)},
+		{"getIterator", "(Ljavax/swing/text/html/HTML$Tag;)Ljavax/swing/text/html/HTMLDocument$Iterator;", nullptr, $PUBLIC, $virtualMethod(HTMLDocument, getIterator, $HTMLDocument$Iterator*, $HTML$Tag*)},
+		{"getMap", "(Ljava/lang/String;)Ljavax/swing/text/html/Map;", nullptr, 0, $virtualMethod(HTMLDocument, getMap, $Map*, $String*)},
+		{"getMaps", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/lang/Object;>;", 0, $virtualMethod(HTMLDocument, getMaps, $Enumeration*)},
+		{"getParser", "()Ljavax/swing/text/html/HTMLEditorKit$Parser;", nullptr, $PUBLIC, $virtualMethod(HTMLDocument, getParser, $HTMLEditorKit$Parser*)},
+		{"getPreservesUnknownTags", "()Z", nullptr, $PUBLIC, $virtualMethod(HTMLDocument, getPreservesUnknownTags, bool)},
+		{"getReader", "(I)Ljavax/swing/text/html/HTMLEditorKit$ParserCallback;", nullptr, $PUBLIC, $virtualMethod(HTMLDocument, getReader, $HTMLEditorKit$ParserCallback*, int32_t)},
+		{"getReader", "(IIILjavax/swing/text/html/HTML$Tag;)Ljavax/swing/text/html/HTMLEditorKit$ParserCallback;", nullptr, $PUBLIC, $virtualMethod(HTMLDocument, getReader, $HTMLEditorKit$ParserCallback*, int32_t, int32_t, int32_t, $HTML$Tag*)},
+		{"getReader", "(IIILjavax/swing/text/html/HTML$Tag;Z)Ljavax/swing/text/html/HTMLEditorKit$ParserCallback;", nullptr, 0, $virtualMethod(HTMLDocument, getReader, $HTMLEditorKit$ParserCallback*, int32_t, int32_t, int32_t, $HTML$Tag*, bool)},
+		{"getStyleSheet", "()Ljavax/swing/text/html/StyleSheet;", nullptr, $PUBLIC, $virtualMethod(HTMLDocument, getStyleSheet, $StyleSheet*)},
+		{"getTokenThreshold", "()I", nullptr, $PUBLIC, $virtualMethod(HTMLDocument, getTokenThreshold, int32_t)},
+		{"hasBaseTag", "()Z", nullptr, 0, $virtualMethod(HTMLDocument, hasBaseTag, bool)},
+		{"insert", "(I[Ljavax/swing/text/DefaultStyledDocument$ElementSpec;)V", nullptr, $PROTECTED, $virtualMethod(HTMLDocument, insert, void, int32_t, $DefaultStyledDocument$ElementSpecArray*), "javax.swing.text.BadLocationException"},
+		{"insertAfterEnd", "(Ljavax/swing/text/Element;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(HTMLDocument, insertAfterEnd, void, $Element*, $String*), "javax.swing.text.BadLocationException,java.io.IOException"},
+		{"insertAfterStart", "(Ljavax/swing/text/Element;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(HTMLDocument, insertAfterStart, void, $Element*, $String*), "javax.swing.text.BadLocationException,java.io.IOException"},
+		{"insertBeforeEnd", "(Ljavax/swing/text/Element;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(HTMLDocument, insertBeforeEnd, void, $Element*, $String*), "javax.swing.text.BadLocationException,java.io.IOException"},
+		{"insertBeforeStart", "(Ljavax/swing/text/Element;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(HTMLDocument, insertBeforeStart, void, $Element*, $String*), "javax.swing.text.BadLocationException,java.io.IOException"},
+		{"insertHTML", "(Ljavax/swing/text/Element;ILjava/lang/String;Z)V", nullptr, $PRIVATE, $method(HTMLDocument, insertHTML, void, $Element*, int32_t, $String*, bool), "javax.swing.text.BadLocationException,java.io.IOException"},
+		{"insertUpdate", "(Ljavax/swing/text/AbstractDocument$DefaultDocumentEvent;Ljavax/swing/text/AttributeSet;)V", nullptr, $PROTECTED, $virtualMethod(HTMLDocument, insertUpdate, void, $AbstractDocument$DefaultDocumentEvent*, $AttributeSet*)},
+		{"installParserIfNecessary", "()V", nullptr, $PRIVATE, $method(HTMLDocument, installParserIfNecessary, void)},
+		{"isFrameDocument", "()Z", nullptr, 0, $virtualMethod(HTMLDocument, isFrameDocument, bool)},
+		{"matchNameAttribute", "(Ljavax/swing/text/AttributeSet;Ljavax/swing/text/html/HTML$Tag;)Z", nullptr, $STATIC, $staticMethod(HTMLDocument, matchNameAttribute, bool, $AttributeSet*, $HTML$Tag*)},
+		{"obtainLock", "()V", nullptr, 0, $virtualMethod(HTMLDocument, obtainLock, void)},
+		{"processHTMLFrameHyperlinkEvent", "(Ljavax/swing/text/html/HTMLFrameHyperlinkEvent;)V", nullptr, $PUBLIC, $virtualMethod(HTMLDocument, processHTMLFrameHyperlinkEvent, void, $HTMLFrameHyperlinkEvent*)},
+		{"releaseLock", "()V", nullptr, 0, $virtualMethod(HTMLDocument, releaseLock, void)},
+		{"removeElements", "(Ljavax/swing/text/Element;II)V", nullptr, $PRIVATE, $method(HTMLDocument, removeElements, void, $Element*, int32_t, int32_t), "javax.swing.text.BadLocationException"},
+		{"removeElements", "(Ljavax/swing/text/Element;IIII)V", nullptr, $PRIVATE, $method(HTMLDocument, removeElements, void, $Element*, int32_t, int32_t, int32_t, int32_t), "javax.swing.text.BadLocationException"},
+		{"removeElementsAtEnd", "(Ljavax/swing/text/Element;IIII)V", nullptr, $PRIVATE, $method(HTMLDocument, removeElementsAtEnd, void, $Element*, int32_t, int32_t, int32_t, int32_t), "javax.swing.text.BadLocationException"},
+		{"removeMap", "(Ljavax/swing/text/html/Map;)V", nullptr, 0, $virtualMethod(HTMLDocument, removeMap, void, $Map*)},
+		{"replace", "(Ljavax/swing/text/AbstractDocument$DefaultDocumentEvent;Ljavax/swing/text/Element;IIIIZZ)V", nullptr, $PRIVATE, $method(HTMLDocument, replace, void, $AbstractDocument$DefaultDocumentEvent*, $Element*, int32_t, int32_t, int32_t, int32_t, bool, bool), "javax.swing.text.BadLocationException"},
+		{"setBase", "(Ljava/net/URL;)V", nullptr, $PUBLIC, $virtualMethod(HTMLDocument, setBase, void, $URL*)},
+		{"setDefaultStyleSheetType", "(Ljava/lang/String;)V", nullptr, 0, $virtualMethod(HTMLDocument, setDefaultStyleSheetType, void, $String*)},
+		{"setFrameDocumentState", "(Z)V", nullptr, 0, $virtualMethod(HTMLDocument, setFrameDocumentState, void, bool)},
+		{"setInnerHTML", "(Ljavax/swing/text/Element;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(HTMLDocument, setInnerHTML, void, $Element*, $String*), "javax.swing.text.BadLocationException,java.io.IOException"},
+		{"setOuterHTML", "(Ljavax/swing/text/Element;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(HTMLDocument, setOuterHTML, void, $Element*, $String*), "javax.swing.text.BadLocationException,java.io.IOException"},
+		{"setParagraphAttributes", "(IILjavax/swing/text/AttributeSet;Z)V", nullptr, $PUBLIC, $virtualMethod(HTMLDocument, setParagraphAttributes, void, int32_t, int32_t, $AttributeSet*, bool)},
+		{"setParser", "(Ljavax/swing/text/html/HTMLEditorKit$Parser;)V", nullptr, $PUBLIC, $virtualMethod(HTMLDocument, setParser, void, $HTMLEditorKit$Parser*)},
+		{"setPreservesUnknownTags", "(Z)V", nullptr, $PUBLIC, $virtualMethod(HTMLDocument, setPreservesUnknownTags, void, bool)},
+		{"setTokenThreshold", "(I)V", nullptr, $PUBLIC, $virtualMethod(HTMLDocument, setTokenThreshold, void, int32_t)},
+		{"updateFrame", "(Ljavax/swing/text/Element;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(HTMLDocument, updateFrame, void, $Element*, $String*)},
+		{"updateFrameSet", "(Ljavax/swing/text/Element;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(HTMLDocument, updateFrameSet, void, $Element*, $String*)},
+		{"verifyParser", "()V", nullptr, $PRIVATE, $method(HTMLDocument, verifyParser, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.html.HTMLDocument$FixedLengthDocument", "javax.swing.text.html.HTMLDocument", "FixedLengthDocument", $PRIVATE | $STATIC},
+		{"javax.swing.text.html.HTMLDocument$BlockElement", "javax.swing.text.html.HTMLDocument", "BlockElement", $PUBLIC},
+		{"javax.swing.text.html.HTMLDocument$RunElement", "javax.swing.text.html.HTMLDocument", "RunElement", $PUBLIC},
+		{"javax.swing.text.html.HTMLDocument$TaggedAttributeSet", "javax.swing.text.html.HTMLDocument", "TaggedAttributeSet", $STATIC},
+		{"javax.swing.text.html.HTMLDocument$HTMLReader", "javax.swing.text.html.HTMLDocument", "HTMLReader", $PUBLIC},
+		{"javax.swing.text.html.HTMLDocument$LeafIterator", "javax.swing.text.html.HTMLDocument", "LeafIterator", $STATIC},
+		{"javax.swing.text.html.HTMLDocument$Iterator", "javax.swing.text.html.HTMLDocument", "Iterator", $PUBLIC | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.text.html.HTMLDocument",
+		"javax.swing.text.DefaultStyledDocument",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.swing.text.html.HTMLDocument$FixedLengthDocument,javax.swing.text.html.HTMLDocument$BlockElement,javax.swing.text.html.HTMLDocument$RunElement,javax.swing.text.html.HTMLDocument$TaggedAttributeSet,javax.swing.text.html.HTMLDocument$HTMLReader,javax.swing.text.html.HTMLDocument$HTMLReader$FormAction,javax.swing.text.html.HTMLDocument$HTMLReader$ObjectAction,javax.swing.text.html.HTMLDocument$HTMLReader$BaseAction,javax.swing.text.html.HTMLDocument$HTMLReader$TitleAction,javax.swing.text.html.HTMLDocument$HTMLReader$AnchorAction,javax.swing.text.html.HTMLDocument$HTMLReader$ConvertAction,javax.swing.text.html.HTMLDocument$HTMLReader$CharacterAction,javax.swing.text.html.HTMLDocument$HTMLReader$PreAction,javax.swing.text.html.HTMLDocument$HTMLReader$StyleAction,javax.swing.text.html.HTMLDocument$HTMLReader$AreaAction,javax.swing.text.html.HTMLDocument$HTMLReader$MapAction,javax.swing.text.html.HTMLDocument$HTMLReader$LinkAction,javax.swing.text.html.HTMLDocument$HTMLReader$HeadAction,javax.swing.text.html.HTMLDocument$HTMLReader$MetaAction,javax.swing.text.html.HTMLDocument$HTMLReader$HiddenAction,javax.swing.text.html.HTMLDocument$HTMLReader$IsindexAction,javax.swing.text.html.HTMLDocument$HTMLReader$SpecialAction,javax.swing.text.html.HTMLDocument$HTMLReader$ParagraphAction,javax.swing.text.html.HTMLDocument$HTMLReader$FormTagAction,javax.swing.text.html.HTMLDocument$HTMLReader$BlockAction,javax.swing.text.html.HTMLDocument$HTMLReader$TagAction,javax.swing.text.html.HTMLDocument$LeafIterator,javax.swing.text.html.HTMLDocument$Iterator"
+	};
+	$loadClass(HTMLDocument, name, initialize, &classInfo$$, HTMLDocument::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(HTMLDocument));
+	});
 	return class$;
 }
 

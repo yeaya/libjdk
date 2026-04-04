@@ -1,5 +1,4 @@
 #include <jdk/internal/shellsupport/doc/JavadocHelper$OnDemandJavadocHelper$3.h>
-
 #include <com/sun/source/tree/ClassTree.h>
 #include <com/sun/source/tree/MethodTree.h>
 #include <com/sun/source/tree/VariableTree.h>
@@ -27,7 +26,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Void = ::java::lang::Void;
-using $Map = ::java::util::Map;
 using $Element = ::javax::lang::model::element::Element;
 using $JavadocHelper$OnDemandJavadocHelper = ::jdk::internal::shellsupport::doc::JavadocHelper$OnDemandJavadocHelper;
 
@@ -35,57 +33,6 @@ namespace jdk {
 	namespace internal {
 		namespace shellsupport {
 			namespace doc {
-
-$FieldInfo _JavadocHelper$OnDemandJavadocHelper$3_FieldInfo_[] = {
-	{"this$0", "Ljdk/internal/shellsupport/doc/JavadocHelper$OnDemandJavadocHelper;", nullptr, $FINAL | $SYNTHETIC, $field(JavadocHelper$OnDemandJavadocHelper$3, this$0)},
-	{"val$task", "Lcom/sun/source/util/JavacTask;", nullptr, $FINAL | $SYNTHETIC, $field(JavadocHelper$OnDemandJavadocHelper$3, val$task)},
-	{"val$trees", "Lcom/sun/source/util/Trees;", nullptr, $FINAL | $SYNTHETIC, $field(JavadocHelper$OnDemandJavadocHelper$3, val$trees)},
-	{}
-};
-
-$MethodInfo _JavadocHelper$OnDemandJavadocHelper$3_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/shellsupport/doc/JavadocHelper$OnDemandJavadocHelper;Lcom/sun/source/util/Trees;Lcom/sun/source/util/JavacTask;)V", nullptr, 0, $method(JavadocHelper$OnDemandJavadocHelper$3, init$, void, $JavadocHelper$OnDemandJavadocHelper*, $Trees*, $JavacTask*)},
-	{"handleDeclaration", "()V", nullptr, $PRIVATE, $method(JavadocHelper$OnDemandJavadocHelper$3, handleDeclaration, void)},
-	{"visitClass", "(Lcom/sun/source/tree/ClassTree;Ljava/lang/Void;)Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(JavadocHelper$OnDemandJavadocHelper$3, visitClass, $Void*, $ClassTree*, $Void*)},
-	{"visitClass", "(Lcom/sun/source/tree/ClassTree;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JavadocHelper$OnDemandJavadocHelper$3, visitClass, $Object*, $ClassTree*, Object$*)},
-	{"visitMethod", "(Lcom/sun/source/tree/MethodTree;Ljava/lang/Void;)Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(JavadocHelper$OnDemandJavadocHelper$3, visitMethod, $Void*, $MethodTree*, $Void*)},
-	{"visitMethod", "(Lcom/sun/source/tree/MethodTree;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JavadocHelper$OnDemandJavadocHelper$3, visitMethod, $Object*, $MethodTree*, Object$*)},
-	{"visitVariable", "(Lcom/sun/source/tree/VariableTree;Ljava/lang/Void;)Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(JavadocHelper$OnDemandJavadocHelper$3, visitVariable, $Void*, $VariableTree*, $Void*)},
-	{"visitVariable", "(Lcom/sun/source/tree/VariableTree;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JavadocHelper$OnDemandJavadocHelper$3, visitVariable, $Object*, $VariableTree*, Object$*)},
-	{}
-};
-
-$EnclosingMethodInfo _JavadocHelper$OnDemandJavadocHelper$3_EnclosingMethodInfo_ = {
-	"jdk.internal.shellsupport.doc.JavadocHelper$OnDemandJavadocHelper",
-	"fillElementCache",
-	"(Lcom/sun/source/util/JavacTask;Lcom/sun/source/tree/CompilationUnitTree;)V"
-};
-
-$InnerClassInfo _JavadocHelper$OnDemandJavadocHelper$3_InnerClassesInfo_[] = {
-	{"jdk.internal.shellsupport.doc.JavadocHelper$OnDemandJavadocHelper", "jdk.internal.shellsupport.doc.JavadocHelper", "OnDemandJavadocHelper", $PRIVATE | $STATIC | $FINAL},
-	{"jdk.internal.shellsupport.doc.JavadocHelper$OnDemandJavadocHelper$3", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _JavadocHelper$OnDemandJavadocHelper$3_ClassInfo_ = {
-	$ACC_SUPER,
-	"jdk.internal.shellsupport.doc.JavadocHelper$OnDemandJavadocHelper$3",
-	"com.sun.source.util.TreePathScanner",
-	nullptr,
-	_JavadocHelper$OnDemandJavadocHelper$3_FieldInfo_,
-	_JavadocHelper$OnDemandJavadocHelper$3_MethodInfo_,
-	"Lcom/sun/source/util/TreePathScanner<Ljava/lang/Void;Ljava/lang/Void;>;",
-	&_JavadocHelper$OnDemandJavadocHelper$3_EnclosingMethodInfo_,
-	_JavadocHelper$OnDemandJavadocHelper$3_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.shellsupport.doc.JavadocHelper"
-};
-
-$Object* allocate$JavadocHelper$OnDemandJavadocHelper$3($Class* clazz) {
-	return $of($alloc(JavadocHelper$OnDemandJavadocHelper$3));
-}
 
 void JavadocHelper$OnDemandJavadocHelper$3::init$($JavadocHelper$OnDemandJavadocHelper* this$0, $Trees* val$trees, $JavacTask* val$task) {
 	$set(this, this$0, this$0);
@@ -110,31 +57,75 @@ $Void* JavadocHelper$OnDemandJavadocHelper$3::visitVariable($VariableTree* node,
 }
 
 void JavadocHelper$OnDemandJavadocHelper$3::handleDeclaration() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Element, currentElement, $nc(this->val$trees)->getElement($(getCurrentPath())));
 	if (currentElement != nullptr) {
-		$var($Object, var$0, $of(this->this$0->elementSignature(currentElement)));
+		$var($Object, var$0, this->this$0->elementSignature(currentElement));
 		$nc(this->this$0->signature2Source)->put(var$0, $($Pair::of(this->val$task, $(getCurrentPath()))));
 	}
 }
 
 $Object* JavadocHelper$OnDemandJavadocHelper$3::visitVariable($VariableTree* node, Object$* p) {
-	return $of(this->visitVariable(node, $cast($Void, p)));
+	return this->visitVariable(node, $cast($Void, p));
 }
 
 $Object* JavadocHelper$OnDemandJavadocHelper$3::visitMethod($MethodTree* node, Object$* p) {
-	return $of(this->visitMethod(node, $cast($Void, p)));
+	return this->visitMethod(node, $cast($Void, p));
 }
 
 $Object* JavadocHelper$OnDemandJavadocHelper$3::visitClass($ClassTree* node, Object$* p) {
-	return $of(this->visitClass(node, $cast($Void, p)));
+	return this->visitClass(node, $cast($Void, p));
 }
 
 JavadocHelper$OnDemandJavadocHelper$3::JavadocHelper$OnDemandJavadocHelper$3() {
 }
 
 $Class* JavadocHelper$OnDemandJavadocHelper$3::load$($String* name, bool initialize) {
-	$loadClass(JavadocHelper$OnDemandJavadocHelper$3, name, initialize, &_JavadocHelper$OnDemandJavadocHelper$3_ClassInfo_, allocate$JavadocHelper$OnDemandJavadocHelper$3);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljdk/internal/shellsupport/doc/JavadocHelper$OnDemandJavadocHelper;", nullptr, $FINAL | $SYNTHETIC, $field(JavadocHelper$OnDemandJavadocHelper$3, this$0)},
+		{"val$task", "Lcom/sun/source/util/JavacTask;", nullptr, $FINAL | $SYNTHETIC, $field(JavadocHelper$OnDemandJavadocHelper$3, val$task)},
+		{"val$trees", "Lcom/sun/source/util/Trees;", nullptr, $FINAL | $SYNTHETIC, $field(JavadocHelper$OnDemandJavadocHelper$3, val$trees)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/internal/shellsupport/doc/JavadocHelper$OnDemandJavadocHelper;Lcom/sun/source/util/Trees;Lcom/sun/source/util/JavacTask;)V", nullptr, 0, $method(JavadocHelper$OnDemandJavadocHelper$3, init$, void, $JavadocHelper$OnDemandJavadocHelper*, $Trees*, $JavacTask*)},
+		{"handleDeclaration", "()V", nullptr, $PRIVATE, $method(JavadocHelper$OnDemandJavadocHelper$3, handleDeclaration, void)},
+		{"visitClass", "(Lcom/sun/source/tree/ClassTree;Ljava/lang/Void;)Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(JavadocHelper$OnDemandJavadocHelper$3, visitClass, $Void*, $ClassTree*, $Void*)},
+		{"visitClass", "(Lcom/sun/source/tree/ClassTree;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JavadocHelper$OnDemandJavadocHelper$3, visitClass, $Object*, $ClassTree*, Object$*)},
+		{"visitMethod", "(Lcom/sun/source/tree/MethodTree;Ljava/lang/Void;)Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(JavadocHelper$OnDemandJavadocHelper$3, visitMethod, $Void*, $MethodTree*, $Void*)},
+		{"visitMethod", "(Lcom/sun/source/tree/MethodTree;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JavadocHelper$OnDemandJavadocHelper$3, visitMethod, $Object*, $MethodTree*, Object$*)},
+		{"visitVariable", "(Lcom/sun/source/tree/VariableTree;Ljava/lang/Void;)Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(JavadocHelper$OnDemandJavadocHelper$3, visitVariable, $Void*, $VariableTree*, $Void*)},
+		{"visitVariable", "(Lcom/sun/source/tree/VariableTree;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JavadocHelper$OnDemandJavadocHelper$3, visitVariable, $Object*, $VariableTree*, Object$*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"jdk.internal.shellsupport.doc.JavadocHelper$OnDemandJavadocHelper",
+		"fillElementCache",
+		"(Lcom/sun/source/util/JavacTask;Lcom/sun/source/tree/CompilationUnitTree;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.shellsupport.doc.JavadocHelper$OnDemandJavadocHelper", "jdk.internal.shellsupport.doc.JavadocHelper", "OnDemandJavadocHelper", $PRIVATE | $STATIC | $FINAL},
+		{"jdk.internal.shellsupport.doc.JavadocHelper$OnDemandJavadocHelper$3", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"jdk.internal.shellsupport.doc.JavadocHelper$OnDemandJavadocHelper$3",
+		"com.sun.source.util.TreePathScanner",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Lcom/sun/source/util/TreePathScanner<Ljava/lang/Void;Ljava/lang/Void;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.shellsupport.doc.JavadocHelper"
+	};
+	$loadClass(JavadocHelper$OnDemandJavadocHelper$3, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JavadocHelper$OnDemandJavadocHelper$3);
+	});
 	return class$;
 }
 

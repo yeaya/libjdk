@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext.h>
-
 #include <java/awt/Dimension.h>
 #include <java/awt/Insets.h>
 #include <javax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext$CacheMode.h>
@@ -24,61 +23,10 @@ namespace javax {
 		namespace plaf {
 			namespace nimbus {
 
-$FieldInfo _AbstractRegionPainter$PaintContext_FieldInfo_[] = {
-	{"EMPTY_INSETS", "Ljava/awt/Insets;", nullptr, $PRIVATE | $STATIC, $staticField(AbstractRegionPainter$PaintContext, EMPTY_INSETS)},
-	{"stretchingInsets", "Ljava/awt/Insets;", nullptr, $PRIVATE, $field(AbstractRegionPainter$PaintContext, stretchingInsets)},
-	{"canvasSize", "Ljava/awt/Dimension;", nullptr, $PRIVATE, $field(AbstractRegionPainter$PaintContext, canvasSize)},
-	{"inverted", "Z", nullptr, $PRIVATE, $field(AbstractRegionPainter$PaintContext, inverted)},
-	{"cacheMode", "Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext$CacheMode;", nullptr, $PRIVATE, $field(AbstractRegionPainter$PaintContext, cacheMode)},
-	{"maxHorizontalScaleFactor", "D", nullptr, $PRIVATE, $field(AbstractRegionPainter$PaintContext, maxHorizontalScaleFactor)},
-	{"maxVerticalScaleFactor", "D", nullptr, $PRIVATE, $field(AbstractRegionPainter$PaintContext, maxVerticalScaleFactor)},
-	{"a", "F", nullptr, $PRIVATE, $field(AbstractRegionPainter$PaintContext, a)},
-	{"b", "F", nullptr, $PRIVATE, $field(AbstractRegionPainter$PaintContext, b)},
-	{"c", "F", nullptr, $PRIVATE, $field(AbstractRegionPainter$PaintContext, c)},
-	{"d", "F", nullptr, $PRIVATE, $field(AbstractRegionPainter$PaintContext, d)},
-	{"aPercent", "F", nullptr, $PRIVATE, $field(AbstractRegionPainter$PaintContext, aPercent)},
-	{"bPercent", "F", nullptr, $PRIVATE, $field(AbstractRegionPainter$PaintContext, bPercent)},
-	{"cPercent", "F", nullptr, $PRIVATE, $field(AbstractRegionPainter$PaintContext, cPercent)},
-	{"dPercent", "F", nullptr, $PRIVATE, $field(AbstractRegionPainter$PaintContext, dPercent)},
-	{}
-};
-
-$MethodInfo _AbstractRegionPainter$PaintContext_MethodInfo_[] = {
-	{"<init>", "(Ljava/awt/Insets;Ljava/awt/Dimension;Z)V", nullptr, $PUBLIC, $method(AbstractRegionPainter$PaintContext, init$, void, $Insets*, $Dimension*, bool)},
-	{"<init>", "(Ljava/awt/Insets;Ljava/awt/Dimension;ZLjavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext$CacheMode;DD)V", nullptr, $PUBLIC, $method(AbstractRegionPainter$PaintContext, init$, void, $Insets*, $Dimension*, bool, $AbstractRegionPainter$PaintContext$CacheMode*, double, double)},
-	{}
-};
-
-$InnerClassInfo _AbstractRegionPainter$PaintContext_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.nimbus.AbstractRegionPainter$PaintContext", "javax.swing.plaf.nimbus.AbstractRegionPainter", "PaintContext", $PROTECTED | $STATIC},
-	{"javax.swing.plaf.nimbus.AbstractRegionPainter$PaintContext$CacheMode", "javax.swing.plaf.nimbus.AbstractRegionPainter$PaintContext", "CacheMode", $PROTECTED | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _AbstractRegionPainter$PaintContext_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.nimbus.AbstractRegionPainter$PaintContext",
-	"java.lang.Object",
-	nullptr,
-	_AbstractRegionPainter$PaintContext_FieldInfo_,
-	_AbstractRegionPainter$PaintContext_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AbstractRegionPainter$PaintContext_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.nimbus.AbstractRegionPainter"
-};
-
-$Object* allocate$AbstractRegionPainter$PaintContext($Class* clazz) {
-	return $of($alloc(AbstractRegionPainter$PaintContext));
-}
-
 $Insets* AbstractRegionPainter$PaintContext::EMPTY_INSETS = nullptr;
 
 void AbstractRegionPainter$PaintContext::init$($Insets* insets, $Dimension* canvasSize, bool inverted) {
-	AbstractRegionPainter$PaintContext::init$(insets, canvasSize, inverted, nullptr, (double)1, (double)1);
+	AbstractRegionPainter$PaintContext::init$(insets, canvasSize, inverted, nullptr, 1, 1);
 }
 
 void AbstractRegionPainter$PaintContext::init$($Insets* insets, $Dimension* canvasSize, bool inverted, $AbstractRegionPainter$PaintContext$CacheMode* cacheMode, double maxH, double maxV) {
@@ -94,9 +42,9 @@ void AbstractRegionPainter$PaintContext::init$($Insets* insets, $Dimension* canv
 	this->maxVerticalScaleFactor = maxV;
 	if (canvasSize != nullptr) {
 		this->a = (float)$nc(this->stretchingInsets)->left;
-		this->b = (float)(canvasSize->width - $nc(this->stretchingInsets)->right);
-		this->c = (float)$nc(this->stretchingInsets)->top;
-		this->d = (float)(canvasSize->height - $nc(this->stretchingInsets)->bottom);
+		this->b = (float)(canvasSize->width - this->stretchingInsets->right);
+		this->c = (float)this->stretchingInsets->top;
+		this->d = (float)(canvasSize->height - this->stretchingInsets->bottom);
 		$set(this, canvasSize, canvasSize);
 		this->inverted = inverted;
 		if (inverted) {
@@ -110,7 +58,7 @@ void AbstractRegionPainter$PaintContext::init$($Insets* insets, $Dimension* canv
 	}
 }
 
-void clinit$AbstractRegionPainter$PaintContext($Class* class$) {
+void AbstractRegionPainter$PaintContext::clinit$($Class* clazz) {
 	$assignStatic(AbstractRegionPainter$PaintContext::EMPTY_INSETS, $new($Insets, 0, 0, 0, 0));
 }
 
@@ -118,7 +66,52 @@ AbstractRegionPainter$PaintContext::AbstractRegionPainter$PaintContext() {
 }
 
 $Class* AbstractRegionPainter$PaintContext::load$($String* name, bool initialize) {
-	$loadClass(AbstractRegionPainter$PaintContext, name, initialize, &_AbstractRegionPainter$PaintContext_ClassInfo_, clinit$AbstractRegionPainter$PaintContext, allocate$AbstractRegionPainter$PaintContext);
+	$FieldInfo fieldInfos$$[] = {
+		{"EMPTY_INSETS", "Ljava/awt/Insets;", nullptr, $PRIVATE | $STATIC, $staticField(AbstractRegionPainter$PaintContext, EMPTY_INSETS)},
+		{"stretchingInsets", "Ljava/awt/Insets;", nullptr, $PRIVATE, $field(AbstractRegionPainter$PaintContext, stretchingInsets)},
+		{"canvasSize", "Ljava/awt/Dimension;", nullptr, $PRIVATE, $field(AbstractRegionPainter$PaintContext, canvasSize)},
+		{"inverted", "Z", nullptr, $PRIVATE, $field(AbstractRegionPainter$PaintContext, inverted)},
+		{"cacheMode", "Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext$CacheMode;", nullptr, $PRIVATE, $field(AbstractRegionPainter$PaintContext, cacheMode)},
+		{"maxHorizontalScaleFactor", "D", nullptr, $PRIVATE, $field(AbstractRegionPainter$PaintContext, maxHorizontalScaleFactor)},
+		{"maxVerticalScaleFactor", "D", nullptr, $PRIVATE, $field(AbstractRegionPainter$PaintContext, maxVerticalScaleFactor)},
+		{"a", "F", nullptr, $PRIVATE, $field(AbstractRegionPainter$PaintContext, a)},
+		{"b", "F", nullptr, $PRIVATE, $field(AbstractRegionPainter$PaintContext, b)},
+		{"c", "F", nullptr, $PRIVATE, $field(AbstractRegionPainter$PaintContext, c)},
+		{"d", "F", nullptr, $PRIVATE, $field(AbstractRegionPainter$PaintContext, d)},
+		{"aPercent", "F", nullptr, $PRIVATE, $field(AbstractRegionPainter$PaintContext, aPercent)},
+		{"bPercent", "F", nullptr, $PRIVATE, $field(AbstractRegionPainter$PaintContext, bPercent)},
+		{"cPercent", "F", nullptr, $PRIVATE, $field(AbstractRegionPainter$PaintContext, cPercent)},
+		{"dPercent", "F", nullptr, $PRIVATE, $field(AbstractRegionPainter$PaintContext, dPercent)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/Insets;Ljava/awt/Dimension;Z)V", nullptr, $PUBLIC, $method(AbstractRegionPainter$PaintContext, init$, void, $Insets*, $Dimension*, bool)},
+		{"<init>", "(Ljava/awt/Insets;Ljava/awt/Dimension;ZLjavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext$CacheMode;DD)V", nullptr, $PUBLIC, $method(AbstractRegionPainter$PaintContext, init$, void, $Insets*, $Dimension*, bool, $AbstractRegionPainter$PaintContext$CacheMode*, double, double)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.nimbus.AbstractRegionPainter$PaintContext", "javax.swing.plaf.nimbus.AbstractRegionPainter", "PaintContext", $PROTECTED | $STATIC},
+		{"javax.swing.plaf.nimbus.AbstractRegionPainter$PaintContext$CacheMode", "javax.swing.plaf.nimbus.AbstractRegionPainter$PaintContext", "CacheMode", $PROTECTED | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.nimbus.AbstractRegionPainter$PaintContext",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.nimbus.AbstractRegionPainter"
+	};
+	$loadClass(AbstractRegionPainter$PaintContext, name, initialize, &classInfo$$, AbstractRegionPainter$PaintContext::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(AbstractRegionPainter$PaintContext);
+	});
 	return class$;
 }
 

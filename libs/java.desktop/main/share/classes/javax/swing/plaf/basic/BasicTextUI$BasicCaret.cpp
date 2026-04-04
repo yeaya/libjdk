@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/basic/BasicTextUI$BasicCaret.h>
-
 #include <javax/swing/plaf/basic/BasicTextUI.h>
 #include <javax/swing/text/DefaultCaret.h>
 #include <jcpp.h>
@@ -13,41 +12,6 @@ namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace basic {
-
-$MethodInfo _BasicTextUI$BasicCaret_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(BasicTextUI$BasicCaret, init$, void)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _BasicTextUI$BasicCaret_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.basic.BasicTextUI$BasicCaret", "javax.swing.plaf.basic.BasicTextUI", "BasicCaret", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _BasicTextUI$BasicCaret_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.basic.BasicTextUI$BasicCaret",
-	"javax.swing.text.DefaultCaret",
-	"javax.swing.plaf.UIResource",
-	nullptr,
-	_BasicTextUI$BasicCaret_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BasicTextUI$BasicCaret_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.basic.BasicTextUI"
-};
-
-$Object* allocate$BasicTextUI$BasicCaret($Class* clazz) {
-	return $of($alloc(BasicTextUI$BasicCaret));
-}
 
 bool BasicTextUI$BasicCaret::equals(Object$* obj) {
 	 return this->$DefaultCaret::equals(obj);
@@ -77,7 +41,37 @@ BasicTextUI$BasicCaret::BasicTextUI$BasicCaret() {
 }
 
 $Class* BasicTextUI$BasicCaret::load$($String* name, bool initialize) {
-	$loadClass(BasicTextUI$BasicCaret, name, initialize, &_BasicTextUI$BasicCaret_ClassInfo_, allocate$BasicTextUI$BasicCaret);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(BasicTextUI$BasicCaret, init$, void)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.basic.BasicTextUI$BasicCaret", "javax.swing.plaf.basic.BasicTextUI", "BasicCaret", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.basic.BasicTextUI$BasicCaret",
+		"javax.swing.text.DefaultCaret",
+		"javax.swing.plaf.UIResource",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.basic.BasicTextUI"
+	};
+	$loadClass(BasicTextUI$BasicCaret, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(BasicTextUI$BasicCaret));
+	});
 	return class$;
 }
 

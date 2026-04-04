@@ -1,5 +1,4 @@
 #include <javax/sound/midi/spi/MidiDeviceProvider.h>
-
 #include <java/io/Serializable.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
@@ -21,7 +20,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $Arrays = ::java::util::Arrays;
 using $Predicate = ::java::util::function::Predicate;
-using $Stream = ::java::util::stream::Stream;
 using $MidiDevice = ::javax::sound::midi::MidiDevice;
 using $MidiDevice$Info = ::javax::sound::midi::MidiDevice$Info;
 
@@ -39,64 +37,39 @@ public:
 	virtual bool test(Object$* obj) override {
 		 return $nc(inst$)->equals(obj);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<MidiDeviceProvider$$Lambda$equals>());
-	}
 	$MidiDevice$Info* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo MidiDeviceProvider$$Lambda$equals::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(MidiDeviceProvider$$Lambda$equals, inst$)},
-	{}
-};
-$MethodInfo MidiDeviceProvider$$Lambda$equals::methodInfos[3] = {
-	{"<init>", "(Ljavax/sound/midi/MidiDevice$Info;)V", nullptr, $PUBLIC, $method(MidiDeviceProvider$$Lambda$equals, init$, void, $MidiDevice$Info*)},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(MidiDeviceProvider$$Lambda$equals, test, bool, Object$*)},
-	{}
-};
-$ClassInfo MidiDeviceProvider$$Lambda$equals::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"javax.sound.midi.spi.MidiDeviceProvider$$Lambda$equals",
-	"java.lang.Object",
-	"java.util.function.Predicate",
-	fieldInfos,
-	methodInfos
 };
 $Class* MidiDeviceProvider$$Lambda$equals::load$($String* name, bool initialize) {
-	$loadClass(MidiDeviceProvider$$Lambda$equals, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(MidiDeviceProvider$$Lambda$equals, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/sound/midi/MidiDevice$Info;)V", nullptr, $PUBLIC, $method(MidiDeviceProvider$$Lambda$equals, init$, void, $MidiDevice$Info*)},
+		{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(MidiDeviceProvider$$Lambda$equals, test, bool, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"javax.sound.midi.spi.MidiDeviceProvider$$Lambda$equals",
+		"java.lang.Object",
+		"java.util.function.Predicate",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(MidiDeviceProvider$$Lambda$equals, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MidiDeviceProvider$$Lambda$equals);
+	});
 	return class$;
 }
 $Class* MidiDeviceProvider$$Lambda$equals::class$ = nullptr;
-
-$MethodInfo _MidiDeviceProvider_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(MidiDeviceProvider, init$, void)},
-	{"getDevice", "(Ljavax/sound/midi/MidiDevice$Info;)Ljavax/sound/midi/MidiDevice;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MidiDeviceProvider, getDevice, $MidiDevice*, $MidiDevice$Info*)},
-	{"getDeviceInfo", "()[Ljavax/sound/midi/MidiDevice$Info;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MidiDeviceProvider, getDeviceInfo, $MidiDevice$InfoArray*)},
-	{"isDeviceSupported", "(Ljavax/sound/midi/MidiDevice$Info;)Z", nullptr, $PUBLIC, $virtualMethod(MidiDeviceProvider, isDeviceSupported, bool, $MidiDevice$Info*)},
-	{}
-};
-
-$ClassInfo _MidiDeviceProvider_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"javax.sound.midi.spi.MidiDeviceProvider",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_MidiDeviceProvider_MethodInfo_
-};
-
-$Object* allocate$MidiDeviceProvider($Class* clazz) {
-	return $of($alloc(MidiDeviceProvider));
-}
 
 void MidiDeviceProvider::init$() {
 }
 
 bool MidiDeviceProvider::isDeviceSupported($MidiDevice$Info* info) {
-	$useLocalCurrentObjectStackCache();
-	return $nc($($Arrays::stream($(getDeviceInfo()))))->anyMatch(static_cast<$Predicate*>($$new(MidiDeviceProvider$$Lambda$equals, static_cast<$MidiDevice$Info*>($nc(info)))));
+	$useLocalObjectStack();
+	return $$nc($Arrays::stream($(getDeviceInfo())))->anyMatch($$new(MidiDeviceProvider$$Lambda$equals, $nc(info)));
 }
 
 MidiDeviceProvider::MidiDeviceProvider() {
@@ -104,11 +77,28 @@ MidiDeviceProvider::MidiDeviceProvider() {
 
 $Class* MidiDeviceProvider::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(MidiDeviceProvider$$Lambda$equals::classInfo$.name)) {
+		if (name->equals("javax.sound.midi.spi.MidiDeviceProvider$$Lambda$equals")) {
 			return MidiDeviceProvider$$Lambda$equals::load$(name, initialize);
 		}
 	}
-	$loadClass(MidiDeviceProvider, name, initialize, &_MidiDeviceProvider_ClassInfo_, allocate$MidiDeviceProvider);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PROTECTED, $method(MidiDeviceProvider, init$, void)},
+		{"getDevice", "(Ljavax/sound/midi/MidiDevice$Info;)Ljavax/sound/midi/MidiDevice;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MidiDeviceProvider, getDevice, $MidiDevice*, $MidiDevice$Info*)},
+		{"getDeviceInfo", "()[Ljavax/sound/midi/MidiDevice$Info;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MidiDeviceProvider, getDeviceInfo, $MidiDevice$InfoArray*)},
+		{"isDeviceSupported", "(Ljavax/sound/midi/MidiDevice$Info;)Z", nullptr, $PUBLIC, $virtualMethod(MidiDeviceProvider, isDeviceSupported, bool, $MidiDevice$Info*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"javax.sound.midi.spi.MidiDeviceProvider",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(MidiDeviceProvider, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MidiDeviceProvider);
+	});
 	return class$;
 }
 

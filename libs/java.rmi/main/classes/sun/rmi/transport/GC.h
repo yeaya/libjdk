@@ -31,12 +31,13 @@ class GC : public ::java::lang::Object {
 	$class(GC, 0, ::java::lang::Object)
 public:
 	GC();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static int64_t currentLatencyTarget();
 	static int64_t maxObjectInspectionAge();
 	static ::sun::rmi::transport::GC$LatencyRequest* requestLatency(int64_t latency);
 	static void setLatencyTarget(int64_t ms);
-	static const int64_t NO_TARGET = 0x7FFFFFFFFFFFFFFF; // Long.MAX_VALUE
+	static const int64_t NO_TARGET = 0x7fffffffffffffff; // Long.MAX_VALUE
 	static int64_t latencyTarget;
 	static $Thread* daemon;
 	static $Object* lock;

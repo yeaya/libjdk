@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/MenuItemUI.h>
-
 #include <javax/swing/plaf/ButtonUI.h>
 #include <jcpp.h>
 
@@ -11,24 +10,6 @@ namespace javax {
 	namespace swing {
 		namespace plaf {
 
-$MethodInfo _MenuItemUI_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(MenuItemUI, init$, void)},
-	{}
-};
-
-$ClassInfo _MenuItemUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"javax.swing.plaf.MenuItemUI",
-	"javax.swing.plaf.ButtonUI",
-	nullptr,
-	nullptr,
-	_MenuItemUI_MethodInfo_
-};
-
-$Object* allocate$MenuItemUI($Class* clazz) {
-	return $of($alloc(MenuItemUI));
-}
-
 void MenuItemUI::init$() {
 	$ButtonUI::init$();
 }
@@ -37,7 +18,21 @@ MenuItemUI::MenuItemUI() {
 }
 
 $Class* MenuItemUI::load$($String* name, bool initialize) {
-	$loadClass(MenuItemUI, name, initialize, &_MenuItemUI_ClassInfo_, allocate$MenuItemUI);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PROTECTED, $method(MenuItemUI, init$, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"javax.swing.plaf.MenuItemUI",
+		"javax.swing.plaf.ButtonUI",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(MenuItemUI, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MenuItemUI);
+	});
 	return class$;
 }
 

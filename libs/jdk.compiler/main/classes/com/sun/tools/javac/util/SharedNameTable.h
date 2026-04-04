@@ -32,6 +32,7 @@ class $export SharedNameTable : public ::com::sun::tools::javac::util::Name$Tabl
 public:
 	SharedNameTable();
 	using ::com::sun::tools::javac::util::Name$Table::fromUtf;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::com::sun::tools::javac::util::Names* names, int32_t hashSize, int32_t nameSize);
 	void init$(::com::sun::tools::javac::util::Names* names);
 	static ::com::sun::tools::javac::util::SharedNameTable* create(::com::sun::tools::javac::util::Names* names);

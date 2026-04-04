@@ -58,6 +58,7 @@ class $import WindowsMenuItemUI : public ::javax::swing::plaf::basic::BasicMenuI
 	$class(WindowsMenuItemUI, 0, ::javax::swing::plaf::basic::BasicMenuItemUI)
 public:
 	WindowsMenuItemUI();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::javax::swing::JMenuItem* access$000(::com::sun::java::swing::plaf::windows::WindowsMenuItemUI* x0);
 	static ::javax::swing::plaf::ComponentUI* createUI(::javax::swing::JComponent* c);

@@ -126,6 +126,7 @@ class MethodGenerator : public ::com::sun::org::apache::bcel::internal::generic:
 	$class(MethodGenerator, 0, ::com::sun::org::apache::bcel::internal::generic::MethodGen, ::com::sun::org::apache::xalan::internal::xsltc::compiler::Constants)
 public:
 	MethodGenerator();
+	static void clinit$(::java::lang::Class* clazz);
 	using ::com::sun::org::apache::bcel::internal::generic::MethodGen::addLocalVariable;
 	using ::com::sun::org::apache::bcel::internal::generic::MethodGen::getInstructionList;
 	virtual $Object* clone() override;
@@ -182,10 +183,10 @@ public:
 	static const int32_t DOM_INDEX = 1;
 	static const int32_t ITERATOR_INDEX = 2;
 	static const int32_t HANDLER_INDEX = 3;
-	static const int32_t MAX_METHOD_SIZE = 0x0000FFFF;
+	static const int32_t MAX_METHOD_SIZE = 0x0000ffff;
 	static const int32_t MAX_BRANCH_TARGET_OFFSET = 32767;
 	static const int32_t MIN_BRANCH_TARGET_OFFSET = (-32768);
-	static const int32_t TARGET_METHOD_SIZE = 0x0000EA60;
+	static const int32_t TARGET_METHOD_SIZE = 0x0000ea60;
 	static const int32_t MINIMUM_OUTLINEABLE_CHUNK_SIZE = 1000;
 	::com::sun::org::apache::bcel::internal::generic::Instruction* _iloadCurrent = nullptr;
 	::com::sun::org::apache::bcel::internal::generic::Instruction* _istoreCurrent = nullptr;

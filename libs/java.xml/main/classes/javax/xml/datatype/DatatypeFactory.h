@@ -54,6 +54,7 @@ class $export DatatypeFactory : public ::java::lang::Object {
 	$class(DatatypeFactory, 0, ::java::lang::Object)
 public:
 	DatatypeFactory();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::javax::xml::datatype::DatatypeFactory* newDefaultInstance();
 	virtual ::javax::xml::datatype::Duration* newDuration($String* lexicalRepresentation) {return nullptr;}

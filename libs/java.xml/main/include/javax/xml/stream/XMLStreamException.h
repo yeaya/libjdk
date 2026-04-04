@@ -34,12 +34,15 @@ public:
 	void init$($String* msg, ::javax::xml::stream::Location* location);
 	virtual ::javax::xml::stream::Location* getLocation();
 	virtual $Throwable* getNestedException();
-	static const int64_t serialVersionUID = (int64_t)0x1C04497A1E44F192;
+	static const int64_t serialVersionUID = (int64_t)0x1c04497a1e44f192;
 	$Throwable* nested = nullptr;
 	::javax::xml::stream::Location* location = nullptr;
 	XMLStreamException(const XMLStreamException& e);
 	virtual void throw$() override;
-	inline XMLStreamException* operator ->() {
+	inline XMLStreamException* operator ->() const {
+		return (XMLStreamException*)throwing$;
+	}
+	inline operator XMLStreamException*() const {
 		return (XMLStreamException*)throwing$;
 	}
 };

@@ -54,6 +54,7 @@ class $export LogRecord : public ::java::io::Serializable {
 	$class(LogRecord, 0, ::java::io::Serializable)
 public:
 	LogRecord();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::util::logging::Level* level, $String* msg);
 	virtual ::java::time::Instant* getInstant();
 	virtual ::java::util::logging::Level* getLevel();
@@ -104,7 +105,7 @@ public:
 	bool needToInferCaller = false;
 	$ObjectArray* parameters = nullptr;
 	::java::util::ResourceBundle* resourceBundle = nullptr;
-	static const int64_t serialVersionUID = (int64_t)0x4A8D593DF3695196;
+	static const int64_t serialVersionUID = (int64_t)0x4a8d593df3695196;
 };
 
 		} // logging

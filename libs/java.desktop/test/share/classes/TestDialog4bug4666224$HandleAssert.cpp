@@ -1,59 +1,19 @@
 #include <TestDialog4bug4666224$HandleAssert.h>
-
 #include <TestDialog4bug4666224$RemarksDialog.h>
 #include <TestDialog4bug4666224.h>
 #include <java/awt/Button.h>
 #include <java/awt/Component.h>
-#include <java/awt/Dialog.h>
 #include <java/awt/event/ActionEvent.h>
 #include <java/util/EventObject.h>
 #include <jcpp.h>
 
 using $TestDialog4bug4666224 = ::TestDialog4bug4666224;
 using $TestDialog4bug4666224$RemarksDialog = ::TestDialog4bug4666224$RemarksDialog;
-using $Button = ::java::awt::Button;
-using $Dialog = ::java::awt::Dialog;
 using $ActionEvent = ::java::awt::event::ActionEvent;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-
-$FieldInfo _TestDialog4bug4666224$HandleAssert_FieldInfo_[] = {
-	{"this$0", "LTestDialog4bug4666224;", nullptr, $FINAL | $SYNTHETIC, $field(TestDialog4bug4666224$HandleAssert, this$0)},
-	{}
-};
-
-$MethodInfo _TestDialog4bug4666224$HandleAssert_MethodInfo_[] = {
-	{"<init>", "(LTestDialog4bug4666224;)V", nullptr, 0, $method(TestDialog4bug4666224$HandleAssert, init$, void, $TestDialog4bug4666224*)},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(TestDialog4bug4666224$HandleAssert, actionPerformed, void, $ActionEvent*)},
-	{}
-};
-
-$InnerClassInfo _TestDialog4bug4666224$HandleAssert_InnerClassesInfo_[] = {
-	{"TestDialog4bug4666224$HandleAssert", "TestDialog4bug4666224", "HandleAssert", 0},
-	{}
-};
-
-$ClassInfo _TestDialog4bug4666224$HandleAssert_ClassInfo_ = {
-	$ACC_SUPER,
-	"TestDialog4bug4666224$HandleAssert",
-	"java.lang.Object",
-	"java.awt.event.ActionListener",
-	_TestDialog4bug4666224$HandleAssert_FieldInfo_,
-	_TestDialog4bug4666224$HandleAssert_MethodInfo_,
-	nullptr,
-	nullptr,
-	_TestDialog4bug4666224$HandleAssert_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"TestDialog4bug4666224"
-};
-
-$Object* allocate$TestDialog4bug4666224$HandleAssert($Class* clazz) {
-	return $of($alloc(TestDialog4bug4666224$HandleAssert));
-}
 
 void TestDialog4bug4666224$HandleAssert::init$($TestDialog4bug4666224* this$0) {
 	$set(this, this$0, this$0);
@@ -85,7 +45,7 @@ void TestDialog4bug4666224$HandleAssert::actionPerformed($ActionEvent* ae) {
 				this->this$0->failStatus = true;
 			}
 			if (this->this$0->exceptionCounter < $nc(this->this$0->exceptionMessages)->length) {
-				$set(this->this$0, failureMessages, $str({this->this$0->failureMessages, "<br>"_s, $nc(this->this$0->exceptionMessages)->get(this->this$0->exceptionCounter)}));
+				$set(this->this$0, failureMessages, $str({this->this$0->failureMessages, "<br>"_s, this->this$0->exceptionMessages->get(this->this$0->exceptionCounter)}));
 			}
 		}
 		++this->this$0->exceptionCounter;
@@ -96,7 +56,37 @@ TestDialog4bug4666224$HandleAssert::TestDialog4bug4666224$HandleAssert() {
 }
 
 $Class* TestDialog4bug4666224$HandleAssert::load$($String* name, bool initialize) {
-	$loadClass(TestDialog4bug4666224$HandleAssert, name, initialize, &_TestDialog4bug4666224$HandleAssert_ClassInfo_, allocate$TestDialog4bug4666224$HandleAssert);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "LTestDialog4bug4666224;", nullptr, $FINAL | $SYNTHETIC, $field(TestDialog4bug4666224$HandleAssert, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(LTestDialog4bug4666224;)V", nullptr, 0, $method(TestDialog4bug4666224$HandleAssert, init$, void, $TestDialog4bug4666224*)},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(TestDialog4bug4666224$HandleAssert, actionPerformed, void, $ActionEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"TestDialog4bug4666224$HandleAssert", "TestDialog4bug4666224", "HandleAssert", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"TestDialog4bug4666224$HandleAssert",
+		"java.lang.Object",
+		"java.awt.event.ActionListener",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"TestDialog4bug4666224"
+	};
+	$loadClass(TestDialog4bug4666224$HandleAssert, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TestDialog4bug4666224$HandleAssert);
+	});
 	return class$;
 }
 

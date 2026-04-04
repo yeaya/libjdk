@@ -29,6 +29,7 @@ class TIFFFaxCompressor : public ::com::sun::imageio::plugins::tiff::TIFFCompres
 	$class(TIFFFaxCompressor, 0, ::com::sun::imageio::plugins::tiff::TIFFCompressor)
 public:
 	TIFFFaxCompressor();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* compressionType, int32_t compressionTagValue, bool isCompressionLossless);
 	virtual int32_t add1DBits($bytes* buf, int32_t where, int32_t count, int32_t color);
 	virtual int32_t add2DBits($bytes* buf, int32_t where, $Array<int32_t, 2>* mode, int32_t entry);

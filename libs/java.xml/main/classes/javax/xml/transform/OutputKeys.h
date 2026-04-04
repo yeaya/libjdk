@@ -34,6 +34,7 @@ class $export OutputKeys : public ::java::lang::Object {
 	$class(OutputKeys, 0, ::java::lang::Object)
 public:
 	OutputKeys();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $String* METHOD;
 	static $String* VERSION;

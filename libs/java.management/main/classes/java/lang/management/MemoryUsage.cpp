@@ -1,5 +1,4 @@
 #include <java/lang/management/MemoryUsage.h>
-
 #include <javax/management/openmbean/CompositeData.h>
 #include <sun/management/MemoryUsageCompositeData.h>
 #include <jcpp.h>
@@ -15,41 +14,8 @@ namespace java {
 	namespace lang {
 		namespace management {
 
-$FieldInfo _MemoryUsage_FieldInfo_[] = {
-	{"init", "J", nullptr, $PRIVATE | $FINAL, $field(MemoryUsage, init)},
-	{"used", "J", nullptr, $PRIVATE | $FINAL, $field(MemoryUsage, used)},
-	{"committed", "J", nullptr, $PRIVATE | $FINAL, $field(MemoryUsage, committed)},
-	{"max", "J", nullptr, $PRIVATE | $FINAL, $field(MemoryUsage, max)},
-	{}
-};
-
-$MethodInfo _MemoryUsage_MethodInfo_[] = {
-	{"<init>", "(JJJJ)V", nullptr, $PUBLIC, $method(MemoryUsage, init$, void, int64_t, int64_t, int64_t, int64_t)},
-	{"<init>", "(Ljavax/management/openmbean/CompositeData;)V", nullptr, $PRIVATE, $method(MemoryUsage, init$, void, $CompositeData*)},
-	{"from", "(Ljavax/management/openmbean/CompositeData;)Ljava/lang/management/MemoryUsage;", nullptr, $PUBLIC | $STATIC, $staticMethod(MemoryUsage, from, MemoryUsage*, $CompositeData*)},
-	{"getCommitted", "()J", nullptr, $PUBLIC, $virtualMethod(MemoryUsage, getCommitted, int64_t)},
-	{"getInit", "()J", nullptr, $PUBLIC, $virtualMethod(MemoryUsage, getInit, int64_t)},
-	{"getMax", "()J", nullptr, $PUBLIC, $virtualMethod(MemoryUsage, getMax, int64_t)},
-	{"getUsed", "()J", nullptr, $PUBLIC, $virtualMethod(MemoryUsage, getUsed, int64_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MemoryUsage, toString, $String*)},
-	{}
-};
-
-$ClassInfo _MemoryUsage_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.lang.management.MemoryUsage",
-	"java.lang.Object",
-	nullptr,
-	_MemoryUsage_FieldInfo_,
-	_MemoryUsage_MethodInfo_
-};
-
-$Object* allocate$MemoryUsage($Class* clazz) {
-	return $of($alloc(MemoryUsage));
-}
-
 void MemoryUsage::init$(int64_t init, int64_t used, int64_t committed, int64_t max) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (init < -1) {
 		$throwNew($IllegalArgumentException, $$str({"init parameter = "_s, $$str(init), " is negative but not -1."_s}));
 	}
@@ -99,7 +65,7 @@ int64_t MemoryUsage::getMax() {
 }
 
 $String* MemoryUsage::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, buf, $new($StringBuilder));
 	buf->append($$str({"init = "_s, $$str(this->init), "("_s, $$str((this->init >> 10)), "K) "_s}));
 	buf->append($$str({"used = "_s, $$str(this->used), "("_s, $$str((this->used >> 10)), "K) "_s}));
@@ -113,7 +79,7 @@ MemoryUsage* MemoryUsage::from($CompositeData* cd) {
 		return nullptr;
 	}
 	if ($instanceOf($MemoryUsageCompositeData, cd)) {
-		return $nc(($cast($MemoryUsageCompositeData, cd)))->getMemoryUsage();
+		return $cast($MemoryUsageCompositeData, cd)->getMemoryUsage();
 	} else {
 		return $new(MemoryUsage, cd);
 	}
@@ -123,7 +89,35 @@ MemoryUsage::MemoryUsage() {
 }
 
 $Class* MemoryUsage::load$($String* name, bool initialize) {
-	$loadClass(MemoryUsage, name, initialize, &_MemoryUsage_ClassInfo_, allocate$MemoryUsage);
+	$FieldInfo fieldInfos$$[] = {
+		{"init", "J", nullptr, $PRIVATE | $FINAL, $field(MemoryUsage, init)},
+		{"used", "J", nullptr, $PRIVATE | $FINAL, $field(MemoryUsage, used)},
+		{"committed", "J", nullptr, $PRIVATE | $FINAL, $field(MemoryUsage, committed)},
+		{"max", "J", nullptr, $PRIVATE | $FINAL, $field(MemoryUsage, max)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(JJJJ)V", nullptr, $PUBLIC, $method(MemoryUsage, init$, void, int64_t, int64_t, int64_t, int64_t)},
+		{"<init>", "(Ljavax/management/openmbean/CompositeData;)V", nullptr, $PRIVATE, $method(MemoryUsage, init$, void, $CompositeData*)},
+		{"from", "(Ljavax/management/openmbean/CompositeData;)Ljava/lang/management/MemoryUsage;", nullptr, $PUBLIC | $STATIC, $staticMethod(MemoryUsage, from, MemoryUsage*, $CompositeData*)},
+		{"getCommitted", "()J", nullptr, $PUBLIC, $virtualMethod(MemoryUsage, getCommitted, int64_t)},
+		{"getInit", "()J", nullptr, $PUBLIC, $virtualMethod(MemoryUsage, getInit, int64_t)},
+		{"getMax", "()J", nullptr, $PUBLIC, $virtualMethod(MemoryUsage, getMax, int64_t)},
+		{"getUsed", "()J", nullptr, $PUBLIC, $virtualMethod(MemoryUsage, getUsed, int64_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MemoryUsage, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.lang.management.MemoryUsage",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(MemoryUsage, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MemoryUsage);
+	});
 	return class$;
 }
 

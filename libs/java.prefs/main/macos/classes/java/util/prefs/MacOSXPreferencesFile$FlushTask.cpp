@@ -1,5 +1,4 @@
 #include <java/util/prefs/MacOSXPreferencesFile$FlushTask.h>
-
 #include <java/util/TimerTask.h>
 #include <java/util/prefs/MacOSXPreferencesFile.h>
 #include <jcpp.h>
@@ -15,42 +14,6 @@ namespace java {
 	namespace util {
 		namespace prefs {
 
-$FieldInfo _MacOSXPreferencesFile$FlushTask_FieldInfo_[] = {
-	{"this$0", "Ljava/util/prefs/MacOSXPreferencesFile;", nullptr, $FINAL | $SYNTHETIC, $field(MacOSXPreferencesFile$FlushTask, this$0)},
-	{}
-};
-
-$MethodInfo _MacOSXPreferencesFile$FlushTask_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/prefs/MacOSXPreferencesFile;)V", nullptr, $PRIVATE, $method(MacOSXPreferencesFile$FlushTask, init$, void, $MacOSXPreferencesFile*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(MacOSXPreferencesFile$FlushTask, run, void)},
-	{}
-};
-
-$InnerClassInfo _MacOSXPreferencesFile$FlushTask_InnerClassesInfo_[] = {
-	{"java.util.prefs.MacOSXPreferencesFile$FlushTask", "java.util.prefs.MacOSXPreferencesFile", "FlushTask", $PRIVATE},
-	{}
-};
-
-$ClassInfo _MacOSXPreferencesFile$FlushTask_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.prefs.MacOSXPreferencesFile$FlushTask",
-	"java.util.TimerTask",
-	nullptr,
-	_MacOSXPreferencesFile$FlushTask_FieldInfo_,
-	_MacOSXPreferencesFile$FlushTask_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MacOSXPreferencesFile$FlushTask_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.prefs.MacOSXPreferencesFile"
-};
-
-$Object* allocate$MacOSXPreferencesFile$FlushTask($Class* clazz) {
-	return $of($alloc(MacOSXPreferencesFile$FlushTask));
-}
-
 void MacOSXPreferencesFile$FlushTask::init$($MacOSXPreferencesFile* this$0) {
 	$set(this, this$0, this$0);
 	$TimerTask::init$();
@@ -64,7 +27,37 @@ MacOSXPreferencesFile$FlushTask::MacOSXPreferencesFile$FlushTask() {
 }
 
 $Class* MacOSXPreferencesFile$FlushTask::load$($String* name, bool initialize) {
-	$loadClass(MacOSXPreferencesFile$FlushTask, name, initialize, &_MacOSXPreferencesFile$FlushTask_ClassInfo_, allocate$MacOSXPreferencesFile$FlushTask);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljava/util/prefs/MacOSXPreferencesFile;", nullptr, $FINAL | $SYNTHETIC, $field(MacOSXPreferencesFile$FlushTask, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/prefs/MacOSXPreferencesFile;)V", nullptr, $PRIVATE, $method(MacOSXPreferencesFile$FlushTask, init$, void, $MacOSXPreferencesFile*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(MacOSXPreferencesFile$FlushTask, run, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.prefs.MacOSXPreferencesFile$FlushTask", "java.util.prefs.MacOSXPreferencesFile", "FlushTask", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.prefs.MacOSXPreferencesFile$FlushTask",
+		"java.util.TimerTask",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.prefs.MacOSXPreferencesFile"
+	};
+	$loadClass(MacOSXPreferencesFile$FlushTask, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MacOSXPreferencesFile$FlushTask);
+	});
 	return class$;
 }
 

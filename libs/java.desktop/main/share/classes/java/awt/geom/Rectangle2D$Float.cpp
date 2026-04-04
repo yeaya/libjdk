@@ -1,5 +1,4 @@
 #include <java/awt/geom/Rectangle2D$Float.h>
-
 #include <java/awt/geom/Rectangle2D$Double.h>
 #include <java/awt/geom/Rectangle2D.h>
 #include <java/awt/geom/RectangularShape.h>
@@ -21,63 +20,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace java {
 	namespace awt {
 		namespace geom {
-
-$FieldInfo _Rectangle2D$Float_FieldInfo_[] = {
-	{"x", "F", nullptr, $PUBLIC, $field(Rectangle2D$Float, x)},
-	{"y", "F", nullptr, $PUBLIC, $field(Rectangle2D$Float, y)},
-	{"width", "F", nullptr, $PUBLIC, $field(Rectangle2D$Float, width)},
-	{"height", "F", nullptr, $PUBLIC, $field(Rectangle2D$Float, height)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Rectangle2D$Float, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _Rectangle2D$Float_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Rectangle2D$Float, init$, void)},
-	{"<init>", "(FFFF)V", nullptr, $PUBLIC, $method(Rectangle2D$Float, init$, void, float, float, float, float)},
-	{"createIntersection", "(Ljava/awt/geom/Rectangle2D;)Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC, $virtualMethod(Rectangle2D$Float, createIntersection, $Rectangle2D*, $Rectangle2D*)},
-	{"createUnion", "(Ljava/awt/geom/Rectangle2D;)Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC, $virtualMethod(Rectangle2D$Float, createUnion, $Rectangle2D*, $Rectangle2D*)},
-	{"getBounds2D", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC, $virtualMethod(Rectangle2D$Float, getBounds2D, $Rectangle2D*)},
-	{"getHeight", "()D", nullptr, $PUBLIC, $virtualMethod(Rectangle2D$Float, getHeight, double)},
-	{"getWidth", "()D", nullptr, $PUBLIC, $virtualMethod(Rectangle2D$Float, getWidth, double)},
-	{"getX", "()D", nullptr, $PUBLIC, $virtualMethod(Rectangle2D$Float, getX, double)},
-	{"getY", "()D", nullptr, $PUBLIC, $virtualMethod(Rectangle2D$Float, getY, double)},
-	{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(Rectangle2D$Float, isEmpty, bool)},
-	{"outcode", "(DD)I", nullptr, $PUBLIC, $virtualMethod(Rectangle2D$Float, outcode, int32_t, double, double)},
-	{"setRect", "(FFFF)V", nullptr, $PUBLIC, $virtualMethod(Rectangle2D$Float, setRect, void, float, float, float, float)},
-	{"setRect", "(DDDD)V", nullptr, $PUBLIC, $virtualMethod(Rectangle2D$Float, setRect, void, double, double, double, double)},
-	{"setRect", "(Ljava/awt/geom/Rectangle2D;)V", nullptr, $PUBLIC, $virtualMethod(Rectangle2D$Float, setRect, void, $Rectangle2D*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Rectangle2D$Float, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _Rectangle2D$Float_InnerClassesInfo_[] = {
-	{"java.awt.geom.Rectangle2D$Float", "java.awt.geom.Rectangle2D", "Float", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _Rectangle2D$Float_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.awt.geom.Rectangle2D$Float",
-	"java.awt.geom.Rectangle2D",
-	"java.io.Serializable",
-	_Rectangle2D$Float_FieldInfo_,
-	_Rectangle2D$Float_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Rectangle2D$Float_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.awt.geom.Rectangle2D"
-};
-
-$Object* allocate$Rectangle2D$Float($Class* clazz) {
-	return $of($alloc(Rectangle2D$Float));
-}
 
 int32_t Rectangle2D$Float::hashCode() {
 	 return this->$Rectangle2D::hashCode();
@@ -191,7 +133,7 @@ $Rectangle2D* Rectangle2D$Float::createUnion($Rectangle2D* r) {
 }
 
 $String* Rectangle2D$Float::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $str({$($of(this)->getClass()->getName()), "[x="_s, $$str(this->x), ",y="_s, $$str(this->y), ",w="_s, $$str(this->width), ",h="_s, $$str(this->height), "]"_s});
 }
 
@@ -199,7 +141,58 @@ Rectangle2D$Float::Rectangle2D$Float() {
 }
 
 $Class* Rectangle2D$Float::load$($String* name, bool initialize) {
-	$loadClass(Rectangle2D$Float, name, initialize, &_Rectangle2D$Float_ClassInfo_, allocate$Rectangle2D$Float);
+	$FieldInfo fieldInfos$$[] = {
+		{"x", "F", nullptr, $PUBLIC, $field(Rectangle2D$Float, x)},
+		{"y", "F", nullptr, $PUBLIC, $field(Rectangle2D$Float, y)},
+		{"width", "F", nullptr, $PUBLIC, $field(Rectangle2D$Float, width)},
+		{"height", "F", nullptr, $PUBLIC, $field(Rectangle2D$Float, height)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Rectangle2D$Float, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Rectangle2D$Float, init$, void)},
+		{"<init>", "(FFFF)V", nullptr, $PUBLIC, $method(Rectangle2D$Float, init$, void, float, float, float, float)},
+		{"createIntersection", "(Ljava/awt/geom/Rectangle2D;)Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC, $virtualMethod(Rectangle2D$Float, createIntersection, $Rectangle2D*, $Rectangle2D*)},
+		{"createUnion", "(Ljava/awt/geom/Rectangle2D;)Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC, $virtualMethod(Rectangle2D$Float, createUnion, $Rectangle2D*, $Rectangle2D*)},
+		{"getBounds2D", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC, $virtualMethod(Rectangle2D$Float, getBounds2D, $Rectangle2D*)},
+		{"getHeight", "()D", nullptr, $PUBLIC, $virtualMethod(Rectangle2D$Float, getHeight, double)},
+		{"getWidth", "()D", nullptr, $PUBLIC, $virtualMethod(Rectangle2D$Float, getWidth, double)},
+		{"getX", "()D", nullptr, $PUBLIC, $virtualMethod(Rectangle2D$Float, getX, double)},
+		{"getY", "()D", nullptr, $PUBLIC, $virtualMethod(Rectangle2D$Float, getY, double)},
+		{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(Rectangle2D$Float, isEmpty, bool)},
+		{"outcode", "(DD)I", nullptr, $PUBLIC, $virtualMethod(Rectangle2D$Float, outcode, int32_t, double, double)},
+		{"setRect", "(FFFF)V", nullptr, $PUBLIC, $virtualMethod(Rectangle2D$Float, setRect, void, float, float, float, float)},
+		{"setRect", "(DDDD)V", nullptr, $PUBLIC, $virtualMethod(Rectangle2D$Float, setRect, void, double, double, double, double)},
+		{"setRect", "(Ljava/awt/geom/Rectangle2D;)V", nullptr, $PUBLIC, $virtualMethod(Rectangle2D$Float, setRect, void, $Rectangle2D*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Rectangle2D$Float, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.awt.geom.Rectangle2D$Float", "java.awt.geom.Rectangle2D", "Float", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.awt.geom.Rectangle2D$Float",
+		"java.awt.geom.Rectangle2D",
+		"java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.awt.geom.Rectangle2D"
+	};
+	$loadClass(Rectangle2D$Float, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Rectangle2D$Float));
+	});
 	return class$;
 }
 

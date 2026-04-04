@@ -1,5 +1,4 @@
 #include <com/sun/source/doctree/EndElementTree.h>
-
 #include <javax/lang/model/element/Name.h>
 #include <jcpp.h>
 
@@ -12,26 +11,22 @@ namespace com {
 		namespace source {
 			namespace doctree {
 
-$MethodInfo _EndElementTree_MethodInfo_[] = {
-	{"getName", "()Ljavax/lang/model/element/Name;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(EndElementTree, getName, $Name*)},
-	{}
-};
-
-$ClassInfo _EndElementTree_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.source.doctree.EndElementTree",
-	nullptr,
-	"com.sun.source.doctree.DocTree",
-	nullptr,
-	_EndElementTree_MethodInfo_
-};
-
-$Object* allocate$EndElementTree($Class* clazz) {
-	return $of($alloc(EndElementTree));
-}
-
 $Class* EndElementTree::load$($String* name, bool initialize) {
-	$loadClass(EndElementTree, name, initialize, &_EndElementTree_ClassInfo_, allocate$EndElementTree);
+	$MethodInfo methodInfos$$[] = {
+		{"getName", "()Ljavax/lang/model/element/Name;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(EndElementTree, getName, $Name*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.source.doctree.EndElementTree",
+		nullptr,
+		"com.sun.source.doctree.DocTree",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(EndElementTree, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(EndElementTree);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <javax/imageio/plugins/tiff/ExifTIFFTagSet$ExposureProgram.h>
-
 #include <javax/imageio/plugins/tiff/ExifTIFFTagSet.h>
 #include <javax/imageio/plugins/tiff/TIFFTag.h>
 #include <jcpp.h>
@@ -15,36 +14,6 @@ namespace javax {
 	namespace imageio {
 		namespace plugins {
 			namespace tiff {
-
-$MethodInfo _ExifTIFFTagSet$ExposureProgram_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ExifTIFFTagSet$ExposureProgram, init$, void)},
-	{}
-};
-
-$InnerClassInfo _ExifTIFFTagSet$ExposureProgram_InnerClassesInfo_[] = {
-	{"javax.imageio.plugins.tiff.ExifTIFFTagSet$ExposureProgram", "javax.imageio.plugins.tiff.ExifTIFFTagSet", "ExposureProgram", $STATIC},
-	{}
-};
-
-$ClassInfo _ExifTIFFTagSet$ExposureProgram_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.imageio.plugins.tiff.ExifTIFFTagSet$ExposureProgram",
-	"javax.imageio.plugins.tiff.TIFFTag",
-	nullptr,
-	nullptr,
-	_ExifTIFFTagSet$ExposureProgram_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ExifTIFFTagSet$ExposureProgram_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.imageio.plugins.tiff.ExifTIFFTagSet"
-};
-
-$Object* allocate$ExifTIFFTagSet$ExposureProgram($Class* clazz) {
-	return $of($alloc(ExifTIFFTagSet$ExposureProgram));
-}
 
 void ExifTIFFTagSet$ExposureProgram::init$() {
 	$TIFFTag::init$("ExposureProgram"_s, 0x00008822, $sl(1, $TIFFTag::TIFF_SHORT), 1);
@@ -63,7 +32,32 @@ ExifTIFFTagSet$ExposureProgram::ExifTIFFTagSet$ExposureProgram() {
 }
 
 $Class* ExifTIFFTagSet$ExposureProgram::load$($String* name, bool initialize) {
-	$loadClass(ExifTIFFTagSet$ExposureProgram, name, initialize, &_ExifTIFFTagSet$ExposureProgram_ClassInfo_, allocate$ExifTIFFTagSet$ExposureProgram);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ExifTIFFTagSet$ExposureProgram, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.imageio.plugins.tiff.ExifTIFFTagSet$ExposureProgram", "javax.imageio.plugins.tiff.ExifTIFFTagSet", "ExposureProgram", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.imageio.plugins.tiff.ExifTIFFTagSet$ExposureProgram",
+		"javax.imageio.plugins.tiff.TIFFTag",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.imageio.plugins.tiff.ExifTIFFTagSet"
+	};
+	$loadClass(ExifTIFFTagSet$ExposureProgram, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ExifTIFFTagSet$ExposureProgram);
+	});
 	return class$;
 }
 

@@ -25,6 +25,7 @@ class $export HttpInputStreamTest : public ::java::lang::Object {
 	$class(HttpInputStreamTest, 0, ::java::lang::Object)
 public:
 	HttpInputStreamTest();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::util::Optional* getCharset(::java::net::http::HttpHeaders* headers);
 	static $String* lambda$getCharset$0($String* x);

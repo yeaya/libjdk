@@ -15,6 +15,7 @@ class BaseFileManager$3 : public ::java::lang::Object {
 	$class(BaseFileManager$3, 0, ::java::lang::Object)
 public:
 	BaseFileManager$3();
+	static void clinit$(::java::lang::Class* clazz);
 	static $ints* $SwitchMap$com$sun$tools$javac$main$Option;
 };
 

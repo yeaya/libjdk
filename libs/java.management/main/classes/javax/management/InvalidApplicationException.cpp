@@ -1,5 +1,4 @@
 #include <javax/management/InvalidApplicationException.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -9,30 +8,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace javax {
 	namespace management {
-
-$FieldInfo _InvalidApplicationException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(InvalidApplicationException, serialVersionUID)},
-	{"val", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(InvalidApplicationException, val)},
-	{}
-};
-
-$MethodInfo _InvalidApplicationException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(InvalidApplicationException, init$, void, Object$*)},
-	{}
-};
-
-$ClassInfo _InvalidApplicationException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.management.InvalidApplicationException",
-	"java.lang.Exception",
-	nullptr,
-	_InvalidApplicationException_FieldInfo_,
-	_InvalidApplicationException_MethodInfo_
-};
-
-$Object* allocate$InvalidApplicationException($Class* clazz) {
-	return $of($alloc(InvalidApplicationException));
-}
 
 void InvalidApplicationException::init$(Object$* val) {
 	$Exception::init$();
@@ -50,7 +25,26 @@ void InvalidApplicationException::throw$() {
 }
 
 $Class* InvalidApplicationException::load$($String* name, bool initialize) {
-	$loadClass(InvalidApplicationException, name, initialize, &_InvalidApplicationException_ClassInfo_, allocate$InvalidApplicationException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(InvalidApplicationException, serialVersionUID)},
+		{"val", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(InvalidApplicationException, val)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(InvalidApplicationException, init$, void, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.management.InvalidApplicationException",
+		"java.lang.Exception",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(InvalidApplicationException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(InvalidApplicationException);
+	});
 	return class$;
 }
 

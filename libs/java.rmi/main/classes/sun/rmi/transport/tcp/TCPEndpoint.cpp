@@ -1,5 +1,4 @@
 #include <sun/rmi/transport/tcp/TCPEndpoint.h>
-
 #include <java/io/DataInput.h>
 #include <java/io/DataOutput.h>
 #include <java/io/IOException.h>
@@ -37,7 +36,6 @@
 #include <java/util/logging/Level.h>
 #include <sun/rmi/runtime/Log.h>
 #include <sun/rmi/transport/Channel.h>
-#include <sun/rmi/transport/Endpoint.h>
 #include <sun/rmi/transport/Target.h>
 #include <sun/rmi/transport/Transport.h>
 #include <sun/rmi/transport/tcp/TCPEndpoint$FQDN.h>
@@ -88,7 +86,6 @@ using $Map = ::java::util::Map;
 using $Set = ::java::util::Set;
 using $Log = ::sun::rmi::runtime::Log;
 using $Channel = ::sun::rmi::transport::Channel;
-using $Endpoint = ::sun::rmi::transport::Endpoint;
 using $Target = ::sun::rmi::transport::Target;
 using $Transport = ::sun::rmi::transport::Transport;
 using $TCPEndpoint$FQDN = ::sun::rmi::transport::tcp::TCPEndpoint$FQDN;
@@ -109,35 +106,31 @@ public:
 	virtual $Object* run() override {
 		 return $of(TCPEndpoint::lambda$getInt$0(name, def));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<TCPEndpoint$$Lambda$lambda$getInt$0>());
-	}
 	$String* name = nullptr;
 	int32_t def = 0;
-	static $FieldInfo fieldInfos[3];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo TCPEndpoint$$Lambda$lambda$getInt$0::fieldInfos[3] = {
-	{"name", "Ljava/lang/String;", nullptr, $PUBLIC, $field(TCPEndpoint$$Lambda$lambda$getInt$0, name)},
-	{"def", "I", nullptr, $PUBLIC, $field(TCPEndpoint$$Lambda$lambda$getInt$0, def)},
-	{}
-};
-$MethodInfo TCPEndpoint$$Lambda$lambda$getInt$0::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(TCPEndpoint$$Lambda$lambda$getInt$0, init$, void, $String*, int32_t)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(TCPEndpoint$$Lambda$lambda$getInt$0, run, $Object*)},
-	{}
-};
-$ClassInfo TCPEndpoint$$Lambda$lambda$getInt$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.rmi.transport.tcp.TCPEndpoint$$Lambda$lambda$getInt$0",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	fieldInfos,
-	methodInfos
 };
 $Class* TCPEndpoint$$Lambda$lambda$getInt$0::load$($String* name, bool initialize) {
-	$loadClass(TCPEndpoint$$Lambda$lambda$getInt$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"name", "Ljava/lang/String;", nullptr, $PUBLIC, $field(TCPEndpoint$$Lambda$lambda$getInt$0, name)},
+		{"def", "I", nullptr, $PUBLIC, $field(TCPEndpoint$$Lambda$lambda$getInt$0, def)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(TCPEndpoint$$Lambda$lambda$getInt$0, init$, void, $String*, int32_t)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(TCPEndpoint$$Lambda$lambda$getInt$0, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.rmi.transport.tcp.TCPEndpoint$$Lambda$lambda$getInt$0",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TCPEndpoint$$Lambda$lambda$getInt$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TCPEndpoint$$Lambda$lambda$getInt$0);
+	});
 	return class$;
 }
 $Class* TCPEndpoint$$Lambda$lambda$getInt$0::class$ = nullptr;
@@ -151,33 +144,29 @@ public:
 	virtual $Object* run() override {
 		 return $of(TCPEndpoint::lambda$getBoolean$1(name));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<TCPEndpoint$$Lambda$lambda$getBoolean$1$1>());
-	}
 	$String* name = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo TCPEndpoint$$Lambda$lambda$getBoolean$1$1::fieldInfos[2] = {
-	{"name", "Ljava/lang/String;", nullptr, $PUBLIC, $field(TCPEndpoint$$Lambda$lambda$getBoolean$1$1, name)},
-	{}
-};
-$MethodInfo TCPEndpoint$$Lambda$lambda$getBoolean$1$1::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(TCPEndpoint$$Lambda$lambda$getBoolean$1$1, init$, void, $String*)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(TCPEndpoint$$Lambda$lambda$getBoolean$1$1, run, $Object*)},
-	{}
-};
-$ClassInfo TCPEndpoint$$Lambda$lambda$getBoolean$1$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.rmi.transport.tcp.TCPEndpoint$$Lambda$lambda$getBoolean$1$1",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	fieldInfos,
-	methodInfos
 };
 $Class* TCPEndpoint$$Lambda$lambda$getBoolean$1$1::load$($String* name, bool initialize) {
-	$loadClass(TCPEndpoint$$Lambda$lambda$getBoolean$1$1, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"name", "Ljava/lang/String;", nullptr, $PUBLIC, $field(TCPEndpoint$$Lambda$lambda$getBoolean$1$1, name)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(TCPEndpoint$$Lambda$lambda$getBoolean$1$1, init$, void, $String*)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(TCPEndpoint$$Lambda$lambda$getBoolean$1$1, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.rmi.transport.tcp.TCPEndpoint$$Lambda$lambda$getBoolean$1$1",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TCPEndpoint$$Lambda$lambda$getBoolean$1$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TCPEndpoint$$Lambda$lambda$getBoolean$1$1);
+	});
 	return class$;
 }
 $Class* TCPEndpoint$$Lambda$lambda$getBoolean$1$1::class$ = nullptr;
@@ -190,107 +179,27 @@ public:
 	virtual $Object* run() override {
 		 return $of(TCPEndpoint::lambda$getHostnameProperty$2());
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<TCPEndpoint$$Lambda$lambda$getHostnameProperty$2$2>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo TCPEndpoint$$Lambda$lambda$getHostnameProperty$2$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TCPEndpoint$$Lambda$lambda$getHostnameProperty$2$2, init$, void)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(TCPEndpoint$$Lambda$lambda$getHostnameProperty$2$2, run, $Object*)},
-	{}
-};
-$ClassInfo TCPEndpoint$$Lambda$lambda$getHostnameProperty$2$2::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.rmi.transport.tcp.TCPEndpoint$$Lambda$lambda$getHostnameProperty$2$2",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	nullptr,
-	methodInfos
 };
 $Class* TCPEndpoint$$Lambda$lambda$getHostnameProperty$2$2::load$($String* name, bool initialize) {
-	$loadClass(TCPEndpoint$$Lambda$lambda$getHostnameProperty$2$2, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TCPEndpoint$$Lambda$lambda$getHostnameProperty$2$2, init$, void)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(TCPEndpoint$$Lambda$lambda$getHostnameProperty$2$2, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.rmi.transport.tcp.TCPEndpoint$$Lambda$lambda$getHostnameProperty$2$2",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(TCPEndpoint$$Lambda$lambda$getHostnameProperty$2$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TCPEndpoint$$Lambda$lambda$getHostnameProperty$2$2);
+	});
 	return class$;
 }
 $Class* TCPEndpoint$$Lambda$lambda$getHostnameProperty$2$2::class$ = nullptr;
-
-$FieldInfo _TCPEndpoint_FieldInfo_[] = {
-	{"host", "Ljava/lang/String;", nullptr, $PRIVATE, $field(TCPEndpoint, host)},
-	{"port", "I", nullptr, $PRIVATE, $field(TCPEndpoint, port)},
-	{"csf", "Ljava/rmi/server/RMIClientSocketFactory;", nullptr, $PRIVATE | $FINAL, $field(TCPEndpoint, csf)},
-	{"ssf", "Ljava/rmi/server/RMIServerSocketFactory;", nullptr, $PRIVATE | $FINAL, $field(TCPEndpoint, ssf)},
-	{"listenPort", "I", nullptr, $PRIVATE, $field(TCPEndpoint, listenPort)},
-	{"transport", "Lsun/rmi/transport/tcp/TCPTransport;", nullptr, $PRIVATE, $field(TCPEndpoint, transport)},
-	{"localHost", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(TCPEndpoint, localHost)},
-	{"localHostKnown", "Z", nullptr, $PRIVATE | $STATIC, $staticField(TCPEndpoint, localHostKnown)},
-	{"localEndpoints", "Ljava/util/Map;", "Ljava/util/Map<Lsun/rmi/transport/tcp/TCPEndpoint;Ljava/util/LinkedList<Lsun/rmi/transport/tcp/TCPEndpoint;>;>;", $PRIVATE | $STATIC | $FINAL, $staticField(TCPEndpoint, localEndpoints)},
-	{"FORMAT_HOST_PORT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(TCPEndpoint, FORMAT_HOST_PORT)},
-	{"FORMAT_HOST_PORT_FACTORY", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(TCPEndpoint, FORMAT_HOST_PORT_FACTORY)},
-	{}
-};
-
-$MethodInfo _TCPEndpoint_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(TCPEndpoint, init$, void, $String*, int32_t)},
-	{"<init>", "(Ljava/lang/String;ILjava/rmi/server/RMIClientSocketFactory;Ljava/rmi/server/RMIServerSocketFactory;)V", nullptr, $PUBLIC, $method(TCPEndpoint, init$, void, $String*, int32_t, $RMIClientSocketFactory*, $RMIServerSocketFactory*)},
-	{"allKnownTransports", "()Ljava/util/Collection;", "()Ljava/util/Collection<Lsun/rmi/transport/tcp/TCPTransport;>;", $PRIVATE | $STATIC, $staticMethod(TCPEndpoint, allKnownTransports, $Collection*)},
-	{"chooseFactory", "()Ljava/rmi/server/RMISocketFactory;", nullptr, $PRIVATE | $STATIC, $staticMethod(TCPEndpoint, chooseFactory, $RMISocketFactory*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(TCPEndpoint, equals, bool, Object$*)},
-	{"exportObject", "(Lsun/rmi/transport/Target;)V", nullptr, $PUBLIC, $virtualMethod(TCPEndpoint, exportObject, void, $Target*), "java.rmi.RemoteException"},
-	{"getBoolean", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(TCPEndpoint, getBoolean, bool, $String*)},
-	{"getChannel", "()Lsun/rmi/transport/Channel;", nullptr, $PUBLIC, $virtualMethod(TCPEndpoint, getChannel, $Channel*)},
-	{"getClientSocketFactory", "()Ljava/rmi/server/RMIClientSocketFactory;", nullptr, $PUBLIC, $virtualMethod(TCPEndpoint, getClientSocketFactory, $RMIClientSocketFactory*)},
-	{"getHost", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TCPEndpoint, getHost, $String*)},
-	{"getHostnameProperty", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(TCPEndpoint, getHostnameProperty, $String*)},
-	{"getInboundTransport", "()Lsun/rmi/transport/Transport;", nullptr, $PUBLIC, $virtualMethod(TCPEndpoint, getInboundTransport, $Transport*)},
-	{"getInt", "(Ljava/lang/String;I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(TCPEndpoint, getInt, int32_t, $String*, int32_t)},
-	{"getListenPort", "()I", nullptr, $PUBLIC, $virtualMethod(TCPEndpoint, getListenPort, int32_t)},
-	{"getLocalEndpoint", "(I)Lsun/rmi/transport/tcp/TCPEndpoint;", nullptr, $PUBLIC | $STATIC, $staticMethod(TCPEndpoint, getLocalEndpoint, TCPEndpoint*, int32_t)},
-	{"getLocalEndpoint", "(ILjava/rmi/server/RMIClientSocketFactory;Ljava/rmi/server/RMIServerSocketFactory;)Lsun/rmi/transport/tcp/TCPEndpoint;", nullptr, $PUBLIC | $STATIC, $staticMethod(TCPEndpoint, getLocalEndpoint, TCPEndpoint*, int32_t, $RMIClientSocketFactory*, $RMIServerSocketFactory*)},
-	{"getOutboundTransport", "()Lsun/rmi/transport/Transport;", nullptr, $PUBLIC, $virtualMethod(TCPEndpoint, getOutboundTransport, $Transport*)},
-	{"getPort", "()I", nullptr, $PUBLIC, $virtualMethod(TCPEndpoint, getPort, int32_t)},
-	{"getServerSocketFactory", "()Ljava/rmi/server/RMIServerSocketFactory;", nullptr, $PUBLIC, $virtualMethod(TCPEndpoint, getServerSocketFactory, $RMIServerSocketFactory*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(TCPEndpoint, hashCode, int32_t)},
-	{"lambda$getBoolean$1", "(Ljava/lang/String;)Ljava/lang/Boolean;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TCPEndpoint, lambda$getBoolean$1, $Boolean*, $String*)},
-	{"lambda$getHostnameProperty$2", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TCPEndpoint, lambda$getHostnameProperty$2, $String*)},
-	{"lambda$getInt$0", "(Ljava/lang/String;I)Ljava/lang/Integer;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TCPEndpoint, lambda$getInt$0, $Integer*, $String*, int32_t)},
-	{"newServerSocket", "()Ljava/net/ServerSocket;", nullptr, 0, $virtualMethod(TCPEndpoint, newServerSocket, $ServerSocket*), "java.io.IOException"},
-	{"newSocket", "()Ljava/net/Socket;", nullptr, 0, $virtualMethod(TCPEndpoint, newSocket, $Socket*), "java.rmi.RemoteException"},
-	{"read", "(Ljava/io/ObjectInput;)Lsun/rmi/transport/tcp/TCPEndpoint;", nullptr, $PUBLIC | $STATIC, $staticMethod(TCPEndpoint, read, TCPEndpoint*, $ObjectInput*), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"readHostPortFormat", "(Ljava/io/DataInput;)Lsun/rmi/transport/tcp/TCPEndpoint;", nullptr, $PUBLIC | $STATIC, $staticMethod(TCPEndpoint, readHostPortFormat, TCPEndpoint*, $DataInput*), "java.io.IOException"},
-	{"resampleLocalHost", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(TCPEndpoint, resampleLocalHost, $String*)},
-	{"setDefaultPort", "(ILjava/rmi/server/RMIClientSocketFactory;Ljava/rmi/server/RMIServerSocketFactory;)V", nullptr, $STATIC, $staticMethod(TCPEndpoint, setDefaultPort, void, int32_t, $RMIClientSocketFactory*, $RMIServerSocketFactory*)},
-	{"setLocalHost", "(Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(TCPEndpoint, setLocalHost, void, $String*)},
-	{"shedConnectionCaches", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(TCPEndpoint, shedConnectionCaches, void)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TCPEndpoint, toString, $String*)},
-	{"write", "(Ljava/io/ObjectOutput;)V", nullptr, $PUBLIC, $virtualMethod(TCPEndpoint, write, void, $ObjectOutput*), "java.io.IOException"},
-	{"writeHostPortFormat", "(Ljava/io/DataOutput;)V", nullptr, $PUBLIC, $virtualMethod(TCPEndpoint, writeHostPortFormat, void, $DataOutput*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _TCPEndpoint_InnerClassesInfo_[] = {
-	{"sun.rmi.transport.tcp.TCPEndpoint$FQDN", "sun.rmi.transport.tcp.TCPEndpoint", "FQDN", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _TCPEndpoint_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.rmi.transport.tcp.TCPEndpoint",
-	"java.lang.Object",
-	"sun.rmi.transport.Endpoint",
-	_TCPEndpoint_FieldInfo_,
-	_TCPEndpoint_MethodInfo_,
-	nullptr,
-	nullptr,
-	_TCPEndpoint_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.rmi.transport.tcp.TCPEndpoint$FQDN"
-};
-
-$Object* allocate$TCPEndpoint($Class* clazz) {
-	return $of($alloc(TCPEndpoint));
-}
 
 $String* TCPEndpoint::localHost = nullptr;
 bool TCPEndpoint::localHostKnown = false;
@@ -298,22 +207,22 @@ $Map* TCPEndpoint::localEndpoints = nullptr;
 
 int32_t TCPEndpoint::getInt($String* name, int32_t def) {
 	$init(TCPEndpoint);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
-	return $nc(($cast($Integer, $($AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new(TCPEndpoint$$Lambda$lambda$getInt$0, name, def)))))))->intValue();
+	return $$sure($Integer, $AccessController::doPrivileged($cast($PrivilegedAction, $$new(TCPEndpoint$$Lambda$lambda$getInt$0, name, def))))->intValue();
 }
 
 bool TCPEndpoint::getBoolean($String* name) {
 	$init(TCPEndpoint);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
-	return $nc(($cast($Boolean, $($AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new(TCPEndpoint$$Lambda$lambda$getBoolean$1$1, name)))))))->booleanValue();
+	return $$sure($Boolean, $AccessController::doPrivileged($cast($PrivilegedAction, $$new(TCPEndpoint$$Lambda$lambda$getBoolean$1$1, name))))->booleanValue();
 }
 
 $String* TCPEndpoint::getHostnameProperty() {
 	$init(TCPEndpoint);
 	$beforeCallerSensitive();
-	return $cast($String, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new(TCPEndpoint$$Lambda$lambda$getHostnameProperty$2$2))));
+	return $cast($String, $AccessController::doPrivileged($cast($PrivilegedAction, $$new(TCPEndpoint$$Lambda$lambda$getHostnameProperty$2$2))));
 }
 
 void TCPEndpoint::init$($String* host, int32_t port) {
@@ -340,11 +249,11 @@ TCPEndpoint* TCPEndpoint::getLocalEndpoint(int32_t port) {
 
 TCPEndpoint* TCPEndpoint::getLocalEndpoint(int32_t port, $RMIClientSocketFactory* csf, $RMIServerSocketFactory* ssf) {
 	$init(TCPEndpoint);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(TCPEndpoint, ep, nullptr);
 	$synchronized(TCPEndpoint::localEndpoints) {
 		$var(TCPEndpoint, endpointKey, $new(TCPEndpoint, nullptr, port, csf, ssf));
-		$var($LinkedList, epList, $cast($LinkedList, $nc(TCPEndpoint::localEndpoints)->get(endpointKey)));
+		$var($LinkedList, epList, $cast($LinkedList, TCPEndpoint::localEndpoints->get(endpointKey)));
 		$var($String, localHost, resampleLocalHost());
 		if (epList == nullptr) {
 			$assign(ep, $new(TCPEndpoint, localHost, port, csf, ssf));
@@ -352,15 +261,14 @@ TCPEndpoint* TCPEndpoint::getLocalEndpoint(int32_t port, $RMIClientSocketFactory
 			epList->add(ep);
 			ep->listenPort = port;
 			$set(ep, transport, $new($TCPTransport, epList));
-			$nc(TCPEndpoint::localEndpoints)->put(endpointKey, epList);
-			$init($TCPTransport);
+			TCPEndpoint::localEndpoints->put(endpointKey, epList);
 			$init($Log);
 			if ($nc($TCPTransport::tcpLog)->isLoggable($Log::BRIEF)) {
-				$nc($TCPTransport::tcpLog)->log($Log::BRIEF, $$str({"created local endpoint for socket factory "_s, ssf, " on port "_s, $$str(port)}));
+				$TCPTransport::tcpLog->log($Log::BRIEF, $$str({"created local endpoint for socket factory "_s, ssf, " on port "_s, $$str(port)}));
 			}
 		} else {
 			$synchronized(epList) {
-				$assign(ep, $cast(TCPEndpoint, $nc(epList)->getLast()));
+				$assign(ep, $cast(TCPEndpoint, epList->getLast()));
 				$var($String, lastHost, $nc(ep)->host);
 				int32_t lastPort = ep->port;
 				$var($TCPTransport, lastTransport, ep->transport);
@@ -381,20 +289,18 @@ TCPEndpoint* TCPEndpoint::getLocalEndpoint(int32_t port, $RMIClientSocketFactory
 
 $String* TCPEndpoint::resampleLocalHost() {
 	$init(TCPEndpoint);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, hostnameProperty, getHostnameProperty());
 	$synchronized(TCPEndpoint::localEndpoints) {
 		if (hostnameProperty != nullptr) {
 			if (!TCPEndpoint::localHostKnown) {
 				setLocalHost(hostnameProperty);
-			} else {
-				if (!hostnameProperty->equals(TCPEndpoint::localHost)) {
-					$assignStatic(TCPEndpoint::localHost, hostnameProperty);
-					$init($TCPTransport);
-					$init($Log);
-					if ($nc($TCPTransport::tcpLog)->isLoggable($Log::BRIEF)) {
-						$nc($TCPTransport::tcpLog)->log($Log::BRIEF, $$str({"updated local hostname to: "_s, TCPEndpoint::localHost}));
-					}
+			} else if (!hostnameProperty->equals(TCPEndpoint::localHost)) {
+				$assignStatic(TCPEndpoint::localHost, hostnameProperty);
+				$init($TCPTransport);
+				$init($Log);
+				if ($nc($TCPTransport::tcpLog)->isLoggable($Log::BRIEF)) {
+					$TCPTransport::tcpLog->log($Log::BRIEF, $$str({"updated local hostname to: "_s, TCPEndpoint::localHost}));
 				}
 			}
 		}
@@ -404,7 +310,7 @@ $String* TCPEndpoint::resampleLocalHost() {
 
 void TCPEndpoint::setLocalHost($String* host) {
 	$init(TCPEndpoint);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized(TCPEndpoint::localEndpoints) {
 		if (!TCPEndpoint::localHostKnown) {
 			$assignStatic(TCPEndpoint::localHost, host);
@@ -412,21 +318,19 @@ void TCPEndpoint::setLocalHost($String* host) {
 			$init($TCPTransport);
 			$init($Log);
 			if ($nc($TCPTransport::tcpLog)->isLoggable($Log::BRIEF)) {
-				$nc($TCPTransport::tcpLog)->log($Log::BRIEF, $$str({"local host set to "_s, host}));
+				$TCPTransport::tcpLog->log($Log::BRIEF, $$str({"local host set to "_s, host}));
 			}
 			{
-				$var($Iterator, i$, $nc($($nc(TCPEndpoint::localEndpoints)->values()))->iterator());
+				$var($Iterator, i$, $$nc(TCPEndpoint::localEndpoints->values())->iterator());
 				for (; $nc(i$)->hasNext();) {
 					$var($LinkedList, epList, $cast($LinkedList, i$->next()));
 					{
 						$synchronized(epList) {
-							{
-								$var($Iterator, i$, $nc(epList)->iterator());
-								for (; $nc(i$)->hasNext();) {
-									$var(TCPEndpoint, ep, $cast(TCPEndpoint, i$->next()));
-									{
-										$set($nc(ep), host, host);
-									}
+							$var($Iterator, i$, epList->iterator());
+							for (; $nc(i$)->hasNext();) {
+								$var(TCPEndpoint, ep, $cast(TCPEndpoint, i$->next()));
+								{
+									$set($nc(ep), host, host);
 								}
 							}
 						}
@@ -439,12 +343,12 @@ void TCPEndpoint::setLocalHost($String* host) {
 
 void TCPEndpoint::setDefaultPort(int32_t port, $RMIClientSocketFactory* csf, $RMIServerSocketFactory* ssf) {
 	$init(TCPEndpoint);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(TCPEndpoint, endpointKey, $new(TCPEndpoint, nullptr, 0, csf, ssf));
 	$synchronized(TCPEndpoint::localEndpoints) {
-		$var($LinkedList, epList, $cast($LinkedList, $nc(TCPEndpoint::localEndpoints)->get(endpointKey)));
+		$var($LinkedList, epList, $cast($LinkedList, TCPEndpoint::localEndpoints->get(endpointKey)));
 		$synchronized(epList) {
-			int32_t size = $nc(epList)->size();
+			int32_t size = epList->size();
 			$var(TCPEndpoint, lastEp, $cast(TCPEndpoint, epList->getLast()));
 			{
 				$var($Iterator, i$, epList->iterator());
@@ -461,11 +365,11 @@ void TCPEndpoint::setDefaultPort(int32_t port, $RMIClientSocketFactory* csf, $RM
 			}
 		}
 		$var(TCPEndpoint, newEndpointKey, $new(TCPEndpoint, nullptr, port, csf, ssf));
-		$nc(TCPEndpoint::localEndpoints)->put(newEndpointKey, epList);
+		TCPEndpoint::localEndpoints->put(newEndpointKey, epList);
 		$init($TCPTransport);
 		$init($Log);
 		if ($nc($TCPTransport::tcpLog)->isLoggable($Log::BRIEF)) {
-			$nc($TCPTransport::tcpLog)->log($Log::BRIEF, $$str({"default port for server socket factory "_s, ssf, " and client socket factory "_s, csf, " set to "_s, $$str(port)}));
+			$TCPTransport::tcpLog->log($Log::BRIEF, $$str({"default port for server socket factory "_s, ssf, " and client socket factory "_s, csf, " set to "_s, $$str(port)}));
 		}
 	}
 }
@@ -477,12 +381,12 @@ $Transport* TCPEndpoint::getOutboundTransport() {
 
 $Collection* TCPEndpoint::allKnownTransports() {
 	$init(TCPEndpoint);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Set, s, nullptr);
 	$synchronized(TCPEndpoint::localEndpoints) {
-		$assign(s, $new($HashSet, $nc(TCPEndpoint::localEndpoints)->size()));
+		$assign(s, $new($HashSet, TCPEndpoint::localEndpoints->size()));
 		{
-			$var($Iterator, i$, $nc($($nc(TCPEndpoint::localEndpoints)->values()))->iterator());
+			$var($Iterator, i$, $$nc(TCPEndpoint::localEndpoints->values())->iterator());
 			for (; $nc(i$)->hasNext();) {
 				$var($LinkedList, epList, $cast($LinkedList, i$->next()));
 				{
@@ -497,14 +401,12 @@ $Collection* TCPEndpoint::allKnownTransports() {
 
 void TCPEndpoint::shedConnectionCaches() {
 	$init(TCPEndpoint);
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Iterator, i$, $nc($(allKnownTransports()))->iterator());
-		for (; $nc(i$)->hasNext();) {
-			$var($TCPTransport, transport, $cast($TCPTransport, i$->next()));
-			{
-				$nc(transport)->shedConnectionCaches();
-			}
+	$useLocalObjectStack();
+	$var($Iterator, i$, $$nc(allKnownTransports())->iterator());
+	for (; $nc(i$)->hasNext();) {
+		$var($TCPTransport, transport, $cast($TCPTransport, i$->next()));
+		{
+			$nc(transport)->shedConnectionCaches();
 		}
 	}
 }
@@ -514,7 +416,7 @@ void TCPEndpoint::exportObject($Target* target) {
 }
 
 $Channel* TCPEndpoint::getChannel() {
-	return $nc($(getOutboundTransport()))->getChannel(this);
+	return $$nc(getOutboundTransport())->getChannel(this);
 }
 
 $String* TCPEndpoint::getHost() {
@@ -542,10 +444,16 @@ $RMIServerSocketFactory* TCPEndpoint::getServerSocketFactory() {
 }
 
 $String* TCPEndpoint::toString() {
-	$useLocalCurrentObjectStackCache();
-	$var($String, var$1, $$str({"["_s, this->host, ":"_s, $$str(this->port), (this->ssf != nullptr ? $$str({","_s, this->ssf}) : ""_s)}));
-	$var($String, var$0, $$concat(var$1, (this->csf != nullptr ? $$str({","_s, this->csf}) : ""_s)));
-	return $concat(var$0, "]"_s);
+	$useLocalObjectStack();
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append("["_s);
+	var$0->append(this->host);
+	var$0->append(":"_s);
+	var$0->append(this->port);
+	var$0->append(this->ssf != nullptr ? $$str({","_s, this->ssf}) : ""_s);
+	var$0->append(this->csf != nullptr ? $$str({","_s, this->csf}) : ""_s);
+	var$0->append("]"_s);
+	return $str(var$0);
 }
 
 int32_t TCPEndpoint::hashCode() {
@@ -561,18 +469,18 @@ bool TCPEndpoint::equals(Object$* obj) {
 		if (((this->csf == nullptr) ^ (ep->csf == nullptr)) || ((this->ssf == nullptr) ^ (ep->ssf == nullptr))) {
 			return false;
 		}
-		bool var$0 = (this->csf != nullptr);
+		bool var$0 = this->csf != nullptr;
 		if (var$0) {
-			bool var$1 = $nc($of(this->csf))->getClass() == $nc($of(ep->csf))->getClass();
-			var$0 = !(var$1 && $nc($of(this->csf))->equals(ep->csf));
+			bool var$1 = this->csf->getClass() == $nc(ep->csf)->getClass();
+			var$0 = !(var$1 && this->csf->equals(ep->csf));
 		}
 		if (var$0) {
 			return false;
 		}
-		bool var$2 = (this->ssf != nullptr);
+		bool var$2 = this->ssf != nullptr;
 		if (var$2) {
-			bool var$3 = $nc($of(this->ssf))->getClass() == $nc($of(ep->ssf))->getClass();
-			var$2 = !(var$3 && $nc($of(this->ssf))->equals(ep->ssf));
+			bool var$3 = this->ssf->getClass() == $nc(ep->ssf)->getClass();
+			var$2 = !(var$3 && this->ssf->equals(ep->ssf));
 		}
 		if (var$2) {
 			return false;
@@ -598,32 +506,26 @@ void TCPEndpoint::write($ObjectOutput* out) {
 
 TCPEndpoint* TCPEndpoint::read($ObjectInput* in) {
 	$init(TCPEndpoint);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, host, nullptr);
 	int32_t port = 0;
 	$var($RMIClientSocketFactory, csf, nullptr);
 	int8_t format = $nc(in)->readByte();
 	switch (format) {
 	case TCPEndpoint::FORMAT_HOST_PORT:
-		{
-			$assign(host, in->readUTF());
-			port = in->readInt();
-			break;
-		}
+		$assign(host, in->readUTF());
+		port = in->readInt();
+		break;
 	case TCPEndpoint::FORMAT_HOST_PORT_FACTORY:
-		{
-			$assign(host, in->readUTF());
-			port = in->readInt();
-			$assign(csf, $cast($RMIClientSocketFactory, in->readObject()));
-			if (csf != nullptr && $Proxy::isProxyClass($of(csf)->getClass())) {
-				$throwNew($IOException, "Invalid SocketFactory"_s);
-			}
-			break;
+		$assign(host, in->readUTF());
+		port = in->readInt();
+		$assign(csf, $cast($RMIClientSocketFactory, in->readObject()));
+		if (csf != nullptr && $Proxy::isProxyClass(csf->getClass())) {
+			$throwNew($IOException, "Invalid SocketFactory"_s);
 		}
+		break;
 	default:
-		{
-			$throwNew($IOException, "invalid endpoint format"_s);
-		}
+		$throwNew($IOException, "invalid endpoint format"_s);
 	}
 	return $new(TCPEndpoint, host, port, csf, nullptr);
 }
@@ -654,11 +556,11 @@ $RMISocketFactory* TCPEndpoint::chooseFactory() {
 }
 
 $Socket* TCPEndpoint::newSocket() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($TCPTransport);
 	$init($Log);
 	if ($nc($TCPTransport::tcpLog)->isLoggable($Log::VERBOSE)) {
-		$nc($TCPTransport::tcpLog)->log($Log::VERBOSE, $$str({"opening socket to "_s, this}));
+		$TCPTransport::tcpLog->log($Log::VERBOSE, $$str({"opening socket to "_s, this}));
 	}
 	$var($Socket, socket, nullptr);
 	try {
@@ -691,11 +593,11 @@ $Socket* TCPEndpoint::newSocket() {
 }
 
 $ServerSocket* TCPEndpoint::newServerSocket() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($TCPTransport);
 	$init($Log);
 	if ($nc($TCPTransport::tcpLog)->isLoggable($Log::VERBOSE)) {
-		$nc($TCPTransport::tcpLog)->log($Log::VERBOSE, $$str({"creating server socket on "_s, this}));
+		$TCPTransport::tcpLog->log($Log::VERBOSE, $$str({"creating server socket on "_s, this}));
 	}
 	$var($RMIServerSocketFactory, serverFactory, this->ssf);
 	if (serverFactory == nullptr) {
@@ -723,8 +625,8 @@ $Integer* TCPEndpoint::lambda$getInt$0($String* name, int32_t def) {
 	return $Integer::getInteger(name, def);
 }
 
-void clinit$TCPEndpoint($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void TCPEndpoint::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	{
 		TCPEndpoint::localHostKnown = true;
 		$assignStatic(TCPEndpoint::localHost, TCPEndpoint::getHostnameProperty());
@@ -748,7 +650,7 @@ void clinit$TCPEndpoint($Class* class$) {
 		$init($TCPTransport);
 		$init($Log);
 		if ($nc($TCPTransport::tcpLog)->isLoggable($Log::BRIEF)) {
-			$nc($TCPTransport::tcpLog)->log($Log::BRIEF, $$str({"localHostKnown = "_s, $$str(TCPEndpoint::localHostKnown), ", localHost = "_s, TCPEndpoint::localHost}));
+			$TCPTransport::tcpLog->log($Log::BRIEF, $$str({"localHostKnown = "_s, $$str(TCPEndpoint::localHostKnown), ", localHost = "_s, TCPEndpoint::localHost}));
 		}
 	}
 	$assignStatic(TCPEndpoint::localEndpoints, $new($HashMap));
@@ -759,17 +661,88 @@ TCPEndpoint::TCPEndpoint() {
 
 $Class* TCPEndpoint::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(TCPEndpoint$$Lambda$lambda$getInt$0::classInfo$.name)) {
+		if (name->equals("sun.rmi.transport.tcp.TCPEndpoint$$Lambda$lambda$getInt$0")) {
 			return TCPEndpoint$$Lambda$lambda$getInt$0::load$(name, initialize);
 		}
-		if (name->equals(TCPEndpoint$$Lambda$lambda$getBoolean$1$1::classInfo$.name)) {
+		if (name->equals("sun.rmi.transport.tcp.TCPEndpoint$$Lambda$lambda$getBoolean$1$1")) {
 			return TCPEndpoint$$Lambda$lambda$getBoolean$1$1::load$(name, initialize);
 		}
-		if (name->equals(TCPEndpoint$$Lambda$lambda$getHostnameProperty$2$2::classInfo$.name)) {
+		if (name->equals("sun.rmi.transport.tcp.TCPEndpoint$$Lambda$lambda$getHostnameProperty$2$2")) {
 			return TCPEndpoint$$Lambda$lambda$getHostnameProperty$2$2::load$(name, initialize);
 		}
 	}
-	$loadClass(TCPEndpoint, name, initialize, &_TCPEndpoint_ClassInfo_, clinit$TCPEndpoint, allocate$TCPEndpoint);
+	$FieldInfo fieldInfos$$[] = {
+		{"host", "Ljava/lang/String;", nullptr, $PRIVATE, $field(TCPEndpoint, host)},
+		{"port", "I", nullptr, $PRIVATE, $field(TCPEndpoint, port)},
+		{"csf", "Ljava/rmi/server/RMIClientSocketFactory;", nullptr, $PRIVATE | $FINAL, $field(TCPEndpoint, csf)},
+		{"ssf", "Ljava/rmi/server/RMIServerSocketFactory;", nullptr, $PRIVATE | $FINAL, $field(TCPEndpoint, ssf)},
+		{"listenPort", "I", nullptr, $PRIVATE, $field(TCPEndpoint, listenPort)},
+		{"transport", "Lsun/rmi/transport/tcp/TCPTransport;", nullptr, $PRIVATE, $field(TCPEndpoint, transport)},
+		{"localHost", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(TCPEndpoint, localHost)},
+		{"localHostKnown", "Z", nullptr, $PRIVATE | $STATIC, $staticField(TCPEndpoint, localHostKnown)},
+		{"localEndpoints", "Ljava/util/Map;", "Ljava/util/Map<Lsun/rmi/transport/tcp/TCPEndpoint;Ljava/util/LinkedList<Lsun/rmi/transport/tcp/TCPEndpoint;>;>;", $PRIVATE | $STATIC | $FINAL, $staticField(TCPEndpoint, localEndpoints)},
+		{"FORMAT_HOST_PORT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(TCPEndpoint, FORMAT_HOST_PORT)},
+		{"FORMAT_HOST_PORT_FACTORY", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(TCPEndpoint, FORMAT_HOST_PORT_FACTORY)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(TCPEndpoint, init$, void, $String*, int32_t)},
+		{"<init>", "(Ljava/lang/String;ILjava/rmi/server/RMIClientSocketFactory;Ljava/rmi/server/RMIServerSocketFactory;)V", nullptr, $PUBLIC, $method(TCPEndpoint, init$, void, $String*, int32_t, $RMIClientSocketFactory*, $RMIServerSocketFactory*)},
+		{"allKnownTransports", "()Ljava/util/Collection;", "()Ljava/util/Collection<Lsun/rmi/transport/tcp/TCPTransport;>;", $PRIVATE | $STATIC, $staticMethod(TCPEndpoint, allKnownTransports, $Collection*)},
+		{"chooseFactory", "()Ljava/rmi/server/RMISocketFactory;", nullptr, $PRIVATE | $STATIC, $staticMethod(TCPEndpoint, chooseFactory, $RMISocketFactory*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(TCPEndpoint, equals, bool, Object$*)},
+		{"exportObject", "(Lsun/rmi/transport/Target;)V", nullptr, $PUBLIC, $virtualMethod(TCPEndpoint, exportObject, void, $Target*), "java.rmi.RemoteException"},
+		{"getBoolean", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(TCPEndpoint, getBoolean, bool, $String*)},
+		{"getChannel", "()Lsun/rmi/transport/Channel;", nullptr, $PUBLIC, $virtualMethod(TCPEndpoint, getChannel, $Channel*)},
+		{"getClientSocketFactory", "()Ljava/rmi/server/RMIClientSocketFactory;", nullptr, $PUBLIC, $virtualMethod(TCPEndpoint, getClientSocketFactory, $RMIClientSocketFactory*)},
+		{"getHost", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TCPEndpoint, getHost, $String*)},
+		{"getHostnameProperty", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(TCPEndpoint, getHostnameProperty, $String*)},
+		{"getInboundTransport", "()Lsun/rmi/transport/Transport;", nullptr, $PUBLIC, $virtualMethod(TCPEndpoint, getInboundTransport, $Transport*)},
+		{"getInt", "(Ljava/lang/String;I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(TCPEndpoint, getInt, int32_t, $String*, int32_t)},
+		{"getListenPort", "()I", nullptr, $PUBLIC, $virtualMethod(TCPEndpoint, getListenPort, int32_t)},
+		{"getLocalEndpoint", "(I)Lsun/rmi/transport/tcp/TCPEndpoint;", nullptr, $PUBLIC | $STATIC, $staticMethod(TCPEndpoint, getLocalEndpoint, TCPEndpoint*, int32_t)},
+		{"getLocalEndpoint", "(ILjava/rmi/server/RMIClientSocketFactory;Ljava/rmi/server/RMIServerSocketFactory;)Lsun/rmi/transport/tcp/TCPEndpoint;", nullptr, $PUBLIC | $STATIC, $staticMethod(TCPEndpoint, getLocalEndpoint, TCPEndpoint*, int32_t, $RMIClientSocketFactory*, $RMIServerSocketFactory*)},
+		{"getOutboundTransport", "()Lsun/rmi/transport/Transport;", nullptr, $PUBLIC, $virtualMethod(TCPEndpoint, getOutboundTransport, $Transport*)},
+		{"getPort", "()I", nullptr, $PUBLIC, $virtualMethod(TCPEndpoint, getPort, int32_t)},
+		{"getServerSocketFactory", "()Ljava/rmi/server/RMIServerSocketFactory;", nullptr, $PUBLIC, $virtualMethod(TCPEndpoint, getServerSocketFactory, $RMIServerSocketFactory*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(TCPEndpoint, hashCode, int32_t)},
+		{"lambda$getBoolean$1", "(Ljava/lang/String;)Ljava/lang/Boolean;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TCPEndpoint, lambda$getBoolean$1, $Boolean*, $String*)},
+		{"lambda$getHostnameProperty$2", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TCPEndpoint, lambda$getHostnameProperty$2, $String*)},
+		{"lambda$getInt$0", "(Ljava/lang/String;I)Ljava/lang/Integer;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TCPEndpoint, lambda$getInt$0, $Integer*, $String*, int32_t)},
+		{"newServerSocket", "()Ljava/net/ServerSocket;", nullptr, 0, $virtualMethod(TCPEndpoint, newServerSocket, $ServerSocket*), "java.io.IOException"},
+		{"newSocket", "()Ljava/net/Socket;", nullptr, 0, $virtualMethod(TCPEndpoint, newSocket, $Socket*), "java.rmi.RemoteException"},
+		{"read", "(Ljava/io/ObjectInput;)Lsun/rmi/transport/tcp/TCPEndpoint;", nullptr, $PUBLIC | $STATIC, $staticMethod(TCPEndpoint, read, TCPEndpoint*, $ObjectInput*), "java.io.IOException,java.lang.ClassNotFoundException"},
+		{"readHostPortFormat", "(Ljava/io/DataInput;)Lsun/rmi/transport/tcp/TCPEndpoint;", nullptr, $PUBLIC | $STATIC, $staticMethod(TCPEndpoint, readHostPortFormat, TCPEndpoint*, $DataInput*), "java.io.IOException"},
+		{"resampleLocalHost", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(TCPEndpoint, resampleLocalHost, $String*)},
+		{"setDefaultPort", "(ILjava/rmi/server/RMIClientSocketFactory;Ljava/rmi/server/RMIServerSocketFactory;)V", nullptr, $STATIC, $staticMethod(TCPEndpoint, setDefaultPort, void, int32_t, $RMIClientSocketFactory*, $RMIServerSocketFactory*)},
+		{"setLocalHost", "(Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(TCPEndpoint, setLocalHost, void, $String*)},
+		{"shedConnectionCaches", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(TCPEndpoint, shedConnectionCaches, void)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TCPEndpoint, toString, $String*)},
+		{"write", "(Ljava/io/ObjectOutput;)V", nullptr, $PUBLIC, $virtualMethod(TCPEndpoint, write, void, $ObjectOutput*), "java.io.IOException"},
+		{"writeHostPortFormat", "(Ljava/io/DataOutput;)V", nullptr, $PUBLIC, $virtualMethod(TCPEndpoint, writeHostPortFormat, void, $DataOutput*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.rmi.transport.tcp.TCPEndpoint$FQDN", "sun.rmi.transport.tcp.TCPEndpoint", "FQDN", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.rmi.transport.tcp.TCPEndpoint",
+		"java.lang.Object",
+		"sun.rmi.transport.Endpoint",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.rmi.transport.tcp.TCPEndpoint$FQDN"
+	};
+	$loadClass(TCPEndpoint, name, initialize, &classInfo$$, TCPEndpoint::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(TCPEndpoint);
+	});
 	return class$;
 }
 

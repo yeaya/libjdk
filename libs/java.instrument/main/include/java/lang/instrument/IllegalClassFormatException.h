@@ -15,10 +15,13 @@ public:
 	IllegalClassFormatException();
 	void init$();
 	void init$($String* s);
-	static const int64_t serialVersionUID = (int64_t)0xCAAF68D0D8C00767;
+	static const int64_t serialVersionUID = (int64_t)0xcaaf68d0d8c00767;
 	IllegalClassFormatException(const IllegalClassFormatException& e);
 	virtual void throw$() override;
-	inline IllegalClassFormatException* operator ->() {
+	inline IllegalClassFormatException* operator ->() const {
+		return (IllegalClassFormatException*)throwing$;
+	}
+	inline operator IllegalClassFormatException*() const {
 		return (IllegalClassFormatException*)throwing$;
 	}
 };

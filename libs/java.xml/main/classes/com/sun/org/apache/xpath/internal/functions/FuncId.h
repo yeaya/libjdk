@@ -66,7 +66,7 @@ public:
 	void init$();
 	virtual ::com::sun::org::apache::xpath::internal::objects::XObject* execute(::com::sun::org::apache::xpath::internal::XPathContext* xctxt) override;
 	::com::sun::org::apache::xml::internal::utils::StringVector* getNodesByID(::com::sun::org::apache::xpath::internal::XPathContext* xctxt, int32_t docContext, $String* refval, ::com::sun::org::apache::xml::internal::utils::StringVector* usedrefs, ::com::sun::org::apache::xpath::internal::NodeSetDTM* nodeSet, bool mayBeMore);
-	static const int64_t serialVersionUID = (int64_t)0x7BEFC5B4BC56B5CE;
+	static const int64_t serialVersionUID = (int64_t)0x7befc5b4bc56b5ce;
 };
 
 						} // functions

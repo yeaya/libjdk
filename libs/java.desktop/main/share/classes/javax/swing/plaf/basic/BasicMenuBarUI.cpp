@@ -1,6 +1,4 @@
 #include <javax/swing/plaf/basic/BasicMenuBarUI.h>
-
-#include <java/awt/Container.h>
 #include <java/awt/Dimension.h>
 #include <java/awt/LayoutManager.h>
 #include <java/awt/event/ContainerListener.h>
@@ -32,19 +30,15 @@
 #undef TRUE
 #undef WHEN_IN_FOCUSED_WINDOW
 
-using $Container = ::java::awt::Container;
 using $Dimension = ::java::awt::Dimension;
-using $LayoutManager = ::java::awt::LayoutManager;
 using $ContainerListener = ::java::awt::event::ContainerListener;
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Action = ::javax::swing::Action;
 using $ActionMap = ::javax::swing::ActionMap;
 using $BoxLayout = ::javax::swing::BoxLayout;
-using $ButtonModel = ::javax::swing::ButtonModel;
 using $InputMap = ::javax::swing::InputMap;
 using $JComponent = ::javax::swing::JComponent;
 using $JMenu = ::javax::swing::JMenu;
@@ -65,60 +59,6 @@ namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace basic {
-
-$FieldInfo _BasicMenuBarUI_FieldInfo_[] = {
-	{"menuBar", "Ljavax/swing/JMenuBar;", nullptr, $PROTECTED, $field(BasicMenuBarUI, menuBar)},
-	{"containerListener", "Ljava/awt/event/ContainerListener;", nullptr, $PROTECTED, $field(BasicMenuBarUI, containerListener)},
-	{"changeListener", "Ljavax/swing/event/ChangeListener;", nullptr, $PROTECTED, $field(BasicMenuBarUI, changeListener)},
-	{"handler", "Ljavax/swing/plaf/basic/BasicMenuBarUI$Handler;", nullptr, $PRIVATE, $field(BasicMenuBarUI, handler)},
-	{}
-};
-
-$MethodInfo _BasicMenuBarUI_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(BasicMenuBarUI, init$, void)},
-	{"createChangeListener", "()Ljavax/swing/event/ChangeListener;", nullptr, $PROTECTED, $virtualMethod(BasicMenuBarUI, createChangeListener, $ChangeListener*)},
-	{"createContainerListener", "()Ljava/awt/event/ContainerListener;", nullptr, $PROTECTED, $virtualMethod(BasicMenuBarUI, createContainerListener, $ContainerListener*)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(BasicMenuBarUI, createUI, $ComponentUI*, $JComponent*)},
-	{"getHandler", "()Ljavax/swing/plaf/basic/BasicMenuBarUI$Handler;", nullptr, $PRIVATE, $method(BasicMenuBarUI, getHandler, $BasicMenuBarUI$Handler*)},
-	{"getInputMap", "(I)Ljavax/swing/InputMap;", nullptr, 0, $virtualMethod(BasicMenuBarUI, getInputMap, $InputMap*, int32_t)},
-	{"getMaximumSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BasicMenuBarUI, getMaximumSize, $Dimension*, $JComponent*)},
-	{"getMinimumSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BasicMenuBarUI, getMinimumSize, $Dimension*, $JComponent*)},
-	{"installDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(BasicMenuBarUI, installDefaults, void)},
-	{"installKeyboardActions", "()V", nullptr, $PROTECTED, $virtualMethod(BasicMenuBarUI, installKeyboardActions, void)},
-	{"installListeners", "()V", nullptr, $PROTECTED, $virtualMethod(BasicMenuBarUI, installListeners, void)},
-	{"installUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(BasicMenuBarUI, installUI, void, $JComponent*)},
-	{"loadActionMap", "(Ljavax/swing/plaf/basic/LazyActionMap;)V", nullptr, $STATIC, $staticMethod(BasicMenuBarUI, loadActionMap, void, $LazyActionMap*)},
-	{"uninstallDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(BasicMenuBarUI, uninstallDefaults, void)},
-	{"uninstallKeyboardActions", "()V", nullptr, $PROTECTED, $virtualMethod(BasicMenuBarUI, uninstallKeyboardActions, void)},
-	{"uninstallListeners", "()V", nullptr, $PROTECTED, $virtualMethod(BasicMenuBarUI, uninstallListeners, void)},
-	{"uninstallUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(BasicMenuBarUI, uninstallUI, void, $JComponent*)},
-	{}
-};
-
-$InnerClassInfo _BasicMenuBarUI_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.basic.BasicMenuBarUI$Actions", "javax.swing.plaf.basic.BasicMenuBarUI", "Actions", $PRIVATE | $STATIC},
-	{"javax.swing.plaf.basic.BasicMenuBarUI$Handler", "javax.swing.plaf.basic.BasicMenuBarUI", "Handler", $PRIVATE},
-	{}
-};
-
-$ClassInfo _BasicMenuBarUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.basic.BasicMenuBarUI",
-	"javax.swing.plaf.MenuBarUI",
-	nullptr,
-	_BasicMenuBarUI_FieldInfo_,
-	_BasicMenuBarUI_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BasicMenuBarUI_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.basic.BasicMenuBarUI$Actions,javax.swing.plaf.basic.BasicMenuBarUI$Handler"
-};
-
-$Object* allocate$BasicMenuBarUI($Class* clazz) {
-	return $of($alloc(BasicMenuBarUI));
-}
 
 void BasicMenuBarUI::init$() {
 	$MenuBarUI::init$();
@@ -144,25 +84,24 @@ void BasicMenuBarUI::installUI($JComponent* c) {
 }
 
 void BasicMenuBarUI::installDefaults() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool var$0 = $nc(this->menuBar)->getLayout() == nullptr;
-	if (var$0 || $instanceOf($UIResource, $($nc(this->menuBar)->getLayout()))) {
+	if (var$0 || $instanceOf($UIResource, $(this->menuBar->getLayout()))) {
 		$nc(this->menuBar)->setLayout($$new($DefaultMenuLayout, this->menuBar, $BoxLayout::LINE_AXIS));
 	}
-	$init($Boolean);
 	$LookAndFeel::installProperty(this->menuBar, "opaque"_s, $Boolean::TRUE);
 	$LookAndFeel::installBorder(this->menuBar, "MenuBar.border"_s);
 	$LookAndFeel::installColorsAndFont(this->menuBar, "MenuBar.background"_s, "MenuBar.foreground"_s, "MenuBar.font"_s);
 }
 
 void BasicMenuBarUI::installListeners() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, containerListener, createContainerListener());
 	$set(this, changeListener, createChangeListener());
 	for (int32_t i = 0; i < $nc(this->menuBar)->getMenuCount(); ++i) {
-		$var($JMenu, menu, $nc(this->menuBar)->getMenu(i));
+		$var($JMenu, menu, this->menuBar->getMenu(i));
 		if (menu != nullptr) {
-			$nc($(menu->getModel()))->addChangeListener(this->changeListener);
+			$$nc(menu->getModel())->addChangeListener(this->changeListener);
 		}
 	}
 	$nc(this->menuBar)->addContainerListener(this->containerListener);
@@ -198,12 +137,12 @@ void BasicMenuBarUI::uninstallDefaults() {
 }
 
 void BasicMenuBarUI::uninstallListeners() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(this->menuBar)->removeContainerListener(this->containerListener);
 	for (int32_t i = 0; i < $nc(this->menuBar)->getMenuCount(); ++i) {
-		$var($JMenu, menu, $nc(this->menuBar)->getMenu(i));
+		$var($JMenu, menu, this->menuBar->getMenu(i));
 		if (menu != nullptr) {
-			$nc($(menu->getModel()))->removeChangeListener(this->changeListener);
+			$$nc(menu->getModel())->removeChangeListener(this->changeListener);
 		}
 	}
 	$set(this, containerListener, nullptr);
@@ -243,7 +182,55 @@ BasicMenuBarUI::BasicMenuBarUI() {
 }
 
 $Class* BasicMenuBarUI::load$($String* name, bool initialize) {
-	$loadClass(BasicMenuBarUI, name, initialize, &_BasicMenuBarUI_ClassInfo_, allocate$BasicMenuBarUI);
+	$FieldInfo fieldInfos$$[] = {
+		{"menuBar", "Ljavax/swing/JMenuBar;", nullptr, $PROTECTED, $field(BasicMenuBarUI, menuBar)},
+		{"containerListener", "Ljava/awt/event/ContainerListener;", nullptr, $PROTECTED, $field(BasicMenuBarUI, containerListener)},
+		{"changeListener", "Ljavax/swing/event/ChangeListener;", nullptr, $PROTECTED, $field(BasicMenuBarUI, changeListener)},
+		{"handler", "Ljavax/swing/plaf/basic/BasicMenuBarUI$Handler;", nullptr, $PRIVATE, $field(BasicMenuBarUI, handler)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(BasicMenuBarUI, init$, void)},
+		{"createChangeListener", "()Ljavax/swing/event/ChangeListener;", nullptr, $PROTECTED, $virtualMethod(BasicMenuBarUI, createChangeListener, $ChangeListener*)},
+		{"createContainerListener", "()Ljava/awt/event/ContainerListener;", nullptr, $PROTECTED, $virtualMethod(BasicMenuBarUI, createContainerListener, $ContainerListener*)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(BasicMenuBarUI, createUI, $ComponentUI*, $JComponent*)},
+		{"getHandler", "()Ljavax/swing/plaf/basic/BasicMenuBarUI$Handler;", nullptr, $PRIVATE, $method(BasicMenuBarUI, getHandler, $BasicMenuBarUI$Handler*)},
+		{"getInputMap", "(I)Ljavax/swing/InputMap;", nullptr, 0, $virtualMethod(BasicMenuBarUI, getInputMap, $InputMap*, int32_t)},
+		{"getMaximumSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BasicMenuBarUI, getMaximumSize, $Dimension*, $JComponent*)},
+		{"getMinimumSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BasicMenuBarUI, getMinimumSize, $Dimension*, $JComponent*)},
+		{"installDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(BasicMenuBarUI, installDefaults, void)},
+		{"installKeyboardActions", "()V", nullptr, $PROTECTED, $virtualMethod(BasicMenuBarUI, installKeyboardActions, void)},
+		{"installListeners", "()V", nullptr, $PROTECTED, $virtualMethod(BasicMenuBarUI, installListeners, void)},
+		{"installUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(BasicMenuBarUI, installUI, void, $JComponent*)},
+		{"loadActionMap", "(Ljavax/swing/plaf/basic/LazyActionMap;)V", nullptr, $STATIC, $staticMethod(BasicMenuBarUI, loadActionMap, void, $LazyActionMap*)},
+		{"uninstallDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(BasicMenuBarUI, uninstallDefaults, void)},
+		{"uninstallKeyboardActions", "()V", nullptr, $PROTECTED, $virtualMethod(BasicMenuBarUI, uninstallKeyboardActions, void)},
+		{"uninstallListeners", "()V", nullptr, $PROTECTED, $virtualMethod(BasicMenuBarUI, uninstallListeners, void)},
+		{"uninstallUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(BasicMenuBarUI, uninstallUI, void, $JComponent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.basic.BasicMenuBarUI$Actions", "javax.swing.plaf.basic.BasicMenuBarUI", "Actions", $PRIVATE | $STATIC},
+		{"javax.swing.plaf.basic.BasicMenuBarUI$Handler", "javax.swing.plaf.basic.BasicMenuBarUI", "Handler", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.basic.BasicMenuBarUI",
+		"javax.swing.plaf.MenuBarUI",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.basic.BasicMenuBarUI$Actions,javax.swing.plaf.basic.BasicMenuBarUI$Handler"
+	};
+	$loadClass(BasicMenuBarUI, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BasicMenuBarUI);
+	});
 	return class$;
 }
 

@@ -24,6 +24,7 @@ class XRColor : public ::java::lang::Object {
 	$class(XRColor, 0, ::java::lang::Object)
 public:
 	XRColor();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(int32_t alpha, int32_t red, int32_t green, int32_t blue);
 	void init$(::java::awt::Color* color);

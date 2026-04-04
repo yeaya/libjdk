@@ -63,6 +63,7 @@ class $import Desktop$Action : public ::java::lang::Enum {
 public:
 	Desktop$Action();
 	static $Array<::java::awt::Desktop$Action>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::java::awt::Desktop$Action* valueOf($String* name);
 	static $Array<::java::awt::Desktop$Action>* values();

@@ -1,5 +1,4 @@
 #include <sun/swing/text/html/FrameEditorPaneTag.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -9,17 +8,14 @@ namespace sun {
 		namespace text {
 			namespace html {
 
-$ClassInfo _FrameEditorPaneTag_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"sun.swing.text.html.FrameEditorPaneTag"
-};
-
-$Object* allocate$FrameEditorPaneTag($Class* clazz) {
-	return $of($alloc(FrameEditorPaneTag));
-}
-
 $Class* FrameEditorPaneTag::load$($String* name, bool initialize) {
-	$loadClass(FrameEditorPaneTag, name, initialize, &_FrameEditorPaneTag_ClassInfo_, allocate$FrameEditorPaneTag);
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"sun.swing.text.html.FrameEditorPaneTag"
+	};
+	$loadClass(FrameEditorPaneTag, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FrameEditorPaneTag);
+	});
 	return class$;
 }
 

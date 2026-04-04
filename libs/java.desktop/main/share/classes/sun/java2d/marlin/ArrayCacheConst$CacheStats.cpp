@@ -1,5 +1,4 @@
 #include <sun/java2d/marlin/ArrayCacheConst$CacheStats.h>
-
 #include <java/lang/CharSequence.h>
 #include <sun/java2d/marlin/ArrayCacheConst$BucketStats.h>
 #include <sun/java2d/marlin/ArrayCacheConst.h>
@@ -25,58 +24,15 @@ namespace sun {
 	namespace java2d {
 		namespace marlin {
 
-$FieldInfo _ArrayCacheConst$CacheStats_FieldInfo_[] = {
-	{"name", "Ljava/lang/String;", nullptr, $FINAL, $field(ArrayCacheConst$CacheStats, name)},
-	{"bucketStats", "[Lsun/java2d/marlin/ArrayCacheConst$BucketStats;", nullptr, $FINAL, $field(ArrayCacheConst$CacheStats, bucketStats)},
-	{"resize", "I", nullptr, 0, $field(ArrayCacheConst$CacheStats, resize)},
-	{"oversize", "I", nullptr, 0, $field(ArrayCacheConst$CacheStats, oversize)},
-	{"totalInitial", "J", nullptr, 0, $field(ArrayCacheConst$CacheStats, totalInitial)},
-	{}
-};
-
-$MethodInfo _ArrayCacheConst$CacheStats_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(ArrayCacheConst$CacheStats, init$, void, $String*)},
-	{"dumpStats", "()J", nullptr, 0, $method(ArrayCacheConst$CacheStats, dumpStats, int64_t)},
-	{"getByteFactor", "()I", nullptr, $PRIVATE, $method(ArrayCacheConst$CacheStats, getByteFactor, int32_t)},
-	{"getTotalInitialBytes", "()J", nullptr, 0, $method(ArrayCacheConst$CacheStats, getTotalInitialBytes, int64_t)},
-	{"reset", "()V", nullptr, 0, $method(ArrayCacheConst$CacheStats, reset, void)},
-	{}
-};
-
-$InnerClassInfo _ArrayCacheConst$CacheStats_InnerClassesInfo_[] = {
-	{"sun.java2d.marlin.ArrayCacheConst$CacheStats", "sun.java2d.marlin.ArrayCacheConst", "CacheStats", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _ArrayCacheConst$CacheStats_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.java2d.marlin.ArrayCacheConst$CacheStats",
-	"java.lang.Object",
-	nullptr,
-	_ArrayCacheConst$CacheStats_FieldInfo_,
-	_ArrayCacheConst$CacheStats_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ArrayCacheConst$CacheStats_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.java2d.marlin.ArrayCacheConst"
-};
-
-$Object* allocate$ArrayCacheConst$CacheStats($Class* clazz) {
-	return $of($alloc(ArrayCacheConst$CacheStats));
-}
-
 void ArrayCacheConst$CacheStats::init$($String* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->resize = 0;
 	this->oversize = 0;
 	this->totalInitial = 0;
 	$set(this, name, name);
 	$set(this, bucketStats, $new($ArrayCacheConst$BucketStatsArray, 8));
 	for (int32_t i = 0; i < 8; ++i) {
-		$nc(this->bucketStats)->set(i, $$new($ArrayCacheConst$BucketStats));
+		this->bucketStats->set(i, $$new($ArrayCacheConst$BucketStats));
 	}
 }
 
@@ -84,29 +40,29 @@ void ArrayCacheConst$CacheStats::reset() {
 	this->resize = 0;
 	this->oversize = 0;
 	for (int32_t i = 0; i < 8; ++i) {
-		$nc($nc(this->bucketStats)->get(i))->reset();
+		$nc(this->bucketStats->get(i))->reset();
 	}
 }
 
 int64_t ArrayCacheConst$CacheStats::dumpStats() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int64_t totalCacheBytes = 0;
 	$init($MarlinConst);
 	if ($MarlinConst::DO_STATS) {
 		for (int32_t i = 0; i < 8; ++i) {
-			$var($ArrayCacheConst$BucketStats, s, $nc(this->bucketStats)->get(i));
+			$var($ArrayCacheConst$BucketStats, s, this->bucketStats->get(i));
 			if ($nc(s)->maxSize != 0) {
 				$init($ArrayCacheConst);
 				totalCacheBytes += getByteFactor() * (s->maxSize * $nc($ArrayCacheConst::ARRAY_SIZES)->get(i));
 			}
 		}
-		if (this->totalInitial != (int64_t)0 || totalCacheBytes != (int64_t)0 || this->resize != 0 || this->oversize != 0) {
+		if (this->totalInitial != 0 || totalCacheBytes != 0 || this->resize != 0 || this->oversize != 0) {
 			$MarlinUtils::logInfo($$str({this->name, ": resize: "_s, $$str(this->resize), " - oversize: "_s, $$str(this->oversize), " - initial: "_s, $$str(getTotalInitialBytes()), " bytes ("_s, $$str(this->totalInitial), " elements) - cache: "_s, $$str(totalCacheBytes), " bytes"_s}));
 		}
-		if (totalCacheBytes != (int64_t)0) {
+		if (totalCacheBytes != 0) {
 			$MarlinUtils::logInfo($$str({this->name, ": usage stats:"_s}));
 			for (int32_t i = 0; i < 8; ++i) {
-				$var($ArrayCacheConst$BucketStats, s, $nc(this->bucketStats)->get(i));
+				$var($ArrayCacheConst$BucketStats, s, this->bucketStats->get(i));
 				if ($nc(s)->getOp != 0) {
 					$init($ArrayCacheConst);
 					$MarlinUtils::logInfo($$str({"  Bucket["_s, $$str($nc($ArrayCacheConst::ARRAY_SIZES)->get(i)), "]: get: "_s, $$str(s->getOp), " - put: "_s, $$str(s->returnOp), " - create: "_s, $$str(s->createOp), " :: max size: "_s, $$str(s->maxSize)}));
@@ -120,9 +76,9 @@ int64_t ArrayCacheConst$CacheStats::dumpStats() {
 int32_t ArrayCacheConst$CacheStats::getByteFactor() {
 	int32_t factor = 1;
 	bool var$0 = $nc(this->name)->contains("Int"_s);
-	if (var$0 || $nc(this->name)->contains("Float"_s)) {
+	if (var$0 || this->name->contains("Float"_s)) {
 		factor = 4;
-	} else if ($nc(this->name)->contains("Double"_s)) {
+	} else if (this->name->contains("Double"_s)) {
 		factor = 8;
 	}
 	return factor;
@@ -136,7 +92,44 @@ ArrayCacheConst$CacheStats::ArrayCacheConst$CacheStats() {
 }
 
 $Class* ArrayCacheConst$CacheStats::load$($String* name, bool initialize) {
-	$loadClass(ArrayCacheConst$CacheStats, name, initialize, &_ArrayCacheConst$CacheStats_ClassInfo_, allocate$ArrayCacheConst$CacheStats);
+	$FieldInfo fieldInfos$$[] = {
+		{"name", "Ljava/lang/String;", nullptr, $FINAL, $field(ArrayCacheConst$CacheStats, name)},
+		{"bucketStats", "[Lsun/java2d/marlin/ArrayCacheConst$BucketStats;", nullptr, $FINAL, $field(ArrayCacheConst$CacheStats, bucketStats)},
+		{"resize", "I", nullptr, 0, $field(ArrayCacheConst$CacheStats, resize)},
+		{"oversize", "I", nullptr, 0, $field(ArrayCacheConst$CacheStats, oversize)},
+		{"totalInitial", "J", nullptr, 0, $field(ArrayCacheConst$CacheStats, totalInitial)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(ArrayCacheConst$CacheStats, init$, void, $String*)},
+		{"dumpStats", "()J", nullptr, 0, $method(ArrayCacheConst$CacheStats, dumpStats, int64_t)},
+		{"getByteFactor", "()I", nullptr, $PRIVATE, $method(ArrayCacheConst$CacheStats, getByteFactor, int32_t)},
+		{"getTotalInitialBytes", "()J", nullptr, 0, $method(ArrayCacheConst$CacheStats, getTotalInitialBytes, int64_t)},
+		{"reset", "()V", nullptr, 0, $method(ArrayCacheConst$CacheStats, reset, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.java2d.marlin.ArrayCacheConst$CacheStats", "sun.java2d.marlin.ArrayCacheConst", "CacheStats", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.java2d.marlin.ArrayCacheConst$CacheStats",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.java2d.marlin.ArrayCacheConst"
+	};
+	$loadClass(ArrayCacheConst$CacheStats, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ArrayCacheConst$CacheStats);
+	});
 	return class$;
 }
 

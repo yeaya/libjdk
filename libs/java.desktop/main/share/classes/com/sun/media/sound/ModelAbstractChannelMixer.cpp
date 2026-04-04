@@ -1,5 +1,4 @@
 #include <com/sun/media/sound/ModelAbstractChannelMixer.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -9,52 +8,6 @@ namespace com {
 	namespace sun {
 		namespace media {
 			namespace sound {
-
-$MethodInfo _ModelAbstractChannelMixer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ModelAbstractChannelMixer, init$, void)},
-	{"allNotesOff", "()V", nullptr, $PUBLIC, $virtualMethod(ModelAbstractChannelMixer, allNotesOff, void)},
-	{"allSoundOff", "()V", nullptr, $PUBLIC, $virtualMethod(ModelAbstractChannelMixer, allSoundOff, void)},
-	{"controlChange", "(II)V", nullptr, $PUBLIC, $virtualMethod(ModelAbstractChannelMixer, controlChange, void, int32_t, int32_t)},
-	{"getChannelPressure", "()I", nullptr, $PUBLIC, $virtualMethod(ModelAbstractChannelMixer, getChannelPressure, int32_t)},
-	{"getController", "(I)I", nullptr, $PUBLIC, $virtualMethod(ModelAbstractChannelMixer, getController, int32_t, int32_t)},
-	{"getMono", "()Z", nullptr, $PUBLIC, $virtualMethod(ModelAbstractChannelMixer, getMono, bool)},
-	{"getMute", "()Z", nullptr, $PUBLIC, $virtualMethod(ModelAbstractChannelMixer, getMute, bool)},
-	{"getOmni", "()Z", nullptr, $PUBLIC, $virtualMethod(ModelAbstractChannelMixer, getOmni, bool)},
-	{"getPitchBend", "()I", nullptr, $PUBLIC, $virtualMethod(ModelAbstractChannelMixer, getPitchBend, int32_t)},
-	{"getPolyPressure", "(I)I", nullptr, $PUBLIC, $virtualMethod(ModelAbstractChannelMixer, getPolyPressure, int32_t, int32_t)},
-	{"getProgram", "()I", nullptr, $PUBLIC, $virtualMethod(ModelAbstractChannelMixer, getProgram, int32_t)},
-	{"getSolo", "()Z", nullptr, $PUBLIC, $virtualMethod(ModelAbstractChannelMixer, getSolo, bool)},
-	{"localControl", "(Z)Z", nullptr, $PUBLIC, $virtualMethod(ModelAbstractChannelMixer, localControl, bool, bool)},
-	{"noteOff", "(I)V", nullptr, $PUBLIC, $virtualMethod(ModelAbstractChannelMixer, noteOff, void, int32_t)},
-	{"noteOff", "(II)V", nullptr, $PUBLIC, $virtualMethod(ModelAbstractChannelMixer, noteOff, void, int32_t, int32_t)},
-	{"noteOn", "(II)V", nullptr, $PUBLIC, $virtualMethod(ModelAbstractChannelMixer, noteOn, void, int32_t, int32_t)},
-	{"process", "([[L[F;II)Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"programChange", "(I)V", nullptr, $PUBLIC, $virtualMethod(ModelAbstractChannelMixer, programChange, void, int32_t)},
-	{"programChange", "(II)V", nullptr, $PUBLIC, $virtualMethod(ModelAbstractChannelMixer, programChange, void, int32_t, int32_t)},
-	{"resetAllControllers", "()V", nullptr, $PUBLIC, $virtualMethod(ModelAbstractChannelMixer, resetAllControllers, void)},
-	{"setChannelPressure", "(I)V", nullptr, $PUBLIC, $virtualMethod(ModelAbstractChannelMixer, setChannelPressure, void, int32_t)},
-	{"setMono", "(Z)V", nullptr, $PUBLIC, $virtualMethod(ModelAbstractChannelMixer, setMono, void, bool)},
-	{"setMute", "(Z)V", nullptr, $PUBLIC, $virtualMethod(ModelAbstractChannelMixer, setMute, void, bool)},
-	{"setOmni", "(Z)V", nullptr, $PUBLIC, $virtualMethod(ModelAbstractChannelMixer, setOmni, void, bool)},
-	{"setPitchBend", "(I)V", nullptr, $PUBLIC, $virtualMethod(ModelAbstractChannelMixer, setPitchBend, void, int32_t)},
-	{"setPolyPressure", "(II)V", nullptr, $PUBLIC, $virtualMethod(ModelAbstractChannelMixer, setPolyPressure, void, int32_t, int32_t)},
-	{"setSolo", "(Z)V", nullptr, $PUBLIC, $virtualMethod(ModelAbstractChannelMixer, setSolo, void, bool)},
-	{"stop", "()V", nullptr, $PUBLIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _ModelAbstractChannelMixer_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"com.sun.media.sound.ModelAbstractChannelMixer",
-	"java.lang.Object",
-	"com.sun.media.sound.ModelChannelMixer",
-	nullptr,
-	_ModelAbstractChannelMixer_MethodInfo_
-};
-
-$Object* allocate$ModelAbstractChannelMixer($Class* clazz) {
-	return $of($alloc(ModelAbstractChannelMixer));
-}
 
 void ModelAbstractChannelMixer::init$() {
 }
@@ -151,7 +104,49 @@ ModelAbstractChannelMixer::ModelAbstractChannelMixer() {
 }
 
 $Class* ModelAbstractChannelMixer::load$($String* name, bool initialize) {
-	$loadClass(ModelAbstractChannelMixer, name, initialize, &_ModelAbstractChannelMixer_ClassInfo_, allocate$ModelAbstractChannelMixer);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ModelAbstractChannelMixer, init$, void)},
+		{"allNotesOff", "()V", nullptr, $PUBLIC, $virtualMethod(ModelAbstractChannelMixer, allNotesOff, void)},
+		{"allSoundOff", "()V", nullptr, $PUBLIC, $virtualMethod(ModelAbstractChannelMixer, allSoundOff, void)},
+		{"controlChange", "(II)V", nullptr, $PUBLIC, $virtualMethod(ModelAbstractChannelMixer, controlChange, void, int32_t, int32_t)},
+		{"getChannelPressure", "()I", nullptr, $PUBLIC, $virtualMethod(ModelAbstractChannelMixer, getChannelPressure, int32_t)},
+		{"getController", "(I)I", nullptr, $PUBLIC, $virtualMethod(ModelAbstractChannelMixer, getController, int32_t, int32_t)},
+		{"getMono", "()Z", nullptr, $PUBLIC, $virtualMethod(ModelAbstractChannelMixer, getMono, bool)},
+		{"getMute", "()Z", nullptr, $PUBLIC, $virtualMethod(ModelAbstractChannelMixer, getMute, bool)},
+		{"getOmni", "()Z", nullptr, $PUBLIC, $virtualMethod(ModelAbstractChannelMixer, getOmni, bool)},
+		{"getPitchBend", "()I", nullptr, $PUBLIC, $virtualMethod(ModelAbstractChannelMixer, getPitchBend, int32_t)},
+		{"getPolyPressure", "(I)I", nullptr, $PUBLIC, $virtualMethod(ModelAbstractChannelMixer, getPolyPressure, int32_t, int32_t)},
+		{"getProgram", "()I", nullptr, $PUBLIC, $virtualMethod(ModelAbstractChannelMixer, getProgram, int32_t)},
+		{"getSolo", "()Z", nullptr, $PUBLIC, $virtualMethod(ModelAbstractChannelMixer, getSolo, bool)},
+		{"localControl", "(Z)Z", nullptr, $PUBLIC, $virtualMethod(ModelAbstractChannelMixer, localControl, bool, bool)},
+		{"noteOff", "(I)V", nullptr, $PUBLIC, $virtualMethod(ModelAbstractChannelMixer, noteOff, void, int32_t)},
+		{"noteOff", "(II)V", nullptr, $PUBLIC, $virtualMethod(ModelAbstractChannelMixer, noteOff, void, int32_t, int32_t)},
+		{"noteOn", "(II)V", nullptr, $PUBLIC, $virtualMethod(ModelAbstractChannelMixer, noteOn, void, int32_t, int32_t)},
+		{"process", "([[L[F;II)Z", nullptr, $PUBLIC | $ABSTRACT},
+		{"programChange", "(I)V", nullptr, $PUBLIC, $virtualMethod(ModelAbstractChannelMixer, programChange, void, int32_t)},
+		{"programChange", "(II)V", nullptr, $PUBLIC, $virtualMethod(ModelAbstractChannelMixer, programChange, void, int32_t, int32_t)},
+		{"resetAllControllers", "()V", nullptr, $PUBLIC, $virtualMethod(ModelAbstractChannelMixer, resetAllControllers, void)},
+		{"setChannelPressure", "(I)V", nullptr, $PUBLIC, $virtualMethod(ModelAbstractChannelMixer, setChannelPressure, void, int32_t)},
+		{"setMono", "(Z)V", nullptr, $PUBLIC, $virtualMethod(ModelAbstractChannelMixer, setMono, void, bool)},
+		{"setMute", "(Z)V", nullptr, $PUBLIC, $virtualMethod(ModelAbstractChannelMixer, setMute, void, bool)},
+		{"setOmni", "(Z)V", nullptr, $PUBLIC, $virtualMethod(ModelAbstractChannelMixer, setOmni, void, bool)},
+		{"setPitchBend", "(I)V", nullptr, $PUBLIC, $virtualMethod(ModelAbstractChannelMixer, setPitchBend, void, int32_t)},
+		{"setPolyPressure", "(II)V", nullptr, $PUBLIC, $virtualMethod(ModelAbstractChannelMixer, setPolyPressure, void, int32_t, int32_t)},
+		{"setSolo", "(Z)V", nullptr, $PUBLIC, $virtualMethod(ModelAbstractChannelMixer, setSolo, void, bool)},
+		{"stop", "()V", nullptr, $PUBLIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"com.sun.media.sound.ModelAbstractChannelMixer",
+		"java.lang.Object",
+		"com.sun.media.sound.ModelChannelMixer",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ModelAbstractChannelMixer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ModelAbstractChannelMixer);
+	});
 	return class$;
 }
 

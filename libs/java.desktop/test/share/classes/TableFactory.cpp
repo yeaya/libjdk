@@ -1,5 +1,4 @@
 #include <TableFactory.h>
-
 #include <CodeBugDocument.h>
 #include <javax/swing/text/AbstractDocument.h>
 #include <javax/swing/text/BoxView.h>
@@ -30,25 +29,6 @@ using $StyleConstants = ::javax::swing::text::StyleConstants;
 using $View = ::javax::swing::text::View;
 using $tableView = ::tableView;
 
-$MethodInfo _TableFactory_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(TableFactory, init$, void)},
-	{"create", "(Ljavax/swing/text/Element;)Ljavax/swing/text/View;", nullptr, $PUBLIC, $virtualMethod(TableFactory, create, $View*, $Element*)},
-	{}
-};
-
-$ClassInfo _TableFactory_ClassInfo_ = {
-	$ACC_SUPER,
-	"TableFactory",
-	"java.lang.Object",
-	"javax.swing.text.ViewFactory",
-	nullptr,
-	_TableFactory_MethodInfo_
-};
-
-$Object* allocate$TableFactory($Class* clazz) {
-	return $of($alloc(TableFactory));
-}
-
 void TableFactory::init$() {
 }
 
@@ -58,26 +38,20 @@ $View* TableFactory::create($Element* elem) {
 		$init($AbstractDocument);
 		if (kind->equals($AbstractDocument::ContentElementName)) {
 			return $new($LabelView, elem);
+		} else if (kind->equals($AbstractDocument::ParagraphElementName)) {
+			return $new($ParagraphView, elem);
+		} else if (kind->equals($AbstractDocument::SectionElementName)) {
+			return $new($BoxView, elem, $View::Y_AXIS);
 		} else {
-			if (kind->equals($AbstractDocument::ParagraphElementName)) {
-				return $new($ParagraphView, elem);
+			$init($StyleConstants);
+			if (kind->equals($StyleConstants::ComponentElementName)) {
+				return $new($ComponentView, elem);
 			} else {
-				if (kind->equals($AbstractDocument::SectionElementName)) {
-					return $new($BoxView, elem, $View::Y_AXIS);
-				} else {
-					$init($StyleConstants);
-					if (kind->equals($StyleConstants::ComponentElementName)) {
-						return $new($ComponentView, elem);
-					} else {
-						$init($CodeBugDocument);
-						if (kind->equals($CodeBugDocument::ELEMENT_TABLE)) {
-							return $new($tableView, elem);
-						} else {
-							if (kind->equals($StyleConstants::IconElementName)) {
-								return $new($IconView, elem);
-							}
-						}
-					}
+				$init($CodeBugDocument);
+				if (kind->equals($CodeBugDocument::ELEMENT_TABLE)) {
+					return $new($tableView, elem);
+				} else if (kind->equals($StyleConstants::IconElementName)) {
+					return $new($IconView, elem);
 				}
 			}
 		}
@@ -89,7 +63,22 @@ TableFactory::TableFactory() {
 }
 
 $Class* TableFactory::load$($String* name, bool initialize) {
-	$loadClass(TableFactory, name, initialize, &_TableFactory_ClassInfo_, allocate$TableFactory);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(TableFactory, init$, void)},
+		{"create", "(Ljavax/swing/text/Element;)Ljavax/swing/text/View;", nullptr, $PUBLIC, $virtualMethod(TableFactory, create, $View*, $Element*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"TableFactory",
+		"java.lang.Object",
+		"javax.swing.text.ViewFactory",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(TableFactory, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TableFactory);
+	});
 	return class$;
 }
 

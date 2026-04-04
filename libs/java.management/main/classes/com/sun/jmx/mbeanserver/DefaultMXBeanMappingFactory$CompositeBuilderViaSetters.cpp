@@ -1,5 +1,4 @@
 #include <com/sun/jmx/mbeanserver/DefaultMXBeanMappingFactory$CompositeBuilderViaSetters.h>
-
 #include <com/sun/jmx/mbeanserver/DefaultMXBeanMappingFactory$CompositeBuilder.h>
 #include <com/sun/jmx/mbeanserver/DefaultMXBeanMappingFactory.h>
 #include <com/sun/jmx/mbeanserver/MXBeanMapping.h>
@@ -17,7 +16,6 @@ using $MXBeanMappingArray = $Array<::com::sun::jmx::mbeanserver::MXBeanMapping>;
 using $MethodArray = $Array<::java::lang::reflect::Method>;
 using $DefaultMXBeanMappingFactory = ::com::sun::jmx::mbeanserver::DefaultMXBeanMappingFactory;
 using $DefaultMXBeanMappingFactory$CompositeBuilder = ::com::sun::jmx::mbeanserver::DefaultMXBeanMappingFactory$CompositeBuilder;
-using $MXBeanMapping = ::com::sun::jmx::mbeanserver::MXBeanMapping;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -35,50 +33,12 @@ namespace com {
 		namespace jmx {
 			namespace mbeanserver {
 
-$FieldInfo _DefaultMXBeanMappingFactory$CompositeBuilderViaSetters_FieldInfo_[] = {
-	{"setters", "[Ljava/lang/reflect/Method;", nullptr, $PRIVATE, $field(DefaultMXBeanMappingFactory$CompositeBuilderViaSetters, setters)},
-	{}
-};
-
-$MethodInfo _DefaultMXBeanMappingFactory$CompositeBuilderViaSetters_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Class;[Ljava/lang/String;)V", "(Ljava/lang/Class<*>;[Ljava/lang/String;)V", 0, $method(DefaultMXBeanMappingFactory$CompositeBuilderViaSetters, init$, void, $Class*, $StringArray*)},
-	{"applicable", "([Ljava/lang/reflect/Method;)Ljava/lang/String;", nullptr, 0, $virtualMethod(DefaultMXBeanMappingFactory$CompositeBuilderViaSetters, applicable, $String*, $MethodArray*)},
-	{"fromCompositeData", "(Ljavax/management/openmbean/CompositeData;[Ljava/lang/String;[Lcom/sun/jmx/mbeanserver/MXBeanMapping;)Ljava/lang/Object;", nullptr, 0, $virtualMethod(DefaultMXBeanMappingFactory$CompositeBuilderViaSetters, fromCompositeData, $Object*, $CompositeData*, $StringArray*, $MXBeanMappingArray*), "java.io.InvalidObjectException"},
-	{}
-};
-
-$InnerClassInfo _DefaultMXBeanMappingFactory$CompositeBuilderViaSetters_InnerClassesInfo_[] = {
-	{"com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory$CompositeBuilderViaSetters", "com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory", "CompositeBuilderViaSetters", $PRIVATE | $STATIC},
-	{"com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory$CompositeBuilder", "com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory", "CompositeBuilder", $PRIVATE | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _DefaultMXBeanMappingFactory$CompositeBuilderViaSetters_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory$CompositeBuilderViaSetters",
-	"com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory$CompositeBuilder",
-	nullptr,
-	_DefaultMXBeanMappingFactory$CompositeBuilderViaSetters_FieldInfo_,
-	_DefaultMXBeanMappingFactory$CompositeBuilderViaSetters_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DefaultMXBeanMappingFactory$CompositeBuilderViaSetters_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory"
-};
-
-$Object* allocate$DefaultMXBeanMappingFactory$CompositeBuilderViaSetters($Class* clazz) {
-	return $of($alloc(DefaultMXBeanMappingFactory$CompositeBuilderViaSetters));
-}
-
 void DefaultMXBeanMappingFactory$CompositeBuilderViaSetters::init$($Class* targetClass, $StringArray* itemNames) {
 	$DefaultMXBeanMappingFactory$CompositeBuilder::init$(targetClass, itemNames);
 }
 
 $String* DefaultMXBeanMappingFactory$CompositeBuilderViaSetters::applicable($MethodArray* getters) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	try {
 		$var($Constructor, c, $nc(getTargetClass())->getConstructor($$new($ClassArray, 0)));
@@ -94,7 +54,6 @@ $String* DefaultMXBeanMappingFactory$CompositeBuilderViaSetters::applicable($Met
 		$var($Method, setter, nullptr);
 		try {
 			$assign(setter, $nc(getTargetClass())->getMethod(setterName, $$new($ClassArray, {returnType})));
-			$init($Void);
 			if ($nc(setter)->getReturnType() != $Void::TYPE) {
 				$throwNew($Exception);
 			}
@@ -108,7 +67,7 @@ $String* DefaultMXBeanMappingFactory$CompositeBuilderViaSetters::applicable($Met
 }
 
 $Object* DefaultMXBeanMappingFactory$CompositeBuilderViaSetters::fromCompositeData($CompositeData* cd, $StringArray* itemNames, $MXBeanMappingArray* converters) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$var($Object, o, nullptr);
 	try {
@@ -126,14 +85,46 @@ $Object* DefaultMXBeanMappingFactory$CompositeBuilderViaSetters::fromCompositeDa
 	} catch ($Exception& e) {
 		$throw($($DefaultMXBeanMappingFactory::invalidObjectException(e)));
 	}
-	return $of(o);
+	return o;
 }
 
 DefaultMXBeanMappingFactory$CompositeBuilderViaSetters::DefaultMXBeanMappingFactory$CompositeBuilderViaSetters() {
 }
 
 $Class* DefaultMXBeanMappingFactory$CompositeBuilderViaSetters::load$($String* name, bool initialize) {
-	$loadClass(DefaultMXBeanMappingFactory$CompositeBuilderViaSetters, name, initialize, &_DefaultMXBeanMappingFactory$CompositeBuilderViaSetters_ClassInfo_, allocate$DefaultMXBeanMappingFactory$CompositeBuilderViaSetters);
+	$FieldInfo fieldInfos$$[] = {
+		{"setters", "[Ljava/lang/reflect/Method;", nullptr, $PRIVATE, $field(DefaultMXBeanMappingFactory$CompositeBuilderViaSetters, setters)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Class;[Ljava/lang/String;)V", "(Ljava/lang/Class<*>;[Ljava/lang/String;)V", 0, $method(DefaultMXBeanMappingFactory$CompositeBuilderViaSetters, init$, void, $Class*, $StringArray*)},
+		{"applicable", "([Ljava/lang/reflect/Method;)Ljava/lang/String;", nullptr, 0, $virtualMethod(DefaultMXBeanMappingFactory$CompositeBuilderViaSetters, applicable, $String*, $MethodArray*)},
+		{"fromCompositeData", "(Ljavax/management/openmbean/CompositeData;[Ljava/lang/String;[Lcom/sun/jmx/mbeanserver/MXBeanMapping;)Ljava/lang/Object;", nullptr, 0, $virtualMethod(DefaultMXBeanMappingFactory$CompositeBuilderViaSetters, fromCompositeData, $Object*, $CompositeData*, $StringArray*, $MXBeanMappingArray*), "java.io.InvalidObjectException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory$CompositeBuilderViaSetters", "com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory", "CompositeBuilderViaSetters", $PRIVATE | $STATIC},
+		{"com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory$CompositeBuilder", "com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory", "CompositeBuilder", $PRIVATE | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory$CompositeBuilderViaSetters",
+		"com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory$CompositeBuilder",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory"
+	};
+	$loadClass(DefaultMXBeanMappingFactory$CompositeBuilderViaSetters, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DefaultMXBeanMappingFactory$CompositeBuilderViaSetters);
+	});
 	return class$;
 }
 

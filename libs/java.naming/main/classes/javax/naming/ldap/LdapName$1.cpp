@@ -1,5 +1,4 @@
 #include <javax/naming/ldap/LdapName$1.h>
-
 #include <java/util/Iterator.h>
 #include <javax/naming/ldap/LdapName.h>
 #include <javax/naming/ldap/Rdn.h>
@@ -18,50 +17,6 @@ namespace javax {
 	namespace naming {
 		namespace ldap {
 
-$FieldInfo _LdapName$1_FieldInfo_[] = {
-	{"this$0", "Ljavax/naming/ldap/LdapName;", nullptr, $FINAL | $SYNTHETIC, $field(LdapName$1, this$0)},
-	{"val$iter", "Ljava/util/Iterator;", nullptr, $FINAL | $SYNTHETIC, $field(LdapName$1, val$iter)},
-	{}
-};
-
-$MethodInfo _LdapName$1_MethodInfo_[] = {
-	{"<init>", "(Ljavax/naming/ldap/LdapName;Ljava/util/Iterator;)V", "()V", 0, $method(LdapName$1, init$, void, $LdapName*, $Iterator*)},
-	{"hasMoreElements", "()Z", nullptr, $PUBLIC, $virtualMethod(LdapName$1, hasMoreElements, bool)},
-	{"nextElement", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LdapName$1, nextElement, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _LdapName$1_EnclosingMethodInfo_ = {
-	"javax.naming.ldap.LdapName",
-	"getAll",
-	"()Ljava/util/Enumeration;"
-};
-
-$InnerClassInfo _LdapName$1_InnerClassesInfo_[] = {
-	{"javax.naming.ldap.LdapName$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _LdapName$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.naming.ldap.LdapName$1",
-	"java.lang.Object",
-	"java.util.Enumeration",
-	_LdapName$1_FieldInfo_,
-	_LdapName$1_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/Enumeration<Ljava/lang/String;>;",
-	&_LdapName$1_EnclosingMethodInfo_,
-	_LdapName$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.naming.ldap.LdapName"
-};
-
-$Object* allocate$LdapName$1($Class* clazz) {
-	return $of($alloc(LdapName$1));
-}
-
 void LdapName$1::init$($LdapName* this$0, $Iterator* val$iter) {
 	$set(this, this$0, this$0);
 	$set(this, val$iter, val$iter);
@@ -72,14 +27,51 @@ bool LdapName$1::hasMoreElements() {
 }
 
 $Object* LdapName$1::nextElement() {
-	return $of($nc(($cast($Rdn, $($nc(this->val$iter)->next()))))->toString());
+	return $of($$sure($Rdn, $nc(this->val$iter)->next())->toString());
 }
 
 LdapName$1::LdapName$1() {
 }
 
 $Class* LdapName$1::load$($String* name, bool initialize) {
-	$loadClass(LdapName$1, name, initialize, &_LdapName$1_ClassInfo_, allocate$LdapName$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/naming/ldap/LdapName;", nullptr, $FINAL | $SYNTHETIC, $field(LdapName$1, this$0)},
+		{"val$iter", "Ljava/util/Iterator;", nullptr, $FINAL | $SYNTHETIC, $field(LdapName$1, val$iter)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/naming/ldap/LdapName;Ljava/util/Iterator;)V", "()V", 0, $method(LdapName$1, init$, void, $LdapName*, $Iterator*)},
+		{"hasMoreElements", "()Z", nullptr, $PUBLIC, $virtualMethod(LdapName$1, hasMoreElements, bool)},
+		{"nextElement", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LdapName$1, nextElement, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"javax.naming.ldap.LdapName",
+		"getAll",
+		"()Ljava/util/Enumeration;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.naming.ldap.LdapName$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.naming.ldap.LdapName$1",
+		"java.lang.Object",
+		"java.util.Enumeration",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/Enumeration<Ljava/lang/String;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.naming.ldap.LdapName"
+	};
+	$loadClass(LdapName$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LdapName$1);
+	});
 	return class$;
 }
 

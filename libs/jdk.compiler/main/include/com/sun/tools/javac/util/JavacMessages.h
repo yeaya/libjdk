@@ -51,6 +51,7 @@ class $import JavacMessages : public ::com::sun::tools::javac::api::Messages {
 	$class(JavacMessages, 0, ::com::sun::tools::javac::api::Messages)
 public:
 	JavacMessages();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::com::sun::tools::javac::util::Context* context);
 	void init$($String* bundleName);
 	void init$($String* bundleName, ::java::util::Locale* locale);

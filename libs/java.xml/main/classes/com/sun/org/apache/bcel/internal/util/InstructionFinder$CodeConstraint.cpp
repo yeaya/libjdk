@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/bcel/internal/util/InstructionFinder$CodeConstraint.h>
-
 #include <com/sun/org/apache/bcel/internal/generic/InstructionHandle.h>
 #include <com/sun/org/apache/bcel/internal/util/InstructionFinder.h>
 #include <jcpp.h>
@@ -17,38 +16,33 @@ namespace com {
 					namespace internal {
 						namespace util {
 
-$MethodInfo _InstructionFinder$CodeConstraint_MethodInfo_[] = {
-	{"checkCode", "([Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(InstructionFinder$CodeConstraint, checkCode, bool, $InstructionHandleArray*)},
-	{}
-};
-
-$InnerClassInfo _InstructionFinder$CodeConstraint_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.bcel.internal.util.InstructionFinder$CodeConstraint", "com.sun.org.apache.bcel.internal.util.InstructionFinder", "CodeConstraint", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _InstructionFinder$CodeConstraint_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.org.apache.bcel.internal.util.InstructionFinder$CodeConstraint",
-	nullptr,
-	nullptr,
-	nullptr,
-	_InstructionFinder$CodeConstraint_MethodInfo_,
-	nullptr,
-	nullptr,
-	_InstructionFinder$CodeConstraint_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.bcel.internal.util.InstructionFinder"
-};
-
-$Object* allocate$InstructionFinder$CodeConstraint($Class* clazz) {
-	return $of($alloc(InstructionFinder$CodeConstraint));
-}
-
 $Class* InstructionFinder$CodeConstraint::load$($String* name, bool initialize) {
-	$loadClass(InstructionFinder$CodeConstraint, name, initialize, &_InstructionFinder$CodeConstraint_ClassInfo_, allocate$InstructionFinder$CodeConstraint);
+	$MethodInfo methodInfos$$[] = {
+		{"checkCode", "([Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(InstructionFinder$CodeConstraint, checkCode, bool, $InstructionHandleArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.bcel.internal.util.InstructionFinder$CodeConstraint", "com.sun.org.apache.bcel.internal.util.InstructionFinder", "CodeConstraint", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.org.apache.bcel.internal.util.InstructionFinder$CodeConstraint",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.bcel.internal.util.InstructionFinder"
+	};
+	$loadClass(InstructionFinder$CodeConstraint, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(InstructionFinder$CodeConstraint);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <jdk.httpserver.test.h>
-
 #include <jdk.httpserver.h>
 #include <java.base.h>
 #include <java/lang/ClassEntry.h>

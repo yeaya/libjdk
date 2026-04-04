@@ -59,6 +59,7 @@ class $import HostAddresses : public ::java::lang::Cloneable {
 	$class(HostAddresses, 0, ::java::lang::Cloneable)
 public:
 	HostAddresses();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($Array<::sun::security::krb5::internal::HostAddress>* new_addresses);
 	void init$();
 	void init$(int32_t dummy);

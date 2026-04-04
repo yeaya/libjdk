@@ -1,5 +1,4 @@
 #include <sun/java2d/loops/FillParallelogram.h>
-
 #include <sun/java2d/SunGraphics2D.h>
 #include <sun/java2d/SurfaceData.h>
 #include <sun/java2d/loops/CompositeType.h>
@@ -25,47 +24,6 @@ namespace sun {
 	namespace java2d {
 		namespace loops {
 
-$FieldInfo _FillParallelogram_FieldInfo_[] = {
-	{"methodSignature", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(FillParallelogram, methodSignature)},
-	{"primTypeID", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(FillParallelogram, primTypeID)},
-	{}
-};
-
-$MethodInfo _FillParallelogram_MethodInfo_[] = {
-	{"<init>", "(Lsun/java2d/loops/SurfaceType;Lsun/java2d/loops/CompositeType;Lsun/java2d/loops/SurfaceType;)V", nullptr, $PROTECTED, $method(FillParallelogram, init$, void, $SurfaceType*, $CompositeType*, $SurfaceType*)},
-	{"<init>", "(JLsun/java2d/loops/SurfaceType;Lsun/java2d/loops/CompositeType;Lsun/java2d/loops/SurfaceType;)V", nullptr, $PUBLIC, $method(FillParallelogram, init$, void, int64_t, $SurfaceType*, $CompositeType*, $SurfaceType*)},
-	{"FillParallelogram", "(Lsun/java2d/SunGraphics2D;Lsun/java2d/SurfaceData;DDDDDD)V", nullptr, $PUBLIC | $NATIVE, $virtualMethod(FillParallelogram, FillParallelogram$, void, $SunGraphics2D*, $SurfaceData*, double, double, double, double, double, double)},
-	{"locate", "(Lsun/java2d/loops/SurfaceType;Lsun/java2d/loops/CompositeType;Lsun/java2d/loops/SurfaceType;)Lsun/java2d/loops/FillParallelogram;", nullptr, $PUBLIC | $STATIC, $staticMethod(FillParallelogram, locate, FillParallelogram*, $SurfaceType*, $CompositeType*, $SurfaceType*)},
-	{"traceWrap", "()Lsun/java2d/loops/GraphicsPrimitive;", nullptr, $PUBLIC, $virtualMethod(FillParallelogram, traceWrap, $GraphicsPrimitive*)},
-	{}
-};
-
-#define _METHOD_INDEX_FillParallelogram$ 2
-
-$InnerClassInfo _FillParallelogram_InnerClassesInfo_[] = {
-	{"sun.java2d.loops.FillParallelogram$TraceFillParallelogram", "sun.java2d.loops.FillParallelogram", "TraceFillParallelogram", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _FillParallelogram_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.java2d.loops.FillParallelogram",
-	"sun.java2d.loops.GraphicsPrimitive",
-	nullptr,
-	_FillParallelogram_FieldInfo_,
-	_FillParallelogram_MethodInfo_,
-	nullptr,
-	nullptr,
-	_FillParallelogram_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.java2d.loops.FillParallelogram$TraceFillParallelogram"
-};
-
-$Object* allocate$FillParallelogram($Class* clazz) {
-	return $of($alloc(FillParallelogram));
-}
-
 $String* FillParallelogram::methodSignature = nullptr;
 int32_t FillParallelogram::primTypeID = 0;
 
@@ -83,7 +41,7 @@ void FillParallelogram::init$(int64_t pNativePrim, $SurfaceType* srctype, $Compo
 }
 
 void FillParallelogram::FillParallelogram$($SunGraphics2D* sg2d, $SurfaceData* dest, double x0, double y0, double dx1, double dy1, double dx2, double dy2) {
-	$prepareNative(FillParallelogram, FillParallelogram$, void, $SunGraphics2D* sg2d, $SurfaceData* dest, double x0, double y0, double dx1, double dy1, double dx2, double dy2);
+	$prepareNative(FillParallelogram, void, $SunGraphics2D* sg2d, $SurfaceData* dest, double x0, double y0, double dx1, double dy1, double dx2, double dy2);
 	$invokeNative(sg2d, dest, x0, y0, dx1, dy1, dx2, dy2);
 	$finishNative();
 }
@@ -92,7 +50,7 @@ $GraphicsPrimitive* FillParallelogram::traceWrap() {
 	return $new($FillParallelogram$TraceFillParallelogram, this);
 }
 
-void clinit$FillParallelogram($Class* class$) {
+void FillParallelogram::clinit$($Class* clazz) {
 	$assignStatic(FillParallelogram::methodSignature, "FillParallelogram(...)"_s->toString());
 	FillParallelogram::primTypeID = $GraphicsPrimitive::makePrimTypeID();
 }
@@ -101,7 +59,40 @@ FillParallelogram::FillParallelogram() {
 }
 
 $Class* FillParallelogram::load$($String* name, bool initialize) {
-	$loadClass(FillParallelogram, name, initialize, &_FillParallelogram_ClassInfo_, clinit$FillParallelogram, allocate$FillParallelogram);
+	$FieldInfo fieldInfos$$[] = {
+		{"methodSignature", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(FillParallelogram, methodSignature)},
+		{"primTypeID", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(FillParallelogram, primTypeID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/java2d/loops/SurfaceType;Lsun/java2d/loops/CompositeType;Lsun/java2d/loops/SurfaceType;)V", nullptr, $PROTECTED, $method(FillParallelogram, init$, void, $SurfaceType*, $CompositeType*, $SurfaceType*)},
+		{"<init>", "(JLsun/java2d/loops/SurfaceType;Lsun/java2d/loops/CompositeType;Lsun/java2d/loops/SurfaceType;)V", nullptr, $PUBLIC, $method(FillParallelogram, init$, void, int64_t, $SurfaceType*, $CompositeType*, $SurfaceType*)},
+		{"FillParallelogram", "(Lsun/java2d/SunGraphics2D;Lsun/java2d/SurfaceData;DDDDDD)V", nullptr, $PUBLIC | $NATIVE, $virtualMethod(FillParallelogram, FillParallelogram$, void, $SunGraphics2D*, $SurfaceData*, double, double, double, double, double, double)},
+		{"locate", "(Lsun/java2d/loops/SurfaceType;Lsun/java2d/loops/CompositeType;Lsun/java2d/loops/SurfaceType;)Lsun/java2d/loops/FillParallelogram;", nullptr, $PUBLIC | $STATIC, $staticMethod(FillParallelogram, locate, FillParallelogram*, $SurfaceType*, $CompositeType*, $SurfaceType*)},
+		{"traceWrap", "()Lsun/java2d/loops/GraphicsPrimitive;", nullptr, $PUBLIC, $virtualMethod(FillParallelogram, traceWrap, $GraphicsPrimitive*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.java2d.loops.FillParallelogram$TraceFillParallelogram", "sun.java2d.loops.FillParallelogram", "TraceFillParallelogram", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.java2d.loops.FillParallelogram",
+		"sun.java2d.loops.GraphicsPrimitive",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.java2d.loops.FillParallelogram$TraceFillParallelogram"
+	};
+	$loadClass(FillParallelogram, name, initialize, &classInfo$$, FillParallelogram::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(FillParallelogram);
+	});
 	return class$;
 }
 

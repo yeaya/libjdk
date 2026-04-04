@@ -1,5 +1,4 @@
 #include <com/apple/laf/AquaFileChooserUI$ApproveSelectionAction.h>
-
 #include <com/apple/laf/AquaFileChooserUI$FCSubpanel.h>
 #include <com/apple/laf/AquaFileChooserUI.h>
 #include <java/awt/event/ActionEvent.h>
@@ -8,7 +7,6 @@
 #include <jcpp.h>
 
 using $AquaFileChooserUI = ::com::apple::laf::AquaFileChooserUI;
-using $AquaFileChooserUI$FCSubpanel = ::com::apple::laf::AquaFileChooserUI$FCSubpanel;
 using $ActionEvent = ::java::awt::event::ActionEvent;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -19,42 +17,6 @@ using $AbstractAction = ::javax::swing::AbstractAction;
 namespace com {
 	namespace apple {
 		namespace laf {
-
-$FieldInfo _AquaFileChooserUI$ApproveSelectionAction_FieldInfo_[] = {
-	{"this$0", "Lcom/apple/laf/AquaFileChooserUI;", nullptr, $FINAL | $SYNTHETIC, $field(AquaFileChooserUI$ApproveSelectionAction, this$0)},
-	{}
-};
-
-$MethodInfo _AquaFileChooserUI$ApproveSelectionAction_MethodInfo_[] = {
-	{"<init>", "(Lcom/apple/laf/AquaFileChooserUI;)V", nullptr, $PROTECTED, $method(AquaFileChooserUI$ApproveSelectionAction, init$, void, $AquaFileChooserUI*)},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaFileChooserUI$ApproveSelectionAction, actionPerformed, void, $ActionEvent*)},
-	{}
-};
-
-$InnerClassInfo _AquaFileChooserUI$ApproveSelectionAction_InnerClassesInfo_[] = {
-	{"com.apple.laf.AquaFileChooserUI$ApproveSelectionAction", "com.apple.laf.AquaFileChooserUI", "ApproveSelectionAction", $PROTECTED},
-	{}
-};
-
-$ClassInfo _AquaFileChooserUI$ApproveSelectionAction_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.apple.laf.AquaFileChooserUI$ApproveSelectionAction",
-	"javax.swing.AbstractAction",
-	nullptr,
-	_AquaFileChooserUI$ApproveSelectionAction_FieldInfo_,
-	_AquaFileChooserUI$ApproveSelectionAction_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AquaFileChooserUI$ApproveSelectionAction_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.apple.laf.AquaFileChooserUI"
-};
-
-$Object* allocate$AquaFileChooserUI$ApproveSelectionAction($Class* clazz) {
-	return $of($alloc(AquaFileChooserUI$ApproveSelectionAction));
-}
 
 void AquaFileChooserUI$ApproveSelectionAction::init$($AquaFileChooserUI* this$0) {
 	$set(this, this$0, this$0);
@@ -69,7 +31,37 @@ AquaFileChooserUI$ApproveSelectionAction::AquaFileChooserUI$ApproveSelectionActi
 }
 
 $Class* AquaFileChooserUI$ApproveSelectionAction::load$($String* name, bool initialize) {
-	$loadClass(AquaFileChooserUI$ApproveSelectionAction, name, initialize, &_AquaFileChooserUI$ApproveSelectionAction_ClassInfo_, allocate$AquaFileChooserUI$ApproveSelectionAction);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/apple/laf/AquaFileChooserUI;", nullptr, $FINAL | $SYNTHETIC, $field(AquaFileChooserUI$ApproveSelectionAction, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/apple/laf/AquaFileChooserUI;)V", nullptr, $PROTECTED, $method(AquaFileChooserUI$ApproveSelectionAction, init$, void, $AquaFileChooserUI*)},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaFileChooserUI$ApproveSelectionAction, actionPerformed, void, $ActionEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.laf.AquaFileChooserUI$ApproveSelectionAction", "com.apple.laf.AquaFileChooserUI", "ApproveSelectionAction", $PROTECTED},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.apple.laf.AquaFileChooserUI$ApproveSelectionAction",
+		"javax.swing.AbstractAction",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.apple.laf.AquaFileChooserUI"
+	};
+	$loadClass(AquaFileChooserUI$ApproveSelectionAction, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AquaFileChooserUI$ApproveSelectionAction));
+	});
 	return class$;
 }
 

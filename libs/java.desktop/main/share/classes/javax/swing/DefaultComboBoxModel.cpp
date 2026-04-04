@@ -1,5 +1,4 @@
 #include <javax/swing/DefaultComboBoxModel.h>
-
 #include <java/lang/ArrayIndexOutOfBoundsException.h>
 #include <java/util/Collection.h>
 #include <java/util/Vector.h>
@@ -18,52 +17,6 @@ using $ListDataListener = ::javax::swing::event::ListDataListener;
 
 namespace javax {
 	namespace swing {
-
-$FieldInfo _DefaultComboBoxModel_FieldInfo_[] = {
-	{"objects", "Ljava/util/Vector;", "Ljava/util/Vector<TE;>;", 0, $field(DefaultComboBoxModel, objects)},
-	{"selectedObject", "Ljava/lang/Object;", nullptr, 0, $field(DefaultComboBoxModel, selectedObject)},
-	{}
-};
-
-$MethodInfo _DefaultComboBoxModel_MethodInfo_[] = {
-	{"*addListDataListener", "(Ljavax/swing/event/ListDataListener;)V", nullptr, $PUBLIC},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(DefaultComboBoxModel, init$, void)},
-	{"<init>", "([Ljava/lang/Object;)V", "([TE;)V", $PUBLIC, $method(DefaultComboBoxModel, init$, void, $ObjectArray*)},
-	{"<init>", "(Ljava/util/Vector;)V", "(Ljava/util/Vector<TE;>;)V", $PUBLIC, $method(DefaultComboBoxModel, init$, void, $Vector*)},
-	{"addAll", "(Ljava/util/Collection;)V", "(Ljava/util/Collection<+TE;>;)V", $PUBLIC, $virtualMethod(DefaultComboBoxModel, addAll, void, $Collection*)},
-	{"addAll", "(ILjava/util/Collection;)V", "(ILjava/util/Collection<+TE;>;)V", $PUBLIC, $virtualMethod(DefaultComboBoxModel, addAll, void, int32_t, $Collection*)},
-	{"addElement", "(Ljava/lang/Object;)V", "(TE;)V", $PUBLIC, $virtualMethod(DefaultComboBoxModel, addElement, void, Object$*)},
-	{"getElementAt", "(I)Ljava/lang/Object;", "(I)TE;", $PUBLIC, $virtualMethod(DefaultComboBoxModel, getElementAt, $Object*, int32_t)},
-	{"getIndexOf", "(Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(DefaultComboBoxModel, getIndexOf, int32_t, Object$*)},
-	{"getSelectedItem", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DefaultComboBoxModel, getSelectedItem, $Object*)},
-	{"getSize", "()I", nullptr, $PUBLIC, $virtualMethod(DefaultComboBoxModel, getSize, int32_t)},
-	{"insertElementAt", "(Ljava/lang/Object;I)V", "(TE;I)V", $PUBLIC, $virtualMethod(DefaultComboBoxModel, insertElementAt, void, Object$*, int32_t)},
-	{"removeAllElements", "()V", nullptr, $PUBLIC, $virtualMethod(DefaultComboBoxModel, removeAllElements, void)},
-	{"removeElement", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(DefaultComboBoxModel, removeElement, void, Object$*)},
-	{"removeElementAt", "(I)V", nullptr, $PUBLIC, $virtualMethod(DefaultComboBoxModel, removeElementAt, void, int32_t)},
-	{"*removeListDataListener", "(Ljavax/swing/event/ListDataListener;)V", nullptr, $PUBLIC},
-	{"setSelectedItem", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(DefaultComboBoxModel, setSelectedItem, void, Object$*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _DefaultComboBoxModel_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.DefaultComboBoxModel",
-	"javax.swing.AbstractListModel",
-	"javax.swing.MutableComboBoxModel",
-	_DefaultComboBoxModel_FieldInfo_,
-	_DefaultComboBoxModel_MethodInfo_,
-	"<E:Ljava/lang/Object;>Ljavax/swing/AbstractListModel<TE;>;Ljavax/swing/MutableComboBoxModel<TE;>;Ljava/io/Serializable;"
-};
-
-$Object* allocate$DefaultComboBoxModel($Class* clazz) {
-	return $of($alloc(DefaultComboBoxModel));
-}
 
 void DefaultComboBoxModel::addListDataListener($ListDataListener* l) {
 	this->$AbstractListModel::addListDataListener(l);
@@ -103,8 +56,8 @@ void DefaultComboBoxModel::init$($ObjectArray* items) {
 	$set(this, objects, $new($Vector, $nc(items)->length));
 	int32_t i = 0;
 	int32_t c = 0;
-	for (i = 0, c = $nc(items)->length; i < c; ++i) {
-		$nc(this->objects)->addElement(items->get(i));
+	for (i = 0, c = items->length; i < c; ++i) {
+		this->objects->addElement(items->get(i));
 	}
 	if (getSize() > 0) {
 		$set(this, selectedObject, getElementAt(0));
@@ -120,14 +73,14 @@ void DefaultComboBoxModel::init$($Vector* v) {
 }
 
 void DefaultComboBoxModel::setSelectedItem(Object$* anObject) {
-	if ((this->selectedObject != nullptr && !$nc($of(this->selectedObject))->equals(anObject)) || this->selectedObject == nullptr && anObject != nullptr) {
+	if ((this->selectedObject != nullptr && !this->selectedObject->equals(anObject)) || this->selectedObject == nullptr && anObject != nullptr) {
 		$set(this, selectedObject, anObject);
 		fireContentsChanged(this, -1, -1);
 	}
 }
 
 $Object* DefaultComboBoxModel::getSelectedItem() {
-	return $of(this->selectedObject);
+	return this->selectedObject;
 }
 
 int32_t DefaultComboBoxModel::getSize() {
@@ -136,9 +89,9 @@ int32_t DefaultComboBoxModel::getSize() {
 
 $Object* DefaultComboBoxModel::getElementAt(int32_t index) {
 	if (index >= 0 && index < $nc(this->objects)->size()) {
-		return $of($nc(this->objects)->elementAt(index));
+		return this->objects->elementAt(index);
 	} else {
-		return $of(nullptr);
+		return nullptr;
 	}
 }
 
@@ -148,8 +101,8 @@ int32_t DefaultComboBoxModel::getIndexOf(Object$* anObject) {
 
 void DefaultComboBoxModel::addElement(Object$* anObject) {
 	$nc(this->objects)->addElement(anObject);
-	int32_t var$0 = $nc(this->objects)->size() - 1;
-	fireIntervalAdded(this, var$0, $nc(this->objects)->size() - 1);
+	int32_t var$0 = this->objects->size() - 1;
+	fireIntervalAdded(this, var$0, this->objects->size() - 1);
 	if ($nc(this->objects)->size() == 1 && this->selectedObject == nullptr && anObject != nullptr) {
 		setSelectedItem(anObject);
 	}
@@ -161,7 +114,7 @@ void DefaultComboBoxModel::insertElementAt(Object$* anObject, int32_t index) {
 }
 
 void DefaultComboBoxModel::removeElementAt(int32_t index) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($equals(getElementAt(index), this->selectedObject)) {
 		if (index == 0) {
 			setSelectedItem(getSize() == 1 ? ($Object*)nullptr : $(getElementAt(index + 1)));
@@ -183,8 +136,8 @@ void DefaultComboBoxModel::removeElement(Object$* anObject) {
 void DefaultComboBoxModel::removeAllElements() {
 	if ($nc(this->objects)->size() > 0) {
 		int32_t firstIndex = 0;
-		int32_t lastIndex = $nc(this->objects)->size() - 1;
-		$nc(this->objects)->removeAllElements();
+		int32_t lastIndex = this->objects->size() - 1;
+		this->objects->removeAllElements();
 		$set(this, selectedObject, nullptr);
 		fireIntervalRemoved(this, firstIndex, lastIndex);
 	} else {
@@ -202,7 +155,7 @@ void DefaultComboBoxModel::addAll($Collection* c) {
 }
 
 void DefaultComboBoxModel::addAll(int32_t index, $Collection* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (index < 0 || index > getSize()) {
 		$throwNew($ArrayIndexOutOfBoundsException, $$str({"index out of range: "_s, $$str(index)}));
 	}
@@ -210,14 +163,55 @@ void DefaultComboBoxModel::addAll(int32_t index, $Collection* c) {
 		return;
 	}
 	$nc(this->objects)->addAll(index, c);
-	fireIntervalAdded(this, index, index + $nc(c)->size() - 1);
+	fireIntervalAdded(this, index, index + c->size() - 1);
 }
 
 DefaultComboBoxModel::DefaultComboBoxModel() {
 }
 
 $Class* DefaultComboBoxModel::load$($String* name, bool initialize) {
-	$loadClass(DefaultComboBoxModel, name, initialize, &_DefaultComboBoxModel_ClassInfo_, allocate$DefaultComboBoxModel);
+	$FieldInfo fieldInfos$$[] = {
+		{"objects", "Ljava/util/Vector;", "Ljava/util/Vector<TE;>;", 0, $field(DefaultComboBoxModel, objects)},
+		{"selectedObject", "Ljava/lang/Object;", nullptr, 0, $field(DefaultComboBoxModel, selectedObject)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*addListDataListener", "(Ljavax/swing/event/ListDataListener;)V", nullptr, $PUBLIC},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(DefaultComboBoxModel, init$, void)},
+		{"<init>", "([Ljava/lang/Object;)V", "([TE;)V", $PUBLIC, $method(DefaultComboBoxModel, init$, void, $ObjectArray*)},
+		{"<init>", "(Ljava/util/Vector;)V", "(Ljava/util/Vector<TE;>;)V", $PUBLIC, $method(DefaultComboBoxModel, init$, void, $Vector*)},
+		{"addAll", "(Ljava/util/Collection;)V", "(Ljava/util/Collection<+TE;>;)V", $PUBLIC, $virtualMethod(DefaultComboBoxModel, addAll, void, $Collection*)},
+		{"addAll", "(ILjava/util/Collection;)V", "(ILjava/util/Collection<+TE;>;)V", $PUBLIC, $virtualMethod(DefaultComboBoxModel, addAll, void, int32_t, $Collection*)},
+		{"addElement", "(Ljava/lang/Object;)V", "(TE;)V", $PUBLIC, $virtualMethod(DefaultComboBoxModel, addElement, void, Object$*)},
+		{"getElementAt", "(I)Ljava/lang/Object;", "(I)TE;", $PUBLIC, $virtualMethod(DefaultComboBoxModel, getElementAt, $Object*, int32_t)},
+		{"getIndexOf", "(Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(DefaultComboBoxModel, getIndexOf, int32_t, Object$*)},
+		{"getSelectedItem", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DefaultComboBoxModel, getSelectedItem, $Object*)},
+		{"getSize", "()I", nullptr, $PUBLIC, $virtualMethod(DefaultComboBoxModel, getSize, int32_t)},
+		{"insertElementAt", "(Ljava/lang/Object;I)V", "(TE;I)V", $PUBLIC, $virtualMethod(DefaultComboBoxModel, insertElementAt, void, Object$*, int32_t)},
+		{"removeAllElements", "()V", nullptr, $PUBLIC, $virtualMethod(DefaultComboBoxModel, removeAllElements, void)},
+		{"removeElement", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(DefaultComboBoxModel, removeElement, void, Object$*)},
+		{"removeElementAt", "(I)V", nullptr, $PUBLIC, $virtualMethod(DefaultComboBoxModel, removeElementAt, void, int32_t)},
+		{"*removeListDataListener", "(Ljavax/swing/event/ListDataListener;)V", nullptr, $PUBLIC},
+		{"setSelectedItem", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(DefaultComboBoxModel, setSelectedItem, void, Object$*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.DefaultComboBoxModel",
+		"javax.swing.AbstractListModel",
+		"javax.swing.MutableComboBoxModel",
+		fieldInfos$$,
+		methodInfos$$,
+		"<E:Ljava/lang/Object;>Ljavax/swing/AbstractListModel<TE;>;Ljavax/swing/MutableComboBoxModel<TE;>;Ljava/io/Serializable;"
+	};
+	$loadClass(DefaultComboBoxModel, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DefaultComboBoxModel));
+	});
 	return class$;
 }
 

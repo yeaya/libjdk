@@ -1,5 +1,4 @@
 #include <java/beans/beancontext/BeanContextMembershipListener.h>
-
 #include <java/beans/beancontext/BeanContextMembershipEvent.h>
 #include <jcpp.h>
 
@@ -11,27 +10,23 @@ namespace java {
 	namespace beans {
 		namespace beancontext {
 
-$MethodInfo _BeanContextMembershipListener_MethodInfo_[] = {
-	{"childrenAdded", "(Ljava/beans/beancontext/BeanContextMembershipEvent;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(BeanContextMembershipListener, childrenAdded, void, $BeanContextMembershipEvent*)},
-	{"childrenRemoved", "(Ljava/beans/beancontext/BeanContextMembershipEvent;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(BeanContextMembershipListener, childrenRemoved, void, $BeanContextMembershipEvent*)},
-	{}
-};
-
-$ClassInfo _BeanContextMembershipListener_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.beans.beancontext.BeanContextMembershipListener",
-	nullptr,
-	"java.util.EventListener",
-	nullptr,
-	_BeanContextMembershipListener_MethodInfo_
-};
-
-$Object* allocate$BeanContextMembershipListener($Class* clazz) {
-	return $of($alloc(BeanContextMembershipListener));
-}
-
 $Class* BeanContextMembershipListener::load$($String* name, bool initialize) {
-	$loadClass(BeanContextMembershipListener, name, initialize, &_BeanContextMembershipListener_ClassInfo_, allocate$BeanContextMembershipListener);
+	$MethodInfo methodInfos$$[] = {
+		{"childrenAdded", "(Ljava/beans/beancontext/BeanContextMembershipEvent;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(BeanContextMembershipListener, childrenAdded, void, $BeanContextMembershipEvent*)},
+		{"childrenRemoved", "(Ljava/beans/beancontext/BeanContextMembershipEvent;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(BeanContextMembershipListener, childrenRemoved, void, $BeanContextMembershipEvent*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.beans.beancontext.BeanContextMembershipListener",
+		nullptr,
+		"java.util.EventListener",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(BeanContextMembershipListener, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BeanContextMembershipListener);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/jndi/toolkit/dir/SearchFilter.h>
-
 #include <com/sun/jndi/toolkit/dir/SearchFilter$AtomicFilter.h>
 #include <com/sun/jndi/toolkit/dir/SearchFilter$CompoundFilter.h>
 #include <com/sun/jndi/toolkit/dir/SearchFilter$NotFilter.h>
@@ -54,76 +53,6 @@ namespace com {
 			namespace toolkit {
 				namespace dir {
 
-$FieldInfo _SearchFilter_FieldInfo_[] = {
-	{"filter", "Ljava/lang/String;", nullptr, 0, $field(SearchFilter, filter)},
-	{"pos", "I", nullptr, 0, $field(SearchFilter, pos)},
-	{"rootFilter", "Lcom/sun/jndi/toolkit/dir/SearchFilter$StringFilter;", nullptr, $PRIVATE, $field(SearchFilter, rootFilter)},
-	{"debug", "Z", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(SearchFilter, debug)},
-	{"BEGIN_FILTER_TOKEN", "C", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(SearchFilter, BEGIN_FILTER_TOKEN)},
-	{"END_FILTER_TOKEN", "C", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(SearchFilter, END_FILTER_TOKEN)},
-	{"AND_TOKEN", "C", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(SearchFilter, AND_TOKEN)},
-	{"OR_TOKEN", "C", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(SearchFilter, OR_TOKEN)},
-	{"NOT_TOKEN", "C", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(SearchFilter, NOT_TOKEN)},
-	{"EQUAL_TOKEN", "C", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(SearchFilter, EQUAL_TOKEN)},
-	{"APPROX_TOKEN", "C", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(SearchFilter, APPROX_TOKEN)},
-	{"LESS_TOKEN", "C", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(SearchFilter, LESS_TOKEN)},
-	{"GREATER_TOKEN", "C", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(SearchFilter, GREATER_TOKEN)},
-	{"EXTEND_TOKEN", "C", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(SearchFilter, EXTEND_TOKEN)},
-	{"WILDCARD_TOKEN", "C", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(SearchFilter, WILDCARD_TOKEN)},
-	{"EQUAL_MATCH", "I", nullptr, $STATIC | $FINAL, $constField(SearchFilter, EQUAL_MATCH)},
-	{"APPROX_MATCH", "I", nullptr, $STATIC | $FINAL, $constField(SearchFilter, APPROX_MATCH)},
-	{"GREATER_MATCH", "I", nullptr, $STATIC | $FINAL, $constField(SearchFilter, GREATER_MATCH)},
-	{"LESS_MATCH", "I", nullptr, $STATIC | $FINAL, $constField(SearchFilter, LESS_MATCH)},
-	{}
-};
-
-$MethodInfo _SearchFilter_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SearchFilter, init$, void, $String*), "javax.naming.directory.InvalidSearchFilterException"},
-	{"check", "(Ljavax/naming/directory/Attributes;)Z", nullptr, $PUBLIC, $virtualMethod(SearchFilter, check, bool, $Attributes*), "javax.naming.NamingException"},
-	{"consumeChar", "()V", nullptr, $PROTECTED, $virtualMethod(SearchFilter, consumeChar, void)},
-	{"consumeChars", "(I)V", nullptr, $PROTECTED, $virtualMethod(SearchFilter, consumeChars, void, int32_t)},
-	{"createNextFilter", "()Lcom/sun/jndi/toolkit/dir/SearchFilter$StringFilter;", nullptr, $PROTECTED, $virtualMethod(SearchFilter, createNextFilter, $SearchFilter$StringFilter*), "javax.naming.directory.InvalidSearchFilterException"},
-	{"findUnescaped", "(CLjava/lang/String;I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(SearchFilter, findUnescaped, int32_t, char16_t, $String*, int32_t)},
-	{"format", "(Ljavax/naming/directory/Attributes;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(SearchFilter, format, $String*, $Attributes*), "javax.naming.NamingException"},
-	{"format", "(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(SearchFilter, format, $String*, $String*, $ObjectArray*), "javax.naming.NamingException"},
-	{"getCurrentChar", "()C", nullptr, $PROTECTED, $virtualMethod(SearchFilter, getCurrentChar, char16_t)},
-	{"getEncodedStringRep", "(Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(SearchFilter, getEncodedStringRep, $String*, Object$*), "javax.naming.NamingException"},
-	{"normalizeFilter", "()V", nullptr, $PROTECTED, $virtualMethod(SearchFilter, normalizeFilter, void)},
-	{"relCharAt", "(I)C", nullptr, $PROTECTED, $virtualMethod(SearchFilter, relCharAt, char16_t, int32_t)},
-	{"relIndexOf", "(I)I", nullptr, $PROTECTED, $virtualMethod(SearchFilter, relIndexOf, int32_t, int32_t)},
-	{"relSubstring", "(II)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(SearchFilter, relSubstring, $String*, int32_t, int32_t)},
-	{"selectAttributes", "(Ljavax/naming/directory/Attributes;[Ljava/lang/String;)Ljavax/naming/directory/Attributes;", nullptr, $PUBLIC | $STATIC, $staticMethod(SearchFilter, selectAttributes, $Attributes*, $Attributes*, $StringArray*), "javax.naming.NamingException"},
-	{"skipWhiteSpace", "()V", nullptr, $PRIVATE, $method(SearchFilter, skipWhiteSpace, void)},
-	{}
-};
-
-$InnerClassInfo _SearchFilter_InnerClassesInfo_[] = {
-	{"com.sun.jndi.toolkit.dir.SearchFilter$AtomicFilter", "com.sun.jndi.toolkit.dir.SearchFilter", "AtomicFilter", $FINAL},
-	{"com.sun.jndi.toolkit.dir.SearchFilter$NotFilter", "com.sun.jndi.toolkit.dir.SearchFilter", "NotFilter", $FINAL},
-	{"com.sun.jndi.toolkit.dir.SearchFilter$CompoundFilter", "com.sun.jndi.toolkit.dir.SearchFilter", "CompoundFilter", $FINAL},
-	{"com.sun.jndi.toolkit.dir.SearchFilter$StringFilter", "com.sun.jndi.toolkit.dir.SearchFilter", "StringFilter", $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _SearchFilter_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.jndi.toolkit.dir.SearchFilter",
-	"java.lang.Object",
-	"com.sun.jndi.toolkit.dir.AttrFilter",
-	_SearchFilter_FieldInfo_,
-	_SearchFilter_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SearchFilter_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.jndi.toolkit.dir.SearchFilter$AtomicFilter,com.sun.jndi.toolkit.dir.SearchFilter$NotFilter,com.sun.jndi.toolkit.dir.SearchFilter$CompoundFilter,com.sun.jndi.toolkit.dir.SearchFilter$StringFilter"
-};
-
-$Object* allocate$SearchFilter($Class* clazz) {
-	return $of($alloc(SearchFilter));
-}
-
 void SearchFilter::init$($String* filter) {
 	$set(this, filter, filter);
 	this->pos = 0;
@@ -139,11 +68,12 @@ bool SearchFilter::check($Attributes* targetAttrs) {
 }
 
 void SearchFilter::normalizeFilter() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	skipWhiteSpace();
 	if (getCurrentChar() != SearchFilter::BEGIN_FILTER_TOKEN) {
 		$set(this, filter, $str({$$str(SearchFilter::BEGIN_FILTER_TOKEN), this->filter, $$str(SearchFilter::END_FILTER_TOKEN)}));
 	}
+	;
 }
 
 void SearchFilter::skipWhiteSpace() {
@@ -153,7 +83,7 @@ void SearchFilter::skipWhiteSpace() {
 }
 
 $SearchFilter$StringFilter* SearchFilter::createNextFilter() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SearchFilter$StringFilter, filter, nullptr);
 	skipWhiteSpace();
 	try {
@@ -164,29 +94,25 @@ $SearchFilter$StringFilter* SearchFilter::createNextFilter() {
 		skipWhiteSpace();
 		switch (getCurrentChar()) {
 		case SearchFilter::AND_TOKEN:
-			{
-				$assign(filter, $new($SearchFilter$CompoundFilter, this, true));
-				$nc(filter)->parse();
-				break;
-			}
+			;
+			$assign(filter, $new($SearchFilter$CompoundFilter, this, true));
+			filter->parse();
+			break;
 		case SearchFilter::OR_TOKEN:
-			{
-				$assign(filter, $new($SearchFilter$CompoundFilter, this, false));
-				$nc(filter)->parse();
-				break;
-			}
+			;
+			$assign(filter, $new($SearchFilter$CompoundFilter, this, false));
+			filter->parse();
+			break;
 		case SearchFilter::NOT_TOKEN:
-			{
-				$assign(filter, $new($SearchFilter$NotFilter, this));
-				$nc(filter)->parse();
-				break;
-			}
+			;
+			$assign(filter, $new($SearchFilter$NotFilter, this));
+			filter->parse();
+			break;
 		default:
-			{
-				$assign(filter, $new($SearchFilter$AtomicFilter, this));
-				$nc(filter)->parse();
-				break;
-			}
+			;
+			$assign(filter, $new($SearchFilter$AtomicFilter, this));
+			filter->parse();
+			break;
 		}
 		skipWhiteSpace();
 		if (getCurrentChar() != SearchFilter::END_FILTER_TOKEN) {
@@ -194,8 +120,10 @@ $SearchFilter$StringFilter* SearchFilter::createNextFilter() {
 		}
 		this->consumeChar();
 	} catch ($InvalidSearchFilterException& e) {
+		;
 		$throw(e);
 	} catch ($Exception& e) {
+		;
 		$throwNew($InvalidSearchFilterException, $$str({"Unable to parse character "_s, $$str(this->pos), " in \""_s, this->filter, "\""_s}));
 	}
 	return filter;
@@ -222,13 +150,14 @@ int32_t SearchFilter::relIndexOf(int32_t ch) {
 }
 
 $String* SearchFilter::relSubstring(int32_t beginIndex, int32_t endIndex) {
+	;
 	return $nc(this->filter)->substring(beginIndex + this->pos, endIndex + this->pos);
 }
 
 $String* SearchFilter::format($Attributes* attrs) {
 	$init(SearchFilter);
-	$useLocalCurrentObjectStackCache();
-	if (attrs == nullptr || $nc(attrs)->size() == 0) {
+	$useLocalObjectStack();
+	if (attrs == nullptr || attrs->size() == 0) {
 		return "objectClass=*"_s;
 	}
 	$var($String, answer, nullptr);
@@ -240,19 +169,17 @@ $String* SearchFilter::format($Attributes* attrs) {
 			$assign(attr, $cast($Attribute, e->next()));
 			bool var$0 = $nc(attr)->size() == 0;
 			if (!var$0) {
-				bool var$1 = $nc(attr)->size() == 1;
-				var$0 = (var$1 && attr->get() == nullptr);
+				bool var$1 = attr->size() == 1;
+				var$0 = var$1 && attr->get() == nullptr;
 			}
 			if (var$0) {
 				$plusAssign(answer, $$str({"("_s, $(attr->getID()), "=*)"_s}));
 			} else {
-				{
-					$var($NamingEnumeration, ve, attr->getAll());
-					for (; $nc(ve)->hasMore();) {
-						$var($String, val, getEncodedStringRep($(ve->next())));
-						if (val != nullptr) {
-							$plusAssign(answer, $$str({"("_s, $(attr->getID()), "="_s, val, ")"_s}));
-						}
+				$var($NamingEnumeration, ve, attr->getAll());
+				for (; $nc(ve)->hasMore();) {
+					$var($String, val, getEncodedStringRep($(ve->next())));
+					if (val != nullptr) {
+						$plusAssign(answer, $$str({"("_s, $(attr->getID()), "="_s, val, ")"_s}));
 					}
 				}
 			}
@@ -264,13 +191,13 @@ $String* SearchFilter::format($Attributes* attrs) {
 
 $String* SearchFilter::getEncodedStringRep(Object$* obj) {
 	$init(SearchFilter);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, str, nullptr);
 	if (obj == nullptr) {
 		return nullptr;
 	}
 	if ($instanceOf($bytes, obj)) {
-		$var($HexFormat, hex, $nc($($nc($($HexFormat::of()))->withUpperCase()))->withPrefix("\\"_s));
+		$var($HexFormat, hex, $$nc($$nc($HexFormat::of())->withUpperCase())->withPrefix("\\"_s));
 		$var($bytes, bytes, $cast($bytes, obj));
 		return $nc(hex)->formatHex(bytes);
 	}
@@ -285,34 +212,22 @@ $String* SearchFilter::getEncodedStringRep(Object$* obj) {
 	for (int32_t i = 0; i < len; ++i) {
 		switch (ch = str->charAt(i)) {
 		case u'*':
-			{
-				sb->append("\\2a"_s);
-				break;
-			}
+			sb->append("\\2a"_s);
+			break;
 		case u'(':
-			{
-				sb->append("\\28"_s);
-				break;
-			}
+			sb->append("\\28"_s);
+			break;
 		case u')':
-			{
-				sb->append("\\29"_s);
-				break;
-			}
+			sb->append("\\29"_s);
+			break;
 		case u'\\':
-			{
-				sb->append("\\5c"_s);
-				break;
-			}
+			sb->append("\\5c"_s);
+			break;
 		case 0:
-			{
-				sb->append("\\00"_s);
-				break;
-			}
+			sb->append("\\00"_s);
+			break;
 		default:
-			{
-				sb->append(ch);
-			}
+			sb->append(ch);
 		}
 	}
 	return sb->toString();
@@ -322,7 +237,7 @@ int32_t SearchFilter::findUnescaped(char16_t ch, $String* val, int32_t start) {
 	$init(SearchFilter);
 	int32_t len = $nc(val)->length();
 	while (start < len) {
-		int32_t where = val->indexOf((int32_t)ch, start);
+		int32_t where = val->indexOf(ch, start);
 		if (where == start || where == -1 || val->charAt(where - 1) != u'\\') {
 			return where;
 		}
@@ -333,14 +248,14 @@ int32_t SearchFilter::findUnescaped(char16_t ch, $String* val, int32_t start) {
 
 $String* SearchFilter::format($String* expr, $ObjectArray* args) {
 	$init(SearchFilter);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t param = 0;
 	int32_t where = 0;
 	int32_t start = 0;
 	$var($StringBuilder, answer, $new($StringBuilder, $nc(expr)->length()));
 	while ((where = findUnescaped(u'{', expr, start)) >= 0) {
 		int32_t pstart = where + 1;
-		int32_t pend = $nc(expr)->indexOf((int32_t)u'}', pstart);
+		int32_t pend = expr->indexOf(u'}', pstart);
 		if (pend < 0) {
 			$throwNew($InvalidSearchFilterException, $$str({"unbalanced {: "_s, expr}));
 		}
@@ -352,10 +267,10 @@ $String* SearchFilter::format($String* expr, $ObjectArray* args) {
 		if (param >= $nc(args)->length) {
 			$throwNew($InvalidSearchFilterException, $$str({"number exceeds argument list: "_s, $$str(param)}));
 		}
-		answer->append($(expr->substring(start, where)))->append($(getEncodedStringRep($nc(args)->get(param))));
+		answer->append($(expr->substring(start, where)))->append($(getEncodedStringRep(args->get(param))));
 		start = pend + 1;
 	}
-	if (start < $nc(expr)->length()) {
+	if (start < expr->length()) {
 		answer->append($(expr->substring(start)));
 	}
 	return answer->toString();
@@ -363,7 +278,7 @@ $String* SearchFilter::format($String* expr, $ObjectArray* args) {
 
 $Attributes* SearchFilter::selectAttributes($Attributes* originals, $StringArray* attrIDs) {
 	$init(SearchFilter);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (attrIDs == nullptr) {
 		return originals;
 	}
@@ -381,7 +296,71 @@ SearchFilter::SearchFilter() {
 }
 
 $Class* SearchFilter::load$($String* name, bool initialize) {
-	$loadClass(SearchFilter, name, initialize, &_SearchFilter_ClassInfo_, allocate$SearchFilter);
+	$FieldInfo fieldInfos$$[] = {
+		{"filter", "Ljava/lang/String;", nullptr, 0, $field(SearchFilter, filter)},
+		{"pos", "I", nullptr, 0, $field(SearchFilter, pos)},
+		{"rootFilter", "Lcom/sun/jndi/toolkit/dir/SearchFilter$StringFilter;", nullptr, $PRIVATE, $field(SearchFilter, rootFilter)},
+		{"debug", "Z", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(SearchFilter, debug)},
+		{"BEGIN_FILTER_TOKEN", "C", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(SearchFilter, BEGIN_FILTER_TOKEN)},
+		{"END_FILTER_TOKEN", "C", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(SearchFilter, END_FILTER_TOKEN)},
+		{"AND_TOKEN", "C", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(SearchFilter, AND_TOKEN)},
+		{"OR_TOKEN", "C", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(SearchFilter, OR_TOKEN)},
+		{"NOT_TOKEN", "C", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(SearchFilter, NOT_TOKEN)},
+		{"EQUAL_TOKEN", "C", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(SearchFilter, EQUAL_TOKEN)},
+		{"APPROX_TOKEN", "C", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(SearchFilter, APPROX_TOKEN)},
+		{"LESS_TOKEN", "C", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(SearchFilter, LESS_TOKEN)},
+		{"GREATER_TOKEN", "C", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(SearchFilter, GREATER_TOKEN)},
+		{"EXTEND_TOKEN", "C", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(SearchFilter, EXTEND_TOKEN)},
+		{"WILDCARD_TOKEN", "C", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(SearchFilter, WILDCARD_TOKEN)},
+		{"EQUAL_MATCH", "I", nullptr, $STATIC | $FINAL, $constField(SearchFilter, EQUAL_MATCH)},
+		{"APPROX_MATCH", "I", nullptr, $STATIC | $FINAL, $constField(SearchFilter, APPROX_MATCH)},
+		{"GREATER_MATCH", "I", nullptr, $STATIC | $FINAL, $constField(SearchFilter, GREATER_MATCH)},
+		{"LESS_MATCH", "I", nullptr, $STATIC | $FINAL, $constField(SearchFilter, LESS_MATCH)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SearchFilter, init$, void, $String*), "javax.naming.directory.InvalidSearchFilterException"},
+		{"check", "(Ljavax/naming/directory/Attributes;)Z", nullptr, $PUBLIC, $virtualMethod(SearchFilter, check, bool, $Attributes*), "javax.naming.NamingException"},
+		{"consumeChar", "()V", nullptr, $PROTECTED, $virtualMethod(SearchFilter, consumeChar, void)},
+		{"consumeChars", "(I)V", nullptr, $PROTECTED, $virtualMethod(SearchFilter, consumeChars, void, int32_t)},
+		{"createNextFilter", "()Lcom/sun/jndi/toolkit/dir/SearchFilter$StringFilter;", nullptr, $PROTECTED, $virtualMethod(SearchFilter, createNextFilter, $SearchFilter$StringFilter*), "javax.naming.directory.InvalidSearchFilterException"},
+		{"findUnescaped", "(CLjava/lang/String;I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(SearchFilter, findUnescaped, int32_t, char16_t, $String*, int32_t)},
+		{"format", "(Ljavax/naming/directory/Attributes;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(SearchFilter, format, $String*, $Attributes*), "javax.naming.NamingException"},
+		{"format", "(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(SearchFilter, format, $String*, $String*, $ObjectArray*), "javax.naming.NamingException"},
+		{"getCurrentChar", "()C", nullptr, $PROTECTED, $virtualMethod(SearchFilter, getCurrentChar, char16_t)},
+		{"getEncodedStringRep", "(Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(SearchFilter, getEncodedStringRep, $String*, Object$*), "javax.naming.NamingException"},
+		{"normalizeFilter", "()V", nullptr, $PROTECTED, $virtualMethod(SearchFilter, normalizeFilter, void)},
+		{"relCharAt", "(I)C", nullptr, $PROTECTED, $virtualMethod(SearchFilter, relCharAt, char16_t, int32_t)},
+		{"relIndexOf", "(I)I", nullptr, $PROTECTED, $virtualMethod(SearchFilter, relIndexOf, int32_t, int32_t)},
+		{"relSubstring", "(II)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(SearchFilter, relSubstring, $String*, int32_t, int32_t)},
+		{"selectAttributes", "(Ljavax/naming/directory/Attributes;[Ljava/lang/String;)Ljavax/naming/directory/Attributes;", nullptr, $PUBLIC | $STATIC, $staticMethod(SearchFilter, selectAttributes, $Attributes*, $Attributes*, $StringArray*), "javax.naming.NamingException"},
+		{"skipWhiteSpace", "()V", nullptr, $PRIVATE, $method(SearchFilter, skipWhiteSpace, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.jndi.toolkit.dir.SearchFilter$AtomicFilter", "com.sun.jndi.toolkit.dir.SearchFilter", "AtomicFilter", $FINAL},
+		{"com.sun.jndi.toolkit.dir.SearchFilter$NotFilter", "com.sun.jndi.toolkit.dir.SearchFilter", "NotFilter", $FINAL},
+		{"com.sun.jndi.toolkit.dir.SearchFilter$CompoundFilter", "com.sun.jndi.toolkit.dir.SearchFilter", "CompoundFilter", $FINAL},
+		{"com.sun.jndi.toolkit.dir.SearchFilter$StringFilter", "com.sun.jndi.toolkit.dir.SearchFilter", "StringFilter", $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.jndi.toolkit.dir.SearchFilter",
+		"java.lang.Object",
+		"com.sun.jndi.toolkit.dir.AttrFilter",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.jndi.toolkit.dir.SearchFilter$AtomicFilter,com.sun.jndi.toolkit.dir.SearchFilter$NotFilter,com.sun.jndi.toolkit.dir.SearchFilter$CompoundFilter,com.sun.jndi.toolkit.dir.SearchFilter$StringFilter"
+	};
+	$loadClass(SearchFilter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SearchFilter);
+	});
 	return class$;
 }
 

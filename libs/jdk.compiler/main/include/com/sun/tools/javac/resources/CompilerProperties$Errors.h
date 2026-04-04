@@ -113,6 +113,7 @@ class $import CompilerProperties$Errors : public ::java::lang::Object {
 	$class(CompilerProperties$Errors, 0, ::java::lang::Object)
 public:
 	CompilerProperties$Errors();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::com::sun::tools::javac::util::JCDiagnostic$Error* AbstractCantBeAccessedDirectly(::com::sun::tools::javac::code::Kinds$KindName* arg0, ::com::sun::tools::javac::code::Symbol* arg1, ::com::sun::tools::javac::code::Symbol* arg2);
 	static ::com::sun::tools::javac::util::JCDiagnostic$Error* AbstractCantBeInstantiated(::com::sun::tools::javac::code::Symbol* arg0);

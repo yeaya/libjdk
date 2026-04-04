@@ -34,6 +34,7 @@ class ConnectionDesc : public ::java::lang::Object {
 	$class(ConnectionDesc, 0, ::java::lang::Object)
 public:
 	ConnectionDesc();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::com::sun::jndi::ldap::pool::PooledConnection* conn);
 	void init$(::com::sun::jndi::ldap::pool::PooledConnection* conn, bool use);
 	void d($String* msg);

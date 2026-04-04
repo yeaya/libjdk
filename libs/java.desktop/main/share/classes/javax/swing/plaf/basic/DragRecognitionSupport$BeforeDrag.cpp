@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/basic/DragRecognitionSupport$BeforeDrag.h>
-
 #include <java/awt/event/MouseEvent.h>
 #include <javax/swing/plaf/basic/DragRecognitionSupport.h>
 #include <jcpp.h>
@@ -14,38 +13,33 @@ namespace javax {
 		namespace plaf {
 			namespace basic {
 
-$MethodInfo _DragRecognitionSupport$BeforeDrag_MethodInfo_[] = {
-	{"dragStarting", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DragRecognitionSupport$BeforeDrag, dragStarting, void, $MouseEvent*)},
-	{}
-};
-
-$InnerClassInfo _DragRecognitionSupport$BeforeDrag_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.basic.DragRecognitionSupport$BeforeDrag", "javax.swing.plaf.basic.DragRecognitionSupport", "BeforeDrag", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _DragRecognitionSupport$BeforeDrag_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"javax.swing.plaf.basic.DragRecognitionSupport$BeforeDrag",
-	nullptr,
-	nullptr,
-	nullptr,
-	_DragRecognitionSupport$BeforeDrag_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DragRecognitionSupport$BeforeDrag_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.basic.DragRecognitionSupport"
-};
-
-$Object* allocate$DragRecognitionSupport$BeforeDrag($Class* clazz) {
-	return $of($alloc(DragRecognitionSupport$BeforeDrag));
-}
-
 $Class* DragRecognitionSupport$BeforeDrag::load$($String* name, bool initialize) {
-	$loadClass(DragRecognitionSupport$BeforeDrag, name, initialize, &_DragRecognitionSupport$BeforeDrag_ClassInfo_, allocate$DragRecognitionSupport$BeforeDrag);
+	$MethodInfo methodInfos$$[] = {
+		{"dragStarting", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DragRecognitionSupport$BeforeDrag, dragStarting, void, $MouseEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.basic.DragRecognitionSupport$BeforeDrag", "javax.swing.plaf.basic.DragRecognitionSupport", "BeforeDrag", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"javax.swing.plaf.basic.DragRecognitionSupport$BeforeDrag",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.basic.DragRecognitionSupport"
+	};
+	$loadClass(DragRecognitionSupport$BeforeDrag, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DragRecognitionSupport$BeforeDrag);
+	});
 	return class$;
 }
 

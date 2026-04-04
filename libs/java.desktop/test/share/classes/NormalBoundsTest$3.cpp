@@ -1,5 +1,4 @@
 #include <NormalBoundsTest$3.h>
-
 #include <NormalBoundsTest.h>
 #include <java/awt/Component.h>
 #include <java/awt/Point.h>
@@ -19,68 +18,60 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $JInternalFrame = ::javax::swing::JInternalFrame;
-
-$FieldInfo _NormalBoundsTest$3_FieldInfo_[] = {
-	{"val$robot", "Ljava/awt/Robot;", nullptr, $FINAL | $SYNTHETIC, $field(NormalBoundsTest$3, val$robot)},
-	{}
-};
-
-$MethodInfo _NormalBoundsTest$3_MethodInfo_[] = {
-	{"<init>", "(Ljava/awt/Robot;)V", "()V", 0, $method(NormalBoundsTest$3, init$, void, $Robot*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(NormalBoundsTest$3, run, void)},
-	{}
-};
-
-$EnclosingMethodInfo _NormalBoundsTest$3_EnclosingMethodInfo_ = {
-	"NormalBoundsTest",
-	"executeTest",
-	"(Ljava/awt/Robot;)V"
-};
-
-$InnerClassInfo _NormalBoundsTest$3_InnerClassesInfo_[] = {
-	{"NormalBoundsTest$3", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _NormalBoundsTest$3_ClassInfo_ = {
-	$ACC_SUPER,
-	"NormalBoundsTest$3",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	_NormalBoundsTest$3_FieldInfo_,
-	_NormalBoundsTest$3_MethodInfo_,
-	nullptr,
-	&_NormalBoundsTest$3_EnclosingMethodInfo_,
-	_NormalBoundsTest$3_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"NormalBoundsTest"
-};
-
-$Object* allocate$NormalBoundsTest$3($Class* clazz) {
-	return $of($alloc(NormalBoundsTest$3));
-}
 
 void NormalBoundsTest$3::init$($Robot* val$robot) {
 	$set(this, val$robot, val$robot);
 }
 
 void NormalBoundsTest$3::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($NormalBoundsTest);
 	$var($Point, loc, $nc($NormalBoundsTest::internalFrame)->getLocationOnScreen());
 	$var($Robot, var$0, this->val$robot);
-	$var($Point, var$1, $new($Point, $nc(loc)->x + 80, loc->y + 12));
-	$NormalBoundsTest::drag(var$0, var$1, $$new($Point, $nc(loc)->x + 100, loc->y + 40), $InputEvent::BUTTON1_MASK);
+	$var($Point, var$1, $new($Point, $nc(loc)->x + 80, $nc(loc)->y + 12));
+	$NormalBoundsTest::drag(var$0, var$1, $$new($Point, loc->x + 100, loc->y + 40), $InputEvent::BUTTON1_MASK);
 }
 
 NormalBoundsTest$3::NormalBoundsTest$3() {
 }
 
 $Class* NormalBoundsTest$3::load$($String* name, bool initialize) {
-	$loadClass(NormalBoundsTest$3, name, initialize, &_NormalBoundsTest$3_ClassInfo_, allocate$NormalBoundsTest$3);
+	$FieldInfo fieldInfos$$[] = {
+		{"val$robot", "Ljava/awt/Robot;", nullptr, $FINAL | $SYNTHETIC, $field(NormalBoundsTest$3, val$robot)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/Robot;)V", "()V", 0, $method(NormalBoundsTest$3, init$, void, $Robot*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(NormalBoundsTest$3, run, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"NormalBoundsTest",
+		"executeTest",
+		"(Ljava/awt/Robot;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"NormalBoundsTest$3", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"NormalBoundsTest$3",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"NormalBoundsTest"
+	};
+	$loadClass(NormalBoundsTest$3, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(NormalBoundsTest$3);
+	});
 	return class$;
 }
 

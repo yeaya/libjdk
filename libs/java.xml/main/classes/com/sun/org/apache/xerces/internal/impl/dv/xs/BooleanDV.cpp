@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/impl/dv/xs/BooleanDV.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/dv/InvalidDatatypeValueException.h>
 #include <com/sun/org/apache/xerces/internal/impl/dv/ValidationContext.h>
 #include <com/sun/org/apache/xerces/internal/impl/dv/xs/TypeValidator.h>
@@ -30,31 +29,6 @@ namespace com {
 							namespace dv {
 								namespace xs {
 
-$FieldInfo _BooleanDV_FieldInfo_[] = {
-	{"fValueSpace", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BooleanDV, fValueSpace)},
-	{}
-};
-
-$MethodInfo _BooleanDV_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(BooleanDV, init$, void)},
-	{"getActualValue", "(Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/impl/dv/ValidationContext;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(BooleanDV, getActualValue, $Object*, $String*, $ValidationContext*), "com.sun.org.apache.xerces.internal.impl.dv.InvalidDatatypeValueException"},
-	{"getAllowedFacets", "()S", nullptr, $PUBLIC, $virtualMethod(BooleanDV, getAllowedFacets, int16_t)},
-	{}
-};
-
-$ClassInfo _BooleanDV_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.impl.dv.xs.BooleanDV",
-	"com.sun.org.apache.xerces.internal.impl.dv.xs.TypeValidator",
-	nullptr,
-	_BooleanDV_FieldInfo_,
-	_BooleanDV_MethodInfo_
-};
-
-$Object* allocate$BooleanDV($Class* clazz) {
-	return $of($alloc(BooleanDV));
-}
-
 $StringArray* BooleanDV::fValueSpace = nullptr;
 
 void BooleanDV::init$() {
@@ -66,28 +40,26 @@ int16_t BooleanDV::getAllowedFacets() {
 }
 
 $Object* BooleanDV::getActualValue($String* content, $ValidationContext* context) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Boolean, ret, nullptr);
-	bool var$0 = $nc(content)->equals($nc(BooleanDV::fValueSpace)->get(0));
-	if (var$0 || $nc(content)->equals($nc(BooleanDV::fValueSpace)->get(2))) {
-		$init($Boolean);
+	bool var$0 = $nc(content)->equals(BooleanDV::fValueSpace->get(0));
+	if (var$0 || content->equals(BooleanDV::fValueSpace->get(2))) {
 		$assign(ret, $Boolean::FALSE);
 	} else {
-		bool var$2 = content->equals($nc(BooleanDV::fValueSpace)->get(1));
-		if (var$2 || content->equals($nc(BooleanDV::fValueSpace)->get(3))) {
-			$init($Boolean);
+		bool var$1 = content->equals(BooleanDV::fValueSpace->get(1));
+		if (var$1 || content->equals(BooleanDV::fValueSpace->get(3))) {
 			$assign(ret, $Boolean::TRUE);
 		} else {
 			$throwNew($InvalidDatatypeValueException, "cvc-datatype-valid.1.2.1"_s, $$new($ObjectArray, {
-				$of(content),
-				$of("boolean"_s)
+				content,
+				"boolean"_s
 			}));
 		}
 	}
 	return $of(ret);
 }
 
-void clinit$BooleanDV($Class* class$) {
+void BooleanDV::clinit$($Class* clazz) {
 	$assignStatic(BooleanDV::fValueSpace, $new($StringArray, {
 		"false"_s,
 		"true"_s,
@@ -100,7 +72,27 @@ BooleanDV::BooleanDV() {
 }
 
 $Class* BooleanDV::load$($String* name, bool initialize) {
-	$loadClass(BooleanDV, name, initialize, &_BooleanDV_ClassInfo_, clinit$BooleanDV, allocate$BooleanDV);
+	$FieldInfo fieldInfos$$[] = {
+		{"fValueSpace", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BooleanDV, fValueSpace)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(BooleanDV, init$, void)},
+		{"getActualValue", "(Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/impl/dv/ValidationContext;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(BooleanDV, getActualValue, $Object*, $String*, $ValidationContext*), "com.sun.org.apache.xerces.internal.impl.dv.InvalidDatatypeValueException"},
+		{"getAllowedFacets", "()S", nullptr, $PUBLIC, $virtualMethod(BooleanDV, getAllowedFacets, int16_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.impl.dv.xs.BooleanDV",
+		"com.sun.org.apache.xerces.internal.impl.dv.xs.TypeValidator",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(BooleanDV, name, initialize, &classInfo$$, BooleanDV::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(BooleanDV);
+	});
 	return class$;
 }
 

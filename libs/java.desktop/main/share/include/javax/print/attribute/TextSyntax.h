@@ -31,7 +31,7 @@ public:
 	virtual $String* toString() override;
 	static $String* verify($String* value);
 	static ::java::util::Locale* verify(::java::util::Locale* locale);
-	static const int64_t serialVersionUID = (int64_t)0x8F2A220D62B3BA9A;
+	static const int64_t serialVersionUID = (int64_t)0x8f2a220d62b3ba9a;
 	$String* value = nullptr;
 	::java::util::Locale* locale = nullptr;
 };

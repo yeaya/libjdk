@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/xs/datatypes/XSDouble.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -14,26 +13,22 @@ namespace com {
 						namespace xs {
 							namespace datatypes {
 
-$MethodInfo _XSDouble_MethodInfo_[] = {
-	{"getValue", "()D", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XSDouble, getValue, double)},
-	{}
-};
-
-$ClassInfo _XSDouble_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.org.apache.xerces.internal.xs.datatypes.XSDouble",
-	nullptr,
-	nullptr,
-	nullptr,
-	_XSDouble_MethodInfo_
-};
-
-$Object* allocate$XSDouble($Class* clazz) {
-	return $of($alloc(XSDouble));
-}
-
 $Class* XSDouble::load$($String* name, bool initialize) {
-	$loadClass(XSDouble, name, initialize, &_XSDouble_ClassInfo_, allocate$XSDouble);
+	$MethodInfo methodInfos$$[] = {
+		{"getValue", "()D", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XSDouble, getValue, double)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.org.apache.xerces.internal.xs.datatypes.XSDouble",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(XSDouble, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XSDouble);
+	});
 	return class$;
 }
 

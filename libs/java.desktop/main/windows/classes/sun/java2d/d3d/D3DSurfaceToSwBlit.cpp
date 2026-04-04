@@ -1,5 +1,4 @@
 #include <sun/java2d/d3d/D3DSurfaceToSwBlit.h>
-
 #include <java/awt/Composite.h>
 #include <java/awt/image/BufferedImage.h>
 #include <java/lang/ref/WeakReference.h>
@@ -38,32 +37,6 @@ namespace sun {
 	namespace java2d {
 		namespace d3d {
 
-$FieldInfo _D3DSurfaceToSwBlit_FieldInfo_[] = {
-	{"typeval", "I", nullptr, $PRIVATE, $field(D3DSurfaceToSwBlit, typeval)},
-	{"srcTmp", "Ljava/lang/ref/WeakReference;", "Ljava/lang/ref/WeakReference<Lsun/java2d/SurfaceData;>;", $PRIVATE, $field(D3DSurfaceToSwBlit, srcTmp)},
-	{}
-};
-
-$MethodInfo _D3DSurfaceToSwBlit_MethodInfo_[] = {
-	{"<init>", "(Lsun/java2d/loops/SurfaceType;I)V", nullptr, 0, $method(D3DSurfaceToSwBlit, init$, void, $SurfaceType*, int32_t)},
-	{"Blit", "(Lsun/java2d/SurfaceData;Lsun/java2d/SurfaceData;Ljava/awt/Composite;Lsun/java2d/pipe/Region;IIIIII)V", nullptr, $PUBLIC, $virtualMethod(D3DSurfaceToSwBlit, Blit$, void, $SurfaceData*, $SurfaceData*, $Composite*, $Region*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"complexClipBlit", "(Lsun/java2d/SurfaceData;Lsun/java2d/SurfaceData;Ljava/awt/Composite;Lsun/java2d/pipe/Region;IIIIII)V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(D3DSurfaceToSwBlit, complexClipBlit, void, $SurfaceData*, $SurfaceData*, $Composite*, $Region*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _D3DSurfaceToSwBlit_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.java2d.d3d.D3DSurfaceToSwBlit",
-	"sun.java2d.loops.Blit",
-	nullptr,
-	_D3DSurfaceToSwBlit_FieldInfo_,
-	_D3DSurfaceToSwBlit_MethodInfo_
-};
-
-$Object* allocate$D3DSurfaceToSwBlit($Class* clazz) {
-	return $of($alloc(D3DSurfaceToSwBlit));
-}
-
 void D3DSurfaceToSwBlit::init$($SurfaceType* dstType, int32_t typeval) {
 	$init($D3DSurfaceData);
 	$init($CompositeType);
@@ -73,11 +46,11 @@ void D3DSurfaceToSwBlit::init$($SurfaceType* dstType, int32_t typeval) {
 
 void D3DSurfaceToSwBlit::complexClipBlit($SurfaceData* src$renamed, $SurfaceData* dst, $Composite* comp, $Region* clip, int32_t sx, int32_t sy, int32_t dx, int32_t dy, int32_t w, int32_t h) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$var($SurfaceData, src, src$renamed);
 		$var($SurfaceData, cachedSrc, nullptr);
 		if (this->srcTmp != nullptr) {
-			$assign(cachedSrc, $cast($SurfaceData, $nc(this->srcTmp)->get()));
+			$assign(cachedSrc, $cast($SurfaceData, this->srcTmp->get()));
 		}
 		int32_t type = $BufferedImage::TYPE_INT_ARGB;
 		$assign(src, convertFrom(this, src, sx, sy, w, h, cachedSrc, type));
@@ -93,14 +66,14 @@ void D3DSurfaceToSwBlit::complexClipBlit($SurfaceData* src$renamed, $SurfaceData
 }
 
 void D3DSurfaceToSwBlit::Blit$($SurfaceData* src, $SurfaceData* dst, $Composite* comp, $Region* clip$renamed, int32_t sx, int32_t sy, int32_t dx, int32_t dy, int32_t w, int32_t h) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Region, clip, clip$renamed);
 	if (clip != nullptr) {
 		$assign(clip, clip->getIntersectionXYWH(dx, dy, w, h));
 		if ($nc(clip)->isEmpty()) {
 			return;
 		}
-		sx += $nc(clip)->getLoX() - dx;
+		sx += clip->getLoX() - dx;
 		sy += clip->getLoY() - dy;
 		dx = clip->getLoX();
 		dy = clip->getLoY();
@@ -113,29 +86,27 @@ void D3DSurfaceToSwBlit::Blit$($SurfaceData* src, $SurfaceData* dst, $Composite*
 	}
 	$var($D3DRenderQueue, rq, $D3DRenderQueue::getInstance());
 	$nc(rq)->lock();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			rq->addReference(dst);
-			$var($RenderBuffer, buf, rq->getBuffer());
-			$D3DContext::setScratchSurface($($cast($D3DContext, $nc(($cast($D3DSurfaceData, src)))->getContext())));
-			rq->ensureCapacityAndAlignment(48, 32);
-			$nc(buf)->putInt(34);
-			$nc($(buf->putInt(sx)))->putInt(sy);
-			$nc($(buf->putInt(dx)))->putInt(dy);
-			$nc($(buf->putInt(w)))->putInt(h);
-			buf->putInt(this->typeval);
-			buf->putLong($nc(src)->getNativeOps());
-			buf->putLong($nc(dst)->getNativeOps());
-			rq->flushNow();
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			rq->unlock();
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	$var($Throwable, var$0, nullptr);
+	try {
+		rq->addReference(dst);
+		$var($RenderBuffer, buf, rq->getBuffer());
+		$D3DContext::setScratchSurface($$cast($D3DContext, $nc($cast($D3DSurfaceData, src))->getContext()));
+		rq->ensureCapacityAndAlignment(48, 32);
+		$nc(buf)->putInt(34);
+		$$nc(buf->putInt(sx))->putInt(sy);
+		$$nc(buf->putInt(dx))->putInt(dy);
+		$$nc(buf->putInt(w))->putInt(h);
+		buf->putInt(this->typeval);
+		buf->putLong(src->getNativeOps());
+		buf->putLong($nc(dst)->getNativeOps());
+		rq->flushNow();
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		rq->unlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
@@ -143,7 +114,28 @@ D3DSurfaceToSwBlit::D3DSurfaceToSwBlit() {
 }
 
 $Class* D3DSurfaceToSwBlit::load$($String* name, bool initialize) {
-	$loadClass(D3DSurfaceToSwBlit, name, initialize, &_D3DSurfaceToSwBlit_ClassInfo_, allocate$D3DSurfaceToSwBlit);
+	$FieldInfo fieldInfos$$[] = {
+		{"typeval", "I", nullptr, $PRIVATE, $field(D3DSurfaceToSwBlit, typeval)},
+		{"srcTmp", "Ljava/lang/ref/WeakReference;", "Ljava/lang/ref/WeakReference<Lsun/java2d/SurfaceData;>;", $PRIVATE, $field(D3DSurfaceToSwBlit, srcTmp)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/java2d/loops/SurfaceType;I)V", nullptr, 0, $method(D3DSurfaceToSwBlit, init$, void, $SurfaceType*, int32_t)},
+		{"Blit", "(Lsun/java2d/SurfaceData;Lsun/java2d/SurfaceData;Ljava/awt/Composite;Lsun/java2d/pipe/Region;IIIIII)V", nullptr, $PUBLIC, $virtualMethod(D3DSurfaceToSwBlit, Blit$, void, $SurfaceData*, $SurfaceData*, $Composite*, $Region*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"complexClipBlit", "(Lsun/java2d/SurfaceData;Lsun/java2d/SurfaceData;Ljava/awt/Composite;Lsun/java2d/pipe/Region;IIIIII)V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(D3DSurfaceToSwBlit, complexClipBlit, void, $SurfaceData*, $SurfaceData*, $Composite*, $Region*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.java2d.d3d.D3DSurfaceToSwBlit",
+		"sun.java2d.loops.Blit",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(D3DSurfaceToSwBlit, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(D3DSurfaceToSwBlit);
+	});
 	return class$;
 }
 

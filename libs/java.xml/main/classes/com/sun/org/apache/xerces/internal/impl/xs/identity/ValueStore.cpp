@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/impl/xs/identity/ValueStore.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/xs/identity/Field.h>
 #include <com/sun/org/apache/xerces/internal/xs/ShortList.h>
 #include <jcpp.h>
@@ -19,27 +18,23 @@ namespace com {
 							namespace xs {
 								namespace identity {
 
-$MethodInfo _ValueStore_MethodInfo_[] = {
-	{"addValue", "(Lcom/sun/org/apache/xerces/internal/impl/xs/identity/Field;ZLjava/lang/Object;SLcom/sun/org/apache/xerces/internal/xs/ShortList;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ValueStore, addValue, void, $Field*, bool, Object$*, int16_t, $ShortList*)},
-	{"reportError", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ValueStore, reportError, void, $String*, $ObjectArray*)},
-	{}
-};
-
-$ClassInfo _ValueStore_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.org.apache.xerces.internal.impl.xs.identity.ValueStore",
-	nullptr,
-	nullptr,
-	nullptr,
-	_ValueStore_MethodInfo_
-};
-
-$Object* allocate$ValueStore($Class* clazz) {
-	return $of($alloc(ValueStore));
-}
-
 $Class* ValueStore::load$($String* name, bool initialize) {
-	$loadClass(ValueStore, name, initialize, &_ValueStore_ClassInfo_, allocate$ValueStore);
+	$MethodInfo methodInfos$$[] = {
+		{"addValue", "(Lcom/sun/org/apache/xerces/internal/impl/xs/identity/Field;ZLjava/lang/Object;SLcom/sun/org/apache/xerces/internal/xs/ShortList;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ValueStore, addValue, void, $Field*, bool, Object$*, int16_t, $ShortList*)},
+		{"reportError", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ValueStore, reportError, void, $String*, $ObjectArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.org.apache.xerces.internal.impl.xs.identity.ValueStore",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ValueStore, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ValueStore);
+	});
 	return class$;
 }
 

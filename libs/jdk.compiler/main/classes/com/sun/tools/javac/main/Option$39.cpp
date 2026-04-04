@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/main/Option$39.h>
-
 #include <com/sun/tools/javac/main/Option$41.h>
 #include <com/sun/tools/javac/main/Option$OptionGroup.h>
 #include <com/sun/tools/javac/main/Option$OptionKind.h>
@@ -51,7 +50,6 @@ using $Collections = ::java::util::Collections;
 using $Predicate = ::java::util::function::Predicate;
 using $Supplier = ::java::util::function::Supplier;
 using $Collectors = ::java::util::stream::Collectors;
-using $Stream = ::java::util::stream::Stream;
 using $VM = ::jdk::internal::misc::VM;
 
 namespace com {
@@ -69,33 +67,29 @@ public:
 	virtual $Object* get() override {
 		 return $of(Option$39::lambda$process$0(arg));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Option$39$$Lambda$lambda$process$0>());
-	}
 	$String* arg = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Option$39$$Lambda$lambda$process$0::fieldInfos[2] = {
-	{"arg", "Ljava/lang/String;", nullptr, $PUBLIC, $field(Option$39$$Lambda$lambda$process$0, arg)},
-	{}
-};
-$MethodInfo Option$39$$Lambda$lambda$process$0::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Option$39$$Lambda$lambda$process$0, init$, void, $String*)},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Option$39$$Lambda$lambda$process$0, get, $Object*)},
-	{}
-};
-$ClassInfo Option$39$$Lambda$lambda$process$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.main.Option$39$$Lambda$lambda$process$0",
-	"java.lang.Object",
-	"java.util.function.Supplier",
-	fieldInfos,
-	methodInfos
 };
 $Class* Option$39$$Lambda$lambda$process$0::load$($String* name, bool initialize) {
-	$loadClass(Option$39$$Lambda$lambda$process$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"arg", "Ljava/lang/String;", nullptr, $PUBLIC, $field(Option$39$$Lambda$lambda$process$0, arg)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Option$39$$Lambda$lambda$process$0, init$, void, $String*)},
+		{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Option$39$$Lambda$lambda$process$0, get, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.main.Option$39$$Lambda$lambda$process$0",
+		"java.lang.Object",
+		"java.util.function.Supplier",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Option$39$$Lambda$lambda$process$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Option$39$$Lambda$lambda$process$0);
+	});
 	return class$;
 }
 $Class* Option$39$$Lambda$lambda$process$0::class$ = nullptr;
@@ -108,77 +102,34 @@ public:
 	virtual bool test(Object$* s) override {
 		 return Option$39::lambda$process$1($cast($String, s));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Option$39$$Lambda$lambda$process$1$1>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo Option$39$$Lambda$lambda$process$1$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Option$39$$Lambda$lambda$process$1$1, init$, void)},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Option$39$$Lambda$lambda$process$1$1, test, bool, Object$*)},
-	{}
-};
-$ClassInfo Option$39$$Lambda$lambda$process$1$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.main.Option$39$$Lambda$lambda$process$1$1",
-	"java.lang.Object",
-	"java.util.function.Predicate",
-	nullptr,
-	methodInfos
 };
 $Class* Option$39$$Lambda$lambda$process$1$1::load$($String* name, bool initialize) {
-	$loadClass(Option$39$$Lambda$lambda$process$1$1, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Option$39$$Lambda$lambda$process$1$1, init$, void)},
+		{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Option$39$$Lambda$lambda$process$1$1, test, bool, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.main.Option$39$$Lambda$lambda$process$1$1",
+		"java.lang.Object",
+		"java.util.function.Predicate",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Option$39$$Lambda$lambda$process$1$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Option$39$$Lambda$lambda$process$1$1);
+	});
 	return class$;
 }
 $Class* Option$39$$Lambda$lambda$process$1$1::class$ = nullptr;
-
-$MethodInfo _Option$39_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;Lcom/sun/tools/javac/main/Option$OptionKind;Lcom/sun/tools/javac/main/Option$OptionGroup;)V", nullptr, $PRIVATE, $method(Option$39, init$, void, $String*, int32_t, $String*, $String*, $Option$OptionKind*, $Option$OptionGroup*)},
-	{"getSupportedRuntimeOptions", "()[Lcom/sun/tools/javac/main/Option;", nullptr, $PRIVATE, $method(Option$39, getSupportedRuntimeOptions, $OptionArray*)},
-	{"lambda$process$0", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Option$39, lambda$process$0, $String*, $String*)},
-	{"lambda$process$1", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Option$39, lambda$process$1, bool, $String*)},
-	{"process", "(Lcom/sun/tools/javac/main/OptionHelper;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Option$39, process, void, $OptionHelper*, $String*), "com.sun.tools.javac.main.Option$InvalidValueException"},
-	{}
-};
-
-$EnclosingMethodInfo _Option$39_EnclosingMethodInfo_ = {
-	"com.sun.tools.javac.main.Option",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _Option$39_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.main.Option$39", nullptr, nullptr, $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _Option$39_ClassInfo_ = {
-	$FINAL | $ACC_SUPER | $ENUM,
-	"com.sun.tools.javac.main.Option$39",
-	"com.sun.tools.javac.main.Option",
-	nullptr,
-	nullptr,
-	_Option$39_MethodInfo_,
-	nullptr,
-	&_Option$39_EnclosingMethodInfo_,
-	_Option$39_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.main.Option"
-};
-
-$Object* allocate$Option$39($Class* clazz) {
-	return $of($alloc(Option$39));
-}
 
 void Option$39::init$($String* $enum$name, int32_t $enum$ordinal, $String* text, $String* descrKey, $Option$OptionKind* kind, $Option$OptionGroup* group) {
 	$Option::init$($enum$name, $enum$ordinal, text, descrKey, kind, group);
 }
 
 void Option$39::process($OptionHelper* helper, $String* option) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringArray, runtimeArgs, $VM::getRuntimeArguments());
 	{
 		$var($StringArray, arr$, runtimeArgs);
@@ -187,40 +138,28 @@ void Option$39::process($OptionHelper* helper, $String* option) {
 		for (; i$ < len$; ++i$) {
 			$var($String, arg, arr$->get(i$));
 			{
-				{
-					$var($OptionArray, arr$, getSupportedRuntimeOptions());
-					int32_t len$ = arr$->length;
-					int32_t i$ = 0;
-					for (; i$ < len$; ++i$) {
-						$Option* o = arr$->get(i$);
-						{
-							if ($nc(o)->matches(arg)) {
-								$init($Option$41);
-								{
-									int32_t eq = 0;
-									$var($String, mods, nullptr)
-									switch ($nc($Option$41::$SwitchMap$com$sun$tools$javac$main$Option)->get((o)->ordinal())) {
-									case 1:
-										{
-											eq = $nc(arg)->indexOf((int32_t)u'=');
-											$Assert::check(eq > 0, static_cast<$Supplier*>($$new(Option$39$$Lambda$lambda$process$0, arg)));
-											$assign(mods, $cast($String, $nc($($nc($($Arrays::stream($($(arg->substring(eq + 1))->split(","_s)))))->filter(static_cast<$Predicate*>($$new(Option$39$$Lambda$lambda$process$1$1)))))->collect($($Collectors::joining(","_s)))));
-											if (!$nc(mods)->isEmpty()) {
-												$var($String, updatedArg, $str({$(arg->substring(0, eq + 1)), mods}));
-												o->handleOption(helper, updatedArg, $($Collections::emptyIterator()));
-											}
-											break;
-										}
-									default:
-										{
-											o->handleOption(helper, arg, $($Collections::emptyIterator()));
-											break;
-										}
-									}
-								}
-								break;
+				$var($OptionArray, arr$, getSupportedRuntimeOptions());
+				for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
+					$Option* o = arr$->get(i$);
+					if ($nc(o)->matches(arg)) {
+						$init($Option$41);
+						int32_t eq = 0;
+						$var($String, mods, nullptr);
+						switch ($nc($Option$41::$SwitchMap$com$sun$tools$javac$main$Option)->get((o)->ordinal())) {
+						case 1:
+							eq = $nc(arg)->indexOf(u'=');
+							$Assert::check(eq > 0, $$new(Option$39$$Lambda$lambda$process$0, arg));
+							$assign(mods, $cast($String, $$nc($$nc($Arrays::stream($($(arg->substring(eq + 1))->split(","_s))))->filter($$new(Option$39$$Lambda$lambda$process$1$1)))->collect($($Collectors::joining(","_s)))));
+							if (!$nc(mods)->isEmpty()) {
+								$var($String, updatedArg, $str({$(arg->substring(0, eq + 1)), mods}));
+								o->handleOption(helper, updatedArg, $($Collections::emptyIterator()));
 							}
+							break;
+						default:
+							o->handleOption(helper, arg, $($Collections::emptyIterator()));
+							break;
 						}
+						break;
 					}
 				}
 			}
@@ -257,14 +196,48 @@ Option$39::Option$39() {
 
 $Class* Option$39::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(Option$39$$Lambda$lambda$process$0::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.main.Option$39$$Lambda$lambda$process$0")) {
 			return Option$39$$Lambda$lambda$process$0::load$(name, initialize);
 		}
-		if (name->equals(Option$39$$Lambda$lambda$process$1$1::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.main.Option$39$$Lambda$lambda$process$1$1")) {
 			return Option$39$$Lambda$lambda$process$1$1::load$(name, initialize);
 		}
 	}
-	$loadClass(Option$39, name, initialize, &_Option$39_ClassInfo_, allocate$Option$39);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;Lcom/sun/tools/javac/main/Option$OptionKind;Lcom/sun/tools/javac/main/Option$OptionGroup;)V", nullptr, $PRIVATE, $method(Option$39, init$, void, $String*, int32_t, $String*, $String*, $Option$OptionKind*, $Option$OptionGroup*)},
+		{"getSupportedRuntimeOptions", "()[Lcom/sun/tools/javac/main/Option;", nullptr, $PRIVATE, $method(Option$39, getSupportedRuntimeOptions, $OptionArray*)},
+		{"lambda$process$0", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Option$39, lambda$process$0, $String*, $String*)},
+		{"lambda$process$1", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Option$39, lambda$process$1, bool, $String*)},
+		{"process", "(Lcom/sun/tools/javac/main/OptionHelper;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Option$39, process, void, $OptionHelper*, $String*), "com.sun.tools.javac.main.Option$InvalidValueException"},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.tools.javac.main.Option",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.main.Option$39", nullptr, nullptr, $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER | $ENUM,
+		"com.sun.tools.javac.main.Option$39",
+		"com.sun.tools.javac.main.Option",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.main.Option"
+	};
+	$loadClass(Option$39, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Option$39));
+	});
 	return class$;
 }
 

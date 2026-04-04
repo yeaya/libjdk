@@ -1,5 +1,4 @@
 #include <javax/swing/JSpinner$ListEditor$ListFormatter.h>
-
 #include <javax/swing/JFormattedTextField$AbstractFormatter.h>
 #include <javax/swing/JSpinner$ListEditor$ListFormatter$Filter.h>
 #include <javax/swing/JSpinner$ListEditor.h>
@@ -17,48 +16,6 @@ using $DocumentFilter = ::javax::swing::text::DocumentFilter;
 
 namespace javax {
 	namespace swing {
-
-$FieldInfo _JSpinner$ListEditor$ListFormatter_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/JSpinner$ListEditor;", nullptr, $FINAL | $SYNTHETIC, $field(JSpinner$ListEditor$ListFormatter, this$0)},
-	{"filter", "Ljavax/swing/text/DocumentFilter;", nullptr, $PRIVATE, $field(JSpinner$ListEditor$ListFormatter, filter)},
-	{}
-};
-
-$MethodInfo _JSpinner$ListEditor$ListFormatter_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/JSpinner$ListEditor;)V", nullptr, $PRIVATE, $method(JSpinner$ListEditor$ListFormatter, init$, void, $JSpinner$ListEditor*)},
-	{"getDocumentFilter", "()Ljavax/swing/text/DocumentFilter;", nullptr, $PROTECTED, $virtualMethod(JSpinner$ListEditor$ListFormatter, getDocumentFilter, $DocumentFilter*)},
-	{"stringToValue", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JSpinner$ListEditor$ListFormatter, stringToValue, $Object*, $String*), "java.text.ParseException"},
-	{"valueToString", "(Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JSpinner$ListEditor$ListFormatter, valueToString, $String*, Object$*), "java.text.ParseException"},
-	{}
-};
-
-$InnerClassInfo _JSpinner$ListEditor$ListFormatter_InnerClassesInfo_[] = {
-	{"javax.swing.JSpinner$ListEditor", "javax.swing.JSpinner", "ListEditor", $PUBLIC | $STATIC},
-	{"javax.swing.JSpinner$ListEditor$ListFormatter", "javax.swing.JSpinner$ListEditor", "ListFormatter", $PRIVATE},
-	{"javax.swing.JFormattedTextField$AbstractFormatter", "javax.swing.JFormattedTextField", "AbstractFormatter", $PUBLIC | $STATIC | $ABSTRACT},
-	{"javax.swing.JSpinner$ListEditor$ListFormatter$Filter", "javax.swing.JSpinner$ListEditor$ListFormatter", "Filter", $PRIVATE},
-	{}
-};
-
-$ClassInfo _JSpinner$ListEditor$ListFormatter_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.JSpinner$ListEditor$ListFormatter",
-	"javax.swing.JFormattedTextField$AbstractFormatter",
-	nullptr,
-	_JSpinner$ListEditor$ListFormatter_FieldInfo_,
-	_JSpinner$ListEditor$ListFormatter_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JSpinner$ListEditor$ListFormatter_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.JSpinner"
-};
-
-$Object* allocate$JSpinner$ListEditor$ListFormatter($Class* clazz) {
-	return $of($alloc(JSpinner$ListEditor$ListFormatter));
-}
 
 void JSpinner$ListEditor$ListFormatter::init$($JSpinner$ListEditor* this$0) {
 	$set(this, this$0, this$0);
@@ -87,7 +44,43 @@ JSpinner$ListEditor$ListFormatter::JSpinner$ListEditor$ListFormatter() {
 }
 
 $Class* JSpinner$ListEditor$ListFormatter::load$($String* name, bool initialize) {
-	$loadClass(JSpinner$ListEditor$ListFormatter, name, initialize, &_JSpinner$ListEditor$ListFormatter_ClassInfo_, allocate$JSpinner$ListEditor$ListFormatter);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/JSpinner$ListEditor;", nullptr, $FINAL | $SYNTHETIC, $field(JSpinner$ListEditor$ListFormatter, this$0)},
+		{"filter", "Ljavax/swing/text/DocumentFilter;", nullptr, $PRIVATE, $field(JSpinner$ListEditor$ListFormatter, filter)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/JSpinner$ListEditor;)V", nullptr, $PRIVATE, $method(JSpinner$ListEditor$ListFormatter, init$, void, $JSpinner$ListEditor*)},
+		{"getDocumentFilter", "()Ljavax/swing/text/DocumentFilter;", nullptr, $PROTECTED, $virtualMethod(JSpinner$ListEditor$ListFormatter, getDocumentFilter, $DocumentFilter*)},
+		{"stringToValue", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JSpinner$ListEditor$ListFormatter, stringToValue, $Object*, $String*), "java.text.ParseException"},
+		{"valueToString", "(Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JSpinner$ListEditor$ListFormatter, valueToString, $String*, Object$*), "java.text.ParseException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.JSpinner$ListEditor", "javax.swing.JSpinner", "ListEditor", $PUBLIC | $STATIC},
+		{"javax.swing.JSpinner$ListEditor$ListFormatter", "javax.swing.JSpinner$ListEditor", "ListFormatter", $PRIVATE},
+		{"javax.swing.JFormattedTextField$AbstractFormatter", "javax.swing.JFormattedTextField", "AbstractFormatter", $PUBLIC | $STATIC | $ABSTRACT},
+		{"javax.swing.JSpinner$ListEditor$ListFormatter$Filter", "javax.swing.JSpinner$ListEditor$ListFormatter", "Filter", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.JSpinner$ListEditor$ListFormatter",
+		"javax.swing.JFormattedTextField$AbstractFormatter",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.JSpinner"
+	};
+	$loadClass(JSpinner$ListEditor$ListFormatter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JSpinner$ListEditor$ListFormatter);
+	});
 	return class$;
 }
 

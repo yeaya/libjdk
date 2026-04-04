@@ -1,5 +1,4 @@
 #include <sun/awt/util/IdentityLinkedList$ListItr.h>
-
 #include <java/lang/IllegalStateException.h>
 #include <java/lang/IndexOutOfBoundsException.h>
 #include <java/util/ConcurrentModificationException.h>
@@ -23,57 +22,8 @@ namespace sun {
 	namespace awt {
 		namespace util {
 
-$FieldInfo _IdentityLinkedList$ListItr_FieldInfo_[] = {
-	{"this$0", "Lsun/awt/util/IdentityLinkedList;", nullptr, $FINAL | $SYNTHETIC, $field(IdentityLinkedList$ListItr, this$0)},
-	{"lastReturned", "Lsun/awt/util/IdentityLinkedList$Entry;", "Lsun/awt/util/IdentityLinkedList$Entry<TE;>;", $PRIVATE, $field(IdentityLinkedList$ListItr, lastReturned)},
-	{"next", "Lsun/awt/util/IdentityLinkedList$Entry;", "Lsun/awt/util/IdentityLinkedList$Entry<TE;>;", $PRIVATE, $field(IdentityLinkedList$ListItr, next$)},
-	{"nextIndex", "I", nullptr, $PRIVATE, $field(IdentityLinkedList$ListItr, nextIndex$)},
-	{"expectedModCount", "I", nullptr, $PRIVATE, $field(IdentityLinkedList$ListItr, expectedModCount)},
-	{}
-};
-
-$MethodInfo _IdentityLinkedList$ListItr_MethodInfo_[] = {
-	{"<init>", "(Lsun/awt/util/IdentityLinkedList;I)V", nullptr, 0, $method(IdentityLinkedList$ListItr, init$, void, $IdentityLinkedList*, int32_t)},
-	{"add", "(Ljava/lang/Object;)V", "(TE;)V", $PUBLIC, $virtualMethod(IdentityLinkedList$ListItr, add, void, Object$*)},
-	{"checkForComodification", "()V", nullptr, $FINAL, $method(IdentityLinkedList$ListItr, checkForComodification, void)},
-	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(IdentityLinkedList$ListItr, hasNext, bool)},
-	{"hasPrevious", "()Z", nullptr, $PUBLIC, $virtualMethod(IdentityLinkedList$ListItr, hasPrevious, bool)},
-	{"next", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(IdentityLinkedList$ListItr, next, $Object*)},
-	{"nextIndex", "()I", nullptr, $PUBLIC, $virtualMethod(IdentityLinkedList$ListItr, nextIndex, int32_t)},
-	{"previous", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(IdentityLinkedList$ListItr, previous, $Object*)},
-	{"previousIndex", "()I", nullptr, $PUBLIC, $virtualMethod(IdentityLinkedList$ListItr, previousIndex, int32_t)},
-	{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(IdentityLinkedList$ListItr, remove, void)},
-	{"set", "(Ljava/lang/Object;)V", "(TE;)V", $PUBLIC, $virtualMethod(IdentityLinkedList$ListItr, set, void, Object$*)},
-	{}
-};
-
-$InnerClassInfo _IdentityLinkedList$ListItr_InnerClassesInfo_[] = {
-	{"sun.awt.util.IdentityLinkedList$ListItr", "sun.awt.util.IdentityLinkedList", "ListItr", $PRIVATE},
-	{}
-};
-
-$ClassInfo _IdentityLinkedList$ListItr_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.awt.util.IdentityLinkedList$ListItr",
-	"java.lang.Object",
-	"java.util.ListIterator",
-	_IdentityLinkedList$ListItr_FieldInfo_,
-	_IdentityLinkedList$ListItr_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/ListIterator<TE;>;",
-	nullptr,
-	_IdentityLinkedList$ListItr_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.awt.util.IdentityLinkedList"
-};
-
-$Object* allocate$IdentityLinkedList$ListItr($Class* clazz) {
-	return $of($alloc(IdentityLinkedList$ListItr));
-}
-
 void IdentityLinkedList$ListItr::init$($IdentityLinkedList* this$0, int32_t index) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, this$0, this$0);
 	$set(this, lastReturned, this->this$0->header);
 	this->expectedModCount = $IdentityLinkedList::access$000(this->this$0);
@@ -105,7 +55,7 @@ $Object* IdentityLinkedList$ListItr::next() {
 	$set(this, lastReturned, this->next$);
 	$set(this, next$, $nc(this->next$)->next);
 	++this->nextIndex$;
-	return $of($nc(this->lastReturned)->element);
+	return $nc(this->lastReturned)->element;
 }
 
 bool IdentityLinkedList$ListItr::hasPrevious() {
@@ -116,10 +66,10 @@ $Object* IdentityLinkedList$ListItr::previous() {
 	if (this->nextIndex$ == 0) {
 		$throwNew($NoSuchElementException);
 	}
-	$set(this, lastReturned, ($set(this, next$, $nc(this->next$)->previous)));
+	$set(this, lastReturned, $set(this, next$, $nc(this->next$)->previous));
 	--this->nextIndex$;
 	checkForComodification();
-	return $of($nc(this->lastReturned)->element);
+	return $nc(this->lastReturned)->element;
 }
 
 int32_t IdentityLinkedList$ListItr::nextIndex() {
@@ -173,7 +123,50 @@ IdentityLinkedList$ListItr::IdentityLinkedList$ListItr() {
 }
 
 $Class* IdentityLinkedList$ListItr::load$($String* name, bool initialize) {
-	$loadClass(IdentityLinkedList$ListItr, name, initialize, &_IdentityLinkedList$ListItr_ClassInfo_, allocate$IdentityLinkedList$ListItr);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/awt/util/IdentityLinkedList;", nullptr, $FINAL | $SYNTHETIC, $field(IdentityLinkedList$ListItr, this$0)},
+		{"lastReturned", "Lsun/awt/util/IdentityLinkedList$Entry;", "Lsun/awt/util/IdentityLinkedList$Entry<TE;>;", $PRIVATE, $field(IdentityLinkedList$ListItr, lastReturned)},
+		{"next", "Lsun/awt/util/IdentityLinkedList$Entry;", "Lsun/awt/util/IdentityLinkedList$Entry<TE;>;", $PRIVATE, $field(IdentityLinkedList$ListItr, next$)},
+		{"nextIndex", "I", nullptr, $PRIVATE, $field(IdentityLinkedList$ListItr, nextIndex$)},
+		{"expectedModCount", "I", nullptr, $PRIVATE, $field(IdentityLinkedList$ListItr, expectedModCount)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/awt/util/IdentityLinkedList;I)V", nullptr, 0, $method(IdentityLinkedList$ListItr, init$, void, $IdentityLinkedList*, int32_t)},
+		{"add", "(Ljava/lang/Object;)V", "(TE;)V", $PUBLIC, $virtualMethod(IdentityLinkedList$ListItr, add, void, Object$*)},
+		{"checkForComodification", "()V", nullptr, $FINAL, $method(IdentityLinkedList$ListItr, checkForComodification, void)},
+		{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(IdentityLinkedList$ListItr, hasNext, bool)},
+		{"hasPrevious", "()Z", nullptr, $PUBLIC, $virtualMethod(IdentityLinkedList$ListItr, hasPrevious, bool)},
+		{"next", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(IdentityLinkedList$ListItr, next, $Object*)},
+		{"nextIndex", "()I", nullptr, $PUBLIC, $virtualMethod(IdentityLinkedList$ListItr, nextIndex, int32_t)},
+		{"previous", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(IdentityLinkedList$ListItr, previous, $Object*)},
+		{"previousIndex", "()I", nullptr, $PUBLIC, $virtualMethod(IdentityLinkedList$ListItr, previousIndex, int32_t)},
+		{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(IdentityLinkedList$ListItr, remove, void)},
+		{"set", "(Ljava/lang/Object;)V", "(TE;)V", $PUBLIC, $virtualMethod(IdentityLinkedList$ListItr, set, void, Object$*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.util.IdentityLinkedList$ListItr", "sun.awt.util.IdentityLinkedList", "ListItr", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.awt.util.IdentityLinkedList$ListItr",
+		"java.lang.Object",
+		"java.util.ListIterator",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/ListIterator<TE;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.awt.util.IdentityLinkedList"
+	};
+	$loadClass(IdentityLinkedList$ListItr, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(IdentityLinkedList$ListItr);
+	});
 	return class$;
 }
 

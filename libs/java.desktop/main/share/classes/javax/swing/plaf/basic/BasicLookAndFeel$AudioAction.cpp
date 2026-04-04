@@ -1,18 +1,14 @@
 #include <javax/swing/plaf/basic/BasicLookAndFeel$AudioAction.h>
-
 #include <java/awt/event/ActionEvent.h>
 #include <java/io/ByteArrayInputStream.h>
-#include <java/io/InputStream.h>
 #include <javax/sound/sampled/AudioFormat.h>
 #include <javax/sound/sampled/AudioInputStream.h>
 #include <javax/sound/sampled/AudioSystem.h>
 #include <javax/sound/sampled/Clip.h>
 #include <javax/sound/sampled/DataLine$Info.h>
-#include <javax/sound/sampled/Line$Info.h>
 #include <javax/sound/sampled/Line.h>
 #include <javax/sound/sampled/LineEvent$Type.h>
 #include <javax/sound/sampled/LineEvent.h>
-#include <javax/sound/sampled/LineListener.h>
 #include <javax/swing/AbstractAction.h>
 #include <javax/swing/plaf/basic/BasicLookAndFeel.h>
 #include <jcpp.h>
@@ -21,7 +17,6 @@
 
 using $ActionEvent = ::java::awt::event::ActionEvent;
 using $ByteArrayInputStream = ::java::io::ByteArrayInputStream;
-using $InputStream = ::java::io::InputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -31,10 +26,8 @@ using $AudioInputStream = ::javax::sound::sampled::AudioInputStream;
 using $AudioSystem = ::javax::sound::sampled::AudioSystem;
 using $Clip = ::javax::sound::sampled::Clip;
 using $DataLine$Info = ::javax::sound::sampled::DataLine$Info;
-using $Line$Info = ::javax::sound::sampled::Line$Info;
 using $LineEvent = ::javax::sound::sampled::LineEvent;
 using $LineEvent$Type = ::javax::sound::sampled::LineEvent$Type;
-using $LineListener = ::javax::sound::sampled::LineListener;
 using $AbstractAction = ::javax::swing::AbstractAction;
 using $BasicLookAndFeel = ::javax::swing::plaf::basic::BasicLookAndFeel;
 
@@ -42,51 +35,6 @@ namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace basic {
-
-$FieldInfo _BasicLookAndFeel$AudioAction_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/plaf/basic/BasicLookAndFeel;", nullptr, $FINAL | $SYNTHETIC, $field(BasicLookAndFeel$AudioAction, this$0)},
-	{"audioResource", "Ljava/lang/String;", nullptr, $PRIVATE, $field(BasicLookAndFeel$AudioAction, audioResource)},
-	{"audioBuffer", "[B", nullptr, $PRIVATE, $field(BasicLookAndFeel$AudioAction, audioBuffer)},
-	{}
-};
-
-$MethodInfo _BasicLookAndFeel$AudioAction_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljavax/swing/plaf/basic/BasicLookAndFeel;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(BasicLookAndFeel$AudioAction, init$, void, $BasicLookAndFeel*, $String*, $String*)},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicLookAndFeel$AudioAction, actionPerformed, void, $ActionEvent*)},
-	{"cancelCurrentSound", "(Ljavax/sound/sampled/Clip;)V", nullptr, $PRIVATE, $method(BasicLookAndFeel$AudioAction, cancelCurrentSound, void, $Clip*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"update", "(Ljavax/sound/sampled/LineEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicLookAndFeel$AudioAction, update, void, $LineEvent*)},
-	{}
-};
-
-$InnerClassInfo _BasicLookAndFeel$AudioAction_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.basic.BasicLookAndFeel$AudioAction", "javax.swing.plaf.basic.BasicLookAndFeel", "AudioAction", $PRIVATE},
-	{}
-};
-
-$ClassInfo _BasicLookAndFeel$AudioAction_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.basic.BasicLookAndFeel$AudioAction",
-	"javax.swing.AbstractAction",
-	"javax.sound.sampled.LineListener",
-	_BasicLookAndFeel$AudioAction_FieldInfo_,
-	_BasicLookAndFeel$AudioAction_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BasicLookAndFeel$AudioAction_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.basic.BasicLookAndFeel"
-};
-
-$Object* allocate$BasicLookAndFeel$AudioAction($Class* clazz) {
-	return $of($alloc(BasicLookAndFeel$AudioAction));
-}
 
 $Object* BasicLookAndFeel$AudioAction::clone() {
 	 return this->$AbstractAction::clone();
@@ -115,14 +63,14 @@ void BasicLookAndFeel$AudioAction::init$($BasicLookAndFeel* this$0, $String* nam
 }
 
 void BasicLookAndFeel$AudioAction::actionPerformed($ActionEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->audioBuffer == nullptr) {
 		$set(this, audioBuffer, this->this$0->loadAudioData(this->audioResource));
 	}
 	if (this->audioBuffer != nullptr) {
 		cancelCurrentSound(nullptr);
 		try {
-			$var($AudioInputStream, soundStream, $AudioSystem::getAudioInputStream(static_cast<$InputStream*>($$new($ByteArrayInputStream, this->audioBuffer))));
+			$var($AudioInputStream, soundStream, $AudioSystem::getAudioInputStream($$new($ByteArrayInputStream, this->audioBuffer)));
 			$load($Clip);
 			$var($DataLine$Info, info, $new($DataLine$Info, $Clip::class$, $($nc(soundStream)->getFormat())));
 			$var($Clip, clip, $cast($Clip, $AudioSystem::getLine(info)));
@@ -140,7 +88,7 @@ void BasicLookAndFeel$AudioAction::actionPerformed($ActionEvent* e) {
 void BasicLookAndFeel$AudioAction::update($LineEvent* event) {
 	$init($LineEvent$Type);
 	if ($nc(event)->getType() == $LineEvent$Type::STOP) {
-		cancelCurrentSound($cast($Clip, $(event->getLine())));
+		cancelCurrentSound($$cast($Clip, event->getLine()));
 	}
 }
 
@@ -162,7 +110,46 @@ BasicLookAndFeel$AudioAction::BasicLookAndFeel$AudioAction() {
 }
 
 $Class* BasicLookAndFeel$AudioAction::load$($String* name, bool initialize) {
-	$loadClass(BasicLookAndFeel$AudioAction, name, initialize, &_BasicLookAndFeel$AudioAction_ClassInfo_, allocate$BasicLookAndFeel$AudioAction);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/plaf/basic/BasicLookAndFeel;", nullptr, $FINAL | $SYNTHETIC, $field(BasicLookAndFeel$AudioAction, this$0)},
+		{"audioResource", "Ljava/lang/String;", nullptr, $PRIVATE, $field(BasicLookAndFeel$AudioAction, audioResource)},
+		{"audioBuffer", "[B", nullptr, $PRIVATE, $field(BasicLookAndFeel$AudioAction, audioBuffer)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljavax/swing/plaf/basic/BasicLookAndFeel;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(BasicLookAndFeel$AudioAction, init$, void, $BasicLookAndFeel*, $String*, $String*)},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicLookAndFeel$AudioAction, actionPerformed, void, $ActionEvent*)},
+		{"cancelCurrentSound", "(Ljavax/sound/sampled/Clip;)V", nullptr, $PRIVATE, $method(BasicLookAndFeel$AudioAction, cancelCurrentSound, void, $Clip*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"update", "(Ljavax/sound/sampled/LineEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicLookAndFeel$AudioAction, update, void, $LineEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.basic.BasicLookAndFeel$AudioAction", "javax.swing.plaf.basic.BasicLookAndFeel", "AudioAction", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.basic.BasicLookAndFeel$AudioAction",
+		"javax.swing.AbstractAction",
+		"javax.sound.sampled.LineListener",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.basic.BasicLookAndFeel"
+	};
+	$loadClass(BasicLookAndFeel$AudioAction, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(BasicLookAndFeel$AudioAction));
+	});
 	return class$;
 }
 

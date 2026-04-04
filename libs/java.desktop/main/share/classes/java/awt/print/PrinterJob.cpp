@@ -1,5 +1,4 @@
 #include <java/awt/print/PrinterJob.h>
-
 #include <java/awt/print/PageFormat.h>
 #include <java/awt/print/Pageable.h>
 #include <java/awt/print/Paper.h>
@@ -48,7 +47,6 @@ using $DocFlavor$SERVICE_FORMATTED = ::javax::print::DocFlavor$SERVICE_FORMATTED
 using $PrintService = ::javax::print::PrintService;
 using $PrintServiceLookup = ::javax::print::PrintServiceLookup;
 using $StreamPrintServiceFactory = ::javax::print::StreamPrintServiceFactory;
-using $Attribute = ::javax::print::attribute::Attribute;
 using $AttributeSet = ::javax::print::attribute::AttributeSet;
 using $DocAttribute = ::javax::print::attribute::DocAttribute;
 using $PrintRequestAttributeSet = ::javax::print::attribute::PrintRequestAttributeSet;
@@ -62,49 +60,6 @@ using $PlatformPrinterJobProxy = ::sun::print::PlatformPrinterJobProxy;
 namespace java {
 	namespace awt {
 		namespace print {
-
-$MethodInfo _PrinterJob_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(PrinterJob, init$, void)},
-	{"cancel", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(PrinterJob, cancel, void)},
-	{"defaultPage", "(Ljava/awt/print/PageFormat;)Ljava/awt/print/PageFormat;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(PrinterJob, defaultPage, $PageFormat*, $PageFormat*)},
-	{"defaultPage", "()Ljava/awt/print/PageFormat;", nullptr, $PUBLIC, $virtualMethod(PrinterJob, defaultPage, $PageFormat*)},
-	{"getCopies", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(PrinterJob, getCopies, int32_t)},
-	{"getJobName", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(PrinterJob, getJobName, $String*)},
-	{"getPageFormat", "(Ljavax/print/attribute/PrintRequestAttributeSet;)Ljava/awt/print/PageFormat;", nullptr, $PUBLIC, $virtualMethod(PrinterJob, getPageFormat, $PageFormat*, $PrintRequestAttributeSet*)},
-	{"getPrintService", "()Ljavax/print/PrintService;", nullptr, $PUBLIC, $virtualMethod(PrinterJob, getPrintService, $PrintService*)},
-	{"getPrinterJob", "()Ljava/awt/print/PrinterJob;", nullptr, $PUBLIC | $STATIC, $staticMethod(PrinterJob, getPrinterJob, PrinterJob*)},
-	{"getUserName", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(PrinterJob, getUserName, $String*)},
-	{"isCancelled", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(PrinterJob, isCancelled, bool)},
-	{"lookupPrintServices", "()[Ljavax/print/PrintService;", nullptr, $PUBLIC | $STATIC, $staticMethod(PrinterJob, lookupPrintServices, $PrintServiceArray*)},
-	{"lookupStreamPrintServices", "(Ljava/lang/String;)[Ljavax/print/StreamPrintServiceFactory;", nullptr, $PUBLIC | $STATIC, $staticMethod(PrinterJob, lookupStreamPrintServices, $StreamPrintServiceFactoryArray*, $String*)},
-	{"pageDialog", "(Ljava/awt/print/PageFormat;)Ljava/awt/print/PageFormat;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(PrinterJob, pageDialog, $PageFormat*, $PageFormat*), "java.awt.HeadlessException"},
-	{"pageDialog", "(Ljavax/print/attribute/PrintRequestAttributeSet;)Ljava/awt/print/PageFormat;", nullptr, $PUBLIC, $virtualMethod(PrinterJob, pageDialog, $PageFormat*, $PrintRequestAttributeSet*), "java.awt.HeadlessException"},
-	{"print", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(PrinterJob, print, void), "java.awt.print.PrinterException"},
-	{"print", "(Ljavax/print/attribute/PrintRequestAttributeSet;)V", nullptr, $PUBLIC, $virtualMethod(PrinterJob, print, void, $PrintRequestAttributeSet*), "java.awt.print.PrinterException"},
-	{"printDialog", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(PrinterJob, printDialog, bool), "java.awt.HeadlessException"},
-	{"printDialog", "(Ljavax/print/attribute/PrintRequestAttributeSet;)Z", nullptr, $PUBLIC, $virtualMethod(PrinterJob, printDialog, bool, $PrintRequestAttributeSet*), "java.awt.HeadlessException"},
-	{"setCopies", "(I)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(PrinterJob, setCopies, void, int32_t)},
-	{"setJobName", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(PrinterJob, setJobName, void, $String*)},
-	{"setPageable", "(Ljava/awt/print/Pageable;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(PrinterJob, setPageable, void, $Pageable*), "java.lang.NullPointerException"},
-	{"setPrintService", "(Ljavax/print/PrintService;)V", nullptr, $PUBLIC, $virtualMethod(PrinterJob, setPrintService, void, $PrintService*), "java.awt.print.PrinterException"},
-	{"setPrintable", "(Ljava/awt/print/Printable;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(PrinterJob, setPrintable, void, $Printable*)},
-	{"setPrintable", "(Ljava/awt/print/Printable;Ljava/awt/print/PageFormat;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(PrinterJob, setPrintable, void, $Printable*, $PageFormat*)},
-	{"validatePage", "(Ljava/awt/print/PageFormat;)Ljava/awt/print/PageFormat;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(PrinterJob, validatePage, $PageFormat*, $PageFormat*)},
-	{}
-};
-
-$ClassInfo _PrinterJob_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"java.awt.print.PrinterJob",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_PrinterJob_MethodInfo_
-};
-
-$Object* allocate$PrinterJob($Class* clazz) {
-	return $of($alloc(PrinterJob));
-}
 
 PrinterJob* PrinterJob::getPrinterJob() {
 	$var($SecurityManager, security, $System::getSecurityManager());
@@ -154,7 +109,7 @@ $PageFormat* PrinterJob::defaultPage() {
 }
 
 $PageFormat* PrinterJob::getPageFormat($PrintRequestAttributeSet* attributes) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($PrintService, service, getPrintService());
 	$var($PageFormat, pf, defaultPage());
 	if (service == nullptr || attributes == nullptr) {
@@ -172,11 +127,11 @@ $PageFormat* PrinterJob::getPageFormat($PrintRequestAttributeSet* attributes) {
 	$var($Paper, paper, $nc(pf)->getPaper());
 	if (mpa == nullptr && media != nullptr && $nc(service)->isAttributeCategorySupported($MediaPrintableArea::class$)) {
 		$var($Object, mpaVals, service->getSupportedAttributeValues($MediaPrintableArea::class$, nullptr, attributes));
-		if ($instanceOf($MediaPrintableAreaArray, mpaVals) && $nc(($cast($MediaPrintableAreaArray, mpaVals)))->length > 0) {
-			$assign(mpa, $nc(($cast($MediaPrintableAreaArray, mpaVals)))->get(0));
+		if ($instanceOf($MediaPrintableAreaArray, mpaVals) && $cast($MediaPrintableAreaArray, mpaVals)->length > 0) {
+			$assign(mpa, $cast($MediaPrintableAreaArray, mpaVals)->get(0));
 		}
 	}
-	if (media != nullptr && $nc(service)->isAttributeValueSupported(static_cast<$Attribute*>(static_cast<$DocAttribute*>(media)), nullptr, attributes)) {
+	if (media != nullptr && $nc(service)->isAttributeValueSupported($cast($DocAttribute, media), nullptr, attributes)) {
 		if ($instanceOf($MediaSizeName, media)) {
 			$var($MediaSizeName, msn, $cast($MediaSizeName, media));
 			$var($MediaSize, msz, $MediaSize::getMediaSizeForName(msn));
@@ -191,24 +146,22 @@ $PageFormat* PrinterJob::getPageFormat($PrintRequestAttributeSet* attributes) {
 			}
 		}
 	}
-	if (mpa != nullptr && $nc(service)->isAttributeValueSupported(static_cast<$Attribute*>(static_cast<$DocAttribute*>(mpa)), nullptr, attributes)) {
+	if (mpa != nullptr && $nc(service)->isAttributeValueSupported($cast($DocAttribute, mpa), nullptr, attributes)) {
 		$var($floats, printableArea, mpa->getPrintableArea($MediaPrintableArea::INCH));
 		for (int32_t i = 0; i < $nc(printableArea)->length; ++i) {
 			printableArea->set(i, printableArea->get(i) * 72.0f);
 		}
-		$nc(paper)->setImageableArea($nc(printableArea)->get(0), printableArea->get(1), printableArea->get(2), printableArea->get(3));
+		$nc(paper)->setImageableArea(printableArea->get(0), printableArea->get(1), printableArea->get(2), printableArea->get(3));
 	}
-	if (orientReq != nullptr && $nc(service)->isAttributeValueSupported(static_cast<$Attribute*>(static_cast<$DocAttribute*>(orientReq)), nullptr, attributes)) {
+	if (orientReq != nullptr && $nc(service)->isAttributeValueSupported($cast($DocAttribute, orientReq), nullptr, attributes)) {
 		int32_t orient = 0;
 		$init($OrientationRequested);
-		if ($of(orientReq)->equals($OrientationRequested::REVERSE_LANDSCAPE)) {
+		if (orientReq->equals($OrientationRequested::REVERSE_LANDSCAPE)) {
 			orient = $PageFormat::REVERSE_LANDSCAPE;
+		} else if (orientReq->equals($OrientationRequested::LANDSCAPE)) {
+			orient = $PageFormat::LANDSCAPE;
 		} else {
-			if ($of(orientReq)->equals($OrientationRequested::LANDSCAPE)) {
-				orient = $PageFormat::LANDSCAPE;
-			} else {
-				orient = $PageFormat::PORTRAIT;
-			}
+			orient = $PageFormat::PORTRAIT;
 		}
 		pf->setOrientation(orient);
 	}
@@ -225,7 +178,46 @@ PrinterJob::PrinterJob() {
 }
 
 $Class* PrinterJob::load$($String* name, bool initialize) {
-	$loadClass(PrinterJob, name, initialize, &_PrinterJob_ClassInfo_, allocate$PrinterJob);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(PrinterJob, init$, void)},
+		{"cancel", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(PrinterJob, cancel, void)},
+		{"defaultPage", "(Ljava/awt/print/PageFormat;)Ljava/awt/print/PageFormat;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(PrinterJob, defaultPage, $PageFormat*, $PageFormat*)},
+		{"defaultPage", "()Ljava/awt/print/PageFormat;", nullptr, $PUBLIC, $virtualMethod(PrinterJob, defaultPage, $PageFormat*)},
+		{"getCopies", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(PrinterJob, getCopies, int32_t)},
+		{"getJobName", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(PrinterJob, getJobName, $String*)},
+		{"getPageFormat", "(Ljavax/print/attribute/PrintRequestAttributeSet;)Ljava/awt/print/PageFormat;", nullptr, $PUBLIC, $virtualMethod(PrinterJob, getPageFormat, $PageFormat*, $PrintRequestAttributeSet*)},
+		{"getPrintService", "()Ljavax/print/PrintService;", nullptr, $PUBLIC, $virtualMethod(PrinterJob, getPrintService, $PrintService*)},
+		{"getPrinterJob", "()Ljava/awt/print/PrinterJob;", nullptr, $PUBLIC | $STATIC, $staticMethod(PrinterJob, getPrinterJob, PrinterJob*)},
+		{"getUserName", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(PrinterJob, getUserName, $String*)},
+		{"isCancelled", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(PrinterJob, isCancelled, bool)},
+		{"lookupPrintServices", "()[Ljavax/print/PrintService;", nullptr, $PUBLIC | $STATIC, $staticMethod(PrinterJob, lookupPrintServices, $PrintServiceArray*)},
+		{"lookupStreamPrintServices", "(Ljava/lang/String;)[Ljavax/print/StreamPrintServiceFactory;", nullptr, $PUBLIC | $STATIC, $staticMethod(PrinterJob, lookupStreamPrintServices, $StreamPrintServiceFactoryArray*, $String*)},
+		{"pageDialog", "(Ljava/awt/print/PageFormat;)Ljava/awt/print/PageFormat;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(PrinterJob, pageDialog, $PageFormat*, $PageFormat*), "java.awt.HeadlessException"},
+		{"pageDialog", "(Ljavax/print/attribute/PrintRequestAttributeSet;)Ljava/awt/print/PageFormat;", nullptr, $PUBLIC, $virtualMethod(PrinterJob, pageDialog, $PageFormat*, $PrintRequestAttributeSet*), "java.awt.HeadlessException"},
+		{"print", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(PrinterJob, print, void), "java.awt.print.PrinterException"},
+		{"print", "(Ljavax/print/attribute/PrintRequestAttributeSet;)V", nullptr, $PUBLIC, $virtualMethod(PrinterJob, print, void, $PrintRequestAttributeSet*), "java.awt.print.PrinterException"},
+		{"printDialog", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(PrinterJob, printDialog, bool), "java.awt.HeadlessException"},
+		{"printDialog", "(Ljavax/print/attribute/PrintRequestAttributeSet;)Z", nullptr, $PUBLIC, $virtualMethod(PrinterJob, printDialog, bool, $PrintRequestAttributeSet*), "java.awt.HeadlessException"},
+		{"setCopies", "(I)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(PrinterJob, setCopies, void, int32_t)},
+		{"setJobName", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(PrinterJob, setJobName, void, $String*)},
+		{"setPageable", "(Ljava/awt/print/Pageable;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(PrinterJob, setPageable, void, $Pageable*), "java.lang.NullPointerException"},
+		{"setPrintService", "(Ljavax/print/PrintService;)V", nullptr, $PUBLIC, $virtualMethod(PrinterJob, setPrintService, void, $PrintService*), "java.awt.print.PrinterException"},
+		{"setPrintable", "(Ljava/awt/print/Printable;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(PrinterJob, setPrintable, void, $Printable*)},
+		{"setPrintable", "(Ljava/awt/print/Printable;Ljava/awt/print/PageFormat;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(PrinterJob, setPrintable, void, $Printable*, $PageFormat*)},
+		{"validatePage", "(Ljava/awt/print/PageFormat;)Ljava/awt/print/PageFormat;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(PrinterJob, validatePage, $PageFormat*, $PageFormat*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"java.awt.print.PrinterJob",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(PrinterJob, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PrinterJob);
+	});
 	return class$;
 }
 

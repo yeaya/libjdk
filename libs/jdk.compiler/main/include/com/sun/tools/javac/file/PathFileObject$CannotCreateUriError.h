@@ -22,10 +22,13 @@ class $import PathFileObject$CannotCreateUriError : public ::java::lang::Error {
 public:
 	PathFileObject$CannotCreateUriError();
 	void init$($String* value, $Throwable* cause);
-	static const int64_t serialVersionUID = (int64_t)0x7E4FC3F7CCB1EFEA;
+	static const int64_t serialVersionUID = (int64_t)0x7e4fc3f7ccb1efea;
 	PathFileObject$CannotCreateUriError(const PathFileObject$CannotCreateUriError& e);
 	virtual void throw$() override;
-	inline PathFileObject$CannotCreateUriError* operator ->() {
+	inline PathFileObject$CannotCreateUriError* operator ->() const {
+		return (PathFileObject$CannotCreateUriError*)throwing$;
+	}
+	inline operator PathFileObject$CannotCreateUriError*() const {
 		return (PathFileObject$CannotCreateUriError*)throwing$;
 	}
 };

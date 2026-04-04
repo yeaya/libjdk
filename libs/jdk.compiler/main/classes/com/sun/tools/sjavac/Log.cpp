@@ -1,5 +1,4 @@
 #include <com/sun/tools/sjavac/Log.h>
-
 #include <com/sun/tools/sjavac/Log$Level.h>
 #include <java/io/OutputStream.h>
 #include <java/io/PrintWriter.h>
@@ -17,7 +16,6 @@
 #undef WARN
 
 using $Log$Level = ::com::sun::tools::sjavac::Log$Level;
-using $OutputStream = ::java::io::OutputStream;
 using $PrintWriter = ::java::io::PrintWriter;
 using $StringWriter = ::java::io::StringWriter;
 using $Writer = ::java::io::Writer;
@@ -32,60 +30,6 @@ namespace com {
 	namespace sun {
 		namespace tools {
 			namespace sjavac {
-
-$FieldInfo _Log_FieldInfo_[] = {
-	{"stdOutErr", "Lcom/sun/tools/sjavac/Log;", nullptr, $PRIVATE | $STATIC, $staticField(Log, stdOutErr)},
-	{"loggers", "Ljava/lang/ThreadLocal;", "Ljava/lang/ThreadLocal<Lcom/sun/tools/sjavac/Log;>;", $PRIVATE | $STATIC, $staticField(Log, loggers)},
-	{"err", "Ljava/io/PrintWriter;", nullptr, $PROTECTED, $field(Log, err)},
-	{"out", "Ljava/io/PrintWriter;", nullptr, $PROTECTED, $field(Log, out)},
-	{"level", "Lcom/sun/tools/sjavac/Log$Level;", nullptr, $PROTECTED, $field(Log, level)},
-	{}
-};
-
-$MethodInfo _Log_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/Writer;Ljava/io/Writer;)V", nullptr, $PUBLIC, $method(Log, init$, void, $Writer*, $Writer*)},
-	{"debug", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Log, debug, void, $String*)},
-	{"debug", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Log, debug, void, $Throwable*)},
-	{"error", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Log, error, void, $String*)},
-	{"error", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Log, error, void, $Throwable*)},
-	{"get", "()Lcom/sun/tools/sjavac/Log;", nullptr, $PUBLIC | $STATIC, $staticMethod(Log, get, Log*)},
-	{"info", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Log, info, void, $String*)},
-	{"isDebugging", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Log, isDebugging, bool)},
-	{"isLevelLogged", "(Lcom/sun/tools/sjavac/Log$Level;)Z", nullptr, $PROTECTED, $virtualMethod(Log, isLevelLogged, bool, $Log$Level*)},
-	{"log", "(Lcom/sun/tools/sjavac/Log$Level;Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Log, log, void, $Log$Level*, $String*)},
-	{"log", "(Lcom/sun/tools/sjavac/Log$Level;Ljava/lang/Throwable;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Log, log, void, $Log$Level*, $Throwable*)},
-	{"printLogMsg", "(Lcom/sun/tools/sjavac/Log$Level;Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(Log, printLogMsg, void, $Log$Level*, $String*)},
-	{"setLogForCurrentThread", "(Lcom/sun/tools/sjavac/Log;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Log, setLogForCurrentThread, void, Log*)},
-	{"setLogLevel", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Log, setLogLevel, void, $String*)},
-	{"setLogLevel", "(Lcom/sun/tools/sjavac/Log$Level;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Log, setLogLevel, void, $Log$Level*)},
-	{"trace", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Log, trace, void, $String*)},
-	{"warn", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Log, warn, void, $String*)},
-	{}
-};
-
-$InnerClassInfo _Log_InnerClassesInfo_[] = {
-	{"com.sun.tools.sjavac.Log$Level", "com.sun.tools.sjavac.Log", "Level", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _Log_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.sjavac.Log",
-	"java.lang.Object",
-	nullptr,
-	_Log_FieldInfo_,
-	_Log_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Log_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.tools.sjavac.Log$Level"
-};
-
-$Object* allocate$Log($Class* clazz) {
-	return $of($alloc(Log));
-}
 
 Log* Log::stdOutErr = nullptr;
 $ThreadLocal* Log::loggers = nullptr;
@@ -104,7 +48,7 @@ void Log::setLogForCurrentThread(Log* log) {
 
 void Log::setLogLevel($String* l) {
 	$init(Log);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Locale);
 	setLogLevel($($Log$Level::valueOf($($nc(l)->toUpperCase($Locale::US)))));
 }
@@ -152,7 +96,7 @@ void Log::error($Throwable* t) {
 
 void Log::log($Log$Level* l, $String* msg) {
 	$init(Log);
-	$nc($(get()))->printLogMsg(l, msg);
+	$$nc(get())->printLogMsg(l, msg);
 }
 
 void Log::debug($Throwable* t) {
@@ -163,16 +107,16 @@ void Log::debug($Throwable* t) {
 
 void Log::log($Log$Level* l, $Throwable* t) {
 	$init(Log);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringWriter, sw, $new($StringWriter));
-	$nc(t)->printStackTrace($$new($PrintWriter, static_cast<$Writer*>(sw), true));
+	$nc(t)->printStackTrace($$new($PrintWriter, sw, true));
 	log(l, $(sw->toString()));
 }
 
 bool Log::isDebugging() {
 	$init(Log);
 	$init($Log$Level);
-	return $nc($(get()))->isLevelLogged($Log$Level::DEBUG);
+	return $$nc(get())->isLevelLogged($Log$Level::DEBUG);
 }
 
 bool Log::isLevelLogged($Log$Level* l) {
@@ -194,10 +138,10 @@ void Log::printLogMsg($Log$Level* msgLevel, $String* msg) {
 	}
 }
 
-void clinit$Log($Class* class$) {
-	$useLocalCurrentObjectStackCache();
-	$var($Writer, var$0, static_cast<$Writer*>($new($PrintWriter, static_cast<$OutputStream*>($System::out))));
-	$assignStatic(Log::stdOutErr, $new(Log, var$0, $$new($PrintWriter, static_cast<$OutputStream*>($System::err))));
+void Log::clinit$($Class* clazz) {
+	$useLocalObjectStack();
+	$var($Writer, var$0, $new($PrintWriter, $System::out));
+	$assignStatic(Log::stdOutErr, $new(Log, var$0, $$new($PrintWriter, $System::err)));
 	$assignStatic(Log::loggers, $new($ThreadLocal));
 }
 
@@ -205,7 +149,55 @@ Log::Log() {
 }
 
 $Class* Log::load$($String* name, bool initialize) {
-	$loadClass(Log, name, initialize, &_Log_ClassInfo_, clinit$Log, allocate$Log);
+	$FieldInfo fieldInfos$$[] = {
+		{"stdOutErr", "Lcom/sun/tools/sjavac/Log;", nullptr, $PRIVATE | $STATIC, $staticField(Log, stdOutErr)},
+		{"loggers", "Ljava/lang/ThreadLocal;", "Ljava/lang/ThreadLocal<Lcom/sun/tools/sjavac/Log;>;", $PRIVATE | $STATIC, $staticField(Log, loggers)},
+		{"err", "Ljava/io/PrintWriter;", nullptr, $PROTECTED, $field(Log, err)},
+		{"out", "Ljava/io/PrintWriter;", nullptr, $PROTECTED, $field(Log, out)},
+		{"level", "Lcom/sun/tools/sjavac/Log$Level;", nullptr, $PROTECTED, $field(Log, level)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/io/Writer;Ljava/io/Writer;)V", nullptr, $PUBLIC, $method(Log, init$, void, $Writer*, $Writer*)},
+		{"debug", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Log, debug, void, $String*)},
+		{"debug", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Log, debug, void, $Throwable*)},
+		{"error", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Log, error, void, $String*)},
+		{"error", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Log, error, void, $Throwable*)},
+		{"get", "()Lcom/sun/tools/sjavac/Log;", nullptr, $PUBLIC | $STATIC, $staticMethod(Log, get, Log*)},
+		{"info", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Log, info, void, $String*)},
+		{"isDebugging", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Log, isDebugging, bool)},
+		{"isLevelLogged", "(Lcom/sun/tools/sjavac/Log$Level;)Z", nullptr, $PROTECTED, $virtualMethod(Log, isLevelLogged, bool, $Log$Level*)},
+		{"log", "(Lcom/sun/tools/sjavac/Log$Level;Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Log, log, void, $Log$Level*, $String*)},
+		{"log", "(Lcom/sun/tools/sjavac/Log$Level;Ljava/lang/Throwable;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Log, log, void, $Log$Level*, $Throwable*)},
+		{"printLogMsg", "(Lcom/sun/tools/sjavac/Log$Level;Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(Log, printLogMsg, void, $Log$Level*, $String*)},
+		{"setLogForCurrentThread", "(Lcom/sun/tools/sjavac/Log;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Log, setLogForCurrentThread, void, Log*)},
+		{"setLogLevel", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Log, setLogLevel, void, $String*)},
+		{"setLogLevel", "(Lcom/sun/tools/sjavac/Log$Level;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Log, setLogLevel, void, $Log$Level*)},
+		{"trace", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Log, trace, void, $String*)},
+		{"warn", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Log, warn, void, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.sjavac.Log$Level", "com.sun.tools.sjavac.Log", "Level", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.sjavac.Log",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.tools.sjavac.Log$Level"
+	};
+	$loadClass(Log, name, initialize, &classInfo$$, Log::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Log);
+	});
 	return class$;
 }
 

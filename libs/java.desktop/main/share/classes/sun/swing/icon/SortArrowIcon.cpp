@@ -1,5 +1,4 @@
 #include <sun/swing/icon/SortArrowIcon.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/Graphics.h>
@@ -23,43 +22,6 @@ using $UIManager = ::javax::swing::UIManager;
 namespace sun {
 	namespace swing {
 		namespace icon {
-
-$FieldInfo _SortArrowIcon_FieldInfo_[] = {
-	{"ARROW_HEIGHT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SortArrowIcon, ARROW_HEIGHT)},
-	{"X_PADDING", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SortArrowIcon, X_PADDING)},
-	{"ascending", "Z", nullptr, $PRIVATE, $field(SortArrowIcon, ascending)},
-	{"color", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SortArrowIcon, color)},
-	{"colorKey", "Ljava/lang/String;", nullptr, $PRIVATE, $field(SortArrowIcon, colorKey)},
-	{}
-};
-
-$MethodInfo _SortArrowIcon_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(ZLjava/awt/Color;)V", nullptr, $PUBLIC, $method(SortArrowIcon, init$, void, bool, $Color*)},
-	{"<init>", "(ZLjava/lang/String;)V", nullptr, $PUBLIC, $method(SortArrowIcon, init$, void, bool, $String*)},
-	{"getColor", "()Ljava/awt/Color;", nullptr, $PRIVATE, $method(SortArrowIcon, getColor, $Color*)},
-	{"getIconHeight", "()I", nullptr, $PUBLIC, $virtualMethod(SortArrowIcon, getIconHeight, int32_t)},
-	{"getIconWidth", "()I", nullptr, $PUBLIC, $virtualMethod(SortArrowIcon, getIconWidth, int32_t)},
-	{"paintIcon", "(Ljava/awt/Component;Ljava/awt/Graphics;II)V", nullptr, $PUBLIC, $virtualMethod(SortArrowIcon, paintIcon, void, $Component*, $Graphics*, int32_t, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _SortArrowIcon_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.swing.icon.SortArrowIcon",
-	"java.lang.Object",
-	"javax.swing.Icon,javax.swing.plaf.UIResource,java.io.Serializable",
-	_SortArrowIcon_FieldInfo_,
-	_SortArrowIcon_MethodInfo_
-};
-
-$Object* allocate$SortArrowIcon($Class* clazz) {
-	return $of($alloc(SortArrowIcon));
-}
 
 int32_t SortArrowIcon::hashCode() {
 	 return this->$Icon::hashCode();
@@ -134,7 +96,39 @@ SortArrowIcon::SortArrowIcon() {
 }
 
 $Class* SortArrowIcon::load$($String* name, bool initialize) {
-	$loadClass(SortArrowIcon, name, initialize, &_SortArrowIcon_ClassInfo_, allocate$SortArrowIcon);
+	$FieldInfo fieldInfos$$[] = {
+		{"ARROW_HEIGHT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SortArrowIcon, ARROW_HEIGHT)},
+		{"X_PADDING", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SortArrowIcon, X_PADDING)},
+		{"ascending", "Z", nullptr, $PRIVATE, $field(SortArrowIcon, ascending)},
+		{"color", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SortArrowIcon, color)},
+		{"colorKey", "Ljava/lang/String;", nullptr, $PRIVATE, $field(SortArrowIcon, colorKey)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(ZLjava/awt/Color;)V", nullptr, $PUBLIC, $method(SortArrowIcon, init$, void, bool, $Color*)},
+		{"<init>", "(ZLjava/lang/String;)V", nullptr, $PUBLIC, $method(SortArrowIcon, init$, void, bool, $String*)},
+		{"getColor", "()Ljava/awt/Color;", nullptr, $PRIVATE, $method(SortArrowIcon, getColor, $Color*)},
+		{"getIconHeight", "()I", nullptr, $PUBLIC, $virtualMethod(SortArrowIcon, getIconHeight, int32_t)},
+		{"getIconWidth", "()I", nullptr, $PUBLIC, $virtualMethod(SortArrowIcon, getIconWidth, int32_t)},
+		{"paintIcon", "(Ljava/awt/Component;Ljava/awt/Graphics;II)V", nullptr, $PUBLIC, $virtualMethod(SortArrowIcon, paintIcon, void, $Component*, $Graphics*, int32_t, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.swing.icon.SortArrowIcon",
+		"java.lang.Object",
+		"javax.swing.Icon,javax.swing.plaf.UIResource,java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SortArrowIcon, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SortArrowIcon));
+	});
 	return class$;
 }
 

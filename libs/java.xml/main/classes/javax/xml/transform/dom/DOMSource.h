@@ -25,6 +25,7 @@ class $export DOMSource : public ::javax::xml::transform::Source {
 	$class(DOMSource, 0, ::javax::xml::transform::Source)
 public:
 	DOMSource();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(::org::w3c::dom::Node* n);
 	void init$(::org::w3c::dom::Node* node, $String* systemID);

@@ -49,6 +49,7 @@ class $import Http1Response$Http1BodySubscriber : public ::jdk::internal::net::h
 	$class(Http1Response$Http1BodySubscriber, 0, ::jdk::internal::net::http::ResponseSubscribers$TrustedSubscriber)
 public:
 	Http1Response$Http1BodySubscriber();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::net::http::HttpResponse$BodySubscriber* userSubscriber);
 	void complete($Throwable* t);
 	virtual ::java::util::concurrent::CompletionStage* getBody() override;

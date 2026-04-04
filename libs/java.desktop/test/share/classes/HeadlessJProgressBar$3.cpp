@@ -1,5 +1,4 @@
 #include <HeadlessJProgressBar$3.h>
-
 #include <HeadlessJProgressBar.h>
 #include <java/awt/Component.h>
 #include <jcpp.h>
@@ -10,42 +9,6 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
-$MethodInfo _HeadlessJProgressBar$3_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(HeadlessJProgressBar$3, init$, void)},
-	{}
-};
-
-$EnclosingMethodInfo _HeadlessJProgressBar$3_EnclosingMethodInfo_ = {
-	"HeadlessJProgressBar",
-	"main",
-	"([Ljava/lang/String;)V"
-};
-
-$InnerClassInfo _HeadlessJProgressBar$3_InnerClassesInfo_[] = {
-	{"HeadlessJProgressBar$3", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _HeadlessJProgressBar$3_ClassInfo_ = {
-	$ACC_SUPER,
-	"HeadlessJProgressBar$3",
-	"java.awt.Component",
-	nullptr,
-	nullptr,
-	_HeadlessJProgressBar$3_MethodInfo_,
-	nullptr,
-	&_HeadlessJProgressBar$3_EnclosingMethodInfo_,
-	_HeadlessJProgressBar$3_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"HeadlessJProgressBar"
-};
-
-$Object* allocate$HeadlessJProgressBar$3($Class* clazz) {
-	return $of($alloc(HeadlessJProgressBar$3));
-}
-
 void HeadlessJProgressBar$3::init$() {
 	$Component::init$();
 }
@@ -54,7 +17,37 @@ HeadlessJProgressBar$3::HeadlessJProgressBar$3() {
 }
 
 $Class* HeadlessJProgressBar$3::load$($String* name, bool initialize) {
-	$loadClass(HeadlessJProgressBar$3, name, initialize, &_HeadlessJProgressBar$3_ClassInfo_, allocate$HeadlessJProgressBar$3);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(HeadlessJProgressBar$3, init$, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"HeadlessJProgressBar",
+		"main",
+		"([Ljava/lang/String;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"HeadlessJProgressBar$3", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"HeadlessJProgressBar$3",
+		"java.awt.Component",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"HeadlessJProgressBar"
+	};
+	$loadClass(HeadlessJProgressBar$3, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(HeadlessJProgressBar$3));
+	});
 	return class$;
 }
 

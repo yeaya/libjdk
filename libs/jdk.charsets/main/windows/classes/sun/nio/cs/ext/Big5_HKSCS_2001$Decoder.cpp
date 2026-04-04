@@ -1,5 +1,4 @@
 #include <sun/nio/cs/ext/Big5_HKSCS_2001$Decoder.h>
-
 #include <java/nio/charset/Charset.h>
 #include <java/nio/charset/CharsetDecoder.h>
 #include <sun/nio/cs/DoubleByte$Decoder.h>
@@ -25,44 +24,6 @@ namespace sun {
 		namespace cs {
 			namespace ext {
 
-$FieldInfo _Big5_HKSCS_2001$Decoder_FieldInfo_[] = {
-	{"big5", "Lsun/nio/cs/DoubleByte$Decoder;", nullptr, $PRIVATE | $STATIC, $staticField(Big5_HKSCS_2001$Decoder, big5)},
-	{"b2cBmp", "[[C", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Big5_HKSCS_2001$Decoder, b2cBmp)},
-	{"b2cSupp", "[[C", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Big5_HKSCS_2001$Decoder, b2cSupp)},
-	{}
-};
-
-$MethodInfo _Big5_HKSCS_2001$Decoder_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/charset/Charset;)V", nullptr, $PRIVATE, $method(Big5_HKSCS_2001$Decoder, init$, void, $Charset*)},
-	{}
-};
-
-$InnerClassInfo _Big5_HKSCS_2001$Decoder_InnerClassesInfo_[] = {
-	{"sun.nio.cs.ext.Big5_HKSCS_2001$Decoder", "sun.nio.cs.ext.Big5_HKSCS_2001", "Decoder", $PRIVATE | $STATIC},
-	{"sun.nio.cs.HKSCS$Decoder", "sun.nio.cs.HKSCS", "Decoder", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _Big5_HKSCS_2001$Decoder_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.nio.cs.ext.Big5_HKSCS_2001$Decoder",
-	"sun.nio.cs.HKSCS$Decoder",
-	nullptr,
-	_Big5_HKSCS_2001$Decoder_FieldInfo_,
-	_Big5_HKSCS_2001$Decoder_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Big5_HKSCS_2001$Decoder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.nio.cs.ext.Big5_HKSCS_2001"
-};
-
-$Object* allocate$Big5_HKSCS_2001$Decoder($Class* clazz) {
-	return $of($alloc(Big5_HKSCS_2001$Decoder));
-}
-
 $DoubleByte$Decoder* Big5_HKSCS_2001$Decoder::big5 = nullptr;
 $charArray2* Big5_HKSCS_2001$Decoder::b2cBmp = nullptr;
 $charArray2* Big5_HKSCS_2001$Decoder::b2cSupp = nullptr;
@@ -71,7 +32,7 @@ void Big5_HKSCS_2001$Decoder::init$($Charset* cs) {
 	$HKSCS$Decoder::init$(cs, Big5_HKSCS_2001$Decoder::big5, Big5_HKSCS_2001$Decoder::b2cBmp, Big5_HKSCS_2001$Decoder::b2cSupp);
 }
 
-void clinit$Big5_HKSCS_2001$Decoder($Class* class$) {
+void Big5_HKSCS_2001$Decoder::clinit$($Class* clazz) {
 	$assignStatic(Big5_HKSCS_2001$Decoder::big5, $cast($DoubleByte$Decoder, $$new($Big5)->newDecoder()));
 	$assignStatic(Big5_HKSCS_2001$Decoder::b2cBmp, $new($charArray2, 256));
 	$assignStatic(Big5_HKSCS_2001$Decoder::b2cSupp, $new($charArray2, 256));
@@ -86,7 +47,39 @@ Big5_HKSCS_2001$Decoder::Big5_HKSCS_2001$Decoder() {
 }
 
 $Class* Big5_HKSCS_2001$Decoder::load$($String* name, bool initialize) {
-	$loadClass(Big5_HKSCS_2001$Decoder, name, initialize, &_Big5_HKSCS_2001$Decoder_ClassInfo_, clinit$Big5_HKSCS_2001$Decoder, allocate$Big5_HKSCS_2001$Decoder);
+	$FieldInfo fieldInfos$$[] = {
+		{"big5", "Lsun/nio/cs/DoubleByte$Decoder;", nullptr, $PRIVATE | $STATIC, $staticField(Big5_HKSCS_2001$Decoder, big5)},
+		{"b2cBmp", "[[C", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Big5_HKSCS_2001$Decoder, b2cBmp)},
+		{"b2cSupp", "[[C", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Big5_HKSCS_2001$Decoder, b2cSupp)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/nio/charset/Charset;)V", nullptr, $PRIVATE, $method(Big5_HKSCS_2001$Decoder, init$, void, $Charset*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.cs.ext.Big5_HKSCS_2001$Decoder", "sun.nio.cs.ext.Big5_HKSCS_2001", "Decoder", $PRIVATE | $STATIC},
+		{"sun.nio.cs.HKSCS$Decoder", "sun.nio.cs.HKSCS", "Decoder", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.nio.cs.ext.Big5_HKSCS_2001$Decoder",
+		"sun.nio.cs.HKSCS$Decoder",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.nio.cs.ext.Big5_HKSCS_2001"
+	};
+	$loadClass(Big5_HKSCS_2001$Decoder, name, initialize, &classInfo$$, Big5_HKSCS_2001$Decoder::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Big5_HKSCS_2001$Decoder));
+	});
 	return class$;
 }
 

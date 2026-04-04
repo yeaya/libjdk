@@ -46,6 +46,7 @@ class $export Image : public ::java::lang::Object {
 	$class(Image, 0, ::java::lang::Object)
 public:
 	Image();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void flush();
 	virtual float getAccelerationPriority();

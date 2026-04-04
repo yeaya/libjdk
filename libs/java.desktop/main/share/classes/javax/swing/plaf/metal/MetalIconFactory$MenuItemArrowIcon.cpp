@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/metal/MetalIconFactory$MenuItemArrowIcon.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Dimension.h>
 #include <java/awt/Graphics.h>
@@ -19,44 +18,6 @@ namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace metal {
-
-$MethodInfo _MetalIconFactory$MenuItemArrowIcon_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PRIVATE, $method(MetalIconFactory$MenuItemArrowIcon, init$, void)},
-	{"getIconHeight", "()I", nullptr, $PUBLIC, $virtualMethod(MetalIconFactory$MenuItemArrowIcon, getIconHeight, int32_t)},
-	{"getIconWidth", "()I", nullptr, $PUBLIC, $virtualMethod(MetalIconFactory$MenuItemArrowIcon, getIconWidth, int32_t)},
-	{"paintIcon", "(Ljava/awt/Component;Ljava/awt/Graphics;II)V", nullptr, $PUBLIC, $virtualMethod(MetalIconFactory$MenuItemArrowIcon, paintIcon, void, $Component*, $Graphics*, int32_t, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _MetalIconFactory$MenuItemArrowIcon_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.metal.MetalIconFactory$MenuItemArrowIcon", "javax.swing.plaf.metal.MetalIconFactory", "MenuItemArrowIcon", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _MetalIconFactory$MenuItemArrowIcon_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.metal.MetalIconFactory$MenuItemArrowIcon",
-	"java.lang.Object",
-	"javax.swing.Icon,javax.swing.plaf.UIResource,java.io.Serializable",
-	nullptr,
-	_MetalIconFactory$MenuItemArrowIcon_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MetalIconFactory$MenuItemArrowIcon_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.metal.MetalIconFactory"
-};
-
-$Object* allocate$MetalIconFactory$MenuItemArrowIcon($Class* clazz) {
-	return $of($alloc(MetalIconFactory$MenuItemArrowIcon));
-}
 
 int32_t MetalIconFactory$MenuItemArrowIcon::hashCode() {
 	 return this->$Icon::hashCode();
@@ -98,7 +59,40 @@ MetalIconFactory$MenuItemArrowIcon::MetalIconFactory$MenuItemArrowIcon() {
 }
 
 $Class* MetalIconFactory$MenuItemArrowIcon::load$($String* name, bool initialize) {
-	$loadClass(MetalIconFactory$MenuItemArrowIcon, name, initialize, &_MetalIconFactory$MenuItemArrowIcon_ClassInfo_, allocate$MetalIconFactory$MenuItemArrowIcon);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PRIVATE, $method(MetalIconFactory$MenuItemArrowIcon, init$, void)},
+		{"getIconHeight", "()I", nullptr, $PUBLIC, $virtualMethod(MetalIconFactory$MenuItemArrowIcon, getIconHeight, int32_t)},
+		{"getIconWidth", "()I", nullptr, $PUBLIC, $virtualMethod(MetalIconFactory$MenuItemArrowIcon, getIconWidth, int32_t)},
+		{"paintIcon", "(Ljava/awt/Component;Ljava/awt/Graphics;II)V", nullptr, $PUBLIC, $virtualMethod(MetalIconFactory$MenuItemArrowIcon, paintIcon, void, $Component*, $Graphics*, int32_t, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.metal.MetalIconFactory$MenuItemArrowIcon", "javax.swing.plaf.metal.MetalIconFactory", "MenuItemArrowIcon", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.metal.MetalIconFactory$MenuItemArrowIcon",
+		"java.lang.Object",
+		"javax.swing.Icon,javax.swing.plaf.UIResource,java.io.Serializable",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.metal.MetalIconFactory"
+	};
+	$loadClass(MetalIconFactory$MenuItemArrowIcon, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MetalIconFactory$MenuItemArrowIcon));
+	});
 	return class$;
 }
 

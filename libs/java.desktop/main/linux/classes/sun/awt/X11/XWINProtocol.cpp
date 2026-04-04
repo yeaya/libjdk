@@ -1,5 +1,4 @@
 #include <sun/awt/X11/XWINProtocol.h>
-
 #include <java/awt/Frame.h>
 #include <sun/awt/SunToolkit.h>
 #include <sun/awt/X11/XAtom.h>
@@ -43,7 +42,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $XAtom = ::sun::awt::X11::XAtom;
-using $XBaseWindow = ::sun::awt::X11::XBaseWindow;
 using $XClientMessageEvent = ::sun::awt::X11::XClientMessageEvent;
 using $XConstants = ::sun::awt::X11::XConstants;
 using $XLayerProtocol = ::sun::awt::X11::XLayerProtocol;
@@ -58,59 +56,6 @@ using $PlatformLogger$Level = ::sun::util::logging::PlatformLogger$Level;
 namespace sun {
 	namespace awt {
 		namespace X11 {
-
-$FieldInfo _XWINProtocol_FieldInfo_[] = {
-	{"log", "Lsun/util/logging/PlatformLogger;", nullptr, $STATIC | $FINAL, $staticField(XWINProtocol, log)},
-	{"XA_WIN_SUPPORTING_WM_CHECK", "Lsun/awt/X11/XAtom;", nullptr, 0, $field(XWINProtocol, XA_WIN_SUPPORTING_WM_CHECK)},
-	{"XA_WIN_PROTOCOLS", "Lsun/awt/X11/XAtom;", nullptr, 0, $field(XWINProtocol, XA_WIN_PROTOCOLS)},
-	{"XA_WIN_STATE", "Lsun/awt/X11/XAtom;", nullptr, 0, $field(XWINProtocol, XA_WIN_STATE)},
-	{"XA_WIN_LAYER", "Lsun/awt/X11/XAtom;", nullptr, 0, $field(XWINProtocol, XA_WIN_LAYER)},
-	{"WIN_STATE_STICKY", "I", nullptr, $STATIC | $FINAL, $constField(XWINProtocol, WIN_STATE_STICKY)},
-	{"WIN_STATE_MINIMIZED", "I", nullptr, $STATIC | $FINAL, $constField(XWINProtocol, WIN_STATE_MINIMIZED)},
-	{"WIN_STATE_MAXIMIZED_VERT", "I", nullptr, $STATIC | $FINAL, $constField(XWINProtocol, WIN_STATE_MAXIMIZED_VERT)},
-	{"WIN_STATE_MAXIMIZED_HORIZ", "I", nullptr, $STATIC | $FINAL, $constField(XWINProtocol, WIN_STATE_MAXIMIZED_HORIZ)},
-	{"WIN_STATE_HIDDEN", "I", nullptr, $STATIC | $FINAL, $constField(XWINProtocol, WIN_STATE_HIDDEN)},
-	{"WIN_STATE_SHADED", "I", nullptr, $STATIC | $FINAL, $constField(XWINProtocol, WIN_STATE_SHADED)},
-	{"WIN_LAYER_ONTOP", "I", nullptr, $STATIC | $FINAL, $constField(XWINProtocol, WIN_LAYER_ONTOP)},
-	{"WIN_LAYER_NORMAL", "I", nullptr, $STATIC | $FINAL, $constField(XWINProtocol, WIN_LAYER_NORMAL)},
-	{"WinWindow", "J", nullptr, 0, $field(XWINProtocol, WinWindow)},
-	{"supportChecked", "Z", nullptr, 0, $field(XWINProtocol, supportChecked)},
-	{}
-};
-
-$MethodInfo _XWINProtocol_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, 0, $method(XWINProtocol, init$, void)},
-	{"active", "()Z", nullptr, 0, $virtualMethod(XWINProtocol, active, bool)},
-	{"detect", "()V", nullptr, 0, $virtualMethod(XWINProtocol, detect, void)},
-	{"doLayerProtocol", "()Z", nullptr, 0, $virtualMethod(XWINProtocol, doLayerProtocol, bool)},
-	{"doStateProtocol", "()Z", nullptr, 0, $virtualMethod(XWINProtocol, doStateProtocol, bool)},
-	{"getState", "(Lsun/awt/X11/XWindowPeer;)I", nullptr, $PUBLIC, $virtualMethod(XWINProtocol, getState, int32_t, $XWindowPeer*)},
-	{"isStateChange", "(Lsun/awt/X11/XPropertyEvent;)Z", nullptr, $PUBLIC, $virtualMethod(XWINProtocol, isStateChange, bool, $XPropertyEvent*)},
-	{"setLayer", "(Lsun/awt/X11/XWindowPeer;I)V", nullptr, $PUBLIC, $virtualMethod(XWINProtocol, setLayer, void, $XWindowPeer*, int32_t)},
-	{"setState", "(Lsun/awt/X11/XWindowPeer;I)V", nullptr, $PUBLIC, $virtualMethod(XWINProtocol, setState, void, $XWindowPeer*, int32_t)},
-	{"supportsLayer", "(I)Z", nullptr, $PUBLIC, $virtualMethod(XWINProtocol, supportsLayer, bool, int32_t)},
-	{"supportsState", "(I)Z", nullptr, $PUBLIC, $virtualMethod(XWINProtocol, supportsState, bool, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"unshadeKludge", "(Lsun/awt/X11/XWindowPeer;)V", nullptr, $PUBLIC, $virtualMethod(XWINProtocol, unshadeKludge, void, $XWindowPeer*)},
-	{}
-};
-
-$ClassInfo _XWINProtocol_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.awt.X11.XWINProtocol",
-	"sun.awt.X11.XProtocol",
-	"sun.awt.X11.XStateProtocol,sun.awt.X11.XLayerProtocol",
-	_XWINProtocol_FieldInfo_,
-	_XWINProtocol_MethodInfo_
-};
-
-$Object* allocate$XWINProtocol($Class* clazz) {
-	return $of($alloc(XWINProtocol));
-}
 
 int32_t XWINProtocol::hashCode() {
 	 return this->$XProtocol::hashCode();
@@ -149,13 +94,13 @@ bool XWINProtocol::supportsState(int32_t state) {
 }
 
 void XWINProtocol::setState($XWindowPeer* window, int32_t state) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(window)->isShowing()) {
 		int64_t win_state = 0;
-		if (((int32_t)(state & (uint32_t)$Frame::MAXIMIZED_VERT)) != 0) {
+		if ((state & $Frame::MAXIMIZED_VERT) != 0) {
 			win_state |= XWINProtocol::WIN_STATE_MAXIMIZED_VERT;
 		}
-		if (((int32_t)(state & (uint32_t)$Frame::MAXIMIZED_HORIZ)) != 0) {
+		if ((state & $Frame::MAXIMIZED_HORIZ) != 0) {
 			win_state |= XWINProtocol::WIN_STATE_MAXIMIZED_HORIZ;
 		}
 		$var($XClientMessageEvent, req, $new($XClientMessageEvent));
@@ -167,39 +112,37 @@ void XWINProtocol::setState($XWindowPeer* window, int32_t state) {
 		req->set_data(1, win_state);
 		$init($PlatformLogger$Level);
 		if ($nc(XWINProtocol::log)->isLoggable($PlatformLogger$Level::FINE)) {
-			$nc(XWINProtocol::log)->fine($$str({"Sending WIN_STATE to root to change the state to "_s, $$str(win_state)}));
+			XWINProtocol::log->fine($$str({"Sending WIN_STATE to root to change the state to "_s, $$str(win_state)}));
 		}
-		{
-			$var($Throwable, var$0, nullptr);
-			try {
-				$XToolkit::awtLock();
-				int64_t var$1 = $XToolkit::getDisplay();
-				int64_t var$2 = $XToolkit::getDisplay();
-				$XlibWrapper::XSendEvent(var$1, $XlibWrapper::RootWindow(var$2, window->getScreenNumber()), false, $XConstants::SubstructureRedirectMask | $XConstants::SubstructureNotifyMask, req->pData);
-			} catch ($Throwable& var$3) {
-				$assign(var$0, var$3);
-			} /*finally*/ {
-				$XToolkit::awtUnlock();
-			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
+		$var($Throwable, var$0, nullptr);
+		try {
+			$XToolkit::awtLock();
+			int64_t var$1 = $XToolkit::getDisplay();
+			int64_t var$2 = $XToolkit::getDisplay();
+			$XlibWrapper::XSendEvent(var$1, $XlibWrapper::RootWindow(var$2, window->getScreenNumber()), false, $XConstants::SubstructureRedirectMask | $XConstants::SubstructureNotifyMask, req->pData);
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
+		} /*finally*/ {
+			$XToolkit::awtUnlock();
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 		req->dispose();
 	} else {
 		int64_t win_state = $nc(this->XA_WIN_STATE)->getCard32Property(window);
 		int64_t old_win_state = win_state;
-		if (((int32_t)(state & (uint32_t)$Frame::ICONIFIED)) != 0) {
+		if ((state & $Frame::ICONIFIED) != 0) {
 			win_state |= XWINProtocol::WIN_STATE_MINIMIZED;
 		} else {
 			win_state &= (uint64_t)~XWINProtocol::WIN_STATE_MINIMIZED;
 		}
-		if (((int32_t)(state & (uint32_t)$Frame::MAXIMIZED_VERT)) != 0) {
+		if ((state & $Frame::MAXIMIZED_VERT) != 0) {
 			win_state |= XWINProtocol::WIN_STATE_MAXIMIZED_VERT;
 		} else {
 			win_state &= (uint64_t)~XWINProtocol::WIN_STATE_MAXIMIZED_VERT;
 		}
-		if (((int32_t)(state & (uint32_t)$Frame::MAXIMIZED_HORIZ)) != 0) {
+		if ((state & $Frame::MAXIMIZED_HORIZ) != 0) {
 			win_state |= XWINProtocol::WIN_STATE_MAXIMIZED_HORIZ;
 		} else {
 			win_state &= (uint64_t)~XWINProtocol::WIN_STATE_MAXIMIZED_HORIZ;
@@ -207,9 +150,9 @@ void XWINProtocol::setState($XWindowPeer* window, int32_t state) {
 		if ((old_win_state ^ win_state) != 0) {
 			$init($PlatformLogger$Level);
 			if ($nc(XWINProtocol::log)->isLoggable($PlatformLogger$Level::FINE)) {
-				$nc(XWINProtocol::log)->fine($$str({"Setting WIN_STATE on "_s, window, " to change the state to "_s, $$str(win_state)}));
+				XWINProtocol::log->fine($$str({"Setting WIN_STATE on "_s, window, " to change the state to "_s, $$str(win_state)}));
 			}
-			$nc(this->XA_WIN_STATE)->setCard32Property(static_cast<$XBaseWindow*>(window), win_state);
+			$nc(this->XA_WIN_STATE)->setCard32Property(window, win_state);
 		}
 	}
 }
@@ -217,10 +160,10 @@ void XWINProtocol::setState($XWindowPeer* window, int32_t state) {
 int32_t XWINProtocol::getState($XWindowPeer* window) {
 	int64_t win_state = $nc(this->XA_WIN_STATE)->getCard32Property(window);
 	int32_t java_state = $Frame::NORMAL;
-	if (((int64_t)(win_state & (uint64_t)(int64_t)XWINProtocol::WIN_STATE_MAXIMIZED_VERT)) != 0) {
+	if ((win_state & XWINProtocol::WIN_STATE_MAXIMIZED_VERT) != 0) {
 		java_state |= $Frame::MAXIMIZED_VERT;
 	}
-	if (((int64_t)(win_state & (uint64_t)(int64_t)XWINProtocol::WIN_STATE_MAXIMIZED_HORIZ)) != 0) {
+	if ((win_state & XWINProtocol::WIN_STATE_MAXIMIZED_HORIZ) != 0) {
 		java_state |= $Frame::MAXIMIZED_HORIZ;
 	}
 	return java_state;
@@ -237,11 +180,11 @@ bool XWINProtocol::isStateChange($XPropertyEvent* e) {
 
 void XWINProtocol::unshadeKludge($XWindowPeer* window) {
 	int64_t win_state = $nc(this->XA_WIN_STATE)->getCard32Property(window);
-	if (((int64_t)(win_state & (uint64_t)(int64_t)XWINProtocol::WIN_STATE_SHADED)) == 0) {
+	if ((win_state & XWINProtocol::WIN_STATE_SHADED) == 0) {
 		return;
 	}
 	win_state &= (uint64_t)~XWINProtocol::WIN_STATE_SHADED;
-	$nc(this->XA_WIN_STATE)->setCard32Property(static_cast<$XBaseWindow*>(window), win_state);
+	$nc(this->XA_WIN_STATE)->setCard32Property(window, win_state);
 }
 
 bool XWINProtocol::supportsLayer(int32_t layer) {
@@ -249,7 +192,7 @@ bool XWINProtocol::supportsLayer(int32_t layer) {
 }
 
 void XWINProtocol::setLayer($XWindowPeer* window, int32_t layer) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(window)->isShowing()) {
 		$var($XClientMessageEvent, req, $new($XClientMessageEvent));
 		req->set_type($XConstants::ClientMessage);
@@ -261,36 +204,34 @@ void XWINProtocol::setLayer($XWindowPeer* window, int32_t layer) {
 		req->set_data(2, 0);
 		$init($PlatformLogger$Level);
 		if ($nc(XWINProtocol::log)->isLoggable($PlatformLogger$Level::FINE)) {
-			$nc(XWINProtocol::log)->fine($$str({"Setting layer "_s, $$str(layer), " by root message : "_s, req}));
+			XWINProtocol::log->fine($$str({"Setting layer "_s, $$str(layer), " by root message : "_s, req}));
 		}
 		$XToolkit::awtLock();
-		{
-			$var($Throwable, var$0, nullptr);
-			try {
-				int64_t var$1 = $XToolkit::getDisplay();
-				int64_t var$2 = $XToolkit::getDisplay();
-				$XlibWrapper::XSendEvent(var$1, $XlibWrapper::RootWindow(var$2, window->getScreenNumber()), false, $XConstants::SubstructureNotifyMask, req->pData);
-			} catch ($Throwable& var$3) {
-				$assign(var$0, var$3);
-			} /*finally*/ {
-				$XToolkit::awtUnlock();
-			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
+		$var($Throwable, var$0, nullptr);
+		try {
+			int64_t var$1 = $XToolkit::getDisplay();
+			int64_t var$2 = $XToolkit::getDisplay();
+			$XlibWrapper::XSendEvent(var$1, $XlibWrapper::RootWindow(var$2, window->getScreenNumber()), false, $XConstants::SubstructureNotifyMask, req->pData);
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
+		} /*finally*/ {
+			$XToolkit::awtUnlock();
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 		req->dispose();
 	} else {
 		$init($PlatformLogger$Level);
 		if ($nc(XWINProtocol::log)->isLoggable($PlatformLogger$Level::FINE)) {
-			$nc(XWINProtocol::log)->fine($$str({"Setting layer property to "_s, $$str(layer)}));
+			XWINProtocol::log->fine($$str({"Setting layer property to "_s, $$str(layer)}));
 		}
-		$nc(this->XA_WIN_LAYER)->setCard32Property(static_cast<$XBaseWindow*>(window), (int64_t)(layer == $XLayerProtocol::LAYER_NORMAL ? XWINProtocol::WIN_LAYER_NORMAL : XWINProtocol::WIN_LAYER_ONTOP));
+		$nc(this->XA_WIN_LAYER)->setCard32Property(window, layer == $XLayerProtocol::LAYER_NORMAL ? XWINProtocol::WIN_LAYER_NORMAL : XWINProtocol::WIN_LAYER_ONTOP);
 	}
 }
 
 void XWINProtocol::detect() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->supportChecked) {
 		return;
 	}
@@ -298,7 +239,7 @@ void XWINProtocol::detect() {
 	this->supportChecked = true;
 	$init($PlatformLogger$Level);
 	if ($nc(XWINProtocol::log)->isLoggable($PlatformLogger$Level::FINE)) {
-		$nc(XWINProtocol::log)->fine($$str({"### "_s, this, " is active: "_s, $$str((this->WinWindow != 0))}));
+		XWINProtocol::log->fine($$str({"### "_s, this, " is active: "_s, $$str((this->WinWindow != 0))}));
 	}
 }
 
@@ -308,28 +249,28 @@ bool XWINProtocol::active() {
 }
 
 bool XWINProtocol::doStateProtocol() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool var$0 = active();
 	bool res = var$0 && checkProtocol(this->XA_WIN_PROTOCOLS, this->XA_WIN_STATE);
 	$init($PlatformLogger$Level);
 	if ($nc(XWINProtocol::log)->isLoggable($PlatformLogger$Level::FINE)) {
-		$nc(XWINProtocol::log)->fine($$str({"### "_s, this, " supports state: "_s, $$str(res)}));
+		XWINProtocol::log->fine($$str({"### "_s, this, " supports state: "_s, $$str(res)}));
 	}
 	return res;
 }
 
 bool XWINProtocol::doLayerProtocol() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool var$0 = active();
 	bool res = var$0 && checkProtocol(this->XA_WIN_PROTOCOLS, this->XA_WIN_LAYER);
 	$init($PlatformLogger$Level);
 	if ($nc(XWINProtocol::log)->isLoggable($PlatformLogger$Level::FINE)) {
-		$nc(XWINProtocol::log)->fine($$str({"### "_s, this, " supports layer: "_s, $$str(res)}));
+		XWINProtocol::log->fine($$str({"### "_s, this, " supports layer: "_s, $$str(res)}));
 	}
 	return res;
 }
 
-void clinit$XWINProtocol($Class* class$) {
+void XWINProtocol::clinit$($Class* clazz) {
 	$assignStatic(XWINProtocol::log, $PlatformLogger::getLogger("sun.awt.X11.XWINProtocol"_s));
 }
 
@@ -337,7 +278,55 @@ XWINProtocol::XWINProtocol() {
 }
 
 $Class* XWINProtocol::load$($String* name, bool initialize) {
-	$loadClass(XWINProtocol, name, initialize, &_XWINProtocol_ClassInfo_, clinit$XWINProtocol, allocate$XWINProtocol);
+	$FieldInfo fieldInfos$$[] = {
+		{"log", "Lsun/util/logging/PlatformLogger;", nullptr, $STATIC | $FINAL, $staticField(XWINProtocol, log)},
+		{"XA_WIN_SUPPORTING_WM_CHECK", "Lsun/awt/X11/XAtom;", nullptr, 0, $field(XWINProtocol, XA_WIN_SUPPORTING_WM_CHECK)},
+		{"XA_WIN_PROTOCOLS", "Lsun/awt/X11/XAtom;", nullptr, 0, $field(XWINProtocol, XA_WIN_PROTOCOLS)},
+		{"XA_WIN_STATE", "Lsun/awt/X11/XAtom;", nullptr, 0, $field(XWINProtocol, XA_WIN_STATE)},
+		{"XA_WIN_LAYER", "Lsun/awt/X11/XAtom;", nullptr, 0, $field(XWINProtocol, XA_WIN_LAYER)},
+		{"WIN_STATE_STICKY", "I", nullptr, $STATIC | $FINAL, $constField(XWINProtocol, WIN_STATE_STICKY)},
+		{"WIN_STATE_MINIMIZED", "I", nullptr, $STATIC | $FINAL, $constField(XWINProtocol, WIN_STATE_MINIMIZED)},
+		{"WIN_STATE_MAXIMIZED_VERT", "I", nullptr, $STATIC | $FINAL, $constField(XWINProtocol, WIN_STATE_MAXIMIZED_VERT)},
+		{"WIN_STATE_MAXIMIZED_HORIZ", "I", nullptr, $STATIC | $FINAL, $constField(XWINProtocol, WIN_STATE_MAXIMIZED_HORIZ)},
+		{"WIN_STATE_HIDDEN", "I", nullptr, $STATIC | $FINAL, $constField(XWINProtocol, WIN_STATE_HIDDEN)},
+		{"WIN_STATE_SHADED", "I", nullptr, $STATIC | $FINAL, $constField(XWINProtocol, WIN_STATE_SHADED)},
+		{"WIN_LAYER_ONTOP", "I", nullptr, $STATIC | $FINAL, $constField(XWINProtocol, WIN_LAYER_ONTOP)},
+		{"WIN_LAYER_NORMAL", "I", nullptr, $STATIC | $FINAL, $constField(XWINProtocol, WIN_LAYER_NORMAL)},
+		{"WinWindow", "J", nullptr, 0, $field(XWINProtocol, WinWindow)},
+		{"supportChecked", "Z", nullptr, 0, $field(XWINProtocol, supportChecked)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, 0, $method(XWINProtocol, init$, void)},
+		{"active", "()Z", nullptr, 0, $virtualMethod(XWINProtocol, active, bool)},
+		{"detect", "()V", nullptr, 0, $virtualMethod(XWINProtocol, detect, void)},
+		{"doLayerProtocol", "()Z", nullptr, 0, $virtualMethod(XWINProtocol, doLayerProtocol, bool)},
+		{"doStateProtocol", "()Z", nullptr, 0, $virtualMethod(XWINProtocol, doStateProtocol, bool)},
+		{"getState", "(Lsun/awt/X11/XWindowPeer;)I", nullptr, $PUBLIC, $virtualMethod(XWINProtocol, getState, int32_t, $XWindowPeer*)},
+		{"isStateChange", "(Lsun/awt/X11/XPropertyEvent;)Z", nullptr, $PUBLIC, $virtualMethod(XWINProtocol, isStateChange, bool, $XPropertyEvent*)},
+		{"setLayer", "(Lsun/awt/X11/XWindowPeer;I)V", nullptr, $PUBLIC, $virtualMethod(XWINProtocol, setLayer, void, $XWindowPeer*, int32_t)},
+		{"setState", "(Lsun/awt/X11/XWindowPeer;I)V", nullptr, $PUBLIC, $virtualMethod(XWINProtocol, setState, void, $XWindowPeer*, int32_t)},
+		{"supportsLayer", "(I)Z", nullptr, $PUBLIC, $virtualMethod(XWINProtocol, supportsLayer, bool, int32_t)},
+		{"supportsState", "(I)Z", nullptr, $PUBLIC, $virtualMethod(XWINProtocol, supportsState, bool, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"unshadeKludge", "(Lsun/awt/X11/XWindowPeer;)V", nullptr, $PUBLIC, $virtualMethod(XWINProtocol, unshadeKludge, void, $XWindowPeer*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.awt.X11.XWINProtocol",
+		"sun.awt.X11.XProtocol",
+		"sun.awt.X11.XStateProtocol,sun.awt.X11.XLayerProtocol",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XWINProtocol, name, initialize, &classInfo$$, XWINProtocol::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(XWINProtocol));
+	});
 	return class$;
 }
 

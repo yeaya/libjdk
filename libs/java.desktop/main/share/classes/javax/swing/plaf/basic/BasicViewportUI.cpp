@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/basic/BasicViewportUI.h>
-
 #include <javax/swing/JComponent.h>
 #include <javax/swing/LookAndFeel.h>
 #include <javax/swing/plaf/ComponentUI.h>
@@ -21,34 +20,6 @@ namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace basic {
-
-$FieldInfo _BasicViewportUI_FieldInfo_[] = {
-	{"viewportUI", "Ljavax/swing/plaf/ViewportUI;", nullptr, $PRIVATE | $STATIC, $staticField(BasicViewportUI, viewportUI)},
-	{}
-};
-
-$MethodInfo _BasicViewportUI_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(BasicViewportUI, init$, void)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(BasicViewportUI, createUI, $ComponentUI*, $JComponent*)},
-	{"installDefaults", "(Ljavax/swing/JComponent;)V", nullptr, $PROTECTED, $virtualMethod(BasicViewportUI, installDefaults, void, $JComponent*)},
-	{"installUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(BasicViewportUI, installUI, void, $JComponent*)},
-	{"uninstallDefaults", "(Ljavax/swing/JComponent;)V", nullptr, $PROTECTED, $virtualMethod(BasicViewportUI, uninstallDefaults, void, $JComponent*)},
-	{"uninstallUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(BasicViewportUI, uninstallUI, void, $JComponent*)},
-	{}
-};
-
-$ClassInfo _BasicViewportUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.basic.BasicViewportUI",
-	"javax.swing.plaf.ViewportUI",
-	nullptr,
-	_BasicViewportUI_FieldInfo_,
-	_BasicViewportUI_MethodInfo_
-};
-
-$Object* allocate$BasicViewportUI($Class* clazz) {
-	return $of($alloc(BasicViewportUI));
-}
 
 $ViewportUI* BasicViewportUI::viewportUI = nullptr;
 
@@ -76,7 +47,6 @@ void BasicViewportUI::uninstallUI($JComponent* c) {
 
 void BasicViewportUI::installDefaults($JComponent* c) {
 	$LookAndFeel::installColorsAndFont(c, "Viewport.background"_s, "Viewport.foreground"_s, "Viewport.font"_s);
-	$init($Boolean);
 	$LookAndFeel::installProperty(c, "opaque"_s, $Boolean::TRUE);
 }
 
@@ -87,7 +57,30 @@ BasicViewportUI::BasicViewportUI() {
 }
 
 $Class* BasicViewportUI::load$($String* name, bool initialize) {
-	$loadClass(BasicViewportUI, name, initialize, &_BasicViewportUI_ClassInfo_, allocate$BasicViewportUI);
+	$FieldInfo fieldInfos$$[] = {
+		{"viewportUI", "Ljavax/swing/plaf/ViewportUI;", nullptr, $PRIVATE | $STATIC, $staticField(BasicViewportUI, viewportUI)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(BasicViewportUI, init$, void)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(BasicViewportUI, createUI, $ComponentUI*, $JComponent*)},
+		{"installDefaults", "(Ljavax/swing/JComponent;)V", nullptr, $PROTECTED, $virtualMethod(BasicViewportUI, installDefaults, void, $JComponent*)},
+		{"installUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(BasicViewportUI, installUI, void, $JComponent*)},
+		{"uninstallDefaults", "(Ljavax/swing/JComponent;)V", nullptr, $PROTECTED, $virtualMethod(BasicViewportUI, uninstallDefaults, void, $JComponent*)},
+		{"uninstallUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(BasicViewportUI, uninstallUI, void, $JComponent*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.basic.BasicViewportUI",
+		"javax.swing.plaf.ViewportUI",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(BasicViewportUI, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BasicViewportUI);
+	});
 	return class$;
 }
 

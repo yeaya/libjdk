@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/dtm/ref/sax2dtm/SAX2DTM2$AttributeIterator.h>
-
 #include <com/sun/org/apache/xml/internal/dtm/DTMAxisIterator.h>
 #include <com/sun/org/apache/xml/internal/dtm/ref/DTMAxisIteratorBase.h>
 #include <com/sun/org/apache/xml/internal/dtm/ref/DTMDefaultBase.h>
@@ -12,7 +11,6 @@
 
 using $DTMAxisIterator = ::com::sun::org::apache::xml::internal::dtm::DTMAxisIterator;
 using $DTMDefaultBase = ::com::sun::org::apache::xml::internal::dtm::ref::DTMDefaultBase;
-using $DTMDefaultBaseIterators = ::com::sun::org::apache::xml::internal::dtm::ref::DTMDefaultBaseIterators;
 using $DTMDefaultBaseIterators$InternalAxisIteratorBase = ::com::sun::org::apache::xml::internal::dtm::ref::DTMDefaultBaseIterators$InternalAxisIteratorBase;
 using $SAX2DTM2 = ::com::sun::org::apache::xml::internal::dtm::ref::sax2dtm::SAX2DTM2;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -29,44 +27,6 @@ namespace com {
 						namespace dtm {
 							namespace ref {
 								namespace sax2dtm {
-
-$FieldInfo _SAX2DTM2$AttributeIterator_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/org/apache/xml/internal/dtm/ref/sax2dtm/SAX2DTM2;", nullptr, $FINAL | $SYNTHETIC, $field(SAX2DTM2$AttributeIterator, this$0)},
-	{}
-};
-
-$MethodInfo _SAX2DTM2$AttributeIterator_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/org/apache/xml/internal/dtm/ref/sax2dtm/SAX2DTM2;)V", nullptr, $PUBLIC, $method(SAX2DTM2$AttributeIterator, init$, void, $SAX2DTM2*)},
-	{"next", "()I", nullptr, $PUBLIC, $virtualMethod(SAX2DTM2$AttributeIterator, next, int32_t)},
-	{"setStartNode", "(I)Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;", nullptr, $PUBLIC, $virtualMethod(SAX2DTM2$AttributeIterator, setStartNode, $DTMAxisIterator*, int32_t)},
-	{}
-};
-
-$InnerClassInfo _SAX2DTM2$AttributeIterator_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xml.internal.dtm.ref.sax2dtm.SAX2DTM2$AttributeIterator", "com.sun.org.apache.xml.internal.dtm.ref.sax2dtm.SAX2DTM2", "AttributeIterator", $PUBLIC | $FINAL},
-	{"com.sun.org.apache.xml.internal.dtm.ref.DTMDefaultBaseIterators$InternalAxisIteratorBase", "com.sun.org.apache.xml.internal.dtm.ref.DTMDefaultBaseIterators", "InternalAxisIteratorBase", $PUBLIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _SAX2DTM2$AttributeIterator_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.dtm.ref.sax2dtm.SAX2DTM2$AttributeIterator",
-	"com.sun.org.apache.xml.internal.dtm.ref.DTMDefaultBaseIterators$InternalAxisIteratorBase",
-	nullptr,
-	_SAX2DTM2$AttributeIterator_FieldInfo_,
-	_SAX2DTM2$AttributeIterator_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SAX2DTM2$AttributeIterator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xml.internal.dtm.ref.sax2dtm.SAX2DTM2"
-};
-
-$Object* allocate$SAX2DTM2$AttributeIterator($Class* clazz) {
-	return $of($alloc(SAX2DTM2$AttributeIterator));
-}
 
 void SAX2DTM2$AttributeIterator::init$($SAX2DTM2* this$0) {
 	$set(this, this$0, this$0);
@@ -98,7 +58,39 @@ SAX2DTM2$AttributeIterator::SAX2DTM2$AttributeIterator() {
 }
 
 $Class* SAX2DTM2$AttributeIterator::load$($String* name, bool initialize) {
-	$loadClass(SAX2DTM2$AttributeIterator, name, initialize, &_SAX2DTM2$AttributeIterator_ClassInfo_, allocate$SAX2DTM2$AttributeIterator);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/org/apache/xml/internal/dtm/ref/sax2dtm/SAX2DTM2;", nullptr, $FINAL | $SYNTHETIC, $field(SAX2DTM2$AttributeIterator, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/org/apache/xml/internal/dtm/ref/sax2dtm/SAX2DTM2;)V", nullptr, $PUBLIC, $method(SAX2DTM2$AttributeIterator, init$, void, $SAX2DTM2*)},
+		{"next", "()I", nullptr, $PUBLIC, $virtualMethod(SAX2DTM2$AttributeIterator, next, int32_t)},
+		{"setStartNode", "(I)Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;", nullptr, $PUBLIC, $virtualMethod(SAX2DTM2$AttributeIterator, setStartNode, $DTMAxisIterator*, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xml.internal.dtm.ref.sax2dtm.SAX2DTM2$AttributeIterator", "com.sun.org.apache.xml.internal.dtm.ref.sax2dtm.SAX2DTM2", "AttributeIterator", $PUBLIC | $FINAL},
+		{"com.sun.org.apache.xml.internal.dtm.ref.DTMDefaultBaseIterators$InternalAxisIteratorBase", "com.sun.org.apache.xml.internal.dtm.ref.DTMDefaultBaseIterators", "InternalAxisIteratorBase", $PUBLIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.dtm.ref.sax2dtm.SAX2DTM2$AttributeIterator",
+		"com.sun.org.apache.xml.internal.dtm.ref.DTMDefaultBaseIterators$InternalAxisIteratorBase",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xml.internal.dtm.ref.sax2dtm.SAX2DTM2"
+	};
+	$loadClass(SAX2DTM2$AttributeIterator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SAX2DTM2$AttributeIterator);
+	});
 	return class$;
 }
 

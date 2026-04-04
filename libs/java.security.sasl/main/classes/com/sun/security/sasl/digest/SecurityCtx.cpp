@@ -1,5 +1,4 @@
 #include <com/sun/security/sasl/digest/SecurityCtx.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -11,27 +10,23 @@ namespace com {
 			namespace sasl {
 				namespace digest {
 
-$MethodInfo _SecurityCtx_MethodInfo_[] = {
-	{"unwrap", "([BII)[B", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SecurityCtx, unwrap, $bytes*, $bytes*, int32_t, int32_t), "javax.security.sasl.SaslException"},
-	{"wrap", "([BII)[B", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SecurityCtx, wrap, $bytes*, $bytes*, int32_t, int32_t), "javax.security.sasl.SaslException"},
-	{}
-};
-
-$ClassInfo _SecurityCtx_ClassInfo_ = {
-	$INTERFACE | $ABSTRACT,
-	"com.sun.security.sasl.digest.SecurityCtx",
-	nullptr,
-	nullptr,
-	nullptr,
-	_SecurityCtx_MethodInfo_
-};
-
-$Object* allocate$SecurityCtx($Class* clazz) {
-	return $of($alloc(SecurityCtx));
-}
-
 $Class* SecurityCtx::load$($String* name, bool initialize) {
-	$loadClass(SecurityCtx, name, initialize, &_SecurityCtx_ClassInfo_, allocate$SecurityCtx);
+	$MethodInfo methodInfos$$[] = {
+		{"unwrap", "([BII)[B", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SecurityCtx, unwrap, $bytes*, $bytes*, int32_t, int32_t), "javax.security.sasl.SaslException"},
+		{"wrap", "([BII)[B", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SecurityCtx, wrap, $bytes*, $bytes*, int32_t, int32_t), "javax.security.sasl.SaslException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$INTERFACE | $ABSTRACT,
+		"com.sun.security.sasl.digest.SecurityCtx",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(SecurityCtx, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SecurityCtx);
+	});
 	return class$;
 }
 

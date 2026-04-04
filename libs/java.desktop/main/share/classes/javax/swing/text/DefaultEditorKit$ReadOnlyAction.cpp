@@ -1,5 +1,4 @@
 #include <javax/swing/text/DefaultEditorKit$ReadOnlyAction.h>
-
 #include <java/awt/event/ActionEvent.h>
 #include <javax/swing/text/DefaultEditorKit.h>
 #include <javax/swing/text/JTextComponent.h>
@@ -17,37 +16,6 @@ namespace javax {
 	namespace swing {
 		namespace text {
 
-$MethodInfo _DefaultEditorKit$ReadOnlyAction_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(DefaultEditorKit$ReadOnlyAction, init$, void)},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(DefaultEditorKit$ReadOnlyAction, actionPerformed, void, $ActionEvent*)},
-	{}
-};
-
-$InnerClassInfo _DefaultEditorKit$ReadOnlyAction_InnerClassesInfo_[] = {
-	{"javax.swing.text.DefaultEditorKit$ReadOnlyAction", "javax.swing.text.DefaultEditorKit", "ReadOnlyAction", $STATIC},
-	{}
-};
-
-$ClassInfo _DefaultEditorKit$ReadOnlyAction_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.text.DefaultEditorKit$ReadOnlyAction",
-	"javax.swing.text.TextAction",
-	nullptr,
-	nullptr,
-	_DefaultEditorKit$ReadOnlyAction_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DefaultEditorKit$ReadOnlyAction_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.DefaultEditorKit"
-};
-
-$Object* allocate$DefaultEditorKit$ReadOnlyAction($Class* clazz) {
-	return $of($alloc(DefaultEditorKit$ReadOnlyAction));
-}
-
 void DefaultEditorKit$ReadOnlyAction::init$() {
 	$TextAction::init$("set-read-only"_s);
 }
@@ -63,7 +31,33 @@ DefaultEditorKit$ReadOnlyAction::DefaultEditorKit$ReadOnlyAction() {
 }
 
 $Class* DefaultEditorKit$ReadOnlyAction::load$($String* name, bool initialize) {
-	$loadClass(DefaultEditorKit$ReadOnlyAction, name, initialize, &_DefaultEditorKit$ReadOnlyAction_ClassInfo_, allocate$DefaultEditorKit$ReadOnlyAction);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(DefaultEditorKit$ReadOnlyAction, init$, void)},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(DefaultEditorKit$ReadOnlyAction, actionPerformed, void, $ActionEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.DefaultEditorKit$ReadOnlyAction", "javax.swing.text.DefaultEditorKit", "ReadOnlyAction", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.text.DefaultEditorKit$ReadOnlyAction",
+		"javax.swing.text.TextAction",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.DefaultEditorKit"
+	};
+	$loadClass(DefaultEditorKit$ReadOnlyAction, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DefaultEditorKit$ReadOnlyAction));
+	});
 	return class$;
 }
 

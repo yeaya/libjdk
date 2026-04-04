@@ -1,5 +1,4 @@
 #include <javax/swing/text/html/CSS$ShorthandMarginParser.h>
-
 #include <javax/swing/text/MutableAttributeSet.h>
 #include <javax/swing/text/html/CSS$Attribute.h>
 #include <javax/swing/text/html/CSS.h>
@@ -17,37 +16,6 @@ namespace javax {
 		namespace text {
 			namespace html {
 
-$MethodInfo _CSS$ShorthandMarginParser_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(CSS$ShorthandMarginParser, init$, void)},
-	{"parseShorthandMargin", "(Ljavax/swing/text/html/CSS;Ljava/lang/String;Ljavax/swing/text/MutableAttributeSet;[Ljavax/swing/text/html/CSS$Attribute;)V", nullptr, $STATIC, $staticMethod(CSS$ShorthandMarginParser, parseShorthandMargin, void, $CSS*, $String*, $MutableAttributeSet*, $CSS$AttributeArray*)},
-	{}
-};
-
-$InnerClassInfo _CSS$ShorthandMarginParser_InnerClassesInfo_[] = {
-	{"javax.swing.text.html.CSS$ShorthandMarginParser", "javax.swing.text.html.CSS", "ShorthandMarginParser", $STATIC},
-	{}
-};
-
-$ClassInfo _CSS$ShorthandMarginParser_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.text.html.CSS$ShorthandMarginParser",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_CSS$ShorthandMarginParser_MethodInfo_,
-	nullptr,
-	nullptr,
-	_CSS$ShorthandMarginParser_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.html.CSS"
-};
-
-$Object* allocate$CSS$ShorthandMarginParser($Class* clazz) {
-	return $of($alloc(CSS$ShorthandMarginParser));
-}
-
 void CSS$ShorthandMarginParser::init$() {
 }
 
@@ -57,39 +25,29 @@ void CSS$ShorthandMarginParser::parseShorthandMargin($CSS* css, $String* value, 
 	int32_t index = 0;
 	switch (count) {
 	case 0:
-		{
-			return;
-		}
+		return;
 	case 1:
-		{
-			for (int32_t counter = 0; counter < 4; ++counter) {
-				$nc(css)->addInternalCSSValue(attr, $nc(names)->get(counter), strings->get(0));
-			}
-			break;
+		for (int32_t counter = 0; counter < 4; ++counter) {
+			$nc(css)->addInternalCSSValue(attr, $nc(names)->get(counter), strings->get(0));
 		}
+		break;
 	case 2:
-		{
-			$nc(css)->addInternalCSSValue(attr, $nc(names)->get(0), strings->get(0));
-			$nc(css)->addInternalCSSValue(attr, $nc(names)->get(2), strings->get(0));
-			$nc(css)->addInternalCSSValue(attr, $nc(names)->get(1), strings->get(1));
-			$nc(css)->addInternalCSSValue(attr, $nc(names)->get(3), strings->get(1));
-			break;
-		}
+		$nc(css)->addInternalCSSValue(attr, $nc(names)->get(0), strings->get(0));
+		css->addInternalCSSValue(attr, names->get(2), strings->get(0));
+		css->addInternalCSSValue(attr, names->get(1), strings->get(1));
+		css->addInternalCSSValue(attr, names->get(3), strings->get(1));
+		break;
 	case 3:
-		{
-			$nc(css)->addInternalCSSValue(attr, $nc(names)->get(0), strings->get(0));
-			$nc(css)->addInternalCSSValue(attr, $nc(names)->get(1), strings->get(1));
-			$nc(css)->addInternalCSSValue(attr, $nc(names)->get(2), strings->get(2));
-			$nc(css)->addInternalCSSValue(attr, $nc(names)->get(3), strings->get(1));
-			break;
-		}
+		$nc(css)->addInternalCSSValue(attr, $nc(names)->get(0), strings->get(0));
+		css->addInternalCSSValue(attr, names->get(1), strings->get(1));
+		css->addInternalCSSValue(attr, names->get(2), strings->get(2));
+		css->addInternalCSSValue(attr, names->get(3), strings->get(1));
+		break;
 	default:
-		{
-			for (int32_t counter = 0; counter < 4; ++counter) {
-				$nc(css)->addInternalCSSValue(attr, $nc(names)->get(counter), strings->get(counter));
-			}
-			break;
+		for (int32_t counter = 0; counter < 4; ++counter) {
+			$nc(css)->addInternalCSSValue(attr, $nc(names)->get(counter), strings->get(counter));
 		}
+		break;
 	}
 }
 
@@ -97,7 +55,33 @@ CSS$ShorthandMarginParser::CSS$ShorthandMarginParser() {
 }
 
 $Class* CSS$ShorthandMarginParser::load$($String* name, bool initialize) {
-	$loadClass(CSS$ShorthandMarginParser, name, initialize, &_CSS$ShorthandMarginParser_ClassInfo_, allocate$CSS$ShorthandMarginParser);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(CSS$ShorthandMarginParser, init$, void)},
+		{"parseShorthandMargin", "(Ljavax/swing/text/html/CSS;Ljava/lang/String;Ljavax/swing/text/MutableAttributeSet;[Ljavax/swing/text/html/CSS$Attribute;)V", nullptr, $STATIC, $staticMethod(CSS$ShorthandMarginParser, parseShorthandMargin, void, $CSS*, $String*, $MutableAttributeSet*, $CSS$AttributeArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.html.CSS$ShorthandMarginParser", "javax.swing.text.html.CSS", "ShorthandMarginParser", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.text.html.CSS$ShorthandMarginParser",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.html.CSS"
+	};
+	$loadClass(CSS$ShorthandMarginParser, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CSS$ShorthandMarginParser);
+	});
 	return class$;
 }
 

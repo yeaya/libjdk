@@ -1,5 +1,4 @@
 #include <com/sun/media/sound/AbstractMixer.h>
-
 #include <com/sun/media/sound/AbstractDataLine.h>
 #include <com/sun/media/sound/AbstractLine.h>
 #include <com/sun/media/sound/Printer.h>
@@ -40,77 +39,6 @@ namespace com {
 	namespace sun {
 		namespace media {
 			namespace sound {
-
-$FieldInfo _AbstractMixer_FieldInfo_[] = {
-	{"PCM", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(AbstractMixer, PCM)},
-	{"ULAW", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(AbstractMixer, ULAW)},
-	{"ALAW", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(AbstractMixer, ALAW)},
-	{"mixerInfo", "Ljavax/sound/sampled/Mixer$Info;", nullptr, $PRIVATE | $FINAL, $field(AbstractMixer, mixerInfo)},
-	{"sourceLineInfo", "[Ljavax/sound/sampled/Line$Info;", nullptr, $PROTECTED, $field(AbstractMixer, sourceLineInfo)},
-	{"targetLineInfo", "[Ljavax/sound/sampled/Line$Info;", nullptr, $PROTECTED, $field(AbstractMixer, targetLineInfo)},
-	{"started", "Z", nullptr, $PRIVATE, $field(AbstractMixer, started)},
-	{"manuallyOpened", "Z", nullptr, $PRIVATE, $field(AbstractMixer, manuallyOpened)},
-	{"sourceLines", "Ljava/util/Vector;", "Ljava/util/Vector<Ljavax/sound/sampled/Line;>;", $PRIVATE | $FINAL, $field(AbstractMixer, sourceLines)},
-	{"targetLines", "Ljava/util/Vector;", "Ljava/util/Vector<Ljavax/sound/sampled/Line;>;", $PRIVATE | $FINAL, $field(AbstractMixer, targetLines)},
-	{}
-};
-
-$MethodInfo _AbstractMixer_MethodInfo_[] = {
-	{"*addLineListener", "(Ljavax/sound/sampled/LineListener;)V", nullptr, $PUBLIC | $FINAL},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*getControl", "(Ljavax/sound/sampled/Control$Type;)Ljavax/sound/sampled/Control;", nullptr, $PUBLIC | $FINAL},
-	{"*getControls", "()[Ljavax/sound/sampled/Control;", nullptr, $PUBLIC | $FINAL},
-	{"getLine", "(Ljavax/sound/sampled/Line$Info;)Ljavax/sound/sampled/Line;", nullptr, $PUBLIC | $ABSTRACT},
-	{"*getLineInfo", "()Ljavax/sound/sampled/Line$Info;", nullptr, $PUBLIC | $FINAL},
-	{"getMaxLines", "(Ljavax/sound/sampled/Line$Info;)I", nullptr, $PUBLIC | $ABSTRACT},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljavax/sound/sampled/Mixer$Info;[Ljavax/sound/sampled/Control;[Ljavax/sound/sampled/Line$Info;[Ljavax/sound/sampled/Line$Info;)V", nullptr, $PROTECTED, $method(AbstractMixer, init$, void, $Mixer$Info*, $ControlArray*, $Line$InfoArray*, $Line$InfoArray*)},
-	{"close", "(Ljavax/sound/sampled/Line;)V", nullptr, $FINAL | $SYNCHRONIZED, $method(AbstractMixer, close, void, $Line*)},
-	{"close", "()V", nullptr, $PUBLIC | $FINAL | $SYNCHRONIZED, $virtualMethod(AbstractMixer, close, void)},
-	{"getLineInfo", "(Ljavax/sound/sampled/Line$Info;)Ljavax/sound/sampled/Line$Info;", nullptr, $FINAL, $method(AbstractMixer, getLineInfo, $Line$Info*, $Line$Info*)},
-	{"getMixerInfo", "()Ljavax/sound/sampled/Mixer$Info;", nullptr, $PUBLIC | $FINAL, $virtualMethod(AbstractMixer, getMixerInfo, $Mixer$Info*)},
-	{"getSourceLineInfo", "()[Ljavax/sound/sampled/Line$Info;", nullptr, $PUBLIC | $FINAL, $virtualMethod(AbstractMixer, getSourceLineInfo, $Line$InfoArray*)},
-	{"getSourceLineInfo", "(Ljavax/sound/sampled/Line$Info;)[Ljavax/sound/sampled/Line$Info;", nullptr, $PUBLIC | $FINAL, $virtualMethod(AbstractMixer, getSourceLineInfo, $Line$InfoArray*, $Line$Info*)},
-	{"getSourceLines", "()[Ljavax/sound/sampled/Line;", nullptr, $PUBLIC | $FINAL, $virtualMethod(AbstractMixer, getSourceLines, $LineArray*)},
-	{"getTargetLineInfo", "()[Ljavax/sound/sampled/Line$Info;", nullptr, $PUBLIC | $FINAL, $virtualMethod(AbstractMixer, getTargetLineInfo, $Line$InfoArray*)},
-	{"getTargetLineInfo", "(Ljavax/sound/sampled/Line$Info;)[Ljavax/sound/sampled/Line$Info;", nullptr, $PUBLIC | $FINAL, $virtualMethod(AbstractMixer, getTargetLineInfo, $Line$InfoArray*, $Line$Info*)},
-	{"getTargetLines", "()[Ljavax/sound/sampled/Line;", nullptr, $PUBLIC | $FINAL, $virtualMethod(AbstractMixer, getTargetLines, $LineArray*)},
-	{"implClose", "()V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(AbstractMixer, implClose, void)},
-	{"implOpen", "()V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(AbstractMixer, implOpen, void), "javax.sound.sampled.LineUnavailableException"},
-	{"implStart", "()V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(AbstractMixer, implStart, void)},
-	{"implStop", "()V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(AbstractMixer, implStop, void)},
-	{"*isControlSupported", "(Ljavax/sound/sampled/Control$Type;)Z", nullptr, $PUBLIC | $FINAL},
-	{"isLineSupported", "(Ljavax/sound/sampled/Line$Info;)Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(AbstractMixer, isLineSupported, bool, $Line$Info*)},
-	{"*isOpen", "()Z", nullptr, $PUBLIC | $FINAL},
-	{"isSourceLine", "(Ljavax/sound/sampled/Line$Info;)Z", nullptr, $FINAL, $method(AbstractMixer, isSourceLine, bool, $Line$Info*)},
-	{"isSynchronizationSupported", "([Ljavax/sound/sampled/Line;Z)Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(AbstractMixer, isSynchronizationSupported, bool, $LineArray*, bool)},
-	{"isTargetLine", "(Ljavax/sound/sampled/Line$Info;)Z", nullptr, $FINAL, $method(AbstractMixer, isTargetLine, bool, $Line$Info*)},
-	{"open", "()V", nullptr, $PUBLIC | $FINAL | $SYNCHRONIZED, $virtualMethod(AbstractMixer, open, void), "javax.sound.sampled.LineUnavailableException"},
-	{"open", "(Z)V", nullptr, $FINAL | $SYNCHRONIZED, $method(AbstractMixer, open, void, bool), "javax.sound.sampled.LineUnavailableException"},
-	{"open", "(Ljavax/sound/sampled/Line;)V", nullptr, $FINAL | $SYNCHRONIZED, $method(AbstractMixer, open, void, $Line*), "javax.sound.sampled.LineUnavailableException"},
-	{"*removeLineListener", "(Ljavax/sound/sampled/LineListener;)V", nullptr, $PUBLIC | $FINAL},
-	{"start", "(Ljavax/sound/sampled/Line;)V", nullptr, $FINAL | $SYNCHRONIZED, $method(AbstractMixer, start, void, $Line*)},
-	{"stop", "(Ljavax/sound/sampled/Line;)V", nullptr, $FINAL | $SYNCHRONIZED, $method(AbstractMixer, stop, void, $Line*)},
-	{"synchronize", "([Ljavax/sound/sampled/Line;Z)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(AbstractMixer, synchronize, void, $LineArray*, bool)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"unsynchronize", "([Ljavax/sound/sampled/Line;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(AbstractMixer, unsynchronize, void, $LineArray*)},
-	{}
-};
-
-$ClassInfo _AbstractMixer_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"com.sun.media.sound.AbstractMixer",
-	"com.sun.media.sound.AbstractLine",
-	"javax.sound.sampled.Mixer",
-	_AbstractMixer_FieldInfo_,
-	_AbstractMixer_MethodInfo_
-};
-
-$Object* allocate$AbstractMixer($Class* clazz) {
-	return $of($alloc(AbstractMixer));
-}
 
 $Line$Info* AbstractMixer::getLineInfo() {
 	 return this->$AbstractLine::getLineInfo();
@@ -161,7 +89,7 @@ void AbstractMixer::finalize() {
 }
 
 void AbstractMixer::init$($Mixer$Info* mixerInfo, $ControlArray* controls$renamed, $Line$InfoArray* sourceLineInfo, $Line$InfoArray* targetLineInfo) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ControlArray, controls, controls$renamed);
 	$load($Mixer);
 	$AbstractLine::init$($$new($Line$Info, $Mixer::class$), nullptr, controls);
@@ -184,44 +112,44 @@ $Mixer$Info* AbstractMixer::getMixerInfo() {
 
 $Line$InfoArray* AbstractMixer::getSourceLineInfo() {
 	$var($Line$InfoArray, localArray, $new($Line$InfoArray, $nc(this->sourceLineInfo)->length));
-	$System::arraycopy(this->sourceLineInfo, 0, localArray, 0, $nc(this->sourceLineInfo)->length);
+	$System::arraycopy(this->sourceLineInfo, 0, localArray, 0, this->sourceLineInfo->length);
 	return localArray;
 }
 
 $Line$InfoArray* AbstractMixer::getTargetLineInfo() {
 	$var($Line$InfoArray, localArray, $new($Line$InfoArray, $nc(this->targetLineInfo)->length));
-	$System::arraycopy(this->targetLineInfo, 0, localArray, 0, $nc(this->targetLineInfo)->length);
+	$System::arraycopy(this->targetLineInfo, 0, localArray, 0, this->targetLineInfo->length);
 	return localArray;
 }
 
 $Line$InfoArray* AbstractMixer::getSourceLineInfo($Line$Info* info) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t i = 0;
 	$var($Vector, vec, $new($Vector));
 	for (i = 0; i < $nc(this->sourceLineInfo)->length; ++i) {
-		if ($nc(info)->matches($nc(this->sourceLineInfo)->get(i))) {
+		if ($nc(info)->matches(this->sourceLineInfo->get(i))) {
 			vec->addElement($nc(this->sourceLineInfo)->get(i));
 		}
 	}
 	$var($Line$InfoArray, returnedArray, $new($Line$InfoArray, vec->size()));
 	for (i = 0; i < returnedArray->length; ++i) {
-		returnedArray->set(i, $cast($Line$Info, $(vec->elementAt(i))));
+		returnedArray->set(i, $$cast($Line$Info, vec->elementAt(i)));
 	}
 	return returnedArray;
 }
 
 $Line$InfoArray* AbstractMixer::getTargetLineInfo($Line$Info* info) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t i = 0;
 	$var($Vector, vec, $new($Vector));
 	for (i = 0; i < $nc(this->targetLineInfo)->length; ++i) {
-		if ($nc(info)->matches($nc(this->targetLineInfo)->get(i))) {
+		if ($nc(info)->matches(this->targetLineInfo->get(i))) {
 			vec->addElement($nc(this->targetLineInfo)->get(i));
 		}
 	}
 	$var($Line$InfoArray, returnedArray, $new($Line$InfoArray, vec->size()));
 	for (i = 0; i < returnedArray->length; ++i) {
-		returnedArray->set(i, $cast($Line$Info, $(vec->elementAt(i))));
+		returnedArray->set(i, $$cast($Line$Info, vec->elementAt(i)));
 	}
 	return returnedArray;
 }
@@ -229,12 +157,12 @@ $Line$InfoArray* AbstractMixer::getTargetLineInfo($Line$Info* info) {
 bool AbstractMixer::isLineSupported($Line$Info* info) {
 	int32_t i = 0;
 	for (i = 0; i < $nc(this->sourceLineInfo)->length; ++i) {
-		if ($nc(info)->matches($nc(this->sourceLineInfo)->get(i))) {
+		if ($nc(info)->matches(this->sourceLineInfo->get(i))) {
 			return true;
 		}
 	}
 	for (i = 0; i < $nc(this->targetLineInfo)->length; ++i) {
-		if ($nc(info)->matches($nc(this->targetLineInfo)->get(i))) {
+		if ($nc(info)->matches(this->targetLineInfo->get(i))) {
 			return true;
 		}
 	}
@@ -242,24 +170,24 @@ bool AbstractMixer::isLineSupported($Line$Info* info) {
 }
 
 $LineArray* AbstractMixer::getSourceLines() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($LineArray, localLines, nullptr);
 	$synchronized(this->sourceLines) {
-		$assign(localLines, $new($LineArray, $nc(this->sourceLines)->size()));
+		$assign(localLines, $new($LineArray, this->sourceLines->size()));
 		for (int32_t i = 0; i < localLines->length; ++i) {
-			localLines->set(i, $cast($Line, $($nc(this->sourceLines)->elementAt(i))));
+			localLines->set(i, $$cast($Line, this->sourceLines->elementAt(i)));
 		}
 	}
 	return localLines;
 }
 
 $LineArray* AbstractMixer::getTargetLines() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($LineArray, localLines, nullptr);
 	$synchronized(this->targetLines) {
-		$assign(localLines, $new($LineArray, $nc(this->targetLines)->size()));
+		$assign(localLines, $new($LineArray, this->targetLines->size()));
 		for (int32_t i = 0; i < localLines->length; ++i) {
-			localLines->set(i, $cast($Line, $($nc(this->targetLines)->elementAt(i))));
+			localLines->set(i, $$cast($Line, this->targetLines->elementAt(i)));
 		}
 	}
 	return localLines;
@@ -297,19 +225,19 @@ void AbstractMixer::open(bool manual) {
 
 void AbstractMixer::open($Line* line) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
-		if ($of(this)->equals(line)) {
+		$useLocalObjectStack();
+		if (this->equals(line)) {
 			return;
 		}
 		if (isSourceLine($($nc(line)->getLineInfo()))) {
-			if (!$nc(this->sourceLines)->contains(line)) {
+			if (!this->sourceLines->contains(line)) {
 				open(false);
-				$nc(this->sourceLines)->addElement(line);
+				this->sourceLines->addElement(line);
 			}
-		} else if (isTargetLine($($nc(line)->getLineInfo()))) {
-			if (!$nc(this->targetLines)->contains(line)) {
+		} else if (isTargetLine($(line->getLineInfo()))) {
+			if (!this->targetLines->contains(line)) {
 				open(false);
-				$nc(this->targetLines)->addElement(line);
+				this->targetLines->addElement(line);
 			}
 		} else {
 			$init($Printer);
@@ -322,13 +250,13 @@ void AbstractMixer::open($Line* line) {
 
 void AbstractMixer::close($Line* line) {
 	$synchronized(this) {
-		if ($of(this)->equals(line)) {
+		if (this->equals(line)) {
 			return;
 		}
-		$nc(this->sourceLines)->removeElement(line);
-		$nc(this->targetLines)->removeElement(line);
-		bool var$0 = $nc(this->sourceLines)->isEmpty();
-		if (var$0 && $nc(this->targetLines)->isEmpty() && !this->manuallyOpened) {
+		this->sourceLines->removeElement(line);
+		this->targetLines->removeElement(line);
+		bool var$0 = this->sourceLines->isEmpty();
+		if (var$0 && this->targetLines->isEmpty() && !this->manuallyOpened) {
 			close();
 		}
 	}
@@ -354,7 +282,7 @@ void AbstractMixer::close() {
 
 void AbstractMixer::start($Line* line) {
 	$synchronized(this) {
-		if ($of(this)->equals(line)) {
+		if (this->equals(line)) {
 			return;
 		}
 		if (!this->started) {
@@ -366,26 +294,26 @@ void AbstractMixer::start($Line* line) {
 
 void AbstractMixer::stop($Line* line) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
-		if ($of(this)->equals(line)) {
+		$useLocalObjectStack();
+		if (this->equals(line)) {
 			return;
 		}
-		$var($Vector, localSourceLines, $cast($Vector, $nc(this->sourceLines)->clone()));
+		$var($Vector, localSourceLines, $cast($Vector, this->sourceLines->clone()));
 		for (int32_t i = 0; i < $nc(localSourceLines)->size(); ++i) {
 			if ($instanceOf($AbstractDataLine, $(localSourceLines->elementAt(i)))) {
 				$var($AbstractDataLine, sourceLine, $cast($AbstractDataLine, localSourceLines->elementAt(i)));
 				bool var$0 = $nc(sourceLine)->isStartedRunning();
-				if (var$0 && (!$of(sourceLine)->equals(line))) {
+				if (var$0 && (!sourceLine->equals(line))) {
 					return;
 				}
 			}
 		}
-		$var($Vector, localTargetLines, $cast($Vector, $nc(this->targetLines)->clone()));
+		$var($Vector, localTargetLines, $cast($Vector, this->targetLines->clone()));
 		for (int32_t i = 0; i < $nc(localTargetLines)->size(); ++i) {
 			if ($instanceOf($AbstractDataLine, $(localTargetLines->elementAt(i)))) {
 				$var($AbstractDataLine, targetLine, $cast($AbstractDataLine, localTargetLines->elementAt(i)));
 				bool var$1 = $nc(targetLine)->isStartedRunning();
-				if (var$1 && (!$of(targetLine)->equals(line))) {
+				if (var$1 && (!targetLine->equals(line))) {
 					return;
 				}
 			}
@@ -397,7 +325,7 @@ void AbstractMixer::stop($Line* line) {
 
 bool AbstractMixer::isSourceLine($Line$Info* info) {
 	for (int32_t i = 0; i < $nc(this->sourceLineInfo)->length; ++i) {
-		if ($nc(info)->matches($nc(this->sourceLineInfo)->get(i))) {
+		if ($nc(info)->matches(this->sourceLineInfo->get(i))) {
 			return true;
 		}
 	}
@@ -406,7 +334,7 @@ bool AbstractMixer::isSourceLine($Line$Info* info) {
 
 bool AbstractMixer::isTargetLine($Line$Info* info) {
 	for (int32_t i = 0; i < $nc(this->targetLineInfo)->length; ++i) {
-		if ($nc(info)->matches($nc(this->targetLineInfo)->get(i))) {
+		if ($nc(info)->matches(this->targetLineInfo->get(i))) {
 			return true;
 		}
 	}
@@ -418,12 +346,12 @@ $Line$Info* AbstractMixer::getLineInfo($Line$Info* info) {
 		return nullptr;
 	}
 	for (int32_t i = 0; i < $nc(this->sourceLineInfo)->length; ++i) {
-		if ($nc(info)->matches($nc(this->sourceLineInfo)->get(i))) {
+		if ($nc(info)->matches(this->sourceLineInfo->get(i))) {
 			return $nc(this->sourceLineInfo)->get(i);
 		}
 	}
 	for (int32_t i = 0; i < $nc(this->targetLineInfo)->length; ++i) {
-		if ($nc(info)->matches($nc(this->targetLineInfo)->get(i))) {
+		if ($nc(info)->matches(this->targetLineInfo->get(i))) {
 			return $nc(this->targetLineInfo)->get(i);
 		}
 	}
@@ -434,7 +362,73 @@ AbstractMixer::AbstractMixer() {
 }
 
 $Class* AbstractMixer::load$($String* name, bool initialize) {
-	$loadClass(AbstractMixer, name, initialize, &_AbstractMixer_ClassInfo_, allocate$AbstractMixer);
+	$FieldInfo fieldInfos$$[] = {
+		{"PCM", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(AbstractMixer, PCM)},
+		{"ULAW", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(AbstractMixer, ULAW)},
+		{"ALAW", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(AbstractMixer, ALAW)},
+		{"mixerInfo", "Ljavax/sound/sampled/Mixer$Info;", nullptr, $PRIVATE | $FINAL, $field(AbstractMixer, mixerInfo)},
+		{"sourceLineInfo", "[Ljavax/sound/sampled/Line$Info;", nullptr, $PROTECTED, $field(AbstractMixer, sourceLineInfo)},
+		{"targetLineInfo", "[Ljavax/sound/sampled/Line$Info;", nullptr, $PROTECTED, $field(AbstractMixer, targetLineInfo)},
+		{"started", "Z", nullptr, $PRIVATE, $field(AbstractMixer, started)},
+		{"manuallyOpened", "Z", nullptr, $PRIVATE, $field(AbstractMixer, manuallyOpened)},
+		{"sourceLines", "Ljava/util/Vector;", "Ljava/util/Vector<Ljavax/sound/sampled/Line;>;", $PRIVATE | $FINAL, $field(AbstractMixer, sourceLines)},
+		{"targetLines", "Ljava/util/Vector;", "Ljava/util/Vector<Ljavax/sound/sampled/Line;>;", $PRIVATE | $FINAL, $field(AbstractMixer, targetLines)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*addLineListener", "(Ljavax/sound/sampled/LineListener;)V", nullptr, $PUBLIC | $FINAL},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*getControl", "(Ljavax/sound/sampled/Control$Type;)Ljavax/sound/sampled/Control;", nullptr, $PUBLIC | $FINAL},
+		{"*getControls", "()[Ljavax/sound/sampled/Control;", nullptr, $PUBLIC | $FINAL},
+		{"getLine", "(Ljavax/sound/sampled/Line$Info;)Ljavax/sound/sampled/Line;", nullptr, $PUBLIC | $ABSTRACT},
+		{"*getLineInfo", "()Ljavax/sound/sampled/Line$Info;", nullptr, $PUBLIC | $FINAL},
+		{"getMaxLines", "(Ljavax/sound/sampled/Line$Info;)I", nullptr, $PUBLIC | $ABSTRACT},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljavax/sound/sampled/Mixer$Info;[Ljavax/sound/sampled/Control;[Ljavax/sound/sampled/Line$Info;[Ljavax/sound/sampled/Line$Info;)V", nullptr, $PROTECTED, $method(AbstractMixer, init$, void, $Mixer$Info*, $ControlArray*, $Line$InfoArray*, $Line$InfoArray*)},
+		{"close", "(Ljavax/sound/sampled/Line;)V", nullptr, $FINAL | $SYNCHRONIZED, $method(AbstractMixer, close, void, $Line*)},
+		{"close", "()V", nullptr, $PUBLIC | $FINAL | $SYNCHRONIZED, $virtualMethod(AbstractMixer, close, void)},
+		{"getLineInfo", "(Ljavax/sound/sampled/Line$Info;)Ljavax/sound/sampled/Line$Info;", nullptr, $FINAL, $method(AbstractMixer, getLineInfo, $Line$Info*, $Line$Info*)},
+		{"getMixerInfo", "()Ljavax/sound/sampled/Mixer$Info;", nullptr, $PUBLIC | $FINAL, $virtualMethod(AbstractMixer, getMixerInfo, $Mixer$Info*)},
+		{"getSourceLineInfo", "()[Ljavax/sound/sampled/Line$Info;", nullptr, $PUBLIC | $FINAL, $virtualMethod(AbstractMixer, getSourceLineInfo, $Line$InfoArray*)},
+		{"getSourceLineInfo", "(Ljavax/sound/sampled/Line$Info;)[Ljavax/sound/sampled/Line$Info;", nullptr, $PUBLIC | $FINAL, $virtualMethod(AbstractMixer, getSourceLineInfo, $Line$InfoArray*, $Line$Info*)},
+		{"getSourceLines", "()[Ljavax/sound/sampled/Line;", nullptr, $PUBLIC | $FINAL, $virtualMethod(AbstractMixer, getSourceLines, $LineArray*)},
+		{"getTargetLineInfo", "()[Ljavax/sound/sampled/Line$Info;", nullptr, $PUBLIC | $FINAL, $virtualMethod(AbstractMixer, getTargetLineInfo, $Line$InfoArray*)},
+		{"getTargetLineInfo", "(Ljavax/sound/sampled/Line$Info;)[Ljavax/sound/sampled/Line$Info;", nullptr, $PUBLIC | $FINAL, $virtualMethod(AbstractMixer, getTargetLineInfo, $Line$InfoArray*, $Line$Info*)},
+		{"getTargetLines", "()[Ljavax/sound/sampled/Line;", nullptr, $PUBLIC | $FINAL, $virtualMethod(AbstractMixer, getTargetLines, $LineArray*)},
+		{"implClose", "()V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(AbstractMixer, implClose, void)},
+		{"implOpen", "()V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(AbstractMixer, implOpen, void), "javax.sound.sampled.LineUnavailableException"},
+		{"implStart", "()V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(AbstractMixer, implStart, void)},
+		{"implStop", "()V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(AbstractMixer, implStop, void)},
+		{"*isControlSupported", "(Ljavax/sound/sampled/Control$Type;)Z", nullptr, $PUBLIC | $FINAL},
+		{"isLineSupported", "(Ljavax/sound/sampled/Line$Info;)Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(AbstractMixer, isLineSupported, bool, $Line$Info*)},
+		{"*isOpen", "()Z", nullptr, $PUBLIC | $FINAL},
+		{"isSourceLine", "(Ljavax/sound/sampled/Line$Info;)Z", nullptr, $FINAL, $method(AbstractMixer, isSourceLine, bool, $Line$Info*)},
+		{"isSynchronizationSupported", "([Ljavax/sound/sampled/Line;Z)Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(AbstractMixer, isSynchronizationSupported, bool, $LineArray*, bool)},
+		{"isTargetLine", "(Ljavax/sound/sampled/Line$Info;)Z", nullptr, $FINAL, $method(AbstractMixer, isTargetLine, bool, $Line$Info*)},
+		{"open", "()V", nullptr, $PUBLIC | $FINAL | $SYNCHRONIZED, $virtualMethod(AbstractMixer, open, void), "javax.sound.sampled.LineUnavailableException"},
+		{"open", "(Z)V", nullptr, $FINAL | $SYNCHRONIZED, $method(AbstractMixer, open, void, bool), "javax.sound.sampled.LineUnavailableException"},
+		{"open", "(Ljavax/sound/sampled/Line;)V", nullptr, $FINAL | $SYNCHRONIZED, $method(AbstractMixer, open, void, $Line*), "javax.sound.sampled.LineUnavailableException"},
+		{"*removeLineListener", "(Ljavax/sound/sampled/LineListener;)V", nullptr, $PUBLIC | $FINAL},
+		{"start", "(Ljavax/sound/sampled/Line;)V", nullptr, $FINAL | $SYNCHRONIZED, $method(AbstractMixer, start, void, $Line*)},
+		{"stop", "(Ljavax/sound/sampled/Line;)V", nullptr, $FINAL | $SYNCHRONIZED, $method(AbstractMixer, stop, void, $Line*)},
+		{"synchronize", "([Ljavax/sound/sampled/Line;Z)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(AbstractMixer, synchronize, void, $LineArray*, bool)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"unsynchronize", "([Ljavax/sound/sampled/Line;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(AbstractMixer, unsynchronize, void, $LineArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"com.sun.media.sound.AbstractMixer",
+		"com.sun.media.sound.AbstractLine",
+		"javax.sound.sampled.Mixer",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(AbstractMixer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AbstractMixer));
+	});
 	return class$;
 }
 

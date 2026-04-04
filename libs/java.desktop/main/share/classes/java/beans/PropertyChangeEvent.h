@@ -26,7 +26,7 @@ public:
 	virtual $String* getPropertyName();
 	virtual void setPropagationId(Object$* propagationId);
 	virtual $String* toString() override;
-	static const int64_t serialVersionUID = (int64_t)0x61BCAC98A722147B;
+	static const int64_t serialVersionUID = (int64_t)0x61bcac98a722147b;
 	$String* propertyName = nullptr;
 	$Object* newValue = nullptr;
 	$Object* oldValue = nullptr;

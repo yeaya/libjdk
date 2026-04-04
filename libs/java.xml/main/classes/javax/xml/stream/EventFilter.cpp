@@ -1,5 +1,4 @@
 #include <javax/xml/stream/EventFilter.h>
-
 #include <javax/xml/stream/events/XMLEvent.h>
 #include <jcpp.h>
 
@@ -11,26 +10,22 @@ namespace javax {
 	namespace xml {
 		namespace stream {
 
-$MethodInfo _EventFilter_MethodInfo_[] = {
-	{"accept", "(Ljavax/xml/stream/events/XMLEvent;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(EventFilter, accept, bool, $XMLEvent*)},
-	{}
-};
-
-$ClassInfo _EventFilter_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"javax.xml.stream.EventFilter",
-	nullptr,
-	nullptr,
-	nullptr,
-	_EventFilter_MethodInfo_
-};
-
-$Object* allocate$EventFilter($Class* clazz) {
-	return $of($alloc(EventFilter));
-}
-
 $Class* EventFilter::load$($String* name, bool initialize) {
-	$loadClass(EventFilter, name, initialize, &_EventFilter_ClassInfo_, allocate$EventFilter);
+	$MethodInfo methodInfos$$[] = {
+		{"accept", "(Ljavax/xml/stream/events/XMLEvent;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(EventFilter, accept, bool, $XMLEvent*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"javax.xml.stream.EventFilter",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(EventFilter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(EventFilter);
+	});
 	return class$;
 }
 

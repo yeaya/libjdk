@@ -1,8 +1,5 @@
 #include <java/rmi/server/RemoteObject.h>
-
-#include <java/io/ObjectInput.h>
 #include <java/io/ObjectInputStream.h>
-#include <java/io/ObjectOutput.h>
 #include <java/io/ObjectOutputStream.h>
 #include <java/lang/ClassCastException.h>
 #include <java/lang/ClassNotFoundException.h>
@@ -19,9 +16,7 @@
 #include <sun/rmi/transport/ObjectTable.h>
 #include <jcpp.h>
 
-using $ObjectInput = ::java::io::ObjectInput;
 using $ObjectInputStream = ::java::io::ObjectInputStream;
-using $ObjectOutput = ::java::io::ObjectOutput;
 using $ObjectOutputStream = ::java::io::ObjectOutputStream;
 using $ClassCastException = ::java::lang::ClassCastException;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -42,40 +37,6 @@ using $ObjectTable = ::sun::rmi::transport::ObjectTable;
 namespace java {
 	namespace rmi {
 		namespace server {
-
-$FieldInfo _RemoteObject_FieldInfo_[] = {
-	{"ref", "Ljava/rmi/server/RemoteRef;", nullptr, $PROTECTED | $TRANSIENT, $field(RemoteObject, ref)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(RemoteObject, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _RemoteObject_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"<init>", "()V", nullptr, $PROTECTED, $method(RemoteObject, init$, void)},
-	{"<init>", "(Ljava/rmi/server/RemoteRef;)V", nullptr, $PROTECTED, $method(RemoteObject, init$, void, $RemoteRef*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(RemoteObject, equals, bool, Object$*)},
-	{"getRef", "()Ljava/rmi/server/RemoteRef;", nullptr, $PUBLIC, $virtualMethod(RemoteObject, getRef, $RemoteRef*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(RemoteObject, hashCode, int32_t)},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(RemoteObject, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RemoteObject, toString, $String*)},
-	{"toStub", "(Ljava/rmi/Remote;)Ljava/rmi/Remote;", nullptr, $PUBLIC | $STATIC, $staticMethod(RemoteObject, toStub, $Remote*, $Remote*), "java.rmi.NoSuchObjectException"},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(RemoteObject, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _RemoteObject_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"java.rmi.server.RemoteObject",
-	"java.lang.Object",
-	"java.rmi.Remote,java.io.Serializable",
-	_RemoteObject_FieldInfo_,
-	_RemoteObject_MethodInfo_
-};
-
-$Object* allocate$RemoteObject($Class* clazz) {
-	return $of($alloc(RemoteObject));
-}
 
 $Object* RemoteObject::clone() {
 	 return this->$Remote::clone();
@@ -103,7 +64,7 @@ $Remote* RemoteObject::toStub($Remote* obj) {
 	bool var$0 = $instanceOf($RemoteStub, obj);
 	if (!var$0) {
 		bool var$1 = obj != nullptr && $Proxy::isProxyClass($of(obj)->getClass());
-		var$0 = (var$1 && $instanceOf($RemoteObjectInvocationHandler, $($Proxy::getInvocationHandler(obj))));
+		var$0 = var$1 && $instanceOf($RemoteObjectInvocationHandler, $($Proxy::getInvocationHandler(obj)));
 	}
 	if (var$0) {
 		return obj;
@@ -113,7 +74,7 @@ $Remote* RemoteObject::toStub($Remote* obj) {
 }
 
 int32_t RemoteObject::hashCode() {
-	return (this->ref == nullptr) ? $Remote::hashCode() : $nc(this->ref)->remoteHashCode();
+	return (this->ref == nullptr) ? $Remote::hashCode() : this->ref->remoteHashCode();
 }
 
 bool RemoteObject::equals(Object$* obj) {
@@ -121,7 +82,7 @@ bool RemoteObject::equals(Object$* obj) {
 		if (this->ref == nullptr) {
 			return $equals(obj, this);
 		} else {
-			return $nc(this->ref)->remoteEquals($nc(($cast(RemoteObject, obj)))->ref);
+			return this->ref->remoteEquals($cast(RemoteObject, obj)->ref);
 		}
 	} else if (obj != nullptr) {
 		return $of(obj)->equals(this);
@@ -131,17 +92,17 @@ bool RemoteObject::equals(Object$* obj) {
 }
 
 $String* RemoteObject::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, classname, $Util::getUnqualifiedName($of(this)->getClass()));
-	return (this->ref == nullptr) ? classname : $str({classname, "["_s, $($nc(this->ref)->remoteToString()), "]"_s});
+	return (this->ref == nullptr) ? classname : $str({classname, "["_s, $(this->ref->remoteToString()), "]"_s});
 }
 
 void RemoteObject::writeObject($ObjectOutputStream* out) {
 	if (this->ref == nullptr) {
 		$throwNew($MarshalException, "Invalid remote object"_s);
 	} else {
-		$var($String, refClassName, $nc(this->ref)->getRefClass(out));
-		if (refClassName == nullptr || $nc(refClassName)->length() == 0) {
+		$var($String, refClassName, this->ref->getRefClass(out));
+		if (refClassName == nullptr || refClassName->length() == 0) {
 			$nc(out)->writeUTF(""_s);
 			out->writeObject(this->ref);
 		} else {
@@ -152,17 +113,17 @@ void RemoteObject::writeObject($ObjectOutputStream* out) {
 }
 
 void RemoteObject::readObject($ObjectInputStream* in) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$var($String, refClassName, $nc(in)->readUTF());
-	if (refClassName == nullptr || $nc(refClassName)->length() == 0) {
+	if (refClassName == nullptr || refClassName->length() == 0) {
 		$set(this, ref, $cast($RemoteRef, in->readObject()));
 	} else {
 		$init($RemoteRef);
 		$var($String, internalRefClassName, $str({$RemoteRef::packagePrefix, "."_s, refClassName}));
 		$Class* refClass = $Class::forName(internalRefClassName);
 		try {
-			$var($Object, tmp, $nc(refClass)->newInstance());
+			$var($Object, tmp, refClass->newInstance());
 			$set(this, ref, $cast($RemoteRef, tmp));
 		} catch ($InstantiationException& e) {
 			$throwNew($ClassNotFoundException, internalRefClassName, e);
@@ -179,7 +140,36 @@ RemoteObject::RemoteObject() {
 }
 
 $Class* RemoteObject::load$($String* name, bool initialize) {
-	$loadClass(RemoteObject, name, initialize, &_RemoteObject_ClassInfo_, allocate$RemoteObject);
+	$FieldInfo fieldInfos$$[] = {
+		{"ref", "Ljava/rmi/server/RemoteRef;", nullptr, $PROTECTED | $TRANSIENT, $field(RemoteObject, ref)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(RemoteObject, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"<init>", "()V", nullptr, $PROTECTED, $method(RemoteObject, init$, void)},
+		{"<init>", "(Ljava/rmi/server/RemoteRef;)V", nullptr, $PROTECTED, $method(RemoteObject, init$, void, $RemoteRef*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(RemoteObject, equals, bool, Object$*)},
+		{"getRef", "()Ljava/rmi/server/RemoteRef;", nullptr, $PUBLIC, $virtualMethod(RemoteObject, getRef, $RemoteRef*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(RemoteObject, hashCode, int32_t)},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(RemoteObject, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RemoteObject, toString, $String*)},
+		{"toStub", "(Ljava/rmi/Remote;)Ljava/rmi/Remote;", nullptr, $PUBLIC | $STATIC, $staticMethod(RemoteObject, toStub, $Remote*, $Remote*), "java.rmi.NoSuchObjectException"},
+		{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(RemoteObject, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"java.rmi.server.RemoteObject",
+		"java.lang.Object",
+		"java.rmi.Remote,java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(RemoteObject, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(RemoteObject));
+	});
 	return class$;
 }
 

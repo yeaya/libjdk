@@ -1,5 +1,4 @@
 #include <sun/awt/X11/GtkFileDialogPeer.h>
-
 #include <java/awt/AWTEvent.h>
 #include <java/awt/BufferCapabilities$FlipContents.h>
 #include <java/awt/BufferCapabilities.h>
@@ -100,140 +99,32 @@ public:
 	virtual void run() override {
 		$nc(inst$)->lambda$setVisible$0();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<GtkFileDialogPeer$$Lambda$lambda$setVisible$0>());
-	}
 	GtkFileDialogPeer* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo GtkFileDialogPeer$$Lambda$lambda$setVisible$0::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(GtkFileDialogPeer$$Lambda$lambda$setVisible$0, inst$)},
-	{}
-};
-$MethodInfo GtkFileDialogPeer$$Lambda$lambda$setVisible$0::methodInfos[3] = {
-	{"<init>", "(Lsun/awt/X11/GtkFileDialogPeer;)V", nullptr, $PUBLIC, $method(GtkFileDialogPeer$$Lambda$lambda$setVisible$0, init$, void, GtkFileDialogPeer*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(GtkFileDialogPeer$$Lambda$lambda$setVisible$0, run, void)},
-	{}
-};
-$ClassInfo GtkFileDialogPeer$$Lambda$lambda$setVisible$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.awt.X11.GtkFileDialogPeer$$Lambda$lambda$setVisible$0",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	fieldInfos,
-	methodInfos
 };
 $Class* GtkFileDialogPeer$$Lambda$lambda$setVisible$0::load$($String* name, bool initialize) {
-	$loadClass(GtkFileDialogPeer$$Lambda$lambda$setVisible$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(GtkFileDialogPeer$$Lambda$lambda$setVisible$0, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/awt/X11/GtkFileDialogPeer;)V", nullptr, $PUBLIC, $method(GtkFileDialogPeer$$Lambda$lambda$setVisible$0, init$, void, GtkFileDialogPeer*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(GtkFileDialogPeer$$Lambda$lambda$setVisible$0, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.awt.X11.GtkFileDialogPeer$$Lambda$lambda$setVisible$0",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(GtkFileDialogPeer$$Lambda$lambda$setVisible$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(GtkFileDialogPeer$$Lambda$lambda$setVisible$0);
+	});
 	return class$;
 }
 $Class* GtkFileDialogPeer$$Lambda$lambda$setVisible$0::class$ = nullptr;
-
-$FieldInfo _GtkFileDialogPeer_FieldInfo_[] = {
-	{"fd", "Ljava/awt/FileDialog;", nullptr, $PRIVATE | $FINAL, $field(GtkFileDialogPeer, fd)},
-	{"widget", "J", nullptr, $PRIVATE | $VOLATILE, $field(GtkFileDialogPeer, widget)},
-	{"standaloneWindow", "J", nullptr, $PRIVATE, $field(GtkFileDialogPeer, standaloneWindow)},
-	{"quit", "Z", nullptr, $PRIVATE | $VOLATILE, $field(GtkFileDialogPeer, quit$)},
-	{}
-};
-
-$MethodInfo _GtkFileDialogPeer_MethodInfo_[] = {
-	{"*applyShape", "(Lsun/java2d/pipe/Region;)V", nullptr, $PUBLIC},
-	{"*beginLayout", "()V", nullptr, $PUBLIC},
-	{"*beginValidate", "()V", nullptr, $PUBLIC},
-	{"*blockWindows", "(Ljava/util/List;)V", nullptr, $PUBLIC},
-	{"*canDetermineObscurity", "()Z", nullptr, $PUBLIC},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*coalescePaintEvent", "(Ljava/awt/event/PaintEvent;)V", nullptr, $PUBLIC},
-	{"*createBuffers", "(ILjava/awt/BufferCapabilities;)V", nullptr, $PUBLIC},
-	{"*createImage", "(II)Ljava/awt/Image;", nullptr, $PUBLIC},
-	{"*createVolatileImage", "(II)Ljava/awt/image/VolatileImage;", nullptr, $PUBLIC},
-	{"*destroyBuffers", "()V", nullptr, $PUBLIC},
-	{"*endLayout", "()V", nullptr, $PUBLIC},
-	{"*endValidate", "()V", nullptr, $PUBLIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*flip", "(IIIILjava/awt/BufferCapabilities$FlipContents;)V", nullptr, $PUBLIC},
-	{"*getBackBuffer", "()Ljava/awt/Image;", nullptr, $PUBLIC},
-	{"*getColorModel", "()Ljava/awt/image/ColorModel;", nullptr, $PUBLIC | $SYNTHETIC},
-	{"*getFontMetrics", "(Ljava/awt/Font;)Ljava/awt/FontMetrics;", nullptr, $PUBLIC},
-	{"*getGraphics", "()Ljava/awt/Graphics;", nullptr, $PUBLIC},
-	{"*getGraphicsConfiguration", "()Ljava/awt/GraphicsConfiguration;", nullptr, $PUBLIC | $SYNTHETIC},
-	{"*getInsets", "()Ljava/awt/Insets;", nullptr, $PUBLIC},
-	{"*getLocationOnScreen", "()Ljava/awt/Point;", nullptr, $PUBLIC},
-	{"*getMinimumSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC},
-	{"*getPreferredSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC},
-	{"*handleEvent", "(Ljava/awt/AWTEvent;)V", nullptr, $PUBLIC},
-	{"*handlesWheelScrolling", "()Z", nullptr, $PUBLIC},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/awt/FileDialog;)V", nullptr, 0, $method(GtkFileDialogPeer, init$, void, $FileDialog*)},
-	{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(GtkFileDialogPeer, dispose, void)},
-	{"filenameFilterCallback", "(Ljava/lang/String;)Z", nullptr, $PRIVATE, $method(GtkFileDialogPeer, filenameFilterCallback, bool, $String*)},
-	{"initIDs", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(GtkFileDialogPeer, initIDs, void)},
-	{"*isFocusable", "()Z", nullptr, $PUBLIC},
-	{"*isObscured", "()Z", nullptr, $PUBLIC},
-	{"*isReparentSupported", "()Z", nullptr, $PUBLIC},
-	{"lambda$setVisible$0", "()V", nullptr, $PRIVATE | $SYNTHETIC, $method(GtkFileDialogPeer, lambda$setVisible$0, void)},
-	{"*layout", "()V", nullptr, $PUBLIC},
-	{"*paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC},
-	{"*print", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC},
-	{"quit", "()V", nullptr, $PRIVATE | $NATIVE, $method(GtkFileDialogPeer, quit, void)},
-	{"*reparent", "(Ljava/awt/peer/ContainerPeer;)V", nullptr, $PUBLIC},
-	{"*repositionSecurityWarning", "()V", nullptr, $PUBLIC},
-	{"*requestFocus", "(Ljava/awt/Component;ZZJLjava/awt/event/FocusEvent$Cause;)Z", nullptr, $PUBLIC | $FINAL},
-	{"requestXFocus", "(JZ)V", nullptr, $PROTECTED, $virtualMethod(GtkFileDialogPeer, requestXFocus, void, int64_t, bool)},
-	{"run", "(Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;Ljava/io/FilenameFilter;ZII)V", nullptr, $PRIVATE | $NATIVE, $method(GtkFileDialogPeer, run, void, $String*, int32_t, $String*, $String*, $FilenameFilter*, bool, int32_t, int32_t)},
-	{"*setBackground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC},
-	{"setBounds", "(IIIII)V", nullptr, $PUBLIC | $NATIVE, $virtualMethod(GtkFileDialogPeer, setBounds, void, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"setDirectory", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(GtkFileDialogPeer, setDirectory, void, $String*)},
-	{"*setEnabled", "(Z)V", nullptr, $PUBLIC},
-	{"setFile", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(GtkFileDialogPeer, setFile, void, $String*)},
-	{"setFileInternal", "(Ljava/lang/String;[Ljava/lang/String;)V", nullptr, $PRIVATE, $method(GtkFileDialogPeer, setFileInternal, void, $String*, $StringArray*)},
-	{"setFilenameFilter", "(Ljava/io/FilenameFilter;)V", nullptr, $PUBLIC, $virtualMethod(GtkFileDialogPeer, setFilenameFilter, void, $FilenameFilter*)},
-	{"*setFont", "(Ljava/awt/Font;)V", nullptr, $PUBLIC},
-	{"*setForeground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC},
-	{"*setModalBlocked", "(Ljava/awt/Dialog;Z)V", nullptr, $PUBLIC},
-	{"*setOpacity", "(F)V", nullptr, $PUBLIC},
-	{"*setOpaque", "(Z)V", nullptr, $PUBLIC},
-	{"*setResizable", "(Z)V", nullptr, $PUBLIC},
-	{"*setTitle", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"setVisible", "(Z)V", nullptr, $PUBLIC, $virtualMethod(GtkFileDialogPeer, setVisible, void, bool)},
-	{"setWindow", "(J)Z", nullptr, 0, $method(GtkFileDialogPeer, setWindow, bool, int64_t)},
-	{"*setZOrder", "(Ljava/awt/peer/ComponentPeer;)V", nullptr, $PUBLIC},
-	{"showNativeDialog", "()V", nullptr, $PRIVATE, $method(GtkFileDialogPeer, showNativeDialog, void)},
-	{"*toBack", "()V", nullptr, $PUBLIC},
-	{"toFront", "()V", nullptr, $PUBLIC | $NATIVE, $virtualMethod(GtkFileDialogPeer, toFront, void)},
-	{"*updateMinimumSize", "()V", nullptr, $PUBLIC},
-	{"*updateIconImages", "()V", nullptr, $PUBLIC},
-	{"*updateAlwaysOnTopState", "()V", nullptr, $PUBLIC},
-	{"*updateFocusableWindowState", "()V", nullptr, $PUBLIC},
-	{"*updateWindow", "()V", nullptr, $PUBLIC},
-	{"*updateCursorImmediately", "()V", nullptr, $PUBLIC},
-	{"*updateGraphicsData", "(Ljava/awt/GraphicsConfiguration;)Z", nullptr, $PUBLIC},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-#define _METHOD_INDEX_initIDs 31
-#define _METHOD_INDEX_quit 39
-#define _METHOD_INDEX_run 44
-#define _METHOD_INDEX_setBounds 46
-#define _METHOD_INDEX_toFront 64
-
-$ClassInfo _GtkFileDialogPeer_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.awt.X11.GtkFileDialogPeer",
-	"sun.awt.X11.XDialogPeer",
-	"java.awt.peer.FileDialogPeer",
-	_GtkFileDialogPeer_FieldInfo_,
-	_GtkFileDialogPeer_MethodInfo_
-};
-
-$Object* allocate$GtkFileDialogPeer($Class* clazz) {
-	return $of($alloc(GtkFileDialogPeer));
-}
 
 void GtkFileDialogPeer::blockWindows($List* toBlock) {
 	this->$XDialogPeer::blockWindows(toBlock);
@@ -467,37 +358,37 @@ void GtkFileDialogPeer::init$($FileDialog* fd) {
 
 void GtkFileDialogPeer::initIDs() {
 	$init(GtkFileDialogPeer);
-	$prepareNativeStatic(GtkFileDialogPeer, initIDs, void);
+	$prepareNativeStatic(initIDs, void);
 	$invokeNativeStatic();
 	$finishNativeStatic();
 }
 
 void GtkFileDialogPeer::run($String* title, int32_t mode, $String* dir, $String* file, $FilenameFilter* filter, bool isMultipleMode, int32_t x, int32_t y) {
-	$prepareNative(GtkFileDialogPeer, run, void, $String* title, int32_t mode, $String* dir, $String* file, $FilenameFilter* filter, bool isMultipleMode, int32_t x, int32_t y);
+	$prepareNative(run, void, $String* title, int32_t mode, $String* dir, $String* file, $FilenameFilter* filter, bool isMultipleMode, int32_t x, int32_t y);
 	$invokeNative(title, mode, dir, file, filter, isMultipleMode, x, y);
 	$finishNative();
 }
 
 void GtkFileDialogPeer::quit() {
-	$prepareNative(GtkFileDialogPeer, quit, void);
+	$prepareNative(quit, void);
 	$invokeNative();
 	$finishNative();
 }
 
 void GtkFileDialogPeer::toFront() {
-	$prepareNative(GtkFileDialogPeer, toFront, void);
+	$prepareNative(toFront, void);
 	$invokeNative();
 	$finishNative();
 }
 
 void GtkFileDialogPeer::setBounds(int32_t x, int32_t y, int32_t width, int32_t height, int32_t op) {
-	$prepareNative(GtkFileDialogPeer, setBounds, void, int32_t x, int32_t y, int32_t width, int32_t height, int32_t op);
+	$prepareNative(setBounds, void, int32_t x, int32_t y, int32_t width, int32_t height, int32_t op);
 	$invokeNative(x, y, width, height, op);
 	$finishNative();
 }
 
 void GtkFileDialogPeer::setFileInternal($String* directory, $StringArray* filenames) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AWTAccessor$FileDialogAccessor, accessor, $AWTAccessor::getFileDialogAccessor());
 	if (filenames == nullptr) {
 		$nc(accessor)->setDirectory(this->fd, nullptr);
@@ -510,8 +401,8 @@ void GtkFileDialogPeer::setFileInternal($String* directory, $StringArray* filena
 			$assign(with_separator, directory->endsWith($File::separator) ? directory : ($str({directory, $File::separator})));
 		}
 		$nc(accessor)->setDirectory(this->fd, with_separator);
-		accessor->setFile(this->fd, $nc(filenames)->get(0));
-		int32_t filesNumber = (filenames != nullptr) ? $nc(filenames)->length : 0;
+		accessor->setFile(this->fd, filenames->get(0));
+		int32_t filesNumber = (filenames != nullptr) ? filenames->length : 0;
 		$var($FileArray, files, $new($FileArray, filesNumber));
 		for (int32_t i = 0; i < filesNumber; ++i) {
 			files->set(i, $$new($File, directory, filenames->get(i)));
@@ -521,55 +412,51 @@ void GtkFileDialogPeer::setFileInternal($String* directory, $StringArray* filena
 }
 
 bool GtkFileDialogPeer::filenameFilterCallback($String* fullname) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(this->fd)->getFilenameFilter() == nullptr) {
 		return true;
 	}
 	$var($File, filen, $new($File, fullname));
 	$var($File, var$0, $new($File, $(filen->getParent())));
-	return $nc($($nc(this->fd)->getFilenameFilter()))->accept(var$0, $(filen->getName()));
+	return $$nc(this->fd->getFilenameFilter())->accept(var$0, $(filen->getName()));
 }
 
 void GtkFileDialogPeer::setVisible(bool b) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$XToolkit::awtLock();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			this->quit$ = !b;
-			if (b) {
-				$var($Runnable, task, static_cast<$Runnable*>($new(GtkFileDialogPeer$$Lambda$lambda$setVisible$0, this)));
-				$$new($Thread, nullptr, task, "ShowDialog"_s, 0, false)->start();
-			} else {
-				quit();
-				$nc(this->fd)->setVisible(false);
-			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$XToolkit::awtUnlock();
+	$var($Throwable, var$0, nullptr);
+	try {
+		this->quit$ = !b;
+		if (b) {
+			$var($Runnable, task, $new(GtkFileDialogPeer$$Lambda$lambda$setVisible$0, this));
+			$$new($Thread, nullptr, task, "ShowDialog"_s, 0, false)->start();
+		} else {
+			quit();
+			$nc(this->fd)->setVisible(false);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$XToolkit::awtUnlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 void GtkFileDialogPeer::dispose() {
 	$XToolkit::awtLock();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			this->quit$ = true;
-			quit();
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$XToolkit::awtUnlock();
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	$var($Throwable, var$0, nullptr);
+	try {
+		this->quit$ = true;
+		quit();
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$XToolkit::awtUnlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 	$XDialogPeer::dispose();
 }
@@ -581,12 +468,12 @@ void GtkFileDialogPeer::setFile($String* file) {
 }
 
 void GtkFileDialogPeer::requestXFocus(int64_t time, bool timeProvided) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->standaloneWindow == 0) {
 		$XDialogPeer::requestXFocus(time, timeProvided);
 		return;
 	}
-	$var($XNETProtocol, net_protocol, $nc($($XWM::getWM()))->getNETProtocol());
+	$var($XNETProtocol, net_protocol, $$nc($XWM::getWM())->getNETProtocol());
 	if (net_protocol != nullptr) {
 		net_protocol->setActiveWindow(this->standaloneWindow);
 	}
@@ -596,31 +483,28 @@ void GtkFileDialogPeer::setFilenameFilter($FilenameFilter* filter) {
 }
 
 void GtkFileDialogPeer::showNativeDialog() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, dirname, $nc(this->fd)->getDirectory());
-	$var($String, filename, $nc(this->fd)->getFile());
+	$var($String, filename, this->fd->getFile());
 	if (filename != nullptr) {
 		$var($File, file, $new($File, filename));
-		bool var$0 = $nc(this->fd)->getMode() == $FileDialog::LOAD && dirname != nullptr;
+		bool var$0 = this->fd->getMode() == $FileDialog::LOAD && dirname != nullptr;
 		if (var$0 && file->getParent() == nullptr) {
-			$init($File);
 			$assign(filename, $str({dirname, (dirname->endsWith($File::separator) ? ""_s : $File::separator), filename}));
 		}
-		bool var$1 = $nc(this->fd)->getMode() == $FileDialog::SAVE;
+		bool var$1 = this->fd->getMode() == $FileDialog::SAVE;
 		if (var$1 && file->getParent() != nullptr) {
 			$assign(filename, file->getName());
 			$assign(dirname, file->getParent());
 		}
 	}
 	if (!this->quit$) {
-		$var($String, var$2, $nc(this->fd)->getTitle());
-		int32_t var$3 = $nc(this->fd)->getMode();
-		$var($String, var$4, dirname);
-		$var($String, var$5, filename);
-		$var($FilenameFilter, var$6, $nc(this->fd)->getFilenameFilter());
-		bool var$7 = $nc(this->fd)->isMultipleMode();
-		int32_t var$8 = $nc(this->fd)->getX();
-		run(var$2, var$3, var$4, var$5, var$6, var$7, var$8, $nc(this->fd)->getY());
+		$var($String, var$2, this->fd->getTitle());
+		int32_t var$3 = this->fd->getMode();
+		$var($FilenameFilter, var$4, this->fd->getFilenameFilter());
+		bool var$5 = this->fd->isMultipleMode();
+		int32_t var$6 = this->fd->getX();
+		run(var$2, var$3, dirname, filename, var$4, var$5, var$6, this->fd->getY());
 	}
 }
 
@@ -639,7 +523,7 @@ void GtkFileDialogPeer::lambda$setVisible$0() {
 	$nc(this->fd)->setVisible(false);
 }
 
-void clinit$GtkFileDialogPeer($Class* class$) {
+void GtkFileDialogPeer::clinit$($Class* clazz) {
 	{
 		GtkFileDialogPeer::initIDs();
 	}
@@ -650,11 +534,104 @@ GtkFileDialogPeer::GtkFileDialogPeer() {
 
 $Class* GtkFileDialogPeer::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(GtkFileDialogPeer$$Lambda$lambda$setVisible$0::classInfo$.name)) {
+		if (name->equals("sun.awt.X11.GtkFileDialogPeer$$Lambda$lambda$setVisible$0")) {
 			return GtkFileDialogPeer$$Lambda$lambda$setVisible$0::load$(name, initialize);
 		}
 	}
-	$loadClass(GtkFileDialogPeer, name, initialize, &_GtkFileDialogPeer_ClassInfo_, clinit$GtkFileDialogPeer, allocate$GtkFileDialogPeer);
+	$FieldInfo fieldInfos$$[] = {
+		{"fd", "Ljava/awt/FileDialog;", nullptr, $PRIVATE | $FINAL, $field(GtkFileDialogPeer, fd)},
+		{"widget", "J", nullptr, $PRIVATE | $VOLATILE, $field(GtkFileDialogPeer, widget)},
+		{"standaloneWindow", "J", nullptr, $PRIVATE, $field(GtkFileDialogPeer, standaloneWindow)},
+		{"quit", "Z", nullptr, $PRIVATE | $VOLATILE, $field(GtkFileDialogPeer, quit$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*applyShape", "(Lsun/java2d/pipe/Region;)V", nullptr, $PUBLIC},
+		{"*beginLayout", "()V", nullptr, $PUBLIC},
+		{"*beginValidate", "()V", nullptr, $PUBLIC},
+		{"*blockWindows", "(Ljava/util/List;)V", nullptr, $PUBLIC},
+		{"*canDetermineObscurity", "()Z", nullptr, $PUBLIC},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*coalescePaintEvent", "(Ljava/awt/event/PaintEvent;)V", nullptr, $PUBLIC},
+		{"*createBuffers", "(ILjava/awt/BufferCapabilities;)V", nullptr, $PUBLIC},
+		{"*createImage", "(II)Ljava/awt/Image;", nullptr, $PUBLIC},
+		{"*createVolatileImage", "(II)Ljava/awt/image/VolatileImage;", nullptr, $PUBLIC},
+		{"*destroyBuffers", "()V", nullptr, $PUBLIC},
+		{"*endLayout", "()V", nullptr, $PUBLIC},
+		{"*endValidate", "()V", nullptr, $PUBLIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*flip", "(IIIILjava/awt/BufferCapabilities$FlipContents;)V", nullptr, $PUBLIC},
+		{"*getBackBuffer", "()Ljava/awt/Image;", nullptr, $PUBLIC},
+		{"*getColorModel", "()Ljava/awt/image/ColorModel;", nullptr, $PUBLIC | $SYNTHETIC},
+		{"*getFontMetrics", "(Ljava/awt/Font;)Ljava/awt/FontMetrics;", nullptr, $PUBLIC},
+		{"*getGraphics", "()Ljava/awt/Graphics;", nullptr, $PUBLIC},
+		{"*getGraphicsConfiguration", "()Ljava/awt/GraphicsConfiguration;", nullptr, $PUBLIC | $SYNTHETIC},
+		{"*getInsets", "()Ljava/awt/Insets;", nullptr, $PUBLIC},
+		{"*getLocationOnScreen", "()Ljava/awt/Point;", nullptr, $PUBLIC},
+		{"*getMinimumSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC},
+		{"*getPreferredSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC},
+		{"*handleEvent", "(Ljava/awt/AWTEvent;)V", nullptr, $PUBLIC},
+		{"*handlesWheelScrolling", "()Z", nullptr, $PUBLIC},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/awt/FileDialog;)V", nullptr, 0, $method(GtkFileDialogPeer, init$, void, $FileDialog*)},
+		{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(GtkFileDialogPeer, dispose, void)},
+		{"filenameFilterCallback", "(Ljava/lang/String;)Z", nullptr, $PRIVATE, $method(GtkFileDialogPeer, filenameFilterCallback, bool, $String*)},
+		{"initIDs", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(GtkFileDialogPeer, initIDs, void)},
+		{"*isFocusable", "()Z", nullptr, $PUBLIC},
+		{"*isObscured", "()Z", nullptr, $PUBLIC},
+		{"*isReparentSupported", "()Z", nullptr, $PUBLIC},
+		{"lambda$setVisible$0", "()V", nullptr, $PRIVATE | $SYNTHETIC, $method(GtkFileDialogPeer, lambda$setVisible$0, void)},
+		{"*layout", "()V", nullptr, $PUBLIC},
+		{"*paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC},
+		{"*print", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC},
+		{"quit", "()V", nullptr, $PRIVATE | $NATIVE, $method(GtkFileDialogPeer, quit, void)},
+		{"*reparent", "(Ljava/awt/peer/ContainerPeer;)V", nullptr, $PUBLIC},
+		{"*repositionSecurityWarning", "()V", nullptr, $PUBLIC},
+		{"*requestFocus", "(Ljava/awt/Component;ZZJLjava/awt/event/FocusEvent$Cause;)Z", nullptr, $PUBLIC | $FINAL},
+		{"requestXFocus", "(JZ)V", nullptr, $PROTECTED, $virtualMethod(GtkFileDialogPeer, requestXFocus, void, int64_t, bool)},
+		{"run", "(Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;Ljava/io/FilenameFilter;ZII)V", nullptr, $PRIVATE | $NATIVE, $method(GtkFileDialogPeer, run, void, $String*, int32_t, $String*, $String*, $FilenameFilter*, bool, int32_t, int32_t)},
+		{"*setBackground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC},
+		{"setBounds", "(IIIII)V", nullptr, $PUBLIC | $NATIVE, $virtualMethod(GtkFileDialogPeer, setBounds, void, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"setDirectory", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(GtkFileDialogPeer, setDirectory, void, $String*)},
+		{"*setEnabled", "(Z)V", nullptr, $PUBLIC},
+		{"setFile", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(GtkFileDialogPeer, setFile, void, $String*)},
+		{"setFileInternal", "(Ljava/lang/String;[Ljava/lang/String;)V", nullptr, $PRIVATE, $method(GtkFileDialogPeer, setFileInternal, void, $String*, $StringArray*)},
+		{"setFilenameFilter", "(Ljava/io/FilenameFilter;)V", nullptr, $PUBLIC, $virtualMethod(GtkFileDialogPeer, setFilenameFilter, void, $FilenameFilter*)},
+		{"*setFont", "(Ljava/awt/Font;)V", nullptr, $PUBLIC},
+		{"*setForeground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC},
+		{"*setModalBlocked", "(Ljava/awt/Dialog;Z)V", nullptr, $PUBLIC},
+		{"*setOpacity", "(F)V", nullptr, $PUBLIC},
+		{"*setOpaque", "(Z)V", nullptr, $PUBLIC},
+		{"*setResizable", "(Z)V", nullptr, $PUBLIC},
+		{"*setTitle", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
+		{"setVisible", "(Z)V", nullptr, $PUBLIC, $virtualMethod(GtkFileDialogPeer, setVisible, void, bool)},
+		{"setWindow", "(J)Z", nullptr, 0, $method(GtkFileDialogPeer, setWindow, bool, int64_t)},
+		{"*setZOrder", "(Ljava/awt/peer/ComponentPeer;)V", nullptr, $PUBLIC},
+		{"showNativeDialog", "()V", nullptr, $PRIVATE, $method(GtkFileDialogPeer, showNativeDialog, void)},
+		{"*toBack", "()V", nullptr, $PUBLIC},
+		{"toFront", "()V", nullptr, $PUBLIC | $NATIVE, $virtualMethod(GtkFileDialogPeer, toFront, void)},
+		{"*updateMinimumSize", "()V", nullptr, $PUBLIC},
+		{"*updateIconImages", "()V", nullptr, $PUBLIC},
+		{"*updateAlwaysOnTopState", "()V", nullptr, $PUBLIC},
+		{"*updateFocusableWindowState", "()V", nullptr, $PUBLIC},
+		{"*updateWindow", "()V", nullptr, $PUBLIC},
+		{"*updateCursorImmediately", "()V", nullptr, $PUBLIC},
+		{"*updateGraphicsData", "(Ljava/awt/GraphicsConfiguration;)Z", nullptr, $PUBLIC},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.awt.X11.GtkFileDialogPeer",
+		"sun.awt.X11.XDialogPeer",
+		"java.awt.peer.FileDialogPeer",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(GtkFileDialogPeer, name, initialize, &classInfo$$, GtkFileDialogPeer::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(GtkFileDialogPeer));
+	});
 	return class$;
 }
 

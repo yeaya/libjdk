@@ -45,6 +45,7 @@ class $export MediaSize$NA : public ::java::lang::Object {
 	$class(MediaSize$NA, 0, ::java::lang::Object)
 public:
 	MediaSize$NA();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::javax::print::attribute::standard::MediaSize* LETTER;
 	static ::javax::print::attribute::standard::MediaSize* LEGAL;

@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/jaxp/validation/XMLSchema.h>
-
 #include <com/sun/org/apache/xerces/internal/jaxp/validation/AbstractXMLSchema.h>
 #include <com/sun/org/apache/xerces/internal/xni/grammars/XMLGrammarPool.h>
 #include <jcpp.h>
@@ -18,33 +17,6 @@ namespace com {
 					namespace internal {
 						namespace jaxp {
 							namespace validation {
-
-$FieldInfo _XMLSchema_FieldInfo_[] = {
-	{"fGrammarPool", "Lcom/sun/org/apache/xerces/internal/xni/grammars/XMLGrammarPool;", nullptr, $PRIVATE | $FINAL, $field(XMLSchema, fGrammarPool)},
-	{"fFullyComposed", "Z", nullptr, $PRIVATE | $FINAL, $field(XMLSchema, fFullyComposed)},
-	{}
-};
-
-$MethodInfo _XMLSchema_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/org/apache/xerces/internal/xni/grammars/XMLGrammarPool;)V", nullptr, $PUBLIC, $method(XMLSchema, init$, void, $XMLGrammarPool*)},
-	{"<init>", "(Lcom/sun/org/apache/xerces/internal/xni/grammars/XMLGrammarPool;Z)V", nullptr, $PUBLIC, $method(XMLSchema, init$, void, $XMLGrammarPool*, bool)},
-	{"getGrammarPool", "()Lcom/sun/org/apache/xerces/internal/xni/grammars/XMLGrammarPool;", nullptr, $PUBLIC, $virtualMethod(XMLSchema, getGrammarPool, $XMLGrammarPool*)},
-	{"isFullyComposed", "()Z", nullptr, $PUBLIC, $virtualMethod(XMLSchema, isFullyComposed, bool)},
-	{}
-};
-
-$ClassInfo _XMLSchema_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.jaxp.validation.XMLSchema",
-	"com.sun.org.apache.xerces.internal.jaxp.validation.AbstractXMLSchema",
-	nullptr,
-	_XMLSchema_FieldInfo_,
-	_XMLSchema_MethodInfo_
-};
-
-$Object* allocate$XMLSchema($Class* clazz) {
-	return $of($alloc(XMLSchema));
-}
 
 void XMLSchema::init$($XMLGrammarPool* grammarPool) {
 	XMLSchema::init$(grammarPool, true);
@@ -68,7 +40,29 @@ XMLSchema::XMLSchema() {
 }
 
 $Class* XMLSchema::load$($String* name, bool initialize) {
-	$loadClass(XMLSchema, name, initialize, &_XMLSchema_ClassInfo_, allocate$XMLSchema);
+	$FieldInfo fieldInfos$$[] = {
+		{"fGrammarPool", "Lcom/sun/org/apache/xerces/internal/xni/grammars/XMLGrammarPool;", nullptr, $PRIVATE | $FINAL, $field(XMLSchema, fGrammarPool)},
+		{"fFullyComposed", "Z", nullptr, $PRIVATE | $FINAL, $field(XMLSchema, fFullyComposed)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/org/apache/xerces/internal/xni/grammars/XMLGrammarPool;)V", nullptr, $PUBLIC, $method(XMLSchema, init$, void, $XMLGrammarPool*)},
+		{"<init>", "(Lcom/sun/org/apache/xerces/internal/xni/grammars/XMLGrammarPool;Z)V", nullptr, $PUBLIC, $method(XMLSchema, init$, void, $XMLGrammarPool*, bool)},
+		{"getGrammarPool", "()Lcom/sun/org/apache/xerces/internal/xni/grammars/XMLGrammarPool;", nullptr, $PUBLIC, $virtualMethod(XMLSchema, getGrammarPool, $XMLGrammarPool*)},
+		{"isFullyComposed", "()Z", nullptr, $PUBLIC, $virtualMethod(XMLSchema, isFullyComposed, bool)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.jaxp.validation.XMLSchema",
+		"com.sun.org.apache.xerces.internal.jaxp.validation.AbstractXMLSchema",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XMLSchema, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(XMLSchema));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <java/beans/MetaData$java_awt_AWTKeyStroke_PersistenceDelegate.h>
-
 #include <java/awt/AWTKeyStroke.h>
 #include <java/awt/event/KeyEvent.h>
 #include <java/beans/Encoder.h>
@@ -28,38 +27,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace java {
 	namespace beans {
 
-$MethodInfo _MetaData$java_awt_AWTKeyStroke_PersistenceDelegate_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(MetaData$java_awt_AWTKeyStroke_PersistenceDelegate, init$, void)},
-	{"instantiate", "(Ljava/lang/Object;Ljava/beans/Encoder;)Ljava/beans/Expression;", nullptr, $PROTECTED, $virtualMethod(MetaData$java_awt_AWTKeyStroke_PersistenceDelegate, instantiate, $Expression*, Object$*, $Encoder*)},
-	{"mutatesTo", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PROTECTED, $virtualMethod(MetaData$java_awt_AWTKeyStroke_PersistenceDelegate, mutatesTo, bool, Object$*, Object$*)},
-	{}
-};
-
-$InnerClassInfo _MetaData$java_awt_AWTKeyStroke_PersistenceDelegate_InnerClassesInfo_[] = {
-	{"java.beans.MetaData$java_awt_AWTKeyStroke_PersistenceDelegate", "java.beans.MetaData", "java_awt_AWTKeyStroke_PersistenceDelegate", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _MetaData$java_awt_AWTKeyStroke_PersistenceDelegate_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.beans.MetaData$java_awt_AWTKeyStroke_PersistenceDelegate",
-	"java.beans.PersistenceDelegate",
-	nullptr,
-	nullptr,
-	_MetaData$java_awt_AWTKeyStroke_PersistenceDelegate_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MetaData$java_awt_AWTKeyStroke_PersistenceDelegate_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.beans.MetaData"
-};
-
-$Object* allocate$MetaData$java_awt_AWTKeyStroke_PersistenceDelegate($Class* clazz) {
-	return $of($alloc(MetaData$java_awt_AWTKeyStroke_PersistenceDelegate));
-}
-
 void MetaData$java_awt_AWTKeyStroke_PersistenceDelegate::init$() {
 	$PersistenceDelegate::init$();
 }
@@ -69,7 +36,7 @@ bool MetaData$java_awt_AWTKeyStroke_PersistenceDelegate::mutatesTo(Object$* oldI
 }
 
 $Expression* MetaData$java_awt_AWTKeyStroke_PersistenceDelegate::instantiate(Object$* oldInstance, $Encoder* out) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AWTKeyStroke, key, $cast($AWTKeyStroke, oldInstance));
 	char16_t ch = $nc(key)->getKeyChar();
 	int32_t code = key->getKeyCode();
@@ -78,32 +45,32 @@ $Expression* MetaData$java_awt_AWTKeyStroke_PersistenceDelegate::instantiate(Obj
 	$var($ObjectArray, args, nullptr);
 	if (ch == $KeyEvent::CHAR_UNDEFINED) {
 		$assign(args, !onKeyRelease ? $new($ObjectArray, {
-			$($of($Integer::valueOf(code))),
-			$($of($Integer::valueOf(mask)))
+			$($Integer::valueOf(code)),
+			$($Integer::valueOf(mask))
 		}) : $new($ObjectArray, {
-			$($of($Integer::valueOf(code))),
-			$($of($Integer::valueOf(mask))),
-			$($of($Boolean::valueOf(onKeyRelease)))
+			$($Integer::valueOf(code)),
+			$($Integer::valueOf(mask)),
+			$($Boolean::valueOf(onKeyRelease))
 		}));
 	} else if (code == $KeyEvent::VK_UNDEFINED) {
 		if (!onKeyRelease) {
-			$assign(args, (mask == 0) ? $new($ObjectArray, {$($of($Character::valueOf(ch)))}) : $new($ObjectArray, {
-				$($of($Character::valueOf(ch))),
-				$($of($Integer::valueOf(mask)))
+			$assign(args, (mask == 0) ? $new($ObjectArray, {$($Character::valueOf(ch))}) : $new($ObjectArray, {
+				$($Character::valueOf(ch)),
+				$($Integer::valueOf(mask))
 			}));
 		} else if (mask == 0) {
 			$assign(args, $new($ObjectArray, {
-				$($of($Character::valueOf(ch))),
-				$($of($Boolean::valueOf(onKeyRelease)))
+				$($Character::valueOf(ch)),
+				$($Boolean::valueOf(onKeyRelease))
 			}));
 		}
 	}
 	if (args == nullptr) {
 		$throwNew($IllegalStateException, $$str({"Unsupported KeyStroke: "_s, key}));
 	}
-	$Class* type = $of(key)->getClass();
-	$var($String, name, $nc(type)->getName());
-	int32_t index = $nc(name)->lastIndexOf((int32_t)u'.') + 1;
+	$Class* type = key->getClass();
+	$var($String, name, type->getName());
+	int32_t index = $nc(name)->lastIndexOf(u'.') + 1;
 	if (index > 0) {
 		$assign(name, name->substring(index));
 	}
@@ -114,7 +81,34 @@ MetaData$java_awt_AWTKeyStroke_PersistenceDelegate::MetaData$java_awt_AWTKeyStro
 }
 
 $Class* MetaData$java_awt_AWTKeyStroke_PersistenceDelegate::load$($String* name, bool initialize) {
-	$loadClass(MetaData$java_awt_AWTKeyStroke_PersistenceDelegate, name, initialize, &_MetaData$java_awt_AWTKeyStroke_PersistenceDelegate_ClassInfo_, allocate$MetaData$java_awt_AWTKeyStroke_PersistenceDelegate);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(MetaData$java_awt_AWTKeyStroke_PersistenceDelegate, init$, void)},
+		{"instantiate", "(Ljava/lang/Object;Ljava/beans/Encoder;)Ljava/beans/Expression;", nullptr, $PROTECTED, $virtualMethod(MetaData$java_awt_AWTKeyStroke_PersistenceDelegate, instantiate, $Expression*, Object$*, $Encoder*)},
+		{"mutatesTo", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PROTECTED, $virtualMethod(MetaData$java_awt_AWTKeyStroke_PersistenceDelegate, mutatesTo, bool, Object$*, Object$*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.beans.MetaData$java_awt_AWTKeyStroke_PersistenceDelegate", "java.beans.MetaData", "java_awt_AWTKeyStroke_PersistenceDelegate", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.beans.MetaData$java_awt_AWTKeyStroke_PersistenceDelegate",
+		"java.beans.PersistenceDelegate",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.beans.MetaData"
+	};
+	$loadClass(MetaData$java_awt_AWTKeyStroke_PersistenceDelegate, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MetaData$java_awt_AWTKeyStroke_PersistenceDelegate);
+	});
 	return class$;
 }
 

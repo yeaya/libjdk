@@ -42,6 +42,7 @@ class AquaTextFieldBorder : public ::com::apple::laf::AquaBorder {
 	$class(AquaTextFieldBorder, 0, ::com::apple::laf::AquaBorder)
 public:
 	AquaTextFieldBorder();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(::com::apple::laf::AquaUtilControlSize$SizeDescriptor* sizeDescriptor);
 	void init$(::com::apple::laf::AquaTextFieldBorder* other);

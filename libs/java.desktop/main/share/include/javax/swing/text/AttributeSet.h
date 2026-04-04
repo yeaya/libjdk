@@ -18,6 +18,7 @@ namespace javax {
 class $import AttributeSet : public ::java::lang::Object {
 	$interface(AttributeSet, 0, ::java::lang::Object)
 public:
+	static void clinit$(::java::lang::Class* clazz);
 	virtual bool containsAttribute(Object$* name, Object$* value) {return false;}
 	virtual bool containsAttributes(::javax::swing::text::AttributeSet* attributes) {return false;}
 	virtual ::javax::swing::text::AttributeSet* copyAttributes() {return nullptr;}

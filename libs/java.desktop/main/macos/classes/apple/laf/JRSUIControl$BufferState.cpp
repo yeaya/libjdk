@@ -1,5 +1,4 @@
 #include <apple/laf/JRSUIControl$BufferState.h>
-
 #include <apple/laf/JRSUIControl.h>
 #include <java/lang/Enum.h>
 #include <jcpp.h>
@@ -18,48 +17,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace apple {
 	namespace laf {
-
-$FieldInfo _JRSUIControl$BufferState_FieldInfo_[] = {
-	{"NO_CHANGE", "Lapple/laf/JRSUIControl$BufferState;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JRSUIControl$BufferState, NO_CHANGE)},
-	{"ALL_CHANGES_IN_BUFFER", "Lapple/laf/JRSUIControl$BufferState;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JRSUIControl$BufferState, ALL_CHANGES_IN_BUFFER)},
-	{"SOME_CHANGES_IN_BUFFER", "Lapple/laf/JRSUIControl$BufferState;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JRSUIControl$BufferState, SOME_CHANGES_IN_BUFFER)},
-	{"CHANGE_WONT_FIT_IN_BUFFER", "Lapple/laf/JRSUIControl$BufferState;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JRSUIControl$BufferState, CHANGE_WONT_FIT_IN_BUFFER)},
-	{"$VALUES", "[Lapple/laf/JRSUIControl$BufferState;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(JRSUIControl$BufferState, $VALUES)},
-	{}
-};
-
-$MethodInfo _JRSUIControl$BufferState_MethodInfo_[] = {
-	{"$values", "()[Lapple/laf/JRSUIControl$BufferState;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JRSUIControl$BufferState, $values, $JRSUIControl$BufferStateArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(JRSUIControl$BufferState, init$, void, $String*, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)Lapple/laf/JRSUIControl$BufferState;", nullptr, $PUBLIC | $STATIC, $staticMethod(JRSUIControl$BufferState, valueOf, JRSUIControl$BufferState*, $String*)},
-	{"values", "()[Lapple/laf/JRSUIControl$BufferState;", nullptr, $PUBLIC | $STATIC, $staticMethod(JRSUIControl$BufferState, values, $JRSUIControl$BufferStateArray*)},
-	{}
-};
-
-$InnerClassInfo _JRSUIControl$BufferState_InnerClassesInfo_[] = {
-	{"apple.laf.JRSUIControl$BufferState", "apple.laf.JRSUIControl", "BufferState", $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _JRSUIControl$BufferState_ClassInfo_ = {
-	$FINAL | $ACC_SUPER | $ENUM,
-	"apple.laf.JRSUIControl$BufferState",
-	"java.lang.Enum",
-	nullptr,
-	_JRSUIControl$BufferState_FieldInfo_,
-	_JRSUIControl$BufferState_MethodInfo_,
-	"Ljava/lang/Enum<Lapple/laf/JRSUIControl$BufferState;>;",
-	nullptr,
-	_JRSUIControl$BufferState_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"apple.laf.JRSUIControl"
-};
-
-$Object* allocate$JRSUIControl$BufferState($Class* clazz) {
-	return $of($alloc(JRSUIControl$BufferState));
-}
 
 JRSUIControl$BufferState* JRSUIControl$BufferState::NO_CHANGE = nullptr;
 JRSUIControl$BufferState* JRSUIControl$BufferState::ALL_CHANGES_IN_BUFFER = nullptr;
@@ -91,7 +48,7 @@ void JRSUIControl$BufferState::init$($String* $enum$name, int32_t $enum$ordinal)
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$JRSUIControl$BufferState($Class* class$) {
+void JRSUIControl$BufferState::clinit$($Class* clazz) {
 	$assignStatic(JRSUIControl$BufferState::NO_CHANGE, $new(JRSUIControl$BufferState, "NO_CHANGE"_s, 0));
 	$assignStatic(JRSUIControl$BufferState::ALL_CHANGES_IN_BUFFER, $new(JRSUIControl$BufferState, "ALL_CHANGES_IN_BUFFER"_s, 1));
 	$assignStatic(JRSUIControl$BufferState::SOME_CHANGES_IN_BUFFER, $new(JRSUIControl$BufferState, "SOME_CHANGES_IN_BUFFER"_s, 2));
@@ -103,7 +60,43 @@ JRSUIControl$BufferState::JRSUIControl$BufferState() {
 }
 
 $Class* JRSUIControl$BufferState::load$($String* name, bool initialize) {
-	$loadClass(JRSUIControl$BufferState, name, initialize, &_JRSUIControl$BufferState_ClassInfo_, clinit$JRSUIControl$BufferState, allocate$JRSUIControl$BufferState);
+	$FieldInfo fieldInfos$$[] = {
+		{"NO_CHANGE", "Lapple/laf/JRSUIControl$BufferState;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JRSUIControl$BufferState, NO_CHANGE)},
+		{"ALL_CHANGES_IN_BUFFER", "Lapple/laf/JRSUIControl$BufferState;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JRSUIControl$BufferState, ALL_CHANGES_IN_BUFFER)},
+		{"SOME_CHANGES_IN_BUFFER", "Lapple/laf/JRSUIControl$BufferState;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JRSUIControl$BufferState, SOME_CHANGES_IN_BUFFER)},
+		{"CHANGE_WONT_FIT_IN_BUFFER", "Lapple/laf/JRSUIControl$BufferState;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JRSUIControl$BufferState, CHANGE_WONT_FIT_IN_BUFFER)},
+		{"$VALUES", "[Lapple/laf/JRSUIControl$BufferState;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(JRSUIControl$BufferState, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lapple/laf/JRSUIControl$BufferState;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JRSUIControl$BufferState, $values, $JRSUIControl$BufferStateArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(JRSUIControl$BufferState, init$, void, $String*, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)Lapple/laf/JRSUIControl$BufferState;", nullptr, $PUBLIC | $STATIC, $staticMethod(JRSUIControl$BufferState, valueOf, JRSUIControl$BufferState*, $String*)},
+		{"values", "()[Lapple/laf/JRSUIControl$BufferState;", nullptr, $PUBLIC | $STATIC, $staticMethod(JRSUIControl$BufferState, values, $JRSUIControl$BufferStateArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"apple.laf.JRSUIControl$BufferState", "apple.laf.JRSUIControl", "BufferState", $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER | $ENUM,
+		"apple.laf.JRSUIControl$BufferState",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lapple/laf/JRSUIControl$BufferState;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"apple.laf.JRSUIControl"
+	};
+	$loadClass(JRSUIControl$BufferState, name, initialize, &classInfo$$, JRSUIControl$BufferState::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JRSUIControl$BufferState));
+	});
 	return class$;
 }
 

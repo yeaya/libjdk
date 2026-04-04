@@ -1,5 +1,4 @@
 #include <PaintContextScaleValidation.h>
-
 #include <java/awt/Dimension.h>
 #include <java/awt/Graphics2D.h>
 #include <java/awt/Insets.h>
@@ -21,28 +20,6 @@ using $AbstractRegionPainter = ::javax::swing::plaf::nimbus::AbstractRegionPaint
 using $AbstractRegionPainter$PaintContext = ::javax::swing::plaf::nimbus::AbstractRegionPainter$PaintContext;
 using $AbstractRegionPainter$PaintContext$CacheMode = ::javax::swing::plaf::nimbus::AbstractRegionPainter$PaintContext$CacheMode;
 
-$MethodInfo _PaintContextScaleValidation_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(PaintContextScaleValidation, init$, void)},
-	{"doPaint", "(Ljava/awt/Graphics2D;Ljavax/swing/JComponent;II[Ljava/lang/Object;)V", nullptr, $PROTECTED, $virtualMethod(PaintContextScaleValidation, doPaint, void, $Graphics2D*, $JComponent*, int32_t, int32_t, $ObjectArray*)},
-	{"getPaintContext", "()Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext;", nullptr, $PROTECTED, $virtualMethod(PaintContextScaleValidation, getPaintContext, $AbstractRegionPainter$PaintContext*)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(PaintContextScaleValidation, main, void, $StringArray*)},
-	{"test", "(DD)V", nullptr, $PRIVATE, $method(PaintContextScaleValidation, test, void, double, double)},
-	{}
-};
-
-$ClassInfo _PaintContextScaleValidation_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"PaintContextScaleValidation",
-	"javax.swing.plaf.nimbus.AbstractRegionPainter",
-	nullptr,
-	nullptr,
-	_PaintContextScaleValidation_MethodInfo_
-};
-
-$Object* allocate$PaintContextScaleValidation($Class* clazz) {
-	return $of($alloc(PaintContextScaleValidation));
-}
-
 void PaintContextScaleValidation::init$() {
 	$AbstractRegionPainter::init$();
 }
@@ -50,13 +27,13 @@ void PaintContextScaleValidation::init$() {
 void PaintContextScaleValidation::main($StringArray* args) {
 	$init(PaintContextScaleValidation);
 	$var(PaintContextScaleValidation, t, $new(PaintContextScaleValidation));
-	t->test((double)0, (double)0);
-	t->test((double)0, (double)1);
-	t->test((double)1, (double)0);
+	t->test(0, 0);
+	t->test(0, 1);
+	t->test(1, 0);
 }
 
 void PaintContextScaleValidation::test(double maxH, double maxV) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$var($Insets, var$0, $new($Insets, 1, 1, 1, 1));
 		$new($AbstractRegionPainter$PaintContext, var$0, $$new($Dimension, 1, 1), false, nullptr, maxH, maxV);
@@ -77,7 +54,25 @@ PaintContextScaleValidation::PaintContextScaleValidation() {
 }
 
 $Class* PaintContextScaleValidation::load$($String* name, bool initialize) {
-	$loadClass(PaintContextScaleValidation, name, initialize, &_PaintContextScaleValidation_ClassInfo_, allocate$PaintContextScaleValidation);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(PaintContextScaleValidation, init$, void)},
+		{"doPaint", "(Ljava/awt/Graphics2D;Ljavax/swing/JComponent;II[Ljava/lang/Object;)V", nullptr, $PROTECTED, $virtualMethod(PaintContextScaleValidation, doPaint, void, $Graphics2D*, $JComponent*, int32_t, int32_t, $ObjectArray*)},
+		{"getPaintContext", "()Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext;", nullptr, $PROTECTED, $virtualMethod(PaintContextScaleValidation, getPaintContext, $AbstractRegionPainter$PaintContext*)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(PaintContextScaleValidation, main, void, $StringArray*)},
+		{"test", "(DD)V", nullptr, $PRIVATE, $method(PaintContextScaleValidation, test, void, double, double)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"PaintContextScaleValidation",
+		"javax.swing.plaf.nimbus.AbstractRegionPainter",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(PaintContextScaleValidation, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PaintContextScaleValidation);
+	});
 	return class$;
 }
 

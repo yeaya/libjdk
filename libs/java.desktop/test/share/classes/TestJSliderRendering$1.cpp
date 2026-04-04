@@ -1,5 +1,4 @@
 #include <TestJSliderRendering$1.h>
-
 #include <TestJSliderRendering.h>
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
@@ -22,43 +21,6 @@ using $JFrame = ::javax::swing::JFrame;
 using $JPanel = ::javax::swing::JPanel;
 using $JSlider = ::javax::swing::JSlider;
 
-$MethodInfo _TestJSliderRendering$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(TestJSliderRendering$1, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestJSliderRendering$1, run, void)},
-	{}
-};
-
-$EnclosingMethodInfo _TestJSliderRendering$1_EnclosingMethodInfo_ = {
-	"TestJSliderRendering",
-	"main",
-	"([Ljava/lang/String;)V"
-};
-
-$InnerClassInfo _TestJSliderRendering$1_InnerClassesInfo_[] = {
-	{"TestJSliderRendering$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _TestJSliderRendering$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"TestJSliderRendering$1",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	_TestJSliderRendering$1_MethodInfo_,
-	nullptr,
-	&_TestJSliderRendering$1_EnclosingMethodInfo_,
-	_TestJSliderRendering$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"TestJSliderRendering"
-};
-
-$Object* allocate$TestJSliderRendering$1($Class* clazz) {
-	return $of($alloc(TestJSliderRendering$1));
-}
-
 void TestJSliderRendering$1::init$() {
 }
 
@@ -66,9 +28,9 @@ void TestJSliderRendering$1::run() {
 	$var($JPanel, panel, $new($JPanel));
 	$init($TestJSliderRendering);
 	$assignStatic($TestJSliderRendering::slider, $new($JSlider, $JSlider::HORIZONTAL, 0, 100, 50));
-	panel->add(static_cast<$Component*>($TestJSliderRendering::slider));
+	panel->add($TestJSliderRendering::slider);
 	$assignStatic($TestJSliderRendering::frame, $new($JFrame, "TestJSliderRendering"_s));
-	$nc($TestJSliderRendering::frame)->add(static_cast<$Component*>(panel));
+	$TestJSliderRendering::frame->add(panel);
 	$nc($TestJSliderRendering::frame)->setSize(200, 200);
 	$nc($TestJSliderRendering::frame)->setAlwaysOnTop(true);
 	$nc($TestJSliderRendering::frame)->setLocationRelativeTo(nullptr);
@@ -80,7 +42,38 @@ TestJSliderRendering$1::TestJSliderRendering$1() {
 }
 
 $Class* TestJSliderRendering$1::load$($String* name, bool initialize) {
-	$loadClass(TestJSliderRendering$1, name, initialize, &_TestJSliderRendering$1_ClassInfo_, allocate$TestJSliderRendering$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(TestJSliderRendering$1, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestJSliderRendering$1, run, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"TestJSliderRendering",
+		"main",
+		"([Ljava/lang/String;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"TestJSliderRendering$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"TestJSliderRendering$1",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"TestJSliderRendering"
+	};
+	$loadClass(TestJSliderRendering$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TestJSliderRendering$1);
+	});
 	return class$;
 }
 

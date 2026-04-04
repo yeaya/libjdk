@@ -38,6 +38,7 @@ class AquaPanelUI : public ::javax::swing::plaf::basic::BasicPanelUI {
 	$class(AquaPanelUI, 0, ::javax::swing::plaf::basic::BasicPanelUI)
 public:
 	AquaPanelUI();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::javax::swing::plaf::ComponentUI* createUI(::javax::swing::JComponent* c);
 	virtual void update(::java::awt::Graphics* g, ::javax::swing::JComponent* c) override;

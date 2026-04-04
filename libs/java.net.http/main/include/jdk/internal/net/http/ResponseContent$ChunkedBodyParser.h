@@ -62,6 +62,7 @@ class $import ResponseContent$ChunkedBodyParser : public ::jdk::internal::net::h
 	$class(ResponseContent$ChunkedBodyParser, 0, ::jdk::internal::net::http::ResponseContent$BodyParser)
 public:
 	ResponseContent$ChunkedBodyParser();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::jdk::internal::net::http::ResponseContent* this$0, ::java::util::function::Consumer* onComplete);
 	virtual void accept(::java::nio::ByteBuffer* b);
 	virtual void accept(Object$* b) override;

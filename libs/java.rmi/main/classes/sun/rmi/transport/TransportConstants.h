@@ -14,7 +14,7 @@ class $export TransportConstants : public ::java::lang::Object {
 public:
 	TransportConstants();
 	void init$();
-	static const int32_t Magic = 0x4A524D49;
+	static const int32_t Magic = 0x4a524d49;
 	static const int16_t Version = 2;
 	static const int8_t StreamProtocol = 75;
 	static const int8_t SingleOpProtocol = 76;

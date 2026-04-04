@@ -20,7 +20,10 @@ public:
 	$String* value = nullptr;
 	ClassWriter$StringOverflow(const ClassWriter$StringOverflow& e);
 	virtual void throw$() override;
-	inline ClassWriter$StringOverflow* operator ->() {
+	inline ClassWriter$StringOverflow* operator ->() const {
+		return (ClassWriter$StringOverflow*)throwing$;
+	}
+	inline operator ClassWriter$StringOverflow*() const {
 		return (ClassWriter$StringOverflow*)throwing$;
 	}
 };

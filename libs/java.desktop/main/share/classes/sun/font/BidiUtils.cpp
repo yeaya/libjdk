@@ -1,5 +1,4 @@
 #include <sun/font/BidiUtils.h>
-
 #include <java/lang/IndexOutOfBoundsException.h>
 #include <java/text/Bidi.h>
 #include <jcpp.h>
@@ -15,45 +14,14 @@ using $Bidi = ::java::text::Bidi;
 namespace sun {
 	namespace font {
 
-$FieldInfo _BidiUtils_FieldInfo_[] = {
-	{"NUMLEVELS", "C", nullptr, $STATIC | $FINAL, $constField(BidiUtils, NUMLEVELS)},
-	{}
-};
-
-$MethodInfo _BidiUtils_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(BidiUtils, init$, void)},
-	{"computeContiguousOrder", "([III)[I", nullptr, $PRIVATE | $STATIC, $staticMethod(BidiUtils, computeContiguousOrder, $ints*, $ints*, int32_t, int32_t)},
-	{"createContiguousOrder", "([I)[I", nullptr, $PUBLIC | $STATIC, $staticMethod(BidiUtils, createContiguousOrder, $ints*, $ints*)},
-	{"createInverseMap", "([I)[I", nullptr, $PUBLIC | $STATIC, $staticMethod(BidiUtils, createInverseMap, $ints*, $ints*)},
-	{"createNormalizedMap", "([I[BII)[I", nullptr, $PUBLIC | $STATIC, $staticMethod(BidiUtils, createNormalizedMap, $ints*, $ints*, $bytes*, int32_t, int32_t)},
-	{"createVisualToLogicalMap", "([B)[I", nullptr, $PUBLIC | $STATIC, $staticMethod(BidiUtils, createVisualToLogicalMap, $ints*, $bytes*)},
-	{"getLevels", "(Ljava/text/Bidi;[BI)V", nullptr, $PUBLIC | $STATIC, $staticMethod(BidiUtils, getLevels, void, $Bidi*, $bytes*, int32_t)},
-	{"getLevels", "(Ljava/text/Bidi;)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(BidiUtils, getLevels, $bytes*, $Bidi*)},
-	{"reorderVisually", "([B[Ljava/lang/Object;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(BidiUtils, reorderVisually, void, $bytes*, $ObjectArray*)},
-	{}
-};
-
-$ClassInfo _BidiUtils_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.font.BidiUtils",
-	"java.lang.Object",
-	nullptr,
-	_BidiUtils_FieldInfo_,
-	_BidiUtils_MethodInfo_
-};
-
-$Object* allocate$BidiUtils($Class* clazz) {
-	return $of($alloc(BidiUtils));
-}
-
 void BidiUtils::init$() {
 }
 
 void BidiUtils::getLevels($Bidi* bidi, $bytes* levels, int32_t start) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t limit = start + $nc(bidi)->getLength();
 	if (start < 0 || limit > $nc(levels)->length) {
-		$throwNew($IndexOutOfBoundsException, $$str({"levels.length = "_s, $$str(levels->length), " start: "_s, $$str(start), " limit: "_s, $$str(limit)}));
+		$throwNew($IndexOutOfBoundsException, $$str({"levels.length = "_s, $$str($nc(levels)->length), " start: "_s, $$str(start), " limit: "_s, $$str(limit)}));
 	}
 	int32_t runCount = bidi->getRunCount();
 	int32_t p = start;
@@ -76,14 +44,14 @@ $ints* BidiUtils::createVisualToLogicalMap($bytes* levels) {
 	int32_t len = $nc(levels)->length;
 	$var($ints, mapping, $new($ints, len));
 	int8_t lowestOddLevel = (int8_t)(BidiUtils::NUMLEVELS + 1);
-	int8_t highestLevel = (int8_t)0;
+	int8_t highestLevel = 0;
 	for (int32_t i = 0; i < len; ++i) {
 		mapping->set(i, i);
 		int8_t level = levels->get(i);
 		if (level > highestLevel) {
 			highestLevel = level;
 		}
-		if (((int32_t)(level & (uint32_t)1)) != 0 && level < lowestOddLevel) {
+		if ((level & 1) != 0 && level < lowestOddLevel) {
 			lowestOddLevel = level;
 		}
 	}
@@ -177,9 +145,9 @@ $ints* BidiUtils::createNormalizedMap($ints* values, $bytes* levels, int32_t sta
 				primaryLevel = (int8_t)0;
 				copyRange = true;
 				canonical = true;
-			} else if ($nc(levels)->get(start) == levels->get(limit - 1)) {
+			} else if (levels->get(start) == levels->get(limit - 1)) {
 				primaryLevel = levels->get(start);
-				canonical = ((int32_t)(primaryLevel & (uint32_t)(int32_t)(int8_t)1)) == 0;
+				canonical = (primaryLevel & (int8_t)1) == 0;
 				int32_t i = 0;
 				for (i = start; i < limit; ++i) {
 					if (levels->get(i) < primaryLevel) {
@@ -201,7 +169,7 @@ $ints* BidiUtils::createNormalizedMap($ints* values, $bytes* levels, int32_t sta
 				}
 				$var($ints, result, $new($ints, limit - start));
 				int32_t baseValue = 0;
-				if (((int32_t)(primaryLevel & (uint32_t)(int32_t)(int8_t)1)) != 0) {
+				if ((primaryLevel & (int8_t)1) != 0) {
 					baseValue = values->get(limit - 1);
 				} else {
 					baseValue = values->get(start);
@@ -225,16 +193,16 @@ $ints* BidiUtils::createNormalizedMap($ints* values, $bytes* levels, int32_t sta
 }
 
 void BidiUtils::reorderVisually($bytes* levels, $ObjectArray* objects) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t len = $nc(levels)->length;
 	int8_t lowestOddLevel = (int8_t)(BidiUtils::NUMLEVELS + 1);
-	int8_t highestLevel = (int8_t)0;
+	int8_t highestLevel = 0;
 	for (int32_t i = 0; i < len; ++i) {
 		int8_t level = levels->get(i);
 		if (level > highestLevel) {
 			highestLevel = level;
 		}
-		if (((int32_t)(level & (uint32_t)1)) != 0 && level < lowestOddLevel) {
+		if ((level & 1) != 0 && level < lowestOddLevel) {
 			lowestOddLevel = level;
 		}
 	}
@@ -268,7 +236,33 @@ BidiUtils::BidiUtils() {
 }
 
 $Class* BidiUtils::load$($String* name, bool initialize) {
-	$loadClass(BidiUtils, name, initialize, &_BidiUtils_ClassInfo_, allocate$BidiUtils);
+	$FieldInfo fieldInfos$$[] = {
+		{"NUMLEVELS", "C", nullptr, $STATIC | $FINAL, $constField(BidiUtils, NUMLEVELS)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(BidiUtils, init$, void)},
+		{"computeContiguousOrder", "([III)[I", nullptr, $PRIVATE | $STATIC, $staticMethod(BidiUtils, computeContiguousOrder, $ints*, $ints*, int32_t, int32_t)},
+		{"createContiguousOrder", "([I)[I", nullptr, $PUBLIC | $STATIC, $staticMethod(BidiUtils, createContiguousOrder, $ints*, $ints*)},
+		{"createInverseMap", "([I)[I", nullptr, $PUBLIC | $STATIC, $staticMethod(BidiUtils, createInverseMap, $ints*, $ints*)},
+		{"createNormalizedMap", "([I[BII)[I", nullptr, $PUBLIC | $STATIC, $staticMethod(BidiUtils, createNormalizedMap, $ints*, $ints*, $bytes*, int32_t, int32_t)},
+		{"createVisualToLogicalMap", "([B)[I", nullptr, $PUBLIC | $STATIC, $staticMethod(BidiUtils, createVisualToLogicalMap, $ints*, $bytes*)},
+		{"getLevels", "(Ljava/text/Bidi;[BI)V", nullptr, $PUBLIC | $STATIC, $staticMethod(BidiUtils, getLevels, void, $Bidi*, $bytes*, int32_t)},
+		{"getLevels", "(Ljava/text/Bidi;)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(BidiUtils, getLevels, $bytes*, $Bidi*)},
+		{"reorderVisually", "([B[Ljava/lang/Object;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(BidiUtils, reorderVisually, void, $bytes*, $ObjectArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.font.BidiUtils",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(BidiUtils, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BidiUtils);
+	});
 	return class$;
 }
 

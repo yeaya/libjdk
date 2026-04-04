@@ -1,5 +1,4 @@
 #include <sun/awt/im/InputMethodPopupMenu.h>
-
 #include <java/awt/AWTException.h>
 #include <java/awt/Component.h>
 #include <java/awt/Toolkit.h>
@@ -36,37 +35,6 @@ namespace sun {
 	namespace awt {
 		namespace im {
 
-$MethodInfo _InputMethodPopupMenu_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(InputMethodPopupMenu, init$, void)},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(InputMethodPopupMenu, actionPerformed, void, $ActionEvent*)},
-	{"add", "(Ljava/lang/Object;)V", nullptr, $ABSTRACT, $virtualMethod(InputMethodPopupMenu, add, void, Object$*)},
-	{"addMenuItem", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $ABSTRACT, $virtualMethod(InputMethodPopupMenu, addMenuItem, void, $String*, $String*, $String*)},
-	{"addMenuItem", "(Ljava/lang/Object;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $ABSTRACT, $virtualMethod(InputMethodPopupMenu, addMenuItem, void, Object$*, $String*, $String*, $String*)},
-	{"addOneInputMethodToMenu", "(Lsun/awt/im/InputMethodLocator;Ljava/lang/String;)V", nullptr, 0, $virtualMethod(InputMethodPopupMenu, addOneInputMethodToMenu, void, $InputMethodLocator*, $String*)},
-	{"addSeparator", "()V", nullptr, $ABSTRACT, $virtualMethod(InputMethodPopupMenu, addSeparator, void)},
-	{"addToComponent", "(Ljava/awt/Component;)V", nullptr, $ABSTRACT, $virtualMethod(InputMethodPopupMenu, addToComponent, void, $Component*)},
-	{"createSubmenu", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $ABSTRACT, $virtualMethod(InputMethodPopupMenu, createSubmenu, $Object*, $String*)},
-	{"getInstance", "(Ljava/awt/Component;Ljava/lang/String;)Lsun/awt/im/InputMethodPopupMenu;", nullptr, $STATIC, $staticMethod(InputMethodPopupMenu, getInstance, InputMethodPopupMenu*, $Component*, $String*)},
-	{"getLocaleName", "(Ljava/util/Locale;)Ljava/lang/String;", nullptr, 0, $virtualMethod(InputMethodPopupMenu, getLocaleName, $String*, $Locale*)},
-	{"isSelected", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $STATIC, $staticMethod(InputMethodPopupMenu, isSelected, bool, $String*, $String*)},
-	{"removeAll", "()V", nullptr, $ABSTRACT, $virtualMethod(InputMethodPopupMenu, removeAll, void)},
-	{"show", "(Ljava/awt/Component;II)V", nullptr, $ABSTRACT, $virtualMethod(InputMethodPopupMenu, show, void, $Component*, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _InputMethodPopupMenu_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"sun.awt.im.InputMethodPopupMenu",
-	"java.lang.Object",
-	"java.awt.event.ActionListener",
-	nullptr,
-	_InputMethodPopupMenu_MethodInfo_
-};
-
-$Object* allocate$InputMethodPopupMenu($Class* clazz) {
-	return $of($alloc(InputMethodPopupMenu));
-}
-
 void InputMethodPopupMenu::init$() {
 }
 
@@ -80,7 +48,7 @@ InputMethodPopupMenu* InputMethodPopupMenu::getInstance($Component* client, $Str
 }
 
 void InputMethodPopupMenu::addOneInputMethodToMenu($InputMethodLocator* locator, $String* currentSelection) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($InputMethodDescriptor, descriptor, $nc(locator)->getDescriptor());
 	$var($String, label, $nc(descriptor)->getInputMethodDisplayName(nullptr, $($Locale::getDefault())));
 	$var($String, command, locator->getActionCommandString());
@@ -97,7 +65,7 @@ void InputMethodPopupMenu::addOneInputMethodToMenu($InputMethodLocator* locator,
 	} else if (localeCount == 1) {
 		if (descriptor->hasDynamicLocaleList()) {
 			$assign(label, descriptor->getInputMethodDisplayName($nc(locales)->get(0), $($Locale::getDefault())));
-			$assign(command, $nc($(locator->deriveLocator($nc(locales)->get(0))))->getActionCommandString());
+			$assign(command, $$nc(locator->deriveLocator(locales->get(0)))->getActionCommandString());
 		}
 		addMenuItem(label, command, currentSelection);
 	} else {
@@ -106,7 +74,7 @@ void InputMethodPopupMenu::addOneInputMethodToMenu($InputMethodLocator* locator,
 		for (int32_t j = 0; j < localeCount; ++j) {
 			$var($Locale, locale, $nc(locales)->get(j));
 			$var($String, subLabel, getLocaleName(locale));
-			$var($String, subCommand, $nc($(locator->deriveLocator(locale)))->getActionCommandString());
+			$var($String, subCommand, $$nc(locator->deriveLocator(locale))->getActionCommandString());
 			addMenuItem(submenu, subLabel, subCommand, currentSelection);
 		}
 	}
@@ -120,7 +88,7 @@ bool InputMethodPopupMenu::isSelected($String* command, $String* currentSelectio
 	if ($nc(command)->equals(currentSelection)) {
 		return true;
 	}
-	int32_t index = $nc(currentSelection)->indexOf((int32_t)u'\n');
+	int32_t index = $nc(currentSelection)->indexOf(u'\n');
 	if (index != -1 && $(currentSelection->substring(0, index))->equals(command)) {
 		return true;
 	}
@@ -128,12 +96,12 @@ bool InputMethodPopupMenu::isSelected($String* command, $String* currentSelectio
 }
 
 $String* InputMethodPopupMenu::getLocaleName($Locale* locale) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, localeString, $nc(locale)->toString());
 	$var($String, localeName, $Toolkit::getProperty($$str({"AWT.InputMethodLanguage."_s, localeString}), nullptr));
 	if (localeName == nullptr) {
 		$assign(localeName, locale->getDisplayName());
-		if (localeName == nullptr || $nc(localeName)->length() == 0) {
+		if (localeName == nullptr || localeName->length() == 0) {
 			$assign(localeName, localeString);
 		}
 	}
@@ -141,16 +109,43 @@ $String* InputMethodPopupMenu::getLocaleName($Locale* locale) {
 }
 
 void InputMethodPopupMenu::actionPerformed($ActionEvent* event) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, choice, $nc(event)->getActionCommand());
-	$nc(($cast($ExecutableInputMethodManager, $($InputMethodManager::getInstance()))))->changeInputMethod(choice);
+	$$sure($ExecutableInputMethodManager, $InputMethodManager::getInstance())->changeInputMethod(choice);
 }
 
 InputMethodPopupMenu::InputMethodPopupMenu() {
 }
 
 $Class* InputMethodPopupMenu::load$($String* name, bool initialize) {
-	$loadClass(InputMethodPopupMenu, name, initialize, &_InputMethodPopupMenu_ClassInfo_, allocate$InputMethodPopupMenu);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(InputMethodPopupMenu, init$, void)},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(InputMethodPopupMenu, actionPerformed, void, $ActionEvent*)},
+		{"add", "(Ljava/lang/Object;)V", nullptr, $ABSTRACT, $virtualMethod(InputMethodPopupMenu, add, void, Object$*)},
+		{"addMenuItem", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $ABSTRACT, $virtualMethod(InputMethodPopupMenu, addMenuItem, void, $String*, $String*, $String*)},
+		{"addMenuItem", "(Ljava/lang/Object;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $ABSTRACT, $virtualMethod(InputMethodPopupMenu, addMenuItem, void, Object$*, $String*, $String*, $String*)},
+		{"addOneInputMethodToMenu", "(Lsun/awt/im/InputMethodLocator;Ljava/lang/String;)V", nullptr, 0, $virtualMethod(InputMethodPopupMenu, addOneInputMethodToMenu, void, $InputMethodLocator*, $String*)},
+		{"addSeparator", "()V", nullptr, $ABSTRACT, $virtualMethod(InputMethodPopupMenu, addSeparator, void)},
+		{"addToComponent", "(Ljava/awt/Component;)V", nullptr, $ABSTRACT, $virtualMethod(InputMethodPopupMenu, addToComponent, void, $Component*)},
+		{"createSubmenu", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $ABSTRACT, $virtualMethod(InputMethodPopupMenu, createSubmenu, $Object*, $String*)},
+		{"getInstance", "(Ljava/awt/Component;Ljava/lang/String;)Lsun/awt/im/InputMethodPopupMenu;", nullptr, $STATIC, $staticMethod(InputMethodPopupMenu, getInstance, InputMethodPopupMenu*, $Component*, $String*)},
+		{"getLocaleName", "(Ljava/util/Locale;)Ljava/lang/String;", nullptr, 0, $virtualMethod(InputMethodPopupMenu, getLocaleName, $String*, $Locale*)},
+		{"isSelected", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $STATIC, $staticMethod(InputMethodPopupMenu, isSelected, bool, $String*, $String*)},
+		{"removeAll", "()V", nullptr, $ABSTRACT, $virtualMethod(InputMethodPopupMenu, removeAll, void)},
+		{"show", "(Ljava/awt/Component;II)V", nullptr, $ABSTRACT, $virtualMethod(InputMethodPopupMenu, show, void, $Component*, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"sun.awt.im.InputMethodPopupMenu",
+		"java.lang.Object",
+		"java.awt.event.ActionListener",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(InputMethodPopupMenu, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(InputMethodPopupMenu);
+	});
 	return class$;
 }
 

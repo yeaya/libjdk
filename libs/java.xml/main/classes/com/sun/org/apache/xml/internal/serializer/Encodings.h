@@ -47,6 +47,7 @@ class Encodings : public ::java::lang::Object {
 	$class(Encodings, 0, ::java::lang::Object)
 public:
 	Encodings();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $String* convertJava2MimeEncoding($String* encoding);
 	static $String* convertMime2JavaEncoding($String* encoding);

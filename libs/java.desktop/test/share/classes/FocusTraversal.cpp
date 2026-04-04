@@ -1,5 +1,4 @@
 #include <FocusTraversal.h>
-
 #include <FocusTraversal$1.h>
 #include <FocusTraversal$2.h>
 #include <FocusTraversal$3.h>
@@ -10,7 +9,6 @@
 #include <java/lang/ClassNotFoundException.h>
 #include <java/lang/IllegalAccessException.h>
 #include <java/lang/InstantiationException.h>
-#include <java/lang/Runnable.h>
 #include <javax/swing/JFrame.h>
 #include <javax/swing/JRadioButton.h>
 #include <javax/swing/JTextField.h>
@@ -32,7 +30,6 @@ using $UIManager$LookAndFeelInfoArray = $Array<::javax::swing::UIManager$LookAnd
 using $Component = ::java::awt::Component;
 using $Robot = ::java::awt::Robot;
 using $KeyEvent = ::java::awt::event::KeyEvent;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $ClassNotFoundException = ::java::lang::ClassNotFoundException;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -40,7 +37,6 @@ using $IllegalAccessException = ::java::lang::IllegalAccessException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $InstantiationException = ::java::lang::InstantiationException;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
 using $JFrame = ::javax::swing::JFrame;
 using $JRadioButton = ::javax::swing::JRadioButton;
 using $JTextField = ::javax::swing::JTextField;
@@ -48,58 +44,6 @@ using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $UIManager = ::javax::swing::UIManager;
 using $UIManager$LookAndFeelInfo = ::javax::swing::UIManager$LookAndFeelInfo;
 using $UnsupportedLookAndFeelException = ::javax::swing::UnsupportedLookAndFeelException;
-
-$FieldInfo _FocusTraversal_FieldInfo_[] = {
-	{"frame", "Ljavax/swing/JFrame;", nullptr, $PRIVATE | $STATIC, $staticField(FocusTraversal, frame)},
-	{"a", "Ljavax/swing/JRadioButton;", nullptr, $PRIVATE | $STATIC, $staticField(FocusTraversal, a)},
-	{"b", "Ljavax/swing/JRadioButton;", nullptr, $PRIVATE | $STATIC, $staticField(FocusTraversal, b)},
-	{"c", "Ljavax/swing/JRadioButton;", nullptr, $PRIVATE | $STATIC, $staticField(FocusTraversal, c)},
-	{"d", "Ljavax/swing/JRadioButton;", nullptr, $PRIVATE | $STATIC, $staticField(FocusTraversal, d)},
-	{"next", "Ljavax/swing/JTextField;", nullptr, $PRIVATE | $STATIC, $staticField(FocusTraversal, next)},
-	{"prev", "Ljavax/swing/JTextField;", nullptr, $PRIVATE | $STATIC, $staticField(FocusTraversal, prev)},
-	{"robot", "Ljava/awt/Robot;", nullptr, $PRIVATE | $STATIC, $staticField(FocusTraversal, robot)},
-	{}
-};
-
-$MethodInfo _FocusTraversal_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(FocusTraversal, init$, void)},
-	{"cleanUp", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(FocusTraversal, cleanUp, void), "java.lang.Exception"},
-	{"createUI", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(FocusTraversal, createUI, void, $String*), "java.lang.Exception"},
-	{"executeCase", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(FocusTraversal, executeCase, void, $String*), "java.lang.Exception"},
-	{"focusOn", "(Ljava/awt/Component;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(FocusTraversal, focusOn, void, $Component*), "java.lang.Exception"},
-	{"isFocusOwner", "(Ljava/awt/Component;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(FocusTraversal, isFocusOwner, void, $Component*, $String*), "java.lang.Exception"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(FocusTraversal, main, void, $StringArray*), "java.lang.Exception"},
-	{"runTestCase", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(FocusTraversal, runTestCase, void), "java.lang.Exception"},
-	{"tryLookAndFeel", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(FocusTraversal, tryLookAndFeel, bool, $String*), "java.lang.Exception"},
-	{}
-};
-
-$InnerClassInfo _FocusTraversal_InnerClassesInfo_[] = {
-	{"FocusTraversal$4", nullptr, nullptr, 0},
-	{"FocusTraversal$3", nullptr, nullptr, 0},
-	{"FocusTraversal$2", nullptr, nullptr, 0},
-	{"FocusTraversal$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _FocusTraversal_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"FocusTraversal",
-	"java.lang.Object",
-	nullptr,
-	_FocusTraversal_FieldInfo_,
-	_FocusTraversal_MethodInfo_,
-	nullptr,
-	nullptr,
-	_FocusTraversal_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"FocusTraversal$4,FocusTraversal$3,FocusTraversal$2,FocusTraversal$1"
-};
-
-$Object* allocate$FocusTraversal($Class* clazz) {
-	return $of($alloc(FocusTraversal));
-}
 
 $JFrame* FocusTraversal::frame = nullptr;
 $JRadioButton* FocusTraversal::a = nullptr;
@@ -114,17 +58,15 @@ void FocusTraversal::init$() {
 }
 
 void FocusTraversal::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init(FocusTraversal);
 	$assignStatic(FocusTraversal::robot, $new($Robot));
-	$nc(FocusTraversal::robot)->setAutoDelay(100);
+	FocusTraversal::robot->setAutoDelay(100);
 	$nc(FocusTraversal::robot)->waitForIdle();
 	$var($UIManager$LookAndFeelInfoArray, lookAndFeelArray, $UIManager::getInstalledLookAndFeels());
 	{
 		$var($UIManager$LookAndFeelInfoArray, arr$, lookAndFeelArray);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($UIManager$LookAndFeelInfo, lookAndFeelItem, arr$->get(i$));
 			{
 				executeCase($($nc(lookAndFeelItem)->getClassName()));
@@ -198,7 +140,53 @@ FocusTraversal::FocusTraversal() {
 }
 
 $Class* FocusTraversal::load$($String* name, bool initialize) {
-	$loadClass(FocusTraversal, name, initialize, &_FocusTraversal_ClassInfo_, allocate$FocusTraversal);
+	$FieldInfo fieldInfos$$[] = {
+		{"frame", "Ljavax/swing/JFrame;", nullptr, $PRIVATE | $STATIC, $staticField(FocusTraversal, frame)},
+		{"a", "Ljavax/swing/JRadioButton;", nullptr, $PRIVATE | $STATIC, $staticField(FocusTraversal, a)},
+		{"b", "Ljavax/swing/JRadioButton;", nullptr, $PRIVATE | $STATIC, $staticField(FocusTraversal, b)},
+		{"c", "Ljavax/swing/JRadioButton;", nullptr, $PRIVATE | $STATIC, $staticField(FocusTraversal, c)},
+		{"d", "Ljavax/swing/JRadioButton;", nullptr, $PRIVATE | $STATIC, $staticField(FocusTraversal, d)},
+		{"next", "Ljavax/swing/JTextField;", nullptr, $PRIVATE | $STATIC, $staticField(FocusTraversal, next)},
+		{"prev", "Ljavax/swing/JTextField;", nullptr, $PRIVATE | $STATIC, $staticField(FocusTraversal, prev)},
+		{"robot", "Ljava/awt/Robot;", nullptr, $PRIVATE | $STATIC, $staticField(FocusTraversal, robot)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(FocusTraversal, init$, void)},
+		{"cleanUp", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(FocusTraversal, cleanUp, void), "java.lang.Exception"},
+		{"createUI", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(FocusTraversal, createUI, void, $String*), "java.lang.Exception"},
+		{"executeCase", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(FocusTraversal, executeCase, void, $String*), "java.lang.Exception"},
+		{"focusOn", "(Ljava/awt/Component;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(FocusTraversal, focusOn, void, $Component*), "java.lang.Exception"},
+		{"isFocusOwner", "(Ljava/awt/Component;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(FocusTraversal, isFocusOwner, void, $Component*, $String*), "java.lang.Exception"},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(FocusTraversal, main, void, $StringArray*), "java.lang.Exception"},
+		{"runTestCase", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(FocusTraversal, runTestCase, void), "java.lang.Exception"},
+		{"tryLookAndFeel", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(FocusTraversal, tryLookAndFeel, bool, $String*), "java.lang.Exception"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"FocusTraversal$4", nullptr, nullptr, 0},
+		{"FocusTraversal$3", nullptr, nullptr, 0},
+		{"FocusTraversal$2", nullptr, nullptr, 0},
+		{"FocusTraversal$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"FocusTraversal",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"FocusTraversal$4,FocusTraversal$3,FocusTraversal$2,FocusTraversal$1"
+	};
+	$loadClass(FocusTraversal, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FocusTraversal);
+	});
 	return class$;
 }
 

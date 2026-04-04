@@ -1,5 +1,4 @@
 #include <sun/text/resources/cldr/ext/FormatData_fr_MA.h>
-
 #include <java/util/ListResourceBundle.h>
 #include <jcpp.h>
 
@@ -14,31 +13,12 @@ namespace sun {
 			namespace cldr {
 				namespace ext {
 
-$MethodInfo _FormatData_fr_MA_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(FormatData_fr_MA, init$, void)},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(FormatData_fr_MA, getContents, $ObjectArray2*)},
-	{}
-};
-
-$ClassInfo _FormatData_fr_MA_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.text.resources.cldr.ext.FormatData_fr_MA",
-	"java.util.ListResourceBundle",
-	nullptr,
-	nullptr,
-	_FormatData_fr_MA_MethodInfo_
-};
-
-$Object* allocate$FormatData_fr_MA($Class* clazz) {
-	return $of($alloc(FormatData_fr_MA));
-}
-
 void FormatData_fr_MA::init$() {
 	$ListResourceBundle::init$();
 }
 
 $ObjectArray2* FormatData_fr_MA::getContents() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringArray, metaValue_MonthAbbreviations, $new($StringArray, {
 		"jan."_s,
 		u"fév."_s,
@@ -70,12 +50,12 @@ $ObjectArray2* FormatData_fr_MA::getContents() {
 	}));
 	$var($ObjectArray2, data, $new($ObjectArray2, {
 		$$new($ObjectArray, {
-			$of("MonthAbbreviations"_s),
-			$of(metaValue_MonthAbbreviations)
+			"MonthAbbreviations"_s,
+			metaValue_MonthAbbreviations
 		}),
 		$$new($ObjectArray, {
-			$of("latn.NumberElements"_s),
-			$of($$new($StringArray, {
+			"latn.NumberElements"_s,
+			$$new($StringArray, {
 				","_s,
 				"."_s,
 				";"_s,
@@ -89,52 +69,52 @@ $ObjectArray2* FormatData_fr_MA::getContents() {
 				"NaN"_s,
 				""_s,
 				""_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("japanese.MonthAbbreviations"_s),
-			$of(metaValue_MonthAbbreviations)
+			"japanese.MonthAbbreviations"_s,
+			metaValue_MonthAbbreviations
 		}),
 		$$new($ObjectArray, {
-			$of("roc.MonthAbbreviations"_s),
-			$of(metaValue_MonthAbbreviations)
+			"roc.MonthAbbreviations"_s,
+			metaValue_MonthAbbreviations
 		}),
 		$$new($ObjectArray, {
-			$of("japanese.AmPmMarkers"_s),
-			$of(metaValue_AmPmMarkers)
+			"japanese.AmPmMarkers"_s,
+			metaValue_AmPmMarkers
 		}),
 		$$new($ObjectArray, {
-			$of("roc.AmPmMarkers"_s),
-			$of(metaValue_AmPmMarkers)
+			"roc.AmPmMarkers"_s,
+			metaValue_AmPmMarkers
 		}),
 		$$new($ObjectArray, {
-			$of("islamic.AmPmMarkers"_s),
-			$of(metaValue_AmPmMarkers)
+			"islamic.AmPmMarkers"_s,
+			metaValue_AmPmMarkers
 		}),
 		$$new($ObjectArray, {
-			$of("AmPmMarkers"_s),
-			$of(metaValue_AmPmMarkers)
+			"AmPmMarkers"_s,
+			metaValue_AmPmMarkers
 		}),
 		$$new($ObjectArray, {
-			$of("standalone.MonthAbbreviations"_s),
-			$of(metaValue_MonthAbbreviations)
+			"standalone.MonthAbbreviations"_s,
+			metaValue_MonthAbbreviations
 		}),
 		$$new($ObjectArray, {
-			$of("buddhist.AmPmMarkers"_s),
-			$of(metaValue_AmPmMarkers)
+			"buddhist.AmPmMarkers"_s,
+			metaValue_AmPmMarkers
 		}),
 		$$new($ObjectArray, {
-			$of("latn.NumberPatterns"_s),
-			$of($$new($StringArray, {
+			"latn.NumberPatterns"_s,
+			$$new($StringArray, {
 				"#,##0.###"_s,
 				u"#,##0.00 ¤"_s,
 				u"#,##0 %"_s,
 				u"#,##0.00 ¤;(#,##0.00 ¤)"_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("buddhist.MonthAbbreviations"_s),
-			$of(metaValue_MonthAbbreviations)
+			"buddhist.MonthAbbreviations"_s,
+			metaValue_MonthAbbreviations
 		})
 	}));
 	return data;
@@ -144,7 +124,22 @@ FormatData_fr_MA::FormatData_fr_MA() {
 }
 
 $Class* FormatData_fr_MA::load$($String* name, bool initialize) {
-	$loadClass(FormatData_fr_MA, name, initialize, &_FormatData_fr_MA_ClassInfo_, allocate$FormatData_fr_MA);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(FormatData_fr_MA, init$, void)},
+		{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(FormatData_fr_MA, getContents, $ObjectArray2*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.text.resources.cldr.ext.FormatData_fr_MA",
+		"java.util.ListResourceBundle",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(FormatData_fr_MA, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FormatData_fr_MA);
+	});
 	return class$;
 }
 

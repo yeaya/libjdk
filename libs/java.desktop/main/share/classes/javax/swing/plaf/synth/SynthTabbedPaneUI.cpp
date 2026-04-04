@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/synth/SynthTabbedPaneUI.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/Dimension.h>
@@ -13,7 +12,6 @@
 #include <java/awt/event/MouseListener.h>
 #include <java/awt/event/MouseMotionListener.h>
 #include <java/beans/PropertyChangeEvent.h>
-#include <java/beans/PropertyChangeListener.h>
 #include <java/lang/Math.h>
 #include <javax/swing/BorderFactory.h>
 #include <javax/swing/Icon.h>
@@ -38,7 +36,6 @@
 #include <javax/swing/plaf/synth/SynthTabbedPaneUI$1.h>
 #include <javax/swing/plaf/synth/SynthTabbedPaneUI$2.h>
 #include <javax/swing/plaf/synth/SynthTabbedPaneUI$SynthScrollableTabButton.h>
-#include <javax/swing/plaf/synth/SynthUI.h>
 #include <javax/swing/text/View.h>
 #include <sun/swing/SwingUtilities2.h>
 #include <jcpp.h>
@@ -71,11 +68,9 @@ using $Graphics = ::java::awt::Graphics;
 using $Insets = ::java::awt::Insets;
 using $LayoutManager = ::java::awt::LayoutManager;
 using $Rectangle = ::java::awt::Rectangle;
-using $Shape = ::java::awt::Shape;
 using $MouseListener = ::java::awt::event::MouseListener;
 using $MouseMotionListener = ::java::awt::event::MouseMotionListener;
 using $PropertyChangeEvent = ::java::beans::PropertyChangeEvent;
-using $PropertyChangeListener = ::java::beans::PropertyChangeListener;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -97,14 +92,11 @@ using $ColorType = ::javax::swing::plaf::synth::ColorType;
 using $Region = ::javax::swing::plaf::synth::Region;
 using $SynthConstants = ::javax::swing::plaf::synth::SynthConstants;
 using $SynthContext = ::javax::swing::plaf::synth::SynthContext;
-using $SynthGraphicsUtils = ::javax::swing::plaf::synth::SynthGraphicsUtils;
 using $SynthLookAndFeel = ::javax::swing::plaf::synth::SynthLookAndFeel;
-using $SynthPainter = ::javax::swing::plaf::synth::SynthPainter;
 using $SynthStyle = ::javax::swing::plaf::synth::SynthStyle;
 using $SynthTabbedPaneUI$1 = ::javax::swing::plaf::synth::SynthTabbedPaneUI$1;
 using $SynthTabbedPaneUI$2 = ::javax::swing::plaf::synth::SynthTabbedPaneUI$2;
 using $SynthTabbedPaneUI$SynthScrollableTabButton = ::javax::swing::plaf::synth::SynthTabbedPaneUI$SynthScrollableTabButton;
-using $SynthUI = ::javax::swing::plaf::synth::SynthUI;
 using $View = ::javax::swing::text::View;
 using $SwingUtilities2 = ::sun::swing::SwingUtilities2;
 
@@ -112,114 +104,6 @@ namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace synth {
-
-$FieldInfo _SynthTabbedPaneUI_FieldInfo_[] = {
-	{"tabOverlap", "I", nullptr, $PRIVATE, $field(SynthTabbedPaneUI, tabOverlap)},
-	{"extendTabsToBase", "Z", nullptr, $PRIVATE, $field(SynthTabbedPaneUI, extendTabsToBase)},
-	{"tabAreaContext", "Ljavax/swing/plaf/synth/SynthContext;", nullptr, $PRIVATE, $field(SynthTabbedPaneUI, tabAreaContext)},
-	{"tabContext", "Ljavax/swing/plaf/synth/SynthContext;", nullptr, $PRIVATE, $field(SynthTabbedPaneUI, tabContext)},
-	{"tabContentContext", "Ljavax/swing/plaf/synth/SynthContext;", nullptr, $PRIVATE, $field(SynthTabbedPaneUI, tabContentContext)},
-	{"style", "Ljavax/swing/plaf/synth/SynthStyle;", nullptr, $PRIVATE, $field(SynthTabbedPaneUI, style)},
-	{"tabStyle", "Ljavax/swing/plaf/synth/SynthStyle;", nullptr, $PRIVATE, $field(SynthTabbedPaneUI, tabStyle)},
-	{"tabAreaStyle", "Ljavax/swing/plaf/synth/SynthStyle;", nullptr, $PRIVATE, $field(SynthTabbedPaneUI, tabAreaStyle)},
-	{"tabContentStyle", "Ljavax/swing/plaf/synth/SynthStyle;", nullptr, $PRIVATE, $field(SynthTabbedPaneUI, tabContentStyle)},
-	{"textRect", "Ljava/awt/Rectangle;", nullptr, $PRIVATE, $field(SynthTabbedPaneUI, textRect)},
-	{"iconRect", "Ljava/awt/Rectangle;", nullptr, $PRIVATE, $field(SynthTabbedPaneUI, iconRect)},
-	{"tabAreaBounds", "Ljava/awt/Rectangle;", nullptr, $PRIVATE, $field(SynthTabbedPaneUI, tabAreaBounds)},
-	{"tabAreaStatesMatchSelectedTab", "Z", nullptr, $PRIVATE, $field(SynthTabbedPaneUI, tabAreaStatesMatchSelectedTab)},
-	{"nudgeSelectedLabel", "Z", nullptr, $PRIVATE, $field(SynthTabbedPaneUI, nudgeSelectedLabel)},
-	{"selectedTabIsPressed", "Z", nullptr, $PRIVATE, $field(SynthTabbedPaneUI, selectedTabIsPressed)},
-	{}
-};
-
-$MethodInfo _SynthTabbedPaneUI_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SynthTabbedPaneUI, init$, void)},
-	{"access$000", "(Ljavax/swing/plaf/synth/SynthTabbedPaneUI;)Ljavax/swing/JTabbedPane;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(SynthTabbedPaneUI, access$000, $JTabbedPane*, SynthTabbedPaneUI*)},
-	{"access$100", "(Ljavax/swing/plaf/synth/SynthTabbedPaneUI;)Ljavax/swing/JTabbedPane;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(SynthTabbedPaneUI, access$100, $JTabbedPane*, SynthTabbedPaneUI*)},
-	{"access$1000", "(Ljavax/swing/plaf/synth/SynthTabbedPaneUI;)[I", nullptr, $STATIC | $SYNTHETIC, $staticMethod(SynthTabbedPaneUI, access$1000, $ints*, SynthTabbedPaneUI*)},
-	{"access$1100", "(Ljavax/swing/plaf/synth/SynthTabbedPaneUI;)I", nullptr, $STATIC | $SYNTHETIC, $staticMethod(SynthTabbedPaneUI, access$1100, int32_t, SynthTabbedPaneUI*)},
-	{"access$1200", "(Ljavax/swing/plaf/synth/SynthTabbedPaneUI;)Ljavax/swing/JTabbedPane;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(SynthTabbedPaneUI, access$1200, $JTabbedPane*, SynthTabbedPaneUI*)},
-	{"access$1300", "(Ljavax/swing/plaf/synth/SynthTabbedPaneUI;)[Ljava/awt/Rectangle;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(SynthTabbedPaneUI, access$1300, $RectangleArray*, SynthTabbedPaneUI*)},
-	{"access$1400", "(Ljavax/swing/plaf/synth/SynthTabbedPaneUI;)[Ljava/awt/Rectangle;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(SynthTabbedPaneUI, access$1400, $RectangleArray*, SynthTabbedPaneUI*)},
-	{"access$1500", "(Ljavax/swing/plaf/synth/SynthTabbedPaneUI;)[Ljava/awt/Rectangle;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(SynthTabbedPaneUI, access$1500, $RectangleArray*, SynthTabbedPaneUI*)},
-	{"access$1600", "(Ljavax/swing/plaf/synth/SynthTabbedPaneUI;)[Ljava/awt/Rectangle;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(SynthTabbedPaneUI, access$1600, $RectangleArray*, SynthTabbedPaneUI*)},
-	{"access$200", "(Ljavax/swing/plaf/synth/SynthTabbedPaneUI;)Ljavax/swing/JTabbedPane;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(SynthTabbedPaneUI, access$200, $JTabbedPane*, SynthTabbedPaneUI*)},
-	{"access$300", "(Ljavax/swing/plaf/synth/SynthTabbedPaneUI;)Ljavax/swing/JTabbedPane;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(SynthTabbedPaneUI, access$300, $JTabbedPane*, SynthTabbedPaneUI*)},
-	{"access$400", "(Ljavax/swing/plaf/synth/SynthTabbedPaneUI;)Ljavax/swing/JTabbedPane;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(SynthTabbedPaneUI, access$400, $JTabbedPane*, SynthTabbedPaneUI*)},
-	{"access$500", "(Ljavax/swing/plaf/synth/SynthTabbedPaneUI;)Ljavax/swing/JTabbedPane;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(SynthTabbedPaneUI, access$500, $JTabbedPane*, SynthTabbedPaneUI*)},
-	{"access$600", "(Ljavax/swing/plaf/synth/SynthTabbedPaneUI;)Ljavax/swing/JTabbedPane;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(SynthTabbedPaneUI, access$600, $JTabbedPane*, SynthTabbedPaneUI*)},
-	{"access$700", "(Ljavax/swing/plaf/synth/SynthTabbedPaneUI;)Ljavax/swing/JTabbedPane;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(SynthTabbedPaneUI, access$700, $JTabbedPane*, SynthTabbedPaneUI*)},
-	{"access$800", "(Ljavax/swing/plaf/synth/SynthTabbedPaneUI;)I", nullptr, $STATIC | $SYNTHETIC, $staticMethod(SynthTabbedPaneUI, access$800, int32_t, SynthTabbedPaneUI*)},
-	{"access$900", "(Ljavax/swing/plaf/synth/SynthTabbedPaneUI;)[I", nullptr, $STATIC | $SYNTHETIC, $staticMethod(SynthTabbedPaneUI, access$900, $ints*, SynthTabbedPaneUI*)},
-	{"calculateMaxTabHeight", "(I)I", nullptr, $PROTECTED, $virtualMethod(SynthTabbedPaneUI, calculateMaxTabHeight, int32_t, int32_t)},
-	{"calculateMaxTabWidth", "(I)I", nullptr, $PROTECTED, $virtualMethod(SynthTabbedPaneUI, calculateMaxTabWidth, int32_t, int32_t)},
-	{"calculateTabWidth", "(IILjava/awt/FontMetrics;)I", nullptr, $PROTECTED, $virtualMethod(SynthTabbedPaneUI, calculateTabWidth, int32_t, int32_t, int32_t, $FontMetrics*)},
-	{"createLayoutManager", "()Ljava/awt/LayoutManager;", nullptr, $PROTECTED, $virtualMethod(SynthTabbedPaneUI, createLayoutManager, $LayoutManager*)},
-	{"createMouseListener", "()Ljava/awt/event/MouseListener;", nullptr, $PROTECTED, $virtualMethod(SynthTabbedPaneUI, createMouseListener, $MouseListener*)},
-	{"createScrollButton", "(I)Ljavax/swing/JButton;", nullptr, $PROTECTED, $virtualMethod(SynthTabbedPaneUI, createScrollButton, $JButton*, int32_t)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(SynthTabbedPaneUI, createUI, $ComponentUI*, $JComponent*)},
-	{"ensureCurrentLayout", "()V", nullptr, $PRIVATE, $method(SynthTabbedPaneUI, ensureCurrentLayout, void)},
-	{"getBaseline", "(I)I", nullptr, $PROTECTED, $virtualMethod(SynthTabbedPaneUI, getBaseline, int32_t, int32_t)},
-	{"getContext", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/synth/SynthContext;", nullptr, $PUBLIC, $virtualMethod(SynthTabbedPaneUI, getContext, $SynthContext*, $JComponent*)},
-	{"getContext", "(Ljavax/swing/JComponent;I)Ljavax/swing/plaf/synth/SynthContext;", nullptr, $PRIVATE, $method(SynthTabbedPaneUI, getContext, $SynthContext*, $JComponent*, int32_t)},
-	{"getContext", "(Ljavax/swing/JComponent;Ljavax/swing/plaf/synth/Region;I)Ljavax/swing/plaf/synth/SynthContext;", nullptr, $PRIVATE, $method(SynthTabbedPaneUI, getContext, $SynthContext*, $JComponent*, $Region*, int32_t)},
-	{"getFontMetrics", "()Ljava/awt/FontMetrics;", nullptr, $PROTECTED, $virtualMethod(SynthTabbedPaneUI, getFontMetrics, $FontMetrics*)},
-	{"getFontMetrics", "(Ljava/awt/Font;)Ljava/awt/FontMetrics;", nullptr, $PRIVATE, $method(SynthTabbedPaneUI, getFontMetrics, $FontMetrics*, $Font*)},
-	{"getTabInsets", "(II)Ljava/awt/Insets;", nullptr, $PROTECTED, $virtualMethod(SynthTabbedPaneUI, getTabInsets, $Insets*, int32_t, int32_t)},
-	{"getTabLabelShiftX", "(IIZ)I", nullptr, $PROTECTED, $virtualMethod(SynthTabbedPaneUI, getTabLabelShiftX, int32_t, int32_t, int32_t, bool)},
-	{"getTabLabelShiftY", "(IIZ)I", nullptr, $PROTECTED, $virtualMethod(SynthTabbedPaneUI, getTabLabelShiftY, int32_t, int32_t, int32_t, bool)},
-	{"installDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(SynthTabbedPaneUI, installDefaults, void)},
-	{"installListeners", "()V", nullptr, $PROTECTED, $virtualMethod(SynthTabbedPaneUI, installListeners, void)},
-	{"layoutLabel", "(Ljavax/swing/plaf/synth/SynthContext;ILjava/awt/FontMetrics;ILjava/lang/String;Ljavax/swing/Icon;Ljava/awt/Rectangle;Ljava/awt/Rectangle;Ljava/awt/Rectangle;Z)V", nullptr, $PRIVATE, $method(SynthTabbedPaneUI, layoutLabel, void, $SynthContext*, int32_t, $FontMetrics*, int32_t, $String*, $Icon*, $Rectangle*, $Rectangle*, $Rectangle*, bool)},
-	{"paint", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(SynthTabbedPaneUI, paint, void, $Graphics*, $JComponent*)},
-	{"paint", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;)V", nullptr, $PROTECTED, $virtualMethod(SynthTabbedPaneUI, paint, void, $SynthContext*, $Graphics*)},
-	{"paintBorder", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(SynthTabbedPaneUI, paintBorder, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{"paintContentBorder", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;II)V", nullptr, $PRIVATE, $method(SynthTabbedPaneUI, paintContentBorder, void, $SynthContext*, $Graphics*, int32_t, int32_t)},
-	{"paintTab", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;I[Ljava/awt/Rectangle;ILjava/awt/Rectangle;Ljava/awt/Rectangle;)V", nullptr, $PRIVATE, $method(SynthTabbedPaneUI, paintTab, void, $SynthContext*, $Graphics*, int32_t, $RectangleArray*, int32_t, $Rectangle*, $Rectangle*)},
-	{"paintTabArea", "(Ljava/awt/Graphics;II)V", nullptr, $PROTECTED, $virtualMethod(SynthTabbedPaneUI, paintTabArea, void, $Graphics*, int32_t, int32_t)},
-	{"paintTabArea", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IILjava/awt/Rectangle;)V", nullptr, $PRIVATE, $method(SynthTabbedPaneUI, paintTabArea, void, $SynthContext*, $Graphics*, int32_t, int32_t, $Rectangle*)},
-	{"paintText", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;ILjava/awt/Font;Ljava/awt/FontMetrics;ILjava/lang/String;Ljava/awt/Rectangle;Z)V", nullptr, $PRIVATE, $method(SynthTabbedPaneUI, paintText, void, $SynthContext*, $Graphics*, int32_t, $Font*, $FontMetrics*, int32_t, $String*, $Rectangle*, bool)},
-	{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(SynthTabbedPaneUI, propertyChange, void, $PropertyChangeEvent*)},
-	{"scrollableTabLayoutEnabled", "()Z", nullptr, $PRIVATE, $method(SynthTabbedPaneUI, scrollableTabLayoutEnabled, bool)},
-	{"setRolloverTab", "(I)V", nullptr, $PROTECTED, $virtualMethod(SynthTabbedPaneUI, setRolloverTab, void, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"uninstallDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(SynthTabbedPaneUI, uninstallDefaults, void)},
-	{"uninstallListeners", "()V", nullptr, $PROTECTED, $virtualMethod(SynthTabbedPaneUI, uninstallListeners, void)},
-	{"update", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(SynthTabbedPaneUI, update, void, $Graphics*, $JComponent*)},
-	{"updateStyle", "(Ljavax/swing/JTabbedPane;)V", nullptr, $PRIVATE, $method(SynthTabbedPaneUI, updateStyle, void, $JTabbedPane*)},
-	{"updateTabContext", "(IZZZZ)V", nullptr, $PRIVATE, $method(SynthTabbedPaneUI, updateTabContext, void, int32_t, bool, bool, bool, bool)},
-	{}
-};
-
-$InnerClassInfo _SynthTabbedPaneUI_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.synth.SynthTabbedPaneUI$SynthScrollableTabButton", "javax.swing.plaf.synth.SynthTabbedPaneUI", "SynthScrollableTabButton", $PRIVATE},
-	{"javax.swing.plaf.synth.SynthTabbedPaneUI$2", nullptr, nullptr, 0},
-	{"javax.swing.plaf.synth.SynthTabbedPaneUI$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _SynthTabbedPaneUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.synth.SynthTabbedPaneUI",
-	"javax.swing.plaf.basic.BasicTabbedPaneUI",
-	"java.beans.PropertyChangeListener,javax.swing.plaf.synth.SynthUI",
-	_SynthTabbedPaneUI_FieldInfo_,
-	_SynthTabbedPaneUI_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SynthTabbedPaneUI_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.synth.SynthTabbedPaneUI$SynthScrollableTabButton,javax.swing.plaf.synth.SynthTabbedPaneUI$2,javax.swing.plaf.synth.SynthTabbedPaneUI$1"
-};
-
-$Object* allocate$SynthTabbedPaneUI($Class* clazz) {
-	return $of($alloc(SynthTabbedPaneUI));
-}
 
 int32_t SynthTabbedPaneUI::hashCode() {
 	 return this->$BasicTabbedPaneUI::hashCode();
@@ -352,7 +236,7 @@ void SynthTabbedPaneUI::installDefaults() {
 }
 
 void SynthTabbedPaneUI::updateStyle($JTabbedPane* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SynthContext, context, getContext(c, $SynthConstants::ENABLED));
 	$var($SynthStyle, oldStyle, this->style);
 	$set(this, style, $SynthLookAndFeel::updateStyle(context, this));
@@ -422,20 +306,16 @@ $SynthContext* SynthTabbedPaneUI::getContext($JComponent* c, $Region* subregion,
 	$init($Region);
 	if (subregion == $Region::TABBED_PANE_TAB) {
 		$assign(style, this->tabStyle);
-	} else {
-		if (subregion == $Region::TABBED_PANE_TAB_AREA) {
-			$assign(style, this->tabAreaStyle);
-		} else {
-			if (subregion == $Region::TABBED_PANE_CONTENT) {
-				$assign(style, this->tabContentStyle);
-			}
-		}
+	} else if (subregion == $Region::TABBED_PANE_TAB_AREA) {
+		$assign(style, this->tabAreaStyle);
+	} else if (subregion == $Region::TABBED_PANE_CONTENT) {
+		$assign(style, this->tabContentStyle);
 	}
 	return $SynthContext::getContext(c, subregion, style, state);
 }
 
 $JButton* SynthTabbedPaneUI::createScrollButton(int32_t direction) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($UIManager::getBoolean("TabbedPane.useBasicArrows"_s)) {
 		$var($JButton, btn, $BasicTabbedPaneUI::createScrollButton(direction));
 		$nc(btn)->setBorder($($BorderFactory::createEmptyBorder()));
@@ -451,7 +331,7 @@ void SynthTabbedPaneUI::propertyChange($PropertyChangeEvent* e) {
 }
 
 $MouseListener* SynthTabbedPaneUI::createMouseListener() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($MouseListener, delegate, $BasicTabbedPaneUI::createMouseListener());
 	$var($MouseMotionListener, delegate2, $cast($MouseMotionListener, delegate));
 	return $new($SynthTabbedPaneUI$1, this, delegate, delegate2);
@@ -474,36 +354,34 @@ int32_t SynthTabbedPaneUI::getTabLabelShiftY(int32_t tabPlacement, int32_t tabIn
 }
 
 void SynthTabbedPaneUI::update($Graphics* g, $JComponent* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SynthContext, context, getContext(c));
 	$SynthLookAndFeel::update(context, g);
-	$var($SynthContext, var$0, context);
-	$var($Graphics, var$1, g);
-	int32_t var$2 = $nc(c)->getWidth();
-	$nc($($nc(context)->getPainter()))->paintTabbedPaneBackground(var$0, var$1, 0, 0, var$2, c->getHeight());
+	int32_t var$0 = $nc(c)->getWidth();
+	$$nc($nc(context)->getPainter())->paintTabbedPaneBackground(context, g, 0, 0, var$0, c->getHeight());
 	paint(context, g);
 }
 
 int32_t SynthTabbedPaneUI::getBaseline(int32_t tab) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool var$0 = $nc(this->tabPane)->getTabComponentAt(tab) != nullptr;
 	if (var$0 || getTextViewForTab(tab) != nullptr) {
 		return $BasicTabbedPaneUI::getBaseline(tab);
 	}
 	$var($String, title, $nc(this->tabPane)->getTitleAt(tab));
-	$var($Font, font, $nc($($nc(this->tabContext)->getStyle()))->getFont(this->tabContext));
+	$var($Font, font, $$nc($nc(this->tabContext)->getStyle())->getFont(this->tabContext));
 	$var($FontMetrics, metrics, getFontMetrics(font));
 	$var($Icon, icon, getIconForTab(tab));
 	$nc(this->textRect)->setBounds(0, 0, 0, 0);
 	$nc(this->iconRect)->setBounds(0, 0, 0, 0);
 	$nc(this->calcRect)->setBounds(0, 0, $Short::MAX_VALUE, this->maxTabHeight);
-	$nc($($nc($($nc(this->tabContext)->getStyle()))->getGraphicsUtils(this->tabContext)))->layoutText(this->tabContext, metrics, title, icon, $SwingUtilities::CENTER, $SwingUtilities::CENTER, $SwingUtilities::LEADING, $SwingUtilities::CENTER, this->calcRect, this->iconRect, this->textRect, this->textIconGap);
+	$$nc($$nc($nc(this->tabContext)->getStyle())->getGraphicsUtils(this->tabContext))->layoutText(this->tabContext, metrics, title, icon, $SwingUtilities::CENTER, $SwingUtilities::CENTER, $SwingUtilities::LEADING, $SwingUtilities::CENTER, this->calcRect, this->iconRect, this->textRect, this->textIconGap);
 	int32_t var$1 = $nc(this->textRect)->y + $nc(metrics)->getAscent();
 	return var$1 + getBaselineOffset();
 }
 
 void SynthTabbedPaneUI::paintBorder($SynthContext* context, $Graphics* g, int32_t x, int32_t y, int32_t w, int32_t h) {
-	$nc($($nc(context)->getPainter()))->paintTabbedPaneBorder(context, g, x, y, w, h);
+	$$nc($nc(context)->getPainter())->paintTabbedPaneBorder(context, g, x, y, w, h);
 }
 
 void SynthTabbedPaneUI::paint($Graphics* g, $JComponent* c) {
@@ -512,7 +390,7 @@ void SynthTabbedPaneUI::paint($Graphics* g, $JComponent* c) {
 }
 
 void SynthTabbedPaneUI::paint($SynthContext* context, $Graphics* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t selectedIndex = $nc(this->tabPane)->getSelectedIndex();
 	int32_t tabPlacement = $nc(this->tabPane)->getTabPlacement();
 	ensureCurrentLayout();
@@ -525,33 +403,24 @@ void SynthTabbedPaneUI::paint($SynthContext* context, $Graphics* g) {
 		int32_t size = 0;
 		switch (tabPlacement) {
 		case $SwingConstants::LEFT:
-			{
-				width = calculateTabAreaWidth(tabPlacement, this->runCount, this->maxTabWidth);
-				break;
-			}
+			width = calculateTabAreaWidth(tabPlacement, this->runCount, this->maxTabWidth);
+			break;
 		case $SwingConstants::RIGHT:
-			{
-				size = calculateTabAreaWidth(tabPlacement, this->runCount, this->maxTabWidth);
-				x = x + width - size;
-				width = size;
-				break;
-			}
+			size = calculateTabAreaWidth(tabPlacement, this->runCount, this->maxTabWidth);
+			x = x + width - size;
+			width = size;
+			break;
 		case $SwingConstants::BOTTOM:
-			{
-				size = calculateTabAreaHeight(tabPlacement, this->runCount, this->maxTabHeight);
-				y = y + height - size;
-				height = size;
-				break;
-			}
+			size = calculateTabAreaHeight(tabPlacement, this->runCount, this->maxTabHeight);
+			y = y + height - size;
+			height = size;
+			break;
 		case $SwingConstants::TOP:
-			{}
 		default:
-			{
-				height = calculateTabAreaHeight(tabPlacement, this->runCount, this->maxTabHeight);
-			}
+			height = calculateTabAreaHeight(tabPlacement, this->runCount, this->maxTabHeight);
 		}
 		$nc(this->tabAreaBounds)->setBounds(x, y, width, height);
-		if ($nc($($nc(g)->getClipBounds()))->intersects(this->tabAreaBounds)) {
+		if ($$nc($nc(g)->getClipBounds())->intersects(this->tabAreaBounds)) {
 			paintTabArea(this->tabAreaContext, g, tabPlacement, selectedIndex, this->tabAreaBounds);
 		}
 	}
@@ -559,7 +428,7 @@ void SynthTabbedPaneUI::paint($SynthContext* context, $Graphics* g) {
 }
 
 void SynthTabbedPaneUI::paintTabArea($Graphics* g, int32_t tabPlacement, int32_t selectedIndex) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Insets, insets, $nc(this->tabPane)->getInsets());
 	int32_t x = $nc(insets)->left;
 	int32_t y = insets->top;
@@ -569,26 +438,25 @@ void SynthTabbedPaneUI::paintTabArea($Graphics* g, int32_t tabPlacement, int32_t
 }
 
 void SynthTabbedPaneUI::paintTabArea($SynthContext* ss, $Graphics* g, int32_t tabPlacement, int32_t selectedIndex, $Rectangle* tabAreaBounds) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle, clipRect, $nc(g)->getClipBounds());
 	if (this->tabAreaStatesMatchSelectedTab && selectedIndex >= 0) {
-		int32_t var$0 = selectedIndex;
-		bool var$1 = this->selectedTabIsPressed;
-		bool var$2 = (getRolloverTab() == selectedIndex);
-		updateTabContext(var$0, true, var$1, var$2, (getFocusIndex() == selectedIndex));
+		bool var$0 = this->selectedTabIsPressed;
+		bool var$1 = getRolloverTab() == selectedIndex;
+		updateTabContext(selectedIndex, true, var$0, var$1, (getFocusIndex() == selectedIndex));
 		$nc(ss)->setComponentState($nc(this->tabContext)->getComponentState());
 	} else {
 		$nc(ss)->setComponentState($SynthConstants::ENABLED);
 	}
 	$SynthLookAndFeel::updateSubregion(ss, g, tabAreaBounds);
-	$nc($($nc(ss)->getPainter()))->paintTabbedPaneTabAreaBackground(ss, g, $nc(tabAreaBounds)->x, tabAreaBounds->y, tabAreaBounds->width, tabAreaBounds->height, tabPlacement);
-	$nc($(ss->getPainter()))->paintTabbedPaneTabAreaBorder(ss, g, $nc(tabAreaBounds)->x, tabAreaBounds->y, tabAreaBounds->width, tabAreaBounds->height, tabPlacement);
+	$$nc($nc(ss)->getPainter())->paintTabbedPaneTabAreaBackground(ss, g, $nc(tabAreaBounds)->x, $nc(tabAreaBounds)->y, $nc(tabAreaBounds)->width, $nc(tabAreaBounds)->height, tabPlacement);
+	$$nc(ss->getPainter())->paintTabbedPaneTabAreaBorder(ss, g, tabAreaBounds->x, tabAreaBounds->y, tabAreaBounds->width, tabAreaBounds->height, tabPlacement);
 	int32_t tabCount = $nc(this->tabPane)->getTabCount();
 	$nc(this->iconRect)->setBounds(0, 0, 0, 0);
 	$nc(this->textRect)->setBounds(0, 0, 0, 0);
 	for (int32_t i = this->runCount - 1; i >= 0; --i) {
 		int32_t start = $nc(this->tabRuns)->get(i);
-		int32_t next = $nc(this->tabRuns)->get((i == this->runCount - 1) ? 0 : i + 1);
+		int32_t next = this->tabRuns->get((i == this->runCount - 1) ? 0 : i + 1);
 		int32_t end = (next != 0 ? next - 1 : tabCount - 1);
 		for (int32_t j = start; j <= end; ++j) {
 			if ($nc($nc(this->rects)->get(j))->intersects(clipRect) && selectedIndex != j) {
@@ -626,15 +494,13 @@ void SynthTabbedPaneUI::setRolloverTab(int32_t index) {
 }
 
 void SynthTabbedPaneUI::paintTab($SynthContext* ss, $Graphics* g, int32_t tabPlacement, $RectangleArray* rects, int32_t tabIndex, $Rectangle* iconRect, $Rectangle* textRect) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle, tabRect, $nc(rects)->get(tabIndex));
 	int32_t selectedIndex = $nc(this->tabPane)->getSelectedIndex();
 	bool isSelected = selectedIndex == tabIndex;
-	int32_t var$0 = tabIndex;
-	bool var$1 = isSelected;
-	bool var$2 = isSelected && this->selectedTabIsPressed;
-	bool var$3 = (getRolloverTab() == tabIndex);
-	updateTabContext(var$0, var$1, var$2, var$3, (getFocusIndex() == tabIndex));
+	bool var$0 = isSelected && this->selectedTabIsPressed;
+	bool var$1 = getRolloverTab() == tabIndex;
+	updateTabContext(tabIndex, isSelected, var$0, var$1, (getFocusIndex() == tabIndex));
 	$SynthLookAndFeel::updateSubregion(ss, g, tabRect);
 	int32_t x = $nc(tabRect)->x;
 	int32_t y = tabRect->y;
@@ -651,41 +517,33 @@ void SynthTabbedPaneUI::paintTab($SynthContext* ss, $Graphics* g, int32_t tabPla
 				int32_t leftX = 0;
 				switch (placement) {
 				case $SwingConstants::TOP:
-					{
-						bottomY = $nc(r)->y + r->height;
-						height = bottomY - tabRect->y;
-						break;
-					}
+					bottomY = $nc(r)->y + $nc(r)->height;
+					height = bottomY - tabRect->y;
+					break;
 				case $SwingConstants::LEFT:
-					{
-						rightX = r->x + r->width;
-						width = rightX - tabRect->x;
-						break;
-					}
+					rightX = $nc(r)->x + $nc(r)->width;
+					width = rightX - tabRect->x;
+					break;
 				case $SwingConstants::BOTTOM:
-					{
-						topY = r->y;
-						height = (tabRect->y + tabRect->height) - topY;
-						y = topY;
-						break;
-					}
+					topY = $nc(r)->y;
+					height = (tabRect->y + tabRect->height) - topY;
+					y = topY;
+					break;
 				case $SwingConstants::RIGHT:
-					{
-						leftX = r->x;
-						width = (tabRect->x + tabRect->width) - leftX;
-						x = leftX;
-						break;
-					}
+					leftX = $nc(r)->x;
+					width = (tabRect->x + tabRect->width) - leftX;
+					x = leftX;
+					break;
 				}
 			}
 		}
 	}
-	$nc($($nc(this->tabContext)->getPainter()))->paintTabbedPaneTabBackground(this->tabContext, g, x, y, width, height, tabIndex, placement);
-	$nc($($nc(this->tabContext)->getPainter()))->paintTabbedPaneTabBorder(this->tabContext, g, x, y, width, height, tabIndex, placement);
+	$$nc($nc(this->tabContext)->getPainter())->paintTabbedPaneTabBackground(this->tabContext, g, x, y, width, height, tabIndex, placement);
+	$$nc($nc(this->tabContext)->getPainter())->paintTabbedPaneTabBorder(this->tabContext, g, x, y, width, height, tabIndex, placement);
 	if ($nc(this->tabPane)->getTabComponentAt(tabIndex) == nullptr) {
 		$var($String, title, $nc(this->tabPane)->getTitleAt(tabIndex));
 		$var($String, clippedTitle, title);
-		$var($Font, font, $nc($($nc(ss)->getStyle()))->getFont(ss));
+		$var($Font, font, $$nc($nc(ss)->getStyle())->getFont(ss));
 		$var($FontMetrics, metrics, $SwingUtilities2::getFontMetrics(this->tabPane, g, font));
 		$var($Icon, icon, getIconForTab(tabIndex));
 		layoutLabel(ss, tabPlacement, metrics, tabIndex, title, icon, tabRect, iconRect, textRect, isSelected);
@@ -696,13 +554,13 @@ void SynthTabbedPaneUI::paintTab($SynthContext* ss, $Graphics* g, int32_t tabPla
 }
 
 void SynthTabbedPaneUI::layoutLabel($SynthContext* ss, int32_t tabPlacement, $FontMetrics* metrics, int32_t tabIndex, $String* title, $Icon* icon, $Rectangle* tabRect, $Rectangle* iconRect, $Rectangle* textRect, bool isSelected) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($View, v, getTextViewForTab(tabIndex));
 	if (v != nullptr) {
 		$nc(this->tabPane)->putClientProperty("html"_s, v);
 	}
-	$nc(textRect)->x = (textRect->y = ($nc(iconRect)->x = (iconRect->y = 0)));
-	$nc($($nc($($nc(ss)->getStyle()))->getGraphicsUtils(ss)))->layoutText(ss, metrics, title, icon, $SwingUtilities::CENTER, $SwingUtilities::CENTER, $SwingUtilities::LEADING, $SwingUtilities::CENTER, tabRect, iconRect, textRect, this->textIconGap);
+	$nc(textRect)->x = ($nc(textRect)->y = ($nc(iconRect)->x = ($nc(iconRect)->y = 0)));
+	$$nc($$nc($nc(ss)->getStyle())->getGraphicsUtils(ss))->layoutText(ss, metrics, title, icon, $SwingUtilities::CENTER, $SwingUtilities::CENTER, $SwingUtilities::LEADING, $SwingUtilities::CENTER, tabRect, iconRect, textRect, this->textIconGap);
 	$nc(this->tabPane)->putClientProperty("html"_s, nullptr);
 	int32_t xNudge = getTabLabelShiftX(tabPlacement, tabIndex, isSelected);
 	int32_t yNudge = getTabLabelShiftY(tabPlacement, tabIndex, isSelected);
@@ -713,7 +571,7 @@ void SynthTabbedPaneUI::layoutLabel($SynthContext* ss, int32_t tabPlacement, $Fo
 }
 
 void SynthTabbedPaneUI::paintText($SynthContext* ss, $Graphics* g, int32_t tabPlacement, $Font* font, $FontMetrics* metrics, int32_t tabIndex, $String* title, $Rectangle* textRect, bool isSelected) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(g)->setFont(font);
 	$var($View, v, getTextViewForTab(tabIndex));
 	if (v != nullptr) {
@@ -721,13 +579,13 @@ void SynthTabbedPaneUI::paintText($SynthContext* ss, $Graphics* g, int32_t tabPl
 	} else {
 		int32_t mnemIndex = $nc(this->tabPane)->getDisplayedMnemonicIndexAt(tabIndex);
 		$init($ColorType);
-		g->setColor($($nc($($nc(ss)->getStyle()))->getColor(ss, $ColorType::TEXT_FOREGROUND)));
-		$nc($($nc($($nc(ss)->getStyle()))->getGraphicsUtils(ss)))->paintText(ss, g, title, textRect, mnemIndex);
+		g->setColor($($$nc($nc(ss)->getStyle())->getColor(ss, $ColorType::TEXT_FOREGROUND)));
+		$$nc($$nc(ss->getStyle())->getGraphicsUtils(ss))->paintText(ss, g, title, textRect, mnemIndex);
 	}
 }
 
 void SynthTabbedPaneUI::paintContentBorder($SynthContext* ss, $Graphics* g, int32_t tabPlacement, int32_t selectedIndex) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t width = $nc(this->tabPane)->getWidth();
 	int32_t height = $nc(this->tabPane)->getHeight();
 	$var($Insets, insets, $nc(this->tabPane)->getInsets());
@@ -737,32 +595,23 @@ void SynthTabbedPaneUI::paintContentBorder($SynthContext* ss, $Graphics* g, int3
 	int32_t h = height - insets->top - insets->bottom;
 	switch (tabPlacement) {
 	case $SwingConstants::LEFT:
-		{
-			x += calculateTabAreaWidth(tabPlacement, this->runCount, this->maxTabWidth);
-			w -= (x - insets->left);
-			break;
-		}
+		x += calculateTabAreaWidth(tabPlacement, this->runCount, this->maxTabWidth);
+		w -= (x - insets->left);
+		break;
 	case $SwingConstants::RIGHT:
-		{
-			w -= calculateTabAreaWidth(tabPlacement, this->runCount, this->maxTabWidth);
-			break;
-		}
+		w -= calculateTabAreaWidth(tabPlacement, this->runCount, this->maxTabWidth);
+		break;
 	case $SwingConstants::BOTTOM:
-		{
-			h -= calculateTabAreaHeight(tabPlacement, this->runCount, this->maxTabHeight);
-			break;
-		}
+		h -= calculateTabAreaHeight(tabPlacement, this->runCount, this->maxTabHeight);
+		break;
 	case $SwingConstants::TOP:
-		{}
 	default:
-		{
-			y += calculateTabAreaHeight(tabPlacement, this->runCount, this->maxTabHeight);
-			h -= (y - insets->top);
-		}
+		y += calculateTabAreaHeight(tabPlacement, this->runCount, this->maxTabHeight);
+		h -= (y - insets->top);
 	}
 	$SynthLookAndFeel::updateSubregion(ss, g, $$new($Rectangle, x, y, w, h));
-	$nc($($nc(ss)->getPainter()))->paintTabbedPaneContentBackground(ss, g, x, y, w, h);
-	$nc($(ss->getPainter()))->paintTabbedPaneContentBorder(ss, g, x, y, w, h);
+	$$nc($nc(ss)->getPainter())->paintTabbedPaneContentBackground(ss, g, x, y, w, h);
+	$$nc(ss->getPainter())->paintTabbedPaneContentBorder(ss, g, x, y, w, h);
 }
 
 void SynthTabbedPaneUI::ensureCurrentLayout() {
@@ -776,8 +625,8 @@ void SynthTabbedPaneUI::ensureCurrentLayout() {
 }
 
 int32_t SynthTabbedPaneUI::calculateMaxTabHeight(int32_t tabPlacement) {
-	$useLocalCurrentObjectStackCache();
-	$var($FontMetrics, metrics, getFontMetrics($($nc($($nc(this->tabContext)->getStyle()))->getFont(this->tabContext))));
+	$useLocalObjectStack();
+	$var($FontMetrics, metrics, getFontMetrics($($$nc($nc(this->tabContext)->getStyle())->getFont(this->tabContext))));
 	int32_t tabCount = $nc(this->tabPane)->getTabCount();
 	int32_t result = 0;
 	int32_t fontHeight = $nc(metrics)->getHeight();
@@ -788,10 +637,10 @@ int32_t SynthTabbedPaneUI::calculateMaxTabHeight(int32_t tabPlacement) {
 }
 
 int32_t SynthTabbedPaneUI::calculateTabWidth(int32_t tabPlacement, int32_t tabIndex, $FontMetrics* metrics) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Icon, icon, getIconForTab(tabIndex));
 	$var($Insets, tabInsets, getTabInsets(tabPlacement, tabIndex));
-	int32_t width = $nc(tabInsets)->left + tabInsets->right;
+	int32_t width = $nc(tabInsets)->left + $nc(tabInsets)->right;
 	$var($Component, tabComponent, $nc(this->tabPane)->getTabComponentAt(tabIndex));
 	if (tabComponent != nullptr) {
 		width += $nc($(tabComponent->getPreferredSize()))->width;
@@ -804,15 +653,15 @@ int32_t SynthTabbedPaneUI::calculateTabWidth(int32_t tabPlacement, int32_t tabIn
 			width += $cast(int32_t, v->getPreferredSpan($View::X_AXIS));
 		} else {
 			$var($String, title, $nc(this->tabPane)->getTitleAt(tabIndex));
-			width += $nc($($nc($($nc(this->tabContext)->getStyle()))->getGraphicsUtils(this->tabContext)))->computeStringWidth(this->tabContext, $($nc(metrics)->getFont()), metrics, title);
+			width += $$nc($$nc($nc(this->tabContext)->getStyle())->getGraphicsUtils(this->tabContext))->computeStringWidth(this->tabContext, $($nc(metrics)->getFont()), metrics, title);
 		}
 	}
 	return width;
 }
 
 int32_t SynthTabbedPaneUI::calculateMaxTabWidth(int32_t tabPlacement) {
-	$useLocalCurrentObjectStackCache();
-	$var($FontMetrics, metrics, getFontMetrics($($nc($($nc(this->tabContext)->getStyle()))->getFont(this->tabContext))));
+	$useLocalObjectStack();
+	$var($FontMetrics, metrics, getFontMetrics($($$nc($nc(this->tabContext)->getStyle())->getFont(this->tabContext))));
 	int32_t tabCount = $nc(this->tabPane)->getTabCount();
 	int32_t result = 0;
 	for (int32_t i = 0; i < tabCount; ++i) {
@@ -827,8 +676,8 @@ $Insets* SynthTabbedPaneUI::getTabInsets(int32_t tabPlacement, int32_t tabIndex)
 }
 
 $FontMetrics* SynthTabbedPaneUI::getFontMetrics() {
-	$useLocalCurrentObjectStackCache();
-	return getFontMetrics($($nc($($nc(this->tabContext)->getStyle()))->getFont(this->tabContext)));
+	$useLocalObjectStack();
+	return getFontMetrics($($$nc($nc(this->tabContext)->getStyle())->getFont(this->tabContext)));
 }
 
 $FontMetrics* SynthTabbedPaneUI::getFontMetrics($Font* font) {
@@ -838,7 +687,7 @@ $FontMetrics* SynthTabbedPaneUI::getFontMetrics($Font* font) {
 void SynthTabbedPaneUI::updateTabContext(int32_t index, bool selected, bool isMouseDown, bool isMouseOver, bool hasFocus) {
 	int32_t state = 0;
 	bool var$0 = !$nc(this->tabPane)->isEnabled();
-	if (var$0 || !$nc(this->tabPane)->isEnabledAt(index)) {
+	if (var$0 || !this->tabPane->isEnabledAt(index)) {
 		state |= $SynthConstants::DISABLED;
 		if (selected) {
 			state |= $SynthConstants::SELECTED;
@@ -875,7 +724,109 @@ SynthTabbedPaneUI::SynthTabbedPaneUI() {
 }
 
 $Class* SynthTabbedPaneUI::load$($String* name, bool initialize) {
-	$loadClass(SynthTabbedPaneUI, name, initialize, &_SynthTabbedPaneUI_ClassInfo_, allocate$SynthTabbedPaneUI);
+	$FieldInfo fieldInfos$$[] = {
+		{"tabOverlap", "I", nullptr, $PRIVATE, $field(SynthTabbedPaneUI, tabOverlap)},
+		{"extendTabsToBase", "Z", nullptr, $PRIVATE, $field(SynthTabbedPaneUI, extendTabsToBase)},
+		{"tabAreaContext", "Ljavax/swing/plaf/synth/SynthContext;", nullptr, $PRIVATE, $field(SynthTabbedPaneUI, tabAreaContext)},
+		{"tabContext", "Ljavax/swing/plaf/synth/SynthContext;", nullptr, $PRIVATE, $field(SynthTabbedPaneUI, tabContext)},
+		{"tabContentContext", "Ljavax/swing/plaf/synth/SynthContext;", nullptr, $PRIVATE, $field(SynthTabbedPaneUI, tabContentContext)},
+		{"style", "Ljavax/swing/plaf/synth/SynthStyle;", nullptr, $PRIVATE, $field(SynthTabbedPaneUI, style)},
+		{"tabStyle", "Ljavax/swing/plaf/synth/SynthStyle;", nullptr, $PRIVATE, $field(SynthTabbedPaneUI, tabStyle)},
+		{"tabAreaStyle", "Ljavax/swing/plaf/synth/SynthStyle;", nullptr, $PRIVATE, $field(SynthTabbedPaneUI, tabAreaStyle)},
+		{"tabContentStyle", "Ljavax/swing/plaf/synth/SynthStyle;", nullptr, $PRIVATE, $field(SynthTabbedPaneUI, tabContentStyle)},
+		{"textRect", "Ljava/awt/Rectangle;", nullptr, $PRIVATE, $field(SynthTabbedPaneUI, textRect)},
+		{"iconRect", "Ljava/awt/Rectangle;", nullptr, $PRIVATE, $field(SynthTabbedPaneUI, iconRect)},
+		{"tabAreaBounds", "Ljava/awt/Rectangle;", nullptr, $PRIVATE, $field(SynthTabbedPaneUI, tabAreaBounds)},
+		{"tabAreaStatesMatchSelectedTab", "Z", nullptr, $PRIVATE, $field(SynthTabbedPaneUI, tabAreaStatesMatchSelectedTab)},
+		{"nudgeSelectedLabel", "Z", nullptr, $PRIVATE, $field(SynthTabbedPaneUI, nudgeSelectedLabel)},
+		{"selectedTabIsPressed", "Z", nullptr, $PRIVATE, $field(SynthTabbedPaneUI, selectedTabIsPressed)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SynthTabbedPaneUI, init$, void)},
+		{"access$000", "(Ljavax/swing/plaf/synth/SynthTabbedPaneUI;)Ljavax/swing/JTabbedPane;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(SynthTabbedPaneUI, access$000, $JTabbedPane*, SynthTabbedPaneUI*)},
+		{"access$100", "(Ljavax/swing/plaf/synth/SynthTabbedPaneUI;)Ljavax/swing/JTabbedPane;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(SynthTabbedPaneUI, access$100, $JTabbedPane*, SynthTabbedPaneUI*)},
+		{"access$1000", "(Ljavax/swing/plaf/synth/SynthTabbedPaneUI;)[I", nullptr, $STATIC | $SYNTHETIC, $staticMethod(SynthTabbedPaneUI, access$1000, $ints*, SynthTabbedPaneUI*)},
+		{"access$1100", "(Ljavax/swing/plaf/synth/SynthTabbedPaneUI;)I", nullptr, $STATIC | $SYNTHETIC, $staticMethod(SynthTabbedPaneUI, access$1100, int32_t, SynthTabbedPaneUI*)},
+		{"access$1200", "(Ljavax/swing/plaf/synth/SynthTabbedPaneUI;)Ljavax/swing/JTabbedPane;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(SynthTabbedPaneUI, access$1200, $JTabbedPane*, SynthTabbedPaneUI*)},
+		{"access$1300", "(Ljavax/swing/plaf/synth/SynthTabbedPaneUI;)[Ljava/awt/Rectangle;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(SynthTabbedPaneUI, access$1300, $RectangleArray*, SynthTabbedPaneUI*)},
+		{"access$1400", "(Ljavax/swing/plaf/synth/SynthTabbedPaneUI;)[Ljava/awt/Rectangle;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(SynthTabbedPaneUI, access$1400, $RectangleArray*, SynthTabbedPaneUI*)},
+		{"access$1500", "(Ljavax/swing/plaf/synth/SynthTabbedPaneUI;)[Ljava/awt/Rectangle;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(SynthTabbedPaneUI, access$1500, $RectangleArray*, SynthTabbedPaneUI*)},
+		{"access$1600", "(Ljavax/swing/plaf/synth/SynthTabbedPaneUI;)[Ljava/awt/Rectangle;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(SynthTabbedPaneUI, access$1600, $RectangleArray*, SynthTabbedPaneUI*)},
+		{"access$200", "(Ljavax/swing/plaf/synth/SynthTabbedPaneUI;)Ljavax/swing/JTabbedPane;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(SynthTabbedPaneUI, access$200, $JTabbedPane*, SynthTabbedPaneUI*)},
+		{"access$300", "(Ljavax/swing/plaf/synth/SynthTabbedPaneUI;)Ljavax/swing/JTabbedPane;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(SynthTabbedPaneUI, access$300, $JTabbedPane*, SynthTabbedPaneUI*)},
+		{"access$400", "(Ljavax/swing/plaf/synth/SynthTabbedPaneUI;)Ljavax/swing/JTabbedPane;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(SynthTabbedPaneUI, access$400, $JTabbedPane*, SynthTabbedPaneUI*)},
+		{"access$500", "(Ljavax/swing/plaf/synth/SynthTabbedPaneUI;)Ljavax/swing/JTabbedPane;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(SynthTabbedPaneUI, access$500, $JTabbedPane*, SynthTabbedPaneUI*)},
+		{"access$600", "(Ljavax/swing/plaf/synth/SynthTabbedPaneUI;)Ljavax/swing/JTabbedPane;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(SynthTabbedPaneUI, access$600, $JTabbedPane*, SynthTabbedPaneUI*)},
+		{"access$700", "(Ljavax/swing/plaf/synth/SynthTabbedPaneUI;)Ljavax/swing/JTabbedPane;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(SynthTabbedPaneUI, access$700, $JTabbedPane*, SynthTabbedPaneUI*)},
+		{"access$800", "(Ljavax/swing/plaf/synth/SynthTabbedPaneUI;)I", nullptr, $STATIC | $SYNTHETIC, $staticMethod(SynthTabbedPaneUI, access$800, int32_t, SynthTabbedPaneUI*)},
+		{"access$900", "(Ljavax/swing/plaf/synth/SynthTabbedPaneUI;)[I", nullptr, $STATIC | $SYNTHETIC, $staticMethod(SynthTabbedPaneUI, access$900, $ints*, SynthTabbedPaneUI*)},
+		{"calculateMaxTabHeight", "(I)I", nullptr, $PROTECTED, $virtualMethod(SynthTabbedPaneUI, calculateMaxTabHeight, int32_t, int32_t)},
+		{"calculateMaxTabWidth", "(I)I", nullptr, $PROTECTED, $virtualMethod(SynthTabbedPaneUI, calculateMaxTabWidth, int32_t, int32_t)},
+		{"calculateTabWidth", "(IILjava/awt/FontMetrics;)I", nullptr, $PROTECTED, $virtualMethod(SynthTabbedPaneUI, calculateTabWidth, int32_t, int32_t, int32_t, $FontMetrics*)},
+		{"createLayoutManager", "()Ljava/awt/LayoutManager;", nullptr, $PROTECTED, $virtualMethod(SynthTabbedPaneUI, createLayoutManager, $LayoutManager*)},
+		{"createMouseListener", "()Ljava/awt/event/MouseListener;", nullptr, $PROTECTED, $virtualMethod(SynthTabbedPaneUI, createMouseListener, $MouseListener*)},
+		{"createScrollButton", "(I)Ljavax/swing/JButton;", nullptr, $PROTECTED, $virtualMethod(SynthTabbedPaneUI, createScrollButton, $JButton*, int32_t)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(SynthTabbedPaneUI, createUI, $ComponentUI*, $JComponent*)},
+		{"ensureCurrentLayout", "()V", nullptr, $PRIVATE, $method(SynthTabbedPaneUI, ensureCurrentLayout, void)},
+		{"getBaseline", "(I)I", nullptr, $PROTECTED, $virtualMethod(SynthTabbedPaneUI, getBaseline, int32_t, int32_t)},
+		{"getContext", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/synth/SynthContext;", nullptr, $PUBLIC, $virtualMethod(SynthTabbedPaneUI, getContext, $SynthContext*, $JComponent*)},
+		{"getContext", "(Ljavax/swing/JComponent;I)Ljavax/swing/plaf/synth/SynthContext;", nullptr, $PRIVATE, $method(SynthTabbedPaneUI, getContext, $SynthContext*, $JComponent*, int32_t)},
+		{"getContext", "(Ljavax/swing/JComponent;Ljavax/swing/plaf/synth/Region;I)Ljavax/swing/plaf/synth/SynthContext;", nullptr, $PRIVATE, $method(SynthTabbedPaneUI, getContext, $SynthContext*, $JComponent*, $Region*, int32_t)},
+		{"getFontMetrics", "()Ljava/awt/FontMetrics;", nullptr, $PROTECTED, $virtualMethod(SynthTabbedPaneUI, getFontMetrics, $FontMetrics*)},
+		{"getFontMetrics", "(Ljava/awt/Font;)Ljava/awt/FontMetrics;", nullptr, $PRIVATE, $method(SynthTabbedPaneUI, getFontMetrics, $FontMetrics*, $Font*)},
+		{"getTabInsets", "(II)Ljava/awt/Insets;", nullptr, $PROTECTED, $virtualMethod(SynthTabbedPaneUI, getTabInsets, $Insets*, int32_t, int32_t)},
+		{"getTabLabelShiftX", "(IIZ)I", nullptr, $PROTECTED, $virtualMethod(SynthTabbedPaneUI, getTabLabelShiftX, int32_t, int32_t, int32_t, bool)},
+		{"getTabLabelShiftY", "(IIZ)I", nullptr, $PROTECTED, $virtualMethod(SynthTabbedPaneUI, getTabLabelShiftY, int32_t, int32_t, int32_t, bool)},
+		{"installDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(SynthTabbedPaneUI, installDefaults, void)},
+		{"installListeners", "()V", nullptr, $PROTECTED, $virtualMethod(SynthTabbedPaneUI, installListeners, void)},
+		{"layoutLabel", "(Ljavax/swing/plaf/synth/SynthContext;ILjava/awt/FontMetrics;ILjava/lang/String;Ljavax/swing/Icon;Ljava/awt/Rectangle;Ljava/awt/Rectangle;Ljava/awt/Rectangle;Z)V", nullptr, $PRIVATE, $method(SynthTabbedPaneUI, layoutLabel, void, $SynthContext*, int32_t, $FontMetrics*, int32_t, $String*, $Icon*, $Rectangle*, $Rectangle*, $Rectangle*, bool)},
+		{"paint", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(SynthTabbedPaneUI, paint, void, $Graphics*, $JComponent*)},
+		{"paint", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;)V", nullptr, $PROTECTED, $virtualMethod(SynthTabbedPaneUI, paint, void, $SynthContext*, $Graphics*)},
+		{"paintBorder", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(SynthTabbedPaneUI, paintBorder, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{"paintContentBorder", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;II)V", nullptr, $PRIVATE, $method(SynthTabbedPaneUI, paintContentBorder, void, $SynthContext*, $Graphics*, int32_t, int32_t)},
+		{"paintTab", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;I[Ljava/awt/Rectangle;ILjava/awt/Rectangle;Ljava/awt/Rectangle;)V", nullptr, $PRIVATE, $method(SynthTabbedPaneUI, paintTab, void, $SynthContext*, $Graphics*, int32_t, $RectangleArray*, int32_t, $Rectangle*, $Rectangle*)},
+		{"paintTabArea", "(Ljava/awt/Graphics;II)V", nullptr, $PROTECTED, $virtualMethod(SynthTabbedPaneUI, paintTabArea, void, $Graphics*, int32_t, int32_t)},
+		{"paintTabArea", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IILjava/awt/Rectangle;)V", nullptr, $PRIVATE, $method(SynthTabbedPaneUI, paintTabArea, void, $SynthContext*, $Graphics*, int32_t, int32_t, $Rectangle*)},
+		{"paintText", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;ILjava/awt/Font;Ljava/awt/FontMetrics;ILjava/lang/String;Ljava/awt/Rectangle;Z)V", nullptr, $PRIVATE, $method(SynthTabbedPaneUI, paintText, void, $SynthContext*, $Graphics*, int32_t, $Font*, $FontMetrics*, int32_t, $String*, $Rectangle*, bool)},
+		{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(SynthTabbedPaneUI, propertyChange, void, $PropertyChangeEvent*)},
+		{"scrollableTabLayoutEnabled", "()Z", nullptr, $PRIVATE, $method(SynthTabbedPaneUI, scrollableTabLayoutEnabled, bool)},
+		{"setRolloverTab", "(I)V", nullptr, $PROTECTED, $virtualMethod(SynthTabbedPaneUI, setRolloverTab, void, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"uninstallDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(SynthTabbedPaneUI, uninstallDefaults, void)},
+		{"uninstallListeners", "()V", nullptr, $PROTECTED, $virtualMethod(SynthTabbedPaneUI, uninstallListeners, void)},
+		{"update", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(SynthTabbedPaneUI, update, void, $Graphics*, $JComponent*)},
+		{"updateStyle", "(Ljavax/swing/JTabbedPane;)V", nullptr, $PRIVATE, $method(SynthTabbedPaneUI, updateStyle, void, $JTabbedPane*)},
+		{"updateTabContext", "(IZZZZ)V", nullptr, $PRIVATE, $method(SynthTabbedPaneUI, updateTabContext, void, int32_t, bool, bool, bool, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.synth.SynthTabbedPaneUI$SynthScrollableTabButton", "javax.swing.plaf.synth.SynthTabbedPaneUI", "SynthScrollableTabButton", $PRIVATE},
+		{"javax.swing.plaf.synth.SynthTabbedPaneUI$2", nullptr, nullptr, 0},
+		{"javax.swing.plaf.synth.SynthTabbedPaneUI$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.synth.SynthTabbedPaneUI",
+		"javax.swing.plaf.basic.BasicTabbedPaneUI",
+		"java.beans.PropertyChangeListener,javax.swing.plaf.synth.SynthUI",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.synth.SynthTabbedPaneUI$SynthScrollableTabButton,javax.swing.plaf.synth.SynthTabbedPaneUI$2,javax.swing.plaf.synth.SynthTabbedPaneUI$1"
+	};
+	$loadClass(SynthTabbedPaneUI, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SynthTabbedPaneUI));
+	});
 	return class$;
 }
 

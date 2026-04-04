@@ -1,5 +1,4 @@
 #include <javax/swing/event/TreeExpansionListener.h>
-
 #include <javax/swing/event/TreeExpansionEvent.h>
 #include <jcpp.h>
 
@@ -11,27 +10,23 @@ namespace javax {
 	namespace swing {
 		namespace event {
 
-$MethodInfo _TreeExpansionListener_MethodInfo_[] = {
-	{"treeCollapsed", "(Ljavax/swing/event/TreeExpansionEvent;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TreeExpansionListener, treeCollapsed, void, $TreeExpansionEvent*)},
-	{"treeExpanded", "(Ljavax/swing/event/TreeExpansionEvent;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TreeExpansionListener, treeExpanded, void, $TreeExpansionEvent*)},
-	{}
-};
-
-$ClassInfo _TreeExpansionListener_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"javax.swing.event.TreeExpansionListener",
-	nullptr,
-	"java.util.EventListener",
-	nullptr,
-	_TreeExpansionListener_MethodInfo_
-};
-
-$Object* allocate$TreeExpansionListener($Class* clazz) {
-	return $of($alloc(TreeExpansionListener));
-}
-
 $Class* TreeExpansionListener::load$($String* name, bool initialize) {
-	$loadClass(TreeExpansionListener, name, initialize, &_TreeExpansionListener_ClassInfo_, allocate$TreeExpansionListener);
+	$MethodInfo methodInfos$$[] = {
+		{"treeCollapsed", "(Ljavax/swing/event/TreeExpansionEvent;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TreeExpansionListener, treeCollapsed, void, $TreeExpansionEvent*)},
+		{"treeExpanded", "(Ljavax/swing/event/TreeExpansionEvent;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TreeExpansionListener, treeExpanded, void, $TreeExpansionEvent*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"javax.swing.event.TreeExpansionListener",
+		nullptr,
+		"java.util.EventListener",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(TreeExpansionListener, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TreeExpansionListener);
+	});
 	return class$;
 }
 

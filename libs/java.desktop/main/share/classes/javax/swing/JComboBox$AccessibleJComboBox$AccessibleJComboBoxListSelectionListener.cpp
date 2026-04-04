@@ -1,5 +1,4 @@
 #include <javax/swing/JComboBox$AccessibleJComboBox$AccessibleJComboBoxListSelectionListener.h>
-
 #include <java/beans/PropertyChangeEvent.h>
 #include <javax/accessibility/Accessible.h>
 #include <javax/accessibility/AccessibleContext.h>
@@ -22,55 +21,17 @@ using $Accessible = ::javax::accessibility::Accessible;
 using $AccessibleContext = ::javax::accessibility::AccessibleContext;
 using $AccessibleState = ::javax::accessibility::AccessibleState;
 using $JComboBox$AccessibleJComboBox = ::javax::swing::JComboBox$AccessibleJComboBox;
-using $JList = ::javax::swing::JList;
 using $ListSelectionEvent = ::javax::swing::event::ListSelectionEvent;
 
 namespace javax {
 	namespace swing {
-
-$FieldInfo _JComboBox$AccessibleJComboBox$AccessibleJComboBoxListSelectionListener_FieldInfo_[] = {
-	{"this$1", "Ljavax/swing/JComboBox$AccessibleJComboBox;", nullptr, $FINAL | $SYNTHETIC, $field(JComboBox$AccessibleJComboBox$AccessibleJComboBoxListSelectionListener, this$1)},
-	{}
-};
-
-$MethodInfo _JComboBox$AccessibleJComboBox$AccessibleJComboBoxListSelectionListener_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/JComboBox$AccessibleJComboBox;)V", nullptr, $PRIVATE, $method(JComboBox$AccessibleJComboBox$AccessibleJComboBoxListSelectionListener, init$, void, $JComboBox$AccessibleJComboBox*)},
-	{"valueChanged", "(Ljavax/swing/event/ListSelectionEvent;)V", nullptr, $PUBLIC, $virtualMethod(JComboBox$AccessibleJComboBox$AccessibleJComboBoxListSelectionListener, valueChanged, void, $ListSelectionEvent*)},
-	{}
-};
-
-$InnerClassInfo _JComboBox$AccessibleJComboBox$AccessibleJComboBoxListSelectionListener_InnerClassesInfo_[] = {
-	{"javax.swing.JComboBox$AccessibleJComboBox", "javax.swing.JComboBox", "AccessibleJComboBox", $PROTECTED},
-	{"javax.swing.JComboBox$AccessibleJComboBox$AccessibleJComboBoxListSelectionListener", "javax.swing.JComboBox$AccessibleJComboBox", "AccessibleJComboBoxListSelectionListener", $PRIVATE},
-	{}
-};
-
-$ClassInfo _JComboBox$AccessibleJComboBox$AccessibleJComboBoxListSelectionListener_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.JComboBox$AccessibleJComboBox$AccessibleJComboBoxListSelectionListener",
-	"java.lang.Object",
-	"javax.swing.event.ListSelectionListener",
-	_JComboBox$AccessibleJComboBox$AccessibleJComboBoxListSelectionListener_FieldInfo_,
-	_JComboBox$AccessibleJComboBox$AccessibleJComboBoxListSelectionListener_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JComboBox$AccessibleJComboBox$AccessibleJComboBoxListSelectionListener_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.JComboBox"
-};
-
-$Object* allocate$JComboBox$AccessibleJComboBox$AccessibleJComboBoxListSelectionListener($Class* clazz) {
-	return $of($alloc(JComboBox$AccessibleJComboBox$AccessibleJComboBoxListSelectionListener));
-}
 
 void JComboBox$AccessibleJComboBox$AccessibleJComboBoxListSelectionListener::init$($JComboBox$AccessibleJComboBox* this$1) {
 	$set(this, this$1, this$1);
 }
 
 void JComboBox$AccessibleJComboBox$AccessibleJComboBoxListSelectionListener::valueChanged($ListSelectionEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->this$1->popupList == nullptr) {
 		return;
 	}
@@ -78,7 +39,7 @@ void JComboBox$AccessibleJComboBox$AccessibleJComboBoxListSelectionListener::val
 	if (selectedIndex < 0) {
 		return;
 	}
-	$var($Accessible, selectedAccessible, $nc($($nc(this->this$1->popupList)->getAccessibleContext()))->getAccessibleChild(selectedIndex));
+	$var($Accessible, selectedAccessible, $$nc($nc(this->this$1->popupList)->getAccessibleContext())->getAccessibleChild(selectedIndex));
 	if (selectedAccessible == nullptr) {
 		return;
 	}
@@ -99,7 +60,38 @@ JComboBox$AccessibleJComboBox$AccessibleJComboBoxListSelectionListener::JComboBo
 }
 
 $Class* JComboBox$AccessibleJComboBox$AccessibleJComboBoxListSelectionListener::load$($String* name, bool initialize) {
-	$loadClass(JComboBox$AccessibleJComboBox$AccessibleJComboBoxListSelectionListener, name, initialize, &_JComboBox$AccessibleJComboBox$AccessibleJComboBoxListSelectionListener_ClassInfo_, allocate$JComboBox$AccessibleJComboBox$AccessibleJComboBoxListSelectionListener);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$1", "Ljavax/swing/JComboBox$AccessibleJComboBox;", nullptr, $FINAL | $SYNTHETIC, $field(JComboBox$AccessibleJComboBox$AccessibleJComboBoxListSelectionListener, this$1)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/JComboBox$AccessibleJComboBox;)V", nullptr, $PRIVATE, $method(JComboBox$AccessibleJComboBox$AccessibleJComboBoxListSelectionListener, init$, void, $JComboBox$AccessibleJComboBox*)},
+		{"valueChanged", "(Ljavax/swing/event/ListSelectionEvent;)V", nullptr, $PUBLIC, $virtualMethod(JComboBox$AccessibleJComboBox$AccessibleJComboBoxListSelectionListener, valueChanged, void, $ListSelectionEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.JComboBox$AccessibleJComboBox", "javax.swing.JComboBox", "AccessibleJComboBox", $PROTECTED},
+		{"javax.swing.JComboBox$AccessibleJComboBox$AccessibleJComboBoxListSelectionListener", "javax.swing.JComboBox$AccessibleJComboBox", "AccessibleJComboBoxListSelectionListener", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.JComboBox$AccessibleJComboBox$AccessibleJComboBoxListSelectionListener",
+		"java.lang.Object",
+		"javax.swing.event.ListSelectionListener",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.JComboBox"
+	};
+	$loadClass(JComboBox$AccessibleJComboBox$AccessibleJComboBoxListSelectionListener, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JComboBox$AccessibleJComboBox$AccessibleJComboBoxListSelectionListener);
+	});
 	return class$;
 }
 

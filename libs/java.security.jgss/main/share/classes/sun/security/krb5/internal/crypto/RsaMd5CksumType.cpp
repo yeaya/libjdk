@@ -1,5 +1,4 @@
 #include <sun/security/krb5/internal/crypto/RsaMd5CksumType.h>
-
 #include <java/security/MessageDigest.h>
 #include <sun/security/krb5/Checksum.h>
 #include <sun/security/krb5/KrbCryptoException.h>
@@ -24,32 +23,6 @@ namespace sun {
 		namespace krb5 {
 			namespace internal {
 				namespace crypto {
-
-$MethodInfo _RsaMd5CksumType_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(RsaMd5CksumType, init$, void)},
-	{"calculateChecksum", "([BI[BI)[B", nullptr, $PUBLIC, $virtualMethod(RsaMd5CksumType, calculateChecksum, $bytes*, $bytes*, int32_t, $bytes*, int32_t), "sun.security.krb5.KrbCryptoException"},
-	{"cksumSize", "()I", nullptr, $PUBLIC, $virtualMethod(RsaMd5CksumType, cksumSize, int32_t)},
-	{"cksumType", "()I", nullptr, $PUBLIC, $virtualMethod(RsaMd5CksumType, cksumType, int32_t)},
-	{"confounderSize", "()I", nullptr, $PUBLIC, $virtualMethod(RsaMd5CksumType, confounderSize, int32_t)},
-	{"isKeyed", "()Z", nullptr, $PUBLIC, $virtualMethod(RsaMd5CksumType, isKeyed, bool)},
-	{"keySize", "()I", nullptr, $PUBLIC, $virtualMethod(RsaMd5CksumType, keySize, int32_t)},
-	{"keyType", "()I", nullptr, $PUBLIC, $virtualMethod(RsaMd5CksumType, keyType, int32_t)},
-	{"verifyChecksum", "([BI[B[BI)Z", nullptr, $PUBLIC, $virtualMethod(RsaMd5CksumType, verifyChecksum, bool, $bytes*, int32_t, $bytes*, $bytes*, int32_t), "sun.security.krb5.KrbCryptoException"},
-	{}
-};
-
-$ClassInfo _RsaMd5CksumType_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.security.krb5.internal.crypto.RsaMd5CksumType",
-	"sun.security.krb5.internal.crypto.CksumType",
-	nullptr,
-	nullptr,
-	_RsaMd5CksumType_MethodInfo_
-};
-
-$Object* allocate$RsaMd5CksumType($Class* clazz) {
-	return $of($alloc(RsaMd5CksumType));
-}
 
 void RsaMd5CksumType::init$() {
 	$CksumType::init$();
@@ -80,7 +53,7 @@ int32_t RsaMd5CksumType::keySize() {
 }
 
 $bytes* RsaMd5CksumType::calculateChecksum($bytes* data, int32_t size, $bytes* key, int32_t usage) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($MessageDigest, md5, nullptr);
 	$var($bytes, result, nullptr);
 	try {
@@ -98,9 +71,9 @@ $bytes* RsaMd5CksumType::calculateChecksum($bytes* data, int32_t size, $bytes* k
 }
 
 bool RsaMd5CksumType::verifyChecksum($bytes* data, int32_t size, $bytes* key, $bytes* checksum, int32_t usage) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
-		$var($bytes, calculated, $nc($($MessageDigest::getInstance("MD5"_s)))->digest(data));
+		$var($bytes, calculated, $$nc($MessageDigest::getInstance("MD5"_s))->digest(data));
 		return $CksumType::isChecksumEqual(calculated, checksum);
 	} catch ($Exception& e) {
 		return false;
@@ -112,7 +85,29 @@ RsaMd5CksumType::RsaMd5CksumType() {
 }
 
 $Class* RsaMd5CksumType::load$($String* name, bool initialize) {
-	$loadClass(RsaMd5CksumType, name, initialize, &_RsaMd5CksumType_ClassInfo_, allocate$RsaMd5CksumType);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(RsaMd5CksumType, init$, void)},
+		{"calculateChecksum", "([BI[BI)[B", nullptr, $PUBLIC, $virtualMethod(RsaMd5CksumType, calculateChecksum, $bytes*, $bytes*, int32_t, $bytes*, int32_t), "sun.security.krb5.KrbCryptoException"},
+		{"cksumSize", "()I", nullptr, $PUBLIC, $virtualMethod(RsaMd5CksumType, cksumSize, int32_t)},
+		{"cksumType", "()I", nullptr, $PUBLIC, $virtualMethod(RsaMd5CksumType, cksumType, int32_t)},
+		{"confounderSize", "()I", nullptr, $PUBLIC, $virtualMethod(RsaMd5CksumType, confounderSize, int32_t)},
+		{"isKeyed", "()Z", nullptr, $PUBLIC, $virtualMethod(RsaMd5CksumType, isKeyed, bool)},
+		{"keySize", "()I", nullptr, $PUBLIC, $virtualMethod(RsaMd5CksumType, keySize, int32_t)},
+		{"keyType", "()I", nullptr, $PUBLIC, $virtualMethod(RsaMd5CksumType, keyType, int32_t)},
+		{"verifyChecksum", "([BI[B[BI)Z", nullptr, $PUBLIC, $virtualMethod(RsaMd5CksumType, verifyChecksum, bool, $bytes*, int32_t, $bytes*, $bytes*, int32_t), "sun.security.krb5.KrbCryptoException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.security.krb5.internal.crypto.RsaMd5CksumType",
+		"sun.security.krb5.internal.crypto.CksumType",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(RsaMd5CksumType, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RsaMd5CksumType);
+	});
 	return class$;
 }
 

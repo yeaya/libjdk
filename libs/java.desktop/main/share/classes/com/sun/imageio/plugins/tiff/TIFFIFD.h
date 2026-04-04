@@ -50,6 +50,7 @@ class TIFFIFD : public ::javax::imageio::plugins::tiff::TIFFDirectory {
 public:
 	TIFFIFD();
 	using ::javax::imageio::plugins::tiff::TIFFDirectory::getTag;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::util::List* tagSets, ::javax::imageio::plugins::tiff::TIFFTag* parentTag);
 	void init$(::java::util::List* tagSets);
 	bool calculateByteCounts(int32_t expectedSize, ::java::util::List* byteCounts);
@@ -71,8 +72,8 @@ public:
 	virtual void setPositions(int64_t stripOrTileOffsetsPosition, int64_t stripOrTileByteCountsPosition, int64_t lastPosition);
 	static void writeTIFFFieldToStream(::javax::imageio::plugins::tiff::TIFFField* field, ::javax::imageio::stream::ImageOutputStream* stream);
 	virtual void writeToStream(::javax::imageio::stream::ImageOutputStream* stream);
-	static const int64_t MAX_SAMPLES_PER_PIXEL = 0x0000FFFF;
-	static const int64_t MAX_ASCII_SIZE = 0x0000FFFF;
+	static const int64_t MAX_SAMPLES_PER_PIXEL = 0x0000ffff;
+	static const int64_t MAX_ASCII_SIZE = 0x0000ffff;
 	int64_t stripOrTileByteCountsPosition = 0;
 	int64_t stripOrTileOffsetsPosition = 0;
 	int64_t lastPosition = 0;

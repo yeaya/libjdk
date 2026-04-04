@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/websocket/MessageQueue$Type.h>
-
 #include <java/lang/Enum.h>
 #include <jdk/internal/net/http/websocket/MessageQueue.h>
 #include <jcpp.h>
@@ -22,49 +21,6 @@ namespace jdk {
 		namespace net {
 			namespace http {
 				namespace websocket {
-
-$FieldInfo _MessageQueue$Type_FieldInfo_[] = {
-	{"TEXT", "Ljdk/internal/net/http/websocket/MessageQueue$Type;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(MessageQueue$Type, TEXT)},
-	{"BINARY", "Ljdk/internal/net/http/websocket/MessageQueue$Type;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(MessageQueue$Type, BINARY)},
-	{"PING", "Ljdk/internal/net/http/websocket/MessageQueue$Type;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(MessageQueue$Type, PING)},
-	{"PONG", "Ljdk/internal/net/http/websocket/MessageQueue$Type;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(MessageQueue$Type, PONG)},
-	{"CLOSE", "Ljdk/internal/net/http/websocket/MessageQueue$Type;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(MessageQueue$Type, CLOSE)},
-	{"$VALUES", "[Ljdk/internal/net/http/websocket/MessageQueue$Type;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(MessageQueue$Type, $VALUES)},
-	{}
-};
-
-$MethodInfo _MessageQueue$Type_MethodInfo_[] = {
-	{"$values", "()[Ljdk/internal/net/http/websocket/MessageQueue$Type;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MessageQueue$Type, $values, $MessageQueue$TypeArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(MessageQueue$Type, init$, void, $String*, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)Ljdk/internal/net/http/websocket/MessageQueue$Type;", nullptr, $PUBLIC | $STATIC, $staticMethod(MessageQueue$Type, valueOf, MessageQueue$Type*, $String*)},
-	{"values", "()[Ljdk/internal/net/http/websocket/MessageQueue$Type;", nullptr, $PUBLIC | $STATIC, $staticMethod(MessageQueue$Type, values, $MessageQueue$TypeArray*)},
-	{}
-};
-
-$InnerClassInfo _MessageQueue$Type_InnerClassesInfo_[] = {
-	{"jdk.internal.net.http.websocket.MessageQueue$Type", "jdk.internal.net.http.websocket.MessageQueue", "Type", $PRIVATE | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _MessageQueue$Type_ClassInfo_ = {
-	$FINAL | $ACC_SUPER | $ENUM,
-	"jdk.internal.net.http.websocket.MessageQueue$Type",
-	"java.lang.Enum",
-	nullptr,
-	_MessageQueue$Type_FieldInfo_,
-	_MessageQueue$Type_MethodInfo_,
-	"Ljava/lang/Enum<Ljdk/internal/net/http/websocket/MessageQueue$Type;>;",
-	nullptr,
-	_MessageQueue$Type_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.net.http.websocket.MessageQueue"
-};
-
-$Object* allocate$MessageQueue$Type($Class* clazz) {
-	return $of($alloc(MessageQueue$Type));
-}
 
 MessageQueue$Type* MessageQueue$Type::TEXT = nullptr;
 MessageQueue$Type* MessageQueue$Type::BINARY = nullptr;
@@ -98,7 +54,7 @@ void MessageQueue$Type::init$($String* $enum$name, int32_t $enum$ordinal) {
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$MessageQueue$Type($Class* class$) {
+void MessageQueue$Type::clinit$($Class* clazz) {
 	$assignStatic(MessageQueue$Type::TEXT, $new(MessageQueue$Type, "TEXT"_s, 0));
 	$assignStatic(MessageQueue$Type::BINARY, $new(MessageQueue$Type, "BINARY"_s, 1));
 	$assignStatic(MessageQueue$Type::PING, $new(MessageQueue$Type, "PING"_s, 2));
@@ -111,7 +67,44 @@ MessageQueue$Type::MessageQueue$Type() {
 }
 
 $Class* MessageQueue$Type::load$($String* name, bool initialize) {
-	$loadClass(MessageQueue$Type, name, initialize, &_MessageQueue$Type_ClassInfo_, clinit$MessageQueue$Type, allocate$MessageQueue$Type);
+	$FieldInfo fieldInfos$$[] = {
+		{"TEXT", "Ljdk/internal/net/http/websocket/MessageQueue$Type;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(MessageQueue$Type, TEXT)},
+		{"BINARY", "Ljdk/internal/net/http/websocket/MessageQueue$Type;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(MessageQueue$Type, BINARY)},
+		{"PING", "Ljdk/internal/net/http/websocket/MessageQueue$Type;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(MessageQueue$Type, PING)},
+		{"PONG", "Ljdk/internal/net/http/websocket/MessageQueue$Type;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(MessageQueue$Type, PONG)},
+		{"CLOSE", "Ljdk/internal/net/http/websocket/MessageQueue$Type;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(MessageQueue$Type, CLOSE)},
+		{"$VALUES", "[Ljdk/internal/net/http/websocket/MessageQueue$Type;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(MessageQueue$Type, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Ljdk/internal/net/http/websocket/MessageQueue$Type;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MessageQueue$Type, $values, $MessageQueue$TypeArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(MessageQueue$Type, init$, void, $String*, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)Ljdk/internal/net/http/websocket/MessageQueue$Type;", nullptr, $PUBLIC | $STATIC, $staticMethod(MessageQueue$Type, valueOf, MessageQueue$Type*, $String*)},
+		{"values", "()[Ljdk/internal/net/http/websocket/MessageQueue$Type;", nullptr, $PUBLIC | $STATIC, $staticMethod(MessageQueue$Type, values, $MessageQueue$TypeArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.net.http.websocket.MessageQueue$Type", "jdk.internal.net.http.websocket.MessageQueue", "Type", $PRIVATE | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER | $ENUM,
+		"jdk.internal.net.http.websocket.MessageQueue$Type",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Ljdk/internal/net/http/websocket/MessageQueue$Type;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.net.http.websocket.MessageQueue"
+	};
+	$loadClass(MessageQueue$Type, name, initialize, &classInfo$$, MessageQueue$Type::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MessageQueue$Type));
+	});
 	return class$;
 }
 

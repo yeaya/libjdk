@@ -1,5 +1,4 @@
 #include <sun/text/resources/cldr/ext/FormatData_en_CA.h>
-
 #include <java/util/ListResourceBundle.h>
 #include <jcpp.h>
 
@@ -14,31 +13,12 @@ namespace sun {
 			namespace cldr {
 				namespace ext {
 
-$MethodInfo _FormatData_en_CA_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(FormatData_en_CA, init$, void)},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(FormatData_en_CA, getContents, $ObjectArray2*)},
-	{}
-};
-
-$ClassInfo _FormatData_en_CA_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.text.resources.cldr.ext.FormatData_en_CA",
-	"java.util.ListResourceBundle",
-	nullptr,
-	nullptr,
-	_FormatData_en_CA_MethodInfo_
-};
-
-$Object* allocate$FormatData_en_CA($Class* clazz) {
-	return $of($alloc(FormatData_en_CA));
-}
-
 void FormatData_en_CA::init$() {
 	$ListResourceBundle::init$();
 }
 
 $ObjectArray2* FormatData_en_CA::getContents() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringArray, metaValue_MonthAbbreviations, $new($StringArray, {
 		"Jan."_s,
 		"Feb."_s,
@@ -125,146 +105,146 @@ $ObjectArray2* FormatData_en_CA::getContents() {
 	}));
 	$var($ObjectArray2, data, $new($ObjectArray2, {
 		$$new($ObjectArray, {
-			$of("roc.DayAbbreviations"_s),
-			$of(metaValue_DayAbbreviations)
+			"roc.DayAbbreviations"_s,
+			metaValue_DayAbbreviations
 		}),
 		$$new($ObjectArray, {
-			$of("japanese.AmPmMarkers"_s),
-			$of(metaValue_AmPmMarkers)
+			"japanese.AmPmMarkers"_s,
+			metaValue_AmPmMarkers
 		}),
 		$$new($ObjectArray, {
-			$of("islamic.AmPmMarkers"_s),
-			$of(metaValue_AmPmMarkers)
+			"islamic.AmPmMarkers"_s,
+			metaValue_AmPmMarkers
 		}),
 		$$new($ObjectArray, {
-			$of("AmPmMarkers"_s),
-			$of(metaValue_AmPmMarkers)
+			"AmPmMarkers"_s,
+			metaValue_AmPmMarkers
 		}),
 		$$new($ObjectArray, {
-			$of("java.time.japanese.DatePatterns"_s),
-			$of(metaValue_java_time_buddhist_DatePatterns)
+			"java.time.japanese.DatePatterns"_s,
+			metaValue_java_time_buddhist_DatePatterns
 		}),
 		$$new($ObjectArray, {
-			$of("TimePatterns"_s),
-			$of(metaValue_TimePatterns)
+			"TimePatterns"_s,
+			metaValue_TimePatterns
 		}),
 		$$new($ObjectArray, {
-			$of("islamic.DatePatterns"_s),
-			$of(metaValue_buddhist_DatePatterns)
+			"islamic.DatePatterns"_s,
+			metaValue_buddhist_DatePatterns
 		}),
 		$$new($ObjectArray, {
-			$of("japanese.DayAbbreviations"_s),
-			$of(metaValue_DayAbbreviations)
+			"japanese.DayAbbreviations"_s,
+			metaValue_DayAbbreviations
 		}),
 		$$new($ObjectArray, {
-			$of("buddhist.DatePatterns"_s),
-			$of(metaValue_buddhist_DatePatterns)
+			"buddhist.DatePatterns"_s,
+			metaValue_buddhist_DatePatterns
 		}),
 		$$new($ObjectArray, {
-			$of("islamic.narrow.AmPmMarkers"_s),
-			$of(metaValue_narrow_AmPmMarkers)
+			"islamic.narrow.AmPmMarkers"_s,
+			metaValue_narrow_AmPmMarkers
 		}),
 		$$new($ObjectArray, {
-			$of("japanese.TimePatterns"_s),
-			$of(metaValue_TimePatterns)
+			"japanese.TimePatterns"_s,
+			metaValue_TimePatterns
 		}),
 		$$new($ObjectArray, {
-			$of("DayAbbreviations"_s),
-			$of(metaValue_DayAbbreviations)
+			"DayAbbreviations"_s,
+			metaValue_DayAbbreviations
 		}),
 		$$new($ObjectArray, {
-			$of("abbreviated.AmPmMarkers"_s),
-			$of(metaValue_abbreviated_AmPmMarkers)
+			"abbreviated.AmPmMarkers"_s,
+			metaValue_abbreviated_AmPmMarkers
 		}),
 		$$new($ObjectArray, {
-			$of("japanese.abbreviated.AmPmMarkers"_s),
-			$of(metaValue_abbreviated_AmPmMarkers)
+			"japanese.abbreviated.AmPmMarkers"_s,
+			metaValue_abbreviated_AmPmMarkers
 		}),
 		$$new($ObjectArray, {
-			$of("buddhist.narrow.AmPmMarkers"_s),
-			$of(metaValue_narrow_AmPmMarkers)
+			"buddhist.narrow.AmPmMarkers"_s,
+			metaValue_narrow_AmPmMarkers
 		}),
 		$$new($ObjectArray, {
-			$of("roc.DatePatterns"_s),
-			$of(metaValue_buddhist_DatePatterns)
+			"roc.DatePatterns"_s,
+			metaValue_buddhist_DatePatterns
 		}),
 		$$new($ObjectArray, {
-			$of("buddhist.abbreviated.AmPmMarkers"_s),
-			$of(metaValue_abbreviated_AmPmMarkers)
+			"buddhist.abbreviated.AmPmMarkers"_s,
+			metaValue_abbreviated_AmPmMarkers
 		}),
 		$$new($ObjectArray, {
-			$of("standalone.DayAbbreviations"_s),
-			$of(metaValue_DayAbbreviations)
+			"standalone.DayAbbreviations"_s,
+			metaValue_DayAbbreviations
 		}),
 		$$new($ObjectArray, {
-			$of("roc.MonthAbbreviations"_s),
-			$of(metaValue_MonthAbbreviations)
+			"roc.MonthAbbreviations"_s,
+			metaValue_MonthAbbreviations
 		}),
 		$$new($ObjectArray, {
-			$of("roc.AmPmMarkers"_s),
-			$of(metaValue_AmPmMarkers)
+			"roc.AmPmMarkers"_s,
+			metaValue_AmPmMarkers
 		}),
 		$$new($ObjectArray, {
-			$of("islamic.abbreviated.AmPmMarkers"_s),
-			$of(metaValue_abbreviated_AmPmMarkers)
+			"islamic.abbreviated.AmPmMarkers"_s,
+			metaValue_abbreviated_AmPmMarkers
 		}),
 		$$new($ObjectArray, {
-			$of("java.time.roc.DatePatterns"_s),
-			$of(metaValue_java_time_buddhist_DatePatterns)
+			"java.time.roc.DatePatterns"_s,
+			metaValue_java_time_buddhist_DatePatterns
 		}),
 		$$new($ObjectArray, {
-			$of("java.time.buddhist.DatePatterns"_s),
-			$of(metaValue_java_time_buddhist_DatePatterns)
+			"java.time.buddhist.DatePatterns"_s,
+			metaValue_java_time_buddhist_DatePatterns
 		}),
 		$$new($ObjectArray, {
-			$of("java.time.islamic.DatePatterns"_s),
-			$of(metaValue_java_time_buddhist_DatePatterns)
+			"java.time.islamic.DatePatterns"_s,
+			metaValue_java_time_buddhist_DatePatterns
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.regionFormat.daylight"_s),
-			$of("{0} Daylight Saving Time"_s)
+			"timezone.regionFormat.daylight"_s,
+			"{0} Daylight Saving Time"_s
 		}),
 		$$new($ObjectArray, {
-			$of("DatePatterns"_s),
-			$of($$new($StringArray, {
+			"DatePatterns"_s,
+			$$new($StringArray, {
 				"EEEE, MMMM d, y"_s,
 				"MMMM d, y"_s,
 				"MMM d, y"_s,
 				"y-MM-dd"_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("buddhist.MonthAbbreviations"_s),
-			$of(metaValue_MonthAbbreviations)
+			"buddhist.MonthAbbreviations"_s,
+			metaValue_MonthAbbreviations
 		}),
 		$$new($ObjectArray, {
-			$of("buddhist.DayAbbreviations"_s),
-			$of(metaValue_DayAbbreviations)
+			"buddhist.DayAbbreviations"_s,
+			metaValue_DayAbbreviations
 		}),
 		$$new($ObjectArray, {
-			$of("islamic.TimePatterns"_s),
-			$of(metaValue_TimePatterns)
+			"islamic.TimePatterns"_s,
+			metaValue_TimePatterns
 		}),
 		$$new($ObjectArray, {
-			$of("MonthAbbreviations"_s),
-			$of(metaValue_MonthAbbreviations)
+			"MonthAbbreviations"_s,
+			metaValue_MonthAbbreviations
 		}),
 		$$new($ObjectArray, {
-			$of("DateTimePatterns"_s),
-			$of($$new($StringArray, {
+			"DateTimePatterns"_s,
+			$$new($StringArray, {
 				"{1} \'at\' {0}"_s,
 				"{1} \'at\' {0}"_s,
 				"{1}, {0}"_s,
 				"{1}, {0}"_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("narrow.AmPmMarkers"_s),
-			$of(metaValue_narrow_AmPmMarkers)
+			"narrow.AmPmMarkers"_s,
+			metaValue_narrow_AmPmMarkers
 		}),
 		$$new($ObjectArray, {
-			$of("latn.NumberElements"_s),
-			$of($$new($StringArray, {
+			"latn.NumberElements"_s,
+			$$new($StringArray, {
 				"."_s,
 				","_s,
 				";"_s,
@@ -278,60 +258,60 @@ $ObjectArray2* FormatData_en_CA::getContents() {
 				"NaN"_s,
 				""_s,
 				""_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("japanese.DatePatterns"_s),
-			$of(metaValue_buddhist_DatePatterns)
+			"japanese.DatePatterns"_s,
+			metaValue_buddhist_DatePatterns
 		}),
 		$$new($ObjectArray, {
-			$of("japanese.narrow.AmPmMarkers"_s),
-			$of(metaValue_narrow_AmPmMarkers)
+			"japanese.narrow.AmPmMarkers"_s,
+			metaValue_narrow_AmPmMarkers
 		}),
 		$$new($ObjectArray, {
-			$of("japanese.MonthAbbreviations"_s),
-			$of(metaValue_MonthAbbreviations)
+			"japanese.MonthAbbreviations"_s,
+			metaValue_MonthAbbreviations
 		}),
 		$$new($ObjectArray, {
-			$of("buddhist.TimePatterns"_s),
-			$of(metaValue_TimePatterns)
+			"buddhist.TimePatterns"_s,
+			metaValue_TimePatterns
 		}),
 		$$new($ObjectArray, {
-			$of("standalone.MonthAbbreviations"_s),
-			$of(metaValue_MonthAbbreviations)
+			"standalone.MonthAbbreviations"_s,
+			metaValue_MonthAbbreviations
 		}),
 		$$new($ObjectArray, {
-			$of("islamic.DayAbbreviations"_s),
-			$of(metaValue_DayAbbreviations)
+			"islamic.DayAbbreviations"_s,
+			metaValue_DayAbbreviations
 		}),
 		$$new($ObjectArray, {
-			$of("buddhist.AmPmMarkers"_s),
-			$of(metaValue_AmPmMarkers)
+			"buddhist.AmPmMarkers"_s,
+			metaValue_AmPmMarkers
 		}),
 		$$new($ObjectArray, {
-			$of("latn.NumberPatterns"_s),
-			$of($$new($StringArray, {
+			"latn.NumberPatterns"_s,
+			$$new($StringArray, {
 				"#,##0.###"_s,
 				u"¤#,##0.00"_s,
 				"#,##0%"_s,
 				u"¤#,##0.00;(¤#,##0.00)"_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("roc.narrow.AmPmMarkers"_s),
-			$of(metaValue_narrow_AmPmMarkers)
+			"roc.narrow.AmPmMarkers"_s,
+			metaValue_narrow_AmPmMarkers
 		}),
 		$$new($ObjectArray, {
-			$of("roc.TimePatterns"_s),
-			$of(metaValue_TimePatterns)
+			"roc.TimePatterns"_s,
+			metaValue_TimePatterns
 		}),
 		$$new($ObjectArray, {
-			$of("field.dayperiod"_s),
-			$of("a.m./p.m."_s)
+			"field.dayperiod"_s,
+			"a.m./p.m."_s
 		}),
 		$$new($ObjectArray, {
-			$of("roc.abbreviated.AmPmMarkers"_s),
-			$of(metaValue_abbreviated_AmPmMarkers)
+			"roc.abbreviated.AmPmMarkers"_s,
+			metaValue_abbreviated_AmPmMarkers
 		})
 	}));
 	return data;
@@ -341,7 +321,22 @@ FormatData_en_CA::FormatData_en_CA() {
 }
 
 $Class* FormatData_en_CA::load$($String* name, bool initialize) {
-	$loadClass(FormatData_en_CA, name, initialize, &_FormatData_en_CA_ClassInfo_, allocate$FormatData_en_CA);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(FormatData_en_CA, init$, void)},
+		{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(FormatData_en_CA, getContents, $ObjectArray2*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.text.resources.cldr.ext.FormatData_en_CA",
+		"java.util.ListResourceBundle",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(FormatData_en_CA, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FormatData_en_CA);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/impl/dtd/XMLAttributeDecl.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/dtd/XMLSimpleType.h>
 #include <com/sun/org/apache/xerces/internal/xni/QName.h>
 #include <jcpp.h>
@@ -18,33 +17,6 @@ namespace com {
 					namespace internal {
 						namespace impl {
 							namespace dtd {
-
-$FieldInfo _XMLAttributeDecl_FieldInfo_[] = {
-	{"name", "Lcom/sun/org/apache/xerces/internal/xni/QName;", nullptr, $PUBLIC | $FINAL, $field(XMLAttributeDecl, name)},
-	{"simpleType", "Lcom/sun/org/apache/xerces/internal/impl/dtd/XMLSimpleType;", nullptr, $PUBLIC | $FINAL, $field(XMLAttributeDecl, simpleType)},
-	{"optional", "Z", nullptr, $PUBLIC, $field(XMLAttributeDecl, optional)},
-	{}
-};
-
-$MethodInfo _XMLAttributeDecl_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(XMLAttributeDecl, init$, void)},
-	{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(XMLAttributeDecl, clear, void)},
-	{"setValues", "(Lcom/sun/org/apache/xerces/internal/xni/QName;Lcom/sun/org/apache/xerces/internal/impl/dtd/XMLSimpleType;Z)V", nullptr, $PUBLIC, $virtualMethod(XMLAttributeDecl, setValues, void, $QName*, $XMLSimpleType*, bool)},
-	{}
-};
-
-$ClassInfo _XMLAttributeDecl_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.impl.dtd.XMLAttributeDecl",
-	"java.lang.Object",
-	nullptr,
-	_XMLAttributeDecl_FieldInfo_,
-	_XMLAttributeDecl_MethodInfo_
-};
-
-$Object* allocate$XMLAttributeDecl($Class* clazz) {
-	return $of($alloc(XMLAttributeDecl));
-}
 
 void XMLAttributeDecl::init$() {
 	$set(this, name, $new($QName));
@@ -67,7 +39,29 @@ XMLAttributeDecl::XMLAttributeDecl() {
 }
 
 $Class* XMLAttributeDecl::load$($String* name, bool initialize) {
-	$loadClass(XMLAttributeDecl, name, initialize, &_XMLAttributeDecl_ClassInfo_, allocate$XMLAttributeDecl);
+	$FieldInfo fieldInfos$$[] = {
+		{"name", "Lcom/sun/org/apache/xerces/internal/xni/QName;", nullptr, $PUBLIC | $FINAL, $field(XMLAttributeDecl, name)},
+		{"simpleType", "Lcom/sun/org/apache/xerces/internal/impl/dtd/XMLSimpleType;", nullptr, $PUBLIC | $FINAL, $field(XMLAttributeDecl, simpleType)},
+		{"optional", "Z", nullptr, $PUBLIC, $field(XMLAttributeDecl, optional)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(XMLAttributeDecl, init$, void)},
+		{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(XMLAttributeDecl, clear, void)},
+		{"setValues", "(Lcom/sun/org/apache/xerces/internal/xni/QName;Lcom/sun/org/apache/xerces/internal/impl/dtd/XMLSimpleType;Z)V", nullptr, $PUBLIC, $virtualMethod(XMLAttributeDecl, setValues, void, $QName*, $XMLSimpleType*, bool)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.impl.dtd.XMLAttributeDecl",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XMLAttributeDecl, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XMLAttributeDecl);
+	});
 	return class$;
 }
 

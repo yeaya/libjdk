@@ -1,5 +1,4 @@
 #include <sun/awt/windows/WFileDialogPeer.h>
-
 #include <java/awt/AWTEvent.h>
 #include <java/awt/BufferCapabilities$FlipContents.h>
 #include <java/awt/BufferCapabilities.h>
@@ -36,7 +35,6 @@
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
 #include <java/security/AccessController.h>
-#include <java/security/PrivilegedAction.h>
 #include <java/util/Iterator.h>
 #include <java/util/List.h>
 #include <java/util/Vector.h>
@@ -89,12 +87,10 @@ using $Runnable = ::java::lang::Runnable;
 using $ThreadGroup = ::java::lang::ThreadGroup;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $AccessController = ::java::security::AccessController;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
 using $Vector = ::java::util::Vector;
 using $AWTAccessor = ::sun::awt::AWTAccessor;
-using $AWTAccessor$ComponentAccessor = ::sun::awt::AWTAccessor$ComponentAccessor;
 using $AWTAccessor$FileDialogAccessor = ::sun::awt::AWTAccessor$FileDialogAccessor;
 using $WComponentPeer = ::sun::awt::windows::WComponentPeer;
 using $WFileDialogPeer$1 = ::sun::awt::windows::WFileDialogPeer$1;
@@ -117,176 +113,32 @@ public:
 	virtual void run() override {
 		$nc(inst$)->_show();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<WFileDialogPeer$$Lambda$_show>());
-	}
 	WFileDialogPeer* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo WFileDialogPeer$$Lambda$_show::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(WFileDialogPeer$$Lambda$_show, inst$)},
-	{}
-};
-$MethodInfo WFileDialogPeer$$Lambda$_show::methodInfos[3] = {
-	{"<init>", "(Lsun/awt/windows/WFileDialogPeer;)V", nullptr, $PUBLIC, $method(WFileDialogPeer$$Lambda$_show, init$, void, WFileDialogPeer*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(WFileDialogPeer$$Lambda$_show, run, void)},
-	{}
-};
-$ClassInfo WFileDialogPeer$$Lambda$_show::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.awt.windows.WFileDialogPeer$$Lambda$_show",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	fieldInfos,
-	methodInfos
 };
 $Class* WFileDialogPeer$$Lambda$_show::load$($String* name, bool initialize) {
-	$loadClass(WFileDialogPeer$$Lambda$_show, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(WFileDialogPeer$$Lambda$_show, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/awt/windows/WFileDialogPeer;)V", nullptr, $PUBLIC, $method(WFileDialogPeer$$Lambda$_show, init$, void, WFileDialogPeer*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(WFileDialogPeer$$Lambda$_show, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.awt.windows.WFileDialogPeer$$Lambda$_show",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(WFileDialogPeer$$Lambda$_show, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WFileDialogPeer$$Lambda$_show);
+	});
 	return class$;
 }
 $Class* WFileDialogPeer$$Lambda$_show::class$ = nullptr;
-
-$FieldInfo _WFileDialogPeer_FieldInfo_[] = {
-	{"parent", "Lsun/awt/windows/WComponentPeer;", nullptr, $PRIVATE, $field(WFileDialogPeer, parent)},
-	{"fileFilter", "Ljava/io/FilenameFilter;", nullptr, $PRIVATE, $field(WFileDialogPeer, fileFilter)},
-	{"blockedWindows", "Ljava/util/Vector;", "Ljava/util/Vector<Lsun/awt/windows/WWindowPeer;>;", $PRIVATE, $field(WFileDialogPeer, blockedWindows)},
-	{}
-};
-
-$MethodInfo _WFileDialogPeer_MethodInfo_[] = {
-	{"*beginLayout", "()V", nullptr, $PUBLIC},
-	{"*canDetermineObscurity", "()Z", nullptr, $PUBLIC},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*coalescePaintEvent", "(Ljava/awt/event/PaintEvent;)V", nullptr, $PUBLIC},
-	{"*createBuffers", "(ILjava/awt/BufferCapabilities;)V", nullptr, $PUBLIC},
-	{"*createImage", "(II)Ljava/awt/Image;", nullptr, $PUBLIC},
-	{"*createVolatileImage", "(II)Ljava/awt/image/VolatileImage;", nullptr, $PUBLIC},
-	{"*destroyBuffers", "()V", nullptr, $PUBLIC},
-	{"*dispose", "()V", nullptr, $PUBLIC | $FINAL},
-	{"*endLayout", "()V", nullptr, $PUBLIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*flip", "(IIIILjava/awt/BufferCapabilities$FlipContents;)V", nullptr, $PUBLIC},
-	{"*getBackBuffer", "()Ljava/awt/Image;", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"*getColorModel", "()Ljava/awt/image/ColorModel;", nullptr, $PUBLIC},
-	{"*getFontMetrics", "(Ljava/awt/Font;)Ljava/awt/FontMetrics;", nullptr, $PUBLIC},
-	{"*getGraphics", "()Ljava/awt/Graphics;", nullptr, $PUBLIC},
-	{"*getGraphicsConfiguration", "()Ljava/awt/GraphicsConfiguration;", nullptr, $PUBLIC},
-	{"*getInsets", "()Ljava/awt/Insets;", nullptr, $PUBLIC | $SYNTHETIC},
-	{"*getMinimumSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC},
-	{"*getPreferredSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC},
-	{"*handleEvent", "(Ljava/awt/AWTEvent;)V", nullptr, $PUBLIC},
-	{"*handlesWheelScrolling", "()Z", nullptr, $PUBLIC},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/awt/FileDialog;)V", nullptr, 0, $method(WFileDialogPeer, init$, void, $FileDialog*)},
-	{"_dispose", "()V", nullptr, $PRIVATE | $NATIVE, $method(WFileDialogPeer, _dispose, void)},
-	{"_hide", "()V", nullptr, $PRIVATE | $NATIVE, $method(WFileDialogPeer, _hide, void)},
-	{"_show", "()V", nullptr, $PRIVATE | $NATIVE, $method(WFileDialogPeer, _show, void)},
-	{"addDropTarget", "(Ljava/awt/dnd/DropTarget;)V", nullptr, $PUBLIC, $virtualMethod(WFileDialogPeer, addDropTarget, void, $DropTarget*)},
-	{"applyShape", "(Lsun/java2d/pipe/Region;)V", nullptr, $PUBLIC, $virtualMethod(WFileDialogPeer, applyShape, void, $Region*)},
-	{"beginValidate", "()V", nullptr, $PUBLIC, $virtualMethod(WFileDialogPeer, beginValidate, void)},
-	{"blockWindow", "(Lsun/awt/windows/WWindowPeer;)V", nullptr, 0, $method(WFileDialogPeer, blockWindow, void, $WWindowPeer*)},
-	{"blockWindows", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/awt/Window;>;)V", $PUBLIC, $virtualMethod(WFileDialogPeer, blockWindows, void, $List*)},
-	{"checkCreation", "()V", nullptr, $PROTECTED, $virtualMethod(WFileDialogPeer, checkCreation, void)},
-	{"checkFilenameFilter", "(Ljava/lang/String;)Z", nullptr, 0, $method(WFileDialogPeer, checkFilenameFilter, bool, $String*)},
-	{"create", "(Lsun/awt/windows/WComponentPeer;)V", nullptr, 0, $virtualMethod(WFileDialogPeer, create, void, $WComponentPeer*)},
-	{"createScreenSurface", "(Z)V", nullptr, $PUBLIC, $virtualMethod(WFileDialogPeer, createScreenSurface, void, bool)},
-	{"disable", "()V", nullptr, 0, $virtualMethod(WFileDialogPeer, disable, void)},
-	{"disposeImpl", "()V", nullptr, $PROTECTED, $virtualMethod(WFileDialogPeer, disposeImpl, void)},
-	{"enable", "()V", nullptr, 0, $virtualMethod(WFileDialogPeer, enable, void)},
-	{"endValidate", "()V", nullptr, $PUBLIC, $virtualMethod(WFileDialogPeer, endValidate, void)},
-	{"getLocationOnScreen", "()Ljava/awt/Point;", nullptr, $PUBLIC | $NATIVE, $virtualMethod(WFileDialogPeer, getLocationOnScreen, $Point*)},
-	{"handleCancel", "()V", nullptr, 0, $method(WFileDialogPeer, handleCancel, void)},
-	{"handleEvent", "(Ljava/awt/Event;)Z", nullptr, $PUBLIC, $method(WFileDialogPeer, handleEvent, bool, $Event*)},
-	{"handleSelected", "([C)V", nullptr, 0, $method(WFileDialogPeer, handleSelected, void, $chars*)},
-	{"hide", "()V", nullptr, 0, $virtualMethod(WFileDialogPeer, hide, void)},
-	{"initIDs", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(WFileDialogPeer, initIDs, void)},
-	{"initialize", "()V", nullptr, 0, $virtualMethod(WFileDialogPeer, initialize, void)},
-	{"invalidate", "(IIII)V", nullptr, 0, $method(WFileDialogPeer, invalidate, void, int32_t, int32_t, int32_t, int32_t)},
-	{"*isFocusable", "()Z", nullptr, $PUBLIC},
-	{"isMultipleMode", "()Z", nullptr, $PUBLIC, $method(WFileDialogPeer, isMultipleMode, bool)},
-	{"*isObscured", "()Z", nullptr, $PUBLIC | $NATIVE},
-	{"*isReparentSupported", "()Z", nullptr, $PUBLIC},
-	{"*layout", "()V", nullptr, $PUBLIC},
-	{"*paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC | $SYNTHETIC},
-	{"*print", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC},
-	{"removeDropTarget", "(Ljava/awt/dnd/DropTarget;)V", nullptr, $PUBLIC, $virtualMethod(WFileDialogPeer, removeDropTarget, void, $DropTarget*)},
-	{"*reparent", "(Ljava/awt/peer/ContainerPeer;)V", nullptr, $PUBLIC},
-	{"replaceSurfaceData", "()V", nullptr, $PUBLIC, $virtualMethod(WFileDialogPeer, replaceSurfaceData, void)},
-	{"*repositionSecurityWarning", "()V", nullptr, $PUBLIC | $NATIVE},
-	{"requestFocus", "(ZZ)Z", nullptr, $PUBLIC, $method(WFileDialogPeer, requestFocus, bool, bool, bool)},
-	{"requestFocus", "(Ljava/awt/Component;ZZJLjava/awt/event/FocusEvent$Cause;)Z", nullptr, $PUBLIC, $virtualMethod(WFileDialogPeer, requestFocus, bool, $Component*, bool, bool, int64_t, $FocusEvent$Cause*)},
-	{"reshape", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(WFileDialogPeer, reshape, void, int32_t, int32_t, int32_t, int32_t)},
-	{"setBackground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC, $virtualMethod(WFileDialogPeer, setBackground, void, $Color*)},
-	{"*setBounds", "(IIIII)V", nullptr, $PUBLIC},
-	{"setDirectory", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(WFileDialogPeer, setDirectory, void, $String*)},
-	{"*setEnabled", "(Z)V", nullptr, $PUBLIC},
-	{"setFile", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(WFileDialogPeer, setFile, void, $String*)},
-	{"setFilenameFilter", "(Ljava/io/FilenameFilter;)V", nullptr, $PUBLIC, $virtualMethod(WFileDialogPeer, setFilenameFilter, void, $FilenameFilter*)},
-	{"setFilterString", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(WFileDialogPeer, setFilterString, void, $String*)},
-	{"setFont", "(Ljava/awt/Font;)V", nullptr, $PUBLIC, $virtualMethod(WFileDialogPeer, setFont, void, $Font*)},
-	{"setForeground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC, $virtualMethod(WFileDialogPeer, setForeground, void, $Color*)},
-	{"setHWnd", "(J)V", nullptr, 0, $method(WFileDialogPeer, setHWnd, void, int64_t)},
-	{"*setModalBlocked", "(Ljava/awt/Dialog;Z)V", nullptr, $PUBLIC},
-	{"setOpacity", "(F)V", nullptr, $PUBLIC, $virtualMethod(WFileDialogPeer, setOpacity, void, float)},
-	{"setOpaque", "(Z)V", nullptr, $PUBLIC, $virtualMethod(WFileDialogPeer, setOpaque, void, bool)},
-	{"setResizable", "(Z)V", nullptr, $PUBLIC, $virtualMethod(WFileDialogPeer, setResizable, void, bool)},
-	{"setTitle", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(WFileDialogPeer, setTitle, void, $String*)},
-	{"*setVisible", "(Z)V", nullptr, $PUBLIC},
-	{"setZOrder", "(Ljava/awt/peer/ComponentPeer;)V", nullptr, $PUBLIC, $virtualMethod(WFileDialogPeer, setZOrder, void, $ComponentPeer*)},
-	{"show", "()V", nullptr, $PUBLIC, $virtualMethod(WFileDialogPeer, show, void)},
-	{"start", "()V", nullptr, 0, $virtualMethod(WFileDialogPeer, start, void)},
-	{"toBack", "()V", nullptr, $PUBLIC | $NATIVE, $virtualMethod(WFileDialogPeer, toBack, void)},
-	{"toFront", "()V", nullptr, $PUBLIC | $NATIVE, $virtualMethod(WFileDialogPeer, toFront, void)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"unblockWindow", "(Lsun/awt/windows/WWindowPeer;)V", nullptr, 0, $method(WFileDialogPeer, unblockWindow, void, $WWindowPeer*)},
-	{"updateAlwaysOnTopState", "()V", nullptr, $PUBLIC, $virtualMethod(WFileDialogPeer, updateAlwaysOnTopState, void)},
-	{"*updateCursorImmediately", "()V", nullptr, $PUBLIC},
-	{"updateFocusableWindowState", "()V", nullptr, $PUBLIC, $virtualMethod(WFileDialogPeer, updateFocusableWindowState, void)},
-	{"*updateGraphicsData", "(Ljava/awt/GraphicsConfiguration;)Z", nullptr, $PUBLIC},
-	{"updateIconImages", "()V", nullptr, $PUBLIC, $virtualMethod(WFileDialogPeer, updateIconImages, void)},
-	{"updateMinimumSize", "()V", nullptr, $PUBLIC, $virtualMethod(WFileDialogPeer, updateMinimumSize, void)},
-	{"*updateWindow", "()V", nullptr, $PUBLIC},
-	{"updateWindow", "(Ljava/awt/image/BufferedImage;)V", nullptr, $PUBLIC, $method(WFileDialogPeer, updateWindow, void, $BufferedImage*)},
-	{}
-};
-
-#define _METHOD_INDEX__dispose 25
-#define _METHOD_INDEX__hide 26
-#define _METHOD_INDEX__show 27
-#define _METHOD_INDEX_getLocationOnScreen 41
-#define _METHOD_INDEX_initIDs 46
-#define _METHOD_INDEX_setFilterString 69
-#define _METHOD_INDEX_toBack 82
-#define _METHOD_INDEX_toFront 83
-
-$InnerClassInfo _WFileDialogPeer_InnerClassesInfo_[] = {
-	{"sun.awt.windows.WFileDialogPeer$3", nullptr, nullptr, 0},
-	{"sun.awt.windows.WFileDialogPeer$2", nullptr, nullptr, 0},
-	{"sun.awt.windows.WFileDialogPeer$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _WFileDialogPeer_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.awt.windows.WFileDialogPeer",
-	"sun.awt.windows.WWindowPeer",
-	"java.awt.peer.FileDialogPeer",
-	_WFileDialogPeer_FieldInfo_,
-	_WFileDialogPeer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_WFileDialogPeer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.awt.windows.WFileDialogPeer$3,sun.awt.windows.WFileDialogPeer$2,sun.awt.windows.WFileDialogPeer$1"
-};
-
-$Object* allocate$WFileDialogPeer($Class* clazz) {
-	return $of($alloc(WFileDialogPeer));
-}
 
 void WFileDialogPeer::setModalBlocked($Dialog* dialog, bool blocked) {
 	this->$WWindowPeer::setModalBlocked(dialog, blocked);
@@ -450,7 +302,7 @@ void WFileDialogPeer::finalize() {
 
 void WFileDialogPeer::setFilterString($String* allFilter) {
 	$init(WFileDialogPeer);
-	$prepareNativeStatic(WFileDialogPeer, setFilterString, void, $String* allFilter);
+	$prepareNativeStatic(setFilterString, void, $String* allFilter);
 	$invokeNativeStatic(allFilter);
 	$finishNativeStatic();
 }
@@ -460,7 +312,7 @@ void WFileDialogPeer::setFilenameFilter($FilenameFilter* filter) {
 }
 
 bool WFileDialogPeer::checkFilenameFilter($String* filename) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($FileDialog, fileDialog, $cast($FileDialog, this->target));
 	if (this->fileFilter == nullptr) {
 		return true;
@@ -483,11 +335,11 @@ void WFileDialogPeer::checkCreation() {
 }
 
 void WFileDialogPeer::initialize() {
-	setFilenameFilter($($nc(($cast($FileDialog, this->target)))->getFilenameFilter()));
+	setFilenameFilter($($nc($cast($FileDialog, this->target))->getFilenameFilter()));
 }
 
 void WFileDialogPeer::_dispose() {
-	$prepareNative(WFileDialogPeer, _dispose, void);
+	$prepareNative(_dispose, void);
 	$invokeNative();
 	$finishNative();
 }
@@ -498,20 +350,20 @@ void WFileDialogPeer::disposeImpl() {
 }
 
 void WFileDialogPeer::_show() {
-	$prepareNative(WFileDialogPeer, _show, void);
+	$prepareNative(_show, void);
 	$invokeNative();
 	$finishNative();
 }
 
 void WFileDialogPeer::_hide() {
-	$prepareNative(WFileDialogPeer, _hide, void);
+	$prepareNative(_hide, void);
 	$invokeNative();
 	$finishNative();
 }
 
 void WFileDialogPeer::show() {
-	$useLocalCurrentObjectStackCache();
-	$$new($Thread, nullptr, static_cast<$Runnable*>($$new(WFileDialogPeer$$Lambda$_show, this)), "FileDialog"_s, 0, false)->start();
+	$useLocalObjectStack();
+	$$new($Thread, nullptr, $$new(WFileDialogPeer$$Lambda$_show, this), "FileDialog"_s, 0, false)->start();
 }
 
 void WFileDialogPeer::hide() {
@@ -519,7 +371,7 @@ void WFileDialogPeer::hide() {
 }
 
 void WFileDialogPeer::setHWnd(int64_t hwnd) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->hwnd == hwnd) {
 		return;
 	}
@@ -528,19 +380,17 @@ void WFileDialogPeer::setHWnd(int64_t hwnd) {
 		$var($Iterator, i$, $nc(this->blockedWindows)->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($WWindowPeer, window, $cast($WWindowPeer, i$->next()));
-			{
-				if (hwnd != 0) {
-					$nc(window)->modalDisable($cast($Dialog, this->target), hwnd);
-				} else {
-					$nc(window)->modalEnable($cast($Dialog, this->target));
-				}
+			if (hwnd != 0) {
+				$nc(window)->modalDisable($cast($Dialog, this->target), hwnd);
+			} else {
+				$nc(window)->modalEnable($cast($Dialog, this->target));
 			}
 		}
 	}
 }
 
 void WFileDialogPeer::handleSelected($chars* buffer) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringArray, wFiles, ($$new($String, buffer))->split($cstr({'\0'})));
 	bool multiple = (wFiles->length > 1);
 	$var($String, jDirectory, nullptr);
@@ -556,7 +406,7 @@ void WFileDialogPeer::handleSelected($chars* buffer) {
 		$assign(jFile, wFiles->get(1));
 	} else {
 		$init($File);
-		int32_t index = $nc(wFiles->get(0))->lastIndexOf((int32_t)$File::separatorChar);
+		int32_t index = $nc(wFiles->get(0))->lastIndexOf($File::separatorChar);
 		if (index == -1) {
 			$assign(jDirectory, $str({"."_s, $File::separator}));
 			$assign(jFile, wFiles->get(0));
@@ -575,11 +425,11 @@ void WFileDialogPeer::handleSelected($chars* buffer) {
 }
 
 void WFileDialogPeer::handleCancel() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($FileDialog, fileDialog, $cast($FileDialog, this->target));
-	$nc($($AWTAccessor::getFileDialogAccessor()))->setFile(fileDialog, nullptr);
-	$nc($($AWTAccessor::getFileDialogAccessor()))->setFiles(fileDialog, nullptr);
-	$nc($($AWTAccessor::getFileDialogAccessor()))->setDirectory(fileDialog, nullptr);
+	$$nc($AWTAccessor::getFileDialogAccessor())->setFile(fileDialog, nullptr);
+	$$nc($AWTAccessor::getFileDialogAccessor())->setFiles(fileDialog, nullptr);
+	$$nc($AWTAccessor::getFileDialogAccessor())->setDirectory(fileDialog, nullptr);
 	$WToolkit::executeOnEventHandlerThread(fileDialog, $$new($WFileDialogPeer$2, this, fileDialog));
 }
 
@@ -591,36 +441,34 @@ void WFileDialogPeer::blockWindow($WWindowPeer* window) {
 }
 
 void WFileDialogPeer::unblockWindow($WWindowPeer* window) {
-	$nc(this->blockedWindows)->remove($of(window));
+	$nc(this->blockedWindows)->remove(window);
 	if (this->hwnd != 0) {
 		$nc(window)->modalEnable($cast($Dialog, this->target));
 	}
 }
 
 void WFileDialogPeer::blockWindows($List* toBlock) {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Iterator, i$, $nc(toBlock)->iterator());
-		for (; $nc(i$)->hasNext();) {
-			$var($Window, w, $cast($Window, i$->next()));
-			{
-				$var($WWindowPeer, wp, $cast($WWindowPeer, $nc($($AWTAccessor::getComponentAccessor()))->getPeer(w)));
-				if (wp != nullptr) {
-					blockWindow(wp);
-				}
+	$useLocalObjectStack();
+	$var($Iterator, i$, $nc(toBlock)->iterator());
+	for (; $nc(i$)->hasNext();) {
+		$var($Window, w, $cast($Window, i$->next()));
+		{
+			$var($WWindowPeer, wp, $cast($WWindowPeer, $$nc($AWTAccessor::getComponentAccessor())->getPeer(w)));
+			if (wp != nullptr) {
+				blockWindow(wp);
 			}
 		}
 	}
 }
 
 void WFileDialogPeer::toFront() {
-	$prepareNative(WFileDialogPeer, toFront, void);
+	$prepareNative(toFront, void);
 	$invokeNative();
 	$finishNative();
 }
 
 void WFileDialogPeer::toBack() {
-	$prepareNative(WFileDialogPeer, toBack, void);
+	$prepareNative(toBack, void);
 	$invokeNative();
 	$finishNative();
 }
@@ -702,7 +550,7 @@ void WFileDialogPeer::setZOrder($ComponentPeer* above) {
 
 void WFileDialogPeer::initIDs() {
 	$init(WFileDialogPeer);
-	$prepareNativeStatic(WFileDialogPeer, initIDs, void);
+	$prepareNativeStatic(initIDs, void);
 	$invokeNativeStatic();
 	$finishNativeStatic();
 }
@@ -726,27 +574,26 @@ void WFileDialogPeer::replaceSurfaceData() {
 }
 
 bool WFileDialogPeer::isMultipleMode() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($FileDialog, fileDialog, $cast($FileDialog, this->target));
-	return $nc($($AWTAccessor::getFileDialogAccessor()))->isMultipleMode(fileDialog);
+	return $$nc($AWTAccessor::getFileDialogAccessor())->isMultipleMode(fileDialog);
 }
 
 $Point* WFileDialogPeer::getLocationOnScreen() {
-	$var($Point, $ret, nullptr);
-	$prepareNative(WFileDialogPeer, getLocationOnScreen, $Point*);
-	$assign($ret, $invokeNativeObject());
+	$prepareNative(getLocationOnScreen, $Point*);
+	$var($Point, $ret, $invokeNativeObject());
 	$finishNative();
 	return $ret;
 }
 
-void clinit$WFileDialogPeer($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void WFileDialogPeer::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	{
 		WFileDialogPeer::initIDs();
 	}
 	{
-		$var($String, filterString, $cast($String, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($WFileDialogPeer$3)))));
+		$var($String, filterString, $cast($String, $AccessController::doPrivileged($$new($WFileDialogPeer$3))));
 		WFileDialogPeer::setFilterString(filterString);
 	}
 }
@@ -756,11 +603,136 @@ WFileDialogPeer::WFileDialogPeer() {
 
 $Class* WFileDialogPeer::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(WFileDialogPeer$$Lambda$_show::classInfo$.name)) {
+		if (name->equals("sun.awt.windows.WFileDialogPeer$$Lambda$_show")) {
 			return WFileDialogPeer$$Lambda$_show::load$(name, initialize);
 		}
 	}
-	$loadClass(WFileDialogPeer, name, initialize, &_WFileDialogPeer_ClassInfo_, clinit$WFileDialogPeer, allocate$WFileDialogPeer);
+	$FieldInfo fieldInfos$$[] = {
+		{"parent", "Lsun/awt/windows/WComponentPeer;", nullptr, $PRIVATE, $field(WFileDialogPeer, parent)},
+		{"fileFilter", "Ljava/io/FilenameFilter;", nullptr, $PRIVATE, $field(WFileDialogPeer, fileFilter)},
+		{"blockedWindows", "Ljava/util/Vector;", "Ljava/util/Vector<Lsun/awt/windows/WWindowPeer;>;", $PRIVATE, $field(WFileDialogPeer, blockedWindows)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*beginLayout", "()V", nullptr, $PUBLIC},
+		{"*canDetermineObscurity", "()Z", nullptr, $PUBLIC},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*coalescePaintEvent", "(Ljava/awt/event/PaintEvent;)V", nullptr, $PUBLIC},
+		{"*createBuffers", "(ILjava/awt/BufferCapabilities;)V", nullptr, $PUBLIC},
+		{"*createImage", "(II)Ljava/awt/Image;", nullptr, $PUBLIC},
+		{"*createVolatileImage", "(II)Ljava/awt/image/VolatileImage;", nullptr, $PUBLIC},
+		{"*destroyBuffers", "()V", nullptr, $PUBLIC},
+		{"*dispose", "()V", nullptr, $PUBLIC | $FINAL},
+		{"*endLayout", "()V", nullptr, $PUBLIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*flip", "(IIIILjava/awt/BufferCapabilities$FlipContents;)V", nullptr, $PUBLIC},
+		{"*getBackBuffer", "()Ljava/awt/Image;", nullptr, $PUBLIC | $SYNCHRONIZED},
+		{"*getColorModel", "()Ljava/awt/image/ColorModel;", nullptr, $PUBLIC},
+		{"*getFontMetrics", "(Ljava/awt/Font;)Ljava/awt/FontMetrics;", nullptr, $PUBLIC},
+		{"*getGraphics", "()Ljava/awt/Graphics;", nullptr, $PUBLIC},
+		{"*getGraphicsConfiguration", "()Ljava/awt/GraphicsConfiguration;", nullptr, $PUBLIC},
+		{"*getInsets", "()Ljava/awt/Insets;", nullptr, $PUBLIC | $SYNTHETIC},
+		{"*getMinimumSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC},
+		{"*getPreferredSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC},
+		{"*handleEvent", "(Ljava/awt/AWTEvent;)V", nullptr, $PUBLIC},
+		{"*handlesWheelScrolling", "()Z", nullptr, $PUBLIC},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/awt/FileDialog;)V", nullptr, 0, $method(WFileDialogPeer, init$, void, $FileDialog*)},
+		{"_dispose", "()V", nullptr, $PRIVATE | $NATIVE, $method(WFileDialogPeer, _dispose, void)},
+		{"_hide", "()V", nullptr, $PRIVATE | $NATIVE, $method(WFileDialogPeer, _hide, void)},
+		{"_show", "()V", nullptr, $PRIVATE | $NATIVE, $method(WFileDialogPeer, _show, void)},
+		{"addDropTarget", "(Ljava/awt/dnd/DropTarget;)V", nullptr, $PUBLIC, $virtualMethod(WFileDialogPeer, addDropTarget, void, $DropTarget*)},
+		{"applyShape", "(Lsun/java2d/pipe/Region;)V", nullptr, $PUBLIC, $virtualMethod(WFileDialogPeer, applyShape, void, $Region*)},
+		{"beginValidate", "()V", nullptr, $PUBLIC, $virtualMethod(WFileDialogPeer, beginValidate, void)},
+		{"blockWindow", "(Lsun/awt/windows/WWindowPeer;)V", nullptr, 0, $method(WFileDialogPeer, blockWindow, void, $WWindowPeer*)},
+		{"blockWindows", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/awt/Window;>;)V", $PUBLIC, $virtualMethod(WFileDialogPeer, blockWindows, void, $List*)},
+		{"checkCreation", "()V", nullptr, $PROTECTED, $virtualMethod(WFileDialogPeer, checkCreation, void)},
+		{"checkFilenameFilter", "(Ljava/lang/String;)Z", nullptr, 0, $method(WFileDialogPeer, checkFilenameFilter, bool, $String*)},
+		{"create", "(Lsun/awt/windows/WComponentPeer;)V", nullptr, 0, $virtualMethod(WFileDialogPeer, create, void, $WComponentPeer*)},
+		{"createScreenSurface", "(Z)V", nullptr, $PUBLIC, $virtualMethod(WFileDialogPeer, createScreenSurface, void, bool)},
+		{"disable", "()V", nullptr, 0, $virtualMethod(WFileDialogPeer, disable, void)},
+		{"disposeImpl", "()V", nullptr, $PROTECTED, $virtualMethod(WFileDialogPeer, disposeImpl, void)},
+		{"enable", "()V", nullptr, 0, $virtualMethod(WFileDialogPeer, enable, void)},
+		{"endValidate", "()V", nullptr, $PUBLIC, $virtualMethod(WFileDialogPeer, endValidate, void)},
+		{"getLocationOnScreen", "()Ljava/awt/Point;", nullptr, $PUBLIC | $NATIVE, $virtualMethod(WFileDialogPeer, getLocationOnScreen, $Point*)},
+		{"handleCancel", "()V", nullptr, 0, $method(WFileDialogPeer, handleCancel, void)},
+		{"handleEvent", "(Ljava/awt/Event;)Z", nullptr, $PUBLIC, $method(WFileDialogPeer, handleEvent, bool, $Event*)},
+		{"handleSelected", "([C)V", nullptr, 0, $method(WFileDialogPeer, handleSelected, void, $chars*)},
+		{"hide", "()V", nullptr, 0, $virtualMethod(WFileDialogPeer, hide, void)},
+		{"initIDs", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(WFileDialogPeer, initIDs, void)},
+		{"initialize", "()V", nullptr, 0, $virtualMethod(WFileDialogPeer, initialize, void)},
+		{"invalidate", "(IIII)V", nullptr, 0, $method(WFileDialogPeer, invalidate, void, int32_t, int32_t, int32_t, int32_t)},
+		{"*isFocusable", "()Z", nullptr, $PUBLIC},
+		{"isMultipleMode", "()Z", nullptr, $PUBLIC, $method(WFileDialogPeer, isMultipleMode, bool)},
+		{"*isObscured", "()Z", nullptr, $PUBLIC | $NATIVE},
+		{"*isReparentSupported", "()Z", nullptr, $PUBLIC},
+		{"*layout", "()V", nullptr, $PUBLIC},
+		{"*paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC | $SYNTHETIC},
+		{"*print", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC},
+		{"removeDropTarget", "(Ljava/awt/dnd/DropTarget;)V", nullptr, $PUBLIC, $virtualMethod(WFileDialogPeer, removeDropTarget, void, $DropTarget*)},
+		{"*reparent", "(Ljava/awt/peer/ContainerPeer;)V", nullptr, $PUBLIC},
+		{"replaceSurfaceData", "()V", nullptr, $PUBLIC, $virtualMethod(WFileDialogPeer, replaceSurfaceData, void)},
+		{"*repositionSecurityWarning", "()V", nullptr, $PUBLIC | $NATIVE},
+		{"requestFocus", "(ZZ)Z", nullptr, $PUBLIC, $method(WFileDialogPeer, requestFocus, bool, bool, bool)},
+		{"requestFocus", "(Ljava/awt/Component;ZZJLjava/awt/event/FocusEvent$Cause;)Z", nullptr, $PUBLIC, $virtualMethod(WFileDialogPeer, requestFocus, bool, $Component*, bool, bool, int64_t, $FocusEvent$Cause*)},
+		{"reshape", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(WFileDialogPeer, reshape, void, int32_t, int32_t, int32_t, int32_t)},
+		{"setBackground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC, $virtualMethod(WFileDialogPeer, setBackground, void, $Color*)},
+		{"*setBounds", "(IIIII)V", nullptr, $PUBLIC},
+		{"setDirectory", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(WFileDialogPeer, setDirectory, void, $String*)},
+		{"*setEnabled", "(Z)V", nullptr, $PUBLIC},
+		{"setFile", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(WFileDialogPeer, setFile, void, $String*)},
+		{"setFilenameFilter", "(Ljava/io/FilenameFilter;)V", nullptr, $PUBLIC, $virtualMethod(WFileDialogPeer, setFilenameFilter, void, $FilenameFilter*)},
+		{"setFilterString", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(WFileDialogPeer, setFilterString, void, $String*)},
+		{"setFont", "(Ljava/awt/Font;)V", nullptr, $PUBLIC, $virtualMethod(WFileDialogPeer, setFont, void, $Font*)},
+		{"setForeground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC, $virtualMethod(WFileDialogPeer, setForeground, void, $Color*)},
+		{"setHWnd", "(J)V", nullptr, 0, $method(WFileDialogPeer, setHWnd, void, int64_t)},
+		{"*setModalBlocked", "(Ljava/awt/Dialog;Z)V", nullptr, $PUBLIC},
+		{"setOpacity", "(F)V", nullptr, $PUBLIC, $virtualMethod(WFileDialogPeer, setOpacity, void, float)},
+		{"setOpaque", "(Z)V", nullptr, $PUBLIC, $virtualMethod(WFileDialogPeer, setOpaque, void, bool)},
+		{"setResizable", "(Z)V", nullptr, $PUBLIC, $virtualMethod(WFileDialogPeer, setResizable, void, bool)},
+		{"setTitle", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(WFileDialogPeer, setTitle, void, $String*)},
+		{"*setVisible", "(Z)V", nullptr, $PUBLIC},
+		{"setZOrder", "(Ljava/awt/peer/ComponentPeer;)V", nullptr, $PUBLIC, $virtualMethod(WFileDialogPeer, setZOrder, void, $ComponentPeer*)},
+		{"show", "()V", nullptr, $PUBLIC, $virtualMethod(WFileDialogPeer, show, void)},
+		{"start", "()V", nullptr, 0, $virtualMethod(WFileDialogPeer, start, void)},
+		{"toBack", "()V", nullptr, $PUBLIC | $NATIVE, $virtualMethod(WFileDialogPeer, toBack, void)},
+		{"toFront", "()V", nullptr, $PUBLIC | $NATIVE, $virtualMethod(WFileDialogPeer, toFront, void)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"unblockWindow", "(Lsun/awt/windows/WWindowPeer;)V", nullptr, 0, $method(WFileDialogPeer, unblockWindow, void, $WWindowPeer*)},
+		{"updateAlwaysOnTopState", "()V", nullptr, $PUBLIC, $virtualMethod(WFileDialogPeer, updateAlwaysOnTopState, void)},
+		{"*updateCursorImmediately", "()V", nullptr, $PUBLIC},
+		{"updateFocusableWindowState", "()V", nullptr, $PUBLIC, $virtualMethod(WFileDialogPeer, updateFocusableWindowState, void)},
+		{"*updateGraphicsData", "(Ljava/awt/GraphicsConfiguration;)Z", nullptr, $PUBLIC},
+		{"updateIconImages", "()V", nullptr, $PUBLIC, $virtualMethod(WFileDialogPeer, updateIconImages, void)},
+		{"updateMinimumSize", "()V", nullptr, $PUBLIC, $virtualMethod(WFileDialogPeer, updateMinimumSize, void)},
+		{"*updateWindow", "()V", nullptr, $PUBLIC},
+		{"updateWindow", "(Ljava/awt/image/BufferedImage;)V", nullptr, $PUBLIC, $method(WFileDialogPeer, updateWindow, void, $BufferedImage*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.windows.WFileDialogPeer$3", nullptr, nullptr, 0},
+		{"sun.awt.windows.WFileDialogPeer$2", nullptr, nullptr, 0},
+		{"sun.awt.windows.WFileDialogPeer$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.awt.windows.WFileDialogPeer",
+		"sun.awt.windows.WWindowPeer",
+		"java.awt.peer.FileDialogPeer",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.awt.windows.WFileDialogPeer$3,sun.awt.windows.WFileDialogPeer$2,sun.awt.windows.WFileDialogPeer$1"
+	};
+	$loadClass(WFileDialogPeer, name, initialize, &classInfo$$, WFileDialogPeer::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(WFileDialogPeer));
+	});
 	return class$;
 }
 

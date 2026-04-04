@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/security/transforms/Transforms.h>
-
 #include <com/sun/org/apache/xml/internal/security/c14n/CanonicalizationException.h>
 #include <com/sun/org/apache/xml/internal/security/c14n/Canonicalizer.h>
 #include <com/sun/org/apache/xml/internal/security/c14n/InvalidCanonicalizerException.h>
@@ -56,13 +55,11 @@ using $LoggerFactory = ::com::sun::org::slf4j::internal::LoggerFactory;
 using $IOException = ::java::io::IOException;
 using $OutputStream = ::java::io::OutputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Document = ::org::w3c::dom::Document;
 using $Element = ::org::w3c::dom::Element;
-using $Node = ::org::w3c::dom::Node;
 using $NodeList = ::org::w3c::dom::NodeList;
 
 namespace com {
@@ -73,57 +70,6 @@ namespace com {
 					namespace internal {
 						namespace security {
 							namespace transforms {
-
-$FieldInfo _Transforms_FieldInfo_[] = {
-	{"TRANSFORM_C14N_OMIT_COMMENTS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Transforms, TRANSFORM_C14N_OMIT_COMMENTS)},
-	{"TRANSFORM_C14N_WITH_COMMENTS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Transforms, TRANSFORM_C14N_WITH_COMMENTS)},
-	{"TRANSFORM_C14N11_OMIT_COMMENTS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Transforms, TRANSFORM_C14N11_OMIT_COMMENTS)},
-	{"TRANSFORM_C14N11_WITH_COMMENTS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Transforms, TRANSFORM_C14N11_WITH_COMMENTS)},
-	{"TRANSFORM_C14N_EXCL_OMIT_COMMENTS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Transforms, TRANSFORM_C14N_EXCL_OMIT_COMMENTS)},
-	{"TRANSFORM_C14N_EXCL_WITH_COMMENTS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Transforms, TRANSFORM_C14N_EXCL_WITH_COMMENTS)},
-	{"TRANSFORM_XSLT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Transforms, TRANSFORM_XSLT)},
-	{"TRANSFORM_BASE64_DECODE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Transforms, TRANSFORM_BASE64_DECODE)},
-	{"TRANSFORM_XPATH", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Transforms, TRANSFORM_XPATH)},
-	{"TRANSFORM_ENVELOPED_SIGNATURE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Transforms, TRANSFORM_ENVELOPED_SIGNATURE)},
-	{"TRANSFORM_XPOINTER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Transforms, TRANSFORM_XPOINTER)},
-	{"TRANSFORM_XPATH2FILTER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Transforms, TRANSFORM_XPATH2FILTER)},
-	{"LOG", "Lcom/sun/org/slf4j/internal/Logger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Transforms, LOG)},
-	{"transformsElement", "[Lorg/w3c/dom/Element;", nullptr, $PRIVATE, $field(Transforms, transformsElement)},
-	{"secureValidation", "Z", nullptr, $PRIVATE, $field(Transforms, secureValidation)},
-	{}
-};
-
-$MethodInfo _Transforms_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(Transforms, init$, void)},
-	{"<init>", "(Lorg/w3c/dom/Document;)V", nullptr, $PUBLIC, $method(Transforms, init$, void, $Document*)},
-	{"<init>", "(Lorg/w3c/dom/Element;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Transforms, init$, void, $Element*, $String*), "org.w3c.dom.DOMException,com.sun.org.apache.xml.internal.security.signature.XMLSignatureException,com.sun.org.apache.xml.internal.security.transforms.InvalidTransformException,com.sun.org.apache.xml.internal.security.transforms.TransformationException,com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
-	{"addTransform", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Transforms, addTransform, void, $String*), "com.sun.org.apache.xml.internal.security.transforms.TransformationException"},
-	{"addTransform", "(Ljava/lang/String;Lorg/w3c/dom/Element;)V", nullptr, $PUBLIC, $virtualMethod(Transforms, addTransform, void, $String*, $Element*), "com.sun.org.apache.xml.internal.security.transforms.TransformationException"},
-	{"addTransform", "(Ljava/lang/String;Lorg/w3c/dom/NodeList;)V", nullptr, $PUBLIC, $virtualMethod(Transforms, addTransform, void, $String*, $NodeList*), "com.sun.org.apache.xml.internal.security.transforms.TransformationException"},
-	{"addTransform", "(Lcom/sun/org/apache/xml/internal/security/transforms/Transform;)V", nullptr, $PRIVATE, $method(Transforms, addTransform, void, $Transform*)},
-	{"checkSecureValidation", "(Lcom/sun/org/apache/xml/internal/security/transforms/Transform;)V", nullptr, $PRIVATE, $method(Transforms, checkSecureValidation, void, $Transform*), "com.sun.org.apache.xml.internal.security.transforms.TransformationException"},
-	{"getBaseLocalName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Transforms, getBaseLocalName, $String*)},
-	{"getLength", "()I", nullptr, $PUBLIC, $virtualMethod(Transforms, getLength, int32_t)},
-	{"initTransforms", "()V", nullptr, $PRIVATE, $method(Transforms, initTransforms, void)},
-	{"item", "(I)Lcom/sun/org/apache/xml/internal/security/transforms/Transform;", nullptr, $PUBLIC, $virtualMethod(Transforms, item, $Transform*, int32_t), "com.sun.org.apache.xml.internal.security.transforms.TransformationException"},
-	{"performTransforms", "(Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;)Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;", nullptr, $PUBLIC, $virtualMethod(Transforms, performTransforms, $XMLSignatureInput*, $XMLSignatureInput*), "com.sun.org.apache.xml.internal.security.transforms.TransformationException"},
-	{"performTransforms", "(Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;Ljava/io/OutputStream;)Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;", nullptr, $PUBLIC, $virtualMethod(Transforms, performTransforms, $XMLSignatureInput*, $XMLSignatureInput*, $OutputStream*), "com.sun.org.apache.xml.internal.security.transforms.TransformationException"},
-	{"setSecureValidation", "(Z)V", nullptr, $PUBLIC, $virtualMethod(Transforms, setSecureValidation, void, bool)},
-	{}
-};
-
-$ClassInfo _Transforms_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.security.transforms.Transforms",
-	"com.sun.org.apache.xml.internal.security.utils.SignatureElementProxy",
-	nullptr,
-	_Transforms_FieldInfo_,
-	_Transforms_MethodInfo_
-};
-
-$Object* allocate$Transforms($Class* clazz) {
-	return $of($alloc(Transforms));
-}
 
 $String* Transforms::TRANSFORM_C14N_OMIT_COMMENTS = nullptr;
 $String* Transforms::TRANSFORM_C14N_WITH_COMMENTS = nullptr;
@@ -154,8 +100,8 @@ void Transforms::init$($Element* element, $String* baseURI) {
 	if (numberOfTransformElems == 0) {
 		$init($Constants);
 		$var($ObjectArray, exArgs, $new($ObjectArray, {
-			$of($Constants::_TAG_TRANSFORM),
-			$of($Constants::_TAG_TRANSFORMS)
+			$Constants::_TAG_TRANSFORM,
+			$Constants::_TAG_TRANSFORMS
 		}));
 		$throwNew($TransformationException, "xml.WrongContent"_s, exArgs);
 	}
@@ -166,42 +112,42 @@ void Transforms::setSecureValidation(bool secureValidation) {
 }
 
 void Transforms::addTransform($String* transformURI) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
-		$nc(Transforms::LOG)->debug("Transforms.addTransform({})"_s, $$new($ObjectArray, {$of(transformURI)}));
+		$nc(Transforms::LOG)->debug("Transforms.addTransform({})"_s, $$new($ObjectArray, {transformURI}));
 		$var($Transform, transform, $new($Transform, $(getDocument()), transformURI));
 		this->addTransform(transform);
 	} catch ($InvalidTransformException& ex) {
-		$throwNew($TransformationException, static_cast<$Exception*>(ex));
+		$throwNew($TransformationException, ex);
 	}
 }
 
 void Transforms::addTransform($String* transformURI, $Element* contextElement) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
-		$nc(Transforms::LOG)->debug("Transforms.addTransform({})"_s, $$new($ObjectArray, {$of(transformURI)}));
+		$nc(Transforms::LOG)->debug("Transforms.addTransform({})"_s, $$new($ObjectArray, {transformURI}));
 		$var($Transform, transform, $new($Transform, $(getDocument()), transformURI, contextElement));
 		this->addTransform(transform);
 	} catch ($InvalidTransformException& ex) {
-		$throwNew($TransformationException, static_cast<$Exception*>(ex));
+		$throwNew($TransformationException, ex);
 	}
 }
 
 void Transforms::addTransform($String* transformURI, $NodeList* contextNodes) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$var($Transform, transform, $new($Transform, $(getDocument()), transformURI, contextNodes));
 		this->addTransform(transform);
 	} catch ($InvalidTransformException& ex) {
-		$throwNew($TransformationException, static_cast<$Exception*>(ex));
+		$throwNew($TransformationException, ex);
 	}
 }
 
 void Transforms::addTransform($Transform* transform) {
-	$useLocalCurrentObjectStackCache();
-	$nc(Transforms::LOG)->debug("Transforms.addTransform({})"_s, $$new($ObjectArray, {$($of($nc(transform)->getURI()))}));
-	$var($Element, transformElement, $nc(transform)->getElement());
-	appendSelf(static_cast<$Node*>(transformElement));
+	$useLocalObjectStack();
+	$nc(Transforms::LOG)->debug("Transforms.addTransform({})"_s, $$new($ObjectArray, {$($nc(transform)->getURI())}));
+	$var($Element, transformElement, transform->getElement());
+	appendSelf(transformElement);
 	addReturnToSelf();
 }
 
@@ -210,44 +156,44 @@ $XMLSignatureInput* Transforms::performTransforms($XMLSignatureInput* xmlSignatu
 }
 
 $XMLSignatureInput* Transforms::performTransforms($XMLSignatureInput* xmlSignatureInput$renamed, $OutputStream* os) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($XMLSignatureInput, xmlSignatureInput, xmlSignatureInput$renamed);
 	try {
 		int32_t last = this->getLength() - 1;
 		for (int32_t i = 0; i < last; ++i) {
 			$var($Transform, t, this->item(i));
 			$nc(Transforms::LOG)->debug("Perform the ({})th {} transform"_s, $$new($ObjectArray, {
-				$($of($Integer::valueOf(i))),
-				$($of($nc(t)->getURI()))
+				$($Integer::valueOf(i)),
+				$($nc(t)->getURI())
 			}));
 			checkSecureValidation(t);
-			$assign(xmlSignatureInput, $nc(t)->performTransform(xmlSignatureInput, this->secureValidation));
+			$assign(xmlSignatureInput, t->performTransform(xmlSignatureInput, this->secureValidation));
 		}
 		if (last >= 0) {
 			$var($Transform, t, this->item(last));
 			$nc(Transforms::LOG)->debug("Perform the ({})th {} transform"_s, $$new($ObjectArray, {
-				$($of($Integer::valueOf(last))),
-				$($of($nc(t)->getURI()))
+				$($Integer::valueOf(last)),
+				$($nc(t)->getURI())
 			}));
 			checkSecureValidation(t);
-			$assign(xmlSignatureInput, $nc(t)->performTransform(xmlSignatureInput, os, this->secureValidation));
+			$assign(xmlSignatureInput, t->performTransform(xmlSignatureInput, os, this->secureValidation));
 		}
 		return xmlSignatureInput;
 	} catch ($IOException& ex) {
-		$throwNew($TransformationException, $cast($Exception, ex));
+		$throwNew($TransformationException, ex);
 	} catch ($CanonicalizationException& ex) {
-		$throwNew($TransformationException, $cast($Exception, ex));
+		$throwNew($TransformationException, ex);
 	} catch ($InvalidCanonicalizerException& ex) {
-		$throwNew($TransformationException, $cast($Exception, ex));
+		$throwNew($TransformationException, ex);
 	}
 	$shouldNotReachHere();
 }
 
 void Transforms::checkSecureValidation($Transform* transform) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, uri, $nc(transform)->getURI());
-	if (this->secureValidation && $nc(Transforms::TRANSFORM_XSLT)->equals(uri)) {
-		$var($ObjectArray, exArgs, $new($ObjectArray, {$of(uri)}));
+	if (this->secureValidation && Transforms::TRANSFORM_XSLT->equals(uri)) {
+		$var($ObjectArray, exArgs, $new($ObjectArray, {uri}));
 		$throwNew($TransformationException, "signature.Transform.ForbiddenTransform"_s, exArgs);
 	}
 }
@@ -262,7 +208,7 @@ $Transform* Transforms::item(int32_t i) {
 		initTransforms();
 		return $new($Transform, $nc(this->transformsElement)->get(i), this->baseURI);
 	} catch ($XMLSecurityException& ex) {
-		$throwNew($TransformationException, static_cast<$Exception*>(ex));
+		$throwNew($TransformationException, ex);
 	}
 	$shouldNotReachHere();
 }
@@ -278,7 +224,7 @@ $String* Transforms::getBaseLocalName() {
 	return $Constants::_TAG_TRANSFORMS;
 }
 
-void clinit$Transforms($Class* class$) {
+void Transforms::clinit$($Class* clazz) {
 	$init($Canonicalizer);
 	$assignStatic(Transforms::TRANSFORM_C14N_OMIT_COMMENTS, $Canonicalizer::ALGO_ID_C14N_OMIT_COMMENTS);
 	$assignStatic(Transforms::TRANSFORM_C14N_WITH_COMMENTS, $Canonicalizer::ALGO_ID_C14N_WITH_COMMENTS);
@@ -300,7 +246,53 @@ Transforms::Transforms() {
 }
 
 $Class* Transforms::load$($String* name, bool initialize) {
-	$loadClass(Transforms, name, initialize, &_Transforms_ClassInfo_, clinit$Transforms, allocate$Transforms);
+	$FieldInfo fieldInfos$$[] = {
+		{"TRANSFORM_C14N_OMIT_COMMENTS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Transforms, TRANSFORM_C14N_OMIT_COMMENTS)},
+		{"TRANSFORM_C14N_WITH_COMMENTS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Transforms, TRANSFORM_C14N_WITH_COMMENTS)},
+		{"TRANSFORM_C14N11_OMIT_COMMENTS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Transforms, TRANSFORM_C14N11_OMIT_COMMENTS)},
+		{"TRANSFORM_C14N11_WITH_COMMENTS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Transforms, TRANSFORM_C14N11_WITH_COMMENTS)},
+		{"TRANSFORM_C14N_EXCL_OMIT_COMMENTS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Transforms, TRANSFORM_C14N_EXCL_OMIT_COMMENTS)},
+		{"TRANSFORM_C14N_EXCL_WITH_COMMENTS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Transforms, TRANSFORM_C14N_EXCL_WITH_COMMENTS)},
+		{"TRANSFORM_XSLT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Transforms, TRANSFORM_XSLT)},
+		{"TRANSFORM_BASE64_DECODE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Transforms, TRANSFORM_BASE64_DECODE)},
+		{"TRANSFORM_XPATH", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Transforms, TRANSFORM_XPATH)},
+		{"TRANSFORM_ENVELOPED_SIGNATURE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Transforms, TRANSFORM_ENVELOPED_SIGNATURE)},
+		{"TRANSFORM_XPOINTER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Transforms, TRANSFORM_XPOINTER)},
+		{"TRANSFORM_XPATH2FILTER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Transforms, TRANSFORM_XPATH2FILTER)},
+		{"LOG", "Lcom/sun/org/slf4j/internal/Logger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Transforms, LOG)},
+		{"transformsElement", "[Lorg/w3c/dom/Element;", nullptr, $PRIVATE, $field(Transforms, transformsElement)},
+		{"secureValidation", "Z", nullptr, $PRIVATE, $field(Transforms, secureValidation)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PROTECTED, $method(Transforms, init$, void)},
+		{"<init>", "(Lorg/w3c/dom/Document;)V", nullptr, $PUBLIC, $method(Transforms, init$, void, $Document*)},
+		{"<init>", "(Lorg/w3c/dom/Element;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Transforms, init$, void, $Element*, $String*), "org.w3c.dom.DOMException,com.sun.org.apache.xml.internal.security.signature.XMLSignatureException,com.sun.org.apache.xml.internal.security.transforms.InvalidTransformException,com.sun.org.apache.xml.internal.security.transforms.TransformationException,com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
+		{"addTransform", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Transforms, addTransform, void, $String*), "com.sun.org.apache.xml.internal.security.transforms.TransformationException"},
+		{"addTransform", "(Ljava/lang/String;Lorg/w3c/dom/Element;)V", nullptr, $PUBLIC, $virtualMethod(Transforms, addTransform, void, $String*, $Element*), "com.sun.org.apache.xml.internal.security.transforms.TransformationException"},
+		{"addTransform", "(Ljava/lang/String;Lorg/w3c/dom/NodeList;)V", nullptr, $PUBLIC, $virtualMethod(Transforms, addTransform, void, $String*, $NodeList*), "com.sun.org.apache.xml.internal.security.transforms.TransformationException"},
+		{"addTransform", "(Lcom/sun/org/apache/xml/internal/security/transforms/Transform;)V", nullptr, $PRIVATE, $method(Transforms, addTransform, void, $Transform*)},
+		{"checkSecureValidation", "(Lcom/sun/org/apache/xml/internal/security/transforms/Transform;)V", nullptr, $PRIVATE, $method(Transforms, checkSecureValidation, void, $Transform*), "com.sun.org.apache.xml.internal.security.transforms.TransformationException"},
+		{"getBaseLocalName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Transforms, getBaseLocalName, $String*)},
+		{"getLength", "()I", nullptr, $PUBLIC, $virtualMethod(Transforms, getLength, int32_t)},
+		{"initTransforms", "()V", nullptr, $PRIVATE, $method(Transforms, initTransforms, void)},
+		{"item", "(I)Lcom/sun/org/apache/xml/internal/security/transforms/Transform;", nullptr, $PUBLIC, $virtualMethod(Transforms, item, $Transform*, int32_t), "com.sun.org.apache.xml.internal.security.transforms.TransformationException"},
+		{"performTransforms", "(Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;)Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;", nullptr, $PUBLIC, $virtualMethod(Transforms, performTransforms, $XMLSignatureInput*, $XMLSignatureInput*), "com.sun.org.apache.xml.internal.security.transforms.TransformationException"},
+		{"performTransforms", "(Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;Ljava/io/OutputStream;)Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;", nullptr, $PUBLIC, $virtualMethod(Transforms, performTransforms, $XMLSignatureInput*, $XMLSignatureInput*, $OutputStream*), "com.sun.org.apache.xml.internal.security.transforms.TransformationException"},
+		{"setSecureValidation", "(Z)V", nullptr, $PUBLIC, $virtualMethod(Transforms, setSecureValidation, void, bool)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.security.transforms.Transforms",
+		"com.sun.org.apache.xml.internal.security.utils.SignatureElementProxy",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Transforms, name, initialize, &classInfo$$, Transforms::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Transforms);
+	});
 	return class$;
 }
 

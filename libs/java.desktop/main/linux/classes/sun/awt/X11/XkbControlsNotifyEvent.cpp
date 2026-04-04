@@ -1,5 +1,4 @@
 #include <sun/awt/X11/XkbControlsNotifyEvent.h>
-
 #include <jdk/internal/misc/Unsafe.h>
 #include <sun/awt/X11/Native.h>
 #include <sun/awt/X11/XEvent.h>
@@ -11,80 +10,13 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Unsafe = ::jdk::internal::misc::Unsafe;
 using $Native = ::sun::awt::X11::Native;
 using $XWrapperBase = ::sun::awt::X11::XWrapperBase;
 using $XlibWrapper = ::sun::awt::X11::XlibWrapper;
-using $PlatformLogger = ::sun::util::logging::PlatformLogger;
 
 namespace sun {
 	namespace awt {
 		namespace X11 {
-
-$FieldInfo _XkbControlsNotifyEvent_FieldInfo_[] = {
-	{"unsafe", "Ljdk/internal/misc/Unsafe;", nullptr, $PRIVATE, $field(XkbControlsNotifyEvent, unsafe)},
-	{"should_free_memory", "Z", nullptr, $PRIVATE | $FINAL, $field(XkbControlsNotifyEvent, should_free_memory)},
-	{"pData", "J", nullptr, 0, $field(XkbControlsNotifyEvent, pData)},
-	{}
-};
-
-$MethodInfo _XkbControlsNotifyEvent_MethodInfo_[] = {
-	{"<init>", "(J)V", nullptr, $PUBLIC, $method(XkbControlsNotifyEvent, init$, void, int64_t)},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(XkbControlsNotifyEvent, init$, void)},
-	{"clone", "()Lsun/awt/X11/XEvent;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XkbControlsNotifyEvent, clone, $Object*)},
-	{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(XkbControlsNotifyEvent, dispose, void)},
-	{"getDataSize", "()I", nullptr, $PUBLIC, $virtualMethod(XkbControlsNotifyEvent, getDataSize, int32_t)},
-	{"getFieldsAsString", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(XkbControlsNotifyEvent, getFieldsAsString, $String*)},
-	{"getName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(XkbControlsNotifyEvent, getName, $String*)},
-	{"getPData", "()J", nullptr, $PUBLIC, $virtualMethod(XkbControlsNotifyEvent, getPData, int64_t)},
-	{"getSize", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(XkbControlsNotifyEvent, getSize, int32_t)},
-	{"get_changed_ctrls", "()I", nullptr, $PUBLIC, $virtualMethod(XkbControlsNotifyEvent, get_changed_ctrls, int32_t)},
-	{"get_device", "()I", nullptr, $PUBLIC, $virtualMethod(XkbControlsNotifyEvent, get_device, int32_t)},
-	{"get_display", "()J", nullptr, $PUBLIC, $virtualMethod(XkbControlsNotifyEvent, get_display, int64_t)},
-	{"get_enabled_ctrl_changes", "()I", nullptr, $PUBLIC, $virtualMethod(XkbControlsNotifyEvent, get_enabled_ctrl_changes, int32_t)},
-	{"get_enabled_ctrls", "()I", nullptr, $PUBLIC, $virtualMethod(XkbControlsNotifyEvent, get_enabled_ctrls, int32_t)},
-	{"get_event_type", "()B", nullptr, $PUBLIC, $virtualMethod(XkbControlsNotifyEvent, get_event_type, int8_t)},
-	{"get_keycode", "()I", nullptr, $PUBLIC, $virtualMethod(XkbControlsNotifyEvent, get_keycode, int32_t)},
-	{"get_num_groups", "()I", nullptr, $PUBLIC, $virtualMethod(XkbControlsNotifyEvent, get_num_groups, int32_t)},
-	{"get_req_major", "()B", nullptr, $PUBLIC, $virtualMethod(XkbControlsNotifyEvent, get_req_major, int8_t)},
-	{"get_req_minor", "()B", nullptr, $PUBLIC, $virtualMethod(XkbControlsNotifyEvent, get_req_minor, int8_t)},
-	{"get_send_event", "()Z", nullptr, $PUBLIC, $virtualMethod(XkbControlsNotifyEvent, get_send_event, bool)},
-	{"get_serial", "()J", nullptr, $PUBLIC, $virtualMethod(XkbControlsNotifyEvent, get_serial, int64_t)},
-	{"get_time", "()J", nullptr, $PUBLIC, $virtualMethod(XkbControlsNotifyEvent, get_time, int64_t)},
-	{"get_type", "()I", nullptr, $PUBLIC, $virtualMethod(XkbControlsNotifyEvent, get_type, int32_t)},
-	{"get_xkb_type", "()I", nullptr, $PUBLIC, $virtualMethod(XkbControlsNotifyEvent, get_xkb_type, int32_t)},
-	{"set_changed_ctrls", "(I)V", nullptr, $PUBLIC, $virtualMethod(XkbControlsNotifyEvent, set_changed_ctrls, void, int32_t)},
-	{"set_device", "(I)V", nullptr, $PUBLIC, $virtualMethod(XkbControlsNotifyEvent, set_device, void, int32_t)},
-	{"set_display", "(J)V", nullptr, $PUBLIC, $virtualMethod(XkbControlsNotifyEvent, set_display, void, int64_t)},
-	{"set_enabled_ctrl_changes", "(I)V", nullptr, $PUBLIC, $virtualMethod(XkbControlsNotifyEvent, set_enabled_ctrl_changes, void, int32_t)},
-	{"set_enabled_ctrls", "(I)V", nullptr, $PUBLIC, $virtualMethod(XkbControlsNotifyEvent, set_enabled_ctrls, void, int32_t)},
-	{"set_event_type", "(B)V", nullptr, $PUBLIC, $virtualMethod(XkbControlsNotifyEvent, set_event_type, void, int8_t)},
-	{"set_keycode", "(I)V", nullptr, $PUBLIC, $virtualMethod(XkbControlsNotifyEvent, set_keycode, void, int32_t)},
-	{"set_num_groups", "(I)V", nullptr, $PUBLIC, $virtualMethod(XkbControlsNotifyEvent, set_num_groups, void, int32_t)},
-	{"set_req_major", "(B)V", nullptr, $PUBLIC, $virtualMethod(XkbControlsNotifyEvent, set_req_major, void, int8_t)},
-	{"set_req_minor", "(B)V", nullptr, $PUBLIC, $virtualMethod(XkbControlsNotifyEvent, set_req_minor, void, int8_t)},
-	{"set_send_event", "(Z)V", nullptr, $PUBLIC, $virtualMethod(XkbControlsNotifyEvent, set_send_event, void, bool)},
-	{"set_serial", "(J)V", nullptr, $PUBLIC, $virtualMethod(XkbControlsNotifyEvent, set_serial, void, int64_t)},
-	{"set_time", "(J)V", nullptr, $PUBLIC, $virtualMethod(XkbControlsNotifyEvent, set_time, void, int64_t)},
-	{"set_type", "(I)V", nullptr, $PUBLIC, $virtualMethod(XkbControlsNotifyEvent, set_type, void, int32_t)},
-	{"set_xkb_type", "(I)V", nullptr, $PUBLIC, $virtualMethod(XkbControlsNotifyEvent, set_xkb_type, void, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XkbControlsNotifyEvent, toString, $String*)},
-	{"zero", "()V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XkbControlsNotifyEvent, zero, void)},
-	{}
-};
-
-$ClassInfo _XkbControlsNotifyEvent_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.awt.X11.XkbControlsNotifyEvent",
-	"sun.awt.X11.XWrapperBase",
-	nullptr,
-	_XkbControlsNotifyEvent_FieldInfo_,
-	_XkbControlsNotifyEvent_MethodInfo_
-};
-
-$Object* allocate$XkbControlsNotifyEvent($Class* clazz) {
-	return $of($alloc(XkbControlsNotifyEvent));
-}
 
 int32_t XkbControlsNotifyEvent::getSize() {
 	$init(XkbControlsNotifyEvent);
@@ -123,7 +55,7 @@ void XkbControlsNotifyEvent::dispose() {
 	$init($XWrapperBase);
 	$nc($XWrapperBase::log)->finest("Disposing"_s);
 	if (this->should_free_memory) {
-		$nc($XWrapperBase::log)->finest("freeing memory"_s);
+		$XWrapperBase::log->finest("freeing memory"_s);
 		$nc(this->unsafe)->freeMemory(this->pData);
 	}
 }
@@ -334,7 +266,7 @@ $String* XkbControlsNotifyEvent::getFieldsAsString() {
 }
 
 $Object* XkbControlsNotifyEvent::clone() {
-	return $of($XWrapperBase::clone());
+	return $XWrapperBase::clone();
 }
 
 void XkbControlsNotifyEvent::zero() {
@@ -349,7 +281,67 @@ XkbControlsNotifyEvent::XkbControlsNotifyEvent() {
 }
 
 $Class* XkbControlsNotifyEvent::load$($String* name, bool initialize) {
-	$loadClass(XkbControlsNotifyEvent, name, initialize, &_XkbControlsNotifyEvent_ClassInfo_, allocate$XkbControlsNotifyEvent);
+	$FieldInfo fieldInfos$$[] = {
+		{"unsafe", "Ljdk/internal/misc/Unsafe;", nullptr, $PRIVATE, $field(XkbControlsNotifyEvent, unsafe)},
+		{"should_free_memory", "Z", nullptr, $PRIVATE | $FINAL, $field(XkbControlsNotifyEvent, should_free_memory)},
+		{"pData", "J", nullptr, 0, $field(XkbControlsNotifyEvent, pData)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(J)V", nullptr, $PUBLIC, $method(XkbControlsNotifyEvent, init$, void, int64_t)},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(XkbControlsNotifyEvent, init$, void)},
+		{"clone", "()Lsun/awt/X11/XEvent;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XkbControlsNotifyEvent, clone, $Object*)},
+		{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(XkbControlsNotifyEvent, dispose, void)},
+		{"getDataSize", "()I", nullptr, $PUBLIC, $virtualMethod(XkbControlsNotifyEvent, getDataSize, int32_t)},
+		{"getFieldsAsString", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(XkbControlsNotifyEvent, getFieldsAsString, $String*)},
+		{"getName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(XkbControlsNotifyEvent, getName, $String*)},
+		{"getPData", "()J", nullptr, $PUBLIC, $virtualMethod(XkbControlsNotifyEvent, getPData, int64_t)},
+		{"getSize", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(XkbControlsNotifyEvent, getSize, int32_t)},
+		{"get_changed_ctrls", "()I", nullptr, $PUBLIC, $virtualMethod(XkbControlsNotifyEvent, get_changed_ctrls, int32_t)},
+		{"get_device", "()I", nullptr, $PUBLIC, $virtualMethod(XkbControlsNotifyEvent, get_device, int32_t)},
+		{"get_display", "()J", nullptr, $PUBLIC, $virtualMethod(XkbControlsNotifyEvent, get_display, int64_t)},
+		{"get_enabled_ctrl_changes", "()I", nullptr, $PUBLIC, $virtualMethod(XkbControlsNotifyEvent, get_enabled_ctrl_changes, int32_t)},
+		{"get_enabled_ctrls", "()I", nullptr, $PUBLIC, $virtualMethod(XkbControlsNotifyEvent, get_enabled_ctrls, int32_t)},
+		{"get_event_type", "()B", nullptr, $PUBLIC, $virtualMethod(XkbControlsNotifyEvent, get_event_type, int8_t)},
+		{"get_keycode", "()I", nullptr, $PUBLIC, $virtualMethod(XkbControlsNotifyEvent, get_keycode, int32_t)},
+		{"get_num_groups", "()I", nullptr, $PUBLIC, $virtualMethod(XkbControlsNotifyEvent, get_num_groups, int32_t)},
+		{"get_req_major", "()B", nullptr, $PUBLIC, $virtualMethod(XkbControlsNotifyEvent, get_req_major, int8_t)},
+		{"get_req_minor", "()B", nullptr, $PUBLIC, $virtualMethod(XkbControlsNotifyEvent, get_req_minor, int8_t)},
+		{"get_send_event", "()Z", nullptr, $PUBLIC, $virtualMethod(XkbControlsNotifyEvent, get_send_event, bool)},
+		{"get_serial", "()J", nullptr, $PUBLIC, $virtualMethod(XkbControlsNotifyEvent, get_serial, int64_t)},
+		{"get_time", "()J", nullptr, $PUBLIC, $virtualMethod(XkbControlsNotifyEvent, get_time, int64_t)},
+		{"get_type", "()I", nullptr, $PUBLIC, $virtualMethod(XkbControlsNotifyEvent, get_type, int32_t)},
+		{"get_xkb_type", "()I", nullptr, $PUBLIC, $virtualMethod(XkbControlsNotifyEvent, get_xkb_type, int32_t)},
+		{"set_changed_ctrls", "(I)V", nullptr, $PUBLIC, $virtualMethod(XkbControlsNotifyEvent, set_changed_ctrls, void, int32_t)},
+		{"set_device", "(I)V", nullptr, $PUBLIC, $virtualMethod(XkbControlsNotifyEvent, set_device, void, int32_t)},
+		{"set_display", "(J)V", nullptr, $PUBLIC, $virtualMethod(XkbControlsNotifyEvent, set_display, void, int64_t)},
+		{"set_enabled_ctrl_changes", "(I)V", nullptr, $PUBLIC, $virtualMethod(XkbControlsNotifyEvent, set_enabled_ctrl_changes, void, int32_t)},
+		{"set_enabled_ctrls", "(I)V", nullptr, $PUBLIC, $virtualMethod(XkbControlsNotifyEvent, set_enabled_ctrls, void, int32_t)},
+		{"set_event_type", "(B)V", nullptr, $PUBLIC, $virtualMethod(XkbControlsNotifyEvent, set_event_type, void, int8_t)},
+		{"set_keycode", "(I)V", nullptr, $PUBLIC, $virtualMethod(XkbControlsNotifyEvent, set_keycode, void, int32_t)},
+		{"set_num_groups", "(I)V", nullptr, $PUBLIC, $virtualMethod(XkbControlsNotifyEvent, set_num_groups, void, int32_t)},
+		{"set_req_major", "(B)V", nullptr, $PUBLIC, $virtualMethod(XkbControlsNotifyEvent, set_req_major, void, int8_t)},
+		{"set_req_minor", "(B)V", nullptr, $PUBLIC, $virtualMethod(XkbControlsNotifyEvent, set_req_minor, void, int8_t)},
+		{"set_send_event", "(Z)V", nullptr, $PUBLIC, $virtualMethod(XkbControlsNotifyEvent, set_send_event, void, bool)},
+		{"set_serial", "(J)V", nullptr, $PUBLIC, $virtualMethod(XkbControlsNotifyEvent, set_serial, void, int64_t)},
+		{"set_time", "(J)V", nullptr, $PUBLIC, $virtualMethod(XkbControlsNotifyEvent, set_time, void, int64_t)},
+		{"set_type", "(I)V", nullptr, $PUBLIC, $virtualMethod(XkbControlsNotifyEvent, set_type, void, int32_t)},
+		{"set_xkb_type", "(I)V", nullptr, $PUBLIC, $virtualMethod(XkbControlsNotifyEvent, set_xkb_type, void, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XkbControlsNotifyEvent, toString, $String*)},
+		{"zero", "()V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XkbControlsNotifyEvent, zero, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.awt.X11.XkbControlsNotifyEvent",
+		"sun.awt.X11.XWrapperBase",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XkbControlsNotifyEvent, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XkbControlsNotifyEvent);
+	});
 	return class$;
 }
 

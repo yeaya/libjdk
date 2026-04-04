@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/util/SymbolTable$Entry.h>
-
 #include <com/sun/org/apache/xerces/internal/util/SymbolTable.h>
 #include <jcpp.h>
 
@@ -16,48 +15,10 @@ namespace com {
 					namespace internal {
 						namespace util {
 
-$FieldInfo _SymbolTable$Entry_FieldInfo_[] = {
-	{"symbol", "Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $field(SymbolTable$Entry, symbol)},
-	{"characters", "[C", nullptr, $PUBLIC | $FINAL, $field(SymbolTable$Entry, characters)},
-	{"next", "Lcom/sun/org/apache/xerces/internal/util/SymbolTable$Entry;", nullptr, $PUBLIC, $field(SymbolTable$Entry, next)},
-	{}
-};
-
-$MethodInfo _SymbolTable$Entry_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/util/SymbolTable$Entry;)V", nullptr, $PUBLIC, $method(SymbolTable$Entry, init$, void, $String*, SymbolTable$Entry*)},
-	{"<init>", "([CIILcom/sun/org/apache/xerces/internal/util/SymbolTable$Entry;)V", nullptr, $PUBLIC, $method(SymbolTable$Entry, init$, void, $chars*, int32_t, int32_t, SymbolTable$Entry*)},
-	{}
-};
-
-$InnerClassInfo _SymbolTable$Entry_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xerces.internal.util.SymbolTable$Entry", "com.sun.org.apache.xerces.internal.util.SymbolTable", "Entry", $PROTECTED | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _SymbolTable$Entry_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.util.SymbolTable$Entry",
-	"java.lang.Object",
-	nullptr,
-	_SymbolTable$Entry_FieldInfo_,
-	_SymbolTable$Entry_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SymbolTable$Entry_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xerces.internal.util.SymbolTable"
-};
-
-$Object* allocate$SymbolTable$Entry($Class* clazz) {
-	return $of($alloc(SymbolTable$Entry));
-}
-
 void SymbolTable$Entry::init$($String* symbol, SymbolTable$Entry* next) {
 	$set(this, symbol, $nc(symbol)->intern());
 	$set(this, characters, $new($chars, symbol->length()));
-	symbol->getChars(0, $nc(this->characters)->length, this->characters, 0);
+	symbol->getChars(0, this->characters->length, this->characters, 0);
 	$set(this, next, next);
 }
 
@@ -72,7 +33,39 @@ SymbolTable$Entry::SymbolTable$Entry() {
 }
 
 $Class* SymbolTable$Entry::load$($String* name, bool initialize) {
-	$loadClass(SymbolTable$Entry, name, initialize, &_SymbolTable$Entry_ClassInfo_, allocate$SymbolTable$Entry);
+	$FieldInfo fieldInfos$$[] = {
+		{"symbol", "Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $field(SymbolTable$Entry, symbol)},
+		{"characters", "[C", nullptr, $PUBLIC | $FINAL, $field(SymbolTable$Entry, characters)},
+		{"next", "Lcom/sun/org/apache/xerces/internal/util/SymbolTable$Entry;", nullptr, $PUBLIC, $field(SymbolTable$Entry, next)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/util/SymbolTable$Entry;)V", nullptr, $PUBLIC, $method(SymbolTable$Entry, init$, void, $String*, SymbolTable$Entry*)},
+		{"<init>", "([CIILcom/sun/org/apache/xerces/internal/util/SymbolTable$Entry;)V", nullptr, $PUBLIC, $method(SymbolTable$Entry, init$, void, $chars*, int32_t, int32_t, SymbolTable$Entry*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xerces.internal.util.SymbolTable$Entry", "com.sun.org.apache.xerces.internal.util.SymbolTable", "Entry", $PROTECTED | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.util.SymbolTable$Entry",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xerces.internal.util.SymbolTable"
+	};
+	$loadClass(SymbolTable$Entry, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SymbolTable$Entry);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/nimbus/SliderThumbPainter.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Graphics2D.h>
 #include <java/awt/LinearGradientPaint.h>
@@ -12,7 +11,6 @@
 #include <java/awt/geom/Rectangle2D$Float.h>
 #include <java/awt/geom/Rectangle2D.h>
 #include <java/awt/geom/RoundRectangle2D$Float.h>
-#include <java/awt/geom/RoundRectangle2D.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext.h>
 #include <javax/swing/plaf/nimbus/AbstractRegionPainter.h>
@@ -44,7 +42,6 @@ using $Path2D = ::java::awt::geom::Path2D;
 using $Path2D$Float = ::java::awt::geom::Path2D$Float;
 using $Rectangle2D = ::java::awt::geom::Rectangle2D;
 using $Rectangle2D$Float = ::java::awt::geom::Rectangle2D$Float;
-using $RoundRectangle2D = ::java::awt::geom::RoundRectangle2D;
 using $RoundRectangle2D$Float = ::java::awt::geom::RoundRectangle2D$Float;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -59,128 +56,12 @@ namespace javax {
 		namespace plaf {
 			namespace nimbus {
 
-$FieldInfo _SliderThumbPainter_FieldInfo_[] = {
-	{"BACKGROUND_DISABLED", "I", nullptr, $STATIC | $FINAL, $constField(SliderThumbPainter, BACKGROUND_DISABLED)},
-	{"BACKGROUND_ENABLED", "I", nullptr, $STATIC | $FINAL, $constField(SliderThumbPainter, BACKGROUND_ENABLED)},
-	{"BACKGROUND_FOCUSED", "I", nullptr, $STATIC | $FINAL, $constField(SliderThumbPainter, BACKGROUND_FOCUSED)},
-	{"BACKGROUND_FOCUSED_MOUSEOVER", "I", nullptr, $STATIC | $FINAL, $constField(SliderThumbPainter, BACKGROUND_FOCUSED_MOUSEOVER)},
-	{"BACKGROUND_FOCUSED_PRESSED", "I", nullptr, $STATIC | $FINAL, $constField(SliderThumbPainter, BACKGROUND_FOCUSED_PRESSED)},
-	{"BACKGROUND_MOUSEOVER", "I", nullptr, $STATIC | $FINAL, $constField(SliderThumbPainter, BACKGROUND_MOUSEOVER)},
-	{"BACKGROUND_PRESSED", "I", nullptr, $STATIC | $FINAL, $constField(SliderThumbPainter, BACKGROUND_PRESSED)},
-	{"BACKGROUND_ENABLED_ARROWSHAPE", "I", nullptr, $STATIC | $FINAL, $constField(SliderThumbPainter, BACKGROUND_ENABLED_ARROWSHAPE)},
-	{"BACKGROUND_DISABLED_ARROWSHAPE", "I", nullptr, $STATIC | $FINAL, $constField(SliderThumbPainter, BACKGROUND_DISABLED_ARROWSHAPE)},
-	{"BACKGROUND_MOUSEOVER_ARROWSHAPE", "I", nullptr, $STATIC | $FINAL, $constField(SliderThumbPainter, BACKGROUND_MOUSEOVER_ARROWSHAPE)},
-	{"BACKGROUND_PRESSED_ARROWSHAPE", "I", nullptr, $STATIC | $FINAL, $constField(SliderThumbPainter, BACKGROUND_PRESSED_ARROWSHAPE)},
-	{"BACKGROUND_FOCUSED_ARROWSHAPE", "I", nullptr, $STATIC | $FINAL, $constField(SliderThumbPainter, BACKGROUND_FOCUSED_ARROWSHAPE)},
-	{"BACKGROUND_FOCUSED_MOUSEOVER_ARROWSHAPE", "I", nullptr, $STATIC | $FINAL, $constField(SliderThumbPainter, BACKGROUND_FOCUSED_MOUSEOVER_ARROWSHAPE)},
-	{"BACKGROUND_FOCUSED_PRESSED_ARROWSHAPE", "I", nullptr, $STATIC | $FINAL, $constField(SliderThumbPainter, BACKGROUND_FOCUSED_PRESSED_ARROWSHAPE)},
-	{"state", "I", nullptr, $PRIVATE, $field(SliderThumbPainter, state)},
-	{"ctx", "Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext;", nullptr, $PRIVATE, $field(SliderThumbPainter, ctx)},
-	{"path", "Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $field(SliderThumbPainter, path)},
-	{"rect", "Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $field(SliderThumbPainter, rect)},
-	{"roundRect", "Ljava/awt/geom/RoundRectangle2D;", nullptr, $PRIVATE, $field(SliderThumbPainter, roundRect)},
-	{"ellipse", "Ljava/awt/geom/Ellipse2D;", nullptr, $PRIVATE, $field(SliderThumbPainter, ellipse)},
-	{"color1", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SliderThumbPainter, color1)},
-	{"color2", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SliderThumbPainter, color2)},
-	{"color3", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SliderThumbPainter, color3)},
-	{"color4", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SliderThumbPainter, color4)},
-	{"color5", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SliderThumbPainter, color5)},
-	{"color6", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SliderThumbPainter, color6)},
-	{"color7", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SliderThumbPainter, color7)},
-	{"color8", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SliderThumbPainter, color8)},
-	{"color9", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SliderThumbPainter, color9)},
-	{"color10", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SliderThumbPainter, color10)},
-	{"color11", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SliderThumbPainter, color11)},
-	{"color12", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SliderThumbPainter, color12)},
-	{"color13", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SliderThumbPainter, color13)},
-	{"color14", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SliderThumbPainter, color14)},
-	{"color15", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SliderThumbPainter, color15)},
-	{"color16", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SliderThumbPainter, color16)},
-	{"color17", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SliderThumbPainter, color17)},
-	{"color18", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SliderThumbPainter, color18)},
-	{"color19", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SliderThumbPainter, color19)},
-	{"color20", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SliderThumbPainter, color20)},
-	{"color21", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SliderThumbPainter, color21)},
-	{"color22", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SliderThumbPainter, color22)},
-	{"color23", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SliderThumbPainter, color23)},
-	{"color24", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SliderThumbPainter, color24)},
-	{"color25", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SliderThumbPainter, color25)},
-	{"color26", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SliderThumbPainter, color26)},
-	{"color27", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SliderThumbPainter, color27)},
-	{"color28", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SliderThumbPainter, color28)},
-	{"color29", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SliderThumbPainter, color29)},
-	{"color30", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SliderThumbPainter, color30)},
-	{"color31", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SliderThumbPainter, color31)},
-	{"color32", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SliderThumbPainter, color32)},
-	{"componentColors", "[Ljava/lang/Object;", nullptr, $PRIVATE, $field(SliderThumbPainter, componentColors)},
-	{}
-};
-
-$MethodInfo _SliderThumbPainter_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext;I)V", nullptr, $PUBLIC, $method(SliderThumbPainter, init$, void, $AbstractRegionPainter$PaintContext*, int32_t)},
-	{"decodeEllipse1", "()Ljava/awt/geom/Ellipse2D;", nullptr, $PRIVATE, $method(SliderThumbPainter, decodeEllipse1, $Ellipse2D*)},
-	{"decodeEllipse2", "()Ljava/awt/geom/Ellipse2D;", nullptr, $PRIVATE, $method(SliderThumbPainter, decodeEllipse2, $Ellipse2D*)},
-	{"decodeEllipse3", "()Ljava/awt/geom/Ellipse2D;", nullptr, $PRIVATE, $method(SliderThumbPainter, decodeEllipse3, $Ellipse2D*)},
-	{"decodeEllipse4", "()Ljava/awt/geom/Ellipse2D;", nullptr, $PRIVATE, $method(SliderThumbPainter, decodeEllipse4, $Ellipse2D*)},
-	{"decodeGradient1", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(SliderThumbPainter, decodeGradient1, $Paint*, $Shape*)},
-	{"decodeGradient10", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(SliderThumbPainter, decodeGradient10, $Paint*, $Shape*)},
-	{"decodeGradient11", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(SliderThumbPainter, decodeGradient11, $Paint*, $Shape*)},
-	{"decodeGradient12", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(SliderThumbPainter, decodeGradient12, $Paint*, $Shape*)},
-	{"decodeGradient13", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(SliderThumbPainter, decodeGradient13, $Paint*, $Shape*)},
-	{"decodeGradient14", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(SliderThumbPainter, decodeGradient14, $Paint*, $Shape*)},
-	{"decodeGradient15", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(SliderThumbPainter, decodeGradient15, $Paint*, $Shape*)},
-	{"decodeGradient16", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(SliderThumbPainter, decodeGradient16, $Paint*, $Shape*)},
-	{"decodeGradient17", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(SliderThumbPainter, decodeGradient17, $Paint*, $Shape*)},
-	{"decodeGradient2", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(SliderThumbPainter, decodeGradient2, $Paint*, $Shape*)},
-	{"decodeGradient3", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(SliderThumbPainter, decodeGradient3, $Paint*, $Shape*)},
-	{"decodeGradient4", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(SliderThumbPainter, decodeGradient4, $Paint*, $Shape*)},
-	{"decodeGradient5", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(SliderThumbPainter, decodeGradient5, $Paint*, $Shape*)},
-	{"decodeGradient6", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(SliderThumbPainter, decodeGradient6, $Paint*, $Shape*)},
-	{"decodeGradient7", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(SliderThumbPainter, decodeGradient7, $Paint*, $Shape*)},
-	{"decodeGradient8", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(SliderThumbPainter, decodeGradient8, $Paint*, $Shape*)},
-	{"decodeGradient9", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(SliderThumbPainter, decodeGradient9, $Paint*, $Shape*)},
-	{"decodePath1", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(SliderThumbPainter, decodePath1, $Path2D*)},
-	{"decodePath2", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(SliderThumbPainter, decodePath2, $Path2D*)},
-	{"decodePath3", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(SliderThumbPainter, decodePath3, $Path2D*)},
-	{"decodePath4", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(SliderThumbPainter, decodePath4, $Path2D*)},
-	{"doPaint", "(Ljava/awt/Graphics2D;Ljavax/swing/JComponent;II[Ljava/lang/Object;)V", nullptr, $PROTECTED, $virtualMethod(SliderThumbPainter, doPaint, void, $Graphics2D*, $JComponent*, int32_t, int32_t, $ObjectArray*)},
-	{"getPaintContext", "()Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext;", nullptr, $PROTECTED | $FINAL, $virtualMethod(SliderThumbPainter, getPaintContext, $AbstractRegionPainter$PaintContext*)},
-	{"paintBackgroundDisabled", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(SliderThumbPainter, paintBackgroundDisabled, void, $Graphics2D*)},
-	{"paintBackgroundDisabledAndArrowShape", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(SliderThumbPainter, paintBackgroundDisabledAndArrowShape, void, $Graphics2D*)},
-	{"paintBackgroundEnabled", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(SliderThumbPainter, paintBackgroundEnabled, void, $Graphics2D*)},
-	{"paintBackgroundEnabledAndArrowShape", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(SliderThumbPainter, paintBackgroundEnabledAndArrowShape, void, $Graphics2D*)},
-	{"paintBackgroundFocused", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(SliderThumbPainter, paintBackgroundFocused, void, $Graphics2D*)},
-	{"paintBackgroundFocusedAndArrowShape", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(SliderThumbPainter, paintBackgroundFocusedAndArrowShape, void, $Graphics2D*)},
-	{"paintBackgroundFocusedAndMouseOver", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(SliderThumbPainter, paintBackgroundFocusedAndMouseOver, void, $Graphics2D*)},
-	{"paintBackgroundFocusedAndMouseOverAndArrowShape", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(SliderThumbPainter, paintBackgroundFocusedAndMouseOverAndArrowShape, void, $Graphics2D*)},
-	{"paintBackgroundFocusedAndPressed", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(SliderThumbPainter, paintBackgroundFocusedAndPressed, void, $Graphics2D*)},
-	{"paintBackgroundFocusedAndPressedAndArrowShape", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(SliderThumbPainter, paintBackgroundFocusedAndPressedAndArrowShape, void, $Graphics2D*)},
-	{"paintBackgroundMouseOver", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(SliderThumbPainter, paintBackgroundMouseOver, void, $Graphics2D*)},
-	{"paintBackgroundMouseOverAndArrowShape", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(SliderThumbPainter, paintBackgroundMouseOverAndArrowShape, void, $Graphics2D*)},
-	{"paintBackgroundPressed", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(SliderThumbPainter, paintBackgroundPressed, void, $Graphics2D*)},
-	{"paintBackgroundPressedAndArrowShape", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(SliderThumbPainter, paintBackgroundPressedAndArrowShape, void, $Graphics2D*)},
-	{}
-};
-
-$ClassInfo _SliderThumbPainter_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"javax.swing.plaf.nimbus.SliderThumbPainter",
-	"javax.swing.plaf.nimbus.AbstractRegionPainter",
-	nullptr,
-	_SliderThumbPainter_FieldInfo_,
-	_SliderThumbPainter_MethodInfo_
-};
-
-$Object* allocate$SliderThumbPainter($Class* clazz) {
-	return $of($alloc(SliderThumbPainter));
-}
-
 void SliderThumbPainter::init$($AbstractRegionPainter$PaintContext* ctx, int32_t state) {
 	$AbstractRegionPainter::init$();
 	$set(this, path, $new($Path2D$Float));
-	$set(this, rect, $new($Rectangle2D$Float, (float)0, (float)0, (float)0, (float)0));
-	$set(this, roundRect, $new($RoundRectangle2D$Float, (float)0, (float)0, (float)0, (float)0, (float)0, (float)0));
-	$set(this, ellipse, $new($Ellipse2D$Float, (float)0, (float)0, (float)0, (float)0));
+	$set(this, rect, $new($Rectangle2D$Float, 0, 0, 0, 0));
+	$set(this, roundRect, $new($RoundRectangle2D$Float, 0, 0, 0, 0, 0, 0));
+	$set(this, ellipse, $new($Ellipse2D$Float, 0, 0, 0, 0));
 	$set(this, color1, decodeColor("nimbusBase"_s, 0.021348298f, -0.5625436f, 0.25490195f, 0));
 	$set(this, color2, decodeColor("nimbusBase"_s, 0.015098333f, -0.55105823f, 0.19215685f, 0));
 	$set(this, color3, decodeColor("nimbusBase"_s, 0.021348298f, -0.5924243f, 0.35686272f, 0));
@@ -221,75 +102,47 @@ void SliderThumbPainter::doPaint($Graphics2D* g, $JComponent* c, int32_t width, 
 	$set(this, componentColors, extendedCacheKeys);
 	switch (this->state) {
 	case SliderThumbPainter::BACKGROUND_DISABLED:
-		{
-			paintBackgroundDisabled(g);
-			break;
-		}
+		paintBackgroundDisabled(g);
+		break;
 	case SliderThumbPainter::BACKGROUND_ENABLED:
-		{
-			paintBackgroundEnabled(g);
-			break;
-		}
+		paintBackgroundEnabled(g);
+		break;
 	case SliderThumbPainter::BACKGROUND_FOCUSED:
-		{
-			paintBackgroundFocused(g);
-			break;
-		}
+		paintBackgroundFocused(g);
+		break;
 	case SliderThumbPainter::BACKGROUND_FOCUSED_MOUSEOVER:
-		{
-			paintBackgroundFocusedAndMouseOver(g);
-			break;
-		}
+		paintBackgroundFocusedAndMouseOver(g);
+		break;
 	case SliderThumbPainter::BACKGROUND_FOCUSED_PRESSED:
-		{
-			paintBackgroundFocusedAndPressed(g);
-			break;
-		}
+		paintBackgroundFocusedAndPressed(g);
+		break;
 	case SliderThumbPainter::BACKGROUND_MOUSEOVER:
-		{
-			paintBackgroundMouseOver(g);
-			break;
-		}
+		paintBackgroundMouseOver(g);
+		break;
 	case SliderThumbPainter::BACKGROUND_PRESSED:
-		{
-			paintBackgroundPressed(g);
-			break;
-		}
+		paintBackgroundPressed(g);
+		break;
 	case SliderThumbPainter::BACKGROUND_ENABLED_ARROWSHAPE:
-		{
-			paintBackgroundEnabledAndArrowShape(g);
-			break;
-		}
+		paintBackgroundEnabledAndArrowShape(g);
+		break;
 	case SliderThumbPainter::BACKGROUND_DISABLED_ARROWSHAPE:
-		{
-			paintBackgroundDisabledAndArrowShape(g);
-			break;
-		}
+		paintBackgroundDisabledAndArrowShape(g);
+		break;
 	case SliderThumbPainter::BACKGROUND_MOUSEOVER_ARROWSHAPE:
-		{
-			paintBackgroundMouseOverAndArrowShape(g);
-			break;
-		}
+		paintBackgroundMouseOverAndArrowShape(g);
+		break;
 	case SliderThumbPainter::BACKGROUND_PRESSED_ARROWSHAPE:
-		{
-			paintBackgroundPressedAndArrowShape(g);
-			break;
-		}
+		paintBackgroundPressedAndArrowShape(g);
+		break;
 	case SliderThumbPainter::BACKGROUND_FOCUSED_ARROWSHAPE:
-		{
-			paintBackgroundFocusedAndArrowShape(g);
-			break;
-		}
+		paintBackgroundFocusedAndArrowShape(g);
+		break;
 	case SliderThumbPainter::BACKGROUND_FOCUSED_MOUSEOVER_ARROWSHAPE:
-		{
-			paintBackgroundFocusedAndMouseOverAndArrowShape(g);
-			break;
-		}
+		paintBackgroundFocusedAndMouseOverAndArrowShape(g);
+		break;
 	case SliderThumbPainter::BACKGROUND_FOCUSED_PRESSED_ARROWSHAPE:
-		{
-			paintBackgroundFocusedAndPressedAndArrowShape(g);
-			break;
-		}
+		paintBackgroundFocusedAndPressedAndArrowShape(g);
+		break;
 	}
 }
 
@@ -298,7 +151,7 @@ $AbstractRegionPainter$PaintContext* SliderThumbPainter::getPaintContext() {
 }
 
 void SliderThumbPainter::paintBackgroundDisabled($Graphics2D* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, ellipse, decodeEllipse1());
 	$nc(g)->setPaint($(decodeGradient1(this->ellipse)));
 	g->fill(this->ellipse);
@@ -308,7 +161,7 @@ void SliderThumbPainter::paintBackgroundDisabled($Graphics2D* g) {
 }
 
 void SliderThumbPainter::paintBackgroundEnabled($Graphics2D* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, ellipse, decodeEllipse3());
 	$nc(g)->setPaint(this->color6);
 	g->fill(this->ellipse);
@@ -321,7 +174,7 @@ void SliderThumbPainter::paintBackgroundEnabled($Graphics2D* g) {
 }
 
 void SliderThumbPainter::paintBackgroundFocused($Graphics2D* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, ellipse, decodeEllipse4());
 	$nc(g)->setPaint(this->color12);
 	g->fill(this->ellipse);
@@ -334,7 +187,7 @@ void SliderThumbPainter::paintBackgroundFocused($Graphics2D* g) {
 }
 
 void SliderThumbPainter::paintBackgroundFocusedAndMouseOver($Graphics2D* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, ellipse, decodeEllipse4());
 	$nc(g)->setPaint(this->color12);
 	g->fill(this->ellipse);
@@ -347,7 +200,7 @@ void SliderThumbPainter::paintBackgroundFocusedAndMouseOver($Graphics2D* g) {
 }
 
 void SliderThumbPainter::paintBackgroundFocusedAndPressed($Graphics2D* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, ellipse, decodeEllipse4());
 	$nc(g)->setPaint(this->color12);
 	g->fill(this->ellipse);
@@ -360,7 +213,7 @@ void SliderThumbPainter::paintBackgroundFocusedAndPressed($Graphics2D* g) {
 }
 
 void SliderThumbPainter::paintBackgroundMouseOver($Graphics2D* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, ellipse, decodeEllipse3());
 	$nc(g)->setPaint(this->color6);
 	g->fill(this->ellipse);
@@ -373,7 +226,7 @@ void SliderThumbPainter::paintBackgroundMouseOver($Graphics2D* g) {
 }
 
 void SliderThumbPainter::paintBackgroundPressed($Graphics2D* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, ellipse, decodeEllipse3());
 	$nc(g)->setPaint(this->color23);
 	g->fill(this->ellipse);
@@ -386,7 +239,7 @@ void SliderThumbPainter::paintBackgroundPressed($Graphics2D* g) {
 }
 
 void SliderThumbPainter::paintBackgroundEnabledAndArrowShape($Graphics2D* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, path, decodePath1());
 	$nc(g)->setPaint(this->color24);
 	g->fill(this->path);
@@ -399,7 +252,7 @@ void SliderThumbPainter::paintBackgroundEnabledAndArrowShape($Graphics2D* g) {
 }
 
 void SliderThumbPainter::paintBackgroundDisabledAndArrowShape($Graphics2D* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, path, decodePath2());
 	$nc(g)->setPaint($(decodeGradient11(this->path)));
 	g->fill(this->path);
@@ -409,7 +262,7 @@ void SliderThumbPainter::paintBackgroundDisabledAndArrowShape($Graphics2D* g) {
 }
 
 void SliderThumbPainter::paintBackgroundMouseOverAndArrowShape($Graphics2D* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, path, decodePath1());
 	$nc(g)->setPaint(this->color24);
 	g->fill(this->path);
@@ -422,7 +275,7 @@ void SliderThumbPainter::paintBackgroundMouseOverAndArrowShape($Graphics2D* g) {
 }
 
 void SliderThumbPainter::paintBackgroundPressedAndArrowShape($Graphics2D* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, path, decodePath1());
 	$nc(g)->setPaint(this->color24);
 	g->fill(this->path);
@@ -435,7 +288,7 @@ void SliderThumbPainter::paintBackgroundPressedAndArrowShape($Graphics2D* g) {
 }
 
 void SliderThumbPainter::paintBackgroundFocusedAndArrowShape($Graphics2D* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, path, decodePath4());
 	$nc(g)->setPaint(this->color12);
 	g->fill(this->path);
@@ -448,7 +301,7 @@ void SliderThumbPainter::paintBackgroundFocusedAndArrowShape($Graphics2D* g) {
 }
 
 void SliderThumbPainter::paintBackgroundFocusedAndMouseOverAndArrowShape($Graphics2D* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, path, decodePath4());
 	$nc(g)->setPaint(this->color12);
 	g->fill(this->path);
@@ -461,7 +314,7 @@ void SliderThumbPainter::paintBackgroundFocusedAndMouseOverAndArrowShape($Graphi
 }
 
 void SliderThumbPainter::paintBackgroundFocusedAndPressedAndArrowShape($Graphics2D* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, path, decodePath4());
 	$nc(g)->setPaint(this->color12);
 	g->fill(this->path);
@@ -474,40 +327,40 @@ void SliderThumbPainter::paintBackgroundFocusedAndPressedAndArrowShape($Graphics
 }
 
 $Ellipse2D* SliderThumbPainter::decodeEllipse1() {
-	double var$0 = (double)decodeX(0.4f);
-	double var$1 = (double)decodeY(0.4f);
+	double var$0 = decodeX(0.4f);
+	double var$1 = decodeY(0.4f);
 	float var$3 = decodeX(2.6f);
-	double var$2 = (double)(var$3 - decodeX(0.4f));
+	double var$2 = var$3 - decodeX(0.4f);
 	float var$4 = decodeY(2.6f);
 	$nc(this->ellipse)->setFrame(var$0, var$1, var$2, var$4 - decodeY(0.4f));
 	return this->ellipse;
 }
 
 $Ellipse2D* SliderThumbPainter::decodeEllipse2() {
-	double var$0 = (double)decodeX(0.6f);
-	double var$1 = (double)decodeY(0.6f);
+	double var$0 = decodeX(0.6f);
+	double var$1 = decodeY(0.6f);
 	float var$3 = decodeX(2.4f);
-	double var$2 = (double)(var$3 - decodeX(0.6f));
+	double var$2 = var$3 - decodeX(0.6f);
 	float var$4 = decodeY(2.4f);
 	$nc(this->ellipse)->setFrame(var$0, var$1, var$2, var$4 - decodeY(0.6f));
 	return this->ellipse;
 }
 
 $Ellipse2D* SliderThumbPainter::decodeEllipse3() {
-	double var$0 = (double)decodeX(0.4f);
-	double var$1 = (double)decodeY(0.6f);
+	double var$0 = decodeX(0.4f);
+	double var$1 = decodeY(0.6f);
 	float var$3 = decodeX(2.6f);
-	double var$2 = (double)(var$3 - decodeX(0.4f));
+	double var$2 = var$3 - decodeX(0.4f);
 	float var$4 = decodeY(2.8f);
 	$nc(this->ellipse)->setFrame(var$0, var$1, var$2, var$4 - decodeY(0.6f));
 	return this->ellipse;
 }
 
 $Ellipse2D* SliderThumbPainter::decodeEllipse4() {
-	double var$0 = (double)decodeX(0.120000005f);
-	double var$1 = (double)decodeY(0.120000005f);
+	double var$0 = decodeX(0.120000005f);
+	double var$1 = decodeY(0.120000005f);
 	float var$3 = decodeX(2.8799999f);
-	double var$2 = (double)(var$3 - decodeX(0.120000005f));
+	double var$2 = var$3 - decodeX(0.120000005f);
 	float var$4 = decodeY(2.8799999f);
 	$nc(this->ellipse)->setFrame(var$0, var$1, var$2, var$4 - decodeY(0.120000005f));
 	return this->ellipse;
@@ -515,25 +368,25 @@ $Ellipse2D* SliderThumbPainter::decodeEllipse4() {
 
 $Path2D* SliderThumbPainter::decodePath1() {
 	$nc(this->path)->reset();
-	double var$0 = (double)decodeX(0.8166667f);
+	double var$0 = decodeX(0.8166667f);
 	$nc(this->path)->moveTo(var$0, decodeY(0.5007576f));
-	double var$1 = (double)decodeAnchorX(0.8166667f, 1.5643269f);
-	double var$2 = (double)decodeAnchorY(0.5007576f, -0.3097513f);
-	double var$3 = (double)decodeAnchorX(2.7925456f, 0.058173586f);
-	double var$4 = (double)decodeAnchorY(1.6116884f, -0.4647635f);
-	double var$5 = (double)decodeX(2.7925456f);
+	double var$1 = decodeAnchorX(0.8166667f, 1.5643269f);
+	double var$2 = decodeAnchorY(0.5007576f, -0.3097513f);
+	double var$3 = decodeAnchorX(2.7925456f, 0.058173586f);
+	double var$4 = decodeAnchorY(1.6116884f, -0.4647635f);
+	double var$5 = decodeX(2.7925456f);
 	$nc(this->path)->curveTo(var$1, var$2, var$3, var$4, var$5, decodeY(1.6116884f));
-	double var$6 = (double)decodeAnchorX(2.7925456f, -0.34086856f);
-	double var$7 = (double)decodeAnchorY(1.6116884f, 2.7232852f);
-	double var$8 = (double)decodeAnchorX(0.7006364f, 4.568128f);
-	double var$9 = (double)decodeAnchorY(2.7693636f, -0.006014915f);
-	double var$10 = (double)decodeX(0.7006364f);
+	double var$6 = decodeAnchorX(2.7925456f, -0.34086856f);
+	double var$7 = decodeAnchorY(1.6116884f, 2.7232852f);
+	double var$8 = decodeAnchorX(0.7006364f, 4.568128f);
+	double var$9 = decodeAnchorY(2.7693636f, -0.006014915f);
+	double var$10 = decodeX(0.7006364f);
 	$nc(this->path)->curveTo(var$6, var$7, var$8, var$9, var$10, decodeY(2.7693636f));
-	double var$11 = (double)decodeAnchorX(0.7006364f, -3.5233955f);
-	double var$12 = (double)decodeAnchorY(2.7693636f, 0.004639302f);
-	double var$13 = (double)decodeAnchorX(0.8166667f, -1.8635255f);
-	double var$14 = (double)decodeAnchorY(0.5007576f, 0.36899543f);
-	double var$15 = (double)decodeX(0.8166667f);
+	double var$11 = decodeAnchorX(0.7006364f, -3.5233955f);
+	double var$12 = decodeAnchorY(2.7693636f, 0.004639302f);
+	double var$13 = decodeAnchorX(0.8166667f, -1.8635255f);
+	double var$14 = decodeAnchorY(0.5007576f, 0.36899543f);
+	double var$15 = decodeX(0.8166667f);
 	$nc(this->path)->curveTo(var$11, var$12, var$13, var$14, var$15, decodeY(0.5007576f));
 	$nc(this->path)->closePath();
 	return this->path;
@@ -541,25 +394,25 @@ $Path2D* SliderThumbPainter::decodePath1() {
 
 $Path2D* SliderThumbPainter::decodePath2() {
 	$nc(this->path)->reset();
-	double var$0 = (double)decodeX(0.6155303f);
+	double var$0 = decodeX(0.6155303f);
 	$nc(this->path)->moveTo(var$0, decodeY(2.5954547f));
-	double var$1 = (double)decodeAnchorX(0.6155303f, 0.90980893f);
-	double var$2 = (double)decodeAnchorY(2.5954547f, 1.3154242f);
-	double var$3 = (double)decodeAnchorX(2.6151516f, 0.014588808f);
-	double var$4 = (double)decodeAnchorY(1.6112013f, 0.9295521f);
-	double var$5 = (double)decodeX(2.6151516f);
+	double var$1 = decodeAnchorX(0.6155303f, 0.90980893f);
+	double var$2 = decodeAnchorY(2.5954547f, 1.3154242f);
+	double var$3 = decodeAnchorX(2.6151516f, 0.014588808f);
+	double var$4 = decodeAnchorY(1.6112013f, 0.9295521f);
+	double var$5 = decodeX(2.6151516f);
 	$nc(this->path)->curveTo(var$1, var$2, var$3, var$4, var$5, decodeY(1.6112013f));
-	double var$6 = (double)decodeAnchorX(2.6151516f, -0.01365518f);
-	double var$7 = (double)decodeAnchorY(1.6112013f, -0.8700643f);
-	double var$8 = (double)decodeAnchorX(0.60923916f, 0.9729935f);
-	double var$9 = (double)decodeAnchorY(0.40716404f, -1.4248644f);
-	double var$10 = (double)decodeX(0.60923916f);
+	double var$6 = decodeAnchorX(2.6151516f, -0.01365518f);
+	double var$7 = decodeAnchorY(1.6112013f, -0.8700643f);
+	double var$8 = decodeAnchorX(0.60923916f, 0.9729935f);
+	double var$9 = decodeAnchorY(0.40716404f, -1.4248644f);
+	double var$10 = decodeX(0.60923916f);
 	$nc(this->path)->curveTo(var$6, var$7, var$8, var$9, var$10, decodeY(0.40716404f));
-	double var$11 = (double)decodeAnchorX(0.60923916f, -0.7485209f);
-	double var$12 = (double)decodeAnchorY(0.40716404f, 1.0961438f);
-	double var$13 = (double)decodeAnchorX(0.6155303f, -0.74998796f);
-	double var$14 = (double)decodeAnchorY(2.5954547f, -1.0843511f);
-	double var$15 = (double)decodeX(0.6155303f);
+	double var$11 = decodeAnchorX(0.60923916f, -0.7485209f);
+	double var$12 = decodeAnchorY(0.40716404f, 1.0961438f);
+	double var$13 = decodeAnchorX(0.6155303f, -0.74998796f);
+	double var$14 = decodeAnchorY(2.5954547f, -1.0843511f);
+	double var$15 = decodeX(0.6155303f);
 	$nc(this->path)->curveTo(var$11, var$12, var$13, var$14, var$15, decodeY(2.5954547f));
 	$nc(this->path)->closePath();
 	return this->path;
@@ -567,25 +420,25 @@ $Path2D* SliderThumbPainter::decodePath2() {
 
 $Path2D* SliderThumbPainter::decodePath3() {
 	$nc(this->path)->reset();
-	double var$0 = (double)decodeX(0.8055606f);
+	double var$0 = decodeX(0.8055606f);
 	$nc(this->path)->moveTo(var$0, decodeY(0.6009697f));
-	double var$1 = (double)decodeAnchorX(0.8055606f, 0.50820893f);
-	double var$2 = (double)decodeAnchorY(0.6009697f, -0.8490881f);
-	double var$3 = (double)decodeAnchorX(2.3692727f, 0.0031846066f);
-	double var$4 = (double)decodeAnchorY(1.613117f, -0.60668826f);
-	double var$5 = (double)decodeX(2.3692727f);
+	double var$1 = decodeAnchorX(0.8055606f, 0.50820893f);
+	double var$2 = decodeAnchorY(0.6009697f, -0.8490881f);
+	double var$3 = decodeAnchorX(2.3692727f, 0.0031846066f);
+	double var$4 = decodeAnchorY(1.613117f, -0.60668826f);
+	double var$5 = decodeX(2.3692727f);
 	$nc(this->path)->curveTo(var$1, var$2, var$3, var$4, var$5, decodeY(1.613117f));
-	double var$6 = (double)decodeAnchorX(2.3692727f, -0.003890196f);
-	double var$7 = (double)decodeAnchorY(1.613117f, 0.74110764f);
-	double var$8 = (double)decodeAnchorX(0.7945455f, 0.3870974f);
-	double var$9 = (double)decodeAnchorY(2.3932729f, 1.240782f);
-	double var$10 = (double)decodeX(0.7945455f);
+	double var$6 = decodeAnchorX(2.3692727f, -0.003890196f);
+	double var$7 = decodeAnchorY(1.613117f, 0.74110764f);
+	double var$8 = decodeAnchorX(0.7945455f, 0.3870974f);
+	double var$9 = decodeAnchorY(2.3932729f, 1.240782f);
+	double var$10 = decodeX(0.7945455f);
 	$nc(this->path)->curveTo(var$6, var$7, var$8, var$9, var$10, decodeY(2.3932729f));
-	double var$11 = (double)decodeAnchorX(0.7945455f, -0.38636583f);
-	double var$12 = (double)decodeAnchorY(2.3932729f, -1.2384372f);
-	double var$13 = (double)decodeAnchorX(0.8055606f, -0.995154f);
-	double var$14 = (double)decodeAnchorY(0.6009697f, 1.6626496f);
-	double var$15 = (double)decodeX(0.8055606f);
+	double var$11 = decodeAnchorX(0.7945455f, -0.38636583f);
+	double var$12 = decodeAnchorY(2.3932729f, -1.2384372f);
+	double var$13 = decodeAnchorX(0.8055606f, -0.995154f);
+	double var$14 = decodeAnchorY(0.6009697f, 1.6626496f);
+	double var$15 = decodeX(0.8055606f);
 	$nc(this->path)->curveTo(var$11, var$12, var$13, var$14, var$15, decodeY(0.6009697f));
 	$nc(this->path)->closePath();
 	return this->path;
@@ -593,32 +446,32 @@ $Path2D* SliderThumbPainter::decodePath3() {
 
 $Path2D* SliderThumbPainter::decodePath4() {
 	$nc(this->path)->reset();
-	double var$0 = (double)decodeX(0.60059524f);
+	double var$0 = decodeX(0.60059524f);
 	$nc(this->path)->moveTo(var$0, decodeY(0.11727543f));
-	double var$1 = (double)decodeAnchorX(0.60059524f, 1.5643269f);
-	double var$2 = (double)decodeAnchorY(0.11727543f, -0.3097513f);
-	double var$3 = (double)decodeAnchorX(2.7925456f, 0.004405844f);
-	double var$4 = (double)decodeAnchorY(1.6116884f, -1.1881162f);
-	double var$5 = (double)decodeX(2.7925456f);
+	double var$1 = decodeAnchorX(0.60059524f, 1.5643269f);
+	double var$2 = decodeAnchorY(0.11727543f, -0.3097513f);
+	double var$3 = decodeAnchorX(2.7925456f, 0.004405844f);
+	double var$4 = decodeAnchorY(1.6116884f, -1.1881162f);
+	double var$5 = decodeX(2.7925456f);
 	$nc(this->path)->curveTo(var$1, var$2, var$3, var$4, var$5, decodeY(1.6116884f));
-	double var$6 = (double)decodeAnchorX(2.7925456f, -0.007364541f);
-	double var$7 = (double)decodeAnchorY(1.6116884f, 1.9859827f);
-	double var$8 = (double)decodeAnchorX(0.7006364f, 2.7716863f);
-	double var$9 = (double)decodeAnchorY(2.8693638f, -0.008974582f);
-	double var$10 = (double)decodeX(0.7006364f);
+	double var$6 = decodeAnchorX(2.7925456f, -0.007364541f);
+	double var$7 = decodeAnchorY(1.6116884f, 1.9859827f);
+	double var$8 = decodeAnchorX(0.7006364f, 2.7716863f);
+	double var$9 = decodeAnchorY(2.8693638f, -0.008974582f);
+	double var$10 = decodeX(0.7006364f);
 	$nc(this->path)->curveTo(var$6, var$7, var$8, var$9, var$10, decodeY(2.8693638f));
-	double var$11 = (double)decodeAnchorX(0.7006364f, -3.754899f);
-	double var$12 = (double)decodeAnchorY(2.8693638f, 0.012158176f);
-	double var$13 = (double)decodeAnchorX(0.60059524f, -1.8635255f);
-	double var$14 = (double)decodeAnchorY(0.11727543f, 0.36899543f);
-	double var$15 = (double)decodeX(0.60059524f);
+	double var$11 = decodeAnchorX(0.7006364f, -3.754899f);
+	double var$12 = decodeAnchorY(2.8693638f, 0.012158176f);
+	double var$13 = decodeAnchorX(0.60059524f, -1.8635255f);
+	double var$14 = decodeAnchorY(0.11727543f, 0.36899543f);
+	double var$15 = decodeX(0.60059524f);
 	$nc(this->path)->curveTo(var$11, var$12, var$13, var$14, var$15, decodeY(0.11727543f));
 	$nc(this->path)->closePath();
 	return this->path;
 }
 
 $Paint* SliderThumbPainter::decodeGradient1($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -636,7 +489,7 @@ $Paint* SliderThumbPainter::decodeGradient1($Shape* s) {
 }
 
 $Paint* SliderThumbPainter::decodeGradient2($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -658,7 +511,7 @@ $Paint* SliderThumbPainter::decodeGradient2($Shape* s) {
 }
 
 $Paint* SliderThumbPainter::decodeGradient3($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -676,7 +529,7 @@ $Paint* SliderThumbPainter::decodeGradient3($Shape* s) {
 }
 
 $Paint* SliderThumbPainter::decodeGradient4($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -702,7 +555,7 @@ $Paint* SliderThumbPainter::decodeGradient4($Shape* s) {
 }
 
 $Paint* SliderThumbPainter::decodeGradient5($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -720,7 +573,7 @@ $Paint* SliderThumbPainter::decodeGradient5($Shape* s) {
 }
 
 $Paint* SliderThumbPainter::decodeGradient6($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -746,7 +599,7 @@ $Paint* SliderThumbPainter::decodeGradient6($Shape* s) {
 }
 
 $Paint* SliderThumbPainter::decodeGradient7($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -764,7 +617,7 @@ $Paint* SliderThumbPainter::decodeGradient7($Shape* s) {
 }
 
 $Paint* SliderThumbPainter::decodeGradient8($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -790,7 +643,7 @@ $Paint* SliderThumbPainter::decodeGradient8($Shape* s) {
 }
 
 $Paint* SliderThumbPainter::decodeGradient9($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -812,7 +665,7 @@ $Paint* SliderThumbPainter::decodeGradient9($Shape* s) {
 }
 
 $Paint* SliderThumbPainter::decodeGradient10($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -842,7 +695,7 @@ $Paint* SliderThumbPainter::decodeGradient10($Shape* s) {
 }
 
 $Paint* SliderThumbPainter::decodeGradient11($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -860,7 +713,7 @@ $Paint* SliderThumbPainter::decodeGradient11($Shape* s) {
 }
 
 $Paint* SliderThumbPainter::decodeGradient12($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -882,7 +735,7 @@ $Paint* SliderThumbPainter::decodeGradient12($Shape* s) {
 }
 
 $Paint* SliderThumbPainter::decodeGradient13($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -900,7 +753,7 @@ $Paint* SliderThumbPainter::decodeGradient13($Shape* s) {
 }
 
 $Paint* SliderThumbPainter::decodeGradient14($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -926,7 +779,7 @@ $Paint* SliderThumbPainter::decodeGradient14($Shape* s) {
 }
 
 $Paint* SliderThumbPainter::decodeGradient15($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -944,7 +797,7 @@ $Paint* SliderThumbPainter::decodeGradient15($Shape* s) {
 }
 
 $Paint* SliderThumbPainter::decodeGradient16($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -970,7 +823,7 @@ $Paint* SliderThumbPainter::decodeGradient16($Shape* s) {
 }
 
 $Paint* SliderThumbPainter::decodeGradient17($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -1003,7 +856,118 @@ SliderThumbPainter::SliderThumbPainter() {
 }
 
 $Class* SliderThumbPainter::load$($String* name, bool initialize) {
-	$loadClass(SliderThumbPainter, name, initialize, &_SliderThumbPainter_ClassInfo_, allocate$SliderThumbPainter);
+	$FieldInfo fieldInfos$$[] = {
+		{"BACKGROUND_DISABLED", "I", nullptr, $STATIC | $FINAL, $constField(SliderThumbPainter, BACKGROUND_DISABLED)},
+		{"BACKGROUND_ENABLED", "I", nullptr, $STATIC | $FINAL, $constField(SliderThumbPainter, BACKGROUND_ENABLED)},
+		{"BACKGROUND_FOCUSED", "I", nullptr, $STATIC | $FINAL, $constField(SliderThumbPainter, BACKGROUND_FOCUSED)},
+		{"BACKGROUND_FOCUSED_MOUSEOVER", "I", nullptr, $STATIC | $FINAL, $constField(SliderThumbPainter, BACKGROUND_FOCUSED_MOUSEOVER)},
+		{"BACKGROUND_FOCUSED_PRESSED", "I", nullptr, $STATIC | $FINAL, $constField(SliderThumbPainter, BACKGROUND_FOCUSED_PRESSED)},
+		{"BACKGROUND_MOUSEOVER", "I", nullptr, $STATIC | $FINAL, $constField(SliderThumbPainter, BACKGROUND_MOUSEOVER)},
+		{"BACKGROUND_PRESSED", "I", nullptr, $STATIC | $FINAL, $constField(SliderThumbPainter, BACKGROUND_PRESSED)},
+		{"BACKGROUND_ENABLED_ARROWSHAPE", "I", nullptr, $STATIC | $FINAL, $constField(SliderThumbPainter, BACKGROUND_ENABLED_ARROWSHAPE)},
+		{"BACKGROUND_DISABLED_ARROWSHAPE", "I", nullptr, $STATIC | $FINAL, $constField(SliderThumbPainter, BACKGROUND_DISABLED_ARROWSHAPE)},
+		{"BACKGROUND_MOUSEOVER_ARROWSHAPE", "I", nullptr, $STATIC | $FINAL, $constField(SliderThumbPainter, BACKGROUND_MOUSEOVER_ARROWSHAPE)},
+		{"BACKGROUND_PRESSED_ARROWSHAPE", "I", nullptr, $STATIC | $FINAL, $constField(SliderThumbPainter, BACKGROUND_PRESSED_ARROWSHAPE)},
+		{"BACKGROUND_FOCUSED_ARROWSHAPE", "I", nullptr, $STATIC | $FINAL, $constField(SliderThumbPainter, BACKGROUND_FOCUSED_ARROWSHAPE)},
+		{"BACKGROUND_FOCUSED_MOUSEOVER_ARROWSHAPE", "I", nullptr, $STATIC | $FINAL, $constField(SliderThumbPainter, BACKGROUND_FOCUSED_MOUSEOVER_ARROWSHAPE)},
+		{"BACKGROUND_FOCUSED_PRESSED_ARROWSHAPE", "I", nullptr, $STATIC | $FINAL, $constField(SliderThumbPainter, BACKGROUND_FOCUSED_PRESSED_ARROWSHAPE)},
+		{"state", "I", nullptr, $PRIVATE, $field(SliderThumbPainter, state)},
+		{"ctx", "Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext;", nullptr, $PRIVATE, $field(SliderThumbPainter, ctx)},
+		{"path", "Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $field(SliderThumbPainter, path)},
+		{"rect", "Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $field(SliderThumbPainter, rect)},
+		{"roundRect", "Ljava/awt/geom/RoundRectangle2D;", nullptr, $PRIVATE, $field(SliderThumbPainter, roundRect)},
+		{"ellipse", "Ljava/awt/geom/Ellipse2D;", nullptr, $PRIVATE, $field(SliderThumbPainter, ellipse)},
+		{"color1", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SliderThumbPainter, color1)},
+		{"color2", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SliderThumbPainter, color2)},
+		{"color3", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SliderThumbPainter, color3)},
+		{"color4", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SliderThumbPainter, color4)},
+		{"color5", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SliderThumbPainter, color5)},
+		{"color6", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SliderThumbPainter, color6)},
+		{"color7", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SliderThumbPainter, color7)},
+		{"color8", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SliderThumbPainter, color8)},
+		{"color9", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SliderThumbPainter, color9)},
+		{"color10", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SliderThumbPainter, color10)},
+		{"color11", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SliderThumbPainter, color11)},
+		{"color12", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SliderThumbPainter, color12)},
+		{"color13", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SliderThumbPainter, color13)},
+		{"color14", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SliderThumbPainter, color14)},
+		{"color15", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SliderThumbPainter, color15)},
+		{"color16", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SliderThumbPainter, color16)},
+		{"color17", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SliderThumbPainter, color17)},
+		{"color18", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SliderThumbPainter, color18)},
+		{"color19", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SliderThumbPainter, color19)},
+		{"color20", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SliderThumbPainter, color20)},
+		{"color21", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SliderThumbPainter, color21)},
+		{"color22", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SliderThumbPainter, color22)},
+		{"color23", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SliderThumbPainter, color23)},
+		{"color24", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SliderThumbPainter, color24)},
+		{"color25", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SliderThumbPainter, color25)},
+		{"color26", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SliderThumbPainter, color26)},
+		{"color27", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SliderThumbPainter, color27)},
+		{"color28", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SliderThumbPainter, color28)},
+		{"color29", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SliderThumbPainter, color29)},
+		{"color30", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SliderThumbPainter, color30)},
+		{"color31", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SliderThumbPainter, color31)},
+		{"color32", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SliderThumbPainter, color32)},
+		{"componentColors", "[Ljava/lang/Object;", nullptr, $PRIVATE, $field(SliderThumbPainter, componentColors)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext;I)V", nullptr, $PUBLIC, $method(SliderThumbPainter, init$, void, $AbstractRegionPainter$PaintContext*, int32_t)},
+		{"decodeEllipse1", "()Ljava/awt/geom/Ellipse2D;", nullptr, $PRIVATE, $method(SliderThumbPainter, decodeEllipse1, $Ellipse2D*)},
+		{"decodeEllipse2", "()Ljava/awt/geom/Ellipse2D;", nullptr, $PRIVATE, $method(SliderThumbPainter, decodeEllipse2, $Ellipse2D*)},
+		{"decodeEllipse3", "()Ljava/awt/geom/Ellipse2D;", nullptr, $PRIVATE, $method(SliderThumbPainter, decodeEllipse3, $Ellipse2D*)},
+		{"decodeEllipse4", "()Ljava/awt/geom/Ellipse2D;", nullptr, $PRIVATE, $method(SliderThumbPainter, decodeEllipse4, $Ellipse2D*)},
+		{"decodeGradient1", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(SliderThumbPainter, decodeGradient1, $Paint*, $Shape*)},
+		{"decodeGradient10", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(SliderThumbPainter, decodeGradient10, $Paint*, $Shape*)},
+		{"decodeGradient11", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(SliderThumbPainter, decodeGradient11, $Paint*, $Shape*)},
+		{"decodeGradient12", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(SliderThumbPainter, decodeGradient12, $Paint*, $Shape*)},
+		{"decodeGradient13", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(SliderThumbPainter, decodeGradient13, $Paint*, $Shape*)},
+		{"decodeGradient14", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(SliderThumbPainter, decodeGradient14, $Paint*, $Shape*)},
+		{"decodeGradient15", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(SliderThumbPainter, decodeGradient15, $Paint*, $Shape*)},
+		{"decodeGradient16", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(SliderThumbPainter, decodeGradient16, $Paint*, $Shape*)},
+		{"decodeGradient17", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(SliderThumbPainter, decodeGradient17, $Paint*, $Shape*)},
+		{"decodeGradient2", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(SliderThumbPainter, decodeGradient2, $Paint*, $Shape*)},
+		{"decodeGradient3", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(SliderThumbPainter, decodeGradient3, $Paint*, $Shape*)},
+		{"decodeGradient4", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(SliderThumbPainter, decodeGradient4, $Paint*, $Shape*)},
+		{"decodeGradient5", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(SliderThumbPainter, decodeGradient5, $Paint*, $Shape*)},
+		{"decodeGradient6", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(SliderThumbPainter, decodeGradient6, $Paint*, $Shape*)},
+		{"decodeGradient7", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(SliderThumbPainter, decodeGradient7, $Paint*, $Shape*)},
+		{"decodeGradient8", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(SliderThumbPainter, decodeGradient8, $Paint*, $Shape*)},
+		{"decodeGradient9", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(SliderThumbPainter, decodeGradient9, $Paint*, $Shape*)},
+		{"decodePath1", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(SliderThumbPainter, decodePath1, $Path2D*)},
+		{"decodePath2", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(SliderThumbPainter, decodePath2, $Path2D*)},
+		{"decodePath3", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(SliderThumbPainter, decodePath3, $Path2D*)},
+		{"decodePath4", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(SliderThumbPainter, decodePath4, $Path2D*)},
+		{"doPaint", "(Ljava/awt/Graphics2D;Ljavax/swing/JComponent;II[Ljava/lang/Object;)V", nullptr, $PROTECTED, $virtualMethod(SliderThumbPainter, doPaint, void, $Graphics2D*, $JComponent*, int32_t, int32_t, $ObjectArray*)},
+		{"getPaintContext", "()Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext;", nullptr, $PROTECTED | $FINAL, $virtualMethod(SliderThumbPainter, getPaintContext, $AbstractRegionPainter$PaintContext*)},
+		{"paintBackgroundDisabled", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(SliderThumbPainter, paintBackgroundDisabled, void, $Graphics2D*)},
+		{"paintBackgroundDisabledAndArrowShape", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(SliderThumbPainter, paintBackgroundDisabledAndArrowShape, void, $Graphics2D*)},
+		{"paintBackgroundEnabled", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(SliderThumbPainter, paintBackgroundEnabled, void, $Graphics2D*)},
+		{"paintBackgroundEnabledAndArrowShape", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(SliderThumbPainter, paintBackgroundEnabledAndArrowShape, void, $Graphics2D*)},
+		{"paintBackgroundFocused", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(SliderThumbPainter, paintBackgroundFocused, void, $Graphics2D*)},
+		{"paintBackgroundFocusedAndArrowShape", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(SliderThumbPainter, paintBackgroundFocusedAndArrowShape, void, $Graphics2D*)},
+		{"paintBackgroundFocusedAndMouseOver", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(SliderThumbPainter, paintBackgroundFocusedAndMouseOver, void, $Graphics2D*)},
+		{"paintBackgroundFocusedAndMouseOverAndArrowShape", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(SliderThumbPainter, paintBackgroundFocusedAndMouseOverAndArrowShape, void, $Graphics2D*)},
+		{"paintBackgroundFocusedAndPressed", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(SliderThumbPainter, paintBackgroundFocusedAndPressed, void, $Graphics2D*)},
+		{"paintBackgroundFocusedAndPressedAndArrowShape", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(SliderThumbPainter, paintBackgroundFocusedAndPressedAndArrowShape, void, $Graphics2D*)},
+		{"paintBackgroundMouseOver", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(SliderThumbPainter, paintBackgroundMouseOver, void, $Graphics2D*)},
+		{"paintBackgroundMouseOverAndArrowShape", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(SliderThumbPainter, paintBackgroundMouseOverAndArrowShape, void, $Graphics2D*)},
+		{"paintBackgroundPressed", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(SliderThumbPainter, paintBackgroundPressed, void, $Graphics2D*)},
+		{"paintBackgroundPressedAndArrowShape", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(SliderThumbPainter, paintBackgroundPressedAndArrowShape, void, $Graphics2D*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"javax.swing.plaf.nimbus.SliderThumbPainter",
+		"javax.swing.plaf.nimbus.AbstractRegionPainter",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SliderThumbPainter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SliderThumbPainter);
+	});
 	return class$;
 }
 

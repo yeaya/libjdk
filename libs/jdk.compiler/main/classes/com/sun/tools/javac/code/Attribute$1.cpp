@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/code/Attribute$1.h>
-
 #include <com/sun/tools/javac/code/Attribute.h>
 #include <com/sun/tools/javac/code/TypeTag.h>
 #include <java/lang/NoSuchFieldError.h>
@@ -27,77 +26,41 @@ namespace com {
 			namespace javac {
 				namespace code {
 
-$FieldInfo _Attribute$1_FieldInfo_[] = {
-	{"$SwitchMap$com$sun$tools$javac$code$TypeTag", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(Attribute$1, $SwitchMap$com$sun$tools$javac$code$TypeTag)},
-	{}
-};
-
-$EnclosingMethodInfo _Attribute$1_EnclosingMethodInfo_ = {
-	"com.sun.tools.javac.code.Attribute",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _Attribute$1_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.code.Attribute$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{}
-};
-
-$ClassInfo _Attribute$1_ClassInfo_ = {
-	$ACC_SUPER | $SYNTHETIC,
-	"com.sun.tools.javac.code.Attribute$1",
-	"java.lang.Object",
-	nullptr,
-	_Attribute$1_FieldInfo_,
-	nullptr,
-	nullptr,
-	&_Attribute$1_EnclosingMethodInfo_,
-	_Attribute$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.code.Attribute"
-};
-
-$Object* allocate$Attribute$1($Class* clazz) {
-	return $of($alloc(Attribute$1));
-}
-
 $ints* Attribute$1::$SwitchMap$com$sun$tools$javac$code$TypeTag = nullptr;
 
-void clinit$Attribute$1($Class* class$) {
+void Attribute$1::clinit$($Class* clazz) {
 	$assignStatic(Attribute$1::$SwitchMap$com$sun$tools$javac$code$TypeTag, $new($ints, $($TypeTag::values())->length));
 	{
 		try {
-			$nc(Attribute$1::$SwitchMap$com$sun$tools$javac$code$TypeTag)->set($TypeTag::BOOLEAN->ordinal(), 1);
+			Attribute$1::$SwitchMap$com$sun$tools$javac$code$TypeTag->set($TypeTag::BOOLEAN->ordinal(), 1);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Attribute$1::$SwitchMap$com$sun$tools$javac$code$TypeTag)->set($TypeTag::CHAR->ordinal(), 2);
+			Attribute$1::$SwitchMap$com$sun$tools$javac$code$TypeTag->set($TypeTag::CHAR->ordinal(), 2);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Attribute$1::$SwitchMap$com$sun$tools$javac$code$TypeTag)->set($TypeTag::BYTE->ordinal(), 3);
+			Attribute$1::$SwitchMap$com$sun$tools$javac$code$TypeTag->set($TypeTag::BYTE->ordinal(), 3);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Attribute$1::$SwitchMap$com$sun$tools$javac$code$TypeTag)->set($TypeTag::SHORT->ordinal(), 4);
+			Attribute$1::$SwitchMap$com$sun$tools$javac$code$TypeTag->set($TypeTag::SHORT->ordinal(), 4);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Attribute$1::$SwitchMap$com$sun$tools$javac$code$TypeTag)->set($TypeTag::INT->ordinal(), 5);
+			Attribute$1::$SwitchMap$com$sun$tools$javac$code$TypeTag->set($TypeTag::INT->ordinal(), 5);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Attribute$1::$SwitchMap$com$sun$tools$javac$code$TypeTag)->set($TypeTag::LONG->ordinal(), 6);
+			Attribute$1::$SwitchMap$com$sun$tools$javac$code$TypeTag->set($TypeTag::LONG->ordinal(), 6);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Attribute$1::$SwitchMap$com$sun$tools$javac$code$TypeTag)->set($TypeTag::FLOAT->ordinal(), 7);
+			Attribute$1::$SwitchMap$com$sun$tools$javac$code$TypeTag->set($TypeTag::FLOAT->ordinal(), 7);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Attribute$1::$SwitchMap$com$sun$tools$javac$code$TypeTag)->set($TypeTag::DOUBLE->ordinal(), 8);
+			Attribute$1::$SwitchMap$com$sun$tools$javac$code$TypeTag->set($TypeTag::DOUBLE->ordinal(), 8);
 		} catch ($NoSuchFieldError& ex) {
 		}
 	}
@@ -107,7 +70,37 @@ Attribute$1::Attribute$1() {
 }
 
 $Class* Attribute$1::load$($String* name, bool initialize) {
-	$loadClass(Attribute$1, name, initialize, &_Attribute$1_ClassInfo_, clinit$Attribute$1, allocate$Attribute$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"$SwitchMap$com$sun$tools$javac$code$TypeTag", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(Attribute$1, $SwitchMap$com$sun$tools$javac$code$TypeTag)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.tools.javac.code.Attribute",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.code.Attribute$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $SYNTHETIC,
+		"com.sun.tools.javac.code.Attribute$1",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		nullptr,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.code.Attribute"
+	};
+	$loadClass(Attribute$1, name, initialize, &classInfo$$, Attribute$1::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Attribute$1);
+	});
 	return class$;
 }
 

@@ -62,6 +62,7 @@ class $export JavadocFormatter$HtmlTag : public ::java::lang::Enum {
 public:
 	JavadocFormatter$HtmlTag();
 	static $Array<::jdk::internal::shellsupport::doc::JavadocFormatter$HtmlTag>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::jdk::internal::shellsupport::doc::JavadocFormatter$HtmlTag* get(::javax::lang::model::element::Name* tagName);
 	static ::jdk::internal::shellsupport::doc::JavadocFormatter$HtmlTag* valueOf($String* name);

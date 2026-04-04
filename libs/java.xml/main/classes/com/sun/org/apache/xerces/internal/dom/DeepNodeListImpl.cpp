@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/dom/DeepNodeListImpl.h>
-
 #include <com/sun/org/apache/xerces/internal/dom/ElementImpl.h>
 #include <com/sun/org/apache/xerces/internal/dom/NodeImpl.h>
 #include <java/util/ArrayList.h>
@@ -17,7 +16,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ArrayList = ::java::util::ArrayList;
-using $List = ::java::util::List;
 using $Node = ::org::w3c::dom::Node;
 
 namespace com {
@@ -27,38 +25,6 @@ namespace com {
 				namespace xerces {
 					namespace internal {
 						namespace dom {
-
-$FieldInfo _DeepNodeListImpl_FieldInfo_[] = {
-	{"rootNode", "Lcom/sun/org/apache/xerces/internal/dom/NodeImpl;", nullptr, $PROTECTED, $field(DeepNodeListImpl, rootNode)},
-	{"tagName", "Ljava/lang/String;", nullptr, $PROTECTED, $field(DeepNodeListImpl, tagName)},
-	{"changes", "I", nullptr, $PROTECTED, $field(DeepNodeListImpl, changes)},
-	{"nodes", "Ljava/util/List;", "Ljava/util/List<Lorg/w3c/dom/Node;>;", $PROTECTED, $field(DeepNodeListImpl, nodes)},
-	{"nsName", "Ljava/lang/String;", nullptr, $PROTECTED, $field(DeepNodeListImpl, nsName)},
-	{"enableNS", "Z", nullptr, $PROTECTED, $field(DeepNodeListImpl, enableNS)},
-	{}
-};
-
-$MethodInfo _DeepNodeListImpl_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/org/apache/xerces/internal/dom/NodeImpl;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(DeepNodeListImpl, init$, void, $NodeImpl*, $String*)},
-	{"<init>", "(Lcom/sun/org/apache/xerces/internal/dom/NodeImpl;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(DeepNodeListImpl, init$, void, $NodeImpl*, $String*, $String*)},
-	{"getLength", "()I", nullptr, $PUBLIC, $virtualMethod(DeepNodeListImpl, getLength, int32_t)},
-	{"item", "(I)Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(DeepNodeListImpl, item, $Node*, int32_t)},
-	{"nextMatchingElementAfter", "(Lorg/w3c/dom/Node;)Lorg/w3c/dom/Node;", nullptr, $PROTECTED, $virtualMethod(DeepNodeListImpl, nextMatchingElementAfter, $Node*, $Node*)},
-	{}
-};
-
-$ClassInfo _DeepNodeListImpl_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.dom.DeepNodeListImpl",
-	"java.lang.Object",
-	"org.w3c.dom.NodeList",
-	_DeepNodeListImpl_FieldInfo_,
-	_DeepNodeListImpl_MethodInfo_
-};
-
-$Object* allocate$DeepNodeListImpl($Class* clazz) {
-	return $of($alloc(DeepNodeListImpl));
-}
 
 void DeepNodeListImpl::init$($NodeImpl* rootNode, $String* tagName) {
 	this->changes = 0;
@@ -87,14 +53,14 @@ $Node* DeepNodeListImpl::item(int32_t index) {
 	}
 	int32_t currentSize = $nc(this->nodes)->size();
 	if (index < currentSize) {
-		return $cast($Node, $nc(this->nodes)->get(index));
+		return $cast($Node, this->nodes->get(index));
 	} else {
 		if (currentSize == 0) {
 			$assign(thisNode, this->rootNode);
 		} else {
-			$assign(thisNode, ($cast($NodeImpl, $nc(this->nodes)->get(currentSize - 1))));
+			$assign(thisNode, $cast($NodeImpl, this->nodes->get(currentSize - 1)));
 		}
-		while (thisNode != nullptr && index >= $nc(this->nodes)->size()) {
+		while (thisNode != nullptr && index >= this->nodes->size()) {
 			$assign(thisNode, nextMatchingElementAfter(thisNode));
 			if (thisNode != nullptr) {
 				$nc(this->nodes)->add(thisNode);
@@ -105,7 +71,7 @@ $Node* DeepNodeListImpl::item(int32_t index) {
 }
 
 $Node* DeepNodeListImpl::nextMatchingElementAfter($Node* current$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Node, current, current$renamed);
 	$var($Node, next, nullptr);
 	while (current != nullptr) {
@@ -116,7 +82,7 @@ $Node* DeepNodeListImpl::nextMatchingElementAfter($Node* current$renamed) {
 		} else {
 			$assign(next, nullptr);
 			for (; !$equals(current, this->rootNode); $assign(current, $nc(current)->getParentNode())) {
-				$assign(next, current->getNextSibling());
+				$assign(next, $nc(current)->getNextSibling());
 				if (next != nullptr) {
 					break;
 				}
@@ -126,28 +92,28 @@ $Node* DeepNodeListImpl::nextMatchingElementAfter($Node* current$renamed) {
 		if (!$equals(current, this->rootNode) && current != nullptr && current->getNodeType() == $Node::ELEMENT_NODE) {
 			if (!this->enableNS) {
 				bool var$0 = $nc(this->tagName)->equals("*"_s);
-				if (var$0 || $nc($($nc(($cast($ElementImpl, current)))->getTagName()))->equals(this->tagName)) {
+				if (var$0 || $$nc($cast($ElementImpl, current)->getTagName())->equals(this->tagName)) {
 					return current;
 				}
 			} else if ($nc(this->tagName)->equals("*"_s)) {
-				if (this->nsName != nullptr && $nc(this->nsName)->equals("*"_s)) {
+				if (this->nsName != nullptr && this->nsName->equals("*"_s)) {
 					return current;
 				} else {
 					$var($ElementImpl, el, $cast($ElementImpl, current));
-					bool var$1 = (this->nsName == nullptr && el->getNamespaceURI() == nullptr);
-					if (var$1 || (this->nsName != nullptr && $nc(this->nsName)->equals($(el->getNamespaceURI())))) {
+					bool var$1 = this->nsName == nullptr && el->getNamespaceURI() == nullptr;
+					if (var$1 || (this->nsName != nullptr && this->nsName->equals($(el->getNamespaceURI())))) {
 						return current;
 					}
 				}
 			} else {
 				$var($ElementImpl, el, $cast($ElementImpl, current));
 				bool var$2 = el->getLocalName() != nullptr;
-				if (var$2 && $nc($(el->getLocalName()))->equals(this->tagName)) {
-					if (this->nsName != nullptr && $nc(this->nsName)->equals("*"_s)) {
+				if (var$2 && $$nc(el->getLocalName())->equals(this->tagName)) {
+					if (this->nsName != nullptr && this->nsName->equals("*"_s)) {
 						return current;
 					} else {
-						bool var$4 = (this->nsName == nullptr && el->getNamespaceURI() == nullptr);
-						if (var$4 || (this->nsName != nullptr && $nc(this->nsName)->equals($(el->getNamespaceURI())))) {
+						bool var$3 = this->nsName == nullptr && el->getNamespaceURI() == nullptr;
+						if (var$3 || (this->nsName != nullptr && this->nsName->equals($(el->getNamespaceURI())))) {
 							return current;
 						}
 					}
@@ -162,7 +128,34 @@ DeepNodeListImpl::DeepNodeListImpl() {
 }
 
 $Class* DeepNodeListImpl::load$($String* name, bool initialize) {
-	$loadClass(DeepNodeListImpl, name, initialize, &_DeepNodeListImpl_ClassInfo_, allocate$DeepNodeListImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"rootNode", "Lcom/sun/org/apache/xerces/internal/dom/NodeImpl;", nullptr, $PROTECTED, $field(DeepNodeListImpl, rootNode)},
+		{"tagName", "Ljava/lang/String;", nullptr, $PROTECTED, $field(DeepNodeListImpl, tagName)},
+		{"changes", "I", nullptr, $PROTECTED, $field(DeepNodeListImpl, changes)},
+		{"nodes", "Ljava/util/List;", "Ljava/util/List<Lorg/w3c/dom/Node;>;", $PROTECTED, $field(DeepNodeListImpl, nodes)},
+		{"nsName", "Ljava/lang/String;", nullptr, $PROTECTED, $field(DeepNodeListImpl, nsName)},
+		{"enableNS", "Z", nullptr, $PROTECTED, $field(DeepNodeListImpl, enableNS)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/org/apache/xerces/internal/dom/NodeImpl;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(DeepNodeListImpl, init$, void, $NodeImpl*, $String*)},
+		{"<init>", "(Lcom/sun/org/apache/xerces/internal/dom/NodeImpl;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(DeepNodeListImpl, init$, void, $NodeImpl*, $String*, $String*)},
+		{"getLength", "()I", nullptr, $PUBLIC, $virtualMethod(DeepNodeListImpl, getLength, int32_t)},
+		{"item", "(I)Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(DeepNodeListImpl, item, $Node*, int32_t)},
+		{"nextMatchingElementAfter", "(Lorg/w3c/dom/Node;)Lorg/w3c/dom/Node;", nullptr, $PROTECTED, $virtualMethod(DeepNodeListImpl, nextMatchingElementAfter, $Node*, $Node*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.dom.DeepNodeListImpl",
+		"java.lang.Object",
+		"org.w3c.dom.NodeList",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DeepNodeListImpl, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DeepNodeListImpl);
+	});
 	return class$;
 }
 

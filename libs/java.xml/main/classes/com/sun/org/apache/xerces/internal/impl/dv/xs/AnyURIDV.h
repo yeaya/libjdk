@@ -56,6 +56,7 @@ class AnyURIDV : public ::com::sun::org::apache::xerces::internal::impl::dv::xs:
 	$class(AnyURIDV, 0, ::com::sun::org::apache::xerces::internal::impl::dv::xs::TypeValidator)
 public:
 	AnyURIDV();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $String* encode($String* anyURI);
 	virtual $Object* getActualValue($String* content, ::com::sun::org::apache::xerces::internal::impl::dv::ValidationContext* context) override;

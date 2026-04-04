@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/bcel/internal/classfile/Signature$MyByteArrayInputStream.h>
-
 #include <com/sun/org/apache/bcel/internal/classfile/Signature.h>
 #include <java/io/ByteArrayInputStream.h>
 #include <jcpp.h>
@@ -16,38 +15,6 @@ namespace com {
 				namespace bcel {
 					namespace internal {
 						namespace classfile {
-
-$MethodInfo _Signature$MyByteArrayInputStream_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(Signature$MyByteArrayInputStream, init$, void, $String*)},
-	{"getData", "()Ljava/lang/String;", nullptr, 0, $method(Signature$MyByteArrayInputStream, getData, $String*)},
-	{"unread", "()V", nullptr, 0, $method(Signature$MyByteArrayInputStream, unread, void)},
-	{}
-};
-
-$InnerClassInfo _Signature$MyByteArrayInputStream_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.bcel.internal.classfile.Signature$MyByteArrayInputStream", "com.sun.org.apache.bcel.internal.classfile.Signature", "MyByteArrayInputStream", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _Signature$MyByteArrayInputStream_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.org.apache.bcel.internal.classfile.Signature$MyByteArrayInputStream",
-	"java.io.ByteArrayInputStream",
-	nullptr,
-	nullptr,
-	_Signature$MyByteArrayInputStream_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Signature$MyByteArrayInputStream_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.bcel.internal.classfile.Signature"
-};
-
-$Object* allocate$Signature$MyByteArrayInputStream($Class* clazz) {
-	return $of($alloc(Signature$MyByteArrayInputStream));
-}
 
 void Signature$MyByteArrayInputStream::init$($String* data) {
 	$ByteArrayInputStream::init$($($nc(data)->getBytes()));
@@ -67,7 +34,34 @@ Signature$MyByteArrayInputStream::Signature$MyByteArrayInputStream() {
 }
 
 $Class* Signature$MyByteArrayInputStream::load$($String* name, bool initialize) {
-	$loadClass(Signature$MyByteArrayInputStream, name, initialize, &_Signature$MyByteArrayInputStream_ClassInfo_, allocate$Signature$MyByteArrayInputStream);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(Signature$MyByteArrayInputStream, init$, void, $String*)},
+		{"getData", "()Ljava/lang/String;", nullptr, 0, $method(Signature$MyByteArrayInputStream, getData, $String*)},
+		{"unread", "()V", nullptr, 0, $method(Signature$MyByteArrayInputStream, unread, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.bcel.internal.classfile.Signature$MyByteArrayInputStream", "com.sun.org.apache.bcel.internal.classfile.Signature", "MyByteArrayInputStream", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.org.apache.bcel.internal.classfile.Signature$MyByteArrayInputStream",
+		"java.io.ByteArrayInputStream",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.bcel.internal.classfile.Signature"
+	};
+	$loadClass(Signature$MyByteArrayInputStream, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Signature$MyByteArrayInputStream);
+	});
 	return class$;
 }
 

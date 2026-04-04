@@ -1,5 +1,4 @@
 #include <sun/security/krb5/internal/ReplayCache.h>
-
 #include <sun/security/action/GetPropertyAction.h>
 #include <sun/security/krb5/internal/KerberosTime.h>
 #include <sun/security/krb5/internal/ReplayCache$1.h>
@@ -24,38 +23,6 @@ namespace sun {
 		namespace krb5 {
 			namespace internal {
 
-$MethodInfo _ReplayCache_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ReplayCache, init$, void)},
-	{"checkAndStore", "(Lsun/security/krb5/internal/KerberosTime;Lsun/security/krb5/internal/rcache/AuthTimeWithHash;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ReplayCache, checkAndStore, void, $KerberosTime*, $AuthTimeWithHash*), "sun.security.krb5.internal.KrbApErrException"},
-	{"getInstance", "(Ljava/lang/String;)Lsun/security/krb5/internal/ReplayCache;", nullptr, $PUBLIC | $STATIC, $staticMethod(ReplayCache, getInstance, ReplayCache*, $String*)},
-	{"getInstance", "()Lsun/security/krb5/internal/ReplayCache;", nullptr, $PUBLIC | $STATIC, $staticMethod(ReplayCache, getInstance, ReplayCache*)},
-	{}
-};
-
-$InnerClassInfo _ReplayCache_InnerClassesInfo_[] = {
-	{"sun.security.krb5.internal.ReplayCache$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _ReplayCache_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"sun.security.krb5.internal.ReplayCache",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_ReplayCache_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ReplayCache_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.security.krb5.internal.ReplayCache$1"
-};
-
-$Object* allocate$ReplayCache($Class* clazz) {
-	return $of($alloc(ReplayCache));
-}
-
 void ReplayCache::init$() {
 }
 
@@ -63,8 +30,8 @@ ReplayCache* ReplayCache::getInstance($String* type) {
 	if (type == nullptr) {
 		return $new($MemoryCache);
 	} else {
-		bool var$1 = $nc(type)->equals("dfl"_s);
-		if (var$1 || $nc(type)->startsWith("dfl:"_s)) {
+		bool var$0 = type->equals("dfl"_s);
+		if (var$0 || type->startsWith("dfl:"_s)) {
 			return $new($DflCache, type);
 		} else if (type->equals("none"_s)) {
 			return $new($ReplayCache$1);
@@ -83,7 +50,34 @@ ReplayCache::ReplayCache() {
 }
 
 $Class* ReplayCache::load$($String* name, bool initialize) {
-	$loadClass(ReplayCache, name, initialize, &_ReplayCache_ClassInfo_, allocate$ReplayCache);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ReplayCache, init$, void)},
+		{"checkAndStore", "(Lsun/security/krb5/internal/KerberosTime;Lsun/security/krb5/internal/rcache/AuthTimeWithHash;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ReplayCache, checkAndStore, void, $KerberosTime*, $AuthTimeWithHash*), "sun.security.krb5.internal.KrbApErrException"},
+		{"getInstance", "(Ljava/lang/String;)Lsun/security/krb5/internal/ReplayCache;", nullptr, $PUBLIC | $STATIC, $staticMethod(ReplayCache, getInstance, ReplayCache*, $String*)},
+		{"getInstance", "()Lsun/security/krb5/internal/ReplayCache;", nullptr, $PUBLIC | $STATIC, $staticMethod(ReplayCache, getInstance, ReplayCache*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.krb5.internal.ReplayCache$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"sun.security.krb5.internal.ReplayCache",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.security.krb5.internal.ReplayCache$1"
+	};
+	$loadClass(ReplayCache, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ReplayCache);
+	});
 	return class$;
 }
 

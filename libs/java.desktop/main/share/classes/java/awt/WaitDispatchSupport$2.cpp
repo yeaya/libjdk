@@ -1,5 +1,4 @@
 #include <java/awt/WaitDispatchSupport$2.h>
-
 #include <java/awt/Conditional.h>
 #include <java/awt/EventDispatchThread.h>
 #include <java/awt/EventFilter.h>
@@ -7,59 +6,15 @@
 #include <sun/util/logging/PlatformLogger.h>
 #include <jcpp.h>
 
-using $EventDispatchThread = ::java::awt::EventDispatchThread;
 using $WaitDispatchSupport = ::java::awt::WaitDispatchSupport;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $PlatformLogger = ::sun::util::logging::PlatformLogger;
 
 namespace java {
 	namespace awt {
-
-$FieldInfo _WaitDispatchSupport$2_FieldInfo_[] = {
-	{"this$0", "Ljava/awt/WaitDispatchSupport;", nullptr, $FINAL | $SYNTHETIC, $field(WaitDispatchSupport$2, this$0)},
-	{}
-};
-
-$MethodInfo _WaitDispatchSupport$2_MethodInfo_[] = {
-	{"<init>", "(Ljava/awt/WaitDispatchSupport;)V", nullptr, 0, $method(WaitDispatchSupport$2, init$, void, $WaitDispatchSupport*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(WaitDispatchSupport$2, run, void)},
-	{}
-};
-
-$EnclosingMethodInfo _WaitDispatchSupport$2_EnclosingMethodInfo_ = {
-	"java.awt.WaitDispatchSupport",
-	"enter",
-	"()Z"
-};
-
-$InnerClassInfo _WaitDispatchSupport$2_InnerClassesInfo_[] = {
-	{"java.awt.WaitDispatchSupport$2", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _WaitDispatchSupport$2_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.awt.WaitDispatchSupport$2",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	_WaitDispatchSupport$2_FieldInfo_,
-	_WaitDispatchSupport$2_MethodInfo_,
-	nullptr,
-	&_WaitDispatchSupport$2_EnclosingMethodInfo_,
-	_WaitDispatchSupport$2_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.awt.WaitDispatchSupport"
-};
-
-$Object* allocate$WaitDispatchSupport$2($Class* clazz) {
-	return $of($alloc(WaitDispatchSupport$2));
-}
 
 void WaitDispatchSupport$2::init$($WaitDispatchSupport* this$0) {
 	$set(this, this$0, this$0);
@@ -79,7 +34,42 @@ WaitDispatchSupport$2::WaitDispatchSupport$2() {
 }
 
 $Class* WaitDispatchSupport$2::load$($String* name, bool initialize) {
-	$loadClass(WaitDispatchSupport$2, name, initialize, &_WaitDispatchSupport$2_ClassInfo_, allocate$WaitDispatchSupport$2);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljava/awt/WaitDispatchSupport;", nullptr, $FINAL | $SYNTHETIC, $field(WaitDispatchSupport$2, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/WaitDispatchSupport;)V", nullptr, 0, $method(WaitDispatchSupport$2, init$, void, $WaitDispatchSupport*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(WaitDispatchSupport$2, run, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.awt.WaitDispatchSupport",
+		"enter",
+		"()Z"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.awt.WaitDispatchSupport$2", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.awt.WaitDispatchSupport$2",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.awt.WaitDispatchSupport"
+	};
+	$loadClass(WaitDispatchSupport$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WaitDispatchSupport$2);
+	});
 	return class$;
 }
 

@@ -1,6 +1,4 @@
 #include <sun/awt/AppContext.h>
-
-#include <java/awt/AWTEvent.h>
 #include <java/awt/Toolkit.h>
 #include <java/awt/event/InvocationEvent.h>
 #include <java/beans/PropertyChangeListener.h>
@@ -34,7 +32,6 @@
 #include <java/util/concurrent/locks/Lock.h>
 #include <java/util/concurrent/locks/ReentrantLock.h>
 #include <java/util/function/Supplier.h>
-#include <jdk/internal/access/JavaAWTAccess.h>
 #include <jdk/internal/access/SharedSecrets.h>
 #include <sun/awt/AppContext$1.h>
 #include <sun/awt/AppContext$2.h>
@@ -64,7 +61,6 @@
 
 using $PropertyChangeListenerArray = $Array<::java::beans::PropertyChangeListener>;
 using $ThreadGroupArray = $Array<::java::lang::ThreadGroup>;
-using $AWTEvent = ::java::awt::AWTEvent;
 using $Toolkit = ::java::awt::Toolkit;
 using $InvocationEvent = ::java::awt::event::InvocationEvent;
 using $PropertyChangeListener = ::java::beans::PropertyChangeListener;
@@ -98,7 +94,6 @@ using $Condition = ::java::util::concurrent::locks::Condition;
 using $Lock = ::java::util::concurrent::locks::Lock;
 using $ReentrantLock = ::java::util::concurrent::locks::ReentrantLock;
 using $Supplier = ::java::util::function::Supplier;
-using $JavaAWTAccess = ::jdk::internal::access::JavaAWTAccess;
 using $SharedSecrets = ::jdk::internal::access::SharedSecrets;
 using $AppContext$1 = ::sun::awt::AppContext$1;
 using $AppContext$2 = ::sun::awt::AppContext$2;
@@ -124,119 +119,34 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* run() override {
-		 return $of($nc(inst$)->lambda$dispose$0());
-	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<AppContext$$Lambda$lambda$dispose$0>());
+		 return $nc(inst$)->lambda$dispose$0();
 	}
 	AppContext* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo AppContext$$Lambda$lambda$dispose$0::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(AppContext$$Lambda$lambda$dispose$0, inst$)},
-	{}
-};
-$MethodInfo AppContext$$Lambda$lambda$dispose$0::methodInfos[3] = {
-	{"<init>", "(Lsun/awt/AppContext;)V", nullptr, $PUBLIC, $method(AppContext$$Lambda$lambda$dispose$0, init$, void, AppContext*)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AppContext$$Lambda$lambda$dispose$0, run, $Object*)},
-	{}
-};
-$ClassInfo AppContext$$Lambda$lambda$dispose$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.awt.AppContext$$Lambda$lambda$dispose$0",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	fieldInfos,
-	methodInfos
 };
 $Class* AppContext$$Lambda$lambda$dispose$0::load$($String* name, bool initialize) {
-	$loadClass(AppContext$$Lambda$lambda$dispose$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(AppContext$$Lambda$lambda$dispose$0, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/awt/AppContext;)V", nullptr, $PUBLIC, $method(AppContext$$Lambda$lambda$dispose$0, init$, void, AppContext*)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AppContext$$Lambda$lambda$dispose$0, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.awt.AppContext$$Lambda$lambda$dispose$0",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(AppContext$$Lambda$lambda$dispose$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AppContext$$Lambda$lambda$dispose$0);
+	});
 	return class$;
 }
 $Class* AppContext$$Lambda$lambda$dispose$0::class$ = nullptr;
-
-$FieldInfo _AppContext_FieldInfo_[] = {
-	{"log", "Lsun/util/logging/PlatformLogger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AppContext, log)},
-	{"EVENT_QUEUE_KEY", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AppContext, EVENT_QUEUE_KEY)},
-	{"EVENT_QUEUE_LOCK_KEY", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AppContext, EVENT_QUEUE_LOCK_KEY)},
-	{"EVENT_QUEUE_COND_KEY", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AppContext, EVENT_QUEUE_COND_KEY)},
-	{"threadGroup2appContext", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/ThreadGroup;Lsun/awt/AppContext;>;", $PRIVATE | $STATIC | $FINAL, $staticField(AppContext, threadGroup2appContext)},
-	{"mainAppContext", "Lsun/awt/AppContext;", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(AppContext, mainAppContext)},
-	{"getAppContextLock", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AppContext, getAppContextLock)},
-	{"table", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/Object;Ljava/lang/Object;>;", $PRIVATE | $FINAL, $field(AppContext, table)},
-	{"threadGroup", "Ljava/lang/ThreadGroup;", nullptr, $PRIVATE | $FINAL, $field(AppContext, threadGroup)},
-	{"changeSupport", "Ljava/beans/PropertyChangeSupport;", nullptr, $PRIVATE, $field(AppContext, changeSupport)},
-	{"DISPOSED_PROPERTY_NAME", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AppContext, DISPOSED_PROPERTY_NAME)},
-	{"GUI_DISPOSED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AppContext, GUI_DISPOSED)},
-	{"state", "Lsun/awt/AppContext$State;", nullptr, $PRIVATE | $VOLATILE, $field(AppContext, state)},
-	{"numAppContexts", "Ljava/util/concurrent/atomic/AtomicInteger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AppContext, numAppContexts)},
-	{"contextClassLoader", "Ljava/lang/ClassLoader;", nullptr, $PRIVATE | $FINAL, $field(AppContext, contextClassLoader)},
-	{"threadAppContext", "Ljava/lang/ThreadLocal;", "Ljava/lang/ThreadLocal<Lsun/awt/AppContext;>;", $PRIVATE | $STATIC | $FINAL, $staticField(AppContext, threadAppContext)},
-	{"DISPOSAL_TIMEOUT", "J", nullptr, $PRIVATE, $field(AppContext, DISPOSAL_TIMEOUT)},
-	{"THREAD_INTERRUPT_TIMEOUT", "J", nullptr, $PRIVATE, $field(AppContext, THREAD_INTERRUPT_TIMEOUT)},
-	{"mostRecentKeyValue", "Lsun/awt/MostRecentKeyValue;", nullptr, $PRIVATE, $field(AppContext, mostRecentKeyValue)},
-	{"shadowMostRecentKeyValue", "Lsun/awt/MostRecentKeyValue;", nullptr, $PRIVATE, $field(AppContext, shadowMostRecentKeyValue)},
-	{}
-};
-
-$MethodInfo _AppContext_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/ThreadGroup;)V", nullptr, 0, $method(AppContext, init$, void, $ThreadGroup*)},
-	{"addPropertyChangeListener", "(Ljava/lang/String;Ljava/beans/PropertyChangeListener;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $method(AppContext, addPropertyChangeListener, void, $String*, $PropertyChangeListener*)},
-	{"dispose", "()V", nullptr, $PUBLIC, $method(AppContext, dispose, void), "java.lang.IllegalThreadStateException"},
-	{"get", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $method(AppContext, get, $Object*, Object$*)},
-	{"getAppContext", "()Lsun/awt/AppContext;", nullptr, $PUBLIC | $STATIC, $staticMethod(AppContext, getAppContext, AppContext*)},
-	{"getAppContexts", "()Ljava/util/Set;", "()Ljava/util/Set<Lsun/awt/AppContext;>;", $PUBLIC | $STATIC, $staticMethod(AppContext, getAppContexts, $Set*)},
-	{"getContextClassLoader", "()Ljava/lang/ClassLoader;", nullptr, $PUBLIC, $method(AppContext, getContextClassLoader, $ClassLoader*)},
-	{"getPropertyChangeListeners", "()[Ljava/beans/PropertyChangeListener;", nullptr, $PUBLIC | $SYNCHRONIZED, $method(AppContext, getPropertyChangeListeners, $PropertyChangeListenerArray*)},
-	{"getPropertyChangeListeners", "(Ljava/lang/String;)[Ljava/beans/PropertyChangeListener;", nullptr, $PUBLIC | $SYNCHRONIZED, $method(AppContext, getPropertyChangeListeners, $PropertyChangeListenerArray*, $String*)},
-	{"getSoftReferenceValue", "(Ljava/lang/Object;Ljava/util/function/Supplier;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljava/lang/Object;Ljava/util/function/Supplier<TT;>;)TT;", $PUBLIC | $STATIC, $staticMethod(AppContext, getSoftReferenceValue, $Object*, Object$*, $Supplier*)},
-	{"getThreadGroup", "()Ljava/lang/ThreadGroup;", nullptr, $PUBLIC, $method(AppContext, getThreadGroup, $ThreadGroup*)},
-	{"initMainAppContext", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(AppContext, initMainAppContext, void)},
-	{"isDisposed", "()Z", nullptr, $PUBLIC, $method(AppContext, isDisposed, bool)},
-	{"isMainContext", "(Lsun/awt/AppContext;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(AppContext, isMainContext, bool, AppContext*)},
-	{"lambda$dispose$0", "()Ljava/lang/Void;", nullptr, $PRIVATE | $SYNTHETIC, $method(AppContext, lambda$dispose$0, $Void*)},
-	{"put", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $method(AppContext, put, $Object*, Object$*, Object$*)},
-	{"remove", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $method(AppContext, remove, $Object*, Object$*)},
-	{"removePropertyChangeListener", "(Ljava/lang/String;Ljava/beans/PropertyChangeListener;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $method(AppContext, removePropertyChangeListener, void, $String*, $PropertyChangeListener*)},
-	{"stopEventDispatchThreads", "()V", nullptr, $STATIC, $staticMethod(AppContext, stopEventDispatchThreads, void)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AppContext, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _AppContext_InnerClassesInfo_[] = {
-	{"sun.awt.AppContext$CreateThreadAction", "sun.awt.AppContext", "CreateThreadAction", $STATIC | $FINAL},
-	{"sun.awt.AppContext$PostShutdownEventRunnable", "sun.awt.AppContext", "PostShutdownEventRunnable", $STATIC | $FINAL},
-	{"sun.awt.AppContext$State", "sun.awt.AppContext", "State", $PRIVATE | $STATIC | $FINAL | $ENUM},
-	{"sun.awt.AppContext$GetAppContextLock", "sun.awt.AppContext", "GetAppContextLock", $PRIVATE | $STATIC},
-	{"sun.awt.AppContext$6", nullptr, nullptr, 0},
-	{"sun.awt.AppContext$5", nullptr, nullptr, 0},
-	{"sun.awt.AppContext$4", nullptr, nullptr, 0},
-	{"sun.awt.AppContext$3", nullptr, nullptr, 0},
-	{"sun.awt.AppContext$2", nullptr, nullptr, 0},
-	{"sun.awt.AppContext$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _AppContext_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.awt.AppContext",
-	"java.lang.Object",
-	nullptr,
-	_AppContext_FieldInfo_,
-	_AppContext_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AppContext_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.awt.AppContext$CreateThreadAction,sun.awt.AppContext$PostShutdownEventRunnable,sun.awt.AppContext$State,sun.awt.AppContext$GetAppContextLock,sun.awt.AppContext$6,sun.awt.AppContext$6$1,sun.awt.AppContext$5,sun.awt.AppContext$4,sun.awt.AppContext$4$1,sun.awt.AppContext$3,sun.awt.AppContext$2,sun.awt.AppContext$1"
-};
-
-$Object* allocate$AppContext($Class* clazz) {
-	return $of($alloc(AppContext));
-}
 
 $PlatformLogger* AppContext::log = nullptr;
 $Object* AppContext::EVENT_QUEUE_KEY = nullptr;
@@ -253,7 +163,7 @@ $ThreadLocal* AppContext::threadAppContext = nullptr;
 $Set* AppContext::getAppContexts() {
 	$init(AppContext);
 	$synchronized(AppContext::threadGroup2appContext) {
-		return $new($HashSet, $($nc(AppContext::threadGroup2appContext)->values()));
+		return $new($HashSet, $(AppContext::threadGroup2appContext->values()));
 	}
 }
 
@@ -263,7 +173,7 @@ bool AppContext::isDisposed() {
 }
 
 void AppContext::init$($ThreadGroup* threadGroup) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$set(this, table, $new($HashMap));
 	$set(this, changeSupport, nullptr);
@@ -273,10 +183,10 @@ void AppContext::init$($ThreadGroup* threadGroup) {
 	this->THREAD_INTERRUPT_TIMEOUT = 1000;
 	$set(this, mostRecentKeyValue, nullptr);
 	$set(this, shadowMostRecentKeyValue, nullptr);
-	$nc(AppContext::numAppContexts)->incrementAndGet();
+	AppContext::numAppContexts->incrementAndGet();
 	$set(this, threadGroup, threadGroup);
 	$nc(AppContext::threadGroup2appContext)->put(threadGroup, this);
-	$set(this, contextClassLoader, $cast($ClassLoader, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($AppContext$1, this)))));
+	$set(this, contextClassLoader, $cast($ClassLoader, $AccessController::doPrivileged($$new($AppContext$1, this))));
 	$var($Lock, eventQueuePushPopLock, $new($ReentrantLock));
 	put(AppContext::EVENT_QUEUE_LOCK_KEY, eventQueuePushPopLock);
 	$var($Condition, eventQueuePushPopCond, eventQueuePushPopLock->newCondition());
@@ -286,19 +196,19 @@ void AppContext::init$($ThreadGroup* threadGroup) {
 void AppContext::initMainAppContext() {
 	$init(AppContext);
 	$beforeCallerSensitive();
-	$AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($AppContext$2)));
+	$AccessController::doPrivileged($$new($AppContext$2));
 }
 
 AppContext* AppContext::getAppContext() {
 	$init(AppContext);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
-	if ($nc(AppContext::numAppContexts)->get() == 1 && AppContext::mainAppContext != nullptr) {
+	if (AppContext::numAppContexts->get() == 1 && AppContext::mainAppContext != nullptr) {
 		return AppContext::mainAppContext;
 	}
-	$var(AppContext, appContext, $cast(AppContext, $nc(AppContext::threadAppContext)->get()));
+	$var(AppContext, appContext, $cast(AppContext, AppContext::threadAppContext->get()));
 	if (nullptr == appContext) {
-		$assign(appContext, $cast(AppContext, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($AppContext$3)))));
+		$assign(appContext, $cast(AppContext, $AccessController::doPrivileged($$new($AppContext$3))));
 	}
 	return appContext;
 }
@@ -309,7 +219,7 @@ bool AppContext::isMainContext(AppContext* ctx) {
 }
 
 void AppContext::dispose() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	if ($nc(this->threadGroup)->parentOf($($($Thread::currentThread())->getThreadGroup()))) {
 		$throwNew($IllegalThreadStateException, "Current Thread is contained within AppContext to be disposed."_s);
@@ -330,7 +240,7 @@ void AppContext::dispose() {
 	$synchronized(notificationLock) {
 		$SunToolkit::postEvent(this, $$new($InvocationEvent, $($Toolkit::getDefaultToolkit()), runnable));
 		try {
-			$of(notificationLock)->wait(this->DISPOSAL_TIMEOUT);
+			notificationLock->wait(this->DISPOSAL_TIMEOUT);
 		} catch ($InterruptedException& e) {
 		}
 	}
@@ -338,19 +248,18 @@ void AppContext::dispose() {
 	$synchronized(notificationLock) {
 		$SunToolkit::postEvent(this, $$new($InvocationEvent, $($Toolkit::getDefaultToolkit()), runnable));
 		try {
-			$of(notificationLock)->wait(this->DISPOSAL_TIMEOUT);
+			notificationLock->wait(this->DISPOSAL_TIMEOUT);
 		} catch ($InterruptedException& e) {
 		}
 	}
 	$synchronized(this) {
-		$init($AppContext$State);
 		$set(this, state, $AppContext$State::DISPOSED);
 	}
-	$nc(this->threadGroup)->interrupt();
+	this->threadGroup->interrupt();
 	int64_t startTime = $System::currentTimeMillis();
 	int64_t endTime = startTime + this->THREAD_INTERRUPT_TIMEOUT;
 	while (true) {
-		bool var$0 = ($nc(this->threadGroup)->activeCount() > 0);
+		bool var$0 = this->threadGroup->activeCount() > 0;
 		if (!(var$0 && ($System::currentTimeMillis() < endTime))) {
 			break;
 		}
@@ -361,11 +270,11 @@ void AppContext::dispose() {
 			}
 		}
 	}
-	$AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new(AppContext$$Lambda$lambda$dispose$0, this)));
+	$AccessController::doPrivileged($cast($PrivilegedAction, $$new(AppContext$$Lambda$lambda$dispose$0, this)));
 	startTime = $System::currentTimeMillis();
 	endTime = startTime + this->THREAD_INTERRUPT_TIMEOUT;
 	while (true) {
-		bool var$1 = ($nc(this->threadGroup)->activeCount() > 0);
+		bool var$1 = this->threadGroup->activeCount() > 0;
 		if (!(var$1 && ($System::currentTimeMillis() < endTime))) {
 			break;
 		}
@@ -376,60 +285,58 @@ void AppContext::dispose() {
 			}
 		}
 	}
-	int32_t numSubGroups = $nc(this->threadGroup)->activeGroupCount();
+	int32_t numSubGroups = this->threadGroup->activeGroupCount();
 	if (numSubGroups > 0) {
 		$var($ThreadGroupArray, subGroups, $new($ThreadGroupArray, numSubGroups));
-		numSubGroups = $nc(this->threadGroup)->enumerate(subGroups);
+		numSubGroups = this->threadGroup->enumerate(subGroups);
 		for (int32_t subGroup = 0; subGroup < numSubGroups; ++subGroup) {
 			$nc(AppContext::threadGroup2appContext)->remove(subGroups->get(subGroup));
 		}
 	}
 	$nc(AppContext::threadGroup2appContext)->remove(this->threadGroup);
-	$nc(AppContext::threadAppContext)->set(nullptr);
+	AppContext::threadAppContext->set(nullptr);
 	try {
-		$nc(this->threadGroup)->destroy();
+		this->threadGroup->destroy();
 	} catch ($IllegalThreadStateException& e) {
 	}
 	$synchronized(this->table) {
 		$nc(this->table)->clear();
 	}
-	$nc(AppContext::numAppContexts)->decrementAndGet();
+	AppContext::numAppContexts->decrementAndGet();
 	$set(this, mostRecentKeyValue, nullptr);
 }
 
 void AppContext::stopEventDispatchThreads() {
 	$init(AppContext);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
-	{
-		$var($Iterator, i$, $nc($(getAppContexts()))->iterator());
-		for (; $nc(i$)->hasNext();) {
-			$var(AppContext, appContext, $cast(AppContext, i$->next()));
-			{
-				if ($nc(appContext)->isDisposed()) {
-					continue;
-				}
-				$var($Runnable, r, $new($AppContext$PostShutdownEventRunnable, appContext));
-				if (appContext != AppContext::getAppContext()) {
-					$var($PrivilegedAction, action, $new($AppContext$CreateThreadAction, appContext, r));
-					$var($Thread, thread, $cast($Thread, $AccessController::doPrivileged(action)));
-					$nc(thread)->start();
-				} else {
-					r->run();
-				}
+	$var($Iterator, i$, $$nc(getAppContexts())->iterator());
+	for (; $nc(i$)->hasNext();) {
+		$var(AppContext, appContext, $cast(AppContext, i$->next()));
+		{
+			if ($nc(appContext)->isDisposed()) {
+				continue;
+			}
+			$var($Runnable, r, $new($AppContext$PostShutdownEventRunnable, appContext));
+			if (appContext != AppContext::getAppContext()) {
+				$var($PrivilegedAction, action, $new($AppContext$CreateThreadAction, appContext, r));
+				$var($Thread, thread, $cast($Thread, $AccessController::doPrivileged(action)));
+				$nc(thread)->start();
+			} else {
+				r->run();
 			}
 		}
 	}
 }
 
 $Object* AppContext::get(Object$* key) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized(this->table) {
 		$var($MostRecentKeyValue, recent, this->mostRecentKeyValue);
 		if ((recent != nullptr) && ($equals(recent->key, key))) {
-			return $of(recent->value);
+			return recent->value;
 		}
-		$var($Object, value, $nc(this->table)->get(key));
+		$var($Object, value, this->table->get(key));
 		if (this->mostRecentKeyValue == nullptr) {
 			$set(this, mostRecentKeyValue, $new($MostRecentKeyValue, key, value));
 			$set(this, shadowMostRecentKeyValue, $new($MostRecentKeyValue, key, value));
@@ -439,7 +346,7 @@ $Object* AppContext::get(Object$* key) {
 			$set(this, mostRecentKeyValue, this->shadowMostRecentKeyValue);
 			$set(this, shadowMostRecentKeyValue, auxKeyValue);
 		}
-		return $of(value);
+		return value;
 	}
 }
 
@@ -449,7 +356,7 @@ $Object* AppContext::put(Object$* key, Object$* value) {
 		if ((recent != nullptr) && ($equals(recent->key, key))) {
 			$set(recent, value, value);
 		}
-		return $of($nc(this->table)->put(key, value));
+		return this->table->put(key, value);
 	}
 }
 
@@ -459,7 +366,7 @@ $Object* AppContext::remove(Object$* key) {
 		if ((recent != nullptr) && ($equals(recent->key, key))) {
 			$set(recent, value, nullptr);
 		}
-		return $of($nc(this->table)->remove(key));
+		return this->table->remove(key);
 	}
 }
 
@@ -472,10 +379,13 @@ $ClassLoader* AppContext::getContextClassLoader() {
 }
 
 $String* AppContext::toString() {
-	$useLocalCurrentObjectStackCache();
-	$var($String, var$1, $$str({$($of(this)->getClass()->getName()), "[threadGroup="_s}));
-	$var($String, var$0, $$concat(var$1, $($nc(this->threadGroup)->getName())));
-	return $concat(var$0, "]"_s);
+	$useLocalObjectStack();
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append($($of(this)->getClass()->getName()));
+	var$0->append("[threadGroup="_s);
+	var$0->append($($nc(this->threadGroup)->getName()));
+	var$0->append("]"_s);
+	return $str(var$0);
 }
 
 $PropertyChangeListenerArray* AppContext::getPropertyChangeListeners() {
@@ -519,19 +429,19 @@ $PropertyChangeListenerArray* AppContext::getPropertyChangeListeners($String* pr
 
 $Object* AppContext::getSoftReferenceValue(Object$* key, $Supplier* supplier) {
 	$init(AppContext);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(AppContext, appContext, AppContext::getAppContext());
 	$var($SoftReference, ref, $cast($SoftReference, $nc(appContext)->get(key)));
 	if (ref != nullptr) {
 		$var($Object, object, ref->get());
 		if (object != nullptr) {
-			return $of(object);
+			return object;
 		}
 	}
 	$var($Object, object, $nc(supplier)->get());
 	$assign(ref, $new($SoftReference, object));
 	appContext->put(key, ref);
-	return $of(object);
+	return object;
 }
 
 $Void* AppContext::lambda$dispose$0() {
@@ -539,8 +449,8 @@ $Void* AppContext::lambda$dispose$0() {
 	return nullptr;
 }
 
-void clinit$AppContext($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void AppContext::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(AppContext::DISPOSED_PROPERTY_NAME, "disposed"_s);
 	$assignStatic(AppContext::GUI_DISPOSED, "guidisposed"_s);
 	$assignStatic(AppContext::log, $PlatformLogger::getLogger("sun.awt.AppContext"_s));
@@ -562,11 +472,86 @@ AppContext::AppContext() {
 
 $Class* AppContext::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(AppContext$$Lambda$lambda$dispose$0::classInfo$.name)) {
+		if (name->equals("sun.awt.AppContext$$Lambda$lambda$dispose$0")) {
 			return AppContext$$Lambda$lambda$dispose$0::load$(name, initialize);
 		}
 	}
-	$loadClass(AppContext, name, initialize, &_AppContext_ClassInfo_, clinit$AppContext, allocate$AppContext);
+	$FieldInfo fieldInfos$$[] = {
+		{"log", "Lsun/util/logging/PlatformLogger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AppContext, log)},
+		{"EVENT_QUEUE_KEY", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AppContext, EVENT_QUEUE_KEY)},
+		{"EVENT_QUEUE_LOCK_KEY", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AppContext, EVENT_QUEUE_LOCK_KEY)},
+		{"EVENT_QUEUE_COND_KEY", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AppContext, EVENT_QUEUE_COND_KEY)},
+		{"threadGroup2appContext", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/ThreadGroup;Lsun/awt/AppContext;>;", $PRIVATE | $STATIC | $FINAL, $staticField(AppContext, threadGroup2appContext)},
+		{"mainAppContext", "Lsun/awt/AppContext;", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(AppContext, mainAppContext)},
+		{"getAppContextLock", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AppContext, getAppContextLock)},
+		{"table", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/Object;Ljava/lang/Object;>;", $PRIVATE | $FINAL, $field(AppContext, table)},
+		{"threadGroup", "Ljava/lang/ThreadGroup;", nullptr, $PRIVATE | $FINAL, $field(AppContext, threadGroup)},
+		{"changeSupport", "Ljava/beans/PropertyChangeSupport;", nullptr, $PRIVATE, $field(AppContext, changeSupport)},
+		{"DISPOSED_PROPERTY_NAME", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AppContext, DISPOSED_PROPERTY_NAME)},
+		{"GUI_DISPOSED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AppContext, GUI_DISPOSED)},
+		{"state", "Lsun/awt/AppContext$State;", nullptr, $PRIVATE | $VOLATILE, $field(AppContext, state)},
+		{"numAppContexts", "Ljava/util/concurrent/atomic/AtomicInteger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AppContext, numAppContexts)},
+		{"contextClassLoader", "Ljava/lang/ClassLoader;", nullptr, $PRIVATE | $FINAL, $field(AppContext, contextClassLoader)},
+		{"threadAppContext", "Ljava/lang/ThreadLocal;", "Ljava/lang/ThreadLocal<Lsun/awt/AppContext;>;", $PRIVATE | $STATIC | $FINAL, $staticField(AppContext, threadAppContext)},
+		{"DISPOSAL_TIMEOUT", "J", nullptr, $PRIVATE, $field(AppContext, DISPOSAL_TIMEOUT)},
+		{"THREAD_INTERRUPT_TIMEOUT", "J", nullptr, $PRIVATE, $field(AppContext, THREAD_INTERRUPT_TIMEOUT)},
+		{"mostRecentKeyValue", "Lsun/awt/MostRecentKeyValue;", nullptr, $PRIVATE, $field(AppContext, mostRecentKeyValue)},
+		{"shadowMostRecentKeyValue", "Lsun/awt/MostRecentKeyValue;", nullptr, $PRIVATE, $field(AppContext, shadowMostRecentKeyValue)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/ThreadGroup;)V", nullptr, 0, $method(AppContext, init$, void, $ThreadGroup*)},
+		{"addPropertyChangeListener", "(Ljava/lang/String;Ljava/beans/PropertyChangeListener;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $method(AppContext, addPropertyChangeListener, void, $String*, $PropertyChangeListener*)},
+		{"dispose", "()V", nullptr, $PUBLIC, $method(AppContext, dispose, void), "java.lang.IllegalThreadStateException"},
+		{"get", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $method(AppContext, get, $Object*, Object$*)},
+		{"getAppContext", "()Lsun/awt/AppContext;", nullptr, $PUBLIC | $STATIC, $staticMethod(AppContext, getAppContext, AppContext*)},
+		{"getAppContexts", "()Ljava/util/Set;", "()Ljava/util/Set<Lsun/awt/AppContext;>;", $PUBLIC | $STATIC, $staticMethod(AppContext, getAppContexts, $Set*)},
+		{"getContextClassLoader", "()Ljava/lang/ClassLoader;", nullptr, $PUBLIC, $method(AppContext, getContextClassLoader, $ClassLoader*)},
+		{"getPropertyChangeListeners", "()[Ljava/beans/PropertyChangeListener;", nullptr, $PUBLIC | $SYNCHRONIZED, $method(AppContext, getPropertyChangeListeners, $PropertyChangeListenerArray*)},
+		{"getPropertyChangeListeners", "(Ljava/lang/String;)[Ljava/beans/PropertyChangeListener;", nullptr, $PUBLIC | $SYNCHRONIZED, $method(AppContext, getPropertyChangeListeners, $PropertyChangeListenerArray*, $String*)},
+		{"getSoftReferenceValue", "(Ljava/lang/Object;Ljava/util/function/Supplier;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljava/lang/Object;Ljava/util/function/Supplier<TT;>;)TT;", $PUBLIC | $STATIC, $staticMethod(AppContext, getSoftReferenceValue, $Object*, Object$*, $Supplier*)},
+		{"getThreadGroup", "()Ljava/lang/ThreadGroup;", nullptr, $PUBLIC, $method(AppContext, getThreadGroup, $ThreadGroup*)},
+		{"initMainAppContext", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(AppContext, initMainAppContext, void)},
+		{"isDisposed", "()Z", nullptr, $PUBLIC, $method(AppContext, isDisposed, bool)},
+		{"isMainContext", "(Lsun/awt/AppContext;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(AppContext, isMainContext, bool, AppContext*)},
+		{"lambda$dispose$0", "()Ljava/lang/Void;", nullptr, $PRIVATE | $SYNTHETIC, $method(AppContext, lambda$dispose$0, $Void*)},
+		{"put", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $method(AppContext, put, $Object*, Object$*, Object$*)},
+		{"remove", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $method(AppContext, remove, $Object*, Object$*)},
+		{"removePropertyChangeListener", "(Ljava/lang/String;Ljava/beans/PropertyChangeListener;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $method(AppContext, removePropertyChangeListener, void, $String*, $PropertyChangeListener*)},
+		{"stopEventDispatchThreads", "()V", nullptr, $STATIC, $staticMethod(AppContext, stopEventDispatchThreads, void)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AppContext, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.AppContext$CreateThreadAction", "sun.awt.AppContext", "CreateThreadAction", $STATIC | $FINAL},
+		{"sun.awt.AppContext$PostShutdownEventRunnable", "sun.awt.AppContext", "PostShutdownEventRunnable", $STATIC | $FINAL},
+		{"sun.awt.AppContext$State", "sun.awt.AppContext", "State", $PRIVATE | $STATIC | $FINAL | $ENUM},
+		{"sun.awt.AppContext$GetAppContextLock", "sun.awt.AppContext", "GetAppContextLock", $PRIVATE | $STATIC},
+		{"sun.awt.AppContext$6", nullptr, nullptr, 0},
+		{"sun.awt.AppContext$5", nullptr, nullptr, 0},
+		{"sun.awt.AppContext$4", nullptr, nullptr, 0},
+		{"sun.awt.AppContext$3", nullptr, nullptr, 0},
+		{"sun.awt.AppContext$2", nullptr, nullptr, 0},
+		{"sun.awt.AppContext$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.awt.AppContext",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.awt.AppContext$CreateThreadAction,sun.awt.AppContext$PostShutdownEventRunnable,sun.awt.AppContext$State,sun.awt.AppContext$GetAppContextLock,sun.awt.AppContext$6,sun.awt.AppContext$6$1,sun.awt.AppContext$5,sun.awt.AppContext$4,sun.awt.AppContext$4$1,sun.awt.AppContext$3,sun.awt.AppContext$2,sun.awt.AppContext$1"
+	};
+	$loadClass(AppContext, name, initialize, &classInfo$$, AppContext::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(AppContext);
+	});
 	return class$;
 }
 

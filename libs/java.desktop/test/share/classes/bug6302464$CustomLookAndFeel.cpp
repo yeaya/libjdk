@@ -1,5 +1,4 @@
 #include <bug6302464$CustomLookAndFeel.h>
-
 #include <bug6302464.h>
 #include <java/awt/RenderingHints$Key.h>
 #include <java/awt/RenderingHints.h>
@@ -19,49 +18,6 @@ using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $UIDefaults = ::javax::swing::UIDefaults;
 using $BasicLookAndFeel = ::javax::swing::plaf::basic::BasicLookAndFeel;
-
-$FieldInfo _bug6302464$CustomLookAndFeel_FieldInfo_[] = {
-	{"useAAHints", "Z", nullptr, $PRIVATE | $FINAL, $field(bug6302464$CustomLookAndFeel, useAAHints)},
-	{}
-};
-
-$MethodInfo _bug6302464$CustomLookAndFeel_MethodInfo_[] = {
-	{"<init>", "(Z)V", nullptr, $PUBLIC, $method(bug6302464$CustomLookAndFeel, init$, void, bool)},
-	{"getAAHint", "()Ljava/lang/Object;", nullptr, $PRIVATE, $method(bug6302464$CustomLookAndFeel, getAAHint, $Object*)},
-	{"getDescription", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(bug6302464$CustomLookAndFeel, getDescription, $String*)},
-	{"getID", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(bug6302464$CustomLookAndFeel, getID, $String*)},
-	{"getLCDContarstHint", "()Ljava/lang/Object;", nullptr, $PRIVATE, $method(bug6302464$CustomLookAndFeel, getLCDContarstHint, $Object*)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(bug6302464$CustomLookAndFeel, getName, $String*)},
-	{"initClassDefaults", "(Ljavax/swing/UIDefaults;)V", nullptr, $PROTECTED, $virtualMethod(bug6302464$CustomLookAndFeel, initClassDefaults, void, $UIDefaults*)},
-	{"isNativeLookAndFeel", "()Z", nullptr, $PUBLIC, $virtualMethod(bug6302464$CustomLookAndFeel, isNativeLookAndFeel, bool)},
-	{"isSupportedLookAndFeel", "()Z", nullptr, $PUBLIC, $virtualMethod(bug6302464$CustomLookAndFeel, isSupportedLookAndFeel, bool)},
-	{}
-};
-
-$InnerClassInfo _bug6302464$CustomLookAndFeel_InnerClassesInfo_[] = {
-	{"bug6302464$CustomLookAndFeel", "bug6302464", "CustomLookAndFeel", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _bug6302464$CustomLookAndFeel_ClassInfo_ = {
-	$ACC_SUPER,
-	"bug6302464$CustomLookAndFeel",
-	"javax.swing.plaf.basic.BasicLookAndFeel",
-	nullptr,
-	_bug6302464$CustomLookAndFeel_FieldInfo_,
-	_bug6302464$CustomLookAndFeel_MethodInfo_,
-	nullptr,
-	nullptr,
-	_bug6302464$CustomLookAndFeel_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"bug6302464"
-};
-
-$Object* allocate$bug6302464$CustomLookAndFeel($Class* clazz) {
-	return $of($alloc(bug6302464$CustomLookAndFeel));
-}
 
 void bug6302464$CustomLookAndFeel::init$(bool useAAHints) {
 	$BasicLookAndFeel::init$();
@@ -89,7 +45,7 @@ bool bug6302464$CustomLookAndFeel::isSupportedLookAndFeel() {
 }
 
 void bug6302464$CustomLookAndFeel::initClassDefaults($UIDefaults* table) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$BasicLookAndFeel::initClassDefaults(table);
 	$init($RenderingHints);
 	$nc(table)->put($RenderingHints::KEY_TEXT_ANTIALIASING, $(getAAHint()));
@@ -98,7 +54,7 @@ void bug6302464$CustomLookAndFeel::initClassDefaults($UIDefaults* table) {
 
 $Object* bug6302464$CustomLookAndFeel::getAAHint() {
 	$init($RenderingHints);
-	return $of(this->useAAHints ? $RenderingHints::VALUE_TEXT_ANTIALIAS_GASP : ($Object*)nullptr);
+	return this->useAAHints ? $RenderingHints::VALUE_TEXT_ANTIALIAS_GASP : ($Object*)nullptr;
 }
 
 $Object* bug6302464$CustomLookAndFeel::getLCDContarstHint() {
@@ -109,7 +65,44 @@ bug6302464$CustomLookAndFeel::bug6302464$CustomLookAndFeel() {
 }
 
 $Class* bug6302464$CustomLookAndFeel::load$($String* name, bool initialize) {
-	$loadClass(bug6302464$CustomLookAndFeel, name, initialize, &_bug6302464$CustomLookAndFeel_ClassInfo_, allocate$bug6302464$CustomLookAndFeel);
+	$FieldInfo fieldInfos$$[] = {
+		{"useAAHints", "Z", nullptr, $PRIVATE | $FINAL, $field(bug6302464$CustomLookAndFeel, useAAHints)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Z)V", nullptr, $PUBLIC, $method(bug6302464$CustomLookAndFeel, init$, void, bool)},
+		{"getAAHint", "()Ljava/lang/Object;", nullptr, $PRIVATE, $method(bug6302464$CustomLookAndFeel, getAAHint, $Object*)},
+		{"getDescription", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(bug6302464$CustomLookAndFeel, getDescription, $String*)},
+		{"getID", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(bug6302464$CustomLookAndFeel, getID, $String*)},
+		{"getLCDContarstHint", "()Ljava/lang/Object;", nullptr, $PRIVATE, $method(bug6302464$CustomLookAndFeel, getLCDContarstHint, $Object*)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(bug6302464$CustomLookAndFeel, getName, $String*)},
+		{"initClassDefaults", "(Ljavax/swing/UIDefaults;)V", nullptr, $PROTECTED, $virtualMethod(bug6302464$CustomLookAndFeel, initClassDefaults, void, $UIDefaults*)},
+		{"isNativeLookAndFeel", "()Z", nullptr, $PUBLIC, $virtualMethod(bug6302464$CustomLookAndFeel, isNativeLookAndFeel, bool)},
+		{"isSupportedLookAndFeel", "()Z", nullptr, $PUBLIC, $virtualMethod(bug6302464$CustomLookAndFeel, isSupportedLookAndFeel, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"bug6302464$CustomLookAndFeel", "bug6302464", "CustomLookAndFeel", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"bug6302464$CustomLookAndFeel",
+		"javax.swing.plaf.basic.BasicLookAndFeel",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"bug6302464"
+	};
+	$loadClass(bug6302464$CustomLookAndFeel, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(bug6302464$CustomLookAndFeel));
+	});
 	return class$;
 }
 

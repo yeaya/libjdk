@@ -1,5 +1,4 @@
 #include <sun/text/resources/ext/FormatData_vi_VN.h>
-
 #include <sun/util/resources/ParallelListResourceBundle.h>
 #include <jcpp.h>
 
@@ -13,38 +12,19 @@ namespace sun {
 		namespace resources {
 			namespace ext {
 
-$MethodInfo _FormatData_vi_VN_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(FormatData_vi_VN, init$, void)},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(FormatData_vi_VN, getContents, $ObjectArray2*)},
-	{}
-};
-
-$ClassInfo _FormatData_vi_VN_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.text.resources.ext.FormatData_vi_VN",
-	"sun.util.resources.ParallelListResourceBundle",
-	nullptr,
-	nullptr,
-	_FormatData_vi_VN_MethodInfo_
-};
-
-$Object* allocate$FormatData_vi_VN($Class* clazz) {
-	return $of($alloc(FormatData_vi_VN));
-}
-
 void FormatData_vi_VN::init$() {
 	$ParallelListResourceBundle::init$();
 }
 
 $ObjectArray2* FormatData_vi_VN::getContents() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $new($ObjectArray2, {$$new($ObjectArray, {
-		$of("NumberPatterns"_s),
-		$of($$new($StringArray, {
+		"NumberPatterns"_s,
+		$$new($StringArray, {
 			"#,##0.###;-#,##0.###"_s,
 			u"#,##0.00 ¤;-#,##0.00 ¤"_s,
 			"#,##0%"_s
-		}))
+		})
 	})});
 }
 
@@ -52,7 +32,22 @@ FormatData_vi_VN::FormatData_vi_VN() {
 }
 
 $Class* FormatData_vi_VN::load$($String* name, bool initialize) {
-	$loadClass(FormatData_vi_VN, name, initialize, &_FormatData_vi_VN_ClassInfo_, allocate$FormatData_vi_VN);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(FormatData_vi_VN, init$, void)},
+		{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(FormatData_vi_VN, getContents, $ObjectArray2*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.text.resources.ext.FormatData_vi_VN",
+		"sun.util.resources.ParallelListResourceBundle",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(FormatData_vi_VN, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FormatData_vi_VN);
+	});
 	return class$;
 }
 

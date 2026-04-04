@@ -1,5 +1,4 @@
 #include <javax/swing/text/EditorKit.h>
-
 #include <java/io/InputStream.h>
 #include <java/io/OutputStream.h>
 #include <java/io/Reader.h>
@@ -31,40 +30,6 @@ namespace javax {
 	namespace swing {
 		namespace text {
 
-$MethodInfo _EditorKit_MethodInfo_[] = {
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(EditorKit, init$, void)},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(EditorKit, clone, $Object*)},
-	{"createCaret", "()Ljavax/swing/text/Caret;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(EditorKit, createCaret, $Caret*)},
-	{"createDefaultDocument", "()Ljavax/swing/text/Document;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(EditorKit, createDefaultDocument, $Document*)},
-	{"deinstall", "(Ljavax/swing/JEditorPane;)V", nullptr, $PUBLIC, $virtualMethod(EditorKit, deinstall, void, $JEditorPane*)},
-	{"getActions", "()[Ljavax/swing/Action;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(EditorKit, getActions, $ActionArray*)},
-	{"getContentType", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(EditorKit, getContentType, $String*)},
-	{"getViewFactory", "()Ljavax/swing/text/ViewFactory;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(EditorKit, getViewFactory, $ViewFactory*)},
-	{"install", "(Ljavax/swing/JEditorPane;)V", nullptr, $PUBLIC, $virtualMethod(EditorKit, install, void, $JEditorPane*)},
-	{"read", "(Ljava/io/InputStream;Ljavax/swing/text/Document;I)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(EditorKit, read, void, $InputStream*, $Document*, int32_t), "java.io.IOException,javax.swing.text.BadLocationException"},
-	{"read", "(Ljava/io/Reader;Ljavax/swing/text/Document;I)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(EditorKit, read, void, $Reader*, $Document*, int32_t), "java.io.IOException,javax.swing.text.BadLocationException"},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"write", "(Ljava/io/OutputStream;Ljavax/swing/text/Document;II)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(EditorKit, write, void, $OutputStream*, $Document*, int32_t, int32_t), "java.io.IOException,javax.swing.text.BadLocationException"},
-	{"write", "(Ljava/io/Writer;Ljavax/swing/text/Document;II)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(EditorKit, write, void, $Writer*, $Document*, int32_t, int32_t), "java.io.IOException,javax.swing.text.BadLocationException"},
-	{}
-};
-
-$ClassInfo _EditorKit_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"javax.swing.text.EditorKit",
-	"java.lang.Object",
-	"java.lang.Cloneable,java.io.Serializable",
-	nullptr,
-	_EditorKit_MethodInfo_
-};
-
-$Object* allocate$EditorKit($Class* clazz) {
-	return $of($alloc(EditorKit));
-}
-
 int32_t EditorKit::hashCode() {
 	 return this->$Cloneable::hashCode();
 }
@@ -91,7 +56,7 @@ $Object* EditorKit::clone() {
 	} catch ($CloneNotSupportedException& cnse) {
 		$assign(o, nullptr);
 	}
-	return $of(o);
+	return o;
 }
 
 void EditorKit::install($JEditorPane* c) {
@@ -104,7 +69,37 @@ EditorKit::EditorKit() {
 }
 
 $Class* EditorKit::load$($String* name, bool initialize) {
-	$loadClass(EditorKit, name, initialize, &_EditorKit_ClassInfo_, allocate$EditorKit);
+	$MethodInfo methodInfos$$[] = {
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(EditorKit, init$, void)},
+		{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(EditorKit, clone, $Object*)},
+		{"createCaret", "()Ljavax/swing/text/Caret;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(EditorKit, createCaret, $Caret*)},
+		{"createDefaultDocument", "()Ljavax/swing/text/Document;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(EditorKit, createDefaultDocument, $Document*)},
+		{"deinstall", "(Ljavax/swing/JEditorPane;)V", nullptr, $PUBLIC, $virtualMethod(EditorKit, deinstall, void, $JEditorPane*)},
+		{"getActions", "()[Ljavax/swing/Action;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(EditorKit, getActions, $ActionArray*)},
+		{"getContentType", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(EditorKit, getContentType, $String*)},
+		{"getViewFactory", "()Ljavax/swing/text/ViewFactory;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(EditorKit, getViewFactory, $ViewFactory*)},
+		{"install", "(Ljavax/swing/JEditorPane;)V", nullptr, $PUBLIC, $virtualMethod(EditorKit, install, void, $JEditorPane*)},
+		{"read", "(Ljava/io/InputStream;Ljavax/swing/text/Document;I)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(EditorKit, read, void, $InputStream*, $Document*, int32_t), "java.io.IOException,javax.swing.text.BadLocationException"},
+		{"read", "(Ljava/io/Reader;Ljavax/swing/text/Document;I)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(EditorKit, read, void, $Reader*, $Document*, int32_t), "java.io.IOException,javax.swing.text.BadLocationException"},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"write", "(Ljava/io/OutputStream;Ljavax/swing/text/Document;II)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(EditorKit, write, void, $OutputStream*, $Document*, int32_t, int32_t), "java.io.IOException,javax.swing.text.BadLocationException"},
+		{"write", "(Ljava/io/Writer;Ljavax/swing/text/Document;II)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(EditorKit, write, void, $Writer*, $Document*, int32_t, int32_t), "java.io.IOException,javax.swing.text.BadLocationException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"javax.swing.text.EditorKit",
+		"java.lang.Object",
+		"java.lang.Cloneable,java.io.Serializable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(EditorKit, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(EditorKit));
+	});
 	return class$;
 }
 

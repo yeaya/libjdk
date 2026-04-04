@@ -1,5 +1,4 @@
 #include <sun/awt/X11/XWindowPeer$2.h>
-
 #include <sun/awt/X11/XToolkit.h>
 #include <sun/awt/X11/XWindowPeer.h>
 #include <jcpp.h>
@@ -16,48 +15,6 @@ namespace sun {
 	namespace awt {
 		namespace X11 {
 
-$FieldInfo _XWindowPeer$2_FieldInfo_[] = {
-	{"this$0", "Lsun/awt/X11/XWindowPeer;", nullptr, $FINAL | $SYNTHETIC, $field(XWindowPeer$2, this$0)},
-	{}
-};
-
-$MethodInfo _XWindowPeer$2_MethodInfo_[] = {
-	{"<init>", "(Lsun/awt/X11/XWindowPeer;)V", nullptr, 0, $method(XWindowPeer$2, init$, void, $XWindowPeer*)},
-	{"run", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XWindowPeer$2, run, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _XWindowPeer$2_EnclosingMethodInfo_ = {
-	"sun.awt.X11.XWindowPeer",
-	"removeStartupNotification",
-	"()V"
-};
-
-$InnerClassInfo _XWindowPeer$2_InnerClassesInfo_[] = {
-	{"sun.awt.X11.XWindowPeer$2", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _XWindowPeer$2_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.awt.X11.XWindowPeer$2",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	_XWindowPeer$2_FieldInfo_,
-	_XWindowPeer$2_MethodInfo_,
-	"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/String;>;",
-	&_XWindowPeer$2_EnclosingMethodInfo_,
-	_XWindowPeer$2_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.awt.X11.XWindowPeer"
-};
-
-$Object* allocate$XWindowPeer$2($Class* clazz) {
-	return $of($alloc(XWindowPeer$2));
-}
-
 void XWindowPeer$2::init$($XWindowPeer* this$0) {
 	$set(this, this$0, this$0);
 }
@@ -70,7 +27,42 @@ XWindowPeer$2::XWindowPeer$2() {
 }
 
 $Class* XWindowPeer$2::load$($String* name, bool initialize) {
-	$loadClass(XWindowPeer$2, name, initialize, &_XWindowPeer$2_ClassInfo_, allocate$XWindowPeer$2);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/awt/X11/XWindowPeer;", nullptr, $FINAL | $SYNTHETIC, $field(XWindowPeer$2, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/awt/X11/XWindowPeer;)V", nullptr, 0, $method(XWindowPeer$2, init$, void, $XWindowPeer*)},
+		{"run", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XWindowPeer$2, run, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.awt.X11.XWindowPeer",
+		"removeStartupNotification",
+		"()V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.X11.XWindowPeer$2", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.awt.X11.XWindowPeer$2",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/String;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.awt.X11.XWindowPeer"
+	};
+	$loadClass(XWindowPeer$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XWindowPeer$2);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <bug7036148.h>
-
 #include <bug7036148$1.h>
 #include <java/awt/Window.h>
 #include <javax/swing/Action.h>
@@ -21,38 +20,8 @@ using $JMenu = ::javax::swing::JMenu;
 using $JMenuBar = ::javax::swing::JMenuBar;
 using $JMenuItem = ::javax::swing::JMenuItem;
 
-$MethodInfo _bug7036148_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(bug7036148, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(bug7036148, main, void, $StringArray*)},
-	{}
-};
-
-$InnerClassInfo _bug7036148_InnerClassesInfo_[] = {
-	{"bug7036148$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _bug7036148_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"bug7036148",
-	"javax.swing.JFrame",
-	nullptr,
-	nullptr,
-	_bug7036148_MethodInfo_,
-	nullptr,
-	nullptr,
-	_bug7036148_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"bug7036148$1"
-};
-
-$Object* allocate$bug7036148($Class* clazz) {
-	return $of($alloc(bug7036148));
-}
-
 void bug7036148::init$() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$JFrame::init$();
 	$var($JMenuBar, bar, $new($JMenuBar));
 	$var($Action, menuAction, $new($bug7036148$1, this, nullptr, nullptr));
@@ -72,7 +41,32 @@ bug7036148::bug7036148() {
 }
 
 $Class* bug7036148::load$($String* name, bool initialize) {
-	$loadClass(bug7036148, name, initialize, &_bug7036148_ClassInfo_, allocate$bug7036148);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(bug7036148, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(bug7036148, main, void, $StringArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"bug7036148$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"bug7036148",
+		"javax.swing.JFrame",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"bug7036148$1"
+	};
+	$loadClass(bug7036148, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(bug7036148));
+	});
 	return class$;
 }
 

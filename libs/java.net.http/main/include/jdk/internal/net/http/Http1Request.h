@@ -84,6 +84,7 @@ class $import Http1Request : public ::java::lang::Object {
 	$class(Http1Request, 0, ::java::lang::Object)
 public:
 	Http1Request();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::jdk::internal::net::http::HttpRequestImpl* request, ::jdk::internal::net::http::Http1Exchange* http1Exchange);
 	$String* authorityString(::java::net::InetSocketAddress* addr);
 	void collectCookies(::java::lang::StringBuilder* sb, ::java::net::http::HttpHeaders* system, ::java::net::http::HttpHeaders* user);

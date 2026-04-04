@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/gtk/GTKFileChooserUI$DoubleClickListener.h>
-
 #include <com/sun/java/swing/plaf/gtk/GTKFileChooserUI.h>
 #include <java/awt/Point.h>
 #include <java/awt/event/MouseAdapter.h>
@@ -24,9 +23,7 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $JFileChooser = ::javax::swing::JFileChooser;
 using $JList = ::javax::swing::JList;
-using $ListModel = ::javax::swing::ListModel;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $TransferHandler = ::javax::swing::TransferHandler;
 using $ShellFolder = ::sun::awt::shell::ShellFolder;
@@ -38,44 +35,6 @@ namespace com {
 				namespace plaf {
 					namespace gtk {
 
-$FieldInfo _GTKFileChooserUI$DoubleClickListener_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/java/swing/plaf/gtk/GTKFileChooserUI;", nullptr, $FINAL | $SYNTHETIC, $field(GTKFileChooserUI$DoubleClickListener, this$0)},
-	{"list", "Ljavax/swing/JList;", "Ljavax/swing/JList<*>;", 0, $field(GTKFileChooserUI$DoubleClickListener, list)},
-	{}
-};
-
-$MethodInfo _GTKFileChooserUI$DoubleClickListener_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/java/swing/plaf/gtk/GTKFileChooserUI;Ljavax/swing/JList;)V", "(Ljavax/swing/JList<*>;)V", $PUBLIC, $method(GTKFileChooserUI$DoubleClickListener, init$, void, $GTKFileChooserUI*, $JList*)},
-	{"mouseClicked", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(GTKFileChooserUI$DoubleClickListener, mouseClicked, void, $MouseEvent*)},
-	{"mouseEntered", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(GTKFileChooserUI$DoubleClickListener, mouseEntered, void, $MouseEvent*)},
-	{}
-};
-
-$InnerClassInfo _GTKFileChooserUI$DoubleClickListener_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.gtk.GTKFileChooserUI$DoubleClickListener", "com.sun.java.swing.plaf.gtk.GTKFileChooserUI", "DoubleClickListener", 0},
-	{}
-};
-
-$ClassInfo _GTKFileChooserUI$DoubleClickListener_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.java.swing.plaf.gtk.GTKFileChooserUI$DoubleClickListener",
-	"java.awt.event.MouseAdapter",
-	nullptr,
-	_GTKFileChooserUI$DoubleClickListener_FieldInfo_,
-	_GTKFileChooserUI$DoubleClickListener_MethodInfo_,
-	nullptr,
-	nullptr,
-	_GTKFileChooserUI$DoubleClickListener_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.gtk.GTKFileChooserUI"
-};
-
-$Object* allocate$GTKFileChooserUI$DoubleClickListener($Class* clazz) {
-	return $of($alloc(GTKFileChooserUI$DoubleClickListener));
-}
-
 void GTKFileChooserUI$DoubleClickListener::init$($GTKFileChooserUI* this$0, $JList* list) {
 	$set(this, this$0, this$0);
 	$MouseAdapter::init$();
@@ -83,41 +42,41 @@ void GTKFileChooserUI$DoubleClickListener::init$($GTKFileChooserUI* this$0, $JLi
 }
 
 void GTKFileChooserUI$DoubleClickListener::mouseClicked($MouseEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool var$0 = $SwingUtilities::isLeftMouseButton(e);
 	if (var$0 && $nc(e)->getClickCount() == 2) {
 		int32_t index = $nc(this->list)->locationToIndex($(e->getPoint()));
 		if (index >= 0) {
-			$var($File, f, $cast($File, $nc($($nc(this->list)->getModel()))->getElementAt(index)));
+			$var($File, f, $cast($File, $$nc($nc(this->list)->getModel())->getElementAt(index)));
 			try {
 				$assign(f, $ShellFolder::getNormalizedFile(f));
 			} catch ($IOException& ex) {
 			}
-			if ($nc($(this->this$0->getFileChooser()))->isTraversable(f)) {
+			if ($$nc(this->this$0->getFileChooser())->isTraversable(f)) {
 				$nc(this->list)->clearSelection();
-				if ($nc($($nc($(this->this$0->getFileChooser()))->getCurrentDirectory()))->equals(f)) {
+				if ($$nc($$nc(this->this$0->getFileChooser())->getCurrentDirectory())->equals(f)) {
 					this->this$0->rescanCurrentDirectory($(this->this$0->getFileChooser()));
 				} else {
-					$nc($(this->this$0->getFileChooser()))->setCurrentDirectory(f);
+					$$nc(this->this$0->getFileChooser())->setCurrentDirectory(f);
 				}
 			} else {
-				$nc($(this->this$0->getFileChooser()))->approveSelection();
+				$$nc(this->this$0->getFileChooser())->approveSelection();
 			}
 		}
 	}
 }
 
 void GTKFileChooserUI$DoubleClickListener::mouseEntered($MouseEvent* evt) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->list != nullptr) {
-		$var($TransferHandler, th1, $nc($(this->this$0->getFileChooser()))->getTransferHandler());
+		$var($TransferHandler, th1, $$nc(this->this$0->getFileChooser())->getTransferHandler());
 		$var($TransferHandler, th2, $nc(this->list)->getTransferHandler());
 		if (th1 != th2) {
 			$nc(this->list)->setTransferHandler(th1);
 		}
-		bool var$0 = $nc($(this->this$0->getFileChooser()))->getDragEnabled();
+		bool var$0 = $$nc(this->this$0->getFileChooser())->getDragEnabled();
 		if (var$0 != $nc(this->list)->getDragEnabled()) {
-			$nc(this->list)->setDragEnabled($nc($(this->this$0->getFileChooser()))->getDragEnabled());
+			$nc(this->list)->setDragEnabled($$nc(this->this$0->getFileChooser())->getDragEnabled());
 		}
 	}
 }
@@ -126,7 +85,39 @@ GTKFileChooserUI$DoubleClickListener::GTKFileChooserUI$DoubleClickListener() {
 }
 
 $Class* GTKFileChooserUI$DoubleClickListener::load$($String* name, bool initialize) {
-	$loadClass(GTKFileChooserUI$DoubleClickListener, name, initialize, &_GTKFileChooserUI$DoubleClickListener_ClassInfo_, allocate$GTKFileChooserUI$DoubleClickListener);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/java/swing/plaf/gtk/GTKFileChooserUI;", nullptr, $FINAL | $SYNTHETIC, $field(GTKFileChooserUI$DoubleClickListener, this$0)},
+		{"list", "Ljavax/swing/JList;", "Ljavax/swing/JList<*>;", 0, $field(GTKFileChooserUI$DoubleClickListener, list)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/java/swing/plaf/gtk/GTKFileChooserUI;Ljavax/swing/JList;)V", "(Ljavax/swing/JList<*>;)V", $PUBLIC, $method(GTKFileChooserUI$DoubleClickListener, init$, void, $GTKFileChooserUI*, $JList*)},
+		{"mouseClicked", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(GTKFileChooserUI$DoubleClickListener, mouseClicked, void, $MouseEvent*)},
+		{"mouseEntered", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(GTKFileChooserUI$DoubleClickListener, mouseEntered, void, $MouseEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.gtk.GTKFileChooserUI$DoubleClickListener", "com.sun.java.swing.plaf.gtk.GTKFileChooserUI", "DoubleClickListener", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.java.swing.plaf.gtk.GTKFileChooserUI$DoubleClickListener",
+		"java.awt.event.MouseAdapter",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.gtk.GTKFileChooserUI"
+	};
+	$loadClass(GTKFileChooserUI$DoubleClickListener, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(GTKFileChooserUI$DoubleClickListener));
+	});
 	return class$;
 }
 

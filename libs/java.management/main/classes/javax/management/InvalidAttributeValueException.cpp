@@ -1,5 +1,4 @@
 #include <javax/management/InvalidAttributeValueException.h>
-
 #include <javax/management/OperationsException.h>
 #include <jcpp.h>
 
@@ -10,30 +9,6 @@ using $OperationsException = ::javax::management::OperationsException;
 
 namespace javax {
 	namespace management {
-
-$FieldInfo _InvalidAttributeValueException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(InvalidAttributeValueException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _InvalidAttributeValueException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(InvalidAttributeValueException, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(InvalidAttributeValueException, init$, void, $String*)},
-	{}
-};
-
-$ClassInfo _InvalidAttributeValueException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.management.InvalidAttributeValueException",
-	"javax.management.OperationsException",
-	nullptr,
-	_InvalidAttributeValueException_FieldInfo_,
-	_InvalidAttributeValueException_MethodInfo_
-};
-
-$Object* allocate$InvalidAttributeValueException($Class* clazz) {
-	return $of($alloc(InvalidAttributeValueException));
-}
 
 void InvalidAttributeValueException::init$() {
 	$OperationsException::init$();
@@ -54,7 +29,26 @@ void InvalidAttributeValueException::throw$() {
 }
 
 $Class* InvalidAttributeValueException::load$($String* name, bool initialize) {
-	$loadClass(InvalidAttributeValueException, name, initialize, &_InvalidAttributeValueException_ClassInfo_, allocate$InvalidAttributeValueException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(InvalidAttributeValueException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(InvalidAttributeValueException, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(InvalidAttributeValueException, init$, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.management.InvalidAttributeValueException",
+		"javax.management.OperationsException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(InvalidAttributeValueException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(InvalidAttributeValueException);
+	});
 	return class$;
 }
 

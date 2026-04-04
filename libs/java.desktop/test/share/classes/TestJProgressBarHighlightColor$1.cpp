@@ -1,5 +1,4 @@
 #include <TestJProgressBarHighlightColor$1.h>
-
 #include <TestJProgressBarHighlightColor.h>
 #include <java/awt/BorderLayout.h>
 #include <java/awt/Component.h>
@@ -24,43 +23,6 @@ using $JFrame = ::javax::swing::JFrame;
 using $JPanel = ::javax::swing::JPanel;
 using $JProgressBar = ::javax::swing::JProgressBar;
 
-$MethodInfo _TestJProgressBarHighlightColor$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(TestJProgressBarHighlightColor$1, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestJProgressBarHighlightColor$1, run, void)},
-	{}
-};
-
-$EnclosingMethodInfo _TestJProgressBarHighlightColor$1_EnclosingMethodInfo_ = {
-	"TestJProgressBarHighlightColor",
-	"main",
-	"([Ljava/lang/String;)V"
-};
-
-$InnerClassInfo _TestJProgressBarHighlightColor$1_InnerClassesInfo_[] = {
-	{"TestJProgressBarHighlightColor$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _TestJProgressBarHighlightColor$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"TestJProgressBarHighlightColor$1",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	_TestJProgressBarHighlightColor$1_MethodInfo_,
-	nullptr,
-	&_TestJProgressBarHighlightColor$1_EnclosingMethodInfo_,
-	_TestJProgressBarHighlightColor$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"TestJProgressBarHighlightColor"
-};
-
-$Object* allocate$TestJProgressBarHighlightColor$1($Class* clazz) {
-	return $of($alloc(TestJProgressBarHighlightColor$1));
-}
-
 void TestJProgressBarHighlightColor$1::init$() {
 }
 
@@ -68,11 +30,11 @@ void TestJProgressBarHighlightColor$1::run() {
 	$var($JPanel, panel, $new($JPanel));
 	$init($TestJProgressBarHighlightColor);
 	$assignStatic($TestJProgressBarHighlightColor::progressBar, $new($JProgressBar));
-	$nc($TestJProgressBarHighlightColor::progressBar)->setValue(50);
+	$TestJProgressBarHighlightColor::progressBar->setValue(50);
 	$init($BorderLayout);
-	panel->add(static_cast<$Component*>($TestJProgressBarHighlightColor::progressBar), $of($BorderLayout::CENTER));
+	panel->add($TestJProgressBarHighlightColor::progressBar, $BorderLayout::CENTER);
 	$assignStatic($TestJProgressBarHighlightColor::frame, $new($JFrame, "TestSelectedTextBackgroundColor"_s));
-	$nc($TestJProgressBarHighlightColor::frame)->add(static_cast<$Component*>(panel));
+	$TestJProgressBarHighlightColor::frame->add(panel);
 	$nc($TestJProgressBarHighlightColor::frame)->setSize(200, 200);
 	$nc($TestJProgressBarHighlightColor::frame)->setAlwaysOnTop(true);
 	$nc($TestJProgressBarHighlightColor::frame)->setLocationRelativeTo(nullptr);
@@ -84,7 +46,38 @@ TestJProgressBarHighlightColor$1::TestJProgressBarHighlightColor$1() {
 }
 
 $Class* TestJProgressBarHighlightColor$1::load$($String* name, bool initialize) {
-	$loadClass(TestJProgressBarHighlightColor$1, name, initialize, &_TestJProgressBarHighlightColor$1_ClassInfo_, allocate$TestJProgressBarHighlightColor$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(TestJProgressBarHighlightColor$1, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestJProgressBarHighlightColor$1, run, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"TestJProgressBarHighlightColor",
+		"main",
+		"([Ljava/lang/String;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"TestJProgressBarHighlightColor$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"TestJProgressBarHighlightColor$1",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"TestJProgressBarHighlightColor"
+	};
+	$loadClass(TestJProgressBarHighlightColor$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TestJProgressBarHighlightColor$1);
+	});
 	return class$;
 }
 

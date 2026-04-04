@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/UnresolvedRef.h>
-
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/Constants.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/Expression.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/Param.h>
@@ -29,7 +28,6 @@ using $ParameterRef = ::com::sun::org::apache::xalan::internal::xsltc::compiler:
 using $Parser = ::com::sun::org::apache::xalan::internal::xsltc::compiler::Parser;
 using $QName = ::com::sun::org::apache::xalan::internal::xsltc::compiler::QName;
 using $SymbolTable = ::com::sun::org::apache::xalan::internal::xsltc::compiler::SymbolTable;
-using $SyntaxTreeNode = ::com::sun::org::apache::xalan::internal::xsltc::compiler::SyntaxTreeNode;
 using $Variable = ::com::sun::org::apache::xalan::internal::xsltc::compiler::Variable;
 using $VariableBase = ::com::sun::org::apache::xalan::internal::xsltc::compiler::VariableBase;
 using $VariableRef = ::com::sun::org::apache::xalan::internal::xsltc::compiler::VariableRef;
@@ -52,36 +50,6 @@ namespace com {
 						namespace xsltc {
 							namespace compiler {
 
-$FieldInfo _UnresolvedRef_FieldInfo_[] = {
-	{"_variableName", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;", nullptr, $PRIVATE, $field(UnresolvedRef, _variableName)},
-	{"_ref", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/VariableRefBase;", nullptr, $PRIVATE, $field(UnresolvedRef, _ref)},
-	{}
-};
-
-$MethodInfo _UnresolvedRef_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;)V", nullptr, $PUBLIC, $method(UnresolvedRef, init$, void, $QName*)},
-	{"getName", "()Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;", nullptr, $PUBLIC, $method(UnresolvedRef, getName, $QName*)},
-	{"reportError", "()Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ErrorMsg;", nullptr, $PRIVATE, $method(UnresolvedRef, reportError, $ErrorMsg*)},
-	{"resolve", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Parser;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SymbolTable;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/VariableRefBase;", nullptr, $PRIVATE, $method(UnresolvedRef, resolve, $VariableRefBase*, $Parser*, $SymbolTable*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(UnresolvedRef, toString, $String*)},
-	{"translate", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;)V", nullptr, $PUBLIC, $virtualMethod(UnresolvedRef, translate, void, $ClassGenerator*, $MethodGenerator*)},
-	{"typeCheck", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SymbolTable;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/Type;", nullptr, $PUBLIC, $virtualMethod(UnresolvedRef, typeCheck, $Type*, $SymbolTable*), "com.sun.org.apache.xalan.internal.xsltc.compiler.util.TypeCheckError"},
-	{}
-};
-
-$ClassInfo _UnresolvedRef_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xalan.internal.xsltc.compiler.UnresolvedRef",
-	"com.sun.org.apache.xalan.internal.xsltc.compiler.VariableRefBase",
-	nullptr,
-	_UnresolvedRef_FieldInfo_,
-	_UnresolvedRef_MethodInfo_
-};
-
-$Object* allocate$UnresolvedRef($Class* clazz) {
-	return $of($alloc(UnresolvedRef));
-}
-
 void UnresolvedRef::init$($QName* name) {
 	$VariableRefBase::init$();
 	$set(this, _variableName, nullptr);
@@ -94,10 +62,10 @@ $QName* UnresolvedRef::getName() {
 }
 
 $ErrorMsg* UnresolvedRef::reportError() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($ErrorMsg);
-	$var($ErrorMsg, err, $new($ErrorMsg, $ErrorMsg::VARIABLE_UNDEF_ERR, $of(this->_variableName), static_cast<$SyntaxTreeNode*>(this)));
-	$nc($(getParser()))->reportError($Constants::ERROR, err);
+	$var($ErrorMsg, err, $new($ErrorMsg, $ErrorMsg::VARIABLE_UNDEF_ERR, this->_variableName, this));
+	$$nc(getParser())->reportError($Constants::ERROR, err);
 	return (err);
 }
 
@@ -121,11 +89,11 @@ $VariableRefBase* UnresolvedRef::resolve($Parser* parser, $SymbolTable* stable) 
 }
 
 $Type* UnresolvedRef::typeCheck($SymbolTable* stable) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->_ref != nullptr) {
 		$var($String, name, $nc(this->_variableName)->toString());
 		$init($ErrorMsg);
-		$var($ErrorMsg, err, $new($ErrorMsg, $ErrorMsg::CIRCULAR_VARIABLE_ERR, $of(name), static_cast<$SyntaxTreeNode*>(this)));
+		$var($ErrorMsg, err, $new($ErrorMsg, $ErrorMsg::CIRCULAR_VARIABLE_ERR, name, this));
 	}
 	if (($set(this, _ref, resolve($(getParser()), stable))) != nullptr) {
 		return ($set(this, _type, $nc(this->_ref)->typeCheck(stable)));
@@ -135,7 +103,7 @@ $Type* UnresolvedRef::typeCheck($SymbolTable* stable) {
 
 void UnresolvedRef::translate($ClassGenerator* classGen, $MethodGenerator* methodGen) {
 	if (this->_ref != nullptr) {
-		$nc(this->_ref)->translate(classGen, methodGen);
+		this->_ref->translate(classGen, methodGen);
 	} else {
 		reportError();
 	}
@@ -149,7 +117,32 @@ UnresolvedRef::UnresolvedRef() {
 }
 
 $Class* UnresolvedRef::load$($String* name, bool initialize) {
-	$loadClass(UnresolvedRef, name, initialize, &_UnresolvedRef_ClassInfo_, allocate$UnresolvedRef);
+	$FieldInfo fieldInfos$$[] = {
+		{"_variableName", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;", nullptr, $PRIVATE, $field(UnresolvedRef, _variableName)},
+		{"_ref", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/VariableRefBase;", nullptr, $PRIVATE, $field(UnresolvedRef, _ref)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;)V", nullptr, $PUBLIC, $method(UnresolvedRef, init$, void, $QName*)},
+		{"getName", "()Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;", nullptr, $PUBLIC, $method(UnresolvedRef, getName, $QName*)},
+		{"reportError", "()Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ErrorMsg;", nullptr, $PRIVATE, $method(UnresolvedRef, reportError, $ErrorMsg*)},
+		{"resolve", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Parser;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SymbolTable;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/VariableRefBase;", nullptr, $PRIVATE, $method(UnresolvedRef, resolve, $VariableRefBase*, $Parser*, $SymbolTable*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(UnresolvedRef, toString, $String*)},
+		{"translate", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;)V", nullptr, $PUBLIC, $virtualMethod(UnresolvedRef, translate, void, $ClassGenerator*, $MethodGenerator*)},
+		{"typeCheck", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SymbolTable;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/Type;", nullptr, $PUBLIC, $virtualMethod(UnresolvedRef, typeCheck, $Type*, $SymbolTable*), "com.sun.org.apache.xalan.internal.xsltc.compiler.util.TypeCheckError"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xalan.internal.xsltc.compiler.UnresolvedRef",
+		"com.sun.org.apache.xalan.internal.xsltc.compiler.VariableRefBase",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(UnresolvedRef, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(UnresolvedRef);
+	});
 	return class$;
 }
 

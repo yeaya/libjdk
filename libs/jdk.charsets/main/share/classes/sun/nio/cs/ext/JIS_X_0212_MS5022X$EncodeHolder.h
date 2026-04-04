@@ -14,6 +14,7 @@ class JIS_X_0212_MS5022X$EncodeHolder : public ::java::lang::Object {
 	$class(JIS_X_0212_MS5022X$EncodeHolder, 0, ::java::lang::Object)
 public:
 	JIS_X_0212_MS5022X$EncodeHolder();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $chars* c2b;
 	static $chars* c2bIndex;

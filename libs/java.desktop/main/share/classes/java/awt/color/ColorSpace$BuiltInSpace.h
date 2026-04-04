@@ -31,6 +31,7 @@ namespace java {
 class ColorSpace$BuiltInSpace : public ::java::lang::Object {
 	$interface(ColorSpace$BuiltInSpace, 0, ::java::lang::Object)
 public:
+	static void clinit$(::java::lang::Class* clazz);
 	static ::java::awt::color::ColorSpace* SRGB;
 	static ::java::awt::color::ColorSpace* LRGB;
 	static ::java::awt::color::ColorSpace* XYZ;

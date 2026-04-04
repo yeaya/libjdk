@@ -1,5 +1,4 @@
 #include <TestProxyLazyValue.h>
-
 #include <TestProxyLazyValue$UserLazyClass.h>
 #include <TestProxyLazyValue$UserProxyLazyValue.h>
 #include <java/io/Serializable.h>
@@ -42,27 +41,24 @@ public:
 	virtual void run() override {
 		TestProxyLazyValue::testUserProxyLazyValue();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<TestProxyLazyValue$$Lambda$testUserProxyLazyValue>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo TestProxyLazyValue$$Lambda$testUserProxyLazyValue::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TestProxyLazyValue$$Lambda$testUserProxyLazyValue, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestProxyLazyValue$$Lambda$testUserProxyLazyValue, run, void)},
-	{}
-};
-$ClassInfo TestProxyLazyValue$$Lambda$testUserProxyLazyValue::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"TestProxyLazyValue$$Lambda$testUserProxyLazyValue",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* TestProxyLazyValue$$Lambda$testUserProxyLazyValue::load$($String* name, bool initialize) {
-	$loadClass(TestProxyLazyValue$$Lambda$testUserProxyLazyValue, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TestProxyLazyValue$$Lambda$testUserProxyLazyValue, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestProxyLazyValue$$Lambda$testUserProxyLazyValue, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"TestProxyLazyValue$$Lambda$testUserProxyLazyValue",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(TestProxyLazyValue$$Lambda$testUserProxyLazyValue, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TestProxyLazyValue$$Lambda$testUserProxyLazyValue);
+	});
 	return class$;
 }
 $Class* TestProxyLazyValue$$Lambda$testUserProxyLazyValue::class$ = nullptr;
@@ -75,125 +71,87 @@ public:
 	virtual void run() override {
 		TestProxyLazyValue::testProxyLazyValue();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<TestProxyLazyValue$$Lambda$testProxyLazyValue$1>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo TestProxyLazyValue$$Lambda$testProxyLazyValue$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TestProxyLazyValue$$Lambda$testProxyLazyValue$1, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestProxyLazyValue$$Lambda$testProxyLazyValue$1, run, void)},
-	{}
-};
-$ClassInfo TestProxyLazyValue$$Lambda$testProxyLazyValue$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"TestProxyLazyValue$$Lambda$testProxyLazyValue$1",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* TestProxyLazyValue$$Lambda$testProxyLazyValue$1::load$($String* name, bool initialize) {
-	$loadClass(TestProxyLazyValue$$Lambda$testProxyLazyValue$1, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TestProxyLazyValue$$Lambda$testProxyLazyValue$1, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestProxyLazyValue$$Lambda$testProxyLazyValue$1, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"TestProxyLazyValue$$Lambda$testProxyLazyValue$1",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(TestProxyLazyValue$$Lambda$testProxyLazyValue$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TestProxyLazyValue$$Lambda$testProxyLazyValue$1);
+	});
 	return class$;
 }
 $Class* TestProxyLazyValue$$Lambda$testProxyLazyValue$1::class$ = nullptr;
-
-$MethodInfo _TestProxyLazyValue_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TestProxyLazyValue, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TestProxyLazyValue, main, void, $StringArray*), "java.lang.Exception"},
-	{"testProxyLazyValue", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(TestProxyLazyValue, testProxyLazyValue, void)},
-	{"testUserProxyLazyValue", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(TestProxyLazyValue, testUserProxyLazyValue, void)},
-	{}
-};
-
-$InnerClassInfo _TestProxyLazyValue_InnerClassesInfo_[] = {
-	{"TestProxyLazyValue$UserProxyLazyValue", "TestProxyLazyValue", "UserProxyLazyValue", $PUBLIC | $STATIC},
-	{"TestProxyLazyValue$UserLazyClass", "TestProxyLazyValue", "UserLazyClass", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _TestProxyLazyValue_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"TestProxyLazyValue",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_TestProxyLazyValue_MethodInfo_,
-	nullptr,
-	nullptr,
-	_TestProxyLazyValue_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"TestProxyLazyValue$UserProxyLazyValue,TestProxyLazyValue$UserLazyClass"
-};
-
-$Object* allocate$TestProxyLazyValue($Class* clazz) {
-	return $of($alloc(TestProxyLazyValue));
-}
 
 void TestProxyLazyValue::init$() {
 }
 
 void TestProxyLazyValue::main($StringArray* args) {
+	$useLocalObjectStack();
 	$load(TestProxyLazyValue);
-	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
-	$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(TestProxyLazyValue$$Lambda$testUserProxyLazyValue)));
-	$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(TestProxyLazyValue$$Lambda$testProxyLazyValue$1)));
+	$SwingUtilities::invokeAndWait($$new(TestProxyLazyValue$$Lambda$testUserProxyLazyValue));
+	$SwingUtilities::invokeAndWait($$new(TestProxyLazyValue$$Lambda$testProxyLazyValue$1));
 	$System::setSecurityManager($$new($SecurityManager));
-	$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(TestProxyLazyValue$$Lambda$testUserProxyLazyValue)));
-	$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(TestProxyLazyValue$$Lambda$testProxyLazyValue$1)));
+	$SwingUtilities::invokeAndWait($$new(TestProxyLazyValue$$Lambda$testUserProxyLazyValue));
+	$SwingUtilities::invokeAndWait($$new(TestProxyLazyValue$$Lambda$testProxyLazyValue$1));
 }
 
 void TestProxyLazyValue::testUserProxyLazyValue() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$load($TestProxyLazyValue$UserLazyClass);
 	$var($Object, obj, $$new($TestProxyLazyValue$UserProxyLazyValue, $($TestProxyLazyValue$UserLazyClass::class$->getName()))->createValue(nullptr));
 	if (!($instanceOf($TestProxyLazyValue$UserLazyClass, obj))) {
 		$throwNew($RuntimeException, "Object is not UserLazyClass!"_s);
 	}
 	$var($String, var$0, $TestProxyLazyValue$UserLazyClass::class$->getName());
-	$assign(obj, $$new($TestProxyLazyValue$UserProxyLazyValue, var$0, $$new($ObjectArray, {$($of($Integer::valueOf($TestProxyLazyValue$UserLazyClass::CONSTRUCTOR_ARG)))}))->createValue(nullptr));
+	$assign(obj, $$new($TestProxyLazyValue$UserProxyLazyValue, var$0, $$new($ObjectArray, {$($Integer::valueOf($TestProxyLazyValue$UserLazyClass::CONSTRUCTOR_ARG))}))->createValue(nullptr));
 	if (!($instanceOf($TestProxyLazyValue$UserLazyClass, obj))) {
 		$throwNew($RuntimeException, "Object is not UserLazyClass!"_s);
 	}
-	if ($nc(($cast($TestProxyLazyValue$UserLazyClass, obj)))->arg != $TestProxyLazyValue$UserLazyClass::CONSTRUCTOR_ARG) {
+	if ($nc($cast($TestProxyLazyValue$UserLazyClass, obj))->arg != $TestProxyLazyValue$UserLazyClass::CONSTRUCTOR_ARG) {
 		$throwNew($RuntimeException, "Constructt argument is wrong!"_s);
 	}
 	$assign(obj, $$new($TestProxyLazyValue$UserProxyLazyValue, $($TestProxyLazyValue$UserLazyClass::class$->getName()), "method1"_s)->createValue(nullptr));
-	$init($TestProxyLazyValue$UserLazyClass);
 	if (!$nc($TestProxyLazyValue$UserLazyClass::RESULT_1)->equals(obj)) {
 		$throwNew($RuntimeException, "Result is wrong!"_s);
 	}
-	$assign(obj, $$new($TestProxyLazyValue$UserProxyLazyValue, $($TestProxyLazyValue$UserLazyClass::class$->getName()), "method2"_s, $$new($ObjectArray, {$of($TestProxyLazyValue$UserLazyClass::RESULT_2)}))->createValue(nullptr));
+	$assign(obj, $$new($TestProxyLazyValue$UserProxyLazyValue, $($TestProxyLazyValue$UserLazyClass::class$->getName()), "method2"_s, $$new($ObjectArray, {$TestProxyLazyValue$UserLazyClass::RESULT_2}))->createValue(nullptr));
 	if (!$nc($TestProxyLazyValue$UserLazyClass::RESULT_2)->equals(obj)) {
 		$throwNew($RuntimeException, "Result is wrong!"_s);
 	}
 }
 
 void TestProxyLazyValue::testProxyLazyValue() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$load($TestProxyLazyValue$UserLazyClass);
 	$var($Object, obj, $$new($UIDefaults$ProxyLazyValue, $($TestProxyLazyValue$UserLazyClass::class$->getName()))->createValue(nullptr));
 	if (!($instanceOf($TestProxyLazyValue$UserLazyClass, obj))) {
 		$throwNew($RuntimeException, "Object is not UserLazyClass!"_s);
 	}
 	$var($String, var$0, $TestProxyLazyValue$UserLazyClass::class$->getName());
-	$assign(obj, $$new($UIDefaults$ProxyLazyValue, var$0, $$new($ObjectArray, {$($of($Integer::valueOf($TestProxyLazyValue$UserLazyClass::CONSTRUCTOR_ARG)))}))->createValue(nullptr));
+	$assign(obj, $$new($UIDefaults$ProxyLazyValue, var$0, $$new($ObjectArray, {$($Integer::valueOf($TestProxyLazyValue$UserLazyClass::CONSTRUCTOR_ARG))}))->createValue(nullptr));
 	if (!($instanceOf($TestProxyLazyValue$UserLazyClass, obj))) {
 		$throwNew($RuntimeException, "Object is not UserLazyClass!"_s);
 	}
-	if ($nc(($cast($TestProxyLazyValue$UserLazyClass, obj)))->arg != $TestProxyLazyValue$UserLazyClass::CONSTRUCTOR_ARG) {
+	if ($nc($cast($TestProxyLazyValue$UserLazyClass, obj))->arg != $TestProxyLazyValue$UserLazyClass::CONSTRUCTOR_ARG) {
 		$throwNew($RuntimeException, "Constructt argument is wrong!"_s);
 	}
 	$assign(obj, $$new($UIDefaults$ProxyLazyValue, $($TestProxyLazyValue$UserLazyClass::class$->getName()), "method1"_s)->createValue(nullptr));
-	$init($TestProxyLazyValue$UserLazyClass);
 	if (!$nc($TestProxyLazyValue$UserLazyClass::RESULT_1)->equals(obj)) {
 		$throwNew($RuntimeException, "Result is wrong!"_s);
 	}
-	$assign(obj, $$new($UIDefaults$ProxyLazyValue, $($TestProxyLazyValue$UserLazyClass::class$->getName()), "method2"_s, $$new($ObjectArray, {$of($TestProxyLazyValue$UserLazyClass::RESULT_2)}))->createValue(nullptr));
+	$assign(obj, $$new($UIDefaults$ProxyLazyValue, $($TestProxyLazyValue$UserLazyClass::class$->getName()), "method2"_s, $$new($ObjectArray, {$TestProxyLazyValue$UserLazyClass::RESULT_2}))->createValue(nullptr));
 	if (!$nc($TestProxyLazyValue$UserLazyClass::RESULT_2)->equals(obj)) {
 		$throwNew($RuntimeException, "Result is wrong!"_s);
 	}
@@ -204,14 +162,42 @@ TestProxyLazyValue::TestProxyLazyValue() {
 
 $Class* TestProxyLazyValue::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(TestProxyLazyValue$$Lambda$testUserProxyLazyValue::classInfo$.name)) {
+		if (name->equals("TestProxyLazyValue$$Lambda$testUserProxyLazyValue")) {
 			return TestProxyLazyValue$$Lambda$testUserProxyLazyValue::load$(name, initialize);
 		}
-		if (name->equals(TestProxyLazyValue$$Lambda$testProxyLazyValue$1::classInfo$.name)) {
+		if (name->equals("TestProxyLazyValue$$Lambda$testProxyLazyValue$1")) {
 			return TestProxyLazyValue$$Lambda$testProxyLazyValue$1::load$(name, initialize);
 		}
 	}
-	$loadClass(TestProxyLazyValue, name, initialize, &_TestProxyLazyValue_ClassInfo_, allocate$TestProxyLazyValue);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TestProxyLazyValue, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TestProxyLazyValue, main, void, $StringArray*), "java.lang.Exception"},
+		{"testProxyLazyValue", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(TestProxyLazyValue, testProxyLazyValue, void)},
+		{"testUserProxyLazyValue", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(TestProxyLazyValue, testUserProxyLazyValue, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"TestProxyLazyValue$UserProxyLazyValue", "TestProxyLazyValue", "UserProxyLazyValue", $PUBLIC | $STATIC},
+		{"TestProxyLazyValue$UserLazyClass", "TestProxyLazyValue", "UserLazyClass", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"TestProxyLazyValue",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"TestProxyLazyValue$UserProxyLazyValue,TestProxyLazyValue$UserLazyClass"
+	};
+	$loadClass(TestProxyLazyValue, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TestProxyLazyValue);
+	});
 	return class$;
 }
 

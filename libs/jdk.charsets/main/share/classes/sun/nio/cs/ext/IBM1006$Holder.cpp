@@ -1,5 +1,4 @@
 #include <sun/nio/cs/ext/IBM1006$Holder.h>
-
 #include <sun/nio/cs/SingleByte.h>
 #include <sun/nio/cs/ext/IBM1006.h>
 #include <jcpp.h>
@@ -15,44 +14,6 @@ namespace sun {
 		namespace cs {
 			namespace ext {
 
-$FieldInfo _IBM1006$Holder_FieldInfo_[] = {
-	{"b2cTable", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(IBM1006$Holder, b2cTable)},
-	{"b2c", "[C", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(IBM1006$Holder, b2c)},
-	{"c2b", "[C", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(IBM1006$Holder, c2b)},
-	{"c2bIndex", "[C", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(IBM1006$Holder, c2bIndex)},
-	{}
-};
-
-$MethodInfo _IBM1006$Holder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(IBM1006$Holder, init$, void)},
-	{}
-};
-
-$InnerClassInfo _IBM1006$Holder_InnerClassesInfo_[] = {
-	{"sun.nio.cs.ext.IBM1006$Holder", "sun.nio.cs.ext.IBM1006", "Holder", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _IBM1006$Holder_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.nio.cs.ext.IBM1006$Holder",
-	"java.lang.Object",
-	nullptr,
-	_IBM1006$Holder_FieldInfo_,
-	_IBM1006$Holder_MethodInfo_,
-	nullptr,
-	nullptr,
-	_IBM1006$Holder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.nio.cs.ext.IBM1006"
-};
-
-$Object* allocate$IBM1006$Holder($Class* clazz) {
-	return $of($alloc(IBM1006$Holder));
-}
-
 $String* IBM1006$Holder::b2cTable = nullptr;
 $chars* IBM1006$Holder::b2c = nullptr;
 $chars* IBM1006$Holder::c2b = nullptr;
@@ -61,10 +22,10 @@ $chars* IBM1006$Holder::c2bIndex = nullptr;
 void IBM1006$Holder::init$() {
 }
 
-void clinit$IBM1006$Holder($Class* class$) {
-	$useLocalCurrentObjectStackCache();
-	$assignStatic(IBM1006$Holder::b2cTable, $cstr({0x80, 0x81, 0x82, 0x83, 0x84, 0x85, 0x86, 0x87, 0x88, 0x89, 0x8A, 0x8B, 0x8C, 0x8D, 0x8E, 0x8F, 0x90, 0x91, 0x92, 0x93, 0x94, 0x95, 0x96, 0x97, 0x98, 0x99, 0x9A, 0x9B, 0x9C, 0x9D, 0x9E, 0x9F, 0xA0, 0x6F0, 0x6F1, 0x6F2, 0x6F3, 0x6F4, 0x6F5, 0x6F6, 0x6F7, 0x6F8, 0x6F9, 0x60C, 0x61B, 0xAD, 0x61F, 0xFE81, 0xFE8D, 0xFE8E, 0xF8FB, 0xFE8F, 0xFE91, 0xFB56, 0xFB58, 0xFE93, 0xFE95, 0xFE97, 0xFB66, 0xFB68, 0xFE99, 0xFE9B, 0xFE9D, 0xFE9F, 0xFB7A, 0xFB7C, 0xFEA1, 0xFEA3, 0xFEA5, 0xFEA7, 0xFEA9, 0xFB88, 0xFEAB, 0xFEAD, 0xFB8C, 0xFEAF, 0xFB8A, 0xFEB1, 0xFEB3, 0xFEB5, 0xFEB7, 0xFEB9, 0xFEBB, 0xFEBD, 0xFEBF, 0xFEC3, 0xFEC7, 0xFEC9, 0xFECA, 0xFECB, 0xFECC, 0xFECD, 0xFECE, 0xFECF, 0xFED0, 0xFED1, 0xFED3, 0xFED5, 0xFED7, 0xFB8E, 0xFEDB, 0xFB92, 0xFB94, 0xFEDD, 0xFEDF, 0xFEE0, 0xFEE1, 0xFEE3, 0xFB9E, 0xFEE5, 0xFEE7, 0xFE85, 0xFEED, 0xFBA6, 0xFBA8, 0xFBA9, 0xFBAA, 0xFE80, 0xFE89, 0xFE8A, 0xFE8B, 0xFBFC, 0xFBFD, 0xFBFE, 0xFBB0, 0xFBAE, 0xFE7C, 0xFE7D, '\0', 0x1, 0x2, 0x3, 0x4, 0x5, 0x6, 0x7, '\b', '\t', '\n', 0xB, '\f', '\r', 0xE, 0xF, 0x10, 0x11, 0x12, 0x13, 0x14, 0x15, 0x16, 0x17, 0x18, 0x19, 0x1A, 0x1B, 0x1C, 0x1D, 0x1E, 0x1F, ' ', '!', '\"', '#', '$', '%', '&', '\'', '(', ')', '*', '+', ',', '-', '.', '/', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', ':', ';', '<', '=', '>', '?', '@', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', '[', '\\', ']', '^', '_', '`', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '{', '|', '}', '~', 0x7F}));
-	$assignStatic(IBM1006$Holder::b2c, $nc(IBM1006$Holder::b2cTable)->toCharArray());
+void IBM1006$Holder::clinit$($Class* clazz) {
+	$useLocalObjectStack();
+	$assignStatic(IBM1006$Holder::b2cTable, $cstr({0x80, 0x81, 0x82, 0x83, 0x84, 0x85, 0x86, 0x87, 0x88, 0x89, 0x8a, 0x8b, 0x8c, 0x8d, 0x8e, 0x8f, 0x90, 0x91, 0x92, 0x93, 0x94, 0x95, 0x96, 0x97, 0x98, 0x99, 0x9a, 0x9b, 0x9c, 0x9d, 0x9e, 0x9f, 0xa0, 0x06f0, 0x06f1, 0x06f2, 0x06f3, 0x06f4, 0x06f5, 0x06f6, 0x06f7, 0x06f8, 0x06f9, 0x060c, 0x061b, 0xad, 0x061f, 0xfe81, 0xfe8d, 0xfe8e, 0xf8fb, 0xfe8f, 0xfe91, 0xfb56, 0xfb58, 0xfe93, 0xfe95, 0xfe97, 0xfb66, 0xfb68, 0xfe99, 0xfe9b, 0xfe9d, 0xfe9f, 0xfb7a, 0xfb7c, 0xfea1, 0xfea3, 0xfea5, 0xfea7, 0xfea9, 0xfb88, 0xfeab, 0xfead, 0xfb8c, 0xfeaf, 0xfb8a, 0xfeb1, 0xfeb3, 0xfeb5, 0xfeb7, 0xfeb9, 0xfebb, 0xfebd, 0xfebf, 0xfec3, 0xfec7, 0xfec9, 0xfeca, 0xfecb, 0xfecc, 0xfecd, 0xfece, 0xfecf, 0xfed0, 0xfed1, 0xfed3, 0xfed5, 0xfed7, 0xfb8e, 0xfedb, 0xfb92, 0xfb94, 0xfedd, 0xfedf, 0xfee0, 0xfee1, 0xfee3, 0xfb9e, 0xfee5, 0xfee7, 0xfe85, 0xfeed, 0xfba6, 0xfba8, 0xfba9, 0xfbaa, 0xfe80, 0xfe89, 0xfe8a, 0xfe8b, 0xfbfc, 0xfbfd, 0xfbfe, 0xfbb0, 0xfbae, 0xfe7c, 0xfe7d, '\0', 0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, '\b', '\t', '\n', 0x0b, '\f', '\r', 0x0e, 0x0f, 0x10, 0x11, 0x12, 0x13, 0x14, 0x15, 0x16, 0x17, 0x18, 0x19, 0x1a, 0x1b, 0x1c, 0x1d, 0x1e, 0x1f, ' ', '!', '\"', '#', '$', '%', '&', '\'', '(', ')', '*', '+', ',', '-', '.', '/', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', ':', ';', '<', '=', '>', '?', '@', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', '[', '\\', ']', '^', '_', '`', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '{', '|', '}', '~', 0x7f}));
+	$assignStatic(IBM1006$Holder::b2c, IBM1006$Holder::b2cTable->toCharArray());
 	$assignStatic(IBM1006$Holder::c2b, $new($chars, 1280));
 	$assignStatic(IBM1006$Holder::c2bIndex, $new($chars, 256));
 	{
@@ -78,7 +39,39 @@ IBM1006$Holder::IBM1006$Holder() {
 }
 
 $Class* IBM1006$Holder::load$($String* name, bool initialize) {
-	$loadClass(IBM1006$Holder, name, initialize, &_IBM1006$Holder_ClassInfo_, clinit$IBM1006$Holder, allocate$IBM1006$Holder);
+	$FieldInfo fieldInfos$$[] = {
+		{"b2cTable", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(IBM1006$Holder, b2cTable)},
+		{"b2c", "[C", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(IBM1006$Holder, b2c)},
+		{"c2b", "[C", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(IBM1006$Holder, c2b)},
+		{"c2bIndex", "[C", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(IBM1006$Holder, c2bIndex)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(IBM1006$Holder, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.cs.ext.IBM1006$Holder", "sun.nio.cs.ext.IBM1006", "Holder", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.nio.cs.ext.IBM1006$Holder",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.nio.cs.ext.IBM1006"
+	};
+	$loadClass(IBM1006$Holder, name, initialize, &classInfo$$, IBM1006$Holder::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(IBM1006$Holder);
+	});
 	return class$;
 }
 

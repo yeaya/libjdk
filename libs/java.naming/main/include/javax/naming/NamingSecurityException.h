@@ -14,10 +14,13 @@ public:
 	NamingSecurityException();
 	void init$($String* explanation);
 	void init$();
-	static const int64_t serialVersionUID = (int64_t)0x51422917B2BB824F;
+	static const int64_t serialVersionUID = (int64_t)0x51422917b2bb824f;
 	NamingSecurityException(const NamingSecurityException& e);
 	virtual void throw$() override;
-	inline NamingSecurityException* operator ->() {
+	inline NamingSecurityException* operator ->() const {
+		return (NamingSecurityException*)throwing$;
+	}
+	inline operator NamingSecurityException*() const {
 		return (NamingSecurityException*)throwing$;
 	}
 };

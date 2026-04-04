@@ -42,6 +42,7 @@ class $export BasicHTML : public ::java::lang::Object {
 	$class(BasicHTML, 0, ::java::lang::Object)
 public:
 	BasicHTML();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::javax::swing::text::View* createHTMLView(::javax::swing::JComponent* c, $String* html);
 	static int32_t getBaseline(::javax::swing::JComponent* c, int32_t y, int32_t ascent, int32_t w, int32_t h);

@@ -31,6 +31,7 @@ class DOMMessageFormatter : public ::java::lang::Object {
 	$class(DOMMessageFormatter, 0, ::java::lang::Object)
 public:
 	DOMMessageFormatter();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $String* formatMessage($String* domain, $String* key, $ObjectArray* arguments);
 	static ::java::util::ResourceBundle* getResourceBundle($String* domain);

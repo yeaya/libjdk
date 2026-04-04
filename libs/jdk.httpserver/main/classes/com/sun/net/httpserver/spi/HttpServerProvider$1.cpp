@@ -1,5 +1,4 @@
 #include <com/sun/net/httpserver/spi/HttpServerProvider$1.h>
-
 #include <com/sun/net/httpserver/spi/HttpServerProvider.h>
 #include <sun/net/httpserver/DefaultHttpServerProvider.h>
 #include <jcpp.h>
@@ -17,63 +16,56 @@ namespace com {
 			namespace httpserver {
 				namespace spi {
 
-$MethodInfo _HttpServerProvider$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(HttpServerProvider$1, init$, void)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(HttpServerProvider$1, run, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _HttpServerProvider$1_EnclosingMethodInfo_ = {
-	"com.sun.net.httpserver.spi.HttpServerProvider",
-	"provider",
-	"()Lcom/sun/net/httpserver/spi/HttpServerProvider;"
-};
-
-$InnerClassInfo _HttpServerProvider$1_InnerClassesInfo_[] = {
-	{"com.sun.net.httpserver.spi.HttpServerProvider$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _HttpServerProvider$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.net.httpserver.spi.HttpServerProvider$1",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	nullptr,
-	_HttpServerProvider$1_MethodInfo_,
-	"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/Object;>;",
-	&_HttpServerProvider$1_EnclosingMethodInfo_,
-	_HttpServerProvider$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.net.httpserver.spi.HttpServerProvider"
-};
-
-$Object* allocate$HttpServerProvider$1($Class* clazz) {
-	return $of($alloc(HttpServerProvider$1));
-}
-
 void HttpServerProvider$1::init$() {
 }
 
 $Object* HttpServerProvider$1::run() {
 	if ($HttpServerProvider::loadProviderFromProperty()) {
-		$init($HttpServerProvider);
-		return $of($HttpServerProvider::provider$);
+		return $HttpServerProvider::provider$;
 	}
 	if ($HttpServerProvider::loadProviderAsService()) {
-		return $of($HttpServerProvider::provider$);
+		return $HttpServerProvider::provider$;
 	}
 	$assignStatic($HttpServerProvider::provider$, $new($DefaultHttpServerProvider));
-	return $of($HttpServerProvider::provider$);
+	return $HttpServerProvider::provider$;
 }
 
 HttpServerProvider$1::HttpServerProvider$1() {
 }
 
 $Class* HttpServerProvider$1::load$($String* name, bool initialize) {
-	$loadClass(HttpServerProvider$1, name, initialize, &_HttpServerProvider$1_ClassInfo_, allocate$HttpServerProvider$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(HttpServerProvider$1, init$, void)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(HttpServerProvider$1, run, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.net.httpserver.spi.HttpServerProvider",
+		"provider",
+		"()Lcom/sun/net/httpserver/spi/HttpServerProvider;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.net.httpserver.spi.HttpServerProvider$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.net.httpserver.spi.HttpServerProvider$1",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		nullptr,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/Object;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.net.httpserver.spi.HttpServerProvider"
+	};
+	$loadClass(HttpServerProvider$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HttpServerProvider$1);
+	});
 	return class$;
 }
 

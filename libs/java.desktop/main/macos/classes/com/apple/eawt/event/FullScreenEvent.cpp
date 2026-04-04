@@ -1,5 +1,4 @@
 #include <com/apple/eawt/event/FullScreenEvent.h>
-
 #include <com/apple/eawt/Application.h>
 #include <java/awt/Window.h>
 #include <java/util/EventObject.h>
@@ -17,30 +16,6 @@ namespace com {
 		namespace eawt {
 			namespace event {
 
-$FieldInfo _FullScreenEvent_FieldInfo_[] = {
-	{"window", "Ljava/awt/Window;", nullptr, $FINAL, $field(FullScreenEvent, window)},
-	{}
-};
-
-$MethodInfo _FullScreenEvent_MethodInfo_[] = {
-	{"<init>", "(Ljava/awt/Window;)V", nullptr, $PUBLIC, $method(FullScreenEvent, init$, void, $Window*)},
-	{"getWindow", "()Ljava/awt/Window;", nullptr, $PUBLIC, $virtualMethod(FullScreenEvent, getWindow, $Window*)},
-	{}
-};
-
-$ClassInfo _FullScreenEvent_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.apple.eawt.event.FullScreenEvent",
-	"java.util.EventObject",
-	nullptr,
-	_FullScreenEvent_FieldInfo_,
-	_FullScreenEvent_MethodInfo_
-};
-
-$Object* allocate$FullScreenEvent($Class* clazz) {
-	return $of($alloc(FullScreenEvent));
-}
-
 void FullScreenEvent::init$($Window* window) {
 	$EventObject::init$($($Application::getApplication()));
 	$set(this, window, window);
@@ -54,7 +29,26 @@ FullScreenEvent::FullScreenEvent() {
 }
 
 $Class* FullScreenEvent::load$($String* name, bool initialize) {
-	$loadClass(FullScreenEvent, name, initialize, &_FullScreenEvent_ClassInfo_, allocate$FullScreenEvent);
+	$FieldInfo fieldInfos$$[] = {
+		{"window", "Ljava/awt/Window;", nullptr, $FINAL, $field(FullScreenEvent, window)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/Window;)V", nullptr, $PUBLIC, $method(FullScreenEvent, init$, void, $Window*)},
+		{"getWindow", "()Ljava/awt/Window;", nullptr, $PUBLIC, $virtualMethod(FullScreenEvent, getWindow, $Window*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.apple.eawt.event.FullScreenEvent",
+		"java.util.EventObject",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(FullScreenEvent, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FullScreenEvent);
+	});
 	return class$;
 }
 

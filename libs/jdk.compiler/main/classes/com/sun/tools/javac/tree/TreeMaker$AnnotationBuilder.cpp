@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/tree/TreeMaker$AnnotationBuilder.h>
-
 #include <com/sun/tools/javac/code/Attribute$Array.h>
 #include <com/sun/tools/javac/code/Attribute$Class.h>
 #include <com/sun/tools/javac/code/Attribute$Compound.h>
@@ -8,7 +7,6 @@
 #include <com/sun/tools/javac/code/Attribute$Error.h>
 #include <com/sun/tools/javac/code/Attribute$TypeCompound.h>
 #include <com/sun/tools/javac/code/Attribute$UnresolvedClass.h>
-#include <com/sun/tools/javac/code/Attribute$Visitor.h>
 #include <com/sun/tools/javac/code/Attribute.h>
 #include <com/sun/tools/javac/code/Symbol$VarSymbol.h>
 #include <com/sun/tools/javac/code/Symbol.h>
@@ -38,14 +36,10 @@ using $Attribute$Enum = ::com::sun::tools::javac::code::Attribute$Enum;
 using $Attribute$Error = ::com::sun::tools::javac::code::Attribute$Error;
 using $Attribute$TypeCompound = ::com::sun::tools::javac::code::Attribute$TypeCompound;
 using $Attribute$UnresolvedClass = ::com::sun::tools::javac::code::Attribute$UnresolvedClass;
-using $Attribute$Visitor = ::com::sun::tools::javac::code::Attribute$Visitor;
 using $Symbol = ::com::sun::tools::javac::code::Symbol;
-using $Type = ::com::sun::tools::javac::code::Type;
 using $JCTree = ::com::sun::tools::javac::tree::JCTree;
 using $JCTree$JCAnnotation = ::com::sun::tools::javac::tree::JCTree$JCAnnotation;
-using $JCTree$JCAssign = ::com::sun::tools::javac::tree::JCTree$JCAssign;
 using $JCTree$JCExpression = ::com::sun::tools::javac::tree::JCTree$JCExpression;
-using $JCTree$JCNewArray = ::com::sun::tools::javac::tree::JCTree$JCNewArray;
 using $TreeMaker = ::com::sun::tools::javac::tree::TreeMaker;
 using $List = ::com::sun::tools::javac::util::List;
 using $ListBuffer = ::com::sun::tools::javac::util::ListBuffer;
@@ -61,65 +55,17 @@ namespace com {
 			namespace javac {
 				namespace tree {
 
-$FieldInfo _TreeMaker$AnnotationBuilder_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/tree/TreeMaker;", nullptr, $FINAL | $SYNTHETIC, $field(TreeMaker$AnnotationBuilder, this$0)},
-	{"result", "Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, 0, $field(TreeMaker$AnnotationBuilder, result)},
-	{}
-};
-
-$MethodInfo _TreeMaker$AnnotationBuilder_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/tree/TreeMaker;)V", nullptr, 0, $method(TreeMaker$AnnotationBuilder, init$, void, $TreeMaker*)},
-	{"translate", "(Lcom/sun/tools/javac/code/Attribute;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, 0, $virtualMethod(TreeMaker$AnnotationBuilder, translate, $JCTree$JCExpression*, $Attribute*)},
-	{"translate", "(Lcom/sun/tools/javac/code/Attribute$Compound;)Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;", nullptr, 0, $virtualMethod(TreeMaker$AnnotationBuilder, translate, $JCTree$JCAnnotation*, $Attribute$Compound*)},
-	{"translate", "(Lcom/sun/tools/javac/code/Attribute$TypeCompound;)Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;", nullptr, 0, $virtualMethod(TreeMaker$AnnotationBuilder, translate, $JCTree$JCAnnotation*, $Attribute$TypeCompound*)},
-	{"visitArray", "(Lcom/sun/tools/javac/code/Attribute$Array;)V", nullptr, $PUBLIC, $virtualMethod(TreeMaker$AnnotationBuilder, visitArray, void, $Attribute$Array*)},
-	{"visitClass", "(Lcom/sun/tools/javac/code/Attribute$Class;)V", nullptr, $PUBLIC, $virtualMethod(TreeMaker$AnnotationBuilder, visitClass, void, $Attribute$Class*)},
-	{"visitCompound", "(Lcom/sun/tools/javac/code/Attribute$Compound;)V", nullptr, $PUBLIC, $virtualMethod(TreeMaker$AnnotationBuilder, visitCompound, void, $Attribute$Compound*)},
-	{"visitCompoundInternal", "(Lcom/sun/tools/javac/code/Attribute$Compound;)Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;", nullptr, $PUBLIC, $virtualMethod(TreeMaker$AnnotationBuilder, visitCompoundInternal, $JCTree$JCAnnotation*, $Attribute$Compound*)},
-	{"visitConstant", "(Lcom/sun/tools/javac/code/Attribute$Constant;)V", nullptr, $PUBLIC, $virtualMethod(TreeMaker$AnnotationBuilder, visitConstant, void, $Attribute$Constant*)},
-	{"visitEnum", "(Lcom/sun/tools/javac/code/Attribute$Enum;)V", nullptr, $PUBLIC, $virtualMethod(TreeMaker$AnnotationBuilder, visitEnum, void, $Attribute$Enum*)},
-	{"visitError", "(Lcom/sun/tools/javac/code/Attribute$Error;)V", nullptr, $PUBLIC, $virtualMethod(TreeMaker$AnnotationBuilder, visitError, void, $Attribute$Error*)},
-	{"visitTypeCompoundInternal", "(Lcom/sun/tools/javac/code/Attribute$TypeCompound;)Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;", nullptr, $PUBLIC, $virtualMethod(TreeMaker$AnnotationBuilder, visitTypeCompoundInternal, $JCTree$JCAnnotation*, $Attribute$TypeCompound*)},
-	{}
-};
-
-$InnerClassInfo _TreeMaker$AnnotationBuilder_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.tree.TreeMaker$AnnotationBuilder", "com.sun.tools.javac.tree.TreeMaker", "AnnotationBuilder", 0},
-	{"com.sun.tools.javac.code.Attribute$Visitor", "com.sun.tools.javac.code.Attribute", "Visitor", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _TreeMaker$AnnotationBuilder_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.tree.TreeMaker$AnnotationBuilder",
-	"java.lang.Object",
-	"com.sun.tools.javac.code.Attribute$Visitor",
-	_TreeMaker$AnnotationBuilder_FieldInfo_,
-	_TreeMaker$AnnotationBuilder_MethodInfo_,
-	nullptr,
-	nullptr,
-	_TreeMaker$AnnotationBuilder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.tree.TreeMaker"
-};
-
-$Object* allocate$TreeMaker$AnnotationBuilder($Class* clazz) {
-	return $of($alloc(TreeMaker$AnnotationBuilder));
-}
-
 void TreeMaker$AnnotationBuilder::init$($TreeMaker* this$0) {
 	$set(this, this$0, this$0);
 	$set(this, result, nullptr);
 }
 
 void TreeMaker$AnnotationBuilder::visitConstant($Attribute$Constant* v) {
-	$set(this, result, this->this$0->Literal($($nc($nc(v)->type)->getTag()), v->value));
+	$set(this, result, this->this$0->Literal($($nc($nc(v)->type)->getTag()), $nc(v)->value));
 }
 
 void TreeMaker$AnnotationBuilder::visitClass($Attribute$Class* clazz) {
-	$set(this, result, $nc($(this->this$0->ClassLiteral($nc(clazz)->classType)))->setType($nc(this->this$0->syms)->classType));
+	$set(this, result, $$nc(this->this$0->ClassLiteral($nc(clazz)->classType))->setType($nc(this->this$0->syms)->classType));
 }
 
 void TreeMaker$AnnotationBuilder::visitEnum($Attribute$Enum* e) {
@@ -127,7 +73,7 @@ void TreeMaker$AnnotationBuilder::visitEnum($Attribute$Enum* e) {
 }
 
 void TreeMaker$AnnotationBuilder::visitError($Attribute$Error* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	{
 		$var($Attribute$UnresolvedClass, unresolvedClass, nullptr);
 		bool var$0 = $instanceOf($Attribute$UnresolvedClass, e);
@@ -136,7 +82,7 @@ void TreeMaker$AnnotationBuilder::visitError($Attribute$Error* e) {
 			var$0 = true;
 		}
 		if (var$0) {
-			$set(this, result, $nc($(this->this$0->ClassLiteral($nc(unresolvedClass)->classType)))->setType($nc(this->this$0->syms)->classType));
+			$set(this, result, $$nc(this->this$0->ClassLiteral($nc(unresolvedClass)->classType))->setType($nc(this->this$0->syms)->classType));
 		} else {
 			$set(this, result, this->this$0->Erroneous());
 		}
@@ -160,43 +106,43 @@ void TreeMaker$AnnotationBuilder::visitCompound($Attribute$Compound* compound) {
 }
 
 $JCTree$JCAnnotation* TreeMaker$AnnotationBuilder::visitCompoundInternal($Attribute$Compound* compound) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ListBuffer, args, $new($ListBuffer));
 	{
 		$var($List, values, $nc(compound)->values);
-		for (; $nc(values)->nonEmpty(); $assign(values, $nc(values)->tail)) {
+		for (; $nc(values)->nonEmpty(); $assign(values, values->tail)) {
 			$var($Pair, pair, $cast($Pair, values->head));
 			$var($JCTree$JCExpression, valueTree, translate($cast($Attribute, $nc(pair)->snd)));
-			args->append($($nc($(this->this$0->Assign($(this->this$0->Ident($cast($Symbol, $nc(pair)->fst))), valueTree)))->setType($nc(valueTree)->type)));
+			args->append($($$nc(this->this$0->Assign($(this->this$0->Ident($cast($Symbol, pair->fst))), valueTree))->setType($nc(valueTree)->type)));
 		}
 	}
-	$var($JCTree, var$0, static_cast<$JCTree*>(this->this$0->Type(compound->type)));
+	$var($JCTree, var$0, this->this$0->Type(compound->type));
 	return this->this$0->Annotation(var$0, $(args->toList()));
 }
 
 $JCTree$JCAnnotation* TreeMaker$AnnotationBuilder::visitTypeCompoundInternal($Attribute$TypeCompound* compound) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ListBuffer, args, $new($ListBuffer));
 	{
 		$var($List, values, $nc(compound)->values);
-		for (; $nc(values)->nonEmpty(); $assign(values, $nc(values)->tail)) {
+		for (; $nc(values)->nonEmpty(); $assign(values, values->tail)) {
 			$var($Pair, pair, $cast($Pair, values->head));
 			$var($JCTree$JCExpression, valueTree, translate($cast($Attribute, $nc(pair)->snd)));
-			args->append($($nc($(this->this$0->Assign($(this->this$0->Ident($cast($Symbol, $nc(pair)->fst))), valueTree)))->setType($nc(valueTree)->type)));
+			args->append($($$nc(this->this$0->Assign($(this->this$0->Ident($cast($Symbol, pair->fst))), valueTree))->setType($nc(valueTree)->type)));
 		}
 	}
-	$var($JCTree, var$0, static_cast<$JCTree*>(this->this$0->Type(compound->type)));
+	$var($JCTree, var$0, this->this$0->Type(compound->type));
 	return this->this$0->TypeAnnotation(var$0, $(args->toList()));
 }
 
 void TreeMaker$AnnotationBuilder::visitArray($Attribute$Array* array) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ListBuffer, elems, $new($ListBuffer));
 	for (int32_t i = 0; i < $nc($nc(array)->values)->length; ++i) {
-		elems->append($(translate($nc(array->values)->get(i))));
+		elems->append($(translate(array->values->get(i))));
 	}
 	$var($List, var$0, $List::nil());
-	$set(this, result, $nc($(this->this$0->NewArray(nullptr, var$0, $(elems->toList()))))->setType($nc(array)->type));
+	$set(this, result, $$nc(this->this$0->NewArray(nullptr, var$0, $(elems->toList())))->setType(array->type));
 }
 
 $JCTree$JCExpression* TreeMaker$AnnotationBuilder::translate($Attribute* a) {
@@ -216,7 +162,49 @@ TreeMaker$AnnotationBuilder::TreeMaker$AnnotationBuilder() {
 }
 
 $Class* TreeMaker$AnnotationBuilder::load$($String* name, bool initialize) {
-	$loadClass(TreeMaker$AnnotationBuilder, name, initialize, &_TreeMaker$AnnotationBuilder_ClassInfo_, allocate$TreeMaker$AnnotationBuilder);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/tree/TreeMaker;", nullptr, $FINAL | $SYNTHETIC, $field(TreeMaker$AnnotationBuilder, this$0)},
+		{"result", "Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, 0, $field(TreeMaker$AnnotationBuilder, result)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/tree/TreeMaker;)V", nullptr, 0, $method(TreeMaker$AnnotationBuilder, init$, void, $TreeMaker*)},
+		{"translate", "(Lcom/sun/tools/javac/code/Attribute;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, 0, $virtualMethod(TreeMaker$AnnotationBuilder, translate, $JCTree$JCExpression*, $Attribute*)},
+		{"translate", "(Lcom/sun/tools/javac/code/Attribute$Compound;)Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;", nullptr, 0, $virtualMethod(TreeMaker$AnnotationBuilder, translate, $JCTree$JCAnnotation*, $Attribute$Compound*)},
+		{"translate", "(Lcom/sun/tools/javac/code/Attribute$TypeCompound;)Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;", nullptr, 0, $virtualMethod(TreeMaker$AnnotationBuilder, translate, $JCTree$JCAnnotation*, $Attribute$TypeCompound*)},
+		{"visitArray", "(Lcom/sun/tools/javac/code/Attribute$Array;)V", nullptr, $PUBLIC, $virtualMethod(TreeMaker$AnnotationBuilder, visitArray, void, $Attribute$Array*)},
+		{"visitClass", "(Lcom/sun/tools/javac/code/Attribute$Class;)V", nullptr, $PUBLIC, $virtualMethod(TreeMaker$AnnotationBuilder, visitClass, void, $Attribute$Class*)},
+		{"visitCompound", "(Lcom/sun/tools/javac/code/Attribute$Compound;)V", nullptr, $PUBLIC, $virtualMethod(TreeMaker$AnnotationBuilder, visitCompound, void, $Attribute$Compound*)},
+		{"visitCompoundInternal", "(Lcom/sun/tools/javac/code/Attribute$Compound;)Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;", nullptr, $PUBLIC, $virtualMethod(TreeMaker$AnnotationBuilder, visitCompoundInternal, $JCTree$JCAnnotation*, $Attribute$Compound*)},
+		{"visitConstant", "(Lcom/sun/tools/javac/code/Attribute$Constant;)V", nullptr, $PUBLIC, $virtualMethod(TreeMaker$AnnotationBuilder, visitConstant, void, $Attribute$Constant*)},
+		{"visitEnum", "(Lcom/sun/tools/javac/code/Attribute$Enum;)V", nullptr, $PUBLIC, $virtualMethod(TreeMaker$AnnotationBuilder, visitEnum, void, $Attribute$Enum*)},
+		{"visitError", "(Lcom/sun/tools/javac/code/Attribute$Error;)V", nullptr, $PUBLIC, $virtualMethod(TreeMaker$AnnotationBuilder, visitError, void, $Attribute$Error*)},
+		{"visitTypeCompoundInternal", "(Lcom/sun/tools/javac/code/Attribute$TypeCompound;)Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;", nullptr, $PUBLIC, $virtualMethod(TreeMaker$AnnotationBuilder, visitTypeCompoundInternal, $JCTree$JCAnnotation*, $Attribute$TypeCompound*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.tree.TreeMaker$AnnotationBuilder", "com.sun.tools.javac.tree.TreeMaker", "AnnotationBuilder", 0},
+		{"com.sun.tools.javac.code.Attribute$Visitor", "com.sun.tools.javac.code.Attribute", "Visitor", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.tree.TreeMaker$AnnotationBuilder",
+		"java.lang.Object",
+		"com.sun.tools.javac.code.Attribute$Visitor",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.tree.TreeMaker"
+	};
+	$loadClass(TreeMaker$AnnotationBuilder, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TreeMaker$AnnotationBuilder);
+	});
 	return class$;
 }
 

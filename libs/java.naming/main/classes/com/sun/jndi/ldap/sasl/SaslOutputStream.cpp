@@ -1,5 +1,4 @@
 #include <com/sun/jndi/ldap/sasl/SaslOutputStream.h>
-
 #include <java/io/FilterOutputStream.h>
 #include <java/io/OutputStream.h>
 #include <java/lang/NumberFormatException.h>
@@ -28,42 +27,13 @@ namespace com {
 			namespace ldap {
 				namespace sasl {
 
-$FieldInfo _SaslOutputStream_FieldInfo_[] = {
-	{"debug", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SaslOutputStream, debug)},
-	{"lenBuf", "[B", nullptr, $PRIVATE, $field(SaslOutputStream, lenBuf)},
-	{"rawSendSize", "I", nullptr, $PRIVATE, $field(SaslOutputStream, rawSendSize)},
-	{"sc", "Ljavax/security/sasl/SaslClient;", nullptr, $PRIVATE, $field(SaslOutputStream, sc)},
-	{}
-};
-
-$MethodInfo _SaslOutputStream_MethodInfo_[] = {
-	{"<init>", "(Ljavax/security/sasl/SaslClient;Ljava/io/OutputStream;)V", nullptr, 0, $method(SaslOutputStream, init$, void, $SaslClient*, $OutputStream*), "javax.security.sasl.SaslException"},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(SaslOutputStream, close, void), "java.io.IOException"},
-	{"intToNetworkByteOrder", "(I[BII)V", nullptr, $PRIVATE | $STATIC, $staticMethod(SaslOutputStream, intToNetworkByteOrder, void, int32_t, $bytes*, int32_t, int32_t)},
-	{"write", "(I)V", nullptr, $PUBLIC, $virtualMethod(SaslOutputStream, write, void, int32_t), "java.io.IOException"},
-	{"write", "([BII)V", nullptr, $PUBLIC, $virtualMethod(SaslOutputStream, write, void, $bytes*, int32_t, int32_t), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _SaslOutputStream_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.jndi.ldap.sasl.SaslOutputStream",
-	"java.io.FilterOutputStream",
-	nullptr,
-	_SaslOutputStream_FieldInfo_,
-	_SaslOutputStream_MethodInfo_
-};
-
-$Object* allocate$SaslOutputStream($Class* clazz) {
-	return $of($alloc(SaslOutputStream));
-}
-
 void SaslOutputStream::init$($SaslClient* sc, $OutputStream* out) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$FilterOutputStream::init$(out);
 	$set(this, lenBuf, $new($bytes, 4));
 	this->rawSendSize = 0x00010000;
 	$set(this, sc, sc);
+	;
 	$init($Sasl);
 	$var($String, str, $cast($String, $nc(sc)->getNegotiatedProperty($Sasl::RAW_SEND_SIZE)));
 	if (str != nullptr) {
@@ -82,16 +52,18 @@ void SaslOutputStream::write(int32_t b) {
 }
 
 void SaslOutputStream::write($bytes* buffer, int32_t offset, int32_t total) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t count = 0;
 	$var($bytes, wrappedToken, nullptr);
 	$var($bytes, saslBuffer, nullptr);
+	;
 	for (int32_t i = 0; i < total; i += this->rawSendSize) {
 		count = (total - i) < this->rawSendSize ? (total - i) : this->rawSendSize;
 		$assign(wrappedToken, $nc(this->sc)->wrap(buffer, offset + i, count));
 		intToNetworkByteOrder($nc(wrappedToken)->length, this->lenBuf, 0, 4);
+		;
 		$nc(this->out)->write(this->lenBuf, 0, 4);
-		$nc(this->out)->write(wrappedToken, 0, $nc(wrappedToken)->length);
+		this->out->write(wrappedToken, 0, wrappedToken->length);
 	}
 }
 
@@ -114,7 +86,7 @@ void SaslOutputStream::intToNetworkByteOrder(int32_t num, $bytes* buf, int32_t s
 		$throwNew($IllegalArgumentException, "Cannot handle more than 4 bytes"_s);
 	}
 	for (int32_t i = count - 1; i >= 0; --i) {
-		$nc(buf)->set(start + i, (int8_t)((int32_t)(num & (uint32_t)255)));
+		$nc(buf)->set(start + i, (int8_t)(num & 0xff));
 		$usrAssign(num, 8);
 	}
 }
@@ -123,7 +95,32 @@ SaslOutputStream::SaslOutputStream() {
 }
 
 $Class* SaslOutputStream::load$($String* name, bool initialize) {
-	$loadClass(SaslOutputStream, name, initialize, &_SaslOutputStream_ClassInfo_, allocate$SaslOutputStream);
+	$FieldInfo fieldInfos$$[] = {
+		{"debug", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SaslOutputStream, debug)},
+		{"lenBuf", "[B", nullptr, $PRIVATE, $field(SaslOutputStream, lenBuf)},
+		{"rawSendSize", "I", nullptr, $PRIVATE, $field(SaslOutputStream, rawSendSize)},
+		{"sc", "Ljavax/security/sasl/SaslClient;", nullptr, $PRIVATE, $field(SaslOutputStream, sc)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/security/sasl/SaslClient;Ljava/io/OutputStream;)V", nullptr, 0, $method(SaslOutputStream, init$, void, $SaslClient*, $OutputStream*), "javax.security.sasl.SaslException"},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(SaslOutputStream, close, void), "java.io.IOException"},
+		{"intToNetworkByteOrder", "(I[BII)V", nullptr, $PRIVATE | $STATIC, $staticMethod(SaslOutputStream, intToNetworkByteOrder, void, int32_t, $bytes*, int32_t, int32_t)},
+		{"write", "(I)V", nullptr, $PUBLIC, $virtualMethod(SaslOutputStream, write, void, int32_t), "java.io.IOException"},
+		{"write", "([BII)V", nullptr, $PUBLIC, $virtualMethod(SaslOutputStream, write, void, $bytes*, int32_t, int32_t), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.jndi.ldap.sasl.SaslOutputStream",
+		"java.io.FilterOutputStream",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SaslOutputStream, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SaslOutputStream));
+	});
 	return class$;
 }
 

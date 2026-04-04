@@ -1,5 +1,4 @@
 #include <java/util/logging/LogManager$SystemLoggerContext.h>
-
 #include <java/lang/Module.h>
 #include <java/util/logging/LogManager$LoggerContext.h>
 #include <java/util/logging/LogManager.h>
@@ -19,50 +18,13 @@ namespace java {
 	namespace util {
 		namespace logging {
 
-$FieldInfo _LogManager$SystemLoggerContext_FieldInfo_[] = {
-	{"this$0", "Ljava/util/logging/LogManager;", nullptr, $FINAL | $SYNTHETIC, $field(LogManager$SystemLoggerContext, this$0)},
-	{}
-};
-
-$MethodInfo _LogManager$SystemLoggerContext_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/logging/LogManager;)V", nullptr, 0, $method(LogManager$SystemLoggerContext, init$, void, $LogManager*)},
-	{"demandLogger", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Module;)Ljava/util/logging/Logger;", nullptr, 0, $virtualMethod(LogManager$SystemLoggerContext, demandLogger, $Logger*, $String*, $String*, $Module*)},
-	{}
-};
-
-$InnerClassInfo _LogManager$SystemLoggerContext_InnerClassesInfo_[] = {
-	{"java.util.logging.LogManager$SystemLoggerContext", "java.util.logging.LogManager", "SystemLoggerContext", $FINAL},
-	{"java.util.logging.LogManager$LoggerContext", "java.util.logging.LogManager", "LoggerContext", 0},
-	{}
-};
-
-$ClassInfo _LogManager$SystemLoggerContext_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.util.logging.LogManager$SystemLoggerContext",
-	"java.util.logging.LogManager$LoggerContext",
-	nullptr,
-	_LogManager$SystemLoggerContext_FieldInfo_,
-	_LogManager$SystemLoggerContext_MethodInfo_,
-	nullptr,
-	nullptr,
-	_LogManager$SystemLoggerContext_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.logging.LogManager"
-};
-
-$Object* allocate$LogManager$SystemLoggerContext($Class* clazz) {
-	return $of($alloc(LogManager$SystemLoggerContext));
-}
-
 void LogManager$SystemLoggerContext::init$($LogManager* this$0) {
 	$set(this, this$0, this$0);
 	$LogManager$LoggerContext::init$(this$0);
 }
 
 $Logger* LogManager$SystemLoggerContext::demandLogger($String* name, $String* resourceBundleName, $Module* module) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Logger, result, findLogger(name));
 	if (result == nullptr) {
 		$var($Logger, newLogger, $new($Logger, name, resourceBundleName, module, $(getOwner()), true));
@@ -81,7 +43,38 @@ LogManager$SystemLoggerContext::LogManager$SystemLoggerContext() {
 }
 
 $Class* LogManager$SystemLoggerContext::load$($String* name, bool initialize) {
-	$loadClass(LogManager$SystemLoggerContext, name, initialize, &_LogManager$SystemLoggerContext_ClassInfo_, allocate$LogManager$SystemLoggerContext);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljava/util/logging/LogManager;", nullptr, $FINAL | $SYNTHETIC, $field(LogManager$SystemLoggerContext, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/logging/LogManager;)V", nullptr, 0, $method(LogManager$SystemLoggerContext, init$, void, $LogManager*)},
+		{"demandLogger", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Module;)Ljava/util/logging/Logger;", nullptr, 0, $virtualMethod(LogManager$SystemLoggerContext, demandLogger, $Logger*, $String*, $String*, $Module*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.logging.LogManager$SystemLoggerContext", "java.util.logging.LogManager", "SystemLoggerContext", $FINAL},
+		{"java.util.logging.LogManager$LoggerContext", "java.util.logging.LogManager", "LoggerContext", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.util.logging.LogManager$SystemLoggerContext",
+		"java.util.logging.LogManager$LoggerContext",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.logging.LogManager"
+	};
+	$loadClass(LogManager$SystemLoggerContext, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LogManager$SystemLoggerContext);
+	});
 	return class$;
 }
 

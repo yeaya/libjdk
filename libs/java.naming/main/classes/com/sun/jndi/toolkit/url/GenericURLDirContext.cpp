@@ -1,5 +1,4 @@
 #include <com/sun/jndi/toolkit/url/GenericURLDirContext.h>
-
 #include <com/sun/jndi/toolkit/url/GenericURLContext.h>
 #include <java/util/Hashtable.h>
 #include <javax/naming/CannotProceedException.h>
@@ -36,85 +35,6 @@ namespace com {
 		namespace jndi {
 			namespace toolkit {
 				namespace url {
-
-$MethodInfo _GenericURLDirContext_MethodInfo_[] = {
-	{"*addToEnvironment", "(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*bind", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC},
-	{"*bind", "(Ljavax/naming/Name;Ljava/lang/Object;)V", nullptr, $PUBLIC},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*close", "()V", nullptr, $PUBLIC},
-	{"*composeName", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*composeName", "(Ljavax/naming/Name;Ljavax/naming/Name;)Ljavax/naming/Name;", nullptr, $PUBLIC},
-	{"*createSubcontext", "(Ljava/lang/String;)Ljavax/naming/Context;", nullptr, $PUBLIC},
-	{"*createSubcontext", "(Ljavax/naming/Name;)Ljavax/naming/Context;", nullptr, $PUBLIC},
-	{"*destroySubcontext", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"*destroySubcontext", "(Ljavax/naming/Name;)V", nullptr, $PUBLIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*getEnvironment", "()Ljava/util/Hashtable;", nullptr, $PUBLIC},
-	{"*getNameInNamespace", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*getNameParser", "(Ljava/lang/String;)Ljavax/naming/NameParser;", nullptr, $PUBLIC},
-	{"*getNameParser", "(Ljavax/naming/Name;)Ljavax/naming/NameParser;", nullptr, $PUBLIC},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/util/Hashtable;)V", "(Ljava/util/Hashtable<**>;)V", $PROTECTED, $method(GenericURLDirContext, init$, void, $Hashtable*)},
-	{"bind", "(Ljava/lang/String;Ljava/lang/Object;Ljavax/naming/directory/Attributes;)V", nullptr, $PUBLIC, $virtualMethod(GenericURLDirContext, bind, void, $String*, Object$*, $Attributes*), "javax.naming.NamingException"},
-	{"bind", "(Ljavax/naming/Name;Ljava/lang/Object;Ljavax/naming/directory/Attributes;)V", nullptr, $PUBLIC, $virtualMethod(GenericURLDirContext, bind, void, $Name*, Object$*, $Attributes*), "javax.naming.NamingException"},
-	{"createSubcontext", "(Ljava/lang/String;Ljavax/naming/directory/Attributes;)Ljavax/naming/directory/DirContext;", nullptr, $PUBLIC, $virtualMethod(GenericURLDirContext, createSubcontext, $DirContext*, $String*, $Attributes*), "javax.naming.NamingException"},
-	{"createSubcontext", "(Ljavax/naming/Name;Ljavax/naming/directory/Attributes;)Ljavax/naming/directory/DirContext;", nullptr, $PUBLIC, $virtualMethod(GenericURLDirContext, createSubcontext, $DirContext*, $Name*, $Attributes*), "javax.naming.NamingException"},
-	{"getAttributes", "(Ljava/lang/String;)Ljavax/naming/directory/Attributes;", nullptr, $PUBLIC, $virtualMethod(GenericURLDirContext, getAttributes, $Attributes*, $String*), "javax.naming.NamingException"},
-	{"getAttributes", "(Ljavax/naming/Name;)Ljavax/naming/directory/Attributes;", nullptr, $PUBLIC, $virtualMethod(GenericURLDirContext, getAttributes, $Attributes*, $Name*), "javax.naming.NamingException"},
-	{"getAttributes", "(Ljava/lang/String;[Ljava/lang/String;)Ljavax/naming/directory/Attributes;", nullptr, $PUBLIC, $virtualMethod(GenericURLDirContext, getAttributes, $Attributes*, $String*, $StringArray*), "javax.naming.NamingException"},
-	{"getAttributes", "(Ljavax/naming/Name;[Ljava/lang/String;)Ljavax/naming/directory/Attributes;", nullptr, $PUBLIC, $virtualMethod(GenericURLDirContext, getAttributes, $Attributes*, $Name*, $StringArray*), "javax.naming.NamingException"},
-	{"getContinuationDirContext", "(Ljavax/naming/Name;)Ljavax/naming/directory/DirContext;", nullptr, $PROTECTED, $virtualMethod(GenericURLDirContext, getContinuationDirContext, $DirContext*, $Name*), "javax.naming.NamingException"},
-	{"getSchema", "(Ljava/lang/String;)Ljavax/naming/directory/DirContext;", nullptr, $PUBLIC, $virtualMethod(GenericURLDirContext, getSchema, $DirContext*, $String*), "javax.naming.NamingException"},
-	{"getSchema", "(Ljavax/naming/Name;)Ljavax/naming/directory/DirContext;", nullptr, $PUBLIC, $virtualMethod(GenericURLDirContext, getSchema, $DirContext*, $Name*), "javax.naming.NamingException"},
-	{"getSchemaClassDefinition", "(Ljava/lang/String;)Ljavax/naming/directory/DirContext;", nullptr, $PUBLIC, $virtualMethod(GenericURLDirContext, getSchemaClassDefinition, $DirContext*, $String*), "javax.naming.NamingException"},
-	{"getSchemaClassDefinition", "(Ljavax/naming/Name;)Ljavax/naming/directory/DirContext;", nullptr, $PUBLIC, $virtualMethod(GenericURLDirContext, getSchemaClassDefinition, $DirContext*, $Name*), "javax.naming.NamingException"},
-	{"*list", "(Ljava/lang/String;)Ljavax/naming/NamingEnumeration;", nullptr, $PUBLIC},
-	{"*list", "(Ljavax/naming/Name;)Ljavax/naming/NamingEnumeration;", nullptr, $PUBLIC},
-	{"*listBindings", "(Ljava/lang/String;)Ljavax/naming/NamingEnumeration;", nullptr, $PUBLIC},
-	{"*listBindings", "(Ljavax/naming/Name;)Ljavax/naming/NamingEnumeration;", nullptr, $PUBLIC},
-	{"*lookup", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*lookup", "(Ljavax/naming/Name;)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*lookupLink", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*lookupLink", "(Ljavax/naming/Name;)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"modifyAttributes", "(Ljava/lang/String;ILjavax/naming/directory/Attributes;)V", nullptr, $PUBLIC, $virtualMethod(GenericURLDirContext, modifyAttributes, void, $String*, int32_t, $Attributes*), "javax.naming.NamingException"},
-	{"modifyAttributes", "(Ljavax/naming/Name;ILjavax/naming/directory/Attributes;)V", nullptr, $PUBLIC, $virtualMethod(GenericURLDirContext, modifyAttributes, void, $Name*, int32_t, $Attributes*), "javax.naming.NamingException"},
-	{"modifyAttributes", "(Ljava/lang/String;[Ljavax/naming/directory/ModificationItem;)V", nullptr, $PUBLIC, $virtualMethod(GenericURLDirContext, modifyAttributes, void, $String*, $ModificationItemArray*), "javax.naming.NamingException"},
-	{"modifyAttributes", "(Ljavax/naming/Name;[Ljavax/naming/directory/ModificationItem;)V", nullptr, $PUBLIC, $virtualMethod(GenericURLDirContext, modifyAttributes, void, $Name*, $ModificationItemArray*), "javax.naming.NamingException"},
-	{"*rebind", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC},
-	{"*rebind", "(Ljavax/naming/Name;Ljava/lang/Object;)V", nullptr, $PUBLIC},
-	{"rebind", "(Ljava/lang/String;Ljava/lang/Object;Ljavax/naming/directory/Attributes;)V", nullptr, $PUBLIC, $virtualMethod(GenericURLDirContext, rebind, void, $String*, Object$*, $Attributes*), "javax.naming.NamingException"},
-	{"rebind", "(Ljavax/naming/Name;Ljava/lang/Object;Ljavax/naming/directory/Attributes;)V", nullptr, $PUBLIC, $virtualMethod(GenericURLDirContext, rebind, void, $Name*, Object$*, $Attributes*), "javax.naming.NamingException"},
-	{"*removeFromEnvironment", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*rename", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"*rename", "(Ljavax/naming/Name;Ljavax/naming/Name;)V", nullptr, $PUBLIC},
-	{"search", "(Ljava/lang/String;Ljavax/naming/directory/Attributes;)Ljavax/naming/NamingEnumeration;", "(Ljava/lang/String;Ljavax/naming/directory/Attributes;)Ljavax/naming/NamingEnumeration<Ljavax/naming/directory/SearchResult;>;", $PUBLIC, $virtualMethod(GenericURLDirContext, search, $NamingEnumeration*, $String*, $Attributes*), "javax.naming.NamingException"},
-	{"search", "(Ljavax/naming/Name;Ljavax/naming/directory/Attributes;)Ljavax/naming/NamingEnumeration;", "(Ljavax/naming/Name;Ljavax/naming/directory/Attributes;)Ljavax/naming/NamingEnumeration<Ljavax/naming/directory/SearchResult;>;", $PUBLIC, $virtualMethod(GenericURLDirContext, search, $NamingEnumeration*, $Name*, $Attributes*), "javax.naming.NamingException"},
-	{"search", "(Ljava/lang/String;Ljavax/naming/directory/Attributes;[Ljava/lang/String;)Ljavax/naming/NamingEnumeration;", "(Ljava/lang/String;Ljavax/naming/directory/Attributes;[Ljava/lang/String;)Ljavax/naming/NamingEnumeration<Ljavax/naming/directory/SearchResult;>;", $PUBLIC, $virtualMethod(GenericURLDirContext, search, $NamingEnumeration*, $String*, $Attributes*, $StringArray*), "javax.naming.NamingException"},
-	{"search", "(Ljavax/naming/Name;Ljavax/naming/directory/Attributes;[Ljava/lang/String;)Ljavax/naming/NamingEnumeration;", "(Ljavax/naming/Name;Ljavax/naming/directory/Attributes;[Ljava/lang/String;)Ljavax/naming/NamingEnumeration<Ljavax/naming/directory/SearchResult;>;", $PUBLIC, $virtualMethod(GenericURLDirContext, search, $NamingEnumeration*, $Name*, $Attributes*, $StringArray*), "javax.naming.NamingException"},
-	{"search", "(Ljava/lang/String;Ljava/lang/String;Ljavax/naming/directory/SearchControls;)Ljavax/naming/NamingEnumeration;", "(Ljava/lang/String;Ljava/lang/String;Ljavax/naming/directory/SearchControls;)Ljavax/naming/NamingEnumeration<Ljavax/naming/directory/SearchResult;>;", $PUBLIC, $virtualMethod(GenericURLDirContext, search, $NamingEnumeration*, $String*, $String*, $SearchControls*), "javax.naming.NamingException"},
-	{"search", "(Ljavax/naming/Name;Ljava/lang/String;Ljavax/naming/directory/SearchControls;)Ljavax/naming/NamingEnumeration;", "(Ljavax/naming/Name;Ljava/lang/String;Ljavax/naming/directory/SearchControls;)Ljavax/naming/NamingEnumeration<Ljavax/naming/directory/SearchResult;>;", $PUBLIC, $virtualMethod(GenericURLDirContext, search, $NamingEnumeration*, $Name*, $String*, $SearchControls*), "javax.naming.NamingException"},
-	{"search", "(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;Ljavax/naming/directory/SearchControls;)Ljavax/naming/NamingEnumeration;", "(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;Ljavax/naming/directory/SearchControls;)Ljavax/naming/NamingEnumeration<Ljavax/naming/directory/SearchResult;>;", $PUBLIC, $virtualMethod(GenericURLDirContext, search, $NamingEnumeration*, $String*, $String*, $ObjectArray*, $SearchControls*), "javax.naming.NamingException"},
-	{"search", "(Ljavax/naming/Name;Ljava/lang/String;[Ljava/lang/Object;Ljavax/naming/directory/SearchControls;)Ljavax/naming/NamingEnumeration;", "(Ljavax/naming/Name;Ljava/lang/String;[Ljava/lang/Object;Ljavax/naming/directory/SearchControls;)Ljavax/naming/NamingEnumeration<Ljavax/naming/directory/SearchResult;>;", $PUBLIC, $virtualMethod(GenericURLDirContext, search, $NamingEnumeration*, $Name*, $String*, $ObjectArray*, $SearchControls*), "javax.naming.NamingException"},
-	{"*unbind", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"*unbind", "(Ljavax/naming/Name;)V", nullptr, $PUBLIC},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _GenericURLDirContext_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"com.sun.jndi.toolkit.url.GenericURLDirContext",
-	"com.sun.jndi.toolkit.url.GenericURLContext",
-	"javax.naming.directory.DirContext",
-	nullptr,
-	_GenericURLDirContext_MethodInfo_
-};
-
-$Object* allocate$GenericURLDirContext($Class* clazz) {
-	return $of($alloc(GenericURLDirContext));
-}
 
 void GenericURLDirContext::close() {
 	this->$GenericURLContext::close();
@@ -257,7 +177,7 @@ void GenericURLDirContext::init$($Hashtable* env) {
 }
 
 $DirContext* GenericURLDirContext::getContinuationDirContext($Name* n) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, obj, lookup($($nc(n)->get(0))));
 	$var($CannotProceedException, cpe, $new($CannotProceedException));
 	cpe->setResolvedObj(obj);
@@ -266,15 +186,41 @@ $DirContext* GenericURLDirContext::getContinuationDirContext($Name* n) {
 }
 
 $Attributes* GenericURLDirContext::getAttributes($String* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ResolveResult, res, getRootURLContext(name, this->myEnv));
 	$var($DirContext, ctx, $cast($DirContext, $nc(res)->getResolvedObj()));
-	{
+	$var($Throwable, var$0, nullptr);
+	$var($Attributes, var$2, nullptr);
+	bool return$1 = false;
+	try {
+		$assign(var$2, $nc(ctx)->getAttributes($(res->getRemainingName())));
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		$nc(ctx)->close();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
+	}
+	$shouldNotReachHere();
+}
+
+$Attributes* GenericURLDirContext::getAttributes($Name* name) {
+	$useLocalObjectStack();
+	if ($nc(name)->size() == 1) {
+		return getAttributes($(name->get(0)));
+	} else {
+		$var($DirContext, ctx, getContinuationDirContext(name));
 		$var($Throwable, var$0, nullptr);
 		$var($Attributes, var$2, nullptr);
 		bool return$1 = false;
 		try {
-			$assign(var$2, $nc(ctx)->getAttributes($(res->getRemainingName())));
+			$assign(var$2, $nc(ctx)->getAttributes($(name->getSuffix(1))));
 			return$1 = true;
 			goto $finally;
 		} catch ($Throwable& var$3) {
@@ -287,51 +233,47 @@ $Attributes* GenericURLDirContext::getAttributes($String* name) {
 		}
 		if (return$1) {
 			return var$2;
-		}
-	}
-	$shouldNotReachHere();
-}
-
-$Attributes* GenericURLDirContext::getAttributes($Name* name) {
-	$useLocalCurrentObjectStackCache();
-	if ($nc(name)->size() == 1) {
-		return getAttributes($(name->get(0)));
-	} else {
-		$var($DirContext, ctx, getContinuationDirContext(name));
-		{
-			$var($Throwable, var$0, nullptr);
-			$var($Attributes, var$2, nullptr);
-			bool return$1 = false;
-			try {
-				$assign(var$2, $nc(ctx)->getAttributes($(name->getSuffix(1))));
-				return$1 = true;
-				goto $finally;
-			} catch ($Throwable& var$3) {
-				$assign(var$0, var$3);
-			} $finally: {
-				$nc(ctx)->close();
-			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
-			if (return$1) {
-				return var$2;
-			}
 		}
 	}
 	$shouldNotReachHere();
 }
 
 $Attributes* GenericURLDirContext::getAttributes($String* name, $StringArray* attrIds) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ResolveResult, res, getRootURLContext(name, this->myEnv));
 	$var($DirContext, ctx, $cast($DirContext, $nc(res)->getResolvedObj()));
-	{
+	$var($Throwable, var$0, nullptr);
+	$var($Attributes, var$2, nullptr);
+	bool return$1 = false;
+	try {
+		$assign(var$2, $nc(ctx)->getAttributes($(res->getRemainingName()), attrIds));
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		$nc(ctx)->close();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
+	}
+	$shouldNotReachHere();
+}
+
+$Attributes* GenericURLDirContext::getAttributes($Name* name, $StringArray* attrIds) {
+	$useLocalObjectStack();
+	if ($nc(name)->size() == 1) {
+		return getAttributes($(name->get(0)), attrIds);
+	} else {
+		$var($DirContext, ctx, getContinuationDirContext(name));
 		$var($Throwable, var$0, nullptr);
 		$var($Attributes, var$2, nullptr);
 		bool return$1 = false;
 		try {
-			$assign(var$2, $nc(ctx)->getAttributes($(res->getRemainingName()), attrIds));
+			$assign(var$2, $nc(ctx)->getAttributes($(name->getSuffix(1)), attrIds));
 			return$1 = true;
 			goto $finally;
 		} catch ($Throwable& var$3) {
@@ -344,49 +286,37 @@ $Attributes* GenericURLDirContext::getAttributes($String* name, $StringArray* at
 		}
 		if (return$1) {
 			return var$2;
-		}
-	}
-	$shouldNotReachHere();
-}
-
-$Attributes* GenericURLDirContext::getAttributes($Name* name, $StringArray* attrIds) {
-	$useLocalCurrentObjectStackCache();
-	if ($nc(name)->size() == 1) {
-		return getAttributes($(name->get(0)), attrIds);
-	} else {
-		$var($DirContext, ctx, getContinuationDirContext(name));
-		{
-			$var($Throwable, var$0, nullptr);
-			$var($Attributes, var$2, nullptr);
-			bool return$1 = false;
-			try {
-				$assign(var$2, $nc(ctx)->getAttributes($(name->getSuffix(1)), attrIds));
-				return$1 = true;
-				goto $finally;
-			} catch ($Throwable& var$3) {
-				$assign(var$0, var$3);
-			} $finally: {
-				$nc(ctx)->close();
-			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
-			if (return$1) {
-				return var$2;
-			}
 		}
 	}
 	$shouldNotReachHere();
 }
 
 void GenericURLDirContext::modifyAttributes($String* name, int32_t mod_op, $Attributes* attrs) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ResolveResult, res, getRootURLContext(name, this->myEnv));
 	$var($DirContext, ctx, $cast($DirContext, $nc(res)->getResolvedObj()));
-	{
+	$var($Throwable, var$0, nullptr);
+	try {
+		$nc(ctx)->modifyAttributes($(res->getRemainingName()), mod_op, attrs);
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$nc(ctx)->close();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+}
+
+void GenericURLDirContext::modifyAttributes($Name* name, int32_t mod_op, $Attributes* attrs) {
+	$useLocalObjectStack();
+	if ($nc(name)->size() == 1) {
+		modifyAttributes($(name->get(0)), mod_op, attrs);
+	} else {
+		$var($DirContext, ctx, getContinuationDirContext(name));
 		$var($Throwable, var$0, nullptr);
 		try {
-			$nc(ctx)->modifyAttributes($(res->getRemainingName()), mod_op, attrs);
+			$nc(ctx)->modifyAttributes($(name->getSuffix(1)), mod_op, attrs);
 		} catch ($Throwable& var$1) {
 			$assign(var$0, var$1);
 		} /*finally*/ {
@@ -394,40 +324,36 @@ void GenericURLDirContext::modifyAttributes($String* name, int32_t mod_op, $Attr
 		}
 		if (var$0 != nullptr) {
 			$throw(var$0);
-		}
-	}
-}
-
-void GenericURLDirContext::modifyAttributes($Name* name, int32_t mod_op, $Attributes* attrs) {
-	$useLocalCurrentObjectStackCache();
-	if ($nc(name)->size() == 1) {
-		modifyAttributes($(name->get(0)), mod_op, attrs);
-	} else {
-		$var($DirContext, ctx, getContinuationDirContext(name));
-		{
-			$var($Throwable, var$0, nullptr);
-			try {
-				$nc(ctx)->modifyAttributes($(name->getSuffix(1)), mod_op, attrs);
-			} catch ($Throwable& var$1) {
-				$assign(var$0, var$1);
-			} /*finally*/ {
-				$nc(ctx)->close();
-			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
 		}
 	}
 }
 
 void GenericURLDirContext::modifyAttributes($String* name, $ModificationItemArray* mods) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ResolveResult, res, getRootURLContext(name, this->myEnv));
 	$var($DirContext, ctx, $cast($DirContext, $nc(res)->getResolvedObj()));
-	{
+	$var($Throwable, var$0, nullptr);
+	try {
+		$nc(ctx)->modifyAttributes($(res->getRemainingName()), mods);
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$nc(ctx)->close();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+}
+
+void GenericURLDirContext::modifyAttributes($Name* name, $ModificationItemArray* mods) {
+	$useLocalObjectStack();
+	if ($nc(name)->size() == 1) {
+		modifyAttributes($(name->get(0)), mods);
+	} else {
+		$var($DirContext, ctx, getContinuationDirContext(name));
 		$var($Throwable, var$0, nullptr);
 		try {
-			$nc(ctx)->modifyAttributes($(res->getRemainingName()), mods);
+			$nc(ctx)->modifyAttributes($(name->getSuffix(1)), mods);
 		} catch ($Throwable& var$1) {
 			$assign(var$0, var$1);
 		} /*finally*/ {
@@ -435,40 +361,36 @@ void GenericURLDirContext::modifyAttributes($String* name, $ModificationItemArra
 		}
 		if (var$0 != nullptr) {
 			$throw(var$0);
-		}
-	}
-}
-
-void GenericURLDirContext::modifyAttributes($Name* name, $ModificationItemArray* mods) {
-	$useLocalCurrentObjectStackCache();
-	if ($nc(name)->size() == 1) {
-		modifyAttributes($(name->get(0)), mods);
-	} else {
-		$var($DirContext, ctx, getContinuationDirContext(name));
-		{
-			$var($Throwable, var$0, nullptr);
-			try {
-				$nc(ctx)->modifyAttributes($(name->getSuffix(1)), mods);
-			} catch ($Throwable& var$1) {
-				$assign(var$0, var$1);
-			} /*finally*/ {
-				$nc(ctx)->close();
-			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
 		}
 	}
 }
 
 void GenericURLDirContext::bind($String* name, Object$* obj, $Attributes* attrs) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ResolveResult, res, getRootURLContext(name, this->myEnv));
 	$var($DirContext, ctx, $cast($DirContext, $nc(res)->getResolvedObj()));
-	{
+	$var($Throwable, var$0, nullptr);
+	try {
+		$nc(ctx)->bind($(res->getRemainingName()), obj, attrs);
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$nc(ctx)->close();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+}
+
+void GenericURLDirContext::bind($Name* name, Object$* obj, $Attributes* attrs) {
+	$useLocalObjectStack();
+	if ($nc(name)->size() == 1) {
+		bind($(name->get(0)), obj, attrs);
+	} else {
+		$var($DirContext, ctx, getContinuationDirContext(name));
 		$var($Throwable, var$0, nullptr);
 		try {
-			$nc(ctx)->bind($(res->getRemainingName()), obj, attrs);
+			$nc(ctx)->bind($(name->getSuffix(1)), obj, attrs);
 		} catch ($Throwable& var$1) {
 			$assign(var$0, var$1);
 		} /*finally*/ {
@@ -476,40 +398,36 @@ void GenericURLDirContext::bind($String* name, Object$* obj, $Attributes* attrs)
 		}
 		if (var$0 != nullptr) {
 			$throw(var$0);
-		}
-	}
-}
-
-void GenericURLDirContext::bind($Name* name, Object$* obj, $Attributes* attrs) {
-	$useLocalCurrentObjectStackCache();
-	if ($nc(name)->size() == 1) {
-		bind($(name->get(0)), obj, attrs);
-	} else {
-		$var($DirContext, ctx, getContinuationDirContext(name));
-		{
-			$var($Throwable, var$0, nullptr);
-			try {
-				$nc(ctx)->bind($(name->getSuffix(1)), obj, attrs);
-			} catch ($Throwable& var$1) {
-				$assign(var$0, var$1);
-			} /*finally*/ {
-				$nc(ctx)->close();
-			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
 		}
 	}
 }
 
 void GenericURLDirContext::rebind($String* name, Object$* obj, $Attributes* attrs) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ResolveResult, res, getRootURLContext(name, this->myEnv));
 	$var($DirContext, ctx, $cast($DirContext, $nc(res)->getResolvedObj()));
-	{
+	$var($Throwable, var$0, nullptr);
+	try {
+		$nc(ctx)->rebind($(res->getRemainingName()), obj, attrs);
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$nc(ctx)->close();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+}
+
+void GenericURLDirContext::rebind($Name* name, Object$* obj, $Attributes* attrs) {
+	$useLocalObjectStack();
+	if ($nc(name)->size() == 1) {
+		rebind($(name->get(0)), obj, attrs);
+	} else {
+		$var($DirContext, ctx, getContinuationDirContext(name));
 		$var($Throwable, var$0, nullptr);
 		try {
-			$nc(ctx)->rebind($(res->getRemainingName()), obj, attrs);
+			$nc(ctx)->rebind($(name->getSuffix(1)), obj, attrs);
 		} catch ($Throwable& var$1) {
 			$assign(var$0, var$1);
 		} /*finally*/ {
@@ -521,38 +439,42 @@ void GenericURLDirContext::rebind($String* name, Object$* obj, $Attributes* attr
 	}
 }
 
-void GenericURLDirContext::rebind($Name* name, Object$* obj, $Attributes* attrs) {
-	$useLocalCurrentObjectStackCache();
-	if ($nc(name)->size() == 1) {
-		rebind($(name->get(0)), obj, attrs);
-	} else {
-		$var($DirContext, ctx, getContinuationDirContext(name));
-		{
-			$var($Throwable, var$0, nullptr);
-			try {
-				$nc(ctx)->rebind($(name->getSuffix(1)), obj, attrs);
-			} catch ($Throwable& var$1) {
-				$assign(var$0, var$1);
-			} /*finally*/ {
-				$nc(ctx)->close();
-			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
-		}
-	}
-}
-
 $DirContext* GenericURLDirContext::createSubcontext($String* name, $Attributes* attrs) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ResolveResult, res, getRootURLContext(name, this->myEnv));
 	$var($DirContext, ctx, $cast($DirContext, $nc(res)->getResolvedObj()));
-	{
+	$var($Throwable, var$0, nullptr);
+	$var($DirContext, var$2, nullptr);
+	bool return$1 = false;
+	try {
+		$assign(var$2, $nc(ctx)->createSubcontext($(res->getRemainingName()), attrs));
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		$nc(ctx)->close();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
+	}
+	$shouldNotReachHere();
+}
+
+$DirContext* GenericURLDirContext::createSubcontext($Name* name, $Attributes* attrs) {
+	$useLocalObjectStack();
+	if ($nc(name)->size() == 1) {
+		return createSubcontext($(name->get(0)), attrs);
+	} else {
+		$var($DirContext, ctx, getContinuationDirContext(name));
 		$var($Throwable, var$0, nullptr);
 		$var($DirContext, var$2, nullptr);
 		bool return$1 = false;
 		try {
-			$assign(var$2, $nc(ctx)->createSubcontext($(res->getRemainingName()), attrs));
+			$assign(var$2, $nc(ctx)->createSubcontext($(name->getSuffix(1)), attrs));
 			return$1 = true;
 			goto $finally;
 		} catch ($Throwable& var$3) {
@@ -565,88 +487,82 @@ $DirContext* GenericURLDirContext::createSubcontext($String* name, $Attributes* 
 		}
 		if (return$1) {
 			return var$2;
-		}
-	}
-	$shouldNotReachHere();
-}
-
-$DirContext* GenericURLDirContext::createSubcontext($Name* name, $Attributes* attrs) {
-	$useLocalCurrentObjectStackCache();
-	if ($nc(name)->size() == 1) {
-		return createSubcontext($(name->get(0)), attrs);
-	} else {
-		$var($DirContext, ctx, getContinuationDirContext(name));
-		{
-			$var($Throwable, var$0, nullptr);
-			$var($DirContext, var$2, nullptr);
-			bool return$1 = false;
-			try {
-				$assign(var$2, $nc(ctx)->createSubcontext($(name->getSuffix(1)), attrs));
-				return$1 = true;
-				goto $finally;
-			} catch ($Throwable& var$3) {
-				$assign(var$0, var$3);
-			} $finally: {
-				$nc(ctx)->close();
-			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
-			if (return$1) {
-				return var$2;
-			}
 		}
 	}
 	$shouldNotReachHere();
 }
 
 $DirContext* GenericURLDirContext::getSchema($String* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ResolveResult, res, getRootURLContext(name, this->myEnv));
 	$var($DirContext, ctx, $cast($DirContext, $nc(res)->getResolvedObj()));
 	return $nc(ctx)->getSchema($(res->getRemainingName()));
 }
 
 $DirContext* GenericURLDirContext::getSchema($Name* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(name)->size() == 1) {
 		return getSchema($(name->get(0)));
 	} else {
 		$var($DirContext, ctx, getContinuationDirContext(name));
-		{
-			$var($Throwable, var$0, nullptr);
-			$var($DirContext, var$2, nullptr);
-			bool return$1 = false;
-			try {
-				$assign(var$2, $nc(ctx)->getSchema($(name->getSuffix(1))));
-				return$1 = true;
-				goto $finally;
-			} catch ($Throwable& var$3) {
-				$assign(var$0, var$3);
-			} $finally: {
-				$nc(ctx)->close();
-			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
-			if (return$1) {
-				return var$2;
-			}
+		$var($Throwable, var$0, nullptr);
+		$var($DirContext, var$2, nullptr);
+		bool return$1 = false;
+		try {
+			$assign(var$2, $nc(ctx)->getSchema($(name->getSuffix(1))));
+			return$1 = true;
+			goto $finally;
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
+		} $finally: {
+			$nc(ctx)->close();
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
+		}
+		if (return$1) {
+			return var$2;
 		}
 	}
 	$shouldNotReachHere();
 }
 
 $DirContext* GenericURLDirContext::getSchemaClassDefinition($String* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ResolveResult, res, getRootURLContext(name, this->myEnv));
 	$var($DirContext, ctx, $cast($DirContext, $nc(res)->getResolvedObj()));
-	{
+	$var($Throwable, var$0, nullptr);
+	$var($DirContext, var$2, nullptr);
+	bool return$1 = false;
+	try {
+		$assign(var$2, $nc(ctx)->getSchemaClassDefinition($(res->getRemainingName())));
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		$nc(ctx)->close();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
+	}
+	$shouldNotReachHere();
+}
+
+$DirContext* GenericURLDirContext::getSchemaClassDefinition($Name* name) {
+	$useLocalObjectStack();
+	if ($nc(name)->size() == 1) {
+		return getSchemaClassDefinition($(name->get(0)));
+	} else {
+		$var($DirContext, ctx, getContinuationDirContext(name));
 		$var($Throwable, var$0, nullptr);
 		$var($DirContext, var$2, nullptr);
 		bool return$1 = false;
 		try {
-			$assign(var$2, $nc(ctx)->getSchemaClassDefinition($(res->getRemainingName())));
+			$assign(var$2, $nc(ctx)->getSchemaClassDefinition($(name->getSuffix(1))));
 			return$1 = true;
 			goto $finally;
 		} catch ($Throwable& var$3) {
@@ -659,51 +575,47 @@ $DirContext* GenericURLDirContext::getSchemaClassDefinition($String* name) {
 		}
 		if (return$1) {
 			return var$2;
-		}
-	}
-	$shouldNotReachHere();
-}
-
-$DirContext* GenericURLDirContext::getSchemaClassDefinition($Name* name) {
-	$useLocalCurrentObjectStackCache();
-	if ($nc(name)->size() == 1) {
-		return getSchemaClassDefinition($(name->get(0)));
-	} else {
-		$var($DirContext, ctx, getContinuationDirContext(name));
-		{
-			$var($Throwable, var$0, nullptr);
-			$var($DirContext, var$2, nullptr);
-			bool return$1 = false;
-			try {
-				$assign(var$2, $nc(ctx)->getSchemaClassDefinition($(name->getSuffix(1))));
-				return$1 = true;
-				goto $finally;
-			} catch ($Throwable& var$3) {
-				$assign(var$0, var$3);
-			} $finally: {
-				$nc(ctx)->close();
-			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
-			if (return$1) {
-				return var$2;
-			}
 		}
 	}
 	$shouldNotReachHere();
 }
 
 $NamingEnumeration* GenericURLDirContext::search($String* name, $Attributes* matchingAttributes) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ResolveResult, res, getRootURLContext(name, this->myEnv));
 	$var($DirContext, ctx, $cast($DirContext, $nc(res)->getResolvedObj()));
-	{
+	$var($Throwable, var$0, nullptr);
+	$var($NamingEnumeration, var$2, nullptr);
+	bool return$1 = false;
+	try {
+		$assign(var$2, $nc(ctx)->search($(res->getRemainingName()), matchingAttributes));
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		$nc(ctx)->close();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
+	}
+	$shouldNotReachHere();
+}
+
+$NamingEnumeration* GenericURLDirContext::search($Name* name, $Attributes* matchingAttributes) {
+	$useLocalObjectStack();
+	if ($nc(name)->size() == 1) {
+		return search($(name->get(0)), matchingAttributes);
+	} else {
+		$var($DirContext, ctx, getContinuationDirContext(name));
 		$var($Throwable, var$0, nullptr);
 		$var($NamingEnumeration, var$2, nullptr);
 		bool return$1 = false;
 		try {
-			$assign(var$2, $nc(ctx)->search($(res->getRemainingName()), matchingAttributes));
+			$assign(var$2, $nc(ctx)->search($(name->getSuffix(1)), matchingAttributes));
 			return$1 = true;
 			goto $finally;
 		} catch ($Throwable& var$3) {
@@ -716,51 +628,47 @@ $NamingEnumeration* GenericURLDirContext::search($String* name, $Attributes* mat
 		}
 		if (return$1) {
 			return var$2;
-		}
-	}
-	$shouldNotReachHere();
-}
-
-$NamingEnumeration* GenericURLDirContext::search($Name* name, $Attributes* matchingAttributes) {
-	$useLocalCurrentObjectStackCache();
-	if ($nc(name)->size() == 1) {
-		return search($(name->get(0)), matchingAttributes);
-	} else {
-		$var($DirContext, ctx, getContinuationDirContext(name));
-		{
-			$var($Throwable, var$0, nullptr);
-			$var($NamingEnumeration, var$2, nullptr);
-			bool return$1 = false;
-			try {
-				$assign(var$2, $nc(ctx)->search($(name->getSuffix(1)), matchingAttributes));
-				return$1 = true;
-				goto $finally;
-			} catch ($Throwable& var$3) {
-				$assign(var$0, var$3);
-			} $finally: {
-				$nc(ctx)->close();
-			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
-			if (return$1) {
-				return var$2;
-			}
 		}
 	}
 	$shouldNotReachHere();
 }
 
 $NamingEnumeration* GenericURLDirContext::search($String* name, $Attributes* matchingAttributes, $StringArray* attributesToReturn) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ResolveResult, res, getRootURLContext(name, this->myEnv));
 	$var($DirContext, ctx, $cast($DirContext, $nc(res)->getResolvedObj()));
-	{
+	$var($Throwable, var$0, nullptr);
+	$var($NamingEnumeration, var$2, nullptr);
+	bool return$1 = false;
+	try {
+		$assign(var$2, $nc(ctx)->search($(res->getRemainingName()), matchingAttributes, attributesToReturn));
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		$nc(ctx)->close();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
+	}
+	$shouldNotReachHere();
+}
+
+$NamingEnumeration* GenericURLDirContext::search($Name* name, $Attributes* matchingAttributes, $StringArray* attributesToReturn) {
+	$useLocalObjectStack();
+	if ($nc(name)->size() == 1) {
+		return search($(name->get(0)), matchingAttributes, attributesToReturn);
+	} else {
+		$var($DirContext, ctx, getContinuationDirContext(name));
 		$var($Throwable, var$0, nullptr);
 		$var($NamingEnumeration, var$2, nullptr);
 		bool return$1 = false;
 		try {
-			$assign(var$2, $nc(ctx)->search($(res->getRemainingName()), matchingAttributes, attributesToReturn));
+			$assign(var$2, $nc(ctx)->search($(name->getSuffix(1)), matchingAttributes, attributesToReturn));
 			return$1 = true;
 			goto $finally;
 		} catch ($Throwable& var$3) {
@@ -773,51 +681,47 @@ $NamingEnumeration* GenericURLDirContext::search($String* name, $Attributes* mat
 		}
 		if (return$1) {
 			return var$2;
-		}
-	}
-	$shouldNotReachHere();
-}
-
-$NamingEnumeration* GenericURLDirContext::search($Name* name, $Attributes* matchingAttributes, $StringArray* attributesToReturn) {
-	$useLocalCurrentObjectStackCache();
-	if ($nc(name)->size() == 1) {
-		return search($(name->get(0)), matchingAttributes, attributesToReturn);
-	} else {
-		$var($DirContext, ctx, getContinuationDirContext(name));
-		{
-			$var($Throwable, var$0, nullptr);
-			$var($NamingEnumeration, var$2, nullptr);
-			bool return$1 = false;
-			try {
-				$assign(var$2, $nc(ctx)->search($(name->getSuffix(1)), matchingAttributes, attributesToReturn));
-				return$1 = true;
-				goto $finally;
-			} catch ($Throwable& var$3) {
-				$assign(var$0, var$3);
-			} $finally: {
-				$nc(ctx)->close();
-			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
-			if (return$1) {
-				return var$2;
-			}
 		}
 	}
 	$shouldNotReachHere();
 }
 
 $NamingEnumeration* GenericURLDirContext::search($String* name, $String* filter, $SearchControls* cons) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ResolveResult, res, getRootURLContext(name, this->myEnv));
 	$var($DirContext, ctx, $cast($DirContext, $nc(res)->getResolvedObj()));
-	{
+	$var($Throwable, var$0, nullptr);
+	$var($NamingEnumeration, var$2, nullptr);
+	bool return$1 = false;
+	try {
+		$assign(var$2, $nc(ctx)->search($(res->getRemainingName()), filter, cons));
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		$nc(ctx)->close();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
+	}
+	$shouldNotReachHere();
+}
+
+$NamingEnumeration* GenericURLDirContext::search($Name* name, $String* filter, $SearchControls* cons) {
+	$useLocalObjectStack();
+	if ($nc(name)->size() == 1) {
+		return search($(name->get(0)), filter, cons);
+	} else {
+		$var($DirContext, ctx, getContinuationDirContext(name));
 		$var($Throwable, var$0, nullptr);
 		$var($NamingEnumeration, var$2, nullptr);
 		bool return$1 = false;
 		try {
-			$assign(var$2, $nc(ctx)->search($(res->getRemainingName()), filter, cons));
+			$assign(var$2, $nc(ctx)->search($(name->getSuffix(1)), filter, cons));
 			return$1 = true;
 			goto $finally;
 		} catch ($Throwable& var$3) {
@@ -830,51 +734,47 @@ $NamingEnumeration* GenericURLDirContext::search($String* name, $String* filter,
 		}
 		if (return$1) {
 			return var$2;
-		}
-	}
-	$shouldNotReachHere();
-}
-
-$NamingEnumeration* GenericURLDirContext::search($Name* name, $String* filter, $SearchControls* cons) {
-	$useLocalCurrentObjectStackCache();
-	if ($nc(name)->size() == 1) {
-		return search($(name->get(0)), filter, cons);
-	} else {
-		$var($DirContext, ctx, getContinuationDirContext(name));
-		{
-			$var($Throwable, var$0, nullptr);
-			$var($NamingEnumeration, var$2, nullptr);
-			bool return$1 = false;
-			try {
-				$assign(var$2, $nc(ctx)->search($(name->getSuffix(1)), filter, cons));
-				return$1 = true;
-				goto $finally;
-			} catch ($Throwable& var$3) {
-				$assign(var$0, var$3);
-			} $finally: {
-				$nc(ctx)->close();
-			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
-			if (return$1) {
-				return var$2;
-			}
 		}
 	}
 	$shouldNotReachHere();
 }
 
 $NamingEnumeration* GenericURLDirContext::search($String* name, $String* filterExpr, $ObjectArray* filterArgs, $SearchControls* cons) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ResolveResult, res, getRootURLContext(name, this->myEnv));
 	$var($DirContext, ctx, $cast($DirContext, $nc(res)->getResolvedObj()));
-	{
+	$var($Throwable, var$0, nullptr);
+	$var($NamingEnumeration, var$2, nullptr);
+	bool return$1 = false;
+	try {
+		$assign(var$2, $nc(ctx)->search($(res->getRemainingName()), filterExpr, filterArgs, cons));
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		$nc(ctx)->close();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
+	}
+	$shouldNotReachHere();
+}
+
+$NamingEnumeration* GenericURLDirContext::search($Name* name, $String* filterExpr, $ObjectArray* filterArgs, $SearchControls* cons) {
+	$useLocalObjectStack();
+	if ($nc(name)->size() == 1) {
+		return search($(name->get(0)), filterExpr, filterArgs, cons);
+	} else {
+		$var($DirContext, ctx, getContinuationDirContext(name));
 		$var($Throwable, var$0, nullptr);
 		$var($NamingEnumeration, var$2, nullptr);
 		bool return$1 = false;
 		try {
-			$assign(var$2, $nc(ctx)->search($(res->getRemainingName()), filterExpr, filterArgs, cons));
+			$assign(var$2, $nc(ctx)->search($(name->getSuffix(1)), filterExpr, filterArgs, cons));
 			return$1 = true;
 			goto $finally;
 		} catch ($Throwable& var$3) {
@@ -887,36 +787,6 @@ $NamingEnumeration* GenericURLDirContext::search($String* name, $String* filterE
 		}
 		if (return$1) {
 			return var$2;
-		}
-	}
-	$shouldNotReachHere();
-}
-
-$NamingEnumeration* GenericURLDirContext::search($Name* name, $String* filterExpr, $ObjectArray* filterArgs, $SearchControls* cons) {
-	$useLocalCurrentObjectStackCache();
-	if ($nc(name)->size() == 1) {
-		return search($(name->get(0)), filterExpr, filterArgs, cons);
-	} else {
-		$var($DirContext, ctx, getContinuationDirContext(name));
-		{
-			$var($Throwable, var$0, nullptr);
-			$var($NamingEnumeration, var$2, nullptr);
-			bool return$1 = false;
-			try {
-				$assign(var$2, $nc(ctx)->search($(name->getSuffix(1)), filterExpr, filterArgs, cons));
-				return$1 = true;
-				goto $finally;
-			} catch ($Throwable& var$3) {
-				$assign(var$0, var$3);
-			} $finally: {
-				$nc(ctx)->close();
-			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
-			if (return$1) {
-				return var$2;
-			}
 		}
 	}
 	$shouldNotReachHere();
@@ -926,7 +796,82 @@ GenericURLDirContext::GenericURLDirContext() {
 }
 
 $Class* GenericURLDirContext::load$($String* name, bool initialize) {
-	$loadClass(GenericURLDirContext, name, initialize, &_GenericURLDirContext_ClassInfo_, allocate$GenericURLDirContext);
+	$MethodInfo methodInfos$$[] = {
+		{"*addToEnvironment", "(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*bind", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC},
+		{"*bind", "(Ljavax/naming/Name;Ljava/lang/Object;)V", nullptr, $PUBLIC},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*close", "()V", nullptr, $PUBLIC},
+		{"*composeName", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*composeName", "(Ljavax/naming/Name;Ljavax/naming/Name;)Ljavax/naming/Name;", nullptr, $PUBLIC},
+		{"*createSubcontext", "(Ljava/lang/String;)Ljavax/naming/Context;", nullptr, $PUBLIC},
+		{"*createSubcontext", "(Ljavax/naming/Name;)Ljavax/naming/Context;", nullptr, $PUBLIC},
+		{"*destroySubcontext", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
+		{"*destroySubcontext", "(Ljavax/naming/Name;)V", nullptr, $PUBLIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*getEnvironment", "()Ljava/util/Hashtable;", nullptr, $PUBLIC},
+		{"*getNameInNamespace", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*getNameParser", "(Ljava/lang/String;)Ljavax/naming/NameParser;", nullptr, $PUBLIC},
+		{"*getNameParser", "(Ljavax/naming/Name;)Ljavax/naming/NameParser;", nullptr, $PUBLIC},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/util/Hashtable;)V", "(Ljava/util/Hashtable<**>;)V", $PROTECTED, $method(GenericURLDirContext, init$, void, $Hashtable*)},
+		{"bind", "(Ljava/lang/String;Ljava/lang/Object;Ljavax/naming/directory/Attributes;)V", nullptr, $PUBLIC, $virtualMethod(GenericURLDirContext, bind, void, $String*, Object$*, $Attributes*), "javax.naming.NamingException"},
+		{"bind", "(Ljavax/naming/Name;Ljava/lang/Object;Ljavax/naming/directory/Attributes;)V", nullptr, $PUBLIC, $virtualMethod(GenericURLDirContext, bind, void, $Name*, Object$*, $Attributes*), "javax.naming.NamingException"},
+		{"createSubcontext", "(Ljava/lang/String;Ljavax/naming/directory/Attributes;)Ljavax/naming/directory/DirContext;", nullptr, $PUBLIC, $virtualMethod(GenericURLDirContext, createSubcontext, $DirContext*, $String*, $Attributes*), "javax.naming.NamingException"},
+		{"createSubcontext", "(Ljavax/naming/Name;Ljavax/naming/directory/Attributes;)Ljavax/naming/directory/DirContext;", nullptr, $PUBLIC, $virtualMethod(GenericURLDirContext, createSubcontext, $DirContext*, $Name*, $Attributes*), "javax.naming.NamingException"},
+		{"getAttributes", "(Ljava/lang/String;)Ljavax/naming/directory/Attributes;", nullptr, $PUBLIC, $virtualMethod(GenericURLDirContext, getAttributes, $Attributes*, $String*), "javax.naming.NamingException"},
+		{"getAttributes", "(Ljavax/naming/Name;)Ljavax/naming/directory/Attributes;", nullptr, $PUBLIC, $virtualMethod(GenericURLDirContext, getAttributes, $Attributes*, $Name*), "javax.naming.NamingException"},
+		{"getAttributes", "(Ljava/lang/String;[Ljava/lang/String;)Ljavax/naming/directory/Attributes;", nullptr, $PUBLIC, $virtualMethod(GenericURLDirContext, getAttributes, $Attributes*, $String*, $StringArray*), "javax.naming.NamingException"},
+		{"getAttributes", "(Ljavax/naming/Name;[Ljava/lang/String;)Ljavax/naming/directory/Attributes;", nullptr, $PUBLIC, $virtualMethod(GenericURLDirContext, getAttributes, $Attributes*, $Name*, $StringArray*), "javax.naming.NamingException"},
+		{"getContinuationDirContext", "(Ljavax/naming/Name;)Ljavax/naming/directory/DirContext;", nullptr, $PROTECTED, $virtualMethod(GenericURLDirContext, getContinuationDirContext, $DirContext*, $Name*), "javax.naming.NamingException"},
+		{"getSchema", "(Ljava/lang/String;)Ljavax/naming/directory/DirContext;", nullptr, $PUBLIC, $virtualMethod(GenericURLDirContext, getSchema, $DirContext*, $String*), "javax.naming.NamingException"},
+		{"getSchema", "(Ljavax/naming/Name;)Ljavax/naming/directory/DirContext;", nullptr, $PUBLIC, $virtualMethod(GenericURLDirContext, getSchema, $DirContext*, $Name*), "javax.naming.NamingException"},
+		{"getSchemaClassDefinition", "(Ljava/lang/String;)Ljavax/naming/directory/DirContext;", nullptr, $PUBLIC, $virtualMethod(GenericURLDirContext, getSchemaClassDefinition, $DirContext*, $String*), "javax.naming.NamingException"},
+		{"getSchemaClassDefinition", "(Ljavax/naming/Name;)Ljavax/naming/directory/DirContext;", nullptr, $PUBLIC, $virtualMethod(GenericURLDirContext, getSchemaClassDefinition, $DirContext*, $Name*), "javax.naming.NamingException"},
+		{"*list", "(Ljava/lang/String;)Ljavax/naming/NamingEnumeration;", nullptr, $PUBLIC},
+		{"*list", "(Ljavax/naming/Name;)Ljavax/naming/NamingEnumeration;", nullptr, $PUBLIC},
+		{"*listBindings", "(Ljava/lang/String;)Ljavax/naming/NamingEnumeration;", nullptr, $PUBLIC},
+		{"*listBindings", "(Ljavax/naming/Name;)Ljavax/naming/NamingEnumeration;", nullptr, $PUBLIC},
+		{"*lookup", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*lookup", "(Ljavax/naming/Name;)Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*lookupLink", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*lookupLink", "(Ljavax/naming/Name;)Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"modifyAttributes", "(Ljava/lang/String;ILjavax/naming/directory/Attributes;)V", nullptr, $PUBLIC, $virtualMethod(GenericURLDirContext, modifyAttributes, void, $String*, int32_t, $Attributes*), "javax.naming.NamingException"},
+		{"modifyAttributes", "(Ljavax/naming/Name;ILjavax/naming/directory/Attributes;)V", nullptr, $PUBLIC, $virtualMethod(GenericURLDirContext, modifyAttributes, void, $Name*, int32_t, $Attributes*), "javax.naming.NamingException"},
+		{"modifyAttributes", "(Ljava/lang/String;[Ljavax/naming/directory/ModificationItem;)V", nullptr, $PUBLIC, $virtualMethod(GenericURLDirContext, modifyAttributes, void, $String*, $ModificationItemArray*), "javax.naming.NamingException"},
+		{"modifyAttributes", "(Ljavax/naming/Name;[Ljavax/naming/directory/ModificationItem;)V", nullptr, $PUBLIC, $virtualMethod(GenericURLDirContext, modifyAttributes, void, $Name*, $ModificationItemArray*), "javax.naming.NamingException"},
+		{"*rebind", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC},
+		{"*rebind", "(Ljavax/naming/Name;Ljava/lang/Object;)V", nullptr, $PUBLIC},
+		{"rebind", "(Ljava/lang/String;Ljava/lang/Object;Ljavax/naming/directory/Attributes;)V", nullptr, $PUBLIC, $virtualMethod(GenericURLDirContext, rebind, void, $String*, Object$*, $Attributes*), "javax.naming.NamingException"},
+		{"rebind", "(Ljavax/naming/Name;Ljava/lang/Object;Ljavax/naming/directory/Attributes;)V", nullptr, $PUBLIC, $virtualMethod(GenericURLDirContext, rebind, void, $Name*, Object$*, $Attributes*), "javax.naming.NamingException"},
+		{"*removeFromEnvironment", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*rename", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC},
+		{"*rename", "(Ljavax/naming/Name;Ljavax/naming/Name;)V", nullptr, $PUBLIC},
+		{"search", "(Ljava/lang/String;Ljavax/naming/directory/Attributes;)Ljavax/naming/NamingEnumeration;", "(Ljava/lang/String;Ljavax/naming/directory/Attributes;)Ljavax/naming/NamingEnumeration<Ljavax/naming/directory/SearchResult;>;", $PUBLIC, $virtualMethod(GenericURLDirContext, search, $NamingEnumeration*, $String*, $Attributes*), "javax.naming.NamingException"},
+		{"search", "(Ljavax/naming/Name;Ljavax/naming/directory/Attributes;)Ljavax/naming/NamingEnumeration;", "(Ljavax/naming/Name;Ljavax/naming/directory/Attributes;)Ljavax/naming/NamingEnumeration<Ljavax/naming/directory/SearchResult;>;", $PUBLIC, $virtualMethod(GenericURLDirContext, search, $NamingEnumeration*, $Name*, $Attributes*), "javax.naming.NamingException"},
+		{"search", "(Ljava/lang/String;Ljavax/naming/directory/Attributes;[Ljava/lang/String;)Ljavax/naming/NamingEnumeration;", "(Ljava/lang/String;Ljavax/naming/directory/Attributes;[Ljava/lang/String;)Ljavax/naming/NamingEnumeration<Ljavax/naming/directory/SearchResult;>;", $PUBLIC, $virtualMethod(GenericURLDirContext, search, $NamingEnumeration*, $String*, $Attributes*, $StringArray*), "javax.naming.NamingException"},
+		{"search", "(Ljavax/naming/Name;Ljavax/naming/directory/Attributes;[Ljava/lang/String;)Ljavax/naming/NamingEnumeration;", "(Ljavax/naming/Name;Ljavax/naming/directory/Attributes;[Ljava/lang/String;)Ljavax/naming/NamingEnumeration<Ljavax/naming/directory/SearchResult;>;", $PUBLIC, $virtualMethod(GenericURLDirContext, search, $NamingEnumeration*, $Name*, $Attributes*, $StringArray*), "javax.naming.NamingException"},
+		{"search", "(Ljava/lang/String;Ljava/lang/String;Ljavax/naming/directory/SearchControls;)Ljavax/naming/NamingEnumeration;", "(Ljava/lang/String;Ljava/lang/String;Ljavax/naming/directory/SearchControls;)Ljavax/naming/NamingEnumeration<Ljavax/naming/directory/SearchResult;>;", $PUBLIC, $virtualMethod(GenericURLDirContext, search, $NamingEnumeration*, $String*, $String*, $SearchControls*), "javax.naming.NamingException"},
+		{"search", "(Ljavax/naming/Name;Ljava/lang/String;Ljavax/naming/directory/SearchControls;)Ljavax/naming/NamingEnumeration;", "(Ljavax/naming/Name;Ljava/lang/String;Ljavax/naming/directory/SearchControls;)Ljavax/naming/NamingEnumeration<Ljavax/naming/directory/SearchResult;>;", $PUBLIC, $virtualMethod(GenericURLDirContext, search, $NamingEnumeration*, $Name*, $String*, $SearchControls*), "javax.naming.NamingException"},
+		{"search", "(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;Ljavax/naming/directory/SearchControls;)Ljavax/naming/NamingEnumeration;", "(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;Ljavax/naming/directory/SearchControls;)Ljavax/naming/NamingEnumeration<Ljavax/naming/directory/SearchResult;>;", $PUBLIC, $virtualMethod(GenericURLDirContext, search, $NamingEnumeration*, $String*, $String*, $ObjectArray*, $SearchControls*), "javax.naming.NamingException"},
+		{"search", "(Ljavax/naming/Name;Ljava/lang/String;[Ljava/lang/Object;Ljavax/naming/directory/SearchControls;)Ljavax/naming/NamingEnumeration;", "(Ljavax/naming/Name;Ljava/lang/String;[Ljava/lang/Object;Ljavax/naming/directory/SearchControls;)Ljavax/naming/NamingEnumeration<Ljavax/naming/directory/SearchResult;>;", $PUBLIC, $virtualMethod(GenericURLDirContext, search, $NamingEnumeration*, $Name*, $String*, $ObjectArray*, $SearchControls*), "javax.naming.NamingException"},
+		{"*unbind", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
+		{"*unbind", "(Ljavax/naming/Name;)V", nullptr, $PUBLIC},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"com.sun.jndi.toolkit.url.GenericURLDirContext",
+		"com.sun.jndi.toolkit.url.GenericURLContext",
+		"javax.naming.directory.DirContext",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(GenericURLDirContext, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(GenericURLDirContext));
+	});
 	return class$;
 }
 

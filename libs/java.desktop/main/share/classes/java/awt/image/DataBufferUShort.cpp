@@ -1,5 +1,4 @@
 #include <java/awt/image/DataBufferUShort.h>
-
 #include <java/awt/image/DataBuffer.h>
 #include <sun/java2d/StateTrackable$State.h>
 #include <sun/java2d/StateTrackableDelegate.h>
@@ -17,65 +16,28 @@ using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;
 using $StateTrackable$State = ::sun::java2d::StateTrackable$State;
-using $StateTrackableDelegate = ::sun::java2d::StateTrackableDelegate;
 
 namespace java {
 	namespace awt {
 		namespace image {
-
-$FieldInfo _DataBufferUShort_FieldInfo_[] = {
-	{"data", "[S", nullptr, 0, $field(DataBufferUShort, data)},
-	{"bankdata", "[[S", nullptr, 0, $field(DataBufferUShort, bankdata)},
-	{}
-};
-
-$MethodInfo _DataBufferUShort_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(DataBufferUShort, init$, void, int32_t)},
-	{"<init>", "(II)V", nullptr, $PUBLIC, $method(DataBufferUShort, init$, void, int32_t, int32_t)},
-	{"<init>", "([SI)V", nullptr, $PUBLIC, $method(DataBufferUShort, init$, void, $shorts*, int32_t)},
-	{"<init>", "([SII)V", nullptr, $PUBLIC, $method(DataBufferUShort, init$, void, $shorts*, int32_t, int32_t)},
-	{"<init>", "([[SI)V", nullptr, $PUBLIC, $method(DataBufferUShort, init$, void, $shortArray2*, int32_t)},
-	{"<init>", "([[SI[I)V", nullptr, $PUBLIC, $method(DataBufferUShort, init$, void, $shortArray2*, int32_t, $ints*)},
-	{"getBankData", "()[[S", nullptr, $PUBLIC, $method(DataBufferUShort, getBankData, $shortArray2*)},
-	{"getData", "()[S", nullptr, $PUBLIC, $method(DataBufferUShort, getData, $shorts*)},
-	{"getData", "(I)[S", nullptr, $PUBLIC, $method(DataBufferUShort, getData, $shorts*, int32_t)},
-	{"getElem", "(I)I", nullptr, $PUBLIC, $virtualMethod(DataBufferUShort, getElem, int32_t, int32_t)},
-	{"getElem", "(II)I", nullptr, $PUBLIC, $virtualMethod(DataBufferUShort, getElem, int32_t, int32_t, int32_t)},
-	{"setElem", "(II)V", nullptr, $PUBLIC, $virtualMethod(DataBufferUShort, setElem, void, int32_t, int32_t)},
-	{"setElem", "(III)V", nullptr, $PUBLIC, $virtualMethod(DataBufferUShort, setElem, void, int32_t, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _DataBufferUShort_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"java.awt.image.DataBufferUShort",
-	"java.awt.image.DataBuffer",
-	nullptr,
-	_DataBufferUShort_FieldInfo_,
-	_DataBufferUShort_MethodInfo_
-};
-
-$Object* allocate$DataBufferUShort($Class* clazz) {
-	return $of($alloc(DataBufferUShort));
-}
 
 void DataBufferUShort::init$(int32_t size) {
 	$init($StateTrackable$State);
 	$DataBuffer::init$($StateTrackable$State::STABLE, $DataBuffer::TYPE_USHORT, size);
 	$set(this, data, $new($shorts, size));
 	$set(this, bankdata, $new($shortArray2, 1));
-	$nc(this->bankdata)->set(0, this->data);
+	this->bankdata->set(0, this->data);
 }
 
 void DataBufferUShort::init$(int32_t size, int32_t numBanks) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($StateTrackable$State);
 	$DataBuffer::init$($StateTrackable$State::STABLE, $DataBuffer::TYPE_USHORT, size, numBanks);
 	$set(this, bankdata, $new($shortArray2, numBanks));
 	for (int32_t i = 0; i < numBanks; ++i) {
-		$nc(this->bankdata)->set(i, $$new($shorts, size));
+		this->bankdata->set(i, $$new($shorts, size));
 	}
-	$set(this, data, $nc(this->bankdata)->get(0));
+	$set(this, data, this->bankdata->get(0));
 }
 
 void DataBufferUShort::init$($shorts* dataArray, int32_t size) {
@@ -86,7 +48,7 @@ void DataBufferUShort::init$($shorts* dataArray, int32_t size) {
 	}
 	$set(this, data, dataArray);
 	$set(this, bankdata, $new($shortArray2, 1));
-	$nc(this->bankdata)->set(0, this->data);
+	this->bankdata->set(0, this->data);
 }
 
 void DataBufferUShort::init$($shorts* dataArray, int32_t size, int32_t offset) {
@@ -100,33 +62,33 @@ void DataBufferUShort::init$($shorts* dataArray, int32_t size, int32_t offset) {
 	}
 	$set(this, data, dataArray);
 	$set(this, bankdata, $new($shortArray2, 1));
-	$nc(this->bankdata)->set(0, this->data);
+	this->bankdata->set(0, this->data);
 }
 
 void DataBufferUShort::init$($shortArray2* dataArray, int32_t size) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($StateTrackable$State);
 	$DataBuffer::init$($StateTrackable$State::UNTRACKABLE, $DataBuffer::TYPE_USHORT, size, $nc(dataArray)->length);
 	if (dataArray == nullptr) {
 		$throwNew($NullPointerException, "dataArray is null"_s);
 	}
-	for (int32_t i = 0; i < $nc(dataArray)->length; ++i) {
+	for (int32_t i = 0; i < dataArray->length; ++i) {
 		if (dataArray->get(i) == nullptr) {
 			$throwNew($NullPointerException, $$str({"dataArray["_s, $$str(i), "] is null"_s}));
 		}
 	}
-	$set(this, bankdata, $cast($shortArray2, $nc(dataArray)->clone()));
-	$set(this, data, $nc(this->bankdata)->get(0));
+	$set(this, bankdata, $cast($shortArray2, dataArray->clone()));
+	$set(this, data, this->bankdata->get(0));
 }
 
 void DataBufferUShort::init$($shortArray2* dataArray, int32_t size, $ints* offsets) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($StateTrackable$State);
 	$DataBuffer::init$($StateTrackable$State::UNTRACKABLE, $DataBuffer::TYPE_USHORT, size, $nc(dataArray)->length, offsets);
 	if (dataArray == nullptr) {
 		$throwNew($NullPointerException, "dataArray is null"_s);
 	}
-	for (int32_t i = 0; i < $nc(dataArray)->length; ++i) {
+	for (int32_t i = 0; i < dataArray->length; ++i) {
 		if (dataArray->get(i) == nullptr) {
 			$throwNew($NullPointerException, $$str({"dataArray["_s, $$str(i), "] is null"_s}));
 		}
@@ -134,8 +96,8 @@ void DataBufferUShort::init$($shortArray2* dataArray, int32_t size, $ints* offse
 			$throwNew($IllegalArgumentException, $$str({"Length of dataArray["_s, $$str(i), "] is less than size+offsets["_s, $$str(i), "]."_s}));
 		}
 	}
-	$set(this, bankdata, $cast($shortArray2, $nc(dataArray)->clone()));
-	$set(this, data, $nc(this->bankdata)->get(0));
+	$set(this, bankdata, $cast($shortArray2, dataArray->clone()));
+	$set(this, data, this->bankdata->get(0));
 }
 
 $shorts* DataBufferUShort::getData() {
@@ -154,20 +116,20 @@ $shortArray2* DataBufferUShort::getBankData() {
 }
 
 int32_t DataBufferUShort::getElem(int32_t i) {
-	return (int32_t)($nc(this->data)->get(i + this->offset) & (uint32_t)0x0000FFFF);
+	return $nc(this->data)->get(i + this->offset) & 0xffff;
 }
 
 int32_t DataBufferUShort::getElem(int32_t bank, int32_t i) {
-	return (int32_t)($nc($nc(this->bankdata)->get(bank))->get(i + $nc(this->offsets)->get(bank)) & (uint32_t)0x0000FFFF);
+	return $nc($nc(this->bankdata)->get(bank))->get(i + $nc(this->offsets)->get(bank)) & 0xffff;
 }
 
 void DataBufferUShort::setElem(int32_t i, int32_t val) {
-	$nc(this->data)->set(i + this->offset, (int16_t)((int32_t)(val & (uint32_t)0x0000FFFF)));
+	$nc(this->data)->set(i + this->offset, (int16_t)(val & 0xffff));
 	$nc(this->theTrackable)->markDirty();
 }
 
 void DataBufferUShort::setElem(int32_t bank, int32_t i, int32_t val) {
-	$nc($nc(this->bankdata)->get(bank))->set(i + $nc(this->offsets)->get(bank), (int16_t)((int32_t)(val & (uint32_t)0x0000FFFF)));
+	$nc($nc(this->bankdata)->get(bank))->set(i + $nc(this->offsets)->get(bank), (int16_t)(val & 0xffff));
 	$nc(this->theTrackable)->markDirty();
 }
 
@@ -175,7 +137,38 @@ DataBufferUShort::DataBufferUShort() {
 }
 
 $Class* DataBufferUShort::load$($String* name, bool initialize) {
-	$loadClass(DataBufferUShort, name, initialize, &_DataBufferUShort_ClassInfo_, allocate$DataBufferUShort);
+	$FieldInfo fieldInfos$$[] = {
+		{"data", "[S", nullptr, 0, $field(DataBufferUShort, data)},
+		{"bankdata", "[[S", nullptr, 0, $field(DataBufferUShort, bankdata)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(DataBufferUShort, init$, void, int32_t)},
+		{"<init>", "(II)V", nullptr, $PUBLIC, $method(DataBufferUShort, init$, void, int32_t, int32_t)},
+		{"<init>", "([SI)V", nullptr, $PUBLIC, $method(DataBufferUShort, init$, void, $shorts*, int32_t)},
+		{"<init>", "([SII)V", nullptr, $PUBLIC, $method(DataBufferUShort, init$, void, $shorts*, int32_t, int32_t)},
+		{"<init>", "([[SI)V", nullptr, $PUBLIC, $method(DataBufferUShort, init$, void, $shortArray2*, int32_t)},
+		{"<init>", "([[SI[I)V", nullptr, $PUBLIC, $method(DataBufferUShort, init$, void, $shortArray2*, int32_t, $ints*)},
+		{"getBankData", "()[[S", nullptr, $PUBLIC, $method(DataBufferUShort, getBankData, $shortArray2*)},
+		{"getData", "()[S", nullptr, $PUBLIC, $method(DataBufferUShort, getData, $shorts*)},
+		{"getData", "(I)[S", nullptr, $PUBLIC, $method(DataBufferUShort, getData, $shorts*, int32_t)},
+		{"getElem", "(I)I", nullptr, $PUBLIC, $virtualMethod(DataBufferUShort, getElem, int32_t, int32_t)},
+		{"getElem", "(II)I", nullptr, $PUBLIC, $virtualMethod(DataBufferUShort, getElem, int32_t, int32_t, int32_t)},
+		{"setElem", "(II)V", nullptr, $PUBLIC, $virtualMethod(DataBufferUShort, setElem, void, int32_t, int32_t)},
+		{"setElem", "(III)V", nullptr, $PUBLIC, $virtualMethod(DataBufferUShort, setElem, void, int32_t, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"java.awt.image.DataBufferUShort",
+		"java.awt.image.DataBuffer",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DataBufferUShort, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DataBufferUShort);
+	});
 	return class$;
 }
 

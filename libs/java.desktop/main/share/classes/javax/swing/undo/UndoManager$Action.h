@@ -22,6 +22,7 @@ class UndoManager$Action : public ::java::lang::Enum {
 public:
 	UndoManager$Action();
 	static $Array<::javax::swing::undo::UndoManager$Action>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::javax::swing::undo::UndoManager$Action* valueOf($String* name);
 	static $Array<::javax::swing::undo::UndoManager$Action>* values();

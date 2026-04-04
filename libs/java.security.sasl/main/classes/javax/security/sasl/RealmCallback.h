@@ -15,7 +15,7 @@ public:
 	RealmCallback();
 	void init$($String* prompt);
 	void init$($String* prompt, $String* defaultRealmInfo);
-	static const int64_t serialVersionUID = (int64_t)0xC3BBB99209F28CF4;
+	static const int64_t serialVersionUID = (int64_t)0xc3bbb99209f28cf4;
 };
 
 		} // sasl

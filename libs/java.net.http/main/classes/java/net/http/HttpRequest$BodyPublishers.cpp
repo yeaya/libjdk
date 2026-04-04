@@ -1,5 +1,4 @@
 #include <java/net/http/HttpRequest$BodyPublishers.h>
-
 #include <java/lang/Iterable.h>
 #include <java/net/http/HttpRequest$BodyPublisher.h>
 #include <java/net/http/HttpRequest.h>
@@ -47,47 +46,6 @@ namespace java {
 	namespace net {
 		namespace http {
 
-$MethodInfo _HttpRequest$BodyPublishers_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(HttpRequest$BodyPublishers, init$, void)},
-	{"concat", "([Ljava/net/http/HttpRequest$BodyPublisher;)Ljava/net/http/HttpRequest$BodyPublisher;", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(HttpRequest$BodyPublishers, concat, $HttpRequest$BodyPublisher*, $HttpRequest$BodyPublisherArray*)},
-	{"fromPublisher", "(Ljava/util/concurrent/Flow$Publisher;)Ljava/net/http/HttpRequest$BodyPublisher;", "(Ljava/util/concurrent/Flow$Publisher<+Ljava/nio/ByteBuffer;>;)Ljava/net/http/HttpRequest$BodyPublisher;", $PUBLIC | $STATIC, $staticMethod(HttpRequest$BodyPublishers, fromPublisher, $HttpRequest$BodyPublisher*, $Flow$Publisher*)},
-	{"fromPublisher", "(Ljava/util/concurrent/Flow$Publisher;J)Ljava/net/http/HttpRequest$BodyPublisher;", "(Ljava/util/concurrent/Flow$Publisher<+Ljava/nio/ByteBuffer;>;J)Ljava/net/http/HttpRequest$BodyPublisher;", $PUBLIC | $STATIC, $staticMethod(HttpRequest$BodyPublishers, fromPublisher, $HttpRequest$BodyPublisher*, $Flow$Publisher*, int64_t)},
-	{"noBody", "()Ljava/net/http/HttpRequest$BodyPublisher;", nullptr, $PUBLIC | $STATIC, $staticMethod(HttpRequest$BodyPublishers, noBody, $HttpRequest$BodyPublisher*)},
-	{"ofByteArray", "([B)Ljava/net/http/HttpRequest$BodyPublisher;", nullptr, $PUBLIC | $STATIC, $staticMethod(HttpRequest$BodyPublishers, ofByteArray, $HttpRequest$BodyPublisher*, $bytes*)},
-	{"ofByteArray", "([BII)Ljava/net/http/HttpRequest$BodyPublisher;", nullptr, $PUBLIC | $STATIC, $staticMethod(HttpRequest$BodyPublishers, ofByteArray, $HttpRequest$BodyPublisher*, $bytes*, int32_t, int32_t)},
-	{"ofByteArrays", "(Ljava/lang/Iterable;)Ljava/net/http/HttpRequest$BodyPublisher;", "(Ljava/lang/Iterable<[B>;)Ljava/net/http/HttpRequest$BodyPublisher;", $PUBLIC | $STATIC, $staticMethod(HttpRequest$BodyPublishers, ofByteArrays, $HttpRequest$BodyPublisher*, $Iterable*)},
-	{"ofFile", "(Ljava/nio/file/Path;)Ljava/net/http/HttpRequest$BodyPublisher;", nullptr, $PUBLIC | $STATIC, $staticMethod(HttpRequest$BodyPublishers, ofFile, $HttpRequest$BodyPublisher*, $Path*), "java.io.FileNotFoundException"},
-	{"ofInputStream", "(Ljava/util/function/Supplier;)Ljava/net/http/HttpRequest$BodyPublisher;", "(Ljava/util/function/Supplier<+Ljava/io/InputStream;>;)Ljava/net/http/HttpRequest$BodyPublisher;", $PUBLIC | $STATIC, $staticMethod(HttpRequest$BodyPublishers, ofInputStream, $HttpRequest$BodyPublisher*, $Supplier*)},
-	{"ofString", "(Ljava/lang/String;)Ljava/net/http/HttpRequest$BodyPublisher;", nullptr, $PUBLIC | $STATIC, $staticMethod(HttpRequest$BodyPublishers, ofString, $HttpRequest$BodyPublisher*, $String*)},
-	{"ofString", "(Ljava/lang/String;Ljava/nio/charset/Charset;)Ljava/net/http/HttpRequest$BodyPublisher;", nullptr, $PUBLIC | $STATIC, $staticMethod(HttpRequest$BodyPublishers, ofString, $HttpRequest$BodyPublisher*, $String*, $Charset*)},
-	{}
-};
-
-$InnerClassInfo _HttpRequest$BodyPublishers_InnerClassesInfo_[] = {
-	{"java.net.http.HttpRequest$BodyPublishers", "java.net.http.HttpRequest", "BodyPublishers", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _HttpRequest$BodyPublishers_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.net.http.HttpRequest$BodyPublishers",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_HttpRequest$BodyPublishers_MethodInfo_,
-	nullptr,
-	nullptr,
-	_HttpRequest$BodyPublishers_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.net.http.HttpRequest"
-};
-
-$Object* allocate$HttpRequest$BodyPublishers($Class* clazz) {
-	return $of($alloc(HttpRequest$BodyPublishers));
-}
-
 void HttpRequest$BodyPublishers::init$() {
 }
 
@@ -96,7 +54,7 @@ $HttpRequest$BodyPublisher* HttpRequest$BodyPublishers::fromPublisher($Flow$Publ
 }
 
 $HttpRequest$BodyPublisher* HttpRequest$BodyPublishers::fromPublisher($Flow$Publisher* publisher, int64_t contentLength) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (contentLength < 1) {
 		$throwNew($IllegalArgumentException, $$str({"non-positive contentLength: "_s, $$str(contentLength)}));
 	}
@@ -146,7 +104,43 @@ HttpRequest$BodyPublishers::HttpRequest$BodyPublishers() {
 }
 
 $Class* HttpRequest$BodyPublishers::load$($String* name, bool initialize) {
-	$loadClass(HttpRequest$BodyPublishers, name, initialize, &_HttpRequest$BodyPublishers_ClassInfo_, allocate$HttpRequest$BodyPublishers);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(HttpRequest$BodyPublishers, init$, void)},
+		{"concat", "([Ljava/net/http/HttpRequest$BodyPublisher;)Ljava/net/http/HttpRequest$BodyPublisher;", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(HttpRequest$BodyPublishers, concat, $HttpRequest$BodyPublisher*, $HttpRequest$BodyPublisherArray*)},
+		{"fromPublisher", "(Ljava/util/concurrent/Flow$Publisher;)Ljava/net/http/HttpRequest$BodyPublisher;", "(Ljava/util/concurrent/Flow$Publisher<+Ljava/nio/ByteBuffer;>;)Ljava/net/http/HttpRequest$BodyPublisher;", $PUBLIC | $STATIC, $staticMethod(HttpRequest$BodyPublishers, fromPublisher, $HttpRequest$BodyPublisher*, $Flow$Publisher*)},
+		{"fromPublisher", "(Ljava/util/concurrent/Flow$Publisher;J)Ljava/net/http/HttpRequest$BodyPublisher;", "(Ljava/util/concurrent/Flow$Publisher<+Ljava/nio/ByteBuffer;>;J)Ljava/net/http/HttpRequest$BodyPublisher;", $PUBLIC | $STATIC, $staticMethod(HttpRequest$BodyPublishers, fromPublisher, $HttpRequest$BodyPublisher*, $Flow$Publisher*, int64_t)},
+		{"noBody", "()Ljava/net/http/HttpRequest$BodyPublisher;", nullptr, $PUBLIC | $STATIC, $staticMethod(HttpRequest$BodyPublishers, noBody, $HttpRequest$BodyPublisher*)},
+		{"ofByteArray", "([B)Ljava/net/http/HttpRequest$BodyPublisher;", nullptr, $PUBLIC | $STATIC, $staticMethod(HttpRequest$BodyPublishers, ofByteArray, $HttpRequest$BodyPublisher*, $bytes*)},
+		{"ofByteArray", "([BII)Ljava/net/http/HttpRequest$BodyPublisher;", nullptr, $PUBLIC | $STATIC, $staticMethod(HttpRequest$BodyPublishers, ofByteArray, $HttpRequest$BodyPublisher*, $bytes*, int32_t, int32_t)},
+		{"ofByteArrays", "(Ljava/lang/Iterable;)Ljava/net/http/HttpRequest$BodyPublisher;", "(Ljava/lang/Iterable<[B>;)Ljava/net/http/HttpRequest$BodyPublisher;", $PUBLIC | $STATIC, $staticMethod(HttpRequest$BodyPublishers, ofByteArrays, $HttpRequest$BodyPublisher*, $Iterable*)},
+		{"ofFile", "(Ljava/nio/file/Path;)Ljava/net/http/HttpRequest$BodyPublisher;", nullptr, $PUBLIC | $STATIC, $staticMethod(HttpRequest$BodyPublishers, ofFile, $HttpRequest$BodyPublisher*, $Path*), "java.io.FileNotFoundException"},
+		{"ofInputStream", "(Ljava/util/function/Supplier;)Ljava/net/http/HttpRequest$BodyPublisher;", "(Ljava/util/function/Supplier<+Ljava/io/InputStream;>;)Ljava/net/http/HttpRequest$BodyPublisher;", $PUBLIC | $STATIC, $staticMethod(HttpRequest$BodyPublishers, ofInputStream, $HttpRequest$BodyPublisher*, $Supplier*)},
+		{"ofString", "(Ljava/lang/String;)Ljava/net/http/HttpRequest$BodyPublisher;", nullptr, $PUBLIC | $STATIC, $staticMethod(HttpRequest$BodyPublishers, ofString, $HttpRequest$BodyPublisher*, $String*)},
+		{"ofString", "(Ljava/lang/String;Ljava/nio/charset/Charset;)Ljava/net/http/HttpRequest$BodyPublisher;", nullptr, $PUBLIC | $STATIC, $staticMethod(HttpRequest$BodyPublishers, ofString, $HttpRequest$BodyPublisher*, $String*, $Charset*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.net.http.HttpRequest$BodyPublishers", "java.net.http.HttpRequest", "BodyPublishers", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.net.http.HttpRequest$BodyPublishers",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.net.http.HttpRequest"
+	};
+	$loadClass(HttpRequest$BodyPublishers, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HttpRequest$BodyPublishers);
+	});
 	return class$;
 }
 

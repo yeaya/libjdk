@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/serializer/ToStream.h>
-
 #include <com/sun/org/apache/xml/internal/serializer/AttributesImplSerializer.h>
 #include <com/sun/org/apache/xml/internal/serializer/CharInfo.h>
 #include <com/sun/org/apache/xml/internal/serializer/ElemContext.h>
@@ -83,12 +82,9 @@
 #undef XMLVERSION10
 #undef XMLVERSION11
 
-using $AttributesImplSerializer = ::com::sun::org::apache::xml::internal::serializer::AttributesImplSerializer;
 using $CharInfo = ::com::sun::org::apache::xml::internal::serializer::CharInfo;
-using $ElemContext = ::com::sun::org::apache::xml::internal::serializer::ElemContext;
 using $EncodingInfo = ::com::sun::org::apache::xml::internal::serializer::EncodingInfo;
 using $Encodings = ::com::sun::org::apache::xml::internal::serializer::Encodings;
-using $NamespaceMappings = ::com::sun::org::apache::xml::internal::serializer::NamespaceMappings;
 using $NamespaceMappings$MappingRecord = ::com::sun::org::apache::xml::internal::serializer::NamespaceMappings$MappingRecord;
 using $OutputPropertiesFactory = ::com::sun::org::apache::xml::internal::serializer::OutputPropertiesFactory;
 using $SerializerBase = ::com::sun::org::apache::xml::internal::serializer::SerializerBase;
@@ -103,14 +99,12 @@ using $WriterChain = ::com::sun::org::apache::xml::internal::serializer::WriterC
 using $WriterToASCI = ::com::sun::org::apache::xml::internal::serializer::WriterToASCI;
 using $WriterToUTF8Buffered = ::com::sun::org::apache::xml::internal::serializer::WriterToUTF8Buffered;
 using $DOMConstants = ::com::sun::org::apache::xml::internal::serializer::dom3::DOMConstants;
-using $Messages = ::com::sun::org::apache::xml::internal::serializer::utils::Messages;
 using $MsgKey = ::com::sun::org::apache::xml::internal::serializer::utils::MsgKey;
 using $Utils = ::com::sun::org::apache::xml::internal::serializer::utils::Utils;
 using $WrappedRuntimeException = ::com::sun::org::apache::xml::internal::serializer::utils::WrappedRuntimeException;
 using $IOException = ::java::io::IOException;
 using $OutputStream = ::java::io::OutputStream;
 using $OutputStreamWriter = ::java::io::OutputStreamWriter;
-using $PrintStream = ::java::io::PrintStream;
 using $UnsupportedEncodingException = ::java::io::UnsupportedEncodingException;
 using $Writer = ::java::io::Writer;
 using $Character = ::java::lang::Character;
@@ -147,162 +141,6 @@ namespace com {
 					namespace internal {
 						namespace serializer {
 
-$FieldInfo _ToStream_FieldInfo_[] = {
-	{"COMMENT_BEGIN", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ToStream, COMMENT_BEGIN)},
-	{"COMMENT_END", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ToStream, COMMENT_END)},
-	{"m_disableOutputEscapingStates", "Lcom/sun/org/apache/xml/internal/serializer/ToStream$BoolStack;", nullptr, $PROTECTED, $field(ToStream, m_disableOutputEscapingStates)},
-	{"m_encodingInfo", "Lcom/sun/org/apache/xml/internal/serializer/EncodingInfo;", nullptr, 0, $field(ToStream, m_encodingInfo)},
-	{"m_canConvertMeth", "Ljava/lang/reflect/Method;", nullptr, 0, $field(ToStream, m_canConvertMeth)},
-	{"m_triedToGetConverter", "Z", nullptr, 0, $field(ToStream, m_triedToGetConverter)},
-	{"m_charToByteConverter", "Ljava/lang/Object;", nullptr, 0, $field(ToStream, m_charToByteConverter)},
-	{"m_charactersBuffer", "Lcom/sun/org/apache/xml/internal/serializer/ToStream$CharacterBuffer;", nullptr, $PROTECTED, $field(ToStream, m_charactersBuffer)},
-	{"m_childNodeNumStack", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/Integer;>;", $PROTECTED, $field(ToStream, m_childNodeNumStack)},
-	{"m_childNodeNum", "I", nullptr, $PROTECTED, $field(ToStream, m_childNodeNum)},
-	{"m_preserveSpaces", "Lcom/sun/org/apache/xml/internal/serializer/ToStream$BoolStack;", nullptr, $PROTECTED, $field(ToStream, m_preserveSpaces)},
-	{"m_ispreserveSpace", "Z", nullptr, $PROTECTED, $field(ToStream, m_ispreserveSpace)},
-	{"m_isprevtext", "Z", nullptr, $PROTECTED, $field(ToStream, m_isprevtext)},
-	{"m_maxCharacter", "I", nullptr, $PROTECTED, $field(ToStream, m_maxCharacter)},
-	{"m_lineSep", "[C", nullptr, $PROTECTED, $field(ToStream, m_lineSep)},
-	{"m_lineSepUse", "Z", nullptr, $PROTECTED, $field(ToStream, m_lineSepUse)},
-	{"m_lineSepLen", "I", nullptr, $PROTECTED, $field(ToStream, m_lineSepLen)},
-	{"m_charInfo", "Lcom/sun/org/apache/xml/internal/serializer/CharInfo;", nullptr, $PROTECTED, $field(ToStream, m_charInfo)},
-	{"m_shouldFlush", "Z", nullptr, 0, $field(ToStream, m_shouldFlush)},
-	{"m_spaceBeforeClose", "Z", nullptr, $PROTECTED, $field(ToStream, m_spaceBeforeClose)},
-	{"m_startNewLine", "Z", nullptr, 0, $field(ToStream, m_startNewLine)},
-	{"m_inDoctype", "Z", nullptr, $PROTECTED, $field(ToStream, m_inDoctype)},
-	{"m_isUTF8", "Z", nullptr, 0, $field(ToStream, m_isUTF8)},
-	{"m_cdataStartCalled", "Z", nullptr, $PROTECTED, $field(ToStream, m_cdataStartCalled)},
-	{"m_expandDTDEntities", "Z", nullptr, $PRIVATE, $field(ToStream, m_expandDTDEntities)},
-	{"m_highSurrogate", "C", nullptr, $PRIVATE, $field(ToStream, m_highSurrogate)},
-	{"m_escaping", "Z", nullptr, $PRIVATE, $field(ToStream, m_escaping)},
-	{"m_outputStream", "Ljava/io/OutputStream;", nullptr, 0, $field(ToStream, m_outputStream)},
-	{"m_writer_set_by_user", "Z", nullptr, $PRIVATE, $field(ToStream, m_writer_set_by_user)},
-	{}
-};
-
-$MethodInfo _ToStream_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ToStream, init$, void)},
-	{"<init>", "(Ljavax/xml/transform/ErrorListener;)V", nullptr, $PUBLIC, $method(ToStream, init$, void, $ErrorListener*)},
-	{"DTDprolog", "()V", nullptr, $PRIVATE, $method(ToStream, DTDprolog, void), "org.xml.sax.SAXException,java.io.IOException"},
-	{"accumDefaultEntity", "(Ljava/io/Writer;CI[CIZZ)I", nullptr, $PROTECTED, $virtualMethod(ToStream, accumDefaultEntity, int32_t, $Writer*, char16_t, int32_t, $chars*, int32_t, bool, bool), "java.io.IOException"},
-	{"accumDefaultEscape", "(Ljava/io/Writer;CI[CIZZ)I", nullptr, $PROTECTED, $virtualMethod(ToStream, accumDefaultEscape, int32_t, $Writer*, char16_t, int32_t, $chars*, int32_t, bool, bool), "java.io.IOException,org.xml.sax.SAXException"},
-	{"addAttributeAlways", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)Z", nullptr, $PUBLIC, $virtualMethod(ToStream, addAttributeAlways, bool, $String*, $String*, $String*, $String*, $String*, bool)},
-	{"addCdataSectionElement", "(Ljava/lang/String;Ljava/util/List;)V", "(Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;)V", $PRIVATE, $method(ToStream, addCdataSectionElement, void, $String*, $List*)},
-	{"addCdataSectionElements", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToStream, addCdataSectionElements, void, $String*)},
-	{"attributeDecl", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToStream, attributeDecl, void, $String*, $String*, $String*, $String*, $String*), "org.xml.sax.SAXException"},
-	{"cdata", "([CII)V", nullptr, $PROTECTED, $virtualMethod(ToStream, cdata, void, $chars*, int32_t, int32_t), "org.xml.sax.SAXException"},
-	{"characters", "([CII)V", nullptr, $PUBLIC, $virtualMethod(ToStream, characters, void, $chars*, int32_t, int32_t), "org.xml.sax.SAXException"},
-	{"characters", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToStream, characters, void, $String*), "org.xml.sax.SAXException"},
-	{"charactersRaw", "([CII)V", nullptr, $PROTECTED, $virtualMethod(ToStream, charactersRaw, void, $chars*, int32_t, int32_t), "org.xml.sax.SAXException"},
-	{"closeCDATA", "()V", nullptr, $PROTECTED, $virtualMethod(ToStream, closeCDATA, void), "org.xml.sax.SAXException"},
-	{"closeStartTag", "()V", nullptr, $PROTECTED, $virtualMethod(ToStream, closeStartTag, void), "org.xml.sax.SAXException"},
-	{"comment", "([CII)V", nullptr, $PUBLIC, $virtualMethod(ToStream, comment, void, $chars*, int32_t, int32_t), "org.xml.sax.SAXException"},
-	{"doAddAttributeAlways", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)Z", nullptr, $PRIVATE, $method(ToStream, doAddAttributeAlways, bool, $String*, $String*, $String*, $String*, $String*, bool)},
-	{"elementDecl", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToStream, elementDecl, void, $String*, $String*), "org.xml.sax.SAXException"},
-	{"endCDATA", "()V", nullptr, $PUBLIC, $virtualMethod(ToStream, endCDATA, void), "org.xml.sax.SAXException"},
-	{"endDTD", "()V", nullptr, $PUBLIC, $virtualMethod(ToStream, endDTD, void), "org.xml.sax.SAXException"},
-	{"endElement", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToStream, endElement, void, $String*, $String*, $String*), "org.xml.sax.SAXException"},
-	{"endElement", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToStream, endElement, void, $String*), "org.xml.sax.SAXException"},
-	{"endNonEscaping", "()V", nullptr, $PUBLIC, $virtualMethod(ToStream, endNonEscaping, void), "org.xml.sax.SAXException"},
-	{"endPrefixMapping", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToStream, endPrefixMapping, void, $String*), "org.xml.sax.SAXException"},
-	{"ensureAttributesNamespaceIsDeclared", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(ToStream, ensureAttributesNamespaceIsDeclared, $String*, $String*, $String*, $String*), "org.xml.sax.SAXException"},
-	{"ensurePrefixIsDeclared", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, 0, $virtualMethod(ToStream, ensurePrefixIsDeclared, void, $String*, $String*), "org.xml.sax.SAXException"},
-	{"escapingNotNeeded", "(C)Z", nullptr, $PROTECTED, $virtualMethod(ToStream, escapingNotNeeded, bool, char16_t)},
-	{"externalEntityDecl", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToStream, externalEntityDecl, void, $String*, $String*, $String*), "org.xml.sax.SAXException"},
-	{"firePseudoAttributes", "()V", nullptr, $PROTECTED, $virtualMethod(ToStream, firePseudoAttributes, void)},
-	{"flushCharactersBuffer", "(Z)V", nullptr, $PROTECTED | $FINAL, $method(ToStream, flushCharactersBuffer, void, bool), "org.xml.sax.SAXException"},
-	{"flushPending", "()V", nullptr, $PUBLIC, $virtualMethod(ToStream, flushPending, void), "org.xml.sax.SAXException"},
-	{"flushWriter", "()V", nullptr, $PROTECTED | $FINAL, $method(ToStream, flushWriter, void), "org.xml.sax.SAXException"},
-	{"getIndent", "()Z", nullptr, $PUBLIC, $virtualMethod(ToStream, getIndent, bool)},
-	{"getIndentAmount", "()I", nullptr, $PUBLIC, $virtualMethod(ToStream, getIndentAmount, int32_t)},
-	{"getOutputFormat", "()Ljava/util/Properties;", nullptr, $PUBLIC, $virtualMethod(ToStream, getOutputFormat, $Properties*)},
-	{"getOutputStream", "()Ljava/io/OutputStream;", nullptr, $PUBLIC, $virtualMethod(ToStream, getOutputStream, $OutputStream*)},
-	{"getWriter", "()Ljava/io/Writer;", nullptr, $PUBLIC, $virtualMethod(ToStream, getWriter, $Writer*)},
-	{"handleEscaping", "(Ljava/io/Writer;C[CII)I", nullptr, $PRIVATE, $method(ToStream, handleEscaping, int32_t, $Writer*, char16_t, $chars*, int32_t, int32_t), "java.io.IOException,org.xml.sax.SAXException"},
-	{"ignorableWhitespace", "([CII)V", nullptr, $PUBLIC, $virtualMethod(ToStream, ignorableWhitespace, void, $chars*, int32_t, int32_t), "org.xml.sax.SAXException"},
-	{"indent", "(I)V", nullptr, $PROTECTED, $virtualMethod(ToStream, indent, void, int32_t), "java.io.IOException"},
-	{"indent", "()V", nullptr, $PROTECTED, $virtualMethod(ToStream, indent, void), "java.io.IOException"},
-	{"internalEntityDecl", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToStream, internalEntityDecl, void, $String*, $String*), "org.xml.sax.SAXException"},
-	{"isCharacterInC0orC1Range", "(C)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(ToStream, isCharacterInC0orC1Range, bool, char16_t)},
-	{"isEscapingDisabled", "()Z", nullptr, $PRIVATE, $method(ToStream, isEscapingDisabled, bool)},
-	{"isNELorLSEPCharacter", "(C)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(ToStream, isNELorLSEPCharacter, bool, char16_t)},
-	{"isUTF16Surrogate", "(C)Z", nullptr, $STATIC | $FINAL, $staticMethod(ToStream, isUTF16Surrogate, bool, char16_t)},
-	{"notationDecl", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToStream, notationDecl, void, $String*, $String*, $String*), "org.xml.sax.SAXException"},
-	{"outputCharacters", "([CII)V", nullptr, $PRIVATE, $method(ToStream, outputCharacters, void, $chars*, int32_t, int32_t), "org.xml.sax.SAXException"},
-	{"outputDocTypeDecl", "(Ljava/lang/String;Z)V", nullptr, 0, $virtualMethod(ToStream, outputDocTypeDecl, void, $String*, bool), "org.xml.sax.SAXException"},
-	{"outputEntityDecl", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, 0, $virtualMethod(ToStream, outputEntityDecl, void, $String*, $String*), "java.io.IOException"},
-	{"outputEntityReference", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(ToStream, outputEntityReference, void, $String*), "org.xml.sax.SAXException"},
-	{"outputLineSep", "()V", nullptr, $PROTECTED | $FINAL, $method(ToStream, outputLineSep, void), "java.io.IOException"},
-	{"printSpace", "(I)V", nullptr, $PRIVATE, $method(ToStream, printSpace, void, int32_t), "java.io.IOException"},
-	{"processAttributes", "(Ljava/io/Writer;I)V", nullptr, $PUBLIC, $virtualMethod(ToStream, processAttributes, void, $Writer*, int32_t), "java.io.IOException,org.xml.sax.SAXException"},
-	{"processDirty", "([CIICIZ)I", nullptr, $PRIVATE, $method(ToStream, processDirty, int32_t, $chars*, int32_t, int32_t, char16_t, int32_t, bool), "java.io.IOException,org.xml.sax.SAXException"},
-	{"reset", "()Z", nullptr, $PUBLIC, $virtualMethod(ToStream, reset, bool)},
-	{"resetToStream", "()V", nullptr, $PRIVATE, $method(ToStream, resetToStream, void)},
-	{"serialize", "(Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC, $virtualMethod(ToStream, serialize, void, $Node*), "java.io.IOException"},
-	{"setCdataSectionElements", "(Ljava/lang/String;Ljava/util/Properties;)V", nullptr, $PRIVATE, $method(ToStream, setCdataSectionElements, void, $String*, $Properties*)},
-	{"setCdataSectionElements", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/lang/String;>;)V", $PUBLIC, $virtualMethod(ToStream, setCdataSectionElements, void, $List*)},
-	{"setContentHandler", "(Lorg/xml/sax/ContentHandler;)V", nullptr, $PUBLIC, $virtualMethod(ToStream, setContentHandler, void, $ContentHandler*)},
-	{"setDTDEntityExpansion", "(Z)V", nullptr, $PUBLIC, $virtualMethod(ToStream, setDTDEntityExpansion, void, bool)},
-	{"setEncoding", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToStream, setEncoding, void, $String*)},
-	{"setEscaping", "(Z)Z", nullptr, $PUBLIC, $virtualMethod(ToStream, setEscaping, bool, bool)},
-	{"setIndentAmount", "(I)V", nullptr, $PUBLIC, $virtualMethod(ToStream, setIndentAmount, void, int32_t)},
-	{"setLineSepUse", "(Z)Z", nullptr, $PUBLIC, $virtualMethod(ToStream, setLineSepUse, bool, bool)},
-	{"setOutputFormat", "(Ljava/util/Properties;)V", nullptr, $PUBLIC, $virtualMethod(ToStream, setOutputFormat, void, $Properties*)},
-	{"setOutputStream", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $virtualMethod(ToStream, setOutputStream, void, $OutputStream*)},
-	{"setOutputStreamInternal", "(Ljava/io/OutputStream;Z)V", nullptr, $PRIVATE, $method(ToStream, setOutputStreamInternal, void, $OutputStream*, bool)},
-	{"setProp", "(Ljava/lang/String;Ljava/lang/String;Z)V", nullptr, 0, $virtualMethod(ToStream, setProp, void, $String*, $String*, bool)},
-	{"setTransformer", "(Ljavax/xml/transform/Transformer;)V", nullptr, $PUBLIC, $virtualMethod(ToStream, setTransformer, void, $Transformer*)},
-	{"setWriter", "(Ljava/io/Writer;)V", nullptr, $PUBLIC, $virtualMethod(ToStream, setWriter, void, $Writer*)},
-	{"setWriterInternal", "(Ljava/io/Writer;Z)V", nullptr, $PRIVATE, $method(ToStream, setWriterInternal, void, $Writer*, bool)},
-	{"shouldFormatOutput", "()Z", nullptr, $PROTECTED, $virtualMethod(ToStream, shouldFormatOutput, bool)},
-	{"shouldIndent", "()Z", nullptr, $PROTECTED, $virtualMethod(ToStream, shouldIndent, bool)},
-	{"shouldIndentForText", "()Z", nullptr, $PROTECTED, $virtualMethod(ToStream, shouldIndentForText, bool)},
-	{"skippedEntity", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToStream, skippedEntity, void, $String*), "org.xml.sax.SAXException"},
-	{"startCDATA", "()V", nullptr, $PUBLIC, $virtualMethod(ToStream, startCDATA, void), "org.xml.sax.SAXException"},
-	{"startDTD", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToStream, startDTD, void, $String*, $String*, $String*), "org.xml.sax.SAXException"},
-	{"startElement", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lorg/xml/sax/Attributes;)V", nullptr, $PUBLIC, $virtualMethod(ToStream, startElement, void, $String*, $String*, $String*, $Attributes*), "org.xml.sax.SAXException"},
-	{"startElement", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToStream, startElement, void, $String*, $String*, $String*), "org.xml.sax.SAXException"},
-	{"startElement", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToStream, startElement, void, $String*), "org.xml.sax.SAXException"},
-	{"startEntity", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToStream, startEntity, void, $String*), "org.xml.sax.SAXException"},
-	{"startNonEscaping", "()V", nullptr, $PUBLIC, $virtualMethod(ToStream, startNonEscaping, void), "org.xml.sax.SAXException"},
-	{"startPrefixMapping", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToStream, startPrefixMapping, void, $String*, $String*), "org.xml.sax.SAXException"},
-	{"startPrefixMapping", "(Ljava/lang/String;Ljava/lang/String;Z)Z", nullptr, $PUBLIC, $virtualMethod(ToStream, startPrefixMapping, bool, $String*, $String*, bool), "org.xml.sax.SAXException"},
-	{"throwIOE", "(CC)V", nullptr, $PRIVATE, $method(ToStream, throwIOE, void, char16_t, char16_t), "java.io.IOException"},
-	{"unparsedEntityDecl", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToStream, unparsedEntityDecl, void, $String*, $String*, $String*, $String*), "org.xml.sax.SAXException"},
-	{"writeAttrString", "(Ljava/io/Writer;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToStream, writeAttrString, void, $Writer*, $String*, $String*), "java.io.IOException,org.xml.sax.SAXException"},
-	{"writeCharRef", "(Ljava/io/Writer;C)V", nullptr, $PRIVATE, $method(ToStream, writeCharRef, void, $Writer*, char16_t), "java.io.IOException,org.xml.sax.SAXException"},
-	{"writeCharRef", "(Ljava/io/Writer;CC)I", nullptr, $PRIVATE, $method(ToStream, writeCharRef, int32_t, $Writer*, char16_t, char16_t), "java.io.IOException,org.xml.sax.SAXException"},
-	{"writeNormalizedChars", "([CIIZZ)V", nullptr, 0, $virtualMethod(ToStream, writeNormalizedChars, void, $chars*, int32_t, int32_t, bool, bool), "java.io.IOException,org.xml.sax.SAXException"},
-	{"writeUTF16Surrogate", "(C[CII)I", nullptr, $PROTECTED, $virtualMethod(ToStream, writeUTF16Surrogate, int32_t, char16_t, $chars*, int32_t, int32_t), "java.io.IOException,org.xml.sax.SAXException"},
-	{}
-};
-
-$InnerClassInfo _ToStream_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xml.internal.serializer.ToStream$CharacterBuffer", "com.sun.org.apache.xml.internal.serializer.ToStream", "CharacterBuffer", $PRIVATE},
-	{"com.sun.org.apache.xml.internal.serializer.ToStream$BoolStack", "com.sun.org.apache.xml.internal.serializer.ToStream", "BoolStack", $STATIC | $FINAL},
-	{"com.sun.org.apache.xml.internal.serializer.ToStream$WritertoStringBuffer", "com.sun.org.apache.xml.internal.serializer.ToStream", "WritertoStringBuffer", $PRIVATE},
-	{}
-};
-
-$ClassInfo _ToStream_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"com.sun.org.apache.xml.internal.serializer.ToStream",
-	"com.sun.org.apache.xml.internal.serializer.SerializerBase",
-	nullptr,
-	_ToStream_FieldInfo_,
-	_ToStream_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ToStream_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xml.internal.serializer.ToStream$CharacterBuffer,com.sun.org.apache.xml.internal.serializer.ToStream$CharacterBuffer$GenericCharacters,com.sun.org.apache.xml.internal.serializer.ToStream$CharacterBuffer$3,com.sun.org.apache.xml.internal.serializer.ToStream$CharacterBuffer$2,com.sun.org.apache.xml.internal.serializer.ToStream$CharacterBuffer$1,com.sun.org.apache.xml.internal.serializer.ToStream$BoolStack,com.sun.org.apache.xml.internal.serializer.ToStream$WritertoStringBuffer"
-};
-
-$Object* allocate$ToStream($Class* clazz) {
-	return $of($alloc(ToStream));
-}
-
 $String* ToStream::COMMENT_BEGIN = nullptr;
 $String* ToStream::COMMENT_END = nullptr;
 
@@ -323,16 +161,16 @@ void ToStream::init$($ErrorListener* l) {
 	this->m_ispreserveSpace = false;
 	this->m_isprevtext = false;
 	this->m_maxCharacter = $Encodings::getLastPrintable();
-	$set(this, m_lineSep, $nc($($System::lineSeparator()))->toCharArray());
+	$set(this, m_lineSep, $$nc($System::lineSeparator())->toCharArray());
 	this->m_lineSepUse = true;
-	this->m_lineSepLen = $nc(this->m_lineSep)->length;
+	this->m_lineSepLen = this->m_lineSep->length;
 	this->m_shouldFlush = true;
 	this->m_spaceBeforeClose = false;
 	this->m_inDoctype = false;
 	this->m_isUTF8 = false;
 	this->m_cdataStartCalled = false;
 	this->m_expandDTDEntities = true;
-	this->m_highSurrogate = (char16_t)0;
+	this->m_highSurrogate = 0;
 	this->m_escaping = true;
 	$set(this, m_errListener, l);
 }
@@ -343,7 +181,7 @@ void ToStream::closeCDATA() {
 		$nc(this->m_writer)->write($SerializerConstants::CDATA_DELIMITER_CLOSE);
 		this->m_cdataTagOpen = false;
 	} catch ($IOException& e) {
-		$throwNew($SAXException, static_cast<$Exception*>(e));
+		$throwNew($SAXException, e);
 	}
 }
 
@@ -358,7 +196,7 @@ void ToStream::serialize($Node* node) {
 
 bool ToStream::isUTF16Surrogate(char16_t c) {
 	$init(ToStream);
-	return ((int32_t)(c & (uint32_t)0x0000FC00)) == 0x0000D800;
+	return (c & 0xfc00) == 0xd800;
 }
 
 void ToStream::flushWriter() {
@@ -367,9 +205,9 @@ void ToStream::flushWriter() {
 		try {
 			if ($instanceOf($WriterToUTF8Buffered, writer)) {
 				if (this->m_shouldFlush) {
-					$nc(($cast($WriterToUTF8Buffered, writer)))->flush();
+					$cast($WriterToUTF8Buffered, writer)->flush();
 				} else {
-					$nc(($cast($WriterToUTF8Buffered, writer)))->flushBuffer();
+					$cast($WriterToUTF8Buffered, writer)->flushBuffer();
 				}
 			}
 			if ($instanceOf($WriterToASCI, writer)) {
@@ -380,7 +218,7 @@ void ToStream::flushWriter() {
 				writer->flush();
 			}
 		} catch ($IOException& ioe) {
-			$throwNew($SAXException, static_cast<$Exception*>(ioe));
+			$throwNew($SAXException, ioe);
 		}
 	}
 }
@@ -398,12 +236,12 @@ void ToStream::elementDecl($String* name, $String* model) {
 		DTDprolog();
 		$nc(writer)->write("<!ELEMENT "_s);
 		writer->write(name);
-		writer->write((int32_t)u' ');
+		writer->write(u' ');
 		writer->write(model);
-		writer->write((int32_t)u'>');
+		writer->write(u'>');
 		writer->write(this->m_lineSep, 0, this->m_lineSepLen);
 	} catch ($IOException& e) {
-		$throwNew($SAXException, static_cast<$Exception*>(e));
+		$throwNew($SAXException, e);
 	}
 }
 
@@ -415,7 +253,7 @@ void ToStream::internalEntityDecl($String* name, $String* value) {
 		DTDprolog();
 		outputEntityDecl(name, value);
 	} catch ($IOException& e) {
-		$throwNew($SAXException, static_cast<$Exception*>(e));
+		$throwNew($SAXException, e);
 	}
 }
 
@@ -434,155 +272,133 @@ void ToStream::outputLineSep() {
 }
 
 void ToStream::setProp($String* name, $String* val$renamed, bool defaultVal) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, val, val$renamed);
 	if (val != nullptr) {
 		char16_t first = getFirstCharLocName(name);
 		{
-			$var($String, newEncoding, nullptr)
+			$var($String, newEncoding, nullptr);
 			switch (first) {
 			case u'c':
-				{
-					$init($OutputKeys);
-					if ($nc($OutputKeys::CDATA_SECTION_ELEMENTS)->equals(name)) {
-						addCdataSectionElements(val);
-					}
-					break;
+				$init($OutputKeys);
+				if ($nc($OutputKeys::CDATA_SECTION_ELEMENTS)->equals(name)) {
+					addCdataSectionElements(val);
 				}
+				break;
 			case u'd':
-				{
-					$init($OutputKeys);
-					if ($nc($OutputKeys::DOCTYPE_SYSTEM)->equals(name)) {
-						$set(this, m_doctypeSystem, val);
-					} else {
-						if ($nc($OutputKeys::DOCTYPE_PUBLIC)->equals(name)) {
-							$set(this, m_doctypePublic, val);
-							if (val->startsWith("-//W3C//DTD XHTML"_s)) {
-								this->m_spaceBeforeClose = true;
-							}
-						}
+				$init($OutputKeys);
+				if ($nc($OutputKeys::DOCTYPE_SYSTEM)->equals(name)) {
+					$set(this, m_doctypeSystem, val);
+				} else if ($nc($OutputKeys::DOCTYPE_PUBLIC)->equals(name)) {
+					$set(this, m_doctypePublic, val);
+					if (val->startsWith("-//W3C//DTD XHTML"_s)) {
+						this->m_spaceBeforeClose = true;
 					}
-					break;
 				}
+				break;
 			case u'e':
-				{
-					$assign(newEncoding, val);
-					$init($OutputKeys);
-					if ($nc($OutputKeys::ENCODING)->equals(name)) {
-						$var($String, possible_encoding, $Encodings::getMimeEncoding(val));
-						if (possible_encoding != nullptr) {
-							$SerializerBase::setProp("mime-name"_s, possible_encoding, defaultVal);
-						}
-						$var($String, oldExplicitEncoding, getOutputPropertyNonDefault($OutputKeys::ENCODING));
-						$var($String, oldDefaultEncoding, getOutputPropertyDefault($OutputKeys::ENCODING));
-						bool var$0 = (defaultVal && (oldDefaultEncoding == nullptr || !$nc(oldDefaultEncoding)->equalsIgnoreCase(newEncoding)));
-						if (var$0 || (!defaultVal && (oldExplicitEncoding == nullptr || !$nc(oldExplicitEncoding)->equalsIgnoreCase(newEncoding)))) {
-							$var($EncodingInfo, encodingInfo, $Encodings::getEncodingInfo(newEncoding));
-							if ($nc(encodingInfo)->name == nullptr) {
-								$init($Utils);
-								$init($MsgKey);
-								$var($String, msg, $nc($Utils::messages)->createMessage($MsgKey::ER_ENCODING_NOT_SUPPORTED, $$new($ObjectArray, {$of(newEncoding)})));
-								$var($String, msg2, $str({"Warning: encoding \""_s, newEncoding, "\" not supported, using "_s, $Encodings::DEFAULT_MIME_ENCODING}));
-								try {
-									if (this->m_errListener != nullptr) {
-										$nc(this->m_errListener)->warning($$new($TransformerException, msg, this->m_sourceLocator));
-										$nc(this->m_errListener)->warning($$new($TransformerException, msg2, this->m_sourceLocator));
-									}
-								} catch ($Exception& e) {
+				$assign(newEncoding, val);
+				$init($OutputKeys);
+				if ($nc($OutputKeys::ENCODING)->equals(name)) {
+					$var($String, possible_encoding, $Encodings::getMimeEncoding(val));
+					if (possible_encoding != nullptr) {
+						$SerializerBase::setProp("mime-name"_s, possible_encoding, defaultVal);
+					}
+					$var($String, oldExplicitEncoding, getOutputPropertyNonDefault($OutputKeys::ENCODING));
+					$var($String, oldDefaultEncoding, getOutputPropertyDefault($OutputKeys::ENCODING));
+					bool var$0 = defaultVal && (oldDefaultEncoding == nullptr || !oldDefaultEncoding->equalsIgnoreCase(newEncoding));
+					if (var$0 || (!defaultVal && (oldExplicitEncoding == nullptr || !oldExplicitEncoding->equalsIgnoreCase(newEncoding)))) {
+						$var($EncodingInfo, encodingInfo, $Encodings::getEncodingInfo(newEncoding));
+						if ($nc(encodingInfo)->name == nullptr) {
+							$init($Utils);
+							$init($MsgKey);
+							$var($String, msg, $nc($Utils::messages)->createMessage($MsgKey::ER_ENCODING_NOT_SUPPORTED, $$new($ObjectArray, {newEncoding})));
+							$var($String, msg2, $str({"Warning: encoding \""_s, newEncoding, "\" not supported, using "_s, $Encodings::DEFAULT_MIME_ENCODING}));
+							try {
+								if (this->m_errListener != nullptr) {
+									this->m_errListener->warning($$new($TransformerException, msg, this->m_sourceLocator));
+									$nc(this->m_errListener)->warning($$new($TransformerException, msg2, this->m_sourceLocator));
 								}
-								$assign(newEncoding, $Encodings::DEFAULT_MIME_ENCODING);
-								$assign(val, $Encodings::DEFAULT_MIME_ENCODING);
-								$assign(encodingInfo, $Encodings::getEncodingInfo(newEncoding));
+							} catch ($Exception& e) {
 							}
-							if (defaultVal == false || oldExplicitEncoding == nullptr) {
-								$set(this, m_encodingInfo, encodingInfo);
-								if (newEncoding != nullptr) {
-									this->m_isUTF8 = newEncoding->equals($Encodings::DEFAULT_MIME_ENCODING);
-								}
-								$var($OutputStream, os, getOutputStream());
-								if (os != nullptr) {
-									$var($Writer, w, getWriter());
-									$var($String, oldEncoding, getOutputProperty($OutputKeys::ENCODING));
-									if ((w == nullptr || !this->m_writer_set_by_user) && !$nc(newEncoding)->equalsIgnoreCase(oldEncoding)) {
-										$SerializerBase::setProp(name, val, defaultVal);
-										setOutputStreamInternal(os, false);
-									}
+							$assign(newEncoding, $Encodings::DEFAULT_MIME_ENCODING);
+							$assign(val, $Encodings::DEFAULT_MIME_ENCODING);
+							$assign(encodingInfo, $Encodings::getEncodingInfo(newEncoding));
+						}
+						if (defaultVal == false || oldExplicitEncoding == nullptr) {
+							$set(this, m_encodingInfo, encodingInfo);
+							if (newEncoding != nullptr) {
+								this->m_isUTF8 = newEncoding->equals($Encodings::DEFAULT_MIME_ENCODING);
+							}
+							$var($OutputStream, os, getOutputStream());
+							if (os != nullptr) {
+								$var($Writer, w, getWriter());
+								$var($String, oldEncoding, getOutputProperty($OutputKeys::ENCODING));
+								if ((w == nullptr || !this->m_writer_set_by_user) && !$nc(newEncoding)->equalsIgnoreCase(oldEncoding)) {
+									$SerializerBase::setProp(name, val, defaultVal);
+									setOutputStreamInternal(os, false);
 								}
 							}
 						}
 					}
-					break;
 				}
+				break;
 			case u'i':
-				{
-					$init($OutputPropertiesFactory);
-					if ($nc($OutputPropertiesFactory::S_KEY_INDENT_AMOUNT)->equals(name)) {
-						setIndentAmount($Integer::parseInt(val));
+				$init($OutputPropertiesFactory);
+				if ($nc($OutputPropertiesFactory::S_KEY_INDENT_AMOUNT)->equals(name)) {
+					setIndentAmount($Integer::parseInt(val));
+				} else {
+					$init($OutputKeys);
+					if ($nc($OutputKeys::INDENT)->equals(name)) {
+						this->m_doIndent = $nc(val)->endsWith("yes"_s);
 					} else {
-						$init($OutputKeys);
-						if ($nc($OutputKeys::INDENT)->equals(name)) {
-							this->m_doIndent = val->endsWith("yes"_s);
-						} else {
-							$init($DOMConstants);
-							$init($JdkConstants);
-							if ($nc(($$str({$DOMConstants::S_JDK_PROPERTIES_NS, $JdkConstants::S_IS_STANDALONE})))->equals(name)) {
-								this->m_isStandalone = val->endsWith("yes"_s);
-							}
+						$init($DOMConstants);
+						$init($JdkConstants);
+						if ($nc(($$str({$DOMConstants::S_JDK_PROPERTIES_NS, $JdkConstants::S_IS_STANDALONE})))->equals(name)) {
+							this->m_isStandalone = $nc(val)->endsWith("yes"_s);
 						}
 					}
-					break;
 				}
+				break;
 			case u'l':
-				{
-					$init($OutputPropertiesFactory);
-					if ($nc($OutputPropertiesFactory::S_KEY_LINE_SEPARATOR)->equals(name)) {
-						$set(this, m_lineSep, val->toCharArray());
-						this->m_lineSepLen = $nc(this->m_lineSep)->length;
-					}
-					break;
+				$init($OutputPropertiesFactory);
+				if ($nc($OutputPropertiesFactory::S_KEY_LINE_SEPARATOR)->equals(name)) {
+					$set(this, m_lineSep, $nc(val)->toCharArray());
+					this->m_lineSepLen = this->m_lineSep->length;
 				}
+				break;
 			case u'm':
-				{
-					$init($OutputKeys);
-					if ($nc($OutputKeys::MEDIA_TYPE)->equals(name)) {
-						$set(this, m_mediatype, val);
-					}
-					break;
+				$init($OutputKeys);
+				if ($nc($OutputKeys::MEDIA_TYPE)->equals(name)) {
+					$set(this, m_mediatype, val);
 				}
+				break;
 			case u'o':
-				{
-					$init($OutputKeys);
-					if ($nc($OutputKeys::OMIT_XML_DECLARATION)->equals(name)) {
-						bool b = val->endsWith("yes"_s) ? true : false;
-						this->m_shouldNotWriteXMLHeader = b;
-					}
-					break;
+				$init($OutputKeys);
+				if ($nc($OutputKeys::OMIT_XML_DECLARATION)->equals(name)) {
+					bool b = $nc(val)->endsWith("yes"_s) ? true : false;
+					this->m_shouldNotWriteXMLHeader = b;
 				}
+				break;
 			case u's':
-				{
-					$init($OutputKeys);
-					if ($nc($OutputKeys::STANDALONE)->equals(name)) {
-						if (defaultVal) {
-							setStandaloneInternal(val);
-						} else {
-							this->m_standaloneWasSpecified = true;
-							setStandaloneInternal(val);
-						}
+				$init($OutputKeys);
+				if ($nc($OutputKeys::STANDALONE)->equals(name)) {
+					if (defaultVal) {
+						setStandaloneInternal(val);
+					} else {
+						this->m_standaloneWasSpecified = true;
+						setStandaloneInternal(val);
 					}
-					break;
 				}
+				break;
 			case u'v':
-				{
-					$init($OutputKeys);
-					if ($nc($OutputKeys::VERSION)->equals(name)) {
-						$set(this, m_version, val);
-					}
-					break;
+				$init($OutputKeys);
+				if ($nc($OutputKeys::VERSION)->equals(name)) {
+					$set(this, m_version, val);
 				}
+				break;
 			default:
-				{
-					break;
-				}
+				break;
 			}
 		}
 		$SerializerBase::setProp(name, val, defaultVal);
@@ -590,7 +406,7 @@ void ToStream::setProp($String* name, $String* val$renamed, bool defaultVal) {
 }
 
 void ToStream::setOutputFormat($Properties* format) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool shouldFlush = this->m_shouldFlush;
 	if (format != nullptr) {
 		$var($Enumeration, propNames, nullptr);
@@ -618,7 +434,7 @@ void ToStream::setOutputFormat($Properties* format) {
 }
 
 $Properties* ToStream::getOutputFormat() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Properties, def, $new($Properties));
 	{
 		$var($Set, s, getOutputPropDefaultKeys());
@@ -667,7 +483,7 @@ void ToStream::setWriterInternal($Writer* writer, bool setByUser) {
 				noTracerYet = false;
 				break;
 			}
-			$assign(w2, $nc(($cast($WriterChain, w2)))->getWriter());
+			$assign(w2, $cast($WriterChain, w2)->getWriter());
 		}
 		if (noTracerYet) {
 			$set(this, m_writer, $new($SerializerTraceWriter, this->m_writer, this->m_tracer));
@@ -686,7 +502,7 @@ void ToStream::setOutputStream($OutputStream* output) {
 }
 
 void ToStream::setOutputStreamInternal($OutputStream* output, bool setByUser) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, m_outputStream, output);
 	$init($OutputKeys);
 	$var($String, encoding, getOutputProperty($OutputKeys::ENCODING));
@@ -698,9 +514,9 @@ void ToStream::setOutputStreamInternal($OutputStream* output, bool setByUser) {
 			e->printStackTrace();
 		}
 	} else {
-		bool var$3 = "WINDOWS-1250"_s->equals(encoding);
-		bool var$2 = var$3 || "US-ASCII"_s->equals(encoding);
-		if (var$2 || "ASCII"_s->equals(encoding)) {
+		bool var$1 = "WINDOWS-1250"_s->equals(encoding);
+		bool var$0 = var$1 || "US-ASCII"_s->equals(encoding);
+		if (var$0 || "ASCII"_s->equals(encoding)) {
 			setWriterInternal($$new($WriterToASCI, output), false);
 		} else if (encoding != nullptr) {
 			$var($Writer, osw, nullptr);
@@ -747,7 +563,7 @@ void ToStream::indent() {
 void ToStream::printSpace(int32_t n) {
 	$var($Writer, writer, this->m_writer);
 	for (int32_t i = 0; i < n; ++i) {
-		$nc(writer)->write((int32_t)u' ');
+		$nc(writer)->write(u' ');
 	}
 }
 
@@ -760,18 +576,18 @@ void ToStream::attributeDecl($String* eName, $String* aName, $String* type, $Str
 		DTDprolog();
 		$nc(writer)->write("<!ATTLIST "_s);
 		writer->write(eName);
-		writer->write((int32_t)u' ');
+		writer->write(u' ');
 		writer->write(aName);
-		writer->write((int32_t)u' ');
+		writer->write(u' ');
 		writer->write(type);
 		if (valueDefault != nullptr) {
-			writer->write((int32_t)u' ');
+			writer->write(u' ');
 			writer->write(valueDefault);
 		}
-		writer->write((int32_t)u'>');
+		writer->write(u'>');
 		writer->write(this->m_lineSep, 0, this->m_lineSepLen);
 	} catch ($IOException& e) {
-		$throwNew($SAXException, static_cast<$Exception*>(e));
+		$throwNew($SAXException, e);
 	}
 }
 
@@ -783,16 +599,16 @@ void ToStream::externalEntityDecl($String* name, $String* publicId, $String* sys
 	try {
 		DTDprolog();
 		$nc(this->m_writer)->write("<!ENTITY "_s);
-		$nc(this->m_writer)->write(name);
+		this->m_writer->write(name);
 		if (publicId != nullptr) {
-			$nc(this->m_writer)->write(" PUBLIC \""_s);
-			$nc(this->m_writer)->write(publicId);
+			this->m_writer->write(" PUBLIC \""_s);
+			this->m_writer->write(publicId);
 		} else {
-			$nc(this->m_writer)->write(" SYSTEM \""_s);
-			$nc(this->m_writer)->write(systemId);
+			this->m_writer->write(" SYSTEM \""_s);
+			this->m_writer->write(systemId);
 		}
-		$nc(this->m_writer)->write("\" >"_s);
-		$nc(this->m_writer)->write(this->m_lineSep, 0, this->m_lineSepLen);
+		this->m_writer->write("\" >"_s);
+		this->m_writer->write(this->m_lineSep, 0, this->m_lineSepLen);
 	} catch ($IOException& e) {
 		e->printStackTrace();
 	}
@@ -813,7 +629,7 @@ bool ToStream::escapingNotNeeded(char16_t ch) {
 }
 
 int32_t ToStream::writeUTF16Surrogate(char16_t c, $chars* ch, int32_t i, int32_t end) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t status = -1;
 	if (i + 1 >= end) {
 		this->m_highSurrogate = c;
@@ -828,7 +644,7 @@ int32_t ToStream::writeUTF16Surrogate(char16_t c, $chars* ch, int32_t i, int32_t
 	} else {
 		high = this->m_highSurrogate;
 		low = c;
-		this->m_highSurrogate = (char16_t)0;
+		this->m_highSurrogate = 0;
 	}
 	if (!$Encodings::isLowUTF16Surrogate(low)) {
 		throwIOE(high, low);
@@ -857,8 +673,8 @@ int32_t ToStream::accumDefaultEntity($Writer* writer, char16_t ch, int32_t i, $c
 	if (!escLF && $CharInfo::S_LINEFEED == ch) {
 		$nc(writer)->write(this->m_lineSep, 0, this->m_lineSepLen);
 	} else {
-		bool var$1 = (fromTextNode && $nc(this->m_charInfo)->isSpecialTextChar(ch));
-		if (var$1 || (!fromTextNode && $nc(this->m_charInfo)->isSpecialAttrChar(ch))) {
+		bool var$0 = fromTextNode && $nc(this->m_charInfo)->isSpecialTextChar(ch);
+		if (var$0 || (!fromTextNode && $nc(this->m_charInfo)->isSpecialAttrChar(ch))) {
 			$var($String, outputStringForChar, $nc(this->m_charInfo)->getOutputStringForChar(ch));
 			if (nullptr != outputStringForChar) {
 				$nc(writer)->write(outputStringForChar);
@@ -891,7 +707,7 @@ void ToStream::writeNormalizedChars($chars* ch, int32_t start, int32_t length, b
 				$nc(writer)->write($SerializerConstants::CDATA_DELIMITER_OPEN);
 				this->m_cdataTagOpen = true;
 			}
-			$nc(writer)->write((int32_t)c);
+			$nc(writer)->write(c);
 		} else {
 			i = handleEscaping(writer, c, ch, i, end);
 		}
@@ -972,7 +788,7 @@ void ToStream::charactersRaw($chars* ch, int32_t start, int32_t length) {
 		}
 		$nc(this->m_writer)->write(ch, start, length);
 	} catch ($IOException& e) {
-		$throwNew($SAXException, static_cast<$Exception*>(e));
+		$throwNew($SAXException, e);
 	}
 }
 
@@ -1035,24 +851,21 @@ void ToStream::outputCharacters($chars* chars, int32_t start, int32_t length) {
 		int32_t startClean = 0;
 		int32_t end = start + length;
 		int32_t lastDirty = start - 1;
-		{
-			i = start;
-			for (;; ++i) {
-				bool var$0 = (i < end);
-				if (var$0) {
-					bool var$3 = (ch1 = $nc(chars)->get(i)) == 32;
-					bool var$2 = var$3 || (ch1 == 10 && this->m_lineSepUse);
-					bool var$1 = var$2 || ch1 == 13;
-					var$0 = (var$1 || ch1 == 9);
-				}
-				if (!(var$0)) {
-					break;
-				}
-				{
-					if (!$nc(this->m_charInfo)->isTextASCIIClean(ch1)) {
-						lastDirty = processDirty(chars, end, i, ch1, lastDirty, true);
-						i = lastDirty;
-					}
+		for (i = start;; ++i) {
+			bool var$0 = i < end;
+			if (var$0) {
+				bool var$3 = (ch1 = $nc(chars)->get(i)) == 32;
+				bool var$2 = var$3 || (ch1 == 10 && this->m_lineSepUse);
+				bool var$1 = var$2 || ch1 == 13;
+				var$0 = var$1 || ch1 == 9;
+			}
+			if (!(var$0)) {
+				break;
+			}
+			{
+				if (!$nc(this->m_charInfo)->isTextASCIIClean(ch1)) {
+					lastDirty = processDirty(chars, end, i, ch1, lastDirty, true);
+					i = lastDirty;
 				}
 			}
 		}
@@ -1079,9 +892,10 @@ void ToStream::outputCharacters($chars* chars, int32_t start, int32_t length) {
 			bool var$5 = var$6 && (isXML10 || !isNELorLSEPCharacter(ch));
 			if (var$5) {
 				bool var$7 = escapingNotNeeded(ch);
-				var$5 = (var$7 && (!$nc(this->m_charInfo)->isSpecialTextChar(ch)));
+				var$5 = var$7 && (!$nc(this->m_charInfo)->isSpecialTextChar(ch));
 			}
 			if (var$5 || (u'\"' == ch)) {
+				;
 			} else {
 				lastDirty = processDirty(chars, end, i, ch, lastDirty, true);
 				i = lastDirty;
@@ -1094,50 +908,48 @@ void ToStream::outputCharacters($chars* chars, int32_t start, int32_t length) {
 		}
 		this->m_isprevtext = true;
 	} catch ($IOException& e) {
-		$throwNew($SAXException, static_cast<$Exception*>(e));
+		$throwNew($SAXException, e);
 	}
 }
 
 void ToStream::flushCharactersBuffer(bool isText) {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Throwable, var$0, nullptr);
-		bool return$1 = false;
+	$useLocalObjectStack();
+	$var($Throwable, var$0, nullptr);
+	bool return$1 = false;
+	try {
 		try {
-			try {
-				bool var$2 = shouldFormatOutput();
-				if (var$2 && $nc(this->m_charactersBuffer)->isAnyCharactersBuffered()) {
-					if ($nc(this->m_elemContext)->m_isCdataSection) {
-						$var($chars, chars, $nc(this->m_charactersBuffer)->toChars());
-						cdata(chars, 0, $nc(chars)->length);
-						return$1 = true;
-						goto $finally;
-					}
-					if (!isText) {
-						++this->m_childNodeNum;
-					}
-					bool skipBeginningNewlines = false;
-					if (shouldIndentForText()) {
-						indent();
-						this->m_startNewLine = true;
-						skipBeginningNewlines = true;
-					}
-					$nc(this->m_charactersBuffer)->flush(skipBeginningNewlines);
+			bool var$2 = shouldFormatOutput();
+			if (var$2 && $nc(this->m_charactersBuffer)->isAnyCharactersBuffered()) {
+				if ($nc(this->m_elemContext)->m_isCdataSection) {
+					$var($chars, chars, $nc(this->m_charactersBuffer)->toChars());
+					cdata(chars, 0, $nc(chars)->length);
+					return$1 = true;
+					goto $finally;
 				}
-			} catch ($IOException& e) {
-				$throwNew($SAXException, static_cast<$Exception*>(e));
+				if (!isText) {
+					++this->m_childNodeNum;
+				}
+				bool skipBeginningNewlines = false;
+				if (shouldIndentForText()) {
+					indent();
+					this->m_startNewLine = true;
+					skipBeginningNewlines = true;
+				}
+				$nc(this->m_charactersBuffer)->flush(skipBeginningNewlines);
 			}
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			$nc(this->m_charactersBuffer)->clear();
+		} catch ($IOException& e) {
+			$throwNew($SAXException, e);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return;
-		}
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		$nc(this->m_charactersBuffer)->clear();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return;
 	}
 }
 
@@ -1194,7 +1006,7 @@ int32_t ToStream::accumDefaultEscape($Writer* writer, char16_t ch, int32_t i, $c
 				throwIOE(this->m_highSurrogate, ch);
 			}
 			writeCharRef(writer, this->m_highSurrogate, ch);
-			this->m_highSurrogate = (char16_t)0;
+			this->m_highSurrogate = 0;
 			return ++pos;
 		}
 		if ($Encodings::isHighUTF16Surrogate(ch)) {
@@ -1214,20 +1026,20 @@ int32_t ToStream::accumDefaultEscape($Writer* writer, char16_t ch, int32_t i, $c
 			if (!var$0) {
 				$init($SerializerConstants);
 				bool var$1 = $nc($SerializerConstants::XMLVERSION11)->equals($(getVersion()));
-				var$0 = (var$1 && isNELorLSEPCharacter(ch));
+				var$0 = var$1 && isNELorLSEPCharacter(ch);
 			}
 			if (var$0) {
 				writeCharRef(writer, ch);
 			} else {
-				bool var$4 = !escapingNotNeeded(ch);
-				if (!var$4) {
-					bool var$5 = (fromTextNode && $nc(this->m_charInfo)->isSpecialTextChar(ch));
-					var$4 = (var$5 || (!fromTextNode && $nc(this->m_charInfo)->isSpecialAttrChar(ch)));
+				bool var$2 = !escapingNotNeeded(ch);
+				if (!var$2) {
+					bool var$3 = fromTextNode && $nc(this->m_charInfo)->isSpecialTextChar(ch);
+					var$2 = var$3 || (!fromTextNode && $nc(this->m_charInfo)->isSpecialAttrChar(ch));
 				}
-				if ((var$4) && $nc(this->m_elemContext)->m_currentElemDepth > 0) {
+				if ((var$2) && $nc(this->m_elemContext)->m_currentElemDepth > 0) {
 					writeCharRef(writer, ch);
 				} else {
-					$nc(writer)->write((int32_t)ch);
+					$nc(writer)->write(ch);
 				}
 			}
 			++pos;
@@ -1242,7 +1054,7 @@ void ToStream::writeCharRef($Writer* writer, char16_t c) {
 	}
 	$nc(writer)->write("&#"_s);
 	writer->write($($Integer::toString(c)));
-	writer->write((int32_t)u';');
+	writer->write(u';');
 }
 
 int32_t ToStream::writeCharRef($Writer* writer, char16_t high, char16_t low) {
@@ -1252,20 +1064,23 @@ int32_t ToStream::writeCharRef($Writer* writer, char16_t high, char16_t low) {
 	int32_t codePoint = $Encodings::toCodePoint(high, low);
 	$nc(writer)->write("&#"_s);
 	writer->write($($Integer::toString(codePoint)));
-	writer->write((int32_t)u';');
+	writer->write(u';');
 	return codePoint;
 }
 
 void ToStream::throwIOE(char16_t ch, char16_t next) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Utils);
 	$init($MsgKey);
-	$var($String, var$0, $$str({$($Integer::toHexString(ch)), " "_s}));
-	$throwNew($IOException, $($nc($Utils::messages)->createMessage($MsgKey::ER_INVALID_UTF16_SURROGATE, $$new($ObjectArray, {$of(($$concat(var$0, $($Integer::toHexString(next)))))}))));
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append($($Integer::toHexString(ch)));
+	var$0->append(" "_s);
+	var$0->append($($Integer::toHexString(next)));
+	$throwNew($IOException, $($nc($Utils::messages)->createMessage($MsgKey::ER_INVALID_UTF16_SURROGATE, $$new($ObjectArray, {$$str(var$0)}))));
 }
 
 void ToStream::startElement($String* namespaceURI, $String* localName, $String* name, $Attributes* atts) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (isInEntityRef()) {
 		return;
 	}
@@ -1296,10 +1111,10 @@ void ToStream::startElement($String* namespaceURI, $String* localName, $String* 
 		}
 		this->m_startNewLine = true;
 		$var($Writer, writer, this->m_writer);
-		$nc(writer)->write((int32_t)u'<');
+		$nc(writer)->write(u'<');
 		writer->write(name);
 	} catch ($IOException& e) {
-		$throwNew($SAXException, static_cast<$Exception*>(e));
+		$throwNew($SAXException, e);
 	}
 	if (this->m_doIndent) {
 		this->m_ispreserveSpace = $nc(this->m_preserveSpaces)->peekOrFalse();
@@ -1326,7 +1141,7 @@ void ToStream::startElement($String* elementName) {
 }
 
 void ToStream::outputDocTypeDecl($String* name, bool closeDecl) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->m_cdataTagOpen) {
 		closeCDATA();
 	}
@@ -1338,7 +1153,7 @@ void ToStream::outputDocTypeDecl($String* name, bool closeDecl) {
 		if (nullptr != doctypePublic) {
 			writer->write(" PUBLIC \""_s);
 			writer->write(doctypePublic);
-			writer->write((int32_t)u'\"');
+			writer->write(u'\"');
 		}
 		$var($String, doctypeSystem, getDoctypeSystem());
 		if (nullptr != doctypeSystem) {
@@ -1347,9 +1162,9 @@ void ToStream::outputDocTypeDecl($String* name, bool closeDecl) {
 				writer->write(" SYSTEM"_s);
 			}
 			writer->write(" "_s);
-			writer->write((int32_t)quote);
+			writer->write(quote);
 			writer->write(doctypeSystem);
-			writer->write((int32_t)quote);
+			writer->write(quote);
 			if (closeDecl) {
 				writer->write(">"_s);
 				writer->write(this->m_lineSep, 0, this->m_lineSepLen);
@@ -1359,26 +1174,26 @@ void ToStream::outputDocTypeDecl($String* name, bool closeDecl) {
 		bool dothis = false;
 		if (dothis) {
 			if (closeDecl) {
-				writer->write((int32_t)u'>');
+				writer->write(u'>');
 				writer->write(this->m_lineSep, 0, this->m_lineSepLen);
 			}
 		}
 	} catch ($IOException& e) {
-		$throwNew($SAXException, static_cast<$Exception*>(e));
+		$throwNew($SAXException, e);
 	}
 }
 
 void ToStream::processAttributes($Writer* writer, int32_t nAttrs) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, encoding, getEncoding());
 	for (int32_t i = 0; i < nAttrs; ++i) {
 		$var($String, name, $nc(this->m_attributes)->getQName(i));
 		$var($String, value, $nc(this->m_attributes)->getValue(i));
-		$nc(writer)->write((int32_t)u' ');
+		$nc(writer)->write(u' ');
 		writer->write(name);
 		writer->write("=\""_s);
 		writeAttrString(writer, value, encoding);
-		writer->write((int32_t)u'\"');
+		writer->write(u'\"');
 	}
 }
 
@@ -1393,7 +1208,7 @@ void ToStream::writeAttrString($Writer* writer, $String* string, $String* encodi
 		char16_t ch = $nc(stringChars)->get(i);
 		bool var$0 = escapingNotNeeded(ch);
 		if (var$0 && (!$nc(this->m_charInfo)->isSpecialAttrChar(ch))) {
-			$nc(writer)->write((int32_t)ch);
+			$nc(writer)->write(ch);
 			++i;
 		} else {
 			i = accumDefaultEscape(writer, ch, i, stringChars, len, false, true);
@@ -1402,7 +1217,7 @@ void ToStream::writeAttrString($Writer* writer, $String* string, $String* encodi
 }
 
 void ToStream::endElement($String* namespaceURI, $String* localName, $String* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (isInEntityRef()) {
 		return;
 	}
@@ -1414,7 +1229,7 @@ void ToStream::endElement($String* namespaceURI, $String* localName, $String* na
 		$var($Writer, writer, this->m_writer);
 		if ($nc(this->m_elemContext)->m_startTagOpen) {
 			if (this->m_tracer != nullptr) {
-				$SerializerBase::fireStartElem($nc(this->m_elemContext)->m_elementName);
+				$SerializerBase::fireStartElem(this->m_elemContext->m_elementName);
 			}
 			int32_t nAttrs = $nc(this->m_attributes)->getLength();
 			if (nAttrs > 0) {
@@ -1433,17 +1248,17 @@ void ToStream::endElement($String* namespaceURI, $String* localName, $String* na
 			if (shouldIndent() && (this->m_childNodeNum > 1 || !this->m_isprevtext)) {
 				indent($nc(this->m_elemContext)->m_currentElemDepth - 1);
 			}
-			$nc(writer)->write((int32_t)u'<');
-			writer->write((int32_t)u'/');
+			$nc(writer)->write(u'<');
+			writer->write(u'/');
 			writer->write(name);
-			writer->write((int32_t)u'>');
+			writer->write(u'>');
 		}
 	} catch ($IOException& e) {
-		$throwNew($SAXException, static_cast<$Exception*>(e));
+		$throwNew($SAXException, e);
 	}
 	if (this->m_doIndent) {
 		this->m_ispreserveSpace = $nc(this->m_preserveSpaces)->popAndTop();
-		this->m_childNodeNum = $nc(($cast($Integer, $($nc(this->m_childNodeNumStack)->remove($nc(this->m_childNodeNumStack)->size() - 1)))))->intValue();
+		this->m_childNodeNum = $$sure($Integer, $nc(this->m_childNodeNumStack)->remove($nc(this->m_childNodeNumStack)->size() - 1))->intValue();
 		this->m_isprevtext = false;
 	}
 	if (this->m_tracer != nullptr) {
@@ -1476,11 +1291,9 @@ bool ToStream::startPrefixMapping($String* prefix, $String* uri, bool shouldFlus
 		if ($nc($SerializerConstants::EMPTYSTRING)->equals(prefix)) {
 			$assign(name, "xmlns"_s);
 			addAttributeAlways($SerializerConstants::XMLNS_URI, name, name, "CDATA"_s, uri, false);
-		} else {
-			if (!$nc($SerializerConstants::EMPTYSTRING)->equals(uri)) {
-				$assign(name, $str({"xmlns:"_s, prefix}));
-				addAttributeAlways($SerializerConstants::XMLNS_URI, prefix, name, "CDATA"_s, uri, false);
-			}
+		} else if (!$SerializerConstants::EMPTYSTRING->equals(uri)) {
+			$assign(name, $str({"xmlns:"_s, prefix}));
+			addAttributeAlways($SerializerConstants::XMLNS_URI, prefix, name, "CDATA"_s, uri, false);
 		}
 	}
 	return pushed;
@@ -1530,12 +1343,12 @@ void ToStream::comment($chars* ch, int32_t start, int32_t length) {
 				writer->write(ch, start, remainingChars);
 			}
 			if ($nc(ch)->get(limit - 1) == u'-') {
-				writer->write((int32_t)u' ');
+				writer->write(u' ');
 			}
 		}
 		writer->write(ToStream::COMMENT_END);
 	} catch ($IOException& e) {
-		$throwNew($SAXException, static_cast<$Exception*>(e));
+		$throwNew($SAXException, e);
 	}
 	this->m_startNewLine = true;
 	if (this->m_tracer != nullptr) {
@@ -1563,11 +1376,11 @@ void ToStream::endDTD() {
 		if (!this->m_inDoctype) {
 			$nc(writer)->write("]>"_s);
 		} else {
-			$nc(writer)->write((int32_t)u'>');
+			$nc(writer)->write(u'>');
 		}
 		$nc(writer)->write(this->m_lineSep, 0, this->m_lineSepLen);
 	} catch ($IOException& e) {
-		$throwNew($SAXException, static_cast<$Exception*>(e));
+		$throwNew($SAXException, e);
 	}
 }
 
@@ -1608,7 +1421,7 @@ void ToStream::startEntity($String* name) {
 }
 
 void ToStream::outputEntityReference($String* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	startNonEscaping();
 	characters($$str({"&"_s, name, $$str(u';')}));
 	endNonEscaping();
@@ -1619,16 +1432,16 @@ void ToStream::closeStartTag() {
 	if ($nc(this->m_elemContext)->m_startTagOpen) {
 		try {
 			if (this->m_tracer != nullptr) {
-				$SerializerBase::fireStartElem($nc(this->m_elemContext)->m_elementName);
+				$SerializerBase::fireStartElem(this->m_elemContext->m_elementName);
 			}
 			int32_t nAttrs = $nc(this->m_attributes)->getLength();
 			if (nAttrs > 0) {
 				processAttributes(this->m_writer, nAttrs);
 				$nc(this->m_attributes)->clear();
 			}
-			$nc(this->m_writer)->write((int32_t)u'>');
+			$nc(this->m_writer)->write(u'>');
 		} catch ($IOException& e) {
-			$throwNew($SAXException, static_cast<$Exception*>(e));
+			$throwNew($SAXException, e);
 		}
 		if (this->m_StringOfCDATASections != nullptr) {
 			$nc(this->m_elemContext)->m_isCdataSection = isCdataSection();
@@ -1656,7 +1469,7 @@ bool ToStream::shouldIndent() {
 }
 
 void ToStream::setCdataSectionElements($String* key, $Properties* props) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, s, $nc(props)->getProperty(key));
 	if (nullptr != s) {
 		$var($List, al, $new($ArrayList));
@@ -1689,7 +1502,7 @@ void ToStream::setCdataSectionElements($String* key, $Properties* props) {
 }
 
 void ToStream::addCdataSectionElement($String* URI_and_localName, $List* al) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringTokenizer, tokenizer, $new($StringTokenizer, URI_and_localName, "{}"_s, false));
 	$var($String, s1, tokenizer->nextToken());
 	$var($String, s2, tokenizer->hasMoreTokens() ? tokenizer->nextToken() : ($String*)nullptr);
@@ -1703,7 +1516,7 @@ void ToStream::addCdataSectionElement($String* URI_and_localName, $List* al) {
 }
 
 void ToStream::setCdataSectionElements($List* URI_and_localNames) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (URI_and_localNames != nullptr) {
 		int32_t len = URI_and_localNames->size() - 1;
 		if (len > 0) {
@@ -1728,10 +1541,10 @@ void ToStream::setCdataSectionElements($List* URI_and_localNames) {
 }
 
 $String* ToStream::ensureAttributesNamespaceIsDeclared($String* ns, $String* localName, $String* rawName) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (ns != nullptr && ns->length() > 0) {
 		int32_t index = 0;
-		$var($String, prefixFromRawName, (index = $nc(rawName)->indexOf(":"_s)) < 0 ? ""_s : $nc(rawName)->substring(0, index));
+		$var($String, prefixFromRawName, (index = $nc(rawName)->indexOf(":"_s)) < 0 ? ""_s : rawName->substring(0, index));
 		if (index > 0) {
 			$var($String, uri, $nc(this->m_prefixMap)->lookupNamespace(prefixFromRawName));
 			if (uri != nullptr && uri->equals(ns)) {
@@ -1755,14 +1568,14 @@ $String* ToStream::ensureAttributesNamespaceIsDeclared($String* ns, $String* loc
 }
 
 void ToStream::ensurePrefixIsDeclared($String* ns, $String* rawName) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (ns != nullptr && ns->length() > 0) {
 		int32_t index = 0;
 		bool no_prefix = ((index = $nc(rawName)->indexOf(":"_s)) < 0);
 		$var($String, prefix, (no_prefix) ? ""_s : rawName->substring(0, index));
 		if (nullptr != prefix) {
 			$var($String, foundURI, $nc(this->m_prefixMap)->lookupNamespace(prefix));
-			if ((nullptr == foundURI) || !$nc(foundURI)->equals(ns)) {
+			if ((nullptr == foundURI) || !foundURI->equals(ns)) {
 				this->startPrefixMapping(prefix, ns);
 				this->addAttributeAlways("http://www.w3.org/2000/xmlns/"_s, no_prefix ? "xmlns"_s : prefix, no_prefix ? "xmlns"_s : ($$str({"xmlns:"_s, prefix})), "CDATA"_s, ns, false);
 			}
@@ -1797,7 +1610,7 @@ bool ToStream::addAttributeAlways($String* uri, $String* localName, $String* raw
 }
 
 bool ToStream::doAddAttributeAlways($String* uri, $String* localName, $String* rawName$renamed, $String* type, $String* value, bool xslAttribute) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, rawName, rawName$renamed);
 	bool was_added = false;
 	int32_t index = 0;
@@ -1817,7 +1630,7 @@ bool ToStream::doAddAttributeAlways($String* uri, $String* localName, $String* r
 		}
 	} else {
 		if (xslAttribute) {
-			int32_t colonIndex = $nc(rawName)->indexOf((int32_t)u':');
+			int32_t colonIndex = $nc(rawName)->indexOf(u':');
 			if (colonIndex > 0) {
 				$var($String, prefix, rawName->substring(0, colonIndex));
 				$var($NamespaceMappings$MappingRecord, existing_mapping, $nc(this->m_prefixMap)->getMappingFromPrefix(prefix));
@@ -1858,7 +1671,7 @@ bool ToStream::doAddAttributeAlways($String* uri, $String* localName, $String* r
 }
 
 void ToStream::firePseudoAttributes() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->m_tracer != nullptr) {
 		try {
 			$nc(this->m_writer)->flush();
@@ -1869,7 +1682,7 @@ void ToStream::firePseudoAttributes() {
 				processAttributes(writer, nAttrs);
 			}
 			sb->append(u'>');
-			$var($chars, ch, $nc($(sb->toString()))->toCharArray());
+			$var($chars, ch, $(sb->toString())->toCharArray());
 			$nc(this->m_tracer)->fireGenerateEvent($SerializerTrace::EVENTTYPE_OUTPUT_PSEUDO_CHARACTERS, ch, 0, ch->length);
 		} catch ($IOException& ioe) {
 		} catch ($SAXException& se) {
@@ -1921,16 +1734,16 @@ void ToStream::notationDecl($String* name, $String* pubID, $String* sysID) {
 	try {
 		DTDprolog();
 		$nc(this->m_writer)->write("<!NOTATION "_s);
-		$nc(this->m_writer)->write(name);
+		this->m_writer->write(name);
 		if (pubID != nullptr) {
-			$nc(this->m_writer)->write(" PUBLIC \""_s);
-			$nc(this->m_writer)->write(pubID);
+			this->m_writer->write(" PUBLIC \""_s);
+			this->m_writer->write(pubID);
 		} else {
-			$nc(this->m_writer)->write(" SYSTEM \""_s);
-			$nc(this->m_writer)->write(sysID);
+			this->m_writer->write(" SYSTEM \""_s);
+			this->m_writer->write(sysID);
 		}
-		$nc(this->m_writer)->write("\" >"_s);
-		$nc(this->m_writer)->write(this->m_lineSep, 0, this->m_lineSepLen);
+		this->m_writer->write("\" >"_s);
+		this->m_writer->write(this->m_lineSep, 0, this->m_lineSepLen);
 	} catch ($IOException& e) {
 		e->printStackTrace();
 	}
@@ -1940,18 +1753,18 @@ void ToStream::unparsedEntityDecl($String* name, $String* pubID, $String* sysID,
 	try {
 		DTDprolog();
 		$nc(this->m_writer)->write("<!ENTITY "_s);
-		$nc(this->m_writer)->write(name);
+		this->m_writer->write(name);
 		if (pubID != nullptr) {
-			$nc(this->m_writer)->write(" PUBLIC \""_s);
-			$nc(this->m_writer)->write(pubID);
+			this->m_writer->write(" PUBLIC \""_s);
+			this->m_writer->write(pubID);
 		} else {
-			$nc(this->m_writer)->write(" SYSTEM \""_s);
-			$nc(this->m_writer)->write(sysID);
+			this->m_writer->write(" SYSTEM \""_s);
+			this->m_writer->write(sysID);
 		}
-		$nc(this->m_writer)->write("\" NDATA "_s);
-		$nc(this->m_writer)->write(notationName);
-		$nc(this->m_writer)->write(" >"_s);
-		$nc(this->m_writer)->write(this->m_lineSep, 0, this->m_lineSepLen);
+		this->m_writer->write("\" NDATA "_s);
+		this->m_writer->write(notationName);
+		this->m_writer->write(" >"_s);
+		this->m_writer->write(this->m_lineSep, 0, this->m_lineSepLen);
 	} catch ($IOException& e) {
 		e->printStackTrace();
 	}
@@ -1988,13 +1801,163 @@ void ToStream::addCdataSectionElements($String* URI_and_localNames) {
 ToStream::ToStream() {
 }
 
-void clinit$ToStream($Class* class$) {
+void ToStream::clinit$($Class* clazz) {
 	$assignStatic(ToStream::COMMENT_BEGIN, "<!--"_s);
 	$assignStatic(ToStream::COMMENT_END, "-->"_s);
 }
 
 $Class* ToStream::load$($String* name, bool initialize) {
-	$loadClass(ToStream, name, initialize, &_ToStream_ClassInfo_, clinit$ToStream, allocate$ToStream);
+	$FieldInfo fieldInfos$$[] = {
+		{"COMMENT_BEGIN", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ToStream, COMMENT_BEGIN)},
+		{"COMMENT_END", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ToStream, COMMENT_END)},
+		{"m_disableOutputEscapingStates", "Lcom/sun/org/apache/xml/internal/serializer/ToStream$BoolStack;", nullptr, $PROTECTED, $field(ToStream, m_disableOutputEscapingStates)},
+		{"m_encodingInfo", "Lcom/sun/org/apache/xml/internal/serializer/EncodingInfo;", nullptr, 0, $field(ToStream, m_encodingInfo)},
+		{"m_canConvertMeth", "Ljava/lang/reflect/Method;", nullptr, 0, $field(ToStream, m_canConvertMeth)},
+		{"m_triedToGetConverter", "Z", nullptr, 0, $field(ToStream, m_triedToGetConverter)},
+		{"m_charToByteConverter", "Ljava/lang/Object;", nullptr, 0, $field(ToStream, m_charToByteConverter)},
+		{"m_charactersBuffer", "Lcom/sun/org/apache/xml/internal/serializer/ToStream$CharacterBuffer;", nullptr, $PROTECTED, $field(ToStream, m_charactersBuffer)},
+		{"m_childNodeNumStack", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/Integer;>;", $PROTECTED, $field(ToStream, m_childNodeNumStack)},
+		{"m_childNodeNum", "I", nullptr, $PROTECTED, $field(ToStream, m_childNodeNum)},
+		{"m_preserveSpaces", "Lcom/sun/org/apache/xml/internal/serializer/ToStream$BoolStack;", nullptr, $PROTECTED, $field(ToStream, m_preserveSpaces)},
+		{"m_ispreserveSpace", "Z", nullptr, $PROTECTED, $field(ToStream, m_ispreserveSpace)},
+		{"m_isprevtext", "Z", nullptr, $PROTECTED, $field(ToStream, m_isprevtext)},
+		{"m_maxCharacter", "I", nullptr, $PROTECTED, $field(ToStream, m_maxCharacter)},
+		{"m_lineSep", "[C", nullptr, $PROTECTED, $field(ToStream, m_lineSep)},
+		{"m_lineSepUse", "Z", nullptr, $PROTECTED, $field(ToStream, m_lineSepUse)},
+		{"m_lineSepLen", "I", nullptr, $PROTECTED, $field(ToStream, m_lineSepLen)},
+		{"m_charInfo", "Lcom/sun/org/apache/xml/internal/serializer/CharInfo;", nullptr, $PROTECTED, $field(ToStream, m_charInfo)},
+		{"m_shouldFlush", "Z", nullptr, 0, $field(ToStream, m_shouldFlush)},
+		{"m_spaceBeforeClose", "Z", nullptr, $PROTECTED, $field(ToStream, m_spaceBeforeClose)},
+		{"m_startNewLine", "Z", nullptr, 0, $field(ToStream, m_startNewLine)},
+		{"m_inDoctype", "Z", nullptr, $PROTECTED, $field(ToStream, m_inDoctype)},
+		{"m_isUTF8", "Z", nullptr, 0, $field(ToStream, m_isUTF8)},
+		{"m_cdataStartCalled", "Z", nullptr, $PROTECTED, $field(ToStream, m_cdataStartCalled)},
+		{"m_expandDTDEntities", "Z", nullptr, $PRIVATE, $field(ToStream, m_expandDTDEntities)},
+		{"m_highSurrogate", "C", nullptr, $PRIVATE, $field(ToStream, m_highSurrogate)},
+		{"m_escaping", "Z", nullptr, $PRIVATE, $field(ToStream, m_escaping)},
+		{"m_outputStream", "Ljava/io/OutputStream;", nullptr, 0, $field(ToStream, m_outputStream)},
+		{"m_writer_set_by_user", "Z", nullptr, $PRIVATE, $field(ToStream, m_writer_set_by_user)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ToStream, init$, void)},
+		{"<init>", "(Ljavax/xml/transform/ErrorListener;)V", nullptr, $PUBLIC, $method(ToStream, init$, void, $ErrorListener*)},
+		{"DTDprolog", "()V", nullptr, $PRIVATE, $method(ToStream, DTDprolog, void), "org.xml.sax.SAXException,java.io.IOException"},
+		{"accumDefaultEntity", "(Ljava/io/Writer;CI[CIZZ)I", nullptr, $PROTECTED, $virtualMethod(ToStream, accumDefaultEntity, int32_t, $Writer*, char16_t, int32_t, $chars*, int32_t, bool, bool), "java.io.IOException"},
+		{"accumDefaultEscape", "(Ljava/io/Writer;CI[CIZZ)I", nullptr, $PROTECTED, $virtualMethod(ToStream, accumDefaultEscape, int32_t, $Writer*, char16_t, int32_t, $chars*, int32_t, bool, bool), "java.io.IOException,org.xml.sax.SAXException"},
+		{"addAttributeAlways", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)Z", nullptr, $PUBLIC, $virtualMethod(ToStream, addAttributeAlways, bool, $String*, $String*, $String*, $String*, $String*, bool)},
+		{"addCdataSectionElement", "(Ljava/lang/String;Ljava/util/List;)V", "(Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;)V", $PRIVATE, $method(ToStream, addCdataSectionElement, void, $String*, $List*)},
+		{"addCdataSectionElements", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToStream, addCdataSectionElements, void, $String*)},
+		{"attributeDecl", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToStream, attributeDecl, void, $String*, $String*, $String*, $String*, $String*), "org.xml.sax.SAXException"},
+		{"cdata", "([CII)V", nullptr, $PROTECTED, $virtualMethod(ToStream, cdata, void, $chars*, int32_t, int32_t), "org.xml.sax.SAXException"},
+		{"characters", "([CII)V", nullptr, $PUBLIC, $virtualMethod(ToStream, characters, void, $chars*, int32_t, int32_t), "org.xml.sax.SAXException"},
+		{"characters", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToStream, characters, void, $String*), "org.xml.sax.SAXException"},
+		{"charactersRaw", "([CII)V", nullptr, $PROTECTED, $virtualMethod(ToStream, charactersRaw, void, $chars*, int32_t, int32_t), "org.xml.sax.SAXException"},
+		{"closeCDATA", "()V", nullptr, $PROTECTED, $virtualMethod(ToStream, closeCDATA, void), "org.xml.sax.SAXException"},
+		{"closeStartTag", "()V", nullptr, $PROTECTED, $virtualMethod(ToStream, closeStartTag, void), "org.xml.sax.SAXException"},
+		{"comment", "([CII)V", nullptr, $PUBLIC, $virtualMethod(ToStream, comment, void, $chars*, int32_t, int32_t), "org.xml.sax.SAXException"},
+		{"doAddAttributeAlways", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)Z", nullptr, $PRIVATE, $method(ToStream, doAddAttributeAlways, bool, $String*, $String*, $String*, $String*, $String*, bool)},
+		{"elementDecl", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToStream, elementDecl, void, $String*, $String*), "org.xml.sax.SAXException"},
+		{"endCDATA", "()V", nullptr, $PUBLIC, $virtualMethod(ToStream, endCDATA, void), "org.xml.sax.SAXException"},
+		{"endDTD", "()V", nullptr, $PUBLIC, $virtualMethod(ToStream, endDTD, void), "org.xml.sax.SAXException"},
+		{"endElement", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToStream, endElement, void, $String*, $String*, $String*), "org.xml.sax.SAXException"},
+		{"endElement", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToStream, endElement, void, $String*), "org.xml.sax.SAXException"},
+		{"endNonEscaping", "()V", nullptr, $PUBLIC, $virtualMethod(ToStream, endNonEscaping, void), "org.xml.sax.SAXException"},
+		{"endPrefixMapping", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToStream, endPrefixMapping, void, $String*), "org.xml.sax.SAXException"},
+		{"ensureAttributesNamespaceIsDeclared", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(ToStream, ensureAttributesNamespaceIsDeclared, $String*, $String*, $String*, $String*), "org.xml.sax.SAXException"},
+		{"ensurePrefixIsDeclared", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, 0, $virtualMethod(ToStream, ensurePrefixIsDeclared, void, $String*, $String*), "org.xml.sax.SAXException"},
+		{"escapingNotNeeded", "(C)Z", nullptr, $PROTECTED, $virtualMethod(ToStream, escapingNotNeeded, bool, char16_t)},
+		{"externalEntityDecl", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToStream, externalEntityDecl, void, $String*, $String*, $String*), "org.xml.sax.SAXException"},
+		{"firePseudoAttributes", "()V", nullptr, $PROTECTED, $virtualMethod(ToStream, firePseudoAttributes, void)},
+		{"flushCharactersBuffer", "(Z)V", nullptr, $PROTECTED | $FINAL, $method(ToStream, flushCharactersBuffer, void, bool), "org.xml.sax.SAXException"},
+		{"flushPending", "()V", nullptr, $PUBLIC, $virtualMethod(ToStream, flushPending, void), "org.xml.sax.SAXException"},
+		{"flushWriter", "()V", nullptr, $PROTECTED | $FINAL, $method(ToStream, flushWriter, void), "org.xml.sax.SAXException"},
+		{"getIndent", "()Z", nullptr, $PUBLIC, $virtualMethod(ToStream, getIndent, bool)},
+		{"getIndentAmount", "()I", nullptr, $PUBLIC, $virtualMethod(ToStream, getIndentAmount, int32_t)},
+		{"getOutputFormat", "()Ljava/util/Properties;", nullptr, $PUBLIC, $virtualMethod(ToStream, getOutputFormat, $Properties*)},
+		{"getOutputStream", "()Ljava/io/OutputStream;", nullptr, $PUBLIC, $virtualMethod(ToStream, getOutputStream, $OutputStream*)},
+		{"getWriter", "()Ljava/io/Writer;", nullptr, $PUBLIC, $virtualMethod(ToStream, getWriter, $Writer*)},
+		{"handleEscaping", "(Ljava/io/Writer;C[CII)I", nullptr, $PRIVATE, $method(ToStream, handleEscaping, int32_t, $Writer*, char16_t, $chars*, int32_t, int32_t), "java.io.IOException,org.xml.sax.SAXException"},
+		{"ignorableWhitespace", "([CII)V", nullptr, $PUBLIC, $virtualMethod(ToStream, ignorableWhitespace, void, $chars*, int32_t, int32_t), "org.xml.sax.SAXException"},
+		{"indent", "(I)V", nullptr, $PROTECTED, $virtualMethod(ToStream, indent, void, int32_t), "java.io.IOException"},
+		{"indent", "()V", nullptr, $PROTECTED, $virtualMethod(ToStream, indent, void), "java.io.IOException"},
+		{"internalEntityDecl", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToStream, internalEntityDecl, void, $String*, $String*), "org.xml.sax.SAXException"},
+		{"isCharacterInC0orC1Range", "(C)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(ToStream, isCharacterInC0orC1Range, bool, char16_t)},
+		{"isEscapingDisabled", "()Z", nullptr, $PRIVATE, $method(ToStream, isEscapingDisabled, bool)},
+		{"isNELorLSEPCharacter", "(C)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(ToStream, isNELorLSEPCharacter, bool, char16_t)},
+		{"isUTF16Surrogate", "(C)Z", nullptr, $STATIC | $FINAL, $staticMethod(ToStream, isUTF16Surrogate, bool, char16_t)},
+		{"notationDecl", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToStream, notationDecl, void, $String*, $String*, $String*), "org.xml.sax.SAXException"},
+		{"outputCharacters", "([CII)V", nullptr, $PRIVATE, $method(ToStream, outputCharacters, void, $chars*, int32_t, int32_t), "org.xml.sax.SAXException"},
+		{"outputDocTypeDecl", "(Ljava/lang/String;Z)V", nullptr, 0, $virtualMethod(ToStream, outputDocTypeDecl, void, $String*, bool), "org.xml.sax.SAXException"},
+		{"outputEntityDecl", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, 0, $virtualMethod(ToStream, outputEntityDecl, void, $String*, $String*), "java.io.IOException"},
+		{"outputEntityReference", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(ToStream, outputEntityReference, void, $String*), "org.xml.sax.SAXException"},
+		{"outputLineSep", "()V", nullptr, $PROTECTED | $FINAL, $method(ToStream, outputLineSep, void), "java.io.IOException"},
+		{"printSpace", "(I)V", nullptr, $PRIVATE, $method(ToStream, printSpace, void, int32_t), "java.io.IOException"},
+		{"processAttributes", "(Ljava/io/Writer;I)V", nullptr, $PUBLIC, $virtualMethod(ToStream, processAttributes, void, $Writer*, int32_t), "java.io.IOException,org.xml.sax.SAXException"},
+		{"processDirty", "([CIICIZ)I", nullptr, $PRIVATE, $method(ToStream, processDirty, int32_t, $chars*, int32_t, int32_t, char16_t, int32_t, bool), "java.io.IOException,org.xml.sax.SAXException"},
+		{"reset", "()Z", nullptr, $PUBLIC, $virtualMethod(ToStream, reset, bool)},
+		{"resetToStream", "()V", nullptr, $PRIVATE, $method(ToStream, resetToStream, void)},
+		{"serialize", "(Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC, $virtualMethod(ToStream, serialize, void, $Node*), "java.io.IOException"},
+		{"setCdataSectionElements", "(Ljava/lang/String;Ljava/util/Properties;)V", nullptr, $PRIVATE, $method(ToStream, setCdataSectionElements, void, $String*, $Properties*)},
+		{"setCdataSectionElements", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/lang/String;>;)V", $PUBLIC, $virtualMethod(ToStream, setCdataSectionElements, void, $List*)},
+		{"setContentHandler", "(Lorg/xml/sax/ContentHandler;)V", nullptr, $PUBLIC, $virtualMethod(ToStream, setContentHandler, void, $ContentHandler*)},
+		{"setDTDEntityExpansion", "(Z)V", nullptr, $PUBLIC, $virtualMethod(ToStream, setDTDEntityExpansion, void, bool)},
+		{"setEncoding", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToStream, setEncoding, void, $String*)},
+		{"setEscaping", "(Z)Z", nullptr, $PUBLIC, $virtualMethod(ToStream, setEscaping, bool, bool)},
+		{"setIndentAmount", "(I)V", nullptr, $PUBLIC, $virtualMethod(ToStream, setIndentAmount, void, int32_t)},
+		{"setLineSepUse", "(Z)Z", nullptr, $PUBLIC, $virtualMethod(ToStream, setLineSepUse, bool, bool)},
+		{"setOutputFormat", "(Ljava/util/Properties;)V", nullptr, $PUBLIC, $virtualMethod(ToStream, setOutputFormat, void, $Properties*)},
+		{"setOutputStream", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $virtualMethod(ToStream, setOutputStream, void, $OutputStream*)},
+		{"setOutputStreamInternal", "(Ljava/io/OutputStream;Z)V", nullptr, $PRIVATE, $method(ToStream, setOutputStreamInternal, void, $OutputStream*, bool)},
+		{"setProp", "(Ljava/lang/String;Ljava/lang/String;Z)V", nullptr, 0, $virtualMethod(ToStream, setProp, void, $String*, $String*, bool)},
+		{"setTransformer", "(Ljavax/xml/transform/Transformer;)V", nullptr, $PUBLIC, $virtualMethod(ToStream, setTransformer, void, $Transformer*)},
+		{"setWriter", "(Ljava/io/Writer;)V", nullptr, $PUBLIC, $virtualMethod(ToStream, setWriter, void, $Writer*)},
+		{"setWriterInternal", "(Ljava/io/Writer;Z)V", nullptr, $PRIVATE, $method(ToStream, setWriterInternal, void, $Writer*, bool)},
+		{"shouldFormatOutput", "()Z", nullptr, $PROTECTED, $virtualMethod(ToStream, shouldFormatOutput, bool)},
+		{"shouldIndent", "()Z", nullptr, $PROTECTED, $virtualMethod(ToStream, shouldIndent, bool)},
+		{"shouldIndentForText", "()Z", nullptr, $PROTECTED, $virtualMethod(ToStream, shouldIndentForText, bool)},
+		{"skippedEntity", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToStream, skippedEntity, void, $String*), "org.xml.sax.SAXException"},
+		{"startCDATA", "()V", nullptr, $PUBLIC, $virtualMethod(ToStream, startCDATA, void), "org.xml.sax.SAXException"},
+		{"startDTD", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToStream, startDTD, void, $String*, $String*, $String*), "org.xml.sax.SAXException"},
+		{"startElement", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lorg/xml/sax/Attributes;)V", nullptr, $PUBLIC, $virtualMethod(ToStream, startElement, void, $String*, $String*, $String*, $Attributes*), "org.xml.sax.SAXException"},
+		{"startElement", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToStream, startElement, void, $String*, $String*, $String*), "org.xml.sax.SAXException"},
+		{"startElement", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToStream, startElement, void, $String*), "org.xml.sax.SAXException"},
+		{"startEntity", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToStream, startEntity, void, $String*), "org.xml.sax.SAXException"},
+		{"startNonEscaping", "()V", nullptr, $PUBLIC, $virtualMethod(ToStream, startNonEscaping, void), "org.xml.sax.SAXException"},
+		{"startPrefixMapping", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToStream, startPrefixMapping, void, $String*, $String*), "org.xml.sax.SAXException"},
+		{"startPrefixMapping", "(Ljava/lang/String;Ljava/lang/String;Z)Z", nullptr, $PUBLIC, $virtualMethod(ToStream, startPrefixMapping, bool, $String*, $String*, bool), "org.xml.sax.SAXException"},
+		{"throwIOE", "(CC)V", nullptr, $PRIVATE, $method(ToStream, throwIOE, void, char16_t, char16_t), "java.io.IOException"},
+		{"unparsedEntityDecl", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToStream, unparsedEntityDecl, void, $String*, $String*, $String*, $String*), "org.xml.sax.SAXException"},
+		{"writeAttrString", "(Ljava/io/Writer;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToStream, writeAttrString, void, $Writer*, $String*, $String*), "java.io.IOException,org.xml.sax.SAXException"},
+		{"writeCharRef", "(Ljava/io/Writer;C)V", nullptr, $PRIVATE, $method(ToStream, writeCharRef, void, $Writer*, char16_t), "java.io.IOException,org.xml.sax.SAXException"},
+		{"writeCharRef", "(Ljava/io/Writer;CC)I", nullptr, $PRIVATE, $method(ToStream, writeCharRef, int32_t, $Writer*, char16_t, char16_t), "java.io.IOException,org.xml.sax.SAXException"},
+		{"writeNormalizedChars", "([CIIZZ)V", nullptr, 0, $virtualMethod(ToStream, writeNormalizedChars, void, $chars*, int32_t, int32_t, bool, bool), "java.io.IOException,org.xml.sax.SAXException"},
+		{"writeUTF16Surrogate", "(C[CII)I", nullptr, $PROTECTED, $virtualMethod(ToStream, writeUTF16Surrogate, int32_t, char16_t, $chars*, int32_t, int32_t), "java.io.IOException,org.xml.sax.SAXException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xml.internal.serializer.ToStream$CharacterBuffer", "com.sun.org.apache.xml.internal.serializer.ToStream", "CharacterBuffer", $PRIVATE},
+		{"com.sun.org.apache.xml.internal.serializer.ToStream$BoolStack", "com.sun.org.apache.xml.internal.serializer.ToStream", "BoolStack", $STATIC | $FINAL},
+		{"com.sun.org.apache.xml.internal.serializer.ToStream$WritertoStringBuffer", "com.sun.org.apache.xml.internal.serializer.ToStream", "WritertoStringBuffer", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"com.sun.org.apache.xml.internal.serializer.ToStream",
+		"com.sun.org.apache.xml.internal.serializer.SerializerBase",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xml.internal.serializer.ToStream$CharacterBuffer,com.sun.org.apache.xml.internal.serializer.ToStream$CharacterBuffer$GenericCharacters,com.sun.org.apache.xml.internal.serializer.ToStream$CharacterBuffer$3,com.sun.org.apache.xml.internal.serializer.ToStream$CharacterBuffer$2,com.sun.org.apache.xml.internal.serializer.ToStream$CharacterBuffer$1,com.sun.org.apache.xml.internal.serializer.ToStream$BoolStack,com.sun.org.apache.xml.internal.serializer.ToStream$WritertoStringBuffer"
+	};
+	$loadClass(ToStream, name, initialize, &classInfo$$, ToStream::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ToStream));
+	});
 	return class$;
 }
 

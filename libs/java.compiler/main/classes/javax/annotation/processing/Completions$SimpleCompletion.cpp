@@ -1,5 +1,4 @@
 #include <javax/annotation/processing/Completions$SimpleCompletion.h>
-
 #include <javax/annotation/processing/Completions.h>
 #include <jcpp.h>
 
@@ -12,45 +11,6 @@ using $NullPointerException = ::java::lang::NullPointerException;
 namespace javax {
 	namespace annotation {
 		namespace processing {
-
-$FieldInfo _Completions$SimpleCompletion_FieldInfo_[] = {
-	{"value", "Ljava/lang/String;", nullptr, $PRIVATE, $field(Completions$SimpleCompletion, value)},
-	{"message", "Ljava/lang/String;", nullptr, $PRIVATE, $field(Completions$SimpleCompletion, message)},
-	{}
-};
-
-$MethodInfo _Completions$SimpleCompletion_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, 0, $method(Completions$SimpleCompletion, init$, void, $String*, $String*)},
-	{"getMessage", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Completions$SimpleCompletion, getMessage, $String*)},
-	{"getValue", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Completions$SimpleCompletion, getValue, $String*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Completions$SimpleCompletion, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _Completions$SimpleCompletion_InnerClassesInfo_[] = {
-	{"javax.annotation.processing.Completions$SimpleCompletion", "javax.annotation.processing.Completions", "SimpleCompletion", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _Completions$SimpleCompletion_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.annotation.processing.Completions$SimpleCompletion",
-	"java.lang.Object",
-	"javax.annotation.processing.Completion",
-	_Completions$SimpleCompletion_FieldInfo_,
-	_Completions$SimpleCompletion_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Completions$SimpleCompletion_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.annotation.processing.Completions"
-};
-
-$Object* allocate$Completions$SimpleCompletion($Class* clazz) {
-	return $of($alloc(Completions$SimpleCompletion));
-}
 
 void Completions$SimpleCompletion::init$($String* value, $String* message) {
 	if (value == nullptr || message == nullptr) {
@@ -76,7 +36,40 @@ Completions$SimpleCompletion::Completions$SimpleCompletion() {
 }
 
 $Class* Completions$SimpleCompletion::load$($String* name, bool initialize) {
-	$loadClass(Completions$SimpleCompletion, name, initialize, &_Completions$SimpleCompletion_ClassInfo_, allocate$Completions$SimpleCompletion);
+	$FieldInfo fieldInfos$$[] = {
+		{"value", "Ljava/lang/String;", nullptr, $PRIVATE, $field(Completions$SimpleCompletion, value)},
+		{"message", "Ljava/lang/String;", nullptr, $PRIVATE, $field(Completions$SimpleCompletion, message)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, 0, $method(Completions$SimpleCompletion, init$, void, $String*, $String*)},
+		{"getMessage", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Completions$SimpleCompletion, getMessage, $String*)},
+		{"getValue", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Completions$SimpleCompletion, getValue, $String*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Completions$SimpleCompletion, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.annotation.processing.Completions$SimpleCompletion", "javax.annotation.processing.Completions", "SimpleCompletion", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.annotation.processing.Completions$SimpleCompletion",
+		"java.lang.Object",
+		"javax.annotation.processing.Completion",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.annotation.processing.Completions"
+	};
+	$loadClass(Completions$SimpleCompletion, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Completions$SimpleCompletion);
+	});
 	return class$;
 }
 

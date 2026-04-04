@@ -37,7 +37,7 @@ public:
 	virtual $String* getFqName();
 	virtual int32_t hashCode() override;
 	virtual $String* toString() override;
-	static const int64_t serialVersionUID = (int64_t)0x98FABA6F2449C8FF;
+	static const int64_t serialVersionUID = (int64_t)0x98faba6f2449c8ff;
 	::java::util::Set* modifiers = nullptr;
 	$String* fqName = nullptr;
 	::com::sun::tools::sjavac::pubapi::PubApi* pubApi = nullptr;

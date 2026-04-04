@@ -1,5 +1,4 @@
 #include <com/sun/media/sound/AiffFileWriter.h>
-
 #include <com/sun/media/sound/AiffFileFormat.h>
 #include <com/sun/media/sound/SunFileWriter$NoCloseInputStream.h>
 #include <com/sun/media/sound/SunFileWriter.h>
@@ -80,58 +79,19 @@ namespace com {
 		namespace media {
 			namespace sound {
 
-$FieldInfo _AiffFileWriter_FieldInfo_[] = {
-	{"DOUBLE_MANTISSA_LENGTH", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AiffFileWriter, DOUBLE_MANTISSA_LENGTH)},
-	{"DOUBLE_EXPONENT_LENGTH", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AiffFileWriter, DOUBLE_EXPONENT_LENGTH)},
-	{"DOUBLE_SIGN_MASK", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AiffFileWriter, DOUBLE_SIGN_MASK)},
-	{"DOUBLE_EXPONENT_MASK", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AiffFileWriter, DOUBLE_EXPONENT_MASK)},
-	{"DOUBLE_MANTISSA_MASK", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AiffFileWriter, DOUBLE_MANTISSA_MASK)},
-	{"DOUBLE_EXPONENT_OFFSET", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AiffFileWriter, DOUBLE_EXPONENT_OFFSET)},
-	{"EXTENDED_EXPONENT_OFFSET", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AiffFileWriter, EXTENDED_EXPONENT_OFFSET)},
-	{"EXTENDED_MANTISSA_LENGTH", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AiffFileWriter, EXTENDED_MANTISSA_LENGTH)},
-	{"EXTENDED_EXPONENT_LENGTH", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AiffFileWriter, EXTENDED_EXPONENT_LENGTH)},
-	{"EXTENDED_INTEGER_MASK", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AiffFileWriter, EXTENDED_INTEGER_MASK)},
-	{}
-};
-
-$MethodInfo _AiffFileWriter_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AiffFileWriter, init$, void)},
-	{"getAudioFileFormat", "(Ljavax/sound/sampled/AudioFileFormat$Type;Ljavax/sound/sampled/AudioInputStream;)Ljavax/sound/sampled/AudioFileFormat;", nullptr, $PRIVATE, $method(AiffFileWriter, getAudioFileFormat, $AudioFileFormat*, $AudioFileFormat$Type*, $AudioInputStream*)},
-	{"getAudioFileTypes", "(Ljavax/sound/sampled/AudioInputStream;)[Ljavax/sound/sampled/AudioFileFormat$Type;", nullptr, $PUBLIC, $virtualMethod(AiffFileWriter, getAudioFileTypes, $AudioFileFormat$TypeArray*, $AudioInputStream*)},
-	{"getFileStream", "(Lcom/sun/media/sound/AiffFileFormat;Ljava/io/InputStream;)Ljava/io/InputStream;", nullptr, $PRIVATE, $method(AiffFileWriter, getFileStream, $InputStream*, $AiffFileFormat*, $InputStream*), "java.io.IOException"},
-	{"write", "(Ljavax/sound/sampled/AudioInputStream;Ljavax/sound/sampled/AudioFileFormat$Type;Ljava/io/OutputStream;)I", nullptr, $PUBLIC, $virtualMethod(AiffFileWriter, write, int32_t, $AudioInputStream*, $AudioFileFormat$Type*, $OutputStream*), "java.io.IOException"},
-	{"write", "(Ljavax/sound/sampled/AudioInputStream;Ljavax/sound/sampled/AudioFileFormat$Type;Ljava/io/File;)I", nullptr, $PUBLIC, $virtualMethod(AiffFileWriter, write, int32_t, $AudioInputStream*, $AudioFileFormat$Type*, $File*), "java.io.IOException"},
-	{"writeAiffFile", "(Ljava/io/InputStream;Lcom/sun/media/sound/AiffFileFormat;Ljava/io/OutputStream;)I", nullptr, $PRIVATE, $method(AiffFileWriter, writeAiffFile, int32_t, $InputStream*, $AiffFileFormat*, $OutputStream*), "java.io.IOException"},
-	{"write_ieee_extended", "(Ljava/io/DataOutputStream;F)V", nullptr, $PRIVATE, $method(AiffFileWriter, write_ieee_extended, void, $DataOutputStream*, float), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _AiffFileWriter_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.media.sound.AiffFileWriter",
-	"com.sun.media.sound.SunFileWriter",
-	nullptr,
-	_AiffFileWriter_FieldInfo_,
-	_AiffFileWriter_MethodInfo_
-};
-
-$Object* allocate$AiffFileWriter($Class* clazz) {
-	return $of($alloc(AiffFileWriter));
-}
-
 void AiffFileWriter::init$() {
 	$init($AudioFileFormat$Type);
 	$SunFileWriter::init$($$new($AudioFileFormat$TypeArray, {$AudioFileFormat$Type::AIFF}));
 }
 
 $AudioFileFormat$TypeArray* AiffFileWriter::getAudioFileTypes($AudioInputStream* stream) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AudioFileFormat$TypeArray, filetypes, $new($AudioFileFormat$TypeArray, $nc(this->types)->length));
-	$System::arraycopy(this->types, 0, filetypes, 0, $nc(this->types)->length);
+	$System::arraycopy(this->types, 0, filetypes, 0, this->types->length);
 	$var($AudioFormat, format, $nc(stream)->getFormat());
 	$var($AudioFormat$Encoding, encoding, $nc(format)->getEncoding());
 	$init($AudioFormat$Encoding);
-	bool var$2 = ($nc($AudioFormat$Encoding::ALAW)->equals(encoding));
+	bool var$2 = $nc($AudioFormat$Encoding::ALAW)->equals(encoding);
 	bool var$1 = var$2 || ($nc($AudioFormat$Encoding::ULAW)->equals(encoding));
 	bool var$0 = var$1 || ($nc($AudioFormat$Encoding::PCM_SIGNED)->equals(encoding));
 	if (var$0 || ($nc($AudioFormat$Encoding::PCM_UNSIGNED)->equals(encoding))) {
@@ -152,7 +112,7 @@ int32_t AiffFileWriter::write($AudioInputStream* stream, $AudioFileFormat$Type* 
 }
 
 int32_t AiffFileWriter::write($AudioInputStream* stream, $AudioFileFormat$Type* fileType, $File* out) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Objects::requireNonNull(stream);
 	$Objects::requireNonNull(fileType);
 	$Objects::requireNonNull(out);
@@ -160,54 +120,50 @@ int32_t AiffFileWriter::write($AudioInputStream* stream, $AudioFileFormat$Type* 
 	int32_t bytesWritten = 0;
 	{
 		$var($FileOutputStream, fos, $new($FileOutputStream, out));
-		{
-			$var($Throwable, var$0, nullptr);
+		$var($Throwable, var$0, nullptr);
+		try {
 			try {
+				$var($BufferedOutputStream, bos, $new($BufferedOutputStream, fos));
+				$var($Throwable, var$1, nullptr);
 				try {
-					$var($BufferedOutputStream, bos, $new($BufferedOutputStream, fos));
-					{
-						$var($Throwable, var$1, nullptr);
-						try {
-							try {
-								bytesWritten = writeAiffFile(stream, aiffFileFormat, bos);
-							} catch ($Throwable& t$) {
-								try {
-									bos->close();
-								} catch ($Throwable& x2) {
-									t$->addSuppressed(x2);
-								}
-								$throw(t$);
-							}
-						} catch ($Throwable& var$2) {
-							$assign(var$1, var$2);
-						} /*finally*/ {
-							bos->close();
-						}
-						if (var$1 != nullptr) {
-							$throw(var$1);
-						}
-					}
-				} catch ($Throwable& t$) {
 					try {
-						fos->close();
-					} catch ($Throwable& x2) {
-						t$->addSuppressed(x2);
+						bytesWritten = writeAiffFile(stream, aiffFileFormat, bos);
+					} catch ($Throwable& t$) {
+						try {
+							bos->close();
+						} catch ($Throwable& x2) {
+							t$->addSuppressed(x2);
+						}
+						$throw(t$);
 					}
-					$throw(t$);
+				} catch ($Throwable& var$2) {
+					$assign(var$1, var$2);
+				} /*finally*/ {
+					bos->close();
 				}
-			} catch ($Throwable& var$3) {
-				$assign(var$0, var$3);
-			} /*finally*/ {
-				fos->close();
+				if (var$1 != nullptr) {
+					$throw(var$1);
+				}
+			} catch ($Throwable& t$) {
+				try {
+					fos->close();
+				} catch ($Throwable& x2) {
+					t$->addSuppressed(x2);
+				}
+				$throw(t$);
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
+		} /*finally*/ {
+			fos->close();
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	}
 	if ($nc(aiffFileFormat)->getByteLength() == $AudioSystem::NOT_SPECIFIED) {
-		int32_t channels = $nc($(aiffFileFormat->getFormat()))->getChannels();
-		int32_t sampleSize = $nc($(aiffFileFormat->getFormat()))->getSampleSizeInBits();
+		int32_t channels = $$nc(aiffFileFormat->getFormat())->getChannels();
+		int32_t sampleSize = $$nc(aiffFileFormat->getFormat())->getSampleSizeInBits();
 		int32_t ssndBlockSize = channels * ((sampleSize + 7) / 8);
 		int32_t aiffLength = bytesWritten;
 		int32_t ssndChunkSize = aiffLength - aiffFileFormat->getHeaderSize() + 16;
@@ -215,32 +171,30 @@ int32_t AiffFileWriter::write($AudioInputStream* stream, $AudioFileFormat$Type* 
 		int32_t numFrames = (int32_t)($div(dataSize, ssndBlockSize));
 		{
 			$var($RandomAccessFile, raf, $new($RandomAccessFile, out, "rw"_s));
-			{
-				$var($Throwable, var$4, nullptr);
+			$var($Throwable, var$4, nullptr);
+			try {
 				try {
+					raf->skipBytes(4);
+					raf->writeInt(aiffLength - 8);
+					raf->skipBytes(4 + aiffFileFormat->getFverChunkSize() + 4 + 4 + 2);
+					raf->writeInt(numFrames);
+					raf->skipBytes(2 + 10 + 4);
+					raf->writeInt(ssndChunkSize - 8);
+				} catch ($Throwable& t$) {
 					try {
-						raf->skipBytes(4);
-						raf->writeInt(aiffLength - 8);
-						raf->skipBytes(4 + aiffFileFormat->getFverChunkSize() + 4 + 4 + 2);
-						raf->writeInt(numFrames);
-						raf->skipBytes(2 + 10 + 4);
-						raf->writeInt(ssndChunkSize - 8);
-					} catch ($Throwable& t$) {
-						try {
-							raf->close();
-						} catch ($Throwable& x2) {
-							t$->addSuppressed(x2);
-						}
-						$throw(t$);
+						raf->close();
+					} catch ($Throwable& x2) {
+						t$->addSuppressed(x2);
 					}
-				} catch ($Throwable& var$5) {
-					$assign(var$4, var$5);
-				} /*finally*/ {
-					raf->close();
+					$throw(t$);
 				}
-				if (var$4 != nullptr) {
-					$throw(var$4);
-				}
+			} catch ($Throwable& var$5) {
+				$assign(var$4, var$5);
+			} /*finally*/ {
+				raf->close();
+			}
+			if (var$4 != nullptr) {
+				$throw(var$4);
 			}
 		}
 	}
@@ -248,7 +202,7 @@ int32_t AiffFileWriter::write($AudioInputStream* stream, $AudioFileFormat$Type* 
 }
 
 $AudioFileFormat* AiffFileWriter::getAudioFileFormat($AudioFileFormat$Type* type, $AudioInputStream* stream) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!isFileTypeSupported(type, stream)) {
 		$throwNew($IllegalArgumentException, $$str({"File type "_s, type, " not supported."_s}));
 	}
@@ -261,7 +215,7 @@ $AudioFileFormat* AiffFileWriter::getAudioFileFormat($AudioFileFormat$Type* type
 	int32_t sampleSizeInBits = 0;
 	int32_t fileSize = 0;
 	bool convert8to16 = false;
-	bool var$0 = ($nc($AudioFormat$Encoding::ALAW)->equals(streamEncoding));
+	bool var$0 = $nc($AudioFormat$Encoding::ALAW)->equals(streamEncoding);
 	if (var$0 || ($nc($AudioFormat$Encoding::ULAW)->equals(streamEncoding))) {
 		if (streamFormat->getSampleSizeInBits() == 8) {
 			$assign(encoding, $AudioFormat$Encoding::PCM_SIGNED);
@@ -277,19 +231,17 @@ $AudioFileFormat* AiffFileWriter::getAudioFileFormat($AudioFileFormat$Type* type
 		$assign(encoding, $AudioFormat$Encoding::PCM_SIGNED);
 		sampleSizeInBits = streamFormat->getSampleSizeInBits();
 	}
-	$var($AudioFormat$Encoding, var$1, encoding);
-	float var$2 = streamFormat->getSampleRate();
-	int32_t var$3 = sampleSizeInBits;
-	int32_t var$4 = streamFormat->getChannels();
-	int32_t var$5 = streamFormat->getFrameSize();
-	$assign(format, $new($AudioFormat, var$1, var$2, var$3, var$4, var$5, streamFormat->getFrameRate(), true));
+	float var$1 = streamFormat->getSampleRate();
+	int32_t var$2 = streamFormat->getChannels();
+	int32_t var$3 = streamFormat->getFrameSize();
+	$assign(format, $new($AudioFormat, encoding, var$1, sampleSizeInBits, var$2, var$3, streamFormat->getFrameRate(), true));
 	if (stream->getFrameLength() != $AudioSystem::NOT_SPECIFIED) {
 		if (convert8to16) {
-			int32_t var$6 = (int32_t)stream->getFrameLength();
-			fileSize = var$6 * streamFormat->getFrameSize() * 2 + $AiffFileFormat::AIFF_HEADERSIZE;
+			int32_t var$4 = (int32_t)stream->getFrameLength();
+			fileSize = var$4 * streamFormat->getFrameSize() * 2 + $AiffFileFormat::AIFF_HEADERSIZE;
 		} else {
-			int32_t var$7 = (int32_t)stream->getFrameLength();
-			fileSize = var$7 * streamFormat->getFrameSize() + $AiffFileFormat::AIFF_HEADERSIZE;
+			int32_t var$5 = (int32_t)stream->getFrameLength();
+			fileSize = var$5 * streamFormat->getFrameSize() + $AiffFileFormat::AIFF_HEADERSIZE;
 		}
 	} else {
 		fileSize = $AudioSystem::NOT_SPECIFIED;
@@ -300,7 +252,7 @@ $AudioFileFormat* AiffFileWriter::getAudioFileFormat($AudioFileFormat$Type* type
 }
 
 int32_t AiffFileWriter::writeAiffFile($InputStream* in, $AiffFileFormat* aiffFileFormat, $OutputStream* out) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t bytesRead = 0;
 	int32_t bytesWritten = 0;
 	$var($InputStream, fileStream, getFileStream(aiffFileFormat, in));
@@ -327,7 +279,7 @@ int32_t AiffFileWriter::writeAiffFile($InputStream* in, $AiffFileFormat* aiffFil
 }
 
 $InputStream* AiffFileWriter::getFileStream($AiffFileFormat* aiffFileFormat, $InputStream* audioStream) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AudioFormat, format, $nc(aiffFileFormat)->getFormat());
 	$var($AudioFormat, streamFormat, nullptr);
 	$var($AudioFormat$Encoding, encoding, nullptr);
@@ -352,13 +304,13 @@ $InputStream* AiffFileWriter::getFileStream($AiffFileFormat* aiffFileFormat, $In
 	$var($bytes, header, nullptr);
 	$var($InputStream, codedAudioStream, audioStream);
 	if ($instanceOf($AudioInputStream, audioStream)) {
-		$assign(streamFormat, $nc(($cast($AudioInputStream, audioStream)))->getFormat());
+		$assign(streamFormat, $cast($AudioInputStream, audioStream)->getFormat());
 		$assign(encoding, $nc(streamFormat)->getEncoding());
 		$init($AudioFormat$Encoding);
-		bool var$0 = ($nc($AudioFormat$Encoding::PCM_UNSIGNED)->equals(encoding));
+		bool var$0 = $nc($AudioFormat$Encoding::PCM_UNSIGNED)->equals(encoding);
 		if (!var$0) {
-			bool var$1 = ($nc($AudioFormat$Encoding::PCM_SIGNED)->equals(encoding));
-			var$0 = (var$1 && !streamFormat->isBigEndian());
+			bool var$1 = $nc($AudioFormat$Encoding::PCM_SIGNED)->equals(encoding);
+			var$0 = var$1 && !streamFormat->isBigEndian();
 		}
 		if (var$0) {
 			$var($AudioFormat$Encoding, var$2, $AudioFormat$Encoding::PCM_SIGNED);
@@ -368,89 +320,85 @@ $InputStream* AiffFileWriter::getFileStream($AiffFileFormat* aiffFileFormat, $In
 			int32_t var$6 = streamFormat->getFrameSize();
 			$assign(codedAudioStream, $AudioSystem::getAudioInputStream($$new($AudioFormat, var$2, var$3, var$4, var$5, var$6, streamFormat->getFrameRate(), true), $cast($AudioInputStream, audioStream)));
 		} else {
-			bool var$8 = ($nc($AudioFormat$Encoding::ULAW)->equals(encoding));
-			if (var$8 || ($nc($AudioFormat$Encoding::ALAW)->equals(encoding))) {
+			bool var$7 = $nc($AudioFormat$Encoding::ULAW)->equals(encoding);
+			if (var$7 || ($nc($AudioFormat$Encoding::ALAW)->equals(encoding))) {
 				if (streamFormat->getSampleSizeInBits() != 8) {
 					$throwNew($IllegalArgumentException, "unsupported encoding"_s);
 				}
-				$var($AudioFormat$Encoding, var$9, $AudioFormat$Encoding::PCM_SIGNED);
-				float var$10 = streamFormat->getSampleRate();
-				int32_t var$11 = streamFormat->getSampleSizeInBits() * 2;
-				int32_t var$12 = streamFormat->getChannels();
-				int32_t var$13 = streamFormat->getFrameSize() * 2;
-				$assign(codedAudioStream, $AudioSystem::getAudioInputStream($$new($AudioFormat, var$9, var$10, var$11, var$12, var$13, streamFormat->getFrameRate(), true), $cast($AudioInputStream, audioStream)));
+				$var($AudioFormat$Encoding, var$8, $AudioFormat$Encoding::PCM_SIGNED);
+				float var$9 = streamFormat->getSampleRate();
+				int32_t var$10 = streamFormat->getSampleSizeInBits() * 2;
+				int32_t var$11 = streamFormat->getChannels();
+				int32_t var$12 = streamFormat->getFrameSize() * 2;
+				$assign(codedAudioStream, $AudioSystem::getAudioInputStream($$new($AudioFormat, var$8, var$9, var$10, var$11, var$12, streamFormat->getFrameRate(), true), $cast($AudioInputStream, audioStream)));
 			}
 		}
 	}
 	{
 		$var($ByteArrayOutputStream, baos, $new($ByteArrayOutputStream));
-		{
-			$var($Throwable, var$14, nullptr);
+		$var($Throwable, var$13, nullptr);
+		try {
 			try {
+				$var($DataOutputStream, dos, $new($DataOutputStream, baos));
+				$var($Throwable, var$14, nullptr);
 				try {
-					$var($DataOutputStream, dos, $new($DataOutputStream, baos));
-					{
-						$var($Throwable, var$15, nullptr);
-						try {
-							try {
-								dos->writeInt($AiffFileFormat::AIFF_MAGIC);
-								dos->writeInt((aiffLength - 8));
-								dos->writeInt($AiffFileFormat::AIFF_MAGIC2);
-								dos->writeInt($AiffFileFormat::COMM_MAGIC);
-								dos->writeInt((commChunkSize - 8));
-								dos->writeShort(channels);
-								dos->writeInt(numFrames);
-								dos->writeShort(sampleSize);
-								write_ieee_extended(dos, sampleFramesPerSecond);
-								dos->writeInt($AiffFileFormat::SSND_MAGIC);
-								dos->writeInt((ssndChunkSize - 8));
-								dos->writeInt(0);
-								dos->writeInt(0);
-								$assign(header, baos->toByteArray());
-							} catch ($Throwable& t$) {
-								try {
-									dos->close();
-								} catch ($Throwable& x2) {
-									t$->addSuppressed(x2);
-								}
-								$throw(t$);
-							}
-						} catch ($Throwable& var$16) {
-							$assign(var$15, var$16);
-						} /*finally*/ {
-							dos->close();
-						}
-						if (var$15 != nullptr) {
-							$throw(var$15);
-						}
-					}
-				} catch ($Throwable& t$) {
 					try {
-						baos->close();
-					} catch ($Throwable& x2) {
-						t$->addSuppressed(x2);
+						dos->writeInt($AiffFileFormat::AIFF_MAGIC);
+						dos->writeInt((aiffLength - 8));
+						dos->writeInt($AiffFileFormat::AIFF_MAGIC2);
+						dos->writeInt($AiffFileFormat::COMM_MAGIC);
+						dos->writeInt((commChunkSize - 8));
+						dos->writeShort(channels);
+						dos->writeInt(numFrames);
+						dos->writeShort(sampleSize);
+						write_ieee_extended(dos, sampleFramesPerSecond);
+						dos->writeInt($AiffFileFormat::SSND_MAGIC);
+						dos->writeInt((ssndChunkSize - 8));
+						dos->writeInt(0);
+						dos->writeInt(0);
+						$assign(header, baos->toByteArray());
+					} catch ($Throwable& t$) {
+						try {
+							dos->close();
+						} catch ($Throwable& x2) {
+							t$->addSuppressed(x2);
+						}
+						$throw(t$);
 					}
-					$throw(t$);
+				} catch ($Throwable& var$15) {
+					$assign(var$14, var$15);
+				} /*finally*/ {
+					dos->close();
 				}
-			} catch ($Throwable& var$17) {
-				$assign(var$14, var$17);
-			} /*finally*/ {
-				baos->close();
+				if (var$14 != nullptr) {
+					$throw(var$14);
+				}
+			} catch ($Throwable& t$) {
+				try {
+					baos->close();
+				} catch ($Throwable& x2) {
+					t$->addSuppressed(x2);
+				}
+				$throw(t$);
 			}
-			if (var$14 != nullptr) {
-				$throw(var$14);
-			}
+		} catch ($Throwable& var$16) {
+			$assign(var$13, var$16);
+		} /*finally*/ {
+			baos->close();
+		}
+		if (var$13 != nullptr) {
+			$throw(var$13);
 		}
 	}
-	$var($InputStream, var$18, static_cast<$InputStream*>($new($ByteArrayInputStream, header)));
-	return $new($SequenceInputStream, var$18, $$new($SunFileWriter$NoCloseInputStream, this, codedAudioStream));
+	$var($InputStream, var$17, $new($ByteArrayInputStream, header));
+	return $new($SequenceInputStream, var$17, $$new($SunFileWriter$NoCloseInputStream, this, codedAudioStream));
 }
 
 void AiffFileWriter::write_ieee_extended($DataOutputStream* dos, float f) {
 	int64_t doubleBits = $Double::doubleToLongBits((double)f);
-	int64_t sign = $sr((int64_t)(doubleBits & (uint64_t)AiffFileWriter::DOUBLE_SIGN_MASK), AiffFileWriter::DOUBLE_EXPONENT_LENGTH + AiffFileWriter::DOUBLE_MANTISSA_LENGTH);
-	int64_t doubleExponent = $sr((int64_t)(doubleBits & (uint64_t)AiffFileWriter::DOUBLE_EXPONENT_MASK), AiffFileWriter::DOUBLE_MANTISSA_LENGTH);
-	int64_t doubleMantissa = (int64_t)(doubleBits & (uint64_t)AiffFileWriter::DOUBLE_MANTISSA_MASK);
+	int64_t sign = $sr(doubleBits & AiffFileWriter::DOUBLE_SIGN_MASK, AiffFileWriter::DOUBLE_EXPONENT_LENGTH + AiffFileWriter::DOUBLE_MANTISSA_LENGTH);
+	int64_t doubleExponent = $sr(doubleBits & AiffFileWriter::DOUBLE_EXPONENT_MASK, AiffFileWriter::DOUBLE_MANTISSA_LENGTH);
+	int64_t doubleMantissa = doubleBits & AiffFileWriter::DOUBLE_MANTISSA_MASK;
 	int64_t extendedExponent = doubleExponent - AiffFileWriter::DOUBLE_EXPONENT_OFFSET + AiffFileWriter::EXTENDED_EXPONENT_OFFSET;
 	int64_t extendedMantissa = $sl(doubleMantissa, AiffFileWriter::EXTENDED_MANTISSA_LENGTH - AiffFileWriter::DOUBLE_MANTISSA_LENGTH);
 	int64_t extendedSign = $sl(sign, AiffFileWriter::EXTENDED_EXPONENT_LENGTH);
@@ -464,7 +412,41 @@ AiffFileWriter::AiffFileWriter() {
 }
 
 $Class* AiffFileWriter::load$($String* name, bool initialize) {
-	$loadClass(AiffFileWriter, name, initialize, &_AiffFileWriter_ClassInfo_, allocate$AiffFileWriter);
+	$FieldInfo fieldInfos$$[] = {
+		{"DOUBLE_MANTISSA_LENGTH", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AiffFileWriter, DOUBLE_MANTISSA_LENGTH)},
+		{"DOUBLE_EXPONENT_LENGTH", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AiffFileWriter, DOUBLE_EXPONENT_LENGTH)},
+		{"DOUBLE_SIGN_MASK", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AiffFileWriter, DOUBLE_SIGN_MASK)},
+		{"DOUBLE_EXPONENT_MASK", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AiffFileWriter, DOUBLE_EXPONENT_MASK)},
+		{"DOUBLE_MANTISSA_MASK", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AiffFileWriter, DOUBLE_MANTISSA_MASK)},
+		{"DOUBLE_EXPONENT_OFFSET", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AiffFileWriter, DOUBLE_EXPONENT_OFFSET)},
+		{"EXTENDED_EXPONENT_OFFSET", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AiffFileWriter, EXTENDED_EXPONENT_OFFSET)},
+		{"EXTENDED_MANTISSA_LENGTH", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AiffFileWriter, EXTENDED_MANTISSA_LENGTH)},
+		{"EXTENDED_EXPONENT_LENGTH", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AiffFileWriter, EXTENDED_EXPONENT_LENGTH)},
+		{"EXTENDED_INTEGER_MASK", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AiffFileWriter, EXTENDED_INTEGER_MASK)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AiffFileWriter, init$, void)},
+		{"getAudioFileFormat", "(Ljavax/sound/sampled/AudioFileFormat$Type;Ljavax/sound/sampled/AudioInputStream;)Ljavax/sound/sampled/AudioFileFormat;", nullptr, $PRIVATE, $method(AiffFileWriter, getAudioFileFormat, $AudioFileFormat*, $AudioFileFormat$Type*, $AudioInputStream*)},
+		{"getAudioFileTypes", "(Ljavax/sound/sampled/AudioInputStream;)[Ljavax/sound/sampled/AudioFileFormat$Type;", nullptr, $PUBLIC, $virtualMethod(AiffFileWriter, getAudioFileTypes, $AudioFileFormat$TypeArray*, $AudioInputStream*)},
+		{"getFileStream", "(Lcom/sun/media/sound/AiffFileFormat;Ljava/io/InputStream;)Ljava/io/InputStream;", nullptr, $PRIVATE, $method(AiffFileWriter, getFileStream, $InputStream*, $AiffFileFormat*, $InputStream*), "java.io.IOException"},
+		{"write", "(Ljavax/sound/sampled/AudioInputStream;Ljavax/sound/sampled/AudioFileFormat$Type;Ljava/io/OutputStream;)I", nullptr, $PUBLIC, $virtualMethod(AiffFileWriter, write, int32_t, $AudioInputStream*, $AudioFileFormat$Type*, $OutputStream*), "java.io.IOException"},
+		{"write", "(Ljavax/sound/sampled/AudioInputStream;Ljavax/sound/sampled/AudioFileFormat$Type;Ljava/io/File;)I", nullptr, $PUBLIC, $virtualMethod(AiffFileWriter, write, int32_t, $AudioInputStream*, $AudioFileFormat$Type*, $File*), "java.io.IOException"},
+		{"writeAiffFile", "(Ljava/io/InputStream;Lcom/sun/media/sound/AiffFileFormat;Ljava/io/OutputStream;)I", nullptr, $PRIVATE, $method(AiffFileWriter, writeAiffFile, int32_t, $InputStream*, $AiffFileFormat*, $OutputStream*), "java.io.IOException"},
+		{"write_ieee_extended", "(Ljava/io/DataOutputStream;F)V", nullptr, $PRIVATE, $method(AiffFileWriter, write_ieee_extended, void, $DataOutputStream*, float), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.media.sound.AiffFileWriter",
+		"com.sun.media.sound.SunFileWriter",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(AiffFileWriter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AiffFileWriter);
+	});
 	return class$;
 }
 

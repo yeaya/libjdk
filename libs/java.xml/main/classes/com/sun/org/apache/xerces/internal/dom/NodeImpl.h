@@ -206,7 +206,7 @@ public:
 	static const int16_t TREE_POSITION_EQUIVALENT = 16;
 	static const int16_t TREE_POSITION_SAME_NODE = 32;
 	static const int16_t TREE_POSITION_DISCONNECTED = 0;
-	static const int64_t serialVersionUID = (int64_t)0xA856F50CC3CBBE10;
+	static const int64_t serialVersionUID = (int64_t)0xa856f50cc3cbbe10;
 	static const int16_t ELEMENT_DEFINITION_NODE = 21;
 	::com::sun::org::apache::xerces::internal::dom::NodeImpl* ownerNode = nullptr;
 	int16_t flags = 0;

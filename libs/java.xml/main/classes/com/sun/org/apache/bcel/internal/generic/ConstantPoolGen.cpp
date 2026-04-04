@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/bcel/internal/generic/ConstantPoolGen.h>
-
 #include <com/sun/org/apache/bcel/internal/Const.h>
 #include <com/sun/org/apache/bcel/internal/classfile/Constant.h>
 #include <com/sun/org/apache/bcel/internal/classfile/ConstantCP.h>
@@ -73,7 +72,6 @@ using $Integer = ::java::lang::Integer;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $HashMap = ::java::util::HashMap;
-using $Map = ::java::util::Map;
 
 namespace com {
 	namespace sun {
@@ -83,92 +81,6 @@ namespace com {
 					namespace internal {
 						namespace generic {
 
-$FieldInfo _ConstantPoolGen_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(ConstantPoolGen, $assertionsDisabled)},
-	{"DEFAULT_BUFFER_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ConstantPoolGen, DEFAULT_BUFFER_SIZE)},
-	{"size", "I", nullptr, $PRIVATE, $field(ConstantPoolGen, size)},
-	{"constants", "[Lcom/sun/org/apache/bcel/internal/classfile/Constant;", nullptr, $PRIVATE, $field(ConstantPoolGen, constants)},
-	{"index", "I", nullptr, $PRIVATE, $field(ConstantPoolGen, index)},
-	{"METHODREF_DELIM", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ConstantPoolGen, METHODREF_DELIM)},
-	{"IMETHODREF_DELIM", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ConstantPoolGen, IMETHODREF_DELIM)},
-	{"FIELDREF_DELIM", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ConstantPoolGen, FIELDREF_DELIM)},
-	{"NAT_DELIM", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ConstantPoolGen, NAT_DELIM)},
-	{"stringTable", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen$Index;>;", $PRIVATE | $FINAL, $field(ConstantPoolGen, stringTable)},
-	{"classTable", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen$Index;>;", $PRIVATE | $FINAL, $field(ConstantPoolGen, classTable)},
-	{"utf8Table", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen$Index;>;", $PRIVATE | $FINAL, $field(ConstantPoolGen, utf8Table)},
-	{"natTable", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen$Index;>;", $PRIVATE | $FINAL, $field(ConstantPoolGen, natTable)},
-	{"cpTable", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen$Index;>;", $PRIVATE | $FINAL, $field(ConstantPoolGen, cpTable)},
-	{}
-};
-
-$MethodInfo _ConstantPoolGen_MethodInfo_[] = {
-	{"<init>", "([Lcom/sun/org/apache/bcel/internal/classfile/Constant;)V", nullptr, $PUBLIC, $method(ConstantPoolGen, init$, void, $ConstantArray*)},
-	{"<init>", "(Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;)V", nullptr, $PUBLIC, $method(ConstantPoolGen, init$, void, $ConstantPool*)},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ConstantPoolGen, init$, void)},
-	{"addArrayClass", "(Lcom/sun/org/apache/bcel/internal/generic/ArrayType;)I", nullptr, $PUBLIC, $virtualMethod(ConstantPoolGen, addArrayClass, int32_t, $ArrayType*)},
-	{"addClass", "(Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(ConstantPoolGen, addClass, int32_t, $String*)},
-	{"addClass", "(Lcom/sun/org/apache/bcel/internal/generic/ObjectType;)I", nullptr, $PUBLIC, $virtualMethod(ConstantPoolGen, addClass, int32_t, $ObjectType*)},
-	{"addClass_", "(Ljava/lang/String;)I", nullptr, $PRIVATE, $method(ConstantPoolGen, addClass_, int32_t, $String*)},
-	{"addConstant", "(Lcom/sun/org/apache/bcel/internal/classfile/Constant;Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;)I", nullptr, $PUBLIC, $virtualMethod(ConstantPoolGen, addConstant, int32_t, $Constant*, ConstantPoolGen*)},
-	{"addDouble", "(D)I", nullptr, $PUBLIC, $virtualMethod(ConstantPoolGen, addDouble, int32_t, double)},
-	{"addFieldref", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(ConstantPoolGen, addFieldref, int32_t, $String*, $String*, $String*)},
-	{"addFloat", "(F)I", nullptr, $PUBLIC, $virtualMethod(ConstantPoolGen, addFloat, int32_t, float)},
-	{"addInteger", "(I)I", nullptr, $PUBLIC, $virtualMethod(ConstantPoolGen, addInteger, int32_t, int32_t)},
-	{"addInterfaceMethodref", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(ConstantPoolGen, addInterfaceMethodref, int32_t, $String*, $String*, $String*)},
-	{"addInterfaceMethodref", "(Lcom/sun/org/apache/bcel/internal/generic/MethodGen;)I", nullptr, $PUBLIC, $virtualMethod(ConstantPoolGen, addInterfaceMethodref, int32_t, $MethodGen*)},
-	{"addLong", "(J)I", nullptr, $PUBLIC, $virtualMethod(ConstantPoolGen, addLong, int32_t, int64_t)},
-	{"addMethodref", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(ConstantPoolGen, addMethodref, int32_t, $String*, $String*, $String*)},
-	{"addMethodref", "(Lcom/sun/org/apache/bcel/internal/generic/MethodGen;)I", nullptr, $PUBLIC, $virtualMethod(ConstantPoolGen, addMethodref, int32_t, $MethodGen*)},
-	{"addNameAndType", "(Ljava/lang/String;Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(ConstantPoolGen, addNameAndType, int32_t, $String*, $String*)},
-	{"addString", "(Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(ConstantPoolGen, addString, int32_t, $String*)},
-	{"addUtf8", "(Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(ConstantPoolGen, addUtf8, int32_t, $String*)},
-	{"adjustSize", "()V", nullptr, $PROTECTED, $virtualMethod(ConstantPoolGen, adjustSize, void)},
-	{"getConstant", "(I)Lcom/sun/org/apache/bcel/internal/classfile/Constant;", nullptr, $PUBLIC, $virtualMethod(ConstantPoolGen, getConstant, $Constant*, int32_t)},
-	{"getConstantPool", "()Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;", nullptr, $PUBLIC, $virtualMethod(ConstantPoolGen, getConstantPool, $ConstantPool*)},
-	{"getFinalConstantPool", "()Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;", nullptr, $PUBLIC, $virtualMethod(ConstantPoolGen, getFinalConstantPool, $ConstantPool*)},
-	{"getSize", "()I", nullptr, $PUBLIC, $virtualMethod(ConstantPoolGen, getSize, int32_t)},
-	{"lookupClass", "(Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(ConstantPoolGen, lookupClass, int32_t, $String*)},
-	{"lookupDouble", "(D)I", nullptr, $PUBLIC, $virtualMethod(ConstantPoolGen, lookupDouble, int32_t, double)},
-	{"lookupFieldref", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(ConstantPoolGen, lookupFieldref, int32_t, $String*, $String*, $String*)},
-	{"lookupFloat", "(F)I", nullptr, $PUBLIC, $virtualMethod(ConstantPoolGen, lookupFloat, int32_t, float)},
-	{"lookupInteger", "(I)I", nullptr, $PUBLIC, $virtualMethod(ConstantPoolGen, lookupInteger, int32_t, int32_t)},
-	{"lookupInterfaceMethodref", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(ConstantPoolGen, lookupInterfaceMethodref, int32_t, $String*, $String*, $String*)},
-	{"lookupInterfaceMethodref", "(Lcom/sun/org/apache/bcel/internal/generic/MethodGen;)I", nullptr, $PUBLIC, $virtualMethod(ConstantPoolGen, lookupInterfaceMethodref, int32_t, $MethodGen*)},
-	{"lookupLong", "(J)I", nullptr, $PUBLIC, $virtualMethod(ConstantPoolGen, lookupLong, int32_t, int64_t)},
-	{"lookupMethodref", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(ConstantPoolGen, lookupMethodref, int32_t, $String*, $String*, $String*)},
-	{"lookupMethodref", "(Lcom/sun/org/apache/bcel/internal/generic/MethodGen;)I", nullptr, $PUBLIC, $virtualMethod(ConstantPoolGen, lookupMethodref, int32_t, $MethodGen*)},
-	{"lookupNameAndType", "(Ljava/lang/String;Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(ConstantPoolGen, lookupNameAndType, int32_t, $String*, $String*)},
-	{"lookupString", "(Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(ConstantPoolGen, lookupString, int32_t, $String*)},
-	{"lookupUtf8", "(Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(ConstantPoolGen, lookupUtf8, int32_t, $String*)},
-	{"setConstant", "(ILcom/sun/org/apache/bcel/internal/classfile/Constant;)V", nullptr, $PUBLIC, $virtualMethod(ConstantPoolGen, setConstant, void, int32_t, $Constant*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ConstantPoolGen, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _ConstantPoolGen_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.bcel.internal.generic.ConstantPoolGen$Index", "com.sun.org.apache.bcel.internal.generic.ConstantPoolGen", "Index", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _ConstantPoolGen_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.bcel.internal.generic.ConstantPoolGen",
-	"java.lang.Object",
-	nullptr,
-	_ConstantPoolGen_FieldInfo_,
-	_ConstantPoolGen_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ConstantPoolGen_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.bcel.internal.generic.ConstantPoolGen$Index"
-};
-
-$Object* allocate$ConstantPoolGen($Class* clazz) {
-	return $of($alloc(ConstantPoolGen));
-}
-
 bool ConstantPoolGen::$assertionsDisabled = false;
 $String* ConstantPoolGen::METHODREF_DELIM = nullptr;
 $String* ConstantPoolGen::IMETHODREF_DELIM = nullptr;
@@ -176,7 +88,7 @@ $String* ConstantPoolGen::FIELDREF_DELIM = nullptr;
 $String* ConstantPoolGen::NAT_DELIM = nullptr;
 
 void ConstantPoolGen::init$($ConstantArray* cs) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->index = 1;
 	$set(this, stringTable, $new($HashMap));
 	$set(this, classTable, $new($HashMap));
@@ -186,60 +98,60 @@ void ConstantPoolGen::init$($ConstantArray* cs) {
 	$var($StringBuilder, sb, $new($StringBuilder, ConstantPoolGen::DEFAULT_BUFFER_SIZE));
 	this->size = $Math::max(ConstantPoolGen::DEFAULT_BUFFER_SIZE, $nc(cs)->length + 64);
 	$set(this, constants, $new($ConstantArray, this->size));
-	$System::arraycopy(cs, 0, this->constants, 0, $nc(cs)->length);
-	if ($nc(cs)->length > 0) {
+	$System::arraycopy(cs, 0, this->constants, 0, cs->length);
+	if (cs->length > 0) {
 		this->index = cs->length;
 	}
 	for (int32_t i = 1; i < this->index; ++i) {
 		$var($Constant, c, $nc(this->constants)->get(i));
 		if ($instanceOf($ConstantString, c)) {
 			$var($ConstantString, s, $cast($ConstantString, c));
-			$var($ConstantUtf8, u8, $cast($ConstantUtf8, $nc(this->constants)->get($nc(s)->getStringIndex())));
+			$var($ConstantUtf8, u8, $cast($ConstantUtf8, this->constants->get(s->getStringIndex())));
 			$var($String, key, $nc(u8)->getBytes());
-			if (!$nc(this->stringTable)->containsKey(key)) {
-				$nc(this->stringTable)->put(key, $$new($ConstantPoolGen$Index, i));
+			if (!this->stringTable->containsKey(key)) {
+				this->stringTable->put(key, $$new($ConstantPoolGen$Index, i));
 			}
 		} else if ($instanceOf($ConstantClass, c)) {
 			$var($ConstantClass, s, $cast($ConstantClass, c));
-			$var($ConstantUtf8, u8, $cast($ConstantUtf8, $nc(this->constants)->get($nc(s)->getNameIndex())));
+			$var($ConstantUtf8, u8, $cast($ConstantUtf8, $nc(this->constants)->get(s->getNameIndex())));
 			$var($String, key, $nc(u8)->getBytes());
-			if (!$nc(this->classTable)->containsKey(key)) {
-				$nc(this->classTable)->put(key, $$new($ConstantPoolGen$Index, i));
+			if (!this->classTable->containsKey(key)) {
+				this->classTable->put(key, $$new($ConstantPoolGen$Index, i));
 			}
 		} else if ($instanceOf($ConstantNameAndType, c)) {
 			$var($ConstantNameAndType, n, $cast($ConstantNameAndType, c));
-			$var($ConstantUtf8, u8, $cast($ConstantUtf8, $nc(this->constants)->get($nc(n)->getNameIndex())));
+			$var($ConstantUtf8, u8, $cast($ConstantUtf8, $nc(this->constants)->get(n->getNameIndex())));
 			$var($ConstantUtf8, u8_2, $cast($ConstantUtf8, $nc(this->constants)->get(n->getSignatureIndex())));
 			sb->append($($nc(u8)->getBytes()));
 			sb->append(ConstantPoolGen::NAT_DELIM);
 			sb->append($($nc(u8_2)->getBytes()));
 			$var($String, key, sb->toString());
 			sb->delete$(0, sb->length());
-			if (!$nc(this->natTable)->containsKey(key)) {
-				$nc(this->natTable)->put(key, $$new($ConstantPoolGen$Index, i));
+			if (!this->natTable->containsKey(key)) {
+				this->natTable->put(key, $$new($ConstantPoolGen$Index, i));
 			}
 		} else if ($instanceOf($ConstantUtf8, c)) {
 			$var($ConstantUtf8, u, $cast($ConstantUtf8, c));
-			$var($String, key, $nc(u)->getBytes());
-			if (!$nc(this->utf8Table)->containsKey(key)) {
-				$nc(this->utf8Table)->put(key, $$new($ConstantPoolGen$Index, i));
+			$var($String, key, u->getBytes());
+			if (!this->utf8Table->containsKey(key)) {
+				this->utf8Table->put(key, $$new($ConstantPoolGen$Index, i));
 			}
 		} else if ($instanceOf($ConstantCP, c)) {
 			$var($ConstantCP, m, $cast($ConstantCP, c));
 			$var($String, class_name, nullptr);
 			$var($ConstantUtf8, u8, nullptr);
 			if ($instanceOf($ConstantInvokeDynamic, c)) {
-				$assign(class_name, $Integer::toString($nc(($cast($ConstantInvokeDynamic, m)))->getBootstrapMethodAttrIndex()));
+				$assign(class_name, $Integer::toString($cast($ConstantInvokeDynamic, m)->getBootstrapMethodAttrIndex()));
 			} else {
-				$var($ConstantClass, clazz, $cast($ConstantClass, $nc(this->constants)->get($nc(m)->getClassIndex())));
+				$var($ConstantClass, clazz, $cast($ConstantClass, $nc(this->constants)->get(m->getClassIndex())));
 				$assign(u8, $cast($ConstantUtf8, $nc(this->constants)->get($nc(clazz)->getNameIndex())));
-				$assign(class_name, $nc($($nc(u8)->getBytes()))->replace(u'/', u'.'));
+				$assign(class_name, $$nc($nc(u8)->getBytes())->replace(u'/', u'.'));
 			}
-			$var($ConstantNameAndType, n, $cast($ConstantNameAndType, $nc(this->constants)->get($nc(m)->getNameAndTypeIndex())));
+			$var($ConstantNameAndType, n, $cast($ConstantNameAndType, $nc(this->constants)->get(m->getNameAndTypeIndex())));
 			$assign(u8, $cast($ConstantUtf8, $nc(this->constants)->get($nc(n)->getNameIndex())));
 			$var($String, method_name, $nc(u8)->getBytes());
 			$assign(u8, $cast($ConstantUtf8, $nc(this->constants)->get(n->getSignatureIndex())));
-			$var($String, signature, u8->getBytes());
+			$var($String, signature, $nc(u8)->getBytes());
 			$var($String, delim, ConstantPoolGen::METHODREF_DELIM);
 			if ($instanceOf($ConstantInterfaceMethodref, c)) {
 				$assign(delim, ConstantPoolGen::IMETHODREF_DELIM);
@@ -253,8 +165,8 @@ void ConstantPoolGen::init$($ConstantArray* cs) {
 			sb->append(signature);
 			$var($String, key, sb->toString());
 			sb->delete$(0, sb->length());
-			if (!$nc(this->cpTable)->containsKey(key)) {
-				$nc(this->cpTable)->put(key, $$new($ConstantPoolGen$Index, i));
+			if (!this->cpTable->containsKey(key)) {
+				this->cpTable->put(key, $$new($ConstantPoolGen$Index, i));
 			}
 		} else if (c == nullptr) {
 		} else if ($instanceOf($ConstantInteger, c)) {
@@ -266,7 +178,7 @@ void ConstantPoolGen::init$($ConstantArray* cs) {
 		} else if ($instanceOf($ConstantModule, c)) {
 		} else if ($instanceOf($ConstantPackage, c)) {
 		} else if (!ConstantPoolGen::$assertionsDisabled) {
-			$throwNew($AssertionError, $of($$str({"Unexpected constant type: "_s, $($nc($of(c))->getClass()->getName())})));
+			$throwNew($AssertionError, $$of($str({"Unexpected constant type: "_s, $($of(c)->getClass()->getName())})));
 		}
 	}
 }
@@ -297,11 +209,11 @@ void ConstantPoolGen::adjustSize() {
 
 int32_t ConstantPoolGen::lookupString($String* str) {
 	$var($ConstantPoolGen$Index, index, $cast($ConstantPoolGen$Index, $nc(this->stringTable)->get(str)));
-	return (index != nullptr) ? $nc(index)->index : -1;
+	return (index != nullptr) ? index->index : -1;
 }
 
 int32_t ConstantPoolGen::addString($String* str) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t ret = 0;
 	if ((ret = lookupString(str)) != -1) {
 		return ret;
@@ -312,19 +224,19 @@ int32_t ConstantPoolGen::addString($String* str) {
 	ret = this->index;
 	$nc(this->constants)->set(this->index++, s);
 	if (!$nc(this->stringTable)->containsKey(str)) {
-		$nc(this->stringTable)->put(str, $$new($ConstantPoolGen$Index, ret));
+		this->stringTable->put(str, $$new($ConstantPoolGen$Index, ret));
 	}
 	return ret;
 }
 
 int32_t ConstantPoolGen::lookupClass($String* str) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ConstantPoolGen$Index, index, $cast($ConstantPoolGen$Index, $nc(this->classTable)->get($($nc(str)->replace(u'.', u'/')))));
-	return (index != nullptr) ? $nc(index)->index : -1;
+	return (index != nullptr) ? index->index : -1;
 }
 
 int32_t ConstantPoolGen::addClass_($String* clazz) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t ret = 0;
 	if ((ret = lookupClass(clazz)) != -1) {
 		return ret;
@@ -334,7 +246,7 @@ int32_t ConstantPoolGen::addClass_($String* clazz) {
 	ret = this->index;
 	$nc(this->constants)->set(this->index++, c);
 	if (!$nc(this->classTable)->containsKey(clazz)) {
-		$nc(this->classTable)->put(clazz, $$new($ConstantPoolGen$Index, ret));
+		this->classTable->put(clazz, $$new($ConstantPoolGen$Index, ret));
 	}
 	return ret;
 }
@@ -352,10 +264,10 @@ int32_t ConstantPoolGen::addArrayClass($ArrayType* type) {
 }
 
 int32_t ConstantPoolGen::lookupInteger(int32_t n) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (int32_t i = 1; i < this->index; ++i) {
 		if ($instanceOf($ConstantInteger, $nc(this->constants)->get(i))) {
-			$var($ConstantInteger, c, $cast($ConstantInteger, $nc(this->constants)->get(i)));
+			$var($ConstantInteger, c, $cast($ConstantInteger, this->constants->get(i)));
 			if ($nc(c)->getBytes() == n) {
 				return i;
 			}
@@ -376,11 +288,11 @@ int32_t ConstantPoolGen::addInteger(int32_t n) {
 }
 
 int32_t ConstantPoolGen::lookupFloat(float n) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t bits = $Float::floatToIntBits(n);
 	for (int32_t i = 1; i < this->index; ++i) {
 		if ($instanceOf($ConstantFloat, $nc(this->constants)->get(i))) {
-			$var($ConstantFloat, c, $cast($ConstantFloat, $nc(this->constants)->get(i)));
+			$var($ConstantFloat, c, $cast($ConstantFloat, this->constants->get(i)));
 			if ($Float::floatToIntBits($nc(c)->getBytes()) == bits) {
 				return i;
 			}
@@ -402,11 +314,11 @@ int32_t ConstantPoolGen::addFloat(float n) {
 
 int32_t ConstantPoolGen::lookupUtf8($String* n) {
 	$var($ConstantPoolGen$Index, index, $cast($ConstantPoolGen$Index, $nc(this->utf8Table)->get(n)));
-	return (index != nullptr) ? $nc(index)->index : -1;
+	return (index != nullptr) ? index->index : -1;
 }
 
 int32_t ConstantPoolGen::addUtf8($String* n) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t ret = 0;
 	if ((ret = lookupUtf8(n)) != -1) {
 		return ret;
@@ -415,16 +327,16 @@ int32_t ConstantPoolGen::addUtf8($String* n) {
 	ret = this->index;
 	$nc(this->constants)->set(this->index++, $$new($ConstantUtf8, n));
 	if (!$nc(this->utf8Table)->containsKey(n)) {
-		$nc(this->utf8Table)->put(n, $$new($ConstantPoolGen$Index, ret));
+		this->utf8Table->put(n, $$new($ConstantPoolGen$Index, ret));
 	}
 	return ret;
 }
 
 int32_t ConstantPoolGen::lookupLong(int64_t n) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (int32_t i = 1; i < this->index; ++i) {
 		if ($instanceOf($ConstantLong, $nc(this->constants)->get(i))) {
-			$var($ConstantLong, c, $cast($ConstantLong, $nc(this->constants)->get(i)));
+			$var($ConstantLong, c, $cast($ConstantLong, this->constants->get(i)));
 			if ($nc(c)->getBytes() == n) {
 				return i;
 			}
@@ -446,11 +358,11 @@ int32_t ConstantPoolGen::addLong(int64_t n) {
 }
 
 int32_t ConstantPoolGen::lookupDouble(double n) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int64_t bits = $Double::doubleToLongBits(n);
 	for (int32_t i = 1; i < this->index; ++i) {
 		if ($instanceOf($ConstantDouble, $nc(this->constants)->get(i))) {
-			$var($ConstantDouble, c, $cast($ConstantDouble, $nc(this->constants)->get(i)));
+			$var($ConstantDouble, c, $cast($ConstantDouble, this->constants->get(i)));
 			if ($Double::doubleToLongBits($nc(c)->getBytes()) == bits) {
 				return i;
 			}
@@ -472,13 +384,13 @@ int32_t ConstantPoolGen::addDouble(double n) {
 }
 
 int32_t ConstantPoolGen::lookupNameAndType($String* name, $String* signature) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ConstantPoolGen$Index, _index, $cast($ConstantPoolGen$Index, $nc(this->natTable)->get($$str({name, ConstantPoolGen::NAT_DELIM, signature}))));
-	return (_index != nullptr) ? $nc(_index)->index : -1;
+	return (_index != nullptr) ? _index->index : -1;
 }
 
 int32_t ConstantPoolGen::addNameAndType($String* name, $String* signature) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t ret = 0;
 	int32_t name_index = 0;
 	int32_t signature_index = 0;
@@ -492,26 +404,26 @@ int32_t ConstantPoolGen::addNameAndType($String* name, $String* signature) {
 	$nc(this->constants)->set(this->index++, $$new($ConstantNameAndType, name_index, signature_index));
 	$var($String, key, $str({name, ConstantPoolGen::NAT_DELIM, signature}));
 	if (!$nc(this->natTable)->containsKey(key)) {
-		$nc(this->natTable)->put(key, $$new($ConstantPoolGen$Index, ret));
+		this->natTable->put(key, $$new($ConstantPoolGen$Index, ret));
 	}
 	return ret;
 }
 
 int32_t ConstantPoolGen::lookupMethodref($String* class_name, $String* method_name, $String* signature) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ConstantPoolGen$Index, index, $cast($ConstantPoolGen$Index, $nc(this->cpTable)->get($$str({class_name, ConstantPoolGen::METHODREF_DELIM, method_name, ConstantPoolGen::METHODREF_DELIM, signature}))));
-	return (index != nullptr) ? $nc(index)->index : -1;
+	return (index != nullptr) ? index->index : -1;
 }
 
 int32_t ConstantPoolGen::lookupMethodref($MethodGen* method) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, var$0, $nc(method)->getClassName());
 	$var($String, var$1, method->getName());
 	return lookupMethodref(var$0, var$1, $(method->getSignature()));
 }
 
 int32_t ConstantPoolGen::addMethodref($String* class_name, $String* method_name, $String* signature) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t ret = 0;
 	int32_t class_index = 0;
 	int32_t name_and_type_index = 0;
@@ -525,33 +437,33 @@ int32_t ConstantPoolGen::addMethodref($String* class_name, $String* method_name,
 	$nc(this->constants)->set(this->index++, $$new($ConstantMethodref, class_index, name_and_type_index));
 	$var($String, key, $str({class_name, ConstantPoolGen::METHODREF_DELIM, method_name, ConstantPoolGen::METHODREF_DELIM, signature}));
 	if (!$nc(this->cpTable)->containsKey(key)) {
-		$nc(this->cpTable)->put(key, $$new($ConstantPoolGen$Index, ret));
+		this->cpTable->put(key, $$new($ConstantPoolGen$Index, ret));
 	}
 	return ret;
 }
 
 int32_t ConstantPoolGen::addMethodref($MethodGen* method) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, var$0, $nc(method)->getClassName());
 	$var($String, var$1, method->getName());
 	return addMethodref(var$0, var$1, $(method->getSignature()));
 }
 
 int32_t ConstantPoolGen::lookupInterfaceMethodref($String* class_name, $String* method_name, $String* signature) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ConstantPoolGen$Index, index, $cast($ConstantPoolGen$Index, $nc(this->cpTable)->get($$str({class_name, ConstantPoolGen::IMETHODREF_DELIM, method_name, ConstantPoolGen::IMETHODREF_DELIM, signature}))));
-	return (index != nullptr) ? $nc(index)->index : -1;
+	return (index != nullptr) ? index->index : -1;
 }
 
 int32_t ConstantPoolGen::lookupInterfaceMethodref($MethodGen* method) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, var$0, $nc(method)->getClassName());
 	$var($String, var$1, method->getName());
 	return lookupInterfaceMethodref(var$0, var$1, $(method->getSignature()));
 }
 
 int32_t ConstantPoolGen::addInterfaceMethodref($String* class_name, $String* method_name, $String* signature) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t ret = 0;
 	int32_t class_index = 0;
 	int32_t name_and_type_index = 0;
@@ -565,26 +477,26 @@ int32_t ConstantPoolGen::addInterfaceMethodref($String* class_name, $String* met
 	$nc(this->constants)->set(this->index++, $$new($ConstantInterfaceMethodref, class_index, name_and_type_index));
 	$var($String, key, $str({class_name, ConstantPoolGen::IMETHODREF_DELIM, method_name, ConstantPoolGen::IMETHODREF_DELIM, signature}));
 	if (!$nc(this->cpTable)->containsKey(key)) {
-		$nc(this->cpTable)->put(key, $$new($ConstantPoolGen$Index, ret));
+		this->cpTable->put(key, $$new($ConstantPoolGen$Index, ret));
 	}
 	return ret;
 }
 
 int32_t ConstantPoolGen::addInterfaceMethodref($MethodGen* method) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, var$0, $nc(method)->getClassName());
 	$var($String, var$1, method->getName());
 	return addInterfaceMethodref(var$0, var$1, $(method->getSignature()));
 }
 
 int32_t ConstantPoolGen::lookupFieldref($String* class_name, $String* field_name, $String* signature) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ConstantPoolGen$Index, index, $cast($ConstantPoolGen$Index, $nc(this->cpTable)->get($$str({class_name, ConstantPoolGen::FIELDREF_DELIM, field_name, ConstantPoolGen::FIELDREF_DELIM, signature}))));
-	return (index != nullptr) ? $nc(index)->index : -1;
+	return (index != nullptr) ? index->index : -1;
 }
 
 int32_t ConstantPoolGen::addFieldref($String* class_name, $String* field_name, $String* signature) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t ret = 0;
 	int32_t class_index = 0;
 	int32_t name_and_type_index = 0;
@@ -598,7 +510,7 @@ int32_t ConstantPoolGen::addFieldref($String* class_name, $String* field_name, $
 	$nc(this->constants)->set(this->index++, $$new($ConstantFieldref, class_index, name_and_type_index));
 	$var($String, key, $str({class_name, ConstantPoolGen::FIELDREF_DELIM, field_name, ConstantPoolGen::FIELDREF_DELIM, signature}));
 	if (!$nc(this->cpTable)->containsKey(key)) {
-		$nc(this->cpTable)->put(key, $$new($ConstantPoolGen$Index, ret));
+		this->cpTable->put(key, $$new($ConstantPoolGen$Index, ret));
 	}
 	return ret;
 }
@@ -628,105 +540,75 @@ $ConstantPool* ConstantPoolGen::getFinalConstantPool() {
 $String* ConstantPoolGen::toString() {
 	$var($StringBuilder, buf, $new($StringBuilder));
 	for (int32_t i = 1; i < this->index; ++i) {
-		buf->append(i)->append(")"_s)->append($of($nc(this->constants)->get(i)))->append("\n"_s);
+		buf->append(i)->append(")"_s)->append($nc(this->constants)->get(i))->append("\n"_s);
 	}
 	return buf->toString();
 }
 
 int32_t ConstantPoolGen::addConstant($Constant* c, ConstantPoolGen* cp) {
-	$useLocalCurrentObjectStackCache();
-	$var($ConstantArray, constants, $nc($($nc(cp)->getConstantPool()))->getConstantPool());
+	$useLocalObjectStack();
+	$var($ConstantArray, constants, $$nc($nc(cp)->getConstantPool())->getConstantPool());
 	switch ($nc(c)->getTag()) {
 	case $Const::CONSTANT_String:
 		{
-			{
-				$var($ConstantString, s, $cast($ConstantString, c));
-				$var($ConstantUtf8, u8, $cast($ConstantUtf8, $nc(constants)->get(s->getStringIndex())));
-				return addString($($nc(u8)->getBytes()));
-			}
+			$var($ConstantString, s, $cast($ConstantString, c));
+			$var($ConstantUtf8, u8, $cast($ConstantUtf8, $nc(constants)->get(s->getStringIndex())));
+			return addString($($nc(u8)->getBytes()));
 		}
 	case $Const::CONSTANT_Class:
 		{
-			{
-				$var($ConstantClass, s, $cast($ConstantClass, c));
-				$var($ConstantUtf8, u8, $cast($ConstantUtf8, $nc(constants)->get(s->getNameIndex())));
-				return addClass($($nc(u8)->getBytes()));
-			}
+			$var($ConstantClass, s, $cast($ConstantClass, c));
+			$var($ConstantUtf8, u8, $cast($ConstantUtf8, $nc(constants)->get(s->getNameIndex())));
+			return addClass($($nc(u8)->getBytes()));
 		}
 	case $Const::CONSTANT_NameAndType:
 		{
-			{
-				$var($ConstantNameAndType, n, $cast($ConstantNameAndType, c));
-				$var($ConstantUtf8, u8, $cast($ConstantUtf8, $nc(constants)->get(n->getNameIndex())));
-				$var($ConstantUtf8, u8_2, $cast($ConstantUtf8, constants->get(n->getSignatureIndex())));
-				$var($String, var$0, $nc(u8)->getBytes());
-				return addNameAndType(var$0, $($nc(u8_2)->getBytes()));
-			}
+			$var($ConstantNameAndType, n, $cast($ConstantNameAndType, c));
+			$var($ConstantUtf8, u8, $cast($ConstantUtf8, $nc(constants)->get(n->getNameIndex())));
+			$var($ConstantUtf8, u8_2, $cast($ConstantUtf8, constants->get(n->getSignatureIndex())));
+			$var($String, var$0, $nc(u8)->getBytes());
+			return addNameAndType(var$0, $($nc(u8_2)->getBytes()));
 		}
 	case $Const::CONSTANT_Utf8:
-		{
-			return addUtf8($($nc(($cast($ConstantUtf8, c)))->getBytes()));
-		}
+		return addUtf8($($cast($ConstantUtf8, c)->getBytes()));
 	case $Const::CONSTANT_Double:
-		{
-			return addDouble($nc(($cast($ConstantDouble, c)))->getBytes());
-		}
+		return addDouble($cast($ConstantDouble, c)->getBytes());
 	case $Const::CONSTANT_Float:
-		{
-			return addFloat($nc(($cast($ConstantFloat, c)))->getBytes());
-		}
+		return addFloat($cast($ConstantFloat, c)->getBytes());
 	case $Const::CONSTANT_Long:
-		{
-			return addLong($nc(($cast($ConstantLong, c)))->getBytes());
-		}
+		return addLong($cast($ConstantLong, c)->getBytes());
 	case $Const::CONSTANT_Integer:
-		{
-			return addInteger($nc(($cast($ConstantInteger, c)))->getBytes());
-		}
+		return addInteger($cast($ConstantInteger, c)->getBytes());
 	case $Const::CONSTANT_InterfaceMethodref:
-		{}
 	case $Const::CONSTANT_Methodref:
-		{}
 	case $Const::CONSTANT_Fieldref:
 		{
-			{
-				$var($ConstantCP, m, $cast($ConstantCP, c));
-				$var($ConstantClass, clazz, $cast($ConstantClass, $nc(constants)->get(m->getClassIndex())));
-				$var($ConstantNameAndType, n, $cast($ConstantNameAndType, constants->get(m->getNameAndTypeIndex())));
-				$var($ConstantUtf8, u8, $cast($ConstantUtf8, constants->get($nc(clazz)->getNameIndex())));
-				$var($String, class_name, $nc($($nc(u8)->getBytes()))->replace(u'/', u'.'));
-				$assign(u8, $cast($ConstantUtf8, constants->get($nc(n)->getNameIndex())));
-				$var($String, name, u8->getBytes());
-				$assign(u8, $cast($ConstantUtf8, constants->get(n->getSignatureIndex())));
-				$var($String, signature, u8->getBytes());
-				switch (c->getTag()) {
-				case $Const::CONSTANT_InterfaceMethodref:
-					{
-						return addInterfaceMethodref(class_name, name, signature);
-					}
-				case $Const::CONSTANT_Methodref:
-					{
-						return addMethodref(class_name, name, signature);
-					}
-				case $Const::CONSTANT_Fieldref:
-					{
-						return addFieldref(class_name, name, signature);
-					}
-				default:
-					{
-						$throwNew($IllegalArgumentException, $$str({"Unknown constant type "_s, c}));
-					}
-				}
+			$var($ConstantCP, m, $cast($ConstantCP, c));
+			$var($ConstantClass, clazz, $cast($ConstantClass, $nc(constants)->get(m->getClassIndex())));
+			$var($ConstantNameAndType, n, $cast($ConstantNameAndType, constants->get(m->getNameAndTypeIndex())));
+			$var($ConstantUtf8, u8, $cast($ConstantUtf8, constants->get($nc(clazz)->getNameIndex())));
+			$var($String, class_name, $$nc($nc(u8)->getBytes())->replace(u'/', u'.'));
+			$assign(u8, $cast($ConstantUtf8, constants->get($nc(n)->getNameIndex())));
+			$var($String, name, $nc(u8)->getBytes());
+			$assign(u8, $cast($ConstantUtf8, constants->get(n->getSignatureIndex())));
+			$var($String, signature, $nc(u8)->getBytes());
+			switch (c->getTag()) {
+			case $Const::CONSTANT_InterfaceMethodref:
+				return addInterfaceMethodref(class_name, name, signature);
+			case $Const::CONSTANT_Methodref:
+				return addMethodref(class_name, name, signature);
+			case $Const::CONSTANT_Fieldref:
+				return addFieldref(class_name, name, signature);
+			default:
+				$throwNew($IllegalArgumentException, $$str({"Unknown constant type "_s, c}));
 			}
 		}
 	default:
-		{
-			$throwNew($IllegalArgumentException, $$str({"Unknown constant type "_s, c}));
-		}
+		$throwNew($IllegalArgumentException, $$str({"Unknown constant type "_s, c}));
 	}
 }
 
-void clinit$ConstantPoolGen($Class* class$) {
+void ConstantPoolGen::clinit$($Class* clazz) {
 	$assignStatic(ConstantPoolGen::METHODREF_DELIM, ":"_s);
 	$assignStatic(ConstantPoolGen::IMETHODREF_DELIM, "#"_s);
 	$assignStatic(ConstantPoolGen::FIELDREF_DELIM, "&"_s);
@@ -738,7 +620,87 @@ ConstantPoolGen::ConstantPoolGen() {
 }
 
 $Class* ConstantPoolGen::load$($String* name, bool initialize) {
-	$loadClass(ConstantPoolGen, name, initialize, &_ConstantPoolGen_ClassInfo_, clinit$ConstantPoolGen, allocate$ConstantPoolGen);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(ConstantPoolGen, $assertionsDisabled)},
+		{"DEFAULT_BUFFER_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ConstantPoolGen, DEFAULT_BUFFER_SIZE)},
+		{"size", "I", nullptr, $PRIVATE, $field(ConstantPoolGen, size)},
+		{"constants", "[Lcom/sun/org/apache/bcel/internal/classfile/Constant;", nullptr, $PRIVATE, $field(ConstantPoolGen, constants)},
+		{"index", "I", nullptr, $PRIVATE, $field(ConstantPoolGen, index)},
+		{"METHODREF_DELIM", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ConstantPoolGen, METHODREF_DELIM)},
+		{"IMETHODREF_DELIM", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ConstantPoolGen, IMETHODREF_DELIM)},
+		{"FIELDREF_DELIM", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ConstantPoolGen, FIELDREF_DELIM)},
+		{"NAT_DELIM", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ConstantPoolGen, NAT_DELIM)},
+		{"stringTable", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen$Index;>;", $PRIVATE | $FINAL, $field(ConstantPoolGen, stringTable)},
+		{"classTable", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen$Index;>;", $PRIVATE | $FINAL, $field(ConstantPoolGen, classTable)},
+		{"utf8Table", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen$Index;>;", $PRIVATE | $FINAL, $field(ConstantPoolGen, utf8Table)},
+		{"natTable", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen$Index;>;", $PRIVATE | $FINAL, $field(ConstantPoolGen, natTable)},
+		{"cpTable", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen$Index;>;", $PRIVATE | $FINAL, $field(ConstantPoolGen, cpTable)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "([Lcom/sun/org/apache/bcel/internal/classfile/Constant;)V", nullptr, $PUBLIC, $method(ConstantPoolGen, init$, void, $ConstantArray*)},
+		{"<init>", "(Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;)V", nullptr, $PUBLIC, $method(ConstantPoolGen, init$, void, $ConstantPool*)},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ConstantPoolGen, init$, void)},
+		{"addArrayClass", "(Lcom/sun/org/apache/bcel/internal/generic/ArrayType;)I", nullptr, $PUBLIC, $virtualMethod(ConstantPoolGen, addArrayClass, int32_t, $ArrayType*)},
+		{"addClass", "(Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(ConstantPoolGen, addClass, int32_t, $String*)},
+		{"addClass", "(Lcom/sun/org/apache/bcel/internal/generic/ObjectType;)I", nullptr, $PUBLIC, $virtualMethod(ConstantPoolGen, addClass, int32_t, $ObjectType*)},
+		{"addClass_", "(Ljava/lang/String;)I", nullptr, $PRIVATE, $method(ConstantPoolGen, addClass_, int32_t, $String*)},
+		{"addConstant", "(Lcom/sun/org/apache/bcel/internal/classfile/Constant;Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;)I", nullptr, $PUBLIC, $virtualMethod(ConstantPoolGen, addConstant, int32_t, $Constant*, ConstantPoolGen*)},
+		{"addDouble", "(D)I", nullptr, $PUBLIC, $virtualMethod(ConstantPoolGen, addDouble, int32_t, double)},
+		{"addFieldref", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(ConstantPoolGen, addFieldref, int32_t, $String*, $String*, $String*)},
+		{"addFloat", "(F)I", nullptr, $PUBLIC, $virtualMethod(ConstantPoolGen, addFloat, int32_t, float)},
+		{"addInteger", "(I)I", nullptr, $PUBLIC, $virtualMethod(ConstantPoolGen, addInteger, int32_t, int32_t)},
+		{"addInterfaceMethodref", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(ConstantPoolGen, addInterfaceMethodref, int32_t, $String*, $String*, $String*)},
+		{"addInterfaceMethodref", "(Lcom/sun/org/apache/bcel/internal/generic/MethodGen;)I", nullptr, $PUBLIC, $virtualMethod(ConstantPoolGen, addInterfaceMethodref, int32_t, $MethodGen*)},
+		{"addLong", "(J)I", nullptr, $PUBLIC, $virtualMethod(ConstantPoolGen, addLong, int32_t, int64_t)},
+		{"addMethodref", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(ConstantPoolGen, addMethodref, int32_t, $String*, $String*, $String*)},
+		{"addMethodref", "(Lcom/sun/org/apache/bcel/internal/generic/MethodGen;)I", nullptr, $PUBLIC, $virtualMethod(ConstantPoolGen, addMethodref, int32_t, $MethodGen*)},
+		{"addNameAndType", "(Ljava/lang/String;Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(ConstantPoolGen, addNameAndType, int32_t, $String*, $String*)},
+		{"addString", "(Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(ConstantPoolGen, addString, int32_t, $String*)},
+		{"addUtf8", "(Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(ConstantPoolGen, addUtf8, int32_t, $String*)},
+		{"adjustSize", "()V", nullptr, $PROTECTED, $virtualMethod(ConstantPoolGen, adjustSize, void)},
+		{"getConstant", "(I)Lcom/sun/org/apache/bcel/internal/classfile/Constant;", nullptr, $PUBLIC, $virtualMethod(ConstantPoolGen, getConstant, $Constant*, int32_t)},
+		{"getConstantPool", "()Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;", nullptr, $PUBLIC, $virtualMethod(ConstantPoolGen, getConstantPool, $ConstantPool*)},
+		{"getFinalConstantPool", "()Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;", nullptr, $PUBLIC, $virtualMethod(ConstantPoolGen, getFinalConstantPool, $ConstantPool*)},
+		{"getSize", "()I", nullptr, $PUBLIC, $virtualMethod(ConstantPoolGen, getSize, int32_t)},
+		{"lookupClass", "(Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(ConstantPoolGen, lookupClass, int32_t, $String*)},
+		{"lookupDouble", "(D)I", nullptr, $PUBLIC, $virtualMethod(ConstantPoolGen, lookupDouble, int32_t, double)},
+		{"lookupFieldref", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(ConstantPoolGen, lookupFieldref, int32_t, $String*, $String*, $String*)},
+		{"lookupFloat", "(F)I", nullptr, $PUBLIC, $virtualMethod(ConstantPoolGen, lookupFloat, int32_t, float)},
+		{"lookupInteger", "(I)I", nullptr, $PUBLIC, $virtualMethod(ConstantPoolGen, lookupInteger, int32_t, int32_t)},
+		{"lookupInterfaceMethodref", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(ConstantPoolGen, lookupInterfaceMethodref, int32_t, $String*, $String*, $String*)},
+		{"lookupInterfaceMethodref", "(Lcom/sun/org/apache/bcel/internal/generic/MethodGen;)I", nullptr, $PUBLIC, $virtualMethod(ConstantPoolGen, lookupInterfaceMethodref, int32_t, $MethodGen*)},
+		{"lookupLong", "(J)I", nullptr, $PUBLIC, $virtualMethod(ConstantPoolGen, lookupLong, int32_t, int64_t)},
+		{"lookupMethodref", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(ConstantPoolGen, lookupMethodref, int32_t, $String*, $String*, $String*)},
+		{"lookupMethodref", "(Lcom/sun/org/apache/bcel/internal/generic/MethodGen;)I", nullptr, $PUBLIC, $virtualMethod(ConstantPoolGen, lookupMethodref, int32_t, $MethodGen*)},
+		{"lookupNameAndType", "(Ljava/lang/String;Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(ConstantPoolGen, lookupNameAndType, int32_t, $String*, $String*)},
+		{"lookupString", "(Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(ConstantPoolGen, lookupString, int32_t, $String*)},
+		{"lookupUtf8", "(Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(ConstantPoolGen, lookupUtf8, int32_t, $String*)},
+		{"setConstant", "(ILcom/sun/org/apache/bcel/internal/classfile/Constant;)V", nullptr, $PUBLIC, $virtualMethod(ConstantPoolGen, setConstant, void, int32_t, $Constant*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ConstantPoolGen, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.bcel.internal.generic.ConstantPoolGen$Index", "com.sun.org.apache.bcel.internal.generic.ConstantPoolGen", "Index", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.bcel.internal.generic.ConstantPoolGen",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.bcel.internal.generic.ConstantPoolGen$Index"
+	};
+	$loadClass(ConstantPoolGen, name, initialize, &classInfo$$, ConstantPoolGen::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ConstantPoolGen);
+	});
 	return class$;
 }
 

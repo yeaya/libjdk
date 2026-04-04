@@ -15,6 +15,7 @@ class DocPretty$1 : public ::java::lang::Object {
 	$class(DocPretty$1, 0, ::java::lang::Object)
 public:
 	DocPretty$1();
+	static void clinit$(::java::lang::Class* clazz);
 	static $ints* $SwitchMap$com$sun$source$doctree$AttributeTree$ValueKind;
 };
 

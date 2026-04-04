@@ -1,5 +1,4 @@
 #include <java/awt/image/CropImageFilter.h>
-
 #include <java/awt/Rectangle.h>
 #include <java/awt/image/ColorModel.h>
 #include <java/awt/image/ImageConsumer.h>
@@ -12,7 +11,6 @@
 
 using $Rectangle = ::java::awt::Rectangle;
 using $ColorModel = ::java::awt::image::ColorModel;
-using $ImageConsumer = ::java::awt::image::ImageConsumer;
 using $ImageFilter = ::java::awt::image::ImageFilter;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -24,37 +22,6 @@ namespace java {
 	namespace awt {
 		namespace image {
 
-$FieldInfo _CropImageFilter_FieldInfo_[] = {
-	{"cropX", "I", nullptr, 0, $field(CropImageFilter, cropX)},
-	{"cropY", "I", nullptr, 0, $field(CropImageFilter, cropY)},
-	{"cropW", "I", nullptr, 0, $field(CropImageFilter, cropW)},
-	{"cropH", "I", nullptr, 0, $field(CropImageFilter, cropH)},
-	{}
-};
-
-$MethodInfo _CropImageFilter_MethodInfo_[] = {
-	{"<init>", "(IIII)V", nullptr, $PUBLIC, $method(CropImageFilter, init$, void, int32_t, int32_t, int32_t, int32_t)},
-	{"addWithoutOverflow", "(II)I", nullptr, $PRIVATE, $method(CropImageFilter, addWithoutOverflow, int32_t, int32_t, int32_t)},
-	{"setDimensions", "(II)V", nullptr, $PUBLIC, $virtualMethod(CropImageFilter, setDimensions, void, int32_t, int32_t)},
-	{"setPixels", "(IIIILjava/awt/image/ColorModel;[BII)V", nullptr, $PUBLIC, $virtualMethod(CropImageFilter, setPixels, void, int32_t, int32_t, int32_t, int32_t, $ColorModel*, $bytes*, int32_t, int32_t)},
-	{"setPixels", "(IIIILjava/awt/image/ColorModel;[III)V", nullptr, $PUBLIC, $virtualMethod(CropImageFilter, setPixels, void, int32_t, int32_t, int32_t, int32_t, $ColorModel*, $ints*, int32_t, int32_t)},
-	{"setProperties", "(Ljava/util/Hashtable;)V", "(Ljava/util/Hashtable<**>;)V", $PUBLIC, $virtualMethod(CropImageFilter, setProperties, void, $Hashtable*)},
-	{}
-};
-
-$ClassInfo _CropImageFilter_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.awt.image.CropImageFilter",
-	"java.awt.image.ImageFilter",
-	nullptr,
-	_CropImageFilter_FieldInfo_,
-	_CropImageFilter_MethodInfo_
-};
-
-$Object* allocate$CropImageFilter($Class* clazz) {
-	return $of($alloc(CropImageFilter));
-}
-
 void CropImageFilter::init$(int32_t x, int32_t y, int32_t w, int32_t h) {
 	$ImageFilter::init$();
 	this->cropX = x;
@@ -64,7 +31,7 @@ void CropImageFilter::init$(int32_t x, int32_t y, int32_t w, int32_t h) {
 }
 
 void CropImageFilter::setProperties($Hashtable* props) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Hashtable, p, $cast($Hashtable, $nc(props)->clone()));
 	$nc(p)->put("croprect"_s, $$new($Rectangle, this->cropX, this->cropY, this->cropW, this->cropH));
 	$ImageFilter::setProperties(p);
@@ -134,7 +101,33 @@ CropImageFilter::CropImageFilter() {
 }
 
 $Class* CropImageFilter::load$($String* name, bool initialize) {
-	$loadClass(CropImageFilter, name, initialize, &_CropImageFilter_ClassInfo_, allocate$CropImageFilter);
+	$FieldInfo fieldInfos$$[] = {
+		{"cropX", "I", nullptr, 0, $field(CropImageFilter, cropX)},
+		{"cropY", "I", nullptr, 0, $field(CropImageFilter, cropY)},
+		{"cropW", "I", nullptr, 0, $field(CropImageFilter, cropW)},
+		{"cropH", "I", nullptr, 0, $field(CropImageFilter, cropH)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(IIII)V", nullptr, $PUBLIC, $method(CropImageFilter, init$, void, int32_t, int32_t, int32_t, int32_t)},
+		{"addWithoutOverflow", "(II)I", nullptr, $PRIVATE, $method(CropImageFilter, addWithoutOverflow, int32_t, int32_t, int32_t)},
+		{"setDimensions", "(II)V", nullptr, $PUBLIC, $virtualMethod(CropImageFilter, setDimensions, void, int32_t, int32_t)},
+		{"setPixels", "(IIIILjava/awt/image/ColorModel;[BII)V", nullptr, $PUBLIC, $virtualMethod(CropImageFilter, setPixels, void, int32_t, int32_t, int32_t, int32_t, $ColorModel*, $bytes*, int32_t, int32_t)},
+		{"setPixels", "(IIIILjava/awt/image/ColorModel;[III)V", nullptr, $PUBLIC, $virtualMethod(CropImageFilter, setPixels, void, int32_t, int32_t, int32_t, int32_t, $ColorModel*, $ints*, int32_t, int32_t)},
+		{"setProperties", "(Ljava/util/Hashtable;)V", "(Ljava/util/Hashtable<**>;)V", $PUBLIC, $virtualMethod(CropImageFilter, setProperties, void, $Hashtable*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.awt.image.CropImageFilter",
+		"java.awt.image.ImageFilter",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CropImageFilter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(CropImageFilter));
+	});
 	return class$;
 }
 

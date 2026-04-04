@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/bcel/internal/classfile/Unknown.h>
-
 #include <com/sun/org/apache/bcel/internal/Const.h>
 #include <com/sun/org/apache/bcel/internal/classfile/Attribute.h>
 #include <com/sun/org/apache/bcel/internal/classfile/Constant.h>
@@ -28,7 +27,6 @@ using $DataOutputStream = ::java::io::DataOutputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Collection = ::java::util::Collection;
 using $HashMap = ::java::util::HashMap;
 using $Map = ::java::util::Map;
 
@@ -40,54 +38,19 @@ namespace com {
 					namespace internal {
 						namespace classfile {
 
-$FieldInfo _Unknown_FieldInfo_[] = {
-	{"bytes", "[B", nullptr, $PRIVATE, $field(Unknown, bytes)},
-	{"name", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(Unknown, name)},
-	{"unknownAttributes", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Lcom/sun/org/apache/bcel/internal/classfile/Unknown;>;", $PRIVATE | $STATIC | $FINAL, $staticField(Unknown, unknownAttributes)},
-	{}
-};
-
-$MethodInfo _Unknown_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/org/apache/bcel/internal/classfile/Unknown;)V", nullptr, $PUBLIC, $method(Unknown, init$, void, Unknown*)},
-	{"<init>", "(II[BLcom/sun/org/apache/bcel/internal/classfile/ConstantPool;)V", nullptr, $PUBLIC, $method(Unknown, init$, void, int32_t, int32_t, $bytes*, $ConstantPool*)},
-	{"<init>", "(IILjava/io/DataInput;Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;)V", nullptr, 0, $method(Unknown, init$, void, int32_t, int32_t, $DataInput*, $ConstantPool*), "java.io.IOException"},
-	{"accept", "(Lcom/sun/org/apache/bcel/internal/classfile/Visitor;)V", nullptr, $PUBLIC, $virtualMethod(Unknown, accept, void, $Visitor*)},
-	{"copy", "(Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;)Lcom/sun/org/apache/bcel/internal/classfile/Attribute;", nullptr, $PUBLIC, $virtualMethod(Unknown, copy, $Attribute*, $ConstantPool*)},
-	{"dump", "(Ljava/io/DataOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(Unknown, dump, void, $DataOutputStream*), "java.io.IOException"},
-	{"getBytes", "()[B", nullptr, $PUBLIC, $method(Unknown, getBytes, $bytes*)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Unknown, getName, $String*)},
-	{"getUnknownAttributes", "()[Lcom/sun/org/apache/bcel/internal/classfile/Unknown;", nullptr, $STATIC, $staticMethod(Unknown, getUnknownAttributes, $UnknownArray*)},
-	{"setBytes", "([B)V", nullptr, $PUBLIC, $method(Unknown, setBytes, void, $bytes*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Unknown, toString, $String*)},
-	{}
-};
-
-$ClassInfo _Unknown_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.org.apache.bcel.internal.classfile.Unknown",
-	"com.sun.org.apache.bcel.internal.classfile.Attribute",
-	nullptr,
-	_Unknown_FieldInfo_,
-	_Unknown_MethodInfo_
-};
-
-$Object* allocate$Unknown($Class* clazz) {
-	return $of($alloc(Unknown));
-}
-
 $Map* Unknown::unknownAttributes = nullptr;
 
 $UnknownArray* Unknown::getUnknownAttributes() {
 	$init(Unknown);
-	$useLocalCurrentObjectStackCache();
-	$var($UnknownArray, unknowns, $new($UnknownArray, $nc(Unknown::unknownAttributes)->size()));
-	$nc($($nc(Unknown::unknownAttributes)->values()))->toArray(unknowns);
-	$nc(Unknown::unknownAttributes)->clear();
+	$useLocalObjectStack();
+	$var($UnknownArray, unknowns, $new($UnknownArray, Unknown::unknownAttributes->size()));
+	$$nc(Unknown::unknownAttributes->values())->toArray(unknowns);
+	Unknown::unknownAttributes->clear();
 	return unknowns;
 }
 
 void Unknown::init$(Unknown* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t var$0 = $nc(c)->getNameIndex();
 	int32_t var$1 = c->getLength();
 	$var($bytes, var$2, c->getBytes());
@@ -97,8 +60,8 @@ void Unknown::init$(Unknown* c) {
 void Unknown::init$(int32_t name_index, int32_t length, $bytes* bytes, $ConstantPool* constant_pool) {
 	$Attribute::init$($Const::ATTR_UNKNOWN, name_index, length, constant_pool);
 	$set(this, bytes, bytes);
-	$set(this, name, $nc(($cast($ConstantUtf8, $($nc(constant_pool)->getConstant(name_index, $Const::CONSTANT_Utf8)))))->getBytes());
-	$nc(Unknown::unknownAttributes)->put(this->name, this);
+	$set(this, name, $$sure($ConstantUtf8, $nc(constant_pool)->getConstant(name_index, $Const::CONSTANT_Utf8))->getBytes());
+	Unknown::unknownAttributes->put(this->name, this);
 }
 
 void Unknown::init$(int32_t name_index, int32_t length, $DataInput* input, $ConstantPool* constant_pool) {
@@ -133,7 +96,7 @@ void Unknown::setBytes($bytes* bytes) {
 }
 
 $String* Unknown::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($Attribute::getLength() == 0 || this->bytes == nullptr) {
 		return $str({"(Unknown attribute "_s, this->name, ")"_s});
 	}
@@ -151,14 +114,14 @@ $String* Unknown::toString() {
 $Attribute* Unknown::copy($ConstantPool* _constant_pool) {
 	$var(Unknown, c, $cast(Unknown, clone()));
 	if (this->bytes != nullptr) {
-		$set($nc(c), bytes, $new($bytes, $nc(this->bytes)->length));
-		$System::arraycopy(this->bytes, 0, c->bytes, 0, $nc(this->bytes)->length);
+		$set($nc(c), bytes, $new($bytes, this->bytes->length));
+		$System::arraycopy(this->bytes, 0, c->bytes, 0, this->bytes->length);
 	}
 	$nc(c)->setConstantPool(_constant_pool);
 	return c;
 }
 
-void clinit$Unknown($Class* class$) {
+void Unknown::clinit$($Class* clazz) {
 	$assignStatic(Unknown::unknownAttributes, $new($HashMap));
 }
 
@@ -166,7 +129,37 @@ Unknown::Unknown() {
 }
 
 $Class* Unknown::load$($String* name, bool initialize) {
-	$loadClass(Unknown, name, initialize, &_Unknown_ClassInfo_, clinit$Unknown, allocate$Unknown);
+	$FieldInfo fieldInfos$$[] = {
+		{"bytes", "[B", nullptr, $PRIVATE, $field(Unknown, bytes)},
+		{"name", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(Unknown, name)},
+		{"unknownAttributes", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Lcom/sun/org/apache/bcel/internal/classfile/Unknown;>;", $PRIVATE | $STATIC | $FINAL, $staticField(Unknown, unknownAttributes)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/org/apache/bcel/internal/classfile/Unknown;)V", nullptr, $PUBLIC, $method(Unknown, init$, void, Unknown*)},
+		{"<init>", "(II[BLcom/sun/org/apache/bcel/internal/classfile/ConstantPool;)V", nullptr, $PUBLIC, $method(Unknown, init$, void, int32_t, int32_t, $bytes*, $ConstantPool*)},
+		{"<init>", "(IILjava/io/DataInput;Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;)V", nullptr, 0, $method(Unknown, init$, void, int32_t, int32_t, $DataInput*, $ConstantPool*), "java.io.IOException"},
+		{"accept", "(Lcom/sun/org/apache/bcel/internal/classfile/Visitor;)V", nullptr, $PUBLIC, $virtualMethod(Unknown, accept, void, $Visitor*)},
+		{"copy", "(Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;)Lcom/sun/org/apache/bcel/internal/classfile/Attribute;", nullptr, $PUBLIC, $virtualMethod(Unknown, copy, $Attribute*, $ConstantPool*)},
+		{"dump", "(Ljava/io/DataOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(Unknown, dump, void, $DataOutputStream*), "java.io.IOException"},
+		{"getBytes", "()[B", nullptr, $PUBLIC, $method(Unknown, getBytes, $bytes*)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Unknown, getName, $String*)},
+		{"getUnknownAttributes", "()[Lcom/sun/org/apache/bcel/internal/classfile/Unknown;", nullptr, $STATIC, $staticMethod(Unknown, getUnknownAttributes, $UnknownArray*)},
+		{"setBytes", "([B)V", nullptr, $PUBLIC, $method(Unknown, setBytes, void, $bytes*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Unknown, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.org.apache.bcel.internal.classfile.Unknown",
+		"com.sun.org.apache.bcel.internal.classfile.Attribute",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Unknown, name, initialize, &classInfo$$, Unknown::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Unknown));
+	});
 	return class$;
 }
 

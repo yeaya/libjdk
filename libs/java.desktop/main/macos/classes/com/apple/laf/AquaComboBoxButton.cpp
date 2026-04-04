@@ -1,11 +1,9 @@
 #include <com/apple/laf/AquaComboBoxButton.h>
-
 #include <apple/laf/JRSUIConstants$AlignmentHorizontal.h>
 #include <apple/laf/JRSUIConstants$AlignmentVertical.h>
 #include <apple/laf/JRSUIConstants$ArrowsOnly.h>
 #include <apple/laf/JRSUIConstants$Focused.h>
 #include <apple/laf/JRSUIConstants$IndicatorOnly.h>
-#include <apple/laf/JRSUIConstants$Property.h>
 #include <apple/laf/JRSUIConstants$Size.h>
 #include <apple/laf/JRSUIConstants$State.h>
 #include <apple/laf/JRSUIConstants$Widget.h>
@@ -17,7 +15,6 @@
 #include <com/apple/laf/AquaUtilControlSize.h>
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/Font.h>
 #include <java/awt/Graphics.h>
 #include <java/awt/Insets.h>
@@ -27,7 +24,6 @@
 #include <javax/swing/ComboBoxEditor.h>
 #include <javax/swing/JButton.h>
 #include <javax/swing/JComboBox.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JList.h>
 #include <javax/swing/JPanel.h>
 #include <javax/swing/ListCellRenderer.h>
@@ -56,7 +52,6 @@ using $JRSUIConstants$AlignmentVertical = ::apple::laf::JRSUIConstants$Alignment
 using $JRSUIConstants$ArrowsOnly = ::apple::laf::JRSUIConstants$ArrowsOnly;
 using $JRSUIConstants$Focused = ::apple::laf::JRSUIConstants$Focused;
 using $JRSUIConstants$IndicatorOnly = ::apple::laf::JRSUIConstants$IndicatorOnly;
-using $JRSUIConstants$Property = ::apple::laf::JRSUIConstants$Property;
 using $JRSUIConstants$Size = ::apple::laf::JRSUIConstants$Size;
 using $JRSUIConstants$State = ::apple::laf::JRSUIConstants$State;
 using $JRSUIConstants$Widget = ::apple::laf::JRSUIConstants$Widget;
@@ -68,7 +63,6 @@ using $AquaPainter = ::com::apple::laf::AquaPainter;
 using $AquaUtilControlSize = ::com::apple::laf::AquaUtilControlSize;
 using $Color = ::java::awt::Color;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Graphics = ::java::awt::Graphics;
 using $Insets = ::java::awt::Insets;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -77,10 +71,8 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ButtonModel = ::javax::swing::ButtonModel;
 using $CellRendererPane = ::javax::swing::CellRendererPane;
-using $ComboBoxEditor = ::javax::swing::ComboBoxEditor;
 using $JButton = ::javax::swing::JButton;
 using $JComboBox = ::javax::swing::JComboBox;
-using $JComponent = ::javax::swing::JComponent;
 using $JList = ::javax::swing::JList;
 using $JPanel = ::javax::swing::JPanel;
 using $ListCellRenderer = ::javax::swing::ListCellRenderer;
@@ -91,55 +83,8 @@ namespace com {
 	namespace apple {
 		namespace laf {
 
-$FieldInfo _AquaComboBoxButton_FieldInfo_[] = {
-	{"comboBox", "Ljavax/swing/JComboBox;", "Ljavax/swing/JComboBox<Ljava/lang/Object;>;", $PROTECTED | $FINAL, $field(AquaComboBoxButton, comboBox)},
-	{"list", "Ljavax/swing/JList;", "Ljavax/swing/JList<*>;", $PROTECTED | $FINAL, $field(AquaComboBoxButton, list$)},
-	{"rendererPane", "Ljavax/swing/CellRendererPane;", nullptr, $PROTECTED | $FINAL, $field(AquaComboBoxButton, rendererPane)},
-	{"ui", "Lcom/apple/laf/AquaComboBoxUI;", nullptr, $PROTECTED | $FINAL, $field(AquaComboBoxButton, ui)},
-	{"painter", "Lcom/apple/laf/AquaPainter;", "Lcom/apple/laf/AquaPainter<Lapple/laf/JRSUIState;>;", $PROTECTED | $FINAL, $field(AquaComboBoxButton, painter)},
-	{"isPopDown", "Z", nullptr, 0, $field(AquaComboBoxButton, isPopDown)},
-	{"isSquare", "Z", nullptr, 0, $field(AquaComboBoxButton, isSquare)},
-	{}
-};
-
-$MethodInfo _AquaComboBoxButton_MethodInfo_[] = {
-	{"<init>", "(Lcom/apple/laf/AquaComboBoxUI;Ljavax/swing/JComboBox;Ljavax/swing/CellRendererPane;Ljavax/swing/JList;)V", "(Lcom/apple/laf/AquaComboBoxUI;Ljavax/swing/JComboBox<Ljava/lang/Object;>;Ljavax/swing/CellRendererPane;Ljavax/swing/JList<*>;)V", $PROTECTED, $method(AquaComboBoxButton, init$, void, $AquaComboBoxUI*, $JComboBox*, $CellRendererPane*, $JList*)},
-	{"doRendererPaint", "(Ljava/awt/Graphics;Ljavax/swing/ButtonModel;ZLjava/awt/Insets;IIII)V", nullptr, $PROTECTED, $virtualMethod(AquaComboBoxButton, doRendererPaint, void, $Graphics*, $ButtonModel*, bool, $Insets*, int32_t, int32_t, int32_t, int32_t)},
-	{"getState", "(Ljavax/swing/ButtonModel;)Lapple/laf/JRSUIConstants$State;", nullptr, $PROTECTED, $virtualMethod(AquaComboBoxButton, getState, $JRSUIConstants$State*, $ButtonModel*)},
-	{"isEnabled", "()Z", nullptr, $PUBLIC, $virtualMethod(AquaComboBoxButton, isEnabled, bool)},
-	{"isFocusable", "()Z", nullptr, $PUBLIC, $virtualMethod(AquaComboBoxButton, isFocusable, bool)},
-	{"paintComponent", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(AquaComboBoxButton, paintComponent, void, $Graphics*)},
-	{"setIsPopDown", "(Z)V", nullptr, $PROTECTED, $virtualMethod(AquaComboBoxButton, setIsPopDown, void, bool)},
-	{"setIsSquare", "(Z)V", nullptr, $PROTECTED, $virtualMethod(AquaComboBoxButton, setIsSquare, void, bool)},
-	{}
-};
-
-$InnerClassInfo _AquaComboBoxButton_InnerClassesInfo_[] = {
-	{"com.apple.laf.AquaComboBoxButton$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _AquaComboBoxButton_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.apple.laf.AquaComboBoxButton",
-	"javax.swing.JButton",
-	nullptr,
-	_AquaComboBoxButton_FieldInfo_,
-	_AquaComboBoxButton_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AquaComboBoxButton_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.apple.laf.AquaComboBoxButton$1"
-};
-
-$Object* allocate$AquaComboBoxButton($Class* clazz) {
-	return $of($alloc(AquaComboBoxButton));
-}
-
 void AquaComboBoxButton::init$($AquaComboBoxUI* ui, $JComboBox* comboBox, $CellRendererPane* rendererPane, $JList* list) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$JButton::init$(""_s);
 	$set(this, painter, $AquaPainter::create($($JRSUIState::getInstance())));
 	putClientProperty("JButton.buttonType"_s, "comboboxInternal"_s);
@@ -152,7 +97,7 @@ void AquaComboBoxButton::init$($AquaComboBoxUI* ui, $JComboBox* comboBox, $CellR
 }
 
 bool AquaComboBoxButton::isEnabled() {
-	return this->comboBox == nullptr ? true : $nc(this->comboBox)->isEnabled();
+	return this->comboBox == nullptr ? true : this->comboBox->isEnabled();
 }
 
 bool AquaComboBoxButton::isFocusable() {
@@ -187,36 +132,36 @@ $JRSUIConstants$State* AquaComboBoxButton::getState($ButtonModel* buttonModel) {
 }
 
 void AquaComboBoxButton::paintComponent($Graphics* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool editable = $nc(this->comboBox)->isEditable();
 	int32_t top = 0;
 	int32_t left = 0;
 	int32_t width = getWidth();
 	int32_t height = getHeight();
-	if ($nc(this->comboBox)->isOpaque()) {
+	if (this->comboBox->isOpaque()) {
 		$nc(g)->setColor($(getBackground()));
 		g->fillRect(0, 0, width, height);
 	}
 	$var($JRSUIConstants$Size, size, $AquaUtilControlSize::getUserSizeFrom(this->comboBox));
 	$init($JRSUIConstants$Size);
-	$nc($nc(this->painter)->state)->set(size == nullptr ? static_cast<$JRSUIConstants$Property*>($JRSUIConstants$Size::REGULAR) : static_cast<$JRSUIConstants$Property*>(size));
+	$nc($nc(this->painter)->state)->set(size == nullptr ? $JRSUIConstants$Size::REGULAR : size);
 	$var($ButtonModel, buttonModel, getModel());
-	$nc($nc(this->painter)->state)->set($(getState(buttonModel)));
+	$nc(this->painter->state)->set($(getState(buttonModel)));
 	$init($JRSUIConstants$AlignmentVertical);
-	$nc($nc(this->painter)->state)->set($JRSUIConstants$AlignmentVertical::CENTER);
+	$nc(this->painter->state)->set($JRSUIConstants$AlignmentVertical::CENTER);
 	if ($AquaComboBoxUI::isTableCellEditor(this->comboBox)) {
 		$init($JRSUIConstants$AlignmentHorizontal);
-		$nc($nc(this->painter)->state)->set($JRSUIConstants$AlignmentHorizontal::RIGHT);
+		$nc(this->painter->state)->set($JRSUIConstants$AlignmentHorizontal::RIGHT);
 		$init($JRSUIConstants$Widget);
-		$nc($nc(this->painter)->state)->set($JRSUIConstants$Widget::BUTTON_POP_UP);
+		$nc(this->painter->state)->set($JRSUIConstants$Widget::BUTTON_POP_UP);
 		$init($JRSUIConstants$ArrowsOnly);
-		$nc($nc(this->painter)->state)->set($JRSUIConstants$ArrowsOnly::YES);
-		$nc(this->painter)->paint(g, this, left, top, width, height);
+		$nc(this->painter->state)->set($JRSUIConstants$ArrowsOnly::YES);
+		this->painter->paint(g, this, left, top, width, height);
 		doRendererPaint(g, buttonModel, editable, $(getInsets()), left, top, width, height);
 		return;
 	}
 	$init($JRSUIConstants$AlignmentHorizontal);
-	$nc($nc(this->painter)->state)->set($JRSUIConstants$AlignmentHorizontal::CENTER);
+	$nc(this->painter->state)->set($JRSUIConstants$AlignmentHorizontal::CENTER);
 	$var($Insets, insets, getInsets());
 	if (!editable) {
 		top += $nc(insets)->top;
@@ -227,32 +172,32 @@ void AquaComboBoxButton::paintComponent($Graphics* g) {
 	if (height <= 0 || width <= 0) {
 		return;
 	}
-	bool hasFocus = $nc(this->comboBox)->hasFocus();
+	bool hasFocus = this->comboBox->hasFocus();
 	if (editable) {
 		$init($JRSUIConstants$Widget);
-		$nc($nc(this->painter)->state)->set($JRSUIConstants$Widget::BUTTON_COMBO_BOX);
+		$nc(this->painter->state)->set($JRSUIConstants$Widget::BUTTON_COMBO_BOX);
 		$init($JRSUIConstants$IndicatorOnly);
-		$nc($nc(this->painter)->state)->set($JRSUIConstants$IndicatorOnly::YES);
-		$nc($nc(this->painter)->state)->set($JRSUIConstants$AlignmentHorizontal::LEFT);
-		hasFocus |= $nc($($nc($($nc(this->comboBox)->getEditor()))->getEditorComponent()))->hasFocus();
+		$nc(this->painter->state)->set($JRSUIConstants$IndicatorOnly::YES);
+		$nc(this->painter->state)->set($JRSUIConstants$AlignmentHorizontal::LEFT);
+		hasFocus |= $$nc($$nc(this->comboBox->getEditor())->getEditorComponent())->hasFocus();
 	} else {
 		$init($JRSUIConstants$IndicatorOnly);
-		$nc($nc(this->painter)->state)->set($JRSUIConstants$IndicatorOnly::NO);
-		$nc($nc(this->painter)->state)->set($JRSUIConstants$AlignmentHorizontal::CENTER);
+		$nc(this->painter->state)->set($JRSUIConstants$IndicatorOnly::NO);
+		$nc(this->painter->state)->set($JRSUIConstants$AlignmentHorizontal::CENTER);
 		if (this->isPopDown) {
 			$init($JRSUIConstants$Widget);
-			$nc($nc(this->painter)->state)->set(this->isSquare ? static_cast<$JRSUIConstants$Property*>($JRSUIConstants$Widget::BUTTON_POP_DOWN_SQUARE) : static_cast<$JRSUIConstants$Property*>($JRSUIConstants$Widget::BUTTON_POP_DOWN));
+			$nc(this->painter->state)->set(this->isSquare ? $JRSUIConstants$Widget::BUTTON_POP_DOWN_SQUARE : $JRSUIConstants$Widget::BUTTON_POP_DOWN);
 		} else {
 			$init($JRSUIConstants$Widget);
-			$nc($nc(this->painter)->state)->set(this->isSquare ? static_cast<$JRSUIConstants$Property*>($JRSUIConstants$Widget::BUTTON_POP_UP_SQUARE) : static_cast<$JRSUIConstants$Property*>($JRSUIConstants$Widget::BUTTON_POP_UP));
+			$nc(this->painter->state)->set(this->isSquare ? $JRSUIConstants$Widget::BUTTON_POP_UP_SQUARE : $JRSUIConstants$Widget::BUTTON_POP_UP);
 		}
 	}
 	$init($JRSUIConstants$Focused);
-	$nc($nc(this->painter)->state)->set(hasFocus ? static_cast<$JRSUIConstants$Property*>($JRSUIConstants$Focused::YES) : static_cast<$JRSUIConstants$Property*>($JRSUIConstants$Focused::NO));
+	$nc(this->painter->state)->set(hasFocus ? $JRSUIConstants$Focused::YES : $JRSUIConstants$Focused::NO);
 	if (this->isSquare) {
-		$nc(this->painter)->paint(g, this->comboBox, left + 2, top - 1, width - 4, height);
+		this->painter->paint(g, this->comboBox, left + 2, top - 1, width - 4, height);
 	} else {
-		$nc(this->painter)->paint(g, this->comboBox, left, top, width, height);
+		this->painter->paint(g, this->comboBox, left, top, width, height);
 	}
 	if (!editable && this->comboBox != nullptr) {
 		doRendererPaint(g, buttonModel, editable, insets, left, top, width, height);
@@ -260,9 +205,9 @@ void AquaComboBoxButton::paintComponent($Graphics* g) {
 }
 
 void AquaComboBoxButton::doRendererPaint($Graphics* g, $ButtonModel* buttonModel, bool editable, $Insets* insets, int32_t left, int32_t top, int32_t width, int32_t height) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ListCellRenderer, renderer, $nc(this->comboBox)->getRenderer());
-	$var($Component, c, $nc(renderer)->getListCellRendererComponent(this->list$, $($nc(this->comboBox)->getSelectedItem()), -1, false, false));
+	$var($Component, c, $nc(renderer)->getListCellRendererComponent(this->list$, $(this->comboBox->getSelectedItem()), -1, false, false));
 	if (!editable && !$AquaComboBoxUI::isTableCellEditor(this->comboBox)) {
 		int32_t indentLeft = 10;
 		int32_t buttonWidth = 24;
@@ -277,15 +222,15 @@ void AquaComboBoxButton::doRendererPaint($Graphics* g, $ButtonModel* buttonModel
 		if (isOpaque()) {
 			c->setBackground($($UIManager::getColor("Button.select"_s)));
 		}
-		c->setForeground($($nc(this->comboBox)->getForeground()));
-	} else if (!$nc(this->comboBox)->isEnabled()) {
+		c->setForeground($(this->comboBox->getForeground()));
+	} else if (!this->comboBox->isEnabled()) {
 		if (isOpaque()) {
 			c->setBackground($($UIManager::getColor("ComboBox.disabledBackground"_s)));
 		}
 		c->setForeground($($UIManager::getColor("ComboBox.disabledForeground"_s)));
 	} else {
-		c->setForeground($($nc(this->comboBox)->getForeground()));
-		c->setBackground($($nc(this->comboBox)->getBackground()));
+		c->setForeground($(this->comboBox->getForeground()));
+		c->setBackground($(this->comboBox->getBackground()));
 	}
 	bool shouldValidate = false;
 	if ($instanceOf($JPanel, c)) {
@@ -302,18 +247,59 @@ void AquaComboBoxButton::doRendererPaint($Graphics* g, $ButtonModel* buttonModel
 	if (inhibitBackground) {
 		c->setBackground($$new($Color, 0, 0, 0, 0));
 	}
-	$nc(this->rendererPane)->paintComponent(g, c, this, left, top, cWidth, height, shouldValidate);
+	this->rendererPane->paintComponent(g, c, this, left, top, cWidth, height, shouldValidate);
 	if (inhibitBackground) {
 		c->setBackground(bg);
 	}
-	$nc(this->rendererPane)->remove(c);
+	this->rendererPane->remove(c);
 }
 
 AquaComboBoxButton::AquaComboBoxButton() {
 }
 
 $Class* AquaComboBoxButton::load$($String* name, bool initialize) {
-	$loadClass(AquaComboBoxButton, name, initialize, &_AquaComboBoxButton_ClassInfo_, allocate$AquaComboBoxButton);
+	$FieldInfo fieldInfos$$[] = {
+		{"comboBox", "Ljavax/swing/JComboBox;", "Ljavax/swing/JComboBox<Ljava/lang/Object;>;", $PROTECTED | $FINAL, $field(AquaComboBoxButton, comboBox)},
+		{"list", "Ljavax/swing/JList;", "Ljavax/swing/JList<*>;", $PROTECTED | $FINAL, $field(AquaComboBoxButton, list$)},
+		{"rendererPane", "Ljavax/swing/CellRendererPane;", nullptr, $PROTECTED | $FINAL, $field(AquaComboBoxButton, rendererPane)},
+		{"ui", "Lcom/apple/laf/AquaComboBoxUI;", nullptr, $PROTECTED | $FINAL, $field(AquaComboBoxButton, ui)},
+		{"painter", "Lcom/apple/laf/AquaPainter;", "Lcom/apple/laf/AquaPainter<Lapple/laf/JRSUIState;>;", $PROTECTED | $FINAL, $field(AquaComboBoxButton, painter)},
+		{"isPopDown", "Z", nullptr, 0, $field(AquaComboBoxButton, isPopDown)},
+		{"isSquare", "Z", nullptr, 0, $field(AquaComboBoxButton, isSquare)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/apple/laf/AquaComboBoxUI;Ljavax/swing/JComboBox;Ljavax/swing/CellRendererPane;Ljavax/swing/JList;)V", "(Lcom/apple/laf/AquaComboBoxUI;Ljavax/swing/JComboBox<Ljava/lang/Object;>;Ljavax/swing/CellRendererPane;Ljavax/swing/JList<*>;)V", $PROTECTED, $method(AquaComboBoxButton, init$, void, $AquaComboBoxUI*, $JComboBox*, $CellRendererPane*, $JList*)},
+		{"doRendererPaint", "(Ljava/awt/Graphics;Ljavax/swing/ButtonModel;ZLjava/awt/Insets;IIII)V", nullptr, $PROTECTED, $virtualMethod(AquaComboBoxButton, doRendererPaint, void, $Graphics*, $ButtonModel*, bool, $Insets*, int32_t, int32_t, int32_t, int32_t)},
+		{"getState", "(Ljavax/swing/ButtonModel;)Lapple/laf/JRSUIConstants$State;", nullptr, $PROTECTED, $virtualMethod(AquaComboBoxButton, getState, $JRSUIConstants$State*, $ButtonModel*)},
+		{"isEnabled", "()Z", nullptr, $PUBLIC, $virtualMethod(AquaComboBoxButton, isEnabled, bool)},
+		{"isFocusable", "()Z", nullptr, $PUBLIC, $virtualMethod(AquaComboBoxButton, isFocusable, bool)},
+		{"paintComponent", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(AquaComboBoxButton, paintComponent, void, $Graphics*)},
+		{"setIsPopDown", "(Z)V", nullptr, $PROTECTED, $virtualMethod(AquaComboBoxButton, setIsPopDown, void, bool)},
+		{"setIsSquare", "(Z)V", nullptr, $PROTECTED, $virtualMethod(AquaComboBoxButton, setIsSquare, void, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.laf.AquaComboBoxButton$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.apple.laf.AquaComboBoxButton",
+		"javax.swing.JButton",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.apple.laf.AquaComboBoxButton$1"
+	};
+	$loadClass(AquaComboBoxButton, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AquaComboBoxButton));
+	});
 	return class$;
 }
 

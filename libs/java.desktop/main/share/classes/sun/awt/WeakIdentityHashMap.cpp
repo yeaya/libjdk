@@ -1,5 +1,4 @@
 #include <sun/awt/WeakIdentityHashMap.h>
-
 #include <java/lang/ref/Reference.h>
 #include <java/lang/ref/ReferenceQueue.h>
 #include <java/util/Collection.h>
@@ -32,57 +31,6 @@ using $WeakIdentityHashMap$WeakKey = ::sun::awt::WeakIdentityHashMap$WeakKey;
 namespace sun {
 	namespace awt {
 
-$FieldInfo _WeakIdentityHashMap_FieldInfo_[] = {
-	{"map", "Ljava/util/Map;", "Ljava/util/Map<Lsun/awt/WeakIdentityHashMap$WeakKey<TK;>;TV;>;", $PRIVATE | $FINAL, $field(WeakIdentityHashMap, map)},
-	{"queue", "Ljava/lang/ref/ReferenceQueue;", "Ljava/lang/ref/ReferenceQueue<TK;>;", $PRIVATE | $FINAL | $TRANSIENT, $field(WeakIdentityHashMap, queue)},
-	{}
-};
-
-$MethodInfo _WeakIdentityHashMap_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(WeakIdentityHashMap, init$, void)},
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(WeakIdentityHashMap, init$, void, int32_t)},
-	{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(WeakIdentityHashMap, clear, void)},
-	{"containsKey", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(WeakIdentityHashMap, containsKey, bool, Object$*)},
-	{"containsValue", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(WeakIdentityHashMap, containsValue, bool, Object$*)},
-	{"entrySet", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/util/Map$Entry<TK;TV;>;>;", $PUBLIC, $virtualMethod(WeakIdentityHashMap, entrySet, $Set*)},
-	{"get", "(Ljava/lang/Object;)Ljava/lang/Object;", "(Ljava/lang/Object;)TV;", $PUBLIC, $virtualMethod(WeakIdentityHashMap, get, $Object*, Object$*)},
-	{"getMap", "()Ljava/util/Map;", "()Ljava/util/Map<Lsun/awt/WeakIdentityHashMap$WeakKey<TK;>;TV;>;", $PRIVATE, $method(WeakIdentityHashMap, getMap, $Map*)},
-	{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(WeakIdentityHashMap, isEmpty, bool)},
-	{"keySet", "()Ljava/util/Set;", "()Ljava/util/Set<TK;>;", $PUBLIC, $virtualMethod(WeakIdentityHashMap, keySet, $Set*)},
-	{"put", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", "(TK;TV;)TV;", $PUBLIC, $virtualMethod(WeakIdentityHashMap, put, $Object*, Object$*, Object$*)},
-	{"putAll", "(Ljava/util/Map;)V", "(Ljava/util/Map<+TK;+TV;>;)V", $PUBLIC, $virtualMethod(WeakIdentityHashMap, putAll, void, $Map*)},
-	{"remove", "(Ljava/lang/Object;)Ljava/lang/Object;", "(Ljava/lang/Object;)TV;", $PUBLIC, $virtualMethod(WeakIdentityHashMap, remove, $Object*, Object$*)},
-	{"size", "()I", nullptr, $PUBLIC, $virtualMethod(WeakIdentityHashMap, size, int32_t)},
-	{"values", "()Ljava/util/Collection;", "()Ljava/util/Collection<TV;>;", $PUBLIC, $virtualMethod(WeakIdentityHashMap, values, $Collection*)},
-	{}
-};
-
-$InnerClassInfo _WeakIdentityHashMap_InnerClassesInfo_[] = {
-	{"sun.awt.WeakIdentityHashMap$WeakKey", "sun.awt.WeakIdentityHashMap", "WeakKey", $PRIVATE | $STATIC},
-	{"sun.awt.WeakIdentityHashMap$2", nullptr, nullptr, 0},
-	{"sun.awt.WeakIdentityHashMap$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _WeakIdentityHashMap_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.awt.WeakIdentityHashMap",
-	"java.lang.Object",
-	"java.util.Map",
-	_WeakIdentityHashMap_FieldInfo_,
-	_WeakIdentityHashMap_MethodInfo_,
-	"<K:Ljava/lang/Object;V:Ljava/lang/Object;>Ljava/lang/Object;Ljava/util/Map<TK;TV;>;",
-	nullptr,
-	_WeakIdentityHashMap_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.awt.WeakIdentityHashMap$WeakKey,sun.awt.WeakIdentityHashMap$2,sun.awt.WeakIdentityHashMap$2$1,sun.awt.WeakIdentityHashMap$2$1$1,sun.awt.WeakIdentityHashMap$1,sun.awt.WeakIdentityHashMap$1$1"
-};
-
-$Object* allocate$WeakIdentityHashMap($Class* clazz) {
-	return $of($alloc(WeakIdentityHashMap));
-}
-
 void WeakIdentityHashMap::init$() {
 	$set(this, queue, $new($ReferenceQueue));
 	$set(this, map, $new($HashMap, 16));
@@ -104,53 +52,51 @@ $Map* WeakIdentityHashMap::getMap() {
 }
 
 int32_t WeakIdentityHashMap::size() {
-	return $nc($(getMap()))->size();
+	return $$nc(getMap())->size();
 }
 
 bool WeakIdentityHashMap::isEmpty() {
-	return $nc($(getMap()))->isEmpty();
+	return $$nc(getMap())->isEmpty();
 }
 
 bool WeakIdentityHashMap::containsKey(Object$* key) {
-	$useLocalCurrentObjectStackCache();
-	return $nc($(getMap()))->containsKey($$new($WeakIdentityHashMap$WeakKey, key, nullptr));
+	$useLocalObjectStack();
+	return $$nc(getMap())->containsKey($$new($WeakIdentityHashMap$WeakKey, key, nullptr));
 }
 
 bool WeakIdentityHashMap::containsValue(Object$* value) {
-	return $nc($(getMap()))->containsValue(value);
+	return $$nc(getMap())->containsValue(value);
 }
 
 $Object* WeakIdentityHashMap::get(Object$* key) {
-	$useLocalCurrentObjectStackCache();
-	return $of($nc($(getMap()))->get($$new($WeakIdentityHashMap$WeakKey, key, nullptr)));
+	$useLocalObjectStack();
+	return $$nc(getMap())->get($$new($WeakIdentityHashMap$WeakKey, key, nullptr));
 }
 
 $Object* WeakIdentityHashMap::put(Object$* key, Object$* value) {
-	$useLocalCurrentObjectStackCache();
-	return $of($nc($(getMap()))->put($$new($WeakIdentityHashMap$WeakKey, key, this->queue), value));
+	$useLocalObjectStack();
+	return $$nc(getMap())->put($$new($WeakIdentityHashMap$WeakKey, key, this->queue), value);
 }
 
 $Object* WeakIdentityHashMap::remove(Object$* key) {
-	$useLocalCurrentObjectStackCache();
-	return $of($nc($(getMap()))->remove($$new($WeakIdentityHashMap$WeakKey, key, nullptr)));
+	$useLocalObjectStack();
+	return $$nc(getMap())->remove($$new($WeakIdentityHashMap$WeakKey, key, nullptr));
 }
 
 void WeakIdentityHashMap::putAll($Map* m) {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Iterator, i$, $nc($($nc(m)->entrySet()))->iterator());
-		for (; $nc(i$)->hasNext();) {
-			$var($Map$Entry, entry, $cast($Map$Entry, i$->next()));
-			{
-				$var($Object, var$0, $nc(entry)->getKey());
-				put(var$0, $(entry->getValue()));
-			}
+	$useLocalObjectStack();
+	$var($Iterator, i$, $$nc($nc(m)->entrySet())->iterator());
+	for (; $nc(i$)->hasNext();) {
+		$var($Map$Entry, entry, $cast($Map$Entry, i$->next()));
+		{
+			$var($Object, var$0, $nc(entry)->getKey());
+			put(var$0, $(entry->getValue()));
 		}
 	}
 }
 
 void WeakIdentityHashMap::clear() {
-	$nc($(getMap()))->clear();
+	$$nc(getMap())->clear();
 }
 
 $Set* WeakIdentityHashMap::keySet() {
@@ -158,7 +104,7 @@ $Set* WeakIdentityHashMap::keySet() {
 }
 
 $Collection* WeakIdentityHashMap::values() {
-	return $nc($(getMap()))->values();
+	return $$nc(getMap())->values();
 }
 
 $Set* WeakIdentityHashMap::entrySet() {
@@ -169,7 +115,52 @@ WeakIdentityHashMap::WeakIdentityHashMap() {
 }
 
 $Class* WeakIdentityHashMap::load$($String* name, bool initialize) {
-	$loadClass(WeakIdentityHashMap, name, initialize, &_WeakIdentityHashMap_ClassInfo_, allocate$WeakIdentityHashMap);
+	$FieldInfo fieldInfos$$[] = {
+		{"map", "Ljava/util/Map;", "Ljava/util/Map<Lsun/awt/WeakIdentityHashMap$WeakKey<TK;>;TV;>;", $PRIVATE | $FINAL, $field(WeakIdentityHashMap, map)},
+		{"queue", "Ljava/lang/ref/ReferenceQueue;", "Ljava/lang/ref/ReferenceQueue<TK;>;", $PRIVATE | $FINAL | $TRANSIENT, $field(WeakIdentityHashMap, queue)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(WeakIdentityHashMap, init$, void)},
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(WeakIdentityHashMap, init$, void, int32_t)},
+		{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(WeakIdentityHashMap, clear, void)},
+		{"containsKey", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(WeakIdentityHashMap, containsKey, bool, Object$*)},
+		{"containsValue", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(WeakIdentityHashMap, containsValue, bool, Object$*)},
+		{"entrySet", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/util/Map$Entry<TK;TV;>;>;", $PUBLIC, $virtualMethod(WeakIdentityHashMap, entrySet, $Set*)},
+		{"get", "(Ljava/lang/Object;)Ljava/lang/Object;", "(Ljava/lang/Object;)TV;", $PUBLIC, $virtualMethod(WeakIdentityHashMap, get, $Object*, Object$*)},
+		{"getMap", "()Ljava/util/Map;", "()Ljava/util/Map<Lsun/awt/WeakIdentityHashMap$WeakKey<TK;>;TV;>;", $PRIVATE, $method(WeakIdentityHashMap, getMap, $Map*)},
+		{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(WeakIdentityHashMap, isEmpty, bool)},
+		{"keySet", "()Ljava/util/Set;", "()Ljava/util/Set<TK;>;", $PUBLIC, $virtualMethod(WeakIdentityHashMap, keySet, $Set*)},
+		{"put", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", "(TK;TV;)TV;", $PUBLIC, $virtualMethod(WeakIdentityHashMap, put, $Object*, Object$*, Object$*)},
+		{"putAll", "(Ljava/util/Map;)V", "(Ljava/util/Map<+TK;+TV;>;)V", $PUBLIC, $virtualMethod(WeakIdentityHashMap, putAll, void, $Map*)},
+		{"remove", "(Ljava/lang/Object;)Ljava/lang/Object;", "(Ljava/lang/Object;)TV;", $PUBLIC, $virtualMethod(WeakIdentityHashMap, remove, $Object*, Object$*)},
+		{"size", "()I", nullptr, $PUBLIC, $virtualMethod(WeakIdentityHashMap, size, int32_t)},
+		{"values", "()Ljava/util/Collection;", "()Ljava/util/Collection<TV;>;", $PUBLIC, $virtualMethod(WeakIdentityHashMap, values, $Collection*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.WeakIdentityHashMap$WeakKey", "sun.awt.WeakIdentityHashMap", "WeakKey", $PRIVATE | $STATIC},
+		{"sun.awt.WeakIdentityHashMap$2", nullptr, nullptr, 0},
+		{"sun.awt.WeakIdentityHashMap$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.awt.WeakIdentityHashMap",
+		"java.lang.Object",
+		"java.util.Map",
+		fieldInfos$$,
+		methodInfos$$,
+		"<K:Ljava/lang/Object;V:Ljava/lang/Object;>Ljava/lang/Object;Ljava/util/Map<TK;TV;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.awt.WeakIdentityHashMap$WeakKey,sun.awt.WeakIdentityHashMap$2,sun.awt.WeakIdentityHashMap$2$1,sun.awt.WeakIdentityHashMap$2$1$1,sun.awt.WeakIdentityHashMap$1,sun.awt.WeakIdentityHashMap$1$1"
+	};
+	$loadClass(WeakIdentityHashMap, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WeakIdentityHashMap);
+	});
 	return class$;
 }
 

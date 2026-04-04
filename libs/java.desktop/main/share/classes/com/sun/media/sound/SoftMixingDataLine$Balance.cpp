@@ -1,5 +1,4 @@
 #include <com/sun/media/sound/SoftMixingDataLine$Balance.h>
-
 #include <com/sun/media/sound/SoftMixingDataLine.h>
 #include <javax/sound/sampled/FloatControl$Type.h>
 #include <javax/sound/sampled/FloatControl.h>
@@ -21,42 +20,6 @@ namespace com {
 		namespace media {
 			namespace sound {
 
-$FieldInfo _SoftMixingDataLine$Balance_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/media/sound/SoftMixingDataLine;", nullptr, $FINAL | $SYNTHETIC, $field(SoftMixingDataLine$Balance, this$0)},
-	{}
-};
-
-$MethodInfo _SoftMixingDataLine$Balance_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/media/sound/SoftMixingDataLine;)V", nullptr, $PRIVATE, $method(SoftMixingDataLine$Balance, init$, void, $SoftMixingDataLine*)},
-	{"setValue", "(F)V", nullptr, $PUBLIC, $virtualMethod(SoftMixingDataLine$Balance, setValue, void, float)},
-	{}
-};
-
-$InnerClassInfo _SoftMixingDataLine$Balance_InnerClassesInfo_[] = {
-	{"com.sun.media.sound.SoftMixingDataLine$Balance", "com.sun.media.sound.SoftMixingDataLine", "Balance", $PRIVATE | $FINAL},
-	{}
-};
-
-$ClassInfo _SoftMixingDataLine$Balance_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.media.sound.SoftMixingDataLine$Balance",
-	"javax.sound.sampled.FloatControl",
-	nullptr,
-	_SoftMixingDataLine$Balance_FieldInfo_,
-	_SoftMixingDataLine$Balance_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SoftMixingDataLine$Balance_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.media.sound.SoftMixingDataLine"
-};
-
-$Object* allocate$SoftMixingDataLine$Balance($Class* clazz) {
-	return $of($alloc(SoftMixingDataLine$Balance));
-}
-
 void SoftMixingDataLine$Balance::init$($SoftMixingDataLine* this$0) {
 	$set(this, this$0, this$0);
 	$init($FloatControl$Type);
@@ -72,7 +35,37 @@ SoftMixingDataLine$Balance::SoftMixingDataLine$Balance() {
 }
 
 $Class* SoftMixingDataLine$Balance::load$($String* name, bool initialize) {
-	$loadClass(SoftMixingDataLine$Balance, name, initialize, &_SoftMixingDataLine$Balance_ClassInfo_, allocate$SoftMixingDataLine$Balance);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/media/sound/SoftMixingDataLine;", nullptr, $FINAL | $SYNTHETIC, $field(SoftMixingDataLine$Balance, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/media/sound/SoftMixingDataLine;)V", nullptr, $PRIVATE, $method(SoftMixingDataLine$Balance, init$, void, $SoftMixingDataLine*)},
+		{"setValue", "(F)V", nullptr, $PUBLIC, $virtualMethod(SoftMixingDataLine$Balance, setValue, void, float)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.media.sound.SoftMixingDataLine$Balance", "com.sun.media.sound.SoftMixingDataLine", "Balance", $PRIVATE | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.media.sound.SoftMixingDataLine$Balance",
+		"javax.sound.sampled.FloatControl",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.media.sound.SoftMixingDataLine"
+	};
+	$loadClass(SoftMixingDataLine$Balance, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SoftMixingDataLine$Balance);
+	});
 	return class$;
 }
 

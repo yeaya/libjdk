@@ -1,5 +1,4 @@
 #include <java/awt/desktop/OpenFilesHandler.h>
-
 #include <java/awt/desktop/OpenFilesEvent.h>
 #include <jcpp.h>
 
@@ -11,26 +10,22 @@ namespace java {
 	namespace awt {
 		namespace desktop {
 
-$MethodInfo _OpenFilesHandler_MethodInfo_[] = {
-	{"openFiles", "(Ljava/awt/desktop/OpenFilesEvent;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(OpenFilesHandler, openFiles, void, $OpenFilesEvent*)},
-	{}
-};
-
-$ClassInfo _OpenFilesHandler_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.awt.desktop.OpenFilesHandler",
-	nullptr,
-	nullptr,
-	nullptr,
-	_OpenFilesHandler_MethodInfo_
-};
-
-$Object* allocate$OpenFilesHandler($Class* clazz) {
-	return $of($alloc(OpenFilesHandler));
-}
-
 $Class* OpenFilesHandler::load$($String* name, bool initialize) {
-	$loadClass(OpenFilesHandler, name, initialize, &_OpenFilesHandler_ClassInfo_, allocate$OpenFilesHandler);
+	$MethodInfo methodInfos$$[] = {
+		{"openFiles", "(Ljava/awt/desktop/OpenFilesEvent;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(OpenFilesHandler, openFiles, void, $OpenFilesEvent*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.awt.desktop.OpenFilesHandler",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(OpenFilesHandler, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(OpenFilesHandler);
+	});
 	return class$;
 }
 

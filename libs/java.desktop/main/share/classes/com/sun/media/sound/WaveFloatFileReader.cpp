@@ -1,5 +1,4 @@
 #include <com/sun/media/sound/WaveFloatFileReader.h>
-
 #include <com/sun/media/sound/RIFFReader.h>
 #include <com/sun/media/sound/StandardFileFormat.h>
 #include <com/sun/media/sound/SunFileReader.h>
@@ -35,37 +34,17 @@ namespace com {
 		namespace media {
 			namespace sound {
 
-$MethodInfo _WaveFloatFileReader_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(WaveFloatFileReader, init$, void)},
-	{"getAudioFileFormatImpl", "(Ljava/io/InputStream;)Lcom/sun/media/sound/StandardFileFormat;", nullptr, 0, $virtualMethod(WaveFloatFileReader, getAudioFileFormatImpl, $StandardFileFormat*, $InputStream*), "javax.sound.sampled.UnsupportedAudioFileException,java.io.IOException"},
-	{"getAudioInputStream", "(Ljava/io/InputStream;)Ljavax/sound/sampled/AudioInputStream;", nullptr, $PUBLIC, $virtualMethod(WaveFloatFileReader, getAudioInputStream, $AudioInputStream*, $InputStream*), "javax.sound.sampled.UnsupportedAudioFileException,java.io.IOException"},
-	{}
-};
-
-$ClassInfo _WaveFloatFileReader_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.media.sound.WaveFloatFileReader",
-	"com.sun.media.sound.SunFileReader",
-	nullptr,
-	nullptr,
-	_WaveFloatFileReader_MethodInfo_
-};
-
-$Object* allocate$WaveFloatFileReader($Class* clazz) {
-	return $of($alloc(WaveFloatFileReader));
-}
-
 void WaveFloatFileReader::init$() {
 	$SunFileReader::init$();
 }
 
 $StandardFileFormat* WaveFloatFileReader::getAudioFileFormatImpl($InputStream* stream) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($RIFFReader, riffiterator, $new($RIFFReader, stream));
-	if (!$nc($(riffiterator->getFormat()))->equals("RIFF"_s)) {
+	if (!$$nc(riffiterator->getFormat())->equals("RIFF"_s)) {
 		$throwNew($UnsupportedAudioFileException);
 	}
-	if (!$nc($(riffiterator->getType()))->equals("WAVE"_s)) {
+	if (!$$nc(riffiterator->getType())->equals("WAVE"_s)) {
 		$throwNew($UnsupportedAudioFileException);
 	}
 	bool fmt_found = false;
@@ -77,7 +56,7 @@ $StandardFileFormat* WaveFloatFileReader::getAudioFileFormatImpl($InputStream* s
 	int64_t dataSize = 0;
 	while (riffiterator->hasNextChunk()) {
 		$var($RIFFReader, chunk, riffiterator->nextChunk());
-		if ($nc($($nc(chunk)->getFormat()))->equals("fmt "_s)) {
+		if ($$nc($nc(chunk)->getFormat())->equals("fmt "_s)) {
 			fmt_found = true;
 			int32_t format = chunk->readUnsignedShort();
 			if (format != $WaveFileFormat::WAVE_FORMAT_IEEE_FLOAT) {
@@ -89,7 +68,7 @@ $StandardFileFormat* WaveFloatFileReader::getAudioFileFormatImpl($InputStream* s
 			framesize = chunk->readUnsignedShort();
 			bits = chunk->readUnsignedShort();
 		}
-		if ($nc($($nc(chunk)->getFormat()))->equals("data"_s)) {
+		if ($$nc(chunk->getFormat())->equals("data"_s)) {
 			dataSize = chunk->getSize();
 			data_found = true;
 			break;
@@ -105,14 +84,14 @@ $StandardFileFormat* WaveFloatFileReader::getAudioFileFormatImpl($InputStream* s
 }
 
 $AudioInputStream* WaveFloatFileReader::getAudioInputStream($InputStream* stream) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StandardFileFormat, format, $cast($StandardFileFormat, getAudioFileFormat(stream)));
 	$var($AudioFormat, af, $nc(format)->getFormat());
 	int64_t length = format->getLongFrameLength();
 	$var($RIFFReader, riffiterator, $new($RIFFReader, stream));
 	while (riffiterator->hasNextChunk()) {
 		$var($RIFFReader, chunk, riffiterator->nextChunk());
-		if ($nc($($nc(chunk)->getFormat()))->equals("data"_s)) {
+		if ($$nc($nc(chunk)->getFormat())->equals("data"_s)) {
 			return $new($AudioInputStream, chunk, af, length);
 		}
 	}
@@ -123,7 +102,23 @@ WaveFloatFileReader::WaveFloatFileReader() {
 }
 
 $Class* WaveFloatFileReader::load$($String* name, bool initialize) {
-	$loadClass(WaveFloatFileReader, name, initialize, &_WaveFloatFileReader_ClassInfo_, allocate$WaveFloatFileReader);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(WaveFloatFileReader, init$, void)},
+		{"getAudioFileFormatImpl", "(Ljava/io/InputStream;)Lcom/sun/media/sound/StandardFileFormat;", nullptr, 0, $virtualMethod(WaveFloatFileReader, getAudioFileFormatImpl, $StandardFileFormat*, $InputStream*), "javax.sound.sampled.UnsupportedAudioFileException,java.io.IOException"},
+		{"getAudioInputStream", "(Ljava/io/InputStream;)Ljavax/sound/sampled/AudioInputStream;", nullptr, $PUBLIC, $virtualMethod(WaveFloatFileReader, getAudioInputStream, $AudioInputStream*, $InputStream*), "javax.sound.sampled.UnsupportedAudioFileException,java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.media.sound.WaveFloatFileReader",
+		"com.sun.media.sound.SunFileReader",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(WaveFloatFileReader, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WaveFloatFileReader);
+	});
 	return class$;
 }
 

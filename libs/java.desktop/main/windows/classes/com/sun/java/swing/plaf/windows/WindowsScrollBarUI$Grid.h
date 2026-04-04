@@ -38,6 +38,7 @@ class $export WindowsScrollBarUI$Grid : public ::java::lang::Object {
 	$class(WindowsScrollBarUI$Grid, 0, ::java::lang::Object)
 public:
 	WindowsScrollBarUI$Grid();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::awt::Color* fg, ::java::awt::Color* bg);
 	static ::com::sun::java::swing::plaf::windows::WindowsScrollBarUI$Grid* getGrid(::java::awt::Color* fg, ::java::awt::Color* bg);
 	virtual void paint(::java::awt::Graphics* g, int32_t x, int32_t y, int32_t w, int32_t h);

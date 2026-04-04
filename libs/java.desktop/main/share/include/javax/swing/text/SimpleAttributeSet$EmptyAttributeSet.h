@@ -36,7 +36,7 @@ public:
 	virtual bool isDefined(Object$* attrName) override;
 	virtual bool isEqual(::javax::swing::text::AttributeSet* attr) override;
 	virtual $String* toString() override;
-	static const int64_t serialVersionUID = (int64_t)0x870ECC53C335AD9C;
+	static const int64_t serialVersionUID = (int64_t)0x870ecc53c335ad9c;
 };
 
 		} // text

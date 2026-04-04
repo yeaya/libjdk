@@ -1,5 +1,4 @@
 #include <ExternalDriveNameTest.h>
-
 #include <TestUI.h>
 #include <java/io/Serializable.h>
 #include <java/lang/Runnable.h>
@@ -16,7 +15,6 @@
 #undef MINUTES
 
 using $TestUI = ::TestUI;
-using $PrintStream = ::java::io::PrintStream;
 using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
@@ -38,33 +36,29 @@ public:
 	virtual void run() override {
 		ExternalDriveNameTest::lambda$main$0(test);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<ExternalDriveNameTest$$Lambda$lambda$main$0>());
-	}
 	$TestUI* test = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo ExternalDriveNameTest$$Lambda$lambda$main$0::fieldInfos[2] = {
-	{"test", "LTestUI;", nullptr, $PUBLIC, $field(ExternalDriveNameTest$$Lambda$lambda$main$0, test)},
-	{}
-};
-$MethodInfo ExternalDriveNameTest$$Lambda$lambda$main$0::methodInfos[3] = {
-	{"<init>", "(LTestUI;)V", nullptr, $PUBLIC, $method(ExternalDriveNameTest$$Lambda$lambda$main$0, init$, void, $TestUI*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(ExternalDriveNameTest$$Lambda$lambda$main$0, run, void)},
-	{}
-};
-$ClassInfo ExternalDriveNameTest$$Lambda$lambda$main$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"ExternalDriveNameTest$$Lambda$lambda$main$0",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	fieldInfos,
-	methodInfos
 };
 $Class* ExternalDriveNameTest$$Lambda$lambda$main$0::load$($String* name, bool initialize) {
-	$loadClass(ExternalDriveNameTest$$Lambda$lambda$main$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"test", "LTestUI;", nullptr, $PUBLIC, $field(ExternalDriveNameTest$$Lambda$lambda$main$0, test)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(LTestUI;)V", nullptr, $PUBLIC, $method(ExternalDriveNameTest$$Lambda$lambda$main$0, init$, void, $TestUI*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(ExternalDriveNameTest$$Lambda$lambda$main$0, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"ExternalDriveNameTest$$Lambda$lambda$main$0",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ExternalDriveNameTest$$Lambda$lambda$main$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ExternalDriveNameTest$$Lambda$lambda$main$0);
+	});
 	return class$;
 }
 $Class* ExternalDriveNameTest$$Lambda$lambda$main$0::class$ = nullptr;
@@ -78,72 +72,47 @@ public:
 	virtual void run() override {
 		ExternalDriveNameTest::lambda$main$1(test);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<ExternalDriveNameTest$$Lambda$lambda$main$1$1>());
-	}
 	$TestUI* test = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo ExternalDriveNameTest$$Lambda$lambda$main$1$1::fieldInfos[2] = {
-	{"test", "LTestUI;", nullptr, $PUBLIC, $field(ExternalDriveNameTest$$Lambda$lambda$main$1$1, test)},
-	{}
-};
-$MethodInfo ExternalDriveNameTest$$Lambda$lambda$main$1$1::methodInfos[3] = {
-	{"<init>", "(LTestUI;)V", nullptr, $PUBLIC, $method(ExternalDriveNameTest$$Lambda$lambda$main$1$1, init$, void, $TestUI*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(ExternalDriveNameTest$$Lambda$lambda$main$1$1, run, void)},
-	{}
-};
-$ClassInfo ExternalDriveNameTest$$Lambda$lambda$main$1$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"ExternalDriveNameTest$$Lambda$lambda$main$1$1",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	fieldInfos,
-	methodInfos
 };
 $Class* ExternalDriveNameTest$$Lambda$lambda$main$1$1::load$($String* name, bool initialize) {
-	$loadClass(ExternalDriveNameTest$$Lambda$lambda$main$1$1, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"test", "LTestUI;", nullptr, $PUBLIC, $field(ExternalDriveNameTest$$Lambda$lambda$main$1$1, test)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(LTestUI;)V", nullptr, $PUBLIC, $method(ExternalDriveNameTest$$Lambda$lambda$main$1$1, init$, void, $TestUI*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(ExternalDriveNameTest$$Lambda$lambda$main$1$1, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"ExternalDriveNameTest$$Lambda$lambda$main$1$1",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ExternalDriveNameTest$$Lambda$lambda$main$1$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ExternalDriveNameTest$$Lambda$lambda$main$1$1);
+	});
 	return class$;
 }
 $Class* ExternalDriveNameTest$$Lambda$lambda$main$1$1::class$ = nullptr;
-
-$MethodInfo _ExternalDriveNameTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ExternalDriveNameTest, init$, void)},
-	{"lambda$main$0", "(LTestUI;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ExternalDriveNameTest, lambda$main$0, void, $TestUI*)},
-	{"lambda$main$1", "(LTestUI;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ExternalDriveNameTest, lambda$main$1, void, $TestUI*)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ExternalDriveNameTest, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _ExternalDriveNameTest_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"ExternalDriveNameTest",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_ExternalDriveNameTest_MethodInfo_
-};
-
-$Object* allocate$ExternalDriveNameTest($Class* clazz) {
-	return $of($alloc(ExternalDriveNameTest));
-}
 
 void ExternalDriveNameTest::init$() {
 }
 
 void ExternalDriveNameTest::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($CountDownLatch, latch, $new($CountDownLatch, 1));
 	$var($TestUI, test, $new($TestUI, latch));
-	$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(ExternalDriveNameTest$$Lambda$lambda$main$0, test)));
+	$SwingUtilities::invokeAndWait($$new(ExternalDriveNameTest$$Lambda$lambda$main$0, test));
 	$init($TimeUnit);
 	bool status = latch->await(5, $TimeUnit::MINUTES);
 	if (!status) {
 		$nc($System::out)->println("Test timed out."_s);
 	}
-	$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(ExternalDriveNameTest$$Lambda$lambda$main$1$1, test)));
+	$SwingUtilities::invokeAndWait($$new(ExternalDriveNameTest$$Lambda$lambda$main$1$1, test));
 	if (test->testResult == false) {
 		$throwNew($RuntimeException, "Test Failed."_s);
 	}
@@ -170,14 +139,31 @@ ExternalDriveNameTest::ExternalDriveNameTest() {
 
 $Class* ExternalDriveNameTest::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(ExternalDriveNameTest$$Lambda$lambda$main$0::classInfo$.name)) {
+		if (name->equals("ExternalDriveNameTest$$Lambda$lambda$main$0")) {
 			return ExternalDriveNameTest$$Lambda$lambda$main$0::load$(name, initialize);
 		}
-		if (name->equals(ExternalDriveNameTest$$Lambda$lambda$main$1$1::classInfo$.name)) {
+		if (name->equals("ExternalDriveNameTest$$Lambda$lambda$main$1$1")) {
 			return ExternalDriveNameTest$$Lambda$lambda$main$1$1::load$(name, initialize);
 		}
 	}
-	$loadClass(ExternalDriveNameTest, name, initialize, &_ExternalDriveNameTest_ClassInfo_, allocate$ExternalDriveNameTest);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ExternalDriveNameTest, init$, void)},
+		{"lambda$main$0", "(LTestUI;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ExternalDriveNameTest, lambda$main$0, void, $TestUI*)},
+		{"lambda$main$1", "(LTestUI;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ExternalDriveNameTest, lambda$main$1, void, $TestUI*)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ExternalDriveNameTest, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"ExternalDriveNameTest",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ExternalDriveNameTest, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ExternalDriveNameTest);
+	});
 	return class$;
 }
 

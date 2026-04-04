@@ -1,5 +1,4 @@
 #include <javax/swing/JList$DropLocation.h>
-
 #include <java/awt/Point.h>
 #include <javax/swing/JList.h>
 #include <javax/swing/TransferHandler$DropLocation.h>
@@ -14,46 +13,6 @@ using $TransferHandler$DropLocation = ::javax::swing::TransferHandler$DropLocati
 
 namespace javax {
 	namespace swing {
-
-$FieldInfo _JList$DropLocation_FieldInfo_[] = {
-	{"index", "I", nullptr, $PRIVATE | $FINAL, $field(JList$DropLocation, index)},
-	{"isInsert", "Z", nullptr, $PRIVATE | $FINAL, $field(JList$DropLocation, isInsert$)},
-	{}
-};
-
-$MethodInfo _JList$DropLocation_MethodInfo_[] = {
-	{"<init>", "(Ljava/awt/Point;IZ)V", nullptr, $PRIVATE, $method(JList$DropLocation, init$, void, $Point*, int32_t, bool)},
-	{"getIndex", "()I", nullptr, $PUBLIC, $method(JList$DropLocation, getIndex, int32_t)},
-	{"isInsert", "()Z", nullptr, $PUBLIC, $method(JList$DropLocation, isInsert, bool)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JList$DropLocation, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _JList$DropLocation_InnerClassesInfo_[] = {
-	{"javax.swing.JList$DropLocation", "javax.swing.JList", "DropLocation", $PUBLIC | $STATIC | $FINAL},
-	{"javax.swing.TransferHandler$DropLocation", "javax.swing.TransferHandler", "DropLocation", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _JList$DropLocation_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"javax.swing.JList$DropLocation",
-	"javax.swing.TransferHandler$DropLocation",
-	nullptr,
-	_JList$DropLocation_FieldInfo_,
-	_JList$DropLocation_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JList$DropLocation_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.JList"
-};
-
-$Object* allocate$JList$DropLocation($Class* clazz) {
-	return $of($alloc(JList$DropLocation));
-}
 
 void JList$DropLocation::init$($Point* p, int32_t index, bool isInsert) {
 	$TransferHandler$DropLocation::init$(p);
@@ -70,21 +29,58 @@ bool JList$DropLocation::isInsert() {
 }
 
 $String* JList$DropLocation::toString() {
-	$useLocalCurrentObjectStackCache();
-	$var($String, var$5, $$str({$($of(this)->getClass()->getName()), "[dropPoint="_s}));
-	$var($String, var$4, $$concat(var$5, $(getDropPoint())));
-	$var($String, var$3, $$concat(var$4, ",index="_s));
-	$var($String, var$2, $$concat(var$3, $$str(this->index)));
-	$var($String, var$1, $$concat(var$2, ",insert="_s));
-	$var($String, var$0, $$concat(var$1, $$str(this->isInsert$)));
-	return $concat(var$0, "]"_s);
+	$useLocalObjectStack();
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append($($of(this)->getClass()->getName()));
+	var$0->append("[dropPoint="_s);
+	var$0->append($(getDropPoint()));
+	var$0->append(",index="_s);
+	var$0->append(this->index);
+	var$0->append(",insert="_s);
+	var$0->append(this->isInsert$);
+	var$0->append("]"_s);
+	return $str(var$0);
 }
 
 JList$DropLocation::JList$DropLocation() {
 }
 
 $Class* JList$DropLocation::load$($String* name, bool initialize) {
-	$loadClass(JList$DropLocation, name, initialize, &_JList$DropLocation_ClassInfo_, allocate$JList$DropLocation);
+	$FieldInfo fieldInfos$$[] = {
+		{"index", "I", nullptr, $PRIVATE | $FINAL, $field(JList$DropLocation, index)},
+		{"isInsert", "Z", nullptr, $PRIVATE | $FINAL, $field(JList$DropLocation, isInsert$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/Point;IZ)V", nullptr, $PRIVATE, $method(JList$DropLocation, init$, void, $Point*, int32_t, bool)},
+		{"getIndex", "()I", nullptr, $PUBLIC, $method(JList$DropLocation, getIndex, int32_t)},
+		{"isInsert", "()Z", nullptr, $PUBLIC, $method(JList$DropLocation, isInsert, bool)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JList$DropLocation, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.JList$DropLocation", "javax.swing.JList", "DropLocation", $PUBLIC | $STATIC | $FINAL},
+		{"javax.swing.TransferHandler$DropLocation", "javax.swing.TransferHandler", "DropLocation", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"javax.swing.JList$DropLocation",
+		"javax.swing.TransferHandler$DropLocation",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.JList"
+	};
+	$loadClass(JList$DropLocation, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JList$DropLocation);
+	});
 	return class$;
 }
 

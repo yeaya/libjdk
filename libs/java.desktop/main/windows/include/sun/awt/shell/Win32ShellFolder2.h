@@ -190,6 +190,7 @@ class $import Win32ShellFolder2 : public ::sun::awt::shell::ShellFolder {
 public:
 	Win32ShellFolder2();
 	using ::sun::awt::shell::ShellFolder::listFiles;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int32_t csidl);
 	void init$(::sun::awt::shell::Win32ShellFolder2* parent, int64_t pIShellFolder, int64_t relativePIDL, $String* path, bool isLib);
 	static ::java::awt::Image* access$001(::sun::awt::shell::Win32ShellFolder2* x0, bool x1);

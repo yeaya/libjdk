@@ -1,5 +1,4 @@
 #include <MissingCharsKorean$1.h>
-
 #include <MissingCharsKorean.h>
 #include <java/awt/event/WindowAdapter.h>
 #include <java/awt/event/WindowEvent.h>
@@ -15,46 +14,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $CountDownLatch = ::java::util::concurrent::CountDownLatch;
-using $JTextField = ::javax::swing::JTextField;
-
-$MethodInfo _MissingCharsKorean$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(MissingCharsKorean$1, init$, void)},
-	{"windowClosing", "(Ljava/awt/event/WindowEvent;)V", nullptr, $PUBLIC, $virtualMethod(MissingCharsKorean$1, windowClosing, void, $WindowEvent*)},
-	{"windowOpened", "(Ljava/awt/event/WindowEvent;)V", nullptr, $PUBLIC, $virtualMethod(MissingCharsKorean$1, windowOpened, void, $WindowEvent*)},
-	{}
-};
-
-$EnclosingMethodInfo _MissingCharsKorean$1_EnclosingMethodInfo_ = {
-	"MissingCharsKorean",
-	"setupUI",
-	"()V"
-};
-
-$InnerClassInfo _MissingCharsKorean$1_InnerClassesInfo_[] = {
-	{"MissingCharsKorean$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _MissingCharsKorean$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"MissingCharsKorean$1",
-	"java.awt.event.WindowAdapter",
-	nullptr,
-	nullptr,
-	_MissingCharsKorean$1_MethodInfo_,
-	nullptr,
-	&_MissingCharsKorean$1_EnclosingMethodInfo_,
-	_MissingCharsKorean$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"MissingCharsKorean"
-};
-
-$Object* allocate$MissingCharsKorean$1($Class* clazz) {
-	return $of($alloc(MissingCharsKorean$1));
-}
 
 void MissingCharsKorean$1::init$() {
 	$WindowAdapter::init$();
@@ -74,7 +33,39 @@ MissingCharsKorean$1::MissingCharsKorean$1() {
 }
 
 $Class* MissingCharsKorean$1::load$($String* name, bool initialize) {
-	$loadClass(MissingCharsKorean$1, name, initialize, &_MissingCharsKorean$1_ClassInfo_, allocate$MissingCharsKorean$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(MissingCharsKorean$1, init$, void)},
+		{"windowClosing", "(Ljava/awt/event/WindowEvent;)V", nullptr, $PUBLIC, $virtualMethod(MissingCharsKorean$1, windowClosing, void, $WindowEvent*)},
+		{"windowOpened", "(Ljava/awt/event/WindowEvent;)V", nullptr, $PUBLIC, $virtualMethod(MissingCharsKorean$1, windowOpened, void, $WindowEvent*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"MissingCharsKorean",
+		"setupUI",
+		"()V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"MissingCharsKorean$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"MissingCharsKorean$1",
+		"java.awt.event.WindowAdapter",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"MissingCharsKorean"
+	};
+	$loadClass(MissingCharsKorean$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MissingCharsKorean$1));
+	});
 	return class$;
 }
 

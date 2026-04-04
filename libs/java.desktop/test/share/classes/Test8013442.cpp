@@ -1,11 +1,8 @@
 #include <Test8013442.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Window.h>
 #include <java/io/File.h>
 #include <java/lang/Error.h>
-#include <java/lang/Runnable.h>
-#include <java/lang/Thread$UncaughtExceptionHandler.h>
 #include <java/util/concurrent/CountDownLatch.h>
 #include <javax/swing/JFileChooser.h>
 #include <javax/swing/JFrame.h>
@@ -18,17 +15,13 @@
 #undef LATCH
 
 using $Component = ::java::awt::Component;
-using $Window = ::java::awt::Window;
 using $File = ::java::io::File;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Error = ::java::lang::Error;
 using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
-using $Thread$UncaughtExceptionHandler = ::java::lang::Thread$UncaughtExceptionHandler;
 using $CountDownLatch = ::java::util::concurrent::CountDownLatch;
 using $JFileChooser = ::javax::swing::JFileChooser;
 using $JFrame = ::javax::swing::JFrame;
@@ -36,50 +29,6 @@ using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $UIManager = ::javax::swing::UIManager;
 using $UIManager$LookAndFeelInfo = ::javax::swing::UIManager$LookAndFeelInfo;
 using $FileFilter = ::javax::swing::filechooser::FileFilter;
-
-$FieldInfo _Test8013442_FieldInfo_[] = {
-	{"LATCH", "Ljava/util/concurrent/CountDownLatch;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Test8013442, LATCH)},
-	{"index", "I", nullptr, $PRIVATE, $field(Test8013442, index)},
-	{"infos", "[Ljavax/swing/UIManager$LookAndFeelInfo;", nullptr, $PRIVATE, $field(Test8013442, infos)},
-	{"chooser", "Ljavax/swing/JFileChooser;", nullptr, $PRIVATE, $field(Test8013442, chooser)},
-	{}
-};
-
-$MethodInfo _Test8013442_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Test8013442, init$, void)},
-	{"accept", "(Ljava/io/File;)Z", nullptr, $PUBLIC, $virtualMethod(Test8013442, accept, bool, $File*)},
-	{"getDescription", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Test8013442, getDescription, $String*)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Test8013442, main, void, $StringArray*), "java.lang.InterruptedException"},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Test8013442, run, void)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"uncaughtException", "(Ljava/lang/Thread;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $virtualMethod(Test8013442, uncaughtException, void, $Thread*, $Throwable*)},
-	{}
-};
-
-$InnerClassInfo _Test8013442_InnerClassesInfo_[] = {
-	{"java.lang.Thread$UncaughtExceptionHandler", "java.lang.Thread", "UncaughtExceptionHandler", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Test8013442_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"Test8013442",
-	"javax.swing.filechooser.FileFilter",
-	"java.lang.Runnable,java.lang.Thread$UncaughtExceptionHandler",
-	_Test8013442_FieldInfo_,
-	_Test8013442_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Test8013442_InnerClassesInfo_
-};
-
-$Object* allocate$Test8013442($Class* clazz) {
-	return $of($alloc(Test8013442));
-}
 
 int32_t Test8013442::hashCode() {
 	 return this->$FileFilter::hashCode();
@@ -110,13 +59,13 @@ void Test8013442::init$() {
 void Test8013442::main($StringArray* args) {
 	$init(Test8013442);
 	$SwingUtilities::invokeLater($$new(Test8013442));
-	$nc(Test8013442::LATCH)->await();
+	Test8013442::LATCH->await();
 }
 
 bool Test8013442::accept($File* file) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool var$0 = !$nc(file)->isFile();
-	return var$0 || $($nc($($nc(file)->getName()))->toLowerCase())->endsWith(".txt"_s);
+	return var$0 || $($$nc(file->getName())->toLowerCase())->endsWith(".txt"_s);
 }
 
 $String* Test8013442::getDescription() {
@@ -124,35 +73,35 @@ $String* Test8013442::getDescription() {
 }
 
 void Test8013442::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->infos == nullptr) {
 		$set(this, infos, $UIManager::getInstalledLookAndFeels());
 		$($Thread::currentThread())->setUncaughtExceptionHandler(this);
 	}
 	if ($nc(this->infos)->length == this->index) {
-		$nc(Test8013442::LATCH)->countDown();
+		Test8013442::LATCH->countDown();
 	} else if (this->chooser == nullptr) {
-		$var($UIManager$LookAndFeelInfo, info, $nc(this->infos)->get(this->index));
+		$var($UIManager$LookAndFeelInfo, info, this->infos->get(this->index));
 		$nc($System::out)->println($($nc(info)->getName()));
 		try {
-			$UIManager::setLookAndFeel($($nc(info)->getClassName()));
+			$UIManager::setLookAndFeel($(info->getClassName()));
 		} catch ($Exception& exception) {
 			$throwNew($Error, "could not change look and feel"_s, exception);
 		}
 		$var($JFrame, frame, $new($JFrame, $($of(this)->getClass()->getSimpleName())));
-		frame->add(static_cast<$Component*>(($set(this, chooser, $new($JFileChooser)))));
+		frame->add($set(this, chooser, $new($JFileChooser)));
 		frame->setSize(800, 600);
 		frame->setLocationRelativeTo(nullptr);
 		frame->setVisible(true);
 		$SwingUtilities::invokeLater(this);
 	} else {
-		int32_t count = $nc($($nc(this->chooser)->getChoosableFileFilters()))->length;
+		int32_t count = $nc($(this->chooser->getChoosableFileFilters()))->length;
 		$nc($System::out)->println($$str({"count = "_s, $$str(count), "; "_s, $$str($nc(this->chooser)->isAcceptAllFileFilterUsed())}));
 		if (count == 0) {
 			if (nullptr != $nc(this->chooser)->getFileFilter()) {
 				$throwNew($Error, "file filter is selected"_s);
 			}
-			$nc($($SwingUtilities::getWindowAncestor(this->chooser)))->dispose();
+			$$nc($SwingUtilities::getWindowAncestor(this->chooser))->dispose();
 			$set(this, chooser, nullptr);
 			++this->index;
 		} else {
@@ -176,7 +125,7 @@ void Test8013442::uncaughtException($Thread* thread, $Throwable* throwable) {
 	$System::exit(1);
 }
 
-void clinit$Test8013442($Class* class$) {
+void Test8013442::clinit$($Class* clazz) {
 	$assignStatic(Test8013442::LATCH, $new($CountDownLatch, 1));
 }
 
@@ -184,7 +133,45 @@ Test8013442::Test8013442() {
 }
 
 $Class* Test8013442::load$($String* name, bool initialize) {
-	$loadClass(Test8013442, name, initialize, &_Test8013442_ClassInfo_, clinit$Test8013442, allocate$Test8013442);
+	$FieldInfo fieldInfos$$[] = {
+		{"LATCH", "Ljava/util/concurrent/CountDownLatch;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Test8013442, LATCH)},
+		{"index", "I", nullptr, $PRIVATE, $field(Test8013442, index)},
+		{"infos", "[Ljavax/swing/UIManager$LookAndFeelInfo;", nullptr, $PRIVATE, $field(Test8013442, infos)},
+		{"chooser", "Ljavax/swing/JFileChooser;", nullptr, $PRIVATE, $field(Test8013442, chooser)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Test8013442, init$, void)},
+		{"accept", "(Ljava/io/File;)Z", nullptr, $PUBLIC, $virtualMethod(Test8013442, accept, bool, $File*)},
+		{"getDescription", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Test8013442, getDescription, $String*)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Test8013442, main, void, $StringArray*), "java.lang.InterruptedException"},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Test8013442, run, void)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"uncaughtException", "(Ljava/lang/Thread;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $virtualMethod(Test8013442, uncaughtException, void, $Thread*, $Throwable*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.Thread$UncaughtExceptionHandler", "java.lang.Thread", "UncaughtExceptionHandler", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"Test8013442",
+		"javax.swing.filechooser.FileFilter",
+		"java.lang.Runnable,java.lang.Thread$UncaughtExceptionHandler",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$
+	};
+	$loadClass(Test8013442, name, initialize, &classInfo$$, Test8013442::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Test8013442));
+	});
 	return class$;
 }
 

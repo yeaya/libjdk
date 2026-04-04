@@ -1,5 +1,4 @@
 #include <javax/swing/text/StringContent$RemoveUndo.h>
-
 #include <java/util/Vector.h>
 #include <javax/swing/text/BadLocationException.h>
 #include <javax/swing/text/StringContent.h>
@@ -23,47 +22,6 @@ using $CannotUndoException = ::javax::swing::undo::CannotUndoException;
 namespace javax {
 	namespace swing {
 		namespace text {
-
-$FieldInfo _StringContent$RemoveUndo_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/text/StringContent;", nullptr, $FINAL | $SYNTHETIC, $field(StringContent$RemoveUndo, this$0)},
-	{"offset", "I", nullptr, $PROTECTED, $field(StringContent$RemoveUndo, offset)},
-	{"length", "I", nullptr, $PROTECTED, $field(StringContent$RemoveUndo, length)},
-	{"string", "Ljava/lang/String;", nullptr, $PROTECTED, $field(StringContent$RemoveUndo, string)},
-	{"posRefs", "Ljava/util/Vector;", "Ljava/util/Vector<Ljavax/swing/text/StringContent$UndoPosRef;>;", $PROTECTED, $field(StringContent$RemoveUndo, posRefs)},
-	{}
-};
-
-$MethodInfo _StringContent$RemoveUndo_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/text/StringContent;ILjava/lang/String;)V", nullptr, $PROTECTED, $method(StringContent$RemoveUndo, init$, void, $StringContent*, int32_t, $String*)},
-	{"redo", "()V", nullptr, $PUBLIC, $virtualMethod(StringContent$RemoveUndo, redo, void), "javax.swing.undo.CannotRedoException"},
-	{"undo", "()V", nullptr, $PUBLIC, $virtualMethod(StringContent$RemoveUndo, undo, void), "javax.swing.undo.CannotUndoException"},
-	{}
-};
-
-$InnerClassInfo _StringContent$RemoveUndo_InnerClassesInfo_[] = {
-	{"javax.swing.text.StringContent$RemoveUndo", "javax.swing.text.StringContent", "RemoveUndo", 0},
-	{}
-};
-
-$ClassInfo _StringContent$RemoveUndo_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.text.StringContent$RemoveUndo",
-	"javax.swing.undo.AbstractUndoableEdit",
-	nullptr,
-	_StringContent$RemoveUndo_FieldInfo_,
-	_StringContent$RemoveUndo_MethodInfo_,
-	nullptr,
-	nullptr,
-	_StringContent$RemoveUndo_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.StringContent"
-};
-
-$Object* allocate$StringContent$RemoveUndo($Class* clazz) {
-	return $of($alloc(StringContent$RemoveUndo));
-}
 
 void StringContent$RemoveUndo::init$($StringContent* this$0, int32_t offset, $String* string) {
 	$set(this, this$0, this$0);
@@ -111,7 +69,42 @@ StringContent$RemoveUndo::StringContent$RemoveUndo() {
 }
 
 $Class* StringContent$RemoveUndo::load$($String* name, bool initialize) {
-	$loadClass(StringContent$RemoveUndo, name, initialize, &_StringContent$RemoveUndo_ClassInfo_, allocate$StringContent$RemoveUndo);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/text/StringContent;", nullptr, $FINAL | $SYNTHETIC, $field(StringContent$RemoveUndo, this$0)},
+		{"offset", "I", nullptr, $PROTECTED, $field(StringContent$RemoveUndo, offset)},
+		{"length", "I", nullptr, $PROTECTED, $field(StringContent$RemoveUndo, length)},
+		{"string", "Ljava/lang/String;", nullptr, $PROTECTED, $field(StringContent$RemoveUndo, string)},
+		{"posRefs", "Ljava/util/Vector;", "Ljava/util/Vector<Ljavax/swing/text/StringContent$UndoPosRef;>;", $PROTECTED, $field(StringContent$RemoveUndo, posRefs)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/text/StringContent;ILjava/lang/String;)V", nullptr, $PROTECTED, $method(StringContent$RemoveUndo, init$, void, $StringContent*, int32_t, $String*)},
+		{"redo", "()V", nullptr, $PUBLIC, $virtualMethod(StringContent$RemoveUndo, redo, void), "javax.swing.undo.CannotRedoException"},
+		{"undo", "()V", nullptr, $PUBLIC, $virtualMethod(StringContent$RemoveUndo, undo, void), "javax.swing.undo.CannotUndoException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.StringContent$RemoveUndo", "javax.swing.text.StringContent", "RemoveUndo", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.text.StringContent$RemoveUndo",
+		"javax.swing.undo.AbstractUndoableEdit",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.StringContent"
+	};
+	$loadClass(StringContent$RemoveUndo, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(StringContent$RemoveUndo));
+	});
 	return class$;
 }
 

@@ -33,6 +33,7 @@ class $export DrawGridLinesTest : public ::java::lang::Object {
 	$class(DrawGridLinesTest, 0, ::java::lang::Object)
 public:
 	DrawGridLinesTest();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void checkTableGridLines();
 	static void checkTableGridLines(::javax::swing::JTable* table);

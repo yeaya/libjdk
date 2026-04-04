@@ -1,5 +1,4 @@
 #include <java/awt/Taskbar.h>
-
 #include <java/awt/GraphicsEnvironment.h>
 #include <java/awt/HeadlessException.h>
 #include <java/awt/Image.h>
@@ -35,7 +34,6 @@ using $Taskbar$Feature = ::java::awt::Taskbar$Feature;
 using $Taskbar$State = ::java::awt::Taskbar$State;
 using $Toolkit = ::java::awt::Toolkit;
 using $Window = ::java::awt::Window;
-using $TaskbarPeer = ::java::awt::peer::TaskbarPeer;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -43,77 +41,25 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimePermission = ::java::lang::RuntimePermission;
 using $SecurityManager = ::java::lang::SecurityManager;
 using $UnsupportedOperationException = ::java::lang::UnsupportedOperationException;
-using $Permission = ::java::security::Permission;
 using $AppContext = ::sun::awt::AppContext;
 using $SunToolkit = ::sun::awt::SunToolkit;
 
 namespace java {
 	namespace awt {
 
-$FieldInfo _Taskbar_FieldInfo_[] = {
-	{"peer", "Ljava/awt/peer/TaskbarPeer;", nullptr, $PRIVATE, $field(Taskbar, peer)},
-	{}
-};
-
-$MethodInfo _Taskbar_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(Taskbar, init$, void)},
-	{"checkEventsProcessingPermission", "()V", nullptr, $PRIVATE, $method(Taskbar, checkEventsProcessingPermission, void)},
-	{"checkFeatureSupport", "(Ljava/awt/Taskbar$Feature;)V", nullptr, $PRIVATE, $method(Taskbar, checkFeatureSupport, void, $Taskbar$Feature*)},
-	{"getIconImage", "()Ljava/awt/Image;", nullptr, $PUBLIC, $virtualMethod(Taskbar, getIconImage, $Image*)},
-	{"getMenu", "()Ljava/awt/PopupMenu;", nullptr, $PUBLIC, $virtualMethod(Taskbar, getMenu, $PopupMenu*)},
-	{"getTaskbar", "()Ljava/awt/Taskbar;", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(Taskbar, getTaskbar, Taskbar*)},
-	{"isSupported", "(Ljava/awt/Taskbar$Feature;)Z", nullptr, $PUBLIC, $virtualMethod(Taskbar, isSupported, bool, $Taskbar$Feature*)},
-	{"isTaskbarSupported", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Taskbar, isTaskbarSupported, bool)},
-	{"requestUserAttention", "(ZZ)V", nullptr, $PUBLIC, $virtualMethod(Taskbar, requestUserAttention, void, bool, bool)},
-	{"requestWindowUserAttention", "(Ljava/awt/Window;)V", nullptr, $PUBLIC, $virtualMethod(Taskbar, requestWindowUserAttention, void, $Window*)},
-	{"setIconBadge", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Taskbar, setIconBadge, void, $String*)},
-	{"setIconImage", "(Ljava/awt/Image;)V", nullptr, $PUBLIC, $virtualMethod(Taskbar, setIconImage, void, $Image*)},
-	{"setMenu", "(Ljava/awt/PopupMenu;)V", nullptr, $PUBLIC, $virtualMethod(Taskbar, setMenu, void, $PopupMenu*)},
-	{"setProgressValue", "(I)V", nullptr, $PUBLIC, $virtualMethod(Taskbar, setProgressValue, void, int32_t)},
-	{"setWindowIconBadge", "(Ljava/awt/Window;Ljava/awt/Image;)V", nullptr, $PUBLIC, $virtualMethod(Taskbar, setWindowIconBadge, void, $Window*, $Image*)},
-	{"setWindowProgressState", "(Ljava/awt/Window;Ljava/awt/Taskbar$State;)V", nullptr, $PUBLIC, $virtualMethod(Taskbar, setWindowProgressState, void, $Window*, $Taskbar$State*)},
-	{"setWindowProgressValue", "(Ljava/awt/Window;I)V", nullptr, $PUBLIC, $virtualMethod(Taskbar, setWindowProgressValue, void, $Window*, int32_t)},
-	{}
-};
-
-$InnerClassInfo _Taskbar_InnerClassesInfo_[] = {
-	{"java.awt.Taskbar$State", "java.awt.Taskbar", "State", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{"java.awt.Taskbar$Feature", "java.awt.Taskbar", "Feature", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _Taskbar_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.awt.Taskbar",
-	"java.lang.Object",
-	nullptr,
-	_Taskbar_FieldInfo_,
-	_Taskbar_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Taskbar_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.awt.Taskbar$State,java.awt.Taskbar$Feature"
-};
-
-$Object* allocate$Taskbar($Class* clazz) {
-	return $of($alloc(Taskbar));
-}
-
 bool Taskbar::isSupported($Taskbar$Feature* feature) {
 	return $nc(this->peer)->isSupported(feature);
 }
 
 void Taskbar::checkFeatureSupport($Taskbar$Feature* featureType) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!isSupported(featureType)) {
 		$throwNew($UnsupportedOperationException, $$str({"The "_s, $($nc(featureType)->name()), " feature is not supported on the current platform!"_s}));
 	}
 }
 
 void Taskbar::checkEventsProcessingPermission() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	if (sm != nullptr) {
 		sm->checkPermission($$new($RuntimePermission, "canProcessApplicationEvents"_s));
@@ -123,14 +69,14 @@ void Taskbar::checkEventsProcessingPermission() {
 void Taskbar::init$() {
 	$var($Toolkit, defaultToolkit, $Toolkit::getDefaultToolkit());
 	if ($instanceOf($SunToolkit, defaultToolkit)) {
-		$set(this, peer, $nc(($cast($SunToolkit, defaultToolkit)))->createTaskbarPeer(this));
+		$set(this, peer, $cast($SunToolkit, defaultToolkit)->createTaskbarPeer(this));
 	}
 }
 
 Taskbar* Taskbar::getTaskbar() {
 	$load(Taskbar);
 	$synchronized(class$) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		if ($GraphicsEnvironment::isHeadless()) {
 			$throwNew($HeadlessException);
 		}
@@ -150,7 +96,7 @@ Taskbar* Taskbar::getTaskbar() {
 bool Taskbar::isTaskbarSupported() {
 	$var($Toolkit, defaultToolkit, $Toolkit::getDefaultToolkit());
 	if ($instanceOf($SunToolkit, defaultToolkit)) {
-		return $nc(($cast($SunToolkit, defaultToolkit)))->isTaskbarSupported();
+		return $cast($SunToolkit, defaultToolkit)->isTaskbarSupported();
 	}
 	return false;
 }
@@ -242,7 +188,52 @@ Taskbar::Taskbar() {
 }
 
 $Class* Taskbar::load$($String* name, bool initialize) {
-	$loadClass(Taskbar, name, initialize, &_Taskbar_ClassInfo_, allocate$Taskbar);
+	$FieldInfo fieldInfos$$[] = {
+		{"peer", "Ljava/awt/peer/TaskbarPeer;", nullptr, $PRIVATE, $field(Taskbar, peer)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(Taskbar, init$, void)},
+		{"checkEventsProcessingPermission", "()V", nullptr, $PRIVATE, $method(Taskbar, checkEventsProcessingPermission, void)},
+		{"checkFeatureSupport", "(Ljava/awt/Taskbar$Feature;)V", nullptr, $PRIVATE, $method(Taskbar, checkFeatureSupport, void, $Taskbar$Feature*)},
+		{"getIconImage", "()Ljava/awt/Image;", nullptr, $PUBLIC, $virtualMethod(Taskbar, getIconImage, $Image*)},
+		{"getMenu", "()Ljava/awt/PopupMenu;", nullptr, $PUBLIC, $virtualMethod(Taskbar, getMenu, $PopupMenu*)},
+		{"getTaskbar", "()Ljava/awt/Taskbar;", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(Taskbar, getTaskbar, Taskbar*)},
+		{"isSupported", "(Ljava/awt/Taskbar$Feature;)Z", nullptr, $PUBLIC, $virtualMethod(Taskbar, isSupported, bool, $Taskbar$Feature*)},
+		{"isTaskbarSupported", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Taskbar, isTaskbarSupported, bool)},
+		{"requestUserAttention", "(ZZ)V", nullptr, $PUBLIC, $virtualMethod(Taskbar, requestUserAttention, void, bool, bool)},
+		{"requestWindowUserAttention", "(Ljava/awt/Window;)V", nullptr, $PUBLIC, $virtualMethod(Taskbar, requestWindowUserAttention, void, $Window*)},
+		{"setIconBadge", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Taskbar, setIconBadge, void, $String*)},
+		{"setIconImage", "(Ljava/awt/Image;)V", nullptr, $PUBLIC, $virtualMethod(Taskbar, setIconImage, void, $Image*)},
+		{"setMenu", "(Ljava/awt/PopupMenu;)V", nullptr, $PUBLIC, $virtualMethod(Taskbar, setMenu, void, $PopupMenu*)},
+		{"setProgressValue", "(I)V", nullptr, $PUBLIC, $virtualMethod(Taskbar, setProgressValue, void, int32_t)},
+		{"setWindowIconBadge", "(Ljava/awt/Window;Ljava/awt/Image;)V", nullptr, $PUBLIC, $virtualMethod(Taskbar, setWindowIconBadge, void, $Window*, $Image*)},
+		{"setWindowProgressState", "(Ljava/awt/Window;Ljava/awt/Taskbar$State;)V", nullptr, $PUBLIC, $virtualMethod(Taskbar, setWindowProgressState, void, $Window*, $Taskbar$State*)},
+		{"setWindowProgressValue", "(Ljava/awt/Window;I)V", nullptr, $PUBLIC, $virtualMethod(Taskbar, setWindowProgressValue, void, $Window*, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.awt.Taskbar$State", "java.awt.Taskbar", "State", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{"java.awt.Taskbar$Feature", "java.awt.Taskbar", "Feature", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.awt.Taskbar",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.awt.Taskbar$State,java.awt.Taskbar$Feature"
+	};
+	$loadClass(Taskbar, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Taskbar);
+	});
 	return class$;
 }
 

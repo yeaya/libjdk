@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/serializer/ToXMLSAXHandler.h>
-
 #include <com/sun/org/apache/xml/internal/serializer/AttributesImplSerializer.h>
 #include <com/sun/org/apache/xml/internal/serializer/ElemContext.h>
 #include <com/sun/org/apache/xml/internal/serializer/NamespaceMappings.h>
@@ -25,12 +24,9 @@
 #undef PI_ENABLE_OUTPUT_ESCAPING
 #undef XMLNS_URI
 
-using $AttributesImplSerializer = ::com::sun::org::apache::xml::internal::serializer::AttributesImplSerializer;
-using $ElemContext = ::com::sun::org::apache::xml::internal::serializer::ElemContext;
 using $NamespaceMappings = ::com::sun::org::apache::xml::internal::serializer::NamespaceMappings;
 using $SerializerConstants = ::com::sun::org::apache::xml::internal::serializer::SerializerConstants;
 using $ToSAXHandler = ::com::sun::org::apache::xml::internal::serializer::ToSAXHandler;
-using $TransformStateSetter = ::com::sun::org::apache::xml::internal::serializer::TransformStateSetter;
 using $OutputStream = ::java::io::OutputStream;
 using $Writer = ::java::io::Writer;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -52,72 +48,6 @@ namespace com {
 				namespace xml {
 					namespace internal {
 						namespace serializer {
-
-$FieldInfo _ToXMLSAXHandler_FieldInfo_[] = {
-	{"m_escapeSetting", "Z", nullptr, $PROTECTED, $field(ToXMLSAXHandler, m_escapeSetting)},
-	{}
-};
-
-$MethodInfo _ToXMLSAXHandler_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ToXMLSAXHandler, init$, void)},
-	{"<init>", "(Lorg/xml/sax/ContentHandler;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ToXMLSAXHandler, init$, void, $ContentHandler*, $String*)},
-	{"<init>", "(Lorg/xml/sax/ContentHandler;Lorg/xml/sax/ext/LexicalHandler;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ToXMLSAXHandler, init$, void, $ContentHandler*, $LexicalHandler*, $String*)},
-	{"addAttribute", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)V", nullptr, $PUBLIC, $virtualMethod(ToXMLSAXHandler, addAttribute, void, $String*, $String*, $String*, $String*, $String*, bool), "org.xml.sax.SAXException"},
-	{"attributeDecl", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToXMLSAXHandler, attributeDecl, void, $String*, $String*, $String*, $String*, $String*), "org.xml.sax.SAXException"},
-	{"characters", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToXMLSAXHandler, characters, void, $String*), "org.xml.sax.SAXException"},
-	{"characters", "([CII)V", nullptr, $PUBLIC, $virtualMethod(ToXMLSAXHandler, characters, void, $chars*, int32_t, int32_t), "org.xml.sax.SAXException"},
-	{"closeCDATA", "()V", nullptr, $PUBLIC, $virtualMethod(ToXMLSAXHandler, closeCDATA, void), "org.xml.sax.SAXException"},
-	{"closeStartTag", "()V", nullptr, $PROTECTED, $virtualMethod(ToXMLSAXHandler, closeStartTag, void), "org.xml.sax.SAXException"},
-	{"comment", "([CII)V", nullptr, $PUBLIC, $virtualMethod(ToXMLSAXHandler, comment, void, $chars*, int32_t, int32_t), "org.xml.sax.SAXException"},
-	{"elementDecl", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToXMLSAXHandler, elementDecl, void, $String*, $String*), "org.xml.sax.SAXException"},
-	{"endCDATA", "()V", nullptr, $PUBLIC, $virtualMethod(ToXMLSAXHandler, endCDATA, void), "org.xml.sax.SAXException"},
-	{"endDTD", "()V", nullptr, $PUBLIC, $virtualMethod(ToXMLSAXHandler, endDTD, void), "org.xml.sax.SAXException"},
-	{"endDocument", "()V", nullptr, $PUBLIC, $virtualMethod(ToXMLSAXHandler, endDocument, void), "org.xml.sax.SAXException"},
-	{"endElement", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToXMLSAXHandler, endElement, void, $String*, $String*, $String*), "org.xml.sax.SAXException"},
-	{"endElement", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToXMLSAXHandler, endElement, void, $String*), "org.xml.sax.SAXException"},
-	{"endPrefixMapping", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToXMLSAXHandler, endPrefixMapping, void, $String*), "org.xml.sax.SAXException"},
-	{"ensurePrefixIsDeclared", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(ToXMLSAXHandler, ensurePrefixIsDeclared, void, $String*, $String*), "org.xml.sax.SAXException"},
-	{"externalEntityDecl", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToXMLSAXHandler, externalEntityDecl, void, $String*, $String*, $String*), "org.xml.sax.SAXException"},
-	{"getOutputFormat", "()Ljava/util/Properties;", nullptr, $PUBLIC, $virtualMethod(ToXMLSAXHandler, getOutputFormat, $Properties*)},
-	{"getOutputStream", "()Ljava/io/OutputStream;", nullptr, $PUBLIC, $virtualMethod(ToXMLSAXHandler, getOutputStream, $OutputStream*)},
-	{"getWriter", "()Ljava/io/Writer;", nullptr, $PUBLIC, $virtualMethod(ToXMLSAXHandler, getWriter, $Writer*)},
-	{"ignorableWhitespace", "([CII)V", nullptr, $PUBLIC, $virtualMethod(ToXMLSAXHandler, ignorableWhitespace, void, $chars*, int32_t, int32_t), "org.xml.sax.SAXException"},
-	{"indent", "(I)V", nullptr, $PUBLIC, $method(ToXMLSAXHandler, indent, void, int32_t), "org.xml.sax.SAXException"},
-	{"internalEntityDecl", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToXMLSAXHandler, internalEntityDecl, void, $String*, $String*), "org.xml.sax.SAXException"},
-	{"namespaceAfterStartElement", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToXMLSAXHandler, namespaceAfterStartElement, void, $String*, $String*), "org.xml.sax.SAXException"},
-	{"popNamespace", "(Ljava/lang/String;)Z", nullptr, $PROTECTED, $method(ToXMLSAXHandler, popNamespace, bool, $String*)},
-	{"processingInstruction", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToXMLSAXHandler, processingInstruction, void, $String*, $String*), "org.xml.sax.SAXException"},
-	{"reset", "()Z", nullptr, $PUBLIC, $virtualMethod(ToXMLSAXHandler, reset, bool)},
-	{"resetToXMLSAXHandler", "()V", nullptr, $PRIVATE, $method(ToXMLSAXHandler, resetToXMLSAXHandler, void)},
-	{"serialize", "(Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC, $virtualMethod(ToXMLSAXHandler, serialize, void, $Node*), "java.io.IOException"},
-	{"setDocumentLocator", "(Lorg/xml/sax/Locator;)V", nullptr, $PUBLIC, $virtualMethod(ToXMLSAXHandler, setDocumentLocator, void, $Locator*)},
-	{"setEscaping", "(Z)Z", nullptr, $PUBLIC, $virtualMethod(ToXMLSAXHandler, setEscaping, bool, bool), "org.xml.sax.SAXException"},
-	{"setOutputFormat", "(Ljava/util/Properties;)V", nullptr, $PUBLIC, $virtualMethod(ToXMLSAXHandler, setOutputFormat, void, $Properties*)},
-	{"setOutputStream", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $virtualMethod(ToXMLSAXHandler, setOutputStream, void, $OutputStream*)},
-	{"setWriter", "(Ljava/io/Writer;)V", nullptr, $PUBLIC, $virtualMethod(ToXMLSAXHandler, setWriter, void, $Writer*)},
-	{"skippedEntity", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToXMLSAXHandler, skippedEntity, void, $String*), "org.xml.sax.SAXException"},
-	{"startCDATA", "()V", nullptr, $PUBLIC, $virtualMethod(ToXMLSAXHandler, startCDATA, void), "org.xml.sax.SAXException"},
-	{"startElement", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToXMLSAXHandler, startElement, void, $String*, $String*, $String*), "org.xml.sax.SAXException"},
-	{"startElement", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToXMLSAXHandler, startElement, void, $String*), "org.xml.sax.SAXException"},
-	{"startElement", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lorg/xml/sax/Attributes;)V", nullptr, $PUBLIC, $virtualMethod(ToXMLSAXHandler, startElement, void, $String*, $String*, $String*, $Attributes*), "org.xml.sax.SAXException"},
-	{"startEntity", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToXMLSAXHandler, startEntity, void, $String*), "org.xml.sax.SAXException"},
-	{"startPrefixMapping", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToXMLSAXHandler, startPrefixMapping, void, $String*, $String*), "org.xml.sax.SAXException"},
-	{"startPrefixMapping", "(Ljava/lang/String;Ljava/lang/String;Z)Z", nullptr, $PUBLIC, $virtualMethod(ToXMLSAXHandler, startPrefixMapping, bool, $String*, $String*, bool), "org.xml.sax.SAXException"},
-	{}
-};
-
-$ClassInfo _ToXMLSAXHandler_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.serializer.ToXMLSAXHandler",
-	"com.sun.org.apache.xml.internal.serializer.ToSAXHandler",
-	nullptr,
-	_ToXMLSAXHandler_FieldInfo_,
-	_ToXMLSAXHandler_MethodInfo_
-};
-
-$Object* allocate$ToXMLSAXHandler($Class* clazz) {
-	return $of($alloc(ToXMLSAXHandler));
-}
 
 void ToXMLSAXHandler::init$() {
 	$ToSAXHandler::init$();
@@ -187,9 +117,9 @@ void ToXMLSAXHandler::endDocument() {
 }
 
 void ToXMLSAXHandler::closeStartTag() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(this->m_elemContext)->m_startTagOpen = false;
-	$var($String, localName, getLocalName($nc(this->m_elemContext)->m_elementName));
+	$var($String, localName, getLocalName(this->m_elemContext->m_elementName));
 	$var($String, uri, getNamespaceURI($nc(this->m_elemContext)->m_elementName, true));
 	if (this->m_needToCallStartDocument) {
 		startDocumentInternal();
@@ -197,32 +127,32 @@ void ToXMLSAXHandler::closeStartTag() {
 	$nc(this->m_saxHandler)->startElement(uri, localName, $nc(this->m_elemContext)->m_elementName, this->m_attributes);
 	$nc(this->m_attributes)->clear();
 	if (this->m_state != nullptr) {
-		$nc(this->m_state)->setCurrentNode(nullptr);
+		this->m_state->setCurrentNode(nullptr);
 	}
 }
 
 void ToXMLSAXHandler::closeCDATA() {
 	if (this->m_lexHandler != nullptr && this->m_cdataTagOpen) {
-		$nc(this->m_lexHandler)->endCDATA();
+		this->m_lexHandler->endCDATA();
 	}
 	this->m_cdataTagOpen = false;
 }
 
 void ToXMLSAXHandler::endElement($String* namespaceURI$renamed, $String* localName$renamed, $String* qName) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, localName, localName$renamed);
 	$var($String, namespaceURI, namespaceURI$renamed);
 	flushPending();
 	if (namespaceURI == nullptr) {
 		if ($nc(this->m_elemContext)->m_elementURI != nullptr) {
-			$assign(namespaceURI, $nc(this->m_elemContext)->m_elementURI);
+			$assign(namespaceURI, this->m_elemContext->m_elementURI);
 		} else {
 			$assign(namespaceURI, getNamespaceURI(qName, true));
 		}
 	}
 	if (localName == nullptr) {
 		if ($nc(this->m_elemContext)->m_elementLocalName != nullptr) {
-			$assign(localName, $nc(this->m_elemContext)->m_elementLocalName);
+			$assign(localName, this->m_elemContext->m_elementLocalName);
 		} else {
 			$assign(localName, getLocalName(qName));
 		}
@@ -274,11 +204,9 @@ bool ToXMLSAXHandler::startPrefixMapping($String* prefix, $String* uri, bool sho
 			if ($nc($SerializerConstants::EMPTYSTRING)->equals(prefix)) {
 				$assign(name, "xmlns"_s);
 				addAttributeAlways($SerializerConstants::XMLNS_URI, name, name, "CDATA"_s, uri, false);
-			} else {
-				if (!$nc($SerializerConstants::EMPTYSTRING)->equals(uri)) {
-					$assign(name, $str({"xmlns:"_s, prefix}));
-					addAttributeAlways($SerializerConstants::XMLNS_URI, prefix, name, "CDATA"_s, uri, false);
-				}
+			} else if (!$SerializerConstants::EMPTYSTRING->equals(uri)) {
+				$assign(name, $str({"xmlns:"_s, prefix}));
+				addAttributeAlways($SerializerConstants::XMLNS_URI, prefix, name, "CDATA"_s, uri, false);
 			}
 		}
 	}
@@ -288,7 +216,7 @@ bool ToXMLSAXHandler::startPrefixMapping($String* prefix, $String* uri, bool sho
 void ToXMLSAXHandler::comment($chars* arg0, int32_t arg1, int32_t arg2) {
 	flushPending();
 	if (this->m_lexHandler != nullptr) {
-		$nc(this->m_lexHandler)->comment(arg0, arg1, arg2);
+		this->m_lexHandler->comment(arg0, arg1, arg2);
 	}
 	if (this->m_tracer != nullptr) {
 		$ToSAXHandler::fireCommentEvent(arg0, arg1, arg2);
@@ -300,13 +228,13 @@ void ToXMLSAXHandler::endCDATA() {
 
 void ToXMLSAXHandler::endDTD() {
 	if (this->m_lexHandler != nullptr) {
-		$nc(this->m_lexHandler)->endDTD();
+		this->m_lexHandler->endDTD();
 	}
 }
 
 void ToXMLSAXHandler::startEntity($String* arg0) {
 	if (this->m_lexHandler != nullptr) {
-		$nc(this->m_lexHandler)->startEntity(arg0);
+		this->m_lexHandler->startEntity(arg0);
 	}
 }
 
@@ -351,7 +279,7 @@ void ToXMLSAXHandler::characters($chars* ch, int32_t off, int32_t len) {
 		$nc(this->m_elemContext)->m_startTagOpen = false;
 	}
 	if ($nc(this->m_elemContext)->m_isCdataSection && !this->m_cdataTagOpen && this->m_lexHandler != nullptr) {
-		$nc(this->m_lexHandler)->startCDATA();
+		this->m_lexHandler->startCDATA();
 		this->m_cdataTagOpen = true;
 	}
 	$nc(this->m_saxHandler)->characters(ch, off, len);
@@ -391,14 +319,14 @@ void ToXMLSAXHandler::startCDATA() {
 	if (!this->m_cdataTagOpen) {
 		flushPending();
 		if (this->m_lexHandler != nullptr) {
-			$nc(this->m_lexHandler)->startCDATA();
+			this->m_lexHandler->startCDATA();
 			this->m_cdataTagOpen = true;
 		}
 	}
 }
 
 void ToXMLSAXHandler::startElement($String* namespaceURI, $String* localName, $String* name, $Attributes* atts) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	flushPending();
 	$ToSAXHandler::startElement(namespaceURI, localName, name, atts);
 	if (this->m_needToOutputDocTypeDecl) {
@@ -422,14 +350,14 @@ void ToXMLSAXHandler::startElement($String* namespaceURI, $String* localName, $S
 }
 
 void ToXMLSAXHandler::ensurePrefixIsDeclared($String* ns, $String* rawName) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (ns != nullptr && ns->length() > 0) {
 		int32_t index = 0;
 		bool no_prefix = ((index = $nc(rawName)->indexOf(":"_s)) < 0);
 		$var($String, prefix, (no_prefix) ? ""_s : rawName->substring(0, index));
 		if (nullptr != prefix) {
 			$var($String, foundURI, $nc(this->m_prefixMap)->lookupNamespace(prefix));
-			if ((nullptr == foundURI) || !$nc(foundURI)->equals(ns)) {
+			if ((nullptr == foundURI) || !foundURI->equals(ns)) {
 				this->startPrefixMapping(prefix, ns, false);
 				if (getShouldOutputNSAttr()) {
 					this->addAttributeAlways("http://www.w3.org/2000/xmlns/"_s, no_prefix ? "xmlns"_s : prefix, no_prefix ? "xmlns"_s : ($$str({"xmlns:"_s, prefix})), "CDATA"_s, ns, false);
@@ -463,7 +391,68 @@ ToXMLSAXHandler::ToXMLSAXHandler() {
 }
 
 $Class* ToXMLSAXHandler::load$($String* name, bool initialize) {
-	$loadClass(ToXMLSAXHandler, name, initialize, &_ToXMLSAXHandler_ClassInfo_, allocate$ToXMLSAXHandler);
+	$FieldInfo fieldInfos$$[] = {
+		{"m_escapeSetting", "Z", nullptr, $PROTECTED, $field(ToXMLSAXHandler, m_escapeSetting)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ToXMLSAXHandler, init$, void)},
+		{"<init>", "(Lorg/xml/sax/ContentHandler;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ToXMLSAXHandler, init$, void, $ContentHandler*, $String*)},
+		{"<init>", "(Lorg/xml/sax/ContentHandler;Lorg/xml/sax/ext/LexicalHandler;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ToXMLSAXHandler, init$, void, $ContentHandler*, $LexicalHandler*, $String*)},
+		{"addAttribute", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)V", nullptr, $PUBLIC, $virtualMethod(ToXMLSAXHandler, addAttribute, void, $String*, $String*, $String*, $String*, $String*, bool), "org.xml.sax.SAXException"},
+		{"attributeDecl", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToXMLSAXHandler, attributeDecl, void, $String*, $String*, $String*, $String*, $String*), "org.xml.sax.SAXException"},
+		{"characters", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToXMLSAXHandler, characters, void, $String*), "org.xml.sax.SAXException"},
+		{"characters", "([CII)V", nullptr, $PUBLIC, $virtualMethod(ToXMLSAXHandler, characters, void, $chars*, int32_t, int32_t), "org.xml.sax.SAXException"},
+		{"closeCDATA", "()V", nullptr, $PUBLIC, $virtualMethod(ToXMLSAXHandler, closeCDATA, void), "org.xml.sax.SAXException"},
+		{"closeStartTag", "()V", nullptr, $PROTECTED, $virtualMethod(ToXMLSAXHandler, closeStartTag, void), "org.xml.sax.SAXException"},
+		{"comment", "([CII)V", nullptr, $PUBLIC, $virtualMethod(ToXMLSAXHandler, comment, void, $chars*, int32_t, int32_t), "org.xml.sax.SAXException"},
+		{"elementDecl", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToXMLSAXHandler, elementDecl, void, $String*, $String*), "org.xml.sax.SAXException"},
+		{"endCDATA", "()V", nullptr, $PUBLIC, $virtualMethod(ToXMLSAXHandler, endCDATA, void), "org.xml.sax.SAXException"},
+		{"endDTD", "()V", nullptr, $PUBLIC, $virtualMethod(ToXMLSAXHandler, endDTD, void), "org.xml.sax.SAXException"},
+		{"endDocument", "()V", nullptr, $PUBLIC, $virtualMethod(ToXMLSAXHandler, endDocument, void), "org.xml.sax.SAXException"},
+		{"endElement", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToXMLSAXHandler, endElement, void, $String*, $String*, $String*), "org.xml.sax.SAXException"},
+		{"endElement", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToXMLSAXHandler, endElement, void, $String*), "org.xml.sax.SAXException"},
+		{"endPrefixMapping", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToXMLSAXHandler, endPrefixMapping, void, $String*), "org.xml.sax.SAXException"},
+		{"ensurePrefixIsDeclared", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(ToXMLSAXHandler, ensurePrefixIsDeclared, void, $String*, $String*), "org.xml.sax.SAXException"},
+		{"externalEntityDecl", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToXMLSAXHandler, externalEntityDecl, void, $String*, $String*, $String*), "org.xml.sax.SAXException"},
+		{"getOutputFormat", "()Ljava/util/Properties;", nullptr, $PUBLIC, $virtualMethod(ToXMLSAXHandler, getOutputFormat, $Properties*)},
+		{"getOutputStream", "()Ljava/io/OutputStream;", nullptr, $PUBLIC, $virtualMethod(ToXMLSAXHandler, getOutputStream, $OutputStream*)},
+		{"getWriter", "()Ljava/io/Writer;", nullptr, $PUBLIC, $virtualMethod(ToXMLSAXHandler, getWriter, $Writer*)},
+		{"ignorableWhitespace", "([CII)V", nullptr, $PUBLIC, $virtualMethod(ToXMLSAXHandler, ignorableWhitespace, void, $chars*, int32_t, int32_t), "org.xml.sax.SAXException"},
+		{"indent", "(I)V", nullptr, $PUBLIC, $method(ToXMLSAXHandler, indent, void, int32_t), "org.xml.sax.SAXException"},
+		{"internalEntityDecl", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToXMLSAXHandler, internalEntityDecl, void, $String*, $String*), "org.xml.sax.SAXException"},
+		{"namespaceAfterStartElement", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToXMLSAXHandler, namespaceAfterStartElement, void, $String*, $String*), "org.xml.sax.SAXException"},
+		{"popNamespace", "(Ljava/lang/String;)Z", nullptr, $PROTECTED, $method(ToXMLSAXHandler, popNamespace, bool, $String*)},
+		{"processingInstruction", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToXMLSAXHandler, processingInstruction, void, $String*, $String*), "org.xml.sax.SAXException"},
+		{"reset", "()Z", nullptr, $PUBLIC, $virtualMethod(ToXMLSAXHandler, reset, bool)},
+		{"resetToXMLSAXHandler", "()V", nullptr, $PRIVATE, $method(ToXMLSAXHandler, resetToXMLSAXHandler, void)},
+		{"serialize", "(Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC, $virtualMethod(ToXMLSAXHandler, serialize, void, $Node*), "java.io.IOException"},
+		{"setDocumentLocator", "(Lorg/xml/sax/Locator;)V", nullptr, $PUBLIC, $virtualMethod(ToXMLSAXHandler, setDocumentLocator, void, $Locator*)},
+		{"setEscaping", "(Z)Z", nullptr, $PUBLIC, $virtualMethod(ToXMLSAXHandler, setEscaping, bool, bool), "org.xml.sax.SAXException"},
+		{"setOutputFormat", "(Ljava/util/Properties;)V", nullptr, $PUBLIC, $virtualMethod(ToXMLSAXHandler, setOutputFormat, void, $Properties*)},
+		{"setOutputStream", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $virtualMethod(ToXMLSAXHandler, setOutputStream, void, $OutputStream*)},
+		{"setWriter", "(Ljava/io/Writer;)V", nullptr, $PUBLIC, $virtualMethod(ToXMLSAXHandler, setWriter, void, $Writer*)},
+		{"skippedEntity", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToXMLSAXHandler, skippedEntity, void, $String*), "org.xml.sax.SAXException"},
+		{"startCDATA", "()V", nullptr, $PUBLIC, $virtualMethod(ToXMLSAXHandler, startCDATA, void), "org.xml.sax.SAXException"},
+		{"startElement", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToXMLSAXHandler, startElement, void, $String*, $String*, $String*), "org.xml.sax.SAXException"},
+		{"startElement", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToXMLSAXHandler, startElement, void, $String*), "org.xml.sax.SAXException"},
+		{"startElement", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lorg/xml/sax/Attributes;)V", nullptr, $PUBLIC, $virtualMethod(ToXMLSAXHandler, startElement, void, $String*, $String*, $String*, $Attributes*), "org.xml.sax.SAXException"},
+		{"startEntity", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToXMLSAXHandler, startEntity, void, $String*), "org.xml.sax.SAXException"},
+		{"startPrefixMapping", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToXMLSAXHandler, startPrefixMapping, void, $String*, $String*), "org.xml.sax.SAXException"},
+		{"startPrefixMapping", "(Ljava/lang/String;Ljava/lang/String;Z)Z", nullptr, $PUBLIC, $virtualMethod(ToXMLSAXHandler, startPrefixMapping, bool, $String*, $String*, bool), "org.xml.sax.SAXException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.serializer.ToXMLSAXHandler",
+		"com.sun.org.apache.xml.internal.serializer.ToSAXHandler",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ToXMLSAXHandler, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ToXMLSAXHandler));
+	});
 	return class$;
 }
 

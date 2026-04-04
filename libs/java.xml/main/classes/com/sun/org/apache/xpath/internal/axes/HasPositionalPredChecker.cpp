@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xpath/internal/axes/HasPositionalPredChecker.h>
-
 #include <com/sun/org/apache/xpath/internal/Expression.h>
 #include <com/sun/org/apache/xpath/internal/ExpressionOwner.h>
 #include <com/sun/org/apache/xpath/internal/XPathVisitor.h>
@@ -46,33 +45,6 @@ namespace com {
 					namespace internal {
 						namespace axes {
 
-$FieldInfo _HasPositionalPredChecker_FieldInfo_[] = {
-	{"m_hasPositionalPred", "Z", nullptr, $PRIVATE, $field(HasPositionalPredChecker, m_hasPositionalPred)},
-	{"m_predDepth", "I", nullptr, $PRIVATE, $field(HasPositionalPredChecker, m_predDepth)},
-	{}
-};
-
-$MethodInfo _HasPositionalPredChecker_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(HasPositionalPredChecker, init$, void)},
-	{"check", "(Lcom/sun/org/apache/xpath/internal/axes/LocPathIterator;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(HasPositionalPredChecker, check, bool, $LocPathIterator*)},
-	{"visitFunction", "(Lcom/sun/org/apache/xpath/internal/ExpressionOwner;Lcom/sun/org/apache/xpath/internal/functions/Function;)Z", nullptr, $PUBLIC, $virtualMethod(HasPositionalPredChecker, visitFunction, bool, $ExpressionOwner*, $Function*)},
-	{"visitPredicate", "(Lcom/sun/org/apache/xpath/internal/ExpressionOwner;Lcom/sun/org/apache/xpath/internal/Expression;)Z", nullptr, $PUBLIC, $virtualMethod(HasPositionalPredChecker, visitPredicate, bool, $ExpressionOwner*, $Expression*)},
-	{}
-};
-
-$ClassInfo _HasPositionalPredChecker_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xpath.internal.axes.HasPositionalPredChecker",
-	"com.sun.org.apache.xpath.internal.XPathVisitor",
-	nullptr,
-	_HasPositionalPredChecker_FieldInfo_,
-	_HasPositionalPredChecker_MethodInfo_
-};
-
-$Object* allocate$HasPositionalPredChecker($Class* clazz) {
-	return $of($alloc(HasPositionalPredChecker));
-}
-
 void HasPositionalPredChecker::init$() {
 	$XPathVisitor::init$();
 	this->m_hasPositionalPred = false;
@@ -110,7 +82,29 @@ HasPositionalPredChecker::HasPositionalPredChecker() {
 }
 
 $Class* HasPositionalPredChecker::load$($String* name, bool initialize) {
-	$loadClass(HasPositionalPredChecker, name, initialize, &_HasPositionalPredChecker_ClassInfo_, allocate$HasPositionalPredChecker);
+	$FieldInfo fieldInfos$$[] = {
+		{"m_hasPositionalPred", "Z", nullptr, $PRIVATE, $field(HasPositionalPredChecker, m_hasPositionalPred)},
+		{"m_predDepth", "I", nullptr, $PRIVATE, $field(HasPositionalPredChecker, m_predDepth)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(HasPositionalPredChecker, init$, void)},
+		{"check", "(Lcom/sun/org/apache/xpath/internal/axes/LocPathIterator;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(HasPositionalPredChecker, check, bool, $LocPathIterator*)},
+		{"visitFunction", "(Lcom/sun/org/apache/xpath/internal/ExpressionOwner;Lcom/sun/org/apache/xpath/internal/functions/Function;)Z", nullptr, $PUBLIC, $virtualMethod(HasPositionalPredChecker, visitFunction, bool, $ExpressionOwner*, $Function*)},
+		{"visitPredicate", "(Lcom/sun/org/apache/xpath/internal/ExpressionOwner;Lcom/sun/org/apache/xpath/internal/Expression;)Z", nullptr, $PUBLIC, $virtualMethod(HasPositionalPredChecker, visitPredicate, bool, $ExpressionOwner*, $Expression*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xpath.internal.axes.HasPositionalPredChecker",
+		"com.sun.org.apache.xpath.internal.XPathVisitor",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(HasPositionalPredChecker, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HasPositionalPredChecker);
+	});
 	return class$;
 }
 

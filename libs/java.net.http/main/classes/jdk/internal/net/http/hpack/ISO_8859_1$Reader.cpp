@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/hpack/ISO_8859_1$Reader.h>
-
 #include <java/io/IOException.h>
 #include <java/io/Serializable.h>
 #include <java/lang/Appendable.h>
@@ -46,82 +45,37 @@ public:
 	virtual void accept(int64_t buf, int32_t bufLen) override {
 		$nc(inst$)->lambda$new$0(buf, bufLen);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<ISO_8859_1$Reader$$Lambda$lambda$new$0>());
-	}
 	ISO_8859_1$Reader* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo ISO_8859_1$Reader$$Lambda$lambda$new$0::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(ISO_8859_1$Reader$$Lambda$lambda$new$0, inst$)},
-	{}
-};
-$MethodInfo ISO_8859_1$Reader$$Lambda$lambda$new$0::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/hpack/ISO_8859_1$Reader;)V", nullptr, $PUBLIC, $method(ISO_8859_1$Reader$$Lambda$lambda$new$0, init$, void, ISO_8859_1$Reader*)},
-	{"accept", "(JI)V", nullptr, $PUBLIC, $virtualMethod(ISO_8859_1$Reader$$Lambda$lambda$new$0, accept, void, int64_t, int32_t)},
-	{}
-};
-$ClassInfo ISO_8859_1$Reader$$Lambda$lambda$new$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.net.http.hpack.ISO_8859_1$Reader$$Lambda$lambda$new$0",
-	"java.lang.Object",
-	"jdk.internal.net.http.hpack.HPACK$BufferUpdateConsumer",
-	fieldInfos,
-	methodInfos
 };
 $Class* ISO_8859_1$Reader$$Lambda$lambda$new$0::load$($String* name, bool initialize) {
-	$loadClass(ISO_8859_1$Reader$$Lambda$lambda$new$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(ISO_8859_1$Reader$$Lambda$lambda$new$0, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/internal/net/http/hpack/ISO_8859_1$Reader;)V", nullptr, $PUBLIC, $method(ISO_8859_1$Reader$$Lambda$lambda$new$0, init$, void, ISO_8859_1$Reader*)},
+		{"accept", "(JI)V", nullptr, $PUBLIC, $virtualMethod(ISO_8859_1$Reader$$Lambda$lambda$new$0, accept, void, int64_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.net.http.hpack.ISO_8859_1$Reader$$Lambda$lambda$new$0",
+		"java.lang.Object",
+		"jdk.internal.net.http.hpack.HPACK$BufferUpdateConsumer",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ISO_8859_1$Reader$$Lambda$lambda$new$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ISO_8859_1$Reader$$Lambda$lambda$new$0);
+	});
 	return class$;
 }
 $Class* ISO_8859_1$Reader$$Lambda$lambda$new$0::class$ = nullptr;
 
-$FieldInfo _ISO_8859_1$Reader_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(ISO_8859_1$Reader, $assertionsDisabled)},
-	{"UPDATER", "Ljdk/internal/net/http/hpack/HPACK$BufferUpdateConsumer;", nullptr, $PRIVATE | $FINAL, $field(ISO_8859_1$Reader, UPDATER)},
-	{"buffer", "J", nullptr, $PRIVATE, $field(ISO_8859_1$Reader, buffer)},
-	{"bufferLen", "I", nullptr, $PRIVATE, $field(ISO_8859_1$Reader, bufferLen)},
-	{}
-};
-
-$MethodInfo _ISO_8859_1$Reader_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ISO_8859_1$Reader, init$, void)},
-	{"lambda$new$0", "(JI)V", nullptr, $PRIVATE | $SYNTHETIC, $method(ISO_8859_1$Reader, lambda$new$0, void, int64_t, int32_t)},
-	{"read", "(Ljava/nio/ByteBuffer;Ljava/lang/Appendable;)V", nullptr, $PUBLIC, $method(ISO_8859_1$Reader, read, void, $ByteBuffer*, $Appendable*), "java.io.IOException"},
-	{"reset", "()Ljdk/internal/net/http/hpack/ISO_8859_1$Reader;", nullptr, $PUBLIC, $method(ISO_8859_1$Reader, reset, ISO_8859_1$Reader*)},
-	{}
-};
-
-$InnerClassInfo _ISO_8859_1$Reader_InnerClassesInfo_[] = {
-	{"jdk.internal.net.http.hpack.ISO_8859_1$Reader", "jdk.internal.net.http.hpack.ISO_8859_1", "Reader", $PUBLIC | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _ISO_8859_1$Reader_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"jdk.internal.net.http.hpack.ISO_8859_1$Reader",
-	"java.lang.Object",
-	nullptr,
-	_ISO_8859_1$Reader_FieldInfo_,
-	_ISO_8859_1$Reader_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ISO_8859_1$Reader_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.net.http.hpack.ISO_8859_1"
-};
-
-$Object* allocate$ISO_8859_1$Reader($Class* clazz) {
-	return $of($alloc(ISO_8859_1$Reader));
-}
-
 bool ISO_8859_1$Reader::$assertionsDisabled = false;
 
 void ISO_8859_1$Reader::init$() {
-	$set(this, UPDATER, static_cast<$HPACK$BufferUpdateConsumer*>($new(ISO_8859_1$Reader$$Lambda$lambda$new$0, this)));
+	$set(this, UPDATER, $new(ISO_8859_1$Reader$$Lambda$lambda$new$0, this));
 }
 
 void ISO_8859_1$Reader::read($ByteBuffer* source, $Appendable* destination) {
@@ -157,7 +111,7 @@ void ISO_8859_1$Reader::lambda$new$0(int64_t buf, int32_t bufLen) {
 	this->bufferLen = bufLen;
 }
 
-void clinit$ISO_8859_1$Reader($Class* class$) {
+void ISO_8859_1$Reader::clinit$($Class* clazz) {
 	$load($ISO_8859_1);
 	ISO_8859_1$Reader::$assertionsDisabled = !$ISO_8859_1::class$->desiredAssertionStatus();
 }
@@ -167,11 +121,46 @@ ISO_8859_1$Reader::ISO_8859_1$Reader() {
 
 $Class* ISO_8859_1$Reader::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(ISO_8859_1$Reader$$Lambda$lambda$new$0::classInfo$.name)) {
+		if (name->equals("jdk.internal.net.http.hpack.ISO_8859_1$Reader$$Lambda$lambda$new$0")) {
 			return ISO_8859_1$Reader$$Lambda$lambda$new$0::load$(name, initialize);
 		}
 	}
-	$loadClass(ISO_8859_1$Reader, name, initialize, &_ISO_8859_1$Reader_ClassInfo_, clinit$ISO_8859_1$Reader, allocate$ISO_8859_1$Reader);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(ISO_8859_1$Reader, $assertionsDisabled)},
+		{"UPDATER", "Ljdk/internal/net/http/hpack/HPACK$BufferUpdateConsumer;", nullptr, $PRIVATE | $FINAL, $field(ISO_8859_1$Reader, UPDATER)},
+		{"buffer", "J", nullptr, $PRIVATE, $field(ISO_8859_1$Reader, buffer)},
+		{"bufferLen", "I", nullptr, $PRIVATE, $field(ISO_8859_1$Reader, bufferLen)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ISO_8859_1$Reader, init$, void)},
+		{"lambda$new$0", "(JI)V", nullptr, $PRIVATE | $SYNTHETIC, $method(ISO_8859_1$Reader, lambda$new$0, void, int64_t, int32_t)},
+		{"read", "(Ljava/nio/ByteBuffer;Ljava/lang/Appendable;)V", nullptr, $PUBLIC, $method(ISO_8859_1$Reader, read, void, $ByteBuffer*, $Appendable*), "java.io.IOException"},
+		{"reset", "()Ljdk/internal/net/http/hpack/ISO_8859_1$Reader;", nullptr, $PUBLIC, $method(ISO_8859_1$Reader, reset, ISO_8859_1$Reader*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.net.http.hpack.ISO_8859_1$Reader", "jdk.internal.net.http.hpack.ISO_8859_1", "Reader", $PUBLIC | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"jdk.internal.net.http.hpack.ISO_8859_1$Reader",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.net.http.hpack.ISO_8859_1"
+	};
+	$loadClass(ISO_8859_1$Reader, name, initialize, &classInfo$$, ISO_8859_1$Reader::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ISO_8859_1$Reader);
+	});
 	return class$;
 }
 

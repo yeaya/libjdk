@@ -24,6 +24,7 @@ class $import KdcComm : public ::java::lang::Object {
 	$class(KdcComm, 0, ::java::lang::Object)
 public:
 	KdcComm();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* realm);
 	int32_t getRealmSpecificValue($String* realm, $String* key, int32_t defValue);
 	static void initStatic();

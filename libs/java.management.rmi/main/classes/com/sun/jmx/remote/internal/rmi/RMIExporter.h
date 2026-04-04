@@ -37,6 +37,7 @@ namespace com {
 class $export RMIExporter : public ::java::lang::Object {
 	$interface(RMIExporter, 0, ::java::lang::Object)
 public:
+	static void clinit$(::java::lang::Class* clazz);
 	virtual ::java::rmi::Remote* exportObject(::java::rmi::Remote* obj, int32_t port, ::java::rmi::server::RMIClientSocketFactory* csf, ::java::rmi::server::RMIServerSocketFactory* ssf, ::java::io::ObjectInputFilter* filter) {return nullptr;}
 	virtual bool unexportObject(::java::rmi::Remote* obj, bool force) {return false;}
 	static $String* EXPORTER_ATTRIBUTE;

@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/BooleanCall.h>
-
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/Expression.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/FunctionCall.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/QName.h>
@@ -10,7 +9,6 @@
 #include <java/util/List.h>
 #include <jcpp.h>
 
-using $Expression = ::com::sun::org::apache::xalan::internal::xsltc::compiler::Expression;
 using $FunctionCall = ::com::sun::org::apache::xalan::internal::xsltc::compiler::FunctionCall;
 using $QName = ::com::sun::org::apache::xalan::internal::xsltc::compiler::QName;
 using $SymbolTable = ::com::sun::org::apache::xalan::internal::xsltc::compiler::SymbolTable;
@@ -30,31 +28,6 @@ namespace com {
 					namespace internal {
 						namespace xsltc {
 							namespace compiler {
-
-$FieldInfo _BooleanCall_FieldInfo_[] = {
-	{"_arg", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Expression;", nullptr, $PRIVATE, $field(BooleanCall, _arg)},
-	{}
-};
-
-$MethodInfo _BooleanCall_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;Ljava/util/List;)V", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;Ljava/util/List<Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Expression;>;)V", $PUBLIC, $method(BooleanCall, init$, void, $QName*, $List*)},
-	{"translate", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;)V", nullptr, $PUBLIC, $virtualMethod(BooleanCall, translate, void, $ClassGenerator*, $MethodGenerator*)},
-	{"typeCheck", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SymbolTable;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/Type;", nullptr, $PUBLIC, $virtualMethod(BooleanCall, typeCheck, $Type*, $SymbolTable*), "com.sun.org.apache.xalan.internal.xsltc.compiler.util.TypeCheckError"},
-	{}
-};
-
-$ClassInfo _BooleanCall_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xalan.internal.xsltc.compiler.BooleanCall",
-	"com.sun.org.apache.xalan.internal.xsltc.compiler.FunctionCall",
-	nullptr,
-	_BooleanCall_FieldInfo_,
-	_BooleanCall_MethodInfo_
-};
-
-$Object* allocate$BooleanCall($Class* clazz) {
-	return $of($alloc(BooleanCall));
-}
 
 void BooleanCall::init$($QName* fname, $List* arguments) {
 	$FunctionCall::init$(fname, arguments);
@@ -82,7 +55,27 @@ BooleanCall::BooleanCall() {
 }
 
 $Class* BooleanCall::load$($String* name, bool initialize) {
-	$loadClass(BooleanCall, name, initialize, &_BooleanCall_ClassInfo_, allocate$BooleanCall);
+	$FieldInfo fieldInfos$$[] = {
+		{"_arg", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Expression;", nullptr, $PRIVATE, $field(BooleanCall, _arg)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;Ljava/util/List;)V", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;Ljava/util/List<Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Expression;>;)V", $PUBLIC, $method(BooleanCall, init$, void, $QName*, $List*)},
+		{"translate", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;)V", nullptr, $PUBLIC, $virtualMethod(BooleanCall, translate, void, $ClassGenerator*, $MethodGenerator*)},
+		{"typeCheck", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SymbolTable;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/Type;", nullptr, $PUBLIC, $virtualMethod(BooleanCall, typeCheck, $Type*, $SymbolTable*), "com.sun.org.apache.xalan.internal.xsltc.compiler.util.TypeCheckError"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xalan.internal.xsltc.compiler.BooleanCall",
+		"com.sun.org.apache.xalan.internal.xsltc.compiler.FunctionCall",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(BooleanCall, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BooleanCall);
+	});
 	return class$;
 }
 

@@ -37,7 +37,10 @@ public:
 	static const int64_t serialVersionUID = (int64_t)1;
 	XMLSignatureException(const XMLSignatureException& e);
 	virtual void throw$() override;
-	inline XMLSignatureException* operator ->() {
+	inline XMLSignatureException* operator ->() const {
+		return (XMLSignatureException*)throwing$;
+	}
+	inline operator XMLSignatureException*() const {
 		return (XMLSignatureException*)throwing$;
 	}
 };

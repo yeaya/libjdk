@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/metal/MetalFileChooserUI$AlignedLabel.h>
-
 #include <java/awt/Dimension.h>
 #include <java/lang/Math.h>
 #include <javax/swing/JComponent.h>
@@ -23,47 +22,6 @@ namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace metal {
-
-$FieldInfo _MetalFileChooserUI$AlignedLabel_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/plaf/metal/MetalFileChooserUI;", nullptr, $FINAL | $SYNTHETIC, $field(MetalFileChooserUI$AlignedLabel, this$0)},
-	{"group", "[Ljavax/swing/plaf/metal/MetalFileChooserUI$AlignedLabel;", nullptr, $PRIVATE, $field(MetalFileChooserUI$AlignedLabel, group)},
-	{"maxWidth", "I", nullptr, $PRIVATE, $field(MetalFileChooserUI$AlignedLabel, maxWidth)},
-	{}
-};
-
-$MethodInfo _MetalFileChooserUI$AlignedLabel_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/plaf/metal/MetalFileChooserUI;)V", nullptr, 0, $method(MetalFileChooserUI$AlignedLabel, init$, void, $MetalFileChooserUI*)},
-	{"<init>", "(Ljavax/swing/plaf/metal/MetalFileChooserUI;Ljava/lang/String;)V", nullptr, 0, $method(MetalFileChooserUI$AlignedLabel, init$, void, $MetalFileChooserUI*, $String*)},
-	{"getMaxWidth", "()I", nullptr, $PRIVATE, $method(MetalFileChooserUI$AlignedLabel, getMaxWidth, int32_t)},
-	{"getPreferredSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(MetalFileChooserUI$AlignedLabel, getPreferredSize, $Dimension*)},
-	{"getSuperPreferredWidth", "()I", nullptr, $PRIVATE, $method(MetalFileChooserUI$AlignedLabel, getSuperPreferredWidth, int32_t)},
-	{}
-};
-
-$InnerClassInfo _MetalFileChooserUI$AlignedLabel_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.metal.MetalFileChooserUI$AlignedLabel", "javax.swing.plaf.metal.MetalFileChooserUI", "AlignedLabel", $PRIVATE},
-	{}
-};
-
-$ClassInfo _MetalFileChooserUI$AlignedLabel_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.metal.MetalFileChooserUI$AlignedLabel",
-	"javax.swing.JLabel",
-	nullptr,
-	_MetalFileChooserUI$AlignedLabel_FieldInfo_,
-	_MetalFileChooserUI$AlignedLabel_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MetalFileChooserUI$AlignedLabel_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.metal.MetalFileChooserUI"
-};
-
-$Object* allocate$MetalFileChooserUI$AlignedLabel($Class* clazz) {
-	return $of($alloc(MetalFileChooserUI$AlignedLabel));
-}
 
 void MetalFileChooserUI$AlignedLabel::init$($MetalFileChooserUI* this$0) {
 	$set(this, this$0, this$0);
@@ -90,10 +48,10 @@ int32_t MetalFileChooserUI$AlignedLabel::getMaxWidth() {
 	if (this->maxWidth == 0 && this->group != nullptr) {
 		int32_t max = 0;
 		for (int32_t i = 0; i < $nc(this->group)->length; ++i) {
-			max = $Math::max($nc($nc(this->group)->get(i))->getSuperPreferredWidth(), max);
+			max = $Math::max($nc(this->group->get(i))->getSuperPreferredWidth(), max);
 		}
 		for (int32_t i = 0; i < $nc(this->group)->length; ++i) {
-			$nc($nc(this->group)->get(i))->maxWidth = max;
+			$nc(this->group->get(i))->maxWidth = max;
 		}
 	}
 	return this->maxWidth;
@@ -107,7 +65,42 @@ MetalFileChooserUI$AlignedLabel::MetalFileChooserUI$AlignedLabel() {
 }
 
 $Class* MetalFileChooserUI$AlignedLabel::load$($String* name, bool initialize) {
-	$loadClass(MetalFileChooserUI$AlignedLabel, name, initialize, &_MetalFileChooserUI$AlignedLabel_ClassInfo_, allocate$MetalFileChooserUI$AlignedLabel);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/plaf/metal/MetalFileChooserUI;", nullptr, $FINAL | $SYNTHETIC, $field(MetalFileChooserUI$AlignedLabel, this$0)},
+		{"group", "[Ljavax/swing/plaf/metal/MetalFileChooserUI$AlignedLabel;", nullptr, $PRIVATE, $field(MetalFileChooserUI$AlignedLabel, group)},
+		{"maxWidth", "I", nullptr, $PRIVATE, $field(MetalFileChooserUI$AlignedLabel, maxWidth)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/plaf/metal/MetalFileChooserUI;)V", nullptr, 0, $method(MetalFileChooserUI$AlignedLabel, init$, void, $MetalFileChooserUI*)},
+		{"<init>", "(Ljavax/swing/plaf/metal/MetalFileChooserUI;Ljava/lang/String;)V", nullptr, 0, $method(MetalFileChooserUI$AlignedLabel, init$, void, $MetalFileChooserUI*, $String*)},
+		{"getMaxWidth", "()I", nullptr, $PRIVATE, $method(MetalFileChooserUI$AlignedLabel, getMaxWidth, int32_t)},
+		{"getPreferredSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(MetalFileChooserUI$AlignedLabel, getPreferredSize, $Dimension*)},
+		{"getSuperPreferredWidth", "()I", nullptr, $PRIVATE, $method(MetalFileChooserUI$AlignedLabel, getSuperPreferredWidth, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.metal.MetalFileChooserUI$AlignedLabel", "javax.swing.plaf.metal.MetalFileChooserUI", "AlignedLabel", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.metal.MetalFileChooserUI$AlignedLabel",
+		"javax.swing.JLabel",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.metal.MetalFileChooserUI"
+	};
+	$loadClass(MetalFileChooserUI$AlignedLabel, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MetalFileChooserUI$AlignedLabel));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <java/awt/Component$ProxyCapabilities.h>
-
 #include <java/awt/BufferCapabilities$FlipContents.h>
 #include <java/awt/BufferCapabilities.h>
 #include <java/awt/Component.h>
@@ -23,44 +22,8 @@ using $ExtendedBufferCapabilities = ::sun::java2d::pipe::hw::ExtendedBufferCapab
 namespace java {
 	namespace awt {
 
-$FieldInfo _Component$ProxyCapabilities_FieldInfo_[] = {
-	{"this$0", "Ljava/awt/Component;", nullptr, $FINAL | $SYNTHETIC, $field(Component$ProxyCapabilities, this$0)},
-	{"orig", "Ljava/awt/BufferCapabilities;", nullptr, $PRIVATE, $field(Component$ProxyCapabilities, orig)},
-	{}
-};
-
-$MethodInfo _Component$ProxyCapabilities_MethodInfo_[] = {
-	{"<init>", "(Ljava/awt/Component;Ljava/awt/BufferCapabilities;)V", nullptr, $PRIVATE, $method(Component$ProxyCapabilities, init$, void, $Component*, $BufferCapabilities*)},
-	{}
-};
-
-$InnerClassInfo _Component$ProxyCapabilities_InnerClassesInfo_[] = {
-	{"java.awt.Component$ProxyCapabilities", "java.awt.Component", "ProxyCapabilities", $PRIVATE},
-	{}
-};
-
-$ClassInfo _Component$ProxyCapabilities_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.awt.Component$ProxyCapabilities",
-	"sun.java2d.pipe.hw.ExtendedBufferCapabilities",
-	nullptr,
-	_Component$ProxyCapabilities_FieldInfo_,
-	_Component$ProxyCapabilities_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Component$ProxyCapabilities_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.awt.Component"
-};
-
-$Object* allocate$Component$ProxyCapabilities($Class* clazz) {
-	return $of($alloc(Component$ProxyCapabilities));
-}
-
 void Component$ProxyCapabilities::init$($Component* this$0, $BufferCapabilities* orig) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, this$0, this$0);
 	$var($ImageCapabilities, var$0, $nc(orig)->getFrontBufferCapabilities());
 	$var($ImageCapabilities, var$1, orig->getBackBufferCapabilities());
@@ -73,7 +36,37 @@ Component$ProxyCapabilities::Component$ProxyCapabilities() {
 }
 
 $Class* Component$ProxyCapabilities::load$($String* name, bool initialize) {
-	$loadClass(Component$ProxyCapabilities, name, initialize, &_Component$ProxyCapabilities_ClassInfo_, allocate$Component$ProxyCapabilities);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljava/awt/Component;", nullptr, $FINAL | $SYNTHETIC, $field(Component$ProxyCapabilities, this$0)},
+		{"orig", "Ljava/awt/BufferCapabilities;", nullptr, $PRIVATE, $field(Component$ProxyCapabilities, orig)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/Component;Ljava/awt/BufferCapabilities;)V", nullptr, $PRIVATE, $method(Component$ProxyCapabilities, init$, void, $Component*, $BufferCapabilities*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.awt.Component$ProxyCapabilities", "java.awt.Component", "ProxyCapabilities", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.awt.Component$ProxyCapabilities",
+		"sun.java2d.pipe.hw.ExtendedBufferCapabilities",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.awt.Component"
+	};
+	$loadClass(Component$ProxyCapabilities, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Component$ProxyCapabilities);
+	});
 	return class$;
 }
 

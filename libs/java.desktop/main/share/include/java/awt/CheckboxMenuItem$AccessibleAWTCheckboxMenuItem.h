@@ -42,7 +42,7 @@ public:
 	virtual ::java::lang::Number* getMinimumAccessibleValue() override;
 	virtual bool setCurrentAccessibleValue(::java::lang::Number* n) override;
 	::java::awt::CheckboxMenuItem* this$0 = nullptr;
-	static const int64_t serialVersionUID = (int64_t)0xFFFC02F650E7318C;
+	static const int64_t serialVersionUID = (int64_t)0xfffc02f650e7318c;
 };
 
 	} // awt

@@ -30,7 +30,7 @@ public:
 	void readObject(::java::io::ObjectInputStream* ois);
 	virtual $String* toString() override;
 	static void validate($String* name);
-	static const int64_t serialVersionUID = (int64_t)0xC5EDBD84E904E6FD;
+	static const int64_t serialVersionUID = (int64_t)0xc5edbd84e904e6fd;
 	$String* name = nullptr;
 };
 

@@ -24,6 +24,7 @@ class $export Bits$BitsState : public ::java::lang::Enum {
 public:
 	Bits$BitsState();
 	static $Array<::com::sun::tools::javac::util::Bits$BitsState>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::com::sun::tools::javac::util::Bits$BitsState* getState($ints* someBits, bool reset);
 	static ::com::sun::tools::javac::util::Bits$BitsState* valueOf($String* name);

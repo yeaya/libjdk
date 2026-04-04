@@ -1,5 +1,4 @@
 #include <javax/sql/rowset/spi/SyncFactoryException.h>
-
 #include <java/sql/SQLException.h>
 #include <jcpp.h>
 
@@ -12,30 +11,6 @@ namespace javax {
 	namespace sql {
 		namespace rowset {
 			namespace spi {
-
-$FieldInfo _SyncFactoryException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(SyncFactoryException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _SyncFactoryException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SyncFactoryException, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SyncFactoryException, init$, void, $String*)},
-	{}
-};
-
-$ClassInfo _SyncFactoryException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.sql.rowset.spi.SyncFactoryException",
-	"java.sql.SQLException",
-	nullptr,
-	_SyncFactoryException_FieldInfo_,
-	_SyncFactoryException_MethodInfo_
-};
-
-$Object* allocate$SyncFactoryException($Class* clazz) {
-	return $of($alloc(SyncFactoryException));
-}
 
 void SyncFactoryException::init$() {
 	$SQLException::init$();
@@ -56,7 +31,26 @@ void SyncFactoryException::throw$() {
 }
 
 $Class* SyncFactoryException::load$($String* name, bool initialize) {
-	$loadClass(SyncFactoryException, name, initialize, &_SyncFactoryException_ClassInfo_, allocate$SyncFactoryException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(SyncFactoryException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SyncFactoryException, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SyncFactoryException, init$, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.sql.rowset.spi.SyncFactoryException",
+		"java.sql.SQLException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SyncFactoryException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SyncFactoryException));
+	});
 	return class$;
 }
 

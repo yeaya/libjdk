@@ -1,5 +1,4 @@
 #include <javax/swing/text/html/HTMLDocument$BlockElement.h>
-
 #include <javax/swing/text/AbstractDocument$AbstractElement.h>
 #include <javax/swing/text/AbstractDocument$BranchElement.h>
 #include <javax/swing/text/AbstractDocument.h>
@@ -13,7 +12,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractDocument = ::javax::swing::text::AbstractDocument;
 using $AbstractDocument$BranchElement = ::javax::swing::text::AbstractDocument$BranchElement;
 using $AttributeSet = ::javax::swing::text::AttributeSet;
 using $Element = ::javax::swing::text::Element;
@@ -25,44 +23,6 @@ namespace javax {
 		namespace text {
 			namespace html {
 
-$FieldInfo _HTMLDocument$BlockElement_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/text/html/HTMLDocument;", nullptr, $FINAL | $SYNTHETIC, $field(HTMLDocument$BlockElement, this$0)},
-	{}
-};
-
-$MethodInfo _HTMLDocument$BlockElement_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/text/html/HTMLDocument;Ljavax/swing/text/Element;Ljavax/swing/text/AttributeSet;)V", nullptr, $PUBLIC, $method(HTMLDocument$BlockElement, init$, void, $HTMLDocument*, $Element*, $AttributeSet*)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HTMLDocument$BlockElement, getName, $String*)},
-	{"getResolveParent", "()Ljavax/swing/text/AttributeSet;", nullptr, $PUBLIC, $virtualMethod(HTMLDocument$BlockElement, getResolveParent, $AttributeSet*)},
-	{}
-};
-
-$InnerClassInfo _HTMLDocument$BlockElement_InnerClassesInfo_[] = {
-	{"javax.swing.text.html.HTMLDocument$BlockElement", "javax.swing.text.html.HTMLDocument", "BlockElement", $PUBLIC},
-	{"javax.swing.text.AbstractDocument$BranchElement", "javax.swing.text.AbstractDocument", "BranchElement", $PUBLIC},
-	{}
-};
-
-$ClassInfo _HTMLDocument$BlockElement_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.text.html.HTMLDocument$BlockElement",
-	"javax.swing.text.AbstractDocument$BranchElement",
-	nullptr,
-	_HTMLDocument$BlockElement_FieldInfo_,
-	_HTMLDocument$BlockElement_MethodInfo_,
-	nullptr,
-	nullptr,
-	_HTMLDocument$BlockElement_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.html.HTMLDocument"
-};
-
-$Object* allocate$HTMLDocument$BlockElement($Class* clazz) {
-	return $of($alloc(HTMLDocument$BlockElement));
-}
-
 void HTMLDocument$BlockElement::init$($HTMLDocument* this$0, $Element* parent, $AttributeSet* a) {
 	$set(this, this$0, this$0);
 	$AbstractDocument$BranchElement::init$(this$0, parent, a);
@@ -72,7 +32,7 @@ $String* HTMLDocument$BlockElement::getName() {
 	$init($StyleConstants);
 	$var($Object, o, getAttribute($StyleConstants::NameAttribute));
 	if (o != nullptr) {
-		return $of(o)->toString();
+		return o->toString();
 	}
 	return $AbstractDocument$BranchElement::getName();
 }
@@ -85,7 +45,39 @@ HTMLDocument$BlockElement::HTMLDocument$BlockElement() {
 }
 
 $Class* HTMLDocument$BlockElement::load$($String* name, bool initialize) {
-	$loadClass(HTMLDocument$BlockElement, name, initialize, &_HTMLDocument$BlockElement_ClassInfo_, allocate$HTMLDocument$BlockElement);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/text/html/HTMLDocument;", nullptr, $FINAL | $SYNTHETIC, $field(HTMLDocument$BlockElement, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/text/html/HTMLDocument;Ljavax/swing/text/Element;Ljavax/swing/text/AttributeSet;)V", nullptr, $PUBLIC, $method(HTMLDocument$BlockElement, init$, void, $HTMLDocument*, $Element*, $AttributeSet*)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HTMLDocument$BlockElement, getName, $String*)},
+		{"getResolveParent", "()Ljavax/swing/text/AttributeSet;", nullptr, $PUBLIC, $virtualMethod(HTMLDocument$BlockElement, getResolveParent, $AttributeSet*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.html.HTMLDocument$BlockElement", "javax.swing.text.html.HTMLDocument", "BlockElement", $PUBLIC},
+		{"javax.swing.text.AbstractDocument$BranchElement", "javax.swing.text.AbstractDocument", "BranchElement", $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.text.html.HTMLDocument$BlockElement",
+		"javax.swing.text.AbstractDocument$BranchElement",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.html.HTMLDocument"
+	};
+	$loadClass(HTMLDocument$BlockElement, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(HTMLDocument$BlockElement));
+	});
 	return class$;
 }
 

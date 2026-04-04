@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/util/JCDiagnostic.h>
-
 #include <com/sun/tools/javac/api/DiagnosticFormatter.h>
 #include <com/sun/tools/javac/code/Lint$LintCategory.h>
 #include <com/sun/tools/javac/tree/EndPosTable.h>
@@ -18,7 +17,6 @@
 #include <java/util/Locale.h>
 #include <java/util/Set.h>
 #include <javax/tools/Diagnostic$Kind.h>
-#include <javax/tools/Diagnostic.h>
 #include <javax/tools/JavaFileObject.h>
 #include <jcpp.h>
 
@@ -54,7 +52,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $EnumSet = ::java::util::EnumSet;
 using $Locale = ::java::util::Locale;
 using $Set = ::java::util::Set;
-using $Diagnostic = ::javax::tools::Diagnostic;
 using $Diagnostic$Kind = ::javax::tools::Diagnostic$Kind;
 
 namespace com {
@@ -63,107 +60,11 @@ namespace com {
 			namespace javac {
 				namespace util {
 
-$CompoundAttribute _JCDiagnostic_FieldAnnotations_fragmentFormatter[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _JCDiagnostic_MethodAnnotations_fragment1[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _JCDiagnostic_MethodAnnotations_getFragmentFormatter8[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$FieldInfo _JCDiagnostic_FieldInfo_[] = {
-	{"source", "Lcom/sun/tools/javac/util/DiagnosticSource;", nullptr, $PRIVATE | $FINAL, $field(JCDiagnostic, source)},
-	{"position", "Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;", nullptr, $PRIVATE | $FINAL, $field(JCDiagnostic, position)},
-	{"diagnosticInfo", "Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticInfo;", nullptr, $PRIVATE | $FINAL, $field(JCDiagnostic, diagnosticInfo)},
-	{"flags", "Ljava/util/Set;", "Ljava/util/Set<Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticFlag;>;", $PRIVATE | $FINAL, $field(JCDiagnostic, flags)},
-	{"lintCategory", "Lcom/sun/tools/javac/code/Lint$LintCategory;", nullptr, $PRIVATE | $FINAL, $field(JCDiagnostic, lintCategory)},
-	{"sourcePosition", "Lcom/sun/tools/javac/util/JCDiagnostic$SourcePosition;", nullptr, $PRIVATE, $field(JCDiagnostic, sourcePosition)},
-	{"defaultFormatter", "Lcom/sun/tools/javac/api/DiagnosticFormatter;", "Lcom/sun/tools/javac/api/DiagnosticFormatter<Lcom/sun/tools/javac/util/JCDiagnostic;>;", $PRIVATE, $field(JCDiagnostic, defaultFormatter)},
-	{"fragmentFormatter", "Lcom/sun/tools/javac/api/DiagnosticFormatter;", "Lcom/sun/tools/javac/api/DiagnosticFormatter<Lcom/sun/tools/javac/util/JCDiagnostic;>;", $PRIVATE | $STATIC | $DEPRECATED, $staticField(JCDiagnostic, fragmentFormatter), _JCDiagnostic_FieldAnnotations_fragmentFormatter},
-	{}
-};
-
-$MethodInfo _JCDiagnostic_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/api/DiagnosticFormatter;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticInfo;Lcom/sun/tools/javac/code/Lint$LintCategory;Ljava/util/Set;Lcom/sun/tools/javac/util/DiagnosticSource;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;)V", "(Lcom/sun/tools/javac/api/DiagnosticFormatter<Lcom/sun/tools/javac/util/JCDiagnostic;>;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticInfo;Lcom/sun/tools/javac/code/Lint$LintCategory;Ljava/util/Set<Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticFlag;>;Lcom/sun/tools/javac/util/DiagnosticSource;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;)V", $PROTECTED, $method(JCDiagnostic, init$, void, $DiagnosticFormatter*, $JCDiagnostic$DiagnosticInfo*, $Lint$LintCategory*, $Set*, $DiagnosticSource*, $JCDiagnostic$DiagnosticPosition*)},
-	{"fragment", "(Ljava/lang/String;[Ljava/lang/Object;)Lcom/sun/tools/javac/util/JCDiagnostic;", nullptr, $PUBLIC | $STATIC | $TRANSIENT | $DEPRECATED, $staticMethod(JCDiagnostic, fragment, JCDiagnostic*, $String*, $ObjectArray*), nullptr, nullptr, _JCDiagnostic_MethodAnnotations_fragment1},
-	{"getArgs", "()[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JCDiagnostic, getArgs, $ObjectArray*)},
-	{"getCode", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JCDiagnostic, getCode, $String*)},
-	{"getColumnNumber", "()J", nullptr, $PUBLIC, $virtualMethod(JCDiagnostic, getColumnNumber, int64_t)},
-	{"getDiagnosticPosition", "()Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;", nullptr, $PUBLIC, $virtualMethod(JCDiagnostic, getDiagnosticPosition, $JCDiagnostic$DiagnosticPosition*)},
-	{"getDiagnosticSource", "()Lcom/sun/tools/javac/util/DiagnosticSource;", nullptr, $PUBLIC, $virtualMethod(JCDiagnostic, getDiagnosticSource, $DiagnosticSource*)},
-	{"getEndPosition", "()J", nullptr, $PUBLIC, $virtualMethod(JCDiagnostic, getEndPosition, int64_t)},
-	{"getFragmentFormatter", "()Lcom/sun/tools/javac/api/DiagnosticFormatter;", "()Lcom/sun/tools/javac/api/DiagnosticFormatter<Lcom/sun/tools/javac/util/JCDiagnostic;>;", $PUBLIC | $STATIC | $DEPRECATED, $staticMethod(JCDiagnostic, getFragmentFormatter, $DiagnosticFormatter*), nullptr, nullptr, _JCDiagnostic_MethodAnnotations_getFragmentFormatter8},
-	{"getIntEndPosition", "()I", nullptr, $PROTECTED, $virtualMethod(JCDiagnostic, getIntEndPosition, int32_t)},
-	{"getIntPosition", "()I", nullptr, $PROTECTED, $virtualMethod(JCDiagnostic, getIntPosition, int32_t)},
-	{"getIntStartPosition", "()I", nullptr, $PROTECTED, $virtualMethod(JCDiagnostic, getIntStartPosition, int32_t)},
-	{"getKind", "()Ljavax/tools/Diagnostic$Kind;", nullptr, $PUBLIC, $virtualMethod(JCDiagnostic, getKind, $Diagnostic$Kind*)},
-	{"getLineNumber", "()J", nullptr, $PUBLIC, $virtualMethod(JCDiagnostic, getLineNumber, int64_t)},
-	{"getLintCategory", "()Lcom/sun/tools/javac/code/Lint$LintCategory;", nullptr, $PUBLIC, $virtualMethod(JCDiagnostic, getLintCategory, $Lint$LintCategory*)},
-	{"getMessage", "(Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JCDiagnostic, getMessage, $String*, $Locale*)},
-	{"getPosition", "()J", nullptr, $PUBLIC, $virtualMethod(JCDiagnostic, getPosition, int64_t)},
-	{"getPrefix", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JCDiagnostic, getPrefix, $String*)},
-	{"getPrefix", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticType;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JCDiagnostic, getPrefix, $String*, $JCDiagnostic$DiagnosticType*)},
-	{"getSource", "()Ljavax/tools/JavaFileObject;", nullptr, $PUBLIC, $virtualMethod(JCDiagnostic, getSource, $Object*)},
-	{"getStartPosition", "()J", nullptr, $PUBLIC, $virtualMethod(JCDiagnostic, getStartPosition, int64_t)},
-	{"getSubdiagnostics", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/util/JCDiagnostic;>;", $PUBLIC, $virtualMethod(JCDiagnostic, getSubdiagnostics, $List*)},
-	{"getType", "()Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticType;", nullptr, $PUBLIC, $virtualMethod(JCDiagnostic, getType, $JCDiagnostic$DiagnosticType*)},
-	{"hasLintCategory", "()Z", nullptr, $PUBLIC, $virtualMethod(JCDiagnostic, hasLintCategory, bool)},
-	{"isFlagSet", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticFlag;)Z", nullptr, $PUBLIC, $virtualMethod(JCDiagnostic, isFlagSet, bool, $JCDiagnostic$DiagnosticFlag*)},
-	{"isMandatory", "()Z", nullptr, $PUBLIC, $virtualMethod(JCDiagnostic, isMandatory, bool)},
-	{"isMultiline", "()Z", nullptr, $PUBLIC, $virtualMethod(JCDiagnostic, isMultiline, bool)},
-	{"setFlag", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticFlag;)V", nullptr, $PUBLIC, $virtualMethod(JCDiagnostic, setFlag, void, $JCDiagnostic$DiagnosticFlag*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JCDiagnostic, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _JCDiagnostic_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.util.JCDiagnostic$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{"com.sun.tools.javac.util.JCDiagnostic$MultilineDiagnostic", "com.sun.tools.javac.util.JCDiagnostic", "MultilineDiagnostic", $PUBLIC | $STATIC},
-	{"com.sun.tools.javac.util.JCDiagnostic$Fragment", "com.sun.tools.javac.util.JCDiagnostic", "Fragment", $PUBLIC | $STATIC | $FINAL},
-	{"com.sun.tools.javac.util.JCDiagnostic$Note", "com.sun.tools.javac.util.JCDiagnostic", "Note", $PUBLIC | $STATIC | $FINAL},
-	{"com.sun.tools.javac.util.JCDiagnostic$Warning", "com.sun.tools.javac.util.JCDiagnostic", "Warning", $PUBLIC | $STATIC | $FINAL},
-	{"com.sun.tools.javac.util.JCDiagnostic$Error", "com.sun.tools.javac.util.JCDiagnostic", "Error", $PUBLIC | $STATIC | $FINAL},
-	{"com.sun.tools.javac.util.JCDiagnostic$DiagnosticInfo", "com.sun.tools.javac.util.JCDiagnostic", "DiagnosticInfo", $PUBLIC | $STATIC | $ABSTRACT},
-	{"com.sun.tools.javac.util.JCDiagnostic$SourcePosition", "com.sun.tools.javac.util.JCDiagnostic", "SourcePosition", 0},
-	{"com.sun.tools.javac.util.JCDiagnostic$DiagnosticFlag", "com.sun.tools.javac.util.JCDiagnostic", "DiagnosticFlag", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{"com.sun.tools.javac.util.JCDiagnostic$SimpleDiagnosticPosition", "com.sun.tools.javac.util.JCDiagnostic", "SimpleDiagnosticPosition", $PUBLIC | $STATIC},
-	{"com.sun.tools.javac.util.JCDiagnostic$DiagnosticPosition", "com.sun.tools.javac.util.JCDiagnostic", "DiagnosticPosition", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"com.sun.tools.javac.util.JCDiagnostic$DiagnosticType", "com.sun.tools.javac.util.JCDiagnostic", "DiagnosticType", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{"com.sun.tools.javac.util.JCDiagnostic$Factory", "com.sun.tools.javac.util.JCDiagnostic", "Factory", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _JCDiagnostic_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.util.JCDiagnostic",
-	"java.lang.Object",
-	"javax.tools.Diagnostic",
-	_JCDiagnostic_FieldInfo_,
-	_JCDiagnostic_MethodInfo_,
-	"Ljava/lang/Object;Ljavax/tools/Diagnostic<Ljavax/tools/JavaFileObject;>;",
-	nullptr,
-	_JCDiagnostic_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.util.JCDiagnostic$1,com.sun.tools.javac.util.JCDiagnostic$MultilineDiagnostic,com.sun.tools.javac.util.JCDiagnostic$Fragment,com.sun.tools.javac.util.JCDiagnostic$Note,com.sun.tools.javac.util.JCDiagnostic$Warning,com.sun.tools.javac.util.JCDiagnostic$Error,com.sun.tools.javac.util.JCDiagnostic$DiagnosticInfo,com.sun.tools.javac.util.JCDiagnostic$SourcePosition,com.sun.tools.javac.util.JCDiagnostic$DiagnosticFlag,com.sun.tools.javac.util.JCDiagnostic$SimpleDiagnosticPosition,com.sun.tools.javac.util.JCDiagnostic$DiagnosticPosition,com.sun.tools.javac.util.JCDiagnostic$DiagnosticType,com.sun.tools.javac.util.JCDiagnostic$Factory"
-};
-
-$Object* allocate$JCDiagnostic($Class* clazz) {
-	return $of($alloc(JCDiagnostic));
-}
-
 $DiagnosticFormatter* JCDiagnostic::fragmentFormatter = nullptr;
 
 JCDiagnostic* JCDiagnostic::fragment($String* key, $ObjectArray* args) {
 	$init(JCDiagnostic);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DiagnosticFormatter, var$0, getFragmentFormatter());
 	$init($JCDiagnostic$DiagnosticType);
 	$var($JCDiagnostic$DiagnosticInfo, var$1, $JCDiagnostic$DiagnosticInfo::of($JCDiagnostic$DiagnosticType::FRAGMENT, "compiler"_s, key, args));
@@ -218,9 +119,9 @@ $Lint$LintCategory* JCDiagnostic::getLintCategory() {
 
 $Object* JCDiagnostic::getSource() {
 	if (this->source == nullptr) {
-		return $of(nullptr);
+		return nullptr;
 	} else {
-		return $of($nc(this->source)->getFile());
+		return this->source->getFile();
 	}
 }
 
@@ -229,15 +130,15 @@ $DiagnosticSource* JCDiagnostic::getDiagnosticSource() {
 }
 
 int32_t JCDiagnostic::getIntStartPosition() {
-	return (this->position == nullptr ? $Position::NOPOS : $nc(this->position)->getStartPosition());
+	return (this->position == nullptr ? $Position::NOPOS : this->position->getStartPosition());
 }
 
 int32_t JCDiagnostic::getIntPosition() {
-	return (this->position == nullptr ? $Position::NOPOS : $nc(this->position)->getPreferredPosition());
+	return (this->position == nullptr ? $Position::NOPOS : this->position->getPreferredPosition());
 }
 
 int32_t JCDiagnostic::getIntEndPosition() {
-	return (this->position == nullptr ? $Position::NOPOS : $nc(this->position)->getEndPosition($($nc(this->source)->getEndPosTable())));
+	return (this->position == nullptr ? $Position::NOPOS : this->position->getEndPosition($($nc(this->source)->getEndPosTable())));
 }
 
 int64_t JCDiagnostic::getStartPosition() {
@@ -290,26 +191,18 @@ $Diagnostic$Kind* JCDiagnostic::getKind() {
 	$init($JCDiagnostic$1);
 	switch ($nc($JCDiagnostic$1::$SwitchMap$com$sun$tools$javac$util$JCDiagnostic$DiagnosticType)->get($nc(($nc(this->diagnosticInfo)->type))->ordinal())) {
 	case 3:
-		{
-			$init($Diagnostic$Kind);
-			return $Diagnostic$Kind::NOTE;
-		}
+		$init($Diagnostic$Kind);
+		return $Diagnostic$Kind::NOTE;
 	case 2:
-		{
-			$init($JCDiagnostic$DiagnosticFlag);
-			$init($Diagnostic$Kind);
-			return $nc(this->flags)->contains($JCDiagnostic$DiagnosticFlag::MANDATORY) ? $Diagnostic$Kind::MANDATORY_WARNING : $Diagnostic$Kind::WARNING;
-		}
+		$init($JCDiagnostic$DiagnosticFlag);
+		$init($Diagnostic$Kind);
+		return $nc(this->flags)->contains($JCDiagnostic$DiagnosticFlag::MANDATORY) ? $Diagnostic$Kind::MANDATORY_WARNING : $Diagnostic$Kind::WARNING;
 	case 1:
-		{
-			$init($Diagnostic$Kind);
-			return $Diagnostic$Kind::ERROR;
-		}
+		$init($Diagnostic$Kind);
+		return $Diagnostic$Kind::ERROR;
 	default:
-		{
-			$init($Diagnostic$Kind);
-			return $Diagnostic$Kind::OTHER;
-		}
+		$init($Diagnostic$Kind);
+		return $Diagnostic$Kind::OTHER;
 	}
 }
 
@@ -328,17 +221,11 @@ void JCDiagnostic::setFlag($JCDiagnostic$DiagnosticFlag* flag) {
 		$init($JCDiagnostic$1);
 		switch ($nc($JCDiagnostic$1::$SwitchMap$com$sun$tools$javac$util$JCDiagnostic$DiagnosticFlag)->get($nc((flag))->ordinal())) {
 		case 1:
-			{
-				$init($JCDiagnostic$DiagnosticFlag);
-				$nc(this->flags)->remove($JCDiagnostic$DiagnosticFlag::RECOVERABLE);
-				break;
-			}
+			this->flags->remove($JCDiagnostic$DiagnosticFlag::RECOVERABLE);
+			break;
 		case 2:
-			{
-				$init($JCDiagnostic$DiagnosticFlag);
-				$nc(this->flags)->add($JCDiagnostic$DiagnosticFlag::RECOVERABLE);
-				break;
-			}
+			this->flags->add($JCDiagnostic$DiagnosticFlag::RECOVERABLE);
+			break;
 		}
 	}
 }
@@ -351,7 +238,94 @@ JCDiagnostic::JCDiagnostic() {
 }
 
 $Class* JCDiagnostic::load$($String* name, bool initialize) {
-	$loadClass(JCDiagnostic, name, initialize, &_JCDiagnostic_ClassInfo_, allocate$JCDiagnostic);
+	$CompoundAttribute fragmentFormatterfieldAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$FieldInfo fieldInfos$$[] = {
+		{"source", "Lcom/sun/tools/javac/util/DiagnosticSource;", nullptr, $PRIVATE | $FINAL, $field(JCDiagnostic, source)},
+		{"position", "Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;", nullptr, $PRIVATE | $FINAL, $field(JCDiagnostic, position)},
+		{"diagnosticInfo", "Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticInfo;", nullptr, $PRIVATE | $FINAL, $field(JCDiagnostic, diagnosticInfo)},
+		{"flags", "Ljava/util/Set;", "Ljava/util/Set<Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticFlag;>;", $PRIVATE | $FINAL, $field(JCDiagnostic, flags)},
+		{"lintCategory", "Lcom/sun/tools/javac/code/Lint$LintCategory;", nullptr, $PRIVATE | $FINAL, $field(JCDiagnostic, lintCategory)},
+		{"sourcePosition", "Lcom/sun/tools/javac/util/JCDiagnostic$SourcePosition;", nullptr, $PRIVATE, $field(JCDiagnostic, sourcePosition)},
+		{"defaultFormatter", "Lcom/sun/tools/javac/api/DiagnosticFormatter;", "Lcom/sun/tools/javac/api/DiagnosticFormatter<Lcom/sun/tools/javac/util/JCDiagnostic;>;", $PRIVATE, $field(JCDiagnostic, defaultFormatter)},
+		{"fragmentFormatter", "Lcom/sun/tools/javac/api/DiagnosticFormatter;", "Lcom/sun/tools/javac/api/DiagnosticFormatter<Lcom/sun/tools/javac/util/JCDiagnostic;>;", $PRIVATE | $STATIC | $DEPRECATED, $staticField(JCDiagnostic, fragmentFormatter), fragmentFormatterfieldAnnotations$$},
+		{}
+	};
+	$CompoundAttribute fragmentmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute getFragmentFormattermethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/api/DiagnosticFormatter;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticInfo;Lcom/sun/tools/javac/code/Lint$LintCategory;Ljava/util/Set;Lcom/sun/tools/javac/util/DiagnosticSource;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;)V", "(Lcom/sun/tools/javac/api/DiagnosticFormatter<Lcom/sun/tools/javac/util/JCDiagnostic;>;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticInfo;Lcom/sun/tools/javac/code/Lint$LintCategory;Ljava/util/Set<Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticFlag;>;Lcom/sun/tools/javac/util/DiagnosticSource;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;)V", $PROTECTED, $method(JCDiagnostic, init$, void, $DiagnosticFormatter*, $JCDiagnostic$DiagnosticInfo*, $Lint$LintCategory*, $Set*, $DiagnosticSource*, $JCDiagnostic$DiagnosticPosition*)},
+		{"fragment", "(Ljava/lang/String;[Ljava/lang/Object;)Lcom/sun/tools/javac/util/JCDiagnostic;", nullptr, $PUBLIC | $STATIC | $TRANSIENT | $DEPRECATED, $staticMethod(JCDiagnostic, fragment, JCDiagnostic*, $String*, $ObjectArray*), nullptr, nullptr, fragmentmethodAnnotations$$},
+		{"getArgs", "()[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JCDiagnostic, getArgs, $ObjectArray*)},
+		{"getCode", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JCDiagnostic, getCode, $String*)},
+		{"getColumnNumber", "()J", nullptr, $PUBLIC, $virtualMethod(JCDiagnostic, getColumnNumber, int64_t)},
+		{"getDiagnosticPosition", "()Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;", nullptr, $PUBLIC, $virtualMethod(JCDiagnostic, getDiagnosticPosition, $JCDiagnostic$DiagnosticPosition*)},
+		{"getDiagnosticSource", "()Lcom/sun/tools/javac/util/DiagnosticSource;", nullptr, $PUBLIC, $virtualMethod(JCDiagnostic, getDiagnosticSource, $DiagnosticSource*)},
+		{"getEndPosition", "()J", nullptr, $PUBLIC, $virtualMethod(JCDiagnostic, getEndPosition, int64_t)},
+		{"getFragmentFormatter", "()Lcom/sun/tools/javac/api/DiagnosticFormatter;", "()Lcom/sun/tools/javac/api/DiagnosticFormatter<Lcom/sun/tools/javac/util/JCDiagnostic;>;", $PUBLIC | $STATIC | $DEPRECATED, $staticMethod(JCDiagnostic, getFragmentFormatter, $DiagnosticFormatter*), nullptr, nullptr, getFragmentFormattermethodAnnotations$$},
+		{"getIntEndPosition", "()I", nullptr, $PROTECTED, $virtualMethod(JCDiagnostic, getIntEndPosition, int32_t)},
+		{"getIntPosition", "()I", nullptr, $PROTECTED, $virtualMethod(JCDiagnostic, getIntPosition, int32_t)},
+		{"getIntStartPosition", "()I", nullptr, $PROTECTED, $virtualMethod(JCDiagnostic, getIntStartPosition, int32_t)},
+		{"getKind", "()Ljavax/tools/Diagnostic$Kind;", nullptr, $PUBLIC, $virtualMethod(JCDiagnostic, getKind, $Diagnostic$Kind*)},
+		{"getLineNumber", "()J", nullptr, $PUBLIC, $virtualMethod(JCDiagnostic, getLineNumber, int64_t)},
+		{"getLintCategory", "()Lcom/sun/tools/javac/code/Lint$LintCategory;", nullptr, $PUBLIC, $virtualMethod(JCDiagnostic, getLintCategory, $Lint$LintCategory*)},
+		{"getMessage", "(Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JCDiagnostic, getMessage, $String*, $Locale*)},
+		{"getPosition", "()J", nullptr, $PUBLIC, $virtualMethod(JCDiagnostic, getPosition, int64_t)},
+		{"getPrefix", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JCDiagnostic, getPrefix, $String*)},
+		{"getPrefix", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticType;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JCDiagnostic, getPrefix, $String*, $JCDiagnostic$DiagnosticType*)},
+		{"getSource", "()Ljavax/tools/JavaFileObject;", nullptr, $PUBLIC, $virtualMethod(JCDiagnostic, getSource, $Object*)},
+		{"getStartPosition", "()J", nullptr, $PUBLIC, $virtualMethod(JCDiagnostic, getStartPosition, int64_t)},
+		{"getSubdiagnostics", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/util/JCDiagnostic;>;", $PUBLIC, $virtualMethod(JCDiagnostic, getSubdiagnostics, $List*)},
+		{"getType", "()Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticType;", nullptr, $PUBLIC, $virtualMethod(JCDiagnostic, getType, $JCDiagnostic$DiagnosticType*)},
+		{"hasLintCategory", "()Z", nullptr, $PUBLIC, $virtualMethod(JCDiagnostic, hasLintCategory, bool)},
+		{"isFlagSet", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticFlag;)Z", nullptr, $PUBLIC, $virtualMethod(JCDiagnostic, isFlagSet, bool, $JCDiagnostic$DiagnosticFlag*)},
+		{"isMandatory", "()Z", nullptr, $PUBLIC, $virtualMethod(JCDiagnostic, isMandatory, bool)},
+		{"isMultiline", "()Z", nullptr, $PUBLIC, $virtualMethod(JCDiagnostic, isMultiline, bool)},
+		{"setFlag", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticFlag;)V", nullptr, $PUBLIC, $virtualMethod(JCDiagnostic, setFlag, void, $JCDiagnostic$DiagnosticFlag*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JCDiagnostic, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.util.JCDiagnostic$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{"com.sun.tools.javac.util.JCDiagnostic$MultilineDiagnostic", "com.sun.tools.javac.util.JCDiagnostic", "MultilineDiagnostic", $PUBLIC | $STATIC},
+		{"com.sun.tools.javac.util.JCDiagnostic$Fragment", "com.sun.tools.javac.util.JCDiagnostic", "Fragment", $PUBLIC | $STATIC | $FINAL},
+		{"com.sun.tools.javac.util.JCDiagnostic$Note", "com.sun.tools.javac.util.JCDiagnostic", "Note", $PUBLIC | $STATIC | $FINAL},
+		{"com.sun.tools.javac.util.JCDiagnostic$Warning", "com.sun.tools.javac.util.JCDiagnostic", "Warning", $PUBLIC | $STATIC | $FINAL},
+		{"com.sun.tools.javac.util.JCDiagnostic$Error", "com.sun.tools.javac.util.JCDiagnostic", "Error", $PUBLIC | $STATIC | $FINAL},
+		{"com.sun.tools.javac.util.JCDiagnostic$DiagnosticInfo", "com.sun.tools.javac.util.JCDiagnostic", "DiagnosticInfo", $PUBLIC | $STATIC | $ABSTRACT},
+		{"com.sun.tools.javac.util.JCDiagnostic$SourcePosition", "com.sun.tools.javac.util.JCDiagnostic", "SourcePosition", 0},
+		{"com.sun.tools.javac.util.JCDiagnostic$DiagnosticFlag", "com.sun.tools.javac.util.JCDiagnostic", "DiagnosticFlag", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{"com.sun.tools.javac.util.JCDiagnostic$SimpleDiagnosticPosition", "com.sun.tools.javac.util.JCDiagnostic", "SimpleDiagnosticPosition", $PUBLIC | $STATIC},
+		{"com.sun.tools.javac.util.JCDiagnostic$DiagnosticPosition", "com.sun.tools.javac.util.JCDiagnostic", "DiagnosticPosition", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"com.sun.tools.javac.util.JCDiagnostic$DiagnosticType", "com.sun.tools.javac.util.JCDiagnostic", "DiagnosticType", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{"com.sun.tools.javac.util.JCDiagnostic$Factory", "com.sun.tools.javac.util.JCDiagnostic", "Factory", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.util.JCDiagnostic",
+		"java.lang.Object",
+		"javax.tools.Diagnostic",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljavax/tools/Diagnostic<Ljavax/tools/JavaFileObject;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.util.JCDiagnostic$1,com.sun.tools.javac.util.JCDiagnostic$MultilineDiagnostic,com.sun.tools.javac.util.JCDiagnostic$Fragment,com.sun.tools.javac.util.JCDiagnostic$Note,com.sun.tools.javac.util.JCDiagnostic$Warning,com.sun.tools.javac.util.JCDiagnostic$Error,com.sun.tools.javac.util.JCDiagnostic$DiagnosticInfo,com.sun.tools.javac.util.JCDiagnostic$SourcePosition,com.sun.tools.javac.util.JCDiagnostic$DiagnosticFlag,com.sun.tools.javac.util.JCDiagnostic$SimpleDiagnosticPosition,com.sun.tools.javac.util.JCDiagnostic$DiagnosticPosition,com.sun.tools.javac.util.JCDiagnostic$DiagnosticType,com.sun.tools.javac.util.JCDiagnostic$Factory"
+	};
+	$loadClass(JCDiagnostic, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JCDiagnostic);
+	});
 	return class$;
 }
 

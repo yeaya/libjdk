@@ -1,5 +1,4 @@
 #include <com/sun/net/httpserver/BasicAuthenticator.h>
-
 #include <com/sun/net/httpserver/Authenticator$Failure.h>
 #include <com/sun/net/httpserver/Authenticator$Result.h>
 #include <com/sun/net/httpserver/Authenticator$Retry.h>
@@ -32,43 +31,12 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Charset = ::java::nio::charset::Charset;
 using $StandardCharsets = ::java::nio::charset::StandardCharsets;
 using $Base64 = ::java::util::Base64;
-using $Base64$Decoder = ::java::util::Base64$Decoder;
 using $Objects = ::java::util::Objects;
 
 namespace com {
 	namespace sun {
 		namespace net {
 			namespace httpserver {
-
-$FieldInfo _BasicAuthenticator_FieldInfo_[] = {
-	{"realm", "Ljava/lang/String;", nullptr, $PROTECTED | $FINAL, $field(BasicAuthenticator, realm)},
-	{"charset", "Ljava/nio/charset/Charset;", nullptr, $PRIVATE | $FINAL, $field(BasicAuthenticator, charset)},
-	{"isUTF8", "Z", nullptr, $PRIVATE | $FINAL, $field(BasicAuthenticator, isUTF8)},
-	{}
-};
-
-$MethodInfo _BasicAuthenticator_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(BasicAuthenticator, init$, void, $String*)},
-	{"<init>", "(Ljava/lang/String;Ljava/nio/charset/Charset;)V", nullptr, $PUBLIC, $method(BasicAuthenticator, init$, void, $String*, $Charset*)},
-	{"authenticate", "(Lcom/sun/net/httpserver/HttpExchange;)Lcom/sun/net/httpserver/Authenticator$Result;", nullptr, $PUBLIC, $virtualMethod(BasicAuthenticator, authenticate, $Authenticator$Result*, $HttpExchange*)},
-	{"checkCredentials", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(BasicAuthenticator, checkCredentials, bool, $String*, $String*)},
-	{"getRealm", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(BasicAuthenticator, getRealm, $String*)},
-	{"setAuthHeader", "(Lcom/sun/net/httpserver/HttpExchange;)V", nullptr, $PRIVATE, $method(BasicAuthenticator, setAuthHeader, void, $HttpExchange*)},
-	{}
-};
-
-$ClassInfo _BasicAuthenticator_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"com.sun.net.httpserver.BasicAuthenticator",
-	"com.sun.net.httpserver.Authenticator",
-	nullptr,
-	_BasicAuthenticator_FieldInfo_,
-	_BasicAuthenticator_MethodInfo_
-};
-
-$Object* allocate$BasicAuthenticator($Class* clazz) {
-	return $of($alloc(BasicAuthenticator));
-}
 
 void BasicAuthenticator::init$($String* realm) {
 	BasicAuthenticator::init$(realm, $($Charset::defaultCharset()));
@@ -91,20 +59,20 @@ $String* BasicAuthenticator::getRealm() {
 }
 
 $Authenticator$Result* BasicAuthenticator::authenticate($HttpExchange* t) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Headers, rmap, $nc(t)->getRequestHeaders());
 	$var($String, auth, $nc(rmap)->getFirst("Authorization"_s));
 	if (auth == nullptr) {
 		setAuthHeader(t);
 		return $new($Authenticator$Retry, 401);
 	}
-	int32_t sp = $nc(auth)->indexOf((int32_t)u' ');
+	int32_t sp = $nc(auth)->indexOf(u' ');
 	if (sp == -1 || !$(auth->substring(0, sp))->equals("Basic"_s)) {
 		return $new($Authenticator$Failure, 401);
 	}
-	$var($bytes, b, $nc($($Base64::getDecoder()))->decode($(auth->substring(sp + 1))));
+	$var($bytes, b, $$nc($Base64::getDecoder())->decode($(auth->substring(sp + 1))));
 	$var($String, userpass, $new($String, b, this->charset));
-	int32_t colon = userpass->indexOf((int32_t)u':');
+	int32_t colon = userpass->indexOf(u':');
 	$var($String, uname, userpass->substring(0, colon));
 	$var($String, pass, userpass->substring(colon + 1));
 	if (checkCredentials(uname, pass)) {
@@ -116,7 +84,7 @@ $Authenticator$Result* BasicAuthenticator::authenticate($HttpExchange* t) {
 }
 
 void BasicAuthenticator::setAuthHeader($HttpExchange* t) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Headers, map, $nc(t)->getResponseHeaders());
 	$var($String, authString, $str({"Basic realm=\""_s, this->realm, "\""_s, (this->isUTF8 ? ", charset=\"UTF-8\""_s : ""_s)}));
 	$nc(map)->set("WWW-Authenticate"_s, authString);
@@ -126,7 +94,32 @@ BasicAuthenticator::BasicAuthenticator() {
 }
 
 $Class* BasicAuthenticator::load$($String* name, bool initialize) {
-	$loadClass(BasicAuthenticator, name, initialize, &_BasicAuthenticator_ClassInfo_, allocate$BasicAuthenticator);
+	$FieldInfo fieldInfos$$[] = {
+		{"realm", "Ljava/lang/String;", nullptr, $PROTECTED | $FINAL, $field(BasicAuthenticator, realm)},
+		{"charset", "Ljava/nio/charset/Charset;", nullptr, $PRIVATE | $FINAL, $field(BasicAuthenticator, charset)},
+		{"isUTF8", "Z", nullptr, $PRIVATE | $FINAL, $field(BasicAuthenticator, isUTF8)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(BasicAuthenticator, init$, void, $String*)},
+		{"<init>", "(Ljava/lang/String;Ljava/nio/charset/Charset;)V", nullptr, $PUBLIC, $method(BasicAuthenticator, init$, void, $String*, $Charset*)},
+		{"authenticate", "(Lcom/sun/net/httpserver/HttpExchange;)Lcom/sun/net/httpserver/Authenticator$Result;", nullptr, $PUBLIC, $virtualMethod(BasicAuthenticator, authenticate, $Authenticator$Result*, $HttpExchange*)},
+		{"checkCredentials", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(BasicAuthenticator, checkCredentials, bool, $String*, $String*)},
+		{"getRealm", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(BasicAuthenticator, getRealm, $String*)},
+		{"setAuthHeader", "(Lcom/sun/net/httpserver/HttpExchange;)V", nullptr, $PRIVATE, $method(BasicAuthenticator, setAuthHeader, void, $HttpExchange*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"com.sun.net.httpserver.BasicAuthenticator",
+		"com.sun.net.httpserver.Authenticator",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(BasicAuthenticator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BasicAuthenticator);
+	});
 	return class$;
 }
 

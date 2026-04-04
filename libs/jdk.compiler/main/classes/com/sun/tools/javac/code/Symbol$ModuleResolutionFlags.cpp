@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/code/Symbol$ModuleResolutionFlags.h>
-
 #include <com/sun/tools/javac/code/Symbol.h>
 #include <java/lang/Enum.h>
 #include <java/util/Iterator.h>
@@ -25,50 +24,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace code {
-
-$FieldInfo _Symbol$ModuleResolutionFlags_FieldInfo_[] = {
-	{"DO_NOT_RESOLVE_BY_DEFAULT", "Lcom/sun/tools/javac/code/Symbol$ModuleResolutionFlags;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Symbol$ModuleResolutionFlags, DO_NOT_RESOLVE_BY_DEFAULT)},
-	{"WARN_DEPRECATED", "Lcom/sun/tools/javac/code/Symbol$ModuleResolutionFlags;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Symbol$ModuleResolutionFlags, WARN_DEPRECATED)},
-	{"WARN_DEPRECATED_REMOVAL", "Lcom/sun/tools/javac/code/Symbol$ModuleResolutionFlags;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Symbol$ModuleResolutionFlags, WARN_DEPRECATED_REMOVAL)},
-	{"WARN_INCUBATING", "Lcom/sun/tools/javac/code/Symbol$ModuleResolutionFlags;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Symbol$ModuleResolutionFlags, WARN_INCUBATING)},
-	{"$VALUES", "[Lcom/sun/tools/javac/code/Symbol$ModuleResolutionFlags;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(Symbol$ModuleResolutionFlags, $VALUES)},
-	{"value", "I", nullptr, $PUBLIC | $FINAL, $field(Symbol$ModuleResolutionFlags, value$)},
-	{}
-};
-
-$MethodInfo _Symbol$ModuleResolutionFlags_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/javac/code/Symbol$ModuleResolutionFlags;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Symbol$ModuleResolutionFlags, $values, $Symbol$ModuleResolutionFlagsArray*)},
-	{"<init>", "(Ljava/lang/String;II)V", "(I)V", $PRIVATE, $method(Symbol$ModuleResolutionFlags, init$, void, $String*, int32_t, int32_t)},
-	{"value", "(Ljava/util/Set;)I", "(Ljava/util/Set<Lcom/sun/tools/javac/code/Symbol$ModuleResolutionFlags;>;)I", $PUBLIC | $STATIC, $staticMethod(Symbol$ModuleResolutionFlags, value, int32_t, $Set*)},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/code/Symbol$ModuleResolutionFlags;", nullptr, $PUBLIC | $STATIC, $staticMethod(Symbol$ModuleResolutionFlags, valueOf, Symbol$ModuleResolutionFlags*, $String*)},
-	{"values", "()[Lcom/sun/tools/javac/code/Symbol$ModuleResolutionFlags;", nullptr, $PUBLIC | $STATIC, $staticMethod(Symbol$ModuleResolutionFlags, values, $Symbol$ModuleResolutionFlagsArray*)},
-	{}
-};
-
-$InnerClassInfo _Symbol$ModuleResolutionFlags_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.code.Symbol$ModuleResolutionFlags", "com.sun.tools.javac.code.Symbol", "ModuleResolutionFlags", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _Symbol$ModuleResolutionFlags_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"com.sun.tools.javac.code.Symbol$ModuleResolutionFlags",
-	"java.lang.Enum",
-	nullptr,
-	_Symbol$ModuleResolutionFlags_FieldInfo_,
-	_Symbol$ModuleResolutionFlags_MethodInfo_,
-	"Ljava/lang/Enum<Lcom/sun/tools/javac/code/Symbol$ModuleResolutionFlags;>;",
-	nullptr,
-	_Symbol$ModuleResolutionFlags_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.code.Symbol"
-};
-
-$Object* allocate$Symbol$ModuleResolutionFlags($Class* clazz) {
-	return $of($alloc(Symbol$ModuleResolutionFlags));
-}
 
 Symbol$ModuleResolutionFlags* Symbol$ModuleResolutionFlags::DO_NOT_RESOLVE_BY_DEFAULT = nullptr;
 Symbol$ModuleResolutionFlags* Symbol$ModuleResolutionFlags::WARN_DEPRECATED = nullptr;
@@ -114,7 +69,7 @@ void Symbol$ModuleResolutionFlags::init$($String* $enum$name, int32_t $enum$ordi
 	this->value$ = value;
 }
 
-void clinit$Symbol$ModuleResolutionFlags($Class* class$) {
+void Symbol$ModuleResolutionFlags::clinit$($Class* clazz) {
 	$assignStatic(Symbol$ModuleResolutionFlags::DO_NOT_RESOLVE_BY_DEFAULT, $new(Symbol$ModuleResolutionFlags, "DO_NOT_RESOLVE_BY_DEFAULT"_s, 0, 1));
 	$assignStatic(Symbol$ModuleResolutionFlags::WARN_DEPRECATED, $new(Symbol$ModuleResolutionFlags, "WARN_DEPRECATED"_s, 1, 2));
 	$assignStatic(Symbol$ModuleResolutionFlags::WARN_DEPRECATED_REMOVAL, $new(Symbol$ModuleResolutionFlags, "WARN_DEPRECATED_REMOVAL"_s, 2, 4));
@@ -126,7 +81,45 @@ Symbol$ModuleResolutionFlags::Symbol$ModuleResolutionFlags() {
 }
 
 $Class* Symbol$ModuleResolutionFlags::load$($String* name, bool initialize) {
-	$loadClass(Symbol$ModuleResolutionFlags, name, initialize, &_Symbol$ModuleResolutionFlags_ClassInfo_, clinit$Symbol$ModuleResolutionFlags, allocate$Symbol$ModuleResolutionFlags);
+	$FieldInfo fieldInfos$$[] = {
+		{"DO_NOT_RESOLVE_BY_DEFAULT", "Lcom/sun/tools/javac/code/Symbol$ModuleResolutionFlags;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Symbol$ModuleResolutionFlags, DO_NOT_RESOLVE_BY_DEFAULT)},
+		{"WARN_DEPRECATED", "Lcom/sun/tools/javac/code/Symbol$ModuleResolutionFlags;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Symbol$ModuleResolutionFlags, WARN_DEPRECATED)},
+		{"WARN_DEPRECATED_REMOVAL", "Lcom/sun/tools/javac/code/Symbol$ModuleResolutionFlags;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Symbol$ModuleResolutionFlags, WARN_DEPRECATED_REMOVAL)},
+		{"WARN_INCUBATING", "Lcom/sun/tools/javac/code/Symbol$ModuleResolutionFlags;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Symbol$ModuleResolutionFlags, WARN_INCUBATING)},
+		{"$VALUES", "[Lcom/sun/tools/javac/code/Symbol$ModuleResolutionFlags;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(Symbol$ModuleResolutionFlags, $VALUES)},
+		{"value", "I", nullptr, $PUBLIC | $FINAL, $field(Symbol$ModuleResolutionFlags, value$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lcom/sun/tools/javac/code/Symbol$ModuleResolutionFlags;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Symbol$ModuleResolutionFlags, $values, $Symbol$ModuleResolutionFlagsArray*)},
+		{"<init>", "(Ljava/lang/String;II)V", "(I)V", $PRIVATE, $method(Symbol$ModuleResolutionFlags, init$, void, $String*, int32_t, int32_t)},
+		{"value", "(Ljava/util/Set;)I", "(Ljava/util/Set<Lcom/sun/tools/javac/code/Symbol$ModuleResolutionFlags;>;)I", $PUBLIC | $STATIC, $staticMethod(Symbol$ModuleResolutionFlags, value, int32_t, $Set*)},
+		{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/code/Symbol$ModuleResolutionFlags;", nullptr, $PUBLIC | $STATIC, $staticMethod(Symbol$ModuleResolutionFlags, valueOf, Symbol$ModuleResolutionFlags*, $String*)},
+		{"values", "()[Lcom/sun/tools/javac/code/Symbol$ModuleResolutionFlags;", nullptr, $PUBLIC | $STATIC, $staticMethod(Symbol$ModuleResolutionFlags, values, $Symbol$ModuleResolutionFlagsArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.code.Symbol$ModuleResolutionFlags", "com.sun.tools.javac.code.Symbol", "ModuleResolutionFlags", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"com.sun.tools.javac.code.Symbol$ModuleResolutionFlags",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lcom/sun/tools/javac/code/Symbol$ModuleResolutionFlags;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.code.Symbol"
+	};
+	$loadClass(Symbol$ModuleResolutionFlags, name, initialize, &classInfo$$, Symbol$ModuleResolutionFlags::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Symbol$ModuleResolutionFlags));
+	});
 	return class$;
 }
 

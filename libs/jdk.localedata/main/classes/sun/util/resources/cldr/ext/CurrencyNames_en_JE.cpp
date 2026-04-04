@@ -1,5 +1,4 @@
 #include <sun/util/resources/cldr/ext/CurrencyNames_en_JE.h>
-
 #include <sun/util/resources/OpenListResourceBundle.h>
 #include <jcpp.h>
 
@@ -14,34 +13,15 @@ namespace sun {
 			namespace cldr {
 				namespace ext {
 
-$MethodInfo _CurrencyNames_en_JE_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(CurrencyNames_en_JE, init$, void)},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(CurrencyNames_en_JE, getContents, $ObjectArray2*)},
-	{}
-};
-
-$ClassInfo _CurrencyNames_en_JE_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.util.resources.cldr.ext.CurrencyNames_en_JE",
-	"sun.util.resources.OpenListResourceBundle",
-	nullptr,
-	nullptr,
-	_CurrencyNames_en_JE_MethodInfo_
-};
-
-$Object* allocate$CurrencyNames_en_JE($Class* clazz) {
-	return $of($alloc(CurrencyNames_en_JE));
-}
-
 void CurrencyNames_en_JE::init$() {
 	$OpenListResourceBundle::init$();
 }
 
 $ObjectArray2* CurrencyNames_en_JE::getContents() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectArray2, data, $new($ObjectArray2, {$$new($ObjectArray, {
-		$of("gbp"_s),
-		$of("UK Pound"_s)
+		"gbp"_s,
+		"UK Pound"_s
 	})}));
 	return data;
 }
@@ -50,7 +30,22 @@ CurrencyNames_en_JE::CurrencyNames_en_JE() {
 }
 
 $Class* CurrencyNames_en_JE::load$($String* name, bool initialize) {
-	$loadClass(CurrencyNames_en_JE, name, initialize, &_CurrencyNames_en_JE_ClassInfo_, allocate$CurrencyNames_en_JE);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(CurrencyNames_en_JE, init$, void)},
+		{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(CurrencyNames_en_JE, getContents, $ObjectArray2*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.util.resources.cldr.ext.CurrencyNames_en_JE",
+		"sun.util.resources.OpenListResourceBundle",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(CurrencyNames_en_JE, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CurrencyNames_en_JE);
+	});
 	return class$;
 }
 

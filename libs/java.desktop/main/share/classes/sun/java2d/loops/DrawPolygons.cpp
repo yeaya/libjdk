@@ -1,5 +1,4 @@
 #include <sun/java2d/loops/DrawPolygons.h>
-
 #include <sun/java2d/SunGraphics2D.h>
 #include <sun/java2d/SurfaceData.h>
 #include <sun/java2d/loops/CompositeType.h>
@@ -25,47 +24,6 @@ namespace sun {
 	namespace java2d {
 		namespace loops {
 
-$FieldInfo _DrawPolygons_FieldInfo_[] = {
-	{"methodSignature", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DrawPolygons, methodSignature)},
-	{"primTypeID", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DrawPolygons, primTypeID)},
-	{}
-};
-
-$MethodInfo _DrawPolygons_MethodInfo_[] = {
-	{"<init>", "(Lsun/java2d/loops/SurfaceType;Lsun/java2d/loops/CompositeType;Lsun/java2d/loops/SurfaceType;)V", nullptr, $PROTECTED, $method(DrawPolygons, init$, void, $SurfaceType*, $CompositeType*, $SurfaceType*)},
-	{"<init>", "(JLsun/java2d/loops/SurfaceType;Lsun/java2d/loops/CompositeType;Lsun/java2d/loops/SurfaceType;)V", nullptr, $PUBLIC, $method(DrawPolygons, init$, void, int64_t, $SurfaceType*, $CompositeType*, $SurfaceType*)},
-	{"DrawPolygons", "(Lsun/java2d/SunGraphics2D;Lsun/java2d/SurfaceData;[I[I[IIIIZ)V", nullptr, $PUBLIC | $NATIVE, $virtualMethod(DrawPolygons, DrawPolygons$, void, $SunGraphics2D*, $SurfaceData*, $ints*, $ints*, $ints*, int32_t, int32_t, int32_t, bool)},
-	{"locate", "(Lsun/java2d/loops/SurfaceType;Lsun/java2d/loops/CompositeType;Lsun/java2d/loops/SurfaceType;)Lsun/java2d/loops/DrawPolygons;", nullptr, $PUBLIC | $STATIC, $staticMethod(DrawPolygons, locate, DrawPolygons*, $SurfaceType*, $CompositeType*, $SurfaceType*)},
-	{"traceWrap", "()Lsun/java2d/loops/GraphicsPrimitive;", nullptr, $PUBLIC, $virtualMethod(DrawPolygons, traceWrap, $GraphicsPrimitive*)},
-	{}
-};
-
-#define _METHOD_INDEX_DrawPolygons$ 2
-
-$InnerClassInfo _DrawPolygons_InnerClassesInfo_[] = {
-	{"sun.java2d.loops.DrawPolygons$TraceDrawPolygons", "sun.java2d.loops.DrawPolygons", "TraceDrawPolygons", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _DrawPolygons_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.java2d.loops.DrawPolygons",
-	"sun.java2d.loops.GraphicsPrimitive",
-	nullptr,
-	_DrawPolygons_FieldInfo_,
-	_DrawPolygons_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DrawPolygons_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.java2d.loops.DrawPolygons$TraceDrawPolygons"
-};
-
-$Object* allocate$DrawPolygons($Class* clazz) {
-	return $of($alloc(DrawPolygons));
-}
-
 $String* DrawPolygons::methodSignature = nullptr;
 int32_t DrawPolygons::primTypeID = 0;
 
@@ -83,7 +41,7 @@ void DrawPolygons::init$(int64_t pNativePrim, $SurfaceType* srctype, $CompositeT
 }
 
 void DrawPolygons::DrawPolygons$($SunGraphics2D* sg2d, $SurfaceData* sData, $ints* xPoints, $ints* yPoints, $ints* nPoints, int32_t numPolys, int32_t transX, int32_t transY, bool close) {
-	$prepareNative(DrawPolygons, DrawPolygons$, void, $SunGraphics2D* sg2d, $SurfaceData* sData, $ints* xPoints, $ints* yPoints, $ints* nPoints, int32_t numPolys, int32_t transX, int32_t transY, bool close);
+	$prepareNative(DrawPolygons, void, $SunGraphics2D* sg2d, $SurfaceData* sData, $ints* xPoints, $ints* yPoints, $ints* nPoints, int32_t numPolys, int32_t transX, int32_t transY, bool close);
 	$invokeNative(sg2d, sData, xPoints, yPoints, nPoints, numPolys, transX, transY, close);
 	$finishNative();
 }
@@ -92,7 +50,7 @@ $GraphicsPrimitive* DrawPolygons::traceWrap() {
 	return $new($DrawPolygons$TraceDrawPolygons, this);
 }
 
-void clinit$DrawPolygons($Class* class$) {
+void DrawPolygons::clinit$($Class* clazz) {
 	$assignStatic(DrawPolygons::methodSignature, "DrawPolygons(...)"_s->toString());
 	DrawPolygons::primTypeID = $GraphicsPrimitive::makePrimTypeID();
 }
@@ -101,7 +59,40 @@ DrawPolygons::DrawPolygons() {
 }
 
 $Class* DrawPolygons::load$($String* name, bool initialize) {
-	$loadClass(DrawPolygons, name, initialize, &_DrawPolygons_ClassInfo_, clinit$DrawPolygons, allocate$DrawPolygons);
+	$FieldInfo fieldInfos$$[] = {
+		{"methodSignature", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DrawPolygons, methodSignature)},
+		{"primTypeID", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DrawPolygons, primTypeID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/java2d/loops/SurfaceType;Lsun/java2d/loops/CompositeType;Lsun/java2d/loops/SurfaceType;)V", nullptr, $PROTECTED, $method(DrawPolygons, init$, void, $SurfaceType*, $CompositeType*, $SurfaceType*)},
+		{"<init>", "(JLsun/java2d/loops/SurfaceType;Lsun/java2d/loops/CompositeType;Lsun/java2d/loops/SurfaceType;)V", nullptr, $PUBLIC, $method(DrawPolygons, init$, void, int64_t, $SurfaceType*, $CompositeType*, $SurfaceType*)},
+		{"DrawPolygons", "(Lsun/java2d/SunGraphics2D;Lsun/java2d/SurfaceData;[I[I[IIIIZ)V", nullptr, $PUBLIC | $NATIVE, $virtualMethod(DrawPolygons, DrawPolygons$, void, $SunGraphics2D*, $SurfaceData*, $ints*, $ints*, $ints*, int32_t, int32_t, int32_t, bool)},
+		{"locate", "(Lsun/java2d/loops/SurfaceType;Lsun/java2d/loops/CompositeType;Lsun/java2d/loops/SurfaceType;)Lsun/java2d/loops/DrawPolygons;", nullptr, $PUBLIC | $STATIC, $staticMethod(DrawPolygons, locate, DrawPolygons*, $SurfaceType*, $CompositeType*, $SurfaceType*)},
+		{"traceWrap", "()Lsun/java2d/loops/GraphicsPrimitive;", nullptr, $PUBLIC, $virtualMethod(DrawPolygons, traceWrap, $GraphicsPrimitive*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.java2d.loops.DrawPolygons$TraceDrawPolygons", "sun.java2d.loops.DrawPolygons", "TraceDrawPolygons", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.java2d.loops.DrawPolygons",
+		"sun.java2d.loops.GraphicsPrimitive",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.java2d.loops.DrawPolygons$TraceDrawPolygons"
+	};
+	$loadClass(DrawPolygons, name, initialize, &classInfo$$, DrawPolygons::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(DrawPolygons);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/java2d/marlin/ByteArrayCache.h>
-
 #include <java/lang/ref/WeakReference.h>
 #include <java/util/Arrays.h>
 #include <sun/java2d/marlin/ArrayCacheConst$BucketStats.h>
@@ -34,53 +33,8 @@ namespace sun {
 	namespace java2d {
 		namespace marlin {
 
-$FieldInfo _ByteArrayCache_FieldInfo_[] = {
-	{"clean", "Z", nullptr, $FINAL, $field(ByteArrayCache, clean)},
-	{"bucketCapacity", "I", nullptr, $PRIVATE | $FINAL, $field(ByteArrayCache, bucketCapacity)},
-	{"refBuckets", "Ljava/lang/ref/WeakReference;", "Ljava/lang/ref/WeakReference<[Lsun/java2d/marlin/ByteArrayCache$Bucket;>;", $PRIVATE, $field(ByteArrayCache, refBuckets)},
-	{"stats", "Lsun/java2d/marlin/ArrayCacheConst$CacheStats;", nullptr, $FINAL, $field(ByteArrayCache, stats)},
-	{}
-};
-
-$MethodInfo _ByteArrayCache_MethodInfo_[] = {
-	{"<init>", "(ZI)V", nullptr, 0, $method(ByteArrayCache, init$, void, bool, int32_t)},
-	{"check", "([BIIB)V", nullptr, $STATIC, $staticMethod(ByteArrayCache, check, void, $bytes*, int32_t, int32_t, int8_t)},
-	{"createArray", "(I)[B", nullptr, $STATIC, $staticMethod(ByteArrayCache, createArray, $bytes*, int32_t)},
-	{"createRef", "(I)Lsun/java2d/marlin/ByteArrayCache$Reference;", nullptr, 0, $method(ByteArrayCache, createRef, $ByteArrayCache$Reference*, int32_t)},
-	{"fill", "([BIIB)V", nullptr, $STATIC, $staticMethod(ByteArrayCache, fill, void, $bytes*, int32_t, int32_t, int8_t)},
-	{"getBuckets", "()[Lsun/java2d/marlin/ByteArrayCache$Bucket;", nullptr, $PRIVATE, $method(ByteArrayCache, getBuckets, $ByteArrayCache$BucketArray*)},
-	{"getCacheBucket", "(I)Lsun/java2d/marlin/ByteArrayCache$Bucket;", nullptr, 0, $method(ByteArrayCache, getCacheBucket, $ByteArrayCache$Bucket*, int32_t)},
-	{"getLogPrefix", "(Z)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(ByteArrayCache, getLogPrefix, $String*, bool)},
-	{}
-};
-
-$InnerClassInfo _ByteArrayCache_InnerClassesInfo_[] = {
-	{"sun.java2d.marlin.ByteArrayCache$Bucket", "sun.java2d.marlin.ByteArrayCache", "Bucket", $STATIC | $FINAL},
-	{"sun.java2d.marlin.ByteArrayCache$Reference", "sun.java2d.marlin.ByteArrayCache", "Reference", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _ByteArrayCache_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.java2d.marlin.ByteArrayCache",
-	"java.lang.Object",
-	"sun.java2d.marlin.MarlinConst",
-	_ByteArrayCache_FieldInfo_,
-	_ByteArrayCache_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ByteArrayCache_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.java2d.marlin.ByteArrayCache$Bucket,sun.java2d.marlin.ByteArrayCache$Reference"
-};
-
-$Object* allocate$ByteArrayCache($Class* clazz) {
-	return $of($alloc(ByteArrayCache));
-}
-
 void ByteArrayCache::init$(bool clean, int32_t bucketCapacity) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, refBuckets, nullptr);
 	this->clean = clean;
 	this->bucketCapacity = bucketCapacity;
@@ -94,8 +48,8 @@ $ByteArrayCache$Bucket* ByteArrayCache::getCacheBucket(int32_t length) {
 }
 
 $ByteArrayCache$BucketArray* ByteArrayCache::getBuckets() {
-	$useLocalCurrentObjectStackCache();
-	$var($ByteArrayCache$BucketArray, buckets, (this->refBuckets != nullptr) ? $cast($ByteArrayCache$BucketArray, $nc(this->refBuckets)->get()) : ($ByteArrayCache$BucketArray*)nullptr);
+	$useLocalObjectStack();
+	$var($ByteArrayCache$BucketArray, buckets, (this->refBuckets != nullptr) ? $cast($ByteArrayCache$BucketArray, this->refBuckets->get()) : ($ByteArrayCache$BucketArray*)nullptr);
 	if (buckets == nullptr) {
 		$assign(buckets, $new($ByteArrayCache$BucketArray, 8));
 		for (int32_t i = 0; i < 8; ++i) {
@@ -128,7 +82,7 @@ void ByteArrayCache::fill($bytes* array, int32_t fromIndex, int32_t toIndex, int
 
 void ByteArrayCache::check($bytes* array, int32_t fromIndex, int32_t toIndex, int8_t value) {
 	$init(ByteArrayCache);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($MarlinConst);
 	if ($MarlinConst::DO_CHECKS) {
 		for (int32_t i = 0; i < $nc(array)->length; ++i) {
@@ -151,7 +105,46 @@ ByteArrayCache::ByteArrayCache() {
 }
 
 $Class* ByteArrayCache::load$($String* name, bool initialize) {
-	$loadClass(ByteArrayCache, name, initialize, &_ByteArrayCache_ClassInfo_, allocate$ByteArrayCache);
+	$FieldInfo fieldInfos$$[] = {
+		{"clean", "Z", nullptr, $FINAL, $field(ByteArrayCache, clean)},
+		{"bucketCapacity", "I", nullptr, $PRIVATE | $FINAL, $field(ByteArrayCache, bucketCapacity)},
+		{"refBuckets", "Ljava/lang/ref/WeakReference;", "Ljava/lang/ref/WeakReference<[Lsun/java2d/marlin/ByteArrayCache$Bucket;>;", $PRIVATE, $field(ByteArrayCache, refBuckets)},
+		{"stats", "Lsun/java2d/marlin/ArrayCacheConst$CacheStats;", nullptr, $FINAL, $field(ByteArrayCache, stats)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(ZI)V", nullptr, 0, $method(ByteArrayCache, init$, void, bool, int32_t)},
+		{"check", "([BIIB)V", nullptr, $STATIC, $staticMethod(ByteArrayCache, check, void, $bytes*, int32_t, int32_t, int8_t)},
+		{"createArray", "(I)[B", nullptr, $STATIC, $staticMethod(ByteArrayCache, createArray, $bytes*, int32_t)},
+		{"createRef", "(I)Lsun/java2d/marlin/ByteArrayCache$Reference;", nullptr, 0, $method(ByteArrayCache, createRef, $ByteArrayCache$Reference*, int32_t)},
+		{"fill", "([BIIB)V", nullptr, $STATIC, $staticMethod(ByteArrayCache, fill, void, $bytes*, int32_t, int32_t, int8_t)},
+		{"getBuckets", "()[Lsun/java2d/marlin/ByteArrayCache$Bucket;", nullptr, $PRIVATE, $method(ByteArrayCache, getBuckets, $ByteArrayCache$BucketArray*)},
+		{"getCacheBucket", "(I)Lsun/java2d/marlin/ByteArrayCache$Bucket;", nullptr, 0, $method(ByteArrayCache, getCacheBucket, $ByteArrayCache$Bucket*, int32_t)},
+		{"getLogPrefix", "(Z)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(ByteArrayCache, getLogPrefix, $String*, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.java2d.marlin.ByteArrayCache$Bucket", "sun.java2d.marlin.ByteArrayCache", "Bucket", $STATIC | $FINAL},
+		{"sun.java2d.marlin.ByteArrayCache$Reference", "sun.java2d.marlin.ByteArrayCache", "Reference", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.java2d.marlin.ByteArrayCache",
+		"java.lang.Object",
+		"sun.java2d.marlin.MarlinConst",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.java2d.marlin.ByteArrayCache$Bucket,sun.java2d.marlin.ByteArrayCache$Reference"
+	};
+	$loadClass(ByteArrayCache, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ByteArrayCache);
+	});
 	return class$;
 }
 

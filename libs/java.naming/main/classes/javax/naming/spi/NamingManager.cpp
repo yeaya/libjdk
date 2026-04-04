@@ -1,5 +1,4 @@
 #include <javax/naming/spi/NamingManager.h>
-
 #include <com/sun/naming/internal/FactoryEnumeration.h>
 #include <com/sun/naming/internal/ObjectFactoriesFilter.h>
 #include <com/sun/naming/internal/ResourceManager.h>
@@ -71,14 +70,12 @@ using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $AccessController = ::java::security::AccessController;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $Hashtable = ::java::util::Hashtable;
-using $Optional = ::java::util::Optional;
 using $ServiceConfigurationError = ::java::util::ServiceConfigurationError;
 using $ServiceLoader = ::java::util::ServiceLoader;
 using $ServiceLoader$Provider = ::java::util::ServiceLoader$Provider;
 using $BiFunction = ::java::util::function::BiFunction;
 using $Function = ::java::util::function::Function;
 using $Predicate = ::java::util::function::Predicate;
-using $Stream = ::java::util::stream::Stream;
 using $CannotProceedException = ::javax::naming::CannotProceedException;
 using $Context = ::javax::naming::Context;
 using $Name = ::javax::naming::Name;
@@ -109,29 +106,26 @@ public:
 	void init$() {
 	}
 	virtual $Object* run() override {
-		 return $of(NamingManager::lambda$getInitialContext$0());
+		 return NamingManager::lambda$getInitialContext$0();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<NamingManager$$Lambda$lambda$getInitialContext$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo NamingManager$$Lambda$lambda$getInitialContext$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(NamingManager$$Lambda$lambda$getInitialContext$0, init$, void)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(NamingManager$$Lambda$lambda$getInitialContext$0, run, $Object*)},
-	{}
-};
-$ClassInfo NamingManager$$Lambda$lambda$getInitialContext$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"javax.naming.spi.NamingManager$$Lambda$lambda$getInitialContext$0",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	nullptr,
-	methodInfos
 };
 $Class* NamingManager$$Lambda$lambda$getInitialContext$0::load$($String* name, bool initialize) {
-	$loadClass(NamingManager$$Lambda$lambda$getInitialContext$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(NamingManager$$Lambda$lambda$getInitialContext$0, init$, void)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(NamingManager$$Lambda$lambda$getInitialContext$0, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"javax.naming.spi.NamingManager$$Lambda$lambda$getInitialContext$0",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(NamingManager$$Lambda$lambda$getInitialContext$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(NamingManager$$Lambda$lambda$getInitialContext$0);
+	});
 	return class$;
 }
 $Class* NamingManager$$Lambda$lambda$getInitialContext$0::class$ = nullptr;
@@ -142,29 +136,26 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* ld, Object$* ky) override {
-		 return $of(NamingManager::lambda$getInitialContext$1($cast($ClassLoader, ld), $cast($AbstractClassLoaderValue$Sub, ky)));
+		 return NamingManager::lambda$getInitialContext$1($cast($ClassLoader, ld), $cast($AbstractClassLoaderValue$Sub, ky));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<NamingManager$$Lambda$lambda$getInitialContext$1$1>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo NamingManager$$Lambda$lambda$getInitialContext$1$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(NamingManager$$Lambda$lambda$getInitialContext$1$1, init$, void)},
-	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(NamingManager$$Lambda$lambda$getInitialContext$1$1, apply, $Object*, Object$*, Object$*)},
-	{}
-};
-$ClassInfo NamingManager$$Lambda$lambda$getInitialContext$1$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"javax.naming.spi.NamingManager$$Lambda$lambda$getInitialContext$1$1",
-	"java.lang.Object",
-	"java.util.function.BiFunction",
-	nullptr,
-	methodInfos
 };
 $Class* NamingManager$$Lambda$lambda$getInitialContext$1$1::load$($String* name, bool initialize) {
-	$loadClass(NamingManager$$Lambda$lambda$getInitialContext$1$1, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(NamingManager$$Lambda$lambda$getInitialContext$1$1, init$, void)},
+		{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(NamingManager$$Lambda$lambda$getInitialContext$1$1, apply, $Object*, Object$*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"javax.naming.spi.NamingManager$$Lambda$lambda$getInitialContext$1$1",
+		"java.lang.Object",
+		"java.util.function.BiFunction",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(NamingManager$$Lambda$lambda$getInitialContext$1$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(NamingManager$$Lambda$lambda$getInitialContext$1$1);
+	});
 	return class$;
 }
 $Class* NamingManager$$Lambda$lambda$getInitialContext$1$1::class$ = nullptr;
@@ -178,33 +169,29 @@ public:
 	virtual bool test(Object$* p) override {
 		 return NamingManager::lambda$getFactory$2(className, $cast($ServiceLoader$Provider, p));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<NamingManager$$Lambda$lambda$getFactory$2$2>());
-	}
 	$String* className = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo NamingManager$$Lambda$lambda$getFactory$2$2::fieldInfos[2] = {
-	{"className", "Ljava/lang/String;", nullptr, $PUBLIC, $field(NamingManager$$Lambda$lambda$getFactory$2$2, className)},
-	{}
-};
-$MethodInfo NamingManager$$Lambda$lambda$getFactory$2$2::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(NamingManager$$Lambda$lambda$getFactory$2$2, init$, void, $String*)},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(NamingManager$$Lambda$lambda$getFactory$2$2, test, bool, Object$*)},
-	{}
-};
-$ClassInfo NamingManager$$Lambda$lambda$getFactory$2$2::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"javax.naming.spi.NamingManager$$Lambda$lambda$getFactory$2$2",
-	"java.lang.Object",
-	"java.util.function.Predicate",
-	fieldInfos,
-	methodInfos
 };
 $Class* NamingManager$$Lambda$lambda$getFactory$2$2::load$($String* name, bool initialize) {
-	$loadClass(NamingManager$$Lambda$lambda$getFactory$2$2, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"className", "Ljava/lang/String;", nullptr, $PUBLIC, $field(NamingManager$$Lambda$lambda$getFactory$2$2, className)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(NamingManager$$Lambda$lambda$getFactory$2$2, init$, void, $String*)},
+		{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(NamingManager$$Lambda$lambda$getFactory$2$2, test, bool, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"javax.naming.spi.NamingManager$$Lambda$lambda$getFactory$2$2",
+		"java.lang.Object",
+		"java.util.function.Predicate",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(NamingManager$$Lambda$lambda$getFactory$2$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(NamingManager$$Lambda$lambda$getFactory$2$2);
+	});
 	return class$;
 }
 $Class* NamingManager$$Lambda$lambda$getFactory$2$2::class$ = nullptr;
@@ -217,91 +204,27 @@ public:
 	virtual $Object* apply(Object$* inst$) override {
 		 return $sure($ServiceLoader$Provider, inst$)->get();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<NamingManager$$Lambda$get$3>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo NamingManager$$Lambda$get$3::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(NamingManager$$Lambda$get$3, init$, void)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(NamingManager$$Lambda$get$3, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo NamingManager$$Lambda$get$3::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"javax.naming.spi.NamingManager$$Lambda$get$3",
-	"java.lang.Object",
-	"java.util.function.Function",
-	nullptr,
-	methodInfos
 };
 $Class* NamingManager$$Lambda$get$3::load$($String* name, bool initialize) {
-	$loadClass(NamingManager$$Lambda$get$3, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(NamingManager$$Lambda$get$3, init$, void)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(NamingManager$$Lambda$get$3, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"javax.naming.spi.NamingManager$$Lambda$get$3",
+		"java.lang.Object",
+		"java.util.function.Function",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(NamingManager$$Lambda$get$3, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(NamingManager$$Lambda$get$3);
+	});
 	return class$;
 }
 $Class* NamingManager$$Lambda$get$3::class$ = nullptr;
-
-$FieldInfo _NamingManager_FieldInfo_[] = {
-	{"helper", "Lcom/sun/naming/internal/VersionHelper;", nullptr, $STATIC | $FINAL, $staticField(NamingManager, helper)},
-	{"object_factory_builder", "Ljavax/naming/spi/ObjectFactoryBuilder;", nullptr, $PRIVATE | $STATIC, $staticField(NamingManager, object_factory_builder)},
-	{"FACTORIES_CACHE", "Ljdk/internal/loader/ClassLoaderValue;", "Ljdk/internal/loader/ClassLoaderValue<Ljavax/naming/spi/InitialContextFactory;>;", $PRIVATE | $STATIC | $FINAL, $staticField(NamingManager, FACTORIES_CACHE)},
-	{"defaultPkgPrefix", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(NamingManager, defaultPkgPrefix)},
-	{"initctx_factory_builder", "Ljavax/naming/spi/InitialContextFactoryBuilder;", nullptr, $PRIVATE | $STATIC, $staticField(NamingManager, initctx_factory_builder)},
-	{"CPE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(NamingManager, CPE)},
-	{}
-};
-
-$MethodInfo _NamingManager_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(NamingManager, init$, void)},
-	{"createObjectFromFactories", "(Ljava/lang/Object;Ljavax/naming/Name;Ljavax/naming/Context;Ljava/util/Hashtable;)Ljava/lang/Object;", "(Ljava/lang/Object;Ljavax/naming/Name;Ljavax/naming/Context;Ljava/util/Hashtable<**>;)Ljava/lang/Object;", $PRIVATE | $STATIC, $staticMethod(NamingManager, createObjectFromFactories, $Object*, Object$*, $Name*, $Context*, $Hashtable*), "java.lang.Exception"},
-	{"getContext", "(Ljava/lang/Object;Ljavax/naming/Name;Ljavax/naming/Context;Ljava/util/Hashtable;)Ljavax/naming/Context;", "(Ljava/lang/Object;Ljavax/naming/Name;Ljavax/naming/Context;Ljava/util/Hashtable<**>;)Ljavax/naming/Context;", $STATIC, $staticMethod(NamingManager, getContext, $Context*, Object$*, $Name*, $Context*, $Hashtable*), "javax.naming.NamingException"},
-	{"getContinuationContext", "(Ljavax/naming/CannotProceedException;)Ljavax/naming/Context;", nullptr, $PUBLIC | $STATIC, $staticMethod(NamingManager, getContinuationContext, $Context*, $CannotProceedException*), "javax.naming.NamingException"},
-	{"getFactory", "(Ljava/lang/String;)Ljavax/naming/spi/InitialContextFactory;", nullptr, $PRIVATE | $STATIC, $staticMethod(NamingManager, getFactory, $InitialContextFactory*, $String*)},
-	{"getInitialContext", "(Ljava/util/Hashtable;)Ljavax/naming/Context;", "(Ljava/util/Hashtable<**>;)Ljavax/naming/Context;", $PUBLIC | $STATIC, $staticMethod(NamingManager, getInitialContext, $Context*, $Hashtable*), "javax.naming.NamingException"},
-	{"getInitialContextFactoryBuilder", "()Ljavax/naming/spi/InitialContextFactoryBuilder;", nullptr, $PRIVATE | $STATIC | $SYNCHRONIZED, $staticMethod(NamingManager, getInitialContextFactoryBuilder, $InitialContextFactoryBuilder*)},
-	{"getObjectFactoryBuilder", "()Ljavax/naming/spi/ObjectFactoryBuilder;", nullptr, $STATIC | $SYNCHRONIZED, $staticMethod(NamingManager, getObjectFactoryBuilder, $ObjectFactoryBuilder*)},
-	{"getObjectFactoryFromReference", "(Ljavax/naming/Reference;Ljava/lang/String;)Ljavax/naming/spi/ObjectFactory;", nullptr, $STATIC, $staticMethod(NamingManager, getObjectFactoryFromReference, $ObjectFactory*, $Reference*, $String*), "java.lang.IllegalAccessException,java.lang.InstantiationException,java.net.MalformedURLException"},
-	{"getObjectInstance", "(Ljava/lang/Object;Ljavax/naming/Name;Ljavax/naming/Context;Ljava/util/Hashtable;)Ljava/lang/Object;", "(Ljava/lang/Object;Ljavax/naming/Name;Ljavax/naming/Context;Ljava/util/Hashtable<**>;)Ljava/lang/Object;", $PUBLIC | $STATIC, $staticMethod(NamingManager, getObjectInstance, $Object*, Object$*, $Name*, $Context*, $Hashtable*), "java.lang.Exception"},
-	{"getResolver", "(Ljava/lang/Object;Ljavax/naming/Name;Ljavax/naming/Context;Ljava/util/Hashtable;)Ljavax/naming/spi/Resolver;", "(Ljava/lang/Object;Ljavax/naming/Name;Ljavax/naming/Context;Ljava/util/Hashtable<**>;)Ljavax/naming/spi/Resolver;", $STATIC, $staticMethod(NamingManager, getResolver, $Resolver*, Object$*, $Name*, $Context*, $Hashtable*), "javax.naming.NamingException"},
-	{"getStateToBind", "(Ljava/lang/Object;Ljavax/naming/Name;Ljavax/naming/Context;Ljava/util/Hashtable;)Ljava/lang/Object;", "(Ljava/lang/Object;Ljavax/naming/Name;Ljavax/naming/Context;Ljava/util/Hashtable<**>;)Ljava/lang/Object;", $PUBLIC | $STATIC, $staticMethod(NamingManager, getStateToBind, $Object*, Object$*, $Name*, $Context*, $Hashtable*), "javax.naming.NamingException"},
-	{"getURLContext", "(Ljava/lang/String;Ljava/util/Hashtable;)Ljavax/naming/Context;", "(Ljava/lang/String;Ljava/util/Hashtable<**>;)Ljavax/naming/Context;", $PUBLIC | $STATIC, $staticMethod(NamingManager, getURLContext, $Context*, $String*, $Hashtable*), "javax.naming.NamingException"},
-	{"getURLObject", "(Ljava/lang/String;Ljava/lang/Object;Ljavax/naming/Name;Ljavax/naming/Context;Ljava/util/Hashtable;)Ljava/lang/Object;", "(Ljava/lang/String;Ljava/lang/Object;Ljavax/naming/Name;Ljavax/naming/Context;Ljava/util/Hashtable<**>;)Ljava/lang/Object;", $PRIVATE | $STATIC, $staticMethod(NamingManager, getURLObject, $Object*, $String*, Object$*, $Name*, $Context*, $Hashtable*), "javax.naming.NamingException"},
-	{"getURLScheme", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(NamingManager, getURLScheme, $String*, $String*)},
-	{"hasInitialContextFactoryBuilder", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(NamingManager, hasInitialContextFactoryBuilder, bool)},
-	{"lambda$getFactory$2", "(Ljava/lang/String;Ljava/util/ServiceLoader$Provider;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(NamingManager, lambda$getFactory$2, bool, $String*, $ServiceLoader$Provider*)},
-	{"lambda$getInitialContext$0", "()Ljava/lang/ClassLoader;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(NamingManager, lambda$getInitialContext$0, $ClassLoader*)},
-	{"lambda$getInitialContext$1", "(Ljava/lang/ClassLoader;Ljdk/internal/loader/AbstractClassLoaderValue$Sub;)Ljavax/naming/spi/InitialContextFactory;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(NamingManager, lambda$getInitialContext$1, $InitialContextFactory*, $ClassLoader*, $AbstractClassLoaderValue$Sub*)},
-	{"processURL", "(Ljava/lang/Object;Ljavax/naming/Name;Ljavax/naming/Context;Ljava/util/Hashtable;)Ljava/lang/Object;", "(Ljava/lang/Object;Ljavax/naming/Name;Ljavax/naming/Context;Ljava/util/Hashtable<**>;)Ljava/lang/Object;", $PRIVATE | $STATIC, $staticMethod(NamingManager, processURL, $Object*, Object$*, $Name*, $Context*, $Hashtable*), "javax.naming.NamingException"},
-	{"processURLAddrs", "(Ljavax/naming/Reference;Ljavax/naming/Name;Ljavax/naming/Context;Ljava/util/Hashtable;)Ljava/lang/Object;", "(Ljavax/naming/Reference;Ljavax/naming/Name;Ljavax/naming/Context;Ljava/util/Hashtable<**>;)Ljava/lang/Object;", $STATIC, $staticMethod(NamingManager, processURLAddrs, $Object*, $Reference*, $Name*, $Context*, $Hashtable*), "javax.naming.NamingException"},
-	{"setInitialContextFactoryBuilder", "(Ljavax/naming/spi/InitialContextFactoryBuilder;)V", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(NamingManager, setInitialContextFactoryBuilder, void, $InitialContextFactoryBuilder*), "javax.naming.NamingException"},
-	{"setObjectFactoryBuilder", "(Ljavax/naming/spi/ObjectFactoryBuilder;)V", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(NamingManager, setObjectFactoryBuilder, void, $ObjectFactoryBuilder*), "javax.naming.NamingException"},
-	{}
-};
-
-$InnerClassInfo _NamingManager_InnerClassesInfo_[] = {
-	{"javax.naming.spi.NamingManager$FactoryInitializationError", "javax.naming.spi.NamingManager", "FactoryInitializationError", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _NamingManager_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.naming.spi.NamingManager",
-	"java.lang.Object",
-	nullptr,
-	_NamingManager_FieldInfo_,
-	_NamingManager_MethodInfo_,
-	nullptr,
-	nullptr,
-	_NamingManager_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.naming.spi.NamingManager$FactoryInitializationError"
-};
-
-$Object* allocate$NamingManager($Class* clazz) {
-	return $of($alloc(NamingManager));
-}
 
 $VersionHelper* NamingManager::helper = nullptr;
 $ObjectFactoryBuilder* NamingManager::object_factory_builder = nullptr;
@@ -314,9 +237,8 @@ void NamingManager::init$() {
 }
 
 void NamingManager::setObjectFactoryBuilder($ObjectFactoryBuilder* builder) {
-	$load(NamingManager);
+	$init(NamingManager);
 	$synchronized(class$) {
-		$init(NamingManager);
 		if (NamingManager::object_factory_builder != nullptr) {
 			$throwNew($IllegalStateException, "ObjectFactoryBuilder already set"_s);
 		}
@@ -329,16 +251,15 @@ void NamingManager::setObjectFactoryBuilder($ObjectFactoryBuilder* builder) {
 }
 
 $ObjectFactoryBuilder* NamingManager::getObjectFactoryBuilder() {
-	$load(NamingManager);
+	$init(NamingManager);
 	$synchronized(class$) {
-		$init(NamingManager);
 		return NamingManager::object_factory_builder;
 	}
 }
 
 $ObjectFactory* NamingManager::getObjectFactoryFromReference($Reference* ref, $String* factoryName) {
 	$init(NamingManager);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$Class* clas = nullptr;
 	try {
@@ -358,17 +279,17 @@ $ObjectFactory* NamingManager::getObjectFactoryFromReference($Reference* ref, $S
 		} catch ($ClassNotFoundException& e) {
 		}
 	}
-	$var($ObjectFactory, result, (clas != nullptr) ? $cast($ObjectFactory, $nc(clas)->newInstance()) : ($ObjectFactory*)nullptr);
+	$var($ObjectFactory, result, (clas != nullptr) ? $cast($ObjectFactory, clas->newInstance()) : ($ObjectFactory*)nullptr);
 	return result;
 }
 
 $Object* NamingManager::createObjectFromFactories(Object$* obj, $Name* name, $Context* nameCtx, $Hashtable* environment) {
 	$init(NamingManager);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Context);
 	$var($FactoryEnumeration, factories, $ResourceManager::getFactories($Context::OBJECT_FACTORIES, environment, nameCtx));
 	if (factories == nullptr) {
-		return $of(nullptr);
+		return nullptr;
 	}
 	$var($ObjectFactory, factory, nullptr);
 	$var($Object, answer, nullptr);
@@ -376,13 +297,13 @@ $Object* NamingManager::createObjectFromFactories(Object$* obj, $Name* name, $Co
 		$assign(factory, $cast($ObjectFactory, factories->next()));
 		$assign(answer, $nc(factory)->getObjectInstance(obj, name, nameCtx, environment));
 	}
-	return $of(answer);
+	return answer;
 }
 
 $String* NamingManager::getURLScheme($String* str) {
 	$init(NamingManager);
-	int32_t colon_posn = $nc(str)->indexOf((int32_t)u':');
-	int32_t slash_posn = str->indexOf((int32_t)u'/');
+	int32_t colon_posn = $nc(str)->indexOf(u':');
+	int32_t slash_posn = str->indexOf(u'/');
 	if (colon_posn > 0 && (slash_posn == -1 || colon_posn < slash_posn)) {
 		return str->substring(0, colon_posn);
 	}
@@ -391,18 +312,18 @@ $String* NamingManager::getURLScheme($String* str) {
 
 $Object* NamingManager::getObjectInstance(Object$* refInfo, $Name* name, $Context* nameCtx, $Hashtable* environment) {
 	$init(NamingManager);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectFactory, factory, nullptr);
 	$var($ObjectFactoryBuilder, builder, getObjectFactoryBuilder());
 	if (builder != nullptr) {
 		$assign(factory, builder->createObjectFactory(refInfo, environment));
-		return $of($nc(factory)->getObjectInstance(refInfo, name, nameCtx, environment));
+		return $nc(factory)->getObjectInstance(refInfo, name, nameCtx, environment);
 	}
 	$var($Reference, ref, nullptr);
 	if ($instanceOf($Reference, refInfo)) {
 		$assign(ref, $cast($Reference, refInfo));
 	} else if ($instanceOf($Referenceable, refInfo)) {
-		$assign(ref, $nc((($cast($Referenceable, refInfo))))->getReference());
+		$assign(ref, $cast($Referenceable, refInfo)->getReference());
 	}
 	$var($Object, answer, nullptr);
 	if (ref != nullptr) {
@@ -410,39 +331,39 @@ $Object* NamingManager::getObjectInstance(Object$* refInfo, $Name* name, $Contex
 		if (f != nullptr) {
 			$assign(factory, getObjectFactoryFromReference(ref, f));
 			if (factory != nullptr) {
-				return $of(factory->getObjectInstance(ref, name, nameCtx, environment));
+				return factory->getObjectInstance(ref, name, nameCtx, environment);
 			}
 			return $of(refInfo);
 		} else {
 			$assign(answer, processURLAddrs(ref, name, nameCtx, environment));
 			if (answer != nullptr) {
-				return $of(answer);
+				return answer;
 			}
 		}
 	}
 	$assign(answer, createObjectFromFactories(refInfo, name, nameCtx, environment));
-	return $of((answer != nullptr) ? answer : $of(refInfo));
+	return (answer != nullptr) ? answer : $of(refInfo);
 }
 
 $Object* NamingManager::processURLAddrs($Reference* ref, $Name* name, $Context* nameCtx, $Hashtable* environment) {
 	$init(NamingManager);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (int32_t i = 0; i < $nc(ref)->size(); ++i) {
 		$var($RefAddr, addr, ref->get(i));
-		if ($instanceOf($StringRefAddr, addr) && $nc($($nc(addr)->getType()))->equalsIgnoreCase("URL"_s)) {
+		if ($instanceOf($StringRefAddr, addr) && $$nc(addr->getType())->equalsIgnoreCase("URL"_s)) {
 			$var($String, url, $cast($String, addr->getContent()));
 			$var($Object, answer, processURL(url, name, nameCtx, environment));
 			if (answer != nullptr) {
-				return $of(answer);
+				return answer;
 			}
 		}
 	}
-	return $of(nullptr);
+	return nullptr;
 }
 
 $Object* NamingManager::processURL(Object$* refInfo, $Name* name, $Context* nameCtx, $Hashtable* environment) {
 	$init(NamingManager);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, answer, nullptr);
 	if ($instanceOf($String, refInfo)) {
 		$var($String, url, $cast($String, refInfo));
@@ -450,28 +371,28 @@ $Object* NamingManager::processURL(Object$* refInfo, $Name* name, $Context* name
 		if (scheme != nullptr) {
 			$assign(answer, getURLObject(scheme, refInfo, name, nameCtx, environment));
 			if (answer != nullptr) {
-				return $of(answer);
+				return answer;
 			}
 		}
 	}
 	if ($instanceOf($StringArray, refInfo)) {
 		$var($StringArray, urls, $cast($StringArray, refInfo));
-		for (int32_t i = 0; i < $nc(urls)->length; ++i) {
+		for (int32_t i = 0; i < urls->length; ++i) {
 			$var($String, scheme, getURLScheme(urls->get(i)));
 			if (scheme != nullptr) {
 				$assign(answer, getURLObject(scheme, refInfo, name, nameCtx, environment));
 				if (answer != nullptr) {
-					return $of(answer);
+					return answer;
 				}
 			}
 		}
 	}
-	return $of(nullptr);
+	return nullptr;
 }
 
 $Context* NamingManager::getContext(Object$* obj, $Name* name, $Context* nameCtx, $Hashtable* environment) {
 	$init(NamingManager);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, answer, nullptr);
 	if ($instanceOf($Context, obj)) {
 		return $cast($Context, obj);
@@ -490,7 +411,7 @@ $Context* NamingManager::getContext(Object$* obj, $Name* name, $Context* nameCtx
 
 $Resolver* NamingManager::getResolver(Object$* obj, $Name* name, $Context* nameCtx, $Hashtable* environment) {
 	$init(NamingManager);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, answer, nullptr);
 	if ($instanceOf($Resolver, obj)) {
 		return $cast($Resolver, obj);
@@ -519,14 +440,14 @@ $Context* NamingManager::getURLContext($String* scheme, $Hashtable* environment)
 
 $Object* NamingManager::getURLObject($String* scheme, Object$* urlInfo, $Name* name, $Context* nameCtx, $Hashtable* environment) {
 	$init(NamingManager);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Context);
 	$var($ObjectFactory, factory, $cast($ObjectFactory, $ResourceManager::getFactory($Context::URL_PKG_PREFIXES, environment, nameCtx, $$str({"."_s, scheme, "."_s, scheme, "URLContextFactory"_s}), NamingManager::defaultPkgPrefix)));
 	if (factory == nullptr) {
-		return $of(nullptr);
+		return nullptr;
 	}
 	try {
-		return $of($nc(factory)->getObjectInstance(urlInfo, name, nameCtx, environment));
+		return $nc(factory)->getObjectInstance(urlInfo, name, nameCtx, environment);
 	} catch ($NamingException& e) {
 		$throw(e);
 	} catch ($Exception& e) {
@@ -538,23 +459,22 @@ $Object* NamingManager::getURLObject($String* scheme, Object$* urlInfo, $Name* n
 }
 
 $InitialContextFactoryBuilder* NamingManager::getInitialContextFactoryBuilder() {
-	$load(NamingManager);
+	$init(NamingManager);
 	$synchronized(class$) {
-		$init(NamingManager);
 		return NamingManager::initctx_factory_builder;
 	}
 }
 
 $Context* NamingManager::getInitialContext($Hashtable* env) {
 	$init(NamingManager);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$var($ClassLoader, loader, nullptr);
 	$var($InitialContextFactory, factory, nullptr);
 	$var($InitialContextFactoryBuilder, builder, getInitialContextFactoryBuilder());
 	if (builder == nullptr) {
 		$init($Context);
-		$var($String, className, env != nullptr ? $cast($String, $nc(env)->get($Context::INITIAL_CONTEXT_FACTORY)) : ($String*)nullptr);
+		$var($String, className, env != nullptr ? $cast($String, env->get($Context::INITIAL_CONTEXT_FACTORY)) : ($String*)nullptr);
 		if (className == nullptr) {
 			$var($NoInitialContextException, ne, $new($NoInitialContextException, $$str({"Need to specify class name in environment or system property, or in an application resource file: "_s, $Context::INITIAL_CONTEXT_FACTORY})));
 			$throw(ne);
@@ -565,30 +485,30 @@ $Context* NamingManager::getInitialContext($Hashtable* env) {
 				$assign(loader, $ClassLoader::getSystemClassLoader());
 			}
 		} else {
-			$var($PrivilegedAction, pa, static_cast<$PrivilegedAction*>($new(NamingManager$$Lambda$lambda$getInitialContext$0)));
+			$var($PrivilegedAction, pa, $new(NamingManager$$Lambda$lambda$getInitialContext$0));
 			$assign(loader, $cast($ClassLoader, $AccessController::doPrivileged(pa)));
 		}
-		$var($AbstractClassLoaderValue$Sub, key, $nc(NamingManager::FACTORIES_CACHE)->sub(className));
+		$var($AbstractClassLoaderValue$Sub, key, NamingManager::FACTORIES_CACHE->sub(className));
 		try {
-			$assign(factory, $cast($InitialContextFactory, $nc(key)->computeIfAbsent(loader, static_cast<$BiFunction*>($$new(NamingManager$$Lambda$lambda$getInitialContext$1$1)))));
+			$assign(factory, $cast($InitialContextFactory, $nc(key)->computeIfAbsent(loader, $$new(NamingManager$$Lambda$lambda$getInitialContext$1$1))));
 		} catch ($NamingManager$FactoryInitializationError& e) {
-			$throw($($cast($NoInitialContextException, e->getCause())));
+			$throw($$cast($NoInitialContextException, e->getCause()));
 		}
 	} else {
-		$assign(factory, $nc(builder)->createInitialContextFactory(env));
+		$assign(factory, builder->createInitialContextFactory(env));
 	}
 	return $nc(factory)->getInitialContext(env);
 }
 
 $InitialContextFactory* NamingManager::getFactory($String* className) {
 	$init(NamingManager);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$var($InitialContextFactory, factory, nullptr);
 	try {
 		$load($InitialContextFactory);
 		$var($ServiceLoader, loader, $ServiceLoader::load($InitialContextFactory::class$));
-		$assign(factory, $cast($InitialContextFactory, $nc($($nc($($nc($($nc($($nc(loader)->stream()))->filter(static_cast<$Predicate*>($$new(NamingManager$$Lambda$lambda$getFactory$2$2, className)))))->findFirst()))->map(static_cast<$Function*>($$new(NamingManager$$Lambda$get$3)))))->orElse(nullptr)));
+		$assign(factory, $cast($InitialContextFactory, $$nc($$nc($$nc($$nc($nc(loader)->stream())->filter($$new(NamingManager$$Lambda$lambda$getFactory$2$2, className)))->findFirst())->map($$new(NamingManager$$Lambda$get$3)))->orElse(nullptr)));
 	} catch ($ServiceConfigurationError& e) {
 		$var($NoInitialContextException, ne, $new($NoInitialContextException, $$str({"Cannot load initial context factory \'"_s, className, "\'"_s})));
 		ne->setRootCause(e);
@@ -608,9 +528,8 @@ $InitialContextFactory* NamingManager::getFactory($String* className) {
 }
 
 void NamingManager::setInitialContextFactoryBuilder($InitialContextFactoryBuilder* builder) {
-	$load(NamingManager);
+	$init(NamingManager);
 	$synchronized(class$) {
-		$init(NamingManager);
 		if (NamingManager::initctx_factory_builder != nullptr) {
 			$throwNew($IllegalStateException, "InitialContextFactoryBuilder already set"_s);
 		}
@@ -629,12 +548,12 @@ bool NamingManager::hasInitialContextFactoryBuilder() {
 
 $Context* NamingManager::getContinuationContext($CannotProceedException* cpe) {
 	$init(NamingManager);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Hashtable, env, $nc(cpe)->getEnvironment());
 	if (env == nullptr) {
 		$assign(env, $new($Hashtable, 7));
 	} else {
-		$assign(env, $cast($Hashtable, $nc(env)->clone()));
+		$assign(env, $cast($Hashtable, env->clone()));
 	}
 	$nc(env)->put(NamingManager::CPE, cpe);
 	$var($ContinuationContext, cctx, $new($ContinuationContext, cpe, env));
@@ -643,7 +562,7 @@ $Context* NamingManager::getContinuationContext($CannotProceedException* cpe) {
 
 $Object* NamingManager::getStateToBind(Object$* obj, $Name* name, $Context* nameCtx, $Hashtable* environment) {
 	$init(NamingManager);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Context);
 	$var($FactoryEnumeration, factories, $ResourceManager::getFactories($Context::STATE_FACTORIES, environment, nameCtx));
 	if (factories == nullptr) {
@@ -655,28 +574,28 @@ $Object* NamingManager::getStateToBind(Object$* obj, $Name* name, $Context* name
 		$assign(factory, $cast($StateFactory, factories->next()));
 		$assign(answer, $nc(factory)->getStateToBind(obj, name, nameCtx, environment));
 	}
-	return $of((answer != nullptr) ? answer : $of(obj));
+	return (answer != nullptr) ? answer : $of(obj);
 }
 
 bool NamingManager::lambda$getFactory$2($String* className, $ServiceLoader$Provider* p) {
 	$init(NamingManager);
-	return $nc($($nc($nc(p)->type())->getName()))->equals(className);
+	return $$nc($nc($nc(p)->type())->getName())->equals(className);
 }
 
 $InitialContextFactory* NamingManager::lambda$getInitialContext$1($ClassLoader* ld, $AbstractClassLoaderValue$Sub* ky) {
 	$init(NamingManager);
-	return getFactory($cast($String, $($nc(ky)->key())));
+	return getFactory($$cast($String, $nc(ky)->key()));
 }
 
 $ClassLoader* NamingManager::lambda$getInitialContext$0() {
 	$init(NamingManager);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$var($ClassLoader, cl, $($Thread::currentThread())->getContextClassLoader());
 	return (cl == nullptr) ? $ClassLoader::getSystemClassLoader() : cl;
 }
 
-void clinit$NamingManager($Class* class$) {
+void NamingManager::clinit$($Class* clazz) {
 	$assignStatic(NamingManager::defaultPkgPrefix, "com.sun.jndi.url"_s);
 	$assignStatic(NamingManager::CPE, "java.naming.spi.CannotProceedException"_s);
 	$assignStatic(NamingManager::helper, $VersionHelper::getVersionHelper());
@@ -690,20 +609,75 @@ NamingManager::NamingManager() {
 
 $Class* NamingManager::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(NamingManager$$Lambda$lambda$getInitialContext$0::classInfo$.name)) {
+		if (name->equals("javax.naming.spi.NamingManager$$Lambda$lambda$getInitialContext$0")) {
 			return NamingManager$$Lambda$lambda$getInitialContext$0::load$(name, initialize);
 		}
-		if (name->equals(NamingManager$$Lambda$lambda$getInitialContext$1$1::classInfo$.name)) {
+		if (name->equals("javax.naming.spi.NamingManager$$Lambda$lambda$getInitialContext$1$1")) {
 			return NamingManager$$Lambda$lambda$getInitialContext$1$1::load$(name, initialize);
 		}
-		if (name->equals(NamingManager$$Lambda$lambda$getFactory$2$2::classInfo$.name)) {
+		if (name->equals("javax.naming.spi.NamingManager$$Lambda$lambda$getFactory$2$2")) {
 			return NamingManager$$Lambda$lambda$getFactory$2$2::load$(name, initialize);
 		}
-		if (name->equals(NamingManager$$Lambda$get$3::classInfo$.name)) {
+		if (name->equals("javax.naming.spi.NamingManager$$Lambda$get$3")) {
 			return NamingManager$$Lambda$get$3::load$(name, initialize);
 		}
 	}
-	$loadClass(NamingManager, name, initialize, &_NamingManager_ClassInfo_, clinit$NamingManager, allocate$NamingManager);
+	$FieldInfo fieldInfos$$[] = {
+		{"helper", "Lcom/sun/naming/internal/VersionHelper;", nullptr, $STATIC | $FINAL, $staticField(NamingManager, helper)},
+		{"object_factory_builder", "Ljavax/naming/spi/ObjectFactoryBuilder;", nullptr, $PRIVATE | $STATIC, $staticField(NamingManager, object_factory_builder)},
+		{"FACTORIES_CACHE", "Ljdk/internal/loader/ClassLoaderValue;", "Ljdk/internal/loader/ClassLoaderValue<Ljavax/naming/spi/InitialContextFactory;>;", $PRIVATE | $STATIC | $FINAL, $staticField(NamingManager, FACTORIES_CACHE)},
+		{"defaultPkgPrefix", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(NamingManager, defaultPkgPrefix)},
+		{"initctx_factory_builder", "Ljavax/naming/spi/InitialContextFactoryBuilder;", nullptr, $PRIVATE | $STATIC, $staticField(NamingManager, initctx_factory_builder)},
+		{"CPE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(NamingManager, CPE)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(NamingManager, init$, void)},
+		{"createObjectFromFactories", "(Ljava/lang/Object;Ljavax/naming/Name;Ljavax/naming/Context;Ljava/util/Hashtable;)Ljava/lang/Object;", "(Ljava/lang/Object;Ljavax/naming/Name;Ljavax/naming/Context;Ljava/util/Hashtable<**>;)Ljava/lang/Object;", $PRIVATE | $STATIC, $staticMethod(NamingManager, createObjectFromFactories, $Object*, Object$*, $Name*, $Context*, $Hashtable*), "java.lang.Exception"},
+		{"getContext", "(Ljava/lang/Object;Ljavax/naming/Name;Ljavax/naming/Context;Ljava/util/Hashtable;)Ljavax/naming/Context;", "(Ljava/lang/Object;Ljavax/naming/Name;Ljavax/naming/Context;Ljava/util/Hashtable<**>;)Ljavax/naming/Context;", $STATIC, $staticMethod(NamingManager, getContext, $Context*, Object$*, $Name*, $Context*, $Hashtable*), "javax.naming.NamingException"},
+		{"getContinuationContext", "(Ljavax/naming/CannotProceedException;)Ljavax/naming/Context;", nullptr, $PUBLIC | $STATIC, $staticMethod(NamingManager, getContinuationContext, $Context*, $CannotProceedException*), "javax.naming.NamingException"},
+		{"getFactory", "(Ljava/lang/String;)Ljavax/naming/spi/InitialContextFactory;", nullptr, $PRIVATE | $STATIC, $staticMethod(NamingManager, getFactory, $InitialContextFactory*, $String*)},
+		{"getInitialContext", "(Ljava/util/Hashtable;)Ljavax/naming/Context;", "(Ljava/util/Hashtable<**>;)Ljavax/naming/Context;", $PUBLIC | $STATIC, $staticMethod(NamingManager, getInitialContext, $Context*, $Hashtable*), "javax.naming.NamingException"},
+		{"getInitialContextFactoryBuilder", "()Ljavax/naming/spi/InitialContextFactoryBuilder;", nullptr, $PRIVATE | $STATIC | $SYNCHRONIZED, $staticMethod(NamingManager, getInitialContextFactoryBuilder, $InitialContextFactoryBuilder*)},
+		{"getObjectFactoryBuilder", "()Ljavax/naming/spi/ObjectFactoryBuilder;", nullptr, $STATIC | $SYNCHRONIZED, $staticMethod(NamingManager, getObjectFactoryBuilder, $ObjectFactoryBuilder*)},
+		{"getObjectFactoryFromReference", "(Ljavax/naming/Reference;Ljava/lang/String;)Ljavax/naming/spi/ObjectFactory;", nullptr, $STATIC, $staticMethod(NamingManager, getObjectFactoryFromReference, $ObjectFactory*, $Reference*, $String*), "java.lang.IllegalAccessException,java.lang.InstantiationException,java.net.MalformedURLException"},
+		{"getObjectInstance", "(Ljava/lang/Object;Ljavax/naming/Name;Ljavax/naming/Context;Ljava/util/Hashtable;)Ljava/lang/Object;", "(Ljava/lang/Object;Ljavax/naming/Name;Ljavax/naming/Context;Ljava/util/Hashtable<**>;)Ljava/lang/Object;", $PUBLIC | $STATIC, $staticMethod(NamingManager, getObjectInstance, $Object*, Object$*, $Name*, $Context*, $Hashtable*), "java.lang.Exception"},
+		{"getResolver", "(Ljava/lang/Object;Ljavax/naming/Name;Ljavax/naming/Context;Ljava/util/Hashtable;)Ljavax/naming/spi/Resolver;", "(Ljava/lang/Object;Ljavax/naming/Name;Ljavax/naming/Context;Ljava/util/Hashtable<**>;)Ljavax/naming/spi/Resolver;", $STATIC, $staticMethod(NamingManager, getResolver, $Resolver*, Object$*, $Name*, $Context*, $Hashtable*), "javax.naming.NamingException"},
+		{"getStateToBind", "(Ljava/lang/Object;Ljavax/naming/Name;Ljavax/naming/Context;Ljava/util/Hashtable;)Ljava/lang/Object;", "(Ljava/lang/Object;Ljavax/naming/Name;Ljavax/naming/Context;Ljava/util/Hashtable<**>;)Ljava/lang/Object;", $PUBLIC | $STATIC, $staticMethod(NamingManager, getStateToBind, $Object*, Object$*, $Name*, $Context*, $Hashtable*), "javax.naming.NamingException"},
+		{"getURLContext", "(Ljava/lang/String;Ljava/util/Hashtable;)Ljavax/naming/Context;", "(Ljava/lang/String;Ljava/util/Hashtable<**>;)Ljavax/naming/Context;", $PUBLIC | $STATIC, $staticMethod(NamingManager, getURLContext, $Context*, $String*, $Hashtable*), "javax.naming.NamingException"},
+		{"getURLObject", "(Ljava/lang/String;Ljava/lang/Object;Ljavax/naming/Name;Ljavax/naming/Context;Ljava/util/Hashtable;)Ljava/lang/Object;", "(Ljava/lang/String;Ljava/lang/Object;Ljavax/naming/Name;Ljavax/naming/Context;Ljava/util/Hashtable<**>;)Ljava/lang/Object;", $PRIVATE | $STATIC, $staticMethod(NamingManager, getURLObject, $Object*, $String*, Object$*, $Name*, $Context*, $Hashtable*), "javax.naming.NamingException"},
+		{"getURLScheme", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(NamingManager, getURLScheme, $String*, $String*)},
+		{"hasInitialContextFactoryBuilder", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(NamingManager, hasInitialContextFactoryBuilder, bool)},
+		{"lambda$getFactory$2", "(Ljava/lang/String;Ljava/util/ServiceLoader$Provider;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(NamingManager, lambda$getFactory$2, bool, $String*, $ServiceLoader$Provider*)},
+		{"lambda$getInitialContext$0", "()Ljava/lang/ClassLoader;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(NamingManager, lambda$getInitialContext$0, $ClassLoader*)},
+		{"lambda$getInitialContext$1", "(Ljava/lang/ClassLoader;Ljdk/internal/loader/AbstractClassLoaderValue$Sub;)Ljavax/naming/spi/InitialContextFactory;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(NamingManager, lambda$getInitialContext$1, $InitialContextFactory*, $ClassLoader*, $AbstractClassLoaderValue$Sub*)},
+		{"processURL", "(Ljava/lang/Object;Ljavax/naming/Name;Ljavax/naming/Context;Ljava/util/Hashtable;)Ljava/lang/Object;", "(Ljava/lang/Object;Ljavax/naming/Name;Ljavax/naming/Context;Ljava/util/Hashtable<**>;)Ljava/lang/Object;", $PRIVATE | $STATIC, $staticMethod(NamingManager, processURL, $Object*, Object$*, $Name*, $Context*, $Hashtable*), "javax.naming.NamingException"},
+		{"processURLAddrs", "(Ljavax/naming/Reference;Ljavax/naming/Name;Ljavax/naming/Context;Ljava/util/Hashtable;)Ljava/lang/Object;", "(Ljavax/naming/Reference;Ljavax/naming/Name;Ljavax/naming/Context;Ljava/util/Hashtable<**>;)Ljava/lang/Object;", $STATIC, $staticMethod(NamingManager, processURLAddrs, $Object*, $Reference*, $Name*, $Context*, $Hashtable*), "javax.naming.NamingException"},
+		{"setInitialContextFactoryBuilder", "(Ljavax/naming/spi/InitialContextFactoryBuilder;)V", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(NamingManager, setInitialContextFactoryBuilder, void, $InitialContextFactoryBuilder*), "javax.naming.NamingException"},
+		{"setObjectFactoryBuilder", "(Ljavax/naming/spi/ObjectFactoryBuilder;)V", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(NamingManager, setObjectFactoryBuilder, void, $ObjectFactoryBuilder*), "javax.naming.NamingException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.naming.spi.NamingManager$FactoryInitializationError", "javax.naming.spi.NamingManager", "FactoryInitializationError", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.naming.spi.NamingManager",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.naming.spi.NamingManager$FactoryInitializationError"
+	};
+	$loadClass(NamingManager, name, initialize, &classInfo$$, NamingManager::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(NamingManager);
+	});
 	return class$;
 }
 

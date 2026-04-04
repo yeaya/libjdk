@@ -1,5 +1,4 @@
 #include <javax/management/StringValueExp.h>
-
 #include <java/lang/CharSequence.h>
 #include <javax/management/MBeanServer.h>
 #include <javax/management/ObjectName.h>
@@ -18,40 +17,6 @@ using $ValueExp = ::javax::management::ValueExp;
 namespace javax {
 	namespace management {
 
-$CompoundAttribute _StringValueExp_MethodAnnotations_setMBeanServer4[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$FieldInfo _StringValueExp_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StringValueExp, serialVersionUID)},
-	{"val", "Ljava/lang/String;", nullptr, $PRIVATE, $field(StringValueExp, val)},
-	{}
-};
-
-$MethodInfo _StringValueExp_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(StringValueExp, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(StringValueExp, init$, void, $String*)},
-	{"apply", "(Ljavax/management/ObjectName;)Ljavax/management/ValueExp;", nullptr, $PUBLIC, $virtualMethod(StringValueExp, apply, $ValueExp*, $ObjectName*), "javax.management.BadStringOperationException,javax.management.BadBinaryOpValueExpException,javax.management.BadAttributeValueExpException,javax.management.InvalidApplicationException"},
-	{"getValue", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StringValueExp, getValue, $String*)},
-	{"setMBeanServer", "(Ljavax/management/MBeanServer;)V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(StringValueExp, setMBeanServer, void, $MBeanServer*), nullptr, nullptr, _StringValueExp_MethodAnnotations_setMBeanServer4},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StringValueExp, toString, $String*)},
-	{}
-};
-
-$ClassInfo _StringValueExp_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.management.StringValueExp",
-	"java.lang.Object",
-	"javax.management.ValueExp",
-	_StringValueExp_FieldInfo_,
-	_StringValueExp_MethodInfo_
-};
-
-$Object* allocate$StringValueExp($Class* clazz) {
-	return $of($alloc(StringValueExp));
-}
-
 void StringValueExp::init$() {
 }
 
@@ -64,7 +29,7 @@ $String* StringValueExp::getValue() {
 }
 
 $String* StringValueExp::toString() {
-	return $str({"\'"_s, $($nc(this->val)->replace(static_cast<$CharSequence*>("\'"_s), static_cast<$CharSequence*>("\'\'"_s))), "\'"_s});
+	return $str({"\'"_s, $($nc(this->val)->replace("\'"_s, "\'\'"_s)), "\'"_s});
 }
 
 void StringValueExp::setMBeanServer($MBeanServer* s) {
@@ -78,7 +43,35 @@ StringValueExp::StringValueExp() {
 }
 
 $Class* StringValueExp::load$($String* name, bool initialize) {
-	$loadClass(StringValueExp, name, initialize, &_StringValueExp_ClassInfo_, allocate$StringValueExp);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StringValueExp, serialVersionUID)},
+		{"val", "Ljava/lang/String;", nullptr, $PRIVATE, $field(StringValueExp, val)},
+		{}
+	};
+	$CompoundAttribute setMBeanServermethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(StringValueExp, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(StringValueExp, init$, void, $String*)},
+		{"apply", "(Ljavax/management/ObjectName;)Ljavax/management/ValueExp;", nullptr, $PUBLIC, $virtualMethod(StringValueExp, apply, $ValueExp*, $ObjectName*), "javax.management.BadStringOperationException,javax.management.BadBinaryOpValueExpException,javax.management.BadAttributeValueExpException,javax.management.InvalidApplicationException"},
+		{"getValue", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StringValueExp, getValue, $String*)},
+		{"setMBeanServer", "(Ljavax/management/MBeanServer;)V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(StringValueExp, setMBeanServer, void, $MBeanServer*), nullptr, nullptr, setMBeanServermethodAnnotations$$},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StringValueExp, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.management.StringValueExp",
+		"java.lang.Object",
+		"javax.management.ValueExp",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(StringValueExp, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(StringValueExp);
+	});
 	return class$;
 }
 

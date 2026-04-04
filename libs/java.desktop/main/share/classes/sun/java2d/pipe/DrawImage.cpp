@@ -1,9 +1,7 @@
 #include <sun/java2d/pipe/DrawImage.h>
-
 #include <java/awt/AlphaComposite.h>
 #include <java/awt/Color.h>
 #include <java/awt/Composite.h>
-#include <java/awt/Graphics.h>
 #include <java/awt/Graphics2D.h>
 #include <java/awt/Image.h>
 #include <java/awt/Rectangle.h>
@@ -65,8 +63,6 @@
 
 using $AlphaComposite = ::java::awt::AlphaComposite;
 using $Color = ::java::awt::Color;
-using $Composite = ::java::awt::Composite;
-using $Graphics = ::java::awt::Graphics;
 using $Image = ::java::awt::Image;
 using $Rectangle = ::java::awt::Rectangle;
 using $Transparency = ::java::awt::Transparency;
@@ -109,54 +105,6 @@ namespace sun {
 	namespace java2d {
 		namespace pipe {
 
-$FieldInfo _DrawImage_FieldInfo_[] = {
-	{"MAX_TX_ERROR", "D", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DrawImage, MAX_TX_ERROR)},
-	{}
-};
-
-$MethodInfo _DrawImage_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(DrawImage, init$, void)},
-	{"blitSurfaceData", "(Lsun/java2d/SunGraphics2D;Lsun/java2d/pipe/Region;Lsun/java2d/SurfaceData;Lsun/java2d/SurfaceData;IIIIIILjava/awt/Color;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(DrawImage, blitSurfaceData, void, $SunGraphics2D*, $Region*, $SurfaceData*, $SurfaceData*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, $Color*)},
-	{"closeToInteger", "(ID)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(DrawImage, closeToInteger, bool, int32_t, double)},
-	{"copyImage", "(Lsun/java2d/SunGraphics2D;Ljava/awt/Image;IILjava/awt/Color;)Z", nullptr, $PUBLIC, $virtualMethod(DrawImage, copyImage, bool, $SunGraphics2D*, $Image*, int32_t, int32_t, $Color*)},
-	{"copyImage", "(Lsun/java2d/SunGraphics2D;Ljava/awt/Image;IIIIIILjava/awt/Color;)Z", nullptr, $PUBLIC, $virtualMethod(DrawImage, copyImage, bool, $SunGraphics2D*, $Image*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, $Color*)},
-	{"copyImage", "(Lsun/java2d/SunGraphics2D;Ljava/awt/Image;IILjava/awt/Color;Ljava/awt/image/ImageObserver;)Z", nullptr, $PUBLIC, $virtualMethod(DrawImage, copyImage, bool, $SunGraphics2D*, $Image*, int32_t, int32_t, $Color*, $ImageObserver*)},
-	{"copyImage", "(Lsun/java2d/SunGraphics2D;Ljava/awt/Image;IIIIIILjava/awt/Color;Ljava/awt/image/ImageObserver;)Z", nullptr, $PUBLIC, $virtualMethod(DrawImage, copyImage, bool, $SunGraphics2D*, $Image*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, $Color*, $ImageObserver*)},
-	{"getBufferedImage", "(Ljava/awt/Image;)Ljava/awt/image/BufferedImage;", nullptr, $PROTECTED, $virtualMethod(DrawImage, getBufferedImage, $BufferedImage*, $Image*)},
-	{"getTransformColorModel", "(Lsun/java2d/SunGraphics2D;Ljava/awt/image/BufferedImage;Ljava/awt/geom/AffineTransform;)Ljava/awt/image/ColorModel;", nullptr, $PRIVATE, $method(DrawImage, getTransformColorModel, $ColorModel*, $SunGraphics2D*, $BufferedImage*, $AffineTransform*)},
-	{"imageReady", "(Lsun/awt/image/ToolkitImage;Ljava/awt/image/ImageObserver;)Z", nullptr, $PROTECTED | $STATIC, $staticMethod(DrawImage, imageReady, bool, $ToolkitImage*, $ImageObserver*)},
-	{"isBgOperation", "(Lsun/java2d/SurfaceData;Ljava/awt/Color;)Z", nullptr, $PROTECTED | $STATIC, $staticMethod(DrawImage, isBgOperation, bool, $SurfaceData*, $Color*)},
-	{"isSimpleTranslate", "(Lsun/java2d/SunGraphics2D;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(DrawImage, isSimpleTranslate, bool, $SunGraphics2D*)},
-	{"makeBufferedImage", "(Ljava/awt/Image;Ljava/awt/Color;IIIII)Ljava/awt/image/BufferedImage;", nullptr, $PRIVATE, $method(DrawImage, makeBufferedImage, $BufferedImage*, $Image*, $Color*, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"renderImageCopy", "(Lsun/java2d/SunGraphics2D;Ljava/awt/Image;Ljava/awt/Color;IIIIII)Z", nullptr, $PROTECTED, $virtualMethod(DrawImage, renderImageCopy, bool, $SunGraphics2D*, $Image*, $Color*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"renderImageScale", "(Lsun/java2d/SunGraphics2D;Ljava/awt/Image;Ljava/awt/Color;IIIIIDDDD)Z", nullptr, $PROTECTED, $virtualMethod(DrawImage, renderImageScale, bool, $SunGraphics2D*, $Image*, $Color*, int32_t, int32_t, int32_t, int32_t, int32_t, double, double, double, double)},
-	{"renderImageXform", "(Lsun/java2d/SunGraphics2D;Ljava/awt/Image;Ljava/awt/geom/AffineTransform;IIIIILjava/awt/Color;)V", nullptr, $PROTECTED, $virtualMethod(DrawImage, renderImageXform, void, $SunGraphics2D*, $Image*, $AffineTransform*, int32_t, int32_t, int32_t, int32_t, int32_t, $Color*)},
-	{"scaleImage", "(Lsun/java2d/SunGraphics2D;Ljava/awt/Image;IIIILjava/awt/Color;)Z", nullptr, $PUBLIC, $virtualMethod(DrawImage, scaleImage, bool, $SunGraphics2D*, $Image*, int32_t, int32_t, int32_t, int32_t, $Color*)},
-	{"scaleImage", "(Lsun/java2d/SunGraphics2D;Ljava/awt/Image;IIIIIIIILjava/awt/Color;)Z", nullptr, $PUBLIC, $virtualMethod(DrawImage, scaleImage, bool, $SunGraphics2D*, $Image*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, $Color*)},
-	{"scaleImage", "(Lsun/java2d/SunGraphics2D;Ljava/awt/Image;IIIILjava/awt/Color;Ljava/awt/image/ImageObserver;)Z", nullptr, $PUBLIC, $virtualMethod(DrawImage, scaleImage, bool, $SunGraphics2D*, $Image*, int32_t, int32_t, int32_t, int32_t, $Color*, $ImageObserver*)},
-	{"scaleImage", "(Lsun/java2d/SunGraphics2D;Ljava/awt/Image;IIIIIIIILjava/awt/Color;Ljava/awt/image/ImageObserver;)Z", nullptr, $PUBLIC, $virtualMethod(DrawImage, scaleImage, bool, $SunGraphics2D*, $Image*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, $Color*, $ImageObserver*)},
-	{"scaleSurfaceData", "(Lsun/java2d/SunGraphics2D;Lsun/java2d/pipe/Region;Lsun/java2d/SurfaceData;Lsun/java2d/SurfaceData;Lsun/java2d/loops/SurfaceType;Lsun/java2d/loops/SurfaceType;IIIIDDDD)Z", nullptr, $PROTECTED, $virtualMethod(DrawImage, scaleSurfaceData, bool, $SunGraphics2D*, $Region*, $SurfaceData*, $SurfaceData*, $SurfaceType*, $SurfaceType*, int32_t, int32_t, int32_t, int32_t, double, double, double, double)},
-	{"transformImage", "(Lsun/java2d/SunGraphics2D;Ljava/awt/Image;IILjava/awt/geom/AffineTransform;I)V", nullptr, $PROTECTED, $virtualMethod(DrawImage, transformImage, void, $SunGraphics2D*, $Image*, int32_t, int32_t, $AffineTransform*, int32_t)},
-	{"transformImage", "(Lsun/java2d/SunGraphics2D;Ljava/awt/Image;Ljava/awt/geom/AffineTransform;IIIIILjava/awt/Color;)V", nullptr, $PROTECTED, $virtualMethod(DrawImage, transformImage, void, $SunGraphics2D*, $Image*, $AffineTransform*, int32_t, int32_t, int32_t, int32_t, int32_t, $Color*)},
-	{"transformImage", "(Lsun/java2d/SunGraphics2D;Ljava/awt/Image;Ljava/awt/geom/AffineTransform;Ljava/awt/image/ImageObserver;)Z", nullptr, $PUBLIC, $virtualMethod(DrawImage, transformImage, bool, $SunGraphics2D*, $Image*, $AffineTransform*, $ImageObserver*)},
-	{"transformImage", "(Lsun/java2d/SunGraphics2D;Ljava/awt/image/BufferedImage;Ljava/awt/image/BufferedImageOp;II)V", nullptr, $PUBLIC, $virtualMethod(DrawImage, transformImage, void, $SunGraphics2D*, $BufferedImage*, $BufferedImageOp*, int32_t, int32_t)},
-	{"tryCopyOrScale", "(Lsun/java2d/SunGraphics2D;Ljava/awt/Image;IIIILjava/awt/Color;I[D)Z", nullptr, $PROTECTED, $virtualMethod(DrawImage, tryCopyOrScale, bool, $SunGraphics2D*, $Image*, int32_t, int32_t, int32_t, int32_t, $Color*, int32_t, $doubles*)},
-	{}
-};
-
-$ClassInfo _DrawImage_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.java2d.pipe.DrawImage",
-	"java.lang.Object",
-	"sun.java2d.pipe.DrawImagePipe",
-	_DrawImage_FieldInfo_,
-	_DrawImage_MethodInfo_
-};
-
-$Object* allocate$DrawImage($Class* clazz) {
-	return $of($alloc(DrawImage));
-}
-
 double DrawImage::MAX_TX_ERROR = 0.0;
 
 void DrawImage::init$() {
@@ -166,7 +114,7 @@ bool DrawImage::copyImage($SunGraphics2D* sg, $Image* img, int32_t x, int32_t y,
 	int32_t imgw = $nc(img)->getWidth(nullptr);
 	int32_t imgh = img->getHeight(nullptr);
 	if (isSimpleTranslate(sg)) {
-		return renderImageCopy(sg, img, bgColor, x + $nc(sg)->transX, y + sg->transY, 0, 0, imgw, imgh);
+		return renderImageCopy(sg, img, bgColor, x + $nc(sg)->transX, y + $nc(sg)->transY, 0, 0, imgw, imgh);
 	}
 	$var($AffineTransform, atfm, $nc(sg)->transform$);
 	if ((x | y) != 0) {
@@ -179,7 +127,7 @@ bool DrawImage::copyImage($SunGraphics2D* sg, $Image* img, int32_t x, int32_t y,
 
 bool DrawImage::copyImage($SunGraphics2D* sg, $Image* img, int32_t dx, int32_t dy, int32_t sx, int32_t sy, int32_t w, int32_t h, $Color* bgColor) {
 	if (isSimpleTranslate(sg)) {
-		return renderImageCopy(sg, img, bgColor, dx + $nc(sg)->transX, dy + sg->transY, sx, sy, w, h);
+		return renderImageCopy(sg, img, bgColor, dx + $nc(sg)->transX, dy + $nc(sg)->transY, sx, sy, w, h);
 	}
 	scaleImage(sg, img, dx, dy, (dx + w), (dy + h), sx, sy, (sx + w), (sy + h), bgColor);
 	return true;
@@ -208,7 +156,7 @@ bool DrawImage::scaleImage($SunGraphics2D* sg, $Image* img, int32_t x, int32_t y
 }
 
 void DrawImage::transformImage($SunGraphics2D* sg, $Image* img, int32_t x, int32_t y, $AffineTransform* extraAT, int32_t interpType) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t txtype = $nc(extraAT)->getType();
 	int32_t imgw = $nc(img)->getWidth(nullptr);
 	int32_t imgh = img->getHeight(nullptr);
@@ -216,24 +164,24 @@ void DrawImage::transformImage($SunGraphics2D* sg, $Image* img, int32_t x, int32
 	if ($nc(sg)->transformState <= $SunGraphics2D::TRANSFORM_ANY_TRANSLATE && (txtype == $AffineTransform::TYPE_IDENTITY || txtype == $AffineTransform::TYPE_TRANSLATION)) {
 		double tx = extraAT->getTranslateX();
 		double ty = extraAT->getTranslateY();
-		tx += $nc($nc(sg)->transform$)->getTranslateX();
+		tx += $nc(sg->transform$)->getTranslateX();
 		ty += $nc(sg->transform$)->getTranslateY();
 		int32_t itx = $cast(int32_t, $Math::floor(tx + 0.5));
 		int32_t ity = $cast(int32_t, $Math::floor(ty + 0.5));
 		bool var$0 = interpType == $AffineTransformOp::TYPE_NEAREST_NEIGHBOR;
 		if (!var$0) {
 			bool var$1 = closeToInteger(itx, tx);
-			var$0 = (var$1 && closeToInteger(ity, ty));
+			var$0 = var$1 && closeToInteger(ity, ty);
 		}
 		if (var$0) {
 			renderImageCopy(sg, img, nullptr, x + itx, y + ity, 0, 0, imgw, imgh);
 			return;
 		}
 		checkfinalxform = false;
-	} else if ($nc(sg)->transformState <= $SunGraphics2D::TRANSFORM_TRANSLATESCALE && (((int32_t)(txtype & (uint32_t)(($AffineTransform::TYPE_FLIP | $AffineTransform::TYPE_MASK_ROTATION) | $AffineTransform::TYPE_GENERAL_TRANSFORM))) == 0)) {
+	} else if (sg->transformState <= $SunGraphics2D::TRANSFORM_TRANSLATESCALE && ((txtype & (($AffineTransform::TYPE_FLIP | $AffineTransform::TYPE_MASK_ROTATION) | $AffineTransform::TYPE_GENERAL_TRANSFORM)) == 0)) {
 		$var($doubles, coords, $new($doubles, {
-			(double)0,
-			(double)0,
+			0,
+			0,
 			(double)imgw,
 			(double)imgh
 		}));
@@ -250,7 +198,7 @@ void DrawImage::transformImage($SunGraphics2D* sg, $Image* img, int32_t x, int32
 	} else {
 		checkfinalxform = true;
 	}
-	$var($AffineTransform, tx, $new($AffineTransform, $nc(sg)->transform$));
+	$var($AffineTransform, tx, $new($AffineTransform, sg->transform$));
 	tx->translate((double)x, (double)y);
 	tx->concatenate(extraAT);
 	if (checkfinalxform) {
@@ -290,7 +238,7 @@ bool DrawImage::tryCopyOrScale($SunGraphics2D* sg, $Image* img, int32_t sx1, int
 		bool var$1 = interpType == $AffineTransformOp::TYPE_NEAREST_NEIGHBOR;
 		if (!var$1) {
 			bool var$2 = closeToInteger(idx, dx1);
-			var$1 = (var$2 && closeToInteger(idy, dy1));
+			var$1 = var$2 && closeToInteger(idy, dy1);
 		}
 		if (var$1) {
 			renderImageCopy(sg, img, bgColor, idx, idy, sx1, sy1, sx2 - sx1, sy2 - sy1);
@@ -306,14 +254,14 @@ bool DrawImage::tryCopyOrScale($SunGraphics2D* sg, $Image* img, int32_t sx1, int
 }
 
 $BufferedImage* DrawImage::makeBufferedImage($Image* img, $Color* bgColor, int32_t type, int32_t sx1, int32_t sy1, int32_t sx2, int32_t sy2) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t width = sx2 - sx1;
 	int32_t height = sy2 - sy1;
 	$var($BufferedImage, bimg, $new($BufferedImage, width, height, type));
 	$var($SunGraphics2D, g2d, $cast($SunGraphics2D, bimg->createGraphics()));
 	$init($AlphaComposite);
 	$nc(g2d)->setComposite($AlphaComposite::Src);
-	bimg->setAccelerationPriority((float)0);
+	bimg->setAccelerationPriority(0);
 	if (bgColor != nullptr) {
 		g2d->setColor(bgColor);
 		g2d->fillRect(0, 0, width, height);
@@ -325,7 +273,7 @@ $BufferedImage* DrawImage::makeBufferedImage($Image* img, $Color* bgColor, int32
 }
 
 void DrawImage::renderImageXform($SunGraphics2D* sg, $Image* img$renamed, $AffineTransform* tx, int32_t interpType, int32_t sx1, int32_t sy1, int32_t sx2, int32_t sy2, $Color* bgColor) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Image, img, img$renamed);
 	$var($AffineTransform, itx, nullptr);
 	try {
@@ -361,11 +309,11 @@ void DrawImage::renderImageXform($SunGraphics2D* sg, $Image* img$renamed, $Affin
 	int32_t var$0 = $cast(int32_t, $Math::floor(ddx1));
 	int32_t dx1 = $Math::max(var$0, $nc(clip)->getLoX());
 	int32_t var$1 = $cast(int32_t, $Math::floor(ddy1));
-	int32_t dy1 = $Math::max(var$1, $nc(clip)->getLoY());
+	int32_t dy1 = $Math::max(var$1, clip->getLoY());
 	int32_t var$2 = $cast(int32_t, $Math::ceil(ddx2));
-	int32_t dx2 = $Math::min(var$2, $nc(clip)->getHiX());
+	int32_t dx2 = $Math::min(var$2, clip->getHiX());
 	int32_t var$3 = $cast(int32_t, $Math::ceil(ddy2));
-	int32_t dy2 = $Math::min(var$3, $nc(clip)->getHiY());
+	int32_t dy2 = $Math::min(var$3, clip->getHiY());
 	if (dx2 <= dx1 || dy2 <= dy1) {
 		return;
 	}
@@ -420,13 +368,13 @@ void DrawImage::renderImageXform($SunGraphics2D* sg, $Image* img$renamed, $Affin
 	$init($AlphaComposite);
 	$nc(helper)->Transform(tmpmaskblit, srcData, tmpData, $AlphaComposite::Src, nullptr, itx, interpType, sx1, sy1, sx2, sy2, 0, 0, w, h, edges, dx1, dy1);
 	$var($Region, region, $Region::getInstance(dx1, dy1, dx2, dy2, edges));
-	$assign(clip, $nc(clip)->getIntersection(region));
+	$assign(clip, clip->getIntersection(region));
 	$var($Blit, blit, $Blit::getFromCache(tmpType, sg->imageComp, dstType));
 	$nc(blit)->Blit$(tmpData, dstData, sg->composite, clip, 0, 0, dx1, dy1, w, h);
 }
 
 bool DrawImage::renderImageCopy($SunGraphics2D* sg, $Image* img, $Color* bgColor, int32_t dx, int32_t dy, int32_t sx, int32_t sy, int32_t w, int32_t h) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Region, clip, $nc(sg)->getCompClip());
 	$var($SurfaceData, dstData, sg->surfaceData);
 	int32_t attempts = 0;
@@ -458,7 +406,7 @@ bool DrawImage::renderImageCopy($SunGraphics2D* sg, $Image* img, $Color* bgColor
 }
 
 bool DrawImage::renderImageScale($SunGraphics2D* sg, $Image* img, $Color* bgColor, int32_t interpType, int32_t sx1, int32_t sy1, int32_t sx2, int32_t sy2, double dx1, double dy1, double dx2, double dy2) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (interpType != $AffineTransformOp::TYPE_NEAREST_NEIGHBOR) {
 		return false;
 	}
@@ -558,7 +506,7 @@ bool DrawImage::scaleImage($SunGraphics2D* sg, $Image* img, int32_t dx1, int32_t
 	double scaleX = $SurfaceManager::getImageScaleX(img);
 	double scaleY = $SurfaceManager::getImageScaleY(img);
 	int32_t imgW = $cast(int32_t, $Math::ceil($nc(img)->getWidth(nullptr) * scaleX));
-	int32_t imgH = $cast(int32_t, $Math::ceil($nc(img)->getHeight(nullptr) * scaleY));
+	int32_t imgH = $cast(int32_t, $Math::ceil(img->getHeight(nullptr) * scaleY));
 	srcW += srcX;
 	srcH += srcY;
 	if (srcW > imgW) {
@@ -568,17 +516,17 @@ bool DrawImage::scaleImage($SunGraphics2D* sg, $Image* img, int32_t dx1, int32_t
 		srcH = imgH;
 	}
 	if (srcX < 0) {
-		atfm->translate((double)(-srcX), (double)0);
+		atfm->translate((double)-srcX, 0);
 		srcX = 0;
 	}
 	if (srcY < 0) {
-		atfm->translate((double)0, (double)(-srcY));
+		atfm->translate(0, (double)-srcY);
 		srcY = 0;
 	}
 	if (srcX >= srcW || srcY >= srcH) {
 		return true;
 	}
-	transformImage(sg, img, atfm, $nc(sg)->interpolationType, srcX, srcY, srcW, srcH, bgColor);
+	transformImage(sg, img, atfm, sg->interpolationType, srcX, srcY, srcW, srcH, bgColor);
 	return true;
 }
 
@@ -604,25 +552,25 @@ bool DrawImage::isSimpleTranslate($SunGraphics2D* sg) {
 
 bool DrawImage::isBgOperation($SurfaceData* srcData, $Color* bgColor) {
 	$init(DrawImage);
-	return ((srcData == nullptr) || ((bgColor != nullptr) && ($nc(srcData)->getTransparency() != $Transparency::OPAQUE)));
+	return ((srcData == nullptr) || ((bgColor != nullptr) && (srcData->getTransparency() != $Transparency::OPAQUE)));
 }
 
 $BufferedImage* DrawImage::getBufferedImage($Image* img) {
 	if ($instanceOf($BufferedImage, img)) {
 		return $cast($BufferedImage, img);
 	}
-	return $nc(($cast($VolatileImage, img)))->getSnapshot();
+	return $nc($cast($VolatileImage, img))->getSnapshot();
 }
 
 $ColorModel* DrawImage::getTransformColorModel($SunGraphics2D* sg, $BufferedImage* bImg, $AffineTransform* tx) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ColorModel, cm, $nc(bImg)->getColorModel());
 	$var($ColorModel, dstCM, cm);
 	if ($nc(tx)->isIdentity()) {
 		return dstCM;
 	}
-	int32_t type = $nc(tx)->getType();
-	bool needTrans = (((int32_t)(type & (uint32_t)($AffineTransform::TYPE_MASK_ROTATION | $AffineTransform::TYPE_GENERAL_TRANSFORM))) != 0);
+	int32_t type = tx->getType();
+	bool needTrans = ((type & ($AffineTransform::TYPE_MASK_ROTATION | $AffineTransform::TYPE_GENERAL_TRANSFORM)) != 0);
 	if (!needTrans && type != $AffineTransform::TYPE_TRANSLATION && type != $AffineTransform::TYPE_IDENTITY) {
 		$var($doubles, mtx, $new($doubles, 4));
 		tx->getMatrix(mtx);
@@ -632,7 +580,7 @@ $ColorModel* DrawImage::getTransformColorModel($SunGraphics2D* sg, $BufferedImag
 		if ($instanceOf($IndexColorModel, cm)) {
 			$var($Raster, raster, bImg->getRaster());
 			$var($IndexColorModel, icm, $cast($IndexColorModel, cm));
-			if (needTrans && $nc(cm)->getTransparency() == $Transparency::OPAQUE) {
+			if (needTrans && cm->getTransparency() == $Transparency::OPAQUE) {
 				if ($instanceOf($BytePackedRaster, raster)) {
 					$assign(dstCM, $ColorModel::getRGBdefault());
 				} else {
@@ -640,7 +588,7 @@ $ColorModel* DrawImage::getTransformColorModel($SunGraphics2D* sg, $BufferedImag
 					tx->getMatrix(matrix);
 					if (matrix->get(1) == 0.0 && matrix->get(2) == 0.0 && matrix->get(4) == 0.0 && matrix->get(5) == 0.0) {
 					} else {
-						int32_t mapSize = $nc(icm)->getMapSize();
+						int32_t mapSize = icm->getMapSize();
 						if (mapSize < 256) {
 							$var($ints, cmap, $new($ints, mapSize + 1));
 							icm->getRGBs(cmap);
@@ -663,13 +611,13 @@ $ColorModel* DrawImage::getTransformColorModel($SunGraphics2D* sg, $BufferedImag
 
 void DrawImage::blitSurfaceData($SunGraphics2D* sg, $Region* clip, $SurfaceData* srcData, $SurfaceData* dstData, int32_t sx, int32_t sy, int32_t dx, int32_t dy, int32_t w, int32_t h, $Color* bgColor) {
 	$init(DrawImage);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($CompositeType, comp, $nc(sg)->imageComp);
 	$init($CompositeType);
 	bool var$0 = $nc($CompositeType::SrcOverNoEa)->equals(comp);
 	if (var$0) {
 		bool var$1 = $nc(srcData)->getTransparency() == $Transparency::OPAQUE;
-		var$0 = (var$1 || (bgColor != nullptr && bgColor->getTransparency() == $Transparency::OPAQUE));
+		var$0 = var$1 || (bgColor != nullptr && bgColor->getTransparency() == $Transparency::OPAQUE);
 	}
 	if (var$0) {
 		$assign(comp, $CompositeType::SrcNoEa);
@@ -681,10 +629,10 @@ void DrawImage::blitSurfaceData($SunGraphics2D* sg, $Region* clip, $SurfaceData*
 	if ($nc(dst)->isEmpty()) {
 		return;
 	}
-	sx += $nc(dst)->x - dx;
+	sx += dst->x - dx;
 	sy += dst->y - dy;
 	$var($SurfaceType, srcType, $nc(srcData)->getSurfaceType());
-	$var($SurfaceType, dstType, $nc(dstData)->getSurfaceType());
+	$var($SurfaceType, dstType, dstData->getSurfaceType());
 	if (!isBgOperation(srcData, bgColor)) {
 		$var($Blit, blit, $Blit::getFromCache(srcType, comp, dstType));
 		$nc(blit)->Blit$(srcData, dstData, sg->composite, clip, sx, sy, dst->x, dst->y, dst->width, dst->height);
@@ -695,7 +643,7 @@ void DrawImage::blitSurfaceData($SunGraphics2D* sg, $Region* clip, $SurfaceData*
 }
 
 bool DrawImage::scaleSurfaceData($SunGraphics2D* sg, $Region* clipRegion, $SurfaceData* srcData, $SurfaceData* dstData, $SurfaceType* srcType, $SurfaceType* dstType, int32_t sx1, int32_t sy1, int32_t sx2, int32_t sy2, double dx1, double dy1, double dx2, double dy2) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($CompositeType, comp, $nc(sg)->imageComp);
 	$init($CompositeType);
 	bool var$0 = $nc($CompositeType::SrcOverNoEa)->equals(comp);
@@ -722,7 +670,7 @@ bool DrawImage::imageReady($ToolkitImage* sunimg, $ImageObserver* observer) {
 }
 
 bool DrawImage::copyImage($SunGraphics2D* sg, $Image* img, int32_t x, int32_t y, $Color* bgColor, $ImageObserver* observer) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!($instanceOf($ToolkitImage, img))) {
 		return copyImage(sg, img, x, y, bgColor);
 	} else {
@@ -730,13 +678,13 @@ bool DrawImage::copyImage($SunGraphics2D* sg, $Image* img, int32_t x, int32_t y,
 		if (!imageReady(sunimg, observer)) {
 			return false;
 		}
-		$var($ImageRepresentation, ir, $nc(sunimg)->getImageRep());
+		$var($ImageRepresentation, ir, sunimg->getImageRep());
 		return $nc(ir)->drawToBufImage(sg, sunimg, x, y, bgColor, observer);
 	}
 }
 
 bool DrawImage::copyImage($SunGraphics2D* sg, $Image* img, int32_t dx, int32_t dy, int32_t sx, int32_t sy, int32_t w, int32_t h, $Color* bgColor, $ImageObserver* observer) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!($instanceOf($ToolkitImage, img))) {
 		return copyImage(sg, img, dx, dy, sx, sy, w, h, bgColor);
 	} else {
@@ -744,13 +692,13 @@ bool DrawImage::copyImage($SunGraphics2D* sg, $Image* img, int32_t dx, int32_t d
 		if (!imageReady(sunimg, observer)) {
 			return false;
 		}
-		$var($ImageRepresentation, ir, $nc(sunimg)->getImageRep());
+		$var($ImageRepresentation, ir, sunimg->getImageRep());
 		return $nc(ir)->drawToBufImage(sg, sunimg, dx, dy, (dx + w), (dy + h), sx, sy, (sx + w), (sy + h), bgColor, observer);
 	}
 }
 
 bool DrawImage::scaleImage($SunGraphics2D* sg, $Image* img, int32_t x, int32_t y, int32_t width, int32_t height, $Color* bgColor, $ImageObserver* observer) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!($instanceOf($ToolkitImage, img))) {
 		return scaleImage(sg, img, x, y, width, height, bgColor);
 	} else {
@@ -758,13 +706,13 @@ bool DrawImage::scaleImage($SunGraphics2D* sg, $Image* img, int32_t x, int32_t y
 		if (!imageReady(sunimg, observer)) {
 			return false;
 		}
-		$var($ImageRepresentation, ir, $nc(sunimg)->getImageRep());
+		$var($ImageRepresentation, ir, sunimg->getImageRep());
 		return $nc(ir)->drawToBufImage(sg, sunimg, x, y, width, height, bgColor, observer);
 	}
 }
 
 bool DrawImage::scaleImage($SunGraphics2D* sg, $Image* img, int32_t dx1, int32_t dy1, int32_t dx2, int32_t dy2, int32_t sx1, int32_t sy1, int32_t sx2, int32_t sy2, $Color* bgColor, $ImageObserver* observer) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!($instanceOf($ToolkitImage, img))) {
 		return scaleImage(sg, img, dx1, dy1, dx2, dy2, sx1, sy1, sx2, sy2, bgColor);
 	} else {
@@ -772,13 +720,13 @@ bool DrawImage::scaleImage($SunGraphics2D* sg, $Image* img, int32_t dx1, int32_t
 		if (!imageReady(sunimg, observer)) {
 			return false;
 		}
-		$var($ImageRepresentation, ir, $nc(sunimg)->getImageRep());
+		$var($ImageRepresentation, ir, sunimg->getImageRep());
 		return $nc(ir)->drawToBufImage(sg, sunimg, dx1, dy1, dx2, dy2, sx1, sy1, sx2, sy2, bgColor, observer);
 	}
 }
 
 bool DrawImage::transformImage($SunGraphics2D* sg, $Image* img, $AffineTransform* atfm, $ImageObserver* observer) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!($instanceOf($ToolkitImage, img))) {
 		transformImage(sg, img, 0, 0, atfm, $nc(sg)->interpolationType);
 		return true;
@@ -787,23 +735,19 @@ bool DrawImage::transformImage($SunGraphics2D* sg, $Image* img, $AffineTransform
 		if (!imageReady(sunimg, observer)) {
 			return false;
 		}
-		$var($ImageRepresentation, ir, $nc(sunimg)->getImageRep());
+		$var($ImageRepresentation, ir, sunimg->getImageRep());
 		return $nc(ir)->drawToBufImage(sg, sunimg, atfm, observer);
 	}
 }
 
 void DrawImage::transformImage($SunGraphics2D* sg, $BufferedImage* img$renamed, $BufferedImageOp* op, int32_t x, int32_t y) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($BufferedImage, img, img$renamed);
 	if (op != nullptr) {
 		if ($instanceOf($AffineTransformOp, op)) {
 			$var($AffineTransformOp, atop, $cast($AffineTransformOp, op));
-			$var($SunGraphics2D, var$0, sg);
-			$var($Image, var$1, static_cast<$Image*>(img));
-			int32_t var$2 = x;
-			int32_t var$3 = y;
-			$var($AffineTransform, var$4, atop->getTransform());
-			transformImage(var$0, var$1, var$2, var$3, var$4, atop->getInterpolationType());
+			$var($AffineTransform, var$0, atop->getTransform());
+			transformImage(sg, img, x, y, var$0, atop->getInterpolationType());
 			return;
 		} else {
 			$assign(img, op->filter(img, nullptr));
@@ -815,12 +759,55 @@ void DrawImage::transformImage($SunGraphics2D* sg, $BufferedImage* img$renamed, 
 DrawImage::DrawImage() {
 }
 
-void clinit$DrawImage($Class* class$) {
+void DrawImage::clinit$($Class* clazz) {
 	DrawImage::MAX_TX_ERROR = 1.0E-4;
 }
 
 $Class* DrawImage::load$($String* name, bool initialize) {
-	$loadClass(DrawImage, name, initialize, &_DrawImage_ClassInfo_, clinit$DrawImage, allocate$DrawImage);
+	$FieldInfo fieldInfos$$[] = {
+		{"MAX_TX_ERROR", "D", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DrawImage, MAX_TX_ERROR)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(DrawImage, init$, void)},
+		{"blitSurfaceData", "(Lsun/java2d/SunGraphics2D;Lsun/java2d/pipe/Region;Lsun/java2d/SurfaceData;Lsun/java2d/SurfaceData;IIIIIILjava/awt/Color;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(DrawImage, blitSurfaceData, void, $SunGraphics2D*, $Region*, $SurfaceData*, $SurfaceData*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, $Color*)},
+		{"closeToInteger", "(ID)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(DrawImage, closeToInteger, bool, int32_t, double)},
+		{"copyImage", "(Lsun/java2d/SunGraphics2D;Ljava/awt/Image;IILjava/awt/Color;)Z", nullptr, $PUBLIC, $virtualMethod(DrawImage, copyImage, bool, $SunGraphics2D*, $Image*, int32_t, int32_t, $Color*)},
+		{"copyImage", "(Lsun/java2d/SunGraphics2D;Ljava/awt/Image;IIIIIILjava/awt/Color;)Z", nullptr, $PUBLIC, $virtualMethod(DrawImage, copyImage, bool, $SunGraphics2D*, $Image*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, $Color*)},
+		{"copyImage", "(Lsun/java2d/SunGraphics2D;Ljava/awt/Image;IILjava/awt/Color;Ljava/awt/image/ImageObserver;)Z", nullptr, $PUBLIC, $virtualMethod(DrawImage, copyImage, bool, $SunGraphics2D*, $Image*, int32_t, int32_t, $Color*, $ImageObserver*)},
+		{"copyImage", "(Lsun/java2d/SunGraphics2D;Ljava/awt/Image;IIIIIILjava/awt/Color;Ljava/awt/image/ImageObserver;)Z", nullptr, $PUBLIC, $virtualMethod(DrawImage, copyImage, bool, $SunGraphics2D*, $Image*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, $Color*, $ImageObserver*)},
+		{"getBufferedImage", "(Ljava/awt/Image;)Ljava/awt/image/BufferedImage;", nullptr, $PROTECTED, $virtualMethod(DrawImage, getBufferedImage, $BufferedImage*, $Image*)},
+		{"getTransformColorModel", "(Lsun/java2d/SunGraphics2D;Ljava/awt/image/BufferedImage;Ljava/awt/geom/AffineTransform;)Ljava/awt/image/ColorModel;", nullptr, $PRIVATE, $method(DrawImage, getTransformColorModel, $ColorModel*, $SunGraphics2D*, $BufferedImage*, $AffineTransform*)},
+		{"imageReady", "(Lsun/awt/image/ToolkitImage;Ljava/awt/image/ImageObserver;)Z", nullptr, $PROTECTED | $STATIC, $staticMethod(DrawImage, imageReady, bool, $ToolkitImage*, $ImageObserver*)},
+		{"isBgOperation", "(Lsun/java2d/SurfaceData;Ljava/awt/Color;)Z", nullptr, $PROTECTED | $STATIC, $staticMethod(DrawImage, isBgOperation, bool, $SurfaceData*, $Color*)},
+		{"isSimpleTranslate", "(Lsun/java2d/SunGraphics2D;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(DrawImage, isSimpleTranslate, bool, $SunGraphics2D*)},
+		{"makeBufferedImage", "(Ljava/awt/Image;Ljava/awt/Color;IIIII)Ljava/awt/image/BufferedImage;", nullptr, $PRIVATE, $method(DrawImage, makeBufferedImage, $BufferedImage*, $Image*, $Color*, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"renderImageCopy", "(Lsun/java2d/SunGraphics2D;Ljava/awt/Image;Ljava/awt/Color;IIIIII)Z", nullptr, $PROTECTED, $virtualMethod(DrawImage, renderImageCopy, bool, $SunGraphics2D*, $Image*, $Color*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"renderImageScale", "(Lsun/java2d/SunGraphics2D;Ljava/awt/Image;Ljava/awt/Color;IIIIIDDDD)Z", nullptr, $PROTECTED, $virtualMethod(DrawImage, renderImageScale, bool, $SunGraphics2D*, $Image*, $Color*, int32_t, int32_t, int32_t, int32_t, int32_t, double, double, double, double)},
+		{"renderImageXform", "(Lsun/java2d/SunGraphics2D;Ljava/awt/Image;Ljava/awt/geom/AffineTransform;IIIIILjava/awt/Color;)V", nullptr, $PROTECTED, $virtualMethod(DrawImage, renderImageXform, void, $SunGraphics2D*, $Image*, $AffineTransform*, int32_t, int32_t, int32_t, int32_t, int32_t, $Color*)},
+		{"scaleImage", "(Lsun/java2d/SunGraphics2D;Ljava/awt/Image;IIIILjava/awt/Color;)Z", nullptr, $PUBLIC, $virtualMethod(DrawImage, scaleImage, bool, $SunGraphics2D*, $Image*, int32_t, int32_t, int32_t, int32_t, $Color*)},
+		{"scaleImage", "(Lsun/java2d/SunGraphics2D;Ljava/awt/Image;IIIIIIIILjava/awt/Color;)Z", nullptr, $PUBLIC, $virtualMethod(DrawImage, scaleImage, bool, $SunGraphics2D*, $Image*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, $Color*)},
+		{"scaleImage", "(Lsun/java2d/SunGraphics2D;Ljava/awt/Image;IIIILjava/awt/Color;Ljava/awt/image/ImageObserver;)Z", nullptr, $PUBLIC, $virtualMethod(DrawImage, scaleImage, bool, $SunGraphics2D*, $Image*, int32_t, int32_t, int32_t, int32_t, $Color*, $ImageObserver*)},
+		{"scaleImage", "(Lsun/java2d/SunGraphics2D;Ljava/awt/Image;IIIIIIIILjava/awt/Color;Ljava/awt/image/ImageObserver;)Z", nullptr, $PUBLIC, $virtualMethod(DrawImage, scaleImage, bool, $SunGraphics2D*, $Image*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, $Color*, $ImageObserver*)},
+		{"scaleSurfaceData", "(Lsun/java2d/SunGraphics2D;Lsun/java2d/pipe/Region;Lsun/java2d/SurfaceData;Lsun/java2d/SurfaceData;Lsun/java2d/loops/SurfaceType;Lsun/java2d/loops/SurfaceType;IIIIDDDD)Z", nullptr, $PROTECTED, $virtualMethod(DrawImage, scaleSurfaceData, bool, $SunGraphics2D*, $Region*, $SurfaceData*, $SurfaceData*, $SurfaceType*, $SurfaceType*, int32_t, int32_t, int32_t, int32_t, double, double, double, double)},
+		{"transformImage", "(Lsun/java2d/SunGraphics2D;Ljava/awt/Image;IILjava/awt/geom/AffineTransform;I)V", nullptr, $PROTECTED, $virtualMethod(DrawImage, transformImage, void, $SunGraphics2D*, $Image*, int32_t, int32_t, $AffineTransform*, int32_t)},
+		{"transformImage", "(Lsun/java2d/SunGraphics2D;Ljava/awt/Image;Ljava/awt/geom/AffineTransform;IIIIILjava/awt/Color;)V", nullptr, $PROTECTED, $virtualMethod(DrawImage, transformImage, void, $SunGraphics2D*, $Image*, $AffineTransform*, int32_t, int32_t, int32_t, int32_t, int32_t, $Color*)},
+		{"transformImage", "(Lsun/java2d/SunGraphics2D;Ljava/awt/Image;Ljava/awt/geom/AffineTransform;Ljava/awt/image/ImageObserver;)Z", nullptr, $PUBLIC, $virtualMethod(DrawImage, transformImage, bool, $SunGraphics2D*, $Image*, $AffineTransform*, $ImageObserver*)},
+		{"transformImage", "(Lsun/java2d/SunGraphics2D;Ljava/awt/image/BufferedImage;Ljava/awt/image/BufferedImageOp;II)V", nullptr, $PUBLIC, $virtualMethod(DrawImage, transformImage, void, $SunGraphics2D*, $BufferedImage*, $BufferedImageOp*, int32_t, int32_t)},
+		{"tryCopyOrScale", "(Lsun/java2d/SunGraphics2D;Ljava/awt/Image;IIIILjava/awt/Color;I[D)Z", nullptr, $PROTECTED, $virtualMethod(DrawImage, tryCopyOrScale, bool, $SunGraphics2D*, $Image*, int32_t, int32_t, int32_t, int32_t, $Color*, int32_t, $doubles*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.java2d.pipe.DrawImage",
+		"java.lang.Object",
+		"sun.java2d.pipe.DrawImagePipe",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DrawImage, name, initialize, &classInfo$$, DrawImage::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(DrawImage);
+	});
 	return class$;
 }
 

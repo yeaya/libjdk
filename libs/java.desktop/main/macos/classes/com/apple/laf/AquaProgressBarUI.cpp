@@ -1,8 +1,6 @@
 #include <com/apple/laf/AquaProgressBarUI.h>
-
 #include <apple/laf/JRSUIConstants$Animating.h>
 #include <apple/laf/JRSUIConstants$Orientation.h>
-#include <apple/laf/JRSUIConstants$Property.h>
 #include <apple/laf/JRSUIConstants$Size.h>
 #include <apple/laf/JRSUIConstants$State.h>
 #include <apple/laf/JRSUIConstants$Widget.h>
@@ -31,7 +29,6 @@
 #include <java/awt/Shape.h>
 #include <java/awt/geom/AffineTransform.h>
 #include <java/beans/PropertyChangeEvent.h>
-#include <java/beans/PropertyChangeListener.h>
 #include <java/lang/Math.h>
 #include <javax/swing/BoundedRangeModel.h>
 #include <javax/swing/JComponent.h>
@@ -40,9 +37,7 @@
 #include <javax/swing/SwingConstants.h>
 #include <javax/swing/UIManager.h>
 #include <javax/swing/event/AncestorEvent.h>
-#include <javax/swing/event/AncestorListener.h>
 #include <javax/swing/event/ChangeEvent.h>
-#include <javax/swing/event/ChangeListener.h>
 #include <javax/swing/plaf/ComponentUI.h>
 #include <javax/swing/plaf/ProgressBarUI.h>
 #include <sun/swing/SwingUtilities2.h>
@@ -66,11 +61,9 @@
 
 using $JRSUIConstants$Animating = ::apple::laf::JRSUIConstants$Animating;
 using $JRSUIConstants$Orientation = ::apple::laf::JRSUIConstants$Orientation;
-using $JRSUIConstants$Property = ::apple::laf::JRSUIConstants$Property;
 using $JRSUIConstants$Size = ::apple::laf::JRSUIConstants$Size;
 using $JRSUIConstants$State = ::apple::laf::JRSUIConstants$State;
 using $JRSUIConstants$Widget = ::apple::laf::JRSUIConstants$Widget;
-using $JRSUIState = ::apple::laf::JRSUIState;
 using $JRSUIState$ValueState = ::apple::laf::JRSUIState$ValueState;
 using $JRSUIStateFactory = ::apple::laf::JRSUIStateFactory;
 using $AquaFocusHandler = ::com::apple::laf::AquaFocusHandler;
@@ -81,8 +74,6 @@ using $AquaUtilControlSize = ::com::apple::laf::AquaUtilControlSize;
 using $AquaUtilControlSize$SizeDescriptor = ::com::apple::laf::AquaUtilControlSize$SizeDescriptor;
 using $AquaUtilControlSize$SizeVariant = ::com::apple::laf::AquaUtilControlSize$SizeVariant;
 using $AquaUtils$RecyclableSingleton = ::com::apple::laf::AquaUtils$RecyclableSingleton;
-using $Component = ::java::awt::Component;
-using $ComponentOrientation = ::java::awt::ComponentOrientation;
 using $Dimension = ::java::awt::Dimension;
 using $FontMetrics = ::java::awt::FontMetrics;
 using $Graphics = ::java::awt::Graphics;
@@ -90,10 +81,8 @@ using $Graphics2D = ::java::awt::Graphics2D;
 using $Insets = ::java::awt::Insets;
 using $Point = ::java::awt::Point;
 using $Rectangle = ::java::awt::Rectangle;
-using $Shape = ::java::awt::Shape;
 using $AffineTransform = ::java::awt::geom::AffineTransform;
 using $PropertyChangeEvent = ::java::beans::PropertyChangeEvent;
-using $PropertyChangeListener = ::java::beans::PropertyChangeListener;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Double = ::java::lang::Double;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -109,9 +98,7 @@ using $LookAndFeel = ::javax::swing::LookAndFeel;
 using $SwingConstants = ::javax::swing::SwingConstants;
 using $UIManager = ::javax::swing::UIManager;
 using $AncestorEvent = ::javax::swing::event::AncestorEvent;
-using $AncestorListener = ::javax::swing::event::AncestorListener;
 using $ChangeEvent = ::javax::swing::event::ChangeEvent;
-using $ChangeListener = ::javax::swing::event::ChangeListener;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
 using $ProgressBarUI = ::javax::swing::plaf::ProgressBarUI;
 using $SwingUtilities2 = ::sun::swing::SwingUtilities2;
@@ -119,90 +106,6 @@ using $SwingUtilities2 = ::sun::swing::SwingUtilities2;
 namespace com {
 	namespace apple {
 		namespace laf {
-
-$FieldInfo _AquaProgressBarUI_FieldInfo_[] = {
-	{"ADJUSTTIMER", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AquaProgressBarUI, ADJUSTTIMER)},
-	{"sizeDescriptor", "Lcom/apple/laf/AquaUtils$RecyclableSingleton;", "Lcom/apple/laf/AquaUtils$RecyclableSingleton<Lcom/apple/laf/AquaUtilControlSize$SizeDescriptor;>;", $PRIVATE | $STATIC | $FINAL, $staticField(AquaProgressBarUI, sizeDescriptor)},
-	{"sizeVariant", "Lapple/laf/JRSUIConstants$Size;", nullptr, $PROTECTED, $field(AquaProgressBarUI, sizeVariant)},
-	{"selectionForeground", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(AquaProgressBarUI, selectionForeground)},
-	{"animator", "Lcom/apple/laf/AquaProgressBarUI$Animator;", nullptr, $PRIVATE, $field(AquaProgressBarUI, animator)},
-	{"isAnimating", "Z", nullptr, $PROTECTED, $field(AquaProgressBarUI, isAnimating)},
-	{"isCircular", "Z", nullptr, $PROTECTED, $field(AquaProgressBarUI, isCircular)},
-	{"painter", "Lcom/apple/laf/AquaPainter;", "Lcom/apple/laf/AquaPainter<Lapple/laf/JRSUIState$ValueState;>;", $PROTECTED | $FINAL, $field(AquaProgressBarUI, painter)},
-	{"progressBar", "Ljavax/swing/JProgressBar;", nullptr, $PROTECTED, $field(AquaProgressBarUI, progressBar)},
-	{"fUpdateArea", "Ljava/awt/Rectangle;", nullptr, $PRIVATE | $FINAL, $field(AquaProgressBarUI, fUpdateArea)},
-	{"fLastSize", "Ljava/awt/Dimension;", nullptr, $PRIVATE | $FINAL, $field(AquaProgressBarUI, fLastSize)},
-	{}
-};
-
-$MethodInfo _AquaProgressBarUI_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PROTECTED, $method(AquaProgressBarUI, init$, void)},
-	{"ancestorAdded", "(Ljavax/swing/event/AncestorEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaProgressBarUI, ancestorAdded, void, $AncestorEvent*)},
-	{"ancestorMoved", "(Ljavax/swing/event/AncestorEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaProgressBarUI, ancestorMoved, void, $AncestorEvent*)},
-	{"ancestorRemoved", "(Ljavax/swing/event/AncestorEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaProgressBarUI, ancestorRemoved, void, $AncestorEvent*)},
-	{"applySizeFor", "(Ljavax/swing/JComponent;Lapple/laf/JRSUIConstants$Size;)V", nullptr, $PUBLIC, $virtualMethod(AquaProgressBarUI, applySizeFor, void, $JComponent*, $JRSUIConstants$Size*)},
-	{"checkValue", "(D)D", nullptr, $STATIC, $staticMethod(AquaProgressBarUI, checkValue, double, double)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(AquaProgressBarUI, createUI, $ComponentUI*, $JComponent*)},
-	{"getCircularPreferredSize", "()Ljava/awt/Dimension;", nullptr, $STATIC, $staticMethod(AquaProgressBarUI, getCircularPreferredSize, $Dimension*)},
-	{"getMaxProgressBarHeight", "()I", nullptr, $PROTECTED, $virtualMethod(AquaProgressBarUI, getMaxProgressBarHeight, int32_t)},
-	{"getMaximumSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(AquaProgressBarUI, getMaximumSize, $Dimension*, $JComponent*)},
-	{"getMinimumSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(AquaProgressBarUI, getMinimumSize, $Dimension*, $JComponent*)},
-	{"getPreferredHorizontalSize", "(Ljava/awt/FontMetrics;)Ljava/awt/Dimension;", nullptr, $PROTECTED, $virtualMethod(AquaProgressBarUI, getPreferredHorizontalSize, $Dimension*, $FontMetrics*)},
-	{"getPreferredSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(AquaProgressBarUI, getPreferredSize, $Dimension*, $JComponent*)},
-	{"getPreferredVerticalSize", "(Ljava/awt/FontMetrics;)Ljava/awt/Dimension;", nullptr, $PROTECTED, $virtualMethod(AquaProgressBarUI, getPreferredVerticalSize, $Dimension*, $FontMetrics*)},
-	{"getRepaintRect", "()Ljava/awt/Rectangle;", nullptr, $PROTECTED, $virtualMethod(AquaProgressBarUI, getRepaintRect, $Rectangle*)},
-	{"getSizeDescriptor", "()Lcom/apple/laf/AquaUtilControlSize$SizeDescriptor;", nullptr, $STATIC, $staticMethod(AquaProgressBarUI, getSizeDescriptor, $AquaUtilControlSize$SizeDescriptor*)},
-	{"getState", "(Ljavax/swing/JComponent;)Lapple/laf/JRSUIConstants$State;", nullptr, $PROTECTED, $virtualMethod(AquaProgressBarUI, getState, $JRSUIConstants$State*, $JComponent*)},
-	{"getStringPlacement", "(Ljava/awt/Graphics;Ljava/lang/String;IIII)Ljava/awt/Point;", nullptr, $PROTECTED, $virtualMethod(AquaProgressBarUI, getStringPlacement, $Point*, $Graphics*, $String*, int32_t, int32_t, int32_t, int32_t)},
-	{"installDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(AquaProgressBarUI, installDefaults, void)},
-	{"installListeners", "()V", nullptr, $PROTECTED, $virtualMethod(AquaProgressBarUI, installListeners, void)},
-	{"installUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(AquaProgressBarUI, installUI, void, $JComponent*)},
-	{"isHorizontal", "()Z", nullptr, $PROTECTED, $virtualMethod(AquaProgressBarUI, isHorizontal, bool)},
-	{"paint", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(AquaProgressBarUI, paint, void, $Graphics*, $JComponent*)},
-	{"paint", "(Ljava/awt/Graphics;)V", nullptr, $PROTECTED, $virtualMethod(AquaProgressBarUI, paint, void, $Graphics*)},
-	{"paintString", "(Ljava/awt/Graphics;IIII)V", nullptr, $PROTECTED, $virtualMethod(AquaProgressBarUI, paintString, void, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaProgressBarUI, propertyChange, void, $PropertyChangeEvent*)},
-	{"repaint", "()V", nullptr, $PROTECTED, $virtualMethod(AquaProgressBarUI, repaint, void)},
-	{"revalidateAnimationTimers", "()V", nullptr, $PROTECTED, $virtualMethod(AquaProgressBarUI, revalidateAnimationTimers, void)},
-	{"startAnimationTimer", "()V", nullptr, $PROTECTED, $virtualMethod(AquaProgressBarUI, startAnimationTimer, void)},
-	{"stateChanged", "(Ljavax/swing/event/ChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaProgressBarUI, stateChanged, void, $ChangeEvent*)},
-	{"stopAnimationTimer", "()V", nullptr, $PROTECTED, $virtualMethod(AquaProgressBarUI, stopAnimationTimer, void)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"uninstallDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(AquaProgressBarUI, uninstallDefaults, void)},
-	{"uninstallListeners", "()V", nullptr, $PROTECTED, $virtualMethod(AquaProgressBarUI, uninstallListeners, void)},
-	{"uninstallUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(AquaProgressBarUI, uninstallUI, void, $JComponent*)},
-	{}
-};
-
-$InnerClassInfo _AquaProgressBarUI_InnerClassesInfo_[] = {
-	{"com.apple.laf.AquaUtilControlSize$Sizeable", "com.apple.laf.AquaUtilControlSize", "Sizeable", $STATIC | $INTERFACE | $ABSTRACT},
-	{"com.apple.laf.AquaProgressBarUI$Animator", "com.apple.laf.AquaProgressBarUI", "Animator", $PROTECTED},
-	{"com.apple.laf.AquaProgressBarUI$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _AquaProgressBarUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.apple.laf.AquaProgressBarUI",
-	"javax.swing.plaf.ProgressBarUI",
-	"javax.swing.event.ChangeListener,java.beans.PropertyChangeListener,javax.swing.event.AncestorListener,com.apple.laf.AquaUtilControlSize$Sizeable",
-	_AquaProgressBarUI_FieldInfo_,
-	_AquaProgressBarUI_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AquaProgressBarUI_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.apple.laf.AquaProgressBarUI$Animator,com.apple.laf.AquaProgressBarUI$1,com.apple.laf.AquaProgressBarUI$1$1"
-};
-
-$Object* allocate$AquaProgressBarUI($Class* clazz) {
-	return $of($alloc(AquaProgressBarUI));
-}
 
 int32_t AquaProgressBarUI::hashCode() {
 	 return this->$ProgressBarUI::hashCode();
@@ -228,7 +131,7 @@ $AquaUtils$RecyclableSingleton* AquaProgressBarUI::sizeDescriptor = nullptr;
 
 $AquaUtilControlSize$SizeDescriptor* AquaProgressBarUI::getSizeDescriptor() {
 	$init(AquaProgressBarUI);
-	return $cast($AquaUtilControlSize$SizeDescriptor, $nc(AquaProgressBarUI::sizeDescriptor)->get());
+	return $cast($AquaUtilControlSize$SizeDescriptor, AquaProgressBarUI::sizeDescriptor->get());
 }
 
 $ComponentUI* AquaProgressBarUI::createUI($JComponent* x) {
@@ -288,7 +191,7 @@ void AquaProgressBarUI::stateChanged($ChangeEvent* e) {
 }
 
 void AquaProgressBarUI::propertyChange($PropertyChangeEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, prop, $nc(e)->getPropertyName());
 	if ("indeterminate"_s->equals(prop)) {
 		if (!$nc(this->progressBar)->isIndeterminate()) {
@@ -323,49 +226,49 @@ void AquaProgressBarUI::ancestorMoved($AncestorEvent* e) {
 
 void AquaProgressBarUI::paint($Graphics* g, $JComponent* c) {
 	revalidateAnimationTimers();
-	$nc(($cast($JRSUIState$ValueState, $nc(this->painter)->state)))->set($(getState(c)));
+	$nc($cast($JRSUIState$ValueState, $nc(this->painter)->state))->set($(getState(c)));
 	$init($JRSUIConstants$Orientation);
-	$nc(($cast($JRSUIState$ValueState, $nc(this->painter)->state)))->set(isHorizontal() ? static_cast<$JRSUIConstants$Property*>($JRSUIConstants$Orientation::HORIZONTAL) : static_cast<$JRSUIConstants$Property*>($JRSUIConstants$Orientation::VERTICAL));
+	$nc($cast($JRSUIState$ValueState, this->painter->state))->set(isHorizontal() ? $JRSUIConstants$Orientation::HORIZONTAL : $JRSUIConstants$Orientation::VERTICAL);
 	$init($JRSUIConstants$Animating);
-	$nc(($cast($JRSUIState$ValueState, $nc(this->painter)->state)))->set(this->isAnimating ? static_cast<$JRSUIConstants$Property*>($JRSUIConstants$Animating::YES) : static_cast<$JRSUIConstants$Property*>($JRSUIConstants$Animating::NO));
+	$nc($cast($JRSUIState$ValueState, this->painter->state))->set(this->isAnimating ? $JRSUIConstants$Animating::YES : $JRSUIConstants$Animating::NO);
 	if ($nc(this->progressBar)->isIndeterminate()) {
 		if (this->isCircular) {
 			$init($JRSUIConstants$Widget);
-			$nc(($cast($JRSUIState$ValueState, $nc(this->painter)->state)))->set($JRSUIConstants$Widget::PROGRESS_SPINNER);
-			$nc(this->painter)->paint(g, c, 2, 2, 16, 16);
+			$nc($cast($JRSUIState$ValueState, this->painter->state))->set($JRSUIConstants$Widget::PROGRESS_SPINNER);
+			this->painter->paint(g, c, 2, 2, 16, 16);
 			return;
 		}
 		$init($JRSUIConstants$Widget);
-		$nc(($cast($JRSUIState$ValueState, $nc(this->painter)->state)))->set($JRSUIConstants$Widget::PROGRESS_INDETERMINATE_BAR);
+		$nc($cast($JRSUIState$ValueState, this->painter->state))->set($JRSUIConstants$Widget::PROGRESS_INDETERMINATE_BAR);
 		paint(g);
 		return;
 	}
 	$init($JRSUIConstants$Widget);
-	$nc(($cast($JRSUIState$ValueState, $nc(this->painter)->state)))->set($JRSUIConstants$Widget::PROGRESS_BAR);
-	$nc(($cast($JRSUIState$ValueState, $nc(this->painter)->state)))->setValue(checkValue($nc(this->progressBar)->getPercentComplete()));
+	$nc($cast($JRSUIState$ValueState, this->painter->state))->set($JRSUIConstants$Widget::PROGRESS_BAR);
+	$nc($cast($JRSUIState$ValueState, this->painter->state))->setValue(checkValue($nc(this->progressBar)->getPercentComplete()));
 	paint(g);
 }
 
 double AquaProgressBarUI::checkValue(double value) {
 	$init(AquaProgressBarUI);
-	return $Double::isNaN(value) ? (double)0 : value;
+	return $Double::isNaN(value) ? 0 : value;
 }
 
 void AquaProgressBarUI::paint($Graphics* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Insets, i, $nc(this->progressBar)->getInsets());
-	int32_t width = $nc(this->progressBar)->getWidth() - ($nc(i)->right + i->left);
+	int32_t width = $nc(this->progressBar)->getWidth() - ($nc(i)->right + $nc(i)->left);
 	int32_t height = $nc(this->progressBar)->getHeight() - (i->bottom + i->top);
 	$var($Graphics2D, g2, $cast($Graphics2D, g));
 	$var($AffineTransform, savedAT, $nc(g2)->getTransform());
-	if (!$nc($($nc(this->progressBar)->getComponentOrientation()))->isLeftToRight()) {
-		g2->scale((double)-1, (double)1);
+	if (!$$nc($nc(this->progressBar)->getComponentOrientation())->isLeftToRight()) {
+		g2->scale(-1, 1);
 		g2->translate(-$nc(this->progressBar)->getWidth(), 0);
 	}
 	$nc(this->painter)->paint(g, this->progressBar, i->left, i->top, width, height);
 	g2->setTransform(savedAT);
 	bool var$0 = $nc(this->progressBar)->isStringPainted();
-	if (var$0 && !$nc(this->progressBar)->isIndeterminate()) {
+	if (var$0 && !this->progressBar->isIndeterminate()) {
 		paintString(g, i->left, i->top, width, height);
 	}
 }
@@ -384,7 +287,7 @@ $JRSUIConstants$State* AquaProgressBarUI::getState($JComponent* c) {
 }
 
 void AquaProgressBarUI::paintString($Graphics* g, int32_t x, int32_t y, int32_t width, int32_t height) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!($instanceOf($Graphics2D, g))) {
 		return;
 	}
@@ -395,21 +298,21 @@ void AquaProgressBarUI::paintString($Graphics* g, int32_t x, int32_t y, int32_t 
 	$var($Rectangle, oldClip, g2->getClipBounds());
 	if (isHorizontal()) {
 		g2->setColor(this->selectionForeground);
-		$SwingUtilities2::drawString(static_cast<$JComponent*>(this->progressBar), static_cast<$Graphics*>(g2), progressString, $nc(renderLocation)->x, renderLocation->y);
+		$SwingUtilities2::drawString(this->progressBar, g2, progressString, $nc(renderLocation)->x, $nc(renderLocation)->y);
 	} else {
 		$var($AffineTransform, savedAT, g2->getTransform());
 		$init($Math);
-		g2->transform($($AffineTransform::getRotateInstance(0.0f - ($Math::PI / 2.0f), (double)0, (double)0)));
+		g2->transform($($AffineTransform::getRotateInstance(0.0f - ($Math::PI / 2.0f), 0, 0)));
 		g2->translate(-$nc(this->progressBar)->getHeight(), 0);
 		g2->setColor(this->selectionForeground);
-		$SwingUtilities2::drawString(static_cast<$JComponent*>(this->progressBar), static_cast<$Graphics*>(g2), progressString, $nc(renderLocation)->x, renderLocation->y);
+		$SwingUtilities2::drawString(this->progressBar, g2, progressString, $nc(renderLocation)->x, $nc(renderLocation)->y);
 		g2->setTransform(savedAT);
 	}
 	g2->setClip(oldClip);
 }
 
 $Point* AquaProgressBarUI::getStringPlacement($Graphics* g, $String* progressString, int32_t x, int32_t y, int32_t width, int32_t height) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($FontMetrics, fontSizer, $nc(this->progressBar)->getFontMetrics($($nc(this->progressBar)->getFont())));
 	int32_t stringWidth = $nc(fontSizer)->stringWidth(progressString);
 	if (!isHorizontal()) {
@@ -434,22 +337,22 @@ $Dimension* AquaProgressBarUI::getCircularPreferredSize() {
 }
 
 $Dimension* AquaProgressBarUI::getPreferredSize($JComponent* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->isCircular) {
 		return getCircularPreferredSize();
 	}
 	$var($FontMetrics, metrics, $nc(this->progressBar)->getFontMetrics($($nc(this->progressBar)->getFont())));
 	$var($Dimension, size, isHorizontal() ? getPreferredHorizontalSize(metrics) : getPreferredVerticalSize(metrics));
 	$var($Insets, insets, $nc(this->progressBar)->getInsets());
-	$nc(size)->width += $nc(insets)->left + insets->right;
+	$nc(size)->width += $nc(insets)->left + $nc(insets)->right;
 	size->height += insets->top + insets->bottom;
 	return size;
 }
 
 $Dimension* AquaProgressBarUI::getPreferredHorizontalSize($FontMetrics* metrics) {
-	$useLocalCurrentObjectStackCache();
-	$var($AquaUtilControlSize$SizeVariant, variant, $nc($(getSizeDescriptor()))->get(this->sizeVariant));
-	$var($Dimension, size, $new($Dimension, $nc(variant)->w, variant->h));
+	$useLocalObjectStack();
+	$var($AquaUtilControlSize$SizeVariant, variant, $$nc(getSizeDescriptor())->get(this->sizeVariant));
+	$var($Dimension, size, $new($Dimension, $nc(variant)->w, $nc(variant)->h));
 	if (!$nc(this->progressBar)->isStringPainted()) {
 		return size;
 	}
@@ -467,9 +370,9 @@ $Dimension* AquaProgressBarUI::getPreferredHorizontalSize($FontMetrics* metrics)
 }
 
 $Dimension* AquaProgressBarUI::getPreferredVerticalSize($FontMetrics* metrics) {
-	$useLocalCurrentObjectStackCache();
-	$var($AquaUtilControlSize$SizeVariant, variant, $nc($(getSizeDescriptor()))->get(this->sizeVariant));
-	$var($Dimension, size, $new($Dimension, $nc(variant)->h, variant->w));
+	$useLocalObjectStack();
+	$var($AquaUtilControlSize$SizeVariant, variant, $$nc(getSizeDescriptor())->get(this->sizeVariant));
+	$var($Dimension, size, $new($Dimension, $nc(variant)->h, $nc(variant)->w));
 	if (!$nc(this->progressBar)->isStringPainted()) {
 		return size;
 	}
@@ -514,7 +417,7 @@ $Dimension* AquaProgressBarUI::getMaximumSize($JComponent* c) {
 
 void AquaProgressBarUI::applySizeFor($JComponent* c, $JRSUIConstants$Size* size) {
 	$init($JRSUIConstants$Size);
-	$nc(($cast($JRSUIState$ValueState, $nc(this->painter)->state)))->set(($set(this, sizeVariant, size == $JRSUIConstants$Size::MINI ? $JRSUIConstants$Size::SMALL : this->sizeVariant)));
+	$nc($cast($JRSUIState$ValueState, $nc(this->painter)->state))->set($set(this, sizeVariant, size == $JRSUIConstants$Size::MINI ? $JRSUIConstants$Size::SMALL : this->sizeVariant));
 }
 
 void AquaProgressBarUI::startAnimationTimer() {
@@ -527,7 +430,7 @@ void AquaProgressBarUI::startAnimationTimer() {
 
 void AquaProgressBarUI::stopAnimationTimer() {
 	if (this->animator != nullptr) {
-		$nc(this->animator)->stop();
+		this->animator->stop();
 	}
 	this->isAnimating = false;
 }
@@ -538,13 +441,13 @@ $Rectangle* AquaProgressBarUI::getRepaintRect() {
 	if (this->isCircular) {
 		return $new($Rectangle, 20, 20);
 	}
-	if ($nc(this->fLastSize)->height == height && $nc(this->fLastSize)->width == width) {
+	if (this->fLastSize->height == height && this->fLastSize->width == width) {
 		return this->fUpdateArea;
 	}
 	int32_t x = 0;
 	int32_t y = 0;
-	$nc(this->fLastSize)->height = height;
-	$nc(this->fLastSize)->width = width;
+	this->fLastSize->height = height;
+	this->fLastSize->width = width;
 	int32_t maxHeight = getMaxProgressBarHeight();
 	if (isHorizontal()) {
 		int32_t excessHeight = height - maxHeight;
@@ -555,13 +458,13 @@ $Rectangle* AquaProgressBarUI::getRepaintRect() {
 		x += excessHeight / 2;
 		width = maxHeight;
 	}
-	$nc(this->fUpdateArea)->setBounds(x, y, width, height);
+	this->fUpdateArea->setBounds(x, y, width, height);
 	return this->fUpdateArea;
 }
 
 int32_t AquaProgressBarUI::getMaxProgressBarHeight() {
-	$useLocalCurrentObjectStackCache();
-	return $nc($($nc($(getSizeDescriptor()))->get(this->sizeVariant)))->h;
+	$useLocalObjectStack();
+	return $nc($($$nc(getSizeDescriptor())->get(this->sizeVariant)))->h;
 }
 
 bool AquaProgressBarUI::isHorizontal() {
@@ -578,7 +481,7 @@ void AquaProgressBarUI::revalidateAnimationTimers() {
 	}
 	$var($BoundedRangeModel, model, $nc(this->progressBar)->getModel());
 	double currentValue = (double)$nc(model)->getValue();
-	bool var$0 = (currentValue == model->getMaximum());
+	bool var$0 = currentValue == model->getMaximum();
 	if (var$0 || (currentValue == model->getMinimum())) {
 		stopAnimationTimer();
 	}
@@ -593,7 +496,7 @@ void AquaProgressBarUI::repaint() {
 	$nc(this->progressBar)->repaint(repaintRect);
 }
 
-void clinit$AquaProgressBarUI($Class* class$) {
+void AquaProgressBarUI::clinit$($Class* clazz) {
 	$assignStatic(AquaProgressBarUI::sizeDescriptor, $new($AquaProgressBarUI$1));
 }
 
@@ -601,7 +504,85 @@ AquaProgressBarUI::AquaProgressBarUI() {
 }
 
 $Class* AquaProgressBarUI::load$($String* name, bool initialize) {
-	$loadClass(AquaProgressBarUI, name, initialize, &_AquaProgressBarUI_ClassInfo_, clinit$AquaProgressBarUI, allocate$AquaProgressBarUI);
+	$FieldInfo fieldInfos$$[] = {
+		{"ADJUSTTIMER", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AquaProgressBarUI, ADJUSTTIMER)},
+		{"sizeDescriptor", "Lcom/apple/laf/AquaUtils$RecyclableSingleton;", "Lcom/apple/laf/AquaUtils$RecyclableSingleton<Lcom/apple/laf/AquaUtilControlSize$SizeDescriptor;>;", $PRIVATE | $STATIC | $FINAL, $staticField(AquaProgressBarUI, sizeDescriptor)},
+		{"sizeVariant", "Lapple/laf/JRSUIConstants$Size;", nullptr, $PROTECTED, $field(AquaProgressBarUI, sizeVariant)},
+		{"selectionForeground", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(AquaProgressBarUI, selectionForeground)},
+		{"animator", "Lcom/apple/laf/AquaProgressBarUI$Animator;", nullptr, $PRIVATE, $field(AquaProgressBarUI, animator)},
+		{"isAnimating", "Z", nullptr, $PROTECTED, $field(AquaProgressBarUI, isAnimating)},
+		{"isCircular", "Z", nullptr, $PROTECTED, $field(AquaProgressBarUI, isCircular)},
+		{"painter", "Lcom/apple/laf/AquaPainter;", "Lcom/apple/laf/AquaPainter<Lapple/laf/JRSUIState$ValueState;>;", $PROTECTED | $FINAL, $field(AquaProgressBarUI, painter)},
+		{"progressBar", "Ljavax/swing/JProgressBar;", nullptr, $PROTECTED, $field(AquaProgressBarUI, progressBar)},
+		{"fUpdateArea", "Ljava/awt/Rectangle;", nullptr, $PRIVATE | $FINAL, $field(AquaProgressBarUI, fUpdateArea)},
+		{"fLastSize", "Ljava/awt/Dimension;", nullptr, $PRIVATE | $FINAL, $field(AquaProgressBarUI, fLastSize)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PROTECTED, $method(AquaProgressBarUI, init$, void)},
+		{"ancestorAdded", "(Ljavax/swing/event/AncestorEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaProgressBarUI, ancestorAdded, void, $AncestorEvent*)},
+		{"ancestorMoved", "(Ljavax/swing/event/AncestorEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaProgressBarUI, ancestorMoved, void, $AncestorEvent*)},
+		{"ancestorRemoved", "(Ljavax/swing/event/AncestorEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaProgressBarUI, ancestorRemoved, void, $AncestorEvent*)},
+		{"applySizeFor", "(Ljavax/swing/JComponent;Lapple/laf/JRSUIConstants$Size;)V", nullptr, $PUBLIC, $virtualMethod(AquaProgressBarUI, applySizeFor, void, $JComponent*, $JRSUIConstants$Size*)},
+		{"checkValue", "(D)D", nullptr, $STATIC, $staticMethod(AquaProgressBarUI, checkValue, double, double)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(AquaProgressBarUI, createUI, $ComponentUI*, $JComponent*)},
+		{"getCircularPreferredSize", "()Ljava/awt/Dimension;", nullptr, $STATIC, $staticMethod(AquaProgressBarUI, getCircularPreferredSize, $Dimension*)},
+		{"getMaxProgressBarHeight", "()I", nullptr, $PROTECTED, $virtualMethod(AquaProgressBarUI, getMaxProgressBarHeight, int32_t)},
+		{"getMaximumSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(AquaProgressBarUI, getMaximumSize, $Dimension*, $JComponent*)},
+		{"getMinimumSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(AquaProgressBarUI, getMinimumSize, $Dimension*, $JComponent*)},
+		{"getPreferredHorizontalSize", "(Ljava/awt/FontMetrics;)Ljava/awt/Dimension;", nullptr, $PROTECTED, $virtualMethod(AquaProgressBarUI, getPreferredHorizontalSize, $Dimension*, $FontMetrics*)},
+		{"getPreferredSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(AquaProgressBarUI, getPreferredSize, $Dimension*, $JComponent*)},
+		{"getPreferredVerticalSize", "(Ljava/awt/FontMetrics;)Ljava/awt/Dimension;", nullptr, $PROTECTED, $virtualMethod(AquaProgressBarUI, getPreferredVerticalSize, $Dimension*, $FontMetrics*)},
+		{"getRepaintRect", "()Ljava/awt/Rectangle;", nullptr, $PROTECTED, $virtualMethod(AquaProgressBarUI, getRepaintRect, $Rectangle*)},
+		{"getSizeDescriptor", "()Lcom/apple/laf/AquaUtilControlSize$SizeDescriptor;", nullptr, $STATIC, $staticMethod(AquaProgressBarUI, getSizeDescriptor, $AquaUtilControlSize$SizeDescriptor*)},
+		{"getState", "(Ljavax/swing/JComponent;)Lapple/laf/JRSUIConstants$State;", nullptr, $PROTECTED, $virtualMethod(AquaProgressBarUI, getState, $JRSUIConstants$State*, $JComponent*)},
+		{"getStringPlacement", "(Ljava/awt/Graphics;Ljava/lang/String;IIII)Ljava/awt/Point;", nullptr, $PROTECTED, $virtualMethod(AquaProgressBarUI, getStringPlacement, $Point*, $Graphics*, $String*, int32_t, int32_t, int32_t, int32_t)},
+		{"installDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(AquaProgressBarUI, installDefaults, void)},
+		{"installListeners", "()V", nullptr, $PROTECTED, $virtualMethod(AquaProgressBarUI, installListeners, void)},
+		{"installUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(AquaProgressBarUI, installUI, void, $JComponent*)},
+		{"isHorizontal", "()Z", nullptr, $PROTECTED, $virtualMethod(AquaProgressBarUI, isHorizontal, bool)},
+		{"paint", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(AquaProgressBarUI, paint, void, $Graphics*, $JComponent*)},
+		{"paint", "(Ljava/awt/Graphics;)V", nullptr, $PROTECTED, $virtualMethod(AquaProgressBarUI, paint, void, $Graphics*)},
+		{"paintString", "(Ljava/awt/Graphics;IIII)V", nullptr, $PROTECTED, $virtualMethod(AquaProgressBarUI, paintString, void, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaProgressBarUI, propertyChange, void, $PropertyChangeEvent*)},
+		{"repaint", "()V", nullptr, $PROTECTED, $virtualMethod(AquaProgressBarUI, repaint, void)},
+		{"revalidateAnimationTimers", "()V", nullptr, $PROTECTED, $virtualMethod(AquaProgressBarUI, revalidateAnimationTimers, void)},
+		{"startAnimationTimer", "()V", nullptr, $PROTECTED, $virtualMethod(AquaProgressBarUI, startAnimationTimer, void)},
+		{"stateChanged", "(Ljavax/swing/event/ChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaProgressBarUI, stateChanged, void, $ChangeEvent*)},
+		{"stopAnimationTimer", "()V", nullptr, $PROTECTED, $virtualMethod(AquaProgressBarUI, stopAnimationTimer, void)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"uninstallDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(AquaProgressBarUI, uninstallDefaults, void)},
+		{"uninstallListeners", "()V", nullptr, $PROTECTED, $virtualMethod(AquaProgressBarUI, uninstallListeners, void)},
+		{"uninstallUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(AquaProgressBarUI, uninstallUI, void, $JComponent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.laf.AquaUtilControlSize$Sizeable", "com.apple.laf.AquaUtilControlSize", "Sizeable", $STATIC | $INTERFACE | $ABSTRACT},
+		{"com.apple.laf.AquaProgressBarUI$Animator", "com.apple.laf.AquaProgressBarUI", "Animator", $PROTECTED},
+		{"com.apple.laf.AquaProgressBarUI$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.apple.laf.AquaProgressBarUI",
+		"javax.swing.plaf.ProgressBarUI",
+		"javax.swing.event.ChangeListener,java.beans.PropertyChangeListener,javax.swing.event.AncestorListener,com.apple.laf.AquaUtilControlSize$Sizeable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.apple.laf.AquaProgressBarUI$Animator,com.apple.laf.AquaProgressBarUI$1,com.apple.laf.AquaProgressBarUI$1$1"
+	};
+	$loadClass(AquaProgressBarUI, name, initialize, &classInfo$$, AquaProgressBarUI::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AquaProgressBarUI));
+	});
 	return class$;
 }
 

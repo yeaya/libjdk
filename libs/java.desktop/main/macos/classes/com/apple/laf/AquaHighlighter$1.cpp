@@ -1,5 +1,4 @@
 #include <com/apple/laf/AquaHighlighter$1.h>
-
 #include <com/apple/laf/AquaHighlighter$AquaHighlightPainter.h>
 #include <com/apple/laf/AquaUtils$RecyclableSingleton.h>
 #include <java/awt/Color.h>
@@ -17,58 +16,52 @@ namespace com {
 	namespace apple {
 		namespace laf {
 
-$MethodInfo _AquaHighlighter$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(AquaHighlighter$1, init$, void)},
-	{"getInstance", "()Ljavax/swing/text/LayeredHighlighter$LayerPainter;", nullptr, $PROTECTED, $virtualMethod(AquaHighlighter$1, getInstance, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _AquaHighlighter$1_EnclosingMethodInfo_ = {
-	"com.apple.laf.AquaHighlighter",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _AquaHighlighter$1_InnerClassesInfo_[] = {
-	{"com.apple.laf.AquaHighlighter$1", nullptr, nullptr, 0},
-	{"com.apple.laf.AquaUtils$RecyclableSingleton", "com.apple.laf.AquaUtils", "RecyclableSingleton", $STATIC | $ABSTRACT},
-	{"javax.swing.text.LayeredHighlighter$LayerPainter", "javax.swing.text.LayeredHighlighter", "LayerPainter", $PUBLIC | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _AquaHighlighter$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.apple.laf.AquaHighlighter$1",
-	"com.apple.laf.AquaUtils$RecyclableSingleton",
-	nullptr,
-	nullptr,
-	_AquaHighlighter$1_MethodInfo_,
-	"Lcom/apple/laf/AquaUtils$RecyclableSingleton<Ljavax/swing/text/LayeredHighlighter$LayerPainter;>;",
-	&_AquaHighlighter$1_EnclosingMethodInfo_,
-	_AquaHighlighter$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.apple.laf.AquaHighlighter"
-};
-
-$Object* allocate$AquaHighlighter$1($Class* clazz) {
-	return $of($alloc(AquaHighlighter$1));
-}
-
 void AquaHighlighter$1::init$() {
 	$AquaUtils$RecyclableSingleton::init$();
 }
 
 $Object* AquaHighlighter$1::getInstance() {
-	return $of($new($AquaHighlighter$AquaHighlightPainter, nullptr));
+	return $new($AquaHighlighter$AquaHighlightPainter, nullptr);
 }
 
 AquaHighlighter$1::AquaHighlighter$1() {
 }
 
 $Class* AquaHighlighter$1::load$($String* name, bool initialize) {
-	$loadClass(AquaHighlighter$1, name, initialize, &_AquaHighlighter$1_ClassInfo_, allocate$AquaHighlighter$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(AquaHighlighter$1, init$, void)},
+		{"getInstance", "()Ljavax/swing/text/LayeredHighlighter$LayerPainter;", nullptr, $PROTECTED, $virtualMethod(AquaHighlighter$1, getInstance, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.apple.laf.AquaHighlighter",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.laf.AquaHighlighter$1", nullptr, nullptr, 0},
+		{"com.apple.laf.AquaUtils$RecyclableSingleton", "com.apple.laf.AquaUtils", "RecyclableSingleton", $STATIC | $ABSTRACT},
+		{"javax.swing.text.LayeredHighlighter$LayerPainter", "javax.swing.text.LayeredHighlighter", "LayerPainter", $PUBLIC | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.apple.laf.AquaHighlighter$1",
+		"com.apple.laf.AquaUtils$RecyclableSingleton",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		"Lcom/apple/laf/AquaUtils$RecyclableSingleton<Ljavax/swing/text/LayeredHighlighter$LayerPainter;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.apple.laf.AquaHighlighter"
+	};
+	$loadClass(AquaHighlighter$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AquaHighlighter$1);
+	});
 	return class$;
 }
 

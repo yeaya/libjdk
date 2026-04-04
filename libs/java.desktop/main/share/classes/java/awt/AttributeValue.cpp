@@ -1,5 +1,4 @@
 #include <java/awt/AttributeValue.h>
-
 #include <sun/util/logging/PlatformLogger$Level.h>
 #include <sun/util/logging/PlatformLogger.h>
 #include <jcpp.h>
@@ -16,44 +15,17 @@ using $PlatformLogger$Level = ::sun::util::logging::PlatformLogger$Level;
 namespace java {
 	namespace awt {
 
-$FieldInfo _AttributeValue_FieldInfo_[] = {
-	{"log", "Lsun/util/logging/PlatformLogger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AttributeValue, log)},
-	{"value", "I", nullptr, $PRIVATE | $FINAL, $field(AttributeValue, value)},
-	{"names", "[Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(AttributeValue, names)},
-	{}
-};
-
-$MethodInfo _AttributeValue_MethodInfo_[] = {
-	{"<init>", "(I[Ljava/lang/String;)V", nullptr, $PROTECTED, $method(AttributeValue, init$, void, int32_t, $StringArray*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(AttributeValue, hashCode, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AttributeValue, toString, $String*)},
-	{}
-};
-
-$ClassInfo _AttributeValue_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"java.awt.AttributeValue",
-	"java.lang.Object",
-	nullptr,
-	_AttributeValue_FieldInfo_,
-	_AttributeValue_MethodInfo_
-};
-
-$Object* allocate$AttributeValue($Class* clazz) {
-	return $of($alloc(AttributeValue));
-}
-
 $PlatformLogger* AttributeValue::log = nullptr;
 
 void AttributeValue::init$(int32_t value, $StringArray* names) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($PlatformLogger$Level);
 	if ($nc(AttributeValue::log)->isLoggable($PlatformLogger$Level::FINEST)) {
-		$nc(AttributeValue::log)->finest($$str({"value = "_s, $$str(value), ", names = "_s, names}));
+		AttributeValue::log->finest($$str({"value = "_s, $$str(value), ", names = "_s, names}));
 	}
-	if ($nc(AttributeValue::log)->isLoggable($PlatformLogger$Level::FINER)) {
-		if ((value < 0) || (names == nullptr) || (value >= $nc(names)->length)) {
-			$nc(AttributeValue::log)->finer("Assertion failed"_s);
+	if (AttributeValue::log->isLoggable($PlatformLogger$Level::FINER)) {
+		if ((value < 0) || (names == nullptr) || (value >= names->length)) {
+			AttributeValue::log->finer("Assertion failed"_s);
 		}
 	}
 	this->value = value;
@@ -68,7 +40,7 @@ $String* AttributeValue::toString() {
 	return $nc(this->names)->get(this->value);
 }
 
-void clinit$AttributeValue($Class* class$) {
+void AttributeValue::clinit$($Class* clazz) {
 	$assignStatic(AttributeValue::log, $PlatformLogger::getLogger("java.awt.AttributeValue"_s));
 }
 
@@ -76,7 +48,29 @@ AttributeValue::AttributeValue() {
 }
 
 $Class* AttributeValue::load$($String* name, bool initialize) {
-	$loadClass(AttributeValue, name, initialize, &_AttributeValue_ClassInfo_, clinit$AttributeValue, allocate$AttributeValue);
+	$FieldInfo fieldInfos$$[] = {
+		{"log", "Lsun/util/logging/PlatformLogger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AttributeValue, log)},
+		{"value", "I", nullptr, $PRIVATE | $FINAL, $field(AttributeValue, value)},
+		{"names", "[Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(AttributeValue, names)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I[Ljava/lang/String;)V", nullptr, $PROTECTED, $method(AttributeValue, init$, void, int32_t, $StringArray*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(AttributeValue, hashCode, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AttributeValue, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"java.awt.AttributeValue",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(AttributeValue, name, initialize, &classInfo$$, AttributeValue::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(AttributeValue);
+	});
 	return class$;
 }
 

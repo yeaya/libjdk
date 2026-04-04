@@ -1,5 +1,4 @@
 #include <java/awt/Event.h>
-
 #include <java/awt/GraphicsEnvironment.h>
 #include <java/awt/Toolkit.h>
 #include <java/awt/event/KeyEvent.h>
@@ -104,146 +103,11 @@ using $NamedAttribute = ::java::lang::NamedAttribute;
 namespace java {
 	namespace awt {
 
-$NamedAttribute Event_Attribute_var$0[] = {
-	{"since", 's', "9"},
-	{}
-};
-
-$CompoundAttribute _Event_Annotations_[] = {
-	{"Ljava/lang/Deprecated;", Event_Attribute_var$0},
-	{}
-};
-
-$FieldInfo _Event_FieldInfo_[] = {
-	{"data", "J", nullptr, $PRIVATE | $TRANSIENT, $field(Event, data)},
-	{"SHIFT_MASK", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Event, SHIFT_MASK)},
-	{"CTRL_MASK", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Event, CTRL_MASK)},
-	{"META_MASK", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Event, META_MASK)},
-	{"ALT_MASK", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Event, ALT_MASK)},
-	{"HOME", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Event, HOME)},
-	{"END", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Event, END)},
-	{"PGUP", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Event, PGUP)},
-	{"PGDN", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Event, PGDN)},
-	{"UP", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Event, UP)},
-	{"DOWN", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Event, DOWN)},
-	{"LEFT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Event, LEFT)},
-	{"RIGHT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Event, RIGHT)},
-	{"F1", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Event, F1)},
-	{"F2", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Event, F2)},
-	{"F3", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Event, F3)},
-	{"F4", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Event, F4)},
-	{"F5", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Event, F5)},
-	{"F6", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Event, F6)},
-	{"F7", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Event, F7)},
-	{"F8", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Event, F8)},
-	{"F9", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Event, F9)},
-	{"F10", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Event, F10)},
-	{"F11", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Event, F11)},
-	{"F12", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Event, F12)},
-	{"PRINT_SCREEN", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Event, PRINT_SCREEN)},
-	{"SCROLL_LOCK", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Event, SCROLL_LOCK)},
-	{"CAPS_LOCK", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Event, CAPS_LOCK)},
-	{"NUM_LOCK", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Event, NUM_LOCK)},
-	{"PAUSE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Event, PAUSE)},
-	{"INSERT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Event, INSERT)},
-	{"ENTER", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Event, ENTER)},
-	{"BACK_SPACE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Event, BACK_SPACE)},
-	{"TAB", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Event, TAB)},
-	{"ESCAPE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Event, ESCAPE)},
-	{"DELETE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Event, DELETE)},
-	{"WINDOW_EVENT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Event, WINDOW_EVENT)},
-	{"WINDOW_DESTROY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Event, WINDOW_DESTROY)},
-	{"WINDOW_EXPOSE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Event, WINDOW_EXPOSE)},
-	{"WINDOW_ICONIFY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Event, WINDOW_ICONIFY)},
-	{"WINDOW_DEICONIFY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Event, WINDOW_DEICONIFY)},
-	{"WINDOW_MOVED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Event, WINDOW_MOVED)},
-	{"KEY_EVENT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Event, KEY_EVENT)},
-	{"KEY_PRESS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Event, KEY_PRESS)},
-	{"KEY_RELEASE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Event, KEY_RELEASE)},
-	{"KEY_ACTION", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Event, KEY_ACTION)},
-	{"KEY_ACTION_RELEASE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Event, KEY_ACTION_RELEASE)},
-	{"MOUSE_EVENT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Event, MOUSE_EVENT)},
-	{"MOUSE_DOWN", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Event, MOUSE_DOWN)},
-	{"MOUSE_UP", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Event, MOUSE_UP)},
-	{"MOUSE_MOVE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Event, MOUSE_MOVE)},
-	{"MOUSE_ENTER", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Event, MOUSE_ENTER)},
-	{"MOUSE_EXIT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Event, MOUSE_EXIT)},
-	{"MOUSE_DRAG", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Event, MOUSE_DRAG)},
-	{"SCROLL_EVENT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Event, SCROLL_EVENT)},
-	{"SCROLL_LINE_UP", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Event, SCROLL_LINE_UP)},
-	{"SCROLL_LINE_DOWN", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Event, SCROLL_LINE_DOWN)},
-	{"SCROLL_PAGE_UP", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Event, SCROLL_PAGE_UP)},
-	{"SCROLL_PAGE_DOWN", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Event, SCROLL_PAGE_DOWN)},
-	{"SCROLL_ABSOLUTE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Event, SCROLL_ABSOLUTE)},
-	{"SCROLL_BEGIN", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Event, SCROLL_BEGIN)},
-	{"SCROLL_END", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Event, SCROLL_END)},
-	{"LIST_EVENT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Event, LIST_EVENT)},
-	{"LIST_SELECT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Event, LIST_SELECT)},
-	{"LIST_DESELECT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Event, LIST_DESELECT)},
-	{"MISC_EVENT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Event, MISC_EVENT)},
-	{"ACTION_EVENT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Event, ACTION_EVENT)},
-	{"LOAD_FILE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Event, LOAD_FILE)},
-	{"SAVE_FILE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Event, SAVE_FILE)},
-	{"GOT_FOCUS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Event, GOT_FOCUS)},
-	{"LOST_FOCUS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Event, LOST_FOCUS)},
-	{"target", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Event, target)},
-	{"when", "J", nullptr, $PUBLIC, $field(Event, when)},
-	{"id", "I", nullptr, $PUBLIC, $field(Event, id)},
-	{"x", "I", nullptr, $PUBLIC, $field(Event, x)},
-	{"y", "I", nullptr, $PUBLIC, $field(Event, y)},
-	{"key", "I", nullptr, $PUBLIC, $field(Event, key)},
-	{"modifiers", "I", nullptr, $PUBLIC, $field(Event, modifiers)},
-	{"clickCount", "I", nullptr, $PUBLIC, $field(Event, clickCount)},
-	{"arg", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Event, arg)},
-	{"evt", "Ljava/awt/Event;", nullptr, $PUBLIC, $field(Event, evt)},
-	{"actionKeyCodes", "[[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Event, actionKeyCodes)},
-	{"consumed", "Z", nullptr, $PRIVATE, $field(Event, consumed)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Event, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _Event_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Object;JIIIIILjava/lang/Object;)V", nullptr, $PUBLIC, $method(Event, init$, void, Object$*, int64_t, int32_t, int32_t, int32_t, int32_t, int32_t, Object$*)},
-	{"<init>", "(Ljava/lang/Object;JIIIII)V", nullptr, $PUBLIC, $method(Event, init$, void, Object$*, int64_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"<init>", "(Ljava/lang/Object;ILjava/lang/Object;)V", nullptr, $PUBLIC, $method(Event, init$, void, Object$*, int32_t, Object$*)},
-	{"consume", "()V", nullptr, 0, $virtualMethod(Event, consume, void)},
-	{"controlDown", "()Z", nullptr, $PUBLIC, $virtualMethod(Event, controlDown, bool)},
-	{"getKeyEventChar", "()C", nullptr, 0, $virtualMethod(Event, getKeyEventChar, char16_t)},
-	{"getOldEventKey", "(Ljava/awt/event/KeyEvent;)I", nullptr, $STATIC, $staticMethod(Event, getOldEventKey, int32_t, $KeyEvent*)},
-	{"initIDs", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(Event, initIDs, void)},
-	{"isConsumed", "()Z", nullptr, 0, $virtualMethod(Event, isConsumed, bool)},
-	{"metaDown", "()Z", nullptr, $PUBLIC, $virtualMethod(Event, metaDown, bool)},
-	{"paramString", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(Event, paramString, $String*)},
-	{"shiftDown", "()Z", nullptr, $PUBLIC, $virtualMethod(Event, shiftDown, bool)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Event, toString, $String*)},
-	{"translate", "(II)V", nullptr, $PUBLIC, $virtualMethod(Event, translate, void, int32_t, int32_t)},
-	{}
-};
-
-#define _METHOD_INDEX_initIDs 7
-
-$ClassInfo _Event_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.awt.Event",
-	"java.lang.Object",
-	"java.io.Serializable",
-	_Event_FieldInfo_,
-	_Event_MethodInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	_Event_Annotations_
-};
-
-$Object* allocate$Event($Class* clazz) {
-	return $of($alloc(Event));
-}
-
 $intArray2* Event::actionKeyCodes = nullptr;
 
 void Event::initIDs() {
 	$init(Event);
-	$prepareNativeStatic(Event, initIDs, void);
+	$prepareNativeStatic(initIDs, void);
 	$invokeNativeStatic();
 	$finishNativeStatic();
 }
@@ -262,38 +126,23 @@ void Event::init$(Object$* target, int64_t when, int32_t id, int32_t x, int32_t 
 	this->clickCount = 0;
 	switch (id) {
 	case Event::ACTION_EVENT:
-		{}
 	case Event::WINDOW_DESTROY:
-		{}
 	case Event::WINDOW_ICONIFY:
-		{}
 	case Event::WINDOW_DEICONIFY:
-		{}
 	case Event::WINDOW_MOVED:
-		{}
 	case Event::SCROLL_LINE_UP:
-		{}
 	case Event::SCROLL_LINE_DOWN:
-		{}
 	case Event::SCROLL_PAGE_UP:
-		{}
 	case Event::SCROLL_PAGE_DOWN:
-		{}
 	case Event::SCROLL_ABSOLUTE:
-		{}
 	case Event::SCROLL_BEGIN:
-		{}
 	case Event::SCROLL_END:
-		{}
 	case Event::LIST_SELECT:
-		{}
 	case Event::LIST_DESELECT:
-		{
-			this->consumed = true;
-			break;
-		}
+		this->consumed = true;
+		break;
 	default:
-		{}
+		break;
 	}
 }
 
@@ -311,32 +160,27 @@ void Event::translate(int32_t dx, int32_t dy) {
 }
 
 bool Event::shiftDown() {
-	return ((int32_t)(this->modifiers & (uint32_t)Event::SHIFT_MASK)) != 0;
+	return (this->modifiers & Event::SHIFT_MASK) != 0;
 }
 
 bool Event::controlDown() {
-	return ((int32_t)(this->modifiers & (uint32_t)Event::CTRL_MASK)) != 0;
+	return (this->modifiers & Event::CTRL_MASK) != 0;
 }
 
 bool Event::metaDown() {
-	return ((int32_t)(this->modifiers & (uint32_t)Event::META_MASK)) != 0;
+	return (this->modifiers & Event::META_MASK) != 0;
 }
 
 void Event::consume() {
 	switch (this->id) {
 	case Event::KEY_PRESS:
-		{}
 	case Event::KEY_RELEASE:
-		{}
 	case Event::KEY_ACTION:
-		{}
 	case Event::KEY_ACTION_RELEASE:
-		{
-			this->consumed = true;
-			break;
-		}
+		this->consumed = true;
+		break;
 	default:
-		{}
+		break;
 	}
 }
 
@@ -347,17 +191,17 @@ bool Event::isConsumed() {
 int32_t Event::getOldEventKey($KeyEvent* e) {
 	$init(Event);
 	int32_t keyCode = $nc(e)->getKeyCode();
-	for (int32_t i = 0; i < $nc(Event::actionKeyCodes)->length; ++i) {
-		if ($nc($nc(Event::actionKeyCodes)->get(i))->get(0) == keyCode) {
-			return $nc($nc(Event::actionKeyCodes)->get(i))->get(1);
+	for (int32_t i = 0; i < Event::actionKeyCodes->length; ++i) {
+		if ($nc(Event::actionKeyCodes->get(i))->get(0) == keyCode) {
+			return $nc(Event::actionKeyCodes->get(i))->get(1);
 		}
 	}
 	return (int32_t)e->getKeyChar();
 }
 
 char16_t Event::getKeyEventChar() {
-	for (int32_t i = 0; i < $nc(Event::actionKeyCodes)->length; ++i) {
-		if ($nc($nc(Event::actionKeyCodes)->get(i))->get(1) == this->key) {
+	for (int32_t i = 0; i < Event::actionKeyCodes->length; ++i) {
+		if ($nc(Event::actionKeyCodes->get(i))->get(1) == this->key) {
 			return $KeyEvent::CHAR_UNDEFINED;
 		}
 	}
@@ -365,7 +209,7 @@ char16_t Event::getKeyEventChar() {
 }
 
 $String* Event::paramString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, str, $str({"id="_s, $$str(this->id), ",x="_s, $$str(this->x), ",y="_s, $$str(this->y)}));
 	if (this->key != 0) {
 		$plusAssign(str, $$str({",key="_s, $$str(this->key)}));
@@ -389,14 +233,17 @@ $String* Event::paramString() {
 }
 
 $String* Event::toString() {
-	$useLocalCurrentObjectStackCache();
-	$var($String, var$1, $$str({$($of(this)->getClass()->getName()), "["_s}));
-	$var($String, var$0, $$concat(var$1, $(paramString())));
-	return $concat(var$0, "]"_s);
+	$useLocalObjectStack();
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append($($of(this)->getClass()->getName()));
+	var$0->append("["_s);
+	var$0->append($(paramString()));
+	var$0->append("]"_s);
+	return $str(var$0);
 }
 
-void clinit$Event($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void Event::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(Event::actionKeyCodes, $new($intArray2, {
 		$$new($ints, {
 			$KeyEvent::VK_HOME,
@@ -515,7 +362,133 @@ Event::Event() {
 }
 
 $Class* Event::load$($String* name, bool initialize) {
-	$loadClass(Event, name, initialize, &_Event_ClassInfo_, clinit$Event, allocate$Event);
+	$FieldInfo fieldInfos$$[] = {
+		{"data", "J", nullptr, $PRIVATE | $TRANSIENT, $field(Event, data)},
+		{"SHIFT_MASK", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Event, SHIFT_MASK)},
+		{"CTRL_MASK", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Event, CTRL_MASK)},
+		{"META_MASK", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Event, META_MASK)},
+		{"ALT_MASK", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Event, ALT_MASK)},
+		{"HOME", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Event, HOME)},
+		{"END", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Event, END)},
+		{"PGUP", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Event, PGUP)},
+		{"PGDN", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Event, PGDN)},
+		{"UP", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Event, UP)},
+		{"DOWN", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Event, DOWN)},
+		{"LEFT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Event, LEFT)},
+		{"RIGHT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Event, RIGHT)},
+		{"F1", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Event, F1)},
+		{"F2", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Event, F2)},
+		{"F3", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Event, F3)},
+		{"F4", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Event, F4)},
+		{"F5", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Event, F5)},
+		{"F6", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Event, F6)},
+		{"F7", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Event, F7)},
+		{"F8", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Event, F8)},
+		{"F9", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Event, F9)},
+		{"F10", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Event, F10)},
+		{"F11", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Event, F11)},
+		{"F12", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Event, F12)},
+		{"PRINT_SCREEN", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Event, PRINT_SCREEN)},
+		{"SCROLL_LOCK", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Event, SCROLL_LOCK)},
+		{"CAPS_LOCK", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Event, CAPS_LOCK)},
+		{"NUM_LOCK", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Event, NUM_LOCK)},
+		{"PAUSE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Event, PAUSE)},
+		{"INSERT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Event, INSERT)},
+		{"ENTER", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Event, ENTER)},
+		{"BACK_SPACE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Event, BACK_SPACE)},
+		{"TAB", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Event, TAB)},
+		{"ESCAPE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Event, ESCAPE)},
+		{"DELETE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Event, DELETE)},
+		{"WINDOW_EVENT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Event, WINDOW_EVENT)},
+		{"WINDOW_DESTROY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Event, WINDOW_DESTROY)},
+		{"WINDOW_EXPOSE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Event, WINDOW_EXPOSE)},
+		{"WINDOW_ICONIFY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Event, WINDOW_ICONIFY)},
+		{"WINDOW_DEICONIFY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Event, WINDOW_DEICONIFY)},
+		{"WINDOW_MOVED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Event, WINDOW_MOVED)},
+		{"KEY_EVENT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Event, KEY_EVENT)},
+		{"KEY_PRESS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Event, KEY_PRESS)},
+		{"KEY_RELEASE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Event, KEY_RELEASE)},
+		{"KEY_ACTION", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Event, KEY_ACTION)},
+		{"KEY_ACTION_RELEASE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Event, KEY_ACTION_RELEASE)},
+		{"MOUSE_EVENT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Event, MOUSE_EVENT)},
+		{"MOUSE_DOWN", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Event, MOUSE_DOWN)},
+		{"MOUSE_UP", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Event, MOUSE_UP)},
+		{"MOUSE_MOVE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Event, MOUSE_MOVE)},
+		{"MOUSE_ENTER", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Event, MOUSE_ENTER)},
+		{"MOUSE_EXIT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Event, MOUSE_EXIT)},
+		{"MOUSE_DRAG", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Event, MOUSE_DRAG)},
+		{"SCROLL_EVENT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Event, SCROLL_EVENT)},
+		{"SCROLL_LINE_UP", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Event, SCROLL_LINE_UP)},
+		{"SCROLL_LINE_DOWN", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Event, SCROLL_LINE_DOWN)},
+		{"SCROLL_PAGE_UP", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Event, SCROLL_PAGE_UP)},
+		{"SCROLL_PAGE_DOWN", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Event, SCROLL_PAGE_DOWN)},
+		{"SCROLL_ABSOLUTE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Event, SCROLL_ABSOLUTE)},
+		{"SCROLL_BEGIN", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Event, SCROLL_BEGIN)},
+		{"SCROLL_END", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Event, SCROLL_END)},
+		{"LIST_EVENT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Event, LIST_EVENT)},
+		{"LIST_SELECT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Event, LIST_SELECT)},
+		{"LIST_DESELECT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Event, LIST_DESELECT)},
+		{"MISC_EVENT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Event, MISC_EVENT)},
+		{"ACTION_EVENT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Event, ACTION_EVENT)},
+		{"LOAD_FILE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Event, LOAD_FILE)},
+		{"SAVE_FILE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Event, SAVE_FILE)},
+		{"GOT_FOCUS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Event, GOT_FOCUS)},
+		{"LOST_FOCUS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Event, LOST_FOCUS)},
+		{"target", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Event, target)},
+		{"when", "J", nullptr, $PUBLIC, $field(Event, when)},
+		{"id", "I", nullptr, $PUBLIC, $field(Event, id)},
+		{"x", "I", nullptr, $PUBLIC, $field(Event, x)},
+		{"y", "I", nullptr, $PUBLIC, $field(Event, y)},
+		{"key", "I", nullptr, $PUBLIC, $field(Event, key)},
+		{"modifiers", "I", nullptr, $PUBLIC, $field(Event, modifiers)},
+		{"clickCount", "I", nullptr, $PUBLIC, $field(Event, clickCount)},
+		{"arg", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Event, arg)},
+		{"evt", "Ljava/awt/Event;", nullptr, $PUBLIC, $field(Event, evt)},
+		{"actionKeyCodes", "[[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Event, actionKeyCodes)},
+		{"consumed", "Z", nullptr, $PRIVATE, $field(Event, consumed)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Event, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Object;JIIIIILjava/lang/Object;)V", nullptr, $PUBLIC, $method(Event, init$, void, Object$*, int64_t, int32_t, int32_t, int32_t, int32_t, int32_t, Object$*)},
+		{"<init>", "(Ljava/lang/Object;JIIIII)V", nullptr, $PUBLIC, $method(Event, init$, void, Object$*, int64_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"<init>", "(Ljava/lang/Object;ILjava/lang/Object;)V", nullptr, $PUBLIC, $method(Event, init$, void, Object$*, int32_t, Object$*)},
+		{"consume", "()V", nullptr, 0, $virtualMethod(Event, consume, void)},
+		{"controlDown", "()Z", nullptr, $PUBLIC, $virtualMethod(Event, controlDown, bool)},
+		{"getKeyEventChar", "()C", nullptr, 0, $virtualMethod(Event, getKeyEventChar, char16_t)},
+		{"getOldEventKey", "(Ljava/awt/event/KeyEvent;)I", nullptr, $STATIC, $staticMethod(Event, getOldEventKey, int32_t, $KeyEvent*)},
+		{"initIDs", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(Event, initIDs, void)},
+		{"isConsumed", "()Z", nullptr, 0, $virtualMethod(Event, isConsumed, bool)},
+		{"metaDown", "()Z", nullptr, $PUBLIC, $virtualMethod(Event, metaDown, bool)},
+		{"paramString", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(Event, paramString, $String*)},
+		{"shiftDown", "()Z", nullptr, $PUBLIC, $virtualMethod(Event, shiftDown, bool)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Event, toString, $String*)},
+		{"translate", "(II)V", nullptr, $PUBLIC, $virtualMethod(Event, translate, void, int32_t, int32_t)},
+		{}
+	};
+	$NamedAttribute annotations$$$namedAttribute[] = {
+		{"since", 's', "9"},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/lang/Deprecated;", annotations$$$namedAttribute},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.awt.Event",
+		"java.lang.Object",
+		"java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(Event, name, initialize, &classInfo$$, Event::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Event);
+	});
 	return class$;
 }
 

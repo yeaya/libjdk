@@ -1,5 +1,4 @@
 #include <bug8132123.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
@@ -20,8 +19,6 @@
 #undef HORIZONTAL_SPLIT
 
 using $Color = ::java::awt::Color;
-using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -42,67 +39,43 @@ public:
 	virtual void run() override {
 		$nc(inst$)->lambda$init$0();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<bug8132123$$Lambda$lambda$init$0>());
-	}
 	bug8132123* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo bug8132123$$Lambda$lambda$init$0::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(bug8132123$$Lambda$lambda$init$0, inst$)},
-	{}
-};
-$MethodInfo bug8132123$$Lambda$lambda$init$0::methodInfos[3] = {
-	{"<init>", "(Lbug8132123;)V", nullptr, $PUBLIC, $method(bug8132123$$Lambda$lambda$init$0, init$, void, bug8132123*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug8132123$$Lambda$lambda$init$0, run, void)},
-	{}
-};
-$ClassInfo bug8132123$$Lambda$lambda$init$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"bug8132123$$Lambda$lambda$init$0",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	fieldInfos,
-	methodInfos
 };
 $Class* bug8132123$$Lambda$lambda$init$0::load$($String* name, bool initialize) {
-	$loadClass(bug8132123$$Lambda$lambda$init$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(bug8132123$$Lambda$lambda$init$0, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lbug8132123;)V", nullptr, $PUBLIC, $method(bug8132123$$Lambda$lambda$init$0, init$, void, bug8132123*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug8132123$$Lambda$lambda$init$0, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"bug8132123$$Lambda$lambda$init$0",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(bug8132123$$Lambda$lambda$init$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(bug8132123$$Lambda$lambda$init$0);
+	});
 	return class$;
 }
 $Class* bug8132123$$Lambda$lambda$init$0::class$ = nullptr;
-
-$MethodInfo _bug8132123_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(bug8132123, init$, void)},
-	{"init", "()V", nullptr, $PUBLIC, $virtualMethod(bug8132123, init, void)},
-	{"lambda$init$0", "()V", nullptr, $PRIVATE | $SYNTHETIC, $method(bug8132123, lambda$init$0, void)},
-	{}
-};
-
-$ClassInfo _bug8132123_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"bug8132123",
-	"javax.swing.JApplet",
-	nullptr,
-	nullptr,
-	_bug8132123_MethodInfo_
-};
-
-$Object* allocate$bug8132123($Class* clazz) {
-	return $of($alloc(bug8132123));
-}
 
 void bug8132123::init$() {
 	$JApplet::init$();
 }
 
 void bug8132123::init() {
-	$SwingUtilities::invokeLater(static_cast<$Runnable*>($$new(bug8132123$$Lambda$lambda$init$0, this)));
+	$SwingUtilities::invokeLater($$new(bug8132123$$Lambda$lambda$init$0, this));
 }
 
 void bug8132123::lambda$init$0() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JPanel, left, $new($JPanel));
 	$init($Color);
 	left->setBackground($Color::GRAY);
@@ -110,7 +83,7 @@ void bug8132123::lambda$init$0() {
 	right->setBackground($Color::GRAY);
 	$var($JSplitPane, splitPane, $new($JSplitPane, $JSplitPane::HORIZONTAL_SPLIT, left, right));
 	splitPane->setOneTouchExpandable(true);
-	$nc($(getContentPane()))->add(static_cast<$Component*>(splitPane));
+	$$nc(getContentPane())->add(splitPane);
 }
 
 bug8132123::bug8132123() {
@@ -118,11 +91,27 @@ bug8132123::bug8132123() {
 
 $Class* bug8132123::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(bug8132123$$Lambda$lambda$init$0::classInfo$.name)) {
+		if (name->equals("bug8132123$$Lambda$lambda$init$0")) {
 			return bug8132123$$Lambda$lambda$init$0::load$(name, initialize);
 		}
 	}
-	$loadClass(bug8132123, name, initialize, &_bug8132123_ClassInfo_, allocate$bug8132123);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(bug8132123, init$, void)},
+		{"init", "()V", nullptr, $PUBLIC, $virtualMethod(bug8132123, init, void)},
+		{"lambda$init$0", "()V", nullptr, $PRIVATE | $SYNTHETIC, $method(bug8132123, lambda$init$0, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"bug8132123",
+		"javax.swing.JApplet",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(bug8132123, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(bug8132123));
+	});
 	return class$;
 }
 

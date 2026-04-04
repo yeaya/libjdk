@@ -27,6 +27,7 @@ class $export JFileChooserOrientation : public ::java::lang::Object {
 	$class(JFileChooserOrientation, 0, ::java::lang::Object)
 public:
 	JFileChooserOrientation();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void createManualTestUI();
 	static void fail();

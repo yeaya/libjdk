@@ -1,5 +1,4 @@
 #include <javax/imageio/stream/MemoryCache.h>
-
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
 #include <java/io/OutputStream.h>
@@ -30,43 +29,6 @@ using $ArrayList = ::java::util::ArrayList;
 namespace javax {
 	namespace imageio {
 		namespace stream {
-
-$FieldInfo _MemoryCache_FieldInfo_[] = {
-	{"BUFFER_LENGTH", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MemoryCache, BUFFER_LENGTH)},
-	{"cache", "Ljava/util/ArrayList;", "Ljava/util/ArrayList<[B>;", $PRIVATE, $field(MemoryCache, cache)},
-	{"cacheStart", "J", nullptr, $PRIVATE, $field(MemoryCache, cacheStart)},
-	{"length", "J", nullptr, $PRIVATE, $field(MemoryCache, length)},
-	{}
-};
-
-$MethodInfo _MemoryCache_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(MemoryCache, init$, void)},
-	{"disposeBefore", "(J)V", nullptr, $PUBLIC, $virtualMethod(MemoryCache, disposeBefore, void, int64_t)},
-	{"getCacheBlock", "(J)[B", nullptr, $PRIVATE, $method(MemoryCache, getCacheBlock, $bytes*, int64_t), "java.io.IOException"},
-	{"getLength", "()J", nullptr, $PUBLIC, $virtualMethod(MemoryCache, getLength, int64_t)},
-	{"loadFromStream", "(Ljava/io/InputStream;J)J", nullptr, $PUBLIC, $virtualMethod(MemoryCache, loadFromStream, int64_t, $InputStream*, int64_t), "java.io.IOException"},
-	{"pad", "(J)V", nullptr, $PRIVATE, $method(MemoryCache, pad, void, int64_t), "java.io.IOException"},
-	{"read", "(J)I", nullptr, $PUBLIC, $virtualMethod(MemoryCache, read, int32_t, int64_t), "java.io.IOException"},
-	{"read", "([BIIJ)V", nullptr, $PUBLIC, $virtualMethod(MemoryCache, read, void, $bytes*, int32_t, int32_t, int64_t), "java.io.IOException"},
-	{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(MemoryCache, reset, void)},
-	{"write", "([BIIJ)V", nullptr, $PUBLIC, $virtualMethod(MemoryCache, write, void, $bytes*, int32_t, int32_t, int64_t), "java.io.IOException"},
-	{"write", "(IJ)V", nullptr, $PUBLIC, $virtualMethod(MemoryCache, write, void, int32_t, int64_t), "java.io.IOException"},
-	{"writeToStream", "(Ljava/io/OutputStream;JJ)V", nullptr, $PUBLIC, $virtualMethod(MemoryCache, writeToStream, void, $OutputStream*, int64_t, int64_t), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _MemoryCache_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.imageio.stream.MemoryCache",
-	"java.lang.Object",
-	nullptr,
-	_MemoryCache_FieldInfo_,
-	_MemoryCache_MethodInfo_
-};
-
-$Object* allocate$MemoryCache($Class* clazz) {
-	return $of($alloc(MemoryCache));
-}
 
 void MemoryCache::init$() {
 	$set(this, cache, $new($ArrayList));
@@ -149,13 +111,13 @@ void MemoryCache::writeToStream($OutputStream* stream, int64_t pos, int64_t len)
 }
 
 void MemoryCache::pad(int64_t pos) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int64_t currIndex = this->cacheStart + $nc(this->cache)->size() - 1;
 	int64_t lastIndex = $div(pos, MemoryCache::BUFFER_LENGTH);
 	int64_t numNewBuffers = lastIndex - currIndex;
 	for (int64_t i = 0; i < numNewBuffers; ++i) {
 		try {
-			$nc(this->cache)->add($$new($bytes, MemoryCache::BUFFER_LENGTH));
+			this->cache->add($$new($bytes, MemoryCache::BUFFER_LENGTH));
 		} catch ($OutOfMemoryError& e) {
 			$throwNew($IOException, "No memory left for cache!"_s);
 		}
@@ -163,7 +125,7 @@ void MemoryCache::pad(int64_t pos) {
 }
 
 void MemoryCache::write($bytes* b, int32_t off, int32_t len, int64_t pos) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (b == nullptr) {
 		$throwNew($NullPointerException, "b == null!"_s);
 	}
@@ -212,11 +174,11 @@ int32_t MemoryCache::read(int64_t pos) {
 	if (buf == nullptr) {
 		return -1;
 	}
-	return (int32_t)($nc(buf)->get((int32_t)($mod(pos, MemoryCache::BUFFER_LENGTH))) & (uint32_t)255);
+	return $nc(buf)->get((int32_t)($mod(pos, MemoryCache::BUFFER_LENGTH))) & 0xff;
 }
 
 void MemoryCache::read($bytes* b, int32_t off, int32_t len, int64_t pos) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (b == nullptr) {
 		$throwNew($NullPointerException, "b == null!"_s);
 	}
@@ -245,7 +207,7 @@ void MemoryCache::disposeBefore(int64_t pos) {
 	}
 	int64_t numBlocks = $Math::min(index - this->cacheStart, (int64_t)$nc(this->cache)->size());
 	for (int64_t i = 0; i < numBlocks; ++i) {
-		$nc(this->cache)->remove(0);
+		this->cache->remove(0);
 	}
 	this->cacheStart = index;
 }
@@ -260,7 +222,39 @@ MemoryCache::MemoryCache() {
 }
 
 $Class* MemoryCache::load$($String* name, bool initialize) {
-	$loadClass(MemoryCache, name, initialize, &_MemoryCache_ClassInfo_, allocate$MemoryCache);
+	$FieldInfo fieldInfos$$[] = {
+		{"BUFFER_LENGTH", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MemoryCache, BUFFER_LENGTH)},
+		{"cache", "Ljava/util/ArrayList;", "Ljava/util/ArrayList<[B>;", $PRIVATE, $field(MemoryCache, cache)},
+		{"cacheStart", "J", nullptr, $PRIVATE, $field(MemoryCache, cacheStart)},
+		{"length", "J", nullptr, $PRIVATE, $field(MemoryCache, length)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(MemoryCache, init$, void)},
+		{"disposeBefore", "(J)V", nullptr, $PUBLIC, $virtualMethod(MemoryCache, disposeBefore, void, int64_t)},
+		{"getCacheBlock", "(J)[B", nullptr, $PRIVATE, $method(MemoryCache, getCacheBlock, $bytes*, int64_t), "java.io.IOException"},
+		{"getLength", "()J", nullptr, $PUBLIC, $virtualMethod(MemoryCache, getLength, int64_t)},
+		{"loadFromStream", "(Ljava/io/InputStream;J)J", nullptr, $PUBLIC, $virtualMethod(MemoryCache, loadFromStream, int64_t, $InputStream*, int64_t), "java.io.IOException"},
+		{"pad", "(J)V", nullptr, $PRIVATE, $method(MemoryCache, pad, void, int64_t), "java.io.IOException"},
+		{"read", "(J)I", nullptr, $PUBLIC, $virtualMethod(MemoryCache, read, int32_t, int64_t), "java.io.IOException"},
+		{"read", "([BIIJ)V", nullptr, $PUBLIC, $virtualMethod(MemoryCache, read, void, $bytes*, int32_t, int32_t, int64_t), "java.io.IOException"},
+		{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(MemoryCache, reset, void)},
+		{"write", "([BIIJ)V", nullptr, $PUBLIC, $virtualMethod(MemoryCache, write, void, $bytes*, int32_t, int32_t, int64_t), "java.io.IOException"},
+		{"write", "(IJ)V", nullptr, $PUBLIC, $virtualMethod(MemoryCache, write, void, int32_t, int64_t), "java.io.IOException"},
+		{"writeToStream", "(Ljava/io/OutputStream;JJ)V", nullptr, $PUBLIC, $virtualMethod(MemoryCache, writeToStream, void, $OutputStream*, int64_t, int64_t), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.imageio.stream.MemoryCache",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(MemoryCache, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MemoryCache);
+	});
 	return class$;
 }
 

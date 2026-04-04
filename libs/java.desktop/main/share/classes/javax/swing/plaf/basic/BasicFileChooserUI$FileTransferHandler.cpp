@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/basic/BasicFileChooserUI$FileTransferHandler.h>
-
 #include <java/awt/datatransfer/Transferable.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JList.h>
@@ -26,44 +25,6 @@ namespace javax {
 		namespace plaf {
 			namespace basic {
 
-$MethodInfo _BasicFileChooserUI$FileTransferHandler_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, 0, $method(BasicFileChooserUI$FileTransferHandler, init$, void)},
-	{"createTransferable", "(Ljavax/swing/JComponent;)Ljava/awt/datatransfer/Transferable;", nullptr, $PROTECTED, $virtualMethod(BasicFileChooserUI$FileTransferHandler, createTransferable, $Transferable*, $JComponent*)},
-	{"getSourceActions", "(Ljavax/swing/JComponent;)I", nullptr, $PUBLIC, $virtualMethod(BasicFileChooserUI$FileTransferHandler, getSourceActions, int32_t, $JComponent*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _BasicFileChooserUI$FileTransferHandler_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.basic.BasicFileChooserUI$FileTransferHandler", "javax.swing.plaf.basic.BasicFileChooserUI", "FileTransferHandler", $STATIC},
-	{"javax.swing.plaf.basic.BasicFileChooserUI$FileTransferHandler$FileTransferable", "javax.swing.plaf.basic.BasicFileChooserUI$FileTransferHandler", "FileTransferable", $STATIC},
-	{}
-};
-
-$ClassInfo _BasicFileChooserUI$FileTransferHandler_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.basic.BasicFileChooserUI$FileTransferHandler",
-	"javax.swing.TransferHandler",
-	"javax.swing.plaf.UIResource",
-	nullptr,
-	_BasicFileChooserUI$FileTransferHandler_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BasicFileChooserUI$FileTransferHandler_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.basic.BasicFileChooserUI"
-};
-
-$Object* allocate$BasicFileChooserUI$FileTransferHandler($Class* clazz) {
-	return $of($alloc(BasicFileChooserUI$FileTransferHandler));
-}
-
 int32_t BasicFileChooserUI$FileTransferHandler::hashCode() {
 	 return this->$TransferHandler::hashCode();
 }
@@ -89,13 +50,13 @@ void BasicFileChooserUI$FileTransferHandler::init$() {
 }
 
 $Transferable* BasicFileChooserUI$FileTransferHandler::createTransferable($JComponent* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectArray, values, nullptr);
 	if ($instanceOf($JList, c)) {
-		$assign(values, $nc(($cast($JList, c)))->getSelectedValues());
+		$assign(values, $cast($JList, c)->getSelectedValues());
 	} else if ($instanceOf($JTable, c)) {
 		$var($JTable, table, $cast($JTable, c));
-		$var($ints, rows, $nc(table)->getSelectedRows());
+		$var($ints, rows, table->getSelectedRows());
 		if (rows != nullptr) {
 			$assign(values, $new($ObjectArray, rows->length));
 			for (int32_t i = 0; i < rows->length; ++i) {
@@ -103,7 +64,7 @@ $Transferable* BasicFileChooserUI$FileTransferHandler::createTransferable($JComp
 			}
 		}
 	}
-	if (values == nullptr || $nc(values)->length == 0) {
+	if (values == nullptr || values->length == 0) {
 		return nullptr;
 	}
 	$var($StringBuilder, plainBuf, $new($StringBuilder));
@@ -111,12 +72,10 @@ $Transferable* BasicFileChooserUI$FileTransferHandler::createTransferable($JComp
 	htmlBuf->append("<html>\n<body>\n<ul>\n"_s);
 	{
 		$var($ObjectArray, arr$, values);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($Object0, obj, arr$->get(i$));
 			{
-				$var($String, val, (obj == nullptr) ? ""_s : $nc($of(obj))->toString());
+				$var($String, val, (obj == nullptr) ? ""_s : obj->toString());
 				plainBuf->append(val)->append(u'\n');
 				htmlBuf->append("  <li>"_s)->append(val)->append(u'\n');
 			}
@@ -136,7 +95,40 @@ BasicFileChooserUI$FileTransferHandler::BasicFileChooserUI$FileTransferHandler()
 }
 
 $Class* BasicFileChooserUI$FileTransferHandler::load$($String* name, bool initialize) {
-	$loadClass(BasicFileChooserUI$FileTransferHandler, name, initialize, &_BasicFileChooserUI$FileTransferHandler_ClassInfo_, allocate$BasicFileChooserUI$FileTransferHandler);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, 0, $method(BasicFileChooserUI$FileTransferHandler, init$, void)},
+		{"createTransferable", "(Ljavax/swing/JComponent;)Ljava/awt/datatransfer/Transferable;", nullptr, $PROTECTED, $virtualMethod(BasicFileChooserUI$FileTransferHandler, createTransferable, $Transferable*, $JComponent*)},
+		{"getSourceActions", "(Ljavax/swing/JComponent;)I", nullptr, $PUBLIC, $virtualMethod(BasicFileChooserUI$FileTransferHandler, getSourceActions, int32_t, $JComponent*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.basic.BasicFileChooserUI$FileTransferHandler", "javax.swing.plaf.basic.BasicFileChooserUI", "FileTransferHandler", $STATIC},
+		{"javax.swing.plaf.basic.BasicFileChooserUI$FileTransferHandler$FileTransferable", "javax.swing.plaf.basic.BasicFileChooserUI$FileTransferHandler", "FileTransferable", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.basic.BasicFileChooserUI$FileTransferHandler",
+		"javax.swing.TransferHandler",
+		"javax.swing.plaf.UIResource",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.basic.BasicFileChooserUI"
+	};
+	$loadClass(BasicFileChooserUI$FileTransferHandler, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(BasicFileChooserUI$FileTransferHandler));
+	});
 	return class$;
 }
 

@@ -1,8 +1,6 @@
 #include <sun/java2d/windows/WindowsFlags.h>
-
 #include <java/lang/NumberFormatException.h>
 #include <java/security/AccessController.h>
-#include <java/security/PrivilegedAction.h>
 #include <sun/awt/windows/WToolkit.h>
 #include <sun/java2d/windows/WindowsFlags$1.h>
 #include <jcpp.h>
@@ -14,74 +12,12 @@ using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NumberFormatException = ::java::lang::NumberFormatException;
 using $AccessController = ::java::security::AccessController;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $WToolkit = ::sun::awt::windows::WToolkit;
 using $WindowsFlags$1 = ::sun::java2d::windows::WindowsFlags$1;
 
 namespace sun {
 	namespace java2d {
 		namespace windows {
-
-$FieldInfo _WindowsFlags_FieldInfo_[] = {
-	{"gdiBlitEnabled", "Z", nullptr, $PRIVATE | $STATIC, $staticField(WindowsFlags, gdiBlitEnabled)},
-	{"d3dEnabled", "Z", nullptr, $PRIVATE | $STATIC, $staticField(WindowsFlags, d3dEnabled)},
-	{"d3dVerbose", "Z", nullptr, $PRIVATE | $STATIC, $staticField(WindowsFlags, d3dVerbose)},
-	{"d3dSet", "Z", nullptr, $PRIVATE | $STATIC, $staticField(WindowsFlags, d3dSet)},
-	{"d3dOnScreenEnabled", "Z", nullptr, $PRIVATE | $STATIC, $staticField(WindowsFlags, d3dOnScreenEnabled)},
-	{"oglEnabled", "Z", nullptr, $PRIVATE | $STATIC, $staticField(WindowsFlags, oglEnabled)},
-	{"oglVerbose", "Z", nullptr, $PRIVATE | $STATIC, $staticField(WindowsFlags, oglVerbose)},
-	{"offscreenSharingEnabled", "Z", nullptr, $PRIVATE | $STATIC, $staticField(WindowsFlags, offscreenSharingEnabled)},
-	{"magPresent", "Z", nullptr, $PRIVATE | $STATIC, $staticField(WindowsFlags, magPresent)},
-	{"setHighDPIAware", "Z", nullptr, $PRIVATE | $STATIC, $staticField(WindowsFlags, setHighDPIAware)},
-	{}
-};
-
-$MethodInfo _WindowsFlags_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(WindowsFlags, init$, void)},
-	{"getBooleanProp", "(Ljava/lang/String;Z)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(WindowsFlags, getBooleanProp, bool, $String*, bool)},
-	{"getIntProp", "(Ljava/lang/String;I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(WindowsFlags, getIntProp, int32_t, $String*, int32_t)},
-	{"getPropertySet", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(WindowsFlags, getPropertySet, bool, $String*)},
-	{"initFlags", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(WindowsFlags, initFlags, void)},
-	{"initJavaFlags", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(WindowsFlags, initJavaFlags, void)},
-	{"initNativeFlags", "()Z", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(WindowsFlags, initNativeFlags, bool)},
-	{"isBooleanPropTrueVerbose", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(WindowsFlags, isBooleanPropTrueVerbose, bool, $String*)},
-	{"isD3DEnabled", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(WindowsFlags, isD3DEnabled, bool)},
-	{"isD3DOnScreenEnabled", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(WindowsFlags, isD3DOnScreenEnabled, bool)},
-	{"isD3DSet", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(WindowsFlags, isD3DSet, bool)},
-	{"isD3DVerbose", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(WindowsFlags, isD3DVerbose, bool)},
-	{"isGdiBlitEnabled", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(WindowsFlags, isGdiBlitEnabled, bool)},
-	{"isMagPresent", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(WindowsFlags, isMagPresent, bool)},
-	{"isOGLEnabled", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(WindowsFlags, isOGLEnabled, bool)},
-	{"isOGLVerbose", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(WindowsFlags, isOGLVerbose, bool)},
-	{"isOffscreenSharingEnabled", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(WindowsFlags, isOffscreenSharingEnabled, bool)},
-	{}
-};
-
-#define _METHOD_INDEX_initNativeFlags 6
-
-$InnerClassInfo _WindowsFlags_InnerClassesInfo_[] = {
-	{"sun.java2d.windows.WindowsFlags$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _WindowsFlags_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.java2d.windows.WindowsFlags",
-	"java.lang.Object",
-	nullptr,
-	_WindowsFlags_FieldInfo_,
-	_WindowsFlags_MethodInfo_,
-	nullptr,
-	nullptr,
-	_WindowsFlags_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.java2d.windows.WindowsFlags$1"
-};
-
-$Object* allocate$WindowsFlags($Class* clazz) {
-	return $of($alloc(WindowsFlags));
-}
 
 bool WindowsFlags::gdiBlitEnabled = false;
 bool WindowsFlags::d3dEnabled = false;
@@ -99,9 +35,8 @@ void WindowsFlags::init$() {
 
 bool WindowsFlags::initNativeFlags() {
 	$init(WindowsFlags);
-	bool $ret = false;
-	$prepareNativeStatic(WindowsFlags, initNativeFlags, bool);
-	$ret = $invokeNativeStatic();
+	$prepareNativeStatic(initNativeFlags, bool);
+	bool $ret = $invokeNativeStatic();
 	$finishNativeStatic();
 	return $ret;
 }
@@ -122,10 +57,10 @@ bool WindowsFlags::getBooleanProp($String* p, bool defaultVal) {
 		if (var$0 || propString->isEmpty()) {
 			returnVal = true;
 		} else {
-			bool var$9 = propString->equals("false"_s);
-			bool var$8 = var$9 || propString->equals("f"_s);
-			bool var$7 = var$8 || propString->equals("False"_s);
-			if (var$7 || propString->equals("F"_s)) {
+			bool var$6 = propString->equals("false"_s);
+			bool var$5 = var$6 || propString->equals("f"_s);
+			bool var$4 = var$5 || propString->equals("False"_s);
+			if (var$4 || propString->equals("F"_s)) {
 				returnVal = false;
 			}
 		}
@@ -167,7 +102,7 @@ bool WindowsFlags::getPropertySet($String* p) {
 void WindowsFlags::initJavaFlags() {
 	$init(WindowsFlags);
 	$beforeCallerSensitive();
-	$AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($WindowsFlags$1)));
+	$AccessController::doPrivileged($$new($WindowsFlags$1));
 }
 
 bool WindowsFlags::isD3DEnabled() {
@@ -215,7 +150,7 @@ bool WindowsFlags::isOGLVerbose() {
 	return WindowsFlags::oglVerbose;
 }
 
-void clinit$WindowsFlags($Class* class$) {
+void WindowsFlags::clinit$($Class* clazz) {
 	{
 		$WToolkit::loadLibraries();
 		WindowsFlags::initJavaFlags();
@@ -227,7 +162,60 @@ WindowsFlags::WindowsFlags() {
 }
 
 $Class* WindowsFlags::load$($String* name, bool initialize) {
-	$loadClass(WindowsFlags, name, initialize, &_WindowsFlags_ClassInfo_, clinit$WindowsFlags, allocate$WindowsFlags);
+	$FieldInfo fieldInfos$$[] = {
+		{"gdiBlitEnabled", "Z", nullptr, $PRIVATE | $STATIC, $staticField(WindowsFlags, gdiBlitEnabled)},
+		{"d3dEnabled", "Z", nullptr, $PRIVATE | $STATIC, $staticField(WindowsFlags, d3dEnabled)},
+		{"d3dVerbose", "Z", nullptr, $PRIVATE | $STATIC, $staticField(WindowsFlags, d3dVerbose)},
+		{"d3dSet", "Z", nullptr, $PRIVATE | $STATIC, $staticField(WindowsFlags, d3dSet)},
+		{"d3dOnScreenEnabled", "Z", nullptr, $PRIVATE | $STATIC, $staticField(WindowsFlags, d3dOnScreenEnabled)},
+		{"oglEnabled", "Z", nullptr, $PRIVATE | $STATIC, $staticField(WindowsFlags, oglEnabled)},
+		{"oglVerbose", "Z", nullptr, $PRIVATE | $STATIC, $staticField(WindowsFlags, oglVerbose)},
+		{"offscreenSharingEnabled", "Z", nullptr, $PRIVATE | $STATIC, $staticField(WindowsFlags, offscreenSharingEnabled)},
+		{"magPresent", "Z", nullptr, $PRIVATE | $STATIC, $staticField(WindowsFlags, magPresent)},
+		{"setHighDPIAware", "Z", nullptr, $PRIVATE | $STATIC, $staticField(WindowsFlags, setHighDPIAware)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(WindowsFlags, init$, void)},
+		{"getBooleanProp", "(Ljava/lang/String;Z)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(WindowsFlags, getBooleanProp, bool, $String*, bool)},
+		{"getIntProp", "(Ljava/lang/String;I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(WindowsFlags, getIntProp, int32_t, $String*, int32_t)},
+		{"getPropertySet", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(WindowsFlags, getPropertySet, bool, $String*)},
+		{"initFlags", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(WindowsFlags, initFlags, void)},
+		{"initJavaFlags", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(WindowsFlags, initJavaFlags, void)},
+		{"initNativeFlags", "()Z", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(WindowsFlags, initNativeFlags, bool)},
+		{"isBooleanPropTrueVerbose", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(WindowsFlags, isBooleanPropTrueVerbose, bool, $String*)},
+		{"isD3DEnabled", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(WindowsFlags, isD3DEnabled, bool)},
+		{"isD3DOnScreenEnabled", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(WindowsFlags, isD3DOnScreenEnabled, bool)},
+		{"isD3DSet", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(WindowsFlags, isD3DSet, bool)},
+		{"isD3DVerbose", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(WindowsFlags, isD3DVerbose, bool)},
+		{"isGdiBlitEnabled", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(WindowsFlags, isGdiBlitEnabled, bool)},
+		{"isMagPresent", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(WindowsFlags, isMagPresent, bool)},
+		{"isOGLEnabled", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(WindowsFlags, isOGLEnabled, bool)},
+		{"isOGLVerbose", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(WindowsFlags, isOGLVerbose, bool)},
+		{"isOffscreenSharingEnabled", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(WindowsFlags, isOffscreenSharingEnabled, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.java2d.windows.WindowsFlags$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.java2d.windows.WindowsFlags",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.java2d.windows.WindowsFlags$1"
+	};
+	$loadClass(WindowsFlags, name, initialize, &classInfo$$, WindowsFlags::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(WindowsFlags);
+	});
 	return class$;
 }
 

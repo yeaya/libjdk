@@ -1,8 +1,6 @@
 #include <jdk/net/ExtendedSocketOptions.h>
-
 #include <java/io/FileDescriptor.h>
 #include <java/net/SocketOption.h>
-#include <java/util/Collection.h>
 #include <java/util/Collections.h>
 #include <java/util/HashSet.h>
 #include <java/util/Set.h>
@@ -30,7 +28,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $SocketOption = ::java::net::SocketOption;
-using $Collection = ::java::util::Collection;
 using $Collections = ::java::util::Collections;
 using $HashSet = ::java::util::HashSet;
 using $Set = ::java::util::Set;
@@ -44,65 +41,6 @@ using $ExtendedSocketOptions = ::sun::net::ext::ExtendedSocketOptions;
 
 namespace jdk {
 	namespace net {
-
-$FieldInfo _ExtendedSocketOptions_FieldInfo_[] = {
-	{"TCP_QUICKACK", "Ljava/net/SocketOption;", "Ljava/net/SocketOption<Ljava/lang/Boolean;>;", $PUBLIC | $STATIC | $FINAL, $staticField(ExtendedSocketOptions, TCP_QUICKACK)},
-	{"TCP_KEEPIDLE", "Ljava/net/SocketOption;", "Ljava/net/SocketOption<Ljava/lang/Integer;>;", $PUBLIC | $STATIC | $FINAL, $staticField(ExtendedSocketOptions, TCP_KEEPIDLE)},
-	{"TCP_KEEPINTERVAL", "Ljava/net/SocketOption;", "Ljava/net/SocketOption<Ljava/lang/Integer;>;", $PUBLIC | $STATIC | $FINAL, $staticField(ExtendedSocketOptions, TCP_KEEPINTERVAL)},
-	{"TCP_KEEPCOUNT", "Ljava/net/SocketOption;", "Ljava/net/SocketOption<Ljava/lang/Integer;>;", $PUBLIC | $STATIC | $FINAL, $staticField(ExtendedSocketOptions, TCP_KEEPCOUNT)},
-	{"SO_INCOMING_NAPI_ID", "Ljava/net/SocketOption;", "Ljava/net/SocketOption<Ljava/lang/Integer;>;", $PUBLIC | $STATIC | $FINAL, $staticField(ExtendedSocketOptions, SO_INCOMING_NAPI_ID)},
-	{"SO_PEERCRED", "Ljava/net/SocketOption;", "Ljava/net/SocketOption<Ljdk/net/UnixDomainPrincipal;>;", $PUBLIC | $STATIC | $FINAL, $staticField(ExtendedSocketOptions, SO_PEERCRED)},
-	{"platformSocketOptions", "Ljdk/net/ExtendedSocketOptions$PlatformSocketOptions;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ExtendedSocketOptions, platformSocketOptions)},
-	{"quickAckSupported", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ExtendedSocketOptions, quickAckSupported)},
-	{"keepAliveOptSupported", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ExtendedSocketOptions, keepAliveOptSupported)},
-	{"peerCredentialsSupported", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ExtendedSocketOptions, peerCredentialsSupported)},
-	{"incomingNapiIdOptSupported", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ExtendedSocketOptions, incomingNapiIdOptSupported)},
-	{"extendedOptions", "Ljava/util/Set;", "Ljava/util/Set<Ljava/net/SocketOption<*>;>;", $PRIVATE | $STATIC | $FINAL, $staticField(ExtendedSocketOptions, extendedOptions)},
-	{"fdAccess", "Ljdk/internal/access/JavaIOFileDescriptorAccess;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ExtendedSocketOptions, fdAccess)},
-	{}
-};
-
-$MethodInfo _ExtendedSocketOptions_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(ExtendedSocketOptions, init$, void)},
-	{"getIncomingNapiId", "(Ljava/io/FileDescriptor;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(ExtendedSocketOptions, getIncomingNapiId, int32_t, $FileDescriptor*), "java.net.SocketException"},
-	{"getQuickAckOption", "(Ljava/io/FileDescriptor;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC, $staticMethod(ExtendedSocketOptions, getQuickAckOption, $Object*, $FileDescriptor*), "java.net.SocketException"},
-	{"getSoPeerCred", "(Ljava/io/FileDescriptor;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC, $staticMethod(ExtendedSocketOptions, getSoPeerCred, $Object*, $FileDescriptor*), "java.net.SocketException"},
-	{"getTcpKeepAliveIntvl", "(Ljava/io/FileDescriptor;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(ExtendedSocketOptions, getTcpKeepAliveIntvl, int32_t, $FileDescriptor*), "java.net.SocketException"},
-	{"getTcpKeepAliveTime", "(Ljava/io/FileDescriptor;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(ExtendedSocketOptions, getTcpKeepAliveTime, int32_t, $FileDescriptor*), "java.net.SocketException"},
-	{"getTcpkeepAliveProbes", "(Ljava/io/FileDescriptor;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(ExtendedSocketOptions, getTcpkeepAliveProbes, int32_t, $FileDescriptor*), "java.net.SocketException"},
-	{"options", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/net/SocketOption<*>;>;", $STATIC, $staticMethod(ExtendedSocketOptions, options, $Set*)},
-	{"setQuickAckOption", "(Ljava/io/FileDescriptor;Z)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ExtendedSocketOptions, setQuickAckOption, void, $FileDescriptor*, bool), "java.net.SocketException"},
-	{"setTcpKeepAliveIntvl", "(Ljava/io/FileDescriptor;I)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ExtendedSocketOptions, setTcpKeepAliveIntvl, void, $FileDescriptor*, int32_t), "java.net.SocketException"},
-	{"setTcpKeepAliveTime", "(Ljava/io/FileDescriptor;I)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ExtendedSocketOptions, setTcpKeepAliveTime, void, $FileDescriptor*, int32_t), "java.net.SocketException"},
-	{"setTcpkeepAliveProbes", "(Ljava/io/FileDescriptor;I)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ExtendedSocketOptions, setTcpkeepAliveProbes, void, $FileDescriptor*, int32_t), "java.net.SocketException"},
-	{}
-};
-
-$InnerClassInfo _ExtendedSocketOptions_InnerClassesInfo_[] = {
-	{"jdk.net.ExtendedSocketOptions$PlatformSocketOptions", "jdk.net.ExtendedSocketOptions", "PlatformSocketOptions", $STATIC},
-	{"jdk.net.ExtendedSocketOptions$ExtSocketOption", "jdk.net.ExtendedSocketOptions", "ExtSocketOption", $PRIVATE | $STATIC},
-	{"jdk.net.ExtendedSocketOptions$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _ExtendedSocketOptions_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"jdk.net.ExtendedSocketOptions",
-	"java.lang.Object",
-	nullptr,
-	_ExtendedSocketOptions_FieldInfo_,
-	_ExtendedSocketOptions_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ExtendedSocketOptions_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"jdk.net.ExtendedSocketOptions$PlatformSocketOptions,jdk.net.ExtendedSocketOptions$PlatformSocketOptions$1,jdk.net.ExtendedSocketOptions$ExtSocketOption,jdk.net.ExtendedSocketOptions$1"
-};
-
-$Object* allocate$ExtendedSocketOptions($Class* clazz) {
-	return $of($alloc(ExtendedSocketOptions));
-}
 
 $SocketOption* ExtendedSocketOptions::TCP_QUICKACK = nullptr;
 $SocketOption* ExtendedSocketOptions::TCP_KEEPIDLE = nullptr;
@@ -123,7 +61,7 @@ void ExtendedSocketOptions::init$() {
 
 $Set* ExtendedSocketOptions::options() {
 	$init(ExtendedSocketOptions);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Set, options, $new($HashSet));
 	if (ExtendedSocketOptions::quickAckSupported) {
 		options->add(ExtendedSocketOptions::TCP_QUICKACK);
@@ -147,7 +85,7 @@ void ExtendedSocketOptions::setQuickAckOption($FileDescriptor* fd, bool enable) 
 
 $Object* ExtendedSocketOptions::getSoPeerCred($FileDescriptor* fd) {
 	$init(ExtendedSocketOptions);
-	return $of($nc(ExtendedSocketOptions::platformSocketOptions)->getSoPeerCred($nc(ExtendedSocketOptions::fdAccess)->get(fd)));
+	return $nc(ExtendedSocketOptions::platformSocketOptions)->getSoPeerCred($nc(ExtendedSocketOptions::fdAccess)->get(fd));
 }
 
 $Object* ExtendedSocketOptions::getQuickAckOption($FileDescriptor* fd) {
@@ -190,10 +128,8 @@ int32_t ExtendedSocketOptions::getIncomingNapiId($FileDescriptor* fd) {
 	return $nc(ExtendedSocketOptions::platformSocketOptions)->getIncomingNapiId($nc(ExtendedSocketOptions::fdAccess)->get(fd));
 }
 
-void clinit$ExtendedSocketOptions($Class* class$) {
-	$load($Boolean);
+void ExtendedSocketOptions::clinit$($Class* clazz) {
 	$assignStatic(ExtendedSocketOptions::TCP_QUICKACK, $new($ExtendedSocketOptions$ExtSocketOption, "TCP_QUICKACK"_s, $Boolean::class$));
-	$load($Integer);
 	$assignStatic(ExtendedSocketOptions::TCP_KEEPIDLE, $new($ExtendedSocketOptions$ExtSocketOption, "TCP_KEEPIDLE"_s, $Integer::class$));
 	$assignStatic(ExtendedSocketOptions::TCP_KEEPINTERVAL, $new($ExtendedSocketOptions$ExtSocketOption, "TCP_KEEPINTERVAL"_s, $Integer::class$));
 	$assignStatic(ExtendedSocketOptions::TCP_KEEPCOUNT, $new($ExtendedSocketOptions$ExtSocketOption, "TCP_KEEPCOUNT"_s, $Integer::class$));
@@ -202,9 +138,9 @@ void clinit$ExtendedSocketOptions($Class* class$) {
 	$assignStatic(ExtendedSocketOptions::SO_PEERCRED, $new($ExtendedSocketOptions$ExtSocketOption, "SO_PEERCRED"_s, $UnixDomainPrincipal::class$));
 	$assignStatic(ExtendedSocketOptions::platformSocketOptions, $ExtendedSocketOptions$PlatformSocketOptions::get());
 	ExtendedSocketOptions::quickAckSupported = $nc(ExtendedSocketOptions::platformSocketOptions)->quickAckSupported();
-	ExtendedSocketOptions::keepAliveOptSupported = $nc(ExtendedSocketOptions::platformSocketOptions)->keepAliveOptionsSupported();
-	ExtendedSocketOptions::peerCredentialsSupported = $nc(ExtendedSocketOptions::platformSocketOptions)->peerCredentialsSupported();
-	ExtendedSocketOptions::incomingNapiIdOptSupported = $nc(ExtendedSocketOptions::platformSocketOptions)->incomingNapiIdSupported();
+	ExtendedSocketOptions::keepAliveOptSupported = ExtendedSocketOptions::platformSocketOptions->keepAliveOptionsSupported();
+	ExtendedSocketOptions::peerCredentialsSupported = ExtendedSocketOptions::platformSocketOptions->peerCredentialsSupported();
+	ExtendedSocketOptions::incomingNapiIdOptSupported = ExtendedSocketOptions::platformSocketOptions->incomingNapiIdSupported();
 	$assignStatic(ExtendedSocketOptions::extendedOptions, ExtendedSocketOptions::options());
 	{
 		$ExtendedSocketOptions::register$($$new($ExtendedSocketOptions$1, ExtendedSocketOptions::extendedOptions));
@@ -216,7 +152,60 @@ ExtendedSocketOptions::ExtendedSocketOptions() {
 }
 
 $Class* ExtendedSocketOptions::load$($String* name, bool initialize) {
-	$loadClass(ExtendedSocketOptions, name, initialize, &_ExtendedSocketOptions_ClassInfo_, clinit$ExtendedSocketOptions, allocate$ExtendedSocketOptions);
+	$FieldInfo fieldInfos$$[] = {
+		{"TCP_QUICKACK", "Ljava/net/SocketOption;", "Ljava/net/SocketOption<Ljava/lang/Boolean;>;", $PUBLIC | $STATIC | $FINAL, $staticField(ExtendedSocketOptions, TCP_QUICKACK)},
+		{"TCP_KEEPIDLE", "Ljava/net/SocketOption;", "Ljava/net/SocketOption<Ljava/lang/Integer;>;", $PUBLIC | $STATIC | $FINAL, $staticField(ExtendedSocketOptions, TCP_KEEPIDLE)},
+		{"TCP_KEEPINTERVAL", "Ljava/net/SocketOption;", "Ljava/net/SocketOption<Ljava/lang/Integer;>;", $PUBLIC | $STATIC | $FINAL, $staticField(ExtendedSocketOptions, TCP_KEEPINTERVAL)},
+		{"TCP_KEEPCOUNT", "Ljava/net/SocketOption;", "Ljava/net/SocketOption<Ljava/lang/Integer;>;", $PUBLIC | $STATIC | $FINAL, $staticField(ExtendedSocketOptions, TCP_KEEPCOUNT)},
+		{"SO_INCOMING_NAPI_ID", "Ljava/net/SocketOption;", "Ljava/net/SocketOption<Ljava/lang/Integer;>;", $PUBLIC | $STATIC | $FINAL, $staticField(ExtendedSocketOptions, SO_INCOMING_NAPI_ID)},
+		{"SO_PEERCRED", "Ljava/net/SocketOption;", "Ljava/net/SocketOption<Ljdk/net/UnixDomainPrincipal;>;", $PUBLIC | $STATIC | $FINAL, $staticField(ExtendedSocketOptions, SO_PEERCRED)},
+		{"platformSocketOptions", "Ljdk/net/ExtendedSocketOptions$PlatformSocketOptions;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ExtendedSocketOptions, platformSocketOptions)},
+		{"quickAckSupported", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ExtendedSocketOptions, quickAckSupported)},
+		{"keepAliveOptSupported", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ExtendedSocketOptions, keepAliveOptSupported)},
+		{"peerCredentialsSupported", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ExtendedSocketOptions, peerCredentialsSupported)},
+		{"incomingNapiIdOptSupported", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ExtendedSocketOptions, incomingNapiIdOptSupported)},
+		{"extendedOptions", "Ljava/util/Set;", "Ljava/util/Set<Ljava/net/SocketOption<*>;>;", $PRIVATE | $STATIC | $FINAL, $staticField(ExtendedSocketOptions, extendedOptions)},
+		{"fdAccess", "Ljdk/internal/access/JavaIOFileDescriptorAccess;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ExtendedSocketOptions, fdAccess)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(ExtendedSocketOptions, init$, void)},
+		{"getIncomingNapiId", "(Ljava/io/FileDescriptor;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(ExtendedSocketOptions, getIncomingNapiId, int32_t, $FileDescriptor*), "java.net.SocketException"},
+		{"getQuickAckOption", "(Ljava/io/FileDescriptor;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC, $staticMethod(ExtendedSocketOptions, getQuickAckOption, $Object*, $FileDescriptor*), "java.net.SocketException"},
+		{"getSoPeerCred", "(Ljava/io/FileDescriptor;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC, $staticMethod(ExtendedSocketOptions, getSoPeerCred, $Object*, $FileDescriptor*), "java.net.SocketException"},
+		{"getTcpKeepAliveIntvl", "(Ljava/io/FileDescriptor;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(ExtendedSocketOptions, getTcpKeepAliveIntvl, int32_t, $FileDescriptor*), "java.net.SocketException"},
+		{"getTcpKeepAliveTime", "(Ljava/io/FileDescriptor;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(ExtendedSocketOptions, getTcpKeepAliveTime, int32_t, $FileDescriptor*), "java.net.SocketException"},
+		{"getTcpkeepAliveProbes", "(Ljava/io/FileDescriptor;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(ExtendedSocketOptions, getTcpkeepAliveProbes, int32_t, $FileDescriptor*), "java.net.SocketException"},
+		{"options", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/net/SocketOption<*>;>;", $STATIC, $staticMethod(ExtendedSocketOptions, options, $Set*)},
+		{"setQuickAckOption", "(Ljava/io/FileDescriptor;Z)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ExtendedSocketOptions, setQuickAckOption, void, $FileDescriptor*, bool), "java.net.SocketException"},
+		{"setTcpKeepAliveIntvl", "(Ljava/io/FileDescriptor;I)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ExtendedSocketOptions, setTcpKeepAliveIntvl, void, $FileDescriptor*, int32_t), "java.net.SocketException"},
+		{"setTcpKeepAliveTime", "(Ljava/io/FileDescriptor;I)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ExtendedSocketOptions, setTcpKeepAliveTime, void, $FileDescriptor*, int32_t), "java.net.SocketException"},
+		{"setTcpkeepAliveProbes", "(Ljava/io/FileDescriptor;I)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ExtendedSocketOptions, setTcpkeepAliveProbes, void, $FileDescriptor*, int32_t), "java.net.SocketException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.net.ExtendedSocketOptions$PlatformSocketOptions", "jdk.net.ExtendedSocketOptions", "PlatformSocketOptions", $STATIC},
+		{"jdk.net.ExtendedSocketOptions$ExtSocketOption", "jdk.net.ExtendedSocketOptions", "ExtSocketOption", $PRIVATE | $STATIC},
+		{"jdk.net.ExtendedSocketOptions$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"jdk.net.ExtendedSocketOptions",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"jdk.net.ExtendedSocketOptions$PlatformSocketOptions,jdk.net.ExtendedSocketOptions$PlatformSocketOptions$1,jdk.net.ExtendedSocketOptions$ExtSocketOption,jdk.net.ExtendedSocketOptions$1"
+	};
+	$loadClass(ExtendedSocketOptions, name, initialize, &classInfo$$, ExtendedSocketOptions::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ExtendedSocketOptions);
+	});
 	return class$;
 }
 

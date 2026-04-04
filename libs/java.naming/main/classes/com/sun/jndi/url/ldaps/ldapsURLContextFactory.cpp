@@ -1,5 +1,4 @@
 #include <com/sun/jndi/url/ldaps/ldapsURLContextFactory.h>
-
 #include <com/sun/jndi/url/ldap/ldapURLContextFactory.h>
 #include <jcpp.h>
 
@@ -13,24 +12,6 @@ namespace com {
 			namespace url {
 				namespace ldaps {
 
-$MethodInfo _ldapsURLContextFactory_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ldapsURLContextFactory, init$, void)},
-	{}
-};
-
-$ClassInfo _ldapsURLContextFactory_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.jndi.url.ldaps.ldapsURLContextFactory",
-	"com.sun.jndi.url.ldap.ldapURLContextFactory",
-	nullptr,
-	nullptr,
-	_ldapsURLContextFactory_MethodInfo_
-};
-
-$Object* allocate$ldapsURLContextFactory($Class* clazz) {
-	return $of($alloc(ldapsURLContextFactory));
-}
-
 void ldapsURLContextFactory::init$() {
 	$ldapURLContextFactory::init$();
 }
@@ -39,7 +20,21 @@ ldapsURLContextFactory::ldapsURLContextFactory() {
 }
 
 $Class* ldapsURLContextFactory::load$($String* name, bool initialize) {
-	$loadClass(ldapsURLContextFactory, name, initialize, &_ldapsURLContextFactory_ClassInfo_, allocate$ldapsURLContextFactory);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ldapsURLContextFactory, init$, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.jndi.url.ldaps.ldapsURLContextFactory",
+		"com.sun.jndi.url.ldap.ldapURLContextFactory",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ldapsURLContextFactory, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ldapsURLContextFactory);
+	});
 	return class$;
 }
 

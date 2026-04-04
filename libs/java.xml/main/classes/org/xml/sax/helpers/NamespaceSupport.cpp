@@ -1,10 +1,7 @@
 #include <org/xml/sax/helpers/NamespaceSupport.h>
-
 #include <java/lang/IllegalStateException.h>
 #include <java/util/AbstractCollection.h>
-#include <java/util/AbstractList.h>
 #include <java/util/ArrayList.h>
-#include <java/util/Collection.h>
 #include <java/util/Collections.h>
 #include <java/util/EmptyStackException.h>
 #include <java/util/Enumeration.h>
@@ -23,9 +20,7 @@ using $IllegalStateException = ::java::lang::IllegalStateException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AbstractCollection = ::java::util::AbstractCollection;
-using $AbstractList = ::java::util::AbstractList;
 using $ArrayList = ::java::util::ArrayList;
-using $Collection = ::java::util::Collection;
 using $Collections = ::java::util::Collections;
 using $EmptyStackException = ::java::util::EmptyStackException;
 using $Enumeration = ::java::util::Enumeration;
@@ -36,58 +31,6 @@ namespace org {
 	namespace xml {
 		namespace sax {
 			namespace helpers {
-
-$FieldInfo _NamespaceSupport_FieldInfo_[] = {
-	{"XMLNS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(NamespaceSupport, XMLNS)},
-	{"NSDECL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(NamespaceSupport, NSDECL)},
-	{"EMPTY_ENUMERATION", "Ljava/util/Enumeration;", "Ljava/util/Enumeration<Ljava/lang/String;>;", $PRIVATE | $STATIC | $FINAL, $staticField(NamespaceSupport, EMPTY_ENUMERATION)},
-	{"contexts", "[Lorg/xml/sax/helpers/NamespaceSupport$Context;", nullptr, $PRIVATE, $field(NamespaceSupport, contexts)},
-	{"currentContext", "Lorg/xml/sax/helpers/NamespaceSupport$Context;", nullptr, $PRIVATE, $field(NamespaceSupport, currentContext)},
-	{"contextPos", "I", nullptr, $PRIVATE, $field(NamespaceSupport, contextPos)},
-	{"namespaceDeclUris", "Z", nullptr, $PRIVATE, $field(NamespaceSupport, namespaceDeclUris)},
-	{}
-};
-
-$MethodInfo _NamespaceSupport_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(NamespaceSupport, init$, void)},
-	{"declarePrefix", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(NamespaceSupport, declarePrefix, bool, $String*, $String*)},
-	{"getDeclaredPrefixes", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(NamespaceSupport, getDeclaredPrefixes, $Enumeration*)},
-	{"getPrefix", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(NamespaceSupport, getPrefix, $String*, $String*)},
-	{"getPrefixes", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(NamespaceSupport, getPrefixes, $Enumeration*)},
-	{"getPrefixes", "(Ljava/lang/String;)Ljava/util/Enumeration;", "(Ljava/lang/String;)Ljava/util/Enumeration<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(NamespaceSupport, getPrefixes, $Enumeration*, $String*)},
-	{"getURI", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(NamespaceSupport, getURI, $String*, $String*)},
-	{"isNamespaceDeclUris", "()Z", nullptr, $PUBLIC, $virtualMethod(NamespaceSupport, isNamespaceDeclUris, bool)},
-	{"popContext", "()V", nullptr, $PUBLIC, $virtualMethod(NamespaceSupport, popContext, void)},
-	{"processName", "(Ljava/lang/String;[Ljava/lang/String;Z)[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(NamespaceSupport, processName, $StringArray*, $String*, $StringArray*, bool)},
-	{"pushContext", "()V", nullptr, $PUBLIC, $virtualMethod(NamespaceSupport, pushContext, void)},
-	{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(NamespaceSupport, reset, void)},
-	{"setNamespaceDeclUris", "(Z)V", nullptr, $PUBLIC, $virtualMethod(NamespaceSupport, setNamespaceDeclUris, void, bool)},
-	{}
-};
-
-$InnerClassInfo _NamespaceSupport_InnerClassesInfo_[] = {
-	{"org.xml.sax.helpers.NamespaceSupport$Context", "org.xml.sax.helpers.NamespaceSupport", "Context", $FINAL},
-	{}
-};
-
-$ClassInfo _NamespaceSupport_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"org.xml.sax.helpers.NamespaceSupport",
-	"java.lang.Object",
-	nullptr,
-	_NamespaceSupport_FieldInfo_,
-	_NamespaceSupport_MethodInfo_,
-	nullptr,
-	nullptr,
-	_NamespaceSupport_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"org.xml.sax.helpers.NamespaceSupport$Context"
-};
-
-$Object* allocate$NamespaceSupport($Class* clazz) {
-	return $of($alloc(NamespaceSupport));
-}
 
 $String* NamespaceSupport::XMLNS = nullptr;
 $String* NamespaceSupport::NSDECL = nullptr;
@@ -101,8 +44,8 @@ void NamespaceSupport::reset() {
 	$set(this, contexts, $new($NamespaceSupport$ContextArray, 32));
 	this->namespaceDeclUris = false;
 	this->contextPos = 0;
-	$nc(this->contexts)->set(this->contextPos, $set(this, currentContext, $new($NamespaceSupport$Context, this)));
-	$nc(this->currentContext)->declarePrefix("xml"_s, NamespaceSupport::XMLNS);
+	this->contexts->set(this->contextPos, $set(this, currentContext, $new($NamespaceSupport$Context, this)));
+	this->currentContext->declarePrefix("xml"_s, NamespaceSupport::XMLNS);
 }
 
 void NamespaceSupport::pushContext() {
@@ -114,12 +57,12 @@ void NamespaceSupport::pushContext() {
 		max *= 2;
 		$set(this, contexts, newContexts);
 	}
-	$set(this, currentContext, $nc(this->contexts)->get(this->contextPos));
+	$set(this, currentContext, this->contexts->get(this->contextPos));
 	if (this->currentContext == nullptr) {
-		$nc(this->contexts)->set(this->contextPos, $set(this, currentContext, $new($NamespaceSupport$Context, this)));
+		this->contexts->set(this->contextPos, $set(this, currentContext, $new($NamespaceSupport$Context, this)));
 	}
 	if (this->contextPos > 0) {
-		$nc(this->currentContext)->setParent($nc(this->contexts)->get(this->contextPos - 1));
+		$nc(this->currentContext)->setParent(this->contexts->get(this->contextPos - 1));
 	}
 }
 
@@ -134,7 +77,7 @@ void NamespaceSupport::popContext() {
 
 bool NamespaceSupport::declarePrefix($String* prefix, $String* uri) {
 	bool var$0 = $nc(prefix)->equals("xml"_s);
-	if (var$0 || $nc(prefix)->equals("xmlns"_s)) {
+	if (var$0 || prefix->equals("xmlns"_s)) {
 		return false;
 	} else {
 		$nc(this->currentContext)->declarePrefix(prefix, uri);
@@ -147,7 +90,7 @@ $StringArray* NamespaceSupport::processName($String* qName, $StringArray* parts,
 	if (myParts == nullptr) {
 		return nullptr;
 	} else {
-		$nc(parts)->set(0, $nc(myParts)->get(0));
+		$nc(parts)->set(0, myParts->get(0));
 		parts->set(1, myParts->get(1));
 		parts->set(2, myParts->get(2));
 		return parts;
@@ -167,7 +110,7 @@ $String* NamespaceSupport::getPrefix($String* uri) {
 }
 
 $Enumeration* NamespaceSupport::getPrefixes($String* uri) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, prefixes, $new($ArrayList));
 	$var($Enumeration, allPrefixes, getPrefixes());
 	while ($nc(allPrefixes)->hasMoreElements()) {
@@ -195,7 +138,7 @@ void NamespaceSupport::setNamespaceDeclUris(bool value) {
 		$nc(this->currentContext)->declarePrefix("xmlns"_s, NamespaceSupport::NSDECL);
 	} else {
 		$nc(this->contexts)->set(this->contextPos, $set(this, currentContext, $new($NamespaceSupport$Context, this)));
-		$nc(this->currentContext)->declarePrefix("xml"_s, NamespaceSupport::XMLNS);
+		this->currentContext->declarePrefix("xml"_s, NamespaceSupport::XMLNS);
 	}
 }
 
@@ -203,17 +146,63 @@ bool NamespaceSupport::isNamespaceDeclUris() {
 	return this->namespaceDeclUris;
 }
 
-void clinit$NamespaceSupport($Class* class$) {
+void NamespaceSupport::clinit$($Class* clazz) {
 	$assignStatic(NamespaceSupport::XMLNS, "http://www.w3.org/XML/1998/namespace"_s);
 	$assignStatic(NamespaceSupport::NSDECL, "http://www.w3.org/xmlns/2000/"_s);
-	$assignStatic(NamespaceSupport::EMPTY_ENUMERATION, $Collections::enumeration(static_cast<$Collection*>(static_cast<$AbstractCollection*>(static_cast<$AbstractList*>($$new($ArrayList))))));
+	$assignStatic(NamespaceSupport::EMPTY_ENUMERATION, $Collections::enumeration($$cast($AbstractCollection, $new($ArrayList))));
 }
 
 NamespaceSupport::NamespaceSupport() {
 }
 
 $Class* NamespaceSupport::load$($String* name, bool initialize) {
-	$loadClass(NamespaceSupport, name, initialize, &_NamespaceSupport_ClassInfo_, clinit$NamespaceSupport, allocate$NamespaceSupport);
+	$FieldInfo fieldInfos$$[] = {
+		{"XMLNS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(NamespaceSupport, XMLNS)},
+		{"NSDECL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(NamespaceSupport, NSDECL)},
+		{"EMPTY_ENUMERATION", "Ljava/util/Enumeration;", "Ljava/util/Enumeration<Ljava/lang/String;>;", $PRIVATE | $STATIC | $FINAL, $staticField(NamespaceSupport, EMPTY_ENUMERATION)},
+		{"contexts", "[Lorg/xml/sax/helpers/NamespaceSupport$Context;", nullptr, $PRIVATE, $field(NamespaceSupport, contexts)},
+		{"currentContext", "Lorg/xml/sax/helpers/NamespaceSupport$Context;", nullptr, $PRIVATE, $field(NamespaceSupport, currentContext)},
+		{"contextPos", "I", nullptr, $PRIVATE, $field(NamespaceSupport, contextPos)},
+		{"namespaceDeclUris", "Z", nullptr, $PRIVATE, $field(NamespaceSupport, namespaceDeclUris)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(NamespaceSupport, init$, void)},
+		{"declarePrefix", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(NamespaceSupport, declarePrefix, bool, $String*, $String*)},
+		{"getDeclaredPrefixes", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(NamespaceSupport, getDeclaredPrefixes, $Enumeration*)},
+		{"getPrefix", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(NamespaceSupport, getPrefix, $String*, $String*)},
+		{"getPrefixes", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(NamespaceSupport, getPrefixes, $Enumeration*)},
+		{"getPrefixes", "(Ljava/lang/String;)Ljava/util/Enumeration;", "(Ljava/lang/String;)Ljava/util/Enumeration<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(NamespaceSupport, getPrefixes, $Enumeration*, $String*)},
+		{"getURI", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(NamespaceSupport, getURI, $String*, $String*)},
+		{"isNamespaceDeclUris", "()Z", nullptr, $PUBLIC, $virtualMethod(NamespaceSupport, isNamespaceDeclUris, bool)},
+		{"popContext", "()V", nullptr, $PUBLIC, $virtualMethod(NamespaceSupport, popContext, void)},
+		{"processName", "(Ljava/lang/String;[Ljava/lang/String;Z)[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(NamespaceSupport, processName, $StringArray*, $String*, $StringArray*, bool)},
+		{"pushContext", "()V", nullptr, $PUBLIC, $virtualMethod(NamespaceSupport, pushContext, void)},
+		{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(NamespaceSupport, reset, void)},
+		{"setNamespaceDeclUris", "(Z)V", nullptr, $PUBLIC, $virtualMethod(NamespaceSupport, setNamespaceDeclUris, void, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"org.xml.sax.helpers.NamespaceSupport$Context", "org.xml.sax.helpers.NamespaceSupport", "Context", $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"org.xml.sax.helpers.NamespaceSupport",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"org.xml.sax.helpers.NamespaceSupport$Context"
+	};
+	$loadClass(NamespaceSupport, name, initialize, &classInfo$$, NamespaceSupport::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(NamespaceSupport);
+	});
 	return class$;
 }
 

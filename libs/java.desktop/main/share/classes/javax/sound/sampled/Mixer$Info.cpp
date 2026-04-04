@@ -1,5 +1,4 @@
 #include <javax/sound/sampled/Mixer$Info.h>
-
 #include <javax/sound/sampled/Mixer.h>
 #include <jcpp.h>
 
@@ -11,51 +10,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace javax {
 	namespace sound {
 		namespace sampled {
-
-$FieldInfo _Mixer$Info_FieldInfo_[] = {
-	{"name", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(Mixer$Info, name)},
-	{"vendor", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(Mixer$Info, vendor)},
-	{"description", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(Mixer$Info, description)},
-	{"version", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(Mixer$Info, version)},
-	{}
-};
-
-$MethodInfo _Mixer$Info_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PROTECTED, $method(Mixer$Info, init$, void, $String*, $String*, $String*, $String*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(Mixer$Info, equals, bool, Object$*)},
-	{"getDescription", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(Mixer$Info, getDescription, $String*)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(Mixer$Info, getName, $String*)},
-	{"getVendor", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(Mixer$Info, getVendor, $String*)},
-	{"getVersion", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(Mixer$Info, getVersion, $String*)},
-	{"hashCode", "()I", nullptr, $PUBLIC | $FINAL, $virtualMethod(Mixer$Info, hashCode, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(Mixer$Info, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _Mixer$Info_InnerClassesInfo_[] = {
-	{"javax.sound.sampled.Mixer$Info", "javax.sound.sampled.Mixer", "Info", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _Mixer$Info_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.sound.sampled.Mixer$Info",
-	"java.lang.Object",
-	nullptr,
-	_Mixer$Info_FieldInfo_,
-	_Mixer$Info_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Mixer$Info_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.sound.sampled.Mixer"
-};
-
-$Object* allocate$Mixer$Info($Class* clazz) {
-	return $of($alloc(Mixer$Info));
-}
 
 void Mixer$Info::init$($String* name, $String* vendor, $String* description, $String* version) {
 	$set(this, name, name);
@@ -90,8 +44,8 @@ $String* Mixer$Info::getVersion() {
 
 $String* Mixer$Info::toString() {
 	return $String::format("%s, version %s"_s, $$new($ObjectArray, {
-		$of(this->name),
-		$of(this->version)
+		this->name,
+		this->version
 	}));
 }
 
@@ -99,7 +53,46 @@ Mixer$Info::Mixer$Info() {
 }
 
 $Class* Mixer$Info::load$($String* name, bool initialize) {
-	$loadClass(Mixer$Info, name, initialize, &_Mixer$Info_ClassInfo_, allocate$Mixer$Info);
+	$FieldInfo fieldInfos$$[] = {
+		{"name", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(Mixer$Info, name)},
+		{"vendor", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(Mixer$Info, vendor)},
+		{"description", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(Mixer$Info, description)},
+		{"version", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(Mixer$Info, version)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PROTECTED, $method(Mixer$Info, init$, void, $String*, $String*, $String*, $String*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(Mixer$Info, equals, bool, Object$*)},
+		{"getDescription", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(Mixer$Info, getDescription, $String*)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(Mixer$Info, getName, $String*)},
+		{"getVendor", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(Mixer$Info, getVendor, $String*)},
+		{"getVersion", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(Mixer$Info, getVersion, $String*)},
+		{"hashCode", "()I", nullptr, $PUBLIC | $FINAL, $virtualMethod(Mixer$Info, hashCode, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(Mixer$Info, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.sound.sampled.Mixer$Info", "javax.sound.sampled.Mixer", "Info", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.sound.sampled.Mixer$Info",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.sound.sampled.Mixer"
+	};
+	$loadClass(Mixer$Info, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Mixer$Info);
+	});
 	return class$;
 }
 

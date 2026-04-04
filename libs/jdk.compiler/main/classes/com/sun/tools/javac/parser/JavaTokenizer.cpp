@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/parser/JavaTokenizer.h>
-
 #include <com/sun/tools/javac/code/Lint$LintCategory.h>
 #include <com/sun/tools/javac/code/Lint.h>
 #include <com/sun/tools/javac/code/Preview.h>
@@ -73,16 +72,13 @@
 #undef TEXT_BLOCKS
 #undef TRAILING
 
-using $Lint = ::com::sun::tools::javac::code::Lint;
 using $Lint$LintCategory = ::com::sun::tools::javac::code::Lint$LintCategory;
-using $Preview = ::com::sun::tools::javac::code::Preview;
 using $Source$Feature = ::com::sun::tools::javac::code::Source$Feature;
 using $JavacFileManager = ::com::sun::tools::javac::file::JavacFileManager;
 using $JavaTokenizer$BasicComment = ::com::sun::tools::javac::parser::JavaTokenizer$BasicComment;
 using $ScannerFactory = ::com::sun::tools::javac::parser::ScannerFactory;
 using $TextBlockSupport = ::com::sun::tools::javac::parser::TextBlockSupport;
 using $TextBlockSupport$WhitespaceChecks = ::com::sun::tools::javac::parser::TextBlockSupport$WhitespaceChecks;
-using $Tokens = ::com::sun::tools::javac::parser::Tokens;
 using $Tokens$Comment = ::com::sun::tools::javac::parser::Tokens$Comment;
 using $Tokens$Comment$CommentStyle = ::com::sun::tools::javac::parser::Tokens$Comment$CommentStyle;
 using $Tokens$NamedToken = ::com::sun::tools::javac::parser::Tokens$NamedToken;
@@ -101,8 +97,6 @@ using $JCDiagnostic$Error = ::com::sun::tools::javac::util::JCDiagnostic$Error;
 using $JCDiagnostic$SimpleDiagnosticPosition = ::com::sun::tools::javac::util::JCDiagnostic$SimpleDiagnosticPosition;
 using $JCDiagnostic$Warning = ::com::sun::tools::javac::util::JCDiagnostic$Warning;
 using $List = ::com::sun::tools::javac::util::List;
-using $Log = ::com::sun::tools::javac::util::Log;
-using $Names = ::com::sun::tools::javac::util::Names;
 using $Position = ::com::sun::tools::javac::util::Position;
 using $Position$LineMap = ::com::sun::tools::javac::util::Position$LineMap;
 using $Character = ::java::lang::Character;
@@ -122,95 +116,9 @@ namespace com {
 			namespace javac {
 				namespace parser {
 
-$FieldInfo _JavaTokenizer_FieldInfo_[] = {
-	{"scannerDebug", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JavaTokenizer, scannerDebug)},
-	{"NOT_FOUND", "I", nullptr, $PRIVATE, $field(JavaTokenizer, NOT_FOUND)},
-	{"source", "Lcom/sun/tools/javac/code/Source;", nullptr, $PRIVATE, $field(JavaTokenizer, source)},
-	{"preview", "Lcom/sun/tools/javac/code/Preview;", nullptr, $PRIVATE, $field(JavaTokenizer, preview)},
-	{"log", "Lcom/sun/tools/javac/util/Log;", nullptr, $PRIVATE | $FINAL, $field(JavaTokenizer, log)},
-	{"tokens", "Lcom/sun/tools/javac/parser/Tokens;", nullptr, $PRIVATE | $FINAL, $field(JavaTokenizer, tokens)},
-	{"names", "Lcom/sun/tools/javac/util/Names;", nullptr, $PRIVATE | $FINAL, $field(JavaTokenizer, names)},
-	{"tk", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PROTECTED, $field(JavaTokenizer, tk)},
-	{"radix", "I", nullptr, $PROTECTED, $field(JavaTokenizer, radix)},
-	{"name", "Lcom/sun/tools/javac/util/Name;", nullptr, $PROTECTED, $field(JavaTokenizer, name)},
-	{"errPos", "I", nullptr, $PROTECTED, $field(JavaTokenizer, errPos$)},
-	{"isTextBlock", "Z", nullptr, $PROTECTED, $field(JavaTokenizer, isTextBlock)},
-	{"hasEscapeSequences", "Z", nullptr, $PROTECTED, $field(JavaTokenizer, hasEscapeSequences)},
-	{"sb", "Ljava/lang/StringBuilder;", nullptr, $PROTECTED, $field(JavaTokenizer, sb)},
-	{"fac", "Lcom/sun/tools/javac/parser/ScannerFactory;", nullptr, $PROTECTED, $field(JavaTokenizer, fac)},
-	{"lint", "Lcom/sun/tools/javac/code/Lint;", nullptr, $PROTECTED, $field(JavaTokenizer, lint)},
-	{}
-};
-
-$MethodInfo _JavaTokenizer_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/parser/ScannerFactory;Ljava/nio/CharBuffer;)V", nullptr, $PROTECTED, $method(JavaTokenizer, init$, void, $ScannerFactory*, $CharBuffer*)},
-	{"<init>", "(Lcom/sun/tools/javac/parser/ScannerFactory;[CI)V", nullptr, $PROTECTED, $method(JavaTokenizer, init$, void, $ScannerFactory*, $chars*, int32_t)},
-	{"acceptOneOfThenPut", "(CC)Z", nullptr, $PROTECTED, $virtualMethod(JavaTokenizer, acceptOneOfThenPut, bool, char16_t, char16_t)},
-	{"acceptThenPut", "(C)Z", nullptr, $PROTECTED, $virtualMethod(JavaTokenizer, acceptThenPut, bool, char16_t)},
-	{"appendComment", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/parser/Tokens$Comment;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/parser/Tokens$Comment;>;Lcom/sun/tools/javac/parser/Tokens$Comment;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/parser/Tokens$Comment;>;", 0, $virtualMethod(JavaTokenizer, appendComment, $List*, $List*, $Tokens$Comment*)},
-	{"checkIdent", "()V", nullptr, $PRIVATE, $method(JavaTokenizer, checkIdent, void)},
-	{"checkSourceLevel", "(ILcom/sun/tools/javac/code/Source$Feature;)V", nullptr, $PROTECTED, $virtualMethod(JavaTokenizer, checkSourceLevel, void, int32_t, $Source$Feature*)},
-	{"errPos", "()I", nullptr, $PUBLIC, $virtualMethod(JavaTokenizer, errPos, int32_t)},
-	{"errPos", "(I)V", nullptr, $PUBLIC, $virtualMethod(JavaTokenizer, errPos, void, int32_t)},
-	{"getLineMap", "()Lcom/sun/tools/javac/util/Position$LineMap;", nullptr, $PUBLIC, $virtualMethod(JavaTokenizer, getLineMap, $Position$LineMap*)},
-	{"isEOLN", "()Z", nullptr, $PRIVATE, $method(JavaTokenizer, isEOLN, bool)},
-	{"isSpecial", "(C)Z", nullptr, $PRIVATE, $method(JavaTokenizer, isSpecial, bool, char16_t)},
-	{"lexError", "(ILcom/sun/tools/javac/util/JCDiagnostic$Error;)V", nullptr, $PROTECTED, $virtualMethod(JavaTokenizer, lexError, void, int32_t, $JCDiagnostic$Error*)},
-	{"lexError", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticFlag;ILcom/sun/tools/javac/util/JCDiagnostic$Error;)V", nullptr, $PROTECTED, $virtualMethod(JavaTokenizer, lexError, void, $JCDiagnostic$DiagnosticFlag*, int32_t, $JCDiagnostic$Error*)},
-	{"lexWarning", "(Lcom/sun/tools/javac/code/Lint$LintCategory;ILcom/sun/tools/javac/util/JCDiagnostic$Warning;)V", nullptr, $PROTECTED, $virtualMethod(JavaTokenizer, lexWarning, void, $Lint$LintCategory*, int32_t, $JCDiagnostic$Warning*)},
-	{"processComment", "(IILcom/sun/tools/javac/parser/Tokens$Comment$CommentStyle;)Lcom/sun/tools/javac/parser/Tokens$Comment;", nullptr, $PROTECTED, $virtualMethod(JavaTokenizer, processComment, $Tokens$Comment*, int32_t, int32_t, $Tokens$Comment$CommentStyle*)},
-	{"processLineTerminator", "(II)V", nullptr, $PROTECTED, $virtualMethod(JavaTokenizer, processLineTerminator, void, int32_t, int32_t)},
-	{"processWhiteSpace", "(II)V", nullptr, $PROTECTED, $virtualMethod(JavaTokenizer, processWhiteSpace, void, int32_t, int32_t)},
-	{"put", "(C)V", nullptr, $PROTECTED, $virtualMethod(JavaTokenizer, put, void, char16_t)},
-	{"put", "()V", nullptr, $PROTECTED, $virtualMethod(JavaTokenizer, put, void)},
-	{"put", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(JavaTokenizer, put, void, $String*)},
-	{"putCodePoint", "(I)V", nullptr, $PROTECTED, $virtualMethod(JavaTokenizer, putCodePoint, void, int32_t)},
-	{"putThenNext", "()C", nullptr, $PROTECTED, $virtualMethod(JavaTokenizer, putThenNext, char16_t)},
-	{"readToken", "()Lcom/sun/tools/javac/parser/Tokens$Token;", nullptr, $PUBLIC, $virtualMethod(JavaTokenizer, readToken, $Tokens$Token*)},
-	{"scanDigits", "(II)V", nullptr, $PRIVATE, $method(JavaTokenizer, scanDigits, void, int32_t, int32_t)},
-	{"scanFraction", "(I)V", nullptr, $PRIVATE, $method(JavaTokenizer, scanFraction, void, int32_t)},
-	{"scanFractionAndSuffix", "(I)V", nullptr, $PRIVATE, $method(JavaTokenizer, scanFractionAndSuffix, void, int32_t)},
-	{"scanHexExponentAndSuffix", "(I)V", nullptr, $PRIVATE, $method(JavaTokenizer, scanHexExponentAndSuffix, void, int32_t)},
-	{"scanHexFractionAndSuffix", "(IZ)V", nullptr, $PRIVATE, $method(JavaTokenizer, scanHexFractionAndSuffix, void, int32_t, bool)},
-	{"scanIdent", "()V", nullptr, $PRIVATE, $method(JavaTokenizer, scanIdent, void)},
-	{"scanLitChar", "(I)V", nullptr, $PRIVATE, $method(JavaTokenizer, scanLitChar, void, int32_t)},
-	{"scanNumber", "(II)V", nullptr, $PRIVATE, $method(JavaTokenizer, scanNumber, void, int32_t, int32_t)},
-	{"scanOperator", "()V", nullptr, $PRIVATE, $method(JavaTokenizer, scanOperator, void)},
-	{"scanString", "(I)V", nullptr, $PRIVATE, $method(JavaTokenizer, scanString, void, int32_t)},
-	{"skipIllegalUnderscores", "()V", nullptr, $PRIVATE, $method(JavaTokenizer, skipIllegalUnderscores, void)},
-	{"skipLineTerminator", "()V", nullptr, $PRIVATE, $method(JavaTokenizer, skipLineTerminator, void)},
-	{}
-};
-
-$InnerClassInfo _JavaTokenizer_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.parser.JavaTokenizer$BasicComment", "com.sun.tools.javac.parser.JavaTokenizer", "BasicComment", $PROTECTED | $STATIC},
-	{}
-};
-
-$ClassInfo _JavaTokenizer_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.parser.JavaTokenizer",
-	"com.sun.tools.javac.parser.UnicodeReader",
-	nullptr,
-	_JavaTokenizer_FieldInfo_,
-	_JavaTokenizer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JavaTokenizer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.parser.JavaTokenizer$BasicComment"
-};
-
-$Object* allocate$JavaTokenizer($Class* clazz) {
-	return $of($alloc(JavaTokenizer));
-}
-
 void JavaTokenizer::init$($ScannerFactory* fac, $CharBuffer* cb) {
-	$useLocalCurrentObjectStackCache();
-	$var($ScannerFactory, var$0, fac);
-	$var($chars, var$1, $JavacFileManager::toArray(cb));
-	JavaTokenizer::init$(var$0, var$1, $nc(cb)->limit());
+	$var($chars, var$0, $JavacFileManager::toArray(cb));
+	JavaTokenizer::init$(fac, var$0, $nc(cb)->limit());
 }
 
 void JavaTokenizer::init$($ScannerFactory* fac, $chars* array, int32_t length) {
@@ -228,9 +136,9 @@ void JavaTokenizer::init$($ScannerFactory* fac, $chars* array, int32_t length) {
 }
 
 void JavaTokenizer::checkSourceLevel(int32_t pos, $Source$Feature* feature) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool var$0 = $nc(this->preview)->isPreview(feature);
-	if (var$0 && !$nc(this->preview)->isEnabled()) {
+	if (var$0 && !this->preview->isEnabled()) {
 		$init($JCDiagnostic$DiagnosticFlag);
 		lexError($JCDiagnostic$DiagnosticFlag::SOURCE_LEVEL, pos, $($nc(this->preview)->disabledError(feature)));
 	} else if (!$nc(feature)->allowedInSource(this->source)) {
@@ -324,76 +232,51 @@ void JavaTokenizer::scanLitChar(int32_t pos) {
 			char16_t leadch = 0;
 			switch (get()) {
 			case u'0':
-				{}
 			case u'1':
-				{}
 			case u'2':
-				{}
 			case u'3':
-				{}
 			case u'4':
-				{}
 			case u'5':
-				{}
 			case u'6':
-				{}
 			case u'7':
-				{
-					leadch = get();
+				leadch = get();
+				putThenNext();
+				if (inRange(u'0', u'7')) {
 					putThenNext();
-					if (inRange(u'0', u'7')) {
+					if (leadch <= u'3' && inRange(u'0', u'7')) {
 						putThenNext();
-						if (leadch <= u'3' && inRange(u'0', u'7')) {
-							putThenNext();
-						}
 					}
-					break;
 				}
+				break;
 			case u'b':
-				{}
 			case u't':
-				{}
 			case u'n':
-				{}
 			case u'f':
-				{}
 			case u'r':
-				{}
 			case u'\'':
-				{}
 			case u'\"':
-				{}
 			case u'\\':
-				{
-					putThenNext();
-					break;
-				}
+				putThenNext();
+				break;
 			case u's':
-				{
-					$init($Source$Feature);
-					checkSourceLevel(position(), $Source$Feature::TEXT_BLOCKS);
-					putThenNext();
-					break;
-				}
+				$init($Source$Feature);
+				checkSourceLevel(position(), $Source$Feature::TEXT_BLOCKS);
+				putThenNext();
+				break;
 			case u'\n':
-				{}
 			case u'\r':
-				{
-					if (this->isTextBlock) {
-						skipLineTerminator();
-						put(u'\n');
-					} else {
-						$init($CompilerProperties$Errors);
-						lexError(position(), $CompilerProperties$Errors::IllegalEscChar);
-					}
-					break;
-				}
-			default:
-				{
+				if (this->isTextBlock) {
+					skipLineTerminator();
+					put(u'\n');
+				} else {
 					$init($CompilerProperties$Errors);
 					lexError(position(), $CompilerProperties$Errors::IllegalEscChar);
-					break;
 				}
+				break;
+			default:
+				$init($CompilerProperties$Errors);
+				lexError(position(), $CompilerProperties$Errors::IllegalEscChar);
+				break;
 			}
 		}
 	} else {
@@ -581,17 +464,13 @@ void JavaTokenizer::scanNumber(int32_t pos, int32_t radix) {
 		if (!seenValidDigit) {
 			switch (radix) {
 			case 2:
-				{
-					$init($CompilerProperties$Errors);
-					lexError(pos, $CompilerProperties$Errors::InvalidBinaryNumber);
-					break;
-				}
+				$init($CompilerProperties$Errors);
+				lexError(pos, $CompilerProperties$Errors::InvalidBinaryNumber);
+				break;
 			case 16:
-				{
-					$init($CompilerProperties$Errors);
-					lexError(pos, $CompilerProperties$Errors::InvalidHexNumber);
-					break;
-				}
+				$init($CompilerProperties$Errors);
+				lexError(pos, $CompilerProperties$Errors::InvalidHexNumber);
+				break;
 			}
 		}
 		if (radix == 8) {
@@ -621,208 +500,115 @@ void JavaTokenizer::scanIdent() {
 			bool isJavaIdentifierPart = false;
 			switch (get()) {
 			case u'A':
-				{}
 			case u'B':
-				{}
 			case u'C':
-				{}
 			case u'D':
-				{}
 			case u'E':
-				{}
 			case u'F':
-				{}
 			case u'G':
-				{}
 			case u'H':
-				{}
 			case u'I':
-				{}
 			case u'J':
-				{}
 			case u'K':
-				{}
 			case u'L':
-				{}
 			case u'M':
-				{}
 			case u'N':
-				{}
 			case u'O':
-				{}
 			case u'P':
-				{}
 			case u'Q':
-				{}
 			case u'R':
-				{}
 			case u'S':
-				{}
 			case u'T':
-				{}
 			case u'U':
-				{}
 			case u'V':
-				{}
 			case u'W':
-				{}
 			case u'X':
-				{}
 			case u'Y':
-				{}
 			case u'Z':
-				{}
 			case u'a':
-				{}
 			case u'b':
-				{}
 			case u'c':
-				{}
 			case u'd':
-				{}
 			case u'e':
-				{}
 			case u'f':
-				{}
 			case u'g':
-				{}
 			case u'h':
-				{}
 			case u'i':
-				{}
 			case u'j':
-				{}
 			case u'k':
-				{}
 			case u'l':
-				{}
 			case u'm':
-				{}
 			case u'n':
-				{}
 			case u'o':
-				{}
 			case u'p':
-				{}
 			case u'q':
-				{}
 			case u'r':
-				{}
 			case u's':
-				{}
 			case u't':
-				{}
 			case u'u':
-				{}
 			case u'v':
-				{}
 			case u'w':
-				{}
 			case u'x':
-				{}
 			case u'y':
-				{}
 			case u'z':
-				{}
 			case u'$':
-				{}
 			case u'_':
-				{}
 			case u'0':
-				{}
 			case u'1':
-				{}
 			case u'2':
-				{}
 			case u'3':
-				{}
 			case u'4':
-				{}
 			case u'5':
-				{}
 			case u'6':
-				{}
 			case u'7':
-				{}
 			case u'8':
-				{}
 			case u'9':
-				{
-					break;
-				}
+				break;
 			case u'\0':
-				{}
-			case (char16_t)0x1:
-				{}
-			case (char16_t)0x2:
-				{}
-			case (char16_t)0x3:
-				{}
-			case (char16_t)0x4:
-				{}
-			case (char16_t)0x5:
-				{}
-			case (char16_t)0x6:
-				{}
-			case (char16_t)0x7:
-				{}
+			case (char16_t)0x01:
+			case (char16_t)0x02:
+			case (char16_t)0x03:
+			case (char16_t)0x04:
+			case (char16_t)0x05:
+			case (char16_t)0x06:
+			case (char16_t)0x07:
 			case u'\b':
-				{}
-			case (char16_t)0xE:
-				{}
-			case (char16_t)0xF:
-				{}
+			case (char16_t)0x0e:
+			case (char16_t)0x0f:
 			case (char16_t)0x10:
-				{}
 			case (char16_t)0x11:
-				{}
 			case (char16_t)0x12:
-				{}
 			case (char16_t)0x13:
-				{}
 			case (char16_t)0x14:
-				{}
 			case (char16_t)0x15:
-				{}
 			case (char16_t)0x16:
-				{}
 			case (char16_t)0x17:
-				{}
 			case (char16_t)0x18:
-				{}
 			case (char16_t)0x19:
-				{}
-			case (char16_t)0x1B:
-				{}
-			case (char16_t)0x7F:
-				{
+			case (char16_t)0x1b:
+			case (char16_t)0x7f:
+				next();
+				continue;
+			case (char16_t)0x1a:
+				if (isAvailable()) {
 					next();
 					continue;
 				}
-			case (char16_t)0x1A:
-				{
-					if (isAvailable()) {
+				checkIdent();
+				return;
+			default:
+				if (isASCII()) {
+					isJavaIdentifierPart = false;
+				} else {
+					if ($Character::isIdentifierIgnorable(get())) {
 						next();
 						continue;
 					}
+					isJavaIdentifierPart = isSurrogate() ? $Character::isJavaIdentifierPart(getCodepoint()) : $Character::isJavaIdentifierPart(get());
+				}
+				if (!isJavaIdentifierPart) {
 					checkIdent();
 					return;
-				}
-			default:
-				{
-					if (isASCII()) {
-						isJavaIdentifierPart = false;
-					} else {
-						if ($Character::isIdentifierIgnorable(get())) {
-							next();
-							continue;
-						}
-						isJavaIdentifierPart = isSurrogate() ? $Character::isJavaIdentifierPart(getCodepoint()) : $Character::isJavaIdentifierPart(get());
-					}
-					if (!isJavaIdentifierPart) {
-						checkIdent();
-						return;
-					}
 				}
 			}
 		}
@@ -833,46 +619,28 @@ void JavaTokenizer::scanIdent() {
 bool JavaTokenizer::isSpecial(char16_t ch) {
 	switch (ch) {
 	case u'!':
-		{}
 	case u'%':
-		{}
 	case u'&':
-		{}
 	case u'*':
-		{}
 	case u'?':
-		{}
 	case u'+':
-		{}
 	case u'-':
-		{}
 	case u':':
-		{}
 	case u'<':
-		{}
 	case u'=':
-		{}
 	case u'>':
-		{}
 	case u'^':
-		{}
 	case u'|':
-		{}
 	case u'~':
-		{}
 	case u'@':
-		{
-			return true;
-		}
+		return true;
 	default:
-		{
-			return false;
-		}
+		return false;
 	}
 }
 
 void JavaTokenizer::scanOperator() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	while (true) {
 		put();
 		$Tokens$TokenKind* newtk = $nc(this->tokens)->lookupKind($($nc(this->sb)->toString()));
@@ -890,7 +658,7 @@ void JavaTokenizer::scanOperator() {
 }
 
 $Tokens$Token* JavaTokenizer::readToken() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(this->sb)->setLength(0);
 	$set(this, name, nullptr);
 	this->radix = 0;
@@ -898,479 +666,375 @@ $Tokens$Token* JavaTokenizer::readToken() {
 	this->hasEscapeSequences = false;
 	int32_t pos = 0;
 	$var($List, comments, nullptr);
-	{
-		$var($Throwable, var$0, nullptr);
-		$var($Tokens$Token, var$2, nullptr);
-		bool return$1 = false;
-		try {
-			bool loop$break = false;
-			while (true) {
-				pos = position();
-				switch (get()) {
-				case u' ':
-					{}
-				case u'\t':
-					{}
-				case u'\f':
-					{
-						skipWhitespace();
-						processWhiteSpace(pos, position());
-						break;
-					}
-				case u'\n':
-					{
-						next();
-						processLineTerminator(pos, position());
-						break;
-					}
-				case u'\r':
-					{
-						next();
-						accept(u'\n');
-						processLineTerminator(pos, position());
-						break;
-					}
-				case u'A':
-					{}
-				case u'B':
-					{}
-				case u'C':
-					{}
-				case u'D':
-					{}
-				case u'E':
-					{}
-				case u'F':
-					{}
-				case u'G':
-					{}
-				case u'H':
-					{}
-				case u'I':
-					{}
-				case u'J':
-					{}
-				case u'K':
-					{}
-				case u'L':
-					{}
-				case u'M':
-					{}
-				case u'N':
-					{}
-				case u'O':
-					{}
-				case u'P':
-					{}
-				case u'Q':
-					{}
-				case u'R':
-					{}
-				case u'S':
-					{}
-				case u'T':
-					{}
-				case u'U':
-					{}
-				case u'V':
-					{}
-				case u'W':
-					{}
-				case u'X':
-					{}
-				case u'Y':
-					{}
-				case u'Z':
-					{}
-				case u'a':
-					{}
-				case u'b':
-					{}
-				case u'c':
-					{}
-				case u'd':
-					{}
-				case u'e':
-					{}
-				case u'f':
-					{}
-				case u'g':
-					{}
-				case u'h':
-					{}
-				case u'i':
-					{}
-				case u'j':
-					{}
-				case u'k':
-					{}
-				case u'l':
-					{}
-				case u'm':
-					{}
-				case u'n':
-					{}
-				case u'o':
-					{}
-				case u'p':
-					{}
-				case u'q':
-					{}
-				case u'r':
-					{}
-				case u's':
-					{}
-				case u't':
-					{}
-				case u'u':
-					{}
-				case u'v':
-					{}
-				case u'w':
-					{}
-				case u'x':
-					{}
-				case u'y':
-					{}
-				case u'z':
-					{}
-				case u'$':
-					{}
-				case u'_':
-					{
-						scanIdent();
-						loop$break = true;
-						break;
-					}
-				case u'0':
-					{
-						next();
-						if (acceptOneOf(u'x', u'X')) {
-							skipIllegalUnderscores();
-							scanNumber(pos, 16);
-						} else if (acceptOneOf(u'b', u'B')) {
-							skipIllegalUnderscores();
-							scanNumber(pos, 2);
-						} else {
-							put(u'0');
-							if (is(u'_')) {
-								int32_t savePos = position();
-								skip(u'_');
-								if (digit(pos, 10) < 0) {
-									$init($CompilerProperties$Errors);
-									lexError(savePos, $CompilerProperties$Errors::IllegalUnderscore);
-								}
-							}
-							scanNumber(pos, 8);
-						}
-						loop$break = true;
-						break;
-					}
-				case u'1':
-					{}
-				case u'2':
-					{}
-				case u'3':
-					{}
-				case u'4':
-					{}
-				case u'5':
-					{}
-				case u'6':
-					{}
-				case u'7':
-					{}
-				case u'8':
-					{}
-				case u'9':
-					{
-						scanNumber(pos, 10);
-						loop$break = true;
-						break;
-					}
-				case u'.':
-					{
-						if (accept("..."_s)) {
-							put("..."_s);
-							$init($Tokens$TokenKind);
-							$set(this, tk, $Tokens$TokenKind::ELLIPSIS);
-						} else {
-							next();
-							int32_t savePos = position();
-							if (accept(u'.')) {
-								$init($CompilerProperties$Errors);
-								lexError(savePos, $CompilerProperties$Errors::IllegalDot);
-							} else if (digit(pos, 10) >= 0) {
-								put(u'.');
-								scanFractionAndSuffix(pos);
-							} else {
-								$init($Tokens$TokenKind);
-								$set(this, tk, $Tokens$TokenKind::DOT);
-							}
-						}
-						loop$break = true;
-						break;
-					}
-				case u',':
-					{
-						next();
-						$init($Tokens$TokenKind);
-						$set(this, tk, $Tokens$TokenKind::COMMA);
-						loop$break = true;
-						break;
-					}
-				case u';':
-					{
-						next();
-						$init($Tokens$TokenKind);
-						$set(this, tk, $Tokens$TokenKind::SEMI);
-						loop$break = true;
-						break;
-					}
-				case u'(':
-					{
-						next();
-						$init($Tokens$TokenKind);
-						$set(this, tk, $Tokens$TokenKind::LPAREN);
-						loop$break = true;
-						break;
-					}
-				case u')':
-					{
-						next();
-						$init($Tokens$TokenKind);
-						$set(this, tk, $Tokens$TokenKind::RPAREN);
-						loop$break = true;
-						break;
-					}
-				case u'[':
-					{
-						next();
-						$init($Tokens$TokenKind);
-						$set(this, tk, $Tokens$TokenKind::LBRACKET);
-						loop$break = true;
-						break;
-					}
-				case u']':
-					{
-						next();
-						$init($Tokens$TokenKind);
-						$set(this, tk, $Tokens$TokenKind::RBRACKET);
-						loop$break = true;
-						break;
-					}
-				case u'{':
-					{
-						next();
-						$init($Tokens$TokenKind);
-						$set(this, tk, $Tokens$TokenKind::LBRACE);
-						loop$break = true;
-						break;
-					}
-				case u'}':
-					{
-						next();
-						$init($Tokens$TokenKind);
-						$set(this, tk, $Tokens$TokenKind::RBRACE);
-						loop$break = true;
-						break;
-					}
-				case u'/':
-					{
-						next();
-						if (accept(u'/')) {
-							skipToEOLN();
-							if (isAvailable()) {
-								$init($Tokens$Comment$CommentStyle);
-								$assign(comments, appendComment(comments, $(processComment(pos, position(), $Tokens$Comment$CommentStyle::LINE))));
-							}
-							break;
-						} else if (accept(u'*')) {
-							bool isEmpty = false;
-							$Tokens$Comment$CommentStyle* style = nullptr;
-							if (accept(u'*')) {
-								$init($Tokens$Comment$CommentStyle);
-								style = $Tokens$Comment$CommentStyle::JAVADOC;
-								if (is(u'/')) {
-									isEmpty = true;
-								}
-							} else {
-								$init($Tokens$Comment$CommentStyle);
-								style = $Tokens$Comment$CommentStyle::BLOCK;
-							}
-							if (!isEmpty) {
-								while (isAvailable()) {
-									if (accept(u'*')) {
-										if (is(u'/')) {
-											break;
-										}
-									} else {
-										next();
-									}
-								}
-							}
-							if (accept(u'/')) {
-								$assign(comments, appendComment(comments, $(processComment(pos, position(), style))));
-								break;
-							} else {
-								$init($CompilerProperties$Errors);
-								lexError(pos, $CompilerProperties$Errors::UnclosedComment);
-								loop$break = true;
-								break;
-							}
-						} else if (accept(u'=')) {
-							$init($Tokens$TokenKind);
-							$set(this, tk, $Tokens$TokenKind::SLASHEQ);
-						} else {
-							$init($Tokens$TokenKind);
-							$set(this, tk, $Tokens$TokenKind::SLASH);
-						}
-						loop$break = true;
-						break;
-					}
-				case u'\'':
-					{
-						next();
-						if (accept(u'\'')) {
+	$var($Throwable, var$0, nullptr);
+	$var($Tokens$Token, var$2, nullptr);
+	bool return$1 = false;
+	try {
+		bool loop$break = false;
+		while (true) {
+			pos = position();
+			switch (get()) {
+			case u' ':
+			case u'\t':
+			case u'\f':
+				skipWhitespace();
+				processWhiteSpace(pos, position());
+				break;
+			case u'\n':
+				next();
+				processLineTerminator(pos, position());
+				break;
+			case u'\r':
+				next();
+				accept(u'\n');
+				processLineTerminator(pos, position());
+				break;
+			case u'A':
+			case u'B':
+			case u'C':
+			case u'D':
+			case u'E':
+			case u'F':
+			case u'G':
+			case u'H':
+			case u'I':
+			case u'J':
+			case u'K':
+			case u'L':
+			case u'M':
+			case u'N':
+			case u'O':
+			case u'P':
+			case u'Q':
+			case u'R':
+			case u'S':
+			case u'T':
+			case u'U':
+			case u'V':
+			case u'W':
+			case u'X':
+			case u'Y':
+			case u'Z':
+			case u'a':
+			case u'b':
+			case u'c':
+			case u'd':
+			case u'e':
+			case u'f':
+			case u'g':
+			case u'h':
+			case u'i':
+			case u'j':
+			case u'k':
+			case u'l':
+			case u'm':
+			case u'n':
+			case u'o':
+			case u'p':
+			case u'q':
+			case u'r':
+			case u's':
+			case u't':
+			case u'u':
+			case u'v':
+			case u'w':
+			case u'x':
+			case u'y':
+			case u'z':
+			case u'$':
+			case u'_':
+				scanIdent();
+				loop$break = true;
+				break;
+			case u'0':
+				next();
+				if (acceptOneOf(u'x', u'X')) {
+					skipIllegalUnderscores();
+					scanNumber(pos, 16);
+				} else if (acceptOneOf(u'b', u'B')) {
+					skipIllegalUnderscores();
+					scanNumber(pos, 2);
+				} else {
+					put(u'0');
+					if (is(u'_')) {
+						int32_t savePos = position();
+						skip(u'_');
+						if (digit(pos, 10) < 0) {
 							$init($CompilerProperties$Errors);
-							lexError(pos, $CompilerProperties$Errors::EmptyCharLit);
-						} else {
-							if (isEOLN()) {
-								$init($CompilerProperties$Errors);
-								lexError(pos, $CompilerProperties$Errors::IllegalLineEndInCharLit);
-							}
-							scanLitChar(pos);
-							if (accept(u'\'')) {
-								$init($Tokens$TokenKind);
-								$set(this, tk, $Tokens$TokenKind::CHARLITERAL);
-							} else {
-								$init($CompilerProperties$Errors);
-								lexError(pos, $CompilerProperties$Errors::UnclosedCharLit);
-							}
+							lexError(savePos, $CompilerProperties$Errors::IllegalUnderscore);
 						}
-						loop$break = true;
-						break;
 					}
-				case u'\"':
-					{
-						scanString(pos);
-						loop$break = true;
-						break;
-					}
-				default:
-					{
-						if (isSpecial(get())) {
-							scanOperator();
-						} else {
-							bool isJavaIdentifierStart = false;
-							if (isASCII()) {
-								isJavaIdentifierStart = false;
-							} else {
-								isJavaIdentifierStart = isSurrogate() ? $Character::isJavaIdentifierStart(getCodepoint()) : $Character::isJavaIdentifierStart(get());
-							}
-							if (isJavaIdentifierStart) {
-								scanIdent();
-							} else if (digit(pos, 10) >= 0) {
-								scanNumber(pos, 10);
-							} else {
-								bool var$4 = is((char16_t)26);
-								if (var$4 || !isAvailable()) {
-									$init($Tokens$TokenKind);
-									$set(this, tk, $Tokens$TokenKind::EOF);
-									pos = position();
-								} else {
-									$var($String, arg, nullptr);
-									if (isSurrogate()) {
-										int32_t codePoint = getCodepoint();
-										char16_t hi = $Character::highSurrogate(codePoint);
-										char16_t lo = $Character::lowSurrogate(codePoint);
-										$assign(arg, $String::format("\\u%04x\\u%04x"_s, $$new($ObjectArray, {
-											$($of($Integer::valueOf((int32_t)hi))),
-											$($of($Integer::valueOf((int32_t)lo)))
-										})));
-									} else {
-										char16_t ch = get();
-										$assign(arg, (32 < ch && ch < 127) ? $String::format("%s"_s, $$new($ObjectArray, {$($of($Character::valueOf(ch)))})) : $String::format("\\u%04x"_s, $$new($ObjectArray, {$($of($Integer::valueOf((int32_t)ch)))})));
-									}
-									lexError(pos, $($CompilerProperties$Errors::IllegalChar(arg)));
-									next();
-								}
-							}
-						}
-						loop$break = true;
-						break;
+					scanNumber(pos, 8);
+				}
+				loop$break = true;
+				break;
+			case u'1':
+			case u'2':
+			case u'3':
+			case u'4':
+			case u'5':
+			case u'6':
+			case u'7':
+			case u'8':
+			case u'9':
+				scanNumber(pos, 10);
+				loop$break = true;
+				break;
+			case u'.':
+				if (accept("..."_s)) {
+					put("..."_s);
+					$init($Tokens$TokenKind);
+					$set(this, tk, $Tokens$TokenKind::ELLIPSIS);
+				} else {
+					next();
+					int32_t savePos = position();
+					if (accept(u'.')) {
+						$init($CompilerProperties$Errors);
+						lexError(savePos, $CompilerProperties$Errors::IllegalDot);
+					} else if (digit(pos, 10) >= 0) {
+						put(u'.');
+						scanFractionAndSuffix(pos);
+					} else {
+						$init($Tokens$TokenKind);
+						$set(this, tk, $Tokens$TokenKind::DOT);
 					}
 				}
-
-				if (loop$break) {
+				loop$break = true;
+				break;
+			case u',':
+				next();
+				$init($Tokens$TokenKind);
+				$set(this, tk, $Tokens$TokenKind::COMMA);
+				loop$break = true;
+				break;
+			case u';':
+				next();
+				$init($Tokens$TokenKind);
+				$set(this, tk, $Tokens$TokenKind::SEMI);
+				loop$break = true;
+				break;
+			case u'(':
+				next();
+				$init($Tokens$TokenKind);
+				$set(this, tk, $Tokens$TokenKind::LPAREN);
+				loop$break = true;
+				break;
+			case u')':
+				next();
+				$init($Tokens$TokenKind);
+				$set(this, tk, $Tokens$TokenKind::RPAREN);
+				loop$break = true;
+				break;
+			case u'[':
+				next();
+				$init($Tokens$TokenKind);
+				$set(this, tk, $Tokens$TokenKind::LBRACKET);
+				loop$break = true;
+				break;
+			case u']':
+				next();
+				$init($Tokens$TokenKind);
+				$set(this, tk, $Tokens$TokenKind::RBRACKET);
+				loop$break = true;
+				break;
+			case u'{':
+				next();
+				$init($Tokens$TokenKind);
+				$set(this, tk, $Tokens$TokenKind::LBRACE);
+				loop$break = true;
+				break;
+			case u'}':
+				next();
+				$init($Tokens$TokenKind);
+				$set(this, tk, $Tokens$TokenKind::RBRACE);
+				loop$break = true;
+				break;
+			case u'/':
+				next();
+				if (accept(u'/')) {
+					skipToEOLN();
+					if (isAvailable()) {
+						$init($Tokens$Comment$CommentStyle);
+						$assign(comments, appendComment(comments, $(processComment(pos, position(), $Tokens$Comment$CommentStyle::LINE))));
+					}
 					break;
-				}			}
-			int32_t endPos = position();
-			$init($Tokens$Token$Tag);
-			if ($nc(this->tk)->tag == $Tokens$Token$Tag::DEFAULT) {
-				$assign(var$2, $new($Tokens$Token, this->tk, pos, endPos, comments));
+				} else if (accept(u'*')) {
+					bool isEmpty = false;
+					$Tokens$Comment$CommentStyle* style = nullptr;
+					if (accept(u'*')) {
+						$init($Tokens$Comment$CommentStyle);
+						style = $Tokens$Comment$CommentStyle::JAVADOC;
+						if (is(u'/')) {
+							isEmpty = true;
+						}
+					} else {
+						$init($Tokens$Comment$CommentStyle);
+						style = $Tokens$Comment$CommentStyle::BLOCK;
+					}
+					if (!isEmpty) {
+						while (isAvailable()) {
+							if (accept(u'*')) {
+								if (is(u'/')) {
+									break;
+								}
+							} else {
+								next();
+							}
+						}
+					}
+					if (accept(u'/')) {
+						$assign(comments, appendComment(comments, $(processComment(pos, position(), style))));
+						break;
+					} else {
+						$init($CompilerProperties$Errors);
+						lexError(pos, $CompilerProperties$Errors::UnclosedComment);
+						loop$break = true;
+						break;
+					}
+				} else if (accept(u'=')) {
+					$init($Tokens$TokenKind);
+					$set(this, tk, $Tokens$TokenKind::SLASHEQ);
+				} else {
+					$init($Tokens$TokenKind);
+					$set(this, tk, $Tokens$TokenKind::SLASH);
+				}
+				loop$break = true;
+				break;
+			case u'\'':
+				next();
+				if (accept(u'\'')) {
+					$init($CompilerProperties$Errors);
+					lexError(pos, $CompilerProperties$Errors::EmptyCharLit);
+				} else {
+					if (isEOLN()) {
+						$init($CompilerProperties$Errors);
+						lexError(pos, $CompilerProperties$Errors::IllegalLineEndInCharLit);
+					}
+					scanLitChar(pos);
+					if (accept(u'\'')) {
+						$init($Tokens$TokenKind);
+						$set(this, tk, $Tokens$TokenKind::CHARLITERAL);
+					} else {
+						$init($CompilerProperties$Errors);
+						lexError(pos, $CompilerProperties$Errors::UnclosedCharLit);
+					}
+				}
+				loop$break = true;
+				break;
+			case u'\"':
+				scanString(pos);
+				loop$break = true;
+				break;
+			default:
+				if (isSpecial(get())) {
+					scanOperator();
+				} else {
+					bool isJavaIdentifierStart = false;
+					if (isASCII()) {
+						isJavaIdentifierStart = false;
+					} else {
+						isJavaIdentifierStart = isSurrogate() ? $Character::isJavaIdentifierStart(getCodepoint()) : $Character::isJavaIdentifierStart(get());
+					}
+					if (isJavaIdentifierStart) {
+						scanIdent();
+					} else if (digit(pos, 10) >= 0) {
+						scanNumber(pos, 10);
+					} else {
+						bool var$3 = is((char16_t)26);
+						if (var$3 || !isAvailable()) {
+							$init($Tokens$TokenKind);
+							$set(this, tk, $Tokens$TokenKind::EOF);
+							pos = position();
+						} else {
+							$var($String, arg, nullptr);
+							if (isSurrogate()) {
+								int32_t codePoint = getCodepoint();
+								char16_t hi = $Character::highSurrogate(codePoint);
+								char16_t lo = $Character::lowSurrogate(codePoint);
+								$assign(arg, $String::format("\\u%04x\\u%04x"_s, $$new($ObjectArray, {
+									$($Integer::valueOf((int32_t)hi)),
+									$($Integer::valueOf((int32_t)lo))
+								})));
+							} else {
+								char16_t ch = get();
+								$assign(arg, (32 < ch && ch < 127) ? $String::format("%s"_s, $$new($ObjectArray, {$($Character::valueOf(ch))})) : $String::format("\\u%04x"_s, $$new($ObjectArray, {$($Integer::valueOf((int32_t)ch))})));
+							}
+							lexError(pos, $($CompilerProperties$Errors::IllegalChar(arg)));
+							next();
+						}
+					}
+				}
+				loop$break = true;
+				break;
+			}
+			if (loop$break) {
+				break;
+			}
+		}
+		int32_t endPos = position();
+		$init($Tokens$Token$Tag);
+		if ($nc(this->tk)->tag == $Tokens$Token$Tag::DEFAULT) {
+			$assign(var$2, $new($Tokens$Token, this->tk, pos, endPos, comments));
+			return$1 = true;
+			goto $finally;
+		} else if (this->tk->tag == $Tokens$Token$Tag::NAMED) {
+			$assign(var$2, $new($Tokens$NamedToken, this->tk, pos, endPos, this->name, comments));
+			return$1 = true;
+			goto $finally;
+		} else {
+			$var($String, string, $nc(this->sb)->toString());
+			if (this->isTextBlock) {
+				$init($Lint$LintCategory);
+				if ($nc(this->lint)->isEnabled($Lint$LintCategory::TEXT_BLOCKS)) {
+					$var($Set, checks, $TextBlockSupport::checkWhitespace(string));
+					$init($TextBlockSupport$WhitespaceChecks);
+					if ($nc(checks)->contains($TextBlockSupport$WhitespaceChecks::INCONSISTENT)) {
+						$init($CompilerProperties$Warnings);
+						lexWarning($Lint$LintCategory::TEXT_BLOCKS, pos, $CompilerProperties$Warnings::InconsistentWhiteSpaceIndentation);
+					}
+					if (checks->contains($TextBlockSupport$WhitespaceChecks::TRAILING)) {
+						$init($CompilerProperties$Warnings);
+						lexWarning($Lint$LintCategory::TEXT_BLOCKS, pos, $CompilerProperties$Warnings::TrailingWhiteSpaceWillBeRemoved);
+					}
+				}
+				try {
+					$assign(string, string->stripIndent());
+				} catch ($Exception& ex) {
+				}
+			}
+			if (this->hasEscapeSequences) {
+				try {
+					$assign(string, string->translateEscapes());
+				} catch ($Exception& ex) {
+				}
+			}
+			if ($nc(this->tk)->tag == $Tokens$Token$Tag::STRING) {
+				$assign(var$2, $new($Tokens$StringToken, this->tk, pos, endPos, string, comments));
 				return$1 = true;
 				goto $finally;
 			} else {
-				if ($nc(this->tk)->tag == $Tokens$Token$Tag::NAMED) {
-					$assign(var$2, $new($Tokens$NamedToken, this->tk, pos, endPos, this->name, comments));
-					return$1 = true;
-					goto $finally;
-				} else {
-					$var($String, string, $nc(this->sb)->toString());
-					if (this->isTextBlock) {
-						$init($Lint$LintCategory);
-						if ($nc(this->lint)->isEnabled($Lint$LintCategory::TEXT_BLOCKS)) {
-							$var($Set, checks, $TextBlockSupport::checkWhitespace(string));
-							$init($TextBlockSupport$WhitespaceChecks);
-							if ($nc(checks)->contains($TextBlockSupport$WhitespaceChecks::INCONSISTENT)) {
-								$init($CompilerProperties$Warnings);
-								lexWarning($Lint$LintCategory::TEXT_BLOCKS, pos, $CompilerProperties$Warnings::InconsistentWhiteSpaceIndentation);
-							}
-							if ($nc(checks)->contains($TextBlockSupport$WhitespaceChecks::TRAILING)) {
-								$init($CompilerProperties$Warnings);
-								lexWarning($Lint$LintCategory::TEXT_BLOCKS, pos, $CompilerProperties$Warnings::TrailingWhiteSpaceWillBeRemoved);
-							}
-						}
-						try {
-							$assign(string, $nc(string)->stripIndent());
-						} catch ($Exception& ex) {
-						}
-					}
-					if (this->hasEscapeSequences) {
-						try {
-							$assign(string, $nc(string)->translateEscapes());
-						} catch ($Exception& ex) {
-						}
-					}
-					if ($nc(this->tk)->tag == $Tokens$Token$Tag::STRING) {
-						$assign(var$2, $new($Tokens$StringToken, this->tk, pos, endPos, string, comments));
-						return$1 = true;
-						goto $finally;
-					} else {
-						$assign(var$2, $new($Tokens$NumericToken, this->tk, pos, endPos, string, this->radix, comments));
-						return$1 = true;
-						goto $finally;
-					}
-				}
+				$assign(var$2, $new($Tokens$NumericToken, this->tk, pos, endPos, string, this->radix, comments));
+				return$1 = true;
+				goto $finally;
 			}
-		} catch ($Throwable& var$5) {
-			$assign(var$0, var$5);
-		} $finally: {
-			int32_t endPos = position();
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+	} catch ($Throwable& var$4) {
+		$assign(var$0, var$4);
+	} $finally: {
+		int32_t endPos = position();
+		;
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
 
 $List* JavaTokenizer::appendComment($List* comments, $Tokens$Comment* comment) {
-	return comments == nullptr ? $List::of(comment) : $nc(comments)->prepend(comment);
+	return comments == nullptr ? $List::of(comment) : comments->prepend(comment);
 }
 
 int32_t JavaTokenizer::errPos() {
@@ -1382,14 +1046,17 @@ void JavaTokenizer::errPos(int32_t pos) {
 }
 
 $Tokens$Comment* JavaTokenizer::processComment(int32_t pos, int32_t endPos, $Tokens$Comment$CommentStyle* style) {
+	;
 	$var($chars, buf, getRawCharacters(pos, endPos));
 	return $new($JavaTokenizer$BasicComment, style, this->fac, buf, pos);
 }
 
 void JavaTokenizer::processWhiteSpace(int32_t pos, int32_t endPos) {
+	;
 }
 
 void JavaTokenizer::processLineTerminator(int32_t pos, int32_t endPos) {
+	;
 }
 
 $Position$LineMap* JavaTokenizer::getLineMap() {
@@ -1401,7 +1068,85 @@ JavaTokenizer::JavaTokenizer() {
 }
 
 $Class* JavaTokenizer::load$($String* name, bool initialize) {
-	$loadClass(JavaTokenizer, name, initialize, &_JavaTokenizer_ClassInfo_, allocate$JavaTokenizer);
+	$FieldInfo fieldInfos$$[] = {
+		{"scannerDebug", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JavaTokenizer, scannerDebug)},
+		{"NOT_FOUND", "I", nullptr, $PRIVATE, $field(JavaTokenizer, NOT_FOUND)},
+		{"source", "Lcom/sun/tools/javac/code/Source;", nullptr, $PRIVATE, $field(JavaTokenizer, source)},
+		{"preview", "Lcom/sun/tools/javac/code/Preview;", nullptr, $PRIVATE, $field(JavaTokenizer, preview)},
+		{"log", "Lcom/sun/tools/javac/util/Log;", nullptr, $PRIVATE | $FINAL, $field(JavaTokenizer, log)},
+		{"tokens", "Lcom/sun/tools/javac/parser/Tokens;", nullptr, $PRIVATE | $FINAL, $field(JavaTokenizer, tokens)},
+		{"names", "Lcom/sun/tools/javac/util/Names;", nullptr, $PRIVATE | $FINAL, $field(JavaTokenizer, names)},
+		{"tk", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PROTECTED, $field(JavaTokenizer, tk)},
+		{"radix", "I", nullptr, $PROTECTED, $field(JavaTokenizer, radix)},
+		{"name", "Lcom/sun/tools/javac/util/Name;", nullptr, $PROTECTED, $field(JavaTokenizer, name)},
+		{"errPos", "I", nullptr, $PROTECTED, $field(JavaTokenizer, errPos$)},
+		{"isTextBlock", "Z", nullptr, $PROTECTED, $field(JavaTokenizer, isTextBlock)},
+		{"hasEscapeSequences", "Z", nullptr, $PROTECTED, $field(JavaTokenizer, hasEscapeSequences)},
+		{"sb", "Ljava/lang/StringBuilder;", nullptr, $PROTECTED, $field(JavaTokenizer, sb)},
+		{"fac", "Lcom/sun/tools/javac/parser/ScannerFactory;", nullptr, $PROTECTED, $field(JavaTokenizer, fac)},
+		{"lint", "Lcom/sun/tools/javac/code/Lint;", nullptr, $PROTECTED, $field(JavaTokenizer, lint)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/parser/ScannerFactory;Ljava/nio/CharBuffer;)V", nullptr, $PROTECTED, $method(JavaTokenizer, init$, void, $ScannerFactory*, $CharBuffer*)},
+		{"<init>", "(Lcom/sun/tools/javac/parser/ScannerFactory;[CI)V", nullptr, $PROTECTED, $method(JavaTokenizer, init$, void, $ScannerFactory*, $chars*, int32_t)},
+		{"acceptOneOfThenPut", "(CC)Z", nullptr, $PROTECTED, $virtualMethod(JavaTokenizer, acceptOneOfThenPut, bool, char16_t, char16_t)},
+		{"acceptThenPut", "(C)Z", nullptr, $PROTECTED, $virtualMethod(JavaTokenizer, acceptThenPut, bool, char16_t)},
+		{"appendComment", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/parser/Tokens$Comment;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/parser/Tokens$Comment;>;Lcom/sun/tools/javac/parser/Tokens$Comment;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/parser/Tokens$Comment;>;", 0, $virtualMethod(JavaTokenizer, appendComment, $List*, $List*, $Tokens$Comment*)},
+		{"checkIdent", "()V", nullptr, $PRIVATE, $method(JavaTokenizer, checkIdent, void)},
+		{"checkSourceLevel", "(ILcom/sun/tools/javac/code/Source$Feature;)V", nullptr, $PROTECTED, $virtualMethod(JavaTokenizer, checkSourceLevel, void, int32_t, $Source$Feature*)},
+		{"errPos", "()I", nullptr, $PUBLIC, $virtualMethod(JavaTokenizer, errPos, int32_t)},
+		{"errPos", "(I)V", nullptr, $PUBLIC, $virtualMethod(JavaTokenizer, errPos, void, int32_t)},
+		{"getLineMap", "()Lcom/sun/tools/javac/util/Position$LineMap;", nullptr, $PUBLIC, $virtualMethod(JavaTokenizer, getLineMap, $Position$LineMap*)},
+		{"isEOLN", "()Z", nullptr, $PRIVATE, $method(JavaTokenizer, isEOLN, bool)},
+		{"isSpecial", "(C)Z", nullptr, $PRIVATE, $method(JavaTokenizer, isSpecial, bool, char16_t)},
+		{"lexError", "(ILcom/sun/tools/javac/util/JCDiagnostic$Error;)V", nullptr, $PROTECTED, $virtualMethod(JavaTokenizer, lexError, void, int32_t, $JCDiagnostic$Error*)},
+		{"lexError", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticFlag;ILcom/sun/tools/javac/util/JCDiagnostic$Error;)V", nullptr, $PROTECTED, $virtualMethod(JavaTokenizer, lexError, void, $JCDiagnostic$DiagnosticFlag*, int32_t, $JCDiagnostic$Error*)},
+		{"lexWarning", "(Lcom/sun/tools/javac/code/Lint$LintCategory;ILcom/sun/tools/javac/util/JCDiagnostic$Warning;)V", nullptr, $PROTECTED, $virtualMethod(JavaTokenizer, lexWarning, void, $Lint$LintCategory*, int32_t, $JCDiagnostic$Warning*)},
+		{"processComment", "(IILcom/sun/tools/javac/parser/Tokens$Comment$CommentStyle;)Lcom/sun/tools/javac/parser/Tokens$Comment;", nullptr, $PROTECTED, $virtualMethod(JavaTokenizer, processComment, $Tokens$Comment*, int32_t, int32_t, $Tokens$Comment$CommentStyle*)},
+		{"processLineTerminator", "(II)V", nullptr, $PROTECTED, $virtualMethod(JavaTokenizer, processLineTerminator, void, int32_t, int32_t)},
+		{"processWhiteSpace", "(II)V", nullptr, $PROTECTED, $virtualMethod(JavaTokenizer, processWhiteSpace, void, int32_t, int32_t)},
+		{"put", "(C)V", nullptr, $PROTECTED, $virtualMethod(JavaTokenizer, put, void, char16_t)},
+		{"put", "()V", nullptr, $PROTECTED, $virtualMethod(JavaTokenizer, put, void)},
+		{"put", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(JavaTokenizer, put, void, $String*)},
+		{"putCodePoint", "(I)V", nullptr, $PROTECTED, $virtualMethod(JavaTokenizer, putCodePoint, void, int32_t)},
+		{"putThenNext", "()C", nullptr, $PROTECTED, $virtualMethod(JavaTokenizer, putThenNext, char16_t)},
+		{"readToken", "()Lcom/sun/tools/javac/parser/Tokens$Token;", nullptr, $PUBLIC, $virtualMethod(JavaTokenizer, readToken, $Tokens$Token*)},
+		{"scanDigits", "(II)V", nullptr, $PRIVATE, $method(JavaTokenizer, scanDigits, void, int32_t, int32_t)},
+		{"scanFraction", "(I)V", nullptr, $PRIVATE, $method(JavaTokenizer, scanFraction, void, int32_t)},
+		{"scanFractionAndSuffix", "(I)V", nullptr, $PRIVATE, $method(JavaTokenizer, scanFractionAndSuffix, void, int32_t)},
+		{"scanHexExponentAndSuffix", "(I)V", nullptr, $PRIVATE, $method(JavaTokenizer, scanHexExponentAndSuffix, void, int32_t)},
+		{"scanHexFractionAndSuffix", "(IZ)V", nullptr, $PRIVATE, $method(JavaTokenizer, scanHexFractionAndSuffix, void, int32_t, bool)},
+		{"scanIdent", "()V", nullptr, $PRIVATE, $method(JavaTokenizer, scanIdent, void)},
+		{"scanLitChar", "(I)V", nullptr, $PRIVATE, $method(JavaTokenizer, scanLitChar, void, int32_t)},
+		{"scanNumber", "(II)V", nullptr, $PRIVATE, $method(JavaTokenizer, scanNumber, void, int32_t, int32_t)},
+		{"scanOperator", "()V", nullptr, $PRIVATE, $method(JavaTokenizer, scanOperator, void)},
+		{"scanString", "(I)V", nullptr, $PRIVATE, $method(JavaTokenizer, scanString, void, int32_t)},
+		{"skipIllegalUnderscores", "()V", nullptr, $PRIVATE, $method(JavaTokenizer, skipIllegalUnderscores, void)},
+		{"skipLineTerminator", "()V", nullptr, $PRIVATE, $method(JavaTokenizer, skipLineTerminator, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.parser.JavaTokenizer$BasicComment", "com.sun.tools.javac.parser.JavaTokenizer", "BasicComment", $PROTECTED | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.parser.JavaTokenizer",
+		"com.sun.tools.javac.parser.UnicodeReader",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.parser.JavaTokenizer$BasicComment"
+	};
+	$loadClass(JavaTokenizer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JavaTokenizer);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/imageio/plugins/tiff/TIFFDeflateDecompressor.h>
-
 #include <com/sun/imageio/plugins/tiff/TIFFDecompressor.h>
 #include <java/util/zip/DataFormatException.h>
 #include <java/util/zip/Inflater.h>
@@ -19,38 +18,12 @@ using $DataFormatException = ::java::util::zip::DataFormatException;
 using $Inflater = ::java::util::zip::Inflater;
 using $IIOException = ::javax::imageio::IIOException;
 using $BaselineTIFFTagSet = ::javax::imageio::plugins::tiff::BaselineTIFFTagSet;
-using $ImageInputStream = ::javax::imageio::stream::ImageInputStream;
 
 namespace com {
 	namespace sun {
 		namespace imageio {
 			namespace plugins {
 				namespace tiff {
-
-$FieldInfo _TIFFDeflateDecompressor_FieldInfo_[] = {
-	{"inflater", "Ljava/util/zip/Inflater;", nullptr, 0, $field(TIFFDeflateDecompressor, inflater)},
-	{"predictor", "I", nullptr, 0, $field(TIFFDeflateDecompressor, predictor)},
-	{}
-};
-
-$MethodInfo _TIFFDeflateDecompressor_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(TIFFDeflateDecompressor, init$, void, int32_t), "javax.imageio.IIOException"},
-	{"decodeRaw", "([BIII)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(TIFFDeflateDecompressor, decodeRaw, void, $bytes*, int32_t, int32_t, int32_t), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _TIFFDeflateDecompressor_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.imageio.plugins.tiff.TIFFDeflateDecompressor",
-	"com.sun.imageio.plugins.tiff.TIFFDecompressor",
-	nullptr,
-	_TIFFDeflateDecompressor_FieldInfo_,
-	_TIFFDeflateDecompressor_MethodInfo_
-};
-
-$Object* allocate$TIFFDeflateDecompressor($Class* clazz) {
-	return $of($alloc(TIFFDeflateDecompressor));
-}
 
 void TIFFDeflateDecompressor::init$(int32_t predictor) {
 	$TIFFDecompressor::init$();
@@ -64,12 +37,12 @@ void TIFFDeflateDecompressor::init$(int32_t predictor) {
 
 void TIFFDeflateDecompressor::decodeRaw($bytes* b, int32_t dstOffset, int32_t bitsPerPixel, int32_t scanlineStride) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		if (this->predictor == $BaselineTIFFTagSet::PREDICTOR_HORIZONTAL_DIFFERENCING) {
 			int32_t len = $nc(this->bitsPerSample)->length;
 			for (int32_t i = 0; i < len; ++i) {
-				if ($nc(this->bitsPerSample)->get(i) != 8) {
-					$throwNew($IIOException, $$str({$$str($nc(this->bitsPerSample)->get(i)), "-bit samples are not supported for Horizontal differencing Predictor"_s}));
+				if (this->bitsPerSample->get(i) != 8) {
+					$throwNew($IIOException, $$str({$$str(this->bitsPerSample->get(i)), "-bit samples are not supported for Horizontal differencing Predictor"_s}));
 				}
 			}
 		}
@@ -100,7 +73,7 @@ void TIFFDeflateDecompressor::decodeRaw($bytes* b, int32_t dstOffset, int32_t bi
 			for (int32_t j = 0; j < this->srcHeight; ++j) {
 				int32_t count = off;
 				for (int32_t i = step; i < samplesPerRow; ++i) {
-					(*$nc(buf))[count] += buf->get(count - step);
+					(*$nc(buf))[count] += $nc(buf)->get(count - step);
 					++count;
 				}
 				off += samplesPerRow;
@@ -121,7 +94,27 @@ TIFFDeflateDecompressor::TIFFDeflateDecompressor() {
 }
 
 $Class* TIFFDeflateDecompressor::load$($String* name, bool initialize) {
-	$loadClass(TIFFDeflateDecompressor, name, initialize, &_TIFFDeflateDecompressor_ClassInfo_, allocate$TIFFDeflateDecompressor);
+	$FieldInfo fieldInfos$$[] = {
+		{"inflater", "Ljava/util/zip/Inflater;", nullptr, 0, $field(TIFFDeflateDecompressor, inflater)},
+		{"predictor", "I", nullptr, 0, $field(TIFFDeflateDecompressor, predictor)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(TIFFDeflateDecompressor, init$, void, int32_t), "javax.imageio.IIOException"},
+		{"decodeRaw", "([BIII)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(TIFFDeflateDecompressor, decodeRaw, void, $bytes*, int32_t, int32_t, int32_t), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.imageio.plugins.tiff.TIFFDeflateDecompressor",
+		"com.sun.imageio.plugins.tiff.TIFFDecompressor",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TIFFDeflateDecompressor, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TIFFDeflateDecompressor);
+	});
 	return class$;
 }
 

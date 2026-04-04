@@ -1,5 +1,4 @@
 #include <org/xml/sax/helpers/AttributeListImpl.h>
-
 #include <java/lang/IndexOutOfBoundsException.h>
 #include <java/util/ArrayList.h>
 #include <java/util/List.h>
@@ -13,63 +12,12 @@ using $IndexOutOfBoundsException = ::java::lang::IndexOutOfBoundsException;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NamedAttribute = ::java::lang::NamedAttribute;
 using $ArrayList = ::java::util::ArrayList;
-using $List = ::java::util::List;
 using $AttributeList = ::org::xml::sax::AttributeList;
 
 namespace org {
 	namespace xml {
 		namespace sax {
 			namespace helpers {
-
-$NamedAttribute AttributeListImpl_Attribute_var$0[] = {
-	{"since", 's', "1.5"},
-	{}
-};
-
-$CompoundAttribute _AttributeListImpl_Annotations_[] = {
-	{"Ljava/lang/Deprecated;", AttributeListImpl_Attribute_var$0},
-	{}
-};
-
-$FieldInfo _AttributeListImpl_FieldInfo_[] = {
-	{"names", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/String;>;", 0, $field(AttributeListImpl, names)},
-	{"types", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/String;>;", 0, $field(AttributeListImpl, types)},
-	{"values", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/String;>;", 0, $field(AttributeListImpl, values)},
-	{}
-};
-
-$MethodInfo _AttributeListImpl_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AttributeListImpl, init$, void)},
-	{"<init>", "(Lorg/xml/sax/AttributeList;)V", nullptr, $PUBLIC, $method(AttributeListImpl, init$, void, $AttributeList*)},
-	{"addAttribute", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(AttributeListImpl, addAttribute, void, $String*, $String*, $String*)},
-	{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(AttributeListImpl, clear, void)},
-	{"getLength", "()I", nullptr, $PUBLIC, $virtualMethod(AttributeListImpl, getLength, int32_t)},
-	{"getName", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AttributeListImpl, getName, $String*, int32_t)},
-	{"getType", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AttributeListImpl, getType, $String*, int32_t)},
-	{"getType", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AttributeListImpl, getType, $String*, $String*)},
-	{"getValue", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AttributeListImpl, getValue, $String*, int32_t)},
-	{"getValue", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AttributeListImpl, getValue, $String*, $String*)},
-	{"removeAttribute", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(AttributeListImpl, removeAttribute, void, $String*)},
-	{"setAttributeList", "(Lorg/xml/sax/AttributeList;)V", nullptr, $PUBLIC, $virtualMethod(AttributeListImpl, setAttributeList, void, $AttributeList*)},
-	{}
-};
-
-$ClassInfo _AttributeListImpl_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"org.xml.sax.helpers.AttributeListImpl",
-	"java.lang.Object",
-	"org.xml.sax.AttributeList",
-	_AttributeListImpl_FieldInfo_,
-	_AttributeListImpl_MethodInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	_AttributeListImpl_Annotations_
-};
-
-$Object* allocate$AttributeListImpl($Class* clazz) {
-	return $of($alloc(AttributeListImpl));
-}
 
 void AttributeListImpl::init$() {
 	$set(this, names, $new($ArrayList));
@@ -85,7 +33,7 @@ void AttributeListImpl::init$($AttributeList* atts) {
 }
 
 void AttributeListImpl::setAttributeList($AttributeList* atts) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t count = $nc(atts)->getLength();
 	clear();
 	for (int32_t i = 0; i < count; ++i) {
@@ -104,7 +52,7 @@ void AttributeListImpl::addAttribute($String* name, $String* type, $String* valu
 void AttributeListImpl::removeAttribute($String* name) {
 	int32_t i = $nc(this->names)->indexOf(name);
 	if (i >= 0) {
-		$nc(this->names)->remove(i);
+		this->names->remove(i);
 		$nc(this->types)->remove(i);
 		$nc(this->values)->remove(i);
 	}
@@ -168,7 +116,50 @@ AttributeListImpl::AttributeListImpl() {
 }
 
 $Class* AttributeListImpl::load$($String* name, bool initialize) {
-	$loadClass(AttributeListImpl, name, initialize, &_AttributeListImpl_ClassInfo_, allocate$AttributeListImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"names", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/String;>;", 0, $field(AttributeListImpl, names)},
+		{"types", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/String;>;", 0, $field(AttributeListImpl, types)},
+		{"values", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/String;>;", 0, $field(AttributeListImpl, values)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AttributeListImpl, init$, void)},
+		{"<init>", "(Lorg/xml/sax/AttributeList;)V", nullptr, $PUBLIC, $method(AttributeListImpl, init$, void, $AttributeList*)},
+		{"addAttribute", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(AttributeListImpl, addAttribute, void, $String*, $String*, $String*)},
+		{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(AttributeListImpl, clear, void)},
+		{"getLength", "()I", nullptr, $PUBLIC, $virtualMethod(AttributeListImpl, getLength, int32_t)},
+		{"getName", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AttributeListImpl, getName, $String*, int32_t)},
+		{"getType", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AttributeListImpl, getType, $String*, int32_t)},
+		{"getType", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AttributeListImpl, getType, $String*, $String*)},
+		{"getValue", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AttributeListImpl, getValue, $String*, int32_t)},
+		{"getValue", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AttributeListImpl, getValue, $String*, $String*)},
+		{"removeAttribute", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(AttributeListImpl, removeAttribute, void, $String*)},
+		{"setAttributeList", "(Lorg/xml/sax/AttributeList;)V", nullptr, $PUBLIC, $virtualMethod(AttributeListImpl, setAttributeList, void, $AttributeList*)},
+		{}
+	};
+	$NamedAttribute annotations$$$namedAttribute[] = {
+		{"since", 's', "1.5"},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/lang/Deprecated;", annotations$$$namedAttribute},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"org.xml.sax.helpers.AttributeListImpl",
+		"java.lang.Object",
+		"org.xml.sax.AttributeList",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(AttributeListImpl, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AttributeListImpl);
+	});
 	return class$;
 }
 

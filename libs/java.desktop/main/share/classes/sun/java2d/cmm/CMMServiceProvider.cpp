@@ -1,5 +1,4 @@
 #include <sun/java2d/cmm/CMMServiceProvider.h>
-
 #include <sun/java2d/cmm/CMSManager.h>
 #include <sun/java2d/cmm/PCMM.h>
 #include <jcpp.h>
@@ -12,26 +11,6 @@ using $PCMM = ::sun::java2d::cmm::PCMM;
 namespace sun {
 	namespace java2d {
 		namespace cmm {
-
-$MethodInfo _CMMServiceProvider_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(CMMServiceProvider, init$, void)},
-	{"getColorManagementModule", "()Lsun/java2d/cmm/PCMM;", nullptr, $PUBLIC | $FINAL, $method(CMMServiceProvider, getColorManagementModule, $PCMM*)},
-	{"getModule", "()Lsun/java2d/cmm/PCMM;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(CMMServiceProvider, getModule, $PCMM*)},
-	{}
-};
-
-$ClassInfo _CMMServiceProvider_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"sun.java2d.cmm.CMMServiceProvider",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_CMMServiceProvider_MethodInfo_
-};
-
-$Object* allocate$CMMServiceProvider($Class* clazz) {
-	return $of($alloc(CMMServiceProvider));
-}
 
 void CMMServiceProvider::init$() {
 }
@@ -47,7 +26,23 @@ CMMServiceProvider::CMMServiceProvider() {
 }
 
 $Class* CMMServiceProvider::load$($String* name, bool initialize) {
-	$loadClass(CMMServiceProvider, name, initialize, &_CMMServiceProvider_ClassInfo_, allocate$CMMServiceProvider);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(CMMServiceProvider, init$, void)},
+		{"getColorManagementModule", "()Lsun/java2d/cmm/PCMM;", nullptr, $PUBLIC | $FINAL, $method(CMMServiceProvider, getColorManagementModule, $PCMM*)},
+		{"getModule", "()Lsun/java2d/cmm/PCMM;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(CMMServiceProvider, getModule, $PCMM*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"sun.java2d.cmm.CMMServiceProvider",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(CMMServiceProvider, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CMMServiceProvider);
+	});
 	return class$;
 }
 

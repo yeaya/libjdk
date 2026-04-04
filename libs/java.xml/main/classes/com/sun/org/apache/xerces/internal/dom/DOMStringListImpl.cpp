@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/dom/DOMStringListImpl.h>
-
 #include <java/util/ArrayList.h>
 #include <java/util/List.h>
 #include <jcpp.h>
@@ -17,34 +16,6 @@ namespace com {
 				namespace xerces {
 					namespace internal {
 						namespace dom {
-
-$FieldInfo _DOMStringListImpl_FieldInfo_[] = {
-	{"fStrings", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/String;>;", $PRIVATE | $FINAL, $field(DOMStringListImpl, fStrings)},
-	{}
-};
-
-$MethodInfo _DOMStringListImpl_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(DOMStringListImpl, init$, void)},
-	{"<init>", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/lang/String;>;)V", $PUBLIC, $method(DOMStringListImpl, init$, void, $List*)},
-	{"add", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(DOMStringListImpl, add, void, $String*)},
-	{"contains", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(DOMStringListImpl, contains, bool, $String*)},
-	{"getLength", "()I", nullptr, $PUBLIC, $virtualMethod(DOMStringListImpl, getLength, int32_t)},
-	{"item", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DOMStringListImpl, item, $String*, int32_t)},
-	{}
-};
-
-$ClassInfo _DOMStringListImpl_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.dom.DOMStringListImpl",
-	"java.lang.Object",
-	"org.w3c.dom.DOMStringList",
-	_DOMStringListImpl_FieldInfo_,
-	_DOMStringListImpl_MethodInfo_
-};
-
-$Object* allocate$DOMStringListImpl($Class* clazz) {
-	return $of($alloc(DOMStringListImpl));
-}
 
 void DOMStringListImpl::init$() {
 	$set(this, fStrings, $new($ArrayList));
@@ -78,7 +49,30 @@ DOMStringListImpl::DOMStringListImpl() {
 }
 
 $Class* DOMStringListImpl::load$($String* name, bool initialize) {
-	$loadClass(DOMStringListImpl, name, initialize, &_DOMStringListImpl_ClassInfo_, allocate$DOMStringListImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"fStrings", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/String;>;", $PRIVATE | $FINAL, $field(DOMStringListImpl, fStrings)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(DOMStringListImpl, init$, void)},
+		{"<init>", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/lang/String;>;)V", $PUBLIC, $method(DOMStringListImpl, init$, void, $List*)},
+		{"add", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(DOMStringListImpl, add, void, $String*)},
+		{"contains", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(DOMStringListImpl, contains, bool, $String*)},
+		{"getLength", "()I", nullptr, $PUBLIC, $virtualMethod(DOMStringListImpl, getLength, int32_t)},
+		{"item", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DOMStringListImpl, item, $String*, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.dom.DOMStringListImpl",
+		"java.lang.Object",
+		"org.w3c.dom.DOMStringList",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DOMStringListImpl, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DOMStringListImpl);
+	});
 	return class$;
 }
 

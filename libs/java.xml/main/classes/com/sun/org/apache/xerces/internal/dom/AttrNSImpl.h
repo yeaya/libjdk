@@ -33,6 +33,7 @@ class AttrNSImpl : public ::com::sun::org::apache::xerces::internal::dom::AttrIm
 	$class(AttrNSImpl, 0, ::com::sun::org::apache::xerces::internal::dom::AttrImpl)
 public:
 	AttrNSImpl();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(::com::sun::org::apache::xerces::internal::dom::CoreDocumentImpl* ownerDocument, $String* namespaceURI, $String* qualifiedName);
 	void init$(::com::sun::org::apache::xerces::internal::dom::CoreDocumentImpl* ownerDocument, $String* namespaceURI, $String* qualifiedName, $String* localName);
@@ -47,7 +48,7 @@ public:
 	virtual void rename($String* namespaceURI, $String* qualifiedName);
 	void setName($String* namespaceURI, $String* qname);
 	virtual void setPrefix($String* prefix) override;
-	static const int64_t serialVersionUID = (int64_t)0xF5261C13775AF8AA;
+	static const int64_t serialVersionUID = (int64_t)0xf5261c13775af8aa;
 	static $String* xmlnsURI;
 	static $String* xmlURI;
 	$String* namespaceURI = nullptr;

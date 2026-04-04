@@ -63,6 +63,7 @@ class JavacRoundEnvironment : public ::javax::annotation::processing::RoundEnvir
 	$class(JavacRoundEnvironment, 0, ::javax::annotation::processing::RoundEnvironment)
 public:
 	JavacRoundEnvironment();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(bool processingOver, bool errorRaised, ::java::util::Set* rootElements, ::com::sun::tools::javac::processing::JavacProcessingEnvironment* processingEnv);
 	::javax::lang::model::element::TypeElement* annotationToElement($Class* annotation);
 	virtual bool errorRaised() override;

@@ -1,9 +1,7 @@
 #include <java/awt/RadialGradientPaintContext.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/MultipleGradientPaint$ColorSpaceType.h>
 #include <java/awt/MultipleGradientPaint$CycleMethod.h>
-#include <java/awt/MultipleGradientPaint.h>
 #include <java/awt/MultipleGradientPaintContext.h>
 #include <java/awt/RadialGradientPaint.h>
 #include <java/awt/Rectangle.h>
@@ -24,7 +22,6 @@
 #undef Y
 
 using $ColorArray = $Array<::java::awt::Color>;
-using $MultipleGradientPaint = ::java::awt::MultipleGradientPaint;
 using $MultipleGradientPaint$ColorSpaceType = ::java::awt::MultipleGradientPaint$ColorSpaceType;
 using $MultipleGradientPaint$CycleMethod = ::java::awt::MultipleGradientPaint$CycleMethod;
 using $MultipleGradientPaintContext = ::java::awt::MultipleGradientPaintContext;
@@ -42,46 +39,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace java {
 	namespace awt {
-
-$FieldInfo _RadialGradientPaintContext_FieldInfo_[] = {
-	{"isSimpleFocus", "Z", nullptr, $PRIVATE, $field(RadialGradientPaintContext, isSimpleFocus)},
-	{"isNonCyclic", "Z", nullptr, $PRIVATE, $field(RadialGradientPaintContext, isNonCyclic)},
-	{"radius", "F", nullptr, $PRIVATE, $field(RadialGradientPaintContext, radius)},
-	{"centerX", "F", nullptr, $PRIVATE, $field(RadialGradientPaintContext, centerX)},
-	{"centerY", "F", nullptr, $PRIVATE, $field(RadialGradientPaintContext, centerY)},
-	{"focusX", "F", nullptr, $PRIVATE, $field(RadialGradientPaintContext, focusX)},
-	{"focusY", "F", nullptr, $PRIVATE, $field(RadialGradientPaintContext, focusY)},
-	{"radiusSq", "F", nullptr, $PRIVATE, $field(RadialGradientPaintContext, radiusSq)},
-	{"constA", "F", nullptr, $PRIVATE, $field(RadialGradientPaintContext, constA)},
-	{"constB", "F", nullptr, $PRIVATE, $field(RadialGradientPaintContext, constB)},
-	{"gDeltaDelta", "F", nullptr, $PRIVATE, $field(RadialGradientPaintContext, gDeltaDelta)},
-	{"trivial", "F", nullptr, $PRIVATE, $field(RadialGradientPaintContext, trivial)},
-	{"SCALEBACK", "F", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(RadialGradientPaintContext, SCALEBACK)},
-	{"SQRT_LUT_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(RadialGradientPaintContext, SQRT_LUT_SIZE)},
-	{"sqrtLut", "[F", nullptr, $PRIVATE | $STATIC, $staticField(RadialGradientPaintContext, sqrtLut)},
-	{}
-};
-
-$MethodInfo _RadialGradientPaintContext_MethodInfo_[] = {
-	{"<init>", "(Ljava/awt/RadialGradientPaint;Ljava/awt/image/ColorModel;Ljava/awt/Rectangle;Ljava/awt/geom/Rectangle2D;Ljava/awt/geom/AffineTransform;Ljava/awt/RenderingHints;FFFFF[F[Ljava/awt/Color;Ljava/awt/MultipleGradientPaint$CycleMethod;Ljava/awt/MultipleGradientPaint$ColorSpaceType;)V", nullptr, 0, $method(RadialGradientPaintContext, init$, void, $RadialGradientPaint*, $ColorModel*, $Rectangle*, $Rectangle2D*, $AffineTransform*, $RenderingHints*, float, float, float, float, float, $floats*, $ColorArray*, $MultipleGradientPaint$CycleMethod*, $MultipleGradientPaint$ColorSpaceType*)},
-	{"cyclicCircularGradientFillRaster", "([IIIIIII)V", nullptr, $PRIVATE, $method(RadialGradientPaintContext, cyclicCircularGradientFillRaster, void, $ints*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"fillRaster", "([IIIIIII)V", nullptr, $PROTECTED, $virtualMethod(RadialGradientPaintContext, fillRaster, void, $ints*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"simpleNonCyclicFillRaster", "([IIIIIII)V", nullptr, $PRIVATE, $method(RadialGradientPaintContext, simpleNonCyclicFillRaster, void, $ints*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _RadialGradientPaintContext_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.awt.RadialGradientPaintContext",
-	"java.awt.MultipleGradientPaintContext",
-	nullptr,
-	_RadialGradientPaintContext_FieldInfo_,
-	_RadialGradientPaintContext_MethodInfo_
-};
-
-$Object* allocate$RadialGradientPaintContext($Class* clazz) {
-	return $of($alloc(RadialGradientPaintContext));
-}
 
 float RadialGradientPaintContext::SCALEBACK = 0.0;
 $floats* RadialGradientPaintContext::sqrtLut = nullptr;
@@ -147,11 +104,11 @@ void RadialGradientPaintContext::simpleNonCyclicFillRaster($ints* pixels, int32_
 				float fIndex = gRel * RadialGradientPaintContext::SQRT_LUT_SIZE;
 				int32_t iIndex = $cast(int32_t, (fIndex));
 				float s0 = $nc(RadialGradientPaintContext::sqrtLut)->get(iIndex);
-				float s1 = $nc(RadialGradientPaintContext::sqrtLut)->get(iIndex + 1) - s0;
+				float s1 = RadialGradientPaintContext::sqrtLut->get(iIndex + 1) - s0;
 				fIndex = s0 + (fIndex - iIndex) * s1;
 				gIndex = $cast(int32_t, (fIndex * this->fastGradientArraySize));
 			}
-			$nc(pixels)->set(off + i, $nc(this->gradient)->get(gIndex));
+			$nc(pixels)->set(off + i, this->gradient->get(gIndex));
 			gRel += gDelta;
 			gDelta += gDeltaDelta;
 			++i;
@@ -226,12 +183,12 @@ void RadialGradientPaintContext::cyclicCircularGradientFillRaster($ints* pixels,
 	}
 }
 
-void clinit$RadialGradientPaintContext($Class* class$) {
+void RadialGradientPaintContext::clinit$($Class* clazz) {
 	RadialGradientPaintContext::SCALEBACK = 0.99f;
 	$assignStatic(RadialGradientPaintContext::sqrtLut, $new($floats, RadialGradientPaintContext::SQRT_LUT_SIZE + 1));
 	{
-		for (int32_t i = 0; i < $nc(RadialGradientPaintContext::sqrtLut)->length; ++i) {
-			$nc(RadialGradientPaintContext::sqrtLut)->set(i, (float)$Math::sqrt($div(i, ((float)RadialGradientPaintContext::SQRT_LUT_SIZE))));
+		for (int32_t i = 0; i < RadialGradientPaintContext::sqrtLut->length; ++i) {
+			RadialGradientPaintContext::sqrtLut->set(i, (float)$Math::sqrt($div(i, ((float)RadialGradientPaintContext::SQRT_LUT_SIZE))));
 		}
 	}
 }
@@ -240,7 +197,42 @@ RadialGradientPaintContext::RadialGradientPaintContext() {
 }
 
 $Class* RadialGradientPaintContext::load$($String* name, bool initialize) {
-	$loadClass(RadialGradientPaintContext, name, initialize, &_RadialGradientPaintContext_ClassInfo_, clinit$RadialGradientPaintContext, allocate$RadialGradientPaintContext);
+	$FieldInfo fieldInfos$$[] = {
+		{"isSimpleFocus", "Z", nullptr, $PRIVATE, $field(RadialGradientPaintContext, isSimpleFocus)},
+		{"isNonCyclic", "Z", nullptr, $PRIVATE, $field(RadialGradientPaintContext, isNonCyclic)},
+		{"radius", "F", nullptr, $PRIVATE, $field(RadialGradientPaintContext, radius)},
+		{"centerX", "F", nullptr, $PRIVATE, $field(RadialGradientPaintContext, centerX)},
+		{"centerY", "F", nullptr, $PRIVATE, $field(RadialGradientPaintContext, centerY)},
+		{"focusX", "F", nullptr, $PRIVATE, $field(RadialGradientPaintContext, focusX)},
+		{"focusY", "F", nullptr, $PRIVATE, $field(RadialGradientPaintContext, focusY)},
+		{"radiusSq", "F", nullptr, $PRIVATE, $field(RadialGradientPaintContext, radiusSq)},
+		{"constA", "F", nullptr, $PRIVATE, $field(RadialGradientPaintContext, constA)},
+		{"constB", "F", nullptr, $PRIVATE, $field(RadialGradientPaintContext, constB)},
+		{"gDeltaDelta", "F", nullptr, $PRIVATE, $field(RadialGradientPaintContext, gDeltaDelta)},
+		{"trivial", "F", nullptr, $PRIVATE, $field(RadialGradientPaintContext, trivial)},
+		{"SCALEBACK", "F", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(RadialGradientPaintContext, SCALEBACK)},
+		{"SQRT_LUT_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(RadialGradientPaintContext, SQRT_LUT_SIZE)},
+		{"sqrtLut", "[F", nullptr, $PRIVATE | $STATIC, $staticField(RadialGradientPaintContext, sqrtLut)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/RadialGradientPaint;Ljava/awt/image/ColorModel;Ljava/awt/Rectangle;Ljava/awt/geom/Rectangle2D;Ljava/awt/geom/AffineTransform;Ljava/awt/RenderingHints;FFFFF[F[Ljava/awt/Color;Ljava/awt/MultipleGradientPaint$CycleMethod;Ljava/awt/MultipleGradientPaint$ColorSpaceType;)V", nullptr, 0, $method(RadialGradientPaintContext, init$, void, $RadialGradientPaint*, $ColorModel*, $Rectangle*, $Rectangle2D*, $AffineTransform*, $RenderingHints*, float, float, float, float, float, $floats*, $ColorArray*, $MultipleGradientPaint$CycleMethod*, $MultipleGradientPaint$ColorSpaceType*)},
+		{"cyclicCircularGradientFillRaster", "([IIIIIII)V", nullptr, $PRIVATE, $method(RadialGradientPaintContext, cyclicCircularGradientFillRaster, void, $ints*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"fillRaster", "([IIIIIII)V", nullptr, $PROTECTED, $virtualMethod(RadialGradientPaintContext, fillRaster, void, $ints*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"simpleNonCyclicFillRaster", "([IIIIIII)V", nullptr, $PRIVATE, $method(RadialGradientPaintContext, simpleNonCyclicFillRaster, void, $ints*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.awt.RadialGradientPaintContext",
+		"java.awt.MultipleGradientPaintContext",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(RadialGradientPaintContext, name, initialize, &classInfo$$, RadialGradientPaintContext::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(RadialGradientPaintContext);
+	});
 	return class$;
 }
 

@@ -1,8 +1,6 @@
 #include <javax/swing/text/StyledEditorKit$ItalicAction.h>
-
 #include <java/awt/event/ActionEvent.h>
 #include <javax/swing/JEditorPane.h>
-#include <javax/swing/text/AttributeSet.h>
 #include <javax/swing/text/MutableAttributeSet.h>
 #include <javax/swing/text/SimpleAttributeSet.h>
 #include <javax/swing/text/StyleConstants.h>
@@ -15,7 +13,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $JEditorPane = ::javax::swing::JEditorPane;
-using $AttributeSet = ::javax::swing::text::AttributeSet;
 using $MutableAttributeSet = ::javax::swing::text::MutableAttributeSet;
 using $SimpleAttributeSet = ::javax::swing::text::SimpleAttributeSet;
 using $StyleConstants = ::javax::swing::text::StyleConstants;
@@ -26,44 +23,12 @@ namespace javax {
 	namespace swing {
 		namespace text {
 
-$MethodInfo _StyledEditorKit$ItalicAction_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(StyledEditorKit$ItalicAction, init$, void)},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(StyledEditorKit$ItalicAction, actionPerformed, void, $ActionEvent*)},
-	{}
-};
-
-$InnerClassInfo _StyledEditorKit$ItalicAction_InnerClassesInfo_[] = {
-	{"javax.swing.text.StyledEditorKit$ItalicAction", "javax.swing.text.StyledEditorKit", "ItalicAction", $PUBLIC | $STATIC},
-	{"javax.swing.text.StyledEditorKit$StyledTextAction", "javax.swing.text.StyledEditorKit", "StyledTextAction", $PUBLIC | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _StyledEditorKit$ItalicAction_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.text.StyledEditorKit$ItalicAction",
-	"javax.swing.text.StyledEditorKit$StyledTextAction",
-	nullptr,
-	nullptr,
-	_StyledEditorKit$ItalicAction_MethodInfo_,
-	nullptr,
-	nullptr,
-	_StyledEditorKit$ItalicAction_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.StyledEditorKit"
-};
-
-$Object* allocate$StyledEditorKit$ItalicAction($Class* clazz) {
-	return $of($alloc(StyledEditorKit$ItalicAction));
-}
-
 void StyledEditorKit$ItalicAction::init$() {
 	$StyledEditorKit$StyledTextAction::init$("font-italic"_s);
 }
 
 void StyledEditorKit$ItalicAction::actionPerformed($ActionEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JEditorPane, editor, getEditor(e));
 	if (editor != nullptr) {
 		$var($StyledEditorKit, kit, getStyledEditorKit(editor));
@@ -79,7 +44,34 @@ StyledEditorKit$ItalicAction::StyledEditorKit$ItalicAction() {
 }
 
 $Class* StyledEditorKit$ItalicAction::load$($String* name, bool initialize) {
-	$loadClass(StyledEditorKit$ItalicAction, name, initialize, &_StyledEditorKit$ItalicAction_ClassInfo_, allocate$StyledEditorKit$ItalicAction);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(StyledEditorKit$ItalicAction, init$, void)},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(StyledEditorKit$ItalicAction, actionPerformed, void, $ActionEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.StyledEditorKit$ItalicAction", "javax.swing.text.StyledEditorKit", "ItalicAction", $PUBLIC | $STATIC},
+		{"javax.swing.text.StyledEditorKit$StyledTextAction", "javax.swing.text.StyledEditorKit", "StyledTextAction", $PUBLIC | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.text.StyledEditorKit$ItalicAction",
+		"javax.swing.text.StyledEditorKit$StyledTextAction",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.StyledEditorKit"
+	};
+	$loadClass(StyledEditorKit$ItalicAction, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(StyledEditorKit$ItalicAction));
+	});
 	return class$;
 }
 

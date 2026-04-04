@@ -1,5 +1,4 @@
 #include <javax/sound/sampled/AudioFileFormat$Type.h>
-
 #include <java/util/Objects.h>
 #include <javax/sound/sampled/AudioFileFormat.h>
 #include <jcpp.h>
@@ -20,51 +19,6 @@ namespace javax {
 	namespace sound {
 		namespace sampled {
 
-$FieldInfo _AudioFileFormat$Type_FieldInfo_[] = {
-	{"WAVE", "Ljavax/sound/sampled/AudioFileFormat$Type;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AudioFileFormat$Type, WAVE)},
-	{"AU", "Ljavax/sound/sampled/AudioFileFormat$Type;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AudioFileFormat$Type, AU)},
-	{"AIFF", "Ljavax/sound/sampled/AudioFileFormat$Type;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AudioFileFormat$Type, AIFF)},
-	{"AIFC", "Ljavax/sound/sampled/AudioFileFormat$Type;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AudioFileFormat$Type, AIFC)},
-	{"SND", "Ljavax/sound/sampled/AudioFileFormat$Type;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AudioFileFormat$Type, SND)},
-	{"name", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(AudioFileFormat$Type, name)},
-	{"extension", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(AudioFileFormat$Type, extension)},
-	{}
-};
-
-$MethodInfo _AudioFileFormat$Type_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(AudioFileFormat$Type, init$, void, $String*, $String*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(AudioFileFormat$Type, equals, bool, Object$*)},
-	{"getExtension", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AudioFileFormat$Type, getExtension, $String*)},
-	{"hashCode", "()I", nullptr, $PUBLIC | $FINAL, $virtualMethod(AudioFileFormat$Type, hashCode, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(AudioFileFormat$Type, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _AudioFileFormat$Type_InnerClassesInfo_[] = {
-	{"javax.sound.sampled.AudioFileFormat$Type", "javax.sound.sampled.AudioFileFormat", "Type", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _AudioFileFormat$Type_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.sound.sampled.AudioFileFormat$Type",
-	"java.lang.Object",
-	nullptr,
-	_AudioFileFormat$Type_FieldInfo_,
-	_AudioFileFormat$Type_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AudioFileFormat$Type_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.sound.sampled.AudioFileFormat"
-};
-
-$Object* allocate$AudioFileFormat$Type($Class* clazz) {
-	return $of($alloc(AudioFileFormat$Type));
-}
-
 AudioFileFormat$Type* AudioFileFormat$Type::WAVE = nullptr;
 AudioFileFormat$Type* AudioFileFormat$Type::AU = nullptr;
 AudioFileFormat$Type* AudioFileFormat$Type::AIFF = nullptr;
@@ -83,11 +37,11 @@ bool AudioFileFormat$Type::equals(Object$* obj) {
 	if (!($instanceOf(AudioFileFormat$Type, obj))) {
 		return false;
 	}
-	return $Objects::equals(this->name, $nc(($cast(AudioFileFormat$Type, obj)))->name);
+	return $Objects::equals(this->name, $nc($cast(AudioFileFormat$Type, obj))->name);
 }
 
 int32_t AudioFileFormat$Type::hashCode() {
-	return this->name != nullptr ? $nc(this->name)->hashCode() : 0;
+	return this->name != nullptr ? this->name->hashCode() : 0;
 }
 
 $String* AudioFileFormat$Type::toString() {
@@ -98,7 +52,7 @@ $String* AudioFileFormat$Type::getExtension() {
 	return this->extension;
 }
 
-void clinit$AudioFileFormat$Type($Class* class$) {
+void AudioFileFormat$Type::clinit$($Class* clazz) {
 	$assignStatic(AudioFileFormat$Type::WAVE, $new(AudioFileFormat$Type, "WAVE"_s, "wav"_s));
 	$assignStatic(AudioFileFormat$Type::AU, $new(AudioFileFormat$Type, "AU"_s, "au"_s));
 	$assignStatic(AudioFileFormat$Type::AIFF, $new(AudioFileFormat$Type, "AIFF"_s, "aif"_s));
@@ -110,7 +64,46 @@ AudioFileFormat$Type::AudioFileFormat$Type() {
 }
 
 $Class* AudioFileFormat$Type::load$($String* name, bool initialize) {
-	$loadClass(AudioFileFormat$Type, name, initialize, &_AudioFileFormat$Type_ClassInfo_, clinit$AudioFileFormat$Type, allocate$AudioFileFormat$Type);
+	$FieldInfo fieldInfos$$[] = {
+		{"WAVE", "Ljavax/sound/sampled/AudioFileFormat$Type;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AudioFileFormat$Type, WAVE)},
+		{"AU", "Ljavax/sound/sampled/AudioFileFormat$Type;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AudioFileFormat$Type, AU)},
+		{"AIFF", "Ljavax/sound/sampled/AudioFileFormat$Type;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AudioFileFormat$Type, AIFF)},
+		{"AIFC", "Ljavax/sound/sampled/AudioFileFormat$Type;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AudioFileFormat$Type, AIFC)},
+		{"SND", "Ljavax/sound/sampled/AudioFileFormat$Type;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AudioFileFormat$Type, SND)},
+		{"name", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(AudioFileFormat$Type, name)},
+		{"extension", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(AudioFileFormat$Type, extension)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(AudioFileFormat$Type, init$, void, $String*, $String*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(AudioFileFormat$Type, equals, bool, Object$*)},
+		{"getExtension", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AudioFileFormat$Type, getExtension, $String*)},
+		{"hashCode", "()I", nullptr, $PUBLIC | $FINAL, $virtualMethod(AudioFileFormat$Type, hashCode, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(AudioFileFormat$Type, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.sound.sampled.AudioFileFormat$Type", "javax.sound.sampled.AudioFileFormat", "Type", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.sound.sampled.AudioFileFormat$Type",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.sound.sampled.AudioFileFormat"
+	};
+	$loadClass(AudioFileFormat$Type, name, initialize, &classInfo$$, AudioFileFormat$Type::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(AudioFileFormat$Type);
+	});
 	return class$;
 }
 

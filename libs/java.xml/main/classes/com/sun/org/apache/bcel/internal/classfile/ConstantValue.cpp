@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/bcel/internal/classfile/ConstantValue.h>
-
 #include <com/sun/org/apache/bcel/internal/Const.h>
 #include <com/sun/org/apache/bcel/internal/classfile/Attribute.h>
 #include <com/sun/org/apache/bcel/internal/classfile/Constant.h>
@@ -46,37 +45,6 @@ namespace com {
 					namespace internal {
 						namespace classfile {
 
-$FieldInfo _ConstantValue_FieldInfo_[] = {
-	{"constantValueIndex", "I", nullptr, $PRIVATE, $field(ConstantValue, constantValueIndex)},
-	{}
-};
-
-$MethodInfo _ConstantValue_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/org/apache/bcel/internal/classfile/ConstantValue;)V", nullptr, $PUBLIC, $method(ConstantValue, init$, void, ConstantValue*)},
-	{"<init>", "(IILjava/io/DataInput;Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;)V", nullptr, 0, $method(ConstantValue, init$, void, int32_t, int32_t, $DataInput*, $ConstantPool*), "java.io.IOException"},
-	{"<init>", "(IIILcom/sun/org/apache/bcel/internal/classfile/ConstantPool;)V", nullptr, $PUBLIC, $method(ConstantValue, init$, void, int32_t, int32_t, int32_t, $ConstantPool*)},
-	{"accept", "(Lcom/sun/org/apache/bcel/internal/classfile/Visitor;)V", nullptr, $PUBLIC, $virtualMethod(ConstantValue, accept, void, $Visitor*)},
-	{"copy", "(Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;)Lcom/sun/org/apache/bcel/internal/classfile/Attribute;", nullptr, $PUBLIC, $virtualMethod(ConstantValue, copy, $Attribute*, $ConstantPool*)},
-	{"dump", "(Ljava/io/DataOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(ConstantValue, dump, void, $DataOutputStream*), "java.io.IOException"},
-	{"getConstantValueIndex", "()I", nullptr, $PUBLIC, $method(ConstantValue, getConstantValueIndex, int32_t)},
-	{"setConstantValueIndex", "(I)V", nullptr, $PUBLIC, $method(ConstantValue, setConstantValueIndex, void, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ConstantValue, toString, $String*)},
-	{}
-};
-
-$ClassInfo _ConstantValue_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.org.apache.bcel.internal.classfile.ConstantValue",
-	"com.sun.org.apache.bcel.internal.classfile.Attribute",
-	nullptr,
-	_ConstantValue_FieldInfo_,
-	_ConstantValue_MethodInfo_
-};
-
-$Object* allocate$ConstantValue($Class* clazz) {
-	return $of($alloc(ConstantValue));
-}
-
 void ConstantValue::init$(ConstantValue* c) {
 	int32_t var$0 = $nc(c)->getNameIndex();
 	int32_t var$1 = c->getLength();
@@ -111,42 +79,30 @@ void ConstantValue::setConstantValueIndex(int32_t constantValueIndex) {
 }
 
 $String* ConstantValue::toString() {
-	$useLocalCurrentObjectStackCache();
-	$var($Constant, c, $nc($($Attribute::getConstantPool()))->getConstant(this->constantValueIndex));
+	$useLocalObjectStack();
+	$var($Constant, c, $$nc($Attribute::getConstantPool())->getConstant(this->constantValueIndex));
 	$var($String, buf, nullptr);
 	int32_t i = 0;
 	switch ($nc(c)->getTag()) {
 	case $Const::CONSTANT_Long:
-		{
-			$assign(buf, $String::valueOf($nc(($cast($ConstantLong, c)))->getBytes()));
-			break;
-		}
+		$assign(buf, $String::valueOf($cast($ConstantLong, c)->getBytes()));
+		break;
 	case $Const::CONSTANT_Float:
-		{
-			$assign(buf, $String::valueOf($nc(($cast($ConstantFloat, c)))->getBytes()));
-			break;
-		}
+		$assign(buf, $String::valueOf($cast($ConstantFloat, c)->getBytes()));
+		break;
 	case $Const::CONSTANT_Double:
-		{
-			$assign(buf, $String::valueOf($nc(($cast($ConstantDouble, c)))->getBytes()));
-			break;
-		}
+		$assign(buf, $String::valueOf($cast($ConstantDouble, c)->getBytes()));
+		break;
 	case $Const::CONSTANT_Integer:
-		{
-			$assign(buf, $String::valueOf($nc(($cast($ConstantInteger, c)))->getBytes()));
-			break;
-		}
+		$assign(buf, $String::valueOf($cast($ConstantInteger, c)->getBytes()));
+		break;
 	case $Const::CONSTANT_String:
-		{
-			i = $nc(($cast($ConstantString, c)))->getStringIndex();
-			$assign(c, $nc($($Attribute::getConstantPool()))->getConstant(i, $Const::CONSTANT_Utf8));
-			$assign(buf, $str({"\""_s, $($Utility::convertString($($nc(($cast($ConstantUtf8, c)))->getBytes()))), "\""_s}));
-			break;
-		}
+		i = $cast($ConstantString, c)->getStringIndex();
+		$assign(c, $$nc($Attribute::getConstantPool())->getConstant(i, $Const::CONSTANT_Utf8));
+		$assign(buf, $str({"\""_s, $($Utility::convertString($($nc($cast($ConstantUtf8, c))->getBytes()))), "\""_s}));
+		break;
 	default:
-		{
-			$throwNew($IllegalStateException, $$str({"Type of ConstValue invalid: "_s, c}));
-		}
+		$throwNew($IllegalStateException, $$str({"Type of ConstValue invalid: "_s, c}));
 	}
 	return buf;
 }
@@ -161,7 +117,33 @@ ConstantValue::ConstantValue() {
 }
 
 $Class* ConstantValue::load$($String* name, bool initialize) {
-	$loadClass(ConstantValue, name, initialize, &_ConstantValue_ClassInfo_, allocate$ConstantValue);
+	$FieldInfo fieldInfos$$[] = {
+		{"constantValueIndex", "I", nullptr, $PRIVATE, $field(ConstantValue, constantValueIndex)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/org/apache/bcel/internal/classfile/ConstantValue;)V", nullptr, $PUBLIC, $method(ConstantValue, init$, void, ConstantValue*)},
+		{"<init>", "(IILjava/io/DataInput;Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;)V", nullptr, 0, $method(ConstantValue, init$, void, int32_t, int32_t, $DataInput*, $ConstantPool*), "java.io.IOException"},
+		{"<init>", "(IIILcom/sun/org/apache/bcel/internal/classfile/ConstantPool;)V", nullptr, $PUBLIC, $method(ConstantValue, init$, void, int32_t, int32_t, int32_t, $ConstantPool*)},
+		{"accept", "(Lcom/sun/org/apache/bcel/internal/classfile/Visitor;)V", nullptr, $PUBLIC, $virtualMethod(ConstantValue, accept, void, $Visitor*)},
+		{"copy", "(Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;)Lcom/sun/org/apache/bcel/internal/classfile/Attribute;", nullptr, $PUBLIC, $virtualMethod(ConstantValue, copy, $Attribute*, $ConstantPool*)},
+		{"dump", "(Ljava/io/DataOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(ConstantValue, dump, void, $DataOutputStream*), "java.io.IOException"},
+		{"getConstantValueIndex", "()I", nullptr, $PUBLIC, $method(ConstantValue, getConstantValueIndex, int32_t)},
+		{"setConstantValueIndex", "(I)V", nullptr, $PUBLIC, $method(ConstantValue, setConstantValueIndex, void, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ConstantValue, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.org.apache.bcel.internal.classfile.ConstantValue",
+		"com.sun.org.apache.bcel.internal.classfile.Attribute",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ConstantValue, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ConstantValue));
+	});
 	return class$;
 }
 

@@ -23,6 +23,7 @@ class SpNegoToken$NegoResult : public ::java::lang::Enum {
 public:
 	SpNegoToken$NegoResult();
 	static $Array<::sun::security::jgss::spnego::SpNegoToken$NegoResult>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::sun::security::jgss::spnego::SpNegoToken$NegoResult* valueOf($String* name);
 	static $Array<::sun::security::jgss::spnego::SpNegoToken$NegoResult>* values();

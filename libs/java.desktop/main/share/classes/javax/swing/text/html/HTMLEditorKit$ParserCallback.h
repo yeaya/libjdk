@@ -34,6 +34,7 @@ class $export HTMLEditorKit$ParserCallback : public ::java::lang::Object {
 	$class(HTMLEditorKit$ParserCallback, 0, ::java::lang::Object)
 public:
 	HTMLEditorKit$ParserCallback();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void flush();
 	virtual void handleComment($chars* data, int32_t pos);

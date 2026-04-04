@@ -1,5 +1,4 @@
 #include <javax/swing/tree/VariableHeightLayoutCache$TreeStateNode.h>
-
 #include <java/awt/Rectangle.h>
 #include <java/util/Enumeration.h>
 #include <java/util/Vector.h>
@@ -20,96 +19,15 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Enumeration = ::java::util::Enumeration;
-using $Vector = ::java::util::Vector;
 using $DefaultMutableTreeNode = ::javax::swing::tree::DefaultMutableTreeNode;
 using $MutableTreeNode = ::javax::swing::tree::MutableTreeNode;
 using $TreeModel = ::javax::swing::tree::TreeModel;
 using $TreePath = ::javax::swing::tree::TreePath;
-using $TreeSelectionModel = ::javax::swing::tree::TreeSelectionModel;
 using $VariableHeightLayoutCache = ::javax::swing::tree::VariableHeightLayoutCache;
 
 namespace javax {
 	namespace swing {
 		namespace tree {
-
-$FieldInfo _VariableHeightLayoutCache$TreeStateNode_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/tree/VariableHeightLayoutCache;", nullptr, $FINAL | $SYNTHETIC, $field(VariableHeightLayoutCache$TreeStateNode, this$0)},
-	{"preferredWidth", "I", nullptr, $PROTECTED, $field(VariableHeightLayoutCache$TreeStateNode, preferredWidth)},
-	{"preferredHeight", "I", nullptr, $PROTECTED, $field(VariableHeightLayoutCache$TreeStateNode, preferredHeight)},
-	{"xOrigin", "I", nullptr, $PROTECTED, $field(VariableHeightLayoutCache$TreeStateNode, xOrigin)},
-	{"yOrigin", "I", nullptr, $PROTECTED, $field(VariableHeightLayoutCache$TreeStateNode, yOrigin)},
-	{"expanded", "Z", nullptr, $PROTECTED, $field(VariableHeightLayoutCache$TreeStateNode, expanded)},
-	{"hasBeenExpanded", "Z", nullptr, $PROTECTED, $field(VariableHeightLayoutCache$TreeStateNode, hasBeenExpanded$)},
-	{"path", "Ljavax/swing/tree/TreePath;", nullptr, $PROTECTED, $field(VariableHeightLayoutCache$TreeStateNode, path)},
-	{}
-};
-
-$MethodInfo _VariableHeightLayoutCache$TreeStateNode_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/tree/VariableHeightLayoutCache;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(VariableHeightLayoutCache$TreeStateNode, init$, void, $VariableHeightLayoutCache*, Object$*)},
-	{"children", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljavax/swing/tree/TreeNode;>;", $PUBLIC, $virtualMethod(VariableHeightLayoutCache$TreeStateNode, children, $Enumeration*)},
-	{"collapse", "()V", nullptr, $PUBLIC, $virtualMethod(VariableHeightLayoutCache$TreeStateNode, collapse, void)},
-	{"collapse", "(Z)V", nullptr, $PROTECTED, $virtualMethod(VariableHeightLayoutCache$TreeStateNode, collapse, void, bool)},
-	{"deepMarkSizeInvalid", "()V", nullptr, $PROTECTED, $virtualMethod(VariableHeightLayoutCache$TreeStateNode, deepMarkSizeInvalid, void)},
-	{"didAdjustTree", "()V", nullptr, $PROTECTED, $virtualMethod(VariableHeightLayoutCache$TreeStateNode, didAdjustTree, void)},
-	{"expand", "()V", nullptr, $PUBLIC, $virtualMethod(VariableHeightLayoutCache$TreeStateNode, expand, void)},
-	{"expand", "(Z)V", nullptr, $PROTECTED, $virtualMethod(VariableHeightLayoutCache$TreeStateNode, expand, void, bool)},
-	{"expandParentAndReceiver", "()V", nullptr, $PROTECTED, $virtualMethod(VariableHeightLayoutCache$TreeStateNode, expandParentAndReceiver, void)},
-	{"getLastVisibleNode", "()Ljavax/swing/tree/VariableHeightLayoutCache$TreeStateNode;", nullptr, $PUBLIC, $virtualMethod(VariableHeightLayoutCache$TreeStateNode, getLastVisibleNode, VariableHeightLayoutCache$TreeStateNode*)},
-	{"getLoadedChildren", "(Z)Ljava/util/Enumeration;", "(Z)Ljava/util/Enumeration<Ljavax/swing/tree/TreeNode;>;", $PROTECTED, $virtualMethod(VariableHeightLayoutCache$TreeStateNode, getLoadedChildren, $Enumeration*, bool)},
-	{"getModelChildCount", "()I", nullptr, $PUBLIC, $virtualMethod(VariableHeightLayoutCache$TreeStateNode, getModelChildCount, int32_t)},
-	{"getNodeBounds", "(Ljava/awt/Rectangle;)Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(VariableHeightLayoutCache$TreeStateNode, getNodeBounds, $Rectangle*, $Rectangle*)},
-	{"getPreferredHeight", "()I", nullptr, $PUBLIC, $virtualMethod(VariableHeightLayoutCache$TreeStateNode, getPreferredHeight, int32_t)},
-	{"getPreferredWidth", "()I", nullptr, $PUBLIC, $virtualMethod(VariableHeightLayoutCache$TreeStateNode, getPreferredWidth, int32_t)},
-	{"getRow", "()I", nullptr, $PUBLIC, $virtualMethod(VariableHeightLayoutCache$TreeStateNode, getRow, int32_t)},
-	{"getTreePath", "()Ljavax/swing/tree/TreePath;", nullptr, $PUBLIC, $virtualMethod(VariableHeightLayoutCache$TreeStateNode, getTreePath, $TreePath*)},
-	{"getValue", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(VariableHeightLayoutCache$TreeStateNode, getValue, $Object*)},
-	{"getVisibleChildCount", "()I", nullptr, $PUBLIC, $virtualMethod(VariableHeightLayoutCache$TreeStateNode, getVisibleChildCount, int32_t)},
-	{"getXOrigin", "()I", nullptr, $PUBLIC, $virtualMethod(VariableHeightLayoutCache$TreeStateNode, getXOrigin, int32_t)},
-	{"getYOrigin", "()I", nullptr, $PUBLIC, $virtualMethod(VariableHeightLayoutCache$TreeStateNode, getYOrigin, int32_t)},
-	{"hasBeenExpanded", "()Z", nullptr, $PUBLIC, $virtualMethod(VariableHeightLayoutCache$TreeStateNode, hasBeenExpanded, bool)},
-	{"hasValidSize", "()Z", nullptr, $PUBLIC, $virtualMethod(VariableHeightLayoutCache$TreeStateNode, hasValidSize, bool)},
-	{"isExpanded", "()Z", nullptr, $PUBLIC, $virtualMethod(VariableHeightLayoutCache$TreeStateNode, isExpanded, bool)},
-	{"isLeaf", "()Z", nullptr, $PUBLIC, $virtualMethod(VariableHeightLayoutCache$TreeStateNode, isLeaf, bool)},
-	{"isVisible", "()Z", nullptr, $PUBLIC, $virtualMethod(VariableHeightLayoutCache$TreeStateNode, isVisible, bool)},
-	{"makeVisible", "()V", nullptr, $PUBLIC, $virtualMethod(VariableHeightLayoutCache$TreeStateNode, makeVisible, void)},
-	{"markSizeInvalid", "()V", nullptr, $PROTECTED, $virtualMethod(VariableHeightLayoutCache$TreeStateNode, markSizeInvalid, void)},
-	{"remove", "(I)V", nullptr, $PUBLIC, $virtualMethod(VariableHeightLayoutCache$TreeStateNode, remove, void, int32_t)},
-	{"removeFromMapping", "()V", nullptr, $PROTECTED, $virtualMethod(VariableHeightLayoutCache$TreeStateNode, removeFromMapping, void)},
-	{"resetChildrenPaths", "(Ljavax/swing/tree/TreePath;)V", nullptr, $PROTECTED, $virtualMethod(VariableHeightLayoutCache$TreeStateNode, resetChildrenPaths, void, $TreePath*)},
-	{"setParent", "(Ljavax/swing/tree/MutableTreeNode;)V", nullptr, $PUBLIC, $virtualMethod(VariableHeightLayoutCache$TreeStateNode, setParent, void, $MutableTreeNode*)},
-	{"setUserObject", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(VariableHeightLayoutCache$TreeStateNode, setUserObject, void, Object$*)},
-	{"setYOrigin", "(I)V", nullptr, $PROTECTED, $virtualMethod(VariableHeightLayoutCache$TreeStateNode, setYOrigin, void, int32_t)},
-	{"shiftYOriginBy", "(I)V", nullptr, $PROTECTED, $virtualMethod(VariableHeightLayoutCache$TreeStateNode, shiftYOriginBy, void, int32_t)},
-	{"toggleExpanded", "()V", nullptr, $PUBLIC, $virtualMethod(VariableHeightLayoutCache$TreeStateNode, toggleExpanded, void)},
-	{"updatePreferredSize", "()V", nullptr, $PROTECTED, $virtualMethod(VariableHeightLayoutCache$TreeStateNode, updatePreferredSize, void)},
-	{"updatePreferredSize", "(I)V", nullptr, $PROTECTED, $virtualMethod(VariableHeightLayoutCache$TreeStateNode, updatePreferredSize, void, int32_t)},
-	{}
-};
-
-$InnerClassInfo _VariableHeightLayoutCache$TreeStateNode_InnerClassesInfo_[] = {
-	{"javax.swing.tree.VariableHeightLayoutCache$TreeStateNode", "javax.swing.tree.VariableHeightLayoutCache", "TreeStateNode", $PRIVATE},
-	{}
-};
-
-$ClassInfo _VariableHeightLayoutCache$TreeStateNode_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.tree.VariableHeightLayoutCache$TreeStateNode",
-	"javax.swing.tree.DefaultMutableTreeNode",
-	nullptr,
-	_VariableHeightLayoutCache$TreeStateNode_FieldInfo_,
-	_VariableHeightLayoutCache$TreeStateNode_MethodInfo_,
-	nullptr,
-	nullptr,
-	_VariableHeightLayoutCache$TreeStateNode_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.tree.VariableHeightLayoutCache"
-};
-
-$Object* allocate$VariableHeightLayoutCache$TreeStateNode($Class* clazz) {
-	return $of($alloc(VariableHeightLayoutCache$TreeStateNode));
-}
 
 void VariableHeightLayoutCache$TreeStateNode::init$($VariableHeightLayoutCache* this$0, Object$* value) {
 	$set(this, this$0, this$0);
@@ -117,10 +35,10 @@ void VariableHeightLayoutCache$TreeStateNode::init$($VariableHeightLayoutCache* 
 }
 
 void VariableHeightLayoutCache$TreeStateNode::setParent($MutableTreeNode* parent) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$DefaultMutableTreeNode::setParent(parent);
 	if (parent != nullptr) {
-		$set(this, path, $nc($($nc(($cast(VariableHeightLayoutCache$TreeStateNode, parent)))->getTreePath()))->pathByAddingChild($(getUserObject())));
+		$set(this, path, $$nc($cast(VariableHeightLayoutCache$TreeStateNode, parent)->getTreePath())->pathByAddingChild($(getUserObject())));
 		this->this$0->addMapping(this);
 	}
 }
@@ -132,7 +50,7 @@ void VariableHeightLayoutCache$TreeStateNode::remove(int32_t childIndex) {
 }
 
 void VariableHeightLayoutCache$TreeStateNode::setUserObject(Object$* o) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$DefaultMutableTreeNode::setUserObject(o);
 	if (this->path != nullptr) {
 		$var(VariableHeightLayoutCache$TreeStateNode, parent, $cast(VariableHeightLayoutCache$TreeStateNode, getParent()));
@@ -154,8 +72,8 @@ $Enumeration* VariableHeightLayoutCache$TreeStateNode::children() {
 }
 
 bool VariableHeightLayoutCache$TreeStateNode::isLeaf() {
-	$useLocalCurrentObjectStackCache();
-	return $nc($(this->this$0->getModel()))->isLeaf($(this->getValue()));
+	$useLocalObjectStack();
+	return $$nc(this->this$0->getModel())->isLeaf($(this->getValue()));
 }
 
 $Rectangle* VariableHeightLayoutCache$TreeStateNode::getNodeBounds($Rectangle* placeIn$renamed) {
@@ -166,7 +84,7 @@ $Rectangle* VariableHeightLayoutCache$TreeStateNode::getNodeBounds($Rectangle* p
 		int32_t var$2 = getPreferredWidth();
 		$assign(placeIn, $new($Rectangle, var$0, var$1, var$2, getPreferredHeight()));
 	} else {
-		$nc(placeIn)->x = getXOrigin();
+		placeIn->x = getXOrigin();
 		placeIn->y = getYOrigin();
 		placeIn->width = getPreferredWidth();
 		placeIn->height = getPreferredHeight();
@@ -248,21 +166,21 @@ bool VariableHeightLayoutCache$TreeStateNode::isVisible() {
 }
 
 int32_t VariableHeightLayoutCache$TreeStateNode::getModelChildCount() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->hasBeenExpanded$) {
 		return $DefaultMutableTreeNode::getChildCount();
 	}
-	return $nc($(this->this$0->getModel()))->getChildCount($(getValue()));
+	return $$nc(this->this$0->getModel())->getChildCount($(getValue()));
 }
 
 int32_t VariableHeightLayoutCache$TreeStateNode::getVisibleChildCount() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t childCount = 0;
 	if (isExpanded()) {
 		int32_t maxCounter = getChildCount();
 		childCount += maxCounter;
 		for (int32_t counter = 0; counter < maxCounter; ++counter) {
-			childCount += $nc(($cast(VariableHeightLayoutCache$TreeStateNode, $(getChildAt(counter)))))->getVisibleChildCount();
+			childCount += $$sure(VariableHeightLayoutCache$TreeStateNode, getChildAt(counter))->getVisibleChildCount();
 		}
 	}
 	return childCount;
@@ -292,7 +210,7 @@ void VariableHeightLayoutCache$TreeStateNode::collapse() {
 }
 
 $Object* VariableHeightLayoutCache$TreeStateNode::getValue() {
-	return $of(getUserObject());
+	return getUserObject();
 }
 
 $TreePath* VariableHeightLayoutCache$TreeStateNode::getTreePath() {
@@ -300,16 +218,16 @@ $TreePath* VariableHeightLayoutCache$TreeStateNode::getTreePath() {
 }
 
 void VariableHeightLayoutCache$TreeStateNode::resetChildrenPaths($TreePath* parentPath) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->this$0->removeMapping(this);
 	if (parentPath == nullptr) {
 		$set(this, path, $new($TreePath, $(getUserObject())));
 	} else {
-		$set(this, path, $nc(parentPath)->pathByAddingChild($(getUserObject())));
+		$set(this, path, parentPath->pathByAddingChild($(getUserObject())));
 	}
 	this->this$0->addMapping(this);
 	for (int32_t counter = getChildCount() - 1; counter >= 0; --counter) {
-		$nc(($cast(VariableHeightLayoutCache$TreeStateNode, $(getChildAt(counter)))))->resetChildrenPaths(this->path);
+		$$sure(VariableHeightLayoutCache$TreeStateNode, getChildAt(counter))->resetChildrenPaths(this->path);
 	}
 }
 
@@ -326,12 +244,11 @@ void VariableHeightLayoutCache$TreeStateNode::updatePreferredSize() {
 }
 
 void VariableHeightLayoutCache$TreeStateNode::updatePreferredSize(int32_t index) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, var$0, this->getUserObject());
-	int32_t var$1 = index;
-	int32_t var$2 = getLevel();
-	$var($Rectangle, bounds, this->this$0->getNodeDimensions(var$0, var$1, var$2, isExpanded(), this->this$0->boundsBuffer));
-	if (bounds == nullptr || $nc(bounds)->height == 0) {
+	int32_t var$1 = getLevel();
+	$var($Rectangle, bounds, this->this$0->getNodeDimensions(var$0, index, var$1, isExpanded(), this->this$0->boundsBuffer));
+	if (bounds == nullptr || bounds->height == 0) {
 		this->xOrigin = 0;
 		this->preferredWidth = (this->preferredHeight = 0);
 		this->this$0->updateNodeSizes$ = true;
@@ -351,15 +268,15 @@ void VariableHeightLayoutCache$TreeStateNode::markSizeInvalid() {
 }
 
 void VariableHeightLayoutCache$TreeStateNode::deepMarkSizeInvalid() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	markSizeInvalid();
 	for (int32_t counter = getChildCount() - 1; counter >= 0; --counter) {
-		$nc(($cast(VariableHeightLayoutCache$TreeStateNode, $(getChildAt(counter)))))->deepMarkSizeInvalid();
+		$$sure(VariableHeightLayoutCache$TreeStateNode, getChildAt(counter))->deepMarkSizeInvalid();
 	}
 }
 
 $Enumeration* VariableHeightLayoutCache$TreeStateNode::getLoadedChildren(bool createIfNeeded) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!createIfNeeded || this->hasBeenExpanded$) {
 		return $DefaultMutableTreeNode::children();
 	}
@@ -398,7 +315,7 @@ void VariableHeightLayoutCache$TreeStateNode::expandParentAndReceiver() {
 }
 
 void VariableHeightLayoutCache$TreeStateNode::expand(bool adjustTree) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool var$0 = !isExpanded();
 	if (var$0 && !isLeaf()) {
 		bool isFixed = this->this$0->isFixedRowHeight();
@@ -456,20 +373,20 @@ void VariableHeightLayoutCache$TreeStateNode::expand(bool adjustTree) {
 				int32_t var$3 = var$4 - var$5;
 				int32_t heightDiff = var$3 + (getPreferredHeight() - startHeight);
 				for (counter = $nc(this->this$0->visibleNodes)->size() - 1; counter >= i; --counter) {
-					$nc(($cast(VariableHeightLayoutCache$TreeStateNode, $($nc(this->this$0->visibleNodes)->elementAt(counter)))))->shiftYOriginBy(heightDiff);
+					$$sure(VariableHeightLayoutCache$TreeStateNode, $nc(this->this$0->visibleNodes)->elementAt(counter))->shiftYOriginBy(heightDiff);
 				}
 			}
 			didAdjustTree();
 			this->this$0->visibleNodesChanged();
 		}
 		if (this->this$0->treeSelectionModel != nullptr) {
-			$nc(this->this$0->treeSelectionModel)->resetRowSelection();
+			this->this$0->treeSelectionModel->resetRowSelection();
 		}
 	}
 }
 
 void VariableHeightLayoutCache$TreeStateNode::collapse(bool adjustTree) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (isExpanded()) {
 		$var($Enumeration, cursor, preorderEnumeration());
 		$nc(cursor)->nextElement();
@@ -519,24 +436,24 @@ void VariableHeightLayoutCache$TreeStateNode::collapse(bool adjustTree) {
 				int32_t shiftAmount = 0;
 				shiftAmount = startYEnd - lastYEnd;
 				for (counter = myRow + 1, maxCounter = $nc(this->this$0->visibleNodes)->size(); counter < maxCounter; ++counter) {
-					$nc(($cast(VariableHeightLayoutCache$TreeStateNode, $($nc(this->this$0->visibleNodes)->elementAt(counter)))))->shiftYOriginBy(shiftAmount);
+					$$sure(VariableHeightLayoutCache$TreeStateNode, $nc(this->this$0->visibleNodes)->elementAt(counter))->shiftYOriginBy(shiftAmount);
 				}
 			}
 			didAdjustTree();
 			this->this$0->visibleNodesChanged();
 		}
 		if (this->this$0->treeSelectionModel != nullptr && rowsDeleted > 0 && myRow != -1) {
-			$nc(this->this$0->treeSelectionModel)->resetRowSelection();
+			this->this$0->treeSelectionModel->resetRowSelection();
 		}
 	}
 }
 
 void VariableHeightLayoutCache$TreeStateNode::removeFromMapping() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->path != nullptr) {
 		this->this$0->removeMapping(this);
 		for (int32_t counter = getChildCount() - 1; counter >= 0; --counter) {
-			$nc(($cast(VariableHeightLayoutCache$TreeStateNode, $(getChildAt(counter)))))->removeFromMapping();
+			$$sure(VariableHeightLayoutCache$TreeStateNode, getChildAt(counter))->removeFromMapping();
 		}
 	}
 }
@@ -545,7 +462,80 @@ VariableHeightLayoutCache$TreeStateNode::VariableHeightLayoutCache$TreeStateNode
 }
 
 $Class* VariableHeightLayoutCache$TreeStateNode::load$($String* name, bool initialize) {
-	$loadClass(VariableHeightLayoutCache$TreeStateNode, name, initialize, &_VariableHeightLayoutCache$TreeStateNode_ClassInfo_, allocate$VariableHeightLayoutCache$TreeStateNode);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/tree/VariableHeightLayoutCache;", nullptr, $FINAL | $SYNTHETIC, $field(VariableHeightLayoutCache$TreeStateNode, this$0)},
+		{"preferredWidth", "I", nullptr, $PROTECTED, $field(VariableHeightLayoutCache$TreeStateNode, preferredWidth)},
+		{"preferredHeight", "I", nullptr, $PROTECTED, $field(VariableHeightLayoutCache$TreeStateNode, preferredHeight)},
+		{"xOrigin", "I", nullptr, $PROTECTED, $field(VariableHeightLayoutCache$TreeStateNode, xOrigin)},
+		{"yOrigin", "I", nullptr, $PROTECTED, $field(VariableHeightLayoutCache$TreeStateNode, yOrigin)},
+		{"expanded", "Z", nullptr, $PROTECTED, $field(VariableHeightLayoutCache$TreeStateNode, expanded)},
+		{"hasBeenExpanded", "Z", nullptr, $PROTECTED, $field(VariableHeightLayoutCache$TreeStateNode, hasBeenExpanded$)},
+		{"path", "Ljavax/swing/tree/TreePath;", nullptr, $PROTECTED, $field(VariableHeightLayoutCache$TreeStateNode, path)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/tree/VariableHeightLayoutCache;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(VariableHeightLayoutCache$TreeStateNode, init$, void, $VariableHeightLayoutCache*, Object$*)},
+		{"children", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljavax/swing/tree/TreeNode;>;", $PUBLIC, $virtualMethod(VariableHeightLayoutCache$TreeStateNode, children, $Enumeration*)},
+		{"collapse", "()V", nullptr, $PUBLIC, $virtualMethod(VariableHeightLayoutCache$TreeStateNode, collapse, void)},
+		{"collapse", "(Z)V", nullptr, $PROTECTED, $virtualMethod(VariableHeightLayoutCache$TreeStateNode, collapse, void, bool)},
+		{"deepMarkSizeInvalid", "()V", nullptr, $PROTECTED, $virtualMethod(VariableHeightLayoutCache$TreeStateNode, deepMarkSizeInvalid, void)},
+		{"didAdjustTree", "()V", nullptr, $PROTECTED, $virtualMethod(VariableHeightLayoutCache$TreeStateNode, didAdjustTree, void)},
+		{"expand", "()V", nullptr, $PUBLIC, $virtualMethod(VariableHeightLayoutCache$TreeStateNode, expand, void)},
+		{"expand", "(Z)V", nullptr, $PROTECTED, $virtualMethod(VariableHeightLayoutCache$TreeStateNode, expand, void, bool)},
+		{"expandParentAndReceiver", "()V", nullptr, $PROTECTED, $virtualMethod(VariableHeightLayoutCache$TreeStateNode, expandParentAndReceiver, void)},
+		{"getLastVisibleNode", "()Ljavax/swing/tree/VariableHeightLayoutCache$TreeStateNode;", nullptr, $PUBLIC, $virtualMethod(VariableHeightLayoutCache$TreeStateNode, getLastVisibleNode, VariableHeightLayoutCache$TreeStateNode*)},
+		{"getLoadedChildren", "(Z)Ljava/util/Enumeration;", "(Z)Ljava/util/Enumeration<Ljavax/swing/tree/TreeNode;>;", $PROTECTED, $virtualMethod(VariableHeightLayoutCache$TreeStateNode, getLoadedChildren, $Enumeration*, bool)},
+		{"getModelChildCount", "()I", nullptr, $PUBLIC, $virtualMethod(VariableHeightLayoutCache$TreeStateNode, getModelChildCount, int32_t)},
+		{"getNodeBounds", "(Ljava/awt/Rectangle;)Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(VariableHeightLayoutCache$TreeStateNode, getNodeBounds, $Rectangle*, $Rectangle*)},
+		{"getPreferredHeight", "()I", nullptr, $PUBLIC, $virtualMethod(VariableHeightLayoutCache$TreeStateNode, getPreferredHeight, int32_t)},
+		{"getPreferredWidth", "()I", nullptr, $PUBLIC, $virtualMethod(VariableHeightLayoutCache$TreeStateNode, getPreferredWidth, int32_t)},
+		{"getRow", "()I", nullptr, $PUBLIC, $virtualMethod(VariableHeightLayoutCache$TreeStateNode, getRow, int32_t)},
+		{"getTreePath", "()Ljavax/swing/tree/TreePath;", nullptr, $PUBLIC, $virtualMethod(VariableHeightLayoutCache$TreeStateNode, getTreePath, $TreePath*)},
+		{"getValue", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(VariableHeightLayoutCache$TreeStateNode, getValue, $Object*)},
+		{"getVisibleChildCount", "()I", nullptr, $PUBLIC, $virtualMethod(VariableHeightLayoutCache$TreeStateNode, getVisibleChildCount, int32_t)},
+		{"getXOrigin", "()I", nullptr, $PUBLIC, $virtualMethod(VariableHeightLayoutCache$TreeStateNode, getXOrigin, int32_t)},
+		{"getYOrigin", "()I", nullptr, $PUBLIC, $virtualMethod(VariableHeightLayoutCache$TreeStateNode, getYOrigin, int32_t)},
+		{"hasBeenExpanded", "()Z", nullptr, $PUBLIC, $virtualMethod(VariableHeightLayoutCache$TreeStateNode, hasBeenExpanded, bool)},
+		{"hasValidSize", "()Z", nullptr, $PUBLIC, $virtualMethod(VariableHeightLayoutCache$TreeStateNode, hasValidSize, bool)},
+		{"isExpanded", "()Z", nullptr, $PUBLIC, $virtualMethod(VariableHeightLayoutCache$TreeStateNode, isExpanded, bool)},
+		{"isLeaf", "()Z", nullptr, $PUBLIC, $virtualMethod(VariableHeightLayoutCache$TreeStateNode, isLeaf, bool)},
+		{"isVisible", "()Z", nullptr, $PUBLIC, $virtualMethod(VariableHeightLayoutCache$TreeStateNode, isVisible, bool)},
+		{"makeVisible", "()V", nullptr, $PUBLIC, $virtualMethod(VariableHeightLayoutCache$TreeStateNode, makeVisible, void)},
+		{"markSizeInvalid", "()V", nullptr, $PROTECTED, $virtualMethod(VariableHeightLayoutCache$TreeStateNode, markSizeInvalid, void)},
+		{"remove", "(I)V", nullptr, $PUBLIC, $virtualMethod(VariableHeightLayoutCache$TreeStateNode, remove, void, int32_t)},
+		{"removeFromMapping", "()V", nullptr, $PROTECTED, $virtualMethod(VariableHeightLayoutCache$TreeStateNode, removeFromMapping, void)},
+		{"resetChildrenPaths", "(Ljavax/swing/tree/TreePath;)V", nullptr, $PROTECTED, $virtualMethod(VariableHeightLayoutCache$TreeStateNode, resetChildrenPaths, void, $TreePath*)},
+		{"setParent", "(Ljavax/swing/tree/MutableTreeNode;)V", nullptr, $PUBLIC, $virtualMethod(VariableHeightLayoutCache$TreeStateNode, setParent, void, $MutableTreeNode*)},
+		{"setUserObject", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(VariableHeightLayoutCache$TreeStateNode, setUserObject, void, Object$*)},
+		{"setYOrigin", "(I)V", nullptr, $PROTECTED, $virtualMethod(VariableHeightLayoutCache$TreeStateNode, setYOrigin, void, int32_t)},
+		{"shiftYOriginBy", "(I)V", nullptr, $PROTECTED, $virtualMethod(VariableHeightLayoutCache$TreeStateNode, shiftYOriginBy, void, int32_t)},
+		{"toggleExpanded", "()V", nullptr, $PUBLIC, $virtualMethod(VariableHeightLayoutCache$TreeStateNode, toggleExpanded, void)},
+		{"updatePreferredSize", "()V", nullptr, $PROTECTED, $virtualMethod(VariableHeightLayoutCache$TreeStateNode, updatePreferredSize, void)},
+		{"updatePreferredSize", "(I)V", nullptr, $PROTECTED, $virtualMethod(VariableHeightLayoutCache$TreeStateNode, updatePreferredSize, void, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.tree.VariableHeightLayoutCache$TreeStateNode", "javax.swing.tree.VariableHeightLayoutCache", "TreeStateNode", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.tree.VariableHeightLayoutCache$TreeStateNode",
+		"javax.swing.tree.DefaultMutableTreeNode",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.tree.VariableHeightLayoutCache"
+	};
+	$loadClass(VariableHeightLayoutCache$TreeStateNode, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(VariableHeightLayoutCache$TreeStateNode));
+	});
 	return class$;
 }
 

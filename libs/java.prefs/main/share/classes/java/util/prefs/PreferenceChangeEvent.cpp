@@ -1,5 +1,4 @@
 #include <java/util/prefs/PreferenceChangeEvent.h>
-
 #include <java/io/NotSerializableException.h>
 #include <java/io/ObjectInputStream.h>
 #include <java/io/ObjectOutputStream.h>
@@ -19,36 +18,6 @@ using $Preferences = ::java::util::prefs::Preferences;
 namespace java {
 	namespace util {
 		namespace prefs {
-
-$FieldInfo _PreferenceChangeEvent_FieldInfo_[] = {
-	{"key", "Ljava/lang/String;", nullptr, $PRIVATE, $field(PreferenceChangeEvent, key)},
-	{"newValue", "Ljava/lang/String;", nullptr, $PRIVATE, $field(PreferenceChangeEvent, newValue)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PreferenceChangeEvent, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _PreferenceChangeEvent_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/prefs/Preferences;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(PreferenceChangeEvent, init$, void, $Preferences*, $String*, $String*)},
-	{"getKey", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PreferenceChangeEvent, getKey, $String*)},
-	{"getNewValue", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PreferenceChangeEvent, getNewValue, $String*)},
-	{"getNode", "()Ljava/util/prefs/Preferences;", nullptr, $PUBLIC, $virtualMethod(PreferenceChangeEvent, getNode, $Preferences*)},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(PreferenceChangeEvent, readObject, void, $ObjectInputStream*), "java.io.NotSerializableException"},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(PreferenceChangeEvent, writeObject, void, $ObjectOutputStream*), "java.io.NotSerializableException"},
-	{}
-};
-
-$ClassInfo _PreferenceChangeEvent_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.util.prefs.PreferenceChangeEvent",
-	"java.util.EventObject",
-	nullptr,
-	_PreferenceChangeEvent_FieldInfo_,
-	_PreferenceChangeEvent_MethodInfo_
-};
-
-$Object* allocate$PreferenceChangeEvent($Class* clazz) {
-	return $of($alloc(PreferenceChangeEvent));
-}
 
 void PreferenceChangeEvent::init$($Preferences* node, $String* key, $String* newValue) {
 	$EventObject::init$(node);
@@ -80,7 +49,32 @@ PreferenceChangeEvent::PreferenceChangeEvent() {
 }
 
 $Class* PreferenceChangeEvent::load$($String* name, bool initialize) {
-	$loadClass(PreferenceChangeEvent, name, initialize, &_PreferenceChangeEvent_ClassInfo_, allocate$PreferenceChangeEvent);
+	$FieldInfo fieldInfos$$[] = {
+		{"key", "Ljava/lang/String;", nullptr, $PRIVATE, $field(PreferenceChangeEvent, key)},
+		{"newValue", "Ljava/lang/String;", nullptr, $PRIVATE, $field(PreferenceChangeEvent, newValue)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PreferenceChangeEvent, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/prefs/Preferences;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(PreferenceChangeEvent, init$, void, $Preferences*, $String*, $String*)},
+		{"getKey", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PreferenceChangeEvent, getKey, $String*)},
+		{"getNewValue", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PreferenceChangeEvent, getNewValue, $String*)},
+		{"getNode", "()Ljava/util/prefs/Preferences;", nullptr, $PUBLIC, $virtualMethod(PreferenceChangeEvent, getNode, $Preferences*)},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(PreferenceChangeEvent, readObject, void, $ObjectInputStream*), "java.io.NotSerializableException"},
+		{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(PreferenceChangeEvent, writeObject, void, $ObjectOutputStream*), "java.io.NotSerializableException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.util.prefs.PreferenceChangeEvent",
+		"java.util.EventObject",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(PreferenceChangeEvent, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PreferenceChangeEvent);
+	});
 	return class$;
 }
 

@@ -27,6 +27,7 @@ class Autoscroller : public ::java::awt::event::ActionListener {
 	$class(Autoscroller, 0, ::java::awt::event::ActionListener)
 public:
 	Autoscroller();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	bool _isRunning(::javax::swing::JComponent* c);
 	void _processMouseDragged(::java::awt::event::MouseEvent* e);

@@ -57,7 +57,7 @@ public:
 	void writeObject(::java::io::ObjectOutputStream* s);
 	bool ignoreCase = false;
 	::java::util::Hashtable* attrs = nullptr;
-	static const int64_t serialVersionUID = (int64_t)0x451D18D6A95539D8;
+	static const int64_t serialVersionUID = (int64_t)0x451d18d6a95539d8;
 };
 
 		} // directory

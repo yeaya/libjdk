@@ -22,6 +22,7 @@ namespace javax {
 class $export XMLObject : public ::javax::xml::crypto::XMLStructure {
 	$interface(XMLObject, 0, ::javax::xml::crypto::XMLStructure)
 public:
+	static void clinit$(::java::lang::Class* clazz);
 	virtual ::java::util::List* getContent() {return nullptr;}
 	virtual $String* getEncoding() {return nullptr;}
 	virtual $String* getId() {return nullptr;}

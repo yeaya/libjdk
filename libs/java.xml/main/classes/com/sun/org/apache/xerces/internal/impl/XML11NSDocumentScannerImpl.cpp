@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/impl/XML11NSDocumentScannerImpl.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/XML11DocumentScannerImpl.h>
 #include <com/sun/org/apache/xerces/internal/impl/XML11NSDocumentScannerImpl$NS11ContentDriver.h>
 #include <com/sun/org/apache/xerces/internal/impl/XMLDocumentFragmentScannerImpl$Driver.h>
@@ -21,7 +20,6 @@
 #include <com/sun/org/apache/xerces/internal/xni/Augmentations.h>
 #include <com/sun/org/apache/xerces/internal/xni/NamespaceContext.h>
 #include <com/sun/org/apache/xerces/internal/xni/QName.h>
-#include <com/sun/org/apache/xerces/internal/xni/XMLAttributes.h>
 #include <com/sun/org/apache/xerces/internal/xni/XMLDocumentHandler.h>
 #include <com/sun/org/apache/xerces/internal/xni/XMLString.h>
 #include <com/sun/org/apache/xerces/internal/xni/parser/XMLComponentManager.h>
@@ -50,26 +48,17 @@ using $XML11DocumentScannerImpl = ::com::sun::org::apache::xerces::internal::imp
 using $XML11NSDocumentScannerImpl$NS11ContentDriver = ::com::sun::org::apache::xerces::internal::impl::XML11NSDocumentScannerImpl$NS11ContentDriver;
 using $XMLDocumentFragmentScannerImpl = ::com::sun::org::apache::xerces::internal::impl::XMLDocumentFragmentScannerImpl;
 using $XMLDocumentFragmentScannerImpl$Driver = ::com::sun::org::apache::xerces::internal::impl::XMLDocumentFragmentScannerImpl$Driver;
-using $XMLDocumentFragmentScannerImpl$ElementStack = ::com::sun::org::apache::xerces::internal::impl::XMLDocumentFragmentScannerImpl$ElementStack;
-using $XMLEntityScanner = ::com::sun::org::apache::xerces::internal::impl::XMLEntityScanner;
 using $XMLErrorReporter = ::com::sun::org::apache::xerces::internal::impl::XMLErrorReporter;
 using $XMLScanner$NameType = ::com::sun::org::apache::xerces::internal::impl::XMLScanner$NameType;
 using $XMLDTDValidatorFilter = ::com::sun::org::apache::xerces::internal::impl::dtd::XMLDTDValidatorFilter;
 using $XMLMessageFormatter = ::com::sun::org::apache::xerces::internal::impl::msg::XMLMessageFormatter;
-using $SymbolTable = ::com::sun::org::apache::xerces::internal::util::SymbolTable;
 using $XMLAttributesImpl = ::com::sun::org::apache::xerces::internal::util::XMLAttributesImpl;
-using $XMLAttributesIteratorImpl = ::com::sun::org::apache::xerces::internal::util::XMLAttributesIteratorImpl;
 using $XMLSymbols = ::com::sun::org::apache::xerces::internal::util::XMLSymbols;
-using $XMLSecurityManager = ::com::sun::org::apache::xerces::internal::utils::XMLSecurityManager;
 using $XMLSecurityManager$Limit = ::com::sun::org::apache::xerces::internal::utils::XMLSecurityManager$Limit;
 using $Augmentations = ::com::sun::org::apache::xerces::internal::xni::Augmentations;
 using $NamespaceContext = ::com::sun::org::apache::xerces::internal::xni::NamespaceContext;
 using $QName = ::com::sun::org::apache::xerces::internal::xni::QName;
-using $XMLAttributes = ::com::sun::org::apache::xerces::internal::xni::XMLAttributes;
-using $XMLDocumentHandler = ::com::sun::org::apache::xerces::internal::xni::XMLDocumentHandler;
-using $XMLString = ::com::sun::org::apache::xerces::internal::xni::XMLString;
 using $XMLComponentManager = ::com::sun::org::apache::xerces::internal::xni::parser::XMLComponentManager;
-using $DTDGrammarUtil = ::com::sun::xml::internal::stream::dtd::DTDGrammarUtil;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -85,52 +74,6 @@ namespace com {
 					namespace internal {
 						namespace impl {
 
-$FieldInfo _XML11NSDocumentScannerImpl_FieldInfo_[] = {
-	{"fBindNamespaces", "Z", nullptr, $PROTECTED, $field(XML11NSDocumentScannerImpl, fBindNamespaces)},
-	{"fPerformValidation", "Z", nullptr, $PROTECTED, $field(XML11NSDocumentScannerImpl, fPerformValidation)},
-	{"fDTDValidator", "Lcom/sun/org/apache/xerces/internal/impl/dtd/XMLDTDValidatorFilter;", nullptr, $PRIVATE, $field(XML11NSDocumentScannerImpl, fDTDValidator)},
-	{"fSawSpace", "Z", nullptr, $PRIVATE, $field(XML11NSDocumentScannerImpl, fSawSpace)},
-	{}
-};
-
-$MethodInfo _XML11NSDocumentScannerImpl_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(XML11NSDocumentScannerImpl, init$, void)},
-	{"createContentDriver", "()Lcom/sun/org/apache/xerces/internal/impl/XMLDocumentFragmentScannerImpl$Driver;", nullptr, $PROTECTED, $virtualMethod(XML11NSDocumentScannerImpl, createContentDriver, $XMLDocumentFragmentScannerImpl$Driver*)},
-	{"next", "()I", nullptr, $PUBLIC, $virtualMethod(XML11NSDocumentScannerImpl, next, int32_t), "java.io.IOException,com.sun.org.apache.xerces.internal.xni.XNIException"},
-	{"reset", "(Lcom/sun/org/apache/xerces/internal/xni/parser/XMLComponentManager;)V", nullptr, $PUBLIC, $virtualMethod(XML11NSDocumentScannerImpl, reset, void, $XMLComponentManager*), "com.sun.org.apache.xerces.internal.xni.parser.XMLConfigurationException"},
-	{"scanAttribute", "(Lcom/sun/org/apache/xerces/internal/util/XMLAttributesImpl;)V", nullptr, $PROTECTED, $virtualMethod(XML11NSDocumentScannerImpl, scanAttribute, void, $XMLAttributesImpl*), "java.io.IOException,com.sun.org.apache.xerces.internal.xni.XNIException"},
-	{"scanEndElement", "()I", nullptr, $PROTECTED, $virtualMethod(XML11NSDocumentScannerImpl, scanEndElement, int32_t), "java.io.IOException,com.sun.org.apache.xerces.internal.xni.XNIException"},
-	{"scanStartElement", "()Z", nullptr, $PROTECTED, $virtualMethod(XML11NSDocumentScannerImpl, scanStartElement, bool), "java.io.IOException,com.sun.org.apache.xerces.internal.xni.XNIException"},
-	{"scanStartElementAfterName", "()Z", nullptr, $PROTECTED, $virtualMethod(XML11NSDocumentScannerImpl, scanStartElementAfterName, bool), "java.io.IOException,com.sun.org.apache.xerces.internal.xni.XNIException"},
-	{"scanStartElementName", "()V", nullptr, $PROTECTED, $virtualMethod(XML11NSDocumentScannerImpl, scanStartElementName, void), "java.io.IOException,com.sun.org.apache.xerces.internal.xni.XNIException"},
-	{"setDTDValidator", "(Lcom/sun/org/apache/xerces/internal/impl/dtd/XMLDTDValidatorFilter;)V", nullptr, $PUBLIC, $virtualMethod(XML11NSDocumentScannerImpl, setDTDValidator, void, $XMLDTDValidatorFilter*)},
-	{}
-};
-
-$InnerClassInfo _XML11NSDocumentScannerImpl_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xerces.internal.impl.XML11NSDocumentScannerImpl$NS11ContentDriver", "com.sun.org.apache.xerces.internal.impl.XML11NSDocumentScannerImpl", "NS11ContentDriver", $PROTECTED | $FINAL},
-	{}
-};
-
-$ClassInfo _XML11NSDocumentScannerImpl_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.impl.XML11NSDocumentScannerImpl",
-	"com.sun.org.apache.xerces.internal.impl.XML11DocumentScannerImpl",
-	nullptr,
-	_XML11NSDocumentScannerImpl_FieldInfo_,
-	_XML11NSDocumentScannerImpl_MethodInfo_,
-	nullptr,
-	nullptr,
-	_XML11NSDocumentScannerImpl_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xerces.internal.impl.XML11NSDocumentScannerImpl$NS11ContentDriver"
-};
-
-$Object* allocate$XML11NSDocumentScannerImpl($Class* clazz) {
-	return $of($alloc(XML11NSDocumentScannerImpl));
-}
-
 void XML11NSDocumentScannerImpl::init$() {
 	$XML11DocumentScannerImpl::init$();
 }
@@ -140,7 +83,8 @@ void XML11NSDocumentScannerImpl::setDTDValidator($XMLDTDValidatorFilter* validat
 }
 
 bool XML11NSDocumentScannerImpl::scanStartElement() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
+	;
 	$init($XMLScanner$NameType);
 	$nc(this->fEntityScanner)->scanQName(this->fElementQName, $XMLScanner$NameType::ELEMENTSTART);
 	$var($String, rawname, $nc(this->fElementQName)->rawname);
@@ -149,11 +93,11 @@ bool XML11NSDocumentScannerImpl::scanStartElement() {
 		if (this->fScannerState == $XMLDocumentFragmentScannerImpl::SCANNER_STATE_ROOT_ELEMENT) {
 			if (this->fPerformValidation) {
 				$init($XMLMessageFormatter);
-				$nc(this->fErrorReporter)->reportError($XMLMessageFormatter::XML_DOMAIN, "MSG_GRAMMAR_NOT_FOUND"_s, $$new($ObjectArray, {$of(rawname)}), $XMLErrorReporter::SEVERITY_ERROR);
-				if (this->fDoctypeName == nullptr || !$nc(this->fDoctypeName)->equals(rawname)) {
+				$nc(this->fErrorReporter)->reportError($XMLMessageFormatter::XML_DOMAIN, "MSG_GRAMMAR_NOT_FOUND"_s, $$new($ObjectArray, {rawname}), $XMLErrorReporter::SEVERITY_ERROR);
+				if (this->fDoctypeName == nullptr || !this->fDoctypeName->equals(rawname)) {
 					$nc(this->fErrorReporter)->reportError($XMLMessageFormatter::XML_DOMAIN, "RootElementTypeMustMatchDoctypedecl"_s, $$new($ObjectArray, {
-						$of(this->fDoctypeName),
-						$of(rawname)
+						this->fDoctypeName,
+						rawname
 					}), $XMLErrorReporter::SEVERITY_ERROR);
 				}
 			}
@@ -171,22 +115,22 @@ bool XML11NSDocumentScannerImpl::scanStartElement() {
 		} else if (c == u'/') {
 			$nc(this->fEntityScanner)->scanChar(nullptr);
 			if (!$nc(this->fEntityScanner)->skipChar(u'>', nullptr)) {
-				reportFatalError("ElementUnterminated"_s, $$new($ObjectArray, {$of(rawname)}));
+				reportFatalError("ElementUnterminated"_s, $$new($ObjectArray, {rawname}));
 			}
 			empty = true;
 			break;
 		} else if (!isValidNameStartChar(c) || !sawSpace) {
 			if (!isValidNameStartHighSurrogate(c) || !sawSpace) {
-				reportFatalError("ElementUnterminated"_s, $$new($ObjectArray, {$of(rawname)}));
+				reportFatalError("ElementUnterminated"_s, $$new($ObjectArray, {rawname}));
 			}
 		}
-		scanAttribute(static_cast<$XMLAttributesImpl*>(this->fAttributes));
-		bool var$0 = this->fSecurityManager != nullptr && (!$nc(this->fSecurityManager)->isNoLimit(this->fElementAttributeLimit));
+		scanAttribute(this->fAttributes);
+		bool var$0 = this->fSecurityManager != nullptr && (!this->fSecurityManager->isNoLimit(this->fElementAttributeLimit));
 		if (var$0 && $nc(this->fAttributes)->getLength() > this->fElementAttributeLimit) {
 			$init($XMLMessageFormatter);
 			$nc(this->fErrorReporter)->reportError($XMLMessageFormatter::XML_DOMAIN, "ElementAttributeLimit"_s, $$new($ObjectArray, {
-				$of(rawname),
-				$($of($Integer::valueOf(this->fElementAttributeLimit)))
+				rawname,
+				$($Integer::valueOf(this->fElementAttributeLimit))
 			}), $XMLErrorReporter::SEVERITY_FATAL_ERROR);
 		}
 	} while (true);
@@ -194,38 +138,38 @@ bool XML11NSDocumentScannerImpl::scanStartElement() {
 		$init($XMLSymbols);
 		if ($nc(this->fElementQName)->prefix == $XMLSymbols::PREFIX_XMLNS) {
 			$init($XMLMessageFormatter);
-			$nc(this->fErrorReporter)->reportError($XMLMessageFormatter::XMLNS_DOMAIN, "ElementXMLNSPrefix"_s, $$new($ObjectArray, {$of($nc(this->fElementQName)->rawname)}), $XMLErrorReporter::SEVERITY_FATAL_ERROR);
+			$nc(this->fErrorReporter)->reportError($XMLMessageFormatter::XMLNS_DOMAIN, "ElementXMLNSPrefix"_s, $$new($ObjectArray, {this->fElementQName->rawname}), $XMLErrorReporter::SEVERITY_FATAL_ERROR);
 		}
-		$var($String, prefix, $nc(this->fElementQName)->prefix != nullptr ? $nc(this->fElementQName)->prefix : $XMLSymbols::EMPTY_STRING);
-		$set($nc(this->fElementQName), uri, $nc(this->fNamespaceContext)->getURI(prefix));
+		$var($String, prefix, $nc(this->fElementQName)->prefix != nullptr ? this->fElementQName->prefix : $XMLSymbols::EMPTY_STRING);
+		$set(this->fElementQName, uri, $nc(this->fNamespaceContext)->getURI(prefix));
 		$set($nc(this->fCurrentElement), uri, $nc(this->fElementQName)->uri);
-		if ($nc(this->fElementQName)->prefix == nullptr && $nc(this->fElementQName)->uri != nullptr) {
-			$set($nc(this->fElementQName), prefix, $XMLSymbols::EMPTY_STRING);
-			$set($nc(this->fCurrentElement), prefix, $XMLSymbols::EMPTY_STRING);
+		if (this->fElementQName->prefix == nullptr && this->fElementQName->uri != nullptr) {
+			$set(this->fElementQName, prefix, $XMLSymbols::EMPTY_STRING);
+			$set(this->fCurrentElement, prefix, $XMLSymbols::EMPTY_STRING);
 		}
-		if ($nc(this->fElementQName)->prefix != nullptr && $nc(this->fElementQName)->uri == nullptr) {
+		if (this->fElementQName->prefix != nullptr && this->fElementQName->uri == nullptr) {
 			$init($XMLMessageFormatter);
 			$nc(this->fErrorReporter)->reportError($XMLMessageFormatter::XMLNS_DOMAIN, "ElementPrefixUnbound"_s, $$new($ObjectArray, {
-				$of($nc(this->fElementQName)->prefix),
-				$of($nc(this->fElementQName)->rawname)
+				this->fElementQName->prefix,
+				this->fElementQName->rawname
 			}), $XMLErrorReporter::SEVERITY_FATAL_ERROR);
 		}
 		int32_t length = $nc(this->fAttributes)->getLength();
 		for (int32_t i = 0; i < length; ++i) {
 			$nc(this->fAttributes)->getName(i, this->fAttributeQName);
-			$var($String, aprefix, $nc(this->fAttributeQName)->prefix != nullptr ? $nc(this->fAttributeQName)->prefix : $XMLSymbols::EMPTY_STRING);
+			$var($String, aprefix, $nc(this->fAttributeQName)->prefix != nullptr ? this->fAttributeQName->prefix : $XMLSymbols::EMPTY_STRING);
 			$var($String, uri, $nc(this->fNamespaceContext)->getURI(aprefix));
-			if ($nc(this->fAttributeQName)->uri != nullptr && $nc(this->fAttributeQName)->uri == uri) {
+			if ($nc(this->fAttributeQName)->uri != nullptr && this->fAttributeQName->uri == uri) {
 				continue;
 			}
 			if (aprefix != $XMLSymbols::EMPTY_STRING) {
-				$set($nc(this->fAttributeQName), uri, uri);
+				$set(this->fAttributeQName, uri, uri);
 				if (uri == nullptr) {
 					$init($XMLMessageFormatter);
 					$nc(this->fErrorReporter)->reportError($XMLMessageFormatter::XMLNS_DOMAIN, "AttributePrefixUnbound"_s, $$new($ObjectArray, {
-						$of($nc(this->fElementQName)->rawname),
-						$of($nc(this->fAttributeQName)->rawname),
-						$of(aprefix)
+						$nc(this->fElementQName)->rawname,
+						this->fAttributeQName->rawname,
+						aprefix
 					}), $XMLErrorReporter::SEVERITY_FATAL_ERROR);
 				}
 				$nc(this->fAttributes)->setURI(i, uri);
@@ -237,15 +181,15 @@ bool XML11NSDocumentScannerImpl::scanStartElement() {
 				if (name->uri != nullptr) {
 					$init($XMLMessageFormatter);
 					$nc(this->fErrorReporter)->reportError($XMLMessageFormatter::XMLNS_DOMAIN, "AttributeNSNotUnique"_s, $$new($ObjectArray, {
-						$of($nc(this->fElementQName)->rawname),
-						$of(name->localpart),
-						$of(name->uri)
+						$nc(this->fElementQName)->rawname,
+						name->localpart,
+						name->uri
 					}), $XMLErrorReporter::SEVERITY_FATAL_ERROR);
 				} else {
 					$init($XMLMessageFormatter);
 					$nc(this->fErrorReporter)->reportError($XMLMessageFormatter::XMLNS_DOMAIN, "AttributeNotUnique"_s, $$new($ObjectArray, {
-						$of($nc(this->fElementQName)->rawname),
-						$of(name->rawname)
+						$nc(this->fElementQName)->rawname,
+						name->rawname
 					}), $XMLErrorReporter::SEVERITY_FATAL_ERROR);
 				}
 			}
@@ -254,21 +198,22 @@ bool XML11NSDocumentScannerImpl::scanStartElement() {
 	if (empty) {
 		--this->fMarkupDepth;
 		if (this->fMarkupDepth < $nc(this->fEntityStack)->get(this->fEntityDepth - 1)) {
-			reportFatalError("ElementEntityMismatch"_s, $$new($ObjectArray, {$of($nc(this->fCurrentElement)->rawname)}));
+			reportFatalError("ElementEntityMismatch"_s, $$new($ObjectArray, {$nc(this->fCurrentElement)->rawname}));
 		}
 		if (this->fDocumentHandler != nullptr) {
-			$nc(this->fDocumentHandler)->emptyElement(this->fElementQName, this->fAttributes, nullptr);
+			this->fDocumentHandler->emptyElement(this->fElementQName, this->fAttributes, nullptr);
 		}
 		this->fScanEndElement = true;
 		$nc(this->fElementStack)->popElement();
 	} else {
 		if (this->dtdGrammarUtil != nullptr) {
-			$nc(this->dtdGrammarUtil)->startElement(this->fElementQName, this->fAttributes);
+			this->dtdGrammarUtil->startElement(this->fElementQName, this->fAttributes);
 		}
 		if (this->fDocumentHandler != nullptr) {
-			$nc(this->fDocumentHandler)->startElement(this->fElementQName, this->fAttributes, nullptr);
+			this->fDocumentHandler->startElement(this->fElementQName, this->fAttributes, nullptr);
 		}
 	}
+	;
 	return empty;
 }
 
@@ -279,18 +224,18 @@ void XML11NSDocumentScannerImpl::scanStartElementName() {
 }
 
 bool XML11NSDocumentScannerImpl::scanStartElementAfterName() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, rawname, $nc(this->fElementQName)->rawname);
 	if (this->fBindNamespaces) {
 		$nc(this->fNamespaceContext)->pushContext();
 		if (this->fScannerState == $XMLDocumentFragmentScannerImpl::SCANNER_STATE_ROOT_ELEMENT) {
 			if (this->fPerformValidation) {
 				$init($XMLMessageFormatter);
-				$nc(this->fErrorReporter)->reportError($XMLMessageFormatter::XML_DOMAIN, "MSG_GRAMMAR_NOT_FOUND"_s, $$new($ObjectArray, {$of(rawname)}), $XMLErrorReporter::SEVERITY_ERROR);
-				if (this->fDoctypeName == nullptr || !$nc(this->fDoctypeName)->equals(rawname)) {
+				$nc(this->fErrorReporter)->reportError($XMLMessageFormatter::XML_DOMAIN, "MSG_GRAMMAR_NOT_FOUND"_s, $$new($ObjectArray, {rawname}), $XMLErrorReporter::SEVERITY_ERROR);
+				if (this->fDoctypeName == nullptr || !this->fDoctypeName->equals(rawname)) {
 					$nc(this->fErrorReporter)->reportError($XMLMessageFormatter::XML_DOMAIN, "RootElementTypeMustMatchDoctypedecl"_s, $$new($ObjectArray, {
-						$of(this->fDoctypeName),
-						$of(rawname)
+						this->fDoctypeName,
+						rawname
 					}), $XMLErrorReporter::SEVERITY_ERROR);
 				}
 			}
@@ -307,54 +252,54 @@ bool XML11NSDocumentScannerImpl::scanStartElementAfterName() {
 		} else if (c == u'/') {
 			$nc(this->fEntityScanner)->scanChar(nullptr);
 			if (!$nc(this->fEntityScanner)->skipChar(u'>', nullptr)) {
-				reportFatalError("ElementUnterminated"_s, $$new($ObjectArray, {$of(rawname)}));
+				reportFatalError("ElementUnterminated"_s, $$new($ObjectArray, {rawname}));
 			}
 			empty = true;
 			break;
 		} else if (!isValidNameStartChar(c) || !this->fSawSpace) {
 			if (!isValidNameStartHighSurrogate(c) || !this->fSawSpace) {
-				reportFatalError("ElementUnterminated"_s, $$new($ObjectArray, {$of(rawname)}));
+				reportFatalError("ElementUnterminated"_s, $$new($ObjectArray, {rawname}));
 			}
 		}
-		scanAttribute(static_cast<$XMLAttributesImpl*>(this->fAttributes));
+		scanAttribute(this->fAttributes);
 		this->fSawSpace = $nc(this->fEntityScanner)->skipSpaces();
 	} while (true);
 	if (this->fBindNamespaces) {
 		$init($XMLSymbols);
 		if ($nc(this->fElementQName)->prefix == $XMLSymbols::PREFIX_XMLNS) {
 			$init($XMLMessageFormatter);
-			$nc(this->fErrorReporter)->reportError($XMLMessageFormatter::XMLNS_DOMAIN, "ElementXMLNSPrefix"_s, $$new($ObjectArray, {$of($nc(this->fElementQName)->rawname)}), $XMLErrorReporter::SEVERITY_FATAL_ERROR);
+			$nc(this->fErrorReporter)->reportError($XMLMessageFormatter::XMLNS_DOMAIN, "ElementXMLNSPrefix"_s, $$new($ObjectArray, {this->fElementQName->rawname}), $XMLErrorReporter::SEVERITY_FATAL_ERROR);
 		}
-		$var($String, prefix, $nc(this->fElementQName)->prefix != nullptr ? $nc(this->fElementQName)->prefix : $XMLSymbols::EMPTY_STRING);
-		$set($nc(this->fElementQName), uri, $nc(this->fNamespaceContext)->getURI(prefix));
+		$var($String, prefix, $nc(this->fElementQName)->prefix != nullptr ? this->fElementQName->prefix : $XMLSymbols::EMPTY_STRING);
+		$set(this->fElementQName, uri, $nc(this->fNamespaceContext)->getURI(prefix));
 		$set($nc(this->fCurrentElement), uri, $nc(this->fElementQName)->uri);
-		if ($nc(this->fElementQName)->prefix == nullptr && $nc(this->fElementQName)->uri != nullptr) {
-			$set($nc(this->fElementQName), prefix, $XMLSymbols::EMPTY_STRING);
-			$set($nc(this->fCurrentElement), prefix, $XMLSymbols::EMPTY_STRING);
+		if (this->fElementQName->prefix == nullptr && this->fElementQName->uri != nullptr) {
+			$set(this->fElementQName, prefix, $XMLSymbols::EMPTY_STRING);
+			$set(this->fCurrentElement, prefix, $XMLSymbols::EMPTY_STRING);
 		}
-		if ($nc(this->fElementQName)->prefix != nullptr && $nc(this->fElementQName)->uri == nullptr) {
+		if (this->fElementQName->prefix != nullptr && this->fElementQName->uri == nullptr) {
 			$init($XMLMessageFormatter);
 			$nc(this->fErrorReporter)->reportError($XMLMessageFormatter::XMLNS_DOMAIN, "ElementPrefixUnbound"_s, $$new($ObjectArray, {
-				$of($nc(this->fElementQName)->prefix),
-				$of($nc(this->fElementQName)->rawname)
+				this->fElementQName->prefix,
+				this->fElementQName->rawname
 			}), $XMLErrorReporter::SEVERITY_FATAL_ERROR);
 		}
 		int32_t length = $nc(this->fAttributes)->getLength();
 		for (int32_t i = 0; i < length; ++i) {
 			$nc(this->fAttributes)->getName(i, this->fAttributeQName);
-			$var($String, aprefix, $nc(this->fAttributeQName)->prefix != nullptr ? $nc(this->fAttributeQName)->prefix : $XMLSymbols::EMPTY_STRING);
+			$var($String, aprefix, $nc(this->fAttributeQName)->prefix != nullptr ? this->fAttributeQName->prefix : $XMLSymbols::EMPTY_STRING);
 			$var($String, uri, $nc(this->fNamespaceContext)->getURI(aprefix));
-			if ($nc(this->fAttributeQName)->uri != nullptr && $nc(this->fAttributeQName)->uri == uri) {
+			if ($nc(this->fAttributeQName)->uri != nullptr && this->fAttributeQName->uri == uri) {
 				continue;
 			}
 			if (aprefix != $XMLSymbols::EMPTY_STRING) {
-				$set($nc(this->fAttributeQName), uri, uri);
+				$set(this->fAttributeQName, uri, uri);
 				if (uri == nullptr) {
 					$init($XMLMessageFormatter);
 					$nc(this->fErrorReporter)->reportError($XMLMessageFormatter::XMLNS_DOMAIN, "AttributePrefixUnbound"_s, $$new($ObjectArray, {
-						$of($nc(this->fElementQName)->rawname),
-						$of($nc(this->fAttributeQName)->rawname),
-						$of(aprefix)
+						$nc(this->fElementQName)->rawname,
+						this->fAttributeQName->rawname,
+						aprefix
 					}), $XMLErrorReporter::SEVERITY_FATAL_ERROR);
 				}
 				$nc(this->fAttributes)->setURI(i, uri);
@@ -366,15 +311,15 @@ bool XML11NSDocumentScannerImpl::scanStartElementAfterName() {
 				if (name->uri != nullptr) {
 					$init($XMLMessageFormatter);
 					$nc(this->fErrorReporter)->reportError($XMLMessageFormatter::XMLNS_DOMAIN, "AttributeNSNotUnique"_s, $$new($ObjectArray, {
-						$of($nc(this->fElementQName)->rawname),
-						$of(name->localpart),
-						$of(name->uri)
+						$nc(this->fElementQName)->rawname,
+						name->localpart,
+						name->uri
 					}), $XMLErrorReporter::SEVERITY_FATAL_ERROR);
 				} else {
 					$init($XMLMessageFormatter);
 					$nc(this->fErrorReporter)->reportError($XMLMessageFormatter::XMLNS_DOMAIN, "AttributeNotUnique"_s, $$new($ObjectArray, {
-						$of($nc(this->fElementQName)->rawname),
-						$of(name->rawname)
+						$nc(this->fElementQName)->rawname,
+						name->rawname
 					}), $XMLErrorReporter::SEVERITY_FATAL_ERROR);
 				}
 			}
@@ -384,7 +329,7 @@ bool XML11NSDocumentScannerImpl::scanStartElementAfterName() {
 		if (empty) {
 			--this->fMarkupDepth;
 			if (this->fMarkupDepth < $nc(this->fEntityStack)->get(this->fEntityDepth - 1)) {
-				reportFatalError("ElementEntityMismatch"_s, $$new($ObjectArray, {$of($nc(this->fCurrentElement)->rawname)}));
+				reportFatalError("ElementEntityMismatch"_s, $$new($ObjectArray, {$nc(this->fCurrentElement)->rawname}));
 			}
 			$nc(this->fDocumentHandler)->emptyElement(this->fElementQName, this->fAttributes, nullptr);
 			if (this->fBindNamespaces) {
@@ -395,18 +340,20 @@ bool XML11NSDocumentScannerImpl::scanStartElementAfterName() {
 			$nc(this->fDocumentHandler)->startElement(this->fElementQName, this->fAttributes, nullptr);
 		}
 	}
+	;
 	return empty;
 }
 
 void XML11NSDocumentScannerImpl::scanAttribute($XMLAttributesImpl* attributes) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
+	;
 	$init($XMLScanner$NameType);
 	$nc(this->fEntityScanner)->scanQName(this->fAttributeQName, $XMLScanner$NameType::ATTRIBUTENAME);
 	$nc(this->fEntityScanner)->skipSpaces();
 	if (!$nc(this->fEntityScanner)->skipChar(u'=', $XMLScanner$NameType::ATTRIBUTE)) {
 		reportFatalError("EqRequiredInAttribute"_s, $$new($ObjectArray, {
-			$of($nc(this->fCurrentElement)->rawname),
-			$of($nc(this->fAttributeQName)->rawname)
+			$nc(this->fCurrentElement)->rawname,
+			$nc(this->fAttributeQName)->rawname
 		}));
 	}
 	$nc(this->fEntityScanner)->skipSpaces();
@@ -421,17 +368,17 @@ void XML11NSDocumentScannerImpl::scanAttribute($XMLAttributesImpl* attributes) {
 		attrIndex = attributes->addAttribute(this->fAttributeQName, $XMLSymbols::fCDATASymbol, nullptr);
 		if (oldLen == attributes->getLength()) {
 			reportFatalError("AttributeNotUnique"_s, $$new($ObjectArray, {
-				$of($nc(this->fCurrentElement)->rawname),
-				$of($nc(this->fAttributeQName)->rawname)
+				$nc(this->fCurrentElement)->rawname,
+				$nc(this->fAttributeQName)->rawname
 			}));
 		}
 	}
 	bool isVC = this->fHasExternalDTD && !this->fStandalone;
 	$var($String, localpart, $nc(this->fAttributeQName)->localpart);
 	$init($XMLSymbols);
-	$var($String, prefix, $nc(this->fAttributeQName)->prefix != nullptr ? $nc(this->fAttributeQName)->prefix : $XMLSymbols::EMPTY_STRING);
+	$var($String, prefix, this->fAttributeQName->prefix != nullptr ? this->fAttributeQName->prefix : $XMLSymbols::EMPTY_STRING);
 	bool isNSDecl = this->fBindNamespaces & (prefix == $XMLSymbols::PREFIX_XMLNS || prefix == $XMLSymbols::EMPTY_STRING && localpart == $XMLSymbols::PREFIX_XMLNS);
-	scanAttributeValue(this->fTempString, this->fTempString2, $nc(this->fAttributeQName)->rawname, isVC, $nc(this->fCurrentElement)->rawname, isNSDecl);
+	scanAttributeValue(this->fTempString, this->fTempString2, this->fAttributeQName->rawname, isVC, $nc(this->fCurrentElement)->rawname, isNSDecl);
 	$var($String, value, $nc(this->fTempString)->toString());
 	$nc(attributes)->setValue(attrIndex, value);
 	attributes->setNonNormalizedValue(attrIndex, $($nc(this->fTempString2)->toString()));
@@ -442,63 +389,63 @@ void XML11NSDocumentScannerImpl::scanAttribute($XMLAttributesImpl* attributes) {
 				$init($XMLMessageFormatter);
 				$init($XMLSecurityManager$Limit);
 				$nc(this->fErrorReporter)->reportError($XMLMessageFormatter::XML_DOMAIN, "MaxXMLNameLimit"_s, $$new($ObjectArray, {
-					$of(value),
-					$($of($Integer::valueOf(value->length()))),
-					$($of($Integer::valueOf(this->fXMLNameLimit))),
-					$($of($nc(this->fSecurityManager)->getStateLiteral($XMLSecurityManager$Limit::MAX_NAME_LIMIT)))
+					value,
+					$($Integer::valueOf(value->length())),
+					$($Integer::valueOf(this->fXMLNameLimit)),
+					$($nc(this->fSecurityManager)->getStateLiteral($XMLSecurityManager$Limit::MAX_NAME_LIMIT))
 				}), $XMLErrorReporter::SEVERITY_FATAL_ERROR);
 			}
 			$var($String, uri, $nc(this->fSymbolTable)->addSymbol(value));
 			if (prefix == $XMLSymbols::PREFIX_XMLNS && localpart == $XMLSymbols::PREFIX_XMLNS) {
 				$init($XMLMessageFormatter);
-				$nc(this->fErrorReporter)->reportError($XMLMessageFormatter::XMLNS_DOMAIN, "CantBindXMLNS"_s, $$new($ObjectArray, {$of(this->fAttributeQName)}), $XMLErrorReporter::SEVERITY_FATAL_ERROR);
+				$nc(this->fErrorReporter)->reportError($XMLMessageFormatter::XMLNS_DOMAIN, "CantBindXMLNS"_s, $$new($ObjectArray, {this->fAttributeQName}), $XMLErrorReporter::SEVERITY_FATAL_ERROR);
 			}
 			$init($NamespaceContext);
 			if (uri == $NamespaceContext::XMLNS_URI) {
 				$init($XMLMessageFormatter);
-				$nc(this->fErrorReporter)->reportError($XMLMessageFormatter::XMLNS_DOMAIN, "CantBindXMLNS"_s, $$new($ObjectArray, {$of(this->fAttributeQName)}), $XMLErrorReporter::SEVERITY_FATAL_ERROR);
+				$nc(this->fErrorReporter)->reportError($XMLMessageFormatter::XMLNS_DOMAIN, "CantBindXMLNS"_s, $$new($ObjectArray, {this->fAttributeQName}), $XMLErrorReporter::SEVERITY_FATAL_ERROR);
 			}
 			if (localpart == $XMLSymbols::PREFIX_XML) {
 				if (uri != $NamespaceContext::XML_URI) {
 					$init($XMLMessageFormatter);
-					$nc(this->fErrorReporter)->reportError($XMLMessageFormatter::XMLNS_DOMAIN, "CantBindXML"_s, $$new($ObjectArray, {$of(this->fAttributeQName)}), $XMLErrorReporter::SEVERITY_FATAL_ERROR);
+					$nc(this->fErrorReporter)->reportError($XMLMessageFormatter::XMLNS_DOMAIN, "CantBindXML"_s, $$new($ObjectArray, {this->fAttributeQName}), $XMLErrorReporter::SEVERITY_FATAL_ERROR);
 				}
-			} else {
-				if (uri == $NamespaceContext::XML_URI) {
-					$init($XMLMessageFormatter);
-					$nc(this->fErrorReporter)->reportError($XMLMessageFormatter::XMLNS_DOMAIN, "CantBindXML"_s, $$new($ObjectArray, {$of(this->fAttributeQName)}), $XMLErrorReporter::SEVERITY_FATAL_ERROR);
-				}
+			} else if (uri == $NamespaceContext::XML_URI) {
+				$init($XMLMessageFormatter);
+				$nc(this->fErrorReporter)->reportError($XMLMessageFormatter::XMLNS_DOMAIN, "CantBindXML"_s, $$new($ObjectArray, {this->fAttributeQName}), $XMLErrorReporter::SEVERITY_FATAL_ERROR);
 			}
 			$assign(prefix, localpart != $XMLSymbols::PREFIX_XMLNS ? localpart : $XMLSymbols::EMPTY_STRING);
 			$nc(this->fNamespaceContext)->declarePrefix(prefix, $nc(uri)->length() != 0 ? uri : ($String*)nullptr);
 			attributes->setURI(attrIndex, $($nc(this->fNamespaceContext)->getURI($XMLSymbols::PREFIX_XMLNS)));
 		} else if ($nc(this->fAttributeQName)->prefix != nullptr) {
-			attributes->setURI(attrIndex, $($nc(this->fNamespaceContext)->getURI($nc(this->fAttributeQName)->prefix)));
+			attributes->setURI(attrIndex, $($nc(this->fNamespaceContext)->getURI(this->fAttributeQName->prefix)));
 		}
 	}
+	;
 }
 
 int32_t XML11NSDocumentScannerImpl::scanEndElement() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
+	;
 	$var($QName, endElementName, $nc(this->fElementStack)->popElement());
 	if (!$nc(this->fEntityScanner)->skipString($nc(endElementName)->rawname)) {
-		reportFatalError("ETagRequired"_s, $$new($ObjectArray, {$of($nc(endElementName)->rawname)}));
+		reportFatalError("ETagRequired"_s, $$new($ObjectArray, {endElementName->rawname}));
 	}
 	$nc(this->fEntityScanner)->skipSpaces();
 	$init($XMLScanner$NameType);
 	if (!$nc(this->fEntityScanner)->skipChar(u'>', $XMLScanner$NameType::ELEMENTEND)) {
-		reportFatalError("ETagUnterminated"_s, $$new($ObjectArray, {$of($nc(endElementName)->rawname)}));
+		reportFatalError("ETagUnterminated"_s, $$new($ObjectArray, {endElementName->rawname}));
 	}
 	--this->fMarkupDepth;
 	--this->fMarkupDepth;
 	if (this->fMarkupDepth < $nc(this->fEntityStack)->get(this->fEntityDepth - 1)) {
-		reportFatalError("ElementEntityMismatch"_s, $$new($ObjectArray, {$of($nc(endElementName)->rawname)}));
+		reportFatalError("ElementEntityMismatch"_s, $$new($ObjectArray, {endElementName->rawname}));
 	}
 	if (this->fDocumentHandler != nullptr) {
-		$nc(this->fDocumentHandler)->endElement(endElementName, nullptr);
+		this->fDocumentHandler->endElement(endElementName, nullptr);
 	}
 	if (this->dtdGrammarUtil != nullptr) {
-		$nc(this->dtdGrammarUtil)->endElement(endElementName);
+		this->dtdGrammarUtil->endElement(endElementName);
 	}
 	return this->fMarkupDepth;
 }
@@ -525,7 +472,47 @@ XML11NSDocumentScannerImpl::XML11NSDocumentScannerImpl() {
 }
 
 $Class* XML11NSDocumentScannerImpl::load$($String* name, bool initialize) {
-	$loadClass(XML11NSDocumentScannerImpl, name, initialize, &_XML11NSDocumentScannerImpl_ClassInfo_, allocate$XML11NSDocumentScannerImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"fBindNamespaces", "Z", nullptr, $PROTECTED, $field(XML11NSDocumentScannerImpl, fBindNamespaces)},
+		{"fPerformValidation", "Z", nullptr, $PROTECTED, $field(XML11NSDocumentScannerImpl, fPerformValidation)},
+		{"fDTDValidator", "Lcom/sun/org/apache/xerces/internal/impl/dtd/XMLDTDValidatorFilter;", nullptr, $PRIVATE, $field(XML11NSDocumentScannerImpl, fDTDValidator)},
+		{"fSawSpace", "Z", nullptr, $PRIVATE, $field(XML11NSDocumentScannerImpl, fSawSpace)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(XML11NSDocumentScannerImpl, init$, void)},
+		{"createContentDriver", "()Lcom/sun/org/apache/xerces/internal/impl/XMLDocumentFragmentScannerImpl$Driver;", nullptr, $PROTECTED, $virtualMethod(XML11NSDocumentScannerImpl, createContentDriver, $XMLDocumentFragmentScannerImpl$Driver*)},
+		{"next", "()I", nullptr, $PUBLIC, $virtualMethod(XML11NSDocumentScannerImpl, next, int32_t), "java.io.IOException,com.sun.org.apache.xerces.internal.xni.XNIException"},
+		{"reset", "(Lcom/sun/org/apache/xerces/internal/xni/parser/XMLComponentManager;)V", nullptr, $PUBLIC, $virtualMethod(XML11NSDocumentScannerImpl, reset, void, $XMLComponentManager*), "com.sun.org.apache.xerces.internal.xni.parser.XMLConfigurationException"},
+		{"scanAttribute", "(Lcom/sun/org/apache/xerces/internal/util/XMLAttributesImpl;)V", nullptr, $PROTECTED, $virtualMethod(XML11NSDocumentScannerImpl, scanAttribute, void, $XMLAttributesImpl*), "java.io.IOException,com.sun.org.apache.xerces.internal.xni.XNIException"},
+		{"scanEndElement", "()I", nullptr, $PROTECTED, $virtualMethod(XML11NSDocumentScannerImpl, scanEndElement, int32_t), "java.io.IOException,com.sun.org.apache.xerces.internal.xni.XNIException"},
+		{"scanStartElement", "()Z", nullptr, $PROTECTED, $virtualMethod(XML11NSDocumentScannerImpl, scanStartElement, bool), "java.io.IOException,com.sun.org.apache.xerces.internal.xni.XNIException"},
+		{"scanStartElementAfterName", "()Z", nullptr, $PROTECTED, $virtualMethod(XML11NSDocumentScannerImpl, scanStartElementAfterName, bool), "java.io.IOException,com.sun.org.apache.xerces.internal.xni.XNIException"},
+		{"scanStartElementName", "()V", nullptr, $PROTECTED, $virtualMethod(XML11NSDocumentScannerImpl, scanStartElementName, void), "java.io.IOException,com.sun.org.apache.xerces.internal.xni.XNIException"},
+		{"setDTDValidator", "(Lcom/sun/org/apache/xerces/internal/impl/dtd/XMLDTDValidatorFilter;)V", nullptr, $PUBLIC, $virtualMethod(XML11NSDocumentScannerImpl, setDTDValidator, void, $XMLDTDValidatorFilter*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xerces.internal.impl.XML11NSDocumentScannerImpl$NS11ContentDriver", "com.sun.org.apache.xerces.internal.impl.XML11NSDocumentScannerImpl", "NS11ContentDriver", $PROTECTED | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.impl.XML11NSDocumentScannerImpl",
+		"com.sun.org.apache.xerces.internal.impl.XML11DocumentScannerImpl",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xerces.internal.impl.XML11NSDocumentScannerImpl$NS11ContentDriver"
+	};
+	$loadClass(XML11NSDocumentScannerImpl, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(XML11NSDocumentScannerImpl));
+	});
 	return class$;
 }
 

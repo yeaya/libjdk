@@ -26,6 +26,7 @@ class FloatMath : public ::sun::java2d::marlin::MarlinConst {
 	$class(FloatMath, 0, ::sun::java2d::marlin::MarlinConst)
 public:
 	FloatMath();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static float ceil_f(float a);
 	static int32_t ceil_int(float a);
@@ -40,8 +41,8 @@ public:
 	static const bool CHECK_NAN = true;
 	static const int32_t FLOAT_SIGNIFICAND_WIDTH = 24;
 	static const int32_t FLOAT_EXP_BIAS = 127;
-	static const int32_t FLOAT_EXP_BIT_MASK = 0x7F800000;
-	static const int32_t FLOAT_SIGNIF_BIT_MASK = 0x007FFFFF;
+	static const int32_t FLOAT_EXP_BIT_MASK = 0x7f800000;
+	static const int32_t FLOAT_SIGNIF_BIT_MASK = 0x007fffff;
 };
 
 		} // marlin

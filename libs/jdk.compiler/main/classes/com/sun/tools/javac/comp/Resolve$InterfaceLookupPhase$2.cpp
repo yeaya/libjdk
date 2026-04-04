@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/Resolve$InterfaceLookupPhase$2.h>
-
 #include <com/sun/tools/javac/code/Symbol.h>
 #include <com/sun/tools/javac/comp/Resolve$InterfaceLookupPhase.h>
 #include <com/sun/tools/javac/comp/Resolve.h>
@@ -19,44 +18,6 @@ namespace com {
 			namespace javac {
 				namespace comp {
 
-$MethodInfo _Resolve$InterfaceLookupPhase$2_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;I)V", nullptr, $PRIVATE, $method(Resolve$InterfaceLookupPhase$2, init$, void, $String*, int32_t)},
-	{"update", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/comp/Resolve;)Lcom/sun/tools/javac/comp/Resolve$InterfaceLookupPhase;", nullptr, 0, $virtualMethod(Resolve$InterfaceLookupPhase$2, update, $Resolve$InterfaceLookupPhase*, $Symbol*, $Resolve*)},
-	{}
-};
-
-$EnclosingMethodInfo _Resolve$InterfaceLookupPhase$2_EnclosingMethodInfo_ = {
-	"com.sun.tools.javac.comp.Resolve$InterfaceLookupPhase",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _Resolve$InterfaceLookupPhase$2_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.Resolve$InterfaceLookupPhase", "com.sun.tools.javac.comp.Resolve", "InterfaceLookupPhase", $STATIC | $ABSTRACT | $ENUM},
-	{"com.sun.tools.javac.comp.Resolve$InterfaceLookupPhase$2", nullptr, nullptr, $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _Resolve$InterfaceLookupPhase$2_ClassInfo_ = {
-	$FINAL | $ACC_SUPER | $ENUM,
-	"com.sun.tools.javac.comp.Resolve$InterfaceLookupPhase$2",
-	"com.sun.tools.javac.comp.Resolve$InterfaceLookupPhase",
-	nullptr,
-	nullptr,
-	_Resolve$InterfaceLookupPhase$2_MethodInfo_,
-	nullptr,
-	&_Resolve$InterfaceLookupPhase$2_EnclosingMethodInfo_,
-	_Resolve$InterfaceLookupPhase$2_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.Resolve"
-};
-
-$Object* allocate$Resolve$InterfaceLookupPhase$2($Class* clazz) {
-	return $of($alloc(Resolve$InterfaceLookupPhase$2));
-}
-
 void Resolve$InterfaceLookupPhase$2::init$($String* $enum$name, int32_t $enum$ordinal) {
 	$Resolve$InterfaceLookupPhase::init$($enum$name, $enum$ordinal);
 }
@@ -69,7 +30,39 @@ Resolve$InterfaceLookupPhase$2::Resolve$InterfaceLookupPhase$2() {
 }
 
 $Class* Resolve$InterfaceLookupPhase$2::load$($String* name, bool initialize) {
-	$loadClass(Resolve$InterfaceLookupPhase$2, name, initialize, &_Resolve$InterfaceLookupPhase$2_ClassInfo_, allocate$Resolve$InterfaceLookupPhase$2);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;I)V", nullptr, $PRIVATE, $method(Resolve$InterfaceLookupPhase$2, init$, void, $String*, int32_t)},
+		{"update", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/comp/Resolve;)Lcom/sun/tools/javac/comp/Resolve$InterfaceLookupPhase;", nullptr, 0, $virtualMethod(Resolve$InterfaceLookupPhase$2, update, $Resolve$InterfaceLookupPhase*, $Symbol*, $Resolve*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.tools.javac.comp.Resolve$InterfaceLookupPhase",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.Resolve$InterfaceLookupPhase", "com.sun.tools.javac.comp.Resolve", "InterfaceLookupPhase", $STATIC | $ABSTRACT | $ENUM},
+		{"com.sun.tools.javac.comp.Resolve$InterfaceLookupPhase$2", nullptr, nullptr, $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER | $ENUM,
+		"com.sun.tools.javac.comp.Resolve$InterfaceLookupPhase$2",
+		"com.sun.tools.javac.comp.Resolve$InterfaceLookupPhase",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.Resolve"
+	};
+	$loadClass(Resolve$InterfaceLookupPhase$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Resolve$InterfaceLookupPhase$2));
+	});
 	return class$;
 }
 

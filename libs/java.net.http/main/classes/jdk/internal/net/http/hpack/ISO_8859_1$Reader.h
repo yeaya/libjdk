@@ -40,6 +40,7 @@ class ISO_8859_1$Reader : public ::java::lang::Object {
 	$class(ISO_8859_1$Reader, 0, ::java::lang::Object)
 public:
 	ISO_8859_1$Reader();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void lambda$new$0(int64_t buf, int32_t bufLen);
 	void read(::java::nio::ByteBuffer* source, ::java::lang::Appendable* destination);

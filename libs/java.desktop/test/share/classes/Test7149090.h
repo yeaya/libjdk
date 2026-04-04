@@ -12,6 +12,7 @@ class $export Test7149090 : public ::java::lang::Object {
 	$class(Test7149090, 0, ::java::lang::Object)
 public:
 	Test7149090();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void main($StringArray* args);
 	static $Array<::java::lang::Object, 2>* DEFAULT_TITLE_POSITIONS;

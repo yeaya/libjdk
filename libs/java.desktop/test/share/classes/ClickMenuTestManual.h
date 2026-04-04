@@ -37,6 +37,7 @@ class $export ClickMenuTestManual : public ::java::awt::event::ActionListener {
 	$class(ClickMenuTestManual, 0, ::java::awt::event::ActionListener)
 public:
 	ClickMenuTestManual();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void actionPerformed(::java::awt::event::ActionEvent* evt) override;
 	static void cleanUp();

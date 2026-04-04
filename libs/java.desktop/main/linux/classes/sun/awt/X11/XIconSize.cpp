@@ -1,5 +1,4 @@
 #include <sun/awt/X11/XIconSize.h>
-
 #include <jdk/internal/misc/Unsafe.h>
 #include <sun/awt/X11/Native.h>
 #include <sun/awt/X11/XEvent.h>
@@ -11,62 +10,13 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Unsafe = ::jdk::internal::misc::Unsafe;
 using $Native = ::sun::awt::X11::Native;
 using $XWrapperBase = ::sun::awt::X11::XWrapperBase;
 using $XlibWrapper = ::sun::awt::X11::XlibWrapper;
-using $PlatformLogger = ::sun::util::logging::PlatformLogger;
 
 namespace sun {
 	namespace awt {
 		namespace X11 {
-
-$FieldInfo _XIconSize_FieldInfo_[] = {
-	{"unsafe", "Ljdk/internal/misc/Unsafe;", nullptr, $PRIVATE, $field(XIconSize, unsafe)},
-	{"should_free_memory", "Z", nullptr, $PRIVATE | $FINAL, $field(XIconSize, should_free_memory)},
-	{"pData", "J", nullptr, 0, $field(XIconSize, pData)},
-	{}
-};
-
-$MethodInfo _XIconSize_MethodInfo_[] = {
-	{"<init>", "(J)V", nullptr, $PUBLIC, $method(XIconSize, init$, void, int64_t)},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(XIconSize, init$, void)},
-	{"clone", "()Lsun/awt/X11/XEvent;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XIconSize, clone, $Object*)},
-	{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(XIconSize, dispose, void)},
-	{"getDataSize", "()I", nullptr, $PUBLIC, $virtualMethod(XIconSize, getDataSize, int32_t)},
-	{"getFieldsAsString", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(XIconSize, getFieldsAsString, $String*)},
-	{"getName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(XIconSize, getName, $String*)},
-	{"getPData", "()J", nullptr, $PUBLIC, $virtualMethod(XIconSize, getPData, int64_t)},
-	{"getSize", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(XIconSize, getSize, int32_t)},
-	{"get_height_inc", "()I", nullptr, $PUBLIC, $virtualMethod(XIconSize, get_height_inc, int32_t)},
-	{"get_max_height", "()I", nullptr, $PUBLIC, $virtualMethod(XIconSize, get_max_height, int32_t)},
-	{"get_max_width", "()I", nullptr, $PUBLIC, $virtualMethod(XIconSize, get_max_width, int32_t)},
-	{"get_min_height", "()I", nullptr, $PUBLIC, $virtualMethod(XIconSize, get_min_height, int32_t)},
-	{"get_min_width", "()I", nullptr, $PUBLIC, $virtualMethod(XIconSize, get_min_width, int32_t)},
-	{"get_width_inc", "()I", nullptr, $PUBLIC, $virtualMethod(XIconSize, get_width_inc, int32_t)},
-	{"set_height_inc", "(I)V", nullptr, $PUBLIC, $virtualMethod(XIconSize, set_height_inc, void, int32_t)},
-	{"set_max_height", "(I)V", nullptr, $PUBLIC, $virtualMethod(XIconSize, set_max_height, void, int32_t)},
-	{"set_max_width", "(I)V", nullptr, $PUBLIC, $virtualMethod(XIconSize, set_max_width, void, int32_t)},
-	{"set_min_height", "(I)V", nullptr, $PUBLIC, $virtualMethod(XIconSize, set_min_height, void, int32_t)},
-	{"set_min_width", "(I)V", nullptr, $PUBLIC, $virtualMethod(XIconSize, set_min_width, void, int32_t)},
-	{"set_width_inc", "(I)V", nullptr, $PUBLIC, $virtualMethod(XIconSize, set_width_inc, void, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XIconSize, toString, $String*)},
-	{"zero", "()V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XIconSize, zero, void)},
-	{}
-};
-
-$ClassInfo _XIconSize_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.awt.X11.XIconSize",
-	"sun.awt.X11.XWrapperBase",
-	nullptr,
-	_XIconSize_FieldInfo_,
-	_XIconSize_MethodInfo_
-};
-
-$Object* allocate$XIconSize($Class* clazz) {
-	return $of($alloc(XIconSize));
-}
 
 int32_t XIconSize::getSize() {
 	$init(XIconSize);
@@ -105,7 +55,7 @@ void XIconSize::dispose() {
 	$init($XWrapperBase);
 	$nc($XWrapperBase::log)->finest("Disposing"_s);
 	if (this->should_free_memory) {
-		$nc($XWrapperBase::log)->finest("freeing memory"_s);
+		$XWrapperBase::log->finest("freeing memory"_s);
 		$nc(this->unsafe)->freeMemory(this->pData);
 	}
 }
@@ -198,7 +148,7 @@ $String* XIconSize::getFieldsAsString() {
 }
 
 $Object* XIconSize::clone() {
-	return $of($XWrapperBase::clone());
+	return $XWrapperBase::clone();
 }
 
 void XIconSize::zero() {
@@ -213,7 +163,49 @@ XIconSize::XIconSize() {
 }
 
 $Class* XIconSize::load$($String* name, bool initialize) {
-	$loadClass(XIconSize, name, initialize, &_XIconSize_ClassInfo_, allocate$XIconSize);
+	$FieldInfo fieldInfos$$[] = {
+		{"unsafe", "Ljdk/internal/misc/Unsafe;", nullptr, $PRIVATE, $field(XIconSize, unsafe)},
+		{"should_free_memory", "Z", nullptr, $PRIVATE | $FINAL, $field(XIconSize, should_free_memory)},
+		{"pData", "J", nullptr, 0, $field(XIconSize, pData)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(J)V", nullptr, $PUBLIC, $method(XIconSize, init$, void, int64_t)},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(XIconSize, init$, void)},
+		{"clone", "()Lsun/awt/X11/XEvent;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XIconSize, clone, $Object*)},
+		{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(XIconSize, dispose, void)},
+		{"getDataSize", "()I", nullptr, $PUBLIC, $virtualMethod(XIconSize, getDataSize, int32_t)},
+		{"getFieldsAsString", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(XIconSize, getFieldsAsString, $String*)},
+		{"getName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(XIconSize, getName, $String*)},
+		{"getPData", "()J", nullptr, $PUBLIC, $virtualMethod(XIconSize, getPData, int64_t)},
+		{"getSize", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(XIconSize, getSize, int32_t)},
+		{"get_height_inc", "()I", nullptr, $PUBLIC, $virtualMethod(XIconSize, get_height_inc, int32_t)},
+		{"get_max_height", "()I", nullptr, $PUBLIC, $virtualMethod(XIconSize, get_max_height, int32_t)},
+		{"get_max_width", "()I", nullptr, $PUBLIC, $virtualMethod(XIconSize, get_max_width, int32_t)},
+		{"get_min_height", "()I", nullptr, $PUBLIC, $virtualMethod(XIconSize, get_min_height, int32_t)},
+		{"get_min_width", "()I", nullptr, $PUBLIC, $virtualMethod(XIconSize, get_min_width, int32_t)},
+		{"get_width_inc", "()I", nullptr, $PUBLIC, $virtualMethod(XIconSize, get_width_inc, int32_t)},
+		{"set_height_inc", "(I)V", nullptr, $PUBLIC, $virtualMethod(XIconSize, set_height_inc, void, int32_t)},
+		{"set_max_height", "(I)V", nullptr, $PUBLIC, $virtualMethod(XIconSize, set_max_height, void, int32_t)},
+		{"set_max_width", "(I)V", nullptr, $PUBLIC, $virtualMethod(XIconSize, set_max_width, void, int32_t)},
+		{"set_min_height", "(I)V", nullptr, $PUBLIC, $virtualMethod(XIconSize, set_min_height, void, int32_t)},
+		{"set_min_width", "(I)V", nullptr, $PUBLIC, $virtualMethod(XIconSize, set_min_width, void, int32_t)},
+		{"set_width_inc", "(I)V", nullptr, $PUBLIC, $virtualMethod(XIconSize, set_width_inc, void, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XIconSize, toString, $String*)},
+		{"zero", "()V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XIconSize, zero, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.awt.X11.XIconSize",
+		"sun.awt.X11.XWrapperBase",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XIconSize, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XIconSize);
+	});
 	return class$;
 }
 

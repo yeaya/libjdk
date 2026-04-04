@@ -34,6 +34,7 @@ class $export HandshakeFailureTest : public ::java::lang::Object {
 	$class(HandshakeFailureTest, 0, ::java::lang::Object)
 public:
 	HandshakeFailureTest();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::HandshakeFailureTest$ExpectedExceptionType* checkExceptionOrCause($Throwable* t);
 	static ::java::net::http::HttpClient* getClient();

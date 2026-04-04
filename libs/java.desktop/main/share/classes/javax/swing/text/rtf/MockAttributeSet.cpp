@@ -1,5 +1,4 @@
 #include <javax/swing/text/rtf/MockAttributeSet.h>
-
 #include <java/lang/InternalError.h>
 #include <java/util/Dictionary.h>
 #include <java/util/Enumeration.h>
@@ -10,7 +9,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InternalError = ::java::lang::InternalError;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Dictionary = ::java::util::Dictionary;
 using $Enumeration = ::java::util::Enumeration;
 using $AttributeSet = ::javax::swing::text::AttributeSet;
 
@@ -18,45 +16,6 @@ namespace javax {
 	namespace swing {
 		namespace text {
 			namespace rtf {
-
-$FieldInfo _MockAttributeSet_FieldInfo_[] = {
-	{"backing", "Ljava/util/Dictionary;", "Ljava/util/Dictionary<Ljava/lang/Object;Ljava/lang/Object;>;", $PUBLIC, $field(MockAttributeSet, backing)},
-	{}
-};
-
-$MethodInfo _MockAttributeSet_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(MockAttributeSet, init$, void)},
-	{"addAttribute", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(MockAttributeSet, addAttribute, void, Object$*, Object$*)},
-	{"addAttributes", "(Ljavax/swing/text/AttributeSet;)V", nullptr, $PUBLIC, $virtualMethod(MockAttributeSet, addAttributes, void, $AttributeSet*)},
-	{"containsAttribute", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(MockAttributeSet, containsAttribute, bool, Object$*, Object$*)},
-	{"containsAttributes", "(Ljavax/swing/text/AttributeSet;)Z", nullptr, $PUBLIC, $virtualMethod(MockAttributeSet, containsAttributes, bool, $AttributeSet*)},
-	{"copyAttributes", "()Ljavax/swing/text/AttributeSet;", nullptr, $PUBLIC, $virtualMethod(MockAttributeSet, copyAttributes, $AttributeSet*)},
-	{"getAttribute", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MockAttributeSet, getAttribute, $Object*, Object$*)},
-	{"getAttributeCount", "()I", nullptr, $PUBLIC, $virtualMethod(MockAttributeSet, getAttributeCount, int32_t)},
-	{"getAttributeNames", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<*>;", $PUBLIC, $virtualMethod(MockAttributeSet, getAttributeNames, $Enumeration*)},
-	{"getResolveParent", "()Ljavax/swing/text/AttributeSet;", nullptr, $PUBLIC, $virtualMethod(MockAttributeSet, getResolveParent, $AttributeSet*)},
-	{"isDefined", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(MockAttributeSet, isDefined, bool, Object$*)},
-	{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(MockAttributeSet, isEmpty, bool)},
-	{"isEqual", "(Ljavax/swing/text/AttributeSet;)Z", nullptr, $PUBLIC, $virtualMethod(MockAttributeSet, isEqual, bool, $AttributeSet*)},
-	{"removeAttribute", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(MockAttributeSet, removeAttribute, void, Object$*)},
-	{"removeAttributes", "(Ljavax/swing/text/AttributeSet;)V", nullptr, $PUBLIC, $virtualMethod(MockAttributeSet, removeAttributes, void, $AttributeSet*)},
-	{"removeAttributes", "(Ljava/util/Enumeration;)V", "(Ljava/util/Enumeration<*>;)V", $PUBLIC, $virtualMethod(MockAttributeSet, removeAttributes, void, $Enumeration*)},
-	{"setResolveParent", "(Ljavax/swing/text/AttributeSet;)V", nullptr, $PUBLIC, $virtualMethod(MockAttributeSet, setResolveParent, void, $AttributeSet*)},
-	{}
-};
-
-$ClassInfo _MockAttributeSet_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.text.rtf.MockAttributeSet",
-	"java.lang.Object",
-	"javax.swing.text.MutableAttributeSet",
-	_MockAttributeSet_FieldInfo_,
-	_MockAttributeSet_MethodInfo_
-};
-
-$Object* allocate$MockAttributeSet($Class* clazz) {
-	return $of($alloc(MockAttributeSet));
-}
 
 void MockAttributeSet::init$() {
 }
@@ -84,7 +43,7 @@ $AttributeSet* MockAttributeSet::copyAttributes() {
 }
 
 $Object* MockAttributeSet::getAttribute(Object$* name) {
-	return $of($nc(this->backing)->get(name));
+	return $nc(this->backing)->get(name);
 }
 
 void MockAttributeSet::addAttribute(Object$* name, Object$* value) {
@@ -92,7 +51,7 @@ void MockAttributeSet::addAttribute(Object$* name, Object$* value) {
 }
 
 void MockAttributeSet::addAttributes($AttributeSet* attr) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Enumeration, as, $nc(attr)->getAttributeNames());
 	while ($nc(as)->hasMoreElements()) {
 		$var($Object, el, as->nextElement());
@@ -139,7 +98,41 @@ MockAttributeSet::MockAttributeSet() {
 }
 
 $Class* MockAttributeSet::load$($String* name, bool initialize) {
-	$loadClass(MockAttributeSet, name, initialize, &_MockAttributeSet_ClassInfo_, allocate$MockAttributeSet);
+	$FieldInfo fieldInfos$$[] = {
+		{"backing", "Ljava/util/Dictionary;", "Ljava/util/Dictionary<Ljava/lang/Object;Ljava/lang/Object;>;", $PUBLIC, $field(MockAttributeSet, backing)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(MockAttributeSet, init$, void)},
+		{"addAttribute", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(MockAttributeSet, addAttribute, void, Object$*, Object$*)},
+		{"addAttributes", "(Ljavax/swing/text/AttributeSet;)V", nullptr, $PUBLIC, $virtualMethod(MockAttributeSet, addAttributes, void, $AttributeSet*)},
+		{"containsAttribute", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(MockAttributeSet, containsAttribute, bool, Object$*, Object$*)},
+		{"containsAttributes", "(Ljavax/swing/text/AttributeSet;)Z", nullptr, $PUBLIC, $virtualMethod(MockAttributeSet, containsAttributes, bool, $AttributeSet*)},
+		{"copyAttributes", "()Ljavax/swing/text/AttributeSet;", nullptr, $PUBLIC, $virtualMethod(MockAttributeSet, copyAttributes, $AttributeSet*)},
+		{"getAttribute", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MockAttributeSet, getAttribute, $Object*, Object$*)},
+		{"getAttributeCount", "()I", nullptr, $PUBLIC, $virtualMethod(MockAttributeSet, getAttributeCount, int32_t)},
+		{"getAttributeNames", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<*>;", $PUBLIC, $virtualMethod(MockAttributeSet, getAttributeNames, $Enumeration*)},
+		{"getResolveParent", "()Ljavax/swing/text/AttributeSet;", nullptr, $PUBLIC, $virtualMethod(MockAttributeSet, getResolveParent, $AttributeSet*)},
+		{"isDefined", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(MockAttributeSet, isDefined, bool, Object$*)},
+		{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(MockAttributeSet, isEmpty, bool)},
+		{"isEqual", "(Ljavax/swing/text/AttributeSet;)Z", nullptr, $PUBLIC, $virtualMethod(MockAttributeSet, isEqual, bool, $AttributeSet*)},
+		{"removeAttribute", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(MockAttributeSet, removeAttribute, void, Object$*)},
+		{"removeAttributes", "(Ljavax/swing/text/AttributeSet;)V", nullptr, $PUBLIC, $virtualMethod(MockAttributeSet, removeAttributes, void, $AttributeSet*)},
+		{"removeAttributes", "(Ljava/util/Enumeration;)V", "(Ljava/util/Enumeration<*>;)V", $PUBLIC, $virtualMethod(MockAttributeSet, removeAttributes, void, $Enumeration*)},
+		{"setResolveParent", "(Ljavax/swing/text/AttributeSet;)V", nullptr, $PUBLIC, $virtualMethod(MockAttributeSet, setResolveParent, void, $AttributeSet*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.text.rtf.MockAttributeSet",
+		"java.lang.Object",
+		"javax.swing.text.MutableAttributeSet",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(MockAttributeSet, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MockAttributeSet);
+	});
 	return class$;
 }
 

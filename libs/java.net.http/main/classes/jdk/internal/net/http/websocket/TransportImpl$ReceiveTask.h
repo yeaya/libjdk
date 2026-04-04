@@ -27,6 +27,7 @@ class TransportImpl$ReceiveTask : public ::jdk::internal::net::http::common::Seq
 	$class(TransportImpl$ReceiveTask, 0, ::jdk::internal::net::http::common::SequentialScheduler$CompleteRestartableTask)
 public:
 	TransportImpl$ReceiveTask();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::jdk::internal::net::http::websocket::TransportImpl* this$0);
 	using ::jdk::internal::net::http::common::SequentialScheduler$CompleteRestartableTask::run;
 	virtual void run() override;

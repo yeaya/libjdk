@@ -1,5 +1,4 @@
 #include <java/awt/Graphics.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Font.h>
 #include <java/awt/FontMetrics.h>
@@ -28,89 +27,6 @@ using $AttributedCharacterIterator = ::java::text::AttributedCharacterIterator;
 
 namespace java {
 	namespace awt {
-
-$NamedAttribute Graphics_Attribute_var$0[] = {
-	{"since", 's', "9"},
-	{}
-};
-
-$CompoundAttribute _Graphics_MethodAnnotations_finalize33[] = {
-	{"Ljava/lang/Deprecated;", Graphics_Attribute_var$0},
-	{}
-};
-
-$CompoundAttribute _Graphics_MethodAnnotations_getClipRect37[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$MethodInfo _Graphics_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(Graphics, init$, void)},
-	{"clearRect", "(IIII)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Graphics, clearRect, void, int32_t, int32_t, int32_t, int32_t)},
-	{"clipRect", "(IIII)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Graphics, clipRect, void, int32_t, int32_t, int32_t, int32_t)},
-	{"copyArea", "(IIIIII)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Graphics, copyArea, void, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"create", "()Ljava/awt/Graphics;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Graphics, create, Graphics*)},
-	{"create", "(IIII)Ljava/awt/Graphics;", nullptr, $PUBLIC, $virtualMethod(Graphics, create, Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{"dispose", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Graphics, dispose, void)},
-	{"draw3DRect", "(IIIIZ)V", nullptr, $PUBLIC, $virtualMethod(Graphics, draw3DRect, void, int32_t, int32_t, int32_t, int32_t, bool)},
-	{"drawArc", "(IIIIII)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Graphics, drawArc, void, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"drawBytes", "([BIIII)V", nullptr, $PUBLIC, $virtualMethod(Graphics, drawBytes, void, $bytes*, int32_t, int32_t, int32_t, int32_t)},
-	{"drawChars", "([CIIII)V", nullptr, $PUBLIC, $virtualMethod(Graphics, drawChars, void, $chars*, int32_t, int32_t, int32_t, int32_t)},
-	{"drawImage", "(Ljava/awt/Image;IILjava/awt/image/ImageObserver;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Graphics, drawImage, bool, $Image*, int32_t, int32_t, $ImageObserver*)},
-	{"drawImage", "(Ljava/awt/Image;IIIILjava/awt/image/ImageObserver;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Graphics, drawImage, bool, $Image*, int32_t, int32_t, int32_t, int32_t, $ImageObserver*)},
-	{"drawImage", "(Ljava/awt/Image;IILjava/awt/Color;Ljava/awt/image/ImageObserver;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Graphics, drawImage, bool, $Image*, int32_t, int32_t, $Color*, $ImageObserver*)},
-	{"drawImage", "(Ljava/awt/Image;IIIILjava/awt/Color;Ljava/awt/image/ImageObserver;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Graphics, drawImage, bool, $Image*, int32_t, int32_t, int32_t, int32_t, $Color*, $ImageObserver*)},
-	{"drawImage", "(Ljava/awt/Image;IIIIIIIILjava/awt/image/ImageObserver;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Graphics, drawImage, bool, $Image*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, $ImageObserver*)},
-	{"drawImage", "(Ljava/awt/Image;IIIIIIIILjava/awt/Color;Ljava/awt/image/ImageObserver;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Graphics, drawImage, bool, $Image*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, $Color*, $ImageObserver*)},
-	{"drawLine", "(IIII)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Graphics, drawLine, void, int32_t, int32_t, int32_t, int32_t)},
-	{"drawOval", "(IIII)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Graphics, drawOval, void, int32_t, int32_t, int32_t, int32_t)},
-	{"drawPolygon", "([I[II)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Graphics, drawPolygon, void, $ints*, $ints*, int32_t)},
-	{"drawPolygon", "(Ljava/awt/Polygon;)V", nullptr, $PUBLIC, $virtualMethod(Graphics, drawPolygon, void, $Polygon*)},
-	{"drawPolyline", "([I[II)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Graphics, drawPolyline, void, $ints*, $ints*, int32_t)},
-	{"drawRect", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(Graphics, drawRect, void, int32_t, int32_t, int32_t, int32_t)},
-	{"drawRoundRect", "(IIIIII)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Graphics, drawRoundRect, void, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"drawString", "(Ljava/lang/String;II)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Graphics, drawString, void, $String*, int32_t, int32_t)},
-	{"drawString", "(Ljava/text/AttributedCharacterIterator;II)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Graphics, drawString, void, $AttributedCharacterIterator*, int32_t, int32_t)},
-	{"fill3DRect", "(IIIIZ)V", nullptr, $PUBLIC, $virtualMethod(Graphics, fill3DRect, void, int32_t, int32_t, int32_t, int32_t, bool)},
-	{"fillArc", "(IIIIII)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Graphics, fillArc, void, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"fillOval", "(IIII)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Graphics, fillOval, void, int32_t, int32_t, int32_t, int32_t)},
-	{"fillPolygon", "([I[II)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Graphics, fillPolygon, void, $ints*, $ints*, int32_t)},
-	{"fillPolygon", "(Ljava/awt/Polygon;)V", nullptr, $PUBLIC, $virtualMethod(Graphics, fillPolygon, void, $Polygon*)},
-	{"fillRect", "(IIII)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Graphics, fillRect, void, int32_t, int32_t, int32_t, int32_t)},
-	{"fillRoundRect", "(IIIIII)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Graphics, fillRoundRect, void, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"finalize", "()V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(Graphics, finalize, void), nullptr, nullptr, _Graphics_MethodAnnotations_finalize33},
-	{"getClip", "()Ljava/awt/Shape;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Graphics, getClip, $Shape*)},
-	{"getClipBounds", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Graphics, getClipBounds, $Rectangle*)},
-	{"getClipBounds", "(Ljava/awt/Rectangle;)Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(Graphics, getClipBounds, $Rectangle*, $Rectangle*)},
-	{"getClipRect", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(Graphics, getClipRect, $Rectangle*), nullptr, nullptr, _Graphics_MethodAnnotations_getClipRect37},
-	{"getColor", "()Ljava/awt/Color;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Graphics, getColor, $Color*)},
-	{"getFont", "()Ljava/awt/Font;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Graphics, getFont, $Font*)},
-	{"getFontMetrics", "()Ljava/awt/FontMetrics;", nullptr, $PUBLIC, $virtualMethod(Graphics, getFontMetrics, $FontMetrics*)},
-	{"getFontMetrics", "(Ljava/awt/Font;)Ljava/awt/FontMetrics;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Graphics, getFontMetrics, $FontMetrics*, $Font*)},
-	{"hitClip", "(IIII)Z", nullptr, $PUBLIC, $virtualMethod(Graphics, hitClip, bool, int32_t, int32_t, int32_t, int32_t)},
-	{"setClip", "(IIII)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Graphics, setClip, void, int32_t, int32_t, int32_t, int32_t)},
-	{"setClip", "(Ljava/awt/Shape;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Graphics, setClip, void, $Shape*)},
-	{"setColor", "(Ljava/awt/Color;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Graphics, setColor, void, $Color*)},
-	{"setFont", "(Ljava/awt/Font;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Graphics, setFont, void, $Font*)},
-	{"setPaintMode", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Graphics, setPaintMode, void)},
-	{"setXORMode", "(Ljava/awt/Color;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Graphics, setXORMode, void, $Color*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Graphics, toString, $String*)},
-	{"translate", "(II)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Graphics, translate, void, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _Graphics_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"java.awt.Graphics",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_Graphics_MethodInfo_
-};
-
-$Object* allocate$Graphics($Class* clazz) {
-	return $of($alloc(Graphics));
-}
 
 void Graphics::init$() {
 }
@@ -144,7 +60,7 @@ void Graphics::drawRect(int32_t x, int32_t y, int32_t width, int32_t height) {
 }
 
 void Graphics::draw3DRect(int32_t x, int32_t y, int32_t width, int32_t height, bool raised) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Color, c, getColor());
 	$var($Color, brighter, $nc(c)->brighter());
 	$var($Color, darker, c->darker());
@@ -158,7 +74,7 @@ void Graphics::draw3DRect(int32_t x, int32_t y, int32_t width, int32_t height, b
 }
 
 void Graphics::fill3DRect(int32_t x, int32_t y, int32_t width, int32_t height, bool raised) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Color, c, getColor());
 	$var($Color, brighter, $nc(c)->brighter());
 	$var($Color, darker, c->darker());
@@ -176,11 +92,11 @@ void Graphics::fill3DRect(int32_t x, int32_t y, int32_t width, int32_t height, b
 }
 
 void Graphics::drawPolygon($Polygon* p) {
-	drawPolygon($nc(p)->xpoints, p->ypoints, p->npoints);
+	drawPolygon($nc(p)->xpoints, $nc(p)->ypoints, $nc(p)->npoints);
 }
 
 void Graphics::fillPolygon($Polygon* p) {
-	fillPolygon($nc(p)->xpoints, p->ypoints, p->npoints);
+	fillPolygon($nc(p)->xpoints, $nc(p)->ypoints, $nc(p)->npoints);
 }
 
 void Graphics::drawChars($chars* data, int32_t offset, int32_t length, int32_t x, int32_t y) {
@@ -196,12 +112,15 @@ void Graphics::finalize() {
 }
 
 $String* Graphics::toString() {
-	$useLocalCurrentObjectStackCache();
-	$var($String, var$3, $$str({$($of(this)->getClass()->getName()), "[font="_s}));
-	$var($String, var$2, $$concat(var$3, $(getFont())));
-	$var($String, var$1, $$concat(var$2, ",color="_s));
-	$var($String, var$0, $$concat(var$1, $(getColor())));
-	return $concat(var$0, "]"_s);
+	$useLocalObjectStack();
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append($($of(this)->getClass()->getName()));
+	var$0->append("[font="_s);
+	var$0->append($(getFont()));
+	var$0->append(",color="_s);
+	var$0->append($(getColor()));
+	var$0->append("]"_s);
+	return $str(var$0);
 }
 
 $Rectangle* Graphics::getClipRect() {
@@ -233,7 +152,83 @@ Graphics::Graphics() {
 }
 
 $Class* Graphics::load$($String* name, bool initialize) {
-	$loadClass(Graphics, name, initialize, &_Graphics_ClassInfo_, allocate$Graphics);
+	$NamedAttribute finalizemethodAnnotations$$$namedAttribute[] = {
+		{"since", 's', "9"},
+		{}
+	};
+	$CompoundAttribute finalizemethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", finalizemethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$CompoundAttribute getClipRectmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PROTECTED, $method(Graphics, init$, void)},
+		{"clearRect", "(IIII)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Graphics, clearRect, void, int32_t, int32_t, int32_t, int32_t)},
+		{"clipRect", "(IIII)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Graphics, clipRect, void, int32_t, int32_t, int32_t, int32_t)},
+		{"copyArea", "(IIIIII)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Graphics, copyArea, void, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"create", "()Ljava/awt/Graphics;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Graphics, create, Graphics*)},
+		{"create", "(IIII)Ljava/awt/Graphics;", nullptr, $PUBLIC, $virtualMethod(Graphics, create, Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{"dispose", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Graphics, dispose, void)},
+		{"draw3DRect", "(IIIIZ)V", nullptr, $PUBLIC, $virtualMethod(Graphics, draw3DRect, void, int32_t, int32_t, int32_t, int32_t, bool)},
+		{"drawArc", "(IIIIII)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Graphics, drawArc, void, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"drawBytes", "([BIIII)V", nullptr, $PUBLIC, $virtualMethod(Graphics, drawBytes, void, $bytes*, int32_t, int32_t, int32_t, int32_t)},
+		{"drawChars", "([CIIII)V", nullptr, $PUBLIC, $virtualMethod(Graphics, drawChars, void, $chars*, int32_t, int32_t, int32_t, int32_t)},
+		{"drawImage", "(Ljava/awt/Image;IILjava/awt/image/ImageObserver;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Graphics, drawImage, bool, $Image*, int32_t, int32_t, $ImageObserver*)},
+		{"drawImage", "(Ljava/awt/Image;IIIILjava/awt/image/ImageObserver;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Graphics, drawImage, bool, $Image*, int32_t, int32_t, int32_t, int32_t, $ImageObserver*)},
+		{"drawImage", "(Ljava/awt/Image;IILjava/awt/Color;Ljava/awt/image/ImageObserver;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Graphics, drawImage, bool, $Image*, int32_t, int32_t, $Color*, $ImageObserver*)},
+		{"drawImage", "(Ljava/awt/Image;IIIILjava/awt/Color;Ljava/awt/image/ImageObserver;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Graphics, drawImage, bool, $Image*, int32_t, int32_t, int32_t, int32_t, $Color*, $ImageObserver*)},
+		{"drawImage", "(Ljava/awt/Image;IIIIIIIILjava/awt/image/ImageObserver;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Graphics, drawImage, bool, $Image*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, $ImageObserver*)},
+		{"drawImage", "(Ljava/awt/Image;IIIIIIIILjava/awt/Color;Ljava/awt/image/ImageObserver;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Graphics, drawImage, bool, $Image*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, $Color*, $ImageObserver*)},
+		{"drawLine", "(IIII)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Graphics, drawLine, void, int32_t, int32_t, int32_t, int32_t)},
+		{"drawOval", "(IIII)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Graphics, drawOval, void, int32_t, int32_t, int32_t, int32_t)},
+		{"drawPolygon", "([I[II)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Graphics, drawPolygon, void, $ints*, $ints*, int32_t)},
+		{"drawPolygon", "(Ljava/awt/Polygon;)V", nullptr, $PUBLIC, $virtualMethod(Graphics, drawPolygon, void, $Polygon*)},
+		{"drawPolyline", "([I[II)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Graphics, drawPolyline, void, $ints*, $ints*, int32_t)},
+		{"drawRect", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(Graphics, drawRect, void, int32_t, int32_t, int32_t, int32_t)},
+		{"drawRoundRect", "(IIIIII)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Graphics, drawRoundRect, void, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"drawString", "(Ljava/lang/String;II)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Graphics, drawString, void, $String*, int32_t, int32_t)},
+		{"drawString", "(Ljava/text/AttributedCharacterIterator;II)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Graphics, drawString, void, $AttributedCharacterIterator*, int32_t, int32_t)},
+		{"fill3DRect", "(IIIIZ)V", nullptr, $PUBLIC, $virtualMethod(Graphics, fill3DRect, void, int32_t, int32_t, int32_t, int32_t, bool)},
+		{"fillArc", "(IIIIII)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Graphics, fillArc, void, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"fillOval", "(IIII)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Graphics, fillOval, void, int32_t, int32_t, int32_t, int32_t)},
+		{"fillPolygon", "([I[II)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Graphics, fillPolygon, void, $ints*, $ints*, int32_t)},
+		{"fillPolygon", "(Ljava/awt/Polygon;)V", nullptr, $PUBLIC, $virtualMethod(Graphics, fillPolygon, void, $Polygon*)},
+		{"fillRect", "(IIII)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Graphics, fillRect, void, int32_t, int32_t, int32_t, int32_t)},
+		{"fillRoundRect", "(IIIIII)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Graphics, fillRoundRect, void, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"finalize", "()V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(Graphics, finalize, void), nullptr, nullptr, finalizemethodAnnotations$$},
+		{"getClip", "()Ljava/awt/Shape;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Graphics, getClip, $Shape*)},
+		{"getClipBounds", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Graphics, getClipBounds, $Rectangle*)},
+		{"getClipBounds", "(Ljava/awt/Rectangle;)Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(Graphics, getClipBounds, $Rectangle*, $Rectangle*)},
+		{"getClipRect", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(Graphics, getClipRect, $Rectangle*), nullptr, nullptr, getClipRectmethodAnnotations$$},
+		{"getColor", "()Ljava/awt/Color;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Graphics, getColor, $Color*)},
+		{"getFont", "()Ljava/awt/Font;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Graphics, getFont, $Font*)},
+		{"getFontMetrics", "()Ljava/awt/FontMetrics;", nullptr, $PUBLIC, $virtualMethod(Graphics, getFontMetrics, $FontMetrics*)},
+		{"getFontMetrics", "(Ljava/awt/Font;)Ljava/awt/FontMetrics;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Graphics, getFontMetrics, $FontMetrics*, $Font*)},
+		{"hitClip", "(IIII)Z", nullptr, $PUBLIC, $virtualMethod(Graphics, hitClip, bool, int32_t, int32_t, int32_t, int32_t)},
+		{"setClip", "(IIII)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Graphics, setClip, void, int32_t, int32_t, int32_t, int32_t)},
+		{"setClip", "(Ljava/awt/Shape;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Graphics, setClip, void, $Shape*)},
+		{"setColor", "(Ljava/awt/Color;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Graphics, setColor, void, $Color*)},
+		{"setFont", "(Ljava/awt/Font;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Graphics, setFont, void, $Font*)},
+		{"setPaintMode", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Graphics, setPaintMode, void)},
+		{"setXORMode", "(Ljava/awt/Color;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Graphics, setXORMode, void, $Color*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Graphics, toString, $String*)},
+		{"translate", "(II)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Graphics, translate, void, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"java.awt.Graphics",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Graphics, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Graphics);
+	});
 	return class$;
 }
 

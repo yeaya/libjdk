@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/basic/BasicRadioButtonMenuItemUI.h>
-
 #include <java/awt/AWTEvent.h>
 #include <java/awt/Point.h>
 #include <java/awt/event/MouseEvent.h>
@@ -19,7 +18,6 @@ using $Point = ::java::awt::Point;
 using $MouseEvent = ::java::awt::event::MouseEvent;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $ButtonModel = ::javax::swing::ButtonModel;
 using $JComponent = ::javax::swing::JComponent;
 using $JMenuItem = ::javax::swing::JMenuItem;
 using $MenuSelectionManager = ::javax::swing::MenuSelectionManager;
@@ -30,27 +28,6 @@ namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace basic {
-
-$MethodInfo _BasicRadioButtonMenuItemUI_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(BasicRadioButtonMenuItemUI, init$, void)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(BasicRadioButtonMenuItemUI, createUI, $ComponentUI*, $JComponent*)},
-	{"getPropertyPrefix", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(BasicRadioButtonMenuItemUI, getPropertyPrefix, $String*)},
-	{"processMouseEvent", "(Ljavax/swing/JMenuItem;Ljava/awt/event/MouseEvent;[Ljavax/swing/MenuElement;Ljavax/swing/MenuSelectionManager;)V", nullptr, $PUBLIC, $virtualMethod(BasicRadioButtonMenuItemUI, processMouseEvent, void, $JMenuItem*, $MouseEvent*, $MenuElementArray*, $MenuSelectionManager*)},
-	{}
-};
-
-$ClassInfo _BasicRadioButtonMenuItemUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.basic.BasicRadioButtonMenuItemUI",
-	"javax.swing.plaf.basic.BasicMenuItemUI",
-	nullptr,
-	nullptr,
-	_BasicRadioButtonMenuItemUI_MethodInfo_
-};
-
-$Object* allocate$BasicRadioButtonMenuItemUI($Class* clazz) {
-	return $of($alloc(BasicRadioButtonMenuItemUI));
-}
 
 void BasicRadioButtonMenuItemUI::init$() {
 	$BasicMenuItemUI::init$();
@@ -66,7 +43,7 @@ $String* BasicRadioButtonMenuItemUI::getPropertyPrefix() {
 }
 
 void BasicRadioButtonMenuItemUI::processMouseEvent($JMenuItem* item, $MouseEvent* e, $MenuElementArray* path, $MenuSelectionManager* manager) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Point, p, $nc(e)->getPoint());
 	bool var$0 = $nc(p)->x >= 0 && p->x < $nc(item)->getWidth() && p->y >= 0;
 	if (var$0 && p->y < item->getHeight()) {
@@ -77,7 +54,7 @@ void BasicRadioButtonMenuItemUI::processMouseEvent($JMenuItem* item, $MouseEvent
 		} else {
 			$nc(manager)->setSelectedPath(path);
 		}
-	} else if ($nc($(item->getModel()))->isArmed()) {
+	} else if ($$nc($nc(item)->getModel())->isArmed()) {
 		$var($MenuElementArray, newPath, $new($MenuElementArray, $nc(path)->length - 1));
 		int32_t i = 0;
 		int32_t c = 0;
@@ -92,7 +69,24 @@ BasicRadioButtonMenuItemUI::BasicRadioButtonMenuItemUI() {
 }
 
 $Class* BasicRadioButtonMenuItemUI::load$($String* name, bool initialize) {
-	$loadClass(BasicRadioButtonMenuItemUI, name, initialize, &_BasicRadioButtonMenuItemUI_ClassInfo_, allocate$BasicRadioButtonMenuItemUI);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(BasicRadioButtonMenuItemUI, init$, void)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(BasicRadioButtonMenuItemUI, createUI, $ComponentUI*, $JComponent*)},
+		{"getPropertyPrefix", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(BasicRadioButtonMenuItemUI, getPropertyPrefix, $String*)},
+		{"processMouseEvent", "(Ljavax/swing/JMenuItem;Ljava/awt/event/MouseEvent;[Ljavax/swing/MenuElement;Ljavax/swing/MenuSelectionManager;)V", nullptr, $PUBLIC, $virtualMethod(BasicRadioButtonMenuItemUI, processMouseEvent, void, $JMenuItem*, $MouseEvent*, $MenuElementArray*, $MenuSelectionManager*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.basic.BasicRadioButtonMenuItemUI",
+		"javax.swing.plaf.basic.BasicMenuItemUI",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(BasicRadioButtonMenuItemUI, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BasicRadioButtonMenuItemUI);
+	});
 	return class$;
 }
 

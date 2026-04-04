@@ -35,6 +35,7 @@ class $export DefaultStyledDocument$AbstractChangeHandler : public ::javax::swin
 	$class(DefaultStyledDocument$AbstractChangeHandler, 0, ::javax::swing::event::ChangeListener)
 public:
 	DefaultStyledDocument$AbstractChangeHandler();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::javax::swing::text::DefaultStyledDocument* d);
 	virtual void fireStateChanged(::javax::swing::text::DefaultStyledDocument* d, ::javax::swing::event::ChangeEvent* e) {}
 	static ::java::util::List* getStaleListeners(::javax::swing::event::ChangeListener* l);

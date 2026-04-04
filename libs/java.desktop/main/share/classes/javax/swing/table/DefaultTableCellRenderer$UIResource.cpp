@@ -1,5 +1,4 @@
 #include <javax/swing/table/DefaultTableCellRenderer$UIResource.h>
-
 #include <javax/swing/table/DefaultTableCellRenderer.h>
 #include <jcpp.h>
 
@@ -11,41 +10,6 @@ using $DefaultTableCellRenderer = ::javax::swing::table::DefaultTableCellRendere
 namespace javax {
 	namespace swing {
 		namespace table {
-
-$MethodInfo _DefaultTableCellRenderer$UIResource_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(DefaultTableCellRenderer$UIResource, init$, void)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _DefaultTableCellRenderer$UIResource_InnerClassesInfo_[] = {
-	{"javax.swing.table.DefaultTableCellRenderer$UIResource", "javax.swing.table.DefaultTableCellRenderer", "UIResource", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _DefaultTableCellRenderer$UIResource_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.table.DefaultTableCellRenderer$UIResource",
-	"javax.swing.table.DefaultTableCellRenderer",
-	"javax.swing.plaf.UIResource",
-	nullptr,
-	_DefaultTableCellRenderer$UIResource_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DefaultTableCellRenderer$UIResource_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.table.DefaultTableCellRenderer"
-};
-
-$Object* allocate$DefaultTableCellRenderer$UIResource($Class* clazz) {
-	return $of($alloc(DefaultTableCellRenderer$UIResource));
-}
 
 $String* DefaultTableCellRenderer$UIResource::toString() {
 	 return this->$DefaultTableCellRenderer::toString();
@@ -75,7 +39,37 @@ DefaultTableCellRenderer$UIResource::DefaultTableCellRenderer$UIResource() {
 }
 
 $Class* DefaultTableCellRenderer$UIResource::load$($String* name, bool initialize) {
-	$loadClass(DefaultTableCellRenderer$UIResource, name, initialize, &_DefaultTableCellRenderer$UIResource_ClassInfo_, allocate$DefaultTableCellRenderer$UIResource);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(DefaultTableCellRenderer$UIResource, init$, void)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.table.DefaultTableCellRenderer$UIResource", "javax.swing.table.DefaultTableCellRenderer", "UIResource", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.table.DefaultTableCellRenderer$UIResource",
+		"javax.swing.table.DefaultTableCellRenderer",
+		"javax.swing.plaf.UIResource",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.table.DefaultTableCellRenderer"
+	};
+	$loadClass(DefaultTableCellRenderer$UIResource, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DefaultTableCellRenderer$UIResource));
+	});
 	return class$;
 }
 

@@ -20,7 +20,7 @@ public:
 	virtual int32_t hashCode() override;
 	virtual $String* toString() override;
 	$bytes* buf = nullptr;
-	static const int64_t serialVersionUID = (int64_t)0xD09A93B2DEB38847;
+	static const int64_t serialVersionUID = (int64_t)0xd09a93b2deb38847;
 };
 
 	} // naming

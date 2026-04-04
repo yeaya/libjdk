@@ -1,5 +1,4 @@
 #include <javax/management/openmbean/OpenMBeanConstructorInfoSupport.h>
-
 #include <java/lang/ClassCastException.h>
 #include <java/util/Arrays.h>
 #include <java/util/List.h>
@@ -19,7 +18,6 @@ using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Arrays = ::java::util::Arrays;
-using $List = ::java::util::List;
 using $Descriptor = ::javax::management::Descriptor;
 using $MBeanConstructorInfo = ::javax::management::MBeanConstructorInfo;
 using $OpenMBeanConstructorInfo = ::javax::management::openmbean::OpenMBeanConstructorInfo;
@@ -27,41 +25,6 @@ using $OpenMBeanConstructorInfo = ::javax::management::openmbean::OpenMBeanConst
 namespace javax {
 	namespace management {
 		namespace openmbean {
-
-$FieldInfo _OpenMBeanConstructorInfoSupport_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(OpenMBeanConstructorInfoSupport, serialVersionUID)},
-	{"myHashCode", "Ljava/lang/Integer;", nullptr, $PRIVATE | $TRANSIENT, $field(OpenMBeanConstructorInfoSupport, myHashCode)},
-	{"myToString", "Ljava/lang/String;", nullptr, $PRIVATE | $TRANSIENT, $field(OpenMBeanConstructorInfoSupport, myToString)},
-	{}
-};
-
-$MethodInfo _OpenMBeanConstructorInfoSupport_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*getDescription", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*getName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*getSignature", "()[Ljavax/management/MBeanParameterInfo;", nullptr, $PUBLIC},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;[Ljavax/management/openmbean/OpenMBeanParameterInfo;)V", nullptr, $PUBLIC, $method(OpenMBeanConstructorInfoSupport, init$, void, $String*, $String*, $OpenMBeanParameterInfoArray*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;[Ljavax/management/openmbean/OpenMBeanParameterInfo;Ljavax/management/Descriptor;)V", nullptr, $PUBLIC, $method(OpenMBeanConstructorInfoSupport, init$, void, $String*, $String*, $OpenMBeanParameterInfoArray*, $Descriptor*)},
-	{"arrayCopyCast", "([Ljavax/management/openmbean/OpenMBeanParameterInfo;)[Ljavax/management/MBeanParameterInfo;", nullptr, $PRIVATE | $STATIC, $staticMethod(OpenMBeanConstructorInfoSupport, arrayCopyCast, $MBeanParameterInfoArray*, $OpenMBeanParameterInfoArray*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(OpenMBeanConstructorInfoSupport, equals, bool, Object$*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(OpenMBeanConstructorInfoSupport, hashCode, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(OpenMBeanConstructorInfoSupport, toString, $String*)},
-	{}
-};
-
-$ClassInfo _OpenMBeanConstructorInfoSupport_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.management.openmbean.OpenMBeanConstructorInfoSupport",
-	"javax.management.MBeanConstructorInfo",
-	"javax.management.openmbean.OpenMBeanConstructorInfo",
-	_OpenMBeanConstructorInfoSupport_FieldInfo_,
-	_OpenMBeanConstructorInfoSupport_MethodInfo_
-};
-
-$Object* allocate$OpenMBeanConstructorInfoSupport($Class* clazz) {
-	return $of($alloc(OpenMBeanConstructorInfoSupport));
-}
 
 $Object* OpenMBeanConstructorInfoSupport::clone() {
 	 return this->$MBeanConstructorInfo::clone();
@@ -88,14 +51,14 @@ void OpenMBeanConstructorInfoSupport::init$($String* name, $String* description,
 }
 
 void OpenMBeanConstructorInfoSupport::init$($String* name, $String* description, $OpenMBeanParameterInfoArray* signature, $Descriptor* descriptor) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$MBeanConstructorInfo::init$(name, description, $(arrayCopyCast(signature)), descriptor);
 	$set(this, myHashCode, nullptr);
 	$set(this, myToString, nullptr);
-	if (name == nullptr || $($nc(name)->trim())->isEmpty()) {
+	if (name == nullptr || $(name->trim())->isEmpty()) {
 		$throwNew($IllegalArgumentException, "Argument name cannot be null or empty"_s);
 	}
-	if (description == nullptr || $($nc(description)->trim())->isEmpty()) {
+	if (description == nullptr || $(description->trim())->isEmpty()) {
 		$throwNew($IllegalArgumentException, "Argument description cannot be null or empty"_s);
 	}
 }
@@ -111,7 +74,7 @@ $MBeanParameterInfoArray* OpenMBeanConstructorInfoSupport::arrayCopyCast($OpenMB
 }
 
 bool OpenMBeanConstructorInfoSupport::equals(Object$* obj) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (obj == nullptr) {
 		return false;
 	}
@@ -121,31 +84,31 @@ bool OpenMBeanConstructorInfoSupport::equals(Object$* obj) {
 	} catch ($ClassCastException& e) {
 		return false;
 	}
-	if (!$nc($(this->getName()))->equals($($nc(other)->getName()))) {
+	if (!$$nc(this->getName())->equals($($nc(other)->getName()))) {
 		return false;
 	}
 	$var($ObjectArray, var$0, this->getSignature());
-	if (!$Arrays::equals(var$0, $($nc(other)->getSignature()))) {
+	if (!$Arrays::equals(var$0, $(other->getSignature()))) {
 		return false;
 	}
 	return true;
 }
 
 int32_t OpenMBeanConstructorInfoSupport::hashCode() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->myHashCode == nullptr) {
 		int32_t value = 0;
-		value += $nc($(this->getName()))->hashCode();
-		value += $nc($($Arrays::asList($(this->getSignature()))))->hashCode();
+		value += $$nc(this->getName())->hashCode();
+		value += $$nc($Arrays::asList($(this->getSignature())))->hashCode();
 		$set(this, myHashCode, $Integer::valueOf(value));
 	}
 	return $nc(this->myHashCode)->intValue();
 }
 
 $String* OpenMBeanConstructorInfoSupport::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->myToString == nullptr) {
-		$set(this, myToString, $$new($StringBuilder)->append($($of(this)->getClass()->getName()))->append("(name="_s)->append($(this->getName()))->append(",signature="_s)->append($($nc($of($($Arrays::asList($(this->getSignature())))))->toString()))->append(",descriptor="_s)->append($($of(this->getDescriptor())))->append(")"_s)->toString());
+		$set(this, myToString, $$new($StringBuilder)->append($($of(this)->getClass()->getName()))->append("(name="_s)->append($(this->getName()))->append(",signature="_s)->append($($$nc($Arrays::asList($(this->getSignature())))->toString()))->append(",descriptor="_s)->append($(this->getDescriptor()))->append(")"_s)->toString());
 	}
 	return this->myToString;
 }
@@ -154,7 +117,37 @@ OpenMBeanConstructorInfoSupport::OpenMBeanConstructorInfoSupport() {
 }
 
 $Class* OpenMBeanConstructorInfoSupport::load$($String* name, bool initialize) {
-	$loadClass(OpenMBeanConstructorInfoSupport, name, initialize, &_OpenMBeanConstructorInfoSupport_ClassInfo_, allocate$OpenMBeanConstructorInfoSupport);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(OpenMBeanConstructorInfoSupport, serialVersionUID)},
+		{"myHashCode", "Ljava/lang/Integer;", nullptr, $PRIVATE | $TRANSIENT, $field(OpenMBeanConstructorInfoSupport, myHashCode)},
+		{"myToString", "Ljava/lang/String;", nullptr, $PRIVATE | $TRANSIENT, $field(OpenMBeanConstructorInfoSupport, myToString)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*getDescription", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*getName", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*getSignature", "()[Ljavax/management/MBeanParameterInfo;", nullptr, $PUBLIC},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;[Ljavax/management/openmbean/OpenMBeanParameterInfo;)V", nullptr, $PUBLIC, $method(OpenMBeanConstructorInfoSupport, init$, void, $String*, $String*, $OpenMBeanParameterInfoArray*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;[Ljavax/management/openmbean/OpenMBeanParameterInfo;Ljavax/management/Descriptor;)V", nullptr, $PUBLIC, $method(OpenMBeanConstructorInfoSupport, init$, void, $String*, $String*, $OpenMBeanParameterInfoArray*, $Descriptor*)},
+		{"arrayCopyCast", "([Ljavax/management/openmbean/OpenMBeanParameterInfo;)[Ljavax/management/MBeanParameterInfo;", nullptr, $PRIVATE | $STATIC, $staticMethod(OpenMBeanConstructorInfoSupport, arrayCopyCast, $MBeanParameterInfoArray*, $OpenMBeanParameterInfoArray*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(OpenMBeanConstructorInfoSupport, equals, bool, Object$*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(OpenMBeanConstructorInfoSupport, hashCode, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(OpenMBeanConstructorInfoSupport, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.management.openmbean.OpenMBeanConstructorInfoSupport",
+		"javax.management.MBeanConstructorInfo",
+		"javax.management.openmbean.OpenMBeanConstructorInfo",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(OpenMBeanConstructorInfoSupport, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(OpenMBeanConstructorInfoSupport));
+	});
 	return class$;
 }
 

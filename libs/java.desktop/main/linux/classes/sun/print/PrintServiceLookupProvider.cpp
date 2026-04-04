@@ -1,16 +1,12 @@
 #include <sun/print/PrintServiceLookupProvider.h>
-
 #include <java/lang/CharSequence.h>
 #include <java/lang/NumberFormatException.h>
-#include <java/lang/Runnable.h>
 #include <java/lang/SecurityManager.h>
 #include <java/lang/ThreadGroup.h>
 #include <java/net/URI.h>
 #include <java/net/URL.h>
 #include <java/security/AccessController.h>
-#include <java/security/PrivilegedAction.h>
 #include <java/security/PrivilegedActionException.h>
-#include <java/security/PrivilegedExceptionAction.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Vector.h>
 #include <javax/print/DocFlavor.h>
@@ -55,15 +51,11 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NumberFormatException = ::java::lang::NumberFormatException;
-using $Runnable = ::java::lang::Runnable;
 using $SecurityManager = ::java::lang::SecurityManager;
 using $ThreadGroup = ::java::lang::ThreadGroup;
-using $URI = ::java::net::URI;
 using $URL = ::java::net::URL;
 using $AccessController = ::java::security::AccessController;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $PrivilegedActionException = ::java::security::PrivilegedActionException;
-using $PrivilegedExceptionAction = ::java::security::PrivilegedExceptionAction;
 using $ArrayList = ::java::util::ArrayList;
 using $Vector = ::java::util::Vector;
 using $DocFlavor = ::javax::print::DocFlavor;
@@ -89,96 +81,6 @@ using $GetPropertyAction = ::sun::security::action::GetPropertyAction;
 
 namespace sun {
 	namespace print {
-
-$FieldInfo _PrintServiceLookupProvider_FieldInfo_[] = {
-	{"defaultPrinter", "Ljava/lang/String;", nullptr, $PRIVATE, $field(PrintServiceLookupProvider, defaultPrinter)},
-	{"defaultPrintService", "Ljavax/print/PrintService;", nullptr, $PRIVATE, $field(PrintServiceLookupProvider, defaultPrintService)},
-	{"printServices", "[Ljavax/print/PrintService;", nullptr, $PRIVATE, $field(PrintServiceLookupProvider, printServices)},
-	{"lookupListeners", "Ljava/util/Vector;", "Ljava/util/Vector<Lsun/print/BackgroundLookupListener;>;", $PRIVATE, $field(PrintServiceLookupProvider, lookupListeners)},
-	{"debugPrefix", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(PrintServiceLookupProvider, debugPrefix)},
-	{"pollServices", "Z", nullptr, $PRIVATE | $STATIC, $staticField(PrintServiceLookupProvider, pollServices)},
-	{"DEFAULT_MINREFRESH", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PrintServiceLookupProvider, DEFAULT_MINREFRESH)},
-	{"minRefreshTime", "I", nullptr, $PRIVATE | $STATIC, $staticField(PrintServiceLookupProvider, minRefreshTime)},
-	{"osname", "Ljava/lang/String;", nullptr, $STATIC, $staticField(PrintServiceLookupProvider, osname)},
-	{"lpNameComAix", "[Ljava/lang/String;", nullptr, 0, $field(PrintServiceLookupProvider, lpNameComAix)},
-	{"aix_lsallq", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PrintServiceLookupProvider, aix_lsallq)},
-	{"aix_lpstat_p", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PrintServiceLookupProvider, aix_lpstat_p)},
-	{"aix_lpstat_d", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PrintServiceLookupProvider, aix_lpstat_d)},
-	{"aix_lpstat_v", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PrintServiceLookupProvider, aix_lpstat_v)},
-	{"aix_defaultPrinterEnumeration", "I", nullptr, $PRIVATE | $STATIC, $staticField(PrintServiceLookupProvider, aix_defaultPrinterEnumeration)},
-	{"UNINITIALIZED", "I", nullptr, $STATIC | $FINAL, $constField(PrintServiceLookupProvider, UNINITIALIZED)},
-	{"BSD_LPD", "I", nullptr, $STATIC | $FINAL, $constField(PrintServiceLookupProvider, BSD_LPD)},
-	{"BSD_LPD_NG", "I", nullptr, $STATIC | $FINAL, $constField(PrintServiceLookupProvider, BSD_LPD_NG)},
-	{"cmdIndex", "I", nullptr, $STATIC, $staticField(PrintServiceLookupProvider, cmdIndex)},
-	{"lpcFirstCom", "[Ljava/lang/String;", nullptr, 0, $field(PrintServiceLookupProvider, lpcFirstCom)},
-	{"lpcAllCom", "[Ljava/lang/String;", nullptr, 0, $field(PrintServiceLookupProvider, lpcAllCom)},
-	{"lpcNameCom", "[Ljava/lang/String;", nullptr, 0, $field(PrintServiceLookupProvider, lpcNameCom)},
-	{}
-};
-
-$MethodInfo _PrintServiceLookupProvider_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(PrintServiceLookupProvider, init$, void)},
-	{"addPrintServiceToList", "(Ljava/util/ArrayList;Ljavax/print/PrintService;)I", "(Ljava/util/ArrayList<Ljavax/print/PrintService;>;Ljavax/print/PrintService;)I", $PRIVATE, $method(PrintServiceLookupProvider, addPrintServiceToList, int32_t, $ArrayList*, $PrintService*)},
-	{"checkPrinterName", "(Ljava/lang/String;)Z", nullptr, $PRIVATE, $method(PrintServiceLookupProvider, checkPrinterName, bool, $String*)},
-	{"copyOf", "([Ljavax/print/PrintService;)[Ljavax/print/PrintService;", nullptr, $PRIVATE, $method(PrintServiceLookupProvider, copyOf, $PrintServiceArray*, $PrintServiceArray*)},
-	{"execCmd", "(Ljava/lang/String;)[Ljava/lang/String;", nullptr, $STATIC, $staticMethod(PrintServiceLookupProvider, execCmd, $StringArray*, $String*)},
-	{"getAllPrinterNamesAIX", "()[Ljava/lang/String;", nullptr, $PRIVATE, $method(PrintServiceLookupProvider, getAllPrinterNamesAIX, $StringArray*)},
-	{"getAllPrinterNamesBSD", "()[Ljava/lang/String;", nullptr, $PRIVATE, $method(PrintServiceLookupProvider, getAllPrinterNamesBSD, $StringArray*)},
-	{"getAllPrinterNamesSysV", "()[Ljava/lang/String;", nullptr, $PRIVATE, $method(PrintServiceLookupProvider, getAllPrinterNamesSysV, $StringArray*)},
-	{"getBSDCommandIndex", "()I", nullptr, $STATIC, $staticMethod(PrintServiceLookupProvider, getBSDCommandIndex, int32_t)},
-	{"getDefaultPrintService", "()Ljavax/print/PrintService;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(PrintServiceLookupProvider, getDefaultPrintService, $PrintService*)},
-	{"getDefaultPrinterNameAIX", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(PrintServiceLookupProvider, getDefaultPrinterNameAIX, $String*)},
-	{"getDefaultPrinterNameBSD", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(PrintServiceLookupProvider, getDefaultPrinterNameBSD, $String*)},
-	{"getDefaultPrinterNameSysV", "()Ljava/lang/String;", nullptr, $STATIC, $staticMethod(PrintServiceLookupProvider, getDefaultPrinterNameSysV, $String*)},
-	{"getMultiDocPrintServices", "([Ljavax/print/DocFlavor;Ljavax/print/attribute/AttributeSet;)[Ljavax/print/MultiDocPrintService;", nullptr, $PUBLIC, $virtualMethod(PrintServiceLookupProvider, getMultiDocPrintServices, $MultiDocPrintServiceArray*, $DocFlavorArray*, $AttributeSet*)},
-	{"getNamedPrinterNameAIX", "(Ljava/lang/String;)Ljavax/print/PrintService;", nullptr, $PRIVATE, $method(PrintServiceLookupProvider, getNamedPrinterNameAIX, $PrintService*, $String*)},
-	{"getNamedPrinterNameBSD", "(Ljava/lang/String;)Ljavax/print/PrintService;", nullptr, $PRIVATE, $method(PrintServiceLookupProvider, getNamedPrinterNameBSD, $PrintService*, $String*)},
-	{"getNamedPrinterNameSysV", "(Ljava/lang/String;)Ljavax/print/PrintService;", nullptr, $PRIVATE, $method(PrintServiceLookupProvider, getNamedPrinterNameSysV, $PrintService*, $String*)},
-	{"getPrintServices", "()[Ljavax/print/PrintService;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(PrintServiceLookupProvider, getPrintServices, $PrintServiceArray*)},
-	{"getPrintServices", "(Ljavax/print/attribute/PrintServiceAttributeSet;)[Ljavax/print/PrintService;", nullptr, $PRIVATE, $method(PrintServiceLookupProvider, getPrintServices, $PrintServiceArray*, $PrintServiceAttributeSet*)},
-	{"getPrintServices", "(Ljavax/print/DocFlavor;Ljavax/print/attribute/AttributeSet;)[Ljavax/print/PrintService;", nullptr, $PUBLIC, $virtualMethod(PrintServiceLookupProvider, getPrintServices, $PrintServiceArray*, $DocFlavor*, $AttributeSet*)},
-	{"getPrinterDestName", "(Ljavax/print/PrintService;)Ljava/lang/String;", nullptr, $PRIVATE, $method(PrintServiceLookupProvider, getPrinterDestName, $String*, $PrintService*)},
-	{"getServiceByName", "(Ljavax/print/attribute/standard/PrinterName;)Ljavax/print/PrintService;", nullptr, $PRIVATE, $method(PrintServiceLookupProvider, getServiceByName, $PrintService*, $PrinterName*)},
-	{"getServicesInbackground", "(Lsun/print/BackgroundLookupListener;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(PrintServiceLookupProvider, getServicesInbackground, void, $BackgroundLookupListener*)},
-	{"isAIX", "()Z", nullptr, $STATIC, $staticMethod(PrintServiceLookupProvider, isAIX, bool)},
-	{"isBSD", "()Z", nullptr, $STATIC, $staticMethod(PrintServiceLookupProvider, isBSD, bool)},
-	{"isLinux", "()Z", nullptr, $STATIC, $staticMethod(PrintServiceLookupProvider, isLinux, bool)},
-	{"isMac", "()Z", nullptr, $STATIC, $staticMethod(PrintServiceLookupProvider, isMac, bool)},
-	{"matchesAttributes", "(Ljavax/print/PrintService;Ljavax/print/attribute/PrintServiceAttributeSet;)Z", nullptr, $PRIVATE, $method(PrintServiceLookupProvider, matchesAttributes, bool, $PrintService*, $PrintServiceAttributeSet*)},
-	{"refreshServices", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(PrintServiceLookupProvider, refreshServices, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(PrintServiceLookupProvider, run, void)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _PrintServiceLookupProvider_InnerClassesInfo_[] = {
-	{"sun.print.PrintServiceLookupProvider$PrinterChangeListener", "sun.print.PrintServiceLookupProvider", "PrinterChangeListener", $PRIVATE},
-	{"sun.print.PrintServiceLookupProvider$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _PrintServiceLookupProvider_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.print.PrintServiceLookupProvider",
-	"javax.print.PrintServiceLookup",
-	"sun.print.BackgroundServiceLookup,java.lang.Runnable",
-	_PrintServiceLookupProvider_FieldInfo_,
-	_PrintServiceLookupProvider_MethodInfo_,
-	nullptr,
-	nullptr,
-	_PrintServiceLookupProvider_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.print.PrintServiceLookupProvider$PrinterChangeListener,sun.print.PrintServiceLookupProvider$1"
-};
-
-$Object* allocate$PrintServiceLookupProvider($Class* clazz) {
-	return $of($alloc(PrintServiceLookupProvider));
-}
 
 int32_t PrintServiceLookupProvider::hashCode() {
 	 return this->$PrintServiceLookup::hashCode();
@@ -220,7 +122,7 @@ bool PrintServiceLookupProvider::isLinux() {
 bool PrintServiceLookupProvider::isBSD() {
 	$init(PrintServiceLookupProvider);
 	bool var$0 = $nc(PrintServiceLookupProvider::osname)->equals("Linux"_s);
-	return (var$0 || $nc(PrintServiceLookupProvider::osname)->contains("OS X"_s));
+	return (var$0 || PrintServiceLookupProvider::osname->contains("OS X"_s));
 }
 
 bool PrintServiceLookupProvider::isAIX() {
@@ -230,14 +132,14 @@ bool PrintServiceLookupProvider::isAIX() {
 
 int32_t PrintServiceLookupProvider::getBSDCommandIndex() {
 	$init(PrintServiceLookupProvider);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, command, "/usr/sbin/lpc status all"_s);
 	$var($StringArray, names, execCmd(command));
-	if ((names == nullptr) || ($nc(names)->length == 0)) {
+	if ((names == nullptr) || (names->length == 0)) {
 		return PrintServiceLookupProvider::BSD_LPD_NG;
 	}
 	for (int32_t i = 0; i < $nc(names)->length; ++i) {
-		if ($nc(names->get(i))->indexOf((int32_t)u'@') != -1) {
+		if ($nc(names->get(i))->indexOf(u'@') != -1) {
 			return PrintServiceLookupProvider::BSD_LPD_NG;
 		}
 	}
@@ -245,7 +147,7 @@ int32_t PrintServiceLookupProvider::getBSDCommandIndex() {
 }
 
 void PrintServiceLookupProvider::init$() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$PrintServiceLookup::init$();
 	$set(this, lookupListeners, nullptr);
 	$set(this, lpNameComAix, $new($StringArray, {
@@ -286,26 +188,26 @@ $PrintServiceArray* PrintServiceLookupProvider::getPrintServices() {
 		if (this->printServices == nullptr) {
 			return $new($PrintServiceArray, 0);
 		} else {
-			return $cast($PrintServiceArray, $nc(this->printServices)->clone());
+			return $cast($PrintServiceArray, this->printServices->clone());
 		}
 	}
 }
 
 int32_t PrintServiceLookupProvider::addPrintServiceToList($ArrayList* printerList, $PrintService* ps) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t index = $nc(printerList)->indexOf(ps);
 	if ($CUPSPrinter::isCupsRunning() && index != -1) {
 		$load($PrinterURI);
 		$var($PrinterURI, uri, $cast($PrinterURI, $nc(ps)->getAttribute($PrinterURI::class$)));
-		if ($nc($($nc($($nc(uri)->getURI()))->getHost()))->equals("localhost"_s)) {
+		if ($$nc($$nc($nc(uri)->getURI())->getHost())->equals("localhost"_s)) {
 			$IPPPrintService::debug_println($$str({PrintServiceLookupProvider::debugPrefix, "duplicate PrintService, ignoring the new local printer: "_s, ps}));
 			return index;
 		}
 		$var($PrintService, oldPS, $cast($PrintService, printerList->get(index)));
 		$assign(uri, $cast($PrinterURI, $nc(oldPS)->getAttribute($PrinterURI::class$)));
-		if ($nc($($nc($($nc(uri)->getURI()))->getHost()))->equals("localhost"_s)) {
+		if ($$nc($$nc($nc(uri)->getURI())->getHost())->equals("localhost"_s)) {
 			$IPPPrintService::debug_println($$str({PrintServiceLookupProvider::debugPrefix, "duplicate PrintService, removing existing local printer: "_s, oldPS}));
-			printerList->remove($of(oldPS));
+			printerList->remove(oldPS);
 		} else {
 			return index;
 		}
@@ -316,7 +218,7 @@ int32_t PrintServiceLookupProvider::addPrintServiceToList($ArrayList* printerLis
 
 void PrintServiceLookupProvider::refreshServices() {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$var($StringArray, printers, nullptr);
 		$var($StringArray, printerURIs, nullptr);
 		try {
@@ -353,7 +255,7 @@ void PrintServiceLookupProvider::refreshServices() {
 		if (printers == nullptr) {
 			if (this->defaultPrintService != nullptr) {
 				$set(this, printServices, $new($PrintServiceArray, 1));
-				$nc(this->printServices)->set(0, this->defaultPrintService);
+				this->printServices->set(0, this->defaultPrintService);
 			} else {
 				$set(this, printServices, nullptr);
 			}
@@ -381,10 +283,10 @@ void PrintServiceLookupProvider::refreshServices() {
 			} else {
 				int32_t j = 0;
 				for (j = 0; j < $nc(this->printServices)->length; ++j) {
-					if ($nc(this->printServices)->get(j) != nullptr) {
-						if ($nc(printers->get(p))->equals($(getPrinterDestName($nc(this->printServices)->get(j))))) {
+					if (this->printServices->get(j) != nullptr) {
+						if ($nc(printers->get(p))->equals($(getPrinterDestName(this->printServices->get(j))))) {
 							printerList->add($nc(this->printServices)->get(j));
-							$nc(this->printServices)->set(j, nullptr);
+							this->printServices->set(j, nullptr);
 							break;
 						}
 					}
@@ -404,29 +306,29 @@ void PrintServiceLookupProvider::refreshServices() {
 		}
 		if (this->printServices != nullptr) {
 			for (int32_t j = 0; j < $nc(this->printServices)->length; ++j) {
-				if (($instanceOf($UnixPrintService, $nc(this->printServices)->get(j))) && (!$nc($nc(this->printServices)->get(j))->equals(this->defaultPrintService))) {
-					$nc(($cast($UnixPrintService, $nc(this->printServices)->get(j))))->invalidateService();
+				if (($instanceOf($UnixPrintService, this->printServices->get(j))) && (!$nc(this->printServices->get(j))->equals(this->defaultPrintService))) {
+					$nc($cast($UnixPrintService, $nc(this->printServices)->get(j)))->invalidateService();
 				}
 			}
 		}
 		if (defaultIndex == -1 && this->defaultPrintService != nullptr) {
 			defaultIndex = addPrintServiceToList(printerList, this->defaultPrintService);
 		}
-		$set(this, printServices, $fcast($PrintServiceArray, printerList->toArray($$new($PrintServiceArray, 0))));
+		$set(this, printServices, $cast($PrintServiceArray, printerList->toArray($$new($PrintServiceArray, 0))));
 		if (defaultIndex > 0) {
 			$var($PrintService, saveService, $nc(this->printServices)->get(0));
-			$nc(this->printServices)->set(0, $nc(this->printServices)->get(defaultIndex));
-			$nc(this->printServices)->set(defaultIndex, saveService);
+			this->printServices->set(0, this->printServices->get(defaultIndex));
+			this->printServices->set(defaultIndex, saveService);
 		}
 	}
 }
 
 bool PrintServiceLookupProvider::matchesAttributes($PrintService* service, $PrintServiceAttributeSet* attributes) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AttributeArray, attrs, $nc(attributes)->toArray());
 	for (int32_t i = 0; i < $nc(attrs)->length; ++i) {
 		$var($Attribute, serviceAttr, $nc(service)->getAttribute($nc(attrs->get(i))->getCategory()));
-		if (serviceAttr == nullptr || !$nc($of(serviceAttr))->equals(attrs->get(i))) {
+		if (serviceAttr == nullptr || !serviceAttr->equals(attrs->get(i))) {
 			return false;
 		}
 	}
@@ -448,40 +350,40 @@ bool PrintServiceLookupProvider::checkPrinterName($String* s) {
 
 $String* PrintServiceLookupProvider::getPrinterDestName($PrintService* ps) {
 	if (isMac()) {
-		return $nc(($cast($IPPPrintService, ps)))->getDest();
+		return $nc($cast($IPPPrintService, ps))->getDest();
 	}
 	return $nc(ps)->getName();
 }
 
 $PrintService* PrintServiceLookupProvider::getServiceByName($PrinterName* nameAttr) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, name, $nc(nameAttr)->getValue());
-	bool var$0 = name == nullptr || $nc(name)->isEmpty();
+	bool var$0 = name == nullptr || name->isEmpty();
 	if (var$0 || !checkPrinterName(name)) {
 		return nullptr;
 	}
 	if (this->printServices != nullptr) {
-		{
-			$var($PrintServiceArray, arr$, this->printServices);
-			int32_t len$ = $nc(arr$)->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
-				$var($PrintService, printService, arr$->get(i$));
-				{
-					$var($PrinterName, printerName, $cast($PrinterName, $nc(printService)->getAttribute($PrinterName::class$)));
-					if ($nc($($nc(printerName)->getValue()))->equals(name)) {
-						return printService;
-					}
+		$var($PrintServiceArray, arr$, this->printServices);
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
+			$var($PrintService, printService, arr$->get(i$));
+			{
+				$var($PrinterName, printerName, $cast($PrinterName, $nc(printService)->getAttribute($PrinterName::class$)));
+				if ($$nc($nc(printerName)->getValue())->equals(name)) {
+					return printService;
 				}
 			}
 		}
 	}
 	if ($CUPSPrinter::isCupsRunning()) {
 		try {
-			$var($String, var$3, $$str({"http://"_s, $($CUPSPrinter::getServer()), ":"_s}));
-			$var($String, var$2, $$concat(var$3, $$str($CUPSPrinter::getPort())));
-			$var($String, var$1, $$concat(var$2, "/"_s));
-			return $new($IPPPrintService, name, $$new($URL, $$concat(var$1, name)));
+			$var($StringBuilder, var$1, $new($StringBuilder));
+			var$1->append("http://"_s);
+			var$1->append($($CUPSPrinter::getServer()));
+			var$1->append(":"_s);
+			var$1->append($CUPSPrinter::getPort());
+			var$1->append("/"_s);
+			var$1->append(name);
+			return $new($IPPPrintService, name, $$new($URL, $$str(var$1)));
 		} catch ($Exception& e) {
 			$IPPPrintService::debug_println($$str({PrintServiceLookupProvider::debugPrefix, " getServiceByName Exception "_s, e}));
 		}
@@ -498,8 +400,8 @@ $PrintService* PrintServiceLookupProvider::getServiceByName($PrinterName* nameAt
 }
 
 $PrintServiceArray* PrintServiceLookupProvider::getPrintServices($PrintServiceAttributeSet* serviceSet) {
-	$useLocalCurrentObjectStackCache();
-	if (serviceSet == nullptr || $nc(serviceSet)->isEmpty()) {
+	$useLocalObjectStack();
+	if (serviceSet == nullptr || serviceSet->isEmpty()) {
 		return getPrintServices();
 	}
 	$var($PrintServiceArray, services, nullptr);
@@ -536,14 +438,14 @@ $PrintServiceArray* PrintServiceLookupProvider::getPrintServices($PrintServiceAt
 		}
 		$assign(services, $new($PrintServiceArray, matchedServices->size()));
 		for (int32_t i = 0; i < services->length; ++i) {
-			services->set(i, $cast($PrintService, $(matchedServices->elementAt(i))));
+			services->set(i, $$cast($PrintService, matchedServices->elementAt(i)));
 		}
 		return services;
 	}
 }
 
 $PrintServiceArray* PrintServiceLookupProvider::getPrintServices($DocFlavor* flavor, $AttributeSet* attributes) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SecurityManager, security, $System::getSecurityManager());
 	if (security != nullptr) {
 		security->checkPrintJobAccess();
@@ -568,7 +470,7 @@ $PrintServiceArray* PrintServiceLookupProvider::getPrintServices($DocFlavor* fla
 	}
 	if ($CUPSPrinter::isCupsRunning()) {
 		$var($ArrayList, matchingServices, $new($ArrayList));
-		for (int32_t i = 0; i < $nc(services)->length; ++i) {
+		for (int32_t i = 0; i < services->length; ++i) {
 			try {
 				if ($nc(services->get(i))->getUnsupportedAttributes(flavor, requestSet) == nullptr) {
 					matchingServices->add(services->get(i));
@@ -577,11 +479,11 @@ $PrintServiceArray* PrintServiceLookupProvider::getPrintServices($DocFlavor* fla
 			}
 		}
 		$assign(services, $new($PrintServiceArray, matchingServices->size()));
-		return $fcast($PrintServiceArray, matchingServices->toArray(services));
+		return $cast($PrintServiceArray, matchingServices->toArray(services));
 	} else {
-		$var($PrintService, service, $nc(services)->get(0));
-		bool var$0 = (flavor == nullptr || $nc(service)->isDocFlavorSupported(flavor));
-		if (var$0 && service->getUnsupportedAttributes(flavor, requestSet) == nullptr) {
+		$var($PrintService, service, services->get(0));
+		bool var$0 = flavor == nullptr || $nc(service)->isDocFlavorSupported(flavor);
+		if (var$0 && $nc(service)->getUnsupportedAttributes(flavor, requestSet) == nullptr) {
 			return services;
 		} else {
 			return $new($PrintServiceArray, 0);
@@ -599,7 +501,7 @@ $MultiDocPrintServiceArray* PrintServiceLookupProvider::getMultiDocPrintServices
 
 $PrintService* PrintServiceLookupProvider::getDefaultPrintService() {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$var($SecurityManager, security, $System::getSecurityManager());
 		if (security != nullptr) {
 			security->checkPrintJobAccess();
@@ -626,7 +528,7 @@ $PrintService* PrintServiceLookupProvider::getDefaultPrintService() {
 		$set(this, defaultPrintService, nullptr);
 		if (this->printServices != nullptr) {
 			for (int32_t j = 0; j < $nc(this->printServices)->length; ++j) {
-				if ($nc(this->defaultPrinter)->equals($(getPrinterDestName($nc(this->printServices)->get(j))))) {
+				if ($nc(this->defaultPrinter)->equals($(getPrinterDestName(this->printServices->get(j))))) {
 					$set(this, defaultPrintService, $nc(this->printServices)->get(j));
 					break;
 				}
@@ -639,10 +541,14 @@ $PrintService* PrintServiceLookupProvider::getDefaultPrintService() {
 					if ((psuri != nullptr) && !psuri->startsWith("file"_s)) {
 						$assign(defaultPS, $new($IPPPrintService, this->defaultPrinter, psuri, true));
 					} else {
-						$var($String, var$2, $$str({"http://"_s, $($CUPSPrinter::getServer()), ":"_s}));
-						$var($String, var$1, $$concat(var$2, $$str($CUPSPrinter::getPort())));
-						$var($String, var$0, $$concat(var$1, "/"_s));
-						$assign(defaultPS, $new($IPPPrintService, this->defaultPrinter, $$new($URL, $$concat(var$0, this->defaultPrinter))));
+						$var($StringBuilder, var$0, $new($StringBuilder));
+						var$0->append("http://"_s);
+						var$0->append($($CUPSPrinter::getServer()));
+						var$0->append(":"_s);
+						var$0->append($CUPSPrinter::getPort());
+						var$0->append("/"_s);
+						var$0->append(this->defaultPrinter);
+						$assign(defaultPS, $new($IPPPrintService, this->defaultPrinter, $$new($URL, $$str(var$0))));
 					}
 					$set(this, defaultPrintService, defaultPS);
 				} catch ($Exception& e) {
@@ -661,17 +567,17 @@ void PrintServiceLookupProvider::getServicesInbackground($BackgroundLookupListen
 			$nc(listener)->notifyServices(this->printServices);
 		} else if (this->lookupListeners == nullptr) {
 			$set(this, lookupListeners, $new($Vector));
-			$nc(this->lookupListeners)->add(listener);
-			$var($Thread, lookupThread, $new($Thread, static_cast<$Runnable*>(this)));
+			this->lookupListeners->add(listener);
+			$var($Thread, lookupThread, $new($Thread, this));
 			lookupThread->start();
 		} else {
-			$nc(this->lookupListeners)->add(listener);
+			this->lookupListeners->add(listener);
 		}
 	}
 }
 
 $PrintServiceArray* PrintServiceLookupProvider::copyOf($PrintServiceArray* inArr) {
-	if (inArr == nullptr || $nc(inArr)->length == 0) {
+	if (inArr == nullptr || inArr->length == 0) {
 		return inArr;
 	} else {
 		$var($PrintServiceArray, outArr, $new($PrintServiceArray, inArr->length));
@@ -681,12 +587,12 @@ $PrintServiceArray* PrintServiceLookupProvider::copyOf($PrintServiceArray* inArr
 }
 
 void PrintServiceLookupProvider::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($PrintServiceArray, services, getPrintServices());
 	$synchronized(this) {
 		$var($BackgroundLookupListener, listener, nullptr);
 		for (int32_t i = 0; i < $nc(this->lookupListeners)->size(); ++i) {
-			$assign(listener, $cast($BackgroundLookupListener, $nc(this->lookupListeners)->elementAt(i)));
+			$assign(listener, $cast($BackgroundLookupListener, this->lookupListeners->elementAt(i)));
 			$nc(listener)->notifyServices($(copyOf(services)));
 		}
 		$set(this, lookupListeners, nullptr);
@@ -698,7 +604,7 @@ $String* PrintServiceLookupProvider::getDefaultPrinterNameBSD() {
 		PrintServiceLookupProvider::cmdIndex = getBSDCommandIndex();
 	}
 	$var($StringArray, names, execCmd($nc(this->lpcFirstCom)->get(PrintServiceLookupProvider::cmdIndex)));
-	if (names == nullptr || $nc(names)->length == 0) {
+	if (names == nullptr || names->length == 0) {
 		return nullptr;
 	}
 	if ((PrintServiceLookupProvider::cmdIndex == PrintServiceLookupProvider::BSD_LPD_NG) && ($nc($nc(names)->get(0))->startsWith("missingprinter"_s))) {
@@ -708,13 +614,13 @@ $String* PrintServiceLookupProvider::getDefaultPrinterNameBSD() {
 }
 
 $PrintService* PrintServiceLookupProvider::getNamedPrinterNameBSD($String* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (PrintServiceLookupProvider::cmdIndex == PrintServiceLookupProvider::UNINITIALIZED) {
 		PrintServiceLookupProvider::cmdIndex = getBSDCommandIndex();
 	}
 	$var($String, command, $str({"/usr/sbin/lpc status "_s, name, $nc(this->lpcNameCom)->get(PrintServiceLookupProvider::cmdIndex)}));
 	$var($StringArray, result, execCmd(command));
-	if (result == nullptr || !($nc($nc(result)->get(0))->equals(name))) {
+	if (result == nullptr || !($nc(result->get(0))->equals(name))) {
 		return nullptr;
 	}
 	return $new($UnixPrintService, name);
@@ -725,7 +631,7 @@ $StringArray* PrintServiceLookupProvider::getAllPrinterNamesBSD() {
 		PrintServiceLookupProvider::cmdIndex = getBSDCommandIndex();
 	}
 	$var($StringArray, names, execCmd($nc(this->lpcAllCom)->get(PrintServiceLookupProvider::cmdIndex)));
-	if (names == nullptr || $nc(names)->length == 0) {
+	if (names == nullptr || names->length == 0) {
 		return nullptr;
 	}
 	return names;
@@ -733,11 +639,11 @@ $StringArray* PrintServiceLookupProvider::getAllPrinterNamesBSD() {
 
 $String* PrintServiceLookupProvider::getDefaultPrinterNameSysV() {
 	$init(PrintServiceLookupProvider);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, defaultPrinter, "lp"_s);
 	$var($String, command, "/usr/bin/lpstat -d"_s);
 	$var($StringArray, names, execCmd(command));
-	if (names == nullptr || $nc(names)->length == 0) {
+	if (names == nullptr || names->length == 0) {
 		return defaultPrinter;
 	} else {
 		int32_t index = $nc(names->get(0))->indexOf(":"_s);
@@ -755,10 +661,10 @@ $String* PrintServiceLookupProvider::getDefaultPrinterNameSysV() {
 }
 
 $PrintService* PrintServiceLookupProvider::getNamedPrinterNameSysV($String* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, command, $str({"/usr/bin/lpstat -v "_s, name}));
 	$var($StringArray, result, execCmd(command));
-	if (result == nullptr || $nc($nc(result)->get(0))->indexOf("unknown printer"_s) > 0) {
+	if (result == nullptr || $nc(result->get(0))->indexOf("unknown printer"_s) > 0) {
 		return nullptr;
 	} else {
 		return $new($UnixPrintService, name);
@@ -766,7 +672,7 @@ $PrintService* PrintServiceLookupProvider::getNamedPrinterNameSysV($String* name
 }
 
 $StringArray* PrintServiceLookupProvider::getAllPrinterNamesSysV() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, defaultPrinter, "lp"_s);
 	$var($String, command, "/usr/bin/lpstat -v|/usr/bin/expand|/usr/bin/cut -f3 -d\' \' |/usr/bin/cut -f1 -d\':\' | /usr/bin/sort"_s);
 	$var($StringArray, names, execCmd(command));
@@ -778,13 +684,13 @@ $StringArray* PrintServiceLookupProvider::getAllPrinterNamesSysV() {
 			printerNames->add(names->get(i));
 		}
 	}
-	return $fcast($StringArray, printerNames->toArray($$new($StringArray, printerNames->size())));
+	return $cast($StringArray, printerNames->toArray($$new($StringArray, printerNames->size())));
 }
 
 $String* PrintServiceLookupProvider::getDefaultPrinterNameAIX() {
 	$var($StringArray, names, execCmd($nc(this->lpNameComAix)->get(PrintServiceLookupProvider::aix_lpstat_d)));
 	$assign(names, $UnixPrintService::filterPrinterNamesAIX(names));
-	if (names == nullptr || $nc(names)->length != 1) {
+	if (names == nullptr || names->length != 1) {
 		return nullptr;
 	} else {
 		return names->get(0);
@@ -792,10 +698,10 @@ $String* PrintServiceLookupProvider::getDefaultPrinterNameAIX() {
 }
 
 $PrintService* PrintServiceLookupProvider::getNamedPrinterNameAIX($String* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringArray, result, execCmd($$str({$nc(this->lpNameComAix)->get(PrintServiceLookupProvider::aix_lpstat_v), name})));
 	$assign(result, $UnixPrintService::filterPrinterNamesAIX(result));
-	if (result == nullptr || $nc(result)->length != 1) {
+	if (result == nullptr || result->length != 1) {
 		return nullptr;
 	} else {
 		return $new($UnixPrintService, name);
@@ -803,19 +709,19 @@ $PrintService* PrintServiceLookupProvider::getNamedPrinterNameAIX($String* name)
 }
 
 $StringArray* PrintServiceLookupProvider::getAllPrinterNamesAIX() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringArray, names, execCmd($nc(this->lpNameComAix)->get(PrintServiceLookupProvider::aix_defaultPrinterEnumeration)));
 	$assign(names, $UnixPrintService::filterPrinterNamesAIX(names));
 	$var($ArrayList, printerNames, $new($ArrayList));
 	for (int32_t i = 0; i < $nc(names)->length; ++i) {
 		printerNames->add(names->get(i));
 	}
-	return $fcast($StringArray, printerNames->toArray($$new($StringArray, printerNames->size())));
+	return $cast($StringArray, printerNames->toArray($$new($StringArray, printerNames->size())));
 }
 
 $StringArray* PrintServiceLookupProvider::execCmd($String* command) {
 	$init(PrintServiceLookupProvider);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$var($ArrayList, results, nullptr);
 	try {
@@ -829,25 +735,25 @@ $StringArray* PrintServiceLookupProvider::execCmd($String* command) {
 			cmd->set(1, "-c"_s);
 			cmd->set(2, $$str({"LC_ALL=C "_s, command}));
 		}
-		$assign(results, $cast($ArrayList, $AccessController::doPrivileged(static_cast<$PrivilegedExceptionAction*>($$new($PrintServiceLookupProvider$1, cmd)))));
+		$assign(results, $cast($ArrayList, $AccessController::doPrivileged($$new($PrintServiceLookupProvider$1, cmd))));
 	} catch ($PrivilegedActionException& e) {
 	}
 	if (results == nullptr) {
 		return $new($StringArray, 0);
 	} else {
-		return $fcast($StringArray, $nc(results)->toArray($$new($StringArray, results->size())));
+		return $cast($StringArray, results->toArray($$new($StringArray, results->size())));
 	}
 }
 
-void clinit$PrintServiceLookupProvider($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void PrintServiceLookupProvider::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$assignStatic(PrintServiceLookupProvider::debugPrefix, "PrintServiceLookupProvider>> "_s);
 	PrintServiceLookupProvider::pollServices = true;
 	PrintServiceLookupProvider::minRefreshTime = PrintServiceLookupProvider::DEFAULT_MINREFRESH;
 	PrintServiceLookupProvider::aix_defaultPrinterEnumeration = PrintServiceLookupProvider::aix_lsallq;
 	{
-		$var($String, pollStr, $cast($String, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($GetPropertyAction, "sun.java2d.print.polling"_s)))));
+		$var($String, pollStr, $cast($String, $AccessController::doPrivileged($$new($GetPropertyAction, "sun.java2d.print.polling"_s))));
 		if (pollStr != nullptr) {
 			if (pollStr->equalsIgnoreCase("true"_s)) {
 				PrintServiceLookupProvider::pollServices = true;
@@ -855,19 +761,19 @@ void clinit$PrintServiceLookupProvider($Class* class$) {
 				PrintServiceLookupProvider::pollServices = false;
 			}
 		}
-		$var($String, refreshTimeStr, $cast($String, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($GetPropertyAction, "sun.java2d.print.minRefreshTime"_s)))));
+		$var($String, refreshTimeStr, $cast($String, $AccessController::doPrivileged($$new($GetPropertyAction, "sun.java2d.print.minRefreshTime"_s))));
 		if (refreshTimeStr != nullptr) {
 			try {
-				PrintServiceLookupProvider::minRefreshTime = $nc(($($Integer::valueOf(refreshTimeStr))))->intValue();
+				PrintServiceLookupProvider::minRefreshTime = ($($Integer::valueOf(refreshTimeStr)))->intValue();
 			} catch ($NumberFormatException& e) {
 			}
 			if (PrintServiceLookupProvider::minRefreshTime < PrintServiceLookupProvider::DEFAULT_MINREFRESH) {
 				PrintServiceLookupProvider::minRefreshTime = PrintServiceLookupProvider::DEFAULT_MINREFRESH;
 			}
 		}
-		$assignStatic(PrintServiceLookupProvider::osname, $cast($String, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($GetPropertyAction, "os.name"_s)))));
+		$assignStatic(PrintServiceLookupProvider::osname, $cast($String, $AccessController::doPrivileged($$new($GetPropertyAction, "os.name"_s))));
 		if (PrintServiceLookupProvider::isAIX()) {
-			$var($String, aixPrinterEnumerator, $cast($String, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($GetPropertyAction, "sun.java2d.print.aix.lpstat"_s)))));
+			$var($String, aixPrinterEnumerator, $cast($String, $AccessController::doPrivileged($$new($GetPropertyAction, "sun.java2d.print.aix.lpstat"_s))));
 			if (aixPrinterEnumerator != nullptr) {
 				if (aixPrinterEnumerator->equalsIgnoreCase("lpstat"_s)) {
 					PrintServiceLookupProvider::aix_defaultPrinterEnumeration = PrintServiceLookupProvider::aix_lpstat_p;
@@ -884,7 +790,91 @@ PrintServiceLookupProvider::PrintServiceLookupProvider() {
 }
 
 $Class* PrintServiceLookupProvider::load$($String* name, bool initialize) {
-	$loadClass(PrintServiceLookupProvider, name, initialize, &_PrintServiceLookupProvider_ClassInfo_, clinit$PrintServiceLookupProvider, allocate$PrintServiceLookupProvider);
+	$FieldInfo fieldInfos$$[] = {
+		{"defaultPrinter", "Ljava/lang/String;", nullptr, $PRIVATE, $field(PrintServiceLookupProvider, defaultPrinter)},
+		{"defaultPrintService", "Ljavax/print/PrintService;", nullptr, $PRIVATE, $field(PrintServiceLookupProvider, defaultPrintService)},
+		{"printServices", "[Ljavax/print/PrintService;", nullptr, $PRIVATE, $field(PrintServiceLookupProvider, printServices)},
+		{"lookupListeners", "Ljava/util/Vector;", "Ljava/util/Vector<Lsun/print/BackgroundLookupListener;>;", $PRIVATE, $field(PrintServiceLookupProvider, lookupListeners)},
+		{"debugPrefix", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(PrintServiceLookupProvider, debugPrefix)},
+		{"pollServices", "Z", nullptr, $PRIVATE | $STATIC, $staticField(PrintServiceLookupProvider, pollServices)},
+		{"DEFAULT_MINREFRESH", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PrintServiceLookupProvider, DEFAULT_MINREFRESH)},
+		{"minRefreshTime", "I", nullptr, $PRIVATE | $STATIC, $staticField(PrintServiceLookupProvider, minRefreshTime)},
+		{"osname", "Ljava/lang/String;", nullptr, $STATIC, $staticField(PrintServiceLookupProvider, osname)},
+		{"lpNameComAix", "[Ljava/lang/String;", nullptr, 0, $field(PrintServiceLookupProvider, lpNameComAix)},
+		{"aix_lsallq", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PrintServiceLookupProvider, aix_lsallq)},
+		{"aix_lpstat_p", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PrintServiceLookupProvider, aix_lpstat_p)},
+		{"aix_lpstat_d", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PrintServiceLookupProvider, aix_lpstat_d)},
+		{"aix_lpstat_v", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PrintServiceLookupProvider, aix_lpstat_v)},
+		{"aix_defaultPrinterEnumeration", "I", nullptr, $PRIVATE | $STATIC, $staticField(PrintServiceLookupProvider, aix_defaultPrinterEnumeration)},
+		{"UNINITIALIZED", "I", nullptr, $STATIC | $FINAL, $constField(PrintServiceLookupProvider, UNINITIALIZED)},
+		{"BSD_LPD", "I", nullptr, $STATIC | $FINAL, $constField(PrintServiceLookupProvider, BSD_LPD)},
+		{"BSD_LPD_NG", "I", nullptr, $STATIC | $FINAL, $constField(PrintServiceLookupProvider, BSD_LPD_NG)},
+		{"cmdIndex", "I", nullptr, $STATIC, $staticField(PrintServiceLookupProvider, cmdIndex)},
+		{"lpcFirstCom", "[Ljava/lang/String;", nullptr, 0, $field(PrintServiceLookupProvider, lpcFirstCom)},
+		{"lpcAllCom", "[Ljava/lang/String;", nullptr, 0, $field(PrintServiceLookupProvider, lpcAllCom)},
+		{"lpcNameCom", "[Ljava/lang/String;", nullptr, 0, $field(PrintServiceLookupProvider, lpcNameCom)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(PrintServiceLookupProvider, init$, void)},
+		{"addPrintServiceToList", "(Ljava/util/ArrayList;Ljavax/print/PrintService;)I", "(Ljava/util/ArrayList<Ljavax/print/PrintService;>;Ljavax/print/PrintService;)I", $PRIVATE, $method(PrintServiceLookupProvider, addPrintServiceToList, int32_t, $ArrayList*, $PrintService*)},
+		{"checkPrinterName", "(Ljava/lang/String;)Z", nullptr, $PRIVATE, $method(PrintServiceLookupProvider, checkPrinterName, bool, $String*)},
+		{"copyOf", "([Ljavax/print/PrintService;)[Ljavax/print/PrintService;", nullptr, $PRIVATE, $method(PrintServiceLookupProvider, copyOf, $PrintServiceArray*, $PrintServiceArray*)},
+		{"execCmd", "(Ljava/lang/String;)[Ljava/lang/String;", nullptr, $STATIC, $staticMethod(PrintServiceLookupProvider, execCmd, $StringArray*, $String*)},
+		{"getAllPrinterNamesAIX", "()[Ljava/lang/String;", nullptr, $PRIVATE, $method(PrintServiceLookupProvider, getAllPrinterNamesAIX, $StringArray*)},
+		{"getAllPrinterNamesBSD", "()[Ljava/lang/String;", nullptr, $PRIVATE, $method(PrintServiceLookupProvider, getAllPrinterNamesBSD, $StringArray*)},
+		{"getAllPrinterNamesSysV", "()[Ljava/lang/String;", nullptr, $PRIVATE, $method(PrintServiceLookupProvider, getAllPrinterNamesSysV, $StringArray*)},
+		{"getBSDCommandIndex", "()I", nullptr, $STATIC, $staticMethod(PrintServiceLookupProvider, getBSDCommandIndex, int32_t)},
+		{"getDefaultPrintService", "()Ljavax/print/PrintService;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(PrintServiceLookupProvider, getDefaultPrintService, $PrintService*)},
+		{"getDefaultPrinterNameAIX", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(PrintServiceLookupProvider, getDefaultPrinterNameAIX, $String*)},
+		{"getDefaultPrinterNameBSD", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(PrintServiceLookupProvider, getDefaultPrinterNameBSD, $String*)},
+		{"getDefaultPrinterNameSysV", "()Ljava/lang/String;", nullptr, $STATIC, $staticMethod(PrintServiceLookupProvider, getDefaultPrinterNameSysV, $String*)},
+		{"getMultiDocPrintServices", "([Ljavax/print/DocFlavor;Ljavax/print/attribute/AttributeSet;)[Ljavax/print/MultiDocPrintService;", nullptr, $PUBLIC, $virtualMethod(PrintServiceLookupProvider, getMultiDocPrintServices, $MultiDocPrintServiceArray*, $DocFlavorArray*, $AttributeSet*)},
+		{"getNamedPrinterNameAIX", "(Ljava/lang/String;)Ljavax/print/PrintService;", nullptr, $PRIVATE, $method(PrintServiceLookupProvider, getNamedPrinterNameAIX, $PrintService*, $String*)},
+		{"getNamedPrinterNameBSD", "(Ljava/lang/String;)Ljavax/print/PrintService;", nullptr, $PRIVATE, $method(PrintServiceLookupProvider, getNamedPrinterNameBSD, $PrintService*, $String*)},
+		{"getNamedPrinterNameSysV", "(Ljava/lang/String;)Ljavax/print/PrintService;", nullptr, $PRIVATE, $method(PrintServiceLookupProvider, getNamedPrinterNameSysV, $PrintService*, $String*)},
+		{"getPrintServices", "()[Ljavax/print/PrintService;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(PrintServiceLookupProvider, getPrintServices, $PrintServiceArray*)},
+		{"getPrintServices", "(Ljavax/print/attribute/PrintServiceAttributeSet;)[Ljavax/print/PrintService;", nullptr, $PRIVATE, $method(PrintServiceLookupProvider, getPrintServices, $PrintServiceArray*, $PrintServiceAttributeSet*)},
+		{"getPrintServices", "(Ljavax/print/DocFlavor;Ljavax/print/attribute/AttributeSet;)[Ljavax/print/PrintService;", nullptr, $PUBLIC, $virtualMethod(PrintServiceLookupProvider, getPrintServices, $PrintServiceArray*, $DocFlavor*, $AttributeSet*)},
+		{"getPrinterDestName", "(Ljavax/print/PrintService;)Ljava/lang/String;", nullptr, $PRIVATE, $method(PrintServiceLookupProvider, getPrinterDestName, $String*, $PrintService*)},
+		{"getServiceByName", "(Ljavax/print/attribute/standard/PrinterName;)Ljavax/print/PrintService;", nullptr, $PRIVATE, $method(PrintServiceLookupProvider, getServiceByName, $PrintService*, $PrinterName*)},
+		{"getServicesInbackground", "(Lsun/print/BackgroundLookupListener;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(PrintServiceLookupProvider, getServicesInbackground, void, $BackgroundLookupListener*)},
+		{"isAIX", "()Z", nullptr, $STATIC, $staticMethod(PrintServiceLookupProvider, isAIX, bool)},
+		{"isBSD", "()Z", nullptr, $STATIC, $staticMethod(PrintServiceLookupProvider, isBSD, bool)},
+		{"isLinux", "()Z", nullptr, $STATIC, $staticMethod(PrintServiceLookupProvider, isLinux, bool)},
+		{"isMac", "()Z", nullptr, $STATIC, $staticMethod(PrintServiceLookupProvider, isMac, bool)},
+		{"matchesAttributes", "(Ljavax/print/PrintService;Ljavax/print/attribute/PrintServiceAttributeSet;)Z", nullptr, $PRIVATE, $method(PrintServiceLookupProvider, matchesAttributes, bool, $PrintService*, $PrintServiceAttributeSet*)},
+		{"refreshServices", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(PrintServiceLookupProvider, refreshServices, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(PrintServiceLookupProvider, run, void)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.print.PrintServiceLookupProvider$PrinterChangeListener", "sun.print.PrintServiceLookupProvider", "PrinterChangeListener", $PRIVATE},
+		{"sun.print.PrintServiceLookupProvider$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.print.PrintServiceLookupProvider",
+		"javax.print.PrintServiceLookup",
+		"sun.print.BackgroundServiceLookup,java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.print.PrintServiceLookupProvider$PrinterChangeListener,sun.print.PrintServiceLookupProvider$1"
+	};
+	$loadClass(PrintServiceLookupProvider, name, initialize, &classInfo$$, PrintServiceLookupProvider::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(PrintServiceLookupProvider));
+	});
 	return class$;
 }
 

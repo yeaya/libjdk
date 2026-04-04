@@ -1,5 +1,4 @@
 #include <javax/swing/text/BadLocationException.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -10,30 +9,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace javax {
 	namespace swing {
 		namespace text {
-
-$FieldInfo _BadLocationException_FieldInfo_[] = {
-	{"offs", "I", nullptr, $PRIVATE, $field(BadLocationException, offs)},
-	{}
-};
-
-$MethodInfo _BadLocationException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(BadLocationException, init$, void, $String*, int32_t)},
-	{"offsetRequested", "()I", nullptr, $PUBLIC, $virtualMethod(BadLocationException, offsetRequested, int32_t)},
-	{}
-};
-
-$ClassInfo _BadLocationException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.text.BadLocationException",
-	"java.lang.Exception",
-	nullptr,
-	_BadLocationException_FieldInfo_,
-	_BadLocationException_MethodInfo_
-};
-
-$Object* allocate$BadLocationException($Class* clazz) {
-	return $of($alloc(BadLocationException));
-}
 
 void BadLocationException::init$($String* s, int32_t offs) {
 	$Exception::init$(s);
@@ -55,7 +30,26 @@ void BadLocationException::throw$() {
 }
 
 $Class* BadLocationException::load$($String* name, bool initialize) {
-	$loadClass(BadLocationException, name, initialize, &_BadLocationException_ClassInfo_, allocate$BadLocationException);
+	$FieldInfo fieldInfos$$[] = {
+		{"offs", "I", nullptr, $PRIVATE, $field(BadLocationException, offs)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(BadLocationException, init$, void, $String*, int32_t)},
+		{"offsetRequested", "()I", nullptr, $PUBLIC, $virtualMethod(BadLocationException, offsetRequested, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.text.BadLocationException",
+		"java.lang.Exception",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(BadLocationException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BadLocationException);
+	});
 	return class$;
 }
 

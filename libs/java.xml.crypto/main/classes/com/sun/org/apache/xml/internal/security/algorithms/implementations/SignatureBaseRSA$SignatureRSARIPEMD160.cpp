@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/security/algorithms/implementations/SignatureBaseRSA$SignatureRSARIPEMD160.h>
-
 #include <com/sun/org/apache/xml/internal/security/algorithms/implementations/SignatureBaseRSA.h>
 #include <com/sun/org/apache/xml/internal/security/signature/XMLSignature.h>
 #include <java/security/Provider.h>
@@ -24,38 +23,6 @@ namespace com {
 							namespace algorithms {
 								namespace implementations {
 
-$MethodInfo _SignatureBaseRSA$SignatureRSARIPEMD160_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SignatureBaseRSA$SignatureRSARIPEMD160, init$, void), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
-	{"<init>", "(Ljava/security/Provider;)V", nullptr, $PUBLIC, $method(SignatureBaseRSA$SignatureRSARIPEMD160, init$, void, $Provider*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
-	{"engineGetURI", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SignatureBaseRSA$SignatureRSARIPEMD160, engineGetURI, $String*)},
-	{}
-};
-
-$InnerClassInfo _SignatureBaseRSA$SignatureRSARIPEMD160_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureBaseRSA$SignatureRSARIPEMD160", "com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureBaseRSA", "SignatureRSARIPEMD160", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _SignatureBaseRSA$SignatureRSARIPEMD160_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureBaseRSA$SignatureRSARIPEMD160",
-	"com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureBaseRSA",
-	nullptr,
-	nullptr,
-	_SignatureBaseRSA$SignatureRSARIPEMD160_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SignatureBaseRSA$SignatureRSARIPEMD160_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureBaseRSA"
-};
-
-$Object* allocate$SignatureBaseRSA$SignatureRSARIPEMD160($Class* clazz) {
-	return $of($alloc(SignatureBaseRSA$SignatureRSARIPEMD160));
-}
-
 void SignatureBaseRSA$SignatureRSARIPEMD160::init$() {
 	$SignatureBaseRSA::init$();
 }
@@ -73,7 +40,34 @@ SignatureBaseRSA$SignatureRSARIPEMD160::SignatureBaseRSA$SignatureRSARIPEMD160()
 }
 
 $Class* SignatureBaseRSA$SignatureRSARIPEMD160::load$($String* name, bool initialize) {
-	$loadClass(SignatureBaseRSA$SignatureRSARIPEMD160, name, initialize, &_SignatureBaseRSA$SignatureRSARIPEMD160_ClassInfo_, allocate$SignatureBaseRSA$SignatureRSARIPEMD160);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SignatureBaseRSA$SignatureRSARIPEMD160, init$, void), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
+		{"<init>", "(Ljava/security/Provider;)V", nullptr, $PUBLIC, $method(SignatureBaseRSA$SignatureRSARIPEMD160, init$, void, $Provider*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
+		{"engineGetURI", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SignatureBaseRSA$SignatureRSARIPEMD160, engineGetURI, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureBaseRSA$SignatureRSARIPEMD160", "com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureBaseRSA", "SignatureRSARIPEMD160", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureBaseRSA$SignatureRSARIPEMD160",
+		"com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureBaseRSA",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureBaseRSA"
+	};
+	$loadClass(SignatureBaseRSA$SignatureRSARIPEMD160, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SignatureBaseRSA$SignatureRSARIPEMD160);
+	});
 	return class$;
 }
 

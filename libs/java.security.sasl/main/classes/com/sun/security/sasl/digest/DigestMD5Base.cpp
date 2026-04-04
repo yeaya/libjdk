@@ -1,5 +1,4 @@
 #include <com/sun/security/sasl/digest/DigestMD5Base.h>
-
 #include <com/sun/security/sasl/digest/DigestMD5Base$DigestIntegrity.h>
 #include <com/sun/security/sasl/digest/DigestMD5Base$DigestPrivacy.h>
 #include <com/sun/security/sasl/digest/SecurityCtx.h>
@@ -61,7 +60,6 @@
 using $byteArray2 = $Array<int8_t, 2>;
 using $DigestMD5Base$DigestIntegrity = ::com::sun::security::sasl::digest::DigestMD5Base$DigestIntegrity;
 using $DigestMD5Base$DigestPrivacy = ::com::sun::security::sasl::digest::DigestMD5Base$DigestPrivacy;
-using $SecurityCtx = ::com::sun::security::sasl::digest::SecurityCtx;
 using $AbstractSaslImpl = ::com::sun::security::sasl::util::AbstractSaslImpl;
 using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;
 using $Boolean = ::java::lang::Boolean;
@@ -97,153 +95,6 @@ namespace com {
 		namespace security {
 			namespace sasl {
 				namespace digest {
-
-$FieldInfo _DigestMD5Base_FieldInfo_[] = {
-	{"DI_CLASS_NAME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DigestMD5Base, DI_CLASS_NAME)},
-	{"DP_CLASS_NAME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DigestMD5Base, DP_CLASS_NAME)},
-	{"MAX_CHALLENGE_LENGTH", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(DigestMD5Base, MAX_CHALLENGE_LENGTH)},
-	{"MAX_RESPONSE_LENGTH", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(DigestMD5Base, MAX_RESPONSE_LENGTH)},
-	{"DEFAULT_MAXBUF", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(DigestMD5Base, DEFAULT_MAXBUF)},
-	{"DES3", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(DigestMD5Base, DES3)},
-	{"RC4", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(DigestMD5Base, RC4)},
-	{"DES", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(DigestMD5Base, DES)},
-	{"RC4_56", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(DigestMD5Base, RC4_56)},
-	{"RC4_40", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(DigestMD5Base, RC4_40)},
-	{"CIPHER_TOKENS", "[Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(DigestMD5Base, CIPHER_TOKENS)},
-	{"JCE_CIPHER_NAME", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DigestMD5Base, JCE_CIPHER_NAME)},
-	{"DES_3_STRENGTH", "B", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(DigestMD5Base, DES_3_STRENGTH)},
-	{"RC4_STRENGTH", "B", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(DigestMD5Base, RC4_STRENGTH)},
-	{"DES_STRENGTH", "B", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(DigestMD5Base, DES_STRENGTH)},
-	{"RC4_56_STRENGTH", "B", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(DigestMD5Base, RC4_56_STRENGTH)},
-	{"RC4_40_STRENGTH", "B", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(DigestMD5Base, RC4_40_STRENGTH)},
-	{"UNSET", "B", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(DigestMD5Base, UNSET)},
-	{"CIPHER_MASKS", "[B", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(DigestMD5Base, CIPHER_MASKS)},
-	{"SECURITY_LAYER_MARKER", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DigestMD5Base, SECURITY_LAYER_MARKER)},
-	{"EMPTY_BYTE_ARRAY", "[B", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(DigestMD5Base, EMPTY_BYTE_ARRAY)},
-	{"step", "I", nullptr, $PROTECTED, $field(DigestMD5Base, step)},
-	{"cbh", "Ljavax/security/auth/callback/CallbackHandler;", nullptr, $PROTECTED, $field(DigestMD5Base, cbh)},
-	{"secCtx", "Lcom/sun/security/sasl/digest/SecurityCtx;", nullptr, $PROTECTED, $field(DigestMD5Base, secCtx)},
-	{"H_A1", "[B", nullptr, $PROTECTED, $field(DigestMD5Base, H_A1)},
-	{"nonce", "[B", nullptr, $PROTECTED, $field(DigestMD5Base, nonce)},
-	{"negotiatedStrength", "Ljava/lang/String;", nullptr, $PROTECTED, $field(DigestMD5Base, negotiatedStrength)},
-	{"negotiatedCipher", "Ljava/lang/String;", nullptr, $PROTECTED, $field(DigestMD5Base, negotiatedCipher)},
-	{"negotiatedQop", "Ljava/lang/String;", nullptr, $PROTECTED, $field(DigestMD5Base, negotiatedQop)},
-	{"negotiatedRealm", "Ljava/lang/String;", nullptr, $PROTECTED, $field(DigestMD5Base, negotiatedRealm)},
-	{"useUTF8", "Z", nullptr, $PROTECTED, $field(DigestMD5Base, useUTF8)},
-	{"encoding", "Ljava/nio/charset/Charset;", nullptr, $PROTECTED, $field(DigestMD5Base, encoding)},
-	{"digestUri", "Ljava/lang/String;", nullptr, $PROTECTED, $field(DigestMD5Base, digestUri)},
-	{"authzid", "Ljava/lang/String;", nullptr, $PROTECTED, $field(DigestMD5Base, authzid)},
-	{"pem_array", "[C", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DigestMD5Base, pem_array)},
-	{"RAW_NONCE_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DigestMD5Base, RAW_NONCE_SIZE)},
-	{"ENCODED_NONCE_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DigestMD5Base, ENCODED_NONCE_SIZE)},
-	{"MASK", "Ljava/math/BigInteger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DigestMD5Base, MASK)},
-	{}
-};
-
-$MethodInfo _DigestMD5Base_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/Map;Ljava/lang/String;ILjava/lang/String;Ljavax/security/auth/callback/CallbackHandler;)V", "(Ljava/util/Map<Ljava/lang/String;*>;Ljava/lang/String;ILjava/lang/String;Ljavax/security/auth/callback/CallbackHandler;)V", $PROTECTED, $method(DigestMD5Base, init$, void, $Map*, $String*, int32_t, $String*, $CallbackHandler*), "javax.security.sasl.SaslException"},
-	{"access$000", "(I[BII)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(DigestMD5Base, access$000, void, int32_t, $bytes*, int32_t, int32_t)},
-	{"access$100", "()Ljava/util/logging/Logger;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(DigestMD5Base, access$100, $Logger*)},
-	{"access$1000", "()Ljava/util/logging/Logger;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(DigestMD5Base, access$1000, $Logger*)},
-	{"access$1100", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;[B)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(DigestMD5Base, access$1100, void, $String*, $String*, $String*, $bytes*)},
-	{"access$1200", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;[B)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(DigestMD5Base, access$1200, void, $String*, $String*, $String*, $bytes*)},
-	{"access$1300", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;[B)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(DigestMD5Base, access$1300, void, $String*, $String*, $String*, $bytes*)},
-	{"access$1400", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;[B)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(DigestMD5Base, access$1400, void, $String*, $String*, $String*, $bytes*)},
-	{"access$1500", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;[B)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(DigestMD5Base, access$1500, void, $String*, $String*, $String*, $bytes*)},
-	{"access$1600", "()Ljava/util/logging/Logger;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(DigestMD5Base, access$1600, $Logger*)},
-	{"access$1700", "([BII)I", nullptr, $STATIC | $SYNTHETIC, $staticMethod(DigestMD5Base, access$1700, int32_t, $bytes*, int32_t, int32_t)},
-	{"access$1800", "([BII)I", nullptr, $STATIC | $SYNTHETIC, $staticMethod(DigestMD5Base, access$1800, int32_t, $bytes*, int32_t, int32_t)},
-	{"access$1900", "([BII)I", nullptr, $STATIC | $SYNTHETIC, $staticMethod(DigestMD5Base, access$1900, int32_t, $bytes*, int32_t, int32_t)},
-	{"access$200", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;[B)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(DigestMD5Base, access$200, void, $String*, $String*, $String*, $bytes*)},
-	{"access$2000", "(I[BII)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(DigestMD5Base, access$2000, void, int32_t, $bytes*, int32_t, int32_t)},
-	{"access$2100", "()Ljava/util/logging/Logger;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(DigestMD5Base, access$2100, $Logger*)},
-	{"access$2200", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;[B)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(DigestMD5Base, access$2200, void, $String*, $String*, $String*, $bytes*)},
-	{"access$2300", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;[B)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(DigestMD5Base, access$2300, void, $String*, $String*, $String*, $bytes*)},
-	{"access$2400", "()Ljava/util/logging/Logger;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(DigestMD5Base, access$2400, $Logger*)},
-	{"access$2500", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;[B)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(DigestMD5Base, access$2500, void, $String*, $String*, $String*, $bytes*)},
-	{"access$2600", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;[B)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(DigestMD5Base, access$2600, void, $String*, $String*, $String*, $bytes*)},
-	{"access$2700", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;[B)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(DigestMD5Base, access$2700, void, $String*, $String*, $String*, $bytes*)},
-	{"access$2800", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;[B)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(DigestMD5Base, access$2800, void, $String*, $String*, $String*, $bytes*)},
-	{"access$2900", "()Ljava/util/logging/Logger;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(DigestMD5Base, access$2900, $Logger*)},
-	{"access$300", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;[B)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(DigestMD5Base, access$300, void, $String*, $String*, $String*, $bytes*)},
-	{"access$3000", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;[BII)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(DigestMD5Base, access$3000, void, $String*, $String*, $String*, $bytes*, int32_t, int32_t)},
-	{"access$3100", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;[B)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(DigestMD5Base, access$3100, void, $String*, $String*, $String*, $bytes*)},
-	{"access$3200", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;[B)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(DigestMD5Base, access$3200, void, $String*, $String*, $String*, $bytes*)},
-	{"access$3300", "()Ljava/util/logging/Logger;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(DigestMD5Base, access$3300, $Logger*)},
-	{"access$3400", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;[B)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(DigestMD5Base, access$3400, void, $String*, $String*, $String*, $bytes*)},
-	{"access$3500", "()Ljava/util/logging/Logger;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(DigestMD5Base, access$3500, $Logger*)},
-	{"access$3600", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;[B)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(DigestMD5Base, access$3600, void, $String*, $String*, $String*, $bytes*)},
-	{"access$3700", "()Ljava/util/logging/Logger;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(DigestMD5Base, access$3700, $Logger*)},
-	{"access$3800", "()Ljava/util/logging/Logger;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(DigestMD5Base, access$3800, $Logger*)},
-	{"access$3900", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;[B)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(DigestMD5Base, access$3900, void, $String*, $String*, $String*, $bytes*)},
-	{"access$400", "()Ljava/util/logging/Logger;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(DigestMD5Base, access$400, $Logger*)},
-	{"access$4000", "()Ljava/util/logging/Logger;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(DigestMD5Base, access$4000, $Logger*)},
-	{"access$4100", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;[B)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(DigestMD5Base, access$4100, void, $String*, $String*, $String*, $bytes*)},
-	{"access$4200", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;[B)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(DigestMD5Base, access$4200, void, $String*, $String*, $String*, $bytes*)},
-	{"access$4300", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;[B)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(DigestMD5Base, access$4300, void, $String*, $String*, $String*, $bytes*)},
-	{"access$4400", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;[B)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(DigestMD5Base, access$4400, void, $String*, $String*, $String*, $bytes*)},
-	{"access$4500", "()Ljava/util/logging/Logger;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(DigestMD5Base, access$4500, $Logger*)},
-	{"access$4600", "()Ljava/util/logging/Logger;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(DigestMD5Base, access$4600, $Logger*)},
-	{"access$4700", "()Ljava/util/logging/Logger;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(DigestMD5Base, access$4700, $Logger*)},
-	{"access$4800", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;[B)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(DigestMD5Base, access$4800, void, $String*, $String*, $String*, $bytes*)},
-	{"access$4900", "()Ljava/util/logging/Logger;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(DigestMD5Base, access$4900, $Logger*)},
-	{"access$500", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;[BII)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(DigestMD5Base, access$500, void, $String*, $String*, $String*, $bytes*, int32_t, int32_t)},
-	{"access$5000", "([BII)I", nullptr, $STATIC | $SYNTHETIC, $staticMethod(DigestMD5Base, access$5000, int32_t, $bytes*, int32_t, int32_t)},
-	{"access$5100", "([BII)I", nullptr, $STATIC | $SYNTHETIC, $staticMethod(DigestMD5Base, access$5100, int32_t, $bytes*, int32_t, int32_t)},
-	{"access$5200", "([BII)I", nullptr, $STATIC | $SYNTHETIC, $staticMethod(DigestMD5Base, access$5200, int32_t, $bytes*, int32_t, int32_t)},
-	{"access$600", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;[B)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(DigestMD5Base, access$600, void, $String*, $String*, $String*, $bytes*)},
-	{"access$700", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;[B)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(DigestMD5Base, access$700, void, $String*, $String*, $String*, $bytes*)},
-	{"access$800", "()Ljava/util/logging/Logger;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(DigestMD5Base, access$800, $Logger*)},
-	{"access$900", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;[B)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(DigestMD5Base, access$900, void, $String*, $String*, $String*, $bytes*)},
-	{"addDesParity", "([BII)[B", nullptr, $PRIVATE | $STATIC, $staticMethod(DigestMD5Base, addDesParity, $bytes*, $bytes*, int32_t, int32_t)},
-	{"binaryToHex", "([B)[B", nullptr, $PROTECTED, $virtualMethod(DigestMD5Base, binaryToHex, $bytes*, $bytes*)},
-	{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(DigestMD5Base, dispose, void), "javax.security.sasl.SaslException"},
-	{"extractDirective", "(Ljava/lang/String;[B[Ljava/lang/String;[[BLjava/util/List;I)V", "(Ljava/lang/String;[B[Ljava/lang/String;[[BLjava/util/List<[B>;I)V", $PRIVATE | $STATIC, $staticMethod(DigestMD5Base, extractDirective, void, $String*, $bytes*, $StringArray*, $byteArray2*, $List*, int32_t), "javax.security.sasl.SaslException"},
-	{"generateNonce", "()[B", nullptr, $PROTECTED | $STATIC | $FINAL, $staticMethod(DigestMD5Base, generateNonce, $bytes*)},
-	{"generateResponseValue", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;[C[B[BI[B)[B", nullptr, $PROTECTED, $virtualMethod(DigestMD5Base, generateResponseValue, $bytes*, $String*, $String*, $String*, $String*, $String*, $chars*, $bytes*, $bytes*, int32_t, $bytes*), "java.security.NoSuchAlgorithmException,java.io.IOException"},
-	{"getMechanismName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DigestMD5Base, getMechanismName, $String*)},
-	{"getNegotiatedProperty", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DigestMD5Base, getNegotiatedProperty, $Object*, $String*)},
-	{"getPlatformCiphers", "()[B", nullptr, $PROTECTED | $STATIC, $staticMethod(DigestMD5Base, getPlatformCiphers, $bytes*)},
-	{"isLws", "(B)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(DigestMD5Base, isLws, bool, int8_t)},
-	{"makeDesKeys", "([BLjava/lang/String;)Ljavax/crypto/SecretKey;", nullptr, $PRIVATE | $STATIC, $staticMethod(DigestMD5Base, makeDesKeys, $SecretKey*, $bytes*, $String*), "java.security.NoSuchAlgorithmException,java.security.InvalidKeyException,java.security.spec.InvalidKeySpecException"},
-	{"needEscape", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(DigestMD5Base, needEscape, bool, $String*)},
-	{"needEscape", "(C)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(DigestMD5Base, needEscape, bool, char16_t)},
-	{"nonceCountToHex", "(I)Ljava/lang/String;", nullptr, $PROTECTED | $STATIC, $staticMethod(DigestMD5Base, nonceCountToHex, $String*, int32_t)},
-	{"parseDirectives", "([B[Ljava/lang/String;Ljava/util/List;I)[[B", "([B[Ljava/lang/String;Ljava/util/List<[B>;I)[[B", $PROTECTED | $STATIC, $staticMethod(DigestMD5Base, parseDirectives, $byteArray2*, $bytes*, $StringArray*, $List*, int32_t), "javax.security.sasl.SaslException"},
-	{"quotedStringValue", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PROTECTED | $STATIC, $staticMethod(DigestMD5Base, quotedStringValue, $String*, $String*)},
-	{"setParityBit", "([B)V", nullptr, $PRIVATE | $STATIC, $staticMethod(DigestMD5Base, setParityBit, void, $bytes*)},
-	{"skipLws", "([BI)I", nullptr, $PRIVATE | $STATIC, $staticMethod(DigestMD5Base, skipLws, int32_t, $bytes*, int32_t)},
-	{"stringToByte_8859_1", "(Ljava/lang/String;)[B", nullptr, $PROTECTED, $virtualMethod(DigestMD5Base, stringToByte_8859_1, $bytes*, $String*)},
-	{"unwrap", "([BII)[B", nullptr, $PUBLIC, $virtualMethod(DigestMD5Base, unwrap, $bytes*, $bytes*, int32_t, int32_t), "javax.security.sasl.SaslException"},
-	{"wrap", "([BII)[B", nullptr, $PUBLIC, $virtualMethod(DigestMD5Base, wrap, $bytes*, $bytes*, int32_t, int32_t), "javax.security.sasl.SaslException"},
-	{"writeQuotedStringValue", "(Ljava/io/ByteArrayOutputStream;[B)V", nullptr, $PROTECTED | $STATIC, $staticMethod(DigestMD5Base, writeQuotedStringValue, void, $ByteArrayOutputStream*, $bytes*)},
-	{}
-};
-
-$InnerClassInfo _DigestMD5Base_InnerClassesInfo_[] = {
-	{"com.sun.security.sasl.digest.DigestMD5Base$DigestPrivacy", "com.sun.security.sasl.digest.DigestMD5Base", "DigestPrivacy", $FINAL},
-	{"com.sun.security.sasl.digest.DigestMD5Base$DigestIntegrity", "com.sun.security.sasl.digest.DigestMD5Base", "DigestIntegrity", 0},
-	{}
-};
-
-$ClassInfo _DigestMD5Base_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"com.sun.security.sasl.digest.DigestMD5Base",
-	"com.sun.security.sasl.util.AbstractSaslImpl",
-	nullptr,
-	_DigestMD5Base_FieldInfo_,
-	_DigestMD5Base_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DigestMD5Base_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.security.sasl.digest.DigestMD5Base$DigestPrivacy,com.sun.security.sasl.digest.DigestMD5Base$DigestIntegrity"
-};
-
-$Object* allocate$DigestMD5Base($Class* clazz) {
-	return $of($alloc(DigestMD5Base));
-}
 
 $String* DigestMD5Base::DI_CLASS_NAME = nullptr;
 $String* DigestMD5Base::DP_CLASS_NAME = nullptr;
@@ -582,12 +433,10 @@ $Object* DigestMD5Base::getNegotiatedProperty($String* propName) {
 		$init($Sasl);
 		if ($nc(propName)->equals($Sasl::STRENGTH)) {
 			return $of(this->negotiatedStrength);
+		} else if (propName->equals($Sasl::BOUND_SERVER_NAME)) {
+			return $of($nc(this->digestUri)->substring($nc(this->digestUri)->indexOf(u'/') + 1));
 		} else {
-			if (propName->equals($Sasl::BOUND_SERVER_NAME)) {
-				return $of($nc(this->digestUri)->substring($nc(this->digestUri)->indexOf((int32_t)u'/') + 1));
-			} else {
-				return $of($AbstractSaslImpl::getNegotiatedProperty(propName));
-			}
+			return $AbstractSaslImpl::getNegotiatedProperty(propName);
 		}
 	} else {
 		$throwNew($IllegalStateException, "DIGEST-MD5 authentication not completed"_s);
@@ -596,7 +445,7 @@ $Object* DigestMD5Base::getNegotiatedProperty($String* propName) {
 
 $bytes* DigestMD5Base::generateNonce() {
 	$init(DigestMD5Base);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Random, random, $new($Random));
 	$var($bytes, randomData, $new($bytes, DigestMD5Base::RAW_NONCE_SIZE));
 	random->nextBytes(randomData);
@@ -609,10 +458,10 @@ $bytes* DigestMD5Base::generateNonce() {
 		a = randomData->get(i);
 		b = randomData->get(i + 1);
 		c = randomData->get(i + 2);
-		nonce->set(j++, (int8_t)($nc(DigestMD5Base::pem_array)->get((int32_t)(((int32_t)((uint32_t)a >> 2)) & (uint32_t)63))));
-		nonce->set(j++, (int8_t)($nc(DigestMD5Base::pem_array)->get(((int32_t)((a << 4) & (uint32_t)48)) + ((int32_t)(((int32_t)((uint32_t)b >> 4)) & (uint32_t)15)))));
-		nonce->set(j++, (int8_t)($nc(DigestMD5Base::pem_array)->get(((int32_t)((b << 2) & (uint32_t)60)) + ((int32_t)(((int32_t)((uint32_t)c >> 6)) & (uint32_t)3)))));
-		nonce->set(j++, (int8_t)($nc(DigestMD5Base::pem_array)->get((int32_t)(c & (uint32_t)63))));
+		nonce->set(j++, (int8_t)(DigestMD5Base::pem_array->get(((int32_t)((uint32_t)a >> 2)) & 0x3f)));
+		nonce->set(j++, (int8_t)(DigestMD5Base::pem_array->get(((a << 4) & 0x30) + (((int32_t)((uint32_t)b >> 4)) & 0x0f))));
+		nonce->set(j++, (int8_t)(DigestMD5Base::pem_array->get(((b << 2) & 0x3c) + (((int32_t)((uint32_t)c >> 6)) & 3))));
+		nonce->set(j++, (int8_t)(DigestMD5Base::pem_array->get(c & 0x3f)));
 	}
 	return nonce;
 }
@@ -624,9 +473,9 @@ void DigestMD5Base::writeQuotedStringValue($ByteArrayOutputStream* out, $bytes* 
 	for (int32_t i = 0; i < len; ++i) {
 		ch = buf->get(i);
 		if (needEscape((char16_t)ch)) {
-			$nc(out)->write((int32_t)u'\\');
+			$nc(out)->write(u'\\');
 		}
-		$nc(out)->write((int32_t)ch);
+		$nc(out)->write(ch);
 	}
 }
 
@@ -667,23 +516,23 @@ $String* DigestMD5Base::quotedStringValue($String* str) {
 }
 
 $bytes* DigestMD5Base::binaryToHex($bytes* digest) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, digestString, $new($StringBuilder));
 	for (int32_t i = 0; i < $nc(digest)->length; ++i) {
-		if (((int32_t)(digest->get(i) & (uint32_t)255)) < 16) {
-			digestString->append(u'0')->append($($Integer::toHexString((int32_t)(digest->get(i) & (uint32_t)255))));
+		if ((digest->get(i) & 0xff) < 0x10) {
+			digestString->append(u'0')->append($($Integer::toHexString(digest->get(i) & 0xff)));
 		} else {
-			digestString->append($($Integer::toHexString((int32_t)(digest->get(i) & (uint32_t)255))));
+			digestString->append($($Integer::toHexString(digest->get(i) & 0xff)));
 		}
 	}
-	return $nc($(digestString->toString()))->getBytes(this->encoding);
+	return $(digestString->toString())->getBytes(this->encoding);
 }
 
 $bytes* DigestMD5Base::stringToByte_8859_1($String* str) {
 	$var($chars, buffer, $nc(str)->toCharArray());
 	if (this->useUTF8) {
 		for (int32_t i = 0; i < buffer->length; ++i) {
-			if (buffer->get(i) > (char16_t)0xFF) {
+			if (buffer->get(i) > (char16_t)0xff) {
 				$init($StandardCharsets);
 				return str->getBytes($StandardCharsets::UTF_8);
 			}
@@ -695,27 +544,27 @@ $bytes* DigestMD5Base::stringToByte_8859_1($String* str) {
 
 $bytes* DigestMD5Base::getPlatformCiphers() {
 	$init(DigestMD5Base);
-	$var($bytes, ciphers, $new($bytes, $nc(DigestMD5Base::CIPHER_TOKENS)->length));
-	for (int32_t i = 0; i < $nc(DigestMD5Base::JCE_CIPHER_NAME)->length; ++i) {
+	$var($bytes, ciphers, $new($bytes, DigestMD5Base::CIPHER_TOKENS->length));
+	for (int32_t i = 0; i < DigestMD5Base::JCE_CIPHER_NAME->length; ++i) {
 		try {
-			$Cipher::getInstance($nc(DigestMD5Base::JCE_CIPHER_NAME)->get(i));
+			$Cipher::getInstance(DigestMD5Base::JCE_CIPHER_NAME->get(i));
 			$init($AbstractSaslImpl);
 			$init($Level);
-			$nc($AbstractSaslImpl::logger)->log($Level::FINE, "DIGEST01:Platform supports {0}"_s, $of($nc(DigestMD5Base::JCE_CIPHER_NAME)->get(i)));
-			(*ciphers)[i] |= $nc(DigestMD5Base::CIPHER_MASKS)->get(i);
+			$nc($AbstractSaslImpl::logger)->log($Level::FINE, "DIGEST01:Platform supports {0}"_s, DigestMD5Base::JCE_CIPHER_NAME->get(i));
+			(*ciphers)[i] |= DigestMD5Base::CIPHER_MASKS->get(i);
 		} catch ($NoSuchAlgorithmException& e) {
 		} catch ($NoSuchPaddingException& e) {
 		}
 	}
 	if (ciphers->get(DigestMD5Base::RC4) != DigestMD5Base::UNSET) {
-		(*ciphers)[DigestMD5Base::RC4_56] |= $nc(DigestMD5Base::CIPHER_MASKS)->get(DigestMD5Base::RC4_56);
-		(*ciphers)[DigestMD5Base::RC4_40] |= $nc(DigestMD5Base::CIPHER_MASKS)->get(DigestMD5Base::RC4_40);
+		(*ciphers)[DigestMD5Base::RC4_56] |= DigestMD5Base::CIPHER_MASKS->get(DigestMD5Base::RC4_56);
+		(*ciphers)[DigestMD5Base::RC4_40] |= DigestMD5Base::CIPHER_MASKS->get(DigestMD5Base::RC4_40);
 	}
 	return ciphers;
 }
 
 $bytes* DigestMD5Base::generateResponseValue($String* authMethod, $String* digestUriValue, $String* qopValue, $String* usernameValue, $String* realmValue, $chars* passwdValue, $bytes* nonceValue, $bytes* cNonceValue, int32_t nonceCount, $bytes* authzidValue) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($MessageDigest, md5, $MessageDigest::getInstance("MD5"_s));
 	$var($bytes, hexA1, nullptr);
 	$var($bytes, hexA2, nullptr);
@@ -726,81 +575,81 @@ $bytes* DigestMD5Base::generateResponseValue($String* authMethod, $String* diges
 	$assign(A2, $new($ByteArrayOutputStream));
 	A2->write($($nc(($$str({authMethod, ":"_s, digestUriValue})))->getBytes(this->encoding)));
 	bool var$0 = $nc(qopValue)->equals("auth-conf"_s);
-	if (var$0 || $nc(qopValue)->equals("auth-int"_s)) {
+	if (var$0 || qopValue->equals("auth-int"_s)) {
 		$init($AbstractSaslImpl);
 		$init($Level);
-		$nc($AbstractSaslImpl::logger)->log($Level::FINE, "DIGEST04:QOP: {0}"_s, $of(qopValue));
-		A2->write($($nc(DigestMD5Base::SECURITY_LAYER_MARKER)->getBytes(this->encoding)));
+		$nc($AbstractSaslImpl::logger)->log($Level::FINE, "DIGEST04:QOP: {0}"_s, qopValue);
+		A2->write($(DigestMD5Base::SECURITY_LAYER_MARKER->getBytes(this->encoding)));
 	}
 	$init($AbstractSaslImpl);
 	$init($Level);
 	if ($nc($AbstractSaslImpl::logger)->isLoggable($Level::FINE)) {
-		$nc($AbstractSaslImpl::logger)->log($Level::FINE, "DIGEST05:A2: {0}"_s, $($of(A2->toString())));
+		$AbstractSaslImpl::logger->log($Level::FINE, "DIGEST05:A2: {0}"_s, $(A2->toString()));
 	}
 	$nc(md5)->update($(A2->toByteArray()));
 	$var($bytes, digest, md5->digest());
 	$assign(hexA2, binaryToHex(digest));
-	if ($nc($AbstractSaslImpl::logger)->isLoggable($Level::FINE)) {
-		$nc($AbstractSaslImpl::logger)->log($Level::FINE, "DIGEST06:HEX(H(A2)): {0}"_s, $of($$new($String, hexA2)));
+	if ($AbstractSaslImpl::logger->isLoggable($Level::FINE)) {
+		$AbstractSaslImpl::logger->log($Level::FINE, "DIGEST06:HEX(H(A2)): {0}"_s, $$new($String, hexA2));
 	}
 	$assign(beginA1, $new($ByteArrayOutputStream));
 	beginA1->write($(stringToByte_8859_1(usernameValue)));
-	beginA1->write((int32_t)u':');
+	beginA1->write(u':');
 	beginA1->write($(stringToByte_8859_1(realmValue)));
-	beginA1->write((int32_t)u':');
+	beginA1->write(u':');
 	beginA1->write($(stringToByte_8859_1($$new($String, passwdValue))));
 	md5->update($(beginA1->toByteArray()));
 	$assign(digest, md5->digest());
-	if ($nc($AbstractSaslImpl::logger)->isLoggable($Level::FINE)) {
-		$nc($AbstractSaslImpl::logger)->log($Level::FINE, "DIGEST07:H({0}) = {1}"_s, $$new($ObjectArray, {
-			$($of(beginA1->toString())),
-			$of($$new($String, $(binaryToHex(digest))))
+	if ($AbstractSaslImpl::logger->isLoggable($Level::FINE)) {
+		$AbstractSaslImpl::logger->log($Level::FINE, "DIGEST07:H({0}) = {1}"_s, $$new($ObjectArray, {
+			$(beginA1->toString()),
+			$$new($String, $(binaryToHex(digest)))
 		}));
 	}
 	$assign(A1, $new($ByteArrayOutputStream));
 	A1->write(digest);
-	A1->write((int32_t)u':');
+	A1->write(u':');
 	A1->write(nonceValue);
-	A1->write((int32_t)u':');
+	A1->write(u':');
 	A1->write(cNonceValue);
 	if (authzidValue != nullptr) {
-		A1->write((int32_t)u':');
+		A1->write(u':');
 		A1->write(authzidValue);
 	}
 	md5->update($(A1->toByteArray()));
 	$assign(digest, md5->digest());
 	$set(this, H_A1, digest);
 	$assign(hexA1, binaryToHex(digest));
-	if ($nc($AbstractSaslImpl::logger)->isLoggable($Level::FINE)) {
-		$nc($AbstractSaslImpl::logger)->log($Level::FINE, "DIGEST08:H(A1) = {0}"_s, $of($$new($String, hexA1)));
+	if ($AbstractSaslImpl::logger->isLoggable($Level::FINE)) {
+		$AbstractSaslImpl::logger->log($Level::FINE, "DIGEST08:H(A1) = {0}"_s, $$new($String, hexA1));
 	}
 	$assign(KD, $new($ByteArrayOutputStream));
 	KD->write(hexA1);
-	KD->write((int32_t)u':');
+	KD->write(u':');
 	KD->write(nonceValue);
-	KD->write((int32_t)u':');
-	KD->write($($nc($(nonceCountToHex(nonceCount)))->getBytes(this->encoding)));
-	KD->write((int32_t)u':');
+	KD->write(u':');
+	KD->write($($$nc(nonceCountToHex(nonceCount))->getBytes(this->encoding)));
+	KD->write(u':');
 	KD->write(cNonceValue);
-	KD->write((int32_t)u':');
-	KD->write($($nc(qopValue)->getBytes(this->encoding)));
-	KD->write((int32_t)u':');
+	KD->write(u':');
+	KD->write($(qopValue->getBytes(this->encoding)));
+	KD->write(u':');
 	KD->write(hexA2);
-	if ($nc($AbstractSaslImpl::logger)->isLoggable($Level::FINE)) {
-		$nc($AbstractSaslImpl::logger)->log($Level::FINE, "DIGEST09:KD: {0}"_s, $($of(KD->toString())));
+	if ($AbstractSaslImpl::logger->isLoggable($Level::FINE)) {
+		$AbstractSaslImpl::logger->log($Level::FINE, "DIGEST09:KD: {0}"_s, $(KD->toString()));
 	}
 	md5->update($(KD->toByteArray()));
 	$assign(digest, md5->digest());
 	$var($bytes, answer, binaryToHex(digest));
-	if ($nc($AbstractSaslImpl::logger)->isLoggable($Level::FINE)) {
-		$nc($AbstractSaslImpl::logger)->log($Level::FINE, "DIGEST10:response-value: {0}"_s, $of($$new($String, answer)));
+	if ($AbstractSaslImpl::logger->isLoggable($Level::FINE)) {
+		$AbstractSaslImpl::logger->log($Level::FINE, "DIGEST10:response-value: {0}"_s, $$new($String, answer));
 	}
 	return (answer);
 }
 
 $String* DigestMD5Base::nonceCountToHex(int32_t count) {
 	$init(DigestMD5Base);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, str, $Integer::toHexString(count));
 	$var($StringBuilder, pad, $new($StringBuilder));
 	if ($nc(str)->length() < 8) {
@@ -813,7 +662,7 @@ $String* DigestMD5Base::nonceCountToHex(int32_t count) {
 
 $byteArray2* DigestMD5Base::parseDirectives($bytes* buf, $StringArray* keyTable, $List* realmChoices, int32_t realmIndex) {
 	$init(DigestMD5Base);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($byteArray2, valueTable, $new($byteArray2, $nc(keyTable)->length));
 	$var($ByteArrayOutputStream, key, $new($ByteArrayOutputStream, 10));
 	$var($ByteArrayOutputStream, value, $new($ByteArrayOutputStream, 10));
@@ -854,25 +703,29 @@ $byteArray2* DigestMD5Base::parseDirectives($bytes* buf, $StringArray* keyTable,
 					$throwNew($SaslException, $$str({"\'=\' expected after key: "_s, $(key->toString())}));
 				}
 			} else {
-				key->write((int32_t)bch);
+				key->write(bch);
 				++i;
 			}
 		} else if (gettingQuotedValue) {
 			if (bch == u'\\') {
 				++i;
 				if (i < buf->length) {
-					value->write((int32_t)buf->get(i));
+					value->write(buf->get(i));
 					++i;
 				} else {
-					$var($String, var$0, $$str({"Unmatched quote found for directive: "_s, $(key->toString()), " with value: "_s}));
-					$throwNew($SaslException, $$concat(var$0, $(value->toString())));
+					$var($StringBuilder, var$0, $new($StringBuilder));
+					var$0->append("Unmatched quote found for directive: "_s);
+					var$0->append($(key->toString()));
+					var$0->append(" with value: "_s);
+					var$0->append($(value->toString()));
+					$throwNew($SaslException, $$str(var$0));
 				}
 			} else if (bch == u'\"') {
 				++i;
 				gettingQuotedValue = false;
 				expectSeparator = true;
 			} else {
-				value->write((int32_t)bch);
+				value->write(bch);
 				++i;
 			}
 		} else if (isLws(bch) || bch == u',') {
@@ -886,13 +739,17 @@ $byteArray2* DigestMD5Base::parseDirectives($bytes* buf, $StringArray* keyTable,
 		} else if (expectSeparator) {
 			$throwNew($SaslException, $$str({"Expecting comma or linear whitespace after quoted string: \""_s, $(value->toString()), "\""_s}));
 		} else {
-			value->write((int32_t)bch);
+			value->write(bch);
 			++i;
 		}
 	}
 	if (gettingQuotedValue) {
-		$var($String, var$2, $$str({"Unmatched quote found for directive: "_s, $(key->toString()), " with value: "_s}));
-		$throwNew($SaslException, $$concat(var$2, $(value->toString())));
+		$var($StringBuilder, var$2, $new($StringBuilder));
+		var$2->append("Unmatched quote found for directive: "_s);
+		var$2->append($(key->toString()));
+		var$2->append(" with value: "_s);
+		var$2->append($(value->toString()));
+		$throwNew($SaslException, $$str(var$2));
 	}
 	if (key->size() > 0) {
 		$var($String, var$3, key->toString());
@@ -905,15 +762,10 @@ bool DigestMD5Base::isLws(int8_t b) {
 	$init(DigestMD5Base);
 	switch (b) {
 	case 13:
-		{}
 	case 10:
-		{}
 	case 32:
-		{}
 	case 9:
-		{
-			return true;
-		}
+		return true;
 	}
 	return false;
 }
@@ -931,7 +783,7 @@ int32_t DigestMD5Base::skipLws($bytes* buf, int32_t start) {
 
 void DigestMD5Base::extractDirective($String* key, $bytes* value, $StringArray* keyTable, $byteArray2* valueTable, $List* realmChoices, int32_t realmIndex) {
 	$init(DigestMD5Base);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (int32_t i = 0; i < $nc(keyTable)->length; ++i) {
 		if ($nc(key)->equalsIgnoreCase(keyTable->get(i))) {
 			if ($nc(valueTable)->get(i) == nullptr) {
@@ -939,9 +791,9 @@ void DigestMD5Base::extractDirective($String* key, $bytes* value, $StringArray* 
 				$init($AbstractSaslImpl);
 				$init($Level);
 				if ($nc($AbstractSaslImpl::logger)->isLoggable($Level::FINE)) {
-					$nc($AbstractSaslImpl::logger)->log($Level::FINE, "DIGEST11:Directive {0} = {1}"_s, $$new($ObjectArray, {
-						$of(keyTable->get(i)),
-						$of($$new($String, valueTable->get(i)))
+					$AbstractSaslImpl::logger->log($Level::FINE, "DIGEST11:Directive {0} = {1}"_s, $$new($ObjectArray, {
+						keyTable->get(i),
+						$$new($String, valueTable->get(i))
 					}));
 				}
 			} else if (realmChoices != nullptr && i == realmIndex) {
@@ -960,15 +812,15 @@ void DigestMD5Base::extractDirective($String* key, $bytes* value, $StringArray* 
 void DigestMD5Base::setParityBit($bytes* key) {
 	$init(DigestMD5Base);
 	for (int32_t i = 0; i < $nc(key)->length; ++i) {
-		int32_t b = (int32_t)(key->get(i) & (uint32_t)254);
-		b |= ((int32_t)($Integer::bitCount(b) & (uint32_t)1)) ^ 1;
+		int32_t b = key->get(i) & 0xfe;
+		b |= ($Integer::bitCount(b) & 1) ^ 1;
 		key->set(i, (int8_t)b);
 	}
 }
 
 $bytes* DigestMD5Base::addDesParity($bytes* input, int32_t offset, int32_t len) {
 	$init(DigestMD5Base);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (len != 7) {
 		$throwNew($IllegalArgumentException, $$str({"Invalid length of DES Key Value:"_s, $$str(len)}));
 	}
@@ -977,7 +829,7 @@ $bytes* DigestMD5Base::addDesParity($bytes* input, int32_t offset, int32_t len) 
 	$var($bytes, result, $new($bytes, 8));
 	$var($BigInteger, in, $new($BigInteger, raw));
 	for (int32_t i = result->length - 1; i >= 0; --i) {
-		result->set(i, $nc($($nc($($nc(in)->and$(DigestMD5Base::MASK)))->toByteArray()))->get(0));
+		result->set(i, $($(in->and$(DigestMD5Base::MASK))->toByteArray())->get(0));
 		(*result)[i] <<= 1;
 		$assign(in, in->shiftRight(7));
 	}
@@ -987,7 +839,7 @@ $bytes* DigestMD5Base::addDesParity($bytes* input, int32_t offset, int32_t len) 
 
 $SecretKey* DigestMD5Base::makeDesKeys($bytes* input, $String* desStrength) {
 	$init(DigestMD5Base);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, subkey1, addDesParity(input, 0, 7));
 	$var($KeySpec, spec, nullptr);
 	$var($SecretKeyFactory, desFactory, $SecretKeyFactory::getInstance(desStrength));
@@ -996,66 +848,56 @@ $SecretKey* DigestMD5Base::makeDesKeys($bytes* input, $String* desStrength) {
 		int32_t tmp60595$ = -1;
 		switch ($nc(s60595$)->hashCode()) {
 		case 0x00018412:
-			{
-				if (s60595$->equals("des"_s)) {
-					tmp60595$ = 0;
-				}
-				break;
+			if (s60595$->equals("des"_s)) {
+				tmp60595$ = 0;
 			}
-		case (int32_t)0xB069B254:
-			{
-				if (s60595$->equals("desede"_s)) {
-					tmp60595$ = 1;
-				}
-				break;
+			break;
+		case (int32_t)0xb069b254:
+			if (s60595$->equals("desede"_s)) {
+				tmp60595$ = 1;
 			}
+			break;
 		}
 		{
-			$var($bytes, subkey2, nullptr)
-			$var($bytes, ede, nullptr)
+			$var($bytes, subkey2, nullptr);
+			$var($bytes, ede, nullptr);
 			switch (tmp60595$) {
 			case 0:
-				{
-					$assign(spec, $new($DESKeySpec, subkey1, 0));
-					$init($AbstractSaslImpl);
-					$init($Level);
-					if ($nc($AbstractSaslImpl::logger)->isLoggable($Level::FINEST)) {
-						traceOutput(DigestMD5Base::DP_CLASS_NAME, "makeDesKeys"_s, "DIGEST42:DES key input: "_s, input);
-						traceOutput(DigestMD5Base::DP_CLASS_NAME, "makeDesKeys"_s, "DIGEST43:DES key parity-adjusted: "_s, subkey1);
-						traceOutput(DigestMD5Base::DP_CLASS_NAME, "makeDesKeys"_s, "DIGEST44:DES key material: "_s, $($nc(($cast($DESKeySpec, spec)))->getKey()));
-						$nc($AbstractSaslImpl::logger)->log($Level::FINEST, "DIGEST45: is parity-adjusted? {0}"_s, $($of($Boolean::valueOf($DESKeySpec::isParityAdjusted(subkey1, 0)))));
-					}
-					break;
+				$assign(spec, $new($DESKeySpec, subkey1, 0));
+				$init($AbstractSaslImpl);
+				$init($Level);
+				if ($nc($AbstractSaslImpl::logger)->isLoggable($Level::FINEST)) {
+					traceOutput(DigestMD5Base::DP_CLASS_NAME, "makeDesKeys"_s, "DIGEST42:DES key input: "_s, input);
+					traceOutput(DigestMD5Base::DP_CLASS_NAME, "makeDesKeys"_s, "DIGEST43:DES key parity-adjusted: "_s, subkey1);
+					traceOutput(DigestMD5Base::DP_CLASS_NAME, "makeDesKeys"_s, "DIGEST44:DES key material: "_s, $($cast($DESKeySpec, spec)->getKey()));
+					$AbstractSaslImpl::logger->log($Level::FINEST, "DIGEST45: is parity-adjusted? {0}"_s, $($Boolean::valueOf($DESKeySpec::isParityAdjusted(subkey1, 0))));
 				}
+				break;
 			case 1:
-				{
-					$assign(subkey2, addDesParity(input, 7, 7));
-					$assign(ede, $new($bytes, $nc(subkey1)->length * 2 + $nc(subkey2)->length));
-					$System::arraycopy(subkey1, 0, ede, 0, subkey1->length);
-					$System::arraycopy(subkey2, 0, ede, subkey1->length, subkey2->length);
-					$System::arraycopy(subkey1, 0, ede, subkey1->length + subkey2->length, subkey1->length);
-					$assign(spec, $new($DESedeKeySpec, ede, 0));
-					$init($AbstractSaslImpl);
-					$init($Level);
-					if ($nc($AbstractSaslImpl::logger)->isLoggable($Level::FINEST)) {
-						traceOutput(DigestMD5Base::DP_CLASS_NAME, "makeDesKeys"_s, "DIGEST46:3DES key input: "_s, input);
-						traceOutput(DigestMD5Base::DP_CLASS_NAME, "makeDesKeys"_s, "DIGEST47:3DES key ede: "_s, ede);
-						traceOutput(DigestMD5Base::DP_CLASS_NAME, "makeDesKeys"_s, "DIGEST48:3DES key material: "_s, $($nc(($cast($DESedeKeySpec, spec)))->getKey()));
-						$nc($AbstractSaslImpl::logger)->log($Level::FINEST, "DIGEST49: is parity-adjusted? "_s, $($of($Boolean::valueOf($DESedeKeySpec::isParityAdjusted(ede, 0)))));
-					}
-					break;
+				$assign(subkey2, addDesParity(input, 7, 7));
+				$assign(ede, $new($bytes, $nc(subkey1)->length * 2 + $nc(subkey2)->length));
+				$System::arraycopy(subkey1, 0, ede, 0, subkey1->length);
+				$System::arraycopy(subkey2, 0, ede, subkey1->length, subkey2->length);
+				$System::arraycopy(subkey1, 0, ede, subkey1->length + subkey2->length, subkey1->length);
+				$assign(spec, $new($DESedeKeySpec, ede, 0));
+				$init($AbstractSaslImpl);
+				$init($Level);
+				if ($nc($AbstractSaslImpl::logger)->isLoggable($Level::FINEST)) {
+					traceOutput(DigestMD5Base::DP_CLASS_NAME, "makeDesKeys"_s, "DIGEST46:3DES key input: "_s, input);
+					traceOutput(DigestMD5Base::DP_CLASS_NAME, "makeDesKeys"_s, "DIGEST47:3DES key ede: "_s, ede);
+					traceOutput(DigestMD5Base::DP_CLASS_NAME, "makeDesKeys"_s, "DIGEST48:3DES key material: "_s, $($cast($DESedeKeySpec, spec)->getKey()));
+					$AbstractSaslImpl::logger->log($Level::FINEST, "DIGEST49: is parity-adjusted? "_s, $($Boolean::valueOf($DESedeKeySpec::isParityAdjusted(ede, 0))));
 				}
+				break;
 			default:
-				{
-					$throwNew($IllegalArgumentException, $$str({"Invalid DES strength:"_s, desStrength}));
-				}
+				$throwNew($IllegalArgumentException, $$str({"Invalid DES strength:"_s, desStrength}));
 			}
 		}
 	}
 	return $nc(desFactory)->generateSecret(spec);
 }
 
-void clinit$DigestMD5Base($Class* class$) {
+void DigestMD5Base::clinit$($Class* clazz) {
 	$assignStatic(DigestMD5Base::SECURITY_LAYER_MARKER, ":00000000000000000000000000000000"_s);
 	$load($DigestMD5Base$DigestIntegrity);
 	$assignStatic(DigestMD5Base::DI_CLASS_NAME, $DigestMD5Base$DigestIntegrity::class$->getName());
@@ -1154,7 +996,148 @@ DigestMD5Base::DigestMD5Base() {
 }
 
 $Class* DigestMD5Base::load$($String* name, bool initialize) {
-	$loadClass(DigestMD5Base, name, initialize, &_DigestMD5Base_ClassInfo_, clinit$DigestMD5Base, allocate$DigestMD5Base);
+	$FieldInfo fieldInfos$$[] = {
+		{"DI_CLASS_NAME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DigestMD5Base, DI_CLASS_NAME)},
+		{"DP_CLASS_NAME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DigestMD5Base, DP_CLASS_NAME)},
+		{"MAX_CHALLENGE_LENGTH", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(DigestMD5Base, MAX_CHALLENGE_LENGTH)},
+		{"MAX_RESPONSE_LENGTH", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(DigestMD5Base, MAX_RESPONSE_LENGTH)},
+		{"DEFAULT_MAXBUF", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(DigestMD5Base, DEFAULT_MAXBUF)},
+		{"DES3", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(DigestMD5Base, DES3)},
+		{"RC4", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(DigestMD5Base, RC4)},
+		{"DES", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(DigestMD5Base, DES)},
+		{"RC4_56", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(DigestMD5Base, RC4_56)},
+		{"RC4_40", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(DigestMD5Base, RC4_40)},
+		{"CIPHER_TOKENS", "[Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(DigestMD5Base, CIPHER_TOKENS)},
+		{"JCE_CIPHER_NAME", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DigestMD5Base, JCE_CIPHER_NAME)},
+		{"DES_3_STRENGTH", "B", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(DigestMD5Base, DES_3_STRENGTH)},
+		{"RC4_STRENGTH", "B", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(DigestMD5Base, RC4_STRENGTH)},
+		{"DES_STRENGTH", "B", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(DigestMD5Base, DES_STRENGTH)},
+		{"RC4_56_STRENGTH", "B", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(DigestMD5Base, RC4_56_STRENGTH)},
+		{"RC4_40_STRENGTH", "B", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(DigestMD5Base, RC4_40_STRENGTH)},
+		{"UNSET", "B", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(DigestMD5Base, UNSET)},
+		{"CIPHER_MASKS", "[B", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(DigestMD5Base, CIPHER_MASKS)},
+		{"SECURITY_LAYER_MARKER", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DigestMD5Base, SECURITY_LAYER_MARKER)},
+		{"EMPTY_BYTE_ARRAY", "[B", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(DigestMD5Base, EMPTY_BYTE_ARRAY)},
+		{"step", "I", nullptr, $PROTECTED, $field(DigestMD5Base, step)},
+		{"cbh", "Ljavax/security/auth/callback/CallbackHandler;", nullptr, $PROTECTED, $field(DigestMD5Base, cbh)},
+		{"secCtx", "Lcom/sun/security/sasl/digest/SecurityCtx;", nullptr, $PROTECTED, $field(DigestMD5Base, secCtx)},
+		{"H_A1", "[B", nullptr, $PROTECTED, $field(DigestMD5Base, H_A1)},
+		{"nonce", "[B", nullptr, $PROTECTED, $field(DigestMD5Base, nonce)},
+		{"negotiatedStrength", "Ljava/lang/String;", nullptr, $PROTECTED, $field(DigestMD5Base, negotiatedStrength)},
+		{"negotiatedCipher", "Ljava/lang/String;", nullptr, $PROTECTED, $field(DigestMD5Base, negotiatedCipher)},
+		{"negotiatedQop", "Ljava/lang/String;", nullptr, $PROTECTED, $field(DigestMD5Base, negotiatedQop)},
+		{"negotiatedRealm", "Ljava/lang/String;", nullptr, $PROTECTED, $field(DigestMD5Base, negotiatedRealm)},
+		{"useUTF8", "Z", nullptr, $PROTECTED, $field(DigestMD5Base, useUTF8)},
+		{"encoding", "Ljava/nio/charset/Charset;", nullptr, $PROTECTED, $field(DigestMD5Base, encoding)},
+		{"digestUri", "Ljava/lang/String;", nullptr, $PROTECTED, $field(DigestMD5Base, digestUri)},
+		{"authzid", "Ljava/lang/String;", nullptr, $PROTECTED, $field(DigestMD5Base, authzid)},
+		{"pem_array", "[C", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DigestMD5Base, pem_array)},
+		{"RAW_NONCE_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DigestMD5Base, RAW_NONCE_SIZE)},
+		{"ENCODED_NONCE_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DigestMD5Base, ENCODED_NONCE_SIZE)},
+		{"MASK", "Ljava/math/BigInteger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DigestMD5Base, MASK)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/Map;Ljava/lang/String;ILjava/lang/String;Ljavax/security/auth/callback/CallbackHandler;)V", "(Ljava/util/Map<Ljava/lang/String;*>;Ljava/lang/String;ILjava/lang/String;Ljavax/security/auth/callback/CallbackHandler;)V", $PROTECTED, $method(DigestMD5Base, init$, void, $Map*, $String*, int32_t, $String*, $CallbackHandler*), "javax.security.sasl.SaslException"},
+		{"access$000", "(I[BII)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(DigestMD5Base, access$000, void, int32_t, $bytes*, int32_t, int32_t)},
+		{"access$100", "()Ljava/util/logging/Logger;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(DigestMD5Base, access$100, $Logger*)},
+		{"access$1000", "()Ljava/util/logging/Logger;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(DigestMD5Base, access$1000, $Logger*)},
+		{"access$1100", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;[B)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(DigestMD5Base, access$1100, void, $String*, $String*, $String*, $bytes*)},
+		{"access$1200", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;[B)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(DigestMD5Base, access$1200, void, $String*, $String*, $String*, $bytes*)},
+		{"access$1300", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;[B)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(DigestMD5Base, access$1300, void, $String*, $String*, $String*, $bytes*)},
+		{"access$1400", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;[B)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(DigestMD5Base, access$1400, void, $String*, $String*, $String*, $bytes*)},
+		{"access$1500", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;[B)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(DigestMD5Base, access$1500, void, $String*, $String*, $String*, $bytes*)},
+		{"access$1600", "()Ljava/util/logging/Logger;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(DigestMD5Base, access$1600, $Logger*)},
+		{"access$1700", "([BII)I", nullptr, $STATIC | $SYNTHETIC, $staticMethod(DigestMD5Base, access$1700, int32_t, $bytes*, int32_t, int32_t)},
+		{"access$1800", "([BII)I", nullptr, $STATIC | $SYNTHETIC, $staticMethod(DigestMD5Base, access$1800, int32_t, $bytes*, int32_t, int32_t)},
+		{"access$1900", "([BII)I", nullptr, $STATIC | $SYNTHETIC, $staticMethod(DigestMD5Base, access$1900, int32_t, $bytes*, int32_t, int32_t)},
+		{"access$200", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;[B)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(DigestMD5Base, access$200, void, $String*, $String*, $String*, $bytes*)},
+		{"access$2000", "(I[BII)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(DigestMD5Base, access$2000, void, int32_t, $bytes*, int32_t, int32_t)},
+		{"access$2100", "()Ljava/util/logging/Logger;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(DigestMD5Base, access$2100, $Logger*)},
+		{"access$2200", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;[B)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(DigestMD5Base, access$2200, void, $String*, $String*, $String*, $bytes*)},
+		{"access$2300", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;[B)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(DigestMD5Base, access$2300, void, $String*, $String*, $String*, $bytes*)},
+		{"access$2400", "()Ljava/util/logging/Logger;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(DigestMD5Base, access$2400, $Logger*)},
+		{"access$2500", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;[B)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(DigestMD5Base, access$2500, void, $String*, $String*, $String*, $bytes*)},
+		{"access$2600", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;[B)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(DigestMD5Base, access$2600, void, $String*, $String*, $String*, $bytes*)},
+		{"access$2700", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;[B)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(DigestMD5Base, access$2700, void, $String*, $String*, $String*, $bytes*)},
+		{"access$2800", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;[B)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(DigestMD5Base, access$2800, void, $String*, $String*, $String*, $bytes*)},
+		{"access$2900", "()Ljava/util/logging/Logger;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(DigestMD5Base, access$2900, $Logger*)},
+		{"access$300", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;[B)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(DigestMD5Base, access$300, void, $String*, $String*, $String*, $bytes*)},
+		{"access$3000", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;[BII)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(DigestMD5Base, access$3000, void, $String*, $String*, $String*, $bytes*, int32_t, int32_t)},
+		{"access$3100", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;[B)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(DigestMD5Base, access$3100, void, $String*, $String*, $String*, $bytes*)},
+		{"access$3200", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;[B)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(DigestMD5Base, access$3200, void, $String*, $String*, $String*, $bytes*)},
+		{"access$3300", "()Ljava/util/logging/Logger;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(DigestMD5Base, access$3300, $Logger*)},
+		{"access$3400", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;[B)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(DigestMD5Base, access$3400, void, $String*, $String*, $String*, $bytes*)},
+		{"access$3500", "()Ljava/util/logging/Logger;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(DigestMD5Base, access$3500, $Logger*)},
+		{"access$3600", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;[B)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(DigestMD5Base, access$3600, void, $String*, $String*, $String*, $bytes*)},
+		{"access$3700", "()Ljava/util/logging/Logger;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(DigestMD5Base, access$3700, $Logger*)},
+		{"access$3800", "()Ljava/util/logging/Logger;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(DigestMD5Base, access$3800, $Logger*)},
+		{"access$3900", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;[B)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(DigestMD5Base, access$3900, void, $String*, $String*, $String*, $bytes*)},
+		{"access$400", "()Ljava/util/logging/Logger;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(DigestMD5Base, access$400, $Logger*)},
+		{"access$4000", "()Ljava/util/logging/Logger;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(DigestMD5Base, access$4000, $Logger*)},
+		{"access$4100", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;[B)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(DigestMD5Base, access$4100, void, $String*, $String*, $String*, $bytes*)},
+		{"access$4200", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;[B)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(DigestMD5Base, access$4200, void, $String*, $String*, $String*, $bytes*)},
+		{"access$4300", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;[B)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(DigestMD5Base, access$4300, void, $String*, $String*, $String*, $bytes*)},
+		{"access$4400", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;[B)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(DigestMD5Base, access$4400, void, $String*, $String*, $String*, $bytes*)},
+		{"access$4500", "()Ljava/util/logging/Logger;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(DigestMD5Base, access$4500, $Logger*)},
+		{"access$4600", "()Ljava/util/logging/Logger;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(DigestMD5Base, access$4600, $Logger*)},
+		{"access$4700", "()Ljava/util/logging/Logger;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(DigestMD5Base, access$4700, $Logger*)},
+		{"access$4800", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;[B)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(DigestMD5Base, access$4800, void, $String*, $String*, $String*, $bytes*)},
+		{"access$4900", "()Ljava/util/logging/Logger;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(DigestMD5Base, access$4900, $Logger*)},
+		{"access$500", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;[BII)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(DigestMD5Base, access$500, void, $String*, $String*, $String*, $bytes*, int32_t, int32_t)},
+		{"access$5000", "([BII)I", nullptr, $STATIC | $SYNTHETIC, $staticMethod(DigestMD5Base, access$5000, int32_t, $bytes*, int32_t, int32_t)},
+		{"access$5100", "([BII)I", nullptr, $STATIC | $SYNTHETIC, $staticMethod(DigestMD5Base, access$5100, int32_t, $bytes*, int32_t, int32_t)},
+		{"access$5200", "([BII)I", nullptr, $STATIC | $SYNTHETIC, $staticMethod(DigestMD5Base, access$5200, int32_t, $bytes*, int32_t, int32_t)},
+		{"access$600", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;[B)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(DigestMD5Base, access$600, void, $String*, $String*, $String*, $bytes*)},
+		{"access$700", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;[B)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(DigestMD5Base, access$700, void, $String*, $String*, $String*, $bytes*)},
+		{"access$800", "()Ljava/util/logging/Logger;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(DigestMD5Base, access$800, $Logger*)},
+		{"access$900", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;[B)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(DigestMD5Base, access$900, void, $String*, $String*, $String*, $bytes*)},
+		{"addDesParity", "([BII)[B", nullptr, $PRIVATE | $STATIC, $staticMethod(DigestMD5Base, addDesParity, $bytes*, $bytes*, int32_t, int32_t)},
+		{"binaryToHex", "([B)[B", nullptr, $PROTECTED, $virtualMethod(DigestMD5Base, binaryToHex, $bytes*, $bytes*)},
+		{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(DigestMD5Base, dispose, void), "javax.security.sasl.SaslException"},
+		{"extractDirective", "(Ljava/lang/String;[B[Ljava/lang/String;[[BLjava/util/List;I)V", "(Ljava/lang/String;[B[Ljava/lang/String;[[BLjava/util/List<[B>;I)V", $PRIVATE | $STATIC, $staticMethod(DigestMD5Base, extractDirective, void, $String*, $bytes*, $StringArray*, $byteArray2*, $List*, int32_t), "javax.security.sasl.SaslException"},
+		{"generateNonce", "()[B", nullptr, $PROTECTED | $STATIC | $FINAL, $staticMethod(DigestMD5Base, generateNonce, $bytes*)},
+		{"generateResponseValue", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;[C[B[BI[B)[B", nullptr, $PROTECTED, $virtualMethod(DigestMD5Base, generateResponseValue, $bytes*, $String*, $String*, $String*, $String*, $String*, $chars*, $bytes*, $bytes*, int32_t, $bytes*), "java.security.NoSuchAlgorithmException,java.io.IOException"},
+		{"getMechanismName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DigestMD5Base, getMechanismName, $String*)},
+		{"getNegotiatedProperty", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DigestMD5Base, getNegotiatedProperty, $Object*, $String*)},
+		{"getPlatformCiphers", "()[B", nullptr, $PROTECTED | $STATIC, $staticMethod(DigestMD5Base, getPlatformCiphers, $bytes*)},
+		{"isLws", "(B)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(DigestMD5Base, isLws, bool, int8_t)},
+		{"makeDesKeys", "([BLjava/lang/String;)Ljavax/crypto/SecretKey;", nullptr, $PRIVATE | $STATIC, $staticMethod(DigestMD5Base, makeDesKeys, $SecretKey*, $bytes*, $String*), "java.security.NoSuchAlgorithmException,java.security.InvalidKeyException,java.security.spec.InvalidKeySpecException"},
+		{"needEscape", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(DigestMD5Base, needEscape, bool, $String*)},
+		{"needEscape", "(C)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(DigestMD5Base, needEscape, bool, char16_t)},
+		{"nonceCountToHex", "(I)Ljava/lang/String;", nullptr, $PROTECTED | $STATIC, $staticMethod(DigestMD5Base, nonceCountToHex, $String*, int32_t)},
+		{"parseDirectives", "([B[Ljava/lang/String;Ljava/util/List;I)[[B", "([B[Ljava/lang/String;Ljava/util/List<[B>;I)[[B", $PROTECTED | $STATIC, $staticMethod(DigestMD5Base, parseDirectives, $byteArray2*, $bytes*, $StringArray*, $List*, int32_t), "javax.security.sasl.SaslException"},
+		{"quotedStringValue", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PROTECTED | $STATIC, $staticMethod(DigestMD5Base, quotedStringValue, $String*, $String*)},
+		{"setParityBit", "([B)V", nullptr, $PRIVATE | $STATIC, $staticMethod(DigestMD5Base, setParityBit, void, $bytes*)},
+		{"skipLws", "([BI)I", nullptr, $PRIVATE | $STATIC, $staticMethod(DigestMD5Base, skipLws, int32_t, $bytes*, int32_t)},
+		{"stringToByte_8859_1", "(Ljava/lang/String;)[B", nullptr, $PROTECTED, $virtualMethod(DigestMD5Base, stringToByte_8859_1, $bytes*, $String*)},
+		{"unwrap", "([BII)[B", nullptr, $PUBLIC, $virtualMethod(DigestMD5Base, unwrap, $bytes*, $bytes*, int32_t, int32_t), "javax.security.sasl.SaslException"},
+		{"wrap", "([BII)[B", nullptr, $PUBLIC, $virtualMethod(DigestMD5Base, wrap, $bytes*, $bytes*, int32_t, int32_t), "javax.security.sasl.SaslException"},
+		{"writeQuotedStringValue", "(Ljava/io/ByteArrayOutputStream;[B)V", nullptr, $PROTECTED | $STATIC, $staticMethod(DigestMD5Base, writeQuotedStringValue, void, $ByteArrayOutputStream*, $bytes*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.security.sasl.digest.DigestMD5Base$DigestPrivacy", "com.sun.security.sasl.digest.DigestMD5Base", "DigestPrivacy", $FINAL},
+		{"com.sun.security.sasl.digest.DigestMD5Base$DigestIntegrity", "com.sun.security.sasl.digest.DigestMD5Base", "DigestIntegrity", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"com.sun.security.sasl.digest.DigestMD5Base",
+		"com.sun.security.sasl.util.AbstractSaslImpl",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.security.sasl.digest.DigestMD5Base$DigestPrivacy,com.sun.security.sasl.digest.DigestMD5Base$DigestIntegrity"
+	};
+	$loadClass(DigestMD5Base, name, initialize, &classInfo$$, DigestMD5Base::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(DigestMD5Base);
+	});
 	return class$;
 }
 

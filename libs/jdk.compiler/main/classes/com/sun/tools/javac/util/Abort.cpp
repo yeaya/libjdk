@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/util/Abort.h>
-
 #include <java/lang/Error.h>
 #include <jcpp.h>
 
@@ -13,30 +12,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace util {
-
-$FieldInfo _Abort_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Abort, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _Abort_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(Abort, init$, void, $Throwable*)},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Abort, init$, void)},
-	{}
-};
-
-$ClassInfo _Abort_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.util.Abort",
-	"java.lang.Error",
-	nullptr,
-	_Abort_FieldInfo_,
-	_Abort_MethodInfo_
-};
-
-$Object* allocate$Abort($Class* clazz) {
-	return $of($alloc(Abort));
-}
 
 void Abort::init$($Throwable* cause) {
 	$Error::init$(cause);
@@ -57,7 +32,26 @@ void Abort::throw$() {
 }
 
 $Class* Abort::load$($String* name, bool initialize) {
-	$loadClass(Abort, name, initialize, &_Abort_ClassInfo_, allocate$Abort);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Abort, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(Abort, init$, void, $Throwable*)},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Abort, init$, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.util.Abort",
+		"java.lang.Error",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Abort, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Abort);
+	});
 	return class$;
 }
 

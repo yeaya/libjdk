@@ -1,5 +1,4 @@
 #include <ContextualMenuClearsTextSelectionTest$1.h>
-
 #include <ContextualMenuClearsTextSelectionTest.h>
 #include <java/awt/Component.h>
 #include <java/awt/event/MouseAdapter.h>
@@ -16,46 +15,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $JPopupMenu = ::javax::swing::JPopupMenu;
-
-$MethodInfo _ContextualMenuClearsTextSelectionTest$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(ContextualMenuClearsTextSelectionTest$1, init$, void)},
-	{"mousePressed", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(ContextualMenuClearsTextSelectionTest$1, mousePressed, void, $MouseEvent*)},
-	{"mouseReleased", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(ContextualMenuClearsTextSelectionTest$1, mouseReleased, void, $MouseEvent*)},
-	{"showPopupMenu", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PRIVATE, $method(ContextualMenuClearsTextSelectionTest$1, showPopupMenu, void, $MouseEvent*)},
-	{}
-};
-
-$EnclosingMethodInfo _ContextualMenuClearsTextSelectionTest$1_EnclosingMethodInfo_ = {
-	"ContextualMenuClearsTextSelectionTest",
-	"createPopup",
-	"(Ljavax/swing/JTextField;)V"
-};
-
-$InnerClassInfo _ContextualMenuClearsTextSelectionTest$1_InnerClassesInfo_[] = {
-	{"ContextualMenuClearsTextSelectionTest$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _ContextualMenuClearsTextSelectionTest$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"ContextualMenuClearsTextSelectionTest$1",
-	"java.awt.event.MouseAdapter",
-	nullptr,
-	nullptr,
-	_ContextualMenuClearsTextSelectionTest$1_MethodInfo_,
-	nullptr,
-	&_ContextualMenuClearsTextSelectionTest$1_EnclosingMethodInfo_,
-	_ContextualMenuClearsTextSelectionTest$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"ContextualMenuClearsTextSelectionTest"
-};
-
-$Object* allocate$ContextualMenuClearsTextSelectionTest$1($Class* clazz) {
-	return $of($alloc(ContextualMenuClearsTextSelectionTest$1));
-}
 
 void ContextualMenuClearsTextSelectionTest$1::init$() {
 	$MouseAdapter::init$();
@@ -84,7 +43,40 @@ ContextualMenuClearsTextSelectionTest$1::ContextualMenuClearsTextSelectionTest$1
 }
 
 $Class* ContextualMenuClearsTextSelectionTest$1::load$($String* name, bool initialize) {
-	$loadClass(ContextualMenuClearsTextSelectionTest$1, name, initialize, &_ContextualMenuClearsTextSelectionTest$1_ClassInfo_, allocate$ContextualMenuClearsTextSelectionTest$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(ContextualMenuClearsTextSelectionTest$1, init$, void)},
+		{"mousePressed", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(ContextualMenuClearsTextSelectionTest$1, mousePressed, void, $MouseEvent*)},
+		{"mouseReleased", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(ContextualMenuClearsTextSelectionTest$1, mouseReleased, void, $MouseEvent*)},
+		{"showPopupMenu", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PRIVATE, $method(ContextualMenuClearsTextSelectionTest$1, showPopupMenu, void, $MouseEvent*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"ContextualMenuClearsTextSelectionTest",
+		"createPopup",
+		"(Ljavax/swing/JTextField;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"ContextualMenuClearsTextSelectionTest$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"ContextualMenuClearsTextSelectionTest$1",
+		"java.awt.event.MouseAdapter",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"ContextualMenuClearsTextSelectionTest"
+	};
+	$loadClass(ContextualMenuClearsTextSelectionTest$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ContextualMenuClearsTextSelectionTest$1));
+	});
 	return class$;
 }
 

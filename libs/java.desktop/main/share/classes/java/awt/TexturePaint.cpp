@@ -1,5 +1,4 @@
 #include <java/awt/TexturePaint.h>
-
 #include <java/awt/PaintContext.h>
 #include <java/awt/Rectangle.h>
 #include <java/awt/RenderingHints.h>
@@ -27,37 +26,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace java {
 	namespace awt {
 
-$FieldInfo _TexturePaint_FieldInfo_[] = {
-	{"bufImg", "Ljava/awt/image/BufferedImage;", nullptr, 0, $field(TexturePaint, bufImg)},
-	{"tx", "D", nullptr, 0, $field(TexturePaint, tx)},
-	{"ty", "D", nullptr, 0, $field(TexturePaint, ty)},
-	{"sx", "D", nullptr, 0, $field(TexturePaint, sx)},
-	{"sy", "D", nullptr, 0, $field(TexturePaint, sy)},
-	{}
-};
-
-$MethodInfo _TexturePaint_MethodInfo_[] = {
-	{"<init>", "(Ljava/awt/image/BufferedImage;Ljava/awt/geom/Rectangle2D;)V", nullptr, $PUBLIC, $method(TexturePaint, init$, void, $BufferedImage*, $Rectangle2D*)},
-	{"createContext", "(Ljava/awt/image/ColorModel;Ljava/awt/Rectangle;Ljava/awt/geom/Rectangle2D;Ljava/awt/geom/AffineTransform;Ljava/awt/RenderingHints;)Ljava/awt/PaintContext;", nullptr, $PUBLIC, $virtualMethod(TexturePaint, createContext, $PaintContext*, $ColorModel*, $Rectangle*, $Rectangle2D*, $AffineTransform*, $RenderingHints*)},
-	{"getAnchorRect", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC, $virtualMethod(TexturePaint, getAnchorRect, $Rectangle2D*)},
-	{"getImage", "()Ljava/awt/image/BufferedImage;", nullptr, $PUBLIC, $virtualMethod(TexturePaint, getImage, $BufferedImage*)},
-	{"getTransparency", "()I", nullptr, $PUBLIC, $virtualMethod(TexturePaint, getTransparency, int32_t)},
-	{}
-};
-
-$ClassInfo _TexturePaint_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.awt.TexturePaint",
-	"java.lang.Object",
-	"java.awt.Paint",
-	_TexturePaint_FieldInfo_,
-	_TexturePaint_MethodInfo_
-};
-
-$Object* allocate$TexturePaint($Class* clazz) {
-	return $of($alloc(TexturePaint));
-}
-
 void TexturePaint::init$($BufferedImage* txtr, $Rectangle2D* anchor) {
 	$set(this, bufImg, txtr);
 	this->tx = $nc(anchor)->getX();
@@ -76,7 +44,7 @@ $Rectangle2D* TexturePaint::getAnchorRect() {
 	double var$0 = this->tx;
 	double var$1 = this->ty;
 	double var$2 = this->sx * $nc(this->bufImg)->getWidth();
-	return $new($Rectangle2D$Double, var$0, var$1, var$2, this->sy * $nc(this->bufImg)->getHeight());
+	return $new($Rectangle2D$Double, var$0, var$1, var$2, this->sy * this->bufImg->getHeight());
 }
 
 $PaintContext* TexturePaint::createContext($ColorModel* cm, $Rectangle* deviceBounds, $Rectangle2D* userBounds, $AffineTransform* xform$renamed, $RenderingHints* hints) {
@@ -84,7 +52,7 @@ $PaintContext* TexturePaint::createContext($ColorModel* cm, $Rectangle* deviceBo
 	if (xform == nullptr) {
 		$assign(xform, $new($AffineTransform));
 	} else {
-		$assign(xform, $cast($AffineTransform, $nc(xform)->clone()));
+		$assign(xform, $cast($AffineTransform, xform->clone()));
 	}
 	$nc(xform)->translate(this->tx, this->ty);
 	xform->scale(this->sx, this->sy);
@@ -92,14 +60,40 @@ $PaintContext* TexturePaint::createContext($ColorModel* cm, $Rectangle* deviceBo
 }
 
 int32_t TexturePaint::getTransparency() {
-	return $nc(($($nc(this->bufImg)->getColorModel())))->getTransparency();
+	return ($$nc($nc(this->bufImg)->getColorModel()))->getTransparency();
 }
 
 TexturePaint::TexturePaint() {
 }
 
 $Class* TexturePaint::load$($String* name, bool initialize) {
-	$loadClass(TexturePaint, name, initialize, &_TexturePaint_ClassInfo_, allocate$TexturePaint);
+	$FieldInfo fieldInfos$$[] = {
+		{"bufImg", "Ljava/awt/image/BufferedImage;", nullptr, 0, $field(TexturePaint, bufImg)},
+		{"tx", "D", nullptr, 0, $field(TexturePaint, tx)},
+		{"ty", "D", nullptr, 0, $field(TexturePaint, ty)},
+		{"sx", "D", nullptr, 0, $field(TexturePaint, sx)},
+		{"sy", "D", nullptr, 0, $field(TexturePaint, sy)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/image/BufferedImage;Ljava/awt/geom/Rectangle2D;)V", nullptr, $PUBLIC, $method(TexturePaint, init$, void, $BufferedImage*, $Rectangle2D*)},
+		{"createContext", "(Ljava/awt/image/ColorModel;Ljava/awt/Rectangle;Ljava/awt/geom/Rectangle2D;Ljava/awt/geom/AffineTransform;Ljava/awt/RenderingHints;)Ljava/awt/PaintContext;", nullptr, $PUBLIC, $virtualMethod(TexturePaint, createContext, $PaintContext*, $ColorModel*, $Rectangle*, $Rectangle2D*, $AffineTransform*, $RenderingHints*)},
+		{"getAnchorRect", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC, $virtualMethod(TexturePaint, getAnchorRect, $Rectangle2D*)},
+		{"getImage", "()Ljava/awt/image/BufferedImage;", nullptr, $PUBLIC, $virtualMethod(TexturePaint, getImage, $BufferedImage*)},
+		{"getTransparency", "()I", nullptr, $PUBLIC, $virtualMethod(TexturePaint, getTransparency, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.awt.TexturePaint",
+		"java.lang.Object",
+		"java.awt.Paint",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TexturePaint, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TexturePaint);
+	});
 	return class$;
 }
 

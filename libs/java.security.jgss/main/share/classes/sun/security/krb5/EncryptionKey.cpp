@@ -1,5 +1,4 @@
 #include <sun/security/krb5/EncryptionKey.h>
-
 #include <java/math/BigInteger.h>
 #include <java/security/GeneralSecurityException.h>
 #include <java/util/Arrays.h>
@@ -40,13 +39,11 @@
 #undef TAG_CONTEXT
 
 using $EncryptionKeyArray = $Array<::sun::security::krb5::EncryptionKey>;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $BigInteger = ::java::math::BigInteger;
 using $GeneralSecurityException = ::java::security::GeneralSecurityException;
 using $Arrays = ::java::util::Arrays;
 using $DESKeySpec = ::javax::crypto::spec::DESKeySpec;
@@ -72,59 +69,10 @@ using $KeyTab = ::sun::security::krb5::internal::ktab::KeyTab;
 using $DerInputStream = ::sun::security::util::DerInputStream;
 using $DerOutputStream = ::sun::security::util::DerOutputStream;
 using $DerValue = ::sun::security::util::DerValue;
-using $HexDumpEncoder = ::sun::security::util::HexDumpEncoder;
 
 namespace sun {
 	namespace security {
 		namespace krb5 {
-
-$FieldInfo _EncryptionKey_FieldInfo_[] = {
-	{"NULL_KEY", "Lsun/security/krb5/EncryptionKey;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(EncryptionKey, NULL_KEY)},
-	{"keyType", "I", nullptr, $PRIVATE, $field(EncryptionKey, keyType)},
-	{"keyValue", "[B", nullptr, $PRIVATE, $field(EncryptionKey, keyValue)},
-	{"kvno", "Ljava/lang/Integer;", nullptr, $PRIVATE, $field(EncryptionKey, kvno)},
-	{"DEBUG", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(EncryptionKey, DEBUG)},
-	{}
-};
-
-$MethodInfo _EncryptionKey_MethodInfo_[] = {
-	{"<init>", "([BILjava/lang/Integer;)V", nullptr, $PUBLIC, $method(EncryptionKey, init$, void, $bytes*, int32_t, $Integer*)},
-	{"<init>", "(I[B)V", nullptr, $PUBLIC, $method(EncryptionKey, init$, void, int32_t, $bytes*)},
-	{"<init>", "([CLjava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(EncryptionKey, init$, void, $chars*, $String*, $String*), "sun.security.krb5.KrbCryptoException"},
-	{"<init>", "(Lsun/security/krb5/EncryptionKey;)V", nullptr, $PUBLIC, $method(EncryptionKey, init$, void, EncryptionKey*), "sun.security.krb5.KrbCryptoException"},
-	{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(EncryptionKey, init$, void, $DerValue*), "sun.security.krb5.Asn1Exception,java.io.IOException"},
-	{"acquireSecretKey", "(Lsun/security/krb5/PrincipalName;[CILsun/security/krb5/internal/PAData$SaltAndParams;)Lsun/security/krb5/EncryptionKey;", nullptr, $PUBLIC | $STATIC, $staticMethod(EncryptionKey, acquireSecretKey, EncryptionKey*, $PrincipalName*, $chars*, int32_t, $PAData$SaltAndParams*), "sun.security.krb5.KrbException"},
-	{"acquireSecretKey", "([CLjava/lang/String;I[B)Lsun/security/krb5/EncryptionKey;", nullptr, $PUBLIC | $STATIC, $staticMethod(EncryptionKey, acquireSecretKey, EncryptionKey*, $chars*, $String*, int32_t, $bytes*), "sun.security.krb5.KrbException"},
-	{"acquireSecretKeys", "(Lsun/security/krb5/PrincipalName;Ljava/lang/String;)[Lsun/security/krb5/EncryptionKey;", nullptr, $PUBLIC | $STATIC, $staticMethod(EncryptionKey, acquireSecretKeys, $EncryptionKeyArray*, $PrincipalName*, $String*)},
-	{"acquireSecretKeys", "([CLjava/lang/String;)[Lsun/security/krb5/EncryptionKey;", nullptr, $PUBLIC | $STATIC, $staticMethod(EncryptionKey, acquireSecretKeys, $EncryptionKeyArray*, $chars*, $String*), "sun.security.krb5.KrbException"},
-	{"asn1Encode", "()[B", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(EncryptionKey, asn1Encode, $bytes*), "sun.security.krb5.Asn1Exception,java.io.IOException"},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(EncryptionKey, clone, $Object*)},
-	{"destroy", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(EncryptionKey, destroy, void)},
-	{"findKey", "(I[Lsun/security/krb5/EncryptionKey;)Lsun/security/krb5/EncryptionKey;", nullptr, $PUBLIC | $STATIC, $staticMethod(EncryptionKey, findKey, EncryptionKey*, int32_t, $EncryptionKeyArray*), "sun.security.krb5.KrbException"},
-	{"findKey", "(ILjava/lang/Integer;[Lsun/security/krb5/EncryptionKey;)Lsun/security/krb5/EncryptionKey;", nullptr, $PUBLIC | $STATIC, $staticMethod(EncryptionKey, findKey, EncryptionKey*, int32_t, $Integer*, $EncryptionKeyArray*), "sun.security.krb5.KrbException"},
-	{"getBytes", "()[B", nullptr, $PUBLIC | $FINAL, $method(EncryptionKey, getBytes, $bytes*)},
-	{"getEType", "()I", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(EncryptionKey, getEType, int32_t)},
-	{"getKeyVersionNumber", "()Ljava/lang/Integer;", nullptr, $PUBLIC | $FINAL, $method(EncryptionKey, getKeyVersionNumber, $Integer*)},
-	{"parse", "(Lsun/security/util/DerInputStream;BZ)Lsun/security/krb5/EncryptionKey;", nullptr, $PUBLIC | $STATIC, $staticMethod(EncryptionKey, parse, EncryptionKey*, $DerInputStream*, int8_t, bool), "sun.security.krb5.Asn1Exception,java.io.IOException"},
-	{"stringToKey", "([CLjava/lang/String;[BI)[B", nullptr, $PRIVATE | $STATIC, $staticMethod(EncryptionKey, stringToKey, $bytes*, $chars*, $String*, $bytes*, int32_t), "sun.security.krb5.KrbCryptoException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(EncryptionKey, toString, $String*)},
-	{"versionMatches", "(Ljava/lang/Integer;Ljava/lang/Integer;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(EncryptionKey, versionMatches, bool, $Integer*, $Integer*)},
-	{"writeKey", "(Lsun/security/krb5/internal/ccache/CCacheOutputStream;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(EncryptionKey, writeKey, void, $CCacheOutputStream*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _EncryptionKey_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.krb5.EncryptionKey",
-	"java.lang.Object",
-	"java.lang.Cloneable",
-	_EncryptionKey_FieldInfo_,
-	_EncryptionKey_MethodInfo_
-};
-
-$Object* allocate$EncryptionKey($Class* clazz) {
-	return $of($alloc(EncryptionKey));
-}
 
 EncryptionKey* EncryptionKey::NULL_KEY = nullptr;
 bool EncryptionKey::DEBUG = false;
@@ -145,7 +93,7 @@ $bytes* EncryptionKey::getBytes() {
 
 $Object* EncryptionKey::clone() {
 	$synchronized(this) {
-		return $of($new(EncryptionKey, this->keyValue, this->keyType, this->kvno));
+		return $new(EncryptionKey, this->keyValue, this->keyType, this->kvno);
 	}
 }
 
@@ -160,7 +108,7 @@ $EncryptionKeyArray* EncryptionKey::acquireSecretKeys($PrincipalName* princ, $St
 
 EncryptionKey* EncryptionKey::acquireSecretKey($PrincipalName* cname, $chars* password, int32_t etype, $PAData$SaltAndParams* snp) {
 	$init(EncryptionKey);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, salt, nullptr);
 	$var($bytes, s2kparams, nullptr);
 	if (snp != nullptr) {
@@ -175,21 +123,19 @@ EncryptionKey* EncryptionKey::acquireSecretKey($PrincipalName* cname, $chars* pa
 
 EncryptionKey* EncryptionKey::acquireSecretKey($chars* password, $String* salt, int32_t etype, $bytes* s2kparams) {
 	$init(EncryptionKey);
-	return $new(EncryptionKey, $(stringToKey(password, salt, s2kparams, etype)), etype, ($Integer*)nullptr);
+	return $new(EncryptionKey, $(stringToKey(password, salt, s2kparams, etype)), etype, nullptr);
 }
 
 $EncryptionKeyArray* EncryptionKey::acquireSecretKeys($chars* password, $String* salt) {
 	$init(EncryptionKey);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ints, etypes, $EType::getDefaults("default_tkt_enctypes"_s));
 	$var($EncryptionKeyArray, encKeys, $new($EncryptionKeyArray, $nc(etypes)->length));
 	for (int32_t i = 0; i < etypes->length; ++i) {
 		if ($EType::isSupported(etypes->get(i))) {
-			encKeys->set(i, $$new(EncryptionKey, $(stringToKey(password, salt, nullptr, etypes->get(i))), etypes->get(i), ($Integer*)nullptr));
-		} else {
-			if (EncryptionKey::DEBUG) {
-				$nc($System::out)->println($$str({"Encryption Type "_s, $($EType::toString(etypes->get(i))), " is not supported/enabled"_s}));
-			}
+			encKeys->set(i, $$new(EncryptionKey, $(stringToKey(password, salt, nullptr, etypes->get(i))), etypes->get(i), nullptr));
+		} else if (EncryptionKey::DEBUG) {
+			$nc($System::out)->println($$str({"Encryption Type "_s, $($EType::toString(etypes->get(i))), " is not supported/enabled"_s}));
 		}
 	}
 	return encKeys;
@@ -207,115 +153,96 @@ void EncryptionKey::init$($bytes* keyValue, int32_t keyType, $Integer* kvno) {
 }
 
 void EncryptionKey::init$(int32_t keyType, $bytes* keyValue) {
-	EncryptionKey::init$(keyValue, keyType, ($Integer*)nullptr);
+	EncryptionKey::init$(keyValue, keyType, nullptr);
 }
 
 $bytes* EncryptionKey::stringToKey($chars* password, $String* salt, $bytes* s2kparams, int32_t keyType) {
 	$init(EncryptionKey);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($chars, slt, $nc(salt)->toCharArray());
 	$var($chars, pwsalt, $new($chars, $nc(password)->length + slt->length));
 	$System::arraycopy(password, 0, pwsalt, 0, password->length);
 	$System::arraycopy(slt, 0, pwsalt, password->length, slt->length);
 	$Arrays::fill(slt, u'0');
-	{
-		$var($Throwable, var$0, nullptr);
-		$var($bytes, var$2, nullptr);
-		bool return$1 = false;
+	$var($Throwable, var$0, nullptr);
+	$var($bytes, var$2, nullptr);
+	bool return$1 = false;
+	try {
 		try {
-			try {
-				switch (keyType) {
-				case $EncryptedData::ETYPE_DES_CBC_CRC:
-					{}
-				case $EncryptedData::ETYPE_DES_CBC_MD5:
-					{
-						$assign(var$2, $Des::string_to_key_bytes(pwsalt));
-						return$1 = true;
-						goto $finally;
-					}
-				case $EncryptedData::ETYPE_DES3_CBC_HMAC_SHA1_KD:
-					{
-						$assign(var$2, $Des3::stringToKey(pwsalt));
-						return$1 = true;
-						goto $finally;
-					}
-				case $EncryptedData::ETYPE_ARCFOUR_HMAC:
-					{
-						$assign(var$2, $ArcFourHmac::stringToKey(password));
-						return$1 = true;
-						goto $finally;
-					}
-				case $EncryptedData::ETYPE_AES128_CTS_HMAC_SHA1_96:
-					{
-						$assign(var$2, $Aes128::stringToKey(password, salt, s2kparams));
-						return$1 = true;
-						goto $finally;
-					}
-				case $EncryptedData::ETYPE_AES256_CTS_HMAC_SHA1_96:
-					{
-						$assign(var$2, $Aes256::stringToKey(password, salt, s2kparams));
-						return$1 = true;
-						goto $finally;
-					}
-				case $EncryptedData::ETYPE_AES128_CTS_HMAC_SHA256_128:
-					{
-						$assign(var$2, $Aes128Sha2::stringToKey(password, salt, s2kparams));
-						return$1 = true;
-						goto $finally;
-					}
-				case $EncryptedData::ETYPE_AES256_CTS_HMAC_SHA384_192:
-					{
-						$assign(var$2, $Aes256Sha2::stringToKey(password, salt, s2kparams));
-						return$1 = true;
-						goto $finally;
-					}
-				default:
-					{
-						$throwNew($IllegalArgumentException, $$str({"encryption type "_s, $($EType::toString(keyType)), " not supported"_s}));
-					}
-				}
-			} catch ($GeneralSecurityException& e) {
-				$var($KrbCryptoException, ke, $new($KrbCryptoException, $(e->getMessage())));
-				ke->initCause(e);
-				$throw(ke);
+			switch (keyType) {
+			case $EncryptedData::ETYPE_DES_CBC_CRC:
+			case $EncryptedData::ETYPE_DES_CBC_MD5:
+				$assign(var$2, $Des::string_to_key_bytes(pwsalt));
+				return$1 = true;
+				goto $finally;
+			case $EncryptedData::ETYPE_DES3_CBC_HMAC_SHA1_KD:
+				$assign(var$2, $Des3::stringToKey(pwsalt));
+				return$1 = true;
+				goto $finally;
+			case $EncryptedData::ETYPE_ARCFOUR_HMAC:
+				$assign(var$2, $ArcFourHmac::stringToKey(password));
+				return$1 = true;
+				goto $finally;
+			case $EncryptedData::ETYPE_AES128_CTS_HMAC_SHA1_96:
+				$assign(var$2, $Aes128::stringToKey(password, salt, s2kparams));
+				return$1 = true;
+				goto $finally;
+			case $EncryptedData::ETYPE_AES256_CTS_HMAC_SHA1_96:
+				$assign(var$2, $Aes256::stringToKey(password, salt, s2kparams));
+				return$1 = true;
+				goto $finally;
+			case $EncryptedData::ETYPE_AES128_CTS_HMAC_SHA256_128:
+				$assign(var$2, $Aes128Sha2::stringToKey(password, salt, s2kparams));
+				return$1 = true;
+				goto $finally;
+			case $EncryptedData::ETYPE_AES256_CTS_HMAC_SHA384_192:
+				$assign(var$2, $Aes256Sha2::stringToKey(password, salt, s2kparams));
+				return$1 = true;
+				goto $finally;
+			default:
+				$throwNew($IllegalArgumentException, $$str({"encryption type "_s, $($EType::toString(keyType)), " not supported"_s}));
 			}
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			$Arrays::fill(pwsalt, u'0');
+		} catch ($GeneralSecurityException& e) {
+			$var($KrbCryptoException, ke, $new($KrbCryptoException, $(e->getMessage())));
+			ke->initCause(e);
+			$throw(ke);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		$Arrays::fill(pwsalt, u'0');
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
 
 void EncryptionKey::init$($chars* password, $String* salt, $String* algorithm) {
-	$useLocalCurrentObjectStackCache();
-	bool var$0 = algorithm == nullptr || $nc(algorithm)->equalsIgnoreCase("DES"_s);
-	if (var$0 || $nc(algorithm)->equalsIgnoreCase("des-cbc-md5"_s)) {
+	$useLocalObjectStack();
+	bool var$0 = algorithm == nullptr || algorithm->equalsIgnoreCase("DES"_s);
+	if (var$0 || algorithm->equalsIgnoreCase("des-cbc-md5"_s)) {
 		this->keyType = $EncryptedData::ETYPE_DES_CBC_MD5;
 	} else if (algorithm->equalsIgnoreCase("des-cbc-crc"_s)) {
 		this->keyType = $EncryptedData::ETYPE_DES_CBC_CRC;
 	} else {
-		bool var$2 = algorithm->equalsIgnoreCase("DESede"_s);
-		if (var$2 || algorithm->equalsIgnoreCase("des3-cbc-sha1-kd"_s)) {
+		bool var$1 = algorithm->equalsIgnoreCase("DESede"_s);
+		if (var$1 || algorithm->equalsIgnoreCase("des3-cbc-sha1-kd"_s)) {
 			this->keyType = $EncryptedData::ETYPE_DES3_CBC_HMAC_SHA1_KD;
 		} else {
-			bool var$4 = algorithm->equalsIgnoreCase("AES128"_s);
-			if (var$4 || algorithm->equalsIgnoreCase("aes128-cts-hmac-sha1-96"_s)) {
+			bool var$2 = algorithm->equalsIgnoreCase("AES128"_s);
+			if (var$2 || algorithm->equalsIgnoreCase("aes128-cts-hmac-sha1-96"_s)) {
 				this->keyType = $EncryptedData::ETYPE_AES128_CTS_HMAC_SHA1_96;
 			} else {
-				bool var$6 = algorithm->equalsIgnoreCase("ArcFourHmac"_s);
-				if (var$6 || algorithm->equalsIgnoreCase("rc4-hmac"_s)) {
+				bool var$3 = algorithm->equalsIgnoreCase("ArcFourHmac"_s);
+				if (var$3 || algorithm->equalsIgnoreCase("rc4-hmac"_s)) {
 					this->keyType = $EncryptedData::ETYPE_ARCFOUR_HMAC;
 				} else {
-					bool var$8 = algorithm->equalsIgnoreCase("AES256"_s);
-					if (var$8 || algorithm->equalsIgnoreCase("aes256-cts-hmac-sha1-96"_s)) {
+					bool var$4 = algorithm->equalsIgnoreCase("AES256"_s);
+					if (var$4 || algorithm->equalsIgnoreCase("aes256-cts-hmac-sha1-96"_s)) {
 						this->keyType = $EncryptedData::ETYPE_AES256_CTS_HMAC_SHA1_96;
 						if (!$EType::isSupported(this->keyType)) {
 							$throwNew($IllegalArgumentException, $$str({"Algorithm "_s, algorithm, " not enabled"_s}));
@@ -339,19 +266,19 @@ void EncryptionKey::init$($chars* password, $String* salt, $String* algorithm) {
 }
 
 void EncryptionKey::init$(EncryptionKey* key) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, keyValue, $Confounder::bytes($nc($nc(key)->keyValue)->length));
 	for (int32_t i = 0; i < $nc(this->keyValue)->length; ++i) {
-		(*$nc(this->keyValue))[i] ^= $nc($nc(key)->keyValue)->get(i);
+		(*this->keyValue)[i] ^= $nc(key->keyValue)->get(i);
 	}
-	this->keyType = $nc(key)->keyType;
+	this->keyType = key->keyType;
 	try {
 		if ((this->keyType == $EncryptedData::ETYPE_DES_CBC_MD5) || (this->keyType == $EncryptedData::ETYPE_DES_CBC_CRC)) {
 			if (!$DESKeySpec::isParityAdjusted(this->keyValue, 0)) {
 				$set(this, keyValue, $Des::set_parity(this->keyValue));
 			}
 			if ($DESKeySpec::isWeak(this->keyValue, 0)) {
-				$nc(this->keyValue)->set(7, (int8_t)($nc(this->keyValue)->get(7) ^ 240));
+				$nc(this->keyValue)->set(7, (int8_t)($nc(this->keyValue)->get(7) ^ 0xf0));
 			}
 		}
 		if (this->keyType == $EncryptedData::ETYPE_DES3_CBC_HMAC_SHA1_KD) {
@@ -362,7 +289,7 @@ void EncryptionKey::init$(EncryptionKey* key) {
 			for (int32_t i = 0; i < $nc(this->keyValue)->length; i += 8) {
 				$System::arraycopy(this->keyValue, i, oneKey, 0, 8);
 				if ($DESKeySpec::isWeak(oneKey, 0)) {
-					$nc(this->keyValue)->set(i + 7, (int8_t)($nc(this->keyValue)->get(i + 7) ^ 240));
+					this->keyValue->set(i + 7, (int8_t)(this->keyValue->get(i + 7) ^ 0xf0));
 				}
 			}
 		}
@@ -374,31 +301,31 @@ void EncryptionKey::init$(EncryptionKey* key) {
 }
 
 void EncryptionKey::init$($DerValue* encoding) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DerValue, der, nullptr);
 	if ($nc(encoding)->getTag() != $DerValue::tag_Sequence) {
 		$throwNew($Asn1Exception, $Krb5::ASN1_BAD_ID);
 	}
-	$assign(der, $nc($($nc(encoding)->getData()))->getDerValue());
-	if (((int32_t)($nc(der)->getTag() & (uint32_t)(int32_t)(int8_t)31)) == (int8_t)0) {
-		this->keyType = $nc($($nc($(der->getData()))->getBigInteger()))->intValue();
+	$assign(der, $$nc(encoding->getData())->getDerValue());
+	if (($nc(der)->getTag() & (int8_t)31) == (int8_t)0) {
+		this->keyType = $$nc($$nc(der->getData())->getBigInteger())->intValue();
 	} else {
 		$throwNew($Asn1Exception, $Krb5::ASN1_BAD_ID);
 	}
-	$assign(der, $nc($(encoding->getData()))->getDerValue());
-	if (((int32_t)($nc(der)->getTag() & (uint32_t)(int32_t)(int8_t)31)) == (int8_t)1) {
-		$set(this, keyValue, $nc($(der->getData()))->getOctetString());
+	$assign(der, $$nc(encoding->getData())->getDerValue());
+	if (($nc(der)->getTag() & (int8_t)31) == (int8_t)1) {
+		$set(this, keyValue, $$nc(der->getData())->getOctetString());
 	} else {
 		$throwNew($Asn1Exception, $Krb5::ASN1_BAD_ID);
 	}
-	if ($nc($($nc(der)->getData()))->available() > 0) {
+	if ($$nc(der->getData())->available() > 0) {
 		$throwNew($Asn1Exception, $Krb5::ASN1_BAD_ID);
 	}
 }
 
 $bytes* EncryptionKey::asn1Encode() {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$var($DerOutputStream, bytes, $new($DerOutputStream));
 		$var($DerOutputStream, temp, $new($DerOutputStream));
 		temp->putInteger(this->keyType);
@@ -415,8 +342,8 @@ $bytes* EncryptionKey::asn1Encode() {
 void EncryptionKey::destroy() {
 	$synchronized(this) {
 		if (this->keyValue != nullptr) {
-			for (int32_t i = 0; i < $nc(this->keyValue)->length; ++i) {
-				$nc(this->keyValue)->set(i, (int8_t)0);
+			for (int32_t i = 0; i < this->keyValue->length; ++i) {
+				this->keyValue->set(i, 0);
 			}
 		}
 	}
@@ -424,15 +351,15 @@ void EncryptionKey::destroy() {
 
 EncryptionKey* EncryptionKey::parse($DerInputStream* data, int8_t explicitTag, bool optional) {
 	$init(EncryptionKey);
-	$useLocalCurrentObjectStackCache();
-	if ((optional) && (((int32_t)((int8_t)$nc(data)->peekByte() & (uint32_t)(int32_t)(int8_t)31)) != explicitTag)) {
+	$useLocalObjectStack();
+	if ((optional) && (((int8_t)$nc(data)->peekByte() & (int8_t)31) != explicitTag)) {
 		return nullptr;
 	}
 	$var($DerValue, der, $nc(data)->getDerValue());
-	if (explicitTag != ((int32_t)($nc(der)->getTag() & (uint32_t)(int32_t)(int8_t)31))) {
+	if (explicitTag != ($nc(der)->getTag() & (int8_t)31)) {
 		$throwNew($Asn1Exception, $Krb5::ASN1_BAD_ID);
 	} else {
-		$var($DerValue, subDer, $nc($(der->getData()))->getDerValue());
+		$var($DerValue, subDer, $$nc(der->getData())->getDerValue());
 		return $new(EncryptionKey, subDer);
 	}
 }
@@ -443,16 +370,22 @@ void EncryptionKey::writeKey($CCacheOutputStream* cos) {
 		cos->write16(this->keyType);
 		cos->write32($nc(this->keyValue)->length);
 		for (int32_t i = 0; i < $nc(this->keyValue)->length; ++i) {
-			cos->write8($nc(this->keyValue)->get(i));
+			cos->write8(this->keyValue->get(i));
 		}
 	}
 }
 
 $String* EncryptionKey::toString() {
-	$useLocalCurrentObjectStackCache();
-	$var($String, var$0, $$str({"EncryptionKey: keyType="_s, $$str(this->keyType), " kvno="_s, this->kvno, " keyValue (hex dump)="_s}));
+	$useLocalObjectStack();
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append("EncryptionKey: keyType="_s);
+	var$0->append(this->keyType);
+	var$0->append(" kvno="_s);
+	var$0->append(this->kvno);
+	var$0->append(" keyValue (hex dump)="_s);
 	$init($Krb5);
-	return $new($String, $$concat(var$0, (this->keyValue == nullptr || $nc(this->keyValue)->length == 0 ? " Empty Key"_s : $$str({$$str(u'\n'), $($nc($Krb5::hexDumper)->encodeBuffer(this->keyValue)), $$str(u'\n')}))));
+	var$0->append(this->keyValue == nullptr || this->keyValue->length == 0 ? " Empty Key"_s : $$str({$$str(u'\n'), $($nc($Krb5::hexDumper)->encodeBuffer(this->keyValue)), $$str(u'\n')}));
+	return $new($String, $$str(var$0));
 }
 
 EncryptionKey* EncryptionKey::findKey(int32_t etype, $EncryptionKeyArray* keys) {
@@ -462,8 +395,8 @@ EncryptionKey* EncryptionKey::findKey(int32_t etype, $EncryptionKeyArray* keys) 
 
 bool EncryptionKey::versionMatches($Integer* v1, $Integer* v2) {
 	$init(EncryptionKey);
-	bool var$0 = v1 == nullptr || $nc(v1)->intValue() == 0 || v2 == nullptr;
-	if (var$0 || $nc(v2)->intValue() == 0) {
+	bool var$0 = v1 == nullptr || v1->intValue() == 0 || v2 == nullptr;
+	if (var$0 || v2->intValue() == 0) {
 		return true;
 	}
 	return $nc(v1)->equals(v2);
@@ -471,7 +404,7 @@ bool EncryptionKey::versionMatches($Integer* v1, $Integer* v2) {
 
 EncryptionKey* EncryptionKey::findKey(int32_t etype, $Integer* kvno, $EncryptionKeyArray* keys) {
 	$init(EncryptionKey);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!$EType::isSupported(etype)) {
 		$throwNew($KrbException, $$str({"Encryption type "_s, $($EType::toString(etype)), " is not supported/enabled"_s}));
 	}
@@ -495,7 +428,7 @@ EncryptionKey* EncryptionKey::findKey(int32_t etype, $Integer* kvno, $Encryption
 		}
 	}
 	if (etype == $EncryptedData::ETYPE_DES_CBC_CRC || etype == $EncryptedData::ETYPE_DES_CBC_MD5) {
-		for (int32_t i = 0; i < $nc(keys)->length; ++i) {
+		for (int32_t i = 0; i < keys->length; ++i) {
 			ktype = $nc(keys->get(i))->getEType();
 			if (ktype == $EncryptedData::ETYPE_DES_CBC_CRC || ktype == $EncryptedData::ETYPE_DES_CBC_MD5) {
 				$var($Integer, kv, $nc(keys->get(i))->getKeyVersionNumber());
@@ -515,8 +448,8 @@ EncryptionKey* EncryptionKey::findKey(int32_t etype, $Integer* kvno, $Encryption
 	return nullptr;
 }
 
-void clinit$EncryptionKey($Class* class$) {
-	$assignStatic(EncryptionKey::NULL_KEY, $new(EncryptionKey, $$new($bytes, 0), $EncryptedData::ETYPE_NULL, ($Integer*)nullptr));
+void EncryptionKey::clinit$($Class* clazz) {
+	$assignStatic(EncryptionKey::NULL_KEY, $new(EncryptionKey, $$new($bytes, 0), $EncryptedData::ETYPE_NULL, nullptr));
 	$init($Krb5);
 	EncryptionKey::DEBUG = $Krb5::DEBUG;
 }
@@ -525,7 +458,50 @@ EncryptionKey::EncryptionKey() {
 }
 
 $Class* EncryptionKey::load$($String* name, bool initialize) {
-	$loadClass(EncryptionKey, name, initialize, &_EncryptionKey_ClassInfo_, clinit$EncryptionKey, allocate$EncryptionKey);
+	$FieldInfo fieldInfos$$[] = {
+		{"NULL_KEY", "Lsun/security/krb5/EncryptionKey;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(EncryptionKey, NULL_KEY)},
+		{"keyType", "I", nullptr, $PRIVATE, $field(EncryptionKey, keyType)},
+		{"keyValue", "[B", nullptr, $PRIVATE, $field(EncryptionKey, keyValue)},
+		{"kvno", "Ljava/lang/Integer;", nullptr, $PRIVATE, $field(EncryptionKey, kvno)},
+		{"DEBUG", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(EncryptionKey, DEBUG)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "([BILjava/lang/Integer;)V", nullptr, $PUBLIC, $method(EncryptionKey, init$, void, $bytes*, int32_t, $Integer*)},
+		{"<init>", "(I[B)V", nullptr, $PUBLIC, $method(EncryptionKey, init$, void, int32_t, $bytes*)},
+		{"<init>", "([CLjava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(EncryptionKey, init$, void, $chars*, $String*, $String*), "sun.security.krb5.KrbCryptoException"},
+		{"<init>", "(Lsun/security/krb5/EncryptionKey;)V", nullptr, $PUBLIC, $method(EncryptionKey, init$, void, EncryptionKey*), "sun.security.krb5.KrbCryptoException"},
+		{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(EncryptionKey, init$, void, $DerValue*), "sun.security.krb5.Asn1Exception,java.io.IOException"},
+		{"acquireSecretKey", "(Lsun/security/krb5/PrincipalName;[CILsun/security/krb5/internal/PAData$SaltAndParams;)Lsun/security/krb5/EncryptionKey;", nullptr, $PUBLIC | $STATIC, $staticMethod(EncryptionKey, acquireSecretKey, EncryptionKey*, $PrincipalName*, $chars*, int32_t, $PAData$SaltAndParams*), "sun.security.krb5.KrbException"},
+		{"acquireSecretKey", "([CLjava/lang/String;I[B)Lsun/security/krb5/EncryptionKey;", nullptr, $PUBLIC | $STATIC, $staticMethod(EncryptionKey, acquireSecretKey, EncryptionKey*, $chars*, $String*, int32_t, $bytes*), "sun.security.krb5.KrbException"},
+		{"acquireSecretKeys", "(Lsun/security/krb5/PrincipalName;Ljava/lang/String;)[Lsun/security/krb5/EncryptionKey;", nullptr, $PUBLIC | $STATIC, $staticMethod(EncryptionKey, acquireSecretKeys, $EncryptionKeyArray*, $PrincipalName*, $String*)},
+		{"acquireSecretKeys", "([CLjava/lang/String;)[Lsun/security/krb5/EncryptionKey;", nullptr, $PUBLIC | $STATIC, $staticMethod(EncryptionKey, acquireSecretKeys, $EncryptionKeyArray*, $chars*, $String*), "sun.security.krb5.KrbException"},
+		{"asn1Encode", "()[B", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(EncryptionKey, asn1Encode, $bytes*), "sun.security.krb5.Asn1Exception,java.io.IOException"},
+		{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(EncryptionKey, clone, $Object*)},
+		{"destroy", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(EncryptionKey, destroy, void)},
+		{"findKey", "(I[Lsun/security/krb5/EncryptionKey;)Lsun/security/krb5/EncryptionKey;", nullptr, $PUBLIC | $STATIC, $staticMethod(EncryptionKey, findKey, EncryptionKey*, int32_t, $EncryptionKeyArray*), "sun.security.krb5.KrbException"},
+		{"findKey", "(ILjava/lang/Integer;[Lsun/security/krb5/EncryptionKey;)Lsun/security/krb5/EncryptionKey;", nullptr, $PUBLIC | $STATIC, $staticMethod(EncryptionKey, findKey, EncryptionKey*, int32_t, $Integer*, $EncryptionKeyArray*), "sun.security.krb5.KrbException"},
+		{"getBytes", "()[B", nullptr, $PUBLIC | $FINAL, $method(EncryptionKey, getBytes, $bytes*)},
+		{"getEType", "()I", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(EncryptionKey, getEType, int32_t)},
+		{"getKeyVersionNumber", "()Ljava/lang/Integer;", nullptr, $PUBLIC | $FINAL, $method(EncryptionKey, getKeyVersionNumber, $Integer*)},
+		{"parse", "(Lsun/security/util/DerInputStream;BZ)Lsun/security/krb5/EncryptionKey;", nullptr, $PUBLIC | $STATIC, $staticMethod(EncryptionKey, parse, EncryptionKey*, $DerInputStream*, int8_t, bool), "sun.security.krb5.Asn1Exception,java.io.IOException"},
+		{"stringToKey", "([CLjava/lang/String;[BI)[B", nullptr, $PRIVATE | $STATIC, $staticMethod(EncryptionKey, stringToKey, $bytes*, $chars*, $String*, $bytes*, int32_t), "sun.security.krb5.KrbCryptoException"},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(EncryptionKey, toString, $String*)},
+		{"versionMatches", "(Ljava/lang/Integer;Ljava/lang/Integer;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(EncryptionKey, versionMatches, bool, $Integer*, $Integer*)},
+		{"writeKey", "(Lsun/security/krb5/internal/ccache/CCacheOutputStream;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(EncryptionKey, writeKey, void, $CCacheOutputStream*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.krb5.EncryptionKey",
+		"java.lang.Object",
+		"java.lang.Cloneable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(EncryptionKey, name, initialize, &classInfo$$, EncryptionKey::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(EncryptionKey);
+	});
 	return class$;
 }
 

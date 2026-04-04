@@ -1,5 +1,4 @@
 #include <javax/management/relation/MBeanServerNotificationFilter.h>
-
 #include <com/sun/jmx/defaults/JmxProperties.h>
 #include <com/sun/jmx/mbeanserver/GetPropertyAction.h>
 #include <com/sun/jmx/mbeanserver/Util.h>
@@ -11,8 +10,6 @@
 #include <java/lang/System$Logger$Level.h>
 #include <java/lang/System$Logger.h>
 #include <java/security/AccessController.h>
-#include <java/security/PrivilegedAction.h>
-#include <java/util/Collection.h>
 #include <java/util/List.h>
 #include <java/util/Vector.h>
 #include <javax/management/MBeanServerNotification.h>
@@ -41,11 +38,8 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;
-using $System$Logger = ::java::lang::System$Logger;
 using $System$Logger$Level = ::java::lang::System$Logger$Level;
 using $AccessController = ::java::security::AccessController;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
-using $Collection = ::java::util::Collection;
 using $List = ::java::util::List;
 using $Vector = ::java::util::Vector;
 using $MBeanServerNotification = ::javax::management::MBeanServerNotification;
@@ -56,46 +50,6 @@ using $ObjectName = ::javax::management::ObjectName;
 namespace javax {
 	namespace management {
 		namespace relation {
-
-$FieldInfo _MBeanServerNotificationFilter_FieldInfo_[] = {
-	{"oldSerialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MBeanServerNotificationFilter, oldSerialVersionUID)},
-	{"newSerialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MBeanServerNotificationFilter, newSerialVersionUID)},
-	{"oldSerialPersistentFields", "[Ljava/io/ObjectStreamField;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MBeanServerNotificationFilter, oldSerialPersistentFields)},
-	{"newSerialPersistentFields", "[Ljava/io/ObjectStreamField;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MBeanServerNotificationFilter, newSerialPersistentFields)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MBeanServerNotificationFilter, serialVersionUID)},
-	{"serialPersistentFields", "[Ljava/io/ObjectStreamField;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MBeanServerNotificationFilter, serialPersistentFields)},
-	{"compat", "Z", nullptr, $PRIVATE | $STATIC, $staticField(MBeanServerNotificationFilter, compat)},
-	{"selectedNames", "Ljava/util/List;", "Ljava/util/List<Ljavax/management/ObjectName;>;", $PRIVATE, $field(MBeanServerNotificationFilter, selectedNames)},
-	{"deselectedNames", "Ljava/util/List;", "Ljava/util/List<Ljavax/management/ObjectName;>;", $PRIVATE, $field(MBeanServerNotificationFilter, deselectedNames)},
-	{}
-};
-
-$MethodInfo _MBeanServerNotificationFilter_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MBeanServerNotificationFilter, init$, void)},
-	{"disableAllObjectNames", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(MBeanServerNotificationFilter, disableAllObjectNames, void)},
-	{"disableObjectName", "(Ljavax/management/ObjectName;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(MBeanServerNotificationFilter, disableObjectName, void, $ObjectName*), "java.lang.IllegalArgumentException"},
-	{"enableAllObjectNames", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(MBeanServerNotificationFilter, enableAllObjectNames, void)},
-	{"enableObjectName", "(Ljavax/management/ObjectName;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(MBeanServerNotificationFilter, enableObjectName, void, $ObjectName*), "java.lang.IllegalArgumentException"},
-	{"getDisabledObjectNames", "()Ljava/util/Vector;", "()Ljava/util/Vector<Ljavax/management/ObjectName;>;", $PUBLIC | $SYNCHRONIZED, $virtualMethod(MBeanServerNotificationFilter, getDisabledObjectNames, $Vector*)},
-	{"getEnabledObjectNames", "()Ljava/util/Vector;", "()Ljava/util/Vector<Ljavax/management/ObjectName;>;", $PUBLIC | $SYNCHRONIZED, $virtualMethod(MBeanServerNotificationFilter, getEnabledObjectNames, $Vector*)},
-	{"isNotificationEnabled", "(Ljavax/management/Notification;)Z", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(MBeanServerNotificationFilter, isNotificationEnabled, bool, $Notification*), "java.lang.IllegalArgumentException"},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(MBeanServerNotificationFilter, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(MBeanServerNotificationFilter, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _MBeanServerNotificationFilter_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.management.relation.MBeanServerNotificationFilter",
-	"javax.management.NotificationFilterSupport",
-	nullptr,
-	_MBeanServerNotificationFilter_FieldInfo_,
-	_MBeanServerNotificationFilter_MethodInfo_
-};
-
-$Object* allocate$MBeanServerNotificationFilter($Class* clazz) {
-	return $of($alloc(MBeanServerNotificationFilter));
-}
 
 $ObjectStreamFieldArray* MBeanServerNotificationFilter::oldSerialPersistentFields = nullptr;
 $ObjectStreamFieldArray* MBeanServerNotificationFilter::newSerialPersistentFields = nullptr;
@@ -113,7 +67,7 @@ void MBeanServerNotificationFilter::init$() {
 	$init($MBeanServerNotification);
 	enableType($MBeanServerNotification::REGISTRATION_NOTIFICATION);
 	enableType($MBeanServerNotification::UNREGISTRATION_NOTIFICATION);
-	$nc($JmxProperties::RELATION_LOGGER)->log($System$Logger$Level::TRACE, "RETURN"_s);
+	$JmxProperties::RELATION_LOGGER->log($System$Logger$Level::TRACE, "RETURN"_s);
 	return;
 }
 
@@ -124,14 +78,14 @@ void MBeanServerNotificationFilter::disableAllObjectNames() {
 		$nc($JmxProperties::RELATION_LOGGER)->log($System$Logger$Level::TRACE, "ENTRY"_s);
 		$set(this, selectedNames, $new($Vector));
 		$set(this, deselectedNames, nullptr);
-		$nc($JmxProperties::RELATION_LOGGER)->log($System$Logger$Level::TRACE, "RETURN"_s);
+		$JmxProperties::RELATION_LOGGER->log($System$Logger$Level::TRACE, "RETURN"_s);
 		return;
 	}
 }
 
 void MBeanServerNotificationFilter::disableObjectName($ObjectName* objectName) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		if (objectName == nullptr) {
 			$var($String, excMsg, "Invalid parameter."_s);
 			$throwNew($IllegalArgumentException, excMsg);
@@ -140,16 +94,16 @@ void MBeanServerNotificationFilter::disableObjectName($ObjectName* objectName) {
 		$init($System$Logger$Level);
 		$nc($JmxProperties::RELATION_LOGGER)->log($System$Logger$Level::TRACE, $$str({"ENTRY {0}"_s, objectName}));
 		if (this->selectedNames != nullptr) {
-			if ($nc(this->selectedNames)->size() != 0) {
-				$nc(this->selectedNames)->remove($of(objectName));
+			if (this->selectedNames->size() != 0) {
+				this->selectedNames->remove(objectName);
 			}
 		}
 		if (this->deselectedNames != nullptr) {
-			if (!($nc(this->deselectedNames)->contains(objectName))) {
-				$nc(this->deselectedNames)->add(objectName);
+			if (!(this->deselectedNames->contains(objectName))) {
+				this->deselectedNames->add(objectName);
 			}
 		}
-		$nc($JmxProperties::RELATION_LOGGER)->log($System$Logger$Level::TRACE, "RETURN"_s);
+		$JmxProperties::RELATION_LOGGER->log($System$Logger$Level::TRACE, "RETURN"_s);
 		return;
 	}
 }
@@ -161,32 +115,32 @@ void MBeanServerNotificationFilter::enableAllObjectNames() {
 		$nc($JmxProperties::RELATION_LOGGER)->log($System$Logger$Level::TRACE, "ENTRY"_s);
 		$set(this, selectedNames, nullptr);
 		$set(this, deselectedNames, $new($Vector));
-		$nc($JmxProperties::RELATION_LOGGER)->log($System$Logger$Level::TRACE, "RETURN"_s);
+		$JmxProperties::RELATION_LOGGER->log($System$Logger$Level::TRACE, "RETURN"_s);
 		return;
 	}
 }
 
 void MBeanServerNotificationFilter::enableObjectName($ObjectName* objectName) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		if (objectName == nullptr) {
 			$var($String, excMsg, "Invalid parameter."_s);
 			$throwNew($IllegalArgumentException, excMsg);
 		}
 		$init($JmxProperties);
 		$init($System$Logger$Level);
-		$nc($JmxProperties::RELATION_LOGGER)->log($System$Logger$Level::TRACE, "ENTRY {0}"_s, $$new($ObjectArray, {$of(objectName)}));
+		$nc($JmxProperties::RELATION_LOGGER)->log($System$Logger$Level::TRACE, "ENTRY {0}"_s, $$new($ObjectArray, {objectName}));
 		if (this->deselectedNames != nullptr) {
-			if ($nc(this->deselectedNames)->size() != 0) {
-				$nc(this->deselectedNames)->remove($of(objectName));
+			if (this->deselectedNames->size() != 0) {
+				this->deselectedNames->remove(objectName);
 			}
 		}
 		if (this->selectedNames != nullptr) {
-			if (!($nc(this->selectedNames)->contains(objectName))) {
-				$nc(this->selectedNames)->add(objectName);
+			if (!(this->selectedNames->contains(objectName))) {
+				this->selectedNames->add(objectName);
 			}
 		}
-		$nc($JmxProperties::RELATION_LOGGER)->log($System$Logger$Level::TRACE, "RETURN"_s);
+		$JmxProperties::RELATION_LOGGER->log($System$Logger$Level::TRACE, "RETURN"_s);
 		return;
 	}
 }
@@ -194,7 +148,7 @@ void MBeanServerNotificationFilter::enableObjectName($ObjectName* objectName) {
 $Vector* MBeanServerNotificationFilter::getEnabledObjectNames() {
 	$synchronized(this) {
 		if (this->selectedNames != nullptr) {
-			return $new($Vector, static_cast<$Collection*>(this->selectedNames));
+			return $new($Vector, this->selectedNames);
 		} else {
 			return nullptr;
 		}
@@ -204,7 +158,7 @@ $Vector* MBeanServerNotificationFilter::getEnabledObjectNames() {
 $Vector* MBeanServerNotificationFilter::getDisabledObjectNames() {
 	$synchronized(this) {
 		if (this->deselectedNames != nullptr) {
-			return $new($Vector, static_cast<$Collection*>(this->deselectedNames));
+			return $new($Vector, this->deselectedNames);
 		} else {
 			return nullptr;
 		}
@@ -213,58 +167,58 @@ $Vector* MBeanServerNotificationFilter::getDisabledObjectNames() {
 
 bool MBeanServerNotificationFilter::isNotificationEnabled($Notification* notif) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		if (notif == nullptr) {
 			$var($String, excMsg, "Invalid parameter."_s);
 			$throwNew($IllegalArgumentException, excMsg);
 		}
 		$init($JmxProperties);
 		$init($System$Logger$Level);
-		$nc($JmxProperties::RELATION_LOGGER)->log($System$Logger$Level::TRACE, "ENTRY {0}"_s, $$new($ObjectArray, {$of(notif)}));
+		$nc($JmxProperties::RELATION_LOGGER)->log($System$Logger$Level::TRACE, "ENTRY {0}"_s, $$new($ObjectArray, {notif}));
 		$var($String, ntfType, $nc(notif)->getType());
 		$var($Vector, enabledTypes, getEnabledTypes());
 		if (!($nc(enabledTypes)->contains(ntfType))) {
-			$nc($JmxProperties::RELATION_LOGGER)->log($System$Logger$Level::TRACE, "Type not selected, exiting"_s);
+			$JmxProperties::RELATION_LOGGER->log($System$Logger$Level::TRACE, "Type not selected, exiting"_s);
 			return false;
 		}
 		$var($MBeanServerNotification, mbsNtf, $cast($MBeanServerNotification, notif));
 		$var($ObjectName, objName, mbsNtf->getMBeanName());
 		bool isSelectedFlg = false;
 		if (this->selectedNames != nullptr) {
-			if ($nc(this->selectedNames)->size() == 0) {
-				$nc($JmxProperties::RELATION_LOGGER)->log($System$Logger$Level::TRACE, "No ObjectNames selected, exiting"_s);
+			if (this->selectedNames->size() == 0) {
+				$JmxProperties::RELATION_LOGGER->log($System$Logger$Level::TRACE, "No ObjectNames selected, exiting"_s);
 				return false;
 			}
-			isSelectedFlg = $nc(this->selectedNames)->contains(objName);
+			isSelectedFlg = this->selectedNames->contains(objName);
 			if (!isSelectedFlg) {
-				$nc($JmxProperties::RELATION_LOGGER)->log($System$Logger$Level::TRACE, "ObjectName not in selected list, exiting"_s);
+				$JmxProperties::RELATION_LOGGER->log($System$Logger$Level::TRACE, "ObjectName not in selected list, exiting"_s);
 				return false;
 			}
 		}
 		if (!isSelectedFlg) {
 			if (this->deselectedNames == nullptr) {
-				$nc($JmxProperties::RELATION_LOGGER)->log($System$Logger$Level::TRACE, "ObjectName not selected, and all names deselected, exiting"_s);
+				$JmxProperties::RELATION_LOGGER->log($System$Logger$Level::TRACE, "ObjectName not selected, and all names deselected, exiting"_s);
 				return false;
-			} else if ($nc(this->deselectedNames)->contains(objName)) {
-				$nc($JmxProperties::RELATION_LOGGER)->log($System$Logger$Level::TRACE, "ObjectName explicitly not selected, exiting"_s);
+			} else if (this->deselectedNames->contains(objName)) {
+				$JmxProperties::RELATION_LOGGER->log($System$Logger$Level::TRACE, "ObjectName explicitly not selected, exiting"_s);
 				return false;
 			}
 		}
-		$nc($JmxProperties::RELATION_LOGGER)->log($System$Logger$Level::TRACE, "ObjectName selected, exiting"_s);
+		$JmxProperties::RELATION_LOGGER->log($System$Logger$Level::TRACE, "ObjectName selected, exiting"_s);
 		return true;
 	}
 }
 
 void MBeanServerNotificationFilter::readObject($ObjectInputStream* in) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (MBeanServerNotificationFilter::compat) {
 		$var($ObjectInputStream$GetField, fields, $nc(in)->readFields());
-		$set(this, selectedNames, $cast($List, $Util::cast($($nc(fields)->get("mySelectObjNameList"_s, ($Object*)nullptr)))));
-		if ($nc(fields)->defaulted("mySelectObjNameList"_s)) {
+		$set(this, selectedNames, $cast($List, $Util::cast($($nc(fields)->get("mySelectObjNameList"_s, nullptr)))));
+		if (fields->defaulted("mySelectObjNameList"_s)) {
 			$throwNew($NullPointerException, "mySelectObjNameList"_s);
 		}
-		$set(this, deselectedNames, $cast($List, $Util::cast($($nc(fields)->get("myDeselectObjNameList"_s, ($Object*)nullptr)))));
-		if ($nc(fields)->defaulted("myDeselectObjNameList"_s)) {
+		$set(this, deselectedNames, $cast($List, $Util::cast($(fields->get("myDeselectObjNameList"_s, nullptr)))));
+		if (fields->defaulted("myDeselectObjNameList"_s)) {
 			$throwNew($NullPointerException, "myDeselectObjNameList"_s);
 		}
 	} else {
@@ -275,16 +229,16 @@ void MBeanServerNotificationFilter::readObject($ObjectInputStream* in) {
 void MBeanServerNotificationFilter::writeObject($ObjectOutputStream* out) {
 	if (MBeanServerNotificationFilter::compat) {
 		$var($ObjectOutputStream$PutField, fields, $nc(out)->putFields());
-		$nc(fields)->put("mySelectObjNameList"_s, $of(this->selectedNames));
-		fields->put("myDeselectObjNameList"_s, $of(this->deselectedNames));
+		$nc(fields)->put("mySelectObjNameList"_s, this->selectedNames);
+		fields->put("myDeselectObjNameList"_s, this->deselectedNames);
 		out->writeFields();
 	} else {
 		$nc(out)->defaultWriteObject();
 	}
 }
 
-void clinit$MBeanServerNotificationFilter($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void MBeanServerNotificationFilter::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$load($Vector);
 	$assignStatic(MBeanServerNotificationFilter::oldSerialPersistentFields, $new($ObjectStreamFieldArray, {
@@ -300,7 +254,7 @@ void clinit$MBeanServerNotificationFilter($Class* class$) {
 	{
 		try {
 			$var($GetPropertyAction, act, $new($GetPropertyAction, "jmx.serial.form"_s));
-			$var($String, form, $cast($String, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>(act))));
+			$var($String, form, $cast($String, $AccessController::doPrivileged(act)));
 			MBeanServerNotificationFilter::compat = (form != nullptr && form->equals("1.0"_s));
 		} catch ($Exception& e) {
 		}
@@ -318,7 +272,42 @@ MBeanServerNotificationFilter::MBeanServerNotificationFilter() {
 }
 
 $Class* MBeanServerNotificationFilter::load$($String* name, bool initialize) {
-	$loadClass(MBeanServerNotificationFilter, name, initialize, &_MBeanServerNotificationFilter_ClassInfo_, clinit$MBeanServerNotificationFilter, allocate$MBeanServerNotificationFilter);
+	$FieldInfo fieldInfos$$[] = {
+		{"oldSerialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MBeanServerNotificationFilter, oldSerialVersionUID)},
+		{"newSerialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MBeanServerNotificationFilter, newSerialVersionUID)},
+		{"oldSerialPersistentFields", "[Ljava/io/ObjectStreamField;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MBeanServerNotificationFilter, oldSerialPersistentFields)},
+		{"newSerialPersistentFields", "[Ljava/io/ObjectStreamField;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MBeanServerNotificationFilter, newSerialPersistentFields)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MBeanServerNotificationFilter, serialVersionUID)},
+		{"serialPersistentFields", "[Ljava/io/ObjectStreamField;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MBeanServerNotificationFilter, serialPersistentFields)},
+		{"compat", "Z", nullptr, $PRIVATE | $STATIC, $staticField(MBeanServerNotificationFilter, compat)},
+		{"selectedNames", "Ljava/util/List;", "Ljava/util/List<Ljavax/management/ObjectName;>;", $PRIVATE, $field(MBeanServerNotificationFilter, selectedNames)},
+		{"deselectedNames", "Ljava/util/List;", "Ljava/util/List<Ljavax/management/ObjectName;>;", $PRIVATE, $field(MBeanServerNotificationFilter, deselectedNames)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MBeanServerNotificationFilter, init$, void)},
+		{"disableAllObjectNames", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(MBeanServerNotificationFilter, disableAllObjectNames, void)},
+		{"disableObjectName", "(Ljavax/management/ObjectName;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(MBeanServerNotificationFilter, disableObjectName, void, $ObjectName*), "java.lang.IllegalArgumentException"},
+		{"enableAllObjectNames", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(MBeanServerNotificationFilter, enableAllObjectNames, void)},
+		{"enableObjectName", "(Ljavax/management/ObjectName;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(MBeanServerNotificationFilter, enableObjectName, void, $ObjectName*), "java.lang.IllegalArgumentException"},
+		{"getDisabledObjectNames", "()Ljava/util/Vector;", "()Ljava/util/Vector<Ljavax/management/ObjectName;>;", $PUBLIC | $SYNCHRONIZED, $virtualMethod(MBeanServerNotificationFilter, getDisabledObjectNames, $Vector*)},
+		{"getEnabledObjectNames", "()Ljava/util/Vector;", "()Ljava/util/Vector<Ljavax/management/ObjectName;>;", $PUBLIC | $SYNCHRONIZED, $virtualMethod(MBeanServerNotificationFilter, getEnabledObjectNames, $Vector*)},
+		{"isNotificationEnabled", "(Ljavax/management/Notification;)Z", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(MBeanServerNotificationFilter, isNotificationEnabled, bool, $Notification*), "java.lang.IllegalArgumentException"},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(MBeanServerNotificationFilter, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+		{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(MBeanServerNotificationFilter, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.management.relation.MBeanServerNotificationFilter",
+		"javax.management.NotificationFilterSupport",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(MBeanServerNotificationFilter, name, initialize, &classInfo$$, MBeanServerNotificationFilter::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(MBeanServerNotificationFilter);
+	});
 	return class$;
 }
 

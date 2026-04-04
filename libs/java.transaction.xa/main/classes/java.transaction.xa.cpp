@@ -1,13 +1,10 @@
 #include <java.transaction.xa.h>
-
 #include <java.base.h>
 #include <java/lang/ClassEntry.h>
 #include <java/lang/Library.h>
 #include <java/lang/ModuleInfo.h>
 #include <java/lang/ResourceEntry.h>
 #include <jcpp.h>
-#include <module-info>
-
 #include <javax/transaction/xa/XAException.h>
 #include <javax/transaction/xa/XAResource.h>
 #include <javax/transaction/xa/Xid.h>
@@ -84,6 +81,7 @@ $bytes* java$transaction$xa$GetResource($String* name) {
 
 void java$transaction$xa::init() {
 	::java$base::init();
+	#include <module-info.h>
 	::java::lang::Library lib = {
 		"java.transaction.xa", "17.35", "",
 		&_java$transaction$xa_ModuleInfo_,

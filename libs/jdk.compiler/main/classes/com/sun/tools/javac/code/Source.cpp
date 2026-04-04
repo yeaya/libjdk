@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/code/Source.h>
-
 #include <com/sun/tools/javac/code/Source$1.h>
 #include <com/sun/tools/javac/jvm/Target.h>
 #include <com/sun/tools/javac/main/Option.h>
@@ -77,71 +76,6 @@ namespace com {
 			namespace javac {
 				namespace code {
 
-$FieldInfo _Source_FieldInfo_[] = {
-	{"JDK1_2", "Lcom/sun/tools/javac/code/Source;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Source, JDK1_2)},
-	{"JDK1_3", "Lcom/sun/tools/javac/code/Source;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Source, JDK1_3)},
-	{"JDK1_4", "Lcom/sun/tools/javac/code/Source;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Source, JDK1_4)},
-	{"JDK5", "Lcom/sun/tools/javac/code/Source;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Source, JDK5)},
-	{"JDK6", "Lcom/sun/tools/javac/code/Source;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Source, JDK6)},
-	{"JDK7", "Lcom/sun/tools/javac/code/Source;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Source, JDK7)},
-	{"JDK8", "Lcom/sun/tools/javac/code/Source;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Source, JDK8)},
-	{"JDK9", "Lcom/sun/tools/javac/code/Source;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Source, JDK9)},
-	{"JDK10", "Lcom/sun/tools/javac/code/Source;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Source, JDK10)},
-	{"JDK11", "Lcom/sun/tools/javac/code/Source;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Source, JDK11)},
-	{"JDK12", "Lcom/sun/tools/javac/code/Source;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Source, JDK12)},
-	{"JDK13", "Lcom/sun/tools/javac/code/Source;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Source, JDK13)},
-	{"JDK14", "Lcom/sun/tools/javac/code/Source;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Source, JDK14)},
-	{"JDK15", "Lcom/sun/tools/javac/code/Source;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Source, JDK15)},
-	{"JDK16", "Lcom/sun/tools/javac/code/Source;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Source, JDK16)},
-	{"JDK17", "Lcom/sun/tools/javac/code/Source;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Source, JDK17)},
-	{"$VALUES", "[Lcom/sun/tools/javac/code/Source;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(Source, $VALUES)},
-	{"sourceKey", "Lcom/sun/tools/javac/util/Context$Key;", "Lcom/sun/tools/javac/util/Context$Key<Lcom/sun/tools/javac/code/Source;>;", $PRIVATE | $STATIC | $FINAL, $staticField(Source, sourceKey)},
-	{"name", "Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $field(Source, name$)},
-	{"tab", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Lcom/sun/tools/javac/code/Source;>;", $PRIVATE | $STATIC | $FINAL, $staticField(Source, tab)},
-	{"MIN", "Lcom/sun/tools/javac/code/Source;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Source, MIN)},
-	{"MAX", "Lcom/sun/tools/javac/code/Source;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Source, MAX)},
-	{"DEFAULT", "Lcom/sun/tools/javac/code/Source;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Source, DEFAULT)},
-	{}
-};
-
-$MethodInfo _Source_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/javac/code/Source;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Source, $values, $SourceArray*)},
-	{"<init>", "(Ljava/lang/String;ILjava/lang/String;)V", "(Ljava/lang/String;)V", $PRIVATE, $method(Source, init$, void, $String*, int32_t, $String*)},
-	{"instance", "(Lcom/sun/tools/javac/util/Context;)Lcom/sun/tools/javac/code/Source;", nullptr, $PUBLIC | $STATIC, $staticMethod(Source, instance, Source*, $Context*)},
-	{"isSupported", "()Z", nullptr, $PUBLIC, $method(Source, isSupported, bool)},
-	{"lookup", "(Ljava/lang/String;)Lcom/sun/tools/javac/code/Source;", nullptr, $PUBLIC | $STATIC, $staticMethod(Source, lookup, Source*, $String*)},
-	{"requiredTarget", "()Lcom/sun/tools/javac/jvm/Target;", nullptr, $PUBLIC, $method(Source, requiredTarget, $Target*)},
-	{"toSourceVersion", "(Lcom/sun/tools/javac/code/Source;)Ljavax/lang/model/SourceVersion;", nullptr, $PUBLIC | $STATIC, $staticMethod(Source, toSourceVersion, $SourceVersion*, Source*)},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/code/Source;", nullptr, $PUBLIC | $STATIC, $staticMethod(Source, valueOf, Source*, $String*)},
-	{"values", "()[Lcom/sun/tools/javac/code/Source;", nullptr, $PUBLIC | $STATIC, $staticMethod(Source, values, $SourceArray*)},
-	{}
-};
-
-$InnerClassInfo _Source_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.code.Source$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{"com.sun.tools.javac.code.Source$Feature", "com.sun.tools.javac.code.Source", "Feature", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _Source_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"com.sun.tools.javac.code.Source",
-	"java.lang.Enum",
-	nullptr,
-	_Source_FieldInfo_,
-	_Source_MethodInfo_,
-	"Ljava/lang/Enum<Lcom/sun/tools/javac/code/Source;>;",
-	nullptr,
-	_Source_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.code.Source$1,com.sun.tools.javac.code.Source$Feature,com.sun.tools.javac.code.Source$Feature$DiagKind"
-};
-
-$Object* allocate$Source($Class* clazz) {
-	return $of($alloc(Source));
-}
-
 Source* Source::JDK1_2 = nullptr;
 Source* Source::JDK1_3 = nullptr;
 Source* Source::JDK1_4 = nullptr;
@@ -199,7 +133,7 @@ Source* Source::valueOf($String* name) {
 
 Source* Source::instance($Context* context) {
 	$init(Source);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	Source* instance = $cast(Source, $nc(context)->get(Source::sourceKey));
 	if (instance == nullptr) {
 		$var($Options, options, $Options::instance(context));
@@ -211,7 +145,7 @@ Source* Source::instance($Context* context) {
 		if (instance == nullptr) {
 			instance = Source::DEFAULT;
 		}
-		context->put(Source::sourceKey, $of(instance));
+		context->put(Source::sourceKey, instance);
 	}
 	return instance;
 }
@@ -223,108 +157,77 @@ void Source::init$($String* $enum$name, int32_t $enum$ordinal, $String* name) {
 
 Source* Source::lookup($String* name) {
 	$init(Source);
-	return $cast(Source, $nc(Source::tab)->get(name));
+	return $cast(Source, Source::tab->get(name));
 }
 
 bool Source::isSupported() {
-	return this->compareTo(static_cast<$Enum*>(Source::MIN)) >= 0;
+	return this->compareTo(Source::MIN) >= 0;
 }
 
 $Target* Source::requiredTarget() {
 	$init($Source$1);
-
-	$var($Target, var$0, nullptr)
+	$var($Target, var$0, nullptr);
 	switch ($nc($Source$1::$SwitchMap$com$sun$tools$javac$code$Source)->get((this)->ordinal())) {
 	case 1:
-		{
-			$init($Target);
-			$assign(var$0, $Target::JDK1_17);
-			break;
-		}
+		$init($Target);
+		$assign(var$0, $Target::JDK1_17);
+		break;
 	case 2:
-		{
-			$init($Target);
-			$assign(var$0, $Target::JDK1_16);
-			break;
-		}
+		$init($Target);
+		$assign(var$0, $Target::JDK1_16);
+		break;
 	case 3:
-		{
-			$init($Target);
-			$assign(var$0, $Target::JDK1_15);
-			break;
-		}
+		$init($Target);
+		$assign(var$0, $Target::JDK1_15);
+		break;
 	case 4:
-		{
-			$init($Target);
-			$assign(var$0, $Target::JDK1_14);
-			break;
-		}
+		$init($Target);
+		$assign(var$0, $Target::JDK1_14);
+		break;
 	case 5:
-		{
-			$init($Target);
-			$assign(var$0, $Target::JDK1_13);
-			break;
-		}
+		$init($Target);
+		$assign(var$0, $Target::JDK1_13);
+		break;
 	case 6:
-		{
-			$init($Target);
-			$assign(var$0, $Target::JDK1_12);
-			break;
-		}
+		$init($Target);
+		$assign(var$0, $Target::JDK1_12);
+		break;
 	case 7:
-		{
-			$init($Target);
-			$assign(var$0, $Target::JDK1_11);
-			break;
-		}
+		$init($Target);
+		$assign(var$0, $Target::JDK1_11);
+		break;
 	case 8:
-		{
-			$init($Target);
-			$assign(var$0, $Target::JDK1_10);
-			break;
-		}
+		$init($Target);
+		$assign(var$0, $Target::JDK1_10);
+		break;
 	case 9:
-		{
-			$init($Target);
-			$assign(var$0, $Target::JDK1_9);
-			break;
-		}
+		$init($Target);
+		$assign(var$0, $Target::JDK1_9);
+		break;
 	case 10:
-		{
-			$init($Target);
-			$assign(var$0, $Target::JDK1_8);
-			break;
-		}
+		$init($Target);
+		$assign(var$0, $Target::JDK1_8);
+		break;
 	case 11:
-		{
-			$init($Target);
-			$assign(var$0, $Target::JDK1_7);
-			break;
-		}
+		$init($Target);
+		$assign(var$0, $Target::JDK1_7);
+		break;
 	case 12:
-		{
-			$init($Target);
-			$assign(var$0, $Target::JDK1_6);
-			break;
-		}
+		$init($Target);
+		$assign(var$0, $Target::JDK1_6);
+		break;
 	case 13:
-		{
-			$init($Target);
-			$assign(var$0, $Target::JDK1_5);
-			break;
-		}
+		$init($Target);
+		$assign(var$0, $Target::JDK1_5);
+		break;
 	case 14:
-		{
-			$init($Target);
-			$assign(var$0, $Target::JDK1_4);
-			break;
-		}
+		$init($Target);
+		$assign(var$0, $Target::JDK1_4);
+		break;
 	default:
-		{
-			$init($Target);
-			$assign(var$0, $Target::JDK1_1);
-			break;
-		}
+		$init($Target);
+		$assign(var$0, $Target::JDK1_1);
+		break;
 	}
 	return var$0;
 }
@@ -332,116 +235,81 @@ $Target* Source::requiredTarget() {
 $SourceVersion* Source::toSourceVersion(Source* source) {
 	$init(Source);
 	$init($Source$1);
-
-	$var($SourceVersion, var$0, nullptr)
+	$var($SourceVersion, var$0, nullptr);
 	switch ($nc($Source$1::$SwitchMap$com$sun$tools$javac$code$Source)->get($nc((source))->ordinal())) {
 	case 15:
-		{
-			$init($SourceVersion);
-			$assign(var$0, $SourceVersion::RELEASE_2);
-			break;
-		}
+		$init($SourceVersion);
+		$assign(var$0, $SourceVersion::RELEASE_2);
+		break;
 	case 16:
-		{
-			$init($SourceVersion);
-			$assign(var$0, $SourceVersion::RELEASE_3);
-			break;
-		}
+		$init($SourceVersion);
+		$assign(var$0, $SourceVersion::RELEASE_3);
+		break;
 	case 14:
-		{
-			$init($SourceVersion);
-			$assign(var$0, $SourceVersion::RELEASE_4);
-			break;
-		}
+		$init($SourceVersion);
+		$assign(var$0, $SourceVersion::RELEASE_4);
+		break;
 	case 13:
-		{
-			$init($SourceVersion);
-			$assign(var$0, $SourceVersion::RELEASE_5);
-			break;
-		}
+		$init($SourceVersion);
+		$assign(var$0, $SourceVersion::RELEASE_5);
+		break;
 	case 12:
-		{
-			$init($SourceVersion);
-			$assign(var$0, $SourceVersion::RELEASE_6);
-			break;
-		}
+		$init($SourceVersion);
+		$assign(var$0, $SourceVersion::RELEASE_6);
+		break;
 	case 11:
-		{
-			$init($SourceVersion);
-			$assign(var$0, $SourceVersion::RELEASE_7);
-			break;
-		}
+		$init($SourceVersion);
+		$assign(var$0, $SourceVersion::RELEASE_7);
+		break;
 	case 10:
-		{
-			$init($SourceVersion);
-			$assign(var$0, $SourceVersion::RELEASE_8);
-			break;
-		}
+		$init($SourceVersion);
+		$assign(var$0, $SourceVersion::RELEASE_8);
+		break;
 	case 9:
-		{
-			$init($SourceVersion);
-			$assign(var$0, $SourceVersion::RELEASE_9);
-			break;
-		}
+		$init($SourceVersion);
+		$assign(var$0, $SourceVersion::RELEASE_9);
+		break;
 	case 8:
-		{
-			$init($SourceVersion);
-			$assign(var$0, $SourceVersion::RELEASE_10);
-			break;
-		}
+		$init($SourceVersion);
+		$assign(var$0, $SourceVersion::RELEASE_10);
+		break;
 	case 7:
-		{
-			$init($SourceVersion);
-			$assign(var$0, $SourceVersion::RELEASE_11);
-			break;
-		}
+		$init($SourceVersion);
+		$assign(var$0, $SourceVersion::RELEASE_11);
+		break;
 	case 6:
-		{
-			$init($SourceVersion);
-			$assign(var$0, $SourceVersion::RELEASE_12);
-			break;
-		}
+		$init($SourceVersion);
+		$assign(var$0, $SourceVersion::RELEASE_12);
+		break;
 	case 5:
-		{
-			$init($SourceVersion);
-			$assign(var$0, $SourceVersion::RELEASE_13);
-			break;
-		}
+		$init($SourceVersion);
+		$assign(var$0, $SourceVersion::RELEASE_13);
+		break;
 	case 4:
-		{
-			$init($SourceVersion);
-			$assign(var$0, $SourceVersion::RELEASE_14);
-			break;
-		}
+		$init($SourceVersion);
+		$assign(var$0, $SourceVersion::RELEASE_14);
+		break;
 	case 3:
-		{
-			$init($SourceVersion);
-			$assign(var$0, $SourceVersion::RELEASE_15);
-			break;
-		}
+		$init($SourceVersion);
+		$assign(var$0, $SourceVersion::RELEASE_15);
+		break;
 	case 2:
-		{
-			$init($SourceVersion);
-			$assign(var$0, $SourceVersion::RELEASE_16);
-			break;
-		}
+		$init($SourceVersion);
+		$assign(var$0, $SourceVersion::RELEASE_16);
+		break;
 	case 1:
-		{
-			$init($SourceVersion);
-			$assign(var$0, $SourceVersion::RELEASE_17);
-			break;
-		}
+		$init($SourceVersion);
+		$assign(var$0, $SourceVersion::RELEASE_17);
+		break;
 	default:
-		{
-			$assign(var$0, nullptr);
-			break;
-		}
+		$assign(var$0, nullptr);
+		break;
 	}
 	return var$0;
 }
 
-void clinit$Source($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void Source::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(Source::JDK1_2, $new(Source, "JDK1_2"_s, 0, "1.2"_s));
 	$assignStatic(Source::JDK1_3, $new(Source, "JDK1_3"_s, 1, "1.3"_s));
 	$assignStatic(Source::JDK1_4, $new(Source, "JDK1_4"_s, 2, "1.4"_s));
@@ -464,21 +332,19 @@ void clinit$Source($Class* class$) {
 	{
 		{
 			$var($SourceArray, arr$, Source::values());
-			int32_t len$ = $nc(arr$)->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
+			for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 				Source* s = arr$->get(i$);
 				{
-					$nc(Source::tab)->put($nc(s)->name$, s);
+					Source::tab->put($nc(s)->name$, s);
 				}
 			}
 		}
-		$nc(Source::tab)->put("1.5"_s, Source::JDK5);
-		$nc(Source::tab)->put("1.6"_s, Source::JDK6);
-		$nc(Source::tab)->put("1.7"_s, Source::JDK7);
-		$nc(Source::tab)->put("1.8"_s, Source::JDK8);
-		$nc(Source::tab)->put("1.9"_s, Source::JDK9);
-		$nc(Source::tab)->put("1.10"_s, Source::JDK10);
+		Source::tab->put("1.5"_s, Source::JDK5);
+		Source::tab->put("1.6"_s, Source::JDK6);
+		Source::tab->put("1.7"_s, Source::JDK7);
+		Source::tab->put("1.8"_s, Source::JDK8);
+		Source::tab->put("1.9"_s, Source::JDK9);
+		Source::tab->put("1.10"_s, Source::JDK10);
 	}
 	$assignStatic(Source::MIN, Source::JDK7);
 	$assignStatic(Source::MAX, $nc($(Source::values()))->get($nc($(Source::values()))->length - 1));
@@ -489,7 +355,66 @@ Source::Source() {
 }
 
 $Class* Source::load$($String* name, bool initialize) {
-	$loadClass(Source, name, initialize, &_Source_ClassInfo_, clinit$Source, allocate$Source);
+	$FieldInfo fieldInfos$$[] = {
+		{"JDK1_2", "Lcom/sun/tools/javac/code/Source;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Source, JDK1_2)},
+		{"JDK1_3", "Lcom/sun/tools/javac/code/Source;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Source, JDK1_3)},
+		{"JDK1_4", "Lcom/sun/tools/javac/code/Source;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Source, JDK1_4)},
+		{"JDK5", "Lcom/sun/tools/javac/code/Source;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Source, JDK5)},
+		{"JDK6", "Lcom/sun/tools/javac/code/Source;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Source, JDK6)},
+		{"JDK7", "Lcom/sun/tools/javac/code/Source;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Source, JDK7)},
+		{"JDK8", "Lcom/sun/tools/javac/code/Source;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Source, JDK8)},
+		{"JDK9", "Lcom/sun/tools/javac/code/Source;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Source, JDK9)},
+		{"JDK10", "Lcom/sun/tools/javac/code/Source;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Source, JDK10)},
+		{"JDK11", "Lcom/sun/tools/javac/code/Source;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Source, JDK11)},
+		{"JDK12", "Lcom/sun/tools/javac/code/Source;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Source, JDK12)},
+		{"JDK13", "Lcom/sun/tools/javac/code/Source;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Source, JDK13)},
+		{"JDK14", "Lcom/sun/tools/javac/code/Source;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Source, JDK14)},
+		{"JDK15", "Lcom/sun/tools/javac/code/Source;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Source, JDK15)},
+		{"JDK16", "Lcom/sun/tools/javac/code/Source;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Source, JDK16)},
+		{"JDK17", "Lcom/sun/tools/javac/code/Source;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Source, JDK17)},
+		{"$VALUES", "[Lcom/sun/tools/javac/code/Source;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(Source, $VALUES)},
+		{"sourceKey", "Lcom/sun/tools/javac/util/Context$Key;", "Lcom/sun/tools/javac/util/Context$Key<Lcom/sun/tools/javac/code/Source;>;", $PRIVATE | $STATIC | $FINAL, $staticField(Source, sourceKey)},
+		{"name", "Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $field(Source, name$)},
+		{"tab", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Lcom/sun/tools/javac/code/Source;>;", $PRIVATE | $STATIC | $FINAL, $staticField(Source, tab)},
+		{"MIN", "Lcom/sun/tools/javac/code/Source;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Source, MIN)},
+		{"MAX", "Lcom/sun/tools/javac/code/Source;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Source, MAX)},
+		{"DEFAULT", "Lcom/sun/tools/javac/code/Source;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Source, DEFAULT)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lcom/sun/tools/javac/code/Source;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Source, $values, $SourceArray*)},
+		{"<init>", "(Ljava/lang/String;ILjava/lang/String;)V", "(Ljava/lang/String;)V", $PRIVATE, $method(Source, init$, void, $String*, int32_t, $String*)},
+		{"instance", "(Lcom/sun/tools/javac/util/Context;)Lcom/sun/tools/javac/code/Source;", nullptr, $PUBLIC | $STATIC, $staticMethod(Source, instance, Source*, $Context*)},
+		{"isSupported", "()Z", nullptr, $PUBLIC, $method(Source, isSupported, bool)},
+		{"lookup", "(Ljava/lang/String;)Lcom/sun/tools/javac/code/Source;", nullptr, $PUBLIC | $STATIC, $staticMethod(Source, lookup, Source*, $String*)},
+		{"requiredTarget", "()Lcom/sun/tools/javac/jvm/Target;", nullptr, $PUBLIC, $method(Source, requiredTarget, $Target*)},
+		{"toSourceVersion", "(Lcom/sun/tools/javac/code/Source;)Ljavax/lang/model/SourceVersion;", nullptr, $PUBLIC | $STATIC, $staticMethod(Source, toSourceVersion, $SourceVersion*, Source*)},
+		{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/code/Source;", nullptr, $PUBLIC | $STATIC, $staticMethod(Source, valueOf, Source*, $String*)},
+		{"values", "()[Lcom/sun/tools/javac/code/Source;", nullptr, $PUBLIC | $STATIC, $staticMethod(Source, values, $SourceArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.code.Source$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{"com.sun.tools.javac.code.Source$Feature", "com.sun.tools.javac.code.Source", "Feature", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"com.sun.tools.javac.code.Source",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lcom/sun/tools/javac/code/Source;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.code.Source$1,com.sun.tools.javac.code.Source$Feature,com.sun.tools.javac.code.Source$Feature$DiagKind"
+	};
+	$loadClass(Source, name, initialize, &classInfo$$, Source::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Source));
+	});
 	return class$;
 }
 

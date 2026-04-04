@@ -1,5 +1,4 @@
 #include <sun/awt/X11/XInputMethodDescriptor.h>
-
 #include <java/awt/im/spi/InputMethod.h>
 #include <sun/awt/X11/XInputMethod.h>
 #include <sun/awt/X11InputMethodDescriptor.h>
@@ -15,25 +14,6 @@ namespace sun {
 	namespace awt {
 		namespace X11 {
 
-$MethodInfo _XInputMethodDescriptor_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(XInputMethodDescriptor, init$, void)},
-	{"createInputMethod", "()Ljava/awt/im/spi/InputMethod;", nullptr, $PUBLIC, $virtualMethod(XInputMethodDescriptor, createInputMethod, $InputMethod*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _XInputMethodDescriptor_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.awt.X11.XInputMethodDescriptor",
-	"sun.awt.X11InputMethodDescriptor",
-	nullptr,
-	nullptr,
-	_XInputMethodDescriptor_MethodInfo_
-};
-
-$Object* allocate$XInputMethodDescriptor($Class* clazz) {
-	return $of($alloc(XInputMethodDescriptor));
-}
-
 void XInputMethodDescriptor::init$() {
 	$X11InputMethodDescriptor::init$();
 }
@@ -46,7 +26,22 @@ XInputMethodDescriptor::XInputMethodDescriptor() {
 }
 
 $Class* XInputMethodDescriptor::load$($String* name, bool initialize) {
-	$loadClass(XInputMethodDescriptor, name, initialize, &_XInputMethodDescriptor_ClassInfo_, allocate$XInputMethodDescriptor);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(XInputMethodDescriptor, init$, void)},
+		{"createInputMethod", "()Ljava/awt/im/spi/InputMethod;", nullptr, $PUBLIC, $virtualMethod(XInputMethodDescriptor, createInputMethod, $InputMethod*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.awt.X11.XInputMethodDescriptor",
+		"sun.awt.X11InputMethodDescriptor",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(XInputMethodDescriptor, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XInputMethodDescriptor);
+	});
 	return class$;
 }
 

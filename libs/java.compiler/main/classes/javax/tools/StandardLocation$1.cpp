@@ -1,5 +1,4 @@
 #include <javax/tools/StandardLocation$1.h>
-
 #include <javax/tools/StandardLocation.h>
 #include <jcpp.h>
 
@@ -11,50 +10,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace javax {
 	namespace tools {
-
-$FieldInfo _StandardLocation$1_FieldInfo_[] = {
-	{"val$name", "Ljava/lang/String;", nullptr, $FINAL | $SYNTHETIC, $field(StandardLocation$1, val$name)},
-	{}
-};
-
-$MethodInfo _StandardLocation$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", "()V", 0, $method(StandardLocation$1, init$, void, $String*)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StandardLocation$1, getName, $String*)},
-	{"isOutputLocation", "()Z", nullptr, $PUBLIC, $virtualMethod(StandardLocation$1, isOutputLocation, bool)},
-	{}
-};
-
-$EnclosingMethodInfo _StandardLocation$1_EnclosingMethodInfo_ = {
-	"javax.tools.StandardLocation",
-	"locationFor",
-	"(Ljava/lang/String;)Ljavax/tools/JavaFileManager$Location;"
-};
-
-$InnerClassInfo _StandardLocation$1_InnerClassesInfo_[] = {
-	{"javax.tools.StandardLocation$1", nullptr, nullptr, 0},
-	{"javax.tools.JavaFileManager$Location", "javax.tools.JavaFileManager", "Location", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _StandardLocation$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.tools.StandardLocation$1",
-	"java.lang.Object",
-	"javax.tools.JavaFileManager$Location",
-	_StandardLocation$1_FieldInfo_,
-	_StandardLocation$1_MethodInfo_,
-	nullptr,
-	&_StandardLocation$1_EnclosingMethodInfo_,
-	_StandardLocation$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.tools.StandardLocation"
-};
-
-$Object* allocate$StandardLocation$1($Class* clazz) {
-	return $of($alloc(StandardLocation$1));
-}
 
 void StandardLocation$1::init$($String* val$name) {
 	$set(this, val$name, val$name);
@@ -72,7 +27,44 @@ StandardLocation$1::StandardLocation$1() {
 }
 
 $Class* StandardLocation$1::load$($String* name, bool initialize) {
-	$loadClass(StandardLocation$1, name, initialize, &_StandardLocation$1_ClassInfo_, allocate$StandardLocation$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"val$name", "Ljava/lang/String;", nullptr, $FINAL | $SYNTHETIC, $field(StandardLocation$1, val$name)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", "()V", 0, $method(StandardLocation$1, init$, void, $String*)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StandardLocation$1, getName, $String*)},
+		{"isOutputLocation", "()Z", nullptr, $PUBLIC, $virtualMethod(StandardLocation$1, isOutputLocation, bool)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"javax.tools.StandardLocation",
+		"locationFor",
+		"(Ljava/lang/String;)Ljavax/tools/JavaFileManager$Location;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.tools.StandardLocation$1", nullptr, nullptr, 0},
+		{"javax.tools.JavaFileManager$Location", "javax.tools.JavaFileManager", "Location", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.tools.StandardLocation$1",
+		"java.lang.Object",
+		"javax.tools.JavaFileManager$Location",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.tools.StandardLocation"
+	};
+	$loadClass(StandardLocation$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(StandardLocation$1);
+	});
 	return class$;
 }
 

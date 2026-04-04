@@ -1,7 +1,4 @@
 #include <javax/swing/JSpinner$ListEditor.h>
-
-#include <javax/swing/JFormattedTextField$AbstractFormatter.h>
-#include <javax/swing/JFormattedTextField$AbstractFormatterFactory.h>
 #include <javax/swing/JFormattedTextField.h>
 #include <javax/swing/JSpinner$DefaultEditor.h>
 #include <javax/swing/JSpinner$ListEditor$ListFormatter.h>
@@ -16,9 +13,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $JFormattedTextField = ::javax::swing::JFormattedTextField;
-using $JFormattedTextField$AbstractFormatter = ::javax::swing::JFormattedTextField$AbstractFormatter;
-using $JFormattedTextField$AbstractFormatterFactory = ::javax::swing::JFormattedTextField$AbstractFormatterFactory;
 using $JSpinner = ::javax::swing::JSpinner;
 using $JSpinner$DefaultEditor = ::javax::swing::JSpinner$DefaultEditor;
 using $JSpinner$ListEditor$ListFormatter = ::javax::swing::JSpinner$ListEditor$ListFormatter;
@@ -28,58 +22,53 @@ using $DefaultFormatterFactory = ::javax::swing::text::DefaultFormatterFactory;
 namespace javax {
 	namespace swing {
 
-$MethodInfo _JSpinner$ListEditor_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/JSpinner;)V", nullptr, $PUBLIC, $method(JSpinner$ListEditor, init$, void, $JSpinner*)},
-	{"getModel", "()Ljavax/swing/SpinnerListModel;", nullptr, $PUBLIC, $virtualMethod(JSpinner$ListEditor, getModel, $SpinnerListModel*)},
-	{}
-};
-
-$InnerClassInfo _JSpinner$ListEditor_InnerClassesInfo_[] = {
-	{"javax.swing.JSpinner$ListEditor", "javax.swing.JSpinner", "ListEditor", $PUBLIC | $STATIC},
-	{"javax.swing.JSpinner$DefaultEditor", "javax.swing.JSpinner", "DefaultEditor", $PUBLIC | $STATIC},
-	{"javax.swing.JSpinner$ListEditor$ListFormatter", "javax.swing.JSpinner$ListEditor", "ListFormatter", $PRIVATE},
-	{}
-};
-
-$ClassInfo _JSpinner$ListEditor_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.JSpinner$ListEditor",
-	"javax.swing.JSpinner$DefaultEditor",
-	nullptr,
-	nullptr,
-	_JSpinner$ListEditor_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JSpinner$ListEditor_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.JSpinner"
-};
-
-$Object* allocate$JSpinner$ListEditor($Class* clazz) {
-	return $of($alloc(JSpinner$ListEditor));
-}
-
 void JSpinner$ListEditor::init$($JSpinner* spinner) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$JSpinner$DefaultEditor::init$(spinner);
 	if (!($instanceOf($SpinnerListModel, $($nc(spinner)->getModel())))) {
 		$throwNew($IllegalArgumentException, "model not a SpinnerListModel"_s);
 	}
-	$nc($(getTextField()))->setEditable(true);
-	$nc($(getTextField()))->setFormatterFactory($$new($DefaultFormatterFactory, $$new($JSpinner$ListEditor$ListFormatter, this)));
+	$$nc(getTextField())->setEditable(true);
+	$$nc(getTextField())->setFormatterFactory($$new($DefaultFormatterFactory, $$new($JSpinner$ListEditor$ListFormatter, this)));
 }
 
 $SpinnerListModel* JSpinner$ListEditor::getModel() {
-	return ($cast($SpinnerListModel, $nc($(getSpinner()))->getModel()));
+	return $cast($SpinnerListModel, $$nc(getSpinner())->getModel());
 }
 
 JSpinner$ListEditor::JSpinner$ListEditor() {
 }
 
 $Class* JSpinner$ListEditor::load$($String* name, bool initialize) {
-	$loadClass(JSpinner$ListEditor, name, initialize, &_JSpinner$ListEditor_ClassInfo_, allocate$JSpinner$ListEditor);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/JSpinner;)V", nullptr, $PUBLIC, $method(JSpinner$ListEditor, init$, void, $JSpinner*)},
+		{"getModel", "()Ljavax/swing/SpinnerListModel;", nullptr, $PUBLIC, $virtualMethod(JSpinner$ListEditor, getModel, $SpinnerListModel*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.JSpinner$ListEditor", "javax.swing.JSpinner", "ListEditor", $PUBLIC | $STATIC},
+		{"javax.swing.JSpinner$DefaultEditor", "javax.swing.JSpinner", "DefaultEditor", $PUBLIC | $STATIC},
+		{"javax.swing.JSpinner$ListEditor$ListFormatter", "javax.swing.JSpinner$ListEditor", "ListFormatter", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.JSpinner$ListEditor",
+		"javax.swing.JSpinner$DefaultEditor",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.JSpinner"
+	};
+	$loadClass(JSpinner$ListEditor, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JSpinner$ListEditor));
+	});
 	return class$;
 }
 

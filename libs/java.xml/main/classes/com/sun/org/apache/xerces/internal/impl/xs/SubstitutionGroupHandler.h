@@ -78,6 +78,7 @@ class SubstitutionGroupHandler : public ::java::lang::Object {
 	$class(SubstitutionGroupHandler, 0, ::java::lang::Object)
 public:
 	SubstitutionGroupHandler();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::com::sun::org::apache::xerces::internal::impl::xs::XSElementDeclHelper* elementDeclHelper);
 	virtual void addSubstitutionGroup($Array<::com::sun::org::apache::xerces::internal::impl::xs::XSElementDecl>* elements);
 	bool getDBMethods(::com::sun::org::apache::xerces::internal::xs::XSTypeDefinition* typed, ::com::sun::org::apache::xerces::internal::xs::XSTypeDefinition* typeb, ::com::sun::org::apache::xerces::internal::impl::xs::SubstitutionGroupHandler$OneSubGroup* methods);

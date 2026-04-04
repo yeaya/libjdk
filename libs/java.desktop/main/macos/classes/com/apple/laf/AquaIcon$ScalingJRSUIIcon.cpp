@@ -1,5 +1,4 @@
 #include <com/apple/laf/AquaIcon$ScalingJRSUIIcon.h>
-
 #include <apple/laf/JRSUIState.h>
 #include <com/apple/laf/AquaIcon.h>
 #include <com/apple/laf/AquaPainter.h>
@@ -32,51 +31,6 @@ namespace com {
 	namespace apple {
 		namespace laf {
 
-$FieldInfo _AquaIcon$ScalingJRSUIIcon_FieldInfo_[] = {
-	{"width", "I", nullptr, $FINAL, $field(AquaIcon$ScalingJRSUIIcon, width)},
-	{"height", "I", nullptr, $FINAL, $field(AquaIcon$ScalingJRSUIIcon, height)},
-	{}
-};
-
-$MethodInfo _AquaIcon$ScalingJRSUIIcon_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(II)V", nullptr, $PUBLIC, $method(AquaIcon$ScalingJRSUIIcon, init$, void, int32_t, int32_t)},
-	{"getIconHeight", "()I", nullptr, $PUBLIC, $virtualMethod(AquaIcon$ScalingJRSUIIcon, getIconHeight, int32_t)},
-	{"getIconWidth", "()I", nullptr, $PUBLIC, $virtualMethod(AquaIcon$ScalingJRSUIIcon, getIconWidth, int32_t)},
-	{"initIconPainter", "(Lcom/apple/laf/AquaPainter;)V", "(Lcom/apple/laf/AquaPainter<Lapple/laf/JRSUIState;>;)V", $PUBLIC | $ABSTRACT, $virtualMethod(AquaIcon$ScalingJRSUIIcon, initIconPainter, void, $AquaPainter*)},
-	{"paintIcon", "(Ljava/awt/Component;Ljava/awt/Graphics;II)V", nullptr, $PUBLIC, $virtualMethod(AquaIcon$ScalingJRSUIIcon, paintIcon, void, $Component*, $Graphics*, int32_t, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _AquaIcon$ScalingJRSUIIcon_InnerClassesInfo_[] = {
-	{"com.apple.laf.AquaIcon$ScalingJRSUIIcon", "com.apple.laf.AquaIcon", "ScalingJRSUIIcon", $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _AquaIcon$ScalingJRSUIIcon_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"com.apple.laf.AquaIcon$ScalingJRSUIIcon",
-	"java.lang.Object",
-	"javax.swing.Icon,javax.swing.plaf.UIResource",
-	_AquaIcon$ScalingJRSUIIcon_FieldInfo_,
-	_AquaIcon$ScalingJRSUIIcon_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AquaIcon$ScalingJRSUIIcon_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.apple.laf.AquaIcon"
-};
-
-$Object* allocate$AquaIcon$ScalingJRSUIIcon($Class* clazz) {
-	return $of($alloc(AquaIcon$ScalingJRSUIIcon));
-}
-
 int32_t AquaIcon$ScalingJRSUIIcon::hashCode() {
 	 return this->$Icon::hashCode();
 }
@@ -103,7 +57,7 @@ void AquaIcon$ScalingJRSUIIcon::init$(int32_t width, int32_t height) {
 }
 
 void AquaIcon$ScalingJRSUIIcon::paintIcon($Component* c, $Graphics* g$renamed, int32_t x, int32_t y) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Graphics, g, g$renamed);
 	if ($GraphicsEnvironment::isHeadless()) {
 		return;
@@ -111,11 +65,11 @@ void AquaIcon$ScalingJRSUIIcon::paintIcon($Component* c, $Graphics* g$renamed, i
 	$assign(g, $nc(g)->create());
 	if ($instanceOf($Graphics2D, g)) {
 		$init($RenderingHints);
-		$nc(($cast($Graphics2D, g)))->setRenderingHint($RenderingHints::KEY_RENDERING, $RenderingHints::VALUE_RENDER_QUALITY);
+		$cast($Graphics2D, g)->setRenderingHint($RenderingHints::KEY_RENDERING, $RenderingHints::VALUE_RENDER_QUALITY);
 	}
 	$var($AquaPainter, painter, $AquaPainter::create($($JRSUIState::getInstance())));
 	initIconPainter(painter);
-	g->clipRect(x, y, this->width, this->height);
+	$nc(g)->clipRect(x, y, this->width, this->height);
 	$nc(painter)->paint(g, c, x, y, this->width, this->height);
 	g->dispose();
 }
@@ -132,7 +86,46 @@ AquaIcon$ScalingJRSUIIcon::AquaIcon$ScalingJRSUIIcon() {
 }
 
 $Class* AquaIcon$ScalingJRSUIIcon::load$($String* name, bool initialize) {
-	$loadClass(AquaIcon$ScalingJRSUIIcon, name, initialize, &_AquaIcon$ScalingJRSUIIcon_ClassInfo_, allocate$AquaIcon$ScalingJRSUIIcon);
+	$FieldInfo fieldInfos$$[] = {
+		{"width", "I", nullptr, $FINAL, $field(AquaIcon$ScalingJRSUIIcon, width)},
+		{"height", "I", nullptr, $FINAL, $field(AquaIcon$ScalingJRSUIIcon, height)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(II)V", nullptr, $PUBLIC, $method(AquaIcon$ScalingJRSUIIcon, init$, void, int32_t, int32_t)},
+		{"getIconHeight", "()I", nullptr, $PUBLIC, $virtualMethod(AquaIcon$ScalingJRSUIIcon, getIconHeight, int32_t)},
+		{"getIconWidth", "()I", nullptr, $PUBLIC, $virtualMethod(AquaIcon$ScalingJRSUIIcon, getIconWidth, int32_t)},
+		{"initIconPainter", "(Lcom/apple/laf/AquaPainter;)V", "(Lcom/apple/laf/AquaPainter<Lapple/laf/JRSUIState;>;)V", $PUBLIC | $ABSTRACT, $virtualMethod(AquaIcon$ScalingJRSUIIcon, initIconPainter, void, $AquaPainter*)},
+		{"paintIcon", "(Ljava/awt/Component;Ljava/awt/Graphics;II)V", nullptr, $PUBLIC, $virtualMethod(AquaIcon$ScalingJRSUIIcon, paintIcon, void, $Component*, $Graphics*, int32_t, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.laf.AquaIcon$ScalingJRSUIIcon", "com.apple.laf.AquaIcon", "ScalingJRSUIIcon", $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"com.apple.laf.AquaIcon$ScalingJRSUIIcon",
+		"java.lang.Object",
+		"javax.swing.Icon,javax.swing.plaf.UIResource",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.apple.laf.AquaIcon"
+	};
+	$loadClass(AquaIcon$ScalingJRSUIIcon, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AquaIcon$ScalingJRSUIIcon));
+	});
 	return class$;
 }
 

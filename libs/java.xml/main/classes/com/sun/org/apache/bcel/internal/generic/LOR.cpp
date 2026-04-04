@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/bcel/internal/generic/LOR.h>
-
 #include <com/sun/org/apache/bcel/internal/Const.h>
 #include <com/sun/org/apache/bcel/internal/generic/ArithmeticInstruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/StackConsumer.h>
@@ -12,9 +11,6 @@
 
 using $Const = ::com::sun::org::apache::bcel::internal::Const;
 using $ArithmeticInstruction = ::com::sun::org::apache::bcel::internal::generic::ArithmeticInstruction;
-using $StackConsumer = ::com::sun::org::apache::bcel::internal::generic::StackConsumer;
-using $StackProducer = ::com::sun::org::apache::bcel::internal::generic::StackProducer;
-using $TypedInstruction = ::com::sun::org::apache::bcel::internal::generic::TypedInstruction;
 using $Visitor = ::com::sun::org::apache::bcel::internal::generic::Visitor;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -26,25 +22,6 @@ namespace com {
 				namespace bcel {
 					namespace internal {
 						namespace generic {
-
-$MethodInfo _LOR_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(LOR, init$, void)},
-	{"accept", "(Lcom/sun/org/apache/bcel/internal/generic/Visitor;)V", nullptr, $PUBLIC, $virtualMethod(LOR, accept, void, $Visitor*)},
-	{}
-};
-
-$ClassInfo _LOR_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.bcel.internal.generic.LOR",
-	"com.sun.org.apache.bcel.internal.generic.ArithmeticInstruction",
-	nullptr,
-	nullptr,
-	_LOR_MethodInfo_
-};
-
-$Object* allocate$LOR($Class* clazz) {
-	return $of($alloc(LOR));
-}
 
 void LOR::init$() {
 	$ArithmeticInstruction::init$($Const::LOR);
@@ -62,7 +39,22 @@ LOR::LOR() {
 }
 
 $Class* LOR::load$($String* name, bool initialize) {
-	$loadClass(LOR, name, initialize, &_LOR_ClassInfo_, allocate$LOR);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(LOR, init$, void)},
+		{"accept", "(Lcom/sun/org/apache/bcel/internal/generic/Visitor;)V", nullptr, $PUBLIC, $virtualMethod(LOR, accept, void, $Visitor*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.bcel.internal.generic.LOR",
+		"com.sun.org.apache.bcel.internal.generic.ArithmeticInstruction",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(LOR, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(LOR));
+	});
 	return class$;
 }
 

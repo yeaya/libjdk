@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/utils/ObjectStack.h>
-
 #include <com/sun/org/apache/xml/internal/utils/ObjectVector.h>
 #include <java/lang/ArrayIndexOutOfBoundsException.h>
 #include <java/util/EmptyStackException.h>
@@ -19,35 +18,6 @@ namespace com {
 					namespace internal {
 						namespace utils {
 
-$MethodInfo _ObjectStack_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ObjectStack, init$, void)},
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(ObjectStack, init$, void, int32_t)},
-	{"<init>", "(Lcom/sun/org/apache/xml/internal/utils/ObjectStack;)V", nullptr, $PUBLIC, $method(ObjectStack, init$, void, ObjectStack*)},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ObjectStack, clone, $Object*), "java.lang.CloneNotSupportedException"},
-	{"empty", "()Z", nullptr, $PUBLIC, $virtualMethod(ObjectStack, empty, bool)},
-	{"peek", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ObjectStack, peek, $Object*)},
-	{"peek", "(I)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ObjectStack, peek, $Object*, int32_t)},
-	{"pop", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ObjectStack, pop, $Object*)},
-	{"push", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ObjectStack, push, $Object*, Object$*)},
-	{"quickPop", "(I)V", nullptr, $PUBLIC, $virtualMethod(ObjectStack, quickPop, void, int32_t)},
-	{"search", "(Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(ObjectStack, search, int32_t, Object$*)},
-	{"setTop", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(ObjectStack, setTop, void, Object$*)},
-	{}
-};
-
-$ClassInfo _ObjectStack_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.utils.ObjectStack",
-	"com.sun.org.apache.xml.internal.utils.ObjectVector",
-	nullptr,
-	nullptr,
-	_ObjectStack_MethodInfo_
-};
-
-$Object* allocate$ObjectStack($Class* clazz) {
-	return $of($alloc(ObjectStack));
-}
-
 void ObjectStack::init$() {
 	$ObjectVector::init$();
 }
@@ -57,7 +27,7 @@ void ObjectStack::init$(int32_t blocksize) {
 }
 
 void ObjectStack::init$(ObjectStack* v) {
-	$ObjectVector::init$(static_cast<$ObjectVector*>(v));
+	$ObjectVector::init$(v);
 }
 
 $Object* ObjectStack::push(Object$* i) {
@@ -74,8 +44,8 @@ $Object* ObjectStack::push(Object$* i) {
 
 $Object* ObjectStack::pop() {
 	$var($Object0, val, $nc(this->m_map)->get(--this->m_firstFree));
-	$nc(this->m_map)->set(this->m_firstFree, nullptr);
-	return $of(val);
+	this->m_map->set(this->m_firstFree, nullptr);
+	return val;
 }
 
 void ObjectStack::quickPop(int32_t n) {
@@ -84,7 +54,7 @@ void ObjectStack::quickPop(int32_t n) {
 
 $Object* ObjectStack::peek() {
 	try {
-		return $of($nc(this->m_map)->get(this->m_firstFree - 1));
+		return $nc(this->m_map)->get(this->m_firstFree - 1);
 	} catch ($ArrayIndexOutOfBoundsException& e) {
 		$throwNew($EmptyStackException);
 	}
@@ -93,7 +63,7 @@ $Object* ObjectStack::peek() {
 
 $Object* ObjectStack::peek(int32_t n) {
 	try {
-		return $of($nc(this->m_map)->get(this->m_firstFree - (1 + n)));
+		return $nc(this->m_map)->get(this->m_firstFree - (1 + n));
 	} catch ($ArrayIndexOutOfBoundsException& e) {
 		$throwNew($EmptyStackException);
 	}
@@ -121,14 +91,39 @@ int32_t ObjectStack::search(Object$* o) {
 }
 
 $Object* ObjectStack::clone() {
-	return $of($cast(ObjectStack, $ObjectVector::clone()));
+	return $cast(ObjectStack, $ObjectVector::clone());
 }
 
 ObjectStack::ObjectStack() {
 }
 
 $Class* ObjectStack::load$($String* name, bool initialize) {
-	$loadClass(ObjectStack, name, initialize, &_ObjectStack_ClassInfo_, allocate$ObjectStack);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ObjectStack, init$, void)},
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(ObjectStack, init$, void, int32_t)},
+		{"<init>", "(Lcom/sun/org/apache/xml/internal/utils/ObjectStack;)V", nullptr, $PUBLIC, $method(ObjectStack, init$, void, ObjectStack*)},
+		{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ObjectStack, clone, $Object*), "java.lang.CloneNotSupportedException"},
+		{"empty", "()Z", nullptr, $PUBLIC, $virtualMethod(ObjectStack, empty, bool)},
+		{"peek", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ObjectStack, peek, $Object*)},
+		{"peek", "(I)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ObjectStack, peek, $Object*, int32_t)},
+		{"pop", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ObjectStack, pop, $Object*)},
+		{"push", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ObjectStack, push, $Object*, Object$*)},
+		{"quickPop", "(I)V", nullptr, $PUBLIC, $virtualMethod(ObjectStack, quickPop, void, int32_t)},
+		{"search", "(Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(ObjectStack, search, int32_t, Object$*)},
+		{"setTop", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(ObjectStack, setTop, void, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.utils.ObjectStack",
+		"com.sun.org.apache.xml.internal.utils.ObjectVector",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ObjectStack, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ObjectStack);
+	});
 	return class$;
 }
 

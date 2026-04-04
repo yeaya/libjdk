@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xpath/internal/functions/FuncDoclocation.h>
-
 #include <com/sun/org/apache/xml/internal/dtm/DTM.h>
 #include <com/sun/org/apache/xpath/internal/XPathContext.h>
 #include <com/sun/org/apache/xpath/internal/functions/FunctionDef1Arg.h>
@@ -27,36 +26,12 @@ namespace com {
 					namespace internal {
 						namespace functions {
 
-$FieldInfo _FuncDoclocation_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(FuncDoclocation, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _FuncDoclocation_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(FuncDoclocation, init$, void)},
-	{"execute", "(Lcom/sun/org/apache/xpath/internal/XPathContext;)Lcom/sun/org/apache/xpath/internal/objects/XObject;", nullptr, $PUBLIC, $virtualMethod(FuncDoclocation, execute, $XObject*, $XPathContext*), "javax.xml.transform.TransformerException"},
-	{}
-};
-
-$ClassInfo _FuncDoclocation_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xpath.internal.functions.FuncDoclocation",
-	"com.sun.org.apache.xpath.internal.functions.FunctionDef1Arg",
-	nullptr,
-	_FuncDoclocation_FieldInfo_,
-	_FuncDoclocation_MethodInfo_
-};
-
-$Object* allocate$FuncDoclocation($Class* clazz) {
-	return $of($alloc(FuncDoclocation));
-}
-
 void FuncDoclocation::init$() {
 	$FunctionDef1Arg::init$();
 }
 
 $XObject* FuncDoclocation::execute($XPathContext* xctxt) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t whereNode = getArg0AsNode(xctxt);
 	$var($String, fileLocation, nullptr);
 	if ($DTM::NULL != whereNode) {
@@ -65,7 +40,7 @@ $XObject* FuncDoclocation::execute($XPathContext* xctxt) {
 			whereNode = dtm->getFirstChild(whereNode);
 		}
 		if ($DTM::NULL != whereNode) {
-			$assign(fileLocation, $nc(dtm)->getDocumentBaseURI());
+			$assign(fileLocation, dtm->getDocumentBaseURI());
 		}
 	}
 	return $new($XString, (nullptr != fileLocation) ? fileLocation : ""_s);
@@ -75,7 +50,26 @@ FuncDoclocation::FuncDoclocation() {
 }
 
 $Class* FuncDoclocation::load$($String* name, bool initialize) {
-	$loadClass(FuncDoclocation, name, initialize, &_FuncDoclocation_ClassInfo_, allocate$FuncDoclocation);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(FuncDoclocation, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(FuncDoclocation, init$, void)},
+		{"execute", "(Lcom/sun/org/apache/xpath/internal/XPathContext;)Lcom/sun/org/apache/xpath/internal/objects/XObject;", nullptr, $PUBLIC, $virtualMethod(FuncDoclocation, execute, $XObject*, $XPathContext*), "javax.xml.transform.TransformerException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xpath.internal.functions.FuncDoclocation",
+		"com.sun.org.apache.xpath.internal.functions.FunctionDef1Arg",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(FuncDoclocation, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(FuncDoclocation));
+	});
 	return class$;
 }
 

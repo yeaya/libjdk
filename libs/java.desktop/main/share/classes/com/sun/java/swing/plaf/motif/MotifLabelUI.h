@@ -32,6 +32,7 @@ class $export MotifLabelUI : public ::javax::swing::plaf::basic::BasicLabelUI {
 	$class(MotifLabelUI, 0, ::javax::swing::plaf::basic::BasicLabelUI)
 public:
 	MotifLabelUI();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::javax::swing::plaf::ComponentUI* createUI(::javax::swing::JComponent* c);
 	static $Object* MOTIF_LABEL_UI_KEY;

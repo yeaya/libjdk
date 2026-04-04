@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/jaxp/SAXParserFactoryImpl.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/Constants.h>
 #include <com/sun/org/apache/xerces/internal/jaxp/SAXParserImpl.h>
 #include <com/sun/org/apache/xerces/internal/util/SAXMessageFormatter.h>
@@ -37,7 +36,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;
 using $HashMap = ::java::util::HashMap;
 using $Locale = ::java::util::Locale;
-using $Map = ::java::util::Map;
 using $XMLConstants = ::javax::xml::XMLConstants;
 using $ParserConfigurationException = ::javax::xml::parsers::ParserConfigurationException;
 using $SAXParser = ::javax::xml::parsers::SAXParser;
@@ -46,7 +44,6 @@ using $Schema = ::javax::xml::validation::Schema;
 using $SAXException = ::org::xml::sax::SAXException;
 using $SAXNotRecognizedException = ::org::xml::sax::SAXNotRecognizedException;
 using $SAXNotSupportedException = ::org::xml::sax::SAXNotSupportedException;
-using $XMLReader = ::org::xml::sax::XMLReader;
 
 namespace com {
 	namespace sun {
@@ -55,49 +52,6 @@ namespace com {
 				namespace xerces {
 					namespace internal {
 						namespace jaxp {
-
-$FieldInfo _SAXParserFactoryImpl_FieldInfo_[] = {
-	{"VALIDATION_FEATURE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SAXParserFactoryImpl, VALIDATION_FEATURE)},
-	{"NAMESPACES_FEATURE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SAXParserFactoryImpl, NAMESPACES_FEATURE)},
-	{"XINCLUDE_FEATURE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SAXParserFactoryImpl, XINCLUDE_FEATURE)},
-	{"features", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/Boolean;>;", $PRIVATE, $field(SAXParserFactoryImpl, features)},
-	{"grammar", "Ljavax/xml/validation/Schema;", nullptr, $PRIVATE, $field(SAXParserFactoryImpl, grammar)},
-	{"isXIncludeAware", "Z", nullptr, $PRIVATE, $field(SAXParserFactoryImpl, isXIncludeAware$)},
-	{"fSecureProcess", "Z", nullptr, $PRIVATE, $field(SAXParserFactoryImpl, fSecureProcess)},
-	{}
-};
-
-$MethodInfo _SAXParserFactoryImpl_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SAXParserFactoryImpl, init$, void)},
-	{"getFeature", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(SAXParserFactoryImpl, getFeature, bool, $String*), "javax.xml.parsers.ParserConfigurationException,org.xml.sax.SAXNotRecognizedException,org.xml.sax.SAXNotSupportedException"},
-	{"getFromFeatures", "(Ljava/lang/String;)Z", nullptr, $PRIVATE, $method(SAXParserFactoryImpl, getFromFeatures, bool, $String*)},
-	{"getSchema", "()Ljavax/xml/validation/Schema;", nullptr, $PUBLIC, $virtualMethod(SAXParserFactoryImpl, getSchema, $Schema*)},
-	{"isNamespaceAware", "()Z", nullptr, $PUBLIC, $virtualMethod(SAXParserFactoryImpl, isNamespaceAware, bool)},
-	{"isValidating", "()Z", nullptr, $PUBLIC, $virtualMethod(SAXParserFactoryImpl, isValidating, bool)},
-	{"isXIncludeAware", "()Z", nullptr, $PUBLIC, $virtualMethod(SAXParserFactoryImpl, isXIncludeAware, bool)},
-	{"newSAXParser", "()Ljavax/xml/parsers/SAXParser;", nullptr, $PUBLIC, $virtualMethod(SAXParserFactoryImpl, newSAXParser, $SAXParser*), "javax.xml.parsers.ParserConfigurationException"},
-	{"newSAXParserImpl", "()Lcom/sun/org/apache/xerces/internal/jaxp/SAXParserImpl;", nullptr, $PRIVATE, $method(SAXParserFactoryImpl, newSAXParserImpl, $SAXParserImpl*), "javax.xml.parsers.ParserConfigurationException,org.xml.sax.SAXNotRecognizedException,org.xml.sax.SAXNotSupportedException"},
-	{"putInFeatures", "(Ljava/lang/String;Z)V", nullptr, $PRIVATE, $method(SAXParserFactoryImpl, putInFeatures, void, $String*, bool)},
-	{"setFeature", "(Ljava/lang/String;Z)V", nullptr, $PUBLIC, $virtualMethod(SAXParserFactoryImpl, setFeature, void, $String*, bool), "javax.xml.parsers.ParserConfigurationException,org.xml.sax.SAXNotRecognizedException,org.xml.sax.SAXNotSupportedException"},
-	{"setNamespaceAware", "(Z)V", nullptr, $PUBLIC, $virtualMethod(SAXParserFactoryImpl, setNamespaceAware, void, bool)},
-	{"setSchema", "(Ljavax/xml/validation/Schema;)V", nullptr, $PUBLIC, $virtualMethod(SAXParserFactoryImpl, setSchema, void, $Schema*)},
-	{"setValidating", "(Z)V", nullptr, $PUBLIC, $virtualMethod(SAXParserFactoryImpl, setValidating, void, bool)},
-	{"setXIncludeAware", "(Z)V", nullptr, $PUBLIC, $virtualMethod(SAXParserFactoryImpl, setXIncludeAware, void, bool)},
-	{}
-};
-
-$ClassInfo _SAXParserFactoryImpl_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.jaxp.SAXParserFactoryImpl",
-	"javax.xml.parsers.SAXParserFactory",
-	nullptr,
-	_SAXParserFactoryImpl_FieldInfo_,
-	_SAXParserFactoryImpl_MethodInfo_
-};
-
-$Object* allocate$SAXParserFactoryImpl($Class* clazz) {
-	return $of($alloc(SAXParserFactoryImpl));
-}
 
 $String* SAXParserFactoryImpl::VALIDATION_FEATURE = nullptr;
 $String* SAXParserFactoryImpl::NAMESPACES_FEATURE = nullptr;
@@ -109,7 +63,7 @@ void SAXParserFactoryImpl::init$() {
 }
 
 $SAXParser* SAXParserFactoryImpl::newSAXParser() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SAXParser, saxParserImpl, nullptr);
 	try {
 		$assign(saxParserImpl, $new($SAXParserImpl, this, this->features, this->fSecureProcess));
@@ -120,7 +74,7 @@ $SAXParser* SAXParserFactoryImpl::newSAXParser() {
 }
 
 $SAXParserImpl* SAXParserFactoryImpl::newSAXParserImpl() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SAXParserImpl, saxParserImpl, nullptr);
 	try {
 		$assign(saxParserImpl, $new($SAXParserImpl, this, this->features));
@@ -160,7 +114,7 @@ void SAXParserFactoryImpl::setFeature($String* name, bool value) {
 }
 
 bool SAXParserFactoryImpl::getFeature($String* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (name == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -168,7 +122,7 @@ bool SAXParserFactoryImpl::getFeature($String* name) {
 	if ($nc(name)->equals($XMLConstants::FEATURE_SECURE_PROCESSING)) {
 		return this->fSecureProcess;
 	}
-	return $nc($($nc($(newSAXParserImpl()))->getXMLReader()))->getFeature(name);
+	return $$nc($$nc(newSAXParserImpl())->getXMLReader())->getFeature(name);
 }
 
 $Schema* SAXParserFactoryImpl::getSchema() {
@@ -199,7 +153,6 @@ void SAXParserFactoryImpl::putInFeatures($String* name, bool value) {
 	if (this->features == nullptr) {
 		$set(this, features, $new($HashMap));
 	}
-	$init($Boolean);
 	$nc(this->features)->put(name, value ? $Boolean::TRUE : $Boolean::FALSE);
 }
 
@@ -207,8 +160,8 @@ bool SAXParserFactoryImpl::getFromFeatures($String* name) {
 	if (this->features == nullptr) {
 		return false;
 	} else {
-		$var($Boolean, value, $cast($Boolean, $nc(this->features)->get(name)));
-		return (value == nullptr) ? false : $nc(value)->booleanValue();
+		$var($Boolean, value, $cast($Boolean, this->features->get(name)));
+		return (value == nullptr) ? false : value->booleanValue();
 	}
 }
 
@@ -223,7 +176,7 @@ void SAXParserFactoryImpl::setNamespaceAware(bool awareness) {
 SAXParserFactoryImpl::SAXParserFactoryImpl() {
 }
 
-void clinit$SAXParserFactoryImpl($Class* class$) {
+void SAXParserFactoryImpl::clinit$($Class* clazz) {
 	$init($Constants);
 	$assignStatic(SAXParserFactoryImpl::VALIDATION_FEATURE, $str({$Constants::SAX_FEATURE_PREFIX, $Constants::VALIDATION_FEATURE}));
 	$assignStatic(SAXParserFactoryImpl::NAMESPACES_FEATURE, $str({$Constants::SAX_FEATURE_PREFIX, $Constants::NAMESPACES_FEATURE}));
@@ -231,7 +184,45 @@ void clinit$SAXParserFactoryImpl($Class* class$) {
 }
 
 $Class* SAXParserFactoryImpl::load$($String* name, bool initialize) {
-	$loadClass(SAXParserFactoryImpl, name, initialize, &_SAXParserFactoryImpl_ClassInfo_, clinit$SAXParserFactoryImpl, allocate$SAXParserFactoryImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"VALIDATION_FEATURE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SAXParserFactoryImpl, VALIDATION_FEATURE)},
+		{"NAMESPACES_FEATURE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SAXParserFactoryImpl, NAMESPACES_FEATURE)},
+		{"XINCLUDE_FEATURE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SAXParserFactoryImpl, XINCLUDE_FEATURE)},
+		{"features", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/Boolean;>;", $PRIVATE, $field(SAXParserFactoryImpl, features)},
+		{"grammar", "Ljavax/xml/validation/Schema;", nullptr, $PRIVATE, $field(SAXParserFactoryImpl, grammar)},
+		{"isXIncludeAware", "Z", nullptr, $PRIVATE, $field(SAXParserFactoryImpl, isXIncludeAware$)},
+		{"fSecureProcess", "Z", nullptr, $PRIVATE, $field(SAXParserFactoryImpl, fSecureProcess)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SAXParserFactoryImpl, init$, void)},
+		{"getFeature", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(SAXParserFactoryImpl, getFeature, bool, $String*), "javax.xml.parsers.ParserConfigurationException,org.xml.sax.SAXNotRecognizedException,org.xml.sax.SAXNotSupportedException"},
+		{"getFromFeatures", "(Ljava/lang/String;)Z", nullptr, $PRIVATE, $method(SAXParserFactoryImpl, getFromFeatures, bool, $String*)},
+		{"getSchema", "()Ljavax/xml/validation/Schema;", nullptr, $PUBLIC, $virtualMethod(SAXParserFactoryImpl, getSchema, $Schema*)},
+		{"isNamespaceAware", "()Z", nullptr, $PUBLIC, $virtualMethod(SAXParserFactoryImpl, isNamespaceAware, bool)},
+		{"isValidating", "()Z", nullptr, $PUBLIC, $virtualMethod(SAXParserFactoryImpl, isValidating, bool)},
+		{"isXIncludeAware", "()Z", nullptr, $PUBLIC, $virtualMethod(SAXParserFactoryImpl, isXIncludeAware, bool)},
+		{"newSAXParser", "()Ljavax/xml/parsers/SAXParser;", nullptr, $PUBLIC, $virtualMethod(SAXParserFactoryImpl, newSAXParser, $SAXParser*), "javax.xml.parsers.ParserConfigurationException"},
+		{"newSAXParserImpl", "()Lcom/sun/org/apache/xerces/internal/jaxp/SAXParserImpl;", nullptr, $PRIVATE, $method(SAXParserFactoryImpl, newSAXParserImpl, $SAXParserImpl*), "javax.xml.parsers.ParserConfigurationException,org.xml.sax.SAXNotRecognizedException,org.xml.sax.SAXNotSupportedException"},
+		{"putInFeatures", "(Ljava/lang/String;Z)V", nullptr, $PRIVATE, $method(SAXParserFactoryImpl, putInFeatures, void, $String*, bool)},
+		{"setFeature", "(Ljava/lang/String;Z)V", nullptr, $PUBLIC, $virtualMethod(SAXParserFactoryImpl, setFeature, void, $String*, bool), "javax.xml.parsers.ParserConfigurationException,org.xml.sax.SAXNotRecognizedException,org.xml.sax.SAXNotSupportedException"},
+		{"setNamespaceAware", "(Z)V", nullptr, $PUBLIC, $virtualMethod(SAXParserFactoryImpl, setNamespaceAware, void, bool)},
+		{"setSchema", "(Ljavax/xml/validation/Schema;)V", nullptr, $PUBLIC, $virtualMethod(SAXParserFactoryImpl, setSchema, void, $Schema*)},
+		{"setValidating", "(Z)V", nullptr, $PUBLIC, $virtualMethod(SAXParserFactoryImpl, setValidating, void, bool)},
+		{"setXIncludeAware", "(Z)V", nullptr, $PUBLIC, $virtualMethod(SAXParserFactoryImpl, setXIncludeAware, void, bool)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.jaxp.SAXParserFactoryImpl",
+		"javax.xml.parsers.SAXParserFactory",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SAXParserFactoryImpl, name, initialize, &classInfo$$, SAXParserFactoryImpl::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(SAXParserFactoryImpl);
+	});
 	return class$;
 }
 

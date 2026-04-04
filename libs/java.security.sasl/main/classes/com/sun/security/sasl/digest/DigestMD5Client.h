@@ -67,6 +67,7 @@ public:
 	virtual $Object* getNegotiatedProperty($String* propName) override;
 	virtual int32_t hashCode() override;
 	virtual bool isComplete() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* authzid, $String* protocol, $String* serverName, ::java::util::Map* props, ::javax::security::auth::callback::CallbackHandler* cbh);
 	void checkQopSupport($bytes* qopInChallenge, $bytes* ciphersInChallenge);
 	void checkStrengthSupport($bytes* ciphersInChallenge);

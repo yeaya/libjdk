@@ -86,6 +86,7 @@ class $export Operators : public ::java::lang::Object {
 	$class(Operators, 0, ::java::lang::Object)
 public:
 	Operators();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::com::sun::tools::javac::util::Context* context);
 	virtual ::com::sun::tools::javac::code::Type* binaryPromotion(::com::sun::tools::javac::code::Type* t1, ::com::sun::tools::javac::code::Type* t2);
 	void initBinaryOperators();

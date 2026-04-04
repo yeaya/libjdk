@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/bcel/internal/classfile/AnnotationDefault.h>
-
 #include <com/sun/org/apache/bcel/internal/Const.h>
 #include <com/sun/org/apache/bcel/internal/classfile/Attribute.h>
 #include <com/sun/org/apache/bcel/internal/classfile/ConstantPool.h>
@@ -29,35 +28,6 @@ namespace com {
 				namespace bcel {
 					namespace internal {
 						namespace classfile {
-
-$FieldInfo _AnnotationDefault_FieldInfo_[] = {
-	{"defaultValue", "Lcom/sun/org/apache/bcel/internal/classfile/ElementValue;", nullptr, $PRIVATE, $field(AnnotationDefault, defaultValue)},
-	{}
-};
-
-$MethodInfo _AnnotationDefault_MethodInfo_[] = {
-	{"<init>", "(IILjava/io/DataInput;Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;)V", nullptr, 0, $method(AnnotationDefault, init$, void, int32_t, int32_t, $DataInput*, $ConstantPool*), "java.io.IOException"},
-	{"<init>", "(IILcom/sun/org/apache/bcel/internal/classfile/ElementValue;Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;)V", nullptr, $PUBLIC, $method(AnnotationDefault, init$, void, int32_t, int32_t, $ElementValue*, $ConstantPool*)},
-	{"accept", "(Lcom/sun/org/apache/bcel/internal/classfile/Visitor;)V", nullptr, $PUBLIC, $virtualMethod(AnnotationDefault, accept, void, $Visitor*)},
-	{"copy", "(Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;)Lcom/sun/org/apache/bcel/internal/classfile/Attribute;", nullptr, $PUBLIC, $virtualMethod(AnnotationDefault, copy, $Attribute*, $ConstantPool*)},
-	{"dump", "(Ljava/io/DataOutputStream;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(AnnotationDefault, dump, void, $DataOutputStream*), "java.io.IOException"},
-	{"getDefaultValue", "()Lcom/sun/org/apache/bcel/internal/classfile/ElementValue;", nullptr, $PUBLIC | $FINAL, $method(AnnotationDefault, getDefaultValue, $ElementValue*)},
-	{"setDefaultValue", "(Lcom/sun/org/apache/bcel/internal/classfile/ElementValue;)V", nullptr, $PUBLIC | $FINAL, $method(AnnotationDefault, setDefaultValue, void, $ElementValue*)},
-	{}
-};
-
-$ClassInfo _AnnotationDefault_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.bcel.internal.classfile.AnnotationDefault",
-	"com.sun.org.apache.bcel.internal.classfile.Attribute",
-	nullptr,
-	_AnnotationDefault_FieldInfo_,
-	_AnnotationDefault_MethodInfo_
-};
-
-$Object* allocate$AnnotationDefault($Class* clazz) {
-	return $of($alloc(AnnotationDefault));
-}
 
 void AnnotationDefault::init$(int32_t name_index, int32_t length, $DataInput* input, $ConstantPool* constant_pool) {
 	AnnotationDefault::init$(name_index, length, ($ElementValue*)nullptr, constant_pool);
@@ -94,7 +64,31 @@ AnnotationDefault::AnnotationDefault() {
 }
 
 $Class* AnnotationDefault::load$($String* name, bool initialize) {
-	$loadClass(AnnotationDefault, name, initialize, &_AnnotationDefault_ClassInfo_, allocate$AnnotationDefault);
+	$FieldInfo fieldInfos$$[] = {
+		{"defaultValue", "Lcom/sun/org/apache/bcel/internal/classfile/ElementValue;", nullptr, $PRIVATE, $field(AnnotationDefault, defaultValue)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(IILjava/io/DataInput;Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;)V", nullptr, 0, $method(AnnotationDefault, init$, void, int32_t, int32_t, $DataInput*, $ConstantPool*), "java.io.IOException"},
+		{"<init>", "(IILcom/sun/org/apache/bcel/internal/classfile/ElementValue;Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;)V", nullptr, $PUBLIC, $method(AnnotationDefault, init$, void, int32_t, int32_t, $ElementValue*, $ConstantPool*)},
+		{"accept", "(Lcom/sun/org/apache/bcel/internal/classfile/Visitor;)V", nullptr, $PUBLIC, $virtualMethod(AnnotationDefault, accept, void, $Visitor*)},
+		{"copy", "(Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;)Lcom/sun/org/apache/bcel/internal/classfile/Attribute;", nullptr, $PUBLIC, $virtualMethod(AnnotationDefault, copy, $Attribute*, $ConstantPool*)},
+		{"dump", "(Ljava/io/DataOutputStream;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(AnnotationDefault, dump, void, $DataOutputStream*), "java.io.IOException"},
+		{"getDefaultValue", "()Lcom/sun/org/apache/bcel/internal/classfile/ElementValue;", nullptr, $PUBLIC | $FINAL, $method(AnnotationDefault, getDefaultValue, $ElementValue*)},
+		{"setDefaultValue", "(Lcom/sun/org/apache/bcel/internal/classfile/ElementValue;)V", nullptr, $PUBLIC | $FINAL, $method(AnnotationDefault, setDefaultValue, void, $ElementValue*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.bcel.internal.classfile.AnnotationDefault",
+		"com.sun.org.apache.bcel.internal.classfile.Attribute",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(AnnotationDefault, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AnnotationDefault));
+	});
 	return class$;
 }
 

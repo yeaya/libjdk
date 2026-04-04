@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/dtm/ref/DTMDefaultBaseTraversers$DescendantOrSelfFromRootTraverser.h>
-
 #include <com/sun/org/apache/xml/internal/dtm/ref/DTMDefaultBaseTraversers$DescendantTraverser.h>
 #include <com/sun/org/apache/xml/internal/dtm/ref/DTMDefaultBaseTraversers$IndexedDTMAxisTraverser.h>
 #include <com/sun/org/apache/xml/internal/dtm/ref/DTMDefaultBaseTraversers.h>
@@ -20,46 +19,6 @@ namespace com {
 					namespace internal {
 						namespace dtm {
 							namespace ref {
-
-$FieldInfo _DTMDefaultBaseTraversers$DescendantOrSelfFromRootTraverser_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/org/apache/xml/internal/dtm/ref/DTMDefaultBaseTraversers;", nullptr, $FINAL | $SYNTHETIC, $field(DTMDefaultBaseTraversers$DescendantOrSelfFromRootTraverser, this$0)},
-	{}
-};
-
-$MethodInfo _DTMDefaultBaseTraversers$DescendantOrSelfFromRootTraverser_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/org/apache/xml/internal/dtm/ref/DTMDefaultBaseTraversers;)V", nullptr, $PRIVATE, $method(DTMDefaultBaseTraversers$DescendantOrSelfFromRootTraverser, init$, void, $DTMDefaultBaseTraversers*)},
-	{"first", "(I)I", nullptr, $PUBLIC, $virtualMethod(DTMDefaultBaseTraversers$DescendantOrSelfFromRootTraverser, first, int32_t, int32_t)},
-	{"first", "(II)I", nullptr, $PUBLIC, $virtualMethod(DTMDefaultBaseTraversers$DescendantOrSelfFromRootTraverser, first, int32_t, int32_t, int32_t)},
-	{"getFirstPotential", "(I)I", nullptr, $PROTECTED, $virtualMethod(DTMDefaultBaseTraversers$DescendantOrSelfFromRootTraverser, getFirstPotential, int32_t, int32_t)},
-	{"getSubtreeRoot", "(I)I", nullptr, $PROTECTED, $virtualMethod(DTMDefaultBaseTraversers$DescendantOrSelfFromRootTraverser, getSubtreeRoot, int32_t, int32_t)},
-	{}
-};
-
-$InnerClassInfo _DTMDefaultBaseTraversers$DescendantOrSelfFromRootTraverser_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xml.internal.dtm.ref.DTMDefaultBaseTraversers$DescendantOrSelfFromRootTraverser", "com.sun.org.apache.xml.internal.dtm.ref.DTMDefaultBaseTraversers", "DescendantOrSelfFromRootTraverser", $PRIVATE},
-	{"com.sun.org.apache.xml.internal.dtm.ref.DTMDefaultBaseTraversers$DescendantTraverser", "com.sun.org.apache.xml.internal.dtm.ref.DTMDefaultBaseTraversers", "DescendantTraverser", $PRIVATE},
-	{}
-};
-
-$ClassInfo _DTMDefaultBaseTraversers$DescendantOrSelfFromRootTraverser_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.org.apache.xml.internal.dtm.ref.DTMDefaultBaseTraversers$DescendantOrSelfFromRootTraverser",
-	"com.sun.org.apache.xml.internal.dtm.ref.DTMDefaultBaseTraversers$DescendantTraverser",
-	nullptr,
-	_DTMDefaultBaseTraversers$DescendantOrSelfFromRootTraverser_FieldInfo_,
-	_DTMDefaultBaseTraversers$DescendantOrSelfFromRootTraverser_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DTMDefaultBaseTraversers$DescendantOrSelfFromRootTraverser_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xml.internal.dtm.ref.DTMDefaultBaseTraversers"
-};
-
-$Object* allocate$DTMDefaultBaseTraversers$DescendantOrSelfFromRootTraverser($Class* clazz) {
-	return $of($alloc(DTMDefaultBaseTraversers$DescendantOrSelfFromRootTraverser));
-}
 
 void DTMDefaultBaseTraversers$DescendantOrSelfFromRootTraverser::init$($DTMDefaultBaseTraversers* this$0) {
 	$set(this, this$0, this$0);
@@ -92,7 +51,41 @@ DTMDefaultBaseTraversers$DescendantOrSelfFromRootTraverser::DTMDefaultBaseTraver
 }
 
 $Class* DTMDefaultBaseTraversers$DescendantOrSelfFromRootTraverser::load$($String* name, bool initialize) {
-	$loadClass(DTMDefaultBaseTraversers$DescendantOrSelfFromRootTraverser, name, initialize, &_DTMDefaultBaseTraversers$DescendantOrSelfFromRootTraverser_ClassInfo_, allocate$DTMDefaultBaseTraversers$DescendantOrSelfFromRootTraverser);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/org/apache/xml/internal/dtm/ref/DTMDefaultBaseTraversers;", nullptr, $FINAL | $SYNTHETIC, $field(DTMDefaultBaseTraversers$DescendantOrSelfFromRootTraverser, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/org/apache/xml/internal/dtm/ref/DTMDefaultBaseTraversers;)V", nullptr, $PRIVATE, $method(DTMDefaultBaseTraversers$DescendantOrSelfFromRootTraverser, init$, void, $DTMDefaultBaseTraversers*)},
+		{"first", "(I)I", nullptr, $PUBLIC, $virtualMethod(DTMDefaultBaseTraversers$DescendantOrSelfFromRootTraverser, first, int32_t, int32_t)},
+		{"first", "(II)I", nullptr, $PUBLIC, $virtualMethod(DTMDefaultBaseTraversers$DescendantOrSelfFromRootTraverser, first, int32_t, int32_t, int32_t)},
+		{"getFirstPotential", "(I)I", nullptr, $PROTECTED, $virtualMethod(DTMDefaultBaseTraversers$DescendantOrSelfFromRootTraverser, getFirstPotential, int32_t, int32_t)},
+		{"getSubtreeRoot", "(I)I", nullptr, $PROTECTED, $virtualMethod(DTMDefaultBaseTraversers$DescendantOrSelfFromRootTraverser, getSubtreeRoot, int32_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xml.internal.dtm.ref.DTMDefaultBaseTraversers$DescendantOrSelfFromRootTraverser", "com.sun.org.apache.xml.internal.dtm.ref.DTMDefaultBaseTraversers", "DescendantOrSelfFromRootTraverser", $PRIVATE},
+		{"com.sun.org.apache.xml.internal.dtm.ref.DTMDefaultBaseTraversers$DescendantTraverser", "com.sun.org.apache.xml.internal.dtm.ref.DTMDefaultBaseTraversers", "DescendantTraverser", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.org.apache.xml.internal.dtm.ref.DTMDefaultBaseTraversers$DescendantOrSelfFromRootTraverser",
+		"com.sun.org.apache.xml.internal.dtm.ref.DTMDefaultBaseTraversers$DescendantTraverser",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xml.internal.dtm.ref.DTMDefaultBaseTraversers"
+	};
+	$loadClass(DTMDefaultBaseTraversers$DescendantOrSelfFromRootTraverser, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DTMDefaultBaseTraversers$DescendantOrSelfFromRootTraverser);
+	});
 	return class$;
 }
 

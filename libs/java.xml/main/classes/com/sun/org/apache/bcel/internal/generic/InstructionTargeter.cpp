@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/bcel/internal/generic/InstructionTargeter.h>
-
 #include <com/sun/org/apache/bcel/internal/generic/InstructionHandle.h>
 #include <jcpp.h>
 
@@ -15,27 +14,23 @@ namespace com {
 					namespace internal {
 						namespace generic {
 
-$MethodInfo _InstructionTargeter_MethodInfo_[] = {
-	{"containsTarget", "(Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(InstructionTargeter, containsTarget, bool, $InstructionHandle*)},
-	{"updateTarget", "(Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(InstructionTargeter, updateTarget, void, $InstructionHandle*, $InstructionHandle*), "com.sun.org.apache.bcel.internal.generic.ClassGenException"},
-	{}
-};
-
-$ClassInfo _InstructionTargeter_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.org.apache.bcel.internal.generic.InstructionTargeter",
-	nullptr,
-	nullptr,
-	nullptr,
-	_InstructionTargeter_MethodInfo_
-};
-
-$Object* allocate$InstructionTargeter($Class* clazz) {
-	return $of($alloc(InstructionTargeter));
-}
-
 $Class* InstructionTargeter::load$($String* name, bool initialize) {
-	$loadClass(InstructionTargeter, name, initialize, &_InstructionTargeter_ClassInfo_, allocate$InstructionTargeter);
+	$MethodInfo methodInfos$$[] = {
+		{"containsTarget", "(Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(InstructionTargeter, containsTarget, bool, $InstructionHandle*)},
+		{"updateTarget", "(Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(InstructionTargeter, updateTarget, void, $InstructionHandle*, $InstructionHandle*), "com.sun.org.apache.bcel.internal.generic.ClassGenException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.org.apache.bcel.internal.generic.InstructionTargeter",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(InstructionTargeter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(InstructionTargeter);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/security/krb5/Checksum.h>
-
 #include <java/math/BigInteger.h>
 #include <java/util/Arrays.h>
 #include <sun/security/krb5/Asn1Exception.h>
@@ -33,7 +32,6 @@
 #undef SAFECKSUMTYPE_DEFAULT
 #undef TAG_CONTEXT
 
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -56,67 +54,13 @@ namespace sun {
 	namespace security {
 		namespace krb5 {
 
-$FieldInfo _Checksum_FieldInfo_[] = {
-	{"cksumType", "I", nullptr, $PRIVATE, $field(Checksum, cksumType)},
-	{"checksum", "[B", nullptr, $PRIVATE, $field(Checksum, checksum)},
-	{"CKSUMTYPE_NULL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Checksum, CKSUMTYPE_NULL)},
-	{"CKSUMTYPE_CRC32", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Checksum, CKSUMTYPE_CRC32)},
-	{"CKSUMTYPE_RSA_MD4", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Checksum, CKSUMTYPE_RSA_MD4)},
-	{"CKSUMTYPE_RSA_MD4_DES", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Checksum, CKSUMTYPE_RSA_MD4_DES)},
-	{"CKSUMTYPE_DES_MAC", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Checksum, CKSUMTYPE_DES_MAC)},
-	{"CKSUMTYPE_DES_MAC_K", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Checksum, CKSUMTYPE_DES_MAC_K)},
-	{"CKSUMTYPE_RSA_MD4_DES_K", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Checksum, CKSUMTYPE_RSA_MD4_DES_K)},
-	{"CKSUMTYPE_RSA_MD5", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Checksum, CKSUMTYPE_RSA_MD5)},
-	{"CKSUMTYPE_RSA_MD5_DES", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Checksum, CKSUMTYPE_RSA_MD5_DES)},
-	{"CKSUMTYPE_HMAC_SHA1_DES3_KD", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Checksum, CKSUMTYPE_HMAC_SHA1_DES3_KD)},
-	{"CKSUMTYPE_HMAC_SHA1_96_AES128", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Checksum, CKSUMTYPE_HMAC_SHA1_96_AES128)},
-	{"CKSUMTYPE_HMAC_SHA1_96_AES256", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Checksum, CKSUMTYPE_HMAC_SHA1_96_AES256)},
-	{"CKSUMTYPE_HMAC_SHA256_128_AES128", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Checksum, CKSUMTYPE_HMAC_SHA256_128_AES128)},
-	{"CKSUMTYPE_HMAC_SHA384_192_AES256", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Checksum, CKSUMTYPE_HMAC_SHA384_192_AES256)},
-	{"CKSUMTYPE_HMAC_MD5_ARCFOUR", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Checksum, CKSUMTYPE_HMAC_MD5_ARCFOUR)},
-	{"CKSUMTYPE_DEFAULT", "I", nullptr, $STATIC, $staticField(Checksum, CKSUMTYPE_DEFAULT)},
-	{"SAFECKSUMTYPE_DEFAULT", "I", nullptr, $STATIC, $staticField(Checksum, SAFECKSUMTYPE_DEFAULT)},
-	{"DEBUG", "Z", nullptr, $PRIVATE | $STATIC, $staticField(Checksum, DEBUG)},
-	{}
-};
-
-$MethodInfo _Checksum_MethodInfo_[] = {
-	{"<init>", "([BI)V", nullptr, $PUBLIC, $method(Checksum, init$, void, $bytes*, int32_t)},
-	{"<init>", "(I[BLsun/security/krb5/EncryptionKey;I)V", nullptr, $PUBLIC, $method(Checksum, init$, void, int32_t, $bytes*, $EncryptionKey*, int32_t), "sun.security.krb5.internal.KdcErrException,sun.security.krb5.internal.KrbApErrException,sun.security.krb5.KrbCryptoException"},
-	{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(Checksum, init$, void, $DerValue*), "sun.security.krb5.Asn1Exception,java.io.IOException"},
-	{"asn1Encode", "()[B", nullptr, $PUBLIC, $virtualMethod(Checksum, asn1Encode, $bytes*), "sun.security.krb5.Asn1Exception,java.io.IOException"},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Checksum, equals, bool, Object$*)},
-	{"getBytes", "()[B", nullptr, $PUBLIC | $FINAL, $method(Checksum, getBytes, $bytes*)},
-	{"getType", "()I", nullptr, $PUBLIC | $FINAL, $method(Checksum, getType, int32_t)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Checksum, hashCode, int32_t)},
-	{"initStatic", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(Checksum, initStatic, void)},
-	{"isEqual", "(Lsun/security/krb5/Checksum;)Z", nullptr, 0, $virtualMethod(Checksum, isEqual, bool, Checksum*), "sun.security.krb5.internal.KdcErrException"},
-	{"parse", "(Lsun/security/util/DerInputStream;BZ)Lsun/security/krb5/Checksum;", nullptr, $PUBLIC | $STATIC, $staticMethod(Checksum, parse, Checksum*, $DerInputStream*, int8_t, bool), "sun.security.krb5.Asn1Exception,java.io.IOException"},
-	{"verifyAnyChecksum", "([BLsun/security/krb5/EncryptionKey;I)Z", nullptr, $PUBLIC, $virtualMethod(Checksum, verifyAnyChecksum, bool, $bytes*, $EncryptionKey*, int32_t), "sun.security.krb5.internal.KdcErrException,sun.security.krb5.KrbCryptoException"},
-	{"verifyKeyedChecksum", "([BLsun/security/krb5/EncryptionKey;I)Z", nullptr, $PUBLIC, $virtualMethod(Checksum, verifyKeyedChecksum, bool, $bytes*, $EncryptionKey*, int32_t), "sun.security.krb5.internal.KdcErrException,sun.security.krb5.internal.KrbApErrException,sun.security.krb5.KrbCryptoException"},
-	{}
-};
-
-$ClassInfo _Checksum_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.krb5.Checksum",
-	"java.lang.Object",
-	nullptr,
-	_Checksum_FieldInfo_,
-	_Checksum_MethodInfo_
-};
-
-$Object* allocate$Checksum($Class* clazz) {
-	return $of($alloc(Checksum));
-}
-
 int32_t Checksum::CKSUMTYPE_DEFAULT = 0;
 int32_t Checksum::SAFECKSUMTYPE_DEFAULT = 0;
 bool Checksum::DEBUG = false;
 
 void Checksum::initStatic() {
 	$init(Checksum);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, temp, nullptr);
 	$var($Config, cfg, nullptr);
 	try {
@@ -162,17 +106,17 @@ void Checksum::init$($bytes* data, int32_t new_cksumType) {
 }
 
 void Checksum::init$(int32_t new_cksumType, $bytes* data, $EncryptionKey* key, int32_t usage) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (new_cksumType == -1) {
-		this->cksumType = $nc($($EType::getInstance($nc(key)->getEType())))->checksumType();
+		this->cksumType = $$nc($EType::getInstance($nc(key)->getEType()))->checksumType();
 	} else {
 		this->cksumType = new_cksumType;
 	}
-	$set(this, checksum, $nc($($CksumType::getInstance(this->cksumType)))->calculateChecksum(data, $nc(data)->length, $($nc(key)->getBytes()), usage));
+	$set(this, checksum, $$nc($CksumType::getInstance(this->cksumType))->calculateChecksum(data, $nc(data)->length, $($nc(key)->getBytes()), usage));
 }
 
 bool Checksum::verifyKeyedChecksum($bytes* data, $EncryptionKey* key, int32_t usage) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($CksumType, cksumEngine, $CksumType::getInstance(this->cksumType));
 	if (!$nc(cksumEngine)->isKeyed()) {
 		$throwNew($KrbApErrException, $Krb5::KRB_AP_ERR_INAPP_CKSUM);
@@ -182,45 +126,45 @@ bool Checksum::verifyKeyedChecksum($bytes* data, $EncryptionKey* key, int32_t us
 }
 
 bool Checksum::verifyAnyChecksum($bytes* data, $EncryptionKey* key, int32_t usage) {
-	$useLocalCurrentObjectStackCache();
-	return $nc($($CksumType::getInstance(this->cksumType)))->verifyChecksum(data, $nc(data)->length, $($nc(key)->getBytes()), this->checksum, usage);
+	$useLocalObjectStack();
+	return $$nc($CksumType::getInstance(this->cksumType))->verifyChecksum(data, $nc(data)->length, $($nc(key)->getBytes()), this->checksum, usage);
 }
 
 bool Checksum::isEqual(Checksum* cksum) {
 	if (this->cksumType != $nc(cksum)->cksumType) {
 		return false;
 	}
-	return $CksumType::isChecksumEqual(this->checksum, $nc(cksum)->checksum);
+	return $CksumType::isChecksumEqual(this->checksum, cksum->checksum);
 }
 
 void Checksum::init$($DerValue* encoding) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DerValue, der, nullptr);
 	if ($nc(encoding)->getTag() != $DerValue::tag_Sequence) {
 		$throwNew($Asn1Exception, $Krb5::ASN1_BAD_ID);
 	}
-	$assign(der, $nc($($nc(encoding)->getData()))->getDerValue());
-	if (((int32_t)($nc(der)->getTag() & (uint32_t)(int32_t)(int8_t)31)) == (int8_t)0) {
-		this->cksumType = $nc($($nc($(der->getData()))->getBigInteger()))->intValue();
+	$assign(der, $$nc(encoding->getData())->getDerValue());
+	if (($nc(der)->getTag() & (int8_t)31) == (int8_t)0) {
+		this->cksumType = $$nc($$nc(der->getData())->getBigInteger())->intValue();
 	} else {
 		$throwNew($Asn1Exception, $Krb5::ASN1_BAD_ID);
 	}
-	$assign(der, $nc($(encoding->getData()))->getDerValue());
-	if (((int32_t)($nc(der)->getTag() & (uint32_t)(int32_t)(int8_t)31)) == (int8_t)1) {
-		$set(this, checksum, $nc($(der->getData()))->getOctetString());
+	$assign(der, $$nc(encoding->getData())->getDerValue());
+	if (($nc(der)->getTag() & (int8_t)31) == (int8_t)1) {
+		$set(this, checksum, $$nc(der->getData())->getOctetString());
 	} else {
 		$throwNew($Asn1Exception, $Krb5::ASN1_BAD_ID);
 	}
-	if ($nc($(encoding->getData()))->available() > 0) {
+	if ($$nc(encoding->getData())->available() > 0) {
 		$throwNew($Asn1Exception, $Krb5::ASN1_BAD_ID);
 	}
 }
 
 $bytes* Checksum::asn1Encode() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DerOutputStream, bytes, $new($DerOutputStream));
 	$var($DerOutputStream, temp, $new($DerOutputStream));
-	temp->putInteger($($BigInteger::valueOf((int64_t)this->cksumType)));
+	temp->putInteger($($BigInteger::valueOf(this->cksumType)));
 	bytes->write($DerValue::createTag($DerValue::TAG_CONTEXT, true, (int8_t)0), temp);
 	$assign(temp, $new($DerOutputStream));
 	temp->putOctetString(this->checksum);
@@ -232,15 +176,15 @@ $bytes* Checksum::asn1Encode() {
 
 Checksum* Checksum::parse($DerInputStream* data, int8_t explicitTag, bool optional) {
 	$init(Checksum);
-	$useLocalCurrentObjectStackCache();
-	if ((optional) && (((int32_t)((int8_t)$nc(data)->peekByte() & (uint32_t)(int32_t)(int8_t)31)) != explicitTag)) {
+	$useLocalObjectStack();
+	if ((optional) && (((int8_t)$nc(data)->peekByte() & (int8_t)31) != explicitTag)) {
 		return nullptr;
 	}
 	$var($DerValue, der, $nc(data)->getDerValue());
-	if (explicitTag != ((int32_t)($nc(der)->getTag() & (uint32_t)(int32_t)(int8_t)31))) {
+	if (explicitTag != ($nc(der)->getTag() & (int8_t)31)) {
 		$throwNew($Asn1Exception, $Krb5::ASN1_BAD_ID);
 	} else {
-		$var($DerValue, subDer, $nc($(der->getData()))->getDerValue());
+		$var($DerValue, subDer, $$nc(der->getData())->getDerValue());
 		return $new(Checksum, subDer);
 	}
 }
@@ -277,7 +221,7 @@ int32_t Checksum::hashCode() {
 	return result;
 }
 
-void clinit$Checksum($Class* class$) {
+void Checksum::clinit$($Class* clazz) {
 	$init($Krb5);
 	Checksum::DEBUG = $Krb5::DEBUG;
 	{
@@ -289,7 +233,56 @@ Checksum::Checksum() {
 }
 
 $Class* Checksum::load$($String* name, bool initialize) {
-	$loadClass(Checksum, name, initialize, &_Checksum_ClassInfo_, clinit$Checksum, allocate$Checksum);
+	$FieldInfo fieldInfos$$[] = {
+		{"cksumType", "I", nullptr, $PRIVATE, $field(Checksum, cksumType)},
+		{"checksum", "[B", nullptr, $PRIVATE, $field(Checksum, checksum)},
+		{"CKSUMTYPE_NULL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Checksum, CKSUMTYPE_NULL)},
+		{"CKSUMTYPE_CRC32", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Checksum, CKSUMTYPE_CRC32)},
+		{"CKSUMTYPE_RSA_MD4", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Checksum, CKSUMTYPE_RSA_MD4)},
+		{"CKSUMTYPE_RSA_MD4_DES", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Checksum, CKSUMTYPE_RSA_MD4_DES)},
+		{"CKSUMTYPE_DES_MAC", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Checksum, CKSUMTYPE_DES_MAC)},
+		{"CKSUMTYPE_DES_MAC_K", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Checksum, CKSUMTYPE_DES_MAC_K)},
+		{"CKSUMTYPE_RSA_MD4_DES_K", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Checksum, CKSUMTYPE_RSA_MD4_DES_K)},
+		{"CKSUMTYPE_RSA_MD5", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Checksum, CKSUMTYPE_RSA_MD5)},
+		{"CKSUMTYPE_RSA_MD5_DES", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Checksum, CKSUMTYPE_RSA_MD5_DES)},
+		{"CKSUMTYPE_HMAC_SHA1_DES3_KD", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Checksum, CKSUMTYPE_HMAC_SHA1_DES3_KD)},
+		{"CKSUMTYPE_HMAC_SHA1_96_AES128", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Checksum, CKSUMTYPE_HMAC_SHA1_96_AES128)},
+		{"CKSUMTYPE_HMAC_SHA1_96_AES256", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Checksum, CKSUMTYPE_HMAC_SHA1_96_AES256)},
+		{"CKSUMTYPE_HMAC_SHA256_128_AES128", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Checksum, CKSUMTYPE_HMAC_SHA256_128_AES128)},
+		{"CKSUMTYPE_HMAC_SHA384_192_AES256", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Checksum, CKSUMTYPE_HMAC_SHA384_192_AES256)},
+		{"CKSUMTYPE_HMAC_MD5_ARCFOUR", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Checksum, CKSUMTYPE_HMAC_MD5_ARCFOUR)},
+		{"CKSUMTYPE_DEFAULT", "I", nullptr, $STATIC, $staticField(Checksum, CKSUMTYPE_DEFAULT)},
+		{"SAFECKSUMTYPE_DEFAULT", "I", nullptr, $STATIC, $staticField(Checksum, SAFECKSUMTYPE_DEFAULT)},
+		{"DEBUG", "Z", nullptr, $PRIVATE | $STATIC, $staticField(Checksum, DEBUG)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "([BI)V", nullptr, $PUBLIC, $method(Checksum, init$, void, $bytes*, int32_t)},
+		{"<init>", "(I[BLsun/security/krb5/EncryptionKey;I)V", nullptr, $PUBLIC, $method(Checksum, init$, void, int32_t, $bytes*, $EncryptionKey*, int32_t), "sun.security.krb5.internal.KdcErrException,sun.security.krb5.internal.KrbApErrException,sun.security.krb5.KrbCryptoException"},
+		{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(Checksum, init$, void, $DerValue*), "sun.security.krb5.Asn1Exception,java.io.IOException"},
+		{"asn1Encode", "()[B", nullptr, $PUBLIC, $virtualMethod(Checksum, asn1Encode, $bytes*), "sun.security.krb5.Asn1Exception,java.io.IOException"},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Checksum, equals, bool, Object$*)},
+		{"getBytes", "()[B", nullptr, $PUBLIC | $FINAL, $method(Checksum, getBytes, $bytes*)},
+		{"getType", "()I", nullptr, $PUBLIC | $FINAL, $method(Checksum, getType, int32_t)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Checksum, hashCode, int32_t)},
+		{"initStatic", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(Checksum, initStatic, void)},
+		{"isEqual", "(Lsun/security/krb5/Checksum;)Z", nullptr, 0, $virtualMethod(Checksum, isEqual, bool, Checksum*), "sun.security.krb5.internal.KdcErrException"},
+		{"parse", "(Lsun/security/util/DerInputStream;BZ)Lsun/security/krb5/Checksum;", nullptr, $PUBLIC | $STATIC, $staticMethod(Checksum, parse, Checksum*, $DerInputStream*, int8_t, bool), "sun.security.krb5.Asn1Exception,java.io.IOException"},
+		{"verifyAnyChecksum", "([BLsun/security/krb5/EncryptionKey;I)Z", nullptr, $PUBLIC, $virtualMethod(Checksum, verifyAnyChecksum, bool, $bytes*, $EncryptionKey*, int32_t), "sun.security.krb5.internal.KdcErrException,sun.security.krb5.KrbCryptoException"},
+		{"verifyKeyedChecksum", "([BLsun/security/krb5/EncryptionKey;I)Z", nullptr, $PUBLIC, $virtualMethod(Checksum, verifyKeyedChecksum, bool, $bytes*, $EncryptionKey*, int32_t), "sun.security.krb5.internal.KdcErrException,sun.security.krb5.internal.KrbApErrException,sun.security.krb5.KrbCryptoException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.krb5.Checksum",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Checksum, name, initialize, &classInfo$$, Checksum::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Checksum);
+	});
 	return class$;
 }
 

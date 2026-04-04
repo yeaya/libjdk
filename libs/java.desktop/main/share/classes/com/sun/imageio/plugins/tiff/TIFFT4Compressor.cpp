@@ -1,5 +1,4 @@
 #include <com/sun/imageio/plugins/tiff/TIFFT4Compressor.h>
-
 #include <com/sun/imageio/plugins/tiff/TIFFCompressor.h>
 #include <com/sun/imageio/plugins/tiff/TIFFFaxCompressor.h>
 #include <com/sun/imageio/plugins/tiff/TIFFFaxDecompressor.h>
@@ -22,7 +21,6 @@
 using $intArray2 = $Array<int32_t, 2>;
 using $TIFFFaxCompressor = ::com::sun::imageio::plugins::tiff::TIFFFaxCompressor;
 using $TIFFFaxDecompressor = ::com::sun::imageio::plugins::tiff::TIFFFaxDecompressor;
-using $TIFFIFD = ::com::sun::imageio::plugins::tiff::TIFFIFD;
 using $TIFFImageMetadata = ::com::sun::imageio::plugins::tiff::TIFFImageMetadata;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -32,47 +30,12 @@ using $IIOMetadata = ::javax::imageio::metadata::IIOMetadata;
 using $BaselineTIFFTagSet = ::javax::imageio::plugins::tiff::BaselineTIFFTagSet;
 using $TIFFField = ::javax::imageio::plugins::tiff::TIFFField;
 using $TIFFTag = ::javax::imageio::plugins::tiff::TIFFTag;
-using $ImageOutputStream = ::javax::imageio::stream::ImageOutputStream;
 
 namespace com {
 	namespace sun {
 		namespace imageio {
 			namespace plugins {
 				namespace tiff {
-
-$FieldInfo _TIFFT4Compressor_FieldInfo_[] = {
-	{"is1DMode", "Z", nullptr, $PRIVATE, $field(TIFFT4Compressor, is1DMode)},
-	{"isEOLAligned", "Z", nullptr, $PRIVATE, $field(TIFFT4Compressor, isEOLAligned)},
-	{}
-};
-
-$MethodInfo _TIFFT4Compressor_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TIFFT4Compressor, init$, void)},
-	{"add1DBits", "([BIII)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(TIFFT4Compressor, add1DBits, int32_t, $bytes*, int32_t, int32_t, int32_t)},
-	{"add2DBits", "([BI[[II)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(TIFFT4Compressor, add2DBits, int32_t, $bytes*, int32_t, $intArray2*, int32_t)},
-	{"addEOFB", "([BI)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(TIFFT4Compressor, addEOFB, int32_t, $bytes*, int32_t)},
-	{"addEOL", "(ZZZ[BI)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(TIFFT4Compressor, addEOL, int32_t, bool, bool, bool, $bytes*, int32_t)},
-	{"encode", "([BIII[II)I", nullptr, $PUBLIC, $virtualMethod(TIFFT4Compressor, encode, int32_t, $bytes*, int32_t, int32_t, int32_t, $ints*, int32_t), "java.io.IOException"},
-	{"encode1D", "([BIII[BI)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(TIFFT4Compressor, encode1D, int32_t, $bytes*, int32_t, int32_t, int32_t, $bytes*, int32_t)},
-	{"encodeT4", "(ZZ[BIIII[B)I", nullptr, $PUBLIC, $virtualMethod(TIFFT4Compressor, encodeT4, int32_t, bool, bool, $bytes*, int32_t, int32_t, int32_t, int32_t, $bytes*)},
-	{"initBitBuf", "()V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(TIFFT4Compressor, initBitBuf, void)},
-	{"nextState", "([BIII)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(TIFFT4Compressor, nextState, int32_t, $bytes*, int32_t, int32_t, int32_t)},
-	{"setMetadata", "(Ljavax/imageio/metadata/IIOMetadata;)V", nullptr, $PUBLIC, $virtualMethod(TIFFT4Compressor, setMetadata, void, $IIOMetadata*)},
-	{}
-};
-
-$ClassInfo _TIFFT4Compressor_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.imageio.plugins.tiff.TIFFT4Compressor",
-	"com.sun.imageio.plugins.tiff.TIFFFaxCompressor",
-	nullptr,
-	_TIFFT4Compressor_FieldInfo_,
-	_TIFFT4Compressor_MethodInfo_
-};
-
-$Object* allocate$TIFFT4Compressor($Class* clazz) {
-	return $of($alloc(TIFFT4Compressor));
-}
 
 void TIFFT4Compressor::init$() {
 	$TIFFFaxCompressor::init$("CCITT T.4"_s, $BaselineTIFFTagSet::COMPRESSION_CCITT_T_4, true);
@@ -81,20 +44,20 @@ void TIFFT4Compressor::init$() {
 }
 
 void TIFFT4Compressor::setMetadata($IIOMetadata* metadata) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$TIFFFaxCompressor::setMetadata(metadata);
 	if ($instanceOf($TIFFImageMetadata, metadata)) {
 		$var($TIFFImageMetadata, tim, $cast($TIFFImageMetadata, metadata));
-		$var($TIFFField, f, $nc(tim)->getTIFFField($BaselineTIFFTagSet::TAG_T4_OPTIONS));
+		$var($TIFFField, f, tim->getTIFFField($BaselineTIFFTagSet::TAG_T4_OPTIONS));
 		if (f != nullptr) {
 			int32_t options = f->getAsInt(0);
-			this->is1DMode = ((int32_t)(options & (uint32_t)1)) == 0;
-			this->isEOLAligned = ((int32_t)(options & (uint32_t)4)) == 4;
+			this->is1DMode = (options & 1) == 0;
+			this->isEOLAligned = (options & 4) == 4;
 		} else {
 			$var($longs, oarray, $new($longs, 1));
 			oarray->set(0, (this->isEOLAligned ? 4 : 0) | (this->is1DMode ? 0 : 1));
 			$var($BaselineTIFFTagSet, base, $BaselineTIFFTagSet::getInstance());
-			$var($TIFFField, T4Options, $new($TIFFField, $($nc(base)->getTag($BaselineTIFFTagSet::TAG_T4_OPTIONS)), $TIFFTag::TIFF_LONG, 1, $of(oarray)));
+			$var($TIFFField, T4Options, $new($TIFFField, $($nc(base)->getTag($BaselineTIFFTagSet::TAG_T4_OPTIONS)), $TIFFTag::TIFF_LONG, 1, oarray));
 			$nc(tim->rootIFD)->addTIFFField(T4Options);
 		}
 	}
@@ -115,9 +78,9 @@ int32_t TIFFT4Compressor::encodeT4(bool is1DMode, bool isEOLAligned, $bytes* dat
 			int32_t refAddr = lineAddr - lineStride;
 			int32_t a0 = colOffset;
 			int32_t last = a0 + width;
-			int32_t testbit = (int32_t)(($usr((int32_t)($nc(data)->get(lineAddr + ((int32_t)((uint32_t)a0 >> 3))) & (uint32_t)255), 7 - ((int32_t)(a0 & (uint32_t)7)))) & (uint32_t)1);
+			int32_t testbit = ($usr($nc(data)->get(lineAddr + ((int32_t)((uint32_t)a0 >> 3))) & 0xff, 7 - (a0 & 7))) & 1;
 			int32_t a1 = testbit != 0 ? a0 : nextState(data, lineAddr, a0, last);
-			testbit = (int32_t)(($usr((int32_t)($nc(refData)->get(refAddr + ((int32_t)((uint32_t)a0 >> 3))) & (uint32_t)255), 7 - ((int32_t)(a0 & (uint32_t)7)))) & (uint32_t)1);
+			testbit = ($usr($nc(refData)->get(refAddr + ((int32_t)((uint32_t)a0 >> 3))) & 0xff, 7 - (a0 & 7))) & 1;
 			int32_t b1 = testbit != 0 ? a0 : nextState(refData, refAddr, a0, last);
 			int32_t color = $TIFFFaxCompressor::WHITE;
 			while (true) {
@@ -144,10 +107,10 @@ int32_t TIFFT4Compressor::encodeT4(bool is1DMode, bool isEOLAligned, $bytes* dat
 				if (a0 >= last) {
 					break;
 				}
-				color = (int32_t)(($usr((int32_t)(data->get(lineAddr + ((int32_t)((uint32_t)a0 >> 3))) & (uint32_t)255), 7 - ((int32_t)(a0 & (uint32_t)7)))) & (uint32_t)1);
+				color = ($usr(data->get(lineAddr + ((int32_t)((uint32_t)a0 >> 3))) & 0xff, 7 - (a0 & 7))) & 1;
 				a1 = nextState(data, lineAddr, a0, last);
 				b1 = nextState(refData, refAddr, a0, last);
-				testbit = (int32_t)(($usr((int32_t)(refData->get(refAddr + ((int32_t)((uint32_t)b1 >> 3))) & (uint32_t)255), 7 - ((int32_t)(b1 & (uint32_t)7)))) & (uint32_t)1);
+				testbit = ($usr(refData->get(refAddr + ((int32_t)((uint32_t)b1 >> 3))) & 0xff, 7 - (b1 & 7))) & 1;
 				if (testbit == color) {
 					b1 = nextState(refData, refAddr, b1, last);
 				}
@@ -166,14 +129,14 @@ int32_t TIFFT4Compressor::encodeT4(bool is1DMode, bool isEOLAligned, $bytes* dat
 	if (this->inverseFill) {
 		for (int32_t i = 0; i < outIndex; ++i) {
 			$init($TIFFFaxDecompressor);
-			$nc(compData)->set(i, $nc($TIFFFaxDecompressor::flipTable)->get((int32_t)(compData->get(i) & (uint32_t)255)));
+			$nc(compData)->set(i, $nc($TIFFFaxDecompressor::flipTable)->get($nc(compData)->get(i) & 0xff));
 		}
 	}
 	return outIndex;
 }
 
 int32_t TIFFT4Compressor::encode($bytes* b, int32_t off, int32_t width, int32_t height, $ints* bitsPerSample, int32_t scanlineStride) {
-	if ($nc(bitsPerSample)->length != 1 || $nc(bitsPerSample)->get(0) != 1) {
+	if ($nc(bitsPerSample)->length != 1 || bitsPerSample->get(0) != 1) {
 		$throwNew($IIOException, "Bits per sample must be 1 for T4 compression!"_s);
 	}
 	int32_t maxBits = 9 * ((width + 1) / 2) + 2;
@@ -217,7 +180,36 @@ TIFFT4Compressor::TIFFT4Compressor() {
 }
 
 $Class* TIFFT4Compressor::load$($String* name, bool initialize) {
-	$loadClass(TIFFT4Compressor, name, initialize, &_TIFFT4Compressor_ClassInfo_, allocate$TIFFT4Compressor);
+	$FieldInfo fieldInfos$$[] = {
+		{"is1DMode", "Z", nullptr, $PRIVATE, $field(TIFFT4Compressor, is1DMode)},
+		{"isEOLAligned", "Z", nullptr, $PRIVATE, $field(TIFFT4Compressor, isEOLAligned)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TIFFT4Compressor, init$, void)},
+		{"add1DBits", "([BIII)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(TIFFT4Compressor, add1DBits, int32_t, $bytes*, int32_t, int32_t, int32_t)},
+		{"add2DBits", "([BI[[II)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(TIFFT4Compressor, add2DBits, int32_t, $bytes*, int32_t, $intArray2*, int32_t)},
+		{"addEOFB", "([BI)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(TIFFT4Compressor, addEOFB, int32_t, $bytes*, int32_t)},
+		{"addEOL", "(ZZZ[BI)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(TIFFT4Compressor, addEOL, int32_t, bool, bool, bool, $bytes*, int32_t)},
+		{"encode", "([BIII[II)I", nullptr, $PUBLIC, $virtualMethod(TIFFT4Compressor, encode, int32_t, $bytes*, int32_t, int32_t, int32_t, $ints*, int32_t), "java.io.IOException"},
+		{"encode1D", "([BIII[BI)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(TIFFT4Compressor, encode1D, int32_t, $bytes*, int32_t, int32_t, int32_t, $bytes*, int32_t)},
+		{"encodeT4", "(ZZ[BIIII[B)I", nullptr, $PUBLIC, $virtualMethod(TIFFT4Compressor, encodeT4, int32_t, bool, bool, $bytes*, int32_t, int32_t, int32_t, int32_t, $bytes*)},
+		{"initBitBuf", "()V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(TIFFT4Compressor, initBitBuf, void)},
+		{"nextState", "([BIII)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(TIFFT4Compressor, nextState, int32_t, $bytes*, int32_t, int32_t, int32_t)},
+		{"setMetadata", "(Ljavax/imageio/metadata/IIOMetadata;)V", nullptr, $PUBLIC, $virtualMethod(TIFFT4Compressor, setMetadata, void, $IIOMetadata*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.imageio.plugins.tiff.TIFFT4Compressor",
+		"com.sun.imageio.plugins.tiff.TIFFFaxCompressor",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TIFFT4Compressor, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TIFFT4Compressor);
+	});
 	return class$;
 }
 

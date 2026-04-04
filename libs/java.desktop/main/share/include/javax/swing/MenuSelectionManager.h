@@ -60,6 +60,7 @@ class $import MenuSelectionManager : public ::java::lang::Object {
 	$class(MenuSelectionManager, 0, ::java::lang::Object)
 public:
 	MenuSelectionManager();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void addChangeListener(::javax::swing::event::ChangeListener* l);
 	virtual void clearSelectedPath();

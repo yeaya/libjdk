@@ -1,8 +1,6 @@
 #include <com/sun/tools/javac/tree/JCTree$JCMemberReference.h>
-
 #include <com/sun/source/tree/ExpressionTree.h>
 #include <com/sun/source/tree/MemberReferenceTree$ReferenceMode.h>
-#include <com/sun/source/tree/MemberReferenceTree.h>
 #include <com/sun/source/tree/Tree$Kind.h>
 #include <com/sun/source/tree/TreeVisitor.h>
 #include <com/sun/tools/javac/code/Symbol.h>
@@ -25,7 +23,6 @@
 #undef REFERENCE
 
 using $ExpressionTree = ::com::sun::source::tree::ExpressionTree;
-using $MemberReferenceTree = ::com::sun::source::tree::MemberReferenceTree;
 using $MemberReferenceTree$ReferenceMode = ::com::sun::source::tree::MemberReferenceTree$ReferenceMode;
 using $Tree$Kind = ::com::sun::source::tree::Tree$Kind;
 using $TreeVisitor = ::com::sun::source::tree::TreeVisitor;
@@ -49,70 +46,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace tree {
-
-$FieldInfo _JCTree$JCMemberReference_FieldInfo_[] = {
-	{"mode", "Lcom/sun/source/tree/MemberReferenceTree$ReferenceMode;", nullptr, $PUBLIC, $field(JCTree$JCMemberReference, mode)},
-	{"kind", "Lcom/sun/tools/javac/tree/JCTree$JCMemberReference$ReferenceKind;", nullptr, $PUBLIC, $field(JCTree$JCMemberReference, kind)},
-	{"name", "Lcom/sun/tools/javac/util/Name;", nullptr, $PUBLIC, $field(JCTree$JCMemberReference, name)},
-	{"expr", "Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, $PUBLIC, $field(JCTree$JCMemberReference, expr)},
-	{"typeargs", "Lcom/sun/tools/javac/util/List;", "Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;", $PUBLIC, $field(JCTree$JCMemberReference, typeargs)},
-	{"sym", "Lcom/sun/tools/javac/code/Symbol;", nullptr, $PUBLIC, $field(JCTree$JCMemberReference, sym)},
-	{"varargsElement", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $field(JCTree$JCMemberReference, varargsElement)},
-	{"refPolyKind", "Lcom/sun/tools/javac/tree/JCTree$JCPolyExpression$PolyKind;", nullptr, $PUBLIC, $field(JCTree$JCMemberReference, refPolyKind)},
-	{"ownerAccessible", "Z", nullptr, $PUBLIC, $field(JCTree$JCMemberReference, ownerAccessible)},
-	{"overloadKind", "Lcom/sun/tools/javac/tree/JCTree$JCMemberReference$OverloadKind;", nullptr, $PRIVATE, $field(JCTree$JCMemberReference, overloadKind)},
-	{"referentType", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $field(JCTree$JCMemberReference, referentType)},
-	{}
-};
-
-$MethodInfo _JCTree$JCMemberReference_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lcom/sun/source/tree/MemberReferenceTree$ReferenceMode;Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/source/tree/MemberReferenceTree$ReferenceMode;Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;)V", $PUBLIC, $method(JCTree$JCMemberReference, init$, void, $MemberReferenceTree$ReferenceMode*, $Name*, $JCTree$JCExpression*, $List*)},
-	{"accept", "(Lcom/sun/tools/javac/tree/JCTree$Visitor;)V", nullptr, $PUBLIC, $virtualMethod(JCTree$JCMemberReference, accept, void, $JCTree$Visitor*)},
-	{"accept", "(Lcom/sun/source/tree/TreeVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;D:Ljava/lang/Object;>(Lcom/sun/source/tree/TreeVisitor<TR;TD;>;TD;)TR;", $PUBLIC, $virtualMethod(JCTree$JCMemberReference, accept, $Object*, $TreeVisitor*, Object$*)},
-	{"getKind", "()Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCMemberReference, getKind, $Tree$Kind*)},
-	{"getMode", "()Lcom/sun/source/tree/MemberReferenceTree$ReferenceMode;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCMemberReference, getMode, $MemberReferenceTree$ReferenceMode*)},
-	{"getName", "()Lcom/sun/tools/javac/util/Name;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCMemberReference, getName, $1Name*)},
-	{"getOverloadKind", "()Lcom/sun/tools/javac/tree/JCTree$JCMemberReference$OverloadKind;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCMemberReference, getOverloadKind, $JCTree$JCMemberReference$OverloadKind*)},
-	{"getQualifierExpression", "()Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCMemberReference, getQualifierExpression, $ExpressionTree*)},
-	{"getTag", "()Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCMemberReference, getTag, $JCTree$Tag*)},
-	{"getTypeArguments", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;", $PUBLIC, $virtualMethod(JCTree$JCMemberReference, getTypeArguments, $1List*)},
-	{"hasKind", "(Lcom/sun/tools/javac/tree/JCTree$JCMemberReference$ReferenceKind;)Z", nullptr, $PUBLIC, $virtualMethod(JCTree$JCMemberReference, hasKind, bool, $JCTree$JCMemberReference$ReferenceKind*)},
-	{"setOverloadKind", "(Lcom/sun/tools/javac/tree/JCTree$JCMemberReference$OverloadKind;)V", nullptr, $PUBLIC, $virtualMethod(JCTree$JCMemberReference, setOverloadKind, void, $JCTree$JCMemberReference$OverloadKind*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _JCTree$JCMemberReference_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.tree.JCTree$JCMemberReference", "com.sun.tools.javac.tree.JCTree", "JCMemberReference", $PUBLIC | $STATIC},
-	{"com.sun.tools.javac.tree.JCTree$JCFunctionalExpression", "com.sun.tools.javac.tree.JCTree", "JCFunctionalExpression", $PUBLIC | $STATIC | $ABSTRACT},
-	{"com.sun.tools.javac.tree.JCTree$JCMemberReference$ReferenceKind", "com.sun.tools.javac.tree.JCTree$JCMemberReference", "ReferenceKind", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{"com.sun.tools.javac.tree.JCTree$JCMemberReference$OverloadKind", "com.sun.tools.javac.tree.JCTree$JCMemberReference", "OverloadKind", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _JCTree$JCMemberReference_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.tree.JCTree$JCMemberReference",
-	"com.sun.tools.javac.tree.JCTree$JCFunctionalExpression",
-	"com.sun.source.tree.MemberReferenceTree",
-	_JCTree$JCMemberReference_FieldInfo_,
-	_JCTree$JCMemberReference_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JCTree$JCMemberReference_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.tree.JCTree"
-};
-
-$Object* allocate$JCTree$JCMemberReference($Class* clazz) {
-	return $of($alloc(JCTree$JCMemberReference));
-}
 
 $String* JCTree$JCMemberReference::toString() {
 	 return this->$JCTree$JCFunctionalExpression::toString();
@@ -168,7 +101,7 @@ $1List* JCTree$JCMemberReference::getTypeArguments() {
 }
 
 $Object* JCTree$JCMemberReference::accept($TreeVisitor* v, Object$* d) {
-	return $of($nc(v)->visitMemberReference(this, d));
+	return $nc(v)->visitMemberReference(this, d);
 }
 
 $JCTree$Tag* JCTree$JCMemberReference::getTag() {
@@ -192,7 +125,65 @@ JCTree$JCMemberReference::JCTree$JCMemberReference() {
 }
 
 $Class* JCTree$JCMemberReference::load$($String* name, bool initialize) {
-	$loadClass(JCTree$JCMemberReference, name, initialize, &_JCTree$JCMemberReference_ClassInfo_, allocate$JCTree$JCMemberReference);
+	$FieldInfo fieldInfos$$[] = {
+		{"mode", "Lcom/sun/source/tree/MemberReferenceTree$ReferenceMode;", nullptr, $PUBLIC, $field(JCTree$JCMemberReference, mode)},
+		{"kind", "Lcom/sun/tools/javac/tree/JCTree$JCMemberReference$ReferenceKind;", nullptr, $PUBLIC, $field(JCTree$JCMemberReference, kind)},
+		{"name", "Lcom/sun/tools/javac/util/Name;", nullptr, $PUBLIC, $field(JCTree$JCMemberReference, name)},
+		{"expr", "Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, $PUBLIC, $field(JCTree$JCMemberReference, expr)},
+		{"typeargs", "Lcom/sun/tools/javac/util/List;", "Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;", $PUBLIC, $field(JCTree$JCMemberReference, typeargs)},
+		{"sym", "Lcom/sun/tools/javac/code/Symbol;", nullptr, $PUBLIC, $field(JCTree$JCMemberReference, sym)},
+		{"varargsElement", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $field(JCTree$JCMemberReference, varargsElement)},
+		{"refPolyKind", "Lcom/sun/tools/javac/tree/JCTree$JCPolyExpression$PolyKind;", nullptr, $PUBLIC, $field(JCTree$JCMemberReference, refPolyKind)},
+		{"ownerAccessible", "Z", nullptr, $PUBLIC, $field(JCTree$JCMemberReference, ownerAccessible)},
+		{"overloadKind", "Lcom/sun/tools/javac/tree/JCTree$JCMemberReference$OverloadKind;", nullptr, $PRIVATE, $field(JCTree$JCMemberReference, overloadKind)},
+		{"referentType", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $field(JCTree$JCMemberReference, referentType)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lcom/sun/source/tree/MemberReferenceTree$ReferenceMode;Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/source/tree/MemberReferenceTree$ReferenceMode;Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;)V", $PUBLIC, $method(JCTree$JCMemberReference, init$, void, $MemberReferenceTree$ReferenceMode*, $Name*, $JCTree$JCExpression*, $List*)},
+		{"accept", "(Lcom/sun/tools/javac/tree/JCTree$Visitor;)V", nullptr, $PUBLIC, $virtualMethod(JCTree$JCMemberReference, accept, void, $JCTree$Visitor*)},
+		{"accept", "(Lcom/sun/source/tree/TreeVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;D:Ljava/lang/Object;>(Lcom/sun/source/tree/TreeVisitor<TR;TD;>;TD;)TR;", $PUBLIC, $virtualMethod(JCTree$JCMemberReference, accept, $Object*, $TreeVisitor*, Object$*)},
+		{"getKind", "()Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCMemberReference, getKind, $Tree$Kind*)},
+		{"getMode", "()Lcom/sun/source/tree/MemberReferenceTree$ReferenceMode;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCMemberReference, getMode, $MemberReferenceTree$ReferenceMode*)},
+		{"getName", "()Lcom/sun/tools/javac/util/Name;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCMemberReference, getName, $1Name*)},
+		{"getOverloadKind", "()Lcom/sun/tools/javac/tree/JCTree$JCMemberReference$OverloadKind;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCMemberReference, getOverloadKind, $JCTree$JCMemberReference$OverloadKind*)},
+		{"getQualifierExpression", "()Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCMemberReference, getQualifierExpression, $ExpressionTree*)},
+		{"getTag", "()Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCMemberReference, getTag, $JCTree$Tag*)},
+		{"getTypeArguments", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;", $PUBLIC, $virtualMethod(JCTree$JCMemberReference, getTypeArguments, $1List*)},
+		{"hasKind", "(Lcom/sun/tools/javac/tree/JCTree$JCMemberReference$ReferenceKind;)Z", nullptr, $PUBLIC, $virtualMethod(JCTree$JCMemberReference, hasKind, bool, $JCTree$JCMemberReference$ReferenceKind*)},
+		{"setOverloadKind", "(Lcom/sun/tools/javac/tree/JCTree$JCMemberReference$OverloadKind;)V", nullptr, $PUBLIC, $virtualMethod(JCTree$JCMemberReference, setOverloadKind, void, $JCTree$JCMemberReference$OverloadKind*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.tree.JCTree$JCMemberReference", "com.sun.tools.javac.tree.JCTree", "JCMemberReference", $PUBLIC | $STATIC},
+		{"com.sun.tools.javac.tree.JCTree$JCFunctionalExpression", "com.sun.tools.javac.tree.JCTree", "JCFunctionalExpression", $PUBLIC | $STATIC | $ABSTRACT},
+		{"com.sun.tools.javac.tree.JCTree$JCMemberReference$ReferenceKind", "com.sun.tools.javac.tree.JCTree$JCMemberReference", "ReferenceKind", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{"com.sun.tools.javac.tree.JCTree$JCMemberReference$OverloadKind", "com.sun.tools.javac.tree.JCTree$JCMemberReference", "OverloadKind", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.tree.JCTree$JCMemberReference",
+		"com.sun.tools.javac.tree.JCTree$JCFunctionalExpression",
+		"com.sun.source.tree.MemberReferenceTree",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.tree.JCTree"
+	};
+	$loadClass(JCTree$JCMemberReference, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JCTree$JCMemberReference));
+	});
 	return class$;
 }
 

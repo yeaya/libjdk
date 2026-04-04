@@ -1,5 +1,4 @@
 #include <javax/xml/crypto/dsig/keyinfo/KeyValue.h>
-
 #include <java/security/PublicKey.h>
 #include <jcpp.h>
 
@@ -18,43 +17,38 @@ namespace javax {
 			namespace dsig {
 				namespace keyinfo {
 
-$FieldInfo _KeyValue_FieldInfo_[] = {
-	{"DSA_TYPE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(KeyValue, DSA_TYPE)},
-	{"RSA_TYPE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(KeyValue, RSA_TYPE)},
-	{"EC_TYPE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(KeyValue, EC_TYPE)},
-	{}
-};
-
-$MethodInfo _KeyValue_MethodInfo_[] = {
-	{"getPublicKey", "()Ljava/security/PublicKey;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(KeyValue, getPublicKey, $PublicKey*), "java.security.KeyException"},
-	{}
-};
-
-$ClassInfo _KeyValue_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"javax.xml.crypto.dsig.keyinfo.KeyValue",
-	nullptr,
-	"javax.xml.crypto.XMLStructure",
-	_KeyValue_FieldInfo_,
-	_KeyValue_MethodInfo_
-};
-
-$Object* allocate$KeyValue($Class* clazz) {
-	return $of($alloc(KeyValue));
-}
-
 $String* KeyValue::DSA_TYPE = nullptr;
 $String* KeyValue::RSA_TYPE = nullptr;
 $String* KeyValue::EC_TYPE = nullptr;
 
-void clinit$KeyValue($Class* class$) {
+void KeyValue::clinit$($Class* clazz) {
 	$assignStatic(KeyValue::DSA_TYPE, "http://www.w3.org/2000/09/xmldsig#DSAKeyValue"_s);
 	$assignStatic(KeyValue::RSA_TYPE, "http://www.w3.org/2000/09/xmldsig#RSAKeyValue"_s);
 	$assignStatic(KeyValue::EC_TYPE, "http://www.w3.org/2009/xmldsig11#ECKeyValue"_s);
 }
 
 $Class* KeyValue::load$($String* name, bool initialize) {
-	$loadClass(KeyValue, name, initialize, &_KeyValue_ClassInfo_, clinit$KeyValue, allocate$KeyValue);
+	$FieldInfo fieldInfos$$[] = {
+		{"DSA_TYPE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(KeyValue, DSA_TYPE)},
+		{"RSA_TYPE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(KeyValue, RSA_TYPE)},
+		{"EC_TYPE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(KeyValue, EC_TYPE)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"getPublicKey", "()Ljava/security/PublicKey;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(KeyValue, getPublicKey, $PublicKey*), "java.security.KeyException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"javax.xml.crypto.dsig.keyinfo.KeyValue",
+		nullptr,
+		"javax.xml.crypto.XMLStructure",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(KeyValue, name, initialize, &classInfo$$, KeyValue::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(KeyValue);
+	});
 	return class$;
 }
 

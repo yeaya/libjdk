@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/util/NamespaceSupport.h>
-
 #include <com/sun/org/apache/xerces/internal/util/NamespaceSupport$IteratorPrefixes.h>
 #include <com/sun/org/apache/xerces/internal/util/NamespaceSupport$Prefixes.h>
 #include <com/sun/org/apache/xerces/internal/util/XMLSymbols.h>
@@ -36,59 +35,6 @@ namespace com {
 					namespace internal {
 						namespace util {
 
-$FieldInfo _NamespaceSupport_FieldInfo_[] = {
-	{"fNamespace", "[Ljava/lang/String;", nullptr, $PROTECTED, $field(NamespaceSupport, fNamespace)},
-	{"fNamespaceSize", "I", nullptr, $PROTECTED, $field(NamespaceSupport, fNamespaceSize)},
-	{"fContext", "[I", nullptr, $PROTECTED, $field(NamespaceSupport, fContext)},
-	{"fCurrentContext", "I", nullptr, $PROTECTED, $field(NamespaceSupport, fCurrentContext)},
-	{"fPrefixes", "[Ljava/lang/String;", nullptr, $PROTECTED, $field(NamespaceSupport, fPrefixes)},
-	{}
-};
-
-$MethodInfo _NamespaceSupport_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(NamespaceSupport, init$, void)},
-	{"<init>", "(Lcom/sun/org/apache/xerces/internal/xni/NamespaceContext;)V", nullptr, $PUBLIC, $method(NamespaceSupport, init$, void, $NamespaceContext*)},
-	{"containsPrefix", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(NamespaceSupport, containsPrefix, bool, $String*)},
-	{"containsPrefixInCurrentContext", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(NamespaceSupport, containsPrefixInCurrentContext, bool, $String*)},
-	{"declarePrefix", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(NamespaceSupport, declarePrefix, bool, $String*, $String*)},
-	{"getAllPrefixes", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(NamespaceSupport, getAllPrefixes, $Enumeration*)},
-	{"getDeclaredPrefixAt", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(NamespaceSupport, getDeclaredPrefixAt, $String*, int32_t)},
-	{"getDeclaredPrefixCount", "()I", nullptr, $PUBLIC, $virtualMethod(NamespaceSupport, getDeclaredPrefixCount, int32_t)},
-	{"getPrefix", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(NamespaceSupport, getPrefix, $String*, $String*)},
-	{"getPrefixes", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(NamespaceSupport, getPrefixes, $Iterator*)},
-	{"getPrefixes", "(Ljava/lang/String;)Ljava/util/List;", "(Ljava/lang/String;)Ljava/util/List<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(NamespaceSupport, getPrefixes, $List*, $String*)},
-	{"getURI", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(NamespaceSupport, getURI, $String*, $String*)},
-	{"popContext", "()V", nullptr, $PUBLIC, $virtualMethod(NamespaceSupport, popContext, void)},
-	{"pushContext", "()V", nullptr, $PUBLIC, $virtualMethod(NamespaceSupport, pushContext, void)},
-	{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(NamespaceSupport, reset, void)},
-	{}
-};
-
-$InnerClassInfo _NamespaceSupport_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xerces.internal.util.NamespaceSupport$Prefixes", "com.sun.org.apache.xerces.internal.util.NamespaceSupport", "Prefixes", $PROTECTED | $FINAL},
-	{"com.sun.org.apache.xerces.internal.util.NamespaceSupport$IteratorPrefixes", "com.sun.org.apache.xerces.internal.util.NamespaceSupport", "IteratorPrefixes", $PROTECTED | $FINAL},
-	{}
-};
-
-$ClassInfo _NamespaceSupport_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.util.NamespaceSupport",
-	"java.lang.Object",
-	"com.sun.org.apache.xerces.internal.xni.NamespaceContext",
-	_NamespaceSupport_FieldInfo_,
-	_NamespaceSupport_MethodInfo_,
-	nullptr,
-	nullptr,
-	_NamespaceSupport_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xerces.internal.util.NamespaceSupport$Prefixes,com.sun.org.apache.xerces.internal.util.NamespaceSupport$IteratorPrefixes"
-};
-
-$Object* allocate$NamespaceSupport($Class* clazz) {
-	return $of($alloc(NamespaceSupport));
-}
-
 void NamespaceSupport::init$() {
 	$set(this, fNamespace, $new($StringArray, 16 * 2));
 	$set(this, fContext, $new($ints, 8));
@@ -96,7 +42,7 @@ void NamespaceSupport::init$() {
 }
 
 void NamespaceSupport::init$($NamespaceContext* context) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, fNamespace, $new($StringArray, 16 * 2));
 	$set(this, fContext, $new($ints, 8));
 	$set(this, fPrefixes, $new($StringArray, 16));
@@ -115,19 +61,19 @@ void NamespaceSupport::reset() {
 	$init($XMLSymbols);
 	$nc(this->fNamespace)->set(this->fNamespaceSize++, $XMLSymbols::PREFIX_XML);
 	$init($NamespaceContext);
-	$nc(this->fNamespace)->set(this->fNamespaceSize++, $NamespaceContext::XML_URI);
-	$nc(this->fNamespace)->set(this->fNamespaceSize++, $XMLSymbols::PREFIX_XMLNS);
-	$nc(this->fNamespace)->set(this->fNamespaceSize++, $NamespaceContext::XMLNS_URI);
+	this->fNamespace->set(this->fNamespaceSize++, $NamespaceContext::XML_URI);
+	this->fNamespace->set(this->fNamespaceSize++, $XMLSymbols::PREFIX_XMLNS);
+	this->fNamespace->set(this->fNamespaceSize++, $NamespaceContext::XMLNS_URI);
 	$nc(this->fContext)->set(this->fCurrentContext, this->fNamespaceSize);
 }
 
 void NamespaceSupport::pushContext() {
 	if (this->fCurrentContext + 1 == $nc(this->fContext)->length) {
-		$var($ints, contextarray, $new($ints, $nc(this->fContext)->length * 2));
-		$System::arraycopy(this->fContext, 0, contextarray, 0, $nc(this->fContext)->length);
+		$var($ints, contextarray, $new($ints, this->fContext->length * 2));
+		$System::arraycopy(this->fContext, 0, contextarray, 0, this->fContext->length);
 		$set(this, fContext, contextarray);
 	}
-	$nc(this->fContext)->set(++this->fCurrentContext, this->fNamespaceSize);
+	this->fContext->set(++this->fCurrentContext, this->fNamespaceSize);
 }
 
 void NamespaceSupport::popContext() {
@@ -141,7 +87,7 @@ bool NamespaceSupport::declarePrefix($String* prefix, $String* uri) {
 	}
 	for (int32_t i = this->fNamespaceSize; i > $nc(this->fContext)->get(this->fCurrentContext); i -= 2) {
 		if ($nc(this->fNamespace)->get(i - 2) == prefix) {
-			$nc(this->fNamespace)->set(i - 1, uri);
+			this->fNamespace->set(i - 1, uri);
 			return true;
 		}
 	}
@@ -150,15 +96,15 @@ bool NamespaceSupport::declarePrefix($String* prefix, $String* uri) {
 		$System::arraycopy(this->fNamespace, 0, namespacearray, 0, this->fNamespaceSize);
 		$set(this, fNamespace, namespacearray);
 	}
-	$nc(this->fNamespace)->set(this->fNamespaceSize++, prefix);
-	$nc(this->fNamespace)->set(this->fNamespaceSize++, uri);
+	this->fNamespace->set(this->fNamespaceSize++, prefix);
+	this->fNamespace->set(this->fNamespaceSize++, uri);
 	return true;
 }
 
 $String* NamespaceSupport::getURI($String* prefix) {
 	for (int32_t i = this->fNamespaceSize; i > 0; i -= 2) {
 		if ($nc(this->fNamespace)->get(i - 2) == prefix) {
-			return $nc(this->fNamespace)->get(i - 1);
+			return this->fNamespace->get(i - 1);
 		}
 	}
 	return nullptr;
@@ -167,7 +113,7 @@ $String* NamespaceSupport::getURI($String* prefix) {
 $String* NamespaceSupport::getPrefix($String* uri) {
 	for (int32_t i = this->fNamespaceSize; i > 0; i -= 2) {
 		if ($nc(this->fNamespace)->get(i - 1) == uri) {
-			if (getURI($nc(this->fNamespace)->get(i - 2)) == uri) {
+			if (getURI(this->fNamespace->get(i - 2)) == uri) {
 				return $nc(this->fNamespace)->get(i - 2);
 			}
 		}
@@ -184,7 +130,7 @@ $String* NamespaceSupport::getDeclaredPrefixAt(int32_t index) {
 }
 
 $Iterator* NamespaceSupport::getPrefixes() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t count = 0;
 	if ($nc(this->fPrefixes)->length < ($nc(this->fNamespace)->length / 2)) {
 		$var($StringArray, prefixes, $new($StringArray, this->fNamespaceSize));
@@ -193,15 +139,15 @@ $Iterator* NamespaceSupport::getPrefixes() {
 	$var($String, prefix, nullptr);
 	bool unique = true;
 	for (int32_t i = 2; i < (this->fNamespaceSize - 2); i += 2) {
-		$assign(prefix, $nc(this->fNamespace)->get(i + 2));
+		$assign(prefix, this->fNamespace->get(i + 2));
 		for (int32_t k = 0; k < count; ++k) {
-			if ($nc(this->fPrefixes)->get(k) == prefix) {
+			if (this->fPrefixes->get(k) == prefix) {
 				unique = false;
 				break;
 			}
 		}
 		if (unique) {
-			$nc(this->fPrefixes)->set(count++, prefix);
+			this->fPrefixes->set(count++, prefix);
 		}
 		unique = true;
 	}
@@ -209,7 +155,7 @@ $Iterator* NamespaceSupport::getPrefixes() {
 }
 
 $Enumeration* NamespaceSupport::getAllPrefixes() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t count = 0;
 	if ($nc(this->fPrefixes)->length < ($nc(this->fNamespace)->length / 2)) {
 		$var($StringArray, prefixes, $new($StringArray, this->fNamespaceSize));
@@ -218,15 +164,15 @@ $Enumeration* NamespaceSupport::getAllPrefixes() {
 	$var($String, prefix, nullptr);
 	bool unique = true;
 	for (int32_t i = 2; i < (this->fNamespaceSize - 2); i += 2) {
-		$assign(prefix, $nc(this->fNamespace)->get(i + 2));
+		$assign(prefix, this->fNamespace->get(i + 2));
 		for (int32_t k = 0; k < count; ++k) {
-			if ($nc(this->fPrefixes)->get(k) == prefix) {
+			if (this->fPrefixes->get(k) == prefix) {
 				unique = false;
 				break;
 			}
 		}
 		if (unique) {
-			$nc(this->fPrefixes)->set(count++, prefix);
+			this->fPrefixes->set(count++, prefix);
 		}
 		unique = true;
 	}
@@ -234,15 +180,15 @@ $Enumeration* NamespaceSupport::getAllPrefixes() {
 }
 
 $List* NamespaceSupport::getPrefixes($String* uri) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t count = 0;
 	$var($String, prefix, nullptr);
 	bool unique = true;
 	$var($List, prefixList, $new($ArrayList));
 	for (int32_t i = this->fNamespaceSize; i > 0; i -= 2) {
 		if ($nc(this->fNamespace)->get(i - 1) == uri) {
-			if (!prefixList->contains($nc(this->fNamespace)->get(i - 2))) {
-				prefixList->add($nc(this->fNamespace)->get(i - 2));
+			if (!prefixList->contains(this->fNamespace->get(i - 2))) {
+				prefixList->add(this->fNamespace->get(i - 2));
 			}
 		}
 	}
@@ -271,7 +217,54 @@ NamespaceSupport::NamespaceSupport() {
 }
 
 $Class* NamespaceSupport::load$($String* name, bool initialize) {
-	$loadClass(NamespaceSupport, name, initialize, &_NamespaceSupport_ClassInfo_, allocate$NamespaceSupport);
+	$FieldInfo fieldInfos$$[] = {
+		{"fNamespace", "[Ljava/lang/String;", nullptr, $PROTECTED, $field(NamespaceSupport, fNamespace)},
+		{"fNamespaceSize", "I", nullptr, $PROTECTED, $field(NamespaceSupport, fNamespaceSize)},
+		{"fContext", "[I", nullptr, $PROTECTED, $field(NamespaceSupport, fContext)},
+		{"fCurrentContext", "I", nullptr, $PROTECTED, $field(NamespaceSupport, fCurrentContext)},
+		{"fPrefixes", "[Ljava/lang/String;", nullptr, $PROTECTED, $field(NamespaceSupport, fPrefixes)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(NamespaceSupport, init$, void)},
+		{"<init>", "(Lcom/sun/org/apache/xerces/internal/xni/NamespaceContext;)V", nullptr, $PUBLIC, $method(NamespaceSupport, init$, void, $NamespaceContext*)},
+		{"containsPrefix", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(NamespaceSupport, containsPrefix, bool, $String*)},
+		{"containsPrefixInCurrentContext", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(NamespaceSupport, containsPrefixInCurrentContext, bool, $String*)},
+		{"declarePrefix", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(NamespaceSupport, declarePrefix, bool, $String*, $String*)},
+		{"getAllPrefixes", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(NamespaceSupport, getAllPrefixes, $Enumeration*)},
+		{"getDeclaredPrefixAt", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(NamespaceSupport, getDeclaredPrefixAt, $String*, int32_t)},
+		{"getDeclaredPrefixCount", "()I", nullptr, $PUBLIC, $virtualMethod(NamespaceSupport, getDeclaredPrefixCount, int32_t)},
+		{"getPrefix", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(NamespaceSupport, getPrefix, $String*, $String*)},
+		{"getPrefixes", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(NamespaceSupport, getPrefixes, $Iterator*)},
+		{"getPrefixes", "(Ljava/lang/String;)Ljava/util/List;", "(Ljava/lang/String;)Ljava/util/List<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(NamespaceSupport, getPrefixes, $List*, $String*)},
+		{"getURI", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(NamespaceSupport, getURI, $String*, $String*)},
+		{"popContext", "()V", nullptr, $PUBLIC, $virtualMethod(NamespaceSupport, popContext, void)},
+		{"pushContext", "()V", nullptr, $PUBLIC, $virtualMethod(NamespaceSupport, pushContext, void)},
+		{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(NamespaceSupport, reset, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xerces.internal.util.NamespaceSupport$Prefixes", "com.sun.org.apache.xerces.internal.util.NamespaceSupport", "Prefixes", $PROTECTED | $FINAL},
+		{"com.sun.org.apache.xerces.internal.util.NamespaceSupport$IteratorPrefixes", "com.sun.org.apache.xerces.internal.util.NamespaceSupport", "IteratorPrefixes", $PROTECTED | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.util.NamespaceSupport",
+		"java.lang.Object",
+		"com.sun.org.apache.xerces.internal.xni.NamespaceContext",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xerces.internal.util.NamespaceSupport$Prefixes,com.sun.org.apache.xerces.internal.util.NamespaceSupport$IteratorPrefixes"
+	};
+	$loadClass(NamespaceSupport, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(NamespaceSupport);
+	});
 	return class$;
 }
 

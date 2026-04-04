@@ -1,5 +1,4 @@
 #include <sun/awt/geom/Edge.h>
-
 #include <sun/awt/geom/AreaOp.h>
 #include <sun/awt/geom/Curve.h>
 #include <jcpp.h>
@@ -20,49 +19,6 @@ using $Curve = ::sun::awt::geom::Curve;
 namespace sun {
 	namespace awt {
 		namespace geom {
-
-$FieldInfo _Edge_FieldInfo_[] = {
-	{"INIT_PARTS", "I", nullptr, $STATIC | $FINAL, $constField(Edge, INIT_PARTS)},
-	{"GROW_PARTS", "I", nullptr, $STATIC | $FINAL, $constField(Edge, GROW_PARTS)},
-	{"curve", "Lsun/awt/geom/Curve;", nullptr, 0, $field(Edge, curve)},
-	{"ctag", "I", nullptr, 0, $field(Edge, ctag)},
-	{"etag", "I", nullptr, 0, $field(Edge, etag)},
-	{"activey", "D", nullptr, 0, $field(Edge, activey)},
-	{"equivalence", "I", nullptr, 0, $field(Edge, equivalence)},
-	{"lastEdge", "Lsun/awt/geom/Edge;", nullptr, $PRIVATE, $field(Edge, lastEdge)},
-	{"lastResult", "I", nullptr, $PRIVATE, $field(Edge, lastResult)},
-	{"lastLimit", "D", nullptr, $PRIVATE, $field(Edge, lastLimit)},
-	{}
-};
-
-$MethodInfo _Edge_MethodInfo_[] = {
-	{"<init>", "(Lsun/awt/geom/Curve;I)V", nullptr, $PUBLIC, $method(Edge, init$, void, $Curve*, int32_t)},
-	{"<init>", "(Lsun/awt/geom/Curve;II)V", nullptr, $PUBLIC, $method(Edge, init$, void, $Curve*, int32_t, int32_t)},
-	{"compareTo", "(Lsun/awt/geom/Edge;[D)I", nullptr, $PUBLIC, $method(Edge, compareTo, int32_t, Edge*, $doubles*)},
-	{"getCurve", "()Lsun/awt/geom/Curve;", nullptr, $PUBLIC, $method(Edge, getCurve, $Curve*)},
-	{"getCurveTag", "()I", nullptr, $PUBLIC, $method(Edge, getCurveTag, int32_t)},
-	{"getEdgeTag", "()I", nullptr, $PUBLIC, $method(Edge, getEdgeTag, int32_t)},
-	{"getEquivalence", "()I", nullptr, $PUBLIC, $method(Edge, getEquivalence, int32_t)},
-	{"isActiveFor", "(DI)Z", nullptr, $PUBLIC, $method(Edge, isActiveFor, bool, double, int32_t)},
-	{"record", "(DI)V", nullptr, $PUBLIC, $method(Edge, record, void, double, int32_t)},
-	{"setEdgeTag", "(I)V", nullptr, $PUBLIC, $method(Edge, setEdgeTag, void, int32_t)},
-	{"setEquivalence", "(I)V", nullptr, $PUBLIC, $method(Edge, setEquivalence, void, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Edge, toString, $String*)},
-	{}
-};
-
-$ClassInfo _Edge_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.awt.geom.Edge",
-	"java.lang.Object",
-	nullptr,
-	_Edge_FieldInfo_,
-	_Edge_MethodInfo_
-};
-
-$Object* allocate$Edge($Class* clazz) {
-	return $of($alloc(Edge));
-}
 
 void Edge::init$($Curve* c, int32_t ctag) {
 	Edge::init$(c, ctag, $AreaOp::ETAG_IGNORE);
@@ -111,7 +67,7 @@ int32_t Edge::compareTo(Edge* other, $doubles* yrange) {
 		}
 		return 0 - other->lastResult;
 	}
-	int32_t ret = $nc(this->curve)->compareTo($nc(other)->curve, yrange);
+	int32_t ret = $nc(this->curve)->compareTo(other->curve, yrange);
 	$set(this, lastEdge, other);
 	this->lastLimit = $nc(yrange)->get(1);
 	this->lastResult = ret;
@@ -135,7 +91,45 @@ Edge::Edge() {
 }
 
 $Class* Edge::load$($String* name, bool initialize) {
-	$loadClass(Edge, name, initialize, &_Edge_ClassInfo_, allocate$Edge);
+	$FieldInfo fieldInfos$$[] = {
+		{"INIT_PARTS", "I", nullptr, $STATIC | $FINAL, $constField(Edge, INIT_PARTS)},
+		{"GROW_PARTS", "I", nullptr, $STATIC | $FINAL, $constField(Edge, GROW_PARTS)},
+		{"curve", "Lsun/awt/geom/Curve;", nullptr, 0, $field(Edge, curve)},
+		{"ctag", "I", nullptr, 0, $field(Edge, ctag)},
+		{"etag", "I", nullptr, 0, $field(Edge, etag)},
+		{"activey", "D", nullptr, 0, $field(Edge, activey)},
+		{"equivalence", "I", nullptr, 0, $field(Edge, equivalence)},
+		{"lastEdge", "Lsun/awt/geom/Edge;", nullptr, $PRIVATE, $field(Edge, lastEdge)},
+		{"lastResult", "I", nullptr, $PRIVATE, $field(Edge, lastResult)},
+		{"lastLimit", "D", nullptr, $PRIVATE, $field(Edge, lastLimit)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/awt/geom/Curve;I)V", nullptr, $PUBLIC, $method(Edge, init$, void, $Curve*, int32_t)},
+		{"<init>", "(Lsun/awt/geom/Curve;II)V", nullptr, $PUBLIC, $method(Edge, init$, void, $Curve*, int32_t, int32_t)},
+		{"compareTo", "(Lsun/awt/geom/Edge;[D)I", nullptr, $PUBLIC, $method(Edge, compareTo, int32_t, Edge*, $doubles*)},
+		{"getCurve", "()Lsun/awt/geom/Curve;", nullptr, $PUBLIC, $method(Edge, getCurve, $Curve*)},
+		{"getCurveTag", "()I", nullptr, $PUBLIC, $method(Edge, getCurveTag, int32_t)},
+		{"getEdgeTag", "()I", nullptr, $PUBLIC, $method(Edge, getEdgeTag, int32_t)},
+		{"getEquivalence", "()I", nullptr, $PUBLIC, $method(Edge, getEquivalence, int32_t)},
+		{"isActiveFor", "(DI)Z", nullptr, $PUBLIC, $method(Edge, isActiveFor, bool, double, int32_t)},
+		{"record", "(DI)V", nullptr, $PUBLIC, $method(Edge, record, void, double, int32_t)},
+		{"setEdgeTag", "(I)V", nullptr, $PUBLIC, $method(Edge, setEdgeTag, void, int32_t)},
+		{"setEquivalence", "(I)V", nullptr, $PUBLIC, $method(Edge, setEquivalence, void, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Edge, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.awt.geom.Edge",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Edge, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Edge);
+	});
 	return class$;
 }
 

@@ -13,6 +13,7 @@ class WFontPeer : public ::sun::awt::PlatformFont {
 	$class(WFontPeer, 0, ::sun::awt::PlatformFont)
 public:
 	WFontPeer();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* name, int32_t style);
 	virtual char16_t getMissingGlyphCharacter() override;
 	static void initIDs();

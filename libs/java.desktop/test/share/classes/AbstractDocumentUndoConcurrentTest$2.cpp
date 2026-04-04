@@ -1,5 +1,4 @@
 #include <AbstractDocumentUndoConcurrentTest$2.h>
-
 #include <AbstractDocumentUndoConcurrentTest.h>
 #include <java/text/Format.h>
 #include <java/util/concurrent/CyclicBarrier.h>
@@ -9,7 +8,6 @@
 #include <jcpp.h>
 
 using $AbstractDocumentUndoConcurrentTest = ::AbstractDocumentUndoConcurrentTest;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $Exception = ::java::lang::Exception;
@@ -17,54 +15,14 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
-using $Format = ::java::text::Format;
-using $CyclicBarrier = ::java::util::concurrent::CyclicBarrier;
 using $AttributeSet = ::javax::swing::text::AttributeSet;
-using $PlainDocument = ::javax::swing::text::PlainDocument;
-
-$MethodInfo _AbstractDocumentUndoConcurrentTest$2_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(AbstractDocumentUndoConcurrentTest$2, init$, void, $String*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(AbstractDocumentUndoConcurrentTest$2, run, void)},
-	{}
-};
-
-$EnclosingMethodInfo _AbstractDocumentUndoConcurrentTest$2_EnclosingMethodInfo_ = {
-	"AbstractDocumentUndoConcurrentTest",
-	"test",
-	"()V"
-};
-
-$InnerClassInfo _AbstractDocumentUndoConcurrentTest$2_InnerClassesInfo_[] = {
-	{"AbstractDocumentUndoConcurrentTest$2", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _AbstractDocumentUndoConcurrentTest$2_ClassInfo_ = {
-	$ACC_SUPER,
-	"AbstractDocumentUndoConcurrentTest$2",
-	"java.lang.Thread",
-	nullptr,
-	nullptr,
-	_AbstractDocumentUndoConcurrentTest$2_MethodInfo_,
-	nullptr,
-	&_AbstractDocumentUndoConcurrentTest$2_EnclosingMethodInfo_,
-	_AbstractDocumentUndoConcurrentTest$2_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"AbstractDocumentUndoConcurrentTest"
-};
-
-$Object* allocate$AbstractDocumentUndoConcurrentTest$2($Class* clazz) {
-	return $of($alloc(AbstractDocumentUndoConcurrentTest$2));
-}
 
 void AbstractDocumentUndoConcurrentTest$2::init$($String* arg0) {
 	$Thread::init$(arg0);
 }
 
 void AbstractDocumentUndoConcurrentTest$2::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$init($AbstractDocumentUndoConcurrentTest);
 		$nc($AbstractDocumentUndoConcurrentTest::barrier)->await();
@@ -75,7 +33,7 @@ void AbstractDocumentUndoConcurrentTest$2::run() {
 			}
 		}
 	} catch ($Exception& e) {
-		$throwNew($RuntimeException, static_cast<$Throwable*>(e));
+		$throwNew($RuntimeException, e);
 	}
 	$nc($System::out)->println("t2 done"_s);
 }
@@ -84,7 +42,38 @@ AbstractDocumentUndoConcurrentTest$2::AbstractDocumentUndoConcurrentTest$2() {
 }
 
 $Class* AbstractDocumentUndoConcurrentTest$2::load$($String* name, bool initialize) {
-	$loadClass(AbstractDocumentUndoConcurrentTest$2, name, initialize, &_AbstractDocumentUndoConcurrentTest$2_ClassInfo_, allocate$AbstractDocumentUndoConcurrentTest$2);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(AbstractDocumentUndoConcurrentTest$2, init$, void, $String*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(AbstractDocumentUndoConcurrentTest$2, run, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"AbstractDocumentUndoConcurrentTest",
+		"test",
+		"()V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"AbstractDocumentUndoConcurrentTest$2", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"AbstractDocumentUndoConcurrentTest$2",
+		"java.lang.Thread",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"AbstractDocumentUndoConcurrentTest"
+	};
+	$loadClass(AbstractDocumentUndoConcurrentTest$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AbstractDocumentUndoConcurrentTest$2);
+	});
 	return class$;
 }
 

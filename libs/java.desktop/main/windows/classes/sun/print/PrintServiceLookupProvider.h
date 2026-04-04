@@ -29,6 +29,7 @@ class PrintServiceLookupProvider : public ::javax::print::PrintServiceLookup {
 	$class(PrintServiceLookupProvider, 0, ::javax::print::PrintServiceLookup)
 public:
 	PrintServiceLookupProvider();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	$StringArray* getAllPrinterNames();
 	virtual ::javax::print::PrintService* getDefaultPrintService() override;

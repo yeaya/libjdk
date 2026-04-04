@@ -51,6 +51,7 @@ class URI : public ::java::io::Serializable {
 	$class(URI, 0, ::java::io::Serializable)
 public:
 	URI();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(::com::sun::org::apache::xerces::internal::util::URI* p_other);
 	void init$($String* p_uriSpec);
@@ -110,7 +111,7 @@ public:
 	virtual void setScheme($String* p_scheme);
 	virtual void setUserinfo($String* p_userinfo);
 	virtual $String* toString() override;
-	static const int64_t serialVersionUID = (int64_t)0x163B2B5DE215849E;
+	static const int64_t serialVersionUID = (int64_t)0x163b2b5de215849e;
 	static $bytes* fgLookupTable;
 	static const int32_t RESERVED_CHARACTERS = 1;
 	static const int32_t MARK_CHARACTERS = 2;

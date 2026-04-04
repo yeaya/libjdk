@@ -1,9 +1,7 @@
 #include <javax/swing/plaf/nimbus/NimbusDefaults$PainterBorder.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Graphics.h>
 #include <java/awt/Graphics2D.h>
-#include <java/awt/Image.h>
 #include <java/awt/Insets.h>
 #include <java/awt/image/BufferedImage.h>
 #include <java/awt/image/ImageObserver.h>
@@ -16,7 +14,6 @@
 using $Component = ::java::awt::Component;
 using $Graphics = ::java::awt::Graphics;
 using $Graphics2D = ::java::awt::Graphics2D;
-using $Image = ::java::awt::Image;
 using $Insets = ::java::awt::Insets;
 using $BufferedImage = ::java::awt::image::BufferedImage;
 using $ImageObserver = ::java::awt::image::ImageObserver;
@@ -32,51 +29,6 @@ namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace nimbus {
-
-$FieldInfo _NimbusDefaults$PainterBorder_FieldInfo_[] = {
-	{"insets", "Ljava/awt/Insets;", nullptr, $PRIVATE, $field(NimbusDefaults$PainterBorder, insets)},
-	{"painter", "Ljavax/swing/Painter;", "Ljavax/swing/Painter<Ljava/awt/Component;>;", $PRIVATE, $field(NimbusDefaults$PainterBorder, painter)},
-	{"painterKey", "Ljava/lang/String;", nullptr, $PRIVATE, $field(NimbusDefaults$PainterBorder, painterKey)},
-	{}
-};
-
-$MethodInfo _NimbusDefaults$PainterBorder_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/lang/String;Ljava/awt/Insets;)V", nullptr, 0, $method(NimbusDefaults$PainterBorder, init$, void, $String*, $Insets*)},
-	{"getBorderInsets", "(Ljava/awt/Component;)Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(NimbusDefaults$PainterBorder, getBorderInsets, $Insets*, $Component*)},
-	{"isBorderOpaque", "()Z", nullptr, $PUBLIC, $virtualMethod(NimbusDefaults$PainterBorder, isBorderOpaque, bool)},
-	{"paintBorder", "(Ljava/awt/Component;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(NimbusDefaults$PainterBorder, paintBorder, void, $Component*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _NimbusDefaults$PainterBorder_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.nimbus.NimbusDefaults$PainterBorder", "javax.swing.plaf.nimbus.NimbusDefaults", "PainterBorder", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _NimbusDefaults$PainterBorder_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"javax.swing.plaf.nimbus.NimbusDefaults$PainterBorder",
-	"java.lang.Object",
-	"javax.swing.border.Border,javax.swing.plaf.UIResource",
-	_NimbusDefaults$PainterBorder_FieldInfo_,
-	_NimbusDefaults$PainterBorder_MethodInfo_,
-	nullptr,
-	nullptr,
-	_NimbusDefaults$PainterBorder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.nimbus.NimbusDefaults"
-};
-
-$Object* allocate$NimbusDefaults$PainterBorder($Class* clazz) {
-	return $of($alloc(NimbusDefaults$PainterBorder));
-}
 
 int32_t NimbusDefaults$PainterBorder::hashCode() {
 	 return this->$Border::hashCode();
@@ -104,7 +56,7 @@ void NimbusDefaults$PainterBorder::init$($String* painterKey, $Insets* insets) {
 }
 
 void NimbusDefaults$PainterBorder::paintBorder($Component* c, $Graphics* g, int32_t x, int32_t y, int32_t w, int32_t h) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->painter == nullptr) {
 		$var($Painter, temp, $cast($Painter, $UIManager::get(this->painterKey)));
 		$set(this, painter, temp);
@@ -138,7 +90,46 @@ NimbusDefaults$PainterBorder::NimbusDefaults$PainterBorder() {
 }
 
 $Class* NimbusDefaults$PainterBorder::load$($String* name, bool initialize) {
-	$loadClass(NimbusDefaults$PainterBorder, name, initialize, &_NimbusDefaults$PainterBorder_ClassInfo_, allocate$NimbusDefaults$PainterBorder);
+	$FieldInfo fieldInfos$$[] = {
+		{"insets", "Ljava/awt/Insets;", nullptr, $PRIVATE, $field(NimbusDefaults$PainterBorder, insets)},
+		{"painter", "Ljavax/swing/Painter;", "Ljavax/swing/Painter<Ljava/awt/Component;>;", $PRIVATE, $field(NimbusDefaults$PainterBorder, painter)},
+		{"painterKey", "Ljava/lang/String;", nullptr, $PRIVATE, $field(NimbusDefaults$PainterBorder, painterKey)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/lang/String;Ljava/awt/Insets;)V", nullptr, 0, $method(NimbusDefaults$PainterBorder, init$, void, $String*, $Insets*)},
+		{"getBorderInsets", "(Ljava/awt/Component;)Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(NimbusDefaults$PainterBorder, getBorderInsets, $Insets*, $Component*)},
+		{"isBorderOpaque", "()Z", nullptr, $PUBLIC, $virtualMethod(NimbusDefaults$PainterBorder, isBorderOpaque, bool)},
+		{"paintBorder", "(Ljava/awt/Component;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(NimbusDefaults$PainterBorder, paintBorder, void, $Component*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.nimbus.NimbusDefaults$PainterBorder", "javax.swing.plaf.nimbus.NimbusDefaults", "PainterBorder", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"javax.swing.plaf.nimbus.NimbusDefaults$PainterBorder",
+		"java.lang.Object",
+		"javax.swing.border.Border,javax.swing.plaf.UIResource",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.nimbus.NimbusDefaults"
+	};
+	$loadClass(NimbusDefaults$PainterBorder, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(NimbusDefaults$PainterBorder));
+	});
 	return class$;
 }
 

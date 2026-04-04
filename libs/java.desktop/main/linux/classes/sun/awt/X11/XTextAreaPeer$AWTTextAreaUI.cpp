@@ -1,5 +1,4 @@
 #include <sun/awt/X11/XTextAreaPeer$AWTTextAreaUI.h>
-
 #include <com/sun/java/swing/plaf/motif/MotifTextAreaUI.h>
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
@@ -55,46 +54,6 @@ namespace sun {
 	namespace awt {
 		namespace X11 {
 
-$FieldInfo _XTextAreaPeer$AWTTextAreaUI_FieldInfo_[] = {
-	{"this$0", "Lsun/awt/X11/XTextAreaPeer;", nullptr, $FINAL | $SYNTHETIC, $field(XTextAreaPeer$AWTTextAreaUI, this$0)},
-	{"jta", "Ljavax/swing/JTextArea;", nullptr, $PRIVATE, $field(XTextAreaPeer$AWTTextAreaUI, jta)},
-	{}
-};
-
-$MethodInfo _XTextAreaPeer$AWTTextAreaUI_MethodInfo_[] = {
-	{"<init>", "(Lsun/awt/X11/XTextAreaPeer;)V", nullptr, 0, $method(XTextAreaPeer$AWTTextAreaUI, init$, void, $XTextAreaPeer*)},
-	{"createCaret", "()Ljavax/swing/text/Caret;", nullptr, $PROTECTED, $virtualMethod(XTextAreaPeer$AWTTextAreaUI, createCaret, $Caret*)},
-	{"getPropertyPrefix", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(XTextAreaPeer$AWTTextAreaUI, getPropertyPrefix, $String*)},
-	{"installKeyboardActions", "()V", nullptr, $PROTECTED, $virtualMethod(XTextAreaPeer$AWTTextAreaUI, installKeyboardActions, void)},
-	{"installUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(XTextAreaPeer$AWTTextAreaUI, installUI, void, $JComponent*)},
-	{}
-};
-
-$InnerClassInfo _XTextAreaPeer$AWTTextAreaUI_InnerClassesInfo_[] = {
-	{"sun.awt.X11.XTextAreaPeer$AWTTextAreaUI", "sun.awt.X11.XTextAreaPeer", "AWTTextAreaUI", $FINAL},
-	{}
-};
-
-$ClassInfo _XTextAreaPeer$AWTTextAreaUI_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.awt.X11.XTextAreaPeer$AWTTextAreaUI",
-	"com.sun.java.swing.plaf.motif.MotifTextAreaUI",
-	nullptr,
-	_XTextAreaPeer$AWTTextAreaUI_FieldInfo_,
-	_XTextAreaPeer$AWTTextAreaUI_MethodInfo_,
-	nullptr,
-	nullptr,
-	_XTextAreaPeer$AWTTextAreaUI_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.awt.X11.XTextAreaPeer"
-};
-
-$Object* allocate$XTextAreaPeer$AWTTextAreaUI($Class* clazz) {
-	return $of($alloc(XTextAreaPeer$AWTTextAreaUI));
-}
-
 void XTextAreaPeer$AWTTextAreaUI::init$($XTextAreaPeer* this$0) {
 	$set(this, this$0, this$0);
 	$MotifTextAreaUI::init$();
@@ -105,7 +64,7 @@ $String* XTextAreaPeer$AWTTextAreaUI::getPropertyPrefix() {
 }
 
 void XTextAreaPeer$AWTTextAreaUI::installUI($JComponent* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$MotifTextAreaUI::installUI(c);
 	$set(this, jta, $cast($JTextArea, c));
 	$var($JTextArea, editor, this->jta);
@@ -149,7 +108,7 @@ void XTextAreaPeer$AWTTextAreaUI::installUI($JComponent* c) {
 }
 
 void XTextAreaPeer$AWTTextAreaUI::installKeyboardActions() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$MotifTextAreaUI::installKeyboardActions();
 	$var($JTextComponent, comp, getComponent());
 	$var($UIDefaults, uidefaults, $XToolkit::getUIDefaults());
@@ -168,7 +127,41 @@ XTextAreaPeer$AWTTextAreaUI::XTextAreaPeer$AWTTextAreaUI() {
 }
 
 $Class* XTextAreaPeer$AWTTextAreaUI::load$($String* name, bool initialize) {
-	$loadClass(XTextAreaPeer$AWTTextAreaUI, name, initialize, &_XTextAreaPeer$AWTTextAreaUI_ClassInfo_, allocate$XTextAreaPeer$AWTTextAreaUI);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/awt/X11/XTextAreaPeer;", nullptr, $FINAL | $SYNTHETIC, $field(XTextAreaPeer$AWTTextAreaUI, this$0)},
+		{"jta", "Ljavax/swing/JTextArea;", nullptr, $PRIVATE, $field(XTextAreaPeer$AWTTextAreaUI, jta)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/awt/X11/XTextAreaPeer;)V", nullptr, 0, $method(XTextAreaPeer$AWTTextAreaUI, init$, void, $XTextAreaPeer*)},
+		{"createCaret", "()Ljavax/swing/text/Caret;", nullptr, $PROTECTED, $virtualMethod(XTextAreaPeer$AWTTextAreaUI, createCaret, $Caret*)},
+		{"getPropertyPrefix", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(XTextAreaPeer$AWTTextAreaUI, getPropertyPrefix, $String*)},
+		{"installKeyboardActions", "()V", nullptr, $PROTECTED, $virtualMethod(XTextAreaPeer$AWTTextAreaUI, installKeyboardActions, void)},
+		{"installUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(XTextAreaPeer$AWTTextAreaUI, installUI, void, $JComponent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.X11.XTextAreaPeer$AWTTextAreaUI", "sun.awt.X11.XTextAreaPeer", "AWTTextAreaUI", $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.awt.X11.XTextAreaPeer$AWTTextAreaUI",
+		"com.sun.java.swing.plaf.motif.MotifTextAreaUI",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.awt.X11.XTextAreaPeer"
+	};
+	$loadClass(XTextAreaPeer$AWTTextAreaUI, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(XTextAreaPeer$AWTTextAreaUI));
+	});
 	return class$;
 }
 

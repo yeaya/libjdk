@@ -1,5 +1,4 @@
 #include <javax/sql/rowset/serial/SerialClob.h>
-
 #include <java/io/BufferedReader.h>
 #include <java/io/CharArrayReader.h>
 #include <java/io/IOException.h>
@@ -51,55 +50,6 @@ namespace javax {
 		namespace rowset {
 			namespace serial {
 
-$FieldInfo _SerialClob_FieldInfo_[] = {
-	{"buf", "[C", nullptr, $PRIVATE, $field(SerialClob, buf)},
-	{"clob", "Ljava/sql/Clob;", nullptr, $PRIVATE, $field(SerialClob, clob)},
-	{"len", "J", nullptr, $PRIVATE, $field(SerialClob, len)},
-	{"origLen", "J", nullptr, $PRIVATE, $field(SerialClob, origLen)},
-	{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(SerialClob, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _SerialClob_MethodInfo_[] = {
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"<init>", "([C)V", nullptr, $PUBLIC, $method(SerialClob, init$, void, $chars*), "javax.sql.rowset.serial.SerialException,java.sql.SQLException"},
-	{"<init>", "(Ljava/sql/Clob;)V", nullptr, $PUBLIC, $method(SerialClob, init$, void, $Clob*), "javax.sql.rowset.serial.SerialException,java.sql.SQLException"},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SerialClob, clone, $Object*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(SerialClob, equals, bool, Object$*)},
-	{"free", "()V", nullptr, $PUBLIC, $virtualMethod(SerialClob, free, void), "java.sql.SQLException"},
-	{"getAsciiStream", "()Ljava/io/InputStream;", nullptr, $PUBLIC, $virtualMethod(SerialClob, getAsciiStream, $InputStream*), "javax.sql.rowset.serial.SerialException,java.sql.SQLException"},
-	{"getCharacterStream", "()Ljava/io/Reader;", nullptr, $PUBLIC, $virtualMethod(SerialClob, getCharacterStream, $Reader*), "javax.sql.rowset.serial.SerialException"},
-	{"getCharacterStream", "(JJ)Ljava/io/Reader;", nullptr, $PUBLIC, $virtualMethod(SerialClob, getCharacterStream, $Reader*, int64_t, int64_t), "java.sql.SQLException"},
-	{"getSubString", "(JI)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SerialClob, getSubString, $String*, int64_t, int32_t), "javax.sql.rowset.serial.SerialException"},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(SerialClob, hashCode, int32_t)},
-	{"isValid", "()V", nullptr, $PRIVATE, $method(SerialClob, isValid, void), "javax.sql.rowset.serial.SerialException"},
-	{"length", "()J", nullptr, $PUBLIC, $virtualMethod(SerialClob, length, int64_t), "javax.sql.rowset.serial.SerialException"},
-	{"position", "(Ljava/lang/String;J)J", nullptr, $PUBLIC, $virtualMethod(SerialClob, position, int64_t, $String*, int64_t), "javax.sql.rowset.serial.SerialException,java.sql.SQLException"},
-	{"position", "(Ljava/sql/Clob;J)J", nullptr, $PUBLIC, $virtualMethod(SerialClob, position, int64_t, $Clob*, int64_t), "javax.sql.rowset.serial.SerialException,java.sql.SQLException"},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(SerialClob, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"setAsciiStream", "(J)Ljava/io/OutputStream;", nullptr, $PUBLIC, $virtualMethod(SerialClob, setAsciiStream, $OutputStream*, int64_t), "javax.sql.rowset.serial.SerialException,java.sql.SQLException"},
-	{"setCharacterStream", "(J)Ljava/io/Writer;", nullptr, $PUBLIC, $virtualMethod(SerialClob, setCharacterStream, $Writer*, int64_t), "javax.sql.rowset.serial.SerialException,java.sql.SQLException"},
-	{"setString", "(JLjava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(SerialClob, setString, int32_t, int64_t, $String*), "javax.sql.rowset.serial.SerialException"},
-	{"setString", "(JLjava/lang/String;II)I", nullptr, $PUBLIC, $virtualMethod(SerialClob, setString, int32_t, int64_t, $String*, int32_t, int32_t), "javax.sql.rowset.serial.SerialException"},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"truncate", "(J)V", nullptr, $PUBLIC, $virtualMethod(SerialClob, truncate, void, int64_t), "javax.sql.rowset.serial.SerialException"},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(SerialClob, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _SerialClob_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.sql.rowset.serial.SerialClob",
-	"java.lang.Object",
-	"java.sql.Clob,java.io.Serializable,java.lang.Cloneable",
-	_SerialClob_FieldInfo_,
-	_SerialClob_MethodInfo_
-};
-
-$Object* allocate$SerialClob($Class* clazz) {
-	return $of($alloc(SerialClob));
-}
-
 $String* SerialClob::toString() {
 	 return this->$Clob::toString();
 }
@@ -112,14 +62,14 @@ void SerialClob::init$($chars* ch) {
 	this->len = $nc(ch)->length;
 	$set(this, buf, $new($chars, (int32_t)this->len));
 	for (int32_t i = 0; i < this->len; ++i) {
-		$nc(this->buf)->set(i, ch->get(i));
+		this->buf->set(i, ch->get(i));
 	}
 	this->origLen = this->len;
 	$set(this, clob, nullptr);
 }
 
 void SerialClob::init$($Clob* clob) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (clob == nullptr) {
 		$throwNew($SQLException, "Cannot instantiate a SerialClob object with a null Clob object"_s);
 	}
@@ -130,92 +80,86 @@ void SerialClob::init$($Clob* clob) {
 	int32_t offset = 0;
 	try {
 		$var($Reader, charStream, clob->getCharacterStream());
-		{
-			$var($Throwable, var$0, nullptr);
+		$var($Throwable, var$0, nullptr);
+		try {
 			try {
-				try {
-					if (charStream == nullptr) {
-						$throwNew($SQLException, "Invalid Clob object. The call to getCharacterStream returned null which cannot be serialized."_s);
-					}
-					{
-						$var($InputStream, asciiStream, clob->getAsciiStream());
-						{
-							$var($Throwable, var$1, nullptr);
-							try {
-								try {
-									if (asciiStream == nullptr) {
-										$throwNew($SQLException, "Invalid Clob object. The call to getAsciiStream returned null which cannot be serialized."_s);
-									}
-								} catch ($Throwable& t$) {
-									if (asciiStream != nullptr) {
-										try {
-											asciiStream->close();
-										} catch ($Throwable& x2) {
-											t$->addSuppressed(x2);
-										}
-									}
-									$throw(t$);
-								}
-							} catch ($Throwable& var$2) {
-								$assign(var$1, var$2);
-							} /*finally*/ {
-								if (asciiStream != nullptr) {
-									asciiStream->close();
-								}
-							}
-							if (var$1 != nullptr) {
-								$throw(var$1);
-							}
-						}
-					}
-					{
-						$var($Reader, reader, $new($BufferedReader, charStream));
-						{
-							$var($Throwable, var$3, nullptr);
-							try {
-								try {
-									do {
-										read = reader->read(this->buf, offset, (int32_t)(this->len - offset));
-										offset += read;
-									} while (read > 0);
-								} catch ($Throwable& t$) {
-									try {
-										reader->close();
-									} catch ($Throwable& x2) {
-										t$->addSuppressed(x2);
-									}
-									$throw(t$);
-								}
-							} catch ($Throwable& var$4) {
-								$assign(var$3, var$4);
-							} /*finally*/ {
-								reader->close();
-							}
-							if (var$3 != nullptr) {
-								$throw(var$3);
-							}
-						}
-					}
-				} catch ($Throwable& t$) {
-					if (charStream != nullptr) {
+				if (charStream == nullptr) {
+					$throwNew($SQLException, "Invalid Clob object. The call to getCharacterStream returned null which cannot be serialized."_s);
+				}
+				{
+					$var($InputStream, asciiStream, clob->getAsciiStream());
+					$var($Throwable, var$1, nullptr);
+					try {
 						try {
-							charStream->close();
-						} catch ($Throwable& x2) {
-							t$->addSuppressed(x2);
+							if (asciiStream == nullptr) {
+								$throwNew($SQLException, "Invalid Clob object. The call to getAsciiStream returned null which cannot be serialized."_s);
+							}
+						} catch ($Throwable& t$) {
+							if (asciiStream != nullptr) {
+								try {
+									asciiStream->close();
+								} catch ($Throwable& x2) {
+									t$->addSuppressed(x2);
+								}
+							}
+							$throw(t$);
+						}
+					} catch ($Throwable& var$2) {
+						$assign(var$1, var$2);
+					} /*finally*/ {
+						if (asciiStream != nullptr) {
+							asciiStream->close();
 						}
 					}
-					$throw(t$);
+					if (var$1 != nullptr) {
+						$throw(var$1);
+					}
 				}
-			} catch ($Throwable& var$5) {
-				$assign(var$0, var$5);
-			} /*finally*/ {
+				{
+					$var($Reader, reader, $new($BufferedReader, charStream));
+					$var($Throwable, var$3, nullptr);
+					try {
+						try {
+							do {
+								read = reader->read(this->buf, offset, (int32_t)(this->len - offset));
+								offset += read;
+							} while (read > 0);
+						} catch ($Throwable& t$) {
+							try {
+								reader->close();
+							} catch ($Throwable& x2) {
+								t$->addSuppressed(x2);
+							}
+							$throw(t$);
+						}
+					} catch ($Throwable& var$4) {
+						$assign(var$3, var$4);
+					} /*finally*/ {
+						reader->close();
+					}
+					if (var$3 != nullptr) {
+						$throw(var$3);
+					}
+				}
+			} catch ($Throwable& t$) {
 				if (charStream != nullptr) {
-					charStream->close();
+					try {
+						charStream->close();
+					} catch ($Throwable& x2) {
+						t$->addSuppressed(x2);
+					}
 				}
+				$throw(t$);
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
+		} catch ($Throwable& var$5) {
+			$assign(var$0, var$5);
+		} /*finally*/ {
+			if (charStream != nullptr) {
+				charStream->close();
 			}
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	} catch ($IOException& ex) {
 		$throwNew($SerialException, $$str({"SerialClob: "_s, $(ex->getMessage())}));
@@ -230,20 +174,20 @@ int64_t SerialClob::length() {
 
 $Reader* SerialClob::getCharacterStream() {
 	isValid();
-	return static_cast<$Reader*>($new($CharArrayReader, this->buf));
+	return $cast($Reader, $new($CharArrayReader, this->buf));
 }
 
 $InputStream* SerialClob::getAsciiStream() {
 	isValid();
 	if (this->clob != nullptr) {
-		return $nc(this->clob)->getAsciiStream();
+		return this->clob->getAsciiStream();
 	} else {
 		$throwNew($SerialException, "Unsupported operation. SerialClob cannot return a the CLOB value as an ascii stream, unless instantiated with a fully implemented Clob object."_s);
 	}
 }
 
 $String* SerialClob::getSubString(int64_t pos, int32_t length) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	isValid();
 	if (pos < 1 || pos > this->length()) {
 		$throwNew($SerialException, "Invalid position in SerialClob object set"_s);
@@ -275,7 +219,7 @@ int64_t SerialClob::position($String* searchStr, int64_t start) {
 			}
 			++i;
 			++pos;
-		} else if (pattern->get(i) != $nc(this->buf)->get(pos)) {
+		} else if (pattern->get(i) != this->buf->get(pos)) {
 			++pos;
 		}
 	}
@@ -284,7 +228,7 @@ int64_t SerialClob::position($String* searchStr, int64_t start) {
 
 int64_t SerialClob::position($Clob* searchStr, int64_t start) {
 	isValid();
-	return position($($nc(searchStr)->getSubString(1, (int32_t)searchStr->length())), start);
+	return position($($nc(searchStr)->getSubString(1, (int32_t)$nc(searchStr)->length())), start);
 }
 
 int32_t SerialClob::setString(int64_t pos, $String* str) {
@@ -292,7 +236,7 @@ int32_t SerialClob::setString(int64_t pos, $String* str) {
 }
 
 int32_t SerialClob::setString(int64_t pos, $String* str, int32_t offset, int32_t length) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	isValid();
 	$var($String, temp, $nc(str)->substring(offset));
 	$var($chars, cPattern, temp->toCharArray());
@@ -320,7 +264,7 @@ int32_t SerialClob::setString(int64_t pos, $String* str, int32_t offset, int32_t
 $OutputStream* SerialClob::setAsciiStream(int64_t pos) {
 	isValid();
 	if (this->clob != nullptr) {
-		return $nc(this->clob)->setAsciiStream(pos);
+		return this->clob->setAsciiStream(pos);
 	} else {
 		$throwNew($SerialException, "Unsupported operation. SerialClob cannot return a writable ascii stream\n unless instantiated with a Clob object that has a setAsciiStream() implementation"_s);
 	}
@@ -329,7 +273,7 @@ $OutputStream* SerialClob::setAsciiStream(int64_t pos) {
 $Writer* SerialClob::setCharacterStream(int64_t pos) {
 	isValid();
 	if (this->clob != nullptr) {
-		return $nc(this->clob)->setCharacterStream(pos);
+		return this->clob->setCharacterStream(pos);
 	} else {
 		$throwNew($SerialException, "Unsupported operation. SerialClob cannot return a writable character stream\n unless instantiated with a Clob object that has a setCharacterStream implementation"_s);
 	}
@@ -344,7 +288,7 @@ void SerialClob::truncate(int64_t length) {
 		if (this->len == 0) {
 			$set(this, buf, $new($chars, 0));
 		} else {
-			$set(this, buf, $nc(($(this->getSubString(1, (int32_t)this->len))))->toCharArray());
+			$set(this, buf, ($$nc(this->getSubString(1, (int32_t)this->len)))->toCharArray());
 		}
 	}
 }
@@ -367,7 +311,7 @@ void SerialClob::free() {
 	if (this->buf != nullptr) {
 		$set(this, buf, nullptr);
 		if (this->clob != nullptr) {
-			$nc(this->clob)->free();
+			this->clob->free();
 		}
 		$set(this, clob, nullptr);
 	}
@@ -379,7 +323,7 @@ bool SerialClob::equals(Object$* obj) {
 	}
 	if ($instanceOf(SerialClob, obj)) {
 		$var(SerialClob, sc, $cast(SerialClob, obj));
-		if (this->len == $nc(sc)->len) {
+		if (this->len == sc->len) {
 			return $Arrays::equals(this->buf, sc->buf);
 		}
 	}
@@ -403,24 +347,24 @@ $Object* SerialClob::clone() {
 }
 
 void SerialClob::readObject($ObjectInputStream* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectInputStream$GetField, fields, $nc(s)->readFields());
-	$var($chars, tmp, $cast($chars, $nc(fields)->get("buf"_s, ($Object*)nullptr)));
+	$var($chars, tmp, $cast($chars, $nc(fields)->get("buf"_s, nullptr)));
 	if (tmp == nullptr) {
 		$throwNew($InvalidObjectException, "buf is null and should not be!"_s);
 	}
 	$set(this, buf, $cast($chars, $nc(tmp)->clone()));
 	this->len = fields->get("len"_s, (int64_t)0);
-	if ($nc(this->buf)->length != this->len) {
+	if (this->buf->length != this->len) {
 		$throwNew($InvalidObjectException, "buf is not the expected size"_s);
 	}
 	this->origLen = fields->get("origLen"_s, (int64_t)0);
-	$set(this, clob, $cast($Clob, fields->get("clob"_s, ($Object*)nullptr)));
+	$set(this, clob, $cast($Clob, fields->get("clob"_s, nullptr)));
 }
 
 void SerialClob::writeObject($ObjectOutputStream* s) {
 	$var($ObjectOutputStream$PutField, fields, $nc(s)->putFields());
-	$nc(fields)->put("buf"_s, $of(this->buf));
+	$nc(fields)->put("buf"_s, this->buf);
 	fields->put("len"_s, this->len);
 	fields->put("origLen"_s, this->origLen);
 	fields->put("clob"_s, $instanceOf($Serializable, this->clob) ? $of(this->clob) : ($Object*)nullptr);
@@ -437,7 +381,51 @@ SerialClob::SerialClob() {
 }
 
 $Class* SerialClob::load$($String* name, bool initialize) {
-	$loadClass(SerialClob, name, initialize, &_SerialClob_ClassInfo_, allocate$SerialClob);
+	$FieldInfo fieldInfos$$[] = {
+		{"buf", "[C", nullptr, $PRIVATE, $field(SerialClob, buf)},
+		{"clob", "Ljava/sql/Clob;", nullptr, $PRIVATE, $field(SerialClob, clob)},
+		{"len", "J", nullptr, $PRIVATE, $field(SerialClob, len)},
+		{"origLen", "J", nullptr, $PRIVATE, $field(SerialClob, origLen)},
+		{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(SerialClob, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"<init>", "([C)V", nullptr, $PUBLIC, $method(SerialClob, init$, void, $chars*), "javax.sql.rowset.serial.SerialException,java.sql.SQLException"},
+		{"<init>", "(Ljava/sql/Clob;)V", nullptr, $PUBLIC, $method(SerialClob, init$, void, $Clob*), "javax.sql.rowset.serial.SerialException,java.sql.SQLException"},
+		{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SerialClob, clone, $Object*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(SerialClob, equals, bool, Object$*)},
+		{"free", "()V", nullptr, $PUBLIC, $virtualMethod(SerialClob, free, void), "java.sql.SQLException"},
+		{"getAsciiStream", "()Ljava/io/InputStream;", nullptr, $PUBLIC, $virtualMethod(SerialClob, getAsciiStream, $InputStream*), "javax.sql.rowset.serial.SerialException,java.sql.SQLException"},
+		{"getCharacterStream", "()Ljava/io/Reader;", nullptr, $PUBLIC, $virtualMethod(SerialClob, getCharacterStream, $Reader*), "javax.sql.rowset.serial.SerialException"},
+		{"getCharacterStream", "(JJ)Ljava/io/Reader;", nullptr, $PUBLIC, $virtualMethod(SerialClob, getCharacterStream, $Reader*, int64_t, int64_t), "java.sql.SQLException"},
+		{"getSubString", "(JI)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SerialClob, getSubString, $String*, int64_t, int32_t), "javax.sql.rowset.serial.SerialException"},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(SerialClob, hashCode, int32_t)},
+		{"isValid", "()V", nullptr, $PRIVATE, $method(SerialClob, isValid, void), "javax.sql.rowset.serial.SerialException"},
+		{"length", "()J", nullptr, $PUBLIC, $virtualMethod(SerialClob, length, int64_t), "javax.sql.rowset.serial.SerialException"},
+		{"position", "(Ljava/lang/String;J)J", nullptr, $PUBLIC, $virtualMethod(SerialClob, position, int64_t, $String*, int64_t), "javax.sql.rowset.serial.SerialException,java.sql.SQLException"},
+		{"position", "(Ljava/sql/Clob;J)J", nullptr, $PUBLIC, $virtualMethod(SerialClob, position, int64_t, $Clob*, int64_t), "javax.sql.rowset.serial.SerialException,java.sql.SQLException"},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(SerialClob, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+		{"setAsciiStream", "(J)Ljava/io/OutputStream;", nullptr, $PUBLIC, $virtualMethod(SerialClob, setAsciiStream, $OutputStream*, int64_t), "javax.sql.rowset.serial.SerialException,java.sql.SQLException"},
+		{"setCharacterStream", "(J)Ljava/io/Writer;", nullptr, $PUBLIC, $virtualMethod(SerialClob, setCharacterStream, $Writer*, int64_t), "javax.sql.rowset.serial.SerialException,java.sql.SQLException"},
+		{"setString", "(JLjava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(SerialClob, setString, int32_t, int64_t, $String*), "javax.sql.rowset.serial.SerialException"},
+		{"setString", "(JLjava/lang/String;II)I", nullptr, $PUBLIC, $virtualMethod(SerialClob, setString, int32_t, int64_t, $String*, int32_t, int32_t), "javax.sql.rowset.serial.SerialException"},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"truncate", "(J)V", nullptr, $PUBLIC, $virtualMethod(SerialClob, truncate, void, int64_t), "javax.sql.rowset.serial.SerialException"},
+		{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(SerialClob, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.sql.rowset.serial.SerialClob",
+		"java.lang.Object",
+		"java.sql.Clob,java.io.Serializable,java.lang.Cloneable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SerialClob, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SerialClob));
+	});
 	return class$;
 }
 

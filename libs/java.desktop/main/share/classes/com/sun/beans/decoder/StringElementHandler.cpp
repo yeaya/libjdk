@@ -1,5 +1,4 @@
 #include <com/sun/beans/decoder/StringElementHandler.h>
-
 #include <com/sun/beans/decoder/DocumentHandler.h>
 #include <com/sun/beans/decoder/ElementHandler.h>
 #include <com/sun/beans/decoder/ValueObject.h>
@@ -9,12 +8,10 @@
 
 #undef NULL
 
-using $DocumentHandler = ::com::sun::beans::decoder::DocumentHandler;
 using $ElementHandler = ::com::sun::beans::decoder::ElementHandler;
 using $ValueObject = ::com::sun::beans::decoder::ValueObject;
 using $ValueObjectImpl = ::com::sun::beans::decoder::ValueObjectImpl;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalStateException = ::java::lang::IllegalStateException;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -24,34 +21,6 @@ namespace com {
 	namespace sun {
 		namespace beans {
 			namespace decoder {
-
-$FieldInfo _StringElementHandler_FieldInfo_[] = {
-	{"sb", "Ljava/lang/StringBuilder;", nullptr, $PRIVATE, $field(StringElementHandler, sb)},
-	{"value", "Lcom/sun/beans/decoder/ValueObject;", nullptr, $PRIVATE, $field(StringElementHandler, value)},
-	{}
-};
-
-$MethodInfo _StringElementHandler_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(StringElementHandler, init$, void)},
-	{"addArgument", "(Ljava/lang/Object;)V", nullptr, $PROTECTED | $FINAL, $virtualMethod(StringElementHandler, addArgument, void, Object$*)},
-	{"addCharacter", "(C)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(StringElementHandler, addCharacter, void, char16_t)},
-	{"getValue", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(StringElementHandler, getValue, $Object*, $String*)},
-	{"getValueObject", "()Lcom/sun/beans/decoder/ValueObject;", nullptr, $PROTECTED | $FINAL, $virtualMethod(StringElementHandler, getValueObject, $ValueObject*)},
-	{}
-};
-
-$ClassInfo _StringElementHandler_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.beans.decoder.StringElementHandler",
-	"com.sun.beans.decoder.ElementHandler",
-	nullptr,
-	_StringElementHandler_FieldInfo_,
-	_StringElementHandler_MethodInfo_
-};
-
-$Object* allocate$StringElementHandler($Class* clazz) {
-	return $of($alloc(StringElementHandler));
-}
 
 void StringElementHandler::init$() {
 	$ElementHandler::init$();
@@ -75,24 +44,22 @@ void StringElementHandler::addArgument(Object$* argument) {
 }
 
 $ValueObject* StringElementHandler::getValueObject() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->sb != nullptr) {
-		{
-			$var($Throwable, var$0, nullptr);
+		$var($Throwable, var$0, nullptr);
+		try {
 			try {
-				try {
-					$set(this, value, $ValueObjectImpl::create($(getValue($($nc(this->sb)->toString())))));
-				} catch ($RuntimeException& exception) {
-					$nc($(getOwner()))->handleException(exception);
-				}
-			} catch ($Throwable& var$1) {
-				$assign(var$0, var$1);
-			} /*finally*/ {
-				$set(this, sb, nullptr);
+				$set(this, value, $ValueObjectImpl::create($(getValue($(this->sb->toString())))));
+			} catch ($RuntimeException& exception) {
+				$$nc(getOwner())->handleException(exception);
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
+		} /*finally*/ {
+			$set(this, sb, nullptr);
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	}
 	return this->value;
@@ -106,7 +73,30 @@ StringElementHandler::StringElementHandler() {
 }
 
 $Class* StringElementHandler::load$($String* name, bool initialize) {
-	$loadClass(StringElementHandler, name, initialize, &_StringElementHandler_ClassInfo_, allocate$StringElementHandler);
+	$FieldInfo fieldInfos$$[] = {
+		{"sb", "Ljava/lang/StringBuilder;", nullptr, $PRIVATE, $field(StringElementHandler, sb)},
+		{"value", "Lcom/sun/beans/decoder/ValueObject;", nullptr, $PRIVATE, $field(StringElementHandler, value)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(StringElementHandler, init$, void)},
+		{"addArgument", "(Ljava/lang/Object;)V", nullptr, $PROTECTED | $FINAL, $virtualMethod(StringElementHandler, addArgument, void, Object$*)},
+		{"addCharacter", "(C)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(StringElementHandler, addCharacter, void, char16_t)},
+		{"getValue", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(StringElementHandler, getValue, $Object*, $String*)},
+		{"getValueObject", "()Lcom/sun/beans/decoder/ValueObject;", nullptr, $PROTECTED | $FINAL, $virtualMethod(StringElementHandler, getValueObject, $ValueObject*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.beans.decoder.StringElementHandler",
+		"com.sun.beans.decoder.ElementHandler",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(StringElementHandler, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(StringElementHandler);
+	});
 	return class$;
 }
 

@@ -36,6 +36,7 @@ class $export Option$PkgInfo : public ::java::lang::Enum {
 public:
 	Option$PkgInfo();
 	static $Array<::com::sun::tools::javac::main::Option$PkgInfo>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::com::sun::tools::javac::main::Option$PkgInfo* get(::com::sun::tools::javac::util::Options* options);
 	static ::com::sun::tools::javac::main::Option$PkgInfo* valueOf($String* name);

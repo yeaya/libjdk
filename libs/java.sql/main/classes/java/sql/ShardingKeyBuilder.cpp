@@ -1,5 +1,4 @@
 #include <java/sql/ShardingKeyBuilder.h>
-
 #include <java/sql/SQLType.h>
 #include <java/sql/ShardingKey.h>
 #include <jcpp.h>
@@ -12,27 +11,23 @@ using $ShardingKey = ::java::sql::ShardingKey;
 namespace java {
 	namespace sql {
 
-$MethodInfo _ShardingKeyBuilder_MethodInfo_[] = {
-	{"build", "()Ljava/sql/ShardingKey;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ShardingKeyBuilder, build, $ShardingKey*), "java.sql.SQLException"},
-	{"subkey", "(Ljava/lang/Object;Ljava/sql/SQLType;)Ljava/sql/ShardingKeyBuilder;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ShardingKeyBuilder, subkey, ShardingKeyBuilder*, Object$*, $SQLType*)},
-	{}
-};
-
-$ClassInfo _ShardingKeyBuilder_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.sql.ShardingKeyBuilder",
-	nullptr,
-	nullptr,
-	nullptr,
-	_ShardingKeyBuilder_MethodInfo_
-};
-
-$Object* allocate$ShardingKeyBuilder($Class* clazz) {
-	return $of($alloc(ShardingKeyBuilder));
-}
-
 $Class* ShardingKeyBuilder::load$($String* name, bool initialize) {
-	$loadClass(ShardingKeyBuilder, name, initialize, &_ShardingKeyBuilder_ClassInfo_, allocate$ShardingKeyBuilder);
+	$MethodInfo methodInfos$$[] = {
+		{"build", "()Ljava/sql/ShardingKey;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ShardingKeyBuilder, build, $ShardingKey*), "java.sql.SQLException"},
+		{"subkey", "(Ljava/lang/Object;Ljava/sql/SQLType;)Ljava/sql/ShardingKeyBuilder;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ShardingKeyBuilder, subkey, ShardingKeyBuilder*, Object$*, $SQLType*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.sql.ShardingKeyBuilder",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ShardingKeyBuilder, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ShardingKeyBuilder);
+	});
 	return class$;
 }
 

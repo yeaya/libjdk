@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/Resolve$MostSpecificCheck$MostSpecificCheckContext$MostSpecificFunctionReturnChecker.h>
-
 #include <com/sun/source/tree/LambdaExpressionTree$BodyKind.h>
 #include <com/sun/tools/javac/code/Symbol.h>
 #include <com/sun/tools/javac/code/Type.h>
@@ -59,55 +58,6 @@ namespace com {
 			namespace javac {
 				namespace comp {
 
-$FieldInfo _Resolve$MostSpecificCheck$MostSpecificCheckContext$MostSpecificFunctionReturnChecker_FieldInfo_[] = {
-	{"this$2", "Lcom/sun/tools/javac/comp/Resolve$MostSpecificCheck$MostSpecificCheckContext;", nullptr, $FINAL | $SYNTHETIC, $field(Resolve$MostSpecificCheck$MostSpecificCheckContext$MostSpecificFunctionReturnChecker, this$2)},
-	{"tRet", "Lcom/sun/tools/javac/code/Type;", nullptr, $FINAL, $field(Resolve$MostSpecificCheck$MostSpecificCheckContext$MostSpecificFunctionReturnChecker, tRet)},
-	{"sRet", "Lcom/sun/tools/javac/code/Type;", nullptr, $FINAL, $field(Resolve$MostSpecificCheck$MostSpecificCheckContext$MostSpecificFunctionReturnChecker, sRet)},
-	{"result", "Z", nullptr, 0, $field(Resolve$MostSpecificCheck$MostSpecificCheckContext$MostSpecificFunctionReturnChecker, result)},
-	{}
-};
-
-$MethodInfo _Resolve$MostSpecificCheck$MostSpecificCheckContext$MostSpecificFunctionReturnChecker_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Resolve$MostSpecificCheck$MostSpecificCheckContext;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;)V", nullptr, 0, $method(Resolve$MostSpecificCheck$MostSpecificCheckContext$MostSpecificFunctionReturnChecker, init$, void, $Resolve$MostSpecificCheck$MostSpecificCheckContext*, $Type*, $Type*)},
-	{"asExpr", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, $PRIVATE, $method(Resolve$MostSpecificCheck$MostSpecificCheckContext$MostSpecificFunctionReturnChecker, asExpr, $JCTree$JCExpression*, $JCTree$JCExpression*)},
-	{"lambdaResults", "(Lcom/sun/tools/javac/tree/JCTree$JCLambda;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/tree/JCTree$JCLambda;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;", $PRIVATE, $method(Resolve$MostSpecificCheck$MostSpecificCheckContext$MostSpecificFunctionReturnChecker, lambdaResults, $List*, $JCTree$JCLambda*)},
-	{"skip", "(Lcom/sun/tools/javac/tree/JCTree;)V", nullptr, 0, $virtualMethod(Resolve$MostSpecificCheck$MostSpecificCheckContext$MostSpecificFunctionReturnChecker, skip, void, $JCTree*)},
-	{"visitConditional", "(Lcom/sun/tools/javac/tree/JCTree$JCConditional;)V", nullptr, $PUBLIC, $virtualMethod(Resolve$MostSpecificCheck$MostSpecificCheckContext$MostSpecificFunctionReturnChecker, visitConditional, void, $JCTree$JCConditional*)},
-	{"visitLambda", "(Lcom/sun/tools/javac/tree/JCTree$JCLambda;)V", nullptr, $PUBLIC, $virtualMethod(Resolve$MostSpecificCheck$MostSpecificCheckContext$MostSpecificFunctionReturnChecker, visitLambda, void, $JCTree$JCLambda*)},
-	{"visitParens", "(Lcom/sun/tools/javac/tree/JCTree$JCParens;)V", nullptr, $PUBLIC, $virtualMethod(Resolve$MostSpecificCheck$MostSpecificCheckContext$MostSpecificFunctionReturnChecker, visitParens, void, $JCTree$JCParens*)},
-	{"visitReference", "(Lcom/sun/tools/javac/tree/JCTree$JCMemberReference;)V", nullptr, $PUBLIC, $virtualMethod(Resolve$MostSpecificCheck$MostSpecificCheckContext$MostSpecificFunctionReturnChecker, visitReference, void, $JCTree$JCMemberReference*)},
-	{}
-};
-
-$InnerClassInfo _Resolve$MostSpecificCheck$MostSpecificCheckContext$MostSpecificFunctionReturnChecker_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.Resolve$MostSpecificCheck", "com.sun.tools.javac.comp.Resolve", "MostSpecificCheck", 0},
-	{"com.sun.tools.javac.comp.Resolve$MostSpecificCheck$MostSpecificCheckContext", "com.sun.tools.javac.comp.Resolve$MostSpecificCheck", "MostSpecificCheckContext", 0},
-	{"com.sun.tools.javac.comp.Resolve$MostSpecificCheck$MostSpecificCheckContext$MostSpecificFunctionReturnChecker", "com.sun.tools.javac.comp.Resolve$MostSpecificCheck$MostSpecificCheckContext", "MostSpecificFunctionReturnChecker", 0},
-	{"com.sun.tools.javac.comp.DeferredAttr$PolyScanner", "com.sun.tools.javac.comp.DeferredAttr", "PolyScanner", $STATIC},
-	{"com.sun.tools.javac.comp.Resolve$MostSpecificCheck$MostSpecificCheckContext$MostSpecificFunctionReturnChecker$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Resolve$MostSpecificCheck$MostSpecificCheckContext$MostSpecificFunctionReturnChecker_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.comp.Resolve$MostSpecificCheck$MostSpecificCheckContext$MostSpecificFunctionReturnChecker",
-	"com.sun.tools.javac.comp.DeferredAttr$PolyScanner",
-	nullptr,
-	_Resolve$MostSpecificCheck$MostSpecificCheckContext$MostSpecificFunctionReturnChecker_FieldInfo_,
-	_Resolve$MostSpecificCheck$MostSpecificCheckContext$MostSpecificFunctionReturnChecker_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Resolve$MostSpecificCheck$MostSpecificCheckContext$MostSpecificFunctionReturnChecker_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.Resolve"
-};
-
-$Object* allocate$Resolve$MostSpecificCheck$MostSpecificCheckContext$MostSpecificFunctionReturnChecker($Class* clazz) {
-	return $of($alloc(Resolve$MostSpecificCheck$MostSpecificCheckContext$MostSpecificFunctionReturnChecker));
-}
-
 void Resolve$MostSpecificCheck$MostSpecificCheckContext$MostSpecificFunctionReturnChecker::init$($Resolve$MostSpecificCheck$MostSpecificCheckContext* this$2, $Type* tRet, $Type* sRet) {
 	$set(this, this$2, this$2);
 	$DeferredAttr$PolyScanner::init$();
@@ -121,25 +71,69 @@ void Resolve$MostSpecificCheck$MostSpecificCheckContext$MostSpecificFunctionRetu
 }
 
 void Resolve$MostSpecificCheck$MostSpecificCheckContext$MostSpecificFunctionReturnChecker::visitConditional($JCTree$JCConditional* tree) {
-	$useLocalCurrentObjectStackCache();
-	scan($(static_cast<$JCTree*>(asExpr($nc(tree)->truepart))));
-	scan($(static_cast<$JCTree*>(asExpr($nc(tree)->falsepart))));
+	$useLocalObjectStack();
+	scan($(asExpr($nc(tree)->truepart)));
+	scan($(asExpr(tree->falsepart)));
 }
 
 void Resolve$MostSpecificCheck$MostSpecificCheckContext$MostSpecificFunctionReturnChecker::visitReference($JCTree$JCMemberReference* tree) {
 	$init($TypeTag);
 	if ($nc(this->sRet)->hasTag($TypeTag::VOID)) {
 		this->result &= true;
+	} else if ($nc(this->tRet)->hasTag($TypeTag::VOID)) {
+		this->result &= false;
 	} else {
-		if ($nc(this->tRet)->hasTag($TypeTag::VOID)) {
-			this->result &= false;
+		bool var$0 = this->tRet->isPrimitive();
+		if (var$0 != this->sRet->isPrimitive()) {
+			$init($JCTree$JCPolyExpression$PolyKind);
+			bool retValIsPrimitive = $nc(tree)->refPolyKind == $JCTree$JCPolyExpression$PolyKind::STANDALONE && $$nc($nc($nc(tree->sym)->type)->getReturnType())->isPrimitive();
+			bool var$1 = retValIsPrimitive == this->tRet->isPrimitive();
+			this->result &= var$1 && (retValIsPrimitive != this->sRet->isPrimitive());
 		} else {
-			bool var$1 = $nc(this->tRet)->isPrimitive();
-			if (var$1 != $nc(this->sRet)->isPrimitive()) {
-				$init($JCTree$JCPolyExpression$PolyKind);
-				bool retValIsPrimitive = $nc(tree)->refPolyKind == $JCTree$JCPolyExpression$PolyKind::STANDALONE && $nc($($nc($nc(tree->sym)->type)->getReturnType()))->isPrimitive();
-				bool var$2 = (retValIsPrimitive == $nc(this->tRet)->isPrimitive());
-				this->result &= var$2 && (retValIsPrimitive != $nc(this->sRet)->isPrimitive());
+			this->result &= this->this$2->compatibleBySubtyping(this->tRet, this->sRet);
+		}
+	}
+}
+
+void Resolve$MostSpecificCheck$MostSpecificCheckContext$MostSpecificFunctionReturnChecker::visitParens($JCTree$JCParens* tree) {
+	scan($(asExpr($nc(tree)->expr)));
+}
+
+void Resolve$MostSpecificCheck$MostSpecificCheckContext$MostSpecificFunctionReturnChecker::visitLambda($JCTree$JCLambda* tree) {
+	$useLocalObjectStack();
+	$init($TypeTag);
+	if ($nc(this->sRet)->hasTag($TypeTag::VOID)) {
+		this->result &= true;
+	} else if ($nc(this->tRet)->hasTag($TypeTag::VOID)) {
+		this->result &= false;
+	} else {
+		$var($List, lambdaResults, this->lambdaResults(tree));
+		bool var$0 = !$nc(lambdaResults)->isEmpty();
+		if (var$0 && this->this$2->unrelatedFunctionalInterfaces(this->tRet, this->sRet)) {
+			$var($Iterator, i$, lambdaResults->iterator());
+			for (; $nc(i$)->hasNext();) {
+				$var($JCTree$JCExpression, expr, $cast($JCTree$JCExpression, i$->next()));
+				{
+					this->result &= this->this$2->functionalInterfaceMostSpecific(this->tRet, this->sRet, expr);
+				}
+			}
+		} else {
+			bool var$1 = !lambdaResults->isEmpty();
+			if (var$1) {
+				bool var$2 = this->tRet->isPrimitive();
+				var$1 = var$2 != this->sRet->isPrimitive();
+			}
+			if (var$1) {
+				$var($Iterator, i$, lambdaResults->iterator());
+				for (; $nc(i$)->hasNext();) {
+					$var($JCTree$JCExpression, expr, $cast($JCTree$JCExpression, i$->next()));
+					{
+						bool var$3 = $nc(expr)->isStandalone();
+						bool retValIsPrimitive = var$3 && $nc(expr->type)->isPrimitive();
+						bool var$4 = retValIsPrimitive == this->tRet->isPrimitive();
+						this->result &= var$4 && (retValIsPrimitive != this->sRet->isPrimitive());
+					}
+				}
 			} else {
 				this->result &= this->this$2->compatibleBySubtyping(this->tRet, this->sRet);
 			}
@@ -147,60 +141,8 @@ void Resolve$MostSpecificCheck$MostSpecificCheckContext$MostSpecificFunctionRetu
 	}
 }
 
-void Resolve$MostSpecificCheck$MostSpecificCheckContext$MostSpecificFunctionReturnChecker::visitParens($JCTree$JCParens* tree) {
-	scan($(static_cast<$JCTree*>(asExpr($nc(tree)->expr))));
-}
-
-void Resolve$MostSpecificCheck$MostSpecificCheckContext$MostSpecificFunctionReturnChecker::visitLambda($JCTree$JCLambda* tree) {
-	$useLocalCurrentObjectStackCache();
-	$init($TypeTag);
-	if ($nc(this->sRet)->hasTag($TypeTag::VOID)) {
-		this->result &= true;
-	} else {
-		if ($nc(this->tRet)->hasTag($TypeTag::VOID)) {
-			this->result &= false;
-		} else {
-			$var($List, lambdaResults, this->lambdaResults(tree));
-			bool var$0 = !$nc(lambdaResults)->isEmpty();
-			if (var$0 && this->this$2->unrelatedFunctionalInterfaces(this->tRet, this->sRet)) {
-				{
-					$var($Iterator, i$, lambdaResults->iterator());
-					for (; $nc(i$)->hasNext();) {
-						$var($JCTree$JCExpression, expr, $cast($JCTree$JCExpression, i$->next()));
-						{
-							this->result &= this->this$2->functionalInterfaceMostSpecific(this->tRet, this->sRet, expr);
-						}
-					}
-				}
-			} else {
-				bool var$3 = !lambdaResults->isEmpty();
-				if (var$3) {
-					bool var$4 = $nc(this->tRet)->isPrimitive();
-					var$3 = var$4 != $nc(this->sRet)->isPrimitive();
-				}
-				if (var$3) {
-					{
-						$var($Iterator, i$, lambdaResults->iterator());
-						for (; $nc(i$)->hasNext();) {
-							$var($JCTree$JCExpression, expr, $cast($JCTree$JCExpression, i$->next()));
-							{
-								bool var$5 = $nc(expr)->isStandalone();
-								bool retValIsPrimitive = var$5 && $nc(expr->type)->isPrimitive();
-								bool var$6 = (retValIsPrimitive == $nc(this->tRet)->isPrimitive());
-								this->result &= var$6 && (retValIsPrimitive != $nc(this->sRet)->isPrimitive());
-							}
-						}
-					}
-				} else {
-					this->result &= this->this$2->compatibleBySubtyping(this->tRet, this->sRet);
-				}
-			}
-		}
-	}
-}
-
 $List* Resolve$MostSpecificCheck$MostSpecificCheckContext$MostSpecificFunctionReturnChecker::lambdaResults($JCTree$JCLambda* lambda) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($LambdaExpressionTree$BodyKind);
 	if ($nc(lambda)->getBodyKind() == $LambdaExpressionTree$BodyKind::EXPRESSION) {
 		return $List::of($(asExpr($cast($JCTree$JCExpression, lambda->body))));
@@ -213,11 +155,11 @@ $List* Resolve$MostSpecificCheck$MostSpecificCheckContext$MostSpecificFunctionRe
 }
 
 $JCTree$JCExpression* Resolve$MostSpecificCheck$MostSpecificCheckContext$MostSpecificFunctionReturnChecker::asExpr($JCTree$JCExpression* expr$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JCTree$JCExpression, expr, expr$renamed);
 	$init($TypeTag);
 	if ($nc($nc(expr)->type)->hasTag($TypeTag::DEFERRED)) {
-		$var($JCTree, speculativeTree, $nc(($cast($DeferredAttr$DeferredType, expr->type)))->speculativeTree(this->this$2->deferredAttrContext$));
+		$var($JCTree, speculativeTree, $nc($cast($DeferredAttr$DeferredType, expr->type))->speculativeTree(this->this$2->deferredAttrContext$));
 		if (speculativeTree != $nc($nc($nc(this->this$2->this$1)->this$0)->deferredAttr)->stuckTree) {
 			$assign(expr, $cast($JCTree$JCExpression, speculativeTree));
 		}
@@ -229,7 +171,50 @@ Resolve$MostSpecificCheck$MostSpecificCheckContext$MostSpecificFunctionReturnChe
 }
 
 $Class* Resolve$MostSpecificCheck$MostSpecificCheckContext$MostSpecificFunctionReturnChecker::load$($String* name, bool initialize) {
-	$loadClass(Resolve$MostSpecificCheck$MostSpecificCheckContext$MostSpecificFunctionReturnChecker, name, initialize, &_Resolve$MostSpecificCheck$MostSpecificCheckContext$MostSpecificFunctionReturnChecker_ClassInfo_, allocate$Resolve$MostSpecificCheck$MostSpecificCheckContext$MostSpecificFunctionReturnChecker);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$2", "Lcom/sun/tools/javac/comp/Resolve$MostSpecificCheck$MostSpecificCheckContext;", nullptr, $FINAL | $SYNTHETIC, $field(Resolve$MostSpecificCheck$MostSpecificCheckContext$MostSpecificFunctionReturnChecker, this$2)},
+		{"tRet", "Lcom/sun/tools/javac/code/Type;", nullptr, $FINAL, $field(Resolve$MostSpecificCheck$MostSpecificCheckContext$MostSpecificFunctionReturnChecker, tRet)},
+		{"sRet", "Lcom/sun/tools/javac/code/Type;", nullptr, $FINAL, $field(Resolve$MostSpecificCheck$MostSpecificCheckContext$MostSpecificFunctionReturnChecker, sRet)},
+		{"result", "Z", nullptr, 0, $field(Resolve$MostSpecificCheck$MostSpecificCheckContext$MostSpecificFunctionReturnChecker, result)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/comp/Resolve$MostSpecificCheck$MostSpecificCheckContext;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;)V", nullptr, 0, $method(Resolve$MostSpecificCheck$MostSpecificCheckContext$MostSpecificFunctionReturnChecker, init$, void, $Resolve$MostSpecificCheck$MostSpecificCheckContext*, $Type*, $Type*)},
+		{"asExpr", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, $PRIVATE, $method(Resolve$MostSpecificCheck$MostSpecificCheckContext$MostSpecificFunctionReturnChecker, asExpr, $JCTree$JCExpression*, $JCTree$JCExpression*)},
+		{"lambdaResults", "(Lcom/sun/tools/javac/tree/JCTree$JCLambda;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/tree/JCTree$JCLambda;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;", $PRIVATE, $method(Resolve$MostSpecificCheck$MostSpecificCheckContext$MostSpecificFunctionReturnChecker, lambdaResults, $List*, $JCTree$JCLambda*)},
+		{"skip", "(Lcom/sun/tools/javac/tree/JCTree;)V", nullptr, 0, $virtualMethod(Resolve$MostSpecificCheck$MostSpecificCheckContext$MostSpecificFunctionReturnChecker, skip, void, $JCTree*)},
+		{"visitConditional", "(Lcom/sun/tools/javac/tree/JCTree$JCConditional;)V", nullptr, $PUBLIC, $virtualMethod(Resolve$MostSpecificCheck$MostSpecificCheckContext$MostSpecificFunctionReturnChecker, visitConditional, void, $JCTree$JCConditional*)},
+		{"visitLambda", "(Lcom/sun/tools/javac/tree/JCTree$JCLambda;)V", nullptr, $PUBLIC, $virtualMethod(Resolve$MostSpecificCheck$MostSpecificCheckContext$MostSpecificFunctionReturnChecker, visitLambda, void, $JCTree$JCLambda*)},
+		{"visitParens", "(Lcom/sun/tools/javac/tree/JCTree$JCParens;)V", nullptr, $PUBLIC, $virtualMethod(Resolve$MostSpecificCheck$MostSpecificCheckContext$MostSpecificFunctionReturnChecker, visitParens, void, $JCTree$JCParens*)},
+		{"visitReference", "(Lcom/sun/tools/javac/tree/JCTree$JCMemberReference;)V", nullptr, $PUBLIC, $virtualMethod(Resolve$MostSpecificCheck$MostSpecificCheckContext$MostSpecificFunctionReturnChecker, visitReference, void, $JCTree$JCMemberReference*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.Resolve$MostSpecificCheck", "com.sun.tools.javac.comp.Resolve", "MostSpecificCheck", 0},
+		{"com.sun.tools.javac.comp.Resolve$MostSpecificCheck$MostSpecificCheckContext", "com.sun.tools.javac.comp.Resolve$MostSpecificCheck", "MostSpecificCheckContext", 0},
+		{"com.sun.tools.javac.comp.Resolve$MostSpecificCheck$MostSpecificCheckContext$MostSpecificFunctionReturnChecker", "com.sun.tools.javac.comp.Resolve$MostSpecificCheck$MostSpecificCheckContext", "MostSpecificFunctionReturnChecker", 0},
+		{"com.sun.tools.javac.comp.DeferredAttr$PolyScanner", "com.sun.tools.javac.comp.DeferredAttr", "PolyScanner", $STATIC},
+		{"com.sun.tools.javac.comp.Resolve$MostSpecificCheck$MostSpecificCheckContext$MostSpecificFunctionReturnChecker$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.comp.Resolve$MostSpecificCheck$MostSpecificCheckContext$MostSpecificFunctionReturnChecker",
+		"com.sun.tools.javac.comp.DeferredAttr$PolyScanner",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.Resolve"
+	};
+	$loadClass(Resolve$MostSpecificCheck$MostSpecificCheckContext$MostSpecificFunctionReturnChecker, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Resolve$MostSpecificCheck$MostSpecificCheckContext$MostSpecificFunctionReturnChecker);
+	});
 	return class$;
 }
 

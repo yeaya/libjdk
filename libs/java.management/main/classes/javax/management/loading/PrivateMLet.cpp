@@ -1,5 +1,4 @@
 #include <javax/management/loading/PrivateMLet.h>
-
 #include <java/lang/ClassLoader.h>
 #include <java/net/URL.h>
 #include <java/net/URLStreamHandlerFactory.h>
@@ -17,36 +16,6 @@ using $MLet = ::javax::management::loading::MLet;
 namespace javax {
 	namespace management {
 		namespace loading {
-
-$FieldInfo _PrivateMLet_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PrivateMLet, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _PrivateMLet_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "([Ljava/net/URL;Z)V", nullptr, $PUBLIC, $method(PrivateMLet, init$, void, $URLArray*, bool)},
-	{"<init>", "([Ljava/net/URL;Ljava/lang/ClassLoader;Z)V", nullptr, $PUBLIC, $method(PrivateMLet, init$, void, $URLArray*, $ClassLoader*, bool)},
-	{"<init>", "([Ljava/net/URL;Ljava/lang/ClassLoader;Ljava/net/URLStreamHandlerFactory;Z)V", nullptr, $PUBLIC, $method(PrivateMLet, init$, void, $URLArray*, $ClassLoader*, $URLStreamHandlerFactory*, bool)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _PrivateMLet_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.management.loading.PrivateMLet",
-	"javax.management.loading.MLet",
-	"javax.management.loading.PrivateClassLoader",
-	_PrivateMLet_FieldInfo_,
-	_PrivateMLet_MethodInfo_
-};
-
-$Object* allocate$PrivateMLet($Class* clazz) {
-	return $of($alloc(PrivateMLet));
-}
 
 int32_t PrivateMLet::hashCode() {
 	 return this->$MLet::hashCode();
@@ -84,7 +53,32 @@ PrivateMLet::PrivateMLet() {
 }
 
 $Class* PrivateMLet::load$($String* name, bool initialize) {
-	$loadClass(PrivateMLet, name, initialize, &_PrivateMLet_ClassInfo_, allocate$PrivateMLet);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PrivateMLet, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "([Ljava/net/URL;Z)V", nullptr, $PUBLIC, $method(PrivateMLet, init$, void, $URLArray*, bool)},
+		{"<init>", "([Ljava/net/URL;Ljava/lang/ClassLoader;Z)V", nullptr, $PUBLIC, $method(PrivateMLet, init$, void, $URLArray*, $ClassLoader*, bool)},
+		{"<init>", "([Ljava/net/URL;Ljava/lang/ClassLoader;Ljava/net/URLStreamHandlerFactory;Z)V", nullptr, $PUBLIC, $method(PrivateMLet, init$, void, $URLArray*, $ClassLoader*, $URLStreamHandlerFactory*, bool)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.management.loading.PrivateMLet",
+		"javax.management.loading.MLet",
+		"javax.management.loading.PrivateClassLoader",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(PrivateMLet, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(PrivateMLet));
+	});
 	return class$;
 }
 

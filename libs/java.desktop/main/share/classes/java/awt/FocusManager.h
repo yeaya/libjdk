@@ -22,7 +22,7 @@ public:
 	void init$();
 	::java::awt::Container* focusRoot = nullptr;
 	::java::awt::Component* focusOwner = nullptr;
-	static const int64_t serialVersionUID = (int64_t)0x2294EE96E1CD4412;
+	static const int64_t serialVersionUID = (int64_t)0x2294ee96e1cd4412;
 };
 
 	} // awt

@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/security/signature/Reference.h>
-
 #include <com/sun/org/apache/xml/internal/security/algorithms/Algorithm.h>
 #include <com/sun/org/apache/xml/internal/security/algorithms/MessageDigestAlgorithm.h>
 #include <com/sun/org/apache/xml/internal/security/c14n/CanonicalizationException.h>
@@ -18,7 +17,6 @@
 #include <com/sun/org/apache/xml/internal/security/transforms/params/InclusiveNamespaces.h>
 #include <com/sun/org/apache/xml/internal/security/utils/Constants.h>
 #include <com/sun/org/apache/xml/internal/security/utils/DigesterOutputStream.h>
-#include <com/sun/org/apache/xml/internal/security/utils/ElementProxy.h>
 #include <com/sun/org/apache/xml/internal/security/utils/SignatureElementProxy.h>
 #include <com/sun/org/apache/xml/internal/security/utils/UnsyncBufferedOutputStream.h>
 #include <com/sun/org/apache/xml/internal/security/utils/XMLUtils.h>
@@ -91,7 +89,6 @@ using $Transforms = ::com::sun::org::apache::xml::internal::security::transforms
 using $InclusiveNamespaces = ::com::sun::org::apache::xml::internal::security::transforms::params::InclusiveNamespaces;
 using $Constants = ::com::sun::org::apache::xml::internal::security::utils::Constants;
 using $DigesterOutputStream = ::com::sun::org::apache::xml::internal::security::utils::DigesterOutputStream;
-using $ElementProxy = ::com::sun::org::apache::xml::internal::security::utils::ElementProxy;
 using $SignatureElementProxy = ::com::sun::org::apache::xml::internal::security::utils::SignatureElementProxy;
 using $UnsyncBufferedOutputStream = ::com::sun::org::apache::xml::internal::security::utils::UnsyncBufferedOutputStream;
 using $XMLUtils = ::com::sun::org::apache::xml::internal::security::utils::XMLUtils;
@@ -140,107 +137,27 @@ public:
 	virtual $Object* run() override {
 		 return $of(Reference::lambda$static$0());
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Reference$$Lambda$lambda$static$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo Reference$$Lambda$lambda$static$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Reference$$Lambda$lambda$static$0, init$, void)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Reference$$Lambda$lambda$static$0, run, $Object*)},
-	{}
-};
-$ClassInfo Reference$$Lambda$lambda$static$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.org.apache.xml.internal.security.signature.Reference$$Lambda$lambda$static$0",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	nullptr,
-	methodInfos
 };
 $Class* Reference$$Lambda$lambda$static$0::load$($String* name, bool initialize) {
-	$loadClass(Reference$$Lambda$lambda$static$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Reference$$Lambda$lambda$static$0, init$, void)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Reference$$Lambda$lambda$static$0, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.org.apache.xml.internal.security.signature.Reference$$Lambda$lambda$static$0",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Reference$$Lambda$lambda$static$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Reference$$Lambda$lambda$static$0);
+	});
 	return class$;
 }
 $Class* Reference$$Lambda$lambda$static$0::class$ = nullptr;
-
-$FieldInfo _Reference_FieldInfo_[] = {
-	{"OBJECT_URI", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Reference, OBJECT_URI)},
-	{"MANIFEST_URI", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Reference, MANIFEST_URI)},
-	{"MAXIMUM_TRANSFORM_COUNT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Reference, MAXIMUM_TRANSFORM_COUNT)},
-	{"secureValidation", "Z", nullptr, $PRIVATE, $field(Reference, secureValidation)},
-	{"useC14N11", "Z", nullptr, $PRIVATE | $STATIC, $staticField(Reference, useC14N11)},
-	{"LOG", "Lcom/sun/org/slf4j/internal/Logger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Reference, LOG)},
-	{"manifest", "Lcom/sun/org/apache/xml/internal/security/signature/Manifest;", nullptr, $PRIVATE, $field(Reference, manifest)},
-	{"transformsOutput", "Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;", nullptr, $PRIVATE, $field(Reference, transformsOutput)},
-	{"transforms", "Lcom/sun/org/apache/xml/internal/security/transforms/Transforms;", nullptr, $PRIVATE, $field(Reference, transforms)},
-	{"digestMethodElem", "Lorg/w3c/dom/Element;", nullptr, $PRIVATE, $field(Reference, digestMethodElem)},
-	{"digestValueElement", "Lorg/w3c/dom/Element;", nullptr, $PRIVATE, $field(Reference, digestValueElement)},
-	{"referenceData", "Lcom/sun/org/apache/xml/internal/security/signature/reference/ReferenceData;", nullptr, $PRIVATE, $field(Reference, referenceData)},
-	{"TRANSFORM_ALGORITHMS", "Ljava/util/Set;", "Ljava/util/Set<Ljava/lang/String;>;", $PRIVATE | $STATIC | $FINAL, $staticField(Reference, TRANSFORM_ALGORITHMS)},
-	{}
-};
-
-$MethodInfo _Reference_MethodInfo_[] = {
-	{"<init>", "(Lorg/w3c/dom/Document;Ljava/lang/String;Ljava/lang/String;Lcom/sun/org/apache/xml/internal/security/signature/Manifest;Lcom/sun/org/apache/xml/internal/security/transforms/Transforms;Ljava/lang/String;)V", nullptr, $PROTECTED, $method(Reference, init$, void, $Document*, $String*, $String*, $Manifest*, $Transforms*, $String*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
-	{"<init>", "(Lorg/w3c/dom/Element;Ljava/lang/String;Lcom/sun/org/apache/xml/internal/security/signature/Manifest;)V", nullptr, $PROTECTED, $method(Reference, init$, void, $Element*, $String*, $Manifest*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
-	{"<init>", "(Lorg/w3c/dom/Element;Ljava/lang/String;Lcom/sun/org/apache/xml/internal/security/signature/Manifest;Z)V", nullptr, $PROTECTED, $method(Reference, init$, void, $Element*, $String*, $Manifest*, bool), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
-	{"cacheDereferencedElement", "(Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;)V", nullptr, $PRIVATE, $method(Reference, cacheDereferencedElement, void, $XMLSignatureInput*)},
-	{"calculateDigest", "(Z)[B", nullptr, $PRIVATE, $method(Reference, calculateDigest, $bytes*, bool), "com.sun.org.apache.xml.internal.security.signature.ReferenceNotInitializedException,com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
-	{"dereferenceURIandPerformTransforms", "(Ljava/io/OutputStream;)Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;", nullptr, $PROTECTED, $virtualMethod(Reference, dereferenceURIandPerformTransforms, $XMLSignatureInput*, $OutputStream*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
-	{"generateDigestValue", "()V", nullptr, $PUBLIC, $virtualMethod(Reference, generateDigestValue, void), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException,com.sun.org.apache.xml.internal.security.signature.ReferenceNotInitializedException"},
-	{"getBaseLocalName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Reference, getBaseLocalName, $String*)},
-	{"getContentsAfterTransformation", "(Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;Ljava/io/OutputStream;)Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;", nullptr, $PRIVATE, $method(Reference, getContentsAfterTransformation, $XMLSignatureInput*, $XMLSignatureInput*, $OutputStream*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
-	{"getContentsAfterTransformation", "()Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;", nullptr, $PUBLIC, $virtualMethod(Reference, getContentsAfterTransformation, $XMLSignatureInput*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
-	{"getContentsBeforeTransformation", "()Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;", nullptr, $PUBLIC, $virtualMethod(Reference, getContentsBeforeTransformation, $XMLSignatureInput*), "com.sun.org.apache.xml.internal.security.signature.ReferenceNotInitializedException"},
-	{"getDigestValue", "()[B", nullptr, $PUBLIC, $virtualMethod(Reference, getDigestValue, $bytes*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
-	{"getHTMLRepresentation", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Reference, getHTMLRepresentation, $String*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
-	{"getId", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Reference, getId, $String*)},
-	{"getMessageDigestAlgorithm", "()Lcom/sun/org/apache/xml/internal/security/algorithms/MessageDigestAlgorithm;", nullptr, $PUBLIC, $virtualMethod(Reference, getMessageDigestAlgorithm, $MessageDigestAlgorithm*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
-	{"getNodesetBeforeFirstCanonicalization", "()Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;", nullptr, $PUBLIC, $virtualMethod(Reference, getNodesetBeforeFirstCanonicalization, $XMLSignatureInput*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
-	{"getPreCalculatedDigest", "(Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;)[B", nullptr, $PRIVATE, $method(Reference, getPreCalculatedDigest, $bytes*, $XMLSignatureInput*), "com.sun.org.apache.xml.internal.security.signature.ReferenceNotInitializedException"},
-	{"getReferenceData", "()Lcom/sun/org/apache/xml/internal/security/signature/reference/ReferenceData;", nullptr, $PUBLIC, $virtualMethod(Reference, getReferenceData, $ReferenceData*)},
-	{"getReferencedBytes", "()[B", nullptr, $PUBLIC, $virtualMethod(Reference, getReferencedBytes, $bytes*), "com.sun.org.apache.xml.internal.security.signature.ReferenceNotInitializedException,com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
-	{"getTransforms", "()Lcom/sun/org/apache/xml/internal/security/transforms/Transforms;", nullptr, $PUBLIC, $virtualMethod(Reference, getTransforms, $Transforms*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException,com.sun.org.apache.xml.internal.security.transforms.InvalidTransformException,com.sun.org.apache.xml.internal.security.transforms.TransformationException,com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
-	{"getTransformsOutput", "()Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;", nullptr, $PUBLIC, $virtualMethod(Reference, getTransformsOutput, $XMLSignatureInput*)},
-	{"getType", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Reference, getType, $String*)},
-	{"getURI", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Reference, getURI, $String*)},
-	{"lambda$static$0", "()Ljava/lang/Boolean;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Reference, lambda$static$0, $Boolean*)},
-	{"setDigestValueElement", "([B)V", nullptr, $PRIVATE, $method(Reference, setDigestValueElement, void, $bytes*)},
-	{"setId", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Reference, setId, void, $String*)},
-	{"setType", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Reference, setType, void, $String*)},
-	{"setURI", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Reference, setURI, void, $String*)},
-	{"typeIsReferenceToManifest", "()Z", nullptr, $PUBLIC, $virtualMethod(Reference, typeIsReferenceToManifest, bool)},
-	{"typeIsReferenceToObject", "()Z", nullptr, $PUBLIC, $virtualMethod(Reference, typeIsReferenceToObject, bool)},
-	{"verify", "()Z", nullptr, $PUBLIC, $virtualMethod(Reference, verify, bool), "com.sun.org.apache.xml.internal.security.signature.ReferenceNotInitializedException,com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
-	{}
-};
-
-$InnerClassInfo _Reference_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xml.internal.security.signature.Reference$2", nullptr, nullptr, 0},
-	{"com.sun.org.apache.xml.internal.security.signature.Reference$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Reference_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.security.signature.Reference",
-	"com.sun.org.apache.xml.internal.security.utils.SignatureElementProxy",
-	nullptr,
-	_Reference_FieldInfo_,
-	_Reference_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Reference_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xml.internal.security.signature.Reference$2,com.sun.org.apache.xml.internal.security.signature.Reference$2$1,com.sun.org.apache.xml.internal.security.signature.Reference$1"
-};
-
-$Object* allocate$Reference($Class* clazz) {
-	return $of($alloc(Reference));
-}
 
 $String* Reference::OBJECT_URI = nullptr;
 $String* Reference::MANIFEST_URI = nullptr;
@@ -249,7 +166,7 @@ $Logger* Reference::LOG = nullptr;
 $Set* Reference::TRANSFORM_ALGORITHMS = nullptr;
 
 void Reference::init$($Document* doc, $String* baseURI, $String* referenceURI, $Manifest* manifest, $Transforms* transforms, $String* messageDigestAlgorithm) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$SignatureElementProxy::init$(doc);
 	addReturnToSelf();
 	$set(this, baseURI, baseURI);
@@ -257,16 +174,16 @@ void Reference::init$($Document* doc, $String* baseURI, $String* referenceURI, $
 	this->setURI(referenceURI);
 	if (transforms != nullptr) {
 		$set(this, transforms, transforms);
-		appendSelf(static_cast<$ElementProxy*>(transforms));
+		appendSelf(transforms);
 		addReturnToSelf();
 	}
 	$var($Algorithm, digestAlgorithm, $new($Reference$1, this, $(getDocument()), messageDigestAlgorithm));
 	$set(this, digestMethodElem, digestAlgorithm->getElement());
-	appendSelf(static_cast<$Node*>(this->digestMethodElem));
+	appendSelf(this->digestMethodElem);
 	addReturnToSelf();
 	$init($Constants);
 	$set(this, digestValueElement, $XMLUtils::createElementInSignatureSpace($(getDocument()), $Constants::_TAG_DIGESTVALUE));
-	appendSelf(static_cast<$Node*>(this->digestValueElement));
+	appendSelf(this->digestValueElement);
 	addReturnToSelf();
 }
 
@@ -275,7 +192,7 @@ void Reference::init$($Element* element, $String* baseURI, $Manifest* manifest) 
 }
 
 void Reference::init$($Element* element, $String* baseURI, $Manifest* manifest, bool secureValidation) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$SignatureElementProxy::init$(element, baseURI);
 	this->secureValidation = secureValidation;
 	$set(this, baseURI, baseURI);
@@ -284,11 +201,11 @@ void Reference::init$($Element* element, $String* baseURI, $Manifest* manifest, 
 	bool var$0 = el != nullptr && $nc($Constants::_TAG_TRANSFORMS)->equals($(el->getLocalName()));
 	if (var$0 && $nc($Constants::SignatureSpecNS)->equals($(el->getNamespaceURI()))) {
 		$set(this, transforms, $new($Transforms, el, this->baseURI));
-		$nc(this->transforms)->setSecureValidation(secureValidation);
+		this->transforms->setSecureValidation(secureValidation);
 		if (secureValidation && $nc(this->transforms)->getLength() > Reference::MAXIMUM_TRANSFORM_COUNT) {
 			$var($ObjectArray, exArgs, $new($ObjectArray, {
-				$($of($Integer::valueOf($nc(this->transforms)->getLength()))),
-				$($of($Integer::valueOf(Reference::MAXIMUM_TRANSFORM_COUNT)))
+				$($Integer::valueOf($nc(this->transforms)->getLength())),
+				$($Integer::valueOf(Reference::MAXIMUM_TRANSFORM_COUNT))
 			}));
 			$throwNew($XMLSecurityException, "signature.tooManyTransforms"_s, exArgs);
 		}
@@ -297,8 +214,8 @@ void Reference::init$($Element* element, $String* baseURI, $Manifest* manifest, 
 	$set(this, digestMethodElem, el);
 	bool var$1 = this->digestMethodElem == nullptr;
 	if (!var$1) {
-		bool var$2 = $nc($Constants::SignatureSpecNS)->equals($($nc(this->digestMethodElem)->getNamespaceURI()));
-		var$1 = !(var$2 && $nc($Constants::_TAG_DIGESTMETHOD)->equals($($nc(this->digestMethodElem)->getLocalName())));
+		bool var$2 = $nc($Constants::SignatureSpecNS)->equals($(this->digestMethodElem->getNamespaceURI()));
+		var$1 = !(var$2 && $nc($Constants::_TAG_DIGESTMETHOD)->equals($(this->digestMethodElem->getLocalName())));
 	}
 	if (var$1) {
 		$throwNew($XMLSecurityException, "signature.Reference.NoDigestMethod"_s);
@@ -306,8 +223,8 @@ void Reference::init$($Element* element, $String* baseURI, $Manifest* manifest, 
 	$set(this, digestValueElement, $XMLUtils::getNextElement($($nc(this->digestMethodElem)->getNextSibling())));
 	bool var$3 = this->digestValueElement == nullptr;
 	if (!var$3) {
-		bool var$4 = $nc($Constants::SignatureSpecNS)->equals($($nc(this->digestValueElement)->getNamespaceURI()));
-		var$3 = !(var$4 && $nc($Constants::_TAG_DIGESTVALUE)->equals($($nc(this->digestValueElement)->getLocalName())));
+		bool var$4 = $nc($Constants::SignatureSpecNS)->equals($(this->digestValueElement->getNamespaceURI()));
+		var$3 = !(var$4 && $nc($Constants::_TAG_DIGESTVALUE)->equals($(this->digestValueElement->getLocalName())));
 	}
 	if (var$3) {
 		$throwNew($XMLSecurityException, "signature.Reference.NoDigestValue"_s);
@@ -316,7 +233,7 @@ void Reference::init$($Element* element, $String* baseURI, $Manifest* manifest, 
 }
 
 $MessageDigestAlgorithm* Reference::getMessageDigestAlgorithm() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->digestMethodElem == nullptr) {
 		return nullptr;
 	}
@@ -327,7 +244,7 @@ $MessageDigestAlgorithm* Reference::getMessageDigestAlgorithm() {
 	}
 	$init($MessageDigestAlgorithm);
 	if (this->secureValidation && $nc($MessageDigestAlgorithm::ALGO_ID_DIGEST_NOT_RECOMMENDED_MD5)->equals(uri)) {
-		$var($ObjectArray, exArgs, $new($ObjectArray, {$of(uri)}));
+		$var($ObjectArray, exArgs, $new($ObjectArray, {uri}));
 		$throwNew($XMLSignatureException, "signature.signatureAlgorithm"_s, exArgs);
 	}
 	return $MessageDigestAlgorithm::getInstance($(getDocument()), uri);
@@ -370,15 +287,15 @@ $String* Reference::getType() {
 }
 
 bool Reference::typeIsReferenceToObject() {
-	return $nc(Reference::OBJECT_URI)->equals($(this->getType()));
+	return Reference::OBJECT_URI->equals($(this->getType()));
 }
 
 bool Reference::typeIsReferenceToManifest() {
-	return $nc(Reference::MANIFEST_URI)->equals($(this->getType()));
+	return Reference::MANIFEST_URI->equals($(this->getType()));
 }
 
 void Reference::setDigestValueElement($bytes* digestValue) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Node, n, $nc(this->digestValueElement)->getFirstChild());
 	while (n != nullptr) {
 		$nc(this->digestValueElement)->removeChild(n);
@@ -394,20 +311,20 @@ void Reference::generateDigestValue() {
 }
 
 $XMLSignatureInput* Reference::getContentsBeforeTransformation() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$init($Constants);
-		$var($Attr, uriAttr, $nc($(getElement()))->getAttributeNodeNS(nullptr, $Constants::_ATT_URI));
+		$var($Attr, uriAttr, $$nc(getElement())->getAttributeNodeNS(nullptr, $Constants::_ATT_URI));
 		$var($ResourceResolverContext, resolverContext, $new($ResourceResolverContext, uriAttr, this->baseURI, this->secureValidation, $($nc(this->manifest)->getResolverProperties())));
 		return $ResourceResolver::resolve($($nc(this->manifest)->getPerManifestResolvers()), resolverContext);
 	} catch ($ResourceResolverException& ex) {
-		$throwNew($ReferenceNotInitializedException, static_cast<$Exception*>(ex));
+		$throwNew($ReferenceNotInitializedException, ex);
 	}
 	$shouldNotReachHere();
 }
 
 $XMLSignatureInput* Reference::getContentsAfterTransformation($XMLSignatureInput* input, $OutputStream* os) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$var($Transforms, transforms, this->getTransforms());
 		$var($XMLSignatureInput, output, nullptr);
@@ -419,7 +336,7 @@ $XMLSignatureInput* Reference::getContentsAfterTransformation($XMLSignatureInput
 		}
 		return output;
 	} catch ($XMLSecurityException& ex) {
-		$throwNew($XMLSignatureException, static_cast<$Exception*>(ex));
+		$throwNew($XMLSignatureException, ex);
 	}
 	$shouldNotReachHere();
 }
@@ -431,7 +348,7 @@ $XMLSignatureInput* Reference::getContentsAfterTransformation() {
 }
 
 $XMLSignatureInput* Reference::getNodesetBeforeFirstCanonicalization() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$var($XMLSignatureInput, input, this->getContentsBeforeTransformation());
 		cacheDereferencedElement(input);
@@ -450,15 +367,15 @@ $XMLSignatureInput* Reference::getNodesetBeforeFirstCanonicalization() {
 		}
 		return output;
 	} catch ($IOException& ex) {
-		$throwNew($XMLSignatureException, $cast($Exception, ex));
+		$throwNew($XMLSignatureException, ex);
 	} catch ($XMLSecurityException& ex) {
-		$throwNew($XMLSignatureException, $cast($Exception, ex));
+		$throwNew($XMLSignatureException, ex);
 	}
 	$shouldNotReachHere();
 }
 
 $String* Reference::getHTMLRepresentation() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$var($XMLSignatureInput, nodes, this->getNodesetBeforeFirstCanonicalization());
 		$var($Transforms, transforms, this->getTransforms());
@@ -468,7 +385,7 @@ $String* Reference::getHTMLRepresentation() {
 				$var($Transform, t, transforms->item(i));
 				$var($String, uri, $nc(t)->getURI());
 				bool var$0 = $nc(uri)->equals($Transforms::TRANSFORM_C14N_EXCL_OMIT_COMMENTS);
-				if (var$0 || $nc(uri)->equals($Transforms::TRANSFORM_C14N_EXCL_WITH_COMMENTS)) {
+				if (var$0 || uri->equals($Transforms::TRANSFORM_C14N_EXCL_WITH_COMMENTS)) {
 					$assign(c14nTransform, t);
 					break;
 				}
@@ -477,13 +394,13 @@ $String* Reference::getHTMLRepresentation() {
 		$var($Set, inclusiveNamespaces, $new($HashSet));
 		$init($InclusiveNamespaces);
 		if (c14nTransform != nullptr && c14nTransform->length($InclusiveNamespaces::ExclusiveCanonicalizationNamespace, $InclusiveNamespaces::_TAG_EC_INCLUSIVENAMESPACES) == 1) {
-			$var($Element, var$1, $XMLUtils::selectNode($($nc($(c14nTransform->getElement()))->getFirstChild()), $InclusiveNamespaces::ExclusiveCanonicalizationNamespace, $InclusiveNamespaces::_TAG_EC_INCLUSIVENAMESPACES, 0));
+			$var($Element, var$1, $XMLUtils::selectNode($($$nc(c14nTransform->getElement())->getFirstChild()), $InclusiveNamespaces::ExclusiveCanonicalizationNamespace, $InclusiveNamespaces::_TAG_EC_INCLUSIVENAMESPACES, 0));
 			$var($InclusiveNamespaces, in, $new($InclusiveNamespaces, var$1, $(this->getBaseURI())));
 			$assign(inclusiveNamespaces, $InclusiveNamespaces::prefixStr2Set($(in->getInclusiveNamespaces())));
 		}
 		return $nc(nodes)->getHTMLRepresentation(inclusiveNamespaces);
 	} catch ($XMLSecurityException& ex) {
-		$throwNew($XMLSignatureException, static_cast<$Exception*>(ex));
+		$throwNew($XMLSignatureException, ex);
 	}
 	$shouldNotReachHere();
 }
@@ -497,7 +414,7 @@ $ReferenceData* Reference::getReferenceData() {
 }
 
 $XMLSignatureInput* Reference::dereferenceURIandPerformTransforms($OutputStream* os) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$var($XMLSignatureInput, input, this->getContentsBeforeTransformation());
 		cacheDereferencedElement(input);
@@ -505,13 +422,13 @@ $XMLSignatureInput* Reference::dereferenceURIandPerformTransforms($OutputStream*
 		$set(this, transformsOutput, output);
 		return output;
 	} catch ($XMLSecurityException& ex) {
-		$throwNew($ReferenceNotInitializedException, static_cast<$Exception*>(ex));
+		$throwNew($ReferenceNotInitializedException, ex);
 	}
 	$shouldNotReachHere();
 }
 
 void Reference::cacheDereferencedElement($XMLSignatureInput* input) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(input)->isNodeSet()) {
 		try {
 			$var($Set, s, input->getNodeSet());
@@ -523,12 +440,12 @@ void Reference::cacheDereferencedElement($XMLSignatureInput* input) {
 		$var($Node, var$0, input->getSubNode());
 		$set(this, referenceData, $new($ReferenceSubTreeData, var$0, input->isExcludeComments()));
 	} else {
-		bool var$2 = input->isOctetStream();
-		if (var$2 || input->isByteArray()) {
+		bool var$1 = input->isOctetStream();
+		if (var$1 || input->isByteArray()) {
 			try {
-				$var($InputStream, var$3, input->getOctetStream());
-				$var($String, var$4, input->getSourceURI());
-				$set(this, referenceData, $new($ReferenceOctetStreamData, var$3, var$4, $(input->getMIMEType())));
+				$var($InputStream, var$2, input->getOctetStream());
+				$var($String, var$3, input->getSourceURI());
+				$set(this, referenceData, $new($ReferenceOctetStreamData, var$2, var$3, $(input->getMIMEType())));
 			} catch ($IOException& ioe) {
 				$nc(Reference::LOG)->warn($$str({"cannot cache dereferenced data: "_s, ioe}));
 			}
@@ -545,15 +462,15 @@ $bytes* Reference::getReferencedBytes() {
 		$var($XMLSignatureInput, output, this->dereferenceURIandPerformTransforms(nullptr));
 		return $nc(output)->getBytes();
 	} catch ($IOException& ex) {
-		$throwNew($ReferenceNotInitializedException, $cast($Exception, ex));
+		$throwNew($ReferenceNotInitializedException, ex);
 	} catch ($CanonicalizationException& ex) {
-		$throwNew($ReferenceNotInitializedException, $cast($Exception, ex));
+		$throwNew($ReferenceNotInitializedException, ex);
 	}
 	$shouldNotReachHere();
 }
 
 $bytes* Reference::calculateDigest(bool validating) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($XMLSignatureInput, input, this->getContentsBeforeTransformation());
 	if ($nc(input)->isPreCalculatedDigest()) {
 		return getPreCalculatedDigest(input);
@@ -562,111 +479,105 @@ $bytes* Reference::calculateDigest(bool validating) {
 	$var($MessageDigestAlgorithm, mda, this->getMessageDigestAlgorithm());
 	$nc(mda)->reset();
 	$var($XMLSignatureInput, output, nullptr);
-	{
-		$var($Throwable, var$0, nullptr);
-		$var($bytes, var$2, nullptr);
-		bool return$1 = false;
+	$var($Throwable, var$0, nullptr);
+	$var($bytes, var$2, nullptr);
+	bool return$1 = false;
+	try {
 		try {
+			$var($DigesterOutputStream, diOs, $new($DigesterOutputStream, mda));
+			$var($Throwable, var$3, nullptr);
+			$var($bytes, var$5, nullptr);
+			bool return$4 = false;
 			try {
-				$var($DigesterOutputStream, diOs, $new($DigesterOutputStream, mda));
-				{
-					$var($Throwable, var$3, nullptr);
-					$var($bytes, var$5, nullptr);
-					bool return$4 = false;
+				try {
+					$var($OutputStream, os, $new($UnsyncBufferedOutputStream, diOs));
+					$var($Throwable, var$6, nullptr);
+					$var($bytes, var$8, nullptr);
+					bool return$7 = false;
 					try {
 						try {
-							$var($OutputStream, os, $new($UnsyncBufferedOutputStream, diOs));
-							{
-								$var($Throwable, var$6, nullptr);
-								$var($bytes, var$8, nullptr);
-								bool return$7 = false;
-								try {
-									try {
-										$assign(output, this->getContentsAfterTransformation(input, os));
-										$set(this, transformsOutput, output);
-										bool var$9 = Reference::useC14N11 && !validating && !$nc(output)->isOutputStreamSet();
-										if (var$9 && !output->isOctetStream()) {
-											if (this->transforms == nullptr) {
-												$set(this, transforms, $new($Transforms, $(getDocument())));
-												$nc(this->transforms)->setSecureValidation(this->secureValidation);
-												$nc($(getElement()))->insertBefore($($nc(this->transforms)->getElement()), this->digestMethodElem);
-											}
-											$init($Transforms);
-											$nc(this->transforms)->addTransform($Transforms::TRANSFORM_C14N11_OMIT_COMMENTS);
-											output->updateOutputStream(os, true);
-										} else {
-											output->updateOutputStream(os);
-										}
-										os->flush();
-										$assign(var$8, diOs->getDigestValue());
-										return$7 = true;
-										goto $finally2;
-									} catch ($Throwable& t$) {
-										try {
-											os->close();
-										} catch ($Throwable& x2) {
-											t$->addSuppressed(x2);
-										}
-										$throw(t$);
-									}
-								} catch ($Throwable& var$10) {
-									$assign(var$6, var$10);
-								} $finally2: {
-									os->close();
+							$assign(output, this->getContentsAfterTransformation(input, os));
+							$set(this, transformsOutput, output);
+							bool var$9 = Reference::useC14N11 && !validating && !$nc(output)->isOutputStreamSet();
+							if (var$9 && !output->isOctetStream()) {
+								if (this->transforms == nullptr) {
+									$set(this, transforms, $new($Transforms, $(getDocument())));
+									$nc(this->transforms)->setSecureValidation(this->secureValidation);
+									$$nc(getElement())->insertBefore($($nc(this->transforms)->getElement()), this->digestMethodElem);
 								}
-								if (var$6 != nullptr) {
-									$throw(var$6);
-								}
-								if (return$7) {
-									$assign(var$5, var$8);
-									return$4 = true;
-									goto $finally1;
-								}
+								$init($Transforms);
+								$nc(this->transforms)->addTransform($Transforms::TRANSFORM_C14N11_OMIT_COMMENTS);
+								output->updateOutputStream(os, true);
+							} else {
+								$nc(output)->updateOutputStream(os);
 							}
+							os->flush();
+							$assign(var$8, diOs->getDigestValue());
+							return$7 = true;
+							goto $finally2;
 						} catch ($Throwable& t$) {
 							try {
-								diOs->close();
+								os->close();
 							} catch ($Throwable& x2) {
 								t$->addSuppressed(x2);
 							}
 							$throw(t$);
 						}
-					} catch ($Throwable& var$11) {
-						$assign(var$3, var$11);
-					} $finally1: {
+					} catch ($Throwable& var$10) {
+						$assign(var$6, var$10);
+					} $finally2: {
+						os->close();
+					}
+					if (var$6 != nullptr) {
+						$throw(var$6);
+					}
+					if (return$7) {
+						$assign(var$5, var$8);
+						return$4 = true;
+						goto $finally1;
+					}
+				} catch ($Throwable& t$) {
+					try {
 						diOs->close();
+					} catch ($Throwable& x2) {
+						t$->addSuppressed(x2);
 					}
-					if (var$3 != nullptr) {
-						$throw(var$3);
-					}
-					if (return$4) {
-						$assign(var$2, var$5);
-						return$1 = true;
-						goto $finally;
-					}
+					$throw(t$);
 				}
-			} catch ($XMLSecurityException& ex) {
-				$throwNew($ReferenceNotInitializedException, $cast($Exception, ex));
-			} catch ($IOException& ex) {
-				$throwNew($ReferenceNotInitializedException, $cast($Exception, ex));
+			} catch ($Throwable& var$11) {
+				$assign(var$3, var$11);
+			} $finally1: {
+				diOs->close();
 			}
-		} catch ($Throwable& var$12) {
-			$assign(var$0, var$12);
-		} $finally: {
-			try {
-				if (output != nullptr && output->getOctetStreamReal() != nullptr) {
-					$nc($(output->getOctetStreamReal()))->close();
-				}
-			} catch ($IOException& ex) {
-				$throwNew($ReferenceNotInitializedException, static_cast<$Exception*>(ex));
+			if (var$3 != nullptr) {
+				$throw(var$3);
 			}
+			if (return$4) {
+				$assign(var$2, var$5);
+				return$1 = true;
+				goto $finally;
+			}
+		} catch ($XMLSecurityException& ex) {
+			$throwNew($ReferenceNotInitializedException, ex);
+		} catch ($IOException& ex) {
+			$throwNew($ReferenceNotInitializedException, ex);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+	} catch ($Throwable& var$12) {
+		$assign(var$0, var$12);
+	} $finally: {
+		try {
+			if (output != nullptr && output->getOctetStreamReal() != nullptr) {
+				$$nc(output->getOctetStreamReal())->close();
+			}
+		} catch ($IOException& ex) {
+			$throwNew($ReferenceNotInitializedException, ex);
 		}
-		if (return$1) {
-			return var$2;
-		}
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
@@ -678,12 +589,12 @@ $bytes* Reference::getPreCalculatedDigest($XMLSignatureInput* input) {
 }
 
 $bytes* Reference::getDigestValue() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->digestValueElement == nullptr) {
 		$init($Constants);
 		$var($ObjectArray, exArgs, $new($ObjectArray, {
-			$of($Constants::_TAG_DIGESTVALUE),
-			$of($Constants::SignatureSpecNS)
+			$Constants::_TAG_DIGESTVALUE,
+			$Constants::SignatureSpecNS
 		}));
 		$throwNew($XMLSecurityException, "signature.Verification.NoSignatureElement"_s, exArgs);
 	}
@@ -692,16 +603,16 @@ $bytes* Reference::getDigestValue() {
 }
 
 bool Reference::verify() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, elemDig, this->getDigestValue());
 	$var($bytes, calcDig, this->calculateDigest(true));
 	bool equal = $MessageDigestAlgorithm::isEqual(elemDig, calcDig);
 	if (!equal) {
 		$nc(Reference::LOG)->warn($$str({"Verification failed for URI \""_s, $(this->getURI()), "\""_s}));
-		$nc(Reference::LOG)->warn($$str({"Expected Digest: "_s, $($XMLUtils::encodeToString(elemDig))}));
-		$nc(Reference::LOG)->warn($$str({"Actual Digest: "_s, $($XMLUtils::encodeToString(calcDig))}));
+		Reference::LOG->warn($$str({"Expected Digest: "_s, $($XMLUtils::encodeToString(elemDig))}));
+		Reference::LOG->warn($$str({"Actual Digest: "_s, $($XMLUtils::encodeToString(calcDig))}));
 	} else {
-		$nc(Reference::LOG)->debug("Verification successful for URI \"{}\""_s, $$new($ObjectArray, {$($of(this->getURI()))}));
+		$nc(Reference::LOG)->debug("Verification successful for URI \"{}\""_s, $$new($ObjectArray, {$(this->getURI())}));
 	}
 	return equal;
 }
@@ -716,13 +627,13 @@ $Boolean* Reference::lambda$static$0() {
 	return $Boolean::valueOf($Boolean::getBoolean("com.sun.org.apache.xml.internal.security.useC14N11"_s));
 }
 
-void clinit$Reference($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void Reference::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$init($Constants);
 	$assignStatic(Reference::OBJECT_URI, $str({$Constants::SignatureSpecNS, $Constants::_TAG_OBJECT}));
 	$assignStatic(Reference::MANIFEST_URI, $str({$Constants::SignatureSpecNS, $Constants::_TAG_MANIFEST}));
 	$beforeCallerSensitive();
-	Reference::useC14N11 = $nc(($cast($Boolean, $($AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new(Reference$$Lambda$lambda$static$0)))))))->booleanValue();
+	Reference::useC14N11 = $$sure($Boolean, $AccessController::doPrivileged($cast($PrivilegedAction, $$new(Reference$$Lambda$lambda$static$0))))->booleanValue();
 	$assignStatic(Reference::LOG, $LoggerFactory::getLogger(Reference::class$));
 	{
 		$var($Set, algorithms, $new($HashSet));
@@ -742,11 +653,82 @@ Reference::Reference() {
 
 $Class* Reference::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(Reference$$Lambda$lambda$static$0::classInfo$.name)) {
+		if (name->equals("com.sun.org.apache.xml.internal.security.signature.Reference$$Lambda$lambda$static$0")) {
 			return Reference$$Lambda$lambda$static$0::load$(name, initialize);
 		}
 	}
-	$loadClass(Reference, name, initialize, &_Reference_ClassInfo_, clinit$Reference, allocate$Reference);
+	$FieldInfo fieldInfos$$[] = {
+		{"OBJECT_URI", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Reference, OBJECT_URI)},
+		{"MANIFEST_URI", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Reference, MANIFEST_URI)},
+		{"MAXIMUM_TRANSFORM_COUNT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Reference, MAXIMUM_TRANSFORM_COUNT)},
+		{"secureValidation", "Z", nullptr, $PRIVATE, $field(Reference, secureValidation)},
+		{"useC14N11", "Z", nullptr, $PRIVATE | $STATIC, $staticField(Reference, useC14N11)},
+		{"LOG", "Lcom/sun/org/slf4j/internal/Logger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Reference, LOG)},
+		{"manifest", "Lcom/sun/org/apache/xml/internal/security/signature/Manifest;", nullptr, $PRIVATE, $field(Reference, manifest)},
+		{"transformsOutput", "Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;", nullptr, $PRIVATE, $field(Reference, transformsOutput)},
+		{"transforms", "Lcom/sun/org/apache/xml/internal/security/transforms/Transforms;", nullptr, $PRIVATE, $field(Reference, transforms)},
+		{"digestMethodElem", "Lorg/w3c/dom/Element;", nullptr, $PRIVATE, $field(Reference, digestMethodElem)},
+		{"digestValueElement", "Lorg/w3c/dom/Element;", nullptr, $PRIVATE, $field(Reference, digestValueElement)},
+		{"referenceData", "Lcom/sun/org/apache/xml/internal/security/signature/reference/ReferenceData;", nullptr, $PRIVATE, $field(Reference, referenceData)},
+		{"TRANSFORM_ALGORITHMS", "Ljava/util/Set;", "Ljava/util/Set<Ljava/lang/String;>;", $PRIVATE | $STATIC | $FINAL, $staticField(Reference, TRANSFORM_ALGORITHMS)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lorg/w3c/dom/Document;Ljava/lang/String;Ljava/lang/String;Lcom/sun/org/apache/xml/internal/security/signature/Manifest;Lcom/sun/org/apache/xml/internal/security/transforms/Transforms;Ljava/lang/String;)V", nullptr, $PROTECTED, $method(Reference, init$, void, $Document*, $String*, $String*, $Manifest*, $Transforms*, $String*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
+		{"<init>", "(Lorg/w3c/dom/Element;Ljava/lang/String;Lcom/sun/org/apache/xml/internal/security/signature/Manifest;)V", nullptr, $PROTECTED, $method(Reference, init$, void, $Element*, $String*, $Manifest*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
+		{"<init>", "(Lorg/w3c/dom/Element;Ljava/lang/String;Lcom/sun/org/apache/xml/internal/security/signature/Manifest;Z)V", nullptr, $PROTECTED, $method(Reference, init$, void, $Element*, $String*, $Manifest*, bool), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
+		{"cacheDereferencedElement", "(Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;)V", nullptr, $PRIVATE, $method(Reference, cacheDereferencedElement, void, $XMLSignatureInput*)},
+		{"calculateDigest", "(Z)[B", nullptr, $PRIVATE, $method(Reference, calculateDigest, $bytes*, bool), "com.sun.org.apache.xml.internal.security.signature.ReferenceNotInitializedException,com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
+		{"dereferenceURIandPerformTransforms", "(Ljava/io/OutputStream;)Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;", nullptr, $PROTECTED, $virtualMethod(Reference, dereferenceURIandPerformTransforms, $XMLSignatureInput*, $OutputStream*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
+		{"generateDigestValue", "()V", nullptr, $PUBLIC, $virtualMethod(Reference, generateDigestValue, void), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException,com.sun.org.apache.xml.internal.security.signature.ReferenceNotInitializedException"},
+		{"getBaseLocalName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Reference, getBaseLocalName, $String*)},
+		{"getContentsAfterTransformation", "(Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;Ljava/io/OutputStream;)Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;", nullptr, $PRIVATE, $method(Reference, getContentsAfterTransformation, $XMLSignatureInput*, $XMLSignatureInput*, $OutputStream*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
+		{"getContentsAfterTransformation", "()Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;", nullptr, $PUBLIC, $virtualMethod(Reference, getContentsAfterTransformation, $XMLSignatureInput*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
+		{"getContentsBeforeTransformation", "()Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;", nullptr, $PUBLIC, $virtualMethod(Reference, getContentsBeforeTransformation, $XMLSignatureInput*), "com.sun.org.apache.xml.internal.security.signature.ReferenceNotInitializedException"},
+		{"getDigestValue", "()[B", nullptr, $PUBLIC, $virtualMethod(Reference, getDigestValue, $bytes*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
+		{"getHTMLRepresentation", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Reference, getHTMLRepresentation, $String*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
+		{"getId", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Reference, getId, $String*)},
+		{"getMessageDigestAlgorithm", "()Lcom/sun/org/apache/xml/internal/security/algorithms/MessageDigestAlgorithm;", nullptr, $PUBLIC, $virtualMethod(Reference, getMessageDigestAlgorithm, $MessageDigestAlgorithm*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
+		{"getNodesetBeforeFirstCanonicalization", "()Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;", nullptr, $PUBLIC, $virtualMethod(Reference, getNodesetBeforeFirstCanonicalization, $XMLSignatureInput*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
+		{"getPreCalculatedDigest", "(Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;)[B", nullptr, $PRIVATE, $method(Reference, getPreCalculatedDigest, $bytes*, $XMLSignatureInput*), "com.sun.org.apache.xml.internal.security.signature.ReferenceNotInitializedException"},
+		{"getReferenceData", "()Lcom/sun/org/apache/xml/internal/security/signature/reference/ReferenceData;", nullptr, $PUBLIC, $virtualMethod(Reference, getReferenceData, $ReferenceData*)},
+		{"getReferencedBytes", "()[B", nullptr, $PUBLIC, $virtualMethod(Reference, getReferencedBytes, $bytes*), "com.sun.org.apache.xml.internal.security.signature.ReferenceNotInitializedException,com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
+		{"getTransforms", "()Lcom/sun/org/apache/xml/internal/security/transforms/Transforms;", nullptr, $PUBLIC, $virtualMethod(Reference, getTransforms, $Transforms*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException,com.sun.org.apache.xml.internal.security.transforms.InvalidTransformException,com.sun.org.apache.xml.internal.security.transforms.TransformationException,com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
+		{"getTransformsOutput", "()Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;", nullptr, $PUBLIC, $virtualMethod(Reference, getTransformsOutput, $XMLSignatureInput*)},
+		{"getType", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Reference, getType, $String*)},
+		{"getURI", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Reference, getURI, $String*)},
+		{"lambda$static$0", "()Ljava/lang/Boolean;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Reference, lambda$static$0, $Boolean*)},
+		{"setDigestValueElement", "([B)V", nullptr, $PRIVATE, $method(Reference, setDigestValueElement, void, $bytes*)},
+		{"setId", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Reference, setId, void, $String*)},
+		{"setType", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Reference, setType, void, $String*)},
+		{"setURI", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Reference, setURI, void, $String*)},
+		{"typeIsReferenceToManifest", "()Z", nullptr, $PUBLIC, $virtualMethod(Reference, typeIsReferenceToManifest, bool)},
+		{"typeIsReferenceToObject", "()Z", nullptr, $PUBLIC, $virtualMethod(Reference, typeIsReferenceToObject, bool)},
+		{"verify", "()Z", nullptr, $PUBLIC, $virtualMethod(Reference, verify, bool), "com.sun.org.apache.xml.internal.security.signature.ReferenceNotInitializedException,com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xml.internal.security.signature.Reference$2", nullptr, nullptr, 0},
+		{"com.sun.org.apache.xml.internal.security.signature.Reference$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.security.signature.Reference",
+		"com.sun.org.apache.xml.internal.security.utils.SignatureElementProxy",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xml.internal.security.signature.Reference$2,com.sun.org.apache.xml.internal.security.signature.Reference$2$1,com.sun.org.apache.xml.internal.security.signature.Reference$1"
+	};
+	$loadClass(Reference, name, initialize, &classInfo$$, Reference::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Reference);
+	});
 	return class$;
 }
 

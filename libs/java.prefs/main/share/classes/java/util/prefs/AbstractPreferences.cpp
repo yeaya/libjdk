@@ -1,11 +1,9 @@
 #include <java/util/prefs/AbstractPreferences.h>
-
 #include <java/io/OutputStream.h>
 #include <java/lang/IllegalStateException.h>
 #include <java/lang/NumberFormatException.h>
 #include <java/lang/UnsupportedOperationException.h>
 #include <java/security/AccessController.h>
-#include <java/security/PrivilegedAction.h>
 #include <java/util/AbstractSet.h>
 #include <java/util/Collection.h>
 #include <java/util/HashMap.h>
@@ -57,14 +55,11 @@ using $NumberFormatException = ::java::lang::NumberFormatException;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $UnsupportedOperationException = ::java::lang::UnsupportedOperationException;
 using $AccessController = ::java::security::AccessController;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $AbstractSet = ::java::util::AbstractSet;
-using $Collection = ::java::util::Collection;
 using $HashMap = ::java::util::HashMap;
 using $Iterator = ::java::util::Iterator;
 using $LinkedList = ::java::util::LinkedList;
 using $List = ::java::util::List;
-using $Map = ::java::util::Map;
 using $Objects = ::java::util::Objects;
 using $Set = ::java::util::Set;
 using $StringTokenizer = ::java::util::StringTokenizer;
@@ -85,121 +80,13 @@ namespace java {
 	namespace util {
 		namespace prefs {
 
-$FieldInfo _AbstractPreferences_FieldInfo_[] = {
-	{"CODE_POINT_U0000", "I", nullptr, $STATIC | $FINAL, $constField(AbstractPreferences, CODE_POINT_U0000)},
-	{"name", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(AbstractPreferences, name$)},
-	{"absolutePath", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(AbstractPreferences, absolutePath$)},
-	{"parent", "Ljava/util/prefs/AbstractPreferences;", nullptr, $FINAL, $field(AbstractPreferences, parent$)},
-	{"root", "Ljava/util/prefs/AbstractPreferences;", nullptr, $PRIVATE | $FINAL, $field(AbstractPreferences, root)},
-	{"newNode", "Z", nullptr, $PROTECTED, $field(AbstractPreferences, newNode)},
-	{"kidCache", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/util/prefs/AbstractPreferences;>;", $PRIVATE, $field(AbstractPreferences, kidCache)},
-	{"removed", "Z", nullptr, $PRIVATE, $field(AbstractPreferences, removed)},
-	{"prefListeners", "[Ljava/util/prefs/PreferenceChangeListener;", nullptr, $PRIVATE, $field(AbstractPreferences, prefListeners$)},
-	{"nodeListeners", "[Ljava/util/prefs/NodeChangeListener;", nullptr, $PRIVATE, $field(AbstractPreferences, nodeListeners$)},
-	{"lock", "Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $field(AbstractPreferences, lock)},
-	{"EMPTY_STRING_ARRAY", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AbstractPreferences, EMPTY_STRING_ARRAY)},
-	{"EMPTY_ABSTRACT_PREFS_ARRAY", "[Ljava/util/prefs/AbstractPreferences;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AbstractPreferences, EMPTY_ABSTRACT_PREFS_ARRAY)},
-	{"eventQueue", "Ljava/util/List;", "Ljava/util/List<Ljava/util/EventObject;>;", $PRIVATE | $STATIC | $FINAL, $staticField(AbstractPreferences, eventQueue)},
-	{"eventDispatchThread", "Ljava/lang/Thread;", nullptr, $PRIVATE | $STATIC, $staticField(AbstractPreferences, eventDispatchThread)},
-	{}
-};
-
-$MethodInfo _AbstractPreferences_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/prefs/AbstractPreferences;Ljava/lang/String;)V", nullptr, $PROTECTED, $method(AbstractPreferences, init$, void, AbstractPreferences*, $String*)},
-	{"absolutePath", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AbstractPreferences, absolutePath, $String*)},
-	{"addNodeChangeListener", "(Ljava/util/prefs/NodeChangeListener;)V", nullptr, $PUBLIC, $virtualMethod(AbstractPreferences, addNodeChangeListener, void, $NodeChangeListener*)},
-	{"addPreferenceChangeListener", "(Ljava/util/prefs/PreferenceChangeListener;)V", nullptr, $PUBLIC, $virtualMethod(AbstractPreferences, addPreferenceChangeListener, void, $PreferenceChangeListener*)},
-	{"cachedChildren", "()[Ljava/util/prefs/AbstractPreferences;", nullptr, $PROTECTED | $FINAL, $method(AbstractPreferences, cachedChildren, $AbstractPreferencesArray*)},
-	{"childSpi", "(Ljava/lang/String;)Ljava/util/prefs/AbstractPreferences;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(AbstractPreferences, childSpi, AbstractPreferences*, $String*)},
-	{"childrenNames", "()[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AbstractPreferences, childrenNames, $StringArray*), "java.util.prefs.BackingStoreException"},
-	{"childrenNamesSpi", "()[Ljava/lang/String;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(AbstractPreferences, childrenNamesSpi, $StringArray*), "java.util.prefs.BackingStoreException"},
-	{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(AbstractPreferences, clear, void), "java.util.prefs.BackingStoreException"},
-	{"enqueueNodeAddedEvent", "(Ljava/util/prefs/Preferences;)V", nullptr, $PRIVATE, $method(AbstractPreferences, enqueueNodeAddedEvent, void, $Preferences*)},
-	{"enqueueNodeRemovedEvent", "(Ljava/util/prefs/Preferences;)V", nullptr, $PRIVATE, $method(AbstractPreferences, enqueueNodeRemovedEvent, void, $Preferences*)},
-	{"enqueuePreferenceChangeEvent", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(AbstractPreferences, enqueuePreferenceChangeEvent, void, $String*, $String*)},
-	{"exportNode", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $virtualMethod(AbstractPreferences, exportNode, void, $OutputStream*), "java.io.IOException,java.util.prefs.BackingStoreException"},
-	{"exportSubtree", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $virtualMethod(AbstractPreferences, exportSubtree, void, $OutputStream*), "java.io.IOException,java.util.prefs.BackingStoreException"},
-	{"flush", "()V", nullptr, $PUBLIC, $virtualMethod(AbstractPreferences, flush, void), "java.util.prefs.BackingStoreException"},
-	{"flush2", "()V", nullptr, $PRIVATE, $method(AbstractPreferences, flush2, void), "java.util.prefs.BackingStoreException"},
-	{"flushSpi", "()V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(AbstractPreferences, flushSpi, void), "java.util.prefs.BackingStoreException"},
-	{"get", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AbstractPreferences, get, $String*, $String*, $String*)},
-	{"getBoolean", "(Ljava/lang/String;Z)Z", nullptr, $PUBLIC, $virtualMethod(AbstractPreferences, getBoolean, bool, $String*, bool)},
-	{"getByteArray", "(Ljava/lang/String;[B)[B", nullptr, $PUBLIC, $virtualMethod(AbstractPreferences, getByteArray, $bytes*, $String*, $bytes*)},
-	{"getChild", "(Ljava/lang/String;)Ljava/util/prefs/AbstractPreferences;", nullptr, $PROTECTED, $virtualMethod(AbstractPreferences, getChild, AbstractPreferences*, $String*), "java.util.prefs.BackingStoreException"},
-	{"getDouble", "(Ljava/lang/String;D)D", nullptr, $PUBLIC, $virtualMethod(AbstractPreferences, getDouble, double, $String*, double)},
-	{"getFloat", "(Ljava/lang/String;F)F", nullptr, $PUBLIC, $virtualMethod(AbstractPreferences, getFloat, float, $String*, float)},
-	{"getInt", "(Ljava/lang/String;I)I", nullptr, $PUBLIC, $virtualMethod(AbstractPreferences, getInt, int32_t, $String*, int32_t)},
-	{"getLong", "(Ljava/lang/String;J)J", nullptr, $PUBLIC, $virtualMethod(AbstractPreferences, getLong, int64_t, $String*, int64_t)},
-	{"getSpi", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(AbstractPreferences, getSpi, $String*, $String*)},
-	{"isRemoved", "()Z", nullptr, $PROTECTED, $virtualMethod(AbstractPreferences, isRemoved, bool)},
-	{"isUserNode", "()Z", nullptr, $PUBLIC, $virtualMethod(AbstractPreferences, isUserNode, bool)},
-	{"keys", "()[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AbstractPreferences, keys, $StringArray*), "java.util.prefs.BackingStoreException"},
-	{"keysSpi", "()[Ljava/lang/String;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(AbstractPreferences, keysSpi, $StringArray*), "java.util.prefs.BackingStoreException"},
-	{"name", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AbstractPreferences, name, $String*)},
-	{"node", "(Ljava/lang/String;)Ljava/util/prefs/Preferences;", nullptr, $PUBLIC, $virtualMethod(AbstractPreferences, node, $Preferences*, $String*)},
-	{"node", "(Ljava/util/StringTokenizer;)Ljava/util/prefs/Preferences;", nullptr, $PRIVATE, $method(AbstractPreferences, node, $Preferences*, $StringTokenizer*)},
-	{"nodeExists", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(AbstractPreferences, nodeExists, bool, $String*), "java.util.prefs.BackingStoreException"},
-	{"nodeExists", "(Ljava/util/StringTokenizer;)Z", nullptr, $PRIVATE, $method(AbstractPreferences, nodeExists, bool, $StringTokenizer*), "java.util.prefs.BackingStoreException"},
-	{"nodeListeners", "()[Ljava/util/prefs/NodeChangeListener;", nullptr, 0, $virtualMethod(AbstractPreferences, nodeListeners, $NodeChangeListenerArray*)},
-	{"parent", "()Ljava/util/prefs/Preferences;", nullptr, $PUBLIC, $virtualMethod(AbstractPreferences, parent, $Preferences*)},
-	{"prefListeners", "()[Ljava/util/prefs/PreferenceChangeListener;", nullptr, 0, $virtualMethod(AbstractPreferences, prefListeners, $PreferenceChangeListenerArray*)},
-	{"put", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(AbstractPreferences, put, void, $String*, $String*)},
-	{"putBoolean", "(Ljava/lang/String;Z)V", nullptr, $PUBLIC, $virtualMethod(AbstractPreferences, putBoolean, void, $String*, bool)},
-	{"putByteArray", "(Ljava/lang/String;[B)V", nullptr, $PUBLIC, $virtualMethod(AbstractPreferences, putByteArray, void, $String*, $bytes*)},
-	{"putDouble", "(Ljava/lang/String;D)V", nullptr, $PUBLIC, $virtualMethod(AbstractPreferences, putDouble, void, $String*, double)},
-	{"putFloat", "(Ljava/lang/String;F)V", nullptr, $PUBLIC, $virtualMethod(AbstractPreferences, putFloat, void, $String*, float)},
-	{"putInt", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $virtualMethod(AbstractPreferences, putInt, void, $String*, int32_t)},
-	{"putLong", "(Ljava/lang/String;J)V", nullptr, $PUBLIC, $virtualMethod(AbstractPreferences, putLong, void, $String*, int64_t)},
-	{"putSpi", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(AbstractPreferences, putSpi, void, $String*, $String*)},
-	{"remove", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(AbstractPreferences, remove, void, $String*)},
-	{"removeNode", "()V", nullptr, $PUBLIC, $virtualMethod(AbstractPreferences, removeNode, void), "java.util.prefs.BackingStoreException"},
-	{"removeNode2", "()V", nullptr, $PRIVATE, $method(AbstractPreferences, removeNode2, void), "java.util.prefs.BackingStoreException"},
-	{"removeNodeChangeListener", "(Ljava/util/prefs/NodeChangeListener;)V", nullptr, $PUBLIC, $virtualMethod(AbstractPreferences, removeNodeChangeListener, void, $NodeChangeListener*)},
-	{"removeNodeSpi", "()V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(AbstractPreferences, removeNodeSpi, void), "java.util.prefs.BackingStoreException"},
-	{"removePreferenceChangeListener", "(Ljava/util/prefs/PreferenceChangeListener;)V", nullptr, $PUBLIC, $virtualMethod(AbstractPreferences, removePreferenceChangeListener, void, $PreferenceChangeListener*)},
-	{"removeSpi", "(Ljava/lang/String;)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(AbstractPreferences, removeSpi, void, $String*)},
-	{"startEventDispatchThreadIfNecessary", "()V", nullptr, $PRIVATE | $STATIC | $SYNCHRONIZED, $staticMethod(AbstractPreferences, startEventDispatchThreadIfNecessary, void)},
-	{"sync", "()V", nullptr, $PUBLIC, $virtualMethod(AbstractPreferences, sync, void), "java.util.prefs.BackingStoreException"},
-	{"sync2", "()V", nullptr, $PRIVATE, $method(AbstractPreferences, sync2, void), "java.util.prefs.BackingStoreException"},
-	{"syncSpi", "()V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(AbstractPreferences, syncSpi, void), "java.util.prefs.BackingStoreException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AbstractPreferences, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _AbstractPreferences_InnerClassesInfo_[] = {
-	{"java.util.prefs.AbstractPreferences$EventDispatchThread", "java.util.prefs.AbstractPreferences", "EventDispatchThread", $PRIVATE | $STATIC},
-	{"java.util.prefs.AbstractPreferences$NodeRemovedEvent", "java.util.prefs.AbstractPreferences", "NodeRemovedEvent", $PRIVATE},
-	{"java.util.prefs.AbstractPreferences$NodeAddedEvent", "java.util.prefs.AbstractPreferences", "NodeAddedEvent", $PRIVATE},
-	{"java.util.prefs.AbstractPreferences$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _AbstractPreferences_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"java.util.prefs.AbstractPreferences",
-	"java.util.prefs.Preferences",
-	nullptr,
-	_AbstractPreferences_FieldInfo_,
-	_AbstractPreferences_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AbstractPreferences_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.util.prefs.AbstractPreferences$EventDispatchThread,java.util.prefs.AbstractPreferences$NodeRemovedEvent,java.util.prefs.AbstractPreferences$NodeAddedEvent,java.util.prefs.AbstractPreferences$1"
-};
-
-$Object* allocate$AbstractPreferences($Class* clazz) {
-	return $of($alloc(AbstractPreferences));
-}
-
 $StringArray* AbstractPreferences::EMPTY_STRING_ARRAY = nullptr;
 $AbstractPreferencesArray* AbstractPreferences::EMPTY_ABSTRACT_PREFS_ARRAY = nullptr;
 $List* AbstractPreferences::eventQueue = nullptr;
 $Thread* AbstractPreferences::eventDispatchThread = nullptr;
 
 void AbstractPreferences::init$(AbstractPreferences* parent, $String* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Preferences::init$();
 	this->newNode = false;
 	$set(this, kidCache, $new($HashMap));
@@ -214,13 +101,13 @@ void AbstractPreferences::init$(AbstractPreferences* parent, $String* name) {
 		$set(this, absolutePath$, "/"_s);
 		$set(this, root, this);
 	} else {
-		if ($nc(name)->indexOf((int32_t)u'/') != -1) {
+		if ($nc(name)->indexOf(u'/') != -1) {
 			$throwNew($IllegalArgumentException, $$str({"Name \'"_s, name, "\' contains \'/\'"_s}));
 		}
-		if ($nc(name)->isEmpty()) {
+		if (name->isEmpty()) {
 			$throwNew($IllegalArgumentException, "Illegal name: empty string"_s);
 		}
-		$set(this, root, $nc(parent)->root);
+		$set(this, root, parent->root);
 		$set(this, absolutePath$, parent == this->root ? $str({"/"_s, name}) : $str({$(parent->absolutePath()), "/"_s, name}));
 	}
 	$set(this, name$, name);
@@ -228,7 +115,7 @@ void AbstractPreferences::init$(AbstractPreferences* parent, $String* name) {
 }
 
 void AbstractPreferences::put($String* key, $String* value) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (key == nullptr || value == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -238,10 +125,10 @@ void AbstractPreferences::put($String* key, $String* value) {
 	if ($nc(value)->length() > $Preferences::MAX_VALUE_LENGTH) {
 		$throwNew($IllegalArgumentException, $$str({"Value too long: "_s, value}));
 	}
-	if ($nc(key)->indexOf(AbstractPreferences::CODE_POINT_U0000) != -1) {
+	if (key->indexOf(AbstractPreferences::CODE_POINT_U0000) != -1) {
 		$throwNew($IllegalArgumentException, "Key contains code point U+0000"_s);
 	}
-	if ($nc(value)->indexOf(AbstractPreferences::CODE_POINT_U0000) != -1) {
+	if (value->indexOf(AbstractPreferences::CODE_POINT_U0000) != -1) {
 		$throwNew($IllegalArgumentException, "Value contains code point U+0000"_s);
 	}
 	$synchronized(this->lock) {
@@ -274,7 +161,7 @@ $String* AbstractPreferences::get($String* key, $String* def) {
 }
 
 void AbstractPreferences::remove($String* key) {
-	$Objects::requireNonNull($of(key), "Specified key cannot be null"_s);
+	$Objects::requireNonNull(key, "Specified key cannot be null"_s);
 	if ($nc(key)->indexOf(AbstractPreferences::CODE_POINT_U0000) != -1) {
 		$throwNew($IllegalArgumentException, "Key contains code point U+0000"_s);
 	}
@@ -288,16 +175,12 @@ void AbstractPreferences::remove($String* key) {
 }
 
 void AbstractPreferences::clear() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized(this->lock) {
-		{
-			$var($StringArray, arr$, keys());
-			int32_t len$ = $nc(arr$)->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
-				$var($String, key, arr$->get(i$));
-				remove(key);
-			}
+		$var($StringArray, arr$, keys());
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
+			$var($String, key, arr$->get(i$));
+			remove(key);
 		}
 	}
 }
@@ -388,7 +271,7 @@ void AbstractPreferences::putByteArray($String* key, $bytes* value) {
 }
 
 $bytes* AbstractPreferences::getByteArray($String* key, $bytes* def) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, result, def);
 	$var($String, value, get(key, nullptr));
 	try {
@@ -410,27 +293,25 @@ $StringArray* AbstractPreferences::keys() {
 }
 
 $StringArray* AbstractPreferences::childrenNames() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized(this->lock) {
 		if (this->removed) {
 			$throwNew($IllegalStateException, "Node has been removed."_s);
 		}
-		$var($Set, s, static_cast<$Set*>(static_cast<$AbstractSet*>($new($TreeSet, $(static_cast<$Collection*>($nc(this->kidCache)->keySet()))))));
+		$var($Set, s, $cast($AbstractSet, $new($TreeSet, $($nc(this->kidCache)->keySet()))));
 		{
 			$var($StringArray, arr$, childrenNamesSpi());
-			int32_t len$ = $nc(arr$)->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
+			for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 				$var($String, kid, arr$->get(i$));
 				s->add(kid);
 			}
 		}
-		return $fcast($StringArray, s->toArray(AbstractPreferences::EMPTY_STRING_ARRAY));
+		return $cast($StringArray, s->toArray(AbstractPreferences::EMPTY_STRING_ARRAY));
 	}
 }
 
 $AbstractPreferencesArray* AbstractPreferences::cachedChildren() {
-	return $fcast($AbstractPreferencesArray, $nc($($nc(this->kidCache)->values()))->toArray(AbstractPreferences::EMPTY_ABSTRACT_PREFS_ARRAY));
+	return $cast($AbstractPreferencesArray, $$nc($nc(this->kidCache)->values())->toArray(AbstractPreferences::EMPTY_ABSTRACT_PREFS_ARRAY));
 }
 
 $Preferences* AbstractPreferences::parent() {
@@ -443,7 +324,7 @@ $Preferences* AbstractPreferences::parent() {
 }
 
 $Preferences* AbstractPreferences::node($String* path) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized(this->lock) {
 		if (this->removed) {
 			$throwNew($IllegalStateException, "Node has been removed."_s);
@@ -451,18 +332,18 @@ $Preferences* AbstractPreferences::node($String* path) {
 		if ($nc(path)->isEmpty()) {
 			return this;
 		}
-		if ($nc(path)->equals("/"_s)) {
+		if (path->equals("/"_s)) {
 			return this->root;
 		}
-		if ($nc(path)->charAt(0) != u'/') {
+		if (path->charAt(0) != u'/') {
 			return node($$new($StringTokenizer, path, "/"_s, true));
 		}
 	}
-	return $nc(this->root)->node($$new($StringTokenizer, $($nc(path)->substring(1)), "/"_s, true));
+	return $nc(this->root)->node($$new($StringTokenizer, $(path->substring(1)), "/"_s, true));
 }
 
 $Preferences* AbstractPreferences::node($StringTokenizer* path) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, token, $nc(path)->nextToken());
 	if ($nc(token)->equals("/"_s)) {
 		$throwNew($IllegalArgumentException, "Consecutive slashes in path"_s);
@@ -470,7 +351,7 @@ $Preferences* AbstractPreferences::node($StringTokenizer* path) {
 	$synchronized(this->lock) {
 		$var(AbstractPreferences, child, $cast(AbstractPreferences, $nc(this->kidCache)->get(token)));
 		if (child == nullptr) {
-			if ($nc(token)->length() > $Preferences::MAX_NAME_LENGTH) {
+			if (token->length() > $Preferences::MAX_NAME_LENGTH) {
 				$throwNew($IllegalArgumentException, $$str({"Node name "_s, token, " too long"_s}));
 			}
 			$assign(child, childSpi(token));
@@ -491,7 +372,7 @@ $Preferences* AbstractPreferences::node($StringTokenizer* path) {
 }
 
 bool AbstractPreferences::nodeExists($String* path) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized(this->lock) {
 		if ($nc(path)->isEmpty()) {
 			return !this->removed;
@@ -499,18 +380,18 @@ bool AbstractPreferences::nodeExists($String* path) {
 		if (this->removed) {
 			$throwNew($IllegalStateException, "Node has been removed."_s);
 		}
-		if ($nc(path)->equals("/"_s)) {
+		if (path->equals("/"_s)) {
 			return true;
 		}
-		if ($nc(path)->charAt(0) != u'/') {
+		if (path->charAt(0) != u'/') {
 			return nodeExists($$new($StringTokenizer, path, "/"_s, true));
 		}
 	}
-	return $nc(this->root)->nodeExists($$new($StringTokenizer, $($nc(path)->substring(1)), "/"_s, true));
+	return $nc(this->root)->nodeExists($$new($StringTokenizer, $(path->substring(1)), "/"_s, true));
 }
 
 bool AbstractPreferences::nodeExists($StringTokenizer* path) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, token, $nc(path)->nextToken());
 	if ($nc(token)->equals("/"_s)) {
 		$throwNew($IllegalArgumentException, "Consecutive slashes in path"_s);
@@ -540,12 +421,12 @@ void AbstractPreferences::removeNode() {
 	}
 	$synchronized($nc(this->parent$)->lock) {
 		removeNode2();
-		$nc($nc(this->parent$)->kidCache)->remove(this->name$);
+		$nc(this->parent$->kidCache)->remove(this->name$);
 	}
 }
 
 void AbstractPreferences::removeNode2() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized(this->lock) {
 		if (this->removed) {
 			$throwNew($IllegalStateException, "Node already removed."_s);
@@ -553,20 +434,18 @@ void AbstractPreferences::removeNode2() {
 		$var($StringArray, kidNames, childrenNamesSpi());
 		{
 			$var($StringArray, arr$, kidNames);
-			int32_t len$ = $nc(arr$)->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
+			for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 				$var($String, kidName, arr$->get(i$));
 				if (!$nc(this->kidCache)->containsKey(kidName)) {
-					$nc(this->kidCache)->put(kidName, $(childSpi(kidName)));
+					this->kidCache->put(kidName, $(childSpi(kidName)));
 				}
 			}
 		}
 		{
-			$var($Iterator, i, $nc($($nc(this->kidCache)->values()))->iterator());
+			$var($Iterator, i, $$nc($nc(this->kidCache)->values())->iterator());
 			for (; $nc(i)->hasNext();) {
 				try {
-					$nc(($cast(AbstractPreferences, $(i->next()))))->removeNode2();
+					$$sure(AbstractPreferences, i->next())->removeNode2();
 					i->remove();
 				} catch ($BackingStoreException& x) {
 				}
@@ -587,9 +466,9 @@ $String* AbstractPreferences::absolutePath() {
 }
 
 bool AbstractPreferences::isUserNode() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
-	return $nc(($cast($Boolean, $($AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($AbstractPreferences$1, this)))))))->booleanValue();
+	return $$sure($Boolean, $AccessController::doPrivileged($$new($AbstractPreferences$1, this)))->booleanValue();
 }
 
 void AbstractPreferences::addPreferenceChangeListener($PreferenceChangeListener* pcl) {
@@ -603,7 +482,7 @@ void AbstractPreferences::addPreferenceChangeListener($PreferenceChangeListener*
 		$var($PreferenceChangeListenerArray, old, this->prefListeners$);
 		$set(this, prefListeners$, $new($PreferenceChangeListenerArray, $nc(old)->length + 1));
 		$System::arraycopy(old, 0, this->prefListeners$, 0, old->length);
-		$nc(this->prefListeners$)->set(old->length, pcl);
+		this->prefListeners$->set(old->length, pcl);
 	}
 	startEventDispatchThreadIfNecessary();
 }
@@ -613,21 +492,21 @@ void AbstractPreferences::removePreferenceChangeListener($PreferenceChangeListen
 		if (this->removed) {
 			$throwNew($IllegalStateException, "Node has been removed."_s);
 		}
-		if ((this->prefListeners$ == nullptr) || ($nc(this->prefListeners$)->length == 0)) {
+		if ((this->prefListeners$ == nullptr) || (this->prefListeners$->length == 0)) {
 			$throwNew($IllegalArgumentException, "Listener not registered."_s);
 		}
 		$var($PreferenceChangeListenerArray, newPl, $new($PreferenceChangeListenerArray, $nc(this->prefListeners$)->length - 1));
 		int32_t i = 0;
-		while (i < newPl->length && $nc(this->prefListeners$)->get(i) != pcl) {
+		while (i < newPl->length && this->prefListeners$->get(i) != pcl) {
 			int32_t var$0 = i;
-			newPl->set(var$0, $nc(this->prefListeners$)->get(i++));
+			newPl->set(var$0, this->prefListeners$->get(i++));
 		}
-		if (i == newPl->length && $nc(this->prefListeners$)->get(i) != pcl) {
+		if (i == newPl->length && this->prefListeners$->get(i) != pcl) {
 			$throwNew($IllegalArgumentException, "Listener not registered."_s);
 		}
 		while (i < newPl->length) {
 			int32_t var$1 = i;
-			newPl->set(var$1, $nc(this->prefListeners$)->get(++i));
+			newPl->set(var$1, this->prefListeners$->get(++i));
 		}
 		$set(this, prefListeners$, newPl);
 	}
@@ -643,12 +522,12 @@ void AbstractPreferences::addNodeChangeListener($NodeChangeListener* ncl) {
 		}
 		if (this->nodeListeners$ == nullptr) {
 			$set(this, nodeListeners$, $new($NodeChangeListenerArray, 1));
-			$nc(this->nodeListeners$)->set(0, ncl);
+			this->nodeListeners$->set(0, ncl);
 		} else {
 			$var($NodeChangeListenerArray, old, this->nodeListeners$);
 			$set(this, nodeListeners$, $new($NodeChangeListenerArray, $nc(old)->length + 1));
 			$System::arraycopy(old, 0, this->nodeListeners$, 0, old->length);
-			$nc(this->nodeListeners$)->set(old->length, ncl);
+			this->nodeListeners$->set(old->length, ncl);
 		}
 	}
 	startEventDispatchThreadIfNecessary();
@@ -659,17 +538,17 @@ void AbstractPreferences::removeNodeChangeListener($NodeChangeListener* ncl) {
 		if (this->removed) {
 			$throwNew($IllegalStateException, "Node has been removed."_s);
 		}
-		if ((this->nodeListeners$ == nullptr) || ($nc(this->nodeListeners$)->length == 0)) {
+		if ((this->nodeListeners$ == nullptr) || (this->nodeListeners$->length == 0)) {
 			$throwNew($IllegalArgumentException, "Listener not registered."_s);
 		}
 		int32_t i = 0;
-		while (i < $nc(this->nodeListeners$)->length && $nc(this->nodeListeners$)->get(i) != ncl) {
+		while (i < $nc(this->nodeListeners$)->length && this->nodeListeners$->get(i) != ncl) {
 			++i;
 		}
-		if (i == $nc(this->nodeListeners$)->length) {
+		if (i == this->nodeListeners$->length) {
 			$throwNew($IllegalArgumentException, "Listener not registered."_s);
 		}
-		$var($NodeChangeListenerArray, newNl, $new($NodeChangeListenerArray, $nc(this->nodeListeners$)->length - 1));
+		$var($NodeChangeListenerArray, newNl, $new($NodeChangeListenerArray, this->nodeListeners$->length - 1));
 		if (i != 0) {
 			$System::arraycopy(this->nodeListeners$, 0, newNl, 0, i);
 		}
@@ -681,14 +560,12 @@ void AbstractPreferences::removeNodeChangeListener($NodeChangeListener* ncl) {
 }
 
 AbstractPreferences* AbstractPreferences::getChild($String* nodeName) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized(this->lock) {
 		$var($StringArray, kidNames, childrenNames());
 		{
 			$var($StringArray, arr$, kidNames);
-			int32_t len$ = $nc(arr$)->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
+			for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 				$var($String, kidName, arr$->get(i$));
 				if ($nc(kidName)->equals(nodeName)) {
 					return childSpi(kidName);
@@ -700,9 +577,12 @@ AbstractPreferences* AbstractPreferences::getChild($String* nodeName) {
 }
 
 $String* AbstractPreferences::toString() {
-	$useLocalCurrentObjectStackCache();
-	$var($String, var$0, $$str({(this->isUserNode() ? "User"_s : "System"_s), " Preference Node: "_s}));
-	return $concat(var$0, $(this->absolutePath()));
+	$useLocalObjectStack();
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append(this->isUserNode() ? "User"_s : "System"_s);
+	var$0->append(" Preference Node: "_s);
+	var$0->append($(this->absolutePath()));
+	return $str(var$0);
 }
 
 void AbstractPreferences::sync() {
@@ -710,7 +590,7 @@ void AbstractPreferences::sync() {
 }
 
 void AbstractPreferences::sync2() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AbstractPreferencesArray, cachedKids, nullptr);
 	$synchronized(this->lock) {
 		if (this->removed) {
@@ -721,9 +601,7 @@ void AbstractPreferences::sync2() {
 	}
 	{
 		$var($AbstractPreferencesArray, arr$, cachedKids);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var(AbstractPreferences, cachedKid, arr$->get(i$));
 			$nc(cachedKid)->sync2();
 		}
@@ -735,7 +613,7 @@ void AbstractPreferences::flush() {
 }
 
 void AbstractPreferences::flush2() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AbstractPreferencesArray, cachedKids, nullptr);
 	$synchronized(this->lock) {
 		flushSpi();
@@ -746,9 +624,7 @@ void AbstractPreferences::flush2() {
 	}
 	{
 		$var($AbstractPreferencesArray, arr$, cachedKids);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var(AbstractPreferences, cachedKid, arr$->get(i$));
 			$nc(cachedKid)->flush2();
 		}
@@ -762,13 +638,12 @@ bool AbstractPreferences::isRemoved() {
 }
 
 void AbstractPreferences::startEventDispatchThreadIfNecessary() {
-	$load(AbstractPreferences);
+	$init(AbstractPreferences);
 	$synchronized(class$) {
-		$init(AbstractPreferences);
 		if (AbstractPreferences::eventDispatchThread == nullptr) {
 			$assignStatic(AbstractPreferences::eventDispatchThread, $new($AbstractPreferences$EventDispatchThread));
-			$nc(AbstractPreferences::eventDispatchThread)->setDaemon(true);
-			$nc(AbstractPreferences::eventDispatchThread)->start();
+			AbstractPreferences::eventDispatchThread->setDaemon(true);
+			AbstractPreferences::eventDispatchThread->start();
 		}
 	}
 }
@@ -788,8 +663,8 @@ $NodeChangeListenerArray* AbstractPreferences::nodeListeners() {
 void AbstractPreferences::enqueuePreferenceChangeEvent($String* key, $String* newValue) {
 	if ($nc(this->prefListeners$)->length != 0) {
 		$synchronized(AbstractPreferences::eventQueue) {
-			$nc(AbstractPreferences::eventQueue)->add($$new($PreferenceChangeEvent, this, key, newValue));
-			$nc($of(AbstractPreferences::eventQueue))->notify();
+			AbstractPreferences::eventQueue->add($$new($PreferenceChangeEvent, this, key, newValue));
+			AbstractPreferences::eventQueue->notify();
 		}
 	}
 }
@@ -797,8 +672,8 @@ void AbstractPreferences::enqueuePreferenceChangeEvent($String* key, $String* ne
 void AbstractPreferences::enqueueNodeAddedEvent($Preferences* child) {
 	if ($nc(this->nodeListeners$)->length != 0) {
 		$synchronized(AbstractPreferences::eventQueue) {
-			$nc(AbstractPreferences::eventQueue)->add($$new($AbstractPreferences$NodeAddedEvent, this, this, child));
-			$nc($of(AbstractPreferences::eventQueue))->notify();
+			AbstractPreferences::eventQueue->add($$new($AbstractPreferences$NodeAddedEvent, this, this, child));
+			AbstractPreferences::eventQueue->notify();
 		}
 	}
 }
@@ -806,8 +681,8 @@ void AbstractPreferences::enqueueNodeAddedEvent($Preferences* child) {
 void AbstractPreferences::enqueueNodeRemovedEvent($Preferences* child) {
 	if ($nc(this->nodeListeners$)->length != 0) {
 		$synchronized(AbstractPreferences::eventQueue) {
-			$nc(AbstractPreferences::eventQueue)->add($$new($AbstractPreferences$NodeRemovedEvent, this, this, child));
-			$nc($of(AbstractPreferences::eventQueue))->notify();
+			AbstractPreferences::eventQueue->add($$new($AbstractPreferences$NodeRemovedEvent, this, this, child));
+			AbstractPreferences::eventQueue->notify();
 		}
 	}
 }
@@ -820,7 +695,7 @@ void AbstractPreferences::exportSubtree($OutputStream* os) {
 	$XmlSupport::export$(os, this, true);
 }
 
-void clinit$AbstractPreferences($Class* class$) {
+void AbstractPreferences::clinit$($Class* clazz) {
 	$assignStatic(AbstractPreferences::EMPTY_STRING_ARRAY, $new($StringArray, 0));
 	$assignStatic(AbstractPreferences::EMPTY_ABSTRACT_PREFS_ARRAY, $new($AbstractPreferencesArray, 0));
 	$assignStatic(AbstractPreferences::eventQueue, $new($LinkedList));
@@ -831,7 +706,109 @@ AbstractPreferences::AbstractPreferences() {
 }
 
 $Class* AbstractPreferences::load$($String* name, bool initialize) {
-	$loadClass(AbstractPreferences, name, initialize, &_AbstractPreferences_ClassInfo_, clinit$AbstractPreferences, allocate$AbstractPreferences);
+	$FieldInfo fieldInfos$$[] = {
+		{"CODE_POINT_U0000", "I", nullptr, $STATIC | $FINAL, $constField(AbstractPreferences, CODE_POINT_U0000)},
+		{"name", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(AbstractPreferences, name$)},
+		{"absolutePath", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(AbstractPreferences, absolutePath$)},
+		{"parent", "Ljava/util/prefs/AbstractPreferences;", nullptr, $FINAL, $field(AbstractPreferences, parent$)},
+		{"root", "Ljava/util/prefs/AbstractPreferences;", nullptr, $PRIVATE | $FINAL, $field(AbstractPreferences, root)},
+		{"newNode", "Z", nullptr, $PROTECTED, $field(AbstractPreferences, newNode)},
+		{"kidCache", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/util/prefs/AbstractPreferences;>;", $PRIVATE, $field(AbstractPreferences, kidCache)},
+		{"removed", "Z", nullptr, $PRIVATE, $field(AbstractPreferences, removed)},
+		{"prefListeners", "[Ljava/util/prefs/PreferenceChangeListener;", nullptr, $PRIVATE, $field(AbstractPreferences, prefListeners$)},
+		{"nodeListeners", "[Ljava/util/prefs/NodeChangeListener;", nullptr, $PRIVATE, $field(AbstractPreferences, nodeListeners$)},
+		{"lock", "Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $field(AbstractPreferences, lock)},
+		{"EMPTY_STRING_ARRAY", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AbstractPreferences, EMPTY_STRING_ARRAY)},
+		{"EMPTY_ABSTRACT_PREFS_ARRAY", "[Ljava/util/prefs/AbstractPreferences;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AbstractPreferences, EMPTY_ABSTRACT_PREFS_ARRAY)},
+		{"eventQueue", "Ljava/util/List;", "Ljava/util/List<Ljava/util/EventObject;>;", $PRIVATE | $STATIC | $FINAL, $staticField(AbstractPreferences, eventQueue)},
+		{"eventDispatchThread", "Ljava/lang/Thread;", nullptr, $PRIVATE | $STATIC, $staticField(AbstractPreferences, eventDispatchThread)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/prefs/AbstractPreferences;Ljava/lang/String;)V", nullptr, $PROTECTED, $method(AbstractPreferences, init$, void, AbstractPreferences*, $String*)},
+		{"absolutePath", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AbstractPreferences, absolutePath, $String*)},
+		{"addNodeChangeListener", "(Ljava/util/prefs/NodeChangeListener;)V", nullptr, $PUBLIC, $virtualMethod(AbstractPreferences, addNodeChangeListener, void, $NodeChangeListener*)},
+		{"addPreferenceChangeListener", "(Ljava/util/prefs/PreferenceChangeListener;)V", nullptr, $PUBLIC, $virtualMethod(AbstractPreferences, addPreferenceChangeListener, void, $PreferenceChangeListener*)},
+		{"cachedChildren", "()[Ljava/util/prefs/AbstractPreferences;", nullptr, $PROTECTED | $FINAL, $method(AbstractPreferences, cachedChildren, $AbstractPreferencesArray*)},
+		{"childSpi", "(Ljava/lang/String;)Ljava/util/prefs/AbstractPreferences;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(AbstractPreferences, childSpi, AbstractPreferences*, $String*)},
+		{"childrenNames", "()[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AbstractPreferences, childrenNames, $StringArray*), "java.util.prefs.BackingStoreException"},
+		{"childrenNamesSpi", "()[Ljava/lang/String;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(AbstractPreferences, childrenNamesSpi, $StringArray*), "java.util.prefs.BackingStoreException"},
+		{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(AbstractPreferences, clear, void), "java.util.prefs.BackingStoreException"},
+		{"enqueueNodeAddedEvent", "(Ljava/util/prefs/Preferences;)V", nullptr, $PRIVATE, $method(AbstractPreferences, enqueueNodeAddedEvent, void, $Preferences*)},
+		{"enqueueNodeRemovedEvent", "(Ljava/util/prefs/Preferences;)V", nullptr, $PRIVATE, $method(AbstractPreferences, enqueueNodeRemovedEvent, void, $Preferences*)},
+		{"enqueuePreferenceChangeEvent", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(AbstractPreferences, enqueuePreferenceChangeEvent, void, $String*, $String*)},
+		{"exportNode", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $virtualMethod(AbstractPreferences, exportNode, void, $OutputStream*), "java.io.IOException,java.util.prefs.BackingStoreException"},
+		{"exportSubtree", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $virtualMethod(AbstractPreferences, exportSubtree, void, $OutputStream*), "java.io.IOException,java.util.prefs.BackingStoreException"},
+		{"flush", "()V", nullptr, $PUBLIC, $virtualMethod(AbstractPreferences, flush, void), "java.util.prefs.BackingStoreException"},
+		{"flush2", "()V", nullptr, $PRIVATE, $method(AbstractPreferences, flush2, void), "java.util.prefs.BackingStoreException"},
+		{"flushSpi", "()V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(AbstractPreferences, flushSpi, void), "java.util.prefs.BackingStoreException"},
+		{"get", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AbstractPreferences, get, $String*, $String*, $String*)},
+		{"getBoolean", "(Ljava/lang/String;Z)Z", nullptr, $PUBLIC, $virtualMethod(AbstractPreferences, getBoolean, bool, $String*, bool)},
+		{"getByteArray", "(Ljava/lang/String;[B)[B", nullptr, $PUBLIC, $virtualMethod(AbstractPreferences, getByteArray, $bytes*, $String*, $bytes*)},
+		{"getChild", "(Ljava/lang/String;)Ljava/util/prefs/AbstractPreferences;", nullptr, $PROTECTED, $virtualMethod(AbstractPreferences, getChild, AbstractPreferences*, $String*), "java.util.prefs.BackingStoreException"},
+		{"getDouble", "(Ljava/lang/String;D)D", nullptr, $PUBLIC, $virtualMethod(AbstractPreferences, getDouble, double, $String*, double)},
+		{"getFloat", "(Ljava/lang/String;F)F", nullptr, $PUBLIC, $virtualMethod(AbstractPreferences, getFloat, float, $String*, float)},
+		{"getInt", "(Ljava/lang/String;I)I", nullptr, $PUBLIC, $virtualMethod(AbstractPreferences, getInt, int32_t, $String*, int32_t)},
+		{"getLong", "(Ljava/lang/String;J)J", nullptr, $PUBLIC, $virtualMethod(AbstractPreferences, getLong, int64_t, $String*, int64_t)},
+		{"getSpi", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(AbstractPreferences, getSpi, $String*, $String*)},
+		{"isRemoved", "()Z", nullptr, $PROTECTED, $virtualMethod(AbstractPreferences, isRemoved, bool)},
+		{"isUserNode", "()Z", nullptr, $PUBLIC, $virtualMethod(AbstractPreferences, isUserNode, bool)},
+		{"keys", "()[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AbstractPreferences, keys, $StringArray*), "java.util.prefs.BackingStoreException"},
+		{"keysSpi", "()[Ljava/lang/String;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(AbstractPreferences, keysSpi, $StringArray*), "java.util.prefs.BackingStoreException"},
+		{"name", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AbstractPreferences, name, $String*)},
+		{"node", "(Ljava/lang/String;)Ljava/util/prefs/Preferences;", nullptr, $PUBLIC, $virtualMethod(AbstractPreferences, node, $Preferences*, $String*)},
+		{"node", "(Ljava/util/StringTokenizer;)Ljava/util/prefs/Preferences;", nullptr, $PRIVATE, $method(AbstractPreferences, node, $Preferences*, $StringTokenizer*)},
+		{"nodeExists", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(AbstractPreferences, nodeExists, bool, $String*), "java.util.prefs.BackingStoreException"},
+		{"nodeExists", "(Ljava/util/StringTokenizer;)Z", nullptr, $PRIVATE, $method(AbstractPreferences, nodeExists, bool, $StringTokenizer*), "java.util.prefs.BackingStoreException"},
+		{"nodeListeners", "()[Ljava/util/prefs/NodeChangeListener;", nullptr, 0, $virtualMethod(AbstractPreferences, nodeListeners, $NodeChangeListenerArray*)},
+		{"parent", "()Ljava/util/prefs/Preferences;", nullptr, $PUBLIC, $virtualMethod(AbstractPreferences, parent, $Preferences*)},
+		{"prefListeners", "()[Ljava/util/prefs/PreferenceChangeListener;", nullptr, 0, $virtualMethod(AbstractPreferences, prefListeners, $PreferenceChangeListenerArray*)},
+		{"put", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(AbstractPreferences, put, void, $String*, $String*)},
+		{"putBoolean", "(Ljava/lang/String;Z)V", nullptr, $PUBLIC, $virtualMethod(AbstractPreferences, putBoolean, void, $String*, bool)},
+		{"putByteArray", "(Ljava/lang/String;[B)V", nullptr, $PUBLIC, $virtualMethod(AbstractPreferences, putByteArray, void, $String*, $bytes*)},
+		{"putDouble", "(Ljava/lang/String;D)V", nullptr, $PUBLIC, $virtualMethod(AbstractPreferences, putDouble, void, $String*, double)},
+		{"putFloat", "(Ljava/lang/String;F)V", nullptr, $PUBLIC, $virtualMethod(AbstractPreferences, putFloat, void, $String*, float)},
+		{"putInt", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $virtualMethod(AbstractPreferences, putInt, void, $String*, int32_t)},
+		{"putLong", "(Ljava/lang/String;J)V", nullptr, $PUBLIC, $virtualMethod(AbstractPreferences, putLong, void, $String*, int64_t)},
+		{"putSpi", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(AbstractPreferences, putSpi, void, $String*, $String*)},
+		{"remove", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(AbstractPreferences, remove, void, $String*)},
+		{"removeNode", "()V", nullptr, $PUBLIC, $virtualMethod(AbstractPreferences, removeNode, void), "java.util.prefs.BackingStoreException"},
+		{"removeNode2", "()V", nullptr, $PRIVATE, $method(AbstractPreferences, removeNode2, void), "java.util.prefs.BackingStoreException"},
+		{"removeNodeChangeListener", "(Ljava/util/prefs/NodeChangeListener;)V", nullptr, $PUBLIC, $virtualMethod(AbstractPreferences, removeNodeChangeListener, void, $NodeChangeListener*)},
+		{"removeNodeSpi", "()V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(AbstractPreferences, removeNodeSpi, void), "java.util.prefs.BackingStoreException"},
+		{"removePreferenceChangeListener", "(Ljava/util/prefs/PreferenceChangeListener;)V", nullptr, $PUBLIC, $virtualMethod(AbstractPreferences, removePreferenceChangeListener, void, $PreferenceChangeListener*)},
+		{"removeSpi", "(Ljava/lang/String;)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(AbstractPreferences, removeSpi, void, $String*)},
+		{"startEventDispatchThreadIfNecessary", "()V", nullptr, $PRIVATE | $STATIC | $SYNCHRONIZED, $staticMethod(AbstractPreferences, startEventDispatchThreadIfNecessary, void)},
+		{"sync", "()V", nullptr, $PUBLIC, $virtualMethod(AbstractPreferences, sync, void), "java.util.prefs.BackingStoreException"},
+		{"sync2", "()V", nullptr, $PRIVATE, $method(AbstractPreferences, sync2, void), "java.util.prefs.BackingStoreException"},
+		{"syncSpi", "()V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(AbstractPreferences, syncSpi, void), "java.util.prefs.BackingStoreException"},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AbstractPreferences, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.prefs.AbstractPreferences$EventDispatchThread", "java.util.prefs.AbstractPreferences", "EventDispatchThread", $PRIVATE | $STATIC},
+		{"java.util.prefs.AbstractPreferences$NodeRemovedEvent", "java.util.prefs.AbstractPreferences", "NodeRemovedEvent", $PRIVATE},
+		{"java.util.prefs.AbstractPreferences$NodeAddedEvent", "java.util.prefs.AbstractPreferences", "NodeAddedEvent", $PRIVATE},
+		{"java.util.prefs.AbstractPreferences$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"java.util.prefs.AbstractPreferences",
+		"java.util.prefs.Preferences",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.util.prefs.AbstractPreferences$EventDispatchThread,java.util.prefs.AbstractPreferences$NodeRemovedEvent,java.util.prefs.AbstractPreferences$NodeAddedEvent,java.util.prefs.AbstractPreferences$1"
+	};
+	$loadClass(AbstractPreferences, name, initialize, &classInfo$$, AbstractPreferences::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(AbstractPreferences);
+	});
 	return class$;
 }
 

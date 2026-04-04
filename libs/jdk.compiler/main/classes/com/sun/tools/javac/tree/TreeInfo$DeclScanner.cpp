@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/tree/TreeInfo$DeclScanner.h>
-
 #include <com/sun/tools/javac/code/Symbol$ClassSymbol.h>
 #include <com/sun/tools/javac/code/Symbol$MethodSymbol.h>
 #include <com/sun/tools/javac/code/Symbol$ModuleSymbol.h>
@@ -30,7 +29,6 @@ using $JCTree$JCModuleDecl = ::com::sun::tools::javac::tree::JCTree$JCModuleDecl
 using $JCTree$JCPackageDecl = ::com::sun::tools::javac::tree::JCTree$JCPackageDecl;
 using $JCTree$JCTypeParameter = ::com::sun::tools::javac::tree::JCTree$JCTypeParameter;
 using $JCTree$JCVariableDecl = ::com::sun::tools::javac::tree::JCTree$JCVariableDecl;
-using $JCTree$Visitor = ::com::sun::tools::javac::tree::JCTree$Visitor;
 using $TreeScanner = ::com::sun::tools::javac::tree::TreeScanner;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -42,50 +40,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace tree {
-
-$FieldInfo _TreeInfo$DeclScanner_FieldInfo_[] = {
-	{"sym", "Lcom/sun/tools/javac/code/Symbol;", nullptr, $FINAL, $field(TreeInfo$DeclScanner, sym)},
-	{"result", "Lcom/sun/tools/javac/tree/JCTree;", nullptr, 0, $field(TreeInfo$DeclScanner, result)},
-	{}
-};
-
-$MethodInfo _TreeInfo$DeclScanner_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, 0, $method(TreeInfo$DeclScanner, init$, void, $Symbol*)},
-	{"scan", "(Lcom/sun/tools/javac/tree/JCTree;)V", nullptr, $PUBLIC, $virtualMethod(TreeInfo$DeclScanner, scan, void, $JCTree*)},
-	{"visitClassDef", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)V", nullptr, $PUBLIC, $virtualMethod(TreeInfo$DeclScanner, visitClassDef, void, $JCTree$JCClassDecl*)},
-	{"visitMethodDef", "(Lcom/sun/tools/javac/tree/JCTree$JCMethodDecl;)V", nullptr, $PUBLIC, $virtualMethod(TreeInfo$DeclScanner, visitMethodDef, void, $JCTree$JCMethodDecl*)},
-	{"visitModuleDef", "(Lcom/sun/tools/javac/tree/JCTree$JCModuleDecl;)V", nullptr, $PUBLIC, $virtualMethod(TreeInfo$DeclScanner, visitModuleDef, void, $JCTree$JCModuleDecl*)},
-	{"visitPackageDef", "(Lcom/sun/tools/javac/tree/JCTree$JCPackageDecl;)V", nullptr, $PUBLIC, $virtualMethod(TreeInfo$DeclScanner, visitPackageDef, void, $JCTree$JCPackageDecl*)},
-	{"visitTopLevel", "(Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;)V", nullptr, $PUBLIC, $virtualMethod(TreeInfo$DeclScanner, visitTopLevel, void, $JCTree$JCCompilationUnit*)},
-	{"visitTypeParameter", "(Lcom/sun/tools/javac/tree/JCTree$JCTypeParameter;)V", nullptr, $PUBLIC, $virtualMethod(TreeInfo$DeclScanner, visitTypeParameter, void, $JCTree$JCTypeParameter*)},
-	{"visitVarDef", "(Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;)V", nullptr, $PUBLIC, $virtualMethod(TreeInfo$DeclScanner, visitVarDef, void, $JCTree$JCVariableDecl*)},
-	{}
-};
-
-$InnerClassInfo _TreeInfo$DeclScanner_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.tree.TreeInfo$DeclScanner", "com.sun.tools.javac.tree.TreeInfo", "DeclScanner", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _TreeInfo$DeclScanner_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.tree.TreeInfo$DeclScanner",
-	"com.sun.tools.javac.tree.TreeScanner",
-	nullptr,
-	_TreeInfo$DeclScanner_FieldInfo_,
-	_TreeInfo$DeclScanner_MethodInfo_,
-	nullptr,
-	nullptr,
-	_TreeInfo$DeclScanner_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.tree.TreeInfo"
-};
-
-$Object* allocate$TreeInfo$DeclScanner($Class* clazz) {
-	return $of($alloc(TreeInfo$DeclScanner));
-}
 
 void TreeInfo$DeclScanner::init$($Symbol* sym) {
 	$TreeScanner::init$();
@@ -146,7 +100,7 @@ void TreeInfo$DeclScanner::visitVarDef($JCTree$JCVariableDecl* that) {
 }
 
 void TreeInfo$DeclScanner::visitTypeParameter($JCTree$JCTypeParameter* that) {
-	if ($nc(that)->type != nullptr && $equals($nc(that->type)->tsym, this->sym)) {
+	if ($nc(that)->type != nullptr && $equals(that->type->tsym, this->sym)) {
 		$set(this, result, that);
 	} else {
 		$TreeScanner::visitTypeParameter(that);
@@ -157,7 +111,45 @@ TreeInfo$DeclScanner::TreeInfo$DeclScanner() {
 }
 
 $Class* TreeInfo$DeclScanner::load$($String* name, bool initialize) {
-	$loadClass(TreeInfo$DeclScanner, name, initialize, &_TreeInfo$DeclScanner_ClassInfo_, allocate$TreeInfo$DeclScanner);
+	$FieldInfo fieldInfos$$[] = {
+		{"sym", "Lcom/sun/tools/javac/code/Symbol;", nullptr, $FINAL, $field(TreeInfo$DeclScanner, sym)},
+		{"result", "Lcom/sun/tools/javac/tree/JCTree;", nullptr, 0, $field(TreeInfo$DeclScanner, result)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, 0, $method(TreeInfo$DeclScanner, init$, void, $Symbol*)},
+		{"scan", "(Lcom/sun/tools/javac/tree/JCTree;)V", nullptr, $PUBLIC, $virtualMethod(TreeInfo$DeclScanner, scan, void, $JCTree*)},
+		{"visitClassDef", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)V", nullptr, $PUBLIC, $virtualMethod(TreeInfo$DeclScanner, visitClassDef, void, $JCTree$JCClassDecl*)},
+		{"visitMethodDef", "(Lcom/sun/tools/javac/tree/JCTree$JCMethodDecl;)V", nullptr, $PUBLIC, $virtualMethod(TreeInfo$DeclScanner, visitMethodDef, void, $JCTree$JCMethodDecl*)},
+		{"visitModuleDef", "(Lcom/sun/tools/javac/tree/JCTree$JCModuleDecl;)V", nullptr, $PUBLIC, $virtualMethod(TreeInfo$DeclScanner, visitModuleDef, void, $JCTree$JCModuleDecl*)},
+		{"visitPackageDef", "(Lcom/sun/tools/javac/tree/JCTree$JCPackageDecl;)V", nullptr, $PUBLIC, $virtualMethod(TreeInfo$DeclScanner, visitPackageDef, void, $JCTree$JCPackageDecl*)},
+		{"visitTopLevel", "(Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;)V", nullptr, $PUBLIC, $virtualMethod(TreeInfo$DeclScanner, visitTopLevel, void, $JCTree$JCCompilationUnit*)},
+		{"visitTypeParameter", "(Lcom/sun/tools/javac/tree/JCTree$JCTypeParameter;)V", nullptr, $PUBLIC, $virtualMethod(TreeInfo$DeclScanner, visitTypeParameter, void, $JCTree$JCTypeParameter*)},
+		{"visitVarDef", "(Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;)V", nullptr, $PUBLIC, $virtualMethod(TreeInfo$DeclScanner, visitVarDef, void, $JCTree$JCVariableDecl*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.tree.TreeInfo$DeclScanner", "com.sun.tools.javac.tree.TreeInfo", "DeclScanner", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.tree.TreeInfo$DeclScanner",
+		"com.sun.tools.javac.tree.TreeScanner",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.tree.TreeInfo"
+	};
+	$loadClass(TreeInfo$DeclScanner, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TreeInfo$DeclScanner);
+	});
 	return class$;
 }
 

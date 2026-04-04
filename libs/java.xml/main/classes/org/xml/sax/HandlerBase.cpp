@@ -1,5 +1,4 @@
 #include <org/xml/sax/HandlerBase.h>
-
 #include <org/xml/sax/AttributeList.h>
 #include <org/xml/sax/EntityResolver.h>
 #include <org/xml/sax/InputSource.h>
@@ -20,57 +19,6 @@ using $SAXParseException = ::org::xml::sax::SAXParseException;
 namespace org {
 	namespace xml {
 		namespace sax {
-
-$NamedAttribute HandlerBase_Attribute_var$0[] = {
-	{"since", 's', "1.5"},
-	{}
-};
-
-$CompoundAttribute _HandlerBase_Annotations_[] = {
-	{"Ljava/lang/Deprecated;", HandlerBase_Attribute_var$0},
-	{}
-};
-
-$MethodInfo _HandlerBase_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(HandlerBase, init$, void)},
-	{"characters", "([CII)V", nullptr, $PUBLIC, $virtualMethod(HandlerBase, characters, void, $chars*, int32_t, int32_t), "org.xml.sax.SAXException"},
-	{"endDocument", "()V", nullptr, $PUBLIC, $virtualMethod(HandlerBase, endDocument, void), "org.xml.sax.SAXException"},
-	{"endElement", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(HandlerBase, endElement, void, $String*), "org.xml.sax.SAXException"},
-	{"error", "(Lorg/xml/sax/SAXParseException;)V", nullptr, $PUBLIC, $virtualMethod(HandlerBase, error, void, $SAXParseException*), "org.xml.sax.SAXException"},
-	{"fatalError", "(Lorg/xml/sax/SAXParseException;)V", nullptr, $PUBLIC, $virtualMethod(HandlerBase, fatalError, void, $SAXParseException*), "org.xml.sax.SAXException"},
-	{"ignorableWhitespace", "([CII)V", nullptr, $PUBLIC, $virtualMethod(HandlerBase, ignorableWhitespace, void, $chars*, int32_t, int32_t), "org.xml.sax.SAXException"},
-	{"notationDecl", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(HandlerBase, notationDecl, void, $String*, $String*, $String*)},
-	{"processingInstruction", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(HandlerBase, processingInstruction, void, $String*, $String*), "org.xml.sax.SAXException"},
-	{"resolveEntity", "(Ljava/lang/String;Ljava/lang/String;)Lorg/xml/sax/InputSource;", nullptr, $PUBLIC, $virtualMethod(HandlerBase, resolveEntity, $InputSource*, $String*, $String*), "org.xml.sax.SAXException"},
-	{"setDocumentLocator", "(Lorg/xml/sax/Locator;)V", nullptr, $PUBLIC, $virtualMethod(HandlerBase, setDocumentLocator, void, $Locator*)},
-	{"startDocument", "()V", nullptr, $PUBLIC, $virtualMethod(HandlerBase, startDocument, void), "org.xml.sax.SAXException"},
-	{"startElement", "(Ljava/lang/String;Lorg/xml/sax/AttributeList;)V", nullptr, $PUBLIC, $virtualMethod(HandlerBase, startElement, void, $String*, $AttributeList*), "org.xml.sax.SAXException"},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"unparsedEntityDecl", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(HandlerBase, unparsedEntityDecl, void, $String*, $String*, $String*, $String*)},
-	{"warning", "(Lorg/xml/sax/SAXParseException;)V", nullptr, $PUBLIC, $virtualMethod(HandlerBase, warning, void, $SAXParseException*), "org.xml.sax.SAXException"},
-	{}
-};
-
-$ClassInfo _HandlerBase_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"org.xml.sax.HandlerBase",
-	"java.lang.Object",
-	"org.xml.sax.EntityResolver,org.xml.sax.DTDHandler,org.xml.sax.DocumentHandler,org.xml.sax.ErrorHandler",
-	nullptr,
-	_HandlerBase_MethodInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	_HandlerBase_Annotations_
-};
-
-$Object* allocate$HandlerBase($Class* clazz) {
-	return $of($alloc(HandlerBase));
-}
 
 int32_t HandlerBase::hashCode() {
 	 return this->$EntityResolver::hashCode();
@@ -143,7 +91,52 @@ HandlerBase::HandlerBase() {
 }
 
 $Class* HandlerBase::load$($String* name, bool initialize) {
-	$loadClass(HandlerBase, name, initialize, &_HandlerBase_ClassInfo_, allocate$HandlerBase);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(HandlerBase, init$, void)},
+		{"characters", "([CII)V", nullptr, $PUBLIC, $virtualMethod(HandlerBase, characters, void, $chars*, int32_t, int32_t), "org.xml.sax.SAXException"},
+		{"endDocument", "()V", nullptr, $PUBLIC, $virtualMethod(HandlerBase, endDocument, void), "org.xml.sax.SAXException"},
+		{"endElement", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(HandlerBase, endElement, void, $String*), "org.xml.sax.SAXException"},
+		{"error", "(Lorg/xml/sax/SAXParseException;)V", nullptr, $PUBLIC, $virtualMethod(HandlerBase, error, void, $SAXParseException*), "org.xml.sax.SAXException"},
+		{"fatalError", "(Lorg/xml/sax/SAXParseException;)V", nullptr, $PUBLIC, $virtualMethod(HandlerBase, fatalError, void, $SAXParseException*), "org.xml.sax.SAXException"},
+		{"ignorableWhitespace", "([CII)V", nullptr, $PUBLIC, $virtualMethod(HandlerBase, ignorableWhitespace, void, $chars*, int32_t, int32_t), "org.xml.sax.SAXException"},
+		{"notationDecl", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(HandlerBase, notationDecl, void, $String*, $String*, $String*)},
+		{"processingInstruction", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(HandlerBase, processingInstruction, void, $String*, $String*), "org.xml.sax.SAXException"},
+		{"resolveEntity", "(Ljava/lang/String;Ljava/lang/String;)Lorg/xml/sax/InputSource;", nullptr, $PUBLIC, $virtualMethod(HandlerBase, resolveEntity, $InputSource*, $String*, $String*), "org.xml.sax.SAXException"},
+		{"setDocumentLocator", "(Lorg/xml/sax/Locator;)V", nullptr, $PUBLIC, $virtualMethod(HandlerBase, setDocumentLocator, void, $Locator*)},
+		{"startDocument", "()V", nullptr, $PUBLIC, $virtualMethod(HandlerBase, startDocument, void), "org.xml.sax.SAXException"},
+		{"startElement", "(Ljava/lang/String;Lorg/xml/sax/AttributeList;)V", nullptr, $PUBLIC, $virtualMethod(HandlerBase, startElement, void, $String*, $AttributeList*), "org.xml.sax.SAXException"},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"unparsedEntityDecl", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(HandlerBase, unparsedEntityDecl, void, $String*, $String*, $String*, $String*)},
+		{"warning", "(Lorg/xml/sax/SAXParseException;)V", nullptr, $PUBLIC, $virtualMethod(HandlerBase, warning, void, $SAXParseException*), "org.xml.sax.SAXException"},
+		{}
+	};
+	$NamedAttribute annotations$$$namedAttribute[] = {
+		{"since", 's', "1.5"},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/lang/Deprecated;", annotations$$$namedAttribute},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"org.xml.sax.HandlerBase",
+		"java.lang.Object",
+		"org.xml.sax.EntityResolver,org.xml.sax.DTDHandler,org.xml.sax.DocumentHandler,org.xml.sax.ErrorHandler",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(HandlerBase, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(HandlerBase));
+	});
 	return class$;
 }
 

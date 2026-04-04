@@ -1,5 +1,4 @@
 #include <javax/security/auth/kerberos/ServicePermission.h>
-
 #include <java/io/ObjectInputStream.h>
 #include <java/io/ObjectOutputStream.h>
 #include <java/security/Permission.h>
@@ -28,48 +27,6 @@ namespace javax {
 		namespace auth {
 			namespace kerberos {
 
-$FieldInfo _ServicePermission_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ServicePermission, serialVersionUID)},
-	{"INITIATE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ServicePermission, INITIATE)},
-	{"ACCEPT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ServicePermission, ACCEPT)},
-	{"ALL", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ServicePermission, ALL)},
-	{"NONE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ServicePermission, NONE)},
-	{"mask", "I", nullptr, $PRIVATE | $TRANSIENT, $field(ServicePermission, mask)},
-	{"actions", "Ljava/lang/String;", nullptr, $PRIVATE, $field(ServicePermission, actions)},
-	{}
-};
-
-$MethodInfo _ServicePermission_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ServicePermission, init$, void, $String*, $String*)},
-	{"<init>", "(Ljava/lang/String;I)V", nullptr, 0, $method(ServicePermission, init$, void, $String*, int32_t)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ServicePermission, equals, bool, Object$*)},
-	{"getActions", "(I)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(ServicePermission, getActions, $String*, int32_t)},
-	{"getActions", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ServicePermission, getActions, $String*)},
-	{"getMask", "()I", nullptr, 0, $method(ServicePermission, getMask, int32_t)},
-	{"getMask", "(Ljava/lang/String;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(ServicePermission, getMask, int32_t, $String*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(ServicePermission, hashCode, int32_t)},
-	{"implies", "(Ljava/security/Permission;)Z", nullptr, $PUBLIC, $virtualMethod(ServicePermission, implies, bool, $Permission*)},
-	{"impliesIgnoreMask", "(Ljavax/security/auth/kerberos/ServicePermission;)Z", nullptr, 0, $method(ServicePermission, impliesIgnoreMask, bool, ServicePermission*)},
-	{"init", "(Ljava/lang/String;I)V", nullptr, $PRIVATE, $method(ServicePermission, init, void, $String*, int32_t)},
-	{"newPermissionCollection", "()Ljava/security/PermissionCollection;", nullptr, $PUBLIC, $virtualMethod(ServicePermission, newPermissionCollection, $PermissionCollection*)},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(ServicePermission, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(ServicePermission, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _ServicePermission_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"javax.security.auth.kerberos.ServicePermission",
-	"java.security.Permission",
-	nullptr,
-	_ServicePermission_FieldInfo_,
-	_ServicePermission_MethodInfo_
-};
-
-$Object* allocate$ServicePermission($Class* clazz) {
-	return $of($alloc(ServicePermission));
-}
-
 void ServicePermission::init$($String* servicePrincipal, $String* action) {
 	$Permission::init$(servicePrincipal);
 	init(servicePrincipal, getMask(action));
@@ -84,7 +41,7 @@ void ServicePermission::init($String* servicePrincipal, int32_t mask) {
 	if (servicePrincipal == nullptr) {
 		$throwNew($NullPointerException, "service principal can\'t be null"_s);
 	}
-	if (((int32_t)(mask & (uint32_t)ServicePermission::ALL)) != mask) {
+	if ((mask & ServicePermission::ALL) != mask) {
 		$throwNew($IllegalArgumentException, "invalid actions mask"_s);
 	}
 	this->mask = mask;
@@ -95,22 +52,22 @@ bool ServicePermission::implies($Permission* p) {
 		return false;
 	}
 	$var(ServicePermission, that, $cast(ServicePermission, p));
-	return (((int32_t)(this->mask & (uint32_t)$nc(that)->mask)) == that->mask) && impliesIgnoreMask(that);
+	return ((this->mask & $nc(that)->mask) == $nc(that)->mask) && impliesIgnoreMask(that);
 }
 
 bool ServicePermission::impliesIgnoreMask(ServicePermission* p) {
-	$useLocalCurrentObjectStackCache();
-	bool var$1 = ($nc($(this->getName()))->equals("*"_s));
-	bool var$0 = var$1 || $nc($(this->getName()))->equals($($nc(p)->getName()));
+	$useLocalObjectStack();
+	bool var$1 = $$nc(this->getName())->equals("*"_s);
+	bool var$0 = var$1 || $$nc(this->getName())->equals($($nc(p)->getName()));
 	if (!var$0) {
-		bool var$2 = $nc($($nc(p)->getName()))->startsWith("@"_s);
-		var$0 = (var$2 && $nc($(this->getName()))->endsWith($(p->getName())));
+		bool var$2 = $$nc($nc(p)->getName())->startsWith("@"_s);
+		var$0 = var$2 && $$nc(this->getName())->endsWith($(p->getName()));
 	}
 	return (var$0);
 }
 
 bool ServicePermission::equals(Object$* obj) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($equals(obj, this)) {
 		return true;
 	}
@@ -118,18 +75,18 @@ bool ServicePermission::equals(Object$* obj) {
 		return false;
 	}
 	$var(ServicePermission, that, $cast(ServicePermission, obj));
-	return (this->mask == $nc(that)->mask) && $nc($(this->getName()))->equals($(that->getName()));
+	return (this->mask == $nc(that)->mask) && $$nc(this->getName())->equals($(that->getName()));
 }
 
 int32_t ServicePermission::hashCode() {
-	return ($nc($(getName()))->hashCode() ^ this->mask);
+	return ($$nc(getName())->hashCode() ^ this->mask);
 }
 
 $String* ServicePermission::getActions(int32_t mask) {
 	$init(ServicePermission);
 	$var($StringBuilder, sb, $new($StringBuilder));
 	bool comma = false;
-	if (((int32_t)(mask & (uint32_t)ServicePermission::INITIATE)) == ServicePermission::INITIATE) {
+	if ((mask & ServicePermission::INITIATE) == ServicePermission::INITIATE) {
 		if (comma) {
 			sb->append(u',');
 		} else {
@@ -137,7 +94,7 @@ $String* ServicePermission::getActions(int32_t mask) {
 		}
 		sb->append("initiate"_s);
 	}
-	if (((int32_t)(mask & (uint32_t)ServicePermission::ACCEPT)) == ServicePermission::ACCEPT) {
+	if ((mask & ServicePermission::ACCEPT) == ServicePermission::ACCEPT) {
 		if (comma) {
 			sb->append(u',');
 		} else {
@@ -165,7 +122,7 @@ int32_t ServicePermission::getMask() {
 
 int32_t ServicePermission::getMask($String* action) {
 	$init(ServicePermission);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (action == nullptr) {
 		$throwNew($NullPointerException, "action can\'t be null"_s);
 	}
@@ -173,7 +130,7 @@ int32_t ServicePermission::getMask($String* action) {
 		$throwNew($IllegalArgumentException, "action can\'t be empty"_s);
 	}
 	int32_t mask = ServicePermission::NONE;
-	$var($chars, a, $nc(action)->toCharArray());
+	$var($chars, a, action->toCharArray());
 	if (a->length == 1 && a->get(0) == u'-') {
 		return mask;
 	}
@@ -181,13 +138,13 @@ int32_t ServicePermission::getMask($String* action) {
 	while (i != -1) {
 		char16_t c = 0;
 		while (true) {
-			bool var$0 = (i != -1);
+			bool var$0 = i != -1;
 			if (var$0) {
 				bool var$4 = (c = a->get(i)) == u' ';
 				bool var$3 = var$4 || c == u'\r';
 				bool var$2 = var$3 || c == u'\n';
 				bool var$1 = var$2 || c == u'\f';
-				var$0 = (var$1 || c == u'\t');
+				var$0 = var$1 || c == u'\t';
 			}
 			if (!(var$0)) {
 				break;
@@ -210,26 +167,16 @@ int32_t ServicePermission::getMask($String* action) {
 		while (i >= matchlen && !seencomma) {
 			switch (a->get(i - matchlen)) {
 			case u',':
-				{
-					seencomma = true;
-					break;
-				}
+				seencomma = true;
+				break;
 			case u' ':
-				{}
 			case u'\r':
-				{}
 			case u'\n':
-				{}
 			case u'\f':
-				{}
 			case u'\t':
-				{
-					break;
-				}
+				break;
 			default:
-				{
-					$throwNew($IllegalArgumentException, $$str({"invalid permission: "_s, action}));
-				}
+				$throwNew($IllegalArgumentException, $$str({"invalid permission: "_s, action}));
 			}
 			--i;
 		}
@@ -255,7 +202,44 @@ ServicePermission::ServicePermission() {
 }
 
 $Class* ServicePermission::load$($String* name, bool initialize) {
-	$loadClass(ServicePermission, name, initialize, &_ServicePermission_ClassInfo_, allocate$ServicePermission);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ServicePermission, serialVersionUID)},
+		{"INITIATE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ServicePermission, INITIATE)},
+		{"ACCEPT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ServicePermission, ACCEPT)},
+		{"ALL", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ServicePermission, ALL)},
+		{"NONE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ServicePermission, NONE)},
+		{"mask", "I", nullptr, $PRIVATE | $TRANSIENT, $field(ServicePermission, mask)},
+		{"actions", "Ljava/lang/String;", nullptr, $PRIVATE, $field(ServicePermission, actions)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ServicePermission, init$, void, $String*, $String*)},
+		{"<init>", "(Ljava/lang/String;I)V", nullptr, 0, $method(ServicePermission, init$, void, $String*, int32_t)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ServicePermission, equals, bool, Object$*)},
+		{"getActions", "(I)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(ServicePermission, getActions, $String*, int32_t)},
+		{"getActions", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ServicePermission, getActions, $String*)},
+		{"getMask", "()I", nullptr, 0, $method(ServicePermission, getMask, int32_t)},
+		{"getMask", "(Ljava/lang/String;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(ServicePermission, getMask, int32_t, $String*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(ServicePermission, hashCode, int32_t)},
+		{"implies", "(Ljava/security/Permission;)Z", nullptr, $PUBLIC, $virtualMethod(ServicePermission, implies, bool, $Permission*)},
+		{"impliesIgnoreMask", "(Ljavax/security/auth/kerberos/ServicePermission;)Z", nullptr, 0, $method(ServicePermission, impliesIgnoreMask, bool, ServicePermission*)},
+		{"init", "(Ljava/lang/String;I)V", nullptr, $PRIVATE, $method(ServicePermission, init, void, $String*, int32_t)},
+		{"newPermissionCollection", "()Ljava/security/PermissionCollection;", nullptr, $PUBLIC, $virtualMethod(ServicePermission, newPermissionCollection, $PermissionCollection*)},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(ServicePermission, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+		{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(ServicePermission, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"javax.security.auth.kerberos.ServicePermission",
+		"java.security.Permission",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ServicePermission, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ServicePermission));
+	});
 	return class$;
 }
 

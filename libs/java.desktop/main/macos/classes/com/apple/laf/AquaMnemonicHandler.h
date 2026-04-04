@@ -28,6 +28,7 @@ class AquaMnemonicHandler : public ::java::lang::Object {
 	$class(AquaMnemonicHandler, 0, ::java::lang::Object)
 public:
 	AquaMnemonicHandler();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::awt::KeyEventPostProcessor* getInstance();
 	static bool isMnemonicHidden();

@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/dtm/ref/DTMDefaultBaseIterators$FollowingSiblingIterator.h>
-
 #include <com/sun/org/apache/xml/internal/dtm/DTM.h>
 #include <com/sun/org/apache/xml/internal/dtm/DTMAxisIterator.h>
 #include <com/sun/org/apache/xml/internal/dtm/ref/DTMAxisIteratorBase.h>
@@ -30,44 +29,6 @@ namespace com {
 						namespace dtm {
 							namespace ref {
 
-$FieldInfo _DTMDefaultBaseIterators$FollowingSiblingIterator_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/org/apache/xml/internal/dtm/ref/DTMDefaultBaseIterators;", nullptr, $FINAL | $SYNTHETIC, $field(DTMDefaultBaseIterators$FollowingSiblingIterator, this$0)},
-	{}
-};
-
-$MethodInfo _DTMDefaultBaseIterators$FollowingSiblingIterator_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/org/apache/xml/internal/dtm/ref/DTMDefaultBaseIterators;)V", nullptr, $PUBLIC, $method(DTMDefaultBaseIterators$FollowingSiblingIterator, init$, void, $DTMDefaultBaseIterators*)},
-	{"next", "()I", nullptr, $PUBLIC, $virtualMethod(DTMDefaultBaseIterators$FollowingSiblingIterator, next, int32_t)},
-	{"setStartNode", "(I)Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;", nullptr, $PUBLIC, $virtualMethod(DTMDefaultBaseIterators$FollowingSiblingIterator, setStartNode, $DTMAxisIterator*, int32_t)},
-	{}
-};
-
-$InnerClassInfo _DTMDefaultBaseIterators$FollowingSiblingIterator_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xml.internal.dtm.ref.DTMDefaultBaseIterators$FollowingSiblingIterator", "com.sun.org.apache.xml.internal.dtm.ref.DTMDefaultBaseIterators", "FollowingSiblingIterator", $PUBLIC},
-	{"com.sun.org.apache.xml.internal.dtm.ref.DTMDefaultBaseIterators$InternalAxisIteratorBase", "com.sun.org.apache.xml.internal.dtm.ref.DTMDefaultBaseIterators", "InternalAxisIteratorBase", $PUBLIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _DTMDefaultBaseIterators$FollowingSiblingIterator_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.dtm.ref.DTMDefaultBaseIterators$FollowingSiblingIterator",
-	"com.sun.org.apache.xml.internal.dtm.ref.DTMDefaultBaseIterators$InternalAxisIteratorBase",
-	nullptr,
-	_DTMDefaultBaseIterators$FollowingSiblingIterator_FieldInfo_,
-	_DTMDefaultBaseIterators$FollowingSiblingIterator_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DTMDefaultBaseIterators$FollowingSiblingIterator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xml.internal.dtm.ref.DTMDefaultBaseIterators"
-};
-
-$Object* allocate$DTMDefaultBaseIterators$FollowingSiblingIterator($Class* clazz) {
-	return $of($alloc(DTMDefaultBaseIterators$FollowingSiblingIterator));
-}
-
 void DTMDefaultBaseIterators$FollowingSiblingIterator::init$($DTMDefaultBaseIterators* this$0) {
 	$set(this, this$0, this$0);
 	$DTMDefaultBaseIterators$InternalAxisIteratorBase::init$(this$0);
@@ -94,7 +55,39 @@ DTMDefaultBaseIterators$FollowingSiblingIterator::DTMDefaultBaseIterators$Follow
 }
 
 $Class* DTMDefaultBaseIterators$FollowingSiblingIterator::load$($String* name, bool initialize) {
-	$loadClass(DTMDefaultBaseIterators$FollowingSiblingIterator, name, initialize, &_DTMDefaultBaseIterators$FollowingSiblingIterator_ClassInfo_, allocate$DTMDefaultBaseIterators$FollowingSiblingIterator);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/org/apache/xml/internal/dtm/ref/DTMDefaultBaseIterators;", nullptr, $FINAL | $SYNTHETIC, $field(DTMDefaultBaseIterators$FollowingSiblingIterator, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/org/apache/xml/internal/dtm/ref/DTMDefaultBaseIterators;)V", nullptr, $PUBLIC, $method(DTMDefaultBaseIterators$FollowingSiblingIterator, init$, void, $DTMDefaultBaseIterators*)},
+		{"next", "()I", nullptr, $PUBLIC, $virtualMethod(DTMDefaultBaseIterators$FollowingSiblingIterator, next, int32_t)},
+		{"setStartNode", "(I)Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;", nullptr, $PUBLIC, $virtualMethod(DTMDefaultBaseIterators$FollowingSiblingIterator, setStartNode, $DTMAxisIterator*, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xml.internal.dtm.ref.DTMDefaultBaseIterators$FollowingSiblingIterator", "com.sun.org.apache.xml.internal.dtm.ref.DTMDefaultBaseIterators", "FollowingSiblingIterator", $PUBLIC},
+		{"com.sun.org.apache.xml.internal.dtm.ref.DTMDefaultBaseIterators$InternalAxisIteratorBase", "com.sun.org.apache.xml.internal.dtm.ref.DTMDefaultBaseIterators", "InternalAxisIteratorBase", $PUBLIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.dtm.ref.DTMDefaultBaseIterators$FollowingSiblingIterator",
+		"com.sun.org.apache.xml.internal.dtm.ref.DTMDefaultBaseIterators$InternalAxisIteratorBase",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xml.internal.dtm.ref.DTMDefaultBaseIterators"
+	};
+	$loadClass(DTMDefaultBaseIterators$FollowingSiblingIterator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DTMDefaultBaseIterators$FollowingSiblingIterator);
+	});
 	return class$;
 }
 

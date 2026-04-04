@@ -1,5 +1,4 @@
 #include <sun/rmi/transport/DGCClient$EndpointEntry.h>
-
 #include <java/io/InvalidClassException.h>
 #include <java/lang/AssertionError.h>
 #include <java/lang/Error.h>
@@ -14,9 +13,7 @@
 #include <java/rmi/dgc/Lease.h>
 #include <java/rmi/dgc/VMID.h>
 #include <java/rmi/server/ObjID.h>
-#include <java/rmi/server/RemoteRef.h>
 #include <java/security/AccessController.h>
-#include <java/security/PrivilegedAction.h>
 #include <java/util/Collection.h>
 #include <java/util/HashMap.h>
 #include <java/util/HashSet.h>
@@ -64,10 +61,7 @@ using $RemoteException = ::java::rmi::RemoteException;
 using $UnmarshalException = ::java::rmi::UnmarshalException;
 using $DGC = ::java::rmi::dgc::DGC;
 using $Lease = ::java::rmi::dgc::Lease;
-using $RemoteRef = ::java::rmi::server::RemoteRef;
 using $AccessController = ::java::security::AccessController;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
-using $Collection = ::java::util::Collection;
 using $HashMap = ::java::util::HashMap;
 using $HashSet = ::java::util::HashSet;
 using $Iterator = ::java::util::Iterator;
@@ -95,69 +89,6 @@ namespace sun {
 	namespace rmi {
 		namespace transport {
 
-$FieldInfo _DGCClient$EndpointEntry_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(DGCClient$EndpointEntry, $assertionsDisabled)},
-	{"endpoint", "Lsun/rmi/transport/Endpoint;", nullptr, $PRIVATE, $field(DGCClient$EndpointEntry, endpoint)},
-	{"dgc", "Ljava/rmi/dgc/DGC;", nullptr, $PRIVATE, $field(DGCClient$EndpointEntry, dgc)},
-	{"refTable", "Ljava/util/Map;", "Ljava/util/Map<Lsun/rmi/transport/LiveRef;Lsun/rmi/transport/DGCClient$EndpointEntry$RefEntry;>;", $PRIVATE, $field(DGCClient$EndpointEntry, refTable)},
-	{"invalidRefs", "Ljava/util/Set;", "Ljava/util/Set<Lsun/rmi/transport/DGCClient$EndpointEntry$RefEntry;>;", $PRIVATE, $field(DGCClient$EndpointEntry, invalidRefs)},
-	{"removed", "Z", nullptr, $PRIVATE, $field(DGCClient$EndpointEntry, removed)},
-	{"renewTime", "J", nullptr, $PRIVATE, $field(DGCClient$EndpointEntry, renewTime)},
-	{"expirationTime", "J", nullptr, $PRIVATE, $field(DGCClient$EndpointEntry, expirationTime)},
-	{"dirtyFailures", "I", nullptr, $PRIVATE, $field(DGCClient$EndpointEntry, dirtyFailures)},
-	{"dirtyFailureStartTime", "J", nullptr, $PRIVATE, $field(DGCClient$EndpointEntry, dirtyFailureStartTime)},
-	{"dirtyFailureDuration", "J", nullptr, $PRIVATE, $field(DGCClient$EndpointEntry, dirtyFailureDuration)},
-	{"renewCleanThread", "Ljava/lang/Thread;", nullptr, $PRIVATE, $field(DGCClient$EndpointEntry, renewCleanThread)},
-	{"interruptible", "Z", nullptr, $PRIVATE, $field(DGCClient$EndpointEntry, interruptible)},
-	{"refQueue", "Ljava/lang/ref/ReferenceQueue;", "Ljava/lang/ref/ReferenceQueue<Lsun/rmi/transport/LiveRef;>;", $PRIVATE, $field(DGCClient$EndpointEntry, refQueue)},
-	{"pendingCleans", "Ljava/util/Set;", "Ljava/util/Set<Lsun/rmi/transport/DGCClient$EndpointEntry$CleanRequest;>;", $PRIVATE, $field(DGCClient$EndpointEntry, pendingCleans)},
-	{"endpointTable", "Ljava/util/Map;", "Ljava/util/Map<Lsun/rmi/transport/Endpoint;Lsun/rmi/transport/DGCClient$EndpointEntry;>;", $PRIVATE | $STATIC, $staticField(DGCClient$EndpointEntry, endpointTable)},
-	{"gcLatencyRequest", "Lsun/rmi/transport/GC$LatencyRequest;", nullptr, $PRIVATE | $STATIC, $staticField(DGCClient$EndpointEntry, gcLatencyRequest)},
-	{}
-};
-
-$MethodInfo _DGCClient$EndpointEntry_MethodInfo_[] = {
-	{"<init>", "(Lsun/rmi/transport/Endpoint;)V", nullptr, $PRIVATE, $method(DGCClient$EndpointEntry, init$, void, $Endpoint*)},
-	{"createObjIDArray", "(Ljava/util/Set;)[Ljava/rmi/server/ObjID;", "(Ljava/util/Set<Lsun/rmi/transport/DGCClient$EndpointEntry$RefEntry;>;)[Ljava/rmi/server/ObjID;", $PRIVATE | $STATIC, $staticMethod(DGCClient$EndpointEntry, createObjIDArray, $ObjIDArray*, $Set*)},
-	{"lookup", "(Lsun/rmi/transport/Endpoint;)Lsun/rmi/transport/DGCClient$EndpointEntry;", nullptr, $PUBLIC | $STATIC, $staticMethod(DGCClient$EndpointEntry, lookup, DGCClient$EndpointEntry*, $Endpoint*)},
-	{"makeCleanCalls", "()V", nullptr, $PRIVATE, $method(DGCClient$EndpointEntry, makeCleanCalls, void)},
-	{"makeDirtyCall", "(Ljava/util/Set;J)V", "(Ljava/util/Set<Lsun/rmi/transport/DGCClient$EndpointEntry$RefEntry;>;J)V", $PRIVATE, $method(DGCClient$EndpointEntry, makeDirtyCall, void, $Set*, int64_t)},
-	{"processPhantomRefs", "(Lsun/rmi/transport/DGCClient$EndpointEntry$RefEntry$PhantomLiveRef;)V", nullptr, $PRIVATE, $method(DGCClient$EndpointEntry, processPhantomRefs, void, $DGCClient$EndpointEntry$RefEntry$PhantomLiveRef*)},
-	{"registerRefs", "(Ljava/util/List;)Z", "(Ljava/util/List<Lsun/rmi/transport/LiveRef;>;)Z", $PUBLIC, $virtualMethod(DGCClient$EndpointEntry, registerRefs, bool, $List*)},
-	{"removeRefEntry", "(Lsun/rmi/transport/DGCClient$EndpointEntry$RefEntry;)V", nullptr, $PRIVATE, $method(DGCClient$EndpointEntry, removeRefEntry, void, $DGCClient$EndpointEntry$RefEntry*)},
-	{"setRenewTime", "(J)V", nullptr, $PRIVATE, $method(DGCClient$EndpointEntry, setRenewTime, void, int64_t)},
-	{}
-};
-
-$InnerClassInfo _DGCClient$EndpointEntry_InnerClassesInfo_[] = {
-	{"sun.rmi.transport.DGCClient$EndpointEntry", "sun.rmi.transport.DGCClient", "EndpointEntry", $PRIVATE | $STATIC},
-	{"sun.rmi.transport.DGCClient$EndpointEntry$RefEntry", "sun.rmi.transport.DGCClient$EndpointEntry", "RefEntry", $PRIVATE},
-	{"sun.rmi.transport.DGCClient$EndpointEntry$CleanRequest", "sun.rmi.transport.DGCClient$EndpointEntry", "CleanRequest", $PRIVATE | $STATIC},
-	{"sun.rmi.transport.DGCClient$EndpointEntry$RenewCleanThread", "sun.rmi.transport.DGCClient$EndpointEntry", "RenewCleanThread", $PRIVATE},
-	{"sun.rmi.transport.DGCClient$EndpointEntry$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _DGCClient$EndpointEntry_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.rmi.transport.DGCClient$EndpointEntry",
-	"java.lang.Object",
-	nullptr,
-	_DGCClient$EndpointEntry_FieldInfo_,
-	_DGCClient$EndpointEntry_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DGCClient$EndpointEntry_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.rmi.transport.DGCClient"
-};
-
-$Object* allocate$DGCClient$EndpointEntry($Class* clazz) {
-	return $of($alloc(DGCClient$EndpointEntry));
-}
-
 bool DGCClient$EndpointEntry::$assertionsDisabled = false;
 $Map* DGCClient$EndpointEntry::endpointTable = nullptr;
 $GC$LatencyRequest* DGCClient$EndpointEntry::gcLatencyRequest = nullptr;
@@ -165,10 +96,10 @@ $GC$LatencyRequest* DGCClient$EndpointEntry::gcLatencyRequest = nullptr;
 DGCClient$EndpointEntry* DGCClient$EndpointEntry::lookup($Endpoint* ep) {
 	$init(DGCClient$EndpointEntry);
 	$synchronized(DGCClient$EndpointEntry::endpointTable) {
-		$var(DGCClient$EndpointEntry, entry, $cast(DGCClient$EndpointEntry, $nc(DGCClient$EndpointEntry::endpointTable)->get(ep)));
+		$var(DGCClient$EndpointEntry, entry, $cast(DGCClient$EndpointEntry, DGCClient$EndpointEntry::endpointTable->get(ep)));
 		if (entry == nullptr) {
 			$assign(entry, $new(DGCClient$EndpointEntry, ep));
-			$nc(DGCClient$EndpointEntry::endpointTable)->put(ep, entry);
+			DGCClient$EndpointEntry::endpointTable->put(ep, entry);
 			if (DGCClient$EndpointEntry::gcLatencyRequest == nullptr) {
 				$init($DGCClient);
 				$assignStatic(DGCClient$EndpointEntry::gcLatencyRequest, $GC::requestLatency($DGCClient::gcInterval));
@@ -179,7 +110,7 @@ DGCClient$EndpointEntry* DGCClient$EndpointEntry::lookup($Endpoint* ep) {
 }
 
 void DGCClient$EndpointEntry::init$($Endpoint* endpoint) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$set(this, refTable, $new($HashMap, 5));
 	$set(this, invalidRefs, $new($HashSet, 5));
@@ -199,13 +130,13 @@ void DGCClient$EndpointEntry::init$($Endpoint* endpoint) {
 	} catch ($RemoteException& e) {
 		$throwNew($Error, "internal error creating DGC stub"_s);
 	}
-	$var($Runnable, var$0, static_cast<$Runnable*>($new($DGCClient$EndpointEntry$RenewCleanThread, this)));
-	$set(this, renewCleanThread, $cast($Thread, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($NewThreadAction, var$0, $$str({"RenewClean-"_s, endpoint}), true)))));
+	$var($Runnable, var$0, $new($DGCClient$EndpointEntry$RenewCleanThread, this));
+	$set(this, renewCleanThread, $cast($Thread, $AccessController::doPrivileged($$new($NewThreadAction, var$0, $$str({"RenewClean-"_s, endpoint}), true))));
 	$nc(this->renewCleanThread)->start();
 }
 
 bool DGCClient$EndpointEntry::registerRefs($List* refs) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!DGCClient$EndpointEntry::$assertionsDisabled && ! !$Thread::holdsLock(this)) {
 		$throwNew($AssertionError);
 	}
@@ -218,7 +149,7 @@ bool DGCClient$EndpointEntry::registerRefs($List* refs) {
 		$var($Iterator, iter, $nc(refs)->iterator());
 		while ($nc(iter)->hasNext()) {
 			$var($LiveRef, ref, $cast($LiveRef, iter->next()));
-			if (!DGCClient$EndpointEntry::$assertionsDisabled && !$nc($of($($nc(ref)->getEndpoint())))->equals(this->endpoint)) {
+			if (!DGCClient$EndpointEntry::$assertionsDisabled && !$$nc($nc(ref)->getEndpoint())->equals(this->endpoint)) {
 				$throwNew($AssertionError);
 			}
 			$var($DGCClient$EndpointEntry$RefEntry, refEntry, $cast($DGCClient$EndpointEntry$RefEntry, $nc(this->refTable)->get(ref)));
@@ -245,7 +176,7 @@ bool DGCClient$EndpointEntry::registerRefs($List* refs) {
 }
 
 void DGCClient$EndpointEntry::removeRefEntry($DGCClient$EndpointEntry$RefEntry* refEntry) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!DGCClient$EndpointEntry::$assertionsDisabled && !$Thread::holdsLock(this)) {
 		$throwNew($AssertionError);
 	}
@@ -259,7 +190,7 @@ void DGCClient$EndpointEntry::removeRefEntry($DGCClient$EndpointEntry$RefEntry* 
 	$nc(this->invalidRefs)->remove(refEntry);
 	if ($nc(this->refTable)->isEmpty()) {
 		$synchronized(DGCClient$EndpointEntry::endpointTable) {
-			$nc(DGCClient$EndpointEntry::endpointTable)->remove(this->endpoint);
+			DGCClient$EndpointEntry::endpointTable->remove(this->endpoint);
 			$var($Transport, transport, $nc(this->endpoint)->getOutboundTransport());
 			$nc(transport)->free(this->endpoint);
 			if ($nc(DGCClient$EndpointEntry::endpointTable)->isEmpty()) {
@@ -275,7 +206,7 @@ void DGCClient$EndpointEntry::removeRefEntry($DGCClient$EndpointEntry$RefEntry* 
 }
 
 void DGCClient$EndpointEntry::makeDirtyCall($Set* refEntries, int64_t sequenceNum) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!DGCClient$EndpointEntry::$assertionsDisabled && ! !$Thread::holdsLock(this)) {
 		$throwNew($AssertionError);
 	}
@@ -348,7 +279,7 @@ void DGCClient$EndpointEntry::setRenewTime(int64_t newRenewTime) {
 	if (newRenewTime < this->renewTime) {
 		this->renewTime = newRenewTime;
 		if (this->interruptible) {
-			$AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($DGCClient$EndpointEntry$1, this)));
+			$AccessController::doPrivileged($$new($DGCClient$EndpointEntry$1, this));
 		}
 	} else {
 		this->renewTime = newRenewTime;
@@ -356,7 +287,7 @@ void DGCClient$EndpointEntry::setRenewTime(int64_t newRenewTime) {
 }
 
 void DGCClient$EndpointEntry::processPhantomRefs($DGCClient$EndpointEntry$RefEntry$PhantomLiveRef* phantom$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DGCClient$EndpointEntry$RefEntry$PhantomLiveRef, phantom, phantom$renamed);
 	if (!DGCClient$EndpointEntry::$assertionsDisabled && !$Thread::holdsLock(this)) {
 		$throwNew($AssertionError);
@@ -392,7 +323,7 @@ void DGCClient$EndpointEntry::processPhantomRefs($DGCClient$EndpointEntry$RefEnt
 }
 
 void DGCClient$EndpointEntry::makeCleanCalls() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!DGCClient$EndpointEntry::$assertionsDisabled && ! !$Thread::holdsLock(this)) {
 		$throwNew($AssertionError);
 	}
@@ -401,7 +332,7 @@ void DGCClient$EndpointEntry::makeCleanCalls() {
 		$var($DGCClient$EndpointEntry$CleanRequest, request, $cast($DGCClient$EndpointEntry$CleanRequest, iter->next()));
 		try {
 			$init($DGCClient);
-			$nc(this->dgc)->clean($nc(request)->objIDs, request->sequenceNum, $DGCClient::vmid, request->strong);
+			$nc(this->dgc)->clean($nc(request)->objIDs, $nc(request)->sequenceNum, $DGCClient::vmid, $nc(request)->strong);
 			iter->remove();
 		} catch ($Exception& e) {
 			if (++$nc(request)->failures >= 5) {
@@ -413,16 +344,16 @@ void DGCClient$EndpointEntry::makeCleanCalls() {
 
 $ObjIDArray* DGCClient$EndpointEntry::createObjIDArray($Set* refEntries) {
 	$init(DGCClient$EndpointEntry);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjIDArray, ids, $new($ObjIDArray, $nc(refEntries)->size()));
 	$var($Iterator, iter, refEntries->iterator());
 	for (int32_t i = 0; i < ids->length; ++i) {
-		ids->set(i, $($nc($($nc(($cast($DGCClient$EndpointEntry$RefEntry, $($nc(iter)->next()))))->getRef()))->getObjID()));
+		ids->set(i, $($$nc($$sure($DGCClient$EndpointEntry$RefEntry, $nc(iter)->next())->getRef())->getObjID()));
 	}
 	return ids;
 }
 
-void clinit$DGCClient$EndpointEntry($Class* class$) {
+void DGCClient$EndpointEntry::clinit$($Class* clazz) {
 	$load($DGCClient);
 	DGCClient$EndpointEntry::$assertionsDisabled = !$DGCClient::class$->desiredAssertionStatus();
 	$assignStatic(DGCClient$EndpointEntry::endpointTable, $new($HashMap, 5));
@@ -433,7 +364,64 @@ DGCClient$EndpointEntry::DGCClient$EndpointEntry() {
 }
 
 $Class* DGCClient$EndpointEntry::load$($String* name, bool initialize) {
-	$loadClass(DGCClient$EndpointEntry, name, initialize, &_DGCClient$EndpointEntry_ClassInfo_, clinit$DGCClient$EndpointEntry, allocate$DGCClient$EndpointEntry);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(DGCClient$EndpointEntry, $assertionsDisabled)},
+		{"endpoint", "Lsun/rmi/transport/Endpoint;", nullptr, $PRIVATE, $field(DGCClient$EndpointEntry, endpoint)},
+		{"dgc", "Ljava/rmi/dgc/DGC;", nullptr, $PRIVATE, $field(DGCClient$EndpointEntry, dgc)},
+		{"refTable", "Ljava/util/Map;", "Ljava/util/Map<Lsun/rmi/transport/LiveRef;Lsun/rmi/transport/DGCClient$EndpointEntry$RefEntry;>;", $PRIVATE, $field(DGCClient$EndpointEntry, refTable)},
+		{"invalidRefs", "Ljava/util/Set;", "Ljava/util/Set<Lsun/rmi/transport/DGCClient$EndpointEntry$RefEntry;>;", $PRIVATE, $field(DGCClient$EndpointEntry, invalidRefs)},
+		{"removed", "Z", nullptr, $PRIVATE, $field(DGCClient$EndpointEntry, removed)},
+		{"renewTime", "J", nullptr, $PRIVATE, $field(DGCClient$EndpointEntry, renewTime)},
+		{"expirationTime", "J", nullptr, $PRIVATE, $field(DGCClient$EndpointEntry, expirationTime)},
+		{"dirtyFailures", "I", nullptr, $PRIVATE, $field(DGCClient$EndpointEntry, dirtyFailures)},
+		{"dirtyFailureStartTime", "J", nullptr, $PRIVATE, $field(DGCClient$EndpointEntry, dirtyFailureStartTime)},
+		{"dirtyFailureDuration", "J", nullptr, $PRIVATE, $field(DGCClient$EndpointEntry, dirtyFailureDuration)},
+		{"renewCleanThread", "Ljava/lang/Thread;", nullptr, $PRIVATE, $field(DGCClient$EndpointEntry, renewCleanThread)},
+		{"interruptible", "Z", nullptr, $PRIVATE, $field(DGCClient$EndpointEntry, interruptible)},
+		{"refQueue", "Ljava/lang/ref/ReferenceQueue;", "Ljava/lang/ref/ReferenceQueue<Lsun/rmi/transport/LiveRef;>;", $PRIVATE, $field(DGCClient$EndpointEntry, refQueue)},
+		{"pendingCleans", "Ljava/util/Set;", "Ljava/util/Set<Lsun/rmi/transport/DGCClient$EndpointEntry$CleanRequest;>;", $PRIVATE, $field(DGCClient$EndpointEntry, pendingCleans)},
+		{"endpointTable", "Ljava/util/Map;", "Ljava/util/Map<Lsun/rmi/transport/Endpoint;Lsun/rmi/transport/DGCClient$EndpointEntry;>;", $PRIVATE | $STATIC, $staticField(DGCClient$EndpointEntry, endpointTable)},
+		{"gcLatencyRequest", "Lsun/rmi/transport/GC$LatencyRequest;", nullptr, $PRIVATE | $STATIC, $staticField(DGCClient$EndpointEntry, gcLatencyRequest)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/rmi/transport/Endpoint;)V", nullptr, $PRIVATE, $method(DGCClient$EndpointEntry, init$, void, $Endpoint*)},
+		{"createObjIDArray", "(Ljava/util/Set;)[Ljava/rmi/server/ObjID;", "(Ljava/util/Set<Lsun/rmi/transport/DGCClient$EndpointEntry$RefEntry;>;)[Ljava/rmi/server/ObjID;", $PRIVATE | $STATIC, $staticMethod(DGCClient$EndpointEntry, createObjIDArray, $ObjIDArray*, $Set*)},
+		{"lookup", "(Lsun/rmi/transport/Endpoint;)Lsun/rmi/transport/DGCClient$EndpointEntry;", nullptr, $PUBLIC | $STATIC, $staticMethod(DGCClient$EndpointEntry, lookup, DGCClient$EndpointEntry*, $Endpoint*)},
+		{"makeCleanCalls", "()V", nullptr, $PRIVATE, $method(DGCClient$EndpointEntry, makeCleanCalls, void)},
+		{"makeDirtyCall", "(Ljava/util/Set;J)V", "(Ljava/util/Set<Lsun/rmi/transport/DGCClient$EndpointEntry$RefEntry;>;J)V", $PRIVATE, $method(DGCClient$EndpointEntry, makeDirtyCall, void, $Set*, int64_t)},
+		{"processPhantomRefs", "(Lsun/rmi/transport/DGCClient$EndpointEntry$RefEntry$PhantomLiveRef;)V", nullptr, $PRIVATE, $method(DGCClient$EndpointEntry, processPhantomRefs, void, $DGCClient$EndpointEntry$RefEntry$PhantomLiveRef*)},
+		{"registerRefs", "(Ljava/util/List;)Z", "(Ljava/util/List<Lsun/rmi/transport/LiveRef;>;)Z", $PUBLIC, $virtualMethod(DGCClient$EndpointEntry, registerRefs, bool, $List*)},
+		{"removeRefEntry", "(Lsun/rmi/transport/DGCClient$EndpointEntry$RefEntry;)V", nullptr, $PRIVATE, $method(DGCClient$EndpointEntry, removeRefEntry, void, $DGCClient$EndpointEntry$RefEntry*)},
+		{"setRenewTime", "(J)V", nullptr, $PRIVATE, $method(DGCClient$EndpointEntry, setRenewTime, void, int64_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.rmi.transport.DGCClient$EndpointEntry", "sun.rmi.transport.DGCClient", "EndpointEntry", $PRIVATE | $STATIC},
+		{"sun.rmi.transport.DGCClient$EndpointEntry$RefEntry", "sun.rmi.transport.DGCClient$EndpointEntry", "RefEntry", $PRIVATE},
+		{"sun.rmi.transport.DGCClient$EndpointEntry$CleanRequest", "sun.rmi.transport.DGCClient$EndpointEntry", "CleanRequest", $PRIVATE | $STATIC},
+		{"sun.rmi.transport.DGCClient$EndpointEntry$RenewCleanThread", "sun.rmi.transport.DGCClient$EndpointEntry", "RenewCleanThread", $PRIVATE},
+		{"sun.rmi.transport.DGCClient$EndpointEntry$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.rmi.transport.DGCClient$EndpointEntry",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.rmi.transport.DGCClient"
+	};
+	$loadClass(DGCClient$EndpointEntry, name, initialize, &classInfo$$, DGCClient$EndpointEntry::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(DGCClient$EndpointEntry);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/bcel/internal/generic/Type$2.h>
-
 #include <com/sun/org/apache/bcel/internal/generic/Type.h>
 #include <jcpp.h>
 
@@ -17,42 +16,6 @@ namespace com {
 					namespace internal {
 						namespace generic {
 
-$MethodInfo _Type$2_MethodInfo_[] = {
-	{"<init>", "(BLjava/lang/String;)V", nullptr, 0, $method(Type$2, init$, void, int8_t, $String*)},
-	{}
-};
-
-$EnclosingMethodInfo _Type$2_EnclosingMethodInfo_ = {
-	"com.sun.org.apache.bcel.internal.generic.Type",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _Type$2_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.bcel.internal.generic.Type$2", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Type$2_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.org.apache.bcel.internal.generic.Type$2",
-	"com.sun.org.apache.bcel.internal.generic.Type",
-	nullptr,
-	nullptr,
-	_Type$2_MethodInfo_,
-	nullptr,
-	&_Type$2_EnclosingMethodInfo_,
-	_Type$2_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.bcel.internal.generic.Type"
-};
-
-$Object* allocate$Type$2($Class* clazz) {
-	return $of($alloc(Type$2));
-}
-
 void Type$2::init$(int8_t t, $String* s) {
 	$Type::init$(t, s);
 }
@@ -61,7 +24,37 @@ Type$2::Type$2() {
 }
 
 $Class* Type$2::load$($String* name, bool initialize) {
-	$loadClass(Type$2, name, initialize, &_Type$2_ClassInfo_, allocate$Type$2);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(BLjava/lang/String;)V", nullptr, 0, $method(Type$2, init$, void, int8_t, $String*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.org.apache.bcel.internal.generic.Type",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.bcel.internal.generic.Type$2", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.org.apache.bcel.internal.generic.Type$2",
+		"com.sun.org.apache.bcel.internal.generic.Type",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.bcel.internal.generic.Type"
+	};
+	$loadClass(Type$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Type$2);
+	});
 	return class$;
 }
 

@@ -78,7 +78,7 @@ public:
 	virtual bool isReverseAxes() override;
 	virtual void reset() override;
 	virtual void setRoot(int32_t context, Object$* environment) override;
-	static const int64_t serialVersionUID = (int64_t)0x402AB874E6139F8B;
+	static const int64_t serialVersionUID = (int64_t)0x402ab874e6139f8b;
 	int32_t m_axis = 0;
 	::com::sun::org::apache::xml::internal::dtm::DTMAxisIterator* m_iterator = nullptr;
 };

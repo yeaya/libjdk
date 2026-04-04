@@ -1,5 +1,4 @@
 #include <java/sql/SQLInvalidAuthorizationSpecException.h>
-
 #include <java/sql/SQLNonTransientException.h>
 #include <jcpp.h>
 
@@ -10,36 +9,6 @@ using $SQLNonTransientException = ::java::sql::SQLNonTransientException;
 
 namespace java {
 	namespace sql {
-
-$FieldInfo _SQLInvalidAuthorizationSpecException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SQLInvalidAuthorizationSpecException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _SQLInvalidAuthorizationSpecException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SQLInvalidAuthorizationSpecException, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SQLInvalidAuthorizationSpecException, init$, void, $String*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SQLInvalidAuthorizationSpecException, init$, void, $String*, $String*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(SQLInvalidAuthorizationSpecException, init$, void, $String*, $String*, int32_t)},
-	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(SQLInvalidAuthorizationSpecException, init$, void, $Throwable*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(SQLInvalidAuthorizationSpecException, init$, void, $String*, $Throwable*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(SQLInvalidAuthorizationSpecException, init$, void, $String*, $String*, $Throwable*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;ILjava/lang/Throwable;)V", nullptr, $PUBLIC, $method(SQLInvalidAuthorizationSpecException, init$, void, $String*, $String*, int32_t, $Throwable*)},
-	{}
-};
-
-$ClassInfo _SQLInvalidAuthorizationSpecException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.sql.SQLInvalidAuthorizationSpecException",
-	"java.sql.SQLNonTransientException",
-	nullptr,
-	_SQLInvalidAuthorizationSpecException_FieldInfo_,
-	_SQLInvalidAuthorizationSpecException_MethodInfo_
-};
-
-$Object* allocate$SQLInvalidAuthorizationSpecException($Class* clazz) {
-	return $of($alloc(SQLInvalidAuthorizationSpecException));
-}
 
 void SQLInvalidAuthorizationSpecException::init$() {
 	$SQLNonTransientException::init$();
@@ -84,7 +53,32 @@ void SQLInvalidAuthorizationSpecException::throw$() {
 }
 
 $Class* SQLInvalidAuthorizationSpecException::load$($String* name, bool initialize) {
-	$loadClass(SQLInvalidAuthorizationSpecException, name, initialize, &_SQLInvalidAuthorizationSpecException_ClassInfo_, allocate$SQLInvalidAuthorizationSpecException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SQLInvalidAuthorizationSpecException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SQLInvalidAuthorizationSpecException, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SQLInvalidAuthorizationSpecException, init$, void, $String*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SQLInvalidAuthorizationSpecException, init$, void, $String*, $String*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(SQLInvalidAuthorizationSpecException, init$, void, $String*, $String*, int32_t)},
+		{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(SQLInvalidAuthorizationSpecException, init$, void, $Throwable*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(SQLInvalidAuthorizationSpecException, init$, void, $String*, $Throwable*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(SQLInvalidAuthorizationSpecException, init$, void, $String*, $String*, $Throwable*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;ILjava/lang/Throwable;)V", nullptr, $PUBLIC, $method(SQLInvalidAuthorizationSpecException, init$, void, $String*, $String*, int32_t, $Throwable*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.sql.SQLInvalidAuthorizationSpecException",
+		"java.sql.SQLNonTransientException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SQLInvalidAuthorizationSpecException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SQLInvalidAuthorizationSpecException));
+	});
 	return class$;
 }
 

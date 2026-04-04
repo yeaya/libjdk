@@ -1,5 +1,4 @@
 #include <com/apple/laf/AquaInternalFramePaneUI$Dock.h>
-
 #include <com/apple/laf/AquaInternalFramePaneUI.h>
 #include <java/awt/BasicStroke.h>
 #include <java/awt/Color.h>
@@ -10,13 +9,10 @@
 #include <java/awt/Graphics.h>
 #include <java/awt/Graphics2D.h>
 #include <java/awt/Insets.h>
-#include <java/awt/LayoutManager.h>
 #include <java/awt/RenderingHints$Key.h>
 #include <java/awt/RenderingHints.h>
-#include <java/awt/Stroke.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/UIManager.h>
-#include <javax/swing/border/Border.h>
 #include <jcpp.h>
 
 #undef CENTER
@@ -27,15 +23,12 @@
 using $AquaInternalFramePaneUI = ::com::apple::laf::AquaInternalFramePaneUI;
 using $BasicStroke = ::java::awt::BasicStroke;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Dimension = ::java::awt::Dimension;
 using $FlowLayout = ::java::awt::FlowLayout;
 using $Graphics = ::java::awt::Graphics;
 using $Graphics2D = ::java::awt::Graphics2D;
 using $Insets = ::java::awt::Insets;
-using $LayoutManager = ::java::awt::LayoutManager;
 using $RenderingHints = ::java::awt::RenderingHints;
-using $Stroke = ::java::awt::Stroke;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $Float = ::java::lang::Float;
@@ -43,59 +36,10 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $JComponent = ::javax::swing::JComponent;
 using $UIManager = ::javax::swing::UIManager;
-using $Border = ::javax::swing::border::Border;
 
 namespace com {
 	namespace apple {
 		namespace laf {
-
-$FieldInfo _AquaInternalFramePaneUI$Dock_FieldInfo_[] = {
-	{"this$0", "Lcom/apple/laf/AquaInternalFramePaneUI;", nullptr, $FINAL | $SYNTHETIC, $field(AquaInternalFramePaneUI$Dock, this$0)},
-	{"DOCK_EDGE_SLACK", "I", nullptr, $STATIC | $FINAL, $constField(AquaInternalFramePaneUI$Dock, DOCK_EDGE_SLACK)},
-	{}
-};
-
-$MethodInfo _AquaInternalFramePaneUI$Dock_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lcom/apple/laf/AquaInternalFramePaneUI;Ljavax/swing/JComponent;)V", nullptr, 0, $method(AquaInternalFramePaneUI$Dock, init$, void, $AquaInternalFramePaneUI*, $JComponent*)},
-	{"add", "(Ljava/awt/Component;)Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(AquaInternalFramePaneUI$Dock, add, $Component*, $Component*)},
-	{"getBorderInsets", "(Ljava/awt/Component;)Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(AquaInternalFramePaneUI$Dock, getBorderInsets, $Insets*, $Component*)},
-	{"isBorderOpaque", "()Z", nullptr, $PUBLIC, $virtualMethod(AquaInternalFramePaneUI$Dock, isBorderOpaque, bool)},
-	{"paintBorder", "(Ljava/awt/Component;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(AquaInternalFramePaneUI$Dock, paintBorder, void, $Component*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{"remove", "(Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(AquaInternalFramePaneUI$Dock, remove, void, $Component*)},
-	{"removeNotify", "()V", nullptr, $PUBLIC, $virtualMethod(AquaInternalFramePaneUI$Dock, removeNotify, void)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"updateSize", "()V", nullptr, 0, $virtualMethod(AquaInternalFramePaneUI$Dock, updateSize, void)},
-	{}
-};
-
-$InnerClassInfo _AquaInternalFramePaneUI$Dock_InnerClassesInfo_[] = {
-	{"com.apple.laf.AquaInternalFramePaneUI$Dock", "com.apple.laf.AquaInternalFramePaneUI", "Dock", 0},
-	{}
-};
-
-$ClassInfo _AquaInternalFramePaneUI$Dock_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.apple.laf.AquaInternalFramePaneUI$Dock",
-	"javax.swing.JComponent",
-	"javax.swing.border.Border",
-	_AquaInternalFramePaneUI$Dock_FieldInfo_,
-	_AquaInternalFramePaneUI$Dock_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AquaInternalFramePaneUI$Dock_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.apple.laf.AquaInternalFramePaneUI"
-};
-
-$Object* allocate$AquaInternalFramePaneUI$Dock($Class* clazz) {
-	return $of($alloc(AquaInternalFramePaneUI$Dock));
-}
 
 $String* AquaInternalFramePaneUI$Dock::toString() {
 	 return this->$JComponent::toString();
@@ -131,10 +75,10 @@ void AquaInternalFramePaneUI$Dock::removeNotify() {
 }
 
 void AquaInternalFramePaneUI$Dock::updateSize() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Dimension, d, getPreferredSize());
-	int32_t var$0 = ($nc($(getParent()))->getWidth() - $nc(d)->width) / 2;
-	setBounds(var$0, $nc($(getParent()))->getHeight() - d->height, d->width, d->height);
+	int32_t var$0 = ($$nc(getParent())->getWidth() - $nc(d)->width) / 2;
+	setBounds(var$0, $$nc(getParent())->getHeight() - d->height, d->width, d->height);
 }
 
 $Component* AquaInternalFramePaneUI$Dock::add($Component* c) {
@@ -166,7 +110,7 @@ bool AquaInternalFramePaneUI$Dock::isBorderOpaque() {
 }
 
 void AquaInternalFramePaneUI$Dock::paintBorder($Component* c, $Graphics* g, int32_t x, int32_t y, int32_t w, int32_t h) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!($instanceOf($Graphics2D, g))) {
 		return;
 	}
@@ -190,7 +134,49 @@ AquaInternalFramePaneUI$Dock::AquaInternalFramePaneUI$Dock() {
 }
 
 $Class* AquaInternalFramePaneUI$Dock::load$($String* name, bool initialize) {
-	$loadClass(AquaInternalFramePaneUI$Dock, name, initialize, &_AquaInternalFramePaneUI$Dock_ClassInfo_, allocate$AquaInternalFramePaneUI$Dock);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/apple/laf/AquaInternalFramePaneUI;", nullptr, $FINAL | $SYNTHETIC, $field(AquaInternalFramePaneUI$Dock, this$0)},
+		{"DOCK_EDGE_SLACK", "I", nullptr, $STATIC | $FINAL, $constField(AquaInternalFramePaneUI$Dock, DOCK_EDGE_SLACK)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lcom/apple/laf/AquaInternalFramePaneUI;Ljavax/swing/JComponent;)V", nullptr, 0, $method(AquaInternalFramePaneUI$Dock, init$, void, $AquaInternalFramePaneUI*, $JComponent*)},
+		{"add", "(Ljava/awt/Component;)Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(AquaInternalFramePaneUI$Dock, add, $Component*, $Component*)},
+		{"getBorderInsets", "(Ljava/awt/Component;)Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(AquaInternalFramePaneUI$Dock, getBorderInsets, $Insets*, $Component*)},
+		{"isBorderOpaque", "()Z", nullptr, $PUBLIC, $virtualMethod(AquaInternalFramePaneUI$Dock, isBorderOpaque, bool)},
+		{"paintBorder", "(Ljava/awt/Component;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(AquaInternalFramePaneUI$Dock, paintBorder, void, $Component*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{"remove", "(Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(AquaInternalFramePaneUI$Dock, remove, void, $Component*)},
+		{"removeNotify", "()V", nullptr, $PUBLIC, $virtualMethod(AquaInternalFramePaneUI$Dock, removeNotify, void)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"updateSize", "()V", nullptr, 0, $virtualMethod(AquaInternalFramePaneUI$Dock, updateSize, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.laf.AquaInternalFramePaneUI$Dock", "com.apple.laf.AquaInternalFramePaneUI", "Dock", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.apple.laf.AquaInternalFramePaneUI$Dock",
+		"javax.swing.JComponent",
+		"javax.swing.border.Border",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.apple.laf.AquaInternalFramePaneUI"
+	};
+	$loadClass(AquaInternalFramePaneUI$Dock, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AquaInternalFramePaneUI$Dock));
+	});
 	return class$;
 }
 

@@ -1,8 +1,5 @@
 #include <sun/security/krb5/internal/crypto/dk/Des3DkCrypto.h>
-
 #include <java/security/InvalidKeyException.h>
-#include <java/security/Key.h>
-#include <java/security/spec/AlgorithmParameterSpec.h>
 #include <java/security/spec/KeySpec.h>
 #include <java/util/Arrays.h>
 #include <javax/crypto/Cipher.h>
@@ -26,8 +23,6 @@ using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $InvalidKeyException = ::java::security::InvalidKeyException;
-using $Key = ::java::security::Key;
-using $AlgorithmParameterSpec = ::java::security::spec::AlgorithmParameterSpec;
 using $KeySpec = ::java::security::spec::KeySpec;
 using $Arrays = ::java::util::Arrays;
 using $Cipher = ::javax::crypto::Cipher;
@@ -47,40 +42,6 @@ namespace sun {
 				namespace crypto {
 					namespace dk {
 
-$FieldInfo _Des3DkCrypto_FieldInfo_[] = {
-	{"ZERO_IV", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Des3DkCrypto, ZERO_IV)},
-	{}
-};
-
-$MethodInfo _Des3DkCrypto_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Des3DkCrypto, init$, void)},
-	{"des3Expand", "([BII)[B", nullptr, $PRIVATE | $STATIC, $staticMethod(Des3DkCrypto, des3Expand, $bytes*, $bytes*, int32_t, int32_t)},
-	{"getChecksumLength", "()I", nullptr, $PUBLIC, $virtualMethod(Des3DkCrypto, getChecksumLength, int32_t)},
-	{"getCipher", "([B[BI)Ljavax/crypto/Cipher;", nullptr, $PROTECTED, $virtualMethod(Des3DkCrypto, getCipher, $Cipher*, $bytes*, $bytes*, int32_t), "java.security.GeneralSecurityException"},
-	{"getHmac", "([B[B)[B", nullptr, $PROTECTED, $virtualMethod(Des3DkCrypto, getHmac, $bytes*, $bytes*, $bytes*), "java.security.GeneralSecurityException"},
-	{"getKeySeedLength", "()I", nullptr, $PROTECTED, $virtualMethod(Des3DkCrypto, getKeySeedLength, int32_t)},
-	{"keyCorrection", "([B)[B", nullptr, $PRIVATE | $STATIC, $staticMethod(Des3DkCrypto, keyCorrection, $bytes*, $bytes*)},
-	{"parityFix", "([B)[B", nullptr, $PUBLIC, $virtualMethod(Des3DkCrypto, parityFix, $bytes*, $bytes*), "java.security.GeneralSecurityException"},
-	{"randomToKey", "([B)[B", nullptr, $PROTECTED, $virtualMethod(Des3DkCrypto, randomToKey, $bytes*, $bytes*)},
-	{"setParityBit", "([B)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Des3DkCrypto, setParityBit, void, $bytes*)},
-	{"stringToKey", "([C)[B", nullptr, $PUBLIC, $virtualMethod(Des3DkCrypto, stringToKey, $bytes*, $chars*), "java.security.GeneralSecurityException"},
-	{"stringToKey", "([B[B)[B", nullptr, $PRIVATE, $method(Des3DkCrypto, stringToKey, $bytes*, $bytes*, $bytes*), "java.security.GeneralSecurityException"},
-	{}
-};
-
-$ClassInfo _Des3DkCrypto_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.krb5.internal.crypto.dk.Des3DkCrypto",
-	"sun.security.krb5.internal.crypto.dk.DkCrypto",
-	nullptr,
-	_Des3DkCrypto_FieldInfo_,
-	_Des3DkCrypto_MethodInfo_
-};
-
-$Object* allocate$Des3DkCrypto($Class* clazz) {
-	return $of($alloc(Des3DkCrypto));
-}
-
 $bytes* Des3DkCrypto::ZERO_IV = nullptr;
 
 void Des3DkCrypto::init$() {
@@ -92,36 +53,34 @@ int32_t Des3DkCrypto::getKeySeedLength() {
 }
 
 $bytes* Des3DkCrypto::stringToKey($chars* salt) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, saltUtf8, nullptr);
-	{
-		$var($Throwable, var$0, nullptr);
-		$var($bytes, var$2, nullptr);
-		bool return$1 = false;
-		try {
-			$assign(saltUtf8, charToUtf8(salt));
-			$assign(var$2, stringToKey(saltUtf8, nullptr));
-			return$1 = true;
-			goto $finally;
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			if (saltUtf8 != nullptr) {
-				$Arrays::fill(saltUtf8, (int8_t)0);
-			}
+	$var($Throwable, var$0, nullptr);
+	$var($bytes, var$2, nullptr);
+	bool return$1 = false;
+	try {
+		$assign(saltUtf8, charToUtf8(salt));
+		$assign(var$2, stringToKey(saltUtf8, nullptr));
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		if (saltUtf8 != nullptr) {
+			$Arrays::fill(saltUtf8, (int8_t)0);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
 
 $bytes* Des3DkCrypto::stringToKey($bytes* secretAndSalt, $bytes* opaque) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (opaque != nullptr && opaque->length > 0) {
 		$throwNew($RuntimeException, "Invalid parameter to stringToKey"_s);
 	}
@@ -136,7 +95,7 @@ $bytes* Des3DkCrypto::parityFix($bytes* value) {
 }
 
 $bytes* Des3DkCrypto::randomToKey($bytes* in) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(in)->length != 21) {
 		$throwNew($IllegalArgumentException, "input must be 168 bits"_s);
 	}
@@ -154,7 +113,7 @@ $bytes* Des3DkCrypto::keyCorrection($bytes* key) {
 	$init(Des3DkCrypto);
 	try {
 		if ($DESKeySpec::isWeak(key, 0)) {
-			$nc(key)->set(7, (int8_t)(key->get(7) ^ 240));
+			$nc(key)->set(7, (int8_t)($nc(key)->get(7) ^ 0xf0));
 		}
 	} catch ($InvalidKeyException& ex) {
 	}
@@ -163,21 +122,23 @@ $bytes* Des3DkCrypto::keyCorrection($bytes* key) {
 
 $bytes* Des3DkCrypto::des3Expand($bytes* input, int32_t start, int32_t end) {
 	$init(Des3DkCrypto);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ((end - start) != 7) {
 		$throwNew($IllegalArgumentException, $$str({"Invalid length of DES Key Value:"_s, $$str(start), ","_s, $$str(end)}));
 	}
 	$var($bytes, result, $new($bytes, 8));
-	int8_t last = (int8_t)0;
+	int8_t last = 0;
 	$System::arraycopy(input, start, result, 0, 7);
-	int8_t posn = (int8_t)0;
+	int8_t posn = 0;
 	for (int32_t i = start; i < end; ++i) {
-		int8_t bit = (int8_t)((int32_t)($nc(input)->get(i) & (uint32_t)1));
+		int8_t bit = (int8_t)($nc(input)->get(i) & 1);
+		;
 		++posn;
 		if (bit != 0) {
-			last |= ($sl((int32_t)bit, posn));
+			last |= ($sl(bit, posn));
 		}
 	}
+	;
 	result->set(7, last);
 	setParityBit(result);
 	return result;
@@ -186,14 +147,14 @@ $bytes* Des3DkCrypto::des3Expand($bytes* input, int32_t start, int32_t end) {
 void Des3DkCrypto::setParityBit($bytes* key) {
 	$init(Des3DkCrypto);
 	for (int32_t i = 0; i < $nc(key)->length; ++i) {
-		int32_t b = (int32_t)(key->get(i) & (uint32_t)254);
-		b |= ((int32_t)($Integer::bitCount(b) & (uint32_t)1)) ^ 1;
+		int32_t b = key->get(i) & 0xfe;
+		b |= ($Integer::bitCount(b) & 1) ^ 1;
 		key->set(i, (int8_t)b);
 	}
 }
 
 $Cipher* Des3DkCrypto::getCipher($bytes* key, $bytes* ivec$renamed, int32_t mode) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, ivec, ivec$renamed);
 	$var($SecretKeyFactory, factory, $SecretKeyFactory::getInstance("desede"_s));
 	$var($KeySpec, spec, $new($DESedeKeySpec, key, 0));
@@ -203,7 +164,7 @@ $Cipher* Des3DkCrypto::getCipher($bytes* key, $bytes* ivec$renamed, int32_t mode
 	}
 	$var($Cipher, cipher, $Cipher::getInstance("DESede/CBC/NoPadding"_s));
 	$var($IvParameterSpec, encIv, $new($IvParameterSpec, ivec, 0, $nc(ivec)->length));
-	$nc(cipher)->init(mode, static_cast<$Key*>(secretKey), static_cast<$AlgorithmParameterSpec*>(encIv));
+	$nc(cipher)->init(mode, secretKey, encIv);
 	return cipher;
 }
 
@@ -212,23 +173,23 @@ int32_t Des3DkCrypto::getChecksumLength() {
 }
 
 $bytes* Des3DkCrypto::getHmac($bytes* key, $bytes* msg) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SecretKey, keyKi, $new($SecretKeySpec, key, "HmacSHA1"_s));
 	$var($Mac, m, $Mac::getInstance("HmacSHA1"_s));
 	$nc(m)->init(keyKi);
 	return m->doFinal(msg);
 }
 
-void clinit$Des3DkCrypto($Class* class$) {
+void Des3DkCrypto::clinit$($Class* clazz) {
 	$assignStatic(Des3DkCrypto::ZERO_IV, $new($bytes, {
-		(int8_t)0,
-		(int8_t)0,
-		(int8_t)0,
-		(int8_t)0,
-		(int8_t)0,
-		(int8_t)0,
-		(int8_t)0,
-		(int8_t)0
+		0,
+		0,
+		0,
+		0,
+		0,
+		0,
+		0,
+		0
 	}));
 }
 
@@ -236,7 +197,36 @@ Des3DkCrypto::Des3DkCrypto() {
 }
 
 $Class* Des3DkCrypto::load$($String* name, bool initialize) {
-	$loadClass(Des3DkCrypto, name, initialize, &_Des3DkCrypto_ClassInfo_, clinit$Des3DkCrypto, allocate$Des3DkCrypto);
+	$FieldInfo fieldInfos$$[] = {
+		{"ZERO_IV", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Des3DkCrypto, ZERO_IV)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Des3DkCrypto, init$, void)},
+		{"des3Expand", "([BII)[B", nullptr, $PRIVATE | $STATIC, $staticMethod(Des3DkCrypto, des3Expand, $bytes*, $bytes*, int32_t, int32_t)},
+		{"getChecksumLength", "()I", nullptr, $PUBLIC, $virtualMethod(Des3DkCrypto, getChecksumLength, int32_t)},
+		{"getCipher", "([B[BI)Ljavax/crypto/Cipher;", nullptr, $PROTECTED, $virtualMethod(Des3DkCrypto, getCipher, $Cipher*, $bytes*, $bytes*, int32_t), "java.security.GeneralSecurityException"},
+		{"getHmac", "([B[B)[B", nullptr, $PROTECTED, $virtualMethod(Des3DkCrypto, getHmac, $bytes*, $bytes*, $bytes*), "java.security.GeneralSecurityException"},
+		{"getKeySeedLength", "()I", nullptr, $PROTECTED, $virtualMethod(Des3DkCrypto, getKeySeedLength, int32_t)},
+		{"keyCorrection", "([B)[B", nullptr, $PRIVATE | $STATIC, $staticMethod(Des3DkCrypto, keyCorrection, $bytes*, $bytes*)},
+		{"parityFix", "([B)[B", nullptr, $PUBLIC, $virtualMethod(Des3DkCrypto, parityFix, $bytes*, $bytes*), "java.security.GeneralSecurityException"},
+		{"randomToKey", "([B)[B", nullptr, $PROTECTED, $virtualMethod(Des3DkCrypto, randomToKey, $bytes*, $bytes*)},
+		{"setParityBit", "([B)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Des3DkCrypto, setParityBit, void, $bytes*)},
+		{"stringToKey", "([C)[B", nullptr, $PUBLIC, $virtualMethod(Des3DkCrypto, stringToKey, $bytes*, $chars*), "java.security.GeneralSecurityException"},
+		{"stringToKey", "([B[B)[B", nullptr, $PRIVATE, $method(Des3DkCrypto, stringToKey, $bytes*, $bytes*, $bytes*), "java.security.GeneralSecurityException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.krb5.internal.crypto.dk.Des3DkCrypto",
+		"sun.security.krb5.internal.crypto.dk.DkCrypto",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Des3DkCrypto, name, initialize, &classInfo$$, Des3DkCrypto::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Des3DkCrypto);
+	});
 	return class$;
 }
 

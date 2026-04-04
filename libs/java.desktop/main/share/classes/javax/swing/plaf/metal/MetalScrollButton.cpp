@@ -1,7 +1,5 @@
 #include <javax/swing/plaf/metal/MetalScrollButton.h>
-
 #include <java/awt/Color.h>
-#include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <java/awt/Dimension.h>
 #include <java/awt/Graphics.h>
@@ -23,15 +21,12 @@
 #undef WEST
 
 using $Color = ::java::awt::Color;
-using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Dimension = ::java::awt::Dimension;
 using $Graphics = ::java::awt::Graphics;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $ButtonModel = ::javax::swing::ButtonModel;
 using $SwingConstants = ::javax::swing::SwingConstants;
 using $UIManager = ::javax::swing::UIManager;
 using $BasicArrowButton = ::javax::swing::plaf::basic::BasicArrowButton;
@@ -42,38 +37,6 @@ namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace metal {
-
-$FieldInfo _MetalScrollButton_FieldInfo_[] = {
-	{"shadowColor", "Ljava/awt/Color;", nullptr, $PRIVATE | $STATIC, $staticField(MetalScrollButton, shadowColor)},
-	{"highlightColor", "Ljava/awt/Color;", nullptr, $PRIVATE | $STATIC, $staticField(MetalScrollButton, highlightColor)},
-	{"isFreeStanding", "Z", nullptr, $PRIVATE, $field(MetalScrollButton, isFreeStanding)},
-	{"buttonWidth", "I", nullptr, $PRIVATE, $field(MetalScrollButton, buttonWidth)},
-	{}
-};
-
-$MethodInfo _MetalScrollButton_MethodInfo_[] = {
-	{"<init>", "(IIZ)V", nullptr, $PUBLIC, $method(MetalScrollButton, init$, void, int32_t, int32_t, bool)},
-	{"getButtonWidth", "()I", nullptr, $PUBLIC, $virtualMethod(MetalScrollButton, getButtonWidth, int32_t)},
-	{"getMaximumSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(MetalScrollButton, getMaximumSize, $Dimension*)},
-	{"getMinimumSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(MetalScrollButton, getMinimumSize, $Dimension*)},
-	{"getPreferredSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(MetalScrollButton, getPreferredSize, $Dimension*)},
-	{"paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(MetalScrollButton, paint, void, $Graphics*)},
-	{"setFreeStanding", "(Z)V", nullptr, $PUBLIC, $virtualMethod(MetalScrollButton, setFreeStanding, void, bool)},
-	{}
-};
-
-$ClassInfo _MetalScrollButton_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.metal.MetalScrollButton",
-	"javax.swing.plaf.basic.BasicArrowButton",
-	nullptr,
-	_MetalScrollButton_FieldInfo_,
-	_MetalScrollButton_MethodInfo_
-};
-
-$Object* allocate$MetalScrollButton($Class* clazz) {
-	return $of($alloc(MetalScrollButton));
-}
 
 $Color* MetalScrollButton::shadowColor = nullptr;
 $Color* MetalScrollButton::highlightColor = nullptr;
@@ -92,11 +55,11 @@ void MetalScrollButton::setFreeStanding(bool freeStanding) {
 }
 
 void MetalScrollButton::paint($Graphics* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool leftToRight = $MetalUtils::isLeftToRight(this);
-	bool isEnabled = $nc($(getParent()))->isEnabled();
-	$var($Color, arrowColor, isEnabled ? static_cast<$Color*>($MetalLookAndFeel::getControlInfo()) : static_cast<$Color*>($MetalLookAndFeel::getControlDisabled()));
-	bool isPressed = $nc($(getModel()))->isPressed();
+	bool isEnabled = $$nc(getParent())->isEnabled();
+	$var($Color, arrowColor, isEnabled ? $MetalLookAndFeel::getControlInfo() : $MetalLookAndFeel::getControlDisabled());
+	bool isPressed = $$nc(getModel())->isPressed();
 	int32_t width = getWidth();
 	int32_t height = getHeight();
 	int32_t w = width;
@@ -316,7 +279,34 @@ MetalScrollButton::MetalScrollButton() {
 }
 
 $Class* MetalScrollButton::load$($String* name, bool initialize) {
-	$loadClass(MetalScrollButton, name, initialize, &_MetalScrollButton_ClassInfo_, allocate$MetalScrollButton);
+	$FieldInfo fieldInfos$$[] = {
+		{"shadowColor", "Ljava/awt/Color;", nullptr, $PRIVATE | $STATIC, $staticField(MetalScrollButton, shadowColor)},
+		{"highlightColor", "Ljava/awt/Color;", nullptr, $PRIVATE | $STATIC, $staticField(MetalScrollButton, highlightColor)},
+		{"isFreeStanding", "Z", nullptr, $PRIVATE, $field(MetalScrollButton, isFreeStanding)},
+		{"buttonWidth", "I", nullptr, $PRIVATE, $field(MetalScrollButton, buttonWidth)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(IIZ)V", nullptr, $PUBLIC, $method(MetalScrollButton, init$, void, int32_t, int32_t, bool)},
+		{"getButtonWidth", "()I", nullptr, $PUBLIC, $virtualMethod(MetalScrollButton, getButtonWidth, int32_t)},
+		{"getMaximumSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(MetalScrollButton, getMaximumSize, $Dimension*)},
+		{"getMinimumSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(MetalScrollButton, getMinimumSize, $Dimension*)},
+		{"getPreferredSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(MetalScrollButton, getPreferredSize, $Dimension*)},
+		{"paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(MetalScrollButton, paint, void, $Graphics*)},
+		{"setFreeStanding", "(Z)V", nullptr, $PUBLIC, $virtualMethod(MetalScrollButton, setFreeStanding, void, bool)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.metal.MetalScrollButton",
+		"javax.swing.plaf.basic.BasicArrowButton",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(MetalScrollButton, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MetalScrollButton));
+	});
 	return class$;
 }
 

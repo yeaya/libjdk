@@ -1,5 +1,4 @@
 #include <javax/swing/text/FlowView$LogicalView.h>
-
 #include <java/awt/Graphics.h>
 #include <java/awt/Rectangle.h>
 #include <java/awt/Shape.h>
@@ -44,48 +43,6 @@ namespace javax {
 	namespace swing {
 		namespace text {
 
-$MethodInfo _FlowView$LogicalView_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/text/Element;)V", nullptr, 0, $method(FlowView$LogicalView, init$, void, $Element*)},
-	{"childAllocation", "(ILjava/awt/Rectangle;)V", nullptr, $PROTECTED, $virtualMethod(FlowView$LogicalView, childAllocation, void, int32_t, $Rectangle*)},
-	{"forwardUpdate", "(Ljavax/swing/event/DocumentEvent$ElementChange;Ljavax/swing/event/DocumentEvent;Ljava/awt/Shape;Ljavax/swing/text/ViewFactory;)V", nullptr, $PROTECTED, $virtualMethod(FlowView$LogicalView, forwardUpdate, void, $DocumentEvent$ElementChange*, $DocumentEvent*, $Shape*, $ViewFactory*)},
-	{"forwardUpdateToView", "(Ljavax/swing/text/View;Ljavax/swing/event/DocumentEvent;Ljava/awt/Shape;Ljavax/swing/text/ViewFactory;)V", nullptr, $PROTECTED, $virtualMethod(FlowView$LogicalView, forwardUpdateToView, void, $View*, $DocumentEvent*, $Shape*, $ViewFactory*)},
-	{"getAttributes", "()Ljavax/swing/text/AttributeSet;", nullptr, $PUBLIC, $virtualMethod(FlowView$LogicalView, getAttributes, $AttributeSet*)},
-	{"getMinimumSpan", "(I)F", nullptr, $PUBLIC, $virtualMethod(FlowView$LogicalView, getMinimumSpan, float, int32_t)},
-	{"getPreferredSpan", "(I)F", nullptr, $PUBLIC, $virtualMethod(FlowView$LogicalView, getPreferredSpan, float, int32_t)},
-	{"getViewAtPoint", "(IILjava/awt/Rectangle;)Ljavax/swing/text/View;", nullptr, $PROTECTED, $virtualMethod(FlowView$LogicalView, getViewAtPoint, $View*, int32_t, int32_t, $Rectangle*)},
-	{"getViewIndexAtPosition", "(I)I", nullptr, $PROTECTED, $virtualMethod(FlowView$LogicalView, getViewIndexAtPosition, int32_t, int32_t)},
-	{"isAfter", "(IILjava/awt/Rectangle;)Z", nullptr, $PROTECTED, $virtualMethod(FlowView$LogicalView, isAfter, bool, int32_t, int32_t, $Rectangle*)},
-	{"isBefore", "(IILjava/awt/Rectangle;)Z", nullptr, $PROTECTED, $virtualMethod(FlowView$LogicalView, isBefore, bool, int32_t, int32_t, $Rectangle*)},
-	{"loadChildren", "(Ljavax/swing/text/ViewFactory;)V", nullptr, $PROTECTED, $virtualMethod(FlowView$LogicalView, loadChildren, void, $ViewFactory*)},
-	{"paint", "(Ljava/awt/Graphics;Ljava/awt/Shape;)V", nullptr, $PUBLIC, $virtualMethod(FlowView$LogicalView, paint, void, $Graphics*, $Shape*)},
-	{}
-};
-
-$InnerClassInfo _FlowView$LogicalView_InnerClassesInfo_[] = {
-	{"javax.swing.text.FlowView$LogicalView", "javax.swing.text.FlowView", "LogicalView", $STATIC},
-	{}
-};
-
-$ClassInfo _FlowView$LogicalView_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.text.FlowView$LogicalView",
-	"javax.swing.text.CompositeView",
-	nullptr,
-	nullptr,
-	_FlowView$LogicalView_MethodInfo_,
-	nullptr,
-	nullptr,
-	_FlowView$LogicalView_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.FlowView"
-};
-
-$Object* allocate$FlowView$LogicalView($Class* clazz) {
-	return $of($alloc(FlowView$LogicalView));
-}
-
 void FlowView$LogicalView::init$($Element* elem) {
 	$CompositeView::init$(elem);
 }
@@ -99,7 +56,7 @@ int32_t FlowView$LogicalView::getViewIndexAtPosition(int32_t pos) {
 }
 
 void FlowView$LogicalView::loadChildren($ViewFactory* f) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Element, elem, getElement());
 	if ($nc(elem)->isLeaf()) {
 		$var($View, v, $new($LabelView, elem));
@@ -111,20 +68,20 @@ void FlowView$LogicalView::loadChildren($ViewFactory* f) {
 
 $AttributeSet* FlowView$LogicalView::getAttributes() {
 	$var($View, p, getParent());
-	return (p != nullptr) ? $nc(p)->getAttributes() : ($AttributeSet*)nullptr;
+	return (p != nullptr) ? p->getAttributes() : ($AttributeSet*)nullptr;
 }
 
 float FlowView$LogicalView::getPreferredSpan(int32_t axis) {
-	$useLocalCurrentObjectStackCache();
-	float maxpref = (float)0;
-	float pref = (float)0;
+	$useLocalObjectStack();
+	float maxpref = 0;
+	float pref = 0;
 	int32_t n = getViewCount();
 	for (int32_t i = 0; i < n; ++i) {
 		$var($View, v, getView(i));
 		pref += $nc(v)->getPreferredSpan(axis);
-		if (v->getBreakWeight(axis, (float)0, (float)$Integer::MAX_VALUE) >= $View::ForcedBreakWeight) {
+		if (v->getBreakWeight(axis, 0, (float)$Integer::MAX_VALUE) >= $View::ForcedBreakWeight) {
 			maxpref = $Math::max(maxpref, pref);
-			pref = (float)0;
+			pref = 0;
 		}
 	}
 	maxpref = $Math::max(maxpref, pref);
@@ -132,23 +89,23 @@ float FlowView$LogicalView::getPreferredSpan(int32_t axis) {
 }
 
 float FlowView$LogicalView::getMinimumSpan(int32_t axis) {
-	$useLocalCurrentObjectStackCache();
-	float maxmin = (float)0;
-	float min = (float)0;
+	$useLocalObjectStack();
+	float maxmin = 0;
+	float min = 0;
 	bool nowrap = false;
 	int32_t n = getViewCount();
 	for (int32_t i = 0; i < n; ++i) {
 		$var($View, v, getView(i));
-		if ($nc(v)->getBreakWeight(axis, (float)0, (float)$Integer::MAX_VALUE) == $View::BadBreakWeight) {
+		if ($nc(v)->getBreakWeight(axis, 0, (float)$Integer::MAX_VALUE) == $View::BadBreakWeight) {
 			min += v->getPreferredSpan(axis);
 			nowrap = true;
 		} else if (nowrap) {
 			maxmin = $Math::max(min, maxmin);
 			nowrap = false;
-			min = (float)0;
+			min = 0;
 		}
 		if ($instanceOf($ComponentView, v)) {
-			maxmin = $Math::max(maxmin, $nc(v)->getMinimumSpan(axis));
+			maxmin = $Math::max(maxmin, v->getMinimumSpan(axis));
 		}
 	}
 	maxmin = $Math::max(maxmin, min);
@@ -163,7 +120,7 @@ void FlowView$LogicalView::forwardUpdateToView($View* v, $DocumentEvent* e, $Sha
 }
 
 void FlowView$LogicalView::forwardUpdate($DocumentEvent$ElementChange* ec, $DocumentEvent* e, $Shape* a, $ViewFactory* f) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$CompositeView::forwardUpdate(ec, e, a, f);
 	$var($DocumentEvent$EventType, type, $nc(e)->getType());
 	$init($DocumentEvent$EventType);
@@ -201,7 +158,44 @@ FlowView$LogicalView::FlowView$LogicalView() {
 }
 
 $Class* FlowView$LogicalView::load$($String* name, bool initialize) {
-	$loadClass(FlowView$LogicalView, name, initialize, &_FlowView$LogicalView_ClassInfo_, allocate$FlowView$LogicalView);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/text/Element;)V", nullptr, 0, $method(FlowView$LogicalView, init$, void, $Element*)},
+		{"childAllocation", "(ILjava/awt/Rectangle;)V", nullptr, $PROTECTED, $virtualMethod(FlowView$LogicalView, childAllocation, void, int32_t, $Rectangle*)},
+		{"forwardUpdate", "(Ljavax/swing/event/DocumentEvent$ElementChange;Ljavax/swing/event/DocumentEvent;Ljava/awt/Shape;Ljavax/swing/text/ViewFactory;)V", nullptr, $PROTECTED, $virtualMethod(FlowView$LogicalView, forwardUpdate, void, $DocumentEvent$ElementChange*, $DocumentEvent*, $Shape*, $ViewFactory*)},
+		{"forwardUpdateToView", "(Ljavax/swing/text/View;Ljavax/swing/event/DocumentEvent;Ljava/awt/Shape;Ljavax/swing/text/ViewFactory;)V", nullptr, $PROTECTED, $virtualMethod(FlowView$LogicalView, forwardUpdateToView, void, $View*, $DocumentEvent*, $Shape*, $ViewFactory*)},
+		{"getAttributes", "()Ljavax/swing/text/AttributeSet;", nullptr, $PUBLIC, $virtualMethod(FlowView$LogicalView, getAttributes, $AttributeSet*)},
+		{"getMinimumSpan", "(I)F", nullptr, $PUBLIC, $virtualMethod(FlowView$LogicalView, getMinimumSpan, float, int32_t)},
+		{"getPreferredSpan", "(I)F", nullptr, $PUBLIC, $virtualMethod(FlowView$LogicalView, getPreferredSpan, float, int32_t)},
+		{"getViewAtPoint", "(IILjava/awt/Rectangle;)Ljavax/swing/text/View;", nullptr, $PROTECTED, $virtualMethod(FlowView$LogicalView, getViewAtPoint, $View*, int32_t, int32_t, $Rectangle*)},
+		{"getViewIndexAtPosition", "(I)I", nullptr, $PROTECTED, $virtualMethod(FlowView$LogicalView, getViewIndexAtPosition, int32_t, int32_t)},
+		{"isAfter", "(IILjava/awt/Rectangle;)Z", nullptr, $PROTECTED, $virtualMethod(FlowView$LogicalView, isAfter, bool, int32_t, int32_t, $Rectangle*)},
+		{"isBefore", "(IILjava/awt/Rectangle;)Z", nullptr, $PROTECTED, $virtualMethod(FlowView$LogicalView, isBefore, bool, int32_t, int32_t, $Rectangle*)},
+		{"loadChildren", "(Ljavax/swing/text/ViewFactory;)V", nullptr, $PROTECTED, $virtualMethod(FlowView$LogicalView, loadChildren, void, $ViewFactory*)},
+		{"paint", "(Ljava/awt/Graphics;Ljava/awt/Shape;)V", nullptr, $PUBLIC, $virtualMethod(FlowView$LogicalView, paint, void, $Graphics*, $Shape*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.FlowView$LogicalView", "javax.swing.text.FlowView", "LogicalView", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.text.FlowView$LogicalView",
+		"javax.swing.text.CompositeView",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.FlowView"
+	};
+	$loadClass(FlowView$LogicalView, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FlowView$LogicalView);
+	});
 	return class$;
 }
 

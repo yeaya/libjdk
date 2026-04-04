@@ -28,7 +28,7 @@ public:
 	static void invokeGC();
 	static void lambda$main$0();
 	static void main($StringArray* args);
-	static const int32_t maxWaitTime = 0x000186A0;
+	static const int32_t maxWaitTime = 0x000186a0;
 	static const int32_t waitTime = 5000;
 	static ::java::awt::Robot* robot;
 	static ::InternalFrameIsNotCollectedTest$CustomInternalFrame* iFrame;

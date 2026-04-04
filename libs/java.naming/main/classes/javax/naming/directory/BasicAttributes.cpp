@@ -1,5 +1,4 @@
 #include <javax/naming/directory/BasicAttributes.h>
-
 #include <java/io/ObjectInputStream.h>
 #include <java/io/ObjectOutputStream.h>
 #include <java/lang/CloneNotSupportedException.h>
@@ -42,60 +41,6 @@ namespace javax {
 	namespace naming {
 		namespace directory {
 
-$FieldInfo _BasicAttributes_FieldInfo_[] = {
-	{"ignoreCase", "Z", nullptr, $PRIVATE, $field(BasicAttributes, ignoreCase)},
-	{"attrs", "Ljava/util/Hashtable;", "Ljava/util/Hashtable<Ljava/lang/String;Ljavax/naming/directory/Attribute;>;", $TRANSIENT, $field(BasicAttributes, attrs)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BasicAttributes, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _BasicAttributes_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(BasicAttributes, init$, void)},
-	{"<init>", "(Z)V", nullptr, $PUBLIC, $method(BasicAttributes, init$, void, bool)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(BasicAttributes, init$, void, $String*, Object$*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Object;Z)V", nullptr, $PUBLIC, $method(BasicAttributes, init$, void, $String*, Object$*, bool)},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(BasicAttributes, clone, $Object*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(BasicAttributes, equals, bool, Object$*)},
-	{"get", "(Ljava/lang/String;)Ljavax/naming/directory/Attribute;", nullptr, $PUBLIC, $virtualMethod(BasicAttributes, get, $Attribute*, $String*)},
-	{"getAll", "()Ljavax/naming/NamingEnumeration;", "()Ljavax/naming/NamingEnumeration<Ljavax/naming/directory/Attribute;>;", $PUBLIC, $virtualMethod(BasicAttributes, getAll, $NamingEnumeration*)},
-	{"getIDs", "()Ljavax/naming/NamingEnumeration;", "()Ljavax/naming/NamingEnumeration<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(BasicAttributes, getIDs, $NamingEnumeration*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(BasicAttributes, hashCode, int32_t)},
-	{"isCaseIgnored", "()Z", nullptr, $PUBLIC, $virtualMethod(BasicAttributes, isCaseIgnored, bool)},
-	{"put", "(Ljava/lang/String;Ljava/lang/Object;)Ljavax/naming/directory/Attribute;", nullptr, $PUBLIC, $virtualMethod(BasicAttributes, put, $Attribute*, $String*, Object$*)},
-	{"put", "(Ljavax/naming/directory/Attribute;)Ljavax/naming/directory/Attribute;", nullptr, $PUBLIC, $virtualMethod(BasicAttributes, put, $Attribute*, $Attribute*)},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(BasicAttributes, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"remove", "(Ljava/lang/String;)Ljavax/naming/directory/Attribute;", nullptr, $PUBLIC, $virtualMethod(BasicAttributes, remove, $Attribute*, $String*)},
-	{"size", "()I", nullptr, $PUBLIC, $virtualMethod(BasicAttributes, size, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(BasicAttributes, toString, $String*)},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(BasicAttributes, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _BasicAttributes_InnerClassesInfo_[] = {
-	{"javax.naming.directory.BasicAttributes$IDEnumImpl", "javax.naming.directory.BasicAttributes", "IDEnumImpl", 0},
-	{"javax.naming.directory.BasicAttributes$AttrEnumImpl", "javax.naming.directory.BasicAttributes", "AttrEnumImpl", 0},
-	{}
-};
-
-$ClassInfo _BasicAttributes_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.naming.directory.BasicAttributes",
-	"java.lang.Object",
-	"javax.naming.directory.Attributes",
-	_BasicAttributes_FieldInfo_,
-	_BasicAttributes_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BasicAttributes_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.naming.directory.BasicAttributes$IDEnumImpl,javax.naming.directory.BasicAttributes$AttrEnumImpl"
-};
-
-$Object* allocate$BasicAttributes($Class* clazz) {
-	return $of($alloc(BasicAttributes));
-}
-
 void BasicAttributes::init$() {
 	this->ignoreCase = false;
 	$set(this, attrs, $new($Hashtable, 11));
@@ -137,9 +82,9 @@ int32_t BasicAttributes::size() {
 }
 
 $Attribute* BasicAttributes::get($String* attrID) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Locale);
-	$var($Attribute, attr, $cast($Attribute, $nc(this->attrs)->get(this->ignoreCase ? $($of($nc(attrID)->toLowerCase($Locale::ENGLISH))) : $of(attrID))));
+	$var($Attribute, attr, $cast($Attribute, $nc(this->attrs)->get(this->ignoreCase ? $($nc(attrID)->toLowerCase($Locale::ENGLISH)) : attrID)));
 	return (attr);
 }
 
@@ -174,12 +119,12 @@ $String* BasicAttributes::toString() {
 	if ($nc(this->attrs)->size() == 0) {
 		return ("No attributes"_s);
 	} else {
-		return $nc(this->attrs)->toString();
+		return this->attrs->toString();
 	}
 }
 
 bool BasicAttributes::equals(Object$* obj) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ((obj != nullptr) && ($instanceOf($Attributes, obj))) {
 		$var($Attributes, target, $cast($Attributes, obj));
 		if (this->ignoreCase != target->isCaseIgnored()) {
@@ -194,7 +139,7 @@ bool BasicAttributes::equals(Object$* obj) {
 				while ($nc(theirs)->hasMore()) {
 					$assign(their, $cast($Attribute, theirs->next()));
 					$assign(mine, get($($nc(their)->getID())));
-					if (!$nc($of(their))->equals(mine)) {
+					if (!their->equals(mine)) {
 						return false;
 					}
 				}
@@ -208,12 +153,12 @@ bool BasicAttributes::equals(Object$* obj) {
 }
 
 int32_t BasicAttributes::hashCode() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t hash = (this->ignoreCase ? 1 : 0);
 	try {
 		$var($NamingEnumeration, all, getAll());
 		while ($nc(all)->hasMore()) {
-			hash += $nc($of($(all->next())))->hashCode();
+			hash += $$nc(all->next())->hashCode();
 		}
 	} catch ($NamingException& e) {
 	}
@@ -221,22 +166,22 @@ int32_t BasicAttributes::hashCode() {
 }
 
 void BasicAttributes::writeObject($ObjectOutputStream* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(s)->defaultWriteObject();
 	s->writeInt($nc(this->attrs)->size());
-	$var($Enumeration, attrEnum, $nc(this->attrs)->elements());
+	$var($Enumeration, attrEnum, this->attrs->elements());
 	while ($nc(attrEnum)->hasMoreElements()) {
 		s->writeObject($(attrEnum->nextElement()));
 	}
 }
 
 void BasicAttributes::readObject($ObjectInputStream* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(s)->defaultReadObject();
 	int32_t n = s->readInt();
 	$set(this, attrs, (n >= 1) ? $new($Hashtable, 1 + $cast(int32_t, ($Math::min(768, n) / 0.75f))) : $new($Hashtable, 2));
 	while (--n >= 0) {
-		put($cast($Attribute, $(s->readObject())));
+		put($$cast($Attribute, s->readObject()));
 	}
 }
 
@@ -244,7 +189,55 @@ BasicAttributes::BasicAttributes() {
 }
 
 $Class* BasicAttributes::load$($String* name, bool initialize) {
-	$loadClass(BasicAttributes, name, initialize, &_BasicAttributes_ClassInfo_, allocate$BasicAttributes);
+	$FieldInfo fieldInfos$$[] = {
+		{"ignoreCase", "Z", nullptr, $PRIVATE, $field(BasicAttributes, ignoreCase)},
+		{"attrs", "Ljava/util/Hashtable;", "Ljava/util/Hashtable<Ljava/lang/String;Ljavax/naming/directory/Attribute;>;", $TRANSIENT, $field(BasicAttributes, attrs)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BasicAttributes, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(BasicAttributes, init$, void)},
+		{"<init>", "(Z)V", nullptr, $PUBLIC, $method(BasicAttributes, init$, void, bool)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(BasicAttributes, init$, void, $String*, Object$*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/Object;Z)V", nullptr, $PUBLIC, $method(BasicAttributes, init$, void, $String*, Object$*, bool)},
+		{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(BasicAttributes, clone, $Object*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(BasicAttributes, equals, bool, Object$*)},
+		{"get", "(Ljava/lang/String;)Ljavax/naming/directory/Attribute;", nullptr, $PUBLIC, $virtualMethod(BasicAttributes, get, $Attribute*, $String*)},
+		{"getAll", "()Ljavax/naming/NamingEnumeration;", "()Ljavax/naming/NamingEnumeration<Ljavax/naming/directory/Attribute;>;", $PUBLIC, $virtualMethod(BasicAttributes, getAll, $NamingEnumeration*)},
+		{"getIDs", "()Ljavax/naming/NamingEnumeration;", "()Ljavax/naming/NamingEnumeration<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(BasicAttributes, getIDs, $NamingEnumeration*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(BasicAttributes, hashCode, int32_t)},
+		{"isCaseIgnored", "()Z", nullptr, $PUBLIC, $virtualMethod(BasicAttributes, isCaseIgnored, bool)},
+		{"put", "(Ljava/lang/String;Ljava/lang/Object;)Ljavax/naming/directory/Attribute;", nullptr, $PUBLIC, $virtualMethod(BasicAttributes, put, $Attribute*, $String*, Object$*)},
+		{"put", "(Ljavax/naming/directory/Attribute;)Ljavax/naming/directory/Attribute;", nullptr, $PUBLIC, $virtualMethod(BasicAttributes, put, $Attribute*, $Attribute*)},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(BasicAttributes, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+		{"remove", "(Ljava/lang/String;)Ljavax/naming/directory/Attribute;", nullptr, $PUBLIC, $virtualMethod(BasicAttributes, remove, $Attribute*, $String*)},
+		{"size", "()I", nullptr, $PUBLIC, $virtualMethod(BasicAttributes, size, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(BasicAttributes, toString, $String*)},
+		{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(BasicAttributes, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.naming.directory.BasicAttributes$IDEnumImpl", "javax.naming.directory.BasicAttributes", "IDEnumImpl", 0},
+		{"javax.naming.directory.BasicAttributes$AttrEnumImpl", "javax.naming.directory.BasicAttributes", "AttrEnumImpl", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.naming.directory.BasicAttributes",
+		"java.lang.Object",
+		"javax.naming.directory.Attributes",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.naming.directory.BasicAttributes$IDEnumImpl,javax.naming.directory.BasicAttributes$AttrEnumImpl"
+	};
+	$loadClass(BasicAttributes, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(BasicAttributes));
+	});
 	return class$;
 }
 

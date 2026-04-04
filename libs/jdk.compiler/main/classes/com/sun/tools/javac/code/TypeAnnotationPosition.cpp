@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/code/TypeAnnotationPosition.h>
-
 #include <com/sun/tools/javac/code/TargetType.h>
 #include <com/sun/tools/javac/code/TypeAnnotationPosition$1.h>
 #include <com/sun/tools/javac/code/TypeAnnotationPosition$TypePathEntry.h>
@@ -58,259 +57,102 @@ namespace com {
 			namespace javac {
 				namespace code {
 
-$FieldInfo _TypeAnnotationPosition_FieldInfo_[] = {
-	{"emptyPath", "Lcom/sun/tools/javac/util/List;", "Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/TypeAnnotationPosition$TypePathEntry;>;", $PUBLIC | $STATIC | $FINAL, $staticField(TypeAnnotationPosition, emptyPath)},
-	{"type", "Lcom/sun/tools/javac/code/TargetType;", nullptr, $PUBLIC | $FINAL, $field(TypeAnnotationPosition, type)},
-	{"location", "Lcom/sun/tools/javac/util/List;", "Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/TypeAnnotationPosition$TypePathEntry;>;", $PUBLIC, $field(TypeAnnotationPosition, location)},
-	{"pos", "I", nullptr, $PUBLIC | $FINAL, $field(TypeAnnotationPosition, pos)},
-	{"isValidOffset", "Z", nullptr, $PUBLIC, $field(TypeAnnotationPosition, isValidOffset)},
-	{"offset", "I", nullptr, $PUBLIC, $field(TypeAnnotationPosition, offset)},
-	{"lvarOffset", "[I", nullptr, $PUBLIC, $field(TypeAnnotationPosition, lvarOffset)},
-	{"lvarLength", "[I", nullptr, $PUBLIC, $field(TypeAnnotationPosition, lvarLength)},
-	{"lvarIndex", "[I", nullptr, $PUBLIC, $field(TypeAnnotationPosition, lvarIndex)},
-	{"bound_index", "I", nullptr, $PUBLIC | $FINAL, $field(TypeAnnotationPosition, bound_index)},
-	{"parameter_index", "I", nullptr, $PUBLIC, $field(TypeAnnotationPosition, parameter_index)},
-	{"type_index", "I", nullptr, $PUBLIC | $FINAL, $field(TypeAnnotationPosition, type_index)},
-	{"exception_index", "I", nullptr, $PRIVATE, $field(TypeAnnotationPosition, exception_index)},
-	{"exceptionStartPos", "I", nullptr, $PRIVATE, $field(TypeAnnotationPosition, exceptionStartPos)},
-	{"onLambda", "Lcom/sun/tools/javac/tree/JCTree$JCLambda;", nullptr, $PUBLIC | $FINAL, $field(TypeAnnotationPosition, onLambda)},
-	{"unknown", "Lcom/sun/tools/javac/code/TypeAnnotationPosition;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TypeAnnotationPosition, unknown)},
-	{}
-};
-
-$MethodInfo _TypeAnnotationPosition_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/TargetType;IILcom/sun/tools/javac/tree/JCTree$JCLambda;IILcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/code/TargetType;IILcom/sun/tools/javac/tree/JCTree$JCLambda;IILcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/TypeAnnotationPosition$TypePathEntry;>;)V", $PRIVATE, $method(TypeAnnotationPosition, init$, void, $TargetType*, int32_t, int32_t, $JCTree$JCLambda*, int32_t, int32_t, $List*)},
-	{"classExtends", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/tree/JCTree$JCLambda;II)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/TypeAnnotationPosition$TypePathEntry;>;Lcom/sun/tools/javac/tree/JCTree$JCLambda;II)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", $PUBLIC | $STATIC, $staticMethod(TypeAnnotationPosition, classExtends, TypeAnnotationPosition*, $List*, $JCTree$JCLambda*, int32_t, int32_t)},
-	{"classExtends", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/tree/JCTree$JCLambda;I)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/TypeAnnotationPosition$TypePathEntry;>;Lcom/sun/tools/javac/tree/JCTree$JCLambda;I)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", $PUBLIC | $STATIC, $staticMethod(TypeAnnotationPosition, classExtends, TypeAnnotationPosition*, $List*, $JCTree$JCLambda*, int32_t)},
-	{"classExtends", "(Lcom/sun/tools/javac/util/List;I)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/TypeAnnotationPosition$TypePathEntry;>;I)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", $PUBLIC | $STATIC, $staticMethod(TypeAnnotationPosition, classExtends, TypeAnnotationPosition*, $List*, int32_t)},
-	{"classExtends", "(II)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", nullptr, $PUBLIC | $STATIC, $staticMethod(TypeAnnotationPosition, classExtends, TypeAnnotationPosition*, int32_t, int32_t)},
-	{"classExtends", "(I)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", nullptr, $PUBLIC | $STATIC, $staticMethod(TypeAnnotationPosition, classExtends, TypeAnnotationPosition*, int32_t)},
-	{"constructorInvocationTypeArg", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/tree/JCTree$JCLambda;II)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/TypeAnnotationPosition$TypePathEntry;>;Lcom/sun/tools/javac/tree/JCTree$JCLambda;II)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", $PUBLIC | $STATIC, $staticMethod(TypeAnnotationPosition, constructorInvocationTypeArg, TypeAnnotationPosition*, $List*, $JCTree$JCLambda*, int32_t, int32_t)},
-	{"constructorInvocationTypeArg", "(Lcom/sun/tools/javac/util/List;I)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/TypeAnnotationPosition$TypePathEntry;>;I)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", $PUBLIC | $STATIC, $staticMethod(TypeAnnotationPosition, constructorInvocationTypeArg, TypeAnnotationPosition*, $List*, int32_t)},
-	{"constructorRef", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/tree/JCTree$JCLambda;I)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/TypeAnnotationPosition$TypePathEntry;>;Lcom/sun/tools/javac/tree/JCTree$JCLambda;I)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", $PUBLIC | $STATIC, $staticMethod(TypeAnnotationPosition, constructorRef, TypeAnnotationPosition*, $List*, $JCTree$JCLambda*, int32_t)},
-	{"constructorRef", "(Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/TypeAnnotationPosition$TypePathEntry;>;)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", $PUBLIC | $STATIC, $staticMethod(TypeAnnotationPosition, constructorRef, TypeAnnotationPosition*, $List*)},
-	{"constructorRefTypeArg", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/tree/JCTree$JCLambda;II)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/TypeAnnotationPosition$TypePathEntry;>;Lcom/sun/tools/javac/tree/JCTree$JCLambda;II)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", $PUBLIC | $STATIC, $staticMethod(TypeAnnotationPosition, constructorRefTypeArg, TypeAnnotationPosition*, $List*, $JCTree$JCLambda*, int32_t, int32_t)},
-	{"constructorRefTypeArg", "(Lcom/sun/tools/javac/util/List;I)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/TypeAnnotationPosition$TypePathEntry;>;I)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", $PUBLIC | $STATIC, $staticMethod(TypeAnnotationPosition, constructorRefTypeArg, TypeAnnotationPosition*, $List*, int32_t)},
-	{"emitToClassfile", "()Z", nullptr, $PUBLIC, $virtualMethod(TypeAnnotationPosition, emitToClassfile, bool)},
-	{"exceptionParameter", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/tree/JCTree$JCLambda;I)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/TypeAnnotationPosition$TypePathEntry;>;Lcom/sun/tools/javac/tree/JCTree$JCLambda;I)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", $PUBLIC | $STATIC, $staticMethod(TypeAnnotationPosition, exceptionParameter, TypeAnnotationPosition*, $List*, $JCTree$JCLambda*, int32_t)},
-	{"exceptionParameter", "(Lcom/sun/tools/javac/tree/JCTree$JCLambda;I)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", nullptr, $PUBLIC | $STATIC, $staticMethod(TypeAnnotationPosition, exceptionParameter, TypeAnnotationPosition*, $JCTree$JCLambda*, int32_t)},
-	{"exceptionParameter", "(Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/TypeAnnotationPosition$TypePathEntry;>;)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", $PUBLIC | $STATIC, $staticMethod(TypeAnnotationPosition, exceptionParameter, TypeAnnotationPosition*, $List*)},
-	{"field", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/tree/JCTree$JCLambda;I)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/TypeAnnotationPosition$TypePathEntry;>;Lcom/sun/tools/javac/tree/JCTree$JCLambda;I)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", $PUBLIC | $STATIC, $staticMethod(TypeAnnotationPosition, field, TypeAnnotationPosition*, $List*, $JCTree$JCLambda*, int32_t)},
-	{"field", "(Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/TypeAnnotationPosition$TypePathEntry;>;)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", $PUBLIC | $STATIC, $staticMethod(TypeAnnotationPosition, field, TypeAnnotationPosition*, $List*)},
-	{"field", "(I)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", nullptr, $PUBLIC | $STATIC, $staticMethod(TypeAnnotationPosition, field, TypeAnnotationPosition*, int32_t)},
-	{"getBinaryFromTypePath", "(Ljava/util/List;)Lcom/sun/tools/javac/util/List;", "(Ljava/util/List<Lcom/sun/tools/javac/code/TypeAnnotationPosition$TypePathEntry;>;)Lcom/sun/tools/javac/util/List<Ljava/lang/Integer;>;", $PUBLIC | $STATIC, $staticMethod(TypeAnnotationPosition, getBinaryFromTypePath, $List*, $1List*)},
-	{"getCatchType", "()I", nullptr, $PUBLIC, $virtualMethod(TypeAnnotationPosition, getCatchType, int32_t)},
-	{"getExceptionIndex", "()I", nullptr, $PUBLIC, $virtualMethod(TypeAnnotationPosition, getExceptionIndex, int32_t)},
-	{"getStartPos", "()I", nullptr, $PUBLIC, $virtualMethod(TypeAnnotationPosition, getStartPos, int32_t)},
-	{"getTypePathFromBinary", "(Ljava/util/List;)Lcom/sun/tools/javac/util/List;", "(Ljava/util/List<Ljava/lang/Integer;>;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/TypeAnnotationPosition$TypePathEntry;>;", $PUBLIC | $STATIC, $staticMethod(TypeAnnotationPosition, getTypePathFromBinary, $List*, $1List*)},
-	{"hasCatchType", "()Z", nullptr, $PUBLIC, $virtualMethod(TypeAnnotationPosition, hasCatchType, bool)},
-	{"hasExceptionIndex", "()Z", nullptr, $PUBLIC, $virtualMethod(TypeAnnotationPosition, hasExceptionIndex, bool)},
-	{"instanceOf", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/tree/JCTree$JCLambda;I)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/TypeAnnotationPosition$TypePathEntry;>;Lcom/sun/tools/javac/tree/JCTree$JCLambda;I)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", $PUBLIC | $STATIC, $staticMethod(TypeAnnotationPosition, instanceOf, TypeAnnotationPosition*, $List*, $JCTree$JCLambda*, int32_t)},
-	{"instanceOf", "(Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/TypeAnnotationPosition$TypePathEntry;>;)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", $PUBLIC | $STATIC, $staticMethod(TypeAnnotationPosition, instanceOf, TypeAnnotationPosition*, $List*)},
-	{"localVariable", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/tree/JCTree$JCLambda;I)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/TypeAnnotationPosition$TypePathEntry;>;Lcom/sun/tools/javac/tree/JCTree$JCLambda;I)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", $PUBLIC | $STATIC, $staticMethod(TypeAnnotationPosition, localVariable, TypeAnnotationPosition*, $List*, $JCTree$JCLambda*, int32_t)},
-	{"localVariable", "(Lcom/sun/tools/javac/tree/JCTree$JCLambda;I)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", nullptr, $PUBLIC | $STATIC, $staticMethod(TypeAnnotationPosition, localVariable, TypeAnnotationPosition*, $JCTree$JCLambda*, int32_t)},
-	{"localVariable", "(Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/TypeAnnotationPosition$TypePathEntry;>;)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", $PUBLIC | $STATIC, $staticMethod(TypeAnnotationPosition, localVariable, TypeAnnotationPosition*, $List*)},
-	{"matchesPos", "(I)Z", nullptr, $PUBLIC, $virtualMethod(TypeAnnotationPosition, matchesPos, bool, int32_t)},
-	{"methodInvocationTypeArg", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/tree/JCTree$JCLambda;II)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/TypeAnnotationPosition$TypePathEntry;>;Lcom/sun/tools/javac/tree/JCTree$JCLambda;II)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", $PUBLIC | $STATIC, $staticMethod(TypeAnnotationPosition, methodInvocationTypeArg, TypeAnnotationPosition*, $List*, $JCTree$JCLambda*, int32_t, int32_t)},
-	{"methodInvocationTypeArg", "(Lcom/sun/tools/javac/util/List;I)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/TypeAnnotationPosition$TypePathEntry;>;I)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", $PUBLIC | $STATIC, $staticMethod(TypeAnnotationPosition, methodInvocationTypeArg, TypeAnnotationPosition*, $List*, int32_t)},
-	{"methodParameter", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/tree/JCTree$JCLambda;II)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/TypeAnnotationPosition$TypePathEntry;>;Lcom/sun/tools/javac/tree/JCTree$JCLambda;II)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", $PUBLIC | $STATIC, $staticMethod(TypeAnnotationPosition, methodParameter, TypeAnnotationPosition*, $List*, $JCTree$JCLambda*, int32_t, int32_t)},
-	{"methodParameter", "(Lcom/sun/tools/javac/tree/JCTree$JCLambda;II)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", nullptr, $PUBLIC | $STATIC, $staticMethod(TypeAnnotationPosition, methodParameter, TypeAnnotationPosition*, $JCTree$JCLambda*, int32_t, int32_t)},
-	{"methodParameter", "(II)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", nullptr, $PUBLIC | $STATIC, $staticMethod(TypeAnnotationPosition, methodParameter, TypeAnnotationPosition*, int32_t, int32_t)},
-	{"methodParameter", "(Lcom/sun/tools/javac/util/List;I)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/TypeAnnotationPosition$TypePathEntry;>;I)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", $PUBLIC | $STATIC, $staticMethod(TypeAnnotationPosition, methodParameter, TypeAnnotationPosition*, $List*, int32_t)},
-	{"methodReceiver", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/tree/JCTree$JCLambda;I)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/TypeAnnotationPosition$TypePathEntry;>;Lcom/sun/tools/javac/tree/JCTree$JCLambda;I)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", $PUBLIC | $STATIC, $staticMethod(TypeAnnotationPosition, methodReceiver, TypeAnnotationPosition*, $List*, $JCTree$JCLambda*, int32_t)},
-	{"methodReceiver", "(Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/TypeAnnotationPosition$TypePathEntry;>;)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", $PUBLIC | $STATIC, $staticMethod(TypeAnnotationPosition, methodReceiver, TypeAnnotationPosition*, $List*)},
-	{"methodReceiver", "(I)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", nullptr, $PUBLIC | $STATIC, $staticMethod(TypeAnnotationPosition, methodReceiver, TypeAnnotationPosition*, int32_t)},
-	{"methodRef", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/tree/JCTree$JCLambda;I)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/TypeAnnotationPosition$TypePathEntry;>;Lcom/sun/tools/javac/tree/JCTree$JCLambda;I)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", $PUBLIC | $STATIC, $staticMethod(TypeAnnotationPosition, methodRef, TypeAnnotationPosition*, $List*, $JCTree$JCLambda*, int32_t)},
-	{"methodRef", "(Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/TypeAnnotationPosition$TypePathEntry;>;)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", $PUBLIC | $STATIC, $staticMethod(TypeAnnotationPosition, methodRef, TypeAnnotationPosition*, $List*)},
-	{"methodRefTypeArg", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/tree/JCTree$JCLambda;II)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/TypeAnnotationPosition$TypePathEntry;>;Lcom/sun/tools/javac/tree/JCTree$JCLambda;II)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", $PUBLIC | $STATIC, $staticMethod(TypeAnnotationPosition, methodRefTypeArg, TypeAnnotationPosition*, $List*, $JCTree$JCLambda*, int32_t, int32_t)},
-	{"methodRefTypeArg", "(Lcom/sun/tools/javac/util/List;I)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/TypeAnnotationPosition$TypePathEntry;>;I)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", $PUBLIC | $STATIC, $staticMethod(TypeAnnotationPosition, methodRefTypeArg, TypeAnnotationPosition*, $List*, int32_t)},
-	{"methodReturn", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/tree/JCTree$JCLambda;I)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/TypeAnnotationPosition$TypePathEntry;>;Lcom/sun/tools/javac/tree/JCTree$JCLambda;I)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", $PUBLIC | $STATIC, $staticMethod(TypeAnnotationPosition, methodReturn, TypeAnnotationPosition*, $List*, $JCTree$JCLambda*, int32_t)},
-	{"methodReturn", "(Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/TypeAnnotationPosition$TypePathEntry;>;)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", $PUBLIC | $STATIC, $staticMethod(TypeAnnotationPosition, methodReturn, TypeAnnotationPosition*, $List*)},
-	{"methodReturn", "(I)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", nullptr, $PUBLIC | $STATIC, $staticMethod(TypeAnnotationPosition, methodReturn, TypeAnnotationPosition*, int32_t)},
-	{"methodThrows", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/tree/JCTree$JCLambda;II)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/TypeAnnotationPosition$TypePathEntry;>;Lcom/sun/tools/javac/tree/JCTree$JCLambda;II)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", $PUBLIC | $STATIC, $staticMethod(TypeAnnotationPosition, methodThrows, TypeAnnotationPosition*, $List*, $JCTree$JCLambda*, int32_t, int32_t)},
-	{"methodThrows", "(Lcom/sun/tools/javac/util/List;I)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/TypeAnnotationPosition$TypePathEntry;>;I)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", $PUBLIC | $STATIC, $staticMethod(TypeAnnotationPosition, methodThrows, TypeAnnotationPosition*, $List*, int32_t)},
-	{"methodTypeParameter", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/tree/JCTree$JCLambda;II)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/TypeAnnotationPosition$TypePathEntry;>;Lcom/sun/tools/javac/tree/JCTree$JCLambda;II)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", $PUBLIC | $STATIC, $staticMethod(TypeAnnotationPosition, methodTypeParameter, TypeAnnotationPosition*, $List*, $JCTree$JCLambda*, int32_t, int32_t)},
-	{"methodTypeParameter", "(Lcom/sun/tools/javac/util/List;I)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/TypeAnnotationPosition$TypePathEntry;>;I)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", $PUBLIC | $STATIC, $staticMethod(TypeAnnotationPosition, methodTypeParameter, TypeAnnotationPosition*, $List*, int32_t)},
-	{"methodTypeParameterBound", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/tree/JCTree$JCLambda;III)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/TypeAnnotationPosition$TypePathEntry;>;Lcom/sun/tools/javac/tree/JCTree$JCLambda;III)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", $PUBLIC | $STATIC, $staticMethod(TypeAnnotationPosition, methodTypeParameterBound, TypeAnnotationPosition*, $List*, $JCTree$JCLambda*, int32_t, int32_t, int32_t)},
-	{"methodTypeParameterBound", "(Lcom/sun/tools/javac/util/List;II)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/TypeAnnotationPosition$TypePathEntry;>;II)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", $PUBLIC | $STATIC, $staticMethod(TypeAnnotationPosition, methodTypeParameterBound, TypeAnnotationPosition*, $List*, int32_t, int32_t)},
-	{"newObj", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/tree/JCTree$JCLambda;I)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/TypeAnnotationPosition$TypePathEntry;>;Lcom/sun/tools/javac/tree/JCTree$JCLambda;I)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", $PUBLIC | $STATIC, $staticMethod(TypeAnnotationPosition, newObj, TypeAnnotationPosition*, $List*, $JCTree$JCLambda*, int32_t)},
-	{"newObj", "(I)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", nullptr, $PUBLIC | $STATIC, $staticMethod(TypeAnnotationPosition, newObj, TypeAnnotationPosition*, int32_t)},
-	{"newObj", "(Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/TypeAnnotationPosition$TypePathEntry;>;)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", $PUBLIC | $STATIC, $staticMethod(TypeAnnotationPosition, newObj, TypeAnnotationPosition*, $List*)},
-	{"resourceVariable", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/tree/JCTree$JCLambda;I)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/TypeAnnotationPosition$TypePathEntry;>;Lcom/sun/tools/javac/tree/JCTree$JCLambda;I)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", $PUBLIC | $STATIC, $staticMethod(TypeAnnotationPosition, resourceVariable, TypeAnnotationPosition*, $List*, $JCTree$JCLambda*, int32_t)},
-	{"resourceVariable", "(Lcom/sun/tools/javac/tree/JCTree$JCLambda;I)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", nullptr, $PUBLIC | $STATIC, $staticMethod(TypeAnnotationPosition, resourceVariable, TypeAnnotationPosition*, $JCTree$JCLambda*, int32_t)},
-	{"resourceVariable", "(Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/TypeAnnotationPosition$TypePathEntry;>;)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", $PUBLIC | $STATIC, $staticMethod(TypeAnnotationPosition, resourceVariable, TypeAnnotationPosition*, $List*)},
-	{"setCatchInfo", "(II)V", nullptr, $PUBLIC, $virtualMethod(TypeAnnotationPosition, setCatchInfo, void, int32_t, int32_t)},
-	{"setExceptionIndex", "(I)V", nullptr, $PUBLIC, $virtualMethod(TypeAnnotationPosition, setExceptionIndex, void, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TypeAnnotationPosition, toString, $String*)},
-	{"typeCast", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/tree/JCTree$JCLambda;II)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/TypeAnnotationPosition$TypePathEntry;>;Lcom/sun/tools/javac/tree/JCTree$JCLambda;II)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", $PUBLIC | $STATIC, $staticMethod(TypeAnnotationPosition, typeCast, TypeAnnotationPosition*, $List*, $JCTree$JCLambda*, int32_t, int32_t)},
-	{"typeCast", "(Lcom/sun/tools/javac/util/List;I)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/TypeAnnotationPosition$TypePathEntry;>;I)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", $PUBLIC | $STATIC, $staticMethod(TypeAnnotationPosition, typeCast, TypeAnnotationPosition*, $List*, int32_t)},
-	{"typeParameter", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/tree/JCTree$JCLambda;II)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/TypeAnnotationPosition$TypePathEntry;>;Lcom/sun/tools/javac/tree/JCTree$JCLambda;II)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", $PUBLIC | $STATIC, $staticMethod(TypeAnnotationPosition, typeParameter, TypeAnnotationPosition*, $List*, $JCTree$JCLambda*, int32_t, int32_t)},
-	{"typeParameter", "(Lcom/sun/tools/javac/util/List;I)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/TypeAnnotationPosition$TypePathEntry;>;I)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", $PUBLIC | $STATIC, $staticMethod(TypeAnnotationPosition, typeParameter, TypeAnnotationPosition*, $List*, int32_t)},
-	{"typeParameterBound", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/tree/JCTree$JCLambda;III)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/TypeAnnotationPosition$TypePathEntry;>;Lcom/sun/tools/javac/tree/JCTree$JCLambda;III)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", $PUBLIC | $STATIC, $staticMethod(TypeAnnotationPosition, typeParameterBound, TypeAnnotationPosition*, $List*, $JCTree$JCLambda*, int32_t, int32_t, int32_t)},
-	{"typeParameterBound", "(Lcom/sun/tools/javac/util/List;II)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/TypeAnnotationPosition$TypePathEntry;>;II)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", $PUBLIC | $STATIC, $staticMethod(TypeAnnotationPosition, typeParameterBound, TypeAnnotationPosition*, $List*, int32_t, int32_t)},
-	{"updatePosOffset", "(I)V", nullptr, $PUBLIC, $virtualMethod(TypeAnnotationPosition, updatePosOffset, void, int32_t)},
-	{}
-};
-
-$InnerClassInfo _TypeAnnotationPosition_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.code.TypeAnnotationPosition$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{"com.sun.tools.javac.code.TypeAnnotationPosition$TypePathEntry", "com.sun.tools.javac.code.TypeAnnotationPosition", "TypePathEntry", $PUBLIC | $STATIC},
-	{"com.sun.tools.javac.code.TypeAnnotationPosition$TypePathEntryKind", "com.sun.tools.javac.code.TypeAnnotationPosition", "TypePathEntryKind", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _TypeAnnotationPosition_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.code.TypeAnnotationPosition",
-	"java.lang.Object",
-	nullptr,
-	_TypeAnnotationPosition_FieldInfo_,
-	_TypeAnnotationPosition_MethodInfo_,
-	nullptr,
-	nullptr,
-	_TypeAnnotationPosition_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.code.TypeAnnotationPosition$1,com.sun.tools.javac.code.TypeAnnotationPosition$TypePathEntry,com.sun.tools.javac.code.TypeAnnotationPosition$TypePathEntryKind"
-};
-
-$Object* allocate$TypeAnnotationPosition($Class* clazz) {
-	return $of($alloc(TypeAnnotationPosition));
-}
-
 $List* TypeAnnotationPosition::emptyPath = nullptr;
 TypeAnnotationPosition* TypeAnnotationPosition::unknown = nullptr;
 
 $String* TypeAnnotationPosition::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, sb, $new($StringBuilder));
 	sb->append(u'[');
-	sb->append($of(this->type));
+	sb->append(this->type);
 	$init($TypeAnnotationPosition$1);
 	switch ($nc($TypeAnnotationPosition$1::$SwitchMap$com$sun$tools$javac$code$TargetType)->get((this->type)->ordinal())) {
 	case 1:
-		{}
 	case 2:
-		{}
 	case 3:
-		{}
 	case 4:
-		{
-			sb->append(", offset = "_s);
-			sb->append(this->offset);
-			break;
-		}
+		sb->append(", offset = "_s);
+		sb->append(this->offset);
+		break;
 	case 5:
-		{}
 	case 6:
-		{
-			if (this->lvarOffset == nullptr) {
-				sb->append(", lvarOffset is null!"_s);
-				break;
-			}
-			sb->append(", {"_s);
-			for (int32_t i = 0; i < $nc(this->lvarOffset)->length; ++i) {
-				if (i != 0) {
-					sb->append("; "_s);
-				}
-				sb->append("start_pc = "_s);
-				sb->append($nc(this->lvarOffset)->get(i));
-				sb->append(", length = "_s);
-				sb->append($nc(this->lvarLength)->get(i));
-				sb->append(", index = "_s);
-				sb->append($nc(this->lvarIndex)->get(i));
-			}
-			sb->append("}"_s);
+		if (this->lvarOffset == nullptr) {
+			sb->append(", lvarOffset is null!"_s);
 			break;
 		}
+		sb->append(", {"_s);
+		for (int32_t i = 0; i < $nc(this->lvarOffset)->length; ++i) {
+			if (i != 0) {
+				sb->append("; "_s);
+			}
+			sb->append("start_pc = "_s);
+			sb->append(this->lvarOffset->get(i));
+			sb->append(", length = "_s);
+			sb->append($nc(this->lvarLength)->get(i));
+			sb->append(", index = "_s);
+			sb->append($nc(this->lvarIndex)->get(i));
+		}
+		sb->append("}"_s);
+		break;
 	case 7:
-		{
-			break;
-		}
+		break;
 	case 8:
-		{}
 	case 9:
-		{
-			sb->append(", param_index = "_s);
-			sb->append(this->parameter_index);
-			break;
-		}
+		sb->append(", param_index = "_s);
+		sb->append(this->parameter_index);
+		break;
 	case 10:
-		{}
 	case 11:
-		{
-			sb->append(", param_index = "_s);
-			sb->append(this->parameter_index);
-			sb->append(", bound_index = "_s);
-			sb->append(this->bound_index);
-			break;
-		}
+		sb->append(", param_index = "_s);
+		sb->append(this->parameter_index);
+		sb->append(", bound_index = "_s);
+		sb->append(this->bound_index);
+		break;
 	case 12:
-		{
-			sb->append(", type_index = "_s);
-			sb->append(this->type_index);
-			break;
-		}
+		sb->append(", type_index = "_s);
+		sb->append(this->type_index);
+		break;
 	case 13:
-		{
-			sb->append(", type_index = "_s);
-			sb->append(this->type_index);
-			break;
-		}
+		sb->append(", type_index = "_s);
+		sb->append(this->type_index);
+		break;
 	case 14:
-		{
-			sb->append(", exception_index = "_s);
-			sb->append(this->exception_index);
-			break;
-		}
+		sb->append(", exception_index = "_s);
+		sb->append(this->exception_index);
+		break;
 	case 15:
-		{
-			sb->append(", param_index = "_s);
-			sb->append(this->parameter_index);
-			break;
-		}
+		sb->append(", param_index = "_s);
+		sb->append(this->parameter_index);
+		break;
 	case 16:
-		{}
 	case 17:
-		{}
 	case 18:
-		{}
 	case 19:
-		{}
 	case 20:
-		{
-			sb->append(", offset = "_s);
-			sb->append(this->offset);
-			sb->append(", type_index = "_s);
-			sb->append(this->type_index);
-			break;
-		}
+		sb->append(", offset = "_s);
+		sb->append(this->offset);
+		sb->append(", type_index = "_s);
+		sb->append(this->type_index);
+		break;
 	case 21:
-		{}
 	case 22:
-		{
-			break;
-		}
+		break;
 	case 23:
-		{
-			sb->append(", position UNKNOWN!"_s);
-			break;
-		}
+		sb->append(", position UNKNOWN!"_s);
+		break;
 	default:
-		{
-			$Assert::error($$str({"Unknown target type: "_s, this->type}));
-		}
+		$Assert::error($$str({"Unknown target type: "_s, this->type}));
 	}
 	if (!$nc(this->location)->isEmpty()) {
 		sb->append(", location = ("_s);
-		sb->append($of(this->location));
+		sb->append(this->location);
 		sb->append(")"_s);
 	}
 	sb->append(", pos = "_s);
 	sb->append(this->pos);
 	if (this->onLambda != nullptr) {
 		sb->append(", onLambda hash = "_s);
-		sb->append($nc($of(this->onLambda))->hashCode());
+		sb->append(this->onLambda->hashCode());
 	}
 	sb->append(u']');
 	return sb->toString();
@@ -370,7 +212,7 @@ void TypeAnnotationPosition::setCatchInfo(int32_t catchType, int32_t startPos) {
 
 $List* TypeAnnotationPosition::getTypePathFromBinary($1List* list) {
 	$init(TypeAnnotationPosition);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ListBuffer, loc, $new($ListBuffer));
 	$var($Iterator, iter, $nc(list)->iterator());
 	while ($nc(iter)->hasNext()) {
@@ -385,7 +227,7 @@ $List* TypeAnnotationPosition::getTypePathFromBinary($1List* list) {
 
 $List* TypeAnnotationPosition::getBinaryFromTypePath($1List* locs) {
 	$init(TypeAnnotationPosition);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ListBuffer, loc, $new($ListBuffer));
 	{
 		$var($Iterator, i$, $nc(locs)->iterator());
@@ -393,7 +235,7 @@ $List* TypeAnnotationPosition::getBinaryFromTypePath($1List* locs) {
 			$var($TypeAnnotationPosition$TypePathEntry, tpe, $cast($TypeAnnotationPosition$TypePathEntry, i$->next()));
 			{
 				$assign(loc, $nc(loc)->append($($Integer::valueOf($nc(tpe)->tag->tag))));
-				$assign(loc, loc->append($($Integer::valueOf($nc(tpe)->arg))));
+				$assign(loc, $nc(loc)->append($($Integer::valueOf(tpe->arg))));
 			}
 		}
 	}
@@ -581,7 +423,7 @@ TypeAnnotationPosition* TypeAnnotationPosition::classExtends($List* location, $J
 
 TypeAnnotationPosition* TypeAnnotationPosition::classExtends($List* location, $JCTree$JCLambda* onLambda, int32_t pos) {
 	$init(TypeAnnotationPosition);
-	return classExtends(location, onLambda, 0x0000FFFF, pos);
+	return classExtends(location, onLambda, 0x0000ffff, pos);
 }
 
 TypeAnnotationPosition* TypeAnnotationPosition::classExtends($List* location, int32_t type_index) {
@@ -596,7 +438,7 @@ TypeAnnotationPosition* TypeAnnotationPosition::classExtends(int32_t type_index,
 
 TypeAnnotationPosition* TypeAnnotationPosition::classExtends(int32_t pos) {
 	$init(TypeAnnotationPosition);
-	return classExtends(0x0000FFFF, pos);
+	return classExtends(0x0000ffff, pos);
 }
 
 TypeAnnotationPosition* TypeAnnotationPosition::instanceOf($List* location, $JCTree$JCLambda* onLambda, int32_t pos) {
@@ -720,7 +562,7 @@ TypeAnnotationPosition* TypeAnnotationPosition::methodTypeParameterBound($List* 
 	return methodTypeParameterBound(location, nullptr, parameter_index, bound_index, -1);
 }
 
-void clinit$TypeAnnotationPosition($Class* class$) {
+void TypeAnnotationPosition::clinit$($Class* clazz) {
 	$assignStatic(TypeAnnotationPosition::emptyPath, $List::nil());
 	$init($TargetType);
 	$assignStatic(TypeAnnotationPosition::unknown, $new(TypeAnnotationPosition, $TargetType::UNKNOWN, -1, $Integer::MIN_VALUE, nullptr, $Integer::MIN_VALUE, $Integer::MIN_VALUE, TypeAnnotationPosition::emptyPath));
@@ -730,7 +572,121 @@ TypeAnnotationPosition::TypeAnnotationPosition() {
 }
 
 $Class* TypeAnnotationPosition::load$($String* name, bool initialize) {
-	$loadClass(TypeAnnotationPosition, name, initialize, &_TypeAnnotationPosition_ClassInfo_, clinit$TypeAnnotationPosition, allocate$TypeAnnotationPosition);
+	$FieldInfo fieldInfos$$[] = {
+		{"emptyPath", "Lcom/sun/tools/javac/util/List;", "Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/TypeAnnotationPosition$TypePathEntry;>;", $PUBLIC | $STATIC | $FINAL, $staticField(TypeAnnotationPosition, emptyPath)},
+		{"type", "Lcom/sun/tools/javac/code/TargetType;", nullptr, $PUBLIC | $FINAL, $field(TypeAnnotationPosition, type)},
+		{"location", "Lcom/sun/tools/javac/util/List;", "Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/TypeAnnotationPosition$TypePathEntry;>;", $PUBLIC, $field(TypeAnnotationPosition, location)},
+		{"pos", "I", nullptr, $PUBLIC | $FINAL, $field(TypeAnnotationPosition, pos)},
+		{"isValidOffset", "Z", nullptr, $PUBLIC, $field(TypeAnnotationPosition, isValidOffset)},
+		{"offset", "I", nullptr, $PUBLIC, $field(TypeAnnotationPosition, offset)},
+		{"lvarOffset", "[I", nullptr, $PUBLIC, $field(TypeAnnotationPosition, lvarOffset)},
+		{"lvarLength", "[I", nullptr, $PUBLIC, $field(TypeAnnotationPosition, lvarLength)},
+		{"lvarIndex", "[I", nullptr, $PUBLIC, $field(TypeAnnotationPosition, lvarIndex)},
+		{"bound_index", "I", nullptr, $PUBLIC | $FINAL, $field(TypeAnnotationPosition, bound_index)},
+		{"parameter_index", "I", nullptr, $PUBLIC, $field(TypeAnnotationPosition, parameter_index)},
+		{"type_index", "I", nullptr, $PUBLIC | $FINAL, $field(TypeAnnotationPosition, type_index)},
+		{"exception_index", "I", nullptr, $PRIVATE, $field(TypeAnnotationPosition, exception_index)},
+		{"exceptionStartPos", "I", nullptr, $PRIVATE, $field(TypeAnnotationPosition, exceptionStartPos)},
+		{"onLambda", "Lcom/sun/tools/javac/tree/JCTree$JCLambda;", nullptr, $PUBLIC | $FINAL, $field(TypeAnnotationPosition, onLambda)},
+		{"unknown", "Lcom/sun/tools/javac/code/TypeAnnotationPosition;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TypeAnnotationPosition, unknown)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/code/TargetType;IILcom/sun/tools/javac/tree/JCTree$JCLambda;IILcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/code/TargetType;IILcom/sun/tools/javac/tree/JCTree$JCLambda;IILcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/TypeAnnotationPosition$TypePathEntry;>;)V", $PRIVATE, $method(TypeAnnotationPosition, init$, void, $TargetType*, int32_t, int32_t, $JCTree$JCLambda*, int32_t, int32_t, $List*)},
+		{"classExtends", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/tree/JCTree$JCLambda;II)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/TypeAnnotationPosition$TypePathEntry;>;Lcom/sun/tools/javac/tree/JCTree$JCLambda;II)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", $PUBLIC | $STATIC, $staticMethod(TypeAnnotationPosition, classExtends, TypeAnnotationPosition*, $List*, $JCTree$JCLambda*, int32_t, int32_t)},
+		{"classExtends", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/tree/JCTree$JCLambda;I)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/TypeAnnotationPosition$TypePathEntry;>;Lcom/sun/tools/javac/tree/JCTree$JCLambda;I)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", $PUBLIC | $STATIC, $staticMethod(TypeAnnotationPosition, classExtends, TypeAnnotationPosition*, $List*, $JCTree$JCLambda*, int32_t)},
+		{"classExtends", "(Lcom/sun/tools/javac/util/List;I)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/TypeAnnotationPosition$TypePathEntry;>;I)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", $PUBLIC | $STATIC, $staticMethod(TypeAnnotationPosition, classExtends, TypeAnnotationPosition*, $List*, int32_t)},
+		{"classExtends", "(II)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", nullptr, $PUBLIC | $STATIC, $staticMethod(TypeAnnotationPosition, classExtends, TypeAnnotationPosition*, int32_t, int32_t)},
+		{"classExtends", "(I)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", nullptr, $PUBLIC | $STATIC, $staticMethod(TypeAnnotationPosition, classExtends, TypeAnnotationPosition*, int32_t)},
+		{"constructorInvocationTypeArg", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/tree/JCTree$JCLambda;II)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/TypeAnnotationPosition$TypePathEntry;>;Lcom/sun/tools/javac/tree/JCTree$JCLambda;II)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", $PUBLIC | $STATIC, $staticMethod(TypeAnnotationPosition, constructorInvocationTypeArg, TypeAnnotationPosition*, $List*, $JCTree$JCLambda*, int32_t, int32_t)},
+		{"constructorInvocationTypeArg", "(Lcom/sun/tools/javac/util/List;I)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/TypeAnnotationPosition$TypePathEntry;>;I)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", $PUBLIC | $STATIC, $staticMethod(TypeAnnotationPosition, constructorInvocationTypeArg, TypeAnnotationPosition*, $List*, int32_t)},
+		{"constructorRef", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/tree/JCTree$JCLambda;I)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/TypeAnnotationPosition$TypePathEntry;>;Lcom/sun/tools/javac/tree/JCTree$JCLambda;I)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", $PUBLIC | $STATIC, $staticMethod(TypeAnnotationPosition, constructorRef, TypeAnnotationPosition*, $List*, $JCTree$JCLambda*, int32_t)},
+		{"constructorRef", "(Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/TypeAnnotationPosition$TypePathEntry;>;)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", $PUBLIC | $STATIC, $staticMethod(TypeAnnotationPosition, constructorRef, TypeAnnotationPosition*, $List*)},
+		{"constructorRefTypeArg", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/tree/JCTree$JCLambda;II)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/TypeAnnotationPosition$TypePathEntry;>;Lcom/sun/tools/javac/tree/JCTree$JCLambda;II)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", $PUBLIC | $STATIC, $staticMethod(TypeAnnotationPosition, constructorRefTypeArg, TypeAnnotationPosition*, $List*, $JCTree$JCLambda*, int32_t, int32_t)},
+		{"constructorRefTypeArg", "(Lcom/sun/tools/javac/util/List;I)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/TypeAnnotationPosition$TypePathEntry;>;I)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", $PUBLIC | $STATIC, $staticMethod(TypeAnnotationPosition, constructorRefTypeArg, TypeAnnotationPosition*, $List*, int32_t)},
+		{"emitToClassfile", "()Z", nullptr, $PUBLIC, $virtualMethod(TypeAnnotationPosition, emitToClassfile, bool)},
+		{"exceptionParameter", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/tree/JCTree$JCLambda;I)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/TypeAnnotationPosition$TypePathEntry;>;Lcom/sun/tools/javac/tree/JCTree$JCLambda;I)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", $PUBLIC | $STATIC, $staticMethod(TypeAnnotationPosition, exceptionParameter, TypeAnnotationPosition*, $List*, $JCTree$JCLambda*, int32_t)},
+		{"exceptionParameter", "(Lcom/sun/tools/javac/tree/JCTree$JCLambda;I)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", nullptr, $PUBLIC | $STATIC, $staticMethod(TypeAnnotationPosition, exceptionParameter, TypeAnnotationPosition*, $JCTree$JCLambda*, int32_t)},
+		{"exceptionParameter", "(Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/TypeAnnotationPosition$TypePathEntry;>;)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", $PUBLIC | $STATIC, $staticMethod(TypeAnnotationPosition, exceptionParameter, TypeAnnotationPosition*, $List*)},
+		{"field", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/tree/JCTree$JCLambda;I)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/TypeAnnotationPosition$TypePathEntry;>;Lcom/sun/tools/javac/tree/JCTree$JCLambda;I)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", $PUBLIC | $STATIC, $staticMethod(TypeAnnotationPosition, field, TypeAnnotationPosition*, $List*, $JCTree$JCLambda*, int32_t)},
+		{"field", "(Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/TypeAnnotationPosition$TypePathEntry;>;)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", $PUBLIC | $STATIC, $staticMethod(TypeAnnotationPosition, field, TypeAnnotationPosition*, $List*)},
+		{"field", "(I)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", nullptr, $PUBLIC | $STATIC, $staticMethod(TypeAnnotationPosition, field, TypeAnnotationPosition*, int32_t)},
+		{"getBinaryFromTypePath", "(Ljava/util/List;)Lcom/sun/tools/javac/util/List;", "(Ljava/util/List<Lcom/sun/tools/javac/code/TypeAnnotationPosition$TypePathEntry;>;)Lcom/sun/tools/javac/util/List<Ljava/lang/Integer;>;", $PUBLIC | $STATIC, $staticMethod(TypeAnnotationPosition, getBinaryFromTypePath, $List*, $1List*)},
+		{"getCatchType", "()I", nullptr, $PUBLIC, $virtualMethod(TypeAnnotationPosition, getCatchType, int32_t)},
+		{"getExceptionIndex", "()I", nullptr, $PUBLIC, $virtualMethod(TypeAnnotationPosition, getExceptionIndex, int32_t)},
+		{"getStartPos", "()I", nullptr, $PUBLIC, $virtualMethod(TypeAnnotationPosition, getStartPos, int32_t)},
+		{"getTypePathFromBinary", "(Ljava/util/List;)Lcom/sun/tools/javac/util/List;", "(Ljava/util/List<Ljava/lang/Integer;>;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/TypeAnnotationPosition$TypePathEntry;>;", $PUBLIC | $STATIC, $staticMethod(TypeAnnotationPosition, getTypePathFromBinary, $List*, $1List*)},
+		{"hasCatchType", "()Z", nullptr, $PUBLIC, $virtualMethod(TypeAnnotationPosition, hasCatchType, bool)},
+		{"hasExceptionIndex", "()Z", nullptr, $PUBLIC, $virtualMethod(TypeAnnotationPosition, hasExceptionIndex, bool)},
+		{"instanceOf", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/tree/JCTree$JCLambda;I)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/TypeAnnotationPosition$TypePathEntry;>;Lcom/sun/tools/javac/tree/JCTree$JCLambda;I)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", $PUBLIC | $STATIC, $staticMethod(TypeAnnotationPosition, instanceOf, TypeAnnotationPosition*, $List*, $JCTree$JCLambda*, int32_t)},
+		{"instanceOf", "(Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/TypeAnnotationPosition$TypePathEntry;>;)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", $PUBLIC | $STATIC, $staticMethod(TypeAnnotationPosition, instanceOf, TypeAnnotationPosition*, $List*)},
+		{"localVariable", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/tree/JCTree$JCLambda;I)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/TypeAnnotationPosition$TypePathEntry;>;Lcom/sun/tools/javac/tree/JCTree$JCLambda;I)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", $PUBLIC | $STATIC, $staticMethod(TypeAnnotationPosition, localVariable, TypeAnnotationPosition*, $List*, $JCTree$JCLambda*, int32_t)},
+		{"localVariable", "(Lcom/sun/tools/javac/tree/JCTree$JCLambda;I)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", nullptr, $PUBLIC | $STATIC, $staticMethod(TypeAnnotationPosition, localVariable, TypeAnnotationPosition*, $JCTree$JCLambda*, int32_t)},
+		{"localVariable", "(Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/TypeAnnotationPosition$TypePathEntry;>;)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", $PUBLIC | $STATIC, $staticMethod(TypeAnnotationPosition, localVariable, TypeAnnotationPosition*, $List*)},
+		{"matchesPos", "(I)Z", nullptr, $PUBLIC, $virtualMethod(TypeAnnotationPosition, matchesPos, bool, int32_t)},
+		{"methodInvocationTypeArg", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/tree/JCTree$JCLambda;II)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/TypeAnnotationPosition$TypePathEntry;>;Lcom/sun/tools/javac/tree/JCTree$JCLambda;II)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", $PUBLIC | $STATIC, $staticMethod(TypeAnnotationPosition, methodInvocationTypeArg, TypeAnnotationPosition*, $List*, $JCTree$JCLambda*, int32_t, int32_t)},
+		{"methodInvocationTypeArg", "(Lcom/sun/tools/javac/util/List;I)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/TypeAnnotationPosition$TypePathEntry;>;I)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", $PUBLIC | $STATIC, $staticMethod(TypeAnnotationPosition, methodInvocationTypeArg, TypeAnnotationPosition*, $List*, int32_t)},
+		{"methodParameter", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/tree/JCTree$JCLambda;II)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/TypeAnnotationPosition$TypePathEntry;>;Lcom/sun/tools/javac/tree/JCTree$JCLambda;II)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", $PUBLIC | $STATIC, $staticMethod(TypeAnnotationPosition, methodParameter, TypeAnnotationPosition*, $List*, $JCTree$JCLambda*, int32_t, int32_t)},
+		{"methodParameter", "(Lcom/sun/tools/javac/tree/JCTree$JCLambda;II)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", nullptr, $PUBLIC | $STATIC, $staticMethod(TypeAnnotationPosition, methodParameter, TypeAnnotationPosition*, $JCTree$JCLambda*, int32_t, int32_t)},
+		{"methodParameter", "(II)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", nullptr, $PUBLIC | $STATIC, $staticMethod(TypeAnnotationPosition, methodParameter, TypeAnnotationPosition*, int32_t, int32_t)},
+		{"methodParameter", "(Lcom/sun/tools/javac/util/List;I)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/TypeAnnotationPosition$TypePathEntry;>;I)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", $PUBLIC | $STATIC, $staticMethod(TypeAnnotationPosition, methodParameter, TypeAnnotationPosition*, $List*, int32_t)},
+		{"methodReceiver", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/tree/JCTree$JCLambda;I)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/TypeAnnotationPosition$TypePathEntry;>;Lcom/sun/tools/javac/tree/JCTree$JCLambda;I)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", $PUBLIC | $STATIC, $staticMethod(TypeAnnotationPosition, methodReceiver, TypeAnnotationPosition*, $List*, $JCTree$JCLambda*, int32_t)},
+		{"methodReceiver", "(Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/TypeAnnotationPosition$TypePathEntry;>;)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", $PUBLIC | $STATIC, $staticMethod(TypeAnnotationPosition, methodReceiver, TypeAnnotationPosition*, $List*)},
+		{"methodReceiver", "(I)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", nullptr, $PUBLIC | $STATIC, $staticMethod(TypeAnnotationPosition, methodReceiver, TypeAnnotationPosition*, int32_t)},
+		{"methodRef", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/tree/JCTree$JCLambda;I)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/TypeAnnotationPosition$TypePathEntry;>;Lcom/sun/tools/javac/tree/JCTree$JCLambda;I)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", $PUBLIC | $STATIC, $staticMethod(TypeAnnotationPosition, methodRef, TypeAnnotationPosition*, $List*, $JCTree$JCLambda*, int32_t)},
+		{"methodRef", "(Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/TypeAnnotationPosition$TypePathEntry;>;)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", $PUBLIC | $STATIC, $staticMethod(TypeAnnotationPosition, methodRef, TypeAnnotationPosition*, $List*)},
+		{"methodRefTypeArg", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/tree/JCTree$JCLambda;II)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/TypeAnnotationPosition$TypePathEntry;>;Lcom/sun/tools/javac/tree/JCTree$JCLambda;II)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", $PUBLIC | $STATIC, $staticMethod(TypeAnnotationPosition, methodRefTypeArg, TypeAnnotationPosition*, $List*, $JCTree$JCLambda*, int32_t, int32_t)},
+		{"methodRefTypeArg", "(Lcom/sun/tools/javac/util/List;I)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/TypeAnnotationPosition$TypePathEntry;>;I)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", $PUBLIC | $STATIC, $staticMethod(TypeAnnotationPosition, methodRefTypeArg, TypeAnnotationPosition*, $List*, int32_t)},
+		{"methodReturn", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/tree/JCTree$JCLambda;I)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/TypeAnnotationPosition$TypePathEntry;>;Lcom/sun/tools/javac/tree/JCTree$JCLambda;I)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", $PUBLIC | $STATIC, $staticMethod(TypeAnnotationPosition, methodReturn, TypeAnnotationPosition*, $List*, $JCTree$JCLambda*, int32_t)},
+		{"methodReturn", "(Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/TypeAnnotationPosition$TypePathEntry;>;)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", $PUBLIC | $STATIC, $staticMethod(TypeAnnotationPosition, methodReturn, TypeAnnotationPosition*, $List*)},
+		{"methodReturn", "(I)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", nullptr, $PUBLIC | $STATIC, $staticMethod(TypeAnnotationPosition, methodReturn, TypeAnnotationPosition*, int32_t)},
+		{"methodThrows", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/tree/JCTree$JCLambda;II)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/TypeAnnotationPosition$TypePathEntry;>;Lcom/sun/tools/javac/tree/JCTree$JCLambda;II)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", $PUBLIC | $STATIC, $staticMethod(TypeAnnotationPosition, methodThrows, TypeAnnotationPosition*, $List*, $JCTree$JCLambda*, int32_t, int32_t)},
+		{"methodThrows", "(Lcom/sun/tools/javac/util/List;I)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/TypeAnnotationPosition$TypePathEntry;>;I)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", $PUBLIC | $STATIC, $staticMethod(TypeAnnotationPosition, methodThrows, TypeAnnotationPosition*, $List*, int32_t)},
+		{"methodTypeParameter", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/tree/JCTree$JCLambda;II)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/TypeAnnotationPosition$TypePathEntry;>;Lcom/sun/tools/javac/tree/JCTree$JCLambda;II)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", $PUBLIC | $STATIC, $staticMethod(TypeAnnotationPosition, methodTypeParameter, TypeAnnotationPosition*, $List*, $JCTree$JCLambda*, int32_t, int32_t)},
+		{"methodTypeParameter", "(Lcom/sun/tools/javac/util/List;I)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/TypeAnnotationPosition$TypePathEntry;>;I)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", $PUBLIC | $STATIC, $staticMethod(TypeAnnotationPosition, methodTypeParameter, TypeAnnotationPosition*, $List*, int32_t)},
+		{"methodTypeParameterBound", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/tree/JCTree$JCLambda;III)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/TypeAnnotationPosition$TypePathEntry;>;Lcom/sun/tools/javac/tree/JCTree$JCLambda;III)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", $PUBLIC | $STATIC, $staticMethod(TypeAnnotationPosition, methodTypeParameterBound, TypeAnnotationPosition*, $List*, $JCTree$JCLambda*, int32_t, int32_t, int32_t)},
+		{"methodTypeParameterBound", "(Lcom/sun/tools/javac/util/List;II)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/TypeAnnotationPosition$TypePathEntry;>;II)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", $PUBLIC | $STATIC, $staticMethod(TypeAnnotationPosition, methodTypeParameterBound, TypeAnnotationPosition*, $List*, int32_t, int32_t)},
+		{"newObj", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/tree/JCTree$JCLambda;I)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/TypeAnnotationPosition$TypePathEntry;>;Lcom/sun/tools/javac/tree/JCTree$JCLambda;I)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", $PUBLIC | $STATIC, $staticMethod(TypeAnnotationPosition, newObj, TypeAnnotationPosition*, $List*, $JCTree$JCLambda*, int32_t)},
+		{"newObj", "(I)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", nullptr, $PUBLIC | $STATIC, $staticMethod(TypeAnnotationPosition, newObj, TypeAnnotationPosition*, int32_t)},
+		{"newObj", "(Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/TypeAnnotationPosition$TypePathEntry;>;)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", $PUBLIC | $STATIC, $staticMethod(TypeAnnotationPosition, newObj, TypeAnnotationPosition*, $List*)},
+		{"resourceVariable", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/tree/JCTree$JCLambda;I)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/TypeAnnotationPosition$TypePathEntry;>;Lcom/sun/tools/javac/tree/JCTree$JCLambda;I)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", $PUBLIC | $STATIC, $staticMethod(TypeAnnotationPosition, resourceVariable, TypeAnnotationPosition*, $List*, $JCTree$JCLambda*, int32_t)},
+		{"resourceVariable", "(Lcom/sun/tools/javac/tree/JCTree$JCLambda;I)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", nullptr, $PUBLIC | $STATIC, $staticMethod(TypeAnnotationPosition, resourceVariable, TypeAnnotationPosition*, $JCTree$JCLambda*, int32_t)},
+		{"resourceVariable", "(Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/TypeAnnotationPosition$TypePathEntry;>;)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", $PUBLIC | $STATIC, $staticMethod(TypeAnnotationPosition, resourceVariable, TypeAnnotationPosition*, $List*)},
+		{"setCatchInfo", "(II)V", nullptr, $PUBLIC, $virtualMethod(TypeAnnotationPosition, setCatchInfo, void, int32_t, int32_t)},
+		{"setExceptionIndex", "(I)V", nullptr, $PUBLIC, $virtualMethod(TypeAnnotationPosition, setExceptionIndex, void, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TypeAnnotationPosition, toString, $String*)},
+		{"typeCast", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/tree/JCTree$JCLambda;II)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/TypeAnnotationPosition$TypePathEntry;>;Lcom/sun/tools/javac/tree/JCTree$JCLambda;II)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", $PUBLIC | $STATIC, $staticMethod(TypeAnnotationPosition, typeCast, TypeAnnotationPosition*, $List*, $JCTree$JCLambda*, int32_t, int32_t)},
+		{"typeCast", "(Lcom/sun/tools/javac/util/List;I)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/TypeAnnotationPosition$TypePathEntry;>;I)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", $PUBLIC | $STATIC, $staticMethod(TypeAnnotationPosition, typeCast, TypeAnnotationPosition*, $List*, int32_t)},
+		{"typeParameter", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/tree/JCTree$JCLambda;II)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/TypeAnnotationPosition$TypePathEntry;>;Lcom/sun/tools/javac/tree/JCTree$JCLambda;II)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", $PUBLIC | $STATIC, $staticMethod(TypeAnnotationPosition, typeParameter, TypeAnnotationPosition*, $List*, $JCTree$JCLambda*, int32_t, int32_t)},
+		{"typeParameter", "(Lcom/sun/tools/javac/util/List;I)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/TypeAnnotationPosition$TypePathEntry;>;I)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", $PUBLIC | $STATIC, $staticMethod(TypeAnnotationPosition, typeParameter, TypeAnnotationPosition*, $List*, int32_t)},
+		{"typeParameterBound", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/tree/JCTree$JCLambda;III)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/TypeAnnotationPosition$TypePathEntry;>;Lcom/sun/tools/javac/tree/JCTree$JCLambda;III)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", $PUBLIC | $STATIC, $staticMethod(TypeAnnotationPosition, typeParameterBound, TypeAnnotationPosition*, $List*, $JCTree$JCLambda*, int32_t, int32_t, int32_t)},
+		{"typeParameterBound", "(Lcom/sun/tools/javac/util/List;II)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/TypeAnnotationPosition$TypePathEntry;>;II)Lcom/sun/tools/javac/code/TypeAnnotationPosition;", $PUBLIC | $STATIC, $staticMethod(TypeAnnotationPosition, typeParameterBound, TypeAnnotationPosition*, $List*, int32_t, int32_t)},
+		{"updatePosOffset", "(I)V", nullptr, $PUBLIC, $virtualMethod(TypeAnnotationPosition, updatePosOffset, void, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.code.TypeAnnotationPosition$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{"com.sun.tools.javac.code.TypeAnnotationPosition$TypePathEntry", "com.sun.tools.javac.code.TypeAnnotationPosition", "TypePathEntry", $PUBLIC | $STATIC},
+		{"com.sun.tools.javac.code.TypeAnnotationPosition$TypePathEntryKind", "com.sun.tools.javac.code.TypeAnnotationPosition", "TypePathEntryKind", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.code.TypeAnnotationPosition",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.code.TypeAnnotationPosition$1,com.sun.tools.javac.code.TypeAnnotationPosition$TypePathEntry,com.sun.tools.javac.code.TypeAnnotationPosition$TypePathEntryKind"
+	};
+	$loadClass(TypeAnnotationPosition, name, initialize, &classInfo$$, TypeAnnotationPosition::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(TypeAnnotationPosition);
+	});
 	return class$;
 }
 

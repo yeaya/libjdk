@@ -45,6 +45,7 @@ class MessageDecoder : public ::jdk::internal::net::http::websocket::Frame$Consu
 	$class(MessageDecoder, 0, ::jdk::internal::net::http::websocket::Frame$Consumer)
 public:
 	MessageDecoder();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::jdk::internal::net::http::websocket::MessageStreamConsumer* output);
 	virtual void endFrame() override;
 	virtual void fin(bool value) override;

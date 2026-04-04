@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/security/keys/keyresolver/KeyResolverSpi.h>
-
 #include <com/sun/org/apache/xml/internal/security/keys/keyresolver/KeyResolverException.h>
 #include <com/sun/org/apache/xml/internal/security/keys/storage/StorageResolver.h>
 #include <com/sun/org/apache/xml/internal/security/parser/XMLParserException.h>
@@ -23,7 +22,6 @@ using $ByteArrayInputStream = ::java::io::ByteArrayInputStream;
 using $IOException = ::java::io::IOException;
 using $InputStream = ::java::io::InputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Exception = ::java::lang::Exception;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $PrivateKey = ::java::security::PrivateKey;
 using $PublicKey = ::java::security::PublicKey;
@@ -41,34 +39,6 @@ namespace com {
 						namespace security {
 							namespace keys {
 								namespace keyresolver {
-
-$MethodInfo _KeyResolverSpi_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(KeyResolverSpi, init$, void)},
-	{"engineCanResolve", "(Lorg/w3c/dom/Element;Ljava/lang/String;Lcom/sun/org/apache/xml/internal/security/keys/storage/StorageResolver;)Z", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(KeyResolverSpi, engineCanResolve, bool, $Element*, $String*, $StorageResolver*)},
-	{"engineLookupAndResolvePrivateKey", "(Lorg/w3c/dom/Element;Ljava/lang/String;Lcom/sun/org/apache/xml/internal/security/keys/storage/StorageResolver;Z)Ljava/security/PrivateKey;", nullptr, $PUBLIC, $virtualMethod(KeyResolverSpi, engineLookupAndResolvePrivateKey, $PrivateKey*, $Element*, $String*, $StorageResolver*, bool), "com.sun.org.apache.xml.internal.security.keys.keyresolver.KeyResolverException"},
-	{"engineLookupAndResolvePublicKey", "(Lorg/w3c/dom/Element;Ljava/lang/String;Lcom/sun/org/apache/xml/internal/security/keys/storage/StorageResolver;Z)Ljava/security/PublicKey;", nullptr, $PUBLIC, $virtualMethod(KeyResolverSpi, engineLookupAndResolvePublicKey, $PublicKey*, $Element*, $String*, $StorageResolver*, bool), "com.sun.org.apache.xml.internal.security.keys.keyresolver.KeyResolverException"},
-	{"engineLookupAndResolveSecretKey", "(Lorg/w3c/dom/Element;Ljava/lang/String;Lcom/sun/org/apache/xml/internal/security/keys/storage/StorageResolver;Z)Ljavax/crypto/SecretKey;", nullptr, $PUBLIC, $virtualMethod(KeyResolverSpi, engineLookupAndResolveSecretKey, $SecretKey*, $Element*, $String*, $StorageResolver*, bool), "com.sun.org.apache.xml.internal.security.keys.keyresolver.KeyResolverException"},
-	{"engineLookupResolveX509Certificate", "(Lorg/w3c/dom/Element;Ljava/lang/String;Lcom/sun/org/apache/xml/internal/security/keys/storage/StorageResolver;Z)Ljava/security/cert/X509Certificate;", nullptr, $PUBLIC, $virtualMethod(KeyResolverSpi, engineLookupResolveX509Certificate, $X509Certificate*, $Element*, $String*, $StorageResolver*, bool), "com.sun.org.apache.xml.internal.security.keys.keyresolver.KeyResolverException"},
-	{"engineResolvePrivateKey", "(Lorg/w3c/dom/Element;Ljava/lang/String;Lcom/sun/org/apache/xml/internal/security/keys/storage/StorageResolver;Z)Ljava/security/PrivateKey;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(KeyResolverSpi, engineResolvePrivateKey, $PrivateKey*, $Element*, $String*, $StorageResolver*, bool), "com.sun.org.apache.xml.internal.security.keys.keyresolver.KeyResolverException"},
-	{"engineResolvePublicKey", "(Lorg/w3c/dom/Element;Ljava/lang/String;Lcom/sun/org/apache/xml/internal/security/keys/storage/StorageResolver;Z)Ljava/security/PublicKey;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(KeyResolverSpi, engineResolvePublicKey, $PublicKey*, $Element*, $String*, $StorageResolver*, bool), "com.sun.org.apache.xml.internal.security.keys.keyresolver.KeyResolverException"},
-	{"engineResolveSecretKey", "(Lorg/w3c/dom/Element;Ljava/lang/String;Lcom/sun/org/apache/xml/internal/security/keys/storage/StorageResolver;Z)Ljavax/crypto/SecretKey;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(KeyResolverSpi, engineResolveSecretKey, $SecretKey*, $Element*, $String*, $StorageResolver*, bool), "com.sun.org.apache.xml.internal.security.keys.keyresolver.KeyResolverException"},
-	{"engineResolveX509Certificate", "(Lorg/w3c/dom/Element;Ljava/lang/String;Lcom/sun/org/apache/xml/internal/security/keys/storage/StorageResolver;Z)Ljava/security/cert/X509Certificate;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(KeyResolverSpi, engineResolveX509Certificate, $X509Certificate*, $Element*, $String*, $StorageResolver*, bool), "com.sun.org.apache.xml.internal.security.keys.keyresolver.KeyResolverException"},
-	{"getDocFromBytes", "([BZ)Lorg/w3c/dom/Element;", nullptr, $PROTECTED | $STATIC, $staticMethod(KeyResolverSpi, getDocFromBytes, $Element*, $bytes*, bool), "com.sun.org.apache.xml.internal.security.keys.keyresolver.KeyResolverException"},
-	{}
-};
-
-$ClassInfo _KeyResolverSpi_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"com.sun.org.apache.xml.internal.security.keys.keyresolver.KeyResolverSpi",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_KeyResolverSpi_MethodInfo_
-};
-
-$Object* allocate$KeyResolverSpi($Class* clazz) {
-	return $of($alloc(KeyResolverSpi));
-}
 
 void KeyResolverSpi::init$() {
 }
@@ -102,43 +72,41 @@ $PrivateKey* KeyResolverSpi::engineLookupAndResolvePrivateKey($Element* element,
 }
 
 $Element* KeyResolverSpi::getDocFromBytes($bytes* bytes, bool secureValidation) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$var($InputStream, is, $new($ByteArrayInputStream, bytes));
-		{
-			$var($Throwable, var$0, nullptr);
-			$var($Element, var$2, nullptr);
-			bool return$1 = false;
+		$var($Throwable, var$0, nullptr);
+		$var($Element, var$2, nullptr);
+		bool return$1 = false;
+		try {
 			try {
+				$var($Document, doc, $XMLUtils::read(is, secureValidation));
+				$assign(var$2, $nc(doc)->getDocumentElement());
+				return$1 = true;
+				goto $finally;
+			} catch ($Throwable& t$) {
 				try {
-					$var($Document, doc, $XMLUtils::read(is, secureValidation));
-					$assign(var$2, $nc(doc)->getDocumentElement());
-					return$1 = true;
-					goto $finally;
-				} catch ($Throwable& t$) {
-					try {
-						is->close();
-					} catch ($Throwable& x2) {
-						t$->addSuppressed(x2);
-					}
-					$throw(t$);
+					is->close();
+				} catch ($Throwable& x2) {
+					t$->addSuppressed(x2);
 				}
-			} catch ($Throwable& var$3) {
-				$assign(var$0, var$3);
-			} $finally: {
-				is->close();
+				$throw(t$);
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
-			if (return$1) {
-				return var$2;
-			}
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
+		} $finally: {
+			is->close();
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
+		}
+		if (return$1) {
+			return var$2;
 		}
 	} catch ($XMLParserException& ex) {
-		$throwNew($KeyResolverException, static_cast<$Exception*>(ex));
+		$throwNew($KeyResolverException, ex);
 	} catch ($IOException& ex) {
-		$throwNew($KeyResolverException, static_cast<$Exception*>(ex));
+		$throwNew($KeyResolverException, ex);
 	}
 	$shouldNotReachHere();
 }
@@ -147,7 +115,31 @@ KeyResolverSpi::KeyResolverSpi() {
 }
 
 $Class* KeyResolverSpi::load$($String* name, bool initialize) {
-	$loadClass(KeyResolverSpi, name, initialize, &_KeyResolverSpi_ClassInfo_, allocate$KeyResolverSpi);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(KeyResolverSpi, init$, void)},
+		{"engineCanResolve", "(Lorg/w3c/dom/Element;Ljava/lang/String;Lcom/sun/org/apache/xml/internal/security/keys/storage/StorageResolver;)Z", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(KeyResolverSpi, engineCanResolve, bool, $Element*, $String*, $StorageResolver*)},
+		{"engineLookupAndResolvePrivateKey", "(Lorg/w3c/dom/Element;Ljava/lang/String;Lcom/sun/org/apache/xml/internal/security/keys/storage/StorageResolver;Z)Ljava/security/PrivateKey;", nullptr, $PUBLIC, $virtualMethod(KeyResolverSpi, engineLookupAndResolvePrivateKey, $PrivateKey*, $Element*, $String*, $StorageResolver*, bool), "com.sun.org.apache.xml.internal.security.keys.keyresolver.KeyResolverException"},
+		{"engineLookupAndResolvePublicKey", "(Lorg/w3c/dom/Element;Ljava/lang/String;Lcom/sun/org/apache/xml/internal/security/keys/storage/StorageResolver;Z)Ljava/security/PublicKey;", nullptr, $PUBLIC, $virtualMethod(KeyResolverSpi, engineLookupAndResolvePublicKey, $PublicKey*, $Element*, $String*, $StorageResolver*, bool), "com.sun.org.apache.xml.internal.security.keys.keyresolver.KeyResolverException"},
+		{"engineLookupAndResolveSecretKey", "(Lorg/w3c/dom/Element;Ljava/lang/String;Lcom/sun/org/apache/xml/internal/security/keys/storage/StorageResolver;Z)Ljavax/crypto/SecretKey;", nullptr, $PUBLIC, $virtualMethod(KeyResolverSpi, engineLookupAndResolveSecretKey, $SecretKey*, $Element*, $String*, $StorageResolver*, bool), "com.sun.org.apache.xml.internal.security.keys.keyresolver.KeyResolverException"},
+		{"engineLookupResolveX509Certificate", "(Lorg/w3c/dom/Element;Ljava/lang/String;Lcom/sun/org/apache/xml/internal/security/keys/storage/StorageResolver;Z)Ljava/security/cert/X509Certificate;", nullptr, $PUBLIC, $virtualMethod(KeyResolverSpi, engineLookupResolveX509Certificate, $X509Certificate*, $Element*, $String*, $StorageResolver*, bool), "com.sun.org.apache.xml.internal.security.keys.keyresolver.KeyResolverException"},
+		{"engineResolvePrivateKey", "(Lorg/w3c/dom/Element;Ljava/lang/String;Lcom/sun/org/apache/xml/internal/security/keys/storage/StorageResolver;Z)Ljava/security/PrivateKey;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(KeyResolverSpi, engineResolvePrivateKey, $PrivateKey*, $Element*, $String*, $StorageResolver*, bool), "com.sun.org.apache.xml.internal.security.keys.keyresolver.KeyResolverException"},
+		{"engineResolvePublicKey", "(Lorg/w3c/dom/Element;Ljava/lang/String;Lcom/sun/org/apache/xml/internal/security/keys/storage/StorageResolver;Z)Ljava/security/PublicKey;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(KeyResolverSpi, engineResolvePublicKey, $PublicKey*, $Element*, $String*, $StorageResolver*, bool), "com.sun.org.apache.xml.internal.security.keys.keyresolver.KeyResolverException"},
+		{"engineResolveSecretKey", "(Lorg/w3c/dom/Element;Ljava/lang/String;Lcom/sun/org/apache/xml/internal/security/keys/storage/StorageResolver;Z)Ljavax/crypto/SecretKey;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(KeyResolverSpi, engineResolveSecretKey, $SecretKey*, $Element*, $String*, $StorageResolver*, bool), "com.sun.org.apache.xml.internal.security.keys.keyresolver.KeyResolverException"},
+		{"engineResolveX509Certificate", "(Lorg/w3c/dom/Element;Ljava/lang/String;Lcom/sun/org/apache/xml/internal/security/keys/storage/StorageResolver;Z)Ljava/security/cert/X509Certificate;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(KeyResolverSpi, engineResolveX509Certificate, $X509Certificate*, $Element*, $String*, $StorageResolver*, bool), "com.sun.org.apache.xml.internal.security.keys.keyresolver.KeyResolverException"},
+		{"getDocFromBytes", "([BZ)Lorg/w3c/dom/Element;", nullptr, $PROTECTED | $STATIC, $staticMethod(KeyResolverSpi, getDocFromBytes, $Element*, $bytes*, bool), "com.sun.org.apache.xml.internal.security.keys.keyresolver.KeyResolverException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"com.sun.org.apache.xml.internal.security.keys.keyresolver.KeyResolverSpi",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(KeyResolverSpi, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(KeyResolverSpi);
+	});
 	return class$;
 }
 

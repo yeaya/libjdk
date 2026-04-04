@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/IllegalCharException.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -16,29 +15,6 @@ namespace com {
 						namespace xsltc {
 							namespace compiler {
 
-$FieldInfo _IllegalCharException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(IllegalCharException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _IllegalCharException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(IllegalCharException, init$, void, $String*)},
-	{}
-};
-
-$ClassInfo _IllegalCharException_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.org.apache.xalan.internal.xsltc.compiler.IllegalCharException",
-	"java.lang.Exception",
-	nullptr,
-	_IllegalCharException_FieldInfo_,
-	_IllegalCharException_MethodInfo_
-};
-
-$Object* allocate$IllegalCharException($Class* clazz) {
-	return $of($alloc(IllegalCharException));
-}
-
 void IllegalCharException::init$($String* s) {
 	$Exception::init$(s);
 }
@@ -54,7 +30,25 @@ void IllegalCharException::throw$() {
 }
 
 $Class* IllegalCharException::load$($String* name, bool initialize) {
-	$loadClass(IllegalCharException, name, initialize, &_IllegalCharException_ClassInfo_, allocate$IllegalCharException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(IllegalCharException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(IllegalCharException, init$, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.org.apache.xalan.internal.xsltc.compiler.IllegalCharException",
+		"java.lang.Exception",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(IllegalCharException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(IllegalCharException);
+	});
 	return class$;
 }
 

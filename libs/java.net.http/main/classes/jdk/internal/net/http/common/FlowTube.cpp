@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/common/FlowTube.h>
-
 #include <java/util/concurrent/Flow$Publisher.h>
 #include <java/util/concurrent/Flow$Subscriber.h>
 #include <jdk/internal/net/http/common/FlowTube$AbstractTubePublisher$TubePublisherWrapper.h>
@@ -23,48 +22,6 @@ namespace jdk {
 		namespace net {
 			namespace http {
 				namespace common {
-
-$MethodInfo _FlowTube_MethodInfo_[] = {
-	{"asTubePublisher", "(Ljava/util/concurrent/Flow$Publisher;)Ljdk/internal/net/http/common/FlowTube$TubePublisher;", "(Ljava/util/concurrent/Flow$Publisher<Ljava/util/List<Ljava/nio/ByteBuffer;>;>;)Ljdk/internal/net/http/common/FlowTube$TubePublisher;", $PUBLIC | $STATIC, $staticMethod(FlowTube, asTubePublisher, $FlowTube$TubePublisher*, $Flow$Publisher*)},
-	{"asTubeSubscriber", "(Ljava/util/concurrent/Flow$Subscriber;)Ljdk/internal/net/http/common/FlowTube$TubeSubscriber;", "(Ljava/util/concurrent/Flow$Subscriber<-Ljava/util/List<Ljava/nio/ByteBuffer;>;>;)Ljdk/internal/net/http/common/FlowTube$TubeSubscriber;", $PUBLIC | $STATIC, $staticMethod(FlowTube, asTubeSubscriber, $FlowTube$TubeSubscriber*, $Flow$Subscriber*)},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"connectFlows", "(Ljdk/internal/net/http/common/FlowTube$TubePublisher;Ljdk/internal/net/http/common/FlowTube$TubeSubscriber;)V", nullptr, $PUBLIC, $virtualMethod(FlowTube, connectFlows, void, $FlowTube$TubePublisher*, $FlowTube$TubeSubscriber*)},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"isFinished", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(FlowTube, isFinished, bool)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _FlowTube_InnerClassesInfo_[] = {
-	{"java.util.concurrent.Flow$Publisher", "java.util.concurrent.Flow", "Publisher", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"java.util.concurrent.Flow$Subscriber", "java.util.concurrent.Flow", "Subscriber", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"jdk.internal.net.http.common.FlowTube$AbstractTubeSubscriber", "jdk.internal.net.http.common.FlowTube", "AbstractTubeSubscriber", $PUBLIC | $STATIC | $ABSTRACT},
-	{"jdk.internal.net.http.common.FlowTube$AbstractTubePublisher", "jdk.internal.net.http.common.FlowTube", "AbstractTubePublisher", $PUBLIC | $STATIC | $ABSTRACT},
-	{"jdk.internal.net.http.common.FlowTube$TubePublisher", "jdk.internal.net.http.common.FlowTube", "TubePublisher", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"jdk.internal.net.http.common.FlowTube$TubeSubscriber", "jdk.internal.net.http.common.FlowTube", "TubeSubscriber", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _FlowTube_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"jdk.internal.net.http.common.FlowTube",
-	nullptr,
-	"java.util.concurrent.Flow$Publisher,java.util.concurrent.Flow$Subscriber",
-	nullptr,
-	_FlowTube_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/concurrent/Flow$Publisher<Ljava/util/List<Ljava/nio/ByteBuffer;>;>;Ljava/util/concurrent/Flow$Subscriber<Ljava/util/List<Ljava/nio/ByteBuffer;>;>;",
-	nullptr,
-	_FlowTube_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"jdk.internal.net.http.common.FlowTube$AbstractTubeSubscriber,jdk.internal.net.http.common.FlowTube$AbstractTubeSubscriber$TubeSubscriberWrapper,jdk.internal.net.http.common.FlowTube$AbstractTubePublisher,jdk.internal.net.http.common.FlowTube$AbstractTubePublisher$TubePublisherWrapper,jdk.internal.net.http.common.FlowTube$TubePublisher,jdk.internal.net.http.common.FlowTube$TubeSubscriber"
-};
-
-$Object* allocate$FlowTube($Class* clazz) {
-	return $of($alloc(FlowTube));
-}
 
 int32_t FlowTube::hashCode() {
 	 return this->$Flow$Publisher::hashCode();
@@ -108,7 +65,44 @@ $FlowTube$TubePublisher* FlowTube::asTubePublisher($Flow$Publisher* p) {
 }
 
 $Class* FlowTube::load$($String* name, bool initialize) {
-	$loadClass(FlowTube, name, initialize, &_FlowTube_ClassInfo_, allocate$FlowTube);
+	$MethodInfo methodInfos$$[] = {
+		{"asTubePublisher", "(Ljava/util/concurrent/Flow$Publisher;)Ljdk/internal/net/http/common/FlowTube$TubePublisher;", "(Ljava/util/concurrent/Flow$Publisher<Ljava/util/List<Ljava/nio/ByteBuffer;>;>;)Ljdk/internal/net/http/common/FlowTube$TubePublisher;", $PUBLIC | $STATIC, $staticMethod(FlowTube, asTubePublisher, $FlowTube$TubePublisher*, $Flow$Publisher*)},
+		{"asTubeSubscriber", "(Ljava/util/concurrent/Flow$Subscriber;)Ljdk/internal/net/http/common/FlowTube$TubeSubscriber;", "(Ljava/util/concurrent/Flow$Subscriber<-Ljava/util/List<Ljava/nio/ByteBuffer;>;>;)Ljdk/internal/net/http/common/FlowTube$TubeSubscriber;", $PUBLIC | $STATIC, $staticMethod(FlowTube, asTubeSubscriber, $FlowTube$TubeSubscriber*, $Flow$Subscriber*)},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"connectFlows", "(Ljdk/internal/net/http/common/FlowTube$TubePublisher;Ljdk/internal/net/http/common/FlowTube$TubeSubscriber;)V", nullptr, $PUBLIC, $virtualMethod(FlowTube, connectFlows, void, $FlowTube$TubePublisher*, $FlowTube$TubeSubscriber*)},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"isFinished", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(FlowTube, isFinished, bool)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.concurrent.Flow$Publisher", "java.util.concurrent.Flow", "Publisher", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"java.util.concurrent.Flow$Subscriber", "java.util.concurrent.Flow", "Subscriber", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"jdk.internal.net.http.common.FlowTube$AbstractTubeSubscriber", "jdk.internal.net.http.common.FlowTube", "AbstractTubeSubscriber", $PUBLIC | $STATIC | $ABSTRACT},
+		{"jdk.internal.net.http.common.FlowTube$AbstractTubePublisher", "jdk.internal.net.http.common.FlowTube", "AbstractTubePublisher", $PUBLIC | $STATIC | $ABSTRACT},
+		{"jdk.internal.net.http.common.FlowTube$TubePublisher", "jdk.internal.net.http.common.FlowTube", "TubePublisher", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"jdk.internal.net.http.common.FlowTube$TubeSubscriber", "jdk.internal.net.http.common.FlowTube", "TubeSubscriber", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"jdk.internal.net.http.common.FlowTube",
+		nullptr,
+		"java.util.concurrent.Flow$Publisher,java.util.concurrent.Flow$Subscriber",
+		nullptr,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/concurrent/Flow$Publisher<Ljava/util/List<Ljava/nio/ByteBuffer;>;>;Ljava/util/concurrent/Flow$Subscriber<Ljava/util/List<Ljava/nio/ByteBuffer;>;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"jdk.internal.net.http.common.FlowTube$AbstractTubeSubscriber,jdk.internal.net.http.common.FlowTube$AbstractTubeSubscriber$TubeSubscriberWrapper,jdk.internal.net.http.common.FlowTube$AbstractTubePublisher,jdk.internal.net.http.common.FlowTube$AbstractTubePublisher$TubePublisherWrapper,jdk.internal.net.http.common.FlowTube$TubePublisher,jdk.internal.net.http.common.FlowTube$TubeSubscriber"
+	};
+	$loadClass(FlowTube, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(FlowTube));
+	});
 	return class$;
 }
 

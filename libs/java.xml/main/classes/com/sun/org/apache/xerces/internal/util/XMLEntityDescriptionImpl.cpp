@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/util/XMLEntityDescriptionImpl.h>
-
 #include <com/sun/org/apache/xerces/internal/util/XMLResourceIdentifierImpl.h>
 #include <java/lang/StringBuffer.h>
 #include <jcpp.h>
@@ -17,51 +16,6 @@ namespace com {
 				namespace xerces {
 					namespace internal {
 						namespace util {
-
-$FieldInfo _XMLEntityDescriptionImpl_FieldInfo_[] = {
-	{"fEntityName", "Ljava/lang/String;", nullptr, $PROTECTED, $field(XMLEntityDescriptionImpl, fEntityName)},
-	{}
-};
-
-$MethodInfo _XMLEntityDescriptionImpl_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*getBaseSystemId", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*getExpandedSystemId", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*getLiteralSystemId", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*getNamespace", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*getPublicId", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(XMLEntityDescriptionImpl, init$, void)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(XMLEntityDescriptionImpl, init$, void, $String*, $String*, $String*, $String*, $String*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(XMLEntityDescriptionImpl, init$, void, $String*, $String*, $String*, $String*, $String*, $String*)},
-	{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(XMLEntityDescriptionImpl, clear, void)},
-	{"getEntityName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLEntityDescriptionImpl, getEntityName, $String*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(XMLEntityDescriptionImpl, hashCode, int32_t)},
-	{"*setBaseSystemId", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"setDescription", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(XMLEntityDescriptionImpl, setDescription, void, $String*, $String*, $String*, $String*, $String*)},
-	{"setDescription", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(XMLEntityDescriptionImpl, setDescription, void, $String*, $String*, $String*, $String*, $String*, $String*)},
-	{"setEntityName", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(XMLEntityDescriptionImpl, setEntityName, void, $String*)},
-	{"*setExpandedSystemId", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"*setLiteralSystemId", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"*setNamespace", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"*setPublicId", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLEntityDescriptionImpl, toString, $String*)},
-	{}
-};
-
-$ClassInfo _XMLEntityDescriptionImpl_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.util.XMLEntityDescriptionImpl",
-	"com.sun.org.apache.xerces.internal.util.XMLResourceIdentifierImpl",
-	"com.sun.org.apache.xerces.internal.impl.XMLEntityDescription",
-	_XMLEntityDescriptionImpl_FieldInfo_,
-	_XMLEntityDescriptionImpl_MethodInfo_
-};
-
-$Object* allocate$XMLEntityDescriptionImpl($Class* clazz) {
-	return $of($alloc(XMLEntityDescriptionImpl));
-}
 
 void XMLEntityDescriptionImpl::setPublicId($String* publicId) {
 	this->$XMLResourceIdentifierImpl::setPublicId(publicId);
@@ -154,7 +108,7 @@ void XMLEntityDescriptionImpl::clear() {
 int32_t XMLEntityDescriptionImpl::hashCode() {
 	int32_t code = $XMLResourceIdentifierImpl::hashCode();
 	if (this->fEntityName != nullptr) {
-		code += $nc(this->fEntityName)->hashCode();
+		code += this->fEntityName->hashCode();
 	}
 	return code;
 }
@@ -191,7 +145,47 @@ XMLEntityDescriptionImpl::XMLEntityDescriptionImpl() {
 }
 
 $Class* XMLEntityDescriptionImpl::load$($String* name, bool initialize) {
-	$loadClass(XMLEntityDescriptionImpl, name, initialize, &_XMLEntityDescriptionImpl_ClassInfo_, allocate$XMLEntityDescriptionImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"fEntityName", "Ljava/lang/String;", nullptr, $PROTECTED, $field(XMLEntityDescriptionImpl, fEntityName)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*getBaseSystemId", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*getExpandedSystemId", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*getLiteralSystemId", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*getNamespace", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*getPublicId", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(XMLEntityDescriptionImpl, init$, void)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(XMLEntityDescriptionImpl, init$, void, $String*, $String*, $String*, $String*, $String*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(XMLEntityDescriptionImpl, init$, void, $String*, $String*, $String*, $String*, $String*, $String*)},
+		{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(XMLEntityDescriptionImpl, clear, void)},
+		{"getEntityName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLEntityDescriptionImpl, getEntityName, $String*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(XMLEntityDescriptionImpl, hashCode, int32_t)},
+		{"*setBaseSystemId", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
+		{"setDescription", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(XMLEntityDescriptionImpl, setDescription, void, $String*, $String*, $String*, $String*, $String*)},
+		{"setDescription", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(XMLEntityDescriptionImpl, setDescription, void, $String*, $String*, $String*, $String*, $String*, $String*)},
+		{"setEntityName", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(XMLEntityDescriptionImpl, setEntityName, void, $String*)},
+		{"*setExpandedSystemId", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
+		{"*setLiteralSystemId", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
+		{"*setNamespace", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
+		{"*setPublicId", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLEntityDescriptionImpl, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.util.XMLEntityDescriptionImpl",
+		"com.sun.org.apache.xerces.internal.util.XMLResourceIdentifierImpl",
+		"com.sun.org.apache.xerces.internal.impl.XMLEntityDescription",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XMLEntityDescriptionImpl, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(XMLEntityDescriptionImpl));
+	});
 	return class$;
 }
 

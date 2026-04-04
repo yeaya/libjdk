@@ -44,6 +44,7 @@ class $export GSSNameImpl : public ::org::ietf::jgss::GSSName {
 	$class(GSSNameImpl, 0, ::org::ietf::jgss::GSSName)
 public:
 	GSSNameImpl();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::security::jgss::GSSManagerImpl* gssManager, ::sun::security::jgss::spi::GSSNameSpi* mechElement);
 	void init$(::sun::security::jgss::GSSManagerImpl* gssManager, Object$* appName, ::org::ietf::jgss::Oid* appNameType);
 	void init$(::sun::security::jgss::GSSManagerImpl* gssManager, Object$* appName, ::org::ietf::jgss::Oid* appNameType, ::org::ietf::jgss::Oid* mech);

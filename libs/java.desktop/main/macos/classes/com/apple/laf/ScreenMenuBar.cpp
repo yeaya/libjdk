@@ -1,7 +1,5 @@
 #include <com/apple/laf/ScreenMenuBar.h>
-
 #include <com/apple/laf/ScreenMenu.h>
-#include <com/apple/laf/ScreenMenuPropertyHandler.h>
 #include <com/apple/laf/ScreenMenuPropertyListener.h>
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
@@ -11,11 +9,8 @@
 #include <java/awt/MenuComponent.h>
 #include <java/awt/MenuContainer.h>
 #include <java/awt/event/ComponentEvent.h>
-#include <java/awt/event/ComponentListener.h>
 #include <java/awt/event/ContainerEvent.h>
-#include <java/awt/event/ContainerListener.h>
 #include <java/awt/peer/MenuComponentPeer.h>
-#include <java/beans/PropertyChangeListener.h>
 #include <java/util/Enumeration.h>
 #include <java/util/EventObject.h>
 #include <java/util/Hashtable.h>
@@ -33,91 +28,31 @@
 #include <jcpp.h>
 
 using $ScreenMenu = ::com::apple::laf::ScreenMenu;
-using $ScreenMenuPropertyHandler = ::com::apple::laf::ScreenMenuPropertyHandler;
 using $ScreenMenuPropertyListener = ::com::apple::laf::ScreenMenuPropertyListener;
 using $Component = ::java::awt::Component;
 using $Font = ::java::awt::Font;
 using $Menu = ::java::awt::Menu;
 using $MenuBar = ::java::awt::MenuBar;
-using $MenuComponent = ::java::awt::MenuComponent;
-using $MenuContainer = ::java::awt::MenuContainer;
 using $ComponentEvent = ::java::awt::event::ComponentEvent;
-using $ComponentListener = ::java::awt::event::ComponentListener;
 using $ContainerEvent = ::java::awt::event::ContainerEvent;
-using $ContainerListener = ::java::awt::event::ContainerListener;
-using $PropertyChangeListener = ::java::beans::PropertyChangeListener;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Enumeration = ::java::util::Enumeration;
 using $Hashtable = ::java::util::Hashtable;
 using $Vector = ::java::util::Vector;
-using $AccessibleContext = ::javax::accessibility::AccessibleContext;
 using $Icon = ::javax::swing::Icon;
 using $JMenu = ::javax::swing::JMenu;
 using $JMenuBar = ::javax::swing::JMenuBar;
 using $JMenuItem = ::javax::swing::JMenuItem;
 using $KeyStroke = ::javax::swing::KeyStroke;
 using $AWTAccessor = ::sun::awt::AWTAccessor;
-using $AWTAccessor$MenuBarAccessor = ::sun::awt::AWTAccessor$MenuBarAccessor;
 using $AWTAccessor$MenuComponentAccessor = ::sun::awt::AWTAccessor$MenuComponentAccessor;
 using $CMenuBar = ::sun::lwawt::macosx::CMenuBar;
 
 namespace com {
 	namespace apple {
 		namespace laf {
-
-$FieldInfo _ScreenMenuBar_FieldInfo_[] = {
-	{"sJMenuBarHasHelpMenus", "Z", nullptr, $STATIC, $staticField(ScreenMenuBar, sJMenuBarHasHelpMenus)},
-	{"fSwingBar", "Ljavax/swing/JMenuBar;", nullptr, 0, $field(ScreenMenuBar, fSwingBar)},
-	{"fSubmenus", "Ljava/util/Hashtable;", "Ljava/util/Hashtable<Ljavax/swing/JMenu;Lcom/apple/laf/ScreenMenu;>;", 0, $field(ScreenMenuBar, fSubmenus)},
-	{"fPropertyListener", "Lcom/apple/laf/ScreenMenuPropertyListener;", nullptr, 0, $field(ScreenMenuBar, fPropertyListener)},
-	{"fAccessibleListener", "Lcom/apple/laf/ScreenMenuPropertyListener;", nullptr, 0, $field(ScreenMenuBar, fAccessibleListener)},
-	{}
-};
-
-$MethodInfo _ScreenMenuBar_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljavax/swing/JMenuBar;)V", nullptr, $PUBLIC, $method(ScreenMenuBar, init$, void, $JMenuBar*)},
-	{"add", "(Ljava/awt/Menu;I)Ljava/awt/Menu;", nullptr, $PUBLIC, $virtualMethod(ScreenMenuBar, add, $Menu*, $Menu*, int32_t)},
-	{"addNotify", "()V", nullptr, $PUBLIC, $virtualMethod(ScreenMenuBar, addNotify, void)},
-	{"addSubmenu", "(Ljavax/swing/JMenu;)Lcom/apple/laf/ScreenMenu;", nullptr, 0, $virtualMethod(ScreenMenuBar, addSubmenu, $ScreenMenu*, $JMenu*)},
-	{"componentAdded", "(Ljava/awt/event/ContainerEvent;)V", nullptr, $PUBLIC, $virtualMethod(ScreenMenuBar, componentAdded, void, $ContainerEvent*)},
-	{"componentHidden", "(Ljava/awt/event/ComponentEvent;)V", nullptr, $PUBLIC, $virtualMethod(ScreenMenuBar, componentHidden, void, $ComponentEvent*)},
-	{"componentMoved", "(Ljava/awt/event/ComponentEvent;)V", nullptr, $PUBLIC, $virtualMethod(ScreenMenuBar, componentMoved, void, $ComponentEvent*)},
-	{"componentRemoved", "(Ljava/awt/event/ContainerEvent;)V", nullptr, $PUBLIC, $virtualMethod(ScreenMenuBar, componentRemoved, void, $ContainerEvent*)},
-	{"componentResized", "(Ljava/awt/event/ComponentEvent;)V", nullptr, $PUBLIC, $virtualMethod(ScreenMenuBar, componentResized, void, $ComponentEvent*)},
-	{"componentShown", "(Ljava/awt/event/ComponentEvent;)V", nullptr, $PUBLIC, $virtualMethod(ScreenMenuBar, componentShown, void, $ComponentEvent*)},
-	{"removeAll", "()V", nullptr, $PUBLIC, $virtualMethod(ScreenMenuBar, removeAll, void)},
-	{"removeNotify", "()V", nullptr, $PUBLIC, $virtualMethod(ScreenMenuBar, removeNotify, void)},
-	{"removeSubmenu", "(Ljavax/swing/JMenu;)V", nullptr, $PRIVATE, $method(ScreenMenuBar, removeSubmenu, void, $JMenu*)},
-	{"setAccelerator", "(Ljavax/swing/KeyStroke;)V", nullptr, $PUBLIC, $virtualMethod(ScreenMenuBar, setAccelerator, void, $KeyStroke*)},
-	{"setChildVisible", "(Ljavax/swing/JMenuItem;Z)V", nullptr, $PUBLIC, $virtualMethod(ScreenMenuBar, setChildVisible, void, $JMenuItem*, bool)},
-	{"setEnabled", "(Z)V", nullptr, $PUBLIC, $virtualMethod(ScreenMenuBar, setEnabled, void, bool)},
-	{"*setFont", "(Ljava/awt/Font;)V", nullptr, $PUBLIC},
-	{"setIcon", "(Ljavax/swing/Icon;)V", nullptr, $PUBLIC, $virtualMethod(ScreenMenuBar, setIcon, void, $Icon*)},
-	{"setIndeterminate", "(Z)V", nullptr, $PUBLIC, $virtualMethod(ScreenMenuBar, setIndeterminate, void, bool)},
-	{"setLabel", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ScreenMenuBar, setLabel, void, $String*)},
-	{"setToolTipText", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ScreenMenuBar, setToolTipText, void, $String*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _ScreenMenuBar_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.apple.laf.ScreenMenuBar",
-	"java.awt.MenuBar",
-	"java.awt.event.ContainerListener,com.apple.laf.ScreenMenuPropertyHandler,java.awt.event.ComponentListener",
-	_ScreenMenuBar_FieldInfo_,
-	_ScreenMenuBar_MethodInfo_
-};
-
-$Object* allocate$ScreenMenuBar($Class* clazz) {
-	return $of($alloc(ScreenMenuBar));
-}
 
 void ScreenMenuBar::setFont($Font* f) {
 	this->$MenuBar::setFont(f);
@@ -152,13 +87,13 @@ void ScreenMenuBar::init$($JMenuBar* swingBar) {
 }
 
 void ScreenMenuBar::addNotify() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$MenuBar::addNotify();
 	$nc(this->fSwingBar)->addContainerListener(this);
 	$set(this, fPropertyListener, $new($ScreenMenuPropertyListener, this));
 	$nc(this->fSwingBar)->addPropertyChangeListener(this->fPropertyListener);
 	$set(this, fAccessibleListener, $new($ScreenMenuPropertyListener, this));
-	$nc($($nc(this->fSwingBar)->getAccessibleContext()))->addPropertyChangeListener(this->fAccessibleListener);
+	$$nc($nc(this->fSwingBar)->getAccessibleContext())->addPropertyChangeListener(this->fAccessibleListener);
 	int32_t count = $nc(this->fSwingBar)->getMenuCount();
 	for (int32_t i = 0; i < count; ++i) {
 		$var($JMenu, m, $nc(this->fSwingBar)->getMenu(i));
@@ -176,16 +111,16 @@ void ScreenMenuBar::addNotify() {
 }
 
 void ScreenMenuBar::removeNotify() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->fSwingBar != nullptr) {
-		$nc(this->fSwingBar)->removePropertyChangeListener(this->fPropertyListener);
-		$nc($($nc(this->fSwingBar)->getAccessibleContext()))->removePropertyChangeListener(this->fAccessibleListener);
+		this->fSwingBar->removePropertyChangeListener(this->fPropertyListener);
+		$$nc($nc(this->fSwingBar)->getAccessibleContext())->removePropertyChangeListener(this->fAccessibleListener);
 		$nc(this->fSwingBar)->removeContainerListener(this);
 	}
 	$set(this, fPropertyListener, nullptr);
 	$set(this, fAccessibleListener, nullptr);
 	if (this->fSubmenus != nullptr) {
-		$var($Enumeration, e, $nc(this->fSubmenus)->keys());
+		$var($Enumeration, e, this->fSubmenus->keys());
 		while ($nc(e)->hasMoreElements()) {
 			$var($JMenu, m, $cast($JMenu, e->nextElement()));
 			$nc(m)->removeComponentListener(this);
@@ -239,7 +174,7 @@ void ScreenMenuBar::setChildVisible($JMenuItem* child, bool b) {
 		} else {
 			$var($ScreenMenu, sm, $cast($ScreenMenu, $nc(this->fSubmenus)->get(child)));
 			if (sm != nullptr) {
-				remove(static_cast<$MenuComponent*>(sm));
+				remove(sm);
 			}
 		}
 	}
@@ -261,10 +196,10 @@ void ScreenMenuBar::setLabel($String* s) {
 }
 
 void ScreenMenuBar::setEnabled(bool b) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t count = $nc(this->fSwingBar)->getMenuCount();
 	for (int32_t i = 0; i < count; ++i) {
-		$nc($($nc(this->fSwingBar)->getMenu(i)))->setEnabled(b);
+		$$nc($nc(this->fSwingBar)->getMenu(i))->setEnabled(b);
 	}
 }
 
@@ -278,7 +213,7 @@ void ScreenMenuBar::setIndeterminate(bool indeterminate) {
 }
 
 $ScreenMenu* ScreenMenuBar::addSubmenu($JMenu* m) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ScreenMenu, sm, $cast($ScreenMenu, $nc(this->fSubmenus)->get(m)));
 	if (sm == nullptr) {
 		$assign(sm, $new($ScreenMenu, m));
@@ -286,7 +221,7 @@ $ScreenMenu* ScreenMenuBar::addSubmenu($JMenu* m) {
 		$nc(this->fSubmenus)->put(m, sm);
 	}
 	$nc(sm)->setEnabled($nc(m)->isEnabled());
-	bool var$0 = $nc(m)->isVisible();
+	bool var$0 = m->isVisible();
 	if (var$0 && sm->getParent() == nullptr) {
 		int32_t newIndex = 0;
 		int32_t currVisibleIndex = 0;
@@ -313,17 +248,17 @@ void ScreenMenuBar::removeSubmenu($JMenu* menu) {
 		return;
 	}
 	$nc(menu)->removeComponentListener(this);
-	remove(static_cast<$MenuComponent*>(screenMenu));
+	remove(screenMenu);
 	$nc(this->fSubmenus)->remove(menu);
 }
 
 $Menu* ScreenMenuBar::add($Menu* m, int32_t index) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized(getTreeLock()) {
 		if ($nc(m)->getParent() != nullptr) {
-			$nc($(m->getParent()))->remove(m);
+			$$nc(m->getParent())->remove(m);
 		}
-		$var($Vector, menus, $nc($($AWTAccessor::getMenuBarAccessor()))->getMenus(this));
+		$var($Vector, menus, $$nc($AWTAccessor::getMenuBarAccessor())->getMenus(this));
 		$nc(menus)->insertElementAt(m, index);
 		$var($AWTAccessor$MenuComponentAccessor, acc, $AWTAccessor::getMenuComponentAccessor());
 		$nc(acc)->setParent(m, this);
@@ -334,14 +269,14 @@ $Menu* ScreenMenuBar::add($Menu* m, int32_t index) {
 		$nc(peer)->setNextInsertionIndex(index);
 		$var($CMenuBar, mPeer, $cast($CMenuBar, acc->getPeer(m)));
 		if (mPeer == nullptr) {
-			$nc(m)->addNotify();
+			m->addNotify();
 		}
 		peer->setNextInsertionIndex(-1);
 		return m;
 	}
 }
 
-void clinit$ScreenMenuBar($Class* class$) {
+void ScreenMenuBar::clinit$($Class* clazz) {
 	ScreenMenuBar::sJMenuBarHasHelpMenus = false;
 }
 
@@ -349,7 +284,54 @@ ScreenMenuBar::ScreenMenuBar() {
 }
 
 $Class* ScreenMenuBar::load$($String* name, bool initialize) {
-	$loadClass(ScreenMenuBar, name, initialize, &_ScreenMenuBar_ClassInfo_, clinit$ScreenMenuBar, allocate$ScreenMenuBar);
+	$FieldInfo fieldInfos$$[] = {
+		{"sJMenuBarHasHelpMenus", "Z", nullptr, $STATIC, $staticField(ScreenMenuBar, sJMenuBarHasHelpMenus)},
+		{"fSwingBar", "Ljavax/swing/JMenuBar;", nullptr, 0, $field(ScreenMenuBar, fSwingBar)},
+		{"fSubmenus", "Ljava/util/Hashtable;", "Ljava/util/Hashtable<Ljavax/swing/JMenu;Lcom/apple/laf/ScreenMenu;>;", 0, $field(ScreenMenuBar, fSubmenus)},
+		{"fPropertyListener", "Lcom/apple/laf/ScreenMenuPropertyListener;", nullptr, 0, $field(ScreenMenuBar, fPropertyListener)},
+		{"fAccessibleListener", "Lcom/apple/laf/ScreenMenuPropertyListener;", nullptr, 0, $field(ScreenMenuBar, fAccessibleListener)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljavax/swing/JMenuBar;)V", nullptr, $PUBLIC, $method(ScreenMenuBar, init$, void, $JMenuBar*)},
+		{"add", "(Ljava/awt/Menu;I)Ljava/awt/Menu;", nullptr, $PUBLIC, $virtualMethod(ScreenMenuBar, add, $Menu*, $Menu*, int32_t)},
+		{"addNotify", "()V", nullptr, $PUBLIC, $virtualMethod(ScreenMenuBar, addNotify, void)},
+		{"addSubmenu", "(Ljavax/swing/JMenu;)Lcom/apple/laf/ScreenMenu;", nullptr, 0, $virtualMethod(ScreenMenuBar, addSubmenu, $ScreenMenu*, $JMenu*)},
+		{"componentAdded", "(Ljava/awt/event/ContainerEvent;)V", nullptr, $PUBLIC, $virtualMethod(ScreenMenuBar, componentAdded, void, $ContainerEvent*)},
+		{"componentHidden", "(Ljava/awt/event/ComponentEvent;)V", nullptr, $PUBLIC, $virtualMethod(ScreenMenuBar, componentHidden, void, $ComponentEvent*)},
+		{"componentMoved", "(Ljava/awt/event/ComponentEvent;)V", nullptr, $PUBLIC, $virtualMethod(ScreenMenuBar, componentMoved, void, $ComponentEvent*)},
+		{"componentRemoved", "(Ljava/awt/event/ContainerEvent;)V", nullptr, $PUBLIC, $virtualMethod(ScreenMenuBar, componentRemoved, void, $ContainerEvent*)},
+		{"componentResized", "(Ljava/awt/event/ComponentEvent;)V", nullptr, $PUBLIC, $virtualMethod(ScreenMenuBar, componentResized, void, $ComponentEvent*)},
+		{"componentShown", "(Ljava/awt/event/ComponentEvent;)V", nullptr, $PUBLIC, $virtualMethod(ScreenMenuBar, componentShown, void, $ComponentEvent*)},
+		{"removeAll", "()V", nullptr, $PUBLIC, $virtualMethod(ScreenMenuBar, removeAll, void)},
+		{"removeNotify", "()V", nullptr, $PUBLIC, $virtualMethod(ScreenMenuBar, removeNotify, void)},
+		{"removeSubmenu", "(Ljavax/swing/JMenu;)V", nullptr, $PRIVATE, $method(ScreenMenuBar, removeSubmenu, void, $JMenu*)},
+		{"setAccelerator", "(Ljavax/swing/KeyStroke;)V", nullptr, $PUBLIC, $virtualMethod(ScreenMenuBar, setAccelerator, void, $KeyStroke*)},
+		{"setChildVisible", "(Ljavax/swing/JMenuItem;Z)V", nullptr, $PUBLIC, $virtualMethod(ScreenMenuBar, setChildVisible, void, $JMenuItem*, bool)},
+		{"setEnabled", "(Z)V", nullptr, $PUBLIC, $virtualMethod(ScreenMenuBar, setEnabled, void, bool)},
+		{"*setFont", "(Ljava/awt/Font;)V", nullptr, $PUBLIC},
+		{"setIcon", "(Ljavax/swing/Icon;)V", nullptr, $PUBLIC, $virtualMethod(ScreenMenuBar, setIcon, void, $Icon*)},
+		{"setIndeterminate", "(Z)V", nullptr, $PUBLIC, $virtualMethod(ScreenMenuBar, setIndeterminate, void, bool)},
+		{"setLabel", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ScreenMenuBar, setLabel, void, $String*)},
+		{"setToolTipText", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ScreenMenuBar, setToolTipText, void, $String*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.apple.laf.ScreenMenuBar",
+		"java.awt.MenuBar",
+		"java.awt.event.ContainerListener,com.apple.laf.ScreenMenuPropertyHandler,java.awt.event.ComponentListener",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ScreenMenuBar, name, initialize, &classInfo$$, ScreenMenuBar::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ScreenMenuBar));
+	});
 	return class$;
 }
 

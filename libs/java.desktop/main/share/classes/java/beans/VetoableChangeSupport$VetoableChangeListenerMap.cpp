@@ -1,5 +1,4 @@
 #include <java/beans/VetoableChangeSupport$VetoableChangeListenerMap.h>
-
 #include <java/beans/ChangeListenerMap.h>
 #include <java/beans/VetoableChangeListener.h>
 #include <java/beans/VetoableChangeListenerProxy.h>
@@ -23,46 +22,6 @@ using $EventListener = ::java::util::EventListener;
 namespace java {
 	namespace beans {
 
-$FieldInfo _VetoableChangeSupport$VetoableChangeListenerMap_FieldInfo_[] = {
-	{"EMPTY", "[Ljava/beans/VetoableChangeListener;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(VetoableChangeSupport$VetoableChangeListenerMap, EMPTY)},
-	{}
-};
-
-$MethodInfo _VetoableChangeSupport$VetoableChangeListenerMap_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(VetoableChangeSupport$VetoableChangeListenerMap, init$, void)},
-	{"extract", "(Ljava/beans/VetoableChangeListener;)Ljava/beans/VetoableChangeListener;", nullptr, $PUBLIC, $method(VetoableChangeSupport$VetoableChangeListenerMap, extract, $VetoableChangeListener*, $VetoableChangeListener*)},
-	{"extract", "(Ljava/util/EventListener;)Ljava/util/EventListener;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(VetoableChangeSupport$VetoableChangeListenerMap, extract, $EventListener*, $EventListener*)},
-	{"newArray", "(I)[Ljava/beans/VetoableChangeListener;", nullptr, $PROTECTED, $virtualMethod(VetoableChangeSupport$VetoableChangeListenerMap, newArray, $EventListenerArray*, int32_t)},
-	{"newProxy", "(Ljava/lang/String;Ljava/beans/VetoableChangeListener;)Ljava/beans/VetoableChangeListener;", nullptr, $PROTECTED, $method(VetoableChangeSupport$VetoableChangeListenerMap, newProxy, $VetoableChangeListener*, $String*, $VetoableChangeListener*)},
-	{"newProxy", "(Ljava/lang/String;Ljava/util/EventListener;)Ljava/util/EventListener;", nullptr, $PROTECTED | $VOLATILE | $SYNTHETIC, $virtualMethod(VetoableChangeSupport$VetoableChangeListenerMap, newProxy, $EventListener*, $String*, $EventListener*)},
-	{}
-};
-
-$InnerClassInfo _VetoableChangeSupport$VetoableChangeListenerMap_InnerClassesInfo_[] = {
-	{"java.beans.VetoableChangeSupport$VetoableChangeListenerMap", "java.beans.VetoableChangeSupport", "VetoableChangeListenerMap", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _VetoableChangeSupport$VetoableChangeListenerMap_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.beans.VetoableChangeSupport$VetoableChangeListenerMap",
-	"java.beans.ChangeListenerMap",
-	nullptr,
-	_VetoableChangeSupport$VetoableChangeListenerMap_FieldInfo_,
-	_VetoableChangeSupport$VetoableChangeListenerMap_MethodInfo_,
-	"Ljava/beans/ChangeListenerMap<Ljava/beans/VetoableChangeListener;>;",
-	nullptr,
-	_VetoableChangeSupport$VetoableChangeListenerMap_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.beans.VetoableChangeSupport"
-};
-
-$Object* allocate$VetoableChangeSupport$VetoableChangeListenerMap($Class* clazz) {
-	return $of($alloc(VetoableChangeSupport$VetoableChangeListenerMap));
-}
-
 $VetoableChangeListenerArray* VetoableChangeSupport$VetoableChangeListenerMap::EMPTY = nullptr;
 
 void VetoableChangeSupport$VetoableChangeListenerMap::init$() {
@@ -70,7 +29,7 @@ void VetoableChangeSupport$VetoableChangeListenerMap::init$() {
 }
 
 $EventListenerArray* VetoableChangeSupport$VetoableChangeListenerMap::newArray(int32_t length) {
-	return $fcast($EventListenerArray, ((0 < length) ? $new($VetoableChangeListenerArray, length) : VetoableChangeSupport$VetoableChangeListenerMap::EMPTY));
+	return $cast($EventListenerArray, (0 < length) ? $new($VetoableChangeListenerArray, length) : VetoableChangeSupport$VetoableChangeListenerMap::EMPTY);
 }
 
 $VetoableChangeListener* VetoableChangeSupport$VetoableChangeListenerMap::newProxy($String* name, $VetoableChangeListener* listener) {
@@ -80,7 +39,7 @@ $VetoableChangeListener* VetoableChangeSupport$VetoableChangeListenerMap::newPro
 $VetoableChangeListener* VetoableChangeSupport$VetoableChangeListenerMap::extract($VetoableChangeListener* listener$renamed) {
 	$var($VetoableChangeListener, listener, listener$renamed);
 	while ($instanceOf($VetoableChangeListenerProxy, listener)) {
-		$assign(listener, $cast($VetoableChangeListener, $nc(($cast($VetoableChangeListenerProxy, listener)))->getListener()));
+		$assign(listener, $cast($VetoableChangeListener, $cast($VetoableChangeListenerProxy, listener)->getListener()));
 	}
 	return listener;
 }
@@ -93,7 +52,7 @@ $EventListener* VetoableChangeSupport$VetoableChangeListenerMap::newProxy($Strin
 	return this->newProxy(name, $cast($VetoableChangeListener, listener));
 }
 
-void clinit$VetoableChangeSupport$VetoableChangeListenerMap($Class* class$) {
+void VetoableChangeSupport$VetoableChangeListenerMap::clinit$($Class* clazz) {
 	$assignStatic(VetoableChangeSupport$VetoableChangeListenerMap::EMPTY, $new($VetoableChangeListenerArray, 0));
 }
 
@@ -101,7 +60,41 @@ VetoableChangeSupport$VetoableChangeListenerMap::VetoableChangeSupport$VetoableC
 }
 
 $Class* VetoableChangeSupport$VetoableChangeListenerMap::load$($String* name, bool initialize) {
-	$loadClass(VetoableChangeSupport$VetoableChangeListenerMap, name, initialize, &_VetoableChangeSupport$VetoableChangeListenerMap_ClassInfo_, clinit$VetoableChangeSupport$VetoableChangeListenerMap, allocate$VetoableChangeSupport$VetoableChangeListenerMap);
+	$FieldInfo fieldInfos$$[] = {
+		{"EMPTY", "[Ljava/beans/VetoableChangeListener;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(VetoableChangeSupport$VetoableChangeListenerMap, EMPTY)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(VetoableChangeSupport$VetoableChangeListenerMap, init$, void)},
+		{"extract", "(Ljava/beans/VetoableChangeListener;)Ljava/beans/VetoableChangeListener;", nullptr, $PUBLIC, $method(VetoableChangeSupport$VetoableChangeListenerMap, extract, $VetoableChangeListener*, $VetoableChangeListener*)},
+		{"extract", "(Ljava/util/EventListener;)Ljava/util/EventListener;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(VetoableChangeSupport$VetoableChangeListenerMap, extract, $EventListener*, $EventListener*)},
+		{"newArray", "(I)[Ljava/beans/VetoableChangeListener;", nullptr, $PROTECTED, $virtualMethod(VetoableChangeSupport$VetoableChangeListenerMap, newArray, $EventListenerArray*, int32_t)},
+		{"newProxy", "(Ljava/lang/String;Ljava/beans/VetoableChangeListener;)Ljava/beans/VetoableChangeListener;", nullptr, $PROTECTED, $method(VetoableChangeSupport$VetoableChangeListenerMap, newProxy, $VetoableChangeListener*, $String*, $VetoableChangeListener*)},
+		{"newProxy", "(Ljava/lang/String;Ljava/util/EventListener;)Ljava/util/EventListener;", nullptr, $PROTECTED | $VOLATILE | $SYNTHETIC, $virtualMethod(VetoableChangeSupport$VetoableChangeListenerMap, newProxy, $EventListener*, $String*, $EventListener*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.beans.VetoableChangeSupport$VetoableChangeListenerMap", "java.beans.VetoableChangeSupport", "VetoableChangeListenerMap", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.beans.VetoableChangeSupport$VetoableChangeListenerMap",
+		"java.beans.ChangeListenerMap",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/beans/ChangeListenerMap<Ljava/beans/VetoableChangeListener;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.beans.VetoableChangeSupport"
+	};
+	$loadClass(VetoableChangeSupport$VetoableChangeListenerMap, name, initialize, &classInfo$$, VetoableChangeSupport$VetoableChangeListenerMap::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(VetoableChangeSupport$VetoableChangeListenerMap);
+	});
 	return class$;
 }
 

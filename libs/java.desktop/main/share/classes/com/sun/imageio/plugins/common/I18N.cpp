@@ -1,5 +1,4 @@
 #include <com/sun/imageio/plugins/common/I18N.h>
-
 #include <com/sun/imageio/plugins/common/I18NImpl.h>
 #include <jcpp.h>
 
@@ -13,30 +12,6 @@ namespace com {
 		namespace imageio {
 			namespace plugins {
 				namespace common {
-
-$FieldInfo _I18N_FieldInfo_[] = {
-	{"resource_name", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(I18N, resource_name)},
-	{}
-};
-
-$MethodInfo _I18N_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(I18N, init$, void)},
-	{"getString", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(I18N, getString, $String*, $String*)},
-	{}
-};
-
-$ClassInfo _I18N_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.imageio.plugins.common.I18N",
-	"com.sun.imageio.plugins.common.I18NImpl",
-	nullptr,
-	_I18N_FieldInfo_,
-	_I18N_MethodInfo_
-};
-
-$Object* allocate$I18N($Class* clazz) {
-	return $of($alloc(I18N));
-}
 
 $String* I18N::resource_name = nullptr;
 
@@ -52,12 +27,31 @@ $String* I18N::getString($String* key) {
 I18N::I18N() {
 }
 
-void clinit$I18N($Class* class$) {
+void I18N::clinit$($Class* clazz) {
 	$assignStatic(I18N::resource_name, "iio-plugin.properties"_s);
 }
 
 $Class* I18N::load$($String* name, bool initialize) {
-	$loadClass(I18N, name, initialize, &_I18N_ClassInfo_, clinit$I18N, allocate$I18N);
+	$FieldInfo fieldInfos$$[] = {
+		{"resource_name", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(I18N, resource_name)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(I18N, init$, void)},
+		{"getString", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(I18N, getString, $String*, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.imageio.plugins.common.I18N",
+		"com.sun.imageio.plugins.common.I18NImpl",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(I18N, name, initialize, &classInfo$$, I18N::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(I18N);
+	});
 	return class$;
 }
 

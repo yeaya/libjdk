@@ -1,9 +1,7 @@
 #include <com/sun/tools/javac/tree/DCTree$DCThrows.h>
-
 #include <com/sun/source/doctree/DocTree$Kind.h>
 #include <com/sun/source/doctree/DocTreeVisitor.h>
 #include <com/sun/source/doctree/ReferenceTree.h>
-#include <com/sun/source/doctree/ThrowsTree.h>
 #include <com/sun/tools/javac/tree/DCTree$DCBlockTag.h>
 #include <com/sun/tools/javac/tree/DCTree$DCReference.h>
 #include <com/sun/tools/javac/tree/DCTree.h>
@@ -17,7 +15,6 @@
 using $DocTree$Kind = ::com::sun::source::doctree::DocTree$Kind;
 using $DocTreeVisitor = ::com::sun::source::doctree::DocTreeVisitor;
 using $ReferenceTree = ::com::sun::source::doctree::ReferenceTree;
-using $ThrowsTree = ::com::sun::source::doctree::ThrowsTree;
 using $DCTree$DCBlockTag = ::com::sun::tools::javac::tree::DCTree$DCBlockTag;
 using $DCTree$DCReference = ::com::sun::tools::javac::tree::DCTree$DCReference;
 using $Assert = ::com::sun::tools::javac::util::Assert;
@@ -32,54 +29,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace tree {
-
-$FieldInfo _DCTree$DCThrows_FieldInfo_[] = {
-	{"kind", "Lcom/sun/source/doctree/DocTree$Kind;", nullptr, $PUBLIC | $FINAL, $field(DCTree$DCThrows, kind)},
-	{"name", "Lcom/sun/tools/javac/tree/DCTree$DCReference;", nullptr, $PUBLIC | $FINAL, $field(DCTree$DCThrows, name)},
-	{"description", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/tools/javac/tree/DCTree;>;", $PUBLIC | $FINAL, $field(DCTree$DCThrows, description)},
-	{}
-};
-
-$MethodInfo _DCTree$DCThrows_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*getTagName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lcom/sun/source/doctree/DocTree$Kind;Lcom/sun/tools/javac/tree/DCTree$DCReference;Ljava/util/List;)V", "(Lcom/sun/source/doctree/DocTree$Kind;Lcom/sun/tools/javac/tree/DCTree$DCReference;Ljava/util/List<Lcom/sun/tools/javac/tree/DCTree;>;)V", 0, $method(DCTree$DCThrows, init$, void, $DocTree$Kind*, $DCTree$DCReference*, $List*)},
-	{"accept", "(Lcom/sun/source/doctree/DocTreeVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;D:Ljava/lang/Object;>(Lcom/sun/source/doctree/DocTreeVisitor<TR;TD;>;TD;)TR;", $PUBLIC, $virtualMethod(DCTree$DCThrows, accept, $Object*, $DocTreeVisitor*, Object$*)},
-	{"getDescription", "()Ljava/util/List;", "()Ljava/util/List<+Lcom/sun/source/doctree/DocTree;>;", $PUBLIC, $virtualMethod(DCTree$DCThrows, getDescription, $List*)},
-	{"getExceptionName", "()Lcom/sun/source/doctree/ReferenceTree;", nullptr, $PUBLIC, $virtualMethod(DCTree$DCThrows, getExceptionName, $ReferenceTree*)},
-	{"getKind", "()Lcom/sun/source/doctree/DocTree$Kind;", nullptr, $PUBLIC, $virtualMethod(DCTree$DCThrows, getKind, $DocTree$Kind*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _DCTree$DCThrows_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.tree.DCTree$DCThrows", "com.sun.tools.javac.tree.DCTree", "DCThrows", $PUBLIC | $STATIC},
-	{"com.sun.tools.javac.tree.DCTree$DCBlockTag", "com.sun.tools.javac.tree.DCTree", "DCBlockTag", $PUBLIC | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _DCTree$DCThrows_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.tree.DCTree$DCThrows",
-	"com.sun.tools.javac.tree.DCTree$DCBlockTag",
-	"com.sun.source.doctree.ThrowsTree",
-	_DCTree$DCThrows_FieldInfo_,
-	_DCTree$DCThrows_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DCTree$DCThrows_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.tree.DCTree"
-};
-
-$Object* allocate$DCTree$DCThrows($Class* clazz) {
-	return $of($alloc(DCTree$DCThrows));
-}
 
 $String* DCTree$DCThrows::getTagName() {
 	 return this->$DCTree$DCBlockTag::getTagName();
@@ -119,7 +68,7 @@ $DocTree$Kind* DCTree$DCThrows::getKind() {
 }
 
 $Object* DCTree$DCThrows::accept($DocTreeVisitor* v, Object$* d) {
-	return $of($nc(v)->visitThrows(this, d));
+	return $nc(v)->visitThrows(this, d);
 }
 
 $ReferenceTree* DCTree$DCThrows::getExceptionName() {
@@ -134,7 +83,49 @@ DCTree$DCThrows::DCTree$DCThrows() {
 }
 
 $Class* DCTree$DCThrows::load$($String* name, bool initialize) {
-	$loadClass(DCTree$DCThrows, name, initialize, &_DCTree$DCThrows_ClassInfo_, allocate$DCTree$DCThrows);
+	$FieldInfo fieldInfos$$[] = {
+		{"kind", "Lcom/sun/source/doctree/DocTree$Kind;", nullptr, $PUBLIC | $FINAL, $field(DCTree$DCThrows, kind)},
+		{"name", "Lcom/sun/tools/javac/tree/DCTree$DCReference;", nullptr, $PUBLIC | $FINAL, $field(DCTree$DCThrows, name)},
+		{"description", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/tools/javac/tree/DCTree;>;", $PUBLIC | $FINAL, $field(DCTree$DCThrows, description)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*getTagName", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lcom/sun/source/doctree/DocTree$Kind;Lcom/sun/tools/javac/tree/DCTree$DCReference;Ljava/util/List;)V", "(Lcom/sun/source/doctree/DocTree$Kind;Lcom/sun/tools/javac/tree/DCTree$DCReference;Ljava/util/List<Lcom/sun/tools/javac/tree/DCTree;>;)V", 0, $method(DCTree$DCThrows, init$, void, $DocTree$Kind*, $DCTree$DCReference*, $List*)},
+		{"accept", "(Lcom/sun/source/doctree/DocTreeVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;D:Ljava/lang/Object;>(Lcom/sun/source/doctree/DocTreeVisitor<TR;TD;>;TD;)TR;", $PUBLIC, $virtualMethod(DCTree$DCThrows, accept, $Object*, $DocTreeVisitor*, Object$*)},
+		{"getDescription", "()Ljava/util/List;", "()Ljava/util/List<+Lcom/sun/source/doctree/DocTree;>;", $PUBLIC, $virtualMethod(DCTree$DCThrows, getDescription, $List*)},
+		{"getExceptionName", "()Lcom/sun/source/doctree/ReferenceTree;", nullptr, $PUBLIC, $virtualMethod(DCTree$DCThrows, getExceptionName, $ReferenceTree*)},
+		{"getKind", "()Lcom/sun/source/doctree/DocTree$Kind;", nullptr, $PUBLIC, $virtualMethod(DCTree$DCThrows, getKind, $DocTree$Kind*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.tree.DCTree$DCThrows", "com.sun.tools.javac.tree.DCTree", "DCThrows", $PUBLIC | $STATIC},
+		{"com.sun.tools.javac.tree.DCTree$DCBlockTag", "com.sun.tools.javac.tree.DCTree", "DCBlockTag", $PUBLIC | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.tree.DCTree$DCThrows",
+		"com.sun.tools.javac.tree.DCTree$DCBlockTag",
+		"com.sun.source.doctree.ThrowsTree",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.tree.DCTree"
+	};
+	$loadClass(DCTree$DCThrows, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DCTree$DCThrows));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <bug7032791.h>
-
 #include <java/awt/Component.h>
 #include <javax/swing/JTable.h>
 #include <javax/swing/LookAndFeel.h>
@@ -8,40 +7,19 @@
 #include <javax/swing/table/TableCellRenderer.h>
 #include <jcpp.h>
 
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $JTable = ::javax::swing::JTable;
-using $LookAndFeel = ::javax::swing::LookAndFeel;
 using $UIManager = ::javax::swing::UIManager;
 using $SynthLookAndFeel = ::javax::swing::plaf::synth::SynthLookAndFeel;
 using $TableCellRenderer = ::javax::swing::table::TableCellRenderer;
-
-$MethodInfo _bug7032791_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(bug7032791, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(bug7032791, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _bug7032791_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"bug7032791",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_bug7032791_MethodInfo_
-};
-
-$Object* allocate$bug7032791($Class* clazz) {
-	return $of($alloc(bug7032791));
-}
 
 void bug7032791::init$() {
 }
 
 void bug7032791::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
-	$UIManager::setLookAndFeel(static_cast<$LookAndFeel*>($$new($SynthLookAndFeel)));
+	$useLocalObjectStack();
+	$UIManager::setLookAndFeel($$new($SynthLookAndFeel));
 	$var($Object, value, "Test value"_s);
 	$var($JTable, table, $new($JTable, 1, 1));
 	$var($TableCellRenderer, renderer, table->getDefaultRenderer($Object::class$));
@@ -53,7 +31,22 @@ bug7032791::bug7032791() {
 }
 
 $Class* bug7032791::load$($String* name, bool initialize) {
-	$loadClass(bug7032791, name, initialize, &_bug7032791_ClassInfo_, allocate$bug7032791);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(bug7032791, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(bug7032791, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"bug7032791",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(bug7032791, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(bug7032791);
+	});
 	return class$;
 }
 

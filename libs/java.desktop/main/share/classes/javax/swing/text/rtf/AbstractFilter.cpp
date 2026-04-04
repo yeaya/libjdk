@@ -1,5 +1,4 @@
 #include <javax/swing/text/rtf/AbstractFilter.h>
-
 #include <java/io/InputStream.h>
 #include <java/io/OutputStream.h>
 #include <java/io/Reader.h>
@@ -16,40 +15,6 @@ namespace javax {
 	namespace swing {
 		namespace text {
 			namespace rtf {
-
-$FieldInfo _AbstractFilter_FieldInfo_[] = {
-	{"translationTable", "[C", nullptr, $PROTECTED, $field(AbstractFilter, translationTable)},
-	{"specialsTable", "[Z", nullptr, $PROTECTED, $field(AbstractFilter, specialsTable)},
-	{"latin1TranslationTable", "[C", nullptr, $STATIC | $FINAL, $staticField(AbstractFilter, latin1TranslationTable)},
-	{"noSpecialsTable", "[Z", nullptr, $STATIC | $FINAL, $staticField(AbstractFilter, noSpecialsTable)},
-	{"allSpecialsTable", "[Z", nullptr, $STATIC | $FINAL, $staticField(AbstractFilter, allSpecialsTable)},
-	{}
-};
-
-$MethodInfo _AbstractFilter_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AbstractFilter, init$, void)},
-	{"readFromReader", "(Ljava/io/Reader;)V", nullptr, $PUBLIC, $virtualMethod(AbstractFilter, readFromReader, void, $Reader*), "java.io.IOException"},
-	{"readFromStream", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC, $virtualMethod(AbstractFilter, readFromStream, void, $InputStream*), "java.io.IOException"},
-	{"write", "(I)V", nullptr, $PUBLIC, $virtualMethod(AbstractFilter, write, void, int32_t), "java.io.IOException"},
-	{"write", "([BII)V", nullptr, $PUBLIC, $virtualMethod(AbstractFilter, write, void, $bytes*, int32_t, int32_t), "java.io.IOException"},
-	{"write", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(AbstractFilter, write, void, $String*), "java.io.IOException"},
-	{"write", "(C)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(AbstractFilter, write, void, char16_t), "java.io.IOException"},
-	{"writeSpecial", "(I)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(AbstractFilter, writeSpecial, void, int32_t), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _AbstractFilter_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"javax.swing.text.rtf.AbstractFilter",
-	"java.io.OutputStream",
-	nullptr,
-	_AbstractFilter_FieldInfo_,
-	_AbstractFilter_MethodInfo_
-};
-
-$Object* allocate$AbstractFilter($Class* clazz) {
-	return $of($alloc(AbstractFilter));
-}
 
 $chars* AbstractFilter::latin1TranslationTable = nullptr;
 $booleans* AbstractFilter::noSpecialsTable = nullptr;
@@ -95,7 +60,7 @@ void AbstractFilter::write(int32_t b) {
 }
 
 void AbstractFilter::write($bytes* buf, int32_t off, int32_t len) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, accumulator, nullptr);
 	while (len > 0) {
 		int16_t b = (int16_t)$nc(buf)->get(off);
@@ -134,20 +99,20 @@ void AbstractFilter::write($String* s) {
 	}
 }
 
-void clinit$AbstractFilter($Class* class$) {
+void AbstractFilter::clinit$($Class* clazz) {
 	{
 		int32_t i = 0;
 		$assignStatic(AbstractFilter::noSpecialsTable, $new($booleans, 256));
 		for (i = 0; i < 256; ++i) {
-			$nc(AbstractFilter::noSpecialsTable)->set(i, false);
+			AbstractFilter::noSpecialsTable->set(i, false);
 		}
 		$assignStatic(AbstractFilter::allSpecialsTable, $new($booleans, 256));
 		for (i = 0; i < 256; ++i) {
-			$nc(AbstractFilter::allSpecialsTable)->set(i, true);
+			AbstractFilter::allSpecialsTable->set(i, true);
 		}
 		$assignStatic(AbstractFilter::latin1TranslationTable, $new($chars, 256));
 		for (i = 0; i < 256; ++i) {
-			$nc(AbstractFilter::latin1TranslationTable)->set(i, (char16_t)i);
+			AbstractFilter::latin1TranslationTable->set(i, (char16_t)i);
 		}
 	}
 }
@@ -156,7 +121,36 @@ AbstractFilter::AbstractFilter() {
 }
 
 $Class* AbstractFilter::load$($String* name, bool initialize) {
-	$loadClass(AbstractFilter, name, initialize, &_AbstractFilter_ClassInfo_, clinit$AbstractFilter, allocate$AbstractFilter);
+	$FieldInfo fieldInfos$$[] = {
+		{"translationTable", "[C", nullptr, $PROTECTED, $field(AbstractFilter, translationTable)},
+		{"specialsTable", "[Z", nullptr, $PROTECTED, $field(AbstractFilter, specialsTable)},
+		{"latin1TranslationTable", "[C", nullptr, $STATIC | $FINAL, $staticField(AbstractFilter, latin1TranslationTable)},
+		{"noSpecialsTable", "[Z", nullptr, $STATIC | $FINAL, $staticField(AbstractFilter, noSpecialsTable)},
+		{"allSpecialsTable", "[Z", nullptr, $STATIC | $FINAL, $staticField(AbstractFilter, allSpecialsTable)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AbstractFilter, init$, void)},
+		{"readFromReader", "(Ljava/io/Reader;)V", nullptr, $PUBLIC, $virtualMethod(AbstractFilter, readFromReader, void, $Reader*), "java.io.IOException"},
+		{"readFromStream", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC, $virtualMethod(AbstractFilter, readFromStream, void, $InputStream*), "java.io.IOException"},
+		{"write", "(I)V", nullptr, $PUBLIC, $virtualMethod(AbstractFilter, write, void, int32_t), "java.io.IOException"},
+		{"write", "([BII)V", nullptr, $PUBLIC, $virtualMethod(AbstractFilter, write, void, $bytes*, int32_t, int32_t), "java.io.IOException"},
+		{"write", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(AbstractFilter, write, void, $String*), "java.io.IOException"},
+		{"write", "(C)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(AbstractFilter, write, void, char16_t), "java.io.IOException"},
+		{"writeSpecial", "(I)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(AbstractFilter, writeSpecial, void, int32_t), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"javax.swing.text.rtf.AbstractFilter",
+		"java.io.OutputStream",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(AbstractFilter, name, initialize, &classInfo$$, AbstractFilter::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AbstractFilter));
+	});
 	return class$;
 }
 

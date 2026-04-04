@@ -1,5 +1,4 @@
 #include <sun/java2d/d3d/D3DGraphicsDevice.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Dialog.h>
 #include <java/awt/DisplayMode.h>
@@ -12,7 +11,6 @@
 #include <java/awt/event/WindowListener.h>
 #include <java/awt/peer/ComponentPeer.h>
 #include <java/awt/peer/WindowPeer.h>
-#include <java/lang/Runnable.h>
 #include <java/util/ArrayList.h>
 #include <sun/awt/AWTAccessor$ComponentAccessor.h>
 #include <sun/awt/AWTAccessor.h>
@@ -36,13 +34,11 @@
 #include <sun/java2d/d3d/D3DGraphicsDevice$8.h>
 #include <sun/java2d/d3d/D3DGraphicsDevice$D3DFSWindowAdapter.h>
 #include <sun/java2d/d3d/D3DRenderQueue.h>
-#include <sun/java2d/pipe/RenderQueue.h>
 #include <sun/java2d/pipe/hw/ContextCapabilities.h>
 #include <sun/java2d/windows/WindowsFlags.h>
 #include <jcpp.h>
 
 using $GraphicsConfigurationArray = $Array<::java::awt::GraphicsConfiguration>;
-using $Component = ::java::awt::Component;
 using $Dialog = ::java::awt::Dialog;
 using $DisplayMode = ::java::awt::DisplayMode;
 using $Frame = ::java::awt::Frame;
@@ -50,14 +46,11 @@ using $GraphicsConfiguration = ::java::awt::GraphicsConfiguration;
 using $Rectangle = ::java::awt::Rectangle;
 using $Toolkit = ::java::awt::Toolkit;
 using $Window = ::java::awt::Window;
-using $WindowListener = ::java::awt::event::WindowListener;
 using $WindowPeer = ::java::awt::peer::WindowPeer;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
 using $ArrayList = ::java::util::ArrayList;
 using $AWTAccessor = ::sun::awt::AWTAccessor;
 using $AWTAccessor$ComponentAccessor = ::sun::awt::AWTAccessor$ComponentAccessor;
@@ -80,7 +73,6 @@ using $D3DGraphicsDevice$7 = ::sun::java2d::d3d::D3DGraphicsDevice$7;
 using $D3DGraphicsDevice$8 = ::sun::java2d::d3d::D3DGraphicsDevice$8;
 using $D3DGraphicsDevice$D3DFSWindowAdapter = ::sun::java2d::d3d::D3DGraphicsDevice$D3DFSWindowAdapter;
 using $D3DRenderQueue = ::sun::java2d::d3d::D3DRenderQueue;
-using $RenderQueue = ::sun::java2d::pipe::RenderQueue;
 using $ContextCapabilities = ::sun::java2d::pipe::hw::ContextCapabilities;
 using $WindowsFlags = ::sun::java2d::windows::WindowsFlags;
 
@@ -88,121 +80,24 @@ namespace sun {
 	namespace java2d {
 		namespace d3d {
 
-$FieldInfo _D3DGraphicsDevice_FieldInfo_[] = {
-	{"context", "Lsun/java2d/d3d/D3DContext;", nullptr, $PRIVATE, $field(D3DGraphicsDevice, context)},
-	{"d3dAvailable", "Z", nullptr, $PRIVATE | $STATIC, $staticField(D3DGraphicsDevice, d3dAvailable)},
-	{"d3dCaps", "Lsun/java2d/pipe/hw/ContextCapabilities;", nullptr, $PRIVATE, $field(D3DGraphicsDevice, d3dCaps)},
-	{"fsStatus", "Z", nullptr, $PRIVATE, $field(D3DGraphicsDevice, fsStatus)},
-	{"ownerOrigBounds", "Ljava/awt/Rectangle;", nullptr, $PRIVATE, $field(D3DGraphicsDevice, ownerOrigBounds)},
-	{"ownerWasVisible", "Z", nullptr, $PRIVATE, $field(D3DGraphicsDevice, ownerWasVisible)},
-	{"realFSWindow", "Ljava/awt/Window;", nullptr, $PRIVATE, $field(D3DGraphicsDevice, realFSWindow)},
-	{"fsWindowListener", "Ljava/awt/event/WindowListener;", nullptr, $PRIVATE, $field(D3DGraphicsDevice, fsWindowListener)},
-	{"fsWindowWasAlwaysOnTop", "Z", nullptr, $PRIVATE, $field(D3DGraphicsDevice, fsWindowWasAlwaysOnTop)},
-	{}
-};
-
-$MethodInfo _D3DGraphicsDevice_MethodInfo_[] = {
-	{"<init>", "(ILsun/java2d/pipe/hw/ContextCapabilities;)V", nullptr, $PRIVATE, $method(D3DGraphicsDevice, init$, void, int32_t, $ContextCapabilities*)},
-	{"addFSWindowListener", "(Ljava/awt/Window;)V", nullptr, $PROTECTED, $virtualMethod(D3DGraphicsDevice, addFSWindowListener, void, $Window*)},
-	{"configDisplayMode", "(ILjava/awt/peer/WindowPeer;IIII)V", nullptr, $PROTECTED, $virtualMethod(D3DGraphicsDevice, configDisplayMode, void, int32_t, $WindowPeer*, int32_t, int32_t, int32_t, int32_t)},
-	{"configDisplayModeNative", "(IJIIII)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(D3DGraphicsDevice, configDisplayModeNative, void, int32_t, int64_t, int32_t, int32_t, int32_t, int32_t)},
-	{"createDevice", "(I)Lsun/java2d/d3d/D3DGraphicsDevice;", nullptr, $PUBLIC | $STATIC, $staticMethod(D3DGraphicsDevice, createDevice, D3DGraphicsDevice*, int32_t)},
-	{"displayChanged", "()V", nullptr, $PUBLIC, $virtualMethod(D3DGraphicsDevice, displayChanged, void)},
-	{"enterFullScreenExclusive", "(ILjava/awt/peer/WindowPeer;)V", nullptr, $PROTECTED, $virtualMethod(D3DGraphicsDevice, enterFullScreenExclusive, void, int32_t, $WindowPeer*)},
-	{"enterFullScreenExclusiveNative", "(IJ)Z", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(D3DGraphicsDevice, enterFullScreenExclusiveNative, bool, int32_t, int64_t)},
-	{"enumDisplayModes", "(ILjava/util/ArrayList;)V", "(ILjava/util/ArrayList<Ljava/awt/DisplayMode;>;)V", $PROTECTED, $virtualMethod(D3DGraphicsDevice, enumDisplayModes, void, int32_t, $ArrayList*)},
-	{"enumDisplayModesNative", "(ILjava/util/ArrayList;)V", "(ILjava/util/ArrayList<Ljava/awt/DisplayMode;>;)V", $PRIVATE | $STATIC | $NATIVE, $staticMethod(D3DGraphicsDevice, enumDisplayModesNative, void, int32_t, $ArrayList*)},
-	{"exitFullScreenExclusive", "(ILjava/awt/peer/WindowPeer;)V", nullptr, $PROTECTED, $virtualMethod(D3DGraphicsDevice, exitFullScreenExclusive, void, int32_t, $WindowPeer*)},
-	{"exitFullScreenExclusiveNative", "(I)Z", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(D3DGraphicsDevice, exitFullScreenExclusiveNative, bool, int32_t)},
-	{"getAvailableAcceleratedMemory", "()I", nullptr, $PUBLIC, $virtualMethod(D3DGraphicsDevice, getAvailableAcceleratedMemory, int32_t)},
-	{"getAvailableAcceleratedMemoryNative", "(I)J", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(D3DGraphicsDevice, getAvailableAcceleratedMemoryNative, int64_t, int32_t)},
-	{"getConfigurations", "()[Ljava/awt/GraphicsConfiguration;", nullptr, $PUBLIC, $virtualMethod(D3DGraphicsDevice, getConfigurations, $GraphicsConfigurationArray*)},
-	{"getContext", "()Lsun/java2d/d3d/D3DContext;", nullptr, 0, $method(D3DGraphicsDevice, getContext, $D3DContext*)},
-	{"getContextCapabilities", "()Lsun/java2d/pipe/hw/ContextCapabilities;", nullptr, 0, $method(D3DGraphicsDevice, getContextCapabilities, $ContextCapabilities*)},
-	{"getCurrentDisplayMode", "(I)Ljava/awt/DisplayMode;", nullptr, $PROTECTED, $virtualMethod(D3DGraphicsDevice, getCurrentDisplayMode, $DisplayMode*, int32_t)},
-	{"getCurrentDisplayModeNative", "(I)Ljava/awt/DisplayMode;", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(D3DGraphicsDevice, getCurrentDisplayModeNative, $DisplayMode*, int32_t)},
-	{"getDefaultConfiguration", "()Ljava/awt/GraphicsConfiguration;", nullptr, $PUBLIC, $virtualMethod(D3DGraphicsDevice, getDefaultConfiguration, $GraphicsConfiguration*)},
-	{"getDeviceCaps", "(I)Lsun/java2d/pipe/hw/ContextCapabilities;", nullptr, $PRIVATE | $STATIC, $staticMethod(D3DGraphicsDevice, getDeviceCaps, $ContextCapabilities*, int32_t)},
-	{"getDeviceCapsNative", "(I)I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(D3DGraphicsDevice, getDeviceCapsNative, int32_t, int32_t)},
-	{"getDeviceIdNative", "(I)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(D3DGraphicsDevice, getDeviceIdNative, $String*, int32_t)},
-	{"getToplevelOwner", "(Ljava/awt/Window;)Ljava/awt/Frame;", nullptr, $PRIVATE, $method(D3DGraphicsDevice, getToplevelOwner, $Frame*, $Window*)},
-	{"initD3D", "()Z", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(D3DGraphicsDevice, initD3D, bool)},
-	{"invalidate", "(I)V", nullptr, $PROTECTED, $virtualMethod(D3DGraphicsDevice, invalidate, void, int32_t)},
-	{"isCapPresent", "(I)Z", nullptr, $PUBLIC | $FINAL, $method(D3DGraphicsDevice, isCapPresent, bool, int32_t)},
-	{"isD3DAvailable", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(D3DGraphicsDevice, isD3DAvailable, bool)},
-	{"isD3DAvailableOnDevice", "(I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(D3DGraphicsDevice, isD3DAvailableOnDevice, bool, int32_t)},
-	{"isD3DAvailableOnDeviceNative", "(I)Z", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(D3DGraphicsDevice, isD3DAvailableOnDeviceNative, bool, int32_t)},
-	{"isD3DEnabledOnDevice", "()Z", nullptr, $PUBLIC, $method(D3DGraphicsDevice, isD3DEnabledOnDevice, bool)},
-	{"removeFSWindowListener", "(Ljava/awt/Window;)V", nullptr, $PROTECTED, $virtualMethod(D3DGraphicsDevice, removeFSWindowListener, void, $Window*)},
-	{}
-};
-
-#define _METHOD_INDEX_configDisplayModeNative 3
-#define _METHOD_INDEX_enterFullScreenExclusiveNative 7
-#define _METHOD_INDEX_enumDisplayModesNative 9
-#define _METHOD_INDEX_exitFullScreenExclusiveNative 11
-#define _METHOD_INDEX_getAvailableAcceleratedMemoryNative 13
-#define _METHOD_INDEX_getCurrentDisplayModeNative 18
-#define _METHOD_INDEX_getDeviceCapsNative 21
-#define _METHOD_INDEX_getDeviceIdNative 22
-#define _METHOD_INDEX_initD3D 24
-#define _METHOD_INDEX_isD3DAvailableOnDeviceNative 29
-
-$InnerClassInfo _D3DGraphicsDevice_InnerClassesInfo_[] = {
-	{"sun.java2d.d3d.D3DGraphicsDevice$D3DFSWindowAdapter", "sun.java2d.d3d.D3DGraphicsDevice", "D3DFSWindowAdapter", $PRIVATE | $STATIC},
-	{"sun.java2d.d3d.D3DGraphicsDevice$8", nullptr, nullptr, 0},
-	{"sun.java2d.d3d.D3DGraphicsDevice$4Result", nullptr, "Result", 0},
-	{"sun.java2d.d3d.D3DGraphicsDevice$7", nullptr, nullptr, 0},
-	{"sun.java2d.d3d.D3DGraphicsDevice$3Result", nullptr, "Result", 0},
-	{"sun.java2d.d3d.D3DGraphicsDevice$6", nullptr, nullptr, 0},
-	{"sun.java2d.d3d.D3DGraphicsDevice$5", nullptr, nullptr, 0},
-	{"sun.java2d.d3d.D3DGraphicsDevice$4", nullptr, nullptr, 0},
-	{"sun.java2d.d3d.D3DGraphicsDevice$2Result", nullptr, "Result", 0},
-	{"sun.java2d.d3d.D3DGraphicsDevice$3", nullptr, nullptr, 0},
-	{"sun.java2d.d3d.D3DGraphicsDevice$2", nullptr, nullptr, 0},
-	{"sun.java2d.d3d.D3DGraphicsDevice$1", nullptr, nullptr, 0},
-	{"sun.java2d.d3d.D3DGraphicsDevice$1Result", nullptr, "Result", 0},
-	{}
-};
-
-$ClassInfo _D3DGraphicsDevice_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.java2d.d3d.D3DGraphicsDevice",
-	"sun.awt.Win32GraphicsDevice",
-	nullptr,
-	_D3DGraphicsDevice_FieldInfo_,
-	_D3DGraphicsDevice_MethodInfo_,
-	nullptr,
-	nullptr,
-	_D3DGraphicsDevice_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.java2d.d3d.D3DGraphicsDevice$D3DFSWindowAdapter,sun.java2d.d3d.D3DGraphicsDevice$8,sun.java2d.d3d.D3DGraphicsDevice$4Result,sun.java2d.d3d.D3DGraphicsDevice$7,sun.java2d.d3d.D3DGraphicsDevice$3Result,sun.java2d.d3d.D3DGraphicsDevice$6,sun.java2d.d3d.D3DGraphicsDevice$5,sun.java2d.d3d.D3DGraphicsDevice$4,sun.java2d.d3d.D3DGraphicsDevice$2Result,sun.java2d.d3d.D3DGraphicsDevice$3,sun.java2d.d3d.D3DGraphicsDevice$2,sun.java2d.d3d.D3DGraphicsDevice$1,sun.java2d.d3d.D3DGraphicsDevice$1Result"
-};
-
-$Object* allocate$D3DGraphicsDevice($Class* clazz) {
-	return $of($alloc(D3DGraphicsDevice));
-}
-
 bool D3DGraphicsDevice::d3dAvailable = false;
 
 bool D3DGraphicsDevice::initD3D() {
 	$init(D3DGraphicsDevice);
-	bool $ret = false;
-	$prepareNativeStatic(D3DGraphicsDevice, initD3D, bool);
-	$ret = $invokeNativeStatic();
+	$prepareNativeStatic(initD3D, bool);
+	bool $ret = $invokeNativeStatic();
 	$finishNativeStatic();
 	return $ret;
 }
 
 D3DGraphicsDevice* D3DGraphicsDevice::createDevice(int32_t screen) {
 	$init(D3DGraphicsDevice);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!D3DGraphicsDevice::d3dAvailable) {
 		return nullptr;
 	}
 	$var($ContextCapabilities, d3dCaps, getDeviceCaps(screen));
-	if (((int32_t)($nc(d3dCaps)->getCaps() & (uint32_t)0x00040000)) == 0) {
+	if (($nc(d3dCaps)->getCaps() & 0x00040000) == 0) {
 		if ($WindowsFlags::isD3DVerbose()) {
 			$nc($System::out)->println($$str({"Could not enable Direct3D pipeline on screen "_s, $$str(screen)}));
 		}
@@ -217,54 +112,51 @@ D3DGraphicsDevice* D3DGraphicsDevice::createDevice(int32_t screen) {
 
 int32_t D3DGraphicsDevice::getDeviceCapsNative(int32_t screen) {
 	$init(D3DGraphicsDevice);
-	int32_t $ret = 0;
-	$prepareNativeStatic(D3DGraphicsDevice, getDeviceCapsNative, int32_t, int32_t screen);
-	$ret = $invokeNativeStatic(screen);
+	$prepareNativeStatic(getDeviceCapsNative, int32_t, int32_t screen);
+	int32_t $ret = $invokeNativeStatic(screen);
 	$finishNativeStatic();
 	return $ret;
 }
 
 $String* D3DGraphicsDevice::getDeviceIdNative(int32_t screen) {
 	$init(D3DGraphicsDevice);
-	$var($String, $ret, nullptr);
-	$prepareNativeStatic(D3DGraphicsDevice, getDeviceIdNative, $String*, int32_t screen);
-	$assign($ret, $invokeNativeStaticObject(screen));
+	$prepareNativeStatic(getDeviceIdNative, $String*, int32_t screen);
+	$var($String, $ret, $invokeNativeStaticObject(screen));
 	$finishNativeStatic();
 	return $ret;
 }
 
 $ContextCapabilities* D3DGraphicsDevice::getDeviceCaps(int32_t screen) {
 	$init(D3DGraphicsDevice);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ContextCapabilities, d3dCaps, nullptr);
 	$var($D3DRenderQueue, rq, $D3DRenderQueue::getInstance());
 	$nc(rq)->lock();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			{
-			}
-			$var($D3DGraphicsDevice$1Result, res, $new($D3DGraphicsDevice$1Result));
-			rq->flushAndInvokeNow($$new($D3DGraphicsDevice$1, res, screen));
-			$assign(d3dCaps, $new($D3DContext$D3DContextCaps, res->caps, res->id));
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			rq->unlock();
+	$var($Throwable, var$0, nullptr);
+	try {
+		{
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+		;
+		$var($D3DGraphicsDevice$1Result, res, $new($D3DGraphicsDevice$1Result));
+		rq->flushAndInvokeNow($$new($D3DGraphicsDevice$1, res, screen));
+		$assign(d3dCaps, $new($D3DContext$D3DContextCaps, res->caps, res->id));
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		rq->unlock();
 	}
-	return d3dCaps != nullptr ? d3dCaps : static_cast<$ContextCapabilities*>($new($D3DContext$D3DContextCaps, 0, nullptr));
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	return d3dCaps != nullptr ? d3dCaps : $cast($ContextCapabilities, $new($D3DContext$D3DContextCaps, 0, nullptr));
 }
 
 bool D3DGraphicsDevice::isCapPresent(int32_t cap) {
-	return (((int32_t)($nc(this->d3dCaps)->getCaps() & (uint32_t)cap)) != 0);
+	return (($nc(this->d3dCaps)->getCaps() & cap) != 0);
 }
 
 void D3DGraphicsDevice::init$(int32_t screennum, $ContextCapabilities* d3dCaps) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Win32GraphicsDevice::init$(screennum);
 	$set(this, ownerOrigBounds, nullptr);
 	$set(this, descString, $str({"D3DGraphicsDevice[screen="_s, $$str(screennum)}));
@@ -295,30 +187,27 @@ $Frame* D3DGraphicsDevice::getToplevelOwner($Window* w) {
 
 bool D3DGraphicsDevice::enterFullScreenExclusiveNative(int32_t screen, int64_t hwnd) {
 	$init(D3DGraphicsDevice);
-	bool $ret = false;
-	$prepareNativeStatic(D3DGraphicsDevice, enterFullScreenExclusiveNative, bool, int32_t screen, int64_t hwnd);
-	$ret = $invokeNativeStatic(screen, hwnd);
+	$prepareNativeStatic(enterFullScreenExclusiveNative, bool, int32_t screen, int64_t hwnd);
+	bool $ret = $invokeNativeStatic(screen, hwnd);
 	$finishNativeStatic();
 	return $ret;
 }
 
 void D3DGraphicsDevice::enterFullScreenExclusive(int32_t screen, $WindowPeer* wp) {
-	$useLocalCurrentObjectStackCache();
-	$var($WWindowPeer, wpeer, $cast($WWindowPeer, $nc($($AWTAccessor::getComponentAccessor()))->getPeer(this->realFSWindow)));
+	$useLocalObjectStack();
+	$var($WWindowPeer, wpeer, $cast($WWindowPeer, $$nc($AWTAccessor::getComponentAccessor())->getPeer(this->realFSWindow)));
 	$var($D3DRenderQueue, rq, $D3DRenderQueue::getInstance());
 	$nc(rq)->lock();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			rq->flushAndInvokeNow($$new($D3DGraphicsDevice$2, this, wpeer, screen));
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			rq->unlock();
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	$var($Throwable, var$0, nullptr);
+	try {
+		rq->flushAndInvokeNow($$new($D3DGraphicsDevice$2, this, wpeer, screen));
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		rq->unlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 	if (!this->fsStatus) {
 		$Win32GraphicsDevice::enterFullScreenExclusive(screen, wp);
@@ -327,30 +216,27 @@ void D3DGraphicsDevice::enterFullScreenExclusive(int32_t screen, $WindowPeer* wp
 
 bool D3DGraphicsDevice::exitFullScreenExclusiveNative(int32_t screen) {
 	$init(D3DGraphicsDevice);
-	bool $ret = false;
-	$prepareNativeStatic(D3DGraphicsDevice, exitFullScreenExclusiveNative, bool, int32_t screen);
-	$ret = $invokeNativeStatic(screen);
+	$prepareNativeStatic(exitFullScreenExclusiveNative, bool, int32_t screen);
+	bool $ret = $invokeNativeStatic(screen);
 	$finishNativeStatic();
 	return $ret;
 }
 
 void D3DGraphicsDevice::exitFullScreenExclusive(int32_t screen, $WindowPeer* w) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->fsStatus) {
 		$var($D3DRenderQueue, rq, $D3DRenderQueue::getInstance());
 		$nc(rq)->lock();
-		{
-			$var($Throwable, var$0, nullptr);
-			try {
-				rq->flushAndInvokeNow($$new($D3DGraphicsDevice$3, this, screen));
-			} catch ($Throwable& var$1) {
-				$assign(var$0, var$1);
-			} /*finally*/ {
-				rq->unlock();
-			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
+		$var($Throwable, var$0, nullptr);
+		try {
+			rq->flushAndInvokeNow($$new($D3DGraphicsDevice$3, this, screen));
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
+		} /*finally*/ {
+			rq->unlock();
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	} else {
 		$Win32GraphicsDevice::exitFullScreenExclusive(screen, w);
@@ -358,38 +244,38 @@ void D3DGraphicsDevice::exitFullScreenExclusive(int32_t screen, $WindowPeer* w) 
 }
 
 void D3DGraphicsDevice::addFSWindowListener($Window* w) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AWTAccessor$ComponentAccessor, acc, $AWTAccessor::getComponentAccessor());
 	if (!($instanceOf($Frame, w)) && !($instanceOf($Dialog, w)) && ($set(this, realFSWindow, getToplevelOwner(w))) != nullptr) {
 		$set(this, ownerOrigBounds, $nc(this->realFSWindow)->getBounds());
 		$var($WWindowPeer, fp, $cast($WWindowPeer, $nc(acc)->getPeer(this->realFSWindow)));
 		this->ownerWasVisible = $nc(this->realFSWindow)->isVisible();
 		$var($Rectangle, r, $nc(w)->getBounds());
-		$nc(fp)->reshape($nc(r)->x, r->y, r->width, r->height);
+		$nc(fp)->reshape($nc(r)->x, $nc(r)->y, $nc(r)->width, $nc(r)->height);
 		fp->setVisible(true);
 	} else {
 		$set(this, realFSWindow, w);
 	}
 	this->fsWindowWasAlwaysOnTop = $nc(this->realFSWindow)->isAlwaysOnTop();
-	$nc(($cast($WWindowPeer, $($nc(acc)->getPeer(this->realFSWindow)))))->setAlwaysOnTop(true);
+	$$sure($WWindowPeer, $nc(acc)->getPeer(this->realFSWindow))->setAlwaysOnTop(true);
 	$set(this, fsWindowListener, $new($D3DGraphicsDevice$D3DFSWindowAdapter));
 	$nc(this->realFSWindow)->addWindowListener(this->fsWindowListener);
 }
 
 void D3DGraphicsDevice::removeFSWindowListener($Window* w) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(this->realFSWindow)->removeWindowListener(this->fsWindowListener);
 	$set(this, fsWindowListener, nullptr);
-	$var($WWindowPeer, wpeer, $cast($WWindowPeer, $nc($($AWTAccessor::getComponentAccessor()))->getPeer(this->realFSWindow)));
+	$var($WWindowPeer, wpeer, $cast($WWindowPeer, $$nc($AWTAccessor::getComponentAccessor())->getPeer(this->realFSWindow)));
 	if (wpeer != nullptr) {
 		if (this->ownerOrigBounds != nullptr) {
-			if ($nc(this->ownerOrigBounds)->width == 0) {
-				$nc(this->ownerOrigBounds)->width = 1;
+			if (this->ownerOrigBounds->width == 0) {
+				this->ownerOrigBounds->width = 1;
 			}
-			if ($nc(this->ownerOrigBounds)->height == 0) {
-				$nc(this->ownerOrigBounds)->height = 1;
+			if (this->ownerOrigBounds->height == 0) {
+				this->ownerOrigBounds->height = 1;
 			}
-			wpeer->reshape($nc(this->ownerOrigBounds)->x, $nc(this->ownerOrigBounds)->y, $nc(this->ownerOrigBounds)->width, $nc(this->ownerOrigBounds)->height);
+			wpeer->reshape(this->ownerOrigBounds->x, this->ownerOrigBounds->y, this->ownerOrigBounds->width, this->ownerOrigBounds->height);
 			if (!this->ownerWasVisible) {
 				wpeer->setVisible(false);
 			}
@@ -404,149 +290,141 @@ void D3DGraphicsDevice::removeFSWindowListener($Window* w) {
 
 $DisplayMode* D3DGraphicsDevice::getCurrentDisplayModeNative(int32_t screen) {
 	$init(D3DGraphicsDevice);
-	$var($DisplayMode, $ret, nullptr);
-	$prepareNativeStatic(D3DGraphicsDevice, getCurrentDisplayModeNative, $DisplayMode*, int32_t screen);
-	$assign($ret, $invokeNativeStaticObject(screen));
+	$prepareNativeStatic(getCurrentDisplayModeNative, $DisplayMode*, int32_t screen);
+	$var($DisplayMode, $ret, $invokeNativeStaticObject(screen));
 	$finishNativeStatic();
 	return $ret;
 }
 
 $DisplayMode* D3DGraphicsDevice::getCurrentDisplayMode(int32_t screen) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($D3DRenderQueue, rq, $D3DRenderQueue::getInstance());
 	$nc(rq)->lock();
-	{
-		$var($Throwable, var$0, nullptr);
-		$var($DisplayMode, var$2, nullptr);
-		bool return$1 = false;
-		try {
-			{
-			}
-			$var($D3DGraphicsDevice$2Result, res, $new($D3DGraphicsDevice$2Result, this));
-			rq->flushAndInvokeNow($$new($D3DGraphicsDevice$4, this, res, screen));
-			if (res->dm == nullptr) {
-				$assign(var$2, $Win32GraphicsDevice::getCurrentDisplayMode(screen));
-				return$1 = true;
-				goto $finally;
-			}
-			$assign(var$2, res->dm);
+	$var($Throwable, var$0, nullptr);
+	$var($DisplayMode, var$2, nullptr);
+	bool return$1 = false;
+	try {
+		{
+		}
+		;
+		$var($D3DGraphicsDevice$2Result, res, $new($D3DGraphicsDevice$2Result, this));
+		rq->flushAndInvokeNow($$new($D3DGraphicsDevice$4, this, res, screen));
+		if (res->dm == nullptr) {
+			$assign(var$2, $Win32GraphicsDevice::getCurrentDisplayMode(screen));
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			rq->unlock();
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+		$assign(var$2, res->dm);
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		rq->unlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
 
 void D3DGraphicsDevice::configDisplayModeNative(int32_t screen, int64_t hwnd, int32_t width, int32_t height, int32_t bitDepth, int32_t refreshRate) {
 	$init(D3DGraphicsDevice);
-	$prepareNativeStatic(D3DGraphicsDevice, configDisplayModeNative, void, int32_t screen, int64_t hwnd, int32_t width, int32_t height, int32_t bitDepth, int32_t refreshRate);
+	$prepareNativeStatic(configDisplayModeNative, void, int32_t screen, int64_t hwnd, int32_t width, int32_t height, int32_t bitDepth, int32_t refreshRate);
 	$invokeNativeStatic(screen, hwnd, width, height, bitDepth, refreshRate);
 	$finishNativeStatic();
 }
 
 void D3DGraphicsDevice::configDisplayMode(int32_t screen, $WindowPeer* w, int32_t width, int32_t height, int32_t bitDepth, int32_t refreshRate) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!this->fsStatus) {
 		$Win32GraphicsDevice::configDisplayMode(screen, w, width, height, bitDepth, refreshRate);
 		return;
 	}
-	$var($WWindowPeer, wpeer, $cast($WWindowPeer, $nc($($AWTAccessor::getComponentAccessor()))->getPeer(this->realFSWindow)));
+	$var($WWindowPeer, wpeer, $cast($WWindowPeer, $$nc($AWTAccessor::getComponentAccessor())->getPeer(this->realFSWindow)));
 	if (getFullScreenWindow() != this->realFSWindow) {
-		$var($Rectangle, screenBounds, $nc($(getDefaultConfiguration()))->getBounds());
-		$nc(wpeer)->reshape($nc(screenBounds)->x, screenBounds->y, width, height);
+		$var($Rectangle, screenBounds, $$nc(getDefaultConfiguration())->getBounds());
+		$nc(wpeer)->reshape($nc(screenBounds)->x, $nc(screenBounds)->y, width, height);
 	}
 	$var($D3DRenderQueue, rq, $D3DRenderQueue::getInstance());
 	$nc(rq)->lock();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			rq->flushAndInvokeNow($$new($D3DGraphicsDevice$5, this, wpeer, screen, width, height, bitDepth, refreshRate));
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			rq->unlock();
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	$var($Throwable, var$0, nullptr);
+	try {
+		rq->flushAndInvokeNow($$new($D3DGraphicsDevice$5, this, wpeer, screen, width, height, bitDepth, refreshRate));
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		rq->unlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 void D3DGraphicsDevice::enumDisplayModesNative(int32_t screen, $ArrayList* modes) {
 	$init(D3DGraphicsDevice);
-	$prepareNativeStatic(D3DGraphicsDevice, enumDisplayModesNative, void, int32_t screen, $ArrayList* modes);
+	$prepareNativeStatic(enumDisplayModesNative, void, int32_t screen, $ArrayList* modes);
 	$invokeNativeStatic(screen, modes);
 	$finishNativeStatic();
 }
 
 void D3DGraphicsDevice::enumDisplayModes(int32_t screen, $ArrayList* modes) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($D3DRenderQueue, rq, $D3DRenderQueue::getInstance());
 	$nc(rq)->lock();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			rq->flushAndInvokeNow($$new($D3DGraphicsDevice$6, this, screen, modes));
-			if ($nc(modes)->size() == 0) {
-				modes->add($(getCurrentDisplayModeNative(screen)));
-			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			rq->unlock();
+	$var($Throwable, var$0, nullptr);
+	try {
+		rq->flushAndInvokeNow($$new($D3DGraphicsDevice$6, this, screen, modes));
+		if ($nc(modes)->size() == 0) {
+			modes->add($(getCurrentDisplayModeNative(screen)));
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		rq->unlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 int64_t D3DGraphicsDevice::getAvailableAcceleratedMemoryNative(int32_t screen) {
 	$init(D3DGraphicsDevice);
-	int64_t $ret = 0;
-	$prepareNativeStatic(D3DGraphicsDevice, getAvailableAcceleratedMemoryNative, int64_t, int32_t screen);
-	$ret = $invokeNativeStatic(screen);
+	$prepareNativeStatic(getAvailableAcceleratedMemoryNative, int64_t, int32_t screen);
+	int64_t $ret = $invokeNativeStatic(screen);
 	$finishNativeStatic();
 	return $ret;
 }
 
 int32_t D3DGraphicsDevice::getAvailableAcceleratedMemory() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($D3DRenderQueue, rq, $D3DRenderQueue::getInstance());
 	$nc(rq)->lock();
-	{
-		$var($Throwable, var$0, nullptr);
-		int32_t var$2 = 0;
-		bool return$1 = false;
-		try {
-			{
-			}
-			$var($D3DGraphicsDevice$3Result, res, $new($D3DGraphicsDevice$3Result, this));
-			rq->flushAndInvokeNow($$new($D3DGraphicsDevice$7, this, res));
-			var$2 = (int32_t)res->mem;
-			return$1 = true;
-			goto $finally;
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			rq->unlock();
+	$var($Throwable, var$0, nullptr);
+	int32_t var$2 = 0;
+	bool return$1 = false;
+	try {
+		{
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+		;
+		$var($D3DGraphicsDevice$3Result, res, $new($D3DGraphicsDevice$3Result, this));
+		rq->flushAndInvokeNow($$new($D3DGraphicsDevice$7, this, res));
+		var$2 = (int32_t)res->mem;
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		rq->unlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
@@ -557,8 +435,8 @@ $GraphicsConfigurationArray* D3DGraphicsDevice::getConfigurations() {
 			$set(this, defaultConfig, getDefaultConfiguration());
 			if (this->defaultConfig != nullptr) {
 				$set(this, configs, $new($GraphicsConfigurationArray, 1));
-				$nc(this->configs)->set(0, this->defaultConfig);
-				return $cast($GraphicsConfigurationArray, $nc(this->configs)->clone());
+				this->configs->set(0, this->defaultConfig);
+				return $cast($GraphicsConfigurationArray, this->configs->clone());
 			}
 		}
 	}
@@ -578,44 +456,42 @@ $GraphicsConfiguration* D3DGraphicsDevice::getDefaultConfiguration() {
 
 bool D3DGraphicsDevice::isD3DAvailableOnDeviceNative(int32_t screen) {
 	$init(D3DGraphicsDevice);
-	bool $ret = false;
-	$prepareNativeStatic(D3DGraphicsDevice, isD3DAvailableOnDeviceNative, bool, int32_t screen);
-	$ret = $invokeNativeStatic(screen);
+	$prepareNativeStatic(isD3DAvailableOnDeviceNative, bool, int32_t screen);
+	bool $ret = $invokeNativeStatic(screen);
 	$finishNativeStatic();
 	return $ret;
 }
 
 bool D3DGraphicsDevice::isD3DAvailableOnDevice(int32_t screen) {
 	$init(D3DGraphicsDevice);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!D3DGraphicsDevice::d3dAvailable) {
 		return false;
 	}
 	$var($D3DRenderQueue, rq, $D3DRenderQueue::getInstance());
 	$nc(rq)->lock();
-	{
-		$var($Throwable, var$0, nullptr);
-		bool var$2 = false;
-		bool return$1 = false;
-		try {
-			{
-			}
-			$var($D3DGraphicsDevice$4Result, res, $new($D3DGraphicsDevice$4Result));
-			rq->flushAndInvokeNow($$new($D3DGraphicsDevice$8, res, screen));
-			var$2 = res->avail;
-			return$1 = true;
-			goto $finally;
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			rq->unlock();
+	$var($Throwable, var$0, nullptr);
+	bool var$2 = false;
+	bool return$1 = false;
+	try {
+		{
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+		;
+		$var($D3DGraphicsDevice$4Result, res, $new($D3DGraphicsDevice$4Result));
+		rq->flushAndInvokeNow($$new($D3DGraphicsDevice$8, res, screen));
+		var$2 = res->avail;
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		rq->unlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
@@ -640,7 +516,7 @@ void D3DGraphicsDevice::invalidate(int32_t defaultScreen) {
 	$set(this, d3dCaps, $new($D3DContext$D3DContextCaps, 0, nullptr));
 }
 
-void clinit$D3DGraphicsDevice($Class* class$) {
+void D3DGraphicsDevice::clinit$($Class* clazz) {
 	{
 		$Toolkit::getDefaultToolkit();
 		D3DGraphicsDevice::d3dAvailable = D3DGraphicsDevice::initD3D();
@@ -655,7 +531,86 @@ D3DGraphicsDevice::D3DGraphicsDevice() {
 }
 
 $Class* D3DGraphicsDevice::load$($String* name, bool initialize) {
-	$loadClass(D3DGraphicsDevice, name, initialize, &_D3DGraphicsDevice_ClassInfo_, clinit$D3DGraphicsDevice, allocate$D3DGraphicsDevice);
+	$FieldInfo fieldInfos$$[] = {
+		{"context", "Lsun/java2d/d3d/D3DContext;", nullptr, $PRIVATE, $field(D3DGraphicsDevice, context)},
+		{"d3dAvailable", "Z", nullptr, $PRIVATE | $STATIC, $staticField(D3DGraphicsDevice, d3dAvailable)},
+		{"d3dCaps", "Lsun/java2d/pipe/hw/ContextCapabilities;", nullptr, $PRIVATE, $field(D3DGraphicsDevice, d3dCaps)},
+		{"fsStatus", "Z", nullptr, $PRIVATE, $field(D3DGraphicsDevice, fsStatus)},
+		{"ownerOrigBounds", "Ljava/awt/Rectangle;", nullptr, $PRIVATE, $field(D3DGraphicsDevice, ownerOrigBounds)},
+		{"ownerWasVisible", "Z", nullptr, $PRIVATE, $field(D3DGraphicsDevice, ownerWasVisible)},
+		{"realFSWindow", "Ljava/awt/Window;", nullptr, $PRIVATE, $field(D3DGraphicsDevice, realFSWindow)},
+		{"fsWindowListener", "Ljava/awt/event/WindowListener;", nullptr, $PRIVATE, $field(D3DGraphicsDevice, fsWindowListener)},
+		{"fsWindowWasAlwaysOnTop", "Z", nullptr, $PRIVATE, $field(D3DGraphicsDevice, fsWindowWasAlwaysOnTop)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(ILsun/java2d/pipe/hw/ContextCapabilities;)V", nullptr, $PRIVATE, $method(D3DGraphicsDevice, init$, void, int32_t, $ContextCapabilities*)},
+		{"addFSWindowListener", "(Ljava/awt/Window;)V", nullptr, $PROTECTED, $virtualMethod(D3DGraphicsDevice, addFSWindowListener, void, $Window*)},
+		{"configDisplayMode", "(ILjava/awt/peer/WindowPeer;IIII)V", nullptr, $PROTECTED, $virtualMethod(D3DGraphicsDevice, configDisplayMode, void, int32_t, $WindowPeer*, int32_t, int32_t, int32_t, int32_t)},
+		{"configDisplayModeNative", "(IJIIII)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(D3DGraphicsDevice, configDisplayModeNative, void, int32_t, int64_t, int32_t, int32_t, int32_t, int32_t)},
+		{"createDevice", "(I)Lsun/java2d/d3d/D3DGraphicsDevice;", nullptr, $PUBLIC | $STATIC, $staticMethod(D3DGraphicsDevice, createDevice, D3DGraphicsDevice*, int32_t)},
+		{"displayChanged", "()V", nullptr, $PUBLIC, $virtualMethod(D3DGraphicsDevice, displayChanged, void)},
+		{"enterFullScreenExclusive", "(ILjava/awt/peer/WindowPeer;)V", nullptr, $PROTECTED, $virtualMethod(D3DGraphicsDevice, enterFullScreenExclusive, void, int32_t, $WindowPeer*)},
+		{"enterFullScreenExclusiveNative", "(IJ)Z", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(D3DGraphicsDevice, enterFullScreenExclusiveNative, bool, int32_t, int64_t)},
+		{"enumDisplayModes", "(ILjava/util/ArrayList;)V", "(ILjava/util/ArrayList<Ljava/awt/DisplayMode;>;)V", $PROTECTED, $virtualMethod(D3DGraphicsDevice, enumDisplayModes, void, int32_t, $ArrayList*)},
+		{"enumDisplayModesNative", "(ILjava/util/ArrayList;)V", "(ILjava/util/ArrayList<Ljava/awt/DisplayMode;>;)V", $PRIVATE | $STATIC | $NATIVE, $staticMethod(D3DGraphicsDevice, enumDisplayModesNative, void, int32_t, $ArrayList*)},
+		{"exitFullScreenExclusive", "(ILjava/awt/peer/WindowPeer;)V", nullptr, $PROTECTED, $virtualMethod(D3DGraphicsDevice, exitFullScreenExclusive, void, int32_t, $WindowPeer*)},
+		{"exitFullScreenExclusiveNative", "(I)Z", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(D3DGraphicsDevice, exitFullScreenExclusiveNative, bool, int32_t)},
+		{"getAvailableAcceleratedMemory", "()I", nullptr, $PUBLIC, $virtualMethod(D3DGraphicsDevice, getAvailableAcceleratedMemory, int32_t)},
+		{"getAvailableAcceleratedMemoryNative", "(I)J", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(D3DGraphicsDevice, getAvailableAcceleratedMemoryNative, int64_t, int32_t)},
+		{"getConfigurations", "()[Ljava/awt/GraphicsConfiguration;", nullptr, $PUBLIC, $virtualMethod(D3DGraphicsDevice, getConfigurations, $GraphicsConfigurationArray*)},
+		{"getContext", "()Lsun/java2d/d3d/D3DContext;", nullptr, 0, $method(D3DGraphicsDevice, getContext, $D3DContext*)},
+		{"getContextCapabilities", "()Lsun/java2d/pipe/hw/ContextCapabilities;", nullptr, 0, $method(D3DGraphicsDevice, getContextCapabilities, $ContextCapabilities*)},
+		{"getCurrentDisplayMode", "(I)Ljava/awt/DisplayMode;", nullptr, $PROTECTED, $virtualMethod(D3DGraphicsDevice, getCurrentDisplayMode, $DisplayMode*, int32_t)},
+		{"getCurrentDisplayModeNative", "(I)Ljava/awt/DisplayMode;", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(D3DGraphicsDevice, getCurrentDisplayModeNative, $DisplayMode*, int32_t)},
+		{"getDefaultConfiguration", "()Ljava/awt/GraphicsConfiguration;", nullptr, $PUBLIC, $virtualMethod(D3DGraphicsDevice, getDefaultConfiguration, $GraphicsConfiguration*)},
+		{"getDeviceCaps", "(I)Lsun/java2d/pipe/hw/ContextCapabilities;", nullptr, $PRIVATE | $STATIC, $staticMethod(D3DGraphicsDevice, getDeviceCaps, $ContextCapabilities*, int32_t)},
+		{"getDeviceCapsNative", "(I)I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(D3DGraphicsDevice, getDeviceCapsNative, int32_t, int32_t)},
+		{"getDeviceIdNative", "(I)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(D3DGraphicsDevice, getDeviceIdNative, $String*, int32_t)},
+		{"getToplevelOwner", "(Ljava/awt/Window;)Ljava/awt/Frame;", nullptr, $PRIVATE, $method(D3DGraphicsDevice, getToplevelOwner, $Frame*, $Window*)},
+		{"initD3D", "()Z", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(D3DGraphicsDevice, initD3D, bool)},
+		{"invalidate", "(I)V", nullptr, $PROTECTED, $virtualMethod(D3DGraphicsDevice, invalidate, void, int32_t)},
+		{"isCapPresent", "(I)Z", nullptr, $PUBLIC | $FINAL, $method(D3DGraphicsDevice, isCapPresent, bool, int32_t)},
+		{"isD3DAvailable", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(D3DGraphicsDevice, isD3DAvailable, bool)},
+		{"isD3DAvailableOnDevice", "(I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(D3DGraphicsDevice, isD3DAvailableOnDevice, bool, int32_t)},
+		{"isD3DAvailableOnDeviceNative", "(I)Z", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(D3DGraphicsDevice, isD3DAvailableOnDeviceNative, bool, int32_t)},
+		{"isD3DEnabledOnDevice", "()Z", nullptr, $PUBLIC, $method(D3DGraphicsDevice, isD3DEnabledOnDevice, bool)},
+		{"removeFSWindowListener", "(Ljava/awt/Window;)V", nullptr, $PROTECTED, $virtualMethod(D3DGraphicsDevice, removeFSWindowListener, void, $Window*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.java2d.d3d.D3DGraphicsDevice$D3DFSWindowAdapter", "sun.java2d.d3d.D3DGraphicsDevice", "D3DFSWindowAdapter", $PRIVATE | $STATIC},
+		{"sun.java2d.d3d.D3DGraphicsDevice$8", nullptr, nullptr, 0},
+		{"sun.java2d.d3d.D3DGraphicsDevice$4Result", nullptr, "Result", 0},
+		{"sun.java2d.d3d.D3DGraphicsDevice$7", nullptr, nullptr, 0},
+		{"sun.java2d.d3d.D3DGraphicsDevice$3Result", nullptr, "Result", 0},
+		{"sun.java2d.d3d.D3DGraphicsDevice$6", nullptr, nullptr, 0},
+		{"sun.java2d.d3d.D3DGraphicsDevice$5", nullptr, nullptr, 0},
+		{"sun.java2d.d3d.D3DGraphicsDevice$4", nullptr, nullptr, 0},
+		{"sun.java2d.d3d.D3DGraphicsDevice$2Result", nullptr, "Result", 0},
+		{"sun.java2d.d3d.D3DGraphicsDevice$3", nullptr, nullptr, 0},
+		{"sun.java2d.d3d.D3DGraphicsDevice$2", nullptr, nullptr, 0},
+		{"sun.java2d.d3d.D3DGraphicsDevice$1", nullptr, nullptr, 0},
+		{"sun.java2d.d3d.D3DGraphicsDevice$1Result", nullptr, "Result", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.java2d.d3d.D3DGraphicsDevice",
+		"sun.awt.Win32GraphicsDevice",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.java2d.d3d.D3DGraphicsDevice$D3DFSWindowAdapter,sun.java2d.d3d.D3DGraphicsDevice$8,sun.java2d.d3d.D3DGraphicsDevice$4Result,sun.java2d.d3d.D3DGraphicsDevice$7,sun.java2d.d3d.D3DGraphicsDevice$3Result,sun.java2d.d3d.D3DGraphicsDevice$6,sun.java2d.d3d.D3DGraphicsDevice$5,sun.java2d.d3d.D3DGraphicsDevice$4,sun.java2d.d3d.D3DGraphicsDevice$2Result,sun.java2d.d3d.D3DGraphicsDevice$3,sun.java2d.d3d.D3DGraphicsDevice$2,sun.java2d.d3d.D3DGraphicsDevice$1,sun.java2d.d3d.D3DGraphicsDevice$1Result"
+	};
+	$loadClass(D3DGraphicsDevice, name, initialize, &classInfo$$, D3DGraphicsDevice::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(D3DGraphicsDevice));
+	});
 	return class$;
 }
 

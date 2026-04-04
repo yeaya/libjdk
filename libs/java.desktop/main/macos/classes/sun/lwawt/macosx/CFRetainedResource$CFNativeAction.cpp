@@ -1,5 +1,4 @@
 #include <sun/lwawt/macosx/CFRetainedResource$CFNativeAction.h>
-
 #include <sun/lwawt/macosx/CFRetainedResource.h>
 #include <jcpp.h>
 
@@ -11,38 +10,33 @@ namespace sun {
 	namespace lwawt {
 		namespace macosx {
 
-$MethodInfo _CFRetainedResource$CFNativeAction_MethodInfo_[] = {
-	{"run", "(J)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CFRetainedResource$CFNativeAction, run, void, int64_t)},
-	{}
-};
-
-$InnerClassInfo _CFRetainedResource$CFNativeAction_InnerClassesInfo_[] = {
-	{"sun.lwawt.macosx.CFRetainedResource$CFNativeAction", "sun.lwawt.macosx.CFRetainedResource", "CFNativeAction", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _CFRetainedResource$CFNativeAction_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"sun.lwawt.macosx.CFRetainedResource$CFNativeAction",
-	nullptr,
-	nullptr,
-	nullptr,
-	_CFRetainedResource$CFNativeAction_MethodInfo_,
-	nullptr,
-	nullptr,
-	_CFRetainedResource$CFNativeAction_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.lwawt.macosx.CFRetainedResource"
-};
-
-$Object* allocate$CFRetainedResource$CFNativeAction($Class* clazz) {
-	return $of($alloc(CFRetainedResource$CFNativeAction));
-}
-
 $Class* CFRetainedResource$CFNativeAction::load$($String* name, bool initialize) {
-	$loadClass(CFRetainedResource$CFNativeAction, name, initialize, &_CFRetainedResource$CFNativeAction_ClassInfo_, allocate$CFRetainedResource$CFNativeAction);
+	$MethodInfo methodInfos$$[] = {
+		{"run", "(J)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CFRetainedResource$CFNativeAction, run, void, int64_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.lwawt.macosx.CFRetainedResource$CFNativeAction", "sun.lwawt.macosx.CFRetainedResource", "CFNativeAction", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"sun.lwawt.macosx.CFRetainedResource$CFNativeAction",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.lwawt.macosx.CFRetainedResource"
+	};
+	$loadClass(CFRetainedResource$CFNativeAction, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CFRetainedResource$CFNativeAction);
+	});
 	return class$;
 }
 

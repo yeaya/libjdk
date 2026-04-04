@@ -103,6 +103,7 @@ class Krb5Context : public ::sun::security::jgss::spi::GSSContextSpi {
 	$class(Krb5Context, 0, ::sun::security::jgss::spi::GSSContextSpi)
 public:
 	Krb5Context();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::security::jgss::GSSCaller* caller, ::sun::security::jgss::krb5::Krb5NameElement* peerName, ::sun::security::jgss::krb5::Krb5CredElement* myCred, int32_t lifetime);
 	void init$(::sun::security::jgss::GSSCaller* caller, ::sun::security::jgss::krb5::Krb5CredElement* myCred);
 	void init$(::sun::security::jgss::GSSCaller* caller, $bytes* interProcessToken);

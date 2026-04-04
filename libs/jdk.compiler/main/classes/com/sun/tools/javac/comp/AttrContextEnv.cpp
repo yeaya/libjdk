@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/AttrContextEnv.h>
-
 #include <com/sun/tools/javac/comp/AttrContext.h>
 #include <com/sun/tools/javac/comp/Env.h>
 #include <com/sun/tools/javac/tree/JCTree.h>
@@ -17,25 +16,6 @@ namespace com {
 			namespace javac {
 				namespace comp {
 
-$MethodInfo _AttrContextEnv_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/comp/AttrContext;)V", nullptr, $PUBLIC, $method(AttrContextEnv, init$, void, $JCTree*, $AttrContext*)},
-	{}
-};
-
-$ClassInfo _AttrContextEnv_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.comp.AttrContextEnv",
-	"com.sun.tools.javac.comp.Env",
-	nullptr,
-	nullptr,
-	_AttrContextEnv_MethodInfo_,
-	"Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;"
-};
-
-$Object* allocate$AttrContextEnv($Class* clazz) {
-	return $of($alloc(AttrContextEnv));
-}
-
 void AttrContextEnv::init$($JCTree* tree, $AttrContext* info) {
 	$Env::init$(tree, info);
 }
@@ -44,7 +24,22 @@ AttrContextEnv::AttrContextEnv() {
 }
 
 $Class* AttrContextEnv::load$($String* name, bool initialize) {
-	$loadClass(AttrContextEnv, name, initialize, &_AttrContextEnv_ClassInfo_, allocate$AttrContextEnv);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/comp/AttrContext;)V", nullptr, $PUBLIC, $method(AttrContextEnv, init$, void, $JCTree*, $AttrContext*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.comp.AttrContextEnv",
+		"com.sun.tools.javac.comp.Env",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		"Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;"
+	};
+	$loadClass(AttrContextEnv, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AttrContextEnv);
+	});
 	return class$;
 }
 

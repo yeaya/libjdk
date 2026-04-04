@@ -1,5 +1,4 @@
 #include <java/beans/MetaData$1.h>
-
 #include <java/beans/MetaData.h>
 #include <java/lang/ClassNotFoundException.h>
 #include <java/lang/IllegalStateException.h>
@@ -19,49 +18,6 @@ using $Field = ::java::lang::reflect::Field;
 
 namespace java {
 	namespace beans {
-
-$FieldInfo _MetaData$1_FieldInfo_[] = {
-	{"val$fieldName", "Ljava/lang/String;", nullptr, $FINAL | $SYNTHETIC, $field(MetaData$1, val$fieldName)},
-	{"val$className", "Ljava/lang/String;", nullptr, $FINAL | $SYNTHETIC, $field(MetaData$1, val$className)},
-	{}
-};
-
-$MethodInfo _MetaData$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", "()V", 0, $method(MetaData$1, init$, void, $String*, $String*)},
-	{"run", "()Ljava/lang/reflect/Field;", nullptr, $PUBLIC, $virtualMethod(MetaData$1, run, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _MetaData$1_EnclosingMethodInfo_ = {
-	"java.beans.MetaData",
-	"getPrivateFieldValue",
-	"(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;"
-};
-
-$InnerClassInfo _MetaData$1_InnerClassesInfo_[] = {
-	{"java.beans.MetaData$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _MetaData$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.beans.MetaData$1",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	_MetaData$1_FieldInfo_,
-	_MetaData$1_MethodInfo_,
-	"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/reflect/Field;>;",
-	&_MetaData$1_EnclosingMethodInfo_,
-	_MetaData$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.beans.MetaData"
-};
-
-$Object* allocate$MetaData$1($Class* clazz) {
-	return $of($alloc(MetaData$1));
-}
 
 void MetaData$1::init$($String* val$className, $String* val$fieldName) {
 	$set(this, val$className, val$className);
@@ -86,7 +42,43 @@ MetaData$1::MetaData$1() {
 }
 
 $Class* MetaData$1::load$($String* name, bool initialize) {
-	$loadClass(MetaData$1, name, initialize, &_MetaData$1_ClassInfo_, allocate$MetaData$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"val$fieldName", "Ljava/lang/String;", nullptr, $FINAL | $SYNTHETIC, $field(MetaData$1, val$fieldName)},
+		{"val$className", "Ljava/lang/String;", nullptr, $FINAL | $SYNTHETIC, $field(MetaData$1, val$className)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", "()V", 0, $method(MetaData$1, init$, void, $String*, $String*)},
+		{"run", "()Ljava/lang/reflect/Field;", nullptr, $PUBLIC, $virtualMethod(MetaData$1, run, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.beans.MetaData",
+		"getPrivateFieldValue",
+		"(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.beans.MetaData$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.beans.MetaData$1",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/reflect/Field;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.beans.MetaData"
+	};
+	$loadClass(MetaData$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MetaData$1);
+	});
 	return class$;
 }
 

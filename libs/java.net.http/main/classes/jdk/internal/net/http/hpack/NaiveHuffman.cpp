@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/hpack/NaiveHuffman.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/lang/CharSequence.h>
 #include <java/lang/IllegalStateException.h>
@@ -30,94 +29,45 @@ namespace jdk {
 			namespace http {
 				namespace hpack {
 
-$FieldInfo _NaiveHuffman_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(NaiveHuffman, $assertionsDisabled)},
-	{"INSTANCE", "Ljdk/internal/net/http/hpack/NaiveHuffman;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(NaiveHuffman, INSTANCE)},
-	{"EOS", "Ljdk/internal/net/http/hpack/NaiveHuffman$Code;", nullptr, $PRIVATE | $FINAL, $field(NaiveHuffman, EOS)},
-	{"codes", "[Ljdk/internal/net/http/hpack/NaiveHuffman$Code;", nullptr, $PRIVATE | $FINAL, $field(NaiveHuffman, codes)},
-	{"root", "Ljdk/internal/net/http/hpack/NaiveHuffman$Node;", nullptr, $PRIVATE | $FINAL, $field(NaiveHuffman, root)},
-	{}
-};
-
-$MethodInfo _NaiveHuffman_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(NaiveHuffman, init$, void)},
-	{"addChar", "(III)V", nullptr, $PRIVATE, $method(NaiveHuffman, addChar, void, int32_t, int32_t, int32_t)},
-	{"addEOS", "(III)V", nullptr, $PRIVATE, $method(NaiveHuffman, addEOS, void, int32_t, int32_t, int32_t)},
-	{"addLeaf", "(IIIZ)V", nullptr, $PRIVATE, $method(NaiveHuffman, addLeaf, void, int32_t, int32_t, int32_t, bool)},
-	{"codeOf", "(C)Ljdk/internal/net/http/hpack/NaiveHuffman$Code;", nullptr, $PRIVATE, $method(NaiveHuffman, codeOf, $NaiveHuffman$Code*, char16_t)},
-	{"getRoot", "()Ljdk/internal/net/http/hpack/NaiveHuffman$Node;", nullptr, 0, $method(NaiveHuffman, getRoot, $NaiveHuffman$Node*)},
-	{"lengthOf", "(Ljava/lang/CharSequence;)I", nullptr, $PUBLIC, $method(NaiveHuffman, lengthOf, int32_t, $CharSequence*)},
-	{"lengthOf", "(Ljava/lang/CharSequence;II)I", nullptr, $PUBLIC, $method(NaiveHuffman, lengthOf, int32_t, $CharSequence*, int32_t, int32_t)},
-	{}
-};
-
-$InnerClassInfo _NaiveHuffman_InnerClassesInfo_[] = {
-	{"jdk.internal.net.http.hpack.NaiveHuffman$Code", "jdk.internal.net.http.hpack.NaiveHuffman", "Code", $PRIVATE | $STATIC | $FINAL},
-	{"jdk.internal.net.http.hpack.NaiveHuffman$Node", "jdk.internal.net.http.hpack.NaiveHuffman", "Node", $STATIC},
-	{"jdk.internal.net.http.hpack.NaiveHuffman$Writer", "jdk.internal.net.http.hpack.NaiveHuffman", "Writer", $STATIC | $FINAL},
-	{"jdk.internal.net.http.hpack.NaiveHuffman$Reader", "jdk.internal.net.http.hpack.NaiveHuffman", "Reader", $STATIC | $FINAL},
-	{"jdk.internal.net.http.hpack.NaiveHuffman$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _NaiveHuffman_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"jdk.internal.net.http.hpack.NaiveHuffman",
-	"java.lang.Object",
-	nullptr,
-	_NaiveHuffman_FieldInfo_,
-	_NaiveHuffman_MethodInfo_,
-	nullptr,
-	nullptr,
-	_NaiveHuffman_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"jdk.internal.net.http.hpack.NaiveHuffman$Code,jdk.internal.net.http.hpack.NaiveHuffman$Node,jdk.internal.net.http.hpack.NaiveHuffman$Writer,jdk.internal.net.http.hpack.NaiveHuffman$Reader,jdk.internal.net.http.hpack.NaiveHuffman$1"
-};
-
-$Object* allocate$NaiveHuffman($Class* clazz) {
-	return $of($alloc(NaiveHuffman));
-}
-
 bool NaiveHuffman::$assertionsDisabled = false;
 NaiveHuffman* NaiveHuffman::INSTANCE = nullptr;
 
 void NaiveHuffman::init$() {
-	$set(this, EOS, $new($NaiveHuffman$Code, 0x3FFFFFFF, 30));
+	$set(this, EOS, $new($NaiveHuffman$Code, 0x3fffffff, 30));
 	$set(this, codes, $new($NaiveHuffman$CodeArray, 257));
 	$set(this, root, $new($NaiveHuffman$1, this));
 	addChar(0, 8184, 13);
-	addChar(1, 0x007FFFD8, 23);
-	addChar(2, 0x0FFFFFE2, 28);
-	addChar(3, 0x0FFFFFE3, 28);
-	addChar(4, 0x0FFFFFE4, 28);
-	addChar(5, 0x0FFFFFE5, 28);
-	addChar(6, 0x0FFFFFE6, 28);
-	addChar(7, 0x0FFFFFE7, 28);
-	addChar(8, 0x0FFFFFE8, 28);
-	addChar(9, 0x00FFFFEA, 24);
-	addChar(10, 0x3FFFFFFC, 30);
-	addChar(11, 0x0FFFFFE9, 28);
-	addChar(12, 0x0FFFFFEA, 28);
-	addChar(13, 0x3FFFFFFD, 30);
-	addChar(14, 0x0FFFFFEB, 28);
-	addChar(15, 0x0FFFFFEC, 28);
-	addChar(16, 0x0FFFFFED, 28);
-	addChar(17, 0x0FFFFFEE, 28);
-	addChar(18, 0x0FFFFFEF, 28);
-	addChar(19, 0x0FFFFFF0, 28);
-	addChar(20, 0x0FFFFFF1, 28);
-	addChar(21, 0x0FFFFFF2, 28);
-	addChar(22, 0x3FFFFFFE, 30);
-	addChar(23, 0x0FFFFFF3, 28);
-	addChar(24, 0x0FFFFFF4, 28);
-	addChar(25, 0x0FFFFFF5, 28);
-	addChar(26, 0x0FFFFFF6, 28);
-	addChar(27, 0x0FFFFFF7, 28);
-	addChar(28, 0x0FFFFFF8, 28);
-	addChar(29, 0x0FFFFFF9, 28);
-	addChar(30, 0x0FFFFFFA, 28);
-	addChar(31, 0x0FFFFFFB, 28);
+	addChar(1, 0x007fffd8, 23);
+	addChar(2, 0x0fffffe2, 28);
+	addChar(3, 0x0fffffe3, 28);
+	addChar(4, 0x0fffffe4, 28);
+	addChar(5, 0x0fffffe5, 28);
+	addChar(6, 0x0fffffe6, 28);
+	addChar(7, 0x0fffffe7, 28);
+	addChar(8, 0x0fffffe8, 28);
+	addChar(9, 0x00ffffea, 24);
+	addChar(10, 0x3ffffffc, 30);
+	addChar(11, 0x0fffffe9, 28);
+	addChar(12, 0x0fffffea, 28);
+	addChar(13, 0x3ffffffd, 30);
+	addChar(14, 0x0fffffeb, 28);
+	addChar(15, 0x0fffffec, 28);
+	addChar(16, 0x0fffffed, 28);
+	addChar(17, 0x0fffffee, 28);
+	addChar(18, 0x0fffffef, 28);
+	addChar(19, 0x0ffffff0, 28);
+	addChar(20, 0x0ffffff1, 28);
+	addChar(21, 0x0ffffff2, 28);
+	addChar(22, 0x3ffffffe, 30);
+	addChar(23, 0x0ffffff3, 28);
+	addChar(24, 0x0ffffff4, 28);
+	addChar(25, 0x0ffffff5, 28);
+	addChar(26, 0x0ffffff6, 28);
+	addChar(27, 0x0ffffff7, 28);
+	addChar(28, 0x0ffffff8, 28);
+	addChar(29, 0x0ffffff9, 28);
+	addChar(30, 0x0ffffffa, 28);
+	addChar(31, 0x0ffffffb, 28);
 	addChar(32, 20, 6);
 	addChar(33, 1016, 10);
 	addChar(34, 1017, 10);
@@ -178,7 +128,7 @@ void NaiveHuffman::init$() {
 	addChar(89, 115, 7);
 	addChar(90, 253, 8);
 	addChar(91, 8187, 13);
-	addChar(92, 0x0007FFF0, 19);
+	addChar(92, 0x0007fff0, 19);
 	addChar(93, 8188, 13);
 	addChar(94, 16380, 14);
 	addChar(95, 34, 6);
@@ -213,136 +163,136 @@ void NaiveHuffman::init$() {
 	addChar(124, 2044, 11);
 	addChar(125, 16381, 14);
 	addChar(126, 8189, 13);
-	addChar(127, 0x0FFFFFFC, 28);
-	addChar(128, 0x000FFFE6, 20);
-	addChar(129, 0x003FFFD2, 22);
-	addChar(130, 0x000FFFE7, 20);
-	addChar(131, 0x000FFFE8, 20);
-	addChar(132, 0x003FFFD3, 22);
-	addChar(133, 0x003FFFD4, 22);
-	addChar(134, 0x003FFFD5, 22);
-	addChar(135, 0x007FFFD9, 23);
-	addChar(136, 0x003FFFD6, 22);
-	addChar(137, 0x007FFFDA, 23);
-	addChar(138, 0x007FFFDB, 23);
-	addChar(139, 0x007FFFDC, 23);
-	addChar(140, 0x007FFFDD, 23);
-	addChar(141, 0x007FFFDE, 23);
-	addChar(142, 0x00FFFFEB, 24);
-	addChar(143, 0x007FFFDF, 23);
-	addChar(144, 0x00FFFFEC, 24);
-	addChar(145, 0x00FFFFED, 24);
-	addChar(146, 0x003FFFD7, 22);
-	addChar(147, 0x007FFFE0, 23);
-	addChar(148, 0x00FFFFEE, 24);
-	addChar(149, 0x007FFFE1, 23);
-	addChar(150, 0x007FFFE2, 23);
-	addChar(151, 0x007FFFE3, 23);
-	addChar(152, 0x007FFFE4, 23);
-	addChar(153, 0x001FFFDC, 21);
-	addChar(154, 0x003FFFD8, 22);
-	addChar(155, 0x007FFFE5, 23);
-	addChar(156, 0x003FFFD9, 22);
-	addChar(157, 0x007FFFE6, 23);
-	addChar(158, 0x007FFFE7, 23);
-	addChar(159, 0x00FFFFEF, 24);
-	addChar(160, 0x003FFFDA, 22);
-	addChar(161, 0x001FFFDD, 21);
-	addChar(162, 0x000FFFE9, 20);
-	addChar(163, 0x003FFFDB, 22);
-	addChar(164, 0x003FFFDC, 22);
-	addChar(165, 0x007FFFE8, 23);
-	addChar(166, 0x007FFFE9, 23);
-	addChar(167, 0x001FFFDE, 21);
-	addChar(168, 0x007FFFEA, 23);
-	addChar(169, 0x003FFFDD, 22);
-	addChar(170, 0x003FFFDE, 22);
-	addChar(171, 0x00FFFFF0, 24);
-	addChar(172, 0x001FFFDF, 21);
-	addChar(173, 0x003FFFDF, 22);
-	addChar(174, 0x007FFFEB, 23);
-	addChar(175, 0x007FFFEC, 23);
-	addChar(176, 0x001FFFE0, 21);
-	addChar(177, 0x001FFFE1, 21);
-	addChar(178, 0x003FFFE0, 22);
-	addChar(179, 0x001FFFE2, 21);
-	addChar(180, 0x007FFFED, 23);
-	addChar(181, 0x003FFFE1, 22);
-	addChar(182, 0x007FFFEE, 23);
-	addChar(183, 0x007FFFEF, 23);
-	addChar(184, 0x000FFFEA, 20);
-	addChar(185, 0x003FFFE2, 22);
-	addChar(186, 0x003FFFE3, 22);
-	addChar(187, 0x003FFFE4, 22);
-	addChar(188, 0x007FFFF0, 23);
-	addChar(189, 0x003FFFE5, 22);
-	addChar(190, 0x003FFFE6, 22);
-	addChar(191, 0x007FFFF1, 23);
-	addChar(192, 0x03FFFFE0, 26);
-	addChar(193, 0x03FFFFE1, 26);
-	addChar(194, 0x000FFFEB, 20);
-	addChar(195, 0x0007FFF1, 19);
-	addChar(196, 0x003FFFE7, 22);
-	addChar(197, 0x007FFFF2, 23);
-	addChar(198, 0x003FFFE8, 22);
-	addChar(199, 0x01FFFFEC, 25);
-	addChar(200, 0x03FFFFE2, 26);
-	addChar(201, 0x03FFFFE3, 26);
-	addChar(202, 0x03FFFFE4, 26);
-	addChar(203, 0x07FFFFDE, 27);
-	addChar(204, 0x07FFFFDF, 27);
-	addChar(205, 0x03FFFFE5, 26);
-	addChar(206, 0x00FFFFF1, 24);
-	addChar(207, 0x01FFFFED, 25);
-	addChar(208, 0x0007FFF2, 19);
-	addChar(209, 0x001FFFE3, 21);
-	addChar(210, 0x03FFFFE6, 26);
-	addChar(211, 0x07FFFFE0, 27);
-	addChar(212, 0x07FFFFE1, 27);
-	addChar(213, 0x03FFFFE7, 26);
-	addChar(214, 0x07FFFFE2, 27);
-	addChar(215, 0x00FFFFF2, 24);
-	addChar(216, 0x001FFFE4, 21);
-	addChar(217, 0x001FFFE5, 21);
-	addChar(218, 0x03FFFFE8, 26);
-	addChar(219, 0x03FFFFE9, 26);
-	addChar(220, 0x0FFFFFFD, 28);
-	addChar(221, 0x07FFFFE3, 27);
-	addChar(222, 0x07FFFFE4, 27);
-	addChar(223, 0x07FFFFE5, 27);
-	addChar(224, 0x000FFFEC, 20);
-	addChar(225, 0x00FFFFF3, 24);
-	addChar(226, 0x000FFFED, 20);
-	addChar(227, 0x001FFFE6, 21);
-	addChar(228, 0x003FFFE9, 22);
-	addChar(229, 0x001FFFE7, 21);
-	addChar(230, 0x001FFFE8, 21);
-	addChar(231, 0x007FFFF3, 23);
-	addChar(232, 0x003FFFEA, 22);
-	addChar(233, 0x003FFFEB, 22);
-	addChar(234, 0x01FFFFEE, 25);
-	addChar(235, 0x01FFFFEF, 25);
-	addChar(236, 0x00FFFFF4, 24);
-	addChar(237, 0x00FFFFF5, 24);
-	addChar(238, 0x03FFFFEA, 26);
-	addChar(239, 0x007FFFF4, 23);
-	addChar(240, 0x03FFFFEB, 26);
-	addChar(241, 0x07FFFFE6, 27);
-	addChar(242, 0x03FFFFEC, 26);
-	addChar(243, 0x03FFFFED, 26);
-	addChar(244, 0x07FFFFE7, 27);
-	addChar(245, 0x07FFFFE8, 27);
-	addChar(246, 0x07FFFFE9, 27);
-	addChar(247, 0x07FFFFEA, 27);
-	addChar(248, 0x07FFFFEB, 27);
-	addChar(249, 0x0FFFFFFE, 28);
-	addChar(250, 0x07FFFFEC, 27);
-	addChar(251, 0x07FFFFED, 27);
-	addChar(252, 0x07FFFFEE, 27);
-	addChar(253, 0x07FFFFEF, 27);
-	addChar(254, 0x07FFFFF0, 27);
-	addChar(255, 0x03FFFFEE, 26);
-	addEOS(256, $nc(this->EOS)->code, $nc(this->EOS)->length);
+	addChar(127, 0x0ffffffc, 28);
+	addChar(128, 0x000fffe6, 20);
+	addChar(129, 0x003fffd2, 22);
+	addChar(130, 0x000fffe7, 20);
+	addChar(131, 0x000fffe8, 20);
+	addChar(132, 0x003fffd3, 22);
+	addChar(133, 0x003fffd4, 22);
+	addChar(134, 0x003fffd5, 22);
+	addChar(135, 0x007fffd9, 23);
+	addChar(136, 0x003fffd6, 22);
+	addChar(137, 0x007fffda, 23);
+	addChar(138, 0x007fffdb, 23);
+	addChar(139, 0x007fffdc, 23);
+	addChar(140, 0x007fffdd, 23);
+	addChar(141, 0x007fffde, 23);
+	addChar(142, 0x00ffffeb, 24);
+	addChar(143, 0x007fffdf, 23);
+	addChar(144, 0x00ffffec, 24);
+	addChar(145, 0x00ffffed, 24);
+	addChar(146, 0x003fffd7, 22);
+	addChar(147, 0x007fffe0, 23);
+	addChar(148, 0x00ffffee, 24);
+	addChar(149, 0x007fffe1, 23);
+	addChar(150, 0x007fffe2, 23);
+	addChar(151, 0x007fffe3, 23);
+	addChar(152, 0x007fffe4, 23);
+	addChar(153, 0x001fffdc, 21);
+	addChar(154, 0x003fffd8, 22);
+	addChar(155, 0x007fffe5, 23);
+	addChar(156, 0x003fffd9, 22);
+	addChar(157, 0x007fffe6, 23);
+	addChar(158, 0x007fffe7, 23);
+	addChar(159, 0x00ffffef, 24);
+	addChar(160, 0x003fffda, 22);
+	addChar(161, 0x001fffdd, 21);
+	addChar(162, 0x000fffe9, 20);
+	addChar(163, 0x003fffdb, 22);
+	addChar(164, 0x003fffdc, 22);
+	addChar(165, 0x007fffe8, 23);
+	addChar(166, 0x007fffe9, 23);
+	addChar(167, 0x001fffde, 21);
+	addChar(168, 0x007fffea, 23);
+	addChar(169, 0x003fffdd, 22);
+	addChar(170, 0x003fffde, 22);
+	addChar(171, 0x00fffff0, 24);
+	addChar(172, 0x001fffdf, 21);
+	addChar(173, 0x003fffdf, 22);
+	addChar(174, 0x007fffeb, 23);
+	addChar(175, 0x007fffec, 23);
+	addChar(176, 0x001fffe0, 21);
+	addChar(177, 0x001fffe1, 21);
+	addChar(178, 0x003fffe0, 22);
+	addChar(179, 0x001fffe2, 21);
+	addChar(180, 0x007fffed, 23);
+	addChar(181, 0x003fffe1, 22);
+	addChar(182, 0x007fffee, 23);
+	addChar(183, 0x007fffef, 23);
+	addChar(184, 0x000fffea, 20);
+	addChar(185, 0x003fffe2, 22);
+	addChar(186, 0x003fffe3, 22);
+	addChar(187, 0x003fffe4, 22);
+	addChar(188, 0x007ffff0, 23);
+	addChar(189, 0x003fffe5, 22);
+	addChar(190, 0x003fffe6, 22);
+	addChar(191, 0x007ffff1, 23);
+	addChar(192, 0x03ffffe0, 26);
+	addChar(193, 0x03ffffe1, 26);
+	addChar(194, 0x000fffeb, 20);
+	addChar(195, 0x0007fff1, 19);
+	addChar(196, 0x003fffe7, 22);
+	addChar(197, 0x007ffff2, 23);
+	addChar(198, 0x003fffe8, 22);
+	addChar(199, 0x01ffffec, 25);
+	addChar(200, 0x03ffffe2, 26);
+	addChar(201, 0x03ffffe3, 26);
+	addChar(202, 0x03ffffe4, 26);
+	addChar(203, 0x07ffffde, 27);
+	addChar(204, 0x07ffffdf, 27);
+	addChar(205, 0x03ffffe5, 26);
+	addChar(206, 0x00fffff1, 24);
+	addChar(207, 0x01ffffed, 25);
+	addChar(208, 0x0007fff2, 19);
+	addChar(209, 0x001fffe3, 21);
+	addChar(210, 0x03ffffe6, 26);
+	addChar(211, 0x07ffffe0, 27);
+	addChar(212, 0x07ffffe1, 27);
+	addChar(213, 0x03ffffe7, 26);
+	addChar(214, 0x07ffffe2, 27);
+	addChar(215, 0x00fffff2, 24);
+	addChar(216, 0x001fffe4, 21);
+	addChar(217, 0x001fffe5, 21);
+	addChar(218, 0x03ffffe8, 26);
+	addChar(219, 0x03ffffe9, 26);
+	addChar(220, 0x0ffffffd, 28);
+	addChar(221, 0x07ffffe3, 27);
+	addChar(222, 0x07ffffe4, 27);
+	addChar(223, 0x07ffffe5, 27);
+	addChar(224, 0x000fffec, 20);
+	addChar(225, 0x00fffff3, 24);
+	addChar(226, 0x000fffed, 20);
+	addChar(227, 0x001fffe6, 21);
+	addChar(228, 0x003fffe9, 22);
+	addChar(229, 0x001fffe7, 21);
+	addChar(230, 0x001fffe8, 21);
+	addChar(231, 0x007ffff3, 23);
+	addChar(232, 0x003fffea, 22);
+	addChar(233, 0x003fffeb, 22);
+	addChar(234, 0x01ffffee, 25);
+	addChar(235, 0x01ffffef, 25);
+	addChar(236, 0x00fffff4, 24);
+	addChar(237, 0x00fffff5, 24);
+	addChar(238, 0x03ffffea, 26);
+	addChar(239, 0x007ffff4, 23);
+	addChar(240, 0x03ffffeb, 26);
+	addChar(241, 0x07ffffe6, 27);
+	addChar(242, 0x03ffffec, 26);
+	addChar(243, 0x03ffffed, 26);
+	addChar(244, 0x07ffffe7, 27);
+	addChar(245, 0x07ffffe8, 27);
+	addChar(246, 0x07ffffe9, 27);
+	addChar(247, 0x07ffffea, 27);
+	addChar(248, 0x07ffffeb, 27);
+	addChar(249, 0x0ffffffe, 28);
+	addChar(250, 0x07ffffec, 27);
+	addChar(251, 0x07ffffed, 27);
+	addChar(252, 0x07ffffee, 27);
+	addChar(253, 0x07ffffef, 27);
+	addChar(254, 0x07fffff0, 27);
+	addChar(255, 0x03ffffee, 26);
+	addEOS(256, this->EOS->code, this->EOS->length);
 }
 
 int32_t NaiveHuffman::lengthOf($CharSequence* value) {
@@ -350,11 +300,11 @@ int32_t NaiveHuffman::lengthOf($CharSequence* value) {
 }
 
 int32_t NaiveHuffman::lengthOf($CharSequence* value, int32_t start, int32_t end) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t len = 0;
 	for (int32_t i = start; i < end; ++i) {
 		char16_t c = $nc(value)->charAt(i);
-		len += $nc($($nc(NaiveHuffman::INSTANCE)->codeOf(c)))->length;
+		len += $nc($(NaiveHuffman::INSTANCE->codeOf(c)))->length;
 	}
 	if (!NaiveHuffman::$assertionsDisabled && !((len / 8 + (len % 8 != 0 ? 1 : 0)) == (len + 7) / 8)) {
 		$throwNew($AssertionError, len);
@@ -364,12 +314,12 @@ int32_t NaiveHuffman::lengthOf($CharSequence* value, int32_t start, int32_t end)
 
 void NaiveHuffman::addChar(int32_t c, int32_t code, int32_t bitLength) {
 	addLeaf(c, code, bitLength, false);
-	$nc(this->codes)->set(c, $$new($NaiveHuffman$Code, code, bitLength));
+	this->codes->set(c, $$new($NaiveHuffman$Code, code, bitLength));
 }
 
 void NaiveHuffman::addEOS(int32_t c, int32_t code, int32_t bitLength) {
 	addLeaf(c, code, bitLength, true);
-	$nc(this->codes)->set(c, $$new($NaiveHuffman$Code, code, bitLength));
+	this->codes->set(c, $$new($NaiveHuffman$Code, code, bitLength));
 }
 
 void NaiveHuffman::addLeaf(int32_t c, int32_t code, int32_t bitLength, bool isEOS) {
@@ -379,7 +329,7 @@ void NaiveHuffman::addLeaf(int32_t c, int32_t code, int32_t bitLength, bool isEO
 	$var($NaiveHuffman$Node, curr, this->root);
 	for (int32_t p = $sl(1, bitLength - 1); p != 0 && !$nc(curr)->isLeaf(); p = p >> 1) {
 		curr->isEOSPath |= isEOS;
-		$assign(curr, curr->addChildIfAbsent((int32_t)(p & (uint32_t)code)));
+		$assign(curr, curr->addChildIfAbsent(p & code));
 	}
 	$nc(curr)->isEOSPath |= isEOS;
 	if (curr->isLeaf()) {
@@ -389,18 +339,18 @@ void NaiveHuffman::addLeaf(int32_t c, int32_t code, int32_t bitLength, bool isEO
 }
 
 $NaiveHuffman$Code* NaiveHuffman::codeOf(char16_t c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (c > 255) {
 		$throwNew($IllegalArgumentException, $$str({"char="_s, $$str(((int32_t)c))}));
 	}
-	return $nc(this->codes)->get(c);
+	return this->codes->get(c);
 }
 
 $NaiveHuffman$Node* NaiveHuffman::getRoot() {
 	return this->root;
 }
 
-void clinit$NaiveHuffman($Class* class$) {
+void NaiveHuffman::clinit$($Class* clazz) {
 	NaiveHuffman::$assertionsDisabled = !NaiveHuffman::class$->desiredAssertionStatus();
 	$assignStatic(NaiveHuffman::INSTANCE, $new(NaiveHuffman));
 }
@@ -409,7 +359,50 @@ NaiveHuffman::NaiveHuffman() {
 }
 
 $Class* NaiveHuffman::load$($String* name, bool initialize) {
-	$loadClass(NaiveHuffman, name, initialize, &_NaiveHuffman_ClassInfo_, clinit$NaiveHuffman, allocate$NaiveHuffman);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(NaiveHuffman, $assertionsDisabled)},
+		{"INSTANCE", "Ljdk/internal/net/http/hpack/NaiveHuffman;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(NaiveHuffman, INSTANCE)},
+		{"EOS", "Ljdk/internal/net/http/hpack/NaiveHuffman$Code;", nullptr, $PRIVATE | $FINAL, $field(NaiveHuffman, EOS)},
+		{"codes", "[Ljdk/internal/net/http/hpack/NaiveHuffman$Code;", nullptr, $PRIVATE | $FINAL, $field(NaiveHuffman, codes)},
+		{"root", "Ljdk/internal/net/http/hpack/NaiveHuffman$Node;", nullptr, $PRIVATE | $FINAL, $field(NaiveHuffman, root)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(NaiveHuffman, init$, void)},
+		{"addChar", "(III)V", nullptr, $PRIVATE, $method(NaiveHuffman, addChar, void, int32_t, int32_t, int32_t)},
+		{"addEOS", "(III)V", nullptr, $PRIVATE, $method(NaiveHuffman, addEOS, void, int32_t, int32_t, int32_t)},
+		{"addLeaf", "(IIIZ)V", nullptr, $PRIVATE, $method(NaiveHuffman, addLeaf, void, int32_t, int32_t, int32_t, bool)},
+		{"codeOf", "(C)Ljdk/internal/net/http/hpack/NaiveHuffman$Code;", nullptr, $PRIVATE, $method(NaiveHuffman, codeOf, $NaiveHuffman$Code*, char16_t)},
+		{"getRoot", "()Ljdk/internal/net/http/hpack/NaiveHuffman$Node;", nullptr, 0, $method(NaiveHuffman, getRoot, $NaiveHuffman$Node*)},
+		{"lengthOf", "(Ljava/lang/CharSequence;)I", nullptr, $PUBLIC, $method(NaiveHuffman, lengthOf, int32_t, $CharSequence*)},
+		{"lengthOf", "(Ljava/lang/CharSequence;II)I", nullptr, $PUBLIC, $method(NaiveHuffman, lengthOf, int32_t, $CharSequence*, int32_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.net.http.hpack.NaiveHuffman$Code", "jdk.internal.net.http.hpack.NaiveHuffman", "Code", $PRIVATE | $STATIC | $FINAL},
+		{"jdk.internal.net.http.hpack.NaiveHuffman$Node", "jdk.internal.net.http.hpack.NaiveHuffman", "Node", $STATIC},
+		{"jdk.internal.net.http.hpack.NaiveHuffman$Writer", "jdk.internal.net.http.hpack.NaiveHuffman", "Writer", $STATIC | $FINAL},
+		{"jdk.internal.net.http.hpack.NaiveHuffman$Reader", "jdk.internal.net.http.hpack.NaiveHuffman", "Reader", $STATIC | $FINAL},
+		{"jdk.internal.net.http.hpack.NaiveHuffman$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"jdk.internal.net.http.hpack.NaiveHuffman",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"jdk.internal.net.http.hpack.NaiveHuffman$Code,jdk.internal.net.http.hpack.NaiveHuffman$Node,jdk.internal.net.http.hpack.NaiveHuffman$Writer,jdk.internal.net.http.hpack.NaiveHuffman$Reader,jdk.internal.net.http.hpack.NaiveHuffman$1"
+	};
+	$loadClass(NaiveHuffman, name, initialize, &classInfo$$, NaiveHuffman::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(NaiveHuffman);
+	});
 	return class$;
 }
 

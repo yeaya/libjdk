@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/basic/BasicTransferable.h>
-
 #include <java/awt/datatransfer/DataFlavor.h>
 #include <java/awt/datatransfer/Transferable.h>
 #include <java/awt/datatransfer/UnsupportedFlavorException.h>
@@ -17,7 +16,6 @@ using $Transferable = ::java::awt::datatransfer::Transferable;
 using $UnsupportedFlavorException = ::java::awt::datatransfer::UnsupportedFlavorException;
 using $ByteArrayInputStream = ::java::io::ByteArrayInputStream;
 using $InputStream = ::java::io::InputStream;
-using $PrintStream = ::java::io::PrintStream;
 using $Reader = ::java::io::Reader;
 using $StringReader = ::java::io::StringReader;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -30,52 +28,6 @@ namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace basic {
-
-$FieldInfo _BasicTransferable_FieldInfo_[] = {
-	{"plainData", "Ljava/lang/String;", nullptr, $PROTECTED, $field(BasicTransferable, plainData)},
-	{"htmlData", "Ljava/lang/String;", nullptr, $PROTECTED, $field(BasicTransferable, htmlData)},
-	{"htmlFlavors", "[Ljava/awt/datatransfer/DataFlavor;", nullptr, $PRIVATE | $STATIC, $staticField(BasicTransferable, htmlFlavors)},
-	{"stringFlavors", "[Ljava/awt/datatransfer/DataFlavor;", nullptr, $PRIVATE | $STATIC, $staticField(BasicTransferable, stringFlavors)},
-	{"plainFlavors", "[Ljava/awt/datatransfer/DataFlavor;", nullptr, $PRIVATE | $STATIC, $staticField(BasicTransferable, plainFlavors)},
-	{}
-};
-
-$MethodInfo _BasicTransferable_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(BasicTransferable, init$, void, $String*, $String*)},
-	{"createInputStream", "(Ljava/awt/datatransfer/DataFlavor;Ljava/lang/String;)Ljava/io/InputStream;", nullptr, $PRIVATE, $method(BasicTransferable, createInputStream, $InputStream*, $DataFlavor*, $String*), "java.io.IOException,java.awt.datatransfer.UnsupportedFlavorException"},
-	{"getHTMLData", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(BasicTransferable, getHTMLData, $String*)},
-	{"getPlainData", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(BasicTransferable, getPlainData, $String*)},
-	{"getRicherData", "(Ljava/awt/datatransfer/DataFlavor;)Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(BasicTransferable, getRicherData, $Object*, $DataFlavor*), "java.awt.datatransfer.UnsupportedFlavorException"},
-	{"getRicherFlavors", "()[Ljava/awt/datatransfer/DataFlavor;", nullptr, $PROTECTED, $virtualMethod(BasicTransferable, getRicherFlavors, $DataFlavorArray*)},
-	{"getTransferData", "(Ljava/awt/datatransfer/DataFlavor;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(BasicTransferable, getTransferData, $Object*, $DataFlavor*), "java.awt.datatransfer.UnsupportedFlavorException,java.io.IOException"},
-	{"getTransferDataFlavors", "()[Ljava/awt/datatransfer/DataFlavor;", nullptr, $PUBLIC, $virtualMethod(BasicTransferable, getTransferDataFlavors, $DataFlavorArray*)},
-	{"isDataFlavorSupported", "(Ljava/awt/datatransfer/DataFlavor;)Z", nullptr, $PUBLIC, $virtualMethod(BasicTransferable, isDataFlavorSupported, bool, $DataFlavor*)},
-	{"isHTMLFlavor", "(Ljava/awt/datatransfer/DataFlavor;)Z", nullptr, $PROTECTED, $virtualMethod(BasicTransferable, isHTMLFlavor, bool, $DataFlavor*)},
-	{"isHTMLSupported", "()Z", nullptr, $PROTECTED, $virtualMethod(BasicTransferable, isHTMLSupported, bool)},
-	{"isPlainFlavor", "(Ljava/awt/datatransfer/DataFlavor;)Z", nullptr, $PROTECTED, $virtualMethod(BasicTransferable, isPlainFlavor, bool, $DataFlavor*)},
-	{"isPlainSupported", "()Z", nullptr, $PROTECTED, $virtualMethod(BasicTransferable, isPlainSupported, bool)},
-	{"isRicherFlavor", "(Ljava/awt/datatransfer/DataFlavor;)Z", nullptr, $PROTECTED, $virtualMethod(BasicTransferable, isRicherFlavor, bool, $DataFlavor*)},
-	{"isStringFlavor", "(Ljava/awt/datatransfer/DataFlavor;)Z", nullptr, $PROTECTED, $virtualMethod(BasicTransferable, isStringFlavor, bool, $DataFlavor*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _BasicTransferable_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.basic.BasicTransferable",
-	"java.lang.Object",
-	"java.awt.datatransfer.Transferable,javax.swing.plaf.UIResource",
-	_BasicTransferable_FieldInfo_,
-	_BasicTransferable_MethodInfo_
-};
-
-$Object* allocate$BasicTransferable($Class* clazz) {
-	return $of($alloc(BasicTransferable));
-}
 
 int32_t BasicTransferable::hashCode() {
 	 return this->$Transferable::hashCode();
@@ -107,9 +59,9 @@ void BasicTransferable::init$($String* plainData, $String* htmlData) {
 }
 
 $DataFlavorArray* BasicTransferable::getTransferDataFlavors() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DataFlavorArray, richerFlavors, getRicherFlavors());
-	int32_t nRicher = (richerFlavors != nullptr) ? $nc(richerFlavors)->length : 0;
+	int32_t nRicher = (richerFlavors != nullptr) ? richerFlavors->length : 0;
 	int32_t nHTML = (isHTMLSupported()) ? $nc(BasicTransferable::htmlFlavors)->length : 0;
 	int32_t nPlain = (isPlainSupported()) ? $nc(BasicTransferable::plainFlavors)->length : 0;
 	int32_t nString = (isPlainSupported()) ? $nc(BasicTransferable::stringFlavors)->length : 0;
@@ -146,39 +98,39 @@ bool BasicTransferable::isDataFlavorSupported($DataFlavor* flavor) {
 }
 
 $Object* BasicTransferable::getTransferData($DataFlavor* flavor) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DataFlavorArray, richerFlavors, getRicherFlavors());
 	if (isRicherFlavor(flavor)) {
-		return $of(getRicherData(flavor));
+		return getRicherData(flavor);
 	} else if (isHTMLFlavor(flavor)) {
 		$var($String, data, getHTMLData());
 		$assign(data, (data == nullptr) ? ""_s : data);
-		if ($of($String::class$)->equals($nc(flavor)->getRepresentationClass())) {
+		if ($String::class$->equals($nc(flavor)->getRepresentationClass())) {
 			return $of(data);
 		} else {
 			$load($Reader);
-			if ($of($Reader::class$)->equals($nc(flavor)->getRepresentationClass())) {
+			if ($Reader::class$->equals(flavor->getRepresentationClass())) {
 				return $of($new($StringReader, data));
 			} else {
 				$load($InputStream);
-				if ($of($InputStream::class$)->equals($nc(flavor)->getRepresentationClass())) {
-					return $of(createInputStream(flavor, data));
+				if ($InputStream::class$->equals(flavor->getRepresentationClass())) {
+					return createInputStream(flavor, data);
 				}
 			}
 		}
 	} else if (isPlainFlavor(flavor)) {
 		$var($String, data, getPlainData());
 		$assign(data, (data == nullptr) ? ""_s : data);
-		if ($of($String::class$)->equals($nc(flavor)->getRepresentationClass())) {
+		if ($String::class$->equals($nc(flavor)->getRepresentationClass())) {
 			return $of(data);
 		} else {
 			$load($Reader);
-			if ($of($Reader::class$)->equals($nc(flavor)->getRepresentationClass())) {
+			if ($Reader::class$->equals(flavor->getRepresentationClass())) {
 				return $of($new($StringReader, data));
 			} else {
 				$load($InputStream);
-				if ($of($InputStream::class$)->equals($nc(flavor)->getRepresentationClass())) {
-					return $of(createInputStream(flavor, data));
+				if ($InputStream::class$->equals(flavor->getRepresentationClass())) {
+					return createInputStream(flavor, data);
 				}
 			}
 		}
@@ -191,7 +143,7 @@ $Object* BasicTransferable::getTransferData($DataFlavor* flavor) {
 }
 
 $InputStream* BasicTransferable::createInputStream($DataFlavor* flavor, $String* data) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, cs, $DataFlavorUtil::getTextCharset(flavor));
 	if (cs == nullptr) {
 		$throwNew($UnsupportedFlavorException, flavor);
@@ -201,9 +153,9 @@ $InputStream* BasicTransferable::createInputStream($DataFlavor* flavor, $String*
 
 bool BasicTransferable::isRicherFlavor($DataFlavor* flavor) {
 	$var($DataFlavorArray, richerFlavors, getRicherFlavors());
-	int32_t nFlavors = (richerFlavors != nullptr) ? $nc(richerFlavors)->length : 0;
+	int32_t nFlavors = (richerFlavors != nullptr) ? richerFlavors->length : 0;
 	for (int32_t i = 0; i < nFlavors; ++i) {
-		if ($nc(richerFlavors->get(i))->equals(flavor)) {
+		if ($nc($nc(richerFlavors)->get(i))->equals(flavor)) {
 			return true;
 		}
 	}
@@ -215,7 +167,7 @@ $DataFlavorArray* BasicTransferable::getRicherFlavors() {
 }
 
 $Object* BasicTransferable::getRicherData($DataFlavor* flavor) {
-	return $of(nullptr);
+	return nullptr;
 }
 
 bool BasicTransferable::isHTMLFlavor($DataFlavor* flavor) {
@@ -264,22 +216,21 @@ bool BasicTransferable::isStringFlavor($DataFlavor* flavor) {
 	return false;
 }
 
-void clinit$BasicTransferable($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void BasicTransferable::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	{
 		try {
 			$assignStatic(BasicTransferable::htmlFlavors, $new($DataFlavorArray, 3));
-			$nc(BasicTransferable::htmlFlavors)->set(0, $$new($DataFlavor, "text/html;class=java.lang.String"_s));
-			$nc(BasicTransferable::htmlFlavors)->set(1, $$new($DataFlavor, "text/html;class=java.io.Reader"_s));
-			$nc(BasicTransferable::htmlFlavors)->set(2, $$new($DataFlavor, "text/html;charset=unicode;class=java.io.InputStream"_s));
+			BasicTransferable::htmlFlavors->set(0, $$new($DataFlavor, "text/html;class=java.lang.String"_s));
+			BasicTransferable::htmlFlavors->set(1, $$new($DataFlavor, "text/html;class=java.io.Reader"_s));
+			BasicTransferable::htmlFlavors->set(2, $$new($DataFlavor, "text/html;charset=unicode;class=java.io.InputStream"_s));
 			$assignStatic(BasicTransferable::plainFlavors, $new($DataFlavorArray, 3));
-			$nc(BasicTransferable::plainFlavors)->set(0, $$new($DataFlavor, "text/plain;class=java.lang.String"_s));
-			$nc(BasicTransferable::plainFlavors)->set(1, $$new($DataFlavor, "text/plain;class=java.io.Reader"_s));
-			$nc(BasicTransferable::plainFlavors)->set(2, $$new($DataFlavor, "text/plain;charset=unicode;class=java.io.InputStream"_s));
+			BasicTransferable::plainFlavors->set(0, $$new($DataFlavor, "text/plain;class=java.lang.String"_s));
+			BasicTransferable::plainFlavors->set(1, $$new($DataFlavor, "text/plain;class=java.io.Reader"_s));
+			BasicTransferable::plainFlavors->set(2, $$new($DataFlavor, "text/plain;charset=unicode;class=java.io.InputStream"_s));
 			$assignStatic(BasicTransferable::stringFlavors, $new($DataFlavorArray, 2));
-			$init($DataFlavor);
-			$nc(BasicTransferable::stringFlavors)->set(0, $$new($DataFlavor, $$str({$DataFlavor::javaJVMLocalObjectMimeType, ";class=java.lang.String"_s})));
-			$nc(BasicTransferable::stringFlavors)->set(1, $DataFlavor::stringFlavor);
+			BasicTransferable::stringFlavors->set(0, $$new($DataFlavor, $$str({$DataFlavor::javaJVMLocalObjectMimeType, ";class=java.lang.String"_s})));
+			BasicTransferable::stringFlavors->set(1, $DataFlavor::stringFlavor);
 		} catch ($ClassNotFoundException& cle) {
 			$nc($System::err)->println("error initializing javax.swing.plaf.basic.BasicTranserable"_s);
 		}
@@ -290,7 +241,48 @@ BasicTransferable::BasicTransferable() {
 }
 
 $Class* BasicTransferable::load$($String* name, bool initialize) {
-	$loadClass(BasicTransferable, name, initialize, &_BasicTransferable_ClassInfo_, clinit$BasicTransferable, allocate$BasicTransferable);
+	$FieldInfo fieldInfos$$[] = {
+		{"plainData", "Ljava/lang/String;", nullptr, $PROTECTED, $field(BasicTransferable, plainData)},
+		{"htmlData", "Ljava/lang/String;", nullptr, $PROTECTED, $field(BasicTransferable, htmlData)},
+		{"htmlFlavors", "[Ljava/awt/datatransfer/DataFlavor;", nullptr, $PRIVATE | $STATIC, $staticField(BasicTransferable, htmlFlavors)},
+		{"stringFlavors", "[Ljava/awt/datatransfer/DataFlavor;", nullptr, $PRIVATE | $STATIC, $staticField(BasicTransferable, stringFlavors)},
+		{"plainFlavors", "[Ljava/awt/datatransfer/DataFlavor;", nullptr, $PRIVATE | $STATIC, $staticField(BasicTransferable, plainFlavors)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(BasicTransferable, init$, void, $String*, $String*)},
+		{"createInputStream", "(Ljava/awt/datatransfer/DataFlavor;Ljava/lang/String;)Ljava/io/InputStream;", nullptr, $PRIVATE, $method(BasicTransferable, createInputStream, $InputStream*, $DataFlavor*, $String*), "java.io.IOException,java.awt.datatransfer.UnsupportedFlavorException"},
+		{"getHTMLData", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(BasicTransferable, getHTMLData, $String*)},
+		{"getPlainData", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(BasicTransferable, getPlainData, $String*)},
+		{"getRicherData", "(Ljava/awt/datatransfer/DataFlavor;)Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(BasicTransferable, getRicherData, $Object*, $DataFlavor*), "java.awt.datatransfer.UnsupportedFlavorException"},
+		{"getRicherFlavors", "()[Ljava/awt/datatransfer/DataFlavor;", nullptr, $PROTECTED, $virtualMethod(BasicTransferable, getRicherFlavors, $DataFlavorArray*)},
+		{"getTransferData", "(Ljava/awt/datatransfer/DataFlavor;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(BasicTransferable, getTransferData, $Object*, $DataFlavor*), "java.awt.datatransfer.UnsupportedFlavorException,java.io.IOException"},
+		{"getTransferDataFlavors", "()[Ljava/awt/datatransfer/DataFlavor;", nullptr, $PUBLIC, $virtualMethod(BasicTransferable, getTransferDataFlavors, $DataFlavorArray*)},
+		{"isDataFlavorSupported", "(Ljava/awt/datatransfer/DataFlavor;)Z", nullptr, $PUBLIC, $virtualMethod(BasicTransferable, isDataFlavorSupported, bool, $DataFlavor*)},
+		{"isHTMLFlavor", "(Ljava/awt/datatransfer/DataFlavor;)Z", nullptr, $PROTECTED, $virtualMethod(BasicTransferable, isHTMLFlavor, bool, $DataFlavor*)},
+		{"isHTMLSupported", "()Z", nullptr, $PROTECTED, $virtualMethod(BasicTransferable, isHTMLSupported, bool)},
+		{"isPlainFlavor", "(Ljava/awt/datatransfer/DataFlavor;)Z", nullptr, $PROTECTED, $virtualMethod(BasicTransferable, isPlainFlavor, bool, $DataFlavor*)},
+		{"isPlainSupported", "()Z", nullptr, $PROTECTED, $virtualMethod(BasicTransferable, isPlainSupported, bool)},
+		{"isRicherFlavor", "(Ljava/awt/datatransfer/DataFlavor;)Z", nullptr, $PROTECTED, $virtualMethod(BasicTransferable, isRicherFlavor, bool, $DataFlavor*)},
+		{"isStringFlavor", "(Ljava/awt/datatransfer/DataFlavor;)Z", nullptr, $PROTECTED, $virtualMethod(BasicTransferable, isStringFlavor, bool, $DataFlavor*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.basic.BasicTransferable",
+		"java.lang.Object",
+		"java.awt.datatransfer.Transferable,javax.swing.plaf.UIResource",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(BasicTransferable, name, initialize, &classInfo$$, BasicTransferable::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(BasicTransferable));
+	});
 	return class$;
 }
 

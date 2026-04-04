@@ -1,5 +1,4 @@
 #include <javax/swing/SpinnerNumberModel.h>
-
 #include <java/lang/Comparable.h>
 #include <java/lang/Number.h>
 #include <javax/swing/AbstractSpinnerModel.h>
@@ -22,54 +21,13 @@ using $AbstractSpinnerModel = ::javax::swing::AbstractSpinnerModel;
 namespace javax {
 	namespace swing {
 
-$FieldInfo _SpinnerNumberModel_FieldInfo_[] = {
-	{"stepSize", "Ljava/lang/Number;", nullptr, $PRIVATE, $field(SpinnerNumberModel, stepSize)},
-	{"value", "Ljava/lang/Number;", nullptr, $PRIVATE, $field(SpinnerNumberModel, value)},
-	{"minimum", "Ljava/lang/Comparable;", "Ljava/lang/Comparable<*>;", $PRIVATE, $field(SpinnerNumberModel, minimum)},
-	{"maximum", "Ljava/lang/Comparable;", "Ljava/lang/Comparable<*>;", $PRIVATE, $field(SpinnerNumberModel, maximum)},
-	{}
-};
-
-$MethodInfo _SpinnerNumberModel_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Number;Ljava/lang/Comparable;Ljava/lang/Comparable;Ljava/lang/Number;)V", "(Ljava/lang/Number;Ljava/lang/Comparable<*>;Ljava/lang/Comparable<*>;Ljava/lang/Number;)V", $PUBLIC, $method(SpinnerNumberModel, init$, void, $Number*, $Comparable*, $Comparable*, $Number*)},
-	{"<init>", "(IIII)V", nullptr, $PUBLIC, $method(SpinnerNumberModel, init$, void, int32_t, int32_t, int32_t, int32_t)},
-	{"<init>", "(DDDD)V", nullptr, $PUBLIC, $method(SpinnerNumberModel, init$, void, double, double, double, double)},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SpinnerNumberModel, init$, void)},
-	{"getMaximum", "()Ljava/lang/Comparable;", "()Ljava/lang/Comparable<*>;", $PUBLIC, $virtualMethod(SpinnerNumberModel, getMaximum, $Comparable*)},
-	{"getMinimum", "()Ljava/lang/Comparable;", "()Ljava/lang/Comparable<*>;", $PUBLIC, $virtualMethod(SpinnerNumberModel, getMinimum, $Comparable*)},
-	{"getNextValue", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SpinnerNumberModel, getNextValue, $Object*)},
-	{"getNumber", "()Ljava/lang/Number;", nullptr, $PUBLIC, $virtualMethod(SpinnerNumberModel, getNumber, $Number*)},
-	{"getPreviousValue", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SpinnerNumberModel, getPreviousValue, $Object*)},
-	{"getStepSize", "()Ljava/lang/Number;", nullptr, $PUBLIC, $virtualMethod(SpinnerNumberModel, getStepSize, $Number*)},
-	{"getValue", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SpinnerNumberModel, getValue, $Object*)},
-	{"incrValue", "(I)Ljava/lang/Number;", nullptr, $PRIVATE, $method(SpinnerNumberModel, incrValue, $Number*, int32_t)},
-	{"setMaximum", "(Ljava/lang/Comparable;)V", "(Ljava/lang/Comparable<*>;)V", $PUBLIC, $virtualMethod(SpinnerNumberModel, setMaximum, void, $Comparable*)},
-	{"setMinimum", "(Ljava/lang/Comparable;)V", "(Ljava/lang/Comparable<*>;)V", $PUBLIC, $virtualMethod(SpinnerNumberModel, setMinimum, void, $Comparable*)},
-	{"setStepSize", "(Ljava/lang/Number;)V", nullptr, $PUBLIC, $virtualMethod(SpinnerNumberModel, setStepSize, void, $Number*)},
-	{"setValue", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(SpinnerNumberModel, setValue, void, Object$*)},
-	{}
-};
-
-$ClassInfo _SpinnerNumberModel_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.SpinnerNumberModel",
-	"javax.swing.AbstractSpinnerModel",
-	nullptr,
-	_SpinnerNumberModel_FieldInfo_,
-	_SpinnerNumberModel_MethodInfo_
-};
-
-$Object* allocate$SpinnerNumberModel($Class* clazz) {
-	return $of($alloc(SpinnerNumberModel));
-}
-
 void SpinnerNumberModel::init$($Number* value, $Comparable* minimum, $Comparable* maximum, $Number* stepSize) {
 	$AbstractSpinnerModel::init$();
 	if ((value == nullptr) || (stepSize == nullptr)) {
 		$throwNew($IllegalArgumentException, "value and stepSize must be non-null"_s);
 	}
-	bool var$0 = ((minimum == nullptr) || ($nc((minimum))->compareTo(value) <= 0));
-	if (!(var$0 && ((maximum == nullptr) || ($nc((maximum))->compareTo(value) >= 0)))) {
+	bool var$0 = (minimum == nullptr) || ((minimum)->compareTo(value) <= 0);
+	if (!(var$0 && ((maximum == nullptr) || ((maximum)->compareTo(value) >= 0)))) {
 		$throwNew($IllegalArgumentException, "(minimum <= value <= maximum) is false"_s);
 	}
 	$set(this, value, value);
@@ -79,29 +37,29 @@ void SpinnerNumberModel::init$($Number* value, $Comparable* minimum, $Comparable
 }
 
 void SpinnerNumberModel::init$(int32_t value, int32_t minimum, int32_t maximum, int32_t stepSize) {
-	$useLocalCurrentObjectStackCache();
-	$var($Number, var$0, static_cast<$Number*>($Integer::valueOf(value)));
-	$var($Comparable, var$1, static_cast<$Comparable*>($Integer::valueOf(minimum)));
-	$var($Comparable, var$2, static_cast<$Comparable*>($Integer::valueOf(maximum)));
-	SpinnerNumberModel::init$(var$0, var$1, var$2, $(static_cast<$Number*>($Integer::valueOf(stepSize))));
+	$useLocalObjectStack();
+	$var($Number, var$0, $Integer::valueOf(value));
+	$var($Comparable, var$1, $Integer::valueOf(minimum));
+	$var($Comparable, var$2, $Integer::valueOf(maximum));
+	SpinnerNumberModel::init$(var$0, var$1, var$2, $($Integer::valueOf(stepSize)));
 }
 
 void SpinnerNumberModel::init$(double value, double minimum, double maximum, double stepSize) {
-	$useLocalCurrentObjectStackCache();
-	$var($Number, var$0, static_cast<$Number*>($Double::valueOf(value)));
-	$var($Comparable, var$1, static_cast<$Comparable*>($Double::valueOf(minimum)));
-	$var($Comparable, var$2, static_cast<$Comparable*>($Double::valueOf(maximum)));
-	SpinnerNumberModel::init$(var$0, var$1, var$2, $(static_cast<$Number*>($Double::valueOf(stepSize))));
+	$useLocalObjectStack();
+	$var($Number, var$0, $Double::valueOf(value));
+	$var($Comparable, var$1, $Double::valueOf(minimum));
+	$var($Comparable, var$2, $Double::valueOf(maximum));
+	SpinnerNumberModel::init$(var$0, var$1, var$2, $($Double::valueOf(stepSize)));
 }
 
 void SpinnerNumberModel::init$() {
-	$useLocalCurrentObjectStackCache();
-	$var($Number, var$0, static_cast<$Number*>($Integer::valueOf(0)));
-	SpinnerNumberModel::init$(var$0, ($Comparable*)nullptr, ($Comparable*)nullptr, $(static_cast<$Number*>($Integer::valueOf(1))));
+	$useLocalObjectStack();
+	$var($Number, var$0, $Integer::valueOf(0));
+	SpinnerNumberModel::init$(var$0, nullptr, nullptr, $($Integer::valueOf(1)));
 }
 
 void SpinnerNumberModel::setMinimum($Comparable* minimum) {
-	if ((minimum == nullptr) ? (this->minimum != nullptr) : !$nc($of(minimum))->equals(this->minimum)) {
+	if ((minimum == nullptr) ? (this->minimum != nullptr) : !$of(minimum)->equals(this->minimum)) {
 		$set(this, minimum, minimum);
 		fireStateChanged();
 	}
@@ -112,7 +70,7 @@ $Comparable* SpinnerNumberModel::getMinimum() {
 }
 
 void SpinnerNumberModel::setMaximum($Comparable* maximum) {
-	if ((maximum == nullptr) ? (this->maximum != nullptr) : !$nc($of(maximum))->equals(this->maximum)) {
+	if ((maximum == nullptr) ? (this->maximum != nullptr) : !$of(maximum)->equals(this->maximum)) {
 		$set(this, maximum, maximum);
 		fireStateChanged();
 	}
@@ -159,10 +117,10 @@ $Number* SpinnerNumberModel::incrValue(int32_t dir) {
 			$assign(newValue, $Byte::valueOf((int8_t)v));
 		}
 	}
-	if ((this->maximum != nullptr) && ($nc((this->maximum))->compareTo(newValue) < 0)) {
+	if ((this->maximum != nullptr) && ((this->maximum)->compareTo(newValue) < 0)) {
 		return nullptr;
 	}
-	if ((this->minimum != nullptr) && ($nc((this->minimum))->compareTo(newValue) > 0)) {
+	if ((this->minimum != nullptr) && ((this->minimum)->compareTo(newValue) > 0)) {
 		return nullptr;
 	} else {
 		return newValue;
@@ -170,11 +128,11 @@ $Number* SpinnerNumberModel::incrValue(int32_t dir) {
 }
 
 $Object* SpinnerNumberModel::getNextValue() {
-	return $of(incrValue(+1));
+	return incrValue(+1);
 }
 
 $Object* SpinnerNumberModel::getPreviousValue() {
-	return $of(incrValue(-1));
+	return incrValue(-1);
 }
 
 $Number* SpinnerNumberModel::getNumber() {
@@ -182,7 +140,7 @@ $Number* SpinnerNumberModel::getNumber() {
 }
 
 $Object* SpinnerNumberModel::getValue() {
-	return $of(this->value);
+	return this->value;
 }
 
 void SpinnerNumberModel::setValue(Object$* value) {
@@ -199,7 +157,43 @@ SpinnerNumberModel::SpinnerNumberModel() {
 }
 
 $Class* SpinnerNumberModel::load$($String* name, bool initialize) {
-	$loadClass(SpinnerNumberModel, name, initialize, &_SpinnerNumberModel_ClassInfo_, allocate$SpinnerNumberModel);
+	$FieldInfo fieldInfos$$[] = {
+		{"stepSize", "Ljava/lang/Number;", nullptr, $PRIVATE, $field(SpinnerNumberModel, stepSize)},
+		{"value", "Ljava/lang/Number;", nullptr, $PRIVATE, $field(SpinnerNumberModel, value)},
+		{"minimum", "Ljava/lang/Comparable;", "Ljava/lang/Comparable<*>;", $PRIVATE, $field(SpinnerNumberModel, minimum)},
+		{"maximum", "Ljava/lang/Comparable;", "Ljava/lang/Comparable<*>;", $PRIVATE, $field(SpinnerNumberModel, maximum)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Number;Ljava/lang/Comparable;Ljava/lang/Comparable;Ljava/lang/Number;)V", "(Ljava/lang/Number;Ljava/lang/Comparable<*>;Ljava/lang/Comparable<*>;Ljava/lang/Number;)V", $PUBLIC, $method(SpinnerNumberModel, init$, void, $Number*, $Comparable*, $Comparable*, $Number*)},
+		{"<init>", "(IIII)V", nullptr, $PUBLIC, $method(SpinnerNumberModel, init$, void, int32_t, int32_t, int32_t, int32_t)},
+		{"<init>", "(DDDD)V", nullptr, $PUBLIC, $method(SpinnerNumberModel, init$, void, double, double, double, double)},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SpinnerNumberModel, init$, void)},
+		{"getMaximum", "()Ljava/lang/Comparable;", "()Ljava/lang/Comparable<*>;", $PUBLIC, $virtualMethod(SpinnerNumberModel, getMaximum, $Comparable*)},
+		{"getMinimum", "()Ljava/lang/Comparable;", "()Ljava/lang/Comparable<*>;", $PUBLIC, $virtualMethod(SpinnerNumberModel, getMinimum, $Comparable*)},
+		{"getNextValue", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SpinnerNumberModel, getNextValue, $Object*)},
+		{"getNumber", "()Ljava/lang/Number;", nullptr, $PUBLIC, $virtualMethod(SpinnerNumberModel, getNumber, $Number*)},
+		{"getPreviousValue", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SpinnerNumberModel, getPreviousValue, $Object*)},
+		{"getStepSize", "()Ljava/lang/Number;", nullptr, $PUBLIC, $virtualMethod(SpinnerNumberModel, getStepSize, $Number*)},
+		{"getValue", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SpinnerNumberModel, getValue, $Object*)},
+		{"incrValue", "(I)Ljava/lang/Number;", nullptr, $PRIVATE, $method(SpinnerNumberModel, incrValue, $Number*, int32_t)},
+		{"setMaximum", "(Ljava/lang/Comparable;)V", "(Ljava/lang/Comparable<*>;)V", $PUBLIC, $virtualMethod(SpinnerNumberModel, setMaximum, void, $Comparable*)},
+		{"setMinimum", "(Ljava/lang/Comparable;)V", "(Ljava/lang/Comparable<*>;)V", $PUBLIC, $virtualMethod(SpinnerNumberModel, setMinimum, void, $Comparable*)},
+		{"setStepSize", "(Ljava/lang/Number;)V", nullptr, $PUBLIC, $virtualMethod(SpinnerNumberModel, setStepSize, void, $Number*)},
+		{"setValue", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(SpinnerNumberModel, setValue, void, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.SpinnerNumberModel",
+		"javax.swing.AbstractSpinnerModel",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SpinnerNumberModel, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SpinnerNumberModel));
+	});
 	return class$;
 }
 

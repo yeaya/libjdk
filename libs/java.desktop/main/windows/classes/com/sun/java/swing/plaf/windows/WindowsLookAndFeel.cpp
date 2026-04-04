@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/windows/WindowsLookAndFeel.h>
-
 #include <com/sun/java/swing/plaf/windows/TMSchema$Part.h>
 #include <com/sun/java/swing/plaf/windows/TMSchema$Prop.h>
 #include <com/sun/java/swing/plaf/windows/TMSchema$State.h>
@@ -42,7 +41,6 @@
 #include <java/awt/Graphics.h>
 #include <java/awt/Image.h>
 #include <java/awt/Insets.h>
-#include <java/awt/KeyEventPostProcessor.h>
 #include <java/awt/KeyboardFocusManager.h>
 #include <java/awt/Toolkit.h>
 #include <java/awt/image/BufferedImage.h>
@@ -57,7 +55,6 @@
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
 #include <java/security/AccessController.h>
-#include <java/security/PrivilegedAction.h>
 #include <java/util/Map.h>
 #include <javax/swing/Action.h>
 #include <javax/swing/BorderFactory.h>
@@ -171,7 +168,6 @@ using $Font = ::java::awt::Font;
 using $FontMetrics = ::java::awt::FontMetrics;
 using $Image = ::java::awt::Image;
 using $Insets = ::java::awt::Insets;
-using $KeyEventPostProcessor = ::java::awt::KeyEventPostProcessor;
 using $KeyboardFocusManager = ::java::awt::KeyboardFocusManager;
 using $Toolkit = ::java::awt::Toolkit;
 using $BufferedImage = ::java::awt::image::BufferedImage;
@@ -189,8 +185,6 @@ using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $AccessController = ::java::security::AccessController;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
-using $Map = ::java::util::Map;
 using $Action = ::javax::swing::Action;
 using $BorderFactory = ::javax::swing::BorderFactory;
 using $Icon = ::javax::swing::Icon;
@@ -204,9 +198,7 @@ using $UIDefaults = ::javax::swing::UIDefaults;
 using $UIDefaults$LazyInputMap = ::javax::swing::UIDefaults$LazyInputMap;
 using $UIDefaults$LazyValue = ::javax::swing::UIDefaults$LazyValue;
 using $UIManager = ::javax::swing::UIManager;
-using $Border = ::javax::swing::border::Border;
 using $EmptyBorder = ::javax::swing::border::EmptyBorder;
-using $ChangeListener = ::javax::swing::event::ChangeListener;
 using $BorderUIResource = ::javax::swing::plaf::BorderUIResource;
 using $ColorUIResource = ::javax::swing::plaf::ColorUIResource;
 using $FontUIResource = ::javax::swing::plaf::FontUIResource;
@@ -217,13 +209,11 @@ using $BasicLookAndFeel = ::javax::swing::plaf::basic::BasicLookAndFeel;
 using $DefaultEditorKit = ::javax::swing::text::DefaultEditorKit;
 using $OSInfo = ::sun::awt::OSInfo;
 using $OSInfo$OSType = ::sun::awt::OSInfo$OSType;
-using $OSInfo$WindowsVersion = ::sun::awt::OSInfo$WindowsVersion;
 using $SunToolkit = ::sun::awt::SunToolkit;
 using $GetPropertyAction = ::sun::security::action::GetPropertyAction;
 using $ImageIconUIResource = ::sun::swing::ImageIconUIResource;
 using $StringUIClientPropertyKey = ::sun::swing::StringUIClientPropertyKey;
 using $SwingAccessor = ::sun::swing::SwingAccessor;
-using $SwingAccessor$UIDefaultsAccessor = ::sun::swing::SwingAccessor$UIDefaultsAccessor;
 using $SwingUtilities2 = ::sun::swing::SwingUtilities2;
 using $SortArrowIcon = ::sun::swing::icon::SortArrowIcon;
 using $ClassicSortArrowIcon = ::sun::swing::plaf::windows::ClassicSortArrowIcon;
@@ -243,27 +233,24 @@ public:
 	virtual $Object* createValue($UIDefaults* t) override {
 		 return WindowsLookAndFeel::lambda$initComponentDefaults$0(t);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<WindowsLookAndFeel$$Lambda$lambda$initComponentDefaults$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo WindowsLookAndFeel$$Lambda$lambda$initComponentDefaults$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(WindowsLookAndFeel$$Lambda$lambda$initComponentDefaults$0, init$, void)},
-	{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(WindowsLookAndFeel$$Lambda$lambda$initComponentDefaults$0, createValue, $Object*, $UIDefaults*)},
-	{}
-};
-$ClassInfo WindowsLookAndFeel$$Lambda$lambda$initComponentDefaults$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$$Lambda$lambda$initComponentDefaults$0",
-	"java.lang.Object",
-	"javax.swing.UIDefaults$LazyValue",
-	nullptr,
-	methodInfos
 };
 $Class* WindowsLookAndFeel$$Lambda$lambda$initComponentDefaults$0::load$($String* name, bool initialize) {
-	$loadClass(WindowsLookAndFeel$$Lambda$lambda$initComponentDefaults$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(WindowsLookAndFeel$$Lambda$lambda$initComponentDefaults$0, init$, void)},
+		{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(WindowsLookAndFeel$$Lambda$lambda$initComponentDefaults$0, createValue, $Object*, $UIDefaults*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$$Lambda$lambda$initComponentDefaults$0",
+		"java.lang.Object",
+		"javax.swing.UIDefaults$LazyValue",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(WindowsLookAndFeel$$Lambda$lambda$initComponentDefaults$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WindowsLookAndFeel$$Lambda$lambda$initComponentDefaults$0);
+	});
 	return class$;
 }
 $Class* WindowsLookAndFeel$$Lambda$lambda$initComponentDefaults$0::class$ = nullptr;
@@ -276,27 +263,24 @@ public:
 	virtual $Object* createValue($UIDefaults* t) override {
 		 return WindowsLookAndFeel::lambda$initComponentDefaults$1(t);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<WindowsLookAndFeel$$Lambda$lambda$initComponentDefaults$1$1>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo WindowsLookAndFeel$$Lambda$lambda$initComponentDefaults$1$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(WindowsLookAndFeel$$Lambda$lambda$initComponentDefaults$1$1, init$, void)},
-	{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(WindowsLookAndFeel$$Lambda$lambda$initComponentDefaults$1$1, createValue, $Object*, $UIDefaults*)},
-	{}
-};
-$ClassInfo WindowsLookAndFeel$$Lambda$lambda$initComponentDefaults$1$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$$Lambda$lambda$initComponentDefaults$1$1",
-	"java.lang.Object",
-	"javax.swing.UIDefaults$LazyValue",
-	nullptr,
-	methodInfos
 };
 $Class* WindowsLookAndFeel$$Lambda$lambda$initComponentDefaults$1$1::load$($String* name, bool initialize) {
-	$loadClass(WindowsLookAndFeel$$Lambda$lambda$initComponentDefaults$1$1, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(WindowsLookAndFeel$$Lambda$lambda$initComponentDefaults$1$1, init$, void)},
+		{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(WindowsLookAndFeel$$Lambda$lambda$initComponentDefaults$1$1, createValue, $Object*, $UIDefaults*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$$Lambda$lambda$initComponentDefaults$1$1",
+		"java.lang.Object",
+		"javax.swing.UIDefaults$LazyValue",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(WindowsLookAndFeel$$Lambda$lambda$initComponentDefaults$1$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WindowsLookAndFeel$$Lambda$lambda$initComponentDefaults$1$1);
+	});
 	return class$;
 }
 $Class* WindowsLookAndFeel$$Lambda$lambda$initComponentDefaults$1$1::class$ = nullptr;
@@ -309,27 +293,24 @@ public:
 	virtual $Object* createValue($UIDefaults* t) override {
 		 return WindowsLookAndFeel::lambda$initComponentDefaults$2(t);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<WindowsLookAndFeel$$Lambda$lambda$initComponentDefaults$2$2>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo WindowsLookAndFeel$$Lambda$lambda$initComponentDefaults$2$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(WindowsLookAndFeel$$Lambda$lambda$initComponentDefaults$2$2, init$, void)},
-	{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(WindowsLookAndFeel$$Lambda$lambda$initComponentDefaults$2$2, createValue, $Object*, $UIDefaults*)},
-	{}
-};
-$ClassInfo WindowsLookAndFeel$$Lambda$lambda$initComponentDefaults$2$2::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$$Lambda$lambda$initComponentDefaults$2$2",
-	"java.lang.Object",
-	"javax.swing.UIDefaults$LazyValue",
-	nullptr,
-	methodInfos
 };
 $Class* WindowsLookAndFeel$$Lambda$lambda$initComponentDefaults$2$2::load$($String* name, bool initialize) {
-	$loadClass(WindowsLookAndFeel$$Lambda$lambda$initComponentDefaults$2$2, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(WindowsLookAndFeel$$Lambda$lambda$initComponentDefaults$2$2, init$, void)},
+		{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(WindowsLookAndFeel$$Lambda$lambda$initComponentDefaults$2$2, createValue, $Object*, $UIDefaults*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$$Lambda$lambda$initComponentDefaults$2$2",
+		"java.lang.Object",
+		"javax.swing.UIDefaults$LazyValue",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(WindowsLookAndFeel$$Lambda$lambda$initComponentDefaults$2$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WindowsLookAndFeel$$Lambda$lambda$initComponentDefaults$2$2);
+	});
 	return class$;
 }
 $Class* WindowsLookAndFeel$$Lambda$lambda$initComponentDefaults$2$2::class$ = nullptr;
@@ -342,27 +323,24 @@ public:
 	virtual $Object* createValue($UIDefaults* t) override {
 		 return WindowsLookAndFeel::lambda$initComponentDefaults$3(t);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<WindowsLookAndFeel$$Lambda$lambda$initComponentDefaults$3$3>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo WindowsLookAndFeel$$Lambda$lambda$initComponentDefaults$3$3::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(WindowsLookAndFeel$$Lambda$lambda$initComponentDefaults$3$3, init$, void)},
-	{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(WindowsLookAndFeel$$Lambda$lambda$initComponentDefaults$3$3, createValue, $Object*, $UIDefaults*)},
-	{}
-};
-$ClassInfo WindowsLookAndFeel$$Lambda$lambda$initComponentDefaults$3$3::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$$Lambda$lambda$initComponentDefaults$3$3",
-	"java.lang.Object",
-	"javax.swing.UIDefaults$LazyValue",
-	nullptr,
-	methodInfos
 };
 $Class* WindowsLookAndFeel$$Lambda$lambda$initComponentDefaults$3$3::load$($String* name, bool initialize) {
-	$loadClass(WindowsLookAndFeel$$Lambda$lambda$initComponentDefaults$3$3, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(WindowsLookAndFeel$$Lambda$lambda$initComponentDefaults$3$3, init$, void)},
+		{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(WindowsLookAndFeel$$Lambda$lambda$initComponentDefaults$3$3, createValue, $Object*, $UIDefaults*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$$Lambda$lambda$initComponentDefaults$3$3",
+		"java.lang.Object",
+		"javax.swing.UIDefaults$LazyValue",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(WindowsLookAndFeel$$Lambda$lambda$initComponentDefaults$3$3, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WindowsLookAndFeel$$Lambda$lambda$initComponentDefaults$3$3);
+	});
 	return class$;
 }
 $Class* WindowsLookAndFeel$$Lambda$lambda$initComponentDefaults$3$3::class$ = nullptr;
@@ -375,27 +353,24 @@ public:
 	virtual $Object* createValue($UIDefaults* t) override {
 		 return WindowsLookAndFeel::lambda$initComponentDefaults$4(t);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<WindowsLookAndFeel$$Lambda$lambda$initComponentDefaults$4$4>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo WindowsLookAndFeel$$Lambda$lambda$initComponentDefaults$4$4::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(WindowsLookAndFeel$$Lambda$lambda$initComponentDefaults$4$4, init$, void)},
-	{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(WindowsLookAndFeel$$Lambda$lambda$initComponentDefaults$4$4, createValue, $Object*, $UIDefaults*)},
-	{}
-};
-$ClassInfo WindowsLookAndFeel$$Lambda$lambda$initComponentDefaults$4$4::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$$Lambda$lambda$initComponentDefaults$4$4",
-	"java.lang.Object",
-	"javax.swing.UIDefaults$LazyValue",
-	nullptr,
-	methodInfos
 };
 $Class* WindowsLookAndFeel$$Lambda$lambda$initComponentDefaults$4$4::load$($String* name, bool initialize) {
-	$loadClass(WindowsLookAndFeel$$Lambda$lambda$initComponentDefaults$4$4, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(WindowsLookAndFeel$$Lambda$lambda$initComponentDefaults$4$4, init$, void)},
+		{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(WindowsLookAndFeel$$Lambda$lambda$initComponentDefaults$4$4, createValue, $Object*, $UIDefaults*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$$Lambda$lambda$initComponentDefaults$4$4",
+		"java.lang.Object",
+		"javax.swing.UIDefaults$LazyValue",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(WindowsLookAndFeel$$Lambda$lambda$initComponentDefaults$4$4, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WindowsLookAndFeel$$Lambda$lambda$initComponentDefaults$4$4);
+	});
 	return class$;
 }
 $Class* WindowsLookAndFeel$$Lambda$lambda$initComponentDefaults$4$4::class$ = nullptr;
@@ -409,33 +384,29 @@ public:
 	virtual $Object* createValue($UIDefaults* t) override {
 		 return $nc(inst$)->lambda$initComponentDefaults$5(t);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<WindowsLookAndFeel$$Lambda$lambda$initComponentDefaults$5$5>());
-	}
 	WindowsLookAndFeel* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo WindowsLookAndFeel$$Lambda$lambda$initComponentDefaults$5$5::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(WindowsLookAndFeel$$Lambda$lambda$initComponentDefaults$5$5, inst$)},
-	{}
-};
-$MethodInfo WindowsLookAndFeel$$Lambda$lambda$initComponentDefaults$5$5::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/java/swing/plaf/windows/WindowsLookAndFeel;)V", nullptr, $PUBLIC, $method(WindowsLookAndFeel$$Lambda$lambda$initComponentDefaults$5$5, init$, void, WindowsLookAndFeel*)},
-	{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(WindowsLookAndFeel$$Lambda$lambda$initComponentDefaults$5$5, createValue, $Object*, $UIDefaults*)},
-	{}
-};
-$ClassInfo WindowsLookAndFeel$$Lambda$lambda$initComponentDefaults$5$5::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$$Lambda$lambda$initComponentDefaults$5$5",
-	"java.lang.Object",
-	"javax.swing.UIDefaults$LazyValue",
-	fieldInfos,
-	methodInfos
 };
 $Class* WindowsLookAndFeel$$Lambda$lambda$initComponentDefaults$5$5::load$($String* name, bool initialize) {
-	$loadClass(WindowsLookAndFeel$$Lambda$lambda$initComponentDefaults$5$5, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(WindowsLookAndFeel$$Lambda$lambda$initComponentDefaults$5$5, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/java/swing/plaf/windows/WindowsLookAndFeel;)V", nullptr, $PUBLIC, $method(WindowsLookAndFeel$$Lambda$lambda$initComponentDefaults$5$5, init$, void, WindowsLookAndFeel*)},
+		{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(WindowsLookAndFeel$$Lambda$lambda$initComponentDefaults$5$5, createValue, $Object*, $UIDefaults*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$$Lambda$lambda$initComponentDefaults$5$5",
+		"java.lang.Object",
+		"javax.swing.UIDefaults$LazyValue",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(WindowsLookAndFeel$$Lambda$lambda$initComponentDefaults$5$5, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WindowsLookAndFeel$$Lambda$lambda$initComponentDefaults$5$5);
+	});
 	return class$;
 }
 $Class* WindowsLookAndFeel$$Lambda$lambda$initComponentDefaults$5$5::class$ = nullptr;
@@ -448,27 +419,24 @@ public:
 	virtual $Object* createValue($UIDefaults* t) override {
 		 return WindowsLookAndFeel::lambda$initVistaComponentDefaults$6(t);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<WindowsLookAndFeel$$Lambda$lambda$initVistaComponentDefaults$6$6>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo WindowsLookAndFeel$$Lambda$lambda$initVistaComponentDefaults$6$6::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(WindowsLookAndFeel$$Lambda$lambda$initVistaComponentDefaults$6$6, init$, void)},
-	{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(WindowsLookAndFeel$$Lambda$lambda$initVistaComponentDefaults$6$6, createValue, $Object*, $UIDefaults*)},
-	{}
-};
-$ClassInfo WindowsLookAndFeel$$Lambda$lambda$initVistaComponentDefaults$6$6::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$$Lambda$lambda$initVistaComponentDefaults$6$6",
-	"java.lang.Object",
-	"javax.swing.UIDefaults$LazyValue",
-	nullptr,
-	methodInfos
 };
 $Class* WindowsLookAndFeel$$Lambda$lambda$initVistaComponentDefaults$6$6::load$($String* name, bool initialize) {
-	$loadClass(WindowsLookAndFeel$$Lambda$lambda$initVistaComponentDefaults$6$6, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(WindowsLookAndFeel$$Lambda$lambda$initVistaComponentDefaults$6$6, init$, void)},
+		{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(WindowsLookAndFeel$$Lambda$lambda$initVistaComponentDefaults$6$6, createValue, $Object*, $UIDefaults*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$$Lambda$lambda$initVistaComponentDefaults$6$6",
+		"java.lang.Object",
+		"javax.swing.UIDefaults$LazyValue",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(WindowsLookAndFeel$$Lambda$lambda$initVistaComponentDefaults$6$6, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WindowsLookAndFeel$$Lambda$lambda$initVistaComponentDefaults$6$6);
+	});
 	return class$;
 }
 $Class* WindowsLookAndFeel$$Lambda$lambda$initVistaComponentDefaults$6$6::class$ = nullptr;
@@ -481,27 +449,24 @@ public:
 	virtual $Object* createValue($UIDefaults* t) override {
 		 return WindowsLookAndFeel::lambda$initVistaComponentDefaults$7(t);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<WindowsLookAndFeel$$Lambda$lambda$initVistaComponentDefaults$7$7>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo WindowsLookAndFeel$$Lambda$lambda$initVistaComponentDefaults$7$7::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(WindowsLookAndFeel$$Lambda$lambda$initVistaComponentDefaults$7$7, init$, void)},
-	{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(WindowsLookAndFeel$$Lambda$lambda$initVistaComponentDefaults$7$7, createValue, $Object*, $UIDefaults*)},
-	{}
-};
-$ClassInfo WindowsLookAndFeel$$Lambda$lambda$initVistaComponentDefaults$7$7::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$$Lambda$lambda$initVistaComponentDefaults$7$7",
-	"java.lang.Object",
-	"javax.swing.UIDefaults$LazyValue",
-	nullptr,
-	methodInfos
 };
 $Class* WindowsLookAndFeel$$Lambda$lambda$initVistaComponentDefaults$7$7::load$($String* name, bool initialize) {
-	$loadClass(WindowsLookAndFeel$$Lambda$lambda$initVistaComponentDefaults$7$7, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(WindowsLookAndFeel$$Lambda$lambda$initVistaComponentDefaults$7$7, init$, void)},
+		{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(WindowsLookAndFeel$$Lambda$lambda$initVistaComponentDefaults$7$7, createValue, $Object*, $UIDefaults*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$$Lambda$lambda$initVistaComponentDefaults$7$7",
+		"java.lang.Object",
+		"javax.swing.UIDefaults$LazyValue",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(WindowsLookAndFeel$$Lambda$lambda$initVistaComponentDefaults$7$7, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WindowsLookAndFeel$$Lambda$lambda$initVistaComponentDefaults$7$7);
+	});
 	return class$;
 }
 $Class* WindowsLookAndFeel$$Lambda$lambda$initVistaComponentDefaults$7$7::class$ = nullptr;
@@ -514,27 +479,24 @@ public:
 	virtual $Object* createValue($UIDefaults* t) override {
 		 return WindowsLookAndFeel::lambda$initVistaComponentDefaults$8(t);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<WindowsLookAndFeel$$Lambda$lambda$initVistaComponentDefaults$8$8>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo WindowsLookAndFeel$$Lambda$lambda$initVistaComponentDefaults$8$8::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(WindowsLookAndFeel$$Lambda$lambda$initVistaComponentDefaults$8$8, init$, void)},
-	{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(WindowsLookAndFeel$$Lambda$lambda$initVistaComponentDefaults$8$8, createValue, $Object*, $UIDefaults*)},
-	{}
-};
-$ClassInfo WindowsLookAndFeel$$Lambda$lambda$initVistaComponentDefaults$8$8::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$$Lambda$lambda$initVistaComponentDefaults$8$8",
-	"java.lang.Object",
-	"javax.swing.UIDefaults$LazyValue",
-	nullptr,
-	methodInfos
 };
 $Class* WindowsLookAndFeel$$Lambda$lambda$initVistaComponentDefaults$8$8::load$($String* name, bool initialize) {
-	$loadClass(WindowsLookAndFeel$$Lambda$lambda$initVistaComponentDefaults$8$8, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(WindowsLookAndFeel$$Lambda$lambda$initVistaComponentDefaults$8$8, init$, void)},
+		{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(WindowsLookAndFeel$$Lambda$lambda$initVistaComponentDefaults$8$8, createValue, $Object*, $UIDefaults*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$$Lambda$lambda$initVistaComponentDefaults$8$8",
+		"java.lang.Object",
+		"javax.swing.UIDefaults$LazyValue",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(WindowsLookAndFeel$$Lambda$lambda$initVistaComponentDefaults$8$8, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WindowsLookAndFeel$$Lambda$lambda$initVistaComponentDefaults$8$8);
+	});
 	return class$;
 }
 $Class* WindowsLookAndFeel$$Lambda$lambda$initVistaComponentDefaults$8$8::class$ = nullptr;
@@ -547,27 +509,24 @@ public:
 	virtual $Object* createValue($UIDefaults* t) override {
 		 return WindowsLookAndFeel::lambda$getLazyValueDefaults$9(t);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$9$9>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$9$9::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$9$9, init$, void)},
-	{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$9$9, createValue, $Object*, $UIDefaults*)},
-	{}
-};
-$ClassInfo WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$9$9::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$9$9",
-	"java.lang.Object",
-	"javax.swing.UIDefaults$LazyValue",
-	nullptr,
-	methodInfos
 };
 $Class* WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$9$9::load$($String* name, bool initialize) {
-	$loadClass(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$9$9, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$9$9, init$, void)},
+		{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$9$9, createValue, $Object*, $UIDefaults*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$9$9",
+		"java.lang.Object",
+		"javax.swing.UIDefaults$LazyValue",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$9$9, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$9$9);
+	});
 	return class$;
 }
 $Class* WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$9$9::class$ = nullptr;
@@ -580,27 +539,24 @@ public:
 	virtual $Object* createValue($UIDefaults* t) override {
 		 return WindowsLookAndFeel::lambda$getLazyValueDefaults$10(t);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$10$10>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$10$10::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$10$10, init$, void)},
-	{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$10$10, createValue, $Object*, $UIDefaults*)},
-	{}
-};
-$ClassInfo WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$10$10::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$10$10",
-	"java.lang.Object",
-	"javax.swing.UIDefaults$LazyValue",
-	nullptr,
-	methodInfos
 };
 $Class* WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$10$10::load$($String* name, bool initialize) {
-	$loadClass(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$10$10, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$10$10, init$, void)},
+		{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$10$10, createValue, $Object*, $UIDefaults*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$10$10",
+		"java.lang.Object",
+		"javax.swing.UIDefaults$LazyValue",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$10$10, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$10$10);
+	});
 	return class$;
 }
 $Class* WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$10$10::class$ = nullptr;
@@ -613,27 +569,24 @@ public:
 	virtual $Object* createValue($UIDefaults* t) override {
 		 return WindowsLookAndFeel::lambda$getLazyValueDefaults$11(t);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$11$11>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$11$11::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$11$11, init$, void)},
-	{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$11$11, createValue, $Object*, $UIDefaults*)},
-	{}
-};
-$ClassInfo WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$11$11::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$11$11",
-	"java.lang.Object",
-	"javax.swing.UIDefaults$LazyValue",
-	nullptr,
-	methodInfos
 };
 $Class* WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$11$11::load$($String* name, bool initialize) {
-	$loadClass(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$11$11, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$11$11, init$, void)},
+		{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$11$11, createValue, $Object*, $UIDefaults*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$11$11",
+		"java.lang.Object",
+		"javax.swing.UIDefaults$LazyValue",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$11$11, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$11$11);
+	});
 	return class$;
 }
 $Class* WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$11$11::class$ = nullptr;
@@ -646,27 +599,24 @@ public:
 	virtual $Object* createValue($UIDefaults* t) override {
 		 return WindowsLookAndFeel::lambda$getLazyValueDefaults$12(t);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$12$12>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$12$12::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$12$12, init$, void)},
-	{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$12$12, createValue, $Object*, $UIDefaults*)},
-	{}
-};
-$ClassInfo WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$12$12::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$12$12",
-	"java.lang.Object",
-	"javax.swing.UIDefaults$LazyValue",
-	nullptr,
-	methodInfos
 };
 $Class* WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$12$12::load$($String* name, bool initialize) {
-	$loadClass(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$12$12, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$12$12, init$, void)},
+		{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$12$12, createValue, $Object*, $UIDefaults*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$12$12",
+		"java.lang.Object",
+		"javax.swing.UIDefaults$LazyValue",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$12$12, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$12$12);
+	});
 	return class$;
 }
 $Class* WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$12$12::class$ = nullptr;
@@ -679,27 +629,24 @@ public:
 	virtual $Object* createValue($UIDefaults* t) override {
 		 return WindowsLookAndFeel::lambda$getLazyValueDefaults$13(t);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$13$13>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$13$13::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$13$13, init$, void)},
-	{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$13$13, createValue, $Object*, $UIDefaults*)},
-	{}
-};
-$ClassInfo WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$13$13::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$13$13",
-	"java.lang.Object",
-	"javax.swing.UIDefaults$LazyValue",
-	nullptr,
-	methodInfos
 };
 $Class* WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$13$13::load$($String* name, bool initialize) {
-	$loadClass(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$13$13, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$13$13, init$, void)},
+		{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$13$13, createValue, $Object*, $UIDefaults*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$13$13",
+		"java.lang.Object",
+		"javax.swing.UIDefaults$LazyValue",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$13$13, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$13$13);
+	});
 	return class$;
 }
 $Class* WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$13$13::class$ = nullptr;
@@ -712,27 +659,24 @@ public:
 	virtual $Object* createValue($UIDefaults* t) override {
 		 return WindowsLookAndFeel::lambda$getLazyValueDefaults$15(t);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$15$14>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$15$14::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$15$14, init$, void)},
-	{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$15$14, createValue, $Object*, $UIDefaults*)},
-	{}
-};
-$ClassInfo WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$15$14::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$15$14",
-	"java.lang.Object",
-	"javax.swing.UIDefaults$LazyValue",
-	nullptr,
-	methodInfos
 };
 $Class* WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$15$14::load$($String* name, bool initialize) {
-	$loadClass(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$15$14, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$15$14, init$, void)},
+		{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$15$14, createValue, $Object*, $UIDefaults*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$15$14",
+		"java.lang.Object",
+		"javax.swing.UIDefaults$LazyValue",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$15$14, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$15$14);
+	});
 	return class$;
 }
 $Class* WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$15$14::class$ = nullptr;
@@ -745,27 +689,24 @@ public:
 	virtual $Object* createValue($UIDefaults* t) override {
 		 return WindowsLookAndFeel::lambda$getLazyValueDefaults$16(t);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$16$15>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$16$15::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$16$15, init$, void)},
-	{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$16$15, createValue, $Object*, $UIDefaults*)},
-	{}
-};
-$ClassInfo WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$16$15::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$16$15",
-	"java.lang.Object",
-	"javax.swing.UIDefaults$LazyValue",
-	nullptr,
-	methodInfos
 };
 $Class* WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$16$15::load$($String* name, bool initialize) {
-	$loadClass(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$16$15, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$16$15, init$, void)},
+		{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$16$15, createValue, $Object*, $UIDefaults*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$16$15",
+		"java.lang.Object",
+		"javax.swing.UIDefaults$LazyValue",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$16$15, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$16$15);
+	});
 	return class$;
 }
 $Class* WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$16$15::class$ = nullptr;
@@ -778,27 +719,24 @@ public:
 	virtual $Object* createValue($UIDefaults* t) override {
 		 return WindowsLookAndFeel::lambda$getLazyValueDefaults$18(t);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$18$16>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$18$16::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$18$16, init$, void)},
-	{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$18$16, createValue, $Object*, $UIDefaults*)},
-	{}
-};
-$ClassInfo WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$18$16::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$18$16",
-	"java.lang.Object",
-	"javax.swing.UIDefaults$LazyValue",
-	nullptr,
-	methodInfos
 };
 $Class* WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$18$16::load$($String* name, bool initialize) {
-	$loadClass(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$18$16, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$18$16, init$, void)},
+		{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$18$16, createValue, $Object*, $UIDefaults*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$18$16",
+		"java.lang.Object",
+		"javax.swing.UIDefaults$LazyValue",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$18$16, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$18$16);
+	});
 	return class$;
 }
 $Class* WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$18$16::class$ = nullptr;
@@ -811,27 +749,24 @@ public:
 	virtual $Object* createValue($UIDefaults* t) override {
 		 return WindowsLookAndFeel::lambda$getLazyValueDefaults$19(t);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$19$17>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$19$17::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$19$17, init$, void)},
-	{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$19$17, createValue, $Object*, $UIDefaults*)},
-	{}
-};
-$ClassInfo WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$19$17::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$19$17",
-	"java.lang.Object",
-	"javax.swing.UIDefaults$LazyValue",
-	nullptr,
-	methodInfos
 };
 $Class* WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$19$17::load$($String* name, bool initialize) {
-	$loadClass(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$19$17, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$19$17, init$, void)},
+		{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$19$17, createValue, $Object*, $UIDefaults*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$19$17",
+		"java.lang.Object",
+		"javax.swing.UIDefaults$LazyValue",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$19$17, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$19$17);
+	});
 	return class$;
 }
 $Class* WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$19$17::class$ = nullptr;
@@ -844,27 +779,24 @@ public:
 	virtual $Object* createValue($UIDefaults* t) override {
 		 return WindowsLookAndFeel::lambda$getLazyValueDefaults$20(t);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$20$18>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$20$18::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$20$18, init$, void)},
-	{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$20$18, createValue, $Object*, $UIDefaults*)},
-	{}
-};
-$ClassInfo WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$20$18::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$20$18",
-	"java.lang.Object",
-	"javax.swing.UIDefaults$LazyValue",
-	nullptr,
-	methodInfos
 };
 $Class* WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$20$18::load$($String* name, bool initialize) {
-	$loadClass(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$20$18, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$20$18, init$, void)},
+		{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$20$18, createValue, $Object*, $UIDefaults*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$20$18",
+		"java.lang.Object",
+		"javax.swing.UIDefaults$LazyValue",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$20$18, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$20$18);
+	});
 	return class$;
 }
 $Class* WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$20$18::class$ = nullptr;
@@ -877,27 +809,24 @@ public:
 	virtual $Object* createValue($UIDefaults* t) override {
 		 return WindowsLookAndFeel::lambda$getLazyValueDefaults$21(t);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$21$19>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$21$19::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$21$19, init$, void)},
-	{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$21$19, createValue, $Object*, $UIDefaults*)},
-	{}
-};
-$ClassInfo WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$21$19::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$21$19",
-	"java.lang.Object",
-	"javax.swing.UIDefaults$LazyValue",
-	nullptr,
-	methodInfos
 };
 $Class* WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$21$19::load$($String* name, bool initialize) {
-	$loadClass(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$21$19, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$21$19, init$, void)},
+		{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$21$19, createValue, $Object*, $UIDefaults*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$21$19",
+		"java.lang.Object",
+		"javax.swing.UIDefaults$LazyValue",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$21$19, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$21$19);
+	});
 	return class$;
 }
 $Class* WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$21$19::class$ = nullptr;
@@ -910,27 +839,24 @@ public:
 	virtual $Object* createValue($UIDefaults* t) override {
 		 return WindowsLookAndFeel::lambda$getLazyValueDefaults$22(t);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$22$20>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$22$20::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$22$20, init$, void)},
-	{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$22$20, createValue, $Object*, $UIDefaults*)},
-	{}
-};
-$ClassInfo WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$22$20::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$22$20",
-	"java.lang.Object",
-	"javax.swing.UIDefaults$LazyValue",
-	nullptr,
-	methodInfos
 };
 $Class* WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$22$20::load$($String* name, bool initialize) {
-	$loadClass(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$22$20, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$22$20, init$, void)},
+		{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$22$20, createValue, $Object*, $UIDefaults*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$22$20",
+		"java.lang.Object",
+		"javax.swing.UIDefaults$LazyValue",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$22$20, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$22$20);
+	});
 	return class$;
 }
 $Class* WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$22$20::class$ = nullptr;
@@ -943,27 +869,24 @@ public:
 	virtual $Object* createValue($UIDefaults* t) override {
 		 return WindowsLookAndFeel::lambda$getLazyValueDefaults$23(t);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$23$21>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$23$21::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$23$21, init$, void)},
-	{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$23$21, createValue, $Object*, $UIDefaults*)},
-	{}
-};
-$ClassInfo WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$23$21::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$23$21",
-	"java.lang.Object",
-	"javax.swing.UIDefaults$LazyValue",
-	nullptr,
-	methodInfos
 };
 $Class* WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$23$21::load$($String* name, bool initialize) {
-	$loadClass(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$23$21, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$23$21, init$, void)},
+		{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$23$21, createValue, $Object*, $UIDefaults*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$23$21",
+		"java.lang.Object",
+		"javax.swing.UIDefaults$LazyValue",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$23$21, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$23$21);
+	});
 	return class$;
 }
 $Class* WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$23$21::class$ = nullptr;
@@ -976,27 +899,24 @@ public:
 	virtual $Object* createValue($UIDefaults* t) override {
 		 return WindowsLookAndFeel::lambda$getLazyValueDefaults$24(t);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$24$22>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$24$22::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$24$22, init$, void)},
-	{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$24$22, createValue, $Object*, $UIDefaults*)},
-	{}
-};
-$ClassInfo WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$24$22::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$24$22",
-	"java.lang.Object",
-	"javax.swing.UIDefaults$LazyValue",
-	nullptr,
-	methodInfos
 };
 $Class* WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$24$22::load$($String* name, bool initialize) {
-	$loadClass(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$24$22, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$24$22, init$, void)},
+		{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$24$22, createValue, $Object*, $UIDefaults*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$24$22",
+		"java.lang.Object",
+		"javax.swing.UIDefaults$LazyValue",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$24$22, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$24$22);
+	});
 	return class$;
 }
 $Class* WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$24$22::class$ = nullptr;
@@ -1009,27 +929,24 @@ public:
 	virtual $Object* createValue($UIDefaults* t) override {
 		 return WindowsLookAndFeel::lambda$getLazyValueDefaults$25(t);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$25$23>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$25$23::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$25$23, init$, void)},
-	{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$25$23, createValue, $Object*, $UIDefaults*)},
-	{}
-};
-$ClassInfo WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$25$23::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$25$23",
-	"java.lang.Object",
-	"javax.swing.UIDefaults$LazyValue",
-	nullptr,
-	methodInfos
 };
 $Class* WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$25$23::load$($String* name, bool initialize) {
-	$loadClass(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$25$23, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$25$23, init$, void)},
+		{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$25$23, createValue, $Object*, $UIDefaults*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$25$23",
+		"java.lang.Object",
+		"javax.swing.UIDefaults$LazyValue",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$25$23, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$25$23);
+	});
 	return class$;
 }
 $Class* WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$25$23::class$ = nullptr;
@@ -1042,27 +959,24 @@ public:
 	virtual $Object* createValue($UIDefaults* t) override {
 		 return WindowsLookAndFeel::lambda$getLazyValueDefaults$26(t);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$26$24>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$26$24::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$26$24, init$, void)},
-	{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$26$24, createValue, $Object*, $UIDefaults*)},
-	{}
-};
-$ClassInfo WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$26$24::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$26$24",
-	"java.lang.Object",
-	"javax.swing.UIDefaults$LazyValue",
-	nullptr,
-	methodInfos
 };
 $Class* WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$26$24::load$($String* name, bool initialize) {
-	$loadClass(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$26$24, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$26$24, init$, void)},
+		{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$26$24, createValue, $Object*, $UIDefaults*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$26$24",
+		"java.lang.Object",
+		"javax.swing.UIDefaults$LazyValue",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$26$24, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$26$24);
+	});
 	return class$;
 }
 $Class* WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$26$24::class$ = nullptr;
@@ -1075,27 +989,24 @@ public:
 	virtual $Object* createValue($UIDefaults* t) override {
 		 return WindowsLookAndFeel::lambda$getLazyValueDefaults$27(t);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$27$25>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$27$25::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$27$25, init$, void)},
-	{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$27$25, createValue, $Object*, $UIDefaults*)},
-	{}
-};
-$ClassInfo WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$27$25::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$27$25",
-	"java.lang.Object",
-	"javax.swing.UIDefaults$LazyValue",
-	nullptr,
-	methodInfos
 };
 $Class* WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$27$25::load$($String* name, bool initialize) {
-	$loadClass(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$27$25, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$27$25, init$, void)},
+		{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$27$25, createValue, $Object*, $UIDefaults*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$27$25",
+		"java.lang.Object",
+		"javax.swing.UIDefaults$LazyValue",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$27$25, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$27$25);
+	});
 	return class$;
 }
 $Class* WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$27$25::class$ = nullptr;
@@ -1108,27 +1019,24 @@ public:
 	virtual $Object* createValue($UIDefaults* t) override {
 		 return WindowsLookAndFeel::lambda$getLazyValueDefaults$28(t);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$28$26>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$28$26::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$28$26, init$, void)},
-	{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$28$26, createValue, $Object*, $UIDefaults*)},
-	{}
-};
-$ClassInfo WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$28$26::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$28$26",
-	"java.lang.Object",
-	"javax.swing.UIDefaults$LazyValue",
-	nullptr,
-	methodInfos
 };
 $Class* WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$28$26::load$($String* name, bool initialize) {
-	$loadClass(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$28$26, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$28$26, init$, void)},
+		{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$28$26, createValue, $Object*, $UIDefaults*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$28$26",
+		"java.lang.Object",
+		"javax.swing.UIDefaults$LazyValue",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$28$26, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$28$26);
+	});
 	return class$;
 }
 $Class* WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$28$26::class$ = nullptr;
@@ -1141,27 +1049,24 @@ public:
 	virtual $Object* createValue($UIDefaults* t) override {
 		 return WindowsLookAndFeel::lambda$getLazyValueDefaults$29(t);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$29$27>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$29$27::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$29$27, init$, void)},
-	{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$29$27, createValue, $Object*, $UIDefaults*)},
-	{}
-};
-$ClassInfo WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$29$27::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$29$27",
-	"java.lang.Object",
-	"javax.swing.UIDefaults$LazyValue",
-	nullptr,
-	methodInfos
 };
 $Class* WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$29$27::load$($String* name, bool initialize) {
-	$loadClass(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$29$27, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$29$27, init$, void)},
+		{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$29$27, createValue, $Object*, $UIDefaults*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$29$27",
+		"java.lang.Object",
+		"javax.swing.UIDefaults$LazyValue",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$29$27, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$29$27);
+	});
 	return class$;
 }
 $Class* WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$29$27::class$ = nullptr;
@@ -1174,150 +1079,27 @@ public:
 	virtual $Object* createValue($UIDefaults* t) override {
 		 return WindowsLookAndFeel::lambda$getLazyValueDefaults$31(t);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$31$28>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$31$28::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$31$28, init$, void)},
-	{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$31$28, createValue, $Object*, $UIDefaults*)},
-	{}
-};
-$ClassInfo WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$31$28::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$31$28",
-	"java.lang.Object",
-	"javax.swing.UIDefaults$LazyValue",
-	nullptr,
-	methodInfos
 };
 $Class* WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$31$28::load$($String* name, bool initialize) {
-	$loadClass(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$31$28, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$31$28, init$, void)},
+		{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$31$28, createValue, $Object*, $UIDefaults*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$31$28",
+		"java.lang.Object",
+		"javax.swing.UIDefaults$LazyValue",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$31$28, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$31$28);
+	});
 	return class$;
 }
 $Class* WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$31$28::class$ = nullptr;
-
-$FieldInfo _WindowsLookAndFeel_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(WindowsLookAndFeel, $assertionsDisabled)},
-	{"HI_RES_DISABLED_ICON_CLIENT_KEY", "Ljava/lang/Object;", nullptr, $STATIC | $FINAL, $staticField(WindowsLookAndFeel, HI_RES_DISABLED_ICON_CLIENT_KEY)},
-	{"updatePending", "Z", nullptr, $PRIVATE, $field(WindowsLookAndFeel, updatePending)},
-	{"useSystemFontSettings", "Z", nullptr, $PRIVATE, $field(WindowsLookAndFeel, useSystemFontSettings)},
-	{"useSystemFontSizeSettings", "Z", nullptr, $PRIVATE, $field(WindowsLookAndFeel, useSystemFontSizeSettings)},
-	{"themeActive", "Lcom/sun/java/swing/plaf/windows/WindowsDesktopProperty;", nullptr, $PRIVATE, $field(WindowsLookAndFeel, themeActive)},
-	{"dllName", "Lcom/sun/java/swing/plaf/windows/WindowsDesktopProperty;", nullptr, $PRIVATE, $field(WindowsLookAndFeel, dllName)},
-	{"colorName", "Lcom/sun/java/swing/plaf/windows/WindowsDesktopProperty;", nullptr, $PRIVATE, $field(WindowsLookAndFeel, colorName)},
-	{"sizeName", "Lcom/sun/java/swing/plaf/windows/WindowsDesktopProperty;", nullptr, $PRIVATE, $field(WindowsLookAndFeel, sizeName)},
-	{"aaSettings", "Lcom/sun/java/swing/plaf/windows/WindowsDesktopProperty;", nullptr, $PRIVATE, $field(WindowsLookAndFeel, aaSettings)},
-	{"style", "Ljavax/swing/LayoutStyle;", nullptr, $PRIVATE | $TRANSIENT, $field(WindowsLookAndFeel, style)},
-	{"baseUnitX", "I", nullptr, $PRIVATE, $field(WindowsLookAndFeel, baseUnitX)},
-	{"baseUnitY", "I", nullptr, $PRIVATE, $field(WindowsLookAndFeel, baseUnitY)},
-	{"isMnemonicHidden", "Z", nullptr, $PRIVATE | $STATIC, $staticField(WindowsLookAndFeel, isMnemonicHidden$)},
-	{"isClassicWindows", "Z", nullptr, $PRIVATE | $STATIC, $staticField(WindowsLookAndFeel, isClassicWindows$)},
-	{}
-};
-
-$MethodInfo _WindowsLookAndFeel_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(WindowsLookAndFeel, init$, void)},
-	{"calculateBaseUnits", "()V", nullptr, $PRIVATE, $method(WindowsLookAndFeel, calculateBaseUnits, void)},
-	{"createAudioAction", "(Ljava/lang/Object;)Ljavax/swing/Action;", nullptr, $PROTECTED, $virtualMethod(WindowsLookAndFeel, createAudioAction, $Action*, Object$*)},
-	{"dluToPixels", "(II)I", nullptr, $PRIVATE, $method(WindowsLookAndFeel, dluToPixels, int32_t, int32_t, int32_t)},
-	{"getDescription", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(WindowsLookAndFeel, getDescription, $String*)},
-	{"getDesktopFontValue", "(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PRIVATE, $method(WindowsLookAndFeel, getDesktopFontValue, $Object*, $String*, Object$*)},
-	{"getDisabledIcon", "(Ljavax/swing/JComponent;Ljavax/swing/Icon;)Ljavax/swing/Icon;", nullptr, $PUBLIC, $virtualMethod(WindowsLookAndFeel, getDisabledIcon, $Icon*, $JComponent*, $Icon*)},
-	{"getID", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(WindowsLookAndFeel, getID, $String*)},
-	{"getLayoutStyle", "()Ljavax/swing/LayoutStyle;", nullptr, $PUBLIC, $virtualMethod(WindowsLookAndFeel, getLayoutStyle, $LayoutStyle*)},
-	{"getLazyValueDefaults", "()[Ljava/lang/Object;", nullptr, $PRIVATE, $method(WindowsLookAndFeel, getLazyValueDefaults, $ObjectArray*)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(WindowsLookAndFeel, getName, $String*)},
-	{"initClassDefaults", "(Ljavax/swing/UIDefaults;)V", nullptr, $PROTECTED, $virtualMethod(WindowsLookAndFeel, initClassDefaults, void, $UIDefaults*)},
-	{"initComponentDefaults", "(Ljavax/swing/UIDefaults;)V", nullptr, $PROTECTED, $virtualMethod(WindowsLookAndFeel, initComponentDefaults, void, $UIDefaults*)},
-	{"initResourceBundle", "(Ljavax/swing/UIDefaults;)V", nullptr, $PRIVATE, $method(WindowsLookAndFeel, initResourceBundle, void, $UIDefaults*)},
-	{"initSystemColorDefaults", "(Ljavax/swing/UIDefaults;)V", nullptr, $PROTECTED, $virtualMethod(WindowsLookAndFeel, initSystemColorDefaults, void, $UIDefaults*)},
-	{"initVistaComponentDefaults", "(Ljavax/swing/UIDefaults;)V", nullptr, $PRIVATE, $method(WindowsLookAndFeel, initVistaComponentDefaults, void, $UIDefaults*)},
-	{"initialize", "()V", nullptr, $PUBLIC, $virtualMethod(WindowsLookAndFeel, initialize, void)},
-	{"isClassicWindows", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(WindowsLookAndFeel, isClassicWindows, bool)},
-	{"isMnemonicHidden", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(WindowsLookAndFeel, isMnemonicHidden, bool)},
-	{"isNativeLookAndFeel", "()Z", nullptr, $PUBLIC, $virtualMethod(WindowsLookAndFeel, isNativeLookAndFeel, bool)},
-	{"isOnVista", "()Z", nullptr, $STATIC, $staticMethod(WindowsLookAndFeel, isOnVista, bool)},
-	{"isOnWindows7", "()Z", nullptr, $STATIC, $staticMethod(WindowsLookAndFeel, isOnWindows7, bool)},
-	{"isSupportedLookAndFeel", "()Z", nullptr, $PUBLIC, $virtualMethod(WindowsLookAndFeel, isSupportedLookAndFeel, bool)},
-	{"lambda$getLazyValueDefaults$10", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(WindowsLookAndFeel, lambda$getLazyValueDefaults$10, $Object*, $UIDefaults*)},
-	{"lambda$getLazyValueDefaults$11", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(WindowsLookAndFeel, lambda$getLazyValueDefaults$11, $Object*, $UIDefaults*)},
-	{"lambda$getLazyValueDefaults$12", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(WindowsLookAndFeel, lambda$getLazyValueDefaults$12, $Object*, $UIDefaults*)},
-	{"lambda$getLazyValueDefaults$13", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(WindowsLookAndFeel, lambda$getLazyValueDefaults$13, $Object*, $UIDefaults*)},
-	{"lambda$getLazyValueDefaults$15", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(WindowsLookAndFeel, lambda$getLazyValueDefaults$15, $Object*, $UIDefaults*)},
-	{"lambda$getLazyValueDefaults$16", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(WindowsLookAndFeel, lambda$getLazyValueDefaults$16, $Object*, $UIDefaults*)},
-	{"lambda$getLazyValueDefaults$18", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(WindowsLookAndFeel, lambda$getLazyValueDefaults$18, $Object*, $UIDefaults*)},
-	{"lambda$getLazyValueDefaults$19", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(WindowsLookAndFeel, lambda$getLazyValueDefaults$19, $Object*, $UIDefaults*)},
-	{"lambda$getLazyValueDefaults$20", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(WindowsLookAndFeel, lambda$getLazyValueDefaults$20, $Object*, $UIDefaults*)},
-	{"lambda$getLazyValueDefaults$21", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(WindowsLookAndFeel, lambda$getLazyValueDefaults$21, $Object*, $UIDefaults*)},
-	{"lambda$getLazyValueDefaults$22", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(WindowsLookAndFeel, lambda$getLazyValueDefaults$22, $Object*, $UIDefaults*)},
-	{"lambda$getLazyValueDefaults$23", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(WindowsLookAndFeel, lambda$getLazyValueDefaults$23, $Object*, $UIDefaults*)},
-	{"lambda$getLazyValueDefaults$24", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(WindowsLookAndFeel, lambda$getLazyValueDefaults$24, $Object*, $UIDefaults*)},
-	{"lambda$getLazyValueDefaults$25", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(WindowsLookAndFeel, lambda$getLazyValueDefaults$25, $Object*, $UIDefaults*)},
-	{"lambda$getLazyValueDefaults$26", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(WindowsLookAndFeel, lambda$getLazyValueDefaults$26, $Object*, $UIDefaults*)},
-	{"lambda$getLazyValueDefaults$27", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(WindowsLookAndFeel, lambda$getLazyValueDefaults$27, $Object*, $UIDefaults*)},
-	{"lambda$getLazyValueDefaults$28", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(WindowsLookAndFeel, lambda$getLazyValueDefaults$28, $Object*, $UIDefaults*)},
-	{"lambda$getLazyValueDefaults$29", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(WindowsLookAndFeel, lambda$getLazyValueDefaults$29, $Object*, $UIDefaults*)},
-	{"lambda$getLazyValueDefaults$31", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(WindowsLookAndFeel, lambda$getLazyValueDefaults$31, $Object*, $UIDefaults*)},
-	{"lambda$getLazyValueDefaults$9", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(WindowsLookAndFeel, lambda$getLazyValueDefaults$9, $Object*, $UIDefaults*)},
-	{"lambda$initComponentDefaults$0", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(WindowsLookAndFeel, lambda$initComponentDefaults$0, $Object*, $UIDefaults*)},
-	{"lambda$initComponentDefaults$1", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(WindowsLookAndFeel, lambda$initComponentDefaults$1, $Object*, $UIDefaults*)},
-	{"lambda$initComponentDefaults$2", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(WindowsLookAndFeel, lambda$initComponentDefaults$2, $Object*, $UIDefaults*)},
-	{"lambda$initComponentDefaults$3", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(WindowsLookAndFeel, lambda$initComponentDefaults$3, $Object*, $UIDefaults*)},
-	{"lambda$initComponentDefaults$4", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(WindowsLookAndFeel, lambda$initComponentDefaults$4, $Object*, $UIDefaults*)},
-	{"lambda$initComponentDefaults$5", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $SYNTHETIC, $method(WindowsLookAndFeel, lambda$initComponentDefaults$5, $Object*, $UIDefaults*)},
-	{"lambda$initVistaComponentDefaults$6", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(WindowsLookAndFeel, lambda$initVistaComponentDefaults$6, $Object*, $UIDefaults*)},
-	{"lambda$initVistaComponentDefaults$7", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(WindowsLookAndFeel, lambda$initVistaComponentDefaults$7, $Object*, $UIDefaults*)},
-	{"lambda$initVistaComponentDefaults$8", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(WindowsLookAndFeel, lambda$initVistaComponentDefaults$8, $Object*, $UIDefaults*)},
-	{"provideErrorFeedback", "(Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(WindowsLookAndFeel, provideErrorFeedback, void, $Component*)},
-	{"repaintRootPane", "(Ljava/awt/Component;)V", nullptr, $STATIC, $staticMethod(WindowsLookAndFeel, repaintRootPane, void, $Component*)},
-	{"setMnemonicHidden", "(Z)V", nullptr, $PUBLIC | $STATIC, $staticMethod(WindowsLookAndFeel, setMnemonicHidden, void, bool)},
-	{"uninitialize", "()V", nullptr, $PUBLIC, $virtualMethod(WindowsLookAndFeel, uninitialize, void)},
-	{}
-};
-
-$InnerClassInfo _WindowsLookAndFeel_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$3", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$FocusColorProperty", "com.sun.java.swing.plaf.windows.WindowsLookAndFeel", "FocusColorProperty", $PRIVATE | $STATIC},
-	{"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$RGBGrayFilter", "com.sun.java.swing.plaf.windows.WindowsLookAndFeel", "RGBGrayFilter", $PRIVATE | $STATIC},
-	{"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$WindowsLayoutStyle", "com.sun.java.swing.plaf.windows.WindowsLookAndFeel", "WindowsLayoutStyle", $PRIVATE},
-	{"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$FontDesktopProperty", "com.sun.java.swing.plaf.windows.WindowsLookAndFeel", "FontDesktopProperty", $PRIVATE},
-	{"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$TriggerDesktopProperty", "com.sun.java.swing.plaf.windows.WindowsLookAndFeel", "TriggerDesktopProperty", $PRIVATE},
-	{"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$XPDLUValue", "com.sun.java.swing.plaf.windows.WindowsLookAndFeel", "XPDLUValue", $PRIVATE},
-	{"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$XPColorValue", "com.sun.java.swing.plaf.windows.WindowsLookAndFeel", "XPColorValue", $PRIVATE | $STATIC},
-	{"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$XPBorderValue", "com.sun.java.swing.plaf.windows.WindowsLookAndFeel", "XPBorderValue", $PRIVATE | $STATIC},
-	{"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$XPValue", "com.sun.java.swing.plaf.windows.WindowsLookAndFeel", "XPValue", $PRIVATE | $STATIC},
-	{"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$WindowsFontSizeProperty", "com.sun.java.swing.plaf.windows.WindowsLookAndFeel", "WindowsFontSizeProperty", $PRIVATE | $STATIC},
-	{"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$WindowsFontProperty", "com.sun.java.swing.plaf.windows.WindowsLookAndFeel", "WindowsFontProperty", $PRIVATE | $STATIC},
-	{"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$SkinIcon", "com.sun.java.swing.plaf.windows.WindowsLookAndFeel", "SkinIcon", $PRIVATE | $STATIC},
-	{"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$ActiveWindowsIcon", "com.sun.java.swing.plaf.windows.WindowsLookAndFeel", "ActiveWindowsIcon", $PRIVATE},
-	{"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$LazyWindowsIcon", "com.sun.java.swing.plaf.windows.WindowsLookAndFeel", "LazyWindowsIcon", $PRIVATE | $STATIC},
-	{"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$AudioAction", "com.sun.java.swing.plaf.windows.WindowsLookAndFeel", "AudioAction", $PRIVATE | $STATIC},
-	{"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$2", nullptr, nullptr, 0},
-	{"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _WindowsLookAndFeel_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.java.swing.plaf.windows.WindowsLookAndFeel",
-	"javax.swing.plaf.basic.BasicLookAndFeel",
-	nullptr,
-	_WindowsLookAndFeel_FieldInfo_,
-	_WindowsLookAndFeel_MethodInfo_,
-	nullptr,
-	nullptr,
-	_WindowsLookAndFeel_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$3,com.sun.java.swing.plaf.windows.WindowsLookAndFeel$FocusColorProperty,com.sun.java.swing.plaf.windows.WindowsLookAndFeel$RGBGrayFilter,com.sun.java.swing.plaf.windows.WindowsLookAndFeel$WindowsLayoutStyle,com.sun.java.swing.plaf.windows.WindowsLookAndFeel$FontDesktopProperty,com.sun.java.swing.plaf.windows.WindowsLookAndFeel$TriggerDesktopProperty,com.sun.java.swing.plaf.windows.WindowsLookAndFeel$XPDLUValue,com.sun.java.swing.plaf.windows.WindowsLookAndFeel$XPColorValue,com.sun.java.swing.plaf.windows.WindowsLookAndFeel$XPColorValue$XPColorValueKey,com.sun.java.swing.plaf.windows.WindowsLookAndFeel$XPBorderValue,com.sun.java.swing.plaf.windows.WindowsLookAndFeel$XPValue,com.sun.java.swing.plaf.windows.WindowsLookAndFeel$WindowsFontSizeProperty,com.sun.java.swing.plaf.windows.WindowsLookAndFeel$WindowsFontProperty,com.sun.java.swing.plaf.windows.WindowsLookAndFeel$SkinIcon,com.sun.java.swing.plaf.windows.WindowsLookAndFeel$ActiveWindowsIcon,com.sun.java.swing.plaf.windows.WindowsLookAndFeel$ActiveWindowsIcon$1,com.sun.java.swing.plaf.windows.WindowsLookAndFeel$LazyWindowsIcon,com.sun.java.swing.plaf.windows.WindowsLookAndFeel$AudioAction,com.sun.java.swing.plaf.windows.WindowsLookAndFeel$2,com.sun.java.swing.plaf.windows.WindowsLookAndFeel$1"
-};
-
-$Object* allocate$WindowsLookAndFeel($Class* clazz) {
-	return $of($alloc(WindowsLookAndFeel));
-}
 
 bool WindowsLookAndFeel::$assertionsDisabled = false;
 $Object* WindowsLookAndFeel::HI_RES_DISABLED_ICON_CLIENT_KEY = nullptr;
@@ -1352,99 +1134,99 @@ bool WindowsLookAndFeel::isSupportedLookAndFeel() {
 }
 
 void WindowsLookAndFeel::initialize() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$BasicLookAndFeel::initialize();
 	$init($OSInfo);
-	if ($nc($($OSInfo::getWindowsVersion()))->compareTo($OSInfo::WINDOWS_95) <= 0) {
+	if ($$nc($OSInfo::getWindowsVersion())->compareTo($OSInfo::WINDOWS_95) <= 0) {
 		WindowsLookAndFeel::isClassicWindows$ = true;
 	} else {
 		WindowsLookAndFeel::isClassicWindows$ = false;
 		$XPStyle::invalidateStyle();
 	}
-	$var($String, systemFonts, $cast($String, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($GetPropertyAction, "swing.useSystemFontSettings"_s)))));
-	this->useSystemFontSettings = (systemFonts == nullptr || $nc($($Boolean::valueOf(systemFonts)))->booleanValue());
+	$var($String, systemFonts, $cast($String, $AccessController::doPrivileged($$new($GetPropertyAction, "swing.useSystemFontSettings"_s))));
+	this->useSystemFontSettings = (systemFonts == nullptr || $($Boolean::valueOf(systemFonts))->booleanValue());
 	if (this->useSystemFontSettings) {
 		$var($Object, value, $UIManager::get("Application.useSystemFontSettings"_s));
 		this->useSystemFontSettings = (value == nullptr || $nc($Boolean::TRUE)->equals(value));
 	}
 	$init($WindowsRootPaneUI);
-	$nc($($KeyboardFocusManager::getCurrentKeyboardFocusManager()))->addKeyEventPostProcessor($WindowsRootPaneUI::altProcessor);
+	$$nc($KeyboardFocusManager::getCurrentKeyboardFocusManager())->addKeyEventPostProcessor($WindowsRootPaneUI::altProcessor);
 }
 
 void WindowsLookAndFeel::initClassDefaults($UIDefaults* table) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$BasicLookAndFeel::initClassDefaults(table);
 	$var($String, windowsPackageName, "com.sun.java.swing.plaf.windows."_s);
 	$var($ObjectArray, uiDefaults, $new($ObjectArray, {
-		$of("ButtonUI"_s),
-		$of($$str({windowsPackageName, "WindowsButtonUI"_s})),
-		$of("CheckBoxUI"_s),
-		$of($$str({windowsPackageName, "WindowsCheckBoxUI"_s})),
-		$of("CheckBoxMenuItemUI"_s),
-		$of($$str({windowsPackageName, "WindowsCheckBoxMenuItemUI"_s})),
-		$of("LabelUI"_s),
-		$of($$str({windowsPackageName, "WindowsLabelUI"_s})),
-		$of("RadioButtonUI"_s),
-		$of($$str({windowsPackageName, "WindowsRadioButtonUI"_s})),
-		$of("RadioButtonMenuItemUI"_s),
-		$of($$str({windowsPackageName, "WindowsRadioButtonMenuItemUI"_s})),
-		$of("ToggleButtonUI"_s),
-		$of($$str({windowsPackageName, "WindowsToggleButtonUI"_s})),
-		$of("ProgressBarUI"_s),
-		$of($$str({windowsPackageName, "WindowsProgressBarUI"_s})),
-		$of("SliderUI"_s),
-		$of($$str({windowsPackageName, "WindowsSliderUI"_s})),
-		$of("SeparatorUI"_s),
-		$of($$str({windowsPackageName, "WindowsSeparatorUI"_s})),
-		$of("SplitPaneUI"_s),
-		$of($$str({windowsPackageName, "WindowsSplitPaneUI"_s})),
-		$of("SpinnerUI"_s),
-		$of($$str({windowsPackageName, "WindowsSpinnerUI"_s})),
-		$of("TabbedPaneUI"_s),
-		$of($$str({windowsPackageName, "WindowsTabbedPaneUI"_s})),
-		$of("TextAreaUI"_s),
-		$of($$str({windowsPackageName, "WindowsTextAreaUI"_s})),
-		$of("TextFieldUI"_s),
-		$of($$str({windowsPackageName, "WindowsTextFieldUI"_s})),
-		$of("PasswordFieldUI"_s),
-		$of($$str({windowsPackageName, "WindowsPasswordFieldUI"_s})),
-		$of("TextPaneUI"_s),
-		$of($$str({windowsPackageName, "WindowsTextPaneUI"_s})),
-		$of("EditorPaneUI"_s),
-		$of($$str({windowsPackageName, "WindowsEditorPaneUI"_s})),
-		$of("TreeUI"_s),
-		$of($$str({windowsPackageName, "WindowsTreeUI"_s})),
-		$of("ToolBarUI"_s),
-		$of($$str({windowsPackageName, "WindowsToolBarUI"_s})),
-		$of("ToolBarSeparatorUI"_s),
-		$of($$str({windowsPackageName, "WindowsToolBarSeparatorUI"_s})),
-		$of("ComboBoxUI"_s),
-		$of($$str({windowsPackageName, "WindowsComboBoxUI"_s})),
-		$of("TableHeaderUI"_s),
-		$of($$str({windowsPackageName, "WindowsTableHeaderUI"_s})),
-		$of("InternalFrameUI"_s),
-		$of($$str({windowsPackageName, "WindowsInternalFrameUI"_s})),
-		$of("DesktopPaneUI"_s),
-		$of($$str({windowsPackageName, "WindowsDesktopPaneUI"_s})),
-		$of("DesktopIconUI"_s),
-		$of($$str({windowsPackageName, "WindowsDesktopIconUI"_s})),
-		$of("FileChooserUI"_s),
-		$of($$str({windowsPackageName, "WindowsFileChooserUI"_s})),
-		$of("MenuUI"_s),
-		$of($$str({windowsPackageName, "WindowsMenuUI"_s})),
-		$of("MenuItemUI"_s),
-		$of($$str({windowsPackageName, "WindowsMenuItemUI"_s})),
-		$of("MenuBarUI"_s),
-		$of($$str({windowsPackageName, "WindowsMenuBarUI"_s})),
-		$of("PopupMenuUI"_s),
-		$of($$str({windowsPackageName, "WindowsPopupMenuUI"_s})),
-		$of("PopupMenuSeparatorUI"_s),
-		$of($$str({windowsPackageName, "WindowsPopupMenuSeparatorUI"_s})),
-		$of("ScrollBarUI"_s),
-		$of($$str({windowsPackageName, "WindowsScrollBarUI"_s})),
-		$of("RootPaneUI"_s),
-		$of($$str({windowsPackageName, "WindowsRootPaneUI"_s}))
+		"ButtonUI"_s,
+		$$str({windowsPackageName, "WindowsButtonUI"_s}),
+		"CheckBoxUI"_s,
+		$$str({windowsPackageName, "WindowsCheckBoxUI"_s}),
+		"CheckBoxMenuItemUI"_s,
+		$$str({windowsPackageName, "WindowsCheckBoxMenuItemUI"_s}),
+		"LabelUI"_s,
+		$$str({windowsPackageName, "WindowsLabelUI"_s}),
+		"RadioButtonUI"_s,
+		$$str({windowsPackageName, "WindowsRadioButtonUI"_s}),
+		"RadioButtonMenuItemUI"_s,
+		$$str({windowsPackageName, "WindowsRadioButtonMenuItemUI"_s}),
+		"ToggleButtonUI"_s,
+		$$str({windowsPackageName, "WindowsToggleButtonUI"_s}),
+		"ProgressBarUI"_s,
+		$$str({windowsPackageName, "WindowsProgressBarUI"_s}),
+		"SliderUI"_s,
+		$$str({windowsPackageName, "WindowsSliderUI"_s}),
+		"SeparatorUI"_s,
+		$$str({windowsPackageName, "WindowsSeparatorUI"_s}),
+		"SplitPaneUI"_s,
+		$$str({windowsPackageName, "WindowsSplitPaneUI"_s}),
+		"SpinnerUI"_s,
+		$$str({windowsPackageName, "WindowsSpinnerUI"_s}),
+		"TabbedPaneUI"_s,
+		$$str({windowsPackageName, "WindowsTabbedPaneUI"_s}),
+		"TextAreaUI"_s,
+		$$str({windowsPackageName, "WindowsTextAreaUI"_s}),
+		"TextFieldUI"_s,
+		$$str({windowsPackageName, "WindowsTextFieldUI"_s}),
+		"PasswordFieldUI"_s,
+		$$str({windowsPackageName, "WindowsPasswordFieldUI"_s}),
+		"TextPaneUI"_s,
+		$$str({windowsPackageName, "WindowsTextPaneUI"_s}),
+		"EditorPaneUI"_s,
+		$$str({windowsPackageName, "WindowsEditorPaneUI"_s}),
+		"TreeUI"_s,
+		$$str({windowsPackageName, "WindowsTreeUI"_s}),
+		"ToolBarUI"_s,
+		$$str({windowsPackageName, "WindowsToolBarUI"_s}),
+		"ToolBarSeparatorUI"_s,
+		$$str({windowsPackageName, "WindowsToolBarSeparatorUI"_s}),
+		"ComboBoxUI"_s,
+		$$str({windowsPackageName, "WindowsComboBoxUI"_s}),
+		"TableHeaderUI"_s,
+		$$str({windowsPackageName, "WindowsTableHeaderUI"_s}),
+		"InternalFrameUI"_s,
+		$$str({windowsPackageName, "WindowsInternalFrameUI"_s}),
+		"DesktopPaneUI"_s,
+		$$str({windowsPackageName, "WindowsDesktopPaneUI"_s}),
+		"DesktopIconUI"_s,
+		$$str({windowsPackageName, "WindowsDesktopIconUI"_s}),
+		"FileChooserUI"_s,
+		$$str({windowsPackageName, "WindowsFileChooserUI"_s}),
+		"MenuUI"_s,
+		$$str({windowsPackageName, "WindowsMenuUI"_s}),
+		"MenuItemUI"_s,
+		$$str({windowsPackageName, "WindowsMenuItemUI"_s}),
+		"MenuBarUI"_s,
+		$$str({windowsPackageName, "WindowsMenuBarUI"_s}),
+		"PopupMenuUI"_s,
+		$$str({windowsPackageName, "WindowsPopupMenuUI"_s}),
+		"PopupMenuSeparatorUI"_s,
+		$$str({windowsPackageName, "WindowsPopupMenuSeparatorUI"_s}),
+		"ScrollBarUI"_s,
+		$$str({windowsPackageName, "WindowsScrollBarUI"_s}),
+		"RootPaneUI"_s,
+		$$str({windowsPackageName, "WindowsRootPaneUI"_s})
 	}));
 	$nc(table)->putDefaults(uiDefaults);
 }
@@ -1512,18 +1294,18 @@ void WindowsLookAndFeel::initSystemColorDefaults($UIDefaults* table) {
 }
 
 void WindowsLookAndFeel::initResourceBundle($UIDefaults* table) {
-	$nc($($SwingAccessor::getUIDefaultsAccessor()))->addInternalBundle(table, "com.sun.java.swing.plaf.windows.resources.windows"_s);
+	$$nc($SwingAccessor::getUIDefaultsAccessor())->addInternalBundle(table, "com.sun.java.swing.plaf.windows.resources.windows"_s);
 }
 
 void WindowsLookAndFeel::initComponentDefaults($UIDefaults* table) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$BasicLookAndFeel::initComponentDefaults(table);
 	initResourceBundle(table);
-	$var($UIDefaults$LazyValue, dialogPlain12, static_cast<$UIDefaults$LazyValue*>($new(WindowsLookAndFeel$$Lambda$lambda$initComponentDefaults$0)));
-	$var($UIDefaults$LazyValue, sansSerifPlain12, static_cast<$UIDefaults$LazyValue*>($new(WindowsLookAndFeel$$Lambda$lambda$initComponentDefaults$1$1)));
-	$var($UIDefaults$LazyValue, monospacedPlain12, static_cast<$UIDefaults$LazyValue*>($new(WindowsLookAndFeel$$Lambda$lambda$initComponentDefaults$2$2)));
-	$var($UIDefaults$LazyValue, dialogBold12, static_cast<$UIDefaults$LazyValue*>($new(WindowsLookAndFeel$$Lambda$lambda$initComponentDefaults$3$3)));
+	$var($UIDefaults$LazyValue, dialogPlain12, $new(WindowsLookAndFeel$$Lambda$lambda$initComponentDefaults$0));
+	$var($UIDefaults$LazyValue, sansSerifPlain12, $new(WindowsLookAndFeel$$Lambda$lambda$initComponentDefaults$1$1));
+	$var($UIDefaults$LazyValue, monospacedPlain12, $new(WindowsLookAndFeel$$Lambda$lambda$initComponentDefaults$2$2));
+	$var($UIDefaults$LazyValue, dialogBold12, $new(WindowsLookAndFeel$$Lambda$lambda$initComponentDefaults$3$3));
 	$init($Color);
 	$var($ColorUIResource, red, $new($ColorUIResource, $Color::red));
 	$var($ColorUIResource, black, $new($ColorUIResource, $Color::black));
@@ -1532,267 +1314,267 @@ void WindowsLookAndFeel::initComponentDefaults($UIDefaults* table) {
 	$var($ColorUIResource, darkGray, $new($ColorUIResource, $Color::darkGray));
 	$var($ColorUIResource, scrollBarTrackHighlight, darkGray);
 	$init($OSInfo);
-	WindowsLookAndFeel::isClassicWindows$ = $nc($($OSInfo::getWindowsVersion()))->compareTo($OSInfo::WINDOWS_95) <= 0;
+	WindowsLookAndFeel::isClassicWindows$ = $$nc($OSInfo::getWindowsVersion())->compareTo($OSInfo::WINDOWS_95) <= 0;
 	$var($Object, treeExpandedIcon, $WindowsTreeUI$ExpandedIcon::createExpandedIcon());
 	$var($Object, treeCollapsedIcon, $WindowsTreeUI$CollapsedIcon::createCollapsedIcon());
 	$init($DefaultEditorKit);
 	$init($JTextField);
 	$var($Object, fieldInputMap, $new($UIDefaults$LazyInputMap, $$new($ObjectArray, {
-		$of("control C"_s),
-		$of($DefaultEditorKit::copyAction),
-		$of("control V"_s),
-		$of($DefaultEditorKit::pasteAction),
-		$of("control X"_s),
-		$of($DefaultEditorKit::cutAction),
-		$of("COPY"_s),
-		$of($DefaultEditorKit::copyAction),
-		$of("PASTE"_s),
-		$of($DefaultEditorKit::pasteAction),
-		$of("CUT"_s),
-		$of($DefaultEditorKit::cutAction),
-		$of("control INSERT"_s),
-		$of($DefaultEditorKit::copyAction),
-		$of("shift INSERT"_s),
-		$of($DefaultEditorKit::pasteAction),
-		$of("shift DELETE"_s),
-		$of($DefaultEditorKit::cutAction),
-		$of("control A"_s),
-		$of($DefaultEditorKit::selectAllAction),
-		$of("control BACK_SLASH"_s),
-		$of("unselect"_s),
-		$of("shift LEFT"_s),
-		$of($DefaultEditorKit::selectionBackwardAction),
-		$of("shift RIGHT"_s),
-		$of($DefaultEditorKit::selectionForwardAction),
-		$of("control LEFT"_s),
-		$of($DefaultEditorKit::previousWordAction),
-		$of("control RIGHT"_s),
-		$of($DefaultEditorKit::nextWordAction),
-		$of("control shift LEFT"_s),
-		$of($DefaultEditorKit::selectionPreviousWordAction),
-		$of("control shift RIGHT"_s),
-		$of($DefaultEditorKit::selectionNextWordAction),
-		$of("HOME"_s),
-		$of($DefaultEditorKit::beginLineAction),
-		$of("END"_s),
-		$of($DefaultEditorKit::endLineAction),
-		$of("shift HOME"_s),
-		$of($DefaultEditorKit::selectionBeginLineAction),
-		$of("shift END"_s),
-		$of($DefaultEditorKit::selectionEndLineAction),
-		$of("BACK_SPACE"_s),
-		$of($DefaultEditorKit::deletePrevCharAction),
-		$of("shift BACK_SPACE"_s),
-		$of($DefaultEditorKit::deletePrevCharAction),
-		$of("ctrl H"_s),
-		$of($DefaultEditorKit::deletePrevCharAction),
-		$of("DELETE"_s),
-		$of($DefaultEditorKit::deleteNextCharAction),
-		$of("ctrl DELETE"_s),
-		$of($DefaultEditorKit::deleteNextWordAction),
-		$of("ctrl BACK_SPACE"_s),
-		$of($DefaultEditorKit::deletePrevWordAction),
-		$of("RIGHT"_s),
-		$of($DefaultEditorKit::forwardAction),
-		$of("LEFT"_s),
-		$of($DefaultEditorKit::backwardAction),
-		$of("KP_RIGHT"_s),
-		$of($DefaultEditorKit::forwardAction),
-		$of("KP_LEFT"_s),
-		$of($DefaultEditorKit::backwardAction),
-		$of("ENTER"_s),
-		$of($JTextField::notifyAction),
-		$of("control shift O"_s),
-		$of("toggle-componentOrientation"_s)
+		"control C"_s,
+		$DefaultEditorKit::copyAction,
+		"control V"_s,
+		$DefaultEditorKit::pasteAction,
+		"control X"_s,
+		$DefaultEditorKit::cutAction,
+		"COPY"_s,
+		$DefaultEditorKit::copyAction,
+		"PASTE"_s,
+		$DefaultEditorKit::pasteAction,
+		"CUT"_s,
+		$DefaultEditorKit::cutAction,
+		"control INSERT"_s,
+		$DefaultEditorKit::copyAction,
+		"shift INSERT"_s,
+		$DefaultEditorKit::pasteAction,
+		"shift DELETE"_s,
+		$DefaultEditorKit::cutAction,
+		"control A"_s,
+		$DefaultEditorKit::selectAllAction,
+		"control BACK_SLASH"_s,
+		"unselect"_s,
+		"shift LEFT"_s,
+		$DefaultEditorKit::selectionBackwardAction,
+		"shift RIGHT"_s,
+		$DefaultEditorKit::selectionForwardAction,
+		"control LEFT"_s,
+		$DefaultEditorKit::previousWordAction,
+		"control RIGHT"_s,
+		$DefaultEditorKit::nextWordAction,
+		"control shift LEFT"_s,
+		$DefaultEditorKit::selectionPreviousWordAction,
+		"control shift RIGHT"_s,
+		$DefaultEditorKit::selectionNextWordAction,
+		"HOME"_s,
+		$DefaultEditorKit::beginLineAction,
+		"END"_s,
+		$DefaultEditorKit::endLineAction,
+		"shift HOME"_s,
+		$DefaultEditorKit::selectionBeginLineAction,
+		"shift END"_s,
+		$DefaultEditorKit::selectionEndLineAction,
+		"BACK_SPACE"_s,
+		$DefaultEditorKit::deletePrevCharAction,
+		"shift BACK_SPACE"_s,
+		$DefaultEditorKit::deletePrevCharAction,
+		"ctrl H"_s,
+		$DefaultEditorKit::deletePrevCharAction,
+		"DELETE"_s,
+		$DefaultEditorKit::deleteNextCharAction,
+		"ctrl DELETE"_s,
+		$DefaultEditorKit::deleteNextWordAction,
+		"ctrl BACK_SPACE"_s,
+		$DefaultEditorKit::deletePrevWordAction,
+		"RIGHT"_s,
+		$DefaultEditorKit::forwardAction,
+		"LEFT"_s,
+		$DefaultEditorKit::backwardAction,
+		"KP_RIGHT"_s,
+		$DefaultEditorKit::forwardAction,
+		"KP_LEFT"_s,
+		$DefaultEditorKit::backwardAction,
+		"ENTER"_s,
+		$JTextField::notifyAction,
+		"control shift O"_s,
+		"toggle-componentOrientation"_s
 	})));
 	$var($Object, passwordInputMap, $new($UIDefaults$LazyInputMap, $$new($ObjectArray, {
-		$of("control C"_s),
-		$of($DefaultEditorKit::copyAction),
-		$of("control V"_s),
-		$of($DefaultEditorKit::pasteAction),
-		$of("control X"_s),
-		$of($DefaultEditorKit::cutAction),
-		$of("COPY"_s),
-		$of($DefaultEditorKit::copyAction),
-		$of("PASTE"_s),
-		$of($DefaultEditorKit::pasteAction),
-		$of("CUT"_s),
-		$of($DefaultEditorKit::cutAction),
-		$of("control INSERT"_s),
-		$of($DefaultEditorKit::copyAction),
-		$of("shift INSERT"_s),
-		$of($DefaultEditorKit::pasteAction),
-		$of("shift DELETE"_s),
-		$of($DefaultEditorKit::cutAction),
-		$of("control A"_s),
-		$of($DefaultEditorKit::selectAllAction),
-		$of("control BACK_SLASH"_s),
-		$of("unselect"_s),
-		$of("shift LEFT"_s),
-		$of($DefaultEditorKit::selectionBackwardAction),
-		$of("shift RIGHT"_s),
-		$of($DefaultEditorKit::selectionForwardAction),
-		$of("control LEFT"_s),
-		$of($DefaultEditorKit::beginLineAction),
-		$of("control RIGHT"_s),
-		$of($DefaultEditorKit::endLineAction),
-		$of("control shift LEFT"_s),
-		$of($DefaultEditorKit::selectionBeginLineAction),
-		$of("control shift RIGHT"_s),
-		$of($DefaultEditorKit::selectionEndLineAction),
-		$of("HOME"_s),
-		$of($DefaultEditorKit::beginLineAction),
-		$of("END"_s),
-		$of($DefaultEditorKit::endLineAction),
-		$of("shift HOME"_s),
-		$of($DefaultEditorKit::selectionBeginLineAction),
-		$of("shift END"_s),
-		$of($DefaultEditorKit::selectionEndLineAction),
-		$of("BACK_SPACE"_s),
-		$of($DefaultEditorKit::deletePrevCharAction),
-		$of("shift BACK_SPACE"_s),
-		$of($DefaultEditorKit::deletePrevCharAction),
-		$of("ctrl H"_s),
-		$of($DefaultEditorKit::deletePrevCharAction),
-		$of("DELETE"_s),
-		$of($DefaultEditorKit::deleteNextCharAction),
-		$of("RIGHT"_s),
-		$of($DefaultEditorKit::forwardAction),
-		$of("LEFT"_s),
-		$of($DefaultEditorKit::backwardAction),
-		$of("KP_RIGHT"_s),
-		$of($DefaultEditorKit::forwardAction),
-		$of("KP_LEFT"_s),
-		$of($DefaultEditorKit::backwardAction),
-		$of("ENTER"_s),
-		$of($JTextField::notifyAction),
-		$of("control shift O"_s),
-		$of("toggle-componentOrientation"_s)
+		"control C"_s,
+		$DefaultEditorKit::copyAction,
+		"control V"_s,
+		$DefaultEditorKit::pasteAction,
+		"control X"_s,
+		$DefaultEditorKit::cutAction,
+		"COPY"_s,
+		$DefaultEditorKit::copyAction,
+		"PASTE"_s,
+		$DefaultEditorKit::pasteAction,
+		"CUT"_s,
+		$DefaultEditorKit::cutAction,
+		"control INSERT"_s,
+		$DefaultEditorKit::copyAction,
+		"shift INSERT"_s,
+		$DefaultEditorKit::pasteAction,
+		"shift DELETE"_s,
+		$DefaultEditorKit::cutAction,
+		"control A"_s,
+		$DefaultEditorKit::selectAllAction,
+		"control BACK_SLASH"_s,
+		"unselect"_s,
+		"shift LEFT"_s,
+		$DefaultEditorKit::selectionBackwardAction,
+		"shift RIGHT"_s,
+		$DefaultEditorKit::selectionForwardAction,
+		"control LEFT"_s,
+		$DefaultEditorKit::beginLineAction,
+		"control RIGHT"_s,
+		$DefaultEditorKit::endLineAction,
+		"control shift LEFT"_s,
+		$DefaultEditorKit::selectionBeginLineAction,
+		"control shift RIGHT"_s,
+		$DefaultEditorKit::selectionEndLineAction,
+		"HOME"_s,
+		$DefaultEditorKit::beginLineAction,
+		"END"_s,
+		$DefaultEditorKit::endLineAction,
+		"shift HOME"_s,
+		$DefaultEditorKit::selectionBeginLineAction,
+		"shift END"_s,
+		$DefaultEditorKit::selectionEndLineAction,
+		"BACK_SPACE"_s,
+		$DefaultEditorKit::deletePrevCharAction,
+		"shift BACK_SPACE"_s,
+		$DefaultEditorKit::deletePrevCharAction,
+		"ctrl H"_s,
+		$DefaultEditorKit::deletePrevCharAction,
+		"DELETE"_s,
+		$DefaultEditorKit::deleteNextCharAction,
+		"RIGHT"_s,
+		$DefaultEditorKit::forwardAction,
+		"LEFT"_s,
+		$DefaultEditorKit::backwardAction,
+		"KP_RIGHT"_s,
+		$DefaultEditorKit::forwardAction,
+		"KP_LEFT"_s,
+		$DefaultEditorKit::backwardAction,
+		"ENTER"_s,
+		$JTextField::notifyAction,
+		"control shift O"_s,
+		"toggle-componentOrientation"_s
 	})));
 	$var($Object, multilineInputMap, $new($UIDefaults$LazyInputMap, $$new($ObjectArray, {
-		$of("control C"_s),
-		$of($DefaultEditorKit::copyAction),
-		$of("control V"_s),
-		$of($DefaultEditorKit::pasteAction),
-		$of("control X"_s),
-		$of($DefaultEditorKit::cutAction),
-		$of("COPY"_s),
-		$of($DefaultEditorKit::copyAction),
-		$of("PASTE"_s),
-		$of($DefaultEditorKit::pasteAction),
-		$of("CUT"_s),
-		$of($DefaultEditorKit::cutAction),
-		$of("control INSERT"_s),
-		$of($DefaultEditorKit::copyAction),
-		$of("shift INSERT"_s),
-		$of($DefaultEditorKit::pasteAction),
-		$of("shift DELETE"_s),
-		$of($DefaultEditorKit::cutAction),
-		$of("shift LEFT"_s),
-		$of($DefaultEditorKit::selectionBackwardAction),
-		$of("shift RIGHT"_s),
-		$of($DefaultEditorKit::selectionForwardAction),
-		$of("control LEFT"_s),
-		$of($DefaultEditorKit::previousWordAction),
-		$of("control RIGHT"_s),
-		$of($DefaultEditorKit::nextWordAction),
-		$of("control shift LEFT"_s),
-		$of($DefaultEditorKit::selectionPreviousWordAction),
-		$of("control shift RIGHT"_s),
-		$of($DefaultEditorKit::selectionNextWordAction),
-		$of("control A"_s),
-		$of($DefaultEditorKit::selectAllAction),
-		$of("control BACK_SLASH"_s),
-		$of("unselect"_s),
-		$of("HOME"_s),
-		$of($DefaultEditorKit::beginLineAction),
-		$of("END"_s),
-		$of($DefaultEditorKit::endLineAction),
-		$of("shift HOME"_s),
-		$of($DefaultEditorKit::selectionBeginLineAction),
-		$of("shift END"_s),
-		$of($DefaultEditorKit::selectionEndLineAction),
-		$of("control HOME"_s),
-		$of($DefaultEditorKit::beginAction),
-		$of("control END"_s),
-		$of($DefaultEditorKit::endAction),
-		$of("control shift HOME"_s),
-		$of($DefaultEditorKit::selectionBeginAction),
-		$of("control shift END"_s),
-		$of($DefaultEditorKit::selectionEndAction),
-		$of("UP"_s),
-		$of($DefaultEditorKit::upAction),
-		$of("DOWN"_s),
-		$of($DefaultEditorKit::downAction),
-		$of("BACK_SPACE"_s),
-		$of($DefaultEditorKit::deletePrevCharAction),
-		$of("shift BACK_SPACE"_s),
-		$of($DefaultEditorKit::deletePrevCharAction),
-		$of("ctrl H"_s),
-		$of($DefaultEditorKit::deletePrevCharAction),
-		$of("DELETE"_s),
-		$of($DefaultEditorKit::deleteNextCharAction),
-		$of("ctrl DELETE"_s),
-		$of($DefaultEditorKit::deleteNextWordAction),
-		$of("ctrl BACK_SPACE"_s),
-		$of($DefaultEditorKit::deletePrevWordAction),
-		$of("RIGHT"_s),
-		$of($DefaultEditorKit::forwardAction),
-		$of("LEFT"_s),
-		$of($DefaultEditorKit::backwardAction),
-		$of("KP_RIGHT"_s),
-		$of($DefaultEditorKit::forwardAction),
-		$of("KP_LEFT"_s),
-		$of($DefaultEditorKit::backwardAction),
-		$of("PAGE_UP"_s),
-		$of($DefaultEditorKit::pageUpAction),
-		$of("PAGE_DOWN"_s),
-		$of($DefaultEditorKit::pageDownAction),
-		$of("shift PAGE_UP"_s),
-		$of("selection-page-up"_s),
-		$of("shift PAGE_DOWN"_s),
-		$of("selection-page-down"_s),
-		$of("ctrl shift PAGE_UP"_s),
-		$of("selection-page-left"_s),
-		$of("ctrl shift PAGE_DOWN"_s),
-		$of("selection-page-right"_s),
-		$of("shift UP"_s),
-		$of($DefaultEditorKit::selectionUpAction),
-		$of("shift DOWN"_s),
-		$of($DefaultEditorKit::selectionDownAction),
-		$of("ENTER"_s),
-		$of($DefaultEditorKit::insertBreakAction),
-		$of("TAB"_s),
-		$of($DefaultEditorKit::insertTabAction),
-		$of("control T"_s),
-		$of("next-link-action"_s),
-		$of("control shift T"_s),
-		$of("previous-link-action"_s),
-		$of("control SPACE"_s),
-		$of("activate-link-action"_s),
-		$of("control shift O"_s),
-		$of("toggle-componentOrientation"_s)
+		"control C"_s,
+		$DefaultEditorKit::copyAction,
+		"control V"_s,
+		$DefaultEditorKit::pasteAction,
+		"control X"_s,
+		$DefaultEditorKit::cutAction,
+		"COPY"_s,
+		$DefaultEditorKit::copyAction,
+		"PASTE"_s,
+		$DefaultEditorKit::pasteAction,
+		"CUT"_s,
+		$DefaultEditorKit::cutAction,
+		"control INSERT"_s,
+		$DefaultEditorKit::copyAction,
+		"shift INSERT"_s,
+		$DefaultEditorKit::pasteAction,
+		"shift DELETE"_s,
+		$DefaultEditorKit::cutAction,
+		"shift LEFT"_s,
+		$DefaultEditorKit::selectionBackwardAction,
+		"shift RIGHT"_s,
+		$DefaultEditorKit::selectionForwardAction,
+		"control LEFT"_s,
+		$DefaultEditorKit::previousWordAction,
+		"control RIGHT"_s,
+		$DefaultEditorKit::nextWordAction,
+		"control shift LEFT"_s,
+		$DefaultEditorKit::selectionPreviousWordAction,
+		"control shift RIGHT"_s,
+		$DefaultEditorKit::selectionNextWordAction,
+		"control A"_s,
+		$DefaultEditorKit::selectAllAction,
+		"control BACK_SLASH"_s,
+		"unselect"_s,
+		"HOME"_s,
+		$DefaultEditorKit::beginLineAction,
+		"END"_s,
+		$DefaultEditorKit::endLineAction,
+		"shift HOME"_s,
+		$DefaultEditorKit::selectionBeginLineAction,
+		"shift END"_s,
+		$DefaultEditorKit::selectionEndLineAction,
+		"control HOME"_s,
+		$DefaultEditorKit::beginAction,
+		"control END"_s,
+		$DefaultEditorKit::endAction,
+		"control shift HOME"_s,
+		$DefaultEditorKit::selectionBeginAction,
+		"control shift END"_s,
+		$DefaultEditorKit::selectionEndAction,
+		"UP"_s,
+		$DefaultEditorKit::upAction,
+		"DOWN"_s,
+		$DefaultEditorKit::downAction,
+		"BACK_SPACE"_s,
+		$DefaultEditorKit::deletePrevCharAction,
+		"shift BACK_SPACE"_s,
+		$DefaultEditorKit::deletePrevCharAction,
+		"ctrl H"_s,
+		$DefaultEditorKit::deletePrevCharAction,
+		"DELETE"_s,
+		$DefaultEditorKit::deleteNextCharAction,
+		"ctrl DELETE"_s,
+		$DefaultEditorKit::deleteNextWordAction,
+		"ctrl BACK_SPACE"_s,
+		$DefaultEditorKit::deletePrevWordAction,
+		"RIGHT"_s,
+		$DefaultEditorKit::forwardAction,
+		"LEFT"_s,
+		$DefaultEditorKit::backwardAction,
+		"KP_RIGHT"_s,
+		$DefaultEditorKit::forwardAction,
+		"KP_LEFT"_s,
+		$DefaultEditorKit::backwardAction,
+		"PAGE_UP"_s,
+		$DefaultEditorKit::pageUpAction,
+		"PAGE_DOWN"_s,
+		$DefaultEditorKit::pageDownAction,
+		"shift PAGE_UP"_s,
+		"selection-page-up"_s,
+		"shift PAGE_DOWN"_s,
+		"selection-page-down"_s,
+		"ctrl shift PAGE_UP"_s,
+		"selection-page-left"_s,
+		"ctrl shift PAGE_DOWN"_s,
+		"selection-page-right"_s,
+		"shift UP"_s,
+		$DefaultEditorKit::selectionUpAction,
+		"shift DOWN"_s,
+		$DefaultEditorKit::selectionDownAction,
+		"ENTER"_s,
+		$DefaultEditorKit::insertBreakAction,
+		"TAB"_s,
+		$DefaultEditorKit::insertTabAction,
+		"control T"_s,
+		"next-link-action"_s,
+		"control shift T"_s,
+		"previous-link-action"_s,
+		"control SPACE"_s,
+		"activate-link-action"_s,
+		"control shift O"_s,
+		"toggle-componentOrientation"_s
 	})));
 	$var($Object, menuItemAcceleratorDelimiter, "+"_s);
 	$var($Object, ControlBackgroundColor, $new($WindowsDesktopProperty, "win.3d.backgroundColor"_s, $($nc(table)->get("control"_s))));
-	$var($Object, ControlLightColor, $new($WindowsDesktopProperty, "win.3d.lightColor"_s, $($nc(table)->get("controlHighlight"_s))));
-	$var($Object, ControlHighlightColor, $new($WindowsDesktopProperty, "win.3d.highlightColor"_s, $($nc(table)->get("controlLtHighlight"_s))));
-	$var($Object, ControlShadowColor, $new($WindowsDesktopProperty, "win.3d.shadowColor"_s, $($nc(table)->get("controlShadow"_s))));
-	$var($Object, ControlDarkShadowColor, $new($WindowsDesktopProperty, "win.3d.darkShadowColor"_s, $($nc(table)->get("controlDkShadow"_s))));
-	$var($Object, ControlTextColor, $new($WindowsDesktopProperty, "win.button.textColor"_s, $($nc(table)->get("controlText"_s))));
-	$var($Object, MenuBackgroundColor, $new($WindowsDesktopProperty, "win.menu.backgroundColor"_s, $($nc(table)->get("menu"_s))));
-	$var($Object, MenuBarBackgroundColor, $new($WindowsDesktopProperty, "win.menubar.backgroundColor"_s, $($nc(table)->get("menu"_s))));
-	$var($Object, MenuTextColor, $new($WindowsDesktopProperty, "win.menu.textColor"_s, $($nc(table)->get("menuText"_s))));
-	$var($Object, SelectionBackgroundColor, $new($WindowsDesktopProperty, "win.item.highlightColor"_s, $($nc(table)->get("textHighlight"_s))));
-	$var($Object, SelectionTextColor, $new($WindowsDesktopProperty, "win.item.highlightTextColor"_s, $($nc(table)->get("textHighlightText"_s))));
-	$var($Object, WindowBackgroundColor, $new($WindowsDesktopProperty, "win.frame.backgroundColor"_s, $($nc(table)->get("window"_s))));
-	$var($Object, WindowTextColor, $new($WindowsDesktopProperty, "win.frame.textColor"_s, $($nc(table)->get("windowText"_s))));
+	$var($Object, ControlLightColor, $new($WindowsDesktopProperty, "win.3d.lightColor"_s, $(table->get("controlHighlight"_s))));
+	$var($Object, ControlHighlightColor, $new($WindowsDesktopProperty, "win.3d.highlightColor"_s, $(table->get("controlLtHighlight"_s))));
+	$var($Object, ControlShadowColor, $new($WindowsDesktopProperty, "win.3d.shadowColor"_s, $(table->get("controlShadow"_s))));
+	$var($Object, ControlDarkShadowColor, $new($WindowsDesktopProperty, "win.3d.darkShadowColor"_s, $(table->get("controlDkShadow"_s))));
+	$var($Object, ControlTextColor, $new($WindowsDesktopProperty, "win.button.textColor"_s, $(table->get("controlText"_s))));
+	$var($Object, MenuBackgroundColor, $new($WindowsDesktopProperty, "win.menu.backgroundColor"_s, $(table->get("menu"_s))));
+	$var($Object, MenuBarBackgroundColor, $new($WindowsDesktopProperty, "win.menubar.backgroundColor"_s, $(table->get("menu"_s))));
+	$var($Object, MenuTextColor, $new($WindowsDesktopProperty, "win.menu.textColor"_s, $(table->get("menuText"_s))));
+	$var($Object, SelectionBackgroundColor, $new($WindowsDesktopProperty, "win.item.highlightColor"_s, $(table->get("textHighlight"_s))));
+	$var($Object, SelectionTextColor, $new($WindowsDesktopProperty, "win.item.highlightTextColor"_s, $(table->get("textHighlightText"_s))));
+	$var($Object, WindowBackgroundColor, $new($WindowsDesktopProperty, "win.frame.backgroundColor"_s, $(table->get("window"_s))));
+	$var($Object, WindowTextColor, $new($WindowsDesktopProperty, "win.frame.textColor"_s, $(table->get("windowText"_s))));
 	$var($Object, WindowBorderWidth, $new($WindowsDesktopProperty, "win.frame.sizingBorderWidth"_s, $($Integer::valueOf(1))));
 	$var($Object, TitlePaneHeight, $new($WindowsDesktopProperty, "win.frame.captionHeight"_s, $($Integer::valueOf(18))));
 	$var($Object, TitleButtonWidth, $new($WindowsDesktopProperty, "win.frame.captionButtonWidth"_s, $($Integer::valueOf(16))));
 	$var($Object, TitleButtonHeight, $new($WindowsDesktopProperty, "win.frame.captionButtonHeight"_s, $($Integer::valueOf(16))));
-	$var($Object, InactiveTextColor, $new($WindowsDesktopProperty, "win.text.grayedTextColor"_s, $($nc(table)->get("textInactiveText"_s))));
-	$var($Object, ScrollbarBackgroundColor, $new($WindowsDesktopProperty, "win.scrollbar.backgroundColor"_s, $($nc(table)->get("scrollbar"_s))));
+	$var($Object, InactiveTextColor, $new($WindowsDesktopProperty, "win.text.grayedTextColor"_s, $(table->get("textInactiveText"_s))));
+	$var($Object, ScrollbarBackgroundColor, $new($WindowsDesktopProperty, "win.scrollbar.backgroundColor"_s, $(table->get("scrollbar"_s))));
 	$var($Object, buttonFocusColor, $new($WindowsLookAndFeel$FocusColorProperty));
 	$init($TMSchema$Part);
 	$init($TMSchema$Prop);
@@ -1836,10 +1618,10 @@ void WindowsLookAndFeel::initComponentDefaults($UIDefaults* table) {
 	if (var$0) {
 		$init($OSInfo$OSType);
 		bool var$1 = $OSInfo::getOSType() == $OSInfo$OSType::WINDOWS;
-		var$0 = (var$1 && $nc($($OSInfo::getWindowsVersion()))->compareTo($OSInfo::WINDOWS_XP) >= 0);
+		var$0 = var$1 && $$nc($OSInfo::getWindowsVersion())->compareTo($OSInfo::WINDOWS_XP) >= 0;
 	}
 	if (var$0) {
-		$var($String, prop, $cast($String, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($GetPropertyAction, "swing.noxp"_s)))));
+		$var($String, prop, $cast($String, $AccessController::doPrivileged($$new($GetPropertyAction, "swing.noxp"_s))));
 		if (prop == nullptr) {
 			$set(this, themeActive, $new($WindowsLookAndFeel$TriggerDesktopProperty, this, "win.xpstyle.themeActive"_s));
 			$set(this, dllName, $new($WindowsLookAndFeel$TriggerDesktopProperty, this, "win.xpstyle.dllName"_s));
@@ -1847,1568 +1629,1568 @@ void WindowsLookAndFeel::initComponentDefaults($UIDefaults* table) {
 			$set(this, sizeName, $new($WindowsLookAndFeel$TriggerDesktopProperty, this, "win.xpstyle.sizeName"_s));
 		}
 	}
-	$var($Object, var$2, $of($Integer::valueOf(3)));
-	$var($Object, var$3, $of($Integer::valueOf(3)));
-	$var($Object, var$4, $of($Integer::valueOf(6)));
-	$var($Object, var$5, $of($Integer::valueOf(6)));
-	$var($Object, var$6, $of($Integer::valueOf(0)));
-	$var($Object, var$7, $of($new($EmptyBorder, 1, 3, 1, 1)));
+	$var($Object, var$2, $Integer::valueOf(3));
+	$var($Object, var$3, $Integer::valueOf(3));
+	$var($Object, var$4, $Integer::valueOf(6));
+	$var($Object, var$5, $Integer::valueOf(6));
+	$var($Object, var$6, $Integer::valueOf(0));
+	$var($Object, var$7, $new($EmptyBorder, 1, 3, 1, 1));
 	$init($TMSchema$State);
-	$var($Object, var$8, $of($Character::valueOf((char16_t)9679)));
-	$var($Object, var$9, $of($new($InsetsUIResource, 1, 4, 1, 4)));
-	$var($Object, var$10, $of($new($InsetsUIResource, 3, 2, 2, 2)));
+	$var($Object, var$8, $Character::valueOf((char16_t)9679));
+	$var($Object, var$9, $new($InsetsUIResource, 1, 4, 1, 4));
+	$var($Object, var$10, $new($InsetsUIResource, 3, 2, 2, 2));
 	$init($WindowsLookAndFeel$XPValue);
 	$var($ObjectArray, defaults, $new($ObjectArray, {
-		$of("AuditoryCues.playList"_s),
-		($Object*)nullptr,
-		$of("Application.useSystemFontSettings"_s),
-		$($of($Boolean::valueOf(this->useSystemFontSettings))),
-		$of("TextField.focusInputMap"_s),
+		"AuditoryCues.playList"_s,
+		nullptr,
+		"Application.useSystemFontSettings"_s,
+		$($Boolean::valueOf(this->useSystemFontSettings)),
+		"TextField.focusInputMap"_s,
 		fieldInputMap,
-		$of("PasswordField.focusInputMap"_s),
+		"PasswordField.focusInputMap"_s,
 		passwordInputMap,
-		$of("TextArea.focusInputMap"_s),
+		"TextArea.focusInputMap"_s,
 		multilineInputMap,
-		$of("TextPane.focusInputMap"_s),
+		"TextPane.focusInputMap"_s,
 		multilineInputMap,
-		$of("EditorPane.focusInputMap"_s),
+		"EditorPane.focusInputMap"_s,
 		multilineInputMap,
-		$of("Button.font"_s),
+		"Button.font"_s,
 		ControlFont,
-		$of("Button.background"_s),
+		"Button.background"_s,
 		ControlBackgroundColor,
-		$of("Button.foreground"_s),
+		"Button.foreground"_s,
 		ControlTextColor,
-		$of("Button.shadow"_s),
+		"Button.shadow"_s,
 		ControlShadowColor,
-		$of("Button.darkShadow"_s),
+		"Button.darkShadow"_s,
 		ControlDarkShadowColor,
-		$of("Button.light"_s),
+		"Button.light"_s,
 		ControlLightColor,
-		$of("Button.highlight"_s),
+		"Button.highlight"_s,
 		ControlHighlightColor,
-		$of("Button.disabledForeground"_s),
+		"Button.disabledForeground"_s,
 		InactiveTextColor,
-		$of("Button.disabledShadow"_s),
+		"Button.disabledShadow"_s,
 		ControlHighlightColor,
-		$of("Button.focus"_s),
+		"Button.focus"_s,
 		buttonFocusColor,
-		$of("Button.dashedRectGapX"_s),
-		$of($$new($WindowsLookAndFeel$XPValue, var$2, $($Integer::valueOf(5)))),
-		$of("Button.dashedRectGapY"_s),
-		$of($$new($WindowsLookAndFeel$XPValue, var$3, $($Integer::valueOf(4)))),
-		$of("Button.dashedRectGapWidth"_s),
-		$of($$new($WindowsLookAndFeel$XPValue, var$4, $($Integer::valueOf(10)))),
-		$of("Button.dashedRectGapHeight"_s),
-		$of($$new($WindowsLookAndFeel$XPValue, var$5, $($Integer::valueOf(8)))),
-		$of("Button.textShiftOffset"_s),
-		$of($$new($WindowsLookAndFeel$XPValue, var$6, $($Integer::valueOf(1)))),
-		$of("Button.showMnemonics"_s),
+		"Button.dashedRectGapX"_s,
+		$$new($WindowsLookAndFeel$XPValue, var$2, $($Integer::valueOf(5))),
+		"Button.dashedRectGapY"_s,
+		$$new($WindowsLookAndFeel$XPValue, var$3, $($Integer::valueOf(4))),
+		"Button.dashedRectGapWidth"_s,
+		$$new($WindowsLookAndFeel$XPValue, var$4, $($Integer::valueOf(10))),
+		"Button.dashedRectGapHeight"_s,
+		$$new($WindowsLookAndFeel$XPValue, var$5, $($Integer::valueOf(8))),
+		"Button.textShiftOffset"_s,
+		$$new($WindowsLookAndFeel$XPValue, var$6, $($Integer::valueOf(1))),
+		"Button.showMnemonics"_s,
 		showMnemonics,
-		$of("Button.focusInputMap"_s),
-		$of($$new($UIDefaults$LazyInputMap, $$new($ObjectArray, {
-			$of("SPACE"_s),
-			$of("pressed"_s),
-			$of("released SPACE"_s),
-			$of("released"_s)
-		}))),
-		$of("Caret.width"_s),
-		$of($$new($WindowsDesktopProperty, "win.caret.width"_s, nullptr)),
-		$of("CheckBox.font"_s),
+		"Button.focusInputMap"_s,
+		$$new($UIDefaults$LazyInputMap, $$new($ObjectArray, {
+			"SPACE"_s,
+			"pressed"_s,
+			"released SPACE"_s,
+			"released"_s
+		})),
+		"Caret.width"_s,
+		$$new($WindowsDesktopProperty, "win.caret.width"_s, nullptr),
+		"CheckBox.font"_s,
 		ControlFont,
-		$of("CheckBox.interiorBackground"_s),
+		"CheckBox.interiorBackground"_s,
 		WindowBackgroundColor,
-		$of("CheckBox.background"_s),
+		"CheckBox.background"_s,
 		ControlBackgroundColor,
-		$of("CheckBox.foreground"_s),
+		"CheckBox.foreground"_s,
 		WindowTextColor,
-		$of("CheckBox.shadow"_s),
+		"CheckBox.shadow"_s,
 		ControlShadowColor,
-		$of("CheckBox.darkShadow"_s),
+		"CheckBox.darkShadow"_s,
 		ControlDarkShadowColor,
-		$of("CheckBox.light"_s),
+		"CheckBox.light"_s,
 		ControlLightColor,
-		$of("CheckBox.highlight"_s),
+		"CheckBox.highlight"_s,
 		ControlHighlightColor,
-		$of("CheckBox.focus"_s),
+		"CheckBox.focus"_s,
 		buttonFocusColor,
-		$of("CheckBox.focusInputMap"_s),
-		$of($$new($UIDefaults$LazyInputMap, $$new($ObjectArray, {
-			$of("SPACE"_s),
-			$of("pressed"_s),
-			$of("released SPACE"_s),
-			$of("released"_s)
-		}))),
-		$of("CheckBox.totalInsets"_s),
-		$of($$new($Insets, 4, 4, 4, 4)),
-		$of("CheckBoxMenuItem.font"_s),
+		"CheckBox.focusInputMap"_s,
+		$$new($UIDefaults$LazyInputMap, $$new($ObjectArray, {
+			"SPACE"_s,
+			"pressed"_s,
+			"released SPACE"_s,
+			"released"_s
+		})),
+		"CheckBox.totalInsets"_s,
+		$$new($Insets, 4, 4, 4, 4),
+		"CheckBoxMenuItem.font"_s,
 		MenuFont,
-		$of("CheckBoxMenuItem.background"_s),
+		"CheckBoxMenuItem.background"_s,
 		MenuBackgroundColor,
-		$of("CheckBoxMenuItem.foreground"_s),
+		"CheckBoxMenuItem.foreground"_s,
 		MenuTextColor,
-		$of("CheckBoxMenuItem.selectionForeground"_s),
+		"CheckBoxMenuItem.selectionForeground"_s,
 		SelectionTextColor,
-		$of("CheckBoxMenuItem.selectionBackground"_s),
+		"CheckBoxMenuItem.selectionBackground"_s,
 		SelectionBackgroundColor,
-		$of("CheckBoxMenuItem.acceleratorForeground"_s),
+		"CheckBoxMenuItem.acceleratorForeground"_s,
 		MenuTextColor,
-		$of("CheckBoxMenuItem.acceleratorSelectionForeground"_s),
+		"CheckBoxMenuItem.acceleratorSelectionForeground"_s,
 		SelectionTextColor,
-		$of("CheckBoxMenuItem.commandSound"_s),
-		$of("win.sound.menuCommand"_s),
-		$of("ComboBox.font"_s),
+		"CheckBoxMenuItem.commandSound"_s,
+		"win.sound.menuCommand"_s,
+		"ComboBox.font"_s,
 		ControlFont,
-		$of("ComboBox.background"_s),
+		"ComboBox.background"_s,
 		WindowBackgroundColor,
-		$of("ComboBox.foreground"_s),
+		"ComboBox.foreground"_s,
 		WindowTextColor,
-		$of("ComboBox.buttonBackground"_s),
+		"ComboBox.buttonBackground"_s,
 		ControlBackgroundColor,
-		$of("ComboBox.buttonShadow"_s),
+		"ComboBox.buttonShadow"_s,
 		ControlShadowColor,
-		$of("ComboBox.buttonDarkShadow"_s),
+		"ComboBox.buttonDarkShadow"_s,
 		ControlDarkShadowColor,
-		$of("ComboBox.buttonHighlight"_s),
+		"ComboBox.buttonHighlight"_s,
 		ControlHighlightColor,
-		$of("ComboBox.selectionBackground"_s),
+		"ComboBox.selectionBackground"_s,
 		SelectionBackgroundColor,
-		$of("ComboBox.selectionForeground"_s),
+		"ComboBox.selectionForeground"_s,
 		SelectionTextColor,
-		$of("ComboBox.editorBorder"_s),
-		$of($$new($WindowsLookAndFeel$XPValue, var$7, $$new($EmptyBorder, 1, 3, 1, 4))),
-		$of("ComboBox.disabledBackground"_s),
-		$of($$new($WindowsLookAndFeel$XPColorValue, $TMSchema$Part::CP_COMBOBOX, $TMSchema$State::DISABLED, $TMSchema$Prop::FILLCOLOR, DisabledTextBackground)),
-		$of("ComboBox.disabledForeground"_s),
-		$of($$new($WindowsLookAndFeel$XPColorValue, $TMSchema$Part::CP_COMBOBOX, $TMSchema$State::DISABLED, $TMSchema$Prop::TEXTCOLOR, InactiveTextColor)),
-		$of("ComboBox.ancestorInputMap"_s),
-		$of($$new($UIDefaults$LazyInputMap, $$new($ObjectArray, {
-			$of("ESCAPE"_s),
-			$of("hidePopup"_s),
-			$of("PAGE_UP"_s),
-			$of("pageUpPassThrough"_s),
-			$of("PAGE_DOWN"_s),
-			$of("pageDownPassThrough"_s),
-			$of("HOME"_s),
-			$of("homePassThrough"_s),
-			$of("END"_s),
-			$of("endPassThrough"_s),
-			$of("DOWN"_s),
-			$of("selectNext2"_s),
-			$of("KP_DOWN"_s),
-			$of("selectNext2"_s),
-			$of("UP"_s),
-			$of("selectPrevious2"_s),
-			$of("KP_UP"_s),
-			$of("selectPrevious2"_s),
-			$of("ENTER"_s),
-			$of("enterPressed"_s),
-			$of("F4"_s),
-			$of("togglePopup"_s),
-			$of("alt DOWN"_s),
-			$of("togglePopup"_s),
-			$of("alt KP_DOWN"_s),
-			$of("togglePopup"_s),
-			$of("alt UP"_s),
-			$of("togglePopup"_s),
-			$of("alt KP_UP"_s),
-			$of("togglePopup"_s)
-		}))),
-		$of("Desktop.background"_s),
-		$of($$new($WindowsDesktopProperty, "win.mdi.backgroundColor"_s, $($nc(table)->get("desktop"_s)))),
-		$of("Desktop.ancestorInputMap"_s),
-		$of($$new($UIDefaults$LazyInputMap, $$new($ObjectArray, {
-			$of("ctrl F5"_s),
-			$of("restore"_s),
-			$of("ctrl F4"_s),
-			$of("close"_s),
-			$of("ctrl F7"_s),
-			$of("move"_s),
-			$of("ctrl F8"_s),
-			$of("resize"_s),
-			$of("RIGHT"_s),
-			$of("right"_s),
-			$of("KP_RIGHT"_s),
-			$of("right"_s),
-			$of("LEFT"_s),
-			$of("left"_s),
-			$of("KP_LEFT"_s),
-			$of("left"_s),
-			$of("UP"_s),
-			$of("up"_s),
-			$of("KP_UP"_s),
-			$of("up"_s),
-			$of("DOWN"_s),
-			$of("down"_s),
-			$of("KP_DOWN"_s),
-			$of("down"_s),
-			$of("ESCAPE"_s),
-			$of("escape"_s),
-			$of("ctrl F9"_s),
-			$of("minimize"_s),
-			$of("ctrl F10"_s),
-			$of("maximize"_s),
-			$of("ctrl F6"_s),
-			$of("selectNextFrame"_s),
-			$of("ctrl TAB"_s),
-			$of("selectNextFrame"_s),
-			$of("ctrl alt F6"_s),
-			$of("selectNextFrame"_s),
-			$of("shift ctrl alt F6"_s),
-			$of("selectPreviousFrame"_s),
-			$of("ctrl F12"_s),
-			$of("navigateNext"_s),
-			$of("shift ctrl F12"_s),
-			$of("navigatePrevious"_s)
-		}))),
-		$of("DesktopIcon.width"_s),
-		$($of($Integer::valueOf(160))),
-		$of("EditorPane.font"_s),
+		"ComboBox.editorBorder"_s,
+		$$new($WindowsLookAndFeel$XPValue, var$7, $$new($EmptyBorder, 1, 3, 1, 4)),
+		"ComboBox.disabledBackground"_s,
+		$$new($WindowsLookAndFeel$XPColorValue, $TMSchema$Part::CP_COMBOBOX, $TMSchema$State::DISABLED, $TMSchema$Prop::FILLCOLOR, DisabledTextBackground),
+		"ComboBox.disabledForeground"_s,
+		$$new($WindowsLookAndFeel$XPColorValue, $TMSchema$Part::CP_COMBOBOX, $TMSchema$State::DISABLED, $TMSchema$Prop::TEXTCOLOR, InactiveTextColor),
+		"ComboBox.ancestorInputMap"_s,
+		$$new($UIDefaults$LazyInputMap, $$new($ObjectArray, {
+			"ESCAPE"_s,
+			"hidePopup"_s,
+			"PAGE_UP"_s,
+			"pageUpPassThrough"_s,
+			"PAGE_DOWN"_s,
+			"pageDownPassThrough"_s,
+			"HOME"_s,
+			"homePassThrough"_s,
+			"END"_s,
+			"endPassThrough"_s,
+			"DOWN"_s,
+			"selectNext2"_s,
+			"KP_DOWN"_s,
+			"selectNext2"_s,
+			"UP"_s,
+			"selectPrevious2"_s,
+			"KP_UP"_s,
+			"selectPrevious2"_s,
+			"ENTER"_s,
+			"enterPressed"_s,
+			"F4"_s,
+			"togglePopup"_s,
+			"alt DOWN"_s,
+			"togglePopup"_s,
+			"alt KP_DOWN"_s,
+			"togglePopup"_s,
+			"alt UP"_s,
+			"togglePopup"_s,
+			"alt KP_UP"_s,
+			"togglePopup"_s
+		})),
+		"Desktop.background"_s,
+		$$new($WindowsDesktopProperty, "win.mdi.backgroundColor"_s, $(table->get("desktop"_s))),
+		"Desktop.ancestorInputMap"_s,
+		$$new($UIDefaults$LazyInputMap, $$new($ObjectArray, {
+			"ctrl F5"_s,
+			"restore"_s,
+			"ctrl F4"_s,
+			"close"_s,
+			"ctrl F7"_s,
+			"move"_s,
+			"ctrl F8"_s,
+			"resize"_s,
+			"RIGHT"_s,
+			"right"_s,
+			"KP_RIGHT"_s,
+			"right"_s,
+			"LEFT"_s,
+			"left"_s,
+			"KP_LEFT"_s,
+			"left"_s,
+			"UP"_s,
+			"up"_s,
+			"KP_UP"_s,
+			"up"_s,
+			"DOWN"_s,
+			"down"_s,
+			"KP_DOWN"_s,
+			"down"_s,
+			"ESCAPE"_s,
+			"escape"_s,
+			"ctrl F9"_s,
+			"minimize"_s,
+			"ctrl F10"_s,
+			"maximize"_s,
+			"ctrl F6"_s,
+			"selectNextFrame"_s,
+			"ctrl TAB"_s,
+			"selectNextFrame"_s,
+			"ctrl alt F6"_s,
+			"selectNextFrame"_s,
+			"shift ctrl alt F6"_s,
+			"selectPreviousFrame"_s,
+			"ctrl F12"_s,
+			"navigateNext"_s,
+			"shift ctrl F12"_s,
+			"navigatePrevious"_s
+		})),
+		"DesktopIcon.width"_s,
+		$($Integer::valueOf(160)),
+		"EditorPane.font"_s,
 		ControlFont,
-		$of("EditorPane.background"_s),
+		"EditorPane.background"_s,
 		WindowBackgroundColor,
-		$of("EditorPane.foreground"_s),
+		"EditorPane.foreground"_s,
 		WindowTextColor,
-		$of("EditorPane.selectionBackground"_s),
+		"EditorPane.selectionBackground"_s,
 		SelectionBackgroundColor,
-		$of("EditorPane.selectionForeground"_s),
+		"EditorPane.selectionForeground"_s,
 		SelectionTextColor,
-		$of("EditorPane.caretForeground"_s),
+		"EditorPane.caretForeground"_s,
 		WindowTextColor,
-		$of("EditorPane.inactiveForeground"_s),
+		"EditorPane.inactiveForeground"_s,
 		InactiveTextColor,
-		$of("EditorPane.inactiveBackground"_s),
+		"EditorPane.inactiveBackground"_s,
 		WindowBackgroundColor,
-		$of("EditorPane.disabledBackground"_s),
+		"EditorPane.disabledBackground"_s,
 		DisabledTextBackground,
-		$of("FileChooser.homeFolderIcon"_s),
-		$of($$new($WindowsLookAndFeel$LazyWindowsIcon, nullptr, "icons/HomeFolder.gif"_s)),
-		$of("FileChooser.listFont"_s),
+		"FileChooser.homeFolderIcon"_s,
+		$$new($WindowsLookAndFeel$LazyWindowsIcon, nullptr, "icons/HomeFolder.gif"_s),
+		"FileChooser.listFont"_s,
 		IconFont,
-		$of("FileChooser.listViewBackground"_s),
-		$of($$new($WindowsLookAndFeel$XPColorValue, $TMSchema$Part::LVP_LISTVIEW, nullptr, $TMSchema$Prop::FILLCOLOR, WindowBackgroundColor)),
-		$of("FileChooser.listViewBorder"_s),
-		$of($$new($WindowsLookAndFeel$XPBorderValue, $TMSchema$Part::LVP_LISTVIEW, static_cast<$UIDefaults$LazyValue*>($$new(WindowsLookAndFeel$$Lambda$lambda$initComponentDefaults$4$4)))),
-		$of("FileChooser.listViewIcon"_s),
-		$of($$new($WindowsLookAndFeel$LazyWindowsIcon, "fileChooserIcon ListView"_s, "icons/ListView.gif"_s)),
-		$of("FileChooser.listViewWindowsStyle"_s),
-		$of($Boolean::TRUE),
-		$of("FileChooser.detailsViewIcon"_s),
-		$of($$new($WindowsLookAndFeel$LazyWindowsIcon, "fileChooserIcon DetailsView"_s, "icons/DetailsView.gif"_s)),
-		$of("FileChooser.viewMenuIcon"_s),
-		$of($$new($WindowsLookAndFeel$LazyWindowsIcon, "fileChooserIcon ViewMenu"_s, "icons/ListView.gif"_s)),
-		$of("FileChooser.upFolderIcon"_s),
-		$of($$new($WindowsLookAndFeel$LazyWindowsIcon, "fileChooserIcon UpFolder"_s, "icons/UpFolder.gif"_s)),
-		$of("FileChooser.newFolderIcon"_s),
-		$of($$new($WindowsLookAndFeel$LazyWindowsIcon, "fileChooserIcon NewFolder"_s, "icons/NewFolder.gif"_s)),
-		$of("FileChooser.useSystemExtensionHiding"_s),
-		$of($Boolean::TRUE),
-		$of("FileChooser.usesSingleFilePane"_s),
-		$of($Boolean::TRUE),
-		$of("FileChooser.noPlacesBar"_s),
-		$of($$new($WindowsDesktopProperty, "win.comdlg.noPlacesBar"_s, $Boolean::FALSE)),
-		$of("FileChooser.ancestorInputMap"_s),
-		$of($$new($UIDefaults$LazyInputMap, $$new($ObjectArray, {
-			$of("ESCAPE"_s),
-			$of("cancelSelection"_s),
-			$of("F2"_s),
-			$of("editFileName"_s),
-			$of("F5"_s),
-			$of("refresh"_s),
-			$of("BACK_SPACE"_s),
-			$of("Go Up"_s)
-		}))),
-		$of("FileView.directoryIcon"_s),
+		"FileChooser.listViewBackground"_s,
+		$$new($WindowsLookAndFeel$XPColorValue, $TMSchema$Part::LVP_LISTVIEW, nullptr, $TMSchema$Prop::FILLCOLOR, WindowBackgroundColor),
+		"FileChooser.listViewBorder"_s,
+		$$new($WindowsLookAndFeel$XPBorderValue, $TMSchema$Part::LVP_LISTVIEW, $cast($UIDefaults$LazyValue, $$new(WindowsLookAndFeel$$Lambda$lambda$initComponentDefaults$4$4))),
+		"FileChooser.listViewIcon"_s,
+		$$new($WindowsLookAndFeel$LazyWindowsIcon, "fileChooserIcon ListView"_s, "icons/ListView.gif"_s),
+		"FileChooser.listViewWindowsStyle"_s,
+		$Boolean::TRUE,
+		"FileChooser.detailsViewIcon"_s,
+		$$new($WindowsLookAndFeel$LazyWindowsIcon, "fileChooserIcon DetailsView"_s, "icons/DetailsView.gif"_s),
+		"FileChooser.viewMenuIcon"_s,
+		$$new($WindowsLookAndFeel$LazyWindowsIcon, "fileChooserIcon ViewMenu"_s, "icons/ListView.gif"_s),
+		"FileChooser.upFolderIcon"_s,
+		$$new($WindowsLookAndFeel$LazyWindowsIcon, "fileChooserIcon UpFolder"_s, "icons/UpFolder.gif"_s),
+		"FileChooser.newFolderIcon"_s,
+		$$new($WindowsLookAndFeel$LazyWindowsIcon, "fileChooserIcon NewFolder"_s, "icons/NewFolder.gif"_s),
+		"FileChooser.useSystemExtensionHiding"_s,
+		$Boolean::TRUE,
+		"FileChooser.usesSingleFilePane"_s,
+		$Boolean::TRUE,
+		"FileChooser.noPlacesBar"_s,
+		$$new($WindowsDesktopProperty, "win.comdlg.noPlacesBar"_s, $Boolean::FALSE),
+		"FileChooser.ancestorInputMap"_s,
+		$$new($UIDefaults$LazyInputMap, $$new($ObjectArray, {
+			"ESCAPE"_s,
+			"cancelSelection"_s,
+			"F2"_s,
+			"editFileName"_s,
+			"F5"_s,
+			"refresh"_s,
+			"BACK_SPACE"_s,
+			"Go Up"_s
+		})),
+		"FileView.directoryIcon"_s,
 		$($SwingUtilities2::makeIcon($of(this)->getClass(), WindowsLookAndFeel::class$, "icons/Directory.gif"_s)),
-		$of("FileView.fileIcon"_s),
+		"FileView.fileIcon"_s,
 		$($SwingUtilities2::makeIcon($of(this)->getClass(), WindowsLookAndFeel::class$, "icons/File.gif"_s)),
-		$of("FileView.computerIcon"_s),
+		"FileView.computerIcon"_s,
 		$($SwingUtilities2::makeIcon($of(this)->getClass(), WindowsLookAndFeel::class$, "icons/Computer.gif"_s)),
-		$of("FileView.hardDriveIcon"_s),
+		"FileView.hardDriveIcon"_s,
 		$($SwingUtilities2::makeIcon($of(this)->getClass(), WindowsLookAndFeel::class$, "icons/HardDrive.gif"_s)),
-		$of("FileView.floppyDriveIcon"_s),
+		"FileView.floppyDriveIcon"_s,
 		$($SwingUtilities2::makeIcon($of(this)->getClass(), WindowsLookAndFeel::class$, "icons/FloppyDrive.gif"_s)),
-		$of("FormattedTextField.font"_s),
+		"FormattedTextField.font"_s,
 		ControlFont,
-		$of("InternalFrame.titleFont"_s),
+		"InternalFrame.titleFont"_s,
 		WindowFont,
-		$of("InternalFrame.titlePaneHeight"_s),
+		"InternalFrame.titlePaneHeight"_s,
 		TitlePaneHeight,
-		$of("InternalFrame.titleButtonWidth"_s),
+		"InternalFrame.titleButtonWidth"_s,
 		TitleButtonWidth,
-		$of("InternalFrame.titleButtonHeight"_s),
+		"InternalFrame.titleButtonHeight"_s,
 		TitleButtonHeight,
-		$of("InternalFrame.titleButtonToolTipsOn"_s),
+		"InternalFrame.titleButtonToolTipsOn"_s,
 		hotTrackingOn,
-		$of("InternalFrame.borderColor"_s),
+		"InternalFrame.borderColor"_s,
 		ControlBackgroundColor,
-		$of("InternalFrame.borderShadow"_s),
+		"InternalFrame.borderShadow"_s,
 		ControlShadowColor,
-		$of("InternalFrame.borderDarkShadow"_s),
+		"InternalFrame.borderDarkShadow"_s,
 		ControlDarkShadowColor,
-		$of("InternalFrame.borderHighlight"_s),
+		"InternalFrame.borderHighlight"_s,
 		ControlHighlightColor,
-		$of("InternalFrame.borderLight"_s),
+		"InternalFrame.borderLight"_s,
 		ControlLightColor,
-		$of("InternalFrame.borderWidth"_s),
+		"InternalFrame.borderWidth"_s,
 		WindowBorderWidth,
-		$of("InternalFrame.minimizeIconBackground"_s),
+		"InternalFrame.minimizeIconBackground"_s,
 		ControlBackgroundColor,
-		$of("InternalFrame.resizeIconHighlight"_s),
+		"InternalFrame.resizeIconHighlight"_s,
 		ControlLightColor,
-		$of("InternalFrame.resizeIconShadow"_s),
+		"InternalFrame.resizeIconShadow"_s,
 		ControlShadowColor,
-		$of("InternalFrame.activeBorderColor"_s),
-		$of($$new($WindowsDesktopProperty, "win.frame.activeBorderColor"_s, $($nc(table)->get("windowBorder"_s)))),
-		$of("InternalFrame.inactiveBorderColor"_s),
-		$of($$new($WindowsDesktopProperty, "win.frame.inactiveBorderColor"_s, $($nc(table)->get("windowBorder"_s)))),
-		$of("InternalFrame.activeTitleBackground"_s),
-		$of($$new($WindowsDesktopProperty, "win.frame.activeCaptionColor"_s, $($nc(table)->get("activeCaption"_s)))),
-		$of("InternalFrame.activeTitleGradient"_s),
-		$of($$new($WindowsDesktopProperty, "win.frame.activeCaptionGradientColor"_s, $($nc(table)->get("activeCaption"_s)))),
-		$of("InternalFrame.activeTitleForeground"_s),
-		$of($$new($WindowsDesktopProperty, "win.frame.captionTextColor"_s, $($nc(table)->get("activeCaptionText"_s)))),
-		$of("InternalFrame.inactiveTitleBackground"_s),
-		$of($$new($WindowsDesktopProperty, "win.frame.inactiveCaptionColor"_s, $($nc(table)->get("inactiveCaption"_s)))),
-		$of("InternalFrame.inactiveTitleGradient"_s),
-		$of($$new($WindowsDesktopProperty, "win.frame.inactiveCaptionGradientColor"_s, $($nc(table)->get("inactiveCaption"_s)))),
-		$of("InternalFrame.inactiveTitleForeground"_s),
-		$of($$new($WindowsDesktopProperty, "win.frame.inactiveCaptionTextColor"_s, $($nc(table)->get("inactiveCaptionText"_s)))),
-		$of("InternalFrame.maximizeIcon"_s),
-		$($of($WindowsIconFactory::createFrameMaximizeIcon())),
-		$of("InternalFrame.minimizeIcon"_s),
-		$($of($WindowsIconFactory::createFrameMinimizeIcon())),
-		$of("InternalFrame.iconifyIcon"_s),
-		$($of($WindowsIconFactory::createFrameIconifyIcon())),
-		$of("InternalFrame.closeIcon"_s),
-		$($of($WindowsIconFactory::createFrameCloseIcon())),
-		$of("InternalFrame.icon"_s),
-		static_cast<$UIDefaults$LazyValue*>($$new(WindowsLookAndFeel$$Lambda$lambda$initComponentDefaults$5$5, this)),
-		$of("InternalFrame.closeSound"_s),
-		$of("win.sound.close"_s),
-		$of("InternalFrame.maximizeSound"_s),
-		$of("win.sound.maximize"_s),
-		$of("InternalFrame.minimizeSound"_s),
-		$of("win.sound.minimize"_s),
-		$of("InternalFrame.restoreDownSound"_s),
-		$of("win.sound.restoreDown"_s),
-		$of("InternalFrame.restoreUpSound"_s),
-		$of("win.sound.restoreUp"_s),
-		$of("InternalFrame.windowBindings"_s),
-		$of($$new($ObjectArray, {
-			$of("shift ESCAPE"_s),
-			$of("showSystemMenu"_s),
-			$of("ctrl SPACE"_s),
-			$of("showSystemMenu"_s),
-			$of("ESCAPE"_s),
-			$of("hideSystemMenu"_s)
-		})),
-		$of("Label.font"_s),
+		"InternalFrame.activeBorderColor"_s,
+		$$new($WindowsDesktopProperty, "win.frame.activeBorderColor"_s, $(table->get("windowBorder"_s))),
+		"InternalFrame.inactiveBorderColor"_s,
+		$$new($WindowsDesktopProperty, "win.frame.inactiveBorderColor"_s, $(table->get("windowBorder"_s))),
+		"InternalFrame.activeTitleBackground"_s,
+		$$new($WindowsDesktopProperty, "win.frame.activeCaptionColor"_s, $(table->get("activeCaption"_s))),
+		"InternalFrame.activeTitleGradient"_s,
+		$$new($WindowsDesktopProperty, "win.frame.activeCaptionGradientColor"_s, $(table->get("activeCaption"_s))),
+		"InternalFrame.activeTitleForeground"_s,
+		$$new($WindowsDesktopProperty, "win.frame.captionTextColor"_s, $(table->get("activeCaptionText"_s))),
+		"InternalFrame.inactiveTitleBackground"_s,
+		$$new($WindowsDesktopProperty, "win.frame.inactiveCaptionColor"_s, $(table->get("inactiveCaption"_s))),
+		"InternalFrame.inactiveTitleGradient"_s,
+		$$new($WindowsDesktopProperty, "win.frame.inactiveCaptionGradientColor"_s, $(table->get("inactiveCaption"_s))),
+		"InternalFrame.inactiveTitleForeground"_s,
+		$$new($WindowsDesktopProperty, "win.frame.inactiveCaptionTextColor"_s, $(table->get("inactiveCaptionText"_s))),
+		"InternalFrame.maximizeIcon"_s,
+		$($WindowsIconFactory::createFrameMaximizeIcon()),
+		"InternalFrame.minimizeIcon"_s,
+		$($WindowsIconFactory::createFrameMinimizeIcon()),
+		"InternalFrame.iconifyIcon"_s,
+		$($WindowsIconFactory::createFrameIconifyIcon()),
+		"InternalFrame.closeIcon"_s,
+		$($WindowsIconFactory::createFrameCloseIcon()),
+		"InternalFrame.icon"_s,
+		$cast($UIDefaults$LazyValue, $$new(WindowsLookAndFeel$$Lambda$lambda$initComponentDefaults$5$5, this)),
+		"InternalFrame.closeSound"_s,
+		"win.sound.close"_s,
+		"InternalFrame.maximizeSound"_s,
+		"win.sound.maximize"_s,
+		"InternalFrame.minimizeSound"_s,
+		"win.sound.minimize"_s,
+		"InternalFrame.restoreDownSound"_s,
+		"win.sound.restoreDown"_s,
+		"InternalFrame.restoreUpSound"_s,
+		"win.sound.restoreUp"_s,
+		"InternalFrame.windowBindings"_s,
+		$$new($ObjectArray, {
+			"shift ESCAPE"_s,
+			"showSystemMenu"_s,
+			"ctrl SPACE"_s,
+			"showSystemMenu"_s,
+			"ESCAPE"_s,
+			"hideSystemMenu"_s
+		}),
+		"Label.font"_s,
 		ControlFont,
-		$of("Label.background"_s),
+		"Label.background"_s,
 		ControlBackgroundColor,
-		$of("Label.foreground"_s),
+		"Label.foreground"_s,
 		WindowTextColor,
-		$of("Label.disabledForeground"_s),
+		"Label.disabledForeground"_s,
 		InactiveTextColor,
-		$of("Label.disabledShadow"_s),
+		"Label.disabledShadow"_s,
 		ControlHighlightColor,
-		$of("List.font"_s),
+		"List.font"_s,
 		ControlFont,
-		$of("List.background"_s),
+		"List.background"_s,
 		WindowBackgroundColor,
-		$of("List.foreground"_s),
+		"List.foreground"_s,
 		WindowTextColor,
-		$of("List.selectionBackground"_s),
+		"List.selectionBackground"_s,
 		SelectionBackgroundColor,
-		$of("List.selectionForeground"_s),
+		"List.selectionForeground"_s,
 		SelectionTextColor,
-		$of("List.lockToPositionOnScroll"_s),
-		$of($Boolean::TRUE),
-		$of("List.focusInputMap"_s),
-		$of($$new($UIDefaults$LazyInputMap, $$new($ObjectArray, {
-			$of("ctrl C"_s),
-			$of("copy"_s),
-			$of("ctrl V"_s),
-			$of("paste"_s),
-			$of("ctrl X"_s),
-			$of("cut"_s),
-			$of("COPY"_s),
-			$of("copy"_s),
-			$of("PASTE"_s),
-			$of("paste"_s),
-			$of("CUT"_s),
-			$of("cut"_s),
-			$of("control INSERT"_s),
-			$of("copy"_s),
-			$of("shift INSERT"_s),
-			$of("paste"_s),
-			$of("shift DELETE"_s),
-			$of("cut"_s),
-			$of("UP"_s),
-			$of("selectPreviousRow"_s),
-			$of("KP_UP"_s),
-			$of("selectPreviousRow"_s),
-			$of("shift UP"_s),
-			$of("selectPreviousRowExtendSelection"_s),
-			$of("shift KP_UP"_s),
-			$of("selectPreviousRowExtendSelection"_s),
-			$of("ctrl shift UP"_s),
-			$of("selectPreviousRowExtendSelection"_s),
-			$of("ctrl shift KP_UP"_s),
-			$of("selectPreviousRowExtendSelection"_s),
-			$of("ctrl UP"_s),
-			$of("selectPreviousRowChangeLead"_s),
-			$of("ctrl KP_UP"_s),
-			$of("selectPreviousRowChangeLead"_s),
-			$of("DOWN"_s),
-			$of("selectNextRow"_s),
-			$of("KP_DOWN"_s),
-			$of("selectNextRow"_s),
-			$of("shift DOWN"_s),
-			$of("selectNextRowExtendSelection"_s),
-			$of("shift KP_DOWN"_s),
-			$of("selectNextRowExtendSelection"_s),
-			$of("ctrl shift DOWN"_s),
-			$of("selectNextRowExtendSelection"_s),
-			$of("ctrl shift KP_DOWN"_s),
-			$of("selectNextRowExtendSelection"_s),
-			$of("ctrl DOWN"_s),
-			$of("selectNextRowChangeLead"_s),
-			$of("ctrl KP_DOWN"_s),
-			$of("selectNextRowChangeLead"_s),
-			$of("LEFT"_s),
-			$of("selectPreviousColumn"_s),
-			$of("KP_LEFT"_s),
-			$of("selectPreviousColumn"_s),
-			$of("shift LEFT"_s),
-			$of("selectPreviousColumnExtendSelection"_s),
-			$of("shift KP_LEFT"_s),
-			$of("selectPreviousColumnExtendSelection"_s),
-			$of("ctrl shift LEFT"_s),
-			$of("selectPreviousColumnExtendSelection"_s),
-			$of("ctrl shift KP_LEFT"_s),
-			$of("selectPreviousColumnExtendSelection"_s),
-			$of("ctrl LEFT"_s),
-			$of("selectPreviousColumnChangeLead"_s),
-			$of("ctrl KP_LEFT"_s),
-			$of("selectPreviousColumnChangeLead"_s),
-			$of("RIGHT"_s),
-			$of("selectNextColumn"_s),
-			$of("KP_RIGHT"_s),
-			$of("selectNextColumn"_s),
-			$of("shift RIGHT"_s),
-			$of("selectNextColumnExtendSelection"_s),
-			$of("shift KP_RIGHT"_s),
-			$of("selectNextColumnExtendSelection"_s),
-			$of("ctrl shift RIGHT"_s),
-			$of("selectNextColumnExtendSelection"_s),
-			$of("ctrl shift KP_RIGHT"_s),
-			$of("selectNextColumnExtendSelection"_s),
-			$of("ctrl RIGHT"_s),
-			$of("selectNextColumnChangeLead"_s),
-			$of("ctrl KP_RIGHT"_s),
-			$of("selectNextColumnChangeLead"_s),
-			$of("HOME"_s),
-			$of("selectFirstRow"_s),
-			$of("shift HOME"_s),
-			$of("selectFirstRowExtendSelection"_s),
-			$of("ctrl shift HOME"_s),
-			$of("selectFirstRowExtendSelection"_s),
-			$of("ctrl HOME"_s),
-			$of("selectFirstRowChangeLead"_s),
-			$of("END"_s),
-			$of("selectLastRow"_s),
-			$of("shift END"_s),
-			$of("selectLastRowExtendSelection"_s),
-			$of("ctrl shift END"_s),
-			$of("selectLastRowExtendSelection"_s),
-			$of("ctrl END"_s),
-			$of("selectLastRowChangeLead"_s),
-			$of("PAGE_UP"_s),
-			$of("scrollUp"_s),
-			$of("shift PAGE_UP"_s),
-			$of("scrollUpExtendSelection"_s),
-			$of("ctrl shift PAGE_UP"_s),
-			$of("scrollUpExtendSelection"_s),
-			$of("ctrl PAGE_UP"_s),
-			$of("scrollUpChangeLead"_s),
-			$of("PAGE_DOWN"_s),
-			$of("scrollDown"_s),
-			$of("shift PAGE_DOWN"_s),
-			$of("scrollDownExtendSelection"_s),
-			$of("ctrl shift PAGE_DOWN"_s),
-			$of("scrollDownExtendSelection"_s),
-			$of("ctrl PAGE_DOWN"_s),
-			$of("scrollDownChangeLead"_s),
-			$of("ctrl A"_s),
-			$of("selectAll"_s),
-			$of("ctrl SLASH"_s),
-			$of("selectAll"_s),
-			$of("ctrl BACK_SLASH"_s),
-			$of("clearSelection"_s),
-			$of("SPACE"_s),
-			$of("addToSelection"_s),
-			$of("ctrl SPACE"_s),
-			$of("toggleAndAnchor"_s),
-			$of("shift SPACE"_s),
-			$of("extendTo"_s),
-			$of("ctrl shift SPACE"_s),
-			$of("moveSelectionTo"_s)
-		}))),
-		$of("PopupMenu.font"_s),
+		"List.lockToPositionOnScroll"_s,
+		$Boolean::TRUE,
+		"List.focusInputMap"_s,
+		$$new($UIDefaults$LazyInputMap, $$new($ObjectArray, {
+			"ctrl C"_s,
+			"copy"_s,
+			"ctrl V"_s,
+			"paste"_s,
+			"ctrl X"_s,
+			"cut"_s,
+			"COPY"_s,
+			"copy"_s,
+			"PASTE"_s,
+			"paste"_s,
+			"CUT"_s,
+			"cut"_s,
+			"control INSERT"_s,
+			"copy"_s,
+			"shift INSERT"_s,
+			"paste"_s,
+			"shift DELETE"_s,
+			"cut"_s,
+			"UP"_s,
+			"selectPreviousRow"_s,
+			"KP_UP"_s,
+			"selectPreviousRow"_s,
+			"shift UP"_s,
+			"selectPreviousRowExtendSelection"_s,
+			"shift KP_UP"_s,
+			"selectPreviousRowExtendSelection"_s,
+			"ctrl shift UP"_s,
+			"selectPreviousRowExtendSelection"_s,
+			"ctrl shift KP_UP"_s,
+			"selectPreviousRowExtendSelection"_s,
+			"ctrl UP"_s,
+			"selectPreviousRowChangeLead"_s,
+			"ctrl KP_UP"_s,
+			"selectPreviousRowChangeLead"_s,
+			"DOWN"_s,
+			"selectNextRow"_s,
+			"KP_DOWN"_s,
+			"selectNextRow"_s,
+			"shift DOWN"_s,
+			"selectNextRowExtendSelection"_s,
+			"shift KP_DOWN"_s,
+			"selectNextRowExtendSelection"_s,
+			"ctrl shift DOWN"_s,
+			"selectNextRowExtendSelection"_s,
+			"ctrl shift KP_DOWN"_s,
+			"selectNextRowExtendSelection"_s,
+			"ctrl DOWN"_s,
+			"selectNextRowChangeLead"_s,
+			"ctrl KP_DOWN"_s,
+			"selectNextRowChangeLead"_s,
+			"LEFT"_s,
+			"selectPreviousColumn"_s,
+			"KP_LEFT"_s,
+			"selectPreviousColumn"_s,
+			"shift LEFT"_s,
+			"selectPreviousColumnExtendSelection"_s,
+			"shift KP_LEFT"_s,
+			"selectPreviousColumnExtendSelection"_s,
+			"ctrl shift LEFT"_s,
+			"selectPreviousColumnExtendSelection"_s,
+			"ctrl shift KP_LEFT"_s,
+			"selectPreviousColumnExtendSelection"_s,
+			"ctrl LEFT"_s,
+			"selectPreviousColumnChangeLead"_s,
+			"ctrl KP_LEFT"_s,
+			"selectPreviousColumnChangeLead"_s,
+			"RIGHT"_s,
+			"selectNextColumn"_s,
+			"KP_RIGHT"_s,
+			"selectNextColumn"_s,
+			"shift RIGHT"_s,
+			"selectNextColumnExtendSelection"_s,
+			"shift KP_RIGHT"_s,
+			"selectNextColumnExtendSelection"_s,
+			"ctrl shift RIGHT"_s,
+			"selectNextColumnExtendSelection"_s,
+			"ctrl shift KP_RIGHT"_s,
+			"selectNextColumnExtendSelection"_s,
+			"ctrl RIGHT"_s,
+			"selectNextColumnChangeLead"_s,
+			"ctrl KP_RIGHT"_s,
+			"selectNextColumnChangeLead"_s,
+			"HOME"_s,
+			"selectFirstRow"_s,
+			"shift HOME"_s,
+			"selectFirstRowExtendSelection"_s,
+			"ctrl shift HOME"_s,
+			"selectFirstRowExtendSelection"_s,
+			"ctrl HOME"_s,
+			"selectFirstRowChangeLead"_s,
+			"END"_s,
+			"selectLastRow"_s,
+			"shift END"_s,
+			"selectLastRowExtendSelection"_s,
+			"ctrl shift END"_s,
+			"selectLastRowExtendSelection"_s,
+			"ctrl END"_s,
+			"selectLastRowChangeLead"_s,
+			"PAGE_UP"_s,
+			"scrollUp"_s,
+			"shift PAGE_UP"_s,
+			"scrollUpExtendSelection"_s,
+			"ctrl shift PAGE_UP"_s,
+			"scrollUpExtendSelection"_s,
+			"ctrl PAGE_UP"_s,
+			"scrollUpChangeLead"_s,
+			"PAGE_DOWN"_s,
+			"scrollDown"_s,
+			"shift PAGE_DOWN"_s,
+			"scrollDownExtendSelection"_s,
+			"ctrl shift PAGE_DOWN"_s,
+			"scrollDownExtendSelection"_s,
+			"ctrl PAGE_DOWN"_s,
+			"scrollDownChangeLead"_s,
+			"ctrl A"_s,
+			"selectAll"_s,
+			"ctrl SLASH"_s,
+			"selectAll"_s,
+			"ctrl BACK_SLASH"_s,
+			"clearSelection"_s,
+			"SPACE"_s,
+			"addToSelection"_s,
+			"ctrl SPACE"_s,
+			"toggleAndAnchor"_s,
+			"shift SPACE"_s,
+			"extendTo"_s,
+			"ctrl shift SPACE"_s,
+			"moveSelectionTo"_s
+		})),
+		"PopupMenu.font"_s,
 		MenuFont,
-		$of("PopupMenu.background"_s),
+		"PopupMenu.background"_s,
 		MenuBackgroundColor,
-		$of("PopupMenu.foreground"_s),
+		"PopupMenu.foreground"_s,
 		MenuTextColor,
-		$of("PopupMenu.popupSound"_s),
-		$of("win.sound.menuPopup"_s),
-		$of("PopupMenu.consumeEventOnClose"_s),
-		$of($Boolean::FALSE),
-		$of("Menu.font"_s),
+		"PopupMenu.popupSound"_s,
+		"win.sound.menuPopup"_s,
+		"PopupMenu.consumeEventOnClose"_s,
+		$Boolean::FALSE,
+		"Menu.font"_s,
 		MenuFont,
-		$of("Menu.foreground"_s),
+		"Menu.foreground"_s,
 		MenuTextColor,
-		$of("Menu.background"_s),
+		"Menu.background"_s,
 		MenuBackgroundColor,
-		$of("Menu.useMenuBarBackgroundForTopLevel"_s),
-		$of($Boolean::TRUE),
-		$of("Menu.selectionForeground"_s),
+		"Menu.useMenuBarBackgroundForTopLevel"_s,
+		$Boolean::TRUE,
+		"Menu.selectionForeground"_s,
 		SelectionTextColor,
-		$of("Menu.selectionBackground"_s),
+		"Menu.selectionBackground"_s,
 		SelectionBackgroundColor,
-		$of("Menu.acceleratorForeground"_s),
+		"Menu.acceleratorForeground"_s,
 		MenuTextColor,
-		$of("Menu.acceleratorSelectionForeground"_s),
+		"Menu.acceleratorSelectionForeground"_s,
 		SelectionTextColor,
-		$of("Menu.menuPopupOffsetX"_s),
-		$($of($Integer::valueOf(0))),
-		$of("Menu.menuPopupOffsetY"_s),
-		$($of($Integer::valueOf(0))),
-		$of("Menu.submenuPopupOffsetX"_s),
-		$($of($Integer::valueOf(-4))),
-		$of("Menu.submenuPopupOffsetY"_s),
-		$($of($Integer::valueOf(-3))),
-		$of("Menu.crossMenuMnemonic"_s),
-		$of($Boolean::FALSE),
-		$of("Menu.preserveTopLevelSelection"_s),
-		$of($Boolean::TRUE),
-		$of("MenuBar.font"_s),
+		"Menu.menuPopupOffsetX"_s,
+		$($Integer::valueOf(0)),
+		"Menu.menuPopupOffsetY"_s,
+		$($Integer::valueOf(0)),
+		"Menu.submenuPopupOffsetX"_s,
+		$($Integer::valueOf(-4)),
+		"Menu.submenuPopupOffsetY"_s,
+		$($Integer::valueOf(-3)),
+		"Menu.crossMenuMnemonic"_s,
+		$Boolean::FALSE,
+		"Menu.preserveTopLevelSelection"_s,
+		$Boolean::TRUE,
+		"MenuBar.font"_s,
 		MenuFont,
-		$of("MenuBar.background"_s),
-		$of($$new($WindowsLookAndFeel$XPValue, MenuBarBackgroundColor, MenuBackgroundColor)),
-		$of("MenuBar.foreground"_s),
+		"MenuBar.background"_s,
+		$$new($WindowsLookAndFeel$XPValue, MenuBarBackgroundColor, MenuBackgroundColor),
+		"MenuBar.foreground"_s,
 		MenuTextColor,
-		$of("MenuBar.shadow"_s),
+		"MenuBar.shadow"_s,
 		ControlShadowColor,
-		$of("MenuBar.highlight"_s),
+		"MenuBar.highlight"_s,
 		ControlHighlightColor,
-		$of("MenuBar.height"_s),
+		"MenuBar.height"_s,
 		menuBarHeight,
-		$of("MenuBar.rolloverEnabled"_s),
+		"MenuBar.rolloverEnabled"_s,
 		hotTrackingOn,
-		$of("MenuBar.windowBindings"_s),
-		$of($$new($ObjectArray, {
-			$of("F10"_s),
-			$of("takeFocus"_s)
-		})),
-		$of("MenuItem.font"_s),
+		"MenuBar.windowBindings"_s,
+		$$new($ObjectArray, {
+			"F10"_s,
+			"takeFocus"_s
+		}),
+		"MenuItem.font"_s,
 		MenuFont,
-		$of("MenuItem.acceleratorFont"_s),
+		"MenuItem.acceleratorFont"_s,
 		MenuFont,
-		$of("MenuItem.foreground"_s),
+		"MenuItem.foreground"_s,
 		MenuTextColor,
-		$of("MenuItem.background"_s),
+		"MenuItem.background"_s,
 		MenuBackgroundColor,
-		$of("MenuItem.selectionForeground"_s),
+		"MenuItem.selectionForeground"_s,
 		SelectionTextColor,
-		$of("MenuItem.selectionBackground"_s),
+		"MenuItem.selectionBackground"_s,
 		SelectionBackgroundColor,
-		$of("MenuItem.disabledForeground"_s),
+		"MenuItem.disabledForeground"_s,
 		InactiveTextColor,
-		$of("MenuItem.acceleratorForeground"_s),
+		"MenuItem.acceleratorForeground"_s,
 		MenuTextColor,
-		$of("MenuItem.acceleratorSelectionForeground"_s),
+		"MenuItem.acceleratorSelectionForeground"_s,
 		SelectionTextColor,
-		$of("MenuItem.acceleratorDelimiter"_s),
+		"MenuItem.acceleratorDelimiter"_s,
 		menuItemAcceleratorDelimiter,
-		$of("MenuItem.commandSound"_s),
-		$of("win.sound.menuCommand"_s),
-		$of("MenuItem.disabledAreNavigable"_s),
-		$of($Boolean::TRUE),
-		$of("RadioButton.font"_s),
+		"MenuItem.commandSound"_s,
+		"win.sound.menuCommand"_s,
+		"MenuItem.disabledAreNavigable"_s,
+		$Boolean::TRUE,
+		"RadioButton.font"_s,
 		ControlFont,
-		$of("RadioButton.interiorBackground"_s),
+		"RadioButton.interiorBackground"_s,
 		WindowBackgroundColor,
-		$of("RadioButton.background"_s),
+		"RadioButton.background"_s,
 		ControlBackgroundColor,
-		$of("RadioButton.foreground"_s),
+		"RadioButton.foreground"_s,
 		WindowTextColor,
-		$of("RadioButton.shadow"_s),
+		"RadioButton.shadow"_s,
 		ControlShadowColor,
-		$of("RadioButton.darkShadow"_s),
+		"RadioButton.darkShadow"_s,
 		ControlDarkShadowColor,
-		$of("RadioButton.light"_s),
+		"RadioButton.light"_s,
 		ControlLightColor,
-		$of("RadioButton.highlight"_s),
+		"RadioButton.highlight"_s,
 		ControlHighlightColor,
-		$of("RadioButton.focus"_s),
+		"RadioButton.focus"_s,
 		buttonFocusColor,
-		$of("RadioButton.focusInputMap"_s),
-		$of($$new($UIDefaults$LazyInputMap, $$new($ObjectArray, {
-			$of("SPACE"_s),
-			$of("pressed"_s),
-			$of("released SPACE"_s),
-			$of("released"_s)
-		}))),
-		$of("RadioButton.totalInsets"_s),
-		$of($$new($Insets, 4, 4, 4, 4)),
-		$of("RadioButtonMenuItem.font"_s),
+		"RadioButton.focusInputMap"_s,
+		$$new($UIDefaults$LazyInputMap, $$new($ObjectArray, {
+			"SPACE"_s,
+			"pressed"_s,
+			"released SPACE"_s,
+			"released"_s
+		})),
+		"RadioButton.totalInsets"_s,
+		$$new($Insets, 4, 4, 4, 4),
+		"RadioButtonMenuItem.font"_s,
 		MenuFont,
-		$of("RadioButtonMenuItem.foreground"_s),
+		"RadioButtonMenuItem.foreground"_s,
 		MenuTextColor,
-		$of("RadioButtonMenuItem.background"_s),
+		"RadioButtonMenuItem.background"_s,
 		MenuBackgroundColor,
-		$of("RadioButtonMenuItem.selectionForeground"_s),
+		"RadioButtonMenuItem.selectionForeground"_s,
 		SelectionTextColor,
-		$of("RadioButtonMenuItem.selectionBackground"_s),
+		"RadioButtonMenuItem.selectionBackground"_s,
 		SelectionBackgroundColor,
-		$of("RadioButtonMenuItem.disabledForeground"_s),
+		"RadioButtonMenuItem.disabledForeground"_s,
 		InactiveTextColor,
-		$of("RadioButtonMenuItem.acceleratorForeground"_s),
+		"RadioButtonMenuItem.acceleratorForeground"_s,
 		MenuTextColor,
-		$of("RadioButtonMenuItem.acceleratorSelectionForeground"_s),
+		"RadioButtonMenuItem.acceleratorSelectionForeground"_s,
 		SelectionTextColor,
-		$of("RadioButtonMenuItem.commandSound"_s),
-		$of("win.sound.menuCommand"_s),
-		$of("OptionPane.font"_s),
+		"RadioButtonMenuItem.commandSound"_s,
+		"win.sound.menuCommand"_s,
+		"OptionPane.font"_s,
 		MessageFont,
-		$of("OptionPane.messageFont"_s),
+		"OptionPane.messageFont"_s,
 		MessageFont,
-		$of("OptionPane.buttonFont"_s),
+		"OptionPane.buttonFont"_s,
 		MessageFont,
-		$of("OptionPane.background"_s),
+		"OptionPane.background"_s,
 		ControlBackgroundColor,
-		$of("OptionPane.foreground"_s),
+		"OptionPane.foreground"_s,
 		WindowTextColor,
-		$of("OptionPane.buttonMinimumWidth"_s),
-		$of($$new($WindowsLookAndFeel$XPDLUValue, this, 50, 50, $SwingConstants::EAST)),
-		$of("OptionPane.messageForeground"_s),
+		"OptionPane.buttonMinimumWidth"_s,
+		$$new($WindowsLookAndFeel$XPDLUValue, this, 50, 50, $SwingConstants::EAST),
+		"OptionPane.messageForeground"_s,
 		ControlTextColor,
-		$of("OptionPane.errorIcon"_s),
-		$of($$new($WindowsLookAndFeel$LazyWindowsIcon, "optionPaneIcon Error"_s, "icons/Error.gif"_s)),
-		$of("OptionPane.informationIcon"_s),
-		$of($$new($WindowsLookAndFeel$LazyWindowsIcon, "optionPaneIcon Information"_s, "icons/Inform.gif"_s)),
-		$of("OptionPane.questionIcon"_s),
-		$of($$new($WindowsLookAndFeel$LazyWindowsIcon, "optionPaneIcon Question"_s, "icons/Question.gif"_s)),
-		$of("OptionPane.warningIcon"_s),
-		$of($$new($WindowsLookAndFeel$LazyWindowsIcon, "optionPaneIcon Warning"_s, "icons/Warn.gif"_s)),
-		$of("OptionPane.windowBindings"_s),
-		$of($$new($ObjectArray, {
-			$of("ESCAPE"_s),
-			$of("close"_s)
+		"OptionPane.errorIcon"_s,
+		$$new($WindowsLookAndFeel$LazyWindowsIcon, "optionPaneIcon Error"_s, "icons/Error.gif"_s),
+		"OptionPane.informationIcon"_s,
+		$$new($WindowsLookAndFeel$LazyWindowsIcon, "optionPaneIcon Information"_s, "icons/Inform.gif"_s),
+		"OptionPane.questionIcon"_s,
+		$$new($WindowsLookAndFeel$LazyWindowsIcon, "optionPaneIcon Question"_s, "icons/Question.gif"_s),
+		"OptionPane.warningIcon"_s,
+		$$new($WindowsLookAndFeel$LazyWindowsIcon, "optionPaneIcon Warning"_s, "icons/Warn.gif"_s),
+		"OptionPane.windowBindings"_s,
+		$$new($ObjectArray, {
+			"ESCAPE"_s,
+			"close"_s
+		}),
+		"OptionPane.errorSound"_s,
+		"win.sound.hand"_s,
+		"OptionPane.informationSound"_s,
+		"win.sound.asterisk"_s,
+		"OptionPane.questionSound"_s,
+		"win.sound.question"_s,
+		"OptionPane.warningSound"_s,
+		"win.sound.exclamation"_s,
+		"FormattedTextField.focusInputMap"_s,
+		$$new($UIDefaults$LazyInputMap, $$new($ObjectArray, {
+			"ctrl C"_s,
+			$DefaultEditorKit::copyAction,
+			"ctrl V"_s,
+			$DefaultEditorKit::pasteAction,
+			"ctrl X"_s,
+			$DefaultEditorKit::cutAction,
+			"COPY"_s,
+			$DefaultEditorKit::copyAction,
+			"PASTE"_s,
+			$DefaultEditorKit::pasteAction,
+			"CUT"_s,
+			$DefaultEditorKit::cutAction,
+			"control INSERT"_s,
+			$DefaultEditorKit::copyAction,
+			"shift INSERT"_s,
+			$DefaultEditorKit::pasteAction,
+			"shift DELETE"_s,
+			$DefaultEditorKit::cutAction,
+			"shift LEFT"_s,
+			$DefaultEditorKit::selectionBackwardAction,
+			"shift KP_LEFT"_s,
+			$DefaultEditorKit::selectionBackwardAction,
+			"shift RIGHT"_s,
+			$DefaultEditorKit::selectionForwardAction,
+			"shift KP_RIGHT"_s,
+			$DefaultEditorKit::selectionForwardAction,
+			"ctrl LEFT"_s,
+			$DefaultEditorKit::previousWordAction,
+			"ctrl KP_LEFT"_s,
+			$DefaultEditorKit::previousWordAction,
+			"ctrl RIGHT"_s,
+			$DefaultEditorKit::nextWordAction,
+			"ctrl KP_RIGHT"_s,
+			$DefaultEditorKit::nextWordAction,
+			"ctrl shift LEFT"_s,
+			$DefaultEditorKit::selectionPreviousWordAction,
+			"ctrl shift KP_LEFT"_s,
+			$DefaultEditorKit::selectionPreviousWordAction,
+			"ctrl shift RIGHT"_s,
+			$DefaultEditorKit::selectionNextWordAction,
+			"ctrl shift KP_RIGHT"_s,
+			$DefaultEditorKit::selectionNextWordAction,
+			"ctrl A"_s,
+			$DefaultEditorKit::selectAllAction,
+			"HOME"_s,
+			$DefaultEditorKit::beginLineAction,
+			"END"_s,
+			$DefaultEditorKit::endLineAction,
+			"shift HOME"_s,
+			$DefaultEditorKit::selectionBeginLineAction,
+			"shift END"_s,
+			$DefaultEditorKit::selectionEndLineAction,
+			"BACK_SPACE"_s,
+			$DefaultEditorKit::deletePrevCharAction,
+			"shift BACK_SPACE"_s,
+			$DefaultEditorKit::deletePrevCharAction,
+			"ctrl H"_s,
+			$DefaultEditorKit::deletePrevCharAction,
+			"DELETE"_s,
+			$DefaultEditorKit::deleteNextCharAction,
+			"ctrl DELETE"_s,
+			$DefaultEditorKit::deleteNextWordAction,
+			"ctrl BACK_SPACE"_s,
+			$DefaultEditorKit::deletePrevWordAction,
+			"RIGHT"_s,
+			$DefaultEditorKit::forwardAction,
+			"LEFT"_s,
+			$DefaultEditorKit::backwardAction,
+			"KP_RIGHT"_s,
+			$DefaultEditorKit::forwardAction,
+			"KP_LEFT"_s,
+			$DefaultEditorKit::backwardAction,
+			"ENTER"_s,
+			$JTextField::notifyAction,
+			"ctrl BACK_SLASH"_s,
+			"unselect"_s,
+			"control shift O"_s,
+			"toggle-componentOrientation"_s,
+			"ESCAPE"_s,
+			"reset-field-edit"_s,
+			"UP"_s,
+			"increment"_s,
+			"KP_UP"_s,
+			"increment"_s,
+			"DOWN"_s,
+			"decrement"_s,
+			"KP_DOWN"_s,
+			"decrement"_s
 		})),
-		$of("OptionPane.errorSound"_s),
-		$of("win.sound.hand"_s),
-		$of("OptionPane.informationSound"_s),
-		$of("win.sound.asterisk"_s),
-		$of("OptionPane.questionSound"_s),
-		$of("win.sound.question"_s),
-		$of("OptionPane.warningSound"_s),
-		$of("win.sound.exclamation"_s),
-		$of("FormattedTextField.focusInputMap"_s),
-		$of($$new($UIDefaults$LazyInputMap, $$new($ObjectArray, {
-			$of("ctrl C"_s),
-			$of($DefaultEditorKit::copyAction),
-			$of("ctrl V"_s),
-			$of($DefaultEditorKit::pasteAction),
-			$of("ctrl X"_s),
-			$of($DefaultEditorKit::cutAction),
-			$of("COPY"_s),
-			$of($DefaultEditorKit::copyAction),
-			$of("PASTE"_s),
-			$of($DefaultEditorKit::pasteAction),
-			$of("CUT"_s),
-			$of($DefaultEditorKit::cutAction),
-			$of("control INSERT"_s),
-			$of($DefaultEditorKit::copyAction),
-			$of("shift INSERT"_s),
-			$of($DefaultEditorKit::pasteAction),
-			$of("shift DELETE"_s),
-			$of($DefaultEditorKit::cutAction),
-			$of("shift LEFT"_s),
-			$of($DefaultEditorKit::selectionBackwardAction),
-			$of("shift KP_LEFT"_s),
-			$of($DefaultEditorKit::selectionBackwardAction),
-			$of("shift RIGHT"_s),
-			$of($DefaultEditorKit::selectionForwardAction),
-			$of("shift KP_RIGHT"_s),
-			$of($DefaultEditorKit::selectionForwardAction),
-			$of("ctrl LEFT"_s),
-			$of($DefaultEditorKit::previousWordAction),
-			$of("ctrl KP_LEFT"_s),
-			$of($DefaultEditorKit::previousWordAction),
-			$of("ctrl RIGHT"_s),
-			$of($DefaultEditorKit::nextWordAction),
-			$of("ctrl KP_RIGHT"_s),
-			$of($DefaultEditorKit::nextWordAction),
-			$of("ctrl shift LEFT"_s),
-			$of($DefaultEditorKit::selectionPreviousWordAction),
-			$of("ctrl shift KP_LEFT"_s),
-			$of($DefaultEditorKit::selectionPreviousWordAction),
-			$of("ctrl shift RIGHT"_s),
-			$of($DefaultEditorKit::selectionNextWordAction),
-			$of("ctrl shift KP_RIGHT"_s),
-			$of($DefaultEditorKit::selectionNextWordAction),
-			$of("ctrl A"_s),
-			$of($DefaultEditorKit::selectAllAction),
-			$of("HOME"_s),
-			$of($DefaultEditorKit::beginLineAction),
-			$of("END"_s),
-			$of($DefaultEditorKit::endLineAction),
-			$of("shift HOME"_s),
-			$of($DefaultEditorKit::selectionBeginLineAction),
-			$of("shift END"_s),
-			$of($DefaultEditorKit::selectionEndLineAction),
-			$of("BACK_SPACE"_s),
-			$of($DefaultEditorKit::deletePrevCharAction),
-			$of("shift BACK_SPACE"_s),
-			$of($DefaultEditorKit::deletePrevCharAction),
-			$of("ctrl H"_s),
-			$of($DefaultEditorKit::deletePrevCharAction),
-			$of("DELETE"_s),
-			$of($DefaultEditorKit::deleteNextCharAction),
-			$of("ctrl DELETE"_s),
-			$of($DefaultEditorKit::deleteNextWordAction),
-			$of("ctrl BACK_SPACE"_s),
-			$of($DefaultEditorKit::deletePrevWordAction),
-			$of("RIGHT"_s),
-			$of($DefaultEditorKit::forwardAction),
-			$of("LEFT"_s),
-			$of($DefaultEditorKit::backwardAction),
-			$of("KP_RIGHT"_s),
-			$of($DefaultEditorKit::forwardAction),
-			$of("KP_LEFT"_s),
-			$of($DefaultEditorKit::backwardAction),
-			$of("ENTER"_s),
-			$of($JTextField::notifyAction),
-			$of("ctrl BACK_SLASH"_s),
-			$of("unselect"_s),
-			$of("control shift O"_s),
-			$of("toggle-componentOrientation"_s),
-			$of("ESCAPE"_s),
-			$of("reset-field-edit"_s),
-			$of("UP"_s),
-			$of("increment"_s),
-			$of("KP_UP"_s),
-			$of("increment"_s),
-			$of("DOWN"_s),
-			$of("decrement"_s),
-			$of("KP_DOWN"_s),
-			$of("decrement"_s)
-		}))),
-		$of("FormattedTextField.inactiveBackground"_s),
+		"FormattedTextField.inactiveBackground"_s,
 		ReadOnlyTextBackground,
-		$of("FormattedTextField.disabledBackground"_s),
+		"FormattedTextField.disabledBackground"_s,
 		DisabledTextBackground,
-		$of("FormattedTextField.background"_s),
+		"FormattedTextField.background"_s,
 		TextBackground,
-		$of("FormattedTextField.foreground"_s),
+		"FormattedTextField.foreground"_s,
 		WindowTextColor,
-		$of("Panel.font"_s),
+		"Panel.font"_s,
 		ControlFont,
-		$of("Panel.background"_s),
+		"Panel.background"_s,
 		ControlBackgroundColor,
-		$of("Panel.foreground"_s),
+		"Panel.foreground"_s,
 		WindowTextColor,
-		$of("PasswordField.font"_s),
+		"PasswordField.font"_s,
 		ControlFont,
-		$of("PasswordField.background"_s),
+		"PasswordField.background"_s,
 		TextBackground,
-		$of("PasswordField.foreground"_s),
+		"PasswordField.foreground"_s,
 		WindowTextColor,
-		$of("PasswordField.inactiveForeground"_s),
+		"PasswordField.inactiveForeground"_s,
 		InactiveTextColor,
-		$of("PasswordField.inactiveBackground"_s),
+		"PasswordField.inactiveBackground"_s,
 		ReadOnlyTextBackground,
-		$of("PasswordField.disabledBackground"_s),
+		"PasswordField.disabledBackground"_s,
 		DisabledTextBackground,
-		$of("PasswordField.selectionBackground"_s),
+		"PasswordField.selectionBackground"_s,
 		SelectionBackgroundColor,
-		$of("PasswordField.selectionForeground"_s),
+		"PasswordField.selectionForeground"_s,
 		SelectionTextColor,
-		$of("PasswordField.caretForeground"_s),
+		"PasswordField.caretForeground"_s,
 		WindowTextColor,
-		$of("PasswordField.echoChar"_s),
-		$of($$new($WindowsLookAndFeel$XPValue, var$8, $($Character::valueOf(u'*')))),
-		$of("ProgressBar.font"_s),
+		"PasswordField.echoChar"_s,
+		$$new($WindowsLookAndFeel$XPValue, var$8, $($Character::valueOf(u'*'))),
+		"ProgressBar.font"_s,
 		ControlFont,
-		$of("ProgressBar.foreground"_s),
+		"ProgressBar.foreground"_s,
 		SelectionBackgroundColor,
-		$of("ProgressBar.background"_s),
+		"ProgressBar.background"_s,
 		ControlBackgroundColor,
-		$of("ProgressBar.shadow"_s),
+		"ProgressBar.shadow"_s,
 		ControlShadowColor,
-		$of("ProgressBar.highlight"_s),
+		"ProgressBar.highlight"_s,
 		ControlHighlightColor,
-		$of("ProgressBar.selectionForeground"_s),
+		"ProgressBar.selectionForeground"_s,
 		ControlBackgroundColor,
-		$of("ProgressBar.selectionBackground"_s),
+		"ProgressBar.selectionBackground"_s,
 		SelectionBackgroundColor,
-		$of("ProgressBar.cellLength"_s),
-		$($of($Integer::valueOf(7))),
-		$of("ProgressBar.cellSpacing"_s),
-		$($of($Integer::valueOf(2))),
-		$of("ProgressBar.indeterminateInsets"_s),
-		$of($$new($Insets, 3, 3, 3, 3)),
-		$of("RootPane.defaultButtonWindowKeyBindings"_s),
-		$of($$new($ObjectArray, {
-			$of("ENTER"_s),
-			$of("press"_s),
-			$of("released ENTER"_s),
-			$of("release"_s),
-			$of("ctrl ENTER"_s),
-			$of("press"_s),
-			$of("ctrl released ENTER"_s),
-			$of("release"_s)
-		})),
-		$of("ScrollBar.background"_s),
+		"ProgressBar.cellLength"_s,
+		$($Integer::valueOf(7)),
+		"ProgressBar.cellSpacing"_s,
+		$($Integer::valueOf(2)),
+		"ProgressBar.indeterminateInsets"_s,
+		$$new($Insets, 3, 3, 3, 3),
+		"RootPane.defaultButtonWindowKeyBindings"_s,
+		$$new($ObjectArray, {
+			"ENTER"_s,
+			"press"_s,
+			"released ENTER"_s,
+			"release"_s,
+			"ctrl ENTER"_s,
+			"press"_s,
+			"ctrl released ENTER"_s,
+			"release"_s
+		}),
+		"ScrollBar.background"_s,
 		ScrollbarBackgroundColor,
-		$of("ScrollBar.foreground"_s),
+		"ScrollBar.foreground"_s,
 		ControlBackgroundColor,
-		$of("ScrollBar.track"_s),
-		$of(white),
-		$of("ScrollBar.trackForeground"_s),
+		"ScrollBar.track"_s,
+		white,
+		"ScrollBar.trackForeground"_s,
 		ScrollbarBackgroundColor,
-		$of("ScrollBar.trackHighlight"_s),
-		$of(black),
-		$of("ScrollBar.trackHighlightForeground"_s),
-		$of(scrollBarTrackHighlight),
-		$of("ScrollBar.thumb"_s),
+		"ScrollBar.trackHighlight"_s,
+		black,
+		"ScrollBar.trackHighlightForeground"_s,
+		scrollBarTrackHighlight,
+		"ScrollBar.thumb"_s,
 		ControlBackgroundColor,
-		$of("ScrollBar.thumbHighlight"_s),
+		"ScrollBar.thumbHighlight"_s,
 		ControlHighlightColor,
-		$of("ScrollBar.thumbDarkShadow"_s),
+		"ScrollBar.thumbDarkShadow"_s,
 		ControlDarkShadowColor,
-		$of("ScrollBar.thumbShadow"_s),
+		"ScrollBar.thumbShadow"_s,
 		ControlShadowColor,
-		$of("ScrollBar.width"_s),
+		"ScrollBar.width"_s,
 		scrollBarWidth,
-		$of("ScrollBar.ancestorInputMap"_s),
-		$of($$new($UIDefaults$LazyInputMap, $$new($ObjectArray, {
-			$of("RIGHT"_s),
-			$of("positiveUnitIncrement"_s),
-			$of("KP_RIGHT"_s),
-			$of("positiveUnitIncrement"_s),
-			$of("DOWN"_s),
-			$of("positiveUnitIncrement"_s),
-			$of("KP_DOWN"_s),
-			$of("positiveUnitIncrement"_s),
-			$of("PAGE_DOWN"_s),
-			$of("positiveBlockIncrement"_s),
-			$of("ctrl PAGE_DOWN"_s),
-			$of("positiveBlockIncrement"_s),
-			$of("LEFT"_s),
-			$of("negativeUnitIncrement"_s),
-			$of("KP_LEFT"_s),
-			$of("negativeUnitIncrement"_s),
-			$of("UP"_s),
-			$of("negativeUnitIncrement"_s),
-			$of("KP_UP"_s),
-			$of("negativeUnitIncrement"_s),
-			$of("PAGE_UP"_s),
-			$of("negativeBlockIncrement"_s),
-			$of("ctrl PAGE_UP"_s),
-			$of("negativeBlockIncrement"_s),
-			$of("HOME"_s),
-			$of("minScroll"_s),
-			$of("END"_s),
-			$of("maxScroll"_s)
-		}))),
-		$of("ScrollPane.font"_s),
+		"ScrollBar.ancestorInputMap"_s,
+		$$new($UIDefaults$LazyInputMap, $$new($ObjectArray, {
+			"RIGHT"_s,
+			"positiveUnitIncrement"_s,
+			"KP_RIGHT"_s,
+			"positiveUnitIncrement"_s,
+			"DOWN"_s,
+			"positiveUnitIncrement"_s,
+			"KP_DOWN"_s,
+			"positiveUnitIncrement"_s,
+			"PAGE_DOWN"_s,
+			"positiveBlockIncrement"_s,
+			"ctrl PAGE_DOWN"_s,
+			"positiveBlockIncrement"_s,
+			"LEFT"_s,
+			"negativeUnitIncrement"_s,
+			"KP_LEFT"_s,
+			"negativeUnitIncrement"_s,
+			"UP"_s,
+			"negativeUnitIncrement"_s,
+			"KP_UP"_s,
+			"negativeUnitIncrement"_s,
+			"PAGE_UP"_s,
+			"negativeBlockIncrement"_s,
+			"ctrl PAGE_UP"_s,
+			"negativeBlockIncrement"_s,
+			"HOME"_s,
+			"minScroll"_s,
+			"END"_s,
+			"maxScroll"_s
+		})),
+		"ScrollPane.font"_s,
 		ControlFont,
-		$of("ScrollPane.background"_s),
+		"ScrollPane.background"_s,
 		ControlBackgroundColor,
-		$of("ScrollPane.foreground"_s),
+		"ScrollPane.foreground"_s,
 		ControlTextColor,
-		$of("ScrollPane.ancestorInputMap"_s),
-		$of($$new($UIDefaults$LazyInputMap, $$new($ObjectArray, {
-			$of("RIGHT"_s),
-			$of("unitScrollRight"_s),
-			$of("KP_RIGHT"_s),
-			$of("unitScrollRight"_s),
-			$of("DOWN"_s),
-			$of("unitScrollDown"_s),
-			$of("KP_DOWN"_s),
-			$of("unitScrollDown"_s),
-			$of("LEFT"_s),
-			$of("unitScrollLeft"_s),
-			$of("KP_LEFT"_s),
-			$of("unitScrollLeft"_s),
-			$of("UP"_s),
-			$of("unitScrollUp"_s),
-			$of("KP_UP"_s),
-			$of("unitScrollUp"_s),
-			$of("PAGE_UP"_s),
-			$of("scrollUp"_s),
-			$of("PAGE_DOWN"_s),
-			$of("scrollDown"_s),
-			$of("ctrl PAGE_UP"_s),
-			$of("scrollLeft"_s),
-			$of("ctrl PAGE_DOWN"_s),
-			$of("scrollRight"_s),
-			$of("ctrl HOME"_s),
-			$of("scrollHome"_s),
-			$of("ctrl END"_s),
-			$of("scrollEnd"_s)
-		}))),
-		$of("Separator.background"_s),
+		"ScrollPane.ancestorInputMap"_s,
+		$$new($UIDefaults$LazyInputMap, $$new($ObjectArray, {
+			"RIGHT"_s,
+			"unitScrollRight"_s,
+			"KP_RIGHT"_s,
+			"unitScrollRight"_s,
+			"DOWN"_s,
+			"unitScrollDown"_s,
+			"KP_DOWN"_s,
+			"unitScrollDown"_s,
+			"LEFT"_s,
+			"unitScrollLeft"_s,
+			"KP_LEFT"_s,
+			"unitScrollLeft"_s,
+			"UP"_s,
+			"unitScrollUp"_s,
+			"KP_UP"_s,
+			"unitScrollUp"_s,
+			"PAGE_UP"_s,
+			"scrollUp"_s,
+			"PAGE_DOWN"_s,
+			"scrollDown"_s,
+			"ctrl PAGE_UP"_s,
+			"scrollLeft"_s,
+			"ctrl PAGE_DOWN"_s,
+			"scrollRight"_s,
+			"ctrl HOME"_s,
+			"scrollHome"_s,
+			"ctrl END"_s,
+			"scrollEnd"_s
+		})),
+		"Separator.background"_s,
 		ControlHighlightColor,
-		$of("Separator.foreground"_s),
+		"Separator.foreground"_s,
 		ControlShadowColor,
-		$of("Slider.font"_s),
+		"Slider.font"_s,
 		ControlFont,
-		$of("Slider.foreground"_s),
+		"Slider.foreground"_s,
 		ControlBackgroundColor,
-		$of("Slider.background"_s),
+		"Slider.background"_s,
 		ControlBackgroundColor,
-		$of("Slider.highlight"_s),
+		"Slider.highlight"_s,
 		ControlHighlightColor,
-		$of("Slider.shadow"_s),
+		"Slider.shadow"_s,
 		ControlShadowColor,
-		$of("Slider.focus"_s),
+		"Slider.focus"_s,
 		ControlDarkShadowColor,
-		$of("Slider.focusInputMap"_s),
-		$of($$new($UIDefaults$LazyInputMap, $$new($ObjectArray, {
-			$of("RIGHT"_s),
-			$of("positiveUnitIncrement"_s),
-			$of("KP_RIGHT"_s),
-			$of("positiveUnitIncrement"_s),
-			$of("DOWN"_s),
-			$of("negativeUnitIncrement"_s),
-			$of("KP_DOWN"_s),
-			$of("negativeUnitIncrement"_s),
-			$of("PAGE_DOWN"_s),
-			$of("negativeBlockIncrement"_s),
-			$of("LEFT"_s),
-			$of("negativeUnitIncrement"_s),
-			$of("KP_LEFT"_s),
-			$of("negativeUnitIncrement"_s),
-			$of("UP"_s),
-			$of("positiveUnitIncrement"_s),
-			$of("KP_UP"_s),
-			$of("positiveUnitIncrement"_s),
-			$of("PAGE_UP"_s),
-			$of("positiveBlockIncrement"_s),
-			$of("HOME"_s),
-			$of("minScroll"_s),
-			$of("END"_s),
-			$of("maxScroll"_s)
-		}))),
-		$of("Spinner.font"_s),
+		"Slider.focusInputMap"_s,
+		$$new($UIDefaults$LazyInputMap, $$new($ObjectArray, {
+			"RIGHT"_s,
+			"positiveUnitIncrement"_s,
+			"KP_RIGHT"_s,
+			"positiveUnitIncrement"_s,
+			"DOWN"_s,
+			"negativeUnitIncrement"_s,
+			"KP_DOWN"_s,
+			"negativeUnitIncrement"_s,
+			"PAGE_DOWN"_s,
+			"negativeBlockIncrement"_s,
+			"LEFT"_s,
+			"negativeUnitIncrement"_s,
+			"KP_LEFT"_s,
+			"negativeUnitIncrement"_s,
+			"UP"_s,
+			"positiveUnitIncrement"_s,
+			"KP_UP"_s,
+			"positiveUnitIncrement"_s,
+			"PAGE_UP"_s,
+			"positiveBlockIncrement"_s,
+			"HOME"_s,
+			"minScroll"_s,
+			"END"_s,
+			"maxScroll"_s
+		})),
+		"Spinner.font"_s,
 		ControlFont,
-		$of("Spinner.ancestorInputMap"_s),
-		$of($$new($UIDefaults$LazyInputMap, $$new($ObjectArray, {
-			$of("UP"_s),
-			$of("increment"_s),
-			$of("KP_UP"_s),
-			$of("increment"_s),
-			$of("DOWN"_s),
-			$of("decrement"_s),
-			$of("KP_DOWN"_s),
-			$of("decrement"_s)
-		}))),
-		$of("SplitPane.background"_s),
+		"Spinner.ancestorInputMap"_s,
+		$$new($UIDefaults$LazyInputMap, $$new($ObjectArray, {
+			"UP"_s,
+			"increment"_s,
+			"KP_UP"_s,
+			"increment"_s,
+			"DOWN"_s,
+			"decrement"_s,
+			"KP_DOWN"_s,
+			"decrement"_s
+		})),
+		"SplitPane.background"_s,
 		ControlBackgroundColor,
-		$of("SplitPane.highlight"_s),
+		"SplitPane.highlight"_s,
 		ControlHighlightColor,
-		$of("SplitPane.shadow"_s),
+		"SplitPane.shadow"_s,
 		ControlShadowColor,
-		$of("SplitPane.darkShadow"_s),
+		"SplitPane.darkShadow"_s,
 		ControlDarkShadowColor,
-		$of("SplitPane.dividerSize"_s),
-		$($of($Integer::valueOf(5))),
-		$of("SplitPane.ancestorInputMap"_s),
-		$of($$new($UIDefaults$LazyInputMap, $$new($ObjectArray, {
-			$of("UP"_s),
-			$of("negativeIncrement"_s),
-			$of("DOWN"_s),
-			$of("positiveIncrement"_s),
-			$of("LEFT"_s),
-			$of("negativeIncrement"_s),
-			$of("RIGHT"_s),
-			$of("positiveIncrement"_s),
-			$of("KP_UP"_s),
-			$of("negativeIncrement"_s),
-			$of("KP_DOWN"_s),
-			$of("positiveIncrement"_s),
-			$of("KP_LEFT"_s),
-			$of("negativeIncrement"_s),
-			$of("KP_RIGHT"_s),
-			$of("positiveIncrement"_s),
-			$of("HOME"_s),
-			$of("selectMin"_s),
-			$of("END"_s),
-			$of("selectMax"_s),
-			$of("F8"_s),
-			$of("startResize"_s),
-			$of("F6"_s),
-			$of("toggleFocus"_s),
-			$of("ctrl TAB"_s),
-			$of("focusOutForward"_s),
-			$of("ctrl shift TAB"_s),
-			$of("focusOutBackward"_s)
-		}))),
-		$of("TabbedPane.tabsOverlapBorder"_s),
-		$of($$new($WindowsLookAndFeel$XPValue, $Boolean::TRUE, $Boolean::FALSE)),
-		$of("TabbedPane.tabInsets"_s),
-		$of($$new($WindowsLookAndFeel$XPValue, var$9, $$new($InsetsUIResource, 0, 4, 1, 4))),
-		$of("TabbedPane.tabAreaInsets"_s),
-		$of($$new($WindowsLookAndFeel$XPValue, var$10, $$new($InsetsUIResource, 3, 2, 0, 2))),
-		$of("TabbedPane.font"_s),
+		"SplitPane.dividerSize"_s,
+		$($Integer::valueOf(5)),
+		"SplitPane.ancestorInputMap"_s,
+		$$new($UIDefaults$LazyInputMap, $$new($ObjectArray, {
+			"UP"_s,
+			"negativeIncrement"_s,
+			"DOWN"_s,
+			"positiveIncrement"_s,
+			"LEFT"_s,
+			"negativeIncrement"_s,
+			"RIGHT"_s,
+			"positiveIncrement"_s,
+			"KP_UP"_s,
+			"negativeIncrement"_s,
+			"KP_DOWN"_s,
+			"positiveIncrement"_s,
+			"KP_LEFT"_s,
+			"negativeIncrement"_s,
+			"KP_RIGHT"_s,
+			"positiveIncrement"_s,
+			"HOME"_s,
+			"selectMin"_s,
+			"END"_s,
+			"selectMax"_s,
+			"F8"_s,
+			"startResize"_s,
+			"F6"_s,
+			"toggleFocus"_s,
+			"ctrl TAB"_s,
+			"focusOutForward"_s,
+			"ctrl shift TAB"_s,
+			"focusOutBackward"_s
+		})),
+		"TabbedPane.tabsOverlapBorder"_s,
+		$$new($WindowsLookAndFeel$XPValue, $Boolean::TRUE, $Boolean::FALSE),
+		"TabbedPane.tabInsets"_s,
+		$$new($WindowsLookAndFeel$XPValue, var$9, $$new($InsetsUIResource, 0, 4, 1, 4)),
+		"TabbedPane.tabAreaInsets"_s,
+		$$new($WindowsLookAndFeel$XPValue, var$10, $$new($InsetsUIResource, 3, 2, 0, 2)),
+		"TabbedPane.font"_s,
 		ControlFont,
-		$of("TabbedPane.background"_s),
+		"TabbedPane.background"_s,
 		ControlBackgroundColor,
-		$of("TabbedPane.foreground"_s),
+		"TabbedPane.foreground"_s,
 		ControlTextColor,
-		$of("TabbedPane.highlight"_s),
+		"TabbedPane.highlight"_s,
 		ControlHighlightColor,
-		$of("TabbedPane.light"_s),
+		"TabbedPane.light"_s,
 		ControlLightColor,
-		$of("TabbedPane.shadow"_s),
+		"TabbedPane.shadow"_s,
 		ControlShadowColor,
-		$of("TabbedPane.darkShadow"_s),
+		"TabbedPane.darkShadow"_s,
 		ControlDarkShadowColor,
-		$of("TabbedPane.focus"_s),
+		"TabbedPane.focus"_s,
 		ControlTextColor,
-		$of("TabbedPane.focusInputMap"_s),
-		$of($$new($UIDefaults$LazyInputMap, $$new($ObjectArray, {
-			$of("RIGHT"_s),
-			$of("navigateRight"_s),
-			$of("KP_RIGHT"_s),
-			$of("navigateRight"_s),
-			$of("LEFT"_s),
-			$of("navigateLeft"_s),
-			$of("KP_LEFT"_s),
-			$of("navigateLeft"_s),
-			$of("UP"_s),
-			$of("navigateUp"_s),
-			$of("KP_UP"_s),
-			$of("navigateUp"_s),
-			$of("DOWN"_s),
-			$of("navigateDown"_s),
-			$of("KP_DOWN"_s),
-			$of("navigateDown"_s),
-			$of("ctrl DOWN"_s),
-			$of("requestFocusForVisibleComponent"_s),
-			$of("ctrl KP_DOWN"_s),
-			$of("requestFocusForVisibleComponent"_s)
-		}))),
-		$of("TabbedPane.ancestorInputMap"_s),
-		$of($$new($UIDefaults$LazyInputMap, $$new($ObjectArray, {
-			$of("ctrl TAB"_s),
-			$of("navigateNext"_s),
-			$of("ctrl shift TAB"_s),
-			$of("navigatePrevious"_s),
-			$of("ctrl PAGE_DOWN"_s),
-			$of("navigatePageDown"_s),
-			$of("ctrl PAGE_UP"_s),
-			$of("navigatePageUp"_s),
-			$of("ctrl UP"_s),
-			$of("requestFocus"_s),
-			$of("ctrl KP_UP"_s),
-			$of("requestFocus"_s)
-		}))),
-		$of("Table.font"_s),
+		"TabbedPane.focusInputMap"_s,
+		$$new($UIDefaults$LazyInputMap, $$new($ObjectArray, {
+			"RIGHT"_s,
+			"navigateRight"_s,
+			"KP_RIGHT"_s,
+			"navigateRight"_s,
+			"LEFT"_s,
+			"navigateLeft"_s,
+			"KP_LEFT"_s,
+			"navigateLeft"_s,
+			"UP"_s,
+			"navigateUp"_s,
+			"KP_UP"_s,
+			"navigateUp"_s,
+			"DOWN"_s,
+			"navigateDown"_s,
+			"KP_DOWN"_s,
+			"navigateDown"_s,
+			"ctrl DOWN"_s,
+			"requestFocusForVisibleComponent"_s,
+			"ctrl KP_DOWN"_s,
+			"requestFocusForVisibleComponent"_s
+		})),
+		"TabbedPane.ancestorInputMap"_s,
+		$$new($UIDefaults$LazyInputMap, $$new($ObjectArray, {
+			"ctrl TAB"_s,
+			"navigateNext"_s,
+			"ctrl shift TAB"_s,
+			"navigatePrevious"_s,
+			"ctrl PAGE_DOWN"_s,
+			"navigatePageDown"_s,
+			"ctrl PAGE_UP"_s,
+			"navigatePageUp"_s,
+			"ctrl UP"_s,
+			"requestFocus"_s,
+			"ctrl KP_UP"_s,
+			"requestFocus"_s
+		})),
+		"Table.font"_s,
 		ControlFont,
-		$of("Table.foreground"_s),
+		"Table.foreground"_s,
 		ControlTextColor,
-		$of("Table.background"_s),
+		"Table.background"_s,
 		WindowBackgroundColor,
-		$of("Table.highlight"_s),
+		"Table.highlight"_s,
 		ControlHighlightColor,
-		$of("Table.light"_s),
+		"Table.light"_s,
 		ControlLightColor,
-		$of("Table.shadow"_s),
+		"Table.shadow"_s,
 		ControlShadowColor,
-		$of("Table.darkShadow"_s),
+		"Table.darkShadow"_s,
 		ControlDarkShadowColor,
-		$of("Table.selectionForeground"_s),
+		"Table.selectionForeground"_s,
 		SelectionTextColor,
-		$of("Table.selectionBackground"_s),
+		"Table.selectionBackground"_s,
 		SelectionBackgroundColor,
-		$of("Table.gridColor"_s),
-		$of(gray),
-		$of("Table.focusCellBackground"_s),
+		"Table.gridColor"_s,
+		gray,
+		"Table.focusCellBackground"_s,
 		WindowBackgroundColor,
-		$of("Table.focusCellForeground"_s),
+		"Table.focusCellForeground"_s,
 		ControlTextColor,
-		$of("Table.ancestorInputMap"_s),
-		$of($$new($UIDefaults$LazyInputMap, $$new($ObjectArray, {
-			$of("ctrl C"_s),
-			$of("copy"_s),
-			$of("ctrl V"_s),
-			$of("paste"_s),
-			$of("ctrl X"_s),
-			$of("cut"_s),
-			$of("COPY"_s),
-			$of("copy"_s),
-			$of("PASTE"_s),
-			$of("paste"_s),
-			$of("CUT"_s),
-			$of("cut"_s),
-			$of("control INSERT"_s),
-			$of("copy"_s),
-			$of("shift INSERT"_s),
-			$of("paste"_s),
-			$of("shift DELETE"_s),
-			$of("cut"_s),
-			$of("RIGHT"_s),
-			$of("selectNextColumn"_s),
-			$of("KP_RIGHT"_s),
-			$of("selectNextColumn"_s),
-			$of("shift RIGHT"_s),
-			$of("selectNextColumnExtendSelection"_s),
-			$of("shift KP_RIGHT"_s),
-			$of("selectNextColumnExtendSelection"_s),
-			$of("ctrl shift RIGHT"_s),
-			$of("selectNextColumnExtendSelection"_s),
-			$of("ctrl shift KP_RIGHT"_s),
-			$of("selectNextColumnExtendSelection"_s),
-			$of("ctrl RIGHT"_s),
-			$of("selectNextColumnChangeLead"_s),
-			$of("ctrl KP_RIGHT"_s),
-			$of("selectNextColumnChangeLead"_s),
-			$of("LEFT"_s),
-			$of("selectPreviousColumn"_s),
-			$of("KP_LEFT"_s),
-			$of("selectPreviousColumn"_s),
-			$of("shift LEFT"_s),
-			$of("selectPreviousColumnExtendSelection"_s),
-			$of("shift KP_LEFT"_s),
-			$of("selectPreviousColumnExtendSelection"_s),
-			$of("ctrl shift LEFT"_s),
-			$of("selectPreviousColumnExtendSelection"_s),
-			$of("ctrl shift KP_LEFT"_s),
-			$of("selectPreviousColumnExtendSelection"_s),
-			$of("ctrl LEFT"_s),
-			$of("selectPreviousColumnChangeLead"_s),
-			$of("ctrl KP_LEFT"_s),
-			$of("selectPreviousColumnChangeLead"_s),
-			$of("DOWN"_s),
-			$of("selectNextRow"_s),
-			$of("KP_DOWN"_s),
-			$of("selectNextRow"_s),
-			$of("shift DOWN"_s),
-			$of("selectNextRowExtendSelection"_s),
-			$of("shift KP_DOWN"_s),
-			$of("selectNextRowExtendSelection"_s),
-			$of("ctrl shift DOWN"_s),
-			$of("selectNextRowExtendSelection"_s),
-			$of("ctrl shift KP_DOWN"_s),
-			$of("selectNextRowExtendSelection"_s),
-			$of("ctrl DOWN"_s),
-			$of("selectNextRowChangeLead"_s),
-			$of("ctrl KP_DOWN"_s),
-			$of("selectNextRowChangeLead"_s),
-			$of("UP"_s),
-			$of("selectPreviousRow"_s),
-			$of("KP_UP"_s),
-			$of("selectPreviousRow"_s),
-			$of("shift UP"_s),
-			$of("selectPreviousRowExtendSelection"_s),
-			$of("shift KP_UP"_s),
-			$of("selectPreviousRowExtendSelection"_s),
-			$of("ctrl shift UP"_s),
-			$of("selectPreviousRowExtendSelection"_s),
-			$of("ctrl shift KP_UP"_s),
-			$of("selectPreviousRowExtendSelection"_s),
-			$of("ctrl UP"_s),
-			$of("selectPreviousRowChangeLead"_s),
-			$of("ctrl KP_UP"_s),
-			$of("selectPreviousRowChangeLead"_s),
-			$of("HOME"_s),
-			$of("selectFirstColumn"_s),
-			$of("shift HOME"_s),
-			$of("selectFirstColumnExtendSelection"_s),
-			$of("ctrl shift HOME"_s),
-			$of("selectFirstRowExtendSelection"_s),
-			$of("ctrl HOME"_s),
-			$of("selectFirstRow"_s),
-			$of("END"_s),
-			$of("selectLastColumn"_s),
-			$of("shift END"_s),
-			$of("selectLastColumnExtendSelection"_s),
-			$of("ctrl shift END"_s),
-			$of("selectLastRowExtendSelection"_s),
-			$of("ctrl END"_s),
-			$of("selectLastRow"_s),
-			$of("PAGE_UP"_s),
-			$of("scrollUpChangeSelection"_s),
-			$of("shift PAGE_UP"_s),
-			$of("scrollUpExtendSelection"_s),
-			$of("ctrl shift PAGE_UP"_s),
-			$of("scrollLeftExtendSelection"_s),
-			$of("ctrl PAGE_UP"_s),
-			$of("scrollLeftChangeSelection"_s),
-			$of("PAGE_DOWN"_s),
-			$of("scrollDownChangeSelection"_s),
-			$of("shift PAGE_DOWN"_s),
-			$of("scrollDownExtendSelection"_s),
-			$of("ctrl shift PAGE_DOWN"_s),
-			$of("scrollRightExtendSelection"_s),
-			$of("ctrl PAGE_DOWN"_s),
-			$of("scrollRightChangeSelection"_s),
-			$of("TAB"_s),
-			$of("selectNextColumnCell"_s),
-			$of("shift TAB"_s),
-			$of("selectPreviousColumnCell"_s),
-			$of("ENTER"_s),
-			$of("selectNextRowCell"_s),
-			$of("shift ENTER"_s),
-			$of("selectPreviousRowCell"_s),
-			$of("ctrl A"_s),
-			$of("selectAll"_s),
-			$of("ctrl SLASH"_s),
-			$of("selectAll"_s),
-			$of("ctrl BACK_SLASH"_s),
-			$of("clearSelection"_s),
-			$of("ESCAPE"_s),
-			$of("cancel"_s),
-			$of("F2"_s),
-			$of("startEditing"_s),
-			$of("SPACE"_s),
-			$of("addToSelection"_s),
-			$of("ctrl SPACE"_s),
-			$of("toggleAndAnchor"_s),
-			$of("shift SPACE"_s),
-			$of("extendTo"_s),
-			$of("ctrl shift SPACE"_s),
-			$of("moveSelectionTo"_s),
-			$of("F8"_s),
-			$of("focusHeader"_s)
-		}))),
-		$of("Table.sortIconHighlight"_s),
+		"Table.ancestorInputMap"_s,
+		$$new($UIDefaults$LazyInputMap, $$new($ObjectArray, {
+			"ctrl C"_s,
+			"copy"_s,
+			"ctrl V"_s,
+			"paste"_s,
+			"ctrl X"_s,
+			"cut"_s,
+			"COPY"_s,
+			"copy"_s,
+			"PASTE"_s,
+			"paste"_s,
+			"CUT"_s,
+			"cut"_s,
+			"control INSERT"_s,
+			"copy"_s,
+			"shift INSERT"_s,
+			"paste"_s,
+			"shift DELETE"_s,
+			"cut"_s,
+			"RIGHT"_s,
+			"selectNextColumn"_s,
+			"KP_RIGHT"_s,
+			"selectNextColumn"_s,
+			"shift RIGHT"_s,
+			"selectNextColumnExtendSelection"_s,
+			"shift KP_RIGHT"_s,
+			"selectNextColumnExtendSelection"_s,
+			"ctrl shift RIGHT"_s,
+			"selectNextColumnExtendSelection"_s,
+			"ctrl shift KP_RIGHT"_s,
+			"selectNextColumnExtendSelection"_s,
+			"ctrl RIGHT"_s,
+			"selectNextColumnChangeLead"_s,
+			"ctrl KP_RIGHT"_s,
+			"selectNextColumnChangeLead"_s,
+			"LEFT"_s,
+			"selectPreviousColumn"_s,
+			"KP_LEFT"_s,
+			"selectPreviousColumn"_s,
+			"shift LEFT"_s,
+			"selectPreviousColumnExtendSelection"_s,
+			"shift KP_LEFT"_s,
+			"selectPreviousColumnExtendSelection"_s,
+			"ctrl shift LEFT"_s,
+			"selectPreviousColumnExtendSelection"_s,
+			"ctrl shift KP_LEFT"_s,
+			"selectPreviousColumnExtendSelection"_s,
+			"ctrl LEFT"_s,
+			"selectPreviousColumnChangeLead"_s,
+			"ctrl KP_LEFT"_s,
+			"selectPreviousColumnChangeLead"_s,
+			"DOWN"_s,
+			"selectNextRow"_s,
+			"KP_DOWN"_s,
+			"selectNextRow"_s,
+			"shift DOWN"_s,
+			"selectNextRowExtendSelection"_s,
+			"shift KP_DOWN"_s,
+			"selectNextRowExtendSelection"_s,
+			"ctrl shift DOWN"_s,
+			"selectNextRowExtendSelection"_s,
+			"ctrl shift KP_DOWN"_s,
+			"selectNextRowExtendSelection"_s,
+			"ctrl DOWN"_s,
+			"selectNextRowChangeLead"_s,
+			"ctrl KP_DOWN"_s,
+			"selectNextRowChangeLead"_s,
+			"UP"_s,
+			"selectPreviousRow"_s,
+			"KP_UP"_s,
+			"selectPreviousRow"_s,
+			"shift UP"_s,
+			"selectPreviousRowExtendSelection"_s,
+			"shift KP_UP"_s,
+			"selectPreviousRowExtendSelection"_s,
+			"ctrl shift UP"_s,
+			"selectPreviousRowExtendSelection"_s,
+			"ctrl shift KP_UP"_s,
+			"selectPreviousRowExtendSelection"_s,
+			"ctrl UP"_s,
+			"selectPreviousRowChangeLead"_s,
+			"ctrl KP_UP"_s,
+			"selectPreviousRowChangeLead"_s,
+			"HOME"_s,
+			"selectFirstColumn"_s,
+			"shift HOME"_s,
+			"selectFirstColumnExtendSelection"_s,
+			"ctrl shift HOME"_s,
+			"selectFirstRowExtendSelection"_s,
+			"ctrl HOME"_s,
+			"selectFirstRow"_s,
+			"END"_s,
+			"selectLastColumn"_s,
+			"shift END"_s,
+			"selectLastColumnExtendSelection"_s,
+			"ctrl shift END"_s,
+			"selectLastRowExtendSelection"_s,
+			"ctrl END"_s,
+			"selectLastRow"_s,
+			"PAGE_UP"_s,
+			"scrollUpChangeSelection"_s,
+			"shift PAGE_UP"_s,
+			"scrollUpExtendSelection"_s,
+			"ctrl shift PAGE_UP"_s,
+			"scrollLeftExtendSelection"_s,
+			"ctrl PAGE_UP"_s,
+			"scrollLeftChangeSelection"_s,
+			"PAGE_DOWN"_s,
+			"scrollDownChangeSelection"_s,
+			"shift PAGE_DOWN"_s,
+			"scrollDownExtendSelection"_s,
+			"ctrl shift PAGE_DOWN"_s,
+			"scrollRightExtendSelection"_s,
+			"ctrl PAGE_DOWN"_s,
+			"scrollRightChangeSelection"_s,
+			"TAB"_s,
+			"selectNextColumnCell"_s,
+			"shift TAB"_s,
+			"selectPreviousColumnCell"_s,
+			"ENTER"_s,
+			"selectNextRowCell"_s,
+			"shift ENTER"_s,
+			"selectPreviousRowCell"_s,
+			"ctrl A"_s,
+			"selectAll"_s,
+			"ctrl SLASH"_s,
+			"selectAll"_s,
+			"ctrl BACK_SLASH"_s,
+			"clearSelection"_s,
+			"ESCAPE"_s,
+			"cancel"_s,
+			"F2"_s,
+			"startEditing"_s,
+			"SPACE"_s,
+			"addToSelection"_s,
+			"ctrl SPACE"_s,
+			"toggleAndAnchor"_s,
+			"shift SPACE"_s,
+			"extendTo"_s,
+			"ctrl shift SPACE"_s,
+			"moveSelectionTo"_s,
+			"F8"_s,
+			"focusHeader"_s
+		})),
+		"Table.sortIconHighlight"_s,
 		ControlShadowColor,
-		$of("Table.sortIconLight"_s),
-		$of(white),
-		$of("TableHeader.font"_s),
+		"Table.sortIconLight"_s,
+		white,
+		"TableHeader.font"_s,
 		ControlFont,
-		$of("TableHeader.foreground"_s),
+		"TableHeader.foreground"_s,
 		ControlTextColor,
-		$of("TableHeader.background"_s),
+		"TableHeader.background"_s,
 		ControlBackgroundColor,
-		$of("TableHeader.focusCellBackground"_s),
-		$of($$new($WindowsLookAndFeel$XPValue, $WindowsLookAndFeel$XPValue::NULL_VALUE, WindowBackgroundColor)),
-		$of("TextArea.font"_s),
+		"TableHeader.focusCellBackground"_s,
+		$$new($WindowsLookAndFeel$XPValue, $WindowsLookAndFeel$XPValue::NULL_VALUE, WindowBackgroundColor),
+		"TextArea.font"_s,
 		FixedControlFont,
-		$of("TextArea.background"_s),
+		"TextArea.background"_s,
 		WindowBackgroundColor,
-		$of("TextArea.foreground"_s),
+		"TextArea.foreground"_s,
 		WindowTextColor,
-		$of("TextArea.inactiveForeground"_s),
+		"TextArea.inactiveForeground"_s,
 		InactiveTextColor,
-		$of("TextArea.inactiveBackground"_s),
+		"TextArea.inactiveBackground"_s,
 		WindowBackgroundColor,
-		$of("TextArea.disabledBackground"_s),
+		"TextArea.disabledBackground"_s,
 		DisabledTextBackground,
-		$of("TextArea.selectionBackground"_s),
+		"TextArea.selectionBackground"_s,
 		SelectionBackgroundColor,
-		$of("TextArea.selectionForeground"_s),
+		"TextArea.selectionForeground"_s,
 		SelectionTextColor,
-		$of("TextArea.caretForeground"_s),
+		"TextArea.caretForeground"_s,
 		WindowTextColor,
-		$of("TextField.font"_s),
+		"TextField.font"_s,
 		ControlFont,
-		$of("TextField.background"_s),
+		"TextField.background"_s,
 		TextBackground,
-		$of("TextField.foreground"_s),
+		"TextField.foreground"_s,
 		WindowTextColor,
-		$of("TextField.shadow"_s),
+		"TextField.shadow"_s,
 		ControlShadowColor,
-		$of("TextField.darkShadow"_s),
+		"TextField.darkShadow"_s,
 		ControlDarkShadowColor,
-		$of("TextField.light"_s),
+		"TextField.light"_s,
 		ControlLightColor,
-		$of("TextField.highlight"_s),
+		"TextField.highlight"_s,
 		ControlHighlightColor,
-		$of("TextField.inactiveForeground"_s),
+		"TextField.inactiveForeground"_s,
 		InactiveTextColor,
-		$of("TextField.inactiveBackground"_s),
+		"TextField.inactiveBackground"_s,
 		ReadOnlyTextBackground,
-		$of("TextField.disabledBackground"_s),
+		"TextField.disabledBackground"_s,
 		DisabledTextBackground,
-		$of("TextField.selectionBackground"_s),
+		"TextField.selectionBackground"_s,
 		SelectionBackgroundColor,
-		$of("TextField.selectionForeground"_s),
+		"TextField.selectionForeground"_s,
 		SelectionTextColor,
-		$of("TextField.caretForeground"_s),
+		"TextField.caretForeground"_s,
 		WindowTextColor,
-		$of("TextPane.font"_s),
+		"TextPane.font"_s,
 		ControlFont,
-		$of("TextPane.background"_s),
+		"TextPane.background"_s,
 		WindowBackgroundColor,
-		$of("TextPane.foreground"_s),
+		"TextPane.foreground"_s,
 		WindowTextColor,
-		$of("TextPane.selectionBackground"_s),
+		"TextPane.selectionBackground"_s,
 		SelectionBackgroundColor,
-		$of("TextPane.selectionForeground"_s),
+		"TextPane.selectionForeground"_s,
 		SelectionTextColor,
-		$of("TextPane.inactiveBackground"_s),
+		"TextPane.inactiveBackground"_s,
 		WindowBackgroundColor,
-		$of("TextPane.disabledBackground"_s),
+		"TextPane.disabledBackground"_s,
 		DisabledTextBackground,
-		$of("TextPane.caretForeground"_s),
+		"TextPane.caretForeground"_s,
 		WindowTextColor,
-		$of("TitledBorder.font"_s),
+		"TitledBorder.font"_s,
 		ControlFont,
-		$of("TitledBorder.titleColor"_s),
-		$of($$new($WindowsLookAndFeel$XPColorValue, $TMSchema$Part::BP_GROUPBOX, nullptr, $TMSchema$Prop::TEXTCOLOR, WindowTextColor)),
-		$of("ToggleButton.font"_s),
+		"TitledBorder.titleColor"_s,
+		$$new($WindowsLookAndFeel$XPColorValue, $TMSchema$Part::BP_GROUPBOX, nullptr, $TMSchema$Prop::TEXTCOLOR, WindowTextColor),
+		"ToggleButton.font"_s,
 		ControlFont,
-		$of("ToggleButton.background"_s),
+		"ToggleButton.background"_s,
 		ControlBackgroundColor,
-		$of("ToggleButton.foreground"_s),
+		"ToggleButton.foreground"_s,
 		ControlTextColor,
-		$of("ToggleButton.shadow"_s),
+		"ToggleButton.shadow"_s,
 		ControlShadowColor,
-		$of("ToggleButton.darkShadow"_s),
+		"ToggleButton.darkShadow"_s,
 		ControlDarkShadowColor,
-		$of("ToggleButton.light"_s),
+		"ToggleButton.light"_s,
 		ControlLightColor,
-		$of("ToggleButton.highlight"_s),
+		"ToggleButton.highlight"_s,
 		ControlHighlightColor,
-		$of("ToggleButton.focus"_s),
+		"ToggleButton.focus"_s,
 		ControlTextColor,
-		$of("ToggleButton.textShiftOffset"_s),
-		$($of($Integer::valueOf(1))),
-		$of("ToggleButton.focusInputMap"_s),
-		$of($$new($UIDefaults$LazyInputMap, $$new($ObjectArray, {
-			$of("SPACE"_s),
-			$of("pressed"_s),
-			$of("released SPACE"_s),
-			$of("released"_s)
-		}))),
-		$of("ToolBar.font"_s),
+		"ToggleButton.textShiftOffset"_s,
+		$($Integer::valueOf(1)),
+		"ToggleButton.focusInputMap"_s,
+		$$new($UIDefaults$LazyInputMap, $$new($ObjectArray, {
+			"SPACE"_s,
+			"pressed"_s,
+			"released SPACE"_s,
+			"released"_s
+		})),
+		"ToolBar.font"_s,
 		MenuFont,
-		$of("ToolBar.background"_s),
+		"ToolBar.background"_s,
 		ControlBackgroundColor,
-		$of("ToolBar.foreground"_s),
+		"ToolBar.foreground"_s,
 		ControlTextColor,
-		$of("ToolBar.shadow"_s),
+		"ToolBar.shadow"_s,
 		ControlShadowColor,
-		$of("ToolBar.darkShadow"_s),
+		"ToolBar.darkShadow"_s,
 		ControlDarkShadowColor,
-		$of("ToolBar.light"_s),
+		"ToolBar.light"_s,
 		ControlLightColor,
-		$of("ToolBar.highlight"_s),
+		"ToolBar.highlight"_s,
 		ControlHighlightColor,
-		$of("ToolBar.dockingBackground"_s),
+		"ToolBar.dockingBackground"_s,
 		ControlBackgroundColor,
-		$of("ToolBar.dockingForeground"_s),
-		$of(red),
-		$of("ToolBar.floatingBackground"_s),
+		"ToolBar.dockingForeground"_s,
+		red,
+		"ToolBar.floatingBackground"_s,
 		ControlBackgroundColor,
-		$of("ToolBar.floatingForeground"_s),
-		$of(darkGray),
-		$of("ToolBar.ancestorInputMap"_s),
-		$of($$new($UIDefaults$LazyInputMap, $$new($ObjectArray, {
-			$of("UP"_s),
-			$of("navigateUp"_s),
-			$of("KP_UP"_s),
-			$of("navigateUp"_s),
-			$of("DOWN"_s),
-			$of("navigateDown"_s),
-			$of("KP_DOWN"_s),
-			$of("navigateDown"_s),
-			$of("LEFT"_s),
-			$of("navigateLeft"_s),
-			$of("KP_LEFT"_s),
-			$of("navigateLeft"_s),
-			$of("RIGHT"_s),
-			$of("navigateRight"_s),
-			$of("KP_RIGHT"_s),
-			$of("navigateRight"_s)
-		}))),
-		$of("ToolBar.separatorSize"_s),
-		($Object*)nullptr,
-		$of("ToolTip.font"_s),
+		"ToolBar.floatingForeground"_s,
+		darkGray,
+		"ToolBar.ancestorInputMap"_s,
+		$$new($UIDefaults$LazyInputMap, $$new($ObjectArray, {
+			"UP"_s,
+			"navigateUp"_s,
+			"KP_UP"_s,
+			"navigateUp"_s,
+			"DOWN"_s,
+			"navigateDown"_s,
+			"KP_DOWN"_s,
+			"navigateDown"_s,
+			"LEFT"_s,
+			"navigateLeft"_s,
+			"KP_LEFT"_s,
+			"navigateLeft"_s,
+			"RIGHT"_s,
+			"navigateRight"_s,
+			"KP_RIGHT"_s,
+			"navigateRight"_s
+		})),
+		"ToolBar.separatorSize"_s,
+		nullptr,
+		"ToolTip.font"_s,
 		ToolTipFont,
-		$of("ToolTip.background"_s),
-		$of($$new($WindowsDesktopProperty, "win.tooltip.backgroundColor"_s, $($nc(table)->get("info"_s)))),
-		$of("ToolTip.foreground"_s),
-		$of($$new($WindowsDesktopProperty, "win.tooltip.textColor"_s, $($nc(table)->get("infoText"_s)))),
-		$of("ToolTipManager.enableToolTipMode"_s),
-		$of("activeApplication"_s),
-		$of("Tree.selectionBorderColor"_s),
-		$of(black),
-		$of("Tree.drawDashedFocusIndicator"_s),
-		$of($Boolean::TRUE),
-		$of("Tree.lineTypeDashed"_s),
-		$of($Boolean::TRUE),
-		$of("Tree.font"_s),
+		"ToolTip.background"_s,
+		$$new($WindowsDesktopProperty, "win.tooltip.backgroundColor"_s, $(table->get("info"_s))),
+		"ToolTip.foreground"_s,
+		$$new($WindowsDesktopProperty, "win.tooltip.textColor"_s, $(table->get("infoText"_s))),
+		"ToolTipManager.enableToolTipMode"_s,
+		"activeApplication"_s,
+		"Tree.selectionBorderColor"_s,
+		black,
+		"Tree.drawDashedFocusIndicator"_s,
+		$Boolean::TRUE,
+		"Tree.lineTypeDashed"_s,
+		$Boolean::TRUE,
+		"Tree.font"_s,
 		ControlFont,
-		$of("Tree.background"_s),
+		"Tree.background"_s,
 		WindowBackgroundColor,
-		$of("Tree.foreground"_s),
+		"Tree.foreground"_s,
 		WindowTextColor,
-		$of("Tree.hash"_s),
-		$of(gray),
-		$of("Tree.leftChildIndent"_s),
-		$($of($Integer::valueOf(8))),
-		$of("Tree.rightChildIndent"_s),
-		$($of($Integer::valueOf(11))),
-		$of("Tree.textForeground"_s),
+		"Tree.hash"_s,
+		gray,
+		"Tree.leftChildIndent"_s,
+		$($Integer::valueOf(8)),
+		"Tree.rightChildIndent"_s,
+		$($Integer::valueOf(11)),
+		"Tree.textForeground"_s,
 		WindowTextColor,
-		$of("Tree.textBackground"_s),
+		"Tree.textBackground"_s,
 		WindowBackgroundColor,
-		$of("Tree.selectionForeground"_s),
+		"Tree.selectionForeground"_s,
 		SelectionTextColor,
-		$of("Tree.selectionBackground"_s),
+		"Tree.selectionBackground"_s,
 		SelectionBackgroundColor,
-		$of("Tree.expandedIcon"_s),
+		"Tree.expandedIcon"_s,
 		treeExpandedIcon,
-		$of("Tree.collapsedIcon"_s),
+		"Tree.collapsedIcon"_s,
 		treeCollapsedIcon,
-		$of("Tree.openIcon"_s),
-		$of($$new($WindowsLookAndFeel$ActiveWindowsIcon, this, "win.icon.shellIconBPP"_s, "shell32Icon 5"_s, "icons/TreeOpen.gif"_s)),
-		$of("Tree.closedIcon"_s),
-		$of($$new($WindowsLookAndFeel$ActiveWindowsIcon, this, "win.icon.shellIconBPP"_s, "shell32Icon 4"_s, "icons/TreeClosed.gif"_s)),
-		$of("Tree.focusInputMap"_s),
-		$of($$new($UIDefaults$LazyInputMap, $$new($ObjectArray, {
-			$of("ADD"_s),
-			$of("expand"_s),
-			$of("SUBTRACT"_s),
-			$of("collapse"_s),
-			$of("ctrl C"_s),
-			$of("copy"_s),
-			$of("ctrl V"_s),
-			$of("paste"_s),
-			$of("ctrl X"_s),
-			$of("cut"_s),
-			$of("COPY"_s),
-			$of("copy"_s),
-			$of("PASTE"_s),
-			$of("paste"_s),
-			$of("CUT"_s),
-			$of("cut"_s),
-			$of("control INSERT"_s),
-			$of("copy"_s),
-			$of("shift INSERT"_s),
-			$of("paste"_s),
-			$of("shift DELETE"_s),
-			$of("cut"_s),
-			$of("UP"_s),
-			$of("selectPrevious"_s),
-			$of("KP_UP"_s),
-			$of("selectPrevious"_s),
-			$of("shift UP"_s),
-			$of("selectPreviousExtendSelection"_s),
-			$of("shift KP_UP"_s),
-			$of("selectPreviousExtendSelection"_s),
-			$of("ctrl shift UP"_s),
-			$of("selectPreviousExtendSelection"_s),
-			$of("ctrl shift KP_UP"_s),
-			$of("selectPreviousExtendSelection"_s),
-			$of("ctrl UP"_s),
-			$of("selectPreviousChangeLead"_s),
-			$of("ctrl KP_UP"_s),
-			$of("selectPreviousChangeLead"_s),
-			$of("DOWN"_s),
-			$of("selectNext"_s),
-			$of("KP_DOWN"_s),
-			$of("selectNext"_s),
-			$of("shift DOWN"_s),
-			$of("selectNextExtendSelection"_s),
-			$of("shift KP_DOWN"_s),
-			$of("selectNextExtendSelection"_s),
-			$of("ctrl shift DOWN"_s),
-			$of("selectNextExtendSelection"_s),
-			$of("ctrl shift KP_DOWN"_s),
-			$of("selectNextExtendSelection"_s),
-			$of("ctrl DOWN"_s),
-			$of("selectNextChangeLead"_s),
-			$of("ctrl KP_DOWN"_s),
-			$of("selectNextChangeLead"_s),
-			$of("RIGHT"_s),
-			$of("selectChild"_s),
-			$of("KP_RIGHT"_s),
-			$of("selectChild"_s),
-			$of("LEFT"_s),
-			$of("selectParent"_s),
-			$of("KP_LEFT"_s),
-			$of("selectParent"_s),
-			$of("PAGE_UP"_s),
-			$of("scrollUpChangeSelection"_s),
-			$of("shift PAGE_UP"_s),
-			$of("scrollUpExtendSelection"_s),
-			$of("ctrl shift PAGE_UP"_s),
-			$of("scrollUpExtendSelection"_s),
-			$of("ctrl PAGE_UP"_s),
-			$of("scrollUpChangeLead"_s),
-			$of("PAGE_DOWN"_s),
-			$of("scrollDownChangeSelection"_s),
-			$of("shift PAGE_DOWN"_s),
-			$of("scrollDownExtendSelection"_s),
-			$of("ctrl shift PAGE_DOWN"_s),
-			$of("scrollDownExtendSelection"_s),
-			$of("ctrl PAGE_DOWN"_s),
-			$of("scrollDownChangeLead"_s),
-			$of("HOME"_s),
-			$of("selectFirst"_s),
-			$of("shift HOME"_s),
-			$of("selectFirstExtendSelection"_s),
-			$of("ctrl shift HOME"_s),
-			$of("selectFirstExtendSelection"_s),
-			$of("ctrl HOME"_s),
-			$of("selectFirstChangeLead"_s),
-			$of("END"_s),
-			$of("selectLast"_s),
-			$of("shift END"_s),
-			$of("selectLastExtendSelection"_s),
-			$of("ctrl shift END"_s),
-			$of("selectLastExtendSelection"_s),
-			$of("ctrl END"_s),
-			$of("selectLastChangeLead"_s),
-			$of("F2"_s),
-			$of("startEditing"_s),
-			$of("ctrl A"_s),
-			$of("selectAll"_s),
-			$of("ctrl SLASH"_s),
-			$of("selectAll"_s),
-			$of("ctrl BACK_SLASH"_s),
-			$of("clearSelection"_s),
-			$of("ctrl LEFT"_s),
-			$of("scrollLeft"_s),
-			$of("ctrl KP_LEFT"_s),
-			$of("scrollLeft"_s),
-			$of("ctrl RIGHT"_s),
-			$of("scrollRight"_s),
-			$of("ctrl KP_RIGHT"_s),
-			$of("scrollRight"_s),
-			$of("SPACE"_s),
-			$of("addToSelection"_s),
-			$of("ctrl SPACE"_s),
-			$of("toggleAndAnchor"_s),
-			$of("shift SPACE"_s),
-			$of("extendTo"_s),
-			$of("ctrl shift SPACE"_s),
-			$of("moveSelectionTo"_s)
-		}))),
-		$of("Tree.ancestorInputMap"_s),
-		$of($$new($UIDefaults$LazyInputMap, $$new($ObjectArray, {
-			$of("ESCAPE"_s),
-			$of("cancel"_s)
-		}))),
-		$of("Viewport.font"_s),
+		"Tree.openIcon"_s,
+		$$new($WindowsLookAndFeel$ActiveWindowsIcon, this, "win.icon.shellIconBPP"_s, "shell32Icon 5"_s, "icons/TreeOpen.gif"_s),
+		"Tree.closedIcon"_s,
+		$$new($WindowsLookAndFeel$ActiveWindowsIcon, this, "win.icon.shellIconBPP"_s, "shell32Icon 4"_s, "icons/TreeClosed.gif"_s),
+		"Tree.focusInputMap"_s,
+		$$new($UIDefaults$LazyInputMap, $$new($ObjectArray, {
+			"ADD"_s,
+			"expand"_s,
+			"SUBTRACT"_s,
+			"collapse"_s,
+			"ctrl C"_s,
+			"copy"_s,
+			"ctrl V"_s,
+			"paste"_s,
+			"ctrl X"_s,
+			"cut"_s,
+			"COPY"_s,
+			"copy"_s,
+			"PASTE"_s,
+			"paste"_s,
+			"CUT"_s,
+			"cut"_s,
+			"control INSERT"_s,
+			"copy"_s,
+			"shift INSERT"_s,
+			"paste"_s,
+			"shift DELETE"_s,
+			"cut"_s,
+			"UP"_s,
+			"selectPrevious"_s,
+			"KP_UP"_s,
+			"selectPrevious"_s,
+			"shift UP"_s,
+			"selectPreviousExtendSelection"_s,
+			"shift KP_UP"_s,
+			"selectPreviousExtendSelection"_s,
+			"ctrl shift UP"_s,
+			"selectPreviousExtendSelection"_s,
+			"ctrl shift KP_UP"_s,
+			"selectPreviousExtendSelection"_s,
+			"ctrl UP"_s,
+			"selectPreviousChangeLead"_s,
+			"ctrl KP_UP"_s,
+			"selectPreviousChangeLead"_s,
+			"DOWN"_s,
+			"selectNext"_s,
+			"KP_DOWN"_s,
+			"selectNext"_s,
+			"shift DOWN"_s,
+			"selectNextExtendSelection"_s,
+			"shift KP_DOWN"_s,
+			"selectNextExtendSelection"_s,
+			"ctrl shift DOWN"_s,
+			"selectNextExtendSelection"_s,
+			"ctrl shift KP_DOWN"_s,
+			"selectNextExtendSelection"_s,
+			"ctrl DOWN"_s,
+			"selectNextChangeLead"_s,
+			"ctrl KP_DOWN"_s,
+			"selectNextChangeLead"_s,
+			"RIGHT"_s,
+			"selectChild"_s,
+			"KP_RIGHT"_s,
+			"selectChild"_s,
+			"LEFT"_s,
+			"selectParent"_s,
+			"KP_LEFT"_s,
+			"selectParent"_s,
+			"PAGE_UP"_s,
+			"scrollUpChangeSelection"_s,
+			"shift PAGE_UP"_s,
+			"scrollUpExtendSelection"_s,
+			"ctrl shift PAGE_UP"_s,
+			"scrollUpExtendSelection"_s,
+			"ctrl PAGE_UP"_s,
+			"scrollUpChangeLead"_s,
+			"PAGE_DOWN"_s,
+			"scrollDownChangeSelection"_s,
+			"shift PAGE_DOWN"_s,
+			"scrollDownExtendSelection"_s,
+			"ctrl shift PAGE_DOWN"_s,
+			"scrollDownExtendSelection"_s,
+			"ctrl PAGE_DOWN"_s,
+			"scrollDownChangeLead"_s,
+			"HOME"_s,
+			"selectFirst"_s,
+			"shift HOME"_s,
+			"selectFirstExtendSelection"_s,
+			"ctrl shift HOME"_s,
+			"selectFirstExtendSelection"_s,
+			"ctrl HOME"_s,
+			"selectFirstChangeLead"_s,
+			"END"_s,
+			"selectLast"_s,
+			"shift END"_s,
+			"selectLastExtendSelection"_s,
+			"ctrl shift END"_s,
+			"selectLastExtendSelection"_s,
+			"ctrl END"_s,
+			"selectLastChangeLead"_s,
+			"F2"_s,
+			"startEditing"_s,
+			"ctrl A"_s,
+			"selectAll"_s,
+			"ctrl SLASH"_s,
+			"selectAll"_s,
+			"ctrl BACK_SLASH"_s,
+			"clearSelection"_s,
+			"ctrl LEFT"_s,
+			"scrollLeft"_s,
+			"ctrl KP_LEFT"_s,
+			"scrollLeft"_s,
+			"ctrl RIGHT"_s,
+			"scrollRight"_s,
+			"ctrl KP_RIGHT"_s,
+			"scrollRight"_s,
+			"SPACE"_s,
+			"addToSelection"_s,
+			"ctrl SPACE"_s,
+			"toggleAndAnchor"_s,
+			"shift SPACE"_s,
+			"extendTo"_s,
+			"ctrl shift SPACE"_s,
+			"moveSelectionTo"_s
+		})),
+		"Tree.ancestorInputMap"_s,
+		$$new($UIDefaults$LazyInputMap, $$new($ObjectArray, {
+			"ESCAPE"_s,
+			"cancel"_s
+		})),
+		"Viewport.font"_s,
 		ControlFont,
-		$of("Viewport.background"_s),
+		"Viewport.background"_s,
 		ControlBackgroundColor,
-		$of("Viewport.foreground"_s),
+		"Viewport.foreground"_s,
 		WindowTextColor
 	}));
-	$nc(table)->putDefaults(defaults);
+	table->putDefaults(defaults);
 	table->putDefaults($(getLazyValueDefaults()));
 	initVistaComponentDefaults(table);
 }
@@ -3417,18 +3199,18 @@ bool WindowsLookAndFeel::isOnVista() {
 	$init(WindowsLookAndFeel);
 	$init($OSInfo$OSType);
 	bool var$0 = $OSInfo::getOSType() == $OSInfo$OSType::WINDOWS;
-	return var$0 && $nc($($OSInfo::getWindowsVersion()))->compareTo($OSInfo::WINDOWS_VISTA) >= 0;
+	return var$0 && $$nc($OSInfo::getWindowsVersion())->compareTo($OSInfo::WINDOWS_VISTA) >= 0;
 }
 
 bool WindowsLookAndFeel::isOnWindows7() {
 	$init(WindowsLookAndFeel);
 	$init($OSInfo$OSType);
 	bool var$0 = $OSInfo::getOSType() == $OSInfo$OSType::WINDOWS;
-	return var$0 && $nc($($OSInfo::getWindowsVersion()))->compareTo($OSInfo::WINDOWS_7) >= 0;
+	return var$0 && $$nc($OSInfo::getWindowsVersion())->compareTo($OSInfo::WINDOWS_7) >= 0;
 }
 
 void WindowsLookAndFeel::initVistaComponentDefaults($UIDefaults* table) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!isOnVista()) {
 		return;
 	}
@@ -3439,263 +3221,224 @@ void WindowsLookAndFeel::initVistaComponentDefaults($UIDefaults* table) {
 		"RadioButtonMenuItem"_s
 	}));
 	$var($ObjectArray, menuDefaults, $new($ObjectArray, menuClasses->length * 2));
-	{
-		int32_t i = 0;
-		int32_t j = 0;
-		for (; i < menuClasses->length; ++i) {
-			$var($String, key, $str({menuClasses->get(i), ".opaque"_s}));
-			$var($Object, oldValue, $nc(table)->get(key));
-			menuDefaults->set(j++, key);
-			$init($Boolean);
-			menuDefaults->set(j++, $$new($WindowsLookAndFeel$XPValue, $Boolean::FALSE, oldValue));
-		}
+	for (int32_t i = 0, j = 0; i < menuClasses->length; ++i) {
+		$var($String, key, $str({menuClasses->get(i), ".opaque"_s}));
+		$var($Object, oldValue, $nc(table)->get(key));
+		menuDefaults->set(j++, key);
+		menuDefaults->set(j++, $$new($WindowsLookAndFeel$XPValue, $Boolean::FALSE, oldValue));
 	}
 	$nc(table)->putDefaults(menuDefaults);
-	{
-		int32_t i = 0;
-		int32_t j = 0;
-		for (; i < menuClasses->length; ++i) {
-			$var($String, key, $str({menuClasses->get(i), ".acceleratorSelectionForeground"_s}));
-			$var($Object, oldValue, table->get(key));
-			menuDefaults->set(j++, key);
-			menuDefaults->set(j++, $$new($WindowsLookAndFeel$XPValue, $(table->getColor($$str({menuClasses->get(i), ".acceleratorForeground"_s}))), oldValue));
-		}
+	for (int32_t i = 0, j = 0; i < menuClasses->length; ++i) {
+		$var($String, key, $str({menuClasses->get(i), ".acceleratorSelectionForeground"_s}));
+		$var($Object, oldValue, table->get(key));
+		menuDefaults->set(j++, key);
+		menuDefaults->set(j++, $$new($WindowsLookAndFeel$XPValue, $(table->getColor($$str({menuClasses->get(i), ".acceleratorForeground"_s}))), oldValue));
 	}
 	table->putDefaults(menuDefaults);
 	$var($WindowsIconFactory$VistaMenuItemCheckIconFactory, menuItemCheckIconFactory, $WindowsIconFactory::getMenuItemCheckIconFactory());
-	{
-		int32_t i = 0;
-		int32_t j = 0;
-		for (; i < menuClasses->length; ++i) {
-			$var($String, key, $str({menuClasses->get(i), ".checkIconFactory"_s}));
-			$var($Object, oldValue, table->get(key));
-			menuDefaults->set(j++, key);
-			menuDefaults->set(j++, $$new($WindowsLookAndFeel$XPValue, menuItemCheckIconFactory, oldValue));
-		}
+	for (int32_t i = 0, j = 0; i < menuClasses->length; ++i) {
+		$var($String, key, $str({menuClasses->get(i), ".checkIconFactory"_s}));
+		$var($Object, oldValue, table->get(key));
+		menuDefaults->set(j++, key);
+		menuDefaults->set(j++, $$new($WindowsLookAndFeel$XPValue, menuItemCheckIconFactory, oldValue));
 	}
 	table->putDefaults(menuDefaults);
-	{
-		int32_t i = 0;
-		int32_t j = 0;
-		for (; i < menuClasses->length; ++i) {
-			$var($String, key, $str({menuClasses->get(i), ".checkIcon"_s}));
-			$var($Object, oldValue, table->get(key));
-			menuDefaults->set(j++, key);
-			menuDefaults->set(j++, $$new($WindowsLookAndFeel$XPValue, $($nc(menuItemCheckIconFactory)->getIcon(menuClasses->get(i))), oldValue));
-		}
+	for (int32_t i = 0, j = 0; i < menuClasses->length; ++i) {
+		$var($String, key, $str({menuClasses->get(i), ".checkIcon"_s}));
+		$var($Object, oldValue, table->get(key));
+		menuDefaults->set(j++, key);
+		menuDefaults->set(j++, $$new($WindowsLookAndFeel$XPValue, $($nc(menuItemCheckIconFactory)->getIcon(menuClasses->get(i))), oldValue));
 	}
 	table->putDefaults(menuDefaults);
-	{
-		int32_t i = 0;
-		int32_t j = 0;
-		for (; i < menuClasses->length; ++i) {
-			$var($String, key, $str({menuClasses->get(i), ".evenHeight"_s}));
-			$var($Object, oldValue, table->get(key));
-			menuDefaults->set(j++, key);
-			$init($Boolean);
-			menuDefaults->set(j++, $$new($WindowsLookAndFeel$XPValue, $Boolean::TRUE, oldValue));
-		}
+	for (int32_t i = 0, j = 0; i < menuClasses->length; ++i) {
+		$var($String, key, $str({menuClasses->get(i), ".evenHeight"_s}));
+		$var($Object, oldValue, table->get(key));
+		menuDefaults->set(j++, key);
+		menuDefaults->set(j++, $$new($WindowsLookAndFeel$XPValue, $Boolean::TRUE, oldValue));
 	}
 	table->putDefaults(menuDefaults);
 	if (!isOnWindows7()) {
 		$var($InsetsUIResource, insets, $new($InsetsUIResource, 0, 0, 0, 0));
-		{
-			int32_t i = 0;
-			int32_t j = 0;
-			for (; i < menuClasses->length; ++i) {
-				$var($String, key, $str({menuClasses->get(i), ".margin"_s}));
-				$var($Object, oldValue, table->get(key));
-				menuDefaults->set(j++, key);
-				menuDefaults->set(j++, $$new($WindowsLookAndFeel$XPValue, insets, oldValue));
-			}
+		for (int32_t i = 0, j = 0; i < menuClasses->length; ++i) {
+			$var($String, key, $str({menuClasses->get(i), ".margin"_s}));
+			$var($Object, oldValue, table->get(key));
+			menuDefaults->set(j++, key);
+			menuDefaults->set(j++, $$new($WindowsLookAndFeel$XPValue, insets, oldValue));
 		}
 		table->putDefaults(menuDefaults);
 		$var($Integer, checkIconOffsetInteger, $Integer::valueOf(0));
-		{
-			int32_t i = 0;
-			int32_t j = 0;
-			for (; i < menuClasses->length; ++i) {
-				$var($String, key, $str({menuClasses->get(i), ".checkIconOffset"_s}));
-				$var($Object, oldValue, table->get(key));
-				menuDefaults->set(j++, key);
-				menuDefaults->set(j++, $$new($WindowsLookAndFeel$XPValue, checkIconOffsetInteger, oldValue));
-			}
+		for (int32_t i = 0, j = 0; i < menuClasses->length; ++i) {
+			$var($String, key, $str({menuClasses->get(i), ".checkIconOffset"_s}));
+			$var($Object, oldValue, table->get(key));
+			menuDefaults->set(j++, key);
+			menuDefaults->set(j++, $$new($WindowsLookAndFeel$XPValue, checkIconOffsetInteger, oldValue));
 		}
 		table->putDefaults(menuDefaults);
 	}
 	int32_t var$1 = $WindowsPopupMenuUI::getSpanBeforeGutter();
 	int32_t var$0 = var$1 + $WindowsPopupMenuUI::getGutterWidth();
 	$var($Integer, afterCheckIconGap, $Integer::valueOf(var$0 + $WindowsPopupMenuUI::getSpanAfterGutter()));
-	{
-		int32_t i = 0;
-		int32_t j = 0;
-		for (; i < menuClasses->length; ++i) {
-			$var($String, key, $str({menuClasses->get(i), ".afterCheckIconGap"_s}));
-			$var($Object, oldValue, table->get(key));
-			menuDefaults->set(j++, key);
-			menuDefaults->set(j++, $$new($WindowsLookAndFeel$XPValue, afterCheckIconGap, oldValue));
-		}
+	for (int32_t i = 0, j = 0; i < menuClasses->length; ++i) {
+		$var($String, key, $str({menuClasses->get(i), ".afterCheckIconGap"_s}));
+		$var($Object, oldValue, table->get(key));
+		menuDefaults->set(j++, key);
+		menuDefaults->set(j++, $$new($WindowsLookAndFeel$XPValue, afterCheckIconGap, oldValue));
 	}
 	table->putDefaults(menuDefaults);
 	$var($Object, minimumTextOffset, $new($WindowsLookAndFeel$1, this));
-	{
-		int32_t i = 0;
-		int32_t j = 0;
-		for (; i < menuClasses->length; ++i) {
-			$var($String, key, $str({menuClasses->get(i), ".minimumTextOffset"_s}));
-			$var($Object, oldValue, table->get(key));
-			menuDefaults->set(j++, key);
-			menuDefaults->set(j++, $$new($WindowsLookAndFeel$XPValue, minimumTextOffset, oldValue));
-		}
+	for (int32_t i = 0, j = 0; i < menuClasses->length; ++i) {
+		$var($String, key, $str({menuClasses->get(i), ".minimumTextOffset"_s}));
+		$var($Object, oldValue, table->get(key));
+		menuDefaults->set(j++, key);
+		menuDefaults->set(j++, $$new($WindowsLookAndFeel$XPValue, minimumTextOffset, oldValue));
 	}
 	table->putDefaults(menuDefaults);
 	$var($String, POPUP_MENU_BORDER, "PopupMenu.border"_s);
 	$init($TMSchema$Part);
 	$var($TMSchema$Part, var$2, $TMSchema$Part::MENU);
-	$var($Object, var$3, static_cast<$UIDefaults$LazyValue*>($new(WindowsLookAndFeel$$Lambda$lambda$initVistaComponentDefaults$6$6)));
+	$var($Object, var$3, $cast($UIDefaults$LazyValue, $new(WindowsLookAndFeel$$Lambda$lambda$initVistaComponentDefaults$6$6)));
 	$var($Object, popupMenuBorder, $new($WindowsLookAndFeel$XPBorderValue, var$2, var$3, $($BorderFactory::createEmptyBorder(2, 2, 2, 2))));
 	table->put(POPUP_MENU_BORDER, popupMenuBorder);
 	$init($TMSchema$State);
-	$var($Object, var$4, $of($new($WindowsLookAndFeel$SkinIcon, $TMSchema$Part::HP_HEADERSORTARROW, $TMSchema$State::SORTEDDOWN)));
-	table->put("Table.ascendingSortIcon"_s, $$new($WindowsLookAndFeel$XPValue, var$4, static_cast<$UIDefaults$LazyValue*>($$new(WindowsLookAndFeel$$Lambda$lambda$initVistaComponentDefaults$7$7))));
-	$var($Object, var$5, $of($new($WindowsLookAndFeel$SkinIcon, $TMSchema$Part::HP_HEADERSORTARROW, $TMSchema$State::SORTEDUP)));
-	table->put("Table.descendingSortIcon"_s, $$new($WindowsLookAndFeel$XPValue, var$5, static_cast<$UIDefaults$LazyValue*>($$new(WindowsLookAndFeel$$Lambda$lambda$initVistaComponentDefaults$8$8))));
+	$var($Object, var$4, $new($WindowsLookAndFeel$SkinIcon, $TMSchema$Part::HP_HEADERSORTARROW, $TMSchema$State::SORTEDDOWN));
+	table->put("Table.ascendingSortIcon"_s, $$new($WindowsLookAndFeel$XPValue, var$4, $cast($UIDefaults$LazyValue, $$new(WindowsLookAndFeel$$Lambda$lambda$initVistaComponentDefaults$7$7))));
+	$var($Object, var$5, $new($WindowsLookAndFeel$SkinIcon, $TMSchema$Part::HP_HEADERSORTARROW, $TMSchema$State::SORTEDUP));
+	table->put("Table.descendingSortIcon"_s, $$new($WindowsLookAndFeel$XPValue, var$5, $cast($UIDefaults$LazyValue, $$new(WindowsLookAndFeel$$Lambda$lambda$initVistaComponentDefaults$8$8))));
 }
 
 $Object* WindowsLookAndFeel::getDesktopFontValue($String* fontName, Object$* backup) {
 	if (this->useSystemFontSettings) {
-		return $of($new($WindowsLookAndFeel$WindowsFontProperty, fontName, backup));
+		return $new($WindowsLookAndFeel$WindowsFontProperty, fontName, backup);
 	}
-	return $of(nullptr);
+	return nullptr;
 }
 
 $ObjectArray* WindowsLookAndFeel::getLazyValueDefaults() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($TMSchema$Part);
-	$var($Object, buttonBorder, $new($WindowsLookAndFeel$XPBorderValue, $TMSchema$Part::BP_PUSHBUTTON, static_cast<$UIDefaults$LazyValue*>($$new(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$9$9))));
-	$var($Object, textFieldBorder, $new($WindowsLookAndFeel$XPBorderValue, $TMSchema$Part::EP_EDIT, static_cast<$UIDefaults$LazyValue*>($$new(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$10$10))));
-	$var($Object, var$0, $of($new($InsetsUIResource, 2, 2, 2, 2)));
+	$var($Object, buttonBorder, $new($WindowsLookAndFeel$XPBorderValue, $TMSchema$Part::BP_PUSHBUTTON, $cast($UIDefaults$LazyValue, $$new(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$9$9))));
+	$var($Object, textFieldBorder, $new($WindowsLookAndFeel$XPBorderValue, $TMSchema$Part::EP_EDIT, $cast($UIDefaults$LazyValue, $$new(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$10$10))));
+	$var($Object, var$0, $new($InsetsUIResource, 2, 2, 2, 2));
 	$var($Object, textFieldMargin, $new($WindowsLookAndFeel$XPValue, var$0, $$new($InsetsUIResource, 1, 1, 1, 1)));
 	$var($Object, spinnerBorder, $new($WindowsLookAndFeel$XPBorderValue, $TMSchema$Part::EP_EDIT, textFieldBorder, $$new($EmptyBorder, 2, 2, 2, 2)));
 	$var($Object, spinnerArrowInsets, $new($WindowsLookAndFeel$XPValue, $$new($InsetsUIResource, 1, 1, 1, 1), nullptr));
 	$var($Object, comboBoxBorder, $new($WindowsLookAndFeel$XPBorderValue, $TMSchema$Part::CP_COMBOBOX, textFieldBorder));
-	$var($UIDefaults$LazyValue, focusCellHighlightBorder, static_cast<$UIDefaults$LazyValue*>($new(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$11$11)));
-	$var($UIDefaults$LazyValue, etchedBorder, static_cast<$UIDefaults$LazyValue*>($new(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$12$12)));
-	$var($UIDefaults$LazyValue, internalFrameBorder, static_cast<$UIDefaults$LazyValue*>($new(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$13$13)));
-	$var($UIDefaults$LazyValue, loweredBevelBorder, static_cast<$UIDefaults$LazyValue*>($new(WindowsLookAndFeel$$Lambda$lambda$initComponentDefaults$4$4)));
-	$var($UIDefaults$LazyValue, marginBorder, static_cast<$UIDefaults$LazyValue*>($new(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$15$14)));
-	$var($UIDefaults$LazyValue, menuBarBorder, static_cast<$UIDefaults$LazyValue*>($new(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$16$15)));
-	$var($Object, popupMenuBorder, $new($WindowsLookAndFeel$XPBorderValue, $TMSchema$Part::MENU, static_cast<$UIDefaults$LazyValue*>($$new(WindowsLookAndFeel$$Lambda$lambda$initVistaComponentDefaults$6$6))));
-	$var($UIDefaults$LazyValue, progressBarBorder, static_cast<$UIDefaults$LazyValue*>($new(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$18$16)));
-	$var($UIDefaults$LazyValue, radioButtonBorder, static_cast<$UIDefaults$LazyValue*>($new(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$19$17)));
+	$var($UIDefaults$LazyValue, focusCellHighlightBorder, $new(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$11$11));
+	$var($UIDefaults$LazyValue, etchedBorder, $new(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$12$12));
+	$var($UIDefaults$LazyValue, internalFrameBorder, $new(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$13$13));
+	$var($UIDefaults$LazyValue, loweredBevelBorder, $new(WindowsLookAndFeel$$Lambda$lambda$initComponentDefaults$4$4));
+	$var($UIDefaults$LazyValue, marginBorder, $new(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$15$14));
+	$var($UIDefaults$LazyValue, menuBarBorder, $new(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$16$15));
+	$var($Object, popupMenuBorder, $new($WindowsLookAndFeel$XPBorderValue, $TMSchema$Part::MENU, $cast($UIDefaults$LazyValue, $$new(WindowsLookAndFeel$$Lambda$lambda$initVistaComponentDefaults$6$6))));
+	$var($UIDefaults$LazyValue, progressBarBorder, $new(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$18$16));
+	$var($UIDefaults$LazyValue, radioButtonBorder, $new(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$19$17));
 	$var($Object, scrollPaneBorder, $new($WindowsLookAndFeel$XPBorderValue, $TMSchema$Part::LBP_LISTBOX, textFieldBorder));
 	$var($Object, tableScrollPaneBorder, $new($WindowsLookAndFeel$XPBorderValue, $TMSchema$Part::LBP_LISTBOX, loweredBevelBorder));
-	$var($UIDefaults$LazyValue, tableHeaderBorder, static_cast<$UIDefaults$LazyValue*>($new(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$20$18)));
-	$var($UIDefaults$LazyValue, toolBarBorder, static_cast<$UIDefaults$LazyValue*>($new(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$21$19)));
-	$var($UIDefaults$LazyValue, toolTipBorder, static_cast<$UIDefaults$LazyValue*>($new(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$22$20)));
-	$var($UIDefaults$LazyValue, checkBoxIcon, static_cast<$UIDefaults$LazyValue*>($new(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$23$21)));
-	$var($UIDefaults$LazyValue, radioButtonIcon, static_cast<$UIDefaults$LazyValue*>($new(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$24$22)));
-	$var($UIDefaults$LazyValue, radioButtonMenuItemIcon, static_cast<$UIDefaults$LazyValue*>($new(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$25$23)));
-	$var($UIDefaults$LazyValue, menuItemCheckIcon, static_cast<$UIDefaults$LazyValue*>($new(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$26$24)));
-	$var($UIDefaults$LazyValue, menuItemArrowIcon, static_cast<$UIDefaults$LazyValue*>($new(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$27$25)));
-	$var($UIDefaults$LazyValue, menuArrowIcon, static_cast<$UIDefaults$LazyValue*>($new(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$28$26)));
-	$var($Color, highlight, $cast($Color, $nc($($Toolkit::getDefaultToolkit()))->getDesktopProperty("win.3d.highlightColor"_s)));
-	$var($Color, shadow, $cast($Color, $nc($($Toolkit::getDefaultToolkit()))->getDesktopProperty("win.3d.shadowColor"_s)));
-	$init($Boolean);
-	$var($Object, var$1, static_cast<$UIDefaults$LazyValue*>($new(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$29$27)));
-	$var($Object, var$2, static_cast<$UIDefaults$LazyValue*>($new(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$31$28)));
+	$var($UIDefaults$LazyValue, tableHeaderBorder, $new(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$20$18));
+	$var($UIDefaults$LazyValue, toolBarBorder, $new(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$21$19));
+	$var($UIDefaults$LazyValue, toolTipBorder, $new(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$22$20));
+	$var($UIDefaults$LazyValue, checkBoxIcon, $new(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$23$21));
+	$var($UIDefaults$LazyValue, radioButtonIcon, $new(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$24$22));
+	$var($UIDefaults$LazyValue, radioButtonMenuItemIcon, $new(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$25$23));
+	$var($UIDefaults$LazyValue, menuItemCheckIcon, $new(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$26$24));
+	$var($UIDefaults$LazyValue, menuItemArrowIcon, $new(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$27$25));
+	$var($UIDefaults$LazyValue, menuArrowIcon, $new(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$28$26));
+	$var($Color, highlight, $cast($Color, $$nc($Toolkit::getDefaultToolkit())->getDesktopProperty("win.3d.highlightColor"_s)));
+	$var($Color, shadow, $cast($Color, $$nc($Toolkit::getDefaultToolkit())->getDesktopProperty("win.3d.shadowColor"_s)));
+	$var($Object, var$1, $cast($UIDefaults$LazyValue, $new(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$29$27)));
+	$var($Object, var$2, $cast($UIDefaults$LazyValue, $new(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$31$28)));
 	$var($ObjectArray, lazyDefaults, $new($ObjectArray, {
-		$of("Button.border"_s),
+		"Button.border"_s,
 		buttonBorder,
-		$of("CheckBox.border"_s),
-		$of(radioButtonBorder),
-		$of("ComboBox.border"_s),
+		"CheckBox.border"_s,
+		radioButtonBorder,
+		"ComboBox.border"_s,
 		comboBoxBorder,
-		$of("DesktopIcon.border"_s),
-		$of(internalFrameBorder),
-		$of("FormattedTextField.border"_s),
+		"DesktopIcon.border"_s,
+		internalFrameBorder,
+		"FormattedTextField.border"_s,
 		textFieldBorder,
-		$of("FormattedTextField.margin"_s),
+		"FormattedTextField.margin"_s,
 		textFieldMargin,
-		$of("InternalFrame.border"_s),
-		$of(internalFrameBorder),
-		$of("List.focusCellHighlightBorder"_s),
-		$of(focusCellHighlightBorder),
-		$of("Table.focusCellHighlightBorder"_s),
-		$of(focusCellHighlightBorder),
-		$of("Menu.border"_s),
-		$of(marginBorder),
-		$of("MenuBar.border"_s),
-		$of(menuBarBorder),
-		$of("MenuItem.border"_s),
-		$of(marginBorder),
-		$of("PasswordField.border"_s),
+		"InternalFrame.border"_s,
+		internalFrameBorder,
+		"List.focusCellHighlightBorder"_s,
+		focusCellHighlightBorder,
+		"Table.focusCellHighlightBorder"_s,
+		focusCellHighlightBorder,
+		"Menu.border"_s,
+		marginBorder,
+		"MenuBar.border"_s,
+		menuBarBorder,
+		"MenuItem.border"_s,
+		marginBorder,
+		"PasswordField.border"_s,
 		textFieldBorder,
-		$of("PasswordField.margin"_s),
+		"PasswordField.margin"_s,
 		textFieldMargin,
-		$of("PopupMenu.border"_s),
+		"PopupMenu.border"_s,
 		popupMenuBorder,
-		$of("ProgressBar.border"_s),
-		$of(progressBarBorder),
-		$of("RadioButton.border"_s),
-		$of(radioButtonBorder),
-		$of("ScrollPane.border"_s),
+		"ProgressBar.border"_s,
+		progressBarBorder,
+		"RadioButton.border"_s,
+		radioButtonBorder,
+		"ScrollPane.border"_s,
 		scrollPaneBorder,
-		$of("Spinner.border"_s),
+		"Spinner.border"_s,
 		spinnerBorder,
-		$of("Spinner.arrowButtonInsets"_s),
+		"Spinner.arrowButtonInsets"_s,
 		spinnerArrowInsets,
-		$of("Spinner.arrowButtonSize"_s),
-		$of($$new($Dimension, 17, 9)),
-		$of("Table.scrollPaneBorder"_s),
+		"Spinner.arrowButtonSize"_s,
+		$$new($Dimension, 17, 9),
+		"Table.scrollPaneBorder"_s,
 		tableScrollPaneBorder,
-		$of("TableHeader.cellBorder"_s),
-		$of(tableHeaderBorder),
-		$of("TextArea.margin"_s),
+		"TableHeader.cellBorder"_s,
+		tableHeaderBorder,
+		"TextArea.margin"_s,
 		textFieldMargin,
-		$of("TextField.border"_s),
+		"TextField.border"_s,
 		textFieldBorder,
-		$of("TextField.margin"_s),
+		"TextField.margin"_s,
 		textFieldMargin,
-		$of("TitledBorder.border"_s),
-		$of($$new($WindowsLookAndFeel$2, this, highlight, shadow)),
-		$of("ToggleButton.border"_s),
-		$of(radioButtonBorder),
-		$of("ToolBar.border"_s),
-		$of(toolBarBorder),
-		$of("ToolTip.border"_s),
-		$of(toolTipBorder),
-		$of("CheckBox.icon"_s),
-		$of(checkBoxIcon),
-		$of("Menu.arrowIcon"_s),
-		$of(menuArrowIcon),
-		$of("MenuItem.checkIcon"_s),
-		$of(menuItemCheckIcon),
-		$of("MenuItem.arrowIcon"_s),
-		$of(menuItemArrowIcon),
-		$of("RadioButton.icon"_s),
-		$of(radioButtonIcon),
-		$of("RadioButtonMenuItem.checkIcon"_s),
-		$of(radioButtonMenuItemIcon),
-		$of("InternalFrame.layoutTitlePaneAtOrigin"_s),
-		$of($$new($WindowsLookAndFeel$XPValue, $Boolean::TRUE, $Boolean::FALSE)),
-		$of("Table.ascendingSortIcon"_s),
-		$of($$new($WindowsLookAndFeel$XPValue, var$1, static_cast<$UIDefaults$LazyValue*>($$new(WindowsLookAndFeel$$Lambda$lambda$initVistaComponentDefaults$7$7)))),
-		$of("Table.descendingSortIcon"_s),
-		$of($$new($WindowsLookAndFeel$XPValue, var$2, static_cast<$UIDefaults$LazyValue*>($$new(WindowsLookAndFeel$$Lambda$lambda$initVistaComponentDefaults$8$8))))
+		"TitledBorder.border"_s,
+		$$new($WindowsLookAndFeel$2, this, highlight, shadow),
+		"ToggleButton.border"_s,
+		radioButtonBorder,
+		"ToolBar.border"_s,
+		toolBarBorder,
+		"ToolTip.border"_s,
+		toolTipBorder,
+		"CheckBox.icon"_s,
+		checkBoxIcon,
+		"Menu.arrowIcon"_s,
+		menuArrowIcon,
+		"MenuItem.checkIcon"_s,
+		menuItemCheckIcon,
+		"MenuItem.arrowIcon"_s,
+		menuItemArrowIcon,
+		"RadioButton.icon"_s,
+		radioButtonIcon,
+		"RadioButtonMenuItem.checkIcon"_s,
+		radioButtonMenuItemIcon,
+		"InternalFrame.layoutTitlePaneAtOrigin"_s,
+		$$new($WindowsLookAndFeel$XPValue, $Boolean::TRUE, $Boolean::FALSE),
+		"Table.ascendingSortIcon"_s,
+		$$new($WindowsLookAndFeel$XPValue, var$1, $cast($UIDefaults$LazyValue, $$new(WindowsLookAndFeel$$Lambda$lambda$initVistaComponentDefaults$7$7))),
+		"Table.descendingSortIcon"_s,
+		$$new($WindowsLookAndFeel$XPValue, var$2, $cast($UIDefaults$LazyValue, $$new(WindowsLookAndFeel$$Lambda$lambda$initVistaComponentDefaults$8$8)))
 	}));
 	return lazyDefaults;
 }
 
 void WindowsLookAndFeel::uninitialize() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$BasicLookAndFeel::uninitialize();
 	$init($WindowsPopupMenuUI);
 	if ($WindowsPopupMenuUI::mnemonicListener != nullptr) {
-		$nc($($MenuSelectionManager::defaultManager()))->removeChangeListener($WindowsPopupMenuUI::mnemonicListener);
+		$$nc($MenuSelectionManager::defaultManager())->removeChangeListener($WindowsPopupMenuUI::mnemonicListener);
 	}
 	$init($WindowsRootPaneUI);
-	$nc($($KeyboardFocusManager::getCurrentKeyboardFocusManager()))->removeKeyEventPostProcessor($WindowsRootPaneUI::altProcessor);
+	$$nc($KeyboardFocusManager::getCurrentKeyboardFocusManager())->removeKeyEventPostProcessor($WindowsRootPaneUI::altProcessor);
 	$WindowsDesktopProperty::flushUnreferencedProperties();
 }
 
@@ -3735,7 +3478,7 @@ $LayoutStyle* WindowsLookAndFeel::getLayoutStyle() {
 }
 
 $Action* WindowsLookAndFeel::createAudioAction(Object$* key) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (key != nullptr) {
 		$var($String, audioKey, $cast($String, key));
 		$var($String, audioValue, $cast($String, $UIManager::get(key)));
@@ -3747,10 +3490,10 @@ $Action* WindowsLookAndFeel::createAudioAction(Object$* key) {
 
 void WindowsLookAndFeel::repaintRootPane($Component* c$renamed) {
 	$init(WindowsLookAndFeel);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Component, c, c$renamed);
 	$var($JRootPane, root, nullptr);
-	for (; c != nullptr; $assign(c, $nc(c)->getParent())) {
+	for (; c != nullptr; $assign(c, c->getParent())) {
 		if ($instanceOf($JRootPane, c)) {
 			$assign(root, $cast($JRootPane, c));
 		}
@@ -3758,7 +3501,7 @@ void WindowsLookAndFeel::repaintRootPane($Component* c$renamed) {
 	if (root != nullptr) {
 		root->repaint();
 	} else {
-		c->repaint();
+		$nc(c)->repaint();
 	}
 }
 
@@ -3776,8 +3519,8 @@ int32_t WindowsLookAndFeel::dluToPixels(int32_t dlu, int32_t direction) {
 }
 
 void WindowsLookAndFeel::calculateBaseUnits() {
-	$useLocalCurrentObjectStackCache();
-	$var($FontMetrics, metrics, $nc($($Toolkit::getDefaultToolkit()))->getFontMetrics($($UIManager::getFont("Button.font"_s))));
+	$useLocalObjectStack();
+	$var($FontMetrics, metrics, $$nc($Toolkit::getDefaultToolkit())->getFontMetrics($($UIManager::getFont("Button.font"_s))));
 	this->baseUnitX = $nc(metrics)->stringWidth("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"_s);
 	this->baseUnitX = (this->baseUnitX / 26 + 1) / 2;
 	int32_t var$0 = metrics->getAscent();
@@ -3785,8 +3528,7 @@ void WindowsLookAndFeel::calculateBaseUnits() {
 }
 
 $Icon* WindowsLookAndFeel::getDisabledIcon($JComponent* component, $Icon* icon) {
-	$useLocalCurrentObjectStackCache();
-	$init($Boolean);
+	$useLocalObjectStack();
 	bool var$1 = icon != nullptr && component != nullptr && $nc($Boolean::TRUE)->equals($(component->getClientProperty(WindowsLookAndFeel::HI_RES_DISABLED_ICON_CLIENT_KEY)));
 	bool var$0 = var$1 && icon->getIconWidth() > 0;
 	if (var$0 && icon->getIconHeight() > 0) {
@@ -3813,62 +3555,62 @@ $Object* WindowsLookAndFeel::lambda$getLazyValueDefaults$29($UIDefaults* t) {
 
 $Object* WindowsLookAndFeel::lambda$getLazyValueDefaults$28($UIDefaults* t) {
 	$init(WindowsLookAndFeel);
-	return $of($WindowsIconFactory::getMenuArrowIcon());
+	return $WindowsIconFactory::getMenuArrowIcon();
 }
 
 $Object* WindowsLookAndFeel::lambda$getLazyValueDefaults$27($UIDefaults* t) {
 	$init(WindowsLookAndFeel);
-	return $of($WindowsIconFactory::getMenuItemArrowIcon());
+	return $WindowsIconFactory::getMenuItemArrowIcon();
 }
 
 $Object* WindowsLookAndFeel::lambda$getLazyValueDefaults$26($UIDefaults* t) {
 	$init(WindowsLookAndFeel);
-	return $of($WindowsIconFactory::getMenuItemCheckIcon());
+	return $WindowsIconFactory::getMenuItemCheckIcon();
 }
 
 $Object* WindowsLookAndFeel::lambda$getLazyValueDefaults$25($UIDefaults* t) {
 	$init(WindowsLookAndFeel);
-	return $of($WindowsIconFactory::getRadioButtonMenuItemIcon());
+	return $WindowsIconFactory::getRadioButtonMenuItemIcon();
 }
 
 $Object* WindowsLookAndFeel::lambda$getLazyValueDefaults$24($UIDefaults* t) {
 	$init(WindowsLookAndFeel);
-	return $of($WindowsIconFactory::getRadioButtonIcon());
+	return $WindowsIconFactory::getRadioButtonIcon();
 }
 
 $Object* WindowsLookAndFeel::lambda$getLazyValueDefaults$23($UIDefaults* t) {
 	$init(WindowsLookAndFeel);
-	return $of($WindowsIconFactory::getCheckBoxIcon());
+	return $WindowsIconFactory::getCheckBoxIcon();
 }
 
 $Object* WindowsLookAndFeel::lambda$getLazyValueDefaults$22($UIDefaults* t) {
 	$init(WindowsLookAndFeel);
-	return $of($BorderUIResource::getBlackLineBorderUIResource());
+	return $BorderUIResource::getBlackLineBorderUIResource();
 }
 
 $Object* WindowsLookAndFeel::lambda$getLazyValueDefaults$21($UIDefaults* t) {
 	$init(WindowsLookAndFeel);
-	return $of($WindowsBorders::getToolBarBorder());
+	return $WindowsBorders::getToolBarBorder();
 }
 
 $Object* WindowsLookAndFeel::lambda$getLazyValueDefaults$20($UIDefaults* t) {
 	$init(WindowsLookAndFeel);
-	return $of($WindowsBorders::getTableHeaderBorder());
+	return $WindowsBorders::getTableHeaderBorder();
 }
 
 $Object* WindowsLookAndFeel::lambda$getLazyValueDefaults$19($UIDefaults* t) {
 	$init(WindowsLookAndFeel);
-	return $of($BasicBorders::getRadioButtonBorder());
+	return $BasicBorders::getRadioButtonBorder();
 }
 
 $Object* WindowsLookAndFeel::lambda$getLazyValueDefaults$18($UIDefaults* t) {
 	$init(WindowsLookAndFeel);
-	return $of($WindowsBorders::getProgressBarBorder());
+	return $WindowsBorders::getProgressBarBorder();
 }
 
 $Object* WindowsLookAndFeel::lambda$getLazyValueDefaults$16($UIDefaults* t) {
 	$init(WindowsLookAndFeel);
-	return $of($BasicBorders::getMenuBarBorder());
+	return $BasicBorders::getMenuBarBorder();
 }
 
 $Object* WindowsLookAndFeel::lambda$getLazyValueDefaults$15($UIDefaults* t) {
@@ -3878,27 +3620,27 @@ $Object* WindowsLookAndFeel::lambda$getLazyValueDefaults$15($UIDefaults* t) {
 
 $Object* WindowsLookAndFeel::lambda$getLazyValueDefaults$13($UIDefaults* t) {
 	$init(WindowsLookAndFeel);
-	return $of($WindowsBorders::getInternalFrameBorder());
+	return $WindowsBorders::getInternalFrameBorder();
 }
 
 $Object* WindowsLookAndFeel::lambda$getLazyValueDefaults$12($UIDefaults* t) {
 	$init(WindowsLookAndFeel);
-	return $of($BorderUIResource::getEtchedBorderUIResource());
+	return $BorderUIResource::getEtchedBorderUIResource();
 }
 
 $Object* WindowsLookAndFeel::lambda$getLazyValueDefaults$11($UIDefaults* t) {
 	$init(WindowsLookAndFeel);
-	return $of($WindowsBorders::getFocusCellHighlightBorder());
+	return $WindowsBorders::getFocusCellHighlightBorder();
 }
 
 $Object* WindowsLookAndFeel::lambda$getLazyValueDefaults$10($UIDefaults* t) {
 	$init(WindowsLookAndFeel);
-	return $of($BasicBorders::getTextFieldBorder());
+	return $BasicBorders::getTextFieldBorder();
 }
 
 $Object* WindowsLookAndFeel::lambda$getLazyValueDefaults$9($UIDefaults* t) {
 	$init(WindowsLookAndFeel);
-	return $of($BasicBorders::getButtonBorder());
+	return $BasicBorders::getButtonBorder();
 }
 
 $Object* WindowsLookAndFeel::lambda$initVistaComponentDefaults$8($UIDefaults* t) {
@@ -3913,11 +3655,11 @@ $Object* WindowsLookAndFeel::lambda$initVistaComponentDefaults$7($UIDefaults* t)
 
 $Object* WindowsLookAndFeel::lambda$initVistaComponentDefaults$6($UIDefaults* t) {
 	$init(WindowsLookAndFeel);
-	return $of($BasicBorders::getInternalFrameBorder());
+	return $BasicBorders::getInternalFrameBorder();
 }
 
 $Object* WindowsLookAndFeel::lambda$initComponentDefaults$5($UIDefaults* t) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$load($BasicLookAndFeel);
 	return $of($new($WindowsInternalFrameTitlePane$ScalableIconUIResource, $$new($ObjectArray, {
 		$($SwingUtilities2::makeIcon($of(this)->getClass(), $BasicLookAndFeel::class$, "icons/JavaCup16.png"_s)),
@@ -3927,7 +3669,7 @@ $Object* WindowsLookAndFeel::lambda$initComponentDefaults$5($UIDefaults* t) {
 
 $Object* WindowsLookAndFeel::lambda$initComponentDefaults$4($UIDefaults* t) {
 	$init(WindowsLookAndFeel);
-	return $of($BorderUIResource::getLoweredBevelBorderUIResource());
+	return $BorderUIResource::getLoweredBevelBorderUIResource();
 }
 
 $Object* WindowsLookAndFeel::lambda$initComponentDefaults$3($UIDefaults* t) {
@@ -3954,7 +3696,7 @@ $Object* WindowsLookAndFeel::lambda$initComponentDefaults$0($UIDefaults* t) {
 	return $of($new($FontUIResource, $Font::DIALOG, $Font::PLAIN, 12));
 }
 
-void clinit$WindowsLookAndFeel($Class* class$) {
+void WindowsLookAndFeel::clinit$($Class* clazz) {
 	WindowsLookAndFeel::$assertionsDisabled = !WindowsLookAndFeel::class$->desiredAssertionStatus();
 	$assignStatic(WindowsLookAndFeel::HI_RES_DISABLED_ICON_CLIENT_KEY, $new($StringUIClientPropertyKey, "WindowsLookAndFeel.generateHiResDisabledIcon"_s));
 	WindowsLookAndFeel::isMnemonicHidden$ = true;
@@ -3966,95 +3708,209 @@ WindowsLookAndFeel::WindowsLookAndFeel() {
 
 $Class* WindowsLookAndFeel::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(WindowsLookAndFeel$$Lambda$lambda$initComponentDefaults$0::classInfo$.name)) {
+		if (name->equals("com.sun.java.swing.plaf.windows.WindowsLookAndFeel$$Lambda$lambda$initComponentDefaults$0")) {
 			return WindowsLookAndFeel$$Lambda$lambda$initComponentDefaults$0::load$(name, initialize);
 		}
-		if (name->equals(WindowsLookAndFeel$$Lambda$lambda$initComponentDefaults$1$1::classInfo$.name)) {
+		if (name->equals("com.sun.java.swing.plaf.windows.WindowsLookAndFeel$$Lambda$lambda$initComponentDefaults$1$1")) {
 			return WindowsLookAndFeel$$Lambda$lambda$initComponentDefaults$1$1::load$(name, initialize);
 		}
-		if (name->equals(WindowsLookAndFeel$$Lambda$lambda$initComponentDefaults$2$2::classInfo$.name)) {
+		if (name->equals("com.sun.java.swing.plaf.windows.WindowsLookAndFeel$$Lambda$lambda$initComponentDefaults$2$2")) {
 			return WindowsLookAndFeel$$Lambda$lambda$initComponentDefaults$2$2::load$(name, initialize);
 		}
-		if (name->equals(WindowsLookAndFeel$$Lambda$lambda$initComponentDefaults$3$3::classInfo$.name)) {
+		if (name->equals("com.sun.java.swing.plaf.windows.WindowsLookAndFeel$$Lambda$lambda$initComponentDefaults$3$3")) {
 			return WindowsLookAndFeel$$Lambda$lambda$initComponentDefaults$3$3::load$(name, initialize);
 		}
-		if (name->equals(WindowsLookAndFeel$$Lambda$lambda$initComponentDefaults$4$4::classInfo$.name)) {
+		if (name->equals("com.sun.java.swing.plaf.windows.WindowsLookAndFeel$$Lambda$lambda$initComponentDefaults$4$4")) {
 			return WindowsLookAndFeel$$Lambda$lambda$initComponentDefaults$4$4::load$(name, initialize);
 		}
-		if (name->equals(WindowsLookAndFeel$$Lambda$lambda$initComponentDefaults$5$5::classInfo$.name)) {
+		if (name->equals("com.sun.java.swing.plaf.windows.WindowsLookAndFeel$$Lambda$lambda$initComponentDefaults$5$5")) {
 			return WindowsLookAndFeel$$Lambda$lambda$initComponentDefaults$5$5::load$(name, initialize);
 		}
-		if (name->equals(WindowsLookAndFeel$$Lambda$lambda$initVistaComponentDefaults$6$6::classInfo$.name)) {
+		if (name->equals("com.sun.java.swing.plaf.windows.WindowsLookAndFeel$$Lambda$lambda$initVistaComponentDefaults$6$6")) {
 			return WindowsLookAndFeel$$Lambda$lambda$initVistaComponentDefaults$6$6::load$(name, initialize);
 		}
-		if (name->equals(WindowsLookAndFeel$$Lambda$lambda$initVistaComponentDefaults$7$7::classInfo$.name)) {
+		if (name->equals("com.sun.java.swing.plaf.windows.WindowsLookAndFeel$$Lambda$lambda$initVistaComponentDefaults$7$7")) {
 			return WindowsLookAndFeel$$Lambda$lambda$initVistaComponentDefaults$7$7::load$(name, initialize);
 		}
-		if (name->equals(WindowsLookAndFeel$$Lambda$lambda$initVistaComponentDefaults$8$8::classInfo$.name)) {
+		if (name->equals("com.sun.java.swing.plaf.windows.WindowsLookAndFeel$$Lambda$lambda$initVistaComponentDefaults$8$8")) {
 			return WindowsLookAndFeel$$Lambda$lambda$initVistaComponentDefaults$8$8::load$(name, initialize);
 		}
-		if (name->equals(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$9$9::classInfo$.name)) {
+		if (name->equals("com.sun.java.swing.plaf.windows.WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$9$9")) {
 			return WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$9$9::load$(name, initialize);
 		}
-		if (name->equals(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$10$10::classInfo$.name)) {
+		if (name->equals("com.sun.java.swing.plaf.windows.WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$10$10")) {
 			return WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$10$10::load$(name, initialize);
 		}
-		if (name->equals(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$11$11::classInfo$.name)) {
+		if (name->equals("com.sun.java.swing.plaf.windows.WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$11$11")) {
 			return WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$11$11::load$(name, initialize);
 		}
-		if (name->equals(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$12$12::classInfo$.name)) {
+		if (name->equals("com.sun.java.swing.plaf.windows.WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$12$12")) {
 			return WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$12$12::load$(name, initialize);
 		}
-		if (name->equals(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$13$13::classInfo$.name)) {
+		if (name->equals("com.sun.java.swing.plaf.windows.WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$13$13")) {
 			return WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$13$13::load$(name, initialize);
 		}
-		if (name->equals(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$15$14::classInfo$.name)) {
+		if (name->equals("com.sun.java.swing.plaf.windows.WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$15$14")) {
 			return WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$15$14::load$(name, initialize);
 		}
-		if (name->equals(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$16$15::classInfo$.name)) {
+		if (name->equals("com.sun.java.swing.plaf.windows.WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$16$15")) {
 			return WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$16$15::load$(name, initialize);
 		}
-		if (name->equals(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$18$16::classInfo$.name)) {
+		if (name->equals("com.sun.java.swing.plaf.windows.WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$18$16")) {
 			return WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$18$16::load$(name, initialize);
 		}
-		if (name->equals(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$19$17::classInfo$.name)) {
+		if (name->equals("com.sun.java.swing.plaf.windows.WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$19$17")) {
 			return WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$19$17::load$(name, initialize);
 		}
-		if (name->equals(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$20$18::classInfo$.name)) {
+		if (name->equals("com.sun.java.swing.plaf.windows.WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$20$18")) {
 			return WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$20$18::load$(name, initialize);
 		}
-		if (name->equals(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$21$19::classInfo$.name)) {
+		if (name->equals("com.sun.java.swing.plaf.windows.WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$21$19")) {
 			return WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$21$19::load$(name, initialize);
 		}
-		if (name->equals(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$22$20::classInfo$.name)) {
+		if (name->equals("com.sun.java.swing.plaf.windows.WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$22$20")) {
 			return WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$22$20::load$(name, initialize);
 		}
-		if (name->equals(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$23$21::classInfo$.name)) {
+		if (name->equals("com.sun.java.swing.plaf.windows.WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$23$21")) {
 			return WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$23$21::load$(name, initialize);
 		}
-		if (name->equals(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$24$22::classInfo$.name)) {
+		if (name->equals("com.sun.java.swing.plaf.windows.WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$24$22")) {
 			return WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$24$22::load$(name, initialize);
 		}
-		if (name->equals(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$25$23::classInfo$.name)) {
+		if (name->equals("com.sun.java.swing.plaf.windows.WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$25$23")) {
 			return WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$25$23::load$(name, initialize);
 		}
-		if (name->equals(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$26$24::classInfo$.name)) {
+		if (name->equals("com.sun.java.swing.plaf.windows.WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$26$24")) {
 			return WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$26$24::load$(name, initialize);
 		}
-		if (name->equals(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$27$25::classInfo$.name)) {
+		if (name->equals("com.sun.java.swing.plaf.windows.WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$27$25")) {
 			return WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$27$25::load$(name, initialize);
 		}
-		if (name->equals(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$28$26::classInfo$.name)) {
+		if (name->equals("com.sun.java.swing.plaf.windows.WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$28$26")) {
 			return WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$28$26::load$(name, initialize);
 		}
-		if (name->equals(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$29$27::classInfo$.name)) {
+		if (name->equals("com.sun.java.swing.plaf.windows.WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$29$27")) {
 			return WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$29$27::load$(name, initialize);
 		}
-		if (name->equals(WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$31$28::classInfo$.name)) {
+		if (name->equals("com.sun.java.swing.plaf.windows.WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$31$28")) {
 			return WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$31$28::load$(name, initialize);
 		}
 	}
-	$loadClass(WindowsLookAndFeel, name, initialize, &_WindowsLookAndFeel_ClassInfo_, clinit$WindowsLookAndFeel, allocate$WindowsLookAndFeel);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(WindowsLookAndFeel, $assertionsDisabled)},
+		{"HI_RES_DISABLED_ICON_CLIENT_KEY", "Ljava/lang/Object;", nullptr, $STATIC | $FINAL, $staticField(WindowsLookAndFeel, HI_RES_DISABLED_ICON_CLIENT_KEY)},
+		{"updatePending", "Z", nullptr, $PRIVATE, $field(WindowsLookAndFeel, updatePending)},
+		{"useSystemFontSettings", "Z", nullptr, $PRIVATE, $field(WindowsLookAndFeel, useSystemFontSettings)},
+		{"useSystemFontSizeSettings", "Z", nullptr, $PRIVATE, $field(WindowsLookAndFeel, useSystemFontSizeSettings)},
+		{"themeActive", "Lcom/sun/java/swing/plaf/windows/WindowsDesktopProperty;", nullptr, $PRIVATE, $field(WindowsLookAndFeel, themeActive)},
+		{"dllName", "Lcom/sun/java/swing/plaf/windows/WindowsDesktopProperty;", nullptr, $PRIVATE, $field(WindowsLookAndFeel, dllName)},
+		{"colorName", "Lcom/sun/java/swing/plaf/windows/WindowsDesktopProperty;", nullptr, $PRIVATE, $field(WindowsLookAndFeel, colorName)},
+		{"sizeName", "Lcom/sun/java/swing/plaf/windows/WindowsDesktopProperty;", nullptr, $PRIVATE, $field(WindowsLookAndFeel, sizeName)},
+		{"aaSettings", "Lcom/sun/java/swing/plaf/windows/WindowsDesktopProperty;", nullptr, $PRIVATE, $field(WindowsLookAndFeel, aaSettings)},
+		{"style", "Ljavax/swing/LayoutStyle;", nullptr, $PRIVATE | $TRANSIENT, $field(WindowsLookAndFeel, style)},
+		{"baseUnitX", "I", nullptr, $PRIVATE, $field(WindowsLookAndFeel, baseUnitX)},
+		{"baseUnitY", "I", nullptr, $PRIVATE, $field(WindowsLookAndFeel, baseUnitY)},
+		{"isMnemonicHidden", "Z", nullptr, $PRIVATE | $STATIC, $staticField(WindowsLookAndFeel, isMnemonicHidden$)},
+		{"isClassicWindows", "Z", nullptr, $PRIVATE | $STATIC, $staticField(WindowsLookAndFeel, isClassicWindows$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(WindowsLookAndFeel, init$, void)},
+		{"calculateBaseUnits", "()V", nullptr, $PRIVATE, $method(WindowsLookAndFeel, calculateBaseUnits, void)},
+		{"createAudioAction", "(Ljava/lang/Object;)Ljavax/swing/Action;", nullptr, $PROTECTED, $virtualMethod(WindowsLookAndFeel, createAudioAction, $Action*, Object$*)},
+		{"dluToPixels", "(II)I", nullptr, $PRIVATE, $method(WindowsLookAndFeel, dluToPixels, int32_t, int32_t, int32_t)},
+		{"getDescription", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(WindowsLookAndFeel, getDescription, $String*)},
+		{"getDesktopFontValue", "(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PRIVATE, $method(WindowsLookAndFeel, getDesktopFontValue, $Object*, $String*, Object$*)},
+		{"getDisabledIcon", "(Ljavax/swing/JComponent;Ljavax/swing/Icon;)Ljavax/swing/Icon;", nullptr, $PUBLIC, $virtualMethod(WindowsLookAndFeel, getDisabledIcon, $Icon*, $JComponent*, $Icon*)},
+		{"getID", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(WindowsLookAndFeel, getID, $String*)},
+		{"getLayoutStyle", "()Ljavax/swing/LayoutStyle;", nullptr, $PUBLIC, $virtualMethod(WindowsLookAndFeel, getLayoutStyle, $LayoutStyle*)},
+		{"getLazyValueDefaults", "()[Ljava/lang/Object;", nullptr, $PRIVATE, $method(WindowsLookAndFeel, getLazyValueDefaults, $ObjectArray*)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(WindowsLookAndFeel, getName, $String*)},
+		{"initClassDefaults", "(Ljavax/swing/UIDefaults;)V", nullptr, $PROTECTED, $virtualMethod(WindowsLookAndFeel, initClassDefaults, void, $UIDefaults*)},
+		{"initComponentDefaults", "(Ljavax/swing/UIDefaults;)V", nullptr, $PROTECTED, $virtualMethod(WindowsLookAndFeel, initComponentDefaults, void, $UIDefaults*)},
+		{"initResourceBundle", "(Ljavax/swing/UIDefaults;)V", nullptr, $PRIVATE, $method(WindowsLookAndFeel, initResourceBundle, void, $UIDefaults*)},
+		{"initSystemColorDefaults", "(Ljavax/swing/UIDefaults;)V", nullptr, $PROTECTED, $virtualMethod(WindowsLookAndFeel, initSystemColorDefaults, void, $UIDefaults*)},
+		{"initVistaComponentDefaults", "(Ljavax/swing/UIDefaults;)V", nullptr, $PRIVATE, $method(WindowsLookAndFeel, initVistaComponentDefaults, void, $UIDefaults*)},
+		{"initialize", "()V", nullptr, $PUBLIC, $virtualMethod(WindowsLookAndFeel, initialize, void)},
+		{"isClassicWindows", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(WindowsLookAndFeel, isClassicWindows, bool)},
+		{"isMnemonicHidden", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(WindowsLookAndFeel, isMnemonicHidden, bool)},
+		{"isNativeLookAndFeel", "()Z", nullptr, $PUBLIC, $virtualMethod(WindowsLookAndFeel, isNativeLookAndFeel, bool)},
+		{"isOnVista", "()Z", nullptr, $STATIC, $staticMethod(WindowsLookAndFeel, isOnVista, bool)},
+		{"isOnWindows7", "()Z", nullptr, $STATIC, $staticMethod(WindowsLookAndFeel, isOnWindows7, bool)},
+		{"isSupportedLookAndFeel", "()Z", nullptr, $PUBLIC, $virtualMethod(WindowsLookAndFeel, isSupportedLookAndFeel, bool)},
+		{"lambda$getLazyValueDefaults$10", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(WindowsLookAndFeel, lambda$getLazyValueDefaults$10, $Object*, $UIDefaults*)},
+		{"lambda$getLazyValueDefaults$11", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(WindowsLookAndFeel, lambda$getLazyValueDefaults$11, $Object*, $UIDefaults*)},
+		{"lambda$getLazyValueDefaults$12", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(WindowsLookAndFeel, lambda$getLazyValueDefaults$12, $Object*, $UIDefaults*)},
+		{"lambda$getLazyValueDefaults$13", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(WindowsLookAndFeel, lambda$getLazyValueDefaults$13, $Object*, $UIDefaults*)},
+		{"lambda$getLazyValueDefaults$15", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(WindowsLookAndFeel, lambda$getLazyValueDefaults$15, $Object*, $UIDefaults*)},
+		{"lambda$getLazyValueDefaults$16", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(WindowsLookAndFeel, lambda$getLazyValueDefaults$16, $Object*, $UIDefaults*)},
+		{"lambda$getLazyValueDefaults$18", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(WindowsLookAndFeel, lambda$getLazyValueDefaults$18, $Object*, $UIDefaults*)},
+		{"lambda$getLazyValueDefaults$19", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(WindowsLookAndFeel, lambda$getLazyValueDefaults$19, $Object*, $UIDefaults*)},
+		{"lambda$getLazyValueDefaults$20", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(WindowsLookAndFeel, lambda$getLazyValueDefaults$20, $Object*, $UIDefaults*)},
+		{"lambda$getLazyValueDefaults$21", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(WindowsLookAndFeel, lambda$getLazyValueDefaults$21, $Object*, $UIDefaults*)},
+		{"lambda$getLazyValueDefaults$22", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(WindowsLookAndFeel, lambda$getLazyValueDefaults$22, $Object*, $UIDefaults*)},
+		{"lambda$getLazyValueDefaults$23", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(WindowsLookAndFeel, lambda$getLazyValueDefaults$23, $Object*, $UIDefaults*)},
+		{"lambda$getLazyValueDefaults$24", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(WindowsLookAndFeel, lambda$getLazyValueDefaults$24, $Object*, $UIDefaults*)},
+		{"lambda$getLazyValueDefaults$25", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(WindowsLookAndFeel, lambda$getLazyValueDefaults$25, $Object*, $UIDefaults*)},
+		{"lambda$getLazyValueDefaults$26", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(WindowsLookAndFeel, lambda$getLazyValueDefaults$26, $Object*, $UIDefaults*)},
+		{"lambda$getLazyValueDefaults$27", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(WindowsLookAndFeel, lambda$getLazyValueDefaults$27, $Object*, $UIDefaults*)},
+		{"lambda$getLazyValueDefaults$28", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(WindowsLookAndFeel, lambda$getLazyValueDefaults$28, $Object*, $UIDefaults*)},
+		{"lambda$getLazyValueDefaults$29", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(WindowsLookAndFeel, lambda$getLazyValueDefaults$29, $Object*, $UIDefaults*)},
+		{"lambda$getLazyValueDefaults$31", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(WindowsLookAndFeel, lambda$getLazyValueDefaults$31, $Object*, $UIDefaults*)},
+		{"lambda$getLazyValueDefaults$9", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(WindowsLookAndFeel, lambda$getLazyValueDefaults$9, $Object*, $UIDefaults*)},
+		{"lambda$initComponentDefaults$0", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(WindowsLookAndFeel, lambda$initComponentDefaults$0, $Object*, $UIDefaults*)},
+		{"lambda$initComponentDefaults$1", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(WindowsLookAndFeel, lambda$initComponentDefaults$1, $Object*, $UIDefaults*)},
+		{"lambda$initComponentDefaults$2", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(WindowsLookAndFeel, lambda$initComponentDefaults$2, $Object*, $UIDefaults*)},
+		{"lambda$initComponentDefaults$3", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(WindowsLookAndFeel, lambda$initComponentDefaults$3, $Object*, $UIDefaults*)},
+		{"lambda$initComponentDefaults$4", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(WindowsLookAndFeel, lambda$initComponentDefaults$4, $Object*, $UIDefaults*)},
+		{"lambda$initComponentDefaults$5", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $SYNTHETIC, $method(WindowsLookAndFeel, lambda$initComponentDefaults$5, $Object*, $UIDefaults*)},
+		{"lambda$initVistaComponentDefaults$6", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(WindowsLookAndFeel, lambda$initVistaComponentDefaults$6, $Object*, $UIDefaults*)},
+		{"lambda$initVistaComponentDefaults$7", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(WindowsLookAndFeel, lambda$initVistaComponentDefaults$7, $Object*, $UIDefaults*)},
+		{"lambda$initVistaComponentDefaults$8", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(WindowsLookAndFeel, lambda$initVistaComponentDefaults$8, $Object*, $UIDefaults*)},
+		{"provideErrorFeedback", "(Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(WindowsLookAndFeel, provideErrorFeedback, void, $Component*)},
+		{"repaintRootPane", "(Ljava/awt/Component;)V", nullptr, $STATIC, $staticMethod(WindowsLookAndFeel, repaintRootPane, void, $Component*)},
+		{"setMnemonicHidden", "(Z)V", nullptr, $PUBLIC | $STATIC, $staticMethod(WindowsLookAndFeel, setMnemonicHidden, void, bool)},
+		{"uninitialize", "()V", nullptr, $PUBLIC, $virtualMethod(WindowsLookAndFeel, uninitialize, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$3", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$FocusColorProperty", "com.sun.java.swing.plaf.windows.WindowsLookAndFeel", "FocusColorProperty", $PRIVATE | $STATIC},
+		{"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$RGBGrayFilter", "com.sun.java.swing.plaf.windows.WindowsLookAndFeel", "RGBGrayFilter", $PRIVATE | $STATIC},
+		{"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$WindowsLayoutStyle", "com.sun.java.swing.plaf.windows.WindowsLookAndFeel", "WindowsLayoutStyle", $PRIVATE},
+		{"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$FontDesktopProperty", "com.sun.java.swing.plaf.windows.WindowsLookAndFeel", "FontDesktopProperty", $PRIVATE},
+		{"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$TriggerDesktopProperty", "com.sun.java.swing.plaf.windows.WindowsLookAndFeel", "TriggerDesktopProperty", $PRIVATE},
+		{"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$XPDLUValue", "com.sun.java.swing.plaf.windows.WindowsLookAndFeel", "XPDLUValue", $PRIVATE},
+		{"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$XPColorValue", "com.sun.java.swing.plaf.windows.WindowsLookAndFeel", "XPColorValue", $PRIVATE | $STATIC},
+		{"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$XPBorderValue", "com.sun.java.swing.plaf.windows.WindowsLookAndFeel", "XPBorderValue", $PRIVATE | $STATIC},
+		{"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$XPValue", "com.sun.java.swing.plaf.windows.WindowsLookAndFeel", "XPValue", $PRIVATE | $STATIC},
+		{"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$WindowsFontSizeProperty", "com.sun.java.swing.plaf.windows.WindowsLookAndFeel", "WindowsFontSizeProperty", $PRIVATE | $STATIC},
+		{"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$WindowsFontProperty", "com.sun.java.swing.plaf.windows.WindowsLookAndFeel", "WindowsFontProperty", $PRIVATE | $STATIC},
+		{"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$SkinIcon", "com.sun.java.swing.plaf.windows.WindowsLookAndFeel", "SkinIcon", $PRIVATE | $STATIC},
+		{"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$ActiveWindowsIcon", "com.sun.java.swing.plaf.windows.WindowsLookAndFeel", "ActiveWindowsIcon", $PRIVATE},
+		{"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$LazyWindowsIcon", "com.sun.java.swing.plaf.windows.WindowsLookAndFeel", "LazyWindowsIcon", $PRIVATE | $STATIC},
+		{"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$AudioAction", "com.sun.java.swing.plaf.windows.WindowsLookAndFeel", "AudioAction", $PRIVATE | $STATIC},
+		{"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$2", nullptr, nullptr, 0},
+		{"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.java.swing.plaf.windows.WindowsLookAndFeel",
+		"javax.swing.plaf.basic.BasicLookAndFeel",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$3,com.sun.java.swing.plaf.windows.WindowsLookAndFeel$FocusColorProperty,com.sun.java.swing.plaf.windows.WindowsLookAndFeel$RGBGrayFilter,com.sun.java.swing.plaf.windows.WindowsLookAndFeel$WindowsLayoutStyle,com.sun.java.swing.plaf.windows.WindowsLookAndFeel$FontDesktopProperty,com.sun.java.swing.plaf.windows.WindowsLookAndFeel$TriggerDesktopProperty,com.sun.java.swing.plaf.windows.WindowsLookAndFeel$XPDLUValue,com.sun.java.swing.plaf.windows.WindowsLookAndFeel$XPColorValue,com.sun.java.swing.plaf.windows.WindowsLookAndFeel$XPColorValue$XPColorValueKey,com.sun.java.swing.plaf.windows.WindowsLookAndFeel$XPBorderValue,com.sun.java.swing.plaf.windows.WindowsLookAndFeel$XPValue,com.sun.java.swing.plaf.windows.WindowsLookAndFeel$WindowsFontSizeProperty,com.sun.java.swing.plaf.windows.WindowsLookAndFeel$WindowsFontProperty,com.sun.java.swing.plaf.windows.WindowsLookAndFeel$SkinIcon,com.sun.java.swing.plaf.windows.WindowsLookAndFeel$ActiveWindowsIcon,com.sun.java.swing.plaf.windows.WindowsLookAndFeel$ActiveWindowsIcon$1,com.sun.java.swing.plaf.windows.WindowsLookAndFeel$LazyWindowsIcon,com.sun.java.swing.plaf.windows.WindowsLookAndFeel$AudioAction,com.sun.java.swing.plaf.windows.WindowsLookAndFeel$2,com.sun.java.swing.plaf.windows.WindowsLookAndFeel$1"
+	};
+	$loadClass(WindowsLookAndFeel, name, initialize, &classInfo$$, WindowsLookAndFeel::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(WindowsLookAndFeel));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/security/krb5/internal/crypto/Aes256CtsHmacSha2EType.h>
-
 #include <java/security/GeneralSecurityException.h>
 #include <sun/security/krb5/Checksum.h>
 #include <sun/security/krb5/EncryptedData.h>
@@ -26,37 +25,6 @@ namespace sun {
 		namespace krb5 {
 			namespace internal {
 				namespace crypto {
-
-$MethodInfo _Aes256CtsHmacSha2EType_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Aes256CtsHmacSha2EType, init$, void)},
-	{"blockSize", "()I", nullptr, $PUBLIC, $virtualMethod(Aes256CtsHmacSha2EType, blockSize, int32_t)},
-	{"checksumSize", "()I", nullptr, $PUBLIC, $virtualMethod(Aes256CtsHmacSha2EType, checksumSize, int32_t)},
-	{"checksumType", "()I", nullptr, $PUBLIC, $virtualMethod(Aes256CtsHmacSha2EType, checksumType, int32_t)},
-	{"confounderSize", "()I", nullptr, $PUBLIC, $virtualMethod(Aes256CtsHmacSha2EType, confounderSize, int32_t)},
-	{"decrypt", "([B[BI)[B", nullptr, $PUBLIC, $virtualMethod(Aes256CtsHmacSha2EType, decrypt, $bytes*, $bytes*, $bytes*, int32_t), "sun.security.krb5.internal.KrbApErrException,sun.security.krb5.KrbCryptoException"},
-	{"decrypt", "([B[B[BI)[B", nullptr, $PUBLIC, $virtualMethod(Aes256CtsHmacSha2EType, decrypt, $bytes*, $bytes*, $bytes*, $bytes*, int32_t), "sun.security.krb5.internal.KrbApErrException,sun.security.krb5.KrbCryptoException"},
-	{"decryptedData", "([B)[B", nullptr, $PUBLIC, $virtualMethod(Aes256CtsHmacSha2EType, decryptedData, $bytes*, $bytes*)},
-	{"eType", "()I", nullptr, $PUBLIC, $virtualMethod(Aes256CtsHmacSha2EType, eType, int32_t)},
-	{"encrypt", "([B[BI)[B", nullptr, $PUBLIC, $virtualMethod(Aes256CtsHmacSha2EType, encrypt, $bytes*, $bytes*, $bytes*, int32_t), "sun.security.krb5.KrbCryptoException"},
-	{"encrypt", "([B[B[BI)[B", nullptr, $PUBLIC, $virtualMethod(Aes256CtsHmacSha2EType, encrypt, $bytes*, $bytes*, $bytes*, $bytes*, int32_t), "sun.security.krb5.KrbCryptoException"},
-	{"keySize", "()I", nullptr, $PUBLIC, $virtualMethod(Aes256CtsHmacSha2EType, keySize, int32_t)},
-	{"keyType", "()I", nullptr, $PUBLIC, $virtualMethod(Aes256CtsHmacSha2EType, keyType, int32_t)},
-	{"minimumPadSize", "()I", nullptr, $PUBLIC, $virtualMethod(Aes256CtsHmacSha2EType, minimumPadSize, int32_t)},
-	{}
-};
-
-$ClassInfo _Aes256CtsHmacSha2EType_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.security.krb5.internal.crypto.Aes256CtsHmacSha2EType",
-	"sun.security.krb5.internal.crypto.EType",
-	nullptr,
-	nullptr,
-	_Aes256CtsHmacSha2EType_MethodInfo_
-};
-
-$Object* allocate$Aes256CtsHmacSha2EType($Class* clazz) {
-	return $of($alloc(Aes256CtsHmacSha2EType));
-}
 
 void Aes256CtsHmacSha2EType::init$() {
 	$EType::init$();
@@ -100,7 +68,7 @@ $bytes* Aes256CtsHmacSha2EType::encrypt($bytes* data, $bytes* key, int32_t usage
 }
 
 $bytes* Aes256CtsHmacSha2EType::encrypt($bytes* data, $bytes* key, $bytes* ivec, int32_t usage) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		return $Aes256Sha2::encrypt(key, usage, ivec, data, 0, $nc(data)->length);
 	} catch ($GeneralSecurityException& e) {
@@ -117,7 +85,7 @@ $bytes* Aes256CtsHmacSha2EType::decrypt($bytes* cipher, $bytes* key, int32_t usa
 }
 
 $bytes* Aes256CtsHmacSha2EType::decrypt($bytes* cipher, $bytes* key, $bytes* ivec, int32_t usage) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		return $Aes256Sha2::decrypt(key, usage, ivec, cipher, 0, $nc(cipher)->length);
 	} catch ($GeneralSecurityException& e) {
@@ -136,7 +104,34 @@ Aes256CtsHmacSha2EType::Aes256CtsHmacSha2EType() {
 }
 
 $Class* Aes256CtsHmacSha2EType::load$($String* name, bool initialize) {
-	$loadClass(Aes256CtsHmacSha2EType, name, initialize, &_Aes256CtsHmacSha2EType_ClassInfo_, allocate$Aes256CtsHmacSha2EType);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Aes256CtsHmacSha2EType, init$, void)},
+		{"blockSize", "()I", nullptr, $PUBLIC, $virtualMethod(Aes256CtsHmacSha2EType, blockSize, int32_t)},
+		{"checksumSize", "()I", nullptr, $PUBLIC, $virtualMethod(Aes256CtsHmacSha2EType, checksumSize, int32_t)},
+		{"checksumType", "()I", nullptr, $PUBLIC, $virtualMethod(Aes256CtsHmacSha2EType, checksumType, int32_t)},
+		{"confounderSize", "()I", nullptr, $PUBLIC, $virtualMethod(Aes256CtsHmacSha2EType, confounderSize, int32_t)},
+		{"decrypt", "([B[BI)[B", nullptr, $PUBLIC, $virtualMethod(Aes256CtsHmacSha2EType, decrypt, $bytes*, $bytes*, $bytes*, int32_t), "sun.security.krb5.internal.KrbApErrException,sun.security.krb5.KrbCryptoException"},
+		{"decrypt", "([B[B[BI)[B", nullptr, $PUBLIC, $virtualMethod(Aes256CtsHmacSha2EType, decrypt, $bytes*, $bytes*, $bytes*, $bytes*, int32_t), "sun.security.krb5.internal.KrbApErrException,sun.security.krb5.KrbCryptoException"},
+		{"decryptedData", "([B)[B", nullptr, $PUBLIC, $virtualMethod(Aes256CtsHmacSha2EType, decryptedData, $bytes*, $bytes*)},
+		{"eType", "()I", nullptr, $PUBLIC, $virtualMethod(Aes256CtsHmacSha2EType, eType, int32_t)},
+		{"encrypt", "([B[BI)[B", nullptr, $PUBLIC, $virtualMethod(Aes256CtsHmacSha2EType, encrypt, $bytes*, $bytes*, $bytes*, int32_t), "sun.security.krb5.KrbCryptoException"},
+		{"encrypt", "([B[B[BI)[B", nullptr, $PUBLIC, $virtualMethod(Aes256CtsHmacSha2EType, encrypt, $bytes*, $bytes*, $bytes*, $bytes*, int32_t), "sun.security.krb5.KrbCryptoException"},
+		{"keySize", "()I", nullptr, $PUBLIC, $virtualMethod(Aes256CtsHmacSha2EType, keySize, int32_t)},
+		{"keyType", "()I", nullptr, $PUBLIC, $virtualMethod(Aes256CtsHmacSha2EType, keyType, int32_t)},
+		{"minimumPadSize", "()I", nullptr, $PUBLIC, $virtualMethod(Aes256CtsHmacSha2EType, minimumPadSize, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.security.krb5.internal.crypto.Aes256CtsHmacSha2EType",
+		"sun.security.krb5.internal.crypto.EType",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Aes256CtsHmacSha2EType, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Aes256CtsHmacSha2EType);
+	});
 	return class$;
 }
 

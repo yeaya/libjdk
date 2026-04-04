@@ -26,6 +26,7 @@ class ManagementFactory$PlatformMBeanFinder : public ::java::lang::Object {
 	$class(ManagementFactory$PlatformMBeanFinder, 0, ::java::lang::Object)
 public:
 	ManagementFactory$PlatformMBeanFinder();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::sun::management::spi::PlatformMBeanProvider$PlatformComponent* findFirst($Class* mbeanIntf);
 	static ::sun::management::spi::PlatformMBeanProvider$PlatformComponent* findSingleton($Class* mbeanIntf);

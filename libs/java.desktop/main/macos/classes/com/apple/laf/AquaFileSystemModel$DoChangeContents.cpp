@@ -1,5 +1,4 @@
 #include <com/apple/laf/AquaFileSystemModel$DoChangeContents.h>
-
 #include <com/apple/laf/AquaFileSystemModel$SortableFile.h>
 #include <com/apple/laf/AquaFileSystemModel.h>
 #include <java/util/Vector.h>
@@ -16,47 +15,6 @@ using $Vector = ::java::util::Vector;
 namespace com {
 	namespace apple {
 		namespace laf {
-
-$FieldInfo _AquaFileSystemModel$DoChangeContents_FieldInfo_[] = {
-	{"this$0", "Lcom/apple/laf/AquaFileSystemModel;", nullptr, $FINAL | $SYNTHETIC, $field(AquaFileSystemModel$DoChangeContents, this$0)},
-	{"contentFiles", "Ljava/util/Vector;", "Ljava/util/Vector<Lcom/apple/laf/AquaFileSystemModel$SortableFile;>;", $PRIVATE, $field(AquaFileSystemModel$DoChangeContents, contentFiles)},
-	{"doFire", "Z", nullptr, $PRIVATE, $field(AquaFileSystemModel$DoChangeContents, doFire)},
-	{"lock", "Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $field(AquaFileSystemModel$DoChangeContents, lock)},
-	{"fid", "I", nullptr, $PRIVATE | $FINAL, $field(AquaFileSystemModel$DoChangeContents, fid)},
-	{}
-};
-
-$MethodInfo _AquaFileSystemModel$DoChangeContents_MethodInfo_[] = {
-	{"<init>", "(Lcom/apple/laf/AquaFileSystemModel;Ljava/util/Vector;I)V", "(Ljava/util/Vector<Lcom/apple/laf/AquaFileSystemModel$SortableFile;>;I)V", $PUBLIC, $method(AquaFileSystemModel$DoChangeContents, init$, void, $AquaFileSystemModel*, $Vector*, int32_t)},
-	{"cancel", "()V", nullptr, $SYNCHRONIZED, $virtualMethod(AquaFileSystemModel$DoChangeContents, cancel, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(AquaFileSystemModel$DoChangeContents, run, void)},
-	{}
-};
-
-$InnerClassInfo _AquaFileSystemModel$DoChangeContents_InnerClassesInfo_[] = {
-	{"com.apple.laf.AquaFileSystemModel$DoChangeContents", "com.apple.laf.AquaFileSystemModel", "DoChangeContents", 0},
-	{}
-};
-
-$ClassInfo _AquaFileSystemModel$DoChangeContents_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.apple.laf.AquaFileSystemModel$DoChangeContents",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	_AquaFileSystemModel$DoChangeContents_FieldInfo_,
-	_AquaFileSystemModel$DoChangeContents_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AquaFileSystemModel$DoChangeContents_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.apple.laf.AquaFileSystemModel"
-};
-
-$Object* allocate$AquaFileSystemModel$DoChangeContents($Class* clazz) {
-	return $of($alloc(AquaFileSystemModel$DoChangeContents));
-}
 
 void AquaFileSystemModel$DoChangeContents::init$($AquaFileSystemModel* this$0, $Vector* files, int32_t fid) {
 	$set(this, this$0, this$0);
@@ -75,14 +33,14 @@ void AquaFileSystemModel$DoChangeContents::cancel() {
 }
 
 void AquaFileSystemModel$DoChangeContents::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->this$0->fetchID == this->fid) {
 		$synchronized(this->lock) {
 			if (this->doFire) {
 				$synchronized(this->this$0->fileCacheLock) {
 					if (this->this$0->fileCache != nullptr) {
 						for (int32_t i = 0; i < $nc(this->contentFiles)->size(); ++i) {
-							$nc(this->this$0->fileCache)->addElement($cast($AquaFileSystemModel$SortableFile, $($nc(this->contentFiles)->elementAt(i))));
+							$nc(this->this$0->fileCache)->addElement($$cast($AquaFileSystemModel$SortableFile, this->contentFiles->elementAt(i)));
 							this->this$0->fireTableRowsInserted(i, i);
 						}
 					}
@@ -98,7 +56,42 @@ AquaFileSystemModel$DoChangeContents::AquaFileSystemModel$DoChangeContents() {
 }
 
 $Class* AquaFileSystemModel$DoChangeContents::load$($String* name, bool initialize) {
-	$loadClass(AquaFileSystemModel$DoChangeContents, name, initialize, &_AquaFileSystemModel$DoChangeContents_ClassInfo_, allocate$AquaFileSystemModel$DoChangeContents);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/apple/laf/AquaFileSystemModel;", nullptr, $FINAL | $SYNTHETIC, $field(AquaFileSystemModel$DoChangeContents, this$0)},
+		{"contentFiles", "Ljava/util/Vector;", "Ljava/util/Vector<Lcom/apple/laf/AquaFileSystemModel$SortableFile;>;", $PRIVATE, $field(AquaFileSystemModel$DoChangeContents, contentFiles)},
+		{"doFire", "Z", nullptr, $PRIVATE, $field(AquaFileSystemModel$DoChangeContents, doFire)},
+		{"lock", "Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $field(AquaFileSystemModel$DoChangeContents, lock)},
+		{"fid", "I", nullptr, $PRIVATE | $FINAL, $field(AquaFileSystemModel$DoChangeContents, fid)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/apple/laf/AquaFileSystemModel;Ljava/util/Vector;I)V", "(Ljava/util/Vector<Lcom/apple/laf/AquaFileSystemModel$SortableFile;>;I)V", $PUBLIC, $method(AquaFileSystemModel$DoChangeContents, init$, void, $AquaFileSystemModel*, $Vector*, int32_t)},
+		{"cancel", "()V", nullptr, $SYNCHRONIZED, $virtualMethod(AquaFileSystemModel$DoChangeContents, cancel, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(AquaFileSystemModel$DoChangeContents, run, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.laf.AquaFileSystemModel$DoChangeContents", "com.apple.laf.AquaFileSystemModel", "DoChangeContents", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.apple.laf.AquaFileSystemModel$DoChangeContents",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.apple.laf.AquaFileSystemModel"
+	};
+	$loadClass(AquaFileSystemModel$DoChangeContents, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AquaFileSystemModel$DoChangeContents);
+	});
 	return class$;
 }
 

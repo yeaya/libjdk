@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/Check.h>
-
 #include <com/sun/source/tree/CaseTree$CaseKind.h>
 #include <com/sun/source/tree/ModifiersTree.h>
 #include <com/sun/tools/javac/code/Attribute$Array.h>
@@ -101,7 +100,6 @@
 #include <com/sun/tools/javac/tree/JCTree$JCTypeCast.h>
 #include <com/sun/tools/javac/tree/JCTree$JCVariableDecl.h>
 #include <com/sun/tools/javac/tree/JCTree$Tag.h>
-#include <com/sun/tools/javac/tree/JCTree$Visitor.h>
 #include <com/sun/tools/javac/tree/JCTree.h>
 #include <com/sun/tools/javac/tree/TreeInfo.h>
 #include <com/sun/tools/javac/util/Assert.h>
@@ -156,7 +154,6 @@
 #include <java/util/stream/Stream.h>
 #include <javax/lang/model/element/ElementKind.h>
 #include <javax/lang/model/element/NestingKind.h>
-#include <javax/tools/FileObject.h>
 #include <javax/tools/JavaFileManager.h>
 #include <javax/tools/JavaFileObject.h>
 #include <jcpp.h>
@@ -273,7 +270,6 @@ using $Lint = ::com::sun::tools::javac::code::Lint;
 using $Lint$LintCategory = ::com::sun::tools::javac::code::Lint$LintCategory;
 using $Preview = ::com::sun::tools::javac::code::Preview;
 using $Scope = ::com::sun::tools::javac::code::Scope;
-using $Scope$CompoundScope = ::com::sun::tools::javac::code::Scope$CompoundScope;
 using $Scope$LookupKind = ::com::sun::tools::javac::code::Scope$LookupKind;
 using $Scope$WriteableScope = ::com::sun::tools::javac::code::Scope$WriteableScope;
 using $Source = ::com::sun::tools::javac::code::Source;
@@ -294,14 +290,12 @@ using $Type = ::com::sun::tools::javac::code::Type;
 using $Type$ArrayType = ::com::sun::tools::javac::code::Type$ArrayType;
 using $Type$ClassType = ::com::sun::tools::javac::code::Type$ClassType;
 using $Type$ForAll = ::com::sun::tools::javac::code::Type$ForAll;
-using $Type$MethodType = ::com::sun::tools::javac::code::Type$MethodType;
 using $Type$TypeVar = ::com::sun::tools::javac::code::Type$TypeVar;
 using $TypeAnnotations = ::com::sun::tools::javac::code::TypeAnnotations;
 using $TypeTag = ::com::sun::tools::javac::code::TypeTag;
 using $Types = ::com::sun::tools::javac::code::Types;
 using $Types$FunctionDescriptorLookupError = ::com::sun::tools::javac::code::Types$FunctionDescriptorLookupError;
 using $Types$SimpleVisitor = ::com::sun::tools::javac::code::Types$SimpleVisitor;
-using $Types$UnaryVisitor = ::com::sun::tools::javac::code::Types$UnaryVisitor;
 using $Annotate$AnnotationTypeMetadata = ::com::sun::tools::javac::comp::Annotate$AnnotationTypeMetadata;
 using $AttrContext = ::com::sun::tools::javac::comp::AttrContext;
 using $Check$1 = ::com::sun::tools::javac::comp::Check$1;
@@ -348,11 +342,9 @@ using $JCTree$JCModifiers = ::com::sun::tools::javac::tree::JCTree$JCModifiers;
 using $JCTree$JCModuleDecl = ::com::sun::tools::javac::tree::JCTree$JCModuleDecl;
 using $JCTree$JCNewArray = ::com::sun::tools::javac::tree::JCTree$JCNewArray;
 using $JCTree$JCNewClass = ::com::sun::tools::javac::tree::JCTree$JCNewClass;
-using $JCTree$JCStatement = ::com::sun::tools::javac::tree::JCTree$JCStatement;
 using $JCTree$JCTypeCast = ::com::sun::tools::javac::tree::JCTree$JCTypeCast;
 using $JCTree$JCVariableDecl = ::com::sun::tools::javac::tree::JCTree$JCVariableDecl;
 using $JCTree$Tag = ::com::sun::tools::javac::tree::JCTree$Tag;
-using $JCTree$Visitor = ::com::sun::tools::javac::tree::JCTree$Visitor;
 using $TreeInfo = ::com::sun::tools::javac::tree::TreeInfo;
 using $Assert = ::com::sun::tools::javac::util::Assert;
 using $Context = ::com::sun::tools::javac::util::Context;
@@ -384,7 +376,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
-using $Iterable = ::java::lang::Iterable;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Number = ::java::lang::Number;
@@ -393,7 +384,6 @@ using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $AbstractCollection = ::java::util::AbstractCollection;
 using $ArrayList = ::java::util::ArrayList;
 using $Arrays = ::java::util::Arrays;
-using $Collection = ::java::util::Collection;
 using $Collections = ::java::util::Collections;
 using $HashMap = ::java::util::HashMap;
 using $HashSet = ::java::util::HashSet;
@@ -405,10 +395,8 @@ using $Set = ::java::util::Set;
 using $Consumer = ::java::util::function::Consumer;
 using $Predicate = ::java::util::function::Predicate;
 using $Supplier = ::java::util::function::Supplier;
-using $Stream = ::java::util::stream::Stream;
 using $ElementKind = ::javax::lang::model::element::ElementKind;
 using $NestingKind = ::javax::lang::model::element::NestingKind;
-using $FileObject = ::javax::tools::FileObject;
 using $JavaFileManager = ::javax::tools::JavaFileManager;
 
 namespace com {
@@ -425,27 +413,24 @@ public:
 	virtual bool test(Object$* s) override {
 		 return Check::lambda$new$6($cast($Symbol, s));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Check$$Lambda$lambda$new$6>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo Check$$Lambda$lambda$new$6::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Check$$Lambda$lambda$new$6, init$, void)},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Check$$Lambda$lambda$new$6, test, bool, Object$*)},
-	{}
-};
-$ClassInfo Check$$Lambda$lambda$new$6::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.comp.Check$$Lambda$lambda$new$6",
-	"java.lang.Object",
-	"java.util.function.Predicate",
-	nullptr,
-	methodInfos
 };
 $Class* Check$$Lambda$lambda$new$6::load$($String* name, bool initialize) {
-	$loadClass(Check$$Lambda$lambda$new$6, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Check$$Lambda$lambda$new$6, init$, void)},
+		{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Check$$Lambda$lambda$new$6, test, bool, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.comp.Check$$Lambda$lambda$new$6",
+		"java.lang.Object",
+		"java.util.function.Predicate",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Check$$Lambda$lambda$new$6, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Check$$Lambda$lambda$new$6);
+	});
 	return class$;
 }
 $Class* Check$$Lambda$lambda$new$6::class$ = nullptr;
@@ -463,41 +448,37 @@ public:
 	virtual void typesInferred($InferenceContext* solvedContext) override {
 		$nc(inst$)->lambda$checkType$0(pos, found, req, checkContext, solvedContext);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Check$$Lambda$lambda$checkType$0$1>());
-	}
 	Check* inst$ = nullptr;
 	$JCDiagnostic$DiagnosticPosition* pos = nullptr;
 	$Type* found = nullptr;
 	$Type* req = nullptr;
 	$Check$CheckContext* checkContext = nullptr;
-	static $FieldInfo fieldInfos[6];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Check$$Lambda$lambda$checkType$0$1::fieldInfos[6] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Check$$Lambda$lambda$checkType$0$1, inst$)},
-	{"pos", "Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;", nullptr, $PUBLIC, $field(Check$$Lambda$lambda$checkType$0$1, pos)},
-	{"found", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $field(Check$$Lambda$lambda$checkType$0$1, found)},
-	{"req", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $field(Check$$Lambda$lambda$checkType$0$1, req)},
-	{"checkContext", "Lcom/sun/tools/javac/comp/Check$CheckContext;", nullptr, $PUBLIC, $field(Check$$Lambda$lambda$checkType$0$1, checkContext)},
-	{}
-};
-$MethodInfo Check$$Lambda$lambda$checkType$0$1::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Check;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/comp/Check$CheckContext;)V", nullptr, $PUBLIC, $method(Check$$Lambda$lambda$checkType$0$1, init$, void, Check*, $JCDiagnostic$DiagnosticPosition*, $Type*, $Type*, $Check$CheckContext*)},
-	{"typesInferred", "(Lcom/sun/tools/javac/comp/InferenceContext;)V", nullptr, $PUBLIC, $virtualMethod(Check$$Lambda$lambda$checkType$0$1, typesInferred, void, $InferenceContext*)},
-	{}
-};
-$ClassInfo Check$$Lambda$lambda$checkType$0$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.comp.Check$$Lambda$lambda$checkType$0$1",
-	"java.lang.Object",
-	"com.sun.tools.javac.comp.Infer$FreeTypeListener",
-	fieldInfos,
-	methodInfos
 };
 $Class* Check$$Lambda$lambda$checkType$0$1::load$($String* name, bool initialize) {
-	$loadClass(Check$$Lambda$lambda$checkType$0$1, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Check$$Lambda$lambda$checkType$0$1, inst$)},
+		{"pos", "Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;", nullptr, $PUBLIC, $field(Check$$Lambda$lambda$checkType$0$1, pos)},
+		{"found", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $field(Check$$Lambda$lambda$checkType$0$1, found)},
+		{"req", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $field(Check$$Lambda$lambda$checkType$0$1, req)},
+		{"checkContext", "Lcom/sun/tools/javac/comp/Check$CheckContext;", nullptr, $PUBLIC, $field(Check$$Lambda$lambda$checkType$0$1, checkContext)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/comp/Check;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/comp/Check$CheckContext;)V", nullptr, $PUBLIC, $method(Check$$Lambda$lambda$checkType$0$1, init$, void, Check*, $JCDiagnostic$DiagnosticPosition*, $Type*, $Type*, $Check$CheckContext*)},
+		{"typesInferred", "(Lcom/sun/tools/javac/comp/InferenceContext;)V", nullptr, $PUBLIC, $virtualMethod(Check$$Lambda$lambda$checkType$0$1, typesInferred, void, $InferenceContext*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.comp.Check$$Lambda$lambda$checkType$0$1",
+		"java.lang.Object",
+		"com.sun.tools.javac.comp.Infer$FreeTypeListener",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Check$$Lambda$lambda$checkType$0$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Check$$Lambda$lambda$checkType$0$1);
+	});
 	return class$;
 }
 $Class* Check$$Lambda$lambda$checkType$0$1::class$ = nullptr;
@@ -512,35 +493,31 @@ public:
 	virtual void report() override {
 		$nc(inst$)->lambda$checkRedundantCast$1(tree);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Check$$Lambda$lambda$checkRedundantCast$1$2>());
-	}
 	Check* inst$ = nullptr;
 	$JCTree$JCTypeCast* tree = nullptr;
-	static $FieldInfo fieldInfos[3];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Check$$Lambda$lambda$checkRedundantCast$1$2::fieldInfos[3] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Check$$Lambda$lambda$checkRedundantCast$1$2, inst$)},
-	{"tree", "Lcom/sun/tools/javac/tree/JCTree$JCTypeCast;", nullptr, $PUBLIC, $field(Check$$Lambda$lambda$checkRedundantCast$1$2, tree)},
-	{}
-};
-$MethodInfo Check$$Lambda$lambda$checkRedundantCast$1$2::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Check;Lcom/sun/tools/javac/tree/JCTree$JCTypeCast;)V", nullptr, $PUBLIC, $method(Check$$Lambda$lambda$checkRedundantCast$1$2, init$, void, Check*, $JCTree$JCTypeCast*)},
-	{"report", "()V", nullptr, $PUBLIC, $virtualMethod(Check$$Lambda$lambda$checkRedundantCast$1$2, report, void)},
-	{}
-};
-$ClassInfo Check$$Lambda$lambda$checkRedundantCast$1$2::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.comp.Check$$Lambda$lambda$checkRedundantCast$1$2",
-	"java.lang.Object",
-	"com.sun.tools.javac.code.DeferredLintHandler$LintLogger",
-	fieldInfos,
-	methodInfos
 };
 $Class* Check$$Lambda$lambda$checkRedundantCast$1$2::load$($String* name, bool initialize) {
-	$loadClass(Check$$Lambda$lambda$checkRedundantCast$1$2, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Check$$Lambda$lambda$checkRedundantCast$1$2, inst$)},
+		{"tree", "Lcom/sun/tools/javac/tree/JCTree$JCTypeCast;", nullptr, $PUBLIC, $field(Check$$Lambda$lambda$checkRedundantCast$1$2, tree)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/comp/Check;Lcom/sun/tools/javac/tree/JCTree$JCTypeCast;)V", nullptr, $PUBLIC, $method(Check$$Lambda$lambda$checkRedundantCast$1$2, init$, void, Check*, $JCTree$JCTypeCast*)},
+		{"report", "()V", nullptr, $PUBLIC, $virtualMethod(Check$$Lambda$lambda$checkRedundantCast$1$2, report, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.comp.Check$$Lambda$lambda$checkRedundantCast$1$2",
+		"java.lang.Object",
+		"com.sun.tools.javac.code.DeferredLintHandler$LintLogger",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Check$$Lambda$lambda$checkRedundantCast$1$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Check$$Lambda$lambda$checkRedundantCast$1$2);
+	});
 	return class$;
 }
 $Class* Check$$Lambda$lambda$checkRedundantCast$1$2::class$ = nullptr;
@@ -560,9 +537,6 @@ public:
 	virtual void typesInferred($InferenceContext* solvedContext) override {
 		$nc(inst$)->lambda$checkMethod$2(mtype, sym, env, argtrees, argtypes, useVarargs, solvedContext);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Check$$Lambda$lambda$checkMethod$2$3>());
-	}
 	Check* inst$ = nullptr;
 	$Type* mtype = nullptr;
 	$Symbol* sym = nullptr;
@@ -570,35 +544,34 @@ public:
 	$List* argtrees = nullptr;
 	$List* argtypes = nullptr;
 	bool useVarargs = false;
-	static $FieldInfo fieldInfos[8];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Check$$Lambda$lambda$checkMethod$2$3::fieldInfos[8] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Check$$Lambda$lambda$checkMethod$2$3, inst$)},
-	{"mtype", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $field(Check$$Lambda$lambda$checkMethod$2$3, mtype)},
-	{"sym", "Lcom/sun/tools/javac/code/Symbol;", nullptr, $PUBLIC, $field(Check$$Lambda$lambda$checkMethod$2$3, sym)},
-	{"env", "Lcom/sun/tools/javac/comp/Env;", nullptr, $PUBLIC, $field(Check$$Lambda$lambda$checkMethod$2$3, env)},
-	{"argtrees", "Lcom/sun/tools/javac/util/List;", nullptr, $PUBLIC, $field(Check$$Lambda$lambda$checkMethod$2$3, argtrees)},
-	{"argtypes", "Lcom/sun/tools/javac/util/List;", nullptr, $PUBLIC, $field(Check$$Lambda$lambda$checkMethod$2$3, argtypes)},
-	{"useVarargs", "Z", nullptr, $PUBLIC, $field(Check$$Lambda$lambda$checkMethod$2$3, useVarargs)},
-	{}
-};
-$MethodInfo Check$$Lambda$lambda$checkMethod$2$3::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Check;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;Z)V", nullptr, $PUBLIC, $method(Check$$Lambda$lambda$checkMethod$2$3, init$, void, Check*, $Type*, $Symbol*, $Env*, $List*, $List*, bool)},
-	{"typesInferred", "(Lcom/sun/tools/javac/comp/InferenceContext;)V", nullptr, $PUBLIC, $virtualMethod(Check$$Lambda$lambda$checkMethod$2$3, typesInferred, void, $InferenceContext*)},
-	{}
-};
-$ClassInfo Check$$Lambda$lambda$checkMethod$2$3::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.comp.Check$$Lambda$lambda$checkMethod$2$3",
-	"java.lang.Object",
-	"com.sun.tools.javac.comp.Infer$FreeTypeListener",
-	fieldInfos,
-	methodInfos
 };
 $Class* Check$$Lambda$lambda$checkMethod$2$3::load$($String* name, bool initialize) {
-	$loadClass(Check$$Lambda$lambda$checkMethod$2$3, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Check$$Lambda$lambda$checkMethod$2$3, inst$)},
+		{"mtype", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $field(Check$$Lambda$lambda$checkMethod$2$3, mtype)},
+		{"sym", "Lcom/sun/tools/javac/code/Symbol;", nullptr, $PUBLIC, $field(Check$$Lambda$lambda$checkMethod$2$3, sym)},
+		{"env", "Lcom/sun/tools/javac/comp/Env;", nullptr, $PUBLIC, $field(Check$$Lambda$lambda$checkMethod$2$3, env)},
+		{"argtrees", "Lcom/sun/tools/javac/util/List;", nullptr, $PUBLIC, $field(Check$$Lambda$lambda$checkMethod$2$3, argtrees)},
+		{"argtypes", "Lcom/sun/tools/javac/util/List;", nullptr, $PUBLIC, $field(Check$$Lambda$lambda$checkMethod$2$3, argtypes)},
+		{"useVarargs", "Z", nullptr, $PUBLIC, $field(Check$$Lambda$lambda$checkMethod$2$3, useVarargs)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/comp/Check;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;Z)V", nullptr, $PUBLIC, $method(Check$$Lambda$lambda$checkMethod$2$3, init$, void, Check*, $Type*, $Symbol*, $Env*, $List*, $List*, bool)},
+		{"typesInferred", "(Lcom/sun/tools/javac/comp/InferenceContext;)V", nullptr, $PUBLIC, $virtualMethod(Check$$Lambda$lambda$checkMethod$2$3, typesInferred, void, $InferenceContext*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.comp.Check$$Lambda$lambda$checkMethod$2$3",
+		"java.lang.Object",
+		"com.sun.tools.javac.comp.Infer$FreeTypeListener",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Check$$Lambda$lambda$checkMethod$2$3, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Check$$Lambda$lambda$checkMethod$2$3);
+	});
 	return class$;
 }
 $Class* Check$$Lambda$lambda$checkMethod$2$3::class$ = nullptr;
@@ -613,35 +586,31 @@ public:
 	virtual void report() override {
 		$nc(inst$)->lambda$warnOnExplicitStrictfp$3(pos);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Check$$Lambda$lambda$warnOnExplicitStrictfp$3$4>());
-	}
 	Check* inst$ = nullptr;
 	$JCDiagnostic$DiagnosticPosition* pos = nullptr;
-	static $FieldInfo fieldInfos[3];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Check$$Lambda$lambda$warnOnExplicitStrictfp$3$4::fieldInfos[3] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Check$$Lambda$lambda$warnOnExplicitStrictfp$3$4, inst$)},
-	{"pos", "Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;", nullptr, $PUBLIC, $field(Check$$Lambda$lambda$warnOnExplicitStrictfp$3$4, pos)},
-	{}
-};
-$MethodInfo Check$$Lambda$lambda$warnOnExplicitStrictfp$3$4::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Check;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;)V", nullptr, $PUBLIC, $method(Check$$Lambda$lambda$warnOnExplicitStrictfp$3$4, init$, void, Check*, $JCDiagnostic$DiagnosticPosition*)},
-	{"report", "()V", nullptr, $PUBLIC, $virtualMethod(Check$$Lambda$lambda$warnOnExplicitStrictfp$3$4, report, void)},
-	{}
-};
-$ClassInfo Check$$Lambda$lambda$warnOnExplicitStrictfp$3$4::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.comp.Check$$Lambda$lambda$warnOnExplicitStrictfp$3$4",
-	"java.lang.Object",
-	"com.sun.tools.javac.code.DeferredLintHandler$LintLogger",
-	fieldInfos,
-	methodInfos
 };
 $Class* Check$$Lambda$lambda$warnOnExplicitStrictfp$3$4::load$($String* name, bool initialize) {
-	$loadClass(Check$$Lambda$lambda$warnOnExplicitStrictfp$3$4, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Check$$Lambda$lambda$warnOnExplicitStrictfp$3$4, inst$)},
+		{"pos", "Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;", nullptr, $PUBLIC, $field(Check$$Lambda$lambda$warnOnExplicitStrictfp$3$4, pos)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/comp/Check;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;)V", nullptr, $PUBLIC, $method(Check$$Lambda$lambda$warnOnExplicitStrictfp$3$4, init$, void, Check*, $JCDiagnostic$DiagnosticPosition*)},
+		{"report", "()V", nullptr, $PUBLIC, $virtualMethod(Check$$Lambda$lambda$warnOnExplicitStrictfp$3$4, report, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.comp.Check$$Lambda$lambda$warnOnExplicitStrictfp$3$4",
+		"java.lang.Object",
+		"com.sun.tools.javac.code.DeferredLintHandler$LintLogger",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Check$$Lambda$lambda$warnOnExplicitStrictfp$3$4, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Check$$Lambda$lambda$warnOnExplicitStrictfp$3$4);
+	});
 	return class$;
 }
 $Class* Check$$Lambda$lambda$warnOnExplicitStrictfp$3$4::class$ = nullptr;
@@ -654,37 +623,33 @@ public:
 		$set(this, tree, tree);
 	}
 	virtual $Object* get() override {
-		 return $of(Check::lambda$checkOverride$4(m, tree));
-	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Check$$Lambda$lambda$checkOverride$4$5>());
+		 return Check::lambda$checkOverride$4(m, tree);
 	}
 	$Symbol$MethodSymbol* m = nullptr;
 	$JCTree* tree = nullptr;
-	static $FieldInfo fieldInfos[3];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Check$$Lambda$lambda$checkOverride$4$5::fieldInfos[3] = {
-	{"m", "Lcom/sun/tools/javac/code/Symbol$MethodSymbol;", nullptr, $PUBLIC, $field(Check$$Lambda$lambda$checkOverride$4$5, m)},
-	{"tree", "Lcom/sun/tools/javac/tree/JCTree;", nullptr, $PUBLIC, $field(Check$$Lambda$lambda$checkOverride$4$5, tree)},
-	{}
-};
-$MethodInfo Check$$Lambda$lambda$checkOverride$4$5::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Symbol$MethodSymbol;Lcom/sun/tools/javac/tree/JCTree;)V", nullptr, $PUBLIC, $method(Check$$Lambda$lambda$checkOverride$4$5, init$, void, $Symbol$MethodSymbol*, $JCTree*)},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Check$$Lambda$lambda$checkOverride$4$5, get, $Object*)},
-	{}
-};
-$ClassInfo Check$$Lambda$lambda$checkOverride$4$5::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.comp.Check$$Lambda$lambda$checkOverride$4$5",
-	"java.lang.Object",
-	"java.util.function.Supplier",
-	fieldInfos,
-	methodInfos
 };
 $Class* Check$$Lambda$lambda$checkOverride$4$5::load$($String* name, bool initialize) {
-	$loadClass(Check$$Lambda$lambda$checkOverride$4$5, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"m", "Lcom/sun/tools/javac/code/Symbol$MethodSymbol;", nullptr, $PUBLIC, $field(Check$$Lambda$lambda$checkOverride$4$5, m)},
+		{"tree", "Lcom/sun/tools/javac/tree/JCTree;", nullptr, $PUBLIC, $field(Check$$Lambda$lambda$checkOverride$4$5, tree)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/code/Symbol$MethodSymbol;Lcom/sun/tools/javac/tree/JCTree;)V", nullptr, $PUBLIC, $method(Check$$Lambda$lambda$checkOverride$4$5, init$, void, $Symbol$MethodSymbol*, $JCTree*)},
+		{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Check$$Lambda$lambda$checkOverride$4$5, get, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.comp.Check$$Lambda$lambda$checkOverride$4$5",
+		"java.lang.Object",
+		"java.util.function.Supplier",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Check$$Lambda$lambda$checkOverride$4$5, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Check$$Lambda$lambda$checkOverride$4$5);
+	});
 	return class$;
 }
 $Class* Check$$Lambda$lambda$checkOverride$4$5::class$ = nullptr;
@@ -698,33 +663,29 @@ public:
 	virtual bool test(Object$* rc) override {
 		 return Check::lambda$checkOverride$5(tree, $cast($Symbol$RecordComponent, rc));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Check$$Lambda$lambda$checkOverride$5$6>());
-	}
 	$JCTree$JCMethodDecl* tree = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Check$$Lambda$lambda$checkOverride$5$6::fieldInfos[2] = {
-	{"tree", "Lcom/sun/tools/javac/tree/JCTree$JCMethodDecl;", nullptr, $PUBLIC, $field(Check$$Lambda$lambda$checkOverride$5$6, tree)},
-	{}
-};
-$MethodInfo Check$$Lambda$lambda$checkOverride$5$6::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/tree/JCTree$JCMethodDecl;)V", nullptr, $PUBLIC, $method(Check$$Lambda$lambda$checkOverride$5$6, init$, void, $JCTree$JCMethodDecl*)},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Check$$Lambda$lambda$checkOverride$5$6, test, bool, Object$*)},
-	{}
-};
-$ClassInfo Check$$Lambda$lambda$checkOverride$5$6::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.comp.Check$$Lambda$lambda$checkOverride$5$6",
-	"java.lang.Object",
-	"java.util.function.Predicate",
-	fieldInfos,
-	methodInfos
 };
 $Class* Check$$Lambda$lambda$checkOverride$5$6::load$($String* name, bool initialize) {
-	$loadClass(Check$$Lambda$lambda$checkOverride$5$6, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"tree", "Lcom/sun/tools/javac/tree/JCTree$JCMethodDecl;", nullptr, $PUBLIC, $field(Check$$Lambda$lambda$checkOverride$5$6, tree)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/tree/JCTree$JCMethodDecl;)V", nullptr, $PUBLIC, $method(Check$$Lambda$lambda$checkOverride$5$6, init$, void, $JCTree$JCMethodDecl*)},
+		{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Check$$Lambda$lambda$checkOverride$5$6, test, bool, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.comp.Check$$Lambda$lambda$checkOverride$5$6",
+		"java.lang.Object",
+		"java.util.function.Predicate",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Check$$Lambda$lambda$checkOverride$5$6, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Check$$Lambda$lambda$checkOverride$5$6);
+	});
 	return class$;
 }
 $Class* Check$$Lambda$lambda$checkOverride$5$6::class$ = nullptr;
@@ -738,33 +699,29 @@ public:
 	virtual void accept(Object$* arg0) override {
 		$nc(inst$)->add(arg0);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Check$$Lambda$add$7>());
-	}
 	$ArrayList* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Check$$Lambda$add$7::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Check$$Lambda$add$7, inst$)},
-	{}
-};
-$MethodInfo Check$$Lambda$add$7::methodInfos[3] = {
-	{"<init>", "(Ljava/util/ArrayList;)V", nullptr, $PUBLIC, $method(Check$$Lambda$add$7, init$, void, $ArrayList*)},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Check$$Lambda$add$7, accept, void, Object$*)},
-	{}
-};
-$ClassInfo Check$$Lambda$add$7::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.comp.Check$$Lambda$add$7",
-	"java.lang.Object",
-	"java.util.function.Consumer",
-	fieldInfos,
-	methodInfos
 };
 $Class* Check$$Lambda$add$7::load$($String* name, bool initialize) {
-	$loadClass(Check$$Lambda$add$7, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Check$$Lambda$add$7, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/ArrayList;)V", nullptr, $PUBLIC, $method(Check$$Lambda$add$7, init$, void, $ArrayList*)},
+		{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Check$$Lambda$add$7, accept, void, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.comp.Check$$Lambda$add$7",
+		"java.lang.Object",
+		"java.util.function.Consumer",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Check$$Lambda$add$7, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Check$$Lambda$add$7);
+	});
 	return class$;
 }
 $Class* Check$$Lambda$add$7::class$ = nullptr;
@@ -778,33 +735,29 @@ public:
 	virtual bool test(Object$* anno) override {
 		 return $nc(inst$)->lambda$validateAnnotation$8($cast($Attribute$Compound, anno));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Check$$Lambda$lambda$validateAnnotation$8$8>());
-	}
 	Check* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Check$$Lambda$lambda$validateAnnotation$8$8::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Check$$Lambda$lambda$validateAnnotation$8$8, inst$)},
-	{}
-};
-$MethodInfo Check$$Lambda$lambda$validateAnnotation$8$8::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Check;)V", nullptr, $PUBLIC, $method(Check$$Lambda$lambda$validateAnnotation$8$8, init$, void, Check*)},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Check$$Lambda$lambda$validateAnnotation$8$8, test, bool, Object$*)},
-	{}
-};
-$ClassInfo Check$$Lambda$lambda$validateAnnotation$8$8::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.comp.Check$$Lambda$lambda$validateAnnotation$8$8",
-	"java.lang.Object",
-	"java.util.function.Predicate",
-	fieldInfos,
-	methodInfos
 };
 $Class* Check$$Lambda$lambda$validateAnnotation$8$8::load$($String* name, bool initialize) {
-	$loadClass(Check$$Lambda$lambda$validateAnnotation$8$8, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Check$$Lambda$lambda$validateAnnotation$8$8, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/comp/Check;)V", nullptr, $PUBLIC, $method(Check$$Lambda$lambda$validateAnnotation$8$8, init$, void, Check*)},
+		{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Check$$Lambda$lambda$validateAnnotation$8$8, test, bool, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.comp.Check$$Lambda$lambda$validateAnnotation$8$8",
+		"java.lang.Object",
+		"java.util.function.Predicate",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Check$$Lambda$lambda$validateAnnotation$8$8, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Check$$Lambda$lambda$validateAnnotation$8$8);
+	});
 	return class$;
 }
 $Class* Check$$Lambda$lambda$validateAnnotation$8$8::class$ = nullptr;
@@ -819,35 +772,31 @@ public:
 	virtual bool test(Object$* attr) override {
 		 return $nc(inst$)->lambda$isTypeAnnotation$9(isTypeParameter, $cast($Attribute, attr));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Check$$Lambda$lambda$isTypeAnnotation$9$9>());
-	}
 	Check* inst$ = nullptr;
 	bool isTypeParameter = false;
-	static $FieldInfo fieldInfos[3];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Check$$Lambda$lambda$isTypeAnnotation$9$9::fieldInfos[3] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Check$$Lambda$lambda$isTypeAnnotation$9$9, inst$)},
-	{"isTypeParameter", "Z", nullptr, $PUBLIC, $field(Check$$Lambda$lambda$isTypeAnnotation$9$9, isTypeParameter)},
-	{}
-};
-$MethodInfo Check$$Lambda$lambda$isTypeAnnotation$9$9::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Check;Z)V", nullptr, $PUBLIC, $method(Check$$Lambda$lambda$isTypeAnnotation$9$9, init$, void, Check*, bool)},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Check$$Lambda$lambda$isTypeAnnotation$9$9, test, bool, Object$*)},
-	{}
-};
-$ClassInfo Check$$Lambda$lambda$isTypeAnnotation$9$9::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.comp.Check$$Lambda$lambda$isTypeAnnotation$9$9",
-	"java.lang.Object",
-	"java.util.function.Predicate",
-	fieldInfos,
-	methodInfos
 };
 $Class* Check$$Lambda$lambda$isTypeAnnotation$9$9::load$($String* name, bool initialize) {
-	$loadClass(Check$$Lambda$lambda$isTypeAnnotation$9$9, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Check$$Lambda$lambda$isTypeAnnotation$9$9, inst$)},
+		{"isTypeParameter", "Z", nullptr, $PUBLIC, $field(Check$$Lambda$lambda$isTypeAnnotation$9$9, isTypeParameter)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/comp/Check;Z)V", nullptr, $PUBLIC, $method(Check$$Lambda$lambda$isTypeAnnotation$9$9, init$, void, Check*, bool)},
+		{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Check$$Lambda$lambda$isTypeAnnotation$9$9, test, bool, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.comp.Check$$Lambda$lambda$isTypeAnnotation$9$9",
+		"java.lang.Object",
+		"java.util.function.Predicate",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Check$$Lambda$lambda$isTypeAnnotation$9$9, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Check$$Lambda$lambda$isTypeAnnotation$9$9);
+	});
 	return class$;
 }
 $Class* Check$$Lambda$lambda$isTypeAnnotation$9$9::class$ = nullptr;
@@ -859,35 +808,31 @@ public:
 		$set(this, pos, pos);
 	}
 	virtual $Object* get() override {
-		 return $of(Check::lambda$checkDeprecated$10(pos));
-	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Check$$Lambda$lambda$checkDeprecated$10$10>());
+		 return Check::lambda$checkDeprecated$10(pos);
 	}
 	$JCDiagnostic$DiagnosticPosition* pos = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Check$$Lambda$lambda$checkDeprecated$10$10::fieldInfos[2] = {
-	{"pos", "Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;", nullptr, $PUBLIC, $field(Check$$Lambda$lambda$checkDeprecated$10$10, pos)},
-	{}
-};
-$MethodInfo Check$$Lambda$lambda$checkDeprecated$10$10::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;)V", nullptr, $PUBLIC, $method(Check$$Lambda$lambda$checkDeprecated$10$10, init$, void, $JCDiagnostic$DiagnosticPosition*)},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Check$$Lambda$lambda$checkDeprecated$10$10, get, $Object*)},
-	{}
-};
-$ClassInfo Check$$Lambda$lambda$checkDeprecated$10$10::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.comp.Check$$Lambda$lambda$checkDeprecated$10$10",
-	"java.lang.Object",
-	"java.util.function.Supplier",
-	fieldInfos,
-	methodInfos
 };
 $Class* Check$$Lambda$lambda$checkDeprecated$10$10::load$($String* name, bool initialize) {
-	$loadClass(Check$$Lambda$lambda$checkDeprecated$10$10, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"pos", "Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;", nullptr, $PUBLIC, $field(Check$$Lambda$lambda$checkDeprecated$10$10, pos)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;)V", nullptr, $PUBLIC, $method(Check$$Lambda$lambda$checkDeprecated$10$10, init$, void, $JCDiagnostic$DiagnosticPosition*)},
+		{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Check$$Lambda$lambda$checkDeprecated$10$10, get, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.comp.Check$$Lambda$lambda$checkDeprecated$10$10",
+		"java.lang.Object",
+		"java.util.function.Supplier",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Check$$Lambda$lambda$checkDeprecated$10$10, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Check$$Lambda$lambda$checkDeprecated$10$10);
+	});
 	return class$;
 }
 $Class* Check$$Lambda$lambda$checkDeprecated$10$10::class$ = nullptr;
@@ -903,37 +848,33 @@ public:
 	virtual void report() override {
 		$nc(inst$)->lambda$checkDeprecated$11(pos, s);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Check$$Lambda$lambda$checkDeprecated$11$11>());
-	}
 	Check* inst$ = nullptr;
 	$Supplier* pos = nullptr;
 	$Symbol* s = nullptr;
-	static $FieldInfo fieldInfos[4];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Check$$Lambda$lambda$checkDeprecated$11$11::fieldInfos[4] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Check$$Lambda$lambda$checkDeprecated$11$11, inst$)},
-	{"pos", "Ljava/util/function/Supplier;", nullptr, $PUBLIC, $field(Check$$Lambda$lambda$checkDeprecated$11$11, pos)},
-	{"s", "Lcom/sun/tools/javac/code/Symbol;", nullptr, $PUBLIC, $field(Check$$Lambda$lambda$checkDeprecated$11$11, s)},
-	{}
-};
-$MethodInfo Check$$Lambda$lambda$checkDeprecated$11$11::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Check;Ljava/util/function/Supplier;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, $method(Check$$Lambda$lambda$checkDeprecated$11$11, init$, void, Check*, $Supplier*, $Symbol*)},
-	{"report", "()V", nullptr, $PUBLIC, $virtualMethod(Check$$Lambda$lambda$checkDeprecated$11$11, report, void)},
-	{}
-};
-$ClassInfo Check$$Lambda$lambda$checkDeprecated$11$11::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.comp.Check$$Lambda$lambda$checkDeprecated$11$11",
-	"java.lang.Object",
-	"com.sun.tools.javac.code.DeferredLintHandler$LintLogger",
-	fieldInfos,
-	methodInfos
 };
 $Class* Check$$Lambda$lambda$checkDeprecated$11$11::load$($String* name, bool initialize) {
-	$loadClass(Check$$Lambda$lambda$checkDeprecated$11$11, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Check$$Lambda$lambda$checkDeprecated$11$11, inst$)},
+		{"pos", "Ljava/util/function/Supplier;", nullptr, $PUBLIC, $field(Check$$Lambda$lambda$checkDeprecated$11$11, pos)},
+		{"s", "Lcom/sun/tools/javac/code/Symbol;", nullptr, $PUBLIC, $field(Check$$Lambda$lambda$checkDeprecated$11$11, s)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/comp/Check;Ljava/util/function/Supplier;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, $method(Check$$Lambda$lambda$checkDeprecated$11$11, init$, void, Check*, $Supplier*, $Symbol*)},
+		{"report", "()V", nullptr, $PUBLIC, $virtualMethod(Check$$Lambda$lambda$checkDeprecated$11$11, report, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.comp.Check$$Lambda$lambda$checkDeprecated$11$11",
+		"java.lang.Object",
+		"com.sun.tools.javac.code.DeferredLintHandler$LintLogger",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Check$$Lambda$lambda$checkDeprecated$11$11, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Check$$Lambda$lambda$checkDeprecated$11$11);
+	});
 	return class$;
 }
 $Class* Check$$Lambda$lambda$checkDeprecated$11$11::class$ = nullptr;
@@ -949,37 +890,33 @@ public:
 	virtual void report() override {
 		$nc(inst$)->lambda$checkSunAPI$12(pos, s);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Check$$Lambda$lambda$checkSunAPI$12$12>());
-	}
 	Check* inst$ = nullptr;
 	$JCDiagnostic$DiagnosticPosition* pos = nullptr;
 	$Symbol* s = nullptr;
-	static $FieldInfo fieldInfos[4];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Check$$Lambda$lambda$checkSunAPI$12$12::fieldInfos[4] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Check$$Lambda$lambda$checkSunAPI$12$12, inst$)},
-	{"pos", "Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;", nullptr, $PUBLIC, $field(Check$$Lambda$lambda$checkSunAPI$12$12, pos)},
-	{"s", "Lcom/sun/tools/javac/code/Symbol;", nullptr, $PUBLIC, $field(Check$$Lambda$lambda$checkSunAPI$12$12, s)},
-	{}
-};
-$MethodInfo Check$$Lambda$lambda$checkSunAPI$12$12::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Check;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, $method(Check$$Lambda$lambda$checkSunAPI$12$12, init$, void, Check*, $JCDiagnostic$DiagnosticPosition*, $Symbol*)},
-	{"report", "()V", nullptr, $PUBLIC, $virtualMethod(Check$$Lambda$lambda$checkSunAPI$12$12, report, void)},
-	{}
-};
-$ClassInfo Check$$Lambda$lambda$checkSunAPI$12$12::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.comp.Check$$Lambda$lambda$checkSunAPI$12$12",
-	"java.lang.Object",
-	"com.sun.tools.javac.code.DeferredLintHandler$LintLogger",
-	fieldInfos,
-	methodInfos
 };
 $Class* Check$$Lambda$lambda$checkSunAPI$12$12::load$($String* name, bool initialize) {
-	$loadClass(Check$$Lambda$lambda$checkSunAPI$12$12, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Check$$Lambda$lambda$checkSunAPI$12$12, inst$)},
+		{"pos", "Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;", nullptr, $PUBLIC, $field(Check$$Lambda$lambda$checkSunAPI$12$12, pos)},
+		{"s", "Lcom/sun/tools/javac/code/Symbol;", nullptr, $PUBLIC, $field(Check$$Lambda$lambda$checkSunAPI$12$12, s)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/comp/Check;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, $method(Check$$Lambda$lambda$checkSunAPI$12$12, init$, void, Check*, $JCDiagnostic$DiagnosticPosition*, $Symbol*)},
+		{"report", "()V", nullptr, $PUBLIC, $virtualMethod(Check$$Lambda$lambda$checkSunAPI$12$12, report, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.comp.Check$$Lambda$lambda$checkSunAPI$12$12",
+		"java.lang.Object",
+		"com.sun.tools.javac.code.DeferredLintHandler$LintLogger",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Check$$Lambda$lambda$checkSunAPI$12$12, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Check$$Lambda$lambda$checkSunAPI$12$12);
+	});
 	return class$;
 }
 $Class* Check$$Lambda$lambda$checkSunAPI$12$12::class$ = nullptr;
@@ -995,37 +932,33 @@ public:
 	virtual void report() override {
 		$nc(inst$)->lambda$checkPreview$13(pos, s);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Check$$Lambda$lambda$checkPreview$13$13>());
-	}
 	Check* inst$ = nullptr;
 	$JCDiagnostic$DiagnosticPosition* pos = nullptr;
 	$Symbol* s = nullptr;
-	static $FieldInfo fieldInfos[4];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Check$$Lambda$lambda$checkPreview$13$13::fieldInfos[4] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Check$$Lambda$lambda$checkPreview$13$13, inst$)},
-	{"pos", "Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;", nullptr, $PUBLIC, $field(Check$$Lambda$lambda$checkPreview$13$13, pos)},
-	{"s", "Lcom/sun/tools/javac/code/Symbol;", nullptr, $PUBLIC, $field(Check$$Lambda$lambda$checkPreview$13$13, s)},
-	{}
-};
-$MethodInfo Check$$Lambda$lambda$checkPreview$13$13::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Check;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, $method(Check$$Lambda$lambda$checkPreview$13$13, init$, void, Check*, $JCDiagnostic$DiagnosticPosition*, $Symbol*)},
-	{"report", "()V", nullptr, $PUBLIC, $virtualMethod(Check$$Lambda$lambda$checkPreview$13$13, report, void)},
-	{}
-};
-$ClassInfo Check$$Lambda$lambda$checkPreview$13$13::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.comp.Check$$Lambda$lambda$checkPreview$13$13",
-	"java.lang.Object",
-	"com.sun.tools.javac.code.DeferredLintHandler$LintLogger",
-	fieldInfos,
-	methodInfos
 };
 $Class* Check$$Lambda$lambda$checkPreview$13$13::load$($String* name, bool initialize) {
-	$loadClass(Check$$Lambda$lambda$checkPreview$13$13, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Check$$Lambda$lambda$checkPreview$13$13, inst$)},
+		{"pos", "Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;", nullptr, $PUBLIC, $field(Check$$Lambda$lambda$checkPreview$13$13, pos)},
+		{"s", "Lcom/sun/tools/javac/code/Symbol;", nullptr, $PUBLIC, $field(Check$$Lambda$lambda$checkPreview$13$13, s)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/comp/Check;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, $method(Check$$Lambda$lambda$checkPreview$13$13, init$, void, Check*, $JCDiagnostic$DiagnosticPosition*, $Symbol*)},
+		{"report", "()V", nullptr, $PUBLIC, $virtualMethod(Check$$Lambda$lambda$checkPreview$13$13, report, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.comp.Check$$Lambda$lambda$checkPreview$13$13",
+		"java.lang.Object",
+		"com.sun.tools.javac.code.DeferredLintHandler$LintLogger",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Check$$Lambda$lambda$checkPreview$13$13, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Check$$Lambda$lambda$checkPreview$13$13);
+	});
 	return class$;
 }
 $Class* Check$$Lambda$lambda$checkPreview$13$13::class$ = nullptr;
@@ -1041,37 +974,33 @@ public:
 	virtual void report() override {
 		$nc(inst$)->lambda$checkPreview$14(pos, s);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Check$$Lambda$lambda$checkPreview$14$14>());
-	}
 	Check* inst$ = nullptr;
 	$JCDiagnostic$DiagnosticPosition* pos = nullptr;
 	$Symbol* s = nullptr;
-	static $FieldInfo fieldInfos[4];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Check$$Lambda$lambda$checkPreview$14$14::fieldInfos[4] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Check$$Lambda$lambda$checkPreview$14$14, inst$)},
-	{"pos", "Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;", nullptr, $PUBLIC, $field(Check$$Lambda$lambda$checkPreview$14$14, pos)},
-	{"s", "Lcom/sun/tools/javac/code/Symbol;", nullptr, $PUBLIC, $field(Check$$Lambda$lambda$checkPreview$14$14, s)},
-	{}
-};
-$MethodInfo Check$$Lambda$lambda$checkPreview$14$14::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Check;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, $method(Check$$Lambda$lambda$checkPreview$14$14, init$, void, Check*, $JCDiagnostic$DiagnosticPosition*, $Symbol*)},
-	{"report", "()V", nullptr, $PUBLIC, $virtualMethod(Check$$Lambda$lambda$checkPreview$14$14, report, void)},
-	{}
-};
-$ClassInfo Check$$Lambda$lambda$checkPreview$14$14::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.comp.Check$$Lambda$lambda$checkPreview$14$14",
-	"java.lang.Object",
-	"com.sun.tools.javac.code.DeferredLintHandler$LintLogger",
-	fieldInfos,
-	methodInfos
 };
 $Class* Check$$Lambda$lambda$checkPreview$14$14::load$($String* name, bool initialize) {
-	$loadClass(Check$$Lambda$lambda$checkPreview$14$14, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Check$$Lambda$lambda$checkPreview$14$14, inst$)},
+		{"pos", "Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;", nullptr, $PUBLIC, $field(Check$$Lambda$lambda$checkPreview$14$14, pos)},
+		{"s", "Lcom/sun/tools/javac/code/Symbol;", nullptr, $PUBLIC, $field(Check$$Lambda$lambda$checkPreview$14$14, s)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/comp/Check;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, $method(Check$$Lambda$lambda$checkPreview$14$14, init$, void, Check*, $JCDiagnostic$DiagnosticPosition*, $Symbol*)},
+		{"report", "()V", nullptr, $PUBLIC, $virtualMethod(Check$$Lambda$lambda$checkPreview$14$14, report, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.comp.Check$$Lambda$lambda$checkPreview$14$14",
+		"java.lang.Object",
+		"com.sun.tools.javac.code.DeferredLintHandler$LintLogger",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Check$$Lambda$lambda$checkPreview$14$14, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Check$$Lambda$lambda$checkPreview$14$14);
+	});
 	return class$;
 }
 $Class* Check$$Lambda$lambda$checkPreview$14$14::class$ = nullptr;
@@ -1087,37 +1016,33 @@ public:
 	virtual void report() override {
 		$nc(inst$)->lambda$checkPreview$15(pos, s);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Check$$Lambda$lambda$checkPreview$15$15>());
-	}
 	Check* inst$ = nullptr;
 	$JCDiagnostic$DiagnosticPosition* pos = nullptr;
 	$Symbol* s = nullptr;
-	static $FieldInfo fieldInfos[4];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Check$$Lambda$lambda$checkPreview$15$15::fieldInfos[4] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Check$$Lambda$lambda$checkPreview$15$15, inst$)},
-	{"pos", "Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;", nullptr, $PUBLIC, $field(Check$$Lambda$lambda$checkPreview$15$15, pos)},
-	{"s", "Lcom/sun/tools/javac/code/Symbol;", nullptr, $PUBLIC, $field(Check$$Lambda$lambda$checkPreview$15$15, s)},
-	{}
-};
-$MethodInfo Check$$Lambda$lambda$checkPreview$15$15::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Check;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, $method(Check$$Lambda$lambda$checkPreview$15$15, init$, void, Check*, $JCDiagnostic$DiagnosticPosition*, $Symbol*)},
-	{"report", "()V", nullptr, $PUBLIC, $virtualMethod(Check$$Lambda$lambda$checkPreview$15$15, report, void)},
-	{}
-};
-$ClassInfo Check$$Lambda$lambda$checkPreview$15$15::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.comp.Check$$Lambda$lambda$checkPreview$15$15",
-	"java.lang.Object",
-	"com.sun.tools.javac.code.DeferredLintHandler$LintLogger",
-	fieldInfos,
-	methodInfos
 };
 $Class* Check$$Lambda$lambda$checkPreview$15$15::load$($String* name, bool initialize) {
-	$loadClass(Check$$Lambda$lambda$checkPreview$15$15, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Check$$Lambda$lambda$checkPreview$15$15, inst$)},
+		{"pos", "Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;", nullptr, $PUBLIC, $field(Check$$Lambda$lambda$checkPreview$15$15, pos)},
+		{"s", "Lcom/sun/tools/javac/code/Symbol;", nullptr, $PUBLIC, $field(Check$$Lambda$lambda$checkPreview$15$15, s)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/comp/Check;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, $method(Check$$Lambda$lambda$checkPreview$15$15, init$, void, Check*, $JCDiagnostic$DiagnosticPosition*, $Symbol*)},
+		{"report", "()V", nullptr, $PUBLIC, $virtualMethod(Check$$Lambda$lambda$checkPreview$15$15, report, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.comp.Check$$Lambda$lambda$checkPreview$15$15",
+		"java.lang.Object",
+		"com.sun.tools.javac.code.DeferredLintHandler$LintLogger",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Check$$Lambda$lambda$checkPreview$15$15, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Check$$Lambda$lambda$checkPreview$15$15);
+	});
 	return class$;
 }
 $Class* Check$$Lambda$lambda$checkPreview$15$15::class$ = nullptr;
@@ -1132,35 +1057,31 @@ public:
 	virtual void report() override {
 		$nc(inst$)->lambda$checkDivZero$16(pos);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Check$$Lambda$lambda$checkDivZero$16$16>());
-	}
 	Check* inst$ = nullptr;
 	$JCDiagnostic$DiagnosticPosition* pos = nullptr;
-	static $FieldInfo fieldInfos[3];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Check$$Lambda$lambda$checkDivZero$16$16::fieldInfos[3] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Check$$Lambda$lambda$checkDivZero$16$16, inst$)},
-	{"pos", "Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;", nullptr, $PUBLIC, $field(Check$$Lambda$lambda$checkDivZero$16$16, pos)},
-	{}
-};
-$MethodInfo Check$$Lambda$lambda$checkDivZero$16$16::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Check;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;)V", nullptr, $PUBLIC, $method(Check$$Lambda$lambda$checkDivZero$16$16, init$, void, Check*, $JCDiagnostic$DiagnosticPosition*)},
-	{"report", "()V", nullptr, $PUBLIC, $virtualMethod(Check$$Lambda$lambda$checkDivZero$16$16, report, void)},
-	{}
-};
-$ClassInfo Check$$Lambda$lambda$checkDivZero$16$16::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.comp.Check$$Lambda$lambda$checkDivZero$16$16",
-	"java.lang.Object",
-	"com.sun.tools.javac.code.DeferredLintHandler$LintLogger",
-	fieldInfos,
-	methodInfos
 };
 $Class* Check$$Lambda$lambda$checkDivZero$16$16::load$($String* name, bool initialize) {
-	$loadClass(Check$$Lambda$lambda$checkDivZero$16$16, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Check$$Lambda$lambda$checkDivZero$16$16, inst$)},
+		{"pos", "Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;", nullptr, $PUBLIC, $field(Check$$Lambda$lambda$checkDivZero$16$16, pos)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/comp/Check;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;)V", nullptr, $PUBLIC, $method(Check$$Lambda$lambda$checkDivZero$16$16, init$, void, Check*, $JCDiagnostic$DiagnosticPosition*)},
+		{"report", "()V", nullptr, $PUBLIC, $virtualMethod(Check$$Lambda$lambda$checkDivZero$16$16, report, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.comp.Check$$Lambda$lambda$checkDivZero$16$16",
+		"java.lang.Object",
+		"com.sun.tools.javac.code.DeferredLintHandler$LintLogger",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Check$$Lambda$lambda$checkDivZero$16$16, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Check$$Lambda$lambda$checkDivZero$16$16);
+	});
 	return class$;
 }
 $Class* Check$$Lambda$lambda$checkDivZero$16$16::class$ = nullptr;
@@ -1173,27 +1094,24 @@ public:
 	virtual bool test(Object$* sym) override {
 		 return Check::lambda$checkImportsUnique$17($cast($Symbol, sym));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Check$$Lambda$lambda$checkImportsUnique$17$17>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo Check$$Lambda$lambda$checkImportsUnique$17$17::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Check$$Lambda$lambda$checkImportsUnique$17$17, init$, void)},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Check$$Lambda$lambda$checkImportsUnique$17$17, test, bool, Object$*)},
-	{}
-};
-$ClassInfo Check$$Lambda$lambda$checkImportsUnique$17$17::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.comp.Check$$Lambda$lambda$checkImportsUnique$17$17",
-	"java.lang.Object",
-	"java.util.function.Predicate",
-	nullptr,
-	methodInfos
 };
 $Class* Check$$Lambda$lambda$checkImportsUnique$17$17::load$($String* name, bool initialize) {
-	$loadClass(Check$$Lambda$lambda$checkImportsUnique$17$17, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Check$$Lambda$lambda$checkImportsUnique$17$17, init$, void)},
+		{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Check$$Lambda$lambda$checkImportsUnique$17$17, test, bool, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.comp.Check$$Lambda$lambda$checkImportsUnique$17$17",
+		"java.lang.Object",
+		"java.util.function.Predicate",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Check$$Lambda$lambda$checkImportsUnique$17$17, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Check$$Lambda$lambda$checkImportsUnique$17$17);
+	});
 	return class$;
 }
 $Class* Check$$Lambda$lambda$checkImportsUnique$17$17::class$ = nullptr;
@@ -1207,33 +1125,29 @@ public:
 	virtual bool test(Object$* candidate) override {
 		 return Check::lambda$checkUniqueImport$18(sym, $cast($Symbol, candidate));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Check$$Lambda$lambda$checkUniqueImport$18$18>());
-	}
 	$Symbol* sym = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Check$$Lambda$lambda$checkUniqueImport$18$18::fieldInfos[2] = {
-	{"sym", "Lcom/sun/tools/javac/code/Symbol;", nullptr, $PUBLIC, $field(Check$$Lambda$lambda$checkUniqueImport$18$18, sym)},
-	{}
-};
-$MethodInfo Check$$Lambda$lambda$checkUniqueImport$18$18::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, $method(Check$$Lambda$lambda$checkUniqueImport$18$18, init$, void, $Symbol*)},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Check$$Lambda$lambda$checkUniqueImport$18$18, test, bool, Object$*)},
-	{}
-};
-$ClassInfo Check$$Lambda$lambda$checkUniqueImport$18$18::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.comp.Check$$Lambda$lambda$checkUniqueImport$18$18",
-	"java.lang.Object",
-	"java.util.function.Predicate",
-	fieldInfos,
-	methodInfos
 };
 $Class* Check$$Lambda$lambda$checkUniqueImport$18$18::load$($String* name, bool initialize) {
-	$loadClass(Check$$Lambda$lambda$checkUniqueImport$18$18, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"sym", "Lcom/sun/tools/javac/code/Symbol;", nullptr, $PUBLIC, $field(Check$$Lambda$lambda$checkUniqueImport$18$18, sym)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, $method(Check$$Lambda$lambda$checkUniqueImport$18$18, init$, void, $Symbol*)},
+		{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Check$$Lambda$lambda$checkUniqueImport$18$18, test, bool, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.comp.Check$$Lambda$lambda$checkUniqueImport$18$18",
+		"java.lang.Object",
+		"java.util.function.Predicate",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Check$$Lambda$lambda$checkUniqueImport$18$18, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Check$$Lambda$lambda$checkUniqueImport$18$18);
+	});
 	return class$;
 }
 $Class* Check$$Lambda$lambda$checkUniqueImport$18$18::class$ = nullptr;
@@ -1251,41 +1165,37 @@ public:
 	virtual void report() override {
 		$nc(inst$)->lambda$checkDefaultConstructor$19(pos, c, pkg, modle);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Check$$Lambda$lambda$checkDefaultConstructor$19$19>());
-	}
 	Check* inst$ = nullptr;
 	$JCDiagnostic$DiagnosticPosition* pos = nullptr;
 	$Symbol$ClassSymbol* c = nullptr;
 	$Symbol$PackageSymbol* pkg = nullptr;
 	$Symbol$ModuleSymbol* modle = nullptr;
-	static $FieldInfo fieldInfos[6];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Check$$Lambda$lambda$checkDefaultConstructor$19$19::fieldInfos[6] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Check$$Lambda$lambda$checkDefaultConstructor$19$19, inst$)},
-	{"pos", "Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;", nullptr, $PUBLIC, $field(Check$$Lambda$lambda$checkDefaultConstructor$19$19, pos)},
-	{"c", "Lcom/sun/tools/javac/code/Symbol$ClassSymbol;", nullptr, $PUBLIC, $field(Check$$Lambda$lambda$checkDefaultConstructor$19$19, c)},
-	{"pkg", "Lcom/sun/tools/javac/code/Symbol$PackageSymbol;", nullptr, $PUBLIC, $field(Check$$Lambda$lambda$checkDefaultConstructor$19$19, pkg)},
-	{"modle", "Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;", nullptr, $PUBLIC, $field(Check$$Lambda$lambda$checkDefaultConstructor$19$19, modle)},
-	{}
-};
-$MethodInfo Check$$Lambda$lambda$checkDefaultConstructor$19$19::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Check;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol$ClassSymbol;Lcom/sun/tools/javac/code/Symbol$PackageSymbol;Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;)V", nullptr, $PUBLIC, $method(Check$$Lambda$lambda$checkDefaultConstructor$19$19, init$, void, Check*, $JCDiagnostic$DiagnosticPosition*, $Symbol$ClassSymbol*, $Symbol$PackageSymbol*, $Symbol$ModuleSymbol*)},
-	{"report", "()V", nullptr, $PUBLIC, $virtualMethod(Check$$Lambda$lambda$checkDefaultConstructor$19$19, report, void)},
-	{}
-};
-$ClassInfo Check$$Lambda$lambda$checkDefaultConstructor$19$19::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.comp.Check$$Lambda$lambda$checkDefaultConstructor$19$19",
-	"java.lang.Object",
-	"com.sun.tools.javac.code.DeferredLintHandler$LintLogger",
-	fieldInfos,
-	methodInfos
 };
 $Class* Check$$Lambda$lambda$checkDefaultConstructor$19$19::load$($String* name, bool initialize) {
-	$loadClass(Check$$Lambda$lambda$checkDefaultConstructor$19$19, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Check$$Lambda$lambda$checkDefaultConstructor$19$19, inst$)},
+		{"pos", "Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;", nullptr, $PUBLIC, $field(Check$$Lambda$lambda$checkDefaultConstructor$19$19, pos)},
+		{"c", "Lcom/sun/tools/javac/code/Symbol$ClassSymbol;", nullptr, $PUBLIC, $field(Check$$Lambda$lambda$checkDefaultConstructor$19$19, c)},
+		{"pkg", "Lcom/sun/tools/javac/code/Symbol$PackageSymbol;", nullptr, $PUBLIC, $field(Check$$Lambda$lambda$checkDefaultConstructor$19$19, pkg)},
+		{"modle", "Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;", nullptr, $PUBLIC, $field(Check$$Lambda$lambda$checkDefaultConstructor$19$19, modle)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/comp/Check;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol$ClassSymbol;Lcom/sun/tools/javac/code/Symbol$PackageSymbol;Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;)V", nullptr, $PUBLIC, $method(Check$$Lambda$lambda$checkDefaultConstructor$19$19, init$, void, Check*, $JCDiagnostic$DiagnosticPosition*, $Symbol$ClassSymbol*, $Symbol$PackageSymbol*, $Symbol$ModuleSymbol*)},
+		{"report", "()V", nullptr, $PUBLIC, $virtualMethod(Check$$Lambda$lambda$checkDefaultConstructor$19$19, report, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.comp.Check$$Lambda$lambda$checkDefaultConstructor$19$19",
+		"java.lang.Object",
+		"com.sun.tools.javac.code.DeferredLintHandler$LintLogger",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Check$$Lambda$lambda$checkDefaultConstructor$19$19, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Check$$Lambda$lambda$checkDefaultConstructor$19$19);
+	});
 	return class$;
 }
 $Class* Check$$Lambda$lambda$checkDefaultConstructor$19$19::class$ = nullptr;
@@ -1301,37 +1211,33 @@ public:
 	virtual void report() override {
 		$nc(inst$)->lambda$checkModuleExists$20(pos, msym);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Check$$Lambda$lambda$checkModuleExists$20$20>());
-	}
 	Check* inst$ = nullptr;
 	$JCDiagnostic$DiagnosticPosition* pos = nullptr;
 	$Symbol$ModuleSymbol* msym = nullptr;
-	static $FieldInfo fieldInfos[4];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Check$$Lambda$lambda$checkModuleExists$20$20::fieldInfos[4] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Check$$Lambda$lambda$checkModuleExists$20$20, inst$)},
-	{"pos", "Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;", nullptr, $PUBLIC, $field(Check$$Lambda$lambda$checkModuleExists$20$20, pos)},
-	{"msym", "Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;", nullptr, $PUBLIC, $field(Check$$Lambda$lambda$checkModuleExists$20$20, msym)},
-	{}
-};
-$MethodInfo Check$$Lambda$lambda$checkModuleExists$20$20::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Check;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;)V", nullptr, $PUBLIC, $method(Check$$Lambda$lambda$checkModuleExists$20$20, init$, void, Check*, $JCDiagnostic$DiagnosticPosition*, $Symbol$ModuleSymbol*)},
-	{"report", "()V", nullptr, $PUBLIC, $virtualMethod(Check$$Lambda$lambda$checkModuleExists$20$20, report, void)},
-	{}
-};
-$ClassInfo Check$$Lambda$lambda$checkModuleExists$20$20::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.comp.Check$$Lambda$lambda$checkModuleExists$20$20",
-	"java.lang.Object",
-	"com.sun.tools.javac.code.DeferredLintHandler$LintLogger",
-	fieldInfos,
-	methodInfos
 };
 $Class* Check$$Lambda$lambda$checkModuleExists$20$20::load$($String* name, bool initialize) {
-	$loadClass(Check$$Lambda$lambda$checkModuleExists$20$20, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Check$$Lambda$lambda$checkModuleExists$20$20, inst$)},
+		{"pos", "Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;", nullptr, $PUBLIC, $field(Check$$Lambda$lambda$checkModuleExists$20$20, pos)},
+		{"msym", "Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;", nullptr, $PUBLIC, $field(Check$$Lambda$lambda$checkModuleExists$20$20, msym)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/comp/Check;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;)V", nullptr, $PUBLIC, $method(Check$$Lambda$lambda$checkModuleExists$20$20, init$, void, Check*, $JCDiagnostic$DiagnosticPosition*, $Symbol$ModuleSymbol*)},
+		{"report", "()V", nullptr, $PUBLIC, $virtualMethod(Check$$Lambda$lambda$checkModuleExists$20$20, report, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.comp.Check$$Lambda$lambda$checkModuleExists$20$20",
+		"java.lang.Object",
+		"com.sun.tools.javac.code.DeferredLintHandler$LintLogger",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Check$$Lambda$lambda$checkModuleExists$20$20, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Check$$Lambda$lambda$checkModuleExists$20$20);
+	});
 	return class$;
 }
 $Class* Check$$Lambda$lambda$checkModuleExists$20$20::class$ = nullptr;
@@ -1347,37 +1253,33 @@ public:
 	virtual void report() override {
 		$nc(inst$)->lambda$checkPackageExistsForOpens$21(pos, packge);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Check$$Lambda$lambda$checkPackageExistsForOpens$21$21>());
-	}
 	Check* inst$ = nullptr;
 	$JCDiagnostic$DiagnosticPosition* pos = nullptr;
 	$Symbol$PackageSymbol* packge = nullptr;
-	static $FieldInfo fieldInfos[4];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Check$$Lambda$lambda$checkPackageExistsForOpens$21$21::fieldInfos[4] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Check$$Lambda$lambda$checkPackageExistsForOpens$21$21, inst$)},
-	{"pos", "Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;", nullptr, $PUBLIC, $field(Check$$Lambda$lambda$checkPackageExistsForOpens$21$21, pos)},
-	{"packge", "Lcom/sun/tools/javac/code/Symbol$PackageSymbol;", nullptr, $PUBLIC, $field(Check$$Lambda$lambda$checkPackageExistsForOpens$21$21, packge)},
-	{}
-};
-$MethodInfo Check$$Lambda$lambda$checkPackageExistsForOpens$21$21::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Check;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol$PackageSymbol;)V", nullptr, $PUBLIC, $method(Check$$Lambda$lambda$checkPackageExistsForOpens$21$21, init$, void, Check*, $JCDiagnostic$DiagnosticPosition*, $Symbol$PackageSymbol*)},
-	{"report", "()V", nullptr, $PUBLIC, $virtualMethod(Check$$Lambda$lambda$checkPackageExistsForOpens$21$21, report, void)},
-	{}
-};
-$ClassInfo Check$$Lambda$lambda$checkPackageExistsForOpens$21$21::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.comp.Check$$Lambda$lambda$checkPackageExistsForOpens$21$21",
-	"java.lang.Object",
-	"com.sun.tools.javac.code.DeferredLintHandler$LintLogger",
-	fieldInfos,
-	methodInfos
 };
 $Class* Check$$Lambda$lambda$checkPackageExistsForOpens$21$21::load$($String* name, bool initialize) {
-	$loadClass(Check$$Lambda$lambda$checkPackageExistsForOpens$21$21, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Check$$Lambda$lambda$checkPackageExistsForOpens$21$21, inst$)},
+		{"pos", "Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;", nullptr, $PUBLIC, $field(Check$$Lambda$lambda$checkPackageExistsForOpens$21$21, pos)},
+		{"packge", "Lcom/sun/tools/javac/code/Symbol$PackageSymbol;", nullptr, $PUBLIC, $field(Check$$Lambda$lambda$checkPackageExistsForOpens$21$21, packge)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/comp/Check;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol$PackageSymbol;)V", nullptr, $PUBLIC, $method(Check$$Lambda$lambda$checkPackageExistsForOpens$21$21, init$, void, Check*, $JCDiagnostic$DiagnosticPosition*, $Symbol$PackageSymbol*)},
+		{"report", "()V", nullptr, $PUBLIC, $virtualMethod(Check$$Lambda$lambda$checkPackageExistsForOpens$21$21, report, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.comp.Check$$Lambda$lambda$checkPackageExistsForOpens$21$21",
+		"java.lang.Object",
+		"com.sun.tools.javac.code.DeferredLintHandler$LintLogger",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Check$$Lambda$lambda$checkPackageExistsForOpens$21$21, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Check$$Lambda$lambda$checkPackageExistsForOpens$21$21);
+	});
 	return class$;
 }
 $Class* Check$$Lambda$lambda$checkPackageExistsForOpens$21$21::class$ = nullptr;
@@ -1393,37 +1295,33 @@ public:
 	virtual void report() override {
 		$nc(inst$)->lambda$checkModuleRequires$22(rd, pos);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Check$$Lambda$lambda$checkModuleRequires$22$22>());
-	}
 	Check* inst$ = nullptr;
 	$Directive$RequiresDirective* rd = nullptr;
 	$JCDiagnostic$DiagnosticPosition* pos = nullptr;
-	static $FieldInfo fieldInfos[4];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Check$$Lambda$lambda$checkModuleRequires$22$22::fieldInfos[4] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Check$$Lambda$lambda$checkModuleRequires$22$22, inst$)},
-	{"rd", "Lcom/sun/tools/javac/code/Directive$RequiresDirective;", nullptr, $PUBLIC, $field(Check$$Lambda$lambda$checkModuleRequires$22$22, rd)},
-	{"pos", "Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;", nullptr, $PUBLIC, $field(Check$$Lambda$lambda$checkModuleRequires$22$22, pos)},
-	{}
-};
-$MethodInfo Check$$Lambda$lambda$checkModuleRequires$22$22::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Check;Lcom/sun/tools/javac/code/Directive$RequiresDirective;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;)V", nullptr, $PUBLIC, $method(Check$$Lambda$lambda$checkModuleRequires$22$22, init$, void, Check*, $Directive$RequiresDirective*, $JCDiagnostic$DiagnosticPosition*)},
-	{"report", "()V", nullptr, $PUBLIC, $virtualMethod(Check$$Lambda$lambda$checkModuleRequires$22$22, report, void)},
-	{}
-};
-$ClassInfo Check$$Lambda$lambda$checkModuleRequires$22$22::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.comp.Check$$Lambda$lambda$checkModuleRequires$22$22",
-	"java.lang.Object",
-	"com.sun.tools.javac.code.DeferredLintHandler$LintLogger",
-	fieldInfos,
-	methodInfos
 };
 $Class* Check$$Lambda$lambda$checkModuleRequires$22$22::load$($String* name, bool initialize) {
-	$loadClass(Check$$Lambda$lambda$checkModuleRequires$22$22, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Check$$Lambda$lambda$checkModuleRequires$22$22, inst$)},
+		{"rd", "Lcom/sun/tools/javac/code/Directive$RequiresDirective;", nullptr, $PUBLIC, $field(Check$$Lambda$lambda$checkModuleRequires$22$22, rd)},
+		{"pos", "Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;", nullptr, $PUBLIC, $field(Check$$Lambda$lambda$checkModuleRequires$22$22, pos)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/comp/Check;Lcom/sun/tools/javac/code/Directive$RequiresDirective;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;)V", nullptr, $PUBLIC, $method(Check$$Lambda$lambda$checkModuleRequires$22$22, init$, void, Check*, $Directive$RequiresDirective*, $JCDiagnostic$DiagnosticPosition*)},
+		{"report", "()V", nullptr, $PUBLIC, $virtualMethod(Check$$Lambda$lambda$checkModuleRequires$22$22, report, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.comp.Check$$Lambda$lambda$checkModuleRequires$22$22",
+		"java.lang.Object",
+		"com.sun.tools.javac.code.DeferredLintHandler$LintLogger",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Check$$Lambda$lambda$checkModuleRequires$22$22, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Check$$Lambda$lambda$checkModuleRequires$22$22);
+	});
 	return class$;
 }
 $Class* Check$$Lambda$lambda$checkModuleRequires$22$22::class$ = nullptr;
@@ -1437,322 +1335,32 @@ public:
 	virtual bool test(Object$* name) override {
 		 return $nc(inst$)->lambda$validateAnnotation$7($cast($Name, name));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Check$$Lambda$lambda$validateAnnotation$7$23>());
-	}
 	Check* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Check$$Lambda$lambda$validateAnnotation$7$23::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Check$$Lambda$lambda$validateAnnotation$7$23, inst$)},
-	{}
-};
-$MethodInfo Check$$Lambda$lambda$validateAnnotation$7$23::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Check;)V", nullptr, $PUBLIC, $method(Check$$Lambda$lambda$validateAnnotation$7$23, init$, void, Check*)},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Check$$Lambda$lambda$validateAnnotation$7$23, test, bool, Object$*)},
-	{}
-};
-$ClassInfo Check$$Lambda$lambda$validateAnnotation$7$23::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.comp.Check$$Lambda$lambda$validateAnnotation$7$23",
-	"java.lang.Object",
-	"java.util.function.Predicate",
-	fieldInfos,
-	methodInfos
 };
 $Class* Check$$Lambda$lambda$validateAnnotation$7$23::load$($String* name, bool initialize) {
-	$loadClass(Check$$Lambda$lambda$validateAnnotation$7$23, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Check$$Lambda$lambda$validateAnnotation$7$23, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/comp/Check;)V", nullptr, $PUBLIC, $method(Check$$Lambda$lambda$validateAnnotation$7$23, init$, void, Check*)},
+		{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Check$$Lambda$lambda$validateAnnotation$7$23, test, bool, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.comp.Check$$Lambda$lambda$validateAnnotation$7$23",
+		"java.lang.Object",
+		"java.util.function.Predicate",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Check$$Lambda$lambda$validateAnnotation$7$23, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Check$$Lambda$lambda$validateAnnotation$7$23);
+	});
 	return class$;
 }
 $Class* Check$$Lambda$lambda$validateAnnotation$7$23::class$ = nullptr;
-
-$FieldInfo _Check_FieldInfo_[] = {
-	{"checkKey", "Lcom/sun/tools/javac/util/Context$Key;", "Lcom/sun/tools/javac/util/Context$Key<Lcom/sun/tools/javac/comp/Check;>;", $PROTECTED | $STATIC | $FINAL, $staticField(Check, checkKey)},
-	{"names", "Lcom/sun/tools/javac/util/Names;", nullptr, $PRIVATE | $FINAL, $field(Check, names)},
-	{"log", "Lcom/sun/tools/javac/util/Log;", nullptr, $PRIVATE | $FINAL, $field(Check, log)},
-	{"rs", "Lcom/sun/tools/javac/comp/Resolve;", nullptr, $PRIVATE | $FINAL, $field(Check, rs)},
-	{"syms", "Lcom/sun/tools/javac/code/Symtab;", nullptr, $PRIVATE | $FINAL, $field(Check, syms)},
-	{"enter", "Lcom/sun/tools/javac/comp/Enter;", nullptr, $PRIVATE | $FINAL, $field(Check, enter)},
-	{"deferredAttr", "Lcom/sun/tools/javac/comp/DeferredAttr;", nullptr, $PRIVATE | $FINAL, $field(Check, deferredAttr)},
-	{"infer", "Lcom/sun/tools/javac/comp/Infer;", nullptr, $PRIVATE | $FINAL, $field(Check, infer)},
-	{"types", "Lcom/sun/tools/javac/code/Types;", nullptr, $PRIVATE | $FINAL, $field(Check, types)},
-	{"typeAnnotations", "Lcom/sun/tools/javac/code/TypeAnnotations;", nullptr, $PRIVATE | $FINAL, $field(Check, typeAnnotations)},
-	{"diags", "Lcom/sun/tools/javac/util/JCDiagnostic$Factory;", nullptr, $PRIVATE | $FINAL, $field(Check, diags)},
-	{"fileManager", "Ljavax/tools/JavaFileManager;", nullptr, $PRIVATE | $FINAL, $field(Check, fileManager)},
-	{"source", "Lcom/sun/tools/javac/code/Source;", nullptr, $PRIVATE | $FINAL, $field(Check, source)},
-	{"target", "Lcom/sun/tools/javac/jvm/Target;", nullptr, $PRIVATE | $FINAL, $field(Check, target)},
-	{"profile", "Lcom/sun/tools/javac/jvm/Profile;", nullptr, $PRIVATE | $FINAL, $field(Check, profile)},
-	{"preview", "Lcom/sun/tools/javac/code/Preview;", nullptr, $PRIVATE | $FINAL, $field(Check, preview)},
-	{"warnOnAnyAccessToMembers", "Z", nullptr, $PRIVATE | $FINAL, $field(Check, warnOnAnyAccessToMembers)},
-	{"lint", "Lcom/sun/tools/javac/code/Lint;", nullptr, $PRIVATE, $field(Check, lint)},
-	{"method", "Lcom/sun/tools/javac/code/Symbol$MethodSymbol;", nullptr, $PRIVATE, $field(Check, method)},
-	{"syntheticNameChar", "C", nullptr, 0, $field(Check, syntheticNameChar)},
-	{"compiled", "Ljava/util/Map;", "Ljava/util/Map<Lcom/sun/tools/javac/util/Pair<Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;Lcom/sun/tools/javac/util/Name;>;Lcom/sun/tools/javac/code/Symbol$ClassSymbol;>;", $PRIVATE, $field(Check, compiled)},
-	{"deprecationHandler", "Lcom/sun/tools/javac/util/MandatoryWarningHandler;", nullptr, $PRIVATE, $field(Check, deprecationHandler)},
-	{"removalHandler", "Lcom/sun/tools/javac/util/MandatoryWarningHandler;", nullptr, $PRIVATE, $field(Check, removalHandler)},
-	{"uncheckedHandler", "Lcom/sun/tools/javac/util/MandatoryWarningHandler;", nullptr, $PRIVATE, $field(Check, uncheckedHandler)},
-	{"sunApiHandler", "Lcom/sun/tools/javac/util/MandatoryWarningHandler;", nullptr, $PRIVATE, $field(Check, sunApiHandler)},
-	{"deferredLintHandler", "Lcom/sun/tools/javac/code/DeferredLintHandler;", nullptr, $PRIVATE, $field(Check, deferredLintHandler)},
-	{"allowRecords", "Z", nullptr, $PRIVATE | $FINAL, $field(Check, allowRecords)},
-	{"allowSealed", "Z", nullptr, $PRIVATE | $FINAL, $field(Check, allowSealed)},
-	{"localClassNameIndexes", "Ljava/util/Map;", "Ljava/util/Map<Lcom/sun/tools/javac/util/Pair<Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/util/Name;>;Ljava/lang/Integer;>;", $PRIVATE, $field(Check, localClassNameIndexes)},
-	{"basicHandler", "Lcom/sun/tools/javac/comp/Check$CheckContext;", nullptr, 0, $field(Check, basicHandler)},
-	{"ignoreAnnotatedCasts", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Check, ignoreAnnotatedCasts)},
-	{"denotableChecker", "Lcom/sun/tools/javac/code/Types$SimpleVisitor;", "Lcom/sun/tools/javac/code/Types$SimpleVisitor<Ljava/lang/Boolean;Ljava/lang/Void;>;", $PRIVATE | $STATIC | $FINAL, $staticField(Check, denotableChecker)},
-	{"isTypeArgErroneous", "Lcom/sun/tools/javac/code/Types$UnaryVisitor;", "Lcom/sun/tools/javac/code/Types$UnaryVisitor<Ljava/lang/Boolean;>;", 0, $field(Check, isTypeArgErroneous$)},
-	{"overrideWarner", "Lcom/sun/tools/javac/util/Warner;", nullptr, 0, $field(Check, overrideWarner)},
-	{"equalsHasCodeFilter", "Ljava/util/function/Predicate;", "Ljava/util/function/Predicate<Lcom/sun/tools/javac/code/Symbol;>;", $PRIVATE, $field(Check, equalsHasCodeFilter)},
-	{"defaultTargets", "Ljava/util/Set;", "Ljava/util/Set<Lcom/sun/tools/javac/util/Name;>;", $PRIVATE, $field(Check, defaultTargets)},
-	{"dfltTargetMeta", "[Lcom/sun/tools/javac/util/Name;", nullptr, $PUBLIC | $FINAL, $field(Check, dfltTargetMeta)},
-	{}
-};
-
-$MethodInfo _Check_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/util/Context;)V", nullptr, $PROTECTED, $method(Check, init$, void, $Context*)},
-	{"annotationApplicable", "(Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;Lcom/sun/tools/javac/code/Symbol;)Z", nullptr, 0, $virtualMethod(Check, annotationApplicable, bool, $JCTree$JCAnnotation*, $Symbol*)},
-	{"asTypeParam", "(Lcom/sun/tools/javac/code/Type;)Ljava/lang/Object;", nullptr, $PRIVATE, $method(Check, asTypeParam, $Object*, $Type*)},
-	{"assertConvertible", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/Warner;)V", nullptr, $PRIVATE, $method(Check, assertConvertible, void, $JCTree*, $Type*, $Type*, $Warner*)},
-	{"belongsToRestrictedPackage", "(Lcom/sun/tools/javac/code/Symbol;)Z", nullptr, $PRIVATE, $method(Check, belongsToRestrictedPackage, bool, $Symbol*)},
-	{"cannotOverride", "(Lcom/sun/tools/javac/code/Symbol$MethodSymbol;Lcom/sun/tools/javac/code/Symbol$MethodSymbol;)Lcom/sun/tools/javac/util/JCDiagnostic$Fragment;", nullptr, 0, $virtualMethod(Check, cannotOverride, $JCDiagnostic$Fragment*, $Symbol$MethodSymbol*, $Symbol$MethodSymbol*)},
-	{"castWarner", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/util/Warner;", nullptr, $PUBLIC, $virtualMethod(Check, castWarner, $Warner*, $JCDiagnostic$DiagnosticPosition*, $Type*, $Type*)},
-	{"checkAccessFromSerializableElement", "(Lcom/sun/tools/javac/tree/JCTree;Z)V", nullptr, 0, $virtualMethod(Check, checkAccessFromSerializableElement, void, $JCTree*, bool)},
-	{"checkAllDefined", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)V", nullptr, 0, $virtualMethod(Check, checkAllDefined, void, $JCDiagnostic$DiagnosticPosition*, $Symbol$ClassSymbol*)},
-	{"checkAnnotationResType", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;)V", nullptr, 0, $virtualMethod(Check, checkAnnotationResType, void, $JCDiagnostic$DiagnosticPosition*, $Type*)},
-	{"checkCanonical", "(Lcom/sun/tools/javac/tree/JCTree;)V", nullptr, $PUBLIC, $virtualMethod(Check, checkCanonical, void, $JCTree*)},
-	{"checkCastable", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Type;", nullptr, 0, $virtualMethod(Check, checkCastable, $Type*, $JCDiagnostic$DiagnosticPosition*, $Type*, $Type*)},
-	{"checkCastable", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/comp/Check$CheckContext;)Lcom/sun/tools/javac/code/Type;", nullptr, 0, $virtualMethod(Check, checkCastable, $Type*, $JCDiagnostic$DiagnosticPosition*, $Type*, $Type*, $Check$CheckContext*)},
-	{"checkClassBounds", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;)V", nullptr, 0, $virtualMethod(Check, checkClassBounds, void, $JCDiagnostic$DiagnosticPosition*, $Type*)},
-	{"checkClassBounds", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Ljava/util/Map;Lcom/sun/tools/javac/code/Type;)V", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Ljava/util/Map<Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/code/Type;>;Lcom/sun/tools/javac/code/Type;)V", 0, $virtualMethod(Check, checkClassBounds, void, $JCDiagnostic$DiagnosticPosition*, $Map*, $Type*)},
-	{"checkClassOrArrayType", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Type;", nullptr, 0, $virtualMethod(Check, checkClassOrArrayType, $Type*, $JCDiagnostic$DiagnosticPosition*, $Type*)},
-	{"checkClassOverrideEqualsAndHash", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)V", nullptr, $PRIVATE, $method(Check, checkClassOverrideEqualsAndHash, void, $JCDiagnostic$DiagnosticPosition*, $Symbol$ClassSymbol*)},
-	{"checkClassOverrideEqualsAndHashIfNeeded", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)V", nullptr, $PUBLIC, $virtualMethod(Check, checkClassOverrideEqualsAndHashIfNeeded, void, $JCDiagnostic$DiagnosticPosition*, $Symbol$ClassSymbol*)},
-	{"checkClassType", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Type;", nullptr, 0, $virtualMethod(Check, checkClassType, $Type*, $JCDiagnostic$DiagnosticPosition*, $Type*)},
-	{"checkClassType", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;Z)Lcom/sun/tools/javac/code/Type;", nullptr, 0, $virtualMethod(Check, checkClassType, $Type*, $JCDiagnostic$DiagnosticPosition*, $Type*, bool)},
-	{"checkCommonOverriderIn", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Type;)Z", nullptr, 0, $virtualMethod(Check, checkCommonOverriderIn, bool, $Symbol*, $Symbol*, $Type*)},
-	{"checkCompatibleAbstracts", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;)Z", nullptr, $PUBLIC, $virtualMethod(Check, checkCompatibleAbstracts, bool, $JCDiagnostic$DiagnosticPosition*, $Type*, $Type*, $Type*)},
-	{"checkCompatibleConcretes", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;)V", nullptr, $PUBLIC, $virtualMethod(Check, checkCompatibleConcretes, void, $JCDiagnostic$DiagnosticPosition*, $Type*)},
-	{"checkCompatibleSupertypes", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;)V", nullptr, 0, $virtualMethod(Check, checkCompatibleSupertypes, void, $JCDiagnostic$DiagnosticPosition*, $Type*)},
-	{"checkConstructorRefType", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Type;", nullptr, 0, $virtualMethod(Check, checkConstructorRefType, $Type*, $JCDiagnostic$DiagnosticPosition*, $Type*)},
-	{"checkCyclicConstructor", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;Lcom/sun/tools/javac/code/Symbol;Ljava/util/Map;)V", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;Lcom/sun/tools/javac/code/Symbol;Ljava/util/Map<Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Symbol;>;)V", $PRIVATE, $method(Check, checkCyclicConstructor, void, $JCTree$JCClassDecl*, $Symbol*, $Map*)},
-	{"checkCyclicConstructors", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)V", nullptr, 0, $virtualMethod(Check, checkCyclicConstructors, void, $JCTree$JCClassDecl*)},
-	{"checkDefaultConstructor", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;)V", nullptr, 0, $virtualMethod(Check, checkDefaultConstructor, void, $Symbol$ClassSymbol*, $JCDiagnostic$DiagnosticPosition*)},
-	{"checkDefaultMethodClashes", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;)V", nullptr, 0, $virtualMethod(Check, checkDefaultMethodClashes, void, $JCDiagnostic$DiagnosticPosition*, $Type*)},
-	{"checkDenotable", "(Lcom/sun/tools/javac/code/Type;)Z", nullptr, $PUBLIC, $virtualMethod(Check, checkDenotable, bool, $Type*)},
-	{"checkDeprecated", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, 0, $virtualMethod(Check, checkDeprecated, void, $JCDiagnostic$DiagnosticPosition*, $Symbol*, $Symbol*)},
-	{"checkDeprecated", "(Ljava/util/function/Supplier;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Symbol;)V", "(Ljava/util/function/Supplier<Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;>;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Symbol;)V", 0, $virtualMethod(Check, checkDeprecated, void, $Supplier*, $Symbol*, $Symbol*)},
-	{"checkDeprecatedAnnotation", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, 0, $virtualMethod(Check, checkDeprecatedAnnotation, void, $JCDiagnostic$DiagnosticPosition*, $Symbol*)},
-	{"checkDiamond", "(Lcom/sun/tools/javac/tree/JCTree$JCNewClass;Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Type;", nullptr, 0, $virtualMethod(Check, checkDiamond, $Type*, $JCTree$JCNewClass*, $Type*)},
-	{"checkDiamondDenotable", "(Lcom/sun/tools/javac/code/Type$ClassType;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/code/Type$ClassType;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", 0, $virtualMethod(Check, checkDiamondDenotable, $List*, $Type$ClassType*)},
-	{"checkDisjoint", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;JJJ)Z", nullptr, 0, $virtualMethod(Check, checkDisjoint, bool, $JCDiagnostic$DiagnosticPosition*, int64_t, int64_t, int64_t)},
-	{"checkDivZero", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Type;)V", nullptr, 0, $virtualMethod(Check, checkDivZero, void, $JCDiagnostic$DiagnosticPosition*, $Symbol*, $Type*)},
-	{"checkEmptyIf", "(Lcom/sun/tools/javac/tree/JCTree$JCIf;)V", nullptr, 0, $virtualMethod(Check, checkEmptyIf, void, $JCTree$JCIf*)},
-	{"checkExtends", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;)Z", nullptr, $PRIVATE, $method(Check, checkExtends, bool, $Type*, $Type*)},
-	{"checkFlags", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;JLcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/tree/JCTree;)J", nullptr, 0, $virtualMethod(Check, checkFlags, int64_t, $JCDiagnostic$DiagnosticPosition*, int64_t, $Symbol*, $JCTree*)},
-	{"checkForBadAuxiliaryClassAccess", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)V", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)V", 0, $virtualMethod(Check, checkForBadAuxiliaryClassAccess, void, $JCDiagnostic$DiagnosticPosition*, $Env*, $Symbol$ClassSymbol*)},
-	{"checkFunctionalInterface", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)V", nullptr, $PUBLIC, $virtualMethod(Check, checkFunctionalInterface, void, $JCTree$JCClassDecl*, $Symbol$ClassSymbol*)},
-	{"checkHideClashes", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol$MethodSymbol;)V", nullptr, 0, $virtualMethod(Check, checkHideClashes, void, $JCDiagnostic$DiagnosticPosition*, $Type*, $Symbol$MethodSymbol*)},
-	{"checkImplementations", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)V", nullptr, 0, $virtualMethod(Check, checkImplementations, void, $JCTree$JCClassDecl*)},
-	{"checkImplementations", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/code/Symbol$ClassSymbol;Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)V", nullptr, 0, $virtualMethod(Check, checkImplementations, void, $JCTree*, $Symbol$ClassSymbol*, $Symbol$ClassSymbol*)},
-	{"checkImportedPackagesObservable", "(Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;)V", nullptr, $PUBLIC, $virtualMethod(Check, checkImportedPackagesObservable, void, $JCTree$JCCompilationUnit*)},
-	{"checkImportsResolvable", "(Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;)V", nullptr, $PUBLIC, $virtualMethod(Check, checkImportsResolvable, void, $JCTree$JCCompilationUnit*)},
-	{"checkImportsUnique", "(Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;)V", nullptr, 0, $virtualMethod(Check, checkImportsUnique, void, $JCTree$JCCompilationUnit*)},
-	{"checkLeaksNotAccessible", "(Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)V", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)V", $PUBLIC, $virtualMethod(Check, checkLeaksNotAccessible, void, $Env*, $JCTree$JCClassDecl*)},
-	{"checkLocalVarType", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/Name;)Lcom/sun/tools/javac/code/Type;", nullptr, 0, $virtualMethod(Check, checkLocalVarType, $Type*, $JCDiagnostic$DiagnosticPosition*, $Type*, $Name*)},
-	{"checkMethod", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;ZLcom/sun/tools/javac/comp/InferenceContext;)Lcom/sun/tools/javac/code/Type;", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;ZLcom/sun/tools/javac/comp/InferenceContext;)Lcom/sun/tools/javac/code/Type;", 0, $virtualMethod(Check, checkMethod, $Type*, $Type*, $Symbol*, $Env*, $List*, $List*, bool, $InferenceContext*)},
-	{"checkModuleExists", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;)V", nullptr, 0, $virtualMethod(Check, checkModuleExists, void, $JCDiagnostic$DiagnosticPosition*, $Symbol$ModuleSymbol*)},
-	{"checkModuleName", "(Lcom/sun/tools/javac/tree/JCTree$JCModuleDecl;)V", nullptr, $PUBLIC, $virtualMethod(Check, checkModuleName, void, $JCTree$JCModuleDecl*)},
-	{"checkModuleRequires", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Directive$RequiresDirective;)V", nullptr, 0, $virtualMethod(Check, checkModuleRequires, void, $JCDiagnostic$DiagnosticPosition*, $Directive$RequiresDirective*)},
-	{"checkNameClash", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Symbol;)Z", nullptr, $PRIVATE, $method(Check, checkNameClash, bool, $Symbol$ClassSymbol*, $Symbol*, $Symbol*)},
-	{"checkNonCyclic", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;)V", nullptr, 0, $virtualMethod(Check, checkNonCyclic, void, $JCDiagnostic$DiagnosticPosition*, $Type*)},
-	{"checkNonCyclic", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type$TypeVar;)V", nullptr, 0, $virtualMethod(Check, checkNonCyclic, void, $JCDiagnostic$DiagnosticPosition*, $Type$TypeVar*)},
-	{"checkNonCyclic1", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type$TypeVar;>;)V", $PRIVATE, $method(Check, checkNonCyclic1, void, $JCDiagnostic$DiagnosticPosition*, $Type*, $List*)},
-	{"checkNonCyclicDecl", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)V", nullptr, 0, $virtualMethod(Check, checkNonCyclicDecl, void, $JCTree$JCClassDecl*)},
-	{"checkNonCyclicElements", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)V", nullptr, 0, $virtualMethod(Check, checkNonCyclicElements, void, $JCTree$JCClassDecl*)},
-	{"checkNonCyclicElementsInternal", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol$TypeSymbol;)V", nullptr, 0, $virtualMethod(Check, checkNonCyclicElementsInternal, void, $JCDiagnostic$DiagnosticPosition*, $Symbol$TypeSymbol*)},
-	{"checkNonCyclicInternal", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;)Z", nullptr, $PRIVATE, $method(Check, checkNonCyclicInternal, bool, $JCDiagnostic$DiagnosticPosition*, $Type*)},
-	{"checkNonVoid", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Type;", nullptr, 0, $virtualMethod(Check, checkNonVoid, $Type*, $JCDiagnostic$DiagnosticPosition*, $Type*)},
-	{"checkNotRepeated", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;Ljava/util/Set;)V", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;Ljava/util/Set<Lcom/sun/tools/javac/code/Type;>;)V", 0, $virtualMethod(Check, checkNotRepeated, void, $JCDiagnostic$DiagnosticPosition*, $Type*, $Set*)},
-	{"checkNullOrRefType", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Type;", nullptr, 0, $virtualMethod(Check, checkNullOrRefType, $Type*, $JCDiagnostic$DiagnosticPosition*, $Type*)},
-	{"checkOverride", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/code/Symbol$MethodSymbol;Lcom/sun/tools/javac/code/Symbol$MethodSymbol;Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)V", nullptr, 0, $virtualMethod(Check, checkOverride, void, $JCTree*, $Symbol$MethodSymbol*, $Symbol$MethodSymbol*, $Symbol$ClassSymbol*)},
-	{"checkOverride", "(Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/tree/JCTree$JCMethodDecl;Lcom/sun/tools/javac/code/Symbol$MethodSymbol;)V", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;Lcom/sun/tools/javac/tree/JCTree$JCMethodDecl;Lcom/sun/tools/javac/code/Symbol$MethodSymbol;)V", 0, $virtualMethod(Check, checkOverride, void, $Env*, $JCTree$JCMethodDecl*, $Symbol$MethodSymbol*)},
-	{"checkOverride", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol$ClassSymbol;Lcom/sun/tools/javac/code/Symbol$MethodSymbol;)V", nullptr, 0, $virtualMethod(Check, checkOverride, void, $JCTree*, $Type*, $Symbol$ClassSymbol*, $Symbol$MethodSymbol*)},
-	{"checkOverrideClashes", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol$MethodSymbol;)V", nullptr, 0, $virtualMethod(Check, checkOverrideClashes, void, $JCDiagnostic$DiagnosticPosition*, $Type*, $Symbol$MethodSymbol*)},
-	{"checkPackageExistsForOpens", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol$PackageSymbol;)V", nullptr, 0, $virtualMethod(Check, checkPackageExistsForOpens, void, $JCDiagnostic$DiagnosticPosition*, $Symbol$PackageSymbol*)},
-	{"checkPotentiallyAmbiguousOverloads", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol$MethodSymbol;Lcom/sun/tools/javac/code/Symbol$MethodSymbol;)V", nullptr, 0, $virtualMethod(Check, checkPotentiallyAmbiguousOverloads, void, $JCDiagnostic$DiagnosticPosition*, $Type*, $Symbol$MethodSymbol*, $Symbol$MethodSymbol*)},
-	{"checkPreview", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, 0, $virtualMethod(Check, checkPreview, void, $JCDiagnostic$DiagnosticPosition*, $Symbol*, $Symbol*)},
-	{"checkProfile", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, 0, $virtualMethod(Check, checkProfile, void, $JCDiagnostic$DiagnosticPosition*, $Symbol*)},
-	{"checkRaw", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/comp/Env;)V", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)V", 0, $virtualMethod(Check, checkRaw, void, $JCTree*, $Env*)},
-	{"checkRedundantCast", "(Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/tree/JCTree$JCTypeCast;)V", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;Lcom/sun/tools/javac/tree/JCTree$JCTypeCast;)V", $PUBLIC, $virtualMethod(Check, checkRedundantCast, void, $Env*, $JCTree$JCTypeCast*)},
-	{"checkRefType", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Type;", nullptr, 0, $virtualMethod(Check, checkRefType, $Type*, $JCDiagnostic$DiagnosticPosition*, $Type*)},
-	{"checkRefTypes", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", 0, $virtualMethod(Check, checkRefTypes, $List*, $List*, $List*)},
-	{"checkSunAPI", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, 0, $virtualMethod(Check, checkSunAPI, void, $JCDiagnostic$DiagnosticPosition*, $Symbol*)},
-	{"checkSwitchCaseStructure", "(Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCCase;>;)V", 0, $virtualMethod(Check, checkSwitchCaseStructure, void, $List*)},
-	{"checkTransparentClass", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol$ClassSymbol;Lcom/sun/tools/javac/code/Scope;)V", nullptr, 0, $virtualMethod(Check, checkTransparentClass, void, $JCDiagnostic$DiagnosticPosition*, $Symbol$ClassSymbol*, $Scope*)},
-	{"checkTransparentVar", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol$VarSymbol;Lcom/sun/tools/javac/code/Scope;)V", nullptr, 0, $virtualMethod(Check, checkTransparentVar, void, $JCDiagnostic$DiagnosticPosition*, $Symbol$VarSymbol*, $Scope*)},
-	{"checkType", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(Check, checkType, $Type*, $JCDiagnostic$DiagnosticPosition*, $Type*, $Type*)},
-	{"checkType", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/comp/Check$CheckContext;)Lcom/sun/tools/javac/code/Type;", nullptr, 0, $virtualMethod(Check, checkType, $Type*, $JCDiagnostic$DiagnosticPosition*, $Type*, $Type*, $Check$CheckContext*)},
-	{"checkTypeContainsImportableElement", "(Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/code/Symbol$PackageSymbol;Lcom/sun/tools/javac/util/Name;Ljava/util/Set;)Z", "(Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/code/Symbol$PackageSymbol;Lcom/sun/tools/javac/util/Name;Ljava/util/Set<Lcom/sun/tools/javac/code/Symbol;>;)Z", $PRIVATE, $method(Check, checkTypeContainsImportableElement, bool, $Symbol$TypeSymbol*, $Symbol$TypeSymbol*, $Symbol$PackageSymbol*, $Name*, $Set*)},
-	{"checkUnique", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Scope;)Z", nullptr, 0, $virtualMethod(Check, checkUnique, bool, $JCDiagnostic$DiagnosticPosition*, $Symbol*, $Scope*)},
-	{"checkUniqueClassName", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/code/Scope;)Z", nullptr, 0, $virtualMethod(Check, checkUniqueClassName, bool, $JCDiagnostic$DiagnosticPosition*, $Name*, $Scope*)},
-	{"checkUniqueImport", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Scope;Lcom/sun/tools/javac/code/Scope;Lcom/sun/tools/javac/code/Scope;Lcom/sun/tools/javac/code/Symbol;Z)Z", nullptr, $PRIVATE, $method(Check, checkUniqueImport, bool, $JCDiagnostic$DiagnosticPosition*, $Scope*, $Scope*, $Scope*, $Symbol*, bool)},
-	{"checkValidGenericType", "(Lcom/sun/tools/javac/code/Type;)Z", nullptr, $PUBLIC, $virtualMethod(Check, checkValidGenericType, bool, $Type*)},
-	{"checkVarargsMethodDecl", "(Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/tree/JCTree$JCMethodDecl;)V", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;Lcom/sun/tools/javac/tree/JCTree$JCMethodDecl;)V", 0, $virtualMethod(Check, checkVarargsMethodDecl, void, $Env*, $JCTree$JCMethodDecl*)},
-	{"checkVisible", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Symbol$PackageSymbol;Z)V", nullptr, $PRIVATE, $method(Check, checkVisible, void, $JCDiagnostic$DiagnosticPosition*, $Symbol*, $Symbol$PackageSymbol*, bool)},
-	{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(Check, clear, void)},
-	{"clearLocalClassNameIndexes", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)V", nullptr, $PUBLIC, $virtualMethod(Check, clearLocalClassNameIndexes, void, $Symbol$ClassSymbol*)},
-	{"closure", "(Lcom/sun/tools/javac/code/Type;Ljava/util/Map;)V", "(Lcom/sun/tools/javac/code/Type;Ljava/util/Map<Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/code/Type;>;)V", $PRIVATE, $method(Check, closure, void, $Type*, $Map*)},
-	{"closure", "(Lcom/sun/tools/javac/code/Type;Ljava/util/Map;Ljava/util/Map;)V", "(Lcom/sun/tools/javac/code/Type;Ljava/util/Map<Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/code/Type;>;Ljava/util/Map<Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/code/Type;>;)V", $PRIVATE, $method(Check, closure, void, $Type*, $Map*, $Map*)},
-	{"completionError", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol$CompletionFailure;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(Check, completionError, $Type*, $JCDiagnostic$DiagnosticPosition*, $Symbol$CompletionFailure*)},
-	{"convertWarner", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/util/Warner;", nullptr, $PUBLIC, $virtualMethod(Check, convertWarner, $Warner*, $JCDiagnostic$DiagnosticPosition*, $Type*, $Type*)},
-	{"defaultTargetMetaInfo", "()[Lcom/sun/tools/javac/util/Name;", nullptr, $PRIVATE, $method(Check, defaultTargetMetaInfo, $NameArray*)},
-	{"diff", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", 0, $virtualMethod(Check, diff, $List*, $List*, $List*)},
-	{"duplicateErasureError", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, 0, $virtualMethod(Check, duplicateErasureError, void, $JCDiagnostic$DiagnosticPosition*, $Symbol*, $Symbol*)},
-	{"duplicateError", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, 0, $virtualMethod(Check, duplicateError, void, $JCDiagnostic$DiagnosticPosition*, $Symbol*)},
-	{"earlyRefError", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, 0, $virtualMethod(Check, earlyRefError, void, $JCDiagnostic$DiagnosticPosition*, $Symbol*)},
-	{"excl", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", 0, $virtualMethod(Check, excl, $List*, $Type*, $List*)},
-	{"findExport", "(Lcom/sun/tools/javac/code/Symbol$PackageSymbol;)Lcom/sun/tools/javac/code/Directive$ExportsDirective;", nullptr, $PRIVATE, $method(Check, findExport, $Directive$ExportsDirective*, $Symbol$PackageSymbol*)},
-	{"firstDirectIncompatibility", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Symbol;", nullptr, $PRIVATE, $method(Check, firstDirectIncompatibility, $Symbol*, $JCDiagnostic$DiagnosticPosition*, $Type*, $Type*, $Type*)},
-	{"firstIncompatibility", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Symbol;", nullptr, $PRIVATE, $method(Check, firstIncompatibility, $Symbol*, $JCDiagnostic$DiagnosticPosition*, $Type*, $Type*, $Type*)},
-	{"firstIncompatibleTypeArg", "(Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Type;", nullptr, $PRIVATE, $method(Check, firstIncompatibleTypeArg, $Type*, $Type*)},
-	{"getApplicableTargets", "(Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;Lcom/sun/tools/javac/code/Symbol;)Ljava/util/Optional;", "(Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;Lcom/sun/tools/javac/code/Symbol;)Ljava/util/Optional<Ljava/util/Set<Lcom/sun/tools/javac/util/Name;>;>;", 0, $virtualMethod(Check, getApplicableTargets, $Optional*, $JCTree$JCAnnotation*, $Symbol*)},
-	{"getAttributeTargetAttribute", "(Lcom/sun/tools/javac/code/Symbol$TypeSymbol;)Lcom/sun/tools/javac/code/Attribute$Array;", nullptr, 0, $virtualMethod(Check, getAttributeTargetAttribute, $Attribute$Array*, $Symbol$TypeSymbol*)},
-	{"getCompiled", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)Lcom/sun/tools/javac/code/Symbol$ClassSymbol;", nullptr, $PUBLIC, $virtualMethod(Check, getCompiled, $Symbol$ClassSymbol*, $Symbol$ClassSymbol*)},
-	{"getCompiled", "(Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;Lcom/sun/tools/javac/util/Name;)Lcom/sun/tools/javac/code/Symbol$ClassSymbol;", nullptr, $PUBLIC, $virtualMethod(Check, getCompiled, $Symbol$ClassSymbol*, $Symbol$ModuleSymbol*, $Name*)},
-	{"getDefaultTargetSet", "()Ljava/util/Set;", "()Ljava/util/Set<Lcom/sun/tools/javac/util/Name;>;", $PRIVATE, $method(Check, getDefaultTargetSet, $Set*)},
-	{"getTargetNames", "(Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;)[Lcom/sun/tools/javac/util/Name;", nullptr, 0, $virtualMethod(Check, getTargetNames, $NameArray*, $JCTree$JCAnnotation*)},
-	{"getTargetNames", "(Lcom/sun/tools/javac/code/Symbol$TypeSymbol;)[Lcom/sun/tools/javac/util/Name;", nullptr, $PUBLIC, $virtualMethod(Check, getTargetNames, $NameArray*, $Symbol$TypeSymbol*)},
-	{"implicitEnumFinalFlag", "(Lcom/sun/tools/javac/tree/JCTree;)J", nullptr, $PRIVATE, $method(Check, implicitEnumFinalFlag, int64_t, $JCTree*)},
-	{"importAccessible", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Symbol$PackageSymbol;)Z", nullptr, $PUBLIC, $virtualMethod(Check, importAccessible, bool, $Symbol*, $Symbol$PackageSymbol*)},
-	{"incl", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", 0, $virtualMethod(Check, incl, $List*, $Type*, $List*)},
-	{"instance", "(Lcom/sun/tools/javac/util/Context;)Lcom/sun/tools/javac/comp/Check;", nullptr, $PUBLIC | $STATIC, $staticMethod(Check, instance, Check*, $Context*)},
-	{"intersect", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", $PUBLIC, $virtualMethod(Check, intersect, $List*, $List*, $List*)},
-	{"intersects", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/List;)Z", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;)Z", 0, $virtualMethod(Check, intersects, bool, $Type*, $List*)},
-	{"is292targetTypeCast", "(Lcom/sun/tools/javac/tree/JCTree$JCTypeCast;)Z", nullptr, $PRIVATE, $method(Check, is292targetTypeCast, bool, $JCTree$JCTypeCast*)},
-	{"isAPISymbol", "(Lcom/sun/tools/javac/code/Symbol;)Z", nullptr, $PRIVATE, $method(Check, isAPISymbol, bool, $Symbol*)},
-	{"isCanonical", "(Lcom/sun/tools/javac/tree/JCTree;)Z", nullptr, $PRIVATE, $method(Check, isCanonical, bool, $JCTree*)},
-	{"isChecked", "(Lcom/sun/tools/javac/code/Type;)Z", nullptr, 0, $virtualMethod(Check, isChecked, bool, $Type*)},
-	{"isDeprecatedOverrideIgnorable", "(Lcom/sun/tools/javac/code/Symbol$MethodSymbol;Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)Z", nullptr, $PRIVATE, $method(Check, isDeprecatedOverrideIgnorable, bool, $Symbol$MethodSymbol*, $Symbol$ClassSymbol*)},
-	{"isEffectivelyNonPublic", "(Lcom/sun/tools/javac/code/Symbol;)Z", nullptr, $PRIVATE, $method(Check, isEffectivelyNonPublic, bool, $Symbol*)},
-	{"isHandled", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/List;)Z", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;)Z", 0, $virtualMethod(Check, isHandled, bool, $Type*, $List*)},
-	{"isOverrider", "(Lcom/sun/tools/javac/code/Symbol;)Z", nullptr, 0, $virtualMethod(Check, isOverrider, bool, $Symbol*)},
-	{"isTargetSubsetOf", "(Ljava/util/Set;Ljava/util/Set;)Z", "(Ljava/util/Set<Lcom/sun/tools/javac/util/Name;>;Ljava/util/Set<Lcom/sun/tools/javac/util/Name;>;)Z", $PRIVATE, $method(Check, isTargetSubsetOf, bool, $Set*, $Set*)},
-	{"isTrustMeAllowedOnMethod", "(Lcom/sun/tools/javac/code/Symbol;)Z", nullptr, $PRIVATE, $method(Check, isTrustMeAllowedOnMethod, bool, $Symbol*)},
-	{"isTypeAnnotation", "(Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;Z)Z", nullptr, $PROTECTED, $virtualMethod(Check, isTypeAnnotation, bool, $JCTree$JCAnnotation*, bool)},
-	{"isTypeAnnotation", "(Lcom/sun/tools/javac/code/Attribute;Z)Z", nullptr, 0, $virtualMethod(Check, isTypeAnnotation, bool, $Attribute*, bool)},
-	{"isTypeArgErroneous", "(Lcom/sun/tools/javac/code/Type;)Z", nullptr, 0, $virtualMethod(Check, isTypeArgErroneous, bool, $Type*)},
-	{"isUnchecked", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)Z", nullptr, 0, $virtualMethod(Check, isUnchecked, bool, $Symbol$ClassSymbol*)},
-	{"isUnchecked", "(Lcom/sun/tools/javac/code/Type;)Z", nullptr, 0, $virtualMethod(Check, isUnchecked, bool, $Type*)},
-	{"isUnchecked", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;)Z", nullptr, 0, $virtualMethod(Check, isUnchecked, bool, $JCDiagnostic$DiagnosticPosition*, $Type*)},
-	{"lambda$checkDefaultConstructor$19", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol$ClassSymbol;Lcom/sun/tools/javac/code/Symbol$PackageSymbol;Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(Check, lambda$checkDefaultConstructor$19, void, $JCDiagnostic$DiagnosticPosition*, $Symbol$ClassSymbol*, $Symbol$PackageSymbol*, $Symbol$ModuleSymbol*)},
-	{"lambda$checkDeprecated$10", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;)Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Check, lambda$checkDeprecated$10, $JCDiagnostic$DiagnosticPosition*, $JCDiagnostic$DiagnosticPosition*)},
-	{"lambda$checkDeprecated$11", "(Ljava/util/function/Supplier;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(Check, lambda$checkDeprecated$11, void, $Supplier*, $Symbol*)},
-	{"lambda$checkDivZero$16", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(Check, lambda$checkDivZero$16, void, $JCDiagnostic$DiagnosticPosition*)},
-	{"lambda$checkImportsUnique$17", "(Lcom/sun/tools/javac/code/Symbol;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Check, lambda$checkImportsUnique$17, bool, $Symbol*)},
-	{"lambda$checkMethod$2", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;ZLcom/sun/tools/javac/comp/InferenceContext;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(Check, lambda$checkMethod$2, void, $Type*, $Symbol*, $Env*, $List*, $List*, bool, $InferenceContext*)},
-	{"lambda$checkModuleExists$20", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(Check, lambda$checkModuleExists$20, void, $JCDiagnostic$DiagnosticPosition*, $Symbol$ModuleSymbol*)},
-	{"lambda$checkModuleRequires$22", "(Lcom/sun/tools/javac/code/Directive$RequiresDirective;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(Check, lambda$checkModuleRequires$22, void, $Directive$RequiresDirective*, $JCDiagnostic$DiagnosticPosition*)},
-	{"lambda$checkOverride$4", "(Lcom/sun/tools/javac/code/Symbol$MethodSymbol;Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Check, lambda$checkOverride$4, $JCDiagnostic$DiagnosticPosition*, $Symbol$MethodSymbol*, $JCTree*)},
-	{"lambda$checkOverride$5", "(Lcom/sun/tools/javac/tree/JCTree$JCMethodDecl;Lcom/sun/tools/javac/code/Symbol$RecordComponent;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Check, lambda$checkOverride$5, bool, $JCTree$JCMethodDecl*, $Symbol$RecordComponent*)},
-	{"lambda$checkPackageExistsForOpens$21", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol$PackageSymbol;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(Check, lambda$checkPackageExistsForOpens$21, void, $JCDiagnostic$DiagnosticPosition*, $Symbol$PackageSymbol*)},
-	{"lambda$checkPreview$13", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(Check, lambda$checkPreview$13, void, $JCDiagnostic$DiagnosticPosition*, $Symbol*)},
-	{"lambda$checkPreview$14", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(Check, lambda$checkPreview$14, void, $JCDiagnostic$DiagnosticPosition*, $Symbol*)},
-	{"lambda$checkPreview$15", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(Check, lambda$checkPreview$15, void, $JCDiagnostic$DiagnosticPosition*, $Symbol*)},
-	{"lambda$checkRedundantCast$1", "(Lcom/sun/tools/javac/tree/JCTree$JCTypeCast;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(Check, lambda$checkRedundantCast$1, void, $JCTree$JCTypeCast*)},
-	{"lambda$checkSunAPI$12", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(Check, lambda$checkSunAPI$12, void, $JCDiagnostic$DiagnosticPosition*, $Symbol*)},
-	{"lambda$checkType$0", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/comp/Check$CheckContext;Lcom/sun/tools/javac/comp/InferenceContext;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(Check, lambda$checkType$0, void, $JCDiagnostic$DiagnosticPosition*, $Type*, $Type*, $Check$CheckContext*, $InferenceContext*)},
-	{"lambda$checkUniqueImport$18", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Symbol;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Check, lambda$checkUniqueImport$18, bool, $Symbol*, $Symbol*)},
-	{"lambda$isTypeAnnotation$9", "(ZLcom/sun/tools/javac/code/Attribute;)Z", nullptr, $PRIVATE | $SYNTHETIC, $method(Check, lambda$isTypeAnnotation$9, bool, bool, $Attribute*)},
-	{"lambda$new$6", "(Lcom/sun/tools/javac/code/Symbol;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Check, lambda$new$6, bool, $Symbol*)},
-	{"lambda$validateAnnotation$7", "(Lcom/sun/tools/javac/util/Name;)Z", nullptr, $PRIVATE | $SYNTHETIC, $method(Check, lambda$validateAnnotation$7, bool, $Name*)},
-	{"lambda$validateAnnotation$8", "(Lcom/sun/tools/javac/code/Attribute$Compound;)Z", nullptr, $PRIVATE | $SYNTHETIC, $method(Check, lambda$validateAnnotation$8, bool, $Attribute$Compound*)},
-	{"lambda$warnOnExplicitStrictfp$3", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(Check, lambda$warnOnExplicitStrictfp$3, void, $JCDiagnostic$DiagnosticPosition*)},
-	{"localClassName", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)Lcom/sun/tools/javac/util/Name;", nullptr, $PUBLIC, $virtualMethod(Check, localClassName, $Name*, $Symbol$ClassSymbol*)},
-	{"newRound", "()V", nullptr, $PUBLIC, $virtualMethod(Check, newRound, void)},
-	{"noteCyclic", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)V", nullptr, $PRIVATE, $method(Check, noteCyclic, void, $JCDiagnostic$DiagnosticPosition*, $Symbol$ClassSymbol*)},
-	{"protection", "(J)I", nullptr, $STATIC, $staticMethod(Check, protection, int32_t, int64_t)},
-	{"putCompiled", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)V", nullptr, $PUBLIC, $virtualMethod(Check, putCompiled, void, $Symbol$ClassSymbol*)},
-	{"removeCompiled", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)V", nullptr, $PUBLIC, $virtualMethod(Check, removeCompiled, void, $Symbol$ClassSymbol*)},
-	{"reportDeferredDiagnostics", "()V", nullptr, $PUBLIC, $virtualMethod(Check, reportDeferredDiagnostics, void)},
-	{"setLint", "(Lcom/sun/tools/javac/code/Lint;)Lcom/sun/tools/javac/code/Lint;", nullptr, 0, $virtualMethod(Check, setLint, $Lint*, $Lint*)},
-	{"setMethod", "(Lcom/sun/tools/javac/code/Symbol$MethodSymbol;)Lcom/sun/tools/javac/code/Symbol$MethodSymbol;", nullptr, 0, $virtualMethod(Check, setMethod, $Symbol$MethodSymbol*, $Symbol$MethodSymbol*)},
-	{"subset", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/List;)Z", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;)Z", 0, $virtualMethod(Check, subset, bool, $Type*, $List*)},
-	{"typeTagError", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/util/JCDiagnostic;Ljava/lang/Object;)Lcom/sun/tools/javac/code/Type;", nullptr, 0, $virtualMethod(Check, typeTagError, $Type*, $JCDiagnostic$DiagnosticPosition*, $JCDiagnostic*, Object$*)},
-	{"uncheckedOverrides", "(Lcom/sun/tools/javac/code/Symbol$MethodSymbol;Lcom/sun/tools/javac/code/Symbol$MethodSymbol;)Lcom/sun/tools/javac/util/JCDiagnostic$Fragment;", nullptr, 0, $virtualMethod(Check, uncheckedOverrides, $JCDiagnostic$Fragment*, $Symbol$MethodSymbol*, $Symbol$MethodSymbol*)},
-	{"unhandled", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", 0, $virtualMethod(Check, unhandled, $List*, $List*, $List*)},
-	{"union", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", 0, $virtualMethod(Check, union$, $List*, $List*, $List*)},
-	{"validate", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/comp/Env;)V", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)V", 0, $virtualMethod(Check, validate, void, $JCTree*, $Env*)},
-	{"validate", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/comp/Env;Z)V", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;Z)V", 0, $virtualMethod(Check, validate, void, $JCTree*, $Env*, bool)},
-	{"validate", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/comp/Env;)V", "(Lcom/sun/tools/javac/util/List<+Lcom/sun/tools/javac/tree/JCTree;>;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)V", 0, $virtualMethod(Check, validate, void, $List*, $Env*)},
-	{"validateAnnotation", "(Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PRIVATE, $method(Check, validateAnnotation, void, $JCTree$JCAnnotation*, $JCTree*, $Symbol*)},
-	{"validateAnnotation", "(Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;)Z", nullptr, $PRIVATE, $method(Check, validateAnnotation, bool, $JCTree$JCAnnotation*)},
-	{"validateAnnotationDeferErrors", "(Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;)Z", nullptr, $PUBLIC, $virtualMethod(Check, validateAnnotationDeferErrors, bool, $JCTree$JCAnnotation*)},
-	{"validateAnnotationMethod", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol$MethodSymbol;)V", nullptr, 0, $virtualMethod(Check, validateAnnotationMethod, void, $JCDiagnostic$DiagnosticPosition*, $Symbol$MethodSymbol*)},
-	{"validateAnnotationTree", "(Lcom/sun/tools/javac/tree/JCTree;)V", nullptr, 0, $virtualMethod(Check, validateAnnotationTree, void, $JCTree*)},
-	{"validateAnnotationType", "(Lcom/sun/tools/javac/tree/JCTree;)V", nullptr, 0, $virtualMethod(Check, validateAnnotationType, void, $JCTree*)},
-	{"validateAnnotationType", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;)V", nullptr, 0, $virtualMethod(Check, validateAnnotationType, void, $JCDiagnostic$DiagnosticPosition*, $Type*)},
-	{"validateAnnotations", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/code/Symbol;)V", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;>;Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/code/Symbol;)V", $PUBLIC, $virtualMethod(Check, validateAnnotations, void, $List*, $JCTree*, $Symbol*)},
-	{"validateDefault", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;)V", nullptr, $PRIVATE, $method(Check, validateDefault, void, $Symbol*, $JCDiagnostic$DiagnosticPosition*)},
-	{"validateDocumented", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;)V", nullptr, $PRIVATE, $method(Check, validateDocumented, void, $Symbol*, $Symbol*, $JCDiagnostic$DiagnosticPosition*)},
-	{"validateInherited", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;)V", nullptr, $PRIVATE, $method(Check, validateInherited, void, $Symbol*, $Symbol*, $JCDiagnostic$DiagnosticPosition*)},
-	{"validateRepeatable", "(Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/code/Attribute$Compound;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;)V", nullptr, $PUBLIC, $virtualMethod(Check, validateRepeatable, void, $Symbol$TypeSymbol*, $Attribute$Compound*, $JCDiagnostic$DiagnosticPosition*)},
-	{"validateRetention", "(Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;)V", nullptr, $PRIVATE, $method(Check, validateRetention, void, $Symbol$TypeSymbol*, $Symbol$TypeSymbol*, $JCDiagnostic$DiagnosticPosition*)},
-	{"validateTarget", "(Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;)V", nullptr, $PRIVATE, $method(Check, validateTarget, void, $Symbol$TypeSymbol*, $Symbol$TypeSymbol*, $JCDiagnostic$DiagnosticPosition*)},
-	{"validateTargetAnnotationValue", "(Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;)Z", nullptr, 0, $virtualMethod(Check, validateTargetAnnotationValue, bool, $JCTree$JCAnnotation*)},
-	{"validateTypeAnnotation", "(Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;Z)V", nullptr, $PUBLIC, $virtualMethod(Check, validateTypeAnnotation, void, $JCTree$JCAnnotation*, bool)},
-	{"validateTypeAnnotations", "(Lcom/sun/tools/javac/util/List;Z)V", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;>;Z)V", $PUBLIC, $virtualMethod(Check, validateTypeAnnotations, void, $List*, bool)},
-	{"validateValue", "(Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;)V", nullptr, $PRIVATE, $method(Check, validateValue, void, $Symbol$TypeSymbol*, $Symbol$TypeSymbol*, $JCDiagnostic$DiagnosticPosition*)},
-	{"varargsDuplicateError", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, 0, $virtualMethod(Check, varargsDuplicateError, void, $JCDiagnostic$DiagnosticPosition*, $Symbol*, $Symbol*)},
-	{"varargsOverrides", "(Lcom/sun/tools/javac/code/Symbol$MethodSymbol;Lcom/sun/tools/javac/code/Symbol$MethodSymbol;)Lcom/sun/tools/javac/util/JCDiagnostic$Fragment;", nullptr, 0, $virtualMethod(Check, varargsOverrides, $JCDiagnostic$Fragment*, $Symbol$MethodSymbol*, $Symbol$MethodSymbol*)},
-	{"warnDeclaredUsingPreview", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, $virtualMethod(Check, warnDeclaredUsingPreview, void, $JCDiagnostic$DiagnosticPosition*, $Symbol*)},
-	{"warnDeprecated", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, 0, $virtualMethod(Check, warnDeprecated, void, $JCDiagnostic$DiagnosticPosition*, $Symbol*)},
-	{"warnDivZero", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;)V", nullptr, 0, $virtualMethod(Check, warnDivZero, void, $JCDiagnostic$DiagnosticPosition*)},
-	{"warnOnExplicitStrictfp", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;)V", nullptr, $PRIVATE, $method(Check, warnOnExplicitStrictfp, void, $JCDiagnostic$DiagnosticPosition*)},
-	{"warnPreviewAPI", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/util/JCDiagnostic$Warning;)V", nullptr, $PUBLIC, $virtualMethod(Check, warnPreviewAPI, void, $JCDiagnostic$DiagnosticPosition*, $JCDiagnostic$Warning*)},
-	{"warnStatic", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/util/JCDiagnostic$Warning;)V", nullptr, $PUBLIC, $virtualMethod(Check, warnStatic, void, $JCDiagnostic$DiagnosticPosition*, $JCDiagnostic$Warning*)},
-	{"warnUnchecked", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/util/JCDiagnostic$Warning;)V", nullptr, $PUBLIC, $virtualMethod(Check, warnUnchecked, void, $JCDiagnostic$DiagnosticPosition*, $JCDiagnostic$Warning*)},
-	{"warnUnsafeVararg", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/util/JCDiagnostic$Warning;)V", nullptr, 0, $virtualMethod(Check, warnUnsafeVararg, void, $JCDiagnostic$DiagnosticPosition*, $JCDiagnostic$Warning*)},
-	{"withinAnonConstr", "(Lcom/sun/tools/javac/comp/Env;)Z", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)Z", $PRIVATE, $method(Check, withinAnonConstr, bool, $Env*)},
-	{}
-};
-
-$InnerClassInfo _Check_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.Check$5", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{"com.sun.tools.javac.comp.Check$ConversionWarner", "com.sun.tools.javac.comp.Check", "ConversionWarner", $PRIVATE},
-	{"com.sun.tools.javac.comp.Check$DefaultMethodClashFilter", "com.sun.tools.javac.comp.Check", "DefaultMethodClashFilter", $PRIVATE},
-	{"com.sun.tools.javac.comp.Check$ClashFilter", "com.sun.tools.javac.comp.Check", "ClashFilter", $PRIVATE},
-	{"com.sun.tools.javac.comp.Check$CycleChecker", "com.sun.tools.javac.comp.Check", "CycleChecker", 0},
-	{"com.sun.tools.javac.comp.Check$Validator", "com.sun.tools.javac.comp.Check", "Validator", 0},
-	{"com.sun.tools.javac.comp.Check$NestedCheckContext", "com.sun.tools.javac.comp.Check", "NestedCheckContext", $STATIC},
-	{"com.sun.tools.javac.comp.Check$CheckContext", "com.sun.tools.javac.comp.Check", "CheckContext", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"com.sun.tools.javac.comp.Check$4", nullptr, nullptr, 0},
-	{"com.sun.tools.javac.comp.Check$1AnnotationValidator", nullptr, "AnnotationValidator", 0},
-	{"com.sun.tools.javac.comp.Check$1SpecialTreeVisitor", nullptr, "SpecialTreeVisitor", 0},
-	{"com.sun.tools.javac.comp.Check$3", nullptr, nullptr, 0},
-	{"com.sun.tools.javac.comp.Check$2", nullptr, nullptr, 0},
-	{"com.sun.tools.javac.comp.Check$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Check_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.comp.Check",
-	"java.lang.Object",
-	nullptr,
-	_Check_FieldInfo_,
-	_Check_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Check_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.Check$5,com.sun.tools.javac.comp.Check$ConversionWarner,com.sun.tools.javac.comp.Check$DefaultMethodClashFilter,com.sun.tools.javac.comp.Check$ClashFilter,com.sun.tools.javac.comp.Check$CycleChecker,com.sun.tools.javac.comp.Check$Validator,com.sun.tools.javac.comp.Check$NestedCheckContext,com.sun.tools.javac.comp.Check$CheckContext,com.sun.tools.javac.comp.Check$4,com.sun.tools.javac.comp.Check$1AnnotationValidator,com.sun.tools.javac.comp.Check$1SpecialTreeVisitor,com.sun.tools.javac.comp.Check$3,com.sun.tools.javac.comp.Check$2,com.sun.tools.javac.comp.Check$1"
-};
-
-$Object* allocate$Check($Class* clazz) {
-	return $of($alloc(Check));
-}
 
 $Context$Key* Check::checkKey = nullptr;
 $Types$SimpleVisitor* Check::denotableChecker = nullptr;
@@ -1772,8 +1380,8 @@ void Check::init$($Context* context) {
 	$set(this, basicHandler, $new($Check$1, this));
 	$set(this, isTypeArgErroneous$, $new($Check$3, this));
 	$set(this, overrideWarner, $new($Warner));
-	$set(this, equalsHasCodeFilter, static_cast<$Predicate*>($new(Check$$Lambda$lambda$new$6)));
-	$nc(context)->put(Check::checkKey, $of(this));
+	$set(this, equalsHasCodeFilter, $new(Check$$Lambda$lambda$new$6));
+	$nc(context)->put(Check::checkKey, this);
 	$set(this, names, $Names::instance(context));
 	$set(this, dfltTargetMeta, $new($NameArray, {
 		$nc(this->names)->PACKAGE,
@@ -1835,7 +1443,7 @@ $Symbol$MethodSymbol* Check::setMethod($Symbol$MethodSymbol* newMethod) {
 }
 
 void Check::warnDeprecated($JCDiagnostic$DiagnosticPosition* pos, $Symbol* sym) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(sym)->isDeprecatedForRemoval()) {
 		$init($Lint$LintCategory);
 		if (!$nc(this->lint)->isSuppressed($Lint$LintCategory::REMOVAL)) {
@@ -1867,7 +1475,7 @@ void Check::warnPreviewAPI($JCDiagnostic$DiagnosticPosition* pos, $JCDiagnostic$
 }
 
 void Check::warnDeclaredUsingPreview($JCDiagnostic$DiagnosticPosition* pos, $Symbol* sym) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Lint$LintCategory);
 	if (!$nc(this->lint)->isSuppressed($Lint$LintCategory::PREVIEW)) {
 		$nc(this->preview)->reportPreviewWarning(pos, $($CompilerProperties$Warnings::DeclaredUsingPreview($($Kinds::kindName(sym)), sym)));
@@ -1911,14 +1519,14 @@ void Check::reportDeferredDiagnostics() {
 }
 
 $Type* Check::completionError($JCDiagnostic$DiagnosticPosition* pos, $Symbol$CompletionFailure* ex) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($JCDiagnostic$DiagnosticFlag);
-	$nc(this->log)->error($JCDiagnostic$DiagnosticFlag::NON_DEFERRABLE, pos, $($CompilerProperties$Errors::CantAccess($nc(ex)->sym, $(ex->getDetailValue()))));
+	$nc(this->log)->error($JCDiagnostic$DiagnosticFlag::NON_DEFERRABLE, pos, $($CompilerProperties$Errors::CantAccess($nc(ex)->sym, $($nc(ex)->getDetailValue()))));
 	return $nc(this->syms)->errType;
 }
 
 $Type* Check::typeTagError($JCDiagnostic$DiagnosticPosition* pos, $JCDiagnostic* required, Object$* found) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	{
 		$var($Type, type, nullptr);
 		bool var$1 = $instanceOf($Type, found);
@@ -1949,29 +1557,25 @@ void Check::earlyRefError($JCDiagnostic$DiagnosticPosition* pos, $Symbol* sym) {
 }
 
 void Check::duplicateError($JCDiagnostic$DiagnosticPosition* pos, $Symbol* sym) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!$nc($nc(sym)->type)->isErroneous()) {
 		$var($Symbol, location, sym->location());
 		$init($Kinds$Kind);
-		if ($nc(location)->kind == $Kinds$Kind::MTH && $nc(($cast($Symbol$MethodSymbol, location)))->isStaticOrInstanceInit()) {
+		if ($nc(location)->kind == $Kinds$Kind::MTH && $cast($Symbol$MethodSymbol, location)->isStaticOrInstanceInit()) {
 			$var($Kinds$KindName, var$0, $Kinds::kindName(sym));
-			$var($Symbol, var$1, sym);
-			$var($Kinds$KindName, var$2, $Kinds::kindName($(sym->location())));
-			$var($Kinds$KindName, var$3, $Kinds::kindName($(static_cast<$Symbol*>($nc($(sym->location()))->enclClass()))));
-			$nc(this->log)->error(pos, $($CompilerProperties$Errors::AlreadyDefinedInClinit(var$0, var$1, var$2, var$3, $($nc($(sym->location()))->enclClass()))));
-		} else {
-			if (location->kind != $Kinds$Kind::MTH || (((int64_t)($nc(sym->owner)->flags_field & (uint64_t)(int64_t)0x0000001000000000)) == 0) || (((int64_t)($nc(sym->owner)->flags_field & (uint64_t)(int64_t)0x2000000000000000)) == 0)) {
-				$var($Kinds$KindName, var$4, $Kinds::kindName(sym));
-				$var($Symbol, var$5, sym);
-				$var($Kinds$KindName, var$6, $Kinds::kindName($(sym->location())));
-				$nc(this->log)->error(pos, $($CompilerProperties$Errors::AlreadyDefined(var$4, var$5, var$6, $(sym->location()))));
-			}
+			$var($Kinds$KindName, var$1, $Kinds::kindName($(sym->location())));
+			$var($Kinds$KindName, var$2, $Kinds::kindName($($$nc(sym->location())->enclClass())));
+			$nc(this->log)->error(pos, $($CompilerProperties$Errors::AlreadyDefinedInClinit(var$0, sym, var$1, var$2, $($$nc(sym->location())->enclClass()))));
+		} else if (location->kind != $Kinds$Kind::MTH || (($nc(sym->owner)->flags_field & (int64_t)0x0000001000000000) == 0) || (($nc(sym->owner)->flags_field & (int64_t)0x2000000000000000) == 0)) {
+			$var($Kinds$KindName, var$3, $Kinds::kindName(sym));
+			$var($Kinds$KindName, var$4, $Kinds::kindName($(sym->location())));
+			$nc(this->log)->error(pos, $($CompilerProperties$Errors::AlreadyDefined(var$3, sym, var$4, $(sym->location()))));
 		}
 	}
 }
 
 void Check::varargsDuplicateError($JCDiagnostic$DiagnosticPosition* pos, $Symbol* sym1, $Symbol* sym2) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool var$0 = !$nc($nc(sym1)->type)->isErroneous();
 	if (var$0 && !$nc($nc(sym2)->type)->isErroneous()) {
 		$nc(this->log)->error(pos, $($CompilerProperties$Errors::ArrayAndVarargs(sym1, sym2, $(sym2->location()))));
@@ -1979,68 +1583,62 @@ void Check::varargsDuplicateError($JCDiagnostic$DiagnosticPosition* pos, $Symbol
 }
 
 void Check::checkTransparentVar($JCDiagnostic$DiagnosticPosition* pos, $Symbol$VarSymbol* v, $Scope* s) {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Iterator, i$, $nc($($nc(s)->getSymbolsByName($nc(v)->name)))->iterator());
-		for (; $nc(i$)->hasNext();) {
-			$var($Symbol, sym, $cast($Symbol, i$->next()));
-			{
-				if ($nc(sym)->owner != $nc(v)->owner) {
-					break;
-				}
-				$init($Kinds$Kind);
-				$init($Kinds$KindSelector);
-				if ($nc(sym)->kind == $Kinds$Kind::VAR && $nc($nc(sym->owner)->kind)->matches($Kinds$KindSelector::VAL_MTH) && $nc(v)->name != $nc(this->names)->error) {
-					duplicateError(pos, sym);
-					return;
-				}
+	$useLocalObjectStack();
+	$var($Iterator, i$, $$nc($nc(s)->getSymbolsByName($nc(v)->name))->iterator());
+	for (; $nc(i$)->hasNext();) {
+		$var($Symbol, sym, $cast($Symbol, i$->next()));
+		{
+			if ($nc(sym)->owner != v->owner) {
+				break;
+			}
+			$init($Kinds$Kind);
+			$init($Kinds$KindSelector);
+			if (sym->kind == $Kinds$Kind::VAR && $nc($nc(sym->owner)->kind)->matches($Kinds$KindSelector::VAL_MTH) && v->name != $nc(this->names)->error) {
+				duplicateError(pos, sym);
+				return;
 			}
 		}
 	}
 }
 
 void Check::checkTransparentClass($JCDiagnostic$DiagnosticPosition* pos, $Symbol$ClassSymbol* c, $Scope* s) {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Iterator, i$, $nc($($nc(s)->getSymbolsByName($nc(c)->name)))->iterator());
-		for (; $nc(i$)->hasNext();) {
-			$var($Symbol, sym, $cast($Symbol, i$->next()));
-			{
-				if ($nc(sym)->owner != $nc(c)->owner) {
-					break;
-				}
-				$init($Kinds$Kind);
-				$init($TypeTag);
-				bool var$0 = $nc(sym)->kind == $Kinds$Kind::TYP && !$nc(sym->type)->hasTag($TypeTag::TYPEVAR);
-				$init($Kinds$KindSelector);
-				if (var$0 && $nc($nc(sym->owner)->kind)->matches($Kinds$KindSelector::VAL_MTH) && $nc(c)->name != $nc(this->names)->error) {
-					duplicateError(pos, sym);
-					return;
-				}
+	$useLocalObjectStack();
+	$var($Iterator, i$, $$nc($nc(s)->getSymbolsByName($nc(c)->name))->iterator());
+	for (; $nc(i$)->hasNext();) {
+		$var($Symbol, sym, $cast($Symbol, i$->next()));
+		{
+			if ($nc(sym)->owner != c->owner) {
+				break;
+			}
+			$init($Kinds$Kind);
+			$init($TypeTag);
+			bool var$0 = sym->kind == $Kinds$Kind::TYP && !$nc(sym->type)->hasTag($TypeTag::TYPEVAR);
+			$init($Kinds$KindSelector);
+			if (var$0 && $nc($nc(sym->owner)->kind)->matches($Kinds$KindSelector::VAL_MTH) && c->name != $nc(this->names)->error) {
+				duplicateError(pos, sym);
+				return;
 			}
 		}
 	}
 }
 
 bool Check::checkUniqueClassName($JCDiagnostic$DiagnosticPosition* pos, $Name* name, $Scope* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	{
 		$init($Scope$LookupKind);
-		$var($Iterator, i$, $nc($($nc(s)->getSymbolsByName(name, $Scope$LookupKind::NON_RECURSIVE)))->iterator());
+		$var($Iterator, i$, $$nc($nc(s)->getSymbolsByName(name, $Scope$LookupKind::NON_RECURSIVE))->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Symbol, sym, $cast($Symbol, i$->next()));
-			{
-				$init($Kinds$Kind);
-				if ($nc(sym)->kind == $Kinds$Kind::TYP && sym->name != $nc(this->names)->error) {
-					duplicateError(pos, sym);
-					return false;
-				}
+			$init($Kinds$Kind);
+			if ($nc(sym)->kind == $Kinds$Kind::TYP && sym->name != $nc(this->names)->error) {
+				duplicateError(pos, sym);
+				return false;
 			}
 		}
 	}
 	{
 		$var($Symbol, sym, s->owner);
-		for (; sym != nullptr; $assign(sym, $nc(sym)->owner)) {
+		for (; sym != nullptr; $assign(sym, sym->owner)) {
 			$init($Kinds$Kind);
 			if (sym->kind == $Kinds$Kind::TYP && sym->name == name && sym->name != $nc(this->names)->error) {
 				duplicateError(pos, sym);
@@ -2052,12 +1650,12 @@ bool Check::checkUniqueClassName($JCDiagnostic$DiagnosticPosition* pos, $Name* n
 }
 
 $Name* Check::localClassName($Symbol$ClassSymbol* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Name, enclFlatname, $nc($($nc($nc(c)->owner)->enclClass()))->flatname);
 	$var($String, enclFlatnameStr, $nc(enclFlatname)->toString());
 	$var($Pair, key, $new($Pair, enclFlatname, c->name));
 	$var($Integer, index, $cast($Integer, $nc(this->localClassNameIndexes)->get(key)));
-	for (int32_t i = (index == nullptr) ? 1 : $nc(index)->intValue();; ++i) {
+	for (int32_t i = (index == nullptr) ? 1 : index->intValue();; ++i) {
 		$var($Name, flatname, $nc(this->names)->fromString($$str({enclFlatnameStr, $$str(this->syntheticNameChar), $$str(i), c->name})));
 		if (getCompiled($nc($(c->packge()))->modle, flatname) == nullptr) {
 			$nc(this->localClassNameIndexes)->put(key, $($Integer::valueOf(i + 1)));
@@ -2067,10 +1665,10 @@ $Name* Check::localClassName($Symbol$ClassSymbol* c) {
 }
 
 void Check::clearLocalClassNameIndexes($Symbol$ClassSymbol* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Kinds$Kind);
-	if ($nc(c)->owner != nullptr && $nc(c->owner)->kind != $Kinds$Kind::NIL) {
-		$nc(this->localClassNameIndexes)->remove($$new($Pair, $nc($($nc(c->owner)->enclClass()))->flatname, c->name));
+	if ($nc(c)->owner != nullptr && c->owner->kind != $Kinds$Kind::NIL) {
+		$nc(this->localClassNameIndexes)->remove($$new($Pair, $nc($(c->owner->enclClass()))->flatname, c->name));
 	}
 }
 
@@ -2087,13 +1685,13 @@ void Check::clear() {
 }
 
 void Check::putCompiled($Symbol$ClassSymbol* csym) {
-	$useLocalCurrentObjectStackCache();
-	$nc(this->compiled)->put($($Pair::of($nc($($nc(csym)->packge()))->modle, csym->flatname)), csym);
+	$useLocalObjectStack();
+	$nc(this->compiled)->put($($Pair::of($nc($($nc(csym)->packge()))->modle, $nc(csym)->flatname)), csym);
 }
 
 $Symbol$ClassSymbol* Check::getCompiled($Symbol$ClassSymbol* csym) {
-	$useLocalCurrentObjectStackCache();
-	return $cast($Symbol$ClassSymbol, $nc(this->compiled)->get($($Pair::of($nc($($nc(csym)->packge()))->modle, csym->flatname))));
+	$useLocalObjectStack();
+	return $cast($Symbol$ClassSymbol, $nc(this->compiled)->get($($Pair::of($nc($($nc(csym)->packge()))->modle, $nc(csym)->flatname))));
 }
 
 $Symbol$ClassSymbol* Check::getCompiled($Symbol$ModuleSymbol* msym, $Name* flatname) {
@@ -2101,8 +1699,8 @@ $Symbol$ClassSymbol* Check::getCompiled($Symbol$ModuleSymbol* msym, $Name* flatn
 }
 
 void Check::removeCompiled($Symbol$ClassSymbol* csym) {
-	$useLocalCurrentObjectStackCache();
-	$nc(this->compiled)->remove($($Pair::of($nc($($nc(csym)->packge()))->modle, csym->flatname)));
+	$useLocalObjectStack();
+	$nc(this->compiled)->remove($($Pair::of($nc($($nc(csym)->packge()))->modle, $nc(csym)->flatname)));
 }
 
 $Type* Check::checkType($JCDiagnostic$DiagnosticPosition* pos, $Type* found, $Type* req) {
@@ -2110,25 +1708,25 @@ $Type* Check::checkType($JCDiagnostic$DiagnosticPosition* pos, $Type* found, $Ty
 }
 
 $Type* Check::checkType($JCDiagnostic$DiagnosticPosition* pos, $Type* found, $Type* req, $Check$CheckContext* checkContext) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($InferenceContext, inferenceContext, $nc(checkContext)->inferenceContext());
 	bool var$0 = $nc(inferenceContext)->free(req);
-	if (var$0 || $nc(inferenceContext)->free(found)) {
+	if (var$0 || inferenceContext->free(found)) {
 		$var($List, var$1, $List::of(req, found));
-		inferenceContext->addFreeTypeListener(var$1, static_cast<$Infer$FreeTypeListener*>($$new(Check$$Lambda$lambda$checkType$0$1, this, pos, found, req, checkContext)));
+		inferenceContext->addFreeTypeListener(var$1, $$new(Check$$Lambda$lambda$checkType$0$1, this, pos, found, req, checkContext));
 	}
 	$init($TypeTag);
 	if ($nc(req)->hasTag($TypeTag::ERROR)) {
 		return req;
 	}
-	if ($nc(req)->hasTag($TypeTag::NONE)) {
+	if (req->hasTag($TypeTag::NONE)) {
 		return found;
 	}
 	if (checkContext->compatible(found, req, $(checkContext->checkWarner(pos, found, req)))) {
 		return found;
 	} else {
 		bool var$2 = $nc(found)->isNumeric();
-		if (var$2 && $nc(req)->isNumeric()) {
+		if (var$2 && req->isNumeric()) {
 			checkContext->report(pos, $($nc(this->diags)->fragment($($CompilerProperties$Fragments::PossibleLossOfPrecision(found, req)))));
 			return $nc(this->types)->createErrorType(found);
 		}
@@ -2142,12 +1740,12 @@ $Type* Check::checkCastable($JCDiagnostic$DiagnosticPosition* pos, $Type* found,
 }
 
 $Type* Check::checkCastable($JCDiagnostic$DiagnosticPosition* pos, $Type* found, $Type* req, $Check$CheckContext* checkContext) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(this->types)->isCastable(found, req, $(castWarner(pos, found, req)))) {
 		return req;
 	} else {
 		$nc(checkContext)->report(pos, $($nc(this->diags)->fragment($($CompilerProperties$Fragments::InconvertibleTypes(found, req)))));
-		return $nc(this->types)->createErrorType(found);
+		return this->types->createErrorType(found);
 	}
 }
 
@@ -2156,12 +1754,12 @@ void Check::checkRedundantCast($Env* env, $JCTree$JCTypeCast* tree) {
 	bool var$1 = var$2 && $nc(this->types)->isSameType($nc(tree->expr)->type, $nc(tree->clazz)->type);
 	bool var$0 = var$1 && !$TreeInfo::containsTypeAnnotation(tree->clazz);
 	if (var$0 && !is292targetTypeCast(tree)) {
-		$nc(this->deferredLintHandler)->report(static_cast<$DeferredLintHandler$LintLogger*>($$new(Check$$Lambda$lambda$checkRedundantCast$1$2, this, tree)));
+		$nc(this->deferredLintHandler)->report($$new(Check$$Lambda$lambda$checkRedundantCast$1$2, this, tree));
 	}
 }
 
 bool Check::is292targetTypeCast($JCTree$JCTypeCast* tree) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool is292targetTypeCast = false;
 	$var($JCTree$JCExpression, expr, $TreeInfo::skipParens($nc(tree)->expr));
 	$init($JCTree$Tag);
@@ -2169,13 +1767,13 @@ bool Check::is292targetTypeCast($JCTree$JCTypeCast* tree) {
 		$var($JCTree$JCMethodInvocation, apply, $cast($JCTree$JCMethodInvocation, expr));
 		$var($Symbol, sym, $TreeInfo::symbol(apply->meth));
 		$init($Kinds$Kind);
-		is292targetTypeCast = sym != nullptr && sym->kind == $Kinds$Kind::MTH && ((int64_t)(sym->flags() & (uint64_t)(int64_t)0x0000002000000000)) != 0;
+		is292targetTypeCast = sym != nullptr && sym->kind == $Kinds$Kind::MTH && (sym->flags() & (int64_t)0x0000002000000000) != 0;
 	}
 	return is292targetTypeCast;
 }
 
 bool Check::checkExtends($Type* a$renamed, $Type* bound) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Type, a, a$renamed);
 	if ($nc(a)->isUnbound()) {
 		return true;
@@ -2183,7 +1781,7 @@ bool Check::checkExtends($Type* a$renamed, $Type* bound) {
 		$init($TypeTag);
 		if (!a->hasTag($TypeTag::WILDCARD)) {
 			$assign(a, $nc(this->types)->cvarUpperBound(a));
-			return $nc(this->types)->isSubtype(a, bound);
+			return this->types->isSubtype(a, bound);
 		} else if (a->isExtendsBound()) {
 			return $nc(this->types)->isCastable(bound, $($nc(this->types)->wildUpperBound(a)), $nc(this->types)->noWarnings);
 		} else if (a->isSuperBound()) {
@@ -2205,29 +1803,27 @@ $Type* Check::checkNonVoid($JCDiagnostic$DiagnosticPosition* pos, $Type* t) {
 }
 
 $Type* Check::checkClassOrArrayType($JCDiagnostic$DiagnosticPosition* pos, $Type* t) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($TypeTag);
 	bool var$1 = !$nc(t)->hasTag($TypeTag::CLASS);
 	bool var$0 = var$1 && !t->hasTag($TypeTag::ARRAY);
 	if (var$0 && !t->hasTag($TypeTag::ERROR)) {
-		$var($JCDiagnostic$DiagnosticPosition, var$2, pos);
 		$init($CompilerProperties$Fragments);
-		$var($JCDiagnostic, var$3, $nc(this->diags)->fragment($CompilerProperties$Fragments::TypeReqClassArray));
-		return typeTagError(var$2, var$3, $(asTypeParam(t)));
+		$var($JCDiagnostic, var$2, $nc(this->diags)->fragment($CompilerProperties$Fragments::TypeReqClassArray));
+		return typeTagError(pos, var$2, $(asTypeParam(t)));
 	} else {
 		return t;
 	}
 }
 
 $Type* Check::checkClassType($JCDiagnostic$DiagnosticPosition* pos, $Type* t) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($TypeTag);
 	bool var$0 = !$nc(t)->hasTag($TypeTag::CLASS);
 	if (var$0 && !t->hasTag($TypeTag::ERROR)) {
-		$var($JCDiagnostic$DiagnosticPosition, var$1, pos);
 		$init($CompilerProperties$Fragments);
-		$var($JCDiagnostic, var$2, $nc(this->diags)->fragment($CompilerProperties$Fragments::TypeReqClass));
-		return typeTagError(var$1, var$2, $(asTypeParam(t)));
+		$var($JCDiagnostic, var$1, $nc(this->diags)->fragment($CompilerProperties$Fragments::TypeReqClass));
+		return typeTagError(pos, var$1, $(asTypeParam(t)));
 	} else {
 		return t;
 	}
@@ -2235,46 +1831,44 @@ $Type* Check::checkClassType($JCDiagnostic$DiagnosticPosition* pos, $Type* t) {
 
 $Object* Check::asTypeParam($Type* t) {
 	$init($TypeTag);
-	return $of(($nc(t)->hasTag($TypeTag::TYPEVAR)) ? $of($nc(this->diags)->fragment($($CompilerProperties$Fragments::TypeParameter(t)))) : $of(t));
+	return ($nc(t)->hasTag($TypeTag::TYPEVAR)) ? $of($nc(this->diags)->fragment($($CompilerProperties$Fragments::TypeParameter(t)))) : $of(t);
 }
 
 $Type* Check::checkConstructorRefType($JCDiagnostic$DiagnosticPosition* pos, $Type* t$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Type, t, t$renamed);
 	$assign(t, checkClassOrArrayType(pos, t));
 	$init($TypeTag);
 	if ($nc(t)->hasTag($TypeTag::CLASS)) {
-		if (((int64_t)($nc(t->tsym)->flags() & (uint64_t)(int64_t)(1024 | 512))) != 0) {
+		if (($nc(t->tsym)->flags() & (0x0400 | 0x0200)) != 0) {
 			$nc(this->log)->error(pos, $($CompilerProperties$Errors::AbstractCantBeInstantiated(t->tsym)));
 			$assign(t, $nc(this->types)->createErrorType(t));
-		} else if (((int64_t)($nc(t->tsym)->flags() & (uint64_t)(int64_t)16384)) != 0) {
+		} else if (($nc(t->tsym)->flags() & 0x4000) != 0) {
 			$init($CompilerProperties$Errors);
 			$nc(this->log)->error(pos, $CompilerProperties$Errors::EnumCantBeInstantiated);
 			$assign(t, $nc(this->types)->createErrorType(t));
 		} else {
 			$assign(t, checkClassType(pos, t, true));
 		}
-	} else {
-		if (t->hasTag($TypeTag::ARRAY)) {
-			if (!$nc(this->types)->isReifiable($nc(($cast($Type$ArrayType, t)))->elemtype)) {
-				$init($CompilerProperties$Errors);
-				$nc(this->log)->error(pos, $CompilerProperties$Errors::GenericArrayCreation);
-				$assign(t, $nc(this->types)->createErrorType(t));
-			}
+	} else if (t->hasTag($TypeTag::ARRAY)) {
+		if (!$nc(this->types)->isReifiable($cast($Type$ArrayType, t)->elemtype)) {
+			$init($CompilerProperties$Errors);
+			$nc(this->log)->error(pos, $CompilerProperties$Errors::GenericArrayCreation);
+			$assign(t, this->types->createErrorType(t));
 		}
 	}
 	return t;
 }
 
 $Type* Check::checkClassType($JCDiagnostic$DiagnosticPosition* pos, $Type* t$renamed, bool noBounds) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Type, t, t$renamed);
 	$assign(t, checkClassType(pos, t));
 	if (noBounds && $nc(t)->isParameterized()) {
 		$var($List, args, t->getTypeArguments());
 		while ($nc(args)->nonEmpty()) {
 			$init($TypeTag);
-			if ($nc(($cast($Type, args->head)))->hasTag($TypeTag::WILDCARD)) {
+			if ($nc($cast($Type, args->head))->hasTag($TypeTag::WILDCARD)) {
 				$init($CompilerProperties$Fragments);
 				return typeTagError(pos, $($nc(this->diags)->fragment($CompilerProperties$Fragments::TypeReqExact)), args->head);
 			}
@@ -2294,13 +1888,13 @@ $Type* Check::checkRefType($JCDiagnostic$DiagnosticPosition* pos, $Type* t) {
 }
 
 $List* Check::checkRefTypes($List* trees, $List* types) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, tl, trees);
 	{
 		$var($List, l, types);
-		for (; $nc(l)->nonEmpty(); $assign(l, $nc(l)->tail)) {
-			$set(l, head, checkRefType($($nc(($cast($JCTree$JCExpression, $nc(tl)->head)))->pos()), $cast($Type, l->head)));
-			$assign(tl, $nc(tl)->tail);
+		for (; $nc(l)->nonEmpty(); $assign(l, l->tail)) {
+			$set(l, head, checkRefType($($nc($cast($JCTree$JCExpression, $nc(tl)->head))->pos()), $cast($Type, l->head)));
+			$assign(tl, tl->tail);
 		}
 	}
 	return types;
@@ -2309,7 +1903,7 @@ $List* Check::checkRefTypes($List* trees, $List* types) {
 $Type* Check::checkNullOrRefType($JCDiagnostic$DiagnosticPosition* pos, $Type* t) {
 	bool var$0 = $nc(t)->isReference();
 	$init($TypeTag);
-	if (var$0 || $nc(t)->hasTag($TypeTag::BOT)) {
+	if (var$0 || t->hasTag($TypeTag::BOT)) {
 		return t;
 	} else {
 		$init($CompilerProperties$Fragments);
@@ -2318,10 +1912,10 @@ $Type* Check::checkNullOrRefType($JCDiagnostic$DiagnosticPosition* pos, $Type* t
 }
 
 bool Check::checkDisjoint($JCDiagnostic$DiagnosticPosition* pos, int64_t flags, int64_t set1, int64_t set2) {
-	$useLocalCurrentObjectStackCache();
-	if (((int64_t)(flags & (uint64_t)set1)) != 0 && ((int64_t)(flags & (uint64_t)set2)) != 0) {
-		$var($Set, var$0, static_cast<$Set*>($Flags::asFlagSet($TreeInfo::firstFlag((int64_t)(flags & (uint64_t)set1)))));
-		$nc(this->log)->error(pos, $($CompilerProperties$Errors::IllegalCombinationOfModifiers(var$0, $($Flags::asFlagSet($TreeInfo::firstFlag((int64_t)(flags & (uint64_t)set2)))))));
+	$useLocalObjectStack();
+	if ((flags & set1) != 0 && (flags & set2) != 0) {
+		$var($Set, var$0, $Flags::asFlagSet($TreeInfo::firstFlag(flags & set1)));
+		$nc(this->log)->error(pos, $($CompilerProperties$Errors::IllegalCombinationOfModifiers(var$0, $($Flags::asFlagSet($TreeInfo::firstFlag(flags & set2))))));
 		return false;
 	} else {
 		return true;
@@ -2329,7 +1923,7 @@ bool Check::checkDisjoint($JCDiagnostic$DiagnosticPosition* pos, int64_t flags, 
 }
 
 $Type* Check::checkDiamond($JCTree$JCNewClass* tree, $Type* t) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool var$0 = !$TreeInfo::isDiamond(tree);
 	if (var$0 || $nc(t)->isErroneous()) {
 		return checkClassType($($nc($nc(tree)->clazz)->pos()), t, true);
@@ -2341,11 +1935,11 @@ $Type* Check::checkDiamond($JCTree$JCNewClass* tree, $Type* t) {
 			$var($JCDiagnostic$DiagnosticPosition, var$2, $nc(tree->clazz)->pos());
 			$nc(this->log)->error(var$1, var$2, $($CompilerProperties$Errors::CantApplyDiamond1(t, $($Source$Feature::DIAMOND_WITH_ANONYMOUS_CLASS_CREATION->fragment(this->source->name$)))));
 		}
-		if ($nc($($nc($nc(t->tsym)->type)->getTypeArguments()))->isEmpty()) {
-			$var($JCDiagnostic$DiagnosticPosition, var$3, $nc($nc(tree)->clazz)->pos());
+		if ($$nc($nc($nc($nc(t)->tsym)->type)->getTypeArguments())->isEmpty()) {
+			$var($JCDiagnostic$DiagnosticPosition, var$3, $nc(tree->clazz)->pos());
 			$nc(this->log)->error(var$3, $($CompilerProperties$Errors::CantApplyDiamond1(t, $($CompilerProperties$Fragments::DiamondNonGeneric(t)))));
 			return $nc(this->types)->createErrorType(t);
-		} else if ($nc(tree)->typeargs != nullptr && $nc(tree->typeargs)->nonEmpty()) {
+		} else if (tree->typeargs != nullptr && tree->typeargs->nonEmpty()) {
 			$var($JCDiagnostic$DiagnosticPosition, var$4, $nc(tree->clazz)->pos());
 			$nc(this->log)->error(var$4, $($CompilerProperties$Errors::CantApplyDiamond1(t, $($CompilerProperties$Fragments::DiamondAndExplicitParams(t)))));
 			return $nc(this->types)->createErrorType(t);
@@ -2356,16 +1950,14 @@ $Type* Check::checkDiamond($JCTree$JCNewClass* tree, $Type* t) {
 }
 
 $List* Check::checkDiamondDenotable($Type$ClassType* t) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ListBuffer, buf, $new($ListBuffer));
 	{
-		$var($Iterator, i$, $nc($($nc(t)->allparams()))->iterator());
+		$var($Iterator, i$, $$nc($nc(t)->allparams())->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Type, arg, $cast($Type, i$->next()));
-			{
-				if (!checkDenotable(arg)) {
-					buf->append(arg);
-				}
+			if (!checkDenotable(arg)) {
+				buf->append(arg);
 			}
 		}
 	}
@@ -2373,69 +1965,67 @@ $List* Check::checkDiamondDenotable($Type$ClassType* t) {
 }
 
 bool Check::checkDenotable($Type* t) {
-	return $nc(($cast($Boolean, $($nc(Check::denotableChecker)->visit(t, nullptr)))))->booleanValue();
+	return $$sure($Boolean, Check::denotableChecker->visit(t, nullptr))->booleanValue();
 }
 
 void Check::checkVarargsMethodDecl($Env* env, $JCTree$JCMethodDecl* tree) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Symbol$MethodSymbol, m, $nc(tree)->sym);
 	bool hasTrustMeAnno = $nc(m)->attribute($nc($nc(this->syms)->trustMeType)->tsym) != nullptr;
 	$var($Type, varargElemType, nullptr);
 	if (m->isVarArgs()) {
-		$assign(varargElemType, $nc(this->types)->elemtype($nc(($cast($JCTree$JCVariableDecl, $($nc(tree->params)->last()))))->type));
+		$assign(varargElemType, $nc(this->types)->elemtype($nc(($$cast($JCTree$JCVariableDecl, $nc(tree->params)->last())))->type));
 	}
 	if (hasTrustMeAnno && !isTrustMeAllowedOnMethod(m)) {
 		if (varargElemType != nullptr) {
 			$init($Source$Feature);
 			$var($JCDiagnostic, msg, $Source$Feature::PRIVATE_SAFE_VARARGS->allowedInSource(this->source) ? $nc(this->diags)->fragment($($CompilerProperties$Fragments::VarargsTrustmeOnVirtualVarargs(m))) : $nc(this->diags)->fragment($($CompilerProperties$Fragments::VarargsTrustmeOnVirtualVarargsFinalOnly(m))));
-			$nc(this->log)->error(static_cast<$JCDiagnostic$DiagnosticPosition*>(tree), $($CompilerProperties$Errors::VarargsInvalidTrustmeAnno(static_cast<$Symbol*>($nc($nc(this->syms)->trustMeType)->tsym), msg)));
+			$nc(this->log)->error(tree, $($CompilerProperties$Errors::VarargsInvalidTrustmeAnno(this->syms->trustMeType->tsym, msg)));
 		} else {
-			$nc(this->log)->error(static_cast<$JCDiagnostic$DiagnosticPosition*>(tree), $($CompilerProperties$Errors::VarargsInvalidTrustmeAnno(static_cast<$Symbol*>($nc($nc(this->syms)->trustMeType)->tsym), $($CompilerProperties$Fragments::VarargsTrustmeOnNonVarargsMeth(m)))));
+			$nc(this->log)->error(tree, $($CompilerProperties$Errors::VarargsInvalidTrustmeAnno(this->syms->trustMeType->tsym, $($CompilerProperties$Fragments::VarargsTrustmeOnNonVarargsMeth(m)))));
 		}
 	} else if (hasTrustMeAnno && varargElemType != nullptr && $nc(this->types)->isReifiable(varargElemType)) {
-		warnUnsafeVararg(tree, $($CompilerProperties$Warnings::VarargsRedundantTrustmeAnno(static_cast<$Symbol*>($nc($nc(this->syms)->trustMeType)->tsym), $($nc(this->diags)->fragment($($CompilerProperties$Fragments::VarargsTrustmeOnReifiableVarargs(varargElemType)))))));
+		warnUnsafeVararg(tree, $($CompilerProperties$Warnings::VarargsRedundantTrustmeAnno(this->syms->trustMeType->tsym, $($nc(this->diags)->fragment($($CompilerProperties$Fragments::VarargsTrustmeOnReifiableVarargs(varargElemType)))))));
 	} else if (!hasTrustMeAnno && varargElemType != nullptr && !$nc(this->types)->isReifiable(varargElemType)) {
-		$var($JCDiagnostic$DiagnosticPosition, var$0, $nc(($cast($JCTree$JCVariableDecl, $nc(tree->params)->head)))->pos());
+		$var($JCDiagnostic$DiagnosticPosition, var$0, $nc($cast($JCTree$JCVariableDecl, $nc(tree->params)->head))->pos());
 		warnUnchecked(var$0, $($CompilerProperties$Warnings::UncheckedVarargsNonReifiableType(varargElemType)));
 	}
 }
 
 bool Check::isTrustMeAllowedOnMethod($Symbol* s) {
-	bool var$0 = ((int64_t)($nc(s)->flags() & (uint64_t)(int64_t)0x0000000400000000)) != 0;
+	bool var$0 = ($nc(s)->flags() & (int64_t)0x0000000400000000) != 0;
 	if (var$0) {
 		bool var$1 = s->isConstructor();
 		if (!var$1) {
-			int64_t var$2 = $nc(s)->flags();
+			int64_t var$2 = s->flags();
 			$init($Source$Feature);
-			var$1 = ((int64_t)(var$2 & (uint64_t)(int64_t)((8 | 16) | ($Source$Feature::PRIVATE_SAFE_VARARGS->allowedInSource(this->source) ? 2 : 0)))) != 0;
+			var$1 = (var$2 & ((8 | 0x10) | ($Source$Feature::PRIVATE_SAFE_VARARGS->allowedInSource(this->source) ? 2 : 0))) != 0;
 		}
-		var$0 = (var$1);
+		var$0 = var$1;
 	}
 	return var$0;
 }
 
 $Type* Check::checkLocalVarType($JCDiagnostic$DiagnosticPosition* pos, $Type* t, $Name* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($TypeTag);
 	if ($nc(t)->hasTag($TypeTag::BOT)) {
 		$init($CompilerProperties$Fragments);
 		$nc(this->log)->error(pos, $($CompilerProperties$Errors::CantInferLocalVarType(name, $CompilerProperties$Fragments::LocalCantInferNull)));
 		return $nc(this->types)->createErrorType(t);
-	} else {
-		if (t->hasTag($TypeTag::VOID)) {
-			$init($CompilerProperties$Fragments);
-			$nc(this->log)->error(pos, $($CompilerProperties$Errors::CantInferLocalVarType(name, $CompilerProperties$Fragments::LocalCantInferVoid)));
-			return $nc(this->types)->createErrorType(t);
-		}
+	} else if (t->hasTag($TypeTag::VOID)) {
+		$init($CompilerProperties$Fragments);
+		$nc(this->log)->error(pos, $($CompilerProperties$Errors::CantInferLocalVarType(name, $CompilerProperties$Fragments::LocalCantInferVoid)));
+		return $nc(this->types)->createErrorType(t);
 	}
 	return $nc(this->types)->upward(t, $($nc(this->types)->captures(t)));
 }
 
 $Type* Check::checkMethod($Type* mtype, $Symbol* sym, $Env* env, $List* argtrees, $List* argtypes, bool useVarargs, $InferenceContext* inferenceContext) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(inferenceContext)->free(mtype)) {
 		$var($List, var$0, $List::of(mtype));
-		inferenceContext->addFreeTypeListener(var$0, static_cast<$Infer$FreeTypeListener*>($$new(Check$$Lambda$lambda$checkMethod$2$3, this, mtype, sym, env, argtrees, argtypes, useVarargs)));
+		inferenceContext->addFreeTypeListener(var$0, $$new(Check$$Lambda$lambda$checkMethod$2$3, this, mtype, sym, env, argtrees, argtypes, useVarargs));
 		return mtype;
 	}
 	$var($Type, owntype, mtype);
@@ -2445,71 +2035,71 @@ $Type* Check::checkMethod($Type* mtype, $Symbol* sym, $Env* env, $List* argtrees
 	if (var$1 != $nc(formals)->length()) {
 		$assign(nonInferred, formals);
 	}
-	$var($Type, last, useVarargs ? $cast($Type, $nc(formals)->last()) : ($Type*)nullptr);
+	$var($Type, last, useVarargs ? $cast($Type, formals->last()) : ($Type*)nullptr);
 	if (sym->name == $nc(this->names)->init && $equals(sym->owner, $nc(this->syms)->enumSym)) {
 		$assign(formals, $nc(formals->tail)->tail);
-		$assign(nonInferred, $nc($nc(nonInferred)->tail)->tail);
+		$assign(nonInferred, $nc(nonInferred->tail)->tail);
 	}
-	if (((int64_t)(sym->flags() & (uint64_t)(int64_t)0x0200000000000000)) != 0) {
-		$assign(formals, formals->tail);
+	if ((sym->flags() & (int64_t)0x0200000000000000) != 0) {
+		$assign(formals, $nc(formals)->tail);
 		$assign(nonInferred, $nc(nonInferred)->tail);
 	}
 	$var($List, args, argtrees);
 	if (args != nullptr) {
 		while (!$equals($nc(formals)->head, last)) {
 			$var($JCTree, arg, $cast($JCTree, $nc(args)->head));
-			$var($Warner, warn, convertWarner($($nc(arg)->pos()), arg->type, $cast($Type, $nc(nonInferred)->head)));
-			assertConvertible(arg, $nc(arg)->type, $cast($Type, formals->head), warn);
+			$var($Warner, warn, convertWarner($($nc(arg)->pos()), $nc(arg)->type, $cast($Type, $nc(nonInferred)->head)));
+			assertConvertible(arg, arg->type, $cast($Type, formals->head), warn);
 			$assign(args, args->tail);
 			$assign(formals, formals->tail);
-			$assign(nonInferred, $nc(nonInferred)->tail);
+			$assign(nonInferred, nonInferred->tail);
 		}
 		if (useVarargs) {
 			$var($Type, varArg, $nc(this->types)->elemtype(last));
 			while ($nc(args)->tail != nullptr) {
 				$var($JCTree, arg, $cast($JCTree, args->head));
-				$var($Warner, warn, convertWarner($($nc(arg)->pos()), arg->type, varArg));
-				assertConvertible(arg, $nc(arg)->type, varArg, warn);
+				$var($Warner, warn, convertWarner($($nc(arg)->pos()), $nc(arg)->type, varArg));
+				assertConvertible(arg, arg->type, varArg, warn);
 				$assign(args, args->tail);
 			}
-		} else if (((int64_t)(sym->flags() & (uint64_t)((int64_t)0x0000000400000000 | (int64_t)0x0000400000000000))) == (int64_t)0x0000000400000000) {
-			$var($Type, varParam, $cast($Type, $nc($(owntype->getParameterTypes()))->last()));
+		} else if ((sym->flags() & ((int64_t)0x0000000400000000 | (int64_t)0x0000400000000000)) == (int64_t)0x0000000400000000) {
+			$var($Type, varParam, $cast($Type, $$nc(owntype->getParameterTypes())->last()));
 			$var($Type, lastArg, $cast($Type, $nc(argtypes)->last()));
 			bool var$2 = $nc(this->types)->isSubtypeUnchecked(lastArg, $($nc(this->types)->elemtype(varParam)));
 			if (var$2) {
-				$var($Type, var$3, $nc(this->types)->erasure(varParam));
-				var$2 = !$nc(this->types)->isSameType(var$3, $($nc(this->types)->erasure(lastArg)));
+				$var($Type, var$3, this->types->erasure(varParam));
+				var$2 = !this->types->isSameType(var$3, $(this->types->erasure(lastArg)));
 			}
 			if (var$2) {
-				$var($JCDiagnostic$DiagnosticPosition, var$4, $nc(($cast($JCTree$JCExpression, $($nc(argtrees)->last()))))->pos());
-				$nc(this->log)->warning(var$4, $($CompilerProperties$Warnings::InexactNonVarargsCall($($nc(this->types)->elemtype(varParam)), varParam)));
+				$var($JCDiagnostic$DiagnosticPosition, var$4, $$sure($JCTree$JCExpression, $nc(argtrees)->last())->pos());
+				$nc(this->log)->warning(var$4, $($CompilerProperties$Warnings::InexactNonVarargsCall($(this->types->elemtype(varParam)), varParam)));
 			}
 		}
 	}
 	if (useVarargs) {
-		$var($Type, argtype, $cast($Type, $nc($(owntype->getParameterTypes()))->last()));
+		$var($Type, argtype, $cast($Type, $$nc(owntype->getParameterTypes())->last()));
 		bool var$5 = !$nc(this->types)->isReifiable(argtype);
 		if (var$5) {
-			bool var$6 = $nc($(sym->baseSymbol()))->attribute($nc($nc(this->syms)->trustMeType)->tsym) == nullptr;
-			var$5 = (var$6 || !isTrustMeAllowedOnMethod(sym));
+			bool var$6 = $$nc(sym->baseSymbol())->attribute($nc($nc(this->syms)->trustMeType)->tsym) == nullptr;
+			var$5 = var$6 || !isTrustMeAllowedOnMethod(sym);
 		}
 		if (var$5) {
 			$var($JCDiagnostic$DiagnosticPosition, var$7, $nc($nc(env)->tree)->pos());
 			warnUnchecked(var$7, $($CompilerProperties$Warnings::UncheckedGenericArrayCreation(argtype)));
 		}
-		$TreeInfo::setVarargsElement($nc(env)->tree, $($nc(this->types)->elemtype(argtype)));
+		$TreeInfo::setVarargsElement($nc(env)->tree, $(this->types->elemtype(argtype)));
 	}
 	return owntype;
 }
 
 void Check::assertConvertible($JCTree* tree, $Type* actual, $Type* formal, $Warner* warn) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(this->types)->isConvertible(actual, formal, warn)) {
 		return;
 	}
 	bool var$1 = $nc(formal)->isCompound();
-	bool var$0 = var$1 && $nc(this->types)->isSubtype(actual, $($nc(this->types)->supertype(formal)));
-	if (var$0 && $nc(this->types)->isSubtypeUnchecked(actual, $($nc(this->types)->interfaces(formal)), warn)) {
+	bool var$0 = var$1 && this->types->isSubtype(actual, $(this->types->supertype(formal)));
+	if (var$0 && this->types->isSubtypeUnchecked(actual, $(this->types->interfaces(formal)), warn)) {
 		return;
 	}
 }
@@ -2519,7 +2109,7 @@ bool Check::checkValidGenericType($Type* t) {
 }
 
 $Type* Check::firstIncompatibleTypeArg($Type* type) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, formals, $nc($nc($nc(type)->tsym)->type)->allparams());
 	$var($List, actuals, type->allparams());
 	$var($List, args, type->getTypeArguments());
@@ -2531,20 +2121,20 @@ $Type* Check::firstIncompatibleTypeArg($Type* type) {
 			break;
 		}
 		{
-			bounds_buf->append($($nc(this->types)->subst($($nc(($cast($Type, forms->head)))->getUpperBound()), formals, actuals)));
+			bounds_buf->append($($nc(this->types)->subst($($nc($cast($Type, $nc(forms)->head))->getUpperBound()), formals, actuals)));
 			$assign(args, args->tail);
 			$assign(forms, forms->tail);
 		}
 	}
 	$assign(args, type->getTypeArguments());
-	$var($List, tvars_cap, $nc(this->types)->substBounds(formals, formals, $($nc($($nc(this->types)->capture(type)))->allparams())));
+	$var($List, tvars_cap, $nc(this->types)->substBounds(formals, formals, $($$nc($nc(this->types)->capture(type))->allparams())));
 	while (true) {
 		bool var$1 = $nc(args)->nonEmpty();
 		if (!(var$1 && $nc(tvars_cap)->nonEmpty())) {
 			break;
 		}
 		{
-			$nc(($cast($Type, args->head)))->withTypeVar($cast($Type$TypeVar, tvars_cap->head));
+			$nc($cast($Type, args->head))->withTypeVar($cast($Type$TypeVar, $nc(tvars_cap)->head));
 			$assign(args, args->tail);
 			$assign(tvars_cap, tvars_cap->tail);
 		}
@@ -2559,27 +2149,27 @@ $Type* Check::firstIncompatibleTypeArg($Type* type) {
 		{
 			$var($Type, actual, $cast($Type, args->head));
 			bool var$4 = !isTypeArgErroneous(actual);
-			bool var$3 = var$4 && !$nc(($cast($Type, bounds->head)))->isErroneous();
+			bool var$3 = var$4 && !$nc($cast($Type, $nc(bounds)->head))->isErroneous();
 			if (var$3 && !checkExtends(actual, $cast($Type, bounds->head))) {
 				return $cast($Type, args->head);
 			}
 			$assign(args, args->tail);
-			$assign(bounds, bounds->tail);
+			$assign(bounds, $nc(bounds)->tail);
 		}
 	}
 	$assign(args, type->getTypeArguments());
 	$assign(bounds, bounds_buf->toList());
 	{
-		$var($Iterator, i$, $nc($($nc($($nc(this->types)->capture(type)))->getTypeArguments()))->iterator());
+		$var($Iterator, i$, $$nc($$nc(this->types->capture(type))->getTypeArguments())->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Type, arg, $cast($Type, i$->next()));
 			{
 				$init($TypeTag);
 				bool var$7 = $nc(arg)->hasTag($TypeTag::TYPEVAR);
-				bool var$6 = var$7 && $nc($(arg->getUpperBound()))->isErroneous();
-				bool var$5 = var$6 && !$nc(($cast($Type, $nc(bounds)->head)))->isErroneous();
+				bool var$6 = var$7 && $$nc(arg->getUpperBound())->isErroneous();
+				bool var$5 = var$6 && !$nc($cast($Type, $nc(bounds)->head))->isErroneous();
 				if (var$5 && !isTypeArgErroneous($cast($Type, $nc(args)->head))) {
-					return $cast($Type, $nc(args)->head);
+					return $cast($Type, args->head);
 				}
 				$assign(bounds, $nc(bounds)->tail);
 				$assign(args, $nc(args)->tail);
@@ -2590,158 +2180,145 @@ $Type* Check::firstIncompatibleTypeArg($Type* type) {
 }
 
 bool Check::isTypeArgErroneous($Type* t) {
-	return $nc(($cast($Boolean, $($nc(this->isTypeArgErroneous$)->visit(t)))))->booleanValue();
+	return $$sure($Boolean, $nc(this->isTypeArgErroneous$)->visit(t))->booleanValue();
 }
 
 int64_t Check::checkFlags($JCDiagnostic$DiagnosticPosition* pos, int64_t flags, $Symbol* sym, $JCTree* tree) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int64_t mask = 0;
 	int64_t implicit = 0;
 	$init($Check$5);
 	switch ($nc($Check$5::$SwitchMap$com$sun$tools$javac$code$Kinds$Kind)->get($nc(($nc(sym)->kind))->ordinal())) {
 	case 1:
-		{
-			if ($TreeInfo::isReceiverParam(tree)) {
-				mask = 0x0000000200000000;
-			} else {
-				$init($Kinds$Kind);
-				if ($nc(sym->owner)->kind != $Kinds$Kind::TYP) {
-					mask = 0x0000000200000010;
-				} else if (((int64_t)($nc(sym->owner)->flags_field & (uint64_t)(int64_t)512)) != 0) {
-					mask = (implicit = 25);
-				} else {
-					mask = 16607;
-				}
-			}
-			break;
+		if ($TreeInfo::isReceiverParam(tree)) {
+			mask = (int64_t)0x0000000200000000;
+		} else if ($nc(sym->owner)->kind != $Kinds$Kind::TYP) {
+			mask = (int64_t)0x0000000200000010;
+		} else if ((sym->owner->flags_field & 0x0200) != 0) {
+			mask = (implicit = 25);
+		} else {
+			mask = 16607;
 		}
+		break;
 	case 2:
-		{
-			if (sym->name == $nc(this->names)->init) {
-				if (((int64_t)($nc(sym->owner)->flags_field & (uint64_t)(int64_t)16384)) != 0) {
-					implicit = 2;
-					mask = 2;
-				} else {
-					mask = 7;
-				}
-			} else if (((int64_t)($nc(sym->owner)->flags_field & (uint64_t)(int64_t)512)) != 0) {
-				if (((int64_t)($nc(sym->owner)->flags_field & (uint64_t)(int64_t)8192)) != 0) {
-					mask = 1025;
-					implicit = 1 | 1024;
-				} else if (((int64_t)(flags & (uint64_t)(((int64_t)0x0000080000000000 | 8) | 2))) != 0) {
-					mask = 0x0000080000000C0B;
-					implicit = ((int64_t)(flags & (uint64_t)(int64_t)2)) != 0 ? 0 : 1;
-					if (((int64_t)(flags & (uint64_t)(int64_t)0x0000080000000000)) != 0) {
-						implicit |= 1024;
-					}
-				} else {
-					mask = (implicit = 1025);
-				}
-			} else if (((int64_t)($nc(sym->owner)->flags_field & (uint64_t)(int64_t)0x2000000000000000)) != 0) {
-				mask = 3135;
+		if (sym->name == $nc(this->names)->init) {
+			if (($nc(sym->owner)->flags_field & 0x4000) != 0) {
+				implicit = 2;
+				mask = 2;
 			} else {
-				mask = 3391;
+				mask = 7;
 			}
-			if (((int64_t)(flags & (uint64_t)(int64_t)2048)) != 0) {
-				warnOnExplicitStrictfp(pos);
+		} else if (($nc(sym->owner)->flags_field & 0x0200) != 0) {
+			if ((sym->owner->flags_field & 0x2000) != 0) {
+				mask = 1025;
+				implicit = 1 | 0x0400;
+			} else if ((flags & (((int64_t)0x0000080000000000 | 8) | 2)) != 0) {
+				mask = (int64_t)0x0000080000000c0b;
+				implicit = (flags & 2) != 0 ? 0 : 1;
+				if ((flags & (int64_t)0x0000080000000000) != 0) {
+					implicit |= 1024;
+				}
+			} else {
+				mask = (implicit = 1025);
 			}
-			if (((int64_t)((flags | implicit) & (uint64_t)(int64_t)$Flags::ABSTRACT)) == 0 || ((int64_t)((flags) & (uint64_t)$Flags::DEFAULT)) != 0) {
-				implicit |= (int64_t)($nc(sym->owner)->flags_field & (uint64_t)(int64_t)2048);
-			}
-			break;
+		} else if ((sym->owner->flags_field & (int64_t)0x2000000000000000) != 0) {
+			mask = 3135;
+		} else {
+			mask = 3391;
 		}
+		if ((flags & 0x0800) != 0) {
+			warnOnExplicitStrictfp(pos);
+		}
+		if (((flags | implicit) & $Flags::ABSTRACT) == 0 || ((flags) & $Flags::DEFAULT) != 0) {
+			implicit |= $nc(sym->owner)->flags_field & 0x0800;
+		}
+		break;
 	case 3:
 		{
 			$init($Kinds$KindSelector);
 			bool var$0 = $nc($nc(sym->owner)->kind)->matches($Kinds$KindSelector::VAL_MTH);
-			if (var$0 || (sym->isDirectlyOrIndirectlyLocal() && ((int64_t)(flags & (uint64_t)(int64_t)8192)) != 0)) {
-				bool implicitlyStatic = !sym->isAnonymous() && (((int64_t)(flags & (uint64_t)(int64_t)0x2000000000000000)) != 0 || ((int64_t)(flags & (uint64_t)(int64_t)16384)) != 0 || ((int64_t)(flags & (uint64_t)(int64_t)512)) != 0);
-				bool staticOrImplicitlyStatic = ((int64_t)(flags & (uint64_t)(int64_t)8)) != 0 || implicitlyStatic;
-				mask = staticOrImplicitlyStatic && this->allowRecords && ((int64_t)(flags & (uint64_t)(int64_t)8192)) == 0 ? 24088 : 23568;
-				implicit = implicitlyStatic ? (int64_t)8 : implicit;
-			} else {
-				if ($nc(sym->owner)->kind == $Kinds$Kind::TYP) {
-					mask = (((int64_t)(flags & (uint64_t)(int64_t)8)) != 0) && this->allowRecords && ((int64_t)(flags & (uint64_t)(int64_t)8192)) == 0 ? (int64_t)0xC000000000005E1F : (int64_t)0xC000000000005E17;
-					if ($nc($nc(sym->owner)->owner)->kind == $Kinds$Kind::PCK || ((int64_t)($nc(sym->owner)->flags_field & (uint64_t)(int64_t)8)) != 0) {
-						mask |= 8;
-					} else if (!this->allowRecords && (((int64_t)(flags & (uint64_t)(int64_t)16384)) != 0 || ((int64_t)(flags & (uint64_t)(int64_t)0x2000000000000000)) != 0)) {
-						$init($CompilerProperties$Errors);
-						$nc(this->log)->error(pos, $CompilerProperties$Errors::StaticDeclarationNotAllowedInInnerClasses);
-					}
-					if (((int64_t)(flags & (uint64_t)((512 | 16384) | (int64_t)0x2000000000000000))) != 0) {
-						implicit = 8;
-					}
-				} else {
-					mask = 0xC000000000007E11;
+			if (var$0 || (sym->isDirectlyOrIndirectlyLocal() && (flags & 0x2000) != 0)) {
+				bool implicitlyStatic = !sym->isAnonymous() && ((flags & (int64_t)0x2000000000000000) != 0 || (flags & 0x4000) != 0 || (flags & 0x0200) != 0);
+				bool staticOrImplicitlyStatic = (flags & 8) != 0 || implicitlyStatic;
+				mask = staticOrImplicitlyStatic && this->allowRecords && (flags & 0x2000) == 0 ? 24088 : 23568;
+				implicit = implicitlyStatic ? 8 : implicit;
+			} else if ($nc(sym->owner)->kind == $Kinds$Kind::TYP) {
+				mask = ((flags & 8) != 0) && this->allowRecords && (flags & 0x2000) == 0 ? (int64_t)0xc000000000005e1f : (int64_t)0xc000000000005e17;
+				if ($nc(sym->owner->owner)->kind == $Kinds$Kind::PCK || (sym->owner->flags_field & 8) != 0) {
+					mask |= 8;
+				} else if (!this->allowRecords && ((flags & 0x4000) != 0 || (flags & (int64_t)0x2000000000000000) != 0)) {
+					$init($CompilerProperties$Errors);
+					$nc(this->log)->error(pos, $CompilerProperties$Errors::StaticDeclarationNotAllowedInInnerClasses);
 				}
+				if ((flags & ((0x0200 | 0x4000) | (int64_t)0x2000000000000000)) != 0) {
+					implicit = 8;
+				}
+			} else {
+				mask = (int64_t)0xc000000000007e11;
 			}
-			if (((int64_t)(flags & (uint64_t)(int64_t)512)) != 0) {
+			if ((flags & 0x0200) != 0) {
 				implicit |= 1024;
 			}
-			if (((int64_t)(flags & (uint64_t)(int64_t)16384)) != 0) {
-				mask &= (uint64_t)~(((1024 | 16) | (int64_t)0x4000000000000000) | (int64_t)0x8000000000000000);
+			if ((flags & 0x4000) != 0) {
+				mask &= (uint64_t)~(((0x0400 | 0x10) | (int64_t)0x4000000000000000) | (int64_t)0x8000000000000000);
 				implicit |= implicitEnumFinalFlag(tree);
 			}
-			if (((int64_t)(flags & (uint64_t)(int64_t)0x2000000000000000)) != 0) {
+			if ((flags & (int64_t)0x2000000000000000) != 0) {
 				mask &= (uint64_t)~1024;
 				implicit |= 16;
 			}
-			if (((int64_t)(flags & (uint64_t)(int64_t)2048)) != 0) {
+			if ((flags & 0x0800) != 0) {
 				warnOnExplicitStrictfp(pos);
 			}
-			implicit |= (int64_t)($nc(sym->owner)->flags_field & (uint64_t)(int64_t)2048);
+			implicit |= $nc(sym->owner)->flags_field & 0x0800;
 			break;
 		}
 	default:
-		{
-			$throwNew($AssertionError);
-		}
+		$throwNew($AssertionError);
 	}
-	int64_t illegal = (int64_t)(((int64_t)(flags & (uint64_t)(int64_t)0xC000080000000FFF)) & (uint64_t)~mask);
+	int64_t illegal = (flags & (int64_t)0xc000080000000fff) & ~mask;
 	if (illegal != 0) {
-		if (((int64_t)(illegal & (uint64_t)(int64_t)512)) != 0) {
+		if ((illegal & 0x0200) != 0) {
 			$init($CompilerProperties$Errors);
-			$nc(this->log)->error(pos, (((int64_t)(flags & (uint64_t)(int64_t)8192)) != 0) ? $CompilerProperties$Errors::AnnotationDeclNotAllowedHere : $CompilerProperties$Errors::IntfNotAllowedHere);
+			$nc(this->log)->error(pos, ((flags & 0x2000) != 0) ? $CompilerProperties$Errors::AnnotationDeclNotAllowedHere : $CompilerProperties$Errors::IntfNotAllowedHere);
 			mask |= 512;
 		} else {
 			$nc(this->log)->error(pos, $($CompilerProperties$Errors::ModNotAllowedHere($($Flags::asFlagSet(illegal)))));
 		}
 	} else {
-		bool var$18 = (sym->kind == $Kinds$Kind::TYP || checkDisjoint(pos, flags, 1024, (2 | 8) | (int64_t)0x0000080000000000));
-		bool var$17 = var$18 && checkDisjoint(pos, flags, 8 | 2, 0x0000080000000000);
-		bool var$16 = var$17 && checkDisjoint(pos, flags, 1024 | 512, (16 | 256) | 32);
-		bool var$15 = var$16 && checkDisjoint(pos, flags, 1, 2 | 4);
-		bool var$14 = var$15 && checkDisjoint(pos, flags, 2, 1 | 4);
-		bool var$13 = var$14 && checkDisjoint(pos, flags, 16, 64);
-		bool var$12 = var$13 && (sym->kind == $Kinds$Kind::TYP || checkDisjoint(pos, flags, 1024 | 256, 2048));
-		bool var$11 = var$12 && checkDisjoint(pos, flags, 16, (int64_t)0x4000000000000000 | (int64_t)0x8000000000000000);
-		bool var$10 = var$11 && checkDisjoint(pos, flags, 0x4000000000000000, 16 | (int64_t)0x8000000000000000);
-		if (var$10 && checkDisjoint(pos, flags, 0x4000000000000000, 8192)) {
+		bool var$9 = sym->kind == $Kinds$Kind::TYP || checkDisjoint(pos, flags, 1024, (2 | 8) | (int64_t)0x0000080000000000);
+		bool var$8 = var$9 && checkDisjoint(pos, flags, 8 | 2, (int64_t)0x0000080000000000);
+		bool var$7 = var$8 && checkDisjoint(pos, flags, 0x0400 | 0x0200, (0x10 | 0x0100) | 0x20);
+		bool var$6 = var$7 && checkDisjoint(pos, flags, 1, 2 | 4);
+		bool var$5 = var$6 && checkDisjoint(pos, flags, 2, 1 | 4);
+		bool var$4 = var$5 && checkDisjoint(pos, flags, 16, 64);
+		bool var$3 = var$4 && (sym->kind == $Kinds$Kind::TYP || checkDisjoint(pos, flags, 0x0400 | 0x0100, 2048));
+		bool var$2 = var$3 && checkDisjoint(pos, flags, 16, (int64_t)0x4000000000000000 | (int64_t)0x8000000000000000);
+		bool var$1 = var$2 && checkDisjoint(pos, flags, (int64_t)0x4000000000000000, 0x10 | (int64_t)0x8000000000000000);
+		if (var$1 && checkDisjoint(pos, flags, (int64_t)0x4000000000000000, 8192)) {
 		}
 	}
-	return ((int64_t)(flags & (uint64_t)(mask | ~(int64_t)0xC000080000000FFF))) | implicit;
+	return (flags & (mask | ~(int64_t)0xc000080000000fff)) | implicit;
 }
 
 void Check::warnOnExplicitStrictfp($JCDiagnostic$DiagnosticPosition* pos) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JCDiagnostic$DiagnosticPosition, prevLintPos, $nc(this->deferredLintHandler)->setPos(pos));
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$nc(this->deferredLintHandler)->report(static_cast<$DeferredLintHandler$LintLogger*>($$new(Check$$Lambda$lambda$warnOnExplicitStrictfp$3$4, this, pos)));
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$nc(this->deferredLintHandler)->setPos(prevLintPos);
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	$var($Throwable, var$0, nullptr);
+	try {
+		$nc(this->deferredLintHandler)->report($$new(Check$$Lambda$lambda$warnOnExplicitStrictfp$3$4, this, pos));
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$nc(this->deferredLintHandler)->setPos(prevLintPos);
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 int64_t Check::implicitEnumFinalFlag($JCTree* tree) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($JCTree$Tag);
 	if (!$nc(tree)->hasTag($JCTree$Tag::CLASSDEF)) {
 		return 0;
@@ -2751,13 +2328,13 @@ int64_t Check::implicitEnumFinalFlag($JCTree* tree) {
 	$var($Check$1SpecialTreeVisitor, sts, $new($Check$1SpecialTreeVisitor, this));
 	$var($JCTree$JCClassDecl, cdef, $cast($JCTree$JCClassDecl, tree));
 	{
-		$var($Iterator, i$, $nc($nc(cdef)->defs)->iterator());
+		$var($Iterator, i$, $nc(cdef->defs)->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($JCTree, defs, $cast($JCTree, i$->next()));
 			{
 				$nc(defs)->accept(sts);
 				if (sts->specialized) {
-					return this->allowSealed ? (int64_t)0x4000000000000000 : (int64_t)0;
+					return this->allowSealed ? (int64_t)0x4000000000000000 : 0;
 				}
 			}
 		}
@@ -2774,23 +2351,21 @@ void Check::validate($JCTree* tree, $Env* env, bool checkRaw) {
 }
 
 void Check::validate($List* trees, $Env* env) {
-	{
-		$var($List, l, trees);
-		for (; $nc(l)->nonEmpty(); $assign(l, $nc(l)->tail)) {
-			validate($cast($JCTree, l->head), env);
-		}
+	$var($List, l, trees);
+	for (; $nc(l)->nonEmpty(); $assign(l, l->tail)) {
+		validate($cast($JCTree, l->head), env);
 	}
 }
 
 void Check::checkRaw($JCTree* tree, $Env* env) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Lint$LintCategory);
 	bool var$3 = $nc(this->lint)->isEnabled($Lint$LintCategory::RAW);
 	$init($TypeTag);
 	bool var$2 = var$3 && $nc($nc(tree)->type)->hasTag($TypeTag::CLASS);
 	bool var$1 = var$2 && !$TreeInfo::isDiamond(tree);
 	bool var$0 = var$1 && !withinAnonConstr(env);
-	if (var$0 && $nc(tree->type)->isRaw()) {
+	if (var$0 && tree->type->isRaw()) {
 		$var($Lint$LintCategory, var$4, $Lint$LintCategory::RAW);
 		$var($JCDiagnostic$DiagnosticPosition, var$5, tree->pos());
 		$nc(this->log)->warning(var$4, var$5, $($CompilerProperties$Warnings::RawClassUse(tree->type, $nc($nc(tree->type)->tsym)->type)));
@@ -2798,36 +2373,32 @@ void Check::checkRaw($JCTree* tree, $Env* env) {
 }
 
 bool Check::withinAnonConstr($Env* env) {
-	return $nc($nc($nc(env)->enclClass)->name)->isEmpty() && env->enclMethod != nullptr && $nc(env->enclMethod)->name == $nc(this->names)->init;
+	return $nc($nc($nc(env)->enclClass)->name)->isEmpty() && env->enclMethod != nullptr && env->enclMethod->name == $nc(this->names)->init;
 }
 
 bool Check::subset($Type* t, $List* ts) {
-	{
-		$var($List, l, ts);
-		for (; $nc(l)->nonEmpty(); $assign(l, $nc(l)->tail)) {
-			if ($nc(this->types)->isSubtype(t, $cast($Type, l->head))) {
-				return true;
-			}
+	$var($List, l, ts);
+	for (; $nc(l)->nonEmpty(); $assign(l, l->tail)) {
+		if ($nc(this->types)->isSubtype(t, $cast($Type, l->head))) {
+			return true;
 		}
 	}
 	return false;
 }
 
 bool Check::intersects($Type* t, $List* ts) {
-	{
-		$var($List, l, ts);
-		for (; $nc(l)->nonEmpty(); $assign(l, $nc(l)->tail)) {
-			bool var$0 = $nc(this->types)->isSubtype(t, $cast($Type, l->head));
-			if (var$0 || $nc(this->types)->isSubtype($cast($Type, l->head), t)) {
-				return true;
-			}
+	$var($List, l, ts);
+	for (; $nc(l)->nonEmpty(); $assign(l, l->tail)) {
+		bool var$0 = $nc(this->types)->isSubtype(t, $cast($Type, l->head));
+		if (var$0 || this->types->isSubtype($cast($Type, l->head), t)) {
+			return true;
 		}
 	}
 	return false;
 }
 
 $List* Check::incl($Type* t, $List* ts) {
-	return subset(t, ts) ? ts : $nc($(excl(t, ts)))->prepend(t);
+	return subset(t, ts) ? ts : $$nc(excl(t, ts))->prepend(t);
 }
 
 $List* Check::excl($Type* t, $List* ts) {
@@ -2846,11 +2417,11 @@ $List* Check::excl($Type* t, $List* ts) {
 }
 
 $List* Check::union$($List* ts1, $List* ts2) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, ts, ts1);
 	{
 		$var($List, l, ts2);
-		for (; $nc(l)->nonEmpty(); $assign(l, $nc(l)->tail)) {
+		for (; $nc(l)->nonEmpty(); $assign(l, l->tail)) {
 			$assign(ts, incl($cast($Type, l->head), ts));
 		}
 	}
@@ -2858,11 +2429,11 @@ $List* Check::union$($List* ts1, $List* ts2) {
 }
 
 $List* Check::diff($List* ts1, $List* ts2) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, ts, ts1);
 	{
 		$var($List, l, ts2);
-		for (; $nc(l)->nonEmpty(); $assign(l, $nc(l)->tail)) {
+		for (; $nc(l)->nonEmpty(); $assign(l, l->tail)) {
 			$assign(ts, excl($cast($Type, l->head), ts));
 		}
 	}
@@ -2870,11 +2441,11 @@ $List* Check::diff($List* ts1, $List* ts2) {
 }
 
 $List* Check::intersect($List* ts1, $List* ts2) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, ts, $List::nil());
 	{
 		$var($List, l, ts1);
-		for (; $nc(l)->nonEmpty(); $assign(l, $nc(l)->tail)) {
+		for (; $nc(l)->nonEmpty(); $assign(l, l->tail)) {
 			if (subset($cast($Type, l->head), ts2)) {
 				$assign(ts, incl($cast($Type, l->head), ts));
 			}
@@ -2882,7 +2453,7 @@ $List* Check::intersect($List* ts1, $List* ts2) {
 	}
 	{
 		$var($List, l, ts2);
-		for (; l->nonEmpty(); $assign(l, l->tail)) {
+		for (; $nc(l)->nonEmpty(); $assign(l, l->tail)) {
 			if (subset($cast($Type, l->head), ts1)) {
 				$assign(ts, incl($cast($Type, l->head), ts));
 			}
@@ -2893,13 +2464,13 @@ $List* Check::intersect($List* ts1, $List* ts2) {
 
 bool Check::isUnchecked($Symbol$ClassSymbol* exc) {
 	$init($Kinds$Kind);
-	bool var$0 = $nc(exc)->kind == $Kinds$Kind::ERR || $nc(exc)->isSubClass($nc($nc(this->syms)->errorType)->tsym, this->types);
-	return var$0 || $nc(exc)->isSubClass($nc($nc(this->syms)->runtimeExceptionType)->tsym, this->types);
+	bool var$0 = $nc(exc)->kind == $Kinds$Kind::ERR || exc->isSubClass($nc($nc(this->syms)->errorType)->tsym, this->types);
+	return var$0 || exc->isSubClass($nc($nc(this->syms)->runtimeExceptionType)->tsym, this->types);
 }
 
 bool Check::isUnchecked($Type* exc) {
 	$init($TypeTag);
-	return ($nc(exc)->hasTag($TypeTag::TYPEVAR)) ? isUnchecked($($nc(this->types)->supertype(exc))) : ($nc(exc)->hasTag($TypeTag::CLASS)) ? isUnchecked($cast($Symbol$ClassSymbol, $nc(exc)->tsym)) : $nc(exc)->hasTag($TypeTag::BOT);
+	return ($nc(exc)->hasTag($TypeTag::TYPEVAR)) ? isUnchecked($($nc(this->types)->supertype(exc))) : (exc->hasTag($TypeTag::CLASS)) ? isUnchecked($cast($Symbol$ClassSymbol, exc->tsym)) : exc->hasTag($TypeTag::BOT);
 }
 
 bool Check::isChecked($Type* exc) {
@@ -2922,11 +2493,11 @@ bool Check::isHandled($Type* exc, $List* handled) {
 }
 
 $List* Check::unhandled($List* thrown, $List* handled) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, unhandled, $List::nil());
 	{
 		$var($List, l, thrown);
-		for (; $nc(l)->nonEmpty(); $assign(l, $nc(l)->tail)) {
+		for (; $nc(l)->nonEmpty(); $assign(l, l->tail)) {
 			if (!isHandled($cast($Type, l->head), handled)) {
 				$assign(unhandled, $nc(unhandled)->prepend($cast($Type, l->head)));
 			}
@@ -2937,35 +2508,26 @@ $List* Check::unhandled($List* thrown, $List* handled) {
 
 int32_t Check::protection(int64_t flags) {
 	$init(Check);
-	switch ((int16_t)((int64_t)(flags & (uint64_t)(int64_t)7))) {
+	switch ((int16_t)(flags & 7)) {
 	case 2:
-		{
-			return 3;
-		}
+		return 3;
 	case 4:
-		{
-			return 1;
-		}
+		return 1;
 	default:
-		{}
 	case 1:
-		{
-			return 0;
-		}
+		return 0;
 	case 0:
-		{
-			return 2;
-		}
+		return 2;
 	}
 }
 
 $JCDiagnostic$Fragment* Check::cannotOverride($Symbol$MethodSymbol* m, $Symbol$MethodSymbol* other) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Symbol, mloc, $nc(m)->location());
 	$var($Symbol, oloc, $nc(other)->location());
-	if (((int64_t)($nc(other->owner)->flags() & (uint64_t)(int64_t)512)) == 0) {
+	if (($nc(other->owner)->flags() & 0x0200) == 0) {
 		return $CompilerProperties$Fragments::CantOverride(m, mloc, other, oloc);
-	} else if (((int64_t)($nc(m->owner)->flags() & (uint64_t)(int64_t)512)) == 0) {
+	} else if (($nc(m->owner)->flags() & 0x0200) == 0) {
 		return $CompilerProperties$Fragments::CantImplement(m, mloc, other, oloc);
 	} else {
 		return $CompilerProperties$Fragments::ClashesWith(m, mloc, other, oloc);
@@ -2973,12 +2535,12 @@ $JCDiagnostic$Fragment* Check::cannotOverride($Symbol$MethodSymbol* m, $Symbol$M
 }
 
 $JCDiagnostic$Fragment* Check::uncheckedOverrides($Symbol$MethodSymbol* m, $Symbol$MethodSymbol* other) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Symbol, mloc, $nc(m)->location());
 	$var($Symbol, oloc, $nc(other)->location());
-	if (((int64_t)($nc(other->owner)->flags() & (uint64_t)(int64_t)512)) == 0) {
+	if (($nc(other->owner)->flags() & 0x0200) == 0) {
 		return $CompilerProperties$Fragments::UncheckedOverride(m, mloc, other, oloc);
-	} else if (((int64_t)($nc(m->owner)->flags() & (uint64_t)(int64_t)512)) == 0) {
+	} else if (($nc(m->owner)->flags() & 0x0200) == 0) {
 		return $CompilerProperties$Fragments::UncheckedImplement(m, mloc, other, oloc);
 	} else {
 		return $CompilerProperties$Fragments::UncheckedClashWith(m, mloc, other, oloc);
@@ -2986,12 +2548,12 @@ $JCDiagnostic$Fragment* Check::uncheckedOverrides($Symbol$MethodSymbol* m, $Symb
 }
 
 $JCDiagnostic$Fragment* Check::varargsOverrides($Symbol$MethodSymbol* m, $Symbol$MethodSymbol* other) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Symbol, mloc, $nc(m)->location());
 	$var($Symbol, oloc, $nc(other)->location());
-	if (((int64_t)($nc(other->owner)->flags() & (uint64_t)(int64_t)512)) == 0) {
+	if (($nc(other->owner)->flags() & 0x0200) == 0) {
 		return $CompilerProperties$Fragments::VarargsOverride(m, mloc, other, oloc);
-	} else if (((int64_t)($nc(m->owner)->flags() & (uint64_t)(int64_t)512)) == 0) {
+	} else if (($nc(m->owner)->flags() & 0x0200) == 0) {
 		return $CompilerProperties$Fragments::VarargsImplement(m, mloc, other, oloc);
 	} else {
 		return $CompilerProperties$Fragments::VarargsClashWith(m, mloc, other, oloc);
@@ -2999,131 +2561,127 @@ $JCDiagnostic$Fragment* Check::varargsOverrides($Symbol$MethodSymbol* m, $Symbol
 }
 
 void Check::checkOverride($JCTree* tree, $Symbol$MethodSymbol* m, $Symbol$MethodSymbol* other, $Symbol$ClassSymbol* origin) {
-	$useLocalCurrentObjectStackCache();
-	bool var$0 = ((int64_t)($nc(m)->flags() & (uint64_t)(4096 | (int64_t)0x0000000080000000))) != 0;
-	if (var$0 || ((int64_t)($nc(other)->flags() & (uint64_t)(int64_t)4096)) != 0) {
+	$useLocalObjectStack();
+	bool var$0 = ($nc(m)->flags() & (0x1000 | (int64_t)0x80000000)) != 0;
+	if (var$0 || ($nc(other)->flags() & 0x1000) != 0) {
 		return;
 	}
-	bool var$1 = ((int64_t)($nc(m)->flags() & (uint64_t)(int64_t)8)) != 0;
-	if (var$1 && ((int64_t)($nc(other)->flags() & (uint64_t)(int64_t)8)) == 0) {
-		$var($JCDiagnostic$DiagnosticPosition, var$2, $TreeInfo::diagnosticPositionFor(static_cast<$Symbol*>(m), tree));
+	bool var$1 = (m->flags() & 8) != 0;
+	if (var$1 && ($nc(other)->flags() & 8) == 0) {
+		$var($JCDiagnostic$DiagnosticPosition, var$2, $TreeInfo::diagnosticPositionFor(m, tree));
 		$nc(this->log)->error(var$2, $($CompilerProperties$Errors::OverrideStatic($(cannotOverride(m, other)))));
-		m->flags_field |= 0x0000200000000000;
+		m->flags_field |= (int64_t)0x0000200000000000;
 		return;
 	}
-	bool var$3 = ((int64_t)($nc(other)->flags() & (uint64_t)(int64_t)16)) != 0;
+	bool var$3 = ($nc(other)->flags() & 0x10) != 0;
 	if (!var$3) {
-		bool var$4 = ((int64_t)($nc(m)->flags() & (uint64_t)(int64_t)8)) == 0;
-		var$3 = var$4 && ((int64_t)($nc(other)->flags() & (uint64_t)(int64_t)8)) != 0;
+		bool var$4 = (m->flags() & 8) == 0;
+		var$3 = var$4 && (other->flags() & 8) != 0;
 	}
 	if (var$3) {
-		$var($JCDiagnostic$DiagnosticPosition, var$5, $TreeInfo::diagnosticPositionFor(static_cast<$Symbol*>(m), tree));
+		$var($JCDiagnostic$DiagnosticPosition, var$5, $TreeInfo::diagnosticPositionFor(m, tree));
 		$var($JCDiagnostic$Fragment, var$6, cannotOverride(m, other));
-		$nc(this->log)->error(var$5, $($CompilerProperties$Errors::OverrideMeth(var$6, $(static_cast<$Set*>($Flags::asFlagSet((int64_t)(other->flags() & (uint64_t)(int64_t)(16 | 8))))))));
-		m->flags_field |= 0x0000200000000000;
+		$nc(this->log)->error(var$5, $($CompilerProperties$Errors::OverrideMeth(var$6, $($Flags::asFlagSet(other->flags() & (0x10 | 8))))));
+		m->flags_field |= (int64_t)0x0000200000000000;
 		return;
 	}
-	if (((int64_t)($nc($nc(m)->owner)->flags() & (uint64_t)(int64_t)8192)) != 0) {
+	if (($nc(m->owner)->flags() & 0x2000) != 0) {
 		return;
 	}
-	int32_t var$7 = protection($nc(m)->flags());
-	if (var$7 > protection($nc(other)->flags())) {
-		$var($JCDiagnostic$DiagnosticPosition, var$8, $TreeInfo::diagnosticPositionFor(static_cast<$Symbol*>(m), tree));
+	int32_t var$7 = protection(m->flags());
+	if (var$7 > protection(other->flags())) {
+		$var($JCDiagnostic$DiagnosticPosition, var$8, $TreeInfo::diagnosticPositionFor(m, tree));
 		$var($JCDiagnostic$Error, var$9, nullptr);
-		if (((int64_t)($nc(other)->flags() & (uint64_t)(int64_t)7)) == 0) {
+		if ((other->flags() & 7) == 0) {
 			$assign(var$9, $CompilerProperties$Errors::OverrideWeakerAccess($(cannotOverride(m, other)), "package"_s));
 		} else {
 			$var($JCDiagnostic$Fragment, var$10, cannotOverride(m, other));
-			$assign(var$9, $CompilerProperties$Errors::OverrideWeakerAccess(var$10, $(static_cast<$Set*>($Flags::asFlagSet((int64_t)(other->flags() & (uint64_t)(int64_t)7))))));
+			$assign(var$9, $CompilerProperties$Errors::OverrideWeakerAccess(var$10, $($Flags::asFlagSet(other->flags() & 7))));
 		}
 		$nc(this->log)->error(var$8, var$9);
-		$nc(m)->flags_field |= 0x0000200000000000;
+		m->flags_field |= (int64_t)0x0000200000000000;
 		return;
 	}
 	$var($Type, mt, $nc(this->types)->memberType($nc(origin)->type, m));
-	$var($Type, ot, $nc(this->types)->memberType($nc(origin)->type, other));
+	$var($Type, ot, this->types->memberType(origin->type, other));
 	$var($List, mtvars, $nc(mt)->getTypeArguments());
 	$var($List, otvars, $nc(ot)->getTypeArguments());
 	$var($Type, mtres, mt->getReturnType());
-	$var($Type, otres, $nc(this->types)->subst($(ot->getReturnType()), otvars, mtvars));
+	$var($Type, otres, this->types->subst($(ot->getReturnType()), otvars, mtvars));
 	$nc(this->overrideWarner)->clear();
-	bool resultTypesOK = $nc(this->types)->returnTypeSubstitutable(mt, ot, otres, this->overrideWarner);
+	bool resultTypesOK = this->types->returnTypeSubstitutable(mt, ot, otres, this->overrideWarner);
 	if (!resultTypesOK) {
-		bool var$11 = ((int64_t)($nc(m)->flags() & (uint64_t)(int64_t)8)) != 0;
-		if (var$11 && ((int64_t)($nc(other)->flags() & (uint64_t)(int64_t)8)) != 0) {
-			$var($JCDiagnostic$DiagnosticPosition, var$12, $TreeInfo::diagnosticPositionFor(static_cast<$Symbol*>(m), tree));
-			$var($Symbol, var$13, static_cast<$Symbol*>(m));
-			$var($Symbol, var$14, m->location());
-			$var($Symbol, var$15, static_cast<$Symbol*>(other));
-			$nc(this->log)->error(var$12, $($CompilerProperties$Errors::OverrideIncompatibleRet($($CompilerProperties$Fragments::CantHide(var$13, var$14, var$15, $(other->location()))), mtres, otres)));
-			m->flags_field |= 0x0000200000000000;
+		bool var$11 = (m->flags() & 8) != 0;
+		if (var$11 && (other->flags() & 8) != 0) {
+			$var($JCDiagnostic$DiagnosticPosition, var$12, $TreeInfo::diagnosticPositionFor(m, tree));
+			$var($Symbol, var$13, m->location());
+			$nc(this->log)->error(var$12, $($CompilerProperties$Errors::OverrideIncompatibleRet($($CompilerProperties$Fragments::CantHide(m, var$13, other, $(other->location()))), mtres, otres)));
+			m->flags_field |= (int64_t)0x0000200000000000;
 		} else {
-			$var($JCDiagnostic$DiagnosticPosition, var$16, $TreeInfo::diagnosticPositionFor(static_cast<$Symbol*>(m), tree));
-			$nc(this->log)->error(var$16, $($CompilerProperties$Errors::OverrideIncompatibleRet($(cannotOverride(m, other)), mtres, otres)));
-			m->flags_field |= 0x0000200000000000;
+			$var($JCDiagnostic$DiagnosticPosition, var$14, $TreeInfo::diagnosticPositionFor(m, tree));
+			$nc(this->log)->error(var$14, $($CompilerProperties$Errors::OverrideIncompatibleRet($(cannotOverride(m, other)), mtres, otres)));
+			m->flags_field |= (int64_t)0x0000200000000000;
 		}
 		return;
 	} else {
 		$init($Lint$LintCategory);
 		if ($nc(this->overrideWarner)->hasNonSilentLint($Lint$LintCategory::UNCHECKED)) {
-			$var($JCDiagnostic$DiagnosticPosition, var$17, $TreeInfo::diagnosticPositionFor(static_cast<$Symbol*>(m), tree));
-			warnUnchecked(var$17, $($CompilerProperties$Warnings::OverrideUncheckedRet($(uncheckedOverrides(m, other)), mtres, otres)));
+			$var($JCDiagnostic$DiagnosticPosition, var$15, $TreeInfo::diagnosticPositionFor(m, tree));
+			warnUnchecked(var$15, $($CompilerProperties$Warnings::OverrideUncheckedRet($(uncheckedOverrides(m, other)), mtres, otres)));
 		}
 	}
-	$var($List, otthrown, $nc(this->types)->subst($(ot->getThrownTypes()), otvars, mtvars));
-	$var($List, var$18, mt->getThrownTypes());
-	$var($List, unhandledErased, unhandled(var$18, $($nc(this->types)->erasure(otthrown))));
+	$var($List, otthrown, this->types->subst($(ot->getThrownTypes()), otvars, mtvars));
+	$var($List, var$16, mt->getThrownTypes());
+	$var($List, unhandledErased, unhandled(var$16, $(this->types->erasure(otthrown))));
 	$var($List, unhandledUnerased, unhandled($(mt->getThrownTypes()), otthrown));
 	if ($nc(unhandledErased)->nonEmpty()) {
-		$var($JCDiagnostic$DiagnosticPosition, var$19, $TreeInfo::diagnosticPositionFor(static_cast<$Symbol*>(m), tree));
-		$nc(this->log)->error(var$19, $($CompilerProperties$Errors::OverrideMethDoesntThrow($(cannotOverride(m, other)), $cast($Type, $nc(unhandledUnerased)->head))));
-		$nc(m)->flags_field |= 0x0000200000000000;
+		$var($JCDiagnostic$DiagnosticPosition, var$17, $TreeInfo::diagnosticPositionFor(m, tree));
+		$nc(this->log)->error(var$17, $($CompilerProperties$Errors::OverrideMethDoesntThrow($(cannotOverride(m, other)), $cast($Type, $nc(unhandledUnerased)->head))));
+		m->flags_field |= (int64_t)0x0000200000000000;
 		return;
 	} else if ($nc(unhandledUnerased)->nonEmpty()) {
-		$var($JCDiagnostic$DiagnosticPosition, var$20, $TreeInfo::diagnosticPositionFor(static_cast<$Symbol*>(m), tree));
-		warnUnchecked(var$20, $($CompilerProperties$Warnings::OverrideUncheckedThrown($(cannotOverride(m, other)), $cast($Type, unhandledUnerased->head))));
+		$var($JCDiagnostic$DiagnosticPosition, var$18, $TreeInfo::diagnosticPositionFor(m, tree));
+		warnUnchecked(var$18, $($CompilerProperties$Warnings::OverrideUncheckedThrown($(cannotOverride(m, other)), $cast($Type, unhandledUnerased->head))));
 		return;
 	}
-	int64_t var$22 = $nc(m)->flags();
-	bool var$21 = (((int64_t)((var$22 ^ $nc(other)->flags()) & (uint64_t)$Flags::VARARGS)) != 0);
+	int64_t var$20 = m->flags();
+	bool var$19 = ((var$20 ^ other->flags()) & $Flags::VARARGS) != 0;
 	$init($Lint$LintCategory);
-	if (var$21 && $nc(this->lint)->isEnabled($Lint$LintCategory::OVERRIDES)) {
-		$var($JCDiagnostic$DiagnosticPosition, var$23, $TreeInfo::diagnosticPositionFor(static_cast<$Symbol*>(m), tree));
-		$nc(this->log)->warning(var$23, (((int64_t)(m->flags() & (uint64_t)$Flags::VARARGS)) != 0) ? $($CompilerProperties$Warnings::OverrideVarargsMissing($(varargsOverrides(m, other)))) : $($CompilerProperties$Warnings::OverrideVarargsExtra($(varargsOverrides(m, other)))));
+	if (var$19 && $nc(this->lint)->isEnabled($Lint$LintCategory::OVERRIDES)) {
+		$var($JCDiagnostic$DiagnosticPosition, var$21, $TreeInfo::diagnosticPositionFor(m, tree));
+		$nc(this->log)->warning(var$21, ((m->flags() & $Flags::VARARGS) != 0) ? $($CompilerProperties$Warnings::OverrideVarargsMissing($(varargsOverrides(m, other)))) : $($CompilerProperties$Warnings::OverrideVarargsExtra($(varargsOverrides(m, other)))));
 	}
-	if (((int64_t)($nc(other)->flags() & (uint64_t)(int64_t)0x0000000080000000)) != 0) {
-		$var($JCDiagnostic$DiagnosticPosition, var$24, $TreeInfo::diagnosticPositionFor(static_cast<$Symbol*>(m), tree));
-		$nc(this->log)->warning(var$24, $($CompilerProperties$Warnings::OverrideBridge($(uncheckedOverrides(m, other)))));
+	if ((other->flags() & (int64_t)0x80000000) != 0) {
+		$var($JCDiagnostic$DiagnosticPosition, var$22, $TreeInfo::diagnosticPositionFor(m, tree));
+		$nc(this->log)->warning(var$22, $($CompilerProperties$Warnings::OverrideBridge($(uncheckedOverrides(m, other)))));
 	}
 	if (!isDeprecatedOverrideIgnorable(other, origin)) {
-		$var($Lint, prevLint, setLint($($nc(this->lint)->augment(static_cast<$Symbol*>(m)))));
-		{
-			$var($Throwable, var$25, nullptr);
-			try {
-				checkDeprecated(static_cast<$Supplier*>($$new(Check$$Lambda$lambda$checkOverride$4$5, m, tree)), static_cast<$Symbol*>(m), static_cast<$Symbol*>(other));
-			} catch ($Throwable& var$26) {
-				$assign(var$25, var$26);
-			} /*finally*/ {
-				setLint(prevLint);
-			}
-			if (var$25 != nullptr) {
-				$throw(var$25);
-			}
+		$var($Lint, prevLint, setLint($($nc(this->lint)->augment(m))));
+		$var($Throwable, var$23, nullptr);
+		try {
+			checkDeprecated($$new(Check$$Lambda$lambda$checkOverride$4$5, m, tree), m, other);
+		} catch ($Throwable& var$24) {
+			$assign(var$23, var$24);
+		} /*finally*/ {
+			setLint(prevLint);
+		}
+		if (var$23 != nullptr) {
+			$throw(var$23);
 		}
 	}
 }
 
 bool Check::isDeprecatedOverrideIgnorable($Symbol$MethodSymbol* m, $Symbol$ClassSymbol* origin) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Symbol$ClassSymbol, mc, $nc(m)->enclClass());
 	$var($Type, st, $nc(this->types)->supertype($nc(origin)->type));
 	$init($TypeTag);
 	if (!$nc(st)->hasTag($TypeTag::CLASS)) {
 		return true;
 	}
-	$var($Symbol$MethodSymbol, stimpl, m->implementation($cast($Symbol$ClassSymbol, $nc(st)->tsym), this->types, false));
-	if (mc != nullptr && (((int64_t)(mc->flags() & (uint64_t)(int64_t)512)) != 0)) {
-		$var($List, intfs, $nc(this->types)->interfaces($nc(origin)->type));
+	$var($Symbol$MethodSymbol, stimpl, m->implementation($cast($Symbol$ClassSymbol, st->tsym), this->types, false));
+	if (mc != nullptr && ((mc->flags() & 0x0200) != 0)) {
+		$var($List, intfs, this->types->interfaces(origin->type));
 		return ($nc(intfs)->contains(mc->type) ? false : (stimpl != nullptr));
 	} else {
 		return (stimpl != m);
@@ -3131,7 +2689,7 @@ bool Check::isDeprecatedOverrideIgnorable($Symbol$MethodSymbol* m, $Symbol$Class
 }
 
 void Check::checkCompatibleConcretes($JCDiagnostic$DiagnosticPosition* pos, $Type* site) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Type, sup, $nc(this->types)->supertype(site));
 	$init($TypeTag);
 	if (!$nc(sup)->hasTag($TypeTag::CLASS)) {
@@ -3139,48 +2697,44 @@ void Check::checkCompatibleConcretes($JCDiagnostic$DiagnosticPosition* pos, $Typ
 	}
 	{
 		$var($Type, t1, sup);
-		for (;; $assign(t1, $nc(this->types)->supertype(t1))) {
+		for (;; $assign(t1, this->types->supertype(t1))) {
 			bool var$0 = $nc(t1)->hasTag($TypeTag::CLASS);
 			if (!(var$0 && $nc($nc(t1->tsym)->type)->isParameterized())) {
 				break;
 			}
 			{
-				{
-					$init($Scope$LookupKind);
-					$var($Iterator, i$, $nc($($nc($($nc($nc(t1)->tsym)->members()))->getSymbols($Scope$LookupKind::NON_RECURSIVE)))->iterator());
-					for (; $nc(i$)->hasNext();) {
-						$var($Symbol, s1, $cast($Symbol, i$->next()));
+				$init($Scope$LookupKind);
+				$var($Iterator, i$, $$nc($$nc(t1->tsym->members())->getSymbols($Scope$LookupKind::NON_RECURSIVE))->iterator());
+				for (; $nc(i$)->hasNext();) {
+					$var($Symbol, s1, $cast($Symbol, i$->next()));
+					{
+						$init($Kinds$Kind);
+						bool var$2 = $nc(s1)->kind != $Kinds$Kind::MTH || (s1->flags() & ((8 | 0x1000) | (int64_t)0x80000000)) != 0;
+						bool var$1 = var$2 || !s1->isInheritedIn($nc(site)->tsym, this->types);
+						if (var$1 || !$equals($cast($Symbol$MethodSymbol, s1)->implementation($nc(site)->tsym, this->types, true), s1)) {
+							continue;
+						}
+						$var($Type, st1, this->types->memberType(t1, s1));
+						int32_t s1ArgsLength = $$nc($nc(st1)->getParameterTypes())->length();
+						if (st1 == s1->type) {
+							continue;
+						}
 						{
-							$init($Kinds$Kind);
-							bool var$2 = $nc(s1)->kind != $Kinds$Kind::MTH || ((int64_t)($nc(s1)->flags() & (uint64_t)((8 | 4096) | (int64_t)0x0000000080000000))) != 0;
-							bool var$1 = var$2 || !$nc(s1)->isInheritedIn($nc(site)->tsym, this->types);
-							if (var$1 || !$equals($nc(($cast($Symbol$MethodSymbol, s1)))->implementation($nc(site)->tsym, this->types, true), s1)) {
-								continue;
-							}
-							$var($Type, st1, $nc(this->types)->memberType(t1, s1));
-							int32_t s1ArgsLength = $nc($($nc(st1)->getParameterTypes()))->length();
-							if (st1 == $nc(s1)->type) {
-								continue;
-							}
-							{
-								$var($Type, t2, sup);
-								for (; $nc(t2)->hasTag($TypeTag::CLASS); $assign(t2, $nc(this->types)->supertype(t2))) {
+							$var($Type, t2, sup);
+							for (; $nc(t2)->hasTag($TypeTag::CLASS); $assign(t2, this->types->supertype(t2))) {
+								$var($Iterator, i$, $$nc($$nc($nc(t2->tsym)->members())->getSymbolsByName(s1->name))->iterator());
+								for (; $nc(i$)->hasNext();) {
+									$var($Symbol, s2, $cast($Symbol, i$->next()));
 									{
-										$var($Iterator, i$, $nc($($nc($($nc($nc(t2)->tsym)->members()))->getSymbolsByName($nc(s1)->name)))->iterator());
-										for (; $nc(i$)->hasNext();) {
-											$var($Symbol, s2, $cast($Symbol, i$->next()));
-											{
-												bool var$5 = s2 == s1 || $nc(s2)->kind != $Kinds$Kind::MTH || ((int64_t)($nc(s2)->flags() & (uint64_t)((8 | 4096) | (int64_t)0x0000000080000000))) != 0;
-												bool var$4 = var$5 || $nc($($nc($nc(s2)->type)->getParameterTypes()))->length() != s1ArgsLength;
-												bool var$3 = var$4 || !$nc(s2)->isInheritedIn($nc(site)->tsym, this->types);
-												if (var$3 || !$equals($nc(($cast($Symbol$MethodSymbol, s2)))->implementation($nc(site)->tsym, this->types, true), s2)) {
-													continue;
-												}
-												$var($Type, st2, $nc(this->types)->memberType(t2, s2));
-												if ($nc(this->types)->overrideEquivalent(st1, st2)) {
-													$nc(this->log)->error(pos, $($CompilerProperties$Errors::ConcreteInheritanceConflict(s1, t1, s2, t2, sup)));
-												}
-											}
+										bool var$5 = s2 == s1 || $nc(s2)->kind != $Kinds$Kind::MTH || ($nc(s2)->flags() & ((8 | 0x1000) | (int64_t)0x80000000)) != 0;
+										bool var$4 = var$5 || $$nc($nc($nc(s2)->type)->getParameterTypes())->length() != s1ArgsLength;
+										bool var$3 = var$4 || !$nc(s2)->isInheritedIn($nc(site)->tsym, this->types);
+										if (var$3 || !$equals($nc($cast($Symbol$MethodSymbol, s2))->implementation($nc(site)->tsym, this->types, true), s2)) {
+											continue;
+										}
+										$var($Type, st2, this->types->memberType(t2, s2));
+										if (this->types->overrideEquivalent(st1, st2)) {
+											$nc(this->log)->error(pos, $($CompilerProperties$Errors::ConcreteInheritanceConflict(s1, t1, s2, t2, sup)));
 										}
 									}
 								}
@@ -3194,18 +2748,18 @@ void Check::checkCompatibleConcretes($JCDiagnostic$DiagnosticPosition* pos, $Typ
 }
 
 bool Check::checkCompatibleAbstracts($JCDiagnostic$DiagnosticPosition* pos, $Type* t1$renamed, $Type* t2$renamed, $Type* site) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Type, t1, t1$renamed);
 	$var($Type, t2, t2$renamed);
-	if (((int64_t)($nc($nc(site)->tsym)->flags() & (uint64_t)(int64_t)0x01000000)) != 0) {
+	if (($nc($nc(site)->tsym)->flags() & 0x01000000) != 0) {
 		$assign(t1, $nc(this->types)->capture(t1));
-		$assign(t2, $nc(this->types)->capture(t2));
+		$assign(t2, this->types->capture(t2));
 	}
 	return firstIncompatibility(pos, t1, t2, site) == nullptr;
 }
 
 $Symbol* Check::firstIncompatibility($JCDiagnostic$DiagnosticPosition* pos, $Type* t1, $Type* t2, $Type* site) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Map, interfaces1, $new($HashMap));
 	closure(t1, interfaces1);
 	$var($Map, interfaces2, nullptr);
@@ -3215,19 +2769,17 @@ $Symbol* Check::firstIncompatibility($JCDiagnostic$DiagnosticPosition* pos, $Typ
 		closure(t2, interfaces1, $assign(interfaces2, $new($HashMap)));
 	}
 	{
-		$var($Iterator, i$, $nc($(interfaces1->values()))->iterator());
+		$var($Iterator, i$, $$nc(interfaces1->values())->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Type, t3, $cast($Type, i$->next()));
 			{
-				{
-					$var($Iterator, i$, $nc($($nc(interfaces2)->values()))->iterator());
-					for (; $nc(i$)->hasNext();) {
-						$var($Type, t4, $cast($Type, i$->next()));
-						{
-							$var($Symbol, s, firstDirectIncompatibility(pos, t3, t4, site));
-							if (s != nullptr) {
-								return s;
-							}
+				$var($Iterator, i$, $$nc($nc(interfaces2)->values())->iterator());
+				for (; $nc(i$)->hasNext();) {
+					$var($Type, t4, $cast($Type, i$->next()));
+					{
+						$var($Symbol, s, firstDirectIncompatibility(pos, t3, t4, site));
+						if (s != nullptr) {
+							return s;
 						}
 					}
 				}
@@ -3238,15 +2790,15 @@ $Symbol* Check::firstIncompatibility($JCDiagnostic$DiagnosticPosition* pos, $Typ
 }
 
 void Check::closure($Type* t, $Map* typeMap) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($TypeTag);
 	if (!$nc(t)->hasTag($TypeTag::CLASS)) {
 		return;
 	}
-	if ($nc(typeMap)->put($nc(t)->tsym, t) == nullptr) {
+	if ($nc(typeMap)->put(t->tsym, t) == nullptr) {
 		closure($($nc(this->types)->supertype(t)), typeMap);
 		{
-			$var($Iterator, i$, $nc($($nc(this->types)->interfaces(t)))->iterator());
+			$var($Iterator, i$, $$nc(this->types->interfaces(t))->iterator());
 			for (; $nc(i$)->hasNext();) {
 				$var($Type, i, $cast($Type, i$->next()));
 				closure(i, typeMap);
@@ -3256,18 +2808,18 @@ void Check::closure($Type* t, $Map* typeMap) {
 }
 
 void Check::closure($Type* t, $Map* typesSkip, $Map* typeMap) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($TypeTag);
 	if (!$nc(t)->hasTag($TypeTag::CLASS)) {
 		return;
 	}
-	if ($nc(typesSkip)->get($nc(t)->tsym) != nullptr) {
+	if ($nc(typesSkip)->get(t->tsym) != nullptr) {
 		return;
 	}
-	if ($nc(typeMap)->put($nc(t)->tsym, t) == nullptr) {
+	if ($nc(typeMap)->put(t->tsym, t) == nullptr) {
 		closure($($nc(this->types)->supertype(t)), typesSkip, typeMap);
 		{
-			$var($Iterator, i$, $nc($($nc(this->types)->interfaces(t)))->iterator());
+			$var($Iterator, i$, $$nc(this->types->interfaces(t))->iterator());
 			for (; $nc(i$)->hasNext();) {
 				$var($Type, i, $cast($Type, i$->next()));
 				closure(i, typesSkip, typeMap);
@@ -3277,71 +2829,69 @@ void Check::closure($Type* t, $Map* typesSkip, $Map* typeMap) {
 }
 
 $Symbol* Check::firstDirectIncompatibility($JCDiagnostic$DiagnosticPosition* pos, $Type* t1, $Type* t2, $Type* site) {
-	$useLocalCurrentObjectStackCache();
-	{
-		$init($Scope$LookupKind);
-		$var($Iterator, i$, $nc($($nc($($nc($nc(t1)->tsym)->members()))->getSymbols($Scope$LookupKind::NON_RECURSIVE)))->iterator());
-		for (; $nc(i$)->hasNext();) {
-			$var($Symbol, s1, $cast($Symbol, i$->next()));
+	$useLocalObjectStack();
+	$init($Scope$LookupKind);
+	$var($Iterator, i$, $$nc($$nc($nc($nc(t1)->tsym)->members())->getSymbols($Scope$LookupKind::NON_RECURSIVE))->iterator());
+	for (; $nc(i$)->hasNext();) {
+		$var($Symbol, s1, $cast($Symbol, i$->next()));
+		{
+			$var($Type, st1, nullptr);
+			$init($Kinds$Kind);
+			bool var$0 = $nc(s1)->kind != $Kinds$Kind::MTH || !s1->isInheritedIn($nc(site)->tsym, this->types);
+			if (var$0 || (s1->flags() & 0x1000) != 0) {
+				continue;
+			}
+			$var($Symbol, impl, $cast($Symbol$MethodSymbol, s1)->implementation($nc(site)->tsym, this->types, false));
+			if (impl != nullptr && (impl->flags() & 0x0400) == 0) {
+				continue;
+			}
 			{
-				$var($Type, st1, nullptr);
-				$init($Kinds$Kind);
-				bool var$0 = $nc(s1)->kind != $Kinds$Kind::MTH || !$nc(s1)->isInheritedIn($nc(site)->tsym, this->types);
-				if (var$0 || ((int64_t)($nc(s1)->flags() & (uint64_t)(int64_t)4096)) != 0) {
-					continue;
-				}
-				$var($Symbol, impl, $nc(($cast($Symbol$MethodSymbol, s1)))->implementation($nc(site)->tsym, this->types, false));
-				if (impl != nullptr && ((int64_t)(impl->flags() & (uint64_t)(int64_t)1024)) == 0) {
-					continue;
-				}
-				{
-					$var($Iterator, i$, $nc($($nc($($nc($nc(t2)->tsym)->members()))->getSymbolsByName($nc(s1)->name)))->iterator());
-					for (; $nc(i$)->hasNext();) {
-						$var($Symbol, s2, $cast($Symbol, i$->next()));
-						{
-							if (s1 == s2) {
-								continue;
-							}
-							bool var$1 = $nc(s2)->kind != $Kinds$Kind::MTH || !$nc(s2)->isInheritedIn($nc(site)->tsym, this->types);
-							if (var$1 || ((int64_t)($nc(s2)->flags() & (uint64_t)(int64_t)4096)) != 0) {
-								continue;
-							}
-							if (st1 == nullptr) {
-								$assign(st1, $nc(this->types)->memberType(t1, s1));
-							}
-							$var($Type, st2, $nc(this->types)->memberType(t2, s2));
-							if ($nc(this->types)->overrideEquivalent(st1, st2)) {
-								$var($List, tvars1, $nc(st1)->getTypeArguments());
-								$var($List, tvars2, $nc(st2)->getTypeArguments());
-								$var($Type, rt1, st1->getReturnType());
-								$var($Type, rt2, $nc(this->types)->subst($(st2->getReturnType()), tvars2, tvars1));
-								bool var$3 = $nc(this->types)->isSameType(rt1, rt2);
-								if (!var$3) {
-									bool var$5 = !$nc(rt1)->isPrimitiveOrVoid();
-									bool var$4 = var$5 && !$nc(rt2)->isPrimitiveOrVoid();
-									if (var$4) {
-										bool var$6 = $nc(this->types)->covariantReturnType(rt1, rt2, $nc(this->types)->noWarnings);
-										var$4 = (var$6 || $nc(this->types)->covariantReturnType(rt2, rt1, $nc(this->types)->noWarnings));
-									}
-									var$3 = var$4;
+				$var($Iterator, i$, $$nc($$nc($nc($nc(t2)->tsym)->members())->getSymbolsByName(s1->name))->iterator());
+				for (; $nc(i$)->hasNext();) {
+					$var($Symbol, s2, $cast($Symbol, i$->next()));
+					{
+						if (s1 == s2) {
+							continue;
+						}
+						bool var$1 = $nc(s2)->kind != $Kinds$Kind::MTH || !s2->isInheritedIn(site->tsym, this->types);
+						if (var$1 || (s2->flags() & 0x1000) != 0) {
+							continue;
+						}
+						if (st1 == nullptr) {
+							$assign(st1, $nc(this->types)->memberType(t1, s1));
+						}
+						$var($Type, st2, $nc(this->types)->memberType(t2, s2));
+						if (this->types->overrideEquivalent(st1, st2)) {
+							$var($List, tvars1, $nc(st1)->getTypeArguments());
+							$var($List, tvars2, $nc(st2)->getTypeArguments());
+							$var($Type, rt1, st1->getReturnType());
+							$var($Type, rt2, this->types->subst($(st2->getReturnType()), tvars2, tvars1));
+							bool var$3 = this->types->isSameType(rt1, rt2);
+							if (!var$3) {
+								bool var$5 = !$nc(rt1)->isPrimitiveOrVoid();
+								bool var$4 = var$5 && !$nc(rt2)->isPrimitiveOrVoid();
+								if (var$4) {
+									bool var$6 = this->types->covariantReturnType(rt1, rt2, this->types->noWarnings);
+									var$4 = var$6 || this->types->covariantReturnType(rt2, rt1, this->types->noWarnings);
 								}
-								bool var$2 = var$3;
-								bool compat = var$2 || checkCommonOverriderIn(s1, s2, site);
-								if (!compat) {
-									$nc(this->log)->error(pos, $($CompilerProperties$Errors::TypesIncompatible(t1, t2, $($CompilerProperties$Fragments::IncompatibleDiffRet($nc(s2)->name, $($nc($($nc(this->types)->memberType(t2, s2)))->getParameterTypes()))))));
-									return s2;
-								}
-							} else {
-								bool var$8 = checkNameClash($cast($Symbol$ClassSymbol, $nc(site)->tsym), s1, s2);
-								if (var$8 && !checkCommonOverriderIn(s1, s2, site)) {
-									$var($Name, var$9, $nc(s1)->name);
-									$var($1List, var$10, static_cast<$1List*>($nc($($nc($($nc(this->types)->memberType(site, s1)))->asMethodType()))->getParameterTypes()));
-									$var($Symbol, var$11, s1->location());
-									$var($Name, var$12, $nc(s2)->name);
-									$var($1List, var$13, static_cast<$1List*>($nc($($nc($($nc(this->types)->memberType(site, s2)))->asMethodType()))->getParameterTypes()));
-									$nc(this->log)->error(pos, $($CompilerProperties$Errors::NameClashSameErasureNoOverride(var$9, var$10, var$11, var$12, var$13, $(s2->location()))));
-									return s2;
-								}
+								var$3 = var$4;
+							}
+							bool var$2 = var$3;
+							bool compat = var$2 || checkCommonOverriderIn(s1, s2, site);
+							if (!compat) {
+								$nc(this->log)->error(pos, $($CompilerProperties$Errors::TypesIncompatible(t1, t2, $($CompilerProperties$Fragments::IncompatibleDiffRet(s2->name, $($$nc(this->types->memberType(t2, s2))->getParameterTypes()))))));
+								return s2;
+							}
+						} else {
+							bool var$7 = checkNameClash($cast($Symbol$ClassSymbol, site->tsym), s1, s2);
+							if (var$7 && !checkCommonOverriderIn(s1, s2, site)) {
+								$var($Name, var$8, s1->name);
+								$var($1List, var$9, $$nc($$nc(this->types->memberType(site, s1))->asMethodType())->getParameterTypes());
+								$var($Symbol, var$10, s1->location());
+								$var($Name, var$11, s2->name);
+								$var($1List, var$12, $$nc($$nc(this->types->memberType(site, s2))->asMethodType())->getParameterTypes());
+								$nc(this->log)->error(pos, $($CompilerProperties$Errors::NameClashSameErasureNoOverride(var$8, var$9, var$10, var$11, var$12, $(s2->location()))));
+								return s2;
 							}
 						}
 					}
@@ -3353,32 +2903,30 @@ $Symbol* Check::firstDirectIncompatibility($JCDiagnostic$DiagnosticPosition* pos
 }
 
 bool Check::checkCommonOverriderIn($Symbol* s1, $Symbol* s2, $Type* site) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Map, supertypes, $new($HashMap));
 	$var($Type, st1, $nc(this->types)->memberType(site, s1));
-	$var($Type, st2, $nc(this->types)->memberType(site, s2));
+	$var($Type, st2, this->types->memberType(site, s2));
 	closure(site, supertypes);
 	{
-		$var($Iterator, i$, $nc($(supertypes->values()))->iterator());
+		$var($Iterator, i$, $$nc(supertypes->values())->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Type, t, $cast($Type, i$->next()));
 			{
-				{
-					$var($Iterator, i$, $nc($($nc($($nc($nc(t)->tsym)->members()))->getSymbolsByName($nc(s1)->name)))->iterator());
-					for (; $nc(i$)->hasNext();) {
-						$var($Symbol, s3, $cast($Symbol, i$->next()));
-						{
-							$init($Kinds$Kind);
-							if (s3 == s1 || s3 == s2 || $nc(s3)->kind != $Kinds$Kind::MTH || ((int64_t)($nc(s3)->flags() & (uint64_t)((int64_t)0x0000000080000000 | 4096))) != 0) {
-								continue;
-							}
-							$var($Type, st3, $nc(this->types)->memberType(site, s3));
-							bool var$2 = $nc(this->types)->overrideEquivalent(st3, st1);
-							bool var$1 = var$2 && $nc(this->types)->overrideEquivalent(st3, st2);
-							bool var$0 = var$1 && $nc(this->types)->returnTypeSubstitutable(st3, st1);
-							if (var$0 && $nc(this->types)->returnTypeSubstitutable(st3, st2)) {
-								return true;
-							}
+				$var($Iterator, i$, $$nc($$nc($nc($nc(t)->tsym)->members())->getSymbolsByName($nc(s1)->name))->iterator());
+				for (; $nc(i$)->hasNext();) {
+					$var($Symbol, s3, $cast($Symbol, i$->next()));
+					{
+						$init($Kinds$Kind);
+						if (s3 == s1 || s3 == s2 || $nc(s3)->kind != $Kinds$Kind::MTH || ($nc(s3)->flags() & ((int64_t)0x80000000 | 0x1000)) != 0) {
+							continue;
+						}
+						$var($Type, st3, this->types->memberType(site, s3));
+						bool var$2 = this->types->overrideEquivalent(st3, st1);
+						bool var$1 = var$2 && this->types->overrideEquivalent(st3, st2);
+						bool var$0 = var$1 && this->types->returnTypeSubstitutable(st3, st1);
+						if (var$0 && this->types->returnTypeSubstitutable(st3, st2)) {
+							return true;
 						}
 					}
 				}
@@ -3389,35 +2937,35 @@ bool Check::checkCommonOverriderIn($Symbol* s1, $Symbol* s2, $Type* site) {
 }
 
 void Check::checkOverride($Env* env, $JCTree$JCMethodDecl* tree, $Symbol$MethodSymbol* m) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Symbol$ClassSymbol, origin, $cast($Symbol$ClassSymbol, $nc(m)->owner));
-	bool var$0 = ((int64_t)($nc(origin)->flags() & (uint64_t)(int64_t)16384)) != 0;
-	if (var$0 && $nc($of($nc(this->names)->finalize$))->equals(m->name)) {
+	bool var$0 = ($nc(origin)->flags() & 0x4000) != 0;
+	if (var$0 && $nc($nc(this->names)->finalize$)->equals(m->name)) {
 		if (m->overrides($nc(this->syms)->enumFinalFinalize, origin, this->types, false)) {
 			$init($CompilerProperties$Errors);
 			$nc(this->log)->error($($nc(tree)->pos()), $CompilerProperties$Errors::EnumNoFinalize);
 			return;
 		}
 	}
-	if (this->allowRecords && $nc(origin)->isRecord()) {
-		$var($Optional, recordComponent, $nc($($nc($($nc($(origin->getRecordComponents()))->stream()))->filter(static_cast<$Predicate*>($$new(Check$$Lambda$lambda$checkOverride$5$6, tree)))))->findFirst());
+	if (this->allowRecords && origin->isRecord()) {
+		$var($Optional, recordComponent, $$nc($$nc($$nc(origin->getRecordComponents())->stream())->filter($$new(Check$$Lambda$lambda$checkOverride$5$6, tree)))->findFirst());
 		if ($nc(recordComponent)->isPresent()) {
 			return;
 		}
 	}
-	$init($TypeTag);
 	{
-		$var($Type, t, $nc(origin)->type);
+		$init($TypeTag);
+		$var($Type, t, origin->type);
 		for (; $nc(t)->hasTag($TypeTag::CLASS); $assign(t, $nc(this->types)->supertype(t))) {
 			if (t != origin->type) {
-				checkOverride(static_cast<$JCTree*>(tree), t, origin, m);
+				checkOverride(tree, t, origin, m);
 			}
 			{
-				$var($Iterator, i$, $nc($($nc(this->types)->interfaces(t)))->iterator());
+				$var($Iterator, i$, $$nc($nc(this->types)->interfaces(t))->iterator());
 				for (; $nc(i$)->hasNext();) {
 					$var($Type, t2, $cast($Type, i$->next()));
 					{
-						checkOverride(static_cast<$JCTree*>(tree), t2, origin, m);
+						checkOverride(tree, t2, origin, m);
 					}
 				}
 			}
@@ -3427,20 +2975,18 @@ void Check::checkOverride($Env* env, $JCTree$JCMethodDecl* tree, $Symbol$MethodS
 	bool var$1 = explicitOverride;
 	if (!var$1) {
 		bool var$2 = $nc(($cast($AttrContext, $nc(env)->info)))->isAnonymousDiamond && !m->isConstructor();
-		var$1 = (var$2 && !m->isPrivate());
+		var$1 = var$2 && !m->isPrivate();
 	}
 	bool mustOverride = var$1;
 	if (mustOverride && !isOverrider(m)) {
 		$var($JCDiagnostic$DiagnosticPosition, pos, $nc(tree)->pos());
 		{
-			$var($Iterator, i$, $nc($nc($($cast($JCTree$JCModifiers, tree->getModifiers())))->annotations)->iterator());
+			$var($Iterator, i$, $nc($nc($$cast($JCTree$JCModifiers, tree->getModifiers()))->annotations)->iterator());
 			for (; $nc(i$)->hasNext();) {
 				$var($JCTree$JCAnnotation, a, $cast($JCTree$JCAnnotation, i$->next()));
-				{
-					if ($nc($nc($nc(a)->annotationType)->type)->tsym == $nc($nc(this->syms)->overrideType)->tsym) {
-						$assign(pos, a->pos());
-						break;
-					}
+				if ($nc($nc($nc(a)->annotationType)->type)->tsym == this->syms->overrideType->tsym) {
+					$assign(pos, a->pos());
+					break;
 				}
 			}
 		}
@@ -3451,17 +2997,15 @@ void Check::checkOverride($Env* env, $JCTree$JCMethodDecl* tree, $Symbol$MethodS
 }
 
 void Check::checkOverride($JCTree* tree, $Type* site, $Symbol$ClassSymbol* origin, $Symbol$MethodSymbol* m) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Symbol$TypeSymbol, c, $nc(site)->tsym);
 	{
-		$var($Iterator, i$, $nc($($nc($($nc(c)->members()))->getSymbolsByName($nc(m)->name)))->iterator());
+		$var($Iterator, i$, $$nc($$nc($nc(c)->members())->getSymbolsByName($nc(m)->name))->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Symbol, sym, $cast($Symbol, i$->next()));
-			{
-				if ($nc(m)->overrides(sym, origin, this->types, false)) {
-					if (((int64_t)($nc(sym)->flags() & (uint64_t)(int64_t)1024)) == 0) {
-						checkOverride(tree, m, $cast($Symbol$MethodSymbol, sym), origin);
-					}
+			if (m->overrides(sym, origin, this->types, false)) {
+				if (($nc(sym)->flags() & 0x0400) == 0) {
+					checkOverride(tree, m, $cast($Symbol$MethodSymbol, sym), origin);
 				}
 			}
 		}
@@ -3471,13 +3015,13 @@ void Check::checkOverride($JCTree* tree, $Type* site, $Symbol$ClassSymbol* origi
 void Check::checkClassOverrideEqualsAndHashIfNeeded($JCDiagnostic$DiagnosticPosition* pos, $Symbol$ClassSymbol* someClass) {
 	bool var$2 = someClass == $cast($Symbol$ClassSymbol, $nc($nc(this->syms)->objectType)->tsym) || $nc(someClass)->isInterface();
 	bool var$1 = var$2 || $nc(someClass)->isEnum();
-	bool var$0 = var$1 || ((int64_t)($nc(someClass)->flags() & (uint64_t)(int64_t)8192)) != 0;
-	if (var$0 || ((int64_t)($nc(someClass)->flags() & (uint64_t)(int64_t)1024)) != 0) {
+	bool var$0 = var$1 || ($nc(someClass)->flags() & 0x2000) != 0;
+	if (var$0 || ($nc(someClass)->flags() & 0x0400) != 0) {
 		return;
 	}
 	if ($nc(someClass)->isAnonymous()) {
 		$var($List, interfaces, $nc(this->types)->interfaces(someClass->type));
-		if (interfaces != nullptr && !interfaces->isEmpty() && $nc(($cast($Type, interfaces->head)))->tsym == $nc($nc(this->syms)->comparatorType)->tsym) {
+		if (interfaces != nullptr && !interfaces->isEmpty() && $nc(($cast($Type, interfaces->head)))->tsym == $nc(this->syms->comparatorType)->tsym) {
 			return;
 		}
 	}
@@ -3485,14 +3029,14 @@ void Check::checkClassOverrideEqualsAndHashIfNeeded($JCDiagnostic$DiagnosticPosi
 }
 
 void Check::checkClassOverrideEqualsAndHash($JCDiagnostic$DiagnosticPosition* pos, $Symbol$ClassSymbol* someClass) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Lint$LintCategory);
 	if ($nc(this->lint)->isEnabled($Lint$LintCategory::OVERRIDES)) {
-		$var($Symbol$MethodSymbol, equalsAtObject, $cast($Symbol$MethodSymbol, $nc($($nc($nc($nc(this->syms)->objectType)->tsym)->members()))->findFirst($nc(this->names)->equals$)));
-		$var($Symbol$MethodSymbol, hashCodeAtObject, $cast($Symbol$MethodSymbol, $nc($($nc($nc($nc(this->syms)->objectType)->tsym)->members()))->findFirst($nc(this->names)->hashCode$)));
+		$var($Symbol$MethodSymbol, equalsAtObject, $cast($Symbol$MethodSymbol, $$nc($nc($nc($nc(this->syms)->objectType)->tsym)->members())->findFirst($nc(this->names)->equals$)));
+		$var($Symbol$MethodSymbol, hashCodeAtObject, $cast($Symbol$MethodSymbol, $$nc($nc(this->syms->objectType->tsym)->members())->findFirst(this->names->hashCode$)));
 		$var($Symbol$MethodSymbol, equalsImpl, $nc(this->types)->implementation(equalsAtObject, someClass, false, this->equalsHasCodeFilter));
 		bool overridesEquals = equalsImpl != nullptr && $equals(equalsImpl->owner, someClass);
-		bool overridesHashCode = $nc(this->types)->implementation(hashCodeAtObject, someClass, false, this->equalsHasCodeFilter) != hashCodeAtObject;
+		bool overridesHashCode = this->types->implementation(hashCodeAtObject, someClass, false, this->equalsHasCodeFilter) != hashCodeAtObject;
 		if (overridesEquals && !overridesHashCode) {
 			$nc(this->log)->warning($Lint$LintCategory::OVERRIDES, pos, $($CompilerProperties$Warnings::OverrideEqualsButNotHashcode(someClass)));
 		}
@@ -3500,7 +3044,7 @@ void Check::checkClassOverrideEqualsAndHash($JCDiagnostic$DiagnosticPosition* po
 }
 
 void Check::checkModuleName($JCTree$JCModuleDecl* tree) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Name, moduleName, $nc($nc(tree)->sym)->name);
 	$Assert::checkNonNull(moduleName);
 	$init($Lint$LintCategory);
@@ -3509,29 +3053,23 @@ void Check::checkModuleName($JCTree$JCModuleDecl* tree) {
 		while (qualId != nullptr) {
 			$var($Name, componentName, nullptr);
 			$var($JCDiagnostic$DiagnosticPosition, pos, nullptr);
-			$init($Check$5);
 			{
-				$var($JCTree$JCFieldAccess, selectNode, nullptr)
-				switch ($nc($Check$5::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->get($nc(($(qualId->getTag())))->ordinal())) {
+				$init($Check$5);
+				$var($JCTree$JCFieldAccess, selectNode, nullptr);
+				switch ($nc($Check$5::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->get(($$nc(qualId->getTag()))->ordinal())) {
 				case 1:
-					{
-						$assign(selectNode, $cast($JCTree$JCFieldAccess, qualId));
-						$assign(componentName, $nc(selectNode)->name);
-						$assign(pos, $nc(selectNode)->pos());
-						$assign(qualId, $nc(selectNode)->selected);
-						break;
-					}
+					$assign(selectNode, $cast($JCTree$JCFieldAccess, qualId));
+					$assign(componentName, $nc(selectNode)->name);
+					$assign(pos, selectNode->pos());
+					$assign(qualId, selectNode->selected);
+					break;
 				case 2:
-					{
-						$assign(componentName, $nc(($cast($JCTree$JCIdent, qualId)))->name);
-						$assign(pos, qualId->pos());
-						$assign(qualId, nullptr);
-						break;
-					}
+					$assign(componentName, $nc($cast($JCTree$JCIdent, qualId))->name);
+					$assign(pos, qualId->pos());
+					$assign(qualId, nullptr);
+					break;
 				default:
-					{
-						$throwNew($AssertionError, $of($$str({"Unexpected qualified identifier: "_s, $(qualId->toString())})));
-					}
+					$throwNew($AssertionError, $$of($str({"Unexpected qualified identifier: "_s, $($nc(qualId)->toString())})));
 				}
 			}
 			if (componentName != nullptr) {
@@ -3546,7 +3084,7 @@ void Check::checkModuleName($JCTree$JCModuleDecl* tree) {
 }
 
 bool Check::checkNameClash($Symbol$ClassSymbol* origin, $Symbol* s1, $Symbol* s2) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Check$ClashFilter, cf, $new($Check$ClashFilter, this, $nc(origin)->type));
 	bool var$1 = cf->test(s1);
 	bool var$0 = var$1 && cf->test(s2);
@@ -3558,19 +3096,19 @@ bool Check::checkNameClash($Symbol$ClassSymbol* origin, $Symbol* s1, $Symbol* s2
 }
 
 void Check::checkAllDefined($JCDiagnostic$DiagnosticPosition* pos, $Symbol$ClassSymbol* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Symbol$MethodSymbol, undef, $nc(this->types)->firstUnimplementedAbstract(c));
 	if (undef != nullptr) {
 		int64_t var$0 = undef->flags();
 		$var($Name, var$1, undef->name);
-		$var($Symbol$MethodSymbol, undef1, $new($Symbol$MethodSymbol, var$0, var$1, $($nc(this->types)->memberType($nc(c)->type, undef)), undef->owner));
+		$var($Symbol$MethodSymbol, undef1, $new($Symbol$MethodSymbol, var$0, var$1, $(this->types->memberType($nc(c)->type, undef)), undef->owner));
 		$nc(this->log)->error(pos, $($CompilerProperties$Errors::DoesNotOverrideAbstract(c, undef1, $(undef1->location()))));
 	}
 }
 
 void Check::checkNonCyclicDecl($JCTree$JCClassDecl* tree) {
 	$var($Check$CycleChecker, cc, $new($Check$CycleChecker, this));
-	cc->scan(static_cast<$JCTree*>(tree));
+	cc->scan(tree);
 	if (!cc->errorFound && !cc->partialCheck) {
 		$nc($nc(tree)->sym)->flags_field |= 0x40000000;
 	}
@@ -3585,139 +3123,126 @@ void Check::checkNonCyclic($JCDiagnostic$DiagnosticPosition* pos, $Type$TypeVar*
 }
 
 void Check::checkNonCyclic1($JCDiagnostic$DiagnosticPosition* pos, $Type* t, $List* seen$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, seen, seen$renamed);
 	$var($Type$TypeVar, tv, nullptr);
 	$init($TypeTag);
 	bool var$0 = $nc(t)->hasTag($TypeTag::TYPEVAR);
-	if (var$0 && ((int64_t)($nc(t->tsym)->flags() & (uint64_t)(int64_t)0x10000000)) != 0) {
+	if (var$0 && ($nc(t->tsym)->flags() & 0x10000000) != 0) {
 		return;
 	}
 	if ($nc(seen)->contains(t)) {
 		$assign(tv, $cast($Type$TypeVar, t));
-		$nc(tv)->setUpperBound($($nc(this->types)->createErrorType(t)));
+		tv->setUpperBound($($nc(this->types)->createErrorType(t)));
 		$nc(this->log)->error(pos, $($CompilerProperties$Errors::CyclicInheritance(t)));
-	} else {
-		if ($nc(t)->hasTag($TypeTag::TYPEVAR)) {
-			$assign(tv, $cast($Type$TypeVar, t));
-			$assign(seen, seen->prepend(tv));
-			{
-				$var($Iterator, i$, $nc($($nc(this->types)->getBounds(tv)))->iterator());
-				for (; $nc(i$)->hasNext();) {
-					$var($Type, b, $cast($Type, i$->next()));
-					checkNonCyclic1(pos, b, seen);
-				}
+	} else if (t->hasTag($TypeTag::TYPEVAR)) {
+		$assign(tv, $cast($Type$TypeVar, t));
+		$assign(seen, seen->prepend(tv));
+		{
+			$var($Iterator, i$, $$nc($nc(this->types)->getBounds(tv))->iterator());
+			for (; $nc(i$)->hasNext();) {
+				$var($Type, b, $cast($Type, i$->next()));
+				checkNonCyclic1(pos, b, seen);
 			}
 		}
 	}
 }
 
 bool Check::checkNonCyclicInternal($JCDiagnostic$DiagnosticPosition* pos, $Type* t) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool complete = true;
 	$var($Symbol, c, $nc(t)->tsym);
-	if (((int64_t)($nc(c)->flags_field & (uint64_t)(int64_t)0x40000000)) != 0) {
+	if (($nc(c)->flags_field & 0x40000000) != 0) {
 		return true;
 	}
-	if (((int64_t)($nc(c)->flags_field & (uint64_t)(int64_t)0x08000000)) != 0) {
+	if ((c->flags_field & 0x08000000) != 0) {
 		noteCyclic(pos, $cast($Symbol$ClassSymbol, c));
 	} else if (!$nc(c->type)->isErroneous()) {
-		{
-			$var($Throwable, var$0, nullptr);
-			try {
-				c->flags_field |= 0x08000000;
-				$init($TypeTag);
-				if ($nc(c->type)->hasTag($TypeTag::CLASS)) {
-					$var($Type$ClassType, clazz, $cast($Type$ClassType, c->type));
-					if ($nc(clazz)->interfaces_field != nullptr) {
-						{
-							$var($List, l, clazz->interfaces_field);
-							for (; $nc(l)->nonEmpty(); $assign(l, $nc(l)->tail)) {
-								complete &= checkNonCyclicInternal(pos, $cast($Type, l->head));
-							}
-						}
-					}
-					if ($nc(clazz)->supertype_field != nullptr) {
-						$var($Type, st, clazz->supertype_field);
-						if (st != nullptr && st->hasTag($TypeTag::CLASS)) {
-							complete &= checkNonCyclicInternal(pos, st);
-						}
-					}
-					$init($Kinds$Kind);
-					if ($nc(c->owner)->kind == $Kinds$Kind::TYP) {
-						complete &= checkNonCyclicInternal(pos, $nc(c->owner)->type);
+		$var($Throwable, var$0, nullptr);
+		try {
+			c->flags_field |= 0x08000000;
+			$init($TypeTag);
+			if ($nc(c->type)->hasTag($TypeTag::CLASS)) {
+				$var($Type$ClassType, clazz, $cast($Type$ClassType, c->type));
+				if ($nc(clazz)->interfaces_field != nullptr) {
+					$var($List, l, clazz->interfaces_field);
+					for (; $nc(l)->nonEmpty(); $assign(l, l->tail)) {
+						complete &= checkNonCyclicInternal(pos, $cast($Type, l->head));
 					}
 				}
-			} catch ($Throwable& var$1) {
-				$assign(var$0, var$1);
-			} /*finally*/ {
-				c->flags_field &= (uint64_t)~0x08000000;
+				if (clazz->supertype_field != nullptr) {
+					$var($Type, st, clazz->supertype_field);
+					if (st != nullptr && st->hasTag($TypeTag::CLASS)) {
+						complete &= checkNonCyclicInternal(pos, st);
+					}
+				}
+				$init($Kinds$Kind);
+				if ($nc(c->owner)->kind == $Kinds$Kind::TYP) {
+					complete &= checkNonCyclicInternal(pos, c->owner->type);
+				}
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
+		} /*finally*/ {
+			c->flags_field &= (uint64_t)~0x08000000;
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	}
 	if (complete) {
-		complete = (((int64_t)($nc(c)->flags_field & (uint64_t)(int64_t)0x10000000)) == 0) && c->isCompleted();
+		complete = ((c->flags_field & 0x10000000) == 0) && c->isCompleted();
 	}
 	if (complete) {
-		$nc(c)->flags_field |= 0x40000000;
+		c->flags_field |= 0x40000000;
 	}
 	return complete;
 }
 
 void Check::noteCyclic($JCDiagnostic$DiagnosticPosition* pos, $Symbol$ClassSymbol* c) {
-	$useLocalCurrentObjectStackCache();
-	$nc(this->log)->error(pos, $($CompilerProperties$Errors::CyclicInheritance(static_cast<$Symbol*>(c))));
+	$useLocalObjectStack();
+	$nc(this->log)->error(pos, $($CompilerProperties$Errors::CyclicInheritance(c)));
 	{
 		$var($List, l, $nc(this->types)->interfaces($nc(c)->type));
-		for (; $nc(l)->nonEmpty(); $assign(l, $nc(l)->tail)) {
+		for (; $nc(l)->nonEmpty(); $assign(l, l->tail)) {
 			$init($Type);
-			$set(l, head, $nc(this->types)->createErrorType($cast($Symbol$ClassSymbol, $nc(($cast($Type, l->head)))->tsym), $Type::noType));
+			$set(l, head, this->types->createErrorType($cast($Symbol$ClassSymbol, $nc(($cast($Type, l->head)))->tsym), $Type::noType));
 		}
 	}
-	$var($Type, st, $nc(this->types)->supertype($nc(c)->type));
+	$var($Type, st, this->types->supertype(c->type));
 	$init($TypeTag);
 	if ($nc(st)->hasTag($TypeTag::CLASS)) {
-		$init($Type);
-		$set($nc($cast($Type$ClassType, $nc(c)->type)), supertype_field, $nc(this->types)->createErrorType($cast($Symbol$ClassSymbol, st->tsym), $Type::noType));
+		$set($nc($cast($Type$ClassType, c->type)), supertype_field, this->types->createErrorType($cast($Symbol$ClassSymbol, st->tsym), $Type::noType));
 	}
-	$set($nc(c), type, $nc(this->types)->createErrorType(c, c->type));
+	$set(c, type, this->types->createErrorType(c, c->type));
 	c->flags_field |= 0x40000000;
 }
 
 void Check::checkImplementations($JCTree$JCClassDecl* tree) {
-	checkImplementations(tree, $nc(tree)->sym, tree->sym);
+	checkImplementations(tree, $nc(tree)->sym, $nc(tree)->sym);
 }
 
 void Check::checkImplementations($JCTree* tree, $Symbol$ClassSymbol* origin, $Symbol$ClassSymbol* ic) {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($List, l, $nc(this->types)->closure($nc(ic)->type));
-		for (; $nc(l)->nonEmpty(); $assign(l, $nc(l)->tail)) {
-			$var($Symbol$ClassSymbol, lc, $cast($Symbol$ClassSymbol, $nc(($cast($Type, l->head)))->tsym));
-			if (((int64_t)($nc(lc)->flags() & (uint64_t)(int64_t)1024)) != 0) {
-				{
-					$init($Scope$LookupKind);
-					$var($Iterator, i$, $nc($($nc($(lc->members()))->getSymbols($Scope$LookupKind::NON_RECURSIVE)))->iterator());
-					for (; $nc(i$)->hasNext();) {
-						$var($Symbol, sym, $cast($Symbol, i$->next()));
-						{
-							$init($Kinds$Kind);
-							if ($nc(sym)->kind == $Kinds$Kind::MTH && ((int64_t)(sym->flags() & (uint64_t)(int64_t)(8 | 1024))) == 1024) {
-								$var($Symbol$MethodSymbol, absmeth, $cast($Symbol$MethodSymbol, sym));
-								$var($Symbol$MethodSymbol, implmeth, absmeth->implementation(origin, this->types, false));
-								bool var$0 = implmeth != nullptr && implmeth != absmeth;
-								if (var$0) {
-									int64_t var$1 = ((int64_t)($nc(implmeth->owner)->flags() & (uint64_t)(int64_t)512));
-									var$0 = var$1 == ((int64_t)($nc(origin)->flags() & (uint64_t)(int64_t)512));
-								}
-								if (var$0) {
-									checkOverride(tree, implmeth, absmeth, origin);
-								}
-							}
-						}
+	$useLocalObjectStack();
+	$var($List, l, $nc(this->types)->closure($nc(ic)->type));
+	for (; $nc(l)->nonEmpty(); $assign(l, l->tail)) {
+		$var($Symbol$ClassSymbol, lc, $cast($Symbol$ClassSymbol, $nc(($cast($Type, l->head)))->tsym));
+		if (($nc(lc)->flags() & 0x0400) != 0) {
+			$init($Scope$LookupKind);
+			$var($Iterator, i$, $$nc($$nc(lc->members())->getSymbols($Scope$LookupKind::NON_RECURSIVE))->iterator());
+			for (; $nc(i$)->hasNext();) {
+				$var($Symbol, sym, $cast($Symbol, i$->next()));
+				$init($Kinds$Kind);
+				if ($nc(sym)->kind == $Kinds$Kind::MTH && (sym->flags() & (8 | 0x0400)) == 0x0400) {
+					$var($Symbol$MethodSymbol, absmeth, $cast($Symbol$MethodSymbol, sym));
+					$var($Symbol$MethodSymbol, implmeth, absmeth->implementation(origin, this->types, false));
+					bool var$0 = implmeth != nullptr && implmeth != absmeth;
+					if (var$0) {
+						int64_t var$1 = $nc(implmeth->owner)->flags() & 0x0200;
+						var$0 = var$1 == ($nc(origin)->flags() & 0x0200);
+					}
+					if (var$0) {
+						checkOverride(tree, implmeth, absmeth, origin);
 					}
 				}
 			}
@@ -3726,25 +3251,25 @@ void Check::checkImplementations($JCTree* tree, $Symbol$ClassSymbol* origin, $Sy
 }
 
 void Check::checkCompatibleSupertypes($JCDiagnostic$DiagnosticPosition* pos, $Type* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, supertypes, $nc(this->types)->interfaces(c));
-	$var($Type, supertype, $nc(this->types)->supertype(c));
+	$var($Type, supertype, this->types->supertype(c));
 	$init($TypeTag);
 	bool var$0 = $nc(supertype)->hasTag($TypeTag::CLASS);
-	if (var$0 && ((int64_t)($nc(supertype->tsym)->flags() & (uint64_t)(int64_t)1024)) != 0) {
+	if (var$0 && ($nc(supertype->tsym)->flags() & 0x0400) != 0) {
 		$assign(supertypes, $nc(supertypes)->prepend(supertype));
 	}
 	{
 		$var($List, l, supertypes);
-		for (; $nc(l)->nonEmpty(); $assign(l, $nc(l)->tail)) {
-			bool var$1 = !$nc($($nc(($cast($Type, l->head)))->getTypeArguments()))->isEmpty();
+		for (; $nc(l)->nonEmpty(); $assign(l, l->tail)) {
+			bool var$1 = !$$nc($nc($cast($Type, l->head))->getTypeArguments())->isEmpty();
 			if (var$1 && !checkCompatibleAbstracts(pos, $cast($Type, l->head), $cast($Type, l->head), c)) {
 				return;
 			}
 			{
 				$var($List, m, supertypes);
 				for (; m != l; $assign(m, $nc(m)->tail)) {
-					if (!checkCompatibleAbstracts(pos, $cast($Type, l->head), $cast($Type, m->head), c)) {
+					if (!checkCompatibleAbstracts(pos, $cast($Type, l->head), $cast($Type, $nc(m)->head), c)) {
 						return;
 					}
 				}
@@ -3755,18 +3280,18 @@ void Check::checkCompatibleSupertypes($JCDiagnostic$DiagnosticPosition* pos, $Ty
 }
 
 void Check::checkOverrideClashes($JCDiagnostic$DiagnosticPosition* pos, $Type* site, $Symbol$MethodSymbol* sym) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Check$ClashFilter, cf, $new($Check$ClashFilter, this, site));
 	$var($List, potentiallyAmbiguousList, $List::nil());
 	bool overridesAny = false;
 	$var($ArrayList, symbolsByName, $new($ArrayList));
-	$nc($($nc($($nc(this->types)->membersClosure(site, false)))->getSymbolsByName($nc(sym)->name, static_cast<$Predicate*>(cf))))->forEach(static_cast<$Consumer*>($$new(Check$$Lambda$add$7, static_cast<$ArrayList*>(symbolsByName))));
+	$$nc($$nc($nc(this->types)->membersClosure(site, false))->getSymbolsByName($nc(sym)->name, cf))->forEach($$new(Check$$Lambda$add$7, symbolsByName));
 	{
 		$var($Iterator, i$, symbolsByName->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Symbol, m1, $cast($Symbol, i$->next()));
 			{
-				if (!$nc(sym)->overrides(m1, $nc(site)->tsym, this->types, false)) {
+				if (!sym->overrides(m1, $nc(site)->tsym, this->types, false)) {
 					if ($equals(m1, sym)) {
 						continue;
 					}
@@ -3787,34 +3312,33 @@ void Check::checkOverrideClashes($JCDiagnostic$DiagnosticPosition* pos, $Type* s
 							if (m2 == m1) {
 								continue;
 							}
-							$var($Type, var$1, $nc(sym)->type);
-							$var($Type, var$2, $nc(this->types)->memberType(site, m2));
+							$var($Type, var$1, sym->type);
+							$var($Type, var$2, this->types->memberType(site, m2));
 							$init($Source$Feature);
-							bool var$0 = !$nc(this->types)->isSubSignature(var$1, var$2, $Source$Feature::STRICT_METHOD_CLASH_CHECK->allowedInSource(this->source));
+							bool var$0 = !this->types->isSubSignature(var$1, var$2, $Source$Feature::STRICT_METHOD_CLASH_CHECK->allowedInSource(this->source));
 							if (var$0) {
 								$var($Type, var$3, $nc(m2)->erasure(this->types));
-								var$0 = $nc(this->types)->hasSameArgs(var$3, $($nc(m1)->erasure(this->types)));
+								var$0 = this->types->hasSameArgs(var$3, $($nc(m1)->erasure(this->types)));
 							}
 							if (var$0) {
-								$nc(sym)->flags_field |= 0x0000040000000000;
+								sym->flags_field |= (int64_t)0x0000040000000000;
 								if ($equals(m1, sym)) {
 									$var($Name, var$4, $nc(m1)->name);
-									$var($1List, var$5, static_cast<$1List*>($nc($($nc($($nc(this->types)->memberType(site, m1)))->asMethodType()))->getParameterTypes()));
+									$var($1List, var$5, $$nc($$nc(this->types->memberType(site, m1))->asMethodType())->getParameterTypes());
 									$var($Symbol, var$6, m1->location());
 									$var($Name, var$7, $nc(m2)->name);
-									$var($1List, var$8, static_cast<$1List*>($nc($($nc($($nc(this->types)->memberType(site, m2)))->asMethodType()))->getParameterTypes()));
+									$var($1List, var$8, $$nc($$nc(this->types->memberType(site, m2))->asMethodType())->getParameterTypes());
 									$nc(this->log)->error(pos, $($CompilerProperties$Errors::NameClashSameErasureNoOverride(var$4, var$5, var$6, var$7, var$8, $(m2->location()))));
 								} else {
 									$var($Type$ClassType, ct, $cast($Type$ClassType, site));
-									$var($String, kind, $nc(ct)->isInterface() ? "interface"_s : "class"_s);
-									$var($String, var$9, kind);
-									$var($Name, var$10, $nc($nc(ct)->tsym)->name);
-									$var($Name, var$11, $nc(m1)->name);
-									$var($1List, var$12, static_cast<$1List*>($nc($($nc($($nc(this->types)->memberType(site, m1)))->asMethodType()))->getParameterTypes()));
-									$var($Symbol, var$13, m1->location());
-									$var($Name, var$14, $nc(m2)->name);
-									$var($1List, var$15, static_cast<$1List*>($nc($($nc($($nc(this->types)->memberType(site, m2)))->asMethodType()))->getParameterTypes()));
-									$nc(this->log)->error(pos, $($CompilerProperties$Errors::NameClashSameErasureNoOverride1(var$9, var$10, var$11, var$12, var$13, var$14, var$15, $(m2->location()))));
+									$var($String, kind, ct->isInterface() ? "interface"_s : "class"_s);
+									$var($Name, var$9, $nc(ct->tsym)->name);
+									$var($Name, var$10, $nc(m1)->name);
+									$var($1List, var$11, $$nc($$nc(this->types->memberType(site, m1))->asMethodType())->getParameterTypes());
+									$var($Symbol, var$12, m1->location());
+									$var($Name, var$13, $nc(m2)->name);
+									$var($1List, var$14, $$nc($$nc(this->types->memberType(site, m2))->asMethodType())->getParameterTypes());
+									$nc(this->log)->error(pos, $($CompilerProperties$Errors::NameClashSameErasureNoOverride1(kind, var$9, var$10, var$11, var$12, var$13, var$14, $(m2->location()))));
 								}
 								return;
 							}
@@ -3825,36 +3349,32 @@ void Check::checkOverrideClashes($JCDiagnostic$DiagnosticPosition* pos, $Type* s
 		}
 	}
 	if (!overridesAny) {
-		{
-			$var($Iterator, i$, $nc(potentiallyAmbiguousList)->iterator());
-			for (; $nc(i$)->hasNext();) {
-				$var($Symbol$MethodSymbol, m, $cast($Symbol$MethodSymbol, i$->next()));
-				{
-					checkPotentiallyAmbiguousOverloads(pos, site, sym, m);
-				}
+		$var($Iterator, i$, $nc(potentiallyAmbiguousList)->iterator());
+		for (; $nc(i$)->hasNext();) {
+			$var($Symbol$MethodSymbol, m, $cast($Symbol$MethodSymbol, i$->next()));
+			{
+				checkPotentiallyAmbiguousOverloads(pos, site, sym, m);
 			}
 		}
 	}
 }
 
 void Check::checkHideClashes($JCDiagnostic$DiagnosticPosition* pos, $Type* site, $Symbol$MethodSymbol* sym) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Check$ClashFilter, cf, $new($Check$ClashFilter, this, site));
 	{
-		$var($Iterator, i$, $nc($($nc($($nc(this->types)->membersClosure(site, true)))->getSymbolsByName($nc(sym)->name, static_cast<$Predicate*>(cf))))->iterator());
+		$var($Iterator, i$, $$nc($$nc($nc(this->types)->membersClosure(site, true))->getSymbolsByName($nc(sym)->name, cf))->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Symbol, s, $cast($Symbol, i$->next()));
 			{
-				$var($Type, var$0, $nc(sym)->type);
-				$var($Type, var$1, $nc(this->types)->memberType(site, s));
+				$var($Type, var$0, sym->type);
+				$var($Type, var$1, this->types->memberType(site, s));
 				$init($Source$Feature);
-				if (!$nc(this->types)->isSubSignature(var$0, var$1, $Source$Feature::STRICT_METHOD_CLASH_CHECK->allowedInSource(this->source))) {
+				if (!this->types->isSubSignature(var$0, var$1, $Source$Feature::STRICT_METHOD_CLASH_CHECK->allowedInSource(this->source))) {
 					$var($Type, var$2, $nc(s)->erasure(this->types));
-					if ($nc(this->types)->hasSameArgs(var$2, $($nc(sym)->erasure(this->types)))) {
-						$var($Symbol, var$3, static_cast<$Symbol*>(sym));
-						$var($Symbol, var$4, $nc(sym)->location());
-						$var($Symbol, var$5, s);
-						$nc(this->log)->error(pos, $($CompilerProperties$Errors::NameClashSameErasureNoHide(var$3, var$4, var$5, $($nc(s)->location()))));
+					if (this->types->hasSameArgs(var$2, $(sym->erasure(this->types)))) {
+						$var($Symbol, var$3, sym->location());
+						$nc(this->log)->error(pos, $($CompilerProperties$Errors::NameClashSameErasureNoHide(sym, var$3, s, $(s->location()))));
 						return;
 					} else {
 						checkPotentiallyAmbiguousOverloads(pos, site, sym, $cast($Symbol$MethodSymbol, s));
@@ -3866,16 +3386,16 @@ void Check::checkHideClashes($JCDiagnostic$DiagnosticPosition* pos, $Type* site,
 }
 
 void Check::checkDefaultMethodClashes($JCDiagnostic$DiagnosticPosition* pos, $Type* site) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Check$DefaultMethodClashFilter, dcf, $new($Check$DefaultMethodClashFilter, this, site));
 	{
-		$var($Iterator, i$, $nc($($nc($($nc(this->types)->membersClosure(site, false)))->getSymbols(static_cast<$Predicate*>(dcf))))->iterator());
+		$var($Iterator, i$, $$nc($$nc($nc(this->types)->membersClosure(site, false))->getSymbols(dcf))->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Symbol, m, $cast($Symbol, i$->next()));
 			{
 				$init($Kinds$Kind);
 				$Assert::check($nc(m)->kind == $Kinds$Kind::MTH);
-				$var($List, prov, $nc(this->types)->interfaceCandidates(site, $cast($Symbol$MethodSymbol, m)));
+				$var($List, prov, this->types->interfaceCandidates(site, $cast($Symbol$MethodSymbol, m)));
 				if ($nc(prov)->size() > 1) {
 					$var($ListBuffer, abstracts, $new($ListBuffer));
 					$var($ListBuffer, defaults, $new($ListBuffer));
@@ -3884,9 +3404,9 @@ void Check::checkDefaultMethodClashes($JCDiagnostic$DiagnosticPosition* pos, $Ty
 						for (; $nc(i$)->hasNext();) {
 							$var($Symbol$MethodSymbol, provSym, $cast($Symbol$MethodSymbol, i$->next()));
 							{
-								if (((int64_t)($nc(provSym)->flags() & (uint64_t)(int64_t)0x0000080000000000)) != 0) {
+								if (($nc(provSym)->flags() & (int64_t)0x0000080000000000) != 0) {
 									$assign(defaults, $nc(defaults)->append(provSym));
-								} else if (((int64_t)(provSym->flags() & (uint64_t)(int64_t)1024)) != 0) {
+								} else if ((provSym->flags() & 0x0400) != 0) {
 									$assign(abstracts, $nc(abstracts)->append(provSym));
 								}
 								bool var$0 = $nc(defaults)->nonEmpty();
@@ -3900,23 +3420,21 @@ void Check::checkDefaultMethodClashes($JCDiagnostic$DiagnosticPosition* pos, $Ty
 									$var($Symbol, s2, nullptr);
 									if (defaults->size() > 1) {
 										$assign(s2, $cast($Symbol, $nc($nc($(defaults->toList()))->tail)->head));
-										$var($Kinds$KindName, var$2, $Kinds::kindName(static_cast<$Symbol*>($nc(site)->tsym)));
-										$var($Type, var$3, site);
-										$var($Name, var$4, $nc(m)->name);
-										$var($1List, var$5, static_cast<$1List*>($nc($($nc(this->types)->memberType(site, m)))->getParameterTypes()));
-										$var($Symbol, var$6, $nc(s1)->location());
-										$assign(diagKey, $CompilerProperties$Fragments::IncompatibleUnrelatedDefaults(var$2, var$3, var$4, var$5, var$6, $($nc(s2)->location())));
+										$var($Kinds$KindName, var$2, $Kinds::kindName($nc(site)->tsym));
+										$var($Name, var$3, m->name);
+										$var($1List, var$4, $$nc(this->types->memberType(site, m))->getParameterTypes());
+										$var($Symbol, var$5, $nc(s1)->location());
+										$assign(diagKey, $CompilerProperties$Fragments::IncompatibleUnrelatedDefaults(var$2, site, var$3, var$4, var$5, $($nc(s2)->location())));
 									} else {
-										$assign(s2, $cast($Symbol, abstracts->first()));
-										$var($Kinds$KindName, var$7, $Kinds::kindName(static_cast<$Symbol*>($nc(site)->tsym)));
-										$var($Type, var$8, site);
-										$var($Name, var$9, $nc(m)->name);
-										$var($1List, var$10, static_cast<$1List*>($nc($($nc(this->types)->memberType(site, m)))->getParameterTypes()));
-										$var($Symbol, var$11, $nc(s1)->location());
-										$assign(diagKey, $CompilerProperties$Fragments::IncompatibleAbstractDefault(var$7, var$8, var$9, var$10, var$11, $($nc(s2)->location())));
+										$assign(s2, $cast($Symbol, $nc(abstracts)->first()));
+										$var($Kinds$KindName, var$6, $Kinds::kindName($nc(site)->tsym));
+										$var($Name, var$7, m->name);
+										$var($1List, var$8, $$nc(this->types->memberType(site, m))->getParameterTypes());
+										$var($Symbol, var$9, $nc(s1)->location());
+										$assign(diagKey, $CompilerProperties$Fragments::IncompatibleAbstractDefault(var$6, site, var$7, var$8, var$9, $($nc(s2)->location())));
 									}
-									$var($Type, var$12, $nc($($nc(s1)->location()))->type);
-									$nc(this->log)->error(pos, $($CompilerProperties$Errors::TypesIncompatible(var$12, $nc($($nc(s2)->location()))->type, diagKey)));
+									$var($Type, var$10, $nc($($nc(s1)->location()))->type);
+									$nc(this->log)->error(pos, $($CompilerProperties$Errors::TypesIncompatible(var$10, $nc($($nc(s2)->location()))->type, diagKey)));
 									break;
 								}
 							}
@@ -3929,25 +3447,25 @@ void Check::checkDefaultMethodClashes($JCDiagnostic$DiagnosticPosition* pos, $Ty
 }
 
 void Check::checkPotentiallyAmbiguousOverloads($JCDiagnostic$DiagnosticPosition* pos, $Type* site, $Symbol$MethodSymbol* msym1, $Symbol$MethodSymbol* msym2) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Source$Feature);
 	bool var$2 = msym1 != msym2 && $Source$Feature::DEFAULT_METHODS->allowedInSource(this->source);
 	$init($Lint$LintCategory);
 	bool var$1 = var$2 && $nc(this->lint)->isEnabled($Lint$LintCategory::OVERLOADS);
-	bool var$0 = var$1 && ((int64_t)($nc(msym1)->flags() & (uint64_t)(int64_t)0x0001000000000000)) == 0;
-	if (var$0 && ((int64_t)($nc(msym2)->flags() & (uint64_t)(int64_t)0x0001000000000000)) == 0) {
+	bool var$0 = var$1 && ($nc(msym1)->flags() & (int64_t)0x0001000000000000) == 0;
+	if (var$0 && ($nc(msym2)->flags() & (int64_t)0x0001000000000000) == 0) {
 		$var($Type, mt1, $nc(this->types)->memberType(site, msym1));
-		$var($Type, mt2, $nc(this->types)->memberType(site, msym2));
+		$var($Type, mt2, this->types->memberType(site, msym2));
 		$init($TypeTag);
 		bool var$4 = $nc(mt1)->hasTag($TypeTag::FORALL);
 		bool var$3 = var$4 && $nc(mt2)->hasTag($TypeTag::FORALL);
-		if (var$3 && $nc(this->types)->hasSameBounds($cast($Type$ForAll, mt1), $cast($Type$ForAll, mt2))) {
-			$assign(mt2, $nc(this->types)->subst(mt2, $nc(($cast($Type$ForAll, mt2)))->tvars, $nc(($cast($Type$ForAll, mt1)))->tvars));
+		if (var$3 && this->types->hasSameBounds($cast($Type$ForAll, mt1), $cast($Type$ForAll, mt2))) {
+			$assign(mt2, this->types->subst(mt2, $cast($Type$ForAll, mt2)->tvars, $cast($Type$ForAll, mt1)->tvars));
 		}
-		int32_t var$5 = $nc($($nc(mt1)->getParameterTypes()))->length();
-		int32_t maxLength = $Math::max(var$5, $nc($($nc(mt2)->getParameterTypes()))->length());
-		$var($List, args1, $nc(this->rs)->adjustArgs($($nc(mt1)->getParameterTypes()), msym1, maxLength, true));
-		$var($List, args2, $nc(this->rs)->adjustArgs($($nc(mt2)->getParameterTypes()), msym2, maxLength, true));
+		int32_t var$5 = $$nc(mt1->getParameterTypes())->length();
+		int32_t maxLength = $Math::max(var$5, $$nc($nc(mt2)->getParameterTypes())->length());
+		$var($List, args1, $nc(this->rs)->adjustArgs($(mt1->getParameterTypes()), msym1, maxLength, true));
+		$var($List, args2, this->rs->adjustArgs($(mt2->getParameterTypes()), msym2, maxLength, true));
 		int32_t var$6 = $nc(args1)->length();
 		if (var$6 != $nc(args2)->length()) {
 			return;
@@ -3960,15 +3478,15 @@ void Check::checkPotentiallyAmbiguousOverloads($JCDiagnostic$DiagnosticPosition*
 			}
 			{
 				$var($Type, s, $cast($Type, args1->head));
-				$var($Type, t, $cast($Type, args2->head));
-				bool var$8 = !$nc(this->types)->isSubtype(t, s);
-				if (var$8 && !$nc(this->types)->isSubtype(s, t)) {
-					bool var$11 = $nc(this->types)->isFunctionalInterface(s);
-					bool var$10 = var$11 && $nc(this->types)->isFunctionalInterface(t);
-					bool var$9 = var$10 && $nc($($nc($($nc(this->types)->findDescriptorType(s)))->getParameterTypes()))->length() > 0;
+				$var($Type, t, $cast($Type, $nc(args2)->head));
+				bool var$8 = !this->types->isSubtype(t, s);
+				if (var$8 && !this->types->isSubtype(s, t)) {
+					bool var$11 = this->types->isFunctionalInterface(s);
+					bool var$10 = var$11 && this->types->isFunctionalInterface(t);
+					bool var$9 = var$10 && $$nc($$nc(this->types->findDescriptorType(s))->getParameterTypes())->length() > 0;
 					if (var$9) {
-						int32_t var$12 = $nc($($nc($($nc(this->types)->findDescriptorType(s)))->getParameterTypes()))->length();
-						var$9 = var$12 == $nc($($nc($($nc(this->types)->findDescriptorType(t)))->getParameterTypes()))->length();
+						int32_t var$12 = $$nc($$nc(this->types->findDescriptorType(s))->getParameterTypes())->length();
+						var$9 = var$12 == $$nc($$nc(this->types->findDescriptorType(t))->getParameterTypes())->length();
 					}
 					if (var$9) {
 						potentiallyAmbiguous = true;
@@ -3981,24 +3499,22 @@ void Check::checkPotentiallyAmbiguousOverloads($JCDiagnostic$DiagnosticPosition*
 			}
 		}
 		if (potentiallyAmbiguous) {
-			msym1->flags_field |= 0x0001000000000000;
-			msym2->flags_field |= 0x0001000000000000;
-			$var($Symbol, var$13, static_cast<$Symbol*>(msym1));
-			$var($Symbol, var$14, msym1->location());
-			$var($Symbol, var$15, static_cast<$Symbol*>(msym2));
-			$nc(this->log)->warning($Lint$LintCategory::OVERLOADS, pos, $($CompilerProperties$Warnings::PotentiallyAmbiguousOverload(var$13, var$14, var$15, $(msym2->location()))));
+			msym1->flags_field |= (int64_t)0x0001000000000000;
+			msym2->flags_field |= (int64_t)0x0001000000000000;
+			$var($Symbol, var$13, msym1->location());
+			$nc(this->log)->warning($Lint$LintCategory::OVERLOADS, pos, $($CompilerProperties$Warnings::PotentiallyAmbiguousOverload(msym1, var$13, msym2, $(msym2->location()))));
 			return;
 		}
 	}
 }
 
 void Check::checkAccessFromSerializableElement($JCTree* tree, bool isLambda) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool var$0 = this->warnOnAnyAccessToMembers;
 	if (!var$0) {
 		$init($Lint$LintCategory);
 		bool var$1 = $nc(this->lint)->isEnabled($Lint$LintCategory::SERIAL);
-		var$0 = (var$1 && !$nc(this->lint)->isSuppressed($Lint$LintCategory::SERIAL) && isLambda);
+		var$0 = var$1 && !this->lint->isSuppressed($Lint$LintCategory::SERIAL) && isLambda;
 	}
 	if (var$0) {
 		$var($Symbol, sym, $TreeInfo::symbol(tree));
@@ -4006,13 +3522,13 @@ void Check::checkAccessFromSerializableElement($JCTree* tree, bool isLambda) {
 		if (!$nc($nc(sym)->kind)->matches($Kinds$KindSelector::VAL_MTH)) {
 			return;
 		}
-		if ($nc(sym)->kind == $Kinds$Kind::VAR) {
-			bool var$2 = ((int64_t)(sym->flags() & (uint64_t)(int64_t)0x0000000200000000)) != 0;
+		if (sym->kind == $Kinds$Kind::VAR) {
+			bool var$2 = (sym->flags() & (int64_t)0x0000000200000000) != 0;
 			if (var$2 || sym->isDirectlyOrIndirectlyLocal() || sym->name == $nc(this->names)->_this || sym->name == $nc(this->names)->_super) {
 				return;
 			}
 		}
-		bool var$3 = !$nc(this->types)->isSubtype($nc($nc(sym)->owner)->type, $nc(this->syms)->serializableType);
+		bool var$3 = !$nc(this->types)->isSubtype($nc(sym->owner)->type, $nc(this->syms)->serializableType);
 		if (var$3 && isEffectivelyNonPublic(sym)) {
 			if (isLambda) {
 				if (belongsToRestrictedPackage(sym)) {
@@ -4036,7 +3552,7 @@ bool Check::isEffectivelyNonPublic($Symbol* sym$renamed) {
 	}
 	$init($Kinds$Kind);
 	while ($nc(sym)->kind != $Kinds$Kind::PCK) {
-		if (((int64_t)(sym->flags() & (uint64_t)(int64_t)1)) == 0) {
+		if ((sym->flags() & 1) == 0) {
 			return true;
 		}
 		$assign(sym, sym->owner);
@@ -4045,12 +3561,12 @@ bool Check::isEffectivelyNonPublic($Symbol* sym$renamed) {
 }
 
 bool Check::belongsToRestrictedPackage($Symbol* sym) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, fullName, $nc($nc($($nc(sym)->packge()))->fullname)->toString());
 	bool var$2 = $nc(fullName)->startsWith("java."_s);
-	bool var$1 = var$2 || $nc(fullName)->startsWith("javax."_s);
-	bool var$0 = var$1 || $nc(fullName)->startsWith("sun."_s);
-	return var$0 || $nc(fullName)->contains(".internal."_s);
+	bool var$1 = var$2 || fullName->startsWith("javax."_s);
+	bool var$0 = var$1 || fullName->startsWith("sun."_s);
+	return var$0 || fullName->contains(".internal."_s);
 }
 
 void Check::checkClassBounds($JCDiagnostic$DiagnosticPosition* pos, $Type* type) {
@@ -4058,25 +3574,25 @@ void Check::checkClassBounds($JCDiagnostic$DiagnosticPosition* pos, $Type* type)
 }
 
 void Check::checkClassBounds($JCDiagnostic$DiagnosticPosition* pos, $Map* seensofar, $Type* type) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(type)->isErroneous()) {
 		return;
 	}
 	{
 		$var($List, l, $nc(this->types)->interfaces(type));
-		for (; $nc(l)->nonEmpty(); $assign(l, $nc(l)->tail)) {
+		for (; $nc(l)->nonEmpty(); $assign(l, l->tail)) {
 			$var($Type, it, $cast($Type, l->head));
 			$init($TypeTag);
-			bool var$0 = $nc(type)->hasTag($TypeTag::CLASS);
+			bool var$0 = type->hasTag($TypeTag::CLASS);
 			if (var$0 && !$nc(it)->hasTag($TypeTag::CLASS)) {
 				continue;
 			}
 			$var($Type, oldit, $cast($Type, $nc(seensofar)->put($nc(it)->tsym, it)));
 			if (oldit != nullptr) {
 				$var($List, oldparams, oldit->allparams());
-				$var($List, newparams, $nc(it)->allparams());
-				if (!$nc(this->types)->containsTypeEquivalent(oldparams, newparams)) {
-					$var($Symbol, var$1, static_cast<$Symbol*>(it->tsym));
+				$var($List, newparams, it->allparams());
+				if (!this->types->containsTypeEquivalent(oldparams, newparams)) {
+					$var($Symbol, var$1, it->tsym);
 					$var($String, var$2, $Type::toString(oldparams));
 					$nc(this->log)->error(pos, $($CompilerProperties$Errors::CantInheritDiffArg(var$1, var$2, $($Type::toString(newparams)))));
 				}
@@ -4084,9 +3600,9 @@ void Check::checkClassBounds($JCDiagnostic$DiagnosticPosition* pos, $Map* seenso
 			checkClassBounds(pos, seensofar, it);
 		}
 	}
-	$var($Type, st, $nc(this->types)->supertype(type));
+	$var($Type, st, this->types->supertype(type));
 	$init($TypeTag);
-	bool var$3 = $nc(type)->hasTag($TypeTag::CLASS);
+	bool var$3 = type->hasTag($TypeTag::CLASS);
 	if (var$3 && !$nc(st)->hasTag($TypeTag::CLASS)) {
 		return;
 	}
@@ -4117,25 +3633,25 @@ void Check::validateAnnotationType($JCTree* restype) {
 }
 
 void Check::validateAnnotationType($JCDiagnostic$DiagnosticPosition* pos, $Type* type) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(type)->isPrimitive()) {
 		return;
 	}
 	if ($nc(this->types)->isSameType(type, $nc(this->syms)->stringType)) {
 		return;
 	}
-	if (((int64_t)($nc($nc(type)->tsym)->flags() & (uint64_t)(int64_t)$Flags::ENUM)) != 0) {
+	if (($nc(type->tsym)->flags() & $Flags::ENUM) != 0) {
 		return;
 	}
-	if (((int64_t)($nc($nc(type)->tsym)->flags() & (uint64_t)(int64_t)$Flags::ANNOTATION)) != 0) {
+	if (($nc(type->tsym)->flags() & $Flags::ANNOTATION) != 0) {
 		return;
 	}
-	if ($nc($($nc(this->types)->cvarLowerBound(type)))->tsym == $nc($nc(this->syms)->classType)->tsym) {
+	if ($nc($(this->types->cvarLowerBound(type)))->tsym == $nc(this->syms->classType)->tsym) {
 		return;
 	}
-	bool var$0 = $nc(this->types)->isArray(type);
-	if (var$0 && !$nc(this->types)->isArray($($nc(this->types)->elemtype(type)))) {
-		validateAnnotationType(pos, $($nc(this->types)->elemtype(type)));
+	bool var$0 = this->types->isArray(type);
+	if (var$0 && !this->types->isArray($(this->types->elemtype(type)))) {
+		validateAnnotationType(pos, $(this->types->elemtype(type)));
 		return;
 	}
 	$init($CompilerProperties$Errors);
@@ -4143,22 +3659,20 @@ void Check::validateAnnotationType($JCDiagnostic$DiagnosticPosition* pos, $Type*
 }
 
 void Check::validateAnnotationMethod($JCDiagnostic$DiagnosticPosition* pos, $Symbol$MethodSymbol* m) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($TypeTag);
-	{
-		$var($Type, sup, $nc(this->syms)->annotationType);
-		for (; $nc(sup)->hasTag($TypeTag::CLASS); $assign(sup, $nc(this->types)->supertype(sup))) {
-			$var($Scope, s, $nc($nc(sup)->tsym)->members());
-			{
-				$var($Iterator, i$, $nc($($nc(s)->getSymbolsByName($nc(m)->name)))->iterator());
-				for (; $nc(i$)->hasNext();) {
-					$var($Symbol, sym, $cast($Symbol, i$->next()));
-					{
-						$init($Kinds$Kind);
-						bool var$0 = $nc(sym)->kind == $Kinds$Kind::MTH && ((int64_t)(sym->flags() & (uint64_t)(int64_t)(1 | 4))) != 0;
-						if (var$0 && $nc(this->types)->overrideEquivalent($nc(m)->type, sym->type)) {
-							$nc(this->log)->error(pos, $($CompilerProperties$Errors::IntfAnnotationMemberClash(sym, sup)));
-						}
+	$var($Type, sup, $nc(this->syms)->annotationType);
+	for (; $nc(sup)->hasTag($TypeTag::CLASS); $assign(sup, $nc(this->types)->supertype(sup))) {
+		$var($Scope, s, $nc(sup->tsym)->members());
+		{
+			$var($Iterator, i$, $$nc($nc(s)->getSymbolsByName($nc(m)->name))->iterator());
+			for (; $nc(i$)->hasNext();) {
+				$var($Symbol, sym, $cast($Symbol, i$->next()));
+				{
+					$init($Kinds$Kind);
+					bool var$0 = $nc(sym)->kind == $Kinds$Kind::MTH && (sym->flags() & (1 | 4)) != 0;
+					if (var$0 && $nc(this->types)->overrideEquivalent(m->type, sym->type)) {
+						$nc(this->log)->error(pos, $($CompilerProperties$Errors::IntfAnnotationMemberClash(sym, sup)));
 					}
 				}
 			}
@@ -4167,50 +3681,44 @@ void Check::validateAnnotationMethod($JCDiagnostic$DiagnosticPosition* pos, $Sym
 }
 
 void Check::validateAnnotations($List* annotations, $JCTree* declarationTree, $Symbol* s) {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Iterator, i$, $nc(annotations)->iterator());
-		for (; $nc(i$)->hasNext();) {
-			$var($JCTree$JCAnnotation, a, $cast($JCTree$JCAnnotation, i$->next()));
-			validateAnnotation(a, declarationTree, s);
-		}
+	$useLocalObjectStack();
+	$var($Iterator, i$, $nc(annotations)->iterator());
+	for (; $nc(i$)->hasNext();) {
+		$var($JCTree$JCAnnotation, a, $cast($JCTree$JCAnnotation, i$->next()));
+		validateAnnotation(a, declarationTree, s);
 	}
 }
 
 void Check::validateTypeAnnotations($List* annotations, bool isTypeParameter) {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Iterator, i$, $nc(annotations)->iterator());
-		for (; $nc(i$)->hasNext();) {
-			$var($JCTree$JCAnnotation, a, $cast($JCTree$JCAnnotation, i$->next()));
-			validateTypeAnnotation(a, isTypeParameter);
-		}
+	$useLocalObjectStack();
+	$var($Iterator, i$, $nc(annotations)->iterator());
+	for (; $nc(i$)->hasNext();) {
+		$var($JCTree$JCAnnotation, a, $cast($JCTree$JCAnnotation, i$->next()));
+		validateTypeAnnotation(a, isTypeParameter);
 	}
 }
 
 void Check::validateAnnotation($JCTree$JCAnnotation* a, $JCTree* declarationTree, $Symbol* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	validateAnnotationTree(a);
-	bool var$0 = ((int64_t)($nc(s)->flags_field & (uint64_t)(int64_t)0x2000000000000000)) != 0;
+	bool var$0 = ($nc(s)->flags_field & (int64_t)0x2000000000000000) != 0;
 	if (!var$0) {
-		bool var$1 = $nc(s)->enclClass() != nullptr;
-		var$0 = var$1 && $nc($(s->enclClass()))->isRecord();
+		bool var$1 = s->enclClass() != nullptr;
+		var$0 = var$1 && $$nc(s->enclClass())->isRecord();
 	}
 	bool isRecordMember = (var$0);
 	$init($JCTree$Tag);
 	$init($Kinds$Kind);
-	bool isRecordField = ((int64_t)(s->flags_field & (uint64_t)(int64_t)0x2000000000000000)) != 0 && $nc(declarationTree)->hasTag($JCTree$Tag::VARDEF) && $nc(s->owner)->kind == $Kinds$Kind::TYP;
+	bool isRecordField = (s->flags_field & (int64_t)0x2000000000000000) != 0 && $nc(declarationTree)->hasTag($JCTree$Tag::VARDEF) && $nc(s->owner)->kind == $Kinds$Kind::TYP;
 	if (isRecordField) {
 		$var($NameArray, targets, getTargetNames(a));
 		bool appliesToRecords = false;
 		{
 			$var($NameArray, arr$, targets);
-			int32_t len$ = $nc(arr$)->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
+			for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 				$var($Name, target, arr$->get(i$));
 				{
-					appliesToRecords = target == $nc(this->names)->FIELD || target == $nc(this->names)->PARAMETER || target == $nc(this->names)->METHOD || target == $nc(this->names)->TYPE_USE || target == $nc(this->names)->RECORD_COMPONENT;
+					appliesToRecords = target == $nc(this->names)->FIELD || target == this->names->PARAMETER || target == this->names->METHOD || target == this->names->TYPE_USE || target == this->names->RECORD_COMPONENT;
 					if (appliesToRecords) {
 						break;
 					}
@@ -4224,8 +3732,8 @@ void Check::validateAnnotation($JCTree$JCAnnotation* a, $JCTree* declarationTree
 			$var($Symbol$ClassSymbol, recordClass, $cast($Symbol$ClassSymbol, s->owner));
 			$var($Symbol$RecordComponent, rc, $nc(recordClass)->getRecordComponent($cast($Symbol$VarSymbol, s)));
 			$var($SymbolMetadata, metadata, $nc(rc)->getMetadata());
-			if (metadata == nullptr || $nc(metadata)->isEmpty()) {
-				rc->appendAttributes($cast($List, $($nc($($nc($($nc($(s->getRawAttributes()))->stream()))->filter(static_cast<$Predicate*>($$new(Check$$Lambda$lambda$validateAnnotation$8$8, this)))))->collect($($List::collector())))));
+			if (metadata == nullptr || metadata->isEmpty()) {
+				rc->appendAttributes($$cast($List, $$nc($$nc($$nc(s->getRawAttributes())->stream())->filter($$new(Check$$Lambda$lambda$validateAnnotation$8$8, this)))->collect($($List::collector()))));
 				rc->setTypeAttributes($(s->getRawTypeAttributes()));
 				$set(rc, type, s->type);
 			}
@@ -4237,11 +3745,11 @@ void Check::validateAnnotation($JCTree$JCAnnotation* a, $JCTree* declarationTree
 			$var($Set, applicableTargets, $cast($Set, applicableTargetsOp->get()));
 			bool var$2 = $nc(applicableTargets)->isEmpty();
 			if (!var$2) {
-				bool var$3 = $nc(applicableTargets)->size() == 1;
+				bool var$3 = applicableTargets->size() == 1;
 				var$2 = var$3 && applicableTargets->contains($nc(this->names)->TYPE_USE);
 			}
 			bool notApplicableOrIsTypeUseOnly = var$2;
-			bool isCompGeneratedRecordElement = isRecordMember && ((int64_t)(s->flags_field & (uint64_t)(int64_t)$Flags::GENERATED_MEMBER)) != 0;
+			bool isCompGeneratedRecordElement = isRecordMember && (s->flags_field & $Flags::GENERATED_MEMBER) != 0;
 			bool isCompRecordElementWithNonApplicableDeclAnno = isCompGeneratedRecordElement && notApplicableOrIsTypeUseOnly;
 			if (applicableTargets->isEmpty() || isCompRecordElementWithNonApplicableDeclAnno) {
 				if (isCompRecordElementWithNonApplicableDeclAnno) {
@@ -4252,47 +3760,45 @@ void Check::validateAnnotation($JCTree$JCAnnotation* a, $JCTree* declarationTree
 							$var($Iterator, i$, $nc(modifiers->annotations)->iterator());
 							for (; $nc(i$)->hasNext();) {
 								$var($JCTree$JCAnnotation, anno, $cast($JCTree$JCAnnotation, i$->next()));
-								{
-									if (anno != a) {
-										newAnnotations->add(anno);
-									}
+								if (anno != a) {
+									newAnnotations->add(anno);
 								}
 							}
 						}
 						$set(modifiers, annotations, newAnnotations->toList());
 					}
-					$nc($(s->getMetadata()))->removeDeclarationMetadata(a->attribute);
+					$$nc(s->getMetadata())->removeDeclarationMetadata(a->attribute);
 				} else {
 					$init($CompilerProperties$Errors);
 					$nc(this->log)->error($(a->pos()), $CompilerProperties$Errors::AnnotationTypeNotApplicable);
 				}
 			}
-			if (isCompGeneratedRecordElement && !isRecordField && $nc(a->type)->tsym == $nc($nc(this->syms)->trustMeType)->tsym && declarationTree->hasTag($JCTree$Tag::METHODDEF)) {
+			if (isCompGeneratedRecordElement && !isRecordField && $nc(a->type)->tsym == $nc($nc(this->syms)->trustMeType)->tsym && $nc(declarationTree)->hasTag($JCTree$Tag::METHODDEF)) {
 				$var($JCDiagnostic$DiagnosticPosition, var$4, a->pos());
-				$nc(this->log)->error(var$4, $($CompilerProperties$Errors::VarargsInvalidTrustmeAnno(static_cast<$Symbol*>($nc($nc(this->syms)->trustMeType)->tsym), $($CompilerProperties$Fragments::VarargsTrustmeOnNonVarargsAccessor(s)))));
+				$nc(this->log)->error(var$4, $($CompilerProperties$Errors::VarargsInvalidTrustmeAnno(this->syms->trustMeType->tsym, $($CompilerProperties$Fragments::VarargsTrustmeOnNonVarargsAccessor(s)))));
 			}
 		}
 	}
-	if ($nc($nc($nc(a)->annotationType)->type)->tsym == $nc($nc(this->syms)->functionalInterfaceType)->tsym) {
+	if ($nc($nc(a->annotationType)->type)->tsym == $nc($nc(this->syms)->functionalInterfaceType)->tsym) {
 		if (s->kind != $Kinds$Kind::TYP) {
 			$init($CompilerProperties$Errors);
 			$nc(this->log)->error($(a->pos()), $CompilerProperties$Errors::BadFunctionalIntfAnno);
 		} else {
-			bool var$6 = !s->isInterface();
-			if (var$6 || ((int64_t)(s->flags() & (uint64_t)(int64_t)8192)) != 0) {
-				$var($JCDiagnostic$DiagnosticPosition, var$7, a->pos());
-				$nc(this->log)->error(var$7, $($CompilerProperties$Errors::BadFunctionalIntfAnno1($($CompilerProperties$Fragments::NotAFunctionalIntf(s)))));
+			bool var$5 = !s->isInterface();
+			if (var$5 || (s->flags() & 0x2000) != 0) {
+				$var($JCDiagnostic$DiagnosticPosition, var$6, a->pos());
+				$nc(this->log)->error(var$6, $($CompilerProperties$Errors::BadFunctionalIntfAnno1($($CompilerProperties$Fragments::NotAFunctionalIntf(s)))));
 			}
 		}
 	}
 }
 
 void Check::validateTypeAnnotation($JCTree$JCAnnotation* a, bool isTypeParameter) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Assert::checkNonNull($nc(a)->type);
 	validateAnnotationTree(a);
 	$init($JCTree$Tag);
-	bool var$1 = $nc(a)->hasTag($JCTree$Tag::TYPE_ANNOTATION);
+	bool var$1 = a->hasTag($JCTree$Tag::TYPE_ANNOTATION);
 	bool var$0 = var$1 && !$nc($nc(a->annotationType)->type)->isErroneous();
 	if (var$0 && !isTypeAnnotation(a, isTypeParameter)) {
 		$var($JCDiagnostic$DiagnosticPosition, var$2, a->pos());
@@ -4301,76 +3807,68 @@ void Check::validateTypeAnnotation($JCTree$JCAnnotation* a, bool isTypeParameter
 }
 
 void Check::validateRepeatable($Symbol$TypeSymbol* s, $Attribute$Compound* repeatable, $JCDiagnostic$DiagnosticPosition* pos) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Assert::check($nc(this->types)->isSameType($nc(repeatable)->type, $nc(this->syms)->repeatableType));
 	$var($Type, t, nullptr);
-	$var($List, l, $nc(repeatable)->values);
+	$var($List, l, repeatable->values);
 	if (!$nc(l)->isEmpty()) {
 		$Assert::check($nc(($cast($Symbol$MethodSymbol, $nc(($cast($Pair, l->head)))->fst)))->name == $nc(this->names)->value);
-		$assign(t, $cast($Type, $nc(($cast($Attribute$Class, $nc(($cast($Pair, l->head)))->snd)))->getValue()));
+		$assign(t, $cast($Type, $nc($cast($Attribute$Class, $nc(($cast($Pair, l->head)))->snd))->getValue()));
 	}
 	if (t == nullptr) {
 		return;
 	}
 	validateValue($nc(t)->tsym, s, pos);
-	validateRetention($nc(t)->tsym, s, pos);
-	validateDocumented($nc(t)->tsym, s, pos);
-	validateInherited($nc(t)->tsym, s, pos);
-	validateTarget($nc(t)->tsym, s, pos);
-	validateDefault($nc(t)->tsym, pos);
+	validateRetention(t->tsym, s, pos);
+	validateDocumented(t->tsym, s, pos);
+	validateInherited(t->tsym, s, pos);
+	validateTarget(t->tsym, s, pos);
+	validateDefault(t->tsym, pos);
 }
 
 void Check::validateValue($Symbol$TypeSymbol* container, $Symbol$TypeSymbol* contained, $JCDiagnostic$DiagnosticPosition* pos) {
-	$useLocalCurrentObjectStackCache();
-	$var($Symbol, sym, $nc($($nc(container)->members()))->findFirst($nc(this->names)->value));
+	$useLocalObjectStack();
+	$var($Symbol, sym, $$nc($nc(container)->members())->findFirst($nc(this->names)->value));
 	$init($Kinds$Kind);
 	if (sym != nullptr && sym->kind == $Kinds$Kind::MTH) {
 		$var($Symbol$MethodSymbol, m, $cast($Symbol$MethodSymbol, sym));
 		$var($Type, ret, m->getReturnType());
 		$init($TypeTag);
 		bool var$0 = $nc(ret)->hasTag($TypeTag::ARRAY);
-		if (!(var$0 && $nc(this->types)->isSameType($nc(($cast($Type$ArrayType, ret)))->elemtype, $nc(contained)->type))) {
-			$nc(this->log)->error(pos, $($CompilerProperties$Errors::InvalidRepeatableAnnotationValueReturn(static_cast<$Symbol*>(container), ret, $(static_cast<$Type*>($nc(this->types)->makeArrayType($nc(contained)->type))))));
+		if (!(var$0 && $nc(this->types)->isSameType($cast($Type$ArrayType, ret)->elemtype, $nc(contained)->type))) {
+			$nc(this->log)->error(pos, $($CompilerProperties$Errors::InvalidRepeatableAnnotationValueReturn(container, ret, $(this->types->makeArrayType(contained->type)))));
 		}
 	} else {
-		$nc(this->log)->error(pos, $($CompilerProperties$Errors::InvalidRepeatableAnnotationNoValue(static_cast<$Symbol*>(container))));
+		$nc(this->log)->error(pos, $($CompilerProperties$Errors::InvalidRepeatableAnnotationNoValue(container)));
 	}
 }
 
 void Check::validateRetention($Symbol$TypeSymbol* container, $Symbol$TypeSymbol* contained, $JCDiagnostic$DiagnosticPosition* pos) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Attribute$RetentionPolicy* containerRetention = $nc(this->types)->getRetention(container);
-	$Attribute$RetentionPolicy* containedRetention = $nc(this->types)->getRetention(contained);
+	$Attribute$RetentionPolicy* containedRetention = this->types->getRetention(contained);
 	bool error = false;
 	$init($Check$5);
 	switch ($nc($Check$5::$SwitchMap$com$sun$tools$javac$code$Attribute$RetentionPolicy)->get($nc((containedRetention))->ordinal())) {
 	case 1:
-		{
-			$init($Attribute$RetentionPolicy);
-			if (containerRetention != $Attribute$RetentionPolicy::RUNTIME) {
-				error = true;
-			}
-			break;
+		if (containerRetention != $Attribute$RetentionPolicy::RUNTIME) {
+			error = true;
 		}
+		break;
 	case 2:
-		{
-			$init($Attribute$RetentionPolicy);
-			if (containerRetention == $Attribute$RetentionPolicy::SOURCE) {
-				error = true;
-			}
+		if (containerRetention == $Attribute$RetentionPolicy::SOURCE) {
+			error = true;
 		}
 	}
 	if (error) {
-		$var($Symbol, var$0, static_cast<$Symbol*>(container));
-		$var($String, var$1, $nc(containerRetention)->name());
-		$var($Symbol, var$2, static_cast<$Symbol*>(contained));
-		$nc(this->log)->error(pos, $($CompilerProperties$Errors::InvalidRepeatableAnnotationRetention(var$0, var$1, var$2, $(containedRetention->name()))));
+		$var($String, var$0, $nc(containerRetention)->name());
+		$nc(this->log)->error(pos, $($CompilerProperties$Errors::InvalidRepeatableAnnotationRetention(container, var$0, contained, $(containedRetention->name()))));
 	}
 }
 
 void Check::validateDocumented($Symbol* container, $Symbol* contained, $JCDiagnostic$DiagnosticPosition* pos) {
 	if ($nc(contained)->attribute($nc($nc(this->syms)->documentedType)->tsym) != nullptr) {
-		if ($nc(container)->attribute($nc($nc(this->syms)->documentedType)->tsym) == nullptr) {
+		if ($nc(container)->attribute(this->syms->documentedType->tsym) == nullptr) {
 			$nc(this->log)->error(pos, $($CompilerProperties$Errors::InvalidRepeatableAnnotationNotDocumented(container, contained)));
 		}
 	}
@@ -4378,14 +3876,14 @@ void Check::validateDocumented($Symbol* container, $Symbol* contained, $JCDiagno
 
 void Check::validateInherited($Symbol* container, $Symbol* contained, $JCDiagnostic$DiagnosticPosition* pos) {
 	if ($nc(contained)->attribute($nc($nc(this->syms)->inheritedType)->tsym) != nullptr) {
-		if ($nc(container)->attribute($nc($nc(this->syms)->inheritedType)->tsym) == nullptr) {
+		if ($nc(container)->attribute(this->syms->inheritedType->tsym) == nullptr) {
 			$nc(this->log)->error(pos, $($CompilerProperties$Errors::InvalidRepeatableAnnotationNotInherited(container, contained)));
 		}
 	}
 }
 
 void Check::validateTarget($Symbol$TypeSymbol* container, $Symbol$TypeSymbol* contained, $JCDiagnostic$DiagnosticPosition* pos) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Set, containerTargets, nullptr);
 	$var($Attribute$Array, containerTarget, getAttributeTargetAttribute(container));
 	if (containerTarget == nullptr) {
@@ -4393,10 +3891,8 @@ void Check::validateTarget($Symbol$TypeSymbol* container, $Symbol$TypeSymbol* co
 	} else {
 		$assign(containerTargets, $new($HashSet));
 		{
-			$var($AttributeArray, arr$, $nc(containerTarget)->values);
-			int32_t len$ = $nc(arr$)->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
+			$var($AttributeArray, arr$, containerTarget->values);
+			for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 				$var($Attribute, app, arr$->get(i$));
 				{
 					$var($Attribute$Enum, attributeEnum, nullptr);
@@ -4420,10 +3916,8 @@ void Check::validateTarget($Symbol$TypeSymbol* container, $Symbol$TypeSymbol* co
 	} else {
 		$assign(containedTargets, $new($HashSet));
 		{
-			$var($AttributeArray, arr$, $nc(containedTarget)->values);
-			int32_t len$ = $nc(arr$)->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
+			$var($AttributeArray, arr$, containedTarget->values);
+			for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 				$var($Attribute, app, arr$->get(i$));
 				{
 					$var($Attribute$Enum, attributeEnum, nullptr);
@@ -4449,50 +3943,46 @@ $Set* Check::getDefaultTargetSet() {
 	if (this->defaultTargets == nullptr) {
 		$var($Set, targets, $new($HashSet));
 		targets->add($nc(this->names)->ANNOTATION_TYPE);
-		targets->add($nc(this->names)->CONSTRUCTOR);
-		targets->add($nc(this->names)->FIELD);
+		targets->add(this->names->CONSTRUCTOR);
+		targets->add(this->names->FIELD);
 		if (this->allowRecords) {
-			targets->add($nc(this->names)->RECORD_COMPONENT);
+			targets->add(this->names->RECORD_COMPONENT);
 		}
-		targets->add($nc(this->names)->LOCAL_VARIABLE);
-		targets->add($nc(this->names)->METHOD);
-		targets->add($nc(this->names)->PACKAGE);
-		targets->add($nc(this->names)->PARAMETER);
-		targets->add($nc(this->names)->TYPE);
+		targets->add(this->names->LOCAL_VARIABLE);
+		targets->add(this->names->METHOD);
+		targets->add(this->names->PACKAGE);
+		targets->add(this->names->PARAMETER);
+		targets->add(this->names->TYPE);
 		$set(this, defaultTargets, $Collections::unmodifiableSet(targets));
 	}
 	return this->defaultTargets;
 }
 
 bool Check::isTargetSubsetOf($Set* s, $Set* t) {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Iterator, i$, $nc(s)->iterator());
-		for (; $nc(i$)->hasNext();) {
-			$var($Name, n2, $cast($Name, i$->next()));
+	$useLocalObjectStack();
+	$var($Iterator, i$, $nc(s)->iterator());
+	for (; $nc(i$)->hasNext();) {
+		$var($Name, n2, $cast($Name, i$->next()));
+		{
+			bool currentElementOk = false;
 			{
-				bool currentElementOk = false;
-				{
-					$var($Iterator, i$, $nc(t)->iterator());
-					for (; $nc(i$)->hasNext();) {
-						$var($Name, n1, $cast($Name, i$->next()));
-						{
-							if (n1 == n2) {
-								currentElementOk = true;
-								break;
-							} else if (n1 == $nc(this->names)->TYPE && n2 == $nc(this->names)->ANNOTATION_TYPE) {
-								currentElementOk = true;
-								break;
-							} else if (n1 == $nc(this->names)->TYPE_USE && (n2 == $nc(this->names)->TYPE || n2 == $nc(this->names)->ANNOTATION_TYPE || n2 == $nc(this->names)->TYPE_PARAMETER)) {
-								currentElementOk = true;
-								break;
-							}
-						}
+				$var($Iterator, i$, $nc(t)->iterator());
+				for (; $nc(i$)->hasNext();) {
+					$var($Name, n1, $cast($Name, i$->next()));
+					if (n1 == n2) {
+						currentElementOk = true;
+						break;
+					} else if (n1 == $nc(this->names)->TYPE && n2 == this->names->ANNOTATION_TYPE) {
+						currentElementOk = true;
+						break;
+					} else if (n1 == this->names->TYPE_USE && (n2 == this->names->TYPE || n2 == this->names->ANNOTATION_TYPE || n2 == this->names->TYPE_PARAMETER)) {
+						currentElementOk = true;
+						break;
 					}
 				}
-				if (!currentElementOk) {
-					return false;
-				}
+			}
+			if (!currentElementOk) {
+				return false;
 			}
 		}
 	}
@@ -4500,41 +3990,39 @@ bool Check::isTargetSubsetOf($Set* s, $Set* t) {
 }
 
 void Check::validateDefault($Symbol* container, $JCDiagnostic$DiagnosticPosition* pos) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Scope, scope, $nc(container)->members());
 	{
-		$var($Iterator, i$, $nc($($nc(scope)->getSymbols()))->iterator());
+		$var($Iterator, i$, $$nc($nc(scope)->getSymbols())->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Symbol, elm, $cast($Symbol, i$->next()));
-			{
-				$init($Kinds$Kind);
-				if ($nc(elm)->name != $nc(this->names)->value && elm->kind == $Kinds$Kind::MTH && $nc(($cast($Symbol$MethodSymbol, elm)))->defaultValue == nullptr) {
-					$nc(this->log)->error(pos, $($CompilerProperties$Errors::InvalidRepeatableAnnotationElemNondefault(container, elm)));
-				}
+			$init($Kinds$Kind);
+			if ($nc(elm)->name != $nc(this->names)->value && elm->kind == $Kinds$Kind::MTH && $cast($Symbol$MethodSymbol, elm)->defaultValue == nullptr) {
+				$nc(this->log)->error(pos, $($CompilerProperties$Errors::InvalidRepeatableAnnotationElemNondefault(container, elm)));
 			}
 		}
 	}
 }
 
 bool Check::isOverrider($Symbol* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Kinds$Kind);
-	if ($nc(s)->kind != $Kinds$Kind::MTH || $nc(s)->isStatic()) {
+	if ($nc(s)->kind != $Kinds$Kind::MTH || s->isStatic()) {
 		return false;
 	}
 	$var($Symbol$MethodSymbol, m, $cast($Symbol$MethodSymbol, s));
-	$var($Symbol$TypeSymbol, owner, $cast($Symbol$TypeSymbol, $nc(m)->owner));
+	$var($Symbol$TypeSymbol, owner, $cast($Symbol$TypeSymbol, m->owner));
 	{
-		$var($Iterator, i$, $nc($($nc(this->types)->closure($nc(owner)->type)))->iterator());
+		$var($Iterator, i$, $$nc($nc(this->types)->closure($nc(owner)->type))->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Type, sup, $cast($Type, i$->next()));
 			{
-				if (sup == $nc(owner)->type) {
+				if (sup == owner->type) {
 					continue;
 				}
 				$var($Scope, scope, $nc($nc(sup)->tsym)->members());
 				{
-					$var($Iterator, i$, $nc($($nc(scope)->getSymbolsByName(m->name)))->iterator());
+					$var($Iterator, i$, $$nc($nc(scope)->getSymbolsByName(m->name))->iterator());
 					for (; $nc(i$)->hasNext();) {
 						$var($Symbol, sym, $cast($Symbol, i$->next()));
 						{
@@ -4552,14 +4040,14 @@ bool Check::isOverrider($Symbol* s) {
 }
 
 bool Check::isTypeAnnotation($JCTree$JCAnnotation* a, bool isTypeParameter) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, targets, $nc(this->typeAnnotations)->annotationTargets($nc($nc($nc(a)->annotationType)->type)->tsym));
-	return (targets == nullptr) ? false : $nc($($nc(targets)->stream()))->anyMatch(static_cast<$Predicate*>($$new(Check$$Lambda$lambda$isTypeAnnotation$9$9, this, isTypeParameter)));
+	return (targets == nullptr) ? false : $$nc(targets->stream())->anyMatch($$new(Check$$Lambda$lambda$isTypeAnnotation$9$9, this, isTypeParameter));
 }
 
 bool Check::isTypeAnnotation($Attribute* a, bool isTypeParameter) {
 	$var($Attribute$Enum, e, $cast($Attribute$Enum, a));
-	return ($nc($nc(e)->value)->name == $nc(this->names)->TYPE_USE || (isTypeParameter && $nc($nc(e)->value)->name == $nc(this->names)->TYPE_PARAMETER));
+	return ($nc($nc(e)->value)->name == $nc(this->names)->TYPE_USE || (isTypeParameter && e->value->name == this->names->TYPE_PARAMETER));
 }
 
 $NameArray* Check::getTargetNames($JCTree$JCAnnotation* a) {
@@ -4567,15 +4055,15 @@ $NameArray* Check::getTargetNames($JCTree$JCAnnotation* a) {
 }
 
 $NameArray* Check::getTargetNames($Symbol$TypeSymbol* annoSym) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Attribute$Array, arr, getAttributeTargetAttribute(annoSym));
 	$var($NameArray, targets, nullptr);
 	if (arr == nullptr) {
 		$assign(targets, defaultTargetMetaInfo());
 	} else {
-		$assign(targets, $new($NameArray, $nc($nc(arr)->values)->length));
-		for (int32_t i = 0; i < $nc(arr->values)->length; ++i) {
-			$var($Attribute, app, $nc(arr->values)->get(i));
+		$assign(targets, $new($NameArray, $nc(arr->values)->length));
+		for (int32_t i = 0; i < arr->values->length; ++i) {
+			$var($Attribute, app, arr->values->get(i));
 			$var($Attribute$Enum, attributeEnum, nullptr);
 			bool var$0 = $instanceOf($Attribute$Enum, app);
 			if (var$0) {
@@ -4592,27 +4080,27 @@ $NameArray* Check::getTargetNames($Symbol$TypeSymbol* annoSym) {
 }
 
 bool Check::annotationApplicable($JCTree$JCAnnotation* a, $Symbol* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Optional, targets, getApplicableTargets(a, s));
 	bool var$0 = $nc(targets)->isEmpty();
 	if (!var$0) {
-		bool var$1 = $nc(targets)->isPresent();
-		var$0 = var$1 && !$nc(($cast($Set, $(targets->get()))))->isEmpty();
+		bool var$1 = targets->isPresent();
+		var$0 = var$1 && !$$sure($Set, targets->get())->isEmpty();
 	}
 	return var$0;
 }
 
 $Optional* Check::getApplicableTargets($JCTree$JCAnnotation* a, $Symbol* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Attribute$Array, arr, getAttributeTargetAttribute($nc($nc($nc(a)->annotationType)->type)->tsym));
 	$var($NameArray, targets, nullptr);
 	$var($Set, applicableTargets, $new($HashSet));
 	if (arr == nullptr) {
 		$assign(targets, defaultTargetMetaInfo());
 	} else {
-		$assign(targets, $new($NameArray, $nc($nc(arr)->values)->length));
-		for (int32_t i = 0; i < $nc(arr->values)->length; ++i) {
-			$var($Attribute, app, $nc(arr->values)->get(i));
+		$assign(targets, $new($NameArray, $nc(arr->values)->length));
+		for (int32_t i = 0; i < arr->values->length; ++i) {
+			$var($Attribute, app, arr->values->get(i));
 			$var($Attribute$Enum, attributeEnum, nullptr);
 			bool var$0 = $instanceOf($Attribute$Enum, app);
 			if (var$0) {
@@ -4627,86 +4115,82 @@ $Optional* Check::getApplicableTargets($JCTree$JCAnnotation* a, $Symbol* s) {
 	}
 	{
 		$var($NameArray, arr$, targets);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($Name, target, arr$->get(i$));
-			{
-				if (target == $nc(this->names)->TYPE) {
-					$init($Kinds$Kind);
-					if ($nc(s)->kind == $Kinds$Kind::TYP) {
-						applicableTargets->add($nc(this->names)->TYPE);
-					}
-				} else if (target == $nc(this->names)->FIELD) {
-					$init($Kinds$Kind);
-					if ($nc(s)->kind == $Kinds$Kind::VAR && $nc(s->owner)->kind != $Kinds$Kind::MTH) {
-						applicableTargets->add($nc(this->names)->FIELD);
-					}
-				} else if (target == $nc(this->names)->RECORD_COMPONENT) {
-					$init($ElementKind);
-					if ($nc(s)->getKind() == $ElementKind::RECORD_COMPONENT) {
-						applicableTargets->add($nc(this->names)->RECORD_COMPONENT);
-					}
-				} else if (target == $nc(this->names)->METHOD) {
-					$init($Kinds$Kind);
-					if ($nc(s)->kind == $Kinds$Kind::MTH && !s->isConstructor()) {
-						applicableTargets->add($nc(this->names)->METHOD);
-					}
-				} else if (target == $nc(this->names)->PARAMETER) {
-					$init($Kinds$Kind);
-					if ($nc(s)->kind == $Kinds$Kind::VAR && ($nc(s->owner)->kind == $Kinds$Kind::MTH && ((int64_t)(s->flags() & (uint64_t)(int64_t)0x0000000200000000)) != 0)) {
-						applicableTargets->add($nc(this->names)->PARAMETER);
-					}
-				} else if (target == $nc(this->names)->CONSTRUCTOR) {
-					$init($Kinds$Kind);
-					if ($nc(s)->kind == $Kinds$Kind::MTH && s->isConstructor()) {
-						applicableTargets->add($nc(this->names)->CONSTRUCTOR);
-					}
-				} else if (target == $nc(this->names)->LOCAL_VARIABLE) {
-					$init($Kinds$Kind);
-					if ($nc(s)->kind == $Kinds$Kind::VAR && $nc(s->owner)->kind == $Kinds$Kind::MTH && ((int64_t)(s->flags() & (uint64_t)(int64_t)0x0000000200000000)) == 0) {
-						applicableTargets->add($nc(this->names)->LOCAL_VARIABLE);
-					}
-				} else if (target == $nc(this->names)->ANNOTATION_TYPE) {
-					$init($Kinds$Kind);
-					if ($nc(s)->kind == $Kinds$Kind::TYP && ((int64_t)(s->flags() & (uint64_t)(int64_t)8192)) != 0) {
-						applicableTargets->add($nc(this->names)->ANNOTATION_TYPE);
-					}
-				} else if (target == $nc(this->names)->PACKAGE) {
-					$init($Kinds$Kind);
-					if ($nc(s)->kind == $Kinds$Kind::PCK) {
-						applicableTargets->add($nc(this->names)->PACKAGE);
-					}
-				} else if (target == $nc(this->names)->TYPE_USE) {
-					$init($Kinds$Kind);
-					$init($TypeTag);
-					if ($nc(s)->kind == $Kinds$Kind::VAR && $nc(s->owner)->kind == $Kinds$Kind::MTH && $nc(s->type)->hasTag($TypeTag::NONE)) {
-						continue;
-					} else {
-						bool var$5 = s->kind == $Kinds$Kind::TYP || s->kind == $Kinds$Kind::VAR;
-						if (!var$5) {
-							bool var$6 = s->kind == $Kinds$Kind::MTH && !s->isConstructor();
-							var$5 = (var$6 && !$nc($($nc(s->type)->getReturnType()))->hasTag($TypeTag::VOID));
-						}
-						bool var$4 = var$5;
-						if (var$4 || (s->kind == $Kinds$Kind::MTH && s->isConstructor())) {
-							applicableTargets->add($nc(this->names)->TYPE_USE);
-						}
-					}
-				} else if (target == $nc(this->names)->TYPE_PARAMETER) {
-					$init($Kinds$Kind);
-					$init($TypeTag);
-					if ($nc(s)->kind == $Kinds$Kind::TYP && $nc(s->type)->hasTag($TypeTag::TYPEVAR)) {
-						applicableTargets->add($nc(this->names)->TYPE_PARAMETER);
-					}
-				} else if (target == $nc(this->names)->MODULE) {
-					$init($Kinds$Kind);
-					if ($nc(s)->kind == $Kinds$Kind::MDL) {
-						applicableTargets->add($nc(this->names)->MODULE);
-					}
-				} else {
-					return $Optional::empty();
+			if (target == $nc(this->names)->TYPE) {
+				$init($Kinds$Kind);
+				if ($nc(s)->kind == $Kinds$Kind::TYP) {
+					applicableTargets->add(this->names->TYPE);
 				}
+			} else if (target == this->names->FIELD) {
+				$init($Kinds$Kind);
+				if ($nc(s)->kind == $Kinds$Kind::VAR && $nc(s->owner)->kind != $Kinds$Kind::MTH) {
+					applicableTargets->add(this->names->FIELD);
+				}
+			} else if (target == this->names->RECORD_COMPONENT) {
+				$init($ElementKind);
+				if ($nc(s)->getKind() == $ElementKind::RECORD_COMPONENT) {
+					applicableTargets->add(this->names->RECORD_COMPONENT);
+				}
+			} else if (target == this->names->METHOD) {
+				$init($Kinds$Kind);
+				if ($nc(s)->kind == $Kinds$Kind::MTH && !s->isConstructor()) {
+					applicableTargets->add(this->names->METHOD);
+				}
+			} else if (target == this->names->PARAMETER) {
+				$init($Kinds$Kind);
+				if ($nc(s)->kind == $Kinds$Kind::VAR && ($nc(s->owner)->kind == $Kinds$Kind::MTH && (s->flags() & (int64_t)0x0000000200000000) != 0)) {
+					applicableTargets->add(this->names->PARAMETER);
+				}
+			} else if (target == this->names->CONSTRUCTOR) {
+				$init($Kinds$Kind);
+				if ($nc(s)->kind == $Kinds$Kind::MTH && s->isConstructor()) {
+					applicableTargets->add(this->names->CONSTRUCTOR);
+				}
+			} else if (target == this->names->LOCAL_VARIABLE) {
+				$init($Kinds$Kind);
+				if ($nc(s)->kind == $Kinds$Kind::VAR && $nc(s->owner)->kind == $Kinds$Kind::MTH && (s->flags() & (int64_t)0x0000000200000000) == 0) {
+					applicableTargets->add(this->names->LOCAL_VARIABLE);
+				}
+			} else if (target == this->names->ANNOTATION_TYPE) {
+				$init($Kinds$Kind);
+				if ($nc(s)->kind == $Kinds$Kind::TYP && (s->flags() & 0x2000) != 0) {
+					applicableTargets->add(this->names->ANNOTATION_TYPE);
+				}
+			} else if (target == this->names->PACKAGE) {
+				$init($Kinds$Kind);
+				if ($nc(s)->kind == $Kinds$Kind::PCK) {
+					applicableTargets->add(this->names->PACKAGE);
+				}
+			} else if (target == this->names->TYPE_USE) {
+				$init($Kinds$Kind);
+				$init($TypeTag);
+				if ($nc(s)->kind == $Kinds$Kind::VAR && $nc(s->owner)->kind == $Kinds$Kind::MTH && $nc(s->type)->hasTag($TypeTag::NONE)) {
+					continue;
+				} else {
+					bool var$2 = s->kind == $Kinds$Kind::TYP || s->kind == $Kinds$Kind::VAR;
+					if (!var$2) {
+						bool var$3 = s->kind == $Kinds$Kind::MTH && !s->isConstructor();
+						var$2 = var$3 && !$$nc($nc(s->type)->getReturnType())->hasTag($TypeTag::VOID);
+					}
+					bool var$1 = var$2;
+					if (var$1 || (s->kind == $Kinds$Kind::MTH && s->isConstructor())) {
+						applicableTargets->add(this->names->TYPE_USE);
+					}
+				}
+			} else if (target == this->names->TYPE_PARAMETER) {
+				$init($Kinds$Kind);
+				$init($TypeTag);
+				if ($nc(s)->kind == $Kinds$Kind::TYP && $nc(s->type)->hasTag($TypeTag::TYPEVAR)) {
+					applicableTargets->add(this->names->TYPE_PARAMETER);
+				}
+			} else if (target == this->names->MODULE) {
+				$init($Kinds$Kind);
+				if ($nc(s)->kind == $Kinds$Kind::MDL) {
+					applicableTargets->add(this->names->MODULE);
+				}
+			} else {
+				return $Optional::empty();
 			}
 		}
 	}
@@ -4714,8 +4198,8 @@ $Optional* Check::getApplicableTargets($JCTree$JCAnnotation* a, $Symbol* s) {
 }
 
 $Attribute$Array* Check::getAttributeTargetAttribute($Symbol$TypeSymbol* s) {
-	$useLocalCurrentObjectStackCache();
-	$var($Attribute$Compound, atTarget, $nc($($nc(s)->getAnnotationTypeMetadata()))->getTarget());
+	$useLocalObjectStack();
+	$var($Attribute$Compound, atTarget, $$nc($nc(s)->getAnnotationTypeMetadata())->getTarget());
 	if (atTarget == nullptr) {
 		return nullptr;
 	}
@@ -4734,27 +4218,25 @@ $NameArray* Check::defaultTargetMetaInfo() {
 }
 
 bool Check::validateAnnotationDeferErrors($JCTree$JCAnnotation* a) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool res = false;
 	$var($Log$DiagnosticHandler, diagHandler, $new($Log$DiscardDiagnosticHandler, this->log));
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			res = validateAnnotation(a);
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$nc(this->log)->popDiagnosticHandler(diagHandler);
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	$var($Throwable, var$0, nullptr);
+	try {
+		res = validateAnnotation(a);
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$nc(this->log)->popDiagnosticHandler(diagHandler);
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 	return res;
 }
 
 bool Check::validateAnnotation($JCTree$JCAnnotation* a) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool isValid = true;
 	$var($Annotate$AnnotationTypeMetadata, metadata, $nc($nc($nc($nc(a)->annotationType)->type)->tsym)->getAnnotationTypeMetadata());
 	$var($Set, elements, $nc(metadata)->getAnnotationElements());
@@ -4768,13 +4250,13 @@ bool Check::validateAnnotation($JCTree$JCAnnotation* a) {
 					continue;
 				}
 				$var($JCTree$JCAssign, assign, $cast($JCTree$JCAssign, arg));
-				$var($Symbol, m, $TreeInfo::symbol($nc(assign)->lhs));
-				if (m == nullptr || $nc($nc(m)->type)->isErroneous()) {
+				$var($Symbol, m, $TreeInfo::symbol(assign->lhs));
+				if (m == nullptr || $nc(m->type)->isErroneous()) {
 					continue;
 				}
 				if (!$nc(elements)->remove(m)) {
 					isValid = false;
-					$var($JCDiagnostic$DiagnosticPosition, var$0, $nc($nc(assign)->lhs)->pos());
+					$var($JCDiagnostic$DiagnosticPosition, var$0, $nc(assign->lhs)->pos());
 					$nc(this->log)->error(var$0, $($CompilerProperties$Errors::DuplicateAnnotationMemberValue($nc(m)->name, a->type)));
 				}
 			}
@@ -4791,13 +4273,13 @@ bool Check::validateAnnotation($JCTree$JCAnnotation* a) {
 					continue;
 				}
 				if (!$nc(membersWithDefault)->contains(m)) {
-					$assign(missingDefaults, $nc(missingDefaults)->append($nc(m)->name));
+					$assign(missingDefaults, $nc(missingDefaults)->append(m->name));
 				}
 			}
 		}
 	}
 	$assign(missingDefaults, $nc(missingDefaults)->reverse());
-	if (missingDefaults->nonEmpty()) {
+	if ($nc(missingDefaults)->nonEmpty()) {
 		isValid = false;
 		$var($JCDiagnostic$Error, errorKey, (missingDefaults->size() > 1) ? $CompilerProperties$Errors::AnnotationMissingDefaultValue1(a->type, missingDefaults) : $CompilerProperties$Errors::AnnotationMissingDefaultValue(a->type, missingDefaults));
 		$nc(this->log)->error($(a->pos()), errorKey);
@@ -4806,36 +4288,34 @@ bool Check::validateAnnotation($JCTree$JCAnnotation* a) {
 }
 
 bool Check::validateTargetAnnotationValue($JCTree$JCAnnotation* a) {
-	$useLocalCurrentObjectStackCache();
-	if ($nc($nc($nc(a)->annotationType)->type)->tsym != $nc($nc(this->syms)->annotationTargetType)->tsym || $nc($nc(a)->args)->tail == nullptr) {
+	$useLocalObjectStack();
+	if ($nc($nc($nc(a)->annotationType)->type)->tsym != $nc($nc(this->syms)->annotationTargetType)->tsym || $nc(a->args)->tail == nullptr) {
 		return true;
 	}
 	bool isValid = true;
 	$init($JCTree$Tag);
-	if (!$nc(($cast($JCTree$JCExpression, $nc($nc(a)->args)->head)))->hasTag($JCTree$Tag::ASSIGN)) {
+	if (!$nc($cast($JCTree$JCExpression, $nc(a->args)->head))->hasTag($JCTree$Tag::ASSIGN)) {
 		return false;
 	}
-	$var($JCTree$JCAssign, assign, $cast($JCTree$JCAssign, $nc($nc(a)->args)->head));
+	$var($JCTree$JCAssign, assign, $cast($JCTree$JCAssign, $nc(a->args)->head));
 	$var($Symbol, m, $TreeInfo::symbol($nc(assign)->lhs));
 	if ($nc(m)->name != $nc(this->names)->value) {
 		return false;
 	}
-	$var($JCTree, rhs, $nc(assign)->rhs);
+	$var($JCTree, rhs, assign->rhs);
 	if (!$nc(rhs)->hasTag($JCTree$Tag::NEWARRAY)) {
 		return false;
 	}
 	$var($JCTree$JCNewArray, na, $cast($JCTree$JCNewArray, rhs));
 	$var($Set, targets, $new($HashSet));
 	{
-		$var($Iterator, i$, $nc($nc(na)->elems)->iterator());
+		$var($Iterator, i$, $nc(na->elems)->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($JCTree, elem, $cast($JCTree, i$->next()));
-			{
-				if (!targets->add($($TreeInfo::symbol(elem)))) {
-					isValid = false;
-					$init($CompilerProperties$Errors);
-					$nc(this->log)->error($($nc(elem)->pos()), $CompilerProperties$Errors::RepeatedAnnotationTarget);
-				}
+			if (!targets->add($($TreeInfo::symbol(elem)))) {
+				isValid = false;
+				$init($CompilerProperties$Errors);
+				$nc(this->log)->error($($nc(elem)->pos()), $CompilerProperties$Errors::RepeatedAnnotationTarget);
 			}
 		}
 	}
@@ -4843,208 +4323,196 @@ bool Check::validateTargetAnnotationValue($JCTree$JCAnnotation* a) {
 }
 
 void Check::checkDeprecatedAnnotation($JCDiagnostic$DiagnosticPosition* pos, $Symbol* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Lint$LintCategory);
 	bool var$3 = $nc(this->lint)->isEnabled($Lint$LintCategory::DEP_ANN);
 	bool var$2 = var$3 && $nc(s)->isDeprecatableViaAnnotation();
-	bool var$1 = var$2 && ((int64_t)(s->flags() & (uint64_t)(int64_t)0x00020000)) != 0;
+	bool var$1 = var$2 && (s->flags() & 0x00020000) != 0;
 	bool var$0 = var$1 && !$nc($nc(this->syms)->deprecatedType)->isErroneous();
-	if (var$0 && s->attribute($nc($nc(this->syms)->deprecatedType)->tsym) == nullptr) {
+	if (var$0 && s->attribute(this->syms->deprecatedType->tsym) == nullptr) {
 		$init($CompilerProperties$Warnings);
 		$nc(this->log)->warning($Lint$LintCategory::DEP_ANN, pos, $CompilerProperties$Warnings::MissingDeprecatedAnnotation);
 	}
 	bool var$4 = $nc(this->lint)->isEnabled($Lint$LintCategory::DEPRECATION);
 	if (var$4 && !$nc(s)->isDeprecatableViaAnnotation()) {
 		bool var$5 = !$nc($nc(this->syms)->deprecatedType)->isErroneous();
-		if (var$5 && s->attribute($nc($nc(this->syms)->deprecatedType)->tsym) != nullptr) {
+		if (var$5 && s->attribute(this->syms->deprecatedType->tsym) != nullptr) {
 			$nc(this->log)->warning($Lint$LintCategory::DEPRECATION, pos, $($CompilerProperties$Warnings::DeprecatedAnnotationHasNoEffect($($Kinds::kindName(s)))));
 		}
 	}
 }
 
 void Check::checkDeprecated($JCDiagnostic$DiagnosticPosition* pos, $Symbol* other, $Symbol* s) {
-	checkDeprecated(static_cast<$Supplier*>($$new(Check$$Lambda$lambda$checkDeprecated$10$10, pos)), other, s);
+	checkDeprecated($$new(Check$$Lambda$lambda$checkDeprecated$10$10, pos), other, s);
 }
 
 void Check::checkDeprecated($Supplier* pos, $Symbol* other, $Symbol* s) {
 	bool var$1 = $nc(s)->isDeprecatedForRemoval();
 	if (!var$1) {
-		bool var$2 = $nc(s)->isDeprecated();
+		bool var$2 = s->isDeprecated();
 		var$1 = var$2 && !$nc(other)->isDeprecated();
 	}
-	bool var$0 = (var$1);
+	bool var$0 = var$1;
 	if (var$0) {
-		bool var$3 = s->outermostClass() != other->outermostClass();
-		var$0 = (var$3 || s->outermostClass() == nullptr);
+		bool var$3 = s->outermostClass() != $nc(other)->outermostClass();
+		var$0 = var$3 || s->outermostClass() == nullptr;
 	}
 	$init($Kinds$Kind);
-	if (var$0 && $nc(s)->kind != $Kinds$Kind::PCK) {
-		$nc(this->deferredLintHandler)->report(static_cast<$DeferredLintHandler$LintLogger*>($$new(Check$$Lambda$lambda$checkDeprecated$11$11, this, pos, s)));
+	if (var$0 && s->kind != $Kinds$Kind::PCK) {
+		$nc(this->deferredLintHandler)->report($$new(Check$$Lambda$lambda$checkDeprecated$11$11, this, pos, s));
 	}
 }
 
 void Check::checkSunAPI($JCDiagnostic$DiagnosticPosition* pos, $Symbol* s) {
-	if (((int64_t)($nc(s)->flags() & (uint64_t)(int64_t)0x0000004000000000)) != 0) {
-		$nc(this->deferredLintHandler)->report(static_cast<$DeferredLintHandler$LintLogger*>($$new(Check$$Lambda$lambda$checkSunAPI$12$12, this, pos, s)));
+	if (($nc(s)->flags() & (int64_t)0x0000004000000000) != 0) {
+		$nc(this->deferredLintHandler)->report($$new(Check$$Lambda$lambda$checkSunAPI$12$12, this, pos, s));
 	}
 }
 
 void Check::checkProfile($JCDiagnostic$DiagnosticPosition* pos, $Symbol* s) {
 	$init($Profile);
-	if (this->profile != $Profile::DEFAULT && ((int64_t)($nc(s)->flags() & (uint64_t)(int64_t)0x0000200000000000)) != 0) {
+	if (this->profile != $Profile::DEFAULT && ($nc(s)->flags() & (int64_t)0x0000200000000000) != 0) {
 		$nc(this->log)->error(pos, $($CompilerProperties$Errors::NotInProfile(s, this->profile)));
 	}
 }
 
 void Check::checkPreview($JCDiagnostic$DiagnosticPosition* pos, $Symbol* other, $Symbol* s) {
-	$useLocalCurrentObjectStackCache();
-	bool var$0 = ((int64_t)($nc(s)->flags() & (uint64_t)(int64_t)0x0100000000000000)) != 0;
+	$useLocalObjectStack();
+	bool var$0 = ($nc(s)->flags() & (int64_t)0x0100000000000000) != 0;
 	if (var$0) {
 		var$0 = $nc($(s->packge()))->modle != $nc($($nc(other)->packge()))->modle;
 	}
 	if (var$0) {
-		if (((int64_t)(s->flags() & (uint64_t)(int64_t)0x0400000000000000)) == 0) {
+		if ((s->flags() & (int64_t)0x0400000000000000) == 0) {
 			if (!$nc(this->preview)->isEnabled()) {
 				$nc(this->log)->error(pos, $($CompilerProperties$Errors::IsPreview(s)));
 			} else {
-				$nc(this->preview)->markUsesPreview(pos);
-				$nc(this->deferredLintHandler)->report(static_cast<$DeferredLintHandler$LintLogger*>($$new(Check$$Lambda$lambda$checkPreview$13$13, this, pos, s)));
+				this->preview->markUsesPreview(pos);
+				$nc(this->deferredLintHandler)->report($$new(Check$$Lambda$lambda$checkPreview$13$13, this, pos, s));
 			}
 		} else {
-			$nc(this->deferredLintHandler)->report(static_cast<$DeferredLintHandler$LintLogger*>($$new(Check$$Lambda$lambda$checkPreview$14$14, this, pos, s)));
+			$nc(this->deferredLintHandler)->report($$new(Check$$Lambda$lambda$checkPreview$14$14, this, pos, s));
 		}
 	}
 	if ($nc(this->preview)->declaredUsingPreviewFeature(s)) {
-		if ($nc(this->preview)->isEnabled()) {
-			$nc(this->preview)->markUsesPreview(pos);
-			$nc(this->deferredLintHandler)->report(static_cast<$DeferredLintHandler$LintLogger*>($$new(Check$$Lambda$lambda$checkPreview$15$15, this, pos, s)));
+		if (this->preview->isEnabled()) {
+			this->preview->markUsesPreview(pos);
+			$nc(this->deferredLintHandler)->report($$new(Check$$Lambda$lambda$checkPreview$15$15, this, pos, s));
 		}
 	}
 }
 
 void Check::checkNonCyclicElements($JCTree$JCClassDecl* tree) {
-	$useLocalCurrentObjectStackCache();
-	if (((int64_t)($nc($nc(tree)->sym)->flags_field & (uint64_t)(int64_t)8192)) == 0) {
+	$useLocalObjectStack();
+	if (($nc($nc(tree)->sym)->flags_field & 0x2000) == 0) {
 		return;
 	}
-	$Assert::check(((int64_t)($nc($nc(tree)->sym)->flags_field & (uint64_t)(int64_t)0x08000000)) == 0);
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$nc($nc(tree)->sym)->flags_field |= 0x08000000;
-			{
-				$var($Iterator, i$, $nc(tree->defs)->iterator());
-				for (; $nc(i$)->hasNext();) {
-					$var($JCTree, def, $cast($JCTree, i$->next()));
-					{
-						$init($JCTree$Tag);
-						if (!$nc(def)->hasTag($JCTree$Tag::METHODDEF)) {
-							continue;
-						}
-						$var($JCTree$JCMethodDecl, meth, $cast($JCTree$JCMethodDecl, def));
-						checkAnnotationResType($($nc(meth)->pos()), $nc(meth->restype)->type);
+	$Assert::check((tree->sym->flags_field & 0x08000000) == 0);
+	$var($Throwable, var$0, nullptr);
+	try {
+		$nc(tree->sym)->flags_field |= 0x08000000;
+		{
+			$var($Iterator, i$, $nc(tree->defs)->iterator());
+			for (; $nc(i$)->hasNext();) {
+				$var($JCTree, def, $cast($JCTree, i$->next()));
+				{
+					$init($JCTree$Tag);
+					if (!$nc(def)->hasTag($JCTree$Tag::METHODDEF)) {
+						continue;
 					}
+					$var($JCTree$JCMethodDecl, meth, $cast($JCTree$JCMethodDecl, def));
+					checkAnnotationResType($(meth->pos()), $nc(meth->restype)->type);
 				}
 			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$nc($nc(tree)->sym)->flags_field &= (uint64_t)~0x08000000;
-			$nc(tree->sym)->flags_field |= 0x0000000800000000;
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$nc(tree->sym)->flags_field &= (uint64_t)~0x08000000;
+		tree->sym->flags_field |= (int64_t)0x0000000800000000;
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 void Check::checkNonCyclicElementsInternal($JCDiagnostic$DiagnosticPosition* pos, $Symbol$TypeSymbol* tsym) {
-	$useLocalCurrentObjectStackCache();
-	if (((int64_t)($nc(tsym)->flags_field & (uint64_t)(int64_t)0x0000000800000000)) != 0) {
+	$useLocalObjectStack();
+	if (($nc(tsym)->flags_field & (int64_t)0x0000000800000000) != 0) {
 		return;
 	}
-	if (((int64_t)($nc(tsym)->flags_field & (uint64_t)(int64_t)0x08000000)) != 0) {
+	if ((tsym->flags_field & 0x08000000) != 0) {
 		$nc(this->log)->error(pos, $($CompilerProperties$Errors::CyclicAnnotationElement(tsym)));
 		return;
 	}
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$nc(tsym)->flags_field |= 0x08000000;
-			{
-				$init($Scope$LookupKind);
-				$var($Iterator, i$, $nc($($nc($(tsym->members()))->getSymbols($Scope$LookupKind::NON_RECURSIVE)))->iterator());
-				for (; $nc(i$)->hasNext();) {
-					$var($Symbol, s, $cast($Symbol, i$->next()));
-					{
-						$init($Kinds$Kind);
-						if ($nc(s)->kind != $Kinds$Kind::MTH) {
-							continue;
-						}
-						checkAnnotationResType(pos, $($nc($nc(($cast($Symbol$MethodSymbol, s)))->type)->getReturnType()));
+	$var($Throwable, var$0, nullptr);
+	try {
+		tsym->flags_field |= 0x08000000;
+		{
+			$init($Scope$LookupKind);
+			$var($Iterator, i$, $$nc($$nc(tsym->members())->getSymbols($Scope$LookupKind::NON_RECURSIVE))->iterator());
+			for (; $nc(i$)->hasNext();) {
+				$var($Symbol, s, $cast($Symbol, i$->next()));
+				{
+					$init($Kinds$Kind);
+					if ($nc(s)->kind != $Kinds$Kind::MTH) {
+						continue;
 					}
+					checkAnnotationResType(pos, $($nc($cast($Symbol$MethodSymbol, s)->type)->getReturnType()));
 				}
 			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$nc(tsym)->flags_field &= (uint64_t)~0x08000000;
-			tsym->flags_field |= 0x0000000800000000;
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		tsym->flags_field &= (uint64_t)~0x08000000;
+		tsym->flags_field |= (int64_t)0x0000000800000000;
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 void Check::checkAnnotationResType($JCDiagnostic$DiagnosticPosition* pos, $Type* type) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Check$5);
-	switch ($nc($Check$5::$SwitchMap$com$sun$tools$javac$code$TypeTag)->get($nc(($($nc(type)->getTag())))->ordinal())) {
+	switch ($nc($Check$5::$SwitchMap$com$sun$tools$javac$code$TypeTag)->get(($$nc($nc(type)->getTag()))->ordinal())) {
 	case 1:
-		{
-			if (((int64_t)($nc(type->tsym)->flags() & (uint64_t)(int64_t)8192)) != 0) {
-				checkNonCyclicElementsInternal(pos, type->tsym);
-			}
-			break;
+		if (($nc(type->tsym)->flags() & 0x2000) != 0) {
+			checkNonCyclicElementsInternal(pos, type->tsym);
 		}
+		break;
 	case 2:
-		{
-			checkAnnotationResType(pos, $($nc(this->types)->elemtype(type)));
-			break;
-		}
+		checkAnnotationResType(pos, $($nc(this->types)->elemtype(type)));
+		break;
 	default:
-		{
-			break;
-		}
+		break;
 	}
 }
 
 void Check::checkCyclicConstructors($JCTree$JCClassDecl* tree) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Map, callMap, $new($HashMap));
 	{
 		$var($List, l, $nc(tree)->defs);
-		for (; $nc(l)->nonEmpty(); $assign(l, $nc(l)->tail)) {
+		for (; $nc(l)->nonEmpty(); $assign(l, l->tail)) {
 			$var($JCTree$JCMethodInvocation, app, $TreeInfo::firstConstructorCall($cast($JCTree, l->head)));
 			if (app == nullptr) {
 				continue;
 			}
 			$var($JCTree$JCMethodDecl, meth, $cast($JCTree$JCMethodDecl, l->head));
 			if ($TreeInfo::name($nc(app)->meth) == $nc(this->names)->_this) {
-				callMap->put($nc(meth)->sym, $($TreeInfo::symbol($nc(app)->meth)));
+				callMap->put($nc(meth)->sym, $($TreeInfo::symbol(app->meth)));
 			} else {
 				$nc($nc(meth)->sym)->flags_field |= 0x40000000;
 			}
 		}
 	}
 	$var($SymbolArray, ctors, $new($SymbolArray, 0));
-	$assign(ctors, $fcast($SymbolArray, $nc($(callMap->keySet()))->toArray(ctors)));
+	$assign(ctors, $cast($SymbolArray, $$nc(callMap->keySet())->toArray(ctors)));
 	{
 		$var($SymbolArray, arr$, ctors);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($Symbol, caller, arr$->get(i$));
 			{
 				checkCyclicConstructor(tree, caller, callMap);
@@ -5054,14 +4522,14 @@ void Check::checkCyclicConstructors($JCTree$JCClassDecl* tree) {
 }
 
 void Check::checkCyclicConstructor($JCTree$JCClassDecl* tree, $Symbol* ctor, $Map* callMap) {
-	$useLocalCurrentObjectStackCache();
-	if (ctor != nullptr && ((int64_t)(ctor->flags_field & (uint64_t)(int64_t)0x40000000)) == 0) {
-		if (((int64_t)(ctor->flags_field & (uint64_t)(int64_t)0x08000000)) != 0) {
+	$useLocalObjectStack();
+	if (ctor != nullptr && (ctor->flags_field & 0x40000000) == 0) {
+		if ((ctor->flags_field & 0x08000000) != 0) {
 			$init($CompilerProperties$Errors);
-			$nc(this->log)->error($($TreeInfo::diagnosticPositionFor(ctor, static_cast<$JCTree*>(tree))), $CompilerProperties$Errors::RecursiveCtorInvocation);
+			$nc(this->log)->error($($TreeInfo::diagnosticPositionFor(ctor, tree)), $CompilerProperties$Errors::RecursiveCtorInvocation);
 		} else {
 			ctor->flags_field |= 0x08000000;
-			checkCyclicConstructor(tree, $cast($Symbol, $($nc(callMap)->remove(ctor))), callMap);
+			checkCyclicConstructor(tree, $$cast($Symbol, $nc(callMap)->remove(ctor)), callMap);
 			ctor->flags_field &= (uint64_t)~0x08000000;
 		}
 		ctor->flags_field |= 0x40000000;
@@ -5069,14 +4537,14 @@ void Check::checkCyclicConstructor($JCTree$JCClassDecl* tree, $Symbol* ctor, $Ma
 }
 
 void Check::checkDivZero($JCDiagnostic$DiagnosticPosition* pos, $Symbol* operator$, $Type* operand) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool var$1 = $nc(operand)->constValue() != nullptr;
 	$init($TypeTag);
-	bool var$0 = var$1 && $nc($(operand->getTag()))->isSubRangeOf($TypeTag::LONG);
-	if (var$0 && $nc((($cast($Number, $(operand->constValue())))))->longValue() == 0) {
-		int32_t opc = $nc(($cast($Symbol$OperatorSymbol, operator$)))->opcode;
+	bool var$0 = var$1 && $$nc(operand->getTag())->isSubRangeOf($TypeTag::LONG);
+	if (var$0 && $$cast($Number, operand->constValue())->longValue() == 0) {
+		int32_t opc = $nc($cast($Symbol$OperatorSymbol, operator$))->opcode;
 		if (opc == $ByteCodes::idiv || opc == $ByteCodes::imod || opc == $ByteCodes::ldiv || opc == $ByteCodes::lmod) {
-			$nc(this->deferredLintHandler)->report(static_cast<$DeferredLintHandler$LintLogger*>($$new(Check$$Lambda$lambda$checkDivZero$16$16, this, pos)));
+			$nc(this->deferredLintHandler)->report($$new(Check$$Lambda$lambda$checkDivZero$16$16, this, pos));
 		}
 	}
 }
@@ -5092,49 +4560,49 @@ void Check::checkEmptyIf($JCTree$JCIf* tree) {
 }
 
 bool Check::checkUnique($JCDiagnostic$DiagnosticPosition* pos, $Symbol* sym, $Scope* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc($nc(sym)->type)->isErroneous()) {
 		return true;
 	}
-	if ($nc($nc(sym)->owner)->name == $nc(this->names)->any) {
+	if ($nc(sym->owner)->name == $nc(this->names)->any) {
 		return false;
 	}
 	{
 		$init($Scope$LookupKind);
-		$var($Iterator, i$, $nc($($nc(s)->getSymbolsByName($nc(sym)->name, $Scope$LookupKind::NON_RECURSIVE)))->iterator());
+		$var($Iterator, i$, $$nc($nc(s)->getSymbolsByName(sym->name, $Scope$LookupKind::NON_RECURSIVE))->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Symbol, byName, $cast($Symbol, i$->next()));
 			{
-				bool var$0 = sym != byName && ((int64_t)($nc(byName)->flags() & (uint64_t)(int64_t)0x0000040000000000)) == 0 && $nc(sym)->kind == byName->kind && sym->name != $nc(this->names)->error;
+				bool var$0 = sym != byName && ($nc(byName)->flags() & (int64_t)0x0000040000000000) == 0 && sym->kind == byName->kind && sym->name != this->names->error;
 				if (var$0) {
 					$init($Kinds$Kind);
-					bool var$1 = sym->kind != $Kinds$Kind::MTH || $nc(this->types)->hasSameArgs($nc(sym)->type, $nc(byName)->type);
+					bool var$1 = sym->kind != $Kinds$Kind::MTH || $nc(this->types)->hasSameArgs(sym->type, byName->type);
 					if (!var$1) {
-						$var($Type, var$2, $nc(this->types)->erasure($nc(sym)->type));
-						var$1 = $nc(this->types)->hasSameArgs(var$2, $($nc(this->types)->erasure($nc(byName)->type)));
+						$var($Type, var$2, $nc(this->types)->erasure(sym->type));
+						var$1 = $nc(this->types)->hasSameArgs(var$2, $(this->types->erasure(byName->type)));
 					}
-					var$0 = (var$1);
+					var$0 = var$1;
 				}
 				if (var$0) {
-					int64_t var$3 = ((int64_t)($nc(sym)->flags() & (uint64_t)(int64_t)0x0000000400000000));
-					if (var$3 != ((int64_t)($nc(byName)->flags() & (uint64_t)(int64_t)0x0000000400000000))) {
-						sym->flags_field |= 0x0000040000000000;
+					int64_t var$3 = sym->flags() & (int64_t)0x0000000400000000;
+					if (var$3 != ($nc(byName)->flags() & (int64_t)0x0000000400000000)) {
+						sym->flags_field |= (int64_t)0x0000040000000000;
 						varargsDuplicateError(pos, sym, byName);
 						return true;
 					} else {
 						$init($Kinds$Kind);
 						if (sym->kind == $Kinds$Kind::MTH && !$nc(this->types)->hasSameArgs(sym->type, byName->type, false)) {
 							duplicateErasureError(pos, sym, byName);
-							sym->flags_field |= 0x0000040000000000;
+							sym->flags_field |= (int64_t)0x0000040000000000;
 							return true;
 						} else {
-							bool var$7 = ((int64_t)(sym->flags() & (uint64_t)(int64_t)0x0800000000000000)) != 0;
-							bool var$6 = var$7 && ((int64_t)(byName->flags() & (uint64_t)(int64_t)0x0800000000000000)) != 0;
-							if (var$6 && ((int64_t)(byName->flags() & (uint64_t)(int64_t)0x1000000000000000)) == 0) {
+							bool var$5 = (sym->flags() & (int64_t)0x0800000000000000) != 0;
+							bool var$4 = var$5 && (byName->flags() & (int64_t)0x0800000000000000) != 0;
+							if (var$4 && (byName->flags() & (int64_t)0x1000000000000000) == 0) {
 								if (!$nc(sym->type)->isErroneous()) {
 									$init($CompilerProperties$Errors);
 									$nc(this->log)->error(pos, $CompilerProperties$Errors::MatchBindingExists);
-									sym->flags_field |= 0x0000040000000000;
+									sym->flags_field |= (int64_t)0x0000040000000000;
 								}
 								return false;
 							} else {
@@ -5158,10 +4626,10 @@ void Check::duplicateErasureError($JCDiagnostic$DiagnosticPosition* pos, $Symbol
 }
 
 void Check::checkImportsUnique($JCTree$JCCompilationUnit* toplevel) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Scope$WriteableScope, ordinallyImportedSoFar, $Scope$WriteableScope::create($nc(toplevel)->packge));
-	$var($Scope$WriteableScope, staticallyImportedSoFar, $Scope$WriteableScope::create($nc(toplevel)->packge));
-	$var($Scope$WriteableScope, topLevelScope, $nc(toplevel)->toplevelScope);
+	$var($Scope$WriteableScope, staticallyImportedSoFar, $Scope$WriteableScope::create(toplevel->packge));
+	$var($Scope$WriteableScope, topLevelScope, toplevel->toplevelScope);
 	{
 		$var($Iterator, i$, $nc(toplevel->defs)->iterator());
 		for (; $nc(i$)->hasNext();) {
@@ -5172,21 +4640,19 @@ void Check::checkImportsUnique($JCTree$JCCompilationUnit* toplevel) {
 					continue;
 				}
 				$var($JCTree$JCImport, imp, $cast($JCTree$JCImport, def));
-				if ($nc(imp)->importScope == nullptr) {
+				if (imp->importScope == nullptr) {
 					continue;
 				}
 				{
-					$var($Iterator, i$, $nc($($nc($nc(imp)->importScope)->getSymbols(static_cast<$Predicate*>($$new(Check$$Lambda$lambda$checkImportsUnique$17$17)))))->iterator());
+					$var($Iterator, i$, $$nc($nc(imp->importScope)->getSymbols($$new(Check$$Lambda$lambda$checkImportsUnique$17$17)))->iterator());
 					for (; $nc(i$)->hasNext();) {
 						$var($Symbol, sym, $cast($Symbol, i$->next()));
-						{
-							if (imp->isStatic()) {
-								checkUniqueImport($(imp->pos()), ordinallyImportedSoFar, staticallyImportedSoFar, topLevelScope, sym, true);
-								$nc(staticallyImportedSoFar)->enter(sym);
-							} else {
-								checkUniqueImport($(imp->pos()), ordinallyImportedSoFar, staticallyImportedSoFar, topLevelScope, sym, false);
-								$nc(ordinallyImportedSoFar)->enter(sym);
-							}
+						if (imp->isStatic()) {
+							checkUniqueImport($(imp->pos()), ordinallyImportedSoFar, staticallyImportedSoFar, topLevelScope, sym, true);
+							$nc(staticallyImportedSoFar)->enter(sym);
+						} else {
+							checkUniqueImport($(imp->pos()), ordinallyImportedSoFar, staticallyImportedSoFar, topLevelScope, sym, false);
+							$nc(ordinallyImportedSoFar)->enter(sym);
 						}
 					}
 				}
@@ -5197,12 +4663,12 @@ void Check::checkImportsUnique($JCTree$JCCompilationUnit* toplevel) {
 }
 
 bool Check::checkUniqueImport($JCDiagnostic$DiagnosticPosition* pos, $Scope* ordinallyImportedSoFar, $Scope* staticallyImportedSoFar, $Scope* topLevelScope, $Symbol* sym, bool staticImport) {
-	$useLocalCurrentObjectStackCache();
-	$var($Predicate, duplicates, static_cast<$Predicate*>($new(Check$$Lambda$lambda$checkUniqueImport$18$18, sym)));
+	$useLocalObjectStack();
+	$var($Predicate, duplicates, $new(Check$$Lambda$lambda$checkUniqueImport$18$18, sym));
 	$var($Symbol, ordinaryClashing, $nc(ordinallyImportedSoFar)->findFirst($nc(sym)->name, duplicates));
 	$var($Symbol, staticClashing, nullptr);
 	if (ordinaryClashing == nullptr && !staticImport) {
-		$assign(staticClashing, $nc(staticallyImportedSoFar)->findFirst($nc(sym)->name, duplicates));
+		$assign(staticClashing, $nc(staticallyImportedSoFar)->findFirst(sym->name, duplicates));
 	}
 	if (ordinaryClashing != nullptr || staticClashing != nullptr) {
 		if (ordinaryClashing != nullptr) {
@@ -5212,7 +4678,7 @@ bool Check::checkUniqueImport($JCDiagnostic$DiagnosticPosition* pos, $Scope* ord
 		}
 		return false;
 	}
-	$var($Symbol, clashing, $nc(topLevelScope)->findFirst($nc(sym)->name, duplicates));
+	$var($Symbol, clashing, $nc(topLevelScope)->findFirst(sym->name, duplicates));
 	if (clashing != nullptr) {
 		$nc(this->log)->error(pos, $($CompilerProperties$Errors::AlreadyDefinedThisUnit(clashing)));
 		return false;
@@ -5221,7 +4687,7 @@ bool Check::checkUniqueImport($JCDiagnostic$DiagnosticPosition* pos, $Scope* ord
 }
 
 void Check::checkCanonical($JCTree* tree) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!isCanonical(tree)) {
 		$var($JCDiagnostic$DiagnosticPosition, var$0, $nc(tree)->pos());
 		$nc(this->log)->error(var$0, $($CompilerProperties$Errors::ImportRequiresCanonical($($TreeInfo::symbol(tree)))));
@@ -5229,12 +4695,12 @@ void Check::checkCanonical($JCTree* tree) {
 }
 
 bool Check::isCanonical($JCTree* tree$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JCTree, tree, tree$renamed);
 	$init($JCTree$Tag);
 	while ($nc(tree)->hasTag($JCTree$Tag::SELECT)) {
 		$var($JCTree$JCFieldAccess, s, $cast($JCTree$JCFieldAccess, tree));
-		if ($nc($nc(s->sym)->owner)->getQualifiedName() != $nc($($TreeInfo::symbol(s->selected)))->getQualifiedName()) {
+		if ($nc($nc(s->sym)->owner)->getQualifiedName() != $$nc($TreeInfo::symbol(s->selected))->getQualifiedName()) {
 			return false;
 		}
 		$assign(tree, s->selected);
@@ -5245,53 +4711,47 @@ bool Check::isCanonical($JCTree* tree$renamed) {
 void Check::checkForBadAuxiliaryClassAccess($JCDiagnostic$DiagnosticPosition* pos, $Env* env, $Symbol$ClassSymbol* c) {
 	$init($Lint$LintCategory);
 	bool var$2 = $nc(this->lint)->isEnabled($Lint$LintCategory::AUXILIARYCLASS);
-	bool var$1 = var$2 && ((int64_t)($nc(c)->flags() & (uint64_t)(int64_t)0x0000100000000000)) != 0;
-	bool var$0 = var$1 && $nc(this->rs)->isAccessible(env, static_cast<$Symbol$TypeSymbol*>(c));
+	bool var$1 = var$2 && ($nc(c)->flags() & (int64_t)0x0000100000000000) != 0;
+	bool var$0 = var$1 && $nc(this->rs)->isAccessible(env, c);
 	if (var$0 && !$nc(this->fileManager)->isSameFile(c->sourcefile, $nc($nc(env)->toplevel)->sourcefile)) {
-		$nc(this->log)->warning(pos, $($CompilerProperties$Warnings::AuxiliaryClassAccessedFromOutsideOfItsSourceFile(static_cast<$Symbol*>(c), c->sourcefile)));
+		$nc(this->log)->warning(pos, $($CompilerProperties$Warnings::AuxiliaryClassAccessedFromOutsideOfItsSourceFile(c, c->sourcefile)));
 	}
 }
 
 void Check::checkDefaultConstructor($Symbol$ClassSymbol* c, $JCDiagnostic$DiagnosticPosition* pos) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Lint$LintCategory);
 	bool var$3 = $nc(this->lint)->isEnabled($Lint$LintCategory::MISSING_EXPLICIT_CTOR);
-	bool var$2 = var$3 && (((int64_t)($nc(c)->flags() & (uint64_t)(16384 | (int64_t)0x2000000000000000))) == 0);
+	bool var$2 = var$3 && (($nc(c)->flags() & (0x4000 | (int64_t)0x2000000000000000)) == 0);
 	bool var$1 = var$2 && !c->isAnonymous();
-	bool var$0 = var$1 && (((int64_t)(c->flags() & (uint64_t)(int64_t)(1 | 4))) != 0);
+	bool var$0 = var$1 && ((c->flags() & (1 | 4)) != 0);
 	$init($Source$Feature);
 	if (var$0 && $Source$Feature::MODULES->allowedInSource(this->source)) {
 		$NestingKind* nestingKind = c->getNestingKind();
 		$init($Check$5);
 		switch ($nc($Check$5::$SwitchMap$javax$lang$model$element$NestingKind)->get($nc((nestingKind))->ordinal())) {
 		case 1:
-			{}
 		case 2:
 			{
-				{
-					return;
-				}
+				return;
 			}
 		case 3:
 			{
-				{
-				}
-				break;
+				;
 			}
+			break;
 		case 4:
 			{
-				{
-					$var($Symbol, owner, c->owner);
-					$init($Kinds$Kind);
-					while (owner != nullptr && owner->kind == $Kinds$Kind::TYP) {
-						if (((int64_t)(owner->flags() & (uint64_t)(int64_t)(1 | 4))) == 0) {
-							return;
-						}
-						$assign(owner, owner->owner);
+				$var($Symbol, owner, c->owner);
+				$init($Kinds$Kind);
+				while (owner != nullptr && owner->kind == $Kinds$Kind::TYP) {
+					if ((owner->flags() & (1 | 4)) == 0) {
+						return;
 					}
+					$assign(owner, owner->owner);
 				}
-				break;
 			}
+			break;
 		}
 		$var($Symbol$PackageSymbol, pkg, c->packge());
 		if (!$nc(pkg)->isUnnamed()) {
@@ -5300,13 +4760,11 @@ void Check::checkDefaultConstructor($Symbol$ClassSymbol* c, $JCDiagnostic$Diagno
 				$var($Iterator, i$, $nc($nc(modle)->exports)->iterator());
 				for (; $nc(i$)->hasNext();) {
 					$var($Directive$ExportsDirective, exportDir, $cast($Directive$ExportsDirective, i$->next()));
-					{
-						if ($nc($of($nc(exportDir)->packge))->equals(pkg)) {
-							if (exportDir->modules == nullptr || $nc(exportDir->modules)->isEmpty()) {
-								$nc(this->deferredLintHandler)->report(static_cast<$DeferredLintHandler$LintLogger*>($$new(Check$$Lambda$lambda$checkDefaultConstructor$19$19, this, pos, c, pkg, modle)));
-							} else {
-								return;
-							}
+					if ($nc($nc(exportDir)->packge)->equals(pkg)) {
+						if (exportDir->modules == nullptr || exportDir->modules->isEmpty()) {
+							$nc(this->deferredLintHandler)->report($$new(Check$$Lambda$lambda$checkDefaultConstructor$19$19, this, pos, c, pkg, modle));
+						} else {
+							return;
 						}
 					}
 				}
@@ -5325,22 +4783,20 @@ $Warner* Check::convertWarner($JCDiagnostic$DiagnosticPosition* pos, $Type* foun
 }
 
 void Check::checkFunctionalInterface($JCTree$JCClassDecl* tree, $Symbol$ClassSymbol* cs) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Attribute$Compound, functionalType, $nc(cs)->attribute($nc($nc(this->syms)->functionalInterfaceType)->tsym));
 	if (functionalType != nullptr) {
 		try {
-			$nc(this->types)->findDescriptorSymbol(static_cast<$Symbol$TypeSymbol*>(cs));
+			$nc(this->types)->findDescriptorSymbol($cast($Symbol$TypeSymbol, cs));
 		} catch ($Types$FunctionDescriptorLookupError& ex) {
 			$var($JCDiagnostic$DiagnosticPosition, pos, $nc(tree)->pos());
 			{
-				$var($Iterator, i$, $nc($nc($($cast($JCTree$JCModifiers, tree->getModifiers())))->annotations)->iterator());
+				$var($Iterator, i$, $nc($nc($$cast($JCTree$JCModifiers, tree->getModifiers()))->annotations)->iterator());
 				for (; $nc(i$)->hasNext();) {
 					$var($JCTree$JCAnnotation, a, $cast($JCTree$JCAnnotation, i$->next()));
-					{
-						if ($nc($nc($nc(a)->annotationType)->type)->tsym == $nc($nc(this->syms)->functionalInterfaceType)->tsym) {
-							$assign(pos, a->pos());
-							break;
-						}
+					if ($nc($nc($nc(a)->annotationType)->type)->tsym == this->syms->functionalInterfaceType->tsym) {
+						$assign(pos, a->pos());
+						break;
 					}
 				}
 			}
@@ -5350,62 +4806,56 @@ void Check::checkFunctionalInterface($JCTree$JCClassDecl* tree, $Symbol$ClassSym
 }
 
 void Check::checkImportsResolvable($JCTree$JCCompilationUnit* toplevel) {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Iterator, i$, $nc($($cast($List, $nc(toplevel)->getImports())))->iterator());
-		for (; $nc(i$)->hasNext();) {
-			$var($JCTree$JCImport, imp, $cast($JCTree$JCImport, i$->next()));
-			{
-				$init($JCTree$Tag);
-				if (!$nc(imp)->staticImport || !$nc($nc(imp)->qualid)->hasTag($JCTree$Tag::SELECT)) {
-					continue;
-				}
-				$var($JCTree$JCFieldAccess, select, $cast($JCTree$JCFieldAccess, $nc(imp)->qualid));
-				$var($Symbol, origin, nullptr);
-				bool var$0 = $nc(select)->name == $nc(this->names)->asterisk || ($assign(origin, $TreeInfo::symbol($nc(select)->selected))) == nullptr;
-				$init($Kinds$Kind);
-				if (var$0 || $nc(origin)->kind != $Kinds$Kind::TYP) {
-					continue;
-				}
-				$var($Symbol$TypeSymbol, site, $cast($Symbol$TypeSymbol, $TreeInfo::symbol($nc(select)->selected)));
-				if (!checkTypeContainsImportableElement(site, site, toplevel->packge, $nc(select)->name, $$new($HashSet))) {
-					$var($JCDiagnostic$DiagnosticPosition, var$1, imp->pos());
-					$init($Kinds$KindName);
-					$nc(this->log)->error(var$1, $($CompilerProperties$Errors::CantResolveLocation($Kinds$KindName::STATIC, $nc(select)->name, ($Void*)nullptr, ($Void*)nullptr, $($CompilerProperties$Fragments::Location($($Kinds::kindName(static_cast<$Symbol*>(site))), static_cast<$Symbol*>(site), ($Void*)nullptr)))));
-				}
+	$useLocalObjectStack();
+	$var($Iterator, i$, $$sure($List, $nc(toplevel)->getImports())->iterator());
+	for (; $nc(i$)->hasNext();) {
+		$var($JCTree$JCImport, imp, $cast($JCTree$JCImport, i$->next()));
+		{
+			$init($JCTree$Tag);
+			if (!$nc(imp)->staticImport || !$nc(imp->qualid)->hasTag($JCTree$Tag::SELECT)) {
+				continue;
+			}
+			$var($JCTree$JCFieldAccess, select, $cast($JCTree$JCFieldAccess, imp->qualid));
+			$var($Symbol, origin, nullptr);
+			bool var$0 = $nc(select)->name == $nc(this->names)->asterisk || ($assign(origin, $TreeInfo::symbol(select->selected))) == nullptr;
+			$init($Kinds$Kind);
+			if (var$0 || $nc(origin)->kind != $Kinds$Kind::TYP) {
+				continue;
+			}
+			$var($Symbol$TypeSymbol, site, $cast($Symbol$TypeSymbol, $TreeInfo::symbol(select->selected)));
+			if (!checkTypeContainsImportableElement(site, site, toplevel->packge, select->name, $$new($HashSet))) {
+				$var($JCDiagnostic$DiagnosticPosition, var$1, imp->pos());
+				$init($Kinds$KindName);
+				$nc(this->log)->error(var$1, $($CompilerProperties$Errors::CantResolveLocation($Kinds$KindName::STATIC, select->name, nullptr, nullptr, $($CompilerProperties$Fragments::Location($($Kinds::kindName(site)), site, nullptr)))));
 			}
 		}
 	}
 }
 
 void Check::checkImportedPackagesObservable($JCTree$JCCompilationUnit* toplevel) {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Iterator, i$, $nc($($cast($List, $nc(toplevel)->getImports())))->iterator());
-		for (; $nc(i$)->hasNext();) {
-			$var($JCTree$JCImport, imp, $cast($JCTree$JCImport, i$->next()));
-			{
-				if (!$nc(imp)->staticImport && $TreeInfo::name(imp->qualid) == $nc(this->names)->asterisk) {
-					$var($Symbol$TypeSymbol, tsym, $nc($nc($nc(($cast($JCTree$JCFieldAccess, imp->qualid)))->selected)->type)->tsym);
-					$init($Kinds$Kind);
-					bool var$0 = $nc(tsym)->kind == $Kinds$Kind::PCK && $nc($(tsym->members()))->isEmpty();
-					if (var$0) {
-						$init($Source$Feature);
-						bool var$1 = $Source$Feature::IMPORT_ON_DEMAND_OBSERVABLE_PACKAGES->allowedInSource(this->source);
-						var$0 = !(var$1 && tsym->exists());
-					}
-					if (var$0) {
-						$init($JCDiagnostic$DiagnosticFlag);
-						$nc(this->log)->error($JCDiagnostic$DiagnosticFlag::RESOLVE_ERROR, imp->pos$, $($CompilerProperties$Errors::DoesntExist(tsym)));
-					}
-				}
+	$useLocalObjectStack();
+	$var($Iterator, i$, $$sure($List, $nc(toplevel)->getImports())->iterator());
+	for (; $nc(i$)->hasNext();) {
+		$var($JCTree$JCImport, imp, $cast($JCTree$JCImport, i$->next()));
+		if (!$nc(imp)->staticImport && $TreeInfo::name(imp->qualid) == $nc(this->names)->asterisk) {
+			$var($Symbol$TypeSymbol, tsym, $nc($nc($nc($cast($JCTree$JCFieldAccess, imp->qualid))->selected)->type)->tsym);
+			$init($Kinds$Kind);
+			bool var$0 = $nc(tsym)->kind == $Kinds$Kind::PCK && $$nc(tsym->members())->isEmpty();
+			if (var$0) {
+				$init($Source$Feature);
+				bool var$1 = $Source$Feature::IMPORT_ON_DEMAND_OBSERVABLE_PACKAGES->allowedInSource(this->source);
+				var$0 = !(var$1 && tsym->exists());
+			}
+			if (var$0) {
+				$init($JCDiagnostic$DiagnosticFlag);
+				$nc(this->log)->error($JCDiagnostic$DiagnosticFlag::RESOLVE_ERROR, imp->pos$, $($CompilerProperties$Errors::DoesntExist(tsym)));
 			}
 		}
 	}
 }
 
 bool Check::checkTypeContainsImportableElement($Symbol$TypeSymbol* tsym, $Symbol$TypeSymbol* origin, $Symbol$PackageSymbol* packge, $Name* name, $Set* processed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (tsym == nullptr || !$nc(processed)->add(tsym)) {
 		return false;
 	}
@@ -5413,7 +4863,7 @@ bool Check::checkTypeContainsImportableElement($Symbol$TypeSymbol* tsym, $Symbol
 		return true;
 	}
 	{
-		$var($Iterator, i$, $nc($($nc(this->types)->interfaces($nc(tsym)->type)))->iterator());
+		$var($Iterator, i$, $$nc(this->types->interfaces(tsym->type))->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Type, t, $cast($Type, i$->next()));
 			if (checkTypeContainsImportableElement($nc(t)->tsym, origin, packge, name, processed)) {
@@ -5422,7 +4872,7 @@ bool Check::checkTypeContainsImportableElement($Symbol$TypeSymbol* tsym, $Symbol
 		}
 	}
 	{
-		$var($Iterator, i$, $nc($($nc($($nc(tsym)->members()))->getSymbolsByName(name)))->iterator());
+		$var($Iterator, i$, $$nc($$nc(tsym->members())->getSymbolsByName(name))->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Symbol, sym, $cast($Symbol, i$->next()));
 			{
@@ -5439,24 +4889,16 @@ bool Check::checkTypeContainsImportableElement($Symbol$TypeSymbol* tsym, $Symbol
 
 bool Check::importAccessible($Symbol* sym, $Symbol$PackageSymbol* packge) {
 	try {
-		int32_t flags = (int32_t)((int64_t)($nc(sym)->flags() & (uint64_t)(int64_t)7));
+		int32_t flags = (int32_t)($nc(sym)->flags() & 7);
 		switch (flags) {
 		default:
-			{}
 		case 1:
-			{
-				return true;
-			}
+			return true;
 		case 2:
-			{
-				return false;
-			}
+			return false;
 		case 0:
-			{}
 		case 4:
-			{
-				return sym->packge() == packge;
-			}
+			return sym->packge() == packge;
 		}
 	} catch ($ClassFinder$BadClassFile& err) {
 		$throw(err);
@@ -5467,29 +4909,25 @@ bool Check::importAccessible($Symbol* sym, $Symbol$PackageSymbol* packge) {
 }
 
 void Check::checkLeaksNotAccessible($Env* env, $JCTree$JCClassDecl* check) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JCTree$JCCompilationUnit, toplevel, $nc(env)->toplevel);
-	if ($nc(toplevel)->modle == $nc(this->syms)->unnamedModule || $nc(toplevel)->modle == $nc(this->syms)->noModule || ((int64_t)($nc($nc(check)->sym)->flags() & (uint64_t)(int64_t)0x01000000)) != 0) {
+	if ($nc(toplevel)->modle == $nc(this->syms)->unnamedModule || toplevel->modle == this->syms->noModule || ($nc($nc(check)->sym)->flags() & 0x01000000) != 0) {
 		return;
 	}
-	$var($Directive$ExportsDirective, currentExport, findExport($nc(toplevel)->packge));
-	if (currentExport == nullptr || $nc(currentExport)->modules != nullptr) {
+	$var($Directive$ExportsDirective, currentExport, findExport(toplevel->packge));
+	if (currentExport == nullptr || currentExport->modules != nullptr) {
 		return;
 	}
-	$$new($Check$4, this, env, check, toplevel)->scan(static_cast<$JCTree*>(check));
+	$$new($Check$4, this, env, check, toplevel)->scan(check);
 }
 
 $Directive$ExportsDirective* Check::findExport($Symbol$PackageSymbol* pack) {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Iterator, i$, $nc($nc($nc(pack)->modle)->exports)->iterator());
-		for (; $nc(i$)->hasNext();) {
-			$var($Directive$ExportsDirective, d, $cast($Directive$ExportsDirective, i$->next()));
-			{
-				if ($nc(d)->packge == pack) {
-					return d;
-				}
-			}
+	$useLocalObjectStack();
+	$var($Iterator, i$, $nc($nc($nc(pack)->modle)->exports)->iterator());
+	for (; $nc(i$)->hasNext();) {
+		$var($Directive$ExportsDirective, d, $cast($Directive$ExportsDirective, i$->next()));
+		if ($nc(d)->packge == pack) {
+			return d;
 		}
 	}
 	return nullptr;
@@ -5499,8 +4937,8 @@ bool Check::isAPISymbol($Symbol* sym$renamed) {
 	$var($Symbol, sym, sym$renamed);
 	$init($Kinds$Kind);
 	while ($nc(sym)->kind != $Kinds$Kind::PCK) {
-		bool var$0 = ((int64_t)(sym->flags() & (uint64_t)(int64_t)$Flags::PUBLIC)) == 0;
-		if (var$0 && ((int64_t)(sym->flags() & (uint64_t)(int64_t)$Flags::PROTECTED)) == 0) {
+		bool var$0 = (sym->flags() & $Flags::PUBLIC) == 0;
+		if (var$0 && (sym->flags() & $Flags::PROTECTED) == 0) {
 			return false;
 		}
 		$assign(sym, sym->owner);
@@ -5509,12 +4947,11 @@ bool Check::isAPISymbol($Symbol* sym$renamed) {
 }
 
 void Check::checkVisible($JCDiagnostic$DiagnosticPosition* pos, $Symbol* what, $Symbol$PackageSymbol* inPackage, bool inSuperType) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!isAPISymbol(what) && !inSuperType) {
 		$init($Lint$LintCategory);
 		$var($Kinds$KindName, var$0, $Kinds::kindName(what));
-		$var($Symbol, var$1, what);
-		$nc(this->log)->warning($Lint$LintCategory::EXPORTS, pos, $($CompilerProperties$Warnings::LeaksNotAccessible(var$0, var$1, $nc($($nc(what)->packge()))->modle)));
+		$nc(this->log)->warning($Lint$LintCategory::EXPORTS, pos, $($CompilerProperties$Warnings::LeaksNotAccessible(var$0, what, $nc($($nc(what)->packge()))->modle)));
 		return;
 	}
 	$var($Symbol$PackageSymbol, whatPackage, $nc(what)->packge());
@@ -5522,17 +4959,15 @@ void Check::checkVisible($JCDiagnostic$DiagnosticPosition* pos, $Symbol* what, $
 	$var($Directive$ExportsDirective, inExport, findExport(inPackage));
 	if (whatExport == nullptr) {
 		$init($Lint$LintCategory);
-		$var($Kinds$KindName, var$2, $Kinds::kindName(what));
-		$var($Symbol, var$3, what);
-		$nc(this->log)->warning($Lint$LintCategory::EXPORTS, pos, $($CompilerProperties$Warnings::LeaksNotAccessibleUnexported(var$2, var$3, $nc($(what->packge()))->modle)));
+		$var($Kinds$KindName, var$1, $Kinds::kindName(what));
+		$nc(this->log)->warning($Lint$LintCategory::EXPORTS, pos, $($CompilerProperties$Warnings::LeaksNotAccessibleUnexported(var$1, what, $nc($(what->packge()))->modle)));
 		return;
 	}
 	if ($nc(whatExport)->modules != nullptr) {
-		if ($nc(inExport)->modules == nullptr || !$nc(whatExport->modules)->containsAll(static_cast<$Collection*>(static_cast<$AbstractCollection*>($nc(inExport)->modules)))) {
+		if ($nc(inExport)->modules == nullptr || !whatExport->modules->containsAll($cast($AbstractCollection, inExport->modules))) {
 			$init($Lint$LintCategory);
-			$var($Kinds$KindName, var$4, $Kinds::kindName(what));
-			$var($Symbol, var$5, what);
-			$nc(this->log)->warning($Lint$LintCategory::EXPORTS, pos, $($CompilerProperties$Warnings::LeaksNotAccessibleUnexportedQualified(var$4, var$5, $nc($(what->packge()))->modle)));
+			$var($Kinds$KindName, var$2, $Kinds::kindName(what));
+			$nc(this->log)->warning($Lint$LintCategory::EXPORTS, pos, $($CompilerProperties$Warnings::LeaksNotAccessibleUnexportedQualified(var$2, what, $nc($(what->packge()))->modle)));
 		}
 	}
 	if ($nc(whatPackage)->modle != $nc(inPackage)->modle && whatPackage->modle != $nc(this->syms)->java_base) {
@@ -5543,51 +4978,48 @@ void Check::checkVisible($JCDiagnostic$DiagnosticPosition* pos, $Symbol* what, $
 			if (current == whatPackage->modle) {
 				return;
 			}
-			if (((int64_t)($nc(current)->flags() & (uint64_t)$Flags::AUTOMATIC_MODULE)) != 0) {
+			if (($nc(current)->flags() & $Flags::AUTOMATIC_MODULE) != 0) {
 				continue;
 			}
 			{
-				$var($Iterator, i$, $nc($nc(current)->requires)->iterator());
+				$var($Iterator, i$, $nc(current->requires)->iterator());
 				for (; $nc(i$)->hasNext();) {
 					$var($Directive$RequiresDirective, req, $cast($Directive$RequiresDirective, i$->next()));
-					{
-						if ($nc(req)->isTransitive()) {
-							$assign(todo, $nc(todo)->prepend(req->module));
-						}
+					if ($nc(req)->isTransitive()) {
+						$assign(todo, $nc(todo)->prepend(req->module));
 					}
 				}
 			}
 		}
 		$init($Lint$LintCategory);
-		$var($Kinds$KindName, var$6, $Kinds::kindName(what));
-		$var($Symbol, var$7, what);
-		$nc(this->log)->warning($Lint$LintCategory::EXPORTS, pos, $($CompilerProperties$Warnings::LeaksNotAccessibleNotRequiredTransitive(var$6, var$7, $nc($(what->packge()))->modle)));
+		$var($Kinds$KindName, var$3, $Kinds::kindName(what));
+		$nc(this->log)->warning($Lint$LintCategory::EXPORTS, pos, $($CompilerProperties$Warnings::LeaksNotAccessibleNotRequiredTransitive(var$3, what, $nc($(what->packge()))->modle)));
 	}
 }
 
 void Check::checkModuleExists($JCDiagnostic$DiagnosticPosition* pos, $Symbol$ModuleSymbol* msym) {
 	$init($Kinds$Kind);
 	if ($nc(msym)->kind != $Kinds$Kind::MDL) {
-		$nc(this->deferredLintHandler)->report(static_cast<$DeferredLintHandler$LintLogger*>($$new(Check$$Lambda$lambda$checkModuleExists$20$20, this, pos, msym)));
+		$nc(this->deferredLintHandler)->report($$new(Check$$Lambda$lambda$checkModuleExists$20$20, this, pos, msym));
 	}
 }
 
 void Check::checkPackageExistsForOpens($JCDiagnostic$DiagnosticPosition* pos, $Symbol$PackageSymbol* packge) {
-	$useLocalCurrentObjectStackCache();
-	bool var$0 = $nc($($nc(packge)->members()))->isEmpty();
-	if (var$0 && (((int64_t)(packge->flags() & (uint64_t)$Flags::HAS_RESOURCE)) == 0)) {
-		$nc(this->deferredLintHandler)->report(static_cast<$DeferredLintHandler$LintLogger*>($$new(Check$$Lambda$lambda$checkPackageExistsForOpens$21$21, this, pos, packge)));
+	$useLocalObjectStack();
+	bool var$0 = $$nc($nc(packge)->members())->isEmpty();
+	if (var$0 && ((packge->flags() & $Flags::HAS_RESOURCE) == 0)) {
+		$nc(this->deferredLintHandler)->report($$new(Check$$Lambda$lambda$checkPackageExistsForOpens$21$21, this, pos, packge));
 	}
 }
 
 void Check::checkModuleRequires($JCDiagnostic$DiagnosticPosition* pos, $Directive$RequiresDirective* rd) {
-	if (((int64_t)($nc($nc(rd)->module)->flags() & (uint64_t)$Flags::AUTOMATIC_MODULE)) != 0) {
-		$nc(this->deferredLintHandler)->report(static_cast<$DeferredLintHandler$LintLogger*>($$new(Check$$Lambda$lambda$checkModuleRequires$22$22, this, rd, pos)));
+	if (($nc($nc(rd)->module)->flags() & $Flags::AUTOMATIC_MODULE) != 0) {
+		$nc(this->deferredLintHandler)->report($$new(Check$$Lambda$lambda$checkModuleRequires$22$22, this, rd, pos));
 	}
 }
 
 void Check::checkSwitchCaseStructure($List* cases) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool wasConstant = false;
 	bool wasDefault = false;
 	bool wasNullPattern = false;
@@ -5596,45 +5028,43 @@ void Check::checkSwitchCaseStructure($List* cases) {
 	bool wasNonEmptyFallThrough = false;
 	{
 		$var($List, l, cases);
-		for (; $nc(l)->nonEmpty(); $assign(l, $nc(l)->tail)) {
+		for (; $nc(l)->nonEmpty(); $assign(l, l->tail)) {
 			$var($JCTree$JCCase, c, $cast($JCTree$JCCase, l->head));
 			{
 				$var($Iterator, i$, $nc($nc(c)->labels)->iterator());
 				for (; $nc(i$)->hasNext();) {
 					$var($JCTree$JCCaseLabel, pat, $cast($JCTree$JCCaseLabel, i$->next()));
-					{
-						if ($nc(pat)->isExpression()) {
-							$var($JCTree$JCExpression, expr, $cast($JCTree$JCExpression, pat));
-							if ($TreeInfo::isNull(expr)) {
-								if (wasPattern && !wasTypePattern && !wasNonEmptyFallThrough) {
-									$init($CompilerProperties$Errors);
-									$nc(this->log)->error($(pat->pos()), $CompilerProperties$Errors::FlowsThroughFromPattern);
-								}
-								wasNullPattern = true;
-							} else {
-								if (wasPattern && !wasNonEmptyFallThrough) {
-									$init($CompilerProperties$Errors);
-									$nc(this->log)->error($(pat->pos()), $CompilerProperties$Errors::FlowsThroughFromPattern);
-								}
-								wasConstant = true;
+					if ($nc(pat)->isExpression()) {
+						$var($JCTree$JCExpression, expr, $cast($JCTree$JCExpression, pat));
+						if ($TreeInfo::isNull(expr)) {
+							if (wasPattern && !wasTypePattern && !wasNonEmptyFallThrough) {
+								$init($CompilerProperties$Errors);
+								$nc(this->log)->error($(pat->pos()), $CompilerProperties$Errors::FlowsThroughFromPattern);
 							}
+							wasNullPattern = true;
 						} else {
-							$init($JCTree$Tag);
-							if (pat->hasTag($JCTree$Tag::DEFAULTCASELABEL)) {
-								if (wasPattern && !wasNonEmptyFallThrough) {
-									$init($CompilerProperties$Errors);
-									$nc(this->log)->error($(pat->pos()), $CompilerProperties$Errors::FlowsThroughFromPattern);
-								}
-								wasDefault = true;
-							} else {
-								bool isTypePattern = pat->hasTag($JCTree$Tag::BINDINGPATTERN);
-								if (wasPattern || wasConstant || wasDefault || (wasNullPattern && (!isTypePattern || wasNonEmptyFallThrough))) {
-									$init($CompilerProperties$Errors);
-									$nc(this->log)->error($(pat->pos()), $CompilerProperties$Errors::FlowsThroughToPattern);
-								}
-								wasPattern = true;
-								wasTypePattern = isTypePattern;
+							if (wasPattern && !wasNonEmptyFallThrough) {
+								$init($CompilerProperties$Errors);
+								$nc(this->log)->error($(pat->pos()), $CompilerProperties$Errors::FlowsThroughFromPattern);
 							}
+							wasConstant = true;
+						}
+					} else {
+						$init($JCTree$Tag);
+						if (pat->hasTag($JCTree$Tag::DEFAULTCASELABEL)) {
+							if (wasPattern && !wasNonEmptyFallThrough) {
+								$init($CompilerProperties$Errors);
+								$nc(this->log)->error($(pat->pos()), $CompilerProperties$Errors::FlowsThroughFromPattern);
+							}
+							wasDefault = true;
+						} else {
+							bool isTypePattern = pat->hasTag($JCTree$Tag::BINDINGPATTERN);
+							if (wasPattern || wasConstant || wasDefault || (wasNullPattern && (!isTypePattern || wasNonEmptyFallThrough))) {
+								$init($CompilerProperties$Errors);
+								$nc(this->log)->error($(pat->pos()), $CompilerProperties$Errors::FlowsThroughToPattern);
+							}
+							wasPattern = true;
+							wasTypePattern = isTypePattern;
 						}
 					}
 				}
@@ -5659,11 +5089,9 @@ void Check::lambda$checkModuleRequires$22($Directive$RequiresDirective* rd, $JCD
 	if (var$0 && $nc(this->lint)->isEnabled($Lint$LintCategory::REQUIRES_TRANSITIVE_AUTOMATIC)) {
 		$init($CompilerProperties$Warnings);
 		$nc(this->log)->warning(pos, $CompilerProperties$Warnings::RequiresTransitiveAutomatic);
-	} else {
-		if ($nc(this->lint)->isEnabled($Lint$LintCategory::REQUIRES_AUTOMATIC)) {
-			$init($CompilerProperties$Warnings);
-			$nc(this->log)->warning(pos, $CompilerProperties$Warnings::RequiresAutomatic);
-		}
+	} else if ($nc(this->lint)->isEnabled($Lint$LintCategory::REQUIRES_AUTOMATIC)) {
+		$init($CompilerProperties$Warnings);
+		$nc(this->log)->warning(pos, $CompilerProperties$Warnings::RequiresAutomatic);
 	}
 }
 
@@ -5720,7 +5148,7 @@ void Check::lambda$checkSunAPI$12($JCDiagnostic$DiagnosticPosition* pos, $Symbol
 }
 
 void Check::lambda$checkDeprecated$11($Supplier* pos, $Symbol* s) {
-	warnDeprecated($cast($JCDiagnostic$DiagnosticPosition, $($nc(pos)->get())), s);
+	warnDeprecated($$cast($JCDiagnostic$DiagnosticPosition, $nc(pos)->get()), s);
 }
 
 $JCDiagnostic$DiagnosticPosition* Check::lambda$checkDeprecated$10($JCDiagnostic$DiagnosticPosition* pos) {
@@ -5733,8 +5161,8 @@ bool Check::lambda$isTypeAnnotation$9(bool isTypeParameter, $Attribute* attr) {
 }
 
 bool Check::lambda$validateAnnotation$8($Attribute$Compound* anno) {
-	$useLocalCurrentObjectStackCache();
-	return $nc($($Arrays::stream($(getTargetNames($nc($nc(anno)->type)->tsym)))))->anyMatch(static_cast<$Predicate*>($$new(Check$$Lambda$lambda$validateAnnotation$7$23, this)));
+	$useLocalObjectStack();
+	return $$nc($Arrays::stream($(getTargetNames($nc($nc(anno)->type)->tsym))))->anyMatch($$new(Check$$Lambda$lambda$validateAnnotation$7$23, this));
 }
 
 bool Check::lambda$validateAnnotation$7($Name* name) {
@@ -5745,17 +5173,17 @@ bool Check::lambda$new$6($Symbol* s) {
 	$init(Check);
 	$init($Symbol$MethodSymbol);
 	bool var$0 = $nc($Symbol$MethodSymbol::implementation_filter)->test(s);
-	return var$0 && ((int64_t)($nc(s)->flags() & (uint64_t)(int64_t)0x0000200000000000)) == 0;
+	return var$0 && ($nc(s)->flags() & (int64_t)0x0000200000000000) == 0;
 }
 
 bool Check::lambda$checkOverride$5($JCTree$JCMethodDecl* tree, $Symbol$RecordComponent* rc) {
 	$init(Check);
-	return $nc(rc)->accessor == $nc(tree)->sym && ((int64_t)($nc(rc->accessor)->flags_field & (uint64_t)(int64_t)0x01000000)) == 0;
+	return $nc(rc)->accessor == $nc(tree)->sym && ($nc(rc->accessor)->flags_field & 0x01000000) == 0;
 }
 
 $JCDiagnostic$DiagnosticPosition* Check::lambda$checkOverride$4($Symbol$MethodSymbol* m, $JCTree* tree) {
 	$init(Check);
-	return $TreeInfo::diagnosticPositionFor(static_cast<$Symbol*>(m), tree);
+	return $TreeInfo::diagnosticPositionFor(m, tree);
 }
 
 void Check::lambda$warnOnExplicitStrictfp$3($JCDiagnostic$DiagnosticPosition* pos) {
@@ -5771,7 +5199,7 @@ void Check::lambda$checkMethod$2($Type* mtype, $Symbol* sym, $Env* env, $List* a
 }
 
 void Check::lambda$checkRedundantCast$1($JCTree$JCTypeCast* tree) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Lint$LintCategory);
 	if ($nc(this->lint)->isEnabled($Lint$LintCategory::CAST)) {
 		$var($Lint$LintCategory, var$0, $Lint$LintCategory::CAST);
@@ -5781,13 +5209,12 @@ void Check::lambda$checkRedundantCast$1($JCTree$JCTypeCast* tree) {
 }
 
 void Check::lambda$checkType$0($JCDiagnostic$DiagnosticPosition* pos, $Type* found, $Type* req, $Check$CheckContext* checkContext, $InferenceContext* solvedContext) {
-	$useLocalCurrentObjectStackCache();
-	$var($JCDiagnostic$DiagnosticPosition, var$0, pos);
-	$var($Type, var$1, $nc(solvedContext)->asInstType(found));
-	checkType(var$0, var$1, $(solvedContext->asInstType(req)), checkContext);
+	$useLocalObjectStack();
+	$var($Type, var$0, $nc(solvedContext)->asInstType(found));
+	checkType(pos, var$0, $(solvedContext->asInstType(req)), checkContext);
 }
 
-void clinit$Check($Class* class$) {
+void Check::clinit$($Class* clazz) {
 	$assignStatic(Check::checkKey, $new($Context$Key));
 	$assignStatic(Check::denotableChecker, $new($Check$2));
 }
@@ -5797,80 +5224,360 @@ Check::Check() {
 
 $Class* Check::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(Check$$Lambda$lambda$new$6::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.comp.Check$$Lambda$lambda$new$6")) {
 			return Check$$Lambda$lambda$new$6::load$(name, initialize);
 		}
-		if (name->equals(Check$$Lambda$lambda$checkType$0$1::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.comp.Check$$Lambda$lambda$checkType$0$1")) {
 			return Check$$Lambda$lambda$checkType$0$1::load$(name, initialize);
 		}
-		if (name->equals(Check$$Lambda$lambda$checkRedundantCast$1$2::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.comp.Check$$Lambda$lambda$checkRedundantCast$1$2")) {
 			return Check$$Lambda$lambda$checkRedundantCast$1$2::load$(name, initialize);
 		}
-		if (name->equals(Check$$Lambda$lambda$checkMethod$2$3::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.comp.Check$$Lambda$lambda$checkMethod$2$3")) {
 			return Check$$Lambda$lambda$checkMethod$2$3::load$(name, initialize);
 		}
-		if (name->equals(Check$$Lambda$lambda$warnOnExplicitStrictfp$3$4::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.comp.Check$$Lambda$lambda$warnOnExplicitStrictfp$3$4")) {
 			return Check$$Lambda$lambda$warnOnExplicitStrictfp$3$4::load$(name, initialize);
 		}
-		if (name->equals(Check$$Lambda$lambda$checkOverride$4$5::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.comp.Check$$Lambda$lambda$checkOverride$4$5")) {
 			return Check$$Lambda$lambda$checkOverride$4$5::load$(name, initialize);
 		}
-		if (name->equals(Check$$Lambda$lambda$checkOverride$5$6::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.comp.Check$$Lambda$lambda$checkOverride$5$6")) {
 			return Check$$Lambda$lambda$checkOverride$5$6::load$(name, initialize);
 		}
-		if (name->equals(Check$$Lambda$add$7::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.comp.Check$$Lambda$add$7")) {
 			return Check$$Lambda$add$7::load$(name, initialize);
 		}
-		if (name->equals(Check$$Lambda$lambda$validateAnnotation$8$8::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.comp.Check$$Lambda$lambda$validateAnnotation$8$8")) {
 			return Check$$Lambda$lambda$validateAnnotation$8$8::load$(name, initialize);
 		}
-		if (name->equals(Check$$Lambda$lambda$isTypeAnnotation$9$9::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.comp.Check$$Lambda$lambda$isTypeAnnotation$9$9")) {
 			return Check$$Lambda$lambda$isTypeAnnotation$9$9::load$(name, initialize);
 		}
-		if (name->equals(Check$$Lambda$lambda$checkDeprecated$10$10::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.comp.Check$$Lambda$lambda$checkDeprecated$10$10")) {
 			return Check$$Lambda$lambda$checkDeprecated$10$10::load$(name, initialize);
 		}
-		if (name->equals(Check$$Lambda$lambda$checkDeprecated$11$11::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.comp.Check$$Lambda$lambda$checkDeprecated$11$11")) {
 			return Check$$Lambda$lambda$checkDeprecated$11$11::load$(name, initialize);
 		}
-		if (name->equals(Check$$Lambda$lambda$checkSunAPI$12$12::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.comp.Check$$Lambda$lambda$checkSunAPI$12$12")) {
 			return Check$$Lambda$lambda$checkSunAPI$12$12::load$(name, initialize);
 		}
-		if (name->equals(Check$$Lambda$lambda$checkPreview$13$13::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.comp.Check$$Lambda$lambda$checkPreview$13$13")) {
 			return Check$$Lambda$lambda$checkPreview$13$13::load$(name, initialize);
 		}
-		if (name->equals(Check$$Lambda$lambda$checkPreview$14$14::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.comp.Check$$Lambda$lambda$checkPreview$14$14")) {
 			return Check$$Lambda$lambda$checkPreview$14$14::load$(name, initialize);
 		}
-		if (name->equals(Check$$Lambda$lambda$checkPreview$15$15::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.comp.Check$$Lambda$lambda$checkPreview$15$15")) {
 			return Check$$Lambda$lambda$checkPreview$15$15::load$(name, initialize);
 		}
-		if (name->equals(Check$$Lambda$lambda$checkDivZero$16$16::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.comp.Check$$Lambda$lambda$checkDivZero$16$16")) {
 			return Check$$Lambda$lambda$checkDivZero$16$16::load$(name, initialize);
 		}
-		if (name->equals(Check$$Lambda$lambda$checkImportsUnique$17$17::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.comp.Check$$Lambda$lambda$checkImportsUnique$17$17")) {
 			return Check$$Lambda$lambda$checkImportsUnique$17$17::load$(name, initialize);
 		}
-		if (name->equals(Check$$Lambda$lambda$checkUniqueImport$18$18::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.comp.Check$$Lambda$lambda$checkUniqueImport$18$18")) {
 			return Check$$Lambda$lambda$checkUniqueImport$18$18::load$(name, initialize);
 		}
-		if (name->equals(Check$$Lambda$lambda$checkDefaultConstructor$19$19::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.comp.Check$$Lambda$lambda$checkDefaultConstructor$19$19")) {
 			return Check$$Lambda$lambda$checkDefaultConstructor$19$19::load$(name, initialize);
 		}
-		if (name->equals(Check$$Lambda$lambda$checkModuleExists$20$20::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.comp.Check$$Lambda$lambda$checkModuleExists$20$20")) {
 			return Check$$Lambda$lambda$checkModuleExists$20$20::load$(name, initialize);
 		}
-		if (name->equals(Check$$Lambda$lambda$checkPackageExistsForOpens$21$21::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.comp.Check$$Lambda$lambda$checkPackageExistsForOpens$21$21")) {
 			return Check$$Lambda$lambda$checkPackageExistsForOpens$21$21::load$(name, initialize);
 		}
-		if (name->equals(Check$$Lambda$lambda$checkModuleRequires$22$22::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.comp.Check$$Lambda$lambda$checkModuleRequires$22$22")) {
 			return Check$$Lambda$lambda$checkModuleRequires$22$22::load$(name, initialize);
 		}
-		if (name->equals(Check$$Lambda$lambda$validateAnnotation$7$23::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.comp.Check$$Lambda$lambda$validateAnnotation$7$23")) {
 			return Check$$Lambda$lambda$validateAnnotation$7$23::load$(name, initialize);
 		}
 	}
-	$loadClass(Check, name, initialize, &_Check_ClassInfo_, clinit$Check, allocate$Check);
+	$FieldInfo fieldInfos$$[] = {
+		{"checkKey", "Lcom/sun/tools/javac/util/Context$Key;", "Lcom/sun/tools/javac/util/Context$Key<Lcom/sun/tools/javac/comp/Check;>;", $PROTECTED | $STATIC | $FINAL, $staticField(Check, checkKey)},
+		{"names", "Lcom/sun/tools/javac/util/Names;", nullptr, $PRIVATE | $FINAL, $field(Check, names)},
+		{"log", "Lcom/sun/tools/javac/util/Log;", nullptr, $PRIVATE | $FINAL, $field(Check, log)},
+		{"rs", "Lcom/sun/tools/javac/comp/Resolve;", nullptr, $PRIVATE | $FINAL, $field(Check, rs)},
+		{"syms", "Lcom/sun/tools/javac/code/Symtab;", nullptr, $PRIVATE | $FINAL, $field(Check, syms)},
+		{"enter", "Lcom/sun/tools/javac/comp/Enter;", nullptr, $PRIVATE | $FINAL, $field(Check, enter)},
+		{"deferredAttr", "Lcom/sun/tools/javac/comp/DeferredAttr;", nullptr, $PRIVATE | $FINAL, $field(Check, deferredAttr)},
+		{"infer", "Lcom/sun/tools/javac/comp/Infer;", nullptr, $PRIVATE | $FINAL, $field(Check, infer)},
+		{"types", "Lcom/sun/tools/javac/code/Types;", nullptr, $PRIVATE | $FINAL, $field(Check, types)},
+		{"typeAnnotations", "Lcom/sun/tools/javac/code/TypeAnnotations;", nullptr, $PRIVATE | $FINAL, $field(Check, typeAnnotations)},
+		{"diags", "Lcom/sun/tools/javac/util/JCDiagnostic$Factory;", nullptr, $PRIVATE | $FINAL, $field(Check, diags)},
+		{"fileManager", "Ljavax/tools/JavaFileManager;", nullptr, $PRIVATE | $FINAL, $field(Check, fileManager)},
+		{"source", "Lcom/sun/tools/javac/code/Source;", nullptr, $PRIVATE | $FINAL, $field(Check, source)},
+		{"target", "Lcom/sun/tools/javac/jvm/Target;", nullptr, $PRIVATE | $FINAL, $field(Check, target)},
+		{"profile", "Lcom/sun/tools/javac/jvm/Profile;", nullptr, $PRIVATE | $FINAL, $field(Check, profile)},
+		{"preview", "Lcom/sun/tools/javac/code/Preview;", nullptr, $PRIVATE | $FINAL, $field(Check, preview)},
+		{"warnOnAnyAccessToMembers", "Z", nullptr, $PRIVATE | $FINAL, $field(Check, warnOnAnyAccessToMembers)},
+		{"lint", "Lcom/sun/tools/javac/code/Lint;", nullptr, $PRIVATE, $field(Check, lint)},
+		{"method", "Lcom/sun/tools/javac/code/Symbol$MethodSymbol;", nullptr, $PRIVATE, $field(Check, method)},
+		{"syntheticNameChar", "C", nullptr, 0, $field(Check, syntheticNameChar)},
+		{"compiled", "Ljava/util/Map;", "Ljava/util/Map<Lcom/sun/tools/javac/util/Pair<Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;Lcom/sun/tools/javac/util/Name;>;Lcom/sun/tools/javac/code/Symbol$ClassSymbol;>;", $PRIVATE, $field(Check, compiled)},
+		{"deprecationHandler", "Lcom/sun/tools/javac/util/MandatoryWarningHandler;", nullptr, $PRIVATE, $field(Check, deprecationHandler)},
+		{"removalHandler", "Lcom/sun/tools/javac/util/MandatoryWarningHandler;", nullptr, $PRIVATE, $field(Check, removalHandler)},
+		{"uncheckedHandler", "Lcom/sun/tools/javac/util/MandatoryWarningHandler;", nullptr, $PRIVATE, $field(Check, uncheckedHandler)},
+		{"sunApiHandler", "Lcom/sun/tools/javac/util/MandatoryWarningHandler;", nullptr, $PRIVATE, $field(Check, sunApiHandler)},
+		{"deferredLintHandler", "Lcom/sun/tools/javac/code/DeferredLintHandler;", nullptr, $PRIVATE, $field(Check, deferredLintHandler)},
+		{"allowRecords", "Z", nullptr, $PRIVATE | $FINAL, $field(Check, allowRecords)},
+		{"allowSealed", "Z", nullptr, $PRIVATE | $FINAL, $field(Check, allowSealed)},
+		{"localClassNameIndexes", "Ljava/util/Map;", "Ljava/util/Map<Lcom/sun/tools/javac/util/Pair<Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/util/Name;>;Ljava/lang/Integer;>;", $PRIVATE, $field(Check, localClassNameIndexes)},
+		{"basicHandler", "Lcom/sun/tools/javac/comp/Check$CheckContext;", nullptr, 0, $field(Check, basicHandler)},
+		{"ignoreAnnotatedCasts", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Check, ignoreAnnotatedCasts)},
+		{"denotableChecker", "Lcom/sun/tools/javac/code/Types$SimpleVisitor;", "Lcom/sun/tools/javac/code/Types$SimpleVisitor<Ljava/lang/Boolean;Ljava/lang/Void;>;", $PRIVATE | $STATIC | $FINAL, $staticField(Check, denotableChecker)},
+		{"isTypeArgErroneous", "Lcom/sun/tools/javac/code/Types$UnaryVisitor;", "Lcom/sun/tools/javac/code/Types$UnaryVisitor<Ljava/lang/Boolean;>;", 0, $field(Check, isTypeArgErroneous$)},
+		{"overrideWarner", "Lcom/sun/tools/javac/util/Warner;", nullptr, 0, $field(Check, overrideWarner)},
+		{"equalsHasCodeFilter", "Ljava/util/function/Predicate;", "Ljava/util/function/Predicate<Lcom/sun/tools/javac/code/Symbol;>;", $PRIVATE, $field(Check, equalsHasCodeFilter)},
+		{"defaultTargets", "Ljava/util/Set;", "Ljava/util/Set<Lcom/sun/tools/javac/util/Name;>;", $PRIVATE, $field(Check, defaultTargets)},
+		{"dfltTargetMeta", "[Lcom/sun/tools/javac/util/Name;", nullptr, $PUBLIC | $FINAL, $field(Check, dfltTargetMeta)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/util/Context;)V", nullptr, $PROTECTED, $method(Check, init$, void, $Context*)},
+		{"annotationApplicable", "(Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;Lcom/sun/tools/javac/code/Symbol;)Z", nullptr, 0, $virtualMethod(Check, annotationApplicable, bool, $JCTree$JCAnnotation*, $Symbol*)},
+		{"asTypeParam", "(Lcom/sun/tools/javac/code/Type;)Ljava/lang/Object;", nullptr, $PRIVATE, $method(Check, asTypeParam, $Object*, $Type*)},
+		{"assertConvertible", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/Warner;)V", nullptr, $PRIVATE, $method(Check, assertConvertible, void, $JCTree*, $Type*, $Type*, $Warner*)},
+		{"belongsToRestrictedPackage", "(Lcom/sun/tools/javac/code/Symbol;)Z", nullptr, $PRIVATE, $method(Check, belongsToRestrictedPackage, bool, $Symbol*)},
+		{"cannotOverride", "(Lcom/sun/tools/javac/code/Symbol$MethodSymbol;Lcom/sun/tools/javac/code/Symbol$MethodSymbol;)Lcom/sun/tools/javac/util/JCDiagnostic$Fragment;", nullptr, 0, $virtualMethod(Check, cannotOverride, $JCDiagnostic$Fragment*, $Symbol$MethodSymbol*, $Symbol$MethodSymbol*)},
+		{"castWarner", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/util/Warner;", nullptr, $PUBLIC, $virtualMethod(Check, castWarner, $Warner*, $JCDiagnostic$DiagnosticPosition*, $Type*, $Type*)},
+		{"checkAccessFromSerializableElement", "(Lcom/sun/tools/javac/tree/JCTree;Z)V", nullptr, 0, $virtualMethod(Check, checkAccessFromSerializableElement, void, $JCTree*, bool)},
+		{"checkAllDefined", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)V", nullptr, 0, $virtualMethod(Check, checkAllDefined, void, $JCDiagnostic$DiagnosticPosition*, $Symbol$ClassSymbol*)},
+		{"checkAnnotationResType", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;)V", nullptr, 0, $virtualMethod(Check, checkAnnotationResType, void, $JCDiagnostic$DiagnosticPosition*, $Type*)},
+		{"checkCanonical", "(Lcom/sun/tools/javac/tree/JCTree;)V", nullptr, $PUBLIC, $virtualMethod(Check, checkCanonical, void, $JCTree*)},
+		{"checkCastable", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Type;", nullptr, 0, $virtualMethod(Check, checkCastable, $Type*, $JCDiagnostic$DiagnosticPosition*, $Type*, $Type*)},
+		{"checkCastable", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/comp/Check$CheckContext;)Lcom/sun/tools/javac/code/Type;", nullptr, 0, $virtualMethod(Check, checkCastable, $Type*, $JCDiagnostic$DiagnosticPosition*, $Type*, $Type*, $Check$CheckContext*)},
+		{"checkClassBounds", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;)V", nullptr, 0, $virtualMethod(Check, checkClassBounds, void, $JCDiagnostic$DiagnosticPosition*, $Type*)},
+		{"checkClassBounds", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Ljava/util/Map;Lcom/sun/tools/javac/code/Type;)V", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Ljava/util/Map<Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/code/Type;>;Lcom/sun/tools/javac/code/Type;)V", 0, $virtualMethod(Check, checkClassBounds, void, $JCDiagnostic$DiagnosticPosition*, $Map*, $Type*)},
+		{"checkClassOrArrayType", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Type;", nullptr, 0, $virtualMethod(Check, checkClassOrArrayType, $Type*, $JCDiagnostic$DiagnosticPosition*, $Type*)},
+		{"checkClassOverrideEqualsAndHash", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)V", nullptr, $PRIVATE, $method(Check, checkClassOverrideEqualsAndHash, void, $JCDiagnostic$DiagnosticPosition*, $Symbol$ClassSymbol*)},
+		{"checkClassOverrideEqualsAndHashIfNeeded", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)V", nullptr, $PUBLIC, $virtualMethod(Check, checkClassOverrideEqualsAndHashIfNeeded, void, $JCDiagnostic$DiagnosticPosition*, $Symbol$ClassSymbol*)},
+		{"checkClassType", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Type;", nullptr, 0, $virtualMethod(Check, checkClassType, $Type*, $JCDiagnostic$DiagnosticPosition*, $Type*)},
+		{"checkClassType", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;Z)Lcom/sun/tools/javac/code/Type;", nullptr, 0, $virtualMethod(Check, checkClassType, $Type*, $JCDiagnostic$DiagnosticPosition*, $Type*, bool)},
+		{"checkCommonOverriderIn", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Type;)Z", nullptr, 0, $virtualMethod(Check, checkCommonOverriderIn, bool, $Symbol*, $Symbol*, $Type*)},
+		{"checkCompatibleAbstracts", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;)Z", nullptr, $PUBLIC, $virtualMethod(Check, checkCompatibleAbstracts, bool, $JCDiagnostic$DiagnosticPosition*, $Type*, $Type*, $Type*)},
+		{"checkCompatibleConcretes", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;)V", nullptr, $PUBLIC, $virtualMethod(Check, checkCompatibleConcretes, void, $JCDiagnostic$DiagnosticPosition*, $Type*)},
+		{"checkCompatibleSupertypes", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;)V", nullptr, 0, $virtualMethod(Check, checkCompatibleSupertypes, void, $JCDiagnostic$DiagnosticPosition*, $Type*)},
+		{"checkConstructorRefType", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Type;", nullptr, 0, $virtualMethod(Check, checkConstructorRefType, $Type*, $JCDiagnostic$DiagnosticPosition*, $Type*)},
+		{"checkCyclicConstructor", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;Lcom/sun/tools/javac/code/Symbol;Ljava/util/Map;)V", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;Lcom/sun/tools/javac/code/Symbol;Ljava/util/Map<Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Symbol;>;)V", $PRIVATE, $method(Check, checkCyclicConstructor, void, $JCTree$JCClassDecl*, $Symbol*, $Map*)},
+		{"checkCyclicConstructors", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)V", nullptr, 0, $virtualMethod(Check, checkCyclicConstructors, void, $JCTree$JCClassDecl*)},
+		{"checkDefaultConstructor", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;)V", nullptr, 0, $virtualMethod(Check, checkDefaultConstructor, void, $Symbol$ClassSymbol*, $JCDiagnostic$DiagnosticPosition*)},
+		{"checkDefaultMethodClashes", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;)V", nullptr, 0, $virtualMethod(Check, checkDefaultMethodClashes, void, $JCDiagnostic$DiagnosticPosition*, $Type*)},
+		{"checkDenotable", "(Lcom/sun/tools/javac/code/Type;)Z", nullptr, $PUBLIC, $virtualMethod(Check, checkDenotable, bool, $Type*)},
+		{"checkDeprecated", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, 0, $virtualMethod(Check, checkDeprecated, void, $JCDiagnostic$DiagnosticPosition*, $Symbol*, $Symbol*)},
+		{"checkDeprecated", "(Ljava/util/function/Supplier;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Symbol;)V", "(Ljava/util/function/Supplier<Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;>;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Symbol;)V", 0, $virtualMethod(Check, checkDeprecated, void, $Supplier*, $Symbol*, $Symbol*)},
+		{"checkDeprecatedAnnotation", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, 0, $virtualMethod(Check, checkDeprecatedAnnotation, void, $JCDiagnostic$DiagnosticPosition*, $Symbol*)},
+		{"checkDiamond", "(Lcom/sun/tools/javac/tree/JCTree$JCNewClass;Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Type;", nullptr, 0, $virtualMethod(Check, checkDiamond, $Type*, $JCTree$JCNewClass*, $Type*)},
+		{"checkDiamondDenotable", "(Lcom/sun/tools/javac/code/Type$ClassType;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/code/Type$ClassType;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", 0, $virtualMethod(Check, checkDiamondDenotable, $List*, $Type$ClassType*)},
+		{"checkDisjoint", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;JJJ)Z", nullptr, 0, $virtualMethod(Check, checkDisjoint, bool, $JCDiagnostic$DiagnosticPosition*, int64_t, int64_t, int64_t)},
+		{"checkDivZero", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Type;)V", nullptr, 0, $virtualMethod(Check, checkDivZero, void, $JCDiagnostic$DiagnosticPosition*, $Symbol*, $Type*)},
+		{"checkEmptyIf", "(Lcom/sun/tools/javac/tree/JCTree$JCIf;)V", nullptr, 0, $virtualMethod(Check, checkEmptyIf, void, $JCTree$JCIf*)},
+		{"checkExtends", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;)Z", nullptr, $PRIVATE, $method(Check, checkExtends, bool, $Type*, $Type*)},
+		{"checkFlags", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;JLcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/tree/JCTree;)J", nullptr, 0, $virtualMethod(Check, checkFlags, int64_t, $JCDiagnostic$DiagnosticPosition*, int64_t, $Symbol*, $JCTree*)},
+		{"checkForBadAuxiliaryClassAccess", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)V", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)V", 0, $virtualMethod(Check, checkForBadAuxiliaryClassAccess, void, $JCDiagnostic$DiagnosticPosition*, $Env*, $Symbol$ClassSymbol*)},
+		{"checkFunctionalInterface", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)V", nullptr, $PUBLIC, $virtualMethod(Check, checkFunctionalInterface, void, $JCTree$JCClassDecl*, $Symbol$ClassSymbol*)},
+		{"checkHideClashes", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol$MethodSymbol;)V", nullptr, 0, $virtualMethod(Check, checkHideClashes, void, $JCDiagnostic$DiagnosticPosition*, $Type*, $Symbol$MethodSymbol*)},
+		{"checkImplementations", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)V", nullptr, 0, $virtualMethod(Check, checkImplementations, void, $JCTree$JCClassDecl*)},
+		{"checkImplementations", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/code/Symbol$ClassSymbol;Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)V", nullptr, 0, $virtualMethod(Check, checkImplementations, void, $JCTree*, $Symbol$ClassSymbol*, $Symbol$ClassSymbol*)},
+		{"checkImportedPackagesObservable", "(Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;)V", nullptr, $PUBLIC, $virtualMethod(Check, checkImportedPackagesObservable, void, $JCTree$JCCompilationUnit*)},
+		{"checkImportsResolvable", "(Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;)V", nullptr, $PUBLIC, $virtualMethod(Check, checkImportsResolvable, void, $JCTree$JCCompilationUnit*)},
+		{"checkImportsUnique", "(Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;)V", nullptr, 0, $virtualMethod(Check, checkImportsUnique, void, $JCTree$JCCompilationUnit*)},
+		{"checkLeaksNotAccessible", "(Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)V", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)V", $PUBLIC, $virtualMethod(Check, checkLeaksNotAccessible, void, $Env*, $JCTree$JCClassDecl*)},
+		{"checkLocalVarType", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/Name;)Lcom/sun/tools/javac/code/Type;", nullptr, 0, $virtualMethod(Check, checkLocalVarType, $Type*, $JCDiagnostic$DiagnosticPosition*, $Type*, $Name*)},
+		{"checkMethod", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;ZLcom/sun/tools/javac/comp/InferenceContext;)Lcom/sun/tools/javac/code/Type;", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;ZLcom/sun/tools/javac/comp/InferenceContext;)Lcom/sun/tools/javac/code/Type;", 0, $virtualMethod(Check, checkMethod, $Type*, $Type*, $Symbol*, $Env*, $List*, $List*, bool, $InferenceContext*)},
+		{"checkModuleExists", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;)V", nullptr, 0, $virtualMethod(Check, checkModuleExists, void, $JCDiagnostic$DiagnosticPosition*, $Symbol$ModuleSymbol*)},
+		{"checkModuleName", "(Lcom/sun/tools/javac/tree/JCTree$JCModuleDecl;)V", nullptr, $PUBLIC, $virtualMethod(Check, checkModuleName, void, $JCTree$JCModuleDecl*)},
+		{"checkModuleRequires", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Directive$RequiresDirective;)V", nullptr, 0, $virtualMethod(Check, checkModuleRequires, void, $JCDiagnostic$DiagnosticPosition*, $Directive$RequiresDirective*)},
+		{"checkNameClash", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Symbol;)Z", nullptr, $PRIVATE, $method(Check, checkNameClash, bool, $Symbol$ClassSymbol*, $Symbol*, $Symbol*)},
+		{"checkNonCyclic", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;)V", nullptr, 0, $virtualMethod(Check, checkNonCyclic, void, $JCDiagnostic$DiagnosticPosition*, $Type*)},
+		{"checkNonCyclic", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type$TypeVar;)V", nullptr, 0, $virtualMethod(Check, checkNonCyclic, void, $JCDiagnostic$DiagnosticPosition*, $Type$TypeVar*)},
+		{"checkNonCyclic1", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type$TypeVar;>;)V", $PRIVATE, $method(Check, checkNonCyclic1, void, $JCDiagnostic$DiagnosticPosition*, $Type*, $List*)},
+		{"checkNonCyclicDecl", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)V", nullptr, 0, $virtualMethod(Check, checkNonCyclicDecl, void, $JCTree$JCClassDecl*)},
+		{"checkNonCyclicElements", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)V", nullptr, 0, $virtualMethod(Check, checkNonCyclicElements, void, $JCTree$JCClassDecl*)},
+		{"checkNonCyclicElementsInternal", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol$TypeSymbol;)V", nullptr, 0, $virtualMethod(Check, checkNonCyclicElementsInternal, void, $JCDiagnostic$DiagnosticPosition*, $Symbol$TypeSymbol*)},
+		{"checkNonCyclicInternal", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;)Z", nullptr, $PRIVATE, $method(Check, checkNonCyclicInternal, bool, $JCDiagnostic$DiagnosticPosition*, $Type*)},
+		{"checkNonVoid", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Type;", nullptr, 0, $virtualMethod(Check, checkNonVoid, $Type*, $JCDiagnostic$DiagnosticPosition*, $Type*)},
+		{"checkNotRepeated", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;Ljava/util/Set;)V", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;Ljava/util/Set<Lcom/sun/tools/javac/code/Type;>;)V", 0, $virtualMethod(Check, checkNotRepeated, void, $JCDiagnostic$DiagnosticPosition*, $Type*, $Set*)},
+		{"checkNullOrRefType", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Type;", nullptr, 0, $virtualMethod(Check, checkNullOrRefType, $Type*, $JCDiagnostic$DiagnosticPosition*, $Type*)},
+		{"checkOverride", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/code/Symbol$MethodSymbol;Lcom/sun/tools/javac/code/Symbol$MethodSymbol;Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)V", nullptr, 0, $virtualMethod(Check, checkOverride, void, $JCTree*, $Symbol$MethodSymbol*, $Symbol$MethodSymbol*, $Symbol$ClassSymbol*)},
+		{"checkOverride", "(Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/tree/JCTree$JCMethodDecl;Lcom/sun/tools/javac/code/Symbol$MethodSymbol;)V", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;Lcom/sun/tools/javac/tree/JCTree$JCMethodDecl;Lcom/sun/tools/javac/code/Symbol$MethodSymbol;)V", 0, $virtualMethod(Check, checkOverride, void, $Env*, $JCTree$JCMethodDecl*, $Symbol$MethodSymbol*)},
+		{"checkOverride", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol$ClassSymbol;Lcom/sun/tools/javac/code/Symbol$MethodSymbol;)V", nullptr, 0, $virtualMethod(Check, checkOverride, void, $JCTree*, $Type*, $Symbol$ClassSymbol*, $Symbol$MethodSymbol*)},
+		{"checkOverrideClashes", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol$MethodSymbol;)V", nullptr, 0, $virtualMethod(Check, checkOverrideClashes, void, $JCDiagnostic$DiagnosticPosition*, $Type*, $Symbol$MethodSymbol*)},
+		{"checkPackageExistsForOpens", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol$PackageSymbol;)V", nullptr, 0, $virtualMethod(Check, checkPackageExistsForOpens, void, $JCDiagnostic$DiagnosticPosition*, $Symbol$PackageSymbol*)},
+		{"checkPotentiallyAmbiguousOverloads", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol$MethodSymbol;Lcom/sun/tools/javac/code/Symbol$MethodSymbol;)V", nullptr, 0, $virtualMethod(Check, checkPotentiallyAmbiguousOverloads, void, $JCDiagnostic$DiagnosticPosition*, $Type*, $Symbol$MethodSymbol*, $Symbol$MethodSymbol*)},
+		{"checkPreview", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, 0, $virtualMethod(Check, checkPreview, void, $JCDiagnostic$DiagnosticPosition*, $Symbol*, $Symbol*)},
+		{"checkProfile", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, 0, $virtualMethod(Check, checkProfile, void, $JCDiagnostic$DiagnosticPosition*, $Symbol*)},
+		{"checkRaw", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/comp/Env;)V", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)V", 0, $virtualMethod(Check, checkRaw, void, $JCTree*, $Env*)},
+		{"checkRedundantCast", "(Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/tree/JCTree$JCTypeCast;)V", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;Lcom/sun/tools/javac/tree/JCTree$JCTypeCast;)V", $PUBLIC, $virtualMethod(Check, checkRedundantCast, void, $Env*, $JCTree$JCTypeCast*)},
+		{"checkRefType", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Type;", nullptr, 0, $virtualMethod(Check, checkRefType, $Type*, $JCDiagnostic$DiagnosticPosition*, $Type*)},
+		{"checkRefTypes", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", 0, $virtualMethod(Check, checkRefTypes, $List*, $List*, $List*)},
+		{"checkSunAPI", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, 0, $virtualMethod(Check, checkSunAPI, void, $JCDiagnostic$DiagnosticPosition*, $Symbol*)},
+		{"checkSwitchCaseStructure", "(Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCCase;>;)V", 0, $virtualMethod(Check, checkSwitchCaseStructure, void, $List*)},
+		{"checkTransparentClass", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol$ClassSymbol;Lcom/sun/tools/javac/code/Scope;)V", nullptr, 0, $virtualMethod(Check, checkTransparentClass, void, $JCDiagnostic$DiagnosticPosition*, $Symbol$ClassSymbol*, $Scope*)},
+		{"checkTransparentVar", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol$VarSymbol;Lcom/sun/tools/javac/code/Scope;)V", nullptr, 0, $virtualMethod(Check, checkTransparentVar, void, $JCDiagnostic$DiagnosticPosition*, $Symbol$VarSymbol*, $Scope*)},
+		{"checkType", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(Check, checkType, $Type*, $JCDiagnostic$DiagnosticPosition*, $Type*, $Type*)},
+		{"checkType", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/comp/Check$CheckContext;)Lcom/sun/tools/javac/code/Type;", nullptr, 0, $virtualMethod(Check, checkType, $Type*, $JCDiagnostic$DiagnosticPosition*, $Type*, $Type*, $Check$CheckContext*)},
+		{"checkTypeContainsImportableElement", "(Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/code/Symbol$PackageSymbol;Lcom/sun/tools/javac/util/Name;Ljava/util/Set;)Z", "(Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/code/Symbol$PackageSymbol;Lcom/sun/tools/javac/util/Name;Ljava/util/Set<Lcom/sun/tools/javac/code/Symbol;>;)Z", $PRIVATE, $method(Check, checkTypeContainsImportableElement, bool, $Symbol$TypeSymbol*, $Symbol$TypeSymbol*, $Symbol$PackageSymbol*, $Name*, $Set*)},
+		{"checkUnique", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Scope;)Z", nullptr, 0, $virtualMethod(Check, checkUnique, bool, $JCDiagnostic$DiagnosticPosition*, $Symbol*, $Scope*)},
+		{"checkUniqueClassName", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/code/Scope;)Z", nullptr, 0, $virtualMethod(Check, checkUniqueClassName, bool, $JCDiagnostic$DiagnosticPosition*, $Name*, $Scope*)},
+		{"checkUniqueImport", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Scope;Lcom/sun/tools/javac/code/Scope;Lcom/sun/tools/javac/code/Scope;Lcom/sun/tools/javac/code/Symbol;Z)Z", nullptr, $PRIVATE, $method(Check, checkUniqueImport, bool, $JCDiagnostic$DiagnosticPosition*, $Scope*, $Scope*, $Scope*, $Symbol*, bool)},
+		{"checkValidGenericType", "(Lcom/sun/tools/javac/code/Type;)Z", nullptr, $PUBLIC, $virtualMethod(Check, checkValidGenericType, bool, $Type*)},
+		{"checkVarargsMethodDecl", "(Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/tree/JCTree$JCMethodDecl;)V", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;Lcom/sun/tools/javac/tree/JCTree$JCMethodDecl;)V", 0, $virtualMethod(Check, checkVarargsMethodDecl, void, $Env*, $JCTree$JCMethodDecl*)},
+		{"checkVisible", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Symbol$PackageSymbol;Z)V", nullptr, $PRIVATE, $method(Check, checkVisible, void, $JCDiagnostic$DiagnosticPosition*, $Symbol*, $Symbol$PackageSymbol*, bool)},
+		{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(Check, clear, void)},
+		{"clearLocalClassNameIndexes", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)V", nullptr, $PUBLIC, $virtualMethod(Check, clearLocalClassNameIndexes, void, $Symbol$ClassSymbol*)},
+		{"closure", "(Lcom/sun/tools/javac/code/Type;Ljava/util/Map;)V", "(Lcom/sun/tools/javac/code/Type;Ljava/util/Map<Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/code/Type;>;)V", $PRIVATE, $method(Check, closure, void, $Type*, $Map*)},
+		{"closure", "(Lcom/sun/tools/javac/code/Type;Ljava/util/Map;Ljava/util/Map;)V", "(Lcom/sun/tools/javac/code/Type;Ljava/util/Map<Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/code/Type;>;Ljava/util/Map<Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/code/Type;>;)V", $PRIVATE, $method(Check, closure, void, $Type*, $Map*, $Map*)},
+		{"completionError", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol$CompletionFailure;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(Check, completionError, $Type*, $JCDiagnostic$DiagnosticPosition*, $Symbol$CompletionFailure*)},
+		{"convertWarner", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/util/Warner;", nullptr, $PUBLIC, $virtualMethod(Check, convertWarner, $Warner*, $JCDiagnostic$DiagnosticPosition*, $Type*, $Type*)},
+		{"defaultTargetMetaInfo", "()[Lcom/sun/tools/javac/util/Name;", nullptr, $PRIVATE, $method(Check, defaultTargetMetaInfo, $NameArray*)},
+		{"diff", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", 0, $virtualMethod(Check, diff, $List*, $List*, $List*)},
+		{"duplicateErasureError", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, 0, $virtualMethod(Check, duplicateErasureError, void, $JCDiagnostic$DiagnosticPosition*, $Symbol*, $Symbol*)},
+		{"duplicateError", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, 0, $virtualMethod(Check, duplicateError, void, $JCDiagnostic$DiagnosticPosition*, $Symbol*)},
+		{"earlyRefError", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, 0, $virtualMethod(Check, earlyRefError, void, $JCDiagnostic$DiagnosticPosition*, $Symbol*)},
+		{"excl", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", 0, $virtualMethod(Check, excl, $List*, $Type*, $List*)},
+		{"findExport", "(Lcom/sun/tools/javac/code/Symbol$PackageSymbol;)Lcom/sun/tools/javac/code/Directive$ExportsDirective;", nullptr, $PRIVATE, $method(Check, findExport, $Directive$ExportsDirective*, $Symbol$PackageSymbol*)},
+		{"firstDirectIncompatibility", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Symbol;", nullptr, $PRIVATE, $method(Check, firstDirectIncompatibility, $Symbol*, $JCDiagnostic$DiagnosticPosition*, $Type*, $Type*, $Type*)},
+		{"firstIncompatibility", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Symbol;", nullptr, $PRIVATE, $method(Check, firstIncompatibility, $Symbol*, $JCDiagnostic$DiagnosticPosition*, $Type*, $Type*, $Type*)},
+		{"firstIncompatibleTypeArg", "(Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Type;", nullptr, $PRIVATE, $method(Check, firstIncompatibleTypeArg, $Type*, $Type*)},
+		{"getApplicableTargets", "(Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;Lcom/sun/tools/javac/code/Symbol;)Ljava/util/Optional;", "(Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;Lcom/sun/tools/javac/code/Symbol;)Ljava/util/Optional<Ljava/util/Set<Lcom/sun/tools/javac/util/Name;>;>;", 0, $virtualMethod(Check, getApplicableTargets, $Optional*, $JCTree$JCAnnotation*, $Symbol*)},
+		{"getAttributeTargetAttribute", "(Lcom/sun/tools/javac/code/Symbol$TypeSymbol;)Lcom/sun/tools/javac/code/Attribute$Array;", nullptr, 0, $virtualMethod(Check, getAttributeTargetAttribute, $Attribute$Array*, $Symbol$TypeSymbol*)},
+		{"getCompiled", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)Lcom/sun/tools/javac/code/Symbol$ClassSymbol;", nullptr, $PUBLIC, $virtualMethod(Check, getCompiled, $Symbol$ClassSymbol*, $Symbol$ClassSymbol*)},
+		{"getCompiled", "(Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;Lcom/sun/tools/javac/util/Name;)Lcom/sun/tools/javac/code/Symbol$ClassSymbol;", nullptr, $PUBLIC, $virtualMethod(Check, getCompiled, $Symbol$ClassSymbol*, $Symbol$ModuleSymbol*, $Name*)},
+		{"getDefaultTargetSet", "()Ljava/util/Set;", "()Ljava/util/Set<Lcom/sun/tools/javac/util/Name;>;", $PRIVATE, $method(Check, getDefaultTargetSet, $Set*)},
+		{"getTargetNames", "(Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;)[Lcom/sun/tools/javac/util/Name;", nullptr, 0, $virtualMethod(Check, getTargetNames, $NameArray*, $JCTree$JCAnnotation*)},
+		{"getTargetNames", "(Lcom/sun/tools/javac/code/Symbol$TypeSymbol;)[Lcom/sun/tools/javac/util/Name;", nullptr, $PUBLIC, $virtualMethod(Check, getTargetNames, $NameArray*, $Symbol$TypeSymbol*)},
+		{"implicitEnumFinalFlag", "(Lcom/sun/tools/javac/tree/JCTree;)J", nullptr, $PRIVATE, $method(Check, implicitEnumFinalFlag, int64_t, $JCTree*)},
+		{"importAccessible", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Symbol$PackageSymbol;)Z", nullptr, $PUBLIC, $virtualMethod(Check, importAccessible, bool, $Symbol*, $Symbol$PackageSymbol*)},
+		{"incl", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", 0, $virtualMethod(Check, incl, $List*, $Type*, $List*)},
+		{"instance", "(Lcom/sun/tools/javac/util/Context;)Lcom/sun/tools/javac/comp/Check;", nullptr, $PUBLIC | $STATIC, $staticMethod(Check, instance, Check*, $Context*)},
+		{"intersect", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", $PUBLIC, $virtualMethod(Check, intersect, $List*, $List*, $List*)},
+		{"intersects", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/List;)Z", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;)Z", 0, $virtualMethod(Check, intersects, bool, $Type*, $List*)},
+		{"is292targetTypeCast", "(Lcom/sun/tools/javac/tree/JCTree$JCTypeCast;)Z", nullptr, $PRIVATE, $method(Check, is292targetTypeCast, bool, $JCTree$JCTypeCast*)},
+		{"isAPISymbol", "(Lcom/sun/tools/javac/code/Symbol;)Z", nullptr, $PRIVATE, $method(Check, isAPISymbol, bool, $Symbol*)},
+		{"isCanonical", "(Lcom/sun/tools/javac/tree/JCTree;)Z", nullptr, $PRIVATE, $method(Check, isCanonical, bool, $JCTree*)},
+		{"isChecked", "(Lcom/sun/tools/javac/code/Type;)Z", nullptr, 0, $virtualMethod(Check, isChecked, bool, $Type*)},
+		{"isDeprecatedOverrideIgnorable", "(Lcom/sun/tools/javac/code/Symbol$MethodSymbol;Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)Z", nullptr, $PRIVATE, $method(Check, isDeprecatedOverrideIgnorable, bool, $Symbol$MethodSymbol*, $Symbol$ClassSymbol*)},
+		{"isEffectivelyNonPublic", "(Lcom/sun/tools/javac/code/Symbol;)Z", nullptr, $PRIVATE, $method(Check, isEffectivelyNonPublic, bool, $Symbol*)},
+		{"isHandled", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/List;)Z", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;)Z", 0, $virtualMethod(Check, isHandled, bool, $Type*, $List*)},
+		{"isOverrider", "(Lcom/sun/tools/javac/code/Symbol;)Z", nullptr, 0, $virtualMethod(Check, isOverrider, bool, $Symbol*)},
+		{"isTargetSubsetOf", "(Ljava/util/Set;Ljava/util/Set;)Z", "(Ljava/util/Set<Lcom/sun/tools/javac/util/Name;>;Ljava/util/Set<Lcom/sun/tools/javac/util/Name;>;)Z", $PRIVATE, $method(Check, isTargetSubsetOf, bool, $Set*, $Set*)},
+		{"isTrustMeAllowedOnMethod", "(Lcom/sun/tools/javac/code/Symbol;)Z", nullptr, $PRIVATE, $method(Check, isTrustMeAllowedOnMethod, bool, $Symbol*)},
+		{"isTypeAnnotation", "(Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;Z)Z", nullptr, $PROTECTED, $virtualMethod(Check, isTypeAnnotation, bool, $JCTree$JCAnnotation*, bool)},
+		{"isTypeAnnotation", "(Lcom/sun/tools/javac/code/Attribute;Z)Z", nullptr, 0, $virtualMethod(Check, isTypeAnnotation, bool, $Attribute*, bool)},
+		{"isTypeArgErroneous", "(Lcom/sun/tools/javac/code/Type;)Z", nullptr, 0, $virtualMethod(Check, isTypeArgErroneous, bool, $Type*)},
+		{"isUnchecked", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)Z", nullptr, 0, $virtualMethod(Check, isUnchecked, bool, $Symbol$ClassSymbol*)},
+		{"isUnchecked", "(Lcom/sun/tools/javac/code/Type;)Z", nullptr, 0, $virtualMethod(Check, isUnchecked, bool, $Type*)},
+		{"isUnchecked", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;)Z", nullptr, 0, $virtualMethod(Check, isUnchecked, bool, $JCDiagnostic$DiagnosticPosition*, $Type*)},
+		{"lambda$checkDefaultConstructor$19", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol$ClassSymbol;Lcom/sun/tools/javac/code/Symbol$PackageSymbol;Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(Check, lambda$checkDefaultConstructor$19, void, $JCDiagnostic$DiagnosticPosition*, $Symbol$ClassSymbol*, $Symbol$PackageSymbol*, $Symbol$ModuleSymbol*)},
+		{"lambda$checkDeprecated$10", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;)Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Check, lambda$checkDeprecated$10, $JCDiagnostic$DiagnosticPosition*, $JCDiagnostic$DiagnosticPosition*)},
+		{"lambda$checkDeprecated$11", "(Ljava/util/function/Supplier;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(Check, lambda$checkDeprecated$11, void, $Supplier*, $Symbol*)},
+		{"lambda$checkDivZero$16", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(Check, lambda$checkDivZero$16, void, $JCDiagnostic$DiagnosticPosition*)},
+		{"lambda$checkImportsUnique$17", "(Lcom/sun/tools/javac/code/Symbol;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Check, lambda$checkImportsUnique$17, bool, $Symbol*)},
+		{"lambda$checkMethod$2", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;ZLcom/sun/tools/javac/comp/InferenceContext;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(Check, lambda$checkMethod$2, void, $Type*, $Symbol*, $Env*, $List*, $List*, bool, $InferenceContext*)},
+		{"lambda$checkModuleExists$20", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(Check, lambda$checkModuleExists$20, void, $JCDiagnostic$DiagnosticPosition*, $Symbol$ModuleSymbol*)},
+		{"lambda$checkModuleRequires$22", "(Lcom/sun/tools/javac/code/Directive$RequiresDirective;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(Check, lambda$checkModuleRequires$22, void, $Directive$RequiresDirective*, $JCDiagnostic$DiagnosticPosition*)},
+		{"lambda$checkOverride$4", "(Lcom/sun/tools/javac/code/Symbol$MethodSymbol;Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Check, lambda$checkOverride$4, $JCDiagnostic$DiagnosticPosition*, $Symbol$MethodSymbol*, $JCTree*)},
+		{"lambda$checkOverride$5", "(Lcom/sun/tools/javac/tree/JCTree$JCMethodDecl;Lcom/sun/tools/javac/code/Symbol$RecordComponent;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Check, lambda$checkOverride$5, bool, $JCTree$JCMethodDecl*, $Symbol$RecordComponent*)},
+		{"lambda$checkPackageExistsForOpens$21", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol$PackageSymbol;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(Check, lambda$checkPackageExistsForOpens$21, void, $JCDiagnostic$DiagnosticPosition*, $Symbol$PackageSymbol*)},
+		{"lambda$checkPreview$13", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(Check, lambda$checkPreview$13, void, $JCDiagnostic$DiagnosticPosition*, $Symbol*)},
+		{"lambda$checkPreview$14", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(Check, lambda$checkPreview$14, void, $JCDiagnostic$DiagnosticPosition*, $Symbol*)},
+		{"lambda$checkPreview$15", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(Check, lambda$checkPreview$15, void, $JCDiagnostic$DiagnosticPosition*, $Symbol*)},
+		{"lambda$checkRedundantCast$1", "(Lcom/sun/tools/javac/tree/JCTree$JCTypeCast;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(Check, lambda$checkRedundantCast$1, void, $JCTree$JCTypeCast*)},
+		{"lambda$checkSunAPI$12", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(Check, lambda$checkSunAPI$12, void, $JCDiagnostic$DiagnosticPosition*, $Symbol*)},
+		{"lambda$checkType$0", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/comp/Check$CheckContext;Lcom/sun/tools/javac/comp/InferenceContext;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(Check, lambda$checkType$0, void, $JCDiagnostic$DiagnosticPosition*, $Type*, $Type*, $Check$CheckContext*, $InferenceContext*)},
+		{"lambda$checkUniqueImport$18", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Symbol;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Check, lambda$checkUniqueImport$18, bool, $Symbol*, $Symbol*)},
+		{"lambda$isTypeAnnotation$9", "(ZLcom/sun/tools/javac/code/Attribute;)Z", nullptr, $PRIVATE | $SYNTHETIC, $method(Check, lambda$isTypeAnnotation$9, bool, bool, $Attribute*)},
+		{"lambda$new$6", "(Lcom/sun/tools/javac/code/Symbol;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Check, lambda$new$6, bool, $Symbol*)},
+		{"lambda$validateAnnotation$7", "(Lcom/sun/tools/javac/util/Name;)Z", nullptr, $PRIVATE | $SYNTHETIC, $method(Check, lambda$validateAnnotation$7, bool, $Name*)},
+		{"lambda$validateAnnotation$8", "(Lcom/sun/tools/javac/code/Attribute$Compound;)Z", nullptr, $PRIVATE | $SYNTHETIC, $method(Check, lambda$validateAnnotation$8, bool, $Attribute$Compound*)},
+		{"lambda$warnOnExplicitStrictfp$3", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(Check, lambda$warnOnExplicitStrictfp$3, void, $JCDiagnostic$DiagnosticPosition*)},
+		{"localClassName", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)Lcom/sun/tools/javac/util/Name;", nullptr, $PUBLIC, $virtualMethod(Check, localClassName, $Name*, $Symbol$ClassSymbol*)},
+		{"newRound", "()V", nullptr, $PUBLIC, $virtualMethod(Check, newRound, void)},
+		{"noteCyclic", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)V", nullptr, $PRIVATE, $method(Check, noteCyclic, void, $JCDiagnostic$DiagnosticPosition*, $Symbol$ClassSymbol*)},
+		{"protection", "(J)I", nullptr, $STATIC, $staticMethod(Check, protection, int32_t, int64_t)},
+		{"putCompiled", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)V", nullptr, $PUBLIC, $virtualMethod(Check, putCompiled, void, $Symbol$ClassSymbol*)},
+		{"removeCompiled", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)V", nullptr, $PUBLIC, $virtualMethod(Check, removeCompiled, void, $Symbol$ClassSymbol*)},
+		{"reportDeferredDiagnostics", "()V", nullptr, $PUBLIC, $virtualMethod(Check, reportDeferredDiagnostics, void)},
+		{"setLint", "(Lcom/sun/tools/javac/code/Lint;)Lcom/sun/tools/javac/code/Lint;", nullptr, 0, $virtualMethod(Check, setLint, $Lint*, $Lint*)},
+		{"setMethod", "(Lcom/sun/tools/javac/code/Symbol$MethodSymbol;)Lcom/sun/tools/javac/code/Symbol$MethodSymbol;", nullptr, 0, $virtualMethod(Check, setMethod, $Symbol$MethodSymbol*, $Symbol$MethodSymbol*)},
+		{"subset", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/List;)Z", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;)Z", 0, $virtualMethod(Check, subset, bool, $Type*, $List*)},
+		{"typeTagError", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/util/JCDiagnostic;Ljava/lang/Object;)Lcom/sun/tools/javac/code/Type;", nullptr, 0, $virtualMethod(Check, typeTagError, $Type*, $JCDiagnostic$DiagnosticPosition*, $JCDiagnostic*, Object$*)},
+		{"uncheckedOverrides", "(Lcom/sun/tools/javac/code/Symbol$MethodSymbol;Lcom/sun/tools/javac/code/Symbol$MethodSymbol;)Lcom/sun/tools/javac/util/JCDiagnostic$Fragment;", nullptr, 0, $virtualMethod(Check, uncheckedOverrides, $JCDiagnostic$Fragment*, $Symbol$MethodSymbol*, $Symbol$MethodSymbol*)},
+		{"unhandled", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", 0, $virtualMethod(Check, unhandled, $List*, $List*, $List*)},
+		{"union", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", 0, $virtualMethod(Check, union$, $List*, $List*, $List*)},
+		{"validate", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/comp/Env;)V", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)V", 0, $virtualMethod(Check, validate, void, $JCTree*, $Env*)},
+		{"validate", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/comp/Env;Z)V", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;Z)V", 0, $virtualMethod(Check, validate, void, $JCTree*, $Env*, bool)},
+		{"validate", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/comp/Env;)V", "(Lcom/sun/tools/javac/util/List<+Lcom/sun/tools/javac/tree/JCTree;>;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)V", 0, $virtualMethod(Check, validate, void, $List*, $Env*)},
+		{"validateAnnotation", "(Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PRIVATE, $method(Check, validateAnnotation, void, $JCTree$JCAnnotation*, $JCTree*, $Symbol*)},
+		{"validateAnnotation", "(Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;)Z", nullptr, $PRIVATE, $method(Check, validateAnnotation, bool, $JCTree$JCAnnotation*)},
+		{"validateAnnotationDeferErrors", "(Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;)Z", nullptr, $PUBLIC, $virtualMethod(Check, validateAnnotationDeferErrors, bool, $JCTree$JCAnnotation*)},
+		{"validateAnnotationMethod", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol$MethodSymbol;)V", nullptr, 0, $virtualMethod(Check, validateAnnotationMethod, void, $JCDiagnostic$DiagnosticPosition*, $Symbol$MethodSymbol*)},
+		{"validateAnnotationTree", "(Lcom/sun/tools/javac/tree/JCTree;)V", nullptr, 0, $virtualMethod(Check, validateAnnotationTree, void, $JCTree*)},
+		{"validateAnnotationType", "(Lcom/sun/tools/javac/tree/JCTree;)V", nullptr, 0, $virtualMethod(Check, validateAnnotationType, void, $JCTree*)},
+		{"validateAnnotationType", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;)V", nullptr, 0, $virtualMethod(Check, validateAnnotationType, void, $JCDiagnostic$DiagnosticPosition*, $Type*)},
+		{"validateAnnotations", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/code/Symbol;)V", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;>;Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/code/Symbol;)V", $PUBLIC, $virtualMethod(Check, validateAnnotations, void, $List*, $JCTree*, $Symbol*)},
+		{"validateDefault", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;)V", nullptr, $PRIVATE, $method(Check, validateDefault, void, $Symbol*, $JCDiagnostic$DiagnosticPosition*)},
+		{"validateDocumented", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;)V", nullptr, $PRIVATE, $method(Check, validateDocumented, void, $Symbol*, $Symbol*, $JCDiagnostic$DiagnosticPosition*)},
+		{"validateInherited", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;)V", nullptr, $PRIVATE, $method(Check, validateInherited, void, $Symbol*, $Symbol*, $JCDiagnostic$DiagnosticPosition*)},
+		{"validateRepeatable", "(Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/code/Attribute$Compound;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;)V", nullptr, $PUBLIC, $virtualMethod(Check, validateRepeatable, void, $Symbol$TypeSymbol*, $Attribute$Compound*, $JCDiagnostic$DiagnosticPosition*)},
+		{"validateRetention", "(Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;)V", nullptr, $PRIVATE, $method(Check, validateRetention, void, $Symbol$TypeSymbol*, $Symbol$TypeSymbol*, $JCDiagnostic$DiagnosticPosition*)},
+		{"validateTarget", "(Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;)V", nullptr, $PRIVATE, $method(Check, validateTarget, void, $Symbol$TypeSymbol*, $Symbol$TypeSymbol*, $JCDiagnostic$DiagnosticPosition*)},
+		{"validateTargetAnnotationValue", "(Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;)Z", nullptr, 0, $virtualMethod(Check, validateTargetAnnotationValue, bool, $JCTree$JCAnnotation*)},
+		{"validateTypeAnnotation", "(Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;Z)V", nullptr, $PUBLIC, $virtualMethod(Check, validateTypeAnnotation, void, $JCTree$JCAnnotation*, bool)},
+		{"validateTypeAnnotations", "(Lcom/sun/tools/javac/util/List;Z)V", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;>;Z)V", $PUBLIC, $virtualMethod(Check, validateTypeAnnotations, void, $List*, bool)},
+		{"validateValue", "(Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;)V", nullptr, $PRIVATE, $method(Check, validateValue, void, $Symbol$TypeSymbol*, $Symbol$TypeSymbol*, $JCDiagnostic$DiagnosticPosition*)},
+		{"varargsDuplicateError", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, 0, $virtualMethod(Check, varargsDuplicateError, void, $JCDiagnostic$DiagnosticPosition*, $Symbol*, $Symbol*)},
+		{"varargsOverrides", "(Lcom/sun/tools/javac/code/Symbol$MethodSymbol;Lcom/sun/tools/javac/code/Symbol$MethodSymbol;)Lcom/sun/tools/javac/util/JCDiagnostic$Fragment;", nullptr, 0, $virtualMethod(Check, varargsOverrides, $JCDiagnostic$Fragment*, $Symbol$MethodSymbol*, $Symbol$MethodSymbol*)},
+		{"warnDeclaredUsingPreview", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, $virtualMethod(Check, warnDeclaredUsingPreview, void, $JCDiagnostic$DiagnosticPosition*, $Symbol*)},
+		{"warnDeprecated", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, 0, $virtualMethod(Check, warnDeprecated, void, $JCDiagnostic$DiagnosticPosition*, $Symbol*)},
+		{"warnDivZero", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;)V", nullptr, 0, $virtualMethod(Check, warnDivZero, void, $JCDiagnostic$DiagnosticPosition*)},
+		{"warnOnExplicitStrictfp", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;)V", nullptr, $PRIVATE, $method(Check, warnOnExplicitStrictfp, void, $JCDiagnostic$DiagnosticPosition*)},
+		{"warnPreviewAPI", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/util/JCDiagnostic$Warning;)V", nullptr, $PUBLIC, $virtualMethod(Check, warnPreviewAPI, void, $JCDiagnostic$DiagnosticPosition*, $JCDiagnostic$Warning*)},
+		{"warnStatic", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/util/JCDiagnostic$Warning;)V", nullptr, $PUBLIC, $virtualMethod(Check, warnStatic, void, $JCDiagnostic$DiagnosticPosition*, $JCDiagnostic$Warning*)},
+		{"warnUnchecked", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/util/JCDiagnostic$Warning;)V", nullptr, $PUBLIC, $virtualMethod(Check, warnUnchecked, void, $JCDiagnostic$DiagnosticPosition*, $JCDiagnostic$Warning*)},
+		{"warnUnsafeVararg", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/util/JCDiagnostic$Warning;)V", nullptr, 0, $virtualMethod(Check, warnUnsafeVararg, void, $JCDiagnostic$DiagnosticPosition*, $JCDiagnostic$Warning*)},
+		{"withinAnonConstr", "(Lcom/sun/tools/javac/comp/Env;)Z", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)Z", $PRIVATE, $method(Check, withinAnonConstr, bool, $Env*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.Check$5", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{"com.sun.tools.javac.comp.Check$ConversionWarner", "com.sun.tools.javac.comp.Check", "ConversionWarner", $PRIVATE},
+		{"com.sun.tools.javac.comp.Check$DefaultMethodClashFilter", "com.sun.tools.javac.comp.Check", "DefaultMethodClashFilter", $PRIVATE},
+		{"com.sun.tools.javac.comp.Check$ClashFilter", "com.sun.tools.javac.comp.Check", "ClashFilter", $PRIVATE},
+		{"com.sun.tools.javac.comp.Check$CycleChecker", "com.sun.tools.javac.comp.Check", "CycleChecker", 0},
+		{"com.sun.tools.javac.comp.Check$Validator", "com.sun.tools.javac.comp.Check", "Validator", 0},
+		{"com.sun.tools.javac.comp.Check$NestedCheckContext", "com.sun.tools.javac.comp.Check", "NestedCheckContext", $STATIC},
+		{"com.sun.tools.javac.comp.Check$CheckContext", "com.sun.tools.javac.comp.Check", "CheckContext", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"com.sun.tools.javac.comp.Check$4", nullptr, nullptr, 0},
+		{"com.sun.tools.javac.comp.Check$1AnnotationValidator", nullptr, "AnnotationValidator", 0},
+		{"com.sun.tools.javac.comp.Check$1SpecialTreeVisitor", nullptr, "SpecialTreeVisitor", 0},
+		{"com.sun.tools.javac.comp.Check$3", nullptr, nullptr, 0},
+		{"com.sun.tools.javac.comp.Check$2", nullptr, nullptr, 0},
+		{"com.sun.tools.javac.comp.Check$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.comp.Check",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.Check$5,com.sun.tools.javac.comp.Check$ConversionWarner,com.sun.tools.javac.comp.Check$DefaultMethodClashFilter,com.sun.tools.javac.comp.Check$ClashFilter,com.sun.tools.javac.comp.Check$CycleChecker,com.sun.tools.javac.comp.Check$Validator,com.sun.tools.javac.comp.Check$NestedCheckContext,com.sun.tools.javac.comp.Check$CheckContext,com.sun.tools.javac.comp.Check$4,com.sun.tools.javac.comp.Check$1AnnotationValidator,com.sun.tools.javac.comp.Check$1SpecialTreeVisitor,com.sun.tools.javac.comp.Check$3,com.sun.tools.javac.comp.Check$2,com.sun.tools.javac.comp.Check$1"
+	};
+	$loadClass(Check, name, initialize, &classInfo$$, Check::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Check);
+	});
 	return class$;
 }
 

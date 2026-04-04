@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xpath/internal/functions/FuncCurrent.h>
-
 #include <com/sun/org/apache/xalan/internal/res/XSLMessages.h>
 #include <com/sun/org/apache/xalan/internal/res/XSLTErrorResources.h>
 #include <com/sun/org/apache/xml/internal/dtm/DTM.h>
@@ -43,42 +42,17 @@ namespace com {
 					namespace internal {
 						namespace functions {
 
-$FieldInfo _FuncCurrent_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(FuncCurrent, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _FuncCurrent_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(FuncCurrent, init$, void)},
-	{"execute", "(Lcom/sun/org/apache/xpath/internal/XPathContext;)Lcom/sun/org/apache/xpath/internal/objects/XObject;", nullptr, $PUBLIC, $virtualMethod(FuncCurrent, execute, $XObject*, $XPathContext*), "javax.xml.transform.TransformerException"},
-	{"fixupVariables", "(Ljava/util/List;I)V", "(Ljava/util/List<Lcom/sun/org/apache/xml/internal/utils/QName;>;I)V", $PUBLIC, $virtualMethod(FuncCurrent, fixupVariables, void, $List*, int32_t)},
-	{}
-};
-
-$ClassInfo _FuncCurrent_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xpath.internal.functions.FuncCurrent",
-	"com.sun.org.apache.xpath.internal.functions.Function",
-	nullptr,
-	_FuncCurrent_FieldInfo_,
-	_FuncCurrent_MethodInfo_
-};
-
-$Object* allocate$FuncCurrent($Class* clazz) {
-	return $of($alloc(FuncCurrent));
-}
-
 void FuncCurrent::init$() {
 	$Function::init$();
 }
 
 $XObject* FuncCurrent::execute($XPathContext* xctxt) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SubContextList, subContextList, $nc(xctxt)->getCurrentNodeList());
 	int32_t currentNode = $DTM::NULL;
 	if (nullptr != subContextList) {
 		if ($instanceOf($PredicatedNodeTest, subContextList)) {
-			$var($LocPathIterator, iter, $nc(($cast($PredicatedNodeTest, subContextList)))->getLocPathIterator());
+			$var($LocPathIterator, iter, $cast($PredicatedNodeTest, subContextList)->getLocPathIterator());
 			currentNode = $nc(iter)->getCurrentContextNode();
 		} else if ($instanceOf($StepPattern, subContextList)) {
 			$init($XSLTErrorResources);
@@ -97,7 +71,27 @@ FuncCurrent::FuncCurrent() {
 }
 
 $Class* FuncCurrent::load$($String* name, bool initialize) {
-	$loadClass(FuncCurrent, name, initialize, &_FuncCurrent_ClassInfo_, allocate$FuncCurrent);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(FuncCurrent, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(FuncCurrent, init$, void)},
+		{"execute", "(Lcom/sun/org/apache/xpath/internal/XPathContext;)Lcom/sun/org/apache/xpath/internal/objects/XObject;", nullptr, $PUBLIC, $virtualMethod(FuncCurrent, execute, $XObject*, $XPathContext*), "javax.xml.transform.TransformerException"},
+		{"fixupVariables", "(Ljava/util/List;I)V", "(Ljava/util/List<Lcom/sun/org/apache/xml/internal/utils/QName;>;I)V", $PUBLIC, $virtualMethod(FuncCurrent, fixupVariables, void, $List*, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xpath.internal.functions.FuncCurrent",
+		"com.sun.org.apache.xpath.internal.functions.Function",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(FuncCurrent, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(FuncCurrent));
+	});
 	return class$;
 }
 

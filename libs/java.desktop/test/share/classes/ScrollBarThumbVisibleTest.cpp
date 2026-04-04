@@ -1,5 +1,4 @@
 #include <ScrollBarThumbVisibleTest.h>
-
 #include <ScrollBarThumbVisibleTest$1.h>
 #include <ScrollBarThumbVisibleTest$2.h>
 #include <ScrollBarThumbVisibleTest$3.h>
@@ -10,7 +9,6 @@
 #include <java/awt/Point.h>
 #include <java/awt/Robot.h>
 #include <java/awt/Window.h>
-#include <java/lang/Runnable.h>
 #include <javax/swing/JFrame.h>
 #include <javax/swing/JScrollBar.h>
 #include <javax/swing/SwingUtilities.h>
@@ -26,63 +24,19 @@ using $ScrollBarThumbVisibleTest$3 = ::ScrollBarThumbVisibleTest$3;
 using $UIManager$LookAndFeelInfoArray = $Array<::javax::swing::UIManager$LookAndFeelInfo>;
 using $Adjustable = ::java::awt::Adjustable;
 using $Color = ::java::awt::Color;
-using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Point = ::java::awt::Point;
 using $Robot = ::java::awt::Robot;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $JFrame = ::javax::swing::JFrame;
 using $JScrollBar = ::javax::swing::JScrollBar;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $UIManager = ::javax::swing::UIManager;
 using $UIManager$LookAndFeelInfo = ::javax::swing::UIManager$LookAndFeelInfo;
-
-$FieldInfo _ScrollBarThumbVisibleTest_FieldInfo_[] = {
-	{"frame", "Ljavax/swing/JFrame;", nullptr, $PRIVATE | $STATIC, $staticField(ScrollBarThumbVisibleTest, frame)},
-	{"point", "Ljava/awt/Point;", nullptr, $PRIVATE | $STATIC, $staticField(ScrollBarThumbVisibleTest, point)},
-	{"bar", "Ljavax/swing/JScrollBar;", nullptr, $PRIVATE | $STATIC, $staticField(ScrollBarThumbVisibleTest, bar)},
-	{}
-};
-
-$MethodInfo _ScrollBarThumbVisibleTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ScrollBarThumbVisibleTest, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ScrollBarThumbVisibleTest, main, void, $StringArray*), "java.lang.Exception"},
-	{"setup", "(Ljavax/swing/JFrame;)V", nullptr, $STATIC, $staticMethod(ScrollBarThumbVisibleTest, setup, void, $JFrame*)},
-	{}
-};
-
-$InnerClassInfo _ScrollBarThumbVisibleTest_InnerClassesInfo_[] = {
-	{"ScrollBarThumbVisibleTest$3", nullptr, nullptr, 0},
-	{"ScrollBarThumbVisibleTest$2", nullptr, nullptr, 0},
-	{"ScrollBarThumbVisibleTest$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _ScrollBarThumbVisibleTest_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"ScrollBarThumbVisibleTest",
-	"java.lang.Object",
-	nullptr,
-	_ScrollBarThumbVisibleTest_FieldInfo_,
-	_ScrollBarThumbVisibleTest_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ScrollBarThumbVisibleTest_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"ScrollBarThumbVisibleTest$3,ScrollBarThumbVisibleTest$2,ScrollBarThumbVisibleTest$1"
-};
-
-$Object* allocate$ScrollBarThumbVisibleTest($Class* clazz) {
-	return $of($alloc(ScrollBarThumbVisibleTest));
-}
 
 $JFrame* ScrollBarThumbVisibleTest::frame = nullptr;
 $Point* ScrollBarThumbVisibleTest::point = nullptr;
@@ -92,48 +46,42 @@ void ScrollBarThumbVisibleTest::init$() {
 }
 
 void ScrollBarThumbVisibleTest::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	{
 		$var($UIManager$LookAndFeelInfoArray, arr$, $UIManager::getInstalledLookAndFeels());
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($UIManager$LookAndFeelInfo, info, arr$->get(i$));
-			{
-				if ("Nimbus"_s->equals($($nc(info)->getName()))) {
-					try {
-						$UIManager::setLookAndFeel($($nc(info)->getClassName()));
-					} catch ($Exception& ex) {
-					}
-					break;
+			if ("Nimbus"_s->equals($($nc(info)->getName()))) {
+				try {
+					$UIManager::setLookAndFeel($(info->getClassName()));
+				} catch ($Exception& ex) {
 				}
+				break;
 			}
 		}
 	}
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$SwingUtilities::invokeAndWait($$new($ScrollBarThumbVisibleTest$1));
-			$var($Robot, robot, $new($Robot));
-			robot->delay(200);
-			robot->waitForIdle();
-			$SwingUtilities::invokeAndWait($$new($ScrollBarThumbVisibleTest$2));
-			$init(ScrollBarThumbVisibleTest);
-			$var($Color, color1, robot->getPixelColor($nc(ScrollBarThumbVisibleTest::point)->x + 48, $nc(ScrollBarThumbVisibleTest::point)->y + 55));
-			$var($Color, color2, robot->getPixelColor($nc(ScrollBarThumbVisibleTest::point)->x + 48, $nc(ScrollBarThumbVisibleTest::point)->y + 125));
-			$nc($System::out)->println($of(color1));
-			$nc($System::out)->println($of(color2));
-			if ($nc(color1)->equals(color2)) {
-				$throwNew($RuntimeException, "Thump is not visible"_s);
-			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$SwingUtilities::invokeAndWait($$new($ScrollBarThumbVisibleTest$3));
+	$var($Throwable, var$0, nullptr);
+	try {
+		$SwingUtilities::invokeAndWait($$new($ScrollBarThumbVisibleTest$1));
+		$var($Robot, robot, $new($Robot));
+		robot->delay(200);
+		robot->waitForIdle();
+		$SwingUtilities::invokeAndWait($$new($ScrollBarThumbVisibleTest$2));
+		$init(ScrollBarThumbVisibleTest);
+		$var($Color, color1, robot->getPixelColor($nc(ScrollBarThumbVisibleTest::point)->x + 48, $nc(ScrollBarThumbVisibleTest::point)->y + 55));
+		$var($Color, color2, robot->getPixelColor($nc(ScrollBarThumbVisibleTest::point)->x + 48, $nc(ScrollBarThumbVisibleTest::point)->y + 125));
+		$nc($System::out)->println(color1);
+		$System::out->println(color2);
+		if ($nc(color1)->equals(color2)) {
+			$throwNew($RuntimeException, "Thump is not visible"_s);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$SwingUtilities::invokeAndWait($$new($ScrollBarThumbVisibleTest$3));
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 	$nc($System::out)->println("ok"_s);
 }
@@ -141,7 +89,7 @@ void ScrollBarThumbVisibleTest::main($StringArray* args) {
 void ScrollBarThumbVisibleTest::setup($JFrame* frame) {
 	$init(ScrollBarThumbVisibleTest);
 	$assignStatic(ScrollBarThumbVisibleTest::bar, $new($JScrollBar, $Adjustable::VERTICAL, 500, 0, 0, 1000));
-	$nc($($nc(frame)->getContentPane()))->add(static_cast<$Component*>(ScrollBarThumbVisibleTest::bar));
+	$$nc($nc(frame)->getContentPane())->add(ScrollBarThumbVisibleTest::bar);
 	frame->setSize(50, 250);
 	frame->setLocation(100, 100);
 	frame->setVisible(true);
@@ -151,7 +99,41 @@ ScrollBarThumbVisibleTest::ScrollBarThumbVisibleTest() {
 }
 
 $Class* ScrollBarThumbVisibleTest::load$($String* name, bool initialize) {
-	$loadClass(ScrollBarThumbVisibleTest, name, initialize, &_ScrollBarThumbVisibleTest_ClassInfo_, allocate$ScrollBarThumbVisibleTest);
+	$FieldInfo fieldInfos$$[] = {
+		{"frame", "Ljavax/swing/JFrame;", nullptr, $PRIVATE | $STATIC, $staticField(ScrollBarThumbVisibleTest, frame)},
+		{"point", "Ljava/awt/Point;", nullptr, $PRIVATE | $STATIC, $staticField(ScrollBarThumbVisibleTest, point)},
+		{"bar", "Ljavax/swing/JScrollBar;", nullptr, $PRIVATE | $STATIC, $staticField(ScrollBarThumbVisibleTest, bar)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ScrollBarThumbVisibleTest, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ScrollBarThumbVisibleTest, main, void, $StringArray*), "java.lang.Exception"},
+		{"setup", "(Ljavax/swing/JFrame;)V", nullptr, $STATIC, $staticMethod(ScrollBarThumbVisibleTest, setup, void, $JFrame*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"ScrollBarThumbVisibleTest$3", nullptr, nullptr, 0},
+		{"ScrollBarThumbVisibleTest$2", nullptr, nullptr, 0},
+		{"ScrollBarThumbVisibleTest$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"ScrollBarThumbVisibleTest",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"ScrollBarThumbVisibleTest$3,ScrollBarThumbVisibleTest$2,ScrollBarThumbVisibleTest$1"
+	};
+	$loadClass(ScrollBarThumbVisibleTest, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ScrollBarThumbVisibleTest);
+	});
 	return class$;
 }
 

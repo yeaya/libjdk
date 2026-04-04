@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/motif/MotifSplitPaneDivider.h>
-
 #include <com/sun/java/swing/plaf/motif/MotifSplitPaneDivider$MotifMouseHandler.h>
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
@@ -28,9 +27,6 @@ using $Cursor = ::java::awt::Cursor;
 using $Dimension = ::java::awt::Dimension;
 using $Graphics = ::java::awt::Graphics;
 using $Insets = ::java::awt::Insets;
-using $MouseListener = ::java::awt::event::MouseListener;
-using $MouseMotionListener = ::java::awt::event::MouseMotionListener;
-using $PropertyChangeListener = ::java::beans::PropertyChangeListener;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -39,7 +35,6 @@ using $JSplitPane = ::javax::swing::JSplitPane;
 using $UIManager = ::javax::swing::UIManager;
 using $BasicSplitPaneDivider = ::javax::swing::plaf::basic::BasicSplitPaneDivider;
 using $BasicSplitPaneDivider$DragController = ::javax::swing::plaf::basic::BasicSplitPaneDivider$DragController;
-using $BasicSplitPaneDivider$MouseHandler = ::javax::swing::plaf::basic::BasicSplitPaneDivider$MouseHandler;
 using $BasicSplitPaneUI = ::javax::swing::plaf::basic::BasicSplitPaneUI;
 
 namespace com {
@@ -48,59 +43,6 @@ namespace com {
 			namespace swing {
 				namespace plaf {
 					namespace motif {
-
-$FieldInfo _MotifSplitPaneDivider_FieldInfo_[] = {
-	{"defaultCursor", "Ljava/awt/Cursor;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MotifSplitPaneDivider, defaultCursor)},
-	{"minimumThumbSize", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(MotifSplitPaneDivider, minimumThumbSize)},
-	{"defaultDividerSize", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(MotifSplitPaneDivider, defaultDividerSize)},
-	{"pad", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(MotifSplitPaneDivider, pad)},
-	{"hThumbOffset", "I", nullptr, $PRIVATE, $field(MotifSplitPaneDivider, hThumbOffset)},
-	{"vThumbOffset", "I", nullptr, $PRIVATE, $field(MotifSplitPaneDivider, vThumbOffset)},
-	{"hThumbWidth", "I", nullptr, $PROTECTED, $field(MotifSplitPaneDivider, hThumbWidth)},
-	{"hThumbHeight", "I", nullptr, $PROTECTED, $field(MotifSplitPaneDivider, hThumbHeight)},
-	{"vThumbWidth", "I", nullptr, $PROTECTED, $field(MotifSplitPaneDivider, vThumbWidth)},
-	{"vThumbHeight", "I", nullptr, $PROTECTED, $field(MotifSplitPaneDivider, vThumbHeight)},
-	{"highlightColor", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(MotifSplitPaneDivider, highlightColor)},
-	{"shadowColor", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(MotifSplitPaneDivider, shadowColor)},
-	{"focusedColor", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(MotifSplitPaneDivider, focusedColor)},
-	{}
-};
-
-$MethodInfo _MotifSplitPaneDivider_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/plaf/basic/BasicSplitPaneUI;)V", nullptr, $PUBLIC, $method(MotifSplitPaneDivider, init$, void, $BasicSplitPaneUI*)},
-	{"getDragger", "()Ljavax/swing/plaf/basic/BasicSplitPaneDivider$DragController;", nullptr, $PRIVATE, $method(MotifSplitPaneDivider, getDragger, $BasicSplitPaneDivider$DragController*)},
-	{"getMinimumSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(MotifSplitPaneDivider, getMinimumSize, $Dimension*)},
-	{"getSplitPane", "()Ljavax/swing/JSplitPane;", nullptr, $PRIVATE, $method(MotifSplitPaneDivider, getSplitPane, $JSplitPane*)},
-	{"isInThumb", "(II)Z", nullptr, $PRIVATE, $method(MotifSplitPaneDivider, isInThumb, bool, int32_t, int32_t)},
-	{"paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(MotifSplitPaneDivider, paint, void, $Graphics*)},
-	{"setBasicSplitPaneUI", "(Ljavax/swing/plaf/basic/BasicSplitPaneUI;)V", nullptr, $PUBLIC, $virtualMethod(MotifSplitPaneDivider, setBasicSplitPaneUI, void, $BasicSplitPaneUI*)},
-	{"setDividerSize", "(I)V", nullptr, $PUBLIC, $virtualMethod(MotifSplitPaneDivider, setDividerSize, void, int32_t)},
-	{}
-};
-
-$InnerClassInfo _MotifSplitPaneDivider_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.motif.MotifSplitPaneDivider$MotifMouseHandler", "com.sun.java.swing.plaf.motif.MotifSplitPaneDivider", "MotifMouseHandler", $PRIVATE},
-	{}
-};
-
-$ClassInfo _MotifSplitPaneDivider_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.java.swing.plaf.motif.MotifSplitPaneDivider",
-	"javax.swing.plaf.basic.BasicSplitPaneDivider",
-	nullptr,
-	_MotifSplitPaneDivider_FieldInfo_,
-	_MotifSplitPaneDivider_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MotifSplitPaneDivider_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.motif.MotifSplitPaneDivider$MotifMouseHandler"
-};
-
-$Object* allocate$MotifSplitPaneDivider($Class* clazz) {
-	return $of($alloc(MotifSplitPaneDivider));
-}
 
 $Cursor* MotifSplitPaneDivider::defaultCursor = nullptr;
 
@@ -119,10 +61,10 @@ void MotifSplitPaneDivider::init$($BasicSplitPaneUI* ui) {
 }
 
 void MotifSplitPaneDivider::setDividerSize(int32_t newSize) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Insets, insets, getInsets());
 	int32_t borderSize = 0;
-	if ($nc($(getBasicSplitPaneUI()))->getOrientation() == $JSplitPane::HORIZONTAL_SPLIT) {
+	if ($$nc(getBasicSplitPaneUI())->getOrientation() == $JSplitPane::HORIZONTAL_SPLIT) {
 		if (insets != nullptr) {
 			borderSize = insets->left + insets->right;
 		}
@@ -138,13 +80,13 @@ void MotifSplitPaneDivider::setDividerSize(int32_t newSize) {
 }
 
 void MotifSplitPaneDivider::paint($Graphics* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Color, bgColor, getBackground());
 	$var($Dimension, size, getSize());
 	$nc(g)->setColor($(getBackground()));
-	g->fillRect(0, 0, $nc(size)->width, size->height);
-	if ($nc($(getBasicSplitPaneUI()))->getOrientation() == $JSplitPane::HORIZONTAL_SPLIT) {
-		int32_t center = $nc(size)->width / 2;
+	g->fillRect(0, 0, $nc(size)->width, $nc(size)->height);
+	if ($$nc(getBasicSplitPaneUI())->getOrientation() == $JSplitPane::HORIZONTAL_SPLIT) {
+		int32_t center = size->width / 2;
 		int32_t x = center - this->hThumbWidth / 2;
 		int32_t y = this->hThumbOffset;
 		g->setColor(this->shadowColor);
@@ -160,7 +102,7 @@ void MotifSplitPaneDivider::paint($Graphics* g) {
 		g->drawLine(x + 1, y + this->hThumbHeight - 1, x + this->hThumbWidth - 1, y + this->hThumbHeight - 1);
 		g->drawLine(x + this->hThumbWidth - 1, y + 1, x + this->hThumbWidth - 1, y + this->hThumbHeight - 2);
 	} else {
-		int32_t center = $nc(size)->height / 2;
+		int32_t center = size->height / 2;
 		int32_t x = size->width - this->vThumbOffset;
 		int32_t y = size->height / 2 - this->vThumbHeight / 2;
 		g->setColor(this->shadowColor);
@@ -185,7 +127,7 @@ $Dimension* MotifSplitPaneDivider::getMinimumSize() {
 
 void MotifSplitPaneDivider::setBasicSplitPaneUI($BasicSplitPaneUI* newUI) {
 	if (this->splitPane != nullptr) {
-		$nc(this->splitPane)->removePropertyChangeListener(this);
+		this->splitPane->removePropertyChangeListener(this);
 		if (this->mouseHandler != nullptr) {
 			$nc(this->splitPane)->removeMouseListener(this->mouseHandler);
 			$nc(this->splitPane)->removeMouseMotionListener(this->mouseHandler);
@@ -201,7 +143,7 @@ void MotifSplitPaneDivider::setBasicSplitPaneUI($BasicSplitPaneUI* newUI) {
 			if (this->mouseHandler == nullptr) {
 				$set(this, mouseHandler, $new($MotifSplitPaneDivider$MotifMouseHandler, this));
 			}
-			$nc(this->splitPane)->addMouseListener(this->mouseHandler);
+			this->splitPane->addMouseListener(this->mouseHandler);
 			$nc(this->splitPane)->addMouseMotionListener(this->mouseHandler);
 			addMouseListener(this->mouseHandler);
 			addMouseMotionListener(this->mouseHandler);
@@ -216,13 +158,13 @@ void MotifSplitPaneDivider::setBasicSplitPaneUI($BasicSplitPaneUI* newUI) {
 }
 
 bool MotifSplitPaneDivider::isInThumb(int32_t x, int32_t y) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Dimension, size, getSize());
 	int32_t thumbX = 0;
 	int32_t thumbY = 0;
 	int32_t thumbWidth = 0;
 	int32_t thumbHeight = 0;
-	if ($nc($(getBasicSplitPaneUI()))->getOrientation() == $JSplitPane::HORIZONTAL_SPLIT) {
+	if ($$nc(getBasicSplitPaneUI())->getOrientation() == $JSplitPane::HORIZONTAL_SPLIT) {
 		int32_t center = $nc(size)->width / 2;
 		thumbX = center - this->hThumbWidth / 2;
 		thumbY = this->hThumbOffset;
@@ -246,7 +188,7 @@ $JSplitPane* MotifSplitPaneDivider::getSplitPane() {
 	return this->splitPane;
 }
 
-void clinit$MotifSplitPaneDivider($Class* class$) {
+void MotifSplitPaneDivider::clinit$($Class* clazz) {
 	$assignStatic(MotifSplitPaneDivider::defaultCursor, $Cursor::getPredefinedCursor($Cursor::DEFAULT_CURSOR));
 }
 
@@ -254,7 +196,54 @@ MotifSplitPaneDivider::MotifSplitPaneDivider() {
 }
 
 $Class* MotifSplitPaneDivider::load$($String* name, bool initialize) {
-	$loadClass(MotifSplitPaneDivider, name, initialize, &_MotifSplitPaneDivider_ClassInfo_, clinit$MotifSplitPaneDivider, allocate$MotifSplitPaneDivider);
+	$FieldInfo fieldInfos$$[] = {
+		{"defaultCursor", "Ljava/awt/Cursor;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MotifSplitPaneDivider, defaultCursor)},
+		{"minimumThumbSize", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(MotifSplitPaneDivider, minimumThumbSize)},
+		{"defaultDividerSize", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(MotifSplitPaneDivider, defaultDividerSize)},
+		{"pad", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(MotifSplitPaneDivider, pad)},
+		{"hThumbOffset", "I", nullptr, $PRIVATE, $field(MotifSplitPaneDivider, hThumbOffset)},
+		{"vThumbOffset", "I", nullptr, $PRIVATE, $field(MotifSplitPaneDivider, vThumbOffset)},
+		{"hThumbWidth", "I", nullptr, $PROTECTED, $field(MotifSplitPaneDivider, hThumbWidth)},
+		{"hThumbHeight", "I", nullptr, $PROTECTED, $field(MotifSplitPaneDivider, hThumbHeight)},
+		{"vThumbWidth", "I", nullptr, $PROTECTED, $field(MotifSplitPaneDivider, vThumbWidth)},
+		{"vThumbHeight", "I", nullptr, $PROTECTED, $field(MotifSplitPaneDivider, vThumbHeight)},
+		{"highlightColor", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(MotifSplitPaneDivider, highlightColor)},
+		{"shadowColor", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(MotifSplitPaneDivider, shadowColor)},
+		{"focusedColor", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(MotifSplitPaneDivider, focusedColor)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/plaf/basic/BasicSplitPaneUI;)V", nullptr, $PUBLIC, $method(MotifSplitPaneDivider, init$, void, $BasicSplitPaneUI*)},
+		{"getDragger", "()Ljavax/swing/plaf/basic/BasicSplitPaneDivider$DragController;", nullptr, $PRIVATE, $method(MotifSplitPaneDivider, getDragger, $BasicSplitPaneDivider$DragController*)},
+		{"getMinimumSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(MotifSplitPaneDivider, getMinimumSize, $Dimension*)},
+		{"getSplitPane", "()Ljavax/swing/JSplitPane;", nullptr, $PRIVATE, $method(MotifSplitPaneDivider, getSplitPane, $JSplitPane*)},
+		{"isInThumb", "(II)Z", nullptr, $PRIVATE, $method(MotifSplitPaneDivider, isInThumb, bool, int32_t, int32_t)},
+		{"paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(MotifSplitPaneDivider, paint, void, $Graphics*)},
+		{"setBasicSplitPaneUI", "(Ljavax/swing/plaf/basic/BasicSplitPaneUI;)V", nullptr, $PUBLIC, $virtualMethod(MotifSplitPaneDivider, setBasicSplitPaneUI, void, $BasicSplitPaneUI*)},
+		{"setDividerSize", "(I)V", nullptr, $PUBLIC, $virtualMethod(MotifSplitPaneDivider, setDividerSize, void, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.motif.MotifSplitPaneDivider$MotifMouseHandler", "com.sun.java.swing.plaf.motif.MotifSplitPaneDivider", "MotifMouseHandler", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.java.swing.plaf.motif.MotifSplitPaneDivider",
+		"javax.swing.plaf.basic.BasicSplitPaneDivider",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.motif.MotifSplitPaneDivider$MotifMouseHandler"
+	};
+	$loadClass(MotifSplitPaneDivider, name, initialize, &classInfo$$, MotifSplitPaneDivider::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MotifSplitPaneDivider));
+	});
 	return class$;
 }
 

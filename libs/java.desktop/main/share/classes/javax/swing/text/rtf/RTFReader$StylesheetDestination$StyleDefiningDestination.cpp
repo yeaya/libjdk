@@ -1,5 +1,4 @@
 #include <javax/swing/text/rtf/RTFReader$StylesheetDestination$StyleDefiningDestination.h>
-
 #include <java/util/Dictionary.h>
 #include <javax/swing/text/AttributeSet.h>
 #include <javax/swing/text/MutableAttributeSet.h>
@@ -19,10 +18,7 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Dictionary = ::java::util::Dictionary;
-using $AttributeSet = ::javax::swing::text::AttributeSet;
 using $Style = ::javax::swing::text::Style;
-using $StyledDocument = ::javax::swing::text::StyledDocument;
 using $Constants = ::javax::swing::text::rtf::Constants;
 using $RTFReader$AttributeTrackingDestination = ::javax::swing::text::rtf::RTFReader$AttributeTrackingDestination;
 using $RTFReader$StylesheetDestination = ::javax::swing::text::rtf::RTFReader$StylesheetDestination;
@@ -31,58 +27,6 @@ namespace javax {
 	namespace swing {
 		namespace text {
 			namespace rtf {
-
-$FieldInfo _RTFReader$StylesheetDestination$StyleDefiningDestination_FieldInfo_[] = {
-	{"this$1", "Ljavax/swing/text/rtf/RTFReader$StylesheetDestination;", nullptr, $FINAL | $SYNTHETIC, $field(RTFReader$StylesheetDestination$StyleDefiningDestination, this$1)},
-	{"STYLENUMBER_NONE", "I", nullptr, $STATIC | $FINAL, $constField(RTFReader$StylesheetDestination$StyleDefiningDestination, STYLENUMBER_NONE)},
-	{"additive", "Z", nullptr, 0, $field(RTFReader$StylesheetDestination$StyleDefiningDestination, additive)},
-	{"characterStyle", "Z", nullptr, 0, $field(RTFReader$StylesheetDestination$StyleDefiningDestination, characterStyle)},
-	{"sectionStyle", "Z", nullptr, 0, $field(RTFReader$StylesheetDestination$StyleDefiningDestination, sectionStyle)},
-	{"styleName", "Ljava/lang/String;", nullptr, $PUBLIC, $field(RTFReader$StylesheetDestination$StyleDefiningDestination, styleName)},
-	{"number", "I", nullptr, $PUBLIC, $field(RTFReader$StylesheetDestination$StyleDefiningDestination, number)},
-	{"basedOn", "I", nullptr, 0, $field(RTFReader$StylesheetDestination$StyleDefiningDestination, basedOn)},
-	{"nextStyle", "I", nullptr, 0, $field(RTFReader$StylesheetDestination$StyleDefiningDestination, nextStyle)},
-	{"hidden", "Z", nullptr, 0, $field(RTFReader$StylesheetDestination$StyleDefiningDestination, hidden)},
-	{"realizedStyle", "Ljavax/swing/text/Style;", nullptr, 0, $field(RTFReader$StylesheetDestination$StyleDefiningDestination, realizedStyle)},
-	{}
-};
-
-$MethodInfo _RTFReader$StylesheetDestination$StyleDefiningDestination_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/text/rtf/RTFReader$StylesheetDestination;)V", nullptr, $PUBLIC, $method(RTFReader$StylesheetDestination$StyleDefiningDestination, init$, void, $RTFReader$StylesheetDestination*)},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(RTFReader$StylesheetDestination$StyleDefiningDestination, close, void)},
-	{"handleKeyword", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(RTFReader$StylesheetDestination$StyleDefiningDestination, handleKeyword, bool, $String*)},
-	{"handleKeyword", "(Ljava/lang/String;I)Z", nullptr, $PUBLIC, $virtualMethod(RTFReader$StylesheetDestination$StyleDefiningDestination, handleKeyword, bool, $String*, int32_t)},
-	{"handleText", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(RTFReader$StylesheetDestination$StyleDefiningDestination, handleText, void, $String*)},
-	{"realize", "()Ljavax/swing/text/Style;", nullptr, $PUBLIC, $virtualMethod(RTFReader$StylesheetDestination$StyleDefiningDestination, realize, $Style*)},
-	{}
-};
-
-$InnerClassInfo _RTFReader$StylesheetDestination$StyleDefiningDestination_InnerClassesInfo_[] = {
-	{"javax.swing.text.rtf.RTFReader$StylesheetDestination", "javax.swing.text.rtf.RTFReader", "StylesheetDestination", 0},
-	{"javax.swing.text.rtf.RTFReader$StylesheetDestination$StyleDefiningDestination", "javax.swing.text.rtf.RTFReader$StylesheetDestination", "StyleDefiningDestination", 0},
-	{"javax.swing.text.rtf.RTFReader$AttributeTrackingDestination", "javax.swing.text.rtf.RTFReader", "AttributeTrackingDestination", $ABSTRACT},
-	{}
-};
-
-$ClassInfo _RTFReader$StylesheetDestination$StyleDefiningDestination_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.text.rtf.RTFReader$StylesheetDestination$StyleDefiningDestination",
-	"javax.swing.text.rtf.RTFReader$AttributeTrackingDestination",
-	nullptr,
-	_RTFReader$StylesheetDestination$StyleDefiningDestination_FieldInfo_,
-	_RTFReader$StylesheetDestination$StyleDefiningDestination_MethodInfo_,
-	nullptr,
-	nullptr,
-	_RTFReader$StylesheetDestination$StyleDefiningDestination_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.rtf.RTFReader"
-};
-
-$Object* allocate$RTFReader$StylesheetDestination$StyleDefiningDestination($Class* clazz) {
-	return $of($alloc(RTFReader$StylesheetDestination$StyleDefiningDestination));
-}
 
 void RTFReader$StylesheetDestination$StyleDefiningDestination::init$($RTFReader$StylesheetDestination* this$1) {
 	$set(this, this$1, this$1);
@@ -106,7 +50,7 @@ void RTFReader$StylesheetDestination$StyleDefiningDestination::handleText($Strin
 }
 
 void RTFReader$StylesheetDestination$StyleDefiningDestination::close() {
-	int32_t semicolon = (this->styleName == nullptr) ? 0 : $nc(this->styleName)->indexOf((int32_t)u';');
+	int32_t semicolon = (this->styleName == nullptr) ? 0 : this->styleName->indexOf(u';');
 	if (semicolon > 0) {
 		$set(this, styleName, $nc(this->styleName)->substring(0, semicolon));
 	}
@@ -119,7 +63,7 @@ bool RTFReader$StylesheetDestination$StyleDefiningDestination::handleKeyword($St
 		this->additive = true;
 		return true;
 	}
-	if ($nc(keyword)->equals("shidden"_s)) {
+	if (keyword->equals("shidden"_s)) {
 		this->hidden = true;
 		return true;
 	}
@@ -150,7 +94,7 @@ bool RTFReader$StylesheetDestination$StyleDefiningDestination::handleKeyword($St
 }
 
 $Style* RTFReader$StylesheetDestination$StyleDefiningDestination::realize() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Style, basis, nullptr);
 	$var($Style, next, nullptr);
 	if (this->realizedStyle != nullptr) {
@@ -198,7 +142,53 @@ RTFReader$StylesheetDestination$StyleDefiningDestination::RTFReader$StylesheetDe
 }
 
 $Class* RTFReader$StylesheetDestination$StyleDefiningDestination::load$($String* name, bool initialize) {
-	$loadClass(RTFReader$StylesheetDestination$StyleDefiningDestination, name, initialize, &_RTFReader$StylesheetDestination$StyleDefiningDestination_ClassInfo_, allocate$RTFReader$StylesheetDestination$StyleDefiningDestination);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$1", "Ljavax/swing/text/rtf/RTFReader$StylesheetDestination;", nullptr, $FINAL | $SYNTHETIC, $field(RTFReader$StylesheetDestination$StyleDefiningDestination, this$1)},
+		{"STYLENUMBER_NONE", "I", nullptr, $STATIC | $FINAL, $constField(RTFReader$StylesheetDestination$StyleDefiningDestination, STYLENUMBER_NONE)},
+		{"additive", "Z", nullptr, 0, $field(RTFReader$StylesheetDestination$StyleDefiningDestination, additive)},
+		{"characterStyle", "Z", nullptr, 0, $field(RTFReader$StylesheetDestination$StyleDefiningDestination, characterStyle)},
+		{"sectionStyle", "Z", nullptr, 0, $field(RTFReader$StylesheetDestination$StyleDefiningDestination, sectionStyle)},
+		{"styleName", "Ljava/lang/String;", nullptr, $PUBLIC, $field(RTFReader$StylesheetDestination$StyleDefiningDestination, styleName)},
+		{"number", "I", nullptr, $PUBLIC, $field(RTFReader$StylesheetDestination$StyleDefiningDestination, number)},
+		{"basedOn", "I", nullptr, 0, $field(RTFReader$StylesheetDestination$StyleDefiningDestination, basedOn)},
+		{"nextStyle", "I", nullptr, 0, $field(RTFReader$StylesheetDestination$StyleDefiningDestination, nextStyle)},
+		{"hidden", "Z", nullptr, 0, $field(RTFReader$StylesheetDestination$StyleDefiningDestination, hidden)},
+		{"realizedStyle", "Ljavax/swing/text/Style;", nullptr, 0, $field(RTFReader$StylesheetDestination$StyleDefiningDestination, realizedStyle)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/text/rtf/RTFReader$StylesheetDestination;)V", nullptr, $PUBLIC, $method(RTFReader$StylesheetDestination$StyleDefiningDestination, init$, void, $RTFReader$StylesheetDestination*)},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(RTFReader$StylesheetDestination$StyleDefiningDestination, close, void)},
+		{"handleKeyword", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(RTFReader$StylesheetDestination$StyleDefiningDestination, handleKeyword, bool, $String*)},
+		{"handleKeyword", "(Ljava/lang/String;I)Z", nullptr, $PUBLIC, $virtualMethod(RTFReader$StylesheetDestination$StyleDefiningDestination, handleKeyword, bool, $String*, int32_t)},
+		{"handleText", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(RTFReader$StylesheetDestination$StyleDefiningDestination, handleText, void, $String*)},
+		{"realize", "()Ljavax/swing/text/Style;", nullptr, $PUBLIC, $virtualMethod(RTFReader$StylesheetDestination$StyleDefiningDestination, realize, $Style*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.rtf.RTFReader$StylesheetDestination", "javax.swing.text.rtf.RTFReader", "StylesheetDestination", 0},
+		{"javax.swing.text.rtf.RTFReader$StylesheetDestination$StyleDefiningDestination", "javax.swing.text.rtf.RTFReader$StylesheetDestination", "StyleDefiningDestination", 0},
+		{"javax.swing.text.rtf.RTFReader$AttributeTrackingDestination", "javax.swing.text.rtf.RTFReader", "AttributeTrackingDestination", $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.text.rtf.RTFReader$StylesheetDestination$StyleDefiningDestination",
+		"javax.swing.text.rtf.RTFReader$AttributeTrackingDestination",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.rtf.RTFReader"
+	};
+	$loadClass(RTFReader$StylesheetDestination$StyleDefiningDestination, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RTFReader$StylesheetDestination$StyleDefiningDestination);
+	});
 	return class$;
 }
 

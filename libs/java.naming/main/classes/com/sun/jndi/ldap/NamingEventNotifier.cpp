@@ -1,5 +1,4 @@
 #include <com/sun/jndi/ldap/NamingEventNotifier.h>
-
 #include <com/sun/jndi/ldap/EntryChangeResponseControl.h>
 #include <com/sun/jndi/ldap/EventSupport.h>
 #include <com/sun/jndi/ldap/LdapCtx.h>
@@ -10,8 +9,6 @@
 #include <com/sun/jndi/ldap/VersionHelper.h>
 #include <com/sun/jndi/toolkit/ctx/Continuation.h>
 #include <java/io/IOException.h>
-#include <java/lang/Runnable.h>
-#include <java/util/EventObject.h>
 #include <java/util/Vector.h>
 #include <javax/naming/Binding.h>
 #include <javax/naming/CompositeName.h>
@@ -49,24 +46,19 @@ using $LdapSearchEnumeration = ::com::sun::jndi::ldap::LdapSearchEnumeration;
 using $NotifierArgs = ::com::sun::jndi::ldap::NotifierArgs;
 using $Obj = ::com::sun::jndi::ldap::Obj;
 using $PersistentSearchControl = ::com::sun::jndi::ldap::PersistentSearchControl;
-using $VersionHelper = ::com::sun::jndi::ldap::VersionHelper;
 using $Continuation = ::com::sun::jndi::toolkit::ctx::Continuation;
 using $IOException = ::java::io::IOException;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $Long = ::java::lang::Long;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
-using $EventObject = ::java::util::EventObject;
 using $Vector = ::java::util::Vector;
 using $Binding = ::javax::naming::Binding;
 using $CompositeName = ::javax::naming::CompositeName;
 using $InterruptedNamingException = ::javax::naming::InterruptedNamingException;
 using $Name = ::javax::naming::Name;
-using $NamingEnumeration = ::javax::naming::NamingEnumeration;
 using $NamingException = ::javax::naming::NamingException;
 using $SearchResult = ::javax::naming::directory::SearchResult;
-using $EventContext = ::javax::naming::event::EventContext;
 using $NamingEvent = ::javax::naming::event::NamingEvent;
 using $NamingExceptionEvent = ::javax::naming::event::NamingExceptionEvent;
 using $NamingListener = ::javax::naming::event::NamingListener;
@@ -79,49 +71,8 @@ namespace com {
 		namespace jndi {
 			namespace ldap {
 
-$FieldInfo _NamingEventNotifier_FieldInfo_[] = {
-	{"debug", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NamingEventNotifier, debug)},
-	{"namingListeners", "Ljava/util/Vector;", "Ljava/util/Vector<Ljavax/naming/event/NamingListener;>;", $PRIVATE, $field(NamingEventNotifier, namingListeners)},
-	{"worker", "Ljava/lang/Thread;", nullptr, $PRIVATE, $field(NamingEventNotifier, worker)},
-	{"context", "Lcom/sun/jndi/ldap/LdapCtx;", nullptr, $PRIVATE, $field(NamingEventNotifier, context)},
-	{"eventSrc", "Ljavax/naming/event/EventContext;", nullptr, $PRIVATE, $field(NamingEventNotifier, eventSrc)},
-	{"support", "Lcom/sun/jndi/ldap/EventSupport;", nullptr, $PRIVATE, $field(NamingEventNotifier, support)},
-	{"results", "Ljavax/naming/NamingEnumeration;", "Ljavax/naming/NamingEnumeration<Ljavax/naming/directory/SearchResult;>;", $PRIVATE, $field(NamingEventNotifier, results)},
-	{"info", "Lcom/sun/jndi/ldap/NotifierArgs;", nullptr, 0, $field(NamingEventNotifier, info)},
-	{}
-};
-
-$MethodInfo _NamingEventNotifier_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/jndi/ldap/EventSupport;Lcom/sun/jndi/ldap/LdapCtx;Lcom/sun/jndi/ldap/NotifierArgs;Ljavax/naming/event/NamingListener;)V", nullptr, 0, $method(NamingEventNotifier, init$, void, $EventSupport*, $LdapCtx*, $NotifierArgs*, $NamingListener*), "javax.naming.NamingException"},
-	{"addNamingListener", "(Ljavax/naming/event/NamingListener;)V", nullptr, 0, $method(NamingEventNotifier, addNamingListener, void, $NamingListener*)},
-	{"cleanup", "()V", nullptr, $PRIVATE, $method(NamingEventNotifier, cleanup, void)},
-	{"fireNamingException", "(Ljavax/naming/NamingException;)V", nullptr, $PRIVATE, $method(NamingEventNotifier, fireNamingException, void, $NamingException*)},
-	{"fireObjectAdded", "(Ljavax/naming/Binding;J)V", nullptr, $PRIVATE, $method(NamingEventNotifier, fireObjectAdded, void, $Binding*, int64_t)},
-	{"fireObjectChanged", "(Ljavax/naming/Binding;J)V", nullptr, $PRIVATE, $method(NamingEventNotifier, fireObjectChanged, void, $Binding*, int64_t)},
-	{"fireObjectRemoved", "(Ljavax/naming/Binding;J)V", nullptr, $PRIVATE, $method(NamingEventNotifier, fireObjectRemoved, void, $Binding*, int64_t)},
-	{"fireObjectRenamed", "(Ljavax/naming/Binding;Ljava/lang/String;J)V", nullptr, $PRIVATE, $method(NamingEventNotifier, fireObjectRenamed, void, $Binding*, $String*, int64_t)},
-	{"hasNamingListeners", "()Z", nullptr, 0, $method(NamingEventNotifier, hasNamingListeners, bool)},
-	{"removeNamingListener", "(Ljavax/naming/event/NamingListener;)V", nullptr, 0, $method(NamingEventNotifier, removeNamingListener, void, $NamingListener*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(NamingEventNotifier, run, void)},
-	{"stop", "()V", nullptr, 0, $method(NamingEventNotifier, stop, void)},
-	{}
-};
-
-$ClassInfo _NamingEventNotifier_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.jndi.ldap.NamingEventNotifier",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	_NamingEventNotifier_FieldInfo_,
-	_NamingEventNotifier_MethodInfo_
-};
-
-$Object* allocate$NamingEventNotifier($Class* clazz) {
-	return $of($alloc(NamingEventNotifier));
-}
-
 void NamingEventNotifier::init$($EventSupport* support, $LdapCtx* ctx, $NotifierArgs* info, $NamingListener* firstListener) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, info, info);
 	$set(this, support, support);
 	$var($Control, psearch, nullptr);
@@ -135,11 +86,11 @@ void NamingEventNotifier::init$($EventSupport* support, $LdapCtx* ctx, $Notifier
 	$set(this, context, $cast($LdapCtx, $nc(ctx)->newInstance($$new($ControlArray, {psearch}))));
 	$set(this, eventSrc, ctx);
 	$set(this, namingListeners, $new($Vector));
-	$nc(this->namingListeners)->addElement(firstListener);
+	this->namingListeners->addElement(firstListener);
 	$init($Obj);
 	$set(this, worker, $nc($Obj::helper)->createThread(this));
 	$nc(this->worker)->setDaemon(true);
-	$nc(this->worker)->start();
+	this->worker->start();
 }
 
 void NamingEventNotifier::addNamingListener($NamingListener* l) {
@@ -155,79 +106,75 @@ bool NamingEventNotifier::hasNamingListeners() {
 }
 
 void NamingEventNotifier::run() {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Throwable, var$0, nullptr);
+	$useLocalObjectStack();
+	$var($Throwable, var$0, nullptr);
+	try {
 		try {
-			try {
-				$var($Continuation, cont, $new($Continuation));
-				cont->setError($of(this), $nc(this->info)->name);
-				$var($Name, nm, ($nc(this->info)->name == nullptr || $nc($nc(this->info)->name)->isEmpty()) ? static_cast<$Name*>($new($CompositeName)) : $$new($CompositeName)->add($nc(this->info)->name));
-				$set(this, results, $nc(this->context)->searchAux(nm, $nc(this->info)->filter, $nc(this->info)->controls, true, false, cont));
-				$nc(($cast($LdapSearchEnumeration, this->results)))->setStartName($nc(this->context)->currentParsedDN);
-				$var($SearchResult, si, nullptr);
-				$var($ControlArray, respctls, nullptr);
-				$var($EntryChangeResponseControl, ec, nullptr);
-				int64_t changeNum = 0;
-				while ($nc(this->results)->hasMore()) {
-					$assign(si, $cast($SearchResult, $nc(this->results)->next()));
-					$assign(respctls, ($instanceOf($HasControls, si)) ? $nc(($cast($HasControls, si)))->getControls() : ($ControlArray*)nullptr);
-					if (respctls != nullptr) {
-						for (int32_t i = 0; i < respctls->length; i++) {
-							if ($instanceOf($EntryChangeResponseControl, respctls->get(i))) {
-								$assign(ec, $cast($EntryChangeResponseControl, respctls->get(i)));
-								changeNum = $nc(ec)->getChangeNumber();
-								switch (ec->getChangeType()) {
-								case $EntryChangeResponseControl::ADD:
-									{
-										fireObjectAdded(si, changeNum);
-										break;
-									}
-								case $EntryChangeResponseControl::DELETE:
-									{
-										fireObjectRemoved(si, changeNum);
-										break;
-									}
-								case $EntryChangeResponseControl::MODIFY:
-									{
-										fireObjectChanged(si, changeNum);
-										break;
-									}
-								case $EntryChangeResponseControl::RENAME:
-									{
-										fireObjectRenamed(si, $(ec->getPreviousDN()), changeNum);
-										break;
-									}
-								}
+			$var($Continuation, cont, $new($Continuation));
+			cont->setError(this, $nc(this->info)->name);
+			$var($Name, nm, ($nc(this->info)->name == nullptr || this->info->name->isEmpty()) ? $cast($Name, $new($CompositeName)) : $$new($CompositeName)->add(this->info->name));
+			$set(this, results, $nc(this->context)->searchAux(nm, $nc(this->info)->filter, $nc(this->info)->controls, true, false, cont));
+			$nc($cast($LdapSearchEnumeration, this->results))->setStartName($nc(this->context)->currentParsedDN);
+			$var($SearchResult, si, nullptr);
+			$var($ControlArray, respctls, nullptr);
+			$var($EntryChangeResponseControl, ec, nullptr);
+			int64_t changeNum = 0;
+			while ($nc(this->results)->hasMore()) {
+				$assign(si, $cast($SearchResult, this->results->next()));
+				$assign(respctls, ($instanceOf($HasControls, si)) ? $cast($HasControls, si)->getControls() : ($ControlArray*)nullptr);
+				;
+				if (respctls != nullptr) {
+					for (int32_t i = 0; i < respctls->length; i++) {
+						if ($instanceOf($EntryChangeResponseControl, respctls->get(i))) {
+							$assign(ec, $cast($EntryChangeResponseControl, respctls->get(i)));
+							changeNum = $nc(ec)->getChangeNumber();
+							switch (ec->getChangeType()) {
+							case $EntryChangeResponseControl::ADD:
+								fireObjectAdded(si, changeNum);
+								break;
+							case $EntryChangeResponseControl::DELETE:
+								fireObjectRemoved(si, changeNum);
+								break;
+							case $EntryChangeResponseControl::MODIFY:
+								fireObjectChanged(si, changeNum);
+								break;
+							case $EntryChangeResponseControl::RENAME:
+								fireObjectRenamed(si, $(ec->getPreviousDN()), changeNum);
+								break;
 							}
-							break;
 						}
+						break;
 					}
 				}
-			} catch ($InterruptedNamingException& e) {
-			} catch ($NamingException& e) {
-				fireNamingException(e);
-				$nc(this->support)->removeDeadNotifier(this->info);
 			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			cleanup();
+		} catch ($InterruptedNamingException& e) {
+			;
+		} catch ($NamingException& e) {
+			fireNamingException(e);
+			$nc(this->support)->removeDeadNotifier(this->info);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		cleanup();
 	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	;
 }
 
 void NamingEventNotifier::cleanup() {
+	;
 	try {
 		if (this->results != nullptr) {
-			$nc(this->results)->close();
+			;
+			this->results->close();
 			$set(this, results, nullptr);
 		}
 		if (this->context != nullptr) {
-			$nc(this->context)->close();
+			;
+			this->context->close();
 			$set(this, context, nullptr);
 		}
 	} catch ($NamingException& e) {
@@ -235,15 +182,16 @@ void NamingEventNotifier::cleanup() {
 }
 
 void NamingEventNotifier::stop() {
+	;
 	if (this->worker != nullptr) {
-		$nc(this->worker)->interrupt();
+		this->worker->interrupt();
 		$set(this, worker, nullptr);
 	}
 }
 
 void NamingEventNotifier::fireObjectAdded($Binding* newBd, int64_t changeID) {
-	$useLocalCurrentObjectStackCache();
-	if (this->namingListeners == nullptr || $nc(this->namingListeners)->size() == 0) {
+	$useLocalObjectStack();
+	if (this->namingListeners == nullptr || this->namingListeners->size() == 0) {
 		return;
 	}
 	$var($NamingEvent, e, $new($NamingEvent, this->eventSrc, $NamingEvent::OBJECT_ADDED, newBd, nullptr, $($Long::valueOf(changeID))));
@@ -251,8 +199,8 @@ void NamingEventNotifier::fireObjectAdded($Binding* newBd, int64_t changeID) {
 }
 
 void NamingEventNotifier::fireObjectRemoved($Binding* oldBd, int64_t changeID) {
-	$useLocalCurrentObjectStackCache();
-	if (this->namingListeners == nullptr || $nc(this->namingListeners)->size() == 0) {
+	$useLocalObjectStack();
+	if (this->namingListeners == nullptr || this->namingListeners->size() == 0) {
 		return;
 	}
 	$var($NamingEvent, e, $new($NamingEvent, this->eventSrc, $NamingEvent::OBJECT_REMOVED, nullptr, oldBd, $($Long::valueOf(changeID))));
@@ -260,39 +208,39 @@ void NamingEventNotifier::fireObjectRemoved($Binding* oldBd, int64_t changeID) {
 }
 
 void NamingEventNotifier::fireObjectChanged($Binding* newBd, int64_t changeID) {
-	$useLocalCurrentObjectStackCache();
-	if (this->namingListeners == nullptr || $nc(this->namingListeners)->size() == 0) {
+	$useLocalObjectStack();
+	if (this->namingListeners == nullptr || this->namingListeners->size() == 0) {
 		return;
 	}
 	$var($String, var$0, $nc(newBd)->getName());
-	$var($Binding, oldBd, $new($Binding, var$0, ($Object*)nullptr, newBd->isRelative()));
+	$var($Binding, oldBd, $new($Binding, var$0, nullptr, newBd->isRelative()));
 	$var($NamingEvent, e, $new($NamingEvent, this->eventSrc, $NamingEvent::OBJECT_CHANGED, newBd, oldBd, $($Long::valueOf(changeID))));
 	$nc(this->support)->queueEvent(e, this->namingListeners);
 }
 
 void NamingEventNotifier::fireObjectRenamed($Binding* newBd, $String* oldDN, int64_t changeID) {
-	$useLocalCurrentObjectStackCache();
-	if (this->namingListeners == nullptr || $nc(this->namingListeners)->size() == 0) {
+	$useLocalObjectStack();
+	if (this->namingListeners == nullptr || this->namingListeners->size() == 0) {
 		return;
 	}
 	$var($Binding, oldBd, nullptr);
 	try {
 		$var($LdapName, dn, $new($LdapName, oldDN));
 		if (dn->startsWith($nc(this->context)->currentParsedDN)) {
-			$var($String, relDN, $nc($of($(dn->getSuffix($nc($nc(this->context)->currentParsedDN)->size()))))->toString());
+			$var($String, relDN, $$nc(dn->getSuffix($nc($nc(this->context)->currentParsedDN)->size()))->toString());
 			$assign(oldBd, $new($Binding, relDN, nullptr));
 		}
 	} catch ($NamingException& e) {
 	}
 	if (oldBd == nullptr) {
-		$assign(oldBd, $new($Binding, oldDN, ($Object*)nullptr, false));
+		$assign(oldBd, $new($Binding, oldDN, nullptr, false));
 	}
 	$var($NamingEvent, e, $new($NamingEvent, this->eventSrc, $NamingEvent::OBJECT_RENAMED, newBd, oldBd, $($Long::valueOf(changeID))));
 	$nc(this->support)->queueEvent(e, this->namingListeners);
 }
 
 void NamingEventNotifier::fireNamingException($NamingException* e) {
-	if (this->namingListeners == nullptr || $nc(this->namingListeners)->size() == 0) {
+	if (this->namingListeners == nullptr || this->namingListeners->size() == 0) {
 		return;
 	}
 	$var($NamingExceptionEvent, evt, $new($NamingExceptionEvent, this->eventSrc, e));
@@ -303,7 +251,43 @@ NamingEventNotifier::NamingEventNotifier() {
 }
 
 $Class* NamingEventNotifier::load$($String* name, bool initialize) {
-	$loadClass(NamingEventNotifier, name, initialize, &_NamingEventNotifier_ClassInfo_, allocate$NamingEventNotifier);
+	$FieldInfo fieldInfos$$[] = {
+		{"debug", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NamingEventNotifier, debug)},
+		{"namingListeners", "Ljava/util/Vector;", "Ljava/util/Vector<Ljavax/naming/event/NamingListener;>;", $PRIVATE, $field(NamingEventNotifier, namingListeners)},
+		{"worker", "Ljava/lang/Thread;", nullptr, $PRIVATE, $field(NamingEventNotifier, worker)},
+		{"context", "Lcom/sun/jndi/ldap/LdapCtx;", nullptr, $PRIVATE, $field(NamingEventNotifier, context)},
+		{"eventSrc", "Ljavax/naming/event/EventContext;", nullptr, $PRIVATE, $field(NamingEventNotifier, eventSrc)},
+		{"support", "Lcom/sun/jndi/ldap/EventSupport;", nullptr, $PRIVATE, $field(NamingEventNotifier, support)},
+		{"results", "Ljavax/naming/NamingEnumeration;", "Ljavax/naming/NamingEnumeration<Ljavax/naming/directory/SearchResult;>;", $PRIVATE, $field(NamingEventNotifier, results)},
+		{"info", "Lcom/sun/jndi/ldap/NotifierArgs;", nullptr, 0, $field(NamingEventNotifier, info)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/jndi/ldap/EventSupport;Lcom/sun/jndi/ldap/LdapCtx;Lcom/sun/jndi/ldap/NotifierArgs;Ljavax/naming/event/NamingListener;)V", nullptr, 0, $method(NamingEventNotifier, init$, void, $EventSupport*, $LdapCtx*, $NotifierArgs*, $NamingListener*), "javax.naming.NamingException"},
+		{"addNamingListener", "(Ljavax/naming/event/NamingListener;)V", nullptr, 0, $method(NamingEventNotifier, addNamingListener, void, $NamingListener*)},
+		{"cleanup", "()V", nullptr, $PRIVATE, $method(NamingEventNotifier, cleanup, void)},
+		{"fireNamingException", "(Ljavax/naming/NamingException;)V", nullptr, $PRIVATE, $method(NamingEventNotifier, fireNamingException, void, $NamingException*)},
+		{"fireObjectAdded", "(Ljavax/naming/Binding;J)V", nullptr, $PRIVATE, $method(NamingEventNotifier, fireObjectAdded, void, $Binding*, int64_t)},
+		{"fireObjectChanged", "(Ljavax/naming/Binding;J)V", nullptr, $PRIVATE, $method(NamingEventNotifier, fireObjectChanged, void, $Binding*, int64_t)},
+		{"fireObjectRemoved", "(Ljavax/naming/Binding;J)V", nullptr, $PRIVATE, $method(NamingEventNotifier, fireObjectRemoved, void, $Binding*, int64_t)},
+		{"fireObjectRenamed", "(Ljavax/naming/Binding;Ljava/lang/String;J)V", nullptr, $PRIVATE, $method(NamingEventNotifier, fireObjectRenamed, void, $Binding*, $String*, int64_t)},
+		{"hasNamingListeners", "()Z", nullptr, 0, $method(NamingEventNotifier, hasNamingListeners, bool)},
+		{"removeNamingListener", "(Ljavax/naming/event/NamingListener;)V", nullptr, 0, $method(NamingEventNotifier, removeNamingListener, void, $NamingListener*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(NamingEventNotifier, run, void)},
+		{"stop", "()V", nullptr, 0, $method(NamingEventNotifier, stop, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.jndi.ldap.NamingEventNotifier",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(NamingEventNotifier, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(NamingEventNotifier);
+	});
 	return class$;
 }
 

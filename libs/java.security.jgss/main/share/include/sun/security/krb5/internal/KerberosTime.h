@@ -35,6 +35,7 @@ class $import KerberosTime : public ::java::lang::Object {
 	$class(KerberosTime, 0, ::java::lang::Object)
 public:
 	KerberosTime();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int64_t time, int32_t micro);
 	void init$(int64_t time);
 	void init$($String* time);

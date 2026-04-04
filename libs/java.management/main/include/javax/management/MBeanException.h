@@ -23,11 +23,14 @@ public:
 	void init$(::java::lang::Exception* e, $String* message);
 	virtual $Throwable* getCause() override;
 	virtual ::java::lang::Exception* getTargetException();
-	static const int64_t serialVersionUID = (int64_t)0x386E8CE56E5731CE;
+	static const int64_t serialVersionUID = (int64_t)0x386e8ce56e5731ce;
 	::java::lang::Exception* exception = nullptr;
 	MBeanException(const MBeanException& e);
 	virtual void throw$() override;
-	inline MBeanException* operator ->() {
+	inline MBeanException* operator ->() const {
+		return (MBeanException*)throwing$;
+	}
+	inline operator MBeanException*() const {
 		return (MBeanException*)throwing$;
 	}
 };

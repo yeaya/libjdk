@@ -1,5 +1,4 @@
 #include <com/sun/imageio/plugins/tiff/TIFFBaseJPEGCompressor.h>
-
 #include <com/sun/imageio/plugins/tiff/TIFFBaseJPEGCompressor$IIOByteArrayOutputStream.h>
 #include <com/sun/imageio/plugins/tiff/TIFFCompressor.h>
 #include <com/sun/imageio/plugins/tiff/TIFFImageWriter.h>
@@ -19,7 +18,6 @@
 #include <java/io/OutputStream.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Arrays.h>
-#include <java/util/Collection.h>
 #include <java/util/Hashtable.h>
 #include <java/util/Iterator.h>
 #include <java/util/List.h>
@@ -60,10 +58,8 @@ using $DataBuffer = ::java::awt::image::DataBuffer;
 using $DataBufferByte = ::java::awt::image::DataBufferByte;
 using $PixelInterleavedSampleModel = ::java::awt::image::PixelInterleavedSampleModel;
 using $Raster = ::java::awt::image::Raster;
-using $RenderedImage = ::java::awt::image::RenderedImage;
 using $SampleModel = ::java::awt::image::SampleModel;
 using $WritableRaster = ::java::awt::image::WritableRaster;
-using $OutputStream = ::java::io::OutputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
@@ -72,7 +68,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;
 using $ArrayList = ::java::util::ArrayList;
 using $Arrays = ::java::util::Arrays;
-using $Collection = ::java::util::Collection;
 using $Hashtable = ::java::util::Hashtable;
 using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
@@ -97,64 +92,16 @@ namespace com {
 			namespace plugins {
 				namespace tiff {
 
-$FieldInfo _TIFFBaseJPEGCompressor_FieldInfo_[] = {
-	{"STREAM_METADATA_NAME", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(TIFFBaseJPEGCompressor, STREAM_METADATA_NAME)},
-	{"IMAGE_METADATA_NAME", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(TIFFBaseJPEGCompressor, IMAGE_METADATA_NAME)},
-	{"param", "Ljavax/imageio/ImageWriteParam;", nullptr, $PRIVATE, $field(TIFFBaseJPEGCompressor, param)},
-	{"JPEGParam", "Ljavax/imageio/plugins/jpeg/JPEGImageWriteParam;", nullptr, $PROTECTED, $field(TIFFBaseJPEGCompressor, JPEGParam)},
-	{"JPEGWriter", "Ljavax/imageio/ImageWriter;", nullptr, $PROTECTED, $field(TIFFBaseJPEGCompressor, JPEGWriter)},
-	{"writeAbbreviatedStream", "Z", nullptr, $PROTECTED, $field(TIFFBaseJPEGCompressor, writeAbbreviatedStream)},
-	{"JPEGStreamMetadata", "Ljavax/imageio/metadata/IIOMetadata;", nullptr, $PROTECTED, $field(TIFFBaseJPEGCompressor, JPEGStreamMetadata)},
-	{"JPEGImageMetadata", "Ljavax/imageio/metadata/IIOMetadata;", nullptr, $PRIVATE, $field(TIFFBaseJPEGCompressor, JPEGImageMetadata)},
-	{"baos", "Lcom/sun/imageio/plugins/tiff/TIFFBaseJPEGCompressor$IIOByteArrayOutputStream;", nullptr, $PRIVATE, $field(TIFFBaseJPEGCompressor, baos)},
-	{}
-};
-
-$MethodInfo _TIFFBaseJPEGCompressor_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;IZLjavax/imageio/ImageWriteParam;)V", nullptr, $PUBLIC, $method(TIFFBaseJPEGCompressor, init$, void, $String*, int32_t, bool, $ImageWriteParam*)},
-	{"encode", "([BIII[II)I", nullptr, $PUBLIC | $FINAL, $virtualMethod(TIFFBaseJPEGCompressor, encode, int32_t, $bytes*, int32_t, int32_t, int32_t, $ints*, int32_t), "java.io.IOException"},
-	{"finalize", "()V", nullptr, $PROTECTED, $virtualMethod(TIFFBaseJPEGCompressor, finalize, void), "java.lang.Throwable"},
-	{"getAllNodes", "(Ljavax/imageio/metadata/IIOMetadataNode;Ljava/util/List;)Ljava/util/List;", "(Ljavax/imageio/metadata/IIOMetadataNode;Ljava/util/List<Lorg/w3c/dom/Node;>;)Ljava/util/List<Lorg/w3c/dom/Node;>;", $PRIVATE | $STATIC, $staticMethod(TIFFBaseJPEGCompressor, getAllNodes, $List*, $IIOMetadataNode*, $List*)},
-	{"getImageMetadata", "(Z)Ljavax/imageio/metadata/IIOMetadata;", nullptr, $PRIVATE, $method(TIFFBaseJPEGCompressor, getImageMetadata, $IIOMetadata*, bool), "javax.imageio.IIOException"},
-	{"initJPEGWriter", "(ZZ)V", nullptr, $PROTECTED, $virtualMethod(TIFFBaseJPEGCompressor, initJPEGWriter, void, bool, bool)},
-	{"pruneNodes", "(Lorg/w3c/dom/Node;Z)V", nullptr, $PRIVATE | $STATIC, $staticMethod(TIFFBaseJPEGCompressor, pruneNodes, void, $Node*, bool)},
-	{}
-};
-
-$InnerClassInfo _TIFFBaseJPEGCompressor_InnerClassesInfo_[] = {
-	{"com.sun.imageio.plugins.tiff.TIFFBaseJPEGCompressor$IIOByteArrayOutputStream", "com.sun.imageio.plugins.tiff.TIFFBaseJPEGCompressor", "IIOByteArrayOutputStream", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _TIFFBaseJPEGCompressor_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"com.sun.imageio.plugins.tiff.TIFFBaseJPEGCompressor",
-	"com.sun.imageio.plugins.tiff.TIFFCompressor",
-	nullptr,
-	_TIFFBaseJPEGCompressor_FieldInfo_,
-	_TIFFBaseJPEGCompressor_MethodInfo_,
-	nullptr,
-	nullptr,
-	_TIFFBaseJPEGCompressor_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.imageio.plugins.tiff.TIFFBaseJPEGCompressor$IIOByteArrayOutputStream"
-};
-
-$Object* allocate$TIFFBaseJPEGCompressor($Class* clazz) {
-	return $of($alloc(TIFFBaseJPEGCompressor));
-}
-
 $String* TIFFBaseJPEGCompressor::STREAM_METADATA_NAME = nullptr;
 $String* TIFFBaseJPEGCompressor::IMAGE_METADATA_NAME = nullptr;
 
 void TIFFBaseJPEGCompressor::pruneNodes($Node* tree, bool pruneTables) {
 	$init(TIFFBaseJPEGCompressor);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (tree == nullptr) {
 		$throwNew($NullPointerException, "tree == null!"_s);
 	}
-	if (!$nc($($nc(tree)->getNodeName()))->equals(TIFFBaseJPEGCompressor::IMAGE_METADATA_NAME)) {
+	if (!$$nc($nc(tree)->getNodeName())->equals(TIFFBaseJPEGCompressor::IMAGE_METADATA_NAME)) {
 		$throwNew($IllegalArgumentException, $$str({"root node name is not "_s, TIFFBaseJPEGCompressor::IMAGE_METADATA_NAME, "!"_s}));
 	}
 	$var($List, wantedNodes, $new($ArrayList));
@@ -178,14 +125,14 @@ void TIFFBaseJPEGCompressor::pruneNodes($Node* tree, bool pruneTables) {
 	for (int32_t i = 0; i < numNodes; ++i) {
 		$var($Node, node, $cast($Node, nodes->get(i)));
 		if (!wantedNodes->contains($($nc(node)->getNodeName()))) {
-			$nc($($nc(node)->getParentNode()))->removeChild(node);
+			$$nc(node->getParentNode())->removeChild(node);
 		}
 	}
 }
 
 $List* TIFFBaseJPEGCompressor::getAllNodes($IIOMetadataNode* root, $List* nodes$renamed) {
 	$init(TIFFBaseJPEGCompressor);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, nodes, nodes$renamed);
 	if (nodes == nullptr) {
 		$assign(nodes, $new($ArrayList));
@@ -213,18 +160,18 @@ void TIFFBaseJPEGCompressor::init$($String* compressionType, int32_t compression
 }
 
 void TIFFBaseJPEGCompressor::initJPEGWriter(bool supportsStreamMetadata, bool supportsImageMetadata) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->JPEGWriter != nullptr && (supportsStreamMetadata || supportsImageMetadata)) {
-		$var($ImageWriterSpi, spi, $nc(this->JPEGWriter)->getOriginatingProvider());
+		$var($ImageWriterSpi, spi, this->JPEGWriter->getOriginatingProvider());
 		if (supportsStreamMetadata) {
 			$var($String, smName, $nc(spi)->getNativeStreamMetadataFormatName());
-			if (smName == nullptr || !$nc(smName)->equals(TIFFBaseJPEGCompressor::STREAM_METADATA_NAME)) {
+			if (smName == nullptr || !smName->equals(TIFFBaseJPEGCompressor::STREAM_METADATA_NAME)) {
 				$set(this, JPEGWriter, nullptr);
 			}
 		}
 		if (this->JPEGWriter != nullptr && supportsImageMetadata) {
 			$var($String, imName, $nc(spi)->getNativeImageMetadataFormatName());
-			if (imName == nullptr || !$nc(imName)->equals(TIFFBaseJPEGCompressor::IMAGE_METADATA_NAME)) {
+			if (imName == nullptr || !imName->equals(TIFFBaseJPEGCompressor::IMAGE_METADATA_NAME)) {
 				$set(this, JPEGWriter, nullptr);
 			}
 		}
@@ -237,13 +184,13 @@ void TIFFBaseJPEGCompressor::initJPEGWriter(bool supportsStreamMetadata, bool su
 				$var($ImageWriterSpi, spi, $nc(writer)->getOriginatingProvider());
 				if (supportsStreamMetadata) {
 					$var($String, smName, $nc(spi)->getNativeStreamMetadataFormatName());
-					if (smName == nullptr || !$nc(smName)->equals(TIFFBaseJPEGCompressor::STREAM_METADATA_NAME)) {
+					if (smName == nullptr || !smName->equals(TIFFBaseJPEGCompressor::STREAM_METADATA_NAME)) {
 						continue;
 					}
 				}
 				if (supportsImageMetadata) {
 					$var($String, imName, $nc(spi)->getNativeImageMetadataFormatName());
-					if (imName == nullptr || !$nc(imName)->equals(TIFFBaseJPEGCompressor::IMAGE_METADATA_NAME)) {
+					if (imName == nullptr || !imName->equals(TIFFBaseJPEGCompressor::IMAGE_METADATA_NAME)) {
 						continue;
 					}
 				}
@@ -259,8 +206,8 @@ void TIFFBaseJPEGCompressor::initJPEGWriter(bool supportsStreamMetadata, bool su
 		if (this->param != nullptr && $instanceOf($JPEGImageWriteParam, this->param)) {
 			$set(this, JPEGParam, $cast($JPEGImageWriteParam, this->param));
 		} else {
-			$set(this, JPEGParam, $new($JPEGImageWriteParam, this->writer != nullptr ? $($nc(this->writer)->getLocale()) : ($Locale*)nullptr));
-			if (this->param != nullptr && $nc(this->param)->getCompressionMode() == $ImageWriteParam::MODE_EXPLICIT) {
+			$set(this, JPEGParam, $new($JPEGImageWriteParam, this->writer != nullptr ? $(this->writer->getLocale()) : ($Locale*)nullptr));
+			if (this->param != nullptr && this->param->getCompressionMode() == $ImageWriteParam::MODE_EXPLICIT) {
 				$nc(this->JPEGParam)->setCompressionMode($ImageWriteParam::MODE_EXPLICIT);
 				$nc(this->JPEGParam)->setCompressionQuality($nc(this->param)->getCompressionQuality());
 			}
@@ -269,8 +216,8 @@ void TIFFBaseJPEGCompressor::initJPEGWriter(bool supportsStreamMetadata, bool su
 }
 
 $IIOMetadata* TIFFBaseJPEGCompressor::getImageMetadata(bool pruneTables) {
-	$useLocalCurrentObjectStackCache();
-	if (this->JPEGImageMetadata == nullptr && $nc(TIFFBaseJPEGCompressor::IMAGE_METADATA_NAME)->equals($($nc($($nc(this->JPEGWriter)->getOriginatingProvider()))->getNativeImageMetadataFormatName()))) {
+	$useLocalObjectStack();
+	if (this->JPEGImageMetadata == nullptr && TIFFBaseJPEGCompressor::IMAGE_METADATA_NAME->equals($($$nc($nc(this->JPEGWriter)->getOriginatingProvider())->getNativeImageMetadataFormatName()))) {
 		$var($TIFFImageWriter, tiffWriter, $cast($TIFFImageWriter, this->writer));
 		$set(this, JPEGImageMetadata, $nc(this->JPEGWriter)->getDefaultImageMetadata($($nc(tiffWriter)->getImageType()), this->JPEGParam));
 		$var($Node, tree, $nc(this->JPEGImageMetadata)->getAsTree(TIFFBaseJPEGCompressor::IMAGE_METADATA_NAME));
@@ -289,17 +236,17 @@ $IIOMetadata* TIFFBaseJPEGCompressor::getImageMetadata(bool pruneTables) {
 }
 
 int32_t TIFFBaseJPEGCompressor::encode($bytes* b, int32_t off, int32_t width, int32_t height, $ints* bitsPerSample, int32_t scanlineStride) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->JPEGWriter == nullptr) {
 		$throwNew($IIOException, "JPEG writer has not been initialized!"_s);
 	}
-	if (!(($nc(bitsPerSample)->length == 3 && bitsPerSample->get(0) == 8 && bitsPerSample->get(1) == 8 && bitsPerSample->get(2) == 8) || ($nc(bitsPerSample)->length == 1 && bitsPerSample->get(0) == 8))) {
+	if (!(($nc(bitsPerSample)->length == 3 && bitsPerSample->get(0) == 8 && bitsPerSample->get(1) == 8 && bitsPerSample->get(2) == 8) || (bitsPerSample->length == 1 && bitsPerSample->get(0) == 8))) {
 		$throwNew($IIOException, "Can only JPEG compress 8- and 24-bit images!"_s);
 	}
 	if (this->baos == nullptr) {
 		$set(this, baos, $new($TIFFBaseJPEGCompressor$IIOByteArrayOutputStream));
 	} else {
-		$nc(this->baos)->reset();
+		this->baos->reset();
 	}
 	$var($ImageOutputStream, ios, $new($MemoryCacheImageOutputStream, this->baos));
 	$nc(this->JPEGWriter)->setOutput(ios);
@@ -315,7 +262,7 @@ int32_t TIFFBaseJPEGCompressor::encode($bytes* b, int32_t off, int32_t width, in
 	}
 	$var($ints, offsets, nullptr);
 	$var($ColorSpace, cs, nullptr);
-	if ($nc(bitsPerSample)->length == 3) {
+	if (bitsPerSample->length == 3) {
 		$assign(offsets, $new($ints, {
 			off,
 			off + 1,
@@ -327,23 +274,23 @@ int32_t TIFFBaseJPEGCompressor::encode($bytes* b, int32_t off, int32_t width, in
 		$assign(cs, $ColorSpace::getInstance($ColorSpace::CS_GRAY));
 	}
 	$var($ColorModel, cm, $new($ComponentColorModel, cs, false, false, $Transparency::OPAQUE, $DataBuffer::TYPE_BYTE));
-	$var($SampleModel, sm, $new($PixelInterleavedSampleModel, $DataBuffer::TYPE_BYTE, width, height, $nc(bitsPerSample)->length, scanlineStride, offsets));
+	$var($SampleModel, sm, $new($PixelInterleavedSampleModel, $DataBuffer::TYPE_BYTE, width, height, bitsPerSample->length, scanlineStride, offsets));
 	$var($WritableRaster, wras, $Raster::createWritableRaster(sm, dbb, $$new($Point, 0, 0)));
-	$var($BufferedImage, bi, $new($BufferedImage, cm, wras, false, ($Hashtable*)nullptr));
+	$var($BufferedImage, bi, $new($BufferedImage, cm, wras, false, nullptr));
 	$var($IIOMetadata, imageMetadata, getImageMetadata(this->writeAbbreviatedStream));
 	int32_t compDataLength = 0;
 	if (this->writeAbbreviatedStream) {
 		$nc(this->JPEGWriter)->prepareWriteSequence(this->JPEGStreamMetadata);
 		ios->flush();
 		$nc(this->baos)->reset();
-		$var($IIOImage, image, $new($IIOImage, static_cast<$RenderedImage*>(bi), ($List*)nullptr, imageMetadata));
+		$var($IIOImage, image, $new($IIOImage, bi, nullptr, imageMetadata));
 		$nc(this->JPEGWriter)->writeToSequence(image, this->JPEGParam);
 		$nc(this->JPEGWriter)->endWriteSequence();
 	} else {
-		$nc(this->JPEGWriter)->write(nullptr, $$new($IIOImage, static_cast<$RenderedImage*>(bi), ($List*)nullptr, imageMetadata), this->JPEGParam);
+		$nc(this->JPEGWriter)->write(nullptr, $$new($IIOImage, bi, nullptr, imageMetadata), this->JPEGParam);
 	}
 	compDataLength = $nc(this->baos)->size();
-	$nc(this->baos)->writeTo(this->stream);
+	this->baos->writeTo(this->stream);
 	$nc(this->baos)->reset();
 	return compDataLength;
 }
@@ -351,20 +298,62 @@ int32_t TIFFBaseJPEGCompressor::encode($bytes* b, int32_t off, int32_t width, in
 void TIFFBaseJPEGCompressor::finalize() {
 	$TIFFCompressor::finalize();
 	if (this->JPEGWriter != nullptr) {
-		$nc(this->JPEGWriter)->dispose();
+		this->JPEGWriter->dispose();
 	}
 }
 
 TIFFBaseJPEGCompressor::TIFFBaseJPEGCompressor() {
 }
 
-void clinit$TIFFBaseJPEGCompressor($Class* class$) {
+void TIFFBaseJPEGCompressor::clinit$($Class* clazz) {
 	$assignStatic(TIFFBaseJPEGCompressor::STREAM_METADATA_NAME, "javax_imageio_jpeg_stream_1.0"_s);
 	$assignStatic(TIFFBaseJPEGCompressor::IMAGE_METADATA_NAME, "javax_imageio_jpeg_image_1.0"_s);
 }
 
 $Class* TIFFBaseJPEGCompressor::load$($String* name, bool initialize) {
-	$loadClass(TIFFBaseJPEGCompressor, name, initialize, &_TIFFBaseJPEGCompressor_ClassInfo_, clinit$TIFFBaseJPEGCompressor, allocate$TIFFBaseJPEGCompressor);
+	$FieldInfo fieldInfos$$[] = {
+		{"STREAM_METADATA_NAME", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(TIFFBaseJPEGCompressor, STREAM_METADATA_NAME)},
+		{"IMAGE_METADATA_NAME", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(TIFFBaseJPEGCompressor, IMAGE_METADATA_NAME)},
+		{"param", "Ljavax/imageio/ImageWriteParam;", nullptr, $PRIVATE, $field(TIFFBaseJPEGCompressor, param)},
+		{"JPEGParam", "Ljavax/imageio/plugins/jpeg/JPEGImageWriteParam;", nullptr, $PROTECTED, $field(TIFFBaseJPEGCompressor, JPEGParam)},
+		{"JPEGWriter", "Ljavax/imageio/ImageWriter;", nullptr, $PROTECTED, $field(TIFFBaseJPEGCompressor, JPEGWriter)},
+		{"writeAbbreviatedStream", "Z", nullptr, $PROTECTED, $field(TIFFBaseJPEGCompressor, writeAbbreviatedStream)},
+		{"JPEGStreamMetadata", "Ljavax/imageio/metadata/IIOMetadata;", nullptr, $PROTECTED, $field(TIFFBaseJPEGCompressor, JPEGStreamMetadata)},
+		{"JPEGImageMetadata", "Ljavax/imageio/metadata/IIOMetadata;", nullptr, $PRIVATE, $field(TIFFBaseJPEGCompressor, JPEGImageMetadata)},
+		{"baos", "Lcom/sun/imageio/plugins/tiff/TIFFBaseJPEGCompressor$IIOByteArrayOutputStream;", nullptr, $PRIVATE, $field(TIFFBaseJPEGCompressor, baos)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;IZLjavax/imageio/ImageWriteParam;)V", nullptr, $PUBLIC, $method(TIFFBaseJPEGCompressor, init$, void, $String*, int32_t, bool, $ImageWriteParam*)},
+		{"encode", "([BIII[II)I", nullptr, $PUBLIC | $FINAL, $virtualMethod(TIFFBaseJPEGCompressor, encode, int32_t, $bytes*, int32_t, int32_t, int32_t, $ints*, int32_t), "java.io.IOException"},
+		{"finalize", "()V", nullptr, $PROTECTED, $virtualMethod(TIFFBaseJPEGCompressor, finalize, void), "java.lang.Throwable"},
+		{"getAllNodes", "(Ljavax/imageio/metadata/IIOMetadataNode;Ljava/util/List;)Ljava/util/List;", "(Ljavax/imageio/metadata/IIOMetadataNode;Ljava/util/List<Lorg/w3c/dom/Node;>;)Ljava/util/List<Lorg/w3c/dom/Node;>;", $PRIVATE | $STATIC, $staticMethod(TIFFBaseJPEGCompressor, getAllNodes, $List*, $IIOMetadataNode*, $List*)},
+		{"getImageMetadata", "(Z)Ljavax/imageio/metadata/IIOMetadata;", nullptr, $PRIVATE, $method(TIFFBaseJPEGCompressor, getImageMetadata, $IIOMetadata*, bool), "javax.imageio.IIOException"},
+		{"initJPEGWriter", "(ZZ)V", nullptr, $PROTECTED, $virtualMethod(TIFFBaseJPEGCompressor, initJPEGWriter, void, bool, bool)},
+		{"pruneNodes", "(Lorg/w3c/dom/Node;Z)V", nullptr, $PRIVATE | $STATIC, $staticMethod(TIFFBaseJPEGCompressor, pruneNodes, void, $Node*, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.imageio.plugins.tiff.TIFFBaseJPEGCompressor$IIOByteArrayOutputStream", "com.sun.imageio.plugins.tiff.TIFFBaseJPEGCompressor", "IIOByteArrayOutputStream", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"com.sun.imageio.plugins.tiff.TIFFBaseJPEGCompressor",
+		"com.sun.imageio.plugins.tiff.TIFFCompressor",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.imageio.plugins.tiff.TIFFBaseJPEGCompressor$IIOByteArrayOutputStream"
+	};
+	$loadClass(TIFFBaseJPEGCompressor, name, initialize, &classInfo$$, TIFFBaseJPEGCompressor::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(TIFFBaseJPEGCompressor);
+	});
 	return class$;
 }
 

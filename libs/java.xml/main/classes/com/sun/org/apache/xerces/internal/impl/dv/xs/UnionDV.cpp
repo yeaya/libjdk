@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/impl/dv/xs/UnionDV.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/dv/ValidationContext.h>
 #include <com/sun/org/apache/xerces/internal/impl/dv/xs/TypeValidator.h>
 #include <com/sun/org/apache/xerces/internal/impl/dv/xs/XSSimpleTypeDecl.h>
@@ -24,26 +23,6 @@ namespace com {
 							namespace dv {
 								namespace xs {
 
-$MethodInfo _UnionDV_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(UnionDV, init$, void)},
-	{"getActualValue", "(Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/impl/dv/ValidationContext;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(UnionDV, getActualValue, $Object*, $String*, $ValidationContext*), "com.sun.org.apache.xerces.internal.impl.dv.InvalidDatatypeValueException"},
-	{"getAllowedFacets", "()S", nullptr, $PUBLIC, $virtualMethod(UnionDV, getAllowedFacets, int16_t)},
-	{}
-};
-
-$ClassInfo _UnionDV_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.impl.dv.xs.UnionDV",
-	"com.sun.org.apache.xerces.internal.impl.dv.xs.TypeValidator",
-	nullptr,
-	nullptr,
-	_UnionDV_MethodInfo_
-};
-
-$Object* allocate$UnionDV($Class* clazz) {
-	return $of($alloc(UnionDV));
-}
-
 void UnionDV::init$() {
 	$TypeValidator::init$();
 }
@@ -60,7 +39,23 @@ UnionDV::UnionDV() {
 }
 
 $Class* UnionDV::load$($String* name, bool initialize) {
-	$loadClass(UnionDV, name, initialize, &_UnionDV_ClassInfo_, allocate$UnionDV);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(UnionDV, init$, void)},
+		{"getActualValue", "(Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/impl/dv/ValidationContext;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(UnionDV, getActualValue, $Object*, $String*, $ValidationContext*), "com.sun.org.apache.xerces.internal.impl.dv.InvalidDatatypeValueException"},
+		{"getAllowedFacets", "()S", nullptr, $PUBLIC, $virtualMethod(UnionDV, getAllowedFacets, int16_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.impl.dv.xs.UnionDV",
+		"com.sun.org.apache.xerces.internal.impl.dv.xs.TypeValidator",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(UnionDV, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(UnionDV);
+	});
 	return class$;
 }
 

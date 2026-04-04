@@ -1,5 +1,4 @@
 #include <sun/awt/SunToolkit$1.h>
-
 #include <java/awt/AWTEvent.h>
 #include <java/awt/Component.h>
 #include <sun/awt/AWTAccessor$AWTEventAccessor.h>
@@ -15,68 +14,60 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AWTAccessor = ::sun::awt::AWTAccessor;
-using $AWTAccessor$AWTEventAccessor = ::sun::awt::AWTAccessor$AWTEventAccessor;
 
 namespace sun {
 	namespace awt {
-
-$FieldInfo _SunToolkit$1_FieldInfo_[] = {
-	{"val$e", "Ljava/awt/AWTEvent;", nullptr, $FINAL | $SYNTHETIC, $field(SunToolkit$1, val$e)},
-	{}
-};
-
-$MethodInfo _SunToolkit$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/awt/AWTEvent;)V", "()V", 0, $method(SunToolkit$1, init$, void, $AWTEvent*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(SunToolkit$1, run, void)},
-	{}
-};
-
-$EnclosingMethodInfo _SunToolkit$1_EnclosingMethodInfo_ = {
-	"sun.awt.SunToolkit",
-	"postPriorityEvent",
-	"(Ljava/awt/AWTEvent;)V"
-};
-
-$InnerClassInfo _SunToolkit$1_InnerClassesInfo_[] = {
-	{"sun.awt.SunToolkit$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _SunToolkit$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.awt.SunToolkit$1",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	_SunToolkit$1_FieldInfo_,
-	_SunToolkit$1_MethodInfo_,
-	nullptr,
-	&_SunToolkit$1_EnclosingMethodInfo_,
-	_SunToolkit$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.awt.SunToolkit"
-};
-
-$Object* allocate$SunToolkit$1($Class* clazz) {
-	return $of($alloc(SunToolkit$1));
-}
 
 void SunToolkit$1::init$($AWTEvent* val$e) {
 	$set(this, val$e, val$e);
 }
 
 void SunToolkit$1::run() {
-	$useLocalCurrentObjectStackCache();
-	$nc($($AWTAccessor::getAWTEventAccessor()))->setPosted(this->val$e);
-	$nc(($cast($Component, $($nc(this->val$e)->getSource()))))->dispatchEvent(this->val$e);
+	$useLocalObjectStack();
+	$$nc($AWTAccessor::getAWTEventAccessor())->setPosted(this->val$e);
+	$$sure($Component, $nc(this->val$e)->getSource())->dispatchEvent(this->val$e);
 }
 
 SunToolkit$1::SunToolkit$1() {
 }
 
 $Class* SunToolkit$1::load$($String* name, bool initialize) {
-	$loadClass(SunToolkit$1, name, initialize, &_SunToolkit$1_ClassInfo_, allocate$SunToolkit$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"val$e", "Ljava/awt/AWTEvent;", nullptr, $FINAL | $SYNTHETIC, $field(SunToolkit$1, val$e)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/AWTEvent;)V", "()V", 0, $method(SunToolkit$1, init$, void, $AWTEvent*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(SunToolkit$1, run, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.awt.SunToolkit",
+		"postPriorityEvent",
+		"(Ljava/awt/AWTEvent;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.SunToolkit$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.awt.SunToolkit$1",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.awt.SunToolkit"
+	};
+	$loadClass(SunToolkit$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SunToolkit$1);
+	});
 	return class$;
 }
 

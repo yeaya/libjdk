@@ -1,5 +1,4 @@
 #include <javax/sound/midi/MetaMessage.h>
-
 #include <javax/sound/midi/InvalidMidiDataException.h>
 #include <javax/sound/midi/MidiMessage.h>
 #include <jcpp.h>
@@ -16,43 +15,10 @@ namespace javax {
 	namespace sound {
 		namespace midi {
 
-$FieldInfo _MetaMessage_FieldInfo_[] = {
-	{"META", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(MetaMessage, META)},
-	{"dataLength", "I", nullptr, $PRIVATE, $field(MetaMessage, dataLength)},
-	{"mask", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MetaMessage, mask)},
-	{}
-};
-
-$MethodInfo _MetaMessage_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MetaMessage, init$, void)},
-	{"<init>", "(I[BI)V", nullptr, $PUBLIC, $method(MetaMessage, init$, void, int32_t, $bytes*, int32_t), "javax.sound.midi.InvalidMidiDataException"},
-	{"<init>", "([B)V", nullptr, $PROTECTED, $method(MetaMessage, init$, void, $bytes*)},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MetaMessage, clone, $Object*)},
-	{"getData", "()[B", nullptr, $PUBLIC, $virtualMethod(MetaMessage, getData, $bytes*)},
-	{"getType", "()I", nullptr, $PUBLIC, $virtualMethod(MetaMessage, getType, int32_t)},
-	{"getVarIntLength", "(J)I", nullptr, $PRIVATE, $method(MetaMessage, getVarIntLength, int32_t, int64_t)},
-	{"setMessage", "(I[BI)V", nullptr, $PUBLIC, $virtualMethod(MetaMessage, setMessage, void, int32_t, $bytes*, int32_t), "javax.sound.midi.InvalidMidiDataException"},
-	{"writeVarInt", "([BIJ)V", nullptr, $PRIVATE, $method(MetaMessage, writeVarInt, void, $bytes*, int32_t, int64_t)},
-	{}
-};
-
-$ClassInfo _MetaMessage_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.sound.midi.MetaMessage",
-	"javax.sound.midi.MidiMessage",
-	nullptr,
-	_MetaMessage_FieldInfo_,
-	_MetaMessage_MethodInfo_
-};
-
-$Object* allocate$MetaMessage($Class* clazz) {
-	return $of($alloc(MetaMessage));
-}
-
 void MetaMessage::init$() {
 	MetaMessage::init$($$new($bytes, {
 		(int8_t)MetaMessage::META,
-		(int8_t)0
+		0
 	}));
 }
 
@@ -68,7 +34,7 @@ void MetaMessage::init$($bytes* data) {
 	if ($nc(data)->length >= 3) {
 		this->dataLength = data->length - 3;
 		int32_t pos = 2;
-		while (pos < data->length && ((int32_t)(data->get(pos) & (uint32_t)128)) != 0) {
+		while (pos < data->length && (data->get(pos) & 0x80) != 0) {
 			--this->dataLength;
 			++pos;
 		}
@@ -76,7 +42,7 @@ void MetaMessage::init$($bytes* data) {
 }
 
 void MetaMessage::setMessage(int32_t type, $bytes* data, int32_t length) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (type >= 128 || type < 0) {
 		$throwNew($InvalidMidiDataException, $$str({"Invalid meta event with type "_s, $$str(type)}));
 	}
@@ -86,8 +52,8 @@ void MetaMessage::setMessage(int32_t type, $bytes* data, int32_t length) {
 	this->length = 2 + getVarIntLength(length) + length;
 	this->dataLength = length;
 	$set(this, data, $new($bytes, this->length));
-	$nc(this->data)->set(0, (int8_t)MetaMessage::META);
-	$nc(this->data)->set(1, (int8_t)type);
+	this->data->set(0, (int8_t)MetaMessage::META);
+	this->data->set(1, (int8_t)type);
 	writeVarInt(this->data, 2, length);
 	if (length > 0) {
 		$System::arraycopy(data, 0, this->data, this->length - this->dataLength, this->dataLength);
@@ -96,7 +62,7 @@ void MetaMessage::setMessage(int32_t type, $bytes* data, int32_t length) {
 
 int32_t MetaMessage::getType() {
 	if (this->length >= 2) {
-		return (int32_t)($nc(this->data)->get(1) & (uint32_t)255);
+		return $nc(this->data)->get(1) & 0xff;
 	}
 	return 0;
 }
@@ -110,7 +76,7 @@ $bytes* MetaMessage::getData() {
 $Object* MetaMessage::clone() {
 	$var($bytes, newData, $new($bytes, this->length));
 	$System::arraycopy(this->data, 0, newData, 0, newData->length);
-	return $of($new(MetaMessage, newData));
+	return $new(MetaMessage, newData);
 }
 
 int32_t MetaMessage::getVarIntLength(int64_t value) {
@@ -124,21 +90,49 @@ int32_t MetaMessage::getVarIntLength(int64_t value) {
 
 void MetaMessage::writeVarInt($bytes* data, int32_t off, int64_t value) {
 	int32_t shift = 63;
-	while ((shift > 0) && (((int64_t)(value & (uint64_t)($sl(MetaMessage::mask, shift)))) == 0)) {
+	while ((shift > 0) && ((value & ($sl(MetaMessage::mask, shift))) == 0)) {
 		shift -= 7;
 	}
 	while (shift > 0) {
-		$nc(data)->set(off++, (int8_t)(($sr((int64_t)(value & (uint64_t)($sl(MetaMessage::mask, shift))), shift)) | 128));
+		$nc(data)->set(off++, (int8_t)(($sr(value & ($sl(MetaMessage::mask, shift)), shift)) | 0x80));
 		shift -= 7;
 	}
-	$nc(data)->set(off, (int8_t)((int64_t)(value & (uint64_t)MetaMessage::mask)));
+	$nc(data)->set(off, (int8_t)(value & MetaMessage::mask));
 }
 
 MetaMessage::MetaMessage() {
 }
 
 $Class* MetaMessage::load$($String* name, bool initialize) {
-	$loadClass(MetaMessage, name, initialize, &_MetaMessage_ClassInfo_, allocate$MetaMessage);
+	$FieldInfo fieldInfos$$[] = {
+		{"META", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(MetaMessage, META)},
+		{"dataLength", "I", nullptr, $PRIVATE, $field(MetaMessage, dataLength)},
+		{"mask", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MetaMessage, mask)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MetaMessage, init$, void)},
+		{"<init>", "(I[BI)V", nullptr, $PUBLIC, $method(MetaMessage, init$, void, int32_t, $bytes*, int32_t), "javax.sound.midi.InvalidMidiDataException"},
+		{"<init>", "([B)V", nullptr, $PROTECTED, $method(MetaMessage, init$, void, $bytes*)},
+		{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MetaMessage, clone, $Object*)},
+		{"getData", "()[B", nullptr, $PUBLIC, $virtualMethod(MetaMessage, getData, $bytes*)},
+		{"getType", "()I", nullptr, $PUBLIC, $virtualMethod(MetaMessage, getType, int32_t)},
+		{"getVarIntLength", "(J)I", nullptr, $PRIVATE, $method(MetaMessage, getVarIntLength, int32_t, int64_t)},
+		{"setMessage", "(I[BI)V", nullptr, $PUBLIC, $virtualMethod(MetaMessage, setMessage, void, int32_t, $bytes*, int32_t), "javax.sound.midi.InvalidMidiDataException"},
+		{"writeVarInt", "([BIJ)V", nullptr, $PRIVATE, $method(MetaMessage, writeVarInt, void, $bytes*, int32_t, int64_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.sound.midi.MetaMessage",
+		"javax.sound.midi.MidiMessage",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(MetaMessage, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MetaMessage);
+	});
 	return class$;
 }
 

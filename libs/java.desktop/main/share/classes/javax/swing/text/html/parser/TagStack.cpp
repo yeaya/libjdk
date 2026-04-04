@@ -1,5 +1,4 @@
 #include <javax/swing/text/html/parser/TagStack.h>
-
 #include <java/util/BitSet.h>
 #include <javax/swing/text/html/parser/ContentModel.h>
 #include <javax/swing/text/html/parser/ContentModelState.h>
@@ -26,44 +25,8 @@ namespace javax {
 			namespace html {
 				namespace parser {
 
-$FieldInfo _TagStack_FieldInfo_[] = {
-	{"tag", "Ljavax/swing/text/html/parser/TagElement;", nullptr, 0, $field(TagStack, tag)},
-	{"elem", "Ljavax/swing/text/html/parser/Element;", nullptr, 0, $field(TagStack, elem)},
-	{"state", "Ljavax/swing/text/html/parser/ContentModelState;", nullptr, 0, $field(TagStack, state)},
-	{"next", "Ljavax/swing/text/html/parser/TagStack;", nullptr, 0, $field(TagStack, next)},
-	{"inclusions", "Ljava/util/BitSet;", nullptr, 0, $field(TagStack, inclusions)},
-	{"exclusions", "Ljava/util/BitSet;", nullptr, 0, $field(TagStack, exclusions)},
-	{"net", "Z", nullptr, 0, $field(TagStack, net)},
-	{"pre", "Z", nullptr, 0, $field(TagStack, pre)},
-	{}
-};
-
-$MethodInfo _TagStack_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/text/html/parser/TagElement;Ljavax/swing/text/html/parser/TagStack;)V", nullptr, 0, $method(TagStack, init$, void, $TagElement*, TagStack*)},
-	{"advance", "(Ljavax/swing/text/html/parser/Element;)Z", nullptr, 0, $method(TagStack, advance, bool, $Element*)},
-	{"contentModel", "()Ljavax/swing/text/html/parser/ContentModel;", nullptr, $PUBLIC, $method(TagStack, contentModel, $ContentModel*)},
-	{"excluded", "(I)Z", nullptr, 0, $method(TagStack, excluded, bool, int32_t)},
-	{"first", "()Ljavax/swing/text/html/parser/Element;", nullptr, $PUBLIC, $method(TagStack, first, $Element*)},
-	{"terminate", "()Z", nullptr, 0, $method(TagStack, terminate, bool)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TagStack, toString, $String*)},
-	{}
-};
-
-$ClassInfo _TagStack_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"javax.swing.text.html.parser.TagStack",
-	"java.lang.Object",
-	"javax.swing.text.html.parser.DTDConstants",
-	_TagStack_FieldInfo_,
-	_TagStack_MethodInfo_
-};
-
-$Object* allocate$TagStack($Class* clazz) {
-	return $of($alloc(TagStack));
-}
-
 void TagStack::init$($TagElement* tag, TagStack* next) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, tag, tag);
 	$set(this, elem, $nc(tag)->getElement());
 	$set(this, next, next);
@@ -79,17 +42,17 @@ void TagStack::init$($TagElement* tag, TagStack* next) {
 	if (tag->isPreformatted()) {
 		this->pre = true;
 	}
-	if ($nc(elem)->inclusions != nullptr) {
+	if (elem->inclusions != nullptr) {
 		if (this->inclusions != nullptr) {
-			$set(this, inclusions, $cast($BitSet, $nc(this->inclusions)->clone()));
+			$set(this, inclusions, $cast($BitSet, this->inclusions->clone()));
 			$nc(this->inclusions)->or$(elem->inclusions);
 		} else {
 			$set(this, inclusions, elem->inclusions);
 		}
 	}
-	if ($nc(elem)->exclusions != nullptr) {
+	if (elem->exclusions != nullptr) {
 		if (this->exclusions != nullptr) {
-			$set(this, exclusions, $cast($BitSet, $nc(this->exclusions)->clone()));
+			$set(this, exclusions, $cast($BitSet, this->exclusions->clone()));
 			$nc(this->exclusions)->or$(elem->exclusions);
 		} else {
 			$set(this, exclusions, elem->exclusions);
@@ -98,27 +61,27 @@ void TagStack::init$($TagElement* tag, TagStack* next) {
 }
 
 $Element* TagStack::first() {
-	return (this->state != nullptr) ? $nc(this->state)->first() : ($Element*)nullptr;
+	return (this->state != nullptr) ? this->state->first() : ($Element*)nullptr;
 }
 
 $ContentModel* TagStack::contentModel() {
 	if (this->state == nullptr) {
 		return nullptr;
 	} else {
-		return $nc(this->state)->getModel();
+		return this->state->getModel();
 	}
 }
 
 bool TagStack::excluded(int32_t elemIndex) {
-	return (this->exclusions != nullptr) && $nc(this->exclusions)->get($nc(this->elem)->getIndex());
+	return (this->exclusions != nullptr) && this->exclusions->get($nc(this->elem)->getIndex());
 }
 
 bool TagStack::advance($Element* elem) {
-	if ((this->exclusions != nullptr) && $nc(this->exclusions)->get($nc(elem)->getIndex())) {
+	if ((this->exclusions != nullptr) && this->exclusions->get($nc(elem)->getIndex())) {
 		return false;
 	}
 	if (this->state != nullptr) {
-		$var($ContentModelState, newState, $nc(this->state)->advance(elem));
+		$var($ContentModelState, newState, this->state->advance(elem));
 		if (newState != nullptr) {
 			$set(this, state, newState);
 			return true;
@@ -126,22 +89,25 @@ bool TagStack::advance($Element* elem) {
 	} else if ($nc(this->elem)->getType() == $DTDConstants::ANY) {
 		return true;
 	}
-	return (this->inclusions != nullptr) && $nc(this->inclusions)->get($nc(elem)->getIndex());
+	return (this->inclusions != nullptr) && this->inclusions->get($nc(elem)->getIndex());
 }
 
 bool TagStack::terminate() {
-	return (this->state == nullptr) || $nc(this->state)->terminate();
+	return (this->state == nullptr) || this->state->terminate();
 }
 
 $String* TagStack::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, var$0, nullptr);
 	if (this->next == nullptr) {
-		$assign(var$0, $str({"<"_s, $($nc($($nc(this->tag)->getElement()))->getName()), ">"_s}));
+		$assign(var$0, $str({"<"_s, $($$nc($nc(this->tag)->getElement())->getName()), ">"_s}));
 	} else {
-		$var($String, var$2, $$str({this->next, " <"_s}));
-		$var($String, var$1, $$concat(var$2, $($nc($($nc(this->tag)->getElement()))->getName())));
-		$assign(var$0, $concat(var$1, ">"_s));
+		$var($StringBuilder, var$1, $new($StringBuilder));
+		var$1->append(this->next);
+		var$1->append(" <"_s);
+		var$1->append($($$nc($nc(this->tag)->getElement())->getName()));
+		var$1->append(">"_s);
+		$assign(var$0, $str(var$1));
 	}
 	return var$0;
 }
@@ -150,7 +116,38 @@ TagStack::TagStack() {
 }
 
 $Class* TagStack::load$($String* name, bool initialize) {
-	$loadClass(TagStack, name, initialize, &_TagStack_ClassInfo_, allocate$TagStack);
+	$FieldInfo fieldInfos$$[] = {
+		{"tag", "Ljavax/swing/text/html/parser/TagElement;", nullptr, 0, $field(TagStack, tag)},
+		{"elem", "Ljavax/swing/text/html/parser/Element;", nullptr, 0, $field(TagStack, elem)},
+		{"state", "Ljavax/swing/text/html/parser/ContentModelState;", nullptr, 0, $field(TagStack, state)},
+		{"next", "Ljavax/swing/text/html/parser/TagStack;", nullptr, 0, $field(TagStack, next)},
+		{"inclusions", "Ljava/util/BitSet;", nullptr, 0, $field(TagStack, inclusions)},
+		{"exclusions", "Ljava/util/BitSet;", nullptr, 0, $field(TagStack, exclusions)},
+		{"net", "Z", nullptr, 0, $field(TagStack, net)},
+		{"pre", "Z", nullptr, 0, $field(TagStack, pre)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/text/html/parser/TagElement;Ljavax/swing/text/html/parser/TagStack;)V", nullptr, 0, $method(TagStack, init$, void, $TagElement*, TagStack*)},
+		{"advance", "(Ljavax/swing/text/html/parser/Element;)Z", nullptr, 0, $method(TagStack, advance, bool, $Element*)},
+		{"contentModel", "()Ljavax/swing/text/html/parser/ContentModel;", nullptr, $PUBLIC, $method(TagStack, contentModel, $ContentModel*)},
+		{"excluded", "(I)Z", nullptr, 0, $method(TagStack, excluded, bool, int32_t)},
+		{"first", "()Ljavax/swing/text/html/parser/Element;", nullptr, $PUBLIC, $method(TagStack, first, $Element*)},
+		{"terminate", "()Z", nullptr, 0, $method(TagStack, terminate, bool)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TagStack, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"javax.swing.text.html.parser.TagStack",
+		"java.lang.Object",
+		"javax.swing.text.html.parser.DTDConstants",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TagStack, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TagStack);
+	});
 	return class$;
 }
 

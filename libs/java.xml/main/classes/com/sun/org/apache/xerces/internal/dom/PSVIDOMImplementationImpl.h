@@ -42,6 +42,7 @@ class PSVIDOMImplementationImpl : public ::com::sun::org::apache::xerces::intern
 public:
 	PSVIDOMImplementationImpl();
 	using ::com::sun::org::apache::xerces::internal::dom::DOMImplementationImpl::createDocument;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual ::com::sun::org::apache::xerces::internal::dom::CoreDocumentImpl* createDocument(::org::w3c::dom::DocumentType* doctype) override;
 	static ::org::w3c::dom::DOMImplementation* getDOMImplementation();

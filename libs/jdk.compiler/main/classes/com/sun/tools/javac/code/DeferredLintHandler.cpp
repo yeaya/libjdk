@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/code/DeferredLintHandler.h>
-
 #include <com/sun/tools/javac/code/DeferredLintHandler$1.h>
 #include <com/sun/tools/javac/code/DeferredLintHandler$LintLogger.h>
 #include <com/sun/tools/javac/util/Context$Key.h>
@@ -25,56 +24,12 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $HashMap = ::java::util::HashMap;
 using $Iterator = ::java::util::Iterator;
-using $Map = ::java::util::Map;
 
 namespace com {
 	namespace sun {
 		namespace tools {
 			namespace javac {
 				namespace code {
-
-$FieldInfo _DeferredLintHandler_FieldInfo_[] = {
-	{"deferredLintHandlerKey", "Lcom/sun/tools/javac/util/Context$Key;", "Lcom/sun/tools/javac/util/Context$Key<Lcom/sun/tools/javac/code/DeferredLintHandler;>;", $PROTECTED | $STATIC | $FINAL, $staticField(DeferredLintHandler, deferredLintHandlerKey)},
-	{"currentPos", "Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;", nullptr, $PRIVATE, $field(DeferredLintHandler, currentPos)},
-	{"loggersQueue", "Ljava/util/Map;", "Ljava/util/Map<Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/util/ListBuffer<Lcom/sun/tools/javac/code/DeferredLintHandler$LintLogger;>;>;", $PRIVATE, $field(DeferredLintHandler, loggersQueue)},
-	{"IMMEDIATE_POSITION", "Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DeferredLintHandler, IMMEDIATE_POSITION)},
-	{}
-};
-
-$MethodInfo _DeferredLintHandler_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/util/Context;)V", nullptr, $PROTECTED, $method(DeferredLintHandler, init$, void, $Context*)},
-	{"flush", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;)V", nullptr, $PUBLIC, $virtualMethod(DeferredLintHandler, flush, void, $JCDiagnostic$DiagnosticPosition*)},
-	{"immediate", "()Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;", nullptr, $PUBLIC, $virtualMethod(DeferredLintHandler, immediate, $JCDiagnostic$DiagnosticPosition*)},
-	{"instance", "(Lcom/sun/tools/javac/util/Context;)Lcom/sun/tools/javac/code/DeferredLintHandler;", nullptr, $PUBLIC | $STATIC, $staticMethod(DeferredLintHandler, instance, DeferredLintHandler*, $Context*)},
-	{"report", "(Lcom/sun/tools/javac/code/DeferredLintHandler$LintLogger;)V", nullptr, $PUBLIC, $virtualMethod(DeferredLintHandler, report, void, $DeferredLintHandler$LintLogger*)},
-	{"setPos", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;)Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;", nullptr, $PUBLIC, $virtualMethod(DeferredLintHandler, setPos, $JCDiagnostic$DiagnosticPosition*, $JCDiagnostic$DiagnosticPosition*)},
-	{}
-};
-
-$InnerClassInfo _DeferredLintHandler_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.code.DeferredLintHandler$LintLogger", "com.sun.tools.javac.code.DeferredLintHandler", "LintLogger", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"com.sun.tools.javac.code.DeferredLintHandler$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _DeferredLintHandler_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.code.DeferredLintHandler",
-	"java.lang.Object",
-	nullptr,
-	_DeferredLintHandler_FieldInfo_,
-	_DeferredLintHandler_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DeferredLintHandler_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.code.DeferredLintHandler$LintLogger,com.sun.tools.javac.code.DeferredLintHandler$1"
-};
-
-$Object* allocate$DeferredLintHandler($Class* clazz) {
-	return $of($alloc(DeferredLintHandler));
-}
 
 $Context$Key* DeferredLintHandler::deferredLintHandlerKey = nullptr;
 $JCDiagnostic$DiagnosticPosition* DeferredLintHandler::IMMEDIATE_POSITION = nullptr;
@@ -90,7 +45,7 @@ DeferredLintHandler* DeferredLintHandler::instance($Context* context) {
 
 void DeferredLintHandler::init$($Context* context) {
 	$set(this, loggersQueue, $new($HashMap));
-	$nc(context)->put(DeferredLintHandler::deferredLintHandlerKey, $of(this));
+	$nc(context)->put(DeferredLintHandler::deferredLintHandlerKey, this);
 	$set(this, currentPos, DeferredLintHandler::IMMEDIATE_POSITION);
 }
 
@@ -100,14 +55,14 @@ void DeferredLintHandler::report($DeferredLintHandler$LintLogger* logger) {
 	} else {
 		$var($ListBuffer, loggers, $cast($ListBuffer, $nc(this->loggersQueue)->get(this->currentPos)));
 		if (loggers == nullptr) {
-			$nc(this->loggersQueue)->put(this->currentPos, $assign(loggers, $new($ListBuffer)));
+			this->loggersQueue->put(this->currentPos, $assign(loggers, $new($ListBuffer)));
 		}
 		$nc(loggers)->append(logger);
 	}
 }
 
 void DeferredLintHandler::flush($JCDiagnostic$DiagnosticPosition* pos) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ListBuffer, loggers, $cast($ListBuffer, $nc(this->loggersQueue)->get(pos)));
 	if (loggers != nullptr) {
 		{
@@ -133,7 +88,7 @@ $JCDiagnostic$DiagnosticPosition* DeferredLintHandler::immediate() {
 	return setPos(DeferredLintHandler::IMMEDIATE_POSITION);
 }
 
-void clinit$DeferredLintHandler($Class* class$) {
+void DeferredLintHandler::clinit$($Class* clazz) {
 	$assignStatic(DeferredLintHandler::deferredLintHandlerKey, $new($Context$Key));
 	$assignStatic(DeferredLintHandler::IMMEDIATE_POSITION, $new($DeferredLintHandler$1));
 }
@@ -142,7 +97,44 @@ DeferredLintHandler::DeferredLintHandler() {
 }
 
 $Class* DeferredLintHandler::load$($String* name, bool initialize) {
-	$loadClass(DeferredLintHandler, name, initialize, &_DeferredLintHandler_ClassInfo_, clinit$DeferredLintHandler, allocate$DeferredLintHandler);
+	$FieldInfo fieldInfos$$[] = {
+		{"deferredLintHandlerKey", "Lcom/sun/tools/javac/util/Context$Key;", "Lcom/sun/tools/javac/util/Context$Key<Lcom/sun/tools/javac/code/DeferredLintHandler;>;", $PROTECTED | $STATIC | $FINAL, $staticField(DeferredLintHandler, deferredLintHandlerKey)},
+		{"currentPos", "Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;", nullptr, $PRIVATE, $field(DeferredLintHandler, currentPos)},
+		{"loggersQueue", "Ljava/util/Map;", "Ljava/util/Map<Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/util/ListBuffer<Lcom/sun/tools/javac/code/DeferredLintHandler$LintLogger;>;>;", $PRIVATE, $field(DeferredLintHandler, loggersQueue)},
+		{"IMMEDIATE_POSITION", "Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DeferredLintHandler, IMMEDIATE_POSITION)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/util/Context;)V", nullptr, $PROTECTED, $method(DeferredLintHandler, init$, void, $Context*)},
+		{"flush", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;)V", nullptr, $PUBLIC, $virtualMethod(DeferredLintHandler, flush, void, $JCDiagnostic$DiagnosticPosition*)},
+		{"immediate", "()Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;", nullptr, $PUBLIC, $virtualMethod(DeferredLintHandler, immediate, $JCDiagnostic$DiagnosticPosition*)},
+		{"instance", "(Lcom/sun/tools/javac/util/Context;)Lcom/sun/tools/javac/code/DeferredLintHandler;", nullptr, $PUBLIC | $STATIC, $staticMethod(DeferredLintHandler, instance, DeferredLintHandler*, $Context*)},
+		{"report", "(Lcom/sun/tools/javac/code/DeferredLintHandler$LintLogger;)V", nullptr, $PUBLIC, $virtualMethod(DeferredLintHandler, report, void, $DeferredLintHandler$LintLogger*)},
+		{"setPos", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;)Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;", nullptr, $PUBLIC, $virtualMethod(DeferredLintHandler, setPos, $JCDiagnostic$DiagnosticPosition*, $JCDiagnostic$DiagnosticPosition*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.code.DeferredLintHandler$LintLogger", "com.sun.tools.javac.code.DeferredLintHandler", "LintLogger", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"com.sun.tools.javac.code.DeferredLintHandler$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.code.DeferredLintHandler",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.code.DeferredLintHandler$LintLogger,com.sun.tools.javac.code.DeferredLintHandler$1"
+	};
+	$loadClass(DeferredLintHandler, name, initialize, &classInfo$$, DeferredLintHandler::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(DeferredLintHandler);
+	});
 	return class$;
 }
 

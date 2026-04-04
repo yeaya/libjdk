@@ -1,5 +1,4 @@
 #include <sun/awt/X11/XEmbedCanvasPeer$GrabbedKey.h>
-
 #include <java/awt/event/KeyEvent.h>
 #include <jdk/internal/misc/Unsafe.h>
 #include <sun/awt/SunToolkit.h>
@@ -21,7 +20,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Unsafe = ::jdk::internal::misc::Unsafe;
 using $Native = ::sun::awt::X11::Native;
 using $XConstants = ::sun::awt::X11::XConstants;
 using $XEmbedCanvasPeer = ::sun::awt::X11::XEmbedCanvasPeer;
@@ -29,53 +27,11 @@ using $XKeyEvent = ::sun::awt::X11::XKeyEvent;
 using $XToolkit = ::sun::awt::X11::XToolkit;
 using $XWindow = ::sun::awt::X11::XWindow;
 using $XlibWrapper = ::sun::awt::X11::XlibWrapper;
-using $PlatformLogger = ::sun::util::logging::PlatformLogger;
 using $PlatformLogger$Level = ::sun::util::logging::PlatformLogger$Level;
 
 namespace sun {
 	namespace awt {
 		namespace X11 {
-
-$FieldInfo _XEmbedCanvasPeer$GrabbedKey_FieldInfo_[] = {
-	{"keysym", "J", nullptr, 0, $field(XEmbedCanvasPeer$GrabbedKey, keysym)},
-	{"modifiers", "J", nullptr, 0, $field(XEmbedCanvasPeer$GrabbedKey, modifiers)},
-	{}
-};
-
-$MethodInfo _XEmbedCanvasPeer$GrabbedKey_MethodInfo_[] = {
-	{"<init>", "(JJ)V", nullptr, 0, $method(XEmbedCanvasPeer$GrabbedKey, init$, void, int64_t, int64_t)},
-	{"<init>", "(Ljava/awt/event/KeyEvent;)V", nullptr, 0, $method(XEmbedCanvasPeer$GrabbedKey, init$, void, $KeyEvent*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(XEmbedCanvasPeer$GrabbedKey, equals, bool, Object$*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(XEmbedCanvasPeer$GrabbedKey, hashCode, int32_t)},
-	{"init", "(Ljava/awt/event/KeyEvent;)V", nullptr, $PRIVATE, $method(XEmbedCanvasPeer$GrabbedKey, init, void, $KeyEvent*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XEmbedCanvasPeer$GrabbedKey, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _XEmbedCanvasPeer$GrabbedKey_InnerClassesInfo_[] = {
-	{"sun.awt.X11.XEmbedCanvasPeer$GrabbedKey", "sun.awt.X11.XEmbedCanvasPeer", "GrabbedKey", $STATIC},
-	{}
-};
-
-$ClassInfo _XEmbedCanvasPeer$GrabbedKey_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.awt.X11.XEmbedCanvasPeer$GrabbedKey",
-	"java.lang.Object",
-	nullptr,
-	_XEmbedCanvasPeer$GrabbedKey_FieldInfo_,
-	_XEmbedCanvasPeer$GrabbedKey_MethodInfo_,
-	nullptr,
-	nullptr,
-	_XEmbedCanvasPeer$GrabbedKey_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.awt.X11.XEmbedCanvasPeer"
-};
-
-$Object* allocate$XEmbedCanvasPeer$GrabbedKey($Class* clazz) {
-	return $of($alloc(XEmbedCanvasPeer$GrabbedKey));
-}
 
 void XEmbedCanvasPeer$GrabbedKey::init$(int64_t keysym, int64_t modifiers) {
 	this->keysym = keysym;
@@ -87,49 +43,45 @@ void XEmbedCanvasPeer$GrabbedKey::init$($KeyEvent* ev) {
 }
 
 void XEmbedCanvasPeer$GrabbedKey::init($KeyEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, bdata, $XEmbedCanvasPeer::getBData(e));
 	int64_t data = $Native::toData(bdata);
 	if (data == 0) {
 		return;
 	}
-	{
-		$var($Throwable, var$0, nullptr);
+	$var($Throwable, var$0, nullptr);
+	try {
+		$XToolkit::awtLock();
+		$var($Throwable, var$1, nullptr);
 		try {
-			$XToolkit::awtLock();
-			{
-				$var($Throwable, var$1, nullptr);
-				try {
-					this->keysym = $XWindow::getKeySymForAWTKeyCode($nc(e)->getKeyCode());
-				} catch ($Throwable& var$2) {
-					$assign(var$1, var$2);
-				} /*finally*/ {
-					$XToolkit::awtUnlock();
-				}
-				if (var$1 != nullptr) {
-					$throw(var$1);
-				}
-			}
-			$var($XKeyEvent, ke, $new($XKeyEvent, data));
-			this->modifiers = (int32_t)(ke->get_state() & (uint32_t)(($XConstants::ShiftMask | $XConstants::ControlMask) | $XConstants::LockMask));
-			$init($PlatformLogger$Level);
-			if ($nc($XEmbedCanvasPeer::xembedLog)->isLoggable($PlatformLogger$Level::FINEST)) {
-				$nc($XEmbedCanvasPeer::xembedLog)->finest($$str({"Mapped "_s, e, " to "_s, this}));
-			}
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
+			this->keysym = $XWindow::getKeySymForAWTKeyCode($nc(e)->getKeyCode());
+		} catch ($Throwable& var$2) {
+			$assign(var$1, var$2);
 		} /*finally*/ {
-			$init($XlibWrapper);
-			$nc($XlibWrapper::unsafe)->freeMemory(data);
+			$XToolkit::awtUnlock();
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+		if (var$1 != nullptr) {
+			$throw(var$1);
 		}
+		$var($XKeyEvent, ke, $new($XKeyEvent, data));
+		this->modifiers = ke->get_state() & (($XConstants::ShiftMask | $XConstants::ControlMask) | $XConstants::LockMask);
+		$init($PlatformLogger$Level);
+		if ($nc($XEmbedCanvasPeer::xembedLog)->isLoggable($PlatformLogger$Level::FINEST)) {
+			$XEmbedCanvasPeer::xembedLog->finest($$str({"Mapped "_s, e, " to "_s, this}));
+		}
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} /*finally*/ {
+		$init($XlibWrapper);
+		$nc($XlibWrapper::unsafe)->freeMemory(data);
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 int32_t XEmbedCanvasPeer$GrabbedKey::hashCode() {
-	return (int32_t)((int32_t)this->keysym & (uint32_t)-1);
+	return (int32_t)this->keysym & -1;
 }
 
 bool XEmbedCanvasPeer$GrabbedKey::equals(Object$* o) {
@@ -141,7 +93,7 @@ bool XEmbedCanvasPeer$GrabbedKey::equals(Object$* o) {
 }
 
 $String* XEmbedCanvasPeer$GrabbedKey::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $str({"Key combination[keysym="_s, $$str(this->keysym), ", mods="_s, $$str(this->modifiers), "]"_s});
 }
 
@@ -149,7 +101,42 @@ XEmbedCanvasPeer$GrabbedKey::XEmbedCanvasPeer$GrabbedKey() {
 }
 
 $Class* XEmbedCanvasPeer$GrabbedKey::load$($String* name, bool initialize) {
-	$loadClass(XEmbedCanvasPeer$GrabbedKey, name, initialize, &_XEmbedCanvasPeer$GrabbedKey_ClassInfo_, allocate$XEmbedCanvasPeer$GrabbedKey);
+	$FieldInfo fieldInfos$$[] = {
+		{"keysym", "J", nullptr, 0, $field(XEmbedCanvasPeer$GrabbedKey, keysym)},
+		{"modifiers", "J", nullptr, 0, $field(XEmbedCanvasPeer$GrabbedKey, modifiers)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(JJ)V", nullptr, 0, $method(XEmbedCanvasPeer$GrabbedKey, init$, void, int64_t, int64_t)},
+		{"<init>", "(Ljava/awt/event/KeyEvent;)V", nullptr, 0, $method(XEmbedCanvasPeer$GrabbedKey, init$, void, $KeyEvent*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(XEmbedCanvasPeer$GrabbedKey, equals, bool, Object$*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(XEmbedCanvasPeer$GrabbedKey, hashCode, int32_t)},
+		{"init", "(Ljava/awt/event/KeyEvent;)V", nullptr, $PRIVATE, $method(XEmbedCanvasPeer$GrabbedKey, init, void, $KeyEvent*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XEmbedCanvasPeer$GrabbedKey, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.X11.XEmbedCanvasPeer$GrabbedKey", "sun.awt.X11.XEmbedCanvasPeer", "GrabbedKey", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.awt.X11.XEmbedCanvasPeer$GrabbedKey",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.awt.X11.XEmbedCanvasPeer"
+	};
+	$loadClass(XEmbedCanvasPeer$GrabbedKey, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XEmbedCanvasPeer$GrabbedKey);
+	});
 	return class$;
 }
 

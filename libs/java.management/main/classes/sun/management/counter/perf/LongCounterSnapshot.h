@@ -41,7 +41,7 @@ public:
 	virtual int64_t longValue() override;
 	virtual $String* toString() override;
 	int64_t value = 0;
-	static const int64_t serialVersionUID = (int64_t)0x1C8236191A1D1E7E;
+	static const int64_t serialVersionUID = (int64_t)0x1c8236191a1d1e7e;
 };
 
 			} // perf

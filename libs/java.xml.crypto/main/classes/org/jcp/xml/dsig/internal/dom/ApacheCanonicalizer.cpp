@@ -1,5 +1,4 @@
 #include <org/jcp/xml/dsig/internal/dom/ApacheCanonicalizer.h>
-
 #include <com/sun/org/apache/xml/internal/security/Init.h>
 #include <com/sun/org/apache/xml/internal/security/c14n/Canonicalizer.h>
 #include <com/sun/org/apache/xml/internal/security/c14n/InvalidCanonicalizerException.h>
@@ -49,7 +48,6 @@ using $Logger = ::com::sun::org::slf4j::internal::Logger;
 using $LoggerFactory = ::com::sun::org::slf4j::internal::LoggerFactory;
 using $ByteArrayInputStream = ::java::io::ByteArrayInputStream;
 using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;
-using $InputStream = ::java::io::InputStream;
 using $OutputStream = ::java::io::OutputStream;
 using $ClassCastException = ::java::lang::ClassCastException;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -77,7 +75,6 @@ using $DOMUtils = ::org::jcp::xml::dsig::internal::dom::DOMUtils;
 using $Utils = ::org::jcp::xml::dsig::internal::dom::Utils;
 using $Document = ::org::w3c::dom::Document;
 using $Element = ::org::w3c::dom::Element;
-using $Node = ::org::w3c::dom::Node;
 
 namespace org {
 	namespace jcp {
@@ -85,43 +82,6 @@ namespace org {
 			namespace dsig {
 				namespace internal {
 					namespace dom {
-
-$FieldInfo _ApacheCanonicalizer_FieldInfo_[] = {
-	{"LOG", "Lcom/sun/org/slf4j/internal/Logger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ApacheCanonicalizer, LOG)},
-	{"canonicalizer", "Lcom/sun/org/apache/xml/internal/security/c14n/Canonicalizer;", nullptr, $PROTECTED, $field(ApacheCanonicalizer, canonicalizer)},
-	{"apacheTransform", "Lcom/sun/org/apache/xml/internal/security/transforms/Transform;", nullptr, $PRIVATE, $field(ApacheCanonicalizer, apacheTransform)},
-	{"inclusiveNamespaces", "Ljava/lang/String;", nullptr, $PROTECTED, $field(ApacheCanonicalizer, inclusiveNamespaces)},
-	{"params", "Ljavax/xml/crypto/dsig/spec/C14NMethodParameterSpec;", nullptr, $PROTECTED, $field(ApacheCanonicalizer, params)},
-	{"ownerDoc", "Lorg/w3c/dom/Document;", nullptr, $PROTECTED, $field(ApacheCanonicalizer, ownerDoc)},
-	{"transformElem", "Lorg/w3c/dom/Element;", nullptr, $PROTECTED, $field(ApacheCanonicalizer, transformElem)},
-	{}
-};
-
-$MethodInfo _ApacheCanonicalizer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ApacheCanonicalizer, init$, void)},
-	{"canonicalize", "(Ljavax/xml/crypto/Data;Ljavax/xml/crypto/XMLCryptoContext;)Ljavax/xml/crypto/Data;", nullptr, $PUBLIC, $virtualMethod(ApacheCanonicalizer, canonicalize, $Data*, $Data*, $XMLCryptoContext*), "javax.xml.crypto.dsig.TransformException"},
-	{"canonicalize", "(Ljavax/xml/crypto/Data;Ljavax/xml/crypto/XMLCryptoContext;Ljava/io/OutputStream;)Ljavax/xml/crypto/Data;", nullptr, $PUBLIC, $virtualMethod(ApacheCanonicalizer, canonicalize, $Data*, $Data*, $XMLCryptoContext*, $OutputStream*), "javax.xml.crypto.dsig.TransformException"},
-	{"getC14nBytes", "(Ljava/io/OutputStream;Z)[B", nullptr, $PRIVATE, $method(ApacheCanonicalizer, getC14nBytes, $bytes*, $OutputStream*, bool)},
-	{"getParameterSpec", "()Ljava/security/spec/AlgorithmParameterSpec;", nullptr, $PUBLIC | $FINAL, $virtualMethod(ApacheCanonicalizer, getParameterSpec, $AlgorithmParameterSpec*)},
-	{"init", "(Ljavax/xml/crypto/XMLStructure;Ljavax/xml/crypto/XMLCryptoContext;)V", nullptr, $PUBLIC, $virtualMethod(ApacheCanonicalizer, init, void, $XMLStructure*, $XMLCryptoContext*), "java.security.InvalidAlgorithmParameterException"},
-	{"isFeatureSupported", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(ApacheCanonicalizer, isFeatureSupported, bool, $String*)},
-	{"marshalParams", "(Ljavax/xml/crypto/XMLStructure;Ljavax/xml/crypto/XMLCryptoContext;)V", nullptr, $PUBLIC, $virtualMethod(ApacheCanonicalizer, marshalParams, void, $XMLStructure*, $XMLCryptoContext*), "javax.xml.crypto.MarshalException"},
-	{"transform", "(Ljavax/xml/crypto/Data;Ljavax/xml/crypto/XMLCryptoContext;Ljava/io/OutputStream;)Ljavax/xml/crypto/Data;", nullptr, $PUBLIC, $virtualMethod(ApacheCanonicalizer, transform, $Data*, $Data*, $XMLCryptoContext*, $OutputStream*), "javax.xml.crypto.dsig.TransformException"},
-	{}
-};
-
-$ClassInfo _ApacheCanonicalizer_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"org.jcp.xml.dsig.internal.dom.ApacheCanonicalizer",
-	"javax.xml.crypto.dsig.TransformService",
-	nullptr,
-	_ApacheCanonicalizer_FieldInfo_,
-	_ApacheCanonicalizer_MethodInfo_
-};
-
-$Object* allocate$ApacheCanonicalizer($Class* clazz) {
-	return $of($alloc(ApacheCanonicalizer));
-}
 
 $Logger* ApacheCanonicalizer::LOG = nullptr;
 
@@ -143,7 +103,7 @@ void ApacheCanonicalizer::init($XMLStructure* parent, $XMLCryptoContext* context
 	if (!($instanceOf($DOMStructure, parent))) {
 		$throwNew($ClassCastException, "parent must be of type DOMStructure"_s);
 	}
-	$set(this, transformElem, $cast($Element, $nc(($cast($DOMStructure, parent)))->getNode()));
+	$set(this, transformElem, $cast($Element, $nc($cast($DOMStructure, parent))->getNode()));
 	$set(this, ownerDoc, $DOMUtils::getOwnerDocument(this->transformElem));
 }
 
@@ -157,7 +117,7 @@ void ApacheCanonicalizer::marshalParams($XMLStructure* parent, $XMLCryptoContext
 	if (!($instanceOf($DOMStructure, parent))) {
 		$throwNew($ClassCastException, "parent must be of type DOMStructure"_s);
 	}
-	$set(this, transformElem, $cast($Element, $nc(($cast($DOMStructure, parent)))->getNode()));
+	$set(this, transformElem, $cast($Element, $nc($cast($DOMStructure, parent))->getNode()));
 	$set(this, ownerDoc, $DOMUtils::getOwnerDocument(this->transformElem));
 }
 
@@ -166,23 +126,27 @@ $Data* ApacheCanonicalizer::canonicalize($Data* data, $XMLCryptoContext* xc) {
 }
 
 $Data* ApacheCanonicalizer::canonicalize($Data* data, $XMLCryptoContext* xc, $OutputStream* os) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->canonicalizer == nullptr) {
 		try {
 			$set(this, canonicalizer, $Canonicalizer::getInstance($(getAlgorithm())));
-			$nc(ApacheCanonicalizer::LOG)->debug("Created canonicalizer for algorithm: {}"_s, $$new($ObjectArray, {$($of(getAlgorithm()))}));
+			$nc(ApacheCanonicalizer::LOG)->debug("Created canonicalizer for algorithm: {}"_s, $$new($ObjectArray, {$(getAlgorithm())}));
 		} catch ($InvalidCanonicalizerException& ice) {
-			$var($String, var$0, $$str({"Couldn\'t find Canonicalizer for: "_s, $(getAlgorithm()), ": "_s}));
-			$throwNew($TransformException, $$concat(var$0, $(ice->getMessage())), ice);
+			$var($StringBuilder, var$0, $new($StringBuilder));
+			var$0->append("Couldn\'t find Canonicalizer for: "_s);
+			var$0->append($(getAlgorithm()));
+			var$0->append(": "_s);
+			var$0->append($(ice->getMessage()));
+			$throwNew($TransformException, $$str(var$0), ice);
 		}
 	}
 	bool isByteArrayOutputStream = os == nullptr;
-	$var($OutputStream, writer, isByteArrayOutputStream ? static_cast<$OutputStream*>($new($ByteArrayOutputStream)) : os);
+	$var($OutputStream, writer, isByteArrayOutputStream ? $cast($OutputStream, $new($ByteArrayOutputStream)) : os);
 	try {
 		bool secVal = $Utils::secureValidation(xc);
 		$var($Set, nodeSet, nullptr);
 		if ($instanceOf($ApacheData, data)) {
-			$var($XMLSignatureInput, in, $nc(($cast($ApacheData, data)))->getXMLSignatureInput());
+			$var($XMLSignatureInput, in, $cast($ApacheData, data)->getXMLSignatureInput());
 			if ($nc(in)->isElement()) {
 				if (this->inclusiveNamespaces != nullptr) {
 					$nc(this->canonicalizer)->canonicalizeSubtree($(in->getSubNode()), this->inclusiveNamespaces, writer);
@@ -200,18 +164,18 @@ $Data* ApacheCanonicalizer::canonicalize($Data* data, $XMLCryptoContext* xc, $Ou
 		} else if ($instanceOf($DOMSubTreeData, data)) {
 			$var($DOMSubTreeData, subTree, $cast($DOMSubTreeData, data));
 			if (this->inclusiveNamespaces != nullptr) {
-				$nc(this->canonicalizer)->canonicalizeSubtree($($nc(subTree)->getRoot()), this->inclusiveNamespaces, writer);
+				$nc(this->canonicalizer)->canonicalizeSubtree($(subTree->getRoot()), this->inclusiveNamespaces, writer);
 				return $new($OctetStreamData, $$new($ByteArrayInputStream, $(getC14nBytes(writer, isByteArrayOutputStream))));
 			} else {
-				$nc(this->canonicalizer)->canonicalizeSubtree($($nc(subTree)->getRoot()), writer);
+				$nc(this->canonicalizer)->canonicalizeSubtree($(subTree->getRoot()), writer);
 				return $new($OctetStreamData, $$new($ByteArrayInputStream, $(getC14nBytes(writer, isByteArrayOutputStream))));
 			}
 		} else if ($instanceOf($NodeSetData, data)) {
 			$var($NodeSetData, nsd, $cast($NodeSetData, data));
-			$assign(nodeSet, $Utils::toNodeSet($($nc(nsd)->iterator())));
-			$nc(ApacheCanonicalizer::LOG)->debug("Canonicalizing {} nodes"_s, $$new($ObjectArray, {$($of($Integer::valueOf($nc(nodeSet)->size())))}));
+			$assign(nodeSet, $Utils::toNodeSet($(nsd->iterator())));
+			$nc(ApacheCanonicalizer::LOG)->debug("Canonicalizing {} nodes"_s, $$new($ObjectArray, {$($Integer::valueOf($nc(nodeSet)->size()))}));
 		} else {
-			$nc(this->canonicalizer)->canonicalize($($Utils::readBytesFromStream($($nc(($cast($OctetStreamData, data)))->getOctetStream()))), writer, secVal);
+			$nc(this->canonicalizer)->canonicalize($($Utils::readBytesFromStream($($nc($cast($OctetStreamData, data))->getOctetStream()))), writer, secVal);
 			return $new($OctetStreamData, $$new($ByteArrayInputStream, $(getC14nBytes(writer, isByteArrayOutputStream))));
 		}
 		if (this->inclusiveNamespaces != nullptr) {
@@ -222,20 +186,20 @@ $Data* ApacheCanonicalizer::canonicalize($Data* data, $XMLCryptoContext* xc, $Ou
 			return $new($OctetStreamData, $$new($ByteArrayInputStream, $(getC14nBytes(writer, isByteArrayOutputStream))));
 		}
 	} catch ($Exception& e) {
-		$throwNew($TransformException, static_cast<$Throwable*>(e));
+		$throwNew($TransformException, e);
 	}
 	$shouldNotReachHere();
 }
 
 $bytes* ApacheCanonicalizer::getC14nBytes($OutputStream* outputStream, bool isByteArrayOutputStream) {
 	if (isByteArrayOutputStream) {
-		return $nc(($cast($ByteArrayOutputStream, outputStream)))->toByteArray();
+		return $nc($cast($ByteArrayOutputStream, outputStream))->toByteArray();
 	}
 	return nullptr;
 }
 
 $Data* ApacheCanonicalizer::transform($Data* data, $XMLCryptoContext* xc, $OutputStream* os) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (data == nullptr) {
 		$throwNew($NullPointerException, "data must not be null"_s);
 	}
@@ -251,7 +215,7 @@ $Data* ApacheCanonicalizer::transform($Data* data, $XMLCryptoContext* xc, $Outpu
 			$var($String, var$1, getAlgorithm());
 			$set(this, apacheTransform, $new($Transform, var$0, var$1, $($nc(this->transformElem)->getChildNodes())));
 			$nc(this->apacheTransform)->setElement(this->transformElem, $($nc(xc)->getBaseURI()));
-			$nc(ApacheCanonicalizer::LOG)->debug("Created transform for algorithm: {}"_s, $$new($ObjectArray, {$($of(getAlgorithm()))}));
+			$nc(ApacheCanonicalizer::LOG)->debug("Created transform for algorithm: {}"_s, $$new($ObjectArray, {$(getAlgorithm())}));
 		} catch ($Exception& ex) {
 			$throwNew($TransformException, $$str({"Couldn\'t find Transform for: "_s, $(getAlgorithm())}), ex);
 		}
@@ -259,23 +223,23 @@ $Data* ApacheCanonicalizer::transform($Data* data, $XMLCryptoContext* xc, $Outpu
 	$var($XMLSignatureInput, in, nullptr);
 	if ($instanceOf($ApacheData, data)) {
 		$nc(ApacheCanonicalizer::LOG)->debug("ApacheData = true"_s);
-		$assign(in, $nc(($cast($ApacheData, data)))->getXMLSignatureInput());
+		$assign(in, $cast($ApacheData, data)->getXMLSignatureInput());
 	} else if ($instanceOf($NodeSetData, data)) {
 		$nc(ApacheCanonicalizer::LOG)->debug("isNodeSet() = true"_s);
 		if ($instanceOf($DOMSubTreeData, data)) {
 			$var($DOMSubTreeData, subTree, $cast($DOMSubTreeData, data));
-			$assign(in, $new($XMLSignatureInput, $($nc(subTree)->getRoot())));
-			in->setExcludeComments($nc(subTree)->excludeComments());
+			$assign(in, $new($XMLSignatureInput, $(subTree->getRoot())));
+			in->setExcludeComments(subTree->excludeComments());
 		} else {
-			$var($Set, nodeSet, $Utils::toNodeSet($($nc(($cast($NodeSetData, data)))->iterator())));
+			$var($Set, nodeSet, $Utils::toNodeSet($($cast($NodeSetData, data)->iterator())));
 			$assign(in, $new($XMLSignatureInput, nodeSet));
 		}
 	} else {
 		$nc(ApacheCanonicalizer::LOG)->debug("isNodeSet() = false"_s);
 		try {
-			$assign(in, $new($XMLSignatureInput, $($nc(($cast($OctetStreamData, data)))->getOctetStream())));
+			$assign(in, $new($XMLSignatureInput, $($nc($cast($OctetStreamData, data))->getOctetStream())));
 		} catch ($Exception& ex) {
-			$throwNew($TransformException, static_cast<$Throwable*>(ex));
+			$throwNew($TransformException, ex);
 		}
 	}
 	bool secVal = $Utils::secureValidation(xc);
@@ -286,13 +250,13 @@ $Data* ApacheCanonicalizer::transform($Data* data, $XMLCryptoContext* xc, $Outpu
 		if (var$2 && !in->isElement()) {
 			return nullptr;
 		}
-		if ($nc(in)->isOctetStream()) {
-			return static_cast<$Data*>(static_cast<$OctetStreamData*>($new($ApacheOctetStreamData, in)));
+		if (in->isOctetStream()) {
+			return $cast($OctetStreamData, $new($ApacheOctetStreamData, in));
 		} else {
-			return static_cast<$Data*>(static_cast<$ApacheData*>($new($ApacheNodeSetData, in)));
+			return $cast($ApacheData, $new($ApacheNodeSetData, in));
 		}
 	} catch ($Exception& ex) {
-		$throwNew($TransformException, static_cast<$Throwable*>(ex));
+		$throwNew($TransformException, ex);
 	}
 	$shouldNotReachHere();
 }
@@ -305,7 +269,7 @@ bool ApacheCanonicalizer::isFeatureSupported($String* feature) {
 	}
 }
 
-void clinit$ApacheCanonicalizer($Class* class$) {
+void ApacheCanonicalizer::clinit$($Class* clazz) {
 	{
 		$Init::init();
 	}
@@ -316,7 +280,39 @@ ApacheCanonicalizer::ApacheCanonicalizer() {
 }
 
 $Class* ApacheCanonicalizer::load$($String* name, bool initialize) {
-	$loadClass(ApacheCanonicalizer, name, initialize, &_ApacheCanonicalizer_ClassInfo_, clinit$ApacheCanonicalizer, allocate$ApacheCanonicalizer);
+	$FieldInfo fieldInfos$$[] = {
+		{"LOG", "Lcom/sun/org/slf4j/internal/Logger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ApacheCanonicalizer, LOG)},
+		{"canonicalizer", "Lcom/sun/org/apache/xml/internal/security/c14n/Canonicalizer;", nullptr, $PROTECTED, $field(ApacheCanonicalizer, canonicalizer)},
+		{"apacheTransform", "Lcom/sun/org/apache/xml/internal/security/transforms/Transform;", nullptr, $PRIVATE, $field(ApacheCanonicalizer, apacheTransform)},
+		{"inclusiveNamespaces", "Ljava/lang/String;", nullptr, $PROTECTED, $field(ApacheCanonicalizer, inclusiveNamespaces)},
+		{"params", "Ljavax/xml/crypto/dsig/spec/C14NMethodParameterSpec;", nullptr, $PROTECTED, $field(ApacheCanonicalizer, params)},
+		{"ownerDoc", "Lorg/w3c/dom/Document;", nullptr, $PROTECTED, $field(ApacheCanonicalizer, ownerDoc)},
+		{"transformElem", "Lorg/w3c/dom/Element;", nullptr, $PROTECTED, $field(ApacheCanonicalizer, transformElem)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ApacheCanonicalizer, init$, void)},
+		{"canonicalize", "(Ljavax/xml/crypto/Data;Ljavax/xml/crypto/XMLCryptoContext;)Ljavax/xml/crypto/Data;", nullptr, $PUBLIC, $virtualMethod(ApacheCanonicalizer, canonicalize, $Data*, $Data*, $XMLCryptoContext*), "javax.xml.crypto.dsig.TransformException"},
+		{"canonicalize", "(Ljavax/xml/crypto/Data;Ljavax/xml/crypto/XMLCryptoContext;Ljava/io/OutputStream;)Ljavax/xml/crypto/Data;", nullptr, $PUBLIC, $virtualMethod(ApacheCanonicalizer, canonicalize, $Data*, $Data*, $XMLCryptoContext*, $OutputStream*), "javax.xml.crypto.dsig.TransformException"},
+		{"getC14nBytes", "(Ljava/io/OutputStream;Z)[B", nullptr, $PRIVATE, $method(ApacheCanonicalizer, getC14nBytes, $bytes*, $OutputStream*, bool)},
+		{"getParameterSpec", "()Ljava/security/spec/AlgorithmParameterSpec;", nullptr, $PUBLIC | $FINAL, $virtualMethod(ApacheCanonicalizer, getParameterSpec, $AlgorithmParameterSpec*)},
+		{"init", "(Ljavax/xml/crypto/XMLStructure;Ljavax/xml/crypto/XMLCryptoContext;)V", nullptr, $PUBLIC, $virtualMethod(ApacheCanonicalizer, init, void, $XMLStructure*, $XMLCryptoContext*), "java.security.InvalidAlgorithmParameterException"},
+		{"isFeatureSupported", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(ApacheCanonicalizer, isFeatureSupported, bool, $String*)},
+		{"marshalParams", "(Ljavax/xml/crypto/XMLStructure;Ljavax/xml/crypto/XMLCryptoContext;)V", nullptr, $PUBLIC, $virtualMethod(ApacheCanonicalizer, marshalParams, void, $XMLStructure*, $XMLCryptoContext*), "javax.xml.crypto.MarshalException"},
+		{"transform", "(Ljavax/xml/crypto/Data;Ljavax/xml/crypto/XMLCryptoContext;Ljava/io/OutputStream;)Ljavax/xml/crypto/Data;", nullptr, $PUBLIC, $virtualMethod(ApacheCanonicalizer, transform, $Data*, $Data*, $XMLCryptoContext*, $OutputStream*), "javax.xml.crypto.dsig.TransformException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"org.jcp.xml.dsig.internal.dom.ApacheCanonicalizer",
+		"javax.xml.crypto.dsig.TransformService",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ApacheCanonicalizer, name, initialize, &classInfo$$, ApacheCanonicalizer::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ApacheCanonicalizer));
+	});
 	return class$;
 }
 

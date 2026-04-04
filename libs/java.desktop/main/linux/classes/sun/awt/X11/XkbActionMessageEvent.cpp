@@ -1,5 +1,4 @@
 #include <sun/awt/X11/XkbActionMessageEvent.h>
-
 #include <jdk/internal/misc/Unsafe.h>
 #include <sun/awt/X11/Native.h>
 #include <sun/awt/X11/XEvent.h>
@@ -11,77 +10,13 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Unsafe = ::jdk::internal::misc::Unsafe;
 using $Native = ::sun::awt::X11::Native;
 using $XWrapperBase = ::sun::awt::X11::XWrapperBase;
 using $XlibWrapper = ::sun::awt::X11::XlibWrapper;
-using $PlatformLogger = ::sun::util::logging::PlatformLogger;
 
 namespace sun {
 	namespace awt {
 		namespace X11 {
-
-$FieldInfo _XkbActionMessageEvent_FieldInfo_[] = {
-	{"unsafe", "Ljdk/internal/misc/Unsafe;", nullptr, $PRIVATE, $field(XkbActionMessageEvent, unsafe)},
-	{"should_free_memory", "Z", nullptr, $PRIVATE | $FINAL, $field(XkbActionMessageEvent, should_free_memory)},
-	{"pData", "J", nullptr, 0, $field(XkbActionMessageEvent, pData)},
-	{}
-};
-
-$MethodInfo _XkbActionMessageEvent_MethodInfo_[] = {
-	{"<init>", "(J)V", nullptr, $PUBLIC, $method(XkbActionMessageEvent, init$, void, int64_t)},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(XkbActionMessageEvent, init$, void)},
-	{"clone", "()Lsun/awt/X11/XEvent;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XkbActionMessageEvent, clone, $Object*)},
-	{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(XkbActionMessageEvent, dispose, void)},
-	{"getDataSize", "()I", nullptr, $PUBLIC, $virtualMethod(XkbActionMessageEvent, getDataSize, int32_t)},
-	{"getFieldsAsString", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(XkbActionMessageEvent, getFieldsAsString, $String*)},
-	{"getName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(XkbActionMessageEvent, getName, $String*)},
-	{"getPData", "()J", nullptr, $PUBLIC, $virtualMethod(XkbActionMessageEvent, getPData, int64_t)},
-	{"getSize", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(XkbActionMessageEvent, getSize, int32_t)},
-	{"get_device", "()I", nullptr, $PUBLIC, $virtualMethod(XkbActionMessageEvent, get_device, int32_t)},
-	{"get_display", "()J", nullptr, $PUBLIC, $virtualMethod(XkbActionMessageEvent, get_display, int64_t)},
-	{"get_group", "()I", nullptr, $PUBLIC, $virtualMethod(XkbActionMessageEvent, get_group, int32_t)},
-	{"get_key_event_follows", "()Z", nullptr, $PUBLIC, $virtualMethod(XkbActionMessageEvent, get_key_event_follows, bool)},
-	{"get_keycode", "()I", nullptr, $PUBLIC, $virtualMethod(XkbActionMessageEvent, get_keycode, int32_t)},
-	{"get_message", "(I)B", nullptr, $PUBLIC, $virtualMethod(XkbActionMessageEvent, get_message, int8_t, int32_t)},
-	{"get_message", "()J", nullptr, $PUBLIC, $virtualMethod(XkbActionMessageEvent, get_message, int64_t)},
-	{"get_mods", "()I", nullptr, $PUBLIC, $virtualMethod(XkbActionMessageEvent, get_mods, int32_t)},
-	{"get_press", "()Z", nullptr, $PUBLIC, $virtualMethod(XkbActionMessageEvent, get_press, bool)},
-	{"get_send_event", "()Z", nullptr, $PUBLIC, $virtualMethod(XkbActionMessageEvent, get_send_event, bool)},
-	{"get_serial", "()J", nullptr, $PUBLIC, $virtualMethod(XkbActionMessageEvent, get_serial, int64_t)},
-	{"get_time", "()J", nullptr, $PUBLIC, $virtualMethod(XkbActionMessageEvent, get_time, int64_t)},
-	{"get_type", "()I", nullptr, $PUBLIC, $virtualMethod(XkbActionMessageEvent, get_type, int32_t)},
-	{"get_xkb_type", "()I", nullptr, $PUBLIC, $virtualMethod(XkbActionMessageEvent, get_xkb_type, int32_t)},
-	{"set_device", "(I)V", nullptr, $PUBLIC, $virtualMethod(XkbActionMessageEvent, set_device, void, int32_t)},
-	{"set_display", "(J)V", nullptr, $PUBLIC, $virtualMethod(XkbActionMessageEvent, set_display, void, int64_t)},
-	{"set_group", "(I)V", nullptr, $PUBLIC, $virtualMethod(XkbActionMessageEvent, set_group, void, int32_t)},
-	{"set_key_event_follows", "(Z)V", nullptr, $PUBLIC, $virtualMethod(XkbActionMessageEvent, set_key_event_follows, void, bool)},
-	{"set_keycode", "(I)V", nullptr, $PUBLIC, $virtualMethod(XkbActionMessageEvent, set_keycode, void, int32_t)},
-	{"set_message", "(IB)V", nullptr, $PUBLIC, $virtualMethod(XkbActionMessageEvent, set_message, void, int32_t, int8_t)},
-	{"set_mods", "(I)V", nullptr, $PUBLIC, $virtualMethod(XkbActionMessageEvent, set_mods, void, int32_t)},
-	{"set_press", "(Z)V", nullptr, $PUBLIC, $virtualMethod(XkbActionMessageEvent, set_press, void, bool)},
-	{"set_send_event", "(Z)V", nullptr, $PUBLIC, $virtualMethod(XkbActionMessageEvent, set_send_event, void, bool)},
-	{"set_serial", "(J)V", nullptr, $PUBLIC, $virtualMethod(XkbActionMessageEvent, set_serial, void, int64_t)},
-	{"set_time", "(J)V", nullptr, $PUBLIC, $virtualMethod(XkbActionMessageEvent, set_time, void, int64_t)},
-	{"set_type", "(I)V", nullptr, $PUBLIC, $virtualMethod(XkbActionMessageEvent, set_type, void, int32_t)},
-	{"set_xkb_type", "(I)V", nullptr, $PUBLIC, $virtualMethod(XkbActionMessageEvent, set_xkb_type, void, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XkbActionMessageEvent, toString, $String*)},
-	{"zero", "()V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XkbActionMessageEvent, zero, void)},
-	{}
-};
-
-$ClassInfo _XkbActionMessageEvent_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.awt.X11.XkbActionMessageEvent",
-	"sun.awt.X11.XWrapperBase",
-	nullptr,
-	_XkbActionMessageEvent_FieldInfo_,
-	_XkbActionMessageEvent_MethodInfo_
-};
-
-$Object* allocate$XkbActionMessageEvent($Class* clazz) {
-	return $of($alloc(XkbActionMessageEvent));
-}
 
 int32_t XkbActionMessageEvent::getSize() {
 	$init(XkbActionMessageEvent);
@@ -120,7 +55,7 @@ void XkbActionMessageEvent::dispose() {
 	$init($XWrapperBase);
 	$nc($XWrapperBase::log)->finest("Disposing"_s);
 	if (this->should_free_memory) {
-		$nc($XWrapperBase::log)->finest("freeing memory"_s);
+		$XWrapperBase::log->finest("freeing memory"_s);
 		$nc(this->unsafe)->freeMemory(this->pData);
 	}
 }
@@ -311,7 +246,7 @@ $String* XkbActionMessageEvent::getFieldsAsString() {
 }
 
 $Object* XkbActionMessageEvent::clone() {
-	return $of($XWrapperBase::clone());
+	return $XWrapperBase::clone();
 }
 
 void XkbActionMessageEvent::zero() {
@@ -326,7 +261,64 @@ XkbActionMessageEvent::XkbActionMessageEvent() {
 }
 
 $Class* XkbActionMessageEvent::load$($String* name, bool initialize) {
-	$loadClass(XkbActionMessageEvent, name, initialize, &_XkbActionMessageEvent_ClassInfo_, allocate$XkbActionMessageEvent);
+	$FieldInfo fieldInfos$$[] = {
+		{"unsafe", "Ljdk/internal/misc/Unsafe;", nullptr, $PRIVATE, $field(XkbActionMessageEvent, unsafe)},
+		{"should_free_memory", "Z", nullptr, $PRIVATE | $FINAL, $field(XkbActionMessageEvent, should_free_memory)},
+		{"pData", "J", nullptr, 0, $field(XkbActionMessageEvent, pData)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(J)V", nullptr, $PUBLIC, $method(XkbActionMessageEvent, init$, void, int64_t)},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(XkbActionMessageEvent, init$, void)},
+		{"clone", "()Lsun/awt/X11/XEvent;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XkbActionMessageEvent, clone, $Object*)},
+		{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(XkbActionMessageEvent, dispose, void)},
+		{"getDataSize", "()I", nullptr, $PUBLIC, $virtualMethod(XkbActionMessageEvent, getDataSize, int32_t)},
+		{"getFieldsAsString", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(XkbActionMessageEvent, getFieldsAsString, $String*)},
+		{"getName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(XkbActionMessageEvent, getName, $String*)},
+		{"getPData", "()J", nullptr, $PUBLIC, $virtualMethod(XkbActionMessageEvent, getPData, int64_t)},
+		{"getSize", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(XkbActionMessageEvent, getSize, int32_t)},
+		{"get_device", "()I", nullptr, $PUBLIC, $virtualMethod(XkbActionMessageEvent, get_device, int32_t)},
+		{"get_display", "()J", nullptr, $PUBLIC, $virtualMethod(XkbActionMessageEvent, get_display, int64_t)},
+		{"get_group", "()I", nullptr, $PUBLIC, $virtualMethod(XkbActionMessageEvent, get_group, int32_t)},
+		{"get_key_event_follows", "()Z", nullptr, $PUBLIC, $virtualMethod(XkbActionMessageEvent, get_key_event_follows, bool)},
+		{"get_keycode", "()I", nullptr, $PUBLIC, $virtualMethod(XkbActionMessageEvent, get_keycode, int32_t)},
+		{"get_message", "(I)B", nullptr, $PUBLIC, $virtualMethod(XkbActionMessageEvent, get_message, int8_t, int32_t)},
+		{"get_message", "()J", nullptr, $PUBLIC, $virtualMethod(XkbActionMessageEvent, get_message, int64_t)},
+		{"get_mods", "()I", nullptr, $PUBLIC, $virtualMethod(XkbActionMessageEvent, get_mods, int32_t)},
+		{"get_press", "()Z", nullptr, $PUBLIC, $virtualMethod(XkbActionMessageEvent, get_press, bool)},
+		{"get_send_event", "()Z", nullptr, $PUBLIC, $virtualMethod(XkbActionMessageEvent, get_send_event, bool)},
+		{"get_serial", "()J", nullptr, $PUBLIC, $virtualMethod(XkbActionMessageEvent, get_serial, int64_t)},
+		{"get_time", "()J", nullptr, $PUBLIC, $virtualMethod(XkbActionMessageEvent, get_time, int64_t)},
+		{"get_type", "()I", nullptr, $PUBLIC, $virtualMethod(XkbActionMessageEvent, get_type, int32_t)},
+		{"get_xkb_type", "()I", nullptr, $PUBLIC, $virtualMethod(XkbActionMessageEvent, get_xkb_type, int32_t)},
+		{"set_device", "(I)V", nullptr, $PUBLIC, $virtualMethod(XkbActionMessageEvent, set_device, void, int32_t)},
+		{"set_display", "(J)V", nullptr, $PUBLIC, $virtualMethod(XkbActionMessageEvent, set_display, void, int64_t)},
+		{"set_group", "(I)V", nullptr, $PUBLIC, $virtualMethod(XkbActionMessageEvent, set_group, void, int32_t)},
+		{"set_key_event_follows", "(Z)V", nullptr, $PUBLIC, $virtualMethod(XkbActionMessageEvent, set_key_event_follows, void, bool)},
+		{"set_keycode", "(I)V", nullptr, $PUBLIC, $virtualMethod(XkbActionMessageEvent, set_keycode, void, int32_t)},
+		{"set_message", "(IB)V", nullptr, $PUBLIC, $virtualMethod(XkbActionMessageEvent, set_message, void, int32_t, int8_t)},
+		{"set_mods", "(I)V", nullptr, $PUBLIC, $virtualMethod(XkbActionMessageEvent, set_mods, void, int32_t)},
+		{"set_press", "(Z)V", nullptr, $PUBLIC, $virtualMethod(XkbActionMessageEvent, set_press, void, bool)},
+		{"set_send_event", "(Z)V", nullptr, $PUBLIC, $virtualMethod(XkbActionMessageEvent, set_send_event, void, bool)},
+		{"set_serial", "(J)V", nullptr, $PUBLIC, $virtualMethod(XkbActionMessageEvent, set_serial, void, int64_t)},
+		{"set_time", "(J)V", nullptr, $PUBLIC, $virtualMethod(XkbActionMessageEvent, set_time, void, int64_t)},
+		{"set_type", "(I)V", nullptr, $PUBLIC, $virtualMethod(XkbActionMessageEvent, set_type, void, int32_t)},
+		{"set_xkb_type", "(I)V", nullptr, $PUBLIC, $virtualMethod(XkbActionMessageEvent, set_xkb_type, void, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XkbActionMessageEvent, toString, $String*)},
+		{"zero", "()V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XkbActionMessageEvent, zero, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.awt.X11.XkbActionMessageEvent",
+		"sun.awt.X11.XWrapperBase",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XkbActionMessageEvent, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XkbActionMessageEvent);
+	});
 	return class$;
 }
 

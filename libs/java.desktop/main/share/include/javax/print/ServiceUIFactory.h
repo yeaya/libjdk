@@ -29,6 +29,7 @@ class $import ServiceUIFactory : public ::java::lang::Object {
 	$class(ServiceUIFactory, 0, ::java::lang::Object)
 public:
 	ServiceUIFactory();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual $Object* getUI(int32_t role, $String* ui) {return nullptr;}
 	virtual $StringArray* getUIClassNamesForRole(int32_t role) {return nullptr;}

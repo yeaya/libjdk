@@ -34,6 +34,7 @@ class AquaIcon$SystemIcon : public ::com::apple::laf::AquaIcon$CachingScalingIco
 	$class(AquaIcon$SystemIcon, 0, ::com::apple::laf::AquaIcon$CachingScalingIcon)
 public:
 	AquaIcon$SystemIcon();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* iconSelector, int32_t width, int32_t height);
 	void init$($String* iconSelector);
 	virtual ::java::awt::Image* createImage() override;

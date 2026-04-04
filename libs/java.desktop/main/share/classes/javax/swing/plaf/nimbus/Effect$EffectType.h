@@ -23,6 +23,7 @@ class Effect$EffectType : public ::java::lang::Enum {
 public:
 	Effect$EffectType();
 	static $Array<::javax::swing::plaf::nimbus::Effect$EffectType>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::javax::swing::plaf::nimbus::Effect$EffectType* valueOf($String* name);
 	static $Array<::javax::swing::plaf::nimbus::Effect$EffectType>* values();

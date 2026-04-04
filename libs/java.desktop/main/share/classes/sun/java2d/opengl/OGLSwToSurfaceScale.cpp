@@ -1,5 +1,4 @@
 #include <sun/java2d/opengl/OGLSwToSurfaceScale.h>
-
 #include <java/awt/Composite.h>
 #include <java/awt/geom/AffineTransform.h>
 #include <java/awt/image/AffineTransformOp.h>
@@ -32,30 +31,6 @@ namespace sun {
 	namespace java2d {
 		namespace opengl {
 
-$FieldInfo _OGLSwToSurfaceScale_FieldInfo_[] = {
-	{"typeval", "I", nullptr, $PRIVATE, $field(OGLSwToSurfaceScale, typeval)},
-	{}
-};
-
-$MethodInfo _OGLSwToSurfaceScale_MethodInfo_[] = {
-	{"<init>", "(Lsun/java2d/loops/SurfaceType;I)V", nullptr, 0, $method(OGLSwToSurfaceScale, init$, void, $SurfaceType*, int32_t)},
-	{"Scale", "(Lsun/java2d/SurfaceData;Lsun/java2d/SurfaceData;Ljava/awt/Composite;Lsun/java2d/pipe/Region;IIIIDDDD)V", nullptr, $PUBLIC, $virtualMethod(OGLSwToSurfaceScale, Scale, void, $SurfaceData*, $SurfaceData*, $Composite*, $Region*, int32_t, int32_t, int32_t, int32_t, double, double, double, double)},
-	{}
-};
-
-$ClassInfo _OGLSwToSurfaceScale_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.java2d.opengl.OGLSwToSurfaceScale",
-	"sun.java2d.loops.ScaledBlit",
-	nullptr,
-	_OGLSwToSurfaceScale_FieldInfo_,
-	_OGLSwToSurfaceScale_MethodInfo_
-};
-
-$Object* allocate$OGLSwToSurfaceScale($Class* clazz) {
-	return $of($alloc(OGLSwToSurfaceScale));
-}
-
 void OGLSwToSurfaceScale::init$($SurfaceType* srcType, int32_t typeval) {
 	$init($CompositeType);
 	$init($OGLSurfaceData);
@@ -71,7 +46,26 @@ OGLSwToSurfaceScale::OGLSwToSurfaceScale() {
 }
 
 $Class* OGLSwToSurfaceScale::load$($String* name, bool initialize) {
-	$loadClass(OGLSwToSurfaceScale, name, initialize, &_OGLSwToSurfaceScale_ClassInfo_, allocate$OGLSwToSurfaceScale);
+	$FieldInfo fieldInfos$$[] = {
+		{"typeval", "I", nullptr, $PRIVATE, $field(OGLSwToSurfaceScale, typeval)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/java2d/loops/SurfaceType;I)V", nullptr, 0, $method(OGLSwToSurfaceScale, init$, void, $SurfaceType*, int32_t)},
+		{"Scale", "(Lsun/java2d/SurfaceData;Lsun/java2d/SurfaceData;Ljava/awt/Composite;Lsun/java2d/pipe/Region;IIIIDDDD)V", nullptr, $PUBLIC, $virtualMethod(OGLSwToSurfaceScale, Scale, void, $SurfaceData*, $SurfaceData*, $Composite*, $Region*, int32_t, int32_t, int32_t, int32_t, double, double, double, double)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.java2d.opengl.OGLSwToSurfaceScale",
+		"sun.java2d.loops.ScaledBlit",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(OGLSwToSurfaceScale, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(OGLSwToSurfaceScale);
+	});
 	return class$;
 }
 

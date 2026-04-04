@@ -1,5 +1,4 @@
 #include <java/awt/DefaultFocusTraversalPolicy.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <java/awt/ContainerOrderFocusTraversalPolicy.h>
@@ -19,56 +18,30 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace java {
 	namespace awt {
 
-$FieldInfo _DefaultFocusTraversalPolicy_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DefaultFocusTraversalPolicy, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _DefaultFocusTraversalPolicy_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(DefaultFocusTraversalPolicy, init$, void)},
-	{"accept", "(Ljava/awt/Component;)Z", nullptr, $PROTECTED, $virtualMethod(DefaultFocusTraversalPolicy, accept, bool, $Component*)},
-	{}
-};
-
-$ClassInfo _DefaultFocusTraversalPolicy_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.awt.DefaultFocusTraversalPolicy",
-	"java.awt.ContainerOrderFocusTraversalPolicy",
-	nullptr,
-	_DefaultFocusTraversalPolicy_FieldInfo_,
-	_DefaultFocusTraversalPolicy_MethodInfo_
-};
-
-$Object* allocate$DefaultFocusTraversalPolicy($Class* clazz) {
-	return $of($alloc(DefaultFocusTraversalPolicy));
-}
-
 void DefaultFocusTraversalPolicy::init$() {
 	$ContainerOrderFocusTraversalPolicy::init$();
 }
 
 bool DefaultFocusTraversalPolicy::accept($Component* aComponent) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool var$1 = $nc(aComponent)->isVisible();
 	bool var$0 = var$1 && aComponent->isDisplayable();
 	if (!(var$0 && aComponent->isEnabled())) {
 		return false;
 	}
 	if (!($instanceOf($Window, aComponent))) {
-		{
-			$var($Container, enableTest, $nc(aComponent)->getParent());
-			for (; enableTest != nullptr; $assign(enableTest, $nc(enableTest)->getParent())) {
-				bool var$2 = enableTest->isEnabled();
-				if (!(var$2 || enableTest->isLightweight())) {
-					return false;
-				}
-				if ($instanceOf($Window, enableTest)) {
-					break;
-				}
+		$var($Container, enableTest, aComponent->getParent());
+		for (; enableTest != nullptr; $assign(enableTest, enableTest->getParent())) {
+			bool var$2 = enableTest->isEnabled();
+			if (!(var$2 || enableTest->isLightweight())) {
+				return false;
+			}
+			if ($instanceOf($Window, enableTest)) {
+				break;
 			}
 		}
 	}
-	bool focusable = $nc(aComponent)->isFocusable();
+	bool focusable = aComponent->isFocusable();
 	if (aComponent->isFocusTraversableOverridden()) {
 		return focusable;
 	}
@@ -80,7 +53,26 @@ DefaultFocusTraversalPolicy::DefaultFocusTraversalPolicy() {
 }
 
 $Class* DefaultFocusTraversalPolicy::load$($String* name, bool initialize) {
-	$loadClass(DefaultFocusTraversalPolicy, name, initialize, &_DefaultFocusTraversalPolicy_ClassInfo_, allocate$DefaultFocusTraversalPolicy);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DefaultFocusTraversalPolicy, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(DefaultFocusTraversalPolicy, init$, void)},
+		{"accept", "(Ljava/awt/Component;)Z", nullptr, $PROTECTED, $virtualMethod(DefaultFocusTraversalPolicy, accept, bool, $Component*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.awt.DefaultFocusTraversalPolicy",
+		"java.awt.ContainerOrderFocusTraversalPolicy",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DefaultFocusTraversalPolicy, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DefaultFocusTraversalPolicy));
+	});
 	return class$;
 }
 

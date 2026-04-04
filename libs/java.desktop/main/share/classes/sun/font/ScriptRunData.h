@@ -17,6 +17,7 @@ class ScriptRunData : public ::java::lang::Object {
 	$class(ScriptRunData, 0, ::java::lang::Object)
 public:
 	ScriptRunData();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static int32_t getScript(int32_t cp);
 	static const int32_t CHAR_START = 0;

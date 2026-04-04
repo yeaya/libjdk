@@ -1,5 +1,4 @@
 #include <com/sun/media/sound/PortMixer$FloatCtrl.h>
-
 #include <com/sun/media/sound/PortMixer$FloatCtrl$FCT.h>
 #include <com/sun/media/sound/PortMixer.h>
 #include <javax/sound/sampled/FloatControl$Type.h>
@@ -27,56 +26,14 @@ namespace com {
 		namespace media {
 			namespace sound {
 
-$FieldInfo _PortMixer$FloatCtrl_FieldInfo_[] = {
-	{"controlID", "J", nullptr, $PRIVATE | $FINAL, $field(PortMixer$FloatCtrl, controlID)},
-	{"closed", "Z", nullptr, $PRIVATE, $field(PortMixer$FloatCtrl, closed)},
-	{"FLOAT_CONTROL_TYPES", "[Ljavax/sound/sampled/FloatControl$Type;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PortMixer$FloatCtrl, FLOAT_CONTROL_TYPES)},
-	{}
-};
-
-$MethodInfo _PortMixer$FloatCtrl_MethodInfo_[] = {
-	{"<init>", "(JLjava/lang/String;FFFLjava/lang/String;)V", nullptr, $PRIVATE, $method(PortMixer$FloatCtrl, init$, void, int64_t, $String*, float, float, float, $String*)},
-	{"<init>", "(JIFFFLjava/lang/String;)V", nullptr, $PRIVATE, $method(PortMixer$FloatCtrl, init$, void, int64_t, int32_t, float, float, float, $String*)},
-	{"<init>", "(JLjavax/sound/sampled/FloatControl$Type;FFFLjava/lang/String;)V", nullptr, $PRIVATE, $method(PortMixer$FloatCtrl, init$, void, int64_t, $FloatControl$Type*, float, float, float, $String*)},
-	{"getValue", "()F", nullptr, $PUBLIC, $virtualMethod(PortMixer$FloatCtrl, getValue, float)},
-	{"setValue", "(F)V", nullptr, $PUBLIC, $virtualMethod(PortMixer$FloatCtrl, setValue, void, float)},
-	{}
-};
-
-$InnerClassInfo _PortMixer$FloatCtrl_InnerClassesInfo_[] = {
-	{"com.sun.media.sound.PortMixer$FloatCtrl", "com.sun.media.sound.PortMixer", "FloatCtrl", $PRIVATE | $STATIC | $FINAL},
-	{"com.sun.media.sound.PortMixer$FloatCtrl$FCT", "com.sun.media.sound.PortMixer$FloatCtrl", "FCT", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _PortMixer$FloatCtrl_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.media.sound.PortMixer$FloatCtrl",
-	"javax.sound.sampled.FloatControl",
-	nullptr,
-	_PortMixer$FloatCtrl_FieldInfo_,
-	_PortMixer$FloatCtrl_MethodInfo_,
-	nullptr,
-	nullptr,
-	_PortMixer$FloatCtrl_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.media.sound.PortMixer"
-};
-
-$Object* allocate$PortMixer$FloatCtrl($Class* clazz) {
-	return $of($alloc(PortMixer$FloatCtrl));
-}
-
 $FloatControl$TypeArray* PortMixer$FloatCtrl::FLOAT_CONTROL_TYPES = nullptr;
 
 void PortMixer$FloatCtrl::init$(int64_t controlID, $String* name, float min, float max, float precision, $String* units) {
-	PortMixer$FloatCtrl::init$(controlID, static_cast<$FloatControl$Type*>($$new($PortMixer$FloatCtrl$FCT, name)), min, max, precision, units);
+	PortMixer$FloatCtrl::init$(controlID, $$new($PortMixer$FloatCtrl$FCT, name), min, max, precision, units);
 }
 
 void PortMixer$FloatCtrl::init$(int64_t controlID, int32_t type, float min, float max, float precision, $String* units) {
-	PortMixer$FloatCtrl::init$(controlID, $nc(PortMixer$FloatCtrl::FLOAT_CONTROL_TYPES)->get(type), min, max, precision, units);
+	PortMixer$FloatCtrl::init$(controlID, PortMixer$FloatCtrl::FLOAT_CONTROL_TYPES->get(type), min, max, precision, units);
 }
 
 void PortMixer$FloatCtrl::init$(int64_t controlID, $FloatControl$Type* typ, float min, float max, float precision, $String* units) {
@@ -98,10 +55,10 @@ float PortMixer$FloatCtrl::getValue() {
 	return getMinimum();
 }
 
-void clinit$PortMixer$FloatCtrl($Class* class$) {
+void PortMixer$FloatCtrl::clinit$($Class* clazz) {
 	$init($FloatControl$Type);
 	$assignStatic(PortMixer$FloatCtrl::FLOAT_CONTROL_TYPES, $new($FloatControl$TypeArray, {
-		($FloatControl$Type*)nullptr,
+		nullptr,
 		$FloatControl$Type::BALANCE,
 		$FloatControl$Type::MASTER_GAIN,
 		$FloatControl$Type::PAN,
@@ -113,7 +70,43 @@ PortMixer$FloatCtrl::PortMixer$FloatCtrl() {
 }
 
 $Class* PortMixer$FloatCtrl::load$($String* name, bool initialize) {
-	$loadClass(PortMixer$FloatCtrl, name, initialize, &_PortMixer$FloatCtrl_ClassInfo_, clinit$PortMixer$FloatCtrl, allocate$PortMixer$FloatCtrl);
+	$FieldInfo fieldInfos$$[] = {
+		{"controlID", "J", nullptr, $PRIVATE | $FINAL, $field(PortMixer$FloatCtrl, controlID)},
+		{"closed", "Z", nullptr, $PRIVATE, $field(PortMixer$FloatCtrl, closed)},
+		{"FLOAT_CONTROL_TYPES", "[Ljavax/sound/sampled/FloatControl$Type;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PortMixer$FloatCtrl, FLOAT_CONTROL_TYPES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(JLjava/lang/String;FFFLjava/lang/String;)V", nullptr, $PRIVATE, $method(PortMixer$FloatCtrl, init$, void, int64_t, $String*, float, float, float, $String*)},
+		{"<init>", "(JIFFFLjava/lang/String;)V", nullptr, $PRIVATE, $method(PortMixer$FloatCtrl, init$, void, int64_t, int32_t, float, float, float, $String*)},
+		{"<init>", "(JLjavax/sound/sampled/FloatControl$Type;FFFLjava/lang/String;)V", nullptr, $PRIVATE, $method(PortMixer$FloatCtrl, init$, void, int64_t, $FloatControl$Type*, float, float, float, $String*)},
+		{"getValue", "()F", nullptr, $PUBLIC, $virtualMethod(PortMixer$FloatCtrl, getValue, float)},
+		{"setValue", "(F)V", nullptr, $PUBLIC, $virtualMethod(PortMixer$FloatCtrl, setValue, void, float)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.media.sound.PortMixer$FloatCtrl", "com.sun.media.sound.PortMixer", "FloatCtrl", $PRIVATE | $STATIC | $FINAL},
+		{"com.sun.media.sound.PortMixer$FloatCtrl$FCT", "com.sun.media.sound.PortMixer$FloatCtrl", "FCT", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.media.sound.PortMixer$FloatCtrl",
+		"javax.sound.sampled.FloatControl",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.media.sound.PortMixer"
+	};
+	$loadClass(PortMixer$FloatCtrl, name, initialize, &classInfo$$, PortMixer$FloatCtrl::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(PortMixer$FloatCtrl);
+	});
 	return class$;
 }
 

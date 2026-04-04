@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/security/utils/XalanXPathAPI.h>
-
 #include <com/sun/org/apache/xml/internal/security/transforms/implementations/FuncHere.h>
 #include <com/sun/org/apache/xml/internal/utils/PrefixResolver.h>
 #include <com/sun/org/apache/xml/internal/utils/PrefixResolverDefault.h>
@@ -60,41 +59,6 @@ namespace com {
 						namespace security {
 							namespace utils {
 
-$FieldInfo _XalanXPathAPI_FieldInfo_[] = {
-	{"LOG", "Lcom/sun/org/slf4j/internal/Logger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XalanXPathAPI, LOG)},
-	{"xpathStr", "Ljava/lang/String;", nullptr, $PRIVATE, $field(XalanXPathAPI, xpathStr)},
-	{"xpath", "Lcom/sun/org/apache/xpath/internal/XPath;", nullptr, $PRIVATE, $field(XalanXPathAPI, xpath)},
-	{"funcTable", "Lcom/sun/org/apache/xpath/internal/compiler/FunctionTable;", nullptr, $PRIVATE | $STATIC, $staticField(XalanXPathAPI, funcTable)},
-	{"installed", "Z", nullptr, $PRIVATE | $STATIC, $staticField(XalanXPathAPI, installed)},
-	{"context", "Lcom/sun/org/apache/xpath/internal/XPathContext;", nullptr, $PRIVATE, $field(XalanXPathAPI, context)},
-	{}
-};
-
-$MethodInfo _XalanXPathAPI_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(XalanXPathAPI, init$, void)},
-	{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(XalanXPathAPI, clear, void)},
-	{"createXPath", "(Ljava/lang/String;Lcom/sun/org/apache/xml/internal/utils/PrefixResolver;)Lcom/sun/org/apache/xpath/internal/XPath;", nullptr, $PRIVATE, $method(XalanXPathAPI, createXPath, $XPath*, $String*, $PrefixResolver*), "javax.xml.transform.TransformerException"},
-	{"eval", "(Lorg/w3c/dom/Node;Lorg/w3c/dom/Node;Ljava/lang/String;Lorg/w3c/dom/Node;)Lcom/sun/org/apache/xpath/internal/objects/XObject;", nullptr, $PRIVATE, $method(XalanXPathAPI, eval, $XObject*, $Node*, $Node*, $String*, $Node*), "javax.xml.transform.TransformerException"},
-	{"evaluate", "(Lorg/w3c/dom/Node;Lorg/w3c/dom/Node;Ljava/lang/String;Lorg/w3c/dom/Node;)Z", nullptr, $PUBLIC, $virtualMethod(XalanXPathAPI, evaluate, bool, $Node*, $Node*, $String*, $Node*), "javax.xml.transform.TransformerException"},
-	{"fixupFunctionTable", "()V", nullptr, $PRIVATE | $STATIC | $SYNCHRONIZED, $staticMethod(XalanXPathAPI, fixupFunctionTable, void)},
-	{"isInstalled", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(XalanXPathAPI, isInstalled, bool)},
-	{"selectNodeList", "(Lorg/w3c/dom/Node;Lorg/w3c/dom/Node;Ljava/lang/String;Lorg/w3c/dom/Node;)Lorg/w3c/dom/NodeList;", nullptr, $PUBLIC, $virtualMethod(XalanXPathAPI, selectNodeList, $NodeList*, $Node*, $Node*, $String*, $Node*), "javax.xml.transform.TransformerException"},
-	{}
-};
-
-$ClassInfo _XalanXPathAPI_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.org.apache.xml.internal.security.utils.XalanXPathAPI",
-	"java.lang.Object",
-	"com.sun.org.apache.xml.internal.security.utils.XPathAPI",
-	_XalanXPathAPI_FieldInfo_,
-	_XalanXPathAPI_MethodInfo_
-};
-
-$Object* allocate$XalanXPathAPI($Class* clazz) {
-	return $of($alloc(XalanXPathAPI));
-}
-
 $Logger* XalanXPathAPI::LOG = nullptr;
 $FunctionTable* XalanXPathAPI::funcTable = nullptr;
 bool XalanXPathAPI::installed = false;
@@ -124,12 +88,12 @@ bool XalanXPathAPI::isInstalled() {
 }
 
 $XObject* XalanXPathAPI::eval($Node* contextNode, $Node* xpathnode, $String* str, $Node* namespaceNode) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->context == nullptr) {
-		$set(this, context, $new($XPathContext, $of(xpathnode)));
-		$nc(this->context)->setSecureProcessing(true);
+		$set(this, context, $new($XPathContext, xpathnode));
+		this->context->setSecureProcessing(true);
 	}
-	$var($Node, resolverNode, ($nc(namespaceNode)->getNodeType() == $Node::DOCUMENT_NODE) ? static_cast<$Node*>($nc(($cast($Document, namespaceNode)))->getDocumentElement()) : namespaceNode);
+	$var($Node, resolverNode, ($nc(namespaceNode)->getNodeType() == $Node::DOCUMENT_NODE) ? $cast($Node, $cast($Document, namespaceNode)->getDocumentElement()) : namespaceNode);
 	$var($PrefixResolverDefault, prefixResolver, $new($PrefixResolverDefault, resolverNode));
 	if (!$nc(str)->equals(this->xpathStr)) {
 		if (str->indexOf("here()"_s) > 0) {
@@ -139,16 +103,15 @@ $XObject* XalanXPathAPI::eval($Node* contextNode, $Node* xpathnode, $String* str
 		$set(this, xpathStr, str);
 	}
 	int32_t ctxtNode = $nc(this->context)->getDTMHandleFromNode(contextNode);
-	return $nc(this->xpath)->execute(this->context, ctxtNode, static_cast<$PrefixResolver*>(prefixResolver));
+	return $nc(this->xpath)->execute(this->context, ctxtNode, prefixResolver);
 }
 
 $XPath* XalanXPathAPI::createXPath($String* str, $PrefixResolver* prefixResolver) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$var($XPath, xpath, nullptr);
 	$load($SourceLocator);
 	$load($PrefixResolver);
-	$init($Integer);
 	$load($ErrorListener);
 	$load($FunctionTable);
 	$var($ClassArray, classes, $new($ClassArray, {
@@ -160,19 +123,19 @@ $XPath* XalanXPathAPI::createXPath($String* str, $PrefixResolver* prefixResolver
 		$FunctionTable::class$
 	}));
 	$var($ObjectArray, objects, $new($ObjectArray, {
-		$of(str),
-		($Object*)nullptr,
-		$of(prefixResolver),
-		$($of($Integer::valueOf($XPath::SELECT))),
-		($Object*)nullptr,
-		$of(XalanXPathAPI::funcTable)
+		str,
+		nullptr,
+		prefixResolver,
+		$($Integer::valueOf($XPath::SELECT)),
+		nullptr,
+		XalanXPathAPI::funcTable
 	}));
 	try {
 		$load($XPath);
 		$var($Constructor, constructor, $XPath::class$->getConstructor(classes));
 		$assign(xpath, $cast($XPath, $nc(constructor)->newInstance(objects)));
 	} catch ($Exception& ex) {
-		$nc(XalanXPathAPI::LOG)->debug($(ex->getMessage()), static_cast<$Throwable*>(ex));
+		$nc(XalanXPathAPI::LOG)->debug($(ex->getMessage()), ex);
 	}
 	if (xpath == nullptr) {
 		$assign(xpath, $new($XPath, str, nullptr, prefixResolver, $XPath::SELECT, nullptr));
@@ -181,10 +144,9 @@ $XPath* XalanXPathAPI::createXPath($String* str, $PrefixResolver* prefixResolver
 }
 
 void XalanXPathAPI::fixupFunctionTable() {
-	$load(XalanXPathAPI);
+	$init(XalanXPathAPI);
 	$synchronized(class$) {
-		$init(XalanXPathAPI);
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$beforeCallerSensitive();
 		XalanXPathAPI::installed = false;
 		if ($$new($FunctionTable)->functionAvailable("here"_s)) {
@@ -200,16 +162,16 @@ void XalanXPathAPI::fixupFunctionTable() {
 				$Expression::class$
 			}));
 			$var($Method, installFunction, $FunctionTable::class$->getMethod("installFunction"_s, args));
-			if (((int32_t)($nc(installFunction)->getModifiers() & (uint32_t)$Modifier::STATIC)) != 0) {
+			if (($nc(installFunction)->getModifiers() & $Modifier::STATIC) != 0) {
 				$var($ObjectArray, params, $new($ObjectArray, {
-					$of("here"_s),
-					$of($$new($FuncHere))
+					"here"_s,
+					$$new($FuncHere)
 				}));
 				installFunction->invoke(nullptr, params);
 				XalanXPathAPI::installed = true;
 			}
 		} catch ($Exception& ex) {
-			$nc(XalanXPathAPI::LOG)->debug("Error installing function using the static installFunction method"_s, static_cast<$Throwable*>(ex));
+			XalanXPathAPI::LOG->debug("Error installing function using the static installFunction method"_s, ex);
 		}
 		if (!XalanXPathAPI::installed) {
 			try {
@@ -221,26 +183,26 @@ void XalanXPathAPI::fixupFunctionTable() {
 				$var($Method, installFunction, $FunctionTable::class$->getMethod("installFunction"_s, args));
 				$load($FuncHere);
 				$var($ObjectArray, params, $new($ObjectArray, {
-					$of("here"_s),
-					$of($FuncHere::class$)
+					"here"_s,
+					$FuncHere::class$
 				}));
 				$nc(installFunction)->invoke(XalanXPathAPI::funcTable, params);
 				XalanXPathAPI::installed = true;
 			} catch ($Exception& ex) {
-				$nc(XalanXPathAPI::LOG)->debug("Error installing function using the static installFunction method"_s, static_cast<$Throwable*>(ex));
+				XalanXPathAPI::LOG->debug("Error installing function using the static installFunction method"_s, ex);
 			}
 		}
 		if (XalanXPathAPI::installed) {
 			$load($FuncHere);
-			$nc(XalanXPathAPI::LOG)->debug("Registered class {} for XPath function \'here()\' function in internal table"_s, $$new($ObjectArray, {$($of($FuncHere::class$->getName()))}));
+			XalanXPathAPI::LOG->debug("Registered class {} for XPath function \'here()\' function in internal table"_s, $$new($ObjectArray, {$($FuncHere::class$->getName())}));
 		} else {
 			$load($FuncHere);
-			$nc(XalanXPathAPI::LOG)->debug("Unable to register class {} for XPath function \'here()\' function in internal table"_s, $$new($ObjectArray, {$($of($FuncHere::class$->getName()))}));
+			XalanXPathAPI::LOG->debug("Unable to register class {} for XPath function \'here()\' function in internal table"_s, $$new($ObjectArray, {$($FuncHere::class$->getName())}));
 		}
 	}
 }
 
-void clinit$XalanXPathAPI($Class* class$) {
+void XalanXPathAPI::clinit$($Class* clazz) {
 	$assignStatic(XalanXPathAPI::LOG, $LoggerFactory::getLogger(XalanXPathAPI::class$));
 	{
 		XalanXPathAPI::fixupFunctionTable();
@@ -251,7 +213,37 @@ XalanXPathAPI::XalanXPathAPI() {
 }
 
 $Class* XalanXPathAPI::load$($String* name, bool initialize) {
-	$loadClass(XalanXPathAPI, name, initialize, &_XalanXPathAPI_ClassInfo_, clinit$XalanXPathAPI, allocate$XalanXPathAPI);
+	$FieldInfo fieldInfos$$[] = {
+		{"LOG", "Lcom/sun/org/slf4j/internal/Logger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XalanXPathAPI, LOG)},
+		{"xpathStr", "Ljava/lang/String;", nullptr, $PRIVATE, $field(XalanXPathAPI, xpathStr)},
+		{"xpath", "Lcom/sun/org/apache/xpath/internal/XPath;", nullptr, $PRIVATE, $field(XalanXPathAPI, xpath)},
+		{"funcTable", "Lcom/sun/org/apache/xpath/internal/compiler/FunctionTable;", nullptr, $PRIVATE | $STATIC, $staticField(XalanXPathAPI, funcTable)},
+		{"installed", "Z", nullptr, $PRIVATE | $STATIC, $staticField(XalanXPathAPI, installed)},
+		{"context", "Lcom/sun/org/apache/xpath/internal/XPathContext;", nullptr, $PRIVATE, $field(XalanXPathAPI, context)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(XalanXPathAPI, init$, void)},
+		{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(XalanXPathAPI, clear, void)},
+		{"createXPath", "(Ljava/lang/String;Lcom/sun/org/apache/xml/internal/utils/PrefixResolver;)Lcom/sun/org/apache/xpath/internal/XPath;", nullptr, $PRIVATE, $method(XalanXPathAPI, createXPath, $XPath*, $String*, $PrefixResolver*), "javax.xml.transform.TransformerException"},
+		{"eval", "(Lorg/w3c/dom/Node;Lorg/w3c/dom/Node;Ljava/lang/String;Lorg/w3c/dom/Node;)Lcom/sun/org/apache/xpath/internal/objects/XObject;", nullptr, $PRIVATE, $method(XalanXPathAPI, eval, $XObject*, $Node*, $Node*, $String*, $Node*), "javax.xml.transform.TransformerException"},
+		{"evaluate", "(Lorg/w3c/dom/Node;Lorg/w3c/dom/Node;Ljava/lang/String;Lorg/w3c/dom/Node;)Z", nullptr, $PUBLIC, $virtualMethod(XalanXPathAPI, evaluate, bool, $Node*, $Node*, $String*, $Node*), "javax.xml.transform.TransformerException"},
+		{"fixupFunctionTable", "()V", nullptr, $PRIVATE | $STATIC | $SYNCHRONIZED, $staticMethod(XalanXPathAPI, fixupFunctionTable, void)},
+		{"isInstalled", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(XalanXPathAPI, isInstalled, bool)},
+		{"selectNodeList", "(Lorg/w3c/dom/Node;Lorg/w3c/dom/Node;Ljava/lang/String;Lorg/w3c/dom/Node;)Lorg/w3c/dom/NodeList;", nullptr, $PUBLIC, $virtualMethod(XalanXPathAPI, selectNodeList, $NodeList*, $Node*, $Node*, $String*, $Node*), "javax.xml.transform.TransformerException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.org.apache.xml.internal.security.utils.XalanXPathAPI",
+		"java.lang.Object",
+		"com.sun.org.apache.xml.internal.security.utils.XPathAPI",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XalanXPathAPI, name, initialize, &classInfo$$, XalanXPathAPI::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(XalanXPathAPI);
+	});
 	return class$;
 }
 

@@ -97,7 +97,7 @@ public:
 	void readObject(::java::io::ObjectInputStream* s);
 	virtual void refresh() override;
 	virtual $String* toString() override;
-	static const int64_t serialVersionUID = (int64_t)0x66A1816D7077C3BB;
+	static const int64_t serialVersionUID = (int64_t)0x66a1816d7077c3bb;
 	static const int32_t FORWARDABLE_TICKET_FLAG = 1;
 	static const int32_t FORWARDED_TICKET_FLAG = 2;
 	static const int32_t PROXIABLE_TICKET_FLAG = 3;

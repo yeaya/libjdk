@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/windows/WindowsIconFactory$MenuItemCheckIcon.h>
-
 #include <com/sun/java/swing/plaf/windows/WindowsIconFactory.h>
 #include <java/awt/Component.h>
 #include <java/awt/Graphics.h>
@@ -19,44 +18,6 @@ namespace com {
 			namespace swing {
 				namespace plaf {
 					namespace windows {
-
-$MethodInfo _WindowsIconFactory$MenuItemCheckIcon_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PRIVATE, $method(WindowsIconFactory$MenuItemCheckIcon, init$, void)},
-	{"getIconHeight", "()I", nullptr, $PUBLIC, $virtualMethod(WindowsIconFactory$MenuItemCheckIcon, getIconHeight, int32_t)},
-	{"getIconWidth", "()I", nullptr, $PUBLIC, $virtualMethod(WindowsIconFactory$MenuItemCheckIcon, getIconWidth, int32_t)},
-	{"paintIcon", "(Ljava/awt/Component;Ljava/awt/Graphics;II)V", nullptr, $PUBLIC, $virtualMethod(WindowsIconFactory$MenuItemCheckIcon, paintIcon, void, $Component*, $Graphics*, int32_t, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _WindowsIconFactory$MenuItemCheckIcon_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.windows.WindowsIconFactory$MenuItemCheckIcon", "com.sun.java.swing.plaf.windows.WindowsIconFactory", "MenuItemCheckIcon", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _WindowsIconFactory$MenuItemCheckIcon_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.java.swing.plaf.windows.WindowsIconFactory$MenuItemCheckIcon",
-	"java.lang.Object",
-	"javax.swing.Icon,javax.swing.plaf.UIResource,java.io.Serializable",
-	nullptr,
-	_WindowsIconFactory$MenuItemCheckIcon_MethodInfo_,
-	nullptr,
-	nullptr,
-	_WindowsIconFactory$MenuItemCheckIcon_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.windows.WindowsIconFactory"
-};
-
-$Object* allocate$WindowsIconFactory$MenuItemCheckIcon($Class* clazz) {
-	return $of($alloc(WindowsIconFactory$MenuItemCheckIcon));
-}
 
 int32_t WindowsIconFactory$MenuItemCheckIcon::hashCode() {
 	 return this->$Icon::hashCode();
@@ -96,7 +57,40 @@ WindowsIconFactory$MenuItemCheckIcon::WindowsIconFactory$MenuItemCheckIcon() {
 }
 
 $Class* WindowsIconFactory$MenuItemCheckIcon::load$($String* name, bool initialize) {
-	$loadClass(WindowsIconFactory$MenuItemCheckIcon, name, initialize, &_WindowsIconFactory$MenuItemCheckIcon_ClassInfo_, allocate$WindowsIconFactory$MenuItemCheckIcon);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PRIVATE, $method(WindowsIconFactory$MenuItemCheckIcon, init$, void)},
+		{"getIconHeight", "()I", nullptr, $PUBLIC, $virtualMethod(WindowsIconFactory$MenuItemCheckIcon, getIconHeight, int32_t)},
+		{"getIconWidth", "()I", nullptr, $PUBLIC, $virtualMethod(WindowsIconFactory$MenuItemCheckIcon, getIconWidth, int32_t)},
+		{"paintIcon", "(Ljava/awt/Component;Ljava/awt/Graphics;II)V", nullptr, $PUBLIC, $virtualMethod(WindowsIconFactory$MenuItemCheckIcon, paintIcon, void, $Component*, $Graphics*, int32_t, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.windows.WindowsIconFactory$MenuItemCheckIcon", "com.sun.java.swing.plaf.windows.WindowsIconFactory", "MenuItemCheckIcon", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.java.swing.plaf.windows.WindowsIconFactory$MenuItemCheckIcon",
+		"java.lang.Object",
+		"javax.swing.Icon,javax.swing.plaf.UIResource,java.io.Serializable",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.windows.WindowsIconFactory"
+	};
+	$loadClass(WindowsIconFactory$MenuItemCheckIcon, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(WindowsIconFactory$MenuItemCheckIcon));
+	});
 	return class$;
 }
 

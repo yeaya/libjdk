@@ -26,6 +26,7 @@ class $import Resolve$MethodCheckDiag : public ::java::lang::Enum {
 public:
 	Resolve$MethodCheckDiag();
 	static $Array<::com::sun::tools::javac::comp::Resolve$MethodCheckDiag>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal, $String* basicKey, $String* inferKey);
 	virtual $String* regex();
 	static ::com::sun::tools::javac::comp::Resolve$MethodCheckDiag* valueOf($String* name);

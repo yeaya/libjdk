@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/parsers/AbstractSAXParser$AttributesProxy.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/Constants.h>
 #include <com/sun/org/apache/xerces/internal/parsers/AbstractSAXParser.h>
 #include <com/sun/org/apache/xerces/internal/xni/Augmentations.h>
@@ -12,7 +11,6 @@
 #undef TRUE
 
 using $Constants = ::com::sun::org::apache::xerces::internal::impl::Constants;
-using $Augmentations = ::com::sun::org::apache::xerces::internal::xni::Augmentations;
 using $XMLAttributes = ::com::sun::org::apache::xerces::internal::xni::XMLAttributes;
 using $ArrayIndexOutOfBoundsException = ::java::lang::ArrayIndexOutOfBoundsException;
 using $Boolean = ::java::lang::Boolean;
@@ -30,66 +28,6 @@ namespace com {
 				namespace xerces {
 					namespace internal {
 						namespace parsers {
-
-$FieldInfo _AbstractSAXParser$AttributesProxy_FieldInfo_[] = {
-	{"fAttributes", "Lcom/sun/org/apache/xerces/internal/xni/XMLAttributes;", nullptr, $PROTECTED, $field(AbstractSAXParser$AttributesProxy, fAttributes)},
-	{}
-};
-
-$MethodInfo _AbstractSAXParser$AttributesProxy_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PROTECTED, $method(AbstractSAXParser$AttributesProxy, init$, void)},
-	{"getIndex", "(Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(AbstractSAXParser$AttributesProxy, getIndex, int32_t, $String*)},
-	{"getIndex", "(Ljava/lang/String;Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(AbstractSAXParser$AttributesProxy, getIndex, int32_t, $String*, $String*)},
-	{"getLength", "()I", nullptr, $PUBLIC, $virtualMethod(AbstractSAXParser$AttributesProxy, getLength, int32_t)},
-	{"getLocalName", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AbstractSAXParser$AttributesProxy, getLocalName, $String*, int32_t)},
-	{"getName", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AbstractSAXParser$AttributesProxy, getName, $String*, int32_t)},
-	{"getQName", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AbstractSAXParser$AttributesProxy, getQName, $String*, int32_t)},
-	{"getType", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AbstractSAXParser$AttributesProxy, getType, $String*, int32_t)},
-	{"getType", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AbstractSAXParser$AttributesProxy, getType, $String*, $String*)},
-	{"getType", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AbstractSAXParser$AttributesProxy, getType, $String*, $String*, $String*)},
-	{"getURI", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AbstractSAXParser$AttributesProxy, getURI, $String*, int32_t)},
-	{"getValue", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AbstractSAXParser$AttributesProxy, getValue, $String*, int32_t)},
-	{"getValue", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AbstractSAXParser$AttributesProxy, getValue, $String*, $String*)},
-	{"getValue", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AbstractSAXParser$AttributesProxy, getValue, $String*, $String*, $String*)},
-	{"isDeclared", "(I)Z", nullptr, $PUBLIC, $virtualMethod(AbstractSAXParser$AttributesProxy, isDeclared, bool, int32_t)},
-	{"isDeclared", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(AbstractSAXParser$AttributesProxy, isDeclared, bool, $String*)},
-	{"isDeclared", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(AbstractSAXParser$AttributesProxy, isDeclared, bool, $String*, $String*)},
-	{"isSpecified", "(I)Z", nullptr, $PUBLIC, $virtualMethod(AbstractSAXParser$AttributesProxy, isSpecified, bool, int32_t)},
-	{"isSpecified", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(AbstractSAXParser$AttributesProxy, isSpecified, bool, $String*)},
-	{"isSpecified", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(AbstractSAXParser$AttributesProxy, isSpecified, bool, $String*, $String*)},
-	{"setAttributes", "(Lcom/sun/org/apache/xerces/internal/xni/XMLAttributes;)V", nullptr, $PUBLIC, $method(AbstractSAXParser$AttributesProxy, setAttributes, void, $XMLAttributes*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _AbstractSAXParser$AttributesProxy_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xerces.internal.parsers.AbstractSAXParser$AttributesProxy", "com.sun.org.apache.xerces.internal.parsers.AbstractSAXParser", "AttributesProxy", $PROTECTED | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _AbstractSAXParser$AttributesProxy_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.parsers.AbstractSAXParser$AttributesProxy",
-	"java.lang.Object",
-	"org.xml.sax.AttributeList,org.xml.sax.ext.Attributes2",
-	_AbstractSAXParser$AttributesProxy_FieldInfo_,
-	_AbstractSAXParser$AttributesProxy_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AbstractSAXParser$AttributesProxy_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xerces.internal.parsers.AbstractSAXParser"
-};
-
-$Object* allocate$AbstractSAXParser$AttributesProxy($Class* clazz) {
-	return $of($alloc(AbstractSAXParser$AttributesProxy));
-}
 
 int32_t AbstractSAXParser$AttributesProxy::hashCode() {
 	 return this->$AttributeList::hashCode();
@@ -172,35 +110,32 @@ int32_t AbstractSAXParser$AttributesProxy::getIndex($String* uri, $String* local
 }
 
 bool AbstractSAXParser$AttributesProxy::isDeclared(int32_t index) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (index < 0 || index >= $nc(this->fAttributes)->getLength()) {
 		$throwNew($ArrayIndexOutOfBoundsException, index);
 	}
-	$init($Boolean);
 	$init($Constants);
-	return $nc($Boolean::TRUE)->equals($($nc($($nc(this->fAttributes)->getAugmentations(index)))->getItem($Constants::ATTRIBUTE_DECLARED)));
+	return $nc($Boolean::TRUE)->equals($($$nc($nc(this->fAttributes)->getAugmentations(index))->getItem($Constants::ATTRIBUTE_DECLARED)));
 }
 
 bool AbstractSAXParser$AttributesProxy::isDeclared($String* qName) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t index = getIndex(qName);
 	if (index == -1) {
 		$throwNew($IllegalArgumentException, qName);
 	}
-	$init($Boolean);
 	$init($Constants);
-	return $nc($Boolean::TRUE)->equals($($nc($($nc(this->fAttributes)->getAugmentations(index)))->getItem($Constants::ATTRIBUTE_DECLARED)));
+	return $nc($Boolean::TRUE)->equals($($$nc($nc(this->fAttributes)->getAugmentations(index))->getItem($Constants::ATTRIBUTE_DECLARED)));
 }
 
 bool AbstractSAXParser$AttributesProxy::isDeclared($String* uri, $String* localName) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t index = getIndex(uri, localName);
 	if (index == -1) {
 		$throwNew($IllegalArgumentException, localName);
 	}
-	$init($Boolean);
 	$init($Constants);
-	return $nc($Boolean::TRUE)->equals($($nc($($nc(this->fAttributes)->getAugmentations(index)))->getItem($Constants::ATTRIBUTE_DECLARED)));
+	return $nc($Boolean::TRUE)->equals($($$nc($nc(this->fAttributes)->getAugmentations(index))->getItem($Constants::ATTRIBUTE_DECLARED)));
 }
 
 bool AbstractSAXParser$AttributesProxy::isSpecified(int32_t index) {
@@ -230,7 +165,61 @@ AbstractSAXParser$AttributesProxy::AbstractSAXParser$AttributesProxy() {
 }
 
 $Class* AbstractSAXParser$AttributesProxy::load$($String* name, bool initialize) {
-	$loadClass(AbstractSAXParser$AttributesProxy, name, initialize, &_AbstractSAXParser$AttributesProxy_ClassInfo_, allocate$AbstractSAXParser$AttributesProxy);
+	$FieldInfo fieldInfos$$[] = {
+		{"fAttributes", "Lcom/sun/org/apache/xerces/internal/xni/XMLAttributes;", nullptr, $PROTECTED, $field(AbstractSAXParser$AttributesProxy, fAttributes)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PROTECTED, $method(AbstractSAXParser$AttributesProxy, init$, void)},
+		{"getIndex", "(Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(AbstractSAXParser$AttributesProxy, getIndex, int32_t, $String*)},
+		{"getIndex", "(Ljava/lang/String;Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(AbstractSAXParser$AttributesProxy, getIndex, int32_t, $String*, $String*)},
+		{"getLength", "()I", nullptr, $PUBLIC, $virtualMethod(AbstractSAXParser$AttributesProxy, getLength, int32_t)},
+		{"getLocalName", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AbstractSAXParser$AttributesProxy, getLocalName, $String*, int32_t)},
+		{"getName", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AbstractSAXParser$AttributesProxy, getName, $String*, int32_t)},
+		{"getQName", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AbstractSAXParser$AttributesProxy, getQName, $String*, int32_t)},
+		{"getType", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AbstractSAXParser$AttributesProxy, getType, $String*, int32_t)},
+		{"getType", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AbstractSAXParser$AttributesProxy, getType, $String*, $String*)},
+		{"getType", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AbstractSAXParser$AttributesProxy, getType, $String*, $String*, $String*)},
+		{"getURI", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AbstractSAXParser$AttributesProxy, getURI, $String*, int32_t)},
+		{"getValue", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AbstractSAXParser$AttributesProxy, getValue, $String*, int32_t)},
+		{"getValue", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AbstractSAXParser$AttributesProxy, getValue, $String*, $String*)},
+		{"getValue", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AbstractSAXParser$AttributesProxy, getValue, $String*, $String*, $String*)},
+		{"isDeclared", "(I)Z", nullptr, $PUBLIC, $virtualMethod(AbstractSAXParser$AttributesProxy, isDeclared, bool, int32_t)},
+		{"isDeclared", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(AbstractSAXParser$AttributesProxy, isDeclared, bool, $String*)},
+		{"isDeclared", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(AbstractSAXParser$AttributesProxy, isDeclared, bool, $String*, $String*)},
+		{"isSpecified", "(I)Z", nullptr, $PUBLIC, $virtualMethod(AbstractSAXParser$AttributesProxy, isSpecified, bool, int32_t)},
+		{"isSpecified", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(AbstractSAXParser$AttributesProxy, isSpecified, bool, $String*)},
+		{"isSpecified", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(AbstractSAXParser$AttributesProxy, isSpecified, bool, $String*, $String*)},
+		{"setAttributes", "(Lcom/sun/org/apache/xerces/internal/xni/XMLAttributes;)V", nullptr, $PUBLIC, $method(AbstractSAXParser$AttributesProxy, setAttributes, void, $XMLAttributes*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xerces.internal.parsers.AbstractSAXParser$AttributesProxy", "com.sun.org.apache.xerces.internal.parsers.AbstractSAXParser", "AttributesProxy", $PROTECTED | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.parsers.AbstractSAXParser$AttributesProxy",
+		"java.lang.Object",
+		"org.xml.sax.AttributeList,org.xml.sax.ext.Attributes2",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xerces.internal.parsers.AbstractSAXParser"
+	};
+	$loadClass(AbstractSAXParser$AttributesProxy, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AbstractSAXParser$AttributesProxy));
+	});
 	return class$;
 }
 

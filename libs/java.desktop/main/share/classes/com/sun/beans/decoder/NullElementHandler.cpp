@@ -1,5 +1,4 @@
 #include <com/sun/beans/decoder/NullElementHandler.h>
-
 #include <com/sun/beans/decoder/ElementHandler.h>
 #include <com/sun/beans/decoder/ValueObject.h>
 #include <jcpp.h>
@@ -13,32 +12,6 @@ namespace com {
 	namespace sun {
 		namespace beans {
 			namespace decoder {
-
-$MethodInfo _NullElementHandler_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, 0, $method(NullElementHandler, init$, void)},
-	{"getValue", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(NullElementHandler, getValue, $Object*)},
-	{"getValueObject", "()Lcom/sun/beans/decoder/ValueObject;", nullptr, $PROTECTED | $FINAL, $virtualMethod(NullElementHandler, getValueObject, $ValueObject*)},
-	{"isVoid", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(NullElementHandler, isVoid, bool)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _NullElementHandler_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.beans.decoder.NullElementHandler",
-	"com.sun.beans.decoder.ElementHandler",
-	"com.sun.beans.decoder.ValueObject",
-	nullptr,
-	_NullElementHandler_MethodInfo_
-};
-
-$Object* allocate$NullElementHandler($Class* clazz) {
-	return $of($alloc(NullElementHandler));
-}
 
 int32_t NullElementHandler::hashCode() {
 	 return this->$ElementHandler::hashCode();
@@ -69,7 +42,7 @@ $ValueObject* NullElementHandler::getValueObject() {
 }
 
 $Object* NullElementHandler::getValue() {
-	return $of(nullptr);
+	return nullptr;
 }
 
 bool NullElementHandler::isVoid() {
@@ -80,7 +53,29 @@ NullElementHandler::NullElementHandler() {
 }
 
 $Class* NullElementHandler::load$($String* name, bool initialize) {
-	$loadClass(NullElementHandler, name, initialize, &_NullElementHandler_ClassInfo_, allocate$NullElementHandler);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, 0, $method(NullElementHandler, init$, void)},
+		{"getValue", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(NullElementHandler, getValue, $Object*)},
+		{"getValueObject", "()Lcom/sun/beans/decoder/ValueObject;", nullptr, $PROTECTED | $FINAL, $virtualMethod(NullElementHandler, getValueObject, $ValueObject*)},
+		{"isVoid", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(NullElementHandler, isVoid, bool)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.beans.decoder.NullElementHandler",
+		"com.sun.beans.decoder.ElementHandler",
+		"com.sun.beans.decoder.ValueObject",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(NullElementHandler, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(NullElementHandler));
+	});
 	return class$;
 }
 

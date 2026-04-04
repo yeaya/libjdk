@@ -1,5 +1,4 @@
 #include <bug6690791.h>
-
 #include <java/awt/AWTEvent.h>
 #include <java/awt/Component.h>
 #include <java/awt/event/MouseEvent.h>
@@ -18,41 +17,37 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $JLabel = ::javax::swing::JLabel;
 using $MenuSelectionManager = ::javax::swing::MenuSelectionManager;
 
-$MethodInfo _bug6690791_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(bug6690791, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(bug6690791, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _bug6690791_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"bug6690791",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_bug6690791_MethodInfo_
-};
-
-$Object* allocate$bug6690791($Class* clazz) {
-	return $of($alloc(bug6690791));
-}
-
 void bug6690791::init$() {
 }
 
 void bug6690791::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
-	$var($Component, var$0, static_cast<$Component*>($new($JLabel)));
+	$useLocalObjectStack();
+	$var($Component, var$0, $new($JLabel));
 	$var($MouseEvent, me, $new($MouseEvent, var$0, $MouseEvent::MOUSE_CLICKED, $System::currentTimeMillis(), $MouseEvent::ALT_MASK, 10, 10, 100, 100, 1, false, $MouseEvent::BUTTON1));
 	me->setSource($$new($Object));
-	$nc($($MenuSelectionManager::defaultManager()))->processMouseEvent(me);
+	$$nc($MenuSelectionManager::defaultManager())->processMouseEvent(me);
 }
 
 bug6690791::bug6690791() {
 }
 
 $Class* bug6690791::load$($String* name, bool initialize) {
-	$loadClass(bug6690791, name, initialize, &_bug6690791_ClassInfo_, allocate$bug6690791);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(bug6690791, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(bug6690791, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"bug6690791",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(bug6690791, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(bug6690791);
+	});
 	return class$;
 }
 

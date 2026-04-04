@@ -1,5 +1,4 @@
 #include <sun/management/MemoryImpl.h>
-
 #include <java/lang/Runtime.h>
 #include <java/lang/management/ManagementFactory.h>
 #include <java/lang/management/MemoryMXBean.h>
@@ -45,62 +44,6 @@ using $VMManagement = ::sun::management::VMManagement;
 namespace sun {
 	namespace management {
 
-$FieldInfo _MemoryImpl_FieldInfo_[] = {
-	{"jvm", "Lsun/management/VMManagement;", nullptr, $PRIVATE | $FINAL, $field(MemoryImpl, jvm)},
-	{"pools", "[Ljava/lang/management/MemoryPoolMXBean;", nullptr, $PRIVATE | $STATIC, $staticField(MemoryImpl, pools)},
-	{"mgrs", "[Ljava/lang/management/MemoryManagerMXBean;", nullptr, $PRIVATE | $STATIC, $staticField(MemoryImpl, mgrs)},
-	{"notifName", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MemoryImpl, notifName)},
-	{"notifTypes", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MemoryImpl, notifTypes)},
-	{"notifMsgs", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MemoryImpl, notifMsgs)},
-	{"seqNumber", "J", nullptr, $PRIVATE | $STATIC, $staticField(MemoryImpl, seqNumber)},
-	{}
-};
-
-$MethodInfo _MemoryImpl_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lsun/management/VMManagement;)V", nullptr, 0, $method(MemoryImpl, init$, void, $VMManagement*)},
-	{"createNotification", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/management/MemoryUsage;J)V", nullptr, $STATIC, $staticMethod(MemoryImpl, createNotification, void, $String*, $String*, $MemoryUsage*, int64_t)},
-	{"gc", "()V", nullptr, $PUBLIC, $virtualMethod(MemoryImpl, gc, void)},
-	{"getHeapMemoryUsage", "()Ljava/lang/management/MemoryUsage;", nullptr, $PUBLIC, $virtualMethod(MemoryImpl, getHeapMemoryUsage, $MemoryUsage*)},
-	{"getMemoryManagers", "()[Ljava/lang/management/MemoryManagerMXBean;", nullptr, $STATIC | $SYNCHRONIZED, $staticMethod(MemoryImpl, getMemoryManagers, $MemoryManagerMXBeanArray*)},
-	{"getMemoryManagers0", "()[Ljava/lang/management/MemoryManagerMXBean;", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(MemoryImpl, getMemoryManagers0, $MemoryManagerMXBeanArray*)},
-	{"getMemoryPools", "()[Ljava/lang/management/MemoryPoolMXBean;", nullptr, $STATIC | $SYNCHRONIZED, $staticMethod(MemoryImpl, getMemoryPools, $MemoryPoolMXBeanArray*)},
-	{"getMemoryPools0", "()[Ljava/lang/management/MemoryPoolMXBean;", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(MemoryImpl, getMemoryPools0, $MemoryPoolMXBeanArray*)},
-	{"getMemoryUsage0", "(Z)Ljava/lang/management/MemoryUsage;", nullptr, $PRIVATE | $NATIVE, $method(MemoryImpl, getMemoryUsage0, $MemoryUsage*, bool)},
-	{"getNextSeqNumber", "()J", nullptr, $PRIVATE | $STATIC, $staticMethod(MemoryImpl, getNextSeqNumber, int64_t)},
-	{"getNonHeapMemoryUsage", "()Ljava/lang/management/MemoryUsage;", nullptr, $PUBLIC, $virtualMethod(MemoryImpl, getNonHeapMemoryUsage, $MemoryUsage*)},
-	{"getNotifMsg", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(MemoryImpl, getNotifMsg, $String*, $String*)},
-	{"getNotificationInfo", "()[Ljavax/management/MBeanNotificationInfo;", nullptr, $PUBLIC, $virtualMethod(MemoryImpl, getNotificationInfo, $MBeanNotificationInfoArray*)},
-	{"getObjectName", "()Ljavax/management/ObjectName;", nullptr, $PUBLIC, $virtualMethod(MemoryImpl, getObjectName, $ObjectName*)},
-	{"getObjectPendingFinalizationCount", "()I", nullptr, $PUBLIC, $virtualMethod(MemoryImpl, getObjectPendingFinalizationCount, int32_t)},
-	{"isVerbose", "()Z", nullptr, $PUBLIC, $virtualMethod(MemoryImpl, isVerbose, bool)},
-	{"setVerbose", "(Z)V", nullptr, $PUBLIC, $virtualMethod(MemoryImpl, setVerbose, void, bool)},
-	{"setVerboseGC", "(Z)V", nullptr, $PRIVATE | $NATIVE, $method(MemoryImpl, setVerboseGC, void, bool)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-#define _METHOD_INDEX_getMemoryManagers0 9
-#define _METHOD_INDEX_getMemoryPools0 11
-#define _METHOD_INDEX_getMemoryUsage0 12
-#define _METHOD_INDEX_setVerboseGC 21
-
-$ClassInfo _MemoryImpl_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.management.MemoryImpl",
-	"sun.management.NotificationEmitterSupport",
-	"java.lang.management.MemoryMXBean",
-	_MemoryImpl_FieldInfo_,
-	_MemoryImpl_MethodInfo_
-};
-
-$Object* allocate$MemoryImpl($Class* clazz) {
-	return $of($alloc(MemoryImpl));
-}
-
 int32_t MemoryImpl::hashCode() {
 	 return this->$NotificationEmitterSupport::hashCode();
 }
@@ -138,7 +81,7 @@ int32_t MemoryImpl::getObjectPendingFinalizationCount() {
 }
 
 void MemoryImpl::gc() {
-	$nc($($Runtime::getRuntime()))->gc();
+	$$nc($Runtime::getRuntime())->gc();
 }
 
 $MemoryUsage* MemoryImpl::getHeapMemoryUsage() {
@@ -159,9 +102,8 @@ void MemoryImpl::setVerbose(bool value) {
 }
 
 $MemoryPoolMXBeanArray* MemoryImpl::getMemoryPools() {
-	$load(MemoryImpl);
+	$init(MemoryImpl);
 	$synchronized(class$) {
-		$init(MemoryImpl);
 		if (MemoryImpl::pools == nullptr) {
 			$assignStatic(MemoryImpl::pools, getMemoryPools0());
 		}
@@ -170,9 +112,8 @@ $MemoryPoolMXBeanArray* MemoryImpl::getMemoryPools() {
 }
 
 $MemoryManagerMXBeanArray* MemoryImpl::getMemoryManagers() {
-	$load(MemoryImpl);
+	$init(MemoryImpl);
 	$synchronized(class$) {
-		$init(MemoryImpl);
 		if (MemoryImpl::mgrs == nullptr) {
 			$assignStatic(MemoryImpl::mgrs, getMemoryManagers0());
 		}
@@ -182,32 +123,29 @@ $MemoryManagerMXBeanArray* MemoryImpl::getMemoryManagers() {
 
 $MemoryPoolMXBeanArray* MemoryImpl::getMemoryPools0() {
 	$init(MemoryImpl);
-	$var($MemoryPoolMXBeanArray, $ret, nullptr);
-	$prepareNativeStatic(MemoryImpl, getMemoryPools0, $MemoryPoolMXBeanArray*);
-	$assign($ret, $invokeNativeStaticObject());
+	$prepareNativeStatic(getMemoryPools0, $MemoryPoolMXBeanArray*);
+	$var($MemoryPoolMXBeanArray, $ret, $invokeNativeStaticObject());
 	$finishNativeStatic();
 	return $ret;
 }
 
 $MemoryManagerMXBeanArray* MemoryImpl::getMemoryManagers0() {
 	$init(MemoryImpl);
-	$var($MemoryManagerMXBeanArray, $ret, nullptr);
-	$prepareNativeStatic(MemoryImpl, getMemoryManagers0, $MemoryManagerMXBeanArray*);
-	$assign($ret, $invokeNativeStaticObject());
+	$prepareNativeStatic(getMemoryManagers0, $MemoryManagerMXBeanArray*);
+	$var($MemoryManagerMXBeanArray, $ret, $invokeNativeStaticObject());
 	$finishNativeStatic();
 	return $ret;
 }
 
 $MemoryUsage* MemoryImpl::getMemoryUsage0(bool heap) {
-	$var($MemoryUsage, $ret, nullptr);
-	$prepareNative(MemoryImpl, getMemoryUsage0, $MemoryUsage*, bool heap);
-	$assign($ret, $invokeNativeObject(heap));
+	$prepareNative(getMemoryUsage0, $MemoryUsage*, bool heap);
+	$var($MemoryUsage, $ret, $invokeNativeObject(heap));
 	$finishNative();
 	return $ret;
 }
 
 void MemoryImpl::setVerboseGC(bool value) {
-	$prepareNative(MemoryImpl, setVerboseGC, void, bool value);
+	$prepareNative(setVerboseGC, void, bool value);
 	$invokeNative(value);
 	$finishNative();
 }
@@ -218,9 +156,9 @@ $MBeanNotificationInfoArray* MemoryImpl::getNotificationInfo() {
 
 $String* MemoryImpl::getNotifMsg($String* notifType) {
 	$init(MemoryImpl);
-	for (int32_t i = 0; i < $nc(MemoryImpl::notifTypes)->length; ++i) {
-		if (notifType == $nc(MemoryImpl::notifTypes)->get(i)) {
-			return $nc(MemoryImpl::notifMsgs)->get(i);
+	for (int32_t i = 0; i < MemoryImpl::notifTypes->length; ++i) {
+		if (notifType == MemoryImpl::notifTypes->get(i)) {
+			return MemoryImpl::notifMsgs->get(i);
 		}
 	}
 	return "Unknown message"_s;
@@ -233,20 +171,19 @@ int64_t MemoryImpl::getNextSeqNumber() {
 
 void MemoryImpl::createNotification($String* notifType, $String* poolName, $MemoryUsage* usage, int64_t count) {
 	$init(MemoryImpl);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(MemoryImpl, mbean, $cast(MemoryImpl, $ManagementFactory::getMemoryMXBean()));
 	if (!$nc(mbean)->hasListeners()) {
 		return;
 	}
 	int64_t timestamp = $System::currentTimeMillis();
 	$var($String, msg, getNotifMsg(notifType));
-	$var($String, var$0, notifType);
-	$var($Object, var$1, $of($nc(mbean)->getObjectName()));
-	$var($Notification, notif, $new($Notification, var$0, var$1, getNextSeqNumber(), timestamp, msg));
+	$var($Object, var$0, mbean->getObjectName());
+	$var($Notification, notif, $new($Notification, notifType, var$0, getNextSeqNumber(), timestamp, msg));
 	$var($MemoryNotificationInfo, info, $new($MemoryNotificationInfo, poolName, usage, count));
 	$var($CompositeData, cd, $MemoryNotifInfoCompositeData::toCompositeData(info));
 	notif->setUserData(cd);
-	$nc(mbean)->sendNotification(notif);
+	mbean->sendNotification(notif);
 }
 
 $ObjectName* MemoryImpl::getObjectName() {
@@ -254,7 +191,7 @@ $ObjectName* MemoryImpl::getObjectName() {
 	return $Util::newObjectName($ManagementFactory::MEMORY_MXBEAN_NAME);
 }
 
-void clinit$MemoryImpl($Class* class$) {
+void MemoryImpl::clinit$($Class* clazz) {
 	$assignStatic(MemoryImpl::notifName, "javax.management.Notification"_s);
 	$assignStatic(MemoryImpl::pools, nullptr);
 	$assignStatic(MemoryImpl::mgrs, nullptr);
@@ -274,7 +211,53 @@ MemoryImpl::MemoryImpl() {
 }
 
 $Class* MemoryImpl::load$($String* name, bool initialize) {
-	$loadClass(MemoryImpl, name, initialize, &_MemoryImpl_ClassInfo_, clinit$MemoryImpl, allocate$MemoryImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"jvm", "Lsun/management/VMManagement;", nullptr, $PRIVATE | $FINAL, $field(MemoryImpl, jvm)},
+		{"pools", "[Ljava/lang/management/MemoryPoolMXBean;", nullptr, $PRIVATE | $STATIC, $staticField(MemoryImpl, pools)},
+		{"mgrs", "[Ljava/lang/management/MemoryManagerMXBean;", nullptr, $PRIVATE | $STATIC, $staticField(MemoryImpl, mgrs)},
+		{"notifName", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MemoryImpl, notifName)},
+		{"notifTypes", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MemoryImpl, notifTypes)},
+		{"notifMsgs", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MemoryImpl, notifMsgs)},
+		{"seqNumber", "J", nullptr, $PRIVATE | $STATIC, $staticField(MemoryImpl, seqNumber)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lsun/management/VMManagement;)V", nullptr, 0, $method(MemoryImpl, init$, void, $VMManagement*)},
+		{"createNotification", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/management/MemoryUsage;J)V", nullptr, $STATIC, $staticMethod(MemoryImpl, createNotification, void, $String*, $String*, $MemoryUsage*, int64_t)},
+		{"gc", "()V", nullptr, $PUBLIC, $virtualMethod(MemoryImpl, gc, void)},
+		{"getHeapMemoryUsage", "()Ljava/lang/management/MemoryUsage;", nullptr, $PUBLIC, $virtualMethod(MemoryImpl, getHeapMemoryUsage, $MemoryUsage*)},
+		{"getMemoryManagers", "()[Ljava/lang/management/MemoryManagerMXBean;", nullptr, $STATIC | $SYNCHRONIZED, $staticMethod(MemoryImpl, getMemoryManagers, $MemoryManagerMXBeanArray*)},
+		{"getMemoryManagers0", "()[Ljava/lang/management/MemoryManagerMXBean;", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(MemoryImpl, getMemoryManagers0, $MemoryManagerMXBeanArray*)},
+		{"getMemoryPools", "()[Ljava/lang/management/MemoryPoolMXBean;", nullptr, $STATIC | $SYNCHRONIZED, $staticMethod(MemoryImpl, getMemoryPools, $MemoryPoolMXBeanArray*)},
+		{"getMemoryPools0", "()[Ljava/lang/management/MemoryPoolMXBean;", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(MemoryImpl, getMemoryPools0, $MemoryPoolMXBeanArray*)},
+		{"getMemoryUsage0", "(Z)Ljava/lang/management/MemoryUsage;", nullptr, $PRIVATE | $NATIVE, $method(MemoryImpl, getMemoryUsage0, $MemoryUsage*, bool)},
+		{"getNextSeqNumber", "()J", nullptr, $PRIVATE | $STATIC, $staticMethod(MemoryImpl, getNextSeqNumber, int64_t)},
+		{"getNonHeapMemoryUsage", "()Ljava/lang/management/MemoryUsage;", nullptr, $PUBLIC, $virtualMethod(MemoryImpl, getNonHeapMemoryUsage, $MemoryUsage*)},
+		{"getNotifMsg", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(MemoryImpl, getNotifMsg, $String*, $String*)},
+		{"getNotificationInfo", "()[Ljavax/management/MBeanNotificationInfo;", nullptr, $PUBLIC, $virtualMethod(MemoryImpl, getNotificationInfo, $MBeanNotificationInfoArray*)},
+		{"getObjectName", "()Ljavax/management/ObjectName;", nullptr, $PUBLIC, $virtualMethod(MemoryImpl, getObjectName, $ObjectName*)},
+		{"getObjectPendingFinalizationCount", "()I", nullptr, $PUBLIC, $virtualMethod(MemoryImpl, getObjectPendingFinalizationCount, int32_t)},
+		{"isVerbose", "()Z", nullptr, $PUBLIC, $virtualMethod(MemoryImpl, isVerbose, bool)},
+		{"setVerbose", "(Z)V", nullptr, $PUBLIC, $virtualMethod(MemoryImpl, setVerbose, void, bool)},
+		{"setVerboseGC", "(Z)V", nullptr, $PRIVATE | $NATIVE, $method(MemoryImpl, setVerboseGC, void, bool)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.management.MemoryImpl",
+		"sun.management.NotificationEmitterSupport",
+		"java.lang.management.MemoryMXBean",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(MemoryImpl, name, initialize, &classInfo$$, MemoryImpl::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MemoryImpl));
+	});
 	return class$;
 }
 

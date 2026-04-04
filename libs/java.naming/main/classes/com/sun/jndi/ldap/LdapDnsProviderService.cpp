@@ -1,5 +1,4 @@
 #include <com/sun/jndi/ldap/LdapDnsProviderService.h>
-
 #include <com/sun/jndi/ldap/DefaultLdapDnsProvider.h>
 #include <java/io/Serializable.h>
 #include <java/lang/ClassLoader.h>
@@ -17,7 +16,6 @@
 #include <java/util/Hashtable.h>
 #include <java/util/Iterator.h>
 #include <java/util/List.h>
-#include <java/util/Map.h>
 #include <java/util/Optional.h>
 #include <java/util/ServiceLoader.h>
 #include <java/util/function/Predicate.h>
@@ -41,13 +39,10 @@ using $SecurityManager = ::java::lang::SecurityManager;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $AccessControlContext = ::java::security::AccessControlContext;
 using $AccessController = ::java::security::AccessController;
-using $Permission = ::java::security::Permission;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $Hashtable = ::java::util::Hashtable;
 using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
-using $Map = ::java::util::Map;
-using $Optional = ::java::util::Optional;
 using $ServiceLoader = ::java::util::ServiceLoader;
 using $Predicate = ::java::util::function::Predicate;
 using $LdapDnsProvider = ::javax::naming::ldap::spi::LdapDnsProvider;
@@ -65,29 +60,26 @@ public:
 	void init$() {
 	}
 	virtual $Object* run() override {
-		 return $of(LdapDnsProviderService::lambda$new$0());
+		 return LdapDnsProviderService::lambda$new$0();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<LdapDnsProviderService$$Lambda$lambda$new$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo LdapDnsProviderService$$Lambda$lambda$new$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(LdapDnsProviderService$$Lambda$lambda$new$0, init$, void)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LdapDnsProviderService$$Lambda$lambda$new$0, run, $Object*)},
-	{}
-};
-$ClassInfo LdapDnsProviderService$$Lambda$lambda$new$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.jndi.ldap.LdapDnsProviderService$$Lambda$lambda$new$0",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	nullptr,
-	methodInfos
 };
 $Class* LdapDnsProviderService$$Lambda$lambda$new$0::load$($String* name, bool initialize) {
-	$loadClass(LdapDnsProviderService$$Lambda$lambda$new$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(LdapDnsProviderService$$Lambda$lambda$new$0, init$, void)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LdapDnsProviderService$$Lambda$lambda$new$0, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.jndi.ldap.LdapDnsProviderService$$Lambda$lambda$new$0",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(LdapDnsProviderService$$Lambda$lambda$new$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LdapDnsProviderService$$Lambda$lambda$new$0);
+	});
 	return class$;
 }
 $Class* LdapDnsProviderService$$Lambda$lambda$new$0::class$ = nullptr;
@@ -100,76 +92,44 @@ public:
 	virtual bool test(Object$* r) override {
 		 return LdapDnsProviderService::lambda$lookupEndpoints$1($cast($LdapDnsProviderResult, r));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<LdapDnsProviderService$$Lambda$lambda$lookupEndpoints$1$1>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo LdapDnsProviderService$$Lambda$lambda$lookupEndpoints$1$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(LdapDnsProviderService$$Lambda$lambda$lookupEndpoints$1$1, init$, void)},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(LdapDnsProviderService$$Lambda$lambda$lookupEndpoints$1$1, test, bool, Object$*)},
-	{}
-};
-$ClassInfo LdapDnsProviderService$$Lambda$lambda$lookupEndpoints$1$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.jndi.ldap.LdapDnsProviderService$$Lambda$lambda$lookupEndpoints$1$1",
-	"java.lang.Object",
-	"java.util.function.Predicate",
-	nullptr,
-	methodInfos
 };
 $Class* LdapDnsProviderService$$Lambda$lambda$lookupEndpoints$1$1::load$($String* name, bool initialize) {
-	$loadClass(LdapDnsProviderService$$Lambda$lambda$lookupEndpoints$1$1, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(LdapDnsProviderService$$Lambda$lambda$lookupEndpoints$1$1, init$, void)},
+		{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(LdapDnsProviderService$$Lambda$lambda$lookupEndpoints$1$1, test, bool, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.jndi.ldap.LdapDnsProviderService$$Lambda$lambda$lookupEndpoints$1$1",
+		"java.lang.Object",
+		"java.util.function.Predicate",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(LdapDnsProviderService$$Lambda$lambda$lookupEndpoints$1$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LdapDnsProviderService$$Lambda$lambda$lookupEndpoints$1$1);
+	});
 	return class$;
 }
 $Class* LdapDnsProviderService$$Lambda$lambda$lookupEndpoints$1$1::class$ = nullptr;
-
-$FieldInfo _LdapDnsProviderService_FieldInfo_[] = {
-	{"service", "Lcom/sun/jndi/ldap/LdapDnsProviderService;", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(LdapDnsProviderService, service)},
-	{"LOCK", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LdapDnsProviderService, LOCK)},
-	{"providers", "Ljava/util/ServiceLoader;", "Ljava/util/ServiceLoader<Ljavax/naming/ldap/spi/LdapDnsProvider;>;", $PRIVATE | $FINAL, $field(LdapDnsProviderService, providers)},
-	{}
-};
-
-$MethodInfo _LdapDnsProviderService_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(LdapDnsProviderService, init$, void)},
-	{"getInstance", "()Lcom/sun/jndi/ldap/LdapDnsProviderService;", nullptr, $STATIC, $staticMethod(LdapDnsProviderService, getInstance, LdapDnsProviderService*)},
-	{"lambda$lookupEndpoints$1", "(Ljavax/naming/ldap/spi/LdapDnsProviderResult;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(LdapDnsProviderService, lambda$lookupEndpoints$1, bool, $LdapDnsProviderResult*)},
-	{"lambda$new$0", "()Ljava/util/ServiceLoader;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(LdapDnsProviderService, lambda$new$0, $ServiceLoader*)},
-	{"lookupEndpoints", "(Ljava/lang/String;Ljava/util/Hashtable;)Ljavax/naming/ldap/spi/LdapDnsProviderResult;", "(Ljava/lang/String;Ljava/util/Hashtable<**>;)Ljavax/naming/ldap/spi/LdapDnsProviderResult;", 0, $method(LdapDnsProviderService, lookupEndpoints, $LdapDnsProviderResult*, $String*, $Hashtable*), "javax.naming.NamingException"},
-	{}
-};
-
-$ClassInfo _LdapDnsProviderService_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.jndi.ldap.LdapDnsProviderService",
-	"java.lang.Object",
-	nullptr,
-	_LdapDnsProviderService_FieldInfo_,
-	_LdapDnsProviderService_MethodInfo_
-};
-
-$Object* allocate$LdapDnsProviderService($Class* clazz) {
-	return $of($alloc(LdapDnsProviderService));
-}
 
 $volatile(LdapDnsProviderService*) LdapDnsProviderService::service = nullptr;
 $Object* LdapDnsProviderService::LOCK = nullptr;
 
 void LdapDnsProviderService::init$() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	if (sm == nullptr) {
 		$load($LdapDnsProvider);
 		$set(this, providers, $ServiceLoader::load($LdapDnsProvider::class$, $($ClassLoader::getSystemClassLoader())));
 	} else {
-		$var($PrivilegedAction, pa, static_cast<$PrivilegedAction*>($new(LdapDnsProviderService$$Lambda$lambda$new$0)));
+		$var($PrivilegedAction, pa, $new(LdapDnsProviderService$$Lambda$lambda$new$0));
 		$init($SecurityConstants);
-		$set(this, providers, $cast($ServiceLoader, $AccessController::doPrivileged(pa, ($AccessControlContext*)nullptr, $$new($PermissionArray, {
-			static_cast<$Permission*>($$new($RuntimePermission, "ldapDnsProvider"_s)),
-			static_cast<$Permission*>($SecurityConstants::GET_CLASSLOADER_PERMISSION)
+		$set(this, providers, $cast($ServiceLoader, $AccessController::doPrivileged(pa, nullptr, $$new($PermissionArray, {
+			$$new($RuntimePermission, "ldapDnsProvider"_s),
+			$SecurityConstants::GET_CLASSLOADER_PERMISSION
 		}))));
 	}
 }
@@ -189,24 +149,24 @@ LdapDnsProviderService* LdapDnsProviderService::getInstance() {
 }
 
 $LdapDnsProviderResult* LdapDnsProviderService::lookupEndpoints($String* url, $Hashtable* env) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($LdapDnsProviderResult, result, nullptr);
-	$var($Hashtable, envCopy, $new($Hashtable, static_cast<$Map*>(env)));
+	$var($Hashtable, envCopy, $new($Hashtable, env));
 	$synchronized(LdapDnsProviderService::LOCK) {
 		$var($Iterator, iterator, $nc(this->providers)->iterator());
 		while (result == nullptr && $nc(iterator)->hasNext()) {
-			$assign(result, $cast($LdapDnsProviderResult, $nc($($nc($($nc(($cast($LdapDnsProvider, $(iterator->next()))))->lookupEndpoints(url, envCopy)))->filter(static_cast<$Predicate*>($$new(LdapDnsProviderService$$Lambda$lambda$lookupEndpoints$1$1)))))->orElse(nullptr)));
+			$assign(result, $cast($LdapDnsProviderResult, $$nc($$nc($$sure($LdapDnsProvider, iterator->next())->lookupEndpoints(url, envCopy))->filter($$new(LdapDnsProviderService$$Lambda$lambda$lookupEndpoints$1$1)))->orElse(nullptr)));
 		}
 	}
 	if (result == nullptr) {
-		return $cast($LdapDnsProviderResult, $nc($($$new($DefaultLdapDnsProvider)->lookupEndpoints(url, env)))->orElse($$new($LdapDnsProviderResult, ""_s, $($List::of()))));
+		return $cast($LdapDnsProviderResult, $$nc($$new($DefaultLdapDnsProvider)->lookupEndpoints(url, env))->orElse($$new($LdapDnsProviderResult, ""_s, $($List::of()))));
 	}
 	return result;
 }
 
 bool LdapDnsProviderService::lambda$lookupEndpoints$1($LdapDnsProviderResult* r) {
 	$init(LdapDnsProviderService);
-	return !$nc($($nc(r)->getEndpoints()))->isEmpty();
+	return !$$nc($nc(r)->getEndpoints())->isEmpty();
 }
 
 $ServiceLoader* LdapDnsProviderService::lambda$new$0() {
@@ -216,7 +176,7 @@ $ServiceLoader* LdapDnsProviderService::lambda$new$0() {
 	return $ServiceLoader::load($LdapDnsProvider::class$, $($ClassLoader::getSystemClassLoader()));
 }
 
-void clinit$LdapDnsProviderService($Class* class$) {
+void LdapDnsProviderService::clinit$($Class* clazz) {
 	$assignStatic(LdapDnsProviderService::LOCK, $new($ints, 0));
 }
 
@@ -225,14 +185,38 @@ LdapDnsProviderService::LdapDnsProviderService() {
 
 $Class* LdapDnsProviderService::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(LdapDnsProviderService$$Lambda$lambda$new$0::classInfo$.name)) {
+		if (name->equals("com.sun.jndi.ldap.LdapDnsProviderService$$Lambda$lambda$new$0")) {
 			return LdapDnsProviderService$$Lambda$lambda$new$0::load$(name, initialize);
 		}
-		if (name->equals(LdapDnsProviderService$$Lambda$lambda$lookupEndpoints$1$1::classInfo$.name)) {
+		if (name->equals("com.sun.jndi.ldap.LdapDnsProviderService$$Lambda$lambda$lookupEndpoints$1$1")) {
 			return LdapDnsProviderService$$Lambda$lambda$lookupEndpoints$1$1::load$(name, initialize);
 		}
 	}
-	$loadClass(LdapDnsProviderService, name, initialize, &_LdapDnsProviderService_ClassInfo_, clinit$LdapDnsProviderService, allocate$LdapDnsProviderService);
+	$FieldInfo fieldInfos$$[] = {
+		{"service", "Lcom/sun/jndi/ldap/LdapDnsProviderService;", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(LdapDnsProviderService, service)},
+		{"LOCK", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LdapDnsProviderService, LOCK)},
+		{"providers", "Ljava/util/ServiceLoader;", "Ljava/util/ServiceLoader<Ljavax/naming/ldap/spi/LdapDnsProvider;>;", $PRIVATE | $FINAL, $field(LdapDnsProviderService, providers)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(LdapDnsProviderService, init$, void)},
+		{"getInstance", "()Lcom/sun/jndi/ldap/LdapDnsProviderService;", nullptr, $STATIC, $staticMethod(LdapDnsProviderService, getInstance, LdapDnsProviderService*)},
+		{"lambda$lookupEndpoints$1", "(Ljavax/naming/ldap/spi/LdapDnsProviderResult;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(LdapDnsProviderService, lambda$lookupEndpoints$1, bool, $LdapDnsProviderResult*)},
+		{"lambda$new$0", "()Ljava/util/ServiceLoader;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(LdapDnsProviderService, lambda$new$0, $ServiceLoader*)},
+		{"lookupEndpoints", "(Ljava/lang/String;Ljava/util/Hashtable;)Ljavax/naming/ldap/spi/LdapDnsProviderResult;", "(Ljava/lang/String;Ljava/util/Hashtable<**>;)Ljavax/naming/ldap/spi/LdapDnsProviderResult;", 0, $method(LdapDnsProviderService, lookupEndpoints, $LdapDnsProviderResult*, $String*, $Hashtable*), "javax.naming.NamingException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.jndi.ldap.LdapDnsProviderService",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(LdapDnsProviderService, name, initialize, &classInfo$$, LdapDnsProviderService::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(LdapDnsProviderService);
+	});
 	return class$;
 }
 

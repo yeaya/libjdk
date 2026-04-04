@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/dtm/DTMAxisTraverser.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -12,28 +11,6 @@ namespace com {
 				namespace xml {
 					namespace internal {
 						namespace dtm {
-
-$MethodInfo _DTMAxisTraverser_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(DTMAxisTraverser, init$, void)},
-	{"first", "(I)I", nullptr, $PUBLIC, $virtualMethod(DTMAxisTraverser, first, int32_t, int32_t)},
-	{"first", "(II)I", nullptr, $PUBLIC, $virtualMethod(DTMAxisTraverser, first, int32_t, int32_t, int32_t)},
-	{"next", "(II)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DTMAxisTraverser, next, int32_t, int32_t, int32_t)},
-	{"next", "(III)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DTMAxisTraverser, next, int32_t, int32_t, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _DTMAxisTraverser_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"com.sun.org.apache.xml.internal.dtm.DTMAxisTraverser",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_DTMAxisTraverser_MethodInfo_
-};
-
-$Object* allocate$DTMAxisTraverser($Class* clazz) {
-	return $of($alloc(DTMAxisTraverser));
-}
 
 void DTMAxisTraverser::init$() {
 }
@@ -50,7 +27,25 @@ DTMAxisTraverser::DTMAxisTraverser() {
 }
 
 $Class* DTMAxisTraverser::load$($String* name, bool initialize) {
-	$loadClass(DTMAxisTraverser, name, initialize, &_DTMAxisTraverser_ClassInfo_, allocate$DTMAxisTraverser);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(DTMAxisTraverser, init$, void)},
+		{"first", "(I)I", nullptr, $PUBLIC, $virtualMethod(DTMAxisTraverser, first, int32_t, int32_t)},
+		{"first", "(II)I", nullptr, $PUBLIC, $virtualMethod(DTMAxisTraverser, first, int32_t, int32_t, int32_t)},
+		{"next", "(II)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DTMAxisTraverser, next, int32_t, int32_t, int32_t)},
+		{"next", "(III)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DTMAxisTraverser, next, int32_t, int32_t, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"com.sun.org.apache.xml.internal.dtm.DTMAxisTraverser",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(DTMAxisTraverser, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DTMAxisTraverser);
+	});
 	return class$;
 }
 

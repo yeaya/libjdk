@@ -31,6 +31,7 @@ class GTKLookAndFeel$GnomeLayoutStyle : public ::sun::swing::DefaultLayoutStyle 
 	$class(GTKLookAndFeel$GnomeLayoutStyle, 0, ::sun::swing::DefaultLayoutStyle)
 public:
 	GTKLookAndFeel$GnomeLayoutStyle();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual int32_t getContainerGap(::javax::swing::JComponent* component, int32_t position, ::java::awt::Container* parent) override;
 	virtual int32_t getPreferredGap(::javax::swing::JComponent* component1, ::javax::swing::JComponent* component2, ::javax::swing::LayoutStyle$ComponentPlacement* type, int32_t position, ::java::awt::Container* parent) override;

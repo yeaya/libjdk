@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/xinclude/XIncludeHandler$UnparsedEntity.h>
-
 #include <com/sun/org/apache/xerces/internal/xinclude/XIncludeHandler.h>
 #include <com/sun/org/apache/xerces/internal/xni/Augmentations.h>
 #include <java/util/Objects.h>
@@ -19,55 +18,11 @@ namespace com {
 					namespace internal {
 						namespace xinclude {
 
-$FieldInfo _XIncludeHandler$UnparsedEntity_FieldInfo_[] = {
-	{"name", "Ljava/lang/String;", nullptr, $PUBLIC, $field(XIncludeHandler$UnparsedEntity, name)},
-	{"systemId", "Ljava/lang/String;", nullptr, $PUBLIC, $field(XIncludeHandler$UnparsedEntity, systemId)},
-	{"baseURI", "Ljava/lang/String;", nullptr, $PUBLIC, $field(XIncludeHandler$UnparsedEntity, baseURI)},
-	{"publicId", "Ljava/lang/String;", nullptr, $PUBLIC, $field(XIncludeHandler$UnparsedEntity, publicId)},
-	{"expandedSystemId", "Ljava/lang/String;", nullptr, $PUBLIC, $field(XIncludeHandler$UnparsedEntity, expandedSystemId)},
-	{"notation", "Ljava/lang/String;", nullptr, $PUBLIC, $field(XIncludeHandler$UnparsedEntity, notation)},
-	{"augmentations", "Lcom/sun/org/apache/xerces/internal/xni/Augmentations;", nullptr, $PUBLIC, $field(XIncludeHandler$UnparsedEntity, augmentations)},
-	{}
-};
-
-$MethodInfo _XIncludeHandler$UnparsedEntity_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(XIncludeHandler$UnparsedEntity, init$, void)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(XIncludeHandler$UnparsedEntity, equals, bool, Object$*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(XIncludeHandler$UnparsedEntity, hashCode, int32_t)},
-	{"isDuplicate", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(XIncludeHandler$UnparsedEntity, isDuplicate, bool, Object$*)},
-	{}
-};
-
-$InnerClassInfo _XIncludeHandler$UnparsedEntity_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xerces.internal.xinclude.XIncludeHandler$UnparsedEntity", "com.sun.org.apache.xerces.internal.xinclude.XIncludeHandler", "UnparsedEntity", $PROTECTED | $STATIC},
-	{}
-};
-
-$ClassInfo _XIncludeHandler$UnparsedEntity_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.xinclude.XIncludeHandler$UnparsedEntity",
-	"java.lang.Object",
-	nullptr,
-	_XIncludeHandler$UnparsedEntity_FieldInfo_,
-	_XIncludeHandler$UnparsedEntity_MethodInfo_,
-	nullptr,
-	nullptr,
-	_XIncludeHandler$UnparsedEntity_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xerces.internal.xinclude.XIncludeHandler"
-};
-
-$Object* allocate$XIncludeHandler$UnparsedEntity($Class* clazz) {
-	return $of($alloc(XIncludeHandler$UnparsedEntity));
-}
-
 void XIncludeHandler$UnparsedEntity::init$() {
 }
 
 bool XIncludeHandler$UnparsedEntity::equals(Object$* obj) {
-	return $equals(obj, this) || $instanceOf(XIncludeHandler$UnparsedEntity, obj) && $Objects::equals(this->name, $nc(($cast(XIncludeHandler$UnparsedEntity, obj)))->name);
+	return $equals(obj, this) || $instanceOf(XIncludeHandler$UnparsedEntity, obj) && $Objects::equals(this->name, $cast(XIncludeHandler$UnparsedEntity, obj)->name);
 }
 
 int32_t XIncludeHandler$UnparsedEntity::hashCode() {
@@ -89,7 +44,45 @@ XIncludeHandler$UnparsedEntity::XIncludeHandler$UnparsedEntity() {
 }
 
 $Class* XIncludeHandler$UnparsedEntity::load$($String* name, bool initialize) {
-	$loadClass(XIncludeHandler$UnparsedEntity, name, initialize, &_XIncludeHandler$UnparsedEntity_ClassInfo_, allocate$XIncludeHandler$UnparsedEntity);
+	$FieldInfo fieldInfos$$[] = {
+		{"name", "Ljava/lang/String;", nullptr, $PUBLIC, $field(XIncludeHandler$UnparsedEntity, name)},
+		{"systemId", "Ljava/lang/String;", nullptr, $PUBLIC, $field(XIncludeHandler$UnparsedEntity, systemId)},
+		{"baseURI", "Ljava/lang/String;", nullptr, $PUBLIC, $field(XIncludeHandler$UnparsedEntity, baseURI)},
+		{"publicId", "Ljava/lang/String;", nullptr, $PUBLIC, $field(XIncludeHandler$UnparsedEntity, publicId)},
+		{"expandedSystemId", "Ljava/lang/String;", nullptr, $PUBLIC, $field(XIncludeHandler$UnparsedEntity, expandedSystemId)},
+		{"notation", "Ljava/lang/String;", nullptr, $PUBLIC, $field(XIncludeHandler$UnparsedEntity, notation)},
+		{"augmentations", "Lcom/sun/org/apache/xerces/internal/xni/Augmentations;", nullptr, $PUBLIC, $field(XIncludeHandler$UnparsedEntity, augmentations)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PROTECTED, $method(XIncludeHandler$UnparsedEntity, init$, void)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(XIncludeHandler$UnparsedEntity, equals, bool, Object$*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(XIncludeHandler$UnparsedEntity, hashCode, int32_t)},
+		{"isDuplicate", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(XIncludeHandler$UnparsedEntity, isDuplicate, bool, Object$*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xerces.internal.xinclude.XIncludeHandler$UnparsedEntity", "com.sun.org.apache.xerces.internal.xinclude.XIncludeHandler", "UnparsedEntity", $PROTECTED | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.xinclude.XIncludeHandler$UnparsedEntity",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xerces.internal.xinclude.XIncludeHandler"
+	};
+	$loadClass(XIncludeHandler$UnparsedEntity, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XIncludeHandler$UnparsedEntity);
+	});
 	return class$;
 }
 

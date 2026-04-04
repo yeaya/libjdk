@@ -1,5 +1,4 @@
 #include <sun/security/krb5/internal/crypto/Nonce.h>
-
 #include <sun/security/krb5/Confounder.h>
 #include <jcpp.h>
 
@@ -13,32 +12,13 @@ namespace sun {
 			namespace internal {
 				namespace crypto {
 
-$MethodInfo _Nonce_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Nonce, init$, void)},
-	{"value", "()I", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(Nonce, value, int32_t)},
-	{}
-};
-
-$ClassInfo _Nonce_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.krb5.internal.crypto.Nonce",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_Nonce_MethodInfo_
-};
-
-$Object* allocate$Nonce($Class* clazz) {
-	return $of($alloc(Nonce));
-}
-
 void Nonce::init$() {
 }
 
 int32_t Nonce::value() {
 	$load(Nonce);
 	$synchronized(class$) {
-		return (int32_t)($Confounder::intValue() & (uint32_t)0x7FFFFFFF);
+		return $Confounder::intValue() & 0x7fffffff;
 	}
 }
 
@@ -46,7 +26,22 @@ Nonce::Nonce() {
 }
 
 $Class* Nonce::load$($String* name, bool initialize) {
-	$loadClass(Nonce, name, initialize, &_Nonce_ClassInfo_, allocate$Nonce);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Nonce, init$, void)},
+		{"value", "()I", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(Nonce, value, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.krb5.internal.crypto.Nonce",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Nonce, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Nonce);
+	});
 	return class$;
 }
 

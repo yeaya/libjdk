@@ -1,5 +1,4 @@
 #include <HiddenDefaultButtonTest$1.h>
-
 #include <HiddenDefaultButtonTest.h>
 #include <java/awt/event/ActionEvent.h>
 #include <jcpp.h>
@@ -10,43 +9,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-
-$MethodInfo _HiddenDefaultButtonTest$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(HiddenDefaultButtonTest$1, init$, void)},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(HiddenDefaultButtonTest$1, actionPerformed, void, $ActionEvent*)},
-	{}
-};
-
-$EnclosingMethodInfo _HiddenDefaultButtonTest$1_EnclosingMethodInfo_ = {
-	"HiddenDefaultButtonTest",
-	"createGUI",
-	"()V"
-};
-
-$InnerClassInfo _HiddenDefaultButtonTest$1_InnerClassesInfo_[] = {
-	{"HiddenDefaultButtonTest$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _HiddenDefaultButtonTest$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"HiddenDefaultButtonTest$1",
-	"java.lang.Object",
-	"java.awt.event.ActionListener",
-	nullptr,
-	_HiddenDefaultButtonTest$1_MethodInfo_,
-	nullptr,
-	&_HiddenDefaultButtonTest$1_EnclosingMethodInfo_,
-	_HiddenDefaultButtonTest$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"HiddenDefaultButtonTest"
-};
-
-$Object* allocate$HiddenDefaultButtonTest$1($Class* clazz) {
-	return $of($alloc(HiddenDefaultButtonTest$1));
-}
 
 void HiddenDefaultButtonTest$1::init$() {
 }
@@ -60,7 +22,38 @@ HiddenDefaultButtonTest$1::HiddenDefaultButtonTest$1() {
 }
 
 $Class* HiddenDefaultButtonTest$1::load$($String* name, bool initialize) {
-	$loadClass(HiddenDefaultButtonTest$1, name, initialize, &_HiddenDefaultButtonTest$1_ClassInfo_, allocate$HiddenDefaultButtonTest$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(HiddenDefaultButtonTest$1, init$, void)},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(HiddenDefaultButtonTest$1, actionPerformed, void, $ActionEvent*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"HiddenDefaultButtonTest",
+		"createGUI",
+		"()V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"HiddenDefaultButtonTest$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"HiddenDefaultButtonTest$1",
+		"java.lang.Object",
+		"java.awt.event.ActionListener",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"HiddenDefaultButtonTest"
+	};
+	$loadClass(HiddenDefaultButtonTest$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HiddenDefaultButtonTest$1);
+	});
 	return class$;
 }
 

@@ -54,6 +54,7 @@ public:
 	using ::javax::swing::plaf::basic::BasicSplitPaneDivider::add;
 	using ::javax::swing::plaf::basic::BasicSplitPaneDivider::getMousePosition;
 	using ::javax::swing::plaf::basic::BasicSplitPaneDivider::list;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::com::apple::laf::AquaSplitPaneUI* ui);
 	static ::javax::swing::JButton* access$000(::com::apple::laf::AquaSplitPaneDividerUI* x0);
 	static ::javax::swing::JButton* access$100(::com::apple::laf::AquaSplitPaneDividerUI* x0);

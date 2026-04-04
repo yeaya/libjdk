@@ -1,5 +1,4 @@
 #include <javax/swing/JPanel.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <java/awt/FlowLayout.h>
@@ -35,100 +34,6 @@ using $PanelUI = ::javax::swing::plaf::PanelUI;
 namespace javax {
 	namespace swing {
 
-$NamedAttribute JPanel_Attribute_var$0[] = {
-	{"defaultProperty", 's', "UI"},
-	{"description", 's', "A generic lightweight container."},
-	{}
-};
-
-$CompoundAttribute _JPanel_Annotations_[] = {
-	{"Ljava/beans/JavaBean;", JPanel_Attribute_var$0},
-	{}
-};
-
-$NamedAttribute JPanel_Attribute_var$1[] = {
-	{"bound", 'Z', "false"},
-	{}
-};
-
-$CompoundAttribute _JPanel_MethodAnnotations_getAccessibleContext4[] = {
-	{"Ljava/beans/BeanProperty;", JPanel_Attribute_var$1},
-	{}
-};
-
-$NamedAttribute JPanel_Attribute_var$2[] = {
-	{"bound", 'Z', "false"},
-	{"expert", 'Z', "true"},
-	{"description", 's', "A string that specifies the name of the L&F class."},
-	{}
-};
-
-$CompoundAttribute _JPanel_MethodAnnotations_getUIClassID6[] = {
-	{"Ljava/beans/BeanProperty;", JPanel_Attribute_var$2},
-	{}
-};
-
-$NamedAttribute JPanel_Attribute_var$3[] = {
-	{"hidden", 'Z', "true"},
-	{"visualUpdate", 'Z', "true"},
-	{"description", 's', "The UI object that implements the Component\'s LookAndFeel."},
-	{}
-};
-
-$CompoundAttribute _JPanel_MethodAnnotations_setUI8[] = {
-	{"Ljava/beans/BeanProperty;", JPanel_Attribute_var$3},
-	{}
-};
-
-$FieldInfo _JPanel_FieldInfo_[] = {
-	{"uiClassID", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JPanel, uiClassID)},
-	{}
-};
-
-$MethodInfo _JPanel_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/awt/LayoutManager;Z)V", nullptr, $PUBLIC, $method(JPanel, init$, void, $LayoutManager*, bool)},
-	{"<init>", "(Ljava/awt/LayoutManager;)V", nullptr, $PUBLIC, $method(JPanel, init$, void, $LayoutManager*)},
-	{"<init>", "(Z)V", nullptr, $PUBLIC, $method(JPanel, init$, void, bool)},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(JPanel, init$, void)},
-	{"getAccessibleContext", "()Ljavax/accessibility/AccessibleContext;", nullptr, $PUBLIC, $virtualMethod(JPanel, getAccessibleContext, $AccessibleContext*), nullptr, nullptr, _JPanel_MethodAnnotations_getAccessibleContext4},
-	{"getUI", "()Ljavax/swing/plaf/PanelUI;", nullptr, $PUBLIC, $virtualMethod(JPanel, getUI, $ComponentUI*)},
-	{"getUIClassID", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JPanel, getUIClassID, $String*), nullptr, nullptr, _JPanel_MethodAnnotations_getUIClassID6},
-	{"paramString", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(JPanel, paramString, $String*)},
-	{"setUI", "(Ljavax/swing/plaf/PanelUI;)V", nullptr, $PUBLIC, $virtualMethod(JPanel, setUI, void, $PanelUI*), nullptr, nullptr, _JPanel_MethodAnnotations_setUI8},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"updateUI", "()V", nullptr, $PUBLIC, $virtualMethod(JPanel, updateUI, void)},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(JPanel, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _JPanel_InnerClassesInfo_[] = {
-	{"javax.swing.JPanel$AccessibleJPanel", "javax.swing.JPanel", "AccessibleJPanel", $PROTECTED},
-	{}
-};
-
-$ClassInfo _JPanel_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.JPanel",
-	"javax.swing.JComponent",
-	"javax.accessibility.Accessible",
-	_JPanel_FieldInfo_,
-	_JPanel_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JPanel_InnerClassesInfo_,
-	_JPanel_Annotations_,
-	nullptr,
-	"javax.swing.JPanel$AccessibleJPanel"
-};
-
-$Object* allocate$JPanel($Class* clazz) {
-	return $of($alloc(JPanel));
-}
-
 $String* JPanel::toString() {
 	 return this->$JComponent::toString();
 }
@@ -155,7 +60,6 @@ void JPanel::init$($LayoutManager* layout, bool isDoubleBuffered) {
 	$JComponent::init$();
 	setLayout(layout);
 	setDoubleBuffered(isDoubleBuffered);
-	$init($Boolean);
 	setUIProperty("opaque"_s, $Boolean::TRUE);
 	updateUI();
 }
@@ -173,7 +77,7 @@ void JPanel::init$() {
 }
 
 void JPanel::updateUI() {
-	setUI($cast($PanelUI, $($UIManager::getUI(this))));
+	setUI($$cast($PanelUI, $UIManager::getUI(this)));
 }
 
 $ComponentUI* JPanel::getUI() {
@@ -190,11 +94,11 @@ $String* JPanel::getUIClassID() {
 
 void JPanel::writeObject($ObjectOutputStream* s) {
 	$nc(s)->defaultWriteObject();
-	if ($nc($(getUIClassID()))->equals(JPanel::uiClassID)) {
+	if ($$nc(getUIClassID())->equals(JPanel::uiClassID)) {
 		int8_t count = $JComponent::getWriteObjCounter(this);
 		$JComponent::setWriteObjCounter(this, --count);
 		if (count == 0 && this->ui != nullptr) {
-			$nc(this->ui)->installUI(this);
+			this->ui->installUI(this);
 		}
 	}
 }
@@ -213,12 +117,92 @@ $AccessibleContext* JPanel::getAccessibleContext() {
 JPanel::JPanel() {
 }
 
-void clinit$JPanel($Class* class$) {
+void JPanel::clinit$($Class* clazz) {
 	$assignStatic(JPanel::uiClassID, "PanelUI"_s);
 }
 
 $Class* JPanel::load$($String* name, bool initialize) {
-	$loadClass(JPanel, name, initialize, &_JPanel_ClassInfo_, clinit$JPanel, allocate$JPanel);
+	$FieldInfo fieldInfos$$[] = {
+		{"uiClassID", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JPanel, uiClassID)},
+		{}
+	};
+	$NamedAttribute getAccessibleContextmethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{}
+	};
+	$CompoundAttribute getAccessibleContextmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", getAccessibleContextmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute getUIClassIDmethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{"expert", 'Z', "true"},
+		{"description", 's', "A string that specifies the name of the L&F class."},
+		{}
+	};
+	$CompoundAttribute getUIClassIDmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", getUIClassIDmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setUImethodAnnotations$$$namedAttribute[] = {
+		{"hidden", 'Z', "true"},
+		{"visualUpdate", 'Z', "true"},
+		{"description", 's', "The UI object that implements the Component\'s LookAndFeel."},
+		{}
+	};
+	$CompoundAttribute setUImethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setUImethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/awt/LayoutManager;Z)V", nullptr, $PUBLIC, $method(JPanel, init$, void, $LayoutManager*, bool)},
+		{"<init>", "(Ljava/awt/LayoutManager;)V", nullptr, $PUBLIC, $method(JPanel, init$, void, $LayoutManager*)},
+		{"<init>", "(Z)V", nullptr, $PUBLIC, $method(JPanel, init$, void, bool)},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(JPanel, init$, void)},
+		{"getAccessibleContext", "()Ljavax/accessibility/AccessibleContext;", nullptr, $PUBLIC, $virtualMethod(JPanel, getAccessibleContext, $AccessibleContext*), nullptr, nullptr, getAccessibleContextmethodAnnotations$$},
+		{"getUI", "()Ljavax/swing/plaf/PanelUI;", nullptr, $PUBLIC, $virtualMethod(JPanel, getUI, $ComponentUI*)},
+		{"getUIClassID", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JPanel, getUIClassID, $String*), nullptr, nullptr, getUIClassIDmethodAnnotations$$},
+		{"paramString", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(JPanel, paramString, $String*)},
+		{"setUI", "(Ljavax/swing/plaf/PanelUI;)V", nullptr, $PUBLIC, $virtualMethod(JPanel, setUI, void, $PanelUI*), nullptr, nullptr, setUImethodAnnotations$$},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"updateUI", "()V", nullptr, $PUBLIC, $virtualMethod(JPanel, updateUI, void)},
+		{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(JPanel, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.JPanel$AccessibleJPanel", "javax.swing.JPanel", "AccessibleJPanel", $PROTECTED},
+		{}
+	};
+	$NamedAttribute annotations$$$namedAttribute[] = {
+		{"defaultProperty", 's', "UI"},
+		{"description", 's', "A generic lightweight container."},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/beans/JavaBean;", annotations$$$namedAttribute},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.JPanel",
+		"javax.swing.JComponent",
+		"javax.accessibility.Accessible",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		annotations$$,
+		nullptr,
+		"javax.swing.JPanel$AccessibleJPanel"
+	};
+	$loadClass(JPanel, name, initialize, &classInfo$$, JPanel::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JPanel));
+	});
 	return class$;
 }
 

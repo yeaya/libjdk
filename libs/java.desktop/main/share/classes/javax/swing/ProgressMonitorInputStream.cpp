@@ -1,5 +1,4 @@
 #include <javax/swing/ProgressMonitorInputStream.h>
-
 #include <java/awt/Component.h>
 #include <java/io/FilterInputStream.h>
 #include <java/io/IOException.h>
@@ -20,38 +19,6 @@ using $ProgressMonitor = ::javax::swing::ProgressMonitor;
 
 namespace javax {
 	namespace swing {
-
-$FieldInfo _ProgressMonitorInputStream_FieldInfo_[] = {
-	{"monitor", "Ljavax/swing/ProgressMonitor;", nullptr, $PRIVATE, $field(ProgressMonitorInputStream, monitor)},
-	{"nread", "I", nullptr, $PRIVATE, $field(ProgressMonitorInputStream, nread)},
-	{"size", "I", nullptr, $PRIVATE, $field(ProgressMonitorInputStream, size)},
-	{}
-};
-
-$MethodInfo _ProgressMonitorInputStream_MethodInfo_[] = {
-	{"<init>", "(Ljava/awt/Component;Ljava/lang/Object;Ljava/io/InputStream;)V", nullptr, $PUBLIC, $method(ProgressMonitorInputStream, init$, void, $Component*, Object$*, $InputStream*)},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(ProgressMonitorInputStream, close, void), "java.io.IOException"},
-	{"getProgressMonitor", "()Ljavax/swing/ProgressMonitor;", nullptr, $PUBLIC, $virtualMethod(ProgressMonitorInputStream, getProgressMonitor, $ProgressMonitor*)},
-	{"read", "()I", nullptr, $PUBLIC, $virtualMethod(ProgressMonitorInputStream, read, int32_t), "java.io.IOException"},
-	{"read", "([B)I", nullptr, $PUBLIC, $virtualMethod(ProgressMonitorInputStream, read, int32_t, $bytes*), "java.io.IOException"},
-	{"read", "([BII)I", nullptr, $PUBLIC, $virtualMethod(ProgressMonitorInputStream, read, int32_t, $bytes*, int32_t, int32_t), "java.io.IOException"},
-	{"reset", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ProgressMonitorInputStream, reset, void), "java.io.IOException"},
-	{"skip", "(J)J", nullptr, $PUBLIC, $virtualMethod(ProgressMonitorInputStream, skip, int64_t, int64_t), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _ProgressMonitorInputStream_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.ProgressMonitorInputStream",
-	"java.io.FilterInputStream",
-	nullptr,
-	_ProgressMonitorInputStream_FieldInfo_,
-	_ProgressMonitorInputStream_MethodInfo_
-};
-
-$Object* allocate$ProgressMonitorInputStream($Class* clazz) {
-	return $of($alloc(ProgressMonitorInputStream));
-}
 
 void ProgressMonitorInputStream::init$($Component* parentComponent, Object$* message, $InputStream* in) {
 	$FilterInputStream::init$(in);
@@ -133,7 +100,34 @@ ProgressMonitorInputStream::ProgressMonitorInputStream() {
 }
 
 $Class* ProgressMonitorInputStream::load$($String* name, bool initialize) {
-	$loadClass(ProgressMonitorInputStream, name, initialize, &_ProgressMonitorInputStream_ClassInfo_, allocate$ProgressMonitorInputStream);
+	$FieldInfo fieldInfos$$[] = {
+		{"monitor", "Ljavax/swing/ProgressMonitor;", nullptr, $PRIVATE, $field(ProgressMonitorInputStream, monitor)},
+		{"nread", "I", nullptr, $PRIVATE, $field(ProgressMonitorInputStream, nread)},
+		{"size", "I", nullptr, $PRIVATE, $field(ProgressMonitorInputStream, size)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/Component;Ljava/lang/Object;Ljava/io/InputStream;)V", nullptr, $PUBLIC, $method(ProgressMonitorInputStream, init$, void, $Component*, Object$*, $InputStream*)},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(ProgressMonitorInputStream, close, void), "java.io.IOException"},
+		{"getProgressMonitor", "()Ljavax/swing/ProgressMonitor;", nullptr, $PUBLIC, $virtualMethod(ProgressMonitorInputStream, getProgressMonitor, $ProgressMonitor*)},
+		{"read", "()I", nullptr, $PUBLIC, $virtualMethod(ProgressMonitorInputStream, read, int32_t), "java.io.IOException"},
+		{"read", "([B)I", nullptr, $PUBLIC, $virtualMethod(ProgressMonitorInputStream, read, int32_t, $bytes*), "java.io.IOException"},
+		{"read", "([BII)I", nullptr, $PUBLIC, $virtualMethod(ProgressMonitorInputStream, read, int32_t, $bytes*, int32_t, int32_t), "java.io.IOException"},
+		{"reset", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ProgressMonitorInputStream, reset, void), "java.io.IOException"},
+		{"skip", "(J)J", nullptr, $PUBLIC, $virtualMethod(ProgressMonitorInputStream, skip, int64_t, int64_t), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.ProgressMonitorInputStream",
+		"java.io.FilterInputStream",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ProgressMonitorInputStream, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ProgressMonitorInputStream);
+	});
 	return class$;
 }
 

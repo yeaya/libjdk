@@ -21,6 +21,7 @@ class GraphicsEnvironment$LocalGE : public ::java::lang::Object {
 	$class(GraphicsEnvironment$LocalGE, 0, ::java::lang::Object)
 public:
 	GraphicsEnvironment$LocalGE();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::awt::GraphicsEnvironment* createGE();
 	static ::java::awt::GraphicsEnvironment* INSTANCE;

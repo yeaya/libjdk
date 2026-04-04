@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/TransPatterns$1.h>
-
 #include <com/sun/tools/javac/code/Symbol$BindingSymbol.h>
 #include <com/sun/tools/javac/code/Symbol$VarSymbol.h>
 #include <com/sun/tools/javac/comp/TransPatterns$BindingContext.h>
@@ -29,55 +28,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace comp {
-
-$FieldInfo _TransPatterns$1_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/comp/TransPatterns;", nullptr, $FINAL | $SYNTHETIC, $field(TransPatterns$1, this$0)},
-	{}
-};
-
-$MethodInfo _TransPatterns$1_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/TransPatterns;)V", nullptr, 0, $method(TransPatterns$1, init$, void, $TransPatterns*)},
-	{"bindingDeclared", "(Lcom/sun/tools/javac/code/Symbol$BindingSymbol;)Lcom/sun/tools/javac/code/Symbol$VarSymbol;", nullptr, 0, $virtualMethod(TransPatterns$1, bindingDeclared, $Symbol$VarSymbol*, $Symbol$BindingSymbol*)},
-	{"bindingVars", "(I)Lcom/sun/tools/javac/util/List;", "(I)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCStatement;>;", 0, $virtualMethod(TransPatterns$1, bindingVars, $List*, int32_t)},
-	{"decorateExpression", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, 0, $virtualMethod(TransPatterns$1, decorateExpression, $JCTree$JCExpression*, $JCTree$JCExpression*)},
-	{"decorateStatement", "(Lcom/sun/tools/javac/tree/JCTree$JCStatement;)Lcom/sun/tools/javac/tree/JCTree$JCStatement;", nullptr, 0, $virtualMethod(TransPatterns$1, decorateStatement, $JCTree$JCStatement*, $JCTree$JCStatement*)},
-	{"getBindingFor", "(Lcom/sun/tools/javac/code/Symbol$BindingSymbol;)Lcom/sun/tools/javac/code/Symbol$VarSymbol;", nullptr, 0, $virtualMethod(TransPatterns$1, getBindingFor, $Symbol$VarSymbol*, $Symbol$BindingSymbol*)},
-	{"pop", "()Lcom/sun/tools/javac/comp/TransPatterns$BindingContext;", nullptr, 0, $virtualMethod(TransPatterns$1, pop, $TransPatterns$BindingContext*)},
-	{"tryPrepend", "(Lcom/sun/tools/javac/code/Symbol$BindingSymbol;Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;)Z", nullptr, 0, $virtualMethod(TransPatterns$1, tryPrepend, bool, $Symbol$BindingSymbol*, $JCTree$JCVariableDecl*)},
-	{}
-};
-
-$EnclosingMethodInfo _TransPatterns$1_EnclosingMethodInfo_ = {
-	"com.sun.tools.javac.comp.TransPatterns",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _TransPatterns$1_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.TransPatterns$1", nullptr, nullptr, 0},
-	{"com.sun.tools.javac.comp.TransPatterns$BindingContext", "com.sun.tools.javac.comp.TransPatterns", "BindingContext", $ABSTRACT},
-	{}
-};
-
-$ClassInfo _TransPatterns$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.comp.TransPatterns$1",
-	"com.sun.tools.javac.comp.TransPatterns$BindingContext",
-	nullptr,
-	_TransPatterns$1_FieldInfo_,
-	_TransPatterns$1_MethodInfo_,
-	nullptr,
-	&_TransPatterns$1_EnclosingMethodInfo_,
-	_TransPatterns$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.TransPatterns"
-};
-
-$Object* allocate$TransPatterns$1($Class* clazz) {
-	return $of($alloc(TransPatterns$1));
-}
 
 void TransPatterns$1::init$($TransPatterns* this$0) {
 	$set(this, this$0, this$0);
@@ -116,7 +66,49 @@ TransPatterns$1::TransPatterns$1() {
 }
 
 $Class* TransPatterns$1::load$($String* name, bool initialize) {
-	$loadClass(TransPatterns$1, name, initialize, &_TransPatterns$1_ClassInfo_, allocate$TransPatterns$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/comp/TransPatterns;", nullptr, $FINAL | $SYNTHETIC, $field(TransPatterns$1, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/comp/TransPatterns;)V", nullptr, 0, $method(TransPatterns$1, init$, void, $TransPatterns*)},
+		{"bindingDeclared", "(Lcom/sun/tools/javac/code/Symbol$BindingSymbol;)Lcom/sun/tools/javac/code/Symbol$VarSymbol;", nullptr, 0, $virtualMethod(TransPatterns$1, bindingDeclared, $Symbol$VarSymbol*, $Symbol$BindingSymbol*)},
+		{"bindingVars", "(I)Lcom/sun/tools/javac/util/List;", "(I)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCStatement;>;", 0, $virtualMethod(TransPatterns$1, bindingVars, $List*, int32_t)},
+		{"decorateExpression", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, 0, $virtualMethod(TransPatterns$1, decorateExpression, $JCTree$JCExpression*, $JCTree$JCExpression*)},
+		{"decorateStatement", "(Lcom/sun/tools/javac/tree/JCTree$JCStatement;)Lcom/sun/tools/javac/tree/JCTree$JCStatement;", nullptr, 0, $virtualMethod(TransPatterns$1, decorateStatement, $JCTree$JCStatement*, $JCTree$JCStatement*)},
+		{"getBindingFor", "(Lcom/sun/tools/javac/code/Symbol$BindingSymbol;)Lcom/sun/tools/javac/code/Symbol$VarSymbol;", nullptr, 0, $virtualMethod(TransPatterns$1, getBindingFor, $Symbol$VarSymbol*, $Symbol$BindingSymbol*)},
+		{"pop", "()Lcom/sun/tools/javac/comp/TransPatterns$BindingContext;", nullptr, 0, $virtualMethod(TransPatterns$1, pop, $TransPatterns$BindingContext*)},
+		{"tryPrepend", "(Lcom/sun/tools/javac/code/Symbol$BindingSymbol;Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;)Z", nullptr, 0, $virtualMethod(TransPatterns$1, tryPrepend, bool, $Symbol$BindingSymbol*, $JCTree$JCVariableDecl*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.tools.javac.comp.TransPatterns",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.TransPatterns$1", nullptr, nullptr, 0},
+		{"com.sun.tools.javac.comp.TransPatterns$BindingContext", "com.sun.tools.javac.comp.TransPatterns", "BindingContext", $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.comp.TransPatterns$1",
+		"com.sun.tools.javac.comp.TransPatterns$BindingContext",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.TransPatterns"
+	};
+	$loadClass(TransPatterns$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TransPatterns$1);
+	});
 	return class$;
 }
 

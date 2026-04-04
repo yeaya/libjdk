@@ -49,6 +49,7 @@ class FontUtilities : public ::java::lang::Object {
 	$class(FontUtilities, 0, ::java::lang::Object)
 public:
 	FontUtilities();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static bool debugFonts();
 	static bool fontSupportsDefaultEncoding(::java::awt::Font* font);

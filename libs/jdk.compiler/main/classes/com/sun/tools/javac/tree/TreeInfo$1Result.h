@@ -28,11 +28,14 @@ class TreeInfo$1Result : public ::java::lang::Error {
 public:
 	TreeInfo$1Result();
 	void init$(::com::sun::tools::javac::util::List* path);
-	static const int64_t serialVersionUID = (int64_t)0xAD89763BB0F151E7;
+	static const int64_t serialVersionUID = (int64_t)0xad89763bb0f151e7;
 	::com::sun::tools::javac::util::List* path = nullptr;
 	TreeInfo$1Result(const TreeInfo$1Result& e);
 	virtual void throw$() override;
-	inline TreeInfo$1Result* operator ->() {
+	inline TreeInfo$1Result* operator ->() const {
+		return (TreeInfo$1Result*)throwing$;
+	}
+	inline operator TreeInfo$1Result*() const {
 		return (TreeInfo$1Result*)throwing$;
 	}
 };

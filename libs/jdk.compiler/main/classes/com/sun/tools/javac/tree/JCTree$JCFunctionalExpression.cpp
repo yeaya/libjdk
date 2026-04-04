@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/tree/JCTree$JCFunctionalExpression.h>
-
 #include <com/sun/tools/javac/code/Type.h>
 #include <com/sun/tools/javac/code/Types.h>
 #include <com/sun/tools/javac/tree/JCTree$JCPolyExpression$PolyKind.h>
@@ -24,43 +23,6 @@ namespace com {
 			namespace javac {
 				namespace tree {
 
-$FieldInfo _JCTree$JCFunctionalExpression_FieldInfo_[] = {
-	{"target", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $field(JCTree$JCFunctionalExpression, target)},
-	{}
-};
-
-$MethodInfo _JCTree$JCFunctionalExpression_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(JCTree$JCFunctionalExpression, init$, void)},
-	{"getDescriptorType", "(Lcom/sun/tools/javac/code/Types;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCFunctionalExpression, getDescriptorType, $Type*, $Types*)},
-	{}
-};
-
-$InnerClassInfo _JCTree$JCFunctionalExpression_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.tree.JCTree$JCFunctionalExpression", "com.sun.tools.javac.tree.JCTree", "JCFunctionalExpression", $PUBLIC | $STATIC | $ABSTRACT},
-	{"com.sun.tools.javac.tree.JCTree$JCPolyExpression", "com.sun.tools.javac.tree.JCTree", "JCPolyExpression", $PUBLIC | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _JCTree$JCFunctionalExpression_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"com.sun.tools.javac.tree.JCTree$JCFunctionalExpression",
-	"com.sun.tools.javac.tree.JCTree$JCPolyExpression",
-	nullptr,
-	_JCTree$JCFunctionalExpression_FieldInfo_,
-	_JCTree$JCFunctionalExpression_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JCTree$JCFunctionalExpression_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.tree.JCTree"
-};
-
-$Object* allocate$JCTree$JCFunctionalExpression($Class* clazz) {
-	return $of($alloc(JCTree$JCFunctionalExpression));
-}
-
 void JCTree$JCFunctionalExpression::init$() {
 	$JCTree$JCPolyExpression::init$();
 	$init($JCTree$JCPolyExpression$PolyKind);
@@ -68,14 +30,45 @@ void JCTree$JCFunctionalExpression::init$() {
 }
 
 $Type* JCTree$JCFunctionalExpression::getDescriptorType($Types* types) {
-	return this->target != nullptr ? $nc(types)->findDescriptorType(this->target) : types->createErrorType(nullptr);
+	return this->target != nullptr ? $nc(types)->findDescriptorType(this->target) : $nc(types)->createErrorType(nullptr);
 }
 
 JCTree$JCFunctionalExpression::JCTree$JCFunctionalExpression() {
 }
 
 $Class* JCTree$JCFunctionalExpression::load$($String* name, bool initialize) {
-	$loadClass(JCTree$JCFunctionalExpression, name, initialize, &_JCTree$JCFunctionalExpression_ClassInfo_, allocate$JCTree$JCFunctionalExpression);
+	$FieldInfo fieldInfos$$[] = {
+		{"target", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $field(JCTree$JCFunctionalExpression, target)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(JCTree$JCFunctionalExpression, init$, void)},
+		{"getDescriptorType", "(Lcom/sun/tools/javac/code/Types;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCFunctionalExpression, getDescriptorType, $Type*, $Types*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.tree.JCTree$JCFunctionalExpression", "com.sun.tools.javac.tree.JCTree", "JCFunctionalExpression", $PUBLIC | $STATIC | $ABSTRACT},
+		{"com.sun.tools.javac.tree.JCTree$JCPolyExpression", "com.sun.tools.javac.tree.JCTree", "JCPolyExpression", $PUBLIC | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"com.sun.tools.javac.tree.JCTree$JCFunctionalExpression",
+		"com.sun.tools.javac.tree.JCTree$JCPolyExpression",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.tree.JCTree"
+	};
+	$loadClass(JCTree$JCFunctionalExpression, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JCTree$JCFunctionalExpression));
+	});
 	return class$;
 }
 

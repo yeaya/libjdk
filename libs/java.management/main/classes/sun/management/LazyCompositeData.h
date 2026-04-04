@@ -56,7 +56,7 @@ public:
 	virtual ::java::util::Collection* values() override;
 	virtual $Object* writeReplace();
 	::javax::management::openmbean::CompositeData* compositeData$ = nullptr;
-	static const int64_t serialVersionUID = (int64_t)0xE19A17F36DFB01A6;
+	static const int64_t serialVersionUID = (int64_t)0xe19a17f36dfb01a6;
 };
 
 	} // management

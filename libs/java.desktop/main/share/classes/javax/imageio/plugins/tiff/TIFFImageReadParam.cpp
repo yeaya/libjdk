@@ -1,5 +1,4 @@
 #include <javax/imageio/plugins/tiff/TIFFImageReadParam.h>
-
 #include <java/util/ArrayList.h>
 #include <java/util/List.h>
 #include <javax/imageio/ImageReadParam.h>
@@ -28,37 +27,8 @@ namespace javax {
 		namespace plugins {
 			namespace tiff {
 
-$FieldInfo _TIFFImageReadParam_FieldInfo_[] = {
-	{"allowedTagSets", "Ljava/util/List;", "Ljava/util/List<Ljavax/imageio/plugins/tiff/TIFFTagSet;>;", $PRIVATE | $FINAL, $field(TIFFImageReadParam, allowedTagSets)},
-	{"readUnknownTags", "Z", nullptr, $PRIVATE, $field(TIFFImageReadParam, readUnknownTags)},
-	{}
-};
-
-$MethodInfo _TIFFImageReadParam_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TIFFImageReadParam, init$, void)},
-	{"addAllowedTagSet", "(Ljavax/imageio/plugins/tiff/TIFFTagSet;)V", nullptr, $PUBLIC, $method(TIFFImageReadParam, addAllowedTagSet, void, $TIFFTagSet*)},
-	{"getAllowedTagSets", "()Ljava/util/List;", "()Ljava/util/List<Ljavax/imageio/plugins/tiff/TIFFTagSet;>;", $PUBLIC, $method(TIFFImageReadParam, getAllowedTagSets, $List*)},
-	{"getReadUnknownTags", "()Z", nullptr, $PUBLIC, $method(TIFFImageReadParam, getReadUnknownTags, bool)},
-	{"removeAllowedTagSet", "(Ljavax/imageio/plugins/tiff/TIFFTagSet;)V", nullptr, $PUBLIC, $method(TIFFImageReadParam, removeAllowedTagSet, void, $TIFFTagSet*)},
-	{"setReadUnknownTags", "(Z)V", nullptr, $PUBLIC, $method(TIFFImageReadParam, setReadUnknownTags, void, bool)},
-	{}
-};
-
-$ClassInfo _TIFFImageReadParam_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"javax.imageio.plugins.tiff.TIFFImageReadParam",
-	"javax.imageio.ImageReadParam",
-	nullptr,
-	_TIFFImageReadParam_FieldInfo_,
-	_TIFFImageReadParam_MethodInfo_
-};
-
-$Object* allocate$TIFFImageReadParam($Class* clazz) {
-	return $of($alloc(TIFFImageReadParam));
-}
-
 void TIFFImageReadParam::init$() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$ImageReadParam::init$();
 	$set(this, allowedTagSets, $new($ArrayList, 4));
 	this->readUnknownTags = false;
@@ -72,8 +42,8 @@ void TIFFImageReadParam::addAllowedTagSet($TIFFTagSet* tagSet) {
 	if (tagSet == nullptr) {
 		$throwNew($IllegalArgumentException, "tagSet == null!"_s);
 	}
-	if (!$nc(this->allowedTagSets)->contains(tagSet)) {
-		$nc(this->allowedTagSets)->add(tagSet);
+	if (!this->allowedTagSets->contains(tagSet)) {
+		this->allowedTagSets->add(tagSet);
 	}
 }
 
@@ -81,7 +51,7 @@ void TIFFImageReadParam::removeAllowedTagSet($TIFFTagSet* tagSet) {
 	if (tagSet == nullptr) {
 		$throwNew($IllegalArgumentException, "tagSet == null!"_s);
 	}
-	$nc(this->allowedTagSets)->remove($of(tagSet));
+	this->allowedTagSets->remove(tagSet);
 }
 
 $List* TIFFImageReadParam::getAllowedTagSets() {
@@ -100,7 +70,31 @@ TIFFImageReadParam::TIFFImageReadParam() {
 }
 
 $Class* TIFFImageReadParam::load$($String* name, bool initialize) {
-	$loadClass(TIFFImageReadParam, name, initialize, &_TIFFImageReadParam_ClassInfo_, allocate$TIFFImageReadParam);
+	$FieldInfo fieldInfos$$[] = {
+		{"allowedTagSets", "Ljava/util/List;", "Ljava/util/List<Ljavax/imageio/plugins/tiff/TIFFTagSet;>;", $PRIVATE | $FINAL, $field(TIFFImageReadParam, allowedTagSets)},
+		{"readUnknownTags", "Z", nullptr, $PRIVATE, $field(TIFFImageReadParam, readUnknownTags)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TIFFImageReadParam, init$, void)},
+		{"addAllowedTagSet", "(Ljavax/imageio/plugins/tiff/TIFFTagSet;)V", nullptr, $PUBLIC, $method(TIFFImageReadParam, addAllowedTagSet, void, $TIFFTagSet*)},
+		{"getAllowedTagSets", "()Ljava/util/List;", "()Ljava/util/List<Ljavax/imageio/plugins/tiff/TIFFTagSet;>;", $PUBLIC, $method(TIFFImageReadParam, getAllowedTagSets, $List*)},
+		{"getReadUnknownTags", "()Z", nullptr, $PUBLIC, $method(TIFFImageReadParam, getReadUnknownTags, bool)},
+		{"removeAllowedTagSet", "(Ljavax/imageio/plugins/tiff/TIFFTagSet;)V", nullptr, $PUBLIC, $method(TIFFImageReadParam, removeAllowedTagSet, void, $TIFFTagSet*)},
+		{"setReadUnknownTags", "(Z)V", nullptr, $PUBLIC, $method(TIFFImageReadParam, setReadUnknownTags, void, bool)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"javax.imageio.plugins.tiff.TIFFImageReadParam",
+		"javax.imageio.ImageReadParam",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TIFFImageReadParam, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TIFFImageReadParam);
+	});
 	return class$;
 }
 

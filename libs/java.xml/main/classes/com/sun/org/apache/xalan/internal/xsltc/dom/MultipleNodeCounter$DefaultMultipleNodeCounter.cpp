@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/dom/MultipleNodeCounter$DefaultMultipleNodeCounter.h>
-
 #include <com/sun/org/apache/xalan/internal/xsltc/DOM.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/Translet.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/dom/MultipleNodeCounter.h>
@@ -23,36 +22,6 @@ namespace com {
 						namespace xsltc {
 							namespace dom {
 
-$MethodInfo _MultipleNodeCounter$DefaultMultipleNodeCounter_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/org/apache/xalan/internal/xsltc/Translet;Lcom/sun/org/apache/xalan/internal/xsltc/DOM;Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;)V", nullptr, $PUBLIC, $method(MultipleNodeCounter$DefaultMultipleNodeCounter, init$, void, $Translet*, $DOM*, $DTMAxisIterator*)},
-	{}
-};
-
-$InnerClassInfo _MultipleNodeCounter$DefaultMultipleNodeCounter_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xalan.internal.xsltc.dom.MultipleNodeCounter$DefaultMultipleNodeCounter", "com.sun.org.apache.xalan.internal.xsltc.dom.MultipleNodeCounter", "DefaultMultipleNodeCounter", $STATIC},
-	{}
-};
-
-$ClassInfo _MultipleNodeCounter$DefaultMultipleNodeCounter_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.org.apache.xalan.internal.xsltc.dom.MultipleNodeCounter$DefaultMultipleNodeCounter",
-	"com.sun.org.apache.xalan.internal.xsltc.dom.MultipleNodeCounter",
-	nullptr,
-	nullptr,
-	_MultipleNodeCounter$DefaultMultipleNodeCounter_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MultipleNodeCounter$DefaultMultipleNodeCounter_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xalan.internal.xsltc.dom.MultipleNodeCounter"
-};
-
-$Object* allocate$MultipleNodeCounter$DefaultMultipleNodeCounter($Class* clazz) {
-	return $of($alloc(MultipleNodeCounter$DefaultMultipleNodeCounter));
-}
-
 void MultipleNodeCounter$DefaultMultipleNodeCounter::init$($Translet* translet, $DOM* document, $DTMAxisIterator* iterator) {
 	$MultipleNodeCounter::init$(translet, document, iterator);
 }
@@ -61,7 +30,32 @@ MultipleNodeCounter$DefaultMultipleNodeCounter::MultipleNodeCounter$DefaultMulti
 }
 
 $Class* MultipleNodeCounter$DefaultMultipleNodeCounter::load$($String* name, bool initialize) {
-	$loadClass(MultipleNodeCounter$DefaultMultipleNodeCounter, name, initialize, &_MultipleNodeCounter$DefaultMultipleNodeCounter_ClassInfo_, allocate$MultipleNodeCounter$DefaultMultipleNodeCounter);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/org/apache/xalan/internal/xsltc/Translet;Lcom/sun/org/apache/xalan/internal/xsltc/DOM;Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;)V", nullptr, $PUBLIC, $method(MultipleNodeCounter$DefaultMultipleNodeCounter, init$, void, $Translet*, $DOM*, $DTMAxisIterator*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xalan.internal.xsltc.dom.MultipleNodeCounter$DefaultMultipleNodeCounter", "com.sun.org.apache.xalan.internal.xsltc.dom.MultipleNodeCounter", "DefaultMultipleNodeCounter", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.org.apache.xalan.internal.xsltc.dom.MultipleNodeCounter$DefaultMultipleNodeCounter",
+		"com.sun.org.apache.xalan.internal.xsltc.dom.MultipleNodeCounter",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xalan.internal.xsltc.dom.MultipleNodeCounter"
+	};
+	$loadClass(MultipleNodeCounter$DefaultMultipleNodeCounter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MultipleNodeCounter$DefaultMultipleNodeCounter);
+	});
 	return class$;
 }
 

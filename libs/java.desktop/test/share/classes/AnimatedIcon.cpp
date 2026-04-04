@@ -1,6 +1,4 @@
 #include <AnimatedIcon.h>
-
-#include <java/awt/Image.h>
 #include <java/awt/image/BufferedImage.h>
 #include <java/awt/image/ImageObserver.h>
 #include <java/io/Serializable.h>
@@ -19,7 +17,6 @@
 
 #undef SOMEBITS
 
-using $Image = ::java::awt::Image;
 using $BufferedImage = ::java::awt::image::BufferedImage;
 using $ImageObserver = ::java::awt::image::ImageObserver;
 using $Serializable = ::java::io::Serializable;
@@ -28,7 +25,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $ButtonModel = ::javax::swing::ButtonModel;
 using $Icon = ::javax::swing::Icon;
 using $ImageIcon = ::javax::swing::ImageIcon;
 using $JButton = ::javax::swing::JButton;
@@ -42,57 +38,33 @@ public:
 	virtual void run() override {
 		AnimatedIcon::lambda$main$0();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<AnimatedIcon$$Lambda$lambda$main$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo AnimatedIcon$$Lambda$lambda$main$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AnimatedIcon$$Lambda$lambda$main$0, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(AnimatedIcon$$Lambda$lambda$main$0, run, void)},
-	{}
-};
-$ClassInfo AnimatedIcon$$Lambda$lambda$main$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"AnimatedIcon$$Lambda$lambda$main$0",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* AnimatedIcon$$Lambda$lambda$main$0::load$($String* name, bool initialize) {
-	$loadClass(AnimatedIcon$$Lambda$lambda$main$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AnimatedIcon$$Lambda$lambda$main$0, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(AnimatedIcon$$Lambda$lambda$main$0, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"AnimatedIcon$$Lambda$lambda$main$0",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(AnimatedIcon$$Lambda$lambda$main$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AnimatedIcon$$Lambda$lambda$main$0);
+	});
 	return class$;
 }
 $Class* AnimatedIcon$$Lambda$lambda$main$0::class$ = nullptr;
-
-$MethodInfo _AnimatedIcon_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AnimatedIcon, init$, void)},
-	{"isAnimated", "(Ljava/awt/image/BufferedImage;Ljavax/swing/JButton;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(AnimatedIcon, isAnimated, void, $BufferedImage*, $JButton*)},
-	{"lambda$main$0", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(AnimatedIcon, lambda$main$0, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(AnimatedIcon, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _AnimatedIcon_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"AnimatedIcon",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_AnimatedIcon_MethodInfo_
-};
-
-$Object* allocate$AnimatedIcon($Class* clazz) {
-	return $of($alloc(AnimatedIcon));
-}
 
 void AnimatedIcon::init$() {
 }
 
 void AnimatedIcon::main($StringArray* args) {
-	$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(AnimatedIcon$$Lambda$lambda$main$0)));
+	$SwingUtilities::invokeAndWait($$new(AnimatedIcon$$Lambda$lambda$main$0));
 }
 
 void AnimatedIcon::isAnimated($BufferedImage* bi, $JButton* button) {
@@ -102,28 +74,28 @@ void AnimatedIcon::isAnimated($BufferedImage* bi, $JButton* button) {
 }
 
 void AnimatedIcon::lambda$main$0() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($BufferedImage, bi, $new($BufferedImage, 1, 1, 1));
-	$var($ImageIcon, icon, $new($ImageIcon, static_cast<$Image*>(bi)));
-	$var($JButton, button, $new($JButton, static_cast<$Icon*>(icon)));
+	$var($ImageIcon, icon, $new($ImageIcon, bi));
+	$var($JButton, button, $new($JButton, icon));
 	isAnimated(bi, button);
-	$nc($(button->getModel()))->setPressed(true);
-	$nc($(button->getModel()))->setArmed(true);
+	$$nc(button->getModel())->setPressed(true);
+	$$nc(button->getModel())->setArmed(true);
 	isAnimated(bi, button);
-	$nc($(button->getModel()))->setPressed(false);
-	$nc($(button->getModel()))->setArmed(false);
-	$nc($(button->getModel()))->setSelected(true);
+	$$nc(button->getModel())->setPressed(false);
+	$$nc(button->getModel())->setArmed(false);
+	$$nc(button->getModel())->setSelected(true);
 	isAnimated(bi, button);
-	$nc($(button->getModel()))->setSelected(false);
-	$nc($(button->getModel()))->setRollover(true);
+	$$nc(button->getModel())->setSelected(false);
+	$$nc(button->getModel())->setRollover(true);
 	button->setRolloverEnabled(true);
 	isAnimated(bi, button);
-	$nc($(button->getModel()))->setSelected(true);
+	$$nc(button->getModel())->setSelected(true);
 	isAnimated(bi, button);
 	button->setIcon(nullptr);
 	button->setPressedIcon(icon);
-	$nc($(button->getModel()))->setPressed(true);
-	$nc($(button->getModel()))->setArmed(true);
+	$$nc(button->getModel())->setPressed(true);
+	$$nc(button->getModel())->setArmed(true);
 	isAnimated(bi, button);
 }
 
@@ -132,11 +104,28 @@ AnimatedIcon::AnimatedIcon() {
 
 $Class* AnimatedIcon::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(AnimatedIcon$$Lambda$lambda$main$0::classInfo$.name)) {
+		if (name->equals("AnimatedIcon$$Lambda$lambda$main$0")) {
 			return AnimatedIcon$$Lambda$lambda$main$0::load$(name, initialize);
 		}
 	}
-	$loadClass(AnimatedIcon, name, initialize, &_AnimatedIcon_ClassInfo_, allocate$AnimatedIcon);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AnimatedIcon, init$, void)},
+		{"isAnimated", "(Ljava/awt/image/BufferedImage;Ljavax/swing/JButton;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(AnimatedIcon, isAnimated, void, $BufferedImage*, $JButton*)},
+		{"lambda$main$0", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(AnimatedIcon, lambda$main$0, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(AnimatedIcon, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"AnimatedIcon",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(AnimatedIcon, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AnimatedIcon);
+	});
 	return class$;
 }
 

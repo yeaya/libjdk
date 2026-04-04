@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/bcel/internal/classfile/LocalVariableTypeTable.h>
-
 #include <com/sun/org/apache/bcel/internal/Const.h>
 #include <com/sun/org/apache/bcel/internal/classfile/Attribute.h>
 #include <com/sun/org/apache/bcel/internal/classfile/ConstantPool.h>
@@ -31,41 +30,8 @@ namespace com {
 					namespace internal {
 						namespace classfile {
 
-$FieldInfo _LocalVariableTypeTable_FieldInfo_[] = {
-	{"localVariableTypeTable", "[Lcom/sun/org/apache/bcel/internal/classfile/LocalVariable;", nullptr, $PRIVATE, $field(LocalVariableTypeTable, localVariableTypeTable)},
-	{}
-};
-
-$MethodInfo _LocalVariableTypeTable_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/org/apache/bcel/internal/classfile/LocalVariableTypeTable;)V", nullptr, $PUBLIC, $method(LocalVariableTypeTable, init$, void, LocalVariableTypeTable*)},
-	{"<init>", "(II[Lcom/sun/org/apache/bcel/internal/classfile/LocalVariable;Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;)V", nullptr, $PUBLIC, $method(LocalVariableTypeTable, init$, void, int32_t, int32_t, $LocalVariableArray*, $ConstantPool*)},
-	{"<init>", "(IILjava/io/DataInput;Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;)V", nullptr, 0, $method(LocalVariableTypeTable, init$, void, int32_t, int32_t, $DataInput*, $ConstantPool*), "java.io.IOException"},
-	{"accept", "(Lcom/sun/org/apache/bcel/internal/classfile/Visitor;)V", nullptr, $PUBLIC, $virtualMethod(LocalVariableTypeTable, accept, void, $Visitor*)},
-	{"copy", "(Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;)Lcom/sun/org/apache/bcel/internal/classfile/Attribute;", nullptr, $PUBLIC, $virtualMethod(LocalVariableTypeTable, copy, $Attribute*, $ConstantPool*)},
-	{"dump", "(Ljava/io/DataOutputStream;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(LocalVariableTypeTable, dump, void, $DataOutputStream*), "java.io.IOException"},
-	{"getLocalVariable", "(I)Lcom/sun/org/apache/bcel/internal/classfile/LocalVariable;", nullptr, $PUBLIC | $FINAL, $method(LocalVariableTypeTable, getLocalVariable, $LocalVariable*, int32_t)},
-	{"getLocalVariableTypeTable", "()[Lcom/sun/org/apache/bcel/internal/classfile/LocalVariable;", nullptr, $PUBLIC | $FINAL, $method(LocalVariableTypeTable, getLocalVariableTypeTable, $LocalVariableArray*)},
-	{"getTableLength", "()I", nullptr, $PUBLIC | $FINAL, $method(LocalVariableTypeTable, getTableLength, int32_t)},
-	{"setLocalVariableTable", "([Lcom/sun/org/apache/bcel/internal/classfile/LocalVariable;)V", nullptr, $PUBLIC | $FINAL, $method(LocalVariableTypeTable, setLocalVariableTable, void, $LocalVariableArray*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(LocalVariableTypeTable, toString, $String*)},
-	{}
-};
-
-$ClassInfo _LocalVariableTypeTable_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.bcel.internal.classfile.LocalVariableTypeTable",
-	"com.sun.org.apache.bcel.internal.classfile.Attribute",
-	nullptr,
-	_LocalVariableTypeTable_FieldInfo_,
-	_LocalVariableTypeTable_MethodInfo_
-};
-
-$Object* allocate$LocalVariableTypeTable($Class* clazz) {
-	return $of($alloc(LocalVariableTypeTable));
-}
-
 void LocalVariableTypeTable::init$(LocalVariableTypeTable* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t var$0 = $nc(c)->getNameIndex();
 	int32_t var$1 = c->getLength();
 	$var($LocalVariableArray, var$2, c->getLocalVariableTypeTable());
@@ -78,12 +44,12 @@ void LocalVariableTypeTable::init$(int32_t name_index, int32_t length, $LocalVar
 }
 
 void LocalVariableTypeTable::init$(int32_t nameIdx, int32_t len, $DataInput* input, $ConstantPool* cpool) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	LocalVariableTypeTable::init$(nameIdx, len, ($LocalVariableArray*)nullptr, cpool);
 	int32_t local_variable_type_table_length = $nc(input)->readUnsignedShort();
 	$set(this, localVariableTypeTable, $new($LocalVariableArray, local_variable_type_table_length));
 	for (int32_t i = 0; i < local_variable_type_table_length; ++i) {
-		$nc(this->localVariableTypeTable)->set(i, $$new($LocalVariable, input, cpool));
+		this->localVariableTypeTable->set(i, $$new($LocalVariable, input, cpool));
 	}
 }
 
@@ -92,14 +58,12 @@ void LocalVariableTypeTable::accept($Visitor* v) {
 }
 
 void LocalVariableTypeTable::dump($DataOutputStream* file) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Attribute::dump(file);
 	$nc(file)->writeShort($nc(this->localVariableTypeTable)->length);
 	{
 		$var($LocalVariableArray, arr$, this->localVariableTypeTable);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($LocalVariable, variable, arr$->get(i$));
 			{
 				$nc(variable)->dump(file);
@@ -113,18 +77,12 @@ $LocalVariableArray* LocalVariableTypeTable::getLocalVariableTypeTable() {
 }
 
 $LocalVariable* LocalVariableTypeTable::getLocalVariable(int32_t index) {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($LocalVariableArray, arr$, this->localVariableTypeTable);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
-			$var($LocalVariable, variable, arr$->get(i$));
-			{
-				if ($nc(variable)->getIndex() == index) {
-					return variable;
-				}
-			}
+	$useLocalObjectStack();
+	$var($LocalVariableArray, arr$, this->localVariableTypeTable);
+	for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
+		$var($LocalVariable, variable, arr$->get(i$));
+		if ($nc(variable)->getIndex() == index) {
+			return variable;
 		}
 	}
 	return nullptr;
@@ -135,10 +93,10 @@ void LocalVariableTypeTable::setLocalVariableTable($LocalVariableArray* local_va
 }
 
 $String* LocalVariableTypeTable::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, buf, $new($StringBuilder));
 	for (int32_t i = 0; i < $nc(this->localVariableTypeTable)->length; ++i) {
-		buf->append($($nc($nc(this->localVariableTypeTable)->get(i))->toStringShared(true)));
+		buf->append($($nc(this->localVariableTypeTable->get(i))->toStringShared(true)));
 		if (i < $nc(this->localVariableTypeTable)->length - 1) {
 			buf->append(u'\n');
 		}
@@ -147,25 +105,53 @@ $String* LocalVariableTypeTable::toString() {
 }
 
 $Attribute* LocalVariableTypeTable::copy($ConstantPool* constant_pool) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(LocalVariableTypeTable, c, $cast(LocalVariableTypeTable, clone()));
 	$set($nc(c), localVariableTypeTable, $new($LocalVariableArray, $nc(this->localVariableTypeTable)->length));
 	for (int32_t i = 0; i < $nc(this->localVariableTypeTable)->length; ++i) {
-		$nc(c->localVariableTypeTable)->set(i, $($nc($nc(this->localVariableTypeTable)->get(i))->copy()));
+		$nc(c->localVariableTypeTable)->set(i, $($nc(this->localVariableTypeTable->get(i))->copy()));
 	}
 	c->setConstantPool(constant_pool);
 	return c;
 }
 
 int32_t LocalVariableTypeTable::getTableLength() {
-	return this->localVariableTypeTable == nullptr ? 0 : $nc(this->localVariableTypeTable)->length;
+	return this->localVariableTypeTable == nullptr ? 0 : this->localVariableTypeTable->length;
 }
 
 LocalVariableTypeTable::LocalVariableTypeTable() {
 }
 
 $Class* LocalVariableTypeTable::load$($String* name, bool initialize) {
-	$loadClass(LocalVariableTypeTable, name, initialize, &_LocalVariableTypeTable_ClassInfo_, allocate$LocalVariableTypeTable);
+	$FieldInfo fieldInfos$$[] = {
+		{"localVariableTypeTable", "[Lcom/sun/org/apache/bcel/internal/classfile/LocalVariable;", nullptr, $PRIVATE, $field(LocalVariableTypeTable, localVariableTypeTable)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/org/apache/bcel/internal/classfile/LocalVariableTypeTable;)V", nullptr, $PUBLIC, $method(LocalVariableTypeTable, init$, void, LocalVariableTypeTable*)},
+		{"<init>", "(II[Lcom/sun/org/apache/bcel/internal/classfile/LocalVariable;Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;)V", nullptr, $PUBLIC, $method(LocalVariableTypeTable, init$, void, int32_t, int32_t, $LocalVariableArray*, $ConstantPool*)},
+		{"<init>", "(IILjava/io/DataInput;Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;)V", nullptr, 0, $method(LocalVariableTypeTable, init$, void, int32_t, int32_t, $DataInput*, $ConstantPool*), "java.io.IOException"},
+		{"accept", "(Lcom/sun/org/apache/bcel/internal/classfile/Visitor;)V", nullptr, $PUBLIC, $virtualMethod(LocalVariableTypeTable, accept, void, $Visitor*)},
+		{"copy", "(Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;)Lcom/sun/org/apache/bcel/internal/classfile/Attribute;", nullptr, $PUBLIC, $virtualMethod(LocalVariableTypeTable, copy, $Attribute*, $ConstantPool*)},
+		{"dump", "(Ljava/io/DataOutputStream;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(LocalVariableTypeTable, dump, void, $DataOutputStream*), "java.io.IOException"},
+		{"getLocalVariable", "(I)Lcom/sun/org/apache/bcel/internal/classfile/LocalVariable;", nullptr, $PUBLIC | $FINAL, $method(LocalVariableTypeTable, getLocalVariable, $LocalVariable*, int32_t)},
+		{"getLocalVariableTypeTable", "()[Lcom/sun/org/apache/bcel/internal/classfile/LocalVariable;", nullptr, $PUBLIC | $FINAL, $method(LocalVariableTypeTable, getLocalVariableTypeTable, $LocalVariableArray*)},
+		{"getTableLength", "()I", nullptr, $PUBLIC | $FINAL, $method(LocalVariableTypeTable, getTableLength, int32_t)},
+		{"setLocalVariableTable", "([Lcom/sun/org/apache/bcel/internal/classfile/LocalVariable;)V", nullptr, $PUBLIC | $FINAL, $method(LocalVariableTypeTable, setLocalVariableTable, void, $LocalVariableArray*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(LocalVariableTypeTable, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.bcel.internal.classfile.LocalVariableTypeTable",
+		"com.sun.org.apache.bcel.internal.classfile.Attribute",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(LocalVariableTypeTable, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(LocalVariableTypeTable));
+	});
 	return class$;
 }
 

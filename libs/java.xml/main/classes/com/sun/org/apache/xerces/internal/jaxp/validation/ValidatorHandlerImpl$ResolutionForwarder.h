@@ -38,6 +38,7 @@ class ValidatorHandlerImpl$ResolutionForwarder : public ::org::xml::sax::ext::En
 	$class(ValidatorHandlerImpl$ResolutionForwarder, 0, ::org::xml::sax::ext::EntityResolver2)
 public:
 	ValidatorHandlerImpl$ResolutionForwarder();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(::org::w3c::dom::ls::LSResourceResolver* entityResolver);
 	::org::w3c::dom::ls::LSResourceResolver* getEntityResolver();

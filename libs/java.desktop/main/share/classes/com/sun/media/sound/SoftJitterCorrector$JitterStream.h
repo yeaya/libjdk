@@ -31,6 +31,7 @@ class SoftJitterCorrector$JitterStream : public ::java::io::InputStream {
 	$class(SoftJitterCorrector$JitterStream, 0, ::java::io::InputStream)
 public:
 	SoftJitterCorrector$JitterStream();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::javax::sound::sampled::AudioInputStream* s, int32_t buffersize, int32_t smallbuffersize);
 	virtual int32_t available() override;
 	virtual void close() override;

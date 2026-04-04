@@ -1,5 +1,4 @@
 #include <HangDuringStaticInitialization.h>
-
 #include <HangDuringStaticInitialization$1.h>
 #include <java/net/URI.h>
 #include <java/nio/file/FileSystem.h>
@@ -16,53 +15,21 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $URI = ::java::net::URI;
 using $FileSystem = ::java::nio::file::FileSystem;
 using $FileSystems = ::java::nio::file::FileSystems;
-using $FileVisitor = ::java::nio::file::FileVisitor;
 using $Files = ::java::nio::file::Files;
 using $Path = ::java::nio::file::Path;
-
-$MethodInfo _HangDuringStaticInitialization_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(HangDuringStaticInitialization, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(HangDuringStaticInitialization, main, void, $StringArray*), "java.lang.Exception"},
-	{"test", "(Ljava/nio/file/FileSystem;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(HangDuringStaticInitialization, test, void, $FileSystem*, $String*), "java.lang.Exception"},
-	{}
-};
-
-$InnerClassInfo _HangDuringStaticInitialization_InnerClassesInfo_[] = {
-	{"HangDuringStaticInitialization$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _HangDuringStaticInitialization_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"HangDuringStaticInitialization",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_HangDuringStaticInitialization_MethodInfo_,
-	nullptr,
-	nullptr,
-	_HangDuringStaticInitialization_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"HangDuringStaticInitialization$1"
-};
-
-$Object* allocate$HangDuringStaticInitialization($Class* clazz) {
-	return $of($alloc(HangDuringStaticInitialization));
-}
 
 void HangDuringStaticInitialization::init$() {
 }
 
 void HangDuringStaticInitialization::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($FileSystem, fs, $FileSystems::getFileSystem($($URI::create("jrt:/"_s))));
 	test(fs, "/modules/java.desktop"_s);
 	test(fs, "/modules/java.datatransfer"_s);
 }
 
 void HangDuringStaticInitialization::test($FileSystem* fs, $String* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Path, var$0, $nc(fs)->getPath(s, $$new($StringArray, 0)));
 	$Files::walkFileTree(var$0, $$new($HangDuringStaticInitialization$1));
 }
@@ -71,7 +38,33 @@ HangDuringStaticInitialization::HangDuringStaticInitialization() {
 }
 
 $Class* HangDuringStaticInitialization::load$($String* name, bool initialize) {
-	$loadClass(HangDuringStaticInitialization, name, initialize, &_HangDuringStaticInitialization_ClassInfo_, allocate$HangDuringStaticInitialization);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(HangDuringStaticInitialization, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(HangDuringStaticInitialization, main, void, $StringArray*), "java.lang.Exception"},
+		{"test", "(Ljava/nio/file/FileSystem;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(HangDuringStaticInitialization, test, void, $FileSystem*, $String*), "java.lang.Exception"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"HangDuringStaticInitialization$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"HangDuringStaticInitialization",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"HangDuringStaticInitialization$1"
+	};
+	$loadClass(HangDuringStaticInitialization, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HangDuringStaticInitialization);
+	});
 	return class$;
 }
 

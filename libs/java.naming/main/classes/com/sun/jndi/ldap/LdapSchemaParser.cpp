@@ -1,5 +1,4 @@
 #include <com/sun/jndi/ldap/LdapSchemaParser.h>
-
 #include <com/sun/jndi/ldap/LdapClient.h>
 #include <com/sun/jndi/ldap/LdapSchemaCtx.h>
 #include <java/util/Vector.h>
@@ -83,99 +82,6 @@ namespace com {
 		namespace jndi {
 			namespace ldap {
 
-$FieldInfo _LdapSchemaParser_FieldInfo_[] = {
-	{"debug", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LdapSchemaParser, debug)},
-	{"OBJECTCLASSDESC_ATTR_ID", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(LdapSchemaParser, OBJECTCLASSDESC_ATTR_ID)},
-	{"ATTRIBUTEDESC_ATTR_ID", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(LdapSchemaParser, ATTRIBUTEDESC_ATTR_ID)},
-	{"SYNTAXDESC_ATTR_ID", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(LdapSchemaParser, SYNTAXDESC_ATTR_ID)},
-	{"MATCHRULEDESC_ATTR_ID", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(LdapSchemaParser, MATCHRULEDESC_ATTR_ID)},
-	{"OBJECTCLASS_DEFINITION_NAME", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(LdapSchemaParser, OBJECTCLASS_DEFINITION_NAME)},
-	{"CLASS_DEF_ATTRS", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LdapSchemaParser, CLASS_DEF_ATTRS)},
-	{"ATTRIBUTE_DEFINITION_NAME", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(LdapSchemaParser, ATTRIBUTE_DEFINITION_NAME)},
-	{"ATTR_DEF_ATTRS", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LdapSchemaParser, ATTR_DEF_ATTRS)},
-	{"SYNTAX_DEFINITION_NAME", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(LdapSchemaParser, SYNTAX_DEFINITION_NAME)},
-	{"SYNTAX_DEF_ATTRS", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LdapSchemaParser, SYNTAX_DEF_ATTRS)},
-	{"MATCHRULE_DEFINITION_NAME", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(LdapSchemaParser, MATCHRULE_DEFINITION_NAME)},
-	{"MATCHRULE_DEF_ATTRS", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LdapSchemaParser, MATCHRULE_DEF_ATTRS)},
-	{"SINGLE_QUOTE", "C", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LdapSchemaParser, SINGLE_QUOTE)},
-	{"WHSP", "C", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LdapSchemaParser, WHSP)},
-	{"OID_LIST_BEGIN", "C", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LdapSchemaParser, OID_LIST_BEGIN)},
-	{"OID_LIST_END", "C", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LdapSchemaParser, OID_LIST_END)},
-	{"OID_SEPARATOR", "C", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LdapSchemaParser, OID_SEPARATOR)},
-	{"NUMERICOID_ID", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LdapSchemaParser, NUMERICOID_ID)},
-	{"NAME_ID", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LdapSchemaParser, NAME_ID)},
-	{"DESC_ID", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LdapSchemaParser, DESC_ID)},
-	{"OBSOLETE_ID", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LdapSchemaParser, OBSOLETE_ID)},
-	{"SUP_ID", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LdapSchemaParser, SUP_ID)},
-	{"PRIVATE_ID", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LdapSchemaParser, PRIVATE_ID)},
-	{"ABSTRACT_ID", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LdapSchemaParser, ABSTRACT_ID)},
-	{"STRUCTURAL_ID", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LdapSchemaParser, STRUCTURAL_ID)},
-	{"AUXILIARY_ID", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LdapSchemaParser, AUXILIARY_ID)},
-	{"MUST_ID", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LdapSchemaParser, MUST_ID)},
-	{"MAY_ID", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LdapSchemaParser, MAY_ID)},
-	{"EQUALITY_ID", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LdapSchemaParser, EQUALITY_ID)},
-	{"ORDERING_ID", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LdapSchemaParser, ORDERING_ID)},
-	{"SUBSTR_ID", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LdapSchemaParser, SUBSTR_ID)},
-	{"SYNTAX_ID", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LdapSchemaParser, SYNTAX_ID)},
-	{"SINGLE_VAL_ID", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LdapSchemaParser, SINGLE_VAL_ID)},
-	{"COLLECTIVE_ID", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LdapSchemaParser, COLLECTIVE_ID)},
-	{"NO_USER_MOD_ID", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LdapSchemaParser, NO_USER_MOD_ID)},
-	{"USAGE_ID", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LdapSchemaParser, USAGE_ID)},
-	{"SCHEMA_TRUE_VALUE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LdapSchemaParser, SCHEMA_TRUE_VALUE)},
-	{"netscapeBug", "Z", nullptr, $PRIVATE, $field(LdapSchemaParser, netscapeBug)},
-	{}
-};
-
-$MethodInfo _LdapSchemaParser_MethodInfo_[] = {
-	{"<init>", "(Z)V", nullptr, 0, $method(LdapSchemaParser, init$, void, bool)},
-	{"LDAP2JNDISchema", "(Ljavax/naming/directory/Attributes;Lcom/sun/jndi/ldap/LdapSchemaCtx;)V", nullptr, $STATIC | $FINAL, $staticMethod(LdapSchemaParser, LDAP2JNDISchema, void, $Attributes*, $LdapSchemaCtx*), "javax.naming.NamingException"},
-	{"attrDef2AttrDesc", "(Ljavax/naming/directory/Attributes;)Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $method(LdapSchemaParser, attrDef2AttrDesc, $String*, $Attributes*), "javax.naming.NamingException"},
-	{"attrDescs2AttrDefs", "(Ljavax/naming/directory/Attribute;Lcom/sun/jndi/ldap/LdapSchemaCtx;)Ljavax/naming/directory/DirContext;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(LdapSchemaParser, attrDescs2AttrDefs, $DirContext*, $Attribute*, $LdapSchemaCtx*), "javax.naming.NamingException"},
-	{"classDef2ObjectDesc", "(Ljavax/naming/directory/Attributes;)Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $method(LdapSchemaParser, classDef2ObjectDesc, $String*, $Attributes*), "javax.naming.NamingException"},
-	{"desc2Def", "(Ljava/lang/String;)[Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(LdapSchemaParser, desc2Def, $ObjectArray*, $String*), "javax.naming.NamingException"},
-	{"findTrailingWhitespace", "(Ljava/lang/String;I)I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(LdapSchemaParser, findTrailingWhitespace, int32_t, $String*, int32_t)},
-	{"matchRuleDef2MatchRuleDesc", "(Ljavax/naming/directory/Attributes;)Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $method(LdapSchemaParser, matchRuleDef2MatchRuleDesc, $String*, $Attributes*), "javax.naming.NamingException"},
-	{"matchRuleDescs2MatchRuleDefs", "(Ljavax/naming/directory/Attribute;Lcom/sun/jndi/ldap/LdapSchemaCtx;)Ljavax/naming/directory/DirContext;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(LdapSchemaParser, matchRuleDescs2MatchRuleDefs, $DirContext*, $Attribute*, $LdapSchemaCtx*), "javax.naming.NamingException"},
-	{"objectDescs2ClassDefs", "(Ljavax/naming/directory/Attribute;Lcom/sun/jndi/ldap/LdapSchemaCtx;)Ljavax/naming/directory/DirContext;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(LdapSchemaParser, objectDescs2ClassDefs, $DirContext*, $Attribute*, $LdapSchemaCtx*), "javax.naming.NamingException"},
-	{"readNextTag", "(Ljava/lang/String;[I)Ljavax/naming/directory/Attribute;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(LdapSchemaParser, readNextTag, $Attribute*, $String*, $ints*), "javax.naming.NamingException"},
-	{"readNumericOID", "(Ljava/lang/String;[I)Ljavax/naming/directory/Attribute;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(LdapSchemaParser, readNumericOID, $Attribute*, $String*, $ints*), "javax.naming.NamingException"},
-	{"readOIDs", "(Ljava/lang/String;[I)[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(LdapSchemaParser, readOIDs, $StringArray*, $String*, $ints*), "javax.naming.NamingException"},
-	{"readQDString", "(Ljava/lang/String;[I)[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(LdapSchemaParser, readQDString, $StringArray*, $String*, $ints*), "javax.naming.NamingException"},
-	{"readQDStrings", "(Ljava/lang/String;[I)[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(LdapSchemaParser, readQDStrings, $StringArray*, $String*, $ints*), "javax.naming.NamingException"},
-	{"readQDescrList", "(Ljava/lang/String;[I)[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(LdapSchemaParser, readQDescrList, $StringArray*, $String*, $ints*), "javax.naming.NamingException"},
-	{"readQDescrs", "(Ljava/lang/String;[I)[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(LdapSchemaParser, readQDescrs, $StringArray*, $String*, $ints*), "javax.naming.NamingException"},
-	{"readTag", "(Ljava/lang/String;Ljava/lang/String;[I)[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(LdapSchemaParser, readTag, $StringArray*, $String*, $String*, $ints*), "javax.naming.NamingException"},
-	{"readWOID", "(Ljava/lang/String;[I)[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(LdapSchemaParser, readWOID, $StringArray*, $String*, $ints*), "javax.naming.NamingException"},
-	{"skipWhitespace", "(Ljava/lang/String;[I)V", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(LdapSchemaParser, skipWhitespace, void, $String*, $ints*)},
-	{"stringifyAttrDesc", "(Ljavax/naming/directory/Attributes;)Ljavax/naming/directory/Attribute;", nullptr, $FINAL, $method(LdapSchemaParser, stringifyAttrDesc, $Attribute*, $Attributes*), "javax.naming.NamingException"},
-	{"stringifyMatchRuleDesc", "(Ljavax/naming/directory/Attributes;)Ljavax/naming/directory/Attribute;", nullptr, $FINAL, $method(LdapSchemaParser, stringifyMatchRuleDesc, $Attribute*, $Attributes*), "javax.naming.NamingException"},
-	{"stringifyObjDesc", "(Ljavax/naming/directory/Attributes;)Ljavax/naming/directory/Attribute;", nullptr, $FINAL, $method(LdapSchemaParser, stringifyObjDesc, $Attribute*, $Attributes*), "javax.naming.NamingException"},
-	{"stringifySyntaxDesc", "(Ljavax/naming/directory/Attributes;)Ljavax/naming/directory/Attribute;", nullptr, $FINAL, $method(LdapSchemaParser, stringifySyntaxDesc, $Attribute*, $Attributes*), "javax.naming.NamingException"},
-	{"syntaxDef2SyntaxDesc", "(Ljavax/naming/directory/Attributes;)Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $method(LdapSchemaParser, syntaxDef2SyntaxDesc, $String*, $Attributes*), "javax.naming.NamingException"},
-	{"syntaxDescs2SyntaxDefs", "(Ljavax/naming/directory/Attribute;Lcom/sun/jndi/ldap/LdapSchemaCtx;)Ljavax/naming/directory/DirContext;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(LdapSchemaParser, syntaxDescs2SyntaxDefs, $DirContext*, $Attribute*, $LdapSchemaCtx*), "javax.naming.NamingException"},
-	{"writeBoolean", "(Ljavax/naming/directory/Attribute;)Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $method(LdapSchemaParser, writeBoolean, $String*, $Attribute*), "javax.naming.NamingException"},
-	{"writeNumericOID", "(Ljavax/naming/directory/Attribute;)Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $method(LdapSchemaParser, writeNumericOID, $String*, $Attribute*), "javax.naming.NamingException"},
-	{"writeOIDs", "(Ljavax/naming/directory/Attribute;)Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $method(LdapSchemaParser, writeOIDs, $String*, $Attribute*), "javax.naming.NamingException"},
-	{"writeQDString", "(Ljavax/naming/directory/Attribute;)Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $method(LdapSchemaParser, writeQDString, $String*, $Attribute*), "javax.naming.NamingException"},
-	{"writeQDStrings", "(Ljavax/naming/directory/Attribute;)Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $method(LdapSchemaParser, writeQDStrings, $String*, $Attribute*), "javax.naming.NamingException"},
-	{"writeQDescrs", "(Ljavax/naming/directory/Attribute;)Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $method(LdapSchemaParser, writeQDescrs, $String*, $Attribute*), "javax.naming.NamingException"},
-	{"writeWOID", "(Ljavax/naming/directory/Attribute;)Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $method(LdapSchemaParser, writeWOID, $String*, $Attribute*), "javax.naming.NamingException"},
-	{}
-};
-
-$ClassInfo _LdapSchemaParser_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.jndi.ldap.LdapSchemaParser",
-	"java.lang.Object",
-	nullptr,
-	_LdapSchemaParser_FieldInfo_,
-	_LdapSchemaParser_MethodInfo_
-};
-
-$Object* allocate$LdapSchemaParser($Class* clazz) {
-	return $of($alloc(LdapSchemaParser));
-}
-
 $String* LdapSchemaParser::OBJECTCLASSDESC_ATTR_ID = nullptr;
 $String* LdapSchemaParser::ATTRIBUTEDESC_ATTR_ID = nullptr;
 $String* LdapSchemaParser::SYNTAXDESC_ATTR_ID = nullptr;
@@ -215,7 +121,7 @@ void LdapSchemaParser::init$(bool netscapeBug) {
 
 void LdapSchemaParser::LDAP2JNDISchema($Attributes* schemaAttrs, $LdapSchemaCtx* schemaRoot) {
 	$init(LdapSchemaParser);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Attribute, objectClassesAttr, nullptr);
 	$var($Attribute, attributeDefAttr, nullptr);
 	$var($Attribute, syntaxDefAttr, nullptr);
@@ -240,12 +146,12 @@ void LdapSchemaParser::LDAP2JNDISchema($Attributes* schemaAttrs, $LdapSchemaCtx*
 
 $DirContext* LdapSchemaParser::objectDescs2ClassDefs($Attribute* objDescsAttr, $LdapSchemaCtx* schemaRoot) {
 	$init(LdapSchemaParser);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($NamingEnumeration, objDescs, nullptr);
 	$var($Attributes, objDef, nullptr);
 	$var($LdapSchemaCtx, classDefTree, nullptr);
 	$var($Attributes, attrs, $new($BasicAttributes, $LdapClient::caseIgnore));
-	attrs->put($nc(LdapSchemaParser::CLASS_DEF_ATTRS)->get(0), $nc(LdapSchemaParser::CLASS_DEF_ATTRS)->get(1));
+	attrs->put(LdapSchemaParser::CLASS_DEF_ATTRS->get(0), LdapSchemaParser::CLASS_DEF_ATTRS->get(1));
 	$assign(classDefTree, $nc(schemaRoot)->setup($LdapSchemaCtx::OBJECTCLASS_ROOT, LdapSchemaParser::OBJECTCLASS_DEFINITION_NAME, attrs));
 	$assign(objDescs, $nc(objDescsAttr)->getAll());
 	$var($String, currentName, nullptr);
@@ -264,12 +170,12 @@ $DirContext* LdapSchemaParser::objectDescs2ClassDefs($Attribute* objDescsAttr, $
 
 $DirContext* LdapSchemaParser::attrDescs2AttrDefs($Attribute* attributeDescAttr, $LdapSchemaCtx* schemaRoot) {
 	$init(LdapSchemaParser);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($NamingEnumeration, attrDescs, nullptr);
 	$var($Attributes, attrDef, nullptr);
 	$var($LdapSchemaCtx, attrDefTree, nullptr);
 	$var($Attributes, attrs, $new($BasicAttributes, $LdapClient::caseIgnore));
-	attrs->put($nc(LdapSchemaParser::ATTR_DEF_ATTRS)->get(0), $nc(LdapSchemaParser::ATTR_DEF_ATTRS)->get(1));
+	attrs->put(LdapSchemaParser::ATTR_DEF_ATTRS->get(0), LdapSchemaParser::ATTR_DEF_ATTRS->get(1));
 	$assign(attrDefTree, $nc(schemaRoot)->setup($LdapSchemaCtx::ATTRIBUTE_ROOT, LdapSchemaParser::ATTRIBUTE_DEFINITION_NAME, attrs));
 	$assign(attrDescs, $nc(attributeDescAttr)->getAll());
 	$var($String, currentName, nullptr);
@@ -288,12 +194,12 @@ $DirContext* LdapSchemaParser::attrDescs2AttrDefs($Attribute* attributeDescAttr,
 
 $DirContext* LdapSchemaParser::syntaxDescs2SyntaxDefs($Attribute* syntaxDescAttr, $LdapSchemaCtx* schemaRoot) {
 	$init(LdapSchemaParser);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($NamingEnumeration, syntaxDescs, nullptr);
 	$var($Attributes, syntaxDef, nullptr);
 	$var($LdapSchemaCtx, syntaxDefTree, nullptr);
 	$var($Attributes, attrs, $new($BasicAttributes, $LdapClient::caseIgnore));
-	attrs->put($nc(LdapSchemaParser::SYNTAX_DEF_ATTRS)->get(0), $nc(LdapSchemaParser::SYNTAX_DEF_ATTRS)->get(1));
+	attrs->put(LdapSchemaParser::SYNTAX_DEF_ATTRS->get(0), LdapSchemaParser::SYNTAX_DEF_ATTRS->get(1));
 	$assign(syntaxDefTree, $nc(schemaRoot)->setup($LdapSchemaCtx::SYNTAX_ROOT, LdapSchemaParser::SYNTAX_DEFINITION_NAME, attrs));
 	$assign(syntaxDescs, $nc(syntaxDescAttr)->getAll());
 	$var($String, currentName, nullptr);
@@ -312,12 +218,12 @@ $DirContext* LdapSchemaParser::syntaxDescs2SyntaxDefs($Attribute* syntaxDescAttr
 
 $DirContext* LdapSchemaParser::matchRuleDescs2MatchRuleDefs($Attribute* matchRuleDescAttr, $LdapSchemaCtx* schemaRoot) {
 	$init(LdapSchemaParser);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($NamingEnumeration, matchRuleDescs, nullptr);
 	$var($Attributes, matchRuleDef, nullptr);
 	$var($LdapSchemaCtx, matchRuleDefTree, nullptr);
 	$var($Attributes, attrs, $new($BasicAttributes, $LdapClient::caseIgnore));
-	attrs->put($nc(LdapSchemaParser::MATCHRULE_DEF_ATTRS)->get(0), $nc(LdapSchemaParser::MATCHRULE_DEF_ATTRS)->get(1));
+	attrs->put(LdapSchemaParser::MATCHRULE_DEF_ATTRS->get(0), LdapSchemaParser::MATCHRULE_DEF_ATTRS->get(1));
 	$assign(matchRuleDefTree, $nc(schemaRoot)->setup($LdapSchemaCtx::MATCHRULE_ROOT, LdapSchemaParser::MATCHRULE_DEFINITION_NAME, attrs));
 	$assign(matchRuleDescs, $nc(matchRuleDescAttr)->getAll());
 	$var($String, currentName, nullptr);
@@ -336,7 +242,7 @@ $DirContext* LdapSchemaParser::matchRuleDescs2MatchRuleDefs($Attribute* matchRul
 
 $ObjectArray* LdapSchemaParser::desc2Def($String* desc) {
 	$init(LdapSchemaParser);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Attributes, attrs, $new($BasicAttributes, $LdapClient::caseIgnore));
 	$var($Attribute, attr, nullptr);
 	$var($ints, pos, $new($ints, {1}));
@@ -348,7 +254,7 @@ $ObjectArray* LdapSchemaParser::desc2Def($String* desc) {
 	while (moreTags) {
 		$assign(attr, readNextTag(desc, pos));
 		attrs->put(attr);
-		if ($nc($($nc(attr)->getID()))->equals(LdapSchemaParser::NAME_ID)) {
+		if ($$nc($nc(attr)->getID())->equals(LdapSchemaParser::NAME_ID)) {
 			$assign(currentName, $cast($String, attr->get(0)));
 		}
 		skipWhitespace(desc, pos);
@@ -357,8 +263,8 @@ $ObjectArray* LdapSchemaParser::desc2Def($String* desc) {
 		}
 	}
 	return $new($ObjectArray, {
-		$of(currentName),
-		$of(attrs)
+		currentName,
+		attrs
 	});
 }
 
@@ -377,6 +283,7 @@ void LdapSchemaParser::skipWhitespace($String* string, $ints* pos) {
 	for (int32_t i = $nc(pos)->get(0); i < $nc(string)->length(); ++i) {
 		if (string->charAt(i) != LdapSchemaParser::WHSP) {
 			pos->set(0, i);
+			;
 			return;
 		}
 	}
@@ -384,40 +291,42 @@ void LdapSchemaParser::skipWhitespace($String* string, $ints* pos) {
 
 $Attribute* LdapSchemaParser::readNumericOID($String* string, $ints* pos) {
 	$init(LdapSchemaParser);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
+	;
 	int32_t begin = 0;
 	int32_t end = 0;
 	$var($String, value, nullptr);
 	skipWhitespace(string, pos);
 	begin = $nc(pos)->get(0);
-	end = $nc(string)->indexOf((int32_t)LdapSchemaParser::WHSP, begin);
+	end = $nc(string)->indexOf(LdapSchemaParser::WHSP, begin);
 	if (end == -1 || end - begin < 1) {
 		$throwNew($InvalidAttributeValueException, $$str({"no numericoid found: "_s, string}));
 	}
 	$assign(value, string->substring(begin, end));
 	(*pos)[0] += value->length();
-	return $new($BasicAttribute, LdapSchemaParser::NUMERICOID_ID, $of(value));
+	return $new($BasicAttribute, LdapSchemaParser::NUMERICOID_ID, value);
 }
 
 $Attribute* LdapSchemaParser::readNextTag($String* string, $ints* pos) {
 	$init(LdapSchemaParser);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Attribute, attr, nullptr);
 	$var($String, tagName, nullptr);
 	$var($StringArray, values, nullptr);
 	skipWhitespace(string, pos);
-	int32_t trailingSpace = $nc(string)->indexOf((int32_t)LdapSchemaParser::WHSP, $nc(pos)->get(0));
+	;
+	int32_t trailingSpace = $nc(string)->indexOf(LdapSchemaParser::WHSP, $nc(pos)->get(0));
 	if (trailingSpace < 0) {
-		$assign(tagName, string->substring($nc(pos)->get(0), string->length() - 1));
+		$assign(tagName, string->substring(pos->get(0), string->length() - 1));
 	} else {
-		$assign(tagName, string->substring($nc(pos)->get(0), trailingSpace));
+		$assign(tagName, string->substring(pos->get(0), trailingSpace));
 	}
 	$assign(values, readTag(tagName, string, pos));
 	if ($nc(values)->length == 0) {
 		$throwNew($InvalidAttributeValueException, $$str({"no values for attribute \""_s, tagName, "\""_s}));
 	}
-	$assign(attr, $new($BasicAttribute, tagName, $of($nc(values)->get(0))));
-	for (int32_t i = 1; i < $nc(values)->length; ++i) {
+	$assign(attr, $new($BasicAttribute, tagName, values->get(0)));
+	for (int32_t i = 1; i < values->length; ++i) {
 		attr->add(values->get(i));
 	}
 	return attr;
@@ -425,6 +334,7 @@ $Attribute* LdapSchemaParser::readNextTag($String* string, $ints* pos) {
 
 $StringArray* LdapSchemaParser::readTag($String* tag, $String* string, $ints* pos) {
 	$init(LdapSchemaParser);
+	;
 	(*$nc(pos))[0] += $nc(tag)->length();
 	skipWhitespace(string, pos);
 	if (tag->equals(LdapSchemaParser::NAME_ID)) {
@@ -459,18 +369,19 @@ $StringArray* LdapSchemaParser::readTag($String* tag, $String* string, $ints* po
 
 $StringArray* LdapSchemaParser::readQDString($String* string, $ints* pos) {
 	$init(LdapSchemaParser);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t begin = 0;
 	int32_t end = 0;
-	begin = $nc(string)->indexOf((int32_t)LdapSchemaParser::SINGLE_QUOTE, $nc(pos)->get(0)) + 1;
-	end = string->indexOf((int32_t)LdapSchemaParser::SINGLE_QUOTE, begin);
+	begin = $nc(string)->indexOf(LdapSchemaParser::SINGLE_QUOTE, $nc(pos)->get(0)) + 1;
+	end = string->indexOf(LdapSchemaParser::SINGLE_QUOTE, begin);
+	;
 	if (begin == -1 || end == -1 || begin == end) {
 		$throwNew($InvalidAttributeIdentifierException, $$str({"malformed QDString: "_s, string}));
 	}
 	if (string->charAt(begin - 1) != LdapSchemaParser::SINGLE_QUOTE) {
 		$throwNew($InvalidAttributeIdentifierException, $$str({"qdstring has no end mark: "_s, string}));
 	}
-	$nc(pos)->set(0, end + 1);
+	pos->set(0, end + 1);
 	return $new($StringArray, {$(string->substring(begin, end))});
 }
 
@@ -481,38 +392,35 @@ $StringArray* LdapSchemaParser::readQDStrings($String* string, $ints* pos) {
 
 $StringArray* LdapSchemaParser::readQDescrs($String* string, $ints* pos) {
 	$init(LdapSchemaParser);
+	;
 	skipWhitespace(string, pos);
 	switch ($nc(string)->charAt($nc(pos)->get(0))) {
 	case LdapSchemaParser::OID_LIST_BEGIN:
-		{
-			return readQDescrList(string, pos);
-		}
+		return readQDescrList(string, pos);
 	case LdapSchemaParser::SINGLE_QUOTE:
-		{
-			return readQDString(string, pos);
-		}
+		return readQDString(string, pos);
 	default:
-		{
-			$throwNew($InvalidAttributeValueException, $$str({"unexpected oids string: "_s, string}));
-		}
+		$throwNew($InvalidAttributeValueException, $$str({"unexpected oids string: "_s, string}));
 	}
 }
 
 $StringArray* LdapSchemaParser::readQDescrList($String* string, $ints* pos) {
 	$init(LdapSchemaParser);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t begin = 0;
 	int32_t end = 0;
 	$var($Vector, values, $new($Vector, 5));
+	;
 	++(*$nc(pos))[0];
 	skipWhitespace(string, pos);
 	begin = pos->get(0);
-	end = $nc(string)->indexOf((int32_t)LdapSchemaParser::OID_LIST_END, begin);
+	end = $nc(string)->indexOf(LdapSchemaParser::OID_LIST_END, begin);
 	if (end == -1) {
 		$throwNew($InvalidAttributeValueException, $$str({"oidlist has no end mark: "_s, string}));
 	}
 	while (begin < end) {
 		$var($StringArray, one, readQDString(string, pos));
+		;
 		values->addElement($nc(one)->get(0));
 		skipWhitespace(string, pos);
 		begin = pos->get(0);
@@ -520,22 +428,24 @@ $StringArray* LdapSchemaParser::readQDescrList($String* string, $ints* pos) {
 	pos->set(0, end + 1);
 	$var($StringArray, answer, $new($StringArray, values->size()));
 	for (int32_t i = 0; i < answer->length; ++i) {
-		answer->set(i, $cast($String, $(values->elementAt(i))));
+		answer->set(i, $$cast($String, values->elementAt(i)));
 	}
 	return answer;
 }
 
 $StringArray* LdapSchemaParser::readWOID($String* string, $ints* pos) {
 	$init(LdapSchemaParser);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
+	;
 	skipWhitespace(string, pos);
 	if ($nc(string)->charAt($nc(pos)->get(0)) == LdapSchemaParser::SINGLE_QUOTE) {
 		return readQDString(string, pos);
 	}
 	int32_t begin = 0;
 	int32_t end = 0;
-	begin = $nc(pos)->get(0);
-	end = $nc(string)->indexOf((int32_t)LdapSchemaParser::WHSP, begin);
+	begin = pos->get(0);
+	end = string->indexOf(LdapSchemaParser::WHSP, begin);
+	;
 	if (end == -1 || begin == end) {
 		$throwNew($InvalidAttributeIdentifierException, $$str({"malformed OID: "_s, string}));
 	}
@@ -545,7 +455,8 @@ $StringArray* LdapSchemaParser::readWOID($String* string, $ints* pos) {
 
 $StringArray* LdapSchemaParser::readOIDs($String* string, $ints* pos) {
 	$init(LdapSchemaParser);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
+	;
 	skipWhitespace(string, pos);
 	if ($nc(string)->charAt($nc(pos)->get(0)) != LdapSchemaParser::OID_LIST_BEGIN) {
 		return readWOID(string, pos);
@@ -555,11 +466,12 @@ $StringArray* LdapSchemaParser::readOIDs($String* string, $ints* pos) {
 	int32_t end = 0;
 	$var($String, oidName, nullptr);
 	$var($Vector, values, $new($Vector, 5));
-	++(*$nc(pos))[0];
+	;
+	++(*pos)[0];
 	skipWhitespace(string, pos);
 	begin = pos->get(0);
-	end = $nc(string)->indexOf((int32_t)LdapSchemaParser::OID_LIST_END, begin);
-	cur = string->indexOf((int32_t)LdapSchemaParser::OID_SEPARATOR, begin);
+	end = string->indexOf(LdapSchemaParser::OID_LIST_END, begin);
+	cur = string->indexOf(LdapSchemaParser::OID_SEPARATOR, begin);
 	if (end == -1) {
 		$throwNew($InvalidAttributeValueException, $$str({"oidlist has no end mark: "_s, string}));
 	}
@@ -569,25 +481,28 @@ $StringArray* LdapSchemaParser::readOIDs($String* string, $ints* pos) {
 	while (cur < end && cur > 0) {
 		int32_t wsBegin = findTrailingWhitespace(string, cur - 1);
 		$assign(oidName, string->substring(begin, wsBegin));
+		;
 		values->addElement(oidName);
 		pos->set(0, cur + 1);
 		skipWhitespace(string, pos);
 		begin = pos->get(0);
-		cur = string->indexOf((int32_t)LdapSchemaParser::OID_SEPARATOR, begin);
+		cur = string->indexOf(LdapSchemaParser::OID_SEPARATOR, begin);
+		;
 	}
+	;
 	int32_t wsBegin = findTrailingWhitespace(string, end - 1);
 	$assign(oidName, string->substring(begin, wsBegin));
 	values->addElement(oidName);
 	pos->set(0, end + 1);
 	$var($StringArray, answer, $new($StringArray, values->size()));
 	for (int32_t i = 0; i < answer->length; ++i) {
-		answer->set(i, $cast($String, $(values->elementAt(i))));
+		answer->set(i, $$cast($String, values->elementAt(i)));
 	}
 	return answer;
 }
 
 $String* LdapSchemaParser::classDef2ObjectDesc($Attributes* attrs) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, objectDesc, $new($StringBuilder, "( "_s));
 	$var($Attribute, attr, nullptr);
 	int32_t count = 0;
@@ -651,15 +566,15 @@ $String* LdapSchemaParser::classDef2ObjectDesc($Attributes* attrs) {
 				$assign(attr, $cast($Attribute, ae->next()));
 				$assign(attrId, $nc(attr)->getID());
 				bool var$8 = $nc(attrId)->equals(LdapSchemaParser::NUMERICOID_ID);
-				bool var$7 = var$8 || $nc(attrId)->equals(LdapSchemaParser::NAME_ID);
-				bool var$6 = var$7 || $nc(attrId)->equals(LdapSchemaParser::SUP_ID);
-				bool var$5 = var$6 || $nc(attrId)->equals(LdapSchemaParser::MAY_ID);
-				bool var$4 = var$5 || $nc(attrId)->equals(LdapSchemaParser::MUST_ID);
-				bool var$3 = var$4 || $nc(attrId)->equals(LdapSchemaParser::STRUCTURAL_ID);
-				bool var$2 = var$3 || $nc(attrId)->equals(LdapSchemaParser::DESC_ID);
-				bool var$1 = var$2 || $nc(attrId)->equals(LdapSchemaParser::AUXILIARY_ID);
-				bool var$0 = var$1 || $nc(attrId)->equals(LdapSchemaParser::ABSTRACT_ID);
-				if (var$0 || $nc(attrId)->equals(LdapSchemaParser::OBSOLETE_ID)) {
+				bool var$7 = var$8 || attrId->equals(LdapSchemaParser::NAME_ID);
+				bool var$6 = var$7 || attrId->equals(LdapSchemaParser::SUP_ID);
+				bool var$5 = var$6 || attrId->equals(LdapSchemaParser::MAY_ID);
+				bool var$4 = var$5 || attrId->equals(LdapSchemaParser::MUST_ID);
+				bool var$3 = var$4 || attrId->equals(LdapSchemaParser::STRUCTURAL_ID);
+				bool var$2 = var$3 || attrId->equals(LdapSchemaParser::DESC_ID);
+				bool var$1 = var$2 || attrId->equals(LdapSchemaParser::AUXILIARY_ID);
+				bool var$0 = var$1 || attrId->equals(LdapSchemaParser::ABSTRACT_ID);
+				if (var$0 || attrId->equals(LdapSchemaParser::OBSOLETE_ID)) {
 					continue;
 				} else {
 					objectDesc->append($(writeQDStrings(attr)));
@@ -672,7 +587,7 @@ $String* LdapSchemaParser::classDef2ObjectDesc($Attributes* attrs) {
 }
 
 $String* LdapSchemaParser::attrDef2AttrDesc($Attributes* attrs) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, attrDesc, $new($StringBuilder, "( "_s));
 	$var($Attribute, attr, nullptr);
 	int32_t count = 0;
@@ -751,18 +666,18 @@ $String* LdapSchemaParser::attrDef2AttrDesc($Attributes* attrs) {
 				$assign(attr, $cast($Attribute, ae->next()));
 				$assign(attrId, $nc(attr)->getID());
 				bool var$11 = $nc(attrId)->equals(LdapSchemaParser::NUMERICOID_ID);
-				bool var$10 = var$11 || $nc(attrId)->equals(LdapSchemaParser::NAME_ID);
-				bool var$9 = var$10 || $nc(attrId)->equals(LdapSchemaParser::SYNTAX_ID);
-				bool var$8 = var$9 || $nc(attrId)->equals(LdapSchemaParser::DESC_ID);
-				bool var$7 = var$8 || $nc(attrId)->equals(LdapSchemaParser::SINGLE_VAL_ID);
-				bool var$6 = var$7 || $nc(attrId)->equals(LdapSchemaParser::EQUALITY_ID);
-				bool var$5 = var$6 || $nc(attrId)->equals(LdapSchemaParser::ORDERING_ID);
-				bool var$4 = var$5 || $nc(attrId)->equals(LdapSchemaParser::SUBSTR_ID);
-				bool var$3 = var$4 || $nc(attrId)->equals(LdapSchemaParser::NO_USER_MOD_ID);
-				bool var$2 = var$3 || $nc(attrId)->equals(LdapSchemaParser::USAGE_ID);
-				bool var$1 = var$2 || $nc(attrId)->equals(LdapSchemaParser::SUP_ID);
-				bool var$0 = var$1 || $nc(attrId)->equals(LdapSchemaParser::COLLECTIVE_ID);
-				if (var$0 || $nc(attrId)->equals(LdapSchemaParser::OBSOLETE_ID)) {
+				bool var$10 = var$11 || attrId->equals(LdapSchemaParser::NAME_ID);
+				bool var$9 = var$10 || attrId->equals(LdapSchemaParser::SYNTAX_ID);
+				bool var$8 = var$9 || attrId->equals(LdapSchemaParser::DESC_ID);
+				bool var$7 = var$8 || attrId->equals(LdapSchemaParser::SINGLE_VAL_ID);
+				bool var$6 = var$7 || attrId->equals(LdapSchemaParser::EQUALITY_ID);
+				bool var$5 = var$6 || attrId->equals(LdapSchemaParser::ORDERING_ID);
+				bool var$4 = var$5 || attrId->equals(LdapSchemaParser::SUBSTR_ID);
+				bool var$3 = var$4 || attrId->equals(LdapSchemaParser::NO_USER_MOD_ID);
+				bool var$2 = var$3 || attrId->equals(LdapSchemaParser::USAGE_ID);
+				bool var$1 = var$2 || attrId->equals(LdapSchemaParser::SUP_ID);
+				bool var$0 = var$1 || attrId->equals(LdapSchemaParser::COLLECTIVE_ID);
+				if (var$0 || attrId->equals(LdapSchemaParser::OBSOLETE_ID)) {
 					continue;
 				} else {
 					attrDesc->append($(writeQDStrings(attr)));
@@ -775,7 +690,7 @@ $String* LdapSchemaParser::attrDef2AttrDesc($Attributes* attrs) {
 }
 
 $String* LdapSchemaParser::syntaxDef2SyntaxDesc($Attributes* attrs) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, syntaxDesc, $new($StringBuilder, "( "_s));
 	$var($Attribute, attr, nullptr);
 	int32_t count = 0;
@@ -799,7 +714,7 @@ $String* LdapSchemaParser::syntaxDef2SyntaxDesc($Attributes* attrs) {
 				$assign(attr, $cast($Attribute, ae->next()));
 				$assign(attrId, $nc(attr)->getID());
 				bool var$0 = $nc(attrId)->equals(LdapSchemaParser::NUMERICOID_ID);
-				if (var$0 || $nc(attrId)->equals(LdapSchemaParser::DESC_ID)) {
+				if (var$0 || attrId->equals(LdapSchemaParser::DESC_ID)) {
 					continue;
 				} else {
 					syntaxDesc->append($(writeQDStrings(attr)));
@@ -812,7 +727,7 @@ $String* LdapSchemaParser::syntaxDef2SyntaxDesc($Attributes* attrs) {
 }
 
 $String* LdapSchemaParser::matchRuleDef2MatchRuleDesc($Attributes* attrs) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, matchRuleDesc, $new($StringBuilder, "( "_s));
 	$var($Attribute, attr, nullptr);
 	int32_t count = 0;
@@ -853,10 +768,10 @@ $String* LdapSchemaParser::matchRuleDef2MatchRuleDesc($Attributes* attrs) {
 				$assign(attr, $cast($Attribute, ae->next()));
 				$assign(attrId, $nc(attr)->getID());
 				bool var$3 = $nc(attrId)->equals(LdapSchemaParser::NUMERICOID_ID);
-				bool var$2 = var$3 || $nc(attrId)->equals(LdapSchemaParser::NAME_ID);
-				bool var$1 = var$2 || $nc(attrId)->equals(LdapSchemaParser::SYNTAX_ID);
-				bool var$0 = var$1 || $nc(attrId)->equals(LdapSchemaParser::DESC_ID);
-				if (var$0 || $nc(attrId)->equals(LdapSchemaParser::OBSOLETE_ID)) {
+				bool var$2 = var$3 || attrId->equals(LdapSchemaParser::NAME_ID);
+				bool var$1 = var$2 || attrId->equals(LdapSchemaParser::SYNTAX_ID);
+				bool var$0 = var$1 || attrId->equals(LdapSchemaParser::DESC_ID);
+				if (var$0 || attrId->equals(LdapSchemaParser::OBSOLETE_ID)) {
 					continue;
 				} else {
 					matchRuleDesc->append($(writeQDStrings(attr)));
@@ -869,33 +784,40 @@ $String* LdapSchemaParser::matchRuleDef2MatchRuleDesc($Attributes* attrs) {
 }
 
 $String* LdapSchemaParser::writeNumericOID($Attribute* nOIDAttr) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(nOIDAttr)->size() != 1) {
 		$throwNew($InvalidAttributeValueException, "A class definition must have exactly one numeric OID"_s);
 	}
-	return $str({($cast($String, $($nc(nOIDAttr)->get()))), $$str(LdapSchemaParser::WHSP)});
+	return $str({$$cast($String, nOIDAttr->get()), $$str(LdapSchemaParser::WHSP)});
 }
 
 $String* LdapSchemaParser::writeWOID($Attribute* attr) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->netscapeBug) {
 		return writeQDString(attr);
 	} else {
-		$var($String, var$1, $$str({$($nc(attr)->getID()), $$str(LdapSchemaParser::WHSP)}));
-		$var($String, var$0, $$concat(var$1, $(attr->get())));
-		return $concat(var$0, $$str(LdapSchemaParser::WHSP));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append($($nc(attr)->getID()));
+		var$0->append(LdapSchemaParser::WHSP);
+		var$0->append($(attr->get()));
+		var$0->append(LdapSchemaParser::WHSP);
+		return $str(var$0);
 	}
 }
 
 $String* LdapSchemaParser::writeQDString($Attribute* qdStringAttr) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(qdStringAttr)->size() != 1) {
 		$throwNew($InvalidAttributeValueException, $$str({$(qdStringAttr->getID()), " must have exactly one value"_s}));
 	}
-	$var($String, var$2, $$str({$($nc(qdStringAttr)->getID()), $$str(LdapSchemaParser::WHSP), $$str(LdapSchemaParser::SINGLE_QUOTE)}));
-	$var($String, var$1, $$concat(var$2, $(qdStringAttr->get())));
-	$var($String, var$0, $$concat(var$1, $$str(LdapSchemaParser::SINGLE_QUOTE)));
-	return $concat(var$0, $$str(LdapSchemaParser::WHSP));
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append($(qdStringAttr->getID()));
+	var$0->append(LdapSchemaParser::WHSP);
+	var$0->append(LdapSchemaParser::SINGLE_QUOTE);
+	var$0->append($(qdStringAttr->get()));
+	var$0->append(LdapSchemaParser::SINGLE_QUOTE);
+	var$0->append(LdapSchemaParser::WHSP);
+	return $str(var$0);
 }
 
 $String* LdapSchemaParser::writeQDStrings($Attribute* attr) {
@@ -903,16 +825,12 @@ $String* LdapSchemaParser::writeQDStrings($Attribute* attr) {
 }
 
 $String* LdapSchemaParser::writeQDescrs($Attribute* attr) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	switch ($nc(attr)->size()) {
 	case 0:
-		{
-			$throwNew($InvalidAttributeValueException, $$str({$(attr->getID()), "has no values"_s}));
-		}
+		$throwNew($InvalidAttributeValueException, $$str({$(attr->getID()), "has no values"_s}));
 	case 1:
-		{
-			return writeQDString(attr);
-		}
+		return writeQDString(attr);
 	}
 	$var($StringBuilder, qdList, $new($StringBuilder, $(attr->getID())));
 	qdList->append(LdapSchemaParser::WHSP);
@@ -921,7 +839,7 @@ $String* LdapSchemaParser::writeQDescrs($Attribute* attr) {
 	while ($nc(values)->hasMore()) {
 		qdList->append(LdapSchemaParser::WHSP);
 		qdList->append(LdapSchemaParser::SINGLE_QUOTE);
-		qdList->append($cast($String, $(values->next())));
+		qdList->append($$cast($String, values->next()));
 		qdList->append(LdapSchemaParser::SINGLE_QUOTE);
 		qdList->append(LdapSchemaParser::WHSP);
 	}
@@ -931,19 +849,15 @@ $String* LdapSchemaParser::writeQDescrs($Attribute* attr) {
 }
 
 $String* LdapSchemaParser::writeOIDs($Attribute* oidsAttr) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	switch ($nc(oidsAttr)->size()) {
 	case 0:
-		{
-			$throwNew($InvalidAttributeValueException, $$str({$(oidsAttr->getID()), "has no values"_s}));
-		}
+		$throwNew($InvalidAttributeValueException, $$str({$(oidsAttr->getID()), "has no values"_s}));
 	case 1:
-		{
-			if (this->netscapeBug) {
-				break;
-			}
-			return writeWOID(oidsAttr);
+		if (this->netscapeBug) {
+			break;
 		}
+		return writeWOID(oidsAttr);
 	}
 	$var($StringBuilder, oidList, $new($StringBuilder, $(oidsAttr->getID())));
 	oidList->append(LdapSchemaParser::WHSP);
@@ -951,11 +865,11 @@ $String* LdapSchemaParser::writeOIDs($Attribute* oidsAttr) {
 	$var($NamingEnumeration, values, oidsAttr->getAll());
 	oidList->append(LdapSchemaParser::WHSP);
 	oidList->append($($nc(values)->next()));
-	while ($nc(values)->hasMore()) {
+	while (values->hasMore()) {
 		oidList->append(LdapSchemaParser::WHSP);
 		oidList->append(LdapSchemaParser::OID_SEPARATOR);
 		oidList->append(LdapSchemaParser::WHSP);
-		oidList->append($cast($String, $(values->next())));
+		oidList->append($$cast($String, values->next()));
 	}
 	oidList->append(LdapSchemaParser::WHSP);
 	oidList->append(LdapSchemaParser::OID_LIST_END);
@@ -964,39 +878,39 @@ $String* LdapSchemaParser::writeOIDs($Attribute* oidsAttr) {
 }
 
 $String* LdapSchemaParser::writeBoolean($Attribute* booleanAttr) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $str({$($nc(booleanAttr)->getID()), $$str(LdapSchemaParser::WHSP)});
 }
 
 $Attribute* LdapSchemaParser::stringifyObjDesc($Attributes* classDefAttrs) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Attribute, objDescAttr, $new($BasicAttribute, LdapSchemaParser::OBJECTCLASSDESC_ATTR_ID));
 	objDescAttr->add($(classDef2ObjectDesc(classDefAttrs)));
 	return objDescAttr;
 }
 
 $Attribute* LdapSchemaParser::stringifyAttrDesc($Attributes* attrDefAttrs) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Attribute, attrDescAttr, $new($BasicAttribute, LdapSchemaParser::ATTRIBUTEDESC_ATTR_ID));
 	attrDescAttr->add($(attrDef2AttrDesc(attrDefAttrs)));
 	return attrDescAttr;
 }
 
 $Attribute* LdapSchemaParser::stringifySyntaxDesc($Attributes* syntaxDefAttrs) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Attribute, syntaxDescAttr, $new($BasicAttribute, LdapSchemaParser::SYNTAXDESC_ATTR_ID));
 	syntaxDescAttr->add($(syntaxDef2SyntaxDesc(syntaxDefAttrs)));
 	return syntaxDescAttr;
 }
 
 $Attribute* LdapSchemaParser::stringifyMatchRuleDesc($Attributes* matchRuleDefAttrs) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Attribute, matchRuleDescAttr, $new($BasicAttribute, LdapSchemaParser::MATCHRULEDESC_ATTR_ID));
 	matchRuleDescAttr->add($(matchRuleDef2MatchRuleDesc(matchRuleDefAttrs)));
 	return matchRuleDescAttr;
 }
 
-void clinit$LdapSchemaParser($Class* class$) {
+void LdapSchemaParser::clinit$($Class* clazz) {
 	$assignStatic(LdapSchemaParser::OBJECTCLASSDESC_ATTR_ID, "objectClasses"_s);
 	$assignStatic(LdapSchemaParser::ATTRIBUTEDESC_ATTR_ID, "attributeTypes"_s);
 	$assignStatic(LdapSchemaParser::SYNTAXDESC_ATTR_ID, "ldapSyntaxes"_s);
@@ -1047,7 +961,95 @@ LdapSchemaParser::LdapSchemaParser() {
 }
 
 $Class* LdapSchemaParser::load$($String* name, bool initialize) {
-	$loadClass(LdapSchemaParser, name, initialize, &_LdapSchemaParser_ClassInfo_, clinit$LdapSchemaParser, allocate$LdapSchemaParser);
+	$FieldInfo fieldInfos$$[] = {
+		{"debug", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LdapSchemaParser, debug)},
+		{"OBJECTCLASSDESC_ATTR_ID", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(LdapSchemaParser, OBJECTCLASSDESC_ATTR_ID)},
+		{"ATTRIBUTEDESC_ATTR_ID", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(LdapSchemaParser, ATTRIBUTEDESC_ATTR_ID)},
+		{"SYNTAXDESC_ATTR_ID", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(LdapSchemaParser, SYNTAXDESC_ATTR_ID)},
+		{"MATCHRULEDESC_ATTR_ID", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(LdapSchemaParser, MATCHRULEDESC_ATTR_ID)},
+		{"OBJECTCLASS_DEFINITION_NAME", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(LdapSchemaParser, OBJECTCLASS_DEFINITION_NAME)},
+		{"CLASS_DEF_ATTRS", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LdapSchemaParser, CLASS_DEF_ATTRS)},
+		{"ATTRIBUTE_DEFINITION_NAME", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(LdapSchemaParser, ATTRIBUTE_DEFINITION_NAME)},
+		{"ATTR_DEF_ATTRS", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LdapSchemaParser, ATTR_DEF_ATTRS)},
+		{"SYNTAX_DEFINITION_NAME", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(LdapSchemaParser, SYNTAX_DEFINITION_NAME)},
+		{"SYNTAX_DEF_ATTRS", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LdapSchemaParser, SYNTAX_DEF_ATTRS)},
+		{"MATCHRULE_DEFINITION_NAME", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(LdapSchemaParser, MATCHRULE_DEFINITION_NAME)},
+		{"MATCHRULE_DEF_ATTRS", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LdapSchemaParser, MATCHRULE_DEF_ATTRS)},
+		{"SINGLE_QUOTE", "C", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LdapSchemaParser, SINGLE_QUOTE)},
+		{"WHSP", "C", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LdapSchemaParser, WHSP)},
+		{"OID_LIST_BEGIN", "C", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LdapSchemaParser, OID_LIST_BEGIN)},
+		{"OID_LIST_END", "C", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LdapSchemaParser, OID_LIST_END)},
+		{"OID_SEPARATOR", "C", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LdapSchemaParser, OID_SEPARATOR)},
+		{"NUMERICOID_ID", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LdapSchemaParser, NUMERICOID_ID)},
+		{"NAME_ID", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LdapSchemaParser, NAME_ID)},
+		{"DESC_ID", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LdapSchemaParser, DESC_ID)},
+		{"OBSOLETE_ID", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LdapSchemaParser, OBSOLETE_ID)},
+		{"SUP_ID", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LdapSchemaParser, SUP_ID)},
+		{"PRIVATE_ID", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LdapSchemaParser, PRIVATE_ID)},
+		{"ABSTRACT_ID", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LdapSchemaParser, ABSTRACT_ID)},
+		{"STRUCTURAL_ID", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LdapSchemaParser, STRUCTURAL_ID)},
+		{"AUXILIARY_ID", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LdapSchemaParser, AUXILIARY_ID)},
+		{"MUST_ID", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LdapSchemaParser, MUST_ID)},
+		{"MAY_ID", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LdapSchemaParser, MAY_ID)},
+		{"EQUALITY_ID", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LdapSchemaParser, EQUALITY_ID)},
+		{"ORDERING_ID", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LdapSchemaParser, ORDERING_ID)},
+		{"SUBSTR_ID", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LdapSchemaParser, SUBSTR_ID)},
+		{"SYNTAX_ID", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LdapSchemaParser, SYNTAX_ID)},
+		{"SINGLE_VAL_ID", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LdapSchemaParser, SINGLE_VAL_ID)},
+		{"COLLECTIVE_ID", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LdapSchemaParser, COLLECTIVE_ID)},
+		{"NO_USER_MOD_ID", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LdapSchemaParser, NO_USER_MOD_ID)},
+		{"USAGE_ID", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LdapSchemaParser, USAGE_ID)},
+		{"SCHEMA_TRUE_VALUE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LdapSchemaParser, SCHEMA_TRUE_VALUE)},
+		{"netscapeBug", "Z", nullptr, $PRIVATE, $field(LdapSchemaParser, netscapeBug)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Z)V", nullptr, 0, $method(LdapSchemaParser, init$, void, bool)},
+		{"LDAP2JNDISchema", "(Ljavax/naming/directory/Attributes;Lcom/sun/jndi/ldap/LdapSchemaCtx;)V", nullptr, $STATIC | $FINAL, $staticMethod(LdapSchemaParser, LDAP2JNDISchema, void, $Attributes*, $LdapSchemaCtx*), "javax.naming.NamingException"},
+		{"attrDef2AttrDesc", "(Ljavax/naming/directory/Attributes;)Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $method(LdapSchemaParser, attrDef2AttrDesc, $String*, $Attributes*), "javax.naming.NamingException"},
+		{"attrDescs2AttrDefs", "(Ljavax/naming/directory/Attribute;Lcom/sun/jndi/ldap/LdapSchemaCtx;)Ljavax/naming/directory/DirContext;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(LdapSchemaParser, attrDescs2AttrDefs, $DirContext*, $Attribute*, $LdapSchemaCtx*), "javax.naming.NamingException"},
+		{"classDef2ObjectDesc", "(Ljavax/naming/directory/Attributes;)Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $method(LdapSchemaParser, classDef2ObjectDesc, $String*, $Attributes*), "javax.naming.NamingException"},
+		{"desc2Def", "(Ljava/lang/String;)[Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(LdapSchemaParser, desc2Def, $ObjectArray*, $String*), "javax.naming.NamingException"},
+		{"findTrailingWhitespace", "(Ljava/lang/String;I)I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(LdapSchemaParser, findTrailingWhitespace, int32_t, $String*, int32_t)},
+		{"matchRuleDef2MatchRuleDesc", "(Ljavax/naming/directory/Attributes;)Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $method(LdapSchemaParser, matchRuleDef2MatchRuleDesc, $String*, $Attributes*), "javax.naming.NamingException"},
+		{"matchRuleDescs2MatchRuleDefs", "(Ljavax/naming/directory/Attribute;Lcom/sun/jndi/ldap/LdapSchemaCtx;)Ljavax/naming/directory/DirContext;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(LdapSchemaParser, matchRuleDescs2MatchRuleDefs, $DirContext*, $Attribute*, $LdapSchemaCtx*), "javax.naming.NamingException"},
+		{"objectDescs2ClassDefs", "(Ljavax/naming/directory/Attribute;Lcom/sun/jndi/ldap/LdapSchemaCtx;)Ljavax/naming/directory/DirContext;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(LdapSchemaParser, objectDescs2ClassDefs, $DirContext*, $Attribute*, $LdapSchemaCtx*), "javax.naming.NamingException"},
+		{"readNextTag", "(Ljava/lang/String;[I)Ljavax/naming/directory/Attribute;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(LdapSchemaParser, readNextTag, $Attribute*, $String*, $ints*), "javax.naming.NamingException"},
+		{"readNumericOID", "(Ljava/lang/String;[I)Ljavax/naming/directory/Attribute;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(LdapSchemaParser, readNumericOID, $Attribute*, $String*, $ints*), "javax.naming.NamingException"},
+		{"readOIDs", "(Ljava/lang/String;[I)[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(LdapSchemaParser, readOIDs, $StringArray*, $String*, $ints*), "javax.naming.NamingException"},
+		{"readQDString", "(Ljava/lang/String;[I)[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(LdapSchemaParser, readQDString, $StringArray*, $String*, $ints*), "javax.naming.NamingException"},
+		{"readQDStrings", "(Ljava/lang/String;[I)[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(LdapSchemaParser, readQDStrings, $StringArray*, $String*, $ints*), "javax.naming.NamingException"},
+		{"readQDescrList", "(Ljava/lang/String;[I)[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(LdapSchemaParser, readQDescrList, $StringArray*, $String*, $ints*), "javax.naming.NamingException"},
+		{"readQDescrs", "(Ljava/lang/String;[I)[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(LdapSchemaParser, readQDescrs, $StringArray*, $String*, $ints*), "javax.naming.NamingException"},
+		{"readTag", "(Ljava/lang/String;Ljava/lang/String;[I)[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(LdapSchemaParser, readTag, $StringArray*, $String*, $String*, $ints*), "javax.naming.NamingException"},
+		{"readWOID", "(Ljava/lang/String;[I)[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(LdapSchemaParser, readWOID, $StringArray*, $String*, $ints*), "javax.naming.NamingException"},
+		{"skipWhitespace", "(Ljava/lang/String;[I)V", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(LdapSchemaParser, skipWhitespace, void, $String*, $ints*)},
+		{"stringifyAttrDesc", "(Ljavax/naming/directory/Attributes;)Ljavax/naming/directory/Attribute;", nullptr, $FINAL, $method(LdapSchemaParser, stringifyAttrDesc, $Attribute*, $Attributes*), "javax.naming.NamingException"},
+		{"stringifyMatchRuleDesc", "(Ljavax/naming/directory/Attributes;)Ljavax/naming/directory/Attribute;", nullptr, $FINAL, $method(LdapSchemaParser, stringifyMatchRuleDesc, $Attribute*, $Attributes*), "javax.naming.NamingException"},
+		{"stringifyObjDesc", "(Ljavax/naming/directory/Attributes;)Ljavax/naming/directory/Attribute;", nullptr, $FINAL, $method(LdapSchemaParser, stringifyObjDesc, $Attribute*, $Attributes*), "javax.naming.NamingException"},
+		{"stringifySyntaxDesc", "(Ljavax/naming/directory/Attributes;)Ljavax/naming/directory/Attribute;", nullptr, $FINAL, $method(LdapSchemaParser, stringifySyntaxDesc, $Attribute*, $Attributes*), "javax.naming.NamingException"},
+		{"syntaxDef2SyntaxDesc", "(Ljavax/naming/directory/Attributes;)Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $method(LdapSchemaParser, syntaxDef2SyntaxDesc, $String*, $Attributes*), "javax.naming.NamingException"},
+		{"syntaxDescs2SyntaxDefs", "(Ljavax/naming/directory/Attribute;Lcom/sun/jndi/ldap/LdapSchemaCtx;)Ljavax/naming/directory/DirContext;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(LdapSchemaParser, syntaxDescs2SyntaxDefs, $DirContext*, $Attribute*, $LdapSchemaCtx*), "javax.naming.NamingException"},
+		{"writeBoolean", "(Ljavax/naming/directory/Attribute;)Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $method(LdapSchemaParser, writeBoolean, $String*, $Attribute*), "javax.naming.NamingException"},
+		{"writeNumericOID", "(Ljavax/naming/directory/Attribute;)Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $method(LdapSchemaParser, writeNumericOID, $String*, $Attribute*), "javax.naming.NamingException"},
+		{"writeOIDs", "(Ljavax/naming/directory/Attribute;)Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $method(LdapSchemaParser, writeOIDs, $String*, $Attribute*), "javax.naming.NamingException"},
+		{"writeQDString", "(Ljavax/naming/directory/Attribute;)Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $method(LdapSchemaParser, writeQDString, $String*, $Attribute*), "javax.naming.NamingException"},
+		{"writeQDStrings", "(Ljavax/naming/directory/Attribute;)Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $method(LdapSchemaParser, writeQDStrings, $String*, $Attribute*), "javax.naming.NamingException"},
+		{"writeQDescrs", "(Ljavax/naming/directory/Attribute;)Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $method(LdapSchemaParser, writeQDescrs, $String*, $Attribute*), "javax.naming.NamingException"},
+		{"writeWOID", "(Ljavax/naming/directory/Attribute;)Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $method(LdapSchemaParser, writeWOID, $String*, $Attribute*), "javax.naming.NamingException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.jndi.ldap.LdapSchemaParser",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(LdapSchemaParser, name, initialize, &classInfo$$, LdapSchemaParser::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(LdapSchemaParser);
+	});
 	return class$;
 }
 

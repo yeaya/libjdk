@@ -15,6 +15,7 @@ class $export RestrictedHeadersTest : public ::java::lang::Object {
 	$class(RestrictedHeadersTest, 0, ::java::lang::Object)
 public:
 	RestrictedHeadersTest();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void checkHeader($String* name, $String* value, bool succeed);
 	static void main($StringArray* args);

@@ -44,6 +44,7 @@ class WaveExtensibleFileReader : public ::com::sun::media::sound::SunFileReader 
 public:
 	WaveExtensibleFileReader();
 	using ::com::sun::media::sound::SunFileReader::getAudioInputStream;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $String* decodeChannelMask(int64_t channelmask);
 	virtual ::com::sun::media::sound::StandardFileFormat* getAudioFileFormatImpl(::java::io::InputStream* stream) override;

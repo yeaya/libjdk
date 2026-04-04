@@ -15,6 +15,7 @@ class $export JapaneseTest : public ::java::lang::Object {
 	$class(JapaneseTest, 0, ::java::lang::Object)
 public:
 	JapaneseTest();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void doCompare($Array<::java::lang::String, 2>* s, int32_t expectedValue, int32_t strength, int32_t decomp);
 	static void main($StringArray* args);

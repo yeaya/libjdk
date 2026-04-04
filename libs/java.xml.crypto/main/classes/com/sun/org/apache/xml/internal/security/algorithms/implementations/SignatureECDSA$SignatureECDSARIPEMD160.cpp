@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/security/algorithms/implementations/SignatureECDSA$SignatureECDSARIPEMD160.h>
-
 #include <com/sun/org/apache/xml/internal/security/algorithms/implementations/SignatureECDSA.h>
 #include <com/sun/org/apache/xml/internal/security/signature/XMLSignature.h>
 #include <java/security/Provider.h>
@@ -24,38 +23,6 @@ namespace com {
 							namespace algorithms {
 								namespace implementations {
 
-$MethodInfo _SignatureECDSA$SignatureECDSARIPEMD160_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SignatureECDSA$SignatureECDSARIPEMD160, init$, void), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
-	{"<init>", "(Ljava/security/Provider;)V", nullptr, $PUBLIC, $method(SignatureECDSA$SignatureECDSARIPEMD160, init$, void, $Provider*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
-	{"engineGetURI", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SignatureECDSA$SignatureECDSARIPEMD160, engineGetURI, $String*)},
-	{}
-};
-
-$InnerClassInfo _SignatureECDSA$SignatureECDSARIPEMD160_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureECDSA$SignatureECDSARIPEMD160", "com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureECDSA", "SignatureECDSARIPEMD160", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _SignatureECDSA$SignatureECDSARIPEMD160_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureECDSA$SignatureECDSARIPEMD160",
-	"com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureECDSA",
-	nullptr,
-	nullptr,
-	_SignatureECDSA$SignatureECDSARIPEMD160_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SignatureECDSA$SignatureECDSARIPEMD160_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureECDSA"
-};
-
-$Object* allocate$SignatureECDSA$SignatureECDSARIPEMD160($Class* clazz) {
-	return $of($alloc(SignatureECDSA$SignatureECDSARIPEMD160));
-}
-
 void SignatureECDSA$SignatureECDSARIPEMD160::init$() {
 	$SignatureECDSA::init$();
 }
@@ -73,7 +40,34 @@ SignatureECDSA$SignatureECDSARIPEMD160::SignatureECDSA$SignatureECDSARIPEMD160()
 }
 
 $Class* SignatureECDSA$SignatureECDSARIPEMD160::load$($String* name, bool initialize) {
-	$loadClass(SignatureECDSA$SignatureECDSARIPEMD160, name, initialize, &_SignatureECDSA$SignatureECDSARIPEMD160_ClassInfo_, allocate$SignatureECDSA$SignatureECDSARIPEMD160);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SignatureECDSA$SignatureECDSARIPEMD160, init$, void), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
+		{"<init>", "(Ljava/security/Provider;)V", nullptr, $PUBLIC, $method(SignatureECDSA$SignatureECDSARIPEMD160, init$, void, $Provider*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
+		{"engineGetURI", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SignatureECDSA$SignatureECDSARIPEMD160, engineGetURI, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureECDSA$SignatureECDSARIPEMD160", "com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureECDSA", "SignatureECDSARIPEMD160", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureECDSA$SignatureECDSARIPEMD160",
+		"com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureECDSA",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureECDSA"
+	};
+	$loadClass(SignatureECDSA$SignatureECDSARIPEMD160, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SignatureECDSA$SignatureECDSARIPEMD160);
+	});
 	return class$;
 }
 

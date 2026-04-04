@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/windows/WindowsTextUI$WindowsHighlightPainter.h>
-
 #include <com/sun/java/swing/plaf/windows/WindowsTextUI.h>
 #include <java/awt/Color.h>
 #include <java/awt/Graphics.h>
@@ -35,45 +34,12 @@ namespace com {
 				namespace plaf {
 					namespace windows {
 
-$MethodInfo _WindowsTextUI$WindowsHighlightPainter_MethodInfo_[] = {
-	{"<init>", "(Ljava/awt/Color;)V", nullptr, 0, $method(WindowsTextUI$WindowsHighlightPainter, init$, void, $Color*)},
-	{"paint", "(Ljava/awt/Graphics;IILjava/awt/Shape;Ljavax/swing/text/JTextComponent;)V", nullptr, $PUBLIC, $virtualMethod(WindowsTextUI$WindowsHighlightPainter, paint, void, $Graphics*, int32_t, int32_t, $Shape*, $JTextComponent*)},
-	{"paintLayer", "(Ljava/awt/Graphics;IILjava/awt/Shape;Ljavax/swing/text/JTextComponent;Ljavax/swing/text/View;)Ljava/awt/Shape;", nullptr, $PUBLIC, $virtualMethod(WindowsTextUI$WindowsHighlightPainter, paintLayer, $Shape*, $Graphics*, int32_t, int32_t, $Shape*, $JTextComponent*, $View*)},
-	{}
-};
-
-$InnerClassInfo _WindowsTextUI$WindowsHighlightPainter_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.windows.WindowsTextUI$WindowsHighlightPainter", "com.sun.java.swing.plaf.windows.WindowsTextUI", "WindowsHighlightPainter", $STATIC},
-	{"javax.swing.text.DefaultHighlighter$DefaultHighlightPainter", "javax.swing.text.DefaultHighlighter", "DefaultHighlightPainter", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _WindowsTextUI$WindowsHighlightPainter_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.java.swing.plaf.windows.WindowsTextUI$WindowsHighlightPainter",
-	"javax.swing.text.DefaultHighlighter$DefaultHighlightPainter",
-	nullptr,
-	nullptr,
-	_WindowsTextUI$WindowsHighlightPainter_MethodInfo_,
-	nullptr,
-	nullptr,
-	_WindowsTextUI$WindowsHighlightPainter_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.windows.WindowsTextUI"
-};
-
-$Object* allocate$WindowsTextUI$WindowsHighlightPainter($Class* clazz) {
-	return $of($alloc(WindowsTextUI$WindowsHighlightPainter));
-}
-
 void WindowsTextUI$WindowsHighlightPainter::init$($Color* c) {
 	$DefaultHighlighter$DefaultHighlightPainter::init$(c);
 }
 
 void WindowsTextUI$WindowsHighlightPainter::paint($Graphics* g, int32_t offs0, int32_t offs1, $Shape* bounds, $JTextComponent* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle, alloc, $nc(bounds)->getBounds());
 	try {
 		$var($TextUI, mapper, $cast($TextUI, $nc(c)->getUI()));
@@ -102,9 +68,9 @@ void WindowsTextUI$WindowsHighlightPainter::paint($Graphics* g, int32_t offs0, i
 					--r->width;
 				}
 			}
-			$nc(g)->fillRect($nc(r)->x, r->y, r->width, r->height);
+			$nc(g)->fillRect(r->x, r->y, r->width, r->height);
 		} else {
-			int32_t p0ToMarginWidth = $nc(alloc)->x + alloc->width - p0->x;
+			int32_t p0ToMarginWidth = $nc(alloc)->x + $nc(alloc)->width - p0->x;
 			if (firstIsDot && p0ToMarginWidth > 0) {
 				++p0->x;
 				--p0ToMarginWidth;
@@ -123,7 +89,7 @@ void WindowsTextUI$WindowsHighlightPainter::paint($Graphics* g, int32_t offs0, i
 }
 
 $Shape* WindowsTextUI$WindowsHighlightPainter::paintLayer($Graphics* g, int32_t offs0, int32_t offs1, $Shape* bounds, $JTextComponent* c, $View* view) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Color, color, getColor());
 	if (color == nullptr) {
 		$nc(g)->setColor($($nc(c)->getSelectionColor()));
@@ -147,10 +113,10 @@ $Shape* WindowsTextUI$WindowsHighlightPainter::paintLayer($Graphics* g, int32_t 
 		}
 		if (firstIsDot && $nc(alloc)->width > 0) {
 			$nc(g)->fillRect(alloc->x + 1, alloc->y, alloc->width - 1, alloc->height);
-		} else if (secondIsDot && alloc->width > 0) {
+		} else if (secondIsDot && $nc(alloc)->width > 0) {
 			$nc(g)->fillRect(alloc->x, alloc->y, alloc->width - 1, alloc->height);
 		} else {
-			$nc(g)->fillRect(alloc->x, alloc->y, alloc->width, alloc->height);
+			$nc(g)->fillRect($nc(alloc)->x, $nc(alloc)->y, $nc(alloc)->width, $nc(alloc)->height);
 		}
 		return alloc;
 	} else {
@@ -160,10 +126,10 @@ $Shape* WindowsTextUI$WindowsHighlightPainter::paintLayer($Graphics* g, int32_t 
 			$var($Rectangle, r, ($instanceOf($Rectangle, shape)) ? $cast($Rectangle, shape) : $nc(shape)->getBounds());
 			if (firstIsDot && $nc(r)->width > 0) {
 				$nc(g)->fillRect(r->x + 1, r->y, r->width - 1, r->height);
-			} else if (secondIsDot && r->width > 0) {
+			} else if (secondIsDot && $nc(r)->width > 0) {
 				$nc(g)->fillRect(r->x, r->y, r->width - 1, r->height);
 			} else {
-				$nc(g)->fillRect(r->x, r->y, r->width, r->height);
+				$nc(g)->fillRect($nc(r)->x, $nc(r)->y, $nc(r)->width, $nc(r)->height);
 			}
 			return r;
 		} catch ($BadLocationException& e) {
@@ -176,7 +142,35 @@ WindowsTextUI$WindowsHighlightPainter::WindowsTextUI$WindowsHighlightPainter() {
 }
 
 $Class* WindowsTextUI$WindowsHighlightPainter::load$($String* name, bool initialize) {
-	$loadClass(WindowsTextUI$WindowsHighlightPainter, name, initialize, &_WindowsTextUI$WindowsHighlightPainter_ClassInfo_, allocate$WindowsTextUI$WindowsHighlightPainter);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/Color;)V", nullptr, 0, $method(WindowsTextUI$WindowsHighlightPainter, init$, void, $Color*)},
+		{"paint", "(Ljava/awt/Graphics;IILjava/awt/Shape;Ljavax/swing/text/JTextComponent;)V", nullptr, $PUBLIC, $virtualMethod(WindowsTextUI$WindowsHighlightPainter, paint, void, $Graphics*, int32_t, int32_t, $Shape*, $JTextComponent*)},
+		{"paintLayer", "(Ljava/awt/Graphics;IILjava/awt/Shape;Ljavax/swing/text/JTextComponent;Ljavax/swing/text/View;)Ljava/awt/Shape;", nullptr, $PUBLIC, $virtualMethod(WindowsTextUI$WindowsHighlightPainter, paintLayer, $Shape*, $Graphics*, int32_t, int32_t, $Shape*, $JTextComponent*, $View*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.windows.WindowsTextUI$WindowsHighlightPainter", "com.sun.java.swing.plaf.windows.WindowsTextUI", "WindowsHighlightPainter", $STATIC},
+		{"javax.swing.text.DefaultHighlighter$DefaultHighlightPainter", "javax.swing.text.DefaultHighlighter", "DefaultHighlightPainter", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.java.swing.plaf.windows.WindowsTextUI$WindowsHighlightPainter",
+		"javax.swing.text.DefaultHighlighter$DefaultHighlightPainter",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.windows.WindowsTextUI"
+	};
+	$loadClass(WindowsTextUI$WindowsHighlightPainter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WindowsTextUI$WindowsHighlightPainter);
+	});
 	return class$;
 }
 

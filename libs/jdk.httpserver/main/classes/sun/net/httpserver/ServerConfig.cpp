@@ -1,8 +1,6 @@
 #include <sun/net/httpserver/ServerConfig.h>
-
 #include <java/lang/System$Logger.h>
 #include <java/security/AccessController.h>
-#include <java/security/PrivilegedAction.h>
 #include <sun/net/httpserver/ServerConfig$1.h>
 #include <sun/net/httpserver/ServerConfig$2.h>
 #include <jcpp.h>
@@ -22,76 +20,12 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $System$Logger = ::java::lang::System$Logger;
 using $AccessController = ::java::security::AccessController;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $ServerConfig$1 = ::sun::net::httpserver::ServerConfig$1;
 using $ServerConfig$2 = ::sun::net::httpserver::ServerConfig$2;
 
 namespace sun {
 	namespace net {
 		namespace httpserver {
-
-$FieldInfo _ServerConfig_FieldInfo_[] = {
-	{"DEFAULT_CLOCK_TICK", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ServerConfig, DEFAULT_CLOCK_TICK)},
-	{"DEFAULT_IDLE_INTERVAL", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ServerConfig, DEFAULT_IDLE_INTERVAL)},
-	{"DEFAULT_MAX_IDLE_CONNECTIONS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ServerConfig, DEFAULT_MAX_IDLE_CONNECTIONS)},
-	{"DEFAULT_MAX_REQ_TIME", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ServerConfig, DEFAULT_MAX_REQ_TIME)},
-	{"DEFAULT_MAX_RSP_TIME", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ServerConfig, DEFAULT_MAX_RSP_TIME)},
-	{"DEFAULT_TIMER_MILLIS", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ServerConfig, DEFAULT_TIMER_MILLIS)},
-	{"DEFAULT_MAX_REQ_HEADERS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ServerConfig, DEFAULT_MAX_REQ_HEADERS)},
-	{"DEFAULT_DRAIN_AMOUNT", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ServerConfig, DEFAULT_DRAIN_AMOUNT)},
-	{"clockTick", "I", nullptr, $PRIVATE | $STATIC, $staticField(ServerConfig, clockTick)},
-	{"idleInterval", "J", nullptr, $PRIVATE | $STATIC, $staticField(ServerConfig, idleInterval)},
-	{"drainAmount", "J", nullptr, $PRIVATE | $STATIC, $staticField(ServerConfig, drainAmount)},
-	{"maxIdleConnections", "I", nullptr, $PRIVATE | $STATIC, $staticField(ServerConfig, maxIdleConnections)},
-	{"maxReqHeaders", "I", nullptr, $PRIVATE | $STATIC, $staticField(ServerConfig, maxReqHeaders)},
-	{"maxReqTime", "J", nullptr, $PRIVATE | $STATIC, $staticField(ServerConfig, maxReqTime)},
-	{"maxRspTime", "J", nullptr, $PRIVATE | $STATIC, $staticField(ServerConfig, maxRspTime)},
-	{"timerMillis", "J", nullptr, $PRIVATE | $STATIC, $staticField(ServerConfig, timerMillis)},
-	{"debug", "Z", nullptr, $PRIVATE | $STATIC, $staticField(ServerConfig, debug)},
-	{"noDelay", "Z", nullptr, $PRIVATE | $STATIC, $staticField(ServerConfig, noDelay$)},
-	{}
-};
-
-$MethodInfo _ServerConfig_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(ServerConfig, init$, void)},
-	{"checkLegacyProperties", "(Ljava/lang/System$Logger;)V", nullptr, $STATIC, $staticMethod(ServerConfig, checkLegacyProperties, void, $System$Logger*)},
-	{"debugEnabled", "()Z", nullptr, $STATIC, $staticMethod(ServerConfig, debugEnabled, bool)},
-	{"getClockTick", "()I", nullptr, $STATIC, $staticMethod(ServerConfig, getClockTick, int32_t)},
-	{"getDrainAmount", "()J", nullptr, $STATIC, $staticMethod(ServerConfig, getDrainAmount, int64_t)},
-	{"getIdleInterval", "()J", nullptr, $STATIC, $staticMethod(ServerConfig, getIdleInterval, int64_t)},
-	{"getMaxIdleConnections", "()I", nullptr, $STATIC, $staticMethod(ServerConfig, getMaxIdleConnections, int32_t)},
-	{"getMaxReqHeaders", "()I", nullptr, $STATIC, $staticMethod(ServerConfig, getMaxReqHeaders, int32_t)},
-	{"getMaxReqTime", "()J", nullptr, $STATIC, $staticMethod(ServerConfig, getMaxReqTime, int64_t)},
-	{"getMaxRspTime", "()J", nullptr, $STATIC, $staticMethod(ServerConfig, getMaxRspTime, int64_t)},
-	{"getTimerMillis", "()J", nullptr, $STATIC, $staticMethod(ServerConfig, getTimerMillis, int64_t)},
-	{"noDelay", "()Z", nullptr, $STATIC, $staticMethod(ServerConfig, noDelay, bool)},
-	{}
-};
-
-$InnerClassInfo _ServerConfig_InnerClassesInfo_[] = {
-	{"sun.net.httpserver.ServerConfig$2", nullptr, nullptr, 0},
-	{"sun.net.httpserver.ServerConfig$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _ServerConfig_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.net.httpserver.ServerConfig",
-	"java.lang.Object",
-	nullptr,
-	_ServerConfig_FieldInfo_,
-	_ServerConfig_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ServerConfig_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.net.httpserver.ServerConfig$2,sun.net.httpserver.ServerConfig$1"
-};
-
-$Object* allocate$ServerConfig($Class* clazz) {
-	return $of($alloc(ServerConfig));
-}
 
 int32_t ServerConfig::clockTick = 0;
 int64_t ServerConfig::idleInterval = 0;
@@ -110,7 +44,7 @@ void ServerConfig::init$() {
 void ServerConfig::checkLegacyProperties($System$Logger* logger) {
 	$init(ServerConfig);
 	$beforeCallerSensitive();
-	$AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($ServerConfig$2, logger)));
+	$AccessController::doPrivileged($$new($ServerConfig$2, logger));
 }
 
 bool ServerConfig::debugEnabled() {
@@ -163,10 +97,10 @@ bool ServerConfig::noDelay() {
 	return ServerConfig::noDelay$;
 }
 
-void clinit$ServerConfig($Class* class$) {
+void ServerConfig::clinit$($Class* clazz) {
 	$beforeCallerSensitive();
 	{
-		$AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($ServerConfig$1)));
+		$AccessController::doPrivileged($$new($ServerConfig$1));
 	}
 }
 
@@ -174,7 +108,64 @@ ServerConfig::ServerConfig() {
 }
 
 $Class* ServerConfig::load$($String* name, bool initialize) {
-	$loadClass(ServerConfig, name, initialize, &_ServerConfig_ClassInfo_, clinit$ServerConfig, allocate$ServerConfig);
+	$FieldInfo fieldInfos$$[] = {
+		{"DEFAULT_CLOCK_TICK", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ServerConfig, DEFAULT_CLOCK_TICK)},
+		{"DEFAULT_IDLE_INTERVAL", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ServerConfig, DEFAULT_IDLE_INTERVAL)},
+		{"DEFAULT_MAX_IDLE_CONNECTIONS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ServerConfig, DEFAULT_MAX_IDLE_CONNECTIONS)},
+		{"DEFAULT_MAX_REQ_TIME", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ServerConfig, DEFAULT_MAX_REQ_TIME)},
+		{"DEFAULT_MAX_RSP_TIME", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ServerConfig, DEFAULT_MAX_RSP_TIME)},
+		{"DEFAULT_TIMER_MILLIS", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ServerConfig, DEFAULT_TIMER_MILLIS)},
+		{"DEFAULT_MAX_REQ_HEADERS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ServerConfig, DEFAULT_MAX_REQ_HEADERS)},
+		{"DEFAULT_DRAIN_AMOUNT", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ServerConfig, DEFAULT_DRAIN_AMOUNT)},
+		{"clockTick", "I", nullptr, $PRIVATE | $STATIC, $staticField(ServerConfig, clockTick)},
+		{"idleInterval", "J", nullptr, $PRIVATE | $STATIC, $staticField(ServerConfig, idleInterval)},
+		{"drainAmount", "J", nullptr, $PRIVATE | $STATIC, $staticField(ServerConfig, drainAmount)},
+		{"maxIdleConnections", "I", nullptr, $PRIVATE | $STATIC, $staticField(ServerConfig, maxIdleConnections)},
+		{"maxReqHeaders", "I", nullptr, $PRIVATE | $STATIC, $staticField(ServerConfig, maxReqHeaders)},
+		{"maxReqTime", "J", nullptr, $PRIVATE | $STATIC, $staticField(ServerConfig, maxReqTime)},
+		{"maxRspTime", "J", nullptr, $PRIVATE | $STATIC, $staticField(ServerConfig, maxRspTime)},
+		{"timerMillis", "J", nullptr, $PRIVATE | $STATIC, $staticField(ServerConfig, timerMillis)},
+		{"debug", "Z", nullptr, $PRIVATE | $STATIC, $staticField(ServerConfig, debug)},
+		{"noDelay", "Z", nullptr, $PRIVATE | $STATIC, $staticField(ServerConfig, noDelay$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(ServerConfig, init$, void)},
+		{"checkLegacyProperties", "(Ljava/lang/System$Logger;)V", nullptr, $STATIC, $staticMethod(ServerConfig, checkLegacyProperties, void, $System$Logger*)},
+		{"debugEnabled", "()Z", nullptr, $STATIC, $staticMethod(ServerConfig, debugEnabled, bool)},
+		{"getClockTick", "()I", nullptr, $STATIC, $staticMethod(ServerConfig, getClockTick, int32_t)},
+		{"getDrainAmount", "()J", nullptr, $STATIC, $staticMethod(ServerConfig, getDrainAmount, int64_t)},
+		{"getIdleInterval", "()J", nullptr, $STATIC, $staticMethod(ServerConfig, getIdleInterval, int64_t)},
+		{"getMaxIdleConnections", "()I", nullptr, $STATIC, $staticMethod(ServerConfig, getMaxIdleConnections, int32_t)},
+		{"getMaxReqHeaders", "()I", nullptr, $STATIC, $staticMethod(ServerConfig, getMaxReqHeaders, int32_t)},
+		{"getMaxReqTime", "()J", nullptr, $STATIC, $staticMethod(ServerConfig, getMaxReqTime, int64_t)},
+		{"getMaxRspTime", "()J", nullptr, $STATIC, $staticMethod(ServerConfig, getMaxRspTime, int64_t)},
+		{"getTimerMillis", "()J", nullptr, $STATIC, $staticMethod(ServerConfig, getTimerMillis, int64_t)},
+		{"noDelay", "()Z", nullptr, $STATIC, $staticMethod(ServerConfig, noDelay, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.net.httpserver.ServerConfig$2", nullptr, nullptr, 0},
+		{"sun.net.httpserver.ServerConfig$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.net.httpserver.ServerConfig",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.net.httpserver.ServerConfig$2,sun.net.httpserver.ServerConfig$1"
+	};
+	$loadClass(ServerConfig, name, initialize, &classInfo$$, ServerConfig::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ServerConfig);
+	});
 	return class$;
 }
 

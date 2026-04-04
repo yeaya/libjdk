@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/basic/BasicTabbedPaneUI$CroppedEdge.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
@@ -21,74 +20,18 @@ using $Component = ::java::awt::Component;
 using $Graphics = ::java::awt::Graphics;
 using $Graphics2D = ::java::awt::Graphics2D;
 using $Rectangle = ::java::awt::Rectangle;
-using $Shape = ::java::awt::Shape;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $JPanel = ::javax::swing::JPanel;
-using $JTabbedPane = ::javax::swing::JTabbedPane;
 using $UIManager = ::javax::swing::UIManager;
 using $BasicTabbedPaneUI = ::javax::swing::plaf::basic::BasicTabbedPaneUI;
-using $BasicTabbedPaneUI$TabContainer = ::javax::swing::plaf::basic::BasicTabbedPaneUI$TabContainer;
 
 namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace basic {
-
-$FieldInfo _BasicTabbedPaneUI$CroppedEdge_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/plaf/basic/BasicTabbedPaneUI;", nullptr, $FINAL | $SYNTHETIC, $field(BasicTabbedPaneUI$CroppedEdge, this$0)},
-	{"shape", "Ljava/awt/Shape;", nullptr, $PRIVATE, $field(BasicTabbedPaneUI$CroppedEdge, shape)},
-	{"tabIndex", "I", nullptr, $PRIVATE, $field(BasicTabbedPaneUI$CroppedEdge, tabIndex)},
-	{"cropline", "I", nullptr, $PRIVATE, $field(BasicTabbedPaneUI$CroppedEdge, cropline)},
-	{"cropx", "I", nullptr, $PRIVATE, $field(BasicTabbedPaneUI$CroppedEdge, cropx)},
-	{"cropy", "I", nullptr, $PRIVATE, $field(BasicTabbedPaneUI$CroppedEdge, cropy)},
-	{}
-};
-
-$MethodInfo _BasicTabbedPaneUI$CroppedEdge_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljavax/swing/plaf/basic/BasicTabbedPaneUI;)V", nullptr, $PUBLIC, $method(BasicTabbedPaneUI$CroppedEdge, init$, void, $BasicTabbedPaneUI*)},
-	{"getBgColor", "()Ljava/awt/Color;", nullptr, $PRIVATE, $method(BasicTabbedPaneUI$CroppedEdge, getBgColor, $Color*)},
-	{"getCropline", "()I", nullptr, $PUBLIC, $virtualMethod(BasicTabbedPaneUI$CroppedEdge, getCropline, int32_t)},
-	{"getCroppedSideWidth", "()I", nullptr, $PUBLIC, $virtualMethod(BasicTabbedPaneUI$CroppedEdge, getCroppedSideWidth, int32_t)},
-	{"getTabIndex", "()I", nullptr, $PUBLIC, $virtualMethod(BasicTabbedPaneUI$CroppedEdge, getTabIndex, int32_t)},
-	{"isParamsSet", "()Z", nullptr, $PUBLIC, $virtualMethod(BasicTabbedPaneUI$CroppedEdge, isParamsSet, bool)},
-	{"paintComponent", "(Ljava/awt/Graphics;)V", nullptr, $PROTECTED, $virtualMethod(BasicTabbedPaneUI$CroppedEdge, paintComponent, void, $Graphics*)},
-	{"resetParams", "()V", nullptr, $PUBLIC, $virtualMethod(BasicTabbedPaneUI$CroppedEdge, resetParams, void)},
-	{"setParams", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(BasicTabbedPaneUI$CroppedEdge, setParams, void, int32_t, int32_t, int32_t, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _BasicTabbedPaneUI$CroppedEdge_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.basic.BasicTabbedPaneUI$CroppedEdge", "javax.swing.plaf.basic.BasicTabbedPaneUI", "CroppedEdge", $PRIVATE},
-	{}
-};
-
-$ClassInfo _BasicTabbedPaneUI$CroppedEdge_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.basic.BasicTabbedPaneUI$CroppedEdge",
-	"javax.swing.JPanel",
-	"javax.swing.plaf.UIResource",
-	_BasicTabbedPaneUI$CroppedEdge_FieldInfo_,
-	_BasicTabbedPaneUI$CroppedEdge_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BasicTabbedPaneUI$CroppedEdge_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.basic.BasicTabbedPaneUI"
-};
-
-$Object* allocate$BasicTabbedPaneUI$CroppedEdge($Class* clazz) {
-	return $of($alloc(BasicTabbedPaneUI$CroppedEdge));
-}
 
 $String* BasicTabbedPaneUI$CroppedEdge::toString() {
 	 return this->$JPanel::toString();
@@ -125,14 +68,14 @@ void BasicTabbedPaneUI$CroppedEdge::setParams(int32_t tabIndex, int32_t cropline
 	setBounds(tabRect);
 	$set(this, shape, $BasicTabbedPaneUI::createCroppedTabShape($nc(this->this$0->tabPane)->getTabPlacement(), tabRect, cropline));
 	if (getParent() == nullptr && this->this$0->tabContainer != nullptr) {
-		$nc(this->this$0->tabContainer)->add(static_cast<$Component*>(this), 0);
+		this->this$0->tabContainer->add(this, 0);
 	}
 }
 
 void BasicTabbedPaneUI$CroppedEdge::resetParams() {
 	$set(this, shape, nullptr);
 	if ($equals(getParent(), this->this$0->tabContainer) && this->this$0->tabContainer != nullptr) {
-		$nc(this->this$0->tabContainer)->remove(static_cast<$Component*>(this));
+		this->this$0->tabContainer->remove(this);
 	}
 }
 
@@ -153,7 +96,7 @@ int32_t BasicTabbedPaneUI$CroppedEdge::getCroppedSideWidth() {
 }
 
 $Color* BasicTabbedPaneUI$CroppedEdge::getBgColor() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Component, parent, $nc(this->this$0->tabPane)->getParent());
 	if (parent != nullptr) {
 		$var($Color, bg, parent->getBackground());
@@ -165,12 +108,12 @@ $Color* BasicTabbedPaneUI$CroppedEdge::getBgColor() {
 }
 
 void BasicTabbedPaneUI$CroppedEdge::paintComponent($Graphics* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$JPanel::paintComponent(g);
 	if (isParamsSet() && $instanceOf($Graphics2D, g)) {
 		$var($Graphics2D, g2, $cast($Graphics2D, g));
 		int32_t var$0 = getWidth();
-		$nc(g2)->clipRect(0, 0, var$0, getHeight());
+		g2->clipRect(0, 0, var$0, getHeight());
 		g2->setColor($(getBgColor()));
 		g2->translate(this->cropx, this->cropy);
 		g2->fill(this->shape);
@@ -183,7 +126,54 @@ BasicTabbedPaneUI$CroppedEdge::BasicTabbedPaneUI$CroppedEdge() {
 }
 
 $Class* BasicTabbedPaneUI$CroppedEdge::load$($String* name, bool initialize) {
-	$loadClass(BasicTabbedPaneUI$CroppedEdge, name, initialize, &_BasicTabbedPaneUI$CroppedEdge_ClassInfo_, allocate$BasicTabbedPaneUI$CroppedEdge);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/plaf/basic/BasicTabbedPaneUI;", nullptr, $FINAL | $SYNTHETIC, $field(BasicTabbedPaneUI$CroppedEdge, this$0)},
+		{"shape", "Ljava/awt/Shape;", nullptr, $PRIVATE, $field(BasicTabbedPaneUI$CroppedEdge, shape)},
+		{"tabIndex", "I", nullptr, $PRIVATE, $field(BasicTabbedPaneUI$CroppedEdge, tabIndex)},
+		{"cropline", "I", nullptr, $PRIVATE, $field(BasicTabbedPaneUI$CroppedEdge, cropline)},
+		{"cropx", "I", nullptr, $PRIVATE, $field(BasicTabbedPaneUI$CroppedEdge, cropx)},
+		{"cropy", "I", nullptr, $PRIVATE, $field(BasicTabbedPaneUI$CroppedEdge, cropy)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljavax/swing/plaf/basic/BasicTabbedPaneUI;)V", nullptr, $PUBLIC, $method(BasicTabbedPaneUI$CroppedEdge, init$, void, $BasicTabbedPaneUI*)},
+		{"getBgColor", "()Ljava/awt/Color;", nullptr, $PRIVATE, $method(BasicTabbedPaneUI$CroppedEdge, getBgColor, $Color*)},
+		{"getCropline", "()I", nullptr, $PUBLIC, $virtualMethod(BasicTabbedPaneUI$CroppedEdge, getCropline, int32_t)},
+		{"getCroppedSideWidth", "()I", nullptr, $PUBLIC, $virtualMethod(BasicTabbedPaneUI$CroppedEdge, getCroppedSideWidth, int32_t)},
+		{"getTabIndex", "()I", nullptr, $PUBLIC, $virtualMethod(BasicTabbedPaneUI$CroppedEdge, getTabIndex, int32_t)},
+		{"isParamsSet", "()Z", nullptr, $PUBLIC, $virtualMethod(BasicTabbedPaneUI$CroppedEdge, isParamsSet, bool)},
+		{"paintComponent", "(Ljava/awt/Graphics;)V", nullptr, $PROTECTED, $virtualMethod(BasicTabbedPaneUI$CroppedEdge, paintComponent, void, $Graphics*)},
+		{"resetParams", "()V", nullptr, $PUBLIC, $virtualMethod(BasicTabbedPaneUI$CroppedEdge, resetParams, void)},
+		{"setParams", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(BasicTabbedPaneUI$CroppedEdge, setParams, void, int32_t, int32_t, int32_t, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.basic.BasicTabbedPaneUI$CroppedEdge", "javax.swing.plaf.basic.BasicTabbedPaneUI", "CroppedEdge", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.basic.BasicTabbedPaneUI$CroppedEdge",
+		"javax.swing.JPanel",
+		"javax.swing.plaf.UIResource",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.basic.BasicTabbedPaneUI"
+	};
+	$loadClass(BasicTabbedPaneUI$CroppedEdge, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(BasicTabbedPaneUI$CroppedEdge));
+	});
 	return class$;
 }
 

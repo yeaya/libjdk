@@ -1,5 +1,4 @@
 #include <jdk/nio/zipfs/ZipFileStore.h>
-
 #include <java/lang/UnsupportedOperationException.h>
 #include <java/nio/file/FileStore.h>
 #include <java/nio/file/FileSystem.h>
@@ -34,50 +33,6 @@ namespace jdk {
 	namespace nio {
 		namespace zipfs {
 
-$FieldInfo _ZipFileStore_FieldInfo_[] = {
-	{"zfs", "Ljdk/nio/zipfs/ZipFileSystem;", nullptr, $PRIVATE | $FINAL, $field(ZipFileStore, zfs)},
-	{}
-};
-
-$MethodInfo _ZipFileStore_MethodInfo_[] = {
-	{"<init>", "(Ljdk/nio/zipfs/ZipPath;)V", nullptr, 0, $method(ZipFileStore, init$, void, $ZipPath*)},
-	{"getAttribute", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ZipFileStore, getAttribute, $Object*, $String*), "java.io.IOException"},
-	{"getFileStoreAttributeView", "(Ljava/lang/Class;)Ljava/nio/file/attribute/FileStoreAttributeView;", "<V::Ljava/nio/file/attribute/FileStoreAttributeView;>(Ljava/lang/Class<TV;>;)TV;", $PUBLIC, $virtualMethod(ZipFileStore, getFileStoreAttributeView, $FileStoreAttributeView*, $Class*)},
-	{"getTotalSpace", "()J", nullptr, $PUBLIC, $virtualMethod(ZipFileStore, getTotalSpace, int64_t), "java.io.IOException"},
-	{"getUnallocatedSpace", "()J", nullptr, $PUBLIC, $virtualMethod(ZipFileStore, getUnallocatedSpace, int64_t), "java.io.IOException"},
-	{"getUsableSpace", "()J", nullptr, $PUBLIC, $virtualMethod(ZipFileStore, getUsableSpace, int64_t), "java.io.IOException"},
-	{"isReadOnly", "()Z", nullptr, $PUBLIC, $virtualMethod(ZipFileStore, isReadOnly, bool)},
-	{"name", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ZipFileStore, name, $String*)},
-	{"supportsFileAttributeView", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<+Ljava/nio/file/attribute/FileAttributeView;>;)Z", $PUBLIC, $virtualMethod(ZipFileStore, supportsFileAttributeView, bool, $Class*)},
-	{"supportsFileAttributeView", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(ZipFileStore, supportsFileAttributeView, bool, $String*)},
-	{"type", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ZipFileStore, type, $String*)},
-	{}
-};
-
-$InnerClassInfo _ZipFileStore_InnerClassesInfo_[] = {
-	{"jdk.nio.zipfs.ZipFileStore$ZipFileStoreAttributes", "jdk.nio.zipfs.ZipFileStore", "ZipFileStoreAttributes", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _ZipFileStore_ClassInfo_ = {
-	$ACC_SUPER,
-	"jdk.nio.zipfs.ZipFileStore",
-	"java.nio.file.FileStore",
-	nullptr,
-	_ZipFileStore_FieldInfo_,
-	_ZipFileStore_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ZipFileStore_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"jdk.nio.zipfs.ZipFileStore$ZipFileStoreAttributes"
-};
-
-$Object* allocate$ZipFileStore($Class* clazz) {
-	return $of($alloc(ZipFileStore));
-}
-
 void ZipFileStore::init$($ZipPath* zpath) {
 	$FileStore::init$();
 	$set(this, zfs, $cast($ZipFileSystem, $nc(zpath)->getFileSystem()));
@@ -108,7 +63,7 @@ bool ZipFileStore::supportsFileAttributeView($String* name) {
 	bool var$0 = var$1 || "zip"_s->equals(name);
 	if (!var$0) {
 		bool var$2 = "owner"_s->equals(name);
-		var$0 = ((var$2 || "posix"_s->equals(name)) && $nc(this->zfs)->supportPosix);
+		var$0 = (var$2 || "posix"_s->equals(name)) && $nc(this->zfs)->supportPosix;
 	}
 	return var$0;
 }
@@ -136,10 +91,10 @@ $Object* ZipFileStore::getAttribute($String* attribute) {
 	if ($nc(attribute)->equals("totalSpace"_s)) {
 		return $of($Long::valueOf(getTotalSpace()));
 	}
-	if ($nc(attribute)->equals("usableSpace"_s)) {
+	if (attribute->equals("usableSpace"_s)) {
 		return $of($Long::valueOf(getUsableSpace()));
 	}
-	if ($nc(attribute)->equals("unallocatedSpace"_s)) {
+	if (attribute->equals("unallocatedSpace"_s)) {
 		return $of($Long::valueOf(getUnallocatedSpace()));
 	}
 	$throwNew($UnsupportedOperationException, "does not support the given attribute"_s);
@@ -149,7 +104,45 @@ ZipFileStore::ZipFileStore() {
 }
 
 $Class* ZipFileStore::load$($String* name, bool initialize) {
-	$loadClass(ZipFileStore, name, initialize, &_ZipFileStore_ClassInfo_, allocate$ZipFileStore);
+	$FieldInfo fieldInfos$$[] = {
+		{"zfs", "Ljdk/nio/zipfs/ZipFileSystem;", nullptr, $PRIVATE | $FINAL, $field(ZipFileStore, zfs)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/nio/zipfs/ZipPath;)V", nullptr, 0, $method(ZipFileStore, init$, void, $ZipPath*)},
+		{"getAttribute", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ZipFileStore, getAttribute, $Object*, $String*), "java.io.IOException"},
+		{"getFileStoreAttributeView", "(Ljava/lang/Class;)Ljava/nio/file/attribute/FileStoreAttributeView;", "<V::Ljava/nio/file/attribute/FileStoreAttributeView;>(Ljava/lang/Class<TV;>;)TV;", $PUBLIC, $virtualMethod(ZipFileStore, getFileStoreAttributeView, $FileStoreAttributeView*, $Class*)},
+		{"getTotalSpace", "()J", nullptr, $PUBLIC, $virtualMethod(ZipFileStore, getTotalSpace, int64_t), "java.io.IOException"},
+		{"getUnallocatedSpace", "()J", nullptr, $PUBLIC, $virtualMethod(ZipFileStore, getUnallocatedSpace, int64_t), "java.io.IOException"},
+		{"getUsableSpace", "()J", nullptr, $PUBLIC, $virtualMethod(ZipFileStore, getUsableSpace, int64_t), "java.io.IOException"},
+		{"isReadOnly", "()Z", nullptr, $PUBLIC, $virtualMethod(ZipFileStore, isReadOnly, bool)},
+		{"name", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ZipFileStore, name, $String*)},
+		{"supportsFileAttributeView", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<+Ljava/nio/file/attribute/FileAttributeView;>;)Z", $PUBLIC, $virtualMethod(ZipFileStore, supportsFileAttributeView, bool, $Class*)},
+		{"supportsFileAttributeView", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(ZipFileStore, supportsFileAttributeView, bool, $String*)},
+		{"type", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ZipFileStore, type, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.nio.zipfs.ZipFileStore$ZipFileStoreAttributes", "jdk.nio.zipfs.ZipFileStore", "ZipFileStoreAttributes", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"jdk.nio.zipfs.ZipFileStore",
+		"java.nio.file.FileStore",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"jdk.nio.zipfs.ZipFileStore$ZipFileStoreAttributes"
+	};
+	$loadClass(ZipFileStore, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ZipFileStore);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/nio/cs/ext/ISO2022$Encoder.h>
-
 #include <java/nio/ByteBuffer.h>
 #include <java/nio/CharBuffer.h>
 #include <java/nio/charset/Charset.h>
@@ -39,68 +38,6 @@ namespace sun {
 		namespace cs {
 			namespace ext {
 
-$FieldInfo _ISO2022$Encoder_FieldInfo_[] = {
-	{"ISO_ESC", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ISO2022$Encoder, ISO_ESC)},
-	{"ISO_SI", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ISO2022$Encoder, ISO_SI)},
-	{"ISO_SO", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ISO2022$Encoder, ISO_SO)},
-	{"ISO_SS2_7", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ISO2022$Encoder, ISO_SS2_7)},
-	{"ISO_SS3_7", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ISO2022$Encoder, ISO_SS3_7)},
-	{"sgp", "Lsun/nio/cs/Surrogate$Parser;", nullptr, $PRIVATE | $FINAL, $field(ISO2022$Encoder, sgp)},
-	{"SS2", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ISO2022$Encoder, SS2)},
-	{"PLANE2", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ISO2022$Encoder, PLANE2)},
-	{"PLANE3", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ISO2022$Encoder, PLANE3)},
-	{"maximumDesignatorLength", "B", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(ISO2022$Encoder, maximumDesignatorLength)},
-	{"SODesig", "[B", nullptr, $PROTECTED, $field(ISO2022$Encoder, SODesig)},
-	{"SS2Desig", "[B", nullptr, $PROTECTED, $field(ISO2022$Encoder, SS2Desig)},
-	{"SS3Desig", "[B", nullptr, $PROTECTED, $field(ISO2022$Encoder, SS3Desig)},
-	{"ISOEncoder", "Ljava/nio/charset/CharsetEncoder;", nullptr, $PROTECTED, $field(ISO2022$Encoder, ISOEncoder)},
-	{"shiftout", "Z", nullptr, $PRIVATE, $field(ISO2022$Encoder, shiftout)},
-	{"SODesDefined", "Z", nullptr, $PRIVATE, $field(ISO2022$Encoder, SODesDefined)},
-	{"SS2DesDefined", "Z", nullptr, $PRIVATE, $field(ISO2022$Encoder, SS2DesDefined)},
-	{"SS3DesDefined", "Z", nullptr, $PRIVATE, $field(ISO2022$Encoder, SS3DesDefined)},
-	{"newshiftout", "Z", nullptr, $PRIVATE, $field(ISO2022$Encoder, newshiftout)},
-	{"newSODesDefined", "Z", nullptr, $PRIVATE, $field(ISO2022$Encoder, newSODesDefined)},
-	{"newSS2DesDefined", "Z", nullptr, $PRIVATE, $field(ISO2022$Encoder, newSS2DesDefined)},
-	{"newSS3DesDefined", "Z", nullptr, $PRIVATE, $field(ISO2022$Encoder, newSS3DesDefined)},
-	{}
-};
-
-$MethodInfo _ISO2022$Encoder_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/charset/Charset;)V", nullptr, $PROTECTED, $method(ISO2022$Encoder, init$, void, $Charset*)},
-	{"canEncode", "(C)Z", nullptr, $PUBLIC, $virtualMethod(ISO2022$Encoder, canEncode, bool, char16_t)},
-	{"encodeArrayLoop", "(Ljava/nio/CharBuffer;Ljava/nio/ByteBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PRIVATE, $method(ISO2022$Encoder, encodeArrayLoop, $CoderResult*, $CharBuffer*, $ByteBuffer*)},
-	{"encodeBufferLoop", "(Ljava/nio/CharBuffer;Ljava/nio/ByteBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PRIVATE, $method(ISO2022$Encoder, encodeBufferLoop, $CoderResult*, $CharBuffer*, $ByteBuffer*)},
-	{"encodeLoop", "(Ljava/nio/CharBuffer;Ljava/nio/ByteBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PROTECTED, $virtualMethod(ISO2022$Encoder, encodeLoop, $CoderResult*, $CharBuffer*, $ByteBuffer*)},
-	{"implReset", "()V", nullptr, $PROTECTED, $virtualMethod(ISO2022$Encoder, implReset, void)},
-	{"unicodeToNative", "(C[B)I", nullptr, $PRIVATE, $method(ISO2022$Encoder, unicodeToNative, int32_t, char16_t, $bytes*)},
-	{}
-};
-
-$InnerClassInfo _ISO2022$Encoder_InnerClassesInfo_[] = {
-	{"sun.nio.cs.ext.ISO2022$Encoder", "sun.nio.cs.ext.ISO2022", "Encoder", $PROTECTED | $STATIC},
-	{}
-};
-
-$ClassInfo _ISO2022$Encoder_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.nio.cs.ext.ISO2022$Encoder",
-	"java.nio.charset.CharsetEncoder",
-	nullptr,
-	_ISO2022$Encoder_FieldInfo_,
-	_ISO2022$Encoder_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ISO2022$Encoder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.nio.cs.ext.ISO2022"
-};
-
-$Object* allocate$ISO2022$Encoder($Class* clazz) {
-	return $of($alloc(ISO2022$Encoder));
-}
-
 void ISO2022$Encoder::init$($Charset* cs) {
 	$CharsetEncoder::init$(cs, 4.0f, 8.0f);
 	$set(this, sgp, $new($Surrogate$Parser));
@@ -128,7 +65,7 @@ void ISO2022$Encoder::implReset() {
 }
 
 int32_t ISO2022$Encoder::unicodeToNative(char16_t unicode, $bytes* ebyte) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t index = 0;
 	$var($chars, convChar, $new($chars, {unicode}));
 	$var($bytes, convByte, $new($bytes, 4));
@@ -147,44 +84,44 @@ int32_t ISO2022$Encoder::unicodeToNative(char16_t unicode, $bytes* ebyte) {
 			this->newSODesDefined = true;
 			$nc(ebyte)->set(0, ISO2022$Encoder::ISO_ESC);
 			$System::arraycopy(this->SODesig, 0, ebyte, 1, $nc(this->SODesig)->length);
-			index = $nc(this->SODesig)->length + 1;
+			index = this->SODesig->length + 1;
 		}
 		if (!this->shiftout) {
 			this->newshiftout = true;
 			$nc(ebyte)->set(index++, ISO2022$Encoder::ISO_SO);
 		}
-		$nc(ebyte)->set(index++, (int8_t)((int32_t)(convByte->get(0) & (uint32_t)127)));
-		ebyte->set(index++, (int8_t)((int32_t)(convByte->get(1) & (uint32_t)127)));
+		$nc(ebyte)->set(index++, (int8_t)(convByte->get(0) & 0x7f));
+		ebyte->set(index++, (int8_t)(convByte->get(1) & 0x7f));
 	} else if (convByte->get(0) == ISO2022$Encoder::SS2) {
 		if (convByte->get(1) == ISO2022$Encoder::PLANE2) {
 			if (!this->SS2DesDefined) {
 				this->newSS2DesDefined = true;
 				$nc(ebyte)->set(0, ISO2022$Encoder::ISO_ESC);
 				$System::arraycopy(this->SS2Desig, 0, ebyte, 1, $nc(this->SS2Desig)->length);
-				index = $nc(this->SS2Desig)->length + 1;
+				index = this->SS2Desig->length + 1;
 			}
 			$nc(ebyte)->set(index++, ISO2022$Encoder::ISO_ESC);
 			ebyte->set(index++, ISO2022$Encoder::ISO_SS2_7);
-			ebyte->set(index++, (int8_t)((int32_t)(convByte->get(2) & (uint32_t)127)));
-			ebyte->set(index++, (int8_t)((int32_t)(convByte->get(3) & (uint32_t)127)));
+			ebyte->set(index++, (int8_t)(convByte->get(2) & 0x7f));
+			ebyte->set(index++, (int8_t)(convByte->get(3) & 0x7f));
 		} else if (convByte->get(1) == ISO2022$Encoder::PLANE3) {
 			if (!this->SS3DesDefined) {
 				this->newSS3DesDefined = true;
 				$nc(ebyte)->set(0, ISO2022$Encoder::ISO_ESC);
 				$System::arraycopy(this->SS3Desig, 0, ebyte, 1, $nc(this->SS3Desig)->length);
-				index = $nc(this->SS3Desig)->length + 1;
+				index = this->SS3Desig->length + 1;
 			}
 			$nc(ebyte)->set(index++, ISO2022$Encoder::ISO_ESC);
 			ebyte->set(index++, ISO2022$Encoder::ISO_SS3_7);
-			ebyte->set(index++, (int8_t)((int32_t)(convByte->get(2) & (uint32_t)127)));
-			ebyte->set(index++, (int8_t)((int32_t)(convByte->get(3) & (uint32_t)127)));
+			ebyte->set(index++, (int8_t)(convByte->get(2) & 0x7f));
+			ebyte->set(index++, (int8_t)(convByte->get(3) & 0x7f));
 		}
 	}
 	return index;
 }
 
 $CoderResult* ISO2022$Encoder::encodeArrayLoop($CharBuffer* src, $ByteBuffer* dst) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($chars, sa, $cast($chars, $nc(src)->array()));
 	int32_t var$0 = src->arrayOffset();
 	int32_t sp = var$0 + src->position();
@@ -201,83 +138,81 @@ $CoderResult* ISO2022$Encoder::encodeArrayLoop($CharBuffer* src, $ByteBuffer* ds
 	this->newSODesDefined = this->SODesDefined;
 	this->newSS2DesDefined = this->SS2DesDefined;
 	this->newSS3DesDefined = this->SS3DesDefined;
-	{
-		$var($Throwable, var$4, nullptr);
-		$var($CoderResult, var$6, nullptr);
-		bool return$5 = false;
-		try {
-			while (sp < sl) {
-				char16_t c = $nc(sa)->get(sp);
-				if ($Character::isSurrogate(c)) {
-					if ($nc(this->sgp)->parse(c, sa, sp, sl) < 0) {
-						$assign(var$6, $nc(this->sgp)->error());
-						return$5 = true;
-						goto $finally;
-					}
-					$assign(var$6, $nc(this->sgp)->unmappableResult());
+	$var($Throwable, var$4, nullptr);
+	$var($CoderResult, var$6, nullptr);
+	bool return$5 = false;
+	try {
+		while (sp < sl) {
+			char16_t c = $nc(sa)->get(sp);
+			if ($Character::isSurrogate(c)) {
+				if (this->sgp->parse(c, sa, sp, sl) < 0) {
+					$assign(var$6, this->sgp->error());
 					return$5 = true;
 					goto $finally;
 				}
-				if (c < 128) {
-					if (this->shiftout) {
-						this->newshiftout = false;
-						outputSize = 2;
-						outputByte->set(0, ISO2022$Encoder::ISO_SI);
-						outputByte->set(1, (int8_t)((int32_t)(c & (uint32_t)127)));
-					} else {
-						outputSize = 1;
-						outputByte->set(0, (int8_t)((int32_t)(c & (uint32_t)127)));
-					}
-					if (sa->get(sp) == u'\n') {
-						this->newSODesDefined = false;
-						this->newSS2DesDefined = false;
-						this->newSS3DesDefined = false;
-					}
-				} else {
-					outputSize = unicodeToNative(c, outputByte);
-					if (outputSize == 0) {
-						$assign(var$6, $CoderResult::unmappableForLength(1));
-						return$5 = true;
-						goto $finally;
-					}
-				}
-				if (dl - dp < outputSize) {
-					$init($CoderResult);
-					$assign(var$6, $CoderResult::OVERFLOW);
-					return$5 = true;
-					goto $finally;
-				}
-				for (int32_t i = 0; i < outputSize; ++i) {
-					$nc(da)->set(dp++, outputByte->get(i));
-				}
-				++sp;
-				this->shiftout = this->newshiftout;
-				this->SODesDefined = this->newSODesDefined;
-				this->SS2DesDefined = this->newSS2DesDefined;
-				this->SS3DesDefined = this->newSS3DesDefined;
+				$assign(var$6, this->sgp->unmappableResult());
+				return$5 = true;
+				goto $finally;
 			}
-			$init($CoderResult);
-			$assign(var$6, $CoderResult::UNDERFLOW);
-			return$5 = true;
-			goto $finally;
-		} catch ($Throwable& var$7) {
-			$assign(var$4, var$7);
-		} $finally: {
-			src->position(sp - src->arrayOffset());
-			dst->position(dp - dst->arrayOffset());
+			if (c < 128) {
+				if (this->shiftout) {
+					this->newshiftout = false;
+					outputSize = 2;
+					outputByte->set(0, ISO2022$Encoder::ISO_SI);
+					outputByte->set(1, (int8_t)(c & 0x7f));
+				} else {
+					outputSize = 1;
+					outputByte->set(0, (int8_t)(c & 0x7f));
+				}
+				if (sa->get(sp) == u'\n') {
+					this->newSODesDefined = false;
+					this->newSS2DesDefined = false;
+					this->newSS3DesDefined = false;
+				}
+			} else {
+				outputSize = unicodeToNative(c, outputByte);
+				if (outputSize == 0) {
+					$assign(var$6, $CoderResult::unmappableForLength(1));
+					return$5 = true;
+					goto $finally;
+				}
+			}
+			if (dl - dp < outputSize) {
+				$init($CoderResult);
+				$assign(var$6, $CoderResult::OVERFLOW);
+				return$5 = true;
+				goto $finally;
+			}
+			for (int32_t i = 0; i < outputSize; ++i) {
+				$nc(da)->set(dp++, outputByte->get(i));
+			}
+			++sp;
+			this->shiftout = this->newshiftout;
+			this->SODesDefined = this->newSODesDefined;
+			this->SS2DesDefined = this->newSS2DesDefined;
+			this->SS3DesDefined = this->newSS3DesDefined;
 		}
-		if (var$4 != nullptr) {
-			$throw(var$4);
-		}
-		if (return$5) {
-			return var$6;
-		}
+		$init($CoderResult);
+		$assign(var$6, $CoderResult::UNDERFLOW);
+		return$5 = true;
+		goto $finally;
+	} catch ($Throwable& var$7) {
+		$assign(var$4, var$7);
+	} $finally: {
+		src->position(sp - src->arrayOffset());
+		dst->position(dp - dst->arrayOffset());
+	}
+	if (var$4 != nullptr) {
+		$throw(var$4);
+	}
+	if (return$5) {
+		return var$6;
 	}
 	$shouldNotReachHere();
 }
 
 $CoderResult* ISO2022$Encoder::encodeBufferLoop($CharBuffer* src, $ByteBuffer* dst) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t outputSize = 0;
 	$var($bytes, outputByte, $new($bytes, 8));
 	this->newshiftout = this->shiftout;
@@ -285,76 +220,74 @@ $CoderResult* ISO2022$Encoder::encodeBufferLoop($CharBuffer* src, $ByteBuffer* d
 	this->newSS2DesDefined = this->SS2DesDefined;
 	this->newSS3DesDefined = this->SS3DesDefined;
 	int32_t mark = $nc(src)->position();
-	{
-		$var($Throwable, var$0, nullptr);
-		$var($CoderResult, var$2, nullptr);
-		bool return$1 = false;
-		try {
-			while (src->hasRemaining()) {
-				char16_t inputChar = src->get();
-				if ($Character::isSurrogate(inputChar)) {
-					if ($nc(this->sgp)->parse(inputChar, src) < 0) {
-						$assign(var$2, $nc(this->sgp)->error());
-						return$1 = true;
-						goto $finally;
-					}
-					$assign(var$2, $nc(this->sgp)->unmappableResult());
+	$var($Throwable, var$0, nullptr);
+	$var($CoderResult, var$2, nullptr);
+	bool return$1 = false;
+	try {
+		while (src->hasRemaining()) {
+			char16_t inputChar = src->get();
+			if ($Character::isSurrogate(inputChar)) {
+				if (this->sgp->parse(inputChar, src) < 0) {
+					$assign(var$2, this->sgp->error());
 					return$1 = true;
 					goto $finally;
 				}
-				if (inputChar < 128) {
-					if (this->shiftout) {
-						this->newshiftout = false;
-						outputSize = 2;
-						outputByte->set(0, ISO2022$Encoder::ISO_SI);
-						outputByte->set(1, (int8_t)((int32_t)(inputChar & (uint32_t)127)));
-					} else {
-						outputSize = 1;
-						outputByte->set(0, (int8_t)((int32_t)(inputChar & (uint32_t)127)));
-					}
-					if (inputChar == u'\n') {
-						this->newSODesDefined = false;
-						this->newSS2DesDefined = false;
-						this->newSS3DesDefined = false;
-					}
-				} else {
-					outputSize = unicodeToNative(inputChar, outputByte);
-					if (outputSize == 0) {
-						$assign(var$2, $CoderResult::unmappableForLength(1));
-						return$1 = true;
-						goto $finally;
-					}
-				}
-				if ($nc(dst)->remaining() < outputSize) {
-					$init($CoderResult);
-					$assign(var$2, $CoderResult::OVERFLOW);
-					return$1 = true;
-					goto $finally;
-				}
-				for (int32_t i = 0; i < outputSize; ++i) {
-					$nc(dst)->put(outputByte->get(i));
-				}
-				++mark;
-				this->shiftout = this->newshiftout;
-				this->SODesDefined = this->newSODesDefined;
-				this->SS2DesDefined = this->newSS2DesDefined;
-				this->SS3DesDefined = this->newSS3DesDefined;
+				$assign(var$2, this->sgp->unmappableResult());
+				return$1 = true;
+				goto $finally;
 			}
-			$init($CoderResult);
-			$assign(var$2, $CoderResult::UNDERFLOW);
-			return$1 = true;
-			goto $finally;
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			src->position(mark);
+			if (inputChar < 128) {
+				if (this->shiftout) {
+					this->newshiftout = false;
+					outputSize = 2;
+					outputByte->set(0, ISO2022$Encoder::ISO_SI);
+					outputByte->set(1, (int8_t)(inputChar & 0x7f));
+				} else {
+					outputSize = 1;
+					outputByte->set(0, (int8_t)(inputChar & 0x7f));
+				}
+				if (inputChar == u'\n') {
+					this->newSODesDefined = false;
+					this->newSS2DesDefined = false;
+					this->newSS3DesDefined = false;
+				}
+			} else {
+				outputSize = unicodeToNative(inputChar, outputByte);
+				if (outputSize == 0) {
+					$assign(var$2, $CoderResult::unmappableForLength(1));
+					return$1 = true;
+					goto $finally;
+				}
+			}
+			if ($nc(dst)->remaining() < outputSize) {
+				$init($CoderResult);
+				$assign(var$2, $CoderResult::OVERFLOW);
+				return$1 = true;
+				goto $finally;
+			}
+			for (int32_t i = 0; i < outputSize; ++i) {
+				dst->put(outputByte->get(i));
+			}
+			++mark;
+			this->shiftout = this->newshiftout;
+			this->SODesDefined = this->newSODesDefined;
+			this->SS2DesDefined = this->newSS2DesDefined;
+			this->SS3DesDefined = this->newSS3DesDefined;
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+		$init($CoderResult);
+		$assign(var$2, $CoderResult::UNDERFLOW);
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		src->position(mark);
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
@@ -372,7 +305,63 @@ ISO2022$Encoder::ISO2022$Encoder() {
 }
 
 $Class* ISO2022$Encoder::load$($String* name, bool initialize) {
-	$loadClass(ISO2022$Encoder, name, initialize, &_ISO2022$Encoder_ClassInfo_, allocate$ISO2022$Encoder);
+	$FieldInfo fieldInfos$$[] = {
+		{"ISO_ESC", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ISO2022$Encoder, ISO_ESC)},
+		{"ISO_SI", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ISO2022$Encoder, ISO_SI)},
+		{"ISO_SO", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ISO2022$Encoder, ISO_SO)},
+		{"ISO_SS2_7", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ISO2022$Encoder, ISO_SS2_7)},
+		{"ISO_SS3_7", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ISO2022$Encoder, ISO_SS3_7)},
+		{"sgp", "Lsun/nio/cs/Surrogate$Parser;", nullptr, $PRIVATE | $FINAL, $field(ISO2022$Encoder, sgp)},
+		{"SS2", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ISO2022$Encoder, SS2)},
+		{"PLANE2", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ISO2022$Encoder, PLANE2)},
+		{"PLANE3", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ISO2022$Encoder, PLANE3)},
+		{"maximumDesignatorLength", "B", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(ISO2022$Encoder, maximumDesignatorLength)},
+		{"SODesig", "[B", nullptr, $PROTECTED, $field(ISO2022$Encoder, SODesig)},
+		{"SS2Desig", "[B", nullptr, $PROTECTED, $field(ISO2022$Encoder, SS2Desig)},
+		{"SS3Desig", "[B", nullptr, $PROTECTED, $field(ISO2022$Encoder, SS3Desig)},
+		{"ISOEncoder", "Ljava/nio/charset/CharsetEncoder;", nullptr, $PROTECTED, $field(ISO2022$Encoder, ISOEncoder)},
+		{"shiftout", "Z", nullptr, $PRIVATE, $field(ISO2022$Encoder, shiftout)},
+		{"SODesDefined", "Z", nullptr, $PRIVATE, $field(ISO2022$Encoder, SODesDefined)},
+		{"SS2DesDefined", "Z", nullptr, $PRIVATE, $field(ISO2022$Encoder, SS2DesDefined)},
+		{"SS3DesDefined", "Z", nullptr, $PRIVATE, $field(ISO2022$Encoder, SS3DesDefined)},
+		{"newshiftout", "Z", nullptr, $PRIVATE, $field(ISO2022$Encoder, newshiftout)},
+		{"newSODesDefined", "Z", nullptr, $PRIVATE, $field(ISO2022$Encoder, newSODesDefined)},
+		{"newSS2DesDefined", "Z", nullptr, $PRIVATE, $field(ISO2022$Encoder, newSS2DesDefined)},
+		{"newSS3DesDefined", "Z", nullptr, $PRIVATE, $field(ISO2022$Encoder, newSS3DesDefined)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/nio/charset/Charset;)V", nullptr, $PROTECTED, $method(ISO2022$Encoder, init$, void, $Charset*)},
+		{"canEncode", "(C)Z", nullptr, $PUBLIC, $virtualMethod(ISO2022$Encoder, canEncode, bool, char16_t)},
+		{"encodeArrayLoop", "(Ljava/nio/CharBuffer;Ljava/nio/ByteBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PRIVATE, $method(ISO2022$Encoder, encodeArrayLoop, $CoderResult*, $CharBuffer*, $ByteBuffer*)},
+		{"encodeBufferLoop", "(Ljava/nio/CharBuffer;Ljava/nio/ByteBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PRIVATE, $method(ISO2022$Encoder, encodeBufferLoop, $CoderResult*, $CharBuffer*, $ByteBuffer*)},
+		{"encodeLoop", "(Ljava/nio/CharBuffer;Ljava/nio/ByteBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PROTECTED, $virtualMethod(ISO2022$Encoder, encodeLoop, $CoderResult*, $CharBuffer*, $ByteBuffer*)},
+		{"implReset", "()V", nullptr, $PROTECTED, $virtualMethod(ISO2022$Encoder, implReset, void)},
+		{"unicodeToNative", "(C[B)I", nullptr, $PRIVATE, $method(ISO2022$Encoder, unicodeToNative, int32_t, char16_t, $bytes*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.cs.ext.ISO2022$Encoder", "sun.nio.cs.ext.ISO2022", "Encoder", $PROTECTED | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.nio.cs.ext.ISO2022$Encoder",
+		"java.nio.charset.CharsetEncoder",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.nio.cs.ext.ISO2022"
+	};
+	$loadClass(ISO2022$Encoder, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ISO2022$Encoder);
+	});
 	return class$;
 }
 

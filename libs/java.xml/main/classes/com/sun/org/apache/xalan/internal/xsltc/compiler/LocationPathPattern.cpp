@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/LocationPathPattern.h>
-
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/Pattern.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/StepPattern.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/SymbolTable.h>
@@ -35,47 +34,8 @@ namespace com {
 						namespace xsltc {
 							namespace compiler {
 
-$FieldInfo _LocationPathPattern_FieldInfo_[] = {
-	{"_template", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Template;", nullptr, $PRIVATE, $field(LocationPathPattern, _template)},
-	{"_importPrecedence", "I", nullptr, $PRIVATE, $field(LocationPathPattern, _importPrecedence)},
-	{"_priority", "D", nullptr, $PRIVATE, $field(LocationPathPattern, _priority)},
-	{"_position", "I", nullptr, $PRIVATE, $field(LocationPathPattern, _position)},
-	{}
-};
-
-$MethodInfo _LocationPathPattern_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(LocationPathPattern, init$, void)},
-	{"getAxis", "()I", nullptr, $PUBLIC, $virtualMethod(LocationPathPattern, getAxis, int32_t)},
-	{"getDefaultPriority", "()D", nullptr, $PUBLIC, $virtualMethod(LocationPathPattern, getDefaultPriority, double)},
-	{"getKernelPattern", "()Lcom/sun/org/apache/xalan/internal/xsltc/compiler/StepPattern;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LocationPathPattern, getKernelPattern, $StepPattern*)},
-	{"getPriority", "()D", nullptr, $PUBLIC | $FINAL, $virtualMethod(LocationPathPattern, getPriority, double)},
-	{"getTemplate", "()Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Template;", nullptr, $PUBLIC, $virtualMethod(LocationPathPattern, getTemplate, $Template*)},
-	{"isWildcard", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LocationPathPattern, isWildcard, bool)},
-	{"noSmallerThan", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/LocationPathPattern;)Z", nullptr, $PUBLIC, $virtualMethod(LocationPathPattern, noSmallerThan, bool, LocationPathPattern*)},
-	{"reduceKernelPattern", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LocationPathPattern, reduceKernelPattern, void)},
-	{"setTemplate", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Template;)V", nullptr, $PUBLIC, $virtualMethod(LocationPathPattern, setTemplate, void, $Template*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LocationPathPattern, toString, $String*)},
-	{"translate", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;)V", nullptr, $PUBLIC, $virtualMethod(LocationPathPattern, translate, void, $ClassGenerator*, $MethodGenerator*)},
-	{"typeCheck", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SymbolTable;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/Type;", nullptr, $PUBLIC, $virtualMethod(LocationPathPattern, typeCheck, $Type*, $SymbolTable*), "com.sun.org.apache.xalan.internal.xsltc.compiler.util.TypeCheckError"},
-	{}
-};
-
-$ClassInfo _LocationPathPattern_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"com.sun.org.apache.xalan.internal.xsltc.compiler.LocationPathPattern",
-	"com.sun.org.apache.xalan.internal.xsltc.compiler.Pattern",
-	nullptr,
-	_LocationPathPattern_FieldInfo_,
-	_LocationPathPattern_MethodInfo_
-};
-
-$Object* allocate$LocationPathPattern($Class* clazz) {
-	return $of($alloc(LocationPathPattern));
-}
-
 void LocationPathPattern::init$() {
 	$Pattern::init$();
-	$init($Double);
 	this->_priority = $Double::NaN;
 	this->_position = 0;
 }
@@ -124,7 +84,7 @@ bool LocationPathPattern::noSmallerThan(LocationPathPattern* other) {
 
 int32_t LocationPathPattern::getAxis() {
 	$var($StepPattern, sp, getKernelPattern());
-	return (sp != nullptr) ? $nc(sp)->getAxis() : $Axis::CHILD;
+	return (sp != nullptr) ? sp->getAxis() : $Axis::CHILD;
 }
 
 $String* LocationPathPattern::toString() {
@@ -135,7 +95,40 @@ LocationPathPattern::LocationPathPattern() {
 }
 
 $Class* LocationPathPattern::load$($String* name, bool initialize) {
-	$loadClass(LocationPathPattern, name, initialize, &_LocationPathPattern_ClassInfo_, allocate$LocationPathPattern);
+	$FieldInfo fieldInfos$$[] = {
+		{"_template", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Template;", nullptr, $PRIVATE, $field(LocationPathPattern, _template)},
+		{"_importPrecedence", "I", nullptr, $PRIVATE, $field(LocationPathPattern, _importPrecedence)},
+		{"_priority", "D", nullptr, $PRIVATE, $field(LocationPathPattern, _priority)},
+		{"_position", "I", nullptr, $PRIVATE, $field(LocationPathPattern, _position)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(LocationPathPattern, init$, void)},
+		{"getAxis", "()I", nullptr, $PUBLIC, $virtualMethod(LocationPathPattern, getAxis, int32_t)},
+		{"getDefaultPriority", "()D", nullptr, $PUBLIC, $virtualMethod(LocationPathPattern, getDefaultPriority, double)},
+		{"getKernelPattern", "()Lcom/sun/org/apache/xalan/internal/xsltc/compiler/StepPattern;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LocationPathPattern, getKernelPattern, $StepPattern*)},
+		{"getPriority", "()D", nullptr, $PUBLIC | $FINAL, $virtualMethod(LocationPathPattern, getPriority, double)},
+		{"getTemplate", "()Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Template;", nullptr, $PUBLIC, $virtualMethod(LocationPathPattern, getTemplate, $Template*)},
+		{"isWildcard", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LocationPathPattern, isWildcard, bool)},
+		{"noSmallerThan", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/LocationPathPattern;)Z", nullptr, $PUBLIC, $virtualMethod(LocationPathPattern, noSmallerThan, bool, LocationPathPattern*)},
+		{"reduceKernelPattern", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LocationPathPattern, reduceKernelPattern, void)},
+		{"setTemplate", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Template;)V", nullptr, $PUBLIC, $virtualMethod(LocationPathPattern, setTemplate, void, $Template*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LocationPathPattern, toString, $String*)},
+		{"translate", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;)V", nullptr, $PUBLIC, $virtualMethod(LocationPathPattern, translate, void, $ClassGenerator*, $MethodGenerator*)},
+		{"typeCheck", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SymbolTable;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/Type;", nullptr, $PUBLIC, $virtualMethod(LocationPathPattern, typeCheck, $Type*, $SymbolTable*), "com.sun.org.apache.xalan.internal.xsltc.compiler.util.TypeCheckError"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"com.sun.org.apache.xalan.internal.xsltc.compiler.LocationPathPattern",
+		"com.sun.org.apache.xalan.internal.xsltc.compiler.Pattern",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(LocationPathPattern, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LocationPathPattern);
+	});
 	return class$;
 }
 

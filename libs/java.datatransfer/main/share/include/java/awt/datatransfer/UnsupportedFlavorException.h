@@ -22,10 +22,13 @@ class $import UnsupportedFlavorException : public ::java::lang::Exception {
 public:
 	UnsupportedFlavorException();
 	void init$(::java::awt::datatransfer::DataFlavor* flavor);
-	static const int64_t serialVersionUID = (int64_t)0x4AB7272AC88F5CC1;
+	static const int64_t serialVersionUID = (int64_t)0x4ab7272ac88f5cc1;
 	UnsupportedFlavorException(const UnsupportedFlavorException& e);
 	virtual void throw$() override;
-	inline UnsupportedFlavorException* operator ->() {
+	inline UnsupportedFlavorException* operator ->() const {
+		return (UnsupportedFlavorException*)throwing$;
+	}
+	inline operator UnsupportedFlavorException*() const {
 		return (UnsupportedFlavorException*)throwing$;
 	}
 };

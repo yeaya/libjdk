@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/impl/xs/XSComplexTypeDecl.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/dv/XSSimpleType.h>
 #include <com/sun/org/apache/xerces/internal/impl/dv/xs/XSSimpleTypeDecl.h>
 #include <com/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar.h>
@@ -69,99 +68,6 @@ namespace com {
 						namespace impl {
 							namespace xs {
 
-$FieldInfo _XSComplexTypeDecl_FieldInfo_[] = {
-	{"fName", "Ljava/lang/String;", nullptr, 0, $field(XSComplexTypeDecl, fName)},
-	{"fTargetNamespace", "Ljava/lang/String;", nullptr, 0, $field(XSComplexTypeDecl, fTargetNamespace)},
-	{"fBaseType", "Lcom/sun/org/apache/xerces/internal/xs/XSTypeDefinition;", nullptr, 0, $field(XSComplexTypeDecl, fBaseType)},
-	{"fDerivedBy", "S", nullptr, 0, $field(XSComplexTypeDecl, fDerivedBy)},
-	{"fFinal", "S", nullptr, 0, $field(XSComplexTypeDecl, fFinal)},
-	{"fBlock", "S", nullptr, 0, $field(XSComplexTypeDecl, fBlock)},
-	{"fMiscFlags", "S", nullptr, 0, $field(XSComplexTypeDecl, fMiscFlags)},
-	{"fAttrGrp", "Lcom/sun/org/apache/xerces/internal/impl/xs/XSAttributeGroupDecl;", nullptr, 0, $field(XSComplexTypeDecl, fAttrGrp)},
-	{"fContentType", "S", nullptr, 0, $field(XSComplexTypeDecl, fContentType)},
-	{"fXSSimpleType", "Lcom/sun/org/apache/xerces/internal/impl/dv/XSSimpleType;", nullptr, 0, $field(XSComplexTypeDecl, fXSSimpleType)},
-	{"fParticle", "Lcom/sun/org/apache/xerces/internal/impl/xs/XSParticleDecl;", nullptr, 0, $field(XSComplexTypeDecl, fParticle)},
-	{"fCMValidator", "Lcom/sun/org/apache/xerces/internal/impl/xs/models/XSCMValidator;", nullptr, $VOLATILE, $field(XSComplexTypeDecl, fCMValidator)},
-	{"fUPACMValidator", "Lcom/sun/org/apache/xerces/internal/impl/xs/models/XSCMValidator;", nullptr, $VOLATILE, $field(XSComplexTypeDecl, fUPACMValidator)},
-	{"fAnnotations", "Lcom/sun/org/apache/xerces/internal/impl/xs/util/XSObjectListImpl;", nullptr, 0, $field(XSComplexTypeDecl, fAnnotations)},
-	{"fNamespaceItem", "Lcom/sun/org/apache/xerces/internal/xs/XSNamespaceItem;", nullptr, $PRIVATE, $field(XSComplexTypeDecl, fNamespaceItem)},
-	{"DERIVATION_ANY", "I", nullptr, $STATIC | $FINAL, $constField(XSComplexTypeDecl, DERIVATION_ANY)},
-	{"DERIVATION_RESTRICTION", "I", nullptr, $STATIC | $FINAL, $constField(XSComplexTypeDecl, DERIVATION_RESTRICTION)},
-	{"DERIVATION_EXTENSION", "I", nullptr, $STATIC | $FINAL, $constField(XSComplexTypeDecl, DERIVATION_EXTENSION)},
-	{"DERIVATION_UNION", "I", nullptr, $STATIC | $FINAL, $constField(XSComplexTypeDecl, DERIVATION_UNION)},
-	{"DERIVATION_LIST", "I", nullptr, $STATIC | $FINAL, $constField(XSComplexTypeDecl, DERIVATION_LIST)},
-	{"CT_IS_ABSTRACT", "S", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XSComplexTypeDecl, CT_IS_ABSTRACT)},
-	{"CT_HAS_TYPE_ID", "S", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XSComplexTypeDecl, CT_HAS_TYPE_ID)},
-	{"CT_IS_ANONYMOUS", "S", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XSComplexTypeDecl, CT_IS_ANONYMOUS)},
-	{}
-};
-
-$MethodInfo _XSComplexTypeDecl_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(XSComplexTypeDecl, init$, void)},
-	{"appendTypeInfo", "(Ljava/lang/StringBuilder;)V", nullptr, 0, $virtualMethod(XSComplexTypeDecl, appendTypeInfo, void, $StringBuilder*)},
-	{"containsTypeID", "()Z", nullptr, $PUBLIC, $virtualMethod(XSComplexTypeDecl, containsTypeID, bool)},
-	{"derivedFrom", "(Ljava/lang/String;Ljava/lang/String;S)Z", nullptr, $PUBLIC, $virtualMethod(XSComplexTypeDecl, derivedFrom, bool, $String*, $String*, int16_t)},
-	{"derivedFromType", "(Lcom/sun/org/apache/xerces/internal/xs/XSTypeDefinition;S)Z", nullptr, $PUBLIC, $virtualMethod(XSComplexTypeDecl, derivedFromType, bool, $XSTypeDefinition*, int16_t)},
-	{"getAbstract", "()Z", nullptr, $PUBLIC, $virtualMethod(XSComplexTypeDecl, getAbstract, bool)},
-	{"getAnnotations", "()Lcom/sun/org/apache/xerces/internal/xs/XSObjectList;", nullptr, $PUBLIC, $virtualMethod(XSComplexTypeDecl, getAnnotations, $XSObjectList*)},
-	{"getAnonymous", "()Z", nullptr, $PUBLIC, $virtualMethod(XSComplexTypeDecl, getAnonymous, bool)},
-	{"getAttrGrp", "()Lcom/sun/org/apache/xerces/internal/impl/xs/XSAttributeGroupDecl;", nullptr, $PUBLIC, $virtualMethod(XSComplexTypeDecl, getAttrGrp, $XSAttributeGroupDecl*)},
-	{"getAttributeUse", "(Ljava/lang/String;Ljava/lang/String;)Lcom/sun/org/apache/xerces/internal/xs/XSAttributeUse;", nullptr, $PUBLIC, $virtualMethod(XSComplexTypeDecl, getAttributeUse, $XSAttributeUse*, $String*, $String*)},
-	{"getAttributeUses", "()Lcom/sun/org/apache/xerces/internal/xs/XSObjectList;", nullptr, $PUBLIC, $virtualMethod(XSComplexTypeDecl, getAttributeUses, $XSObjectList*)},
-	{"getAttributeWildcard", "()Lcom/sun/org/apache/xerces/internal/xs/XSWildcard;", nullptr, $PUBLIC, $virtualMethod(XSComplexTypeDecl, getAttributeWildcard, $XSWildcard*)},
-	{"getBaseType", "()Lcom/sun/org/apache/xerces/internal/xs/XSTypeDefinition;", nullptr, $PUBLIC, $virtualMethod(XSComplexTypeDecl, getBaseType, $XSTypeDefinition*)},
-	{"getContentModel", "(Lcom/sun/org/apache/xerces/internal/impl/xs/models/CMBuilder;)Lcom/sun/org/apache/xerces/internal/impl/xs/models/XSCMValidator;", nullptr, $PUBLIC, $virtualMethod(XSComplexTypeDecl, getContentModel, $XSCMValidator*, $CMBuilder*)},
-	{"getContentModel", "(Lcom/sun/org/apache/xerces/internal/impl/xs/models/CMBuilder;Z)Lcom/sun/org/apache/xerces/internal/impl/xs/models/XSCMValidator;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(XSComplexTypeDecl, getContentModel, $XSCMValidator*, $CMBuilder*, bool)},
-	{"getContentType", "()S", nullptr, $PUBLIC, $virtualMethod(XSComplexTypeDecl, getContentType, int16_t)},
-	{"getDerivationMethod", "()S", nullptr, $PUBLIC, $virtualMethod(XSComplexTypeDecl, getDerivationMethod, int16_t)},
-	{"getFinal", "()S", nullptr, $PUBLIC, $virtualMethod(XSComplexTypeDecl, getFinal, int16_t)},
-	{"getFinalSet", "()S", nullptr, $PUBLIC, $virtualMethod(XSComplexTypeDecl, getFinalSet, int16_t)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XSComplexTypeDecl, getName, $String*)},
-	{"getNamespace", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XSComplexTypeDecl, getNamespace, $String*)},
-	{"getNamespaceItem", "()Lcom/sun/org/apache/xerces/internal/xs/XSNamespaceItem;", nullptr, $PUBLIC, $virtualMethod(XSComplexTypeDecl, getNamespaceItem, $XSNamespaceItem*)},
-	{"getParticle", "()Lcom/sun/org/apache/xerces/internal/xs/XSParticle;", nullptr, $PUBLIC, $virtualMethod(XSComplexTypeDecl, getParticle, $XSParticle*)},
-	{"getProhibitedSubstitutions", "()S", nullptr, $PUBLIC, $virtualMethod(XSComplexTypeDecl, getProhibitedSubstitutions, int16_t)},
-	{"getSimpleType", "()Lcom/sun/org/apache/xerces/internal/xs/XSSimpleTypeDefinition;", nullptr, $PUBLIC, $virtualMethod(XSComplexTypeDecl, getSimpleType, $XSSimpleTypeDefinition*)},
-	{"getTargetNamespace", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XSComplexTypeDecl, getTargetNamespace, $String*)},
-	{"getType", "()S", nullptr, $PUBLIC, $virtualMethod(XSComplexTypeDecl, getType, int16_t)},
-	{"getTypeCategory", "()S", nullptr, $PUBLIC, $virtualMethod(XSComplexTypeDecl, getTypeCategory, int16_t)},
-	{"getTypeName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XSComplexTypeDecl, getTypeName, $String*)},
-	{"getTypeNamespace", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XSComplexTypeDecl, getTypeNamespace, $String*)},
-	{"isDOMDerivedFrom", "(Ljava/lang/String;Ljava/lang/String;I)Z", nullptr, $PUBLIC, $virtualMethod(XSComplexTypeDecl, isDOMDerivedFrom, bool, $String*, $String*, int32_t)},
-	{"isDerivedByAny", "(Ljava/lang/String;Ljava/lang/String;ILcom/sun/org/apache/xerces/internal/xs/XSTypeDefinition;)Z", nullptr, $PRIVATE, $method(XSComplexTypeDecl, isDerivedByAny, bool, $String*, $String*, int32_t, $XSTypeDefinition*)},
-	{"isDerivedByExtension", "(Ljava/lang/String;Ljava/lang/String;ILcom/sun/org/apache/xerces/internal/xs/XSTypeDefinition;)Z", nullptr, $PRIVATE, $method(XSComplexTypeDecl, isDerivedByExtension, bool, $String*, $String*, int32_t, $XSTypeDefinition*)},
-	{"isDerivedByRestriction", "(Ljava/lang/String;Ljava/lang/String;ILcom/sun/org/apache/xerces/internal/xs/XSTypeDefinition;)Z", nullptr, $PRIVATE, $method(XSComplexTypeDecl, isDerivedByRestriction, bool, $String*, $String*, int32_t, $XSTypeDefinition*)},
-	{"isDerivedFrom", "(Ljava/lang/String;Ljava/lang/String;I)Z", nullptr, $PUBLIC, $virtualMethod(XSComplexTypeDecl, isDerivedFrom, bool, $String*, $String*, int32_t)},
-	{"isFinal", "(S)Z", nullptr, $PUBLIC, $virtualMethod(XSComplexTypeDecl, isFinal, bool, int16_t)},
-	{"isProhibitedSubstitution", "(S)Z", nullptr, $PUBLIC, $virtualMethod(XSComplexTypeDecl, isProhibitedSubstitution, bool, int16_t)},
-	{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(XSComplexTypeDecl, reset, void)},
-	{"setContainsTypeID", "()V", nullptr, $PUBLIC, $virtualMethod(XSComplexTypeDecl, setContainsTypeID, void)},
-	{"setIsAbstractType", "()V", nullptr, $PUBLIC, $virtualMethod(XSComplexTypeDecl, setIsAbstractType, void)},
-	{"setIsAnonymous", "()V", nullptr, $PUBLIC, $virtualMethod(XSComplexTypeDecl, setIsAnonymous, void)},
-	{"setName", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(XSComplexTypeDecl, setName, void, $String*)},
-	{"setNamespaceItem", "(Lcom/sun/org/apache/xerces/internal/xs/XSNamespaceItem;)V", nullptr, 0, $virtualMethod(XSComplexTypeDecl, setNamespaceItem, void, $XSNamespaceItem*)},
-	{"setValues", "(Ljava/lang/String;Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/xs/XSTypeDefinition;SSSSZLcom/sun/org/apache/xerces/internal/impl/xs/XSAttributeGroupDecl;Lcom/sun/org/apache/xerces/internal/impl/dv/XSSimpleType;Lcom/sun/org/apache/xerces/internal/impl/xs/XSParticleDecl;Lcom/sun/org/apache/xerces/internal/impl/xs/util/XSObjectListImpl;)V", nullptr, $PUBLIC, $virtualMethod(XSComplexTypeDecl, setValues, void, $String*, $String*, $XSTypeDefinition*, int16_t, int16_t, int16_t, int16_t, bool, $XSAttributeGroupDecl*, $XSSimpleType*, $XSParticleDecl*, $XSObjectListImpl*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XSComplexTypeDecl, toString, $String*)},
-	{}
-};
-
-$ClassInfo _XSComplexTypeDecl_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.impl.xs.XSComplexTypeDecl",
-	"java.lang.Object",
-	"com.sun.org.apache.xerces.internal.xs.XSComplexTypeDefinition,org.w3c.dom.TypeInfo",
-	_XSComplexTypeDecl_FieldInfo_,
-	_XSComplexTypeDecl_MethodInfo_
-};
-
-$Object* allocate$XSComplexTypeDecl($Class* clazz) {
-	return $of($alloc(XSComplexTypeDecl));
-}
-
 int32_t XSComplexTypeDecl::hashCode() {
 	 return this->$XSComplexTypeDefinition::hashCode();
 }
@@ -185,7 +91,7 @@ void XSComplexTypeDecl::init$() {
 	this->fDerivedBy = $XSConstants::DERIVATION_RESTRICTION;
 	this->fFinal = $XSConstants::DERIVATION_NONE;
 	this->fBlock = $XSConstants::DERIVATION_NONE;
-	this->fMiscFlags = (int16_t)0;
+	this->fMiscFlags = 0;
 	$set(this, fAttrGrp, nullptr);
 	this->fContentType = $XSComplexTypeDefinition::CONTENTTYPE_EMPTY;
 	$set(this, fXSSimpleType, nullptr);
@@ -233,7 +139,7 @@ $String* XSComplexTypeDecl::getTargetNamespace() {
 }
 
 bool XSComplexTypeDecl::containsTypeID() {
-	return (((int32_t)(this->fMiscFlags & (uint32_t)(int32_t)XSComplexTypeDecl::CT_HAS_TYPE_ID)) != 0);
+	return ((this->fMiscFlags & XSComplexTypeDecl::CT_HAS_TYPE_ID) != 0);
 }
 
 void XSComplexTypeDecl::setIsAbstractType() {
@@ -288,7 +194,7 @@ $String* XSComplexTypeDecl::toString() {
 }
 
 void XSComplexTypeDecl::appendTypeInfo($StringBuilder* str) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringArray, contentType, $new($StringArray, {
 		"EMPTY"_s,
 		"SIMPLE"_s,
@@ -302,7 +208,7 @@ void XSComplexTypeDecl::appendTypeInfo($StringBuilder* str) {
 	}));
 	$nc(str)->append("Complex type name=\'"_s)->append(this->fTargetNamespace)->append(u',')->append($(getTypeName()))->append("\', "_s);
 	if (this->fBaseType != nullptr) {
-		str->append(" base type name=\'"_s)->append($($nc(this->fBaseType)->getName()))->append("\', "_s);
+		str->append(" base type name=\'"_s)->append($(this->fBaseType->getName()))->append("\', "_s);
 	}
 	str->append(" content type=\'"_s)->append(contentType->get(this->fContentType))->append("\', "_s);
 	str->append(" isAbstract=\'"_s)->append(getAbstract())->append("\', "_s);
@@ -310,7 +216,7 @@ void XSComplexTypeDecl::appendTypeInfo($StringBuilder* str) {
 	str->append(" final=\'"_s)->append((int32_t)this->fFinal)->append("\', "_s);
 	str->append(" block=\'"_s)->append((int32_t)this->fBlock)->append("\', "_s);
 	if (this->fParticle != nullptr) {
-		str->append(" particle=\'"_s)->append($($nc(this->fParticle)->toString()))->append("\', "_s);
+		str->append(" particle=\'"_s)->append($(this->fParticle->toString()))->append("\', "_s);
 	}
 	str->append(" derivedBy=\'"_s)->append(derivedBy->get(this->fDerivedBy))->append("\'. "_s);
 }
@@ -331,7 +237,7 @@ bool XSComplexTypeDecl::derivedFromType($XSTypeDefinition* ancestor, int16_t der
 }
 
 bool XSComplexTypeDecl::derivedFrom($String* ancestorNS, $String* ancestorName, int16_t derivationMethod) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (ancestorName == nullptr) {
 		return false;
 	}
@@ -344,15 +250,15 @@ bool XSComplexTypeDecl::derivedFrom($String* ancestorNS, $String* ancestorName, 
 	while (true) {
 		bool var$1 = $nc(ancestorName)->equals($($nc(type)->getName()));
 		if (var$1) {
-			bool var$2 = (ancestorNS == nullptr && $nc(type)->getNamespace() == nullptr);
-			var$1 = (var$2 || (ancestorNS != nullptr && ancestorNS->equals($($nc(type)->getNamespace()))));
+			bool var$2 = ancestorNS == nullptr && type->getNamespace() == nullptr;
+			var$1 = var$2 || (ancestorNS != nullptr && ancestorNS->equals($(type->getNamespace())));
 		}
 		$init($SchemaGrammar);
 		if (!(!(var$1) && !$equals(type, $SchemaGrammar::fAnySimpleType) && !$equals(type, $SchemaGrammar::fAnyType))) {
 			break;
 		}
 		{
-			$assign(type, $nc(type)->getBaseType());
+			$assign(type, type->getBaseType());
 		}
 	}
 	$init($SchemaGrammar);
@@ -369,17 +275,17 @@ bool XSComplexTypeDecl::isDOMDerivedFrom($String* ancestorNS, $String* ancestorN
 	if (var$0 && $nc(ancestorName)->equals($SchemaSymbols::ATTVAL_ANYTYPE) && (derivationMethod == XSComplexTypeDecl::DERIVATION_RESTRICTION && derivationMethod == XSComplexTypeDecl::DERIVATION_EXTENSION)) {
 		return true;
 	}
-	if (((int32_t)(derivationMethod & (uint32_t)XSComplexTypeDecl::DERIVATION_RESTRICTION)) != 0) {
+	if ((derivationMethod & XSComplexTypeDecl::DERIVATION_RESTRICTION) != 0) {
 		if (isDerivedByRestriction(ancestorNS, ancestorName, derivationMethod, this)) {
 			return true;
 		}
 	}
-	if (((int32_t)(derivationMethod & (uint32_t)XSComplexTypeDecl::DERIVATION_EXTENSION)) != 0) {
+	if ((derivationMethod & XSComplexTypeDecl::DERIVATION_EXTENSION) != 0) {
 		if (isDerivedByExtension(ancestorNS, ancestorName, derivationMethod, this)) {
 			return true;
 		}
 	}
-	if (((((int32_t)(derivationMethod & (uint32_t)XSComplexTypeDecl::DERIVATION_LIST)) != 0) || (((int32_t)(derivationMethod & (uint32_t)XSComplexTypeDecl::DERIVATION_UNION)) != 0)) && (((int32_t)(derivationMethod & (uint32_t)XSComplexTypeDecl::DERIVATION_RESTRICTION)) == 0) && (((int32_t)(derivationMethod & (uint32_t)XSComplexTypeDecl::DERIVATION_EXTENSION)) == 0)) {
+	if ((((derivationMethod & XSComplexTypeDecl::DERIVATION_LIST) != 0) || ((derivationMethod & XSComplexTypeDecl::DERIVATION_UNION) != 0)) && ((derivationMethod & XSComplexTypeDecl::DERIVATION_RESTRICTION) == 0) && ((derivationMethod & XSComplexTypeDecl::DERIVATION_EXTENSION) == 0)) {
 		bool var$1 = $nc(ancestorNS)->equals($SchemaSymbols::URI_SCHEMAFORSCHEMA);
 		if (var$1 && $nc(ancestorName)->equals($SchemaSymbols::ATTVAL_ANYTYPE)) {
 			$assign(ancestorName, $SchemaSymbols::ATTVAL_ANYSIMPLETYPE);
@@ -387,28 +293,28 @@ bool XSComplexTypeDecl::isDOMDerivedFrom($String* ancestorNS, $String* ancestorN
 		bool var$2 = $nc(this->fName)->equals($SchemaSymbols::ATTVAL_ANYTYPE);
 		if (!(var$2 && $nc(this->fTargetNamespace)->equals($SchemaSymbols::URI_SCHEMAFORSCHEMA))) {
 			if (this->fBaseType != nullptr && $instanceOf($XSSimpleTypeDecl, this->fBaseType)) {
-				return $nc(($cast($XSSimpleTypeDecl, this->fBaseType)))->isDOMDerivedFrom(ancestorNS, ancestorName, derivationMethod);
+				return $cast($XSSimpleTypeDecl, this->fBaseType)->isDOMDerivedFrom(ancestorNS, ancestorName, derivationMethod);
 			} else if (this->fBaseType != nullptr && $instanceOf(XSComplexTypeDecl, this->fBaseType)) {
-				return $nc(($cast(XSComplexTypeDecl, this->fBaseType)))->isDOMDerivedFrom(ancestorNS, ancestorName, derivationMethod);
+				return $cast(XSComplexTypeDecl, this->fBaseType)->isDOMDerivedFrom(ancestorNS, ancestorName, derivationMethod);
 			}
 		}
 	}
-	if ((((int32_t)(derivationMethod & (uint32_t)XSComplexTypeDecl::DERIVATION_EXTENSION)) == 0) && ((((int32_t)(derivationMethod & (uint32_t)XSComplexTypeDecl::DERIVATION_RESTRICTION)) == 0) && (((int32_t)(derivationMethod & (uint32_t)XSComplexTypeDecl::DERIVATION_LIST)) == 0) && (((int32_t)(derivationMethod & (uint32_t)XSComplexTypeDecl::DERIVATION_UNION)) == 0))) {
+	if (((derivationMethod & XSComplexTypeDecl::DERIVATION_EXTENSION) == 0) && (((derivationMethod & XSComplexTypeDecl::DERIVATION_RESTRICTION) == 0) && ((derivationMethod & XSComplexTypeDecl::DERIVATION_LIST) == 0) && ((derivationMethod & XSComplexTypeDecl::DERIVATION_UNION) == 0))) {
 		return isDerivedByAny(ancestorNS, ancestorName, derivationMethod, this);
 	}
 	return false;
 }
 
 bool XSComplexTypeDecl::isDerivedByAny($String* ancestorNS, $String* ancestorName, int32_t derivationMethod, $XSTypeDefinition* type$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($XSTypeDefinition, type, type$renamed);
 	$var($XSTypeDefinition, oldType, nullptr);
 	bool derivedFrom = false;
 	while (type != nullptr && type != oldType) {
-		bool var$0 = ($nc(ancestorName)->equals($(type->getName())));
+		bool var$0 = $nc(ancestorName)->equals($(type->getName()));
 		if (var$0) {
-			bool var$1 = (ancestorNS == nullptr && type->getNamespace() == nullptr);
-			var$0 = (var$1 || (ancestorNS != nullptr && ancestorNS->equals($(type->getNamespace()))));
+			bool var$1 = ancestorNS == nullptr && type->getNamespace() == nullptr;
+			var$0 = var$1 || (ancestorNS != nullptr && ancestorNS->equals($(type->getNamespace())));
 		}
 		if (var$0) {
 			derivedFrom = true;
@@ -426,7 +332,7 @@ bool XSComplexTypeDecl::isDerivedByAny($String* ancestorNS, $String* ancestorNam
 }
 
 bool XSComplexTypeDecl::isDerivedByRestriction($String* ancestorNS, $String* ancestorName$renamed, int32_t derivationMethod, $XSTypeDefinition* type$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, ancestorName, ancestorName$renamed);
 	$var($XSTypeDefinition, type, type$renamed);
 	$var($XSTypeDefinition, oldType, nullptr);
@@ -436,18 +342,18 @@ bool XSComplexTypeDecl::isDerivedByRestriction($String* ancestorNS, $String* anc
 		if (var$0 && $nc(ancestorName)->equals($SchemaSymbols::ATTVAL_ANYSIMPLETYPE)) {
 			return false;
 		}
-		bool var$2 = ($nc(ancestorName)->equals($(type->getName())));
+		bool var$2 = $nc(ancestorName)->equals($(type->getName()));
 		bool var$1 = var$2 && (ancestorNS != nullptr && ancestorNS->equals($(type->getNamespace())));
 		if (var$1 || (type->getNamespace() == nullptr && ancestorNS == nullptr)) {
 			return true;
 		}
 		if ($instanceOf($XSSimpleTypeDecl, type)) {
 			bool var$3 = $nc(ancestorNS)->equals($SchemaSymbols::URI_SCHEMAFORSCHEMA);
-			if (var$3 && $nc(ancestorName)->equals($SchemaSymbols::ATTVAL_ANYTYPE)) {
+			if (var$3 && ancestorName->equals($SchemaSymbols::ATTVAL_ANYTYPE)) {
 				$assign(ancestorName, $SchemaSymbols::ATTVAL_ANYSIMPLETYPE);
 			}
-			return $nc(($cast($XSSimpleTypeDecl, type)))->isDOMDerivedFrom(ancestorNS, ancestorName, derivationMethod);
-		} else if ($nc(($cast(XSComplexTypeDecl, type)))->getDerivationMethod() != $XSConstants::DERIVATION_RESTRICTION) {
+			return $cast($XSSimpleTypeDecl, type)->isDOMDerivedFrom(ancestorNS, ancestorName, derivationMethod);
+		} else if ($cast(XSComplexTypeDecl, type)->getDerivationMethod() != $XSConstants::DERIVATION_RESTRICTION) {
 			return false;
 		}
 		$assign(oldType, type);
@@ -457,7 +363,7 @@ bool XSComplexTypeDecl::isDerivedByRestriction($String* ancestorNS, $String* anc
 }
 
 bool XSComplexTypeDecl::isDerivedByExtension($String* ancestorNS, $String* ancestorName$renamed, int32_t derivationMethod, $XSTypeDefinition* type$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, ancestorName, ancestorName$renamed);
 	$var($XSTypeDefinition, type, type$renamed);
 	bool extension = false;
@@ -470,25 +376,25 @@ bool XSComplexTypeDecl::isDerivedByExtension($String* ancestorNS, $String* ances
 		if (var$0 && $nc($SchemaSymbols::ATTVAL_ANYTYPE)->equals($(type->getName()))) {
 			break;
 		}
-		bool var$3 = ($nc(ancestorName)->equals($(type->getName())));
+		bool var$3 = $nc(ancestorName)->equals($(type->getName()));
 		if (var$3) {
-			bool var$4 = (ancestorNS == nullptr && type->getNamespace() == nullptr);
-			var$3 = (var$4 || (ancestorNS != nullptr && ancestorNS->equals($(type->getNamespace()))));
+			bool var$4 = ancestorNS == nullptr && type->getNamespace() == nullptr;
+			var$3 = var$4 || (ancestorNS != nullptr && ancestorNS->equals($(type->getNamespace())));
 		}
 		if (var$3) {
 			return extension;
 		}
 		if ($instanceOf($XSSimpleTypeDecl, type)) {
 			bool var$5 = $nc(ancestorNS)->equals($SchemaSymbols::URI_SCHEMAFORSCHEMA);
-			if (var$5 && $nc(ancestorName)->equals($SchemaSymbols::ATTVAL_ANYTYPE)) {
+			if (var$5 && ancestorName->equals($SchemaSymbols::ATTVAL_ANYTYPE)) {
 				$assign(ancestorName, $SchemaSymbols::ATTVAL_ANYSIMPLETYPE);
 			}
-			if (((int32_t)(derivationMethod & (uint32_t)XSComplexTypeDecl::DERIVATION_EXTENSION)) != 0) {
-				return extension & $nc(($cast($XSSimpleTypeDecl, type)))->isDOMDerivedFrom(ancestorNS, ancestorName, ((int32_t)(derivationMethod & (uint32_t)XSComplexTypeDecl::DERIVATION_RESTRICTION)));
+			if ((derivationMethod & XSComplexTypeDecl::DERIVATION_EXTENSION) != 0) {
+				return extension & $cast($XSSimpleTypeDecl, type)->isDOMDerivedFrom(ancestorNS, ancestorName, (derivationMethod & XSComplexTypeDecl::DERIVATION_RESTRICTION));
 			} else {
-				return extension & $nc(($cast($XSSimpleTypeDecl, type)))->isDOMDerivedFrom(ancestorNS, ancestorName, derivationMethod);
+				return extension & $cast($XSSimpleTypeDecl, type)->isDOMDerivedFrom(ancestorNS, ancestorName, derivationMethod);
 			}
-		} else if ($nc(($cast(XSComplexTypeDecl, type)))->getDerivationMethod() == $XSConstants::DERIVATION_EXTENSION) {
+		} else if ($cast(XSComplexTypeDecl, type)->getDerivationMethod() == $XSConstants::DERIVATION_EXTENSION) {
 			extension = extension | true;
 		}
 		$assign(oldType, type);
@@ -504,7 +410,7 @@ void XSComplexTypeDecl::reset() {
 	this->fDerivedBy = $XSConstants::DERIVATION_RESTRICTION;
 	this->fFinal = $XSConstants::DERIVATION_NONE;
 	this->fBlock = $XSConstants::DERIVATION_NONE;
-	this->fMiscFlags = (int16_t)0;
+	this->fMiscFlags = 0;
 	$nc(this->fAttrGrp)->reset();
 	this->fContentType = $XSComplexTypeDefinition::CONTENTTYPE_EMPTY;
 	$set(this, fXSSimpleType, nullptr);
@@ -512,7 +418,7 @@ void XSComplexTypeDecl::reset() {
 	$set(this, fCMValidator, nullptr);
 	$set(this, fUPACMValidator, nullptr);
 	if (this->fAnnotations != nullptr) {
-		$nc(this->fAnnotations)->clearXSObjectList();
+		this->fAnnotations->clearXSObjectList();
 	}
 	$set(this, fAnnotations, nullptr);
 }
@@ -526,7 +432,7 @@ $String* XSComplexTypeDecl::getName() {
 }
 
 bool XSComplexTypeDecl::getAnonymous() {
-	return (((int32_t)(this->fMiscFlags & (uint32_t)(int32_t)XSComplexTypeDecl::CT_IS_ANONYMOUS)) != 0);
+	return ((this->fMiscFlags & XSComplexTypeDecl::CT_IS_ANONYMOUS) != 0);
 }
 
 $String* XSComplexTypeDecl::getNamespace() {
@@ -542,7 +448,7 @@ int16_t XSComplexTypeDecl::getDerivationMethod() {
 }
 
 bool XSComplexTypeDecl::isFinal(int16_t derivation) {
-	return ((int32_t)(this->fFinal & (uint32_t)(int32_t)derivation)) != 0;
+	return (this->fFinal & derivation) != 0;
 }
 
 int16_t XSComplexTypeDecl::getFinal() {
@@ -550,7 +456,7 @@ int16_t XSComplexTypeDecl::getFinal() {
 }
 
 bool XSComplexTypeDecl::getAbstract() {
-	return (((int32_t)(this->fMiscFlags & (uint32_t)(int32_t)XSComplexTypeDecl::CT_IS_ABSTRACT)) != 0);
+	return ((this->fMiscFlags & XSComplexTypeDecl::CT_IS_ABSTRACT) != 0);
 }
 
 $XSObjectList* XSComplexTypeDecl::getAttributeUses() {
@@ -574,7 +480,7 @@ $XSParticle* XSComplexTypeDecl::getParticle() {
 }
 
 bool XSComplexTypeDecl::isProhibitedSubstitution(int16_t prohibited) {
-	return ((int32_t)(this->fBlock & (uint32_t)(int32_t)prohibited)) != 0;
+	return (this->fBlock & prohibited) != 0;
 }
 
 int16_t XSComplexTypeDecl::getProhibitedSubstitutions() {
@@ -583,7 +489,7 @@ int16_t XSComplexTypeDecl::getProhibitedSubstitutions() {
 
 $XSObjectList* XSComplexTypeDecl::getAnnotations() {
 	$init($XSObjectListImpl);
-	return (this->fAnnotations != nullptr) ? static_cast<$XSObjectList*>(this->fAnnotations) : static_cast<$XSObjectList*>($XSObjectListImpl::EMPTY_LIST);
+	return (this->fAnnotations != nullptr) ? this->fAnnotations : $XSObjectListImpl::EMPTY_LIST;
 }
 
 $XSNamespaceItem* XSComplexTypeDecl::getNamespaceItem() {
@@ -610,7 +516,95 @@ XSComplexTypeDecl::XSComplexTypeDecl() {
 }
 
 $Class* XSComplexTypeDecl::load$($String* name, bool initialize) {
-	$loadClass(XSComplexTypeDecl, name, initialize, &_XSComplexTypeDecl_ClassInfo_, allocate$XSComplexTypeDecl);
+	$FieldInfo fieldInfos$$[] = {
+		{"fName", "Ljava/lang/String;", nullptr, 0, $field(XSComplexTypeDecl, fName)},
+		{"fTargetNamespace", "Ljava/lang/String;", nullptr, 0, $field(XSComplexTypeDecl, fTargetNamespace)},
+		{"fBaseType", "Lcom/sun/org/apache/xerces/internal/xs/XSTypeDefinition;", nullptr, 0, $field(XSComplexTypeDecl, fBaseType)},
+		{"fDerivedBy", "S", nullptr, 0, $field(XSComplexTypeDecl, fDerivedBy)},
+		{"fFinal", "S", nullptr, 0, $field(XSComplexTypeDecl, fFinal)},
+		{"fBlock", "S", nullptr, 0, $field(XSComplexTypeDecl, fBlock)},
+		{"fMiscFlags", "S", nullptr, 0, $field(XSComplexTypeDecl, fMiscFlags)},
+		{"fAttrGrp", "Lcom/sun/org/apache/xerces/internal/impl/xs/XSAttributeGroupDecl;", nullptr, 0, $field(XSComplexTypeDecl, fAttrGrp)},
+		{"fContentType", "S", nullptr, 0, $field(XSComplexTypeDecl, fContentType)},
+		{"fXSSimpleType", "Lcom/sun/org/apache/xerces/internal/impl/dv/XSSimpleType;", nullptr, 0, $field(XSComplexTypeDecl, fXSSimpleType)},
+		{"fParticle", "Lcom/sun/org/apache/xerces/internal/impl/xs/XSParticleDecl;", nullptr, 0, $field(XSComplexTypeDecl, fParticle)},
+		{"fCMValidator", "Lcom/sun/org/apache/xerces/internal/impl/xs/models/XSCMValidator;", nullptr, $VOLATILE, $field(XSComplexTypeDecl, fCMValidator)},
+		{"fUPACMValidator", "Lcom/sun/org/apache/xerces/internal/impl/xs/models/XSCMValidator;", nullptr, $VOLATILE, $field(XSComplexTypeDecl, fUPACMValidator)},
+		{"fAnnotations", "Lcom/sun/org/apache/xerces/internal/impl/xs/util/XSObjectListImpl;", nullptr, 0, $field(XSComplexTypeDecl, fAnnotations)},
+		{"fNamespaceItem", "Lcom/sun/org/apache/xerces/internal/xs/XSNamespaceItem;", nullptr, $PRIVATE, $field(XSComplexTypeDecl, fNamespaceItem)},
+		{"DERIVATION_ANY", "I", nullptr, $STATIC | $FINAL, $constField(XSComplexTypeDecl, DERIVATION_ANY)},
+		{"DERIVATION_RESTRICTION", "I", nullptr, $STATIC | $FINAL, $constField(XSComplexTypeDecl, DERIVATION_RESTRICTION)},
+		{"DERIVATION_EXTENSION", "I", nullptr, $STATIC | $FINAL, $constField(XSComplexTypeDecl, DERIVATION_EXTENSION)},
+		{"DERIVATION_UNION", "I", nullptr, $STATIC | $FINAL, $constField(XSComplexTypeDecl, DERIVATION_UNION)},
+		{"DERIVATION_LIST", "I", nullptr, $STATIC | $FINAL, $constField(XSComplexTypeDecl, DERIVATION_LIST)},
+		{"CT_IS_ABSTRACT", "S", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XSComplexTypeDecl, CT_IS_ABSTRACT)},
+		{"CT_HAS_TYPE_ID", "S", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XSComplexTypeDecl, CT_HAS_TYPE_ID)},
+		{"CT_IS_ANONYMOUS", "S", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XSComplexTypeDecl, CT_IS_ANONYMOUS)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(XSComplexTypeDecl, init$, void)},
+		{"appendTypeInfo", "(Ljava/lang/StringBuilder;)V", nullptr, 0, $virtualMethod(XSComplexTypeDecl, appendTypeInfo, void, $StringBuilder*)},
+		{"containsTypeID", "()Z", nullptr, $PUBLIC, $virtualMethod(XSComplexTypeDecl, containsTypeID, bool)},
+		{"derivedFrom", "(Ljava/lang/String;Ljava/lang/String;S)Z", nullptr, $PUBLIC, $virtualMethod(XSComplexTypeDecl, derivedFrom, bool, $String*, $String*, int16_t)},
+		{"derivedFromType", "(Lcom/sun/org/apache/xerces/internal/xs/XSTypeDefinition;S)Z", nullptr, $PUBLIC, $virtualMethod(XSComplexTypeDecl, derivedFromType, bool, $XSTypeDefinition*, int16_t)},
+		{"getAbstract", "()Z", nullptr, $PUBLIC, $virtualMethod(XSComplexTypeDecl, getAbstract, bool)},
+		{"getAnnotations", "()Lcom/sun/org/apache/xerces/internal/xs/XSObjectList;", nullptr, $PUBLIC, $virtualMethod(XSComplexTypeDecl, getAnnotations, $XSObjectList*)},
+		{"getAnonymous", "()Z", nullptr, $PUBLIC, $virtualMethod(XSComplexTypeDecl, getAnonymous, bool)},
+		{"getAttrGrp", "()Lcom/sun/org/apache/xerces/internal/impl/xs/XSAttributeGroupDecl;", nullptr, $PUBLIC, $virtualMethod(XSComplexTypeDecl, getAttrGrp, $XSAttributeGroupDecl*)},
+		{"getAttributeUse", "(Ljava/lang/String;Ljava/lang/String;)Lcom/sun/org/apache/xerces/internal/xs/XSAttributeUse;", nullptr, $PUBLIC, $virtualMethod(XSComplexTypeDecl, getAttributeUse, $XSAttributeUse*, $String*, $String*)},
+		{"getAttributeUses", "()Lcom/sun/org/apache/xerces/internal/xs/XSObjectList;", nullptr, $PUBLIC, $virtualMethod(XSComplexTypeDecl, getAttributeUses, $XSObjectList*)},
+		{"getAttributeWildcard", "()Lcom/sun/org/apache/xerces/internal/xs/XSWildcard;", nullptr, $PUBLIC, $virtualMethod(XSComplexTypeDecl, getAttributeWildcard, $XSWildcard*)},
+		{"getBaseType", "()Lcom/sun/org/apache/xerces/internal/xs/XSTypeDefinition;", nullptr, $PUBLIC, $virtualMethod(XSComplexTypeDecl, getBaseType, $XSTypeDefinition*)},
+		{"getContentModel", "(Lcom/sun/org/apache/xerces/internal/impl/xs/models/CMBuilder;)Lcom/sun/org/apache/xerces/internal/impl/xs/models/XSCMValidator;", nullptr, $PUBLIC, $virtualMethod(XSComplexTypeDecl, getContentModel, $XSCMValidator*, $CMBuilder*)},
+		{"getContentModel", "(Lcom/sun/org/apache/xerces/internal/impl/xs/models/CMBuilder;Z)Lcom/sun/org/apache/xerces/internal/impl/xs/models/XSCMValidator;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(XSComplexTypeDecl, getContentModel, $XSCMValidator*, $CMBuilder*, bool)},
+		{"getContentType", "()S", nullptr, $PUBLIC, $virtualMethod(XSComplexTypeDecl, getContentType, int16_t)},
+		{"getDerivationMethod", "()S", nullptr, $PUBLIC, $virtualMethod(XSComplexTypeDecl, getDerivationMethod, int16_t)},
+		{"getFinal", "()S", nullptr, $PUBLIC, $virtualMethod(XSComplexTypeDecl, getFinal, int16_t)},
+		{"getFinalSet", "()S", nullptr, $PUBLIC, $virtualMethod(XSComplexTypeDecl, getFinalSet, int16_t)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XSComplexTypeDecl, getName, $String*)},
+		{"getNamespace", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XSComplexTypeDecl, getNamespace, $String*)},
+		{"getNamespaceItem", "()Lcom/sun/org/apache/xerces/internal/xs/XSNamespaceItem;", nullptr, $PUBLIC, $virtualMethod(XSComplexTypeDecl, getNamespaceItem, $XSNamespaceItem*)},
+		{"getParticle", "()Lcom/sun/org/apache/xerces/internal/xs/XSParticle;", nullptr, $PUBLIC, $virtualMethod(XSComplexTypeDecl, getParticle, $XSParticle*)},
+		{"getProhibitedSubstitutions", "()S", nullptr, $PUBLIC, $virtualMethod(XSComplexTypeDecl, getProhibitedSubstitutions, int16_t)},
+		{"getSimpleType", "()Lcom/sun/org/apache/xerces/internal/xs/XSSimpleTypeDefinition;", nullptr, $PUBLIC, $virtualMethod(XSComplexTypeDecl, getSimpleType, $XSSimpleTypeDefinition*)},
+		{"getTargetNamespace", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XSComplexTypeDecl, getTargetNamespace, $String*)},
+		{"getType", "()S", nullptr, $PUBLIC, $virtualMethod(XSComplexTypeDecl, getType, int16_t)},
+		{"getTypeCategory", "()S", nullptr, $PUBLIC, $virtualMethod(XSComplexTypeDecl, getTypeCategory, int16_t)},
+		{"getTypeName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XSComplexTypeDecl, getTypeName, $String*)},
+		{"getTypeNamespace", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XSComplexTypeDecl, getTypeNamespace, $String*)},
+		{"isDOMDerivedFrom", "(Ljava/lang/String;Ljava/lang/String;I)Z", nullptr, $PUBLIC, $virtualMethod(XSComplexTypeDecl, isDOMDerivedFrom, bool, $String*, $String*, int32_t)},
+		{"isDerivedByAny", "(Ljava/lang/String;Ljava/lang/String;ILcom/sun/org/apache/xerces/internal/xs/XSTypeDefinition;)Z", nullptr, $PRIVATE, $method(XSComplexTypeDecl, isDerivedByAny, bool, $String*, $String*, int32_t, $XSTypeDefinition*)},
+		{"isDerivedByExtension", "(Ljava/lang/String;Ljava/lang/String;ILcom/sun/org/apache/xerces/internal/xs/XSTypeDefinition;)Z", nullptr, $PRIVATE, $method(XSComplexTypeDecl, isDerivedByExtension, bool, $String*, $String*, int32_t, $XSTypeDefinition*)},
+		{"isDerivedByRestriction", "(Ljava/lang/String;Ljava/lang/String;ILcom/sun/org/apache/xerces/internal/xs/XSTypeDefinition;)Z", nullptr, $PRIVATE, $method(XSComplexTypeDecl, isDerivedByRestriction, bool, $String*, $String*, int32_t, $XSTypeDefinition*)},
+		{"isDerivedFrom", "(Ljava/lang/String;Ljava/lang/String;I)Z", nullptr, $PUBLIC, $virtualMethod(XSComplexTypeDecl, isDerivedFrom, bool, $String*, $String*, int32_t)},
+		{"isFinal", "(S)Z", nullptr, $PUBLIC, $virtualMethod(XSComplexTypeDecl, isFinal, bool, int16_t)},
+		{"isProhibitedSubstitution", "(S)Z", nullptr, $PUBLIC, $virtualMethod(XSComplexTypeDecl, isProhibitedSubstitution, bool, int16_t)},
+		{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(XSComplexTypeDecl, reset, void)},
+		{"setContainsTypeID", "()V", nullptr, $PUBLIC, $virtualMethod(XSComplexTypeDecl, setContainsTypeID, void)},
+		{"setIsAbstractType", "()V", nullptr, $PUBLIC, $virtualMethod(XSComplexTypeDecl, setIsAbstractType, void)},
+		{"setIsAnonymous", "()V", nullptr, $PUBLIC, $virtualMethod(XSComplexTypeDecl, setIsAnonymous, void)},
+		{"setName", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(XSComplexTypeDecl, setName, void, $String*)},
+		{"setNamespaceItem", "(Lcom/sun/org/apache/xerces/internal/xs/XSNamespaceItem;)V", nullptr, 0, $virtualMethod(XSComplexTypeDecl, setNamespaceItem, void, $XSNamespaceItem*)},
+		{"setValues", "(Ljava/lang/String;Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/xs/XSTypeDefinition;SSSSZLcom/sun/org/apache/xerces/internal/impl/xs/XSAttributeGroupDecl;Lcom/sun/org/apache/xerces/internal/impl/dv/XSSimpleType;Lcom/sun/org/apache/xerces/internal/impl/xs/XSParticleDecl;Lcom/sun/org/apache/xerces/internal/impl/xs/util/XSObjectListImpl;)V", nullptr, $PUBLIC, $virtualMethod(XSComplexTypeDecl, setValues, void, $String*, $String*, $XSTypeDefinition*, int16_t, int16_t, int16_t, int16_t, bool, $XSAttributeGroupDecl*, $XSSimpleType*, $XSParticleDecl*, $XSObjectListImpl*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XSComplexTypeDecl, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.impl.xs.XSComplexTypeDecl",
+		"java.lang.Object",
+		"com.sun.org.apache.xerces.internal.xs.XSComplexTypeDefinition,org.w3c.dom.TypeInfo",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XSComplexTypeDecl, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(XSComplexTypeDecl));
+	});
 	return class$;
 }
 

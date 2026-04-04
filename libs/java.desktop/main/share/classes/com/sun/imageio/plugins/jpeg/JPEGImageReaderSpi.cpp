@@ -1,5 +1,4 @@
 #include <com/sun/imageio/plugins/jpeg/JPEGImageReaderSpi.h>
-
 #include <com/sun/imageio/plugins/jpeg/JPEG.h>
 #include <com/sun/imageio/plugins/jpeg/JPEGImageReader.h>
 #include <java/util/Locale.h>
@@ -25,32 +24,6 @@ namespace com {
 		namespace imageio {
 			namespace plugins {
 				namespace jpeg {
-
-$FieldInfo _JPEGImageReaderSpi_FieldInfo_[] = {
-	{"writerSpiNames", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(JPEGImageReaderSpi, writerSpiNames)},
-	{}
-};
-
-$MethodInfo _JPEGImageReaderSpi_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(JPEGImageReaderSpi, init$, void)},
-	{"canDecodeInput", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(JPEGImageReaderSpi, canDecodeInput, bool, Object$*), "java.io.IOException"},
-	{"createReaderInstance", "(Ljava/lang/Object;)Ljavax/imageio/ImageReader;", nullptr, $PUBLIC, $virtualMethod(JPEGImageReaderSpi, createReaderInstance, $ImageReader*, Object$*), "javax.imageio.IIOException"},
-	{"getDescription", "(Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JPEGImageReaderSpi, getDescription, $String*, $Locale*)},
-	{}
-};
-
-$ClassInfo _JPEGImageReaderSpi_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.imageio.plugins.jpeg.JPEGImageReaderSpi",
-	"javax.imageio.spi.ImageReaderSpi",
-	nullptr,
-	_JPEGImageReaderSpi_FieldInfo_,
-	_JPEGImageReaderSpi_MethodInfo_
-};
-
-$Object* allocate$JPEGImageReaderSpi($Class* clazz) {
-	return $of($alloc(JPEGImageReaderSpi));
-}
 
 $StringArray* JPEGImageReaderSpi::writerSpiNames = nullptr;
 
@@ -83,7 +56,7 @@ $ImageReader* JPEGImageReaderSpi::createReaderInstance(Object$* extension) {
 	return $new($JPEGImageReader, this);
 }
 
-void clinit$JPEGImageReaderSpi($Class* class$) {
+void JPEGImageReaderSpi::clinit$($Class* clazz) {
 	$assignStatic(JPEGImageReaderSpi::writerSpiNames, $new($StringArray, {"com.sun.imageio.plugins.jpeg.JPEGImageWriterSpi"_s}));
 }
 
@@ -91,7 +64,28 @@ JPEGImageReaderSpi::JPEGImageReaderSpi() {
 }
 
 $Class* JPEGImageReaderSpi::load$($String* name, bool initialize) {
-	$loadClass(JPEGImageReaderSpi, name, initialize, &_JPEGImageReaderSpi_ClassInfo_, clinit$JPEGImageReaderSpi, allocate$JPEGImageReaderSpi);
+	$FieldInfo fieldInfos$$[] = {
+		{"writerSpiNames", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(JPEGImageReaderSpi, writerSpiNames)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(JPEGImageReaderSpi, init$, void)},
+		{"canDecodeInput", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(JPEGImageReaderSpi, canDecodeInput, bool, Object$*), "java.io.IOException"},
+		{"createReaderInstance", "(Ljava/lang/Object;)Ljavax/imageio/ImageReader;", nullptr, $PUBLIC, $virtualMethod(JPEGImageReaderSpi, createReaderInstance, $ImageReader*, Object$*), "javax.imageio.IIOException"},
+		{"getDescription", "(Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JPEGImageReaderSpi, getDescription, $String*, $Locale*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.imageio.plugins.jpeg.JPEGImageReaderSpi",
+		"javax.imageio.spi.ImageReaderSpi",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(JPEGImageReaderSpi, name, initialize, &classInfo$$, JPEGImageReaderSpi::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(JPEGImageReaderSpi);
+	});
 	return class$;
 }
 

@@ -1,7 +1,5 @@
 #include <com/sun/org/apache/xml/internal/security/transforms/implementations/TransformXPath2Filter.h>
-
 #include <com/sun/org/apache/xml/internal/security/exceptions/XMLSecurityException.h>
-#include <com/sun/org/apache/xml/internal/security/signature/NodeFilter.h>
 #include <com/sun/org/apache/xml/internal/security/signature/XMLSignatureInput.h>
 #include <com/sun/org/apache/xml/internal/security/transforms/TransformSpi.h>
 #include <com/sun/org/apache/xml/internal/security/transforms/TransformationException.h>
@@ -29,7 +27,6 @@
 
 using $ElementArray = $Array<::org::w3c::dom::Element>;
 using $XMLSecurityException = ::com::sun::org::apache::xml::internal::security::exceptions::XMLSecurityException;
-using $NodeFilter = ::com::sun::org::apache::xml::internal::security::signature::NodeFilter;
 using $XMLSignatureInput = ::com::sun::org::apache::xml::internal::security::signature::XMLSignatureInput;
 using $TransformSpi = ::com::sun::org::apache::xml::internal::security::transforms::TransformSpi;
 using $TransformationException = ::com::sun::org::apache::xml::internal::security::transforms::TransformationException;
@@ -42,7 +39,6 @@ using $XPathFactory = ::com::sun::org::apache::xml::internal::security::utils::X
 using $IOException = ::java::io::IOException;
 using $OutputStream = ::java::io::OutputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Exception = ::java::lang::Exception;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ArrayList = ::java::util::ArrayList;
 using $List = ::java::util::List;
@@ -63,26 +59,6 @@ namespace com {
 							namespace transforms {
 								namespace implementations {
 
-$MethodInfo _TransformXPath2Filter_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TransformXPath2Filter, init$, void)},
-	{"engineGetURI", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(TransformXPath2Filter, engineGetURI, $String*)},
-	{"enginePerformTransform", "(Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;Ljava/io/OutputStream;Lorg/w3c/dom/Element;Ljava/lang/String;Z)Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;", nullptr, $PROTECTED, $virtualMethod(TransformXPath2Filter, enginePerformTransform, $XMLSignatureInput*, $XMLSignatureInput*, $OutputStream*, $Element*, $String*, bool), "com.sun.org.apache.xml.internal.security.transforms.TransformationException"},
-	{}
-};
-
-$ClassInfo _TransformXPath2Filter_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.security.transforms.implementations.TransformXPath2Filter",
-	"com.sun.org.apache.xml.internal.security.transforms.TransformSpi",
-	nullptr,
-	nullptr,
-	_TransformXPath2Filter_MethodInfo_
-};
-
-$Object* allocate$TransformXPath2Filter($Class* clazz) {
-	return $of($alloc(TransformXPath2Filter));
-}
-
 void TransformXPath2Filter::init$() {
 	$TransformSpi::init$();
 }
@@ -93,7 +69,7 @@ $String* TransformXPath2Filter::engineGetURI() {
 }
 
 $XMLSignatureInput* TransformXPath2Filter::enginePerformTransform($XMLSignatureInput* input, $OutputStream* os, $Element* transformElement, $String* baseURI, bool secureValidation) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$var($List, unionNodes, $new($ArrayList));
 		$var($List, subtractNodes, $new($ArrayList));
@@ -103,8 +79,8 @@ $XMLSignatureInput* TransformXPath2Filter::enginePerformTransform($XMLSignatureI
 		if ($nc(xpathElements)->length == 0) {
 			$init($Transforms);
 			$var($ObjectArray, exArgs, $new($ObjectArray, {
-				$of($Transforms::TRANSFORM_XPATH2FILTER),
-				$of("XPath"_s)
+				$Transforms::TRANSFORM_XPATH2FILTER,
+				"XPath"_s
 			}));
 			$throwNew($TransformationException, "xml.WrongContent"_s, exArgs);
 		}
@@ -115,16 +91,14 @@ $XMLSignatureInput* TransformXPath2Filter::enginePerformTransform($XMLSignatureI
 			$assign(inputDoc, $XMLUtils::getOwnerDocument($(input->getNodeSet())));
 		}
 		$var($XPathFactory, xpathFactory, $XPathFactory::newInstance());
-		for (int32_t i = 0; i < $nc(xpathElements)->length; ++i) {
+		for (int32_t i = 0; i < xpathElements->length; ++i) {
 			$var($Element, xpathElement, xpathElements->get(i));
-			$var($XPath2FilterContainer, xpathContainer, $XPath2FilterContainer::newInstance(xpathElement, $($nc(input)->getSourceURI())));
+			$var($XPath2FilterContainer, xpathContainer, $XPath2FilterContainer::newInstance(xpathElement, $(input->getSourceURI())));
 			$var($String, str, $XMLUtils::getStrFromNode($($nc(xpathContainer)->getXPathFilterTextNode())));
 			$var($XPathAPI, xpathAPIInstance, $nc(xpathFactory)->newXPathAPI());
-			$var($Node, var$0, static_cast<$Node*>(inputDoc));
-			$var($Node, var$1, $nc(xpathContainer)->getXPathFilterTextNode());
-			$var($String, var$2, str);
-			$var($NodeList, subtreeRoots, $nc(xpathAPIInstance)->selectNodeList(var$0, var$1, var$2, $(xpathContainer->getElement())));
-			if ($nc(xpathContainer)->isIntersect()) {
+			$var($Node, var$0, xpathContainer->getXPathFilterTextNode());
+			$var($NodeList, subtreeRoots, $nc(xpathAPIInstance)->selectNodeList(inputDoc, var$0, str, $(xpathContainer->getElement())));
+			if (xpathContainer->isIntersect()) {
 				intersectNodes->add(subtreeRoots);
 			} else if (xpathContainer->isSubtract()) {
 				subtractNodes->add(subtreeRoots);
@@ -132,17 +106,17 @@ $XMLSignatureInput* TransformXPath2Filter::enginePerformTransform($XMLSignatureI
 				unionNodes->add(subtreeRoots);
 			}
 		}
-		$nc(input)->addNodeFilter($$new($XPath2NodeFilter, unionNodes, subtractNodes, intersectNodes));
+		input->addNodeFilter($$new($XPath2NodeFilter, unionNodes, subtractNodes, intersectNodes));
 		input->setNodeSet(true);
 		return input;
 	} catch ($TransformerException& ex) {
-		$throwNew($TransformationException, $cast($Exception, ex));
+		$throwNew($TransformationException, ex);
 	} catch ($DOMException& ex) {
-		$throwNew($TransformationException, $cast($Exception, ex));
+		$throwNew($TransformationException, ex);
 	} catch ($XMLSecurityException& ex) {
-		$throwNew($TransformationException, $cast($Exception, ex));
+		$throwNew($TransformationException, ex);
 	} catch ($IOException& ex) {
-		$throwNew($TransformationException, $cast($Exception, ex));
+		$throwNew($TransformationException, ex);
 	}
 	$shouldNotReachHere();
 }
@@ -151,7 +125,23 @@ TransformXPath2Filter::TransformXPath2Filter() {
 }
 
 $Class* TransformXPath2Filter::load$($String* name, bool initialize) {
-	$loadClass(TransformXPath2Filter, name, initialize, &_TransformXPath2Filter_ClassInfo_, allocate$TransformXPath2Filter);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TransformXPath2Filter, init$, void)},
+		{"engineGetURI", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(TransformXPath2Filter, engineGetURI, $String*)},
+		{"enginePerformTransform", "(Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;Ljava/io/OutputStream;Lorg/w3c/dom/Element;Ljava/lang/String;Z)Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;", nullptr, $PROTECTED, $virtualMethod(TransformXPath2Filter, enginePerformTransform, $XMLSignatureInput*, $XMLSignatureInput*, $OutputStream*, $Element*, $String*, bool), "com.sun.org.apache.xml.internal.security.transforms.TransformationException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.security.transforms.implementations.TransformXPath2Filter",
+		"com.sun.org.apache.xml.internal.security.transforms.TransformSpi",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(TransformXPath2Filter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TransformXPath2Filter);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/dom/DeferredNode.h>
-
 #include <jcpp.h>
 
 #undef TYPE_NODE
@@ -16,31 +15,26 @@ namespace com {
 					namespace internal {
 						namespace dom {
 
-$FieldInfo _DeferredNode_FieldInfo_[] = {
-	{"TYPE_NODE", "S", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DeferredNode, TYPE_NODE)},
-	{}
-};
-
-$MethodInfo _DeferredNode_MethodInfo_[] = {
-	{"getNodeIndex", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DeferredNode, getNodeIndex, int32_t)},
-	{}
-};
-
-$ClassInfo _DeferredNode_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.org.apache.xerces.internal.dom.DeferredNode",
-	nullptr,
-	"org.w3c.dom.Node",
-	_DeferredNode_FieldInfo_,
-	_DeferredNode_MethodInfo_
-};
-
-$Object* allocate$DeferredNode($Class* clazz) {
-	return $of($alloc(DeferredNode));
-}
-
 $Class* DeferredNode::load$($String* name, bool initialize) {
-	$loadClass(DeferredNode, name, initialize, &_DeferredNode_ClassInfo_, allocate$DeferredNode);
+	$FieldInfo fieldInfos$$[] = {
+		{"TYPE_NODE", "S", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DeferredNode, TYPE_NODE)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"getNodeIndex", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DeferredNode, getNodeIndex, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.org.apache.xerces.internal.dom.DeferredNode",
+		nullptr,
+		"org.w3c.dom.Node",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DeferredNode, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DeferredNode);
+	});
 	return class$;
 }
 

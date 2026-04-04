@@ -20,6 +20,7 @@ class $export bug8081019 : public ::java::lang::Object {
 	$class(bug8081019, 0, ::java::lang::Object)
 public:
 	bug8081019();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void dumpStream(::java::io::InputStream* in, $String* name);
 	static void main($StringArray* args);

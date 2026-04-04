@@ -1,5 +1,4 @@
 #include <javax/annotation/processing/Messager.h>
-
 #include <java/lang/CharSequence.h>
 #include <javax/lang/model/element/AnnotationMirror.h>
 #include <javax/lang/model/element/AnnotationValue.h>
@@ -19,29 +18,25 @@ namespace javax {
 	namespace annotation {
 		namespace processing {
 
-$MethodInfo _Messager_MethodInfo_[] = {
-	{"printMessage", "(Ljavax/tools/Diagnostic$Kind;Ljava/lang/CharSequence;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Messager, printMessage, void, $Diagnostic$Kind*, $CharSequence*)},
-	{"printMessage", "(Ljavax/tools/Diagnostic$Kind;Ljava/lang/CharSequence;Ljavax/lang/model/element/Element;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Messager, printMessage, void, $Diagnostic$Kind*, $CharSequence*, $Element*)},
-	{"printMessage", "(Ljavax/tools/Diagnostic$Kind;Ljava/lang/CharSequence;Ljavax/lang/model/element/Element;Ljavax/lang/model/element/AnnotationMirror;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Messager, printMessage, void, $Diagnostic$Kind*, $CharSequence*, $Element*, $AnnotationMirror*)},
-	{"printMessage", "(Ljavax/tools/Diagnostic$Kind;Ljava/lang/CharSequence;Ljavax/lang/model/element/Element;Ljavax/lang/model/element/AnnotationMirror;Ljavax/lang/model/element/AnnotationValue;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Messager, printMessage, void, $Diagnostic$Kind*, $CharSequence*, $Element*, $AnnotationMirror*, $AnnotationValue*)},
-	{}
-};
-
-$ClassInfo _Messager_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"javax.annotation.processing.Messager",
-	nullptr,
-	nullptr,
-	nullptr,
-	_Messager_MethodInfo_
-};
-
-$Object* allocate$Messager($Class* clazz) {
-	return $of($alloc(Messager));
-}
-
 $Class* Messager::load$($String* name, bool initialize) {
-	$loadClass(Messager, name, initialize, &_Messager_ClassInfo_, allocate$Messager);
+	$MethodInfo methodInfos$$[] = {
+		{"printMessage", "(Ljavax/tools/Diagnostic$Kind;Ljava/lang/CharSequence;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Messager, printMessage, void, $Diagnostic$Kind*, $CharSequence*)},
+		{"printMessage", "(Ljavax/tools/Diagnostic$Kind;Ljava/lang/CharSequence;Ljavax/lang/model/element/Element;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Messager, printMessage, void, $Diagnostic$Kind*, $CharSequence*, $Element*)},
+		{"printMessage", "(Ljavax/tools/Diagnostic$Kind;Ljava/lang/CharSequence;Ljavax/lang/model/element/Element;Ljavax/lang/model/element/AnnotationMirror;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Messager, printMessage, void, $Diagnostic$Kind*, $CharSequence*, $Element*, $AnnotationMirror*)},
+		{"printMessage", "(Ljavax/tools/Diagnostic$Kind;Ljava/lang/CharSequence;Ljavax/lang/model/element/Element;Ljavax/lang/model/element/AnnotationMirror;Ljavax/lang/model/element/AnnotationValue;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Messager, printMessage, void, $Diagnostic$Kind*, $CharSequence*, $Element*, $AnnotationMirror*, $AnnotationValue*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"javax.annotation.processing.Messager",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Messager, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Messager);
+	});
 	return class$;
 }
 

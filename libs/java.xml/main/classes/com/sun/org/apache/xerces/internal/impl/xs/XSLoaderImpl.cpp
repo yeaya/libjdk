@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/impl/xs/XSLoaderImpl.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/xs/XMLSchemaLoader.h>
 #include <com/sun/org/apache/xerces/internal/impl/xs/XSLoaderImpl$XSGrammarMerger.h>
 #include <com/sun/org/apache/xerces/internal/impl/xs/util/XSGrammarPool.h>
@@ -19,7 +18,6 @@
 
 using $XMLSchemaLoader = ::com::sun::org::apache::xerces::internal::impl::xs::XMLSchemaLoader;
 using $XSLoaderImpl$XSGrammarMerger = ::com::sun::org::apache::xerces::internal::impl::xs::XSLoaderImpl$XSGrammarMerger;
-using $XSGrammarPool = ::com::sun::org::apache::xerces::internal::impl::xs::util::XSGrammarPool;
 using $XSGrammar = ::com::sun::org::apache::xerces::internal::xni::grammars::XSGrammar;
 using $XMLInputSource = ::com::sun::org::apache::xerces::internal::xni::parser::XMLInputSource;
 using $LSInputList = ::com::sun::org::apache::xerces::internal::xs::LSInputList;
@@ -44,55 +42,6 @@ namespace com {
 						namespace impl {
 							namespace xs {
 
-$FieldInfo _XSLoaderImpl_FieldInfo_[] = {
-	{"fGrammarPool", "Lcom/sun/org/apache/xerces/internal/impl/xs/util/XSGrammarPool;", nullptr, $PRIVATE | $FINAL, $field(XSLoaderImpl, fGrammarPool)},
-	{"fSchemaLoader", "Lcom/sun/org/apache/xerces/internal/impl/xs/XMLSchemaLoader;", nullptr, $PRIVATE | $FINAL, $field(XSLoaderImpl, fSchemaLoader)},
-	{}
-};
-
-$MethodInfo _XSLoaderImpl_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(XSLoaderImpl, init$, void)},
-	{"canSetParameter", "(Ljava/lang/String;Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(XSLoaderImpl, canSetParameter, bool, $String*, Object$*)},
-	{"getConfig", "()Lorg/w3c/dom/DOMConfiguration;", nullptr, $PUBLIC, $virtualMethod(XSLoaderImpl, getConfig, $DOMConfiguration*)},
-	{"getParameter", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(XSLoaderImpl, getParameter, $Object*, $String*), "org.w3c.dom.DOMException"},
-	{"getParameterNames", "()Lorg/w3c/dom/DOMStringList;", nullptr, $PUBLIC, $virtualMethod(XSLoaderImpl, getParameterNames, $DOMStringList*)},
-	{"load", "(Lorg/w3c/dom/ls/LSInput;)Lcom/sun/org/apache/xerces/internal/xs/XSModel;", nullptr, $PUBLIC, $virtualMethod(XSLoaderImpl, load, $XSModel*, $LSInput*)},
-	{"loadInputList", "(Lcom/sun/org/apache/xerces/internal/xs/LSInputList;)Lcom/sun/org/apache/xerces/internal/xs/XSModel;", nullptr, $PUBLIC, $virtualMethod(XSLoaderImpl, loadInputList, $XSModel*, $LSInputList*)},
-	{"loadURI", "(Ljava/lang/String;)Lcom/sun/org/apache/xerces/internal/xs/XSModel;", nullptr, $PUBLIC, $virtualMethod(XSLoaderImpl, loadURI, $XSModel*, $String*)},
-	{"loadURIList", "(Lcom/sun/org/apache/xerces/internal/xs/StringList;)Lcom/sun/org/apache/xerces/internal/xs/XSModel;", nullptr, $PUBLIC, $virtualMethod(XSLoaderImpl, loadURIList, $XSModel*, $StringList*)},
-	{"setParameter", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(XSLoaderImpl, setParameter, void, $String*, Object$*), "org.w3c.dom.DOMException"},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _XSLoaderImpl_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xerces.internal.impl.xs.XSLoaderImpl$XSGrammarMerger", "com.sun.org.apache.xerces.internal.impl.xs.XSLoaderImpl", "XSGrammarMerger", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _XSLoaderImpl_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.impl.xs.XSLoaderImpl",
-	"java.lang.Object",
-	"com.sun.org.apache.xerces.internal.xs.XSLoader,org.w3c.dom.DOMConfiguration",
-	_XSLoaderImpl_FieldInfo_,
-	_XSLoaderImpl_MethodInfo_,
-	nullptr,
-	nullptr,
-	_XSLoaderImpl_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xerces.internal.impl.xs.XSLoaderImpl$XSGrammarMerger"
-};
-
-$Object* allocate$XSLoaderImpl($Class* clazz) {
-	return $of($alloc(XSLoaderImpl));
-}
-
 int32_t XSLoaderImpl::hashCode() {
 	 return this->$XSLoader::hashCode();
 }
@@ -116,8 +65,7 @@ void XSLoaderImpl::finalize() {
 void XSLoaderImpl::init$() {
 	$set(this, fGrammarPool, $new($XSLoaderImpl$XSGrammarMerger));
 	$set(this, fSchemaLoader, $new($XMLSchemaLoader));
-	$init($XMLSchemaLoader);
-	$nc(this->fSchemaLoader)->setProperty($XMLSchemaLoader::XMLGRAMMAR_POOL, this->fGrammarPool);
+	this->fSchemaLoader->setProperty($XMLSchemaLoader::XMLGRAMMAR_POOL, this->fGrammarPool);
 }
 
 $DOMConfiguration* XSLoaderImpl::getConfig() {
@@ -125,82 +73,125 @@ $DOMConfiguration* XSLoaderImpl::getConfig() {
 }
 
 $XSModel* XSLoaderImpl::loadURIList($StringList* uriList) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t length = $nc(uriList)->getLength();
 	try {
-		$nc(this->fGrammarPool)->clear();
+		this->fGrammarPool->clear();
 		for (int32_t i = 0; i < length; ++i) {
-			$nc(this->fSchemaLoader)->loadGrammar($$new($XMLInputSource, nullptr, $(uriList->item(i)), nullptr, false));
+			this->fSchemaLoader->loadGrammar($$new($XMLInputSource, nullptr, $(uriList->item(i)), nullptr, false));
 		}
-		return $nc(this->fGrammarPool)->toXSModel();
+		return this->fGrammarPool->toXSModel();
 	} catch ($Exception& e) {
-		$nc(this->fSchemaLoader)->reportDOMFatalError(e);
+		this->fSchemaLoader->reportDOMFatalError(e);
 		return nullptr;
 	}
 	$shouldNotReachHere();
 }
 
 $XSModel* XSLoaderImpl::loadInputList($LSInputList* is) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t length = $nc(is)->getLength();
 	try {
-		$nc(this->fGrammarPool)->clear();
+		this->fGrammarPool->clear();
 		for (int32_t i = 0; i < length; ++i) {
-			$nc(this->fSchemaLoader)->loadGrammar($($nc(this->fSchemaLoader)->dom2xmlInputSource($(is->item(i)))));
+			this->fSchemaLoader->loadGrammar($(this->fSchemaLoader->dom2xmlInputSource($(is->item(i)))));
 		}
-		return $nc(this->fGrammarPool)->toXSModel();
+		return this->fGrammarPool->toXSModel();
 	} catch ($Exception& e) {
-		$nc(this->fSchemaLoader)->reportDOMFatalError(e);
+		this->fSchemaLoader->reportDOMFatalError(e);
 		return nullptr;
 	}
 	$shouldNotReachHere();
 }
 
 $XSModel* XSLoaderImpl::loadURI($String* uri) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
-		$nc(this->fGrammarPool)->clear();
-		return $nc(($cast($XSGrammar, $($nc(this->fSchemaLoader)->loadGrammar($$new($XMLInputSource, nullptr, uri, nullptr, false))))))->toXSModel();
+		this->fGrammarPool->clear();
+		return $$sure($XSGrammar, this->fSchemaLoader->loadGrammar($$new($XMLInputSource, nullptr, uri, nullptr, false)))->toXSModel();
 	} catch ($Exception& e) {
-		$nc(this->fSchemaLoader)->reportDOMFatalError(e);
+		this->fSchemaLoader->reportDOMFatalError(e);
 		return nullptr;
 	}
 	$shouldNotReachHere();
 }
 
 $XSModel* XSLoaderImpl::load($LSInput* is) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
-		$nc(this->fGrammarPool)->clear();
-		return $nc(($cast($XSGrammar, $($nc(this->fSchemaLoader)->loadGrammar($($nc(this->fSchemaLoader)->dom2xmlInputSource(is)))))))->toXSModel();
+		this->fGrammarPool->clear();
+		return $$sure($XSGrammar, this->fSchemaLoader->loadGrammar($(this->fSchemaLoader->dom2xmlInputSource(is))))->toXSModel();
 	} catch ($Exception& e) {
-		$nc(this->fSchemaLoader)->reportDOMFatalError(e);
+		this->fSchemaLoader->reportDOMFatalError(e);
 		return nullptr;
 	}
 	$shouldNotReachHere();
 }
 
 void XSLoaderImpl::setParameter($String* name, Object$* value) {
-	$nc(this->fSchemaLoader)->setParameter(name, value);
+	this->fSchemaLoader->setParameter(name, value);
 }
 
 $Object* XSLoaderImpl::getParameter($String* name) {
-	return $of($nc(this->fSchemaLoader)->getParameter(name));
+	return this->fSchemaLoader->getParameter(name);
 }
 
 bool XSLoaderImpl::canSetParameter($String* name, Object$* value) {
-	return $nc(this->fSchemaLoader)->canSetParameter(name, value);
+	return this->fSchemaLoader->canSetParameter(name, value);
 }
 
 $DOMStringList* XSLoaderImpl::getParameterNames() {
-	return $nc(this->fSchemaLoader)->getParameterNames();
+	return this->fSchemaLoader->getParameterNames();
 }
 
 XSLoaderImpl::XSLoaderImpl() {
 }
 
 $Class* XSLoaderImpl::load$($String* name, bool initialize) {
-	$loadClass(XSLoaderImpl, name, initialize, &_XSLoaderImpl_ClassInfo_, allocate$XSLoaderImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"fGrammarPool", "Lcom/sun/org/apache/xerces/internal/impl/xs/util/XSGrammarPool;", nullptr, $PRIVATE | $FINAL, $field(XSLoaderImpl, fGrammarPool)},
+		{"fSchemaLoader", "Lcom/sun/org/apache/xerces/internal/impl/xs/XMLSchemaLoader;", nullptr, $PRIVATE | $FINAL, $field(XSLoaderImpl, fSchemaLoader)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(XSLoaderImpl, init$, void)},
+		{"canSetParameter", "(Ljava/lang/String;Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(XSLoaderImpl, canSetParameter, bool, $String*, Object$*)},
+		{"getConfig", "()Lorg/w3c/dom/DOMConfiguration;", nullptr, $PUBLIC, $virtualMethod(XSLoaderImpl, getConfig, $DOMConfiguration*)},
+		{"getParameter", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(XSLoaderImpl, getParameter, $Object*, $String*), "org.w3c.dom.DOMException"},
+		{"getParameterNames", "()Lorg/w3c/dom/DOMStringList;", nullptr, $PUBLIC, $virtualMethod(XSLoaderImpl, getParameterNames, $DOMStringList*)},
+		{"load", "(Lorg/w3c/dom/ls/LSInput;)Lcom/sun/org/apache/xerces/internal/xs/XSModel;", nullptr, $PUBLIC, $virtualMethod(XSLoaderImpl, load, $XSModel*, $LSInput*)},
+		{"loadInputList", "(Lcom/sun/org/apache/xerces/internal/xs/LSInputList;)Lcom/sun/org/apache/xerces/internal/xs/XSModel;", nullptr, $PUBLIC, $virtualMethod(XSLoaderImpl, loadInputList, $XSModel*, $LSInputList*)},
+		{"loadURI", "(Ljava/lang/String;)Lcom/sun/org/apache/xerces/internal/xs/XSModel;", nullptr, $PUBLIC, $virtualMethod(XSLoaderImpl, loadURI, $XSModel*, $String*)},
+		{"loadURIList", "(Lcom/sun/org/apache/xerces/internal/xs/StringList;)Lcom/sun/org/apache/xerces/internal/xs/XSModel;", nullptr, $PUBLIC, $virtualMethod(XSLoaderImpl, loadURIList, $XSModel*, $StringList*)},
+		{"setParameter", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(XSLoaderImpl, setParameter, void, $String*, Object$*), "org.w3c.dom.DOMException"},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xerces.internal.impl.xs.XSLoaderImpl$XSGrammarMerger", "com.sun.org.apache.xerces.internal.impl.xs.XSLoaderImpl", "XSGrammarMerger", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.impl.xs.XSLoaderImpl",
+		"java.lang.Object",
+		"com.sun.org.apache.xerces.internal.xs.XSLoader,org.w3c.dom.DOMConfiguration",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xerces.internal.impl.xs.XSLoaderImpl$XSGrammarMerger"
+	};
+	$loadClass(XSLoaderImpl, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(XSLoaderImpl));
+	});
 	return class$;
 }
 

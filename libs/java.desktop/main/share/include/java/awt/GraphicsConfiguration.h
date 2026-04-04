@@ -37,6 +37,7 @@ class $import GraphicsConfiguration : public ::java::lang::Object {
 	$class(GraphicsConfiguration, 0, ::java::lang::Object)
 public:
 	GraphicsConfiguration();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual ::java::awt::image::BufferedImage* createCompatibleImage(int32_t width, int32_t height);
 	virtual ::java::awt::image::BufferedImage* createCompatibleImage(int32_t width, int32_t height, int32_t transparency);

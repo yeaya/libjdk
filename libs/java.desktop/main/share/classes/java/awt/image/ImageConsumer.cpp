@@ -1,5 +1,4 @@
 #include <java/awt/image/ImageConsumer.h>
-
 #include <java/awt/image/ColorModel.h>
 #include <java/util/Hashtable.h>
 #include <jcpp.h>
@@ -24,45 +23,40 @@ namespace java {
 	namespace awt {
 		namespace image {
 
-$FieldInfo _ImageConsumer_FieldInfo_[] = {
-	{"RANDOMPIXELORDER", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ImageConsumer, RANDOMPIXELORDER)},
-	{"TOPDOWNLEFTRIGHT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ImageConsumer, TOPDOWNLEFTRIGHT)},
-	{"COMPLETESCANLINES", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ImageConsumer, COMPLETESCANLINES)},
-	{"SINGLEPASS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ImageConsumer, SINGLEPASS)},
-	{"SINGLEFRAME", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ImageConsumer, SINGLEFRAME)},
-	{"IMAGEERROR", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ImageConsumer, IMAGEERROR)},
-	{"SINGLEFRAMEDONE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ImageConsumer, SINGLEFRAMEDONE)},
-	{"STATICIMAGEDONE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ImageConsumer, STATICIMAGEDONE)},
-	{"IMAGEABORTED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ImageConsumer, IMAGEABORTED)},
-	{}
-};
-
-$MethodInfo _ImageConsumer_MethodInfo_[] = {
-	{"imageComplete", "(I)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ImageConsumer, imageComplete, void, int32_t)},
-	{"setColorModel", "(Ljava/awt/image/ColorModel;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ImageConsumer, setColorModel, void, $ColorModel*)},
-	{"setDimensions", "(II)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ImageConsumer, setDimensions, void, int32_t, int32_t)},
-	{"setHints", "(I)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ImageConsumer, setHints, void, int32_t)},
-	{"setPixels", "(IIIILjava/awt/image/ColorModel;[BII)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ImageConsumer, setPixels, void, int32_t, int32_t, int32_t, int32_t, $ColorModel*, $bytes*, int32_t, int32_t)},
-	{"setPixels", "(IIIILjava/awt/image/ColorModel;[III)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ImageConsumer, setPixels, void, int32_t, int32_t, int32_t, int32_t, $ColorModel*, $ints*, int32_t, int32_t)},
-	{"setProperties", "(Ljava/util/Hashtable;)V", "(Ljava/util/Hashtable<**>;)V", $PUBLIC | $ABSTRACT, $virtualMethod(ImageConsumer, setProperties, void, $Hashtable*)},
-	{}
-};
-
-$ClassInfo _ImageConsumer_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.awt.image.ImageConsumer",
-	nullptr,
-	nullptr,
-	_ImageConsumer_FieldInfo_,
-	_ImageConsumer_MethodInfo_
-};
-
-$Object* allocate$ImageConsumer($Class* clazz) {
-	return $of($alloc(ImageConsumer));
-}
-
 $Class* ImageConsumer::load$($String* name, bool initialize) {
-	$loadClass(ImageConsumer, name, initialize, &_ImageConsumer_ClassInfo_, allocate$ImageConsumer);
+	$FieldInfo fieldInfos$$[] = {
+		{"RANDOMPIXELORDER", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ImageConsumer, RANDOMPIXELORDER)},
+		{"TOPDOWNLEFTRIGHT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ImageConsumer, TOPDOWNLEFTRIGHT)},
+		{"COMPLETESCANLINES", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ImageConsumer, COMPLETESCANLINES)},
+		{"SINGLEPASS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ImageConsumer, SINGLEPASS)},
+		{"SINGLEFRAME", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ImageConsumer, SINGLEFRAME)},
+		{"IMAGEERROR", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ImageConsumer, IMAGEERROR)},
+		{"SINGLEFRAMEDONE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ImageConsumer, SINGLEFRAMEDONE)},
+		{"STATICIMAGEDONE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ImageConsumer, STATICIMAGEDONE)},
+		{"IMAGEABORTED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ImageConsumer, IMAGEABORTED)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"imageComplete", "(I)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ImageConsumer, imageComplete, void, int32_t)},
+		{"setColorModel", "(Ljava/awt/image/ColorModel;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ImageConsumer, setColorModel, void, $ColorModel*)},
+		{"setDimensions", "(II)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ImageConsumer, setDimensions, void, int32_t, int32_t)},
+		{"setHints", "(I)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ImageConsumer, setHints, void, int32_t)},
+		{"setPixels", "(IIIILjava/awt/image/ColorModel;[BII)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ImageConsumer, setPixels, void, int32_t, int32_t, int32_t, int32_t, $ColorModel*, $bytes*, int32_t, int32_t)},
+		{"setPixels", "(IIIILjava/awt/image/ColorModel;[III)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ImageConsumer, setPixels, void, int32_t, int32_t, int32_t, int32_t, $ColorModel*, $ints*, int32_t, int32_t)},
+		{"setProperties", "(Ljava/util/Hashtable;)V", "(Ljava/util/Hashtable<**>;)V", $PUBLIC | $ABSTRACT, $virtualMethod(ImageConsumer, setProperties, void, $Hashtable*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.awt.image.ImageConsumer",
+		nullptr,
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ImageConsumer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ImageConsumer);
+	});
 	return class$;
 }
 

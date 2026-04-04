@@ -1,5 +1,4 @@
 #include <javax/swing/event/TableColumnModelEvent.h>
-
 #include <java/util/EventObject.h>
 #include <javax/swing/table/TableColumnModel.h>
 #include <jcpp.h>
@@ -13,32 +12,6 @@ using $TableColumnModel = ::javax::swing::table::TableColumnModel;
 namespace javax {
 	namespace swing {
 		namespace event {
-
-$FieldInfo _TableColumnModelEvent_FieldInfo_[] = {
-	{"fromIndex", "I", nullptr, $PROTECTED, $field(TableColumnModelEvent, fromIndex)},
-	{"toIndex", "I", nullptr, $PROTECTED, $field(TableColumnModelEvent, toIndex)},
-	{}
-};
-
-$MethodInfo _TableColumnModelEvent_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/table/TableColumnModel;II)V", nullptr, $PUBLIC, $method(TableColumnModelEvent, init$, void, $TableColumnModel*, int32_t, int32_t)},
-	{"getFromIndex", "()I", nullptr, $PUBLIC, $virtualMethod(TableColumnModelEvent, getFromIndex, int32_t)},
-	{"getToIndex", "()I", nullptr, $PUBLIC, $virtualMethod(TableColumnModelEvent, getToIndex, int32_t)},
-	{}
-};
-
-$ClassInfo _TableColumnModelEvent_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.event.TableColumnModelEvent",
-	"java.util.EventObject",
-	nullptr,
-	_TableColumnModelEvent_FieldInfo_,
-	_TableColumnModelEvent_MethodInfo_
-};
-
-$Object* allocate$TableColumnModelEvent($Class* clazz) {
-	return $of($alloc(TableColumnModelEvent));
-}
 
 void TableColumnModelEvent::init$($TableColumnModel* source, int32_t from, int32_t to) {
 	$EventObject::init$(source);
@@ -58,7 +31,28 @@ TableColumnModelEvent::TableColumnModelEvent() {
 }
 
 $Class* TableColumnModelEvent::load$($String* name, bool initialize) {
-	$loadClass(TableColumnModelEvent, name, initialize, &_TableColumnModelEvent_ClassInfo_, allocate$TableColumnModelEvent);
+	$FieldInfo fieldInfos$$[] = {
+		{"fromIndex", "I", nullptr, $PROTECTED, $field(TableColumnModelEvent, fromIndex)},
+		{"toIndex", "I", nullptr, $PROTECTED, $field(TableColumnModelEvent, toIndex)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/table/TableColumnModel;II)V", nullptr, $PUBLIC, $method(TableColumnModelEvent, init$, void, $TableColumnModel*, int32_t, int32_t)},
+		{"getFromIndex", "()I", nullptr, $PUBLIC, $virtualMethod(TableColumnModelEvent, getFromIndex, int32_t)},
+		{"getToIndex", "()I", nullptr, $PUBLIC, $virtualMethod(TableColumnModelEvent, getToIndex, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.event.TableColumnModelEvent",
+		"java.util.EventObject",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TableColumnModelEvent, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TableColumnModelEvent);
+	});
 	return class$;
 }
 

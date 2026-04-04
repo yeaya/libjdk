@@ -1,5 +1,4 @@
 #include <com/apple/laf/AquaFileChooserUI$CustomDirOrAnyPanel.h>
-
 #include <com/apple/laf/AquaFileChooserUI$DirOrAnyPanel.h>
 #include <com/apple/laf/AquaFileChooserUI.h>
 #include <java/io/File.h>
@@ -15,52 +14,11 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $JButton = ::javax::swing::JButton;
 using $JFileChooser = ::javax::swing::JFileChooser;
-using $JPanel = ::javax::swing::JPanel;
 
 namespace com {
 	namespace apple {
 		namespace laf {
-
-$FieldInfo _AquaFileChooserUI$CustomDirOrAnyPanel_FieldInfo_[] = {
-	{"this$0", "Lcom/apple/laf/AquaFileChooserUI;", nullptr, $FINAL | $SYNTHETIC, $field(AquaFileChooserUI$CustomDirOrAnyPanel, this$0)},
-	{}
-};
-
-$MethodInfo _AquaFileChooserUI$CustomDirOrAnyPanel_MethodInfo_[] = {
-	{"<init>", "(Lcom/apple/laf/AquaFileChooserUI;)V", nullptr, 0, $method(AquaFileChooserUI$CustomDirOrAnyPanel, init$, void, $AquaFileChooserUI*)},
-	{"approveSelection", "(Ljavax/swing/JFileChooser;)V", nullptr, 0, $virtualMethod(AquaFileChooserUI$CustomDirOrAnyPanel, approveSelection, void, $JFileChooser*)},
-	{"installPanel", "(Ljavax/swing/JFileChooser;Z)V", nullptr, 0, $virtualMethod(AquaFileChooserUI$CustomDirOrAnyPanel, installPanel, void, $JFileChooser*, bool)},
-	{"updateButtonState", "(Ljavax/swing/JFileChooser;Ljava/io/File;)V", nullptr, 0, $virtualMethod(AquaFileChooserUI$CustomDirOrAnyPanel, updateButtonState, void, $JFileChooser*, $File*)},
-	{}
-};
-
-$InnerClassInfo _AquaFileChooserUI$CustomDirOrAnyPanel_InnerClassesInfo_[] = {
-	{"com.apple.laf.AquaFileChooserUI$CustomDirOrAnyPanel", "com.apple.laf.AquaFileChooserUI", "CustomDirOrAnyPanel", 0},
-	{"com.apple.laf.AquaFileChooserUI$DirOrAnyPanel", "com.apple.laf.AquaFileChooserUI", "DirOrAnyPanel", $ABSTRACT},
-	{}
-};
-
-$ClassInfo _AquaFileChooserUI$CustomDirOrAnyPanel_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.apple.laf.AquaFileChooserUI$CustomDirOrAnyPanel",
-	"com.apple.laf.AquaFileChooserUI$DirOrAnyPanel",
-	nullptr,
-	_AquaFileChooserUI$CustomDirOrAnyPanel_FieldInfo_,
-	_AquaFileChooserUI$CustomDirOrAnyPanel_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AquaFileChooserUI$CustomDirOrAnyPanel_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.apple.laf.AquaFileChooserUI"
-};
-
-$Object* allocate$AquaFileChooserUI$CustomDirOrAnyPanel($Class* clazz) {
-	return $of($alloc(AquaFileChooserUI$CustomDirOrAnyPanel));
-}
 
 void AquaFileChooserUI$CustomDirOrAnyPanel::init$($AquaFileChooserUI* this$0) {
 	$set(this, this$0, this$0);
@@ -74,18 +32,18 @@ void AquaFileChooserUI$CustomDirOrAnyPanel::installPanel($JFileChooser* fc, bool
 }
 
 void AquaFileChooserUI$CustomDirOrAnyPanel::approveSelection($JFileChooser* fc) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($File, f, this->this$0->makeFile(fc, $(this->this$0->getFileName())));
 	if (f != nullptr) {
 		this->this$0->selectionInProgress = true;
-		$nc($(this->this$0->getFileChooser()))->setSelectedFile(f);
+		$$nc(this->this$0->getFileChooser())->setSelectedFile(f);
 		this->this$0->selectionInProgress = false;
 	}
-	$nc($(this->this$0->getFileChooser()))->approveSelection();
+	$$nc(this->this$0->getFileChooser())->approveSelection();
 }
 
 void AquaFileChooserUI$CustomDirOrAnyPanel::updateButtonState($JFileChooser* fc, $File* f) {
-	$nc($(this->this$0->getApproveButton(fc)))->setEnabled(f != nullptr || this->this$0->textfieldIsValid());
+	$$nc(this->this$0->getApproveButton(fc))->setEnabled(f != nullptr || this->this$0->textfieldIsValid());
 	$AquaFileChooserUI$DirOrAnyPanel::updateButtonState(fc, f);
 }
 
@@ -93,7 +51,40 @@ AquaFileChooserUI$CustomDirOrAnyPanel::AquaFileChooserUI$CustomDirOrAnyPanel() {
 }
 
 $Class* AquaFileChooserUI$CustomDirOrAnyPanel::load$($String* name, bool initialize) {
-	$loadClass(AquaFileChooserUI$CustomDirOrAnyPanel, name, initialize, &_AquaFileChooserUI$CustomDirOrAnyPanel_ClassInfo_, allocate$AquaFileChooserUI$CustomDirOrAnyPanel);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/apple/laf/AquaFileChooserUI;", nullptr, $FINAL | $SYNTHETIC, $field(AquaFileChooserUI$CustomDirOrAnyPanel, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/apple/laf/AquaFileChooserUI;)V", nullptr, 0, $method(AquaFileChooserUI$CustomDirOrAnyPanel, init$, void, $AquaFileChooserUI*)},
+		{"approveSelection", "(Ljavax/swing/JFileChooser;)V", nullptr, 0, $virtualMethod(AquaFileChooserUI$CustomDirOrAnyPanel, approveSelection, void, $JFileChooser*)},
+		{"installPanel", "(Ljavax/swing/JFileChooser;Z)V", nullptr, 0, $virtualMethod(AquaFileChooserUI$CustomDirOrAnyPanel, installPanel, void, $JFileChooser*, bool)},
+		{"updateButtonState", "(Ljavax/swing/JFileChooser;Ljava/io/File;)V", nullptr, 0, $virtualMethod(AquaFileChooserUI$CustomDirOrAnyPanel, updateButtonState, void, $JFileChooser*, $File*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.laf.AquaFileChooserUI$CustomDirOrAnyPanel", "com.apple.laf.AquaFileChooserUI", "CustomDirOrAnyPanel", 0},
+		{"com.apple.laf.AquaFileChooserUI$DirOrAnyPanel", "com.apple.laf.AquaFileChooserUI", "DirOrAnyPanel", $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.apple.laf.AquaFileChooserUI$CustomDirOrAnyPanel",
+		"com.apple.laf.AquaFileChooserUI$DirOrAnyPanel",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.apple.laf.AquaFileChooserUI"
+	};
+	$loadClass(AquaFileChooserUI$CustomDirOrAnyPanel, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AquaFileChooserUI$CustomDirOrAnyPanel);
+	});
 	return class$;
 }
 

@@ -44,7 +44,7 @@ public:
 	$String* baseTypeName = nullptr;
 	$Object* object = nullptr;
 	::java::sql::Ref* reference = nullptr;
-	static const int64_t serialVersionUID = (int64_t)0xBE65E238B8C292BE;
+	static const int64_t serialVersionUID = (int64_t)0xbe65e238b8c292be;
 };
 
 			} // serial

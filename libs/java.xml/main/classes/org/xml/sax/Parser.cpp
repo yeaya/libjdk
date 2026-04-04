@@ -1,5 +1,4 @@
 #include <org/xml/sax/Parser.h>
-
 #include <java/util/Locale.h>
 #include <org/xml/sax/DTDHandler.h>
 #include <org/xml/sax/DocumentHandler.h>
@@ -23,46 +22,40 @@ namespace org {
 	namespace xml {
 		namespace sax {
 
-$NamedAttribute Parser_Attribute_var$0[] = {
-	{"since", 's', "1.5"},
-	{}
-};
-
-$CompoundAttribute _Parser_Annotations_[] = {
-	{"Ljava/lang/Deprecated;", Parser_Attribute_var$0},
-	{}
-};
-
-$MethodInfo _Parser_MethodInfo_[] = {
-	{"parse", "(Lorg/xml/sax/InputSource;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Parser, parse, void, $InputSource*), "org.xml.sax.SAXException,java.io.IOException"},
-	{"parse", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Parser, parse, void, $String*), "org.xml.sax.SAXException,java.io.IOException"},
-	{"setDTDHandler", "(Lorg/xml/sax/DTDHandler;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Parser, setDTDHandler, void, $DTDHandler*)},
-	{"setDocumentHandler", "(Lorg/xml/sax/DocumentHandler;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Parser, setDocumentHandler, void, $DocumentHandler*)},
-	{"setEntityResolver", "(Lorg/xml/sax/EntityResolver;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Parser, setEntityResolver, void, $EntityResolver*)},
-	{"setErrorHandler", "(Lorg/xml/sax/ErrorHandler;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Parser, setErrorHandler, void, $ErrorHandler*)},
-	{"setLocale", "(Ljava/util/Locale;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Parser, setLocale, void, $Locale*), "org.xml.sax.SAXException"},
-	{}
-};
-
-$ClassInfo _Parser_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"org.xml.sax.Parser",
-	nullptr,
-	nullptr,
-	nullptr,
-	_Parser_MethodInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	_Parser_Annotations_
-};
-
-$Object* allocate$Parser($Class* clazz) {
-	return $of($alloc(Parser));
-}
-
 $Class* Parser::load$($String* name, bool initialize) {
-	$loadClass(Parser, name, initialize, &_Parser_ClassInfo_, allocate$Parser);
+	$MethodInfo methodInfos$$[] = {
+		{"parse", "(Lorg/xml/sax/InputSource;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Parser, parse, void, $InputSource*), "org.xml.sax.SAXException,java.io.IOException"},
+		{"parse", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Parser, parse, void, $String*), "org.xml.sax.SAXException,java.io.IOException"},
+		{"setDTDHandler", "(Lorg/xml/sax/DTDHandler;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Parser, setDTDHandler, void, $DTDHandler*)},
+		{"setDocumentHandler", "(Lorg/xml/sax/DocumentHandler;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Parser, setDocumentHandler, void, $DocumentHandler*)},
+		{"setEntityResolver", "(Lorg/xml/sax/EntityResolver;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Parser, setEntityResolver, void, $EntityResolver*)},
+		{"setErrorHandler", "(Lorg/xml/sax/ErrorHandler;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Parser, setErrorHandler, void, $ErrorHandler*)},
+		{"setLocale", "(Ljava/util/Locale;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Parser, setLocale, void, $Locale*), "org.xml.sax.SAXException"},
+		{}
+	};
+	$NamedAttribute annotations$$$namedAttribute[] = {
+		{"since", 's', "1.5"},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/lang/Deprecated;", annotations$$$namedAttribute},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"org.xml.sax.Parser",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(Parser, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Parser);
+	});
 	return class$;
 }
 

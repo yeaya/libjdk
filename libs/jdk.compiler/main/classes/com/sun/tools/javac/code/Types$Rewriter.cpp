@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/code/Types$Rewriter.h>
-
 #include <com/sun/tools/javac/code/BoundKind.h>
 #include <com/sun/tools/javac/code/Symbol$TypeSymbol.h>
 #include <com/sun/tools/javac/code/Symbol.h>
@@ -50,56 +49,6 @@ namespace com {
 			namespace javac {
 				namespace code {
 
-$FieldInfo _Types$Rewriter_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/code/Types;", nullptr, $FINAL | $SYNTHETIC, $field(Types$Rewriter, this$0)},
-	{"high", "Z", nullptr, 0, $field(Types$Rewriter, high)},
-	{"rewriteTypeVars", "Z", nullptr, 0, $field(Types$Rewriter, rewriteTypeVars)},
-	{}
-};
-
-$MethodInfo _Types$Rewriter_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Types;ZZ)V", nullptr, 0, $method(Types$Rewriter, init$, void, $Types*, bool, bool)},
-	{"B", "(Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Type;", nullptr, 0, $virtualMethod(Types$Rewriter, B, $Type*, $Type*)},
-	{"rewriteAsWildcardType", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type$TypeVar;Lcom/sun/tools/javac/code/BoundKind;)Lcom/sun/tools/javac/code/Type;", nullptr, $PRIVATE, $method(Types$Rewriter, rewriteAsWildcardType, $Type*, $Type*, $Type$TypeVar*, $BoundKind*)},
-	{"visitCapturedType", "(Lcom/sun/tools/javac/code/Type$CapturedType;Ljava/lang/Void;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(Types$Rewriter, visitCapturedType, $Type*, $Type$CapturedType*, $Void*)},
-	{"visitCapturedType", "(Lcom/sun/tools/javac/code/Type$CapturedType;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Types$Rewriter, visitCapturedType, $Object*, $Type$CapturedType*, Object$*)},
-	{"visitClassType", "(Lcom/sun/tools/javac/code/Type$ClassType;Ljava/lang/Void;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(Types$Rewriter, visitClassType, $Type*, $Type$ClassType*, $Void*)},
-	{"visitClassType", "(Lcom/sun/tools/javac/code/Type$ClassType;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Types$Rewriter, visitClassType, $Object*, $Type$ClassType*, Object$*)},
-	{"visitType", "(Lcom/sun/tools/javac/code/Type;Ljava/lang/Void;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(Types$Rewriter, visitType, $Type*, $Type*, $Void*)},
-	{"visitType", "(Lcom/sun/tools/javac/code/Type;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Types$Rewriter, visitType, $Object*, $Type*, Object$*)},
-	{"visitTypeVar", "(Lcom/sun/tools/javac/code/Type$TypeVar;Ljava/lang/Void;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(Types$Rewriter, visitTypeVar, $Type*, $Type$TypeVar*, $Void*)},
-	{"visitTypeVar", "(Lcom/sun/tools/javac/code/Type$TypeVar;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Types$Rewriter, visitTypeVar, $Object*, $Type$TypeVar*, Object$*)},
-	{"visitWildcardType", "(Lcom/sun/tools/javac/code/Type$WildcardType;Ljava/lang/Void;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(Types$Rewriter, visitWildcardType, $Type*, $Type$WildcardType*, $Void*)},
-	{"visitWildcardType", "(Lcom/sun/tools/javac/code/Type$WildcardType;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Types$Rewriter, visitWildcardType, $Object*, $Type$WildcardType*, Object$*)},
-	{}
-};
-
-$InnerClassInfo _Types$Rewriter_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.code.Types$Rewriter", "com.sun.tools.javac.code.Types", "Rewriter", 0},
-	{"com.sun.tools.javac.code.Types$UnaryVisitor", "com.sun.tools.javac.code.Types", "UnaryVisitor", $PUBLIC | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Types$Rewriter_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.code.Types$Rewriter",
-	"com.sun.tools.javac.code.Types$UnaryVisitor",
-	nullptr,
-	_Types$Rewriter_FieldInfo_,
-	_Types$Rewriter_MethodInfo_,
-	"Lcom/sun/tools/javac/code/Types$UnaryVisitor<Lcom/sun/tools/javac/code/Type;>;",
-	nullptr,
-	_Types$Rewriter_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.code.Types"
-};
-
-$Object* allocate$Types$Rewriter($Class* clazz) {
-	return $of($alloc(Types$Rewriter));
-}
-
 void Types$Rewriter::init$($Types* this$0, bool high, bool rewriteTypeVars) {
 	$set(this, this$0, this$0);
 	$Types$UnaryVisitor::init$();
@@ -108,11 +57,11 @@ void Types$Rewriter::init$($Types* this$0, bool high, bool rewriteTypeVars) {
 }
 
 $Type* Types$Rewriter::visitClassType($Type$ClassType* t, $Void* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ListBuffer, rewritten, $new($ListBuffer));
 	bool changed = false;
 	{
-		$var($Iterator, i$, $nc($($nc(t)->allparams()))->iterator());
+		$var($Iterator, i$, $$nc($nc(t)->allparams())->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Type, arg, $cast($Type, i$->next()));
 			{
@@ -126,7 +75,7 @@ $Type* Types$Rewriter::visitClassType($Type$ClassType* t, $Void* s) {
 	}
 	if (changed) {
 		$var($Type, var$0, $nc(t->tsym)->type);
-		$var($List, var$1, $nc($nc(t->tsym)->type)->allparams());
+		$var($List, var$1, $nc(t->tsym->type)->allparams());
 		return this->this$0->subst(var$0, var$1, $(rewritten->toList()));
 	} else {
 		return t;
@@ -138,16 +87,16 @@ $Type* Types$Rewriter::visitType($Type* t, $Void* s) {
 }
 
 $Type* Types$Rewriter::visitCapturedType($Type$CapturedType* t, $Void* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Type, w_bound, $nc($nc(t)->wildcard)->type);
 	$var($Type, bound, $nc(w_bound)->contains(t) ? this->this$0->erasure(w_bound) : $cast($Type, visit(w_bound)));
-	return rewriteAsWildcardType($cast($Type, $(visit(bound))), $nc(t->wildcard)->bound, $nc(t->wildcard)->kind);
+	return rewriteAsWildcardType($$cast($Type, visit(bound)), $nc(t->wildcard)->bound, $nc(t->wildcard)->kind);
 }
 
 $Type* Types$Rewriter::visitTypeVar($Type$TypeVar* t, $Void* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->rewriteTypeVars) {
-		$var($Type, bound, $nc($($nc(t)->getUpperBound()))->contains(t) ? this->this$0->erasure($($nc(t)->getUpperBound())) : $cast($Type, visit($($nc(t)->getUpperBound()))));
+		$var($Type, bound, $$nc($nc(t)->getUpperBound())->contains(t) ? this->this$0->erasure($(t->getUpperBound())) : $cast($Type, visit($(t->getUpperBound()))));
 		$init($BoundKind);
 		return rewriteAsWildcardType(bound, t, $BoundKind::EXTENDS);
 	} else {
@@ -157,35 +106,27 @@ $Type* Types$Rewriter::visitTypeVar($Type$TypeVar* t, $Void* s) {
 
 $Type* Types$Rewriter::visitWildcardType($Type$WildcardType* t, $Void* s) {
 	$var($Type, bound2, $cast($Type, visit($nc(t)->type)));
-	return $nc(t)->type == bound2 ? static_cast<$Type*>(t) : rewriteAsWildcardType(bound2, $nc(t)->bound, t->kind);
+	return t->type == bound2 ? $cast($Type, t) : rewriteAsWildcardType(bound2, t->bound, t->kind);
 }
 
 $Type* Types$Rewriter::rewriteAsWildcardType($Type* bound, $Type$TypeVar* formal, $BoundKind* bk) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Types$25);
 	switch ($nc($Types$25::$SwitchMap$com$sun$tools$javac$code$BoundKind)->get($nc((bk))->ordinal())) {
 	case 1:
-		{
-			return this->high ? static_cast<$Type*>(this->this$0->makeExtendsWildcard($(B(bound)), formal)) : static_cast<$Type*>(this->this$0->makeExtendsWildcard($nc(this->this$0->syms)->objectType, formal));
-		}
+		return this->high ? this->this$0->makeExtendsWildcard($(B(bound)), formal) : this->this$0->makeExtendsWildcard($nc(this->this$0->syms)->objectType, formal);
 	case 2:
-		{
-			return this->high ? static_cast<$Type*>(this->this$0->makeSuperWildcard($nc(this->this$0->syms)->botType, formal)) : static_cast<$Type*>(this->this$0->makeSuperWildcard($(B(bound)), formal));
-		}
+		return this->high ? this->this$0->makeSuperWildcard($nc(this->this$0->syms)->botType, formal) : this->this$0->makeSuperWildcard($(B(bound)), formal);
 	case 3:
-		{
-			return this->this$0->makeExtendsWildcard($nc(this->this$0->syms)->objectType, formal);
-		}
+		return this->this$0->makeExtendsWildcard($nc(this->this$0->syms)->objectType, formal);
 	default:
-		{
-			$Assert::error($$str({"Invalid bound kind "_s, bk}));
-			return nullptr;
-		}
+		$Assert::error($$str({"Invalid bound kind "_s, bk}));
+		return nullptr;
 	}
 }
 
 $Type* Types$Rewriter::B($Type* t$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Type, t, t$renamed);
 	$init($TypeTag);
 	while ($nc(t)->hasTag($TypeTag::WILDCARD)) {
@@ -222,7 +163,51 @@ Types$Rewriter::Types$Rewriter() {
 }
 
 $Class* Types$Rewriter::load$($String* name, bool initialize) {
-	$loadClass(Types$Rewriter, name, initialize, &_Types$Rewriter_ClassInfo_, allocate$Types$Rewriter);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/code/Types;", nullptr, $FINAL | $SYNTHETIC, $field(Types$Rewriter, this$0)},
+		{"high", "Z", nullptr, 0, $field(Types$Rewriter, high)},
+		{"rewriteTypeVars", "Z", nullptr, 0, $field(Types$Rewriter, rewriteTypeVars)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/code/Types;ZZ)V", nullptr, 0, $method(Types$Rewriter, init$, void, $Types*, bool, bool)},
+		{"B", "(Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Type;", nullptr, 0, $virtualMethod(Types$Rewriter, B, $Type*, $Type*)},
+		{"rewriteAsWildcardType", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type$TypeVar;Lcom/sun/tools/javac/code/BoundKind;)Lcom/sun/tools/javac/code/Type;", nullptr, $PRIVATE, $method(Types$Rewriter, rewriteAsWildcardType, $Type*, $Type*, $Type$TypeVar*, $BoundKind*)},
+		{"visitCapturedType", "(Lcom/sun/tools/javac/code/Type$CapturedType;Ljava/lang/Void;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(Types$Rewriter, visitCapturedType, $Type*, $Type$CapturedType*, $Void*)},
+		{"visitCapturedType", "(Lcom/sun/tools/javac/code/Type$CapturedType;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Types$Rewriter, visitCapturedType, $Object*, $Type$CapturedType*, Object$*)},
+		{"visitClassType", "(Lcom/sun/tools/javac/code/Type$ClassType;Ljava/lang/Void;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(Types$Rewriter, visitClassType, $Type*, $Type$ClassType*, $Void*)},
+		{"visitClassType", "(Lcom/sun/tools/javac/code/Type$ClassType;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Types$Rewriter, visitClassType, $Object*, $Type$ClassType*, Object$*)},
+		{"visitType", "(Lcom/sun/tools/javac/code/Type;Ljava/lang/Void;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(Types$Rewriter, visitType, $Type*, $Type*, $Void*)},
+		{"visitType", "(Lcom/sun/tools/javac/code/Type;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Types$Rewriter, visitType, $Object*, $Type*, Object$*)},
+		{"visitTypeVar", "(Lcom/sun/tools/javac/code/Type$TypeVar;Ljava/lang/Void;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(Types$Rewriter, visitTypeVar, $Type*, $Type$TypeVar*, $Void*)},
+		{"visitTypeVar", "(Lcom/sun/tools/javac/code/Type$TypeVar;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Types$Rewriter, visitTypeVar, $Object*, $Type$TypeVar*, Object$*)},
+		{"visitWildcardType", "(Lcom/sun/tools/javac/code/Type$WildcardType;Ljava/lang/Void;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(Types$Rewriter, visitWildcardType, $Type*, $Type$WildcardType*, $Void*)},
+		{"visitWildcardType", "(Lcom/sun/tools/javac/code/Type$WildcardType;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Types$Rewriter, visitWildcardType, $Object*, $Type$WildcardType*, Object$*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.code.Types$Rewriter", "com.sun.tools.javac.code.Types", "Rewriter", 0},
+		{"com.sun.tools.javac.code.Types$UnaryVisitor", "com.sun.tools.javac.code.Types", "UnaryVisitor", $PUBLIC | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.code.Types$Rewriter",
+		"com.sun.tools.javac.code.Types$UnaryVisitor",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Lcom/sun/tools/javac/code/Types$UnaryVisitor<Lcom/sun/tools/javac/code/Type;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.code.Types"
+	};
+	$loadClass(Types$Rewriter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Types$Rewriter);
+	});
 	return class$;
 }
 

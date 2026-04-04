@@ -26,6 +26,7 @@ class $export bug4726194 : public ::java::lang::Object {
 	$class(bug4726194, 0, ::java::lang::Object)
 public:
 	bug4726194();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $ints* getValues(::javax::swing::SpringLayout$Constraints* con, $StringArray* cNames);
 	static void lambda$main$0(::javax::swing::UIManager$LookAndFeelInfo* laf);

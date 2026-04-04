@@ -1,8 +1,6 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/trax/TemplatesHandlerImpl.h>
-
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/CompilerException.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/Parser.h>
-#include <com/sun/org/apache/xalan/internal/xsltc/compiler/SourceLoader.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/Stylesheet.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/SyntaxTreeNode.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/XSLTC.h>
@@ -41,8 +39,6 @@
 
 using $byteArray2 = $Array<int8_t, 2>;
 using $CompilerException = ::com::sun::org::apache::xalan::internal::xsltc::compiler::CompilerException;
-using $Parser = ::com::sun::org::apache::xalan::internal::xsltc::compiler::Parser;
-using $SourceLoader = ::com::sun::org::apache::xalan::internal::xsltc::compiler::SourceLoader;
 using $Stylesheet = ::com::sun::org::apache::xalan::internal::xsltc::compiler::Stylesheet;
 using $SyntaxTreeNode = ::com::sun::org::apache::xalan::internal::xsltc::compiler::SyntaxTreeNode;
 using $XSLTC = ::com::sun::org::apache::xalan::internal::xsltc::compiler::XSLTC;
@@ -51,7 +47,6 @@ using $TemplatesImpl = ::com::sun::org::apache::xalan::internal::xsltc::trax::Te
 using $TransformerFactoryImpl = ::com::sun::org::apache::xalan::internal::xsltc::trax::TransformerFactoryImpl;
 using $Util = ::com::sun::org::apache::xalan::internal::xsltc::trax::Util;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ArrayList = ::java::util::ArrayList;
@@ -79,57 +74,6 @@ namespace com {
 						namespace xsltc {
 							namespace trax {
 
-$FieldInfo _TemplatesHandlerImpl_FieldInfo_[] = {
-	{"_systemId", "Ljava/lang/String;", nullptr, $PRIVATE, $field(TemplatesHandlerImpl, _systemId)},
-	{"_indentNumber", "I", nullptr, $PRIVATE, $field(TemplatesHandlerImpl, _indentNumber)},
-	{"_uriResolver", "Ljavax/xml/transform/URIResolver;", nullptr, $PRIVATE, $field(TemplatesHandlerImpl, _uriResolver)},
-	{"_tfactory", "Lcom/sun/org/apache/xalan/internal/xsltc/trax/TransformerFactoryImpl;", nullptr, $PRIVATE, $field(TemplatesHandlerImpl, _tfactory)},
-	{"_parser", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Parser;", nullptr, $PRIVATE, $field(TemplatesHandlerImpl, _parser)},
-	{"_templates", "Lcom/sun/org/apache/xalan/internal/xsltc/trax/TemplatesImpl;", nullptr, $PRIVATE, $field(TemplatesHandlerImpl, _templates)},
-	{"_catalogFeatures", "Ljavax/xml/catalog/CatalogFeatures;", nullptr, 0, $field(TemplatesHandlerImpl, _catalogFeatures)},
-	{"_useCatalog", "Z", nullptr, 0, $field(TemplatesHandlerImpl, _useCatalog)},
-	{}
-};
-
-$MethodInfo _TemplatesHandlerImpl_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(ILcom/sun/org/apache/xalan/internal/xsltc/trax/TransformerFactoryImpl;Z)V", nullptr, $PROTECTED, $method(TemplatesHandlerImpl, init$, void, int32_t, $TransformerFactoryImpl*, bool)},
-	{"characters", "([CII)V", nullptr, $PUBLIC, $virtualMethod(TemplatesHandlerImpl, characters, void, $chars*, int32_t, int32_t)},
-	{"endDocument", "()V", nullptr, $PUBLIC, $virtualMethod(TemplatesHandlerImpl, endDocument, void), "org.xml.sax.SAXException"},
-	{"endElement", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(TemplatesHandlerImpl, endElement, void, $String*, $String*, $String*)},
-	{"endPrefixMapping", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(TemplatesHandlerImpl, endPrefixMapping, void, $String*)},
-	{"getSystemId", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TemplatesHandlerImpl, getSystemId, $String*)},
-	{"getTemplates", "()Ljavax/xml/transform/Templates;", nullptr, $PUBLIC, $virtualMethod(TemplatesHandlerImpl, getTemplates, $Templates*)},
-	{"ignorableWhitespace", "([CII)V", nullptr, $PUBLIC, $virtualMethod(TemplatesHandlerImpl, ignorableWhitespace, void, $chars*, int32_t, int32_t)},
-	{"loadSource", "(Ljava/lang/String;Ljava/lang/String;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/XSLTC;)Lorg/xml/sax/InputSource;", nullptr, $PUBLIC, $virtualMethod(TemplatesHandlerImpl, loadSource, $InputSource*, $String*, $String*, $XSLTC*)},
-	{"processingInstruction", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(TemplatesHandlerImpl, processingInstruction, void, $String*, $String*)},
-	{"setDocumentLocator", "(Lorg/xml/sax/Locator;)V", nullptr, $PUBLIC, $virtualMethod(TemplatesHandlerImpl, setDocumentLocator, void, $Locator*)},
-	{"setSystemId", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(TemplatesHandlerImpl, setSystemId, void, $String*)},
-	{"setURIResolver", "(Ljavax/xml/transform/URIResolver;)V", nullptr, $PUBLIC, $virtualMethod(TemplatesHandlerImpl, setURIResolver, void, $URIResolver*)},
-	{"skippedEntity", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(TemplatesHandlerImpl, skippedEntity, void, $String*)},
-	{"startDocument", "()V", nullptr, $PUBLIC, $virtualMethod(TemplatesHandlerImpl, startDocument, void)},
-	{"startElement", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lorg/xml/sax/Attributes;)V", nullptr, $PUBLIC, $virtualMethod(TemplatesHandlerImpl, startElement, void, $String*, $String*, $String*, $Attributes*), "org.xml.sax.SAXException"},
-	{"startPrefixMapping", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(TemplatesHandlerImpl, startPrefixMapping, void, $String*, $String*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _TemplatesHandlerImpl_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xalan.internal.xsltc.trax.TemplatesHandlerImpl",
-	"java.lang.Object",
-	"javax.xml.transform.sax.TemplatesHandler,com.sun.org.apache.xalan.internal.xsltc.compiler.SourceLoader",
-	_TemplatesHandlerImpl_FieldInfo_,
-	_TemplatesHandlerImpl_MethodInfo_
-};
-
-$Object* allocate$TemplatesHandlerImpl($Class* clazz) {
-	return $of($alloc(TemplatesHandlerImpl));
-}
-
 int32_t TemplatesHandlerImpl::hashCode() {
 	 return this->$TemplatesHandler::hashCode();
 }
@@ -151,7 +95,7 @@ void TemplatesHandlerImpl::finalize() {
 }
 
 void TemplatesHandlerImpl::init$(int32_t indentNumber, $TransformerFactoryImpl* tfactory, bool hasUserErrListener) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, _uriResolver, nullptr);
 	$set(this, _tfactory, nullptr);
 	$set(this, _parser, nullptr);
@@ -161,19 +105,19 @@ void TemplatesHandlerImpl::init$(int32_t indentNumber, $TransformerFactoryImpl* 
 	$set(this, _tfactory, tfactory);
 	$var($XSLTC, xsltc, $new($XSLTC, $($nc(tfactory)->getJdkXmlFeatures()), hasUserErrListener));
 	$init($XMLConstants);
-	if ($nc(tfactory)->getFeature($XMLConstants::FEATURE_SECURE_PROCESSING)) {
+	if (tfactory->getFeature($XMLConstants::FEATURE_SECURE_PROCESSING)) {
 		xsltc->setSecureProcessing(true);
 	}
-	xsltc->setProperty($XMLConstants::ACCESS_EXTERNAL_STYLESHEET, $cast($String, $($nc(tfactory)->getAttribute($XMLConstants::ACCESS_EXTERNAL_STYLESHEET))));
-	xsltc->setProperty($XMLConstants::ACCESS_EXTERNAL_DTD, $cast($String, $($nc(tfactory)->getAttribute($XMLConstants::ACCESS_EXTERNAL_DTD))));
+	xsltc->setProperty($XMLConstants::ACCESS_EXTERNAL_STYLESHEET, $$cast($String, tfactory->getAttribute($XMLConstants::ACCESS_EXTERNAL_STYLESHEET)));
+	xsltc->setProperty($XMLConstants::ACCESS_EXTERNAL_DTD, $$cast($String, tfactory->getAttribute($XMLConstants::ACCESS_EXTERNAL_DTD)));
 	$init($JdkConstants);
-	xsltc->setProperty($JdkConstants::SECURITY_MANAGER, $($nc(tfactory)->getAttribute($JdkConstants::SECURITY_MANAGER)));
-	if ("true"_s->equals($($nc(tfactory)->getAttribute($TransformerFactoryImpl::ENABLE_INLINING)))) {
+	xsltc->setProperty($JdkConstants::SECURITY_MANAGER, $(tfactory->getAttribute($JdkConstants::SECURITY_MANAGER)));
+	if ("true"_s->equals($(tfactory->getAttribute($TransformerFactoryImpl::ENABLE_INLINING)))) {
 		xsltc->setTemplateInlining(true);
 	} else {
 		xsltc->setTemplateInlining(false);
 	}
-	this->_useCatalog = $nc(tfactory)->getFeature($XMLConstants::USE_CATALOG);
+	this->_useCatalog = tfactory->getFeature($XMLConstants::USE_CATALOG);
 	$init($JdkXmlFeatures);
 	$set(this, _catalogFeatures, $cast($CatalogFeatures, tfactory->getAttribute($JdkXmlFeatures::CATALOG_FEATURES)));
 	xsltc->setProperty($JdkXmlFeatures::CATALOG_FEATURES, this->_catalogFeatures);
@@ -215,7 +159,7 @@ void TemplatesHandlerImpl::startDocument() {
 }
 
 void TemplatesHandlerImpl::endDocument() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(this->_parser)->endDocument();
 	try {
 		$var($XSLTC, xsltc, $nc(this->_parser)->getXSLTC());
@@ -249,7 +193,7 @@ void TemplatesHandlerImpl::endDocument() {
 		if (!$nc(this->_parser)->errorsFound() && stylesheet != nullptr) {
 			stylesheet->setMultiDocument(xsltc->isMultiDocument());
 			stylesheet->setHasIdCall(xsltc->hasIdCall());
-			$synchronized($of(xsltc)->getClass()) {
+			$synchronized(xsltc->getClass()) {
 				stylesheet->translate();
 			}
 		}
@@ -257,8 +201,7 @@ void TemplatesHandlerImpl::endDocument() {
 			$var($byteArray2, bytecodes, xsltc->getBytecodes());
 			if (bytecodes != nullptr) {
 				$var($byteArray2, var$0, xsltc->getBytecodes());
-				$var($String, var$1, transletName);
-				$set(this, _templates, $new($TemplatesImpl, var$0, var$1, $($nc(this->_parser)->getOutputProperties()), this->_indentNumber, this->_tfactory));
+				$set(this, _templates, $new($TemplatesImpl, var$0, transletName, $($nc(this->_parser)->getOutputProperties()), this->_indentNumber, this->_tfactory));
 				if (this->_uriResolver != nullptr) {
 					$nc(this->_templates)->setURIResolver(this->_uriResolver);
 				}
@@ -271,7 +214,7 @@ void TemplatesHandlerImpl::endDocument() {
 				if (errorMessage->length() > 0) {
 					errorMessage->append(u'\n');
 				}
-				errorMessage->append($($nc(($cast($ErrorMsg, $(errors->get(i)))))->toString()));
+				errorMessage->append($($$sure($ErrorMsg, errors->get(i))->toString()));
 			}
 			$init($ErrorMsg);
 			$throwNew($SAXException, $ErrorMsg::JAXP_COMPILE_ERR, $$new($TransformerException, $(errorMessage->toString())));
@@ -323,7 +266,53 @@ TemplatesHandlerImpl::TemplatesHandlerImpl() {
 }
 
 $Class* TemplatesHandlerImpl::load$($String* name, bool initialize) {
-	$loadClass(TemplatesHandlerImpl, name, initialize, &_TemplatesHandlerImpl_ClassInfo_, allocate$TemplatesHandlerImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"_systemId", "Ljava/lang/String;", nullptr, $PRIVATE, $field(TemplatesHandlerImpl, _systemId)},
+		{"_indentNumber", "I", nullptr, $PRIVATE, $field(TemplatesHandlerImpl, _indentNumber)},
+		{"_uriResolver", "Ljavax/xml/transform/URIResolver;", nullptr, $PRIVATE, $field(TemplatesHandlerImpl, _uriResolver)},
+		{"_tfactory", "Lcom/sun/org/apache/xalan/internal/xsltc/trax/TransformerFactoryImpl;", nullptr, $PRIVATE, $field(TemplatesHandlerImpl, _tfactory)},
+		{"_parser", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Parser;", nullptr, $PRIVATE, $field(TemplatesHandlerImpl, _parser)},
+		{"_templates", "Lcom/sun/org/apache/xalan/internal/xsltc/trax/TemplatesImpl;", nullptr, $PRIVATE, $field(TemplatesHandlerImpl, _templates)},
+		{"_catalogFeatures", "Ljavax/xml/catalog/CatalogFeatures;", nullptr, 0, $field(TemplatesHandlerImpl, _catalogFeatures)},
+		{"_useCatalog", "Z", nullptr, 0, $field(TemplatesHandlerImpl, _useCatalog)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(ILcom/sun/org/apache/xalan/internal/xsltc/trax/TransformerFactoryImpl;Z)V", nullptr, $PROTECTED, $method(TemplatesHandlerImpl, init$, void, int32_t, $TransformerFactoryImpl*, bool)},
+		{"characters", "([CII)V", nullptr, $PUBLIC, $virtualMethod(TemplatesHandlerImpl, characters, void, $chars*, int32_t, int32_t)},
+		{"endDocument", "()V", nullptr, $PUBLIC, $virtualMethod(TemplatesHandlerImpl, endDocument, void), "org.xml.sax.SAXException"},
+		{"endElement", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(TemplatesHandlerImpl, endElement, void, $String*, $String*, $String*)},
+		{"endPrefixMapping", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(TemplatesHandlerImpl, endPrefixMapping, void, $String*)},
+		{"getSystemId", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TemplatesHandlerImpl, getSystemId, $String*)},
+		{"getTemplates", "()Ljavax/xml/transform/Templates;", nullptr, $PUBLIC, $virtualMethod(TemplatesHandlerImpl, getTemplates, $Templates*)},
+		{"ignorableWhitespace", "([CII)V", nullptr, $PUBLIC, $virtualMethod(TemplatesHandlerImpl, ignorableWhitespace, void, $chars*, int32_t, int32_t)},
+		{"loadSource", "(Ljava/lang/String;Ljava/lang/String;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/XSLTC;)Lorg/xml/sax/InputSource;", nullptr, $PUBLIC, $virtualMethod(TemplatesHandlerImpl, loadSource, $InputSource*, $String*, $String*, $XSLTC*)},
+		{"processingInstruction", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(TemplatesHandlerImpl, processingInstruction, void, $String*, $String*)},
+		{"setDocumentLocator", "(Lorg/xml/sax/Locator;)V", nullptr, $PUBLIC, $virtualMethod(TemplatesHandlerImpl, setDocumentLocator, void, $Locator*)},
+		{"setSystemId", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(TemplatesHandlerImpl, setSystemId, void, $String*)},
+		{"setURIResolver", "(Ljavax/xml/transform/URIResolver;)V", nullptr, $PUBLIC, $virtualMethod(TemplatesHandlerImpl, setURIResolver, void, $URIResolver*)},
+		{"skippedEntity", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(TemplatesHandlerImpl, skippedEntity, void, $String*)},
+		{"startDocument", "()V", nullptr, $PUBLIC, $virtualMethod(TemplatesHandlerImpl, startDocument, void)},
+		{"startElement", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lorg/xml/sax/Attributes;)V", nullptr, $PUBLIC, $virtualMethod(TemplatesHandlerImpl, startElement, void, $String*, $String*, $String*, $Attributes*), "org.xml.sax.SAXException"},
+		{"startPrefixMapping", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(TemplatesHandlerImpl, startPrefixMapping, void, $String*, $String*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xalan.internal.xsltc.trax.TemplatesHandlerImpl",
+		"java.lang.Object",
+		"javax.xml.transform.sax.TemplatesHandler,com.sun.org.apache.xalan.internal.xsltc.compiler.SourceLoader",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TemplatesHandlerImpl, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(TemplatesHandlerImpl));
+	});
 	return class$;
 }
 

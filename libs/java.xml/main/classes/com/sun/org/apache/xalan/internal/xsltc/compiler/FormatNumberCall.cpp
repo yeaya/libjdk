@@ -1,6 +1,4 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/FormatNumberCall.h>
-
-#include <com/sun/org/apache/bcel/internal/generic/CompoundInstruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/ConstantPoolGen.h>
 #include <com/sun/org/apache/bcel/internal/generic/INVOKESTATIC.h>
 #include <com/sun/org/apache/bcel/internal/generic/INVOKEVIRTUAL.h>
@@ -29,11 +27,9 @@
 #undef EMPTYSTRING
 #undef TRANSLET_CLASS
 
-using $CompoundInstruction = ::com::sun::org::apache::bcel::internal::generic::CompoundInstruction;
 using $ConstantPoolGen = ::com::sun::org::apache::bcel::internal::generic::ConstantPoolGen;
 using $INVOKESTATIC = ::com::sun::org::apache::bcel::internal::generic::INVOKESTATIC;
 using $INVOKEVIRTUAL = ::com::sun::org::apache::bcel::internal::generic::INVOKEVIRTUAL;
-using $Instruction = ::com::sun::org::apache::bcel::internal::generic::Instruction;
 using $InstructionList = ::com::sun::org::apache::bcel::internal::generic::InstructionList;
 using $PUSH = ::com::sun::org::apache::bcel::internal::generic::PUSH;
 using $CastExpr = ::com::sun::org::apache::xalan::internal::xsltc::compiler::CastExpr;
@@ -41,9 +37,7 @@ using $Constants = ::com::sun::org::apache::xalan::internal::xsltc::compiler::Co
 using $Expression = ::com::sun::org::apache::xalan::internal::xsltc::compiler::Expression;
 using $FunctionCall = ::com::sun::org::apache::xalan::internal::xsltc::compiler::FunctionCall;
 using $LiteralExpr = ::com::sun::org::apache::xalan::internal::xsltc::compiler::LiteralExpr;
-using $Parser = ::com::sun::org::apache::xalan::internal::xsltc::compiler::Parser;
 using $QName = ::com::sun::org::apache::xalan::internal::xsltc::compiler::QName;
-using $Stylesheet = ::com::sun::org::apache::xalan::internal::xsltc::compiler::Stylesheet;
 using $SymbolTable = ::com::sun::org::apache::xalan::internal::xsltc::compiler::SymbolTable;
 using $ClassGenerator = ::com::sun::org::apache::xalan::internal::xsltc::compiler::util::ClassGenerator;
 using $MethodGenerator = ::com::sun::org::apache::xalan::internal::xsltc::compiler::util::MethodGenerator;
@@ -64,34 +58,6 @@ namespace com {
 						namespace xsltc {
 							namespace compiler {
 
-$FieldInfo _FormatNumberCall_FieldInfo_[] = {
-	{"_value", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Expression;", nullptr, $PRIVATE, $field(FormatNumberCall, _value)},
-	{"_format", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Expression;", nullptr, $PRIVATE, $field(FormatNumberCall, _format)},
-	{"_name", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Expression;", nullptr, $PRIVATE, $field(FormatNumberCall, _name)},
-	{"_resolvedQName", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;", nullptr, $PRIVATE, $field(FormatNumberCall, _resolvedQName)},
-	{}
-};
-
-$MethodInfo _FormatNumberCall_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;Ljava/util/List;)V", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;Ljava/util/List<Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Expression;>;)V", $PUBLIC, $method(FormatNumberCall, init$, void, $QName*, $List*)},
-	{"translate", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;)V", nullptr, $PUBLIC, $virtualMethod(FormatNumberCall, translate, void, $ClassGenerator*, $MethodGenerator*)},
-	{"typeCheck", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SymbolTable;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/Type;", nullptr, $PUBLIC, $virtualMethod(FormatNumberCall, typeCheck, $Type*, $SymbolTable*), "com.sun.org.apache.xalan.internal.xsltc.compiler.util.TypeCheckError"},
-	{}
-};
-
-$ClassInfo _FormatNumberCall_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xalan.internal.xsltc.compiler.FormatNumberCall",
-	"com.sun.org.apache.xalan.internal.xsltc.compiler.FunctionCall",
-	nullptr,
-	_FormatNumberCall_FieldInfo_,
-	_FormatNumberCall_MethodInfo_
-};
-
-$Object* allocate$FormatNumberCall($Class* clazz) {
-	return $of($alloc(FormatNumberCall));
-}
-
 void FormatNumberCall::init$($QName* fname, $List* arguments) {
 	$FunctionCall::init$(fname, arguments);
 	$set(this, _resolvedQName, nullptr);
@@ -101,8 +67,8 @@ void FormatNumberCall::init$($QName* fname, $List* arguments) {
 }
 
 $Type* FormatNumberCall::typeCheck($SymbolTable* stable) {
-	$useLocalCurrentObjectStackCache();
-	$nc($(getStylesheet()))->numberFormattingUsed();
+	$useLocalObjectStack();
+	$$nc(getStylesheet())->numberFormattingUsed();
 	$var($Type, tvalue, $nc(this->_value)->typeCheck(stable));
 	if ($instanceOf($RealType, tvalue) == false) {
 		$init($Type);
@@ -117,7 +83,7 @@ $Type* FormatNumberCall::typeCheck($SymbolTable* stable) {
 		$var($Type, tname, $nc(this->_name)->typeCheck(stable));
 		if ($instanceOf($LiteralExpr, this->_name)) {
 			$var($LiteralExpr, literal, $cast($LiteralExpr, this->_name));
-			$set(this, _resolvedQName, $nc($(getParser()))->getQNameIgnoreDefaultNs($($nc(literal)->getValue())));
+			$set(this, _resolvedQName, $$nc(getParser())->getQNameIgnoreDefaultNs($($nc(literal)->getValue())));
 		} else if ($instanceOf($StringType, tname) == false) {
 			$init($Type);
 			$set(this, _name, $new($CastExpr, this->_name, $Type::String));
@@ -128,7 +94,7 @@ $Type* FormatNumberCall::typeCheck($SymbolTable* stable) {
 }
 
 void FormatNumberCall::translate($ClassGenerator* classGen, $MethodGenerator* methodGen) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ConstantPoolGen, cpg, $nc(classGen)->getConstantPool());
 	$var($InstructionList, il, $nc(methodGen)->getInstructionList());
 	$nc(this->_value)->translate(classGen, methodGen);
@@ -138,21 +104,44 @@ void FormatNumberCall::translate($ClassGenerator* classGen, $MethodGenerator* me
 	int32_t get = cpg->addMethodref($Constants::TRANSLET_CLASS, "getDecimalFormat"_s, "(Ljava/lang/String;)Ljava/text/DecimalFormat;"_s);
 	$nc(il)->append($(classGen->loadTranslet()));
 	if (this->_name == nullptr) {
-		il->append(static_cast<$CompoundInstruction*>($$new($PUSH, cpg, $Constants::EMPTYSTRING)));
+		il->append($$new($PUSH, cpg, $Constants::EMPTYSTRING));
 	} else if (this->_resolvedQName != nullptr) {
-		il->append(static_cast<$CompoundInstruction*>($$new($PUSH, cpg, $($nc(this->_resolvedQName)->toString()))));
+		il->append($$new($PUSH, cpg, $(this->_resolvedQName->toString())));
 	} else {
 		$nc(this->_name)->translate(classGen, methodGen);
 	}
-	il->append(static_cast<$Instruction*>($$new($INVOKEVIRTUAL, get)));
-	il->append(static_cast<$Instruction*>($$new($INVOKESTATIC, fn3arg)));
+	il->append($$new($INVOKEVIRTUAL, get));
+	il->append($$new($INVOKESTATIC, fn3arg));
 }
 
 FormatNumberCall::FormatNumberCall() {
 }
 
 $Class* FormatNumberCall::load$($String* name, bool initialize) {
-	$loadClass(FormatNumberCall, name, initialize, &_FormatNumberCall_ClassInfo_, allocate$FormatNumberCall);
+	$FieldInfo fieldInfos$$[] = {
+		{"_value", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Expression;", nullptr, $PRIVATE, $field(FormatNumberCall, _value)},
+		{"_format", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Expression;", nullptr, $PRIVATE, $field(FormatNumberCall, _format)},
+		{"_name", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Expression;", nullptr, $PRIVATE, $field(FormatNumberCall, _name)},
+		{"_resolvedQName", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;", nullptr, $PRIVATE, $field(FormatNumberCall, _resolvedQName)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;Ljava/util/List;)V", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;Ljava/util/List<Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Expression;>;)V", $PUBLIC, $method(FormatNumberCall, init$, void, $QName*, $List*)},
+		{"translate", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;)V", nullptr, $PUBLIC, $virtualMethod(FormatNumberCall, translate, void, $ClassGenerator*, $MethodGenerator*)},
+		{"typeCheck", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SymbolTable;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/Type;", nullptr, $PUBLIC, $virtualMethod(FormatNumberCall, typeCheck, $Type*, $SymbolTable*), "com.sun.org.apache.xalan.internal.xsltc.compiler.util.TypeCheckError"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xalan.internal.xsltc.compiler.FormatNumberCall",
+		"com.sun.org.apache.xalan.internal.xsltc.compiler.FunctionCall",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(FormatNumberCall, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FormatNumberCall);
+	});
 	return class$;
 }
 

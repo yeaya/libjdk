@@ -33,6 +33,7 @@ public:
 	using ::sun::awt::windows::WPrintDialog::add;
 	using ::sun::awt::windows::WPrintDialog::getMousePosition;
 	using ::sun::awt::windows::WPrintDialog::list;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::awt::Frame* parent, ::java::awt::print::PrinterJob* control, ::java::awt::print::PageFormat* page, ::java::awt::print::Printable* painter);
 	void init$(::java::awt::Dialog* parent, ::java::awt::print::PrinterJob* control, ::java::awt::print::PageFormat* page, ::java::awt::print::Printable* painter);
 	virtual void addNotify() override;

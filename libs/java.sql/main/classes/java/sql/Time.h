@@ -34,7 +34,7 @@ public:
 	virtual $String* toString() override;
 	static ::java::sql::Time* valueOf($String* s);
 	static ::java::sql::Time* valueOf(::java::time::LocalTime* time);
-	static const int64_t serialVersionUID = (int64_t)0x74894A0DD932C471;
+	static const int64_t serialVersionUID = (int64_t)0x74894a0dd932c471;
 };
 
 	} // sql

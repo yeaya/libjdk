@@ -1,10 +1,8 @@
 #include <javax/swing/text/CompositeView.h>
-
 #include <java/awt/Rectangle.h>
 #include <java/awt/Shape.h>
 #include <java/lang/Math.h>
 #include <java/util/Arrays.h>
-#include <java/util/Collection.h>
 #include <java/util/HashSet.h>
 #include <java/util/List.h>
 #include <java/util/Set.h>
@@ -36,13 +34,11 @@ using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Arrays = ::java::util::Arrays;
-using $Collection = ::java::util::Collection;
 using $HashSet = ::java::util::HashSet;
 using $Set = ::java::util::Set;
 using $SwingConstants = ::javax::swing::SwingConstants;
 using $AttributeSet = ::javax::swing::text::AttributeSet;
 using $BadLocationException = ::javax::swing::text::BadLocationException;
-using $Document = ::javax::swing::text::Document;
 using $Element = ::javax::swing::text::Element;
 using $Position$Bias = ::javax::swing::text::Position$Bias;
 using $StyleConstants = ::javax::swing::text::StyleConstants;
@@ -54,63 +50,6 @@ namespace javax {
 	namespace swing {
 		namespace text {
 
-$FieldInfo _CompositeView_FieldInfo_[] = {
-	{"ZERO", "[Ljavax/swing/text/View;", nullptr, $PRIVATE | $STATIC, $staticField(CompositeView, ZERO)},
-	{"children", "[Ljavax/swing/text/View;", nullptr, $PRIVATE, $field(CompositeView, children)},
-	{"nchildren", "I", nullptr, $PRIVATE, $field(CompositeView, nchildren)},
-	{"left", "S", nullptr, $PRIVATE, $field(CompositeView, left)},
-	{"right", "S", nullptr, $PRIVATE, $field(CompositeView, right)},
-	{"top", "S", nullptr, $PRIVATE, $field(CompositeView, top)},
-	{"bottom", "S", nullptr, $PRIVATE, $field(CompositeView, bottom)},
-	{"childAlloc", "Ljava/awt/Rectangle;", nullptr, $PRIVATE, $field(CompositeView, childAlloc)},
-	{}
-};
-
-$MethodInfo _CompositeView_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/text/Element;)V", nullptr, $PUBLIC, $method(CompositeView, init$, void, $Element*)},
-	{"childAllocation", "(ILjava/awt/Rectangle;)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(CompositeView, childAllocation, void, int32_t, $Rectangle*)},
-	{"flipEastAndWestAtEnds", "(ILjavax/swing/text/Position$Bias;)Z", nullptr, $PROTECTED, $virtualMethod(CompositeView, flipEastAndWestAtEnds, bool, int32_t, $Position$Bias*)},
-	{"getBottomInset", "()S", nullptr, $PROTECTED, $virtualMethod(CompositeView, getBottomInset, int16_t)},
-	{"getChildAllocation", "(ILjava/awt/Shape;)Ljava/awt/Shape;", nullptr, $PUBLIC, $virtualMethod(CompositeView, getChildAllocation, $Shape*, int32_t, $Shape*)},
-	{"getInsideAllocation", "(Ljava/awt/Shape;)Ljava/awt/Rectangle;", nullptr, $PROTECTED, $virtualMethod(CompositeView, getInsideAllocation, $Rectangle*, $Shape*)},
-	{"getLeftInset", "()S", nullptr, $PROTECTED, $virtualMethod(CompositeView, getLeftInset, int16_t)},
-	{"getNextEastWestVisualPositionFrom", "(ILjavax/swing/text/Position$Bias;Ljava/awt/Shape;I[Ljavax/swing/text/Position$Bias;)I", nullptr, $PROTECTED, $virtualMethod(CompositeView, getNextEastWestVisualPositionFrom, int32_t, int32_t, $Position$Bias*, $Shape*, int32_t, $Position$BiasArray*), "javax.swing.text.BadLocationException"},
-	{"getNextNorthSouthVisualPositionFrom", "(ILjavax/swing/text/Position$Bias;Ljava/awt/Shape;I[Ljavax/swing/text/Position$Bias;)I", nullptr, $PROTECTED, $virtualMethod(CompositeView, getNextNorthSouthVisualPositionFrom, int32_t, int32_t, $Position$Bias*, $Shape*, int32_t, $Position$BiasArray*), "javax.swing.text.BadLocationException"},
-	{"getNextVisualPositionFrom", "(ILjavax/swing/text/Position$Bias;Ljava/awt/Shape;I[Ljavax/swing/text/Position$Bias;)I", nullptr, $PUBLIC, $virtualMethod(CompositeView, getNextVisualPositionFrom, int32_t, int32_t, $Position$Bias*, $Shape*, int32_t, $Position$BiasArray*), "javax.swing.text.BadLocationException"},
-	{"getRightInset", "()S", nullptr, $PROTECTED, $virtualMethod(CompositeView, getRightInset, int16_t)},
-	{"getTopInset", "()S", nullptr, $PROTECTED, $virtualMethod(CompositeView, getTopInset, int16_t)},
-	{"getView", "(I)Ljavax/swing/text/View;", nullptr, $PUBLIC, $virtualMethod(CompositeView, getView, $View*, int32_t)},
-	{"getViewAtPoint", "(IILjava/awt/Rectangle;)Ljavax/swing/text/View;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(CompositeView, getViewAtPoint, $View*, int32_t, int32_t, $Rectangle*)},
-	{"getViewAtPosition", "(ILjava/awt/Rectangle;)Ljavax/swing/text/View;", nullptr, $PROTECTED, $virtualMethod(CompositeView, getViewAtPosition, $View*, int32_t, $Rectangle*)},
-	{"getViewCount", "()I", nullptr, $PUBLIC, $virtualMethod(CompositeView, getViewCount, int32_t)},
-	{"getViewIndex", "(ILjavax/swing/text/Position$Bias;)I", nullptr, $PUBLIC, $virtualMethod(CompositeView, getViewIndex, int32_t, int32_t, $Position$Bias*)},
-	{"getViewIndexAtPosition", "(I)I", nullptr, $PROTECTED, $virtualMethod(CompositeView, getViewIndexAtPosition, int32_t, int32_t)},
-	{"isAfter", "(IILjava/awt/Rectangle;)Z", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(CompositeView, isAfter, bool, int32_t, int32_t, $Rectangle*)},
-	{"isBefore", "(IILjava/awt/Rectangle;)Z", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(CompositeView, isBefore, bool, int32_t, int32_t, $Rectangle*)},
-	{"loadChildren", "(Ljavax/swing/text/ViewFactory;)V", nullptr, $PROTECTED, $virtualMethod(CompositeView, loadChildren, void, $ViewFactory*)},
-	{"modelToView", "(ILjava/awt/Shape;Ljavax/swing/text/Position$Bias;)Ljava/awt/Shape;", nullptr, $PUBLIC, $virtualMethod(CompositeView, modelToView, $Shape*, int32_t, $Shape*, $Position$Bias*), "javax.swing.text.BadLocationException"},
-	{"modelToView", "(ILjavax/swing/text/Position$Bias;ILjavax/swing/text/Position$Bias;Ljava/awt/Shape;)Ljava/awt/Shape;", nullptr, $PUBLIC, $virtualMethod(CompositeView, modelToView, $Shape*, int32_t, $Position$Bias*, int32_t, $Position$Bias*, $Shape*), "javax.swing.text.BadLocationException"},
-	{"replace", "(II[Ljavax/swing/text/View;)V", nullptr, $PUBLIC, $virtualMethod(CompositeView, replace, void, int32_t, int32_t, $ViewArray*)},
-	{"setInsets", "(SSSS)V", nullptr, $PROTECTED, $virtualMethod(CompositeView, setInsets, void, int16_t, int16_t, int16_t, int16_t)},
-	{"setParagraphInsets", "(Ljavax/swing/text/AttributeSet;)V", nullptr, $PROTECTED, $virtualMethod(CompositeView, setParagraphInsets, void, $AttributeSet*)},
-	{"setParent", "(Ljavax/swing/text/View;)V", nullptr, $PUBLIC, $virtualMethod(CompositeView, setParent, void, $View*)},
-	{"viewToModel", "(FFLjava/awt/Shape;[Ljavax/swing/text/Position$Bias;)I", nullptr, $PUBLIC, $virtualMethod(CompositeView, viewToModel, int32_t, float, float, $Shape*, $Position$BiasArray*)},
-	{}
-};
-
-$ClassInfo _CompositeView_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"javax.swing.text.CompositeView",
-	"javax.swing.text.View",
-	nullptr,
-	_CompositeView_FieldInfo_,
-	_CompositeView_MethodInfo_
-};
-
-$Object* allocate$CompositeView($Class* clazz) {
-	return $of($alloc(CompositeView));
-}
-
 $ViewArray* CompositeView::ZERO = nullptr;
 
 void CompositeView::init$($Element* elem) {
@@ -121,7 +60,7 @@ void CompositeView::init$($Element* elem) {
 }
 
 void CompositeView::loadChildren($ViewFactory* f) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (f == nullptr) {
 		return;
 	}
@@ -153,12 +92,12 @@ $View* CompositeView::getView(int32_t n) {
 }
 
 void CompositeView::replace(int32_t offset, int32_t length, $ViewArray* views$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ViewArray, views, views$renamed);
 	if (views == nullptr) {
 		$assign(views, CompositeView::ZERO);
 	}
-	$var($Set, set, $new($HashSet, $(static_cast<$Collection*>($Arrays::asList(views)))));
+	$var($Set, set, $new($HashSet, $($Arrays::asList(views))));
 	for (int32_t i = offset; i < offset + length; ++i) {
 		$var($View, child, $nc(this->children)->get(i));
 		bool var$0 = $equals($nc(child)->getParent(), this);
@@ -172,7 +111,7 @@ void CompositeView::replace(int32_t offset, int32_t length, $ViewArray* views$re
 	int32_t nmove = this->nchildren - src;
 	int32_t dest = src + delta;
 	if ((this->nchildren + delta) >= $nc(this->children)->length) {
-		int32_t newLength = $Math::max(2 * $nc(this->children)->length, this->nchildren + delta);
+		int32_t newLength = $Math::max(2 * this->children->length, this->nchildren + delta);
 		$var($ViewArray, newChildren, $new($ViewArray, newLength));
 		$System::arraycopy(this->children, 0, newChildren, 0, offset);
 		$System::arraycopy(views, 0, newChildren, offset, views->length);
@@ -195,7 +134,7 @@ $Shape* CompositeView::getChildAllocation(int32_t index, $Shape* a) {
 }
 
 $Shape* CompositeView::modelToView(int32_t pos, $Shape* a, $Position$Bias* b) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Position$Bias);
 	bool isBackward = (b == $Position$Bias::Backward);
 	int32_t testPos = (isBackward) ? $Math::max(0, pos - 1) : pos;
@@ -225,7 +164,7 @@ $Shape* CompositeView::modelToView(int32_t pos, $Shape* a, $Position$Bias* b) {
 }
 
 $Shape* CompositeView::modelToView(int32_t p0, $Position$Bias* b0, int32_t p1, $Position$Bias* b1, $Shape* a) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool var$0 = p0 == getStartOffset();
 	if (var$0 && p1 == getEndOffset()) {
 		return a;
@@ -251,10 +190,10 @@ $Shape* CompositeView::modelToView(int32_t p0, $Position$Bias* b0, int32_t p1, $
 			$var($Rectangle, retRect, nullptr);
 			$var($Rectangle, tempRect, $new($Rectangle));
 			if (v == v0) {
-				$assign(retRect, $nc($($nc(v0)->modelToView(p0, b0, v0->getEndOffset(), $Position$Bias::Backward, r0)))->getBounds());
+				$assign(retRect, $$nc($nc(v0)->modelToView(p0, b0, $nc(v0)->getEndOffset(), $Position$Bias::Backward, r0))->getBounds());
 				$assign(endView, v1);
 			} else {
-				$assign(retRect, $nc($($nc(v1)->modelToView(v1->getStartOffset(), $Position$Bias::Forward, p1, b1, r1)))->getBounds());
+				$assign(retRect, $$nc($nc(v1)->modelToView($nc(v1)->getStartOffset(), $Position$Bias::Forward, p1, b1, r1))->getBounds());
 				$assign(endView, v0);
 			}
 			while (true) {
@@ -271,9 +210,9 @@ $Shape* CompositeView::modelToView(int32_t p0, $Position$Bias* b0, int32_t p1, $
 			if (endView != nullptr) {
 				$var($Shape, endShape, nullptr);
 				if (endView == v1) {
-					$assign(endShape, $nc(v1)->modelToView(v1->getStartOffset(), $Position$Bias::Forward, p1, b1, r1));
+					$assign(endShape, $nc(v1)->modelToView($nc(v1)->getStartOffset(), $Position$Bias::Forward, p1, b1, r1));
 				} else {
-					$assign(endShape, $nc(v0)->modelToView(p0, b0, v0->getEndOffset(), $Position$Bias::Backward, r0));
+					$assign(endShape, $nc(v0)->modelToView(p0, b0, $nc(v0)->getEndOffset(), $Position$Bias::Backward, r0));
 				}
 				if ($instanceOf($Rectangle, endShape)) {
 					$nc(retRect)->add($cast($Rectangle, endShape));
@@ -289,7 +228,7 @@ $Shape* CompositeView::modelToView(int32_t p0, $Position$Bias* b0, int32_t p1, $
 }
 
 int32_t CompositeView::viewToModel(float x, float y, $Shape* a, $Position$BiasArray* bias) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle, alloc, getInsideAllocation(a));
 	if (isBefore($cast(int32_t, x), $cast(int32_t, y), alloc)) {
 		int32_t retValue = -1;
@@ -329,32 +268,22 @@ int32_t CompositeView::viewToModel(float x, float y, $Shape* a, $Position$BiasAr
 }
 
 int32_t CompositeView::getNextVisualPositionFrom(int32_t pos, $Position$Bias* b, $Shape* a, int32_t direction, $Position$BiasArray* biasRet) {
-	$useLocalCurrentObjectStackCache();
-	if (pos < -1 || pos > $nc($(getDocument()))->getLength()) {
+	$useLocalObjectStack();
+	if (pos < -1 || pos > $$nc(getDocument())->getLength()) {
 		$throwNew($BadLocationException, "invalid position"_s, pos);
 	}
 	$var($Rectangle, alloc, getInsideAllocation(a));
 	switch (direction) {
 	case $SwingConstants::NORTH:
-		{
-			return getNextNorthSouthVisualPositionFrom(pos, b, a, direction, biasRet);
-		}
+		return getNextNorthSouthVisualPositionFrom(pos, b, a, direction, biasRet);
 	case $SwingConstants::SOUTH:
-		{
-			return getNextNorthSouthVisualPositionFrom(pos, b, a, direction, biasRet);
-		}
+		return getNextNorthSouthVisualPositionFrom(pos, b, a, direction, biasRet);
 	case $SwingConstants::EAST:
-		{
-			return getNextEastWestVisualPositionFrom(pos, b, a, direction, biasRet);
-		}
+		return getNextEastWestVisualPositionFrom(pos, b, a, direction, biasRet);
 	case $SwingConstants::WEST:
-		{
-			return getNextEastWestVisualPositionFrom(pos, b, a, direction, biasRet);
-		}
+		return getNextEastWestVisualPositionFrom(pos, b, a, direction, biasRet);
 	default:
-		{
-			$throwNew($IllegalArgumentException, $$str({"Bad direction: "_s, $$str(direction)}));
-		}
+		$throwNew($IllegalArgumentException, $$str({"Bad direction: "_s, $$str(direction)}));
 	}
 }
 
@@ -363,7 +292,7 @@ int32_t CompositeView::getViewIndex(int32_t pos, $Position$Bias* b) {
 	if (b == $Position$Bias::Backward) {
 		pos -= 1;
 	}
-	bool var$0 = (pos >= getStartOffset());
+	bool var$0 = pos >= getStartOffset();
 	if (var$0 && (pos < getEndOffset())) {
 		return getViewIndexAtPosition(pos);
 	}
@@ -438,14 +367,14 @@ int16_t CompositeView::getBottomInset() {
 }
 
 int32_t CompositeView::getNextNorthSouthVisualPositionFrom(int32_t pos, $Position$Bias* b, $Shape* a, int32_t direction, $Position$BiasArray* biasRet) {
-	if (pos < -1 || pos > $nc($(getDocument()))->getLength()) {
+	if (pos < -1 || pos > $$nc(getDocument())->getLength()) {
 		$throwNew($BadLocationException, "invalid position"_s, pos);
 	}
 	return $Utilities::getNextVisualPositionFrom(this, pos, b, a, direction, biasRet);
 }
 
 int32_t CompositeView::getNextEastWestVisualPositionFrom(int32_t pos, $Position$Bias* b, $Shape* a, int32_t direction, $Position$BiasArray* biasRet) {
-	if (pos < -1 || pos > $nc($(getDocument()))->getLength()) {
+	if (pos < -1 || pos > $$nc(getDocument())->getLength()) {
 		$throwNew($BadLocationException, "invalid position"_s, pos);
 	}
 	return $Utilities::getNextVisualPositionFrom(this, pos, b, a, direction, biasRet);
@@ -455,7 +384,7 @@ bool CompositeView::flipEastAndWestAtEnds(int32_t position, $Position$Bias* bias
 	return false;
 }
 
-void clinit$CompositeView($Class* class$) {
+void CompositeView::clinit$($Class* clazz) {
 	$assignStatic(CompositeView::ZERO, $new($ViewArray, 0));
 }
 
@@ -463,7 +392,59 @@ CompositeView::CompositeView() {
 }
 
 $Class* CompositeView::load$($String* name, bool initialize) {
-	$loadClass(CompositeView, name, initialize, &_CompositeView_ClassInfo_, clinit$CompositeView, allocate$CompositeView);
+	$FieldInfo fieldInfos$$[] = {
+		{"ZERO", "[Ljavax/swing/text/View;", nullptr, $PRIVATE | $STATIC, $staticField(CompositeView, ZERO)},
+		{"children", "[Ljavax/swing/text/View;", nullptr, $PRIVATE, $field(CompositeView, children)},
+		{"nchildren", "I", nullptr, $PRIVATE, $field(CompositeView, nchildren)},
+		{"left", "S", nullptr, $PRIVATE, $field(CompositeView, left)},
+		{"right", "S", nullptr, $PRIVATE, $field(CompositeView, right)},
+		{"top", "S", nullptr, $PRIVATE, $field(CompositeView, top)},
+		{"bottom", "S", nullptr, $PRIVATE, $field(CompositeView, bottom)},
+		{"childAlloc", "Ljava/awt/Rectangle;", nullptr, $PRIVATE, $field(CompositeView, childAlloc)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/text/Element;)V", nullptr, $PUBLIC, $method(CompositeView, init$, void, $Element*)},
+		{"childAllocation", "(ILjava/awt/Rectangle;)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(CompositeView, childAllocation, void, int32_t, $Rectangle*)},
+		{"flipEastAndWestAtEnds", "(ILjavax/swing/text/Position$Bias;)Z", nullptr, $PROTECTED, $virtualMethod(CompositeView, flipEastAndWestAtEnds, bool, int32_t, $Position$Bias*)},
+		{"getBottomInset", "()S", nullptr, $PROTECTED, $virtualMethod(CompositeView, getBottomInset, int16_t)},
+		{"getChildAllocation", "(ILjava/awt/Shape;)Ljava/awt/Shape;", nullptr, $PUBLIC, $virtualMethod(CompositeView, getChildAllocation, $Shape*, int32_t, $Shape*)},
+		{"getInsideAllocation", "(Ljava/awt/Shape;)Ljava/awt/Rectangle;", nullptr, $PROTECTED, $virtualMethod(CompositeView, getInsideAllocation, $Rectangle*, $Shape*)},
+		{"getLeftInset", "()S", nullptr, $PROTECTED, $virtualMethod(CompositeView, getLeftInset, int16_t)},
+		{"getNextEastWestVisualPositionFrom", "(ILjavax/swing/text/Position$Bias;Ljava/awt/Shape;I[Ljavax/swing/text/Position$Bias;)I", nullptr, $PROTECTED, $virtualMethod(CompositeView, getNextEastWestVisualPositionFrom, int32_t, int32_t, $Position$Bias*, $Shape*, int32_t, $Position$BiasArray*), "javax.swing.text.BadLocationException"},
+		{"getNextNorthSouthVisualPositionFrom", "(ILjavax/swing/text/Position$Bias;Ljava/awt/Shape;I[Ljavax/swing/text/Position$Bias;)I", nullptr, $PROTECTED, $virtualMethod(CompositeView, getNextNorthSouthVisualPositionFrom, int32_t, int32_t, $Position$Bias*, $Shape*, int32_t, $Position$BiasArray*), "javax.swing.text.BadLocationException"},
+		{"getNextVisualPositionFrom", "(ILjavax/swing/text/Position$Bias;Ljava/awt/Shape;I[Ljavax/swing/text/Position$Bias;)I", nullptr, $PUBLIC, $virtualMethod(CompositeView, getNextVisualPositionFrom, int32_t, int32_t, $Position$Bias*, $Shape*, int32_t, $Position$BiasArray*), "javax.swing.text.BadLocationException"},
+		{"getRightInset", "()S", nullptr, $PROTECTED, $virtualMethod(CompositeView, getRightInset, int16_t)},
+		{"getTopInset", "()S", nullptr, $PROTECTED, $virtualMethod(CompositeView, getTopInset, int16_t)},
+		{"getView", "(I)Ljavax/swing/text/View;", nullptr, $PUBLIC, $virtualMethod(CompositeView, getView, $View*, int32_t)},
+		{"getViewAtPoint", "(IILjava/awt/Rectangle;)Ljavax/swing/text/View;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(CompositeView, getViewAtPoint, $View*, int32_t, int32_t, $Rectangle*)},
+		{"getViewAtPosition", "(ILjava/awt/Rectangle;)Ljavax/swing/text/View;", nullptr, $PROTECTED, $virtualMethod(CompositeView, getViewAtPosition, $View*, int32_t, $Rectangle*)},
+		{"getViewCount", "()I", nullptr, $PUBLIC, $virtualMethod(CompositeView, getViewCount, int32_t)},
+		{"getViewIndex", "(ILjavax/swing/text/Position$Bias;)I", nullptr, $PUBLIC, $virtualMethod(CompositeView, getViewIndex, int32_t, int32_t, $Position$Bias*)},
+		{"getViewIndexAtPosition", "(I)I", nullptr, $PROTECTED, $virtualMethod(CompositeView, getViewIndexAtPosition, int32_t, int32_t)},
+		{"isAfter", "(IILjava/awt/Rectangle;)Z", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(CompositeView, isAfter, bool, int32_t, int32_t, $Rectangle*)},
+		{"isBefore", "(IILjava/awt/Rectangle;)Z", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(CompositeView, isBefore, bool, int32_t, int32_t, $Rectangle*)},
+		{"loadChildren", "(Ljavax/swing/text/ViewFactory;)V", nullptr, $PROTECTED, $virtualMethod(CompositeView, loadChildren, void, $ViewFactory*)},
+		{"modelToView", "(ILjava/awt/Shape;Ljavax/swing/text/Position$Bias;)Ljava/awt/Shape;", nullptr, $PUBLIC, $virtualMethod(CompositeView, modelToView, $Shape*, int32_t, $Shape*, $Position$Bias*), "javax.swing.text.BadLocationException"},
+		{"modelToView", "(ILjavax/swing/text/Position$Bias;ILjavax/swing/text/Position$Bias;Ljava/awt/Shape;)Ljava/awt/Shape;", nullptr, $PUBLIC, $virtualMethod(CompositeView, modelToView, $Shape*, int32_t, $Position$Bias*, int32_t, $Position$Bias*, $Shape*), "javax.swing.text.BadLocationException"},
+		{"replace", "(II[Ljavax/swing/text/View;)V", nullptr, $PUBLIC, $virtualMethod(CompositeView, replace, void, int32_t, int32_t, $ViewArray*)},
+		{"setInsets", "(SSSS)V", nullptr, $PROTECTED, $virtualMethod(CompositeView, setInsets, void, int16_t, int16_t, int16_t, int16_t)},
+		{"setParagraphInsets", "(Ljavax/swing/text/AttributeSet;)V", nullptr, $PROTECTED, $virtualMethod(CompositeView, setParagraphInsets, void, $AttributeSet*)},
+		{"setParent", "(Ljavax/swing/text/View;)V", nullptr, $PUBLIC, $virtualMethod(CompositeView, setParent, void, $View*)},
+		{"viewToModel", "(FFLjava/awt/Shape;[Ljavax/swing/text/Position$Bias;)I", nullptr, $PUBLIC, $virtualMethod(CompositeView, viewToModel, int32_t, float, float, $Shape*, $Position$BiasArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"javax.swing.text.CompositeView",
+		"javax.swing.text.View",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CompositeView, name, initialize, &classInfo$$, CompositeView::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(CompositeView);
+	});
 	return class$;
 }
 

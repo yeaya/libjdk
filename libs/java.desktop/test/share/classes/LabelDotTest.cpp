@@ -1,5 +1,4 @@
 #include <LabelDotTest.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <java/awt/Dimension.h>
@@ -35,9 +34,7 @@ using $Component = ::java::awt::Component;
 using $Dimension = ::java::awt::Dimension;
 using $GridBagConstraints = ::java::awt::GridBagConstraints;
 using $GridBagLayout = ::java::awt::GridBagLayout;
-using $LayoutManager = ::java::awt::LayoutManager;
 using $Robot = ::java::awt::Robot;
-using $PrintStream = ::java::io::PrintStream;
 using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Double = ::java::lang::Double;
@@ -65,33 +62,29 @@ public:
 	virtual void accept(int32_t i) override {
 		LabelDotTest::lambda$runTest$1(robot, i);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<LabelDotTest$$Lambda$lambda$runTest$1>());
-	}
 	$Robot* robot = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo LabelDotTest$$Lambda$lambda$runTest$1::fieldInfos[2] = {
-	{"robot", "Ljava/awt/Robot;", nullptr, $PUBLIC, $field(LabelDotTest$$Lambda$lambda$runTest$1, robot)},
-	{}
-};
-$MethodInfo LabelDotTest$$Lambda$lambda$runTest$1::methodInfos[3] = {
-	{"<init>", "(Ljava/awt/Robot;)V", nullptr, $PUBLIC, $method(LabelDotTest$$Lambda$lambda$runTest$1, init$, void, $Robot*)},
-	{"accept", "(I)V", nullptr, $PUBLIC, $virtualMethod(LabelDotTest$$Lambda$lambda$runTest$1, accept, void, int32_t)},
-	{}
-};
-$ClassInfo LabelDotTest$$Lambda$lambda$runTest$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"LabelDotTest$$Lambda$lambda$runTest$1",
-	"java.lang.Object",
-	"java.util.function.IntConsumer",
-	fieldInfos,
-	methodInfos
 };
 $Class* LabelDotTest$$Lambda$lambda$runTest$1::load$($String* name, bool initialize) {
-	$loadClass(LabelDotTest$$Lambda$lambda$runTest$1, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"robot", "Ljava/awt/Robot;", nullptr, $PUBLIC, $field(LabelDotTest$$Lambda$lambda$runTest$1, robot)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/Robot;)V", nullptr, $PUBLIC, $method(LabelDotTest$$Lambda$lambda$runTest$1, init$, void, $Robot*)},
+		{"accept", "(I)V", nullptr, $PUBLIC, $virtualMethod(LabelDotTest$$Lambda$lambda$runTest$1, accept, void, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"LabelDotTest$$Lambda$lambda$runTest$1",
+		"java.lang.Object",
+		"java.util.function.IntConsumer",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(LabelDotTest$$Lambda$lambda$runTest$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LabelDotTest$$Lambda$lambda$runTest$1);
+	});
 	return class$;
 }
 $Class* LabelDotTest$$Lambda$lambda$runTest$1::class$ = nullptr;
@@ -104,27 +97,24 @@ public:
 	virtual void run() override {
 		LabelDotTest::lambda$main$2();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<LabelDotTest$$Lambda$lambda$main$2$1>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo LabelDotTest$$Lambda$lambda$main$2$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(LabelDotTest$$Lambda$lambda$main$2$1, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(LabelDotTest$$Lambda$lambda$main$2$1, run, void)},
-	{}
-};
-$ClassInfo LabelDotTest$$Lambda$lambda$main$2$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"LabelDotTest$$Lambda$lambda$main$2$1",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* LabelDotTest$$Lambda$lambda$main$2$1::load$($String* name, bool initialize) {
-	$loadClass(LabelDotTest$$Lambda$lambda$main$2$1, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(LabelDotTest$$Lambda$lambda$main$2$1, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(LabelDotTest$$Lambda$lambda$main$2$1, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"LabelDotTest$$Lambda$lambda$main$2$1",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(LabelDotTest$$Lambda$lambda$main$2$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LabelDotTest$$Lambda$lambda$main$2$1);
+	});
 	return class$;
 }
 $Class* LabelDotTest$$Lambda$lambda$main$2$1::class$ = nullptr;
@@ -137,27 +127,24 @@ public:
 	virtual void run() override {
 		LabelDotTest::lambda$main$3();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<LabelDotTest$$Lambda$lambda$main$3$2>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo LabelDotTest$$Lambda$lambda$main$3$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(LabelDotTest$$Lambda$lambda$main$3$2, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(LabelDotTest$$Lambda$lambda$main$3$2, run, void)},
-	{}
-};
-$ClassInfo LabelDotTest$$Lambda$lambda$main$3$2::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"LabelDotTest$$Lambda$lambda$main$3$2",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* LabelDotTest$$Lambda$lambda$main$3$2::load$($String* name, bool initialize) {
-	$loadClass(LabelDotTest$$Lambda$lambda$main$3$2, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(LabelDotTest$$Lambda$lambda$main$3$2, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(LabelDotTest$$Lambda$lambda$main$3$2, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"LabelDotTest$$Lambda$lambda$main$3$2",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(LabelDotTest$$Lambda$lambda$main$3$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LabelDotTest$$Lambda$lambda$main$3$2);
+	});
 	return class$;
 }
 $Class* LabelDotTest$$Lambda$lambda$main$3$2::class$ = nullptr;
@@ -170,65 +157,27 @@ public:
 	virtual void run() override {
 		LabelDotTest::lambda$runTest$0();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<LabelDotTest$$Lambda$lambda$runTest$0$3>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo LabelDotTest$$Lambda$lambda$runTest$0$3::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(LabelDotTest$$Lambda$lambda$runTest$0$3, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(LabelDotTest$$Lambda$lambda$runTest$0$3, run, void)},
-	{}
-};
-$ClassInfo LabelDotTest$$Lambda$lambda$runTest$0$3::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"LabelDotTest$$Lambda$lambda$runTest$0$3",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* LabelDotTest$$Lambda$lambda$runTest$0$3::load$($String* name, bool initialize) {
-	$loadClass(LabelDotTest$$Lambda$lambda$runTest$0$3, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(LabelDotTest$$Lambda$lambda$runTest$0$3, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(LabelDotTest$$Lambda$lambda$runTest$0$3, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"LabelDotTest$$Lambda$lambda$runTest$0$3",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(LabelDotTest$$Lambda$lambda$runTest$0$3, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LabelDotTest$$Lambda$lambda$runTest$0$3);
+	});
 	return class$;
 }
 $Class* LabelDotTest$$Lambda$lambda$runTest$0$3::class$ = nullptr;
-
-$FieldInfo _LabelDotTest_FieldInfo_[] = {
-	{"longText", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LabelDotTest, longText)},
-	{"shortText", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LabelDotTest, shortText)},
-	{"frame", "Ljavax/swing/JFrame;", nullptr, $PRIVATE | $STATIC, $staticField(LabelDotTest, frame)},
-	{"label", "Ljavax/swing/JLabel;", nullptr, $PRIVATE | $STATIC, $staticField(LabelDotTest, label)},
-	{"menu", "Ljavax/swing/JMenu;", nullptr, $PRIVATE | $STATIC, $staticField(LabelDotTest, menu)},
-	{"isException", "Z", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(LabelDotTest, isException)},
-	{}
-};
-
-$MethodInfo _LabelDotTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(LabelDotTest, init$, void)},
-	{"createUI", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(LabelDotTest, createUI, void)},
-	{"lambda$main$2", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(LabelDotTest, lambda$main$2, void)},
-	{"lambda$main$3", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(LabelDotTest, lambda$main$3, void)},
-	{"lambda$runTest$0", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(LabelDotTest, lambda$runTest$0, void)},
-	{"lambda$runTest$1", "(Ljava/awt/Robot;I)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(LabelDotTest, lambda$runTest$1, void, $Robot*, int32_t)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(LabelDotTest, main, void, $StringArray*), "java.lang.Exception"},
-	{"runTest", "(I)V", nullptr, $PRIVATE | $STATIC, $staticMethod(LabelDotTest, runTest, void, int32_t), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _LabelDotTest_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"LabelDotTest",
-	"java.lang.Object",
-	nullptr,
-	_LabelDotTest_FieldInfo_,
-	_LabelDotTest_MethodInfo_
-};
-
-$Object* allocate$LabelDotTest($Class* clazz) {
-	return $of($alloc(LabelDotTest));
-}
 
 $String* LabelDotTest::longText = nullptr;
 $String* LabelDotTest::shortText = nullptr;
@@ -242,10 +191,10 @@ void LabelDotTest::init$() {
 
 void LabelDotTest::createUI() {
 	$init(LabelDotTest);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc($System::out)->println("BEFORE CREATION"_s);
 	$assignStatic(LabelDotTest::frame, $new($JFrame));
-	$nc(LabelDotTest::frame)->setDefaultCloseOperation($JFrame::EXIT_ON_CLOSE);
+	LabelDotTest::frame->setDefaultCloseOperation($JFrame::EXIT_ON_CLOSE);
 	$nc(LabelDotTest::frame)->setSize($$new($Dimension, 50, 150));
 	$nc(LabelDotTest::frame)->setLocationRelativeTo(nullptr);
 	$nc(LabelDotTest::frame)->setLayout($$new($GridBagLayout));
@@ -257,44 +206,42 @@ void LabelDotTest::createUI() {
 	$var($JMenuBar, menuBar, $new($JMenuBar));
 	$assignStatic(LabelDotTest::menu, $new($JMenu, "Menu"_s));
 	menuBar->add(LabelDotTest::menu);
-	$nc(LabelDotTest::frame)->add(static_cast<$Component*>(menuBar), $of(c));
-	$nc(LabelDotTest::frame)->add(static_cast<$Component*>($$new($JLabel, "Title"_s, $SwingConstants::CENTER)), $of(c));
+	$nc(LabelDotTest::frame)->add(menuBar, c);
+	$nc(LabelDotTest::frame)->add($$new($JLabel, "Title"_s, $SwingConstants::CENTER), c);
 	c->weighty = 1.0;
-	$nc(LabelDotTest::frame)->add(static_cast<$Component*>($$new($JPanel, static_cast<$LayoutManager*>($$new($GridBagLayout)))), $of(c));
+	$nc(LabelDotTest::frame)->add($$new($JPanel, $$new($GridBagLayout)), c);
 	c->weighty = 0.0;
 	$assignStatic(LabelDotTest::label, $new($JLabel, LabelDotTest::shortText));
-	$nc(LabelDotTest::frame)->add(static_cast<$Component*>(LabelDotTest::label), $of(c));
+	$nc(LabelDotTest::frame)->add(LabelDotTest::label, c);
 	$nc(LabelDotTest::frame)->setVisible(true);
 }
 
 void LabelDotTest::runTest(int32_t iterations) {
 	$init(LabelDotTest);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Robot, robot, $new($Robot));
-	$nc($($IntStream::range(0, iterations)))->forEach(static_cast<$IntConsumer*>($$new(LabelDotTest$$Lambda$lambda$runTest$1, robot)));
+	$$nc($IntStream::range(0, iterations))->forEach($$new(LabelDotTest$$Lambda$lambda$runTest$1, robot));
 }
 
 void LabelDotTest::main($StringArray* args) {
 	$init(LabelDotTest);
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(LabelDotTest$$Lambda$lambda$main$2$1)));
-			runTest(50);
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			if (LabelDotTest::frame != nullptr) {
-				$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(LabelDotTest$$Lambda$lambda$main$3$2)));
-			}
-			if (LabelDotTest::isException) {
-				$throwNew($RuntimeException, "Size of Menu bar is not correct."_s);
-			}
+	$useLocalObjectStack();
+	$var($Throwable, var$0, nullptr);
+	try {
+		$SwingUtilities::invokeAndWait($$new(LabelDotTest$$Lambda$lambda$main$2$1));
+		runTest(50);
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		if (LabelDotTest::frame != nullptr) {
+			$SwingUtilities::invokeAndWait($$new(LabelDotTest$$Lambda$lambda$main$3$2));
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+		if (LabelDotTest::isException) {
+			$throwNew($RuntimeException, "Size of Menu bar is not correct."_s);
 		}
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
@@ -310,23 +257,23 @@ void LabelDotTest::lambda$main$2() {
 
 void LabelDotTest::lambda$runTest$1($Robot* robot, int32_t i) {
 	$init(LabelDotTest);
-	$SwingUtilities::invokeLater(static_cast<$Runnable*>($$new(LabelDotTest$$Lambda$lambda$runTest$0$3)));
+	$SwingUtilities::invokeLater($$new(LabelDotTest$$Lambda$lambda$runTest$0$3));
 	$nc(robot)->waitForIdle();
 }
 
 void LabelDotTest::lambda$runTest$0() {
 	$init(LabelDotTest);
-	$useLocalCurrentObjectStackCache();
-	if ($nc($($nc(LabelDotTest::label)->getText()))->equals(LabelDotTest::shortText)) {
+	$useLocalObjectStack();
+	if ($$nc($nc(LabelDotTest::label)->getText())->equals(LabelDotTest::shortText)) {
 		$nc(LabelDotTest::label)->setText(LabelDotTest::longText);
 	} else {
 		$nc(LabelDotTest::label)->setText(LabelDotTest::shortText);
 	}
 	bool var$0 = $nc($($nc(LabelDotTest::menu)->getMinimumSize()))->height == 1;
-	LabelDotTest::isException = (var$0 && !$nc($($nc(LabelDotTest::menu)->getMinimumSize()))->equals($($nc(LabelDotTest::menu)->getPreferredSize()))) || LabelDotTest::isException;
+	LabelDotTest::isException = (var$0 && !$$nc(LabelDotTest::menu->getMinimumSize())->equals($(LabelDotTest::menu->getPreferredSize()))) || LabelDotTest::isException;
 }
 
-void clinit$LabelDotTest($Class* class$) {
+void LabelDotTest::clinit$($Class* clazz) {
 	$assignStatic(LabelDotTest::longText, "show a very long text to have it automatically shortened"_s);
 	$assignStatic(LabelDotTest::shortText, "show short text"_s);
 	LabelDotTest::isException = false;
@@ -337,20 +284,50 @@ LabelDotTest::LabelDotTest() {
 
 $Class* LabelDotTest::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(LabelDotTest$$Lambda$lambda$runTest$1::classInfo$.name)) {
+		if (name->equals("LabelDotTest$$Lambda$lambda$runTest$1")) {
 			return LabelDotTest$$Lambda$lambda$runTest$1::load$(name, initialize);
 		}
-		if (name->equals(LabelDotTest$$Lambda$lambda$main$2$1::classInfo$.name)) {
+		if (name->equals("LabelDotTest$$Lambda$lambda$main$2$1")) {
 			return LabelDotTest$$Lambda$lambda$main$2$1::load$(name, initialize);
 		}
-		if (name->equals(LabelDotTest$$Lambda$lambda$main$3$2::classInfo$.name)) {
+		if (name->equals("LabelDotTest$$Lambda$lambda$main$3$2")) {
 			return LabelDotTest$$Lambda$lambda$main$3$2::load$(name, initialize);
 		}
-		if (name->equals(LabelDotTest$$Lambda$lambda$runTest$0$3::classInfo$.name)) {
+		if (name->equals("LabelDotTest$$Lambda$lambda$runTest$0$3")) {
 			return LabelDotTest$$Lambda$lambda$runTest$0$3::load$(name, initialize);
 		}
 	}
-	$loadClass(LabelDotTest, name, initialize, &_LabelDotTest_ClassInfo_, clinit$LabelDotTest, allocate$LabelDotTest);
+	$FieldInfo fieldInfos$$[] = {
+		{"longText", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LabelDotTest, longText)},
+		{"shortText", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LabelDotTest, shortText)},
+		{"frame", "Ljavax/swing/JFrame;", nullptr, $PRIVATE | $STATIC, $staticField(LabelDotTest, frame)},
+		{"label", "Ljavax/swing/JLabel;", nullptr, $PRIVATE | $STATIC, $staticField(LabelDotTest, label)},
+		{"menu", "Ljavax/swing/JMenu;", nullptr, $PRIVATE | $STATIC, $staticField(LabelDotTest, menu)},
+		{"isException", "Z", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(LabelDotTest, isException)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(LabelDotTest, init$, void)},
+		{"createUI", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(LabelDotTest, createUI, void)},
+		{"lambda$main$2", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(LabelDotTest, lambda$main$2, void)},
+		{"lambda$main$3", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(LabelDotTest, lambda$main$3, void)},
+		{"lambda$runTest$0", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(LabelDotTest, lambda$runTest$0, void)},
+		{"lambda$runTest$1", "(Ljava/awt/Robot;I)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(LabelDotTest, lambda$runTest$1, void, $Robot*, int32_t)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(LabelDotTest, main, void, $StringArray*), "java.lang.Exception"},
+		{"runTest", "(I)V", nullptr, $PRIVATE | $STATIC, $staticMethod(LabelDotTest, runTest, void, int32_t), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"LabelDotTest",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(LabelDotTest, name, initialize, &classInfo$$, LabelDotTest::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(LabelDotTest);
+	});
 	return class$;
 }
 

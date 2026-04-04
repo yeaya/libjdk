@@ -73,6 +73,7 @@ public:
 	virtual void finalize() override;
 	virtual ::javax::swing::text::Element* getDefaultRootElement() override {return nullptr;}
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::javax::swing::text::AbstractDocument$Content* data);
 	void init$(::javax::swing::text::AbstractDocument$Content* data, ::javax::swing::text::AbstractDocument$AttributeContext* context);
 	virtual void addDocumentListener(::javax::swing::event::DocumentListener* listener) override;

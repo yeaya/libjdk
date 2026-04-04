@@ -75,6 +75,7 @@ public:
 	virtual bool equals(Object$* arg0) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::awt::X11GraphicsDevice* device, int32_t visualnum, int64_t configInfo, ::sun::java2d::pipe::hw::ContextCapabilities* oglCaps);
 	virtual ::java::awt::Image* createAcceleratedImage(::java::awt::Component* target, int32_t width, int32_t height) override;
 	virtual int64_t createBackBuffer(::sun::awt::X11ComponentPeer* peer, int32_t numBuffers, ::java::awt::BufferCapabilities* caps) override;

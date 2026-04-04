@@ -1,5 +1,4 @@
 #include <javax/swing/ImageIcon$AccessibleImageIcon.h>
-
 #include <java/io/ObjectInputStream.h>
 #include <java/io/ObjectOutputStream.h>
 #include <java/util/Locale.h>
@@ -27,59 +26,6 @@ using $ImageIcon = ::javax::swing::ImageIcon;
 
 namespace javax {
 	namespace swing {
-
-$FieldInfo _ImageIcon$AccessibleImageIcon_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/ImageIcon;", nullptr, $FINAL | $SYNTHETIC, $field(ImageIcon$AccessibleImageIcon, this$0)},
-	{}
-};
-
-$MethodInfo _ImageIcon$AccessibleImageIcon_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljavax/swing/ImageIcon;)V", nullptr, $PROTECTED, $method(ImageIcon$AccessibleImageIcon, init$, void, $ImageIcon*)},
-	{"getAccessibleChild", "(I)Ljavax/accessibility/Accessible;", nullptr, $PUBLIC, $virtualMethod(ImageIcon$AccessibleImageIcon, getAccessibleChild, $Accessible*, int32_t)},
-	{"getAccessibleChildrenCount", "()I", nullptr, $PUBLIC, $virtualMethod(ImageIcon$AccessibleImageIcon, getAccessibleChildrenCount, int32_t)},
-	{"getAccessibleIconDescription", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ImageIcon$AccessibleImageIcon, getAccessibleIconDescription, $String*)},
-	{"getAccessibleIconHeight", "()I", nullptr, $PUBLIC, $virtualMethod(ImageIcon$AccessibleImageIcon, getAccessibleIconHeight, int32_t)},
-	{"getAccessibleIconWidth", "()I", nullptr, $PUBLIC, $virtualMethod(ImageIcon$AccessibleImageIcon, getAccessibleIconWidth, int32_t)},
-	{"getAccessibleIndexInParent", "()I", nullptr, $PUBLIC, $virtualMethod(ImageIcon$AccessibleImageIcon, getAccessibleIndexInParent, int32_t)},
-	{"getAccessibleParent", "()Ljavax/accessibility/Accessible;", nullptr, $PUBLIC, $virtualMethod(ImageIcon$AccessibleImageIcon, getAccessibleParent, $Accessible*)},
-	{"getAccessibleRole", "()Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC, $virtualMethod(ImageIcon$AccessibleImageIcon, getAccessibleRole, $AccessibleRole*)},
-	{"getAccessibleStateSet", "()Ljavax/accessibility/AccessibleStateSet;", nullptr, $PUBLIC, $virtualMethod(ImageIcon$AccessibleImageIcon, getAccessibleStateSet, $AccessibleStateSet*)},
-	{"getLocale", "()Ljava/util/Locale;", nullptr, $PUBLIC, $virtualMethod(ImageIcon$AccessibleImageIcon, getLocale, $Locale*), "java.awt.IllegalComponentStateException"},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(ImageIcon$AccessibleImageIcon, readObject, void, $ObjectInputStream*), "java.lang.ClassNotFoundException,java.io.IOException"},
-	{"setAccessibleIconDescription", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ImageIcon$AccessibleImageIcon, setAccessibleIconDescription, void, $String*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(ImageIcon$AccessibleImageIcon, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _ImageIcon$AccessibleImageIcon_InnerClassesInfo_[] = {
-	{"javax.swing.ImageIcon$AccessibleImageIcon", "javax.swing.ImageIcon", "AccessibleImageIcon", $PROTECTED},
-	{}
-};
-
-$ClassInfo _ImageIcon$AccessibleImageIcon_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.ImageIcon$AccessibleImageIcon",
-	"javax.accessibility.AccessibleContext",
-	"javax.accessibility.AccessibleIcon,java.io.Serializable",
-	_ImageIcon$AccessibleImageIcon_FieldInfo_,
-	_ImageIcon$AccessibleImageIcon_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ImageIcon$AccessibleImageIcon_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.ImageIcon"
-};
-
-$Object* allocate$ImageIcon$AccessibleImageIcon($Class* clazz) {
-	return $of($alloc(ImageIcon$AccessibleImageIcon));
-}
 
 int32_t ImageIcon$AccessibleImageIcon::hashCode() {
 	 return this->$AccessibleContext::hashCode();
@@ -163,7 +109,54 @@ ImageIcon$AccessibleImageIcon::ImageIcon$AccessibleImageIcon() {
 }
 
 $Class* ImageIcon$AccessibleImageIcon::load$($String* name, bool initialize) {
-	$loadClass(ImageIcon$AccessibleImageIcon, name, initialize, &_ImageIcon$AccessibleImageIcon_ClassInfo_, allocate$ImageIcon$AccessibleImageIcon);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/ImageIcon;", nullptr, $FINAL | $SYNTHETIC, $field(ImageIcon$AccessibleImageIcon, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljavax/swing/ImageIcon;)V", nullptr, $PROTECTED, $method(ImageIcon$AccessibleImageIcon, init$, void, $ImageIcon*)},
+		{"getAccessibleChild", "(I)Ljavax/accessibility/Accessible;", nullptr, $PUBLIC, $virtualMethod(ImageIcon$AccessibleImageIcon, getAccessibleChild, $Accessible*, int32_t)},
+		{"getAccessibleChildrenCount", "()I", nullptr, $PUBLIC, $virtualMethod(ImageIcon$AccessibleImageIcon, getAccessibleChildrenCount, int32_t)},
+		{"getAccessibleIconDescription", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ImageIcon$AccessibleImageIcon, getAccessibleIconDescription, $String*)},
+		{"getAccessibleIconHeight", "()I", nullptr, $PUBLIC, $virtualMethod(ImageIcon$AccessibleImageIcon, getAccessibleIconHeight, int32_t)},
+		{"getAccessibleIconWidth", "()I", nullptr, $PUBLIC, $virtualMethod(ImageIcon$AccessibleImageIcon, getAccessibleIconWidth, int32_t)},
+		{"getAccessibleIndexInParent", "()I", nullptr, $PUBLIC, $virtualMethod(ImageIcon$AccessibleImageIcon, getAccessibleIndexInParent, int32_t)},
+		{"getAccessibleParent", "()Ljavax/accessibility/Accessible;", nullptr, $PUBLIC, $virtualMethod(ImageIcon$AccessibleImageIcon, getAccessibleParent, $Accessible*)},
+		{"getAccessibleRole", "()Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC, $virtualMethod(ImageIcon$AccessibleImageIcon, getAccessibleRole, $AccessibleRole*)},
+		{"getAccessibleStateSet", "()Ljavax/accessibility/AccessibleStateSet;", nullptr, $PUBLIC, $virtualMethod(ImageIcon$AccessibleImageIcon, getAccessibleStateSet, $AccessibleStateSet*)},
+		{"getLocale", "()Ljava/util/Locale;", nullptr, $PUBLIC, $virtualMethod(ImageIcon$AccessibleImageIcon, getLocale, $Locale*), "java.awt.IllegalComponentStateException"},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(ImageIcon$AccessibleImageIcon, readObject, void, $ObjectInputStream*), "java.lang.ClassNotFoundException,java.io.IOException"},
+		{"setAccessibleIconDescription", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ImageIcon$AccessibleImageIcon, setAccessibleIconDescription, void, $String*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(ImageIcon$AccessibleImageIcon, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.ImageIcon$AccessibleImageIcon", "javax.swing.ImageIcon", "AccessibleImageIcon", $PROTECTED},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.ImageIcon$AccessibleImageIcon",
+		"javax.accessibility.AccessibleContext",
+		"javax.accessibility.AccessibleIcon,java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.ImageIcon"
+	};
+	$loadClass(ImageIcon$AccessibleImageIcon, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ImageIcon$AccessibleImageIcon));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <java/awt/image/RGBImageFilter.h>
-
 #include <java/awt/image/ColorModel.h>
 #include <java/awt/image/ImageConsumer.h>
 #include <java/awt/image/ImageFilter.h>
@@ -7,7 +6,6 @@
 #include <jcpp.h>
 
 using $ColorModel = ::java::awt::image::ColorModel;
-using $ImageConsumer = ::java::awt::image::ImageConsumer;
 using $ImageFilter = ::java::awt::image::ImageFilter;
 using $IndexColorModel = ::java::awt::image::IndexColorModel;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -18,44 +16,12 @@ namespace java {
 	namespace awt {
 		namespace image {
 
-$FieldInfo _RGBImageFilter_FieldInfo_[] = {
-	{"origmodel", "Ljava/awt/image/ColorModel;", nullptr, $PROTECTED, $field(RGBImageFilter, origmodel)},
-	{"newmodel", "Ljava/awt/image/ColorModel;", nullptr, $PROTECTED, $field(RGBImageFilter, newmodel)},
-	{"canFilterIndexColorModel", "Z", nullptr, $PROTECTED, $field(RGBImageFilter, canFilterIndexColorModel)},
-	{}
-};
-
-$MethodInfo _RGBImageFilter_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(RGBImageFilter, init$, void)},
-	{"filterIndexColorModel", "(Ljava/awt/image/IndexColorModel;)Ljava/awt/image/IndexColorModel;", nullptr, $PUBLIC, $virtualMethod(RGBImageFilter, filterIndexColorModel, $IndexColorModel*, $IndexColorModel*)},
-	{"filterRGB", "(III)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RGBImageFilter, filterRGB, int32_t, int32_t, int32_t, int32_t)},
-	{"filterRGBPixels", "(IIII[III)V", nullptr, $PUBLIC, $virtualMethod(RGBImageFilter, filterRGBPixels, void, int32_t, int32_t, int32_t, int32_t, $ints*, int32_t, int32_t)},
-	{"setColorModel", "(Ljava/awt/image/ColorModel;)V", nullptr, $PUBLIC, $virtualMethod(RGBImageFilter, setColorModel, void, $ColorModel*)},
-	{"setPixels", "(IIIILjava/awt/image/ColorModel;[BII)V", nullptr, $PUBLIC, $virtualMethod(RGBImageFilter, setPixels, void, int32_t, int32_t, int32_t, int32_t, $ColorModel*, $bytes*, int32_t, int32_t)},
-	{"setPixels", "(IIIILjava/awt/image/ColorModel;[III)V", nullptr, $PUBLIC, $virtualMethod(RGBImageFilter, setPixels, void, int32_t, int32_t, int32_t, int32_t, $ColorModel*, $ints*, int32_t, int32_t)},
-	{"substituteColorModel", "(Ljava/awt/image/ColorModel;Ljava/awt/image/ColorModel;)V", nullptr, $PUBLIC, $virtualMethod(RGBImageFilter, substituteColorModel, void, $ColorModel*, $ColorModel*)},
-	{}
-};
-
-$ClassInfo _RGBImageFilter_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"java.awt.image.RGBImageFilter",
-	"java.awt.image.ImageFilter",
-	nullptr,
-	_RGBImageFilter_FieldInfo_,
-	_RGBImageFilter_MethodInfo_
-};
-
-$Object* allocate$RGBImageFilter($Class* clazz) {
-	return $of($alloc(RGBImageFilter));
-}
-
 void RGBImageFilter::init$() {
 	$ImageFilter::init$();
 }
 
 void RGBImageFilter::setColorModel($ColorModel* model) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->canFilterIndexColorModel && ($instanceOf($IndexColorModel, model))) {
 		$var($ColorModel, newcm, filterIndexColorModel($cast($IndexColorModel, model)));
 		substituteColorModel(model, newcm);
@@ -71,7 +37,7 @@ void RGBImageFilter::substituteColorModel($ColorModel* oldcm, $ColorModel* newcm
 }
 
 $IndexColorModel* RGBImageFilter::filterIndexColorModel($IndexColorModel* icm) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t mapsize = $nc(icm)->getMapSize();
 	$var($bytes, r, $new($bytes, mapsize));
 	$var($bytes, g, $new($bytes, mapsize));
@@ -104,7 +70,7 @@ void RGBImageFilter::filterRGBPixels(int32_t x, int32_t y, int32_t w, int32_t h,
 	int32_t index = off;
 	for (int32_t cy = 0; cy < h; ++cy) {
 		for (int32_t cx = 0; cx < w; ++cx) {
-			$nc(pixels)->set(index, filterRGB(x + cx, y + cy, pixels->get(index)));
+			$nc(pixels)->set(index, filterRGB(x + cx, y + cy, $nc(pixels)->get(index)));
 			++index;
 		}
 		index += scansize - w;
@@ -120,7 +86,7 @@ void RGBImageFilter::setPixels(int32_t x, int32_t y, int32_t w, int32_t h, $Colo
 		int32_t index = off;
 		for (int32_t cy = 0; cy < h; ++cy) {
 			for (int32_t cx = 0; cx < w; ++cx) {
-				filteredpixels->set(cx, $nc(model)->getRGB(((int32_t)($nc(pixels)->get(index) & (uint32_t)255))));
+				filteredpixels->set(cx, $nc(model)->getRGB(($nc(pixels)->get(index) & 0xff)));
 				++index;
 			}
 			index += scansize - w;
@@ -150,7 +116,34 @@ RGBImageFilter::RGBImageFilter() {
 }
 
 $Class* RGBImageFilter::load$($String* name, bool initialize) {
-	$loadClass(RGBImageFilter, name, initialize, &_RGBImageFilter_ClassInfo_, allocate$RGBImageFilter);
+	$FieldInfo fieldInfos$$[] = {
+		{"origmodel", "Ljava/awt/image/ColorModel;", nullptr, $PROTECTED, $field(RGBImageFilter, origmodel)},
+		{"newmodel", "Ljava/awt/image/ColorModel;", nullptr, $PROTECTED, $field(RGBImageFilter, newmodel)},
+		{"canFilterIndexColorModel", "Z", nullptr, $PROTECTED, $field(RGBImageFilter, canFilterIndexColorModel)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PROTECTED, $method(RGBImageFilter, init$, void)},
+		{"filterIndexColorModel", "(Ljava/awt/image/IndexColorModel;)Ljava/awt/image/IndexColorModel;", nullptr, $PUBLIC, $virtualMethod(RGBImageFilter, filterIndexColorModel, $IndexColorModel*, $IndexColorModel*)},
+		{"filterRGB", "(III)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RGBImageFilter, filterRGB, int32_t, int32_t, int32_t, int32_t)},
+		{"filterRGBPixels", "(IIII[III)V", nullptr, $PUBLIC, $virtualMethod(RGBImageFilter, filterRGBPixels, void, int32_t, int32_t, int32_t, int32_t, $ints*, int32_t, int32_t)},
+		{"setColorModel", "(Ljava/awt/image/ColorModel;)V", nullptr, $PUBLIC, $virtualMethod(RGBImageFilter, setColorModel, void, $ColorModel*)},
+		{"setPixels", "(IIIILjava/awt/image/ColorModel;[BII)V", nullptr, $PUBLIC, $virtualMethod(RGBImageFilter, setPixels, void, int32_t, int32_t, int32_t, int32_t, $ColorModel*, $bytes*, int32_t, int32_t)},
+		{"setPixels", "(IIIILjava/awt/image/ColorModel;[III)V", nullptr, $PUBLIC, $virtualMethod(RGBImageFilter, setPixels, void, int32_t, int32_t, int32_t, int32_t, $ColorModel*, $ints*, int32_t, int32_t)},
+		{"substituteColorModel", "(Ljava/awt/image/ColorModel;Ljava/awt/image/ColorModel;)V", nullptr, $PUBLIC, $virtualMethod(RGBImageFilter, substituteColorModel, void, $ColorModel*, $ColorModel*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"java.awt.image.RGBImageFilter",
+		"java.awt.image.ImageFilter",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(RGBImageFilter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(RGBImageFilter));
+	});
 	return class$;
 }
 

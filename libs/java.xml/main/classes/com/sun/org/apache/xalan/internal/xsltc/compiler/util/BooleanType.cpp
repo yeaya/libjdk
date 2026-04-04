@@ -1,10 +1,8 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/util/BooleanType.h>
-
 #include <com/sun/org/apache/bcel/internal/generic/BasicType.h>
 #include <com/sun/org/apache/bcel/internal/generic/BranchHandle.h>
 #include <com/sun/org/apache/bcel/internal/generic/BranchInstruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/CHECKCAST.h>
-#include <com/sun/org/apache/bcel/internal/generic/CompoundInstruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/ConstantPoolGen.h>
 #include <com/sun/org/apache/bcel/internal/generic/ConversionInstruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/GOTO.h>
@@ -60,7 +58,6 @@
 using $BranchHandle = ::com::sun::org::apache::bcel::internal::generic::BranchHandle;
 using $BranchInstruction = ::com::sun::org::apache::bcel::internal::generic::BranchInstruction;
 using $CHECKCAST = ::com::sun::org::apache::bcel::internal::generic::CHECKCAST;
-using $CompoundInstruction = ::com::sun::org::apache::bcel::internal::generic::CompoundInstruction;
 using $ConstantPoolGen = ::com::sun::org::apache::bcel::internal::generic::ConstantPoolGen;
 using $GOTO = ::com::sun::org::apache::bcel::internal::generic::GOTO;
 using $IFEQ = ::com::sun::org::apache::bcel::internal::generic::IFEQ;
@@ -83,7 +80,6 @@ using $NEW = ::com::sun::org::apache::bcel::internal::generic::NEW;
 using $PUSH = ::com::sun::org::apache::bcel::internal::generic::PUSH;
 using $1Type = ::com::sun::org::apache::bcel::internal::generic::Type;
 using $Constants = ::com::sun::org::apache::xalan::internal::xsltc::compiler::Constants;
-using $Parser = ::com::sun::org::apache::xalan::internal::xsltc::compiler::Parser;
 using $ClassGenerator = ::com::sun::org::apache::xalan::internal::xsltc::compiler::util::ClassGenerator;
 using $ErrorMsg = ::com::sun::org::apache::xalan::internal::xsltc::compiler::util::ErrorMsg;
 using $MethodGenerator = ::com::sun::org::apache::xalan::internal::xsltc::compiler::util::MethodGenerator;
@@ -104,43 +100,6 @@ namespace com {
 						namespace xsltc {
 							namespace compiler {
 								namespace util {
-
-$MethodInfo _BooleanType_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(BooleanType, init$, void)},
-	{"GE", "(Z)Lcom/sun/org/apache/bcel/internal/generic/BranchInstruction;", nullptr, $PUBLIC, $virtualMethod(BooleanType, GE, $BranchInstruction*, bool)},
-	{"GT", "(Z)Lcom/sun/org/apache/bcel/internal/generic/BranchInstruction;", nullptr, $PUBLIC, $virtualMethod(BooleanType, GT, $BranchInstruction*, bool)},
-	{"LE", "(Z)Lcom/sun/org/apache/bcel/internal/generic/BranchInstruction;", nullptr, $PUBLIC, $virtualMethod(BooleanType, LE, $BranchInstruction*, bool)},
-	{"LOAD", "(I)Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PUBLIC, $virtualMethod(BooleanType, LOAD, $Instruction*, int32_t)},
-	{"LT", "(Z)Lcom/sun/org/apache/bcel/internal/generic/BranchInstruction;", nullptr, $PUBLIC, $virtualMethod(BooleanType, LT, $BranchInstruction*, bool)},
-	{"STORE", "(I)Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PUBLIC, $virtualMethod(BooleanType, STORE, $Instruction*, int32_t)},
-	{"identicalTo", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/Type;)Z", nullptr, $PUBLIC, $virtualMethod(BooleanType, identicalTo, bool, $Type*)},
-	{"isSimple", "()Z", nullptr, $PUBLIC, $virtualMethod(BooleanType, isSimple, bool)},
-	{"toJCType", "()Lcom/sun/org/apache/bcel/internal/generic/Type;", nullptr, $PUBLIC, $virtualMethod(BooleanType, toJCType, $1Type*)},
-	{"toSignature", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(BooleanType, toSignature, $String*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(BooleanType, toString, $String*)},
-	{"translateBox", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;)V", nullptr, $PUBLIC, $virtualMethod(BooleanType, translateBox, void, $ClassGenerator*, $MethodGenerator*)},
-	{"translateFrom", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;Ljava/lang/Class;)V", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;Ljava/lang/Class<*>;)V", $PUBLIC, $virtualMethod(BooleanType, translateFrom, void, $ClassGenerator*, $MethodGenerator*, $Class*)},
-	{"translateTo", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/Type;)V", nullptr, $PUBLIC, $virtualMethod(BooleanType, translateTo, void, $ClassGenerator*, $MethodGenerator*, $Type*)},
-	{"translateTo", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/StringType;)V", nullptr, $PUBLIC, $method(BooleanType, translateTo, void, $ClassGenerator*, $MethodGenerator*, $StringType*)},
-	{"translateTo", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/RealType;)V", nullptr, $PUBLIC, $method(BooleanType, translateTo, void, $ClassGenerator*, $MethodGenerator*, $RealType*)},
-	{"translateTo", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ReferenceType;)V", nullptr, $PUBLIC, $method(BooleanType, translateTo, void, $ClassGenerator*, $MethodGenerator*, $ReferenceType*)},
-	{"translateTo", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;Ljava/lang/Class;)V", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;Ljava/lang/Class<*>;)V", $PUBLIC, $virtualMethod(BooleanType, translateTo, void, $ClassGenerator*, $MethodGenerator*, $Class*)},
-	{"translateUnBox", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;)V", nullptr, $PUBLIC, $virtualMethod(BooleanType, translateUnBox, void, $ClassGenerator*, $MethodGenerator*)},
-	{}
-};
-
-$ClassInfo _BooleanType_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xalan.internal.xsltc.compiler.util.BooleanType",
-	"com.sun.org.apache.xalan.internal.xsltc.compiler.util.Type",
-	nullptr,
-	nullptr,
-	_BooleanType_MethodInfo_
-};
-
-$Object* allocate$BooleanType($Class* clazz) {
-	return $of($alloc(BooleanType));
-}
 
 void BooleanType::init$() {
 	$Type::init$();
@@ -168,72 +127,65 @@ $1Type* BooleanType::toJCType() {
 }
 
 void BooleanType::translateTo($ClassGenerator* classGen, $MethodGenerator* methodGen, $Type* type) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Type);
 	if (type == $Type::String) {
 		translateTo(classGen, methodGen, $cast($StringType, type));
+	} else if (type == $Type::Real) {
+		translateTo(classGen, methodGen, $cast($RealType, type));
+	} else if (type == $Type::Reference) {
+		translateTo(classGen, methodGen, $cast($ReferenceType, type));
 	} else {
-		if (type == $Type::Real) {
-			translateTo(classGen, methodGen, $cast($RealType, type));
-		} else {
-			if (type == $Type::Reference) {
-				translateTo(classGen, methodGen, $cast($ReferenceType, type));
-			} else {
-				$init($ErrorMsg);
-				$var($String, var$0, $ErrorMsg::DATA_CONVERSION_ERR);
-				$var($Object, var$1, $of(toString()));
-				$var($ErrorMsg, err, $new($ErrorMsg, var$0, var$1, $($of($nc(type)->toString()))));
-				$nc($($nc(classGen)->getParser()))->reportError($Constants::FATAL, err);
-			}
-		}
+		$init($ErrorMsg);
+		$var($String, var$0, $ErrorMsg::DATA_CONVERSION_ERR);
+		$var($Object, var$1, toString());
+		$var($ErrorMsg, err, $new($ErrorMsg, var$0, var$1, $($nc(type)->toString())));
+		$$nc($nc(classGen)->getParser())->reportError($Constants::FATAL, err);
 	}
 }
 
 void BooleanType::translateTo($ClassGenerator* classGen, $MethodGenerator* methodGen, $StringType* type) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ConstantPoolGen, cpg, $nc(classGen)->getConstantPool());
 	$var($InstructionList, il, $nc(methodGen)->getInstructionList());
-	$var($BranchHandle, falsec, $nc(il)->append(static_cast<$BranchInstruction*>($$new($IFEQ, nullptr))));
-	il->append(static_cast<$CompoundInstruction*>($$new($PUSH, cpg, "true"_s)));
-	$var($BranchHandle, truec, il->append(static_cast<$BranchInstruction*>($$new($GOTO, nullptr))));
-	$nc(falsec)->setTarget($(il->append(static_cast<$CompoundInstruction*>($$new($PUSH, cpg, "false"_s)))));
+	$var($BranchHandle, falsec, $nc(il)->append($$new($IFEQ, nullptr)));
+	il->append($$new($PUSH, cpg, "true"_s));
+	$var($BranchHandle, truec, il->append($$new($GOTO, nullptr)));
+	$nc(falsec)->setTarget($(il->append($$new($PUSH, cpg, "false"_s))));
 	$init($Constants);
 	$nc(truec)->setTarget($(il->append($Constants::NOP)));
 }
 
 void BooleanType::translateTo($ClassGenerator* classGen, $MethodGenerator* methodGen, $RealType* type) {
 	$init($Constants);
-	$nc($($nc(methodGen)->getInstructionList()))->append(static_cast<$Instruction*>($Constants::I2D));
+	$$nc($nc(methodGen)->getInstructionList())->append($Constants::I2D);
 }
 
 void BooleanType::translateTo($ClassGenerator* classGen, $MethodGenerator* methodGen, $ReferenceType* type) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ConstantPoolGen, cpg, $nc(classGen)->getConstantPool());
 	$var($InstructionList, il, $nc(methodGen)->getInstructionList());
 	$init($Constants);
-	$nc(il)->append(static_cast<$Instruction*>($$new($NEW, $nc(cpg)->addClass($Constants::BOOLEAN_CLASS))));
-	il->append(static_cast<$Instruction*>($Constants::DUP_X1));
-	il->append(static_cast<$Instruction*>($Constants::SWAP));
-	il->append(static_cast<$Instruction*>($$new($INVOKESPECIAL, $nc(cpg)->addMethodref($Constants::BOOLEAN_CLASS, "<init>"_s, "(Z)V"_s))));
+	$nc(il)->append($$new($NEW, $nc(cpg)->addClass($Constants::BOOLEAN_CLASS)));
+	il->append($Constants::DUP_X1);
+	il->append($Constants::SWAP);
+	il->append($$new($INVOKESPECIAL, cpg->addMethodref($Constants::BOOLEAN_CLASS, "<init>"_s, "(Z)V"_s)));
 }
 
 void BooleanType::translateTo($ClassGenerator* classGen, $MethodGenerator* methodGen, $Class* clazz) {
-	$useLocalCurrentObjectStackCache();
-	$init($Boolean);
+	$useLocalObjectStack();
 	if (clazz == $Boolean::TYPE) {
 		$init($Constants);
-		$nc($($nc(methodGen)->getInstructionList()))->append($Constants::NOP);
+		$$nc($nc(methodGen)->getInstructionList())->append($Constants::NOP);
+	} else if ($nc(clazz)->isAssignableFrom($Boolean::class$)) {
+		$init($Type);
+		translateTo(classGen, methodGen, $Type::Reference);
 	} else {
-		if ($nc(clazz)->isAssignableFrom($Boolean::class$)) {
-			$init($Type);
-			translateTo(classGen, methodGen, $Type::Reference);
-		} else {
-			$init($ErrorMsg);
-			$var($String, var$0, $ErrorMsg::DATA_CONVERSION_ERR);
-			$var($Object, var$1, $of(toString()));
-			$var($ErrorMsg, err, $new($ErrorMsg, var$0, var$1, $($of(clazz->getName()))));
-			$nc($($nc(classGen)->getParser()))->reportError($Constants::FATAL, err);
-		}
+		$init($ErrorMsg);
+		$var($String, var$0, $ErrorMsg::DATA_CONVERSION_ERR);
+		$var($Object, var$1, toString());
+		$var($ErrorMsg, err, $new($ErrorMsg, var$0, var$1, $(clazz->getName())));
+		$$nc($nc(classGen)->getParser())->reportError($Constants::FATAL, err);
 	}
 }
 
@@ -247,12 +199,12 @@ void BooleanType::translateBox($ClassGenerator* classGen, $MethodGenerator* meth
 }
 
 void BooleanType::translateUnBox($ClassGenerator* classGen, $MethodGenerator* methodGen) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ConstantPoolGen, cpg, $nc(classGen)->getConstantPool());
 	$var($InstructionList, il, $nc(methodGen)->getInstructionList());
 	$init($Constants);
-	$nc(il)->append(static_cast<$Instruction*>($$new($CHECKCAST, $nc(cpg)->addClass($Constants::BOOLEAN_CLASS))));
-	il->append(static_cast<$Instruction*>($$new($INVOKEVIRTUAL, $nc(cpg)->addMethodref($Constants::BOOLEAN_CLASS, $Constants::BOOLEAN_VALUE, $Constants::BOOLEAN_VALUE_SIG))));
+	$nc(il)->append($$new($CHECKCAST, $nc(cpg)->addClass($Constants::BOOLEAN_CLASS)));
+	il->append($$new($INVOKEVIRTUAL, cpg->addMethodref($Constants::BOOLEAN_CLASS, $Constants::BOOLEAN_VALUE, $Constants::BOOLEAN_VALUE_SIG)));
 }
 
 $Instruction* BooleanType::LOAD(int32_t slot) {
@@ -264,26 +216,59 @@ $Instruction* BooleanType::STORE(int32_t slot) {
 }
 
 $BranchInstruction* BooleanType::GT(bool tozero) {
-	return tozero ? static_cast<$BranchInstruction*>($new($IFGT, nullptr)) : static_cast<$BranchInstruction*>($new($IF_ICMPGT, nullptr));
+	return tozero ? $cast($BranchInstruction, $new($IFGT, nullptr)) : $cast($BranchInstruction, $new($IF_ICMPGT, nullptr));
 }
 
 $BranchInstruction* BooleanType::GE(bool tozero) {
-	return tozero ? static_cast<$BranchInstruction*>($new($IFGE, nullptr)) : static_cast<$BranchInstruction*>($new($IF_ICMPGE, nullptr));
+	return tozero ? $cast($BranchInstruction, $new($IFGE, nullptr)) : $cast($BranchInstruction, $new($IF_ICMPGE, nullptr));
 }
 
 $BranchInstruction* BooleanType::LT(bool tozero) {
-	return tozero ? static_cast<$BranchInstruction*>($new($IFLT, nullptr)) : static_cast<$BranchInstruction*>($new($IF_ICMPLT, nullptr));
+	return tozero ? $cast($BranchInstruction, $new($IFLT, nullptr)) : $cast($BranchInstruction, $new($IF_ICMPLT, nullptr));
 }
 
 $BranchInstruction* BooleanType::LE(bool tozero) {
-	return tozero ? static_cast<$BranchInstruction*>($new($IFLE, nullptr)) : static_cast<$BranchInstruction*>($new($IF_ICMPLE, nullptr));
+	return tozero ? $cast($BranchInstruction, $new($IFLE, nullptr)) : $cast($BranchInstruction, $new($IF_ICMPLE, nullptr));
 }
 
 BooleanType::BooleanType() {
 }
 
 $Class* BooleanType::load$($String* name, bool initialize) {
-	$loadClass(BooleanType, name, initialize, &_BooleanType_ClassInfo_, allocate$BooleanType);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PROTECTED, $method(BooleanType, init$, void)},
+		{"GE", "(Z)Lcom/sun/org/apache/bcel/internal/generic/BranchInstruction;", nullptr, $PUBLIC, $virtualMethod(BooleanType, GE, $BranchInstruction*, bool)},
+		{"GT", "(Z)Lcom/sun/org/apache/bcel/internal/generic/BranchInstruction;", nullptr, $PUBLIC, $virtualMethod(BooleanType, GT, $BranchInstruction*, bool)},
+		{"LE", "(Z)Lcom/sun/org/apache/bcel/internal/generic/BranchInstruction;", nullptr, $PUBLIC, $virtualMethod(BooleanType, LE, $BranchInstruction*, bool)},
+		{"LOAD", "(I)Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PUBLIC, $virtualMethod(BooleanType, LOAD, $Instruction*, int32_t)},
+		{"LT", "(Z)Lcom/sun/org/apache/bcel/internal/generic/BranchInstruction;", nullptr, $PUBLIC, $virtualMethod(BooleanType, LT, $BranchInstruction*, bool)},
+		{"STORE", "(I)Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PUBLIC, $virtualMethod(BooleanType, STORE, $Instruction*, int32_t)},
+		{"identicalTo", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/Type;)Z", nullptr, $PUBLIC, $virtualMethod(BooleanType, identicalTo, bool, $Type*)},
+		{"isSimple", "()Z", nullptr, $PUBLIC, $virtualMethod(BooleanType, isSimple, bool)},
+		{"toJCType", "()Lcom/sun/org/apache/bcel/internal/generic/Type;", nullptr, $PUBLIC, $virtualMethod(BooleanType, toJCType, $1Type*)},
+		{"toSignature", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(BooleanType, toSignature, $String*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(BooleanType, toString, $String*)},
+		{"translateBox", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;)V", nullptr, $PUBLIC, $virtualMethod(BooleanType, translateBox, void, $ClassGenerator*, $MethodGenerator*)},
+		{"translateFrom", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;Ljava/lang/Class;)V", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;Ljava/lang/Class<*>;)V", $PUBLIC, $virtualMethod(BooleanType, translateFrom, void, $ClassGenerator*, $MethodGenerator*, $Class*)},
+		{"translateTo", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/Type;)V", nullptr, $PUBLIC, $virtualMethod(BooleanType, translateTo, void, $ClassGenerator*, $MethodGenerator*, $Type*)},
+		{"translateTo", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/StringType;)V", nullptr, $PUBLIC, $method(BooleanType, translateTo, void, $ClassGenerator*, $MethodGenerator*, $StringType*)},
+		{"translateTo", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/RealType;)V", nullptr, $PUBLIC, $method(BooleanType, translateTo, void, $ClassGenerator*, $MethodGenerator*, $RealType*)},
+		{"translateTo", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ReferenceType;)V", nullptr, $PUBLIC, $method(BooleanType, translateTo, void, $ClassGenerator*, $MethodGenerator*, $ReferenceType*)},
+		{"translateTo", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;Ljava/lang/Class;)V", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;Ljava/lang/Class<*>;)V", $PUBLIC, $virtualMethod(BooleanType, translateTo, void, $ClassGenerator*, $MethodGenerator*, $Class*)},
+		{"translateUnBox", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;)V", nullptr, $PUBLIC, $virtualMethod(BooleanType, translateUnBox, void, $ClassGenerator*, $MethodGenerator*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xalan.internal.xsltc.compiler.util.BooleanType",
+		"com.sun.org.apache.xalan.internal.xsltc.compiler.util.Type",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(BooleanType, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BooleanType);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <java/beans/XMLDecoder.h>
-
 #include <com/sun/beans/decoder/DocumentHandler.h>
 #include <java/beans/ExceptionListener.h>
 #include <java/beans/Statement.h>
@@ -13,7 +12,6 @@
 #include <java/lang/SecurityManager.h>
 #include <java/security/AccessControlContext.h>
 #include <java/security/AccessController.h>
-#include <java/security/PrivilegedAction.h>
 #include <org/xml/sax/InputSource.h>
 #include <org/xml/sax/helpers/DefaultHandler.h>
 #include <jcpp.h>
@@ -27,71 +25,16 @@ using $IOException = ::java::io::IOException;
 using $InputStream = ::java::io::InputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $ClassLoader = ::java::lang::ClassLoader;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $SecurityException = ::java::lang::SecurityException;
 using $AccessController = ::java::security::AccessController;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $InputSource = ::org::xml::sax::InputSource;
 using $DefaultHandler = ::org::xml::sax::helpers::DefaultHandler;
 
 namespace java {
 	namespace beans {
-
-$FieldInfo _XMLDecoder_FieldInfo_[] = {
-	{"acc", "Ljava/security/AccessControlContext;", nullptr, $PRIVATE | $FINAL, $field(XMLDecoder, acc)},
-	{"handler", "Lcom/sun/beans/decoder/DocumentHandler;", nullptr, $PRIVATE | $FINAL, $field(XMLDecoder, handler)},
-	{"input", "Lorg/xml/sax/InputSource;", nullptr, $PRIVATE | $FINAL, $field(XMLDecoder, input)},
-	{"owner", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(XMLDecoder, owner)},
-	{"array", "[Ljava/lang/Object;", nullptr, $PRIVATE, $field(XMLDecoder, array)},
-	{"index", "I", nullptr, $PRIVATE, $field(XMLDecoder, index)},
-	{}
-};
-
-$MethodInfo _XMLDecoder_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC, $method(XMLDecoder, init$, void, $InputStream*)},
-	{"<init>", "(Ljava/io/InputStream;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(XMLDecoder, init$, void, $InputStream*, Object$*)},
-	{"<init>", "(Ljava/io/InputStream;Ljava/lang/Object;Ljava/beans/ExceptionListener;)V", nullptr, $PUBLIC, $method(XMLDecoder, init$, void, $InputStream*, Object$*, $ExceptionListener*)},
-	{"<init>", "(Ljava/io/InputStream;Ljava/lang/Object;Ljava/beans/ExceptionListener;Ljava/lang/ClassLoader;)V", nullptr, $PUBLIC, $method(XMLDecoder, init$, void, $InputStream*, Object$*, $ExceptionListener*, $ClassLoader*)},
-	{"<init>", "(Lorg/xml/sax/InputSource;)V", nullptr, $PUBLIC, $method(XMLDecoder, init$, void, $InputSource*)},
-	{"<init>", "(Lorg/xml/sax/InputSource;Ljava/lang/Object;Ljava/beans/ExceptionListener;Ljava/lang/ClassLoader;)V", nullptr, $PRIVATE, $method(XMLDecoder, init$, void, $InputSource*, Object$*, $ExceptionListener*, $ClassLoader*)},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(XMLDecoder, close, void)},
-	{"close", "(Ljava/io/Closeable;)V", nullptr, $PRIVATE, $method(XMLDecoder, close, void, $Closeable*)},
-	{"createHandler", "(Ljava/lang/Object;Ljava/beans/ExceptionListener;Ljava/lang/ClassLoader;)Lorg/xml/sax/helpers/DefaultHandler;", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLDecoder, createHandler, $DefaultHandler*, Object$*, $ExceptionListener*, $ClassLoader*)},
-	{"getExceptionListener", "()Ljava/beans/ExceptionListener;", nullptr, $PUBLIC, $virtualMethod(XMLDecoder, getExceptionListener, $ExceptionListener*)},
-	{"getOwner", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(XMLDecoder, getOwner, $Object*)},
-	{"parsingComplete", "()Z", nullptr, $PRIVATE, $method(XMLDecoder, parsingComplete, bool)},
-	{"readObject", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(XMLDecoder, readObject, $Object*)},
-	{"setExceptionListener", "(Ljava/beans/ExceptionListener;)V", nullptr, $PUBLIC, $virtualMethod(XMLDecoder, setExceptionListener, void, $ExceptionListener*)},
-	{"setOwner", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(XMLDecoder, setOwner, void, Object$*)},
-	{}
-};
-
-$InnerClassInfo _XMLDecoder_InnerClassesInfo_[] = {
-	{"java.beans.XMLDecoder$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _XMLDecoder_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.beans.XMLDecoder",
-	"java.lang.Object",
-	"java.lang.AutoCloseable",
-	_XMLDecoder_FieldInfo_,
-	_XMLDecoder_MethodInfo_,
-	nullptr,
-	nullptr,
-	_XMLDecoder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.beans.XMLDecoder$1"
-};
-
-$Object* allocate$XMLDecoder($Class* clazz) {
-	return $of($alloc(XMLDecoder));
-}
 
 void XMLDecoder::init$($InputStream* in) {
 	XMLDecoder::init$(in, nullptr);
@@ -102,7 +45,7 @@ void XMLDecoder::init$($InputStream* in, Object$* owner) {
 }
 
 void XMLDecoder::init$($InputStream* in, Object$* owner, $ExceptionListener* exceptionListener) {
-	XMLDecoder::init$(in, owner, exceptionListener, ($ClassLoader*)nullptr);
+	XMLDecoder::init$(in, owner, exceptionListener, nullptr);
 }
 
 void XMLDecoder::init$($InputStream* in, Object$* owner, $ExceptionListener* exceptionListener, $ClassLoader* cl) {
@@ -110,7 +53,7 @@ void XMLDecoder::init$($InputStream* in, Object$* owner, $ExceptionListener* exc
 }
 
 void XMLDecoder::init$($InputSource* is) {
-	XMLDecoder::init$(is, ($Object*)nullptr, ($ExceptionListener*)nullptr, ($ClassLoader*)nullptr);
+	XMLDecoder::init$(is, nullptr, nullptr, nullptr);
 }
 
 void XMLDecoder::init$($InputSource* is, Object$* owner, $ExceptionListener* el, $ClassLoader* cl) {
@@ -120,14 +63,14 @@ void XMLDecoder::init$($InputSource* is, Object$* owner, $ExceptionListener* el,
 	$set(this, owner, owner);
 	setExceptionListener(el);
 	$nc(this->handler)->setClassLoader(cl);
-	$nc(this->handler)->setOwner(this);
+	this->handler->setOwner(this);
 }
 
 void XMLDecoder::close() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (parsingComplete()) {
 		close($($nc(this->input)->getCharacterStream()));
-		close($($nc(this->input)->getByteStream()));
+		close($(this->input->getByteStream()));
 	}
 }
 
@@ -136,7 +79,7 @@ void XMLDecoder::close($Closeable* in) {
 		try {
 			in->close();
 		} catch ($IOException& e) {
-			$nc($(getExceptionListener()))->exceptionThrown(e);
+			$$nc(getExceptionListener())->exceptionThrown(e);
 		}
 	}
 }
@@ -150,7 +93,7 @@ bool XMLDecoder::parsingComplete() {
 		if ((this->acc == nullptr) && (nullptr != $System::getSecurityManager())) {
 			$throwNew($SecurityException, "AccessControlContext is not set"_s);
 		}
-		$AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($XMLDecoder$1, this)), this->acc);
+		$AccessController::doPrivileged($$new($XMLDecoder$1, this), this->acc);
 		$set(this, array, $nc(this->handler)->getObjects());
 	}
 	return true;
@@ -170,7 +113,7 @@ $ExceptionListener* XMLDecoder::getExceptionListener() {
 }
 
 $Object* XMLDecoder::readObject() {
-	return $of((parsingComplete()) ? $nc(this->array)->get(this->index++) : ($Object*)nullptr);
+	return (parsingComplete()) ? $nc(this->array)->get(this->index++) : ($Object*)nullptr;
 }
 
 void XMLDecoder::setOwner(Object$* owner) {
@@ -178,7 +121,7 @@ void XMLDecoder::setOwner(Object$* owner) {
 }
 
 $Object* XMLDecoder::getOwner() {
-	return $of(this->owner);
+	return this->owner;
 }
 
 $DefaultHandler* XMLDecoder::createHandler(Object$* owner, $ExceptionListener* el, $ClassLoader* cl) {
@@ -194,7 +137,54 @@ XMLDecoder::XMLDecoder() {
 }
 
 $Class* XMLDecoder::load$($String* name, bool initialize) {
-	$loadClass(XMLDecoder, name, initialize, &_XMLDecoder_ClassInfo_, allocate$XMLDecoder);
+	$FieldInfo fieldInfos$$[] = {
+		{"acc", "Ljava/security/AccessControlContext;", nullptr, $PRIVATE | $FINAL, $field(XMLDecoder, acc)},
+		{"handler", "Lcom/sun/beans/decoder/DocumentHandler;", nullptr, $PRIVATE | $FINAL, $field(XMLDecoder, handler)},
+		{"input", "Lorg/xml/sax/InputSource;", nullptr, $PRIVATE | $FINAL, $field(XMLDecoder, input)},
+		{"owner", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(XMLDecoder, owner)},
+		{"array", "[Ljava/lang/Object;", nullptr, $PRIVATE, $field(XMLDecoder, array)},
+		{"index", "I", nullptr, $PRIVATE, $field(XMLDecoder, index)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC, $method(XMLDecoder, init$, void, $InputStream*)},
+		{"<init>", "(Ljava/io/InputStream;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(XMLDecoder, init$, void, $InputStream*, Object$*)},
+		{"<init>", "(Ljava/io/InputStream;Ljava/lang/Object;Ljava/beans/ExceptionListener;)V", nullptr, $PUBLIC, $method(XMLDecoder, init$, void, $InputStream*, Object$*, $ExceptionListener*)},
+		{"<init>", "(Ljava/io/InputStream;Ljava/lang/Object;Ljava/beans/ExceptionListener;Ljava/lang/ClassLoader;)V", nullptr, $PUBLIC, $method(XMLDecoder, init$, void, $InputStream*, Object$*, $ExceptionListener*, $ClassLoader*)},
+		{"<init>", "(Lorg/xml/sax/InputSource;)V", nullptr, $PUBLIC, $method(XMLDecoder, init$, void, $InputSource*)},
+		{"<init>", "(Lorg/xml/sax/InputSource;Ljava/lang/Object;Ljava/beans/ExceptionListener;Ljava/lang/ClassLoader;)V", nullptr, $PRIVATE, $method(XMLDecoder, init$, void, $InputSource*, Object$*, $ExceptionListener*, $ClassLoader*)},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(XMLDecoder, close, void)},
+		{"close", "(Ljava/io/Closeable;)V", nullptr, $PRIVATE, $method(XMLDecoder, close, void, $Closeable*)},
+		{"createHandler", "(Ljava/lang/Object;Ljava/beans/ExceptionListener;Ljava/lang/ClassLoader;)Lorg/xml/sax/helpers/DefaultHandler;", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLDecoder, createHandler, $DefaultHandler*, Object$*, $ExceptionListener*, $ClassLoader*)},
+		{"getExceptionListener", "()Ljava/beans/ExceptionListener;", nullptr, $PUBLIC, $virtualMethod(XMLDecoder, getExceptionListener, $ExceptionListener*)},
+		{"getOwner", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(XMLDecoder, getOwner, $Object*)},
+		{"parsingComplete", "()Z", nullptr, $PRIVATE, $method(XMLDecoder, parsingComplete, bool)},
+		{"readObject", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(XMLDecoder, readObject, $Object*)},
+		{"setExceptionListener", "(Ljava/beans/ExceptionListener;)V", nullptr, $PUBLIC, $virtualMethod(XMLDecoder, setExceptionListener, void, $ExceptionListener*)},
+		{"setOwner", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(XMLDecoder, setOwner, void, Object$*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.beans.XMLDecoder$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.beans.XMLDecoder",
+		"java.lang.Object",
+		"java.lang.AutoCloseable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.beans.XMLDecoder$1"
+	};
+	$loadClass(XMLDecoder, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XMLDecoder);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/lwawt/macosx/CCursorManager.h>
-
 #include <java/awt/Cursor.h>
 #include <java/awt/Point.h>
 #include <java/awt/geom/Point2D.h>
@@ -25,71 +24,33 @@ namespace sun {
 	namespace lwawt {
 		namespace macosx {
 
-$FieldInfo _CCursorManager_FieldInfo_[] = {
-	{"NAMED_CURSOR", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CCursorManager, NAMED_CURSOR)},
-	{"theInstance", "Lsun/lwawt/macosx/CCursorManager;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CCursorManager, theInstance)},
-	{"currentCursor", "Ljava/awt/Cursor;", nullptr, $PRIVATE | $VOLATILE, $field(CCursorManager, currentCursor)},
-	{}
-};
-
-$MethodInfo _CCursorManager_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(CCursorManager, init$, void)},
-	{"getCursorPosition", "()Ljava/awt/Point;", nullptr, $PROTECTED, $virtualMethod(CCursorManager, getCursorPosition, $Point*)},
-	{"getInstance", "()Lsun/lwawt/macosx/CCursorManager;", nullptr, $PUBLIC | $STATIC, $staticMethod(CCursorManager, getInstance, CCursorManager*)},
-	{"nativeGetCursorPosition", "()Ljava/awt/geom/Point2D;", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(CCursorManager, nativeGetCursorPosition, $Point2D*)},
-	{"nativeSetAllowsCursorSetInBackground", "(Z)V", nullptr, $PUBLIC | $STATIC | $NATIVE, $staticMethod(CCursorManager, nativeSetAllowsCursorSetInBackground, void, bool)},
-	{"nativeSetBuiltInCursor", "(ILjava/lang/String;)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(CCursorManager, nativeSetBuiltInCursor, void, int32_t, $String*)},
-	{"nativeSetCustomCursor", "(JDD)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(CCursorManager, nativeSetCustomCursor, void, int64_t, double, double)},
-	{"setCursor", "(Ljava/awt/Cursor;)V", nullptr, $PROTECTED, $virtualMethod(CCursorManager, setCursor, void, $Cursor*)},
-	{}
-};
-
-#define _METHOD_INDEX_nativeGetCursorPosition 3
-#define _METHOD_INDEX_nativeSetAllowsCursorSetInBackground 4
-#define _METHOD_INDEX_nativeSetBuiltInCursor 5
-#define _METHOD_INDEX_nativeSetCustomCursor 6
-
-$ClassInfo _CCursorManager_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.lwawt.macosx.CCursorManager",
-	"sun.lwawt.LWCursorManager",
-	nullptr,
-	_CCursorManager_FieldInfo_,
-	_CCursorManager_MethodInfo_
-};
-
-$Object* allocate$CCursorManager($Class* clazz) {
-	return $of($alloc(CCursorManager));
-}
-
 CCursorManager* CCursorManager::theInstance = nullptr;
 
 $Point2D* CCursorManager::nativeGetCursorPosition() {
 	$init(CCursorManager);
-	$var($Point2D, $ret, nullptr);
-	$prepareNativeStatic(CCursorManager, nativeGetCursorPosition, $Point2D*);
-	$assign($ret, $invokeNativeStaticObject());
+	$prepareNativeStatic(nativeGetCursorPosition, $Point2D*);
+	$var($Point2D, $ret, $invokeNativeStaticObject());
 	$finishNativeStatic();
 	return $ret;
 }
 
 void CCursorManager::nativeSetBuiltInCursor(int32_t type, $String* name) {
 	$init(CCursorManager);
-	$prepareNativeStatic(CCursorManager, nativeSetBuiltInCursor, void, int32_t type, $String* name);
+	$prepareNativeStatic(nativeSetBuiltInCursor, void, int32_t type, $String* name);
 	$invokeNativeStatic(type, name);
 	$finishNativeStatic();
 }
 
 void CCursorManager::nativeSetCustomCursor(int64_t imgPtr, double x, double y) {
 	$init(CCursorManager);
-	$prepareNativeStatic(CCursorManager, nativeSetCustomCursor, void, int64_t imgPtr, double x, double y);
+	$prepareNativeStatic(nativeSetCustomCursor, void, int64_t imgPtr, double x, double y);
 	$invokeNativeStatic(imgPtr, x, y);
 	$finishNativeStatic();
 }
 
 void CCursorManager::nativeSetAllowsCursorSetInBackground(bool allows) {
 	$init(CCursorManager);
-	$prepareNativeStatic(CCursorManager, nativeSetAllowsCursorSetInBackground, void, bool allows);
+	$prepareNativeStatic(nativeSetAllowsCursorSetInBackground, void, bool allows);
 	$invokeNativeStatic(allows);
 	$finishNativeStatic();
 }
@@ -110,7 +71,7 @@ $Point* CCursorManager::getCursorPosition() {
 }
 
 void CCursorManager::setCursor($Cursor* cursor) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (cursor == this->currentCursor) {
 		return;
 	}
@@ -121,10 +82,10 @@ void CCursorManager::setCursor($Cursor* cursor) {
 	}
 	if ($instanceOf($CCustomCursor, cursor)) {
 		$var($CCustomCursor, customCursor, $cast($CCustomCursor, cursor));
-		int64_t imagePtr = $nc(customCursor)->getImageData();
-		if (imagePtr != (int64_t)0) {
+		int64_t imagePtr = customCursor->getImageData();
+		if (imagePtr != 0) {
 			$var($Point, hotSpot, customCursor->getHotSpot());
-			nativeSetCustomCursor(imagePtr, (double)$nc(hotSpot)->x, (double)hotSpot->y);
+			nativeSetCustomCursor(imagePtr, (double)$nc(hotSpot)->x, (double)$nc(hotSpot)->y);
 		}
 		return;
 	}
@@ -141,7 +102,7 @@ void CCursorManager::setCursor($Cursor* cursor) {
 	$throwNew($RuntimeException, "Unimplemented"_s);
 }
 
-void clinit$CCursorManager($Class* class$) {
+void CCursorManager::clinit$($Class* clazz) {
 	$assignStatic(CCursorManager::theInstance, $new(CCursorManager));
 }
 
@@ -149,7 +110,34 @@ CCursorManager::CCursorManager() {
 }
 
 $Class* CCursorManager::load$($String* name, bool initialize) {
-	$loadClass(CCursorManager, name, initialize, &_CCursorManager_ClassInfo_, clinit$CCursorManager, allocate$CCursorManager);
+	$FieldInfo fieldInfos$$[] = {
+		{"NAMED_CURSOR", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CCursorManager, NAMED_CURSOR)},
+		{"theInstance", "Lsun/lwawt/macosx/CCursorManager;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CCursorManager, theInstance)},
+		{"currentCursor", "Ljava/awt/Cursor;", nullptr, $PRIVATE | $VOLATILE, $field(CCursorManager, currentCursor)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(CCursorManager, init$, void)},
+		{"getCursorPosition", "()Ljava/awt/Point;", nullptr, $PROTECTED, $virtualMethod(CCursorManager, getCursorPosition, $Point*)},
+		{"getInstance", "()Lsun/lwawt/macosx/CCursorManager;", nullptr, $PUBLIC | $STATIC, $staticMethod(CCursorManager, getInstance, CCursorManager*)},
+		{"nativeGetCursorPosition", "()Ljava/awt/geom/Point2D;", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(CCursorManager, nativeGetCursorPosition, $Point2D*)},
+		{"nativeSetAllowsCursorSetInBackground", "(Z)V", nullptr, $PUBLIC | $STATIC | $NATIVE, $staticMethod(CCursorManager, nativeSetAllowsCursorSetInBackground, void, bool)},
+		{"nativeSetBuiltInCursor", "(ILjava/lang/String;)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(CCursorManager, nativeSetBuiltInCursor, void, int32_t, $String*)},
+		{"nativeSetCustomCursor", "(JDD)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(CCursorManager, nativeSetCustomCursor, void, int64_t, double, double)},
+		{"setCursor", "(Ljava/awt/Cursor;)V", nullptr, $PROTECTED, $virtualMethod(CCursorManager, setCursor, void, $Cursor*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.lwawt.macosx.CCursorManager",
+		"sun.lwawt.LWCursorManager",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CCursorManager, name, initialize, &classInfo$$, CCursorManager::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(CCursorManager);
+	});
 	return class$;
 }
 

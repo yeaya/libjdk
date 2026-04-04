@@ -1,5 +1,4 @@
 #include <javax/swing/ActionMap.h>
-
 #include <java/io/ObjectInputStream.h>
 #include <java/io/ObjectOutputStream.h>
 #include <java/util/HashMap.h>
@@ -14,47 +13,11 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $HashMap = ::java::util::HashMap;
-using $Set = ::java::util::Set;
 using $Action = ::javax::swing::Action;
 using $ArrayTable = ::javax::swing::ArrayTable;
 
 namespace javax {
 	namespace swing {
-
-$FieldInfo _ActionMap_FieldInfo_[] = {
-	{"arrayTable", "Ljavax/swing/ArrayTable;", nullptr, $PRIVATE | $TRANSIENT, $field(ActionMap, arrayTable)},
-	{"parent", "Ljavax/swing/ActionMap;", nullptr, $PRIVATE, $field(ActionMap, parent)},
-	{}
-};
-
-$MethodInfo _ActionMap_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ActionMap, init$, void)},
-	{"allKeys", "()[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ActionMap, allKeys, $ObjectArray*)},
-	{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(ActionMap, clear, void)},
-	{"get", "(Ljava/lang/Object;)Ljavax/swing/Action;", nullptr, $PUBLIC, $virtualMethod(ActionMap, get, $Action*, Object$*)},
-	{"getParent", "()Ljavax/swing/ActionMap;", nullptr, $PUBLIC, $virtualMethod(ActionMap, getParent, ActionMap*)},
-	{"keys", "()[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ActionMap, keys, $ObjectArray*)},
-	{"put", "(Ljava/lang/Object;Ljavax/swing/Action;)V", nullptr, $PUBLIC, $virtualMethod(ActionMap, put, void, Object$*, $Action*)},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(ActionMap, readObject, void, $ObjectInputStream*), "java.lang.ClassNotFoundException,java.io.IOException"},
-	{"remove", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(ActionMap, remove, void, Object$*)},
-	{"setParent", "(Ljavax/swing/ActionMap;)V", nullptr, $PUBLIC, $virtualMethod(ActionMap, setParent, void, ActionMap*)},
-	{"size", "()I", nullptr, $PUBLIC, $virtualMethod(ActionMap, size, int32_t)},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(ActionMap, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _ActionMap_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.ActionMap",
-	"java.lang.Object",
-	"java.io.Serializable",
-	_ActionMap_FieldInfo_,
-	_ActionMap_MethodInfo_
-};
-
-$Object* allocate$ActionMap($Class* clazz) {
-	return $of($alloc(ActionMap));
-}
 
 void ActionMap::init$() {
 }
@@ -82,8 +45,8 @@ void ActionMap::put(Object$* key, $Action* action) {
 }
 
 $Action* ActionMap::get(Object$* key) {
-	$useLocalCurrentObjectStackCache();
-	$var($Action, value, (this->arrayTable == nullptr) ? ($Action*)nullptr : $cast($Action, $nc(this->arrayTable)->get(key)));
+	$useLocalObjectStack();
+	$var($Action, value, (this->arrayTable == nullptr) ? ($Action*)nullptr : $cast($Action, this->arrayTable->get(key)));
 	if (value == nullptr) {
 		$var(ActionMap, parent, getParent());
 		if (parent != nullptr) {
@@ -95,13 +58,13 @@ $Action* ActionMap::get(Object$* key) {
 
 void ActionMap::remove(Object$* key) {
 	if (this->arrayTable != nullptr) {
-		$nc(this->arrayTable)->remove(key);
+		this->arrayTable->remove(key);
 	}
 }
 
 void ActionMap::clear() {
 	if (this->arrayTable != nullptr) {
-		$nc(this->arrayTable)->clear();
+		this->arrayTable->clear();
 	}
 }
 
@@ -120,7 +83,7 @@ int32_t ActionMap::size() {
 }
 
 $ObjectArray* ActionMap::allKeys() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t count = size();
 	$var(ActionMap, parent, getParent());
 	if (count == 0) {
@@ -148,7 +111,7 @@ $ObjectArray* ActionMap::allKeys() {
 	for (counter = $nc(pKeys)->length - 1; counter >= 0; --counter) {
 		keyMap->put(pKeys->get(counter), pKeys->get(counter));
 	}
-	return $nc($(keyMap->keySet()))->toArray();
+	return $$nc(keyMap->keySet())->toArray();
 }
 
 void ActionMap::writeObject($ObjectOutputStream* s) {
@@ -157,11 +120,11 @@ void ActionMap::writeObject($ObjectOutputStream* s) {
 }
 
 void ActionMap::readObject($ObjectInputStream* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(s)->defaultReadObject();
 	for (int32_t counter = s->readInt() - 1; counter >= 0; --counter) {
 		$var($Object, var$0, s->readObject());
-		put(var$0, $cast($Action, $(s->readObject())));
+		put(var$0, $$cast($Action, s->readObject()));
 	}
 }
 
@@ -169,7 +132,37 @@ ActionMap::ActionMap() {
 }
 
 $Class* ActionMap::load$($String* name, bool initialize) {
-	$loadClass(ActionMap, name, initialize, &_ActionMap_ClassInfo_, allocate$ActionMap);
+	$FieldInfo fieldInfos$$[] = {
+		{"arrayTable", "Ljavax/swing/ArrayTable;", nullptr, $PRIVATE | $TRANSIENT, $field(ActionMap, arrayTable)},
+		{"parent", "Ljavax/swing/ActionMap;", nullptr, $PRIVATE, $field(ActionMap, parent)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ActionMap, init$, void)},
+		{"allKeys", "()[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ActionMap, allKeys, $ObjectArray*)},
+		{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(ActionMap, clear, void)},
+		{"get", "(Ljava/lang/Object;)Ljavax/swing/Action;", nullptr, $PUBLIC, $virtualMethod(ActionMap, get, $Action*, Object$*)},
+		{"getParent", "()Ljavax/swing/ActionMap;", nullptr, $PUBLIC, $virtualMethod(ActionMap, getParent, ActionMap*)},
+		{"keys", "()[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ActionMap, keys, $ObjectArray*)},
+		{"put", "(Ljava/lang/Object;Ljavax/swing/Action;)V", nullptr, $PUBLIC, $virtualMethod(ActionMap, put, void, Object$*, $Action*)},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(ActionMap, readObject, void, $ObjectInputStream*), "java.lang.ClassNotFoundException,java.io.IOException"},
+		{"remove", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(ActionMap, remove, void, Object$*)},
+		{"setParent", "(Ljavax/swing/ActionMap;)V", nullptr, $PUBLIC, $virtualMethod(ActionMap, setParent, void, ActionMap*)},
+		{"size", "()I", nullptr, $PUBLIC, $virtualMethod(ActionMap, size, int32_t)},
+		{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(ActionMap, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.ActionMap",
+		"java.lang.Object",
+		"java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ActionMap, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ActionMap);
+	});
 	return class$;
 }
 

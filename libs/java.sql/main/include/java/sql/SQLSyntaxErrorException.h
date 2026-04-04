@@ -26,10 +26,13 @@ public:
 	void init$($String* reason, $Throwable* cause);
 	void init$($String* reason, $String* SQLState, $Throwable* cause);
 	void init$($String* reason, $String* SQLState, int32_t vendorCode, $Throwable* cause);
-	static const int64_t serialVersionUID = (int64_t)0xE66964028335290B;
+	static const int64_t serialVersionUID = (int64_t)0xe66964028335290b;
 	SQLSyntaxErrorException(const SQLSyntaxErrorException& e);
 	virtual void throw$() override;
-	inline SQLSyntaxErrorException* operator ->() {
+	inline SQLSyntaxErrorException* operator ->() const {
+		return (SQLSyntaxErrorException*)throwing$;
+	}
+	inline operator SQLSyntaxErrorException*() const {
 		return (SQLSyntaxErrorException*)throwing$;
 	}
 };

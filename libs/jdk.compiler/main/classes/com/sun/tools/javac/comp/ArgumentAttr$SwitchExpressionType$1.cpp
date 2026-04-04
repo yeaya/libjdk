@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/ArgumentAttr$SwitchExpressionType$1.h>
-
 #include <com/sun/tools/javac/comp/ArgumentAttr$SwitchExpressionType.h>
 #include <com/sun/tools/javac/comp/DeferredAttr$SwitchExpressionScanner.h>
 #include <com/sun/tools/javac/tree/JCTree$JCExpression.h>
@@ -25,51 +24,6 @@ namespace com {
 			namespace javac {
 				namespace comp {
 
-$FieldInfo _ArgumentAttr$SwitchExpressionType$1_FieldInfo_[] = {
-	{"this$1", "Lcom/sun/tools/javac/comp/ArgumentAttr$SwitchExpressionType;", nullptr, $FINAL | $SYNTHETIC, $field(ArgumentAttr$SwitchExpressionType$1, this$1)},
-	{"val$buf", "Lcom/sun/tools/javac/util/ListBuffer;", nullptr, $FINAL | $SYNTHETIC, $field(ArgumentAttr$SwitchExpressionType$1, val$buf)},
-	{}
-};
-
-$MethodInfo _ArgumentAttr$SwitchExpressionType$1_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/ArgumentAttr$SwitchExpressionType;Lcom/sun/tools/javac/util/ListBuffer;)V", nullptr, 0, $method(ArgumentAttr$SwitchExpressionType$1, init$, void, $ArgumentAttr$SwitchExpressionType*, $ListBuffer*)},
-	{"visitYield", "(Lcom/sun/tools/javac/tree/JCTree$JCYield;)V", nullptr, $PUBLIC, $virtualMethod(ArgumentAttr$SwitchExpressionType$1, visitYield, void, $JCTree$JCYield*)},
-	{}
-};
-
-$EnclosingMethodInfo _ArgumentAttr$SwitchExpressionType$1_EnclosingMethodInfo_ = {
-	"com.sun.tools.javac.comp.ArgumentAttr$SwitchExpressionType",
-	"yieldExpressions",
-	"()Lcom/sun/tools/javac/util/List;"
-};
-
-$InnerClassInfo _ArgumentAttr$SwitchExpressionType$1_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.ArgumentAttr$SwitchExpressionType", "com.sun.tools.javac.comp.ArgumentAttr", "SwitchExpressionType", 0},
-	{"com.sun.tools.javac.comp.ArgumentAttr$SwitchExpressionType$1", nullptr, nullptr, 0},
-	{"com.sun.tools.javac.comp.DeferredAttr$SwitchExpressionScanner", "com.sun.tools.javac.comp.DeferredAttr", "SwitchExpressionScanner", $STATIC},
-	{}
-};
-
-$ClassInfo _ArgumentAttr$SwitchExpressionType$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.comp.ArgumentAttr$SwitchExpressionType$1",
-	"com.sun.tools.javac.comp.DeferredAttr$SwitchExpressionScanner",
-	nullptr,
-	_ArgumentAttr$SwitchExpressionType$1_FieldInfo_,
-	_ArgumentAttr$SwitchExpressionType$1_MethodInfo_,
-	nullptr,
-	&_ArgumentAttr$SwitchExpressionType$1_EnclosingMethodInfo_,
-	_ArgumentAttr$SwitchExpressionType$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.ArgumentAttr"
-};
-
-$Object* allocate$ArgumentAttr$SwitchExpressionType$1($Class* clazz) {
-	return $of($alloc(ArgumentAttr$SwitchExpressionType$1));
-}
-
 void ArgumentAttr$SwitchExpressionType$1::init$($ArgumentAttr$SwitchExpressionType* this$1, $ListBuffer* val$buf) {
 	$set(this, this$1, this$1);
 	$set(this, val$buf, val$buf);
@@ -87,7 +41,45 @@ ArgumentAttr$SwitchExpressionType$1::ArgumentAttr$SwitchExpressionType$1() {
 }
 
 $Class* ArgumentAttr$SwitchExpressionType$1::load$($String* name, bool initialize) {
-	$loadClass(ArgumentAttr$SwitchExpressionType$1, name, initialize, &_ArgumentAttr$SwitchExpressionType$1_ClassInfo_, allocate$ArgumentAttr$SwitchExpressionType$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$1", "Lcom/sun/tools/javac/comp/ArgumentAttr$SwitchExpressionType;", nullptr, $FINAL | $SYNTHETIC, $field(ArgumentAttr$SwitchExpressionType$1, this$1)},
+		{"val$buf", "Lcom/sun/tools/javac/util/ListBuffer;", nullptr, $FINAL | $SYNTHETIC, $field(ArgumentAttr$SwitchExpressionType$1, val$buf)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/comp/ArgumentAttr$SwitchExpressionType;Lcom/sun/tools/javac/util/ListBuffer;)V", nullptr, 0, $method(ArgumentAttr$SwitchExpressionType$1, init$, void, $ArgumentAttr$SwitchExpressionType*, $ListBuffer*)},
+		{"visitYield", "(Lcom/sun/tools/javac/tree/JCTree$JCYield;)V", nullptr, $PUBLIC, $virtualMethod(ArgumentAttr$SwitchExpressionType$1, visitYield, void, $JCTree$JCYield*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.tools.javac.comp.ArgumentAttr$SwitchExpressionType",
+		"yieldExpressions",
+		"()Lcom/sun/tools/javac/util/List;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.ArgumentAttr$SwitchExpressionType", "com.sun.tools.javac.comp.ArgumentAttr", "SwitchExpressionType", 0},
+		{"com.sun.tools.javac.comp.ArgumentAttr$SwitchExpressionType$1", nullptr, nullptr, 0},
+		{"com.sun.tools.javac.comp.DeferredAttr$SwitchExpressionScanner", "com.sun.tools.javac.comp.DeferredAttr", "SwitchExpressionScanner", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.comp.ArgumentAttr$SwitchExpressionType$1",
+		"com.sun.tools.javac.comp.DeferredAttr$SwitchExpressionScanner",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.ArgumentAttr"
+	};
+	$loadClass(ArgumentAttr$SwitchExpressionType$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ArgumentAttr$SwitchExpressionType$1);
+	});
 	return class$;
 }
 

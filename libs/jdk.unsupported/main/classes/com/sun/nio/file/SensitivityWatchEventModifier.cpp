@@ -1,7 +1,5 @@
 #include <com/sun/nio/file/SensitivityWatchEventModifier.h>
-
 #include <java/lang/Enum.h>
-#include <java/nio/file/WatchEvent$Modifier.h>
 #include <jdk/internal/misc/FileSystemOption.h>
 #include <jcpp.h>
 
@@ -19,58 +17,12 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $WatchEvent$Modifier = ::java::nio::file::WatchEvent$Modifier;
 using $FileSystemOption = ::jdk::internal::misc::FileSystemOption;
 
 namespace com {
 	namespace sun {
 		namespace nio {
 			namespace file {
-
-$FieldInfo _SensitivityWatchEventModifier_FieldInfo_[] = {
-	{"HIGH", "Lcom/sun/nio/file/SensitivityWatchEventModifier;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SensitivityWatchEventModifier, HIGH)},
-	{"MEDIUM", "Lcom/sun/nio/file/SensitivityWatchEventModifier;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SensitivityWatchEventModifier, MEDIUM)},
-	{"LOW", "Lcom/sun/nio/file/SensitivityWatchEventModifier;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SensitivityWatchEventModifier, LOW)},
-	{"$VALUES", "[Lcom/sun/nio/file/SensitivityWatchEventModifier;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(SensitivityWatchEventModifier, $VALUES)},
-	{"sensitivity", "I", nullptr, $PRIVATE | $FINAL, $field(SensitivityWatchEventModifier, sensitivity)},
-	{}
-};
-
-$MethodInfo _SensitivityWatchEventModifier_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/nio/file/SensitivityWatchEventModifier;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(SensitivityWatchEventModifier, $values, $SensitivityWatchEventModifierArray*)},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
-	{"*finalize", "()V", nullptr, $PROTECTED | $FINAL},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $FINAL},
-	{"<init>", "(Ljava/lang/String;ILjdk/internal/misc/FileSystemOption;I)V", "(Ljdk/internal/misc/FileSystemOption<Ljava/lang/Integer;>;I)V", $PRIVATE, $method(SensitivityWatchEventModifier, init$, void, $String*, int32_t, $FileSystemOption*, int32_t)},
-	{"*name", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL},
-	{"sensitivityValueInSeconds", "()I", nullptr, $PUBLIC, $method(SensitivityWatchEventModifier, sensitivityValueInSeconds, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/nio/file/SensitivityWatchEventModifier;", nullptr, $PUBLIC | $STATIC, $staticMethod(SensitivityWatchEventModifier, valueOf, SensitivityWatchEventModifier*, $String*)},
-	{"values", "()[Lcom/sun/nio/file/SensitivityWatchEventModifier;", nullptr, $PUBLIC | $STATIC, $staticMethod(SensitivityWatchEventModifier, values, $SensitivityWatchEventModifierArray*)},
-	{}
-};
-
-$InnerClassInfo _SensitivityWatchEventModifier_InnerClassesInfo_[] = {
-	{"java.nio.file.WatchEvent$Modifier", "java.nio.file.WatchEvent", "Modifier", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _SensitivityWatchEventModifier_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"com.sun.nio.file.SensitivityWatchEventModifier",
-	"java.lang.Enum",
-	"java.nio.file.WatchEvent$Modifier",
-	_SensitivityWatchEventModifier_FieldInfo_,
-	_SensitivityWatchEventModifier_MethodInfo_,
-	"Ljava/lang/Enum<Lcom/sun/nio/file/SensitivityWatchEventModifier;>;Ljava/nio/file/WatchEvent$Modifier;",
-	nullptr,
-	_SensitivityWatchEventModifier_InnerClassesInfo_
-};
-
-$Object* allocate$SensitivityWatchEventModifier($Class* clazz) {
-	return $of($alloc(SensitivityWatchEventModifier));
-}
 
 $String* SensitivityWatchEventModifier::name() {
 	 return this->$Enum::name();
@@ -130,7 +82,7 @@ void SensitivityWatchEventModifier::init$($String* $enum$name, int32_t $enum$ord
 	$nc(option)->register$(this, $($Integer::valueOf(sensitivity)));
 }
 
-void clinit$SensitivityWatchEventModifier($Class* class$) {
+void SensitivityWatchEventModifier::clinit$($Class* clazz) {
 	$init($FileSystemOption);
 	$assignStatic(SensitivityWatchEventModifier::HIGH, $new(SensitivityWatchEventModifier, "HIGH"_s, 0, $FileSystemOption::SENSITIVITY_HIGH, 2));
 	$assignStatic(SensitivityWatchEventModifier::MEDIUM, $new(SensitivityWatchEventModifier, "MEDIUM"_s, 1, $FileSystemOption::SENSITIVITY_MEDIUM, 10));
@@ -142,7 +94,46 @@ SensitivityWatchEventModifier::SensitivityWatchEventModifier() {
 }
 
 $Class* SensitivityWatchEventModifier::load$($String* name, bool initialize) {
-	$loadClass(SensitivityWatchEventModifier, name, initialize, &_SensitivityWatchEventModifier_ClassInfo_, clinit$SensitivityWatchEventModifier, allocate$SensitivityWatchEventModifier);
+	$FieldInfo fieldInfos$$[] = {
+		{"HIGH", "Lcom/sun/nio/file/SensitivityWatchEventModifier;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SensitivityWatchEventModifier, HIGH)},
+		{"MEDIUM", "Lcom/sun/nio/file/SensitivityWatchEventModifier;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SensitivityWatchEventModifier, MEDIUM)},
+		{"LOW", "Lcom/sun/nio/file/SensitivityWatchEventModifier;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SensitivityWatchEventModifier, LOW)},
+		{"$VALUES", "[Lcom/sun/nio/file/SensitivityWatchEventModifier;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(SensitivityWatchEventModifier, $VALUES)},
+		{"sensitivity", "I", nullptr, $PRIVATE | $FINAL, $field(SensitivityWatchEventModifier, sensitivity)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lcom/sun/nio/file/SensitivityWatchEventModifier;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(SensitivityWatchEventModifier, $values, $SensitivityWatchEventModifierArray*)},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
+		{"*finalize", "()V", nullptr, $PROTECTED | $FINAL},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $FINAL},
+		{"<init>", "(Ljava/lang/String;ILjdk/internal/misc/FileSystemOption;I)V", "(Ljdk/internal/misc/FileSystemOption<Ljava/lang/Integer;>;I)V", $PRIVATE, $method(SensitivityWatchEventModifier, init$, void, $String*, int32_t, $FileSystemOption*, int32_t)},
+		{"*name", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL},
+		{"sensitivityValueInSeconds", "()I", nullptr, $PUBLIC, $method(SensitivityWatchEventModifier, sensitivityValueInSeconds, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"valueOf", "(Ljava/lang/String;)Lcom/sun/nio/file/SensitivityWatchEventModifier;", nullptr, $PUBLIC | $STATIC, $staticMethod(SensitivityWatchEventModifier, valueOf, SensitivityWatchEventModifier*, $String*)},
+		{"values", "()[Lcom/sun/nio/file/SensitivityWatchEventModifier;", nullptr, $PUBLIC | $STATIC, $staticMethod(SensitivityWatchEventModifier, values, $SensitivityWatchEventModifierArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.nio.file.WatchEvent$Modifier", "java.nio.file.WatchEvent", "Modifier", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"com.sun.nio.file.SensitivityWatchEventModifier",
+		"java.lang.Enum",
+		"java.nio.file.WatchEvent$Modifier",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lcom/sun/nio/file/SensitivityWatchEventModifier;>;Ljava/nio/file/WatchEvent$Modifier;",
+		nullptr,
+		innerClassesInfo$$
+	};
+	$loadClass(SensitivityWatchEventModifier, name, initialize, &classInfo$$, SensitivityWatchEventModifier::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SensitivityWatchEventModifier));
+	});
 	return class$;
 }
 

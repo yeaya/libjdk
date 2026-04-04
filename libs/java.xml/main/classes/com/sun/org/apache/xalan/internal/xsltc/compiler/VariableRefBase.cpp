@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/VariableRefBase.h>
-
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/Closure.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/Expression.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/Param.h>
@@ -36,37 +35,6 @@ namespace com {
 						namespace xsltc {
 							namespace compiler {
 
-$FieldInfo _VariableRefBase_FieldInfo_[] = {
-	{"_variable", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/VariableBase;", nullptr, $PROTECTED, $field(VariableRefBase, _variable)},
-	{"_closure", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Closure;", nullptr, $PROTECTED, $field(VariableRefBase, _closure)},
-	{}
-};
-
-$MethodInfo _VariableRefBase_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/VariableBase;)V", nullptr, $PUBLIC, $method(VariableRefBase, init$, void, $VariableBase*)},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(VariableRefBase, init$, void)},
-	{"addParentDependency", "()V", nullptr, $PUBLIC, $virtualMethod(VariableRefBase, addParentDependency, void)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(VariableRefBase, equals, bool, Object$*)},
-	{"getVariable", "()Lcom/sun/org/apache/xalan/internal/xsltc/compiler/VariableBase;", nullptr, $PUBLIC, $virtualMethod(VariableRefBase, getVariable, $VariableBase*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(VariableRefBase, hashCode, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(VariableRefBase, toString, $String*)},
-	{"typeCheck", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SymbolTable;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/Type;", nullptr, $PUBLIC, $virtualMethod(VariableRefBase, typeCheck, $Type*, $SymbolTable*), "com.sun.org.apache.xalan.internal.xsltc.compiler.util.TypeCheckError"},
-	{}
-};
-
-$ClassInfo _VariableRefBase_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.org.apache.xalan.internal.xsltc.compiler.VariableRefBase",
-	"com.sun.org.apache.xalan.internal.xsltc.compiler.Expression",
-	nullptr,
-	_VariableRefBase_FieldInfo_,
-	_VariableRefBase_MethodInfo_
-};
-
-$Object* allocate$VariableRefBase($Class* clazz) {
-	return $of($alloc(VariableRefBase));
-}
-
 void VariableRefBase::init$($VariableBase* variable) {
 	$Expression::init$();
 	$set(this, _closure, nullptr);
@@ -85,7 +53,7 @@ $VariableBase* VariableRefBase::getVariable() {
 }
 
 void VariableRefBase::addParentDependency() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SyntaxTreeNode, node, this);
 	while (node != nullptr && $instanceOf($TopLevelElement, node) == false) {
 		$assign(node, node->getParent());
@@ -95,9 +63,9 @@ void VariableRefBase::addParentDependency() {
 		$var($VariableBase, var, this->_variable);
 		if ($nc(this->_variable)->_ignore) {
 			if ($instanceOf($Variable, this->_variable)) {
-				$assign(var, $nc($(parent->getSymbolTable()))->lookupVariable($nc(this->_variable)->_name));
+				$assign(var, $$nc(parent->getSymbolTable())->lookupVariable(this->_variable->_name));
 			} else if ($instanceOf($Param, this->_variable)) {
-				$assign(var, $nc($(parent->getSymbolTable()))->lookupParam($nc(this->_variable)->_name));
+				$assign(var, $$nc(parent->getSymbolTable())->lookupParam(this->_variable->_name));
 			}
 		}
 		parent->addDependency(var);
@@ -105,7 +73,7 @@ void VariableRefBase::addParentDependency() {
 }
 
 bool VariableRefBase::equals(Object$* obj) {
-	return $equals(obj, this) || ($instanceOf(VariableRefBase, obj)) && (this->_variable == $nc(($cast(VariableRefBase, obj)))->_variable);
+	return $equals(obj, this) || ($instanceOf(VariableRefBase, obj)) && (this->_variable == $cast(VariableRefBase, obj)->_variable);
 }
 
 int32_t VariableRefBase::hashCode() {
@@ -113,10 +81,14 @@ int32_t VariableRefBase::hashCode() {
 }
 
 $String* VariableRefBase::toString() {
-	$useLocalCurrentObjectStackCache();
-	$var($String, var$1, $$str({"variable-ref("_s, $($nc(this->_variable)->getName()), $$str(u'/')}));
-	$var($String, var$0, $$concat(var$1, $($nc(this->_variable)->getType())));
-	return $concat(var$0, $$str(u')'));
+	$useLocalObjectStack();
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append("variable-ref("_s);
+	var$0->append($($nc(this->_variable)->getName()));
+	var$0->append(u'/');
+	var$0->append($(this->_variable->getType()));
+	var$0->append(u')');
+	return $str(var$0);
 }
 
 $Type* VariableRefBase::typeCheck($SymbolTable* stable) {
@@ -136,7 +108,7 @@ $Type* VariableRefBase::typeCheck($SymbolTable* stable) {
 			$assign(node, $nc(node)->getParent());
 		} while (node != nullptr);
 		if (this->_closure != nullptr) {
-			$nc(this->_closure)->addVariable(this);
+			this->_closure->addVariable(this);
 		}
 	}
 	$set(this, _type, $nc(this->_variable)->getType());
@@ -152,7 +124,33 @@ VariableRefBase::VariableRefBase() {
 }
 
 $Class* VariableRefBase::load$($String* name, bool initialize) {
-	$loadClass(VariableRefBase, name, initialize, &_VariableRefBase_ClassInfo_, allocate$VariableRefBase);
+	$FieldInfo fieldInfos$$[] = {
+		{"_variable", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/VariableBase;", nullptr, $PROTECTED, $field(VariableRefBase, _variable)},
+		{"_closure", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Closure;", nullptr, $PROTECTED, $field(VariableRefBase, _closure)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/VariableBase;)V", nullptr, $PUBLIC, $method(VariableRefBase, init$, void, $VariableBase*)},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(VariableRefBase, init$, void)},
+		{"addParentDependency", "()V", nullptr, $PUBLIC, $virtualMethod(VariableRefBase, addParentDependency, void)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(VariableRefBase, equals, bool, Object$*)},
+		{"getVariable", "()Lcom/sun/org/apache/xalan/internal/xsltc/compiler/VariableBase;", nullptr, $PUBLIC, $virtualMethod(VariableRefBase, getVariable, $VariableBase*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(VariableRefBase, hashCode, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(VariableRefBase, toString, $String*)},
+		{"typeCheck", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SymbolTable;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/Type;", nullptr, $PUBLIC, $virtualMethod(VariableRefBase, typeCheck, $Type*, $SymbolTable*), "com.sun.org.apache.xalan.internal.xsltc.compiler.util.TypeCheckError"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.org.apache.xalan.internal.xsltc.compiler.VariableRefBase",
+		"com.sun.org.apache.xalan.internal.xsltc.compiler.Expression",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(VariableRefBase, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(VariableRefBase);
+	});
 	return class$;
 }
 

@@ -24,6 +24,7 @@ class $export RichDiagnosticFormatter$RichConfiguration$RichFormatterFeature : p
 public:
 	RichDiagnosticFormatter$RichConfiguration$RichFormatterFeature();
 	static $Array<::com::sun::tools::javac::util::RichDiagnosticFormatter$RichConfiguration$RichFormatterFeature>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::com::sun::tools::javac::util::RichDiagnosticFormatter$RichConfiguration$RichFormatterFeature* valueOf($String* name);
 	static $Array<::com::sun::tools::javac::util::RichDiagnosticFormatter$RichConfiguration$RichFormatterFeature>* values();

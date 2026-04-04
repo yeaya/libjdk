@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/windows/WindowsFileChooserUI$8.h>
-
 #include <com/sun/java/swing/plaf/windows/WindowsFileChooserUI.h>
 #include <java/awt/event/FocusAdapter.h>
 #include <java/awt/event/FocusEvent.h>
@@ -15,8 +14,6 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $JFileChooser = ::javax::swing::JFileChooser;
-using $FilePane = ::sun::swing::FilePane;
 
 namespace com {
 	namespace sun {
@@ -25,55 +22,13 @@ namespace com {
 				namespace plaf {
 					namespace windows {
 
-$FieldInfo _WindowsFileChooserUI$8_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/java/swing/plaf/windows/WindowsFileChooserUI;", nullptr, $FINAL | $SYNTHETIC, $field(WindowsFileChooserUI$8, this$0)},
-	{}
-};
-
-$MethodInfo _WindowsFileChooserUI$8_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/java/swing/plaf/windows/WindowsFileChooserUI;)V", nullptr, 0, $method(WindowsFileChooserUI$8, init$, void, $WindowsFileChooserUI*)},
-	{"focusGained", "(Ljava/awt/event/FocusEvent;)V", nullptr, $PUBLIC, $virtualMethod(WindowsFileChooserUI$8, focusGained, void, $FocusEvent*)},
-	{}
-};
-
-$EnclosingMethodInfo _WindowsFileChooserUI$8_EnclosingMethodInfo_ = {
-	"com.sun.java.swing.plaf.windows.WindowsFileChooserUI",
-	"installComponents",
-	"(Ljavax/swing/JFileChooser;)V"
-};
-
-$InnerClassInfo _WindowsFileChooserUI$8_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.windows.WindowsFileChooserUI$8", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _WindowsFileChooserUI$8_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.java.swing.plaf.windows.WindowsFileChooserUI$8",
-	"java.awt.event.FocusAdapter",
-	nullptr,
-	_WindowsFileChooserUI$8_FieldInfo_,
-	_WindowsFileChooserUI$8_MethodInfo_,
-	nullptr,
-	&_WindowsFileChooserUI$8_EnclosingMethodInfo_,
-	_WindowsFileChooserUI$8_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.windows.WindowsFileChooserUI"
-};
-
-$Object* allocate$WindowsFileChooserUI$8($Class* clazz) {
-	return $of($alloc(WindowsFileChooserUI$8));
-}
-
 void WindowsFileChooserUI$8::init$($WindowsFileChooserUI* this$0) {
 	$set(this, this$0, this$0);
 	$FocusAdapter::init$();
 }
 
 void WindowsFileChooserUI$8::focusGained($FocusEvent* e) {
-	if (!$nc($(this->this$0->getFileChooser()))->isMultiSelectionEnabled()) {
+	if (!$$nc(this->this$0->getFileChooser())->isMultiSelectionEnabled()) {
 		$nc(this->this$0->filePane)->clearSelection();
 	}
 }
@@ -82,7 +37,42 @@ WindowsFileChooserUI$8::WindowsFileChooserUI$8() {
 }
 
 $Class* WindowsFileChooserUI$8::load$($String* name, bool initialize) {
-	$loadClass(WindowsFileChooserUI$8, name, initialize, &_WindowsFileChooserUI$8_ClassInfo_, allocate$WindowsFileChooserUI$8);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/java/swing/plaf/windows/WindowsFileChooserUI;", nullptr, $FINAL | $SYNTHETIC, $field(WindowsFileChooserUI$8, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/java/swing/plaf/windows/WindowsFileChooserUI;)V", nullptr, 0, $method(WindowsFileChooserUI$8, init$, void, $WindowsFileChooserUI*)},
+		{"focusGained", "(Ljava/awt/event/FocusEvent;)V", nullptr, $PUBLIC, $virtualMethod(WindowsFileChooserUI$8, focusGained, void, $FocusEvent*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.java.swing.plaf.windows.WindowsFileChooserUI",
+		"installComponents",
+		"(Ljavax/swing/JFileChooser;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.windows.WindowsFileChooserUI$8", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.java.swing.plaf.windows.WindowsFileChooserUI$8",
+		"java.awt.event.FocusAdapter",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.windows.WindowsFileChooserUI"
+	};
+	$loadClass(WindowsFileChooserUI$8, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WindowsFileChooserUI$8);
+	});
 	return class$;
 }
 

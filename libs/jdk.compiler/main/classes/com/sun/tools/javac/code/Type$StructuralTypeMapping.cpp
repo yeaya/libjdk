@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/code/Type$StructuralTypeMapping.h>
-
 #include <com/sun/tools/javac/code/BoundKind.h>
 #include <com/sun/tools/javac/code/Symbol$TypeSymbol.h>
 #include <com/sun/tools/javac/code/Type$ArrayType.h>
@@ -41,52 +40,12 @@ namespace com {
 			namespace javac {
 				namespace code {
 
-$MethodInfo _Type$StructuralTypeMapping_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Type$StructuralTypeMapping, init$, void)},
-	{"visitArrayType", "(Lcom/sun/tools/javac/code/Type$ArrayType;Ljava/lang/Object;)Lcom/sun/tools/javac/code/Type;", "(Lcom/sun/tools/javac/code/Type$ArrayType;TS;)Lcom/sun/tools/javac/code/Type;", $PUBLIC, $virtualMethod(Type$StructuralTypeMapping, visitArrayType, $Object*, $Type$ArrayType*, Object$*)},
-	{"visitClassType", "(Lcom/sun/tools/javac/code/Type$ClassType;Ljava/lang/Object;)Lcom/sun/tools/javac/code/Type;", "(Lcom/sun/tools/javac/code/Type$ClassType;TS;)Lcom/sun/tools/javac/code/Type;", $PUBLIC, $virtualMethod(Type$StructuralTypeMapping, visitClassType, $Object*, $Type$ClassType*, Object$*)},
-	{"visitForAll", "(Lcom/sun/tools/javac/code/Type$ForAll;Ljava/lang/Object;)Lcom/sun/tools/javac/code/Type;", "(Lcom/sun/tools/javac/code/Type$ForAll;TS;)Lcom/sun/tools/javac/code/Type;", $PUBLIC, $virtualMethod(Type$StructuralTypeMapping, visitForAll, $Object*, $Type$ForAll*, Object$*)},
-	{"visitMethodType", "(Lcom/sun/tools/javac/code/Type$MethodType;Ljava/lang/Object;)Lcom/sun/tools/javac/code/Type;", "(Lcom/sun/tools/javac/code/Type$MethodType;TS;)Lcom/sun/tools/javac/code/Type;", $PUBLIC, $virtualMethod(Type$StructuralTypeMapping, visitMethodType, $Object*, $Type$MethodType*, Object$*)},
-	{"visitWildcardType", "(Lcom/sun/tools/javac/code/Type$WildcardType;Ljava/lang/Object;)Lcom/sun/tools/javac/code/Type;", "(Lcom/sun/tools/javac/code/Type$WildcardType;TS;)Lcom/sun/tools/javac/code/Type;", $PUBLIC, $virtualMethod(Type$StructuralTypeMapping, visitWildcardType, $Object*, $Type$WildcardType*, Object$*)},
-	{}
-};
-
-$InnerClassInfo _Type$StructuralTypeMapping_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.code.Type$StructuralTypeMapping", "com.sun.tools.javac.code.Type", "StructuralTypeMapping", $PUBLIC | $STATIC | $ABSTRACT},
-	{"com.sun.tools.javac.code.Types$TypeMapping", "com.sun.tools.javac.code.Types", "TypeMapping", $PUBLIC | $STATIC},
-	{"com.sun.tools.javac.code.Type$StructuralTypeMapping$4", nullptr, nullptr, 0},
-	{"com.sun.tools.javac.code.Type$StructuralTypeMapping$3", nullptr, nullptr, 0},
-	{"com.sun.tools.javac.code.Type$StructuralTypeMapping$2", nullptr, nullptr, 0},
-	{"com.sun.tools.javac.code.Type$StructuralTypeMapping$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Type$StructuralTypeMapping_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"com.sun.tools.javac.code.Type$StructuralTypeMapping",
-	"com.sun.tools.javac.code.Types$TypeMapping",
-	nullptr,
-	nullptr,
-	_Type$StructuralTypeMapping_MethodInfo_,
-	"<S:Ljava/lang/Object;>Lcom/sun/tools/javac/code/Types$TypeMapping<TS;>;",
-	nullptr,
-	_Type$StructuralTypeMapping_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.code.Type"
-};
-
-$Object* allocate$Type$StructuralTypeMapping($Class* clazz) {
-	return $of($alloc(Type$StructuralTypeMapping));
-}
-
 void Type$StructuralTypeMapping::init$() {
 	$Types$TypeMapping::init$();
 }
 
 $Object* Type$StructuralTypeMapping::visitClassType($Type$ClassType* t, Object$* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Type, outer, $nc(t)->getEnclosingType());
 	$var($Type, outer1, $cast($Type, visit(outer, s)));
 	$var($List, typarams, t->getTypeArguments());
@@ -111,7 +70,7 @@ $Object* Type$StructuralTypeMapping::visitWildcardType($Type$WildcardType* wt, O
 }
 
 $Object* Type$StructuralTypeMapping::visitArrayType($Type$ArrayType* t, Object$* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Type, elemtype, $nc(t)->elemtype);
 	$var($Type, elemtype1, $cast($Type, visit(elemtype, s)));
 	if (elemtype1 == elemtype) {
@@ -122,7 +81,7 @@ $Object* Type$StructuralTypeMapping::visitArrayType($Type$ArrayType* t, Object$*
 }
 
 $Object* Type$StructuralTypeMapping::visitMethodType($Type$MethodType* t, Object$* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, argtypes, $nc(t)->argtypes$);
 	$var($Type, restype, t->restype);
 	$var($List, thrown, t->thrown);
@@ -144,7 +103,42 @@ Type$StructuralTypeMapping::Type$StructuralTypeMapping() {
 }
 
 $Class* Type$StructuralTypeMapping::load$($String* name, bool initialize) {
-	$loadClass(Type$StructuralTypeMapping, name, initialize, &_Type$StructuralTypeMapping_ClassInfo_, allocate$Type$StructuralTypeMapping);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Type$StructuralTypeMapping, init$, void)},
+		{"visitArrayType", "(Lcom/sun/tools/javac/code/Type$ArrayType;Ljava/lang/Object;)Lcom/sun/tools/javac/code/Type;", "(Lcom/sun/tools/javac/code/Type$ArrayType;TS;)Lcom/sun/tools/javac/code/Type;", $PUBLIC, $virtualMethod(Type$StructuralTypeMapping, visitArrayType, $Object*, $Type$ArrayType*, Object$*)},
+		{"visitClassType", "(Lcom/sun/tools/javac/code/Type$ClassType;Ljava/lang/Object;)Lcom/sun/tools/javac/code/Type;", "(Lcom/sun/tools/javac/code/Type$ClassType;TS;)Lcom/sun/tools/javac/code/Type;", $PUBLIC, $virtualMethod(Type$StructuralTypeMapping, visitClassType, $Object*, $Type$ClassType*, Object$*)},
+		{"visitForAll", "(Lcom/sun/tools/javac/code/Type$ForAll;Ljava/lang/Object;)Lcom/sun/tools/javac/code/Type;", "(Lcom/sun/tools/javac/code/Type$ForAll;TS;)Lcom/sun/tools/javac/code/Type;", $PUBLIC, $virtualMethod(Type$StructuralTypeMapping, visitForAll, $Object*, $Type$ForAll*, Object$*)},
+		{"visitMethodType", "(Lcom/sun/tools/javac/code/Type$MethodType;Ljava/lang/Object;)Lcom/sun/tools/javac/code/Type;", "(Lcom/sun/tools/javac/code/Type$MethodType;TS;)Lcom/sun/tools/javac/code/Type;", $PUBLIC, $virtualMethod(Type$StructuralTypeMapping, visitMethodType, $Object*, $Type$MethodType*, Object$*)},
+		{"visitWildcardType", "(Lcom/sun/tools/javac/code/Type$WildcardType;Ljava/lang/Object;)Lcom/sun/tools/javac/code/Type;", "(Lcom/sun/tools/javac/code/Type$WildcardType;TS;)Lcom/sun/tools/javac/code/Type;", $PUBLIC, $virtualMethod(Type$StructuralTypeMapping, visitWildcardType, $Object*, $Type$WildcardType*, Object$*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.code.Type$StructuralTypeMapping", "com.sun.tools.javac.code.Type", "StructuralTypeMapping", $PUBLIC | $STATIC | $ABSTRACT},
+		{"com.sun.tools.javac.code.Types$TypeMapping", "com.sun.tools.javac.code.Types", "TypeMapping", $PUBLIC | $STATIC},
+		{"com.sun.tools.javac.code.Type$StructuralTypeMapping$4", nullptr, nullptr, 0},
+		{"com.sun.tools.javac.code.Type$StructuralTypeMapping$3", nullptr, nullptr, 0},
+		{"com.sun.tools.javac.code.Type$StructuralTypeMapping$2", nullptr, nullptr, 0},
+		{"com.sun.tools.javac.code.Type$StructuralTypeMapping$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"com.sun.tools.javac.code.Type$StructuralTypeMapping",
+		"com.sun.tools.javac.code.Types$TypeMapping",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		"<S:Ljava/lang/Object;>Lcom/sun/tools/javac/code/Types$TypeMapping<TS;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.code.Type"
+	};
+	$loadClass(Type$StructuralTypeMapping, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Type$StructuralTypeMapping));
+	});
 	return class$;
 }
 

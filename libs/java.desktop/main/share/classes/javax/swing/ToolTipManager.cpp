@@ -1,5 +1,4 @@
 #include <javax/swing/ToolTipManager.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <java/awt/Dimension.h>
@@ -13,7 +12,6 @@
 #include <java/awt/Rectangle.h>
 #include <java/awt/Toolkit.h>
 #include <java/awt/Window.h>
-#include <java/awt/event/ActionListener.h>
 #include <java/awt/event/FocusListener.h>
 #include <java/awt/event/InputEvent.h>
 #include <java/awt/event/KeyEvent.h>
@@ -69,15 +67,11 @@ using $Point = ::java::awt::Point;
 using $Rectangle = ::java::awt::Rectangle;
 using $Toolkit = ::java::awt::Toolkit;
 using $Window = ::java::awt::Window;
-using $ActionListener = ::java::awt::event::ActionListener;
 using $FocusListener = ::java::awt::event::FocusListener;
 using $InputEvent = ::java::awt::event::InputEvent;
 using $KeyEvent = ::java::awt::event::KeyEvent;
-using $KeyListener = ::java::awt::event::KeyListener;
 using $MouseAdapter = ::java::awt::event::MouseAdapter;
 using $MouseEvent = ::java::awt::event::MouseEvent;
-using $MouseListener = ::java::awt::event::MouseListener;
-using $MouseMotionListener = ::java::awt::event::MouseMotionListener;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -90,10 +84,8 @@ using $JDialog = ::javax::swing::JDialog;
 using $JFrame = ::javax::swing::JFrame;
 using $JInternalFrame = ::javax::swing::JInternalFrame;
 using $JMenuItem = ::javax::swing::JMenuItem;
-using $JToolTip = ::javax::swing::JToolTip;
 using $JWindow = ::javax::swing::JWindow;
 using $KeyStroke = ::javax::swing::KeyStroke;
-using $Popup = ::javax::swing::Popup;
 using $PopupFactory = ::javax::swing::PopupFactory;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $Timer = ::javax::swing::Timer;
@@ -109,102 +101,10 @@ using $MenuKeyListener = ::javax::swing::event::MenuKeyListener;
 namespace javax {
 	namespace swing {
 
-$FieldInfo _ToolTipManager_FieldInfo_[] = {
-	{"enterTimer", "Ljavax/swing/Timer;", nullptr, 0, $field(ToolTipManager, enterTimer)},
-	{"exitTimer", "Ljavax/swing/Timer;", nullptr, 0, $field(ToolTipManager, exitTimer)},
-	{"insideTimer", "Ljavax/swing/Timer;", nullptr, 0, $field(ToolTipManager, insideTimer)},
-	{"toolTipText", "Ljava/lang/String;", nullptr, 0, $field(ToolTipManager, toolTipText)},
-	{"preferredLocation", "Ljava/awt/Point;", nullptr, 0, $field(ToolTipManager, preferredLocation)},
-	{"insideComponent", "Ljavax/swing/JComponent;", nullptr, 0, $field(ToolTipManager, insideComponent)},
-	{"mouseEvent", "Ljava/awt/event/MouseEvent;", nullptr, 0, $field(ToolTipManager, mouseEvent)},
-	{"showImmediately", "Z", nullptr, 0, $field(ToolTipManager, showImmediately)},
-	{"TOOL_TIP_MANAGER_KEY", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ToolTipManager, TOOL_TIP_MANAGER_KEY)},
-	{"tipWindow", "Ljavax/swing/Popup;", nullptr, $TRANSIENT, $field(ToolTipManager, tipWindow)},
-	{"window", "Ljava/awt/Window;", nullptr, $PRIVATE, $field(ToolTipManager, window)},
-	{"tip", "Ljavax/swing/JToolTip;", nullptr, 0, $field(ToolTipManager, tip)},
-	{"popupRect", "Ljava/awt/Rectangle;", nullptr, $PRIVATE, $field(ToolTipManager, popupRect)},
-	{"popupFrameRect", "Ljava/awt/Rectangle;", nullptr, $PRIVATE, $field(ToolTipManager, popupFrameRect)},
-	{"enabled", "Z", nullptr, 0, $field(ToolTipManager, enabled)},
-	{"tipShowing", "Z", nullptr, $PRIVATE, $field(ToolTipManager, tipShowing)},
-	{"focusChangeListener", "Ljava/awt/event/FocusListener;", nullptr, $PRIVATE, $field(ToolTipManager, focusChangeListener)},
-	{"moveBeforeEnterListener", "Ljava/awt/event/MouseMotionListener;", nullptr, $PRIVATE, $field(ToolTipManager, moveBeforeEnterListener)},
-	{"accessibilityKeyListener", "Ljava/awt/event/KeyListener;", nullptr, $PRIVATE, $field(ToolTipManager, accessibilityKeyListener)},
-	{"postTip", "Ljavax/swing/KeyStroke;", nullptr, $PRIVATE, $field(ToolTipManager, postTip)},
-	{"hideTip", "Ljavax/swing/KeyStroke;", nullptr, $PRIVATE, $field(ToolTipManager, hideTip)},
-	{"lightWeightPopupEnabled", "Z", nullptr, $PROTECTED, $field(ToolTipManager, lightWeightPopupEnabled)},
-	{"heavyWeightPopupEnabled", "Z", nullptr, $PROTECTED, $field(ToolTipManager, heavyWeightPopupEnabled)},
-	{}
-};
-
-$MethodInfo _ToolTipManager_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(ToolTipManager, init$, void)},
-	{"checkForTipChange", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PRIVATE, $method(ToolTipManager, checkForTipChange, void, $MouseEvent*)},
-	{"createFocusChangeListener", "()Ljava/awt/event/FocusListener;", nullptr, $PRIVATE, $method(ToolTipManager, createFocusChangeListener, $FocusListener*)},
-	{"frameForComponent", "(Ljava/awt/Component;)Ljava/awt/Frame;", nullptr, $STATIC, $staticMethod(ToolTipManager, frameForComponent, $Frame*, $Component*)},
-	{"getDismissDelay", "()I", nullptr, $PUBLIC, $virtualMethod(ToolTipManager, getDismissDelay, int32_t)},
-	{"getDrawingGC", "(Ljava/awt/Point;)Ljava/awt/GraphicsConfiguration;", nullptr, $PRIVATE, $method(ToolTipManager, getDrawingGC, $GraphicsConfiguration*, $Point*)},
-	{"getHeightAdjust", "(Ljava/awt/Rectangle;Ljava/awt/Rectangle;)I", nullptr, $PRIVATE, $method(ToolTipManager, getHeightAdjust, int32_t, $Rectangle*, $Rectangle*)},
-	{"getInitialDelay", "()I", nullptr, $PUBLIC, $virtualMethod(ToolTipManager, getInitialDelay, int32_t)},
-	{"getPopupFitHeight", "(Ljava/awt/Rectangle;Ljava/awt/Component;)I", nullptr, $PRIVATE, $method(ToolTipManager, getPopupFitHeight, int32_t, $Rectangle*, $Component*)},
-	{"getPopupFitWidth", "(Ljava/awt/Rectangle;Ljava/awt/Component;)I", nullptr, $PRIVATE, $method(ToolTipManager, getPopupFitWidth, int32_t, $Rectangle*, $Component*)},
-	{"getReshowDelay", "()I", nullptr, $PUBLIC, $virtualMethod(ToolTipManager, getReshowDelay, int32_t)},
-	{"getWidthAdjust", "(Ljava/awt/Rectangle;Ljava/awt/Rectangle;)I", nullptr, $PRIVATE, $method(ToolTipManager, getWidthAdjust, int32_t, $Rectangle*, $Rectangle*)},
-	{"hide", "(Ljavax/swing/JComponent;)V", nullptr, $PRIVATE, $method(ToolTipManager, hide, void, $JComponent*)},
-	{"hideTipWindow", "()V", nullptr, 0, $virtualMethod(ToolTipManager, hideTipWindow, void)},
-	{"initiateToolTip", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PRIVATE, $method(ToolTipManager, initiateToolTip, void, $MouseEvent*)},
-	{"isEnabled", "()Z", nullptr, $PUBLIC, $virtualMethod(ToolTipManager, isEnabled, bool)},
-	{"isLightWeightPopupEnabled", "()Z", nullptr, $PUBLIC, $virtualMethod(ToolTipManager, isLightWeightPopupEnabled, bool)},
-	{"mouseDragged", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(ToolTipManager, mouseDragged, void, $MouseEvent*)},
-	{"mouseEntered", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(ToolTipManager, mouseEntered, void, $MouseEvent*)},
-	{"mouseExited", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(ToolTipManager, mouseExited, void, $MouseEvent*)},
-	{"mouseMoved", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(ToolTipManager, mouseMoved, void, $MouseEvent*)},
-	{"mousePressed", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(ToolTipManager, mousePressed, void, $MouseEvent*)},
-	{"registerComponent", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(ToolTipManager, registerComponent, void, $JComponent*)},
-	{"setDismissDelay", "(I)V", nullptr, $PUBLIC, $virtualMethod(ToolTipManager, setDismissDelay, void, int32_t)},
-	{"setEnabled", "(Z)V", nullptr, $PUBLIC, $virtualMethod(ToolTipManager, setEnabled, void, bool)},
-	{"setInitialDelay", "(I)V", nullptr, $PUBLIC, $virtualMethod(ToolTipManager, setInitialDelay, void, int32_t)},
-	{"setLightWeightPopupEnabled", "(Z)V", nullptr, $PUBLIC, $virtualMethod(ToolTipManager, setLightWeightPopupEnabled, void, bool)},
-	{"setReshowDelay", "(I)V", nullptr, $PUBLIC, $virtualMethod(ToolTipManager, setReshowDelay, void, int32_t)},
-	{"sharedInstance", "()Ljavax/swing/ToolTipManager;", nullptr, $PUBLIC | $STATIC, $staticMethod(ToolTipManager, sharedInstance, ToolTipManager*)},
-	{"show", "(Ljavax/swing/JComponent;)V", nullptr, $PRIVATE, $method(ToolTipManager, show, void, $JComponent*)},
-	{"showTipWindow", "()V", nullptr, 0, $virtualMethod(ToolTipManager, showTipWindow, void)},
-	{"unregisterComponent", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(ToolTipManager, unregisterComponent, void, $JComponent*)},
-	{}
-};
-
-$InnerClassInfo _ToolTipManager_InnerClassesInfo_[] = {
-	{"javax.swing.ToolTipManager$AccessibilityKeyListener", "javax.swing.ToolTipManager", "AccessibilityKeyListener", $PRIVATE},
-	{"javax.swing.ToolTipManager$MoveBeforeEnterListener", "javax.swing.ToolTipManager", "MoveBeforeEnterListener", $PRIVATE},
-	{"javax.swing.ToolTipManager$stillInsideTimerAction", "javax.swing.ToolTipManager", "stillInsideTimerAction", $PROTECTED},
-	{"javax.swing.ToolTipManager$outsideTimerAction", "javax.swing.ToolTipManager", "outsideTimerAction", $PROTECTED},
-	{"javax.swing.ToolTipManager$insideTimerAction", "javax.swing.ToolTipManager", "insideTimerAction", $PROTECTED},
-	{"javax.swing.ToolTipManager$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _ToolTipManager_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.ToolTipManager",
-	"java.awt.event.MouseAdapter",
-	nullptr,
-	_ToolTipManager_FieldInfo_,
-	_ToolTipManager_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ToolTipManager_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.swing.ToolTipManager$AccessibilityKeyListener,javax.swing.ToolTipManager$MoveBeforeEnterListener,javax.swing.ToolTipManager$stillInsideTimerAction,javax.swing.ToolTipManager$outsideTimerAction,javax.swing.ToolTipManager$insideTimerAction,javax.swing.ToolTipManager$1"
-};
-
-$Object* allocate$ToolTipManager($Class* clazz) {
-	return $of($alloc(ToolTipManager));
-}
-
 $Object* ToolTipManager::TOOL_TIP_MANAGER_KEY = nullptr;
 
 void ToolTipManager::init$() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$MouseAdapter::init$();
 	$set(this, popupRect, nullptr);
 	$set(this, popupFrameRect, nullptr);
@@ -216,11 +116,11 @@ void ToolTipManager::init$() {
 	this->lightWeightPopupEnabled = true;
 	this->heavyWeightPopupEnabled = false;
 	$set(this, enterTimer, $new($Timer, 750, $$new($ToolTipManager$insideTimerAction, this)));
-	$nc(this->enterTimer)->setRepeats(false);
+	this->enterTimer->setRepeats(false);
 	$set(this, exitTimer, $new($Timer, 500, $$new($ToolTipManager$outsideTimerAction, this)));
-	$nc(this->exitTimer)->setRepeats(false);
+	this->exitTimer->setRepeats(false);
 	$set(this, insideTimer, $new($Timer, 4000, $$new($ToolTipManager$stillInsideTimerAction, this)));
-	$nc(this->insideTimer)->setRepeats(false);
+	this->insideTimer->setRepeats(false);
 	$set(this, moveBeforeEnterListener, $new($ToolTipManager$MoveBeforeEnterListener, this));
 	$set(this, accessibilityKeyListener, $new($ToolTipManager$AccessibilityKeyListener, this));
 	$set(this, postTip, $KeyStroke::getKeyStroke($KeyEvent::VK_F1, $InputEvent::CTRL_MASK));
@@ -271,14 +171,12 @@ int32_t ToolTipManager::getReshowDelay() {
 }
 
 $GraphicsConfiguration* ToolTipManager::getDrawingGC($Point* toFind) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($GraphicsEnvironment, env, $GraphicsEnvironment::getLocalGraphicsEnvironment());
 	$var($GraphicsDeviceArray, devices, $nc(env)->getScreenDevices());
 	{
 		$var($GraphicsDeviceArray, arr$, devices);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($GraphicsDevice, device, arr$->get(i$));
 			{
 				$var($GraphicsConfiguration, config, $nc(device)->getDefaultConfiguration());
@@ -293,8 +191,8 @@ $GraphicsConfiguration* ToolTipManager::getDrawingGC($Point* toFind) {
 }
 
 void ToolTipManager::showTipWindow() {
-	$useLocalCurrentObjectStackCache();
-	if (this->insideComponent == nullptr || !$nc(this->insideComponent)->isShowing()) {
+	$useLocalObjectStack();
+	if (this->insideComponent == nullptr || !this->insideComponent->isShowing()) {
 		return;
 	}
 	$var($String, mode, $UIManager::getString("ToolTipManager.enableToolTipMode"_s));
@@ -310,7 +208,7 @@ void ToolTipManager::showTipWindow() {
 		$var($Point, location, nullptr);
 		$var($Point, toFind, nullptr);
 		if (this->preferredLocation != nullptr) {
-			$assign(toFind, $new($Point, $nc(screenLocation)->x + $nc(this->preferredLocation)->x, screenLocation->y + $nc(this->preferredLocation)->y));
+			$assign(toFind, $new($Point, $nc(screenLocation)->x + this->preferredLocation->x, $nc(screenLocation)->y + this->preferredLocation->y));
 		} else {
 			$assign(toFind, $nc(this->mouseEvent)->getLocationOnScreen());
 		}
@@ -323,7 +221,7 @@ void ToolTipManager::showTipWindow() {
 			}
 		}
 		$var($Rectangle, sBounds, $nc(gc)->getBounds());
-		$var($Insets, screenInsets, $nc($($Toolkit::getDefaultToolkit()))->getScreenInsets(gc));
+		$var($Insets, screenInsets, $$nc($Toolkit::getDefaultToolkit())->getScreenInsets(gc));
 		$nc(sBounds)->x += $nc(screenInsets)->left;
 		sBounds->y += screenInsets->top;
 		sBounds->width -= (screenInsets->left + screenInsets->right);
@@ -340,7 +238,7 @@ void ToolTipManager::showTipWindow() {
 			}
 		} else {
 			int32_t var$0 = $nc(screenLocation)->x + $nc(this->mouseEvent)->getX();
-			$assign(location, $new($Point, var$0, screenLocation->y + $nc(this->mouseEvent)->getY() + 20));
+			$assign(location, $new($Point, var$0, screenLocation->y + this->mouseEvent->getY() + 20));
 			if (!leftToRight) {
 				if (location->x - $nc(size)->width >= 0) {
 					location->x -= size->width;
@@ -350,15 +248,15 @@ void ToolTipManager::showTipWindow() {
 		if (this->popupRect == nullptr) {
 			$set(this, popupRect, $new($Rectangle));
 		}
-		$nc(this->popupRect)->setBounds($nc(location)->x, location->y, $nc(size)->width, size->height);
-		if ($nc(location)->x < sBounds->x) {
+		$nc(this->popupRect)->setBounds($nc(location)->x, $nc(location)->y, $nc(size)->width, $nc(size)->height);
+		if (location->x < sBounds->x) {
 			location->x = sBounds->x;
-		} else if (location->x - sBounds->x + $nc(size)->width > sBounds->width) {
+		} else if (location->x - sBounds->x + size->width > sBounds->width) {
 			location->x = sBounds->x + $Math::max(0, sBounds->width - size->width);
 		}
-		if ($nc(location)->y < sBounds->y) {
+		if (location->y < sBounds->y) {
 			location->y = sBounds->y;
-		} else if (location->y - sBounds->y + $nc(size)->height > sBounds->height) {
+		} else if (location->y - sBounds->y + size->height > sBounds->height) {
 			location->y = sBounds->y + $Math::max(0, sBounds->height - size->height);
 		}
 		$var($PopupFactory, popupFactory, $PopupFactory::getSharedInstance());
@@ -373,13 +271,13 @@ void ToolTipManager::showTipWindow() {
 		} else {
 			$nc(popupFactory)->setPopupType($PopupFactory::MEDIUM_WEIGHT_POPUP);
 		}
-		$set(this, tipWindow, $nc(popupFactory)->getPopup(this->insideComponent, this->tip, $nc(location)->x, location->y));
+		$set(this, tipWindow, $nc(popupFactory)->getPopup(this->insideComponent, this->tip, location->x, location->y));
 		popupFactory->setPopupType($PopupFactory::LIGHT_WEIGHT_POPUP);
 		$nc(this->tipWindow)->show();
 		$var($Window, componentWindow, $SwingUtilities::windowForComponent(this->insideComponent));
 		$set(this, window, $SwingUtilities::windowForComponent(this->tip));
 		if (this->window != nullptr && this->window != componentWindow) {
-			$nc(this->window)->addMouseListener(this);
+			this->window->addMouseListener(this);
 		} else {
 			$set(this, window, nullptr);
 		}
@@ -391,7 +289,7 @@ void ToolTipManager::showTipWindow() {
 void ToolTipManager::hideTipWindow() {
 	if (this->tipWindow != nullptr) {
 		if (this->window != nullptr) {
-			$nc(this->window)->removeMouseListener(this);
+			this->window->removeMouseListener(this);
 			$set(this, window, nullptr);
 		}
 		$nc(this->tipWindow)->hide();
@@ -404,7 +302,7 @@ void ToolTipManager::hideTipWindow() {
 
 ToolTipManager* ToolTipManager::sharedInstance() {
 	$init(ToolTipManager);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, value, $SwingUtilities::appContextGet(ToolTipManager::TOOL_TIP_MANAGER_KEY));
 	if ($instanceOf(ToolTipManager, value)) {
 		return $cast(ToolTipManager, value);
@@ -420,8 +318,8 @@ void ToolTipManager::registerComponent($JComponent* component) {
 	component->removeMouseMotionListener(this->moveBeforeEnterListener);
 	component->addMouseMotionListener(this->moveBeforeEnterListener);
 	if ($instanceOf($JMenuItem, component)) {
-		$nc(($cast($JMenuItem, component)))->removeMenuKeyListener($cast($MenuKeyListener, this->accessibilityKeyListener));
-		($cast($JMenuItem, component))->addMenuKeyListener($cast($MenuKeyListener, this->accessibilityKeyListener));
+		$cast($JMenuItem, component)->removeMenuKeyListener($cast($MenuKeyListener, this->accessibilityKeyListener));
+		$cast($JMenuItem, component)->addMenuKeyListener($cast($MenuKeyListener, this->accessibilityKeyListener));
 	} else {
 		component->removeKeyListener(this->accessibilityKeyListener);
 		component->addKeyListener(this->accessibilityKeyListener);
@@ -432,7 +330,7 @@ void ToolTipManager::unregisterComponent($JComponent* component) {
 	$nc(component)->removeMouseListener(this);
 	component->removeMouseMotionListener(this->moveBeforeEnterListener);
 	if ($instanceOf($JMenuItem, component)) {
-		$nc(($cast($JMenuItem, component)))->removeMenuKeyListener($cast($MenuKeyListener, this->accessibilityKeyListener));
+		$cast($JMenuItem, component)->removeMenuKeyListener($cast($MenuKeyListener, this->accessibilityKeyListener));
 	} else {
 		component->removeKeyListener(this->accessibilityKeyListener);
 	}
@@ -443,16 +341,16 @@ void ToolTipManager::mouseEntered($MouseEvent* event) {
 }
 
 void ToolTipManager::initiateToolTip($MouseEvent* event) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($equals($nc(event)->getSource(), this->window)) {
 		return;
 	}
-	$var($JComponent, component, $cast($JComponent, $nc(event)->getSource()));
+	$var($JComponent, component, $cast($JComponent, event->getSource()));
 	$nc(component)->removeMouseMotionListener(this->moveBeforeEnterListener);
 	$nc(this->exitTimer)->stop();
 	$var($Point, location, event->getPoint());
-	bool var$0 = $nc(location)->x < 0 || $nc(location)->x >= component->getWidth() || $nc(location)->y < 0;
-	if (var$0 || $nc(location)->y >= component->getHeight()) {
+	bool var$0 = $nc(location)->x < 0 || location->x >= component->getWidth() || location->y < 0;
+	if (var$0 || location->y >= component->getHeight()) {
 		return;
 	}
 	if (this->insideComponent != nullptr) {
@@ -467,7 +365,7 @@ void ToolTipManager::initiateToolTip($MouseEvent* event) {
 		if (this->showImmediately) {
 			$var($String, newToolTipText, component->getToolTipText(event));
 			$var($Point, newPreferredLocation, component->getToolTipLocation(event));
-			bool sameLoc = (this->preferredLocation != nullptr) ? $nc(this->preferredLocation)->equals(newPreferredLocation) : (newPreferredLocation == nullptr);
+			bool sameLoc = (this->preferredLocation != nullptr) ? this->preferredLocation->equals(newPreferredLocation) : (newPreferredLocation == nullptr);
 			if (!sameComponent || !$Objects::equals(this->toolTipText, newToolTipText) || !sameLoc) {
 				$set(this, toolTipText, newToolTipText);
 				$set(this, preferredLocation, newPreferredLocation);
@@ -480,30 +378,30 @@ void ToolTipManager::initiateToolTip($MouseEvent* event) {
 }
 
 void ToolTipManager::mouseExited($MouseEvent* event) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool shouldHide = true;
 	if (this->insideComponent == nullptr) {
 	}
 	if (this->window != nullptr && $equals($nc(event)->getSource(), this->window) && this->insideComponent != nullptr) {
-		$var($Container, insideComponentWindow, $nc(this->insideComponent)->getTopLevelAncestor());
+		$var($Container, insideComponentWindow, this->insideComponent->getTopLevelAncestor());
 		if (insideComponentWindow != nullptr) {
 			$var($Point, location, event->getPoint());
 			$SwingUtilities::convertPointToScreen(location, this->window);
 			$nc(location)->x -= insideComponentWindow->getX();
 			location->y -= insideComponentWindow->getY();
 			$assign(location, $SwingUtilities::convertPoint(nullptr, location, this->insideComponent));
-			bool var$0 = location->x >= 0 && location->x < $nc(this->insideComponent)->getWidth() && location->y >= 0;
-			if (var$0 && location->y < $nc(this->insideComponent)->getHeight()) {
+			bool var$0 = $nc(location)->x >= 0 && location->x < $nc(this->insideComponent)->getWidth() && location->y >= 0;
+			if (var$0 && location->y < this->insideComponent->getHeight()) {
 				shouldHide = false;
 			} else {
 				shouldHide = true;
 			}
 		}
-	} else if ($equals(event->getSource(), this->insideComponent) && this->tipWindow != nullptr) {
+	} else if ($equals($nc(event)->getSource(), this->insideComponent) && this->tipWindow != nullptr) {
 		$var($Window, win, $SwingUtilities::getWindowAncestor(this->insideComponent));
 		if (win != nullptr) {
 			$var($Point, location, $SwingUtilities::convertPoint(this->insideComponent, $(event->getPoint()), win));
-			$var($Rectangle, bounds, $nc($($nc(this->insideComponent)->getTopLevelAncestor()))->getBounds());
+			$var($Rectangle, bounds, $$nc($nc(this->insideComponent)->getTopLevelAncestor())->getBounds());
 			$nc(location)->x += $nc(bounds)->x;
 			location->y += bounds->y;
 			$var($Point, loc, $new($Point, 0, 0));
@@ -522,7 +420,7 @@ void ToolTipManager::mouseExited($MouseEvent* event) {
 	if (shouldHide) {
 		$nc(this->enterTimer)->stop();
 		if (this->insideComponent != nullptr) {
-			$nc(this->insideComponent)->removeMouseMotionListener(this);
+			this->insideComponent->removeMouseMotionListener(this);
 		}
 		$set(this, insideComponent, nullptr);
 		$set(this, toolTipText, nullptr);
@@ -565,13 +463,13 @@ void ToolTipManager::mouseMoved($MouseEvent* event) {
 }
 
 void ToolTipManager::checkForTipChange($MouseEvent* event) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JComponent, component, $cast($JComponent, $nc(event)->getSource()));
 	$var($String, newText, $nc(component)->getToolTipText(event));
 	$var($Point, newPreferredLocation, component->getToolTipLocation(event));
 	if (newText != nullptr || newPreferredLocation != nullptr) {
 		$set(this, mouseEvent, event);
-		bool var$0 = ((newText != nullptr && newText->equals(this->toolTipText)) || newText == nullptr);
+		bool var$0 = (newText != nullptr && newText->equals(this->toolTipText)) || newText == nullptr;
 		if (var$0 && ((newPreferredLocation != nullptr && newPreferredLocation->equals(this->preferredLocation)) || newPreferredLocation == nullptr)) {
 			if (this->tipWindow != nullptr) {
 				$nc(this->insideTimer)->restart();
@@ -614,10 +512,10 @@ $FocusListener* ToolTipManager::createFocusChangeListener() {
 }
 
 int32_t ToolTipManager::getPopupFitWidth($Rectangle* popupRectInScreen, $Component* invoker) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (invoker != nullptr) {
 		$var($Container, parent, nullptr);
-		for ($assign(parent, invoker->getParent()); parent != nullptr; $assign(parent, $nc(parent)->getParent())) {
+		for ($assign(parent, invoker->getParent()); parent != nullptr; $assign(parent, parent->getParent())) {
 			if ($instanceOf($JFrame, parent) || $instanceOf($JDialog, parent) || $instanceOf($JWindow, parent)) {
 				return getWidthAdjust($(parent->getBounds()), popupRectInScreen);
 			} else if ($instanceOf($JApplet, parent) || $instanceOf($JInternalFrame, parent)) {
@@ -637,10 +535,10 @@ int32_t ToolTipManager::getPopupFitWidth($Rectangle* popupRectInScreen, $Compone
 }
 
 int32_t ToolTipManager::getPopupFitHeight($Rectangle* popupRectInScreen, $Component* invoker) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (invoker != nullptr) {
 		$var($Container, parent, nullptr);
-		for ($assign(parent, invoker->getParent()); parent != nullptr; $assign(parent, $nc(parent)->getParent())) {
+		for ($assign(parent, invoker->getParent()); parent != nullptr; $assign(parent, parent->getParent())) {
 			if ($instanceOf($JFrame, parent) || $instanceOf($JDialog, parent) || $instanceOf($JWindow, parent)) {
 				return getHeightAdjust($(parent->getBounds()), popupRectInScreen);
 			} else if ($instanceOf($JApplet, parent) || $instanceOf($JInternalFrame, parent)) {
@@ -686,7 +584,7 @@ void ToolTipManager::show($JComponent* source) {
 		$nc(this->insideTimer)->stop();
 		$set(this, insideComponent, source);
 		if (this->insideComponent != nullptr) {
-			$set(this, toolTipText, $nc(this->insideComponent)->getToolTipText());
+			$set(this, toolTipText, this->insideComponent->getToolTipText());
 			$set(this, preferredLocation, $new($Point, 10, $nc(this->insideComponent)->getHeight() + 10));
 			showTipWindow();
 			if (this->focusChangeListener == nullptr) {
@@ -704,7 +602,7 @@ void ToolTipManager::hide($JComponent* source) {
 	$set(this, insideComponent, nullptr);
 }
 
-void clinit$ToolTipManager($Class* class$) {
+void ToolTipManager::clinit$($Class* clazz) {
 	$assignStatic(ToolTipManager::TOOL_TIP_MANAGER_KEY, $new($Object));
 }
 
@@ -712,7 +610,93 @@ ToolTipManager::ToolTipManager() {
 }
 
 $Class* ToolTipManager::load$($String* name, bool initialize) {
-	$loadClass(ToolTipManager, name, initialize, &_ToolTipManager_ClassInfo_, clinit$ToolTipManager, allocate$ToolTipManager);
+	$FieldInfo fieldInfos$$[] = {
+		{"enterTimer", "Ljavax/swing/Timer;", nullptr, 0, $field(ToolTipManager, enterTimer)},
+		{"exitTimer", "Ljavax/swing/Timer;", nullptr, 0, $field(ToolTipManager, exitTimer)},
+		{"insideTimer", "Ljavax/swing/Timer;", nullptr, 0, $field(ToolTipManager, insideTimer)},
+		{"toolTipText", "Ljava/lang/String;", nullptr, 0, $field(ToolTipManager, toolTipText)},
+		{"preferredLocation", "Ljava/awt/Point;", nullptr, 0, $field(ToolTipManager, preferredLocation)},
+		{"insideComponent", "Ljavax/swing/JComponent;", nullptr, 0, $field(ToolTipManager, insideComponent)},
+		{"mouseEvent", "Ljava/awt/event/MouseEvent;", nullptr, 0, $field(ToolTipManager, mouseEvent)},
+		{"showImmediately", "Z", nullptr, 0, $field(ToolTipManager, showImmediately)},
+		{"TOOL_TIP_MANAGER_KEY", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ToolTipManager, TOOL_TIP_MANAGER_KEY)},
+		{"tipWindow", "Ljavax/swing/Popup;", nullptr, $TRANSIENT, $field(ToolTipManager, tipWindow)},
+		{"window", "Ljava/awt/Window;", nullptr, $PRIVATE, $field(ToolTipManager, window)},
+		{"tip", "Ljavax/swing/JToolTip;", nullptr, 0, $field(ToolTipManager, tip)},
+		{"popupRect", "Ljava/awt/Rectangle;", nullptr, $PRIVATE, $field(ToolTipManager, popupRect)},
+		{"popupFrameRect", "Ljava/awt/Rectangle;", nullptr, $PRIVATE, $field(ToolTipManager, popupFrameRect)},
+		{"enabled", "Z", nullptr, 0, $field(ToolTipManager, enabled)},
+		{"tipShowing", "Z", nullptr, $PRIVATE, $field(ToolTipManager, tipShowing)},
+		{"focusChangeListener", "Ljava/awt/event/FocusListener;", nullptr, $PRIVATE, $field(ToolTipManager, focusChangeListener)},
+		{"moveBeforeEnterListener", "Ljava/awt/event/MouseMotionListener;", nullptr, $PRIVATE, $field(ToolTipManager, moveBeforeEnterListener)},
+		{"accessibilityKeyListener", "Ljava/awt/event/KeyListener;", nullptr, $PRIVATE, $field(ToolTipManager, accessibilityKeyListener)},
+		{"postTip", "Ljavax/swing/KeyStroke;", nullptr, $PRIVATE, $field(ToolTipManager, postTip)},
+		{"hideTip", "Ljavax/swing/KeyStroke;", nullptr, $PRIVATE, $field(ToolTipManager, hideTip)},
+		{"lightWeightPopupEnabled", "Z", nullptr, $PROTECTED, $field(ToolTipManager, lightWeightPopupEnabled)},
+		{"heavyWeightPopupEnabled", "Z", nullptr, $PROTECTED, $field(ToolTipManager, heavyWeightPopupEnabled)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(ToolTipManager, init$, void)},
+		{"checkForTipChange", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PRIVATE, $method(ToolTipManager, checkForTipChange, void, $MouseEvent*)},
+		{"createFocusChangeListener", "()Ljava/awt/event/FocusListener;", nullptr, $PRIVATE, $method(ToolTipManager, createFocusChangeListener, $FocusListener*)},
+		{"frameForComponent", "(Ljava/awt/Component;)Ljava/awt/Frame;", nullptr, $STATIC, $staticMethod(ToolTipManager, frameForComponent, $Frame*, $Component*)},
+		{"getDismissDelay", "()I", nullptr, $PUBLIC, $virtualMethod(ToolTipManager, getDismissDelay, int32_t)},
+		{"getDrawingGC", "(Ljava/awt/Point;)Ljava/awt/GraphicsConfiguration;", nullptr, $PRIVATE, $method(ToolTipManager, getDrawingGC, $GraphicsConfiguration*, $Point*)},
+		{"getHeightAdjust", "(Ljava/awt/Rectangle;Ljava/awt/Rectangle;)I", nullptr, $PRIVATE, $method(ToolTipManager, getHeightAdjust, int32_t, $Rectangle*, $Rectangle*)},
+		{"getInitialDelay", "()I", nullptr, $PUBLIC, $virtualMethod(ToolTipManager, getInitialDelay, int32_t)},
+		{"getPopupFitHeight", "(Ljava/awt/Rectangle;Ljava/awt/Component;)I", nullptr, $PRIVATE, $method(ToolTipManager, getPopupFitHeight, int32_t, $Rectangle*, $Component*)},
+		{"getPopupFitWidth", "(Ljava/awt/Rectangle;Ljava/awt/Component;)I", nullptr, $PRIVATE, $method(ToolTipManager, getPopupFitWidth, int32_t, $Rectangle*, $Component*)},
+		{"getReshowDelay", "()I", nullptr, $PUBLIC, $virtualMethod(ToolTipManager, getReshowDelay, int32_t)},
+		{"getWidthAdjust", "(Ljava/awt/Rectangle;Ljava/awt/Rectangle;)I", nullptr, $PRIVATE, $method(ToolTipManager, getWidthAdjust, int32_t, $Rectangle*, $Rectangle*)},
+		{"hide", "(Ljavax/swing/JComponent;)V", nullptr, $PRIVATE, $method(ToolTipManager, hide, void, $JComponent*)},
+		{"hideTipWindow", "()V", nullptr, 0, $virtualMethod(ToolTipManager, hideTipWindow, void)},
+		{"initiateToolTip", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PRIVATE, $method(ToolTipManager, initiateToolTip, void, $MouseEvent*)},
+		{"isEnabled", "()Z", nullptr, $PUBLIC, $virtualMethod(ToolTipManager, isEnabled, bool)},
+		{"isLightWeightPopupEnabled", "()Z", nullptr, $PUBLIC, $virtualMethod(ToolTipManager, isLightWeightPopupEnabled, bool)},
+		{"mouseDragged", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(ToolTipManager, mouseDragged, void, $MouseEvent*)},
+		{"mouseEntered", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(ToolTipManager, mouseEntered, void, $MouseEvent*)},
+		{"mouseExited", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(ToolTipManager, mouseExited, void, $MouseEvent*)},
+		{"mouseMoved", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(ToolTipManager, mouseMoved, void, $MouseEvent*)},
+		{"mousePressed", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(ToolTipManager, mousePressed, void, $MouseEvent*)},
+		{"registerComponent", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(ToolTipManager, registerComponent, void, $JComponent*)},
+		{"setDismissDelay", "(I)V", nullptr, $PUBLIC, $virtualMethod(ToolTipManager, setDismissDelay, void, int32_t)},
+		{"setEnabled", "(Z)V", nullptr, $PUBLIC, $virtualMethod(ToolTipManager, setEnabled, void, bool)},
+		{"setInitialDelay", "(I)V", nullptr, $PUBLIC, $virtualMethod(ToolTipManager, setInitialDelay, void, int32_t)},
+		{"setLightWeightPopupEnabled", "(Z)V", nullptr, $PUBLIC, $virtualMethod(ToolTipManager, setLightWeightPopupEnabled, void, bool)},
+		{"setReshowDelay", "(I)V", nullptr, $PUBLIC, $virtualMethod(ToolTipManager, setReshowDelay, void, int32_t)},
+		{"sharedInstance", "()Ljavax/swing/ToolTipManager;", nullptr, $PUBLIC | $STATIC, $staticMethod(ToolTipManager, sharedInstance, ToolTipManager*)},
+		{"show", "(Ljavax/swing/JComponent;)V", nullptr, $PRIVATE, $method(ToolTipManager, show, void, $JComponent*)},
+		{"showTipWindow", "()V", nullptr, 0, $virtualMethod(ToolTipManager, showTipWindow, void)},
+		{"unregisterComponent", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(ToolTipManager, unregisterComponent, void, $JComponent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.ToolTipManager$AccessibilityKeyListener", "javax.swing.ToolTipManager", "AccessibilityKeyListener", $PRIVATE},
+		{"javax.swing.ToolTipManager$MoveBeforeEnterListener", "javax.swing.ToolTipManager", "MoveBeforeEnterListener", $PRIVATE},
+		{"javax.swing.ToolTipManager$stillInsideTimerAction", "javax.swing.ToolTipManager", "stillInsideTimerAction", $PROTECTED},
+		{"javax.swing.ToolTipManager$outsideTimerAction", "javax.swing.ToolTipManager", "outsideTimerAction", $PROTECTED},
+		{"javax.swing.ToolTipManager$insideTimerAction", "javax.swing.ToolTipManager", "insideTimerAction", $PROTECTED},
+		{"javax.swing.ToolTipManager$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.ToolTipManager",
+		"java.awt.event.MouseAdapter",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.swing.ToolTipManager$AccessibilityKeyListener,javax.swing.ToolTipManager$MoveBeforeEnterListener,javax.swing.ToolTipManager$stillInsideTimerAction,javax.swing.ToolTipManager$outsideTimerAction,javax.swing.ToolTipManager$insideTimerAction,javax.swing.ToolTipManager$1"
+	};
+	$loadClass(ToolTipManager, name, initialize, &classInfo$$, ToolTipManager::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ToolTipManager));
+	});
 	return class$;
 }
 

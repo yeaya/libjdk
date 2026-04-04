@@ -1,5 +1,4 @@
 #include <com/sun/source/doctree/SerialFieldTree.h>
-
 #include <com/sun/source/doctree/IdentifierTree.h>
 #include <com/sun/source/doctree/ReferenceTree.h>
 #include <java/util/List.h>
@@ -16,28 +15,24 @@ namespace com {
 		namespace source {
 			namespace doctree {
 
-$MethodInfo _SerialFieldTree_MethodInfo_[] = {
-	{"getDescription", "()Ljava/util/List;", "()Ljava/util/List<+Lcom/sun/source/doctree/DocTree;>;", $PUBLIC | $ABSTRACT, $virtualMethod(SerialFieldTree, getDescription, $List*)},
-	{"getName", "()Lcom/sun/source/doctree/IdentifierTree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SerialFieldTree, getName, $IdentifierTree*)},
-	{"getType", "()Lcom/sun/source/doctree/ReferenceTree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SerialFieldTree, getType, $ReferenceTree*)},
-	{}
-};
-
-$ClassInfo _SerialFieldTree_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.source.doctree.SerialFieldTree",
-	nullptr,
-	"com.sun.source.doctree.BlockTagTree",
-	nullptr,
-	_SerialFieldTree_MethodInfo_
-};
-
-$Object* allocate$SerialFieldTree($Class* clazz) {
-	return $of($alloc(SerialFieldTree));
-}
-
 $Class* SerialFieldTree::load$($String* name, bool initialize) {
-	$loadClass(SerialFieldTree, name, initialize, &_SerialFieldTree_ClassInfo_, allocate$SerialFieldTree);
+	$MethodInfo methodInfos$$[] = {
+		{"getDescription", "()Ljava/util/List;", "()Ljava/util/List<+Lcom/sun/source/doctree/DocTree;>;", $PUBLIC | $ABSTRACT, $virtualMethod(SerialFieldTree, getDescription, $List*)},
+		{"getName", "()Lcom/sun/source/doctree/IdentifierTree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SerialFieldTree, getName, $IdentifierTree*)},
+		{"getType", "()Lcom/sun/source/doctree/ReferenceTree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SerialFieldTree, getType, $ReferenceTree*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.source.doctree.SerialFieldTree",
+		nullptr,
+		"com.sun.source.doctree.BlockTagTree",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(SerialFieldTree, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SerialFieldTree);
+	});
 	return class$;
 }
 

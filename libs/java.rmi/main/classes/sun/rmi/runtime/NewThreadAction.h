@@ -20,6 +20,7 @@ class NewThreadAction : public ::java::security::PrivilegedAction {
 	$class(NewThreadAction, 0, ::java::security::PrivilegedAction)
 public:
 	NewThreadAction();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::lang::ThreadGroup* group, ::java::lang::Runnable* runnable, $String* name, bool daemon);
 	void init$(::java::lang::Runnable* runnable, $String* name, bool daemon);
 	void init$(::java::lang::Runnable* runnable, $String* name, bool daemon, bool user);

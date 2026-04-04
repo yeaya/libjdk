@@ -1,5 +1,4 @@
 #include <javax/xml/catalog/GroupEntry$ResolveType.h>
-
 #include <java/lang/Enum.h>
 #include <javax/xml/catalog/CatalogFeatures.h>
 #include <javax/xml/catalog/GroupEntry.h>
@@ -23,50 +22,6 @@ using $CatalogFeatures = ::javax::xml::catalog::CatalogFeatures;
 namespace javax {
 	namespace xml {
 		namespace catalog {
-
-$FieldInfo _GroupEntry$ResolveType_FieldInfo_[] = {
-	{"STRICT", "Ljavax/xml/catalog/GroupEntry$ResolveType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GroupEntry$ResolveType, STRICT)},
-	{"CONTINUE", "Ljavax/xml/catalog/GroupEntry$ResolveType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GroupEntry$ResolveType, CONTINUE)},
-	{"IGNORE", "Ljavax/xml/catalog/GroupEntry$ResolveType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GroupEntry$ResolveType, IGNORE)},
-	{"$VALUES", "[Ljavax/xml/catalog/GroupEntry$ResolveType;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(GroupEntry$ResolveType, $VALUES)},
-	{"literal", "Ljava/lang/String;", nullptr, $FINAL, $field(GroupEntry$ResolveType, literal)},
-	{}
-};
-
-$MethodInfo _GroupEntry$ResolveType_MethodInfo_[] = {
-	{"$values", "()[Ljavax/xml/catalog/GroupEntry$ResolveType;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(GroupEntry$ResolveType, $values, $GroupEntry$ResolveTypeArray*)},
-	{"<init>", "(Ljava/lang/String;ILjava/lang/String;)V", "(Ljava/lang/String;)V", $PRIVATE, $method(GroupEntry$ResolveType, init$, void, $String*, int32_t, $String*)},
-	{"getType", "(Ljava/lang/String;)Ljavax/xml/catalog/GroupEntry$ResolveType;", nullptr, $PUBLIC | $STATIC, $staticMethod(GroupEntry$ResolveType, getType, GroupEntry$ResolveType*, $String*)},
-	{"isType", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $method(GroupEntry$ResolveType, isType, bool, $String*)},
-	{"valueOf", "(Ljava/lang/String;)Ljavax/xml/catalog/GroupEntry$ResolveType;", nullptr, $PUBLIC | $STATIC, $staticMethod(GroupEntry$ResolveType, valueOf, GroupEntry$ResolveType*, $String*)},
-	{"values", "()[Ljavax/xml/catalog/GroupEntry$ResolveType;", nullptr, $PUBLIC | $STATIC, $staticMethod(GroupEntry$ResolveType, values, $GroupEntry$ResolveTypeArray*)},
-	{}
-};
-
-$InnerClassInfo _GroupEntry$ResolveType_InnerClassesInfo_[] = {
-	{"javax.xml.catalog.GroupEntry$ResolveType", "javax.xml.catalog.GroupEntry", "ResolveType", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _GroupEntry$ResolveType_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"javax.xml.catalog.GroupEntry$ResolveType",
-	"java.lang.Enum",
-	nullptr,
-	_GroupEntry$ResolveType_FieldInfo_,
-	_GroupEntry$ResolveType_MethodInfo_,
-	"Ljava/lang/Enum<Ljavax/xml/catalog/GroupEntry$ResolveType;>;",
-	nullptr,
-	_GroupEntry$ResolveType_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.xml.catalog.GroupEntry"
-};
-
-$Object* allocate$GroupEntry$ResolveType($Class* clazz) {
-	return $of($alloc(GroupEntry$ResolveType));
-}
 
 GroupEntry$ResolveType* GroupEntry$ResolveType::STRICT = nullptr;
 GroupEntry$ResolveType* GroupEntry$ResolveType::CONTINUE = nullptr;
@@ -99,17 +54,11 @@ void GroupEntry$ResolveType::init$($String* $enum$name, int32_t $enum$ordinal, $
 
 GroupEntry$ResolveType* GroupEntry$ResolveType::getType($String* resolveType) {
 	$init(GroupEntry$ResolveType);
-	{
-		$var($GroupEntry$ResolveTypeArray, arr$, GroupEntry$ResolveType::values());
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
-			GroupEntry$ResolveType* type = arr$->get(i$);
-			{
-				if ($nc(type)->isType(resolveType)) {
-					return type;
-				}
-			}
+	$var($GroupEntry$ResolveTypeArray, arr$, GroupEntry$ResolveType::values());
+	for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
+		GroupEntry$ResolveType* type = arr$->get(i$);
+		if ($nc(type)->isType(resolveType)) {
+			return type;
 		}
 	}
 	return nullptr;
@@ -119,7 +68,7 @@ bool GroupEntry$ResolveType::isType($String* type) {
 	return $nc(this->literal)->equals(type);
 }
 
-void clinit$GroupEntry$ResolveType($Class* class$) {
+void GroupEntry$ResolveType::clinit$($Class* clazz) {
 	$init($CatalogFeatures);
 	$assignStatic(GroupEntry$ResolveType::STRICT, $new(GroupEntry$ResolveType, "STRICT"_s, 0, $CatalogFeatures::RESOLVE_STRICT));
 	$assignStatic(GroupEntry$ResolveType::CONTINUE, $new(GroupEntry$ResolveType, "CONTINUE"_s, 1, $CatalogFeatures::RESOLVE_CONTINUE));
@@ -131,7 +80,45 @@ GroupEntry$ResolveType::GroupEntry$ResolveType() {
 }
 
 $Class* GroupEntry$ResolveType::load$($String* name, bool initialize) {
-	$loadClass(GroupEntry$ResolveType, name, initialize, &_GroupEntry$ResolveType_ClassInfo_, clinit$GroupEntry$ResolveType, allocate$GroupEntry$ResolveType);
+	$FieldInfo fieldInfos$$[] = {
+		{"STRICT", "Ljavax/xml/catalog/GroupEntry$ResolveType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GroupEntry$ResolveType, STRICT)},
+		{"CONTINUE", "Ljavax/xml/catalog/GroupEntry$ResolveType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GroupEntry$ResolveType, CONTINUE)},
+		{"IGNORE", "Ljavax/xml/catalog/GroupEntry$ResolveType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GroupEntry$ResolveType, IGNORE)},
+		{"$VALUES", "[Ljavax/xml/catalog/GroupEntry$ResolveType;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(GroupEntry$ResolveType, $VALUES)},
+		{"literal", "Ljava/lang/String;", nullptr, $FINAL, $field(GroupEntry$ResolveType, literal)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Ljavax/xml/catalog/GroupEntry$ResolveType;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(GroupEntry$ResolveType, $values, $GroupEntry$ResolveTypeArray*)},
+		{"<init>", "(Ljava/lang/String;ILjava/lang/String;)V", "(Ljava/lang/String;)V", $PRIVATE, $method(GroupEntry$ResolveType, init$, void, $String*, int32_t, $String*)},
+		{"getType", "(Ljava/lang/String;)Ljavax/xml/catalog/GroupEntry$ResolveType;", nullptr, $PUBLIC | $STATIC, $staticMethod(GroupEntry$ResolveType, getType, GroupEntry$ResolveType*, $String*)},
+		{"isType", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $method(GroupEntry$ResolveType, isType, bool, $String*)},
+		{"valueOf", "(Ljava/lang/String;)Ljavax/xml/catalog/GroupEntry$ResolveType;", nullptr, $PUBLIC | $STATIC, $staticMethod(GroupEntry$ResolveType, valueOf, GroupEntry$ResolveType*, $String*)},
+		{"values", "()[Ljavax/xml/catalog/GroupEntry$ResolveType;", nullptr, $PUBLIC | $STATIC, $staticMethod(GroupEntry$ResolveType, values, $GroupEntry$ResolveTypeArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.xml.catalog.GroupEntry$ResolveType", "javax.xml.catalog.GroupEntry", "ResolveType", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"javax.xml.catalog.GroupEntry$ResolveType",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Ljavax/xml/catalog/GroupEntry$ResolveType;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.xml.catalog.GroupEntry"
+	};
+	$loadClass(GroupEntry$ResolveType, name, initialize, &classInfo$$, GroupEntry$ResolveType::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(GroupEntry$ResolveType));
+	});
 	return class$;
 }
 

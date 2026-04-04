@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/parser/JavacParser.h>
-
 #include <com/sun/source/tree/CaseTree$CaseKind.h>
 #include <com/sun/source/tree/ExpressionTree.h>
 #include <com/sun/source/tree/MemberReferenceTree$ReferenceMode.h>
@@ -33,7 +32,6 @@
 #include <com/sun/tools/javac/resources/CompilerProperties$Fragments.h>
 #include <com/sun/tools/javac/resources/CompilerProperties$Warnings.h>
 #include <com/sun/tools/javac/tree/DocCommentTable.h>
-#include <com/sun/tools/javac/tree/EndPosTable.h>
 #include <com/sun/tools/javac/tree/JCTree$JCAnnotatedType.h>
 #include <com/sun/tools/javac/tree/JCTree$JCAnnotation.h>
 #include <com/sun/tools/javac/tree/JCTree$JCArrayAccess.h>
@@ -127,7 +125,6 @@
 #include <com/sun/tools/javac/util/Position.h>
 #include <java/io/Serializable.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Enum.h>
 #include <java/lang/NumberFormatException.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
@@ -136,7 +133,6 @@
 #include <java/lang/invoke/MethodType.h>
 #include <java/util/AbstractCollection.h>
 #include <java/util/ArrayList.h>
-#include <java/util/Collection.h>
 #include <java/util/EnumSet.h>
 #include <java/util/Iterator.h>
 #include <java/util/List.h>
@@ -348,7 +344,6 @@ using $MemberReferenceTree$ReferenceMode = ::com::sun::source::tree::MemberRefer
 using $ModuleTree$ModuleKind = ::com::sun::source::tree::ModuleTree$ModuleKind;
 using $BoundKind = ::com::sun::tools::javac::code::BoundKind;
 using $Flags = ::com::sun::tools::javac::code::Flags;
-using $Preview = ::com::sun::tools::javac::code::Preview;
 using $Source = ::com::sun::tools::javac::code::Source;
 using $Source$Feature = ::com::sun::tools::javac::code::Source$Feature;
 using $TypeTag = ::com::sun::tools::javac::code::TypeTag;
@@ -375,7 +370,6 @@ using $CompilerProperties$Errors = ::com::sun::tools::javac::resources::Compiler
 using $CompilerProperties$Fragments = ::com::sun::tools::javac::resources::CompilerProperties$Fragments;
 using $CompilerProperties$Warnings = ::com::sun::tools::javac::resources::CompilerProperties$Warnings;
 using $DocCommentTable = ::com::sun::tools::javac::tree::DocCommentTable;
-using $EndPosTable = ::com::sun::tools::javac::tree::EndPosTable;
 using $JCTree = ::com::sun::tools::javac::tree::JCTree;
 using $JCTree$JCAnnotatedType = ::com::sun::tools::javac::tree::JCTree$JCAnnotatedType;
 using $JCTree$JCAnnotation = ::com::sun::tools::javac::tree::JCTree$JCAnnotation;
@@ -418,7 +412,6 @@ using $JCTree$JCVariableDecl = ::com::sun::tools::javac::tree::JCTree$JCVariable
 using $JCTree$Tag = ::com::sun::tools::javac::tree::JCTree$Tag;
 using $JCTree$TypeBoundKind = ::com::sun::tools::javac::tree::JCTree$TypeBoundKind;
 using $TreeInfo = ::com::sun::tools::javac::tree::TreeInfo;
-using $TreeMaker = ::com::sun::tools::javac::tree::TreeMaker;
 using $Assert = ::com::sun::tools::javac::util::Assert;
 using $Convert = ::com::sun::tools::javac::util::Convert;
 using $JCDiagnostic$DiagnosticFlag = ::com::sun::tools::javac::util::JCDiagnostic$DiagnosticFlag;
@@ -428,16 +421,13 @@ using $JCDiagnostic$Fragment = ::com::sun::tools::javac::util::JCDiagnostic$Frag
 using $JCDiagnostic$SimpleDiagnosticPosition = ::com::sun::tools::javac::util::JCDiagnostic$SimpleDiagnosticPosition;
 using $List = ::com::sun::tools::javac::util::List;
 using $ListBuffer = ::com::sun::tools::javac::util::ListBuffer;
-using $Log = ::com::sun::tools::javac::util::Log;
 using $Name = ::com::sun::tools::javac::util::Name;
-using $Options = ::com::sun::tools::javac::util::Options;
 using $Position = ::com::sun::tools::javac::util::Position;
 using $Serializable = ::java::io::Serializable;
 using $AssertionError = ::java::lang::AssertionError;
 using $Character = ::java::lang::Character;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Double = ::java::lang::Double;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $Float = ::java::lang::Float;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -448,14 +438,11 @@ using $NumberFormatException = ::java::lang::NumberFormatException;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $AbstractCollection = ::java::util::AbstractCollection;
 using $ArrayList = ::java::util::ArrayList;
-using $Collection = ::java::util::Collection;
 using $Iterator = ::java::util::Iterator;
 using $1List = ::java::util::List;
-using $Set = ::java::util::Set;
 using $Function = ::java::util::function::Function;
 using $Predicate = ::java::util::function::Predicate;
 using $Collectors = ::java::util::stream::Collectors;
-using $Stream = ::java::util::stream::Stream;
 
 namespace com {
 	namespace sun {
@@ -471,27 +458,24 @@ public:
 	virtual bool test(Object$* t) override {
 		 return JavacParser::lambda$new$3($cast($Tokens$TokenKind, t));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<JavacParser$$Lambda$lambda$new$3>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo JavacParser$$Lambda$lambda$new$3::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(JavacParser$$Lambda$lambda$new$3, init$, void)},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(JavacParser$$Lambda$lambda$new$3, test, bool, Object$*)},
-	{}
-};
-$ClassInfo JavacParser$$Lambda$lambda$new$3::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.parser.JavacParser$$Lambda$lambda$new$3",
-	"java.lang.Object",
-	"java.util.function.Predicate",
-	nullptr,
-	methodInfos
 };
 $Class* JavacParser$$Lambda$lambda$new$3::load$($String* name, bool initialize) {
-	$loadClass(JavacParser$$Lambda$lambda$new$3, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(JavacParser$$Lambda$lambda$new$3, init$, void)},
+		{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(JavacParser$$Lambda$lambda$new$3, test, bool, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.parser.JavacParser$$Lambda$lambda$new$3",
+		"java.lang.Object",
+		"java.util.function.Predicate",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(JavacParser$$Lambda$lambda$new$3, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JavacParser$$Lambda$lambda$new$3);
+	});
 	return class$;
 }
 $Class* JavacParser$$Lambda$lambda$new$3::class$ = nullptr;
@@ -502,29 +486,26 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* arg0) override {
-		 return $of($CompilerProperties$Errors::Expected($cast($Tokens$TokenKind, arg0)));
+		 return $CompilerProperties$Errors::Expected($cast($Tokens$TokenKind, arg0));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<JavacParser$$Lambda$Expected$1>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo JavacParser$$Lambda$Expected$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(JavacParser$$Lambda$Expected$1, init$, void)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JavacParser$$Lambda$Expected$1, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo JavacParser$$Lambda$Expected$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.parser.JavacParser$$Lambda$Expected$1",
-	"java.lang.Object",
-	"java.util.function.Function",
-	nullptr,
-	methodInfos
 };
 $Class* JavacParser$$Lambda$Expected$1::load$($String* name, bool initialize) {
-	$loadClass(JavacParser$$Lambda$Expected$1, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(JavacParser$$Lambda$Expected$1, init$, void)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JavacParser$$Lambda$Expected$1, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.parser.JavacParser$$Lambda$Expected$1",
+		"java.lang.Object",
+		"java.util.function.Function",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(JavacParser$$Lambda$Expected$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JavacParser$$Lambda$Expected$1);
+	});
 	return class$;
 }
 $Class* JavacParser$$Lambda$Expected$1::class$ = nullptr;
@@ -538,33 +519,29 @@ public:
 	virtual $Object* apply(Object$* decl) override {
 		 return $of($nc(inst$)->lambda$term2Rest$0($cast($JCTree$JCAnnotation, decl)));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<JavacParser$$Lambda$lambda$term2Rest$0$2>());
-	}
 	JavacParser* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo JavacParser$$Lambda$lambda$term2Rest$0$2::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(JavacParser$$Lambda$lambda$term2Rest$0$2, inst$)},
-	{}
-};
-$MethodInfo JavacParser$$Lambda$lambda$term2Rest$0$2::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/parser/JavacParser;)V", nullptr, $PUBLIC, $method(JavacParser$$Lambda$lambda$term2Rest$0$2, init$, void, JavacParser*)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JavacParser$$Lambda$lambda$term2Rest$0$2, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo JavacParser$$Lambda$lambda$term2Rest$0$2::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.parser.JavacParser$$Lambda$lambda$term2Rest$0$2",
-	"java.lang.Object",
-	"java.util.function.Function",
-	fieldInfos,
-	methodInfos
 };
 $Class* JavacParser$$Lambda$lambda$term2Rest$0$2::load$($String* name, bool initialize) {
-	$loadClass(JavacParser$$Lambda$lambda$term2Rest$0$2, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(JavacParser$$Lambda$lambda$term2Rest$0$2, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/parser/JavacParser;)V", nullptr, $PUBLIC, $method(JavacParser$$Lambda$lambda$term2Rest$0$2, init$, void, JavacParser*)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JavacParser$$Lambda$lambda$term2Rest$0$2, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.parser.JavacParser$$Lambda$lambda$term2Rest$0$2",
+		"java.lang.Object",
+		"java.util.function.Function",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(JavacParser$$Lambda$lambda$term2Rest$0$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JavacParser$$Lambda$lambda$term2Rest$0$2);
+	});
 	return class$;
 }
 $Class* JavacParser$$Lambda$lambda$term2Rest$0$2::class$ = nullptr;
@@ -577,27 +554,24 @@ public:
 	virtual $Object* apply(Object$* lit) override {
 		 return $of(JavacParser::lambda$merge$1($cast($JCTree$JCLiteral, lit)));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<JavacParser$$Lambda$lambda$merge$1$3>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo JavacParser$$Lambda$lambda$merge$1$3::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(JavacParser$$Lambda$lambda$merge$1$3, init$, void)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JavacParser$$Lambda$lambda$merge$1$3, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo JavacParser$$Lambda$lambda$merge$1$3::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.parser.JavacParser$$Lambda$lambda$merge$1$3",
-	"java.lang.Object",
-	"java.util.function.Function",
-	nullptr,
-	methodInfos
 };
 $Class* JavacParser$$Lambda$lambda$merge$1$3::load$($String* name, bool initialize) {
-	$loadClass(JavacParser$$Lambda$lambda$merge$1$3, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(JavacParser$$Lambda$lambda$merge$1$3, init$, void)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JavacParser$$Lambda$lambda$merge$1$3, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.parser.JavacParser$$Lambda$lambda$merge$1$3",
+		"java.lang.Object",
+		"java.util.function.Function",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(JavacParser$$Lambda$lambda$merge$1$3, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JavacParser$$Lambda$lambda$merge$1$3);
+	});
 	return class$;
 }
 $Class* JavacParser$$Lambda$lambda$merge$1$3::class$ = nullptr;
@@ -608,291 +582,29 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* tk) override {
-		 return $of(JavacParser::lambda$switchExpressionStatementGroup$2($cast($Tokens$TokenKind, tk)));
+		 return JavacParser::lambda$switchExpressionStatementGroup$2($cast($Tokens$TokenKind, tk));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<JavacParser$$Lambda$lambda$switchExpressionStatementGroup$2$4>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo JavacParser$$Lambda$lambda$switchExpressionStatementGroup$2$4::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(JavacParser$$Lambda$lambda$switchExpressionStatementGroup$2$4, init$, void)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JavacParser$$Lambda$lambda$switchExpressionStatementGroup$2$4, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo JavacParser$$Lambda$lambda$switchExpressionStatementGroup$2$4::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.parser.JavacParser$$Lambda$lambda$switchExpressionStatementGroup$2$4",
-	"java.lang.Object",
-	"java.util.function.Function",
-	nullptr,
-	methodInfos
 };
 $Class* JavacParser$$Lambda$lambda$switchExpressionStatementGroup$2$4::load$($String* name, bool initialize) {
-	$loadClass(JavacParser$$Lambda$lambda$switchExpressionStatementGroup$2$4, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(JavacParser$$Lambda$lambda$switchExpressionStatementGroup$2$4, init$, void)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JavacParser$$Lambda$lambda$switchExpressionStatementGroup$2$4, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.parser.JavacParser$$Lambda$lambda$switchExpressionStatementGroup$2$4",
+		"java.lang.Object",
+		"java.util.function.Function",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(JavacParser$$Lambda$lambda$switchExpressionStatementGroup$2$4, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JavacParser$$Lambda$lambda$switchExpressionStatementGroup$2$4);
+	});
 	return class$;
 }
 $Class* JavacParser$$Lambda$lambda$switchExpressionStatementGroup$2$4::class$ = nullptr;
-
-$FieldInfo _JavacParser_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(JavacParser, $assertionsDisabled)},
-	{"infixPrecedenceLevels", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JavacParser, infixPrecedenceLevels)},
-	{"parseModuleInfo", "Z", nullptr, $PRIVATE | $FINAL, $field(JavacParser, parseModuleInfo)},
-	{"S", "Lcom/sun/tools/javac/parser/Lexer;", nullptr, $PROTECTED, $field(JavacParser, S)},
-	{"F", "Lcom/sun/tools/javac/tree/TreeMaker;", nullptr, $PROTECTED, $field(JavacParser, F)},
-	{"log", "Lcom/sun/tools/javac/util/Log;", nullptr, $PRIVATE, $field(JavacParser, log)},
-	{"source", "Lcom/sun/tools/javac/code/Source;", nullptr, $PRIVATE, $field(JavacParser, source)},
-	{"preview", "Lcom/sun/tools/javac/code/Preview;", nullptr, $PRIVATE, $field(JavacParser, preview)},
-	{"names", "Lcom/sun/tools/javac/util/Names;", nullptr, $PRIVATE, $field(JavacParser, names)},
-	{"endPosTable", "Lcom/sun/tools/javac/parser/JavacParser$AbstractEndPosTable;", nullptr, $PROTECTED | $FINAL, $field(JavacParser, endPosTable)},
-	{"typeAnnotationsPushedBack", "Lcom/sun/tools/javac/util/List;", "Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;>;", $PRIVATE, $field(JavacParser, typeAnnotationsPushedBack)},
-	{"permitTypeAnnotationsPushBack", "Z", nullptr, $PRIVATE, $field(JavacParser, permitTypeAnnotationsPushBack)},
-	{"allowStringFolding", "Z", nullptr, 0, $field(JavacParser, allowStringFolding)},
-	{"keepDocComments", "Z", nullptr, 0, $field(JavacParser, keepDocComments)},
-	{"keepLineMap", "Z", nullptr, 0, $field(JavacParser, keepLineMap)},
-	{"allowThisIdent", "Z", nullptr, 0, $field(JavacParser, allowThisIdent)},
-	{"allowYieldStatement", "Z", nullptr, 0, $field(JavacParser, allowYieldStatement)},
-	{"allowRecords", "Z", nullptr, 0, $field(JavacParser, allowRecords)},
-	{"allowSealedTypes", "Z", nullptr, 0, $field(JavacParser, allowSealedTypes)},
-	{"receiverParam", "Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;", nullptr, 0, $field(JavacParser, receiverParam)},
-	{"EXPR", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(JavacParser, EXPR)},
-	{"TYPE", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(JavacParser, TYPE)},
-	{"NOPARAMS", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(JavacParser, NOPARAMS)},
-	{"TYPEARG", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(JavacParser, TYPEARG)},
-	{"DIAMOND", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(JavacParser, DIAMOND)},
-	{"NOLAMBDA", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(JavacParser, NOLAMBDA)},
-	{"mode", "I", nullptr, $PROTECTED, $field(JavacParser, mode)},
-	{"lastmode", "I", nullptr, $PROTECTED, $field(JavacParser, lastmode)},
-	{"token", "Lcom/sun/tools/javac/parser/Tokens$Token;", nullptr, $PROTECTED, $field(JavacParser, token$)},
-	{"errorTree", "Lcom/sun/tools/javac/tree/JCTree$JCErroneous;", nullptr, $PRIVATE, $field(JavacParser, errorTree)},
-	{"RECOVERY_THRESHOLD", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JavacParser, RECOVERY_THRESHOLD)},
-	{"errorPos", "I", nullptr, $PRIVATE, $field(JavacParser, errorPos)},
-	{"count", "I", nullptr, $PRIVATE, $field(JavacParser, count)},
-	{"docComments", "Lcom/sun/tools/javac/tree/DocCommentTable;", nullptr, $PRIVATE | $FINAL, $field(JavacParser, docComments)},
-	{"odStackSupply", "Ljava/util/ArrayList;", "Ljava/util/ArrayList<[Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;", 0, $field(JavacParser, odStackSupply)},
-	{"opStackSupply", "Ljava/util/ArrayList;", "Ljava/util/ArrayList<[Lcom/sun/tools/javac/parser/Tokens$Token;>;", 0, $field(JavacParser, opStackSupply)},
-	{"LAX_IDENTIFIER", "Ljava/util/function/Predicate;", "Ljava/util/function/Predicate<Lcom/sun/tools/javac/parser/Tokens$TokenKind;>;", $PROTECTED, $field(JavacParser, LAX_IDENTIFIER)},
-	{"decisionTable", "[[Lcom/sun/tools/javac/util/JCDiagnostic$Fragment;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JavacParser, decisionTable)},
-	{}
-};
-
-$MethodInfo _JavacParser_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/parser/ParserFactory;Lcom/sun/tools/javac/parser/Lexer;ZZZ)V", nullptr, $PROTECTED, $method(JavacParser, init$, void, $ParserFactory*, $Lexer*, bool, bool, bool)},
-	{"<init>", "(Lcom/sun/tools/javac/parser/ParserFactory;Lcom/sun/tools/javac/parser/Lexer;ZZZZ)V", nullptr, $PROTECTED, $method(JavacParser, init$, void, $ParserFactory*, $Lexer*, bool, bool, bool, bool)},
-	{"accept", "(Lcom/sun/tools/javac/parser/Tokens$TokenKind;)V", nullptr, $PUBLIC, $virtualMethod(JavacParser, accept, void, $Tokens$TokenKind*)},
-	{"accept", "(Lcom/sun/tools/javac/parser/Tokens$TokenKind;Ljava/util/function/Function;)V", "(Lcom/sun/tools/javac/parser/Tokens$TokenKind;Ljava/util/function/Function<Lcom/sun/tools/javac/parser/Tokens$TokenKind;Lcom/sun/tools/javac/util/JCDiagnostic$Error;>;)V", $PUBLIC, $virtualMethod(JavacParser, accept, void, $Tokens$TokenKind*, $Function*)},
-	{"allowedAfterSealedOrNonSealed", "(Lcom/sun/tools/javac/parser/Tokens$Token;ZZ)Z", nullptr, $PRIVATE, $method(JavacParser, allowedAfterSealedOrNonSealed, bool, $Tokens$Token*, bool, bool)},
-	{"analyzeParens", "()Lcom/sun/tools/javac/parser/JavacParser$ParensResult;", nullptr, 0, $virtualMethod(JavacParser, analyzeParens, $JavacParser$ParensResult*)},
-	{"analyzePattern", "(I)Lcom/sun/tools/javac/parser/JavacParser$PatternResult;", nullptr, 0, $virtualMethod(JavacParser, analyzePattern, $JavacParser$PatternResult*, int32_t)},
-	{"annotation", "(ILcom/sun/tools/javac/tree/JCTree$Tag;)Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;", nullptr, 0, $virtualMethod(JavacParser, annotation, $JCTree$JCAnnotation*, int32_t, $JCTree$Tag*)},
-	{"annotationFieldValue", "()Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, 0, $virtualMethod(JavacParser, annotationFieldValue, $JCTree$JCExpression*)},
-	{"annotationFieldValues", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;", 0, $virtualMethod(JavacParser, annotationFieldValues, $List*)},
-	{"annotationFieldValuesOpt", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;", 0, $virtualMethod(JavacParser, annotationFieldValuesOpt, $List*)},
-	{"annotationValue", "()Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, 0, $virtualMethod(JavacParser, annotationValue, $JCTree$JCExpression*)},
-	{"annotationsOpt", "(Lcom/sun/tools/javac/tree/JCTree$Tag;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/tree/JCTree$Tag;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;>;", $PROTECTED, $virtualMethod(JavacParser, annotationsOpt, $List*, $JCTree$Tag*)},
-	{"arguments", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;", 0, $virtualMethod(JavacParser, arguments, $List*)},
-	{"arguments", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;Lcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", 0, $virtualMethod(JavacParser, arguments, $JCTree$JCExpression*, $List*, $JCTree$JCExpression*)},
-	{"argumentsOpt", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;Lcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", 0, $virtualMethod(JavacParser, argumentsOpt, $JCTree$JCExpression*, $List*, $JCTree$JCExpression*)},
-	{"arrayCreatorRest", "(ILcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, 0, $virtualMethod(JavacParser, arrayCreatorRest, $JCTree$JCExpression*, int32_t, $JCTree$JCExpression*)},
-	{"arrayInitializer", "(ILcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, 0, $virtualMethod(JavacParser, arrayInitializer, $JCTree$JCExpression*, int32_t, $JCTree$JCExpression*)},
-	{"arrayInitializerElements", "(ILcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/util/List;", "(ILcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;", 0, $virtualMethod(JavacParser, arrayInitializerElements, $List*, int32_t, $JCTree$JCExpression*)},
-	{"attach", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/parser/Tokens$Comment;)V", nullptr, $PROTECTED, $virtualMethod(JavacParser, attach, void, $JCTree*, $Tokens$Comment*)},
-	{"basicType", "()Lcom/sun/tools/javac/tree/JCTree$JCPrimitiveTypeTree;", nullptr, 0, $virtualMethod(JavacParser, basicType, $JCTree$JCPrimitiveTypeTree*)},
-	{"block", "(IJ)Lcom/sun/tools/javac/tree/JCTree$JCBlock;", nullptr, 0, $virtualMethod(JavacParser, block, $JCTree$JCBlock*, int32_t, int64_t)},
-	{"block", "()Lcom/sun/tools/javac/tree/JCTree$JCBlock;", nullptr, $PUBLIC, $virtualMethod(JavacParser, block, $JCTree$JCBlock*)},
-	{"blockStatement", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCStatement;>;", 0, $virtualMethod(JavacParser, blockStatement, $List*)},
-	{"blockStatements", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCStatement;>;", 0, $virtualMethod(JavacParser, blockStatements, $List*)},
-	{"bracketsOpt", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;>;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", $PRIVATE, $method(JavacParser, bracketsOpt, $JCTree$JCExpression*, $JCTree$JCExpression*, $List*)},
-	{"bracketsOpt", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, $PRIVATE, $method(JavacParser, bracketsOpt, $JCTree$JCExpression*, $JCTree$JCExpression*)},
-	{"bracketsOptCont", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;ILcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;ILcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;>;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", $PRIVATE, $method(JavacParser, bracketsOptCont, $JCTree$JCExpression*, $JCTree$JCExpression*, int32_t, $List*)},
-	{"bracketsSuffix", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, 0, $virtualMethod(JavacParser, bracketsSuffix, $JCTree$JCExpression*, $JCTree$JCExpression*)},
-	{"catchClause", "()Lcom/sun/tools/javac/tree/JCTree$JCCatch;", nullptr, $PROTECTED, $virtualMethod(JavacParser, catchClause, $JCTree$JCCatch*)},
-	{"catchTypes", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;", 0, $virtualMethod(JavacParser, catchTypes, $List*)},
-	{"checkExprStat", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, $PROTECTED, $virtualMethod(JavacParser, checkExprStat, $JCTree$JCExpression*, $JCTree$JCExpression*)},
-	{"checkNoMods", "(J)V", nullptr, $PROTECTED, $virtualMethod(JavacParser, checkNoMods, void, int64_t)},
-	{"checkNoMods", "(IJ)V", nullptr, $PROTECTED, $virtualMethod(JavacParser, checkNoMods, void, int32_t, int64_t)},
-	{"checkSourceLevel", "(Lcom/sun/tools/javac/code/Source$Feature;)V", nullptr, 0, $virtualMethod(JavacParser, checkSourceLevel, void, $Source$Feature*)},
-	{"checkSourceLevel", "(ILcom/sun/tools/javac/code/Source$Feature;)V", nullptr, $PROTECTED, $virtualMethod(JavacParser, checkSourceLevel, void, int32_t, $Source$Feature*)},
-	{"classCreatorRest", "(ILcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/tree/JCTree$JCNewClass;", "(ILcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;Lcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/tree/JCTree$JCNewClass;", 0, $virtualMethod(JavacParser, classCreatorRest, $JCTree$JCNewClass*, int32_t, $JCTree$JCExpression*, $List*, $JCTree$JCExpression*)},
-	{"classDeclaration", "(Lcom/sun/tools/javac/tree/JCTree$JCModifiers;Lcom/sun/tools/javac/parser/Tokens$Comment;)Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;", nullptr, $PROTECTED, $virtualMethod(JavacParser, classDeclaration, $JCTree$JCClassDecl*, $JCTree$JCModifiers*, $Tokens$Comment*)},
-	{"classInterfaceOrRecordBody", "(Lcom/sun/tools/javac/util/Name;ZZ)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/util/Name;ZZ)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree;>;", 0, $virtualMethod(JavacParser, classInterfaceOrRecordBody, $List*, $Name*, bool, bool)},
-	{"classOrInterfaceOrRecordBodyDeclaration", "(Lcom/sun/tools/javac/util/Name;ZZ)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/util/Name;ZZ)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree;>;", $PROTECTED, $virtualMethod(JavacParser, classOrInterfaceOrRecordBodyDeclaration, $List*, $Name*, bool, bool)},
-	{"classOrRecordOrInterfaceOrEnumDeclaration", "(Lcom/sun/tools/javac/tree/JCTree$JCModifiers;Lcom/sun/tools/javac/parser/Tokens$Comment;)Lcom/sun/tools/javac/tree/JCTree$JCStatement;", nullptr, $PROTECTED, $virtualMethod(JavacParser, classOrRecordOrInterfaceOrEnumDeclaration, $JCTree$JCStatement*, $JCTree$JCModifiers*, $Tokens$Comment*)},
-	{"creator", "(ILcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", "(ILcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", 0, $virtualMethod(JavacParser, creator, $JCTree$JCExpression*, int32_t, $List*)},
-	{"doRecover", "(ILcom/sun/tools/javac/parser/JavacParser$ErrorRecoveryAction;Lcom/sun/tools/javac/util/JCDiagnostic$Error;)Lcom/sun/tools/javac/tree/JCTree$JCStatement;", nullptr, $PRIVATE, $method(JavacParser, doRecover, $JCTree$JCStatement*, int32_t, $JavacParser$ErrorRecoveryAction*, $JCDiagnostic$Error*)},
-	{"earlier", "(II)I", nullptr, $STATIC, $staticMethod(JavacParser, earlier, int32_t, int32_t, int32_t)},
-	{"enumBody", "(Lcom/sun/tools/javac/util/Name;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/util/Name;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree;>;", 0, $virtualMethod(JavacParser, enumBody, $List*, $Name*)},
-	{"enumDeclaration", "(Lcom/sun/tools/javac/tree/JCTree$JCModifiers;Lcom/sun/tools/javac/parser/Tokens$Comment;)Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;", nullptr, $PROTECTED, $virtualMethod(JavacParser, enumDeclaration, $JCTree$JCClassDecl*, $JCTree$JCModifiers*, $Tokens$Comment*)},
-	{"enumeratorDeclaration", "(Lcom/sun/tools/javac/util/Name;)Lcom/sun/tools/javac/tree/JCTree;", nullptr, 0, $virtualMethod(JavacParser, enumeratorDeclaration, $JCTree*, $Name*)},
-	{"estimateEnumeratorOrMember", "(Lcom/sun/tools/javac/util/Name;)Lcom/sun/tools/javac/parser/JavacParser$EnumeratorEstimate;", nullptr, $PRIVATE, $method(JavacParser, estimateEnumeratorOrMember, $JavacParser$EnumeratorEstimate*, $Name*)},
-	{"foldIfNeeded", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/util/ListBuffer;Lcom/sun/tools/javac/util/ListBuffer;Z)Z", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/util/ListBuffer<Lcom/sun/tools/javac/tree/JCTree$JCLiteral;>;Lcom/sun/tools/javac/util/ListBuffer<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;Z)Z", $PRIVATE, $method(JavacParser, foldIfNeeded, bool, $JCTree$JCExpression*, $ListBuffer*, $ListBuffer*, bool)},
-	{"foldStrings", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, $PROTECTED, $virtualMethod(JavacParser, foldStrings, $JCTree$JCExpression*, $JCTree$JCExpression*)},
-	{"forInit", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCStatement;>;", 0, $virtualMethod(JavacParser, forInit, $List*)},
-	{"forUpdate", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpressionStatement;>;", 0, $virtualMethod(JavacParser, forUpdate, $List*)},
-	{"formalParameter", "(ZZ)Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;", nullptr, $PROTECTED, $virtualMethod(JavacParser, formalParameter, $JCTree$JCVariableDecl*, bool, bool)},
-	{"formalParameters", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;>;", 0, $virtualMethod(JavacParser, formalParameters, $List*)},
-	{"formalParameters", "(ZZ)Lcom/sun/tools/javac/util/List;", "(ZZ)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;>;", 0, $virtualMethod(JavacParser, formalParameters, $List*, bool, bool)},
-	{"getEndPos", "(Lcom/sun/tools/javac/tree/JCTree;)I", nullptr, $PUBLIC, $virtualMethod(JavacParser, getEndPos, int32_t, $JCTree*)},
-	{"getStartPos", "(Lcom/sun/tools/javac/tree/JCTree;)I", nullptr, $PUBLIC, $virtualMethod(JavacParser, getStartPos, int32_t, $JCTree*)},
-	{"ident", "()Lcom/sun/tools/javac/util/Name;", nullptr, $PUBLIC, $virtualMethod(JavacParser, ident, $Name*)},
-	{"ident", "(Z)Lcom/sun/tools/javac/util/Name;", nullptr, $PROTECTED, $virtualMethod(JavacParser, ident, $Name*, bool)},
-	{"illegal", "(I)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, 0, $virtualMethod(JavacParser, illegal, $JCTree$JCExpression*, int32_t)},
-	{"illegal", "()Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, 0, $virtualMethod(JavacParser, illegal, $JCTree$JCExpression*)},
-	{"implicitParameter", "()Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;", nullptr, $PROTECTED, $virtualMethod(JavacParser, implicitParameter, $JCTree$JCVariableDecl*)},
-	{"implicitParameters", "(Z)Lcom/sun/tools/javac/util/List;", "(Z)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;>;", 0, $virtualMethod(JavacParser, implicitParameters, $List*, bool)},
-	{"importDeclaration", "()Lcom/sun/tools/javac/tree/JCTree;", nullptr, $PROTECTED, $virtualMethod(JavacParser, importDeclaration, $JCTree*)},
-	{"innerCreator", "(ILcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", "(ILcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;Lcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", 0, $virtualMethod(JavacParser, innerCreator, $JCTree$JCExpression*, int32_t, $List*, $JCTree$JCExpression*)},
-	{"insertAnnotationsToMostInner", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/util/List;Z)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;>;Z)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", $PRIVATE, $method(JavacParser, insertAnnotationsToMostInner, $JCTree$JCExpression*, $JCTree$JCExpression*, $List*, bool)},
-	{"interfaceDeclaration", "(Lcom/sun/tools/javac/tree/JCTree$JCModifiers;Lcom/sun/tools/javac/parser/Tokens$Comment;)Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;", nullptr, $PROTECTED, $virtualMethod(JavacParser, interfaceDeclaration, $JCTree$JCClassDecl*, $JCTree$JCModifiers*, $Tokens$Comment*)},
-	{"isInvalidUnqualifiedMethodIdentifier", "(ILcom/sun/tools/javac/util/Name;)Z", nullptr, 0, $virtualMethod(JavacParser, isInvalidUnqualifiedMethodIdentifier, bool, int32_t, $Name*)},
-	{"isNonSealedClassStart", "(Z)Z", nullptr, $PROTECTED, $virtualMethod(JavacParser, isNonSealedClassStart, bool, bool)},
-	{"isNonSealedIdentifier", "(Lcom/sun/tools/javac/parser/Tokens$Token;I)Z", nullptr, $PROTECTED, $virtualMethod(JavacParser, isNonSealedIdentifier, bool, $Tokens$Token*, int32_t)},
-	{"isRecordStart", "()Z", nullptr, $PROTECTED, $virtualMethod(JavacParser, isRecordStart, bool)},
-	{"isSealedClassStart", "(Z)Z", nullptr, $PROTECTED, $virtualMethod(JavacParser, isSealedClassStart, bool, bool)},
-	{"isUnboundMemberRef", "()Z", nullptr, 0, $virtualMethod(JavacParser, isUnboundMemberRef, bool)},
-	{"isZero", "(Ljava/lang/String;)Z", nullptr, 0, $virtualMethod(JavacParser, isZero, bool, $String*)},
-	{"lambda$merge$1", "(Lcom/sun/tools/javac/tree/JCTree$JCLiteral;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JavacParser, lambda$merge$1, $String*, $JCTree$JCLiteral*)},
-	{"lambda$new$3", "(Lcom/sun/tools/javac/parser/Tokens$TokenKind;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JavacParser, lambda$new$3, bool, $Tokens$TokenKind*)},
-	{"lambda$switchExpressionStatementGroup$2", "(Lcom/sun/tools/javac/parser/Tokens$TokenKind;)Lcom/sun/tools/javac/util/JCDiagnostic$Error;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JavacParser, lambda$switchExpressionStatementGroup$2, $JCDiagnostic$Error*, $Tokens$TokenKind*)},
-	{"lambda$term2Rest$0", "(Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;)Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;", nullptr, $PRIVATE | $SYNTHETIC, $method(JavacParser, lambda$term2Rest$0, $JCTree$JCAnnotation*, $JCTree$JCAnnotation*)},
-	{"lambdaExpression", "(Lcom/sun/tools/javac/util/List;I)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;>;I)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", 0, $virtualMethod(JavacParser, lambdaExpression, $JCTree$JCExpression*, $List*, int32_t)},
-	{"lambdaExpressionOrStatement", "(ZZI)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, 0, $virtualMethod(JavacParser, lambdaExpressionOrStatement, $JCTree$JCExpression*, bool, bool, int32_t)},
-	{"lambdaExpressionOrStatementRest", "(Lcom/sun/tools/javac/util/List;I)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;>;I)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", 0, $virtualMethod(JavacParser, lambdaExpressionOrStatementRest, $JCTree$JCExpression*, $List*, int32_t)},
-	{"lambdaStatement", "(Lcom/sun/tools/javac/util/List;II)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;>;II)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", 0, $virtualMethod(JavacParser, lambdaStatement, $JCTree$JCExpression*, $List*, int32_t, int32_t)},
-	{"literal", "(Lcom/sun/tools/javac/util/Name;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, 0, $virtualMethod(JavacParser, literal, $JCTree$JCExpression*, $Name*)},
-	{"literal", "(Lcom/sun/tools/javac/util/Name;I)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, 0, $virtualMethod(JavacParser, literal, $JCTree$JCExpression*, $Name*, int32_t)},
-	{"localVariableDeclarations", "(Lcom/sun/tools/javac/tree/JCTree$JCModifiers;Lcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/tree/JCTree$JCModifiers;Lcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCStatement;>;", $PRIVATE, $method(JavacParser, localVariableDeclarations, $List*, $JCTree$JCModifiers*, $JCTree$JCExpression*)},
-	{"memberReferenceSuffix", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, 0, $virtualMethod(JavacParser, memberReferenceSuffix, $JCTree$JCExpression*, $JCTree$JCExpression*)},
-	{"memberReferenceSuffix", "(ILcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, 0, $virtualMethod(JavacParser, memberReferenceSuffix, $JCTree$JCExpression*, int32_t, $JCTree$JCExpression*)},
-	{"merge", "(Lcom/sun/tools/javac/util/ListBuffer;Lcom/sun/tools/javac/util/ListBuffer;)Z", "(Lcom/sun/tools/javac/util/ListBuffer<Lcom/sun/tools/javac/tree/JCTree$JCLiteral;>;Lcom/sun/tools/javac/util/ListBuffer<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;)Z", 0, $virtualMethod(JavacParser, merge, bool, $ListBuffer*, $ListBuffer*)},
-	{"methodDeclaratorRest", "(ILcom/sun/tools/javac/tree/JCTree$JCModifiers;Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/util/List;ZZZLcom/sun/tools/javac/parser/Tokens$Comment;)Lcom/sun/tools/javac/tree/JCTree;", "(ILcom/sun/tools/javac/tree/JCTree$JCModifiers;Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCTypeParameter;>;ZZZLcom/sun/tools/javac/parser/Tokens$Comment;)Lcom/sun/tools/javac/tree/JCTree;", $PROTECTED, $virtualMethod(JavacParser, methodDeclaratorRest, $JCTree*, int32_t, $JCTree$JCModifiers*, $JCTree$JCExpression*, $Name*, $List*, bool, bool, bool, $Tokens$Comment*)},
-	{"modifiersOpt", "()Lcom/sun/tools/javac/tree/JCTree$JCModifiers;", nullptr, $PROTECTED, $virtualMethod(JavacParser, modifiersOpt, $JCTree$JCModifiers*)},
-	{"modifiersOpt", "(Lcom/sun/tools/javac/tree/JCTree$JCModifiers;)Lcom/sun/tools/javac/tree/JCTree$JCModifiers;", nullptr, $PROTECTED, $virtualMethod(JavacParser, modifiersOpt, $JCTree$JCModifiers*, $JCTree$JCModifiers*)},
-	{"moduleDecl", "(Lcom/sun/tools/javac/tree/JCTree$JCModifiers;Lcom/sun/source/tree/ModuleTree$ModuleKind;Lcom/sun/tools/javac/parser/Tokens$Comment;)Lcom/sun/tools/javac/tree/JCTree$JCModuleDecl;", nullptr, 0, $virtualMethod(JavacParser, moduleDecl, $JCTree$JCModuleDecl*, $JCTree$JCModifiers*, $ModuleTree$ModuleKind*, $Tokens$Comment*)},
-	{"moduleDirectiveList", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCDirective;>;", 0, $virtualMethod(JavacParser, moduleDirectiveList, $List*)},
-	{"moreStatementExpressions", "(ILcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/util/ListBuffer;)Lcom/sun/tools/javac/util/ListBuffer;", "<T:Lcom/sun/tools/javac/util/ListBuffer<-Lcom/sun/tools/javac/tree/JCTree$JCExpressionStatement;>;>(ILcom/sun/tools/javac/tree/JCTree$JCExpression;TT;)TT;", 0, $virtualMethod(JavacParser, moreStatementExpressions, $ListBuffer*, int32_t, $JCTree$JCExpression*, $ListBuffer*)},
-	{"newDocCommentTable", "(ZLcom/sun/tools/javac/parser/ParserFactory;)Lcom/sun/tools/javac/tree/DocCommentTable;", nullptr, $PROTECTED, $virtualMethod(JavacParser, newDocCommentTable, $DocCommentTable*, bool, $ParserFactory*)},
-	{"newEndPosTable", "(Z)Lcom/sun/tools/javac/parser/JavacParser$AbstractEndPosTable;", nullptr, $PROTECTED, $virtualMethod(JavacParser, newEndPosTable, $JavacParser$AbstractEndPosTable*, bool)},
-	{"newOdStack", "()[Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, $PRIVATE, $method(JavacParser, newOdStack, $JCTree$JCExpressionArray*)},
-	{"newOpStack", "()[Lcom/sun/tools/javac/parser/Tokens$Token;", nullptr, $PRIVATE, $method(JavacParser, newOpStack, $Tokens$TokenArray*)},
-	{"nextToken", "()V", nullptr, $PUBLIC, $virtualMethod(JavacParser, nextToken, void)},
-	{"optFinal", "(J)Lcom/sun/tools/javac/tree/JCTree$JCModifiers;", nullptr, 0, $virtualMethod(JavacParser, optFinal, $JCTree$JCModifiers*, int64_t)},
-	{"optag", "(Lcom/sun/tools/javac/parser/Tokens$TokenKind;)Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $STATIC, $staticMethod(JavacParser, optag, $JCTree$Tag*, $Tokens$TokenKind*)},
-	{"parExpression", "()Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, 0, $virtualMethod(JavacParser, parExpression, $JCTree$JCExpression*)},
-	{"parseCaseLabel", "()Lcom/sun/tools/javac/tree/JCTree$JCCaseLabel;", nullptr, $PRIVATE, $method(JavacParser, parseCaseLabel, $JCTree$JCCaseLabel*)},
-	{"parseCompilationUnit", "()Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;", nullptr, $PUBLIC, $virtualMethod(JavacParser, parseCompilationUnit, $JCTree$JCCompilationUnit*)},
-	{"parseExpression", "()Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, $PUBLIC, $virtualMethod(JavacParser, parseExpression, $JCTree$JCExpression*)},
-	{"parsePattern", "(ILcom/sun/tools/javac/tree/JCTree$JCModifiers;Lcom/sun/tools/javac/tree/JCTree$JCExpression;Z)Lcom/sun/tools/javac/tree/JCTree$JCPattern;", nullptr, $PUBLIC, $virtualMethod(JavacParser, parsePattern, $JCTree$JCPattern*, int32_t, $JCTree$JCModifiers*, $JCTree$JCExpression*, bool)},
-	{"parseSimpleStatement", "()Lcom/sun/tools/javac/tree/JCTree$JCStatement;", nullptr, $PUBLIC, $virtualMethod(JavacParser, parseSimpleStatement, $JCTree$JCStatement*)},
-	{"parseStatement", "()Lcom/sun/tools/javac/tree/JCTree$JCStatement;", nullptr, $PUBLIC, $virtualMethod(JavacParser, parseStatement, $JCTree$JCStatement*)},
-	{"parseStatementAsBlock", "()Lcom/sun/tools/javac/tree/JCTree$JCStatement;", nullptr, 0, $virtualMethod(JavacParser, parseStatementAsBlock, $JCTree$JCStatement*)},
-	{"parseType", "()Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, $PUBLIC, $virtualMethod(JavacParser, parseType, $JCTree$JCExpression*)},
-	{"parseType", "(Z)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, $PUBLIC, $virtualMethod(JavacParser, parseType, $JCTree$JCExpression*, bool)},
-	{"parseType", "(ZLcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", "(ZLcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;>;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", $PUBLIC, $virtualMethod(JavacParser, parseType, $JCTree$JCExpression*, bool, $List*)},
-	{"peekToken", "(Ljava/util/function/Predicate;)Z", "(Ljava/util/function/Predicate<Lcom/sun/tools/javac/parser/Tokens$TokenKind;>;)Z", $PROTECTED, $virtualMethod(JavacParser, peekToken, bool, $Predicate*)},
-	{"peekToken", "(ILjava/util/function/Predicate;)Z", "(ILjava/util/function/Predicate<Lcom/sun/tools/javac/parser/Tokens$TokenKind;>;)Z", $PROTECTED, $virtualMethod(JavacParser, peekToken, bool, int32_t, $Predicate*)},
-	{"peekToken", "(Ljava/util/function/Predicate;Ljava/util/function/Predicate;)Z", "(Ljava/util/function/Predicate<Lcom/sun/tools/javac/parser/Tokens$TokenKind;>;Ljava/util/function/Predicate<Lcom/sun/tools/javac/parser/Tokens$TokenKind;>;)Z", $PROTECTED, $virtualMethod(JavacParser, peekToken, bool, $Predicate*, $Predicate*)},
-	{"peekToken", "(ILjava/util/function/Predicate;Ljava/util/function/Predicate;)Z", "(ILjava/util/function/Predicate<Lcom/sun/tools/javac/parser/Tokens$TokenKind;>;Ljava/util/function/Predicate<Lcom/sun/tools/javac/parser/Tokens$TokenKind;>;)Z", $PROTECTED, $virtualMethod(JavacParser, peekToken, bool, int32_t, $Predicate*, $Predicate*)},
-	{"peekToken", "(Ljava/util/function/Predicate;Ljava/util/function/Predicate;Ljava/util/function/Predicate;)Z", "(Ljava/util/function/Predicate<Lcom/sun/tools/javac/parser/Tokens$TokenKind;>;Ljava/util/function/Predicate<Lcom/sun/tools/javac/parser/Tokens$TokenKind;>;Ljava/util/function/Predicate<Lcom/sun/tools/javac/parser/Tokens$TokenKind;>;)Z", $PROTECTED, $virtualMethod(JavacParser, peekToken, bool, $Predicate*, $Predicate*, $Predicate*)},
-	{"peekToken", "(ILjava/util/function/Predicate;Ljava/util/function/Predicate;Ljava/util/function/Predicate;)Z", "(ILjava/util/function/Predicate<Lcom/sun/tools/javac/parser/Tokens$TokenKind;>;Ljava/util/function/Predicate<Lcom/sun/tools/javac/parser/Tokens$TokenKind;>;Ljava/util/function/Predicate<Lcom/sun/tools/javac/parser/Tokens$TokenKind;>;)Z", $PROTECTED, $virtualMethod(JavacParser, peekToken, bool, int32_t, $Predicate*, $Predicate*, $Predicate*)},
-	{"peekToken", "([Ljava/util/function/Predicate;)Z", "([Ljava/util/function/Predicate<Lcom/sun/tools/javac/parser/Tokens$TokenKind;>;)Z", $PROTECTED | $TRANSIENT, $virtualMethod(JavacParser, peekToken, bool, $PredicateArray*)},
-	{"peekToken", "(I[Ljava/util/function/Predicate;)Z", "(I[Ljava/util/function/Predicate<Lcom/sun/tools/javac/parser/Tokens$TokenKind;>;)Z", $PROTECTED | $TRANSIENT, $virtualMethod(JavacParser, peekToken, bool, int32_t, $PredicateArray*)},
-	{"permitsClause", "(Lcom/sun/tools/javac/tree/JCTree$JCModifiers;Ljava/lang/String;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/tree/JCTree$JCModifiers;Ljava/lang/String;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;", 0, $virtualMethod(JavacParser, permitsClause, $List*, $JCTree$JCModifiers*, $String*)},
-	{"prec", "(Lcom/sun/tools/javac/parser/Tokens$TokenKind;)I", nullptr, $STATIC, $staticMethod(JavacParser, prec, int32_t, $Tokens$TokenKind*)},
-	{"qualident", "(Z)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, $PUBLIC, $virtualMethod(JavacParser, qualident, $JCTree$JCExpression*, bool)},
-	{"qualidentList", "(Z)Lcom/sun/tools/javac/util/List;", "(Z)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;", 0, $virtualMethod(JavacParser, qualidentList, $List*, bool)},
-	{"recordDeclaration", "(Lcom/sun/tools/javac/tree/JCTree$JCModifiers;Lcom/sun/tools/javac/parser/Tokens$Comment;)Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;", nullptr, $PROTECTED, $virtualMethod(JavacParser, recordDeclaration, $JCTree$JCClassDecl*, $JCTree$JCModifiers*, $Tokens$Comment*)},
-	{"reportSyntaxError", "(ILcom/sun/tools/javac/util/JCDiagnostic$Error;)V", nullptr, $PROTECTED, $virtualMethod(JavacParser, reportSyntaxError, void, int32_t, $JCDiagnostic$Error*)},
-	{"reportSyntaxError", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/util/JCDiagnostic$Error;)V", nullptr, $PROTECTED, $virtualMethod(JavacParser, reportSyntaxError, void, $JCDiagnostic$DiagnosticPosition*, $JCDiagnostic$Error*)},
-	{"resource", "()Lcom/sun/tools/javac/tree/JCTree;", nullptr, $PROTECTED, $virtualMethod(JavacParser, resource, $JCTree*)},
-	{"resources", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree;>;", 0, $virtualMethod(JavacParser, resources, $List*)},
-	{"restrictedTypeName", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Z)Lcom/sun/tools/javac/util/Name;", nullptr, 0, $virtualMethod(JavacParser, restrictedTypeName, $Name*, $JCTree$JCExpression*, bool)},
-	{"restrictedTypeNameStartingAtSource", "(Lcom/sun/tools/javac/util/Name;IZ)Lcom/sun/tools/javac/code/Source;", nullptr, 0, $virtualMethod(JavacParser, restrictedTypeNameStartingAtSource, $Source*, $Name*, int32_t, bool)},
-	{"selectExprMode", "()V", nullptr, $PROTECTED, $virtualMethod(JavacParser, selectExprMode, void)},
-	{"selectTypeMode", "()V", nullptr, $PROTECTED, $virtualMethod(JavacParser, selectTypeMode, void)},
-	{"setErrorEndPos", "(I)V", nullptr, $PROTECTED, $virtualMethod(JavacParser, setErrorEndPos, void, int32_t)},
-	{"skip", "(ZZZZ)V", nullptr, $PROTECTED, $virtualMethod(JavacParser, skip, void, bool, bool, bool, bool)},
-	{"skipAnnotation", "(I)I", nullptr, $PRIVATE, $method(JavacParser, skipAnnotation, int32_t, int32_t)},
-	{"storeEnd", "(Lcom/sun/tools/javac/tree/JCTree;I)V", nullptr, $PROTECTED, $virtualMethod(JavacParser, storeEnd, void, $JCTree*, int32_t)},
-	{"stringLiteral", "(Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/tree/JCTree$JCLiteral;", nullptr, $PRIVATE, $method(JavacParser, stringLiteral, $JCTree$JCLiteral*, $JCTree*)},
-	{"strval", "(Lcom/sun/tools/javac/util/Name;)Ljava/lang/String;", nullptr, 0, $virtualMethod(JavacParser, strval, $String*, $Name*)},
-	{"superSuffix", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;Lcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", 0, $virtualMethod(JavacParser, superSuffix, $JCTree$JCExpression*, $List*, $JCTree$JCExpression*)},
-	{"switchBlockStatementGroup", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCCase;>;", $PROTECTED, $virtualMethod(JavacParser, switchBlockStatementGroup, $List*)},
-	{"switchBlockStatementGroups", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCCase;>;", 0, $virtualMethod(JavacParser, switchBlockStatementGroups, $List*)},
-	{"switchExpressionStatementGroup", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCCase;>;", $PRIVATE, $method(JavacParser, switchExpressionStatementGroup, $List*)},
-	{"syntaxError", "(ILcom/sun/tools/javac/util/JCDiagnostic$Error;)Lcom/sun/tools/javac/tree/JCTree$JCErroneous;", nullptr, $PROTECTED, $virtualMethod(JavacParser, syntaxError, $JCTree$JCErroneous*, int32_t, $JCDiagnostic$Error*)},
-	{"syntaxError", "(ILcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/JCDiagnostic$Error;)Lcom/sun/tools/javac/tree/JCTree$JCErroneous;", "(ILcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree;>;Lcom/sun/tools/javac/util/JCDiagnostic$Error;)Lcom/sun/tools/javac/tree/JCTree$JCErroneous;", $PROTECTED, $virtualMethod(JavacParser, syntaxError, $JCTree$JCErroneous*, int32_t, $List*, $JCDiagnostic$Error*)},
-	{"term", "(I)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, $PROTECTED, $virtualMethod(JavacParser, term, $JCTree$JCExpression*, int32_t)},
-	{"term", "()Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, 0, $virtualMethod(JavacParser, term, $JCTree$JCExpression*)},
-	{"term1", "()Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, 0, $virtualMethod(JavacParser, term1, $JCTree$JCExpression*)},
-	{"term1Rest", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, 0, $virtualMethod(JavacParser, term1Rest, $JCTree$JCExpression*, $JCTree$JCExpression*)},
-	{"term2", "()Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, 0, $virtualMethod(JavacParser, term2, $JCTree$JCExpression*)},
-	{"term2Rest", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;I)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, 0, $virtualMethod(JavacParser, term2Rest, $JCTree$JCExpression*, $JCTree$JCExpression*, int32_t)},
-	{"term3", "()Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, $PROTECTED, $virtualMethod(JavacParser, term3, $JCTree$JCExpression*)},
-	{"term3Rest", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", 0, $virtualMethod(JavacParser, term3Rest, $JCTree$JCExpression*, $JCTree$JCExpression*, $List*)},
-	{"termRest", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, 0, $virtualMethod(JavacParser, termRest, $JCTree$JCExpression*, $JCTree$JCExpression*)},
-	{"to", "(Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/tree/JCTree;", "<T:Lcom/sun/tools/javac/tree/JCTree;>(TT;)TT;", $PROTECTED, $virtualMethod(JavacParser, to, $JCTree*, $JCTree*)},
-	{"toP", "(Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/tree/JCTree;", "<T:Lcom/sun/tools/javac/tree/JCTree;>(TT;)TT;", $PROTECTED, $virtualMethod(JavacParser, toP, $JCTree*, $JCTree*)},
-	{"token", "()Lcom/sun/tools/javac/parser/Tokens$Token;", nullptr, $PUBLIC, $virtualMethod(JavacParser, token, $Tokens$Token*)},
-	{"typeAnnotationsOpt", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;>;", 0, $virtualMethod(JavacParser, typeAnnotationsOpt, $List*)},
-	{"typeArgument", "()Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, 0, $virtualMethod(JavacParser, typeArgument, $JCTree$JCExpression*)},
-	{"typeArguments", "(Z)Lcom/sun/tools/javac/util/List;", "(Z)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;", 0, $virtualMethod(JavacParser, typeArguments, $List*, bool)},
-	{"typeArguments", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Z)Lcom/sun/tools/javac/tree/JCTree$JCTypeApply;", nullptr, 0, $virtualMethod(JavacParser, typeArguments, $JCTree$JCTypeApply*, $JCTree$JCExpression*, bool)},
-	{"typeArgumentsOpt", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, 0, $virtualMethod(JavacParser, typeArgumentsOpt, $JCTree$JCExpression*, $JCTree$JCExpression*)},
-	{"typeArgumentsOpt", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;", 0, $virtualMethod(JavacParser, typeArgumentsOpt, $List*)},
-	{"typeArgumentsOpt", "(I)Lcom/sun/tools/javac/util/List;", "(I)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;", 0, $virtualMethod(JavacParser, typeArgumentsOpt, $List*, int32_t)},
-	{"typeDeclaration", "(Lcom/sun/tools/javac/tree/JCTree$JCModifiers;Lcom/sun/tools/javac/parser/Tokens$Comment;)Lcom/sun/tools/javac/tree/JCTree;", nullptr, 0, $virtualMethod(JavacParser, typeDeclaration, $JCTree*, $JCTree$JCModifiers*, $Tokens$Comment*)},
-	{"typeList", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;", 0, $virtualMethod(JavacParser, typeList, $List*)},
-	{"typeName", "()Lcom/sun/tools/javac/util/Name;", nullptr, 0, $virtualMethod(JavacParser, typeName, $Name*)},
-	{"typeParameter", "()Lcom/sun/tools/javac/tree/JCTree$JCTypeParameter;", nullptr, 0, $virtualMethod(JavacParser, typeParameter, $JCTree$JCTypeParameter*)},
-	{"typeParametersOpt", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCTypeParameter;>;", $PROTECTED, $virtualMethod(JavacParser, typeParametersOpt, $List*)},
-	{"typetag", "(Lcom/sun/tools/javac/parser/Tokens$TokenKind;)Lcom/sun/tools/javac/code/TypeTag;", nullptr, $STATIC, $staticMethod(JavacParser, typetag, $TypeTag*, $Tokens$TokenKind*)},
-	{"unannotatedType", "(Z)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, $PUBLIC, $virtualMethod(JavacParser, unannotatedType, $JCTree$JCExpression*, bool)},
-	{"unoptag", "(Lcom/sun/tools/javac/parser/Tokens$TokenKind;)Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $STATIC, $staticMethod(JavacParser, unoptag, $JCTree$Tag*, $Tokens$TokenKind*)},
-	{"variableDeclarator", "(Lcom/sun/tools/javac/tree/JCTree$JCModifiers;Lcom/sun/tools/javac/tree/JCTree$JCExpression;ZLcom/sun/tools/javac/parser/Tokens$Comment;Z)Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;", nullptr, 0, $virtualMethod(JavacParser, variableDeclarator, $JCTree$JCVariableDecl*, $JCTree$JCModifiers*, $JCTree$JCExpression*, bool, $Tokens$Comment*, bool)},
-	{"variableDeclaratorId", "(Lcom/sun/tools/javac/tree/JCTree$JCModifiers;Lcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;", nullptr, 0, $virtualMethod(JavacParser, variableDeclaratorId, $JCTree$JCVariableDecl*, $JCTree$JCModifiers*, $JCTree$JCExpression*)},
-	{"variableDeclaratorId", "(Lcom/sun/tools/javac/tree/JCTree$JCModifiers;Lcom/sun/tools/javac/tree/JCTree$JCExpression;ZZ)Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;", nullptr, 0, $virtualMethod(JavacParser, variableDeclaratorId, $JCTree$JCVariableDecl*, $JCTree$JCModifiers*, $JCTree$JCExpression*, bool, bool)},
-	{"variableDeclaratorRest", "(ILcom/sun/tools/javac/tree/JCTree$JCModifiers;Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/util/Name;ZLcom/sun/tools/javac/parser/Tokens$Comment;ZZ)Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;", nullptr, 0, $virtualMethod(JavacParser, variableDeclaratorRest, $JCTree$JCVariableDecl*, int32_t, $JCTree$JCModifiers*, $JCTree$JCExpression*, $Name*, bool, $Tokens$Comment*, bool, bool)},
-	{"variableDeclarators", "(Lcom/sun/tools/javac/tree/JCTree$JCModifiers;Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/util/ListBuffer;Z)Lcom/sun/tools/javac/util/ListBuffer;", "<T:Lcom/sun/tools/javac/util/ListBuffer<-Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;>;>(Lcom/sun/tools/javac/tree/JCTree$JCModifiers;Lcom/sun/tools/javac/tree/JCTree$JCExpression;TT;Z)TT;", $PUBLIC, $virtualMethod(JavacParser, variableDeclarators, $ListBuffer*, $JCTree$JCModifiers*, $JCTree$JCExpression*, $ListBuffer*, bool)},
-	{"variableDeclaratorsRest", "(ILcom/sun/tools/javac/tree/JCTree$JCModifiers;Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/util/Name;ZLcom/sun/tools/javac/parser/Tokens$Comment;Lcom/sun/tools/javac/util/ListBuffer;Z)Lcom/sun/tools/javac/util/ListBuffer;", "<T:Lcom/sun/tools/javac/util/ListBuffer<-Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;>;>(ILcom/sun/tools/javac/tree/JCTree$JCModifiers;Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/util/Name;ZLcom/sun/tools/javac/parser/Tokens$Comment;TT;Z)TT;", $PROTECTED, $virtualMethod(JavacParser, variableDeclaratorsRest, $ListBuffer*, int32_t, $JCTree$JCModifiers*, $JCTree$JCExpression*, $Name*, bool, $Tokens$Comment*, $ListBuffer*, bool)},
-	{"variableInitializer", "()Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, $PUBLIC, $virtualMethod(JavacParser, variableInitializer, $JCTree$JCExpression*)},
-	{}
-};
-
-$InnerClassInfo _JavacParser_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.parser.JavacParser$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{"com.sun.tools.javac.parser.JavacParser$AbstractEndPosTable", "com.sun.tools.javac.parser.JavacParser", "AbstractEndPosTable", $PROTECTED | $STATIC | $ABSTRACT},
-	{"com.sun.tools.javac.parser.JavacParser$EmptyEndPosTable", "com.sun.tools.javac.parser.JavacParser", "EmptyEndPosTable", $PROTECTED | $STATIC},
-	{"com.sun.tools.javac.parser.JavacParser$SimpleEndPosTable", "com.sun.tools.javac.parser.JavacParser", "SimpleEndPosTable", $PROTECTED | $STATIC},
-	{"com.sun.tools.javac.parser.JavacParser$EnumeratorEstimate", "com.sun.tools.javac.parser.JavacParser", "EnumeratorEstimate", $PRIVATE | $STATIC | $FINAL | $ENUM},
-	{"com.sun.tools.javac.parser.JavacParser$PatternResult", "com.sun.tools.javac.parser.JavacParser", "PatternResult", $PRIVATE | $STATIC | $FINAL | $ENUM},
-	{"com.sun.tools.javac.parser.JavacParser$LambdaClassifier", "com.sun.tools.javac.parser.JavacParser", "LambdaClassifier", 0},
-	{"com.sun.tools.javac.parser.JavacParser$LambdaParameterKind", "com.sun.tools.javac.parser.JavacParser", "LambdaParameterKind", $STATIC | $FINAL | $ENUM},
-	{"com.sun.tools.javac.parser.JavacParser$ParensResult", "com.sun.tools.javac.parser.JavacParser", "ParensResult", $STATIC | $FINAL | $ENUM},
-	{"com.sun.tools.javac.parser.JavacParser$BasicErrorRecoveryAction", "com.sun.tools.javac.parser.JavacParser", "BasicErrorRecoveryAction", $STATIC | $ABSTRACT | $ENUM},
-	{"com.sun.tools.javac.parser.JavacParser$ErrorRecoveryAction", "com.sun.tools.javac.parser.JavacParser", "ErrorRecoveryAction", $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _JavacParser_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.parser.JavacParser",
-	"java.lang.Object",
-	"com.sun.tools.javac.parser.Parser",
-	_JavacParser_FieldInfo_,
-	_JavacParser_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JavacParser_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.parser.JavacParser$1,com.sun.tools.javac.parser.JavacParser$AbstractEndPosTable,com.sun.tools.javac.parser.JavacParser$EmptyEndPosTable,com.sun.tools.javac.parser.JavacParser$SimpleEndPosTable,com.sun.tools.javac.parser.JavacParser$EnumeratorEstimate,com.sun.tools.javac.parser.JavacParser$PatternResult,com.sun.tools.javac.parser.JavacParser$LambdaClassifier,com.sun.tools.javac.parser.JavacParser$LambdaParameterKind,com.sun.tools.javac.parser.JavacParser$ParensResult,com.sun.tools.javac.parser.JavacParser$BasicErrorRecoveryAction,com.sun.tools.javac.parser.JavacParser$BasicErrorRecoveryAction$2,com.sun.tools.javac.parser.JavacParser$BasicErrorRecoveryAction$1,com.sun.tools.javac.parser.JavacParser$ErrorRecoveryAction"
-};
-
-$Object* allocate$JavacParser($Class* clazz) {
-	return $of($alloc(JavacParser));
-}
 
 bool JavacParser::$assertionsDisabled = false;
 $JCDiagnostic$FragmentArray2* JavacParser::decisionTable = nullptr;
@@ -910,7 +622,7 @@ void JavacParser::init$($ParserFactory* fac, $Lexer* S, bool keepDocComments, bo
 	this->count = 0;
 	$set(this, odStackSupply, $new($ArrayList));
 	$set(this, opStackSupply, $new($ArrayList));
-	$set(this, LAX_IDENTIFIER, static_cast<$Predicate*>($new(JavacParser$$Lambda$lambda$new$3)));
+	$set(this, LAX_IDENTIFIER, $new(JavacParser$$Lambda$lambda$new$3));
 	$set(this, S, S);
 	nextToken();
 	$set(this, F, $nc(fac)->F);
@@ -932,19 +644,19 @@ void JavacParser::init$($ParserFactory* fac, $Lexer* S, bool keepDocComments, bo
 }
 
 $JavacParser$AbstractEndPosTable* JavacParser::newEndPosTable(bool keepEndPositions) {
-	return keepEndPositions ? static_cast<$JavacParser$AbstractEndPosTable*>($new($JavacParser$SimpleEndPosTable, this)) : static_cast<$JavacParser$AbstractEndPosTable*>($new($JavacParser$EmptyEndPosTable, this));
+	return keepEndPositions ? $cast($JavacParser$AbstractEndPosTable, $new($JavacParser$SimpleEndPosTable, this)) : $cast($JavacParser$AbstractEndPosTable, $new($JavacParser$EmptyEndPosTable, this));
 }
 
 $DocCommentTable* JavacParser::newDocCommentTable(bool keepDocComments, $ParserFactory* fac) {
-	return keepDocComments ? static_cast<$DocCommentTable*>($new($LazyDocCommentTable, fac)) : ($DocCommentTable*)nullptr;
+	return keepDocComments ? $cast($DocCommentTable, $new($LazyDocCommentTable, fac)) : ($DocCommentTable*)nullptr;
 }
 
 void JavacParser::selectExprMode() {
-	this->mode = ((int32_t)(this->mode & (uint32_t)JavacParser::NOLAMBDA)) | JavacParser::EXPR;
+	this->mode = (this->mode & JavacParser::NOLAMBDA) | JavacParser::EXPR;
 }
 
 void JavacParser::selectTypeMode() {
-	this->mode = ((int32_t)(this->mode & (uint32_t)JavacParser::NOLAMBDA)) | JavacParser::TYPE;
+	this->mode = (this->mode & JavacParser::NOLAMBDA) | JavacParser::TYPE;
 }
 
 $Tokens$Token* JavacParser::token() {
@@ -969,9 +681,9 @@ bool JavacParser::peekToken($Predicate* tk1, $Predicate* tk2) {
 }
 
 bool JavacParser::peekToken(int32_t lookahead, $Predicate* tk1, $Predicate* tk2) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool var$0 = $nc(tk1)->test($nc($($nc(this->S)->token(lookahead + 1)))->kind);
-	return var$0 && $nc(tk2)->test($nc($($nc(this->S)->token(lookahead + 2)))->kind);
+	return var$0 && $nc(tk2)->test($nc($(this->S->token(lookahead + 2)))->kind);
 }
 
 bool JavacParser::peekToken($Predicate* tk1, $Predicate* tk2, $Predicate* tk3) {
@@ -979,10 +691,10 @@ bool JavacParser::peekToken($Predicate* tk1, $Predicate* tk2, $Predicate* tk3) {
 }
 
 bool JavacParser::peekToken(int32_t lookahead, $Predicate* tk1, $Predicate* tk2, $Predicate* tk3) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool var$1 = $nc(tk1)->test($nc($($nc(this->S)->token(lookahead + 1)))->kind);
-	bool var$0 = var$1 && $nc(tk2)->test($nc($($nc(this->S)->token(lookahead + 2)))->kind);
-	return var$0 && $nc(tk3)->test($nc($($nc(this->S)->token(lookahead + 3)))->kind);
+	bool var$0 = var$1 && $nc(tk2)->test($nc($(this->S->token(lookahead + 2)))->kind);
+	return var$0 && $nc(tk3)->test($nc($(this->S->token(lookahead + 3)))->kind);
 }
 
 bool JavacParser::peekToken($PredicateArray* kinds) {
@@ -990,18 +702,12 @@ bool JavacParser::peekToken($PredicateArray* kinds) {
 }
 
 bool JavacParser::peekToken(int32_t lookahead, $PredicateArray* kinds) {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($PredicateArray, arr$, kinds);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
-			$var($Predicate, kind, arr$->get(i$));
-			{
-				if (!$nc(kind)->test($nc($($nc(this->S)->token(++lookahead)))->kind)) {
-					return false;
-				}
-			}
+	$useLocalObjectStack();
+	$var($PredicateArray, arr$, kinds);
+	for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
+		$var($Predicate, kind, arr$->get(i$));
+		if (!$nc(kind)->test($nc($($nc(this->S)->token(++lookahead)))->kind)) {
+			return false;
 		}
 	}
 	return true;
@@ -1012,137 +718,79 @@ void JavacParser::skip(bool stopAtImport, bool stopAtMemberDecl, bool stopAtIden
 		$init($JavacParser$1);
 		switch ($nc($JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind)->get(($nc(this->token$)->kind)->ordinal())) {
 		case 1:
-			{
-				nextToken();
-				return;
-			}
+			nextToken();
+			return;
 		case 2:
-			{}
 		case 3:
-			{}
 		case 4:
-			{}
 		case 5:
-			{}
 		case 6:
-			{}
 		case 7:
-			{}
 		case 8:
-			{}
 		case 9:
-			{
+			return;
+		case 10:
+			if (stopAtImport) {
 				return;
 			}
-		case 10:
-			{
-				if (stopAtImport) {
-					return;
-				}
-				break;
-			}
+			break;
 		case 11:
-			{}
 		case 12:
-			{}
 		case 13:
-			{}
 		case 14:
-			{}
 		case 15:
-			{}
 		case 16:
-			{}
 		case 17:
-			{}
 		case 18:
-			{}
 		case 19:
-			{}
 		case 20:
-			{}
 		case 21:
-			{}
 		case 22:
-			{}
 		case 23:
-			{}
 		case 24:
-			{}
 		case 25:
-			{}
 		case 26:
-			{}
 		case 27:
-			{}
 		case 28:
-			{}
 		case 29:
-			{}
 		case 30:
-			{
-				if (stopAtMemberDecl) {
-					return;
-				}
-				break;
+			if (stopAtMemberDecl) {
+				return;
 			}
+			break;
 		case 31:
-			{}
 		case 32:
-			{
-				if (stopAtIdentifier) {
-					return;
-				}
-				break;
+			if (stopAtIdentifier) {
+				return;
 			}
+			break;
 		case 33:
-			{}
 		case 34:
-			{}
 		case 35:
-			{}
 		case 36:
-			{}
 		case 37:
-			{}
 		case 38:
-			{}
 		case 39:
-			{}
 		case 40:
-			{}
 		case 41:
-			{}
 		case 42:
-			{}
 		case 43:
-			{}
 		case 44:
-			{}
 		case 45:
-			{}
 		case 46:
-			{}
 		case 47:
-			{}
 		case 48:
-			{}
 		case 49:
-			{}
 		case 50:
-			{
-				if (stopAtStatement) {
-					return;
-				}
-				break;
+			if (stopAtStatement) {
+				return;
 			}
+			break;
 		case 51:
-			{
-				if (stopAtStatement) {
-					return;
-				}
-				break;
+			if (stopAtStatement) {
+				return;
 			}
+			break;
 		}
 		nextToken();
 	}
@@ -1153,10 +801,10 @@ $JCTree$JCErroneous* JavacParser::syntaxError(int32_t pos, $JCDiagnostic$Error* 
 }
 
 $JCTree$JCErroneous* JavacParser::syntaxError(int32_t pos, $List* errs, $JCDiagnostic$Error* errorKey) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	setErrorEndPos(pos);
-	$var($JCTree$JCErroneous, err, $nc($($nc(this->F)->at(pos)))->Erroneous(errs));
-	reportSyntaxError(static_cast<$JCDiagnostic$DiagnosticPosition*>(err), errorKey);
+	$var($JCTree$JCErroneous, err, $$nc($nc(this->F)->at(pos))->Erroneous(errs));
+	reportSyntaxError(err, errorKey);
 	if (errs != nullptr) {
 		$var($JCTree, last, $cast($JCTree, errs->last()));
 		if (last != nullptr) {
@@ -1186,32 +834,32 @@ void JavacParser::reportSyntaxError($JCDiagnostic$DiagnosticPosition* diagPos, $
 	}
 	$nc(this->S)->errPos(pos);
 	$init($Tokens$TokenKind);
-	if ($nc(this->token$)->pos == this->errorPos && $nc(this->token$)->kind != $Tokens$TokenKind::EOF) {
+	if ($nc(this->token$)->pos == this->errorPos && this->token$->kind != $Tokens$TokenKind::EOF) {
 		$Assert::check(this->count++ < JavacParser::RECOVERY_THRESHOLD);
 	} else {
 		this->count = 0;
-		this->errorPos = $nc(this->token$)->pos;
+		this->errorPos = this->token$->pos;
 	}
 }
 
 void JavacParser::accept($Tokens$TokenKind* tk) {
-	accept(tk, static_cast<$Function*>($$new(JavacParser$$Lambda$Expected$1)));
+	accept(tk, $$new(JavacParser$$Lambda$Expected$1));
 }
 
 void JavacParser::accept($Tokens$TokenKind* tk, $Function* errorProvider) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(this->token$)->kind == tk) {
 		nextToken();
 	} else {
-		setErrorEndPos($nc(this->token$)->pos);
+		setErrorEndPos(this->token$->pos);
 		int32_t var$0 = $nc($($nc(this->S)->prevToken()))->endPos;
-		reportSyntaxError(var$0, $cast($JCDiagnostic$Error, $($nc(errorProvider)->apply(tk))));
+		reportSyntaxError(var$0, $$cast($JCDiagnostic$Error, $nc(errorProvider)->apply(tk)));
 	}
 }
 
 $JCTree$JCExpression* JavacParser::illegal(int32_t pos) {
 	setErrorEndPos(pos);
-	if (((int32_t)(this->mode & (uint32_t)JavacParser::EXPR)) != 0) {
+	if ((this->mode & JavacParser::EXPR) != 0) {
 		$init($CompilerProperties$Errors);
 		return syntaxError(pos, $CompilerProperties$Errors::IllegalStartOfExpr);
 	} else {
@@ -1229,9 +877,9 @@ void JavacParser::checkNoMods(int64_t mods) {
 }
 
 void JavacParser::checkNoMods(int32_t pos, int64_t mods) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (mods != 0) {
-		int64_t lowestMod = (int64_t)(mods & (uint64_t)-mods);
+		int64_t lowestMod = mods & -mods;
 		$init($JCDiagnostic$DiagnosticFlag);
 		$nc(this->log)->error($JCDiagnostic$DiagnosticFlag::SYNTAX, pos, $($CompilerProperties$Errors::ModNotAllowedHere($($Flags::asFlagSet(lowestMod)))));
 	}
@@ -1272,83 +920,75 @@ $Name* JavacParser::ident() {
 }
 
 $Name* JavacParser::ident(bool allowClass) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Tokens$TokenKind);
 	if ($nc(this->token$)->kind == $Tokens$TokenKind::IDENTIFIER) {
+		$var($Name, name, this->token$->name());
+		nextToken();
+		return name;
+	} else if (this->token$->kind == $Tokens$TokenKind::ASSERT) {
+		$init($JCDiagnostic$DiagnosticFlag);
+		$init($CompilerProperties$Errors);
+		$nc(this->log)->error($JCDiagnostic$DiagnosticFlag::SYNTAX, this->token$->pos, $CompilerProperties$Errors::AssertAsIdentifier);
+		nextToken();
+		return $nc(this->names)->error;
+	} else if ($nc(this->token$)->kind == $Tokens$TokenKind::ENUM) {
+		$init($JCDiagnostic$DiagnosticFlag);
+		$init($CompilerProperties$Errors);
+		$nc(this->log)->error($JCDiagnostic$DiagnosticFlag::SYNTAX, this->token$->pos, $CompilerProperties$Errors::EnumAsIdentifier);
+		nextToken();
+		return $nc(this->names)->error;
+	} else if (this->token$->kind == $Tokens$TokenKind::THIS) {
+		if (this->allowThisIdent) {
+			$init($Source$Feature);
+			checkSourceLevel($Source$Feature::TYPE_ANNOTATIONS);
+			$var($Name, name, $nc(this->token$)->name());
+			nextToken();
+			return name;
+		} else {
+			$init($JCDiagnostic$DiagnosticFlag);
+			$init($CompilerProperties$Errors);
+			$nc(this->log)->error($JCDiagnostic$DiagnosticFlag::SYNTAX, $nc(this->token$)->pos, $CompilerProperties$Errors::ThisAsIdentifier);
+			nextToken();
+			return $nc(this->names)->error;
+		}
+	} else if ($nc(this->token$)->kind == $Tokens$TokenKind::UNDERSCORE) {
+		$init($Source$Feature);
+		if ($Source$Feature::UNDERSCORE_IDENTIFIER->allowedInSource(this->source)) {
+			$init($CompilerProperties$Warnings);
+			$nc(this->log)->warning($nc(this->token$)->pos, $CompilerProperties$Warnings::UnderscoreAsIdentifier);
+		} else {
+			$init($JCDiagnostic$DiagnosticFlag);
+			$init($CompilerProperties$Errors);
+			$nc(this->log)->error($JCDiagnostic$DiagnosticFlag::SYNTAX, $nc(this->token$)->pos, $CompilerProperties$Errors::UnderscoreAsIdentifier);
+		}
 		$var($Name, name, $nc(this->token$)->name());
 		nextToken();
 		return name;
 	} else {
-		if ($nc(this->token$)->kind == $Tokens$TokenKind::ASSERT) {
-			$init($JCDiagnostic$DiagnosticFlag);
-			$init($CompilerProperties$Errors);
-			$nc(this->log)->error($JCDiagnostic$DiagnosticFlag::SYNTAX, $nc(this->token$)->pos, $CompilerProperties$Errors::AssertAsIdentifier);
+		accept($Tokens$TokenKind::IDENTIFIER);
+		if (allowClass && $nc(this->token$)->kind == $Tokens$TokenKind::CLASS) {
 			nextToken();
-			return $nc(this->names)->error;
-		} else {
-			if ($nc(this->token$)->kind == $Tokens$TokenKind::ENUM) {
-				$init($JCDiagnostic$DiagnosticFlag);
-				$init($CompilerProperties$Errors);
-				$nc(this->log)->error($JCDiagnostic$DiagnosticFlag::SYNTAX, $nc(this->token$)->pos, $CompilerProperties$Errors::EnumAsIdentifier);
-				nextToken();
-				return $nc(this->names)->error;
-			} else {
-				if ($nc(this->token$)->kind == $Tokens$TokenKind::THIS) {
-					if (this->allowThisIdent) {
-						$init($Source$Feature);
-						checkSourceLevel($Source$Feature::TYPE_ANNOTATIONS);
-						$var($Name, name, $nc(this->token$)->name());
-						nextToken();
-						return name;
-					} else {
-						$init($JCDiagnostic$DiagnosticFlag);
-						$init($CompilerProperties$Errors);
-						$nc(this->log)->error($JCDiagnostic$DiagnosticFlag::SYNTAX, $nc(this->token$)->pos, $CompilerProperties$Errors::ThisAsIdentifier);
-						nextToken();
-						return $nc(this->names)->error;
-					}
-				} else {
-					if ($nc(this->token$)->kind == $Tokens$TokenKind::UNDERSCORE) {
-						$init($Source$Feature);
-						if ($Source$Feature::UNDERSCORE_IDENTIFIER->allowedInSource(this->source)) {
-							$init($CompilerProperties$Warnings);
-							$nc(this->log)->warning($nc(this->token$)->pos, $CompilerProperties$Warnings::UnderscoreAsIdentifier);
-						} else {
-							$init($JCDiagnostic$DiagnosticFlag);
-							$init($CompilerProperties$Errors);
-							$nc(this->log)->error($JCDiagnostic$DiagnosticFlag::SYNTAX, $nc(this->token$)->pos, $CompilerProperties$Errors::UnderscoreAsIdentifier);
-						}
-						$var($Name, name, $nc(this->token$)->name());
-						nextToken();
-						return name;
-					} else {
-						accept($Tokens$TokenKind::IDENTIFIER);
-						if (allowClass && $nc(this->token$)->kind == $Tokens$TokenKind::CLASS) {
-							nextToken();
-							return $nc(this->names)->_class;
-						}
-						return $nc(this->names)->error;
-					}
-				}
-			}
+			return $nc(this->names)->_class;
 		}
+		return $nc(this->names)->error;
 	}
 }
 
 $JCTree$JCExpression* JavacParser::qualident(bool allowAnnos) {
-	$useLocalCurrentObjectStackCache();
-	$var($JCTree$JCExpression, t, $cast($JCTree$JCExpression, toP($($nc($($nc(this->F)->at($nc(this->token$)->pos)))->Ident($(ident()))))));
+	$useLocalObjectStack();
+	$var($JCTree$JCExpression, t, $cast($JCTree$JCExpression, toP($($$nc($nc(this->F)->at($nc(this->token$)->pos))->Ident($(ident()))))));
 	$init($Tokens$TokenKind);
 	while ($nc(this->token$)->kind == $Tokens$TokenKind::DOT) {
-		int32_t pos = $nc(this->token$)->pos;
+		int32_t pos = this->token$->pos;
 		nextToken();
 		$var($List, tyannos, nullptr);
 		if (allowAnnos) {
 			$assign(tyannos, typeAnnotationsOpt());
 		}
-		$assign(t, $cast($JCTree$JCExpression, toP($($nc($($nc(this->F)->at(pos)))->Select(t, $(ident()))))));
+		$assign(t, $cast($JCTree$JCExpression, toP($($$nc($nc(this->F)->at(pos))->Select(t, $(ident()))))));
 		if (tyannos != nullptr && tyannos->nonEmpty()) {
-			$assign(t, $cast($JCTree$JCExpression, toP($($nc($($nc(this->F)->at($nc(($cast($JCTree$JCAnnotation, tyannos->head)))->pos$)))->AnnotatedType(tyannos, t)))));
+			$assign(t, $cast($JCTree$JCExpression, toP($($$nc($nc(this->F)->at($nc(($cast($JCTree$JCAnnotation, tyannos->head)))->pos$))->AnnotatedType(tyannos, t)))));
 		}
 	}
 	return t;
@@ -1359,126 +999,100 @@ $JCTree$JCExpression* JavacParser::literal($Name* prefix) {
 }
 
 $JCTree$JCExpression* JavacParser::literal($Name* prefix, int32_t pos) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JCTree$JCExpression, t, this->errorTree);
 	$init($JavacParser$1);
 	switch ($nc($JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind)->get(($nc(this->token$)->kind)->ordinal())) {
 	case 52:
-		{
-			try {
-				$init($TypeTag);
-				$var($String, var$0, strval(prefix));
-				$assign(t, $nc($($nc(this->F)->at(pos)))->Literal($TypeTag::INT, $($Integer::valueOf($Convert::string2int(var$0, $nc(this->token$)->radix())))));
-			} catch ($NumberFormatException& ex) {
-				$init($JCDiagnostic$DiagnosticFlag);
-				$nc(this->log)->error($JCDiagnostic$DiagnosticFlag::SYNTAX, $nc(this->token$)->pos, $($CompilerProperties$Errors::IntNumberTooLarge($(strval(prefix)))));
-			}
-			break;
+		try {
+			$init($TypeTag);
+			$var($String, var$0, strval(prefix));
+			$assign(t, $$nc($nc(this->F)->at(pos))->Literal($TypeTag::INT, $($Integer::valueOf($Convert::string2int(var$0, $nc(this->token$)->radix())))));
+		} catch ($NumberFormatException& ex) {
+			$init($JCDiagnostic$DiagnosticFlag);
+			$nc(this->log)->error($JCDiagnostic$DiagnosticFlag::SYNTAX, $nc(this->token$)->pos, $($CompilerProperties$Errors::IntNumberTooLarge($(strval(prefix)))));
 		}
+		break;
 	case 53:
-		{
-			try {
-				$init($TypeTag);
-				$var($String, var$1, strval(prefix));
-				$assign(t, $nc($($nc(this->F)->at(pos)))->Literal($TypeTag::LONG, $($Long::valueOf($Convert::string2long(var$1, $nc(this->token$)->radix())))));
-			} catch ($NumberFormatException& ex) {
-				$init($JCDiagnostic$DiagnosticFlag);
-				$nc(this->log)->error($JCDiagnostic$DiagnosticFlag::SYNTAX, $nc(this->token$)->pos, $($CompilerProperties$Errors::IntNumberTooLarge($(strval(prefix)))));
-			}
-			break;
+		try {
+			$init($TypeTag);
+			$var($String, var$1, strval(prefix));
+			$assign(t, $$nc($nc(this->F)->at(pos))->Literal($TypeTag::LONG, $($Long::valueOf($Convert::string2long(var$1, $nc(this->token$)->radix())))));
+		} catch ($NumberFormatException& ex) {
+			$init($JCDiagnostic$DiagnosticFlag);
+			$nc(this->log)->error($JCDiagnostic$DiagnosticFlag::SYNTAX, $nc(this->token$)->pos, $($CompilerProperties$Errors::IntNumberTooLarge($(strval(prefix)))));
 		}
+		break;
 	case 54:
 		{
-			{
-				$var($String, proper, $nc(this->token$)->radix() == 16 ? ($str({"0x"_s, $($nc(this->token$)->stringVal())})) : $nc(this->token$)->stringVal());
-				$var($Float, n, nullptr);
-				try {
-					$assign(n, $Float::valueOf(proper));
-				} catch ($NumberFormatException& ex) {
-					$init($Float);
-					$assign(n, $Float::valueOf($Float::NaN));
-				}
-				bool var$2 = $nc(n)->floatValue() == 0.0f;
-				if (var$2 && !isZero(proper)) {
-					$init($JCDiagnostic$DiagnosticFlag);
-					$init($CompilerProperties$Errors);
-					$nc(this->log)->error($JCDiagnostic$DiagnosticFlag::SYNTAX, $nc(this->token$)->pos, $CompilerProperties$Errors::FpNumberTooSmall);
-				} else {
-					if (n->floatValue() == $Float::POSITIVE_INFINITY) {
-						$init($JCDiagnostic$DiagnosticFlag);
-						$init($CompilerProperties$Errors);
-						$nc(this->log)->error($JCDiagnostic$DiagnosticFlag::SYNTAX, $nc(this->token$)->pos, $CompilerProperties$Errors::FpNumberTooLarge);
-					} else {
-						$init($TypeTag);
-						$assign(t, $nc($($nc(this->F)->at(pos)))->Literal($TypeTag::FLOAT, n));
-					}
-				}
-				break;
+			$var($String, proper, $nc(this->token$)->radix() == 16 ? ($str({"0x"_s, $(this->token$->stringVal())})) : this->token$->stringVal());
+			$var($Float, n, nullptr);
+			try {
+				$assign(n, $Float::valueOf(proper));
+			} catch ($NumberFormatException& ex) {
+				$assign(n, $Float::valueOf($Float::NaN));
 			}
+			bool var$2 = $nc(n)->floatValue() == 0.0f;
+			if (var$2 && !isZero(proper)) {
+				$init($JCDiagnostic$DiagnosticFlag);
+				$init($CompilerProperties$Errors);
+				$nc(this->log)->error($JCDiagnostic$DiagnosticFlag::SYNTAX, $nc(this->token$)->pos, $CompilerProperties$Errors::FpNumberTooSmall);
+			} else if (n->floatValue() == $Float::POSITIVE_INFINITY) {
+				$init($JCDiagnostic$DiagnosticFlag);
+				$init($CompilerProperties$Errors);
+				$nc(this->log)->error($JCDiagnostic$DiagnosticFlag::SYNTAX, $nc(this->token$)->pos, $CompilerProperties$Errors::FpNumberTooLarge);
+			} else {
+				$init($TypeTag);
+				$assign(t, $$nc($nc(this->F)->at(pos))->Literal($TypeTag::FLOAT, n));
+			}
+			break;
 		}
 	case 55:
 		{
-			{
-				$var($String, proper, $nc(this->token$)->radix() == 16 ? ($str({"0x"_s, $($nc(this->token$)->stringVal())})) : $nc(this->token$)->stringVal());
-				$var($Double, n, nullptr);
-				try {
-					$assign(n, $Double::valueOf(proper));
-				} catch ($NumberFormatException& ex) {
-					$init($Double);
-					$assign(n, $Double::valueOf($Double::NaN));
-				}
-				bool var$3 = $nc(n)->doubleValue() == 0.0;
-				if (var$3 && !isZero(proper)) {
-					$init($JCDiagnostic$DiagnosticFlag);
-					$init($CompilerProperties$Errors);
-					$nc(this->log)->error($JCDiagnostic$DiagnosticFlag::SYNTAX, $nc(this->token$)->pos, $CompilerProperties$Errors::FpNumberTooSmall);
-				} else {
-					if (n->doubleValue() == $Double::POSITIVE_INFINITY) {
-						$init($JCDiagnostic$DiagnosticFlag);
-						$init($CompilerProperties$Errors);
-						$nc(this->log)->error($JCDiagnostic$DiagnosticFlag::SYNTAX, $nc(this->token$)->pos, $CompilerProperties$Errors::FpNumberTooLarge);
-					} else {
-						$init($TypeTag);
-						$assign(t, $nc($($nc(this->F)->at(pos)))->Literal($TypeTag::DOUBLE, n));
-					}
-				}
-				break;
+			$var($String, proper, $nc(this->token$)->radix() == 16 ? ($str({"0x"_s, $(this->token$->stringVal())})) : this->token$->stringVal());
+			$var($Double, n, nullptr);
+			try {
+				$assign(n, $Double::valueOf(proper));
+			} catch ($NumberFormatException& ex) {
+				$assign(n, $Double::valueOf($Double::NaN));
 			}
+			bool var$3 = $nc(n)->doubleValue() == 0.0;
+			if (var$3 && !isZero(proper)) {
+				$init($JCDiagnostic$DiagnosticFlag);
+				$init($CompilerProperties$Errors);
+				$nc(this->log)->error($JCDiagnostic$DiagnosticFlag::SYNTAX, $nc(this->token$)->pos, $CompilerProperties$Errors::FpNumberTooSmall);
+			} else if (n->doubleValue() == $Double::POSITIVE_INFINITY) {
+				$init($JCDiagnostic$DiagnosticFlag);
+				$init($CompilerProperties$Errors);
+				$nc(this->log)->error($JCDiagnostic$DiagnosticFlag::SYNTAX, $nc(this->token$)->pos, $CompilerProperties$Errors::FpNumberTooLarge);
+			} else {
+				$init($TypeTag);
+				$assign(t, $$nc($nc(this->F)->at(pos))->Literal($TypeTag::DOUBLE, n));
+			}
+			break;
 		}
 	case 56:
-		{
-			$init($TypeTag);
-			$assign(t, $nc($($nc(this->F)->at(pos)))->Literal($TypeTag::CHAR, $($Integer::valueOf($nc($($nc(this->token$)->stringVal()))->charAt(0) + 0))));
-			break;
-		}
+		$init($TypeTag);
+		$assign(t, $$nc($nc(this->F)->at(pos))->Literal($TypeTag::CHAR, $($Integer::valueOf($$nc($nc(this->token$)->stringVal())->charAt(0) + 0))));
+		break;
 	case 57:
-		{
-			$init($TypeTag);
-			$assign(t, $nc($($nc(this->F)->at(pos)))->Literal($TypeTag::CLASS, $($nc(this->token$)->stringVal())));
-			break;
-		}
+		$init($TypeTag);
+		$assign(t, $$nc($nc(this->F)->at(pos))->Literal($TypeTag::CLASS, $($nc(this->token$)->stringVal())));
+		break;
 	case 58:
-		{}
 	case 59:
-		{
-			$init($TypeTag);
-			$init($Tokens$TokenKind);
-			$assign(t, $nc($($nc(this->F)->at(pos)))->Literal($TypeTag::BOOLEAN, $($Integer::valueOf(($nc(this->token$)->kind == $Tokens$TokenKind::TRUE ? 1 : 0)))));
-			break;
-		}
+		$init($TypeTag);
+		$assign(t, $$nc($nc(this->F)->at(pos))->Literal($TypeTag::BOOLEAN, $($Integer::valueOf(($nc(this->token$)->kind == $Tokens$TokenKind::TRUE ? 1 : 0)))));
+		break;
 	case 60:
-		{
-			$init($TypeTag);
-			$assign(t, $nc($($nc(this->F)->at(pos)))->Literal($TypeTag::BOT, nullptr));
-			break;
-		}
+		$init($TypeTag);
+		$assign(t, $$nc($nc(this->F)->at(pos))->Literal($TypeTag::BOT, nullptr));
+		break;
 	default:
-		{
-			$Assert::error();
-		}
+		$Assert::error();
 	}
 	if ($equals(t, this->errorTree)) {
-		$assign(t, $nc($($nc(this->F)->at(pos)))->Erroneous());
+		$assign(t, $$nc($nc(this->F)->at(pos))->Erroneous());
 	}
 	storeEnd(t, $nc(this->token$)->endPos);
 	nextToken();
@@ -1505,28 +1119,28 @@ $JCTree$JCExpression* JavacParser::parseExpression() {
 }
 
 $JCTree$JCPattern* JavacParser::parsePattern(int32_t pos, $JCTree$JCModifiers* mods$renamed, $JCTree$JCExpression* parsedType, bool inInstanceOf) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JCTree$JCModifiers, mods, mods$renamed);
 	$var($JCTree$JCPattern, pattern, nullptr);
 	$init($Tokens$TokenKind);
 	if ($nc(this->token$)->kind == $Tokens$TokenKind::LPAREN && parsedType == nullptr) {
-		int32_t startPos = $nc(this->token$)->pos;
+		int32_t startPos = this->token$->pos;
 		accept($Tokens$TokenKind::LPAREN);
 		$var($JCTree$JCPattern, p, parsePattern($nc(this->token$)->pos, nullptr, nullptr, false));
 		accept($Tokens$TokenKind::RPAREN);
-		$assign(pattern, $cast($JCTree$JCPattern, toP($($nc($($nc(this->F)->at(startPos)))->ParenthesizedPattern(p)))));
+		$assign(pattern, $cast($JCTree$JCPattern, toP($($$nc($nc(this->F)->at(startPos))->ParenthesizedPattern(p)))));
 	} else {
 		$assign(mods, mods != nullptr ? mods : optFinal(0));
 		$var($JCTree$JCExpression, e, parsedType == nullptr ? term(JavacParser::TYPE | JavacParser::NOLAMBDA) : parsedType);
-		$var($JCTree$JCVariableDecl, var, $cast($JCTree$JCVariableDecl, toP($($nc($($nc(this->F)->at($nc(this->token$)->pos)))->VarDef(mods, $(ident()), e, nullptr)))));
-		$assign(pattern, $cast($JCTree$JCPattern, toP($($nc($($nc(this->F)->at(pos)))->BindingPattern(var)))));
+		$var($JCTree$JCVariableDecl, var, $cast($JCTree$JCVariableDecl, toP($($$nc($nc(this->F)->at($nc(this->token$)->pos))->VarDef(mods, $(ident()), e, nullptr)))));
+		$assign(pattern, $cast($JCTree$JCPattern, toP($($$nc($nc(this->F)->at(pos))->BindingPattern(var)))));
 	}
 	if (!inInstanceOf && $nc(this->token$)->kind == $Tokens$TokenKind::AMPAMP) {
 		$init($Source$Feature);
 		checkSourceLevel($Source$Feature::PATTERN_SWITCH);
 		nextToken();
 		$var($JCTree$JCExpression, guard, term(JavacParser::EXPR | JavacParser::NOLAMBDA));
-		$assign(pattern, $nc($($nc(this->F)->at(pos)))->GuardPattern(pattern, guard));
+		$assign(pattern, $$nc($nc(this->F)->at(pos))->GuardPattern(pattern, guard));
 	}
 	return pattern;
 }
@@ -1549,7 +1163,7 @@ $JCTree$JCExpression* JavacParser::parseType(bool allowVar, $List* annotations) 
 }
 
 $JCTree$JCExpression* JavacParser::unannotatedType(bool allowVar) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JCTree$JCExpression, result, term(JavacParser::TYPE));
 	$var($Name, restrictedTypeName, this->restrictedTypeName(result, !allowVar));
 	if (restrictedTypeName != nullptr && (!allowVar || restrictedTypeName != $nc(this->names)->var)) {
@@ -1569,15 +1183,15 @@ $JCTree$JCExpression* JavacParser::term(int32_t newmode) {
 
 $JCTree$JCExpression* JavacParser::term() {
 	$var($JCTree$JCExpression, t, term1());
-	bool var$0 = ((int32_t)(this->mode & (uint32_t)JavacParser::EXPR)) != 0;
+	bool var$0 = (this->mode & JavacParser::EXPR) != 0;
 	if (var$0) {
 		$init($Tokens$TokenKind);
 		bool var$1 = $nc(this->token$)->kind == $Tokens$TokenKind::EQ;
 		if (!var$1) {
-			bool var$2 = $Tokens$TokenKind::PLUSEQ->compareTo(static_cast<$Enum*>($nc(this->token$)->kind)) <= 0;
-			var$1 = var$2 && $nc(this->token$)->kind->compareTo(static_cast<$Enum*>($Tokens$TokenKind::GTGTGTEQ)) <= 0;
+			bool var$2 = $Tokens$TokenKind::PLUSEQ->compareTo(this->token$->kind) <= 0;
+			var$1 = var$2 && this->token$->kind->compareTo($Tokens$TokenKind::GTGTGTEQ) <= 0;
 		}
-		var$0 = (var$1);
+		var$0 = var$1;
 	}
 	if (var$0) {
 		return termRest(t);
@@ -1587,64 +1201,46 @@ $JCTree$JCExpression* JavacParser::term() {
 }
 
 $JCTree$JCExpression* JavacParser::termRest($JCTree$JCExpression* t) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($JavacParser$1);
-	{
-		int32_t pos = 0;
-		$var($Tokens$TokenKind, tk, nullptr)
-		$var($JCTree$JCExpression, t1, nullptr)
-		switch ($nc($JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind)->get(($nc(this->token$)->kind)->ordinal())) {
-		case 61:
-			{
-				{
-					int32_t pos = $nc(this->token$)->pos;
-					nextToken();
-					selectExprMode();
-					$var($JCTree$JCExpression, t1, term());
-					return $cast($JCTree$JCExpression, toP($($nc($($nc(this->F)->at(pos)))->Assign(t, t1))));
-				}
-			}
-		case 62:
-			{}
-		case 63:
-			{}
-		case 64:
-			{}
-		case 65:
-			{}
-		case 66:
-			{}
-		case 67:
-			{}
-		case 68:
-			{}
-		case 69:
-			{}
-		case 70:
-			{}
-		case 71:
-			{}
-		case 72:
-			{
-				pos = $nc(this->token$)->pos;
-				$assign(tk, $nc(this->token$)->kind);
-				nextToken();
-				selectExprMode();
-				$assign(t1, term());
-				return $nc($($nc(this->F)->at(pos)))->Assignop($(optag(tk)), t, t1);
-			}
-		default:
-			{
-				return t;
-			}
+	int32_t pos = 0;
+	$var($Tokens$TokenKind, tk, nullptr);
+	$var($JCTree$JCExpression, t1, nullptr);
+	switch ($nc($JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind)->get(($nc(this->token$)->kind)->ordinal())) {
+	case 61:
+		{
+			int32_t pos = $nc(this->token$)->pos;
+			nextToken();
+			selectExprMode();
+			$var($JCTree$JCExpression, t1, term());
+			return $cast($JCTree$JCExpression, toP($($$nc($nc(this->F)->at(pos))->Assign(t, t1))));
 		}
+	case 62:
+	case 63:
+	case 64:
+	case 65:
+	case 66:
+	case 67:
+	case 68:
+	case 69:
+	case 70:
+	case 71:
+	case 72:
+		pos = $nc(this->token$)->pos;
+		$assign(tk, this->token$->kind);
+		nextToken();
+		selectExprMode();
+		$assign(t1, term());
+		return $$nc($nc(this->F)->at(pos))->Assignop($(optag(tk)), t, t1);
+	default:
+		return t;
 	}
 }
 
 $JCTree$JCExpression* JavacParser::term1() {
 	$var($JCTree$JCExpression, t, term2());
 	$init($Tokens$TokenKind);
-	if (((int32_t)(this->mode & (uint32_t)JavacParser::EXPR)) != 0 && $nc(this->token$)->kind == $Tokens$TokenKind::QUES) {
+	if ((this->mode & JavacParser::EXPR) != 0 && $nc(this->token$)->kind == $Tokens$TokenKind::QUES) {
 		selectExprMode();
 		return term1Rest(t);
 	} else {
@@ -1653,15 +1249,15 @@ $JCTree$JCExpression* JavacParser::term1() {
 }
 
 $JCTree$JCExpression* JavacParser::term1Rest($JCTree$JCExpression* t) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Tokens$TokenKind);
 	if ($nc(this->token$)->kind == $Tokens$TokenKind::QUES) {
-		int32_t pos = $nc(this->token$)->pos;
+		int32_t pos = this->token$->pos;
 		nextToken();
 		$var($JCTree$JCExpression, t1, term());
 		accept($Tokens$TokenKind::COLON);
 		$var($JCTree$JCExpression, t2, term1());
-		return $nc($($nc(this->F)->at(pos)))->Conditional(t, t1, t2);
+		return $$nc($nc(this->F)->at(pos))->Conditional(t, t1, t2);
 	} else {
 		return t;
 	}
@@ -1669,7 +1265,7 @@ $JCTree$JCExpression* JavacParser::term1Rest($JCTree$JCExpression* t) {
 
 $JCTree$JCExpression* JavacParser::term2() {
 	$var($JCTree$JCExpression, t, term3());
-	if (((int32_t)(this->mode & (uint32_t)JavacParser::EXPR)) != 0 && prec($nc(this->token$)->kind) >= $TreeInfo::orPrec) {
+	if ((this->mode & JavacParser::EXPR) != 0 && prec($nc(this->token$)->kind) >= $TreeInfo::orPrec) {
 		selectExprMode();
 		return term2Rest(t, $TreeInfo::orPrec);
 	} else {
@@ -1678,7 +1274,7 @@ $JCTree$JCExpression* JavacParser::term2() {
 }
 
 $JCTree$JCExpression* JavacParser::term2Rest($JCTree$JCExpression* t$renamed, int32_t minprec) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JCTree$JCExpression, t, t$renamed);
 	$var($JCTree$JCExpressionArray, odStack, newOdStack());
 	$var($Tokens$TokenArray, opStack, newOpStack());
@@ -1687,38 +1283,38 @@ $JCTree$JCExpression* JavacParser::term2Rest($JCTree$JCExpression* t$renamed, in
 	int32_t startPos = $nc(this->token$)->pos;
 	$init($Tokens);
 	$var($Tokens$Token, topOp, $Tokens::DUMMY);
-	while (prec($nc(this->token$)->kind) >= minprec) {
+	while (prec(this->token$->kind) >= minprec) {
 		$nc(opStack)->set(top, topOp);
 		$init($Tokens$TokenKind);
 		if ($nc(this->token$)->kind == $Tokens$TokenKind::INSTANCEOF) {
-			int32_t pos = $nc(this->token$)->pos;
+			int32_t pos = this->token$->pos;
 			nextToken();
 			$var($JCTree, pattern, nullptr);
 			if ($nc(this->token$)->kind == $Tokens$TokenKind::LPAREN) {
 				$init($Source$Feature);
-				checkSourceLevel($nc(this->token$)->pos, $Source$Feature::PATTERN_SWITCH);
+				checkSourceLevel(this->token$->pos, $Source$Feature::PATTERN_SWITCH);
 				$assign(pattern, parsePattern($nc(this->token$)->pos, nullptr, nullptr, true));
 			} else {
-				int32_t patternPos = $nc(this->token$)->pos;
+				int32_t patternPos = this->token$->pos;
 				$var($JCTree$JCModifiers, mods, optFinal(0));
 				int32_t typePos = $nc(this->token$)->pos;
 				$var($JCTree$JCExpression, type, unannotatedType(false));
 				if ($nc(this->token$)->kind == $Tokens$TokenKind::IDENTIFIER) {
 					$init($Source$Feature);
-					checkSourceLevel($nc(this->token$)->pos, $Source$Feature::PATTERN_MATCHING_IN_INSTANCEOF);
+					checkSourceLevel(this->token$->pos, $Source$Feature::PATTERN_MATCHING_IN_INSTANCEOF);
 					$assign(pattern, parsePattern(patternPos, mods, type, true));
 				} else {
-					checkNoMods(typePos, (int64_t)($nc(mods)->flags & (uint64_t)(int64_t)~$Flags::DEPRECATED));
-					if ($nc($nc(mods)->annotations)->nonEmpty()) {
+					checkNoMods(typePos, $nc(mods)->flags & ~$Flags::DEPRECATED);
+					if ($nc(mods->annotations)->nonEmpty()) {
 						$init($Source$Feature);
 						checkSourceLevel($nc(($cast($JCTree$JCAnnotation, $nc(mods->annotations)->head)))->pos$, $Source$Feature::TYPE_ANNOTATIONS);
-						$var($List, typeAnnos, $nc(mods->annotations)->map(static_cast<$Function*>($$new(JavacParser$$Lambda$lambda$term2Rest$0$2, this))));
+						$var($List, typeAnnos, $nc(mods->annotations)->map($$new(JavacParser$$Lambda$lambda$term2Rest$0$2, this)));
 						$assign(type, insertAnnotationsToMostInner(type, typeAnnos, false));
 					}
 					$assign(pattern, type);
 				}
 			}
-			odStack->set(top, $($nc($($nc(this->F)->at(pos)))->TypeTest(odStack->get(top), pattern)));
+			odStack->set(top, $($$nc($nc(this->F)->at(pos))->TypeTest(odStack->get(top), pattern)));
 		} else {
 			$assign(topOp, this->token$);
 			nextToken();
@@ -1735,7 +1331,7 @@ $JCTree$JCExpression* JavacParser::term2Rest($JCTree$JCExpression* t$renamed, in
 				break;
 			}
 			{
-				odStack->set(top - 1, $($nc($($nc(this->F)->at($nc(topOp)->pos)))->Binary($(optag($nc(topOp)->kind)), odStack->get(top - 1), odStack->get(top))));
+				odStack->set(top - 1, $($$nc($nc(this->F)->at($nc(topOp)->pos))->Binary($(optag($nc(topOp)->kind)), odStack->get(top - 1), odStack->get(top))));
 				--top;
 				$assign(topOp, opStack->get(top));
 			}
@@ -1753,7 +1349,7 @@ $JCTree$JCExpression* JavacParser::term2Rest($JCTree$JCExpression* t$renamed, in
 }
 
 $JCTree$JCExpression* JavacParser::foldStrings($JCTree$JCExpression* tree) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!this->allowStringFolding) {
 		return tree;
 	}
@@ -1781,7 +1377,7 @@ $JCTree$JCExpression* JavacParser::foldStrings($JCTree$JCExpression* tree) {
 				$var($JCTree$JCExpression, op, $cast($JCTree$JCExpression, i$->next()));
 				{
 					$init($Tokens$TokenKind);
-					$assign(res, $nc($($nc(this->F)->at($nc(op)->getStartPosition())))->Binary($(optag($Tokens$TokenKind::PLUS)), res, op));
+					$assign(res, $$nc($nc(this->F)->at($nc(op)->getStartPosition()))->Binary($(optag($Tokens$TokenKind::PLUS)), res, op));
 					storeEnd(res, getEndPos(op));
 				}
 			}
@@ -1806,16 +1402,16 @@ bool JavacParser::foldIfNeeded($JCTree$JCExpression* tree, $ListBuffer* litBuf, 
 }
 
 bool JavacParser::merge($ListBuffer* litBuf, $ListBuffer* opStack) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(litBuf)->isEmpty()) {
 		return false;
 	} else if (litBuf->size() == 1) {
-		$nc(opStack)->prepend($cast($JCTree$JCExpression, $(litBuf->first())));
+		$nc(opStack)->prepend($$cast($JCTree$JCExpression, litBuf->first()));
 		return false;
 	} else {
 		$init($TypeTag);
-		$var($JCTree$JCExpression, t, $nc($($nc(this->F)->at($nc(($cast($JCTree$JCLiteral, $(litBuf->first()))))->getStartPosition())))->Literal($TypeTag::CLASS, $($nc($($nc($(litBuf->stream()))->map(static_cast<$Function*>($$new(JavacParser$$Lambda$lambda$merge$1$3)))))->collect($($Collectors::joining())))));
-		storeEnd(t, $nc(($cast($JCTree$JCLiteral, $(litBuf->last()))))->getEndPosition(this->endPosTable));
+		$var($JCTree$JCExpression, t, $$nc($nc(this->F)->at($$sure($JCTree$JCLiteral, litBuf->first())->getStartPosition()))->Literal($TypeTag::CLASS, $($$nc($$nc(litBuf->stream())->map($$new(JavacParser$$Lambda$lambda$merge$1$3)))->collect($($Collectors::joining())))));
+		storeEnd(t, $$sure($JCTree$JCLiteral, litBuf->last())->getEndPosition(this->endPosTable));
 		$nc(opStack)->prepend(t);
 		return true;
 	}
@@ -1837,552 +1433,446 @@ $JCTree$JCExpressionArray* JavacParser::newOdStack() {
 	if ($nc(this->odStackSupply)->isEmpty()) {
 		return $new($JCTree$JCExpressionArray, JavacParser::infixPrecedenceLevels + 1);
 	}
-	return $cast($JCTree$JCExpressionArray, $nc(this->odStackSupply)->remove($nc(this->odStackSupply)->size() - 1));
+	return $cast($JCTree$JCExpressionArray, this->odStackSupply->remove(this->odStackSupply->size() - 1));
 }
 
 $Tokens$TokenArray* JavacParser::newOpStack() {
 	if ($nc(this->opStackSupply)->isEmpty()) {
 		return $new($Tokens$TokenArray, JavacParser::infixPrecedenceLevels + 1);
 	}
-	return $cast($Tokens$TokenArray, $nc(this->opStackSupply)->remove($nc(this->opStackSupply)->size() - 1));
+	return $cast($Tokens$TokenArray, this->opStackSupply->remove(this->opStackSupply->size() - 1));
 }
 
 $JCTree$JCExpression* JavacParser::term3() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t pos = $nc(this->token$)->pos;
 	$var($JCTree$JCExpression, t, nullptr);
 	$var($List, typeArgs, typeArgumentsOpt(JavacParser::EXPR));
-	$init($JavacParser$1);
 	{
-		$var($List, typeAnnos, nullptr)
-		$var($JCTree$JCExpression, expr, nullptr)
+		$init($JavacParser$1);
+		$var($List, typeAnnos, nullptr);
+		$var($JCTree$JCExpression, expr, nullptr);
 		int32_t switchPos = 0;
-		$var($JCTree$JCExpression, selector, nullptr)
-		$var($ListBuffer, cases, nullptr)
+		$var($JCTree$JCExpression, selector, nullptr);
+		$var($ListBuffer, cases, nullptr);
 		switch ($nc($JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind)->get(($nc(this->token$)->kind)->ordinal())) {
 		case 77:
-			{
-				if (((int32_t)(this->mode & (uint32_t)JavacParser::TYPE)) != 0 && ((int32_t)(this->mode & (uint32_t)(JavacParser::TYPEARG | JavacParser::NOPARAMS))) == JavacParser::TYPEARG) {
-					selectTypeMode();
-					return typeArgument();
-				} else {
-					return illegal();
-				}
+			if ((this->mode & JavacParser::TYPE) != 0 && (this->mode & (JavacParser::TYPEARG | JavacParser::NOPARAMS)) == JavacParser::TYPEARG) {
+				selectTypeMode();
+				return typeArgument();
+			} else {
+				return illegal();
 			}
 		case 78:
-			{}
 		case 79:
-			{}
 		case 80:
-			{}
 		case 81:
-			{}
 		case 82:
-			{}
 		case 83:
-			{
-				if (typeArgs == nullptr && ((int32_t)(this->mode & (uint32_t)JavacParser::EXPR)) != 0) {
-					$Tokens$TokenKind* tk = $nc(this->token$)->kind;
-					nextToken();
-					selectExprMode();
-					$init($Tokens$TokenKind);
-					if (tk == $Tokens$TokenKind::SUB && ($nc(this->token$)->kind == $Tokens$TokenKind::INTLITERAL || $nc(this->token$)->kind == $Tokens$TokenKind::LONGLITERAL) && $nc(this->token$)->radix() == 10) {
-						selectExprMode();
-						$assign(t, literal($nc(this->names)->hyphen, pos));
-					} else {
-						$assign(t, term3());
-						return $nc($($nc(this->F)->at(pos)))->Unary($(unoptag(tk)), t);
-					}
-				} else {
-					return illegal();
-				}
-				break;
-			}
-		case 74:
-			{
-				if (typeArgs == nullptr && ((int32_t)(this->mode & (uint32_t)JavacParser::EXPR)) != 0) {
-					$JavacParser$ParensResult* pres = analyzeParens();
-					{
-						int32_t pos1 = 0;
-						$var($List, targets, nullptr)
-						$var($JCTree$JCExpression, t1, nullptr)
-						switch ($nc($JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$JavacParser$ParensResult)->get($nc((pres))->ordinal())) {
-						case 1:
-							{
-								$init($Tokens$TokenKind);
-								accept($Tokens$TokenKind::LPAREN);
-								selectTypeMode();
-								pos1 = pos;
-								$assign(targets, $List::of($assign(t, parseType())));
-								$init($Tokens$TokenKind);
-								while ($nc(this->token$)->kind == $Tokens$TokenKind::AMP) {
-									$init($Source$Feature);
-									checkSourceLevel($Source$Feature::INTERSECTION_TYPES_IN_CAST);
-									accept($Tokens$TokenKind::AMP);
-									$assign(targets, $nc(targets)->prepend($(parseType())));
-								}
-								if ($nc(targets)->length() > 1) {
-									$assign(t, $cast($JCTree$JCExpression, toP($($nc($($nc(this->F)->at(pos1)))->TypeIntersection($(targets->reverse()))))));
-								}
-								$init($Tokens$TokenKind);
-								accept($Tokens$TokenKind::RPAREN);
-								selectExprMode();
-								$assign(t1, term3());
-								return $nc($($nc(this->F)->at(pos)))->TypeCast(static_cast<$JCTree*>(t), t1);
-							}
-						case 2:
-							{}
-						case 3:
-							{
-								$init($JavacParser$ParensResult);
-								$assign(t, lambdaExpressionOrStatement(true, pres == $JavacParser$ParensResult::EXPLICIT_LAMBDA, pos));
-								break;
-							}
-						default:
-							{
-								$init($Tokens$TokenKind);
-								accept($Tokens$TokenKind::LPAREN);
-								selectExprMode();
-								$assign(t, termRest($(term1Rest($(term2Rest($(term3()), $TreeInfo::orPrec))))));
-								$init($Tokens$TokenKind);
-								accept($Tokens$TokenKind::RPAREN);
-								$assign(t, $cast($JCTree$JCExpression, toP($($nc($($nc(this->F)->at(pos)))->Parens(t)))));
-								break;
-							}
-						}
-					}
-				} else {
-					return illegal();
-				}
-				break;
-			}
-		case 48:
-			{
-				if (((int32_t)(this->mode & (uint32_t)JavacParser::EXPR)) != 0) {
-					selectExprMode();
-					$assign(t, $cast($JCTree$JCExpression, to($($nc($($nc(this->F)->at(pos)))->Ident($nc(this->names)->_this)))));
-					nextToken();
-					if (typeArgs == nullptr) {
-						$assign(t, argumentsOpt(nullptr, t));
-					} else {
-						$assign(t, arguments(typeArgs, t));
-					}
-					$assign(typeArgs, nullptr);
-				} else {
-					return illegal();
-				}
-				break;
-			}
-		case 49:
-			{
-				if (((int32_t)(this->mode & (uint32_t)JavacParser::EXPR)) != 0) {
-					selectExprMode();
-					$assign(t, $cast($JCTree$JCExpression, to($($nc($($nc(this->F)->at(pos)))->Ident($nc(this->names)->_super)))));
-					$assign(t, superSuffix(typeArgs, t));
-					$assign(typeArgs, nullptr);
-				} else {
-					return illegal();
-				}
-				break;
-			}
-		case 52:
-			{}
-		case 53:
-			{}
-		case 54:
-			{}
-		case 55:
-			{}
-		case 56:
-			{}
-		case 57:
-			{}
-		case 58:
-			{}
-		case 59:
-			{}
-		case 60:
-			{
-				if (typeArgs == nullptr && ((int32_t)(this->mode & (uint32_t)JavacParser::EXPR)) != 0) {
-					selectExprMode();
-					$assign(t, literal($nc(this->names)->empty));
-				} else {
-					return illegal();
-				}
-				break;
-			}
-		case 50:
-			{
-				if (typeArgs != nullptr) {
-					return illegal();
-				}
-				if (((int32_t)(this->mode & (uint32_t)JavacParser::EXPR)) != 0) {
-					selectExprMode();
-					nextToken();
-					$init($Tokens$TokenKind);
-					if ($nc(this->token$)->kind == $Tokens$TokenKind::LT) {
-						$assign(typeArgs, typeArguments(false));
-					}
-					$assign(t, creator(pos, typeArgs));
-					$assign(typeArgs, nullptr);
-				} else {
-					return illegal();
-				}
-				break;
-			}
-		case 5:
-			{
-				$assign(typeAnnos, typeAnnotationsOpt());
-				if ($nc(typeAnnos)->isEmpty()) {
-					$throwNew($AssertionError, $of("Expected type annotations, but found none!"_s));
-				}
-				$assign(expr, term3());
-				if (((int32_t)(this->mode & (uint32_t)JavacParser::TYPE)) == 0) {
-					switch ($nc($JavacParser$1::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->get($nc(($($nc(expr)->getTag())))->ordinal())) {
-					case 1:
-						{
-							{
-								$var($JCTree$JCMemberReference, mref, $cast($JCTree$JCMemberReference, expr));
-								$set(mref, expr, $cast($JCTree$JCExpression, toP($($nc($($nc(this->F)->at(pos)))->AnnotatedType(typeAnnos, mref->expr)))));
-								$assign(t, mref);
-								break;
-							}
-						}
-					case 2:
-						{
-							{
-								$var($JCTree$JCFieldAccess, sel, $cast($JCTree$JCFieldAccess, expr));
-								if (sel->name != $nc(this->names)->_class) {
-									return illegal();
-								} else {
-									$init($CompilerProperties$Errors);
-									$nc(this->log)->error($nc(this->token$)->pos, $CompilerProperties$Errors::NoAnnotationsOnDotClass);
-									return expr;
-								}
-							}
-						}
-					default:
-						{
-							return illegal($nc(($cast($JCTree$JCAnnotation, $nc(typeAnnos)->head)))->pos$);
-						}
-					}
-				} else {
-					$assign(t, insertAnnotationsToMostInner(expr, typeAnnos, false));
-				}
-				break;
-			}
-		case 31:
-			{}
-		case 32:
-			{}
-		case 51:
-			{}
-		case 9:
-			{
-				if (typeArgs != nullptr) {
-					return illegal();
-				}
-				$init($Tokens$TokenKind);
-				if (((int32_t)(this->mode & (uint32_t)JavacParser::EXPR)) != 0 && ((int32_t)(this->mode & (uint32_t)JavacParser::NOLAMBDA)) == 0 && peekToken(static_cast<$Predicate*>($Tokens$TokenKind::ARROW))) {
-					$assign(t, lambdaExpressionOrStatement(false, false, pos));
-				} else {
-					$assign(t, $cast($JCTree$JCExpression, toP($($nc($($nc(this->F)->at($nc(this->token$)->pos)))->Ident($(ident()))))));
-					bool loop$break = false;
-					while (true) {
-						pos = $nc(this->token$)->pos;
-						$var($List, annos, typeAnnotationsOpt());
-						if (!$nc(annos)->isEmpty() && $nc(this->token$)->kind != $Tokens$TokenKind::LBRACKET && $nc(this->token$)->kind != $Tokens$TokenKind::ELLIPSIS) {
-							return illegal($nc(($cast($JCTree$JCAnnotation, annos->head)))->pos$);
-						}
-						{
-							int32_t oldmode = 0;
-							$var($List, tyannos, nullptr)
-							switch ($nc($JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind)->get(($nc(this->token$)->kind)->ordinal())) {
-							case 73:
-								{
-									nextToken();
-									if ($nc(this->token$)->kind == $Tokens$TokenKind::RBRACKET) {
-										nextToken();
-										$assign(t, bracketsOpt(t));
-										$assign(t, $cast($JCTree$JCExpression, toP($($nc($($nc(this->F)->at(pos)))->TypeArray(t)))));
-										if ($nc(annos)->nonEmpty()) {
-											$assign(t, $cast($JCTree$JCExpression, toP($($nc($($nc(this->F)->at(pos)))->AnnotatedType(annos, t)))));
-										}
-										$assign(t, bracketsSuffix(t));
-									} else {
-										if (((int32_t)(this->mode & (uint32_t)JavacParser::EXPR)) != 0) {
-											selectExprMode();
-											$var($JCTree$JCExpression, t1, term());
-											if (!$nc(annos)->isEmpty()) {
-												$assign(t, illegal($nc(($cast($JCTree$JCAnnotation, annos->head)))->pos$));
-											}
-											$assign(t, $cast($JCTree$JCExpression, to($($nc($($nc(this->F)->at(pos)))->Indexed(t, t1)))));
-										}
-										accept($Tokens$TokenKind::RBRACKET);
-									}
-									loop$break = true;
-									break;
-								}
-							case 74:
-								{
-									if (((int32_t)(this->mode & (uint32_t)JavacParser::EXPR)) != 0) {
-										selectExprMode();
-										$assign(t, arguments(typeArgs, t));
-										if (!$nc(annos)->isEmpty()) {
-											$assign(t, illegal($nc(($cast($JCTree$JCAnnotation, annos->head)))->pos$));
-										}
-										$assign(typeArgs, nullptr);
-									}
-									loop$break = true;
-									break;
-								}
-							case 75:
-								{
-									nextToken();
-									if ($nc(this->token$)->kind == $Tokens$TokenKind::IDENTIFIER && typeArgs != nullptr) {
-										return illegal();
-									}
-									oldmode = this->mode;
-									this->mode &= (uint32_t)~JavacParser::NOPARAMS;
-									$assign(typeArgs, typeArgumentsOpt(JavacParser::EXPR));
-									this->mode = oldmode;
-									if (((int32_t)(this->mode & (uint32_t)JavacParser::EXPR)) != 0) {
-										{
-											int32_t pos1 = 0;
-											switch ($nc($JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind)->get(($nc(this->token$)->kind)->ordinal())) {
-											case 7:
-												{
-													if (typeArgs != nullptr) {
-														return illegal();
-													}
-													selectExprMode();
-													$assign(t, $cast($JCTree$JCExpression, to($($nc($($nc(this->F)->at(pos)))->Select(t, $nc(this->names)->_class)))));
-													nextToken();
-													loop$break = true;
-													break;
-												}
-											case 48:
-												{
-													if (typeArgs != nullptr) {
-														return illegal();
-													}
-													selectExprMode();
-													$assign(t, $cast($JCTree$JCExpression, to($($nc($($nc(this->F)->at(pos)))->Select(t, $nc(this->names)->_this)))));
-													nextToken();
-													loop$break = true;
-													break;
-												}
-											case 49:
-												{
-													selectExprMode();
-													$assign(t, $cast($JCTree$JCExpression, to($($nc($($nc(this->F)->at(pos)))->Select(t, $nc(this->names)->_super)))));
-													$assign(t, superSuffix(typeArgs, t));
-													$assign(typeArgs, nullptr);
-													loop$break = true;
-													break;
-												}
-											case 50:
-												{
-													if (typeArgs != nullptr) {
-														return illegal();
-													}
-													selectExprMode();
-													pos1 = $nc(this->token$)->pos;
-													nextToken();
-													if ($nc(this->token$)->kind == $Tokens$TokenKind::LT) {
-														$assign(typeArgs, typeArguments(false));
-													}
-													$assign(t, innerCreator(pos1, typeArgs, t));
-													$assign(typeArgs, nullptr);
-													loop$break = true;
-													break;
-												}
-											}
-
-											if (loop$break) {
-												break;
-											}
-										}
-									}
-									$assign(tyannos, nullptr);
-									if (((int32_t)(this->mode & (uint32_t)JavacParser::TYPE)) != 0 && $nc(this->token$)->kind == $Tokens$TokenKind::MONKEYS_AT) {
-										$assign(tyannos, typeAnnotationsOpt());
-									}
-									$assign(t, $cast($JCTree$JCExpression, toP($($nc($($nc(this->F)->at(pos)))->Select(t, $(ident()))))));
-									if ($nc(this->token$)->pos <= $nc(this->endPosTable)->errorEndPos && $nc(this->token$)->kind == $Tokens$TokenKind::MONKEYS_AT) {
-										if (typeArgs != nullptr) {
-											illegal();
-										}
-										return $cast($JCTree$JCExpression, toP(t));
-									}
-									if (tyannos != nullptr && tyannos->nonEmpty()) {
-										$assign(t, $cast($JCTree$JCExpression, toP($($nc($($nc(this->F)->at($nc(($cast($JCTree$JCAnnotation, tyannos->head)))->pos$)))->AnnotatedType(tyannos, t)))));
-									}
-									break;
-								}
-							case 76:
-								{
-									if (this->permitTypeAnnotationsPushBack) {
-										$set(this, typeAnnotationsPushedBack, annos);
-									} else if ($nc(annos)->nonEmpty()) {
-										illegal($nc(($cast($JCTree$JCAnnotation, annos->head)))->pos$);
-									}
-									loop$break = true;
-									break;
-								}
-							case 21:
-								{
-									if (((int32_t)(this->mode & (uint32_t)JavacParser::TYPE)) == 0 && isUnboundMemberRef()) {
-										int32_t pos1 = $nc(this->token$)->pos;
-										accept($Tokens$TokenKind::LT);
-										$var($ListBuffer, args, $new($ListBuffer));
-										args->append($(typeArgument()));
-										while ($nc(this->token$)->kind == $Tokens$TokenKind::COMMA) {
-											nextToken();
-											args->append($(typeArgument()));
-										}
-										accept($Tokens$TokenKind::GT);
-										$assign(t, $cast($JCTree$JCExpression, toP($($nc($($nc(this->F)->at(pos1)))->TypeApply(t, $(args->toList()))))));
-										while ($nc(this->token$)->kind == $Tokens$TokenKind::DOT) {
-											nextToken();
-											selectTypeMode();
-											$assign(t, $cast($JCTree$JCExpression, toP($($nc($($nc(this->F)->at($nc(this->token$)->pos)))->Select(t, $(ident()))))));
-											$assign(t, typeArgumentsOpt(t));
-										}
-										$assign(t, bracketsOpt(t));
-										if ($nc(this->token$)->kind != $Tokens$TokenKind::COLCOL) {
-											$assign(t, illegal());
-										}
-										selectExprMode();
-										return term3Rest(t, typeArgs);
-									}
-									loop$break = true;
-									break;
-								}
-							default:
-								{
-									loop$break = true;
-									break;
-								}
-							}
-
-							if (loop$break) {
-								break;
-							}						}
-					}
-				}
-				if (typeArgs != nullptr) {
-					illegal();
-				}
-				$assign(t, typeArgumentsOpt(t));
-				break;
-			}
-		case 22:
-			{}
-		case 23:
-			{}
-		case 24:
-			{}
-		case 25:
-			{}
-		case 26:
-			{}
-		case 27:
-			{}
-		case 28:
-			{}
-		case 29:
-			{
-				if (typeArgs != nullptr) {
-					illegal();
-				}
-				$assign(t, bracketsSuffix($(bracketsOpt($(basicType())))));
-				break;
-			}
-		case 30:
-			{
-				if (typeArgs != nullptr) {
-					illegal();
-				}
-				if (((int32_t)(this->mode & (uint32_t)JavacParser::EXPR)) != 0) {
-					nextToken();
-					$init($Tokens$TokenKind);
-					if ($nc(this->token$)->kind == $Tokens$TokenKind::DOT) {
-						$init($TypeTag);
-						$var($JCTree$JCPrimitiveTypeTree, ti, $cast($JCTree$JCPrimitiveTypeTree, toP($($nc($($nc(this->F)->at(pos)))->TypeIdent($TypeTag::VOID)))));
-						$assign(t, bracketsSuffix(ti));
-					} else {
-						return illegal(pos);
-					}
-				} else {
-					$init($TypeTag);
-					$var($JCTree$JCPrimitiveTypeTree, ti, $cast($JCTree$JCPrimitiveTypeTree, to($($nc($($nc(this->F)->at(pos)))->TypeIdent($TypeTag::VOID)))));
-					nextToken();
-					return ti;
-				}
-				break;
-			}
-		case 40:
-			{
-				$init($Source$Feature);
-				checkSourceLevel($Source$Feature::SWITCH_EXPRESSION);
-				this->allowYieldStatement = true;
-				switchPos = $nc(this->token$)->pos;
+			if (typeArgs == nullptr && (this->mode & JavacParser::EXPR) != 0) {
+				$Tokens$TokenKind* tk = $nc(this->token$)->kind;
 				nextToken();
-				$assign(selector, parExpression());
-				$init($Tokens$TokenKind);
-				accept($Tokens$TokenKind::LBRACE);
-				$assign(cases, $new($ListBuffer));
+				selectExprMode();
+				if (tk == $Tokens$TokenKind::SUB && ($nc(this->token$)->kind == $Tokens$TokenKind::INTLITERAL || this->token$->kind == $Tokens$TokenKind::LONGLITERAL) && this->token$->radix() == 10) {
+					selectExprMode();
+					$assign(t, literal($nc(this->names)->hyphen, pos));
+				} else {
+					$assign(t, term3());
+					return $$nc($nc(this->F)->at(pos))->Unary($(unoptag(tk)), t);
+				}
+			} else {
+				return illegal();
+			}
+			break;
+		case 74:
+			if (typeArgs == nullptr && (this->mode & JavacParser::EXPR) != 0) {
+				$JavacParser$ParensResult* pres = analyzeParens();
+				{
+					int32_t pos1 = 0;
+					$var($List, targets, nullptr);
+					$var($JCTree$JCExpression, t1, nullptr);
+					switch ($nc($JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$JavacParser$ParensResult)->get($nc((pres))->ordinal())) {
+					case 1:
+						accept($Tokens$TokenKind::LPAREN);
+						selectTypeMode();
+						pos1 = pos;
+						$assign(targets, $List::of($assign(t, parseType())));
+						while ($nc(this->token$)->kind == $Tokens$TokenKind::AMP) {
+							$init($Source$Feature);
+							checkSourceLevel($Source$Feature::INTERSECTION_TYPES_IN_CAST);
+							accept($Tokens$TokenKind::AMP);
+							$assign(targets, $nc(targets)->prepend($(parseType())));
+						}
+						if ($nc(targets)->length() > 1) {
+							$assign(t, $cast($JCTree$JCExpression, toP($($$nc($nc(this->F)->at(pos1))->TypeIntersection($(targets->reverse()))))));
+						}
+						accept($Tokens$TokenKind::RPAREN);
+						selectExprMode();
+						$assign(t1, term3());
+						return $$nc($nc(this->F)->at(pos))->TypeCast(t, t1);
+					case 2:
+					case 3:
+						$assign(t, lambdaExpressionOrStatement(true, pres == $JavacParser$ParensResult::EXPLICIT_LAMBDA, pos));
+						break;
+					default:
+						accept($Tokens$TokenKind::LPAREN);
+						selectExprMode();
+						$assign(t, termRest($(term1Rest($(term2Rest($(term3()), $TreeInfo::orPrec))))));
+						accept($Tokens$TokenKind::RPAREN);
+						$assign(t, $cast($JCTree$JCExpression, toP($($$nc($nc(this->F)->at(pos))->Parens(t)))));
+						break;
+					}
+				}
+			} else {
+				return illegal();
+			}
+			break;
+		case 48:
+			if ((this->mode & JavacParser::EXPR) != 0) {
+				selectExprMode();
+				$assign(t, $cast($JCTree$JCExpression, to($($$nc($nc(this->F)->at(pos))->Ident($nc(this->names)->_this)))));
+				nextToken();
+				if (typeArgs == nullptr) {
+					$assign(t, argumentsOpt(nullptr, t));
+				} else {
+					$assign(t, arguments(typeArgs, t));
+				}
+				$assign(typeArgs, nullptr);
+			} else {
+				return illegal();
+			}
+			break;
+		case 49:
+			if ((this->mode & JavacParser::EXPR) != 0) {
+				selectExprMode();
+				$assign(t, $cast($JCTree$JCExpression, to($($$nc($nc(this->F)->at(pos))->Ident($nc(this->names)->_super)))));
+				$assign(t, superSuffix(typeArgs, t));
+				$assign(typeArgs, nullptr);
+			} else {
+				return illegal();
+			}
+			break;
+		case 52:
+		case 53:
+		case 54:
+		case 55:
+		case 56:
+		case 57:
+		case 58:
+		case 59:
+		case 60:
+			if (typeArgs == nullptr && (this->mode & JavacParser::EXPR) != 0) {
+				selectExprMode();
+				$assign(t, literal($nc(this->names)->empty));
+			} else {
+				return illegal();
+			}
+			break;
+		case 50:
+			if (typeArgs != nullptr) {
+				return illegal();
+			}
+			if ((this->mode & JavacParser::EXPR) != 0) {
+				selectExprMode();
+				nextToken();
+				if ($nc(this->token$)->kind == $Tokens$TokenKind::LT) {
+					$assign(typeArgs, typeArguments(false));
+				}
+				$assign(t, creator(pos, typeArgs));
+				$assign(typeArgs, nullptr);
+			} else {
+				return illegal();
+			}
+			break;
+		case 5:
+			$assign(typeAnnos, typeAnnotationsOpt());
+			if ($nc(typeAnnos)->isEmpty()) {
+				$throwNew($AssertionError, $of("Expected type annotations, but found none!"_s));
+			}
+			$assign(expr, term3());
+			if ((this->mode & JavacParser::TYPE) == 0) {
+				switch ($nc($JavacParser$1::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->get(($$nc($nc(expr)->getTag()))->ordinal())) {
+				case 1:
+					{
+						$var($JCTree$JCMemberReference, mref, $cast($JCTree$JCMemberReference, expr));
+						$set(mref, expr, $cast($JCTree$JCExpression, toP($($$nc($nc(this->F)->at(pos))->AnnotatedType(typeAnnos, mref->expr)))));
+						$assign(t, mref);
+						break;
+					}
+				case 2:
+					{
+						$var($JCTree$JCFieldAccess, sel, $cast($JCTree$JCFieldAccess, expr));
+						if (sel->name != $nc(this->names)->_class) {
+							return illegal();
+						} else {
+							$init($CompilerProperties$Errors);
+							$nc(this->log)->error($nc(this->token$)->pos, $CompilerProperties$Errors::NoAnnotationsOnDotClass);
+							return expr;
+						}
+					}
+				default:
+					return illegal($nc(($cast($JCTree$JCAnnotation, typeAnnos->head)))->pos$);
+				}
+			} else {
+				$assign(t, insertAnnotationsToMostInner(expr, typeAnnos, false));
+			}
+			break;
+		case 31:
+		case 32:
+		case 51:
+		case 9:
+			if (typeArgs != nullptr) {
+				return illegal();
+			}
+			if ((this->mode & JavacParser::EXPR) != 0 && (this->mode & JavacParser::NOLAMBDA) == 0 && peekToken($Tokens$TokenKind::ARROW)) {
+				$assign(t, lambdaExpressionOrStatement(false, false, pos));
+			} else {
+				$assign(t, $cast($JCTree$JCExpression, toP($($$nc($nc(this->F)->at($nc(this->token$)->pos))->Ident($(ident()))))));
+				bool loop$break = false;
 				while (true) {
 					pos = $nc(this->token$)->pos;
+					$var($List, annos, typeAnnotationsOpt());
+					if (!$nc(annos)->isEmpty() && $nc(this->token$)->kind != $Tokens$TokenKind::LBRACKET && this->token$->kind != $Tokens$TokenKind::ELLIPSIS) {
+						return illegal($nc(($cast($JCTree$JCAnnotation, annos->head)))->pos$);
+					}
 					{
-						$var($JCTree$JCSwitchExpression, e, nullptr)
-						switch ($nc($JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind)->get(($nc(this->token$)->kind)->ordinal())) {
-						case 33:
-							{}
-						case 34:
-							{
-								$nc(cases)->appendList($(switchExpressionStatementGroup()));
-								break;
-							}
-						case 12:
-							{}
-						case 6:
-							{
-								$assign(e, $cast($JCTree$JCSwitchExpression, to($($nc($($nc(this->F)->at(switchPos)))->SwitchExpression(selector, $($nc(cases)->toList()))))));
-								$nc(e)->endpos = $nc(this->token$)->pos;
-								$init($Tokens$TokenKind);
-								accept($Tokens$TokenKind::RBRACE);
-								return e;
-							}
-						default:
-							{
+						int32_t oldmode = 0;
+						$var($List, tyannos, nullptr);
+						switch ($JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind->get(($nc(this->token$)->kind)->ordinal())) {
+						case 73:
+							nextToken();
+							if ($nc(this->token$)->kind == $Tokens$TokenKind::RBRACKET) {
 								nextToken();
-								$init($Tokens$TokenKind);
-								syntaxError(pos, $($CompilerProperties$Errors::Expected3($Tokens$TokenKind::CASE, $Tokens$TokenKind::DEFAULT, $Tokens$TokenKind::RBRACE)));
+								$assign(t, bracketsOpt(t));
+								$assign(t, $cast($JCTree$JCExpression, toP($($$nc($nc(this->F)->at(pos))->TypeArray(t)))));
+								if (annos->nonEmpty()) {
+									$assign(t, $cast($JCTree$JCExpression, toP($($$nc($nc(this->F)->at(pos))->AnnotatedType(annos, t)))));
+								}
+								$assign(t, bracketsSuffix(t));
+							} else {
+								if ((this->mode & JavacParser::EXPR) != 0) {
+									selectExprMode();
+									$var($JCTree$JCExpression, t1, term());
+									if (!annos->isEmpty()) {
+										$assign(t, illegal($nc(($cast($JCTree$JCAnnotation, annos->head)))->pos$));
+									}
+									$assign(t, $cast($JCTree$JCExpression, to($($$nc($nc(this->F)->at(pos))->Indexed(t, t1)))));
+								}
+								accept($Tokens$TokenKind::RBRACKET);
 							}
+							loop$break = true;
+							break;
+						case 74:
+							if ((this->mode & JavacParser::EXPR) != 0) {
+								selectExprMode();
+								$assign(t, arguments(typeArgs, t));
+								if (!annos->isEmpty()) {
+									$assign(t, illegal($nc(($cast($JCTree$JCAnnotation, annos->head)))->pos$));
+								}
+								$assign(typeArgs, nullptr);
+							}
+							loop$break = true;
+							break;
+						case 75:
+							nextToken();
+							if ($nc(this->token$)->kind == $Tokens$TokenKind::IDENTIFIER && typeArgs != nullptr) {
+								return illegal();
+							}
+							oldmode = this->mode;
+							this->mode &= (uint32_t)~JavacParser::NOPARAMS;
+							$assign(typeArgs, typeArgumentsOpt(JavacParser::EXPR));
+							this->mode = oldmode;
+							if ((this->mode & JavacParser::EXPR) != 0) {
+								int32_t pos1 = 0;
+								switch ($JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind->get(($nc(this->token$)->kind)->ordinal())) {
+								case 7:
+									if (typeArgs != nullptr) {
+										return illegal();
+									}
+									selectExprMode();
+									$assign(t, $cast($JCTree$JCExpression, to($($$nc($nc(this->F)->at(pos))->Select(t, $nc(this->names)->_class)))));
+									nextToken();
+									loop$break = true;
+									break;
+								case 48:
+									if (typeArgs != nullptr) {
+										return illegal();
+									}
+									selectExprMode();
+									$assign(t, $cast($JCTree$JCExpression, to($($$nc($nc(this->F)->at(pos))->Select(t, $nc(this->names)->_this)))));
+									nextToken();
+									loop$break = true;
+									break;
+								case 49:
+									selectExprMode();
+									$assign(t, $cast($JCTree$JCExpression, to($($$nc($nc(this->F)->at(pos))->Select(t, $nc(this->names)->_super)))));
+									$assign(t, superSuffix(typeArgs, t));
+									$assign(typeArgs, nullptr);
+									loop$break = true;
+									break;
+								case 50:
+									if (typeArgs != nullptr) {
+										return illegal();
+									}
+									selectExprMode();
+									pos1 = $nc(this->token$)->pos;
+									nextToken();
+									if ($nc(this->token$)->kind == $Tokens$TokenKind::LT) {
+										$assign(typeArgs, typeArguments(false));
+									}
+									$assign(t, innerCreator(pos1, typeArgs, t));
+									$assign(typeArgs, nullptr);
+									loop$break = true;
+									break;
+								}
+								if (loop$break) {
+									break;
+								}
+							}
+							$assign(tyannos, nullptr);
+							if ((this->mode & JavacParser::TYPE) != 0 && $nc(this->token$)->kind == $Tokens$TokenKind::MONKEYS_AT) {
+								$assign(tyannos, typeAnnotationsOpt());
+							}
+							$assign(t, $cast($JCTree$JCExpression, toP($($$nc($nc(this->F)->at(pos))->Select(t, $(ident()))))));
+							if ($nc(this->token$)->pos <= $nc(this->endPosTable)->errorEndPos && this->token$->kind == $Tokens$TokenKind::MONKEYS_AT) {
+								if (typeArgs != nullptr) {
+									illegal();
+								}
+								return $cast($JCTree$JCExpression, toP(t));
+							}
+							if (tyannos != nullptr && tyannos->nonEmpty()) {
+								$assign(t, $cast($JCTree$JCExpression, toP($($$nc($nc(this->F)->at($nc(($cast($JCTree$JCAnnotation, tyannos->head)))->pos$))->AnnotatedType(tyannos, t)))));
+							}
+							break;
+						case 76:
+							if (this->permitTypeAnnotationsPushBack) {
+								$set(this, typeAnnotationsPushedBack, annos);
+							} else if (annos->nonEmpty()) {
+								illegal($nc(($cast($JCTree$JCAnnotation, annos->head)))->pos$);
+							}
+							loop$break = true;
+							break;
+						case 21:
+							if ((this->mode & JavacParser::TYPE) == 0 && isUnboundMemberRef()) {
+								int32_t pos1 = $nc(this->token$)->pos;
+								accept($Tokens$TokenKind::LT);
+								$var($ListBuffer, args, $new($ListBuffer));
+								args->append($(typeArgument()));
+								while ($nc(this->token$)->kind == $Tokens$TokenKind::COMMA) {
+									nextToken();
+									args->append($(typeArgument()));
+								}
+								accept($Tokens$TokenKind::GT);
+								$assign(t, $cast($JCTree$JCExpression, toP($($$nc($nc(this->F)->at(pos1))->TypeApply(t, $(args->toList()))))));
+								while ($nc(this->token$)->kind == $Tokens$TokenKind::DOT) {
+									nextToken();
+									selectTypeMode();
+									$assign(t, $cast($JCTree$JCExpression, toP($($$nc($nc(this->F)->at($nc(this->token$)->pos))->Select(t, $(ident()))))));
+									$assign(t, typeArgumentsOpt(t));
+								}
+								$assign(t, bracketsOpt(t));
+								if ($nc(this->token$)->kind != $Tokens$TokenKind::COLCOL) {
+									$assign(t, illegal());
+								}
+								selectExprMode();
+								return term3Rest(t, typeArgs);
+							}
+							loop$break = true;
+							break;
+						default:
+							loop$break = true;
+							break;
 						}
+						if (loop$break) {
+							break;
+						}
+					}
+				}
+			}
+			if (typeArgs != nullptr) {
+				illegal();
+			}
+			$assign(t, typeArgumentsOpt(t));
+			break;
+		case 22:
+		case 23:
+		case 24:
+		case 25:
+		case 26:
+		case 27:
+		case 28:
+		case 29:
+			if (typeArgs != nullptr) {
+				illegal();
+			}
+			$assign(t, bracketsSuffix($(bracketsOpt($(basicType())))));
+			break;
+		case 30:
+			if (typeArgs != nullptr) {
+				illegal();
+			}
+			if ((this->mode & JavacParser::EXPR) != 0) {
+				nextToken();
+				if ($nc(this->token$)->kind == $Tokens$TokenKind::DOT) {
+					$init($TypeTag);
+					$var($JCTree$JCPrimitiveTypeTree, ti, $cast($JCTree$JCPrimitiveTypeTree, toP($($$nc($nc(this->F)->at(pos))->TypeIdent($TypeTag::VOID)))));
+					$assign(t, bracketsSuffix(ti));
+				} else {
+					return illegal(pos);
+				}
+			} else {
+				$init($TypeTag);
+				$var($JCTree$JCPrimitiveTypeTree, ti, $cast($JCTree$JCPrimitiveTypeTree, to($($$nc($nc(this->F)->at(pos))->TypeIdent($TypeTag::VOID)))));
+				nextToken();
+				return ti;
+			}
+			break;
+		case 40:
+			$init($Source$Feature);
+			checkSourceLevel($Source$Feature::SWITCH_EXPRESSION);
+			this->allowYieldStatement = true;
+			switchPos = $nc(this->token$)->pos;
+			nextToken();
+			$assign(selector, parExpression());
+			accept($Tokens$TokenKind::LBRACE);
+			$assign(cases, $new($ListBuffer));
+			while (true) {
+				pos = $nc(this->token$)->pos;
+				{
+					$var($JCTree$JCSwitchExpression, e, nullptr);
+					switch ($JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind->get((this->token$->kind)->ordinal())) {
+					case 33:
+					case 34:
+						$nc(cases)->appendList($(switchExpressionStatementGroup()));
+						break;
+					case 12:
+					case 6:
+						$assign(e, $cast($JCTree$JCSwitchExpression, to($($$nc($nc(this->F)->at(switchPos))->SwitchExpression(selector, $($nc(cases)->toList()))))));
+						$nc(e)->endpos = $nc(this->token$)->pos;
+						accept($Tokens$TokenKind::RBRACE);
+						return e;
+					default:
+						nextToken();
+						syntaxError(pos, $($CompilerProperties$Errors::Expected3($Tokens$TokenKind::CASE, $Tokens$TokenKind::DEFAULT, $Tokens$TokenKind::RBRACE)));
 					}
 				}
 			}
 		default:
-			{
-				return illegal();
-			}
+			return illegal();
 		}
 	}
 	return term3Rest(t, typeArgs);
 }
 
 $List* JavacParser::switchExpressionStatementGroup() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ListBuffer, caseExprs, $new($ListBuffer));
 	int32_t casePos = $nc(this->token$)->pos;
 	$var($ListBuffer, pats, $new($ListBuffer));
 	$init($Tokens$TokenKind);
-	if ($nc(this->token$)->kind == $Tokens$TokenKind::DEFAULT) {
+	if (this->token$->kind == $Tokens$TokenKind::DEFAULT) {
 		nextToken();
-		pats->append($cast($JCTree$JCCaseLabel, $(toP($($nc($($nc(this->F)->at(casePos)))->DefaultCaseLabel())))));
+		pats->append($$cast($JCTree$JCCaseLabel, toP($($$nc($nc(this->F)->at(casePos))->DefaultCaseLabel()))));
 	} else {
 		accept($Tokens$TokenKind::CASE);
 		while (true) {
@@ -2395,6 +1885,7 @@ $List* JavacParser::switchExpressionStatementGroup() {
 			checkSourceLevel($Source$Feature::SWITCH_MULTIPLE_CASE_LABELS);
 			nextToken();
 		}
+		;
 	}
 	$var($List, stats, nullptr);
 	$var($JCTree, body, nullptr);
@@ -2402,40 +1893,36 @@ $List* JavacParser::switchExpressionStatementGroup() {
 	$init($JavacParser$1);
 	switch ($nc($JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind)->get(($nc(this->token$)->kind)->ordinal())) {
 	case 84:
-		{
-			$init($Source$Feature);
-			checkSourceLevel($Source$Feature::SWITCH_RULE);
-			nextToken();
-			if ($nc(this->token$)->kind == $Tokens$TokenKind::THROW || $nc(this->token$)->kind == $Tokens$TokenKind::LBRACE) {
-				$assign(stats, $List::of($(parseStatement())));
-				$assign(body, $cast($JCTree, $nc(stats)->head));
-				$init($JCTree$JCCase);
-				kind = $JCTree$JCCase::RULE;
-			} else {
-				$var($JCTree$JCExpression, value, parseExpression());
-				$assign(stats, $List::of($cast($JCTree$JCStatement, $(to($($nc($($nc(this->F)->at(static_cast<$JCDiagnostic$DiagnosticPosition*>(value))))->Yield(value)))))));
-				$assign(body, value);
-				$init($JCTree$JCCase);
-				kind = $JCTree$JCCase::RULE;
-				accept($Tokens$TokenKind::SEMI);
-			}
-			break;
-		}
-	default:
-		{
-			accept($Tokens$TokenKind::COLON, static_cast<$Function*>($$new(JavacParser$$Lambda$lambda$switchExpressionStatementGroup$2$4)));
-			$assign(stats, blockStatements());
+		$init($Source$Feature);
+		checkSourceLevel($Source$Feature::SWITCH_RULE);
+		nextToken();
+		if ($nc(this->token$)->kind == $Tokens$TokenKind::THROW || this->token$->kind == $Tokens$TokenKind::LBRACE) {
+			$assign(stats, $List::of($(parseStatement())));
+			$assign(body, $cast($JCTree, $nc(stats)->head));
 			$init($JCTree$JCCase);
-			kind = $JCTree$JCCase::STATEMENT;
-			break;
+			kind = $JCTree$JCCase::RULE;
+		} else {
+			$var($JCTree$JCExpression, value, parseExpression());
+			$assign(stats, $List::of($$cast($JCTree$JCStatement, to($($$nc($nc(this->F)->at(value))->Yield(value))))));
+			$assign(body, value);
+			$init($JCTree$JCCase);
+			kind = $JCTree$JCCase::RULE;
+			accept($Tokens$TokenKind::SEMI);
 		}
+		break;
+	default:
+		accept($Tokens$TokenKind::COLON, $$new(JavacParser$$Lambda$lambda$switchExpressionStatementGroup$2$4));
+		$assign(stats, blockStatements());
+		$init($JCTree$JCCase);
+		kind = $JCTree$JCCase::STATEMENT;
+		break;
 	}
-	caseExprs->append($cast($JCTree$JCCase, $(toP($($nc($($nc(this->F)->at(casePos)))->Case(kind, $(pats->toList()), stats, body))))));
+	caseExprs->append($$cast($JCTree$JCCase, toP($($$nc($nc(this->F)->at(casePos))->Case(kind, $(pats->toList()), stats, body)))));
 	return caseExprs->toList();
 }
 
 $JCTree$JCExpression* JavacParser::term3Rest($JCTree$JCExpression* t$renamed, $List* typeArgs$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, typeArgs, typeArgs$renamed);
 	$var($JCTree$JCExpression, t, t$renamed);
 	if (typeArgs != nullptr) {
@@ -2447,224 +1934,175 @@ $JCTree$JCExpression* JavacParser::term3Rest($JCTree$JCExpression* t$renamed, $L
 		$init($Tokens$TokenKind);
 		if ($nc(this->token$)->kind == $Tokens$TokenKind::LBRACKET) {
 			nextToken();
-			if (((int32_t)(this->mode & (uint32_t)JavacParser::TYPE)) != 0) {
+			if ((this->mode & JavacParser::TYPE) != 0) {
 				int32_t oldmode = this->mode;
 				selectTypeMode();
 				if ($nc(this->token$)->kind == $Tokens$TokenKind::RBRACKET) {
 					nextToken();
 					$assign(t, bracketsOpt(t));
-					$assign(t, $cast($JCTree$JCExpression, toP($($nc($($nc(this->F)->at(pos1)))->TypeArray(t)))));
+					$assign(t, $cast($JCTree$JCExpression, toP($($$nc($nc(this->F)->at(pos1))->TypeArray(t)))));
 					if ($nc(this->token$)->kind == $Tokens$TokenKind::COLCOL) {
 						selectExprMode();
 						continue;
 					}
 					if ($nc(annos)->nonEmpty()) {
-						$assign(t, $cast($JCTree$JCExpression, toP($($nc($($nc(this->F)->at(pos1)))->AnnotatedType(annos, t)))));
+						$assign(t, $cast($JCTree$JCExpression, toP($($$nc($nc(this->F)->at(pos1))->AnnotatedType(annos, t)))));
 					}
 					return t;
 				}
 				this->mode = oldmode;
 			}
-			if (((int32_t)(this->mode & (uint32_t)JavacParser::EXPR)) != 0) {
+			if ((this->mode & JavacParser::EXPR) != 0) {
 				selectExprMode();
 				$var($JCTree$JCExpression, t1, term());
-				$assign(t, $cast($JCTree$JCExpression, to($($nc($($nc(this->F)->at(pos1)))->Indexed(t, t1)))));
+				$assign(t, $cast($JCTree$JCExpression, to($($$nc($nc(this->F)->at(pos1))->Indexed(t, t1)))));
 			}
 			accept($Tokens$TokenKind::RBRACKET);
-		} else {
-			if ($nc(this->token$)->kind == $Tokens$TokenKind::DOT) {
+		} else if (this->token$->kind == $Tokens$TokenKind::DOT) {
+			nextToken();
+			$assign(typeArgs, typeArgumentsOpt(JavacParser::EXPR));
+			if ($nc(this->token$)->kind == $Tokens$TokenKind::SUPER && (this->mode & JavacParser::EXPR) != 0) {
+				selectExprMode();
+				$assign(t, $cast($JCTree$JCExpression, to($($$nc($nc(this->F)->at(pos1))->Select(t, $nc(this->names)->_super)))));
 				nextToken();
-				$assign(typeArgs, typeArgumentsOpt(JavacParser::EXPR));
-				if ($nc(this->token$)->kind == $Tokens$TokenKind::SUPER && ((int32_t)(this->mode & (uint32_t)JavacParser::EXPR)) != 0) {
-					selectExprMode();
-					$assign(t, $cast($JCTree$JCExpression, to($($nc($($nc(this->F)->at(pos1)))->Select(t, $nc(this->names)->_super)))));
-					nextToken();
-					$assign(t, arguments(typeArgs, t));
-					$assign(typeArgs, nullptr);
-				} else {
-					if ($nc(this->token$)->kind == $Tokens$TokenKind::NEW && ((int32_t)(this->mode & (uint32_t)JavacParser::EXPR)) != 0) {
-						if (typeArgs != nullptr) {
-							return illegal();
-						}
-						selectExprMode();
-						int32_t pos2 = $nc(this->token$)->pos;
-						nextToken();
-						if ($nc(this->token$)->kind == $Tokens$TokenKind::LT) {
-							$assign(typeArgs, typeArguments(false));
-						}
-						$assign(t, innerCreator(pos2, typeArgs, t));
-						$assign(typeArgs, nullptr);
-					} else {
-						$var($List, tyannos, nullptr);
-						if (((int32_t)(this->mode & (uint32_t)JavacParser::TYPE)) != 0 && $nc(this->token$)->kind == $Tokens$TokenKind::MONKEYS_AT) {
-							$assign(tyannos, typeAnnotationsOpt());
-						}
-						$assign(t, $cast($JCTree$JCExpression, toP($($nc($($nc(this->F)->at(pos1)))->Select(t, $(ident(true)))))));
-						if ($nc(this->token$)->pos <= $nc(this->endPosTable)->errorEndPos && $nc(this->token$)->kind == $Tokens$TokenKind::MONKEYS_AT) {
-							break;
-						}
-						if (tyannos != nullptr && tyannos->nonEmpty()) {
-							$assign(t, $cast($JCTree$JCExpression, toP($($nc($($nc(this->F)->at($nc(($cast($JCTree$JCAnnotation, tyannos->head)))->pos$)))->AnnotatedType(tyannos, t)))));
-						}
-						$assign(t, argumentsOpt(typeArgs, $(typeArgumentsOpt(t))));
-						$assign(typeArgs, nullptr);
-					}
+				$assign(t, arguments(typeArgs, t));
+				$assign(typeArgs, nullptr);
+			} else if (this->token$->kind == $Tokens$TokenKind::NEW && (this->mode & JavacParser::EXPR) != 0) {
+				if (typeArgs != nullptr) {
+					return illegal();
 				}
+				selectExprMode();
+				int32_t pos2 = $nc(this->token$)->pos;
+				nextToken();
+				if ($nc(this->token$)->kind == $Tokens$TokenKind::LT) {
+					$assign(typeArgs, typeArguments(false));
+				}
+				$assign(t, innerCreator(pos2, typeArgs, t));
+				$assign(typeArgs, nullptr);
 			} else {
-				if (((int32_t)(this->mode & (uint32_t)JavacParser::EXPR)) != 0 && $nc(this->token$)->kind == $Tokens$TokenKind::COLCOL) {
-					selectExprMode();
-					if (typeArgs != nullptr) {
-						return illegal();
-					}
-					accept($Tokens$TokenKind::COLCOL);
-					$assign(t, memberReferenceSuffix(pos1, t));
-				} else {
-					if (!$nc(annos)->isEmpty()) {
-						if (this->permitTypeAnnotationsPushBack) {
-							$set(this, typeAnnotationsPushedBack, annos);
-						} else {
-							return illegal($nc(($cast($JCTree$JCAnnotation, annos->head)))->pos$);
-						}
-					}
+				$var($List, tyannos, nullptr);
+				if ((this->mode & JavacParser::TYPE) != 0 && $nc(this->token$)->kind == $Tokens$TokenKind::MONKEYS_AT) {
+					$assign(tyannos, typeAnnotationsOpt());
+				}
+				$assign(t, $cast($JCTree$JCExpression, toP($($$nc($nc(this->F)->at(pos1))->Select(t, $(ident(true)))))));
+				if ($nc(this->token$)->pos <= $nc(this->endPosTable)->errorEndPos && this->token$->kind == $Tokens$TokenKind::MONKEYS_AT) {
 					break;
 				}
+				if (tyannos != nullptr && tyannos->nonEmpty()) {
+					$assign(t, $cast($JCTree$JCExpression, toP($($$nc($nc(this->F)->at($nc(($cast($JCTree$JCAnnotation, tyannos->head)))->pos$))->AnnotatedType(tyannos, t)))));
+				}
+				$assign(t, argumentsOpt(typeArgs, $(typeArgumentsOpt(t))));
+				$assign(typeArgs, nullptr);
 			}
+		} else if ((this->mode & JavacParser::EXPR) != 0 && $nc(this->token$)->kind == $Tokens$TokenKind::COLCOL) {
+			selectExprMode();
+			if (typeArgs != nullptr) {
+				return illegal();
+			}
+			accept($Tokens$TokenKind::COLCOL);
+			$assign(t, memberReferenceSuffix(pos1, t));
+		} else {
+			if (!$nc(annos)->isEmpty()) {
+				if (this->permitTypeAnnotationsPushBack) {
+					$set(this, typeAnnotationsPushedBack, annos);
+				} else {
+					return illegal($nc(($cast($JCTree$JCAnnotation, annos->head)))->pos$);
+				}
+			}
+			break;
 		}
 	}
 	$init($Tokens$TokenKind);
-	while (($nc(this->token$)->kind == $Tokens$TokenKind::PLUSPLUS || $nc(this->token$)->kind == $Tokens$TokenKind::SUBSUB) && ((int32_t)(this->mode & (uint32_t)JavacParser::EXPR)) != 0) {
+	while (($nc(this->token$)->kind == $Tokens$TokenKind::PLUSPLUS || this->token$->kind == $Tokens$TokenKind::SUBSUB) && (this->mode & JavacParser::EXPR) != 0) {
 		selectExprMode();
 		$init($JCTree$Tag);
-		$assign(t, $cast($JCTree$JCExpression, to($($nc($($nc(this->F)->at($nc(this->token$)->pos)))->Unary($nc(this->token$)->kind == $Tokens$TokenKind::PLUSPLUS ? $JCTree$Tag::POSTINC : $JCTree$Tag::POSTDEC, t)))));
+		$assign(t, $cast($JCTree$JCExpression, to($($$nc($nc(this->F)->at($nc(this->token$)->pos))->Unary($nc(this->token$)->kind == $Tokens$TokenKind::PLUSPLUS ? $JCTree$Tag::POSTINC : $JCTree$Tag::POSTDEC, t)))));
 		nextToken();
 	}
 	return $cast($JCTree$JCExpression, toP(t));
 }
 
 bool JavacParser::isUnboundMemberRef() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t pos = 0;
 	int32_t depth = 0;
 	bool outer$continue = false;
-	{
-		$var($Tokens$Token, t, $nc(this->S)->token(pos));
-		for (;; $assign(t, $nc(this->S)->token(++pos))) {
-			$init($JavacParser$1);
-			{
-				int32_t nesting = 0;
-				switch ($nc($JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind)->get(($nc(t)->kind)->ordinal())) {
-				case 32:
-					{}
-				case 31:
-					{}
-				case 77:
-					{}
-				case 86:
-					{}
-				case 49:
-					{}
-				case 75:
-					{}
-				case 87:
-					{}
-				case 73:
-					{}
-				case 88:
-					{}
-				case 22:
-					{}
-				case 23:
-					{}
-				case 25:
-					{}
-				case 26:
-					{}
-				case 27:
-					{}
-				case 28:
-					{}
-				case 29:
-					{}
-				case 24:
-					{}
-				case 5:
-					{
-						break;
-					}
+	$var($Tokens$Token, t, $nc(this->S)->token(pos));
+	for (;; $assign(t, $nc(this->S)->token(++pos))) {
+		$init($JavacParser$1);
+		int32_t nesting = 0;
+		switch ($nc($JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind)->get(($nc(t)->kind)->ordinal())) {
+		case 32:
+		case 31:
+		case 77:
+		case 86:
+		case 49:
+		case 75:
+		case 87:
+		case 73:
+		case 88:
+		case 22:
+		case 23:
+		case 25:
+		case 26:
+		case 27:
+		case 28:
+		case 29:
+		case 24:
+		case 5:
+			break;
+		case 74:
+			nesting = 0;
+			for (;; ++pos) {
+				$Tokens$TokenKind* tk2 = $nc($($nc(this->S)->token(pos)))->kind;
+				switch ($JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind->get($nc((tk2))->ordinal())) {
+				case 6:
+					return false;
 				case 74:
-					{
-						nesting = 0;
-						for (;; ++pos) {
-							$Tokens$TokenKind* tk2 = $nc($($nc(this->S)->token(pos)))->kind;
-							switch ($nc($JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind)->get($nc((tk2))->ordinal())) {
-							case 6:
-								{
-									return false;
-								}
-							case 74:
-								{
-									++nesting;
-									break;
-								}
-							case 85:
-								{
-									--nesting;
-									if (nesting == 0) {
-										outer$continue = true;
-										break;
-									}
-									break;
-								}
-							}
-
-							if (outer$continue) {
-								break;
-							}						}
-						if (outer$continue) {
-							outer$continue = false;
-							continue;
-						}
-					}
-				case 21:
-					{
-						++depth;
+					++nesting;
+					break;
+				case 85:
+					--nesting;
+					if (nesting == 0) {
+						outer$continue = true;
 						break;
 					}
-				case 89:
-					{
-						--depth;
-					}
-				case 90:
-					{
-						--depth;
-					}
-				case 91:
-					{
-						--depth;
-						if (depth == 0) {
-							$Tokens$TokenKind* nextKind = $nc($($nc(this->S)->token(pos + 1)))->kind;
-							$init($Tokens$TokenKind);
-							return nextKind == $Tokens$TokenKind::DOT || nextKind == $Tokens$TokenKind::LBRACKET || nextKind == $Tokens$TokenKind::COLCOL;
-						}
-						break;
-					}
-				default:
-					{
-						return false;
-					}
+					break;
 				}
-
 				if (outer$continue) {
-					outer$continue = false;
-					continue;
+					break;
 				}
 			}
+			if (outer$continue) {
+				outer$continue = false;
+				continue;
+			}
+		case 21:
+			++depth;
+			break;
+		case 89:
+			--depth;
+		case 90:
+			--depth;
+		case 91:
+			--depth;
+			if (depth == 0) {
+				$Tokens$TokenKind* nextKind = $nc($($nc(this->S)->token(pos + 1)))->kind;
+				return nextKind == $Tokens$TokenKind::DOT || nextKind == $Tokens$TokenKind::LBRACKET || nextKind == $Tokens$TokenKind::COLCOL;
+			}
+			break;
+		default:
+			return false;
+		}
+		if (outer$continue) {
+			outer$continue = false;
+			continue;
 		}
 	}
 }
 
 $JavacParser$ParensResult* JavacParser::analyzeParens() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t depth = 0;
 	bool type = false;
 	$init($JavacParser$ParensResult);
@@ -2674,244 +2112,155 @@ $JavacParser$ParensResult* JavacParser::analyzeParens() {
 		$init($JavacParser$1);
 		switch ($nc($JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind)->get($nc((tk))->ordinal())) {
 		case 88:
-			{
-				type = true;
-			}
+			type = true;
 		case 86:
-			{}
 		case 49:
-			{}
 		case 75:
-			{}
 		case 92:
-			{
-				break;
-			}
+			break;
 		case 77:
 			{
-				$init($Tokens$TokenKind);
-				bool var$0 = peekToken(lookahead, static_cast<$Predicate*>($Tokens$TokenKind::EXTENDS));
-				if (var$0 || peekToken(lookahead, static_cast<$Predicate*>($Tokens$TokenKind::SUPER))) {
+				bool var$0 = peekToken(lookahead, $Tokens$TokenKind::EXTENDS);
+				if (var$0 || peekToken(lookahead, $Tokens$TokenKind::SUPER)) {
 					type = true;
 				}
 				break;
 			}
 		case 22:
-			{}
 		case 23:
-			{}
 		case 25:
-			{}
 		case 26:
-			{}
 		case 27:
-			{}
 		case 28:
-			{}
 		case 29:
-			{}
 		case 24:
-			{}
 		case 30:
-			{
-				$init($Tokens$TokenKind);
-				if (peekToken(lookahead, static_cast<$Predicate*>($Tokens$TokenKind::RPAREN))) {
-					return $JavacParser$ParensResult::CAST;
-				} else if (peekToken(lookahead, this->LAX_IDENTIFIER)) {
-					return $JavacParser$ParensResult::EXPLICIT_LAMBDA;
-				}
-				break;
-			}
-		case 74:
-			{
-				if (lookahead != 0) {
-					return $JavacParser$ParensResult::PARENS;
-				} else {
-					$init($Tokens$TokenKind);
-					if (peekToken(lookahead, static_cast<$Predicate*>($Tokens$TokenKind::RPAREN))) {
-						return $JavacParser$ParensResult::EXPLICIT_LAMBDA;
-					}
-				}
-				break;
-			}
-		case 85:
-			{
-				if (type) {
-					return $JavacParser$ParensResult::CAST;
-				}
-				switch ($nc($JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind)->get(($nc($($nc(this->S)->token(lookahead + 1)))->kind)->ordinal())) {
-				case 80:
-					{}
-				case 81:
-					{}
-				case 74:
-					{}
-				case 48:
-					{}
-				case 49:
-					{}
-				case 52:
-					{}
-				case 53:
-					{}
-				case 54:
-					{}
-				case 55:
-					{}
-				case 56:
-					{}
-				case 57:
-					{}
-				case 58:
-					{}
-				case 59:
-					{}
-				case 60:
-					{}
-				case 50:
-					{}
-				case 32:
-					{}
-				case 51:
-					{}
-				case 9:
-					{}
-				case 31:
-					{}
-				case 40:
-					{}
-				case 22:
-					{}
-				case 23:
-					{}
-				case 24:
-					{}
-				case 25:
-					{}
-				case 26:
-					{}
-				case 27:
-					{}
-				case 28:
-					{}
-				case 29:
-					{}
-				case 30:
-					{
-						return $JavacParser$ParensResult::CAST;
-					}
-				default:
-					{
-						return defaultResult;
-					}
-				}
-			}
-		case 31:
-			{}
-		case 51:
-			{}
-		case 9:
-			{}
-		case 32:
-			{
-				if (peekToken(lookahead, this->LAX_IDENTIFIER)) {
-					return $JavacParser$ParensResult::EXPLICIT_LAMBDA;
-				} else {
-					$init($Tokens$TokenKind);
-					if (peekToken(lookahead, static_cast<$Predicate*>($Tokens$TokenKind::RPAREN), static_cast<$Predicate*>($Tokens$TokenKind::ARROW))) {
-						return ((int32_t)(this->mode & (uint32_t)JavacParser::NOLAMBDA)) == 0 ? $JavacParser$ParensResult::IMPLICIT_LAMBDA : $JavacParser$ParensResult::PARENS;
-					} else {
-						if (depth == 0 && peekToken(lookahead, static_cast<$Predicate*>($Tokens$TokenKind::COMMA))) {
-							defaultResult = $JavacParser$ParensResult::IMPLICIT_LAMBDA;
-						}
-					}
-				}
-				type = false;
-				break;
-			}
-		case 3:
-			{}
-		case 76:
-			{
+			if (peekToken(lookahead, $Tokens$TokenKind::RPAREN)) {
+				return $JavacParser$ParensResult::CAST;
+			} else if (peekToken(lookahead, this->LAX_IDENTIFIER)) {
 				return $JavacParser$ParensResult::EXPLICIT_LAMBDA;
 			}
-		case 5:
-			{
-				type = true;
-				lookahead = skipAnnotation(lookahead);
-				break;
+			break;
+		case 74:
+			if (lookahead != 0) {
+				return $JavacParser$ParensResult::PARENS;
+			} else if (peekToken(lookahead, $Tokens$TokenKind::RPAREN)) {
+				return $JavacParser$ParensResult::EXPLICIT_LAMBDA;
 			}
+			break;
+		case 85:
+			if (type) {
+				return $JavacParser$ParensResult::CAST;
+			}
+			switch ($JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind->get(($nc($($nc(this->S)->token(lookahead + 1)))->kind)->ordinal())) {
+			case 80:
+			case 81:
+			case 74:
+			case 48:
+			case 49:
+			case 52:
+			case 53:
+			case 54:
+			case 55:
+			case 56:
+			case 57:
+			case 58:
+			case 59:
+			case 60:
+			case 50:
+			case 32:
+			case 51:
+			case 9:
+			case 31:
+			case 40:
+			case 22:
+			case 23:
+			case 24:
+			case 25:
+			case 26:
+			case 27:
+			case 28:
+			case 29:
+			case 30:
+				return $JavacParser$ParensResult::CAST;
+			default:
+				return defaultResult;
+			}
+		case 31:
+		case 51:
+		case 9:
+		case 32:
+			if (peekToken(lookahead, this->LAX_IDENTIFIER)) {
+				return $JavacParser$ParensResult::EXPLICIT_LAMBDA;
+			} else if (peekToken(lookahead, $Tokens$TokenKind::RPAREN, $Tokens$TokenKind::ARROW)) {
+				return (this->mode & JavacParser::NOLAMBDA) == 0 ? $JavacParser$ParensResult::IMPLICIT_LAMBDA : $JavacParser$ParensResult::PARENS;
+			} else if (depth == 0 && peekToken(lookahead, $Tokens$TokenKind::COMMA)) {
+				defaultResult = $JavacParser$ParensResult::IMPLICIT_LAMBDA;
+			}
+			type = false;
+			break;
+		case 3:
+		case 76:
+			return $JavacParser$ParensResult::EXPLICIT_LAMBDA;
+		case 5:
+			type = true;
+			lookahead = skipAnnotation(lookahead);
+			break;
 		case 73:
-			{
-				$init($Tokens$TokenKind);
-				if (peekToken(lookahead, static_cast<$Predicate*>($Tokens$TokenKind::RBRACKET), this->LAX_IDENTIFIER)) {
-					return $JavacParser$ParensResult::EXPLICIT_LAMBDA;
+			if (peekToken(lookahead, $Tokens$TokenKind::RBRACKET, this->LAX_IDENTIFIER)) {
+				return $JavacParser$ParensResult::EXPLICIT_LAMBDA;
+			} else {
+				bool var$1 = peekToken(lookahead, $Tokens$TokenKind::RBRACKET, $Tokens$TokenKind::RPAREN);
+				if (var$1 || peekToken(lookahead, $Tokens$TokenKind::RBRACKET, $Tokens$TokenKind::AMP)) {
+					return $JavacParser$ParensResult::CAST;
+				} else if (peekToken(lookahead, $Tokens$TokenKind::RBRACKET)) {
+					type = true;
+					++lookahead;
+					break;
 				} else {
-					bool var$2 = peekToken(lookahead, static_cast<$Predicate*>($Tokens$TokenKind::RBRACKET), static_cast<$Predicate*>($Tokens$TokenKind::RPAREN));
-					if (var$2 || peekToken(lookahead, static_cast<$Predicate*>($Tokens$TokenKind::RBRACKET), static_cast<$Predicate*>($Tokens$TokenKind::AMP))) {
-						return $JavacParser$ParensResult::CAST;
-					} else {
-						if (peekToken(lookahead, static_cast<$Predicate*>($Tokens$TokenKind::RBRACKET))) {
-							type = true;
-							++lookahead;
-							break;
-						} else {
-							return $JavacParser$ParensResult::PARENS;
-						}
-					}
+					return $JavacParser$ParensResult::PARENS;
 				}
 			}
 		case 21:
-			{
-				++depth;
-				break;
-			}
+			++depth;
+			break;
 		case 89:
-			{
-				--depth;
-			}
+			--depth;
 		case 90:
-			{
-				--depth;
-			}
+			--depth;
 		case 91:
-			{
-				--depth;
-				if (depth == 0) {
-					$init($Tokens$TokenKind);
-					bool var$3 = peekToken(lookahead, static_cast<$Predicate*>($Tokens$TokenKind::RPAREN));
-					if (var$3 || peekToken(lookahead, static_cast<$Predicate*>($Tokens$TokenKind::AMP))) {
-						return $JavacParser$ParensResult::CAST;
-					} else {
-						bool var$7 = peekToken(lookahead, this->LAX_IDENTIFIER, static_cast<$Predicate*>($Tokens$TokenKind::COMMA));
-						bool var$6 = var$7 || peekToken(lookahead, this->LAX_IDENTIFIER, $Tokens$TokenKind::RPAREN, $Tokens$TokenKind::ARROW);
-						if (var$6 || peekToken(lookahead, static_cast<$Predicate*>($Tokens$TokenKind::ELLIPSIS))) {
-							return $JavacParser$ParensResult::EXPLICIT_LAMBDA;
-						}
+			--depth;
+			if (depth == 0) {
+				bool var$2 = peekToken(lookahead, $Tokens$TokenKind::RPAREN);
+				if (var$2 || peekToken(lookahead, $Tokens$TokenKind::AMP)) {
+					return $JavacParser$ParensResult::CAST;
+				} else {
+					bool var$4 = peekToken(lookahead, this->LAX_IDENTIFIER, $Tokens$TokenKind::COMMA);
+					bool var$3 = var$4 || peekToken(lookahead, this->LAX_IDENTIFIER, $Tokens$TokenKind::RPAREN, $Tokens$TokenKind::ARROW);
+					if (var$3 || peekToken(lookahead, $Tokens$TokenKind::ELLIPSIS)) {
+						return $JavacParser$ParensResult::EXPLICIT_LAMBDA;
 					}
-					type = true;
-					break;
-				} else if (depth < 0) {
-					return $JavacParser$ParensResult::PARENS;
 				}
+				type = true;
 				break;
+			} else if (depth < 0) {
+				return $JavacParser$ParensResult::PARENS;
 			}
+			break;
 		default:
-			{
-				return defaultResult;
-			}
+			return defaultResult;
 		}
 	}
 }
 
 int32_t JavacParser::skipAnnotation(int32_t lookahead) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	lookahead += 1;
 	$init($Tokens$TokenKind);
-	while (peekToken(lookahead, static_cast<$Predicate*>($Tokens$TokenKind::DOT))) {
+	while (peekToken(lookahead, $Tokens$TokenKind::DOT)) {
 		lookahead += 2;
 	}
-	if (peekToken(lookahead, static_cast<$Predicate*>($Tokens$TokenKind::LPAREN))) {
+	if (peekToken(lookahead, $Tokens$TokenKind::LPAREN)) {
 		++lookahead;
 		int32_t nesting = 0;
 		for (;; ++lookahead) {
@@ -2919,22 +2268,16 @@ int32_t JavacParser::skipAnnotation(int32_t lookahead) {
 			$init($JavacParser$1);
 			switch ($nc($JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind)->get($nc((tk2))->ordinal())) {
 			case 6:
-				{
+				return lookahead;
+			case 74:
+				++nesting;
+				break;
+			case 85:
+				--nesting;
+				if (nesting == 0) {
 					return lookahead;
 				}
-			case 74:
-				{
-					++nesting;
-					break;
-				}
-			case 85:
-				{
-					--nesting;
-					if (nesting == 0) {
-						return lookahead;
-					}
-					break;
-				}
+				break;
 			}
 		}
 	}
@@ -2942,7 +2285,7 @@ int32_t JavacParser::skipAnnotation(int32_t lookahead) {
 }
 
 $JCTree$JCExpression* JavacParser::lambdaExpressionOrStatement(bool hasParens, bool explicitParams, int32_t pos) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, params, explicitParams ? formalParameters(true, false) : implicitParameters(hasParens));
 	if (explicitParams) {
 		$var($JavacParser$LambdaClassifier, lambdaClassifier, $new($JavacParser$LambdaClassifier, this));
@@ -2954,7 +2297,7 @@ $JCTree$JCExpression* JavacParser::lambdaExpressionOrStatement(bool hasParens, b
 					$var($Name, restrictedTypeName, nullptr);
 					bool var$0 = $nc(param)->vartype != nullptr && ($assign(restrictedTypeName, this->restrictedTypeName(param->vartype, false))) != nullptr;
 					$init($JCTree$Tag);
-					if (var$0 && $nc(param->vartype)->hasTag($JCTree$Tag::TYPEARRAY)) {
+					if (var$0 && param->vartype->hasTag($JCTree$Tag::TYPEARRAY)) {
 						$init($JCDiagnostic$DiagnosticFlag);
 						$init($Source$Feature);
 						$nc(this->log)->error($JCDiagnostic$DiagnosticFlag::SYNTAX, param->pos$, $Source$Feature::VAR_SYNTAX_IMPLICIT_LAMBDAS->allowedInSource(this->source) ? $($CompilerProperties$Errors::RestrictedTypeNotAllowedArray(restrictedTypeName)) : $($CompilerProperties$Errors::RestrictedTypeNotAllowedHere(restrictedTypeName)));
@@ -2975,13 +2318,11 @@ $JCTree$JCExpression* JavacParser::lambdaExpressionOrStatement(bool hasParens, b
 			$var($Iterator, i$, params->iterator());
 			for (; $nc(i$)->hasNext();) {
 				$var($JCTree$JCVariableDecl, param, $cast($JCTree$JCVariableDecl, i$->next()));
-				{
-					if ($nc(param)->vartype != nullptr && this->restrictedTypeName(param->vartype, true) != nullptr) {
-						$init($Source$Feature);
-						checkSourceLevel(param->pos$, $Source$Feature::VAR_SYNTAX_IMPLICIT_LAMBDAS);
-						param->startPos = $TreeInfo::getStartPos(param->vartype);
-						$set(param, vartype, nullptr);
-					}
+				if ($nc(param)->vartype != nullptr && this->restrictedTypeName(param->vartype, true) != nullptr) {
+					$init($Source$Feature);
+					checkSourceLevel(param->pos$, $Source$Feature::VAR_SYNTAX_IMPLICIT_LAMBDAS);
+					param->startPos = $TreeInfo::getStartPos(param->vartype);
+					$set(param, vartype, nullptr);
 				}
 			}
 		}
@@ -2994,56 +2335,54 @@ $JCTree$JCExpression* JavacParser::lambdaExpressionOrStatementRest($List* args, 
 	checkSourceLevel($Source$Feature::LAMBDA);
 	$init($Tokens$TokenKind);
 	accept($Tokens$TokenKind::ARROW);
-	return $nc(this->token$)->kind == $Tokens$TokenKind::LBRACE ? lambdaStatement(args, pos, $nc(this->token$)->pos) : lambdaExpression(args, pos);
+	return $nc(this->token$)->kind == $Tokens$TokenKind::LBRACE ? lambdaStatement(args, pos, this->token$->pos) : lambdaExpression(args, pos);
 }
 
 $JCTree$JCExpression* JavacParser::lambdaStatement($List* args, int32_t pos, int32_t pos2) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JCTree$JCBlock, block, this->block(pos2, 0));
-	return $cast($JCTree$JCExpression, toP($($nc($($nc(this->F)->at(pos)))->Lambda(args, block))));
+	return $cast($JCTree$JCExpression, toP($($$nc($nc(this->F)->at(pos))->Lambda(args, block))));
 }
 
 $JCTree$JCExpression* JavacParser::lambdaExpression($List* args, int32_t pos) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JCTree, expr, parseExpression());
-	return $cast($JCTree$JCExpression, toP($($nc($($nc(this->F)->at(pos)))->Lambda(args, expr))));
+	return $cast($JCTree$JCExpression, toP($($$nc($nc(this->F)->at(pos))->Lambda(args, expr))));
 }
 
 $JCTree$JCExpression* JavacParser::superSuffix($List* typeArgs$renamed, $JCTree$JCExpression* t$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, typeArgs, typeArgs$renamed);
 	$var($JCTree$JCExpression, t, t$renamed);
 	nextToken();
 	$init($Tokens$TokenKind);
 	if ($nc(this->token$)->kind == $Tokens$TokenKind::LPAREN || typeArgs != nullptr) {
 		$assign(t, arguments(typeArgs, t));
-	} else {
-		if ($nc(this->token$)->kind == $Tokens$TokenKind::COLCOL) {
-			if (typeArgs != nullptr) {
-				return illegal();
-			}
-			$assign(t, memberReferenceSuffix(t));
-		} else {
-			int32_t pos = $nc(this->token$)->pos;
-			accept($Tokens$TokenKind::DOT);
-			$assign(typeArgs, ($nc(this->token$)->kind == $Tokens$TokenKind::LT) ? typeArguments(false) : ($List*)nullptr);
-			$assign(t, $cast($JCTree$JCExpression, toP($($nc($($nc(this->F)->at(pos)))->Select(t, $(ident()))))));
-			$assign(t, argumentsOpt(typeArgs, t));
+	} else if (this->token$->kind == $Tokens$TokenKind::COLCOL) {
+		if (typeArgs != nullptr) {
+			return illegal();
 		}
+		$assign(t, memberReferenceSuffix(t));
+	} else {
+		int32_t pos = $nc(this->token$)->pos;
+		accept($Tokens$TokenKind::DOT);
+		$assign(typeArgs, ($nc(this->token$)->kind == $Tokens$TokenKind::LT) ? typeArguments(false) : ($List*)nullptr);
+		$assign(t, $cast($JCTree$JCExpression, toP($($$nc($nc(this->F)->at(pos))->Select(t, $(ident()))))));
+		$assign(t, argumentsOpt(typeArgs, t));
 	}
 	return t;
 }
 
 $JCTree$JCPrimitiveTypeTree* JavacParser::basicType() {
-	$useLocalCurrentObjectStackCache();
-	$var($JCTree$JCPrimitiveTypeTree, t, $cast($JCTree$JCPrimitiveTypeTree, to($($nc($($nc(this->F)->at($nc(this->token$)->pos)))->TypeIdent($(typetag($nc(this->token$)->kind)))))));
+	$useLocalObjectStack();
+	$var($JCTree$JCPrimitiveTypeTree, t, $cast($JCTree$JCPrimitiveTypeTree, to($($$nc($nc(this->F)->at($nc(this->token$)->pos))->TypeIdent($(typetag($nc(this->token$)->kind)))))));
 	nextToken();
 	return t;
 }
 
 $JCTree$JCExpression* JavacParser::argumentsOpt($List* typeArgs, $JCTree$JCExpression* t) {
 	$init($Tokens$TokenKind);
-	if (((int32_t)(this->mode & (uint32_t)JavacParser::EXPR)) != 0 && $nc(this->token$)->kind == $Tokens$TokenKind::LPAREN || typeArgs != nullptr) {
+	if ((this->mode & JavacParser::EXPR) != 0 && $nc(this->token$)->kind == $Tokens$TokenKind::LPAREN || typeArgs != nullptr) {
 		selectExprMode();
 		return arguments(typeArgs, t);
 	} else {
@@ -3052,7 +2391,7 @@ $JCTree$JCExpression* JavacParser::argumentsOpt($List* typeArgs, $JCTree$JCExpre
 }
 
 $List* JavacParser::arguments() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ListBuffer, args, $new($ListBuffer));
 	$init($Tokens$TokenKind);
 	if ($nc(this->token$)->kind == $Tokens$TokenKind::LPAREN) {
@@ -3066,22 +2405,22 @@ $List* JavacParser::arguments() {
 		}
 		accept($Tokens$TokenKind::RPAREN);
 	} else {
-		syntaxError($nc(this->token$)->pos, $($CompilerProperties$Errors::Expected($Tokens$TokenKind::LPAREN)));
+		syntaxError(this->token$->pos, $($CompilerProperties$Errors::Expected($Tokens$TokenKind::LPAREN)));
 	}
 	return args->toList();
 }
 
 $JCTree$JCExpression* JavacParser::arguments($List* typeArgs, $JCTree$JCExpression* t) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t pos = $nc(this->token$)->pos;
 	$var($List, args, arguments());
-	$var($JCTree$JCExpression, mi, $nc($($nc(this->F)->at(pos)))->Apply(typeArgs, t, args));
+	$var($JCTree$JCExpression, mi, $$nc($nc(this->F)->at(pos))->Apply(typeArgs, t, args));
 	$init($JCTree$Tag);
 	bool var$0 = $nc(t)->hasTag($JCTree$Tag::IDENT);
-	if (var$0 && isInvalidUnqualifiedMethodIdentifier($nc(($cast($JCTree$JCIdent, t)))->pos$, ($cast($JCTree$JCIdent, t))->name)) {
+	if (var$0 && isInvalidUnqualifiedMethodIdentifier($cast($JCTree$JCIdent, t)->pos$, $cast($JCTree$JCIdent, t)->name)) {
 		$init($JCDiagnostic$DiagnosticFlag);
 		$init($CompilerProperties$Errors);
-		$nc(this->log)->error($JCDiagnostic$DiagnosticFlag::SYNTAX, static_cast<$JCDiagnostic$DiagnosticPosition*>(t), $CompilerProperties$Errors::InvalidYield);
+		$nc(this->log)->error($JCDiagnostic$DiagnosticFlag::SYNTAX, t, $CompilerProperties$Errors::InvalidYield);
 		$assign(mi, $nc(this->F)->Erroneous($($List::of(mi))));
 	}
 	return $cast($JCTree$JCExpression, toP(mi));
@@ -3101,7 +2440,7 @@ bool JavacParser::isInvalidUnqualifiedMethodIdentifier(int32_t pos, $Name* name)
 
 $JCTree$JCExpression* JavacParser::typeArgumentsOpt($JCTree$JCExpression* t) {
 	$init($Tokens$TokenKind);
-	if ($nc(this->token$)->kind == $Tokens$TokenKind::LT && ((int32_t)(this->mode & (uint32_t)JavacParser::TYPE)) != 0 && ((int32_t)(this->mode & (uint32_t)JavacParser::NOPARAMS)) == 0) {
+	if ($nc(this->token$)->kind == $Tokens$TokenKind::LT && (this->mode & JavacParser::TYPE) != 0 && (this->mode & JavacParser::NOPARAMS) == 0) {
 		selectTypeMode();
 		return typeArguments(t, false);
 	} else {
@@ -3116,7 +2455,7 @@ $List* JavacParser::typeArgumentsOpt() {
 $List* JavacParser::typeArgumentsOpt(int32_t useMode) {
 	$init($Tokens$TokenKind);
 	if ($nc(this->token$)->kind == $Tokens$TokenKind::LT) {
-		if (((int32_t)(this->mode & (uint32_t)useMode)) == 0 || ((int32_t)(this->mode & (uint32_t)JavacParser::NOPARAMS)) != 0) {
+		if ((this->mode & useMode) == 0 || (this->mode & JavacParser::NOPARAMS) != 0) {
 			illegal();
 		}
 		this->mode = useMode;
@@ -3126,7 +2465,7 @@ $List* JavacParser::typeArgumentsOpt(int32_t useMode) {
 }
 
 $List* JavacParser::typeArguments(bool diamondAllowed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Tokens$TokenKind);
 	if ($nc(this->token$)->kind == $Tokens$TokenKind::LT) {
 		nextToken();
@@ -3138,101 +2477,89 @@ $List* JavacParser::typeArguments(bool diamondAllowed) {
 			return $List::nil();
 		} else {
 			$var($ListBuffer, args, $new($ListBuffer));
-			args->append((((int32_t)(this->mode & (uint32_t)JavacParser::EXPR)) == 0) ? $(typeArgument()) : $(parseType()));
+			args->append(((this->mode & JavacParser::EXPR) == 0) ? $(typeArgument()) : $(parseType()));
 			while ($nc(this->token$)->kind == $Tokens$TokenKind::COMMA) {
 				nextToken();
-				args->append((((int32_t)(this->mode & (uint32_t)JavacParser::EXPR)) == 0) ? $(typeArgument()) : $(parseType()));
+				args->append(((this->mode & JavacParser::EXPR) == 0) ? $(typeArgument()) : $(parseType()));
 			}
 			$init($JavacParser$1);
 			switch ($nc($JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind)->get(($nc(this->token$)->kind)->ordinal())) {
 			case 72:
-				{}
 			case 71:
-				{}
 			case 93:
-				{}
 			case 89:
-				{}
 			case 90:
-				{
-					$set(this, token$, $nc(this->S)->split());
-					break;
-				}
+				$set(this, token$, $nc(this->S)->split());
+				break;
 			case 91:
-				{
-					nextToken();
-					break;
-				}
+				nextToken();
+				break;
 			default:
-				{
-					args->append($(syntaxError($nc(this->token$)->pos, $($CompilerProperties$Errors::Expected($Tokens$TokenKind::GT)))));
-					break;
-				}
+				args->append($(syntaxError($nc(this->token$)->pos, $($CompilerProperties$Errors::Expected($Tokens$TokenKind::GT)))));
+				break;
 			}
 			return args->toList();
 		}
 	} else {
-		return $List::of($(syntaxError($nc(this->token$)->pos, $($CompilerProperties$Errors::Expected($Tokens$TokenKind::LT)))));
+		return $List::of($(syntaxError(this->token$->pos, $($CompilerProperties$Errors::Expected($Tokens$TokenKind::LT)))));
 	}
 }
 
 $JCTree$JCExpression* JavacParser::typeArgument() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, annotations, typeAnnotationsOpt());
 	$init($Tokens$TokenKind);
 	if ($nc(this->token$)->kind != $Tokens$TokenKind::QUES) {
 		return parseType(false, annotations);
 	}
-	int32_t pos = $nc(this->token$)->pos;
+	int32_t pos = this->token$->pos;
 	nextToken();
 	$var($JCTree$JCExpression, result, nullptr);
 	if ($nc(this->token$)->kind == $Tokens$TokenKind::EXTENDS) {
 		$init($BoundKind);
-		$var($JCTree$TypeBoundKind, t, $cast($JCTree$TypeBoundKind, to($($nc($($nc(this->F)->at(pos)))->TypeBoundKind($BoundKind::EXTENDS)))));
+		$var($JCTree$TypeBoundKind, t, $cast($JCTree$TypeBoundKind, to($($$nc($nc(this->F)->at(pos))->TypeBoundKind($BoundKind::EXTENDS)))));
 		nextToken();
 		$var($JCTree$JCExpression, bound, parseType());
-		$assign(result, $nc($($nc(this->F)->at(pos)))->Wildcard(t, bound));
+		$assign(result, $$nc($nc(this->F)->at(pos))->Wildcard(t, bound));
+	} else if (this->token$->kind == $Tokens$TokenKind::SUPER) {
+		$init($BoundKind);
+		$var($JCTree$TypeBoundKind, t, $cast($JCTree$TypeBoundKind, to($($$nc($nc(this->F)->at(pos))->TypeBoundKind($BoundKind::SUPER)))));
+		nextToken();
+		$var($JCTree$JCExpression, bound, parseType());
+		$assign(result, $$nc($nc(this->F)->at(pos))->Wildcard(t, bound));
+	} else if ($nc(this->LAX_IDENTIFIER)->test($nc(this->token$)->kind)) {
+		$init($BoundKind);
+		$var($JCTree$TypeBoundKind, t, $$nc($nc(this->F)->at($Position::NOPOS))->TypeBoundKind($BoundKind::UNBOUND));
+		$var($JCTree$JCExpression, wc, $cast($JCTree$JCExpression, toP($($$nc($nc(this->F)->at(pos))->Wildcard(t, nullptr)))));
+		$var($JCTree$JCIdent, id, $cast($JCTree$JCIdent, toP($($$nc($nc(this->F)->at($nc(this->token$)->pos))->Ident($(ident()))))));
+		$var($JCTree$JCErroneous, err, $$nc($nc(this->F)->at(pos))->Erroneous($($List::of(wc, id))));
+		reportSyntaxError(err, $($CompilerProperties$Errors::Expected3($Tokens$TokenKind::GT, $Tokens$TokenKind::EXTENDS, $Tokens$TokenKind::SUPER)));
+		$assign(result, err);
 	} else {
-		if ($nc(this->token$)->kind == $Tokens$TokenKind::SUPER) {
-			$init($BoundKind);
-			$var($JCTree$TypeBoundKind, t, $cast($JCTree$TypeBoundKind, to($($nc($($nc(this->F)->at(pos)))->TypeBoundKind($BoundKind::SUPER)))));
-			nextToken();
-			$var($JCTree$JCExpression, bound, parseType());
-			$assign(result, $nc($($nc(this->F)->at(pos)))->Wildcard(t, bound));
-		} else if ($nc(this->LAX_IDENTIFIER)->test($nc(this->token$)->kind)) {
-			$init($BoundKind);
-			$var($JCTree$TypeBoundKind, t, $nc($($nc(this->F)->at($Position::NOPOS)))->TypeBoundKind($BoundKind::UNBOUND));
-			$var($JCTree$JCExpression, wc, $cast($JCTree$JCExpression, toP($($nc($($nc(this->F)->at(pos)))->Wildcard(t, nullptr)))));
-			$var($JCTree$JCIdent, id, $cast($JCTree$JCIdent, toP($($nc($($nc(this->F)->at($nc(this->token$)->pos)))->Ident($(ident()))))));
-			$var($JCTree$JCErroneous, err, $nc($($nc(this->F)->at(pos)))->Erroneous($($List::of(wc, id))));
-			reportSyntaxError(static_cast<$JCDiagnostic$DiagnosticPosition*>(err), $($CompilerProperties$Errors::Expected3($Tokens$TokenKind::GT, $Tokens$TokenKind::EXTENDS, $Tokens$TokenKind::SUPER)));
-			$assign(result, err);
-		} else {
-			$init($BoundKind);
-			$var($JCTree$TypeBoundKind, t, $cast($JCTree$TypeBoundKind, toP($($nc($($nc(this->F)->at(pos)))->TypeBoundKind($BoundKind::UNBOUND)))));
-			$assign(result, $cast($JCTree$JCExpression, toP($($nc($($nc(this->F)->at(pos)))->Wildcard(t, nullptr)))));
-		}
+		$init($BoundKind);
+		$var($JCTree$TypeBoundKind, t, $cast($JCTree$TypeBoundKind, toP($($$nc($nc(this->F)->at(pos))->TypeBoundKind($BoundKind::UNBOUND)))));
+		$assign(result, $cast($JCTree$JCExpression, toP($($$nc($nc(this->F)->at(pos))->Wildcard(t, nullptr)))));
 	}
 	if (!$nc(annotations)->isEmpty()) {
-		$assign(result, $cast($JCTree$JCExpression, toP($($nc($($nc(this->F)->at($nc(($cast($JCTree$JCAnnotation, annotations->head)))->pos$)))->AnnotatedType(annotations, result)))));
+		$assign(result, $cast($JCTree$JCExpression, toP($($$nc($nc(this->F)->at($nc(($cast($JCTree$JCAnnotation, annotations->head)))->pos$))->AnnotatedType(annotations, result)))));
 	}
 	return result;
 }
 
 $JCTree$JCTypeApply* JavacParser::typeArguments($JCTree$JCExpression* t, bool diamondAllowed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t pos = $nc(this->token$)->pos;
 	$var($List, args, typeArguments(diamondAllowed));
-	return $cast($JCTree$JCTypeApply, toP($($nc($($nc(this->F)->at(pos)))->TypeApply(t, args))));
+	return $cast($JCTree$JCTypeApply, toP($($$nc($nc(this->F)->at(pos))->TypeApply(t, args))));
 }
 
 $JCTree$JCExpression* JavacParser::bracketsOpt($JCTree$JCExpression* t$renamed, $List* annotations) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JCTree$JCExpression, t, t$renamed);
 	$var($List, nextLevelAnnotations, typeAnnotationsOpt());
 	$init($Tokens$TokenKind);
 	if ($nc(this->token$)->kind == $Tokens$TokenKind::LBRACKET) {
-		int32_t pos = $nc(this->token$)->pos;
+		int32_t pos = this->token$->pos;
 		nextToken();
 		$assign(t, bracketsOptCont(t, pos, nextLevelAnnotations));
 	} else if (!$nc(nextLevelAnnotations)->isEmpty()) {
@@ -3243,7 +2570,7 @@ $JCTree$JCExpression* JavacParser::bracketsOpt($JCTree$JCExpression* t$renamed, 
 		}
 	}
 	if (!$nc(annotations)->isEmpty()) {
-		$assign(t, $cast($JCTree$JCExpression, toP($($nc($($nc(this->F)->at($nc(this->token$)->pos)))->AnnotatedType(annotations, t)))));
+		$assign(t, $cast($JCTree$JCExpression, toP($($$nc($nc(this->F)->at($nc(this->token$)->pos))->AnnotatedType(annotations, t)))));
 	}
 	return t;
 }
@@ -3253,36 +2580,36 @@ $JCTree$JCExpression* JavacParser::bracketsOpt($JCTree$JCExpression* t) {
 }
 
 $JCTree$JCExpression* JavacParser::bracketsOptCont($JCTree$JCExpression* t$renamed, int32_t pos, $List* annotations) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JCTree$JCExpression, t, t$renamed);
 	$init($Tokens$TokenKind);
 	accept($Tokens$TokenKind::RBRACKET);
 	$assign(t, bracketsOpt(t));
-	$assign(t, $cast($JCTree$JCExpression, toP($($nc($($nc(this->F)->at(pos)))->TypeArray(t)))));
+	$assign(t, $cast($JCTree$JCExpression, toP($($$nc($nc(this->F)->at(pos))->TypeArray(t)))));
 	if ($nc(annotations)->nonEmpty()) {
-		$assign(t, $cast($JCTree$JCExpression, toP($($nc($($nc(this->F)->at(pos)))->AnnotatedType(annotations, t)))));
+		$assign(t, $cast($JCTree$JCExpression, toP($($$nc($nc(this->F)->at(pos))->AnnotatedType(annotations, t)))));
 	}
 	return t;
 }
 
 $JCTree$JCExpression* JavacParser::bracketsSuffix($JCTree$JCExpression* t$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JCTree$JCExpression, t, t$renamed);
 	$init($Tokens$TokenKind);
-	if (((int32_t)(this->mode & (uint32_t)JavacParser::EXPR)) != 0 && $nc(this->token$)->kind == $Tokens$TokenKind::DOT) {
+	if ((this->mode & JavacParser::EXPR) != 0 && $nc(this->token$)->kind == $Tokens$TokenKind::DOT) {
 		selectExprMode();
 		int32_t pos = $nc(this->token$)->pos;
 		nextToken();
 		accept($Tokens$TokenKind::CLASS);
 		if ($nc(this->token$)->pos == $nc(this->endPosTable)->errorEndPos) {
 			$var($Name, name, nullptr);
-			if ($nc(this->LAX_IDENTIFIER)->test($nc(this->token$)->kind)) {
+			if ($nc(this->LAX_IDENTIFIER)->test(this->token$->kind)) {
 				$assign(name, $nc(this->token$)->name());
 				nextToken();
 			} else {
 				$assign(name, $nc(this->names)->error);
 			}
-			$assign(t, $nc($($nc(this->F)->at(pos)))->Erroneous($($List::of($(toP($($nc($($nc(this->F)->at(pos)))->Select(t, name))))))));
+			$assign(t, $$nc($nc(this->F)->at(pos))->Erroneous($($List::of($(toP($($$nc($nc(this->F)->at(pos))->Select(t, name))))))));
 		} else {
 			$JCTree$Tag* tag = $nc(t)->getTag();
 			$init($JCTree$Tag);
@@ -3290,17 +2617,15 @@ $JCTree$JCExpression* JavacParser::bracketsSuffix($JCTree$JCExpression* t$rename
 				$init($CompilerProperties$Errors);
 				syntaxError($nc(this->token$)->pos, $CompilerProperties$Errors::NoAnnotationsOnDotClass);
 			}
-			$assign(t, $cast($JCTree$JCExpression, toP($($nc($($nc(this->F)->at(pos)))->Select(t, $nc(this->names)->_class)))));
+			$assign(t, $cast($JCTree$JCExpression, toP($($$nc($nc(this->F)->at(pos))->Select(t, $nc(this->names)->_class)))));
 		}
-	} else if (((int32_t)(this->mode & (uint32_t)JavacParser::TYPE)) != 0) {
+	} else if ((this->mode & JavacParser::TYPE) != 0) {
 		if ($nc(this->token$)->kind != $Tokens$TokenKind::COLCOL) {
 			selectTypeMode();
 		}
-	} else {
-		if ($nc(this->token$)->kind != $Tokens$TokenKind::COLCOL) {
-			$init($CompilerProperties$Errors);
-			syntaxError($nc(this->token$)->pos, $CompilerProperties$Errors::DotClassExpected);
-		}
+	} else if ($nc(this->token$)->kind != $Tokens$TokenKind::COLCOL) {
+		$init($CompilerProperties$Errors);
+		syntaxError(this->token$->pos, $CompilerProperties$Errors::DotClassExpected);
 	}
 	return t;
 }
@@ -3313,7 +2638,7 @@ $JCTree$JCExpression* JavacParser::memberReferenceSuffix($JCTree$JCExpression* t
 }
 
 $JCTree$JCExpression* JavacParser::memberReferenceSuffix(int32_t pos1, $JCTree$JCExpression* t) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Source$Feature);
 	checkSourceLevel($Source$Feature::METHOD_REFERENCES);
 	selectExprMode();
@@ -3334,41 +2659,32 @@ $JCTree$JCExpression* JavacParser::memberReferenceSuffix(int32_t pos1, $JCTree$J
 		refMode = $MemberReferenceTree$ReferenceMode::INVOKE;
 		$assign(refName, ident());
 	}
-	return $cast($JCTree$JCExpression, toP($($nc($($nc(this->F)->at($nc(t)->getStartPosition())))->Reference(refMode, refName, t, typeArgs))));
+	return $cast($JCTree$JCExpression, toP($($$nc($nc(this->F)->at($nc(t)->getStartPosition()))->Reference(refMode, refName, t, typeArgs))));
 }
 
 $JCTree$JCExpression* JavacParser::creator(int32_t newpos, $List* typeArgs) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, newAnnotations, typeAnnotationsOpt());
 	$init($JavacParser$1);
 	switch ($nc($JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind)->get(($nc(this->token$)->kind)->ordinal())) {
 	case 22:
-		{}
 	case 23:
-		{}
 	case 24:
-		{}
 	case 25:
-		{}
 	case 26:
-		{}
 	case 27:
-		{}
 	case 28:
-		{}
 	case 29:
-		{
-			if (typeArgs == nullptr) {
-				if ($nc(newAnnotations)->isEmpty()) {
-					return arrayCreatorRest(newpos, $(basicType()));
-				} else {
-					return arrayCreatorRest(newpos, $cast($JCTree$JCExpression, $(toP($($nc($($nc(this->F)->at($nc(($cast($JCTree$JCAnnotation, newAnnotations->head)))->pos$)))->AnnotatedType(newAnnotations, $(basicType())))))));
-				}
+		if (typeArgs == nullptr) {
+			if ($nc(newAnnotations)->isEmpty()) {
+				return arrayCreatorRest(newpos, $(basicType()));
+			} else {
+				return arrayCreatorRest(newpos, $$cast($JCTree$JCExpression, toP($($$nc($nc(this->F)->at($nc(($cast($JCTree$JCAnnotation, newAnnotations->head)))->pos$))->AnnotatedType(newAnnotations, $(basicType()))))));
 			}
-			break;
 		}
+		break;
 	default:
-		{}
+		break;
 	}
 	$var($JCTree$JCExpression, t, qualident(true));
 	int32_t oldmode = this->mode;
@@ -3376,9 +2692,9 @@ $JCTree$JCExpression* JavacParser::creator(int32_t newpos, $List* typeArgs) {
 	bool diamondFound = false;
 	int32_t lastTypeargsPos = -1;
 	if ($nc(this->token$)->kind == $Tokens$TokenKind::LT) {
-		lastTypeargsPos = $nc(this->token$)->pos;
+		lastTypeargsPos = this->token$->pos;
 		$assign(t, typeArguments(t, true));
-		diamondFound = ((int32_t)(this->mode & (uint32_t)JavacParser::DIAMOND)) != 0;
+		diamondFound = (this->mode & JavacParser::DIAMOND) != 0;
 	}
 	while ($nc(this->token$)->kind == $Tokens$TokenKind::DOT) {
 		if (diamondFound) {
@@ -3387,18 +2703,18 @@ $JCTree$JCExpression* JavacParser::creator(int32_t newpos, $List* typeArgs) {
 		int32_t pos = $nc(this->token$)->pos;
 		nextToken();
 		$var($List, tyannos, typeAnnotationsOpt());
-		$assign(t, $cast($JCTree$JCExpression, toP($($nc($($nc(this->F)->at(pos)))->Select(t, $(ident()))))));
+		$assign(t, $cast($JCTree$JCExpression, toP($($$nc($nc(this->F)->at(pos))->Select(t, $(ident()))))));
 		if (tyannos != nullptr && tyannos->nonEmpty()) {
-			$assign(t, $cast($JCTree$JCExpression, toP($($nc($($nc(this->F)->at($nc(($cast($JCTree$JCAnnotation, tyannos->head)))->pos$)))->AnnotatedType(tyannos, t)))));
+			$assign(t, $cast($JCTree$JCExpression, toP($($$nc($nc(this->F)->at($nc(($cast($JCTree$JCAnnotation, tyannos->head)))->pos$))->AnnotatedType(tyannos, t)))));
 		}
 		if ($nc(this->token$)->kind == $Tokens$TokenKind::LT) {
-			lastTypeargsPos = $nc(this->token$)->pos;
+			lastTypeargsPos = this->token$->pos;
 			$assign(t, typeArguments(t, true));
-			diamondFound = ((int32_t)(this->mode & (uint32_t)JavacParser::DIAMOND)) != 0;
+			diamondFound = (this->mode & JavacParser::DIAMOND) != 0;
 		}
 	}
 	this->mode = oldmode;
-	if ($nc(this->token$)->kind == $Tokens$TokenKind::LBRACKET || $nc(this->token$)->kind == $Tokens$TokenKind::MONKEYS_AT) {
+	if ($nc(this->token$)->kind == $Tokens$TokenKind::LBRACKET || this->token$->kind == $Tokens$TokenKind::MONKEYS_AT) {
 		if ($nc(newAnnotations)->nonEmpty()) {
 			$assign(t, insertAnnotationsToMostInner(t, newAnnotations, false));
 		}
@@ -3406,40 +2722,38 @@ $JCTree$JCExpression* JavacParser::creator(int32_t newpos, $List* typeArgs) {
 		if (diamondFound) {
 			$init($CompilerProperties$Errors);
 			reportSyntaxError(lastTypeargsPos, $CompilerProperties$Errors::CannotCreateArrayWithDiamond);
-			return $cast($JCTree$JCExpression, toP($($nc($($nc(this->F)->at(newpos)))->Erroneous($($List::of(e))))));
+			return $cast($JCTree$JCExpression, toP($($$nc($nc(this->F)->at(newpos))->Erroneous($($List::of(e))))));
 		} else if (typeArgs != nullptr) {
 			int32_t pos = newpos;
 			if (!typeArgs->isEmpty() && $nc(($cast($JCTree$JCExpression, typeArgs->head)))->pos$ != $Position::NOPOS) {
 				pos = $nc(($cast($JCTree$JCExpression, typeArgs->head)))->pos$;
 			}
 			setErrorEndPos($nc($($nc(this->S)->prevToken()))->endPos);
-			$var($JCTree$JCErroneous, err, $nc($($nc(this->F)->at(pos)))->Erroneous($(typeArgs->prepend(e))));
+			$var($JCTree$JCErroneous, err, $$nc($nc(this->F)->at(pos))->Erroneous($(typeArgs->prepend(e))));
 			$init($CompilerProperties$Errors);
-			reportSyntaxError(static_cast<$JCDiagnostic$DiagnosticPosition*>(err), $CompilerProperties$Errors::CannotCreateArrayWithTypeArguments);
+			reportSyntaxError(err, $CompilerProperties$Errors::CannotCreateArrayWithTypeArguments);
 			return $cast($JCTree$JCExpression, toP(err));
 		}
 		return e;
-	} else {
-		if ($nc(this->token$)->kind == $Tokens$TokenKind::LPAREN) {
-			if ($nc(newAnnotations)->nonEmpty()) {
-				$assign(t, insertAnnotationsToMostInner(t, newAnnotations, false));
-			}
-			return classCreatorRest(newpos, nullptr, typeArgs, t);
-		} else {
-			setErrorEndPos($nc(this->token$)->pos);
-			reportSyntaxError($nc(this->token$)->pos, $($CompilerProperties$Errors::Expected2($Tokens$TokenKind::LPAREN, $Tokens$TokenKind::LBRACKET)));
-			$assign(t, $cast($JCTree$JCExpression, toP($($nc($($nc(this->F)->at(newpos)))->NewClass(nullptr, typeArgs, t, $($List::nil()), nullptr)))));
-			return $cast($JCTree$JCExpression, toP($($nc($($nc(this->F)->at(newpos)))->Erroneous($($List::of(t))))));
+	} else if (this->token$->kind == $Tokens$TokenKind::LPAREN) {
+		if ($nc(newAnnotations)->nonEmpty()) {
+			$assign(t, insertAnnotationsToMostInner(t, newAnnotations, false));
 		}
+		return classCreatorRest(newpos, nullptr, typeArgs, t);
+	} else {
+		setErrorEndPos($nc(this->token$)->pos);
+		reportSyntaxError($nc(this->token$)->pos, $($CompilerProperties$Errors::Expected2($Tokens$TokenKind::LPAREN, $Tokens$TokenKind::LBRACKET)));
+		$assign(t, $cast($JCTree$JCExpression, toP($($$nc($nc(this->F)->at(newpos))->NewClass(nullptr, typeArgs, t, $($List::nil()), nullptr)))));
+		return $cast($JCTree$JCExpression, toP($($$nc($nc(this->F)->at(newpos))->Erroneous($($List::of(t))))));
 	}
 }
 
 $JCTree$JCExpression* JavacParser::innerCreator(int32_t newpos, $List* typeArgs, $JCTree$JCExpression* encl) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, newAnnotations, typeAnnotationsOpt());
-	$var($JCTree$JCExpression, t, $cast($JCTree$JCExpression, toP($($nc($($nc(this->F)->at($nc(this->token$)->pos)))->Ident($(ident()))))));
+	$var($JCTree$JCExpression, t, $cast($JCTree$JCExpression, toP($($$nc($nc(this->F)->at($nc(this->token$)->pos))->Ident($(ident()))))));
 	if ($nc(newAnnotations)->nonEmpty()) {
-		$assign(t, $cast($JCTree$JCExpression, toP($($nc($($nc(this->F)->at($nc(($cast($JCTree$JCAnnotation, newAnnotations->head)))->pos$)))->AnnotatedType(newAnnotations, t)))));
+		$assign(t, $cast($JCTree$JCExpression, toP($($$nc($nc(this->F)->at($nc(($cast($JCTree$JCAnnotation, newAnnotations->head)))->pos$))->AnnotatedType(newAnnotations, t)))));
 	}
 	$init($Tokens$TokenKind);
 	if ($nc(this->token$)->kind == $Tokens$TokenKind::LT) {
@@ -3451,7 +2765,7 @@ $JCTree$JCExpression* JavacParser::innerCreator(int32_t newpos, $List* typeArgs,
 }
 
 $JCTree$JCExpression* JavacParser::arrayCreatorRest(int32_t newpos, $JCTree$JCExpression* elemtype$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JCTree$JCExpression, elemtype, elemtype$renamed);
 	$var($List, annos, typeAnnotationsOpt());
 	$init($Tokens$TokenKind);
@@ -3471,7 +2785,7 @@ $JCTree$JCExpression* JavacParser::arrayCreatorRest(int32_t newpos, $JCTree$JCEx
 			}
 			return na;
 		} else {
-			$var($JCTree$JCExpression, t, $cast($JCTree$JCExpression, toP($($nc($($nc(this->F)->at(newpos)))->NewArray(elemtype, $($List::nil()), nullptr)))));
+			$var($JCTree$JCExpression, t, $cast($JCTree$JCExpression, toP($($$nc($nc(this->F)->at(newpos))->NewArray(elemtype, $($List::nil()), nullptr)))));
 			$init($CompilerProperties$Errors);
 			return syntaxError($nc(this->token$)->pos, $($List::of(t)), $CompilerProperties$Errors::ArrayDimensionMissing);
 		}
@@ -3481,7 +2795,7 @@ $JCTree$JCExpression* JavacParser::arrayCreatorRest(int32_t newpos, $JCTree$JCEx
 		dimAnnotations->append(annos);
 		dims->append($(parseExpression()));
 		accept($Tokens$TokenKind::RBRACKET);
-		while ($nc(this->token$)->kind == $Tokens$TokenKind::LBRACKET || $nc(this->token$)->kind == $Tokens$TokenKind::MONKEYS_AT) {
+		while ($nc(this->token$)->kind == $Tokens$TokenKind::LBRACKET || this->token$->kind == $Tokens$TokenKind::MONKEYS_AT) {
 			$var($List, maybeDimAnnos, typeAnnotationsOpt());
 			int32_t pos = $nc(this->token$)->pos;
 			nextToken();
@@ -3495,10 +2809,10 @@ $JCTree$JCExpression* JavacParser::arrayCreatorRest(int32_t newpos, $JCTree$JCEx
 		}
 		$var($List, elems, nullptr);
 		int32_t errpos = $nc(this->token$)->pos;
-		if ($nc(this->token$)->kind == $Tokens$TokenKind::LBRACE) {
+		if (this->token$->kind == $Tokens$TokenKind::LBRACE) {
 			$assign(elems, arrayInitializerElements(newpos, elemtype));
 		}
-		$var($JCTree$JCNewArray, na, $cast($JCTree$JCNewArray, toP($($nc($($nc(this->F)->at(newpos)))->NewArray(elemtype, $(dims->toList()), elems)))));
+		$var($JCTree$JCNewArray, na, $cast($JCTree$JCNewArray, toP($($$nc($nc(this->F)->at(newpos))->NewArray(elemtype, $(dims->toList()), elems)))));
 		$set($nc(na), dimAnnotations, dimAnnotations->toList());
 		if (elems != nullptr) {
 			$init($CompilerProperties$Errors);
@@ -3509,42 +2823,40 @@ $JCTree$JCExpression* JavacParser::arrayCreatorRest(int32_t newpos, $JCTree$JCEx
 }
 
 $JCTree$JCNewClass* JavacParser::classCreatorRest(int32_t newpos, $JCTree$JCExpression* encl, $List* typeArgs, $JCTree$JCExpression* t) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, args, arguments());
 	$var($JCTree$JCClassDecl, body, nullptr);
 	$init($Tokens$TokenKind);
 	if ($nc(this->token$)->kind == $Tokens$TokenKind::LBRACE) {
-		int32_t pos = $nc(this->token$)->pos;
+		int32_t pos = this->token$->pos;
 		$var($List, defs, classInterfaceOrRecordBody($nc(this->names)->empty, false, false));
-		$var($JCTree$JCModifiers, mods, $nc($($nc(this->F)->at($Position::NOPOS)))->Modifiers(0));
-		$assign(body, $cast($JCTree$JCClassDecl, toP($($nc($($nc(this->F)->at(pos)))->AnonymousClassDef(mods, defs)))));
+		$var($JCTree$JCModifiers, mods, $$nc($nc(this->F)->at($Position::NOPOS))->Modifiers(0));
+		$assign(body, $cast($JCTree$JCClassDecl, toP($($$nc($nc(this->F)->at(pos))->AnonymousClassDef(mods, defs)))));
 	}
-	return $cast($JCTree$JCNewClass, toP($($nc($($nc(this->F)->at(newpos)))->NewClass(encl, typeArgs, t, args, body))));
+	return $cast($JCTree$JCNewClass, toP($($$nc($nc(this->F)->at(newpos))->NewClass(encl, typeArgs, t, args, body))));
 }
 
 $JCTree$JCExpression* JavacParser::arrayInitializer(int32_t newpos, $JCTree$JCExpression* t) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, elems, arrayInitializerElements(newpos, t));
-	return $cast($JCTree$JCExpression, toP($($nc($($nc(this->F)->at(newpos)))->NewArray(t, $($List::nil()), elems))));
+	return $cast($JCTree$JCExpression, toP($($$nc($nc(this->F)->at(newpos))->NewArray(t, $($List::nil()), elems))));
 }
 
 $List* JavacParser::arrayInitializerElements(int32_t newpos, $JCTree$JCExpression* t) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Tokens$TokenKind);
 	accept($Tokens$TokenKind::LBRACE);
 	$var($ListBuffer, elems, $new($ListBuffer));
 	if ($nc(this->token$)->kind == $Tokens$TokenKind::COMMA) {
 		nextToken();
-	} else {
-		if ($nc(this->token$)->kind != $Tokens$TokenKind::RBRACE) {
-			elems->append($(variableInitializer()));
-			while ($nc(this->token$)->kind == $Tokens$TokenKind::COMMA) {
-				nextToken();
-				if ($nc(this->token$)->kind == $Tokens$TokenKind::RBRACE) {
-					break;
-				}
-				elems->append($(variableInitializer()));
+	} else if (this->token$->kind != $Tokens$TokenKind::RBRACE) {
+		elems->append($(variableInitializer()));
+		while ($nc(this->token$)->kind == $Tokens$TokenKind::COMMA) {
+			nextToken();
+			if ($nc(this->token$)->kind == $Tokens$TokenKind::RBRACE) {
+				break;
 			}
+			elems->append($(variableInitializer()));
 		}
 	}
 	accept($Tokens$TokenKind::RBRACE);
@@ -3553,27 +2865,27 @@ $List* JavacParser::arrayInitializerElements(int32_t newpos, $JCTree$JCExpressio
 
 $JCTree$JCExpression* JavacParser::variableInitializer() {
 	$init($Tokens$TokenKind);
-	return $nc(this->token$)->kind == $Tokens$TokenKind::LBRACE ? arrayInitializer($nc(this->token$)->pos, nullptr) : parseExpression();
+	return $nc(this->token$)->kind == $Tokens$TokenKind::LBRACE ? arrayInitializer(this->token$->pos, nullptr) : parseExpression();
 }
 
 $JCTree$JCExpression* JavacParser::parExpression() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t pos = $nc(this->token$)->pos;
 	$init($Tokens$TokenKind);
 	accept($Tokens$TokenKind::LPAREN);
 	$var($JCTree$JCExpression, t, parseExpression());
 	accept($Tokens$TokenKind::RPAREN);
-	return $cast($JCTree$JCExpression, toP($($nc($($nc(this->F)->at(pos)))->Parens(t))));
+	return $cast($JCTree$JCExpression, toP($($$nc($nc(this->F)->at(pos))->Parens(t))));
 }
 
 $JCTree$JCBlock* JavacParser::block(int32_t pos, int64_t flags) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Tokens$TokenKind);
 	accept($Tokens$TokenKind::LBRACE);
 	$var($List, stats, blockStatements());
-	$var($JCTree$JCBlock, t, $nc($($nc(this->F)->at(pos)))->Block(flags, stats));
-	while ($nc(this->token$)->kind == $Tokens$TokenKind::CASE || $nc(this->token$)->kind == $Tokens$TokenKind::DEFAULT) {
-		syntaxError($nc(this->token$)->pos, $($CompilerProperties$Errors::Orphaned($nc(this->token$)->kind)));
+	$var($JCTree$JCBlock, t, $$nc($nc(this->F)->at(pos))->Block(flags, stats));
+	while ($nc(this->token$)->kind == $Tokens$TokenKind::CASE || this->token$->kind == $Tokens$TokenKind::DEFAULT) {
+		syntaxError(this->token$->pos, $($CompilerProperties$Errors::Orphaned(this->token$->kind)));
 		switchBlockStatementGroups();
 	}
 	$nc(t)->endpos = $nc(this->token$)->pos;
@@ -3586,7 +2898,7 @@ $JCTree$JCBlock* JavacParser::block() {
 }
 
 $List* JavacParser::blockStatements() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t lastErrPos = -1;
 	$var($ListBuffer, stats, $new($ListBuffer));
 	while (true) {
@@ -3597,287 +2909,207 @@ $List* JavacParser::blockStatements() {
 			if ($nc(this->token$)->pos == lastErrPos) {
 				return stats->toList();
 			}
-			if ($nc(this->token$)->pos <= $nc(this->endPosTable)->errorEndPos) {
+			if (this->token$->pos <= $nc(this->endPosTable)->errorEndPos) {
 				skip(false, true, true, true);
 				lastErrPos = $nc(this->token$)->pos;
 			}
-			stats->addAll(static_cast<$Collection*>(static_cast<$AbstractCollection*>(stat)));
+			stats->addAll($cast($AbstractCollection, stat));
 		}
 	}
 }
 
 $JCTree$JCStatement* JavacParser::parseStatementAsBlock() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t pos = $nc(this->token$)->pos;
 	$var($List, stats, blockStatement());
 	if ($nc(stats)->isEmpty()) {
 		$init($CompilerProperties$Errors);
 		$var($JCTree$JCErroneous, e, syntaxError(pos, $CompilerProperties$Errors::IllegalStartOfStmt));
-		return $cast($JCTree$JCStatement, toP($($nc($($nc(this->F)->at(pos)))->Exec(e))));
+		return $cast($JCTree$JCStatement, toP($($$nc($nc(this->F)->at(pos))->Exec(e))));
 	} else {
 		$var($JCTree$JCStatement, first, $cast($JCTree$JCStatement, stats->head));
 		$var($JCDiagnostic$Error, error, nullptr);
 		$init($JavacParser$1);
-		switch ($nc($JavacParser$1::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->get($nc(($($nc(first)->getTag())))->ordinal())) {
+		switch ($nc($JavacParser$1::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->get(($$nc($nc(first)->getTag()))->ordinal())) {
 		case 3:
-			{
-				$init($CompilerProperties$Errors);
-				$assign(error, $CompilerProperties$Errors::ClassNotAllowed);
-				break;
-			}
+			$init($CompilerProperties$Errors);
+			$assign(error, $CompilerProperties$Errors::ClassNotAllowed);
+			break;
 		case 4:
-			{
-				$init($CompilerProperties$Errors);
-				$assign(error, $CompilerProperties$Errors::VariableNotAllowed);
-				break;
-			}
+			$init($CompilerProperties$Errors);
+			$assign(error, $CompilerProperties$Errors::VariableNotAllowed);
+			break;
 		}
 		if (error != nullptr) {
 			$init($JCDiagnostic$DiagnosticFlag);
-			$nc(this->log)->error($JCDiagnostic$DiagnosticFlag::SYNTAX, static_cast<$JCDiagnostic$DiagnosticPosition*>(first), error);
-			$var($List, blist, $List::of($($nc($($nc(this->F)->at(first->pos$)))->Block(0, stats))));
-			return $cast($JCTree$JCStatement, toP($($nc($($nc(this->F)->at(pos)))->Exec($($nc($($nc(this->F)->at(first->pos$)))->Erroneous(blist))))));
+			$nc(this->log)->error($JCDiagnostic$DiagnosticFlag::SYNTAX, first, error);
+			$var($List, blist, $List::of($($$nc($nc(this->F)->at(first->pos$))->Block(0, stats))));
+			return $cast($JCTree$JCStatement, toP($($$nc($nc(this->F)->at(pos))->Exec($($$nc($nc(this->F)->at(first->pos$))->Erroneous(blist))))));
 		}
 		return first;
 	}
 }
 
 $List* JavacParser::blockStatement() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Tokens$Comment, dc, nullptr);
 	int32_t pos = $nc(this->token$)->pos;
 	$init($JavacParser$1);
-	switch ($nc($JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind)->get(($nc(this->token$)->kind)->ordinal())) {
+	switch ($nc($JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind)->get((this->token$->kind)->ordinal())) {
 	case 12:
-		{}
 	case 33:
-		{}
 	case 34:
-		{}
 	case 6:
-		{
-			return $List::nil();
-		}
+		return $List::nil();
 	case 11:
-		{}
 	case 35:
-		{}
 	case 36:
-		{}
 	case 37:
-		{}
 	case 38:
-		{}
 	case 39:
-		{}
 	case 40:
-		{}
 	case 19:
-		{}
 	case 41:
-		{}
 	case 42:
-		{}
 	case 43:
-		{}
 	case 44:
-		{}
 	case 1:
-		{}
 	case 45:
-		{}
 	case 46:
-		{}
 	case 47:
-		{}
 	case 51:
-		{
-			return $List::of($(parseSimpleStatement()));
-		}
+		return $List::of($(parseSimpleStatement()));
 	case 5:
-		{}
 	case 3:
 		{
-			{
-				$init($Tokens$Comment$CommentStyle);
-				$assign(dc, $nc(this->token$)->comment($Tokens$Comment$CommentStyle::JAVADOC));
-				$var($JCTree$JCModifiers, mods, modifiersOpt());
-				$init($Tokens$TokenKind);
-				if ($nc(this->token$)->kind == $Tokens$TokenKind::INTERFACE || $nc(this->token$)->kind == $Tokens$TokenKind::CLASS || $nc(this->token$)->kind == $Tokens$TokenKind::ENUM || isRecordStart()) {
-					return $List::of($(classOrRecordOrInterfaceOrEnumDeclaration(mods, dc)));
-				} else {
-					$var($JCTree$JCExpression, t, parseType(true));
-					return localVariableDeclarations(mods, t);
-				}
+			$init($Tokens$Comment$CommentStyle);
+			$assign(dc, $nc(this->token$)->comment($Tokens$Comment$CommentStyle::JAVADOC));
+			$var($JCTree$JCModifiers, mods, modifiersOpt());
+			if ($nc(this->token$)->kind == $Tokens$TokenKind::INTERFACE || this->token$->kind == $Tokens$TokenKind::CLASS || this->token$->kind == $Tokens$TokenKind::ENUM || isRecordStart()) {
+				return $List::of($(classOrRecordOrInterfaceOrEnumDeclaration(mods, dc)));
+			} else {
+				$var($JCTree$JCExpression, t, parseType(true));
+				return localVariableDeclarations(mods, t);
 			}
 		}
 	case 4:
-		{}
 	case 20:
 		{
-			{
-				$init($Tokens$Comment$CommentStyle);
-				$assign(dc, $nc(this->token$)->comment($Tokens$Comment$CommentStyle::JAVADOC));
-				$var($JCTree$JCModifiers, mods, modifiersOpt());
-				return $List::of($(classOrRecordOrInterfaceOrEnumDeclaration(mods, dc)));
-			}
+			$init($Tokens$Comment$CommentStyle);
+			$assign(dc, $nc(this->token$)->comment($Tokens$Comment$CommentStyle::JAVADOC));
+			$var($JCTree$JCModifiers, mods, modifiersOpt());
+			return $List::of($(classOrRecordOrInterfaceOrEnumDeclaration(mods, dc)));
 		}
 	case 8:
-		{}
 	case 7:
-		{
-			$init($Tokens$Comment$CommentStyle);
-			$assign(dc, $nc(this->token$)->comment($Tokens$Comment$CommentStyle::JAVADOC));
-			return $List::of($(classOrRecordOrInterfaceOrEnumDeclaration($(modifiersOpt()), dc)));
-		}
+		$init($Tokens$Comment$CommentStyle);
+		$assign(dc, $nc(this->token$)->comment($Tokens$Comment$CommentStyle::JAVADOC));
+		return $List::of($(classOrRecordOrInterfaceOrEnumDeclaration($(modifiersOpt()), dc)));
 	case 9:
-		{
-			if (!this->allowRecords) {
-				$init($JCDiagnostic$DiagnosticFlag);
-				$init($CompilerProperties$Errors);
-				$nc(this->log)->error($JCDiagnostic$DiagnosticFlag::SYNTAX, $nc(this->token$)->pos, $CompilerProperties$Errors::LocalEnum);
-			}
-			$init($Tokens$Comment$CommentStyle);
-			$assign(dc, $nc(this->token$)->comment($Tokens$Comment$CommentStyle::JAVADOC));
-			return $List::of($(classOrRecordOrInterfaceOrEnumDeclaration($(modifiersOpt()), dc)));
+		if (!this->allowRecords) {
+			$init($JCDiagnostic$DiagnosticFlag);
+			$init($CompilerProperties$Errors);
+			$nc(this->log)->error($JCDiagnostic$DiagnosticFlag::SYNTAX, $nc(this->token$)->pos, $CompilerProperties$Errors::LocalEnum);
 		}
+		$init($Tokens$Comment$CommentStyle);
+		$assign(dc, $nc(this->token$)->comment($Tokens$Comment$CommentStyle::JAVADOC));
+		return $List::of($(classOrRecordOrInterfaceOrEnumDeclaration($(modifiersOpt()), dc)));
 	case 32:
-		{
-			if ($nc(this->token$)->name() == $nc(this->names)->yield && this->allowYieldStatement) {
-				$var($Tokens$Token, next, $nc(this->S)->token(1));
-				bool isYieldStatement = false;
-				{
-					int32_t lookahead = 0;
-					int32_t balance = 0;
-					bool hasComma = false;
-					$var($Tokens$Token, l, nullptr)
-					switch ($nc($JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind)->get(($nc(next)->kind)->ordinal())) {
-					case 82:
-						{}
-					case 83:
-						{}
-					case 57:
-						{}
-					case 56:
-						{}
-					case 52:
-						{}
-					case 53:
-						{}
-					case 54:
-						{}
-					case 55:
-						{}
-					case 60:
-						{}
-					case 32:
-						{}
-					case 58:
-						{}
-					case 59:
-						{}
-					case 50:
-						{}
-					case 40:
-						{}
-					case 48:
-						{}
-					case 49:
-						{
-							isYieldStatement = true;
+		if ($nc(this->token$)->name() == $nc(this->names)->yield && this->allowYieldStatement) {
+			$var($Tokens$Token, next, $nc(this->S)->token(1));
+			bool isYieldStatement = false;
+			{
+				int32_t lookahead = 0;
+				int32_t balance = 0;
+				bool hasComma = false;
+				$var($Tokens$Token, l, nullptr);
+				switch ($JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind->get(($nc(next)->kind)->ordinal())) {
+				case 82:
+				case 83:
+				case 57:
+				case 56:
+				case 52:
+				case 53:
+				case 54:
+				case 55:
+				case 60:
+				case 32:
+				case 58:
+				case 59:
+				case 50:
+				case 40:
+				case 48:
+				case 49:
+					isYieldStatement = true;
+					break;
+				case 78:
+				case 79:
+					isYieldStatement = $nc($($nc(this->S)->token(2)))->kind != $Tokens$TokenKind::SEMI;
+					break;
+				case 80:
+				case 81:
+					isYieldStatement = $nc($($nc(this->S)->token(1)))->kind != $Tokens$TokenKind::SEMI;
+					break;
+				case 74:
+					lookahead = 2;
+					balance = 1;
+					hasComma = false;
+					while ($nc(($assign(l, $nc(this->S)->token(lookahead))))->kind != $Tokens$TokenKind::EOF && balance != 0) {
+						switch ($JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind->get(($nc(l)->kind)->ordinal())) {
+						case 74:
+							++balance;
 							break;
-						}
-					case 78:
-						{}
-					case 79:
-						{
-							$init($Tokens$TokenKind);
-							isYieldStatement = $nc($($nc(this->S)->token(2)))->kind != $Tokens$TokenKind::SEMI;
+						case 85:
+							--balance;
 							break;
-						}
-					case 80:
-						{}
-					case 81:
-						{
-							$init($Tokens$TokenKind);
-							isYieldStatement = $nc($($nc(this->S)->token(1)))->kind != $Tokens$TokenKind::SEMI;
-							break;
-						}
-					case 74:
-						{
-							lookahead = 2;
-							balance = 1;
-							hasComma = false;
-							$init($Tokens$TokenKind);
-							while ($nc(($assign(l, $nc(this->S)->token(lookahead))))->kind != $Tokens$TokenKind::EOF && balance != 0) {
-								switch ($nc($JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind)->get(($nc(l)->kind)->ordinal())) {
-								case 74:
-									{
-										++balance;
-										break;
-									}
-								case 85:
-									{
-										--balance;
-										break;
-									}
-								case 88:
-									{
-										if (balance == 1) {
-											hasComma = true;
-										}
-										break;
-									}
-								}
-								++lookahead;
+						case 88:
+							if (balance == 1) {
+								hasComma = true;
 							}
-							$init($Tokens$TokenKind);
-							isYieldStatement = (!hasComma && lookahead != 3) || $nc(l)->kind == $Tokens$TokenKind::ARROW;
 							break;
 						}
-					case 1:
-						{
-							isYieldStatement = true;
-							break;
-						}
-					default:
-						{
-							isYieldStatement = false;
-							break;
-						}
+						++lookahead;
 					}
+					isYieldStatement = (!hasComma && lookahead != 3) || $nc(l)->kind == $Tokens$TokenKind::ARROW;
+					break;
+				case 1:
+					isYieldStatement = true;
+					break;
+				default:
+					isYieldStatement = false;
+					break;
 				}
-				if (isYieldStatement) {
-					nextToken();
-					$var($JCTree$JCExpression, t, term(JavacParser::EXPR));
-					accept($Tokens$TokenKind::SEMI);
-					return $List::of($cast($JCTree$JCStatement, $(toP($($nc($($nc(this->F)->at(pos)))->Yield(t))))));
-				}
-			} else if (isNonSealedClassStart(true)) {
-				$init($CompilerProperties$Errors);
-				$nc(this->log)->error($nc(this->token$)->pos, $CompilerProperties$Errors::SealedOrNonSealedLocalClassesNotAllowed);
-				nextToken();
-				nextToken();
-				nextToken();
-				$var($JCTree$JCModifiers, var$0, modifiersOpt());
-				$init($Tokens$Comment$CommentStyle);
-				return $List::of($(classOrRecordOrInterfaceOrEnumDeclaration(var$0, $($nc(this->token$)->comment($Tokens$Comment$CommentStyle::JAVADOC)))));
-			} else if (isSealedClassStart(true)) {
-				$init($Source$Feature);
-				checkSourceLevel($Source$Feature::SEALED_CLASSES);
-				$init($CompilerProperties$Errors);
-				$nc(this->log)->error($nc(this->token$)->pos, $CompilerProperties$Errors::SealedOrNonSealedLocalClassesNotAllowed);
-				nextToken();
-				$var($JCTree$JCModifiers, var$1, modifiersOpt());
-				$init($Tokens$Comment$CommentStyle);
-				return $List::of($(classOrRecordOrInterfaceOrEnumDeclaration(var$1, $($nc(this->token$)->comment($Tokens$Comment$CommentStyle::JAVADOC)))));
 			}
+			if (isYieldStatement) {
+				nextToken();
+				$var($JCTree$JCExpression, t, term(JavacParser::EXPR));
+				accept($Tokens$TokenKind::SEMI);
+				return $List::of($$cast($JCTree$JCStatement, toP($($$nc($nc(this->F)->at(pos))->Yield(t)))));
+			}
+		} else if (isNonSealedClassStart(true)) {
+			$init($CompilerProperties$Errors);
+			$nc(this->log)->error($nc(this->token$)->pos, $CompilerProperties$Errors::SealedOrNonSealedLocalClassesNotAllowed);
+			nextToken();
+			nextToken();
+			nextToken();
+			$var($JCTree$JCModifiers, var$0, modifiersOpt());
+			$init($Tokens$Comment$CommentStyle);
+			return $List::of($(classOrRecordOrInterfaceOrEnumDeclaration(var$0, $($nc(this->token$)->comment($Tokens$Comment$CommentStyle::JAVADOC)))));
+		} else if (isSealedClassStart(true)) {
+			$init($Source$Feature);
+			checkSourceLevel($Source$Feature::SEALED_CLASSES);
+			$init($CompilerProperties$Errors);
+			$nc(this->log)->error($nc(this->token$)->pos, $CompilerProperties$Errors::SealedOrNonSealedLocalClassesNotAllowed);
+			nextToken();
+			$var($JCTree$JCModifiers, var$1, modifiersOpt());
+			$init($Tokens$Comment$CommentStyle);
+			return $List::of($(classOrRecordOrInterfaceOrEnumDeclaration(var$1, $($nc(this->token$)->comment($Tokens$Comment$CommentStyle::JAVADOC)))));
 		}
 	}
 	if (isRecordStart() && this->allowRecords) {
 		$init($Tokens$Comment$CommentStyle);
 		$assign(dc, $nc(this->token$)->comment($Tokens$Comment$CommentStyle::JAVADOC));
-		return $List::of($(recordDeclaration($($nc($($nc(this->F)->at(pos)))->Modifiers(0)), dc)));
+		return $List::of($(recordDeclaration($($$nc($nc(this->F)->at(pos))->Modifiers(0)), dc)));
 	} else {
 		$var($Tokens$Token, prevToken, this->token$);
 		$var($JCTree$JCExpression, t, term(JavacParser::EXPR | JavacParser::TYPE));
@@ -3885,252 +3117,206 @@ $List* JavacParser::blockStatement() {
 		if ($nc(this->token$)->kind == $Tokens$TokenKind::COLON && $nc(t)->hasTag($JCTree$Tag::IDENT)) {
 			nextToken();
 			$var($JCTree$JCStatement, stat, parseStatementAsBlock());
-			return $List::of($($nc($($nc(this->F)->at(pos)))->Labelled($($nc(prevToken)->name()), stat)));
-		} else if (((int32_t)(this->lastmode & (uint32_t)JavacParser::TYPE)) != 0 && $nc(this->LAX_IDENTIFIER)->test($nc(this->token$)->kind)) {
+			return $List::of($($$nc($nc(this->F)->at(pos))->Labelled($($nc(prevToken)->name()), stat)));
+		} else if ((this->lastmode & JavacParser::TYPE) != 0 && $nc(this->LAX_IDENTIFIER)->test($nc(this->token$)->kind)) {
 			pos = $nc(this->token$)->pos;
-			$var($JCTree$JCModifiers, mods, $nc($($nc(this->F)->at($Position::NOPOS)))->Modifiers(0));
+			$var($JCTree$JCModifiers, mods, $$nc($nc(this->F)->at($Position::NOPOS))->Modifiers(0));
 			$nc(this->F)->at(pos);
 			return localVariableDeclarations(mods, t);
 		} else {
 			$assign(t, checkExprStat(t));
 			accept($Tokens$TokenKind::SEMI);
-			$var($JCTree$JCExpressionStatement, expr, $cast($JCTree$JCExpressionStatement, toP($($nc($($nc(this->F)->at(pos)))->Exec(t)))));
+			$var($JCTree$JCExpressionStatement, expr, $cast($JCTree$JCExpressionStatement, toP($($$nc($nc(this->F)->at(pos))->Exec(t)))));
 			return $List::of(expr);
 		}
 	}
 }
 
 $List* JavacParser::localVariableDeclarations($JCTree$JCModifiers* mods, $JCTree$JCExpression* type) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ListBuffer, stats, variableDeclarators(mods, type, $$new($ListBuffer), true));
 	$init($Tokens$TokenKind);
 	accept($Tokens$TokenKind::SEMI);
 	$var($JCTree, var$0, $cast($JCTree, $nc(stats)->last()));
 	storeEnd(var$0, $nc($($nc(this->S)->prevToken()))->endPos);
-	return $nc(stats)->toList();
+	return stats->toList();
 }
 
 $JCTree$JCStatement* JavacParser::parseSimpleStatement() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t pos = $nc(this->token$)->pos;
-	$init($JavacParser$1);
 	{
+		$init($JavacParser$1);
 		int32_t elsePos = 0;
 		int32_t finallyPos = 0;
-		switch ($nc($JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind)->get(($nc(this->token$)->kind)->ordinal())) {
+		switch ($nc($JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind)->get((this->token$->kind)->ordinal())) {
 		case 11:
-			{
-				return block();
-			}
+			return block();
 		case 35:
 			{
-				{
+				nextToken();
+				$var($JCTree$JCExpression, cond, parExpression());
+				$var($JCTree$JCStatement, thenpart, parseStatementAsBlock());
+				$var($JCTree$JCStatement, elsepart, nullptr);
+				if ($nc(this->token$)->kind == $Tokens$TokenKind::ELSE) {
 					nextToken();
-					$var($JCTree$JCExpression, cond, parExpression());
-					$var($JCTree$JCStatement, thenpart, parseStatementAsBlock());
-					$var($JCTree$JCStatement, elsepart, nullptr);
-					$init($Tokens$TokenKind);
-					if ($nc(this->token$)->kind == $Tokens$TokenKind::ELSE) {
-						nextToken();
-						$assign(elsepart, parseStatementAsBlock());
-					}
-					return $nc($($nc(this->F)->at(pos)))->If(cond, thenpart, elsepart);
+					$assign(elsepart, parseStatementAsBlock());
 				}
+				return $$nc($nc(this->F)->at(pos))->If(cond, thenpart, elsepart);
 			}
 		case 36:
 			{
-				{
-					nextToken();
-					$init($Tokens$TokenKind);
-					accept($Tokens$TokenKind::LPAREN);
-					$var($List, inits, $nc(this->token$)->kind == $Tokens$TokenKind::SEMI ? $List::nil() : forInit());
-					bool var$0 = $nc(inits)->length() == 1;
-					$init($JCTree$Tag);
-					if (var$0 && $nc(($cast($JCTree$JCStatement, inits->head)))->hasTag($JCTree$Tag::VARDEF) && $nc(($cast($JCTree$JCVariableDecl, inits->head)))->init == nullptr && $nc(this->token$)->kind == $Tokens$TokenKind::COLON) {
-						$var($JCTree$JCVariableDecl, var, $cast($JCTree$JCVariableDecl, inits->head));
-						accept($Tokens$TokenKind::COLON);
-						$var($JCTree$JCExpression, expr, parseExpression());
-						accept($Tokens$TokenKind::RPAREN);
-						$var($JCTree$JCStatement, body, parseStatementAsBlock());
-						return $nc($($nc(this->F)->at(pos)))->ForeachLoop(var, expr, body);
-					} else {
-						accept($Tokens$TokenKind::SEMI);
-						$var($JCTree$JCExpression, cond, $nc(this->token$)->kind == $Tokens$TokenKind::SEMI ? ($JCTree$JCExpression*)nullptr : parseExpression());
-						accept($Tokens$TokenKind::SEMI);
-						$var($List, steps, $nc(this->token$)->kind == $Tokens$TokenKind::RPAREN ? $List::nil() : forUpdate());
-						accept($Tokens$TokenKind::RPAREN);
-						$var($JCTree$JCStatement, body, parseStatementAsBlock());
-						return $nc($($nc(this->F)->at(pos)))->ForLoop(inits, cond, steps, body);
-					}
+				nextToken();
+				accept($Tokens$TokenKind::LPAREN);
+				$var($List, inits, $nc(this->token$)->kind == $Tokens$TokenKind::SEMI ? $List::nil() : forInit());
+				bool var$0 = $nc(inits)->length() == 1;
+				$init($JCTree$Tag);
+				if (var$0 && $nc($cast($JCTree$JCStatement, inits->head))->hasTag($JCTree$Tag::VARDEF) && $cast($JCTree$JCVariableDecl, inits->head)->init == nullptr && $nc(this->token$)->kind == $Tokens$TokenKind::COLON) {
+					$var($JCTree$JCVariableDecl, var, $cast($JCTree$JCVariableDecl, inits->head));
+					accept($Tokens$TokenKind::COLON);
+					$var($JCTree$JCExpression, expr, parseExpression());
+					accept($Tokens$TokenKind::RPAREN);
+					$var($JCTree$JCStatement, body, parseStatementAsBlock());
+					return $$nc($nc(this->F)->at(pos))->ForeachLoop(var, expr, body);
+				} else {
+					accept($Tokens$TokenKind::SEMI);
+					$var($JCTree$JCExpression, cond, $nc(this->token$)->kind == $Tokens$TokenKind::SEMI ? ($JCTree$JCExpression*)nullptr : parseExpression());
+					accept($Tokens$TokenKind::SEMI);
+					$var($List, steps, $nc(this->token$)->kind == $Tokens$TokenKind::RPAREN ? $List::nil() : forUpdate());
+					accept($Tokens$TokenKind::RPAREN);
+					$var($JCTree$JCStatement, body, parseStatementAsBlock());
+					return $$nc($nc(this->F)->at(pos))->ForLoop(inits, cond, steps, body);
 				}
 			}
 		case 37:
 			{
-				{
-					nextToken();
-					$var($JCTree$JCExpression, cond, parExpression());
-					$var($JCTree$JCStatement, body, parseStatementAsBlock());
-					return $nc($($nc(this->F)->at(pos)))->WhileLoop(cond, body);
-				}
+				nextToken();
+				$var($JCTree$JCExpression, cond, parExpression());
+				$var($JCTree$JCStatement, body, parseStatementAsBlock());
+				return $$nc($nc(this->F)->at(pos))->WhileLoop(cond, body);
 			}
 		case 38:
 			{
-				{
-					nextToken();
-					$var($JCTree$JCStatement, body, parseStatementAsBlock());
-					$init($Tokens$TokenKind);
-					accept($Tokens$TokenKind::WHILE);
-					$var($JCTree$JCExpression, cond, parExpression());
-					accept($Tokens$TokenKind::SEMI);
-					$var($JCTree$JCDoWhileLoop, t, $cast($JCTree$JCDoWhileLoop, toP($($nc($($nc(this->F)->at(pos)))->DoLoop(body, cond)))));
-					return t;
-				}
+				nextToken();
+				$var($JCTree$JCStatement, body, parseStatementAsBlock());
+				accept($Tokens$TokenKind::WHILE);
+				$var($JCTree$JCExpression, cond, parExpression());
+				accept($Tokens$TokenKind::SEMI);
+				$var($JCTree$JCDoWhileLoop, t, $cast($JCTree$JCDoWhileLoop, toP($($$nc($nc(this->F)->at(pos))->DoLoop(body, cond)))));
+				return t;
 			}
 		case 39:
 			{
-				{
+				nextToken();
+				$var($List, resources, $List::nil());
+				if ($nc(this->token$)->kind == $Tokens$TokenKind::LPAREN) {
 					nextToken();
-					$var($List, resources, $List::nil());
-					$init($Tokens$TokenKind);
-					if ($nc(this->token$)->kind == $Tokens$TokenKind::LPAREN) {
-						nextToken();
-						$assign(resources, this->resources());
-						accept($Tokens$TokenKind::RPAREN);
-					}
-					$var($JCTree$JCBlock, body, block());
-					$var($ListBuffer, catchers, $new($ListBuffer));
-					$var($JCTree$JCBlock, finalizer, nullptr);
-					if ($nc(this->token$)->kind == $Tokens$TokenKind::CATCH || $nc(this->token$)->kind == $Tokens$TokenKind::FINALLY) {
-						while ($nc(this->token$)->kind == $Tokens$TokenKind::CATCH) {
-							catchers->append($(catchClause()));
-						}
-						if ($nc(this->token$)->kind == $Tokens$TokenKind::FINALLY) {
-							nextToken();
-							$assign(finalizer, block());
-						}
-					} else if ($nc(resources)->isEmpty()) {
-						$init($JCDiagnostic$DiagnosticFlag);
-						$init($CompilerProperties$Errors);
-						$nc(this->log)->error($JCDiagnostic$DiagnosticFlag::SYNTAX, pos, $CompilerProperties$Errors::TryWithoutCatchFinallyOrResourceDecls);
-					}
-					return $nc($($nc(this->F)->at(pos)))->Try(resources, body, $(catchers->toList()), finalizer);
+					$assign(resources, this->resources());
+					accept($Tokens$TokenKind::RPAREN);
 				}
+				$var($JCTree$JCBlock, body, block());
+				$var($ListBuffer, catchers, $new($ListBuffer));
+				$var($JCTree$JCBlock, finalizer, nullptr);
+				if ($nc(this->token$)->kind == $Tokens$TokenKind::CATCH || this->token$->kind == $Tokens$TokenKind::FINALLY) {
+					while (this->token$->kind == $Tokens$TokenKind::CATCH) {
+						catchers->append($(catchClause()));
+					}
+					if ($nc(this->token$)->kind == $Tokens$TokenKind::FINALLY) {
+						nextToken();
+						$assign(finalizer, block());
+					}
+				} else if ($nc(resources)->isEmpty()) {
+					$init($JCDiagnostic$DiagnosticFlag);
+					$init($CompilerProperties$Errors);
+					$nc(this->log)->error($JCDiagnostic$DiagnosticFlag::SYNTAX, pos, $CompilerProperties$Errors::TryWithoutCatchFinallyOrResourceDecls);
+				}
+				return $$nc($nc(this->F)->at(pos))->Try(resources, body, $(catchers->toList()), finalizer);
 			}
 		case 40:
 			{
-				{
-					nextToken();
-					$var($JCTree$JCExpression, selector, parExpression());
-					$init($Tokens$TokenKind);
-					accept($Tokens$TokenKind::LBRACE);
-					$var($List, cases, switchBlockStatementGroups());
-					$var($JCTree$JCSwitch, t, $cast($JCTree$JCSwitch, to($($nc($($nc(this->F)->at(pos)))->Switch(selector, cases)))));
-					$nc(t)->endpos = $nc(this->token$)->endPos;
-					accept($Tokens$TokenKind::RBRACE);
-					return t;
-				}
+				nextToken();
+				$var($JCTree$JCExpression, selector, parExpression());
+				accept($Tokens$TokenKind::LBRACE);
+				$var($List, cases, switchBlockStatementGroups());
+				$var($JCTree$JCSwitch, t, $cast($JCTree$JCSwitch, to($($$nc($nc(this->F)->at(pos))->Switch(selector, cases)))));
+				$nc(t)->endpos = $nc(this->token$)->endPos;
+				accept($Tokens$TokenKind::RBRACE);
+				return t;
 			}
 		case 19:
 			{
-				{
-					nextToken();
-					$var($JCTree$JCExpression, lock, parExpression());
-					$var($JCTree$JCBlock, body, block());
-					return $nc($($nc(this->F)->at(pos)))->Synchronized(lock, body);
-				}
+				nextToken();
+				$var($JCTree$JCExpression, lock, parExpression());
+				$var($JCTree$JCBlock, body, block());
+				return $$nc($nc(this->F)->at(pos))->Synchronized(lock, body);
 			}
 		case 41:
 			{
-				{
-					nextToken();
-					$init($Tokens$TokenKind);
-					$var($JCTree$JCExpression, result, $nc(this->token$)->kind == $Tokens$TokenKind::SEMI ? ($JCTree$JCExpression*)nullptr : parseExpression());
-					accept($Tokens$TokenKind::SEMI);
-					$var($JCTree$JCReturn, t, $cast($JCTree$JCReturn, toP($($nc($($nc(this->F)->at(pos)))->Return(result)))));
-					return t;
-				}
+				nextToken();
+				$var($JCTree$JCExpression, result, $nc(this->token$)->kind == $Tokens$TokenKind::SEMI ? ($JCTree$JCExpression*)nullptr : parseExpression());
+				accept($Tokens$TokenKind::SEMI);
+				$var($JCTree$JCReturn, t, $cast($JCTree$JCReturn, toP($($$nc($nc(this->F)->at(pos))->Return(result)))));
+				return t;
 			}
 		case 42:
 			{
-				{
-					nextToken();
-					$var($JCTree$JCExpression, exc, parseExpression());
-					$init($Tokens$TokenKind);
-					accept($Tokens$TokenKind::SEMI);
-					$var($JCTree$JCThrow, t, $cast($JCTree$JCThrow, toP($($nc($($nc(this->F)->at(pos)))->Throw(exc)))));
-					return t;
-				}
+				nextToken();
+				$var($JCTree$JCExpression, exc, parseExpression());
+				accept($Tokens$TokenKind::SEMI);
+				$var($JCTree$JCThrow, t, $cast($JCTree$JCThrow, toP($($$nc($nc(this->F)->at(pos))->Throw(exc)))));
+				return t;
 			}
 		case 43:
 			{
-				{
-					nextToken();
-					$var($Name, label, $nc(this->LAX_IDENTIFIER)->test($nc(this->token$)->kind) ? ident() : ($Name*)nullptr);
-					$init($Tokens$TokenKind);
-					accept($Tokens$TokenKind::SEMI);
-					$var($JCTree$JCBreak, t, $cast($JCTree$JCBreak, toP($($nc($($nc(this->F)->at(pos)))->Break(label)))));
-					return t;
-				}
+				nextToken();
+				$var($Name, label, $nc(this->LAX_IDENTIFIER)->test($nc(this->token$)->kind) ? ident() : ($Name*)nullptr);
+				accept($Tokens$TokenKind::SEMI);
+				$var($JCTree$JCBreak, t, $cast($JCTree$JCBreak, toP($($$nc($nc(this->F)->at(pos))->Break(label)))));
+				return t;
 			}
 		case 44:
 			{
-				{
-					nextToken();
-					$var($Name, label, $nc(this->LAX_IDENTIFIER)->test($nc(this->token$)->kind) ? ident() : ($Name*)nullptr);
-					$init($Tokens$TokenKind);
-					accept($Tokens$TokenKind::SEMI);
-					$var($JCTree$JCContinue, t, $cast($JCTree$JCContinue, toP($($nc($($nc(this->F)->at(pos)))->Continue(label)))));
-					return t;
-				}
+				nextToken();
+				$var($Name, label, $nc(this->LAX_IDENTIFIER)->test($nc(this->token$)->kind) ? ident() : ($Name*)nullptr);
+				accept($Tokens$TokenKind::SEMI);
+				$var($JCTree$JCContinue, t, $cast($JCTree$JCContinue, toP($($$nc($nc(this->F)->at(pos))->Continue(label)))));
+				return t;
 			}
 		case 1:
-			{
-				nextToken();
-				return $cast($JCTree$JCStatement, toP($($nc($($nc(this->F)->at(pos)))->Skip())));
-			}
+			nextToken();
+			return $cast($JCTree$JCStatement, toP($($$nc($nc(this->F)->at(pos))->Skip())));
 		case 45:
-			{
-				elsePos = $nc(this->token$)->pos;
-				nextToken();
-				$init($JavacParser$BasicErrorRecoveryAction);
-				$init($CompilerProperties$Errors);
-				return doRecover(elsePos, $JavacParser$BasicErrorRecoveryAction::BLOCK_STMT, $CompilerProperties$Errors::ElseWithoutIf);
-			}
+			elsePos = $nc(this->token$)->pos;
+			nextToken();
+			$init($JavacParser$BasicErrorRecoveryAction);
+			$init($CompilerProperties$Errors);
+			return doRecover(elsePos, $JavacParser$BasicErrorRecoveryAction::BLOCK_STMT, $CompilerProperties$Errors::ElseWithoutIf);
 		case 46:
-			{
-				finallyPos = $nc(this->token$)->pos;
-				nextToken();
-				$init($JavacParser$BasicErrorRecoveryAction);
-				$init($CompilerProperties$Errors);
-				return doRecover(finallyPos, $JavacParser$BasicErrorRecoveryAction::BLOCK_STMT, $CompilerProperties$Errors::FinallyWithoutTry);
-			}
+			finallyPos = $nc(this->token$)->pos;
+			nextToken();
+			$init($JavacParser$BasicErrorRecoveryAction);
+			$init($CompilerProperties$Errors);
+			return doRecover(finallyPos, $JavacParser$BasicErrorRecoveryAction::BLOCK_STMT, $CompilerProperties$Errors::FinallyWithoutTry);
 		case 47:
-			{
-				$init($JavacParser$BasicErrorRecoveryAction);
-				$init($CompilerProperties$Errors);
-				return doRecover($nc(this->token$)->pos, $JavacParser$BasicErrorRecoveryAction::CATCH_CLAUSE, $CompilerProperties$Errors::CatchWithoutTry);
-			}
+			$init($JavacParser$BasicErrorRecoveryAction);
+			$init($CompilerProperties$Errors);
+			return doRecover($nc(this->token$)->pos, $JavacParser$BasicErrorRecoveryAction::CATCH_CLAUSE, $CompilerProperties$Errors::CatchWithoutTry);
 		case 51:
 			{
-				{
+				nextToken();
+				$var($JCTree$JCExpression, assertion, parseExpression());
+				$var($JCTree$JCExpression, message, nullptr);
+				if ($nc(this->token$)->kind == $Tokens$TokenKind::COLON) {
 					nextToken();
-					$var($JCTree$JCExpression, assertion, parseExpression());
-					$var($JCTree$JCExpression, message, nullptr);
-					$init($Tokens$TokenKind);
-					if ($nc(this->token$)->kind == $Tokens$TokenKind::COLON) {
-						nextToken();
-						$assign(message, parseExpression());
-					}
-					accept($Tokens$TokenKind::SEMI);
-					$var($JCTree$JCAssert, t, $cast($JCTree$JCAssert, toP($($nc($($nc(this->F)->at(pos)))->Assert(assertion, message)))));
-					return t;
+					$assign(message, parseExpression());
 				}
+				accept($Tokens$TokenKind::SEMI);
+				$var($JCTree$JCAssert, t, $cast($JCTree$JCAssert, toP($($$nc($nc(this->F)->at(pos))->Assert(assertion, message)))));
+				return t;
 			}
 		default:
-			{
-				$Assert::error();
-				return nullptr;
-			}
+			$Assert::error();
+			return nullptr;
 		}
 	}
 }
@@ -4140,7 +3326,7 @@ $JCTree$JCStatement* JavacParser::parseStatement() {
 }
 
 $JCTree$JCStatement* JavacParser::doRecover(int32_t startPos, $JavacParser$ErrorRecoveryAction* action, $JCDiagnostic$Error* errorKey) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t errPos = $nc(this->S)->errPos();
 	$var($JCTree, stm, $nc(action)->doRecover(this));
 	$nc(this->S)->errPos(errPos);
@@ -4148,22 +3334,22 @@ $JCTree$JCStatement* JavacParser::doRecover(int32_t startPos, $JavacParser$Error
 }
 
 $JCTree$JCCatch* JavacParser::catchClause() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t pos = $nc(this->token$)->pos;
 	$init($Tokens$TokenKind);
 	accept($Tokens$TokenKind::CATCH);
 	accept($Tokens$TokenKind::LPAREN);
 	$var($JCTree$JCModifiers, mods, optFinal($Flags::PARAMETER));
 	$var($List, catchTypes, this->catchTypes());
-	$var($JCTree$JCExpression, paramType, $nc(catchTypes)->size() > 1 ? $cast($JCTree$JCExpression, toP($($nc($($nc(this->F)->at($nc(($cast($JCTree$JCExpression, $nc(catchTypes)->head)))->getStartPosition())))->TypeUnion(catchTypes)))) : $cast($JCTree$JCExpression, $nc(catchTypes)->head));
+	$var($JCTree$JCExpression, paramType, $nc(catchTypes)->size() > 1 ? $cast($JCTree$JCExpression, toP($($$nc($nc(this->F)->at($nc($cast($JCTree$JCExpression, catchTypes->head))->getStartPosition()))->TypeUnion(catchTypes)))) : $cast($JCTree$JCExpression, catchTypes->head));
 	$var($JCTree$JCVariableDecl, formal, variableDeclaratorId(mods, paramType));
 	accept($Tokens$TokenKind::RPAREN);
 	$var($JCTree$JCBlock, body, block());
-	return $nc($($nc(this->F)->at(pos)))->Catch(formal, body);
+	return $$nc($nc(this->F)->at(pos))->Catch(formal, body);
 }
 
 $List* JavacParser::catchTypes() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ListBuffer, catchTypes, $new($ListBuffer));
 	catchTypes->add($(parseType()));
 	$init($Tokens$TokenKind);
@@ -4175,149 +3361,134 @@ $List* JavacParser::catchTypes() {
 }
 
 $List* JavacParser::switchBlockStatementGroups() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ListBuffer, cases, $new($ListBuffer));
 	while (true) {
 		int32_t pos = $nc(this->token$)->pos;
 		$init($JavacParser$1);
-		switch ($nc($JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind)->get(($nc(this->token$)->kind)->ordinal())) {
+		switch ($nc($JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind)->get((this->token$->kind)->ordinal())) {
 		case 33:
-			{}
 		case 34:
-			{
-				cases->appendList($(switchBlockStatementGroup()));
-				break;
-			}
+			cases->appendList($(switchBlockStatementGroup()));
+			break;
 		case 12:
-			{}
 		case 6:
-			{
-				return cases->toList();
-			}
+			return cases->toList();
 		default:
-			{
-				nextToken();
-				$init($Tokens$TokenKind);
-				syntaxError(pos, $($CompilerProperties$Errors::Expected3($Tokens$TokenKind::CASE, $Tokens$TokenKind::DEFAULT, $Tokens$TokenKind::RBRACE)));
-			}
+			nextToken();
+			syntaxError(pos, $($CompilerProperties$Errors::Expected3($Tokens$TokenKind::CASE, $Tokens$TokenKind::DEFAULT, $Tokens$TokenKind::RBRACE)));
 		}
 	}
 }
 
 $List* JavacParser::switchBlockStatementGroup() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t pos = $nc(this->token$)->pos;
 	$var($List, stats, nullptr);
 	$var($JCTree$JCCase, c, nullptr);
 	$var($ListBuffer, cases, $new($ListBuffer));
 	$init($JavacParser$1);
-	switch ($nc($JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind)->get(($nc(this->token$)->kind)->ordinal())) {
+	switch ($nc($JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind)->get((this->token$->kind)->ordinal())) {
 	case 33:
 		{
-			{
+			nextToken();
+			$var($ListBuffer, pats, $new($ListBuffer));
+			while (true) {
+				pats->append($(parseCaseLabel()));
+				if ($nc(this->token$)->kind != $Tokens$TokenKind::COMMA) {
+					break;
+				}
 				nextToken();
-				$var($ListBuffer, pats, $new($ListBuffer));
-				while (true) {
-					pats->append($(parseCaseLabel()));
-					$init($Tokens$TokenKind);
-					if ($nc(this->token$)->kind != $Tokens$TokenKind::COMMA) {
-						break;
-					}
-					nextToken();
-					$init($Source$Feature);
-					checkSourceLevel($Source$Feature::SWITCH_MULTIPLE_CASE_LABELS);
-				}
-				$CaseTree$CaseKind* caseKind = nullptr;
-				$var($JCTree, body, nullptr);
-				$init($Tokens$TokenKind);
-				if ($nc(this->token$)->kind == $Tokens$TokenKind::ARROW) {
-					$init($Source$Feature);
-					checkSourceLevel($Source$Feature::SWITCH_RULE);
-					accept($Tokens$TokenKind::ARROW);
-					$init($JCTree$JCCase);
-					caseKind = $JCTree$JCCase::RULE;
-					$var($JCTree$JCStatement, statement, parseStatementAsBlock());
-					$init($JCTree$Tag);
-					bool var$1 = !$nc(statement)->hasTag($JCTree$Tag::EXEC);
-					bool var$0 = var$1 && !statement->hasTag($JCTree$Tag::BLOCK);
-					if (var$0 && !statement->hasTag($JCTree$Tag::THROW)) {
-						$init($CompilerProperties$Errors);
-						$nc(this->log)->error($(statement->pos()), $CompilerProperties$Errors::SwitchCaseUnexpectedStatement);
-					}
-					$assign(stats, $List::of(statement));
-					$assign(body, $cast($JCTree, $nc(stats)->head));
-				} else {
-					accept($Tokens$TokenKind::COLON, static_cast<$Function*>($$new(JavacParser$$Lambda$lambda$switchExpressionStatementGroup$2$4)));
-					$init($JCTree$JCCase);
-					caseKind = $JCTree$JCCase::STATEMENT;
-					$assign(stats, blockStatements());
-				}
-				$assign(c, $nc($($nc(this->F)->at(pos)))->Case(caseKind, $(pats->toList()), stats, body));
-				if ($nc(stats)->isEmpty()) {
-					storeEnd(c, $nc($($nc(this->S)->prevToken()))->endPos);
-				}
-				return $nc($(cases->append(c)))->toList();
+				$init($Source$Feature);
+				checkSourceLevel($Source$Feature::SWITCH_MULTIPLE_CASE_LABELS);
 			}
+			;
+			$CaseTree$CaseKind* caseKind = nullptr;
+			$var($JCTree, body, nullptr);
+			if ($nc(this->token$)->kind == $Tokens$TokenKind::ARROW) {
+				$init($Source$Feature);
+				checkSourceLevel($Source$Feature::SWITCH_RULE);
+				accept($Tokens$TokenKind::ARROW);
+				$init($JCTree$JCCase);
+				caseKind = $JCTree$JCCase::RULE;
+				$var($JCTree$JCStatement, statement, parseStatementAsBlock());
+				$init($JCTree$Tag);
+				bool var$1 = !$nc(statement)->hasTag($JCTree$Tag::EXEC);
+				bool var$0 = var$1 && !statement->hasTag($JCTree$Tag::BLOCK);
+				if (var$0 && !statement->hasTag($JCTree$Tag::THROW)) {
+					$init($CompilerProperties$Errors);
+					$nc(this->log)->error($(statement->pos()), $CompilerProperties$Errors::SwitchCaseUnexpectedStatement);
+				}
+				$assign(stats, $List::of(statement));
+				$assign(body, $cast($JCTree, $nc(stats)->head));
+			} else {
+				accept($Tokens$TokenKind::COLON, $$new(JavacParser$$Lambda$lambda$switchExpressionStatementGroup$2$4));
+				$init($JCTree$JCCase);
+				caseKind = $JCTree$JCCase::STATEMENT;
+				$assign(stats, blockStatements());
+			}
+			$assign(c, $$nc($nc(this->F)->at(pos))->Case(caseKind, $(pats->toList()), stats, body));
+			if ($nc(stats)->isEmpty()) {
+				storeEnd(c, $nc($($nc(this->S)->prevToken()))->endPos);
+			}
+			return $$nc(cases->append(c))->toList();
 		}
 	case 34:
 		{
-			{
-				nextToken();
-				$CaseTree$CaseKind* caseKind = nullptr;
-				$var($JCTree, body, nullptr);
-				int32_t patternPos = $nc(this->token$)->pos;
-				$init($Tokens$TokenKind);
-				if ($nc(this->token$)->kind == $Tokens$TokenKind::ARROW) {
-					$init($Source$Feature);
-					checkSourceLevel($Source$Feature::SWITCH_RULE);
-					accept($Tokens$TokenKind::ARROW);
-					$init($JCTree$JCCase);
-					caseKind = $JCTree$JCCase::RULE;
-					$var($JCTree$JCStatement, statement, parseStatementAsBlock());
-					$init($JCTree$Tag);
-					bool var$3 = !$nc(statement)->hasTag($JCTree$Tag::EXEC);
-					bool var$2 = var$3 && !statement->hasTag($JCTree$Tag::BLOCK);
-					if (var$2 && !statement->hasTag($JCTree$Tag::THROW)) {
-						$init($CompilerProperties$Errors);
-						$nc(this->log)->error($(statement->pos()), $CompilerProperties$Errors::SwitchCaseUnexpectedStatement);
-					}
-					$assign(stats, $List::of(statement));
-					$assign(body, $cast($JCTree, $nc(stats)->head));
-				} else {
-					accept($Tokens$TokenKind::COLON, static_cast<$Function*>($$new(JavacParser$$Lambda$lambda$switchExpressionStatementGroup$2$4)));
-					$init($JCTree$JCCase);
-					caseKind = $JCTree$JCCase::STATEMENT;
-					$assign(stats, blockStatements());
+			nextToken();
+			$CaseTree$CaseKind* caseKind = nullptr;
+			$var($JCTree, body, nullptr);
+			int32_t patternPos = $nc(this->token$)->pos;
+			if (this->token$->kind == $Tokens$TokenKind::ARROW) {
+				$init($Source$Feature);
+				checkSourceLevel($Source$Feature::SWITCH_RULE);
+				accept($Tokens$TokenKind::ARROW);
+				$init($JCTree$JCCase);
+				caseKind = $JCTree$JCCase::RULE;
+				$var($JCTree$JCStatement, statement, parseStatementAsBlock());
+				$init($JCTree$Tag);
+				bool var$3 = !$nc(statement)->hasTag($JCTree$Tag::EXEC);
+				bool var$2 = var$3 && !statement->hasTag($JCTree$Tag::BLOCK);
+				if (var$2 && !statement->hasTag($JCTree$Tag::THROW)) {
+					$init($CompilerProperties$Errors);
+					$nc(this->log)->error($(statement->pos()), $CompilerProperties$Errors::SwitchCaseUnexpectedStatement);
 				}
-				$var($JCTree$JCCaseLabel, defaultPattern, $cast($JCTree$JCCaseLabel, toP($($nc($($nc(this->F)->at(patternPos)))->DefaultCaseLabel()))));
-				$assign(c, $nc($($nc(this->F)->at(pos)))->Case(caseKind, $($List::of(defaultPattern)), stats, body));
-				if ($nc(stats)->isEmpty()) {
-					storeEnd(c, $nc($($nc(this->S)->prevToken()))->endPos);
-				}
-				return $nc($(cases->append(c)))->toList();
+				$assign(stats, $List::of(statement));
+				$assign(body, $cast($JCTree, $nc(stats)->head));
+			} else {
+				accept($Tokens$TokenKind::COLON, $$new(JavacParser$$Lambda$lambda$switchExpressionStatementGroup$2$4));
+				$init($JCTree$JCCase);
+				caseKind = $JCTree$JCCase::STATEMENT;
+				$assign(stats, blockStatements());
 			}
+			$var($JCTree$JCCaseLabel, defaultPattern, $cast($JCTree$JCCaseLabel, toP($($$nc($nc(this->F)->at(patternPos))->DefaultCaseLabel()))));
+			$assign(c, $$nc($nc(this->F)->at(pos))->Case(caseKind, $($List::of(defaultPattern)), stats, body));
+			if ($nc(stats)->isEmpty()) {
+				storeEnd(c, $nc($($nc(this->S)->prevToken()))->endPos);
+			}
+			return $$nc(cases->append(c))->toList();
 		}
 	}
 	$throwNew($AssertionError, $of("should not reach here"_s));
 }
 
 $JCTree$JCCaseLabel* JavacParser::parseCaseLabel() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t patternPos = $nc(this->token$)->pos;
 	$var($JCTree$JCCaseLabel, label, nullptr);
 	$init($Tokens$TokenKind);
-	if ($nc(this->token$)->kind == $Tokens$TokenKind::DEFAULT) {
+	if (this->token$->kind == $Tokens$TokenKind::DEFAULT) {
 		$init($Source$Feature);
-		checkSourceLevel($nc(this->token$)->pos, $Source$Feature::PATTERN_SWITCH);
+		checkSourceLevel(this->token$->pos, $Source$Feature::PATTERN_SWITCH);
 		nextToken();
-		$assign(label, $cast($JCTree$JCCaseLabel, toP($($nc($($nc(this->F)->at(patternPos)))->DefaultCaseLabel()))));
+		$assign(label, $cast($JCTree$JCCaseLabel, toP($($$nc($nc(this->F)->at(patternPos))->DefaultCaseLabel()))));
 	} else {
 		int32_t lookahead = 0;
 		while ($nc($($nc(this->S)->token(lookahead)))->kind == $Tokens$TokenKind::LPAREN) {
 			++lookahead;
 		}
 		$var($JCTree$JCModifiers, mods, optFinal(0));
-		bool var$0 = $nc(mods)->flags != 0 || $nc($nc(mods)->annotations)->nonEmpty();
+		bool var$0 = $nc(mods)->flags != 0 || $nc(mods->annotations)->nonEmpty();
 		$init($JavacParser$PatternResult);
 		bool pattern = var$0 || analyzePattern(lookahead) == $JavacParser$PatternResult::PATTERN;
 		if (pattern) {
@@ -4332,165 +3503,126 @@ $JCTree$JCCaseLabel* JavacParser::parseCaseLabel() {
 }
 
 $JavacParser$PatternResult* JavacParser::analyzePattern(int32_t lookahead) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t depth = 0;
 	while (true) {
 		$Tokens$TokenKind* token = $nc($($nc(this->S)->token(lookahead)))->kind;
 		$init($JavacParser$1);
 		switch ($nc($JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind)->get($nc((token))->ordinal())) {
 		case 22:
-			{}
 		case 23:
-			{}
 		case 25:
-			{}
 		case 26:
-			{}
 		case 27:
-			{}
 		case 28:
-			{}
 		case 29:
-			{}
 		case 24:
-			{}
 		case 30:
-			{}
 		case 51:
-			{}
 		case 9:
-			{}
 		case 32:
-			{}
 		case 31:
-			{
-				if (depth == 0 && peekToken(lookahead, this->LAX_IDENTIFIER)) {
-					$init($JavacParser$PatternResult);
-					return $JavacParser$PatternResult::PATTERN;
-				}
-				break;
+			if (depth == 0 && peekToken(lookahead, this->LAX_IDENTIFIER)) {
+				$init($JavacParser$PatternResult);
+				return $JavacParser$PatternResult::PATTERN;
 			}
+			break;
 		case 75:
-			{}
 		case 77:
-			{}
 		case 86:
-			{}
 		case 49:
-			{}
 		case 88:
-			{
-				break;
-			}
+			break;
 		case 21:
-			{
-				++depth;
-				break;
-			}
+			++depth;
+			break;
 		case 89:
-			{
-				--depth;
-			}
+			--depth;
 		case 90:
-			{
-				--depth;
-			}
+			--depth;
 		case 91:
-			{
-				--depth;
-				if (depth == 0) {
-					$init($JavacParser$PatternResult);
-					return peekToken(lookahead, this->LAX_IDENTIFIER) ? $JavacParser$PatternResult::PATTERN : $JavacParser$PatternResult::EXPRESSION;
-				} else if (depth < 0) {
-					$init($JavacParser$PatternResult);
-					return $JavacParser$PatternResult::EXPRESSION;
-				}
-				break;
-			}
-		case 5:
-			{
-				lookahead = skipAnnotation(lookahead);
-				break;
-			}
-		case 73:
-			{
-				$init($Tokens$TokenKind);
-				if (peekToken(lookahead, static_cast<$Predicate*>($Tokens$TokenKind::RBRACKET), this->LAX_IDENTIFIER)) {
-					$init($JavacParser$PatternResult);
-					return $JavacParser$PatternResult::PATTERN;
-				} else {
-					if (peekToken(lookahead, static_cast<$Predicate*>($Tokens$TokenKind::RBRACKET))) {
-						++lookahead;
-						break;
-					} else {
-						$init($JavacParser$PatternResult);
-						return $JavacParser$PatternResult::EXPRESSION;
-					}
-				}
-			}
-		default:
-			{
+			--depth;
+			if (depth == 0) {
+				$init($JavacParser$PatternResult);
+				return peekToken(lookahead, this->LAX_IDENTIFIER) ? $JavacParser$PatternResult::PATTERN : $JavacParser$PatternResult::EXPRESSION;
+			} else if (depth < 0) {
 				$init($JavacParser$PatternResult);
 				return $JavacParser$PatternResult::EXPRESSION;
 			}
+			break;
+		case 5:
+			lookahead = skipAnnotation(lookahead);
+			break;
+		case 73:
+			if (peekToken(lookahead, $Tokens$TokenKind::RBRACKET, this->LAX_IDENTIFIER)) {
+				$init($JavacParser$PatternResult);
+				return $JavacParser$PatternResult::PATTERN;
+			} else if (peekToken(lookahead, $Tokens$TokenKind::RBRACKET)) {
+				++lookahead;
+				break;
+			} else {
+				$init($JavacParser$PatternResult);
+				return $JavacParser$PatternResult::EXPRESSION;
+			}
+		default:
+			$init($JavacParser$PatternResult);
+			return $JavacParser$PatternResult::EXPRESSION;
 		}
 		++lookahead;
 	}
 }
 
 $ListBuffer* JavacParser::moreStatementExpressions(int32_t pos, $JCTree$JCExpression* first, $ListBuffer* stats) {
-	$useLocalCurrentObjectStackCache();
-	$nc(stats)->append($(toP($($nc($($nc(this->F)->at(pos)))->Exec($(checkExprStat(first)))))));
+	$useLocalObjectStack();
+	$nc(stats)->append($(toP($($$nc($nc(this->F)->at(pos))->Exec($(checkExprStat(first)))))));
 	$init($Tokens$TokenKind);
 	while ($nc(this->token$)->kind == $Tokens$TokenKind::COMMA) {
 		nextToken();
 		pos = $nc(this->token$)->pos;
 		$var($JCTree$JCExpression, t, parseExpression());
-		stats->append($(toP($($nc($($nc(this->F)->at(pos)))->Exec($(checkExprStat(t)))))));
+		stats->append($(toP($($$nc($nc(this->F)->at(pos))->Exec($(checkExprStat(t)))))));
 	}
 	return stats;
 }
 
 $List* JavacParser::forInit() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ListBuffer, stats, $new($ListBuffer));
 	int32_t pos = $nc(this->token$)->pos;
 	$init($Tokens$TokenKind);
-	if ($nc(this->token$)->kind == $Tokens$TokenKind::FINAL || $nc(this->token$)->kind == $Tokens$TokenKind::MONKEYS_AT) {
+	if (this->token$->kind == $Tokens$TokenKind::FINAL || this->token$->kind == $Tokens$TokenKind::MONKEYS_AT) {
 		$var($JCTree$JCModifiers, var$0, optFinal(0));
-		return $nc($(variableDeclarators(var$0, $(parseType(true)), stats, true)))->toList();
+		return $$nc(variableDeclarators(var$0, $(parseType(true)), stats, true))->toList();
 	} else {
 		$var($JCTree$JCExpression, t, term(JavacParser::EXPR | JavacParser::TYPE));
-		if (((int32_t)(this->lastmode & (uint32_t)JavacParser::TYPE)) != 0 && $nc(this->LAX_IDENTIFIER)->test($nc(this->token$)->kind)) {
-			return $nc($(variableDeclarators($(modifiersOpt()), t, stats, true)))->toList();
+		if ((this->lastmode & JavacParser::TYPE) != 0 && $nc(this->LAX_IDENTIFIER)->test($nc(this->token$)->kind)) {
+			return $$nc(variableDeclarators($(modifiersOpt()), t, stats, true))->toList();
+		} else if ((this->lastmode & JavacParser::TYPE) != 0 && $nc(this->token$)->kind == $Tokens$TokenKind::COLON) {
+			$init($JCDiagnostic$DiagnosticFlag);
+			$nc(this->log)->error($JCDiagnostic$DiagnosticFlag::SYNTAX, pos, $($CompilerProperties$Errors::BadInitializer("for-loop"_s)));
+			return $List::of($$cast($JCTree$JCStatement, $$nc($nc(this->F)->at(pos))->VarDef($(modifiersOpt()), $nc(this->names)->error, t, nullptr)));
 		} else {
-			if (((int32_t)(this->lastmode & (uint32_t)JavacParser::TYPE)) != 0 && $nc(this->token$)->kind == $Tokens$TokenKind::COLON) {
-				$init($JCDiagnostic$DiagnosticFlag);
-				$nc(this->log)->error($JCDiagnostic$DiagnosticFlag::SYNTAX, pos, $($CompilerProperties$Errors::BadInitializer("for-loop"_s)));
-				return $List::of(static_cast<$JCTree$JCStatement*>($($nc($($nc(this->F)->at(pos)))->VarDef($(modifiersOpt()), $nc(this->names)->error, t, nullptr))));
-			} else {
-				return $nc($(moreStatementExpressions(pos, t, stats)))->toList();
-			}
+			return $$nc(moreStatementExpressions(pos, t, stats))->toList();
 		}
 	}
 }
 
 $List* JavacParser::forUpdate() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t var$0 = $nc(this->token$)->pos;
 	$var($JCTree$JCExpression, var$1, parseExpression());
-	return $nc($(moreStatementExpressions(var$0, var$1, $$new($ListBuffer))))->toList();
+	return $$nc(moreStatementExpressions(var$0, var$1, $$new($ListBuffer)))->toList();
 }
 
 $List* JavacParser::annotationsOpt($JCTree$Tag* kind) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Tokens$TokenKind);
 	if ($nc(this->token$)->kind != $Tokens$TokenKind::MONKEYS_AT) {
 		return $List::nil();
 	}
 	$var($ListBuffer, buf, $new($ListBuffer));
 	int32_t prevmode = this->mode;
-	while ($nc(this->token$)->kind == $Tokens$TokenKind::MONKEYS_AT) {
+	while (this->token$->kind == $Tokens$TokenKind::MONKEYS_AT) {
 		int32_t pos = $nc(this->token$)->pos;
 		nextToken();
 		buf->append($(annotation(pos, kind)));
@@ -4512,7 +3644,7 @@ $JCTree$JCModifiers* JavacParser::modifiersOpt() {
 }
 
 $JCTree$JCModifiers* JavacParser::modifiersOpt($JCTree$JCModifiers* partial) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int64_t flags = 0;
 	$var($ListBuffer, annotations, $new($ListBuffer));
 	int32_t pos = 0;
@@ -4520,7 +3652,7 @@ $JCTree$JCModifiers* JavacParser::modifiersOpt($JCTree$JCModifiers* partial) {
 		flags = 0;
 		pos = $nc(this->token$)->pos;
 	} else {
-		flags = $nc(partial)->flags;
+		flags = partial->flags;
 		annotations->appendList(partial->annotations);
 		pos = partial->pos$;
 	}
@@ -4534,107 +3666,75 @@ $JCTree$JCModifiers* JavacParser::modifiersOpt($JCTree$JCModifiers* partial) {
 		$init($JavacParser$1);
 		switch ($nc($JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind)->get(($nc(this->token$)->kind)->ordinal())) {
 		case 13:
-			{
-				flag = $Flags::PRIVATE;
-				break;
-			}
+			flag = $Flags::PRIVATE;
+			break;
 		case 14:
-			{
-				flag = $Flags::PROTECTED;
-				break;
-			}
+			flag = $Flags::PROTECTED;
+			break;
 		case 2:
-			{
-				flag = $Flags::PUBLIC;
-				break;
-			}
+			flag = $Flags::PUBLIC;
+			break;
 		case 15:
-			{
-				flag = $Flags::STATIC;
-				break;
-			}
+			flag = $Flags::STATIC;
+			break;
 		case 16:
-			{
-				flag = $Flags::TRANSIENT;
-				break;
-			}
+			flag = $Flags::TRANSIENT;
+			break;
 		case 3:
-			{
-				flag = $Flags::FINAL;
-				break;
-			}
+			flag = $Flags::FINAL;
+			break;
 		case 4:
-			{
-				flag = $Flags::ABSTRACT;
-				break;
-			}
+			flag = $Flags::ABSTRACT;
+			break;
 		case 17:
-			{
-				flag = $Flags::NATIVE;
-				break;
-			}
+			flag = $Flags::NATIVE;
+			break;
 		case 18:
-			{
-				flag = $Flags::VOLATILE;
-				break;
-			}
+			flag = $Flags::VOLATILE;
+			break;
 		case 19:
-			{
-				flag = $Flags::SYNCHRONIZED;
-				break;
-			}
+			flag = $Flags::SYNCHRONIZED;
+			break;
 		case 20:
-			{
-				flag = $Flags::STRICTFP;
-				break;
-			}
+			flag = $Flags::STRICTFP;
+			break;
 		case 5:
-			{
-				flag = $Flags::ANNOTATION;
-				break;
-			}
+			flag = $Flags::ANNOTATION;
+			break;
 		case 34:
-			{
-				$init($Source$Feature);
-				checkSourceLevel($Source$Feature::DEFAULT_METHODS);
-				flag = $Flags::DEFAULT;
-				break;
-			}
+			$init($Source$Feature);
+			checkSourceLevel($Source$Feature::DEFAULT_METHODS);
+			flag = $Flags::DEFAULT;
+			break;
 		case 94:
-			{
-				flag = 0;
-				nextToken();
-				break;
-			}
+			flag = 0;
+			nextToken();
+			break;
 		case 32:
 			{
-				{
-					if (isNonSealedClassStart(false)) {
-						flag = $Flags::NON_SEALED;
-						nextToken();
-						nextToken();
-						break;
-					}
-					if (isSealedClassStart(false)) {
-						$init($Source$Feature);
-						checkSourceLevel($Source$Feature::SEALED_CLASSES);
-						flag = $Flags::SEALED;
-						break;
-					}
-					loop$break = true;
+				if (isNonSealedClassStart(false)) {
+					flag = $Flags::NON_SEALED;
+					nextToken();
+					nextToken();
 					break;
 				}
-			}
-		default:
-			{
+				if (isSealedClassStart(false)) {
+					$init($Source$Feature);
+					checkSourceLevel($Source$Feature::SEALED_CLASSES);
+					flag = $Flags::SEALED;
+					break;
+				}
 				loop$break = true;
 				break;
 			}
+		default:
+			loop$break = true;
+			break;
 		}
-
 		if (loop$break) {
 			break;
-		}		if (((int64_t)(flags & (uint64_t)flag)) != 0) {
+		}
+		if ((flags & flag) != 0) {
 			$init($JCDiagnostic$DiagnosticFlag);
 			$init($CompilerProperties$Errors);
 			$nc(this->log)->error($JCDiagnostic$DiagnosticFlag::SYNTAX, $nc(this->token$)->pos, $CompilerProperties$Errors::RepeatedModifier);
@@ -4657,24 +3757,18 @@ $JCTree$JCModifiers* JavacParser::modifiersOpt($JCTree$JCModifiers* partial) {
 	$init($JavacParser$1);
 	switch ($nc($JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind)->get(($nc(this->token$)->kind)->ordinal())) {
 	case 9:
-		{
-			flags |= $Flags::ENUM;
-			break;
-		}
+		flags |= $Flags::ENUM;
+		break;
 	case 8:
-		{
-			flags |= $Flags::INTERFACE;
-			break;
-		}
+		flags |= $Flags::INTERFACE;
+		break;
 	default:
-		{
-			break;
-		}
+		break;
 	}
-	if (((int64_t)(flags & (uint64_t)($Flags::ModifierFlags | $Flags::ANNOTATION))) == 0 && annotations->isEmpty()) {
+	if ((flags & ($Flags::ModifierFlags | $Flags::ANNOTATION)) == 0 && annotations->isEmpty()) {
 		pos = $Position::NOPOS;
 	}
-	$var($JCTree$JCModifiers, mods, $nc($($nc(this->F)->at(pos)))->Modifiers(flags, $(annotations->toList())));
+	$var($JCTree$JCModifiers, mods, $$nc($nc(this->F)->at(pos))->Modifiers(flags, $(annotations->toList())));
 	if (pos != $Position::NOPOS) {
 		storeEnd(mods, $nc($($nc(this->S)->prevToken()))->endPos);
 	}
@@ -4682,7 +3776,7 @@ $JCTree$JCModifiers* JavacParser::modifiersOpt($JCTree$JCModifiers* partial) {
 }
 
 $JCTree$JCAnnotation* JavacParser::annotation(int32_t pos, $JCTree$Tag* kind) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($JCTree$Tag);
 	if (kind == $JCTree$Tag::TYPE_ANNOTATION) {
 		$init($Source$Feature);
@@ -4692,13 +3786,11 @@ $JCTree$JCAnnotation* JavacParser::annotation(int32_t pos, $JCTree$Tag* kind) {
 	$var($List, fieldValues, annotationFieldValuesOpt());
 	$var($JCTree$JCAnnotation, ann, nullptr);
 	if (kind == $JCTree$Tag::ANNOTATION) {
-		$assign(ann, $nc($($nc(this->F)->at(pos)))->Annotation(ident, fieldValues));
+		$assign(ann, $$nc($nc(this->F)->at(pos))->Annotation(ident, fieldValues));
+	} else if (kind == $JCTree$Tag::TYPE_ANNOTATION) {
+		$assign(ann, $$nc($nc(this->F)->at(pos))->TypeAnnotation(ident, fieldValues));
 	} else {
-		if (kind == $JCTree$Tag::TYPE_ANNOTATION) {
-			$assign(ann, $nc($($nc(this->F)->at(pos)))->TypeAnnotation(ident, fieldValues));
-		} else {
-			$throwNew($AssertionError, $of($$str({"Unhandled annotation kind: "_s, kind})));
-		}
+		$throwNew($AssertionError, $$of($str({"Unhandled annotation kind: "_s, kind})));
 	}
 	storeEnd(ann, $nc($($nc(this->S)->prevToken()))->endPos);
 	return ann;
@@ -4710,7 +3802,7 @@ $List* JavacParser::annotationFieldValuesOpt() {
 }
 
 $List* JavacParser::annotationFieldValues() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Tokens$TokenKind);
 	accept($Tokens$TokenKind::LPAREN);
 	$var($ListBuffer, buf, $new($ListBuffer));
@@ -4726,7 +3818,7 @@ $List* JavacParser::annotationFieldValues() {
 }
 
 $JCTree$JCExpression* JavacParser::annotationFieldValue() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(this->LAX_IDENTIFIER)->test($nc(this->token$)->kind)) {
 		selectExprMode();
 		$var($JCTree$JCExpression, t1, term1());
@@ -4736,7 +3828,7 @@ $JCTree$JCExpression* JavacParser::annotationFieldValue() {
 			int32_t pos = $nc(this->token$)->pos;
 			accept($Tokens$TokenKind::EQ);
 			$var($JCTree$JCExpression, v, annotationValue());
-			return $cast($JCTree$JCExpression, toP($($nc($($nc(this->F)->at(pos)))->Assign(t1, v))));
+			return $cast($JCTree$JCExpression, toP($($$nc($nc(this->F)->at(pos))->Assign(t1, v))));
 		} else {
 			return t1;
 		}
@@ -4745,50 +3837,41 @@ $JCTree$JCExpression* JavacParser::annotationFieldValue() {
 }
 
 $JCTree$JCExpression* JavacParser::annotationValue() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t pos = 0;
-	$init($JavacParser$1);
 	{
-		$var($ListBuffer, buf, nullptr)
+		$init($JavacParser$1);
+		$var($ListBuffer, buf, nullptr);
 		switch ($nc($JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind)->get(($nc(this->token$)->kind)->ordinal())) {
 		case 5:
-			{
-				pos = $nc(this->token$)->pos;
-				nextToken();
-				$init($JCTree$Tag);
-				return annotation(pos, $JCTree$Tag::ANNOTATION);
-			}
+			pos = this->token$->pos;
+			nextToken();
+			$init($JCTree$Tag);
+			return annotation(pos, $JCTree$Tag::ANNOTATION);
 		case 11:
 			{
 				pos = $nc(this->token$)->pos;
-				$init($Tokens$TokenKind);
 				accept($Tokens$TokenKind::LBRACE);
 				$assign(buf, $new($ListBuffer));
-				$init($Tokens$TokenKind);
 				if ($nc(this->token$)->kind == $Tokens$TokenKind::COMMA) {
 					nextToken();
-				} else {
-					if ($nc(this->token$)->kind != $Tokens$TokenKind::RBRACE) {
-						$nc(buf)->append($(annotationValue()));
-						while ($nc(this->token$)->kind == $Tokens$TokenKind::COMMA) {
-							nextToken();
-							if ($nc(this->token$)->kind == $Tokens$TokenKind::RBRACE) {
-								break;
-							}
-							buf->append($(annotationValue()));
+				} else if (this->token$->kind != $Tokens$TokenKind::RBRACE) {
+					$nc(buf)->append($(annotationValue()));
+					while ($nc(this->token$)->kind == $Tokens$TokenKind::COMMA) {
+						nextToken();
+						if ($nc(this->token$)->kind == $Tokens$TokenKind::RBRACE) {
+							break;
 						}
+						buf->append($(annotationValue()));
 					}
 				}
-				$init($Tokens$TokenKind);
 				accept($Tokens$TokenKind::RBRACE);
 				$var($List, var$0, $List::nil());
-				return $cast($JCTree$JCExpression, toP($($nc($($nc(this->F)->at(pos)))->NewArray(nullptr, var$0, $($nc(buf)->toList())))));
+				return $cast($JCTree$JCExpression, toP($($$nc($nc(this->F)->at(pos))->NewArray(nullptr, var$0, $($nc(buf)->toList())))));
 			}
 		default:
-			{
-				selectExprMode();
-				return term1();
-			}
+			selectExprMode();
+			return term1();
 		}
 	}
 }
@@ -4798,12 +3881,12 @@ $ListBuffer* JavacParser::variableDeclarators($JCTree$JCModifiers* mods, $JCTree
 }
 
 $ListBuffer* JavacParser::variableDeclaratorsRest(int32_t pos, $JCTree$JCModifiers* mods, $JCTree$JCExpression* type, $Name* name, bool reqInit, $Tokens$Comment* dc, $ListBuffer* vdefs, bool localDecl) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JCTree$JCVariableDecl, head, variableDeclaratorRest(pos, mods, type, name, reqInit, dc, localDecl, false));
 	$nc(vdefs)->append(head);
 	$init($Tokens$TokenKind);
 	while ($nc(this->token$)->kind == $Tokens$TokenKind::COMMA) {
-		storeEnd($cast($JCTree, $(vdefs->last())), $nc(this->token$)->endPos);
+		storeEnd($$cast($JCTree, vdefs->last()), this->token$->endPos);
 		nextToken();
 		vdefs->append($(variableDeclarator(mods, type, reqInit, dc, localDecl)));
 	}
@@ -4815,7 +3898,7 @@ $JCTree$JCVariableDecl* JavacParser::variableDeclarator($JCTree$JCModifiers* mod
 }
 
 $JCTree$JCVariableDecl* JavacParser::variableDeclaratorRest(int32_t pos, $JCTree$JCModifiers* mods, $JCTree$JCExpression* type$renamed, $Name* name, bool reqInit, $Tokens$Comment* dc, bool localDecl, bool compound) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JCTree$JCExpression, type, type$renamed);
 	bool declaredUsingVar = false;
 	$assign(type, bracketsOpt(type));
@@ -4825,34 +3908,32 @@ $JCTree$JCVariableDecl* JavacParser::variableDeclaratorRest(int32_t pos, $JCTree
 		nextToken();
 		$assign(init, variableInitializer());
 	} else if (reqInit) {
-		syntaxError($nc(this->token$)->pos, $($CompilerProperties$Errors::Expected($Tokens$TokenKind::EQ)));
+		syntaxError(this->token$->pos, $($CompilerProperties$Errors::Expected($Tokens$TokenKind::EQ)));
 	}
 	$var($JCTree, elemType, $TreeInfo::innermostType(type, true));
 	int32_t startPos = $Position::NOPOS;
 	$init($JCTree$Tag);
 	if ($nc(elemType)->hasTag($JCTree$Tag::IDENT)) {
-		$var($Name, typeName, $nc(($cast($JCTree$JCIdent, elemType)))->name);
+		$var($Name, typeName, $cast($JCTree$JCIdent, elemType)->name);
 		if (restrictedTypeNameStartingAtSource(typeName, pos, !compound && localDecl) != nullptr) {
 			if (typeName != $nc(this->names)->var) {
 				reportSyntaxError(elemType->pos$, $($CompilerProperties$Errors::RestrictedTypeNotAllowedHere(typeName)));
+			} else if ($nc(type)->hasTag($JCTree$Tag::TYPEARRAY) && !compound) {
+				reportSyntaxError(elemType->pos$, $($CompilerProperties$Errors::RestrictedTypeNotAllowedArray(typeName)));
 			} else {
-				if ($nc(type)->hasTag($JCTree$Tag::TYPEARRAY) && !compound) {
-					reportSyntaxError(elemType->pos$, $($CompilerProperties$Errors::RestrictedTypeNotAllowedArray(typeName)));
-				} else {
-					declaredUsingVar = true;
-					if (compound) {
-						reportSyntaxError(elemType->pos$, $($CompilerProperties$Errors::RestrictedTypeNotAllowedCompound(typeName)));
-					}
-					startPos = $TreeInfo::getStartPos(mods);
-					if (startPos == $Position::NOPOS) {
-						startPos = $TreeInfo::getStartPos(type);
-					}
-					$assign(type, nullptr);
+				declaredUsingVar = true;
+				if (compound) {
+					reportSyntaxError(elemType->pos$, $($CompilerProperties$Errors::RestrictedTypeNotAllowedCompound(typeName)));
 				}
+				startPos = $TreeInfo::getStartPos(mods);
+				if (startPos == $Position::NOPOS) {
+					startPos = $TreeInfo::getStartPos(type);
+				}
+				$assign(type, nullptr);
 			}
 		}
 	}
-	$var($JCTree$JCVariableDecl, result, $cast($JCTree$JCVariableDecl, toP($($nc($($nc(this->F)->at(pos)))->VarDef(mods, name, type, init, declaredUsingVar)))));
+	$var($JCTree$JCVariableDecl, result, $cast($JCTree$JCVariableDecl, toP($($$nc($nc(this->F)->at(pos))->VarDef(mods, name, type, init, declaredUsingVar)))));
 	attach(result, dc);
 	$nc(result)->startPos = startPos;
 	return result;
@@ -4860,24 +3941,18 @@ $JCTree$JCVariableDecl* JavacParser::variableDeclaratorRest(int32_t pos, $JCTree
 
 $Name* JavacParser::restrictedTypeName($JCTree$JCExpression* e, bool shouldWarn) {
 	$init($JavacParser$1);
-	switch ($nc($JavacParser$1::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->get($nc(($($nc(e)->getTag())))->ordinal())) {
+	switch ($nc($JavacParser$1::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->get(($$nc($nc(e)->getTag()))->ordinal())) {
 	case 5:
-		{
-			return restrictedTypeNameStartingAtSource($nc(($cast($JCTree$JCIdent, e)))->name, e->pos$, shouldWarn) != nullptr ? $nc(($cast($JCTree$JCIdent, e)))->name : ($Name*)nullptr;
-		}
+		return restrictedTypeNameStartingAtSource($cast($JCTree$JCIdent, e)->name, e->pos$, shouldWarn) != nullptr ? $cast($JCTree$JCIdent, e)->name : ($Name*)nullptr;
 	case 6:
-		{
-			return restrictedTypeName($nc(($cast($JCTree$JCArrayTypeTree, e)))->elemtype, shouldWarn);
-		}
+		return restrictedTypeName($cast($JCTree$JCArrayTypeTree, e)->elemtype, shouldWarn);
 	default:
-		{
-			return nullptr;
-		}
+		return nullptr;
 	}
 }
 
 $Source* JavacParser::restrictedTypeNameStartingAtSource($Name* name, int32_t pos, bool shouldWarn) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (name == $nc(this->names)->var) {
 		$init($Source$Feature);
 		if ($Source$Feature::LOCAL_VARIABLE_TYPE_INFERENCE->allowedInSource(this->source)) {
@@ -4932,64 +4007,64 @@ $JCTree$JCVariableDecl* JavacParser::variableDeclaratorId($JCTree$JCModifiers* m
 }
 
 $JCTree$JCVariableDecl* JavacParser::variableDeclaratorId($JCTree$JCModifiers* mods, $JCTree$JCExpression* type$renamed, bool lambdaParameter, bool recordComponent) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JCTree$JCExpression, type, type$renamed);
 	int32_t pos = $nc(this->token$)->pos;
 	$var($Name, name, nullptr);
 	$init($Tokens$TokenKind);
-	if (lambdaParameter && $nc(this->token$)->kind == $Tokens$TokenKind::UNDERSCORE) {
+	if (lambdaParameter && this->token$->kind == $Tokens$TokenKind::UNDERSCORE) {
 		$init($CompilerProperties$Errors);
 		$nc(this->log)->error(pos, $CompilerProperties$Errors::UnderscoreAsIdentifierInLambda);
 		$assign(name, $nc(this->token$)->name());
 		nextToken();
 	} else {
-		bool var$1 = this->allowThisIdent || !lambdaParameter || $nc(this->LAX_IDENTIFIER)->test($nc(this->token$)->kind) || $nc(mods)->flags != $Flags::PARAMETER;
-		if (var$1 || $nc($nc(mods)->annotations)->nonEmpty()) {
+		bool var$0 = this->allowThisIdent || !lambdaParameter || $nc(this->LAX_IDENTIFIER)->test($nc(this->token$)->kind) || $nc(mods)->flags != $Flags::PARAMETER;
+		if (var$0 || $nc($nc(mods)->annotations)->nonEmpty()) {
 			$var($JCTree$JCExpression, pn, qualident(false));
 			$init($JCTree$Tag);
-			if ($nc(pn)->hasTag($JCTree$Tag::IDENT) && $nc(($cast($JCTree$JCIdent, pn)))->name != $nc(this->names)->_this) {
-				$assign(name, $nc(($cast($JCTree$JCIdent, pn)))->name);
+			if ($nc(pn)->hasTag($JCTree$Tag::IDENT) && $cast($JCTree$JCIdent, pn)->name != $nc(this->names)->_this) {
+				$assign(name, $cast($JCTree$JCIdent, pn)->name);
 			} else {
 				if (this->allowThisIdent) {
-					if (((int64_t)(mods->flags & (uint64_t)$Flags::VARARGS)) != 0) {
+					if (($nc(mods)->flags & $Flags::VARARGS) != 0) {
 						$init($CompilerProperties$Errors);
 						$nc(this->log)->error($nc(this->token$)->pos, $CompilerProperties$Errors::VarargsAndReceiver);
 					}
 					if ($nc(this->token$)->kind == $Tokens$TokenKind::LBRACKET) {
 						$init($CompilerProperties$Errors);
-						$nc(this->log)->error($nc(this->token$)->pos, $CompilerProperties$Errors::ArrayAndReceiver);
+						$nc(this->log)->error(this->token$->pos, $CompilerProperties$Errors::ArrayAndReceiver);
 					}
-					if (pn->hasTag($JCTree$Tag::SELECT) && $nc(($cast($JCTree$JCFieldAccess, pn)))->name != $nc(this->names)->_this) {
+					if (pn->hasTag($JCTree$Tag::SELECT) && $cast($JCTree$JCFieldAccess, pn)->name != $nc(this->names)->_this) {
 						$init($CompilerProperties$Errors);
 						$nc(this->log)->error($nc(this->token$)->pos, $CompilerProperties$Errors::WrongReceiver);
 					}
 				}
-				return $cast($JCTree$JCVariableDecl, toP($($nc($($nc(this->F)->at(pos)))->ReceiverVarDef(mods, pn, type))));
+				return $cast($JCTree$JCVariableDecl, toP($($$nc($nc(this->F)->at(pos))->ReceiverVarDef(mods, pn, type))));
 			}
 		} else {
 			$assign(name, $nc(this->names)->empty);
 		}
 	}
-	if (((int64_t)($nc(mods)->flags & (uint64_t)$Flags::VARARGS)) != 0 && $nc(this->token$)->kind == $Tokens$TokenKind::LBRACKET) {
+	if (($nc(mods)->flags & $Flags::VARARGS) != 0 && $nc(this->token$)->kind == $Tokens$TokenKind::LBRACKET) {
 		$init($CompilerProperties$Errors);
-		$nc(this->log)->error($nc(this->token$)->pos, $CompilerProperties$Errors::VarargsAndOldArraySyntax);
+		$nc(this->log)->error(this->token$->pos, $CompilerProperties$Errors::VarargsAndOldArraySyntax);
 	}
 	if (recordComponent && $nc(this->token$)->kind == $Tokens$TokenKind::LBRACKET) {
 		$init($CompilerProperties$Errors);
-		$nc(this->log)->error($nc(this->token$)->pos, $CompilerProperties$Errors::RecordComponentAndOldArraySyntax);
+		$nc(this->log)->error(this->token$->pos, $CompilerProperties$Errors::RecordComponentAndOldArraySyntax);
 	}
 	$assign(type, bracketsOpt(type));
 	$init($JCTree$Tag);
-	return $cast($JCTree$JCVariableDecl, toP($($nc($($nc(this->F)->at(pos)))->VarDef(mods, name, type, nullptr, type != nullptr && type->hasTag($JCTree$Tag::IDENT) && $nc(($cast($JCTree$JCIdent, type)))->name == $nc(this->names)->var))));
+	return $cast($JCTree$JCVariableDecl, toP($($$nc($nc(this->F)->at(pos))->VarDef(mods, name, type, nullptr, type != nullptr && type->hasTag($JCTree$Tag::IDENT) && $cast($JCTree$JCIdent, type)->name == $nc(this->names)->var))));
 }
 
 $List* JavacParser::resources() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ListBuffer, defs, $new($ListBuffer));
 	defs->append($(resource()));
 	$init($Tokens$TokenKind);
 	while ($nc(this->token$)->kind == $Tokens$TokenKind::SEMI) {
-		storeEnd($cast($JCTree, $(defs->last())), $nc(this->token$)->endPos);
+		storeEnd($$cast($JCTree, defs->last()), this->token$->endPos);
 		int32_t semiColonPos = $nc(this->token$)->pos;
 		nextToken();
 		if ($nc(this->token$)->kind == $Tokens$TokenKind::RPAREN) {
@@ -5001,17 +4076,17 @@ $List* JavacParser::resources() {
 }
 
 $JCTree* JavacParser::resource() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t startPos = $nc(this->token$)->pos;
 	$init($Tokens$TokenKind);
-	if ($nc(this->token$)->kind == $Tokens$TokenKind::FINAL || $nc(this->token$)->kind == $Tokens$TokenKind::MONKEYS_AT) {
+	if (this->token$->kind == $Tokens$TokenKind::FINAL || this->token$->kind == $Tokens$TokenKind::MONKEYS_AT) {
 		$var($JCTree$JCModifiers, mods, optFinal($Flags::FINAL));
 		$var($JCTree$JCExpression, t, parseType(true));
 		return variableDeclaratorRest($nc(this->token$)->pos, mods, t, $(ident()), true, nullptr, true, false);
 	}
 	$var($JCTree$JCExpression, t, term(JavacParser::EXPR | JavacParser::TYPE));
-	if (((int32_t)(this->lastmode & (uint32_t)JavacParser::TYPE)) != 0 && $nc(this->LAX_IDENTIFIER)->test($nc(this->token$)->kind)) {
-		$var($JCTree$JCModifiers, mods, $cast($JCTree$JCModifiers, toP($($nc($($nc(this->F)->at(startPos)))->Modifiers($Flags::FINAL)))));
+	if ((this->lastmode & JavacParser::TYPE) != 0 && $nc(this->LAX_IDENTIFIER)->test($nc(this->token$)->kind)) {
+		$var($JCTree$JCModifiers, mods, $cast($JCTree$JCModifiers, toP($($$nc($nc(this->F)->at(startPos))->Modifiers($Flags::FINAL)))));
 		return variableDeclaratorRest($nc(this->token$)->pos, mods, t, $(ident()), true, nullptr, true, false);
 	} else {
 		$init($Source$Feature);
@@ -5027,7 +4102,7 @@ $JCTree* JavacParser::resource() {
 }
 
 $JCTree$JCCompilationUnit* JavacParser::parseCompilationUnit() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Tokens$Token, firstToken, this->token$);
 	$var($JCTree$JCModifiers, mods, nullptr);
 	bool consumedToplevelDoc = false;
@@ -5039,18 +4114,18 @@ $JCTree$JCCompilationUnit* JavacParser::parseCompilationUnit() {
 		$assign(mods, modifiersOpt());
 	}
 	if ($nc(this->token$)->kind == $Tokens$TokenKind::PACKAGE) {
-		int32_t packagePos = $nc(this->token$)->pos;
+		int32_t packagePos = this->token$->pos;
 		$var($List, annotations, $List::nil());
 		seenPackage = true;
 		if (mods != nullptr) {
-			checkNoMods((int64_t)(mods->flags & (uint64_t)(int64_t)~$Flags::DEPRECATED));
+			checkNoMods(mods->flags & ~$Flags::DEPRECATED);
 			$assign(annotations, mods->annotations);
 			$assign(mods, nullptr);
 		}
 		nextToken();
 		$var($JCTree$JCExpression, pid, qualident(false));
 		accept($Tokens$TokenKind::SEMI);
-		$var($JCTree$JCPackageDecl, pd, $cast($JCTree$JCPackageDecl, toP($($nc($($nc(this->F)->at(packagePos)))->PackageDecl(annotations, pid)))));
+		$var($JCTree$JCPackageDecl, pd, $cast($JCTree$JCPackageDecl, toP($($$nc($nc(this->F)->at(packagePos))->PackageDecl(annotations, pid)))));
 		$init($Tokens$Comment$CommentStyle);
 		attach(pd, $($nc(firstToken)->comment($Tokens$Comment$CommentStyle::JAVADOC)));
 		consumedToplevelDoc = true;
@@ -5059,7 +4134,7 @@ $JCTree$JCCompilationUnit* JavacParser::parseCompilationUnit() {
 	bool checkForImports = true;
 	bool firstTypeDecl = true;
 	while ($nc(this->token$)->kind != $Tokens$TokenKind::EOF) {
-		if ($nc(this->token$)->pos <= $nc(this->endPosTable)->errorEndPos) {
+		if (this->token$->pos <= $nc(this->endPosTable)->errorEndPos) {
 			skip(checkForImports, false, false, false);
 			if ($nc(this->token$)->kind == $Tokens$TokenKind::EOF) {
 				break;
@@ -5081,22 +4156,20 @@ $JCTree$JCCompilationUnit* JavacParser::parseCompilationUnit() {
 			if (firstTypeDecl && $nc(this->token$)->kind == $Tokens$TokenKind::IDENTIFIER) {
 				$init($ModuleTree$ModuleKind);
 				$ModuleTree$ModuleKind* kind = $ModuleTree$ModuleKind::STRONG;
-				if ($nc(this->token$)->name() == $nc(this->names)->open) {
+				if (this->token$->name() == $nc(this->names)->open) {
 					kind = $ModuleTree$ModuleKind::OPEN;
 					nextToken();
 				}
-				if ($nc(this->token$)->kind == $Tokens$TokenKind::IDENTIFIER && $nc(this->token$)->name() == $nc(this->names)->module) {
+				if ($nc(this->token$)->kind == $Tokens$TokenKind::IDENTIFIER && this->token$->name() == $nc(this->names)->module) {
 					if (mods != nullptr) {
-						checkNoMods((int64_t)(mods->flags & (uint64_t)(int64_t)~$Flags::DEPRECATED));
+						checkNoMods(mods->flags & ~$Flags::DEPRECATED);
 					}
 					defs->append($(moduleDecl(mods, kind, docComment)));
 					consumedToplevelDoc = true;
 					break;
-				} else {
-					if (kind != $ModuleTree$ModuleKind::STRONG) {
-						$init($CompilerProperties$Errors);
-						reportSyntaxError($nc(this->token$)->pos, $CompilerProperties$Errors::ExpectedModule);
-					}
+				} else if (kind != $ModuleTree$ModuleKind::STRONG) {
+					$init($CompilerProperties$Errors);
+					reportSyntaxError($nc(this->token$)->pos, $CompilerProperties$Errors::ExpectedModule);
 				}
 			}
 			$var($JCTree, def, typeDeclaration(mods, docComment));
@@ -5119,10 +4192,10 @@ $JCTree$JCCompilationUnit* JavacParser::parseCompilationUnit() {
 			firstTypeDecl = false;
 		}
 	}
-	$var($JCTree$JCCompilationUnit, toplevel, $nc($($nc(this->F)->at($nc(firstToken)->pos)))->TopLevel($(defs->toList())));
+	$var($JCTree$JCCompilationUnit, toplevel, $$nc($nc(this->F)->at($nc(firstToken)->pos))->TopLevel($(defs->toList())));
 	if (!consumedToplevelDoc) {
 		$init($Tokens$Comment$CommentStyle);
-		attach(toplevel, $($nc(firstToken)->comment($Tokens$Comment$CommentStyle::JAVADOC)));
+		attach(toplevel, $(firstToken->comment($Tokens$Comment$CommentStyle::JAVADOC)));
 	}
 	if (defs->isEmpty()) {
 		storeEnd(toplevel, $nc($($nc(this->S)->prevToken()))->endPos);
@@ -5139,7 +4212,7 @@ $JCTree$JCCompilationUnit* JavacParser::parseCompilationUnit() {
 }
 
 $JCTree$JCModuleDecl* JavacParser::moduleDecl($JCTree$JCModifiers* mods, $ModuleTree$ModuleKind* kind, $Tokens$Comment* dc) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t pos = $nc(this->token$)->pos;
 	$init($Source$Feature);
 	checkSourceLevel($Source$Feature::MODULES);
@@ -5151,18 +4224,18 @@ $JCTree$JCModuleDecl* JavacParser::moduleDecl($JCTree$JCModifiers* mods, $Module
 	$assign(directives, moduleDirectiveList());
 	accept($Tokens$TokenKind::RBRACE);
 	accept($Tokens$TokenKind::EOF);
-	$var($JCTree$JCModuleDecl, result, $cast($JCTree$JCModuleDecl, toP($($nc($($nc(this->F)->at(pos)))->ModuleDef(mods, kind, name, directives)))));
+	$var($JCTree$JCModuleDecl, result, $cast($JCTree$JCModuleDecl, toP($($$nc($nc(this->F)->at(pos))->ModuleDef(mods, kind, name, directives)))));
 	attach(result, dc);
 	return result;
 }
 
 $List* JavacParser::moduleDirectiveList() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ListBuffer, defs, $new($ListBuffer));
 	$init($Tokens$TokenKind);
 	while ($nc(this->token$)->kind == $Tokens$TokenKind::IDENTIFIER) {
-		int32_t pos = $nc(this->token$)->pos;
-		if ($nc(this->token$)->name() == $nc(this->names)->requires) {
+		int32_t pos = this->token$->pos;
+		if (this->token$->name() == $nc(this->names)->requires) {
 			nextToken();
 			bool isTransitive = false;
 			bool isStaticPhase = false;
@@ -5171,71 +4244,65 @@ $List* JavacParser::moduleDirectiveList() {
 				$init($JavacParser$1);
 				switch ($nc($JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind)->get(($nc(this->token$)->kind)->ordinal())) {
 				case 32:
-					{
-						if ($nc(this->token$)->name() == $nc(this->names)->transitive && !isTransitive) {
-							$var($Tokens$Token, t1, $nc(this->S)->token(1));
-							if ($nc(t1)->kind == $Tokens$TokenKind::SEMI || $nc(t1)->kind == $Tokens$TokenKind::DOT) {
-								loop$break = true;
-								break;
-							}
-							isTransitive = true;
-							break;
-						} else {
+					if ($nc(this->token$)->name() == $nc(this->names)->transitive && !isTransitive) {
+						$var($Tokens$Token, t1, $nc(this->S)->token(1));
+						if ($nc(t1)->kind == $Tokens$TokenKind::SEMI || t1->kind == $Tokens$TokenKind::DOT) {
 							loop$break = true;
 							break;
 						}
-					}
-				case 15:
-					{
-						if (isStaticPhase) {
-							$init($JCDiagnostic$DiagnosticFlag);
-							$init($CompilerProperties$Errors);
-							$nc(this->log)->error($JCDiagnostic$DiagnosticFlag::SYNTAX, $nc(this->token$)->pos, $CompilerProperties$Errors::RepeatedModifier);
-						}
-						isStaticPhase = true;
+						isTransitive = true;
 						break;
-					}
-				default:
-					{
+					} else {
 						loop$break = true;
 						break;
 					}
+				case 15:
+					if (isStaticPhase) {
+						$init($JCDiagnostic$DiagnosticFlag);
+						$init($CompilerProperties$Errors);
+						$nc(this->log)->error($JCDiagnostic$DiagnosticFlag::SYNTAX, $nc(this->token$)->pos, $CompilerProperties$Errors::RepeatedModifier);
+					}
+					isStaticPhase = true;
+					break;
+				default:
+					loop$break = true;
+					break;
 				}
-
 				if (loop$break) {
 					break;
-				}				nextToken();
+				}
+				nextToken();
 			}
 			$var($JCTree$JCExpression, moduleName, qualident(false));
 			accept($Tokens$TokenKind::SEMI);
-			defs->append($cast($JCTree$JCDirective, $(toP($($nc($($nc(this->F)->at(pos)))->Requires(isTransitive, isStaticPhase, moduleName))))));
+			defs->append($$cast($JCTree$JCDirective, toP($($$nc($nc(this->F)->at(pos))->Requires(isTransitive, isStaticPhase, moduleName)))));
 		} else {
-			bool var$1 = $nc(this->token$)->name() == $nc(this->names)->exports;
-			if (var$1 || $nc(this->token$)->name() == $nc(this->names)->opens) {
+			bool var$0 = $nc(this->token$)->name() == $nc(this->names)->exports;
+			if (var$0 || this->token$->name() == this->names->opens) {
 				bool exports = $nc(this->token$)->name() == $nc(this->names)->exports;
 				nextToken();
 				$var($JCTree$JCExpression, pkgName, qualident(false));
 				$var($List, moduleNames, nullptr);
-				if ($nc(this->token$)->kind == $Tokens$TokenKind::IDENTIFIER && $nc(this->token$)->name() == $nc(this->names)->to) {
+				if ($nc(this->token$)->kind == $Tokens$TokenKind::IDENTIFIER && this->token$->name() == $nc(this->names)->to) {
 					nextToken();
 					$assign(moduleNames, qualidentList(false));
 				}
 				accept($Tokens$TokenKind::SEMI);
 				$var($JCTree$JCDirective, d, nullptr);
 				if (exports) {
-					$assign(d, $nc($($nc(this->F)->at(pos)))->Exports(pkgName, moduleNames));
+					$assign(d, $$nc($nc(this->F)->at(pos))->Exports(pkgName, moduleNames));
 				} else {
-					$assign(d, $nc($($nc(this->F)->at(pos)))->Opens(pkgName, moduleNames));
+					$assign(d, $$nc($nc(this->F)->at(pos))->Opens(pkgName, moduleNames));
 				}
-				defs->append($cast($JCTree$JCDirective, $(toP(d))));
+				defs->append($$cast($JCTree$JCDirective, toP(d)));
 			} else if ($nc(this->token$)->name() == $nc(this->names)->provides) {
 				nextToken();
 				$var($JCTree$JCExpression, serviceName, qualident(false));
-				if ($nc(this->token$)->kind == $Tokens$TokenKind::IDENTIFIER && $nc(this->token$)->name() == $nc(this->names)->with) {
+				if ($nc(this->token$)->kind == $Tokens$TokenKind::IDENTIFIER && this->token$->name() == $nc(this->names)->with) {
 					nextToken();
 					$var($List, implNames, qualidentList(false));
 					accept($Tokens$TokenKind::SEMI);
-					defs->append($cast($JCTree$JCDirective, $(toP($($nc($($nc(this->F)->at(pos)))->Provides(serviceName, implNames))))));
+					defs->append($$cast($JCTree$JCDirective, toP($($$nc($nc(this->F)->at(pos))->Provides(serviceName, implNames)))));
 				} else {
 					$init($JCDiagnostic$DiagnosticFlag);
 					$nc(this->log)->error($JCDiagnostic$DiagnosticFlag::SYNTAX, $nc(this->token$)->pos, $($CompilerProperties$Errors::ExpectedStr($$str({"\'"_s, $nc(this->names)->with, "\'"_s}))));
@@ -5245,7 +4312,7 @@ $List* JavacParser::moduleDirectiveList() {
 				nextToken();
 				$var($JCTree$JCExpression, service, qualident(false));
 				accept($Tokens$TokenKind::SEMI);
-				defs->append($cast($JCTree$JCDirective, $(toP($($nc($($nc(this->F)->at(pos)))->Uses(service))))));
+				defs->append($$cast($JCTree$JCDirective, toP($($$nc($nc(this->F)->at(pos))->Uses(service)))));
 			} else {
 				setErrorEndPos(pos);
 				$init($CompilerProperties$Errors);
@@ -5258,7 +4325,7 @@ $List* JavacParser::moduleDirectiveList() {
 }
 
 $JCTree* JavacParser::importDeclaration() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t pos = $nc(this->token$)->pos;
 	nextToken();
 	bool importStatic = false;
@@ -5267,82 +4334,78 @@ $JCTree* JavacParser::importDeclaration() {
 		importStatic = true;
 		nextToken();
 	}
-	$var($JCTree$JCExpression, pid, $cast($JCTree$JCExpression, toP($($nc($($nc(this->F)->at($nc(this->token$)->pos)))->Ident($(ident()))))));
+	$var($JCTree$JCExpression, pid, $cast($JCTree$JCExpression, toP($($$nc($nc(this->F)->at($nc(this->token$)->pos))->Ident($(ident()))))));
 	do {
 		int32_t pos1 = $nc(this->token$)->pos;
 		accept($Tokens$TokenKind::DOT);
 		if ($nc(this->token$)->kind == $Tokens$TokenKind::STAR) {
-			$assign(pid, $cast($JCTree$JCExpression, to($($nc($($nc(this->F)->at(pos1)))->Select(pid, $nc(this->names)->asterisk)))));
+			$assign(pid, $cast($JCTree$JCExpression, to($($$nc($nc(this->F)->at(pos1))->Select(pid, $nc(this->names)->asterisk)))));
 			nextToken();
 			break;
 		} else {
-			$assign(pid, $cast($JCTree$JCExpression, toP($($nc($($nc(this->F)->at(pos1)))->Select(pid, $(ident()))))));
+			$assign(pid, $cast($JCTree$JCExpression, toP($($$nc($nc(this->F)->at(pos1))->Select(pid, $(ident()))))));
 		}
 	} while ($nc(this->token$)->kind == $Tokens$TokenKind::DOT);
 	accept($Tokens$TokenKind::SEMI);
-	return toP($($nc($($nc(this->F)->at(pos)))->Import(pid, importStatic)));
+	return toP($($$nc($nc(this->F)->at(pos))->Import(pid, importStatic)));
 }
 
 $JCTree* JavacParser::typeDeclaration($JCTree$JCModifiers* mods, $Tokens$Comment* docComment) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t pos = $nc(this->token$)->pos;
 	$init($Tokens$TokenKind);
-	if (mods == nullptr && $nc(this->token$)->kind == $Tokens$TokenKind::SEMI) {
+	if (mods == nullptr && this->token$->kind == $Tokens$TokenKind::SEMI) {
 		nextToken();
-		return toP($($nc($($nc(this->F)->at(pos)))->Skip()));
+		return toP($($$nc($nc(this->F)->at(pos))->Skip()));
 	} else {
 		return classOrRecordOrInterfaceOrEnumDeclaration($(modifiersOpt(mods)), docComment);
 	}
 }
 
 $JCTree$JCStatement* JavacParser::classOrRecordOrInterfaceOrEnumDeclaration($JCTree$JCModifiers* mods, $Tokens$Comment* dc) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Tokens$TokenKind);
 	if ($nc(this->token$)->kind == $Tokens$TokenKind::CLASS) {
 		return classDeclaration(mods, dc);
 	}
 	if (isRecordStart()) {
 		return recordDeclaration(mods, dc);
+	} else if ($nc(this->token$)->kind == $Tokens$TokenKind::INTERFACE) {
+		return interfaceDeclaration(mods, dc);
+	} else if (this->token$->kind == $Tokens$TokenKind::ENUM) {
+		return enumDeclaration(mods, dc);
 	} else {
-		if ($nc(this->token$)->kind == $Tokens$TokenKind::INTERFACE) {
-			return interfaceDeclaration(mods, dc);
+		int32_t pos = this->token$->pos;
+		$var($List, errs, nullptr);
+		if (this->token$->kind == $Tokens$TokenKind::IDENTIFIER && this->token$->name() == $nc(this->names)->record) {
+			$init($Source$Feature);
+			checkSourceLevel($Source$Feature::RECORDS);
+			$init($CompilerProperties$Errors);
+			$var($JCTree$JCErroneous, erroneousTree, syntaxError($nc(this->token$)->pos, $($List::of(mods)), $CompilerProperties$Errors::RecordHeaderExpected));
+			return $cast($JCTree$JCStatement, toP($($nc(this->F)->Exec(erroneousTree))));
 		} else {
-			if ($nc(this->token$)->kind == $Tokens$TokenKind::ENUM) {
-				return enumDeclaration(mods, dc);
+			if ($nc(this->LAX_IDENTIFIER)->test($nc(this->token$)->kind)) {
+				$assign(errs, $List::of(mods, $(toP($($$nc($nc(this->F)->at(pos))->Ident($(ident())))))));
+				setErrorEndPos($nc(this->token$)->pos);
 			} else {
-				int32_t pos = $nc(this->token$)->pos;
-				$var($List, errs, nullptr);
-				if ($nc(this->token$)->kind == $Tokens$TokenKind::IDENTIFIER && $nc(this->token$)->name() == $nc(this->names)->record) {
-					$init($Source$Feature);
-					checkSourceLevel($Source$Feature::RECORDS);
-					$init($CompilerProperties$Errors);
-					$var($JCTree$JCErroneous, erroneousTree, syntaxError($nc(this->token$)->pos, $($List::of(mods)), $CompilerProperties$Errors::RecordHeaderExpected));
-					return $cast($JCTree$JCStatement, toP($($nc(this->F)->Exec(erroneousTree))));
-				} else {
-					if ($nc(this->LAX_IDENTIFIER)->test($nc(this->token$)->kind)) {
-						$assign(errs, $List::of(mods, $(toP($($nc($($nc(this->F)->at(pos)))->Ident($(ident())))))));
-						setErrorEndPos($nc(this->token$)->pos);
-					} else {
-						$assign(errs, $List::of(mods));
-					}
-					$var($JCTree$JCErroneous, erroneousTree, nullptr);
-					if (this->parseModuleInfo) {
-						$init($CompilerProperties$Errors);
-						$assign(erroneousTree, syntaxError(pos, errs, $CompilerProperties$Errors::ExpectedModuleOrOpen));
-					} else if (this->allowRecords) {
-						$assign(erroneousTree, syntaxError(pos, errs, $($CompilerProperties$Errors::Expected4($Tokens$TokenKind::CLASS, $Tokens$TokenKind::INTERFACE, $Tokens$TokenKind::ENUM, "record"_s))));
-					} else {
-						$assign(erroneousTree, syntaxError(pos, errs, $($CompilerProperties$Errors::Expected3($Tokens$TokenKind::CLASS, $Tokens$TokenKind::INTERFACE, $Tokens$TokenKind::ENUM))));
-					}
-					return $cast($JCTree$JCStatement, toP($($nc(this->F)->Exec(erroneousTree))));
-				}
+				$assign(errs, $List::of(mods));
 			}
+			$var($JCTree$JCErroneous, erroneousTree, nullptr);
+			if (this->parseModuleInfo) {
+				$init($CompilerProperties$Errors);
+				$assign(erroneousTree, syntaxError(pos, errs, $CompilerProperties$Errors::ExpectedModuleOrOpen));
+			} else if (this->allowRecords) {
+				$assign(erroneousTree, syntaxError(pos, errs, $($CompilerProperties$Errors::Expected4($Tokens$TokenKind::CLASS, $Tokens$TokenKind::INTERFACE, $Tokens$TokenKind::ENUM, "record"_s))));
+			} else {
+				$assign(erroneousTree, syntaxError(pos, errs, $($CompilerProperties$Errors::Expected3($Tokens$TokenKind::CLASS, $Tokens$TokenKind::INTERFACE, $Tokens$TokenKind::ENUM))));
+			}
+			return $cast($JCTree$JCStatement, toP($($nc(this->F)->Exec(erroneousTree))));
 		}
 	}
 }
 
 $JCTree$JCClassDecl* JavacParser::classDeclaration($JCTree$JCModifiers* mods, $Tokens$Comment* dc) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t pos = $nc(this->token$)->pos;
 	$init($Tokens$TokenKind);
 	accept($Tokens$TokenKind::CLASS);
@@ -5360,13 +4423,13 @@ $JCTree$JCClassDecl* JavacParser::classDeclaration($JCTree$JCModifiers* mods, $T
 	}
 	$var($List, permitting, permitsClause(mods, "class"_s));
 	$var($List, defs, classInterfaceOrRecordBody(name, false, false));
-	$var($JCTree$JCClassDecl, result, $cast($JCTree$JCClassDecl, toP($($nc($($nc(this->F)->at(pos)))->ClassDef(mods, name, typarams, extending, implementing, permitting, defs)))));
+	$var($JCTree$JCClassDecl, result, $cast($JCTree$JCClassDecl, toP($($$nc($nc(this->F)->at(pos))->ClassDef(mods, name, typarams, extending, implementing, permitting, defs)))));
 	attach(result, dc);
 	return result;
 }
 
 $JCTree$JCClassDecl* JavacParser::recordDeclaration($JCTree$JCModifiers* mods, $Tokens$Comment* dc) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t pos = $nc(this->token$)->pos;
 	nextToken();
 	$nc(mods)->flags |= $Flags::RECORD;
@@ -5394,38 +4457,36 @@ $JCTree$JCClassDecl* JavacParser::recordDeclaration($JCTree$JCModifiers* mods, $
 		$var($Iterator, i$, $nc(defs)->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($JCTree, def, $cast($JCTree, i$->next()));
-			{
-				$init($JCTree$Tag);
-				if ($nc(def)->hasTag($JCTree$Tag::METHODDEF)) {
-					$var($JCTree$JCMethodDecl, methDef, $cast($JCTree$JCMethodDecl, def));
-					if (methDef->name == $nc(this->names)->init && $nc(methDef->params)->isEmpty() && ((int64_t)($nc(methDef->mods)->flags & (uint64_t)$Flags::COMPACT_RECORD_CONSTRUCTOR)) != 0) {
-						$var($ListBuffer, tmpParams, $new($ListBuffer));
-						{
-							$var($Iterator, i$, headerFields->iterator());
-							for (; $nc(i$)->hasNext();) {
-								$var($JCTree$JCVariableDecl, param, $cast($JCTree$JCVariableDecl, i$->next()));
-								{
-									tmpParams->add($($nc($($nc(this->F)->at(static_cast<$JCDiagnostic$DiagnosticPosition*>(param))))->VarDef($($nc(this->F)->Modifiers(($Flags::PARAMETER | $Flags::GENERATED_MEMBER) | ((int64_t)($nc($nc(param)->mods)->flags & (uint64_t)$Flags::VARARGS)), $nc(param->mods)->annotations)), $nc(param)->name, param->vartype, nullptr)));
-								}
+			$init($JCTree$Tag);
+			if ($nc(def)->hasTag($JCTree$Tag::METHODDEF)) {
+				$var($JCTree$JCMethodDecl, methDef, $cast($JCTree$JCMethodDecl, def));
+				if (methDef->name == $nc(this->names)->init && $nc(methDef->params)->isEmpty() && ($nc(methDef->mods)->flags & $Flags::COMPACT_RECORD_CONSTRUCTOR) != 0) {
+					$var($ListBuffer, tmpParams, $new($ListBuffer));
+					{
+						$var($Iterator, i$, headerFields->iterator());
+						for (; $nc(i$)->hasNext();) {
+							$var($JCTree$JCVariableDecl, param, $cast($JCTree$JCVariableDecl, i$->next()));
+							{
+								tmpParams->add($($$nc($nc(this->F)->at(param))->VarDef($($nc(this->F)->Modifiers(($Flags::PARAMETER | $Flags::GENERATED_MEMBER) | ($nc($nc(param)->mods)->flags & $Flags::VARARGS), $nc($nc(param)->mods)->annotations)), $nc(param)->name, $nc(param)->vartype, nullptr)));
 							}
 						}
-						$set(methDef, params, tmpParams->toList());
 					}
+					$set(methDef, params, tmpParams->toList());
 				}
 			}
 		}
 	}
 	for (int32_t i = fields->size() - 1; i >= 0; --i) {
 		$var($JCTree$JCVariableDecl, field, $cast($JCTree$JCVariableDecl, fields->get(i)));
-		$assign(defs, defs->prepend(field));
+		$assign(defs, $nc(defs)->prepend(field));
 	}
-	$var($JCTree$JCClassDecl, result, $cast($JCTree$JCClassDecl, toP($($nc($($nc(this->F)->at(pos)))->ClassDef(mods, name, typarams, nullptr, implementing, defs)))));
+	$var($JCTree$JCClassDecl, result, $cast($JCTree$JCClassDecl, toP($($$nc($nc(this->F)->at(pos))->ClassDef(mods, name, typarams, nullptr, implementing, defs)))));
 	attach(result, dc);
 	return result;
 }
 
 $Name* JavacParser::typeName() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t pos = $nc(this->token$)->pos;
 	$var($Name, name, ident());
 	$Source* source = restrictedTypeNameStartingAtSource(name, pos, true);
@@ -5436,7 +4497,7 @@ $Name* JavacParser::typeName() {
 }
 
 $JCTree$JCClassDecl* JavacParser::interfaceDeclaration($JCTree$JCModifiers* mods, $Tokens$Comment* dc) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t pos = $nc(this->token$)->pos;
 	$init($Tokens$TokenKind);
 	accept($Tokens$TokenKind::INTERFACE);
@@ -5450,18 +4511,18 @@ $JCTree$JCClassDecl* JavacParser::interfaceDeclaration($JCTree$JCModifiers* mods
 	$var($List, permitting, permitsClause(mods, "interface"_s));
 	$var($List, defs, nullptr);
 	$assign(defs, classInterfaceOrRecordBody(name, true, false));
-	$var($JCTree$JCClassDecl, result, $cast($JCTree$JCClassDecl, toP($($nc($($nc(this->F)->at(pos)))->ClassDef(mods, name, typarams, nullptr, extending, permitting, defs)))));
+	$var($JCTree$JCClassDecl, result, $cast($JCTree$JCClassDecl, toP($($$nc($nc(this->F)->at(pos))->ClassDef(mods, name, typarams, nullptr, extending, permitting, defs)))));
 	attach(result, dc);
 	return result;
 }
 
 $List* JavacParser::permitsClause($JCTree$JCModifiers* mods, $String* classOrInterface) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Tokens$TokenKind);
-	if (this->allowSealedTypes && $nc(this->token$)->kind == $Tokens$TokenKind::IDENTIFIER && $nc(this->token$)->name() == $nc(this->names)->permits) {
+	if (this->allowSealedTypes && $nc(this->token$)->kind == $Tokens$TokenKind::IDENTIFIER && this->token$->name() == $nc(this->names)->permits) {
 		$init($Source$Feature);
 		checkSourceLevel($Source$Feature::SEALED_CLASSES);
-		if (((int64_t)($nc(mods)->flags & (uint64_t)$Flags::SEALED)) == 0) {
+		if (($nc(mods)->flags & $Flags::SEALED) == 0) {
 			$nc(this->log)->error($nc(this->token$)->pos, $($CompilerProperties$Errors::InvalidPermitsClause($($CompilerProperties$Fragments::ClassIsNotSealed(classOrInterface)))));
 		}
 		nextToken();
@@ -5471,7 +4532,7 @@ $List* JavacParser::permitsClause($JCTree$JCModifiers* mods, $String* classOrInt
 }
 
 $JCTree$JCClassDecl* JavacParser::enumDeclaration($JCTree$JCModifiers* mods, $Tokens$Comment* dc) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t pos = $nc(this->token$)->pos;
 	$init($Tokens$TokenKind);
 	accept($Tokens$TokenKind::ENUM);
@@ -5483,13 +4544,13 @@ $JCTree$JCClassDecl* JavacParser::enumDeclaration($JCTree$JCModifiers* mods, $To
 	}
 	$var($List, defs, enumBody(name));
 	$nc(mods)->flags |= $Flags::ENUM;
-	$var($JCTree$JCClassDecl, result, $cast($JCTree$JCClassDecl, toP($($nc($($nc(this->F)->at(pos)))->ClassDef(mods, name, $($List::nil()), nullptr, implementing, defs)))));
+	$var($JCTree$JCClassDecl, result, $cast($JCTree$JCClassDecl, toP($($$nc($nc(this->F)->at(pos))->ClassDef(mods, name, $($List::nil()), nullptr, implementing, defs)))));
 	attach(result, dc);
 	return result;
 }
 
 $List* JavacParser::enumBody($Name* enumName) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Tokens$TokenKind);
 	accept($Tokens$TokenKind::LBRACE);
 	$var($ListBuffer, defs, $new($ListBuffer));
@@ -5501,19 +4562,17 @@ $List* JavacParser::enumBody($Name* enumName) {
 		if ($nc(this->token$)->kind == $Tokens$TokenKind::SEMI) {
 			wasSemi = true;
 			nextToken();
-		} else {
-			if ($nc(this->token$)->kind != $Tokens$TokenKind::RBRACE) {
-				int32_t var$0 = $nc($($nc(this->S)->prevToken()))->endPos;
-				reportSyntaxError(var$0, $($CompilerProperties$Errors::Expected2($Tokens$TokenKind::RBRACE, $Tokens$TokenKind::SEMI)));
-				wasError = true;
-			}
+		} else if (this->token$->kind != $Tokens$TokenKind::RBRACE) {
+			int32_t var$0 = $nc($($nc(this->S)->prevToken()))->endPos;
+			reportSyntaxError(var$0, $($CompilerProperties$Errors::Expected2($Tokens$TokenKind::RBRACE, $Tokens$TokenKind::SEMI)));
+			wasError = true;
 		}
 	}
-	while ($nc(this->token$)->kind != $Tokens$TokenKind::RBRACE && $nc(this->token$)->kind != $Tokens$TokenKind::EOF) {
-		if ($nc(this->token$)->kind == $Tokens$TokenKind::SEMI) {
+	while ($nc(this->token$)->kind != $Tokens$TokenKind::RBRACE && this->token$->kind != $Tokens$TokenKind::EOF) {
+		if (this->token$->kind == $Tokens$TokenKind::SEMI) {
 			accept($Tokens$TokenKind::SEMI);
 			wasSemi = true;
-			if ($nc(this->token$)->kind == $Tokens$TokenKind::RBRACE || $nc(this->token$)->kind == $Tokens$TokenKind::EOF) {
+			if ($nc(this->token$)->kind == $Tokens$TokenKind::RBRACE || this->token$->kind == $Tokens$TokenKind::EOF) {
 				break;
 			}
 		}
@@ -5532,16 +4591,14 @@ $List* JavacParser::enumBody($Name* enumName) {
 			defs->append($(enumeratorDeclaration(enumName)));
 			if ($nc(this->token$)->pos <= $nc(this->endPosTable)->errorEndPos) {
 				skip(false, true, true, false);
-			} else {
-				if ($nc(this->token$)->kind != $Tokens$TokenKind::RBRACE && $nc(this->token$)->kind != $Tokens$TokenKind::SEMI && $nc(this->token$)->kind != $Tokens$TokenKind::EOF) {
-					if ($nc(this->token$)->kind == $Tokens$TokenKind::COMMA) {
-						nextToken();
-					} else {
-						setErrorEndPos($nc(this->token$)->pos);
-						int32_t var$1 = $nc($($nc(this->S)->prevToken()))->endPos;
-						reportSyntaxError(var$1, $($CompilerProperties$Errors::Expected3($Tokens$TokenKind::COMMA, $Tokens$TokenKind::RBRACE, $Tokens$TokenKind::SEMI)));
-						wasError = true;
-					}
+			} else if (this->token$->kind != $Tokens$TokenKind::RBRACE && this->token$->kind != $Tokens$TokenKind::SEMI && this->token$->kind != $Tokens$TokenKind::EOF) {
+				if (this->token$->kind == $Tokens$TokenKind::COMMA) {
+					nextToken();
+				} else {
+					setErrorEndPos($nc(this->token$)->pos);
+					int32_t var$1 = $nc($($nc(this->S)->prevToken()))->endPos;
+					reportSyntaxError(var$1, $($CompilerProperties$Errors::Expected3($Tokens$TokenKind::COMMA, $Tokens$TokenKind::RBRACE, $Tokens$TokenKind::SEMI)));
+					wasError = true;
 				}
 			}
 		} else {
@@ -5563,51 +4620,40 @@ $List* JavacParser::enumBody($Name* enumName) {
 
 $JavacParser$EnumeratorEstimate* JavacParser::estimateEnumeratorOrMember($Name* enumName) {
 	$init($Tokens$TokenKind);
-	bool var$0 = $nc(this->token$)->kind == $Tokens$TokenKind::IDENTIFIER && $nc(this->token$)->name() != enumName;
+	bool var$0 = $nc(this->token$)->kind == $Tokens$TokenKind::IDENTIFIER && this->token$->name() != enumName;
 	if (var$0 && (!this->allowRecords || !isRecordStart())) {
 		$var($Tokens$Token, next, $nc(this->S)->token(1));
 		$init($JavacParser$1);
 		switch ($nc($JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind)->get(($nc(next)->kind)->ordinal())) {
 		case 74:
-			{}
 		case 11:
-			{}
 		case 88:
-			{}
 		case 1:
-			{
-				$init($JavacParser$EnumeratorEstimate);
-				return $JavacParser$EnumeratorEstimate::ENUMERATOR;
-			}
+			$init($JavacParser$EnumeratorEstimate);
+			return $JavacParser$EnumeratorEstimate::ENUMERATOR;
 		}
 	}
 	$init($JavacParser$1);
 	switch ($nc($JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind)->get(($nc(this->token$)->kind)->ordinal())) {
 	case 32:
-		{}
 	case 5:
-		{}
 	case 21:
-		{
-			if ($nc(this->token$)->kind == $Tokens$TokenKind::IDENTIFIER) {
-				if (this->allowRecords && isRecordStart()) {
-					$init($JavacParser$EnumeratorEstimate);
-					return $JavacParser$EnumeratorEstimate::MEMBER;
-				}
+		if ($nc(this->token$)->kind == $Tokens$TokenKind::IDENTIFIER) {
+			if (this->allowRecords && isRecordStart()) {
+				$init($JavacParser$EnumeratorEstimate);
+				return $JavacParser$EnumeratorEstimate::MEMBER;
 			}
-			$init($JavacParser$EnumeratorEstimate);
-			return $JavacParser$EnumeratorEstimate::UNKNOWN;
 		}
+		$init($JavacParser$EnumeratorEstimate);
+		return $JavacParser$EnumeratorEstimate::UNKNOWN;
 	default:
-		{
-			$init($JavacParser$EnumeratorEstimate);
-			return $JavacParser$EnumeratorEstimate::MEMBER;
-		}
+		$init($JavacParser$EnumeratorEstimate);
+		return $JavacParser$EnumeratorEstimate::MEMBER;
 	}
 }
 
 $JCTree* JavacParser::enumeratorDeclaration($Name* enumName) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Tokens$Comment$CommentStyle);
 	$var($Tokens$Comment, dc, $nc(this->token$)->comment($Tokens$Comment$CommentStyle::JAVADOC));
 	int32_t flags = (($Flags::PUBLIC | $Flags::STATIC) | $Flags::FINAL) | $Flags::ENUM;
@@ -5617,35 +4663,35 @@ $JCTree* JavacParser::enumeratorDeclaration($Name* enumName) {
 	int32_t pos = $nc(this->token$)->pos;
 	$init($JCTree$Tag);
 	$var($List, annotations, annotationsOpt($JCTree$Tag::ANNOTATION));
-	$var($JCTree$JCModifiers, mods, $nc($($nc(this->F)->at($nc(annotations)->isEmpty() ? $Position::NOPOS : pos)))->Modifiers(flags, annotations));
+	$var($JCTree$JCModifiers, mods, $$nc($nc(this->F)->at($nc(annotations)->isEmpty() ? $Position::NOPOS : pos))->Modifiers(flags, annotations));
 	$var($List, typeArgs, typeArgumentsOpt());
 	int32_t identPos = $nc(this->token$)->pos;
 	$var($Name, name, this->ident());
 	int32_t createPos = $nc(this->token$)->pos;
 	$init($Tokens$TokenKind);
-	$var($List, args, ($nc(this->token$)->kind == $Tokens$TokenKind::LPAREN) ? arguments() : $List::nil());
+	$var($List, args, (this->token$->kind == $Tokens$TokenKind::LPAREN) ? arguments() : $List::nil());
 	$var($JCTree$JCClassDecl, body, nullptr);
 	if ($nc(this->token$)->kind == $Tokens$TokenKind::LBRACE) {
-		$var($JCTree$JCModifiers, mods1, $nc($($nc(this->F)->at($Position::NOPOS)))->Modifiers($Flags::ENUM));
+		$var($JCTree$JCModifiers, mods1, $$nc($nc(this->F)->at($Position::NOPOS))->Modifiers($Flags::ENUM));
 		$var($List, defs, classInterfaceOrRecordBody($nc(this->names)->empty, false, false));
-		$assign(body, $cast($JCTree$JCClassDecl, toP($($nc($($nc(this->F)->at(identPos)))->AnonymousClassDef(mods1, defs)))));
+		$assign(body, $cast($JCTree$JCClassDecl, toP($($$nc($nc(this->F)->at(identPos))->AnonymousClassDef(mods1, defs)))));
 	}
 	if ($nc(args)->isEmpty() && body == nullptr) {
 		createPos = identPos;
 	}
-	$var($JCTree$JCIdent, ident, $nc($($nc(this->F)->at(identPos)))->Ident(enumName));
-	$var($JCTree$JCNewClass, create, $nc($($nc(this->F)->at(createPos)))->NewClass(nullptr, typeArgs, ident, args, body));
+	$var($JCTree$JCIdent, ident, $$nc($nc(this->F)->at(identPos))->Ident(enumName));
+	$var($JCTree$JCNewClass, create, $$nc($nc(this->F)->at(createPos))->NewClass(nullptr, typeArgs, ident, args, body));
 	if (createPos != identPos) {
 		storeEnd(create, $nc($($nc(this->S)->prevToken()))->endPos);
 	}
-	$assign(ident, $nc($($nc(this->F)->at(identPos)))->Ident(enumName));
-	$var($JCTree, result, toP($($nc($($nc(this->F)->at(pos)))->VarDef(mods, name, ident, create))));
+	$assign(ident, $$nc($nc(this->F)->at(identPos))->Ident(enumName));
+	$var($JCTree, result, toP($($$nc($nc(this->F)->at(pos))->VarDef(mods, name, ident, create))));
 	attach(result, dc);
 	return result;
 }
 
 $List* JavacParser::typeList() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ListBuffer, ts, $new($ListBuffer));
 	ts->append($(parseType()));
 	$init($Tokens$TokenKind);
@@ -5657,7 +4703,7 @@ $List* JavacParser::typeList() {
 }
 
 $List* JavacParser::classInterfaceOrRecordBody($Name* className, bool isInterface, bool isRecord) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Tokens$TokenKind);
 	accept($Tokens$TokenKind::LBRACE);
 	if ($nc(this->token$)->pos <= $nc(this->endPosTable)->errorEndPos) {
@@ -5669,9 +4715,9 @@ $List* JavacParser::classInterfaceOrRecordBody($Name* className, bool isInterfac
 		}
 	}
 	$var($ListBuffer, defs, $new($ListBuffer));
-	while ($nc(this->token$)->kind != $Tokens$TokenKind::RBRACE && $nc(this->token$)->kind != $Tokens$TokenKind::EOF) {
+	while ($nc(this->token$)->kind != $Tokens$TokenKind::RBRACE && this->token$->kind != $Tokens$TokenKind::EOF) {
 		defs->appendList($(classOrInterfaceOrRecordBodyDeclaration(className, isInterface, isRecord)));
-		if ($nc(this->token$)->pos <= $nc(this->endPosTable)->errorEndPos) {
+		if ($nc(this->token$)->pos <= this->endPosTable->errorEndPos) {
 			skip(false, true, true, false);
 		}
 	}
@@ -5680,114 +4726,106 @@ $List* JavacParser::classInterfaceOrRecordBody($Name* className, bool isInterfac
 }
 
 $List* JavacParser::classOrInterfaceOrRecordBodyDeclaration($Name* className, bool isInterface, bool isRecord) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Tokens$TokenKind);
 	if ($nc(this->token$)->kind == $Tokens$TokenKind::SEMI) {
 		nextToken();
 		return $List::nil();
 	} else {
 		$init($Tokens$Comment$CommentStyle);
-		$var($Tokens$Comment, dc, $nc(this->token$)->comment($Tokens$Comment$CommentStyle::JAVADOC));
+		$var($Tokens$Comment, dc, this->token$->comment($Tokens$Comment$CommentStyle::JAVADOC));
 		int32_t pos = $nc(this->token$)->pos;
 		$var($JCTree$JCModifiers, mods, modifiersOpt());
-		if ($nc(this->token$)->kind == $Tokens$TokenKind::CLASS || this->allowRecords && isRecordStart() || $nc(this->token$)->kind == $Tokens$TokenKind::INTERFACE || $nc(this->token$)->kind == $Tokens$TokenKind::ENUM) {
+		if ($nc(this->token$)->kind == $Tokens$TokenKind::CLASS || this->allowRecords && isRecordStart() || this->token$->kind == $Tokens$TokenKind::INTERFACE || this->token$->kind == $Tokens$TokenKind::ENUM) {
 			return $List::of($(classOrRecordOrInterfaceOrEnumDeclaration(mods, dc)));
+		} else if ($nc(this->token$)->kind == $Tokens$TokenKind::LBRACE && (($nc(mods)->flags & $Flags::StandardFlags) & ~$Flags::STATIC) == 0 && $nc(mods->annotations)->isEmpty()) {
+			if (isInterface) {
+				$init($JCDiagnostic$DiagnosticFlag);
+				$init($CompilerProperties$Errors);
+				$nc(this->log)->error($JCDiagnostic$DiagnosticFlag::SYNTAX, $nc(this->token$)->pos, $CompilerProperties$Errors::InitializerNotAllowed);
+			} else if (isRecord && (mods->flags & $Flags::STATIC) == 0) {
+				$init($JCDiagnostic$DiagnosticFlag);
+				$init($CompilerProperties$Errors);
+				$nc(this->log)->error($JCDiagnostic$DiagnosticFlag::SYNTAX, $nc(this->token$)->pos, $CompilerProperties$Errors::InstanceInitializerNotAllowedInRecords);
+			}
+			return $List::of($(block(pos, mods->flags)));
 		} else {
-			if ($nc(this->token$)->kind == $Tokens$TokenKind::LBRACE && ((int64_t)(((int64_t)($nc(mods)->flags & (uint64_t)(int64_t)$Flags::StandardFlags)) & (uint64_t)(int64_t)~$Flags::STATIC)) == 0 && $nc(mods->annotations)->isEmpty()) {
-				if (isInterface) {
-					$init($JCDiagnostic$DiagnosticFlag);
-					$init($CompilerProperties$Errors);
-					$nc(this->log)->error($JCDiagnostic$DiagnosticFlag::SYNTAX, $nc(this->token$)->pos, $CompilerProperties$Errors::InitializerNotAllowed);
-				} else if (isRecord && ((int64_t)(mods->flags & (uint64_t)(int64_t)$Flags::STATIC)) == 0) {
-					$init($JCDiagnostic$DiagnosticFlag);
-					$init($CompilerProperties$Errors);
-					$nc(this->log)->error($JCDiagnostic$DiagnosticFlag::SYNTAX, $nc(this->token$)->pos, $CompilerProperties$Errors::InstanceInitializerNotAllowedInRecords);
+			pos = $nc(this->token$)->pos;
+			$var($List, typarams, typeParametersOpt());
+			if ($nc(typarams)->nonEmpty() && $nc(mods)->pos$ == $Position::NOPOS) {
+				mods->pos$ = pos;
+				storeEnd(mods, pos);
+			}
+			$init($JCTree$Tag);
+			$var($List, annosAfterParams, annotationsOpt($JCTree$Tag::ANNOTATION));
+			if ($nc(annosAfterParams)->nonEmpty()) {
+				$init($Source$Feature);
+				checkSourceLevel($nc(($cast($JCTree$JCAnnotation, annosAfterParams->head)))->pos$, $Source$Feature::ANNOTATIONS_AFTER_TYPE_PARAMS);
+				$set($nc(mods), annotations, $nc($nc(mods)->annotations)->appendList(annosAfterParams));
+				if (mods->pos$ == $Position::NOPOS) {
+					mods->pos$ = $nc(($cast($JCTree$JCAnnotation, $nc(mods->annotations)->head)))->pos$;
 				}
-				return $List::of($(block(pos, mods->flags)));
+			}
+			$var($Tokens$Token, tk, this->token$);
+			pos = $nc(this->token$)->pos;
+			$var($JCTree$JCExpression, type, nullptr);
+			bool isVoid = this->token$->kind == $Tokens$TokenKind::VOID;
+			if (isVoid) {
+				$init($TypeTag);
+				$assign(type, $cast($JCTree$JCExpression, to($($$nc($nc(this->F)->at(pos))->TypeIdent($TypeTag::VOID)))));
+				nextToken();
+			} else {
+				$assign(type, unannotatedType(false));
+			}
+			if (($nc(this->token$)->kind == $Tokens$TokenKind::LPAREN && !isInterface || isRecord && this->token$->kind == $Tokens$TokenKind::LBRACE) && $nc(type)->hasTag($JCTree$Tag::IDENT)) {
+				if (isInterface || $nc(tk)->name() != className) {
+					$init($JCDiagnostic$DiagnosticFlag);
+					$init($CompilerProperties$Errors);
+					$nc(this->log)->error($JCDiagnostic$DiagnosticFlag::SYNTAX, pos, $CompilerProperties$Errors::InvalidMethDeclRetTypeReq);
+				} else if (annosAfterParams->nonEmpty()) {
+					illegal($nc(($cast($JCTree$JCAnnotation, annosAfterParams->head)))->pos$);
+				}
+				if (isRecord && $nc(this->token$)->kind == $Tokens$TokenKind::LBRACE) {
+					$nc(mods)->flags |= $Flags::COMPACT_RECORD_CONSTRUCTOR;
+				}
+				return $List::of($(methodDeclaratorRest(pos, mods, nullptr, $nc(this->names)->init, typarams, isInterface, true, isRecord, dc)));
+			} else if (isRecord && $nc(type)->hasTag($JCTree$Tag::IDENT) && $nc(this->token$)->kind == $Tokens$TokenKind::THROWS) {
+				$init($JCDiagnostic$DiagnosticFlag);
+				$init($CompilerProperties$Fragments);
+				$nc(this->log)->error($JCDiagnostic$DiagnosticFlag::SYNTAX, $nc(this->token$)->pos, $($CompilerProperties$Errors::InvalidCanonicalConstructorInRecord($CompilerProperties$Fragments::Compact, className, $($CompilerProperties$Fragments::ThrowsClauseNotAllowedForCanonicalConstructor($CompilerProperties$Fragments::Compact)))));
+				skip(false, true, false, false);
+				return $List::of($(methodDeclaratorRest(pos, mods, nullptr, $nc(this->names)->init, typarams, isInterface, true, isRecord, dc)));
 			} else {
 				pos = $nc(this->token$)->pos;
-				$var($List, typarams, typeParametersOpt());
-				if ($nc(typarams)->nonEmpty() && mods->pos$ == $Position::NOPOS) {
-					mods->pos$ = pos;
-					storeEnd(mods, pos);
-				}
-				$init($JCTree$Tag);
-				$var($List, annosAfterParams, annotationsOpt($JCTree$Tag::ANNOTATION));
-				if ($nc(annosAfterParams)->nonEmpty()) {
-					$init($Source$Feature);
-					checkSourceLevel($nc(($cast($JCTree$JCAnnotation, annosAfterParams->head)))->pos$, $Source$Feature::ANNOTATIONS_AFTER_TYPE_PARAMS);
-					$set(mods, annotations, $nc(mods->annotations)->appendList(annosAfterParams));
-					if (mods->pos$ == $Position::NOPOS) {
-						mods->pos$ = $nc(($cast($JCTree$JCAnnotation, $nc(mods->annotations)->head)))->pos$;
-					}
-				}
-				$var($Tokens$Token, tk, this->token$);
-				pos = $nc(this->token$)->pos;
-				$var($JCTree$JCExpression, type, nullptr);
-				bool isVoid = $nc(this->token$)->kind == $Tokens$TokenKind::VOID;
-				if (isVoid) {
-					$init($TypeTag);
-					$assign(type, $cast($JCTree$JCExpression, to($($nc($($nc(this->F)->at(pos)))->TypeIdent($TypeTag::VOID)))));
-					nextToken();
-				} else {
-					$assign(type, unannotatedType(false));
-				}
-				if (($nc(this->token$)->kind == $Tokens$TokenKind::LPAREN && !isInterface || isRecord && $nc(this->token$)->kind == $Tokens$TokenKind::LBRACE) && $nc(type)->hasTag($JCTree$Tag::IDENT)) {
-					if (isInterface || $nc(tk)->name() != className) {
-						$init($JCDiagnostic$DiagnosticFlag);
-						$init($CompilerProperties$Errors);
-						$nc(this->log)->error($JCDiagnostic$DiagnosticFlag::SYNTAX, pos, $CompilerProperties$Errors::InvalidMethDeclRetTypeReq);
-					} else if ($nc(annosAfterParams)->nonEmpty()) {
-						illegal($nc(($cast($JCTree$JCAnnotation, annosAfterParams->head)))->pos$);
-					}
-					if (isRecord && $nc(this->token$)->kind == $Tokens$TokenKind::LBRACE) {
-						mods->flags |= $Flags::COMPACT_RECORD_CONSTRUCTOR;
-					}
-					return $List::of($(methodDeclaratorRest(pos, mods, nullptr, $nc(this->names)->init, typarams, isInterface, true, isRecord, dc)));
-				} else {
-					if (isRecord && type->hasTag($JCTree$Tag::IDENT) && $nc(this->token$)->kind == $Tokens$TokenKind::THROWS) {
-						$init($JCDiagnostic$DiagnosticFlag);
-						$init($CompilerProperties$Fragments);
-						$nc(this->log)->error($JCDiagnostic$DiagnosticFlag::SYNTAX, $nc(this->token$)->pos, $($CompilerProperties$Errors::InvalidCanonicalConstructorInRecord($CompilerProperties$Fragments::Compact, className, $($CompilerProperties$Fragments::ThrowsClauseNotAllowedForCanonicalConstructor($CompilerProperties$Fragments::Compact)))));
-						skip(false, true, false, false);
-						return $List::of($(methodDeclaratorRest(pos, mods, nullptr, $nc(this->names)->init, typarams, isInterface, true, isRecord, dc)));
+				$var($Name, name, ident());
+				if ($nc(this->token$)->kind == $Tokens$TokenKind::LPAREN) {
+					return $List::of($(methodDeclaratorRest(pos, mods, type, name, typarams, isInterface, isVoid, false, dc)));
+				} else if (!isVoid && typarams->isEmpty()) {
+					if (!isRecord || (isRecord && ($nc(mods)->flags & $Flags::STATIC) != 0)) {
+						$var($List, defs, $$nc(variableDeclaratorsRest(pos, mods, type, name, isInterface, dc, $$new($ListBuffer), false))->toList());
+						accept($Tokens$TokenKind::SEMI);
+						$var($JCTree, var$0, $cast($JCTree, $nc(defs)->last()));
+						storeEnd(var$0, $nc($($nc(this->S)->prevToken()))->endPos);
+						return defs;
 					} else {
-						pos = $nc(this->token$)->pos;
-						$var($Name, name, ident());
-						if ($nc(this->token$)->kind == $Tokens$TokenKind::LPAREN) {
-							return $List::of($(methodDeclaratorRest(pos, mods, type, name, typarams, isInterface, isVoid, false, dc)));
-						} else if (!isVoid && $nc(typarams)->isEmpty()) {
-							if (!isRecord || (isRecord && ((int64_t)(mods->flags & (uint64_t)(int64_t)$Flags::STATIC)) != 0)) {
-								$var($List, defs, $nc($(variableDeclaratorsRest(pos, mods, type, name, isInterface, dc, $$new($ListBuffer), false)))->toList());
-								accept($Tokens$TokenKind::SEMI);
-								$var($JCTree, var$0, $cast($JCTree, $nc(defs)->last()));
-								storeEnd(var$0, $nc($($nc(this->S)->prevToken()))->endPos);
-								return defs;
-							} else {
-								int32_t errPos = pos;
-								$nc($(variableDeclaratorsRest(pos, mods, type, name, isInterface, dc, $$new($ListBuffer), false)))->toList();
-								accept($Tokens$TokenKind::SEMI);
-								$init($CompilerProperties$Errors);
-								return $List::of($(syntaxError(errPos, nullptr, $CompilerProperties$Errors::RecordCannotDeclareInstanceFields)));
-							}
-						} else {
-							pos = $nc(this->token$)->pos;
-							$var($List, err, nullptr);
-							if (isVoid || typarams->nonEmpty()) {
-								$var($JCTree$JCModifiers, var$1, mods);
-								$var($Name, var$2, name);
-								$var($JCTree$JCExpression, var$3, type);
-								$var($List, var$4, typarams);
-								$var($List, var$5, $List::nil());
-								$var($JCTree$JCMethodDecl, m, $cast($JCTree$JCMethodDecl, toP($($nc($($nc(this->F)->at(pos)))->MethodDef(var$1, var$2, var$3, var$4, var$5, $($List::nil()), nullptr, nullptr)))));
-								attach(m, dc);
-								$assign(err, $List::of(m));
-							} else {
-								$assign(err, $List::nil());
-							}
-							return $List::of($(syntaxError($nc(this->token$)->pos, err, $($CompilerProperties$Errors::Expected($Tokens$TokenKind::LPAREN)))));
-						}
+						int32_t errPos = pos;
+						$$nc(variableDeclaratorsRest(pos, mods, type, name, isInterface, dc, $$new($ListBuffer), false))->toList();
+						accept($Tokens$TokenKind::SEMI);
+						$init($CompilerProperties$Errors);
+						return $List::of($(syntaxError(errPos, nullptr, $CompilerProperties$Errors::RecordCannotDeclareInstanceFields)));
 					}
+				} else {
+					pos = $nc(this->token$)->pos;
+					$var($List, err, nullptr);
+					if (isVoid || typarams->nonEmpty()) {
+						$var($List, var$1, $List::nil());
+						$var($JCTree$JCMethodDecl, m, $cast($JCTree$JCMethodDecl, toP($($$nc($nc(this->F)->at(pos))->MethodDef(mods, name, type, typarams, var$1, $($List::nil()), nullptr, nullptr)))));
+						attach(m, dc);
+						$assign(err, $List::of(m));
+					} else {
+						$assign(err, $List::nil());
+					}
+					return $List::of($(syntaxError($nc(this->token$)->pos, err, $($CompilerProperties$Errors::Expected($Tokens$TokenKind::LPAREN)))));
 				}
 			}
 		}
@@ -5796,11 +4834,11 @@ $List* JavacParser::classOrInterfaceOrRecordBodyDeclaration($Name* className, bo
 
 bool JavacParser::isRecordStart() {
 	$init($Tokens$TokenKind);
-	bool var$0 = $nc(this->token$)->kind == $Tokens$TokenKind::IDENTIFIER && $nc(this->token$)->name() == $nc(this->names)->record;
+	bool var$0 = $nc(this->token$)->kind == $Tokens$TokenKind::IDENTIFIER && this->token$->name() == $nc(this->names)->record;
 	if (var$0) {
-		bool var$2 = peekToken(static_cast<$Predicate*>($Tokens$TokenKind::IDENTIFIER), static_cast<$Predicate*>($Tokens$TokenKind::LPAREN));
-		bool var$1 = var$2 || peekToken(static_cast<$Predicate*>($Tokens$TokenKind::IDENTIFIER), static_cast<$Predicate*>($Tokens$TokenKind::EOF));
-		var$0 = (var$1 || peekToken(static_cast<$Predicate*>($Tokens$TokenKind::IDENTIFIER), static_cast<$Predicate*>($Tokens$TokenKind::LT)));
+		bool var$2 = peekToken($Tokens$TokenKind::IDENTIFIER, $Tokens$TokenKind::LPAREN);
+		bool var$1 = var$2 || peekToken($Tokens$TokenKind::IDENTIFIER, $Tokens$TokenKind::EOF);
+		var$0 = var$1 || peekToken($Tokens$TokenKind::IDENTIFIER, $Tokens$TokenKind::LT);
 	}
 	if (var$0) {
 		$init($Source$Feature);
@@ -5820,10 +4858,10 @@ bool JavacParser::isNonSealedClassStart(bool local) {
 }
 
 bool JavacParser::isNonSealedIdentifier($Tokens$Token* someToken, int32_t lookAheadOffset) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool var$0 = $nc(someToken)->name() == $nc(this->names)->non;
 	$init($Tokens$TokenKind);
-	if (var$0 && peekToken(lookAheadOffset, static_cast<$Predicate*>($Tokens$TokenKind::SUB), static_cast<$Predicate*>($Tokens$TokenKind::IDENTIFIER))) {
+	if (var$0 && peekToken(lookAheadOffset, $Tokens$TokenKind::SUB, $Tokens$TokenKind::IDENTIFIER)) {
 		$var($Tokens$Token, tokenSub, $nc(this->S)->token(lookAheadOffset + 1));
 		$var($Tokens$Token, tokenSealed, $nc(this->S)->token(lookAheadOffset + 2));
 		if (someToken->endPos == $nc(tokenSub)->pos && tokenSub->endPos == $nc(tokenSealed)->pos && tokenSealed->name() == $nc(this->names)->sealed) {
@@ -5848,79 +4886,52 @@ bool JavacParser::isSealedClassStart(bool local) {
 }
 
 bool JavacParser::allowedAfterSealedOrNonSealed($Tokens$Token* next, bool local, bool currentIsNonSealed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool var$0 = false;
 	if (local) {
 		$init($JavacParser$1);
-
 		bool var$1 = false;
 		switch ($nc($JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind)->get(($nc(next)->kind)->ordinal())) {
 		case 5:
 			{
-				{
-					$var($Tokens$Token, afterNext, $nc(this->S)->token(2));
-					$init($Tokens$TokenKind);
-					var$1 = $nc(afterNext)->kind != $Tokens$TokenKind::INTERFACE || currentIsNonSealed;
-					break;
-				}
+				$var($Tokens$Token, afterNext, $nc(this->S)->token(2));
+				var$1 = $nc(afterNext)->kind != $Tokens$TokenKind::INTERFACE || currentIsNonSealed;
+				break;
 			}
 		case 4:
-			{}
 		case 3:
-			{}
 		case 20:
-			{}
 		case 7:
-			{}
 		case 8:
-			{}
 		case 9:
-			{
-				var$1 = true;
-				break;
-			}
+			var$1 = true;
+			break;
 		default:
-			{
-				var$1 = false;
-				break;
-			}
+			var$1 = false;
+			break;
 		}
 		var$0 = var$1;
 	} else {
-
 		bool var$2 = false;
-		switch ($nc($JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind)->get((next->kind)->ordinal())) {
+		switch ($nc($JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind)->get(($nc(next)->kind)->ordinal())) {
 		case 5:
 			{
-				{
-					$var($Tokens$Token, afterNext, $nc(this->S)->token(2));
-					var$2 = $nc(afterNext)->kind != $Tokens$TokenKind::INTERFACE || currentIsNonSealed;
-					break;
-				}
-			}
-		case 2:
-			{}
-		case 14:
-			{}
-		case 13:
-			{}
-		case 4:
-			{}
-		case 15:
-			{}
-		case 3:
-			{}
-		case 20:
-			{}
-		case 7:
-			{}
-		case 8:
-			{}
-		case 9:
-			{
-				var$2 = true;
+				$var($Tokens$Token, afterNext, $nc(this->S)->token(2));
+				var$2 = $nc(afterNext)->kind != $Tokens$TokenKind::INTERFACE || currentIsNonSealed;
 				break;
 			}
+		case 2:
+		case 14:
+		case 13:
+		case 4:
+		case 15:
+		case 3:
+		case 20:
+		case 7:
+		case 8:
+		case 9:
+			var$2 = true;
+			break;
 		case 32:
 			{
 				bool var$3 = isNonSealedIdentifier(next, currentIsNonSealed ? 3 : 1);
@@ -5928,10 +4939,8 @@ bool JavacParser::allowedAfterSealedOrNonSealed($Tokens$Token* next, bool local,
 				break;
 			}
 		default:
-			{
-				var$2 = false;
-				break;
-			}
+			var$2 = false;
+			break;
 		}
 		var$0 = var$2;
 	}
@@ -5939,80 +4948,78 @@ bool JavacParser::allowedAfterSealedOrNonSealed($Tokens$Token* next, bool local,
 }
 
 $JCTree* JavacParser::methodDeclaratorRest(int32_t pos, $JCTree$JCModifiers* mods, $JCTree$JCExpression* type$renamed, $Name* name, $List* typarams, bool isInterface, bool isVoid, bool isRecord, $Tokens$Comment* dc) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JCTree$JCExpression, type, type$renamed);
 	if (isInterface) {
-		if (((int64_t)($nc(mods)->flags & (uint64_t)(int64_t)$Flags::STATIC)) != 0) {
+		if (($nc(mods)->flags & $Flags::STATIC) != 0) {
 			$init($Source$Feature);
 			checkSourceLevel($Source$Feature::STATIC_INTERFACE_METHODS);
 		}
-		if (((int64_t)($nc(mods)->flags & (uint64_t)(int64_t)$Flags::PRIVATE)) != 0) {
+		if ((mods->flags & $Flags::PRIVATE) != 0) {
 			$init($Source$Feature);
 			checkSourceLevel($Source$Feature::PRIVATE_INTERFACE_METHODS);
 		}
 	}
 	$var($JCTree$JCVariableDecl, prevReceiverParam, this->receiverParam);
-	{
-		$var($Throwable, var$0, nullptr);
-		$var($JCTree, var$2, nullptr);
-		bool return$1 = false;
-		try {
-			$set(this, receiverParam, nullptr);
-			$var($List, params, $List::nil());
-			$var($List, thrown, $List::nil());
-			$init($Tokens$TokenKind);
-			if (!isRecord || name != $nc(this->names)->init || $nc(this->token$)->kind == $Tokens$TokenKind::LPAREN) {
-				$assign(params, formalParameters());
-				if (!isVoid) {
-					$assign(type, bracketsOpt(type));
-				}
-				if ($nc(this->token$)->kind == $Tokens$TokenKind::THROWS) {
-					nextToken();
-					$assign(thrown, qualidentList(true));
-				}
+	$var($Throwable, var$0, nullptr);
+	$var($JCTree, var$2, nullptr);
+	bool return$1 = false;
+	try {
+		$set(this, receiverParam, nullptr);
+		$var($List, params, $List::nil());
+		$var($List, thrown, $List::nil());
+		$init($Tokens$TokenKind);
+		if (!isRecord || name != $nc(this->names)->init || $nc(this->token$)->kind == $Tokens$TokenKind::LPAREN) {
+			$assign(params, formalParameters());
+			if (!isVoid) {
+				$assign(type, bracketsOpt(type));
 			}
-			$var($JCTree$JCBlock, body, nullptr);
-			$var($JCTree$JCExpression, defaultValue, nullptr);
-			if ($nc(this->token$)->kind == $Tokens$TokenKind::LBRACE) {
-				$assign(body, block());
-				$assign(defaultValue, nullptr);
+			if ($nc(this->token$)->kind == $Tokens$TokenKind::THROWS) {
+				nextToken();
+				$assign(thrown, qualidentList(true));
+			}
+		}
+		$var($JCTree$JCBlock, body, nullptr);
+		$var($JCTree$JCExpression, defaultValue, nullptr);
+		if ($nc(this->token$)->kind == $Tokens$TokenKind::LBRACE) {
+			$assign(body, block());
+			$assign(defaultValue, nullptr);
+		} else {
+			if (this->token$->kind == $Tokens$TokenKind::DEFAULT) {
+				accept($Tokens$TokenKind::DEFAULT);
+				$assign(defaultValue, annotationValue());
 			} else {
-				if ($nc(this->token$)->kind == $Tokens$TokenKind::DEFAULT) {
-					accept($Tokens$TokenKind::DEFAULT);
-					$assign(defaultValue, annotationValue());
-				} else {
-					$assign(defaultValue, nullptr);
-				}
-				accept($Tokens$TokenKind::SEMI);
-				if ($nc(this->token$)->pos <= $nc(this->endPosTable)->errorEndPos) {
-					skip(false, true, false, false);
-					if ($nc(this->token$)->kind == $Tokens$TokenKind::LBRACE) {
-						$assign(body, block());
-					}
+				$assign(defaultValue, nullptr);
+			}
+			accept($Tokens$TokenKind::SEMI);
+			if ($nc(this->token$)->pos <= $nc(this->endPosTable)->errorEndPos) {
+				skip(false, true, false, false);
+				if ($nc(this->token$)->kind == $Tokens$TokenKind::LBRACE) {
+					$assign(body, block());
 				}
 			}
-			$var($JCTree$JCMethodDecl, result, $cast($JCTree$JCMethodDecl, toP($($nc($($nc(this->F)->at(pos)))->MethodDef(mods, name, type, typarams, this->receiverParam, params, thrown, body, defaultValue)))));
-			attach(result, dc);
-			$assign(var$2, result);
-			return$1 = true;
-			goto $finally;
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			$set(this, receiverParam, prevReceiverParam);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+		$var($JCTree$JCMethodDecl, result, $cast($JCTree$JCMethodDecl, toP($($$nc($nc(this->F)->at(pos))->MethodDef(mods, name, type, typarams, this->receiverParam, params, thrown, body, defaultValue)))));
+		attach(result, dc);
+		$assign(var$2, result);
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		$set(this, receiverParam, prevReceiverParam);
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
 
 $List* JavacParser::qualidentList(bool allowAnnos) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ListBuffer, ts, $new($ListBuffer));
 	$var($List, typeAnnos, allowAnnos ? typeAnnotationsOpt() : $List::nil());
 	$var($JCTree$JCExpression, qi, qualident(allowAnnos));
@@ -6038,7 +5045,7 @@ $List* JavacParser::qualidentList(bool allowAnnos) {
 }
 
 $List* JavacParser::typeParametersOpt() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Tokens$TokenKind);
 	if ($nc(this->token$)->kind == $Tokens$TokenKind::LT) {
 		$var($ListBuffer, typarams, $new($ListBuffer));
@@ -6056,7 +5063,7 @@ $List* JavacParser::typeParametersOpt() {
 }
 
 $JCTree$JCTypeParameter* JavacParser::typeParameter() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t pos = $nc(this->token$)->pos;
 	$var($List, annos, typeAnnotationsOpt());
 	$var($Name, name, typeName());
@@ -6070,7 +5077,7 @@ $JCTree$JCTypeParameter* JavacParser::typeParameter() {
 			bounds->append($(parseType()));
 		}
 	}
-	return $cast($JCTree$JCTypeParameter, toP($($nc($($nc(this->F)->at(pos)))->TypeParameter(name, $(bounds->toList()), annos))));
+	return $cast($JCTree$JCTypeParameter, toP($($$nc($nc(this->F)->at(pos))->TypeParameter(name, $(bounds->toList()), annos))));
 }
 
 $List* JavacParser::formalParameters() {
@@ -6078,7 +5085,7 @@ $List* JavacParser::formalParameters() {
 }
 
 $List* JavacParser::formalParameters(bool lambdaParameters, bool recordComponents) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ListBuffer, params, $new($ListBuffer));
 	$var($JCTree$JCVariableDecl, lastParam, nullptr);
 	$init($Tokens$TokenKind);
@@ -6093,10 +5100,10 @@ $List* JavacParser::formalParameters(bool lambdaParameters, bool recordComponent
 		}
 		this->allowThisIdent = false;
 		while ($nc(this->token$)->kind == $Tokens$TokenKind::COMMA) {
-			if (((int64_t)($nc($nc(lastParam)->mods)->flags & (uint64_t)$Flags::VARARGS)) != 0) {
+			if (($nc($nc(lastParam)->mods)->flags & $Flags::VARARGS) != 0) {
 				$init($JCDiagnostic$DiagnosticFlag);
 				$init($CompilerProperties$Errors);
-				$nc(this->log)->error($JCDiagnostic$DiagnosticFlag::SYNTAX, static_cast<$JCDiagnostic$DiagnosticPosition*>(lastParam), $CompilerProperties$Errors::VarargsMustBeLast);
+				$nc(this->log)->error($JCDiagnostic$DiagnosticFlag::SYNTAX, lastParam, $CompilerProperties$Errors::VarargsMustBeLast);
 			}
 			nextToken();
 			params->append($assign(lastParam, formalParameter(lambdaParameters, recordComponents)));
@@ -6105,7 +5112,7 @@ $List* JavacParser::formalParameters(bool lambdaParameters, bool recordComponent
 	if ($nc(this->token$)->kind == $Tokens$TokenKind::RPAREN) {
 		nextToken();
 	} else {
-		setErrorEndPos($nc(this->token$)->pos);
+		setErrorEndPos(this->token$->pos);
 		int32_t var$0 = $nc($($nc(this->S)->prevToken()))->endPos;
 		reportSyntaxError(var$0, $($CompilerProperties$Errors::Expected3($Tokens$TokenKind::COMMA, $Tokens$TokenKind::RPAREN, $Tokens$TokenKind::LBRACKET)));
 	}
@@ -6113,14 +5120,14 @@ $List* JavacParser::formalParameters(bool lambdaParameters, bool recordComponent
 }
 
 $List* JavacParser::implicitParameters(bool hasParens) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (hasParens) {
 		$init($Tokens$TokenKind);
 		accept($Tokens$TokenKind::LPAREN);
 	}
 	$var($ListBuffer, params, $new($ListBuffer));
 	$init($Tokens$TokenKind);
-	if ($nc(this->token$)->kind != $Tokens$TokenKind::RPAREN && $nc(this->token$)->kind != $Tokens$TokenKind::ARROW) {
+	if ($nc(this->token$)->kind != $Tokens$TokenKind::RPAREN && this->token$->kind != $Tokens$TokenKind::ARROW) {
 		params->append($(implicitParameter()));
 		while ($nc(this->token$)->kind == $Tokens$TokenKind::COMMA) {
 			nextToken();
@@ -6135,66 +5142,64 @@ $List* JavacParser::implicitParameters(bool hasParens) {
 
 $JCTree$JCModifiers* JavacParser::optFinal(int64_t flags) {
 	$var($JCTree$JCModifiers, mods, modifiersOpt());
-	checkNoMods((int64_t)($nc(mods)->flags & (uint64_t)(int64_t)~($Flags::FINAL | $Flags::DEPRECATED)));
-	$nc(mods)->flags |= flags;
+	checkNoMods($nc(mods)->flags & ~($Flags::FINAL | $Flags::DEPRECATED));
+	mods->flags |= flags;
 	return mods;
 }
 
 $JCTree$JCExpression* JavacParser::insertAnnotationsToMostInner($JCTree$JCExpression* type, $List* annos, bool createNewLevel) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t origEndPos = getEndPos(type);
 	$var($JCTree$JCExpression, mostInnerType, type);
 	$var($JCTree$JCArrayTypeTree, mostInnerArrayType, nullptr);
 	$init($JCTree$Tag);
-	while ($nc($($TreeInfo::typeIn(mostInnerType)))->hasTag($JCTree$Tag::TYPEARRAY)) {
+	while ($$nc($TreeInfo::typeIn(mostInnerType))->hasTag($JCTree$Tag::TYPEARRAY)) {
 		$assign(mostInnerArrayType, $cast($JCTree$JCArrayTypeTree, $TreeInfo::typeIn(mostInnerType)));
 		$assign(mostInnerType, $nc(mostInnerArrayType)->elemtype);
 	}
 	if (createNewLevel) {
-		$assign(mostInnerType, $cast($JCTree$JCExpression, to($($nc($($nc(this->F)->at($nc(this->token$)->pos)))->TypeArray(mostInnerType)))));
+		$assign(mostInnerType, $cast($JCTree$JCExpression, to($($$nc($nc(this->F)->at($nc(this->token$)->pos))->TypeArray(mostInnerType)))));
 		origEndPos = getEndPos(mostInnerType);
 	}
 	$var($JCTree$JCExpression, mostInnerTypeToReturn, mostInnerType);
 	if ($nc(annos)->nonEmpty()) {
 		$var($JCTree$JCExpression, lastToModify, mostInnerType);
 		while (true) {
-			bool var$0 = $nc($($TreeInfo::typeIn(mostInnerType)))->hasTag($JCTree$Tag::SELECT);
-			if (!(var$0 || $nc($($TreeInfo::typeIn(mostInnerType)))->hasTag($JCTree$Tag::TYPEAPPLY))) {
+			bool var$0 = $$nc($TreeInfo::typeIn(mostInnerType))->hasTag($JCTree$Tag::SELECT);
+			if (!(var$0 || $$nc($TreeInfo::typeIn(mostInnerType))->hasTag($JCTree$Tag::TYPEAPPLY))) {
 				break;
 			}
 			{
-				while ($nc($($TreeInfo::typeIn(mostInnerType)))->hasTag($JCTree$Tag::SELECT)) {
+				while ($$nc($TreeInfo::typeIn(mostInnerType))->hasTag($JCTree$Tag::SELECT)) {
 					$assign(lastToModify, mostInnerType);
-					$assign(mostInnerType, $cast($JCTree$JCExpression, $nc(($cast($JCTree$JCFieldAccess, $($TreeInfo::typeIn(mostInnerType)))))->getExpression()));
+					$assign(mostInnerType, $cast($JCTree$JCExpression, $$sure($JCTree$JCFieldAccess, $TreeInfo::typeIn(mostInnerType))->getExpression()));
 				}
-				while ($nc($($TreeInfo::typeIn(mostInnerType)))->hasTag($JCTree$Tag::TYPEAPPLY)) {
+				while ($$nc($TreeInfo::typeIn(mostInnerType))->hasTag($JCTree$Tag::TYPEAPPLY)) {
 					$assign(lastToModify, mostInnerType);
-					$assign(mostInnerType, $nc(($cast($JCTree$JCTypeApply, $($TreeInfo::typeIn(mostInnerType)))))->clazz);
+					$assign(mostInnerType, $nc($$cast($JCTree$JCTypeApply, $TreeInfo::typeIn(mostInnerType)))->clazz);
 				}
 			}
 		}
-		$assign(mostInnerType, $nc($($nc(this->F)->at($nc(($cast($JCTree$JCAnnotation, annos->head)))->pos$)))->AnnotatedType(annos, mostInnerType));
-		if ($nc($($TreeInfo::typeIn(lastToModify)))->hasTag($JCTree$Tag::TYPEAPPLY)) {
-			$set($nc($cast($JCTree$JCTypeApply, $($TreeInfo::typeIn(lastToModify)))), clazz, mostInnerType);
+		$assign(mostInnerType, $$nc($nc(this->F)->at($nc(($cast($JCTree$JCAnnotation, annos->head)))->pos$))->AnnotatedType(annos, mostInnerType));
+		if ($$nc($TreeInfo::typeIn(lastToModify))->hasTag($JCTree$Tag::TYPEAPPLY)) {
+			$set($nc($$cast($JCTree$JCTypeApply, $TreeInfo::typeIn(lastToModify))), clazz, mostInnerType);
+		} else if ($$nc($TreeInfo::typeIn(lastToModify))->hasTag($JCTree$Tag::SELECT)) {
+			$set($nc($$cast($JCTree$JCFieldAccess, $TreeInfo::typeIn(lastToModify))), selected, mostInnerType);
 		} else {
-			if ($nc($($TreeInfo::typeIn(lastToModify)))->hasTag($JCTree$Tag::SELECT)) {
-				$set($nc($cast($JCTree$JCFieldAccess, $($TreeInfo::typeIn(lastToModify)))), selected, mostInnerType);
-			} else {
-				$assign(mostInnerTypeToReturn, mostInnerType);
-			}
+			$assign(mostInnerTypeToReturn, mostInnerType);
 		}
 	}
 	if (mostInnerArrayType == nullptr) {
 		return mostInnerTypeToReturn;
 	} else {
-		$set($nc(mostInnerArrayType), elemtype, mostInnerTypeToReturn);
+		$set(mostInnerArrayType, elemtype, mostInnerTypeToReturn);
 		storeEnd(type, origEndPos);
 		return type;
 	}
 }
 
 $JCTree$JCVariableDecl* JavacParser::formalParameter(bool lambdaParameter, bool recordComponent) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JCTree$JCModifiers, mods, !recordComponent ? optFinal($Flags::PARAMETER) : modifiersOpt());
 	if (recordComponent && $nc(mods)->flags != 0) {
 		$init($CompilerProperties$Errors);
@@ -6224,18 +5229,18 @@ $JCTree$JCVariableDecl* JavacParser::formalParameter(bool lambdaParameter, bool 
 }
 
 $JCTree$JCVariableDecl* JavacParser::implicitParameter() {
-	$useLocalCurrentObjectStackCache();
-	$var($JCTree$JCModifiers, mods, $nc($($nc(this->F)->at($nc(this->token$)->pos)))->Modifiers($Flags::PARAMETER));
+	$useLocalObjectStack();
+	$var($JCTree$JCModifiers, mods, $$nc($nc(this->F)->at($nc(this->token$)->pos))->Modifiers($Flags::PARAMETER));
 	return variableDeclaratorId(mods, nullptr, true, false);
 }
 
 $JCTree$JCExpression* JavacParser::checkExprStat($JCTree$JCExpression* t) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!$TreeInfo::isExpressionStatement(t)) {
-		$var($JCTree$JCExpression, ret, $nc($($nc(this->F)->at($nc(t)->pos$)))->Erroneous($($List::of(t))));
+		$var($JCTree$JCExpression, ret, $$nc($nc(this->F)->at($nc(t)->pos$))->Erroneous($($List::of(t))));
 		$init($JCDiagnostic$DiagnosticFlag);
 		$init($CompilerProperties$Errors);
-		$nc(this->log)->error($JCDiagnostic$DiagnosticFlag::SYNTAX, static_cast<$JCDiagnostic$DiagnosticPosition*>(ret), $CompilerProperties$Errors::NotStmt);
+		$nc(this->log)->error($JCDiagnostic$DiagnosticFlag::SYNTAX, ret, $CompilerProperties$Errors::NotStmt);
 		return ret;
 	} else {
 		return t;
@@ -6265,165 +5270,101 @@ $JCTree$Tag* JavacParser::optag($Tokens$TokenKind* token) {
 	$init($JavacParser$1);
 	switch ($nc($JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind)->get($nc((token))->ordinal())) {
 	case 95:
-		{
-			$init($JCTree$Tag);
-			return $JCTree$Tag::OR;
-		}
+		$init($JCTree$Tag);
+		return $JCTree$Tag::OR;
 	case 96:
-		{
-			$init($JCTree$Tag);
-			return $JCTree$Tag::AND;
-		}
+		$init($JCTree$Tag);
+		return $JCTree$Tag::AND;
 	case 97:
-		{
-			$init($JCTree$Tag);
-			return $JCTree$Tag::BITOR;
-		}
+		$init($JCTree$Tag);
+		return $JCTree$Tag::BITOR;
 	case 68:
-		{
-			$init($JCTree$Tag);
-			return $JCTree$Tag::BITOR_ASG;
-		}
+		$init($JCTree$Tag);
+		return $JCTree$Tag::BITOR_ASG;
 	case 98:
-		{
-			$init($JCTree$Tag);
-			return $JCTree$Tag::BITXOR;
-		}
+		$init($JCTree$Tag);
+		return $JCTree$Tag::BITXOR;
 	case 69:
-		{
-			$init($JCTree$Tag);
-			return $JCTree$Tag::BITXOR_ASG;
-		}
+		$init($JCTree$Tag);
+		return $JCTree$Tag::BITXOR_ASG;
 	case 92:
-		{
-			$init($JCTree$Tag);
-			return $JCTree$Tag::BITAND;
-		}
+		$init($JCTree$Tag);
+		return $JCTree$Tag::BITAND;
 	case 67:
-		{
-			$init($JCTree$Tag);
-			return $JCTree$Tag::BITAND_ASG;
-		}
+		$init($JCTree$Tag);
+		return $JCTree$Tag::BITAND_ASG;
 	case 99:
-		{
-			$init($JCTree$Tag);
-			return $JCTree$Tag::EQ;
-		}
+		$init($JCTree$Tag);
+		return $JCTree$Tag::EQ;
 	case 100:
-		{
-			$init($JCTree$Tag);
-			return $JCTree$Tag::NE;
-		}
+		$init($JCTree$Tag);
+		return $JCTree$Tag::NE;
 	case 21:
-		{
-			$init($JCTree$Tag);
-			return $JCTree$Tag::LT;
-		}
+		$init($JCTree$Tag);
+		return $JCTree$Tag::LT;
 	case 91:
-		{
-			$init($JCTree$Tag);
-			return $JCTree$Tag::GT;
-		}
+		$init($JCTree$Tag);
+		return $JCTree$Tag::GT;
 	case 101:
-		{
-			$init($JCTree$Tag);
-			return $JCTree$Tag::LE;
-		}
+		$init($JCTree$Tag);
+		return $JCTree$Tag::LE;
 	case 93:
-		{
-			$init($JCTree$Tag);
-			return $JCTree$Tag::GE;
-		}
+		$init($JCTree$Tag);
+		return $JCTree$Tag::GE;
 	case 102:
-		{
-			$init($JCTree$Tag);
-			return $JCTree$Tag::SL;
-		}
+		$init($JCTree$Tag);
+		return $JCTree$Tag::SL;
 	case 70:
-		{
-			$init($JCTree$Tag);
-			return $JCTree$Tag::SL_ASG;
-		}
+		$init($JCTree$Tag);
+		return $JCTree$Tag::SL_ASG;
 	case 90:
-		{
-			$init($JCTree$Tag);
-			return $JCTree$Tag::SR;
-		}
+		$init($JCTree$Tag);
+		return $JCTree$Tag::SR;
 	case 71:
-		{
-			$init($JCTree$Tag);
-			return $JCTree$Tag::SR_ASG;
-		}
+		$init($JCTree$Tag);
+		return $JCTree$Tag::SR_ASG;
 	case 89:
-		{
-			$init($JCTree$Tag);
-			return $JCTree$Tag::USR;
-		}
+		$init($JCTree$Tag);
+		return $JCTree$Tag::USR;
 	case 72:
-		{
-			$init($JCTree$Tag);
-			return $JCTree$Tag::USR_ASG;
-		}
+		$init($JCTree$Tag);
+		return $JCTree$Tag::USR_ASG;
 	case 82:
-		{
-			$init($JCTree$Tag);
-			return $JCTree$Tag::PLUS;
-		}
+		$init($JCTree$Tag);
+		return $JCTree$Tag::PLUS;
 	case 62:
-		{
-			$init($JCTree$Tag);
-			return $JCTree$Tag::PLUS_ASG;
-		}
+		$init($JCTree$Tag);
+		return $JCTree$Tag::PLUS_ASG;
 	case 83:
-		{
-			$init($JCTree$Tag);
-			return $JCTree$Tag::MINUS;
-		}
+		$init($JCTree$Tag);
+		return $JCTree$Tag::MINUS;
 	case 63:
-		{
-			$init($JCTree$Tag);
-			return $JCTree$Tag::MINUS_ASG;
-		}
+		$init($JCTree$Tag);
+		return $JCTree$Tag::MINUS_ASG;
 	case 103:
-		{
-			$init($JCTree$Tag);
-			return $JCTree$Tag::MUL;
-		}
+		$init($JCTree$Tag);
+		return $JCTree$Tag::MUL;
 	case 64:
-		{
-			$init($JCTree$Tag);
-			return $JCTree$Tag::MUL_ASG;
-		}
+		$init($JCTree$Tag);
+		return $JCTree$Tag::MUL_ASG;
 	case 104:
-		{
-			$init($JCTree$Tag);
-			return $JCTree$Tag::DIV;
-		}
+		$init($JCTree$Tag);
+		return $JCTree$Tag::DIV;
 	case 65:
-		{
-			$init($JCTree$Tag);
-			return $JCTree$Tag::DIV_ASG;
-		}
+		$init($JCTree$Tag);
+		return $JCTree$Tag::DIV_ASG;
 	case 105:
-		{
-			$init($JCTree$Tag);
-			return $JCTree$Tag::MOD;
-		}
+		$init($JCTree$Tag);
+		return $JCTree$Tag::MOD;
 	case 66:
-		{
-			$init($JCTree$Tag);
-			return $JCTree$Tag::MOD_ASG;
-		}
+		$init($JCTree$Tag);
+		return $JCTree$Tag::MOD_ASG;
 	case 106:
-		{
-			$init($JCTree$Tag);
-			return $JCTree$Tag::TYPETEST;
-		}
+		$init($JCTree$Tag);
+		return $JCTree$Tag::TYPETEST;
 	default:
-		{
-			$init($JCTree$Tag);
-			return $JCTree$Tag::NO_TAG;
-		}
+		$init($JCTree$Tag);
+		return $JCTree$Tag::NO_TAG;
 	}
 }
 
@@ -6432,40 +5373,26 @@ $JCTree$Tag* JavacParser::unoptag($Tokens$TokenKind* token) {
 	$init($JavacParser$1);
 	switch ($nc($JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind)->get($nc((token))->ordinal())) {
 	case 82:
-		{
-			$init($JCTree$Tag);
-			return $JCTree$Tag::POS;
-		}
+		$init($JCTree$Tag);
+		return $JCTree$Tag::POS;
 	case 83:
-		{
-			$init($JCTree$Tag);
-			return $JCTree$Tag::NEG;
-		}
+		$init($JCTree$Tag);
+		return $JCTree$Tag::NEG;
 	case 80:
-		{
-			$init($JCTree$Tag);
-			return $JCTree$Tag::NOT;
-		}
+		$init($JCTree$Tag);
+		return $JCTree$Tag::NOT;
 	case 81:
-		{
-			$init($JCTree$Tag);
-			return $JCTree$Tag::COMPL;
-		}
+		$init($JCTree$Tag);
+		return $JCTree$Tag::COMPL;
 	case 78:
-		{
-			$init($JCTree$Tag);
-			return $JCTree$Tag::PREINC;
-		}
+		$init($JCTree$Tag);
+		return $JCTree$Tag::PREINC;
 	case 79:
-		{
-			$init($JCTree$Tag);
-			return $JCTree$Tag::PREDEC;
-		}
+		$init($JCTree$Tag);
+		return $JCTree$Tag::PREDEC;
 	default:
-		{
-			$init($JCTree$Tag);
-			return $JCTree$Tag::NO_TAG;
-		}
+		$init($JCTree$Tag);
+		return $JCTree$Tag::NO_TAG;
 	}
 }
 
@@ -6474,50 +5401,32 @@ $TypeTag* JavacParser::typetag($Tokens$TokenKind* token) {
 	$init($JavacParser$1);
 	switch ($nc($JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind)->get($nc((token))->ordinal())) {
 	case 22:
-		{
-			$init($TypeTag);
-			return $TypeTag::BYTE;
-		}
+		$init($TypeTag);
+		return $TypeTag::BYTE;
 	case 24:
-		{
-			$init($TypeTag);
-			return $TypeTag::CHAR;
-		}
+		$init($TypeTag);
+		return $TypeTag::CHAR;
 	case 23:
-		{
-			$init($TypeTag);
-			return $TypeTag::SHORT;
-		}
+		$init($TypeTag);
+		return $TypeTag::SHORT;
 	case 25:
-		{
-			$init($TypeTag);
-			return $TypeTag::INT;
-		}
+		$init($TypeTag);
+		return $TypeTag::INT;
 	case 26:
-		{
-			$init($TypeTag);
-			return $TypeTag::LONG;
-		}
+		$init($TypeTag);
+		return $TypeTag::LONG;
 	case 27:
-		{
-			$init($TypeTag);
-			return $TypeTag::FLOAT;
-		}
+		$init($TypeTag);
+		return $TypeTag::FLOAT;
 	case 28:
-		{
-			$init($TypeTag);
-			return $TypeTag::DOUBLE;
-		}
+		$init($TypeTag);
+		return $TypeTag::DOUBLE;
 	case 29:
-		{
-			$init($TypeTag);
-			return $TypeTag::BOOLEAN;
-		}
+		$init($TypeTag);
+		return $TypeTag::BOOLEAN;
 	default:
-		{
-			$init($TypeTag);
-			return $TypeTag::NONE;
-		}
+		$init($TypeTag);
+		return $TypeTag::NONE;
 	}
 }
 
@@ -6526,9 +5435,9 @@ void JavacParser::checkSourceLevel($Source$Feature* feature) {
 }
 
 void JavacParser::checkSourceLevel(int32_t pos, $Source$Feature* feature) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool var$0 = $nc(this->preview)->isPreview(feature);
-	if (var$0 && !$nc(this->preview)->isEnabled()) {
+	if (var$0 && !this->preview->isEnabled()) {
 		$init($JCDiagnostic$DiagnosticFlag);
 		$nc(this->log)->error($JCDiagnostic$DiagnosticFlag::SOURCE_LEVEL, pos, $($nc(this->preview)->disabledError(feature)));
 	} else if (!$nc(feature)->allowedInSource(this->source)) {
@@ -6557,31 +5466,31 @@ $String* JavacParser::lambda$merge$1($JCTree$JCLiteral* lit) {
 }
 
 $JCTree$JCAnnotation* JavacParser::lambda$term2Rest$0($JCTree$JCAnnotation* decl) {
-	$useLocalCurrentObjectStackCache();
-	$var($JCTree$JCAnnotation, typeAnno, $nc($($nc(this->F)->at($nc(decl)->pos$)))->TypeAnnotation($nc(decl)->annotationType, decl->args));
+	$useLocalObjectStack();
+	$var($JCTree$JCAnnotation, typeAnno, $$nc($nc(this->F)->at($nc(decl)->pos$))->TypeAnnotation($nc(decl)->annotationType, $nc(decl)->args));
 	$nc(this->endPosTable)->replaceTree(decl, typeAnno);
 	return typeAnno;
 }
 
-void clinit$JavacParser($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void JavacParser::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	JavacParser::$assertionsDisabled = !JavacParser::class$->desiredAssertionStatus();
 	$init($CompilerProperties$Fragments);
 	$assignStatic(JavacParser::decisionTable, $new($JCDiagnostic$FragmentArray2, {
 		$$new($JCDiagnostic$FragmentArray, {
-			($JCDiagnostic$Fragment*)nullptr,
+			nullptr,
 			$CompilerProperties$Fragments::VarAndExplicitNotAllowed,
 			$CompilerProperties$Fragments::VarAndImplicitNotAllowed
 		}),
 		$$new($JCDiagnostic$FragmentArray, {
 			$CompilerProperties$Fragments::VarAndExplicitNotAllowed,
-			($JCDiagnostic$Fragment*)nullptr,
+			nullptr,
 			$CompilerProperties$Fragments::ImplicitAndExplicitNotAllowed
 		}),
 		$$new($JCDiagnostic$FragmentArray, {
 			$CompilerProperties$Fragments::VarAndImplicitNotAllowed,
 			$CompilerProperties$Fragments::ImplicitAndExplicitNotAllowed,
-			($JCDiagnostic$Fragment*)nullptr
+			nullptr
 		})
 	}));
 }
@@ -6591,23 +5500,276 @@ JavacParser::JavacParser() {
 
 $Class* JavacParser::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(JavacParser$$Lambda$lambda$new$3::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.parser.JavacParser$$Lambda$lambda$new$3")) {
 			return JavacParser$$Lambda$lambda$new$3::load$(name, initialize);
 		}
-		if (name->equals(JavacParser$$Lambda$Expected$1::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.parser.JavacParser$$Lambda$Expected$1")) {
 			return JavacParser$$Lambda$Expected$1::load$(name, initialize);
 		}
-		if (name->equals(JavacParser$$Lambda$lambda$term2Rest$0$2::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.parser.JavacParser$$Lambda$lambda$term2Rest$0$2")) {
 			return JavacParser$$Lambda$lambda$term2Rest$0$2::load$(name, initialize);
 		}
-		if (name->equals(JavacParser$$Lambda$lambda$merge$1$3::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.parser.JavacParser$$Lambda$lambda$merge$1$3")) {
 			return JavacParser$$Lambda$lambda$merge$1$3::load$(name, initialize);
 		}
-		if (name->equals(JavacParser$$Lambda$lambda$switchExpressionStatementGroup$2$4::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.parser.JavacParser$$Lambda$lambda$switchExpressionStatementGroup$2$4")) {
 			return JavacParser$$Lambda$lambda$switchExpressionStatementGroup$2$4::load$(name, initialize);
 		}
 	}
-	$loadClass(JavacParser, name, initialize, &_JavacParser_ClassInfo_, clinit$JavacParser, allocate$JavacParser);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(JavacParser, $assertionsDisabled)},
+		{"infixPrecedenceLevels", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JavacParser, infixPrecedenceLevels)},
+		{"parseModuleInfo", "Z", nullptr, $PRIVATE | $FINAL, $field(JavacParser, parseModuleInfo)},
+		{"S", "Lcom/sun/tools/javac/parser/Lexer;", nullptr, $PROTECTED, $field(JavacParser, S)},
+		{"F", "Lcom/sun/tools/javac/tree/TreeMaker;", nullptr, $PROTECTED, $field(JavacParser, F)},
+		{"log", "Lcom/sun/tools/javac/util/Log;", nullptr, $PRIVATE, $field(JavacParser, log)},
+		{"source", "Lcom/sun/tools/javac/code/Source;", nullptr, $PRIVATE, $field(JavacParser, source)},
+		{"preview", "Lcom/sun/tools/javac/code/Preview;", nullptr, $PRIVATE, $field(JavacParser, preview)},
+		{"names", "Lcom/sun/tools/javac/util/Names;", nullptr, $PRIVATE, $field(JavacParser, names)},
+		{"endPosTable", "Lcom/sun/tools/javac/parser/JavacParser$AbstractEndPosTable;", nullptr, $PROTECTED | $FINAL, $field(JavacParser, endPosTable)},
+		{"typeAnnotationsPushedBack", "Lcom/sun/tools/javac/util/List;", "Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;>;", $PRIVATE, $field(JavacParser, typeAnnotationsPushedBack)},
+		{"permitTypeAnnotationsPushBack", "Z", nullptr, $PRIVATE, $field(JavacParser, permitTypeAnnotationsPushBack)},
+		{"allowStringFolding", "Z", nullptr, 0, $field(JavacParser, allowStringFolding)},
+		{"keepDocComments", "Z", nullptr, 0, $field(JavacParser, keepDocComments)},
+		{"keepLineMap", "Z", nullptr, 0, $field(JavacParser, keepLineMap)},
+		{"allowThisIdent", "Z", nullptr, 0, $field(JavacParser, allowThisIdent)},
+		{"allowYieldStatement", "Z", nullptr, 0, $field(JavacParser, allowYieldStatement)},
+		{"allowRecords", "Z", nullptr, 0, $field(JavacParser, allowRecords)},
+		{"allowSealedTypes", "Z", nullptr, 0, $field(JavacParser, allowSealedTypes)},
+		{"receiverParam", "Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;", nullptr, 0, $field(JavacParser, receiverParam)},
+		{"EXPR", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(JavacParser, EXPR)},
+		{"TYPE", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(JavacParser, TYPE)},
+		{"NOPARAMS", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(JavacParser, NOPARAMS)},
+		{"TYPEARG", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(JavacParser, TYPEARG)},
+		{"DIAMOND", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(JavacParser, DIAMOND)},
+		{"NOLAMBDA", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(JavacParser, NOLAMBDA)},
+		{"mode", "I", nullptr, $PROTECTED, $field(JavacParser, mode)},
+		{"lastmode", "I", nullptr, $PROTECTED, $field(JavacParser, lastmode)},
+		{"token", "Lcom/sun/tools/javac/parser/Tokens$Token;", nullptr, $PROTECTED, $field(JavacParser, token$)},
+		{"errorTree", "Lcom/sun/tools/javac/tree/JCTree$JCErroneous;", nullptr, $PRIVATE, $field(JavacParser, errorTree)},
+		{"RECOVERY_THRESHOLD", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JavacParser, RECOVERY_THRESHOLD)},
+		{"errorPos", "I", nullptr, $PRIVATE, $field(JavacParser, errorPos)},
+		{"count", "I", nullptr, $PRIVATE, $field(JavacParser, count)},
+		{"docComments", "Lcom/sun/tools/javac/tree/DocCommentTable;", nullptr, $PRIVATE | $FINAL, $field(JavacParser, docComments)},
+		{"odStackSupply", "Ljava/util/ArrayList;", "Ljava/util/ArrayList<[Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;", 0, $field(JavacParser, odStackSupply)},
+		{"opStackSupply", "Ljava/util/ArrayList;", "Ljava/util/ArrayList<[Lcom/sun/tools/javac/parser/Tokens$Token;>;", 0, $field(JavacParser, opStackSupply)},
+		{"LAX_IDENTIFIER", "Ljava/util/function/Predicate;", "Ljava/util/function/Predicate<Lcom/sun/tools/javac/parser/Tokens$TokenKind;>;", $PROTECTED, $field(JavacParser, LAX_IDENTIFIER)},
+		{"decisionTable", "[[Lcom/sun/tools/javac/util/JCDiagnostic$Fragment;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JavacParser, decisionTable)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/parser/ParserFactory;Lcom/sun/tools/javac/parser/Lexer;ZZZ)V", nullptr, $PROTECTED, $method(JavacParser, init$, void, $ParserFactory*, $Lexer*, bool, bool, bool)},
+		{"<init>", "(Lcom/sun/tools/javac/parser/ParserFactory;Lcom/sun/tools/javac/parser/Lexer;ZZZZ)V", nullptr, $PROTECTED, $method(JavacParser, init$, void, $ParserFactory*, $Lexer*, bool, bool, bool, bool)},
+		{"accept", "(Lcom/sun/tools/javac/parser/Tokens$TokenKind;)V", nullptr, $PUBLIC, $virtualMethod(JavacParser, accept, void, $Tokens$TokenKind*)},
+		{"accept", "(Lcom/sun/tools/javac/parser/Tokens$TokenKind;Ljava/util/function/Function;)V", "(Lcom/sun/tools/javac/parser/Tokens$TokenKind;Ljava/util/function/Function<Lcom/sun/tools/javac/parser/Tokens$TokenKind;Lcom/sun/tools/javac/util/JCDiagnostic$Error;>;)V", $PUBLIC, $virtualMethod(JavacParser, accept, void, $Tokens$TokenKind*, $Function*)},
+		{"allowedAfterSealedOrNonSealed", "(Lcom/sun/tools/javac/parser/Tokens$Token;ZZ)Z", nullptr, $PRIVATE, $method(JavacParser, allowedAfterSealedOrNonSealed, bool, $Tokens$Token*, bool, bool)},
+		{"analyzeParens", "()Lcom/sun/tools/javac/parser/JavacParser$ParensResult;", nullptr, 0, $virtualMethod(JavacParser, analyzeParens, $JavacParser$ParensResult*)},
+		{"analyzePattern", "(I)Lcom/sun/tools/javac/parser/JavacParser$PatternResult;", nullptr, 0, $virtualMethod(JavacParser, analyzePattern, $JavacParser$PatternResult*, int32_t)},
+		{"annotation", "(ILcom/sun/tools/javac/tree/JCTree$Tag;)Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;", nullptr, 0, $virtualMethod(JavacParser, annotation, $JCTree$JCAnnotation*, int32_t, $JCTree$Tag*)},
+		{"annotationFieldValue", "()Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, 0, $virtualMethod(JavacParser, annotationFieldValue, $JCTree$JCExpression*)},
+		{"annotationFieldValues", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;", 0, $virtualMethod(JavacParser, annotationFieldValues, $List*)},
+		{"annotationFieldValuesOpt", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;", 0, $virtualMethod(JavacParser, annotationFieldValuesOpt, $List*)},
+		{"annotationValue", "()Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, 0, $virtualMethod(JavacParser, annotationValue, $JCTree$JCExpression*)},
+		{"annotationsOpt", "(Lcom/sun/tools/javac/tree/JCTree$Tag;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/tree/JCTree$Tag;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;>;", $PROTECTED, $virtualMethod(JavacParser, annotationsOpt, $List*, $JCTree$Tag*)},
+		{"arguments", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;", 0, $virtualMethod(JavacParser, arguments, $List*)},
+		{"arguments", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;Lcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", 0, $virtualMethod(JavacParser, arguments, $JCTree$JCExpression*, $List*, $JCTree$JCExpression*)},
+		{"argumentsOpt", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;Lcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", 0, $virtualMethod(JavacParser, argumentsOpt, $JCTree$JCExpression*, $List*, $JCTree$JCExpression*)},
+		{"arrayCreatorRest", "(ILcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, 0, $virtualMethod(JavacParser, arrayCreatorRest, $JCTree$JCExpression*, int32_t, $JCTree$JCExpression*)},
+		{"arrayInitializer", "(ILcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, 0, $virtualMethod(JavacParser, arrayInitializer, $JCTree$JCExpression*, int32_t, $JCTree$JCExpression*)},
+		{"arrayInitializerElements", "(ILcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/util/List;", "(ILcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;", 0, $virtualMethod(JavacParser, arrayInitializerElements, $List*, int32_t, $JCTree$JCExpression*)},
+		{"attach", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/parser/Tokens$Comment;)V", nullptr, $PROTECTED, $virtualMethod(JavacParser, attach, void, $JCTree*, $Tokens$Comment*)},
+		{"basicType", "()Lcom/sun/tools/javac/tree/JCTree$JCPrimitiveTypeTree;", nullptr, 0, $virtualMethod(JavacParser, basicType, $JCTree$JCPrimitiveTypeTree*)},
+		{"block", "(IJ)Lcom/sun/tools/javac/tree/JCTree$JCBlock;", nullptr, 0, $virtualMethod(JavacParser, block, $JCTree$JCBlock*, int32_t, int64_t)},
+		{"block", "()Lcom/sun/tools/javac/tree/JCTree$JCBlock;", nullptr, $PUBLIC, $virtualMethod(JavacParser, block, $JCTree$JCBlock*)},
+		{"blockStatement", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCStatement;>;", 0, $virtualMethod(JavacParser, blockStatement, $List*)},
+		{"blockStatements", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCStatement;>;", 0, $virtualMethod(JavacParser, blockStatements, $List*)},
+		{"bracketsOpt", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;>;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", $PRIVATE, $method(JavacParser, bracketsOpt, $JCTree$JCExpression*, $JCTree$JCExpression*, $List*)},
+		{"bracketsOpt", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, $PRIVATE, $method(JavacParser, bracketsOpt, $JCTree$JCExpression*, $JCTree$JCExpression*)},
+		{"bracketsOptCont", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;ILcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;ILcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;>;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", $PRIVATE, $method(JavacParser, bracketsOptCont, $JCTree$JCExpression*, $JCTree$JCExpression*, int32_t, $List*)},
+		{"bracketsSuffix", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, 0, $virtualMethod(JavacParser, bracketsSuffix, $JCTree$JCExpression*, $JCTree$JCExpression*)},
+		{"catchClause", "()Lcom/sun/tools/javac/tree/JCTree$JCCatch;", nullptr, $PROTECTED, $virtualMethod(JavacParser, catchClause, $JCTree$JCCatch*)},
+		{"catchTypes", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;", 0, $virtualMethod(JavacParser, catchTypes, $List*)},
+		{"checkExprStat", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, $PROTECTED, $virtualMethod(JavacParser, checkExprStat, $JCTree$JCExpression*, $JCTree$JCExpression*)},
+		{"checkNoMods", "(J)V", nullptr, $PROTECTED, $virtualMethod(JavacParser, checkNoMods, void, int64_t)},
+		{"checkNoMods", "(IJ)V", nullptr, $PROTECTED, $virtualMethod(JavacParser, checkNoMods, void, int32_t, int64_t)},
+		{"checkSourceLevel", "(Lcom/sun/tools/javac/code/Source$Feature;)V", nullptr, 0, $virtualMethod(JavacParser, checkSourceLevel, void, $Source$Feature*)},
+		{"checkSourceLevel", "(ILcom/sun/tools/javac/code/Source$Feature;)V", nullptr, $PROTECTED, $virtualMethod(JavacParser, checkSourceLevel, void, int32_t, $Source$Feature*)},
+		{"classCreatorRest", "(ILcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/tree/JCTree$JCNewClass;", "(ILcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;Lcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/tree/JCTree$JCNewClass;", 0, $virtualMethod(JavacParser, classCreatorRest, $JCTree$JCNewClass*, int32_t, $JCTree$JCExpression*, $List*, $JCTree$JCExpression*)},
+		{"classDeclaration", "(Lcom/sun/tools/javac/tree/JCTree$JCModifiers;Lcom/sun/tools/javac/parser/Tokens$Comment;)Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;", nullptr, $PROTECTED, $virtualMethod(JavacParser, classDeclaration, $JCTree$JCClassDecl*, $JCTree$JCModifiers*, $Tokens$Comment*)},
+		{"classInterfaceOrRecordBody", "(Lcom/sun/tools/javac/util/Name;ZZ)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/util/Name;ZZ)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree;>;", 0, $virtualMethod(JavacParser, classInterfaceOrRecordBody, $List*, $Name*, bool, bool)},
+		{"classOrInterfaceOrRecordBodyDeclaration", "(Lcom/sun/tools/javac/util/Name;ZZ)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/util/Name;ZZ)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree;>;", $PROTECTED, $virtualMethod(JavacParser, classOrInterfaceOrRecordBodyDeclaration, $List*, $Name*, bool, bool)},
+		{"classOrRecordOrInterfaceOrEnumDeclaration", "(Lcom/sun/tools/javac/tree/JCTree$JCModifiers;Lcom/sun/tools/javac/parser/Tokens$Comment;)Lcom/sun/tools/javac/tree/JCTree$JCStatement;", nullptr, $PROTECTED, $virtualMethod(JavacParser, classOrRecordOrInterfaceOrEnumDeclaration, $JCTree$JCStatement*, $JCTree$JCModifiers*, $Tokens$Comment*)},
+		{"creator", "(ILcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", "(ILcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", 0, $virtualMethod(JavacParser, creator, $JCTree$JCExpression*, int32_t, $List*)},
+		{"doRecover", "(ILcom/sun/tools/javac/parser/JavacParser$ErrorRecoveryAction;Lcom/sun/tools/javac/util/JCDiagnostic$Error;)Lcom/sun/tools/javac/tree/JCTree$JCStatement;", nullptr, $PRIVATE, $method(JavacParser, doRecover, $JCTree$JCStatement*, int32_t, $JavacParser$ErrorRecoveryAction*, $JCDiagnostic$Error*)},
+		{"earlier", "(II)I", nullptr, $STATIC, $staticMethod(JavacParser, earlier, int32_t, int32_t, int32_t)},
+		{"enumBody", "(Lcom/sun/tools/javac/util/Name;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/util/Name;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree;>;", 0, $virtualMethod(JavacParser, enumBody, $List*, $Name*)},
+		{"enumDeclaration", "(Lcom/sun/tools/javac/tree/JCTree$JCModifiers;Lcom/sun/tools/javac/parser/Tokens$Comment;)Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;", nullptr, $PROTECTED, $virtualMethod(JavacParser, enumDeclaration, $JCTree$JCClassDecl*, $JCTree$JCModifiers*, $Tokens$Comment*)},
+		{"enumeratorDeclaration", "(Lcom/sun/tools/javac/util/Name;)Lcom/sun/tools/javac/tree/JCTree;", nullptr, 0, $virtualMethod(JavacParser, enumeratorDeclaration, $JCTree*, $Name*)},
+		{"estimateEnumeratorOrMember", "(Lcom/sun/tools/javac/util/Name;)Lcom/sun/tools/javac/parser/JavacParser$EnumeratorEstimate;", nullptr, $PRIVATE, $method(JavacParser, estimateEnumeratorOrMember, $JavacParser$EnumeratorEstimate*, $Name*)},
+		{"foldIfNeeded", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/util/ListBuffer;Lcom/sun/tools/javac/util/ListBuffer;Z)Z", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/util/ListBuffer<Lcom/sun/tools/javac/tree/JCTree$JCLiteral;>;Lcom/sun/tools/javac/util/ListBuffer<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;Z)Z", $PRIVATE, $method(JavacParser, foldIfNeeded, bool, $JCTree$JCExpression*, $ListBuffer*, $ListBuffer*, bool)},
+		{"foldStrings", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, $PROTECTED, $virtualMethod(JavacParser, foldStrings, $JCTree$JCExpression*, $JCTree$JCExpression*)},
+		{"forInit", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCStatement;>;", 0, $virtualMethod(JavacParser, forInit, $List*)},
+		{"forUpdate", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpressionStatement;>;", 0, $virtualMethod(JavacParser, forUpdate, $List*)},
+		{"formalParameter", "(ZZ)Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;", nullptr, $PROTECTED, $virtualMethod(JavacParser, formalParameter, $JCTree$JCVariableDecl*, bool, bool)},
+		{"formalParameters", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;>;", 0, $virtualMethod(JavacParser, formalParameters, $List*)},
+		{"formalParameters", "(ZZ)Lcom/sun/tools/javac/util/List;", "(ZZ)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;>;", 0, $virtualMethod(JavacParser, formalParameters, $List*, bool, bool)},
+		{"getEndPos", "(Lcom/sun/tools/javac/tree/JCTree;)I", nullptr, $PUBLIC, $virtualMethod(JavacParser, getEndPos, int32_t, $JCTree*)},
+		{"getStartPos", "(Lcom/sun/tools/javac/tree/JCTree;)I", nullptr, $PUBLIC, $virtualMethod(JavacParser, getStartPos, int32_t, $JCTree*)},
+		{"ident", "()Lcom/sun/tools/javac/util/Name;", nullptr, $PUBLIC, $virtualMethod(JavacParser, ident, $Name*)},
+		{"ident", "(Z)Lcom/sun/tools/javac/util/Name;", nullptr, $PROTECTED, $virtualMethod(JavacParser, ident, $Name*, bool)},
+		{"illegal", "(I)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, 0, $virtualMethod(JavacParser, illegal, $JCTree$JCExpression*, int32_t)},
+		{"illegal", "()Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, 0, $virtualMethod(JavacParser, illegal, $JCTree$JCExpression*)},
+		{"implicitParameter", "()Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;", nullptr, $PROTECTED, $virtualMethod(JavacParser, implicitParameter, $JCTree$JCVariableDecl*)},
+		{"implicitParameters", "(Z)Lcom/sun/tools/javac/util/List;", "(Z)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;>;", 0, $virtualMethod(JavacParser, implicitParameters, $List*, bool)},
+		{"importDeclaration", "()Lcom/sun/tools/javac/tree/JCTree;", nullptr, $PROTECTED, $virtualMethod(JavacParser, importDeclaration, $JCTree*)},
+		{"innerCreator", "(ILcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", "(ILcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;Lcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", 0, $virtualMethod(JavacParser, innerCreator, $JCTree$JCExpression*, int32_t, $List*, $JCTree$JCExpression*)},
+		{"insertAnnotationsToMostInner", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/util/List;Z)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;>;Z)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", $PRIVATE, $method(JavacParser, insertAnnotationsToMostInner, $JCTree$JCExpression*, $JCTree$JCExpression*, $List*, bool)},
+		{"interfaceDeclaration", "(Lcom/sun/tools/javac/tree/JCTree$JCModifiers;Lcom/sun/tools/javac/parser/Tokens$Comment;)Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;", nullptr, $PROTECTED, $virtualMethod(JavacParser, interfaceDeclaration, $JCTree$JCClassDecl*, $JCTree$JCModifiers*, $Tokens$Comment*)},
+		{"isInvalidUnqualifiedMethodIdentifier", "(ILcom/sun/tools/javac/util/Name;)Z", nullptr, 0, $virtualMethod(JavacParser, isInvalidUnqualifiedMethodIdentifier, bool, int32_t, $Name*)},
+		{"isNonSealedClassStart", "(Z)Z", nullptr, $PROTECTED, $virtualMethod(JavacParser, isNonSealedClassStart, bool, bool)},
+		{"isNonSealedIdentifier", "(Lcom/sun/tools/javac/parser/Tokens$Token;I)Z", nullptr, $PROTECTED, $virtualMethod(JavacParser, isNonSealedIdentifier, bool, $Tokens$Token*, int32_t)},
+		{"isRecordStart", "()Z", nullptr, $PROTECTED, $virtualMethod(JavacParser, isRecordStart, bool)},
+		{"isSealedClassStart", "(Z)Z", nullptr, $PROTECTED, $virtualMethod(JavacParser, isSealedClassStart, bool, bool)},
+		{"isUnboundMemberRef", "()Z", nullptr, 0, $virtualMethod(JavacParser, isUnboundMemberRef, bool)},
+		{"isZero", "(Ljava/lang/String;)Z", nullptr, 0, $virtualMethod(JavacParser, isZero, bool, $String*)},
+		{"lambda$merge$1", "(Lcom/sun/tools/javac/tree/JCTree$JCLiteral;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JavacParser, lambda$merge$1, $String*, $JCTree$JCLiteral*)},
+		{"lambda$new$3", "(Lcom/sun/tools/javac/parser/Tokens$TokenKind;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JavacParser, lambda$new$3, bool, $Tokens$TokenKind*)},
+		{"lambda$switchExpressionStatementGroup$2", "(Lcom/sun/tools/javac/parser/Tokens$TokenKind;)Lcom/sun/tools/javac/util/JCDiagnostic$Error;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JavacParser, lambda$switchExpressionStatementGroup$2, $JCDiagnostic$Error*, $Tokens$TokenKind*)},
+		{"lambda$term2Rest$0", "(Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;)Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;", nullptr, $PRIVATE | $SYNTHETIC, $method(JavacParser, lambda$term2Rest$0, $JCTree$JCAnnotation*, $JCTree$JCAnnotation*)},
+		{"lambdaExpression", "(Lcom/sun/tools/javac/util/List;I)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;>;I)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", 0, $virtualMethod(JavacParser, lambdaExpression, $JCTree$JCExpression*, $List*, int32_t)},
+		{"lambdaExpressionOrStatement", "(ZZI)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, 0, $virtualMethod(JavacParser, lambdaExpressionOrStatement, $JCTree$JCExpression*, bool, bool, int32_t)},
+		{"lambdaExpressionOrStatementRest", "(Lcom/sun/tools/javac/util/List;I)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;>;I)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", 0, $virtualMethod(JavacParser, lambdaExpressionOrStatementRest, $JCTree$JCExpression*, $List*, int32_t)},
+		{"lambdaStatement", "(Lcom/sun/tools/javac/util/List;II)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;>;II)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", 0, $virtualMethod(JavacParser, lambdaStatement, $JCTree$JCExpression*, $List*, int32_t, int32_t)},
+		{"literal", "(Lcom/sun/tools/javac/util/Name;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, 0, $virtualMethod(JavacParser, literal, $JCTree$JCExpression*, $Name*)},
+		{"literal", "(Lcom/sun/tools/javac/util/Name;I)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, 0, $virtualMethod(JavacParser, literal, $JCTree$JCExpression*, $Name*, int32_t)},
+		{"localVariableDeclarations", "(Lcom/sun/tools/javac/tree/JCTree$JCModifiers;Lcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/tree/JCTree$JCModifiers;Lcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCStatement;>;", $PRIVATE, $method(JavacParser, localVariableDeclarations, $List*, $JCTree$JCModifiers*, $JCTree$JCExpression*)},
+		{"memberReferenceSuffix", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, 0, $virtualMethod(JavacParser, memberReferenceSuffix, $JCTree$JCExpression*, $JCTree$JCExpression*)},
+		{"memberReferenceSuffix", "(ILcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, 0, $virtualMethod(JavacParser, memberReferenceSuffix, $JCTree$JCExpression*, int32_t, $JCTree$JCExpression*)},
+		{"merge", "(Lcom/sun/tools/javac/util/ListBuffer;Lcom/sun/tools/javac/util/ListBuffer;)Z", "(Lcom/sun/tools/javac/util/ListBuffer<Lcom/sun/tools/javac/tree/JCTree$JCLiteral;>;Lcom/sun/tools/javac/util/ListBuffer<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;)Z", 0, $virtualMethod(JavacParser, merge, bool, $ListBuffer*, $ListBuffer*)},
+		{"methodDeclaratorRest", "(ILcom/sun/tools/javac/tree/JCTree$JCModifiers;Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/util/List;ZZZLcom/sun/tools/javac/parser/Tokens$Comment;)Lcom/sun/tools/javac/tree/JCTree;", "(ILcom/sun/tools/javac/tree/JCTree$JCModifiers;Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCTypeParameter;>;ZZZLcom/sun/tools/javac/parser/Tokens$Comment;)Lcom/sun/tools/javac/tree/JCTree;", $PROTECTED, $virtualMethod(JavacParser, methodDeclaratorRest, $JCTree*, int32_t, $JCTree$JCModifiers*, $JCTree$JCExpression*, $Name*, $List*, bool, bool, bool, $Tokens$Comment*)},
+		{"modifiersOpt", "()Lcom/sun/tools/javac/tree/JCTree$JCModifiers;", nullptr, $PROTECTED, $virtualMethod(JavacParser, modifiersOpt, $JCTree$JCModifiers*)},
+		{"modifiersOpt", "(Lcom/sun/tools/javac/tree/JCTree$JCModifiers;)Lcom/sun/tools/javac/tree/JCTree$JCModifiers;", nullptr, $PROTECTED, $virtualMethod(JavacParser, modifiersOpt, $JCTree$JCModifiers*, $JCTree$JCModifiers*)},
+		{"moduleDecl", "(Lcom/sun/tools/javac/tree/JCTree$JCModifiers;Lcom/sun/source/tree/ModuleTree$ModuleKind;Lcom/sun/tools/javac/parser/Tokens$Comment;)Lcom/sun/tools/javac/tree/JCTree$JCModuleDecl;", nullptr, 0, $virtualMethod(JavacParser, moduleDecl, $JCTree$JCModuleDecl*, $JCTree$JCModifiers*, $ModuleTree$ModuleKind*, $Tokens$Comment*)},
+		{"moduleDirectiveList", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCDirective;>;", 0, $virtualMethod(JavacParser, moduleDirectiveList, $List*)},
+		{"moreStatementExpressions", "(ILcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/util/ListBuffer;)Lcom/sun/tools/javac/util/ListBuffer;", "<T:Lcom/sun/tools/javac/util/ListBuffer<-Lcom/sun/tools/javac/tree/JCTree$JCExpressionStatement;>;>(ILcom/sun/tools/javac/tree/JCTree$JCExpression;TT;)TT;", 0, $virtualMethod(JavacParser, moreStatementExpressions, $ListBuffer*, int32_t, $JCTree$JCExpression*, $ListBuffer*)},
+		{"newDocCommentTable", "(ZLcom/sun/tools/javac/parser/ParserFactory;)Lcom/sun/tools/javac/tree/DocCommentTable;", nullptr, $PROTECTED, $virtualMethod(JavacParser, newDocCommentTable, $DocCommentTable*, bool, $ParserFactory*)},
+		{"newEndPosTable", "(Z)Lcom/sun/tools/javac/parser/JavacParser$AbstractEndPosTable;", nullptr, $PROTECTED, $virtualMethod(JavacParser, newEndPosTable, $JavacParser$AbstractEndPosTable*, bool)},
+		{"newOdStack", "()[Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, $PRIVATE, $method(JavacParser, newOdStack, $JCTree$JCExpressionArray*)},
+		{"newOpStack", "()[Lcom/sun/tools/javac/parser/Tokens$Token;", nullptr, $PRIVATE, $method(JavacParser, newOpStack, $Tokens$TokenArray*)},
+		{"nextToken", "()V", nullptr, $PUBLIC, $virtualMethod(JavacParser, nextToken, void)},
+		{"optFinal", "(J)Lcom/sun/tools/javac/tree/JCTree$JCModifiers;", nullptr, 0, $virtualMethod(JavacParser, optFinal, $JCTree$JCModifiers*, int64_t)},
+		{"optag", "(Lcom/sun/tools/javac/parser/Tokens$TokenKind;)Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $STATIC, $staticMethod(JavacParser, optag, $JCTree$Tag*, $Tokens$TokenKind*)},
+		{"parExpression", "()Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, 0, $virtualMethod(JavacParser, parExpression, $JCTree$JCExpression*)},
+		{"parseCaseLabel", "()Lcom/sun/tools/javac/tree/JCTree$JCCaseLabel;", nullptr, $PRIVATE, $method(JavacParser, parseCaseLabel, $JCTree$JCCaseLabel*)},
+		{"parseCompilationUnit", "()Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;", nullptr, $PUBLIC, $virtualMethod(JavacParser, parseCompilationUnit, $JCTree$JCCompilationUnit*)},
+		{"parseExpression", "()Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, $PUBLIC, $virtualMethod(JavacParser, parseExpression, $JCTree$JCExpression*)},
+		{"parsePattern", "(ILcom/sun/tools/javac/tree/JCTree$JCModifiers;Lcom/sun/tools/javac/tree/JCTree$JCExpression;Z)Lcom/sun/tools/javac/tree/JCTree$JCPattern;", nullptr, $PUBLIC, $virtualMethod(JavacParser, parsePattern, $JCTree$JCPattern*, int32_t, $JCTree$JCModifiers*, $JCTree$JCExpression*, bool)},
+		{"parseSimpleStatement", "()Lcom/sun/tools/javac/tree/JCTree$JCStatement;", nullptr, $PUBLIC, $virtualMethod(JavacParser, parseSimpleStatement, $JCTree$JCStatement*)},
+		{"parseStatement", "()Lcom/sun/tools/javac/tree/JCTree$JCStatement;", nullptr, $PUBLIC, $virtualMethod(JavacParser, parseStatement, $JCTree$JCStatement*)},
+		{"parseStatementAsBlock", "()Lcom/sun/tools/javac/tree/JCTree$JCStatement;", nullptr, 0, $virtualMethod(JavacParser, parseStatementAsBlock, $JCTree$JCStatement*)},
+		{"parseType", "()Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, $PUBLIC, $virtualMethod(JavacParser, parseType, $JCTree$JCExpression*)},
+		{"parseType", "(Z)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, $PUBLIC, $virtualMethod(JavacParser, parseType, $JCTree$JCExpression*, bool)},
+		{"parseType", "(ZLcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", "(ZLcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;>;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", $PUBLIC, $virtualMethod(JavacParser, parseType, $JCTree$JCExpression*, bool, $List*)},
+		{"peekToken", "(Ljava/util/function/Predicate;)Z", "(Ljava/util/function/Predicate<Lcom/sun/tools/javac/parser/Tokens$TokenKind;>;)Z", $PROTECTED, $virtualMethod(JavacParser, peekToken, bool, $Predicate*)},
+		{"peekToken", "(ILjava/util/function/Predicate;)Z", "(ILjava/util/function/Predicate<Lcom/sun/tools/javac/parser/Tokens$TokenKind;>;)Z", $PROTECTED, $virtualMethod(JavacParser, peekToken, bool, int32_t, $Predicate*)},
+		{"peekToken", "(Ljava/util/function/Predicate;Ljava/util/function/Predicate;)Z", "(Ljava/util/function/Predicate<Lcom/sun/tools/javac/parser/Tokens$TokenKind;>;Ljava/util/function/Predicate<Lcom/sun/tools/javac/parser/Tokens$TokenKind;>;)Z", $PROTECTED, $virtualMethod(JavacParser, peekToken, bool, $Predicate*, $Predicate*)},
+		{"peekToken", "(ILjava/util/function/Predicate;Ljava/util/function/Predicate;)Z", "(ILjava/util/function/Predicate<Lcom/sun/tools/javac/parser/Tokens$TokenKind;>;Ljava/util/function/Predicate<Lcom/sun/tools/javac/parser/Tokens$TokenKind;>;)Z", $PROTECTED, $virtualMethod(JavacParser, peekToken, bool, int32_t, $Predicate*, $Predicate*)},
+		{"peekToken", "(Ljava/util/function/Predicate;Ljava/util/function/Predicate;Ljava/util/function/Predicate;)Z", "(Ljava/util/function/Predicate<Lcom/sun/tools/javac/parser/Tokens$TokenKind;>;Ljava/util/function/Predicate<Lcom/sun/tools/javac/parser/Tokens$TokenKind;>;Ljava/util/function/Predicate<Lcom/sun/tools/javac/parser/Tokens$TokenKind;>;)Z", $PROTECTED, $virtualMethod(JavacParser, peekToken, bool, $Predicate*, $Predicate*, $Predicate*)},
+		{"peekToken", "(ILjava/util/function/Predicate;Ljava/util/function/Predicate;Ljava/util/function/Predicate;)Z", "(ILjava/util/function/Predicate<Lcom/sun/tools/javac/parser/Tokens$TokenKind;>;Ljava/util/function/Predicate<Lcom/sun/tools/javac/parser/Tokens$TokenKind;>;Ljava/util/function/Predicate<Lcom/sun/tools/javac/parser/Tokens$TokenKind;>;)Z", $PROTECTED, $virtualMethod(JavacParser, peekToken, bool, int32_t, $Predicate*, $Predicate*, $Predicate*)},
+		{"peekToken", "([Ljava/util/function/Predicate;)Z", "([Ljava/util/function/Predicate<Lcom/sun/tools/javac/parser/Tokens$TokenKind;>;)Z", $PROTECTED | $TRANSIENT, $virtualMethod(JavacParser, peekToken, bool, $PredicateArray*)},
+		{"peekToken", "(I[Ljava/util/function/Predicate;)Z", "(I[Ljava/util/function/Predicate<Lcom/sun/tools/javac/parser/Tokens$TokenKind;>;)Z", $PROTECTED | $TRANSIENT, $virtualMethod(JavacParser, peekToken, bool, int32_t, $PredicateArray*)},
+		{"permitsClause", "(Lcom/sun/tools/javac/tree/JCTree$JCModifiers;Ljava/lang/String;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/tree/JCTree$JCModifiers;Ljava/lang/String;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;", 0, $virtualMethod(JavacParser, permitsClause, $List*, $JCTree$JCModifiers*, $String*)},
+		{"prec", "(Lcom/sun/tools/javac/parser/Tokens$TokenKind;)I", nullptr, $STATIC, $staticMethod(JavacParser, prec, int32_t, $Tokens$TokenKind*)},
+		{"qualident", "(Z)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, $PUBLIC, $virtualMethod(JavacParser, qualident, $JCTree$JCExpression*, bool)},
+		{"qualidentList", "(Z)Lcom/sun/tools/javac/util/List;", "(Z)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;", 0, $virtualMethod(JavacParser, qualidentList, $List*, bool)},
+		{"recordDeclaration", "(Lcom/sun/tools/javac/tree/JCTree$JCModifiers;Lcom/sun/tools/javac/parser/Tokens$Comment;)Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;", nullptr, $PROTECTED, $virtualMethod(JavacParser, recordDeclaration, $JCTree$JCClassDecl*, $JCTree$JCModifiers*, $Tokens$Comment*)},
+		{"reportSyntaxError", "(ILcom/sun/tools/javac/util/JCDiagnostic$Error;)V", nullptr, $PROTECTED, $virtualMethod(JavacParser, reportSyntaxError, void, int32_t, $JCDiagnostic$Error*)},
+		{"reportSyntaxError", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/util/JCDiagnostic$Error;)V", nullptr, $PROTECTED, $virtualMethod(JavacParser, reportSyntaxError, void, $JCDiagnostic$DiagnosticPosition*, $JCDiagnostic$Error*)},
+		{"resource", "()Lcom/sun/tools/javac/tree/JCTree;", nullptr, $PROTECTED, $virtualMethod(JavacParser, resource, $JCTree*)},
+		{"resources", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree;>;", 0, $virtualMethod(JavacParser, resources, $List*)},
+		{"restrictedTypeName", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Z)Lcom/sun/tools/javac/util/Name;", nullptr, 0, $virtualMethod(JavacParser, restrictedTypeName, $Name*, $JCTree$JCExpression*, bool)},
+		{"restrictedTypeNameStartingAtSource", "(Lcom/sun/tools/javac/util/Name;IZ)Lcom/sun/tools/javac/code/Source;", nullptr, 0, $virtualMethod(JavacParser, restrictedTypeNameStartingAtSource, $Source*, $Name*, int32_t, bool)},
+		{"selectExprMode", "()V", nullptr, $PROTECTED, $virtualMethod(JavacParser, selectExprMode, void)},
+		{"selectTypeMode", "()V", nullptr, $PROTECTED, $virtualMethod(JavacParser, selectTypeMode, void)},
+		{"setErrorEndPos", "(I)V", nullptr, $PROTECTED, $virtualMethod(JavacParser, setErrorEndPos, void, int32_t)},
+		{"skip", "(ZZZZ)V", nullptr, $PROTECTED, $virtualMethod(JavacParser, skip, void, bool, bool, bool, bool)},
+		{"skipAnnotation", "(I)I", nullptr, $PRIVATE, $method(JavacParser, skipAnnotation, int32_t, int32_t)},
+		{"storeEnd", "(Lcom/sun/tools/javac/tree/JCTree;I)V", nullptr, $PROTECTED, $virtualMethod(JavacParser, storeEnd, void, $JCTree*, int32_t)},
+		{"stringLiteral", "(Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/tree/JCTree$JCLiteral;", nullptr, $PRIVATE, $method(JavacParser, stringLiteral, $JCTree$JCLiteral*, $JCTree*)},
+		{"strval", "(Lcom/sun/tools/javac/util/Name;)Ljava/lang/String;", nullptr, 0, $virtualMethod(JavacParser, strval, $String*, $Name*)},
+		{"superSuffix", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;Lcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", 0, $virtualMethod(JavacParser, superSuffix, $JCTree$JCExpression*, $List*, $JCTree$JCExpression*)},
+		{"switchBlockStatementGroup", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCCase;>;", $PROTECTED, $virtualMethod(JavacParser, switchBlockStatementGroup, $List*)},
+		{"switchBlockStatementGroups", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCCase;>;", 0, $virtualMethod(JavacParser, switchBlockStatementGroups, $List*)},
+		{"switchExpressionStatementGroup", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCCase;>;", $PRIVATE, $method(JavacParser, switchExpressionStatementGroup, $List*)},
+		{"syntaxError", "(ILcom/sun/tools/javac/util/JCDiagnostic$Error;)Lcom/sun/tools/javac/tree/JCTree$JCErroneous;", nullptr, $PROTECTED, $virtualMethod(JavacParser, syntaxError, $JCTree$JCErroneous*, int32_t, $JCDiagnostic$Error*)},
+		{"syntaxError", "(ILcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/JCDiagnostic$Error;)Lcom/sun/tools/javac/tree/JCTree$JCErroneous;", "(ILcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree;>;Lcom/sun/tools/javac/util/JCDiagnostic$Error;)Lcom/sun/tools/javac/tree/JCTree$JCErroneous;", $PROTECTED, $virtualMethod(JavacParser, syntaxError, $JCTree$JCErroneous*, int32_t, $List*, $JCDiagnostic$Error*)},
+		{"term", "(I)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, $PROTECTED, $virtualMethod(JavacParser, term, $JCTree$JCExpression*, int32_t)},
+		{"term", "()Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, 0, $virtualMethod(JavacParser, term, $JCTree$JCExpression*)},
+		{"term1", "()Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, 0, $virtualMethod(JavacParser, term1, $JCTree$JCExpression*)},
+		{"term1Rest", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, 0, $virtualMethod(JavacParser, term1Rest, $JCTree$JCExpression*, $JCTree$JCExpression*)},
+		{"term2", "()Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, 0, $virtualMethod(JavacParser, term2, $JCTree$JCExpression*)},
+		{"term2Rest", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;I)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, 0, $virtualMethod(JavacParser, term2Rest, $JCTree$JCExpression*, $JCTree$JCExpression*, int32_t)},
+		{"term3", "()Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, $PROTECTED, $virtualMethod(JavacParser, term3, $JCTree$JCExpression*)},
+		{"term3Rest", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", 0, $virtualMethod(JavacParser, term3Rest, $JCTree$JCExpression*, $JCTree$JCExpression*, $List*)},
+		{"termRest", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, 0, $virtualMethod(JavacParser, termRest, $JCTree$JCExpression*, $JCTree$JCExpression*)},
+		{"to", "(Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/tree/JCTree;", "<T:Lcom/sun/tools/javac/tree/JCTree;>(TT;)TT;", $PROTECTED, $virtualMethod(JavacParser, to, $JCTree*, $JCTree*)},
+		{"toP", "(Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/tree/JCTree;", "<T:Lcom/sun/tools/javac/tree/JCTree;>(TT;)TT;", $PROTECTED, $virtualMethod(JavacParser, toP, $JCTree*, $JCTree*)},
+		{"token", "()Lcom/sun/tools/javac/parser/Tokens$Token;", nullptr, $PUBLIC, $virtualMethod(JavacParser, token, $Tokens$Token*)},
+		{"typeAnnotationsOpt", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;>;", 0, $virtualMethod(JavacParser, typeAnnotationsOpt, $List*)},
+		{"typeArgument", "()Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, 0, $virtualMethod(JavacParser, typeArgument, $JCTree$JCExpression*)},
+		{"typeArguments", "(Z)Lcom/sun/tools/javac/util/List;", "(Z)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;", 0, $virtualMethod(JavacParser, typeArguments, $List*, bool)},
+		{"typeArguments", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Z)Lcom/sun/tools/javac/tree/JCTree$JCTypeApply;", nullptr, 0, $virtualMethod(JavacParser, typeArguments, $JCTree$JCTypeApply*, $JCTree$JCExpression*, bool)},
+		{"typeArgumentsOpt", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, 0, $virtualMethod(JavacParser, typeArgumentsOpt, $JCTree$JCExpression*, $JCTree$JCExpression*)},
+		{"typeArgumentsOpt", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;", 0, $virtualMethod(JavacParser, typeArgumentsOpt, $List*)},
+		{"typeArgumentsOpt", "(I)Lcom/sun/tools/javac/util/List;", "(I)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;", 0, $virtualMethod(JavacParser, typeArgumentsOpt, $List*, int32_t)},
+		{"typeDeclaration", "(Lcom/sun/tools/javac/tree/JCTree$JCModifiers;Lcom/sun/tools/javac/parser/Tokens$Comment;)Lcom/sun/tools/javac/tree/JCTree;", nullptr, 0, $virtualMethod(JavacParser, typeDeclaration, $JCTree*, $JCTree$JCModifiers*, $Tokens$Comment*)},
+		{"typeList", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;", 0, $virtualMethod(JavacParser, typeList, $List*)},
+		{"typeName", "()Lcom/sun/tools/javac/util/Name;", nullptr, 0, $virtualMethod(JavacParser, typeName, $Name*)},
+		{"typeParameter", "()Lcom/sun/tools/javac/tree/JCTree$JCTypeParameter;", nullptr, 0, $virtualMethod(JavacParser, typeParameter, $JCTree$JCTypeParameter*)},
+		{"typeParametersOpt", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCTypeParameter;>;", $PROTECTED, $virtualMethod(JavacParser, typeParametersOpt, $List*)},
+		{"typetag", "(Lcom/sun/tools/javac/parser/Tokens$TokenKind;)Lcom/sun/tools/javac/code/TypeTag;", nullptr, $STATIC, $staticMethod(JavacParser, typetag, $TypeTag*, $Tokens$TokenKind*)},
+		{"unannotatedType", "(Z)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, $PUBLIC, $virtualMethod(JavacParser, unannotatedType, $JCTree$JCExpression*, bool)},
+		{"unoptag", "(Lcom/sun/tools/javac/parser/Tokens$TokenKind;)Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $STATIC, $staticMethod(JavacParser, unoptag, $JCTree$Tag*, $Tokens$TokenKind*)},
+		{"variableDeclarator", "(Lcom/sun/tools/javac/tree/JCTree$JCModifiers;Lcom/sun/tools/javac/tree/JCTree$JCExpression;ZLcom/sun/tools/javac/parser/Tokens$Comment;Z)Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;", nullptr, 0, $virtualMethod(JavacParser, variableDeclarator, $JCTree$JCVariableDecl*, $JCTree$JCModifiers*, $JCTree$JCExpression*, bool, $Tokens$Comment*, bool)},
+		{"variableDeclaratorId", "(Lcom/sun/tools/javac/tree/JCTree$JCModifiers;Lcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;", nullptr, 0, $virtualMethod(JavacParser, variableDeclaratorId, $JCTree$JCVariableDecl*, $JCTree$JCModifiers*, $JCTree$JCExpression*)},
+		{"variableDeclaratorId", "(Lcom/sun/tools/javac/tree/JCTree$JCModifiers;Lcom/sun/tools/javac/tree/JCTree$JCExpression;ZZ)Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;", nullptr, 0, $virtualMethod(JavacParser, variableDeclaratorId, $JCTree$JCVariableDecl*, $JCTree$JCModifiers*, $JCTree$JCExpression*, bool, bool)},
+		{"variableDeclaratorRest", "(ILcom/sun/tools/javac/tree/JCTree$JCModifiers;Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/util/Name;ZLcom/sun/tools/javac/parser/Tokens$Comment;ZZ)Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;", nullptr, 0, $virtualMethod(JavacParser, variableDeclaratorRest, $JCTree$JCVariableDecl*, int32_t, $JCTree$JCModifiers*, $JCTree$JCExpression*, $Name*, bool, $Tokens$Comment*, bool, bool)},
+		{"variableDeclarators", "(Lcom/sun/tools/javac/tree/JCTree$JCModifiers;Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/util/ListBuffer;Z)Lcom/sun/tools/javac/util/ListBuffer;", "<T:Lcom/sun/tools/javac/util/ListBuffer<-Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;>;>(Lcom/sun/tools/javac/tree/JCTree$JCModifiers;Lcom/sun/tools/javac/tree/JCTree$JCExpression;TT;Z)TT;", $PUBLIC, $virtualMethod(JavacParser, variableDeclarators, $ListBuffer*, $JCTree$JCModifiers*, $JCTree$JCExpression*, $ListBuffer*, bool)},
+		{"variableDeclaratorsRest", "(ILcom/sun/tools/javac/tree/JCTree$JCModifiers;Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/util/Name;ZLcom/sun/tools/javac/parser/Tokens$Comment;Lcom/sun/tools/javac/util/ListBuffer;Z)Lcom/sun/tools/javac/util/ListBuffer;", "<T:Lcom/sun/tools/javac/util/ListBuffer<-Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;>;>(ILcom/sun/tools/javac/tree/JCTree$JCModifiers;Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/util/Name;ZLcom/sun/tools/javac/parser/Tokens$Comment;TT;Z)TT;", $PROTECTED, $virtualMethod(JavacParser, variableDeclaratorsRest, $ListBuffer*, int32_t, $JCTree$JCModifiers*, $JCTree$JCExpression*, $Name*, bool, $Tokens$Comment*, $ListBuffer*, bool)},
+		{"variableInitializer", "()Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, $PUBLIC, $virtualMethod(JavacParser, variableInitializer, $JCTree$JCExpression*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.parser.JavacParser$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{"com.sun.tools.javac.parser.JavacParser$AbstractEndPosTable", "com.sun.tools.javac.parser.JavacParser", "AbstractEndPosTable", $PROTECTED | $STATIC | $ABSTRACT},
+		{"com.sun.tools.javac.parser.JavacParser$EmptyEndPosTable", "com.sun.tools.javac.parser.JavacParser", "EmptyEndPosTable", $PROTECTED | $STATIC},
+		{"com.sun.tools.javac.parser.JavacParser$SimpleEndPosTable", "com.sun.tools.javac.parser.JavacParser", "SimpleEndPosTable", $PROTECTED | $STATIC},
+		{"com.sun.tools.javac.parser.JavacParser$EnumeratorEstimate", "com.sun.tools.javac.parser.JavacParser", "EnumeratorEstimate", $PRIVATE | $STATIC | $FINAL | $ENUM},
+		{"com.sun.tools.javac.parser.JavacParser$PatternResult", "com.sun.tools.javac.parser.JavacParser", "PatternResult", $PRIVATE | $STATIC | $FINAL | $ENUM},
+		{"com.sun.tools.javac.parser.JavacParser$LambdaClassifier", "com.sun.tools.javac.parser.JavacParser", "LambdaClassifier", 0},
+		{"com.sun.tools.javac.parser.JavacParser$LambdaParameterKind", "com.sun.tools.javac.parser.JavacParser", "LambdaParameterKind", $STATIC | $FINAL | $ENUM},
+		{"com.sun.tools.javac.parser.JavacParser$ParensResult", "com.sun.tools.javac.parser.JavacParser", "ParensResult", $STATIC | $FINAL | $ENUM},
+		{"com.sun.tools.javac.parser.JavacParser$BasicErrorRecoveryAction", "com.sun.tools.javac.parser.JavacParser", "BasicErrorRecoveryAction", $STATIC | $ABSTRACT | $ENUM},
+		{"com.sun.tools.javac.parser.JavacParser$ErrorRecoveryAction", "com.sun.tools.javac.parser.JavacParser", "ErrorRecoveryAction", $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.parser.JavacParser",
+		"java.lang.Object",
+		"com.sun.tools.javac.parser.Parser",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.parser.JavacParser$1,com.sun.tools.javac.parser.JavacParser$AbstractEndPosTable,com.sun.tools.javac.parser.JavacParser$EmptyEndPosTable,com.sun.tools.javac.parser.JavacParser$SimpleEndPosTable,com.sun.tools.javac.parser.JavacParser$EnumeratorEstimate,com.sun.tools.javac.parser.JavacParser$PatternResult,com.sun.tools.javac.parser.JavacParser$LambdaClassifier,com.sun.tools.javac.parser.JavacParser$LambdaParameterKind,com.sun.tools.javac.parser.JavacParser$ParensResult,com.sun.tools.javac.parser.JavacParser$BasicErrorRecoveryAction,com.sun.tools.javac.parser.JavacParser$BasicErrorRecoveryAction$2,com.sun.tools.javac.parser.JavacParser$BasicErrorRecoveryAction$1,com.sun.tools.javac.parser.JavacParser$ErrorRecoveryAction"
+	};
+	$loadClass(JavacParser, name, initialize, &classInfo$$, JavacParser::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(JavacParser);
+	});
 	return class$;
 }
 

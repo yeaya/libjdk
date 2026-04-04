@@ -72,6 +72,7 @@ public:
 	XMenuWindow();
 	using ::sun::awt::X11::XBaseMenuWindow::handleKeyPress;
 	using ::sun::awt::X11::XBaseMenuWindow::getGraphics;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::awt::X11::XMenuPeer* menuPeer);
 	virtual bool ensureCreated();
 	virtual ::java::awt::Dimension* getCaptionSize();

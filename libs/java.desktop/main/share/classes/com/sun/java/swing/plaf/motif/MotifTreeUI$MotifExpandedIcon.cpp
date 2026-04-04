@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/motif/MotifTreeUI$MotifExpandedIcon.h>
-
 #include <com/sun/java/swing/plaf/motif/MotifTreeUI.h>
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
@@ -24,53 +23,6 @@ namespace com {
 			namespace swing {
 				namespace plaf {
 					namespace motif {
-
-$FieldInfo _MotifTreeUI$MotifExpandedIcon_FieldInfo_[] = {
-	{"bg", "Ljava/awt/Color;", nullptr, $STATIC, $staticField(MotifTreeUI$MotifExpandedIcon, bg)},
-	{"fg", "Ljava/awt/Color;", nullptr, $STATIC, $staticField(MotifTreeUI$MotifExpandedIcon, fg)},
-	{"highlight", "Ljava/awt/Color;", nullptr, $STATIC, $staticField(MotifTreeUI$MotifExpandedIcon, highlight)},
-	{"shadow", "Ljava/awt/Color;", nullptr, $STATIC, $staticField(MotifTreeUI$MotifExpandedIcon, shadow)},
-	{}
-};
-
-$MethodInfo _MotifTreeUI$MotifExpandedIcon_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MotifTreeUI$MotifExpandedIcon, init$, void)},
-	{"createExpandedIcon", "()Ljavax/swing/Icon;", nullptr, $PUBLIC | $STATIC, $staticMethod(MotifTreeUI$MotifExpandedIcon, createExpandedIcon, $Icon*)},
-	{"getIconHeight", "()I", nullptr, $PUBLIC, $virtualMethod(MotifTreeUI$MotifExpandedIcon, getIconHeight, int32_t)},
-	{"getIconWidth", "()I", nullptr, $PUBLIC, $virtualMethod(MotifTreeUI$MotifExpandedIcon, getIconWidth, int32_t)},
-	{"paintIcon", "(Ljava/awt/Component;Ljava/awt/Graphics;II)V", nullptr, $PUBLIC, $virtualMethod(MotifTreeUI$MotifExpandedIcon, paintIcon, void, $Component*, $Graphics*, int32_t, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _MotifTreeUI$MotifExpandedIcon_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.motif.MotifTreeUI$MotifExpandedIcon", "com.sun.java.swing.plaf.motif.MotifTreeUI", "MotifExpandedIcon", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _MotifTreeUI$MotifExpandedIcon_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.java.swing.plaf.motif.MotifTreeUI$MotifExpandedIcon",
-	"java.lang.Object",
-	"javax.swing.Icon,java.io.Serializable",
-	_MotifTreeUI$MotifExpandedIcon_FieldInfo_,
-	_MotifTreeUI$MotifExpandedIcon_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MotifTreeUI$MotifExpandedIcon_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.motif.MotifTreeUI"
-};
-
-$Object* allocate$MotifTreeUI$MotifExpandedIcon($Class* clazz) {
-	return $of($alloc(MotifTreeUI$MotifExpandedIcon));
-}
 
 int32_t MotifTreeUI$MotifExpandedIcon::hashCode() {
 	 return this->$Icon::hashCode();
@@ -135,7 +87,48 @@ MotifTreeUI$MotifExpandedIcon::MotifTreeUI$MotifExpandedIcon() {
 }
 
 $Class* MotifTreeUI$MotifExpandedIcon::load$($String* name, bool initialize) {
-	$loadClass(MotifTreeUI$MotifExpandedIcon, name, initialize, &_MotifTreeUI$MotifExpandedIcon_ClassInfo_, allocate$MotifTreeUI$MotifExpandedIcon);
+	$FieldInfo fieldInfos$$[] = {
+		{"bg", "Ljava/awt/Color;", nullptr, $STATIC, $staticField(MotifTreeUI$MotifExpandedIcon, bg)},
+		{"fg", "Ljava/awt/Color;", nullptr, $STATIC, $staticField(MotifTreeUI$MotifExpandedIcon, fg)},
+		{"highlight", "Ljava/awt/Color;", nullptr, $STATIC, $staticField(MotifTreeUI$MotifExpandedIcon, highlight)},
+		{"shadow", "Ljava/awt/Color;", nullptr, $STATIC, $staticField(MotifTreeUI$MotifExpandedIcon, shadow)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MotifTreeUI$MotifExpandedIcon, init$, void)},
+		{"createExpandedIcon", "()Ljavax/swing/Icon;", nullptr, $PUBLIC | $STATIC, $staticMethod(MotifTreeUI$MotifExpandedIcon, createExpandedIcon, $Icon*)},
+		{"getIconHeight", "()I", nullptr, $PUBLIC, $virtualMethod(MotifTreeUI$MotifExpandedIcon, getIconHeight, int32_t)},
+		{"getIconWidth", "()I", nullptr, $PUBLIC, $virtualMethod(MotifTreeUI$MotifExpandedIcon, getIconWidth, int32_t)},
+		{"paintIcon", "(Ljava/awt/Component;Ljava/awt/Graphics;II)V", nullptr, $PUBLIC, $virtualMethod(MotifTreeUI$MotifExpandedIcon, paintIcon, void, $Component*, $Graphics*, int32_t, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.motif.MotifTreeUI$MotifExpandedIcon", "com.sun.java.swing.plaf.motif.MotifTreeUI", "MotifExpandedIcon", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.java.swing.plaf.motif.MotifTreeUI$MotifExpandedIcon",
+		"java.lang.Object",
+		"javax.swing.Icon,java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.motif.MotifTreeUI"
+	};
+	$loadClass(MotifTreeUI$MotifExpandedIcon, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MotifTreeUI$MotifExpandedIcon));
+	});
 	return class$;
 }
 

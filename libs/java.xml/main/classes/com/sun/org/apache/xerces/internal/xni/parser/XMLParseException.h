@@ -49,7 +49,7 @@ public:
 	virtual $String* getLiteralSystemId();
 	virtual $String* getPublicId();
 	virtual $String* toString() override;
-	static const int64_t serialVersionUID = (int64_t)0x180CB55B161E8A4F;
+	static const int64_t serialVersionUID = (int64_t)0x180cb55b161e8a4f;
 	$String* fPublicId = nullptr;
 	$String* fLiteralSystemId = nullptr;
 	$String* fExpandedSystemId = nullptr;
@@ -59,7 +59,10 @@ public:
 	int32_t fCharacterOffset = 0;
 	XMLParseException(const XMLParseException& e);
 	virtual void throw$() override;
-	inline XMLParseException* operator ->() {
+	inline XMLParseException* operator ->() const {
+		return (XMLParseException*)throwing$;
+	}
+	inline operator XMLParseException*() const {
 		return (XMLParseException*)throwing$;
 	}
 };

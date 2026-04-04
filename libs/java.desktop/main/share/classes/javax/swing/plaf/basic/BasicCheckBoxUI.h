@@ -30,6 +30,7 @@ class $export BasicCheckBoxUI : public ::javax::swing::plaf::basic::BasicRadioBu
 	$class(BasicCheckBoxUI, 0, ::javax::swing::plaf::basic::BasicRadioButtonUI)
 public:
 	BasicCheckBoxUI();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::javax::swing::plaf::ComponentUI* createUI(::javax::swing::JComponent* b);
 	virtual $String* getPropertyPrefix() override;

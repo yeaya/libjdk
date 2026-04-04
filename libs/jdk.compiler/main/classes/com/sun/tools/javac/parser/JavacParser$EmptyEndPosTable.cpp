@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/parser/JavacParser$EmptyEndPosTable.h>
-
 #include <com/sun/tools/javac/parser/JavacParser$AbstractEndPosTable.h>
 #include <com/sun/tools/javac/parser/JavacParser.h>
 #include <com/sun/tools/javac/tree/JCTree.h>
@@ -21,42 +20,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace parser {
-
-$MethodInfo _JavacParser$EmptyEndPosTable_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/parser/JavacParser;)V", nullptr, 0, $method(JavacParser$EmptyEndPosTable, init$, void, $JavacParser*)},
-	{"getEndPos", "(Lcom/sun/tools/javac/tree/JCTree;)I", nullptr, $PUBLIC, $virtualMethod(JavacParser$EmptyEndPosTable, getEndPos, int32_t, $JCTree*)},
-	{"replaceTree", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/tree/JCTree;)I", nullptr, $PUBLIC, $virtualMethod(JavacParser$EmptyEndPosTable, replaceTree, int32_t, $JCTree*, $JCTree*)},
-	{"storeEnd", "(Lcom/sun/tools/javac/tree/JCTree;I)V", nullptr, $PUBLIC, $virtualMethod(JavacParser$EmptyEndPosTable, storeEnd, void, $JCTree*, int32_t)},
-	{"to", "(Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/tree/JCTree;", "<T:Lcom/sun/tools/javac/tree/JCTree;>(TT;)TT;", $PROTECTED, $virtualMethod(JavacParser$EmptyEndPosTable, to, $JCTree*, $JCTree*)},
-	{"toP", "(Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/tree/JCTree;", "<T:Lcom/sun/tools/javac/tree/JCTree;>(TT;)TT;", $PROTECTED, $virtualMethod(JavacParser$EmptyEndPosTable, toP, $JCTree*, $JCTree*)},
-	{}
-};
-
-$InnerClassInfo _JavacParser$EmptyEndPosTable_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.parser.JavacParser$EmptyEndPosTable", "com.sun.tools.javac.parser.JavacParser", "EmptyEndPosTable", $PROTECTED | $STATIC},
-	{"com.sun.tools.javac.parser.JavacParser$AbstractEndPosTable", "com.sun.tools.javac.parser.JavacParser", "AbstractEndPosTable", $PROTECTED | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _JavacParser$EmptyEndPosTable_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.parser.JavacParser$EmptyEndPosTable",
-	"com.sun.tools.javac.parser.JavacParser$AbstractEndPosTable",
-	nullptr,
-	nullptr,
-	_JavacParser$EmptyEndPosTable_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JavacParser$EmptyEndPosTable_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.parser.JavacParser"
-};
-
-$Object* allocate$JavacParser$EmptyEndPosTable($Class* clazz) {
-	return $of($alloc(JavacParser$EmptyEndPosTable));
-}
 
 void JavacParser$EmptyEndPosTable::init$($JavacParser* parser) {
 	$JavacParser$AbstractEndPosTable::init$(parser);
@@ -85,7 +48,38 @@ JavacParser$EmptyEndPosTable::JavacParser$EmptyEndPosTable() {
 }
 
 $Class* JavacParser$EmptyEndPosTable::load$($String* name, bool initialize) {
-	$loadClass(JavacParser$EmptyEndPosTable, name, initialize, &_JavacParser$EmptyEndPosTable_ClassInfo_, allocate$JavacParser$EmptyEndPosTable);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/parser/JavacParser;)V", nullptr, 0, $method(JavacParser$EmptyEndPosTable, init$, void, $JavacParser*)},
+		{"getEndPos", "(Lcom/sun/tools/javac/tree/JCTree;)I", nullptr, $PUBLIC, $virtualMethod(JavacParser$EmptyEndPosTable, getEndPos, int32_t, $JCTree*)},
+		{"replaceTree", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/tree/JCTree;)I", nullptr, $PUBLIC, $virtualMethod(JavacParser$EmptyEndPosTable, replaceTree, int32_t, $JCTree*, $JCTree*)},
+		{"storeEnd", "(Lcom/sun/tools/javac/tree/JCTree;I)V", nullptr, $PUBLIC, $virtualMethod(JavacParser$EmptyEndPosTable, storeEnd, void, $JCTree*, int32_t)},
+		{"to", "(Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/tree/JCTree;", "<T:Lcom/sun/tools/javac/tree/JCTree;>(TT;)TT;", $PROTECTED, $virtualMethod(JavacParser$EmptyEndPosTable, to, $JCTree*, $JCTree*)},
+		{"toP", "(Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/tree/JCTree;", "<T:Lcom/sun/tools/javac/tree/JCTree;>(TT;)TT;", $PROTECTED, $virtualMethod(JavacParser$EmptyEndPosTable, toP, $JCTree*, $JCTree*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.parser.JavacParser$EmptyEndPosTable", "com.sun.tools.javac.parser.JavacParser", "EmptyEndPosTable", $PROTECTED | $STATIC},
+		{"com.sun.tools.javac.parser.JavacParser$AbstractEndPosTable", "com.sun.tools.javac.parser.JavacParser", "AbstractEndPosTable", $PROTECTED | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.parser.JavacParser$EmptyEndPosTable",
+		"com.sun.tools.javac.parser.JavacParser$AbstractEndPosTable",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.parser.JavacParser"
+	};
+	$loadClass(JavacParser$EmptyEndPosTable, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JavacParser$EmptyEndPosTable);
+	});
 	return class$;
 }
 

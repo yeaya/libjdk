@@ -1,13 +1,10 @@
 #include <FPMethodCalledTest$5.h>
-
-#include <FPMethodCalledTest$Resultable.h>
 #include <FPMethodCalledTest$Test.h>
 #include <FPMethodCalledTest$WrappedPlainViewINTAPI.h>
 #include <javax/swing/text/Element.h>
 #include <javax/swing/text/View.h>
 #include <jcpp.h>
 
-using $FPMethodCalledTest$Resultable = ::FPMethodCalledTest$Resultable;
 using $FPMethodCalledTest$Test = ::FPMethodCalledTest$Test;
 using $FPMethodCalledTest$WrappedPlainViewINTAPI = ::FPMethodCalledTest$WrappedPlainViewINTAPI;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -16,44 +13,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Element = ::javax::swing::text::Element;
 using $View = ::javax::swing::text::View;
-
-$MethodInfo _FPMethodCalledTest$5_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(FPMethodCalledTest$5, init$, void)},
-	{"createView", "(Ljavax/swing/text/Element;)Ljavax/swing/text/View;", nullptr, 0, $virtualMethod(FPMethodCalledTest$5, createView, $View*, $Element*)},
-	{}
-};
-
-$EnclosingMethodInfo _FPMethodCalledTest$5_EnclosingMethodInfo_ = {
-	"FPMethodCalledTest",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _FPMethodCalledTest$5_InnerClassesInfo_[] = {
-	{"FPMethodCalledTest$5", nullptr, nullptr, 0},
-	{"FPMethodCalledTest$Test", "FPMethodCalledTest", "Test", $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _FPMethodCalledTest$5_ClassInfo_ = {
-	$ACC_SUPER,
-	"FPMethodCalledTest$5",
-	"FPMethodCalledTest$Test",
-	nullptr,
-	nullptr,
-	_FPMethodCalledTest$5_MethodInfo_,
-	nullptr,
-	&_FPMethodCalledTest$5_EnclosingMethodInfo_,
-	_FPMethodCalledTest$5_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"FPMethodCalledTest"
-};
-
-$Object* allocate$FPMethodCalledTest$5($Class* clazz) {
-	return $of($alloc(FPMethodCalledTest$5));
-}
 
 void FPMethodCalledTest$5::init$() {
 	$FPMethodCalledTest$Test::init$();
@@ -69,7 +28,39 @@ FPMethodCalledTest$5::FPMethodCalledTest$5() {
 }
 
 $Class* FPMethodCalledTest$5::load$($String* name, bool initialize) {
-	$loadClass(FPMethodCalledTest$5, name, initialize, &_FPMethodCalledTest$5_ClassInfo_, allocate$FPMethodCalledTest$5);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(FPMethodCalledTest$5, init$, void)},
+		{"createView", "(Ljavax/swing/text/Element;)Ljavax/swing/text/View;", nullptr, 0, $virtualMethod(FPMethodCalledTest$5, createView, $View*, $Element*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"FPMethodCalledTest",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"FPMethodCalledTest$5", nullptr, nullptr, 0},
+		{"FPMethodCalledTest$Test", "FPMethodCalledTest", "Test", $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"FPMethodCalledTest$5",
+		"FPMethodCalledTest$Test",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"FPMethodCalledTest"
+	};
+	$loadClass(FPMethodCalledTest$5, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FPMethodCalledTest$5);
+	});
 	return class$;
 }
 

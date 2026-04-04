@@ -1,5 +1,4 @@
 #include <javax/print/attribute/AttributeSetUtilities$UnmodifiableDocAttributeSet.h>
-
 #include <javax/print/attribute/Attribute.h>
 #include <javax/print/attribute/AttributeSet.h>
 #include <javax/print/attribute/AttributeSetUtilities$UnmodifiableAttributeSet.h>
@@ -20,58 +19,6 @@ using $DocAttributeSet = ::javax::print::attribute::DocAttributeSet;
 namespace javax {
 	namespace print {
 		namespace attribute {
-
-$FieldInfo _AttributeSetUtilities$UnmodifiableDocAttributeSet_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AttributeSetUtilities$UnmodifiableDocAttributeSet, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _AttributeSetUtilities$UnmodifiableDocAttributeSet_MethodInfo_[] = {
-	{"*add", "(Ljavax/print/attribute/Attribute;)Z", nullptr, $PUBLIC},
-	{"*addAll", "(Ljavax/print/attribute/AttributeSet;)Z", nullptr, $PUBLIC},
-	{"*clear", "()V", nullptr, $PUBLIC},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*containsKey", "(Ljava/lang/Class;)Z", nullptr, $PUBLIC},
-	{"*containsValue", "(Ljavax/print/attribute/Attribute;)Z", nullptr, $PUBLIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*get", "(Ljava/lang/Class;)Ljavax/print/attribute/Attribute;", nullptr, $PUBLIC},
-	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "(Ljavax/print/attribute/DocAttributeSet;)V", nullptr, $PUBLIC, $method(AttributeSetUtilities$UnmodifiableDocAttributeSet, init$, void, $DocAttributeSet*)},
-	{"*remove", "(Ljava/lang/Class;)Z", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"*remove", "(Ljavax/print/attribute/Attribute;)Z", nullptr, $PUBLIC},
-	{"*size", "()I", nullptr, $PUBLIC},
-	{"*toArray", "()[Ljavax/print/attribute/Attribute;", nullptr, $PUBLIC},
-	{"*isEmpty", "()Z", nullptr, $PUBLIC},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _AttributeSetUtilities$UnmodifiableDocAttributeSet_InnerClassesInfo_[] = {
-	{"javax.print.attribute.AttributeSetUtilities$UnmodifiableDocAttributeSet", "javax.print.attribute.AttributeSetUtilities", "UnmodifiableDocAttributeSet", $PRIVATE | $STATIC},
-	{"javax.print.attribute.AttributeSetUtilities$UnmodifiableAttributeSet", "javax.print.attribute.AttributeSetUtilities", "UnmodifiableAttributeSet", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _AttributeSetUtilities$UnmodifiableDocAttributeSet_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.print.attribute.AttributeSetUtilities$UnmodifiableDocAttributeSet",
-	"javax.print.attribute.AttributeSetUtilities$UnmodifiableAttributeSet",
-	"javax.print.attribute.DocAttributeSet",
-	_AttributeSetUtilities$UnmodifiableDocAttributeSet_FieldInfo_,
-	_AttributeSetUtilities$UnmodifiableDocAttributeSet_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AttributeSetUtilities$UnmodifiableDocAttributeSet_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.print.attribute.AttributeSetUtilities"
-};
-
-$Object* allocate$AttributeSetUtilities$UnmodifiableDocAttributeSet($Class* clazz) {
-	return $of($alloc(AttributeSetUtilities$UnmodifiableDocAttributeSet));
-}
 
 $Attribute* AttributeSetUtilities$UnmodifiableDocAttributeSet::get($Class* key) {
 	 return this->$AttributeSetUtilities$UnmodifiableAttributeSet::get(key);
@@ -145,7 +92,53 @@ AttributeSetUtilities$UnmodifiableDocAttributeSet::AttributeSetUtilities$Unmodif
 }
 
 $Class* AttributeSetUtilities$UnmodifiableDocAttributeSet::load$($String* name, bool initialize) {
-	$loadClass(AttributeSetUtilities$UnmodifiableDocAttributeSet, name, initialize, &_AttributeSetUtilities$UnmodifiableDocAttributeSet_ClassInfo_, allocate$AttributeSetUtilities$UnmodifiableDocAttributeSet);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AttributeSetUtilities$UnmodifiableDocAttributeSet, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*add", "(Ljavax/print/attribute/Attribute;)Z", nullptr, $PUBLIC},
+		{"*addAll", "(Ljavax/print/attribute/AttributeSet;)Z", nullptr, $PUBLIC},
+		{"*clear", "()V", nullptr, $PUBLIC},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*containsKey", "(Ljava/lang/Class;)Z", nullptr, $PUBLIC},
+		{"*containsValue", "(Ljavax/print/attribute/Attribute;)Z", nullptr, $PUBLIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*get", "(Ljava/lang/Class;)Ljavax/print/attribute/Attribute;", nullptr, $PUBLIC},
+		{"*hashCode", "()I", nullptr, $PUBLIC},
+		{"<init>", "(Ljavax/print/attribute/DocAttributeSet;)V", nullptr, $PUBLIC, $method(AttributeSetUtilities$UnmodifiableDocAttributeSet, init$, void, $DocAttributeSet*)},
+		{"*remove", "(Ljava/lang/Class;)Z", nullptr, $PUBLIC | $SYNCHRONIZED},
+		{"*remove", "(Ljavax/print/attribute/Attribute;)Z", nullptr, $PUBLIC},
+		{"*size", "()I", nullptr, $PUBLIC},
+		{"*toArray", "()[Ljavax/print/attribute/Attribute;", nullptr, $PUBLIC},
+		{"*isEmpty", "()Z", nullptr, $PUBLIC},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.print.attribute.AttributeSetUtilities$UnmodifiableDocAttributeSet", "javax.print.attribute.AttributeSetUtilities", "UnmodifiableDocAttributeSet", $PRIVATE | $STATIC},
+		{"javax.print.attribute.AttributeSetUtilities$UnmodifiableAttributeSet", "javax.print.attribute.AttributeSetUtilities", "UnmodifiableAttributeSet", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.print.attribute.AttributeSetUtilities$UnmodifiableDocAttributeSet",
+		"javax.print.attribute.AttributeSetUtilities$UnmodifiableAttributeSet",
+		"javax.print.attribute.DocAttributeSet",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.print.attribute.AttributeSetUtilities"
+	};
+	$loadClass(AttributeSetUtilities$UnmodifiableDocAttributeSet, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AttributeSetUtilities$UnmodifiableDocAttributeSet));
+	});
 	return class$;
 }
 

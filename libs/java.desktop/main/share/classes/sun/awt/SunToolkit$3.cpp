@@ -1,5 +1,4 @@
 #include <sun/awt/SunToolkit$3.h>
-
 #include <java/lang/Runnable.h>
 #include <java/util/concurrent/atomic/AtomicBoolean.h>
 #include <sun/awt/PeerEvent.h>
@@ -18,51 +17,6 @@ using $SunToolkit = ::sun::awt::SunToolkit;
 
 namespace sun {
 	namespace awt {
-
-$FieldInfo _SunToolkit$3_FieldInfo_[] = {
-	{"this$0", "Lsun/awt/SunToolkit;", nullptr, $FINAL | $SYNTHETIC, $field(SunToolkit$3, this$0)},
-	{"val$eventDispatched", "Ljava/util/concurrent/atomic/AtomicBoolean;", nullptr, $FINAL | $SYNTHETIC, $field(SunToolkit$3, val$eventDispatched)},
-	{"val$queueEmpty", "Ljava/util/concurrent/atomic/AtomicBoolean;", nullptr, $FINAL | $SYNTHETIC, $field(SunToolkit$3, val$queueEmpty)},
-	{"val$end", "J", nullptr, $FINAL | $SYNTHETIC, $field(SunToolkit$3, val$end)},
-	{}
-};
-
-$MethodInfo _SunToolkit$3_MethodInfo_[] = {
-	{"<init>", "(Lsun/awt/SunToolkit;Ljava/lang/Object;Ljava/lang/Runnable;JJLjava/util/concurrent/atomic/AtomicBoolean;Ljava/util/concurrent/atomic/AtomicBoolean;)V", nullptr, 0, $method(SunToolkit$3, init$, void, $SunToolkit*, Object$*, $Runnable*, int64_t, int64_t, $AtomicBoolean*, $AtomicBoolean*)},
-	{"dispatch", "()V", nullptr, $PUBLIC, $virtualMethod(SunToolkit$3, dispatch, void)},
-	{}
-};
-
-$EnclosingMethodInfo _SunToolkit$3_EnclosingMethodInfo_ = {
-	"sun.awt.SunToolkit",
-	"waitForIdle",
-	"(J)Z"
-};
-
-$InnerClassInfo _SunToolkit$3_InnerClassesInfo_[] = {
-	{"sun.awt.SunToolkit$3", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _SunToolkit$3_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.awt.SunToolkit$3",
-	"sun.awt.PeerEvent",
-	nullptr,
-	_SunToolkit$3_FieldInfo_,
-	_SunToolkit$3_MethodInfo_,
-	nullptr,
-	&_SunToolkit$3_EnclosingMethodInfo_,
-	_SunToolkit$3_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.awt.SunToolkit"
-};
-
-$Object* allocate$SunToolkit$3($Class* clazz) {
-	return $of($alloc(SunToolkit$3));
-}
 
 void SunToolkit$3::init$($SunToolkit* this$0, Object$* source, $Runnable* runnable, int64_t flags, int64_t val$end, $AtomicBoolean* val$queueEmpty, $AtomicBoolean* val$eventDispatched) {
 	$set(this, this$0, this$0);
@@ -85,7 +39,7 @@ void SunToolkit$3::dispatch() {
 	$synchronized(this->this$0->waitLock) {
 		$nc(this->val$queueEmpty)->set(this->this$0->isEQEmpty());
 		$nc(this->val$eventDispatched)->set(true);
-		$nc($of(this->this$0->waitLock))->notifyAll();
+		this->this$0->waitLock->notifyAll();
 	}
 }
 
@@ -93,7 +47,45 @@ SunToolkit$3::SunToolkit$3() {
 }
 
 $Class* SunToolkit$3::load$($String* name, bool initialize) {
-	$loadClass(SunToolkit$3, name, initialize, &_SunToolkit$3_ClassInfo_, allocate$SunToolkit$3);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/awt/SunToolkit;", nullptr, $FINAL | $SYNTHETIC, $field(SunToolkit$3, this$0)},
+		{"val$eventDispatched", "Ljava/util/concurrent/atomic/AtomicBoolean;", nullptr, $FINAL | $SYNTHETIC, $field(SunToolkit$3, val$eventDispatched)},
+		{"val$queueEmpty", "Ljava/util/concurrent/atomic/AtomicBoolean;", nullptr, $FINAL | $SYNTHETIC, $field(SunToolkit$3, val$queueEmpty)},
+		{"val$end", "J", nullptr, $FINAL | $SYNTHETIC, $field(SunToolkit$3, val$end)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/awt/SunToolkit;Ljava/lang/Object;Ljava/lang/Runnable;JJLjava/util/concurrent/atomic/AtomicBoolean;Ljava/util/concurrent/atomic/AtomicBoolean;)V", nullptr, 0, $method(SunToolkit$3, init$, void, $SunToolkit*, Object$*, $Runnable*, int64_t, int64_t, $AtomicBoolean*, $AtomicBoolean*)},
+		{"dispatch", "()V", nullptr, $PUBLIC, $virtualMethod(SunToolkit$3, dispatch, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.awt.SunToolkit",
+		"waitForIdle",
+		"(J)Z"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.SunToolkit$3", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.awt.SunToolkit$3",
+		"sun.awt.PeerEvent",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.awt.SunToolkit"
+	};
+	$loadClass(SunToolkit$3, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SunToolkit$3));
+	});
 	return class$;
 }
 

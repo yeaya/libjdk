@@ -1,5 +1,4 @@
 #include <sun/swing/SwingUtilities2$Section.h>
-
 #include <java/lang/Enum.h>
 #include <sun/swing/SwingUtilities2.h>
 #include <jcpp.h>
@@ -17,47 +16,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace sun {
 	namespace swing {
-
-$FieldInfo _SwingUtilities2$Section_FieldInfo_[] = {
-	{"LEADING", "Lsun/swing/SwingUtilities2$Section;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SwingUtilities2$Section, LEADING)},
-	{"MIDDLE", "Lsun/swing/SwingUtilities2$Section;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SwingUtilities2$Section, MIDDLE)},
-	{"TRAILING", "Lsun/swing/SwingUtilities2$Section;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SwingUtilities2$Section, TRAILING)},
-	{"$VALUES", "[Lsun/swing/SwingUtilities2$Section;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(SwingUtilities2$Section, $VALUES)},
-	{}
-};
-
-$MethodInfo _SwingUtilities2$Section_MethodInfo_[] = {
-	{"$values", "()[Lsun/swing/SwingUtilities2$Section;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(SwingUtilities2$Section, $values, $SwingUtilities2$SectionArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(SwingUtilities2$Section, init$, void, $String*, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)Lsun/swing/SwingUtilities2$Section;", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities2$Section, valueOf, SwingUtilities2$Section*, $String*)},
-	{"values", "()[Lsun/swing/SwingUtilities2$Section;", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities2$Section, values, $SwingUtilities2$SectionArray*)},
-	{}
-};
-
-$InnerClassInfo _SwingUtilities2$Section_InnerClassesInfo_[] = {
-	{"sun.swing.SwingUtilities2$Section", "sun.swing.SwingUtilities2", "Section", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _SwingUtilities2$Section_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"sun.swing.SwingUtilities2$Section",
-	"java.lang.Enum",
-	nullptr,
-	_SwingUtilities2$Section_FieldInfo_,
-	_SwingUtilities2$Section_MethodInfo_,
-	"Ljava/lang/Enum<Lsun/swing/SwingUtilities2$Section;>;",
-	nullptr,
-	_SwingUtilities2$Section_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.swing.SwingUtilities2"
-};
-
-$Object* allocate$SwingUtilities2$Section($Class* clazz) {
-	return $of($alloc(SwingUtilities2$Section));
-}
 
 SwingUtilities2$Section* SwingUtilities2$Section::LEADING = nullptr;
 SwingUtilities2$Section* SwingUtilities2$Section::MIDDLE = nullptr;
@@ -87,7 +45,7 @@ void SwingUtilities2$Section::init$($String* $enum$name, int32_t $enum$ordinal) 
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$SwingUtilities2$Section($Class* class$) {
+void SwingUtilities2$Section::clinit$($Class* clazz) {
 	$assignStatic(SwingUtilities2$Section::LEADING, $new(SwingUtilities2$Section, "LEADING"_s, 0));
 	$assignStatic(SwingUtilities2$Section::MIDDLE, $new(SwingUtilities2$Section, "MIDDLE"_s, 1));
 	$assignStatic(SwingUtilities2$Section::TRAILING, $new(SwingUtilities2$Section, "TRAILING"_s, 2));
@@ -98,7 +56,42 @@ SwingUtilities2$Section::SwingUtilities2$Section() {
 }
 
 $Class* SwingUtilities2$Section::load$($String* name, bool initialize) {
-	$loadClass(SwingUtilities2$Section, name, initialize, &_SwingUtilities2$Section_ClassInfo_, clinit$SwingUtilities2$Section, allocate$SwingUtilities2$Section);
+	$FieldInfo fieldInfos$$[] = {
+		{"LEADING", "Lsun/swing/SwingUtilities2$Section;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SwingUtilities2$Section, LEADING)},
+		{"MIDDLE", "Lsun/swing/SwingUtilities2$Section;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SwingUtilities2$Section, MIDDLE)},
+		{"TRAILING", "Lsun/swing/SwingUtilities2$Section;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SwingUtilities2$Section, TRAILING)},
+		{"$VALUES", "[Lsun/swing/SwingUtilities2$Section;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(SwingUtilities2$Section, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lsun/swing/SwingUtilities2$Section;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(SwingUtilities2$Section, $values, $SwingUtilities2$SectionArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(SwingUtilities2$Section, init$, void, $String*, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)Lsun/swing/SwingUtilities2$Section;", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities2$Section, valueOf, SwingUtilities2$Section*, $String*)},
+		{"values", "()[Lsun/swing/SwingUtilities2$Section;", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities2$Section, values, $SwingUtilities2$SectionArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.swing.SwingUtilities2$Section", "sun.swing.SwingUtilities2", "Section", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"sun.swing.SwingUtilities2$Section",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lsun/swing/SwingUtilities2$Section;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.swing.SwingUtilities2"
+	};
+	$loadClass(SwingUtilities2$Section, name, initialize, &classInfo$$, SwingUtilities2$Section::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SwingUtilities2$Section));
+	});
 	return class$;
 }
 

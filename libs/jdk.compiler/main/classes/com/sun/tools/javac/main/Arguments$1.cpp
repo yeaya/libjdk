@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/main/Arguments$1.h>
-
 #include <com/sun/tools/javac/main/Arguments.h>
 #include <com/sun/tools/javac/main/Option.h>
 #include <com/sun/tools/javac/main/OptionHelper.h>
@@ -14,70 +13,18 @@ using $Arguments = ::com::sun::tools::javac::main::Arguments;
 using $Option = ::com::sun::tools::javac::main::Option;
 using $OptionHelper = ::com::sun::tools::javac::main::OptionHelper;
 using $Log = ::com::sun::tools::javac::util::Log;
-using $Options = ::com::sun::tools::javac::util::Options;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Path = ::java::nio::file::Path;
-using $Map = ::java::util::Map;
-using $Set = ::java::util::Set;
 
 namespace com {
 	namespace sun {
 		namespace tools {
 			namespace javac {
 				namespace main {
-
-$FieldInfo _Arguments$1_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/main/Arguments;", nullptr, $FINAL | $SYNTHETIC, $field(Arguments$1, this$0)},
-	{}
-};
-
-$MethodInfo _Arguments$1_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/main/Arguments;)V", nullptr, 0, $method(Arguments$1, init$, void, $Arguments*)},
-	{"addClassName", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Arguments$1, addClassName, void, $String*)},
-	{"addFile", "(Ljava/nio/file/Path;)V", nullptr, $PUBLIC, $virtualMethod(Arguments$1, addFile, void, $Path*)},
-	{"get", "(Lcom/sun/tools/javac/main/Option;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Arguments$1, get, $String*, $Option*)},
-	{"getLog", "()Lcom/sun/tools/javac/util/Log;", nullptr, $PUBLIC, $virtualMethod(Arguments$1, getLog, $Log*)},
-	{"getOwnName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Arguments$1, getOwnName, $String*)},
-	{"handleFileManagerOption", "(Lcom/sun/tools/javac/main/Option;Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(Arguments$1, handleFileManagerOption, bool, $Option*, $String*)},
-	{"put", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Arguments$1, put, void, $String*, $String*)},
-	{"remove", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Arguments$1, remove, void, $String*)},
-	{}
-};
-
-$EnclosingMethodInfo _Arguments$1_EnclosingMethodInfo_ = {
-	"com.sun.tools.javac.main.Arguments",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _Arguments$1_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.main.Arguments$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Arguments$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.main.Arguments$1",
-	"com.sun.tools.javac.main.OptionHelper",
-	nullptr,
-	_Arguments$1_FieldInfo_,
-	_Arguments$1_MethodInfo_,
-	nullptr,
-	&_Arguments$1_EnclosingMethodInfo_,
-	_Arguments$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.main.Arguments"
-};
-
-$Object* allocate$Arguments$1($Class* clazz) {
-	return $of($alloc(Arguments$1));
-}
 
 void Arguments$1::init$($Arguments* this$0) {
 	$set(this, this$0, this$0);
@@ -122,7 +69,49 @@ Arguments$1::Arguments$1() {
 }
 
 $Class* Arguments$1::load$($String* name, bool initialize) {
-	$loadClass(Arguments$1, name, initialize, &_Arguments$1_ClassInfo_, allocate$Arguments$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/main/Arguments;", nullptr, $FINAL | $SYNTHETIC, $field(Arguments$1, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/main/Arguments;)V", nullptr, 0, $method(Arguments$1, init$, void, $Arguments*)},
+		{"addClassName", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Arguments$1, addClassName, void, $String*)},
+		{"addFile", "(Ljava/nio/file/Path;)V", nullptr, $PUBLIC, $virtualMethod(Arguments$1, addFile, void, $Path*)},
+		{"get", "(Lcom/sun/tools/javac/main/Option;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Arguments$1, get, $String*, $Option*)},
+		{"getLog", "()Lcom/sun/tools/javac/util/Log;", nullptr, $PUBLIC, $virtualMethod(Arguments$1, getLog, $Log*)},
+		{"getOwnName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Arguments$1, getOwnName, $String*)},
+		{"handleFileManagerOption", "(Lcom/sun/tools/javac/main/Option;Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(Arguments$1, handleFileManagerOption, bool, $Option*, $String*)},
+		{"put", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Arguments$1, put, void, $String*, $String*)},
+		{"remove", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Arguments$1, remove, void, $String*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.tools.javac.main.Arguments",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.main.Arguments$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.main.Arguments$1",
+		"com.sun.tools.javac.main.OptionHelper",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.main.Arguments"
+	};
+	$loadClass(Arguments$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Arguments$1);
+	});
 	return class$;
 }
 

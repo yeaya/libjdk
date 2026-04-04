@@ -47,6 +47,7 @@ public:
 	Main$MemoryClassLoader();
 	using ::java::lang::ClassLoader::findClass;
 	using ::java::lang::ClassLoader::findResource;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::util::Map* sourceFileClasses, ::java::lang::ClassLoader* parent, ::java::nio::file::Path* file);
 	virtual $Class* findClass($String* name) override;
 	virtual ::java::net::URL* findResource($String* name) override;

@@ -60,6 +60,7 @@ public:
 	using ::javax::swing::plaf::basic::BasicInternalFrameTitlePane::add;
 	using ::javax::swing::plaf::basic::BasicInternalFrameTitlePane::getMousePosition;
 	using ::javax::swing::plaf::basic::BasicInternalFrameTitlePane::list;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::javax::swing::JInternalFrame* f);
 	static ::javax::swing::JButton* access$000(::javax::swing::plaf::metal::MetalInternalFrameTitlePane* x0);
 	static ::javax::swing::JButton* access$100(::javax::swing::plaf::metal::MetalInternalFrameTitlePane* x0);

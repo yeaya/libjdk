@@ -28,11 +28,14 @@ class Attr$BreakAttr : public ::java::lang::RuntimeException {
 public:
 	Attr$BreakAttr();
 	void init$(::com::sun::tools::javac::comp::Env* env);
-	static const int64_t serialVersionUID = (int64_t)0x9FE645588D4D9CFB;
+	static const int64_t serialVersionUID = (int64_t)0x9fe645588d4d9cfb;
 	::com::sun::tools::javac::comp::Env* env = nullptr;
 	Attr$BreakAttr(const Attr$BreakAttr& e);
 	virtual void throw$() override;
-	inline Attr$BreakAttr* operator ->() {
+	inline Attr$BreakAttr* operator ->() const {
+		return (Attr$BreakAttr*)throwing$;
+	}
+	inline operator Attr$BreakAttr*() const {
 		return (Attr$BreakAttr*)throwing$;
 	}
 };

@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/motif/MotifPopupMenuSeparatorUI.h>
-
 #include <com/sun/java/swing/plaf/motif/MotifSeparatorUI.h>
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
@@ -24,27 +23,6 @@ namespace com {
 				namespace plaf {
 					namespace motif {
 
-$MethodInfo _MotifPopupMenuSeparatorUI_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MotifPopupMenuSeparatorUI, init$, void)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(MotifPopupMenuSeparatorUI, createUI, $ComponentUI*, $JComponent*)},
-	{"getPreferredSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(MotifPopupMenuSeparatorUI, getPreferredSize, $Dimension*, $JComponent*)},
-	{"paint", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(MotifPopupMenuSeparatorUI, paint, void, $Graphics*, $JComponent*)},
-	{}
-};
-
-$ClassInfo _MotifPopupMenuSeparatorUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.java.swing.plaf.motif.MotifPopupMenuSeparatorUI",
-	"com.sun.java.swing.plaf.motif.MotifSeparatorUI",
-	nullptr,
-	nullptr,
-	_MotifPopupMenuSeparatorUI_MethodInfo_
-};
-
-$Object* allocate$MotifPopupMenuSeparatorUI($Class* clazz) {
-	return $of($alloc(MotifPopupMenuSeparatorUI));
-}
-
 void MotifPopupMenuSeparatorUI::init$() {
 	$MotifSeparatorUI::init$();
 }
@@ -55,12 +33,12 @@ $ComponentUI* MotifPopupMenuSeparatorUI::createUI($JComponent* c) {
 }
 
 void MotifPopupMenuSeparatorUI::paint($Graphics* g, $JComponent* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Dimension, s, $nc(c)->getSize());
 	$nc(g)->setColor($(c->getForeground()));
 	g->drawLine(0, 0, $nc(s)->width, 0);
 	g->setColor($(c->getBackground()));
-	g->drawLine(0, 1, $nc(s)->width, 1);
+	g->drawLine(0, 1, s->width, 1);
 }
 
 $Dimension* MotifPopupMenuSeparatorUI::getPreferredSize($JComponent* c) {
@@ -71,7 +49,24 @@ MotifPopupMenuSeparatorUI::MotifPopupMenuSeparatorUI() {
 }
 
 $Class* MotifPopupMenuSeparatorUI::load$($String* name, bool initialize) {
-	$loadClass(MotifPopupMenuSeparatorUI, name, initialize, &_MotifPopupMenuSeparatorUI_ClassInfo_, allocate$MotifPopupMenuSeparatorUI);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MotifPopupMenuSeparatorUI, init$, void)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(MotifPopupMenuSeparatorUI, createUI, $ComponentUI*, $JComponent*)},
+		{"getPreferredSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(MotifPopupMenuSeparatorUI, getPreferredSize, $Dimension*, $JComponent*)},
+		{"paint", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(MotifPopupMenuSeparatorUI, paint, void, $Graphics*, $JComponent*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.java.swing.plaf.motif.MotifPopupMenuSeparatorUI",
+		"com.sun.java.swing.plaf.motif.MotifSeparatorUI",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(MotifPopupMenuSeparatorUI, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MotifPopupMenuSeparatorUI);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/lwawt/macosx/CPlatformLWWindow.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Font.h>
 #include <java/awt/FontMetrics.h>
@@ -29,7 +28,6 @@
 using $GraphicsDeviceArray = $Array<::java::awt::GraphicsDevice>;
 using $Font = ::java::awt::Font;
 using $FontMetrics = ::java::awt::FontMetrics;
-using $GraphicsConfiguration = ::java::awt::GraphicsConfiguration;
 using $GraphicsDevice = ::java::awt::GraphicsDevice;
 using $GraphicsEnvironment = ::java::awt::GraphicsEnvironment;
 using $Insets = ::java::awt::Insets;
@@ -55,57 +53,6 @@ using $CPlatformWindow = ::sun::lwawt::macosx::CPlatformWindow;
 namespace sun {
 	namespace lwawt {
 		namespace macosx {
-
-$MethodInfo _CPlatformLWWindow_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(CPlatformLWWindow, init$, void)},
-	{"createContentView", "()Lsun/lwawt/macosx/CPlatformView;", nullptr, 0, $virtualMethod(CPlatformLWWindow, createContentView, $CPlatformView*)},
-	{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(CPlatformLWWindow, dispose, void)},
-	{"enterFullScreenMode", "()V", nullptr, $PUBLIC, $virtualMethod(CPlatformLWWindow, enterFullScreenMode, void)},
-	{"exitFullScreenMode", "()V", nullptr, $PUBLIC, $virtualMethod(CPlatformLWWindow, exitFullScreenMode, void)},
-	{"getContentView", "()Lsun/lwawt/macosx/CPlatformView;", nullptr, $PUBLIC, $virtualMethod(CPlatformLWWindow, getContentView, $CPlatformView*)},
-	{"getFontMetrics", "(Ljava/awt/Font;)Ljava/awt/FontMetrics;", nullptr, $PUBLIC, $virtualMethod(CPlatformLWWindow, getFontMetrics, $FontMetrics*, $Font*)},
-	{"getGraphicsDevice", "()Ljava/awt/GraphicsDevice;", nullptr, $PUBLIC, $virtualMethod(CPlatformLWWindow, getGraphicsDevice, $GraphicsDevice*)},
-	{"getInsets", "()Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(CPlatformLWWindow, getInsets, $Insets*)},
-	{"getLayerPtr", "()J", nullptr, $PUBLIC, $virtualMethod(CPlatformLWWindow, getLayerPtr, int64_t)},
-	{"getLocationOnScreen", "()Ljava/awt/Point;", nullptr, $PUBLIC, $virtualMethod(CPlatformLWWindow, getLocationOnScreen, $Point*)},
-	{"getPeer", "()Lsun/lwawt/LWWindowPeer;", nullptr, $PUBLIC, $virtualMethod(CPlatformLWWindow, getPeer, $LWWindowPeer*)},
-	{"getScreenSurface", "()Lsun/java2d/SurfaceData;", nullptr, $PUBLIC, $virtualMethod(CPlatformLWWindow, getScreenSurface, $SurfaceData*)},
-	{"getSurfaceData", "()Lsun/java2d/SurfaceData;", nullptr, $PUBLIC, $virtualMethod(CPlatformLWWindow, getSurfaceData, $SurfaceData*)},
-	{"initialize", "(Ljava/awt/Window;Lsun/lwawt/LWWindowPeer;Lsun/lwawt/PlatformWindow;)V", nullptr, $PUBLIC, $virtualMethod(CPlatformLWWindow, initialize, void, $Window*, $LWWindowPeer*, $PlatformWindow*)},
-	{"isActive", "()Z", nullptr, $PUBLIC, $virtualMethod(CPlatformLWWindow, isActive, bool)},
-	{"rejectFocusRequest", "(Ljava/awt/event/FocusEvent$Cause;)Z", nullptr, $PUBLIC, $virtualMethod(CPlatformLWWindow, rejectFocusRequest, bool, $FocusEvent$Cause*)},
-	{"replaceSurfaceData", "()Lsun/java2d/SurfaceData;", nullptr, $PUBLIC, $virtualMethod(CPlatformLWWindow, replaceSurfaceData, $SurfaceData*)},
-	{"requestWindowFocus", "()Z", nullptr, $PUBLIC, $virtualMethod(CPlatformLWWindow, requestWindowFocus, bool)},
-	{"setAlwaysOnTop", "(Z)V", nullptr, $PUBLIC, $virtualMethod(CPlatformLWWindow, setAlwaysOnTop, void, bool)},
-	{"setBounds", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(CPlatformLWWindow, setBounds, void, int32_t, int32_t, int32_t, int32_t)},
-	{"setMenuBar", "(Ljava/awt/MenuBar;)V", nullptr, $PUBLIC, $virtualMethod(CPlatformLWWindow, setMenuBar, void, $MenuBar*)},
-	{"setOpacity", "(F)V", nullptr, $PUBLIC, $virtualMethod(CPlatformLWWindow, setOpacity, void, float)},
-	{"setOpaque", "(Z)V", nullptr, $PUBLIC, $virtualMethod(CPlatformLWWindow, setOpaque, void, bool)},
-	{"setResizable", "(Z)V", nullptr, $PUBLIC, $virtualMethod(CPlatformLWWindow, setResizable, void, bool)},
-	{"setSizeConstraints", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(CPlatformLWWindow, setSizeConstraints, void, int32_t, int32_t, int32_t, int32_t)},
-	{"setTitle", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(CPlatformLWWindow, setTitle, void, $String*)},
-	{"setVisible", "(Z)V", nullptr, $PUBLIC, $virtualMethod(CPlatformLWWindow, setVisible, void, bool)},
-	{"setWindowState", "(I)V", nullptr, $PUBLIC, $virtualMethod(CPlatformLWWindow, setWindowState, void, int32_t)},
-	{"toBack", "()V", nullptr, $PUBLIC, $virtualMethod(CPlatformLWWindow, toBack, void)},
-	{"toFront", "()V", nullptr, $PUBLIC, $virtualMethod(CPlatformLWWindow, toFront, void)},
-	{"toggleFullScreen", "()V", nullptr, $PUBLIC, $virtualMethod(CPlatformLWWindow, toggleFullScreen, void)},
-	{"updateFocusableWindowState", "()V", nullptr, $PUBLIC, $virtualMethod(CPlatformLWWindow, updateFocusableWindowState, void)},
-	{"updateIconImages", "()V", nullptr, $PUBLIC, $virtualMethod(CPlatformLWWindow, updateIconImages, void)},
-	{}
-};
-
-$ClassInfo _CPlatformLWWindow_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.lwawt.macosx.CPlatformLWWindow",
-	"sun.lwawt.macosx.CPlatformWindow",
-	nullptr,
-	nullptr,
-	_CPlatformLWWindow_MethodInfo_
-};
-
-$Object* allocate$CPlatformLWWindow($Class* clazz) {
-	return $of($alloc(CPlatformLWWindow));
-}
 
 void CPlatformLWWindow::init$() {
 	$CPlatformWindow::init$();
@@ -150,7 +97,7 @@ $SurfaceData* CPlatformLWWindow::replaceSurfaceData() {
 
 void CPlatformLWWindow::setBounds(int32_t x, int32_t y, int32_t w, int32_t h) {
 	if (getPeer() != nullptr) {
-		$nc($(getPeer()))->notifyReshape(x, y, w, h);
+		$$nc(getPeer())->notifyReshape(x, y, w, h);
 	}
 }
 
@@ -225,20 +172,18 @@ int64_t CPlatformLWWindow::getLayerPtr() {
 }
 
 $GraphicsDevice* CPlatformLWWindow::getGraphicsDevice() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($CGraphicsEnvironment, ge, $cast($CGraphicsEnvironment, $GraphicsEnvironment::getLocalGraphicsEnvironment()));
 	$var($LWLightweightFramePeer, peer, $cast($LWLightweightFramePeer, getPeer()));
-	int32_t scale = (int32_t)$Math::round($nc(($cast($LightweightFrame, $($nc(peer)->getTarget()))))->getScaleFactorX());
-	$var($Rectangle, bounds, $nc(($cast($LightweightFrame, $($nc(peer)->getTarget()))))->getHostBounds());
+	int32_t scale = (int32_t)$Math::round($$sure($LightweightFrame, $nc(peer)->getTarget())->getScaleFactorX());
+	$var($Rectangle, bounds, $$sure($LightweightFrame, peer->getTarget())->getHostBounds());
 	{
 		$var($GraphicsDeviceArray, arr$, $nc(ge)->getScreenDevices());
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($GraphicsDevice, d, arr$->get(i$));
 			{
-				bool var$0 = $nc($($nc($($nc(d)->getDefaultConfiguration()))->getBounds()))->intersects(bounds);
-				if (var$0 && $nc(($cast($CGraphicsDevice, d)))->getScaleFactor() == scale) {
+				bool var$0 = $$nc($$nc($nc(d)->getDefaultConfiguration())->getBounds())->intersects(bounds);
+				if (var$0 && $cast($CGraphicsDevice, d)->getScaleFactor() == scale) {
 					return d;
 				}
 			}
@@ -251,7 +196,54 @@ CPlatformLWWindow::CPlatformLWWindow() {
 }
 
 $Class* CPlatformLWWindow::load$($String* name, bool initialize) {
-	$loadClass(CPlatformLWWindow, name, initialize, &_CPlatformLWWindow_ClassInfo_, allocate$CPlatformLWWindow);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(CPlatformLWWindow, init$, void)},
+		{"createContentView", "()Lsun/lwawt/macosx/CPlatformView;", nullptr, 0, $virtualMethod(CPlatformLWWindow, createContentView, $CPlatformView*)},
+		{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(CPlatformLWWindow, dispose, void)},
+		{"enterFullScreenMode", "()V", nullptr, $PUBLIC, $virtualMethod(CPlatformLWWindow, enterFullScreenMode, void)},
+		{"exitFullScreenMode", "()V", nullptr, $PUBLIC, $virtualMethod(CPlatformLWWindow, exitFullScreenMode, void)},
+		{"getContentView", "()Lsun/lwawt/macosx/CPlatformView;", nullptr, $PUBLIC, $virtualMethod(CPlatformLWWindow, getContentView, $CPlatformView*)},
+		{"getFontMetrics", "(Ljava/awt/Font;)Ljava/awt/FontMetrics;", nullptr, $PUBLIC, $virtualMethod(CPlatformLWWindow, getFontMetrics, $FontMetrics*, $Font*)},
+		{"getGraphicsDevice", "()Ljava/awt/GraphicsDevice;", nullptr, $PUBLIC, $virtualMethod(CPlatformLWWindow, getGraphicsDevice, $GraphicsDevice*)},
+		{"getInsets", "()Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(CPlatformLWWindow, getInsets, $Insets*)},
+		{"getLayerPtr", "()J", nullptr, $PUBLIC, $virtualMethod(CPlatformLWWindow, getLayerPtr, int64_t)},
+		{"getLocationOnScreen", "()Ljava/awt/Point;", nullptr, $PUBLIC, $virtualMethod(CPlatformLWWindow, getLocationOnScreen, $Point*)},
+		{"getPeer", "()Lsun/lwawt/LWWindowPeer;", nullptr, $PUBLIC, $virtualMethod(CPlatformLWWindow, getPeer, $LWWindowPeer*)},
+		{"getScreenSurface", "()Lsun/java2d/SurfaceData;", nullptr, $PUBLIC, $virtualMethod(CPlatformLWWindow, getScreenSurface, $SurfaceData*)},
+		{"getSurfaceData", "()Lsun/java2d/SurfaceData;", nullptr, $PUBLIC, $virtualMethod(CPlatformLWWindow, getSurfaceData, $SurfaceData*)},
+		{"initialize", "(Ljava/awt/Window;Lsun/lwawt/LWWindowPeer;Lsun/lwawt/PlatformWindow;)V", nullptr, $PUBLIC, $virtualMethod(CPlatformLWWindow, initialize, void, $Window*, $LWWindowPeer*, $PlatformWindow*)},
+		{"isActive", "()Z", nullptr, $PUBLIC, $virtualMethod(CPlatformLWWindow, isActive, bool)},
+		{"rejectFocusRequest", "(Ljava/awt/event/FocusEvent$Cause;)Z", nullptr, $PUBLIC, $virtualMethod(CPlatformLWWindow, rejectFocusRequest, bool, $FocusEvent$Cause*)},
+		{"replaceSurfaceData", "()Lsun/java2d/SurfaceData;", nullptr, $PUBLIC, $virtualMethod(CPlatformLWWindow, replaceSurfaceData, $SurfaceData*)},
+		{"requestWindowFocus", "()Z", nullptr, $PUBLIC, $virtualMethod(CPlatformLWWindow, requestWindowFocus, bool)},
+		{"setAlwaysOnTop", "(Z)V", nullptr, $PUBLIC, $virtualMethod(CPlatformLWWindow, setAlwaysOnTop, void, bool)},
+		{"setBounds", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(CPlatformLWWindow, setBounds, void, int32_t, int32_t, int32_t, int32_t)},
+		{"setMenuBar", "(Ljava/awt/MenuBar;)V", nullptr, $PUBLIC, $virtualMethod(CPlatformLWWindow, setMenuBar, void, $MenuBar*)},
+		{"setOpacity", "(F)V", nullptr, $PUBLIC, $virtualMethod(CPlatformLWWindow, setOpacity, void, float)},
+		{"setOpaque", "(Z)V", nullptr, $PUBLIC, $virtualMethod(CPlatformLWWindow, setOpaque, void, bool)},
+		{"setResizable", "(Z)V", nullptr, $PUBLIC, $virtualMethod(CPlatformLWWindow, setResizable, void, bool)},
+		{"setSizeConstraints", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(CPlatformLWWindow, setSizeConstraints, void, int32_t, int32_t, int32_t, int32_t)},
+		{"setTitle", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(CPlatformLWWindow, setTitle, void, $String*)},
+		{"setVisible", "(Z)V", nullptr, $PUBLIC, $virtualMethod(CPlatformLWWindow, setVisible, void, bool)},
+		{"setWindowState", "(I)V", nullptr, $PUBLIC, $virtualMethod(CPlatformLWWindow, setWindowState, void, int32_t)},
+		{"toBack", "()V", nullptr, $PUBLIC, $virtualMethod(CPlatformLWWindow, toBack, void)},
+		{"toFront", "()V", nullptr, $PUBLIC, $virtualMethod(CPlatformLWWindow, toFront, void)},
+		{"toggleFullScreen", "()V", nullptr, $PUBLIC, $virtualMethod(CPlatformLWWindow, toggleFullScreen, void)},
+		{"updateFocusableWindowState", "()V", nullptr, $PUBLIC, $virtualMethod(CPlatformLWWindow, updateFocusableWindowState, void)},
+		{"updateIconImages", "()V", nullptr, $PUBLIC, $virtualMethod(CPlatformLWWindow, updateIconImages, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.lwawt.macosx.CPlatformLWWindow",
+		"sun.lwawt.macosx.CPlatformWindow",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(CPlatformLWWindow, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(CPlatformLWWindow));
+	});
 	return class$;
 }
 

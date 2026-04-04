@@ -1,5 +1,4 @@
 #include <sun/font/StrikeCache$DisposableStrike.h>
-
 #include <sun/font/FontStrikeDisposer.h>
 #include <sun/font/StrikeCache.h>
 #include <jcpp.h>
@@ -12,38 +11,33 @@ using $FontStrikeDisposer = ::sun::font::FontStrikeDisposer;
 namespace sun {
 	namespace font {
 
-$MethodInfo _StrikeCache$DisposableStrike_MethodInfo_[] = {
-	{"getDisposer", "()Lsun/font/FontStrikeDisposer;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(StrikeCache$DisposableStrike, getDisposer, $FontStrikeDisposer*)},
-	{}
-};
-
-$InnerClassInfo _StrikeCache$DisposableStrike_InnerClassesInfo_[] = {
-	{"sun.font.StrikeCache$DisposableStrike", "sun.font.StrikeCache", "DisposableStrike", $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _StrikeCache$DisposableStrike_ClassInfo_ = {
-	$INTERFACE | $ABSTRACT,
-	"sun.font.StrikeCache$DisposableStrike",
-	nullptr,
-	nullptr,
-	nullptr,
-	_StrikeCache$DisposableStrike_MethodInfo_,
-	nullptr,
-	nullptr,
-	_StrikeCache$DisposableStrike_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.font.StrikeCache"
-};
-
-$Object* allocate$StrikeCache$DisposableStrike($Class* clazz) {
-	return $of($alloc(StrikeCache$DisposableStrike));
-}
-
 $Class* StrikeCache$DisposableStrike::load$($String* name, bool initialize) {
-	$loadClass(StrikeCache$DisposableStrike, name, initialize, &_StrikeCache$DisposableStrike_ClassInfo_, allocate$StrikeCache$DisposableStrike);
+	$MethodInfo methodInfos$$[] = {
+		{"getDisposer", "()Lsun/font/FontStrikeDisposer;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(StrikeCache$DisposableStrike, getDisposer, $FontStrikeDisposer*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.font.StrikeCache$DisposableStrike", "sun.font.StrikeCache", "DisposableStrike", $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$INTERFACE | $ABSTRACT,
+		"sun.font.StrikeCache$DisposableStrike",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.font.StrikeCache"
+	};
+	$loadClass(StrikeCache$DisposableStrike, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(StrikeCache$DisposableStrike);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/security/utils/resolver/implementations/ResolverDirectHTTP.h>
-
 #include <com/sun/org/apache/xml/internal/security/signature/XMLSignatureInput.h>
 #include <com/sun/org/apache/xml/internal/security/utils/XMLUtils.h>
 #include <com/sun/org/apache/xml/internal/security/utils/resolver/ResourceResolverContext.h>
@@ -13,7 +12,6 @@
 #include <java/net/InetSocketAddress.h>
 #include <java/net/Proxy$Type.h>
 #include <java/net/Proxy.h>
-#include <java/net/SocketAddress.h>
 #include <java/net/URI.h>
 #include <java/net/URISyntaxException.h>
 #include <java/net/URL.h>
@@ -38,7 +36,6 @@ using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;
 using $IOException = ::java::io::IOException;
 using $InputStream = ::java::io::InputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $Integer = ::java::lang::Integer;
@@ -46,7 +43,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $InetSocketAddress = ::java::net::InetSocketAddress;
 using $Proxy = ::java::net::Proxy;
 using $Proxy$Type = ::java::net::Proxy$Type;
-using $SocketAddress = ::java::net::SocketAddress;
 using $URI = ::java::net::URI;
 using $URISyntaxException = ::java::net::URISyntaxException;
 using $URL = ::java::net::URL;
@@ -66,43 +62,6 @@ namespace com {
 								namespace resolver {
 									namespace implementations {
 
-$FieldInfo _ResolverDirectHTTP_FieldInfo_[] = {
-	{"LOG", "Lcom/sun/org/slf4j/internal/Logger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ResolverDirectHTTP, LOG)},
-	{"properties", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ResolverDirectHTTP, properties)},
-	{"HttpProxyHost", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ResolverDirectHTTP, HttpProxyHost)},
-	{"HttpProxyPort", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ResolverDirectHTTP, HttpProxyPort)},
-	{"HttpProxyUser", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ResolverDirectHTTP, HttpProxyUser)},
-	{"HttpProxyPass", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ResolverDirectHTTP, HttpProxyPass)},
-	{"HttpBasicUser", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ResolverDirectHTTP, HttpBasicUser)},
-	{"HttpBasicPass", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ResolverDirectHTTP, HttpBasicPass)},
-	{"resolverProperties", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;", $PRIVATE | $FINAL, $field(ResolverDirectHTTP, resolverProperties)},
-	{}
-};
-
-$MethodInfo _ResolverDirectHTTP_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ResolverDirectHTTP, init$, void)},
-	{"<init>", "(Ljava/util/Map;)V", "(Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;)V", $PUBLIC, $method(ResolverDirectHTTP, init$, void, $Map*)},
-	{"engineCanResolveURI", "(Lcom/sun/org/apache/xml/internal/security/utils/resolver/ResourceResolverContext;)Z", nullptr, $PUBLIC, $virtualMethod(ResolverDirectHTTP, engineCanResolveURI, bool, $ResourceResolverContext*)},
-	{"engineResolveURI", "(Lcom/sun/org/apache/xml/internal/security/utils/resolver/ResourceResolverContext;)Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;", nullptr, $PUBLIC, $virtualMethod(ResolverDirectHTTP, engineResolveURI, $XMLSignatureInput*, $ResourceResolverContext*), "com.sun.org.apache.xml.internal.security.utils.resolver.ResourceResolverException"},
-	{"getNewURI", "(Ljava/lang/String;Ljava/lang/String;)Ljava/net/URI;", nullptr, $PRIVATE | $STATIC, $staticMethod(ResolverDirectHTTP, getNewURI, $URI*, $String*, $String*), "java.net.URISyntaxException"},
-	{"getProperty", "(Lcom/sun/org/apache/xml/internal/security/utils/resolver/ResourceResolverContext;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(ResolverDirectHTTP, getProperty, $String*, $ResourceResolverContext*, $String*)},
-	{"openConnection", "(Ljava/net/URL;Lcom/sun/org/apache/xml/internal/security/utils/resolver/ResourceResolverContext;)Ljava/net/URLConnection;", nullptr, $PRIVATE, $method(ResolverDirectHTTP, openConnection, $URLConnection*, $URL*, $ResourceResolverContext*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _ResolverDirectHTTP_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.security.utils.resolver.implementations.ResolverDirectHTTP",
-	"com.sun.org.apache.xml.internal.security.utils.resolver.ResourceResolverSpi",
-	nullptr,
-	_ResolverDirectHTTP_FieldInfo_,
-	_ResolverDirectHTTP_MethodInfo_
-};
-
-$Object* allocate$ResolverDirectHTTP($Class* clazz) {
-	return $of($alloc(ResolverDirectHTTP));
-}
-
 $Logger* ResolverDirectHTTP::LOG = nullptr;
 $StringArray* ResolverDirectHTTP::properties = nullptr;
 
@@ -117,120 +76,116 @@ void ResolverDirectHTTP::init$($Map* resolverProperties) {
 }
 
 $XMLSignatureInput* ResolverDirectHTTP::engineResolveURI($ResourceResolverContext* context) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
-		$var($URI, uriNew, getNewURI($nc(context)->uriToResolve, context->baseUri));
+		$var($URI, uriNew, getNewURI($nc(context)->uriToResolve, $nc(context)->baseUri));
 		$var($URL, url, $nc(uriNew)->toURL());
 		$var($URLConnection, urlConnection, openConnection(url, context));
 		$var($String, auth, $nc(urlConnection)->getHeaderField("WWW-Authenticate"_s));
 		if (auth != nullptr && auth->startsWith("Basic"_s)) {
-			$var($String, user, getProperty(context, $nc(ResolverDirectHTTP::properties)->get(ResolverDirectHTTP::HttpBasicUser)));
-			$var($String, pass, getProperty(context, $nc(ResolverDirectHTTP::properties)->get(ResolverDirectHTTP::HttpBasicPass)));
+			$var($String, user, getProperty(context, ResolverDirectHTTP::properties->get(ResolverDirectHTTP::HttpBasicUser)));
+			$var($String, pass, getProperty(context, ResolverDirectHTTP::properties->get(ResolverDirectHTTP::HttpBasicPass)));
 			if (user != nullptr && pass != nullptr) {
 				$assign(urlConnection, openConnection(url, context));
 				$var($String, password, $str({user, ":"_s, pass}));
 				$init($StandardCharsets);
-				$var($String, encodedPassword, $XMLUtils::encodeToString($($nc(password)->getBytes($StandardCharsets::ISO_8859_1))));
+				$var($String, encodedPassword, $XMLUtils::encodeToString($(password->getBytes($StandardCharsets::ISO_8859_1))));
 				$nc(urlConnection)->setRequestProperty("Authorization"_s, $$str({"Basic "_s, encodedPassword}));
 			}
 		}
 		$var($String, mimeType, urlConnection->getHeaderField("Content-Type"_s));
 		{
 			$var($ByteArrayOutputStream, baos, $new($ByteArrayOutputStream));
-			{
-				$var($Throwable, var$0, nullptr);
-				$var($XMLSignatureInput, var$2, nullptr);
-				bool return$1 = false;
+			$var($Throwable, var$0, nullptr);
+			$var($XMLSignatureInput, var$2, nullptr);
+			bool return$1 = false;
+			try {
 				try {
+					$var($InputStream, inputStream, urlConnection->getInputStream());
+					$var($Throwable, var$3, nullptr);
+					$var($XMLSignatureInput, var$5, nullptr);
+					bool return$4 = false;
 					try {
-						$var($InputStream, inputStream, urlConnection->getInputStream());
-						{
-							$var($Throwable, var$3, nullptr);
-							$var($XMLSignatureInput, var$5, nullptr);
-							bool return$4 = false;
-							try {
-								try {
-									$var($bytes, buf, $new($bytes, 4096));
-									int32_t read = 0;
-									int32_t summarized = 0;
-									while ((read = $nc(inputStream)->read(buf)) >= 0) {
-										baos->write(buf, 0, read);
-										summarized += read;
-									}
-									$nc(ResolverDirectHTTP::LOG)->debug("Fetched {} bytes from URI {}"_s, $$new($ObjectArray, {
-										$($of($Integer::valueOf(summarized))),
-										$($of(uriNew->toString()))
-									}));
-									$var($XMLSignatureInput, result, $new($XMLSignatureInput, $(baos->toByteArray())));
-									result->setSecureValidation($nc(context)->secureValidation);
-									result->setSourceURI($(uriNew->toString()));
-									result->setMIMEType(mimeType);
-									$assign(var$5, result);
-									return$4 = true;
-									goto $finally1;
-								} catch ($Throwable& t$) {
-									if (inputStream != nullptr) {
-										try {
-											inputStream->close();
-										} catch ($Throwable& x2) {
-											t$->addSuppressed(x2);
-										}
-									}
-									$throw(t$);
-								}
-							} catch ($Throwable& var$6) {
-								$assign(var$3, var$6);
-							} $finally1: {
-								if (inputStream != nullptr) {
-									inputStream->close();
-								}
-							}
-							if (var$3 != nullptr) {
-								$throw(var$3);
-							}
-							if (return$4) {
-								$assign(var$2, var$5);
-								return$1 = true;
-								goto $finally;
-							}
-						}
-					} catch ($Throwable& t$) {
 						try {
-							baos->close();
-						} catch ($Throwable& x2) {
-							t$->addSuppressed(x2);
+							$var($bytes, buf, $new($bytes, 4096));
+							int32_t read = 0;
+							int32_t summarized = 0;
+							while ((read = $nc(inputStream)->read(buf)) >= 0) {
+								baos->write(buf, 0, read);
+								summarized += read;
+							}
+							$nc(ResolverDirectHTTP::LOG)->debug("Fetched {} bytes from URI {}"_s, $$new($ObjectArray, {
+								$($Integer::valueOf(summarized)),
+								$(uriNew->toString())
+							}));
+							$var($XMLSignatureInput, result, $new($XMLSignatureInput, $(baos->toByteArray())));
+							result->setSecureValidation(context->secureValidation);
+							result->setSourceURI($(uriNew->toString()));
+							result->setMIMEType(mimeType);
+							$assign(var$5, result);
+							return$4 = true;
+							goto $finally1;
+						} catch ($Throwable& t$) {
+							if (inputStream != nullptr) {
+								try {
+									inputStream->close();
+								} catch ($Throwable& x2) {
+									t$->addSuppressed(x2);
+								}
+							}
+							$throw(t$);
 						}
-						$throw(t$);
+					} catch ($Throwable& var$6) {
+						$assign(var$3, var$6);
+					} $finally1: {
+						if (inputStream != nullptr) {
+							inputStream->close();
+						}
 					}
-				} catch ($Throwable& var$7) {
-					$assign(var$0, var$7);
-				} $finally: {
-					baos->close();
+					if (var$3 != nullptr) {
+						$throw(var$3);
+					}
+					if (return$4) {
+						$assign(var$2, var$5);
+						return$1 = true;
+						goto $finally;
+					}
+				} catch ($Throwable& t$) {
+					try {
+						baos->close();
+					} catch ($Throwable& x2) {
+						t$->addSuppressed(x2);
+					}
+					$throw(t$);
 				}
-				if (var$0 != nullptr) {
-					$throw(var$0);
-				}
-				if (return$1) {
-					return var$2;
-				}
+			} catch ($Throwable& var$7) {
+				$assign(var$0, var$7);
+			} $finally: {
+				baos->close();
+			}
+			if (var$0 != nullptr) {
+				$throw(var$0);
+			}
+			if (return$1) {
+				return var$2;
 			}
 		}
 	} catch ($URISyntaxException& ex) {
-		$throwNew($ResourceResolverException, $cast($Exception, ex), $nc(context)->uriToResolve, context->baseUri, "generic.EmptyMessage"_s);
+		$throwNew($ResourceResolverException, ex, $nc(context)->uriToResolve, $nc(context)->baseUri, "generic.EmptyMessage"_s);
 	} catch ($IOException& ex) {
-		$throwNew($ResourceResolverException, $cast($Exception, ex), $nc(context)->uriToResolve, context->baseUri, "generic.EmptyMessage"_s);
+		$throwNew($ResourceResolverException, ex, $nc(context)->uriToResolve, $nc(context)->baseUri, "generic.EmptyMessage"_s);
 	} catch ($IllegalArgumentException& ex) {
-		$throwNew($ResourceResolverException, $cast($Exception, ex), $nc(context)->uriToResolve, context->baseUri, "generic.EmptyMessage"_s);
+		$throwNew($ResourceResolverException, ex, $nc(context)->uriToResolve, $nc(context)->baseUri, "generic.EmptyMessage"_s);
 	}
 	$shouldNotReachHere();
 }
 
 $URLConnection* ResolverDirectHTTP::openConnection($URL* url, $ResourceResolverContext* context) {
-	$useLocalCurrentObjectStackCache();
-	$var($String, proxyHostProp, getProperty(context, $nc(ResolverDirectHTTP::properties)->get(ResolverDirectHTTP::HttpProxyHost)));
-	$var($String, proxyPortProp, getProperty(context, $nc(ResolverDirectHTTP::properties)->get(ResolverDirectHTTP::HttpProxyPort)));
-	$var($String, proxyUser, getProperty(context, $nc(ResolverDirectHTTP::properties)->get(ResolverDirectHTTP::HttpProxyUser)));
-	$var($String, proxyPass, getProperty(context, $nc(ResolverDirectHTTP::properties)->get(ResolverDirectHTTP::HttpProxyPass)));
+	$useLocalObjectStack();
+	$var($String, proxyHostProp, getProperty(context, ResolverDirectHTTP::properties->get(ResolverDirectHTTP::HttpProxyHost)));
+	$var($String, proxyPortProp, getProperty(context, ResolverDirectHTTP::properties->get(ResolverDirectHTTP::HttpProxyPort)));
+	$var($String, proxyUser, getProperty(context, ResolverDirectHTTP::properties->get(ResolverDirectHTTP::HttpProxyUser)));
+	$var($String, proxyPass, getProperty(context, ResolverDirectHTTP::properties->get(ResolverDirectHTTP::HttpProxyPass)));
 	$var($Proxy, proxy, nullptr);
 	if (proxyHostProp != nullptr && proxyPortProp != nullptr) {
 		int32_t port = $Integer::parseInt(proxyPortProp);
@@ -243,7 +198,7 @@ $URLConnection* ResolverDirectHTTP::openConnection($URL* url, $ResourceResolverC
 		if (proxyUser != nullptr && proxyPass != nullptr) {
 			$var($String, password, $str({proxyUser, ":"_s, proxyPass}));
 			$init($StandardCharsets);
-			$var($String, authString, $str({"Basic "_s, $($XMLUtils::encodeToString($($nc(password)->getBytes($StandardCharsets::ISO_8859_1))))}));
+			$var($String, authString, $str({"Basic "_s, $($XMLUtils::encodeToString($(password->getBytes($StandardCharsets::ISO_8859_1))))}));
 			$nc(urlConnection)->setRequestProperty("Proxy-Authorization"_s, authString);
 		}
 	} else {
@@ -253,29 +208,29 @@ $URLConnection* ResolverDirectHTTP::openConnection($URL* url, $ResourceResolverC
 }
 
 bool ResolverDirectHTTP::engineCanResolveURI($ResourceResolverContext* context) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(context)->uriToResolve == nullptr) {
 		$nc(ResolverDirectHTTP::LOG)->debug("quick fail, uri == null"_s);
 		return false;
 	}
-	bool var$0 = $nc($nc(context)->uriToResolve)->isEmpty();
-	if (var$0 || $nc($nc(context)->uriToResolve)->charAt(0) == u'#') {
+	bool var$0 = $nc(context->uriToResolve)->isEmpty();
+	if (var$0 || context->uriToResolve->charAt(0) == u'#') {
 		$nc(ResolverDirectHTTP::LOG)->debug("quick fail for empty URIs and local ones"_s);
 		return false;
 	}
-	$nc(ResolverDirectHTTP::LOG)->debug("I was asked whether I can resolve {}"_s, $$new($ObjectArray, {$of($nc(context)->uriToResolve)}));
-	bool var$1 = $nc($nc(context)->uriToResolve)->startsWith("http:"_s);
-	if (var$1 || $nc(context)->baseUri != nullptr && $nc(context->baseUri)->startsWith("http:"_s)) {
-		$nc(ResolverDirectHTTP::LOG)->debug("I state that I can resolve {}"_s, $$new($ObjectArray, {$of(context->uriToResolve)}));
+	$nc(ResolverDirectHTTP::LOG)->debug("I was asked whether I can resolve {}"_s, $$new($ObjectArray, {context->uriToResolve}));
+	bool var$1 = context->uriToResolve->startsWith("http:"_s);
+	if (var$1 || context->baseUri != nullptr && context->baseUri->startsWith("http:"_s)) {
+		ResolverDirectHTTP::LOG->debug("I state that I can resolve {}"_s, $$new($ObjectArray, {context->uriToResolve}));
 		return true;
 	}
-	$nc(ResolverDirectHTTP::LOG)->debug("I state that I can\'t resolve {}"_s, $$new($ObjectArray, {$of($nc(context)->uriToResolve)}));
+	ResolverDirectHTTP::LOG->debug("I state that I can\'t resolve {}"_s, $$new($ObjectArray, {context->uriToResolve}));
 	return false;
 }
 
 $URI* ResolverDirectHTTP::getNewURI($String* uri, $String* baseURI) {
 	$init(ResolverDirectHTTP);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($URI, newUri, nullptr);
 	if (baseURI == nullptr || ""_s->equals(baseURI)) {
 		$assign(newUri, $new($URI, uri));
@@ -291,12 +246,12 @@ $URI* ResolverDirectHTTP::getNewURI($String* uri, $String* baseURI) {
 
 $String* ResolverDirectHTTP::getProperty($ResourceResolverContext* context, $String* propertyName) {
 	if ($nc(this->resolverProperties)->containsKey(propertyName)) {
-		return $cast($String, $nc(this->resolverProperties)->get(propertyName));
+		return $cast($String, this->resolverProperties->get(propertyName));
 	}
-	return $cast($String, $nc($($nc(context)->getProperties()))->get(propertyName));
+	return $cast($String, $$nc($nc(context)->getProperties())->get(propertyName));
 }
 
-void clinit$ResolverDirectHTTP($Class* class$) {
+void ResolverDirectHTTP::clinit$($Class* clazz) {
 	$assignStatic(ResolverDirectHTTP::LOG, $LoggerFactory::getLogger(ResolverDirectHTTP::class$));
 	$assignStatic(ResolverDirectHTTP::properties, $new($StringArray, {
 		"http.proxy.host"_s,
@@ -312,7 +267,39 @@ ResolverDirectHTTP::ResolverDirectHTTP() {
 }
 
 $Class* ResolverDirectHTTP::load$($String* name, bool initialize) {
-	$loadClass(ResolverDirectHTTP, name, initialize, &_ResolverDirectHTTP_ClassInfo_, clinit$ResolverDirectHTTP, allocate$ResolverDirectHTTP);
+	$FieldInfo fieldInfos$$[] = {
+		{"LOG", "Lcom/sun/org/slf4j/internal/Logger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ResolverDirectHTTP, LOG)},
+		{"properties", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ResolverDirectHTTP, properties)},
+		{"HttpProxyHost", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ResolverDirectHTTP, HttpProxyHost)},
+		{"HttpProxyPort", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ResolverDirectHTTP, HttpProxyPort)},
+		{"HttpProxyUser", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ResolverDirectHTTP, HttpProxyUser)},
+		{"HttpProxyPass", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ResolverDirectHTTP, HttpProxyPass)},
+		{"HttpBasicUser", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ResolverDirectHTTP, HttpBasicUser)},
+		{"HttpBasicPass", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ResolverDirectHTTP, HttpBasicPass)},
+		{"resolverProperties", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;", $PRIVATE | $FINAL, $field(ResolverDirectHTTP, resolverProperties)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ResolverDirectHTTP, init$, void)},
+		{"<init>", "(Ljava/util/Map;)V", "(Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;)V", $PUBLIC, $method(ResolverDirectHTTP, init$, void, $Map*)},
+		{"engineCanResolveURI", "(Lcom/sun/org/apache/xml/internal/security/utils/resolver/ResourceResolverContext;)Z", nullptr, $PUBLIC, $virtualMethod(ResolverDirectHTTP, engineCanResolveURI, bool, $ResourceResolverContext*)},
+		{"engineResolveURI", "(Lcom/sun/org/apache/xml/internal/security/utils/resolver/ResourceResolverContext;)Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;", nullptr, $PUBLIC, $virtualMethod(ResolverDirectHTTP, engineResolveURI, $XMLSignatureInput*, $ResourceResolverContext*), "com.sun.org.apache.xml.internal.security.utils.resolver.ResourceResolverException"},
+		{"getNewURI", "(Ljava/lang/String;Ljava/lang/String;)Ljava/net/URI;", nullptr, $PRIVATE | $STATIC, $staticMethod(ResolverDirectHTTP, getNewURI, $URI*, $String*, $String*), "java.net.URISyntaxException"},
+		{"getProperty", "(Lcom/sun/org/apache/xml/internal/security/utils/resolver/ResourceResolverContext;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(ResolverDirectHTTP, getProperty, $String*, $ResourceResolverContext*, $String*)},
+		{"openConnection", "(Ljava/net/URL;Lcom/sun/org/apache/xml/internal/security/utils/resolver/ResourceResolverContext;)Ljava/net/URLConnection;", nullptr, $PRIVATE, $method(ResolverDirectHTTP, openConnection, $URLConnection*, $URL*, $ResourceResolverContext*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.security.utils.resolver.implementations.ResolverDirectHTTP",
+		"com.sun.org.apache.xml.internal.security.utils.resolver.ResourceResolverSpi",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ResolverDirectHTTP, name, initialize, &classInfo$$, ResolverDirectHTTP::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ResolverDirectHTTP);
+	});
 	return class$;
 }
 

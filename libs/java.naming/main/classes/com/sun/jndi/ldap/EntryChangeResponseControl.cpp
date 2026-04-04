@@ -1,5 +1,4 @@
 #include <com/sun/jndi/ldap/EntryChangeResponseControl.h>
-
 #include <com/sun/jndi/ldap/BasicControl.h>
 #include <com/sun/jndi/ldap/Ber.h>
 #include <com/sun/jndi/ldap/BerDecoder.h>
@@ -25,40 +24,6 @@ namespace com {
 		namespace jndi {
 			namespace ldap {
 
-$FieldInfo _EntryChangeResponseControl_FieldInfo_[] = {
-	{"OID", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(EntryChangeResponseControl, OID)},
-	{"ADD", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(EntryChangeResponseControl, ADD)},
-	{"DELETE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(EntryChangeResponseControl, DELETE)},
-	{"MODIFY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(EntryChangeResponseControl, MODIFY)},
-	{"RENAME", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(EntryChangeResponseControl, RENAME)},
-	{"changeType", "I", nullptr, $PRIVATE, $field(EntryChangeResponseControl, changeType)},
-	{"previousDN", "Ljava/lang/String;", nullptr, $PRIVATE, $field(EntryChangeResponseControl, previousDN)},
-	{"changeNumber", "J", nullptr, $PRIVATE, $field(EntryChangeResponseControl, changeNumber)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(EntryChangeResponseControl, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _EntryChangeResponseControl_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Z[B)V", nullptr, $PUBLIC, $method(EntryChangeResponseControl, init$, void, $String*, bool, $bytes*), "java.io.IOException"},
-	{"getChangeNumber", "()J", nullptr, $PUBLIC, $method(EntryChangeResponseControl, getChangeNumber, int64_t)},
-	{"getChangeType", "()I", nullptr, $PUBLIC, $method(EntryChangeResponseControl, getChangeType, int32_t)},
-	{"getPreviousDN", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(EntryChangeResponseControl, getPreviousDN, $String*)},
-	{}
-};
-
-$ClassInfo _EntryChangeResponseControl_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.jndi.ldap.EntryChangeResponseControl",
-	"com.sun.jndi.ldap.BasicControl",
-	nullptr,
-	_EntryChangeResponseControl_FieldInfo_,
-	_EntryChangeResponseControl_MethodInfo_
-};
-
-$Object* allocate$EntryChangeResponseControl($Class* clazz) {
-	return $of($alloc(EntryChangeResponseControl));
-}
-
 $String* EntryChangeResponseControl::OID = nullptr;
 
 void EntryChangeResponseControl::init$($String* id, bool criticality, $bytes* value) {
@@ -69,11 +34,11 @@ void EntryChangeResponseControl::init$($String* id, bool criticality, $bytes* va
 		$var($BerDecoder, ber, $new($BerDecoder, value, 0, value->length));
 		ber->parseSeq(nullptr);
 		this->changeType = ber->parseEnumeration();
-		bool var$0 = (ber->bytesLeft() > 0);
+		bool var$0 = ber->bytesLeft() > 0;
 		if (var$0 && (ber->peekByte() == $Ber::ASN_OCTET_STR)) {
 			$set(this, previousDN, ber->parseString(true));
 		}
-		bool var$1 = (ber->bytesLeft() > 0);
+		bool var$1 = ber->bytesLeft() > 0;
 		if (var$1 && (ber->peekByte() == $Ber::ASN_INTEGER)) {
 			this->changeNumber = ber->parseInt();
 		}
@@ -95,12 +60,41 @@ int64_t EntryChangeResponseControl::getChangeNumber() {
 EntryChangeResponseControl::EntryChangeResponseControl() {
 }
 
-void clinit$EntryChangeResponseControl($Class* class$) {
+void EntryChangeResponseControl::clinit$($Class* clazz) {
 	$assignStatic(EntryChangeResponseControl::OID, "2.16.840.1.113730.3.4.7"_s);
 }
 
 $Class* EntryChangeResponseControl::load$($String* name, bool initialize) {
-	$loadClass(EntryChangeResponseControl, name, initialize, &_EntryChangeResponseControl_ClassInfo_, clinit$EntryChangeResponseControl, allocate$EntryChangeResponseControl);
+	$FieldInfo fieldInfos$$[] = {
+		{"OID", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(EntryChangeResponseControl, OID)},
+		{"ADD", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(EntryChangeResponseControl, ADD)},
+		{"DELETE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(EntryChangeResponseControl, DELETE)},
+		{"MODIFY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(EntryChangeResponseControl, MODIFY)},
+		{"RENAME", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(EntryChangeResponseControl, RENAME)},
+		{"changeType", "I", nullptr, $PRIVATE, $field(EntryChangeResponseControl, changeType)},
+		{"previousDN", "Ljava/lang/String;", nullptr, $PRIVATE, $field(EntryChangeResponseControl, previousDN)},
+		{"changeNumber", "J", nullptr, $PRIVATE, $field(EntryChangeResponseControl, changeNumber)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(EntryChangeResponseControl, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Z[B)V", nullptr, $PUBLIC, $method(EntryChangeResponseControl, init$, void, $String*, bool, $bytes*), "java.io.IOException"},
+		{"getChangeNumber", "()J", nullptr, $PUBLIC, $method(EntryChangeResponseControl, getChangeNumber, int64_t)},
+		{"getChangeType", "()I", nullptr, $PUBLIC, $method(EntryChangeResponseControl, getChangeType, int32_t)},
+		{"getPreviousDN", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(EntryChangeResponseControl, getPreviousDN, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.jndi.ldap.EntryChangeResponseControl",
+		"com.sun.jndi.ldap.BasicControl",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(EntryChangeResponseControl, name, initialize, &classInfo$$, EntryChangeResponseControl::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(EntryChangeResponseControl);
+	});
 	return class$;
 }
 

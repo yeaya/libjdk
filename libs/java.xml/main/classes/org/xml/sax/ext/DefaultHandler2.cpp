@@ -1,5 +1,4 @@
 #include <org/xml/sax/ext/DefaultHandler2.h>
-
 #include <org/xml/sax/InputSource.h>
 #include <org/xml/sax/helpers/DefaultHandler.h>
 #include <jcpp.h>
@@ -13,43 +12,6 @@ namespace org {
 	namespace xml {
 		namespace sax {
 			namespace ext {
-
-$MethodInfo _DefaultHandler2_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(DefaultHandler2, init$, void)},
-	{"attributeDecl", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(DefaultHandler2, attributeDecl, void, $String*, $String*, $String*, $String*, $String*), "org.xml.sax.SAXException"},
-	{"comment", "([CII)V", nullptr, $PUBLIC, $virtualMethod(DefaultHandler2, comment, void, $chars*, int32_t, int32_t), "org.xml.sax.SAXException"},
-	{"elementDecl", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(DefaultHandler2, elementDecl, void, $String*, $String*), "org.xml.sax.SAXException"},
-	{"endCDATA", "()V", nullptr, $PUBLIC, $virtualMethod(DefaultHandler2, endCDATA, void), "org.xml.sax.SAXException"},
-	{"endDTD", "()V", nullptr, $PUBLIC, $virtualMethod(DefaultHandler2, endDTD, void), "org.xml.sax.SAXException"},
-	{"endEntity", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(DefaultHandler2, endEntity, void, $String*), "org.xml.sax.SAXException"},
-	{"externalEntityDecl", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(DefaultHandler2, externalEntityDecl, void, $String*, $String*, $String*), "org.xml.sax.SAXException"},
-	{"getExternalSubset", "(Ljava/lang/String;Ljava/lang/String;)Lorg/xml/sax/InputSource;", nullptr, $PUBLIC, $virtualMethod(DefaultHandler2, getExternalSubset, $InputSource*, $String*, $String*), "org.xml.sax.SAXException,java.io.IOException"},
-	{"internalEntityDecl", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(DefaultHandler2, internalEntityDecl, void, $String*, $String*), "org.xml.sax.SAXException"},
-	{"resolveEntity", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/xml/sax/InputSource;", nullptr, $PUBLIC, $virtualMethod(DefaultHandler2, resolveEntity, $InputSource*, $String*, $String*, $String*, $String*), "org.xml.sax.SAXException,java.io.IOException"},
-	{"resolveEntity", "(Ljava/lang/String;Ljava/lang/String;)Lorg/xml/sax/InputSource;", nullptr, $PUBLIC, $virtualMethod(DefaultHandler2, resolveEntity, $InputSource*, $String*, $String*), "org.xml.sax.SAXException,java.io.IOException"},
-	{"startCDATA", "()V", nullptr, $PUBLIC, $virtualMethod(DefaultHandler2, startCDATA, void), "org.xml.sax.SAXException"},
-	{"startDTD", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(DefaultHandler2, startDTD, void, $String*, $String*, $String*), "org.xml.sax.SAXException"},
-	{"startEntity", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(DefaultHandler2, startEntity, void, $String*), "org.xml.sax.SAXException"},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _DefaultHandler2_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"org.xml.sax.ext.DefaultHandler2",
-	"org.xml.sax.helpers.DefaultHandler",
-	"org.xml.sax.ext.LexicalHandler,org.xml.sax.ext.DeclHandler,org.xml.sax.ext.EntityResolver2",
-	nullptr,
-	_DefaultHandler2_MethodInfo_
-};
-
-$Object* allocate$DefaultHandler2($Class* clazz) {
-	return $of($alloc(DefaultHandler2));
-}
 
 int32_t DefaultHandler2::hashCode() {
 	 return this->$DefaultHandler::hashCode();
@@ -124,7 +86,40 @@ DefaultHandler2::DefaultHandler2() {
 }
 
 $Class* DefaultHandler2::load$($String* name, bool initialize) {
-	$loadClass(DefaultHandler2, name, initialize, &_DefaultHandler2_ClassInfo_, allocate$DefaultHandler2);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(DefaultHandler2, init$, void)},
+		{"attributeDecl", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(DefaultHandler2, attributeDecl, void, $String*, $String*, $String*, $String*, $String*), "org.xml.sax.SAXException"},
+		{"comment", "([CII)V", nullptr, $PUBLIC, $virtualMethod(DefaultHandler2, comment, void, $chars*, int32_t, int32_t), "org.xml.sax.SAXException"},
+		{"elementDecl", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(DefaultHandler2, elementDecl, void, $String*, $String*), "org.xml.sax.SAXException"},
+		{"endCDATA", "()V", nullptr, $PUBLIC, $virtualMethod(DefaultHandler2, endCDATA, void), "org.xml.sax.SAXException"},
+		{"endDTD", "()V", nullptr, $PUBLIC, $virtualMethod(DefaultHandler2, endDTD, void), "org.xml.sax.SAXException"},
+		{"endEntity", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(DefaultHandler2, endEntity, void, $String*), "org.xml.sax.SAXException"},
+		{"externalEntityDecl", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(DefaultHandler2, externalEntityDecl, void, $String*, $String*, $String*), "org.xml.sax.SAXException"},
+		{"getExternalSubset", "(Ljava/lang/String;Ljava/lang/String;)Lorg/xml/sax/InputSource;", nullptr, $PUBLIC, $virtualMethod(DefaultHandler2, getExternalSubset, $InputSource*, $String*, $String*), "org.xml.sax.SAXException,java.io.IOException"},
+		{"internalEntityDecl", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(DefaultHandler2, internalEntityDecl, void, $String*, $String*), "org.xml.sax.SAXException"},
+		{"resolveEntity", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/xml/sax/InputSource;", nullptr, $PUBLIC, $virtualMethod(DefaultHandler2, resolveEntity, $InputSource*, $String*, $String*, $String*, $String*), "org.xml.sax.SAXException,java.io.IOException"},
+		{"resolveEntity", "(Ljava/lang/String;Ljava/lang/String;)Lorg/xml/sax/InputSource;", nullptr, $PUBLIC, $virtualMethod(DefaultHandler2, resolveEntity, $InputSource*, $String*, $String*), "org.xml.sax.SAXException,java.io.IOException"},
+		{"startCDATA", "()V", nullptr, $PUBLIC, $virtualMethod(DefaultHandler2, startCDATA, void), "org.xml.sax.SAXException"},
+		{"startDTD", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(DefaultHandler2, startDTD, void, $String*, $String*, $String*), "org.xml.sax.SAXException"},
+		{"startEntity", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(DefaultHandler2, startEntity, void, $String*), "org.xml.sax.SAXException"},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"org.xml.sax.ext.DefaultHandler2",
+		"org.xml.sax.helpers.DefaultHandler",
+		"org.xml.sax.ext.LexicalHandler,org.xml.sax.ext.DeclHandler,org.xml.sax.ext.EntityResolver2",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(DefaultHandler2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DefaultHandler2));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/utils/StringBufferPool.h>
-
 #include <com/sun/org/apache/xml/internal/utils/FastStringBuffer.h>
 #include <com/sun/org/apache/xml/internal/utils/ObjectPool.h>
 #include <jcpp.h>
@@ -18,54 +17,27 @@ namespace com {
 					namespace internal {
 						namespace utils {
 
-$FieldInfo _StringBufferPool_FieldInfo_[] = {
-	{"m_stringBufPool", "Lcom/sun/org/apache/xml/internal/utils/ObjectPool;", nullptr, $PRIVATE | $STATIC, $staticField(StringBufferPool, m_stringBufPool)},
-	{}
-};
-
-$MethodInfo _StringBufferPool_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(StringBufferPool, init$, void)},
-	{"free", "(Lcom/sun/org/apache/xml/internal/utils/FastStringBuffer;)V", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(StringBufferPool, free, void, $FastStringBuffer*)},
-	{"get", "()Lcom/sun/org/apache/xml/internal/utils/FastStringBuffer;", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(StringBufferPool, get, $FastStringBuffer*)},
-	{}
-};
-
-$ClassInfo _StringBufferPool_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.utils.StringBufferPool",
-	"java.lang.Object",
-	nullptr,
-	_StringBufferPool_FieldInfo_,
-	_StringBufferPool_MethodInfo_
-};
-
-$Object* allocate$StringBufferPool($Class* clazz) {
-	return $of($alloc(StringBufferPool));
-}
-
 $ObjectPool* StringBufferPool::m_stringBufPool = nullptr;
 
 void StringBufferPool::init$() {
 }
 
 $FastStringBuffer* StringBufferPool::get() {
-	$load(StringBufferPool);
+	$init(StringBufferPool);
 	$synchronized(class$) {
-		$init(StringBufferPool);
 		return $cast($FastStringBuffer, $nc(StringBufferPool::m_stringBufPool)->getInstance());
 	}
 }
 
 void StringBufferPool::free($FastStringBuffer* sb) {
-	$load(StringBufferPool);
+	$init(StringBufferPool);
 	$synchronized(class$) {
-		$init(StringBufferPool);
 		$nc(sb)->setLength(0);
 		$nc(StringBufferPool::m_stringBufPool)->freeInstance(sb);
 	}
 }
 
-void clinit$StringBufferPool($Class* class$) {
+void StringBufferPool::clinit$($Class* clazz) {
 	$load($FastStringBuffer);
 	$assignStatic(StringBufferPool::m_stringBufPool, $new($ObjectPool, $FastStringBuffer::class$));
 }
@@ -74,7 +46,27 @@ StringBufferPool::StringBufferPool() {
 }
 
 $Class* StringBufferPool::load$($String* name, bool initialize) {
-	$loadClass(StringBufferPool, name, initialize, &_StringBufferPool_ClassInfo_, clinit$StringBufferPool, allocate$StringBufferPool);
+	$FieldInfo fieldInfos$$[] = {
+		{"m_stringBufPool", "Lcom/sun/org/apache/xml/internal/utils/ObjectPool;", nullptr, $PRIVATE | $STATIC, $staticField(StringBufferPool, m_stringBufPool)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(StringBufferPool, init$, void)},
+		{"free", "(Lcom/sun/org/apache/xml/internal/utils/FastStringBuffer;)V", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(StringBufferPool, free, void, $FastStringBuffer*)},
+		{"get", "()Lcom/sun/org/apache/xml/internal/utils/FastStringBuffer;", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(StringBufferPool, get, $FastStringBuffer*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.utils.StringBufferPool",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(StringBufferPool, name, initialize, &classInfo$$, StringBufferPool::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(StringBufferPool);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/bcel/internal/generic/CPInstruction.h>
-
 #include <com/sun/org/apache/bcel/internal/Const.h>
 #include <com/sun/org/apache/bcel/internal/classfile/Constant.h>
 #include <com/sun/org/apache/bcel/internal/classfile/ConstantClass.h>
@@ -33,42 +32,6 @@ namespace com {
 				namespace bcel {
 					namespace internal {
 						namespace generic {
-
-$FieldInfo _CPInstruction_FieldInfo_[] = {
-	{"index", "I", nullptr, $PRIVATE, $field(CPInstruction, index)},
-	{}
-};
-
-$MethodInfo _CPInstruction_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "()V", nullptr, 0, $method(CPInstruction, init$, void)},
-	{"<init>", "(SI)V", nullptr, $PROTECTED, $method(CPInstruction, init$, void, int16_t, int32_t)},
-	{"dump", "(Ljava/io/DataOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(CPInstruction, dump, void, $DataOutputStream*), "java.io.IOException"},
-	{"getIndex", "()I", nullptr, $PUBLIC | $FINAL, $virtualMethod(CPInstruction, getIndex, int32_t)},
-	{"getType", "(Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;)Lcom/sun/org/apache/bcel/internal/generic/Type;", nullptr, $PUBLIC, $virtualMethod(CPInstruction, getType, $Type*, $ConstantPoolGen*)},
-	{"initFromFile", "(Lcom/sun/org/apache/bcel/internal/util/ByteSequence;Z)V", nullptr, $PROTECTED, $virtualMethod(CPInstruction, initFromFile, void, $ByteSequence*, bool), "java.io.IOException"},
-	{"setIndex", "(I)V", nullptr, $PUBLIC, $virtualMethod(CPInstruction, setIndex, void, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"toString", "(Z)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CPInstruction, toString, $String*, bool)},
-	{"toString", "(Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CPInstruction, toString, $String*, $ConstantPool*)},
-	{}
-};
-
-$ClassInfo _CPInstruction_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"com.sun.org.apache.bcel.internal.generic.CPInstruction",
-	"com.sun.org.apache.bcel.internal.generic.Instruction",
-	"com.sun.org.apache.bcel.internal.generic.TypedInstruction,com.sun.org.apache.bcel.internal.generic.IndexedInstruction",
-	_CPInstruction_FieldInfo_,
-	_CPInstruction_MethodInfo_
-};
-
-$Object* allocate$CPInstruction($Class* clazz) {
-	return $of($alloc(CPInstruction));
-}
 
 $String* CPInstruction::toString() {
 	 return this->$Instruction::toString();
@@ -105,12 +68,12 @@ void CPInstruction::dump($DataOutputStream* out) {
 }
 
 $String* CPInstruction::toString(bool verbose) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $str({$($Instruction::toString(verbose)), " "_s, $$str(this->index)});
 }
 
 $String* CPInstruction::toString($ConstantPool* cp) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Constant, c, $nc(cp)->getConstant(this->index));
 	$var($String, str, cp->constantToString(c));
 	if ($instanceOf($ConstantClass, c)) {
@@ -129,7 +92,7 @@ int32_t CPInstruction::getIndex() {
 }
 
 void CPInstruction::setIndex(int32_t index) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (index < 0) {
 		$throwNew($ClassGenException, $$str({"Negative index value: "_s, $$str(index)}));
 	}
@@ -137,7 +100,7 @@ void CPInstruction::setIndex(int32_t index) {
 }
 
 $Type* CPInstruction::getType($ConstantPoolGen* cpg) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ConstantPool, cp, $nc(cpg)->getConstantPool());
 	$var($String, name, $nc(cp)->getConstantString(this->index, $Const::CONSTANT_Class));
 	if (!$nc(name)->startsWith("["_s)) {
@@ -150,7 +113,38 @@ CPInstruction::CPInstruction() {
 }
 
 $Class* CPInstruction::load$($String* name, bool initialize) {
-	$loadClass(CPInstruction, name, initialize, &_CPInstruction_ClassInfo_, allocate$CPInstruction);
+	$FieldInfo fieldInfos$$[] = {
+		{"index", "I", nullptr, $PRIVATE, $field(CPInstruction, index)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC},
+		{"<init>", "()V", nullptr, 0, $method(CPInstruction, init$, void)},
+		{"<init>", "(SI)V", nullptr, $PROTECTED, $method(CPInstruction, init$, void, int16_t, int32_t)},
+		{"dump", "(Ljava/io/DataOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(CPInstruction, dump, void, $DataOutputStream*), "java.io.IOException"},
+		{"getIndex", "()I", nullptr, $PUBLIC | $FINAL, $virtualMethod(CPInstruction, getIndex, int32_t)},
+		{"getType", "(Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;)Lcom/sun/org/apache/bcel/internal/generic/Type;", nullptr, $PUBLIC, $virtualMethod(CPInstruction, getType, $Type*, $ConstantPoolGen*)},
+		{"initFromFile", "(Lcom/sun/org/apache/bcel/internal/util/ByteSequence;Z)V", nullptr, $PROTECTED, $virtualMethod(CPInstruction, initFromFile, void, $ByteSequence*, bool), "java.io.IOException"},
+		{"setIndex", "(I)V", nullptr, $PUBLIC, $virtualMethod(CPInstruction, setIndex, void, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"toString", "(Z)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CPInstruction, toString, $String*, bool)},
+		{"toString", "(Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CPInstruction, toString, $String*, $ConstantPool*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"com.sun.org.apache.bcel.internal.generic.CPInstruction",
+		"com.sun.org.apache.bcel.internal.generic.Instruction",
+		"com.sun.org.apache.bcel.internal.generic.TypedInstruction,com.sun.org.apache.bcel.internal.generic.IndexedInstruction",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CPInstruction, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(CPInstruction));
+	});
 	return class$;
 }
 

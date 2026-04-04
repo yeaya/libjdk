@@ -1,5 +1,4 @@
 #include <com/sun/source/util/SourcePositions.h>
-
 #include <com/sun/source/tree/CompilationUnitTree.h>
 #include <com/sun/source/tree/Tree.h>
 #include <jcpp.h>
@@ -14,27 +13,23 @@ namespace com {
 		namespace source {
 			namespace util {
 
-$MethodInfo _SourcePositions_MethodInfo_[] = {
-	{"getEndPosition", "(Lcom/sun/source/tree/CompilationUnitTree;Lcom/sun/source/tree/Tree;)J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SourcePositions, getEndPosition, int64_t, $CompilationUnitTree*, $Tree*)},
-	{"getStartPosition", "(Lcom/sun/source/tree/CompilationUnitTree;Lcom/sun/source/tree/Tree;)J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SourcePositions, getStartPosition, int64_t, $CompilationUnitTree*, $Tree*)},
-	{}
-};
-
-$ClassInfo _SourcePositions_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.source.util.SourcePositions",
-	nullptr,
-	nullptr,
-	nullptr,
-	_SourcePositions_MethodInfo_
-};
-
-$Object* allocate$SourcePositions($Class* clazz) {
-	return $of($alloc(SourcePositions));
-}
-
 $Class* SourcePositions::load$($String* name, bool initialize) {
-	$loadClass(SourcePositions, name, initialize, &_SourcePositions_ClassInfo_, allocate$SourcePositions);
+	$MethodInfo methodInfos$$[] = {
+		{"getEndPosition", "(Lcom/sun/source/tree/CompilationUnitTree;Lcom/sun/source/tree/Tree;)J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SourcePositions, getEndPosition, int64_t, $CompilationUnitTree*, $Tree*)},
+		{"getStartPosition", "(Lcom/sun/source/tree/CompilationUnitTree;Lcom/sun/source/tree/Tree;)J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SourcePositions, getStartPosition, int64_t, $CompilationUnitTree*, $Tree*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.source.util.SourcePositions",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(SourcePositions, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SourcePositions);
+	});
 	return class$;
 }
 

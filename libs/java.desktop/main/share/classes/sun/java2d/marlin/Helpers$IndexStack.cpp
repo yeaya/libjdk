@@ -1,5 +1,4 @@
 #include <sun/java2d/marlin/Helpers$IndexStack.h>
-
 #include <sun/java2d/marlin/DPathConsumer2D.h>
 #include <sun/java2d/marlin/Helpers.h>
 #include <sun/java2d/marlin/IntArrayCache$Reference.h>
@@ -18,7 +17,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $DPathConsumer2D = ::sun::java2d::marlin::DPathConsumer2D;
-using $IntArrayCache$Reference = ::sun::java2d::marlin::IntArrayCache$Reference;
 using $MarlinConst = ::sun::java2d::marlin::MarlinConst;
 using $RendererContext = ::sun::java2d::marlin::RendererContext;
 using $Histogram = ::sun::java2d::marlin::stats::Histogram;
@@ -27,54 +25,6 @@ using $StatLong = ::sun::java2d::marlin::stats::StatLong;
 namespace sun {
 	namespace java2d {
 		namespace marlin {
-
-$FieldInfo _Helpers$IndexStack_FieldInfo_[] = {
-	{"INITIAL_COUNT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Helpers$IndexStack, INITIAL_COUNT)},
-	{"end", "I", nullptr, $PRIVATE, $field(Helpers$IndexStack, end)},
-	{"indices", "[I", nullptr, $PRIVATE, $field(Helpers$IndexStack, indices)},
-	{"indices_ref", "Lsun/java2d/marlin/IntArrayCache$Reference;", nullptr, $PRIVATE | $FINAL, $field(Helpers$IndexStack, indices_ref)},
-	{"indicesUseMark", "I", nullptr, $PRIVATE, $field(Helpers$IndexStack, indicesUseMark)},
-	{"stat_idxstack_indices", "Lsun/java2d/marlin/stats/StatLong;", nullptr, $PRIVATE | $FINAL, $field(Helpers$IndexStack, stat_idxstack_indices)},
-	{"hist_idxstack_indices", "Lsun/java2d/marlin/stats/Histogram;", nullptr, $PRIVATE | $FINAL, $field(Helpers$IndexStack, hist_idxstack_indices)},
-	{"stat_array_idxstack_indices", "Lsun/java2d/marlin/stats/StatLong;", nullptr, $PRIVATE | $FINAL, $field(Helpers$IndexStack, stat_array_idxstack_indices)},
-	{}
-};
-
-$MethodInfo _Helpers$IndexStack_MethodInfo_[] = {
-	{"<init>", "(Lsun/java2d/marlin/RendererContext;)V", nullptr, 0, $method(Helpers$IndexStack, init$, void, $RendererContext*)},
-	{"<init>", "(Lsun/java2d/marlin/RendererContext;Lsun/java2d/marlin/stats/StatLong;Lsun/java2d/marlin/stats/Histogram;Lsun/java2d/marlin/stats/StatLong;)V", nullptr, 0, $method(Helpers$IndexStack, init$, void, $RendererContext*, $StatLong*, $Histogram*, $StatLong*)},
-	{"dispose", "()V", nullptr, 0, $method(Helpers$IndexStack, dispose, void)},
-	{"isEmpty", "()Z", nullptr, 0, $method(Helpers$IndexStack, isEmpty, bool)},
-	{"pullAll", "([DLsun/java2d/marlin/DPathConsumer2D;)V", nullptr, 0, $method(Helpers$IndexStack, pullAll, void, $doubles*, $DPathConsumer2D*)},
-	{"push", "(I)V", nullptr, 0, $method(Helpers$IndexStack, push, void, int32_t)},
-	{"reset", "()V", nullptr, 0, $method(Helpers$IndexStack, reset, void)},
-	{}
-};
-
-$InnerClassInfo _Helpers$IndexStack_InnerClassesInfo_[] = {
-	{"sun.java2d.marlin.Helpers$IndexStack", "sun.java2d.marlin.Helpers", "IndexStack", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _Helpers$IndexStack_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.java2d.marlin.Helpers$IndexStack",
-	"java.lang.Object",
-	nullptr,
-	_Helpers$IndexStack_FieldInfo_,
-	_Helpers$IndexStack_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Helpers$IndexStack_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.java2d.marlin.Helpers"
-};
-
-$Object* allocate$Helpers$IndexStack($Class* clazz) {
-	return $of($alloc(Helpers$IndexStack));
-}
 
 int32_t Helpers$IndexStack::INITIAL_COUNT = 0;
 
@@ -128,7 +78,7 @@ void Helpers$IndexStack::push(int32_t v) {
 		if ($MarlinConst::DO_STATS) {
 			$nc(this->stat_array_idxstack_indices)->add(nc + 1);
 		}
-		$set(this, indices, ($assign(_values, $nc(this->indices_ref)->widenArray(_values, nc, nc + 1))));
+		$set(this, indices, $assign(_values, $nc(this->indices_ref)->widenArray(_values, nc, nc + 1)));
 	}
 	$nc(_values)->set(this->end++, v);
 	$init($MarlinConst);
@@ -145,18 +95,14 @@ void Helpers$IndexStack::pullAll($doubles* points, $DPathConsumer2D* io) {
 		return;
 	}
 	$var($ints, _values, this->indices);
-	{
-		int32_t i = 0;
-		int32_t j = 0;
-		for (; i < nc; ++i) {
-			j = $nc(_values)->get(i) << 1;
-			$nc(io)->lineTo($nc(points)->get(j), points->get(j + 1));
-		}
+	for (int32_t i = 0, j = 0; i < nc; ++i) {
+		j = $nc(_values)->get(i) << 1;
+		$nc(io)->lineTo($nc(points)->get(j), $nc(points)->get(j + 1));
 	}
 	this->end = 0;
 }
 
-void clinit$Helpers$IndexStack($Class* class$) {
+void Helpers$IndexStack::clinit$($Class* clazz) {
 	$init($MarlinConst);
 	Helpers$IndexStack::INITIAL_COUNT = $MarlinConst::INITIAL_EDGES_COUNT >> 2;
 }
@@ -165,7 +111,49 @@ Helpers$IndexStack::Helpers$IndexStack() {
 }
 
 $Class* Helpers$IndexStack::load$($String* name, bool initialize) {
-	$loadClass(Helpers$IndexStack, name, initialize, &_Helpers$IndexStack_ClassInfo_, clinit$Helpers$IndexStack, allocate$Helpers$IndexStack);
+	$FieldInfo fieldInfos$$[] = {
+		{"INITIAL_COUNT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Helpers$IndexStack, INITIAL_COUNT)},
+		{"end", "I", nullptr, $PRIVATE, $field(Helpers$IndexStack, end)},
+		{"indices", "[I", nullptr, $PRIVATE, $field(Helpers$IndexStack, indices)},
+		{"indices_ref", "Lsun/java2d/marlin/IntArrayCache$Reference;", nullptr, $PRIVATE | $FINAL, $field(Helpers$IndexStack, indices_ref)},
+		{"indicesUseMark", "I", nullptr, $PRIVATE, $field(Helpers$IndexStack, indicesUseMark)},
+		{"stat_idxstack_indices", "Lsun/java2d/marlin/stats/StatLong;", nullptr, $PRIVATE | $FINAL, $field(Helpers$IndexStack, stat_idxstack_indices)},
+		{"hist_idxstack_indices", "Lsun/java2d/marlin/stats/Histogram;", nullptr, $PRIVATE | $FINAL, $field(Helpers$IndexStack, hist_idxstack_indices)},
+		{"stat_array_idxstack_indices", "Lsun/java2d/marlin/stats/StatLong;", nullptr, $PRIVATE | $FINAL, $field(Helpers$IndexStack, stat_array_idxstack_indices)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/java2d/marlin/RendererContext;)V", nullptr, 0, $method(Helpers$IndexStack, init$, void, $RendererContext*)},
+		{"<init>", "(Lsun/java2d/marlin/RendererContext;Lsun/java2d/marlin/stats/StatLong;Lsun/java2d/marlin/stats/Histogram;Lsun/java2d/marlin/stats/StatLong;)V", nullptr, 0, $method(Helpers$IndexStack, init$, void, $RendererContext*, $StatLong*, $Histogram*, $StatLong*)},
+		{"dispose", "()V", nullptr, 0, $method(Helpers$IndexStack, dispose, void)},
+		{"isEmpty", "()Z", nullptr, 0, $method(Helpers$IndexStack, isEmpty, bool)},
+		{"pullAll", "([DLsun/java2d/marlin/DPathConsumer2D;)V", nullptr, 0, $method(Helpers$IndexStack, pullAll, void, $doubles*, $DPathConsumer2D*)},
+		{"push", "(I)V", nullptr, 0, $method(Helpers$IndexStack, push, void, int32_t)},
+		{"reset", "()V", nullptr, 0, $method(Helpers$IndexStack, reset, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.java2d.marlin.Helpers$IndexStack", "sun.java2d.marlin.Helpers", "IndexStack", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.java2d.marlin.Helpers$IndexStack",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.java2d.marlin.Helpers"
+	};
+	$loadClass(Helpers$IndexStack, name, initialize, &classInfo$$, Helpers$IndexStack::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Helpers$IndexStack);
+	});
 	return class$;
 }
 

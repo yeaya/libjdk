@@ -1,5 +1,4 @@
 #include <LastNodeLowerHalfDrop$3.h>
-
 #include <LastNodeLowerHalfDrop.h>
 #include <java/awt/Component.h>
 #include <java/awt/Point.h>
@@ -13,7 +12,6 @@
 #include <jcpp.h>
 
 using $LastNodeLowerHalfDrop = ::LastNodeLowerHalfDrop;
-using $Component = ::java::awt::Component;
 using $Point = ::java::awt::Point;
 using $Rectangle = ::java::awt::Rectangle;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -21,54 +19,9 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $JTree = ::javax::swing::JTree;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $DefaultMutableTreeNode = ::javax::swing::tree::DefaultMutableTreeNode;
 using $TreePath = ::javax::swing::tree::TreePath;
-
-$FieldInfo _LastNodeLowerHalfDrop$3_FieldInfo_[] = {
-	{"val$shift", "F", nullptr, $FINAL | $SYNTHETIC, $field(LastNodeLowerHalfDrop$3, val$shift)},
-	{"val$drop", "Ljavax/swing/tree/DefaultMutableTreeNode;", nullptr, $FINAL | $SYNTHETIC, $field(LastNodeLowerHalfDrop$3, val$drop)},
-	{"val$drag", "Ljavax/swing/tree/DefaultMutableTreeNode;", nullptr, $FINAL | $SYNTHETIC, $field(LastNodeLowerHalfDrop$3, val$drag)},
-	{}
-};
-
-$MethodInfo _LastNodeLowerHalfDrop$3_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/tree/DefaultMutableTreeNode;Ljavax/swing/tree/DefaultMutableTreeNode;F)V", "()V", 0, $method(LastNodeLowerHalfDrop$3, init$, void, $DefaultMutableTreeNode*, $DefaultMutableTreeNode*, float)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(LastNodeLowerHalfDrop$3, run, void)},
-	{}
-};
-
-$EnclosingMethodInfo _LastNodeLowerHalfDrop$3_EnclosingMethodInfo_ = {
-	"LastNodeLowerHalfDrop",
-	"testCase",
-	"(Ljavax/swing/tree/DefaultMutableTreeNode;Ljavax/swing/tree/DefaultMutableTreeNode;F)V"
-};
-
-$InnerClassInfo _LastNodeLowerHalfDrop$3_InnerClassesInfo_[] = {
-	{"LastNodeLowerHalfDrop$3", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _LastNodeLowerHalfDrop$3_ClassInfo_ = {
-	$ACC_SUPER,
-	"LastNodeLowerHalfDrop$3",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	_LastNodeLowerHalfDrop$3_FieldInfo_,
-	_LastNodeLowerHalfDrop$3_MethodInfo_,
-	nullptr,
-	&_LastNodeLowerHalfDrop$3_EnclosingMethodInfo_,
-	_LastNodeLowerHalfDrop$3_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"LastNodeLowerHalfDrop"
-};
-
-$Object* allocate$LastNodeLowerHalfDrop$3($Class* clazz) {
-	return $of($alloc(LastNodeLowerHalfDrop$3));
-}
 
 void LastNodeLowerHalfDrop$3::init$($DefaultMutableTreeNode* val$drag, $DefaultMutableTreeNode* val$drop, float val$shift) {
 	$set(this, val$drag, val$drag);
@@ -77,14 +30,14 @@ void LastNodeLowerHalfDrop$3::init$($DefaultMutableTreeNode* val$drag, $DefaultM
 }
 
 void LastNodeLowerHalfDrop$3::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($LastNodeLowerHalfDrop);
 	$var($Rectangle, rectDrag, $nc($LastNodeLowerHalfDrop::jTree)->getPathBounds($$new($TreePath, $($nc(this->val$drag)->getPath()))));
 	int32_t var$0 = $cast(int32_t, $nc(rectDrag)->getCenterX());
 	$assignStatic($LastNodeLowerHalfDrop::dragPoint, $new($Point, var$0, $cast(int32_t, rectDrag->getCenterY())));
 	$SwingUtilities::convertPointToScreen($LastNodeLowerHalfDrop::dragPoint, $LastNodeLowerHalfDrop::jTree);
 	$var($Rectangle, rectDrop, $nc($LastNodeLowerHalfDrop::jTree)->getPathBounds($$new($TreePath, $($nc(this->val$drop)->getPath()))));
-	$assignStatic($LastNodeLowerHalfDrop::dropPoint, $new($Point, $nc(rectDrop)->x + 5, $cast(int32_t, (rectDrop->getCenterY() + this->val$shift * rectDrop->height))));
+	$assignStatic($LastNodeLowerHalfDrop::dropPoint, $new($Point, $nc(rectDrop)->x + 5, $cast(int32_t, ($nc(rectDrop)->getCenterY() + this->val$shift * $nc(rectDrop)->height))));
 	$SwingUtilities::convertPointToScreen($LastNodeLowerHalfDrop::dropPoint, $LastNodeLowerHalfDrop::jTree);
 }
 
@@ -92,7 +45,44 @@ LastNodeLowerHalfDrop$3::LastNodeLowerHalfDrop$3() {
 }
 
 $Class* LastNodeLowerHalfDrop$3::load$($String* name, bool initialize) {
-	$loadClass(LastNodeLowerHalfDrop$3, name, initialize, &_LastNodeLowerHalfDrop$3_ClassInfo_, allocate$LastNodeLowerHalfDrop$3);
+	$FieldInfo fieldInfos$$[] = {
+		{"val$shift", "F", nullptr, $FINAL | $SYNTHETIC, $field(LastNodeLowerHalfDrop$3, val$shift)},
+		{"val$drop", "Ljavax/swing/tree/DefaultMutableTreeNode;", nullptr, $FINAL | $SYNTHETIC, $field(LastNodeLowerHalfDrop$3, val$drop)},
+		{"val$drag", "Ljavax/swing/tree/DefaultMutableTreeNode;", nullptr, $FINAL | $SYNTHETIC, $field(LastNodeLowerHalfDrop$3, val$drag)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/tree/DefaultMutableTreeNode;Ljavax/swing/tree/DefaultMutableTreeNode;F)V", "()V", 0, $method(LastNodeLowerHalfDrop$3, init$, void, $DefaultMutableTreeNode*, $DefaultMutableTreeNode*, float)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(LastNodeLowerHalfDrop$3, run, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"LastNodeLowerHalfDrop",
+		"testCase",
+		"(Ljavax/swing/tree/DefaultMutableTreeNode;Ljavax/swing/tree/DefaultMutableTreeNode;F)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"LastNodeLowerHalfDrop$3", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"LastNodeLowerHalfDrop$3",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"LastNodeLowerHalfDrop"
+	};
+	$loadClass(LastNodeLowerHalfDrop$3, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LastNodeLowerHalfDrop$3);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/awt/EmbeddedFrame.h>
-
 #include <java/applet/Applet.h>
 #include <java/awt/AWTEvent.h>
 #include <java/awt/AWTKeyStroke.h>
@@ -11,27 +10,23 @@
 #include <java/awt/FocusTraversalPolicy.h>
 #include <java/awt/Frame.h>
 #include <java/awt/Image.h>
-#include <java/awt/KeyEventDispatcher.h>
 #include <java/awt/KeyboardFocusManager.h>
 #include <java/awt/MenuBar.h>
 #include <java/awt/MenuComponent.h>
 #include <java/awt/Point.h>
 #include <java/awt/Rectangle.h>
-#include <java/awt/Window.h>
 #include <java/awt/event/ComponentEvent.h>
 #include <java/awt/event/KeyEvent.h>
 #include <java/awt/peer/ComponentPeer.h>
 #include <java/awt/peer/FramePeer.h>
 #include <java/awt/peer/LightweightPeer.h>
 #include <java/beans/PropertyChangeEvent.h>
-#include <java/beans/PropertyChangeListener.h>
 #include <java/util/List.h>
 #include <java/util/Set.h>
 #include <sun/awt/AWTAccessor$ComponentAccessor.h>
 #include <sun/awt/AWTAccessor$KeyboardFocusManagerAccessor.h>
 #include <sun/awt/AWTAccessor.h>
 #include <sun/awt/EmbeddedFrame$NullEmbeddedFramePeer.h>
-#include <sun/awt/NullComponentPeer.h>
 #include <sun/awt/SunToolkit.h>
 #include <jcpp.h>
 
@@ -50,22 +45,18 @@ using $Container = ::java::awt::Container;
 using $Cursor = ::java::awt::Cursor;
 using $Dialog = ::java::awt::Dialog;
 using $Dimension = ::java::awt::Dimension;
-using $FocusTraversalPolicy = ::java::awt::FocusTraversalPolicy;
 using $Frame = ::java::awt::Frame;
 using $Image = ::java::awt::Image;
-using $KeyEventDispatcher = ::java::awt::KeyEventDispatcher;
 using $KeyboardFocusManager = ::java::awt::KeyboardFocusManager;
 using $MenuBar = ::java::awt::MenuBar;
 using $MenuComponent = ::java::awt::MenuComponent;
 using $Point = ::java::awt::Point;
 using $Rectangle = ::java::awt::Rectangle;
-using $Window = ::java::awt::Window;
 using $KeyEvent = ::java::awt::event::KeyEvent;
 using $ComponentPeer = ::java::awt::peer::ComponentPeer;
 using $FramePeer = ::java::awt::peer::FramePeer;
 using $LightweightPeer = ::java::awt::peer::LightweightPeer;
 using $PropertyChangeEvent = ::java::beans::PropertyChangeEvent;
-using $PropertyChangeListener = ::java::beans::PropertyChangeListener;
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
@@ -76,112 +67,11 @@ using $NamedAttribute = ::java::lang::NamedAttribute;
 using $List = ::java::util::List;
 using $Set = ::java::util::Set;
 using $AWTAccessor = ::sun::awt::AWTAccessor;
-using $AWTAccessor$ComponentAccessor = ::sun::awt::AWTAccessor$ComponentAccessor;
-using $AWTAccessor$KeyboardFocusManagerAccessor = ::sun::awt::AWTAccessor$KeyboardFocusManagerAccessor;
 using $EmbeddedFrame$NullEmbeddedFramePeer = ::sun::awt::EmbeddedFrame$NullEmbeddedFramePeer;
-using $NullComponentPeer = ::sun::awt::NullComponentPeer;
 using $SunToolkit = ::sun::awt::SunToolkit;
 
 namespace sun {
 	namespace awt {
-
-$CompoundAttribute _EmbeddedFrame_MethodAnnotations_init$2[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$NamedAttribute EmbeddedFrame_Attribute_var$0[] = {
-	{"since", 's', "9"},
-	{"forRemoval", 'Z', "true"},
-	{}
-};
-
-$CompoundAttribute _EmbeddedFrame_MethodAnnotations_getAppletIfAncestorOf8[] = {
-	{"Ljava/lang/Deprecated;", EmbeddedFrame_Attribute_var$0},
-	{}
-};
-
-$FieldInfo _EmbeddedFrame_FieldInfo_[] = {
-	{"isCursorAllowed", "Z", nullptr, $PRIVATE, $field(EmbeddedFrame, isCursorAllowed$)},
-	{"supportsXEmbed", "Z", nullptr, $PRIVATE, $field(EmbeddedFrame, supportsXEmbed$)},
-	{"appletKFM", "Ljava/awt/KeyboardFocusManager;", nullptr, $PRIVATE, $field(EmbeddedFrame, appletKFM)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(EmbeddedFrame, serialVersionUID)},
-	{"FORWARD", "Z", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(EmbeddedFrame, FORWARD)},
-	{"BACKWARD", "Z", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(EmbeddedFrame, BACKWARD)},
-	{}
-};
-
-$MethodInfo _EmbeddedFrame_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Z)V", nullptr, $PROTECTED, $method(EmbeddedFrame, init$, void, bool)},
-	{"<init>", "()V", nullptr, $PROTECTED, $method(EmbeddedFrame, init$, void)},
-	{"<init>", "(I)V", nullptr, $PROTECTED | $DEPRECATED, $method(EmbeddedFrame, init$, void, int32_t), nullptr, nullptr, _EmbeddedFrame_MethodAnnotations_init$2},
-	{"<init>", "(J)V", nullptr, $PROTECTED, $method(EmbeddedFrame, init$, void, int64_t)},
-	{"<init>", "(JZ)V", nullptr, $PROTECTED, $method(EmbeddedFrame, init$, void, int64_t, bool)},
-	{"addNotify", "()V", nullptr, $PUBLIC, $virtualMethod(EmbeddedFrame, addNotify, void)},
-	{"addTraversingOutListeners", "(Ljava/awt/KeyboardFocusManager;)V", nullptr, $PRIVATE, $method(EmbeddedFrame, addTraversingOutListeners, void, $KeyboardFocusManager*)},
-	{"dispatchKeyEvent", "(Ljava/awt/event/KeyEvent;)Z", nullptr, $PUBLIC, $virtualMethod(EmbeddedFrame, dispatchKeyEvent, bool, $KeyEvent*)},
-	{"getAppletIfAncestorOf", "(Ljava/awt/Component;)Ljava/applet/Applet;", nullptr, $PUBLIC | $STATIC | $DEPRECATED, $staticMethod(EmbeddedFrame, getAppletIfAncestorOf, $Applet*, $Component*), nullptr, nullptr, _EmbeddedFrame_MethodAnnotations_getAppletIfAncestorOf8},
-	{"getBoundsPrivate", "()Ljava/awt/Rectangle;", nullptr, $PROTECTED, $virtualMethod(EmbeddedFrame, getBoundsPrivate, $Rectangle*)},
-	{"getCursor", "()Ljava/awt/Cursor;", nullptr, $PUBLIC, $virtualMethod(EmbeddedFrame, getCursor, $Cursor*)},
-	{"getLocationPrivate", "()Ljava/awt/Point;", nullptr, $PROTECTED, $virtualMethod(EmbeddedFrame, getLocationPrivate, $Point*)},
-	{"getParent", "()Ljava/awt/Container;", nullptr, $PUBLIC, $virtualMethod(EmbeddedFrame, getParent, $Container*)},
-	{"hide", "()V", nullptr, $PUBLIC, $virtualMethod(EmbeddedFrame, hide, void)},
-	{"isCursorAllowed", "()Z", nullptr, $PUBLIC, $virtualMethod(EmbeddedFrame, isCursorAllowed, bool)},
-	{"isResizable", "()Z", nullptr, $PUBLIC, $virtualMethod(EmbeddedFrame, isResizable, bool)},
-	{"notifyModalBlocked", "(Ljava/awt/Dialog;Z)V", nullptr, $PUBLIC, $virtualMethod(EmbeddedFrame, notifyModalBlocked, void, $Dialog*, bool)},
-	{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(EmbeddedFrame, propertyChange, void, $PropertyChangeEvent*)},
-	{"registerAccelerator", "(Ljava/awt/AWTKeyStroke;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(EmbeddedFrame, registerAccelerator, void, $AWTKeyStroke*)},
-	{"registerListeners", "()V", nullptr, $PUBLIC, $virtualMethod(EmbeddedFrame, registerListeners, void)},
-	{"remove", "(Ljava/awt/MenuComponent;)V", nullptr, $PUBLIC, $virtualMethod(EmbeddedFrame, remove, void, $MenuComponent*)},
-	{"removeTraversingOutListeners", "(Ljava/awt/KeyboardFocusManager;)V", nullptr, $PRIVATE, $method(EmbeddedFrame, removeTraversingOutListeners, void, $KeyboardFocusManager*)},
-	{"setBoundsPrivate", "(IIII)V", nullptr, $PROTECTED, $virtualMethod(EmbeddedFrame, setBoundsPrivate, void, int32_t, int32_t, int32_t, int32_t)},
-	{"setCursorAllowed", "(Z)V", nullptr, $PUBLIC, $virtualMethod(EmbeddedFrame, setCursorAllowed, void, bool)},
-	{"setIconImage", "(Ljava/awt/Image;)V", nullptr, $PUBLIC, $virtualMethod(EmbeddedFrame, setIconImage, void, $Image*)},
-	{"setIconImages", "(Ljava/util/List;)V", "(Ljava/util/List<+Ljava/awt/Image;>;)V", $PUBLIC, $virtualMethod(EmbeddedFrame, setIconImages, void, $List*)},
-	{"setLocationPrivate", "(II)V", nullptr, $PROTECTED, $virtualMethod(EmbeddedFrame, setLocationPrivate, void, int32_t, int32_t)},
-	{"setMenuBar", "(Ljava/awt/MenuBar;)V", nullptr, $PUBLIC, $virtualMethod(EmbeddedFrame, setMenuBar, void, $MenuBar*)},
-	{"setPeer", "(Ljava/awt/peer/ComponentPeer;)V", nullptr, $PROTECTED, $virtualMethod(EmbeddedFrame, setPeer, void, $ComponentPeer*)},
-	{"setResizable", "(Z)V", nullptr, $PUBLIC, $virtualMethod(EmbeddedFrame, setResizable, void, bool)},
-	{"setTitle", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(EmbeddedFrame, setTitle, void, $String*)},
-	{"show", "()V", nullptr, $PUBLIC, $virtualMethod(EmbeddedFrame, show, void)},
-	{"supportsXEmbed", "()Z", nullptr, $PUBLIC, $virtualMethod(EmbeddedFrame, supportsXEmbed, bool)},
-	{"synthesizeWindowActivation", "(Z)V", nullptr, $PUBLIC, $virtualMethod(EmbeddedFrame, synthesizeWindowActivation, void, bool)},
-	{"toBack", "()V", nullptr, $PUBLIC, $virtualMethod(EmbeddedFrame, toBack, void)},
-	{"toFront", "()V", nullptr, $PUBLIC, $virtualMethod(EmbeddedFrame, toFront, void)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"traverseIn", "(Z)Z", nullptr, $PUBLIC, $virtualMethod(EmbeddedFrame, traverseIn, bool, bool)},
-	{"traverseOut", "(Z)Z", nullptr, $PROTECTED, $virtualMethod(EmbeddedFrame, traverseOut, bool, bool)},
-	{"unregisterAccelerator", "(Ljava/awt/AWTKeyStroke;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(EmbeddedFrame, unregisterAccelerator, void, $AWTKeyStroke*)},
-	{}
-};
-
-$InnerClassInfo _EmbeddedFrame_InnerClassesInfo_[] = {
-	{"sun.awt.EmbeddedFrame$NullEmbeddedFramePeer", "sun.awt.EmbeddedFrame", "NullEmbeddedFramePeer", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _EmbeddedFrame_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"sun.awt.EmbeddedFrame",
-	"java.awt.Frame",
-	"java.awt.KeyEventDispatcher,java.beans.PropertyChangeListener",
-	_EmbeddedFrame_FieldInfo_,
-	_EmbeddedFrame_MethodInfo_,
-	nullptr,
-	nullptr,
-	_EmbeddedFrame_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.awt.EmbeddedFrame$NullEmbeddedFramePeer"
-};
-
-$Object* allocate$EmbeddedFrame($Class* clazz) {
-	return $of($alloc(EmbeddedFrame));
-}
 
 $String* EmbeddedFrame::toString() {
 	 return this->$Frame::toString();
@@ -236,15 +126,14 @@ $Container* EmbeddedFrame::getParent() {
 }
 
 void EmbeddedFrame::propertyChange($PropertyChangeEvent* evt) {
-	$useLocalCurrentObjectStackCache();
-	if (!$nc($($nc(evt)->getPropertyName()))->equals("managingFocus"_s)) {
+	$useLocalObjectStack();
+	if (!$$nc($nc(evt)->getPropertyName())->equals("managingFocus"_s)) {
 		return;
 	}
-	$init($Boolean);
-	if ($equals($nc(evt)->getNewValue(), $Boolean::TRUE)) {
+	if ($equals(evt->getNewValue(), $Boolean::TRUE)) {
 		return;
 	}
-	removeTraversingOutListeners($cast($KeyboardFocusManager, $($nc(evt)->getSource())));
+	removeTraversingOutListeners($$cast($KeyboardFocusManager, evt->getSource()));
 	$set(this, appletKFM, $KeyboardFocusManager::getCurrentKeyboardFocusManager());
 	if (isVisible()) {
 		addTraversingOutListeners(this->appletKFM);
@@ -286,8 +175,8 @@ void EmbeddedFrame::hide() {
 }
 
 bool EmbeddedFrame::dispatchKeyEvent($KeyEvent* e) {
-	$useLocalCurrentObjectStackCache();
-	$var($Container, currentRoot, $nc($($AWTAccessor::getKeyboardFocusManagerAccessor()))->getCurrentFocusCycleRoot());
+	$useLocalObjectStack();
+	$var($Container, currentRoot, $$nc($AWTAccessor::getKeyboardFocusManagerAccessor())->getCurrentFocusCycleRoot());
 	if (!$equals(this, currentRoot)) {
 		return false;
 	}
@@ -295,15 +184,15 @@ bool EmbeddedFrame::dispatchKeyEvent($KeyEvent* e) {
 		return false;
 	}
 	bool var$0 = !getFocusTraversalKeysEnabled();
-	if (var$0 || $nc(e)->isConsumed()) {
+	if (var$0 || e->isConsumed()) {
 		return false;
 	}
 	$var($AWTKeyStroke, stroke, $AWTKeyStroke::getAWTKeyStrokeForEvent(e));
 	$var($Set, toTest, nullptr);
-	$var($Component, currentFocused, $nc(e)->getComponent());
+	$var($Component, currentFocused, e->getComponent());
 	$assign(toTest, getFocusTraversalKeys($KeyboardFocusManager::FORWARD_TRAVERSAL_KEYS));
 	if ($nc(toTest)->contains(stroke)) {
-		$var($Component, last, $nc($(getFocusTraversalPolicy()))->getLastComponent(this));
+		$var($Component, last, $$nc(getFocusTraversalPolicy())->getLastComponent(this));
 		if (currentFocused == last || last == nullptr) {
 			if (traverseOut(EmbeddedFrame::FORWARD)) {
 				e->consume();
@@ -313,7 +202,7 @@ bool EmbeddedFrame::dispatchKeyEvent($KeyEvent* e) {
 	}
 	$assign(toTest, getFocusTraversalKeys($KeyboardFocusManager::BACKWARD_TRAVERSAL_KEYS));
 	if ($nc(toTest)->contains(stroke)) {
-		$var($Component, first, $nc($(getFocusTraversalPolicy()))->getFirstComponent(this));
+		$var($Component, first, $$nc(getFocusTraversalPolicy())->getFirstComponent(this));
 		if (currentFocused == first || first == nullptr) {
 			if (traverseOut(EmbeddedFrame::BACKWARD)) {
 				e->consume();
@@ -325,15 +214,15 @@ bool EmbeddedFrame::dispatchKeyEvent($KeyEvent* e) {
 }
 
 bool EmbeddedFrame::traverseIn(bool direction) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Component, comp, nullptr);
 	if (direction == EmbeddedFrame::FORWARD) {
-		$assign(comp, $nc($(getFocusTraversalPolicy()))->getFirstComponent(this));
+		$assign(comp, $$nc(getFocusTraversalPolicy())->getFirstComponent(this));
 	} else {
-		$assign(comp, $nc($(getFocusTraversalPolicy()))->getLastComponent(this));
+		$assign(comp, $$nc(getFocusTraversalPolicy())->getLastComponent(this));
 	}
 	if (comp != nullptr) {
-		$nc($($AWTAccessor::getKeyboardFocusManagerAccessor()))->setMostRecentFocusOwner(this, comp);
+		$$nc($AWTAccessor::getKeyboardFocusManagerAccessor())->setMostRecentFocusOwner(this, comp);
 		synthesizeWindowActivation(true);
 	}
 	return (nullptr != comp);
@@ -368,16 +257,16 @@ bool EmbeddedFrame::isResizable() {
 void EmbeddedFrame::addNotify() {
 	$synchronized(getTreeLock()) {
 		if (!isDisplayable()) {
-			setPeer(static_cast<$ComponentPeer*>(static_cast<$LightweightPeer*>(static_cast<$NullComponentPeer*>($$new($EmbeddedFrame$NullEmbeddedFramePeer)))));
+			setPeer($$cast($LightweightPeer, $new($EmbeddedFrame$NullEmbeddedFramePeer)));
 		}
 		$Frame::addNotify();
 	}
 }
 
 void EmbeddedFrame::setCursorAllowed(bool isCursorAllowed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->isCursorAllowed$ = isCursorAllowed;
-	$var($FramePeer, peer, $cast($FramePeer, $nc($($AWTAccessor::getComponentAccessor()))->getPeer(this)));
+	$var($FramePeer, peer, $cast($FramePeer, $$nc($AWTAccessor::getComponentAccessor())->getPeer(this)));
 	$nc(peer)->updateCursorImmediately();
 }
 
@@ -390,7 +279,7 @@ $Cursor* EmbeddedFrame::getCursor() {
 }
 
 void EmbeddedFrame::setPeer($ComponentPeer* p) {
-	$nc($($AWTAccessor::getComponentAccessor()))->setPeer(this, p);
+	$$nc($AWTAccessor::getComponentAccessor())->setPeer(this, p);
 }
 
 void EmbeddedFrame::synthesizeWindowActivation(bool doActivate) {
@@ -398,25 +287,25 @@ void EmbeddedFrame::synthesizeWindowActivation(bool doActivate) {
 
 void EmbeddedFrame::setLocationPrivate(int32_t x, int32_t y) {
 	$var($Dimension, size, getSize());
-	setBoundsPrivate(x, y, $nc(size)->width, size->height);
+	setBoundsPrivate(x, y, $nc(size)->width, $nc(size)->height);
 }
 
 $Point* EmbeddedFrame::getLocationPrivate() {
 	$var($Rectangle, bounds, getBoundsPrivate());
-	return $new($Point, $nc(bounds)->x, bounds->y);
+	return $new($Point, $nc(bounds)->x, $nc(bounds)->y);
 }
 
 void EmbeddedFrame::setBoundsPrivate(int32_t x, int32_t y, int32_t width, int32_t height) {
-	$useLocalCurrentObjectStackCache();
-	$var($FramePeer, peer, $cast($FramePeer, $nc($($AWTAccessor::getComponentAccessor()))->getPeer(this)));
+	$useLocalObjectStack();
+	$var($FramePeer, peer, $cast($FramePeer, $$nc($AWTAccessor::getComponentAccessor())->getPeer(this)));
 	if (peer != nullptr) {
 		peer->setBoundsPrivate(x, y, width, height);
 	}
 }
 
 $Rectangle* EmbeddedFrame::getBoundsPrivate() {
-	$useLocalCurrentObjectStackCache();
-	$var($FramePeer, peer, $cast($FramePeer, $nc($($AWTAccessor::getComponentAccessor()))->getPeer(this)));
+	$useLocalObjectStack();
+	$var($FramePeer, peer, $cast($FramePeer, $$nc($AWTAccessor::getComponentAccessor())->getPeer(this)));
 	if (peer != nullptr) {
 		return peer->getBoundsPrivate();
 	} else {
@@ -432,7 +321,7 @@ void EmbeddedFrame::toBack() {
 
 $Applet* EmbeddedFrame::getAppletIfAncestorOf($Component* comp) {
 	$init(EmbeddedFrame);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Container, parent, $nc(comp)->getParent());
 	$var($Applet, applet, nullptr);
 	while (parent != nullptr && !($instanceOf(EmbeddedFrame, parent))) {
@@ -451,7 +340,96 @@ EmbeddedFrame::EmbeddedFrame() {
 }
 
 $Class* EmbeddedFrame::load$($String* name, bool initialize) {
-	$loadClass(EmbeddedFrame, name, initialize, &_EmbeddedFrame_ClassInfo_, allocate$EmbeddedFrame);
+	$FieldInfo fieldInfos$$[] = {
+		{"isCursorAllowed", "Z", nullptr, $PRIVATE, $field(EmbeddedFrame, isCursorAllowed$)},
+		{"supportsXEmbed", "Z", nullptr, $PRIVATE, $field(EmbeddedFrame, supportsXEmbed$)},
+		{"appletKFM", "Ljava/awt/KeyboardFocusManager;", nullptr, $PRIVATE, $field(EmbeddedFrame, appletKFM)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(EmbeddedFrame, serialVersionUID)},
+		{"FORWARD", "Z", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(EmbeddedFrame, FORWARD)},
+		{"BACKWARD", "Z", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(EmbeddedFrame, BACKWARD)},
+		{}
+	};
+	$CompoundAttribute init$methodAnnotations$$$2[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$NamedAttribute getAppletIfAncestorOfmethodAnnotations$$$namedAttribute[] = {
+		{"since", 's', "9"},
+		{"forRemoval", 'Z', "true"},
+		{}
+	};
+	$CompoundAttribute getAppletIfAncestorOfmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", getAppletIfAncestorOfmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Z)V", nullptr, $PROTECTED, $method(EmbeddedFrame, init$, void, bool)},
+		{"<init>", "()V", nullptr, $PROTECTED, $method(EmbeddedFrame, init$, void)},
+		{"<init>", "(I)V", nullptr, $PROTECTED | $DEPRECATED, $method(EmbeddedFrame, init$, void, int32_t), nullptr, nullptr, init$methodAnnotations$$$2},
+		{"<init>", "(J)V", nullptr, $PROTECTED, $method(EmbeddedFrame, init$, void, int64_t)},
+		{"<init>", "(JZ)V", nullptr, $PROTECTED, $method(EmbeddedFrame, init$, void, int64_t, bool)},
+		{"addNotify", "()V", nullptr, $PUBLIC, $virtualMethod(EmbeddedFrame, addNotify, void)},
+		{"addTraversingOutListeners", "(Ljava/awt/KeyboardFocusManager;)V", nullptr, $PRIVATE, $method(EmbeddedFrame, addTraversingOutListeners, void, $KeyboardFocusManager*)},
+		{"dispatchKeyEvent", "(Ljava/awt/event/KeyEvent;)Z", nullptr, $PUBLIC, $virtualMethod(EmbeddedFrame, dispatchKeyEvent, bool, $KeyEvent*)},
+		{"getAppletIfAncestorOf", "(Ljava/awt/Component;)Ljava/applet/Applet;", nullptr, $PUBLIC | $STATIC | $DEPRECATED, $staticMethod(EmbeddedFrame, getAppletIfAncestorOf, $Applet*, $Component*), nullptr, nullptr, getAppletIfAncestorOfmethodAnnotations$$},
+		{"getBoundsPrivate", "()Ljava/awt/Rectangle;", nullptr, $PROTECTED, $virtualMethod(EmbeddedFrame, getBoundsPrivate, $Rectangle*)},
+		{"getCursor", "()Ljava/awt/Cursor;", nullptr, $PUBLIC, $virtualMethod(EmbeddedFrame, getCursor, $Cursor*)},
+		{"getLocationPrivate", "()Ljava/awt/Point;", nullptr, $PROTECTED, $virtualMethod(EmbeddedFrame, getLocationPrivate, $Point*)},
+		{"getParent", "()Ljava/awt/Container;", nullptr, $PUBLIC, $virtualMethod(EmbeddedFrame, getParent, $Container*)},
+		{"hide", "()V", nullptr, $PUBLIC, $virtualMethod(EmbeddedFrame, hide, void)},
+		{"isCursorAllowed", "()Z", nullptr, $PUBLIC, $virtualMethod(EmbeddedFrame, isCursorAllowed, bool)},
+		{"isResizable", "()Z", nullptr, $PUBLIC, $virtualMethod(EmbeddedFrame, isResizable, bool)},
+		{"notifyModalBlocked", "(Ljava/awt/Dialog;Z)V", nullptr, $PUBLIC, $virtualMethod(EmbeddedFrame, notifyModalBlocked, void, $Dialog*, bool)},
+		{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(EmbeddedFrame, propertyChange, void, $PropertyChangeEvent*)},
+		{"registerAccelerator", "(Ljava/awt/AWTKeyStroke;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(EmbeddedFrame, registerAccelerator, void, $AWTKeyStroke*)},
+		{"registerListeners", "()V", nullptr, $PUBLIC, $virtualMethod(EmbeddedFrame, registerListeners, void)},
+		{"remove", "(Ljava/awt/MenuComponent;)V", nullptr, $PUBLIC, $virtualMethod(EmbeddedFrame, remove, void, $MenuComponent*)},
+		{"removeTraversingOutListeners", "(Ljava/awt/KeyboardFocusManager;)V", nullptr, $PRIVATE, $method(EmbeddedFrame, removeTraversingOutListeners, void, $KeyboardFocusManager*)},
+		{"setBoundsPrivate", "(IIII)V", nullptr, $PROTECTED, $virtualMethod(EmbeddedFrame, setBoundsPrivate, void, int32_t, int32_t, int32_t, int32_t)},
+		{"setCursorAllowed", "(Z)V", nullptr, $PUBLIC, $virtualMethod(EmbeddedFrame, setCursorAllowed, void, bool)},
+		{"setIconImage", "(Ljava/awt/Image;)V", nullptr, $PUBLIC, $virtualMethod(EmbeddedFrame, setIconImage, void, $Image*)},
+		{"setIconImages", "(Ljava/util/List;)V", "(Ljava/util/List<+Ljava/awt/Image;>;)V", $PUBLIC, $virtualMethod(EmbeddedFrame, setIconImages, void, $List*)},
+		{"setLocationPrivate", "(II)V", nullptr, $PROTECTED, $virtualMethod(EmbeddedFrame, setLocationPrivate, void, int32_t, int32_t)},
+		{"setMenuBar", "(Ljava/awt/MenuBar;)V", nullptr, $PUBLIC, $virtualMethod(EmbeddedFrame, setMenuBar, void, $MenuBar*)},
+		{"setPeer", "(Ljava/awt/peer/ComponentPeer;)V", nullptr, $PROTECTED, $virtualMethod(EmbeddedFrame, setPeer, void, $ComponentPeer*)},
+		{"setResizable", "(Z)V", nullptr, $PUBLIC, $virtualMethod(EmbeddedFrame, setResizable, void, bool)},
+		{"setTitle", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(EmbeddedFrame, setTitle, void, $String*)},
+		{"show", "()V", nullptr, $PUBLIC, $virtualMethod(EmbeddedFrame, show, void)},
+		{"supportsXEmbed", "()Z", nullptr, $PUBLIC, $virtualMethod(EmbeddedFrame, supportsXEmbed, bool)},
+		{"synthesizeWindowActivation", "(Z)V", nullptr, $PUBLIC, $virtualMethod(EmbeddedFrame, synthesizeWindowActivation, void, bool)},
+		{"toBack", "()V", nullptr, $PUBLIC, $virtualMethod(EmbeddedFrame, toBack, void)},
+		{"toFront", "()V", nullptr, $PUBLIC, $virtualMethod(EmbeddedFrame, toFront, void)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"traverseIn", "(Z)Z", nullptr, $PUBLIC, $virtualMethod(EmbeddedFrame, traverseIn, bool, bool)},
+		{"traverseOut", "(Z)Z", nullptr, $PROTECTED, $virtualMethod(EmbeddedFrame, traverseOut, bool, bool)},
+		{"unregisterAccelerator", "(Ljava/awt/AWTKeyStroke;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(EmbeddedFrame, unregisterAccelerator, void, $AWTKeyStroke*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.EmbeddedFrame$NullEmbeddedFramePeer", "sun.awt.EmbeddedFrame", "NullEmbeddedFramePeer", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"sun.awt.EmbeddedFrame",
+		"java.awt.Frame",
+		"java.awt.KeyEventDispatcher,java.beans.PropertyChangeListener",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.awt.EmbeddedFrame$NullEmbeddedFramePeer"
+	};
+	$loadClass(EmbeddedFrame, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(EmbeddedFrame));
+	});
 	return class$;
 }
 

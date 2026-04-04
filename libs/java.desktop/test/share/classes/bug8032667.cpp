@@ -1,5 +1,4 @@
 #include <bug8032667.h>
-
 #include <bug8032667$1.h>
 #include <java/awt/Component.h>
 #include <java/awt/Dimension.h>
@@ -7,7 +6,6 @@
 #include <java/awt/Graphics2D.h>
 #include <java/awt/Image.h>
 #include <java/awt/image/BufferedImage.h>
-#include <java/lang/Runnable.h>
 #include <javax/swing/AbstractButton.h>
 #include <javax/swing/JApplet.h>
 #include <javax/swing/JCheckBox.h>
@@ -27,52 +25,10 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
 using $JApplet = ::javax::swing::JApplet;
 using $JCheckBox = ::javax::swing::JCheckBox;
 using $JComponent = ::javax::swing::JComponent;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
-
-$FieldInfo _bug8032667_FieldInfo_[] = {
-	{"scale", "I", nullptr, $STATIC | $FINAL, $constField(bug8032667, scale)},
-	{"width", "I", nullptr, $STATIC | $FINAL, $constField(bug8032667, width)},
-	{"height", "I", nullptr, $STATIC | $FINAL, $constField(bug8032667, height)},
-	{"scaledWidth", "I", nullptr, $STATIC | $FINAL, $constField(bug8032667, scaledWidth)},
-	{"scaledHeight", "I", nullptr, $STATIC | $FINAL, $constField(bug8032667, scaledHeight)},
-	{}
-};
-
-$MethodInfo _bug8032667_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(bug8032667, init$, void)},
-	{"getCheckBox", "(Ljava/lang/String;Z)Ljavax/swing/JCheckBox;", nullptr, $STATIC, $staticMethod(bug8032667, getCheckBox, $JCheckBox*, $String*, bool)},
-	{"getImage", "(Ljavax/swing/JComponent;)Ljava/awt/Image;", nullptr, $STATIC, $staticMethod(bug8032667, getImage, $Image*, $JComponent*)},
-	{"init", "()V", nullptr, $PUBLIC, $virtualMethod(bug8032667, init, void)},
-	{}
-};
-
-$InnerClassInfo _bug8032667_InnerClassesInfo_[] = {
-	{"bug8032667$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _bug8032667_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"bug8032667",
-	"javax.swing.JApplet",
-	nullptr,
-	_bug8032667_FieldInfo_,
-	_bug8032667_MethodInfo_,
-	nullptr,
-	nullptr,
-	_bug8032667_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"bug8032667$1,bug8032667$1$1"
-};
-
-$Object* allocate$bug8032667($Class* clazz) {
-	return $of($alloc(bug8032667));
-}
 
 void bug8032667::init$() {
 	$JApplet::init$();
@@ -84,7 +40,7 @@ void bug8032667::init() {
 
 $JCheckBox* bug8032667::getCheckBox($String* text, bool selected) {
 	$init(bug8032667);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JCheckBox, checkBox, $new($JCheckBox, text));
 	checkBox->setSelected(selected);
 	checkBox->setSize($$new($Dimension, bug8032667::width, bug8032667::height));
@@ -93,12 +49,12 @@ $JCheckBox* bug8032667::getCheckBox($String* text, bool selected) {
 
 $Image* bug8032667::getImage($JComponent* component) {
 	$init(bug8032667);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($BufferedImage, image, $new($BufferedImage, bug8032667::scaledWidth, bug8032667::scaledHeight, $BufferedImage::TYPE_INT_ARGB));
 	$var($Graphics, g, image->getGraphics());
-	$nc(($cast($Graphics2D, g)))->scale((double)bug8032667::scale, (double)bug8032667::scale);
+	$nc($cast($Graphics2D, g))->scale((double)bug8032667::scale, (double)bug8032667::scale);
 	$nc(component)->paint(g);
-	$nc(g)->dispose();
+	g->dispose();
 	return image;
 }
 
@@ -106,7 +62,42 @@ bug8032667::bug8032667() {
 }
 
 $Class* bug8032667::load$($String* name, bool initialize) {
-	$loadClass(bug8032667, name, initialize, &_bug8032667_ClassInfo_, allocate$bug8032667);
+	$FieldInfo fieldInfos$$[] = {
+		{"scale", "I", nullptr, $STATIC | $FINAL, $constField(bug8032667, scale)},
+		{"width", "I", nullptr, $STATIC | $FINAL, $constField(bug8032667, width)},
+		{"height", "I", nullptr, $STATIC | $FINAL, $constField(bug8032667, height)},
+		{"scaledWidth", "I", nullptr, $STATIC | $FINAL, $constField(bug8032667, scaledWidth)},
+		{"scaledHeight", "I", nullptr, $STATIC | $FINAL, $constField(bug8032667, scaledHeight)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(bug8032667, init$, void)},
+		{"getCheckBox", "(Ljava/lang/String;Z)Ljavax/swing/JCheckBox;", nullptr, $STATIC, $staticMethod(bug8032667, getCheckBox, $JCheckBox*, $String*, bool)},
+		{"getImage", "(Ljavax/swing/JComponent;)Ljava/awt/Image;", nullptr, $STATIC, $staticMethod(bug8032667, getImage, $Image*, $JComponent*)},
+		{"init", "()V", nullptr, $PUBLIC, $virtualMethod(bug8032667, init, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"bug8032667$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"bug8032667",
+		"javax.swing.JApplet",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"bug8032667$1,bug8032667$1$1"
+	};
+	$loadClass(bug8032667, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(bug8032667));
+	});
 	return class$;
 }
 

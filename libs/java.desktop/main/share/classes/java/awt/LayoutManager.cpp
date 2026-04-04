@@ -1,5 +1,4 @@
 #include <java/awt/LayoutManager.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <java/awt/Dimension.h>
@@ -14,30 +13,26 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace java {
 	namespace awt {
 
-$MethodInfo _LayoutManager_MethodInfo_[] = {
-	{"addLayoutComponent", "(Ljava/lang/String;Ljava/awt/Component;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LayoutManager, addLayoutComponent, void, $String*, $Component*)},
-	{"layoutContainer", "(Ljava/awt/Container;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LayoutManager, layoutContainer, void, $Container*)},
-	{"minimumLayoutSize", "(Ljava/awt/Container;)Ljava/awt/Dimension;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LayoutManager, minimumLayoutSize, $Dimension*, $Container*)},
-	{"preferredLayoutSize", "(Ljava/awt/Container;)Ljava/awt/Dimension;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LayoutManager, preferredLayoutSize, $Dimension*, $Container*)},
-	{"removeLayoutComponent", "(Ljava/awt/Component;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LayoutManager, removeLayoutComponent, void, $Component*)},
-	{}
-};
-
-$ClassInfo _LayoutManager_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.awt.LayoutManager",
-	nullptr,
-	nullptr,
-	nullptr,
-	_LayoutManager_MethodInfo_
-};
-
-$Object* allocate$LayoutManager($Class* clazz) {
-	return $of($alloc(LayoutManager));
-}
-
 $Class* LayoutManager::load$($String* name, bool initialize) {
-	$loadClass(LayoutManager, name, initialize, &_LayoutManager_ClassInfo_, allocate$LayoutManager);
+	$MethodInfo methodInfos$$[] = {
+		{"addLayoutComponent", "(Ljava/lang/String;Ljava/awt/Component;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LayoutManager, addLayoutComponent, void, $String*, $Component*)},
+		{"layoutContainer", "(Ljava/awt/Container;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LayoutManager, layoutContainer, void, $Container*)},
+		{"minimumLayoutSize", "(Ljava/awt/Container;)Ljava/awt/Dimension;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LayoutManager, minimumLayoutSize, $Dimension*, $Container*)},
+		{"preferredLayoutSize", "(Ljava/awt/Container;)Ljava/awt/Dimension;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LayoutManager, preferredLayoutSize, $Dimension*, $Container*)},
+		{"removeLayoutComponent", "(Ljava/awt/Component;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LayoutManager, removeLayoutComponent, void, $Component*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.awt.LayoutManager",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(LayoutManager, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LayoutManager);
+	});
 	return class$;
 }
 

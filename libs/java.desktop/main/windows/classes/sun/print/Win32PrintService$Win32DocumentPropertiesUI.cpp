@@ -1,5 +1,4 @@
 #include <sun/print/Win32PrintService$Win32DocumentPropertiesUI.h>
-
 #include <java/awt/Window.h>
 #include <java/awt/print/PrinterJob.h>
 #include <javax/print/PrintService.h>
@@ -24,42 +23,6 @@ using $Win32PrintService = ::sun::print::Win32PrintService;
 namespace sun {
 	namespace print {
 
-$FieldInfo _Win32PrintService$Win32DocumentPropertiesUI_FieldInfo_[] = {
-	{"service", "Lsun/print/Win32PrintService;", nullptr, 0, $field(Win32PrintService$Win32DocumentPropertiesUI, service)},
-	{}
-};
-
-$MethodInfo _Win32PrintService$Win32DocumentPropertiesUI_MethodInfo_[] = {
-	{"<init>", "(Lsun/print/Win32PrintService;)V", nullptr, $PRIVATE, $method(Win32PrintService$Win32DocumentPropertiesUI, init$, void, $Win32PrintService*)},
-	{"showDocumentProperties", "(Ljava/awt/print/PrinterJob;Ljava/awt/Window;Ljavax/print/PrintService;Ljavax/print/attribute/PrintRequestAttributeSet;)Ljavax/print/attribute/PrintRequestAttributeSet;", nullptr, $PUBLIC, $virtualMethod(Win32PrintService$Win32DocumentPropertiesUI, showDocumentProperties, $PrintRequestAttributeSet*, $PrinterJob*, $Window*, $PrintService*, $PrintRequestAttributeSet*)},
-	{}
-};
-
-$InnerClassInfo _Win32PrintService$Win32DocumentPropertiesUI_InnerClassesInfo_[] = {
-	{"sun.print.Win32PrintService$Win32DocumentPropertiesUI", "sun.print.Win32PrintService", "Win32DocumentPropertiesUI", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _Win32PrintService$Win32DocumentPropertiesUI_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.print.Win32PrintService$Win32DocumentPropertiesUI",
-	"sun.print.DocumentPropertiesUI",
-	nullptr,
-	_Win32PrintService$Win32DocumentPropertiesUI_FieldInfo_,
-	_Win32PrintService$Win32DocumentPropertiesUI_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Win32PrintService$Win32DocumentPropertiesUI_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.print.Win32PrintService"
-};
-
-$Object* allocate$Win32PrintService$Win32DocumentPropertiesUI($Class* clazz) {
-	return $of($alloc(Win32PrintService$Win32DocumentPropertiesUI));
-}
-
 void Win32PrintService$Win32DocumentPropertiesUI::init$($Win32PrintService* s) {
 	$DocumentPropertiesUI::init$();
 	$set(this, service, s);
@@ -77,7 +40,37 @@ Win32PrintService$Win32DocumentPropertiesUI::Win32PrintService$Win32DocumentProp
 }
 
 $Class* Win32PrintService$Win32DocumentPropertiesUI::load$($String* name, bool initialize) {
-	$loadClass(Win32PrintService$Win32DocumentPropertiesUI, name, initialize, &_Win32PrintService$Win32DocumentPropertiesUI_ClassInfo_, allocate$Win32PrintService$Win32DocumentPropertiesUI);
+	$FieldInfo fieldInfos$$[] = {
+		{"service", "Lsun/print/Win32PrintService;", nullptr, 0, $field(Win32PrintService$Win32DocumentPropertiesUI, service)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/print/Win32PrintService;)V", nullptr, $PRIVATE, $method(Win32PrintService$Win32DocumentPropertiesUI, init$, void, $Win32PrintService*)},
+		{"showDocumentProperties", "(Ljava/awt/print/PrinterJob;Ljava/awt/Window;Ljavax/print/PrintService;Ljavax/print/attribute/PrintRequestAttributeSet;)Ljavax/print/attribute/PrintRequestAttributeSet;", nullptr, $PUBLIC, $virtualMethod(Win32PrintService$Win32DocumentPropertiesUI, showDocumentProperties, $PrintRequestAttributeSet*, $PrinterJob*, $Window*, $PrintService*, $PrintRequestAttributeSet*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.print.Win32PrintService$Win32DocumentPropertiesUI", "sun.print.Win32PrintService", "Win32DocumentPropertiesUI", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.print.Win32PrintService$Win32DocumentPropertiesUI",
+		"sun.print.DocumentPropertiesUI",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.print.Win32PrintService"
+	};
+	$loadClass(Win32PrintService$Win32DocumentPropertiesUI, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Win32PrintService$Win32DocumentPropertiesUI);
+	});
 	return class$;
 }
 

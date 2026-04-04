@@ -1,10 +1,8 @@
 #include <java/util/logging/LogManager$LoggerContext.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/lang/Module.h>
 #include <java/lang/ref/Reference.h>
 #include <java/security/AccessController.h>
-#include <java/security/PrivilegedAction.h>
 #include <java/util/Collection.h>
 #include <java/util/Collections.h>
 #include <java/util/Enumeration.h>
@@ -33,8 +31,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Module = ::java::lang::Module;
 using $NullPointerException = ::java::lang::NullPointerException;
 using $AccessController = ::java::security::AccessController;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
-using $Collection = ::java::util::Collection;
 using $Collections = ::java::util::Collections;
 using $Enumeration = ::java::util::Enumeration;
 using $HashMap = ::java::util::HashMap;
@@ -52,60 +48,6 @@ namespace java {
 	namespace util {
 		namespace logging {
 
-$FieldInfo _LogManager$LoggerContext_FieldInfo_[] = {
-	{"this$0", "Ljava/util/logging/LogManager;", nullptr, $FINAL | $SYNTHETIC, $field(LogManager$LoggerContext, this$0)},
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(LogManager$LoggerContext, $assertionsDisabled)},
-	{"namedLoggers", "Ljava/util/concurrent/ConcurrentHashMap;", "Ljava/util/concurrent/ConcurrentHashMap<Ljava/lang/String;Ljava/util/logging/LogManager$LoggerWeakRef;>;", $PRIVATE | $FINAL, $field(LogManager$LoggerContext, namedLoggers)},
-	{"root", "Ljava/util/logging/LogManager$LogNode;", nullptr, $PRIVATE | $FINAL, $field(LogManager$LoggerContext, root)},
-	{}
-};
-
-$MethodInfo _LogManager$LoggerContext_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/logging/LogManager;)V", nullptr, $PRIVATE, $method(LogManager$LoggerContext, init$, void, $LogManager*)},
-	{"addLocalLogger", "(Ljava/util/logging/Logger;)Z", nullptr, 0, $virtualMethod(LogManager$LoggerContext, addLocalLogger, bool, $Logger*)},
-	{"addLocalLogger", "(Ljava/util/logging/Logger;Z)Z", nullptr, $SYNCHRONIZED, $virtualMethod(LogManager$LoggerContext, addLocalLogger, bool, $Logger*, bool)},
-	{"demandLogger", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Module;)Ljava/util/logging/Logger;", nullptr, 0, $virtualMethod(LogManager$LoggerContext, demandLogger, $Logger*, $String*, $String*, $Module*)},
-	{"ensureAllDefaultLoggers", "(Ljava/util/logging/Logger;)V", nullptr, $PRIVATE, $method(LogManager$LoggerContext, ensureAllDefaultLoggers, void, $Logger*)},
-	{"ensureDefaultLogger", "(Ljava/util/logging/Logger;)V", nullptr, $PRIVATE, $method(LogManager$LoggerContext, ensureDefaultLogger, void, $Logger*)},
-	{"ensureInitialized", "()V", nullptr, $PRIVATE, $method(LogManager$LoggerContext, ensureInitialized, void)},
-	{"findLogger", "(Ljava/lang/String;)Ljava/util/logging/Logger;", nullptr, 0, $virtualMethod(LogManager$LoggerContext, findLogger, $Logger*, $String*)},
-	{"getGlobalLogger", "()Ljava/util/logging/Logger;", nullptr, $FINAL, $method(LogManager$LoggerContext, getGlobalLogger, $Logger*)},
-	{"getLoggerNames", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/lang/String;>;", $SYNCHRONIZED, $virtualMethod(LogManager$LoggerContext, getLoggerNames, $Enumeration*)},
-	{"getNode", "(Ljava/lang/String;)Ljava/util/logging/LogManager$LogNode;", nullptr, 0, $virtualMethod(LogManager$LoggerContext, getNode, $LogManager$LogNode*, $String*)},
-	{"getOwner", "()Ljava/util/logging/LogManager;", nullptr, $FINAL, $method(LogManager$LoggerContext, getOwner, $LogManager*)},
-	{"getRootLogger", "()Ljava/util/logging/Logger;", nullptr, $FINAL, $method(LogManager$LoggerContext, getRootLogger, $Logger*)},
-	{"processParentHandlers", "(Ljava/util/logging/Logger;Ljava/lang/String;Ljava/util/function/Predicate;)V", "(Ljava/util/logging/Logger;Ljava/lang/String;Ljava/util/function/Predicate<Ljava/util/logging/Logger;>;)V", $PRIVATE, $method(LogManager$LoggerContext, processParentHandlers, void, $Logger*, $String*, $Predicate*)},
-	{"removeLoggerRef", "(Ljava/lang/String;Ljava/util/logging/LogManager$LoggerWeakRef;)V", nullptr, 0, $virtualMethod(LogManager$LoggerContext, removeLoggerRef, void, $String*, $LogManager$LoggerWeakRef*)},
-	{"requiresDefaultLoggers", "()Z", nullptr, $FINAL, $method(LogManager$LoggerContext, requiresDefaultLoggers, bool)},
-	{}
-};
-
-$InnerClassInfo _LogManager$LoggerContext_InnerClassesInfo_[] = {
-	{"java.util.logging.LogManager$LoggerContext", "java.util.logging.LogManager", "LoggerContext", 0},
-	{"java.util.logging.LogManager$LoggerContext$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _LogManager$LoggerContext_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.logging.LogManager$LoggerContext",
-	"java.lang.Object",
-	nullptr,
-	_LogManager$LoggerContext_FieldInfo_,
-	_LogManager$LoggerContext_MethodInfo_,
-	nullptr,
-	nullptr,
-	_LogManager$LoggerContext_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.logging.LogManager"
-};
-
-$Object* allocate$LogManager$LoggerContext($Class* clazz) {
-	return $of($alloc(LogManager$LoggerContext));
-}
-
 bool LogManager$LoggerContext::$assertionsDisabled = false;
 
 void LogManager$LoggerContext::init$($LogManager* this$0) {
@@ -118,7 +60,7 @@ bool LogManager$LoggerContext::requiresDefaultLoggers() {
 	$init($LogManager);
 	bool requiresDefaultLoggers = (getOwner() == $LogManager::manager);
 	if (requiresDefaultLoggers) {
-		$nc($(getOwner()))->ensureLogManagerInitialized();
+		$$nc(getOwner())->ensureLogManagerInitialized();
 	}
 	return requiresDefaultLoggers;
 }
@@ -143,7 +85,7 @@ $Logger* LogManager$LoggerContext::demandLogger($String* name, $String* resource
 }
 
 void LogManager$LoggerContext::ensureInitialized() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (requiresDefaultLoggers()) {
 		ensureDefaultLogger($(getRootLogger()));
 		ensureDefaultLogger($(getGlobalLogger()));
@@ -151,21 +93,21 @@ void LogManager$LoggerContext::ensureInitialized() {
 }
 
 $Logger* LogManager$LoggerContext::findLogger($String* name) {
-	$useLocalCurrentObjectStackCache();
-	$var($LogManager$LoggerWeakRef, ref, $cast($LogManager$LoggerWeakRef, $nc(this->namedLoggers)->get(name)));
-	$var($Logger, logger, ref == nullptr ? ($Logger*)nullptr : $cast($Logger, $nc(ref)->get()));
+	$useLocalObjectStack();
+	$var($LogManager$LoggerWeakRef, ref, $cast($LogManager$LoggerWeakRef, this->namedLoggers->get(name)));
+	$var($Logger, logger, ref == nullptr ? ($Logger*)nullptr : $cast($Logger, ref->get()));
 	bool var$0 = logger != nullptr;
 	if (!var$0) {
 		bool var$1 = ref == nullptr && !$nc(name)->isEmpty();
 		$init($Logger);
-		var$0 = (var$1 && !name->equals($Logger::GLOBAL_LOGGER_NAME));
+		var$0 = var$1 && !name->equals($Logger::GLOBAL_LOGGER_NAME);
 	}
 	if (var$0) {
 		return logger;
 	}
 	$synchronized(this) {
 		ensureInitialized();
-		$assign(ref, $cast($LogManager$LoggerWeakRef, $nc(this->namedLoggers)->get(name)));
+		$assign(ref, $cast($LogManager$LoggerWeakRef, this->namedLoggers->get(name)));
 		if (ref == nullptr) {
 			return nullptr;
 		}
@@ -178,7 +120,7 @@ $Logger* LogManager$LoggerContext::findLogger($String* name) {
 }
 
 void LogManager$LoggerContext::ensureAllDefaultLoggers($Logger* logger) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (requiresDefaultLoggers()) {
 		$var($String, name, $nc(logger)->getName());
 		if (!$nc(name)->isEmpty()) {
@@ -198,7 +140,7 @@ void LogManager$LoggerContext::ensureDefaultLogger($Logger* logger) {
 		}
 		return;
 	}
-	if (!$nc(this->namedLoggers)->containsKey($($nc(logger)->getName()))) {
+	if (!this->namedLoggers->containsKey($($nc(logger)->getName()))) {
 		addLocalLogger(logger, false);
 	}
 }
@@ -209,7 +151,7 @@ bool LogManager$LoggerContext::addLocalLogger($Logger* logger) {
 
 bool LogManager$LoggerContext::addLocalLogger($Logger* logger, bool addDefaultLoggersIfNeeded) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		if (addDefaultLoggersIfNeeded) {
 			ensureAllDefaultLoggers(logger);
 		}
@@ -217,7 +159,7 @@ bool LogManager$LoggerContext::addLocalLogger($Logger* logger, bool addDefaultLo
 		if (name == nullptr) {
 			$throwNew($NullPointerException);
 		}
-		$var($LogManager$LoggerWeakRef, ref, $cast($LogManager$LoggerWeakRef, $nc(this->namedLoggers)->get(name)));
+		$var($LogManager$LoggerWeakRef, ref, $cast($LogManager$LoggerWeakRef, this->namedLoggers->get(name)));
 		if (ref != nullptr) {
 			if (ref->refersTo(nullptr)) {
 				ref->dispose();
@@ -227,8 +169,8 @@ bool LogManager$LoggerContext::addLocalLogger($Logger* logger, bool addDefaultLo
 		}
 		$var($LogManager, owner, getOwner());
 		logger->setLogManager(owner);
-		$assign(ref, $new($LogManager$LoggerWeakRef, static_cast<$LogManager*>($nc(owner)), logger));
-		$var($Level, level, $nc(owner)->getLevelProperty($$str({name, ".level"_s}), nullptr));
+		$assign(ref, $new($LogManager$LoggerWeakRef, $nc(owner), logger));
+		$var($Level, level, owner->getLevelProperty($$str({name, ".level"_s}), nullptr));
 		if (level != nullptr && !logger->isLevelInitialized()) {
 			$LogManager::doSetLevel(logger, level);
 		}
@@ -253,36 +195,36 @@ bool LogManager$LoggerContext::addLocalLogger($Logger* logger, bool addDefaultLo
 		}
 		node->walkAndSetParent(logger);
 		ref->setNode(node);
-		$nc(this->namedLoggers)->put(name, ref);
+		this->namedLoggers->put(name, ref);
 		return true;
 	}
 }
 
 void LogManager$LoggerContext::removeLoggerRef($String* name, $LogManager$LoggerWeakRef* ref) {
-	$nc(this->namedLoggers)->remove(name, ref);
+	this->namedLoggers->remove(name, ref);
 }
 
 $Enumeration* LogManager$LoggerContext::getLoggerNames() {
 	$synchronized(this) {
 		ensureInitialized();
-		return $Collections::enumeration($($nc(this->namedLoggers)->keySet()));
+		return $Collections::enumeration($(this->namedLoggers->keySet()));
 	}
 }
 
 void LogManager$LoggerContext::processParentHandlers($Logger* logger, $String* name, $Predicate* visited) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$var($LogManager, owner, getOwner());
-	$AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($LogManager$LoggerContext$1, this, logger, owner, name)));
+	$AccessController::doPrivileged($$new($LogManager$LoggerContext$1, this, logger, owner, name));
 	int32_t ix = 1;
 	for (;;) {
-		int32_t ix2 = $nc(name)->indexOf((int32_t)u'.', ix);
+		int32_t ix2 = $nc(name)->indexOf(u'.', ix);
 		if (ix2 < 0) {
 			break;
 		}
 		$var($String, pname, name->substring(0, ix2));
 		bool var$0 = $nc(owner)->getProperty($$str({pname, ".level"_s})) != nullptr;
-		if (var$0 || $nc(owner)->getProperty($$str({pname, ".handlers"_s})) != nullptr) {
+		if (var$0 || owner->getProperty($$str({pname, ".handlers"_s})) != nullptr) {
 			if ($nc(visited)->test($(demandLogger(pname, nullptr, nullptr)))) {
 				break;
 			}
@@ -292,14 +234,14 @@ void LogManager$LoggerContext::processParentHandlers($Logger* logger, $String* n
 }
 
 $LogManager$LogNode* LogManager$LoggerContext::getNode($String* name$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, name, name$renamed);
-	if (name == nullptr || $nc(name)->isEmpty()) {
+	if (name == nullptr || name->isEmpty()) {
 		return this->root;
 	}
 	$var($LogManager$LogNode, node, this->root);
 	while ($nc(name)->length() > 0) {
-		int32_t ix = name->indexOf((int32_t)u'.');
+		int32_t ix = name->indexOf(u'.');
 		$var($String, head, nullptr);
 		if (ix > 0) {
 			$assign(head, name->substring(0, ix));
@@ -311,17 +253,17 @@ $LogManager$LogNode* LogManager$LoggerContext::getNode($String* name$renamed) {
 		if ($nc(node)->children == nullptr) {
 			$set(node, children, $new($HashMap));
 		}
-		$var($LogManager$LogNode, child, $cast($LogManager$LogNode, $nc($nc(node)->children)->get(head)));
+		$var($LogManager$LogNode, child, $cast($LogManager$LogNode, $nc(node->children)->get(head)));
 		if (child == nullptr) {
 			$assign(child, $new($LogManager$LogNode, node, this));
-			$nc(node->children)->put(head, child);
+			node->children->put(head, child);
 		}
 		$assign(node, child);
 	}
 	return node;
 }
 
-void clinit$LogManager$LoggerContext($Class* class$) {
+void LogManager$LoggerContext::clinit$($Class* clazz) {
 	$load($LogManager);
 	LogManager$LoggerContext::$assertionsDisabled = !$LogManager::class$->desiredAssertionStatus();
 }
@@ -330,7 +272,55 @@ LogManager$LoggerContext::LogManager$LoggerContext() {
 }
 
 $Class* LogManager$LoggerContext::load$($String* name, bool initialize) {
-	$loadClass(LogManager$LoggerContext, name, initialize, &_LogManager$LoggerContext_ClassInfo_, clinit$LogManager$LoggerContext, allocate$LogManager$LoggerContext);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljava/util/logging/LogManager;", nullptr, $FINAL | $SYNTHETIC, $field(LogManager$LoggerContext, this$0)},
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(LogManager$LoggerContext, $assertionsDisabled)},
+		{"namedLoggers", "Ljava/util/concurrent/ConcurrentHashMap;", "Ljava/util/concurrent/ConcurrentHashMap<Ljava/lang/String;Ljava/util/logging/LogManager$LoggerWeakRef;>;", $PRIVATE | $FINAL, $field(LogManager$LoggerContext, namedLoggers)},
+		{"root", "Ljava/util/logging/LogManager$LogNode;", nullptr, $PRIVATE | $FINAL, $field(LogManager$LoggerContext, root)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/logging/LogManager;)V", nullptr, $PRIVATE, $method(LogManager$LoggerContext, init$, void, $LogManager*)},
+		{"addLocalLogger", "(Ljava/util/logging/Logger;)Z", nullptr, 0, $virtualMethod(LogManager$LoggerContext, addLocalLogger, bool, $Logger*)},
+		{"addLocalLogger", "(Ljava/util/logging/Logger;Z)Z", nullptr, $SYNCHRONIZED, $virtualMethod(LogManager$LoggerContext, addLocalLogger, bool, $Logger*, bool)},
+		{"demandLogger", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Module;)Ljava/util/logging/Logger;", nullptr, 0, $virtualMethod(LogManager$LoggerContext, demandLogger, $Logger*, $String*, $String*, $Module*)},
+		{"ensureAllDefaultLoggers", "(Ljava/util/logging/Logger;)V", nullptr, $PRIVATE, $method(LogManager$LoggerContext, ensureAllDefaultLoggers, void, $Logger*)},
+		{"ensureDefaultLogger", "(Ljava/util/logging/Logger;)V", nullptr, $PRIVATE, $method(LogManager$LoggerContext, ensureDefaultLogger, void, $Logger*)},
+		{"ensureInitialized", "()V", nullptr, $PRIVATE, $method(LogManager$LoggerContext, ensureInitialized, void)},
+		{"findLogger", "(Ljava/lang/String;)Ljava/util/logging/Logger;", nullptr, 0, $virtualMethod(LogManager$LoggerContext, findLogger, $Logger*, $String*)},
+		{"getGlobalLogger", "()Ljava/util/logging/Logger;", nullptr, $FINAL, $method(LogManager$LoggerContext, getGlobalLogger, $Logger*)},
+		{"getLoggerNames", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/lang/String;>;", $SYNCHRONIZED, $virtualMethod(LogManager$LoggerContext, getLoggerNames, $Enumeration*)},
+		{"getNode", "(Ljava/lang/String;)Ljava/util/logging/LogManager$LogNode;", nullptr, 0, $virtualMethod(LogManager$LoggerContext, getNode, $LogManager$LogNode*, $String*)},
+		{"getOwner", "()Ljava/util/logging/LogManager;", nullptr, $FINAL, $method(LogManager$LoggerContext, getOwner, $LogManager*)},
+		{"getRootLogger", "()Ljava/util/logging/Logger;", nullptr, $FINAL, $method(LogManager$LoggerContext, getRootLogger, $Logger*)},
+		{"processParentHandlers", "(Ljava/util/logging/Logger;Ljava/lang/String;Ljava/util/function/Predicate;)V", "(Ljava/util/logging/Logger;Ljava/lang/String;Ljava/util/function/Predicate<Ljava/util/logging/Logger;>;)V", $PRIVATE, $method(LogManager$LoggerContext, processParentHandlers, void, $Logger*, $String*, $Predicate*)},
+		{"removeLoggerRef", "(Ljava/lang/String;Ljava/util/logging/LogManager$LoggerWeakRef;)V", nullptr, 0, $virtualMethod(LogManager$LoggerContext, removeLoggerRef, void, $String*, $LogManager$LoggerWeakRef*)},
+		{"requiresDefaultLoggers", "()Z", nullptr, $FINAL, $method(LogManager$LoggerContext, requiresDefaultLoggers, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.logging.LogManager$LoggerContext", "java.util.logging.LogManager", "LoggerContext", 0},
+		{"java.util.logging.LogManager$LoggerContext$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.logging.LogManager$LoggerContext",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.logging.LogManager"
+	};
+	$loadClass(LogManager$LoggerContext, name, initialize, &classInfo$$, LogManager$LoggerContext::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(LogManager$LoggerContext);
+	});
 	return class$;
 }
 

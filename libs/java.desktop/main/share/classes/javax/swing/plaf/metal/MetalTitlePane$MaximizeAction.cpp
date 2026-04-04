@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/metal/MetalTitlePane$MaximizeAction.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/event/ActionEvent.h>
 #include <java/util/Locale.h>
@@ -22,46 +21,10 @@ namespace javax {
 		namespace plaf {
 			namespace metal {
 
-$FieldInfo _MetalTitlePane$MaximizeAction_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/plaf/metal/MetalTitlePane;", nullptr, $FINAL | $SYNTHETIC, $field(MetalTitlePane$MaximizeAction, this$0)},
-	{}
-};
-
-$MethodInfo _MetalTitlePane$MaximizeAction_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/plaf/metal/MetalTitlePane;)V", nullptr, $PUBLIC, $method(MetalTitlePane$MaximizeAction, init$, void, $MetalTitlePane*)},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(MetalTitlePane$MaximizeAction, actionPerformed, void, $ActionEvent*)},
-	{}
-};
-
-$InnerClassInfo _MetalTitlePane$MaximizeAction_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.metal.MetalTitlePane$MaximizeAction", "javax.swing.plaf.metal.MetalTitlePane", "MaximizeAction", $PRIVATE},
-	{}
-};
-
-$ClassInfo _MetalTitlePane$MaximizeAction_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.metal.MetalTitlePane$MaximizeAction",
-	"javax.swing.AbstractAction",
-	nullptr,
-	_MetalTitlePane$MaximizeAction_FieldInfo_,
-	_MetalTitlePane$MaximizeAction_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MetalTitlePane$MaximizeAction_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.metal.MetalTitlePane"
-};
-
-$Object* allocate$MetalTitlePane$MaximizeAction($Class* clazz) {
-	return $of($alloc(MetalTitlePane$MaximizeAction));
-}
-
 void MetalTitlePane$MaximizeAction::init$($MetalTitlePane* this$0) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, this$0, this$0);
-	$AbstractAction::init$($($UIManager::getString($of("MetalTitlePane.maximizeTitle"_s), $(this$0->getLocale()))));
+	$AbstractAction::init$($($UIManager::getString("MetalTitlePane.maximizeTitle"_s, $(this$0->getLocale()))));
 }
 
 void MetalTitlePane$MaximizeAction::actionPerformed($ActionEvent* e) {
@@ -72,7 +35,37 @@ MetalTitlePane$MaximizeAction::MetalTitlePane$MaximizeAction() {
 }
 
 $Class* MetalTitlePane$MaximizeAction::load$($String* name, bool initialize) {
-	$loadClass(MetalTitlePane$MaximizeAction, name, initialize, &_MetalTitlePane$MaximizeAction_ClassInfo_, allocate$MetalTitlePane$MaximizeAction);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/plaf/metal/MetalTitlePane;", nullptr, $FINAL | $SYNTHETIC, $field(MetalTitlePane$MaximizeAction, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/plaf/metal/MetalTitlePane;)V", nullptr, $PUBLIC, $method(MetalTitlePane$MaximizeAction, init$, void, $MetalTitlePane*)},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(MetalTitlePane$MaximizeAction, actionPerformed, void, $ActionEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.metal.MetalTitlePane$MaximizeAction", "javax.swing.plaf.metal.MetalTitlePane", "MaximizeAction", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.metal.MetalTitlePane$MaximizeAction",
+		"javax.swing.AbstractAction",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.metal.MetalTitlePane"
+	};
+	$loadClass(MetalTitlePane$MaximizeAction, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MetalTitlePane$MaximizeAction));
+	});
 	return class$;
 }
 

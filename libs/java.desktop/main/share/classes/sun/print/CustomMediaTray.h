@@ -35,6 +35,7 @@ class CustomMediaTray : public ::javax::print::attribute::standard::MediaTray {
 	$class(CustomMediaTray, 0, ::javax::print::attribute::standard::MediaTray)
 public:
 	CustomMediaTray();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int32_t x);
 	void init$($String* name, $String* choice);
 	virtual $String* getChoiceName();
@@ -45,7 +46,7 @@ public:
 	static ::java::util::ArrayList* customStringTable;
 	static ::java::util::ArrayList* customEnumTable;
 	$String* choiceName = nullptr;
-	static const int64_t serialVersionUID = (int64_t)0x0E25D18DEEA9D5C5;
+	static const int64_t serialVersionUID = (int64_t)0x0e25d18deea9d5c5;
 };
 
 	} // print

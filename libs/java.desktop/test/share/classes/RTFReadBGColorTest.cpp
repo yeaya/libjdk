@@ -1,5 +1,4 @@
 #include <RTFReadBGColorTest.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
@@ -38,8 +37,6 @@
 
 using $OpenOptionArray = $Array<::java::nio::file::OpenOption>;
 using $Color = ::java::awt::Color;
-using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $InputStream = ::java::io::InputStream;
 using $OutputStream = ::java::io::OutputStream;
 using $Serializable = ::java::io::Serializable;
@@ -56,9 +53,6 @@ using $JFrame = ::javax::swing::JFrame;
 using $JTextPane = ::javax::swing::JTextPane;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $AttributeSet = ::javax::swing::text::AttributeSet;
-using $Document = ::javax::swing::text::Document;
-using $EditorKit = ::javax::swing::text::EditorKit;
-using $Element = ::javax::swing::text::Element;
 using $MutableAttributeSet = ::javax::swing::text::MutableAttributeSet;
 using $SimpleAttributeSet = ::javax::swing::text::SimpleAttributeSet;
 using $StyleConstants = ::javax::swing::text::StyleConstants;
@@ -73,58 +67,27 @@ public:
 	virtual void run() override {
 		RTFReadBGColorTest::lambda$main$0();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<RTFReadBGColorTest$$Lambda$lambda$main$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo RTFReadBGColorTest$$Lambda$lambda$main$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(RTFReadBGColorTest$$Lambda$lambda$main$0, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(RTFReadBGColorTest$$Lambda$lambda$main$0, run, void)},
-	{}
-};
-$ClassInfo RTFReadBGColorTest$$Lambda$lambda$main$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"RTFReadBGColorTest$$Lambda$lambda$main$0",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* RTFReadBGColorTest$$Lambda$lambda$main$0::load$($String* name, bool initialize) {
-	$loadClass(RTFReadBGColorTest$$Lambda$lambda$main$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(RTFReadBGColorTest$$Lambda$lambda$main$0, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(RTFReadBGColorTest$$Lambda$lambda$main$0, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"RTFReadBGColorTest$$Lambda$lambda$main$0",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(RTFReadBGColorTest$$Lambda$lambda$main$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RTFReadBGColorTest$$Lambda$lambda$main$0);
+	});
 	return class$;
 }
 $Class* RTFReadBGColorTest$$Lambda$lambda$main$0::class$ = nullptr;
-
-$FieldInfo _RTFReadBGColorTest_FieldInfo_[] = {
-	{"text", "Ljavax/swing/JTextPane;", nullptr, $STATIC, $staticField(RTFReadBGColorTest, text)},
-	{"BGTEXT", "Ljava/lang/String;", nullptr, $STATIC, $staticField(RTFReadBGColorTest, BGTEXT)},
-	{}
-};
-
-$MethodInfo _RTFReadBGColorTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(RTFReadBGColorTest, init$, void)},
-	{"lambda$main$0", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(RTFReadBGColorTest, lambda$main$0, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(RTFReadBGColorTest, main, void, $StringArray*), "java.lang.Exception"},
-	{"read", "()V", nullptr, $STATIC, $staticMethod(RTFReadBGColorTest, read, void)},
-	{"write", "()V", nullptr, $STATIC, $staticMethod(RTFReadBGColorTest, write, void)},
-	{}
-};
-
-$ClassInfo _RTFReadBGColorTest_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"RTFReadBGColorTest",
-	"java.lang.Object",
-	nullptr,
-	_RTFReadBGColorTest_FieldInfo_,
-	_RTFReadBGColorTest_MethodInfo_
-};
-
-$Object* allocate$RTFReadBGColorTest($Class* clazz) {
-	return $of($alloc(RTFReadBGColorTest));
-}
 
 $JTextPane* RTFReadBGColorTest::text = nullptr;
 $String* RTFReadBGColorTest::BGTEXT = nullptr;
@@ -134,111 +97,107 @@ void RTFReadBGColorTest::init$() {
 
 void RTFReadBGColorTest::main($StringArray* a) {
 	$init(RTFReadBGColorTest);
-	$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(RTFReadBGColorTest$$Lambda$lambda$main$0)));
+	$SwingUtilities::invokeAndWait($$new(RTFReadBGColorTest$$Lambda$lambda$main$0));
 }
 
 void RTFReadBGColorTest::write() {
 	$init(RTFReadBGColorTest);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$var($OutputStream, o, $Files::newOutputStream($($Paths::get("test.rtf"_s, $$new($StringArray, 0))), $$new($OpenOptionArray, 0)));
-		{
-			$var($Throwable, var$0, nullptr);
+		$var($Throwable, var$0, nullptr);
+		try {
 			try {
-				try {
-					$nc($($nc(RTFReadBGColorTest::text)->getEditorKit()))->write(o, $($nc(RTFReadBGColorTest::text)->getDocument()), 0, 0);
-				} catch ($Throwable& t$) {
-					if (o != nullptr) {
-						try {
-							o->close();
-						} catch ($Throwable& x2) {
-							t$->addSuppressed(x2);
-						}
-					}
-					$throw(t$);
-				}
-			} catch ($Throwable& var$1) {
-				$assign(var$0, var$1);
-			} /*finally*/ {
+				$$nc($nc(RTFReadBGColorTest::text)->getEditorKit())->write(o, $($nc(RTFReadBGColorTest::text)->getDocument()), 0, 0);
+			} catch ($Throwable& t$) {
 				if (o != nullptr) {
-					o->close();
+					try {
+						o->close();
+					} catch ($Throwable& x2) {
+						t$->addSuppressed(x2);
+					}
 				}
+				$throw(t$);
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
+		} /*finally*/ {
+			if (o != nullptr) {
+				o->close();
 			}
 		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
+		}
 	} catch ($Exception& e2) {
-		$throwNew($RuntimeException, static_cast<$Throwable*>(e2));
+		$throwNew($RuntimeException, e2);
 	}
 }
 
 void RTFReadBGColorTest::read() {
 	$init(RTFReadBGColorTest);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$var($InputStream, in, $Files::newInputStream($($Paths::get("test.rtf"_s, $$new($StringArray, 0))), $$new($OpenOptionArray, 0)));
-		{
-			$var($Throwable, var$0, nullptr);
+		$var($Throwable, var$0, nullptr);
+		try {
 			try {
-				try {
-					$nc($($nc(RTFReadBGColorTest::text)->getEditorKit()))->read(in, $($nc(RTFReadBGColorTest::text)->getDocument()), 0);
-				} catch ($Throwable& t$) {
-					if (in != nullptr) {
-						try {
-							in->close();
-						} catch ($Throwable& x2) {
-							t$->addSuppressed(x2);
-						}
-					}
-					$throw(t$);
-				}
-			} catch ($Throwable& var$1) {
-				$assign(var$0, var$1);
-			} /*finally*/ {
+				$$nc($nc(RTFReadBGColorTest::text)->getEditorKit())->read(in, $($nc(RTFReadBGColorTest::text)->getDocument()), 0);
+			} catch ($Throwable& t$) {
 				if (in != nullptr) {
-					in->close();
+					try {
+						in->close();
+					} catch ($Throwable& x2) {
+						t$->addSuppressed(x2);
+					}
 				}
+				$throw(t$);
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
+		} /*finally*/ {
+			if (in != nullptr) {
+				in->close();
 			}
 		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
+		}
 	} catch ($Exception& e2) {
-		$throwNew($RuntimeException, static_cast<$Throwable*>(e2));
+		$throwNew($RuntimeException, e2);
 	}
 }
 
 void RTFReadBGColorTest::lambda$main$0() {
 	$init(RTFReadBGColorTest);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JFrame, f, $new($JFrame));
 	f->setBounds(200, 600, 400, 300);
 	f->setDefaultCloseOperation($JFrame::EXIT_ON_CLOSE);
 	$assignStatic(RTFReadBGColorTest::text, $new($JTextPane));
-	$nc(RTFReadBGColorTest::text)->setEditorKit($$new($RTFEditorKit));
+	RTFReadBGColorTest::text->setEditorKit($$new($RTFEditorKit));
 	$var($MutableAttributeSet, attrBackground, $new($SimpleAttributeSet));
 	$init($Color);
 	$StyleConstants::setBackground(attrBackground, $Color::YELLOW);
 	try {
-		$nc($($nc(RTFReadBGColorTest::text)->getDocument()))->insertString(0, RTFReadBGColorTest::BGTEXT, attrBackground);
+		$$nc($nc(RTFReadBGColorTest::text)->getDocument())->insertString(0, RTFReadBGColorTest::BGTEXT, attrBackground);
 	} catch ($Exception& e) {
-		$throwNew($RuntimeException, static_cast<$Throwable*>(e));
+		$throwNew($RuntimeException, e);
 	}
 	write();
 	read();
-	$nc($(f->getContentPane()))->add(static_cast<$Component*>(RTFReadBGColorTest::text));
+	$$nc(f->getContentPane())->add(RTFReadBGColorTest::text);
 	f->setVisible(true);
 	$nc(RTFReadBGColorTest::text)->setCaretPosition($nc(RTFReadBGColorTest::BGTEXT)->length() + 6);
 	$var($StyledDocument, style, $nc(RTFReadBGColorTest::text)->getStyledDocument());
-	$var($AttributeSet, oldSet, $nc($($nc(style)->getCharacterElement($nc(RTFReadBGColorTest::BGTEXT)->length() + 6)))->getAttributes());
+	$var($AttributeSet, oldSet, $$nc($nc(style)->getCharacterElement($nc(RTFReadBGColorTest::BGTEXT)->length() + 6))->getAttributes());
 	f->dispose();
-	if (!$nc($(style->getBackground(oldSet)))->equals($Color::YELLOW)) {
+	if (!$$nc(style->getBackground(oldSet))->equals($Color::YELLOW)) {
 		$throwNew($RuntimeException, "RTFEditorKit does not read background color"_s);
 	}
 }
 
-void clinit$RTFReadBGColorTest($Class* class$) {
+void RTFReadBGColorTest::clinit$($Class* clazz) {
 	$assignStatic(RTFReadBGColorTest::BGTEXT, "yellow_background\n"_s);
 }
 
@@ -247,11 +206,34 @@ RTFReadBGColorTest::RTFReadBGColorTest() {
 
 $Class* RTFReadBGColorTest::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(RTFReadBGColorTest$$Lambda$lambda$main$0::classInfo$.name)) {
+		if (name->equals("RTFReadBGColorTest$$Lambda$lambda$main$0")) {
 			return RTFReadBGColorTest$$Lambda$lambda$main$0::load$(name, initialize);
 		}
 	}
-	$loadClass(RTFReadBGColorTest, name, initialize, &_RTFReadBGColorTest_ClassInfo_, clinit$RTFReadBGColorTest, allocate$RTFReadBGColorTest);
+	$FieldInfo fieldInfos$$[] = {
+		{"text", "Ljavax/swing/JTextPane;", nullptr, $STATIC, $staticField(RTFReadBGColorTest, text)},
+		{"BGTEXT", "Ljava/lang/String;", nullptr, $STATIC, $staticField(RTFReadBGColorTest, BGTEXT)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(RTFReadBGColorTest, init$, void)},
+		{"lambda$main$0", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(RTFReadBGColorTest, lambda$main$0, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(RTFReadBGColorTest, main, void, $StringArray*), "java.lang.Exception"},
+		{"read", "()V", nullptr, $STATIC, $staticMethod(RTFReadBGColorTest, read, void)},
+		{"write", "()V", nullptr, $STATIC, $staticMethod(RTFReadBGColorTest, write, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"RTFReadBGColorTest",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(RTFReadBGColorTest, name, initialize, &classInfo$$, RTFReadBGColorTest::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(RTFReadBGColorTest);
+	});
 	return class$;
 }
 

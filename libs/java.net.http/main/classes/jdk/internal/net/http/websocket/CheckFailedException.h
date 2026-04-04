@@ -19,7 +19,10 @@ public:
 	static const int64_t serialVersionUID = (int64_t)1;
 	CheckFailedException(const CheckFailedException& e);
 	virtual void throw$() override;
-	inline CheckFailedException* operator ->() {
+	inline CheckFailedException* operator ->() const {
+		return (CheckFailedException*)throwing$;
+	}
+	inline operator CheckFailedException*() const {
 		return (CheckFailedException*)throwing$;
 	}
 };

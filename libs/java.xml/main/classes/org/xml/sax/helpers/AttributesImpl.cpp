@@ -1,5 +1,4 @@
 #include <org/xml/sax/helpers/AttributesImpl.h>
-
 #include <java/lang/ArrayIndexOutOfBoundsException.h>
 #include <org/xml/sax/Attributes.h>
 #include <jcpp.h>
@@ -14,55 +13,6 @@ namespace org {
 	namespace xml {
 		namespace sax {
 			namespace helpers {
-
-$FieldInfo _AttributesImpl_FieldInfo_[] = {
-	{"length", "I", nullptr, 0, $field(AttributesImpl, length)},
-	{"data", "[Ljava/lang/String;", nullptr, 0, $field(AttributesImpl, data)},
-	{}
-};
-
-$MethodInfo _AttributesImpl_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AttributesImpl, init$, void)},
-	{"<init>", "(Lorg/xml/sax/Attributes;)V", nullptr, $PUBLIC, $method(AttributesImpl, init$, void, $Attributes*)},
-	{"addAttribute", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(AttributesImpl, addAttribute, void, $String*, $String*, $String*, $String*, $String*)},
-	{"badIndex", "(I)V", nullptr, $PRIVATE, $method(AttributesImpl, badIndex, void, int32_t), "java.lang.ArrayIndexOutOfBoundsException"},
-	{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(AttributesImpl, clear, void)},
-	{"ensureCapacity", "(I)V", nullptr, $PRIVATE, $method(AttributesImpl, ensureCapacity, void, int32_t)},
-	{"getIndex", "(Ljava/lang/String;Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(AttributesImpl, getIndex, int32_t, $String*, $String*)},
-	{"getIndex", "(Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(AttributesImpl, getIndex, int32_t, $String*)},
-	{"getLength", "()I", nullptr, $PUBLIC, $virtualMethod(AttributesImpl, getLength, int32_t)},
-	{"getLocalName", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AttributesImpl, getLocalName, $String*, int32_t)},
-	{"getQName", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AttributesImpl, getQName, $String*, int32_t)},
-	{"getType", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AttributesImpl, getType, $String*, int32_t)},
-	{"getType", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AttributesImpl, getType, $String*, $String*, $String*)},
-	{"getType", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AttributesImpl, getType, $String*, $String*)},
-	{"getURI", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AttributesImpl, getURI, $String*, int32_t)},
-	{"getValue", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AttributesImpl, getValue, $String*, int32_t)},
-	{"getValue", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AttributesImpl, getValue, $String*, $String*, $String*)},
-	{"getValue", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AttributesImpl, getValue, $String*, $String*)},
-	{"removeAttribute", "(I)V", nullptr, $PUBLIC, $virtualMethod(AttributesImpl, removeAttribute, void, int32_t)},
-	{"setAttribute", "(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(AttributesImpl, setAttribute, void, int32_t, $String*, $String*, $String*, $String*, $String*)},
-	{"setAttributes", "(Lorg/xml/sax/Attributes;)V", nullptr, $PUBLIC, $virtualMethod(AttributesImpl, setAttributes, void, $Attributes*)},
-	{"setLocalName", "(ILjava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(AttributesImpl, setLocalName, void, int32_t, $String*)},
-	{"setQName", "(ILjava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(AttributesImpl, setQName, void, int32_t, $String*)},
-	{"setType", "(ILjava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(AttributesImpl, setType, void, int32_t, $String*)},
-	{"setURI", "(ILjava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(AttributesImpl, setURI, void, int32_t, $String*)},
-	{"setValue", "(ILjava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(AttributesImpl, setValue, void, int32_t, $String*)},
-	{}
-};
-
-$ClassInfo _AttributesImpl_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"org.xml.sax.helpers.AttributesImpl",
-	"java.lang.Object",
-	"org.xml.sax.Attributes",
-	_AttributesImpl_FieldInfo_,
-	_AttributesImpl_MethodInfo_
-};
-
-$Object* allocate$AttributesImpl($Class* clazz) {
-	return $of($alloc(AttributesImpl));
-}
 
 void AttributesImpl::init$() {
 	this->length = 0;
@@ -121,7 +71,7 @@ int32_t AttributesImpl::getIndex($String* uri, $String* localName) {
 	int32_t max = this->length * 5;
 	for (int32_t i = 0; i < max; i += 5) {
 		bool var$0 = $nc($nc(this->data)->get(i))->equals(uri);
-		if (var$0 && $nc($nc(this->data)->get(i + 1))->equals(localName)) {
+		if (var$0 && $nc(this->data->get(i + 1))->equals(localName)) {
 			return i / 5;
 		}
 	}
@@ -142,8 +92,8 @@ $String* AttributesImpl::getType($String* uri, $String* localName) {
 	int32_t max = this->length * 5;
 	for (int32_t i = 0; i < max; i += 5) {
 		bool var$0 = $nc($nc(this->data)->get(i))->equals(uri);
-		if (var$0 && $nc($nc(this->data)->get(i + 1))->equals(localName)) {
-			return $nc(this->data)->get(i + 3);
+		if (var$0 && $nc(this->data->get(i + 1))->equals(localName)) {
+			return this->data->get(i + 3);
 		}
 	}
 	return nullptr;
@@ -153,7 +103,7 @@ $String* AttributesImpl::getType($String* qName) {
 	int32_t max = this->length * 5;
 	for (int32_t i = 0; i < max; i += 5) {
 		if ($nc($nc(this->data)->get(i + 2))->equals(qName)) {
-			return $nc(this->data)->get(i + 3);
+			return this->data->get(i + 3);
 		}
 	}
 	return nullptr;
@@ -163,8 +113,8 @@ $String* AttributesImpl::getValue($String* uri, $String* localName) {
 	int32_t max = this->length * 5;
 	for (int32_t i = 0; i < max; i += 5) {
 		bool var$0 = $nc($nc(this->data)->get(i))->equals(uri);
-		if (var$0 && $nc($nc(this->data)->get(i + 1))->equals(localName)) {
-			return $nc(this->data)->get(i + 4);
+		if (var$0 && $nc(this->data->get(i + 1))->equals(localName)) {
+			return this->data->get(i + 4);
 		}
 	}
 	return nullptr;
@@ -174,7 +124,7 @@ $String* AttributesImpl::getValue($String* qName) {
 	int32_t max = this->length * 5;
 	for (int32_t i = 0; i < max; i += 5) {
 		if ($nc($nc(this->data)->get(i + 2))->equals(qName)) {
-			return $nc(this->data)->get(i + 4);
+			return this->data->get(i + 4);
 		}
 	}
 	return nullptr;
@@ -183,14 +133,14 @@ $String* AttributesImpl::getValue($String* qName) {
 void AttributesImpl::clear() {
 	if (this->data != nullptr) {
 		for (int32_t i = 0; i < (this->length * 5); ++i) {
-			$nc(this->data)->set(i, nullptr);
+			this->data->set(i, nullptr);
 		}
 	}
 	this->length = 0;
 }
 
 void AttributesImpl::setAttributes($Attributes* atts) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	clear();
 	this->length = $nc(atts)->getLength();
 	if (this->length > 0) {
@@ -208,20 +158,20 @@ void AttributesImpl::setAttributes($Attributes* atts) {
 void AttributesImpl::addAttribute($String* uri, $String* localName, $String* qName, $String* type, $String* value) {
 	ensureCapacity(this->length + 1);
 	$nc(this->data)->set(this->length * 5, uri);
-	$nc(this->data)->set(this->length * 5 + 1, localName);
-	$nc(this->data)->set(this->length * 5 + 2, qName);
-	$nc(this->data)->set(this->length * 5 + 3, type);
-	$nc(this->data)->set(this->length * 5 + 4, value);
+	this->data->set(this->length * 5 + 1, localName);
+	this->data->set(this->length * 5 + 2, qName);
+	this->data->set(this->length * 5 + 3, type);
+	this->data->set(this->length * 5 + 4, value);
 	++this->length;
 }
 
 void AttributesImpl::setAttribute(int32_t index, $String* uri, $String* localName, $String* qName, $String* type, $String* value) {
 	if (index >= 0 && index < this->length) {
 		$nc(this->data)->set(index * 5, uri);
-		$nc(this->data)->set(index * 5 + 1, localName);
-		$nc(this->data)->set(index * 5 + 2, qName);
-		$nc(this->data)->set(index * 5 + 3, type);
-		$nc(this->data)->set(index * 5 + 4, value);
+		this->data->set(index * 5 + 1, localName);
+		this->data->set(index * 5 + 2, qName);
+		this->data->set(index * 5 + 3, type);
+		this->data->set(index * 5 + 4, value);
 	} else {
 		badIndex(index);
 	}
@@ -234,10 +184,10 @@ void AttributesImpl::removeAttribute(int32_t index) {
 		}
 		index = (this->length - 1) * 5;
 		$nc(this->data)->set(index++, nullptr);
-		$nc(this->data)->set(index++, nullptr);
-		$nc(this->data)->set(index++, nullptr);
-		$nc(this->data)->set(index++, nullptr);
-		$nc(this->data)->set(index, nullptr);
+		this->data->set(index++, nullptr);
+		this->data->set(index++, nullptr);
+		this->data->set(index++, nullptr);
+		this->data->set(index, nullptr);
 		--this->length;
 	} else {
 		badIndex(index);
@@ -289,12 +239,12 @@ void AttributesImpl::ensureCapacity(int32_t n) {
 		return;
 	}
 	int32_t max = 0;
-	if (this->data == nullptr || $nc(this->data)->length == 0) {
+	if (this->data == nullptr || this->data->length == 0) {
 		max = 25;
-	} else if ($nc(this->data)->length >= n * 5) {
+	} else if (this->data->length >= n * 5) {
 		return;
 	} else {
-		max = $nc(this->data)->length;
+		max = this->data->length;
 	}
 	while (max < n * 5) {
 		max *= 2;
@@ -307,7 +257,7 @@ void AttributesImpl::ensureCapacity(int32_t n) {
 }
 
 void AttributesImpl::badIndex(int32_t index) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, msg, $str({"Attempt to modify attribute at illegal index: "_s, $$str(index)}));
 	$throwNew($ArrayIndexOutOfBoundsException, msg);
 }
@@ -316,7 +266,51 @@ AttributesImpl::AttributesImpl() {
 }
 
 $Class* AttributesImpl::load$($String* name, bool initialize) {
-	$loadClass(AttributesImpl, name, initialize, &_AttributesImpl_ClassInfo_, allocate$AttributesImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"length", "I", nullptr, 0, $field(AttributesImpl, length)},
+		{"data", "[Ljava/lang/String;", nullptr, 0, $field(AttributesImpl, data)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AttributesImpl, init$, void)},
+		{"<init>", "(Lorg/xml/sax/Attributes;)V", nullptr, $PUBLIC, $method(AttributesImpl, init$, void, $Attributes*)},
+		{"addAttribute", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(AttributesImpl, addAttribute, void, $String*, $String*, $String*, $String*, $String*)},
+		{"badIndex", "(I)V", nullptr, $PRIVATE, $method(AttributesImpl, badIndex, void, int32_t), "java.lang.ArrayIndexOutOfBoundsException"},
+		{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(AttributesImpl, clear, void)},
+		{"ensureCapacity", "(I)V", nullptr, $PRIVATE, $method(AttributesImpl, ensureCapacity, void, int32_t)},
+		{"getIndex", "(Ljava/lang/String;Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(AttributesImpl, getIndex, int32_t, $String*, $String*)},
+		{"getIndex", "(Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(AttributesImpl, getIndex, int32_t, $String*)},
+		{"getLength", "()I", nullptr, $PUBLIC, $virtualMethod(AttributesImpl, getLength, int32_t)},
+		{"getLocalName", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AttributesImpl, getLocalName, $String*, int32_t)},
+		{"getQName", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AttributesImpl, getQName, $String*, int32_t)},
+		{"getType", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AttributesImpl, getType, $String*, int32_t)},
+		{"getType", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AttributesImpl, getType, $String*, $String*, $String*)},
+		{"getType", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AttributesImpl, getType, $String*, $String*)},
+		{"getURI", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AttributesImpl, getURI, $String*, int32_t)},
+		{"getValue", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AttributesImpl, getValue, $String*, int32_t)},
+		{"getValue", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AttributesImpl, getValue, $String*, $String*, $String*)},
+		{"getValue", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AttributesImpl, getValue, $String*, $String*)},
+		{"removeAttribute", "(I)V", nullptr, $PUBLIC, $virtualMethod(AttributesImpl, removeAttribute, void, int32_t)},
+		{"setAttribute", "(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(AttributesImpl, setAttribute, void, int32_t, $String*, $String*, $String*, $String*, $String*)},
+		{"setAttributes", "(Lorg/xml/sax/Attributes;)V", nullptr, $PUBLIC, $virtualMethod(AttributesImpl, setAttributes, void, $Attributes*)},
+		{"setLocalName", "(ILjava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(AttributesImpl, setLocalName, void, int32_t, $String*)},
+		{"setQName", "(ILjava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(AttributesImpl, setQName, void, int32_t, $String*)},
+		{"setType", "(ILjava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(AttributesImpl, setType, void, int32_t, $String*)},
+		{"setURI", "(ILjava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(AttributesImpl, setURI, void, int32_t, $String*)},
+		{"setValue", "(ILjava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(AttributesImpl, setValue, void, int32_t, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"org.xml.sax.helpers.AttributesImpl",
+		"java.lang.Object",
+		"org.xml.sax.Attributes",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(AttributesImpl, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AttributesImpl);
+	});
 	return class$;
 }
 

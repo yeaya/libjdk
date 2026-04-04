@@ -125,7 +125,7 @@ public:
 	virtual void setShouldCacheNodes(bool b) override;
 	virtual int32_t size() override;
 	virtual $String* toString() override;
-	static const int64_t serialVersionUID = (int64_t)0x6AABDCF4E04F714E;
+	static const int64_t serialVersionUID = (int64_t)0x6aabdcf4e04f714e;
 	::com::sun::org::apache::xml::internal::dtm::DTMManager* m_manager = nullptr;
 	int32_t m_next = 0;
 	bool m_mutable = false;

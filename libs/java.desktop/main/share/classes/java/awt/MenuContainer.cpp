@@ -1,5 +1,4 @@
 #include <java/awt/MenuContainer.h>
-
 #include <java/awt/Event.h>
 #include <java/awt/Font.h>
 #include <java/awt/MenuComponent.h>
@@ -15,33 +14,28 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace java {
 	namespace awt {
 
-$CompoundAttribute _MenuContainer_MethodAnnotations_postEvent1[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$MethodInfo _MenuContainer_MethodInfo_[] = {
-	{"getFont", "()Ljava/awt/Font;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MenuContainer, getFont, $Font*)},
-	{"postEvent", "(Ljava/awt/Event;)Z", nullptr, $PUBLIC | $ABSTRACT | $DEPRECATED, $virtualMethod(MenuContainer, postEvent, bool, $Event*), nullptr, nullptr, _MenuContainer_MethodAnnotations_postEvent1},
-	{"remove", "(Ljava/awt/MenuComponent;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MenuContainer, remove, void, $MenuComponent*)},
-	{}
-};
-
-$ClassInfo _MenuContainer_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.awt.MenuContainer",
-	nullptr,
-	nullptr,
-	nullptr,
-	_MenuContainer_MethodInfo_
-};
-
-$Object* allocate$MenuContainer($Class* clazz) {
-	return $of($alloc(MenuContainer));
-}
-
 $Class* MenuContainer::load$($String* name, bool initialize) {
-	$loadClass(MenuContainer, name, initialize, &_MenuContainer_ClassInfo_, allocate$MenuContainer);
+	$CompoundAttribute postEventmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"getFont", "()Ljava/awt/Font;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MenuContainer, getFont, $Font*)},
+		{"postEvent", "(Ljava/awt/Event;)Z", nullptr, $PUBLIC | $ABSTRACT | $DEPRECATED, $virtualMethod(MenuContainer, postEvent, bool, $Event*), nullptr, nullptr, postEventmethodAnnotations$$},
+		{"remove", "(Ljava/awt/MenuComponent;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MenuContainer, remove, void, $MenuComponent*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.awt.MenuContainer",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(MenuContainer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MenuContainer);
+	});
 	return class$;
 }
 

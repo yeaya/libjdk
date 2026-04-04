@@ -1,5 +1,4 @@
 #include <javax/swing/JTabbedPane$Page.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/Cursor.h>
@@ -61,105 +60,6 @@ using $TabbedPaneUI = ::javax::swing::plaf::TabbedPaneUI;
 namespace javax {
 	namespace swing {
 
-$FieldInfo _JTabbedPane$Page_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/JTabbedPane;", nullptr, $FINAL | $SYNTHETIC, $field(JTabbedPane$Page, this$0)},
-	{"title", "Ljava/lang/String;", nullptr, 0, $field(JTabbedPane$Page, title)},
-	{"background", "Ljava/awt/Color;", nullptr, 0, $field(JTabbedPane$Page, background)},
-	{"foreground", "Ljava/awt/Color;", nullptr, 0, $field(JTabbedPane$Page, foreground)},
-	{"icon", "Ljavax/swing/Icon;", nullptr, 0, $field(JTabbedPane$Page, icon)},
-	{"disabledIcon", "Ljavax/swing/Icon;", nullptr, 0, $field(JTabbedPane$Page, disabledIcon)},
-	{"parent", "Ljavax/swing/JTabbedPane;", nullptr, 0, $field(JTabbedPane$Page, parent)},
-	{"component", "Ljava/awt/Component;", nullptr, 0, $field(JTabbedPane$Page, component)},
-	{"tip", "Ljava/lang/String;", nullptr, 0, $field(JTabbedPane$Page, tip)},
-	{"enabled", "Z", nullptr, 0, $field(JTabbedPane$Page, enabled)},
-	{"needsUIUpdate", "Z", nullptr, 0, $field(JTabbedPane$Page, needsUIUpdate)},
-	{"mnemonic", "I", nullptr, 0, $field(JTabbedPane$Page, mnemonic)},
-	{"mnemonicIndex", "I", nullptr, 0, $field(JTabbedPane$Page, mnemonicIndex)},
-	{"tabComponent", "Ljava/awt/Component;", nullptr, 0, $field(JTabbedPane$Page, tabComponent)},
-	{}
-};
-
-$MethodInfo _JTabbedPane$Page_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljavax/swing/JTabbedPane;Ljavax/swing/JTabbedPane;Ljava/lang/String;Ljavax/swing/Icon;Ljavax/swing/Icon;Ljava/awt/Component;Ljava/lang/String;)V", nullptr, 0, $method(JTabbedPane$Page, init$, void, $JTabbedPane*, $JTabbedPane*, $String*, $Icon*, $Icon*, $Component*, $String*)},
-	{"addFocusListener", "(Ljava/awt/event/FocusListener;)V", nullptr, $PUBLIC, $virtualMethod(JTabbedPane$Page, addFocusListener, void, $FocusListener*)},
-	{"contains", "(Ljava/awt/Point;)Z", nullptr, $PUBLIC, $virtualMethod(JTabbedPane$Page, contains, bool, $Point*)},
-	{"getAccessibleAt", "(Ljava/awt/Point;)Ljavax/accessibility/Accessible;", nullptr, $PUBLIC, $virtualMethod(JTabbedPane$Page, getAccessibleAt, $Accessible*, $Point*)},
-	{"getAccessibleChild", "(I)Ljavax/accessibility/Accessible;", nullptr, $PUBLIC, $virtualMethod(JTabbedPane$Page, getAccessibleChild, $Accessible*, int32_t)},
-	{"getAccessibleChildrenCount", "()I", nullptr, $PUBLIC, $virtualMethod(JTabbedPane$Page, getAccessibleChildrenCount, int32_t)},
-	{"getAccessibleComponent", "()Ljavax/accessibility/AccessibleComponent;", nullptr, $PUBLIC, $virtualMethod(JTabbedPane$Page, getAccessibleComponent, $AccessibleComponent*)},
-	{"getAccessibleContext", "()Ljavax/accessibility/AccessibleContext;", nullptr, $PUBLIC, $virtualMethod(JTabbedPane$Page, getAccessibleContext, $AccessibleContext*)},
-	{"getAccessibleDescription", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JTabbedPane$Page, getAccessibleDescription, $String*)},
-	{"getAccessibleIcon", "()[Ljavax/accessibility/AccessibleIcon;", nullptr, $PUBLIC, $virtualMethod(JTabbedPane$Page, getAccessibleIcon, $AccessibleIconArray*)},
-	{"getAccessibleIndexInParent", "()I", nullptr, $PUBLIC, $virtualMethod(JTabbedPane$Page, getAccessibleIndexInParent, int32_t)},
-	{"getAccessibleName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JTabbedPane$Page, getAccessibleName, $String*)},
-	{"getAccessibleRole", "()Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC, $virtualMethod(JTabbedPane$Page, getAccessibleRole, $AccessibleRole*)},
-	{"getAccessibleStateSet", "()Ljavax/accessibility/AccessibleStateSet;", nullptr, $PUBLIC, $virtualMethod(JTabbedPane$Page, getAccessibleStateSet, $AccessibleStateSet*)},
-	{"getBackground", "()Ljava/awt/Color;", nullptr, $PUBLIC, $virtualMethod(JTabbedPane$Page, getBackground, $Color*)},
-	{"getBounds", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(JTabbedPane$Page, getBounds, $Rectangle*)},
-	{"getCursor", "()Ljava/awt/Cursor;", nullptr, $PUBLIC, $virtualMethod(JTabbedPane$Page, getCursor, $Cursor*)},
-	{"getDisplayedMnemonicIndex", "()I", nullptr, 0, $virtualMethod(JTabbedPane$Page, getDisplayedMnemonicIndex, int32_t)},
-	{"getFont", "()Ljava/awt/Font;", nullptr, $PUBLIC, $virtualMethod(JTabbedPane$Page, getFont, $Font*)},
-	{"getFontMetrics", "(Ljava/awt/Font;)Ljava/awt/FontMetrics;", nullptr, $PUBLIC, $virtualMethod(JTabbedPane$Page, getFontMetrics, $FontMetrics*, $Font*)},
-	{"getForeground", "()Ljava/awt/Color;", nullptr, $PUBLIC, $virtualMethod(JTabbedPane$Page, getForeground, $Color*)},
-	{"getLocale", "()Ljava/util/Locale;", nullptr, $PUBLIC, $virtualMethod(JTabbedPane$Page, getLocale, $Locale*)},
-	{"getLocation", "()Ljava/awt/Point;", nullptr, $PUBLIC, $virtualMethod(JTabbedPane$Page, getLocation, $Point*)},
-	{"getLocationOnScreen", "()Ljava/awt/Point;", nullptr, $PUBLIC, $virtualMethod(JTabbedPane$Page, getLocationOnScreen, $Point*)},
-	{"getMnemonic", "()I", nullptr, 0, $virtualMethod(JTabbedPane$Page, getMnemonic, int32_t)},
-	{"getPageIndex", "()I", nullptr, $PRIVATE, $method(JTabbedPane$Page, getPageIndex, int32_t)},
-	{"getSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(JTabbedPane$Page, getSize, $Dimension*)},
-	{"getTitle", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(JTabbedPane$Page, getTitle, $String*)},
-	{"initAccessibleContext", "()V", nullptr, 0, $virtualMethod(JTabbedPane$Page, initAccessibleContext, void)},
-	{"isEnabled", "()Z", nullptr, $PUBLIC, $virtualMethod(JTabbedPane$Page, isEnabled, bool)},
-	{"isFocusTraversable", "()Z", nullptr, $PUBLIC, $virtualMethod(JTabbedPane$Page, isFocusTraversable, bool)},
-	{"isShowing", "()Z", nullptr, $PUBLIC, $virtualMethod(JTabbedPane$Page, isShowing, bool)},
-	{"isVisible", "()Z", nullptr, $PUBLIC, $virtualMethod(JTabbedPane$Page, isVisible, bool)},
-	{"removeFocusListener", "(Ljava/awt/event/FocusListener;)V", nullptr, $PUBLIC, $virtualMethod(JTabbedPane$Page, removeFocusListener, void, $FocusListener*)},
-	{"requestFocus", "()V", nullptr, $PUBLIC, $virtualMethod(JTabbedPane$Page, requestFocus, void)},
-	{"setBackground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC, $virtualMethod(JTabbedPane$Page, setBackground, void, $Color*)},
-	{"setBounds", "(Ljava/awt/Rectangle;)V", nullptr, $PUBLIC, $virtualMethod(JTabbedPane$Page, setBounds, void, $Rectangle*)},
-	{"setCursor", "(Ljava/awt/Cursor;)V", nullptr, $PUBLIC, $virtualMethod(JTabbedPane$Page, setCursor, void, $Cursor*)},
-	{"setDisplayedMnemonicIndex", "(I)V", nullptr, 0, $virtualMethod(JTabbedPane$Page, setDisplayedMnemonicIndex, void, int32_t)},
-	{"setEnabled", "(Z)V", nullptr, $PUBLIC, $virtualMethod(JTabbedPane$Page, setEnabled, void, bool)},
-	{"setFont", "(Ljava/awt/Font;)V", nullptr, $PUBLIC, $virtualMethod(JTabbedPane$Page, setFont, void, $Font*)},
-	{"setForeground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC, $virtualMethod(JTabbedPane$Page, setForeground, void, $Color*)},
-	{"setLocation", "(Ljava/awt/Point;)V", nullptr, $PUBLIC, $virtualMethod(JTabbedPane$Page, setLocation, void, $Point*)},
-	{"setMnemonic", "(I)V", nullptr, 0, $virtualMethod(JTabbedPane$Page, setMnemonic, void, int32_t)},
-	{"setSize", "(Ljava/awt/Dimension;)V", nullptr, $PUBLIC, $virtualMethod(JTabbedPane$Page, setSize, void, $Dimension*)},
-	{"setVisible", "(Z)V", nullptr, $PUBLIC, $virtualMethod(JTabbedPane$Page, setVisible, void, bool)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"updateDisplayedMnemonicIndex", "()V", nullptr, 0, $virtualMethod(JTabbedPane$Page, updateDisplayedMnemonicIndex, void)},
-	{}
-};
-
-$InnerClassInfo _JTabbedPane$Page_InnerClassesInfo_[] = {
-	{"javax.swing.JTabbedPane$Page", "javax.swing.JTabbedPane", "Page", $PRIVATE},
-	{}
-};
-
-$ClassInfo _JTabbedPane$Page_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.JTabbedPane$Page",
-	"javax.accessibility.AccessibleContext",
-	"java.io.Serializable,javax.accessibility.Accessible,javax.accessibility.AccessibleComponent",
-	_JTabbedPane$Page_FieldInfo_,
-	_JTabbedPane$Page_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JTabbedPane$Page_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.JTabbedPane"
-};
-
-$Object* allocate$JTabbedPane$Page($Class* clazz) {
-	return $of($alloc(JTabbedPane$Page));
-}
-
 int32_t JTabbedPane$Page::hashCode() {
 	 return this->$AccessibleContext::hashCode();
 }
@@ -199,7 +99,7 @@ void JTabbedPane$Page::init$($JTabbedPane* this$0, $JTabbedPane* parent, $String
 void JTabbedPane$Page::initAccessibleContext() {
 	if ($JTabbedPane::access$000(this->this$0) != nullptr && $instanceOf($Accessible, this->component)) {
 		$var($AccessibleContext, ac, nullptr);
-		$assign(ac, $nc(this->component)->getAccessibleContext());
+		$assign(ac, this->component->getAccessibleContext());
 		if (ac != nullptr) {
 			ac->setAccessibleParent(this);
 		}
@@ -216,10 +116,10 @@ int32_t JTabbedPane$Page::getMnemonic() {
 }
 
 void JTabbedPane$Page::setDisplayedMnemonicIndex(int32_t mnemonicIndex) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->mnemonicIndex != mnemonicIndex) {
 		$var($String, t, getTitle());
-		if (mnemonicIndex != -1 && (t == nullptr || mnemonicIndex < 0 || mnemonicIndex >= $nc(t)->length())) {
+		if (mnemonicIndex != -1 && (t == nullptr || mnemonicIndex < 0 || mnemonicIndex >= t->length())) {
 			$throwNew($IllegalArgumentException, $$str({"Invalid mnemonic index: "_s, $$str(mnemonicIndex)}));
 		}
 		this->mnemonicIndex = mnemonicIndex;
@@ -262,9 +162,9 @@ $AccessibleRole* JTabbedPane$Page::getAccessibleRole() {
 }
 
 $AccessibleStateSet* JTabbedPane$Page::getAccessibleStateSet() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AccessibleStateSet, states, nullptr);
-	$assign(states, $nc($($nc(this->parent)->getAccessibleContext()))->getAccessibleStateSet());
+	$assign(states, $$nc($nc(this->parent)->getAccessibleContext())->getAccessibleStateSet());
 	$init($AccessibleState);
 	$nc(states)->add($AccessibleState::SELECTABLE);
 	int32_t var$0 = getPageIndex();
@@ -364,23 +264,23 @@ bool JTabbedPane$Page::contains($Point* p) {
 }
 
 $Point* JTabbedPane$Page::getLocationOnScreen() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Point, parentLocation, $nc(this->parent)->getLocationOnScreen());
 	$var($Point, componentLocation, getLocation());
-	$nc(componentLocation)->translate($nc(parentLocation)->x, parentLocation->y);
+	$nc(componentLocation)->translate($nc(parentLocation)->x, $nc(parentLocation)->y);
 	return componentLocation;
 }
 
 $Point* JTabbedPane$Page::getLocation() {
 	$var($Rectangle, r, getBounds());
-	return $new($Point, $nc(r)->x, r->y);
+	return $new($Point, $nc(r)->x, $nc(r)->y);
 }
 
 void JTabbedPane$Page::setLocation($Point* p) {
 }
 
 $Rectangle* JTabbedPane$Page::getBounds() {
-	return $nc($($cast($TabbedPaneUI, $nc(this->parent)->getUI())))->getTabBounds(this->parent, getPageIndex());
+	return $$sure($TabbedPaneUI, $nc(this->parent)->getUI())->getTabBounds(this->parent, getPageIndex());
 }
 
 void JTabbedPane$Page::setBounds($Rectangle* r) {
@@ -388,7 +288,7 @@ void JTabbedPane$Page::setBounds($Rectangle* r) {
 
 $Dimension* JTabbedPane$Page::getSize() {
 	$var($Rectangle, r, getBounds());
-	return $new($Dimension, $nc(r)->width, r->height);
+	return $new($Dimension, $nc(r)->width, $nc(r)->height);
 }
 
 void JTabbedPane$Page::setSize($Dimension* d) {
@@ -416,13 +316,13 @@ void JTabbedPane$Page::removeFocusListener($FocusListener* l) {
 }
 
 $AccessibleIconArray* JTabbedPane$Page::getAccessibleIcon() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AccessibleIcon, accessibleIcon, nullptr);
 	if (this->enabled && $instanceOf($ImageIcon, this->icon)) {
-		$var($AccessibleContext, ac, $nc(($cast($ImageIcon, this->icon)))->getAccessibleContext());
+		$var($AccessibleContext, ac, $cast($ImageIcon, this->icon)->getAccessibleContext());
 		$assign(accessibleIcon, $cast($AccessibleIcon, ac));
 	} else if (!this->enabled && $instanceOf($ImageIcon, this->disabledIcon)) {
-		$var($AccessibleContext, ac, $nc(($cast($ImageIcon, this->disabledIcon)))->getAccessibleContext());
+		$var($AccessibleContext, ac, $cast($ImageIcon, this->disabledIcon)->getAccessibleContext());
 		$assign(accessibleIcon, $cast($AccessibleIcon, ac));
 	}
 	if (accessibleIcon != nullptr) {
@@ -452,7 +352,100 @@ JTabbedPane$Page::JTabbedPane$Page() {
 }
 
 $Class* JTabbedPane$Page::load$($String* name, bool initialize) {
-	$loadClass(JTabbedPane$Page, name, initialize, &_JTabbedPane$Page_ClassInfo_, allocate$JTabbedPane$Page);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/JTabbedPane;", nullptr, $FINAL | $SYNTHETIC, $field(JTabbedPane$Page, this$0)},
+		{"title", "Ljava/lang/String;", nullptr, 0, $field(JTabbedPane$Page, title)},
+		{"background", "Ljava/awt/Color;", nullptr, 0, $field(JTabbedPane$Page, background)},
+		{"foreground", "Ljava/awt/Color;", nullptr, 0, $field(JTabbedPane$Page, foreground)},
+		{"icon", "Ljavax/swing/Icon;", nullptr, 0, $field(JTabbedPane$Page, icon)},
+		{"disabledIcon", "Ljavax/swing/Icon;", nullptr, 0, $field(JTabbedPane$Page, disabledIcon)},
+		{"parent", "Ljavax/swing/JTabbedPane;", nullptr, 0, $field(JTabbedPane$Page, parent)},
+		{"component", "Ljava/awt/Component;", nullptr, 0, $field(JTabbedPane$Page, component)},
+		{"tip", "Ljava/lang/String;", nullptr, 0, $field(JTabbedPane$Page, tip)},
+		{"enabled", "Z", nullptr, 0, $field(JTabbedPane$Page, enabled)},
+		{"needsUIUpdate", "Z", nullptr, 0, $field(JTabbedPane$Page, needsUIUpdate)},
+		{"mnemonic", "I", nullptr, 0, $field(JTabbedPane$Page, mnemonic)},
+		{"mnemonicIndex", "I", nullptr, 0, $field(JTabbedPane$Page, mnemonicIndex)},
+		{"tabComponent", "Ljava/awt/Component;", nullptr, 0, $field(JTabbedPane$Page, tabComponent)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljavax/swing/JTabbedPane;Ljavax/swing/JTabbedPane;Ljava/lang/String;Ljavax/swing/Icon;Ljavax/swing/Icon;Ljava/awt/Component;Ljava/lang/String;)V", nullptr, 0, $method(JTabbedPane$Page, init$, void, $JTabbedPane*, $JTabbedPane*, $String*, $Icon*, $Icon*, $Component*, $String*)},
+		{"addFocusListener", "(Ljava/awt/event/FocusListener;)V", nullptr, $PUBLIC, $virtualMethod(JTabbedPane$Page, addFocusListener, void, $FocusListener*)},
+		{"contains", "(Ljava/awt/Point;)Z", nullptr, $PUBLIC, $virtualMethod(JTabbedPane$Page, contains, bool, $Point*)},
+		{"getAccessibleAt", "(Ljava/awt/Point;)Ljavax/accessibility/Accessible;", nullptr, $PUBLIC, $virtualMethod(JTabbedPane$Page, getAccessibleAt, $Accessible*, $Point*)},
+		{"getAccessibleChild", "(I)Ljavax/accessibility/Accessible;", nullptr, $PUBLIC, $virtualMethod(JTabbedPane$Page, getAccessibleChild, $Accessible*, int32_t)},
+		{"getAccessibleChildrenCount", "()I", nullptr, $PUBLIC, $virtualMethod(JTabbedPane$Page, getAccessibleChildrenCount, int32_t)},
+		{"getAccessibleComponent", "()Ljavax/accessibility/AccessibleComponent;", nullptr, $PUBLIC, $virtualMethod(JTabbedPane$Page, getAccessibleComponent, $AccessibleComponent*)},
+		{"getAccessibleContext", "()Ljavax/accessibility/AccessibleContext;", nullptr, $PUBLIC, $virtualMethod(JTabbedPane$Page, getAccessibleContext, $AccessibleContext*)},
+		{"getAccessibleDescription", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JTabbedPane$Page, getAccessibleDescription, $String*)},
+		{"getAccessibleIcon", "()[Ljavax/accessibility/AccessibleIcon;", nullptr, $PUBLIC, $virtualMethod(JTabbedPane$Page, getAccessibleIcon, $AccessibleIconArray*)},
+		{"getAccessibleIndexInParent", "()I", nullptr, $PUBLIC, $virtualMethod(JTabbedPane$Page, getAccessibleIndexInParent, int32_t)},
+		{"getAccessibleName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JTabbedPane$Page, getAccessibleName, $String*)},
+		{"getAccessibleRole", "()Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC, $virtualMethod(JTabbedPane$Page, getAccessibleRole, $AccessibleRole*)},
+		{"getAccessibleStateSet", "()Ljavax/accessibility/AccessibleStateSet;", nullptr, $PUBLIC, $virtualMethod(JTabbedPane$Page, getAccessibleStateSet, $AccessibleStateSet*)},
+		{"getBackground", "()Ljava/awt/Color;", nullptr, $PUBLIC, $virtualMethod(JTabbedPane$Page, getBackground, $Color*)},
+		{"getBounds", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(JTabbedPane$Page, getBounds, $Rectangle*)},
+		{"getCursor", "()Ljava/awt/Cursor;", nullptr, $PUBLIC, $virtualMethod(JTabbedPane$Page, getCursor, $Cursor*)},
+		{"getDisplayedMnemonicIndex", "()I", nullptr, 0, $virtualMethod(JTabbedPane$Page, getDisplayedMnemonicIndex, int32_t)},
+		{"getFont", "()Ljava/awt/Font;", nullptr, $PUBLIC, $virtualMethod(JTabbedPane$Page, getFont, $Font*)},
+		{"getFontMetrics", "(Ljava/awt/Font;)Ljava/awt/FontMetrics;", nullptr, $PUBLIC, $virtualMethod(JTabbedPane$Page, getFontMetrics, $FontMetrics*, $Font*)},
+		{"getForeground", "()Ljava/awt/Color;", nullptr, $PUBLIC, $virtualMethod(JTabbedPane$Page, getForeground, $Color*)},
+		{"getLocale", "()Ljava/util/Locale;", nullptr, $PUBLIC, $virtualMethod(JTabbedPane$Page, getLocale, $Locale*)},
+		{"getLocation", "()Ljava/awt/Point;", nullptr, $PUBLIC, $virtualMethod(JTabbedPane$Page, getLocation, $Point*)},
+		{"getLocationOnScreen", "()Ljava/awt/Point;", nullptr, $PUBLIC, $virtualMethod(JTabbedPane$Page, getLocationOnScreen, $Point*)},
+		{"getMnemonic", "()I", nullptr, 0, $virtualMethod(JTabbedPane$Page, getMnemonic, int32_t)},
+		{"getPageIndex", "()I", nullptr, $PRIVATE, $method(JTabbedPane$Page, getPageIndex, int32_t)},
+		{"getSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(JTabbedPane$Page, getSize, $Dimension*)},
+		{"getTitle", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(JTabbedPane$Page, getTitle, $String*)},
+		{"initAccessibleContext", "()V", nullptr, 0, $virtualMethod(JTabbedPane$Page, initAccessibleContext, void)},
+		{"isEnabled", "()Z", nullptr, $PUBLIC, $virtualMethod(JTabbedPane$Page, isEnabled, bool)},
+		{"isFocusTraversable", "()Z", nullptr, $PUBLIC, $virtualMethod(JTabbedPane$Page, isFocusTraversable, bool)},
+		{"isShowing", "()Z", nullptr, $PUBLIC, $virtualMethod(JTabbedPane$Page, isShowing, bool)},
+		{"isVisible", "()Z", nullptr, $PUBLIC, $virtualMethod(JTabbedPane$Page, isVisible, bool)},
+		{"removeFocusListener", "(Ljava/awt/event/FocusListener;)V", nullptr, $PUBLIC, $virtualMethod(JTabbedPane$Page, removeFocusListener, void, $FocusListener*)},
+		{"requestFocus", "()V", nullptr, $PUBLIC, $virtualMethod(JTabbedPane$Page, requestFocus, void)},
+		{"setBackground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC, $virtualMethod(JTabbedPane$Page, setBackground, void, $Color*)},
+		{"setBounds", "(Ljava/awt/Rectangle;)V", nullptr, $PUBLIC, $virtualMethod(JTabbedPane$Page, setBounds, void, $Rectangle*)},
+		{"setCursor", "(Ljava/awt/Cursor;)V", nullptr, $PUBLIC, $virtualMethod(JTabbedPane$Page, setCursor, void, $Cursor*)},
+		{"setDisplayedMnemonicIndex", "(I)V", nullptr, 0, $virtualMethod(JTabbedPane$Page, setDisplayedMnemonicIndex, void, int32_t)},
+		{"setEnabled", "(Z)V", nullptr, $PUBLIC, $virtualMethod(JTabbedPane$Page, setEnabled, void, bool)},
+		{"setFont", "(Ljava/awt/Font;)V", nullptr, $PUBLIC, $virtualMethod(JTabbedPane$Page, setFont, void, $Font*)},
+		{"setForeground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC, $virtualMethod(JTabbedPane$Page, setForeground, void, $Color*)},
+		{"setLocation", "(Ljava/awt/Point;)V", nullptr, $PUBLIC, $virtualMethod(JTabbedPane$Page, setLocation, void, $Point*)},
+		{"setMnemonic", "(I)V", nullptr, 0, $virtualMethod(JTabbedPane$Page, setMnemonic, void, int32_t)},
+		{"setSize", "(Ljava/awt/Dimension;)V", nullptr, $PUBLIC, $virtualMethod(JTabbedPane$Page, setSize, void, $Dimension*)},
+		{"setVisible", "(Z)V", nullptr, $PUBLIC, $virtualMethod(JTabbedPane$Page, setVisible, void, bool)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"updateDisplayedMnemonicIndex", "()V", nullptr, 0, $virtualMethod(JTabbedPane$Page, updateDisplayedMnemonicIndex, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.JTabbedPane$Page", "javax.swing.JTabbedPane", "Page", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.JTabbedPane$Page",
+		"javax.accessibility.AccessibleContext",
+		"java.io.Serializable,javax.accessibility.Accessible,javax.accessibility.AccessibleComponent",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.JTabbedPane"
+	};
+	$loadClass(JTabbedPane$Page, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JTabbedPane$Page));
+	});
 	return class$;
 }
 

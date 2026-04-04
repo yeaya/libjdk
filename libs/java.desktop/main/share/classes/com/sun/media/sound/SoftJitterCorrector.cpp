@@ -1,5 +1,4 @@
 #include <com/sun/media/sound/SoftJitterCorrector.h>
-
 #include <com/sun/media/sound/SoftJitterCorrector$JitterStream.h>
 #include <java/io/InputStream.h>
 #include <javax/sound/sampled/AudioFormat.h>
@@ -19,38 +18,9 @@ namespace com {
 		namespace media {
 			namespace sound {
 
-$MethodInfo _SoftJitterCorrector_MethodInfo_[] = {
-	{"<init>", "(Ljavax/sound/sampled/AudioInputStream;II)V", nullptr, $PUBLIC, $method(SoftJitterCorrector, init$, void, $AudioInputStream*, int32_t, int32_t)},
-	{}
-};
-
-$InnerClassInfo _SoftJitterCorrector_InnerClassesInfo_[] = {
-	{"com.sun.media.sound.SoftJitterCorrector$JitterStream", "com.sun.media.sound.SoftJitterCorrector", "JitterStream", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _SoftJitterCorrector_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.media.sound.SoftJitterCorrector",
-	"javax.sound.sampled.AudioInputStream",
-	nullptr,
-	nullptr,
-	_SoftJitterCorrector_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SoftJitterCorrector_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.media.sound.SoftJitterCorrector$JitterStream,com.sun.media.sound.SoftJitterCorrector$JitterStream$1"
-};
-
-$Object* allocate$SoftJitterCorrector($Class* clazz) {
-	return $of($alloc(SoftJitterCorrector));
-}
-
 void SoftJitterCorrector::init$($AudioInputStream* stream, int32_t buffersize, int32_t smallbuffersize) {
-	$useLocalCurrentObjectStackCache();
-	$var($InputStream, var$0, static_cast<$InputStream*>($new($SoftJitterCorrector$JitterStream, stream, buffersize, smallbuffersize)));
+	$useLocalObjectStack();
+	$var($InputStream, var$0, $new($SoftJitterCorrector$JitterStream, stream, buffersize, smallbuffersize));
 	$var($AudioFormat, var$1, $nc(stream)->getFormat());
 	$AudioInputStream::init$(var$0, var$1, stream->getFrameLength());
 }
@@ -59,7 +29,31 @@ SoftJitterCorrector::SoftJitterCorrector() {
 }
 
 $Class* SoftJitterCorrector::load$($String* name, bool initialize) {
-	$loadClass(SoftJitterCorrector, name, initialize, &_SoftJitterCorrector_ClassInfo_, allocate$SoftJitterCorrector);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/sound/sampled/AudioInputStream;II)V", nullptr, $PUBLIC, $method(SoftJitterCorrector, init$, void, $AudioInputStream*, int32_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.media.sound.SoftJitterCorrector$JitterStream", "com.sun.media.sound.SoftJitterCorrector", "JitterStream", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.media.sound.SoftJitterCorrector",
+		"javax.sound.sampled.AudioInputStream",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.media.sound.SoftJitterCorrector$JitterStream,com.sun.media.sound.SoftJitterCorrector$JitterStream$1"
+	};
+	$loadClass(SoftJitterCorrector, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SoftJitterCorrector);
+	});
 	return class$;
 }
 

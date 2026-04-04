@@ -1,5 +1,4 @@
 #include <com/sun/imageio/plugins/tiff/TIFFCIELabColorConverter.h>
-
 #include <com/sun/imageio/plugins/tiff/TIFFColorConverter.h>
 #include <java/lang/Math.h>
 #include <jcpp.h>
@@ -25,36 +24,6 @@ namespace com {
 		namespace imageio {
 			namespace plugins {
 				namespace tiff {
-
-$FieldInfo _TIFFCIELabColorConverter_FieldInfo_[] = {
-	{"Xn", "F", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(TIFFCIELabColorConverter, Xn)},
-	{"Yn", "F", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(TIFFCIELabColorConverter, Yn)},
-	{"Zn", "F", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(TIFFCIELabColorConverter, Zn)},
-	{"THRESHOLD", "F", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(TIFFCIELabColorConverter, THRESHOLD)},
-	{}
-};
-
-$MethodInfo _TIFFCIELabColorConverter_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TIFFCIELabColorConverter, init$, void)},
-	{"clamp", "(F)F", nullptr, $PRIVATE, $method(TIFFCIELabColorConverter, clamp, float, float)},
-	{"clamp2", "(F)F", nullptr, $PRIVATE, $method(TIFFCIELabColorConverter, clamp2, float, float)},
-	{"fromRGB", "(FFF[F)V", nullptr, $PUBLIC, $virtualMethod(TIFFCIELabColorConverter, fromRGB, void, float, float, float, $floats*)},
-	{"toRGB", "(FFF[F)V", nullptr, $PUBLIC, $virtualMethod(TIFFCIELabColorConverter, toRGB, void, float, float, float, $floats*)},
-	{}
-};
-
-$ClassInfo _TIFFCIELabColorConverter_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.imageio.plugins.tiff.TIFFCIELabColorConverter",
-	"com.sun.imageio.plugins.tiff.TIFFColorConverter",
-	nullptr,
-	_TIFFCIELabColorConverter_FieldInfo_,
-	_TIFFCIELabColorConverter_MethodInfo_
-};
-
-$Object* allocate$TIFFCIELabColorConverter($Class* clazz) {
-	return $of($alloc(TIFFCIELabColorConverter));
-}
 
 float TIFFCIELabColorConverter::Xn = 0.0;
 float TIFFCIELabColorConverter::Yn = 0.0;
@@ -159,7 +128,7 @@ void TIFFCIELabColorConverter::toRGB(float x0, float x1, float x2, $floats* rgb)
 	rgb->set(2, clamp(B));
 }
 
-void clinit$TIFFCIELabColorConverter($Class* class$) {
+void TIFFCIELabColorConverter::clinit$($Class* clazz) {
 	TIFFCIELabColorConverter::Xn = 95.047f;
 	TIFFCIELabColorConverter::Yn = 100.0f;
 	TIFFCIELabColorConverter::Zn = 108.883f;
@@ -170,7 +139,32 @@ TIFFCIELabColorConverter::TIFFCIELabColorConverter() {
 }
 
 $Class* TIFFCIELabColorConverter::load$($String* name, bool initialize) {
-	$loadClass(TIFFCIELabColorConverter, name, initialize, &_TIFFCIELabColorConverter_ClassInfo_, clinit$TIFFCIELabColorConverter, allocate$TIFFCIELabColorConverter);
+	$FieldInfo fieldInfos$$[] = {
+		{"Xn", "F", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(TIFFCIELabColorConverter, Xn)},
+		{"Yn", "F", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(TIFFCIELabColorConverter, Yn)},
+		{"Zn", "F", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(TIFFCIELabColorConverter, Zn)},
+		{"THRESHOLD", "F", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(TIFFCIELabColorConverter, THRESHOLD)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TIFFCIELabColorConverter, init$, void)},
+		{"clamp", "(F)F", nullptr, $PRIVATE, $method(TIFFCIELabColorConverter, clamp, float, float)},
+		{"clamp2", "(F)F", nullptr, $PRIVATE, $method(TIFFCIELabColorConverter, clamp2, float, float)},
+		{"fromRGB", "(FFF[F)V", nullptr, $PUBLIC, $virtualMethod(TIFFCIELabColorConverter, fromRGB, void, float, float, float, $floats*)},
+		{"toRGB", "(FFF[F)V", nullptr, $PUBLIC, $virtualMethod(TIFFCIELabColorConverter, toRGB, void, float, float, float, $floats*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.imageio.plugins.tiff.TIFFCIELabColorConverter",
+		"com.sun.imageio.plugins.tiff.TIFFColorConverter",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TIFFCIELabColorConverter, name, initialize, &classInfo$$, TIFFCIELabColorConverter::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(TIFFCIELabColorConverter);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <javax/imageio/stream/ImageOutputStreamImpl.h>
-
 #include <java/io/UTFDataFormatException.h>
 #include <java/lang/IndexOutOfBoundsException.h>
 #include <java/nio/ByteOrder.h>
@@ -23,97 +22,6 @@ using $ImageInputStreamImpl = ::javax::imageio::stream::ImageInputStreamImpl;
 namespace javax {
 	namespace imageio {
 		namespace stream {
-
-$MethodInfo _ImageOutputStreamImpl_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*close", "()V", nullptr, $PUBLIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*flush", "()V", nullptr, $PUBLIC},
-	{"*flushBefore", "(J)V", nullptr, $PUBLIC},
-	{"*getBitOffset", "()I", nullptr, $PUBLIC},
-	{"*getByteOrder", "()Ljava/nio/ByteOrder;", nullptr, $PUBLIC},
-	{"*getFlushedPosition", "()J", nullptr, $PUBLIC},
-	{"*getStreamPosition", "()J", nullptr, $PUBLIC},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ImageOutputStreamImpl, init$, void)},
-	{"flushBits", "()V", nullptr, $PROTECTED | $FINAL, $method(ImageOutputStreamImpl, flushBits, void), "java.io.IOException"},
-	{"*isCached", "()Z", nullptr, $PUBLIC},
-	{"*isCachedFile", "()Z", nullptr, $PUBLIC},
-	{"*isCachedMemory", "()Z", nullptr, $PUBLIC},
-	{"*length", "()J", nullptr, $PUBLIC},
-	{"*mark", "()V", nullptr, $PUBLIC},
-	{"*read", "()I", nullptr, $PUBLIC | $ABSTRACT},
-	{"*read", "([B)I", nullptr, $PUBLIC},
-	{"*read", "([BII)I", nullptr, $PUBLIC | $ABSTRACT},
-	{"*readBit", "()I", nullptr, $PUBLIC},
-	{"*readBits", "(I)J", nullptr, $PUBLIC},
-	{"*readBoolean", "()Z", nullptr, $PUBLIC},
-	{"*readByte", "()B", nullptr, $PUBLIC},
-	{"*readBytes", "(Ljavax/imageio/stream/IIOByteBuffer;I)V", nullptr, $PUBLIC},
-	{"*readChar", "()C", nullptr, $PUBLIC},
-	{"*readDouble", "()D", nullptr, $PUBLIC},
-	{"*readFloat", "()F", nullptr, $PUBLIC},
-	{"*readFully", "([BII)V", nullptr, $PUBLIC},
-	{"*readFully", "([B)V", nullptr, $PUBLIC},
-	{"*readFully", "([SII)V", nullptr, $PUBLIC},
-	{"*readFully", "([CII)V", nullptr, $PUBLIC},
-	{"*readFully", "([III)V", nullptr, $PUBLIC},
-	{"*readFully", "([JII)V", nullptr, $PUBLIC},
-	{"*readFully", "([FII)V", nullptr, $PUBLIC},
-	{"*readFully", "([DII)V", nullptr, $PUBLIC},
-	{"*readInt", "()I", nullptr, $PUBLIC},
-	{"*readLine", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*readLong", "()J", nullptr, $PUBLIC},
-	{"*readShort", "()S", nullptr, $PUBLIC},
-	{"*readUTF", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*readUnsignedByte", "()I", nullptr, $PUBLIC},
-	{"*readUnsignedInt", "()J", nullptr, $PUBLIC},
-	{"*readUnsignedShort", "()I", nullptr, $PUBLIC},
-	{"*reset", "()V", nullptr, $PUBLIC},
-	{"*seek", "(J)V", nullptr, $PUBLIC},
-	{"*setBitOffset", "(I)V", nullptr, $PUBLIC},
-	{"*setByteOrder", "(Ljava/nio/ByteOrder;)V", nullptr, $PUBLIC},
-	{"*skipBytes", "(I)I", nullptr, $PUBLIC},
-	{"*skipBytes", "(J)J", nullptr, $PUBLIC},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"write", "(I)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"write", "([BII)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"write", "([B)V", nullptr, $PUBLIC, $virtualMethod(ImageOutputStreamImpl, write, void, $bytes*), "java.io.IOException"},
-	{"writeBit", "(I)V", nullptr, $PUBLIC, $virtualMethod(ImageOutputStreamImpl, writeBit, void, int32_t), "java.io.IOException"},
-	{"writeBits", "(JI)V", nullptr, $PUBLIC, $virtualMethod(ImageOutputStreamImpl, writeBits, void, int64_t, int32_t), "java.io.IOException"},
-	{"writeBoolean", "(Z)V", nullptr, $PUBLIC, $virtualMethod(ImageOutputStreamImpl, writeBoolean, void, bool), "java.io.IOException"},
-	{"writeByte", "(I)V", nullptr, $PUBLIC, $virtualMethod(ImageOutputStreamImpl, writeByte, void, int32_t), "java.io.IOException"},
-	{"writeBytes", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ImageOutputStreamImpl, writeBytes, void, $String*), "java.io.IOException"},
-	{"writeChar", "(I)V", nullptr, $PUBLIC, $virtualMethod(ImageOutputStreamImpl, writeChar, void, int32_t), "java.io.IOException"},
-	{"writeChars", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ImageOutputStreamImpl, writeChars, void, $String*), "java.io.IOException"},
-	{"writeChars", "([CII)V", nullptr, $PUBLIC, $virtualMethod(ImageOutputStreamImpl, writeChars, void, $chars*, int32_t, int32_t), "java.io.IOException"},
-	{"writeDouble", "(D)V", nullptr, $PUBLIC, $virtualMethod(ImageOutputStreamImpl, writeDouble, void, double), "java.io.IOException"},
-	{"writeDoubles", "([DII)V", nullptr, $PUBLIC, $virtualMethod(ImageOutputStreamImpl, writeDoubles, void, $doubles*, int32_t, int32_t), "java.io.IOException"},
-	{"writeFloat", "(F)V", nullptr, $PUBLIC, $virtualMethod(ImageOutputStreamImpl, writeFloat, void, float), "java.io.IOException"},
-	{"writeFloats", "([FII)V", nullptr, $PUBLIC, $virtualMethod(ImageOutputStreamImpl, writeFloats, void, $floats*, int32_t, int32_t), "java.io.IOException"},
-	{"writeInt", "(I)V", nullptr, $PUBLIC, $virtualMethod(ImageOutputStreamImpl, writeInt, void, int32_t), "java.io.IOException"},
-	{"writeInts", "([III)V", nullptr, $PUBLIC, $virtualMethod(ImageOutputStreamImpl, writeInts, void, $ints*, int32_t, int32_t), "java.io.IOException"},
-	{"writeLong", "(J)V", nullptr, $PUBLIC, $virtualMethod(ImageOutputStreamImpl, writeLong, void, int64_t), "java.io.IOException"},
-	{"writeLongs", "([JII)V", nullptr, $PUBLIC, $virtualMethod(ImageOutputStreamImpl, writeLongs, void, $longs*, int32_t, int32_t), "java.io.IOException"},
-	{"writeShort", "(I)V", nullptr, $PUBLIC, $virtualMethod(ImageOutputStreamImpl, writeShort, void, int32_t), "java.io.IOException"},
-	{"writeShorts", "([SII)V", nullptr, $PUBLIC, $virtualMethod(ImageOutputStreamImpl, writeShorts, void, $shorts*, int32_t, int32_t), "java.io.IOException"},
-	{"writeUTF", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ImageOutputStreamImpl, writeUTF, void, $String*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _ImageOutputStreamImpl_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"javax.imageio.stream.ImageOutputStreamImpl",
-	"javax.imageio.stream.ImageInputStreamImpl",
-	"javax.imageio.stream.ImageOutputStream",
-	nullptr,
-	_ImageOutputStreamImpl_MethodInfo_
-};
-
-$Object* allocate$ImageOutputStreamImpl($Class* clazz) {
-	return $of($alloc(ImageOutputStreamImpl));
-}
 
 void ImageOutputStreamImpl::setByteOrder($ByteOrder* byteOrder) {
 	this->$ImageInputStreamImpl::setByteOrder(byteOrder);
@@ -327,10 +235,10 @@ void ImageOutputStreamImpl::writeShort(int32_t v) {
 	$init($ByteOrder);
 	if (this->byteOrder == $ByteOrder::BIG_ENDIAN) {
 		$nc(this->byteBuf)->set(0, (int8_t)((int32_t)((uint32_t)v >> 8)));
-		$nc(this->byteBuf)->set(1, (int8_t)((int32_t)((uint32_t)v >> 0)));
+		this->byteBuf->set(1, (int8_t)((int32_t)((uint32_t)v >> 0)));
 	} else {
 		$nc(this->byteBuf)->set(0, (int8_t)((int32_t)((uint32_t)v >> 0)));
-		$nc(this->byteBuf)->set(1, (int8_t)((int32_t)((uint32_t)v >> 8)));
+		this->byteBuf->set(1, (int8_t)((int32_t)((uint32_t)v >> 8)));
 	}
 	write(this->byteBuf, 0, 2);
 }
@@ -343,14 +251,14 @@ void ImageOutputStreamImpl::writeInt(int32_t v) {
 	$init($ByteOrder);
 	if (this->byteOrder == $ByteOrder::BIG_ENDIAN) {
 		$nc(this->byteBuf)->set(0, (int8_t)((int32_t)((uint32_t)v >> 24)));
-		$nc(this->byteBuf)->set(1, (int8_t)((int32_t)((uint32_t)v >> 16)));
-		$nc(this->byteBuf)->set(2, (int8_t)((int32_t)((uint32_t)v >> 8)));
-		$nc(this->byteBuf)->set(3, (int8_t)((int32_t)((uint32_t)v >> 0)));
+		this->byteBuf->set(1, (int8_t)((int32_t)((uint32_t)v >> 16)));
+		this->byteBuf->set(2, (int8_t)((int32_t)((uint32_t)v >> 8)));
+		this->byteBuf->set(3, (int8_t)((int32_t)((uint32_t)v >> 0)));
 	} else {
 		$nc(this->byteBuf)->set(0, (int8_t)((int32_t)((uint32_t)v >> 0)));
-		$nc(this->byteBuf)->set(1, (int8_t)((int32_t)((uint32_t)v >> 8)));
-		$nc(this->byteBuf)->set(2, (int8_t)((int32_t)((uint32_t)v >> 16)));
-		$nc(this->byteBuf)->set(3, (int8_t)((int32_t)((uint32_t)v >> 24)));
+		this->byteBuf->set(1, (int8_t)((int32_t)((uint32_t)v >> 8)));
+		this->byteBuf->set(2, (int8_t)((int32_t)((uint32_t)v >> 16)));
+		this->byteBuf->set(3, (int8_t)((int32_t)((uint32_t)v >> 24)));
 	}
 	write(this->byteBuf, 0, 4);
 }
@@ -359,22 +267,22 @@ void ImageOutputStreamImpl::writeLong(int64_t v) {
 	$init($ByteOrder);
 	if (this->byteOrder == $ByteOrder::BIG_ENDIAN) {
 		$nc(this->byteBuf)->set(0, (int8_t)((int64_t)((uint64_t)v >> 56)));
-		$nc(this->byteBuf)->set(1, (int8_t)((int64_t)((uint64_t)v >> 48)));
-		$nc(this->byteBuf)->set(2, (int8_t)((int64_t)((uint64_t)v >> 40)));
-		$nc(this->byteBuf)->set(3, (int8_t)((int64_t)((uint64_t)v >> 32)));
-		$nc(this->byteBuf)->set(4, (int8_t)((int64_t)((uint64_t)v >> 24)));
-		$nc(this->byteBuf)->set(5, (int8_t)((int64_t)((uint64_t)v >> 16)));
-		$nc(this->byteBuf)->set(6, (int8_t)((int64_t)((uint64_t)v >> 8)));
-		$nc(this->byteBuf)->set(7, (int8_t)((int64_t)((uint64_t)v >> 0)));
+		this->byteBuf->set(1, (int8_t)((int64_t)((uint64_t)v >> 48)));
+		this->byteBuf->set(2, (int8_t)((int64_t)((uint64_t)v >> 40)));
+		this->byteBuf->set(3, (int8_t)((int64_t)((uint64_t)v >> 32)));
+		this->byteBuf->set(4, (int8_t)((int64_t)((uint64_t)v >> 24)));
+		this->byteBuf->set(5, (int8_t)((int64_t)((uint64_t)v >> 16)));
+		this->byteBuf->set(6, (int8_t)((int64_t)((uint64_t)v >> 8)));
+		this->byteBuf->set(7, (int8_t)((int64_t)((uint64_t)v >> 0)));
 	} else {
 		$nc(this->byteBuf)->set(0, (int8_t)((int64_t)((uint64_t)v >> 0)));
-		$nc(this->byteBuf)->set(1, (int8_t)((int64_t)((uint64_t)v >> 8)));
-		$nc(this->byteBuf)->set(2, (int8_t)((int64_t)((uint64_t)v >> 16)));
-		$nc(this->byteBuf)->set(3, (int8_t)((int64_t)((uint64_t)v >> 24)));
-		$nc(this->byteBuf)->set(4, (int8_t)((int64_t)((uint64_t)v >> 32)));
-		$nc(this->byteBuf)->set(5, (int8_t)((int64_t)((uint64_t)v >> 40)));
-		$nc(this->byteBuf)->set(6, (int8_t)((int64_t)((uint64_t)v >> 48)));
-		$nc(this->byteBuf)->set(7, (int8_t)((int64_t)((uint64_t)v >> 56)));
+		this->byteBuf->set(1, (int8_t)((int64_t)((uint64_t)v >> 8)));
+		this->byteBuf->set(2, (int8_t)((int64_t)((uint64_t)v >> 16)));
+		this->byteBuf->set(3, (int8_t)((int64_t)((uint64_t)v >> 24)));
+		this->byteBuf->set(4, (int8_t)((int64_t)((uint64_t)v >> 32)));
+		this->byteBuf->set(5, (int8_t)((int64_t)((uint64_t)v >> 40)));
+		this->byteBuf->set(6, (int8_t)((int64_t)((uint64_t)v >> 48)));
+		this->byteBuf->set(7, (int8_t)((int64_t)((uint64_t)v >> 56)));
 	}
 	write(this->byteBuf, 0, 4);
 	write(this->byteBuf, 4, 4);
@@ -391,7 +299,7 @@ void ImageOutputStreamImpl::writeDouble(double v) {
 void ImageOutputStreamImpl::writeBytes($String* s) {
 	int32_t len = $nc(s)->length();
 	for (int32_t i = 0; i < len; ++i) {
-		write((int32_t)(int8_t)s->charAt(i));
+		write((int8_t)s->charAt(i));
 	}
 }
 
@@ -417,7 +325,7 @@ void ImageOutputStreamImpl::writeChars($String* s) {
 }
 
 void ImageOutputStreamImpl::writeUTF($String* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t strlen = $nc(s)->length();
 	int32_t utflen = 0;
 	$var($chars, charr, $new($chars, strlen));
@@ -434,23 +342,23 @@ void ImageOutputStreamImpl::writeUTF($String* s) {
 			utflen += 2;
 		}
 	}
-	if (utflen > 0x0000FFFF) {
+	if (utflen > 0x0000ffff) {
 		$throwNew($UTFDataFormatException, "utflen > 65536!"_s);
 	}
 	$var($bytes, b, $new($bytes, utflen + 2));
-	b->set(boff++, (int8_t)((int32_t)(((int32_t)((uint32_t)utflen >> 8)) & (uint32_t)255)));
-	b->set(boff++, (int8_t)((int32_t)(((int32_t)((uint32_t)utflen >> 0)) & (uint32_t)255)));
+	b->set(boff++, (int8_t)(((int32_t)((uint32_t)utflen >> 8)) & 0xff));
+	b->set(boff++, (int8_t)(((int32_t)((uint32_t)utflen >> 0)) & 0xff));
 	for (int32_t i = 0; i < strlen; ++i) {
 		c = charr->get(i);
 		if ((c >= 1) && (c <= 127)) {
 			b->set(boff++, (int8_t)c);
 		} else if (c > 2047) {
-			b->set(boff++, (int8_t)(224 | ((int32_t)((c >> 12) & (uint32_t)15))));
-			b->set(boff++, (int8_t)(128 | ((int32_t)((c >> 6) & (uint32_t)63))));
-			b->set(boff++, (int8_t)(128 | ((int32_t)((c >> 0) & (uint32_t)63))));
+			b->set(boff++, (int8_t)(0xe0 | ((c >> 12) & 0x0f)));
+			b->set(boff++, (int8_t)(0x80 | ((c >> 6) & 0x3f)));
+			b->set(boff++, (int8_t)(0x80 | ((c >> 0) & 0x3f)));
 		} else {
-			b->set(boff++, (int8_t)(192 | ((int32_t)((c >> 6) & (uint32_t)31))));
-			b->set(boff++, (int8_t)(128 | ((int32_t)((c >> 0) & (uint32_t)63))));
+			b->set(boff++, (int8_t)(0xc0 | ((c >> 6) & 0x1f)));
+			b->set(boff++, (int8_t)(0x80 | ((c >> 0) & 0x3f)));
 		}
 	}
 	write(b, 0, utflen + 2);
@@ -627,7 +535,7 @@ void ImageOutputStreamImpl::writeDoubles($doubles* d, int32_t off, int32_t len) 
 }
 
 void ImageOutputStreamImpl::writeBit(int32_t bit) {
-	writeBits(((int64_t)((int64_t)1 & (uint64_t)(int64_t)bit)), 1);
+	writeBits(((int64_t)1 & bit), 1);
 }
 
 void ImageOutputStreamImpl::writeBits(int64_t bits, int32_t numBits) {
@@ -650,7 +558,7 @@ void ImageOutputStreamImpl::writeBits(int64_t bits, int32_t numBits) {
 			int32_t shift = 8 - (offset + numBits);
 			int32_t mask = $usr(-1, 32 - numBits);
 			partialByte &= (uint32_t)~($sl(mask, shift));
-			partialByte |= ($sl((int64_t)(bits & (uint64_t)(int64_t)mask), shift));
+			partialByte |= ($sl(bits & mask, shift));
 			write(partialByte);
 			seek(getStreamPosition() - 1);
 			this->bitOffset = offset + numBits;
@@ -659,7 +567,7 @@ void ImageOutputStreamImpl::writeBits(int64_t bits, int32_t numBits) {
 			int32_t num = 8 - offset;
 			int32_t mask = $usr(-1, 32 - num);
 			partialByte &= (uint32_t)~mask;
-			partialByte |= ((int64_t)(($sr(bits, numBits - num)) & (uint64_t)(int64_t)mask));
+			partialByte |= (($sr(bits, numBits - num)) & mask);
 			write(partialByte);
 			numBits -= num;
 		}
@@ -668,7 +576,7 @@ void ImageOutputStreamImpl::writeBits(int64_t bits, int32_t numBits) {
 		int32_t extra = numBits % 8;
 		for (int32_t numBytes = numBits / 8; numBytes > 0; --numBytes) {
 			int32_t shift = (numBytes - 1) * 8 + extra;
-			int32_t value = (int32_t)((shift == 0) ? (int64_t)(bits & (uint64_t)(int64_t)255) : (int64_t)(($sr(bits, shift)) & (uint64_t)(int64_t)255));
+			int32_t value = (int32_t)((shift == 0) ? bits & 0xff : ($sr(bits, shift)) & 0xff);
 			write(value);
 		}
 		numBits = extra;
@@ -684,7 +592,7 @@ void ImageOutputStreamImpl::writeBits(int64_t bits, int32_t numBits) {
 		int32_t shift = 8 - numBits;
 		int32_t mask = $usr(-1, 32 - numBits);
 		partialByte &= (uint32_t)~($sl(mask, shift));
-		partialByte |= $sl((int64_t)(bits & (uint64_t)(int64_t)mask), shift);
+		partialByte |= $sl(bits & mask, shift);
 		write(partialByte);
 		seek(getStreamPosition() - 1);
 		this->bitOffset = numBits;
@@ -711,7 +619,94 @@ ImageOutputStreamImpl::ImageOutputStreamImpl() {
 }
 
 $Class* ImageOutputStreamImpl::load$($String* name, bool initialize) {
-	$loadClass(ImageOutputStreamImpl, name, initialize, &_ImageOutputStreamImpl_ClassInfo_, allocate$ImageOutputStreamImpl);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*close", "()V", nullptr, $PUBLIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*flush", "()V", nullptr, $PUBLIC},
+		{"*flushBefore", "(J)V", nullptr, $PUBLIC},
+		{"*getBitOffset", "()I", nullptr, $PUBLIC},
+		{"*getByteOrder", "()Ljava/nio/ByteOrder;", nullptr, $PUBLIC},
+		{"*getFlushedPosition", "()J", nullptr, $PUBLIC},
+		{"*getStreamPosition", "()J", nullptr, $PUBLIC},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ImageOutputStreamImpl, init$, void)},
+		{"flushBits", "()V", nullptr, $PROTECTED | $FINAL, $method(ImageOutputStreamImpl, flushBits, void), "java.io.IOException"},
+		{"*isCached", "()Z", nullptr, $PUBLIC},
+		{"*isCachedFile", "()Z", nullptr, $PUBLIC},
+		{"*isCachedMemory", "()Z", nullptr, $PUBLIC},
+		{"*length", "()J", nullptr, $PUBLIC},
+		{"*mark", "()V", nullptr, $PUBLIC},
+		{"*read", "()I", nullptr, $PUBLIC | $ABSTRACT},
+		{"*read", "([B)I", nullptr, $PUBLIC},
+		{"*read", "([BII)I", nullptr, $PUBLIC | $ABSTRACT},
+		{"*readBit", "()I", nullptr, $PUBLIC},
+		{"*readBits", "(I)J", nullptr, $PUBLIC},
+		{"*readBoolean", "()Z", nullptr, $PUBLIC},
+		{"*readByte", "()B", nullptr, $PUBLIC},
+		{"*readBytes", "(Ljavax/imageio/stream/IIOByteBuffer;I)V", nullptr, $PUBLIC},
+		{"*readChar", "()C", nullptr, $PUBLIC},
+		{"*readDouble", "()D", nullptr, $PUBLIC},
+		{"*readFloat", "()F", nullptr, $PUBLIC},
+		{"*readFully", "([BII)V", nullptr, $PUBLIC},
+		{"*readFully", "([B)V", nullptr, $PUBLIC},
+		{"*readFully", "([SII)V", nullptr, $PUBLIC},
+		{"*readFully", "([CII)V", nullptr, $PUBLIC},
+		{"*readFully", "([III)V", nullptr, $PUBLIC},
+		{"*readFully", "([JII)V", nullptr, $PUBLIC},
+		{"*readFully", "([FII)V", nullptr, $PUBLIC},
+		{"*readFully", "([DII)V", nullptr, $PUBLIC},
+		{"*readInt", "()I", nullptr, $PUBLIC},
+		{"*readLine", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*readLong", "()J", nullptr, $PUBLIC},
+		{"*readShort", "()S", nullptr, $PUBLIC},
+		{"*readUTF", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*readUnsignedByte", "()I", nullptr, $PUBLIC},
+		{"*readUnsignedInt", "()J", nullptr, $PUBLIC},
+		{"*readUnsignedShort", "()I", nullptr, $PUBLIC},
+		{"*reset", "()V", nullptr, $PUBLIC},
+		{"*seek", "(J)V", nullptr, $PUBLIC},
+		{"*setBitOffset", "(I)V", nullptr, $PUBLIC},
+		{"*setByteOrder", "(Ljava/nio/ByteOrder;)V", nullptr, $PUBLIC},
+		{"*skipBytes", "(I)I", nullptr, $PUBLIC},
+		{"*skipBytes", "(J)J", nullptr, $PUBLIC},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"write", "(I)V", nullptr, $PUBLIC | $ABSTRACT},
+		{"write", "([BII)V", nullptr, $PUBLIC | $ABSTRACT},
+		{"write", "([B)V", nullptr, $PUBLIC, $virtualMethod(ImageOutputStreamImpl, write, void, $bytes*), "java.io.IOException"},
+		{"writeBit", "(I)V", nullptr, $PUBLIC, $virtualMethod(ImageOutputStreamImpl, writeBit, void, int32_t), "java.io.IOException"},
+		{"writeBits", "(JI)V", nullptr, $PUBLIC, $virtualMethod(ImageOutputStreamImpl, writeBits, void, int64_t, int32_t), "java.io.IOException"},
+		{"writeBoolean", "(Z)V", nullptr, $PUBLIC, $virtualMethod(ImageOutputStreamImpl, writeBoolean, void, bool), "java.io.IOException"},
+		{"writeByte", "(I)V", nullptr, $PUBLIC, $virtualMethod(ImageOutputStreamImpl, writeByte, void, int32_t), "java.io.IOException"},
+		{"writeBytes", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ImageOutputStreamImpl, writeBytes, void, $String*), "java.io.IOException"},
+		{"writeChar", "(I)V", nullptr, $PUBLIC, $virtualMethod(ImageOutputStreamImpl, writeChar, void, int32_t), "java.io.IOException"},
+		{"writeChars", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ImageOutputStreamImpl, writeChars, void, $String*), "java.io.IOException"},
+		{"writeChars", "([CII)V", nullptr, $PUBLIC, $virtualMethod(ImageOutputStreamImpl, writeChars, void, $chars*, int32_t, int32_t), "java.io.IOException"},
+		{"writeDouble", "(D)V", nullptr, $PUBLIC, $virtualMethod(ImageOutputStreamImpl, writeDouble, void, double), "java.io.IOException"},
+		{"writeDoubles", "([DII)V", nullptr, $PUBLIC, $virtualMethod(ImageOutputStreamImpl, writeDoubles, void, $doubles*, int32_t, int32_t), "java.io.IOException"},
+		{"writeFloat", "(F)V", nullptr, $PUBLIC, $virtualMethod(ImageOutputStreamImpl, writeFloat, void, float), "java.io.IOException"},
+		{"writeFloats", "([FII)V", nullptr, $PUBLIC, $virtualMethod(ImageOutputStreamImpl, writeFloats, void, $floats*, int32_t, int32_t), "java.io.IOException"},
+		{"writeInt", "(I)V", nullptr, $PUBLIC, $virtualMethod(ImageOutputStreamImpl, writeInt, void, int32_t), "java.io.IOException"},
+		{"writeInts", "([III)V", nullptr, $PUBLIC, $virtualMethod(ImageOutputStreamImpl, writeInts, void, $ints*, int32_t, int32_t), "java.io.IOException"},
+		{"writeLong", "(J)V", nullptr, $PUBLIC, $virtualMethod(ImageOutputStreamImpl, writeLong, void, int64_t), "java.io.IOException"},
+		{"writeLongs", "([JII)V", nullptr, $PUBLIC, $virtualMethod(ImageOutputStreamImpl, writeLongs, void, $longs*, int32_t, int32_t), "java.io.IOException"},
+		{"writeShort", "(I)V", nullptr, $PUBLIC, $virtualMethod(ImageOutputStreamImpl, writeShort, void, int32_t), "java.io.IOException"},
+		{"writeShorts", "([SII)V", nullptr, $PUBLIC, $virtualMethod(ImageOutputStreamImpl, writeShorts, void, $shorts*, int32_t, int32_t), "java.io.IOException"},
+		{"writeUTF", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ImageOutputStreamImpl, writeUTF, void, $String*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"javax.imageio.stream.ImageOutputStreamImpl",
+		"javax.imageio.stream.ImageInputStreamImpl",
+		"javax.imageio.stream.ImageOutputStream",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ImageOutputStreamImpl, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ImageOutputStreamImpl));
+	});
 	return class$;
 }
 

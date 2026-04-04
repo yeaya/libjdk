@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/main/Option$41.h>
-
 #include <com/sun/tools/javac/main/Option.h>
 #include <java/lang/NoSuchFieldError.h>
 #include <jcpp.h>
@@ -19,49 +18,13 @@ namespace com {
 			namespace javac {
 				namespace main {
 
-$FieldInfo _Option$41_FieldInfo_[] = {
-	{"$SwitchMap$com$sun$tools$javac$main$Option", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(Option$41, $SwitchMap$com$sun$tools$javac$main$Option)},
-	{}
-};
-
-$EnclosingMethodInfo _Option$41_EnclosingMethodInfo_ = {
-	"com.sun.tools.javac.main.Option",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _Option$41_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.main.Option$41", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{}
-};
-
-$ClassInfo _Option$41_ClassInfo_ = {
-	$ACC_SUPER | $SYNTHETIC,
-	"com.sun.tools.javac.main.Option$41",
-	"java.lang.Object",
-	nullptr,
-	_Option$41_FieldInfo_,
-	nullptr,
-	nullptr,
-	&_Option$41_EnclosingMethodInfo_,
-	_Option$41_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.main.Option"
-};
-
-$Object* allocate$Option$41($Class* clazz) {
-	return $of($alloc(Option$41));
-}
-
 $ints* Option$41::$SwitchMap$com$sun$tools$javac$main$Option = nullptr;
 
-void clinit$Option$41($Class* class$) {
+void Option$41::clinit$($Class* clazz) {
 	$assignStatic(Option$41::$SwitchMap$com$sun$tools$javac$main$Option, $new($ints, $($Option::values())->length));
 	{
 		try {
-			$nc(Option$41::$SwitchMap$com$sun$tools$javac$main$Option)->set($Option::ADD_MODULES->ordinal(), 1);
+			Option$41::$SwitchMap$com$sun$tools$javac$main$Option->set($Option::ADD_MODULES->ordinal(), 1);
 		} catch ($NoSuchFieldError& ex) {
 		}
 	}
@@ -71,7 +34,37 @@ Option$41::Option$41() {
 }
 
 $Class* Option$41::load$($String* name, bool initialize) {
-	$loadClass(Option$41, name, initialize, &_Option$41_ClassInfo_, clinit$Option$41, allocate$Option$41);
+	$FieldInfo fieldInfos$$[] = {
+		{"$SwitchMap$com$sun$tools$javac$main$Option", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(Option$41, $SwitchMap$com$sun$tools$javac$main$Option)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.tools.javac.main.Option",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.main.Option$41", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $SYNTHETIC,
+		"com.sun.tools.javac.main.Option$41",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		nullptr,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.main.Option"
+	};
+	$loadClass(Option$41, name, initialize, &classInfo$$, Option$41::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Option$41);
+	});
 	return class$;
 }
 

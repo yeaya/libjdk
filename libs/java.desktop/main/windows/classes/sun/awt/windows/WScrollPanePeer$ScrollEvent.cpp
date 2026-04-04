@@ -1,5 +1,4 @@
 #include <sun/awt/windows/WScrollPanePeer$ScrollEvent.h>
-
 #include <java/lang/Runnable.h>
 #include <sun/awt/PeerEvent.h>
 #include <sun/awt/windows/WScrollPanePeer.h>
@@ -16,48 +15,11 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
 using $PeerEvent = ::sun::awt::PeerEvent;
 using $WScrollPanePeer = ::sun::awt::windows::WScrollPanePeer;
-using $PlatformLogger = ::sun::util::logging::PlatformLogger;
 using $PlatformLogger$Level = ::sun::util::logging::PlatformLogger$Level;
 
 namespace sun {
 	namespace awt {
 		namespace windows {
-
-$FieldInfo _WScrollPanePeer$ScrollEvent_FieldInfo_[] = {
-	{"this$0", "Lsun/awt/windows/WScrollPanePeer;", nullptr, $FINAL | $SYNTHETIC, $field(WScrollPanePeer$ScrollEvent, this$0)},
-	{}
-};
-
-$MethodInfo _WScrollPanePeer$ScrollEvent_MethodInfo_[] = {
-	{"<init>", "(Lsun/awt/windows/WScrollPanePeer;Ljava/lang/Object;Ljava/lang/Runnable;)V", nullptr, 0, $method(WScrollPanePeer$ScrollEvent, init$, void, $WScrollPanePeer*, Object$*, $Runnable*)},
-	{"coalesceEvents", "(Lsun/awt/PeerEvent;)Lsun/awt/PeerEvent;", nullptr, $PUBLIC, $virtualMethod(WScrollPanePeer$ScrollEvent, coalesceEvents, $PeerEvent*, $PeerEvent*)},
-	{}
-};
-
-$InnerClassInfo _WScrollPanePeer$ScrollEvent_InnerClassesInfo_[] = {
-	{"sun.awt.windows.WScrollPanePeer$ScrollEvent", "sun.awt.windows.WScrollPanePeer", "ScrollEvent", 0},
-	{}
-};
-
-$ClassInfo _WScrollPanePeer$ScrollEvent_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.awt.windows.WScrollPanePeer$ScrollEvent",
-	"sun.awt.PeerEvent",
-	nullptr,
-	_WScrollPanePeer$ScrollEvent_FieldInfo_,
-	_WScrollPanePeer$ScrollEvent_MethodInfo_,
-	nullptr,
-	nullptr,
-	_WScrollPanePeer$ScrollEvent_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.awt.windows.WScrollPanePeer"
-};
-
-$Object* allocate$WScrollPanePeer$ScrollEvent($Class* clazz) {
-	return $of($alloc(WScrollPanePeer$ScrollEvent));
-}
 
 void WScrollPanePeer$ScrollEvent::init$($WScrollPanePeer* this$0, Object$* source, $Runnable* runnable) {
 	$set(this, this$0, this$0);
@@ -68,7 +30,7 @@ $PeerEvent* WScrollPanePeer$ScrollEvent::coalesceEvents($PeerEvent* newEvent) {
 	$init($WScrollPanePeer);
 	$init($PlatformLogger$Level);
 	if ($nc($WScrollPanePeer::log)->isLoggable($PlatformLogger$Level::FINEST)) {
-		$nc($WScrollPanePeer::log)->finest($$str({"ScrollEvent coalesced: "_s, newEvent}));
+		$WScrollPanePeer::log->finest($$str({"ScrollEvent coalesced: "_s, newEvent}));
 	}
 	if ($instanceOf(WScrollPanePeer$ScrollEvent, newEvent)) {
 		return newEvent;
@@ -80,7 +42,37 @@ WScrollPanePeer$ScrollEvent::WScrollPanePeer$ScrollEvent() {
 }
 
 $Class* WScrollPanePeer$ScrollEvent::load$($String* name, bool initialize) {
-	$loadClass(WScrollPanePeer$ScrollEvent, name, initialize, &_WScrollPanePeer$ScrollEvent_ClassInfo_, allocate$WScrollPanePeer$ScrollEvent);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/awt/windows/WScrollPanePeer;", nullptr, $FINAL | $SYNTHETIC, $field(WScrollPanePeer$ScrollEvent, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/awt/windows/WScrollPanePeer;Ljava/lang/Object;Ljava/lang/Runnable;)V", nullptr, 0, $method(WScrollPanePeer$ScrollEvent, init$, void, $WScrollPanePeer*, Object$*, $Runnable*)},
+		{"coalesceEvents", "(Lsun/awt/PeerEvent;)Lsun/awt/PeerEvent;", nullptr, $PUBLIC, $virtualMethod(WScrollPanePeer$ScrollEvent, coalesceEvents, $PeerEvent*, $PeerEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.windows.WScrollPanePeer$ScrollEvent", "sun.awt.windows.WScrollPanePeer", "ScrollEvent", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.awt.windows.WScrollPanePeer$ScrollEvent",
+		"sun.awt.PeerEvent",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.awt.windows.WScrollPanePeer"
+	};
+	$loadClass(WScrollPanePeer$ScrollEvent, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(WScrollPanePeer$ScrollEvent));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/rmi/registry/RegistryImpl$5.h>
-
 #include <sun/rmi/registry/RegistryImpl.h>
 #include <jcpp.h>
 
@@ -14,48 +13,6 @@ namespace sun {
 	namespace rmi {
 		namespace registry {
 
-$FieldInfo _RegistryImpl$5_FieldInfo_[] = {
-	{"val$regPort", "I", nullptr, $FINAL | $SYNTHETIC, $field(RegistryImpl$5, val$regPort)},
-	{}
-};
-
-$MethodInfo _RegistryImpl$5_MethodInfo_[] = {
-	{"<init>", "(I)V", "()V", 0, $method(RegistryImpl$5, init$, void, int32_t)},
-	{"run", "()Lsun/rmi/registry/RegistryImpl;", nullptr, $PUBLIC, $virtualMethod(RegistryImpl$5, run, $Object*), "java.rmi.RemoteException"},
-	{}
-};
-
-$EnclosingMethodInfo _RegistryImpl$5_EnclosingMethodInfo_ = {
-	"sun.rmi.registry.RegistryImpl",
-	"createRegistry",
-	"(I)Lsun/rmi/registry/RegistryImpl;"
-};
-
-$InnerClassInfo _RegistryImpl$5_InnerClassesInfo_[] = {
-	{"sun.rmi.registry.RegistryImpl$5", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _RegistryImpl$5_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.rmi.registry.RegistryImpl$5",
-	"java.lang.Object",
-	"java.security.PrivilegedExceptionAction",
-	_RegistryImpl$5_FieldInfo_,
-	_RegistryImpl$5_MethodInfo_,
-	"Ljava/lang/Object;Ljava/security/PrivilegedExceptionAction<Lsun/rmi/registry/RegistryImpl;>;",
-	&_RegistryImpl$5_EnclosingMethodInfo_,
-	_RegistryImpl$5_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.rmi.registry.RegistryImpl"
-};
-
-$Object* allocate$RegistryImpl$5($Class* clazz) {
-	return $of($alloc(RegistryImpl$5));
-}
-
 void RegistryImpl$5::init$(int32_t val$regPort) {
 	this->val$regPort = val$regPort;
 }
@@ -68,7 +25,42 @@ RegistryImpl$5::RegistryImpl$5() {
 }
 
 $Class* RegistryImpl$5::load$($String* name, bool initialize) {
-	$loadClass(RegistryImpl$5, name, initialize, &_RegistryImpl$5_ClassInfo_, allocate$RegistryImpl$5);
+	$FieldInfo fieldInfos$$[] = {
+		{"val$regPort", "I", nullptr, $FINAL | $SYNTHETIC, $field(RegistryImpl$5, val$regPort)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I)V", "()V", 0, $method(RegistryImpl$5, init$, void, int32_t)},
+		{"run", "()Lsun/rmi/registry/RegistryImpl;", nullptr, $PUBLIC, $virtualMethod(RegistryImpl$5, run, $Object*), "java.rmi.RemoteException"},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.rmi.registry.RegistryImpl",
+		"createRegistry",
+		"(I)Lsun/rmi/registry/RegistryImpl;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.rmi.registry.RegistryImpl$5", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.rmi.registry.RegistryImpl$5",
+		"java.lang.Object",
+		"java.security.PrivilegedExceptionAction",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/security/PrivilegedExceptionAction<Lsun/rmi/registry/RegistryImpl;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.rmi.registry.RegistryImpl"
+	};
+	$loadClass(RegistryImpl$5, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RegistryImpl$5);
+	});
 	return class$;
 }
 

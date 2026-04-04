@@ -1,5 +1,4 @@
 #include <sun/text/resources/cldr/ext/FormatData_de_IT.h>
-
 #include <java/util/ListResourceBundle.h>
 #include <jcpp.h>
 
@@ -14,31 +13,12 @@ namespace sun {
 			namespace cldr {
 				namespace ext {
 
-$MethodInfo _FormatData_de_IT_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(FormatData_de_IT, init$, void)},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(FormatData_de_IT, getContents, $ObjectArray2*)},
-	{}
-};
-
-$ClassInfo _FormatData_de_IT_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.text.resources.cldr.ext.FormatData_de_IT",
-	"java.util.ListResourceBundle",
-	nullptr,
-	nullptr,
-	_FormatData_de_IT_MethodInfo_
-};
-
-$Object* allocate$FormatData_de_IT($Class* clazz) {
-	return $of($alloc(FormatData_de_IT));
-}
-
 void FormatData_de_IT::init$() {
 	$ListResourceBundle::init$();
 }
 
 $ObjectArray2* FormatData_de_IT::getContents() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringArray, metaValue_MonthNames, $new($StringArray, {
 		u"Jänner"_s,
 		"Februar"_s,
@@ -71,40 +51,40 @@ $ObjectArray2* FormatData_de_IT::getContents() {
 	}));
 	$var($ObjectArray2, data, $new($ObjectArray2, {
 		$$new($ObjectArray, {
-			$of("buddhist.MonthNames"_s),
-			$of(metaValue_MonthNames)
+			"buddhist.MonthNames"_s,
+			metaValue_MonthNames
 		}),
 		$$new($ObjectArray, {
-			$of("MonthNames"_s),
-			$of(metaValue_MonthNames)
+			"MonthNames"_s,
+			metaValue_MonthNames
 		}),
 		$$new($ObjectArray, {
-			$of("MonthAbbreviations"_s),
-			$of(metaValue_MonthAbbreviations)
+			"MonthAbbreviations"_s,
+			metaValue_MonthAbbreviations
 		}),
 		$$new($ObjectArray, {
-			$of("japanese.MonthNames"_s),
-			$of(metaValue_MonthNames)
+			"japanese.MonthNames"_s,
+			metaValue_MonthNames
 		}),
 		$$new($ObjectArray, {
-			$of("japanese.MonthAbbreviations"_s),
-			$of(metaValue_MonthAbbreviations)
+			"japanese.MonthAbbreviations"_s,
+			metaValue_MonthAbbreviations
 		}),
 		$$new($ObjectArray, {
-			$of("roc.MonthAbbreviations"_s),
-			$of(metaValue_MonthAbbreviations)
+			"roc.MonthAbbreviations"_s,
+			metaValue_MonthAbbreviations
 		}),
 		$$new($ObjectArray, {
-			$of("roc.MonthNames"_s),
-			$of(metaValue_MonthNames)
+			"roc.MonthNames"_s,
+			metaValue_MonthNames
 		}),
 		$$new($ObjectArray, {
-			$of("standalone.MonthNames"_s),
-			$of(metaValue_MonthNames)
+			"standalone.MonthNames"_s,
+			metaValue_MonthNames
 		}),
 		$$new($ObjectArray, {
-			$of("standalone.MonthAbbreviations"_s),
-			$of($$new($StringArray, {
+			"standalone.MonthAbbreviations"_s,
+			$$new($StringArray, {
 				u"Jän"_s,
 				"Feb"_s,
 				u"Mär"_s,
@@ -118,11 +98,11 @@ $ObjectArray2* FormatData_de_IT::getContents() {
 				"Nov"_s,
 				"Dez"_s,
 				""_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("buddhist.MonthAbbreviations"_s),
-			$of(metaValue_MonthAbbreviations)
+			"buddhist.MonthAbbreviations"_s,
+			metaValue_MonthAbbreviations
 		})
 	}));
 	return data;
@@ -132,7 +112,22 @@ FormatData_de_IT::FormatData_de_IT() {
 }
 
 $Class* FormatData_de_IT::load$($String* name, bool initialize) {
-	$loadClass(FormatData_de_IT, name, initialize, &_FormatData_de_IT_ClassInfo_, allocate$FormatData_de_IT);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(FormatData_de_IT, init$, void)},
+		{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(FormatData_de_IT, getContents, $ObjectArray2*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.text.resources.cldr.ext.FormatData_de_IT",
+		"java.util.ListResourceBundle",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(FormatData_de_IT, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FormatData_de_IT);
+	});
 	return class$;
 }
 

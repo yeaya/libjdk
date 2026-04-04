@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/processing/JavacFiler.h>
-
 #include <com/sun/tools/javac/code/Lint$LintCategory.h>
 #include <com/sun/tools/javac/code/Lint.h>
 #include <com/sun/tools/javac/code/Symbol$ClassSymbol.h>
@@ -51,7 +50,6 @@
 #include <javax/lang/model/element/PackageElement.h>
 #include <javax/lang/model/element/TypeElement.h>
 #include <javax/tools/FileObject.h>
-#include <javax/tools/ForwardingFileObject.h>
 #include <javax/tools/JavaFileManager$Location.h>
 #include <javax/tools/JavaFileManager.h>
 #include <javax/tools/JavaFileObject$Kind.h>
@@ -91,7 +89,6 @@ using $Assert = ::com::sun::tools::javac::util::Assert;
 using $Context = ::com::sun::tools::javac::util::Context;
 using $Log = ::com::sun::tools::javac::util::Log;
 using $Log$WriterKind = ::com::sun::tools::javac::util::Log$WriterKind;
-using $Name = ::com::sun::tools::javac::util::Name;
 using $Names = ::com::sun::tools::javac::util::Names;
 using $Options = ::com::sun::tools::javac::util::Options;
 using $Pair = ::com::sun::tools::javac::util::Pair;
@@ -118,7 +115,6 @@ using $Filer = ::javax::annotation::processing::Filer;
 using $FilerException = ::javax::annotation::processing::FilerException;
 using $SourceVersion = ::javax::lang::model::SourceVersion;
 using $FileObject = ::javax::tools::FileObject;
-using $ForwardingFileObject = ::javax::tools::ForwardingFileObject;
 using $JavaFileManager = ::javax::tools::JavaFileManager;
 using $JavaFileManager$Location = ::javax::tools::JavaFileManager$Location;
 using $JavaFileObject = ::javax::tools::JavaFileObject;
@@ -137,128 +133,29 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* m) override {
-		 return $of(JavacFiler::lambda$closeFileObject$0($cast($Symbol$ModuleSymbol, m)));
+		 return JavacFiler::lambda$closeFileObject$0($cast($Symbol$ModuleSymbol, m));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<JavacFiler$$Lambda$lambda$closeFileObject$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo JavacFiler$$Lambda$lambda$closeFileObject$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(JavacFiler$$Lambda$lambda$closeFileObject$0, init$, void)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JavacFiler$$Lambda$lambda$closeFileObject$0, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo JavacFiler$$Lambda$lambda$closeFileObject$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.processing.JavacFiler$$Lambda$lambda$closeFileObject$0",
-	"java.lang.Object",
-	"java.util.function.Function",
-	nullptr,
-	methodInfos
 };
 $Class* JavacFiler$$Lambda$lambda$closeFileObject$0::load$($String* name, bool initialize) {
-	$loadClass(JavacFiler$$Lambda$lambda$closeFileObject$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(JavacFiler$$Lambda$lambda$closeFileObject$0, init$, void)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JavacFiler$$Lambda$lambda$closeFileObject$0, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.processing.JavacFiler$$Lambda$lambda$closeFileObject$0",
+		"java.lang.Object",
+		"java.util.function.Function",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(JavacFiler$$Lambda$lambda$closeFileObject$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JavacFiler$$Lambda$lambda$closeFileObject$0);
+	});
 	return class$;
 }
 $Class* JavacFiler$$Lambda$lambda$closeFileObject$0::class$ = nullptr;
-
-$FieldInfo _JavacFiler_FieldInfo_[] = {
-	{"ALREADY_OPENED", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JavacFiler, ALREADY_OPENED)},
-	{"NOT_FOR_READING", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JavacFiler, NOT_FOR_READING)},
-	{"NOT_FOR_WRITING", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JavacFiler, NOT_FOR_WRITING)},
-	{"fileManager", "Ljavax/tools/JavaFileManager;", nullptr, 0, $field(JavacFiler, fileManager)},
-	{"elementUtils", "Lcom/sun/tools/javac/model/JavacElements;", nullptr, 0, $field(JavacFiler, elementUtils)},
-	{"log", "Lcom/sun/tools/javac/util/Log;", nullptr, 0, $field(JavacFiler, log)},
-	{"modules", "Lcom/sun/tools/javac/comp/Modules;", nullptr, 0, $field(JavacFiler, modules)},
-	{"names", "Lcom/sun/tools/javac/util/Names;", nullptr, 0, $field(JavacFiler, names)},
-	{"syms", "Lcom/sun/tools/javac/code/Symtab;", nullptr, 0, $field(JavacFiler, syms)},
-	{"context", "Lcom/sun/tools/javac/util/Context;", nullptr, 0, $field(JavacFiler, context)},
-	{"lastRound", "Z", nullptr, 0, $field(JavacFiler, lastRound)},
-	{"lint", "Z", nullptr, $PRIVATE | $FINAL, $field(JavacFiler, lint)},
-	{"initialInputs", "Ljava/util/Set;", "Ljava/util/Set<Ljavax/tools/FileObject;>;", $PRIVATE | $FINAL, $field(JavacFiler, initialInputs)},
-	{"fileObjectHistory", "Ljava/util/Set;", "Ljava/util/Set<Ljavax/tools/FileObject;>;", $PRIVATE | $FINAL, $field(JavacFiler, fileObjectHistory)},
-	{"openTypeNames", "Ljava/util/Set;", "Ljava/util/Set<Ljava/lang/String;>;", $PRIVATE | $FINAL, $field(JavacFiler, openTypeNames)},
-	{"generatedSourceNames", "Ljava/util/Set;", "Ljava/util/Set<Ljava/lang/String;>;", $PRIVATE, $field(JavacFiler, generatedSourceNames)},
-	{"generatedClasses", "Ljava/util/Map;", "Ljava/util/Map<Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;Ljava/util/Map<Ljava/lang/String;Ljavax/tools/JavaFileObject;>;>;", $PRIVATE | $FINAL, $field(JavacFiler, generatedClasses)},
-	{"generatedSourceFileObjects", "Ljava/util/Set;", "Ljava/util/Set<Ljavax/tools/JavaFileObject;>;", $PRIVATE, $field(JavacFiler, generatedSourceFileObjects)},
-	{"aggregateGeneratedSourceNames", "Ljava/util/Set;", "Ljava/util/Set<Lcom/sun/tools/javac/util/Pair<Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;Ljava/lang/String;>;>;", $PRIVATE | $FINAL, $field(JavacFiler, aggregateGeneratedSourceNames)},
-	{"aggregateGeneratedClassNames", "Ljava/util/Set;", "Ljava/util/Set<Lcom/sun/tools/javac/util/Pair<Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;Ljava/lang/String;>;>;", $PRIVATE | $FINAL, $field(JavacFiler, aggregateGeneratedClassNames)},
-	{"initialClassNames", "Ljava/util/Set;", "Ljava/util/Set<Ljava/lang/String;>;", $PRIVATE | $FINAL, $field(JavacFiler, initialClassNames)},
-	{"defaultTargetModule", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(JavacFiler, defaultTargetModule)},
-	{}
-};
-
-$MethodInfo _JavacFiler_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lcom/sun/tools/javac/util/Context;)V", nullptr, 0, $method(JavacFiler, init$, void, $Context*)},
-	{"checkFileReopening", "(Ljavax/tools/FileObject;Z)V", nullptr, $PRIVATE, $method(JavacFiler, checkFileReopening, void, $FileObject*, bool), "javax.annotation.processing.FilerException"},
-	{"checkName", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(JavacFiler, checkName, void, $String*), "javax.annotation.processing.FilerException"},
-	{"checkName", "(Ljava/lang/String;Z)V", nullptr, $PRIVATE, $method(JavacFiler, checkName, void, $String*, bool), "javax.annotation.processing.FilerException"},
-	{"checkNameAndExistence", "(Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;Ljava/lang/String;Z)V", nullptr, $PRIVATE, $method(JavacFiler, checkNameAndExistence, void, $Symbol$ModuleSymbol*, $String*, bool), "javax.annotation.processing.FilerException"},
-	{"checkOrInferModule", "(Ljava/lang/CharSequence;)Lcom/sun/tools/javac/util/Pair;", "(Ljava/lang/CharSequence;)Lcom/sun/tools/javac/util/Pair<Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;Ljava/lang/String;>;", $PRIVATE, $method(JavacFiler, checkOrInferModule, $Pair*, $CharSequence*), "javax.annotation.processing.FilerException"},
-	{"checkOrInferModule", "(Ljavax/tools/JavaFileManager$Location;Ljava/lang/CharSequence;Z)Lcom/sun/tools/javac/processing/JavacFiler$Tuple3;", "(Ljavax/tools/JavaFileManager$Location;Ljava/lang/CharSequence;Z)Lcom/sun/tools/javac/processing/JavacFiler$Tuple3<Ljavax/tools/JavaFileManager$Location;Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;Ljava/lang/String;>;", $PRIVATE, $method(JavacFiler, checkOrInferModule, $JavacFiler$Tuple3*, $JavaFileManager$Location*, $CharSequence*, bool), "java.io.IOException"},
-	{"clearRoundState", "()V", nullptr, $PRIVATE, $method(JavacFiler, clearRoundState, void)},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(JavacFiler, close, void)},
-	{"closeFileObject", "(Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;Ljava/lang/String;Ljavax/tools/FileObject;)V", nullptr, $PRIVATE, $method(JavacFiler, closeFileObject, void, $Symbol$ModuleSymbol*, $String*, $FileObject*)},
-	{"containedInInitialInputs", "(Ljava/lang/String;)Z", nullptr, $PRIVATE, $method(JavacFiler, containedInInitialInputs, bool, $String*)},
-	{"createClassFile", "(Ljava/lang/CharSequence;[Ljavax/lang/model/element/Element;)Ljavax/tools/JavaFileObject;", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(JavacFiler, createClassFile, $JavaFileObject*, $CharSequence*, $ElementArray*), "java.io.IOException"},
-	{"createResource", "(Ljavax/tools/JavaFileManager$Location;Ljava/lang/CharSequence;Ljava/lang/CharSequence;[Ljavax/lang/model/element/Element;)Ljavax/tools/FileObject;", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(JavacFiler, createResource, $FileObject*, $JavaFileManager$Location*, $CharSequence*, $CharSequence*, $ElementArray*), "java.io.IOException"},
-	{"createSourceFile", "(Ljava/lang/CharSequence;[Ljavax/lang/model/element/Element;)Ljavax/tools/JavaFileObject;", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(JavacFiler, createSourceFile, $JavaFileObject*, $CharSequence*, $ElementArray*), "java.io.IOException"},
-	{"createSourceOrClassFile", "(Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;ZLjava/lang/String;)Ljavax/tools/JavaFileObject;", nullptr, $PRIVATE, $method(JavacFiler, createSourceOrClassFile, $JavaFileObject*, $Symbol$ModuleSymbol*, bool, $String*), "java.io.IOException"},
-	{"displayState", "()V", nullptr, $PUBLIC, $virtualMethod(JavacFiler, displayState, void)},
-	{"getGeneratedClasses", "()Ljava/util/Map;", "()Ljava/util/Map<Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;Ljava/util/Map<Ljava/lang/String;Ljavax/tools/JavaFileObject;>;>;", $PUBLIC, $virtualMethod(JavacFiler, getGeneratedClasses, $Map*)},
-	{"getGeneratedSourceFileObjects", "()Ljava/util/Set;", "()Ljava/util/Set<Ljavax/tools/JavaFileObject;>;", $PUBLIC, $virtualMethod(JavacFiler, getGeneratedSourceFileObjects, $Set*)},
-	{"getGeneratedSourceNames", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(JavacFiler, getGeneratedSourceNames, $Set*)},
-	{"getResource", "(Ljavax/tools/JavaFileManager$Location;Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljavax/tools/FileObject;", nullptr, $PUBLIC, $virtualMethod(JavacFiler, getResource, $FileObject*, $JavaFileManager$Location*, $CharSequence*, $CharSequence*), "java.io.IOException"},
-	{"inferModule", "(Ljava/lang/String;)Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;", nullptr, $PRIVATE, $method(JavacFiler, inferModule, $Symbol$ModuleSymbol*, $String*)},
-	{"isInFileObjectHistory", "(Ljavax/tools/FileObject;Z)Z", nullptr, $PRIVATE, $method(JavacFiler, isInFileObjectHistory, bool, $FileObject*, bool)},
-	{"isPackageInfo", "(Ljava/lang/String;Z)Z", nullptr, $PRIVATE, $method(JavacFiler, isPackageInfo, bool, $String*, bool)},
-	{"lambda$closeFileObject$0", "(Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;)Ljava/util/Map;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JavacFiler, lambda$closeFileObject$0, $Map*, $Symbol$ModuleSymbol*)},
-	{"locationCheck", "(Ljavax/tools/JavaFileManager$Location;)V", nullptr, $PRIVATE, $method(JavacFiler, locationCheck, void, $JavaFileManager$Location*)},
-	{"newFiles", "()Z", nullptr, $PUBLIC, $virtualMethod(JavacFiler, newFiles, bool)},
-	{"newRound", "()V", nullptr, $PUBLIC, $virtualMethod(JavacFiler, newRound, void)},
-	{"setInitialState", "(Ljava/util/Collection;Ljava/util/Collection;)V", "(Ljava/util/Collection<+Ljavax/tools/JavaFileObject;>;Ljava/util/Collection<Ljava/lang/String;>;)V", $PUBLIC, $virtualMethod(JavacFiler, setInitialState, void, $Collection*, $Collection*)},
-	{"setLastRound", "(Z)V", nullptr, 0, $virtualMethod(JavacFiler, setLastRound, void, bool)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JavacFiler, toString, $String*)},
-	{"warnIfUnclosedFiles", "()V", nullptr, $PUBLIC, $virtualMethod(JavacFiler, warnIfUnclosedFiles, void)},
-	{}
-};
-
-$InnerClassInfo _JavacFiler_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.processing.JavacFiler$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{"com.sun.tools.javac.processing.JavacFiler$Tuple3", "com.sun.tools.javac.processing.JavacFiler", "Tuple3", $STATIC | $FINAL},
-	{"com.sun.tools.javac.processing.JavacFiler$FilerWriter", "com.sun.tools.javac.processing.JavacFiler", "FilerWriter", $PRIVATE},
-	{"com.sun.tools.javac.processing.JavacFiler$FilerOutputStream", "com.sun.tools.javac.processing.JavacFiler", "FilerOutputStream", $PRIVATE},
-	{"com.sun.tools.javac.processing.JavacFiler$FilerInputJavaFileObject", "com.sun.tools.javac.processing.JavacFiler", "FilerInputJavaFileObject", $PRIVATE},
-	{"com.sun.tools.javac.processing.JavacFiler$FilerInputFileObject", "com.sun.tools.javac.processing.JavacFiler", "FilerInputFileObject", $PRIVATE},
-	{"com.sun.tools.javac.processing.JavacFiler$FilerOutputJavaFileObject", "com.sun.tools.javac.processing.JavacFiler", "FilerOutputJavaFileObject", $PRIVATE},
-	{"com.sun.tools.javac.processing.JavacFiler$FilerOutputFileObject", "com.sun.tools.javac.processing.JavacFiler", "FilerOutputFileObject", $PRIVATE},
-	{}
-};
-
-$ClassInfo _JavacFiler_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.processing.JavacFiler",
-	"java.lang.Object",
-	"javax.annotation.processing.Filer,java.io.Closeable",
-	_JavacFiler_FieldInfo_,
-	_JavacFiler_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JavacFiler_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.processing.JavacFiler$1,com.sun.tools.javac.processing.JavacFiler$Tuple3,com.sun.tools.javac.processing.JavacFiler$FilerWriter,com.sun.tools.javac.processing.JavacFiler$FilerOutputStream,com.sun.tools.javac.processing.JavacFiler$FilerInputJavaFileObject,com.sun.tools.javac.processing.JavacFiler$FilerInputFileObject,com.sun.tools.javac.processing.JavacFiler$FilerOutputJavaFileObject,com.sun.tools.javac.processing.JavacFiler$FilerOutputFileObject"
-};
-
-$Object* allocate$JavacFiler($Class* clazz) {
-	return $of($alloc(JavacFiler));
-}
 
 int32_t JavacFiler::hashCode() {
 	 return this->$Filer::hashCode();
@@ -281,7 +178,7 @@ $String* JavacFiler::NOT_FOR_READING = nullptr;
 $String* JavacFiler::NOT_FOR_WRITING = nullptr;
 
 void JavacFiler::init$($Context* context) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, context, context);
 	$load($JavaFileManager);
 	$set(this, fileManager, $cast($JavaFileManager, $nc(context)->get($JavaFileManager::class$)));
@@ -300,7 +197,7 @@ void JavacFiler::init$($Context* context) {
 	$set(this, aggregateGeneratedClassNames, $new($LinkedHashSet));
 	$set(this, initialClassNames, $new($LinkedHashSet));
 	$init($Lint$LintCategory);
-	this->lint = $nc(($($Lint::instance(context))))->isEnabled($Lint$LintCategory::PROCESSING);
+	this->lint = ($$nc($Lint::instance(context)))->isEnabled($Lint$LintCategory::PROCESSING);
 	$var($Options, options, $Options::instance(context));
 	$init($Option);
 	$set(this, defaultTargetModule, $nc(options)->get($Option::DEFAULT_MODULE_FOR_CREATED_FILES));
@@ -308,22 +205,22 @@ void JavacFiler::init$($Context* context) {
 
 $JavaFileObject* JavacFiler::createSourceFile($CharSequence* nameAndModule, $ElementArray* originatingElements) {
 	$var($Pair, moduleAndClass, checkOrInferModule(nameAndModule));
-	return createSourceOrClassFile($cast($Symbol$ModuleSymbol, $nc(moduleAndClass)->fst), true, $cast($String, moduleAndClass->snd));
+	return createSourceOrClassFile($cast($Symbol$ModuleSymbol, $nc(moduleAndClass)->fst), true, $cast($String, $nc(moduleAndClass)->snd));
 }
 
 $JavaFileObject* JavacFiler::createClassFile($CharSequence* nameAndModule, $ElementArray* originatingElements) {
 	$var($Pair, moduleAndClass, checkOrInferModule(nameAndModule));
-	return createSourceOrClassFile($cast($Symbol$ModuleSymbol, $nc(moduleAndClass)->fst), false, $cast($String, moduleAndClass->snd));
+	return createSourceOrClassFile($cast($Symbol$ModuleSymbol, $nc(moduleAndClass)->fst), false, $cast($String, $nc(moduleAndClass)->snd));
 }
 
 $Pair* JavacFiler::checkOrInferModule($CharSequence* moduleAndPkg) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, moduleAndPkgString, $nc(moduleAndPkg)->toString());
-	int32_t slash = $nc(moduleAndPkgString)->indexOf((int32_t)u'/');
+	int32_t slash = $nc(moduleAndPkgString)->indexOf(u'/');
 	$var($String, module, nullptr);
 	$var($String, pkg, nullptr);
 	if (slash == (-1)) {
-		int32_t lastDot = moduleAndPkgString->lastIndexOf((int32_t)u'.');
+		int32_t lastDot = moduleAndPkgString->lastIndexOf(u'.');
 		$var($String, pack, lastDot != (-1) ? moduleAndPkgString->substring(0, lastDot) : ""_s);
 		$var($Symbol$ModuleSymbol, msym, inferModule(pack));
 		if (msym != nullptr) {
@@ -349,7 +246,7 @@ $Pair* JavacFiler::checkOrInferModule($CharSequence* moduleAndPkg) {
 }
 
 $JavaFileObject* JavacFiler::createSourceOrClassFile($Symbol$ModuleSymbol* mod, bool isSourceFile, $String* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Assert::checkNonNull(mod);
 	if (this->lint) {
 		int32_t periodIndex = $nc(name)->lastIndexOf("."_s);
@@ -363,7 +260,7 @@ $JavaFileObject* JavacFiler::createSourceOrClassFile($Symbol$ModuleSymbol* mod, 
 	}
 	checkNameAndExistence(mod, name, isSourceFile);
 	$init($StandardLocation);
-	$var($JavaFileManager$Location, loc, isSourceFile ? static_cast<$JavaFileManager$Location*>($StandardLocation::SOURCE_OUTPUT) : static_cast<$JavaFileManager$Location*>($StandardLocation::CLASS_OUTPUT));
+	$var($JavaFileManager$Location, loc, isSourceFile ? $StandardLocation::SOURCE_OUTPUT : $StandardLocation::CLASS_OUTPUT);
 	if ($nc(this->modules)->multiModuleMode) {
 		$assign(loc, $nc(this->fileManager)->getLocationForModule(loc, $($nc($nc(mod)->name)->toString())));
 	}
@@ -375,16 +272,16 @@ $JavaFileObject* JavacFiler::createSourceOrClassFile($Symbol$ModuleSymbol* mod, 
 		$nc(this->log)->warning($($CompilerProperties$Warnings::ProcFileCreateLastRound(name)));
 	}
 	if (isSourceFile) {
-		$nc(this->aggregateGeneratedSourceNames)->add($($Pair::of(mod, name)));
+		this->aggregateGeneratedSourceNames->add($($Pair::of(mod, name)));
 	} else {
-		$nc(this->aggregateGeneratedClassNames)->add($($Pair::of(mod, name)));
+		this->aggregateGeneratedClassNames->add($($Pair::of(mod, name)));
 	}
 	$nc(this->openTypeNames)->add(name);
 	return $new($JavacFiler$FilerOutputJavaFileObject, this, mod, name, fileObject);
 }
 
 $FileObject* JavacFiler::createResource($JavaFileManager$Location* location$renamed, $CharSequence* moduleAndPkg, $CharSequence* relativeName, $ElementArray* originatingElements) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JavaFileManager$Location, location, location$renamed);
 	$var($JavacFiler$Tuple3, locationModuleAndPackage, checkOrInferModule(location, moduleAndPkg, true));
 	$assign(location, $cast($JavaFileManager$Location, $nc(locationModuleAndPackage)->a));
@@ -405,7 +302,7 @@ $FileObject* JavacFiler::createResource($JavaFileManager$Location* location$rena
 			var$0 = true;
 		}
 		if (var$0) {
-			return static_cast<$FileObject*>(static_cast<$ForwardingFileObject*>(static_cast<$JavacFiler$FilerOutputFileObject*>($new($JavacFiler$FilerOutputJavaFileObject, this, msym, nullptr, javaFileObject))));
+			return $cast($JavacFiler$FilerOutputFileObject, $new($JavacFiler$FilerOutputJavaFileObject, this, msym, nullptr, javaFileObject));
 		} else {
 			return $new($JavacFiler$FilerOutputFileObject, this, msym, nullptr, fileObject);
 		}
@@ -429,7 +326,7 @@ void JavacFiler::locationCheck($JavaFileManager$Location* location) {
 }
 
 $FileObject* JavacFiler::getResource($JavaFileManager$Location* location$renamed, $CharSequence* moduleAndPkg, $CharSequence* relativeName) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JavaFileManager$Location, location, location$renamed);
 	$var($JavacFiler$Tuple3, locationModuleAndPackage, checkOrInferModule(location, moduleAndPkg, false));
 	$assign(location, $cast($JavaFileManager$Location, $nc(locationModuleAndPackage)->a));
@@ -444,7 +341,7 @@ $FileObject* JavacFiler::getResource($JavaFileManager$Location* location$renamed
 		$assign(fileObject, $nc(this->fileManager)->getFileForInput(location, pkg, $($nc(relativeName)->toString())));
 	}
 	if (fileObject == nullptr) {
-		$var($String, name, ($nc(pkg)->length() == 0) ? $nc(relativeName)->toString() : ($str({pkg, "/"_s, relativeName})));
+		$var($String, name, (pkg->length() == 0) ? $nc(relativeName)->toString() : ($str({pkg, "/"_s, relativeName})));
 		$throwNew($FileNotFoundException, name);
 	}
 	checkFileReopening(fileObject, false);
@@ -452,11 +349,11 @@ $FileObject* JavacFiler::getResource($JavaFileManager$Location* location$renamed
 }
 
 $JavacFiler$Tuple3* JavacFiler::checkOrInferModule($JavaFileManager$Location* location, $CharSequence* moduleAndPkg, bool write) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, moduleAndPkgString, $nc(moduleAndPkg)->toString());
-	int32_t slash = $nc(moduleAndPkgString)->indexOf((int32_t)u'/');
+	int32_t slash = $nc(moduleAndPkgString)->indexOf(u'/');
 	bool var$0 = $nc(location)->isModuleOrientedLocation();
-	bool multiModuleLocation = var$0 || ($nc(this->modules)->multiModuleMode && $nc(location)->isOutputLocation());
+	bool multiModuleLocation = var$0 || ($nc(this->modules)->multiModuleMode && location->isOutputLocation());
 	$var($String, module, nullptr);
 	$var($String, pkg, nullptr);
 	if (slash == (-1)) {
@@ -495,13 +392,13 @@ $JavacFiler$Tuple3* JavacFiler::checkOrInferModule($JavaFileManager$Location* lo
 }
 
 $Symbol$ModuleSymbol* JavacFiler::inferModule($String* pkg) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(this->modules)->getDefaultModule() == $nc(this->syms)->noModule) {
 		return $nc(this->modules)->getDefaultModule();
 	}
 	$var($Set, rootModules, $nc(this->modules)->getRootModules());
 	if ($nc(rootModules)->size() == 1) {
-		return $cast($Symbol$ModuleSymbol, $nc($(rootModules->iterator()))->next());
+		return $cast($Symbol$ModuleSymbol, $$nc(rootModules->iterator())->next());
 	}
 	$var($Symbol$PackageSymbol, pack, $cast($Symbol$PackageSymbol, $nc(this->elementUtils)->getPackageElement(pkg)));
 	if (pack != nullptr && pack->modle != $nc(this->syms)->unnamedModule) {
@@ -515,7 +412,7 @@ void JavacFiler::checkName($String* name) {
 }
 
 void JavacFiler::checkName($String* name, bool allowUnnamedPackageInfo) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool var$0 = !$SourceVersion::isName(name);
 	if (var$0 && !isPackageInfo(name, allowUnnamedPackageInfo)) {
 		if (this->lint) {
@@ -526,7 +423,7 @@ void JavacFiler::checkName($String* name, bool allowUnnamedPackageInfo) {
 }
 
 bool JavacFiler::isPackageInfo($String* name, bool allowUnnamedPackageInfo) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, PKG_INFO, "package-info"_s);
 	int32_t periodIndex = $nc(name)->lastIndexOf("."_s);
 	if (periodIndex == -1) {
@@ -540,12 +437,12 @@ bool JavacFiler::isPackageInfo($String* name, bool allowUnnamedPackageInfo) {
 }
 
 void JavacFiler::checkNameAndExistence($Symbol$ModuleSymbol* mod, $String* typename$, bool allowUnnamedPackageInfo) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	checkName(typename$, allowUnnamedPackageInfo);
 	$var($Symbol$ClassSymbol, existing, $cast($Symbol$ClassSymbol, $nc(this->elementUtils)->getTypeElement(typename$)));
-	bool var$2 = $nc(this->aggregateGeneratedSourceNames)->contains($($Pair::of(mod, typename$)));
-	bool var$1 = var$2 || $nc(this->aggregateGeneratedClassNames)->contains($($Pair::of(mod, typename$)));
-	bool var$0 = var$1 || $nc(this->initialClassNames)->contains(typename$);
+	bool var$2 = this->aggregateGeneratedSourceNames->contains($($Pair::of(mod, typename$)));
+	bool var$1 = var$2 || this->aggregateGeneratedClassNames->contains($($Pair::of(mod, typename$)));
+	bool var$0 = var$1 || this->initialClassNames->contains(typename$);
 	bool alreadySeen = var$0 || containedInInitialInputs(typename$);
 	if (alreadySeen) {
 		if (this->lint) {
@@ -563,7 +460,7 @@ void JavacFiler::checkNameAndExistence($Symbol$ModuleSymbol* mod, $String* typen
 }
 
 bool JavacFiler::containedInInitialInputs($String* typename$) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JavaFileObject, sourceFile, nullptr);
 	$var($Symbol$ClassSymbol, existingClass, $cast($Symbol$ClassSymbol, $nc(this->elementUtils)->getTypeElement(typename$)));
 	if (existingClass != nullptr) {
@@ -580,7 +477,7 @@ bool JavacFiler::containedInInitialInputs($String* typename$) {
 }
 
 void JavacFiler::checkFileReopening($FileObject* fileObject, bool forWriting) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (isInFileObjectHistory(fileObject, forWriting)) {
 		if (this->lint) {
 			$nc(this->log)->warning($($CompilerProperties$Warnings::ProcFileReopening($($nc(fileObject)->getName()))));
@@ -593,39 +490,35 @@ void JavacFiler::checkFileReopening($FileObject* fileObject, bool forWriting) {
 }
 
 bool JavacFiler::isInFileObjectHistory($FileObject* fileObject, bool forWriting) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (forWriting) {
 		{
 			$var($Iterator, i$, $nc(this->initialInputs)->iterator());
 			for (; $nc(i$)->hasNext();) {
 				$var($FileObject, veteran, $cast($FileObject, i$->next()));
-				{
-					try {
-						if ($nc(this->fileManager)->isSameFile(veteran, fileObject)) {
-							return true;
-						}
-					} catch ($IllegalArgumentException& e) {
+				try {
+					if ($nc(this->fileManager)->isSameFile(veteran, fileObject)) {
+						return true;
 					}
+				} catch ($IllegalArgumentException& e) {
 				}
 			}
 		}
 		{
-			$var($Iterator, i$, $nc(this->initialClassNames)->iterator());
+			$var($Iterator, i$, this->initialClassNames->iterator());
 			for (; $nc(i$)->hasNext();) {
 				$var($String, className, $cast($String, i$->next()));
-				{
-					try {
-						$var($Symbol$ClassSymbol, existing, $cast($Symbol$ClassSymbol, $nc(this->elementUtils)->getTypeElement(className)));
-						bool var$0 = existing != nullptr;
-						if (var$0) {
-							bool var$1 = (existing->sourcefile != nullptr && $nc(this->fileManager)->isSameFile(existing->sourcefile, fileObject));
-							var$0 = (var$1 || (existing->classfile != nullptr && $nc(this->fileManager)->isSameFile(existing->classfile, fileObject)));
-						}
-						if (var$0) {
-							return true;
-						}
-					} catch ($IllegalArgumentException& e) {
+				try {
+					$var($Symbol$ClassSymbol, existing, $cast($Symbol$ClassSymbol, $nc(this->elementUtils)->getTypeElement(className)));
+					bool var$0 = existing != nullptr;
+					if (var$0) {
+						bool var$1 = existing->sourcefile != nullptr && $nc(this->fileManager)->isSameFile(existing->sourcefile, fileObject);
+						var$0 = var$1 || (existing->classfile != nullptr && $nc(this->fileManager)->isSameFile(existing->classfile, fileObject));
 					}
+					if (var$0) {
+						return true;
+					}
+				} catch ($IllegalArgumentException& e) {
 				}
 			}
 		}
@@ -634,10 +527,8 @@ bool JavacFiler::isInFileObjectHistory($FileObject* fileObject, bool forWriting)
 		$var($Iterator, i$, $nc(this->fileObjectHistory)->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($FileObject, veteran, $cast($FileObject, i$->next()));
-			{
-				if ($nc(this->fileManager)->isSameFile(veteran, fileObject)) {
-					return true;
-				}
+			if ($nc(this->fileManager)->isSameFile(veteran, fileObject)) {
+				return true;
 			}
 		}
 	}
@@ -645,7 +536,7 @@ bool JavacFiler::isInFileObjectHistory($FileObject* fileObject, bool forWriting)
 }
 
 bool JavacFiler::newFiles() {
-	bool var$0 = (!$nc(this->generatedSourceNames)->isEmpty());
+	bool var$0 = !$nc(this->generatedSourceNames)->isEmpty();
 	return var$0 || (!$nc(this->generatedClasses)->isEmpty());
 }
 
@@ -682,12 +573,12 @@ void JavacFiler::setInitialState($Collection* initialInputs, $Collection* initia
 
 void JavacFiler::close() {
 	clearRoundState();
-	$nc(this->initialClassNames)->clear();
+	this->initialClassNames->clear();
 	$nc(this->initialInputs)->clear();
 	$nc(this->fileObjectHistory)->clear();
 	$nc(this->openTypeNames)->clear();
-	$nc(this->aggregateGeneratedSourceNames)->clear();
-	$nc(this->aggregateGeneratedClassNames)->clear();
+	this->aggregateGeneratedSourceNames->clear();
+	this->aggregateGeneratedClassNames->clear();
 }
 
 void JavacFiler::clearRoundState() {
@@ -697,10 +588,10 @@ void JavacFiler::clearRoundState() {
 }
 
 void JavacFiler::displayState() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Log);
 	$init($Log$WriterKind);
-	$var($PrintWriter, xout, $nc(($cast($Log, $($nc(this->context)->get($Log::logKey)))))->getWriter($Log$WriterKind::STDERR));
+	$var($PrintWriter, xout, $$sure($Log, $nc(this->context)->get($Log::logKey))->getWriter($Log$WriterKind::STDERR));
 	$nc(xout)->println($$str({"File Object History : "_s, this->fileObjectHistory}));
 	xout->println($$str({"Open Type Names     : "_s, this->openTypeNames}));
 	xout->println($$str({"Gen. Src Names      : "_s, this->generatedSourceNames}));
@@ -714,7 +605,7 @@ $String* JavacFiler::toString() {
 }
 
 void JavacFiler::closeFileObject($Symbol$ModuleSymbol* mod, $String* typeName, $FileObject* fileObject) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (typeName != nullptr) {
 		$var($JavaFileObject, javaFileObject, nullptr);
 		bool var$0 = $instanceOf($JavaFileObject, fileObject);
@@ -723,27 +614,21 @@ void JavacFiler::closeFileObject($Symbol$ModuleSymbol* mod, $String* typeName, $
 			var$0 = true;
 		}
 		if (!(var$0)) {
-			$throwNew($AssertionError, $of($$str({"JavaFileObject not found for "_s, fileObject})));
+			$throwNew($AssertionError, $$of($str({"JavaFileObject not found for "_s, fileObject})));
 		}
 		$init($JavacFiler$1);
-		switch ($nc($JavacFiler$1::$SwitchMap$javax$tools$JavaFileObject$Kind)->get($nc(($($nc(javaFileObject)->getKind())))->ordinal())) {
+		switch ($nc($JavacFiler$1::$SwitchMap$javax$tools$JavaFileObject$Kind)->get(($$nc($nc(javaFileObject)->getKind()))->ordinal())) {
 		case 1:
-			{
-				$nc(this->generatedSourceNames)->add(typeName);
-				$nc(this->generatedSourceFileObjects)->add(javaFileObject);
-				$nc(this->openTypeNames)->remove(typeName);
-				break;
-			}
+			$nc(this->generatedSourceNames)->add(typeName);
+			$nc(this->generatedSourceFileObjects)->add(javaFileObject);
+			$nc(this->openTypeNames)->remove(typeName);
+			break;
 		case 2:
-			{
-				$nc(($cast($Map, $($nc(this->generatedClasses)->computeIfAbsent(mod, static_cast<$Function*>($$new(JavacFiler$$Lambda$lambda$closeFileObject$0)))))))->put(typeName, javaFileObject);
-				$nc(this->openTypeNames)->remove(typeName);
-				break;
-			}
+			$$sure($Map, $nc(this->generatedClasses)->computeIfAbsent(mod, $$new(JavacFiler$$Lambda$lambda$closeFileObject$0)))->put(typeName, javaFileObject);
+			$nc(this->openTypeNames)->remove(typeName);
+			break;
 		default:
-			{
-				break;
-			}
+			break;
 		}
 	}
 }
@@ -756,7 +641,7 @@ $Map* JavacFiler::lambda$closeFileObject$0($Symbol$ModuleSymbol* m) {
 JavacFiler::JavacFiler() {
 }
 
-void clinit$JavacFiler($Class* class$) {
+void JavacFiler::clinit$($Class* clazz) {
 	$assignStatic(JavacFiler::ALREADY_OPENED, "Output stream or writer has already been opened."_s);
 	$assignStatic(JavacFiler::NOT_FOR_READING, "FileObject was not opened for reading."_s);
 	$assignStatic(JavacFiler::NOT_FOR_WRITING, "FileObject was not opened for writing."_s);
@@ -764,11 +649,101 @@ void clinit$JavacFiler($Class* class$) {
 
 $Class* JavacFiler::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(JavacFiler$$Lambda$lambda$closeFileObject$0::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.processing.JavacFiler$$Lambda$lambda$closeFileObject$0")) {
 			return JavacFiler$$Lambda$lambda$closeFileObject$0::load$(name, initialize);
 		}
 	}
-	$loadClass(JavacFiler, name, initialize, &_JavacFiler_ClassInfo_, clinit$JavacFiler, allocate$JavacFiler);
+	$FieldInfo fieldInfos$$[] = {
+		{"ALREADY_OPENED", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JavacFiler, ALREADY_OPENED)},
+		{"NOT_FOR_READING", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JavacFiler, NOT_FOR_READING)},
+		{"NOT_FOR_WRITING", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JavacFiler, NOT_FOR_WRITING)},
+		{"fileManager", "Ljavax/tools/JavaFileManager;", nullptr, 0, $field(JavacFiler, fileManager)},
+		{"elementUtils", "Lcom/sun/tools/javac/model/JavacElements;", nullptr, 0, $field(JavacFiler, elementUtils)},
+		{"log", "Lcom/sun/tools/javac/util/Log;", nullptr, 0, $field(JavacFiler, log)},
+		{"modules", "Lcom/sun/tools/javac/comp/Modules;", nullptr, 0, $field(JavacFiler, modules)},
+		{"names", "Lcom/sun/tools/javac/util/Names;", nullptr, 0, $field(JavacFiler, names)},
+		{"syms", "Lcom/sun/tools/javac/code/Symtab;", nullptr, 0, $field(JavacFiler, syms)},
+		{"context", "Lcom/sun/tools/javac/util/Context;", nullptr, 0, $field(JavacFiler, context)},
+		{"lastRound", "Z", nullptr, 0, $field(JavacFiler, lastRound)},
+		{"lint", "Z", nullptr, $PRIVATE | $FINAL, $field(JavacFiler, lint)},
+		{"initialInputs", "Ljava/util/Set;", "Ljava/util/Set<Ljavax/tools/FileObject;>;", $PRIVATE | $FINAL, $field(JavacFiler, initialInputs)},
+		{"fileObjectHistory", "Ljava/util/Set;", "Ljava/util/Set<Ljavax/tools/FileObject;>;", $PRIVATE | $FINAL, $field(JavacFiler, fileObjectHistory)},
+		{"openTypeNames", "Ljava/util/Set;", "Ljava/util/Set<Ljava/lang/String;>;", $PRIVATE | $FINAL, $field(JavacFiler, openTypeNames)},
+		{"generatedSourceNames", "Ljava/util/Set;", "Ljava/util/Set<Ljava/lang/String;>;", $PRIVATE, $field(JavacFiler, generatedSourceNames)},
+		{"generatedClasses", "Ljava/util/Map;", "Ljava/util/Map<Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;Ljava/util/Map<Ljava/lang/String;Ljavax/tools/JavaFileObject;>;>;", $PRIVATE | $FINAL, $field(JavacFiler, generatedClasses)},
+		{"generatedSourceFileObjects", "Ljava/util/Set;", "Ljava/util/Set<Ljavax/tools/JavaFileObject;>;", $PRIVATE, $field(JavacFiler, generatedSourceFileObjects)},
+		{"aggregateGeneratedSourceNames", "Ljava/util/Set;", "Ljava/util/Set<Lcom/sun/tools/javac/util/Pair<Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;Ljava/lang/String;>;>;", $PRIVATE | $FINAL, $field(JavacFiler, aggregateGeneratedSourceNames)},
+		{"aggregateGeneratedClassNames", "Ljava/util/Set;", "Ljava/util/Set<Lcom/sun/tools/javac/util/Pair<Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;Ljava/lang/String;>;>;", $PRIVATE | $FINAL, $field(JavacFiler, aggregateGeneratedClassNames)},
+		{"initialClassNames", "Ljava/util/Set;", "Ljava/util/Set<Ljava/lang/String;>;", $PRIVATE | $FINAL, $field(JavacFiler, initialClassNames)},
+		{"defaultTargetModule", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(JavacFiler, defaultTargetModule)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lcom/sun/tools/javac/util/Context;)V", nullptr, 0, $method(JavacFiler, init$, void, $Context*)},
+		{"checkFileReopening", "(Ljavax/tools/FileObject;Z)V", nullptr, $PRIVATE, $method(JavacFiler, checkFileReopening, void, $FileObject*, bool), "javax.annotation.processing.FilerException"},
+		{"checkName", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(JavacFiler, checkName, void, $String*), "javax.annotation.processing.FilerException"},
+		{"checkName", "(Ljava/lang/String;Z)V", nullptr, $PRIVATE, $method(JavacFiler, checkName, void, $String*, bool), "javax.annotation.processing.FilerException"},
+		{"checkNameAndExistence", "(Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;Ljava/lang/String;Z)V", nullptr, $PRIVATE, $method(JavacFiler, checkNameAndExistence, void, $Symbol$ModuleSymbol*, $String*, bool), "javax.annotation.processing.FilerException"},
+		{"checkOrInferModule", "(Ljava/lang/CharSequence;)Lcom/sun/tools/javac/util/Pair;", "(Ljava/lang/CharSequence;)Lcom/sun/tools/javac/util/Pair<Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;Ljava/lang/String;>;", $PRIVATE, $method(JavacFiler, checkOrInferModule, $Pair*, $CharSequence*), "javax.annotation.processing.FilerException"},
+		{"checkOrInferModule", "(Ljavax/tools/JavaFileManager$Location;Ljava/lang/CharSequence;Z)Lcom/sun/tools/javac/processing/JavacFiler$Tuple3;", "(Ljavax/tools/JavaFileManager$Location;Ljava/lang/CharSequence;Z)Lcom/sun/tools/javac/processing/JavacFiler$Tuple3<Ljavax/tools/JavaFileManager$Location;Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;Ljava/lang/String;>;", $PRIVATE, $method(JavacFiler, checkOrInferModule, $JavacFiler$Tuple3*, $JavaFileManager$Location*, $CharSequence*, bool), "java.io.IOException"},
+		{"clearRoundState", "()V", nullptr, $PRIVATE, $method(JavacFiler, clearRoundState, void)},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(JavacFiler, close, void)},
+		{"closeFileObject", "(Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;Ljava/lang/String;Ljavax/tools/FileObject;)V", nullptr, $PRIVATE, $method(JavacFiler, closeFileObject, void, $Symbol$ModuleSymbol*, $String*, $FileObject*)},
+		{"containedInInitialInputs", "(Ljava/lang/String;)Z", nullptr, $PRIVATE, $method(JavacFiler, containedInInitialInputs, bool, $String*)},
+		{"createClassFile", "(Ljava/lang/CharSequence;[Ljavax/lang/model/element/Element;)Ljavax/tools/JavaFileObject;", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(JavacFiler, createClassFile, $JavaFileObject*, $CharSequence*, $ElementArray*), "java.io.IOException"},
+		{"createResource", "(Ljavax/tools/JavaFileManager$Location;Ljava/lang/CharSequence;Ljava/lang/CharSequence;[Ljavax/lang/model/element/Element;)Ljavax/tools/FileObject;", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(JavacFiler, createResource, $FileObject*, $JavaFileManager$Location*, $CharSequence*, $CharSequence*, $ElementArray*), "java.io.IOException"},
+		{"createSourceFile", "(Ljava/lang/CharSequence;[Ljavax/lang/model/element/Element;)Ljavax/tools/JavaFileObject;", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(JavacFiler, createSourceFile, $JavaFileObject*, $CharSequence*, $ElementArray*), "java.io.IOException"},
+		{"createSourceOrClassFile", "(Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;ZLjava/lang/String;)Ljavax/tools/JavaFileObject;", nullptr, $PRIVATE, $method(JavacFiler, createSourceOrClassFile, $JavaFileObject*, $Symbol$ModuleSymbol*, bool, $String*), "java.io.IOException"},
+		{"displayState", "()V", nullptr, $PUBLIC, $virtualMethod(JavacFiler, displayState, void)},
+		{"getGeneratedClasses", "()Ljava/util/Map;", "()Ljava/util/Map<Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;Ljava/util/Map<Ljava/lang/String;Ljavax/tools/JavaFileObject;>;>;", $PUBLIC, $virtualMethod(JavacFiler, getGeneratedClasses, $Map*)},
+		{"getGeneratedSourceFileObjects", "()Ljava/util/Set;", "()Ljava/util/Set<Ljavax/tools/JavaFileObject;>;", $PUBLIC, $virtualMethod(JavacFiler, getGeneratedSourceFileObjects, $Set*)},
+		{"getGeneratedSourceNames", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(JavacFiler, getGeneratedSourceNames, $Set*)},
+		{"getResource", "(Ljavax/tools/JavaFileManager$Location;Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljavax/tools/FileObject;", nullptr, $PUBLIC, $virtualMethod(JavacFiler, getResource, $FileObject*, $JavaFileManager$Location*, $CharSequence*, $CharSequence*), "java.io.IOException"},
+		{"inferModule", "(Ljava/lang/String;)Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;", nullptr, $PRIVATE, $method(JavacFiler, inferModule, $Symbol$ModuleSymbol*, $String*)},
+		{"isInFileObjectHistory", "(Ljavax/tools/FileObject;Z)Z", nullptr, $PRIVATE, $method(JavacFiler, isInFileObjectHistory, bool, $FileObject*, bool)},
+		{"isPackageInfo", "(Ljava/lang/String;Z)Z", nullptr, $PRIVATE, $method(JavacFiler, isPackageInfo, bool, $String*, bool)},
+		{"lambda$closeFileObject$0", "(Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;)Ljava/util/Map;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JavacFiler, lambda$closeFileObject$0, $Map*, $Symbol$ModuleSymbol*)},
+		{"locationCheck", "(Ljavax/tools/JavaFileManager$Location;)V", nullptr, $PRIVATE, $method(JavacFiler, locationCheck, void, $JavaFileManager$Location*)},
+		{"newFiles", "()Z", nullptr, $PUBLIC, $virtualMethod(JavacFiler, newFiles, bool)},
+		{"newRound", "()V", nullptr, $PUBLIC, $virtualMethod(JavacFiler, newRound, void)},
+		{"setInitialState", "(Ljava/util/Collection;Ljava/util/Collection;)V", "(Ljava/util/Collection<+Ljavax/tools/JavaFileObject;>;Ljava/util/Collection<Ljava/lang/String;>;)V", $PUBLIC, $virtualMethod(JavacFiler, setInitialState, void, $Collection*, $Collection*)},
+		{"setLastRound", "(Z)V", nullptr, 0, $virtualMethod(JavacFiler, setLastRound, void, bool)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JavacFiler, toString, $String*)},
+		{"warnIfUnclosedFiles", "()V", nullptr, $PUBLIC, $virtualMethod(JavacFiler, warnIfUnclosedFiles, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.processing.JavacFiler$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{"com.sun.tools.javac.processing.JavacFiler$Tuple3", "com.sun.tools.javac.processing.JavacFiler", "Tuple3", $STATIC | $FINAL},
+		{"com.sun.tools.javac.processing.JavacFiler$FilerWriter", "com.sun.tools.javac.processing.JavacFiler", "FilerWriter", $PRIVATE},
+		{"com.sun.tools.javac.processing.JavacFiler$FilerOutputStream", "com.sun.tools.javac.processing.JavacFiler", "FilerOutputStream", $PRIVATE},
+		{"com.sun.tools.javac.processing.JavacFiler$FilerInputJavaFileObject", "com.sun.tools.javac.processing.JavacFiler", "FilerInputJavaFileObject", $PRIVATE},
+		{"com.sun.tools.javac.processing.JavacFiler$FilerInputFileObject", "com.sun.tools.javac.processing.JavacFiler", "FilerInputFileObject", $PRIVATE},
+		{"com.sun.tools.javac.processing.JavacFiler$FilerOutputJavaFileObject", "com.sun.tools.javac.processing.JavacFiler", "FilerOutputJavaFileObject", $PRIVATE},
+		{"com.sun.tools.javac.processing.JavacFiler$FilerOutputFileObject", "com.sun.tools.javac.processing.JavacFiler", "FilerOutputFileObject", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.processing.JavacFiler",
+		"java.lang.Object",
+		"javax.annotation.processing.Filer,java.io.Closeable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.processing.JavacFiler$1,com.sun.tools.javac.processing.JavacFiler$Tuple3,com.sun.tools.javac.processing.JavacFiler$FilerWriter,com.sun.tools.javac.processing.JavacFiler$FilerOutputStream,com.sun.tools.javac.processing.JavacFiler$FilerInputJavaFileObject,com.sun.tools.javac.processing.JavacFiler$FilerInputFileObject,com.sun.tools.javac.processing.JavacFiler$FilerOutputJavaFileObject,com.sun.tools.javac.processing.JavacFiler$FilerOutputFileObject"
+	};
+	$loadClass(JavacFiler, name, initialize, &classInfo$$, JavacFiler::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JavacFiler));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/text/resources/ext/FormatData_zh_TW.h>
-
 #include <sun/util/resources/ParallelListResourceBundle.h>
 #include <jcpp.h>
 
@@ -13,31 +12,12 @@ namespace sun {
 		namespace resources {
 			namespace ext {
 
-$MethodInfo _FormatData_zh_TW_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(FormatData_zh_TW, init$, void)},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(FormatData_zh_TW, getContents, $ObjectArray2*)},
-	{}
-};
-
-$ClassInfo _FormatData_zh_TW_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.text.resources.ext.FormatData_zh_TW",
-	"sun.util.resources.ParallelListResourceBundle",
-	nullptr,
-	nullptr,
-	_FormatData_zh_TW_MethodInfo_
-};
-
-$Object* allocate$FormatData_zh_TW($Class* clazz) {
-	return $of($alloc(FormatData_zh_TW));
-}
-
 void FormatData_zh_TW::init$() {
 	$ParallelListResourceBundle::init$();
 }
 
 $ObjectArray2* FormatData_zh_TW::getContents() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringArray, rocEras, $new($StringArray, {
 		u"民國前"_s,
 		u"民國"_s
@@ -48,16 +28,16 @@ $ObjectArray2* FormatData_zh_TW::getContents() {
 	}));
 	return $new($ObjectArray2, {
 		$$new($ObjectArray, {
-			$of("Eras"_s),
-			$of(gregoryEras)
+			"Eras"_s,
+			gregoryEras
 		}),
 		$$new($ObjectArray, {
-			$of("short.Eras"_s),
-			$of(gregoryEras)
+			"short.Eras"_s,
+			gregoryEras
 		}),
 		$$new($ObjectArray, {
-			$of("standalone.MonthAbbreviations"_s),
-			$of($$new($StringArray, {
+			"standalone.MonthAbbreviations"_s,
+			$$new($StringArray, {
 				u"1月"_s,
 				u"2月"_s,
 				u"3月"_s,
@@ -71,11 +51,11 @@ $ObjectArray2* FormatData_zh_TW::getContents() {
 				u"11月"_s,
 				u"12月"_s,
 				""_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("MonthNarrows"_s),
-			$of($$new($StringArray, {
+			"MonthNarrows"_s,
+			$$new($StringArray, {
 				"1"_s,
 				"2"_s,
 				"3"_s,
@@ -89,59 +69,59 @@ $ObjectArray2* FormatData_zh_TW::getContents() {
 				"11"_s,
 				"12"_s,
 				""_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("NumberPatterns"_s),
-			$of($$new($StringArray, {
+			"NumberPatterns"_s,
+			$$new($StringArray, {
 				"#,##0.###;-#,##0.###"_s,
 				u"¤#,##0.00;-¤#,##0.00"_s,
 				"#,##0%"_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("TimePatterns"_s),
-			$of($$new($StringArray, {
+			"TimePatterns"_s,
+			$$new($StringArray, {
 				u"ahh\'時\'mm\'分\'ss\'秒\' z"_s,
 				u"ahh\'時\'mm\'分\'ss\'秒\'"_s,
 				"a hh:mm:ss"_s,
 				"a h:mm"_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("DatePatterns"_s),
-			$of($$new($StringArray, {
+			"DatePatterns"_s,
+			$$new($StringArray, {
 				u"yyyy\'年\'M\'月\'d\'日\' EEEE"_s,
 				u"yyyy\'年\'M\'月\'d\'日\'"_s,
 				"yyyy/M/d"_s,
 				"yyyy/M/d"_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("DateTimePatterns"_s),
-			$of($$new($StringArray, {"{1} {0}"_s}))
+			"DateTimePatterns"_s,
+			$$new($StringArray, {"{1} {0}"_s})
 		}),
 		$$new($ObjectArray, {
-			$of("buddhist.DatePatterns"_s),
-			$of($$new($StringArray, {
+			"buddhist.DatePatterns"_s,
+			$$new($StringArray, {
 				u"GGGGy年M月d日EEEE"_s,
 				u"GGGGy年M月d日"_s,
 				"GGGGy/M/d"_s,
 				"GGGGy/M/d"_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("japanese.DatePatterns"_s),
-			$of($$new($StringArray, {
+			"japanese.DatePatterns"_s,
+			$$new($StringArray, {
 				u"GGGGy年M月d日EEEE"_s,
 				u"GGGGy年M月d日"_s,
 				"GGGGy/M/d"_s,
 				"GGGGy/M/d"_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("DateTimePatternChars"_s),
-			$of("GyMdkHmsSEDFwWahKzZ"_s)
+			"DateTimePatternChars"_s,
+			"GyMdkHmsSEDFwWahKzZ"_s
 		})
 	});
 }
@@ -150,7 +130,22 @@ FormatData_zh_TW::FormatData_zh_TW() {
 }
 
 $Class* FormatData_zh_TW::load$($String* name, bool initialize) {
-	$loadClass(FormatData_zh_TW, name, initialize, &_FormatData_zh_TW_ClassInfo_, allocate$FormatData_zh_TW);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(FormatData_zh_TW, init$, void)},
+		{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(FormatData_zh_TW, getContents, $ObjectArray2*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.text.resources.ext.FormatData_zh_TW",
+		"sun.util.resources.ParallelListResourceBundle",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(FormatData_zh_TW, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FormatData_zh_TW);
+	});
 	return class$;
 }
 

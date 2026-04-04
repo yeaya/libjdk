@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/basic/BasicPanelUI.h>
-
 #include <java/awt/Component$BaselineResizeBehavior.h>
 #include <java/awt/Component.h>
 #include <javax/swing/JComponent.h>
@@ -14,7 +13,6 @@
 #undef OTHER
 #undef TRUE
 
-using $Component = ::java::awt::Component;
 using $Component$BaselineResizeBehavior = ::java::awt::Component$BaselineResizeBehavior;
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -32,36 +30,6 @@ namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace basic {
-
-$FieldInfo _BasicPanelUI_FieldInfo_[] = {
-	{"panelUI", "Ljavax/swing/plaf/PanelUI;", nullptr, $PRIVATE | $STATIC, $staticField(BasicPanelUI, panelUI)},
-	{}
-};
-
-$MethodInfo _BasicPanelUI_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(BasicPanelUI, init$, void)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(BasicPanelUI, createUI, $ComponentUI*, $JComponent*)},
-	{"getBaseline", "(Ljavax/swing/JComponent;II)I", nullptr, $PUBLIC, $virtualMethod(BasicPanelUI, getBaseline, int32_t, $JComponent*, int32_t, int32_t)},
-	{"getBaselineResizeBehavior", "(Ljavax/swing/JComponent;)Ljava/awt/Component$BaselineResizeBehavior;", nullptr, $PUBLIC, $virtualMethod(BasicPanelUI, getBaselineResizeBehavior, $Component$BaselineResizeBehavior*, $JComponent*)},
-	{"installDefaults", "(Ljavax/swing/JPanel;)V", nullptr, $PROTECTED, $virtualMethod(BasicPanelUI, installDefaults, void, $JPanel*)},
-	{"installUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(BasicPanelUI, installUI, void, $JComponent*)},
-	{"uninstallDefaults", "(Ljavax/swing/JPanel;)V", nullptr, $PROTECTED, $virtualMethod(BasicPanelUI, uninstallDefaults, void, $JPanel*)},
-	{"uninstallUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(BasicPanelUI, uninstallUI, void, $JComponent*)},
-	{}
-};
-
-$ClassInfo _BasicPanelUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.basic.BasicPanelUI",
-	"javax.swing.plaf.PanelUI",
-	nullptr,
-	_BasicPanelUI_FieldInfo_,
-	_BasicPanelUI_MethodInfo_
-};
-
-$Object* allocate$BasicPanelUI($Class* clazz) {
-	return $of($alloc(BasicPanelUI));
-}
 
 $PanelUI* BasicPanelUI::panelUI = nullptr;
 
@@ -92,7 +60,6 @@ void BasicPanelUI::uninstallUI($JComponent* c) {
 void BasicPanelUI::installDefaults($JPanel* p) {
 	$LookAndFeel::installColorsAndFont(p, "Panel.background"_s, "Panel.foreground"_s, "Panel.font"_s);
 	$LookAndFeel::installBorder(p, "Panel.border"_s);
-	$init($Boolean);
 	$LookAndFeel::installProperty(p, "opaque"_s, $Boolean::TRUE);
 }
 
@@ -104,7 +71,7 @@ int32_t BasicPanelUI::getBaseline($JComponent* c, int32_t width, int32_t height)
 	$PanelUI::getBaseline(c, width, height);
 	$var($Border, border, $nc(c)->getBorder());
 	if ($instanceOf($AbstractBorder, border)) {
-		return $nc(($cast($AbstractBorder, border)))->getBaseline(c, width, height);
+		return $cast($AbstractBorder, border)->getBaseline(c, width, height);
 	}
 	return -1;
 }
@@ -113,7 +80,7 @@ $Component$BaselineResizeBehavior* BasicPanelUI::getBaselineResizeBehavior($JCom
 	$PanelUI::getBaselineResizeBehavior(c);
 	$var($Border, border, $nc(c)->getBorder());
 	if ($instanceOf($AbstractBorder, border)) {
-		return $nc(($cast($AbstractBorder, border)))->getBaselineResizeBehavior(c);
+		return $cast($AbstractBorder, border)->getBaselineResizeBehavior(c);
 	}
 	$init($Component$BaselineResizeBehavior);
 	return $Component$BaselineResizeBehavior::OTHER;
@@ -123,7 +90,32 @@ BasicPanelUI::BasicPanelUI() {
 }
 
 $Class* BasicPanelUI::load$($String* name, bool initialize) {
-	$loadClass(BasicPanelUI, name, initialize, &_BasicPanelUI_ClassInfo_, allocate$BasicPanelUI);
+	$FieldInfo fieldInfos$$[] = {
+		{"panelUI", "Ljavax/swing/plaf/PanelUI;", nullptr, $PRIVATE | $STATIC, $staticField(BasicPanelUI, panelUI)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(BasicPanelUI, init$, void)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(BasicPanelUI, createUI, $ComponentUI*, $JComponent*)},
+		{"getBaseline", "(Ljavax/swing/JComponent;II)I", nullptr, $PUBLIC, $virtualMethod(BasicPanelUI, getBaseline, int32_t, $JComponent*, int32_t, int32_t)},
+		{"getBaselineResizeBehavior", "(Ljavax/swing/JComponent;)Ljava/awt/Component$BaselineResizeBehavior;", nullptr, $PUBLIC, $virtualMethod(BasicPanelUI, getBaselineResizeBehavior, $Component$BaselineResizeBehavior*, $JComponent*)},
+		{"installDefaults", "(Ljavax/swing/JPanel;)V", nullptr, $PROTECTED, $virtualMethod(BasicPanelUI, installDefaults, void, $JPanel*)},
+		{"installUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(BasicPanelUI, installUI, void, $JComponent*)},
+		{"uninstallDefaults", "(Ljavax/swing/JPanel;)V", nullptr, $PROTECTED, $virtualMethod(BasicPanelUI, uninstallDefaults, void, $JPanel*)},
+		{"uninstallUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(BasicPanelUI, uninstallUI, void, $JComponent*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.basic.BasicPanelUI",
+		"javax.swing.plaf.PanelUI",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(BasicPanelUI, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BasicPanelUI);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/rmi/transport/DGCClient$EndpointEntry$RefEntry$PhantomLiveRef.h>
-
 #include <java/lang/ref/PhantomReference.h>
 #include <java/lang/ref/ReferenceQueue.h>
 #include <sun/rmi/transport/DGCClient$EndpointEntry$RefEntry.h>
@@ -19,44 +18,6 @@ namespace sun {
 	namespace rmi {
 		namespace transport {
 
-$FieldInfo _DGCClient$EndpointEntry$RefEntry$PhantomLiveRef_FieldInfo_[] = {
-	{"this$1", "Lsun/rmi/transport/DGCClient$EndpointEntry$RefEntry;", nullptr, $FINAL | $SYNTHETIC, $field(DGCClient$EndpointEntry$RefEntry$PhantomLiveRef, this$1)},
-	{}
-};
-
-$MethodInfo _DGCClient$EndpointEntry$RefEntry$PhantomLiveRef_MethodInfo_[] = {
-	{"<init>", "(Lsun/rmi/transport/DGCClient$EndpointEntry$RefEntry;Lsun/rmi/transport/LiveRef;)V", nullptr, $PUBLIC, $method(DGCClient$EndpointEntry$RefEntry$PhantomLiveRef, init$, void, $DGCClient$EndpointEntry$RefEntry*, $LiveRef*)},
-	{"getRefEntry", "()Lsun/rmi/transport/DGCClient$EndpointEntry$RefEntry;", nullptr, $PUBLIC, $virtualMethod(DGCClient$EndpointEntry$RefEntry$PhantomLiveRef, getRefEntry, $DGCClient$EndpointEntry$RefEntry*)},
-	{}
-};
-
-$InnerClassInfo _DGCClient$EndpointEntry$RefEntry$PhantomLiveRef_InnerClassesInfo_[] = {
-	{"sun.rmi.transport.DGCClient$EndpointEntry", "sun.rmi.transport.DGCClient", "EndpointEntry", $PRIVATE | $STATIC},
-	{"sun.rmi.transport.DGCClient$EndpointEntry$RefEntry", "sun.rmi.transport.DGCClient$EndpointEntry", "RefEntry", $PRIVATE},
-	{"sun.rmi.transport.DGCClient$EndpointEntry$RefEntry$PhantomLiveRef", "sun.rmi.transport.DGCClient$EndpointEntry$RefEntry", "PhantomLiveRef", $PRIVATE},
-	{}
-};
-
-$ClassInfo _DGCClient$EndpointEntry$RefEntry$PhantomLiveRef_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.rmi.transport.DGCClient$EndpointEntry$RefEntry$PhantomLiveRef",
-	"java.lang.ref.PhantomReference",
-	nullptr,
-	_DGCClient$EndpointEntry$RefEntry$PhantomLiveRef_FieldInfo_,
-	_DGCClient$EndpointEntry$RefEntry$PhantomLiveRef_MethodInfo_,
-	"Ljava/lang/ref/PhantomReference<Lsun/rmi/transport/LiveRef;>;",
-	nullptr,
-	_DGCClient$EndpointEntry$RefEntry$PhantomLiveRef_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.rmi.transport.DGCClient"
-};
-
-$Object* allocate$DGCClient$EndpointEntry$RefEntry$PhantomLiveRef($Class* clazz) {
-	return $of($alloc(DGCClient$EndpointEntry$RefEntry$PhantomLiveRef));
-}
-
 void DGCClient$EndpointEntry$RefEntry$PhantomLiveRef::init$($DGCClient$EndpointEntry$RefEntry* this$1, $LiveRef* ref) {
 	$set(this, this$1, this$1);
 	$PhantomReference::init$(ref, $nc(this$1->this$0)->refQueue);
@@ -70,7 +31,39 @@ DGCClient$EndpointEntry$RefEntry$PhantomLiveRef::DGCClient$EndpointEntry$RefEntr
 }
 
 $Class* DGCClient$EndpointEntry$RefEntry$PhantomLiveRef::load$($String* name, bool initialize) {
-	$loadClass(DGCClient$EndpointEntry$RefEntry$PhantomLiveRef, name, initialize, &_DGCClient$EndpointEntry$RefEntry$PhantomLiveRef_ClassInfo_, allocate$DGCClient$EndpointEntry$RefEntry$PhantomLiveRef);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$1", "Lsun/rmi/transport/DGCClient$EndpointEntry$RefEntry;", nullptr, $FINAL | $SYNTHETIC, $field(DGCClient$EndpointEntry$RefEntry$PhantomLiveRef, this$1)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/rmi/transport/DGCClient$EndpointEntry$RefEntry;Lsun/rmi/transport/LiveRef;)V", nullptr, $PUBLIC, $method(DGCClient$EndpointEntry$RefEntry$PhantomLiveRef, init$, void, $DGCClient$EndpointEntry$RefEntry*, $LiveRef*)},
+		{"getRefEntry", "()Lsun/rmi/transport/DGCClient$EndpointEntry$RefEntry;", nullptr, $PUBLIC, $virtualMethod(DGCClient$EndpointEntry$RefEntry$PhantomLiveRef, getRefEntry, $DGCClient$EndpointEntry$RefEntry*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.rmi.transport.DGCClient$EndpointEntry", "sun.rmi.transport.DGCClient", "EndpointEntry", $PRIVATE | $STATIC},
+		{"sun.rmi.transport.DGCClient$EndpointEntry$RefEntry", "sun.rmi.transport.DGCClient$EndpointEntry", "RefEntry", $PRIVATE},
+		{"sun.rmi.transport.DGCClient$EndpointEntry$RefEntry$PhantomLiveRef", "sun.rmi.transport.DGCClient$EndpointEntry$RefEntry", "PhantomLiveRef", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.rmi.transport.DGCClient$EndpointEntry$RefEntry$PhantomLiveRef",
+		"java.lang.ref.PhantomReference",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/ref/PhantomReference<Lsun/rmi/transport/LiveRef;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.rmi.transport.DGCClient"
+	};
+	$loadClass(DGCClient$EndpointEntry$RefEntry$PhantomLiveRef, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DGCClient$EndpointEntry$RefEntry$PhantomLiveRef);
+	});
 	return class$;
 }
 

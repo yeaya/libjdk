@@ -1,5 +1,4 @@
 #include <javax/swing/TransferHandler$HasGetTransferHandler.h>
-
 #include <javax/swing/TransferHandler.h>
 #include <jcpp.h>
 
@@ -11,38 +10,33 @@ using $TransferHandler = ::javax::swing::TransferHandler;
 namespace javax {
 	namespace swing {
 
-$MethodInfo _TransferHandler$HasGetTransferHandler_MethodInfo_[] = {
-	{"getTransferHandler", "()Ljavax/swing/TransferHandler;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TransferHandler$HasGetTransferHandler, getTransferHandler, $TransferHandler*)},
-	{}
-};
-
-$InnerClassInfo _TransferHandler$HasGetTransferHandler_InnerClassesInfo_[] = {
-	{"javax.swing.TransferHandler$HasGetTransferHandler", "javax.swing.TransferHandler", "HasGetTransferHandler", $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _TransferHandler$HasGetTransferHandler_ClassInfo_ = {
-	$INTERFACE | $ABSTRACT,
-	"javax.swing.TransferHandler$HasGetTransferHandler",
-	nullptr,
-	nullptr,
-	nullptr,
-	_TransferHandler$HasGetTransferHandler_MethodInfo_,
-	nullptr,
-	nullptr,
-	_TransferHandler$HasGetTransferHandler_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.TransferHandler"
-};
-
-$Object* allocate$TransferHandler$HasGetTransferHandler($Class* clazz) {
-	return $of($alloc(TransferHandler$HasGetTransferHandler));
-}
-
 $Class* TransferHandler$HasGetTransferHandler::load$($String* name, bool initialize) {
-	$loadClass(TransferHandler$HasGetTransferHandler, name, initialize, &_TransferHandler$HasGetTransferHandler_ClassInfo_, allocate$TransferHandler$HasGetTransferHandler);
+	$MethodInfo methodInfos$$[] = {
+		{"getTransferHandler", "()Ljavax/swing/TransferHandler;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TransferHandler$HasGetTransferHandler, getTransferHandler, $TransferHandler*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.TransferHandler$HasGetTransferHandler", "javax.swing.TransferHandler", "HasGetTransferHandler", $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$INTERFACE | $ABSTRACT,
+		"javax.swing.TransferHandler$HasGetTransferHandler",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.TransferHandler"
+	};
+	$loadClass(TransferHandler$HasGetTransferHandler, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TransferHandler$HasGetTransferHandler);
+	});
 	return class$;
 }
 

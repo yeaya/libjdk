@@ -1,5 +1,4 @@
 #include <java/awt/Container$DropTargetEventTargetFilter.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Container$EventTargetFilter.h>
 #include <java/awt/Container.h>
@@ -19,43 +18,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace java {
 	namespace awt {
 
-$FieldInfo _Container$DropTargetEventTargetFilter_FieldInfo_[] = {
-	{"FILTER", "Ljava/awt/Container$EventTargetFilter;", nullptr, $STATIC | $FINAL, $staticField(Container$DropTargetEventTargetFilter, FILTER)},
-	{}
-};
-
-$MethodInfo _Container$DropTargetEventTargetFilter_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(Container$DropTargetEventTargetFilter, init$, void)},
-	{"accept", "(Ljava/awt/Component;)Z", nullptr, $PUBLIC, $virtualMethod(Container$DropTargetEventTargetFilter, accept, bool, $Component*)},
-	{}
-};
-
-$InnerClassInfo _Container$DropTargetEventTargetFilter_InnerClassesInfo_[] = {
-	{"java.awt.Container$DropTargetEventTargetFilter", "java.awt.Container", "DropTargetEventTargetFilter", $STATIC},
-	{"java.awt.Container$EventTargetFilter", "java.awt.Container", "EventTargetFilter", $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Container$DropTargetEventTargetFilter_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.awt.Container$DropTargetEventTargetFilter",
-	"java.lang.Object",
-	"java.awt.Container$EventTargetFilter",
-	_Container$DropTargetEventTargetFilter_FieldInfo_,
-	_Container$DropTargetEventTargetFilter_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Container$DropTargetEventTargetFilter_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.awt.Container"
-};
-
-$Object* allocate$Container$DropTargetEventTargetFilter($Class* clazz) {
-	return $of($alloc(Container$DropTargetEventTargetFilter));
-}
-
 $Container$EventTargetFilter* Container$DropTargetEventTargetFilter::FILTER = nullptr;
 
 void Container$DropTargetEventTargetFilter::init$() {
@@ -66,7 +28,7 @@ bool Container$DropTargetEventTargetFilter::accept($Component* comp) {
 	return dt != nullptr && dt->isActive();
 }
 
-void clinit$Container$DropTargetEventTargetFilter($Class* class$) {
+void Container$DropTargetEventTargetFilter::clinit$($Class* clazz) {
 	$assignStatic(Container$DropTargetEventTargetFilter::FILTER, $new(Container$DropTargetEventTargetFilter));
 }
 
@@ -74,7 +36,38 @@ Container$DropTargetEventTargetFilter::Container$DropTargetEventTargetFilter() {
 }
 
 $Class* Container$DropTargetEventTargetFilter::load$($String* name, bool initialize) {
-	$loadClass(Container$DropTargetEventTargetFilter, name, initialize, &_Container$DropTargetEventTargetFilter_ClassInfo_, clinit$Container$DropTargetEventTargetFilter, allocate$Container$DropTargetEventTargetFilter);
+	$FieldInfo fieldInfos$$[] = {
+		{"FILTER", "Ljava/awt/Container$EventTargetFilter;", nullptr, $STATIC | $FINAL, $staticField(Container$DropTargetEventTargetFilter, FILTER)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(Container$DropTargetEventTargetFilter, init$, void)},
+		{"accept", "(Ljava/awt/Component;)Z", nullptr, $PUBLIC, $virtualMethod(Container$DropTargetEventTargetFilter, accept, bool, $Component*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.awt.Container$DropTargetEventTargetFilter", "java.awt.Container", "DropTargetEventTargetFilter", $STATIC},
+		{"java.awt.Container$EventTargetFilter", "java.awt.Container", "EventTargetFilter", $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.awt.Container$DropTargetEventTargetFilter",
+		"java.lang.Object",
+		"java.awt.Container$EventTargetFilter",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.awt.Container"
+	};
+	$loadClass(Container$DropTargetEventTargetFilter, name, initialize, &classInfo$$, Container$DropTargetEventTargetFilter::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Container$DropTargetEventTargetFilter);
+	});
 	return class$;
 }
 

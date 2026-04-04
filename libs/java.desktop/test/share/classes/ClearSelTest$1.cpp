@@ -1,5 +1,4 @@
 #include <ClearSelTest$1.h>
-
 #include <ClearSelTest.h>
 #include <java/awt/Point.h>
 #include <java/awt/event/MouseAdapter.h>
@@ -16,50 +15,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $JTable = ::javax::swing::JTable;
 
-$FieldInfo _ClearSelTest$1_FieldInfo_[] = {
-	{"val$table", "Ljavax/swing/JTable;", nullptr, $FINAL | $SYNTHETIC, $field(ClearSelTest$1, val$table)},
-	{}
-};
-
-$MethodInfo _ClearSelTest$1_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/JTable;)V", nullptr, 0, $method(ClearSelTest$1, init$, void, $JTable*)},
-	{"mouseEntered", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(ClearSelTest$1, mouseEntered, void, $MouseEvent*)},
-	{"mouseExited", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(ClearSelTest$1, mouseExited, void, $MouseEvent*)},
-	{"mouseMoved", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(ClearSelTest$1, mouseMoved, void, $MouseEvent*)},
-	{}
-};
-
-$EnclosingMethodInfo _ClearSelTest$1_EnclosingMethodInfo_ = {
-	"ClearSelTest",
-	"clearSelTest",
-	"()V"
-};
-
-$InnerClassInfo _ClearSelTest$1_InnerClassesInfo_[] = {
-	{"ClearSelTest$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _ClearSelTest$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"ClearSelTest$1",
-	"java.awt.event.MouseAdapter",
-	nullptr,
-	_ClearSelTest$1_FieldInfo_,
-	_ClearSelTest$1_MethodInfo_,
-	nullptr,
-	&_ClearSelTest$1_EnclosingMethodInfo_,
-	_ClearSelTest$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"ClearSelTest"
-};
-
-$Object* allocate$ClearSelTest$1($Class* clazz) {
-	return $of($alloc(ClearSelTest$1));
-}
-
 void ClearSelTest$1::init$($JTable* val$table) {
 	$set(this, val$table, val$table);
 	$MouseAdapter::init$();
@@ -68,18 +23,18 @@ void ClearSelTest$1::init$($JTable* val$table) {
 void ClearSelTest$1::mouseMoved($MouseEvent* pE) {
 	int32_t row = $nc(this->val$table)->rowAtPoint($($nc(pE)->getPoint()));
 	if (row > -1) {
-		$nc(this->val$table)->setRowSelectionInterval(row, row);
+		this->val$table->setRowSelectionInterval(row, row);
 	} else {
-		$nc(this->val$table)->clearSelection();
+		this->val$table->clearSelection();
 	}
 }
 
 void ClearSelTest$1::mouseEntered($MouseEvent* pE) {
 	int32_t row = $nc(this->val$table)->rowAtPoint($($nc(pE)->getPoint()));
 	if (row > -1) {
-		$nc(this->val$table)->setRowSelectionInterval(row, row);
+		this->val$table->setRowSelectionInterval(row, row);
 	} else {
-		$nc(this->val$table)->clearSelection();
+		this->val$table->clearSelection();
 	}
 }
 
@@ -91,7 +46,44 @@ ClearSelTest$1::ClearSelTest$1() {
 }
 
 $Class* ClearSelTest$1::load$($String* name, bool initialize) {
-	$loadClass(ClearSelTest$1, name, initialize, &_ClearSelTest$1_ClassInfo_, allocate$ClearSelTest$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"val$table", "Ljavax/swing/JTable;", nullptr, $FINAL | $SYNTHETIC, $field(ClearSelTest$1, val$table)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/JTable;)V", nullptr, 0, $method(ClearSelTest$1, init$, void, $JTable*)},
+		{"mouseEntered", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(ClearSelTest$1, mouseEntered, void, $MouseEvent*)},
+		{"mouseExited", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(ClearSelTest$1, mouseExited, void, $MouseEvent*)},
+		{"mouseMoved", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(ClearSelTest$1, mouseMoved, void, $MouseEvent*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"ClearSelTest",
+		"clearSelTest",
+		"()V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"ClearSelTest$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"ClearSelTest$1",
+		"java.awt.event.MouseAdapter",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"ClearSelTest"
+	};
+	$loadClass(ClearSelTest$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ClearSelTest$1));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/apple/eawt/event/GestureHandler$1.h>
-
 #include <com/apple/eawt/event/GestureHandler$PerComponentNotifier.h>
 #include <com/apple/eawt/event/GestureHandler.h>
 #include <com/apple/eawt/event/GesturePhaseEvent.h>
@@ -34,53 +33,6 @@ namespace com {
 		namespace eawt {
 			namespace event {
 
-$FieldInfo _GestureHandler$1_FieldInfo_[] = {
-	{"val$b", "D", nullptr, $FINAL | $SYNTHETIC, $field(GestureHandler$1, val$b)},
-	{"val$a", "D", nullptr, $FINAL | $SYNTHETIC, $field(GestureHandler$1, val$a)},
-	{"val$type", "I", nullptr, $FINAL | $SYNTHETIC, $field(GestureHandler$1, val$type)},
-	{"val$y", "D", nullptr, $FINAL | $SYNTHETIC, $field(GestureHandler$1, val$y)},
-	{"val$x", "D", nullptr, $FINAL | $SYNTHETIC, $field(GestureHandler$1, val$x)},
-	{"val$window", "Ljava/awt/Window;", nullptr, $FINAL | $SYNTHETIC, $field(GestureHandler$1, val$window)},
-	{}
-};
-
-$MethodInfo _GestureHandler$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/awt/Window;DDIDD)V", "()V", 0, $method(GestureHandler$1, init$, void, $Window*, double, double, int32_t, double, double)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(GestureHandler$1, run, void)},
-	{}
-};
-
-$EnclosingMethodInfo _GestureHandler$1_EnclosingMethodInfo_ = {
-	"com.apple.eawt.event.GestureHandler",
-	"handleGestureFromNative",
-	"(Ljava/awt/Window;IDDDD)V"
-};
-
-$InnerClassInfo _GestureHandler$1_InnerClassesInfo_[] = {
-	{"com.apple.eawt.event.GestureHandler$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _GestureHandler$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.apple.eawt.event.GestureHandler$1",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	_GestureHandler$1_FieldInfo_,
-	_GestureHandler$1_MethodInfo_,
-	nullptr,
-	&_GestureHandler$1_EnclosingMethodInfo_,
-	_GestureHandler$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.apple.eawt.event.GestureHandler"
-};
-
-$Object* allocate$GestureHandler$1($Class* clazz) {
-	return $of($alloc(GestureHandler$1));
-}
-
 void GestureHandler$1::init$($Window* val$window, double val$x, double val$y, int32_t val$type, double val$a, double val$b) {
 	$set(this, val$window, val$window);
 	this->val$x = val$x;
@@ -91,11 +43,11 @@ void GestureHandler$1::init$($Window* val$window, double val$x, double val$y, in
 }
 
 void GestureHandler$1::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Component, component, $SwingUtilities::getDeepestComponentAt(this->val$window, $cast(int32_t, this->val$x), $cast(int32_t, this->val$y)));
 	$var($GestureHandler$PerComponentNotifier, firstNotifier, nullptr);
 	if ($instanceOf($RootPaneContainer, component)) {
-		$assign(firstNotifier, $GestureHandler::getNextNotifierForComponent($($nc(($cast($RootPaneContainer, component)))->getRootPane())));
+		$assign(firstNotifier, $GestureHandler::getNextNotifierForComponent($($cast($RootPaneContainer, component)->getRootPane())));
 	} else {
 		$assign(firstNotifier, $GestureHandler::getNextNotifierForComponent(component));
 	}
@@ -104,25 +56,17 @@ void GestureHandler$1::run() {
 	}
 	switch (this->val$type) {
 	case 1:
-		{
-			$nc(firstNotifier)->recursivelyHandlePhaseChange(this->val$a, $$new($GesturePhaseEvent));
-			return;
-		}
+		$nc(firstNotifier)->recursivelyHandlePhaseChange(this->val$a, $$new($GesturePhaseEvent));
+		return;
 	case 2:
-		{
-			$nc(firstNotifier)->recursivelyHandleRotate($$new($RotationEvent, this->val$a));
-			return;
-		}
+		$nc(firstNotifier)->recursivelyHandleRotate($$new($RotationEvent, this->val$a));
+		return;
 	case 3:
-		{
-			$nc(firstNotifier)->recursivelyHandleMagnify($$new($MagnificationEvent, this->val$a));
-			return;
-		}
+		$nc(firstNotifier)->recursivelyHandleMagnify($$new($MagnificationEvent, this->val$a));
+		return;
 	case 4:
-		{
-			$nc(firstNotifier)->recursivelyHandleSwipe(this->val$a, this->val$b, $$new($SwipeEvent));
-			return;
-		}
+		$nc(firstNotifier)->recursivelyHandleSwipe(this->val$a, this->val$b, $$new($SwipeEvent));
+		return;
 	}
 }
 
@@ -130,7 +74,47 @@ GestureHandler$1::GestureHandler$1() {
 }
 
 $Class* GestureHandler$1::load$($String* name, bool initialize) {
-	$loadClass(GestureHandler$1, name, initialize, &_GestureHandler$1_ClassInfo_, allocate$GestureHandler$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"val$b", "D", nullptr, $FINAL | $SYNTHETIC, $field(GestureHandler$1, val$b)},
+		{"val$a", "D", nullptr, $FINAL | $SYNTHETIC, $field(GestureHandler$1, val$a)},
+		{"val$type", "I", nullptr, $FINAL | $SYNTHETIC, $field(GestureHandler$1, val$type)},
+		{"val$y", "D", nullptr, $FINAL | $SYNTHETIC, $field(GestureHandler$1, val$y)},
+		{"val$x", "D", nullptr, $FINAL | $SYNTHETIC, $field(GestureHandler$1, val$x)},
+		{"val$window", "Ljava/awt/Window;", nullptr, $FINAL | $SYNTHETIC, $field(GestureHandler$1, val$window)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/Window;DDIDD)V", "()V", 0, $method(GestureHandler$1, init$, void, $Window*, double, double, int32_t, double, double)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(GestureHandler$1, run, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.apple.eawt.event.GestureHandler",
+		"handleGestureFromNative",
+		"(Ljava/awt/Window;IDDDD)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.eawt.event.GestureHandler$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.apple.eawt.event.GestureHandler$1",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.apple.eawt.event.GestureHandler"
+	};
+	$loadClass(GestureHandler$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(GestureHandler$1);
+	});
 	return class$;
 }
 

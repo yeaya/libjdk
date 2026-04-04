@@ -18,6 +18,7 @@ class CksumType : public ::java::lang::Object {
 	$class(CksumType, 0, ::java::lang::Object)
 public:
 	CksumType();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual $bytes* calculateChecksum($bytes* data, int32_t size, $bytes* key, int32_t usage) {return nullptr;}
 	virtual int32_t cksumSize() {return 0;}

@@ -1,5 +1,4 @@
 #include <javax/swing/text/rtf/RTFReader$FonttblDestination.h>
-
 #include <java/util/Dictionary.h>
 #include <java/util/Enumeration.h>
 #include <javax/swing/text/rtf/RTFReader.h>
@@ -19,52 +18,6 @@ namespace javax {
 		namespace text {
 			namespace rtf {
 
-$FieldInfo _RTFReader$FonttblDestination_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/text/rtf/RTFReader;", nullptr, $FINAL | $SYNTHETIC, $field(RTFReader$FonttblDestination, this$0)},
-	{"nextFontNumber", "I", nullptr, 0, $field(RTFReader$FonttblDestination, nextFontNumber)},
-	{"fontNumberKey", "Ljava/lang/Integer;", nullptr, 0, $field(RTFReader$FonttblDestination, fontNumberKey)},
-	{"nextFontFamily", "Ljava/lang/String;", nullptr, 0, $field(RTFReader$FonttblDestination, nextFontFamily)},
-	{}
-};
-
-$MethodInfo _RTFReader$FonttblDestination_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/text/rtf/RTFReader;)V", nullptr, 0, $method(RTFReader$FonttblDestination, init$, void, $RTFReader*)},
-	{"begingroup", "()V", nullptr, $PUBLIC, $virtualMethod(RTFReader$FonttblDestination, begingroup, void)},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(RTFReader$FonttblDestination, close, void)},
-	{"endgroup", "(Ljava/util/Dictionary;)V", "(Ljava/util/Dictionary<Ljava/lang/Object;Ljava/lang/Object;>;)V", $PUBLIC, $virtualMethod(RTFReader$FonttblDestination, endgroup, void, $Dictionary*)},
-	{"handleBinaryBlob", "([B)V", nullptr, $PUBLIC, $virtualMethod(RTFReader$FonttblDestination, handleBinaryBlob, void, $bytes*)},
-	{"handleKeyword", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(RTFReader$FonttblDestination, handleKeyword, bool, $String*)},
-	{"handleKeyword", "(Ljava/lang/String;I)Z", nullptr, $PUBLIC, $virtualMethod(RTFReader$FonttblDestination, handleKeyword, bool, $String*, int32_t)},
-	{"handleText", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(RTFReader$FonttblDestination, handleText, void, $String*)},
-	{}
-};
-
-$InnerClassInfo _RTFReader$FonttblDestination_InnerClassesInfo_[] = {
-	{"javax.swing.text.rtf.RTFReader$FonttblDestination", "javax.swing.text.rtf.RTFReader", "FonttblDestination", 0},
-	{"javax.swing.text.rtf.RTFReader$Destination", "javax.swing.text.rtf.RTFReader", "Destination", $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _RTFReader$FonttblDestination_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.text.rtf.RTFReader$FonttblDestination",
-	"java.lang.Object",
-	"javax.swing.text.rtf.RTFReader$Destination",
-	_RTFReader$FonttblDestination_FieldInfo_,
-	_RTFReader$FonttblDestination_MethodInfo_,
-	nullptr,
-	nullptr,
-	_RTFReader$FonttblDestination_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.rtf.RTFReader"
-};
-
-$Object* allocate$RTFReader$FonttblDestination($Class* clazz) {
-	return $of($alloc(RTFReader$FonttblDestination));
-}
-
 void RTFReader$FonttblDestination::init$($RTFReader* this$0) {
 	$set(this, this$0, this$0);
 	$set(this, fontNumberKey, nullptr);
@@ -74,8 +27,8 @@ void RTFReader$FonttblDestination::handleBinaryBlob($bytes* data) {
 }
 
 void RTFReader$FonttblDestination::handleText($String* text) {
-	$useLocalCurrentObjectStackCache();
-	int32_t semicolon = $nc(text)->indexOf((int32_t)u';');
+	$useLocalObjectStack();
+	int32_t semicolon = $nc(text)->indexOf(u';');
 	$var($String, fontName, nullptr);
 	if (semicolon > -1) {
 		$assign(fontName, text->substring(0, semicolon));
@@ -83,7 +36,7 @@ void RTFReader$FonttblDestination::handleText($String* text) {
 		$assign(fontName, text);
 	}
 	if (this->nextFontNumber == -1 && this->fontNumberKey != nullptr) {
-		$assign(fontName, $str({$cast($String, $($nc(this->this$0->fontTable)->get(this->fontNumberKey))), fontName}));
+		$assign(fontName, $str({$$cast($String, $nc(this->this$0->fontTable)->get(this->fontNumberKey)), fontName}));
 	} else {
 		$set(this, fontNumberKey, $Integer::valueOf(this->nextFontNumber));
 	}
@@ -115,13 +68,17 @@ void RTFReader$FonttblDestination::endgroup($Dictionary* oldState) {
 }
 
 void RTFReader$FonttblDestination::close() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Enumeration, nums, $nc(this->this$0->fontTable)->keys());
 	this->this$0->warning("Done reading font table."_s);
 	while ($nc(nums)->hasMoreElements()) {
 		$var($Integer, num, $cast($Integer, nums->nextElement()));
-		$var($String, var$0, $$str({"Number "_s, num, ": "_s}));
-		this->this$0->warning($$concat(var$0, $cast($String, $($nc(this->this$0->fontTable)->get(num)))));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append("Number "_s);
+		var$0->append(num);
+		var$0->append(": "_s);
+		var$0->append($$cast($String, $nc(this->this$0->fontTable)->get(num)));
+		this->this$0->warning($$str(var$0));
 	}
 }
 
@@ -129,7 +86,47 @@ RTFReader$FonttblDestination::RTFReader$FonttblDestination() {
 }
 
 $Class* RTFReader$FonttblDestination::load$($String* name, bool initialize) {
-	$loadClass(RTFReader$FonttblDestination, name, initialize, &_RTFReader$FonttblDestination_ClassInfo_, allocate$RTFReader$FonttblDestination);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/text/rtf/RTFReader;", nullptr, $FINAL | $SYNTHETIC, $field(RTFReader$FonttblDestination, this$0)},
+		{"nextFontNumber", "I", nullptr, 0, $field(RTFReader$FonttblDestination, nextFontNumber)},
+		{"fontNumberKey", "Ljava/lang/Integer;", nullptr, 0, $field(RTFReader$FonttblDestination, fontNumberKey)},
+		{"nextFontFamily", "Ljava/lang/String;", nullptr, 0, $field(RTFReader$FonttblDestination, nextFontFamily)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/text/rtf/RTFReader;)V", nullptr, 0, $method(RTFReader$FonttblDestination, init$, void, $RTFReader*)},
+		{"begingroup", "()V", nullptr, $PUBLIC, $virtualMethod(RTFReader$FonttblDestination, begingroup, void)},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(RTFReader$FonttblDestination, close, void)},
+		{"endgroup", "(Ljava/util/Dictionary;)V", "(Ljava/util/Dictionary<Ljava/lang/Object;Ljava/lang/Object;>;)V", $PUBLIC, $virtualMethod(RTFReader$FonttblDestination, endgroup, void, $Dictionary*)},
+		{"handleBinaryBlob", "([B)V", nullptr, $PUBLIC, $virtualMethod(RTFReader$FonttblDestination, handleBinaryBlob, void, $bytes*)},
+		{"handleKeyword", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(RTFReader$FonttblDestination, handleKeyword, bool, $String*)},
+		{"handleKeyword", "(Ljava/lang/String;I)Z", nullptr, $PUBLIC, $virtualMethod(RTFReader$FonttblDestination, handleKeyword, bool, $String*, int32_t)},
+		{"handleText", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(RTFReader$FonttblDestination, handleText, void, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.rtf.RTFReader$FonttblDestination", "javax.swing.text.rtf.RTFReader", "FonttblDestination", 0},
+		{"javax.swing.text.rtf.RTFReader$Destination", "javax.swing.text.rtf.RTFReader", "Destination", $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.text.rtf.RTFReader$FonttblDestination",
+		"java.lang.Object",
+		"javax.swing.text.rtf.RTFReader$Destination",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.rtf.RTFReader"
+	};
+	$loadClass(RTFReader$FonttblDestination, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RTFReader$FonttblDestination);
+	});
 	return class$;
 }
 

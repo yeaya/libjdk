@@ -39,6 +39,7 @@ class $export SplashScreen : public ::java::lang::Object {
 	$class(SplashScreen, 0, ::java::lang::Object)
 public:
 	SplashScreen();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int64_t ptr);
 	static void _close(int64_t splashPtr);
 	static ::java::awt::Rectangle* _getBounds(int64_t splashPtr);

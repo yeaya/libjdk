@@ -1,5 +1,4 @@
 #include <sun/awt/windows/WDesktopPeer.h>
-
 #include <java/awt/Desktop$Action.h>
 #include <java/awt/EventQueue.h>
 #include <java/awt/desktop/SystemEventListener.h>
@@ -47,7 +46,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $URI = ::java::net::URI;
-using $EventListener = ::java::util::EventListener;
 using $EventListenerList = ::javax::swing::event::EventListenerList;
 using $WDesktopPeer$1 = ::sun::awt::windows::WDesktopPeer$1;
 
@@ -66,37 +64,33 @@ public:
 	virtual void run() override {
 		WDesktopPeer::lambda$userSessionCallback$0(activated, use, reason);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<WDesktopPeer$$Lambda$lambda$userSessionCallback$0>());
-	}
 	bool activated = false;
 	$UserSessionListener* use = nullptr;
 	$UserSessionEvent$Reason* reason = nullptr;
-	static $FieldInfo fieldInfos[4];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo WDesktopPeer$$Lambda$lambda$userSessionCallback$0::fieldInfos[4] = {
-	{"activated", "Z", nullptr, $PUBLIC, $field(WDesktopPeer$$Lambda$lambda$userSessionCallback$0, activated)},
-	{"use", "Ljava/awt/desktop/UserSessionListener;", nullptr, $PUBLIC, $field(WDesktopPeer$$Lambda$lambda$userSessionCallback$0, use)},
-	{"reason", "Ljava/awt/desktop/UserSessionEvent$Reason;", nullptr, $PUBLIC, $field(WDesktopPeer$$Lambda$lambda$userSessionCallback$0, reason)},
-	{}
-};
-$MethodInfo WDesktopPeer$$Lambda$lambda$userSessionCallback$0::methodInfos[3] = {
-	{"<init>", "(ZLjava/awt/desktop/UserSessionListener;Ljava/awt/desktop/UserSessionEvent$Reason;)V", nullptr, $PUBLIC, $method(WDesktopPeer$$Lambda$lambda$userSessionCallback$0, init$, void, bool, $UserSessionListener*, $UserSessionEvent$Reason*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(WDesktopPeer$$Lambda$lambda$userSessionCallback$0, run, void)},
-	{}
-};
-$ClassInfo WDesktopPeer$$Lambda$lambda$userSessionCallback$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.awt.windows.WDesktopPeer$$Lambda$lambda$userSessionCallback$0",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	fieldInfos,
-	methodInfos
 };
 $Class* WDesktopPeer$$Lambda$lambda$userSessionCallback$0::load$($String* name, bool initialize) {
-	$loadClass(WDesktopPeer$$Lambda$lambda$userSessionCallback$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"activated", "Z", nullptr, $PUBLIC, $field(WDesktopPeer$$Lambda$lambda$userSessionCallback$0, activated)},
+		{"use", "Ljava/awt/desktop/UserSessionListener;", nullptr, $PUBLIC, $field(WDesktopPeer$$Lambda$lambda$userSessionCallback$0, use)},
+		{"reason", "Ljava/awt/desktop/UserSessionEvent$Reason;", nullptr, $PUBLIC, $field(WDesktopPeer$$Lambda$lambda$userSessionCallback$0, reason)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(ZLjava/awt/desktop/UserSessionListener;Ljava/awt/desktop/UserSessionEvent$Reason;)V", nullptr, $PUBLIC, $method(WDesktopPeer$$Lambda$lambda$userSessionCallback$0, init$, void, bool, $UserSessionListener*, $UserSessionEvent$Reason*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(WDesktopPeer$$Lambda$lambda$userSessionCallback$0, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.awt.windows.WDesktopPeer$$Lambda$lambda$userSessionCallback$0",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(WDesktopPeer$$Lambda$lambda$userSessionCallback$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WDesktopPeer$$Lambda$lambda$userSessionCallback$0);
+	});
 	return class$;
 }
 $Class* WDesktopPeer$$Lambda$lambda$userSessionCallback$0::class$ = nullptr;
@@ -111,101 +105,34 @@ public:
 	virtual void run() override {
 		WDesktopPeer::lambda$systemSleepCallback$1(resumed, ssl);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<WDesktopPeer$$Lambda$lambda$systemSleepCallback$1$1>());
-	}
 	bool resumed = false;
 	$SystemSleepListener* ssl = nullptr;
-	static $FieldInfo fieldInfos[3];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo WDesktopPeer$$Lambda$lambda$systemSleepCallback$1$1::fieldInfos[3] = {
-	{"resumed", "Z", nullptr, $PUBLIC, $field(WDesktopPeer$$Lambda$lambda$systemSleepCallback$1$1, resumed)},
-	{"ssl", "Ljava/awt/desktop/SystemSleepListener;", nullptr, $PUBLIC, $field(WDesktopPeer$$Lambda$lambda$systemSleepCallback$1$1, ssl)},
-	{}
-};
-$MethodInfo WDesktopPeer$$Lambda$lambda$systemSleepCallback$1$1::methodInfos[3] = {
-	{"<init>", "(ZLjava/awt/desktop/SystemSleepListener;)V", nullptr, $PUBLIC, $method(WDesktopPeer$$Lambda$lambda$systemSleepCallback$1$1, init$, void, bool, $SystemSleepListener*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(WDesktopPeer$$Lambda$lambda$systemSleepCallback$1$1, run, void)},
-	{}
-};
-$ClassInfo WDesktopPeer$$Lambda$lambda$systemSleepCallback$1$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.awt.windows.WDesktopPeer$$Lambda$lambda$systemSleepCallback$1$1",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	fieldInfos,
-	methodInfos
 };
 $Class* WDesktopPeer$$Lambda$lambda$systemSleepCallback$1$1::load$($String* name, bool initialize) {
-	$loadClass(WDesktopPeer$$Lambda$lambda$systemSleepCallback$1$1, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"resumed", "Z", nullptr, $PUBLIC, $field(WDesktopPeer$$Lambda$lambda$systemSleepCallback$1$1, resumed)},
+		{"ssl", "Ljava/awt/desktop/SystemSleepListener;", nullptr, $PUBLIC, $field(WDesktopPeer$$Lambda$lambda$systemSleepCallback$1$1, ssl)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(ZLjava/awt/desktop/SystemSleepListener;)V", nullptr, $PUBLIC, $method(WDesktopPeer$$Lambda$lambda$systemSleepCallback$1$1, init$, void, bool, $SystemSleepListener*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(WDesktopPeer$$Lambda$lambda$systemSleepCallback$1$1, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.awt.windows.WDesktopPeer$$Lambda$lambda$systemSleepCallback$1$1",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(WDesktopPeer$$Lambda$lambda$systemSleepCallback$1$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WDesktopPeer$$Lambda$lambda$systemSleepCallback$1$1);
+	});
 	return class$;
 }
 $Class* WDesktopPeer$$Lambda$lambda$systemSleepCallback$1$1::class$ = nullptr;
-
-$FieldInfo _WDesktopPeer_FieldInfo_[] = {
-	{"ACTION_OPEN_VERB", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(WDesktopPeer, ACTION_OPEN_VERB)},
-	{"ACTION_EDIT_VERB", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(WDesktopPeer, ACTION_EDIT_VERB)},
-	{"ACTION_PRINT_VERB", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(WDesktopPeer, ACTION_PRINT_VERB)},
-	{"listenerList", "Ljavax/swing/event/EventListenerList;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(WDesktopPeer, listenerList)},
-	{}
-};
-
-$MethodInfo _WDesktopPeer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(WDesktopPeer, init$, void)},
-	{"ShellExecute", "(Ljava/io/File;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(WDesktopPeer, ShellExecute, void, $File*, $String*), "java.io.IOException"},
-	{"ShellExecute", "(Ljava/net/URI;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(WDesktopPeer, ShellExecute, void, $URI*, $String*), "java.io.IOException"},
-	{"ShellExecute", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(WDesktopPeer, ShellExecute, $String*, $String*, $String*)},
-	{"addAppEventListener", "(Ljava/awt/desktop/SystemEventListener;)V", nullptr, $PUBLIC, $virtualMethod(WDesktopPeer, addAppEventListener, void, $SystemEventListener*)},
-	{"browse", "(Ljava/net/URI;)V", nullptr, $PUBLIC, $virtualMethod(WDesktopPeer, browse, void, $URI*), "java.io.IOException"},
-	{"disableSuddenTermination", "()V", nullptr, $PUBLIC, $virtualMethod(WDesktopPeer, disableSuddenTermination, void)},
-	{"edit", "(Ljava/io/File;)V", nullptr, $PUBLIC, $virtualMethod(WDesktopPeer, edit, void, $File*), "java.io.IOException"},
-	{"enableSuddenTermination", "()V", nullptr, $PUBLIC, $virtualMethod(WDesktopPeer, enableSuddenTermination, void)},
-	{"init", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(WDesktopPeer, init, void)},
-	{"isSupported", "(Ljava/awt/Desktop$Action;)Z", nullptr, $PUBLIC, $virtualMethod(WDesktopPeer, isSupported, bool, $Desktop$Action*)},
-	{"lambda$systemSleepCallback$1", "(ZLjava/awt/desktop/SystemSleepListener;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(WDesktopPeer, lambda$systemSleepCallback$1, void, bool, $SystemSleepListener*)},
-	{"lambda$userSessionCallback$0", "(ZLjava/awt/desktop/UserSessionListener;Ljava/awt/desktop/UserSessionEvent$Reason;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(WDesktopPeer, lambda$userSessionCallback$0, void, bool, $UserSessionListener*, $UserSessionEvent$Reason*)},
-	{"mail", "(Ljava/net/URI;)V", nullptr, $PUBLIC, $virtualMethod(WDesktopPeer, mail, void, $URI*), "java.io.IOException"},
-	{"moveToTrash", "(Ljava/io/File;)Z", nullptr, $PUBLIC, $virtualMethod(WDesktopPeer, moveToTrash, bool, $File*)},
-	{"moveToTrash", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(WDesktopPeer, moveToTrash, bool, $String*)},
-	{"open", "(Ljava/io/File;)V", nullptr, $PUBLIC, $virtualMethod(WDesktopPeer, open, void, $File*), "java.io.IOException"},
-	{"print", "(Ljava/io/File;)V", nullptr, $PUBLIC, $virtualMethod(WDesktopPeer, print, void, $File*), "java.io.IOException"},
-	{"removeAppEventListener", "(Ljava/awt/desktop/SystemEventListener;)V", nullptr, $PUBLIC, $virtualMethod(WDesktopPeer, removeAppEventListener, void, $SystemEventListener*)},
-	{"setSuddenTerminationEnabled", "(Z)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(WDesktopPeer, setSuddenTerminationEnabled, void, bool)},
-	{"systemSleepCallback", "(Z)V", nullptr, $PRIVATE | $STATIC, $staticMethod(WDesktopPeer, systemSleepCallback, void, bool)},
-	{"userSessionCallback", "(ZLjava/awt/desktop/UserSessionEvent$Reason;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(WDesktopPeer, userSessionCallback, void, bool, $UserSessionEvent$Reason*)},
-	{}
-};
-
-#define _METHOD_INDEX_ShellExecute 3
-#define _METHOD_INDEX_init 9
-#define _METHOD_INDEX_moveToTrash 15
-#define _METHOD_INDEX_setSuddenTerminationEnabled 19
-
-$InnerClassInfo _WDesktopPeer_InnerClassesInfo_[] = {
-	{"sun.awt.windows.WDesktopPeer$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{}
-};
-
-$ClassInfo _WDesktopPeer_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.awt.windows.WDesktopPeer",
-	"java.lang.Object",
-	"java.awt.peer.DesktopPeer",
-	_WDesktopPeer_FieldInfo_,
-	_WDesktopPeer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_WDesktopPeer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.awt.windows.WDesktopPeer$1"
-};
-
-$Object* allocate$WDesktopPeer($Class* clazz) {
-	return $of($alloc(WDesktopPeer));
-}
 
 $String* WDesktopPeer::ACTION_OPEN_VERB = nullptr;
 $String* WDesktopPeer::ACTION_EDIT_VERB = nullptr;
@@ -214,7 +141,7 @@ $EventListenerList* WDesktopPeer::listenerList = nullptr;
 
 void WDesktopPeer::init() {
 	$init(WDesktopPeer);
-	$prepareNativeStatic(WDesktopPeer, init, void);
+	$prepareNativeStatic(init, void);
 	$invokeNativeStatic();
 	$finishNativeStatic();
 }
@@ -227,29 +154,17 @@ bool WDesktopPeer::isSupported($Desktop$Action* action) {
 	$init($WDesktopPeer$1);
 	switch ($nc($WDesktopPeer$1::$SwitchMap$java$awt$Desktop$Action)->get($nc((action))->ordinal())) {
 	case 1:
-		{}
 	case 2:
-		{}
 	case 3:
-		{}
 	case 4:
-		{}
 	case 5:
-		{}
 	case 6:
-		{}
 	case 7:
-		{}
 	case 8:
-		{}
 	case 9:
-		{
-			return true;
-		}
+		return true;
 	default:
-		{
-			return false;
-		}
+		return false;
 	}
 }
 
@@ -274,7 +189,7 @@ void WDesktopPeer::browse($URI* uri) {
 }
 
 void WDesktopPeer::ShellExecute($File* file, $String* verb) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, errMsg, ShellExecute($($nc(file)->getAbsolutePath()), verb));
 	if (errMsg != nullptr) {
 		$throwNew($IOException, $$str({"Failed to "_s, verb, " "_s, file, ". Error message: "_s, errMsg}));
@@ -282,7 +197,7 @@ void WDesktopPeer::ShellExecute($File* file, $String* verb) {
 }
 
 void WDesktopPeer::ShellExecute($URI* uri, $String* verb) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, errmsg, ShellExecute($($nc(uri)->toString()), verb));
 	if (errmsg != nullptr) {
 		$throwNew($IOException, $$str({"Failed to "_s, verb, " "_s, uri, ". Error message: "_s, errmsg}));
@@ -291,9 +206,8 @@ void WDesktopPeer::ShellExecute($URI* uri, $String* verb) {
 
 $String* WDesktopPeer::ShellExecute($String* fileOrUri, $String* verb) {
 	$init(WDesktopPeer);
-	$var($String, $ret, nullptr);
-	$prepareNativeStatic(WDesktopPeer, ShellExecute, $String*, $String* fileOrUri, $String* verb);
-	$assign($ret, $invokeNativeStaticObject(fileOrUri, verb));
+	$prepareNativeStatic(ShellExecute, $String*, $String* fileOrUri, $String* verb);
+	$var($String, $ret, $invokeNativeStaticObject(fileOrUri, verb));
 	$finishNativeStatic();
 	return $ret;
 }
@@ -308,7 +222,7 @@ void WDesktopPeer::enableSuddenTermination() {
 
 void WDesktopPeer::setSuddenTerminationEnabled(bool enable) {
 	$init(WDesktopPeer);
-	$prepareNativeStatic(WDesktopPeer, setSuddenTerminationEnabled, void, bool enable);
+	$prepareNativeStatic(setSuddenTerminationEnabled, void, bool enable);
 	$invokeNativeStatic(enable);
 	$finishNativeStatic();
 }
@@ -316,38 +230,36 @@ void WDesktopPeer::setSuddenTerminationEnabled(bool enable) {
 void WDesktopPeer::addAppEventListener($SystemEventListener* listener) {
 	if ($instanceOf($UserSessionListener, listener)) {
 		$load($UserSessionListener);
-		$nc(WDesktopPeer::listenerList)->add($UserSessionListener::class$, $cast($UserSessionListener, listener));
+		WDesktopPeer::listenerList->add($UserSessionListener::class$, $cast($UserSessionListener, listener));
 	}
 	if ($instanceOf($SystemSleepListener, listener)) {
 		$load($SystemSleepListener);
-		$nc(WDesktopPeer::listenerList)->add($SystemSleepListener::class$, $cast($SystemSleepListener, listener));
+		WDesktopPeer::listenerList->add($SystemSleepListener::class$, $cast($SystemSleepListener, listener));
 	}
 }
 
 void WDesktopPeer::removeAppEventListener($SystemEventListener* listener) {
 	if ($instanceOf($UserSessionListener, listener)) {
 		$load($UserSessionListener);
-		$nc(WDesktopPeer::listenerList)->remove($UserSessionListener::class$, $cast($UserSessionListener, listener));
+		WDesktopPeer::listenerList->remove($UserSessionListener::class$, $cast($UserSessionListener, listener));
 	}
 	if ($instanceOf($SystemSleepListener, listener)) {
 		$load($SystemSleepListener);
-		$nc(WDesktopPeer::listenerList)->remove($SystemSleepListener::class$, $cast($SystemSleepListener, listener));
+		WDesktopPeer::listenerList->remove($SystemSleepListener::class$, $cast($SystemSleepListener, listener));
 	}
 }
 
 void WDesktopPeer::userSessionCallback(bool activated, $UserSessionEvent$Reason* reason) {
 	$init(WDesktopPeer);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$load($UserSessionListener);
-	$var($UserSessionListenerArray, listeners, $fcast($UserSessionListenerArray, $nc(WDesktopPeer::listenerList)->getListeners($UserSessionListener::class$)));
+	$var($UserSessionListenerArray, listeners, $cast($UserSessionListenerArray, WDesktopPeer::listenerList->getListeners($UserSessionListener::class$)));
 	{
 		$var($UserSessionListenerArray, arr$, listeners);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($UserSessionListener, use, arr$->get(i$));
 			{
-				$EventQueue::invokeLater(static_cast<$Runnable*>($$new(WDesktopPeer$$Lambda$lambda$userSessionCallback$0, activated, use, reason)));
+				$EventQueue::invokeLater($$new(WDesktopPeer$$Lambda$lambda$userSessionCallback$0, activated, use, reason));
 			}
 		}
 	}
@@ -355,17 +267,15 @@ void WDesktopPeer::userSessionCallback(bool activated, $UserSessionEvent$Reason*
 
 void WDesktopPeer::systemSleepCallback(bool resumed) {
 	$init(WDesktopPeer);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$load($SystemSleepListener);
-	$var($SystemSleepListenerArray, listeners, $fcast($SystemSleepListenerArray, $nc(WDesktopPeer::listenerList)->getListeners($SystemSleepListener::class$)));
+	$var($SystemSleepListenerArray, listeners, $cast($SystemSleepListenerArray, WDesktopPeer::listenerList->getListeners($SystemSleepListener::class$)));
 	{
 		$var($SystemSleepListenerArray, arr$, listeners);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($SystemSleepListener, ssl, arr$->get(i$));
 			{
-				$EventQueue::invokeLater(static_cast<$Runnable*>($$new(WDesktopPeer$$Lambda$lambda$systemSleepCallback$1$1, resumed, ssl)));
+				$EventQueue::invokeLater($$new(WDesktopPeer$$Lambda$lambda$systemSleepCallback$1$1, resumed, ssl));
 			}
 		}
 	}
@@ -377,16 +287,15 @@ bool WDesktopPeer::moveToTrash($File* file) {
 
 bool WDesktopPeer::moveToTrash($String* file) {
 	$init(WDesktopPeer);
-	bool $ret = false;
-	$prepareNativeStatic(WDesktopPeer, moveToTrash, bool, $String* file);
-	$ret = $invokeNativeStatic(file);
+	$prepareNativeStatic(moveToTrash, bool, $String* file);
+	bool $ret = $invokeNativeStatic(file);
 	$finishNativeStatic();
 	return $ret;
 }
 
 void WDesktopPeer::lambda$systemSleepCallback$1(bool resumed, $SystemSleepListener* ssl) {
 	$init(WDesktopPeer);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (resumed) {
 		$nc(ssl)->systemAwoke($$new($SystemSleepEvent));
 	} else {
@@ -396,7 +305,7 @@ void WDesktopPeer::lambda$systemSleepCallback$1(bool resumed, $SystemSleepListen
 
 void WDesktopPeer::lambda$userSessionCallback$0(bool activated, $UserSessionListener* use, $UserSessionEvent$Reason* reason) {
 	$init(WDesktopPeer);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (activated) {
 		$nc(use)->userSessionActivated($$new($UserSessionEvent, reason));
 	} else {
@@ -404,7 +313,7 @@ void WDesktopPeer::lambda$userSessionCallback$0(bool activated, $UserSessionList
 	}
 }
 
-void clinit$WDesktopPeer($Class* class$) {
+void WDesktopPeer::clinit$($Class* clazz) {
 	$assignStatic(WDesktopPeer::ACTION_OPEN_VERB, "open"_s);
 	$assignStatic(WDesktopPeer::ACTION_EDIT_VERB, "edit"_s);
 	$assignStatic(WDesktopPeer::ACTION_PRINT_VERB, "print"_s);
@@ -416,14 +325,66 @@ WDesktopPeer::WDesktopPeer() {
 
 $Class* WDesktopPeer::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(WDesktopPeer$$Lambda$lambda$userSessionCallback$0::classInfo$.name)) {
+		if (name->equals("sun.awt.windows.WDesktopPeer$$Lambda$lambda$userSessionCallback$0")) {
 			return WDesktopPeer$$Lambda$lambda$userSessionCallback$0::load$(name, initialize);
 		}
-		if (name->equals(WDesktopPeer$$Lambda$lambda$systemSleepCallback$1$1::classInfo$.name)) {
+		if (name->equals("sun.awt.windows.WDesktopPeer$$Lambda$lambda$systemSleepCallback$1$1")) {
 			return WDesktopPeer$$Lambda$lambda$systemSleepCallback$1$1::load$(name, initialize);
 		}
 	}
-	$loadClass(WDesktopPeer, name, initialize, &_WDesktopPeer_ClassInfo_, clinit$WDesktopPeer, allocate$WDesktopPeer);
+	$FieldInfo fieldInfos$$[] = {
+		{"ACTION_OPEN_VERB", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(WDesktopPeer, ACTION_OPEN_VERB)},
+		{"ACTION_EDIT_VERB", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(WDesktopPeer, ACTION_EDIT_VERB)},
+		{"ACTION_PRINT_VERB", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(WDesktopPeer, ACTION_PRINT_VERB)},
+		{"listenerList", "Ljavax/swing/event/EventListenerList;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(WDesktopPeer, listenerList)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(WDesktopPeer, init$, void)},
+		{"ShellExecute", "(Ljava/io/File;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(WDesktopPeer, ShellExecute, void, $File*, $String*), "java.io.IOException"},
+		{"ShellExecute", "(Ljava/net/URI;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(WDesktopPeer, ShellExecute, void, $URI*, $String*), "java.io.IOException"},
+		{"ShellExecute", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(WDesktopPeer, ShellExecute, $String*, $String*, $String*)},
+		{"addAppEventListener", "(Ljava/awt/desktop/SystemEventListener;)V", nullptr, $PUBLIC, $virtualMethod(WDesktopPeer, addAppEventListener, void, $SystemEventListener*)},
+		{"browse", "(Ljava/net/URI;)V", nullptr, $PUBLIC, $virtualMethod(WDesktopPeer, browse, void, $URI*), "java.io.IOException"},
+		{"disableSuddenTermination", "()V", nullptr, $PUBLIC, $virtualMethod(WDesktopPeer, disableSuddenTermination, void)},
+		{"edit", "(Ljava/io/File;)V", nullptr, $PUBLIC, $virtualMethod(WDesktopPeer, edit, void, $File*), "java.io.IOException"},
+		{"enableSuddenTermination", "()V", nullptr, $PUBLIC, $virtualMethod(WDesktopPeer, enableSuddenTermination, void)},
+		{"init", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(WDesktopPeer, init, void)},
+		{"isSupported", "(Ljava/awt/Desktop$Action;)Z", nullptr, $PUBLIC, $virtualMethod(WDesktopPeer, isSupported, bool, $Desktop$Action*)},
+		{"lambda$systemSleepCallback$1", "(ZLjava/awt/desktop/SystemSleepListener;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(WDesktopPeer, lambda$systemSleepCallback$1, void, bool, $SystemSleepListener*)},
+		{"lambda$userSessionCallback$0", "(ZLjava/awt/desktop/UserSessionListener;Ljava/awt/desktop/UserSessionEvent$Reason;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(WDesktopPeer, lambda$userSessionCallback$0, void, bool, $UserSessionListener*, $UserSessionEvent$Reason*)},
+		{"mail", "(Ljava/net/URI;)V", nullptr, $PUBLIC, $virtualMethod(WDesktopPeer, mail, void, $URI*), "java.io.IOException"},
+		{"moveToTrash", "(Ljava/io/File;)Z", nullptr, $PUBLIC, $virtualMethod(WDesktopPeer, moveToTrash, bool, $File*)},
+		{"moveToTrash", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(WDesktopPeer, moveToTrash, bool, $String*)},
+		{"open", "(Ljava/io/File;)V", nullptr, $PUBLIC, $virtualMethod(WDesktopPeer, open, void, $File*), "java.io.IOException"},
+		{"print", "(Ljava/io/File;)V", nullptr, $PUBLIC, $virtualMethod(WDesktopPeer, print, void, $File*), "java.io.IOException"},
+		{"removeAppEventListener", "(Ljava/awt/desktop/SystemEventListener;)V", nullptr, $PUBLIC, $virtualMethod(WDesktopPeer, removeAppEventListener, void, $SystemEventListener*)},
+		{"setSuddenTerminationEnabled", "(Z)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(WDesktopPeer, setSuddenTerminationEnabled, void, bool)},
+		{"systemSleepCallback", "(Z)V", nullptr, $PRIVATE | $STATIC, $staticMethod(WDesktopPeer, systemSleepCallback, void, bool)},
+		{"userSessionCallback", "(ZLjava/awt/desktop/UserSessionEvent$Reason;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(WDesktopPeer, userSessionCallback, void, bool, $UserSessionEvent$Reason*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.windows.WDesktopPeer$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.awt.windows.WDesktopPeer",
+		"java.lang.Object",
+		"java.awt.peer.DesktopPeer",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.awt.windows.WDesktopPeer$1"
+	};
+	$loadClass(WDesktopPeer, name, initialize, &classInfo$$, WDesktopPeer::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(WDesktopPeer);
+	});
 	return class$;
 }
 

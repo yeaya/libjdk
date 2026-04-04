@@ -29,6 +29,7 @@ class $import SimpleScriptContext : public ::javax::script::ScriptContext {
 	$class(SimpleScriptContext, 0, ::javax::script::ScriptContext)
 public:
 	SimpleScriptContext();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(::java::io::Reader* reader, ::java::io::Writer* writer, ::java::io::Writer* errorWriter);
 	void checkName($String* name);

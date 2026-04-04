@@ -29,6 +29,7 @@ class UTF8AccumulatingDecoder : public ::java::lang::Object {
 	$class(UTF8AccumulatingDecoder, 0, ::java::lang::Object)
 public:
 	UTF8AccumulatingDecoder();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	::java::nio::CharBuffer* decode(::java::nio::ByteBuffer* in, bool endOfInput);
 	static bool $assertionsDisabled;

@@ -1,5 +1,4 @@
 #include <com/sun/imageio/plugins/bmp/BMPImageWriterSpi.h>
-
 #include <com/sun/imageio/plugins/bmp/BMPImageWriter.h>
 #include <com/sun/imageio/plugins/bmp/BMPMetadata.h>
 #include <java/awt/image/DataBuffer.h>
@@ -37,37 +36,6 @@ namespace com {
 			namespace plugins {
 				namespace bmp {
 
-$FieldInfo _BMPImageWriterSpi_FieldInfo_[] = {
-	{"readerSpiNames", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(BMPImageWriterSpi, readerSpiNames)},
-	{"formatNames", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(BMPImageWriterSpi, formatNames)},
-	{"entensions", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(BMPImageWriterSpi, entensions)},
-	{"mimeType", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(BMPImageWriterSpi, mimeType)},
-	{"registered", "Z", nullptr, $PRIVATE, $field(BMPImageWriterSpi, registered)},
-	{}
-};
-
-$MethodInfo _BMPImageWriterSpi_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(BMPImageWriterSpi, init$, void)},
-	{"canEncodeImage", "(Ljavax/imageio/ImageTypeSpecifier;)Z", nullptr, $PUBLIC, $virtualMethod(BMPImageWriterSpi, canEncodeImage, bool, $ImageTypeSpecifier*)},
-	{"createWriterInstance", "(Ljava/lang/Object;)Ljavax/imageio/ImageWriter;", nullptr, $PUBLIC, $virtualMethod(BMPImageWriterSpi, createWriterInstance, $ImageWriter*, Object$*), "javax.imageio.IIOException"},
-	{"getDescription", "(Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(BMPImageWriterSpi, getDescription, $String*, $Locale*)},
-	{"onRegistration", "(Ljavax/imageio/spi/ServiceRegistry;Ljava/lang/Class;)V", "(Ljavax/imageio/spi/ServiceRegistry;Ljava/lang/Class<*>;)V", $PUBLIC, $virtualMethod(BMPImageWriterSpi, onRegistration, void, $ServiceRegistry*, $Class*)},
-	{}
-};
-
-$ClassInfo _BMPImageWriterSpi_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.imageio.plugins.bmp.BMPImageWriterSpi",
-	"javax.imageio.spi.ImageWriterSpi",
-	nullptr,
-	_BMPImageWriterSpi_FieldInfo_,
-	_BMPImageWriterSpi_MethodInfo_
-};
-
-$Object* allocate$BMPImageWriterSpi($Class* clazz) {
-	return $of($alloc(BMPImageWriterSpi));
-}
-
 $StringArray* BMPImageWriterSpi::readerSpiNames = nullptr;
 $StringArray* BMPImageWriterSpi::formatNames = nullptr;
 $StringArray* BMPImageWriterSpi::entensions = nullptr;
@@ -92,8 +60,8 @@ void BMPImageWriterSpi::onRegistration($ServiceRegistry* registry, $Class* categ
 }
 
 bool BMPImageWriterSpi::canEncodeImage($ImageTypeSpecifier* type) {
-	$useLocalCurrentObjectStackCache();
-	int32_t dataType = $nc($($nc(type)->getSampleModel()))->getDataType();
+	$useLocalObjectStack();
+	int32_t dataType = $$nc($nc(type)->getSampleModel())->getDataType();
 	if (dataType < $DataBuffer::TYPE_BYTE || dataType > $DataBuffer::TYPE_INT) {
 		return false;
 	}
@@ -115,7 +83,7 @@ $ImageWriter* BMPImageWriterSpi::createWriterInstance(Object$* extension) {
 	return $new($BMPImageWriter, this);
 }
 
-void clinit$BMPImageWriterSpi($Class* class$) {
+void BMPImageWriterSpi::clinit$($Class* clazz) {
 	$assignStatic(BMPImageWriterSpi::readerSpiNames, $new($StringArray, {"com.sun.imageio.plugins.bmp.BMPImageReaderSpi"_s}));
 	$assignStatic(BMPImageWriterSpi::formatNames, $new($StringArray, {
 		"bmp"_s,
@@ -129,7 +97,33 @@ BMPImageWriterSpi::BMPImageWriterSpi() {
 }
 
 $Class* BMPImageWriterSpi::load$($String* name, bool initialize) {
-	$loadClass(BMPImageWriterSpi, name, initialize, &_BMPImageWriterSpi_ClassInfo_, clinit$BMPImageWriterSpi, allocate$BMPImageWriterSpi);
+	$FieldInfo fieldInfos$$[] = {
+		{"readerSpiNames", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(BMPImageWriterSpi, readerSpiNames)},
+		{"formatNames", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(BMPImageWriterSpi, formatNames)},
+		{"entensions", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(BMPImageWriterSpi, entensions)},
+		{"mimeType", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(BMPImageWriterSpi, mimeType)},
+		{"registered", "Z", nullptr, $PRIVATE, $field(BMPImageWriterSpi, registered)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(BMPImageWriterSpi, init$, void)},
+		{"canEncodeImage", "(Ljavax/imageio/ImageTypeSpecifier;)Z", nullptr, $PUBLIC, $virtualMethod(BMPImageWriterSpi, canEncodeImage, bool, $ImageTypeSpecifier*)},
+		{"createWriterInstance", "(Ljava/lang/Object;)Ljavax/imageio/ImageWriter;", nullptr, $PUBLIC, $virtualMethod(BMPImageWriterSpi, createWriterInstance, $ImageWriter*, Object$*), "javax.imageio.IIOException"},
+		{"getDescription", "(Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(BMPImageWriterSpi, getDescription, $String*, $Locale*)},
+		{"onRegistration", "(Ljavax/imageio/spi/ServiceRegistry;Ljava/lang/Class;)V", "(Ljavax/imageio/spi/ServiceRegistry;Ljava/lang/Class<*>;)V", $PUBLIC, $virtualMethod(BMPImageWriterSpi, onRegistration, void, $ServiceRegistry*, $Class*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.imageio.plugins.bmp.BMPImageWriterSpi",
+		"javax.imageio.spi.ImageWriterSpi",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(BMPImageWriterSpi, name, initialize, &classInfo$$, BMPImageWriterSpi::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(BMPImageWriterSpi);
+	});
 	return class$;
 }
 

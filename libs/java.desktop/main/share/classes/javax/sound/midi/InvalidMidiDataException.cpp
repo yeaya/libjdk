@@ -1,5 +1,4 @@
 #include <javax/sound/midi/InvalidMidiDataException.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -10,30 +9,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace javax {
 	namespace sound {
 		namespace midi {
-
-$FieldInfo _InvalidMidiDataException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(InvalidMidiDataException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _InvalidMidiDataException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(InvalidMidiDataException, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(InvalidMidiDataException, init$, void, $String*)},
-	{}
-};
-
-$ClassInfo _InvalidMidiDataException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.sound.midi.InvalidMidiDataException",
-	"java.lang.Exception",
-	nullptr,
-	_InvalidMidiDataException_FieldInfo_,
-	_InvalidMidiDataException_MethodInfo_
-};
-
-$Object* allocate$InvalidMidiDataException($Class* clazz) {
-	return $of($alloc(InvalidMidiDataException));
-}
 
 void InvalidMidiDataException::init$() {
 	$Exception::init$();
@@ -54,7 +29,26 @@ void InvalidMidiDataException::throw$() {
 }
 
 $Class* InvalidMidiDataException::load$($String* name, bool initialize) {
-	$loadClass(InvalidMidiDataException, name, initialize, &_InvalidMidiDataException_ClassInfo_, allocate$InvalidMidiDataException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(InvalidMidiDataException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(InvalidMidiDataException, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(InvalidMidiDataException, init$, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.sound.midi.InvalidMidiDataException",
+		"java.lang.Exception",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(InvalidMidiDataException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(InvalidMidiDataException);
+	});
 	return class$;
 }
 

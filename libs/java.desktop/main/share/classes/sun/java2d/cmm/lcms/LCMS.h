@@ -47,6 +47,7 @@ class LCMS : public ::sun::java2d::cmm::PCMM {
 	$class(LCMS, 0, ::sun::java2d::cmm::PCMM)
 public:
 	LCMS();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void colorConvert(::sun::java2d::cmm::lcms::LCMSTransform* trans, ::sun::java2d::cmm::lcms::LCMSImageLayout* src, ::sun::java2d::cmm::lcms::LCMSImageLayout* dest);
 	static int64_t createNativeTransform($longs* profileIDs, int32_t renderType, int32_t inFormatter, bool isInIntPacked, int32_t outFormatter, bool isOutIntPacked, Object$* disposerRef);

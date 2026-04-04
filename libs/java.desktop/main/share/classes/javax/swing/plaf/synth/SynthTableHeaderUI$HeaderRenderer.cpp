@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/synth/SynthTableHeaderUI$HeaderRenderer.h>
-
 #include <java/awt/Component.h>
 #include <java/lang/AssertionError.h>
 #include <java/util/List.h>
@@ -32,9 +31,7 @@ using $JLabel = ::javax::swing::JLabel;
 using $JTable = ::javax::swing::JTable;
 using $RowSorter = ::javax::swing::RowSorter;
 using $RowSorter$SortKey = ::javax::swing::RowSorter$SortKey;
-using $SortOrder = ::javax::swing::SortOrder;
 using $Border = ::javax::swing::border::Border;
-using $ComponentUI = ::javax::swing::plaf::ComponentUI;
 using $SynthBorder = ::javax::swing::plaf::synth::SynthBorder;
 using $SynthLabelUI = ::javax::swing::plaf::synth::SynthLabelUI;
 using $SynthLookAndFeel = ::javax::swing::plaf::synth::SynthLookAndFeel;
@@ -47,43 +44,6 @@ namespace javax {
 		namespace plaf {
 			namespace synth {
 
-$FieldInfo _SynthTableHeaderUI$HeaderRenderer_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/plaf/synth/SynthTableHeaderUI;", nullptr, $FINAL | $SYNTHETIC, $field(SynthTableHeaderUI$HeaderRenderer, this$0)},
-	{}
-};
-
-$MethodInfo _SynthTableHeaderUI$HeaderRenderer_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/plaf/synth/SynthTableHeaderUI;)V", nullptr, 0, $method(SynthTableHeaderUI$HeaderRenderer, init$, void, $SynthTableHeaderUI*)},
-	{"getTableCellRendererComponent", "(Ljavax/swing/JTable;Ljava/lang/Object;ZZII)Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(SynthTableHeaderUI$HeaderRenderer, getTableCellRendererComponent, $Component*, $JTable*, Object$*, bool, bool, int32_t, int32_t)},
-	{"setBorder", "(Ljavax/swing/border/Border;)V", nullptr, $PUBLIC, $virtualMethod(SynthTableHeaderUI$HeaderRenderer, setBorder, void, $Border*)},
-	{}
-};
-
-$InnerClassInfo _SynthTableHeaderUI$HeaderRenderer_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.synth.SynthTableHeaderUI$HeaderRenderer", "javax.swing.plaf.synth.SynthTableHeaderUI", "HeaderRenderer", $PRIVATE},
-	{}
-};
-
-$ClassInfo _SynthTableHeaderUI$HeaderRenderer_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.synth.SynthTableHeaderUI$HeaderRenderer",
-	"sun.swing.table.DefaultTableCellHeaderRenderer",
-	nullptr,
-	_SynthTableHeaderUI$HeaderRenderer_FieldInfo_,
-	_SynthTableHeaderUI$HeaderRenderer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SynthTableHeaderUI$HeaderRenderer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.synth.SynthTableHeaderUI"
-};
-
-$Object* allocate$SynthTableHeaderUI$HeaderRenderer($Class* clazz) {
-	return $of($alloc(SynthTableHeaderUI$HeaderRenderer));
-}
-
 void SynthTableHeaderUI$HeaderRenderer::init$($SynthTableHeaderUI* this$0) {
 	$set(this, this$0, this$0);
 	$DefaultTableCellHeaderRenderer::init$();
@@ -92,44 +52,36 @@ void SynthTableHeaderUI$HeaderRenderer::init$($SynthTableHeaderUI* this$0) {
 }
 
 $Component* SynthTableHeaderUI$HeaderRenderer::getTableCellRendererComponent($JTable* table, Object$* value, bool isSelected, bool hasFocus, int32_t row, int32_t column) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool hasRollover = (column == $SynthTableHeaderUI::access$000(this->this$0));
 	if (isSelected || hasRollover || hasFocus) {
-		bool enabled = (table == nullptr) ? true : $nc(table)->isEnabled();
+		bool enabled = (table == nullptr) ? true : table->isEnabled();
 		$load($SynthLabelUI);
-		$SynthLookAndFeel::setSelectedUI($cast($SynthLabelUI, $($SynthLookAndFeel::getUIOfType($(getUI()), $SynthLabelUI::class$))), isSelected, hasFocus, enabled, hasRollover);
+		$SynthLookAndFeel::setSelectedUI($$cast($SynthLabelUI, $SynthLookAndFeel::getUIOfType($(getUI()), $SynthLabelUI::class$)), isSelected, hasFocus, enabled, hasRollover);
 	} else {
 		$SynthLookAndFeel::resetSelectedUI();
 	}
-	$var($RowSorter, rs, table == nullptr ? ($RowSorter*)nullptr : $nc(table)->getRowSorter());
-	$var($List, sortKeys, rs == nullptr ? ($List*)nullptr : $nc(rs)->getSortKeys());
+	$var($RowSorter, rs, table == nullptr ? ($RowSorter*)nullptr : table->getRowSorter());
+	$var($List, sortKeys, rs == nullptr ? ($List*)nullptr : rs->getSortKeys());
 	bool var$0 = sortKeys != nullptr && sortKeys->size() > 0;
 	if (var$0) {
-		int32_t var$1 = $nc(($cast($RowSorter$SortKey, $(sortKeys->get(0)))))->getColumn();
-		var$0 = var$1 == table->convertColumnIndexToModel(column);
+		int32_t var$1 = $$sure($RowSorter$SortKey, sortKeys->get(0))->getColumn();
+		var$0 = var$1 == $nc(table)->convertColumnIndexToModel(column);
 	}
 	if (var$0) {
 		$init($SynthTableHeaderUI$1);
-		switch ($nc($SynthTableHeaderUI$1::$SwitchMap$javax$swing$SortOrder)->get($nc(($($nc(($cast($RowSorter$SortKey, $(sortKeys->get(0)))))->getSortOrder())))->ordinal())) {
+		switch ($nc($SynthTableHeaderUI$1::$SwitchMap$javax$swing$SortOrder)->get(($$nc($$sure($RowSorter$SortKey, $nc(sortKeys)->get(0))->getSortOrder()))->ordinal())) {
 		case 1:
-			{
-				putClientProperty("Table.sortOrder"_s, "ASCENDING"_s);
-				break;
-			}
+			putClientProperty("Table.sortOrder"_s, "ASCENDING"_s);
+			break;
 		case 2:
-			{
-				putClientProperty("Table.sortOrder"_s, "DESCENDING"_s);
-				break;
-			}
+			putClientProperty("Table.sortOrder"_s, "DESCENDING"_s);
+			break;
 		case 3:
-			{
-				putClientProperty("Table.sortOrder"_s, "UNSORTED"_s);
-				break;
-			}
+			putClientProperty("Table.sortOrder"_s, "UNSORTED"_s);
+			break;
 		default:
-			{
-				$throwNew($AssertionError, $of("Cannot happen"_s));
-			}
+			$throwNew($AssertionError, $of("Cannot happen"_s));
 		}
 	} else {
 		putClientProperty("Table.sortOrder"_s, "UNSORTED"_s);
@@ -148,7 +100,38 @@ SynthTableHeaderUI$HeaderRenderer::SynthTableHeaderUI$HeaderRenderer() {
 }
 
 $Class* SynthTableHeaderUI$HeaderRenderer::load$($String* name, bool initialize) {
-	$loadClass(SynthTableHeaderUI$HeaderRenderer, name, initialize, &_SynthTableHeaderUI$HeaderRenderer_ClassInfo_, allocate$SynthTableHeaderUI$HeaderRenderer);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/plaf/synth/SynthTableHeaderUI;", nullptr, $FINAL | $SYNTHETIC, $field(SynthTableHeaderUI$HeaderRenderer, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/plaf/synth/SynthTableHeaderUI;)V", nullptr, 0, $method(SynthTableHeaderUI$HeaderRenderer, init$, void, $SynthTableHeaderUI*)},
+		{"getTableCellRendererComponent", "(Ljavax/swing/JTable;Ljava/lang/Object;ZZII)Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(SynthTableHeaderUI$HeaderRenderer, getTableCellRendererComponent, $Component*, $JTable*, Object$*, bool, bool, int32_t, int32_t)},
+		{"setBorder", "(Ljavax/swing/border/Border;)V", nullptr, $PUBLIC, $virtualMethod(SynthTableHeaderUI$HeaderRenderer, setBorder, void, $Border*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.synth.SynthTableHeaderUI$HeaderRenderer", "javax.swing.plaf.synth.SynthTableHeaderUI", "HeaderRenderer", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.synth.SynthTableHeaderUI$HeaderRenderer",
+		"sun.swing.table.DefaultTableCellHeaderRenderer",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.synth.SynthTableHeaderUI"
+	};
+	$loadClass(SynthTableHeaderUI$HeaderRenderer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SynthTableHeaderUI$HeaderRenderer));
+	});
 	return class$;
 }
 

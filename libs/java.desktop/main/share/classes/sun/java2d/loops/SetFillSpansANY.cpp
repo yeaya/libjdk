@@ -1,5 +1,4 @@
 #include <sun/java2d/loops/SetFillSpansANY.h>
-
 #include <sun/java2d/SunGraphics2D.h>
 #include <sun/java2d/SurfaceData.h>
 #include <sun/java2d/loops/CompositeType.h>
@@ -25,25 +24,6 @@ namespace sun {
 	namespace java2d {
 		namespace loops {
 
-$MethodInfo _SetFillSpansANY_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(SetFillSpansANY, init$, void)},
-	{"FillSpans", "(Lsun/java2d/SunGraphics2D;Lsun/java2d/SurfaceData;Lsun/java2d/pipe/SpanIterator;)V", nullptr, $PUBLIC, $virtualMethod(SetFillSpansANY, FillSpans$, void, $SunGraphics2D*, $SurfaceData*, $SpanIterator*)},
-	{}
-};
-
-$ClassInfo _SetFillSpansANY_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.java2d.loops.SetFillSpansANY",
-	"sun.java2d.loops.FillSpans",
-	nullptr,
-	nullptr,
-	_SetFillSpansANY_MethodInfo_
-};
-
-$Object* allocate$SetFillSpansANY($Class* clazz) {
-	return $of($alloc(SetFillSpansANY));
-}
-
 void SetFillSpansANY::init$() {
 	$init($SurfaceType);
 	$init($CompositeType);
@@ -51,7 +31,7 @@ void SetFillSpansANY::init$() {
 }
 
 void SetFillSpansANY::FillSpans$($SunGraphics2D* sg2d, $SurfaceData* sData, $SpanIterator* si) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($PixelWriter, pw, $GeneralRenderer::createSolidPixelWriter(sg2d, sData));
 	$var($ints, span, $new($ints, 4));
 	while ($nc(si)->nextSpan(span)) {
@@ -63,7 +43,22 @@ SetFillSpansANY::SetFillSpansANY() {
 }
 
 $Class* SetFillSpansANY::load$($String* name, bool initialize) {
-	$loadClass(SetFillSpansANY, name, initialize, &_SetFillSpansANY_ClassInfo_, allocate$SetFillSpansANY);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(SetFillSpansANY, init$, void)},
+		{"FillSpans", "(Lsun/java2d/SunGraphics2D;Lsun/java2d/SurfaceData;Lsun/java2d/pipe/SpanIterator;)V", nullptr, $PUBLIC, $virtualMethod(SetFillSpansANY, FillSpans$, void, $SunGraphics2D*, $SurfaceData*, $SpanIterator*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.java2d.loops.SetFillSpansANY",
+		"sun.java2d.loops.FillSpans",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(SetFillSpansANY, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SetFillSpansANY);
+	});
 	return class$;
 }
 

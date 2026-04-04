@@ -1,5 +1,4 @@
 #include <java/beans/VetoableChangeSupport.h>
-
 #include <java/beans/PropertyChangeEvent.h>
 #include <java/beans/PropertyVetoException.h>
 #include <java/beans/VetoableChangeListener.h>
@@ -41,64 +40,12 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;
-using $EventListener = ::java::util::EventListener;
 using $Hashtable = ::java::util::Hashtable;
 using $Iterator = ::java::util::Iterator;
 using $Map$Entry = ::java::util::Map$Entry;
-using $Set = ::java::util::Set;
 
 namespace java {
 	namespace beans {
-
-$FieldInfo _VetoableChangeSupport_FieldInfo_[] = {
-	{"map", "Ljava/beans/VetoableChangeSupport$VetoableChangeListenerMap;", nullptr, $PRIVATE, $field(VetoableChangeSupport, map)},
-	{"source", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(VetoableChangeSupport, source)},
-	{"serialPersistentFields", "[Ljava/io/ObjectStreamField;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(VetoableChangeSupport, serialPersistentFields)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(VetoableChangeSupport, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _VetoableChangeSupport_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(VetoableChangeSupport, init$, void, Object$*)},
-	{"addVetoableChangeListener", "(Ljava/beans/VetoableChangeListener;)V", nullptr, $PUBLIC, $virtualMethod(VetoableChangeSupport, addVetoableChangeListener, void, $VetoableChangeListener*)},
-	{"addVetoableChangeListener", "(Ljava/lang/String;Ljava/beans/VetoableChangeListener;)V", nullptr, $PUBLIC, $virtualMethod(VetoableChangeSupport, addVetoableChangeListener, void, $String*, $VetoableChangeListener*)},
-	{"fireVetoableChange", "(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(VetoableChangeSupport, fireVetoableChange, void, $String*, Object$*, Object$*), "java.beans.PropertyVetoException"},
-	{"fireVetoableChange", "(Ljava/lang/String;II)V", nullptr, $PUBLIC, $virtualMethod(VetoableChangeSupport, fireVetoableChange, void, $String*, int32_t, int32_t), "java.beans.PropertyVetoException"},
-	{"fireVetoableChange", "(Ljava/lang/String;ZZ)V", nullptr, $PUBLIC, $virtualMethod(VetoableChangeSupport, fireVetoableChange, void, $String*, bool, bool), "java.beans.PropertyVetoException"},
-	{"fireVetoableChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(VetoableChangeSupport, fireVetoableChange, void, $PropertyChangeEvent*), "java.beans.PropertyVetoException"},
-	{"getVetoableChangeListeners", "()[Ljava/beans/VetoableChangeListener;", nullptr, $PUBLIC, $virtualMethod(VetoableChangeSupport, getVetoableChangeListeners, $VetoableChangeListenerArray*)},
-	{"getVetoableChangeListeners", "(Ljava/lang/String;)[Ljava/beans/VetoableChangeListener;", nullptr, $PUBLIC, $virtualMethod(VetoableChangeSupport, getVetoableChangeListeners, $VetoableChangeListenerArray*, $String*)},
-	{"hasListeners", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(VetoableChangeSupport, hasListeners, bool, $String*)},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(VetoableChangeSupport, readObject, void, $ObjectInputStream*), "java.lang.ClassNotFoundException,java.io.IOException"},
-	{"removeVetoableChangeListener", "(Ljava/beans/VetoableChangeListener;)V", nullptr, $PUBLIC, $virtualMethod(VetoableChangeSupport, removeVetoableChangeListener, void, $VetoableChangeListener*)},
-	{"removeVetoableChangeListener", "(Ljava/lang/String;Ljava/beans/VetoableChangeListener;)V", nullptr, $PUBLIC, $virtualMethod(VetoableChangeSupport, removeVetoableChangeListener, void, $String*, $VetoableChangeListener*)},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(VetoableChangeSupport, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _VetoableChangeSupport_InnerClassesInfo_[] = {
-	{"java.beans.VetoableChangeSupport$VetoableChangeListenerMap", "java.beans.VetoableChangeSupport", "VetoableChangeListenerMap", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _VetoableChangeSupport_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.beans.VetoableChangeSupport",
-	"java.lang.Object",
-	"java.io.Serializable",
-	_VetoableChangeSupport_FieldInfo_,
-	_VetoableChangeSupport_MethodInfo_,
-	nullptr,
-	nullptr,
-	_VetoableChangeSupport_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.beans.VetoableChangeSupport$VetoableChangeListenerMap"
-};
-
-$Object* allocate$VetoableChangeSupport($Class* clazz) {
-	return $of($alloc(VetoableChangeSupport));
-}
 
 $ObjectStreamFieldArray* VetoableChangeSupport::serialPersistentFields = nullptr;
 
@@ -111,35 +58,35 @@ void VetoableChangeSupport::init$(Object$* sourceBean) {
 }
 
 void VetoableChangeSupport::addVetoableChangeListener($VetoableChangeListener* listener) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (listener == nullptr) {
 		return;
 	}
 	if ($instanceOf($VetoableChangeListenerProxy, listener)) {
 		$var($VetoableChangeListenerProxy, proxy, $cast($VetoableChangeListenerProxy, listener));
-		$var($String, var$0, $nc(proxy)->getPropertyName());
-		addVetoableChangeListener(var$0, $cast($VetoableChangeListener, $(proxy->getListener())));
+		$var($String, var$0, proxy->getPropertyName());
+		addVetoableChangeListener(var$0, $$cast($VetoableChangeListener, proxy->getListener()));
 	} else {
 		$nc(this->map)->add(nullptr, listener);
 	}
 }
 
 void VetoableChangeSupport::removeVetoableChangeListener($VetoableChangeListener* listener) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (listener == nullptr) {
 		return;
 	}
 	if ($instanceOf($VetoableChangeListenerProxy, listener)) {
 		$var($VetoableChangeListenerProxy, proxy, $cast($VetoableChangeListenerProxy, listener));
-		$var($String, var$0, $nc(proxy)->getPropertyName());
-		removeVetoableChangeListener(var$0, $cast($VetoableChangeListener, $(proxy->getListener())));
+		$var($String, var$0, proxy->getPropertyName());
+		removeVetoableChangeListener(var$0, $$cast($VetoableChangeListener, proxy->getListener()));
 	} else {
 		$nc(this->map)->remove(nullptr, listener);
 	}
 }
 
 $VetoableChangeListenerArray* VetoableChangeSupport::getVetoableChangeListeners() {
-	return $fcast($VetoableChangeListenerArray, $nc(this->map)->getListeners());
+	return $cast($VetoableChangeListenerArray, $nc(this->map)->getListeners());
 }
 
 void VetoableChangeSupport::addVetoableChangeListener($String* propertyName, $VetoableChangeListener* listener$renamed) {
@@ -165,49 +112,47 @@ void VetoableChangeSupport::removeVetoableChangeListener($String* propertyName, 
 }
 
 $VetoableChangeListenerArray* VetoableChangeSupport::getVetoableChangeListeners($String* propertyName) {
-	return $fcast($VetoableChangeListenerArray, $nc(this->map)->getListeners(propertyName));
+	return $cast($VetoableChangeListenerArray, $nc(this->map)->getListeners(propertyName));
 }
 
 void VetoableChangeSupport::fireVetoableChange($String* propertyName, Object$* oldValue, Object$* newValue) {
-	if (oldValue == nullptr || newValue == nullptr || !$nc($of(oldValue))->equals(newValue)) {
+	if (oldValue == nullptr || newValue == nullptr || !$of(oldValue)->equals(newValue)) {
 		fireVetoableChange($$new($PropertyChangeEvent, this->source, propertyName, oldValue, newValue));
 	}
 }
 
 void VetoableChangeSupport::fireVetoableChange($String* propertyName, int32_t oldValue, int32_t newValue) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (oldValue != newValue) {
-		$var($String, var$0, propertyName);
-		$var($Object, var$1, $of($Integer::valueOf(oldValue)));
-		fireVetoableChange(var$0, var$1, $($of($Integer::valueOf(newValue))));
+		$var($Object, var$0, $Integer::valueOf(oldValue));
+		fireVetoableChange(propertyName, var$0, $($Integer::valueOf(newValue)));
 	}
 }
 
 void VetoableChangeSupport::fireVetoableChange($String* propertyName, bool oldValue, bool newValue) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (oldValue != newValue) {
-		$var($String, var$0, propertyName);
-		$var($Object, var$1, $of($Boolean::valueOf(oldValue)));
-		fireVetoableChange(var$0, var$1, $($of($Boolean::valueOf(newValue))));
+		$var($Object, var$0, $Boolean::valueOf(oldValue));
+		fireVetoableChange(propertyName, var$0, $($Boolean::valueOf(newValue)));
 	}
 }
 
 void VetoableChangeSupport::fireVetoableChange($PropertyChangeEvent* event$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($PropertyChangeEvent, event, event$renamed);
 	$var($Object, oldValue, $nc(event)->getOldValue());
 	$var($Object, newValue, event->getNewValue());
-	if (oldValue == nullptr || newValue == nullptr || !$nc($of(oldValue))->equals(newValue)) {
+	if (oldValue == nullptr || newValue == nullptr || !oldValue->equals(newValue)) {
 		$var($String, name, event->getPropertyName());
-		$var($VetoableChangeListenerArray, common, $fcast($VetoableChangeListenerArray, $nc(this->map)->get(nullptr)));
-		$var($VetoableChangeListenerArray, named, (name != nullptr) ? $fcast($VetoableChangeListenerArray, $nc(this->map)->get(name)) : ($VetoableChangeListenerArray*)nullptr);
+		$var($VetoableChangeListenerArray, common, $cast($VetoableChangeListenerArray, $nc(this->map)->get(nullptr)));
+		$var($VetoableChangeListenerArray, named, (name != nullptr) ? $cast($VetoableChangeListenerArray, $nc(this->map)->get(name)) : ($VetoableChangeListenerArray*)nullptr);
 		$var($VetoableChangeListenerArray, listeners, nullptr);
 		if (common == nullptr) {
 			$assign(listeners, named);
 		} else if (named == nullptr) {
 			$assign(listeners, common);
 		} else {
-			$assign(listeners, $new($VetoableChangeListenerArray, $nc(common)->length + $nc(named)->length));
+			$assign(listeners, $new($VetoableChangeListenerArray, common->length + named->length));
 			$System::arraycopy(common, 0, listeners, 0, common->length);
 			$System::arraycopy(named, 0, listeners, common->length, named->length);
 		}
@@ -237,47 +182,39 @@ bool VetoableChangeSupport::hasListeners($String* propertyName) {
 }
 
 void VetoableChangeSupport::writeObject($ObjectOutputStream* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Hashtable, children, nullptr);
 	$var($VetoableChangeListenerArray, listeners, nullptr);
 	$synchronized(this->map) {
-		{
-			$var($Iterator, i$, $nc($($nc(this->map)->getEntries()))->iterator());
-			for (; $nc(i$)->hasNext();) {
-				$var($Map$Entry, entry, $cast($Map$Entry, i$->next()));
-				{
-					$var($String, property, $cast($String, $nc(entry)->getKey()));
-					if (property == nullptr) {
-						$assign(listeners, $cast($VetoableChangeListenerArray, entry->getValue()));
-					} else {
-						if (children == nullptr) {
-							$assign(children, $new($Hashtable));
-						}
-						$var(VetoableChangeSupport, vcs, $new(VetoableChangeSupport, this->source));
-						$nc(vcs->map)->set(nullptr, $fcast($EventListenerArray, $cast($VetoableChangeListenerArray, $(entry->getValue()))));
-						$nc(children)->put(property, vcs);
+		$var($Iterator, i$, $$nc(this->map->getEntries())->iterator());
+		for (; $nc(i$)->hasNext();) {
+			$var($Map$Entry, entry, $cast($Map$Entry, i$->next()));
+			{
+				$var($String, property, $cast($String, $nc(entry)->getKey()));
+				if (property == nullptr) {
+					$assign(listeners, $cast($VetoableChangeListenerArray, entry->getValue()));
+				} else {
+					if (children == nullptr) {
+						$assign(children, $new($Hashtable));
 					}
+					$var(VetoableChangeSupport, vcs, $new(VetoableChangeSupport, this->source));
+					$nc(vcs->map)->set(nullptr, $$cast($EventListenerArray, $cast($VetoableChangeListenerArray, entry->getValue())));
+					$nc(children)->put(property, vcs);
 				}
 			}
 		}
 	}
 	$var($ObjectOutputStream$PutField, fields, $nc(s)->putFields());
-	$nc(fields)->put("children"_s, $of(children));
+	$nc(fields)->put("children"_s, children);
 	fields->put("source"_s, this->source);
 	fields->put("vetoableChangeSupportSerializedDataVersion"_s, 2);
 	s->writeFields();
 	if (listeners != nullptr) {
-		{
-			$var($VetoableChangeListenerArray, arr$, listeners);
-			int32_t len$ = arr$->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
-				$var($VetoableChangeListener, l, arr$->get(i$));
-				{
-					if ($instanceOf($Serializable, l)) {
-						s->writeObject(l);
-					}
-				}
+		$var($VetoableChangeListenerArray, arr$, listeners);
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
+			$var($VetoableChangeListener, l, arr$->get(i$));
+			if ($instanceOf($Serializable, l)) {
+				s->writeObject(l);
 			}
 		}
 	}
@@ -285,32 +222,26 @@ void VetoableChangeSupport::writeObject($ObjectOutputStream* s) {
 }
 
 void VetoableChangeSupport::readObject($ObjectInputStream* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, map, $new($VetoableChangeSupport$VetoableChangeListenerMap));
 	$var($ObjectInputStream$GetField, fields, $nc(s)->readFields());
-	$var($Hashtable, children, $cast($Hashtable, $nc(fields)->get("children"_s, ($Object*)nullptr)));
-	$set(this, source, fields->get("source"_s, ($Object*)nullptr));
+	$var($Hashtable, children, $cast($Hashtable, $nc(fields)->get("children"_s, nullptr)));
+	$set(this, source, fields->get("source"_s, nullptr));
 	fields->get("vetoableChangeSupportSerializedDataVersion"_s, 2);
 	$var($Object, listenerOrNull, nullptr);
 	while (nullptr != ($assign(listenerOrNull, s->readObject()))) {
 		$nc(this->map)->add(nullptr, $cast($VetoableChangeListener, listenerOrNull));
 	}
 	if (children != nullptr) {
-		{
-			$var($Iterator, i$, $nc($(children->entrySet()))->iterator());
-			for (; $nc(i$)->hasNext();) {
-				$var($Map$Entry, entry, $cast($Map$Entry, i$->next()));
-				{
+		$var($Iterator, i$, $$nc(children->entrySet())->iterator());
+		for (; $nc(i$)->hasNext();) {
+			$var($Map$Entry, entry, $cast($Map$Entry, i$->next()));
+			{
+				$var($VetoableChangeListenerArray, arr$, $$sure(VetoableChangeSupport, $nc(entry)->getValue())->getVetoableChangeListeners());
+				for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
+					$var($VetoableChangeListener, listener, arr$->get(i$));
 					{
-						$var($VetoableChangeListenerArray, arr$, $nc(($cast(VetoableChangeSupport, $($nc(entry)->getValue()))))->getVetoableChangeListeners());
-						int32_t len$ = $nc(arr$)->length;
-						int32_t i$ = 0;
-						for (; i$ < len$; ++i$) {
-							$var($VetoableChangeListener, listener, arr$->get(i$));
-							{
-								$nc(this->map)->add($cast($String, $(entry->getKey())), listener);
-							}
-						}
+						$nc(this->map)->add($$cast($String, entry->getKey()), listener);
 					}
 				}
 			}
@@ -318,10 +249,9 @@ void VetoableChangeSupport::readObject($ObjectInputStream* s) {
 	}
 }
 
-void clinit$VetoableChangeSupport($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void VetoableChangeSupport::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$load($Hashtable);
-	$init($Integer);
 	$assignStatic(VetoableChangeSupport::serialPersistentFields, $new($ObjectStreamFieldArray, {
 		$$new($ObjectStreamField, "children"_s, $Hashtable::class$),
 		$$new($ObjectStreamField, "source"_s, $Object::class$),
@@ -333,7 +263,51 @@ VetoableChangeSupport::VetoableChangeSupport() {
 }
 
 $Class* VetoableChangeSupport::load$($String* name, bool initialize) {
-	$loadClass(VetoableChangeSupport, name, initialize, &_VetoableChangeSupport_ClassInfo_, clinit$VetoableChangeSupport, allocate$VetoableChangeSupport);
+	$FieldInfo fieldInfos$$[] = {
+		{"map", "Ljava/beans/VetoableChangeSupport$VetoableChangeListenerMap;", nullptr, $PRIVATE, $field(VetoableChangeSupport, map)},
+		{"source", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(VetoableChangeSupport, source)},
+		{"serialPersistentFields", "[Ljava/io/ObjectStreamField;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(VetoableChangeSupport, serialPersistentFields)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(VetoableChangeSupport, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(VetoableChangeSupport, init$, void, Object$*)},
+		{"addVetoableChangeListener", "(Ljava/beans/VetoableChangeListener;)V", nullptr, $PUBLIC, $virtualMethod(VetoableChangeSupport, addVetoableChangeListener, void, $VetoableChangeListener*)},
+		{"addVetoableChangeListener", "(Ljava/lang/String;Ljava/beans/VetoableChangeListener;)V", nullptr, $PUBLIC, $virtualMethod(VetoableChangeSupport, addVetoableChangeListener, void, $String*, $VetoableChangeListener*)},
+		{"fireVetoableChange", "(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(VetoableChangeSupport, fireVetoableChange, void, $String*, Object$*, Object$*), "java.beans.PropertyVetoException"},
+		{"fireVetoableChange", "(Ljava/lang/String;II)V", nullptr, $PUBLIC, $virtualMethod(VetoableChangeSupport, fireVetoableChange, void, $String*, int32_t, int32_t), "java.beans.PropertyVetoException"},
+		{"fireVetoableChange", "(Ljava/lang/String;ZZ)V", nullptr, $PUBLIC, $virtualMethod(VetoableChangeSupport, fireVetoableChange, void, $String*, bool, bool), "java.beans.PropertyVetoException"},
+		{"fireVetoableChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(VetoableChangeSupport, fireVetoableChange, void, $PropertyChangeEvent*), "java.beans.PropertyVetoException"},
+		{"getVetoableChangeListeners", "()[Ljava/beans/VetoableChangeListener;", nullptr, $PUBLIC, $virtualMethod(VetoableChangeSupport, getVetoableChangeListeners, $VetoableChangeListenerArray*)},
+		{"getVetoableChangeListeners", "(Ljava/lang/String;)[Ljava/beans/VetoableChangeListener;", nullptr, $PUBLIC, $virtualMethod(VetoableChangeSupport, getVetoableChangeListeners, $VetoableChangeListenerArray*, $String*)},
+		{"hasListeners", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(VetoableChangeSupport, hasListeners, bool, $String*)},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(VetoableChangeSupport, readObject, void, $ObjectInputStream*), "java.lang.ClassNotFoundException,java.io.IOException"},
+		{"removeVetoableChangeListener", "(Ljava/beans/VetoableChangeListener;)V", nullptr, $PUBLIC, $virtualMethod(VetoableChangeSupport, removeVetoableChangeListener, void, $VetoableChangeListener*)},
+		{"removeVetoableChangeListener", "(Ljava/lang/String;Ljava/beans/VetoableChangeListener;)V", nullptr, $PUBLIC, $virtualMethod(VetoableChangeSupport, removeVetoableChangeListener, void, $String*, $VetoableChangeListener*)},
+		{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(VetoableChangeSupport, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.beans.VetoableChangeSupport$VetoableChangeListenerMap", "java.beans.VetoableChangeSupport", "VetoableChangeListenerMap", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.beans.VetoableChangeSupport",
+		"java.lang.Object",
+		"java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.beans.VetoableChangeSupport$VetoableChangeListenerMap"
+	};
+	$loadClass(VetoableChangeSupport, name, initialize, &classInfo$$, VetoableChangeSupport::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(VetoableChangeSupport);
+	});
 	return class$;
 }
 

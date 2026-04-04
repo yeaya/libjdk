@@ -1,5 +1,4 @@
 #include <sun/java2d/marlin/RendererContext.h>
-
 #include <java/awt/geom/Path2D$Double.h>
 #include <java/lang/ref/WeakReference.h>
 #include <java/util/concurrent/atomic/AtomicInteger.h>
@@ -54,7 +53,6 @@ using $ByteArrayCache = ::sun::java2d::marlin::ByteArrayCache;
 using $ByteArrayCache$Reference = ::sun::java2d::marlin::ByteArrayCache$Reference;
 using $CollinearSimplifier = ::sun::java2d::marlin::CollinearSimplifier;
 using $Curve = ::sun::java2d::marlin::Curve;
-using $DMarlinRenderingEngine$NormalizingPathIterator = ::sun::java2d::marlin::DMarlinRenderingEngine$NormalizingPathIterator;
 using $DMarlinRenderingEngine$NormalizingPathIterator$NearestPixelCenter = ::sun::java2d::marlin::DMarlinRenderingEngine$NormalizingPathIterator$NearestPixelCenter;
 using $DMarlinRenderingEngine$NormalizingPathIterator$NearestPixelQuarter = ::sun::java2d::marlin::DMarlinRenderingEngine$NormalizingPathIterator$NearestPixelQuarter;
 using $Dasher = ::sun::java2d::marlin::Dasher;
@@ -80,82 +78,6 @@ namespace sun {
 	namespace java2d {
 		namespace marlin {
 
-$FieldInfo _RendererContext_FieldInfo_[] = {
-	{"CTX_COUNT", "Ljava/util/concurrent/atomic/AtomicInteger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(RendererContext, CTX_COUNT)},
-	{"cleanerObj", "Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $field(RendererContext, cleanerObj)},
-	{"dirty", "Z", nullptr, 0, $field(RendererContext, dirty)},
-	{"double6", "[D", nullptr, $FINAL, $field(RendererContext, double6)},
-	{"curve", "Lsun/java2d/marlin/Curve;", nullptr, $FINAL, $field(RendererContext, curve)},
-	{"nPCPathIterator", "Lsun/java2d/marlin/DMarlinRenderingEngine$NormalizingPathIterator;", nullptr, $FINAL, $field(RendererContext, nPCPathIterator)},
-	{"nPQPathIterator", "Lsun/java2d/marlin/DMarlinRenderingEngine$NormalizingPathIterator;", nullptr, $FINAL, $field(RendererContext, nPQPathIterator)},
-	{"transformerPC2D", "Lsun/java2d/marlin/TransformingPathConsumer2D;", nullptr, $FINAL, $field(RendererContext, transformerPC2D)},
-	{"refPath2D", "Ljava/lang/ref/WeakReference;", "Ljava/lang/ref/WeakReference<Ljava/awt/geom/Path2D$Double;>;", $PRIVATE, $field(RendererContext, refPath2D)},
-	{"renderer", "Lsun/java2d/marlin/Renderer;", nullptr, $FINAL, $field(RendererContext, renderer)},
-	{"stroker", "Lsun/java2d/marlin/Stroker;", nullptr, $FINAL, $field(RendererContext, stroker)},
-	{"simplifier", "Lsun/java2d/marlin/CollinearSimplifier;", nullptr, $FINAL, $field(RendererContext, simplifier)},
-	{"pathSimplifier", "Lsun/java2d/marlin/PathSimplifier;", nullptr, $FINAL, $field(RendererContext, pathSimplifier)},
-	{"dasher", "Lsun/java2d/marlin/Dasher;", nullptr, $FINAL, $field(RendererContext, dasher)},
-	{"ptg", "Lsun/java2d/marlin/MarlinTileGenerator;", nullptr, $FINAL, $field(RendererContext, ptg)},
-	{"cache", "Lsun/java2d/marlin/MarlinCache;", nullptr, $FINAL, $field(RendererContext, cache)},
-	{"stroking", "I", nullptr, 0, $field(RendererContext, stroking)},
-	{"doClip", "Z", nullptr, 0, $field(RendererContext, doClip)},
-	{"closedPath", "Z", nullptr, 0, $field(RendererContext, closedPath)},
-	{"clipRect", "[D", nullptr, $FINAL, $field(RendererContext, clipRect)},
-	{"clipInvScale", "D", nullptr, 0, $field(RendererContext, clipInvScale)},
-	{"monotonizer", "Lsun/java2d/marlin/TransformingPathConsumer2D$CurveBasicMonotonizer;", nullptr, $FINAL, $field(RendererContext, monotonizer)},
-	{"curveClipSplitter", "Lsun/java2d/marlin/TransformingPathConsumer2D$CurveClipSplitter;", nullptr, $FINAL, $field(RendererContext, curveClipSplitter)},
-	{"cleanIntCache", "Lsun/java2d/marlin/IntArrayCache;", nullptr, $PRIVATE | $FINAL, $field(RendererContext, cleanIntCache)},
-	{"dirtyIntCache", "Lsun/java2d/marlin/IntArrayCache;", nullptr, $PRIVATE | $FINAL, $field(RendererContext, dirtyIntCache)},
-	{"dirtyDoubleCache", "Lsun/java2d/marlin/DoubleArrayCache;", nullptr, $PRIVATE | $FINAL, $field(RendererContext, dirtyDoubleCache)},
-	{"dirtyByteCache", "Lsun/java2d/marlin/ByteArrayCache;", nullptr, $PRIVATE | $FINAL, $field(RendererContext, dirtyByteCache)},
-	{"stats", "Lsun/java2d/marlin/RendererStats;", nullptr, $FINAL, $field(RendererContext, stats$)},
-	{"p2dAdapter", "Lsun/java2d/marlin/RendererContext$PathConsumer2DAdapter;", nullptr, $FINAL, $field(RendererContext, p2dAdapter)},
-	{}
-};
-
-$MethodInfo _RendererContext_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(RendererContext, init$, void, $String*)},
-	{"createContext", "()Lsun/java2d/marlin/RendererContext;", nullptr, $STATIC, $staticMethod(RendererContext, createContext, RendererContext*)},
-	{"dispose", "()V", nullptr, 0, $method(RendererContext, dispose, void)},
-	{"getPath2D", "()Ljava/awt/geom/Path2D$Double;", nullptr, 0, $method(RendererContext, getPath2D, $Path2D$Double*)},
-	{"newCleanIntArrayRef", "(I)Lsun/java2d/marlin/IntArrayCache$Reference;", nullptr, 0, $method(RendererContext, newCleanIntArrayRef, $IntArrayCache$Reference*, int32_t)},
-	{"newDirtyByteArrayRef", "(I)Lsun/java2d/marlin/ByteArrayCache$Reference;", nullptr, 0, $method(RendererContext, newDirtyByteArrayRef, $ByteArrayCache$Reference*, int32_t)},
-	{"newDirtyDoubleArrayRef", "(I)Lsun/java2d/marlin/DoubleArrayCache$Reference;", nullptr, 0, $method(RendererContext, newDirtyDoubleArrayRef, $DoubleArrayCache$Reference*, int32_t)},
-	{"newDirtyIntArrayRef", "(I)Lsun/java2d/marlin/IntArrayCache$Reference;", nullptr, 0, $method(RendererContext, newDirtyIntArrayRef, $IntArrayCache$Reference*, int32_t)},
-	{"newOffHeapArray", "(J)Lsun/java2d/marlin/OffHeapArray;", nullptr, 0, $method(RendererContext, newOffHeapArray, $OffHeapArray*, int64_t)},
-	{"stats", "()Lsun/java2d/marlin/RendererStats;", nullptr, 0, $method(RendererContext, stats, $RendererStats*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _RendererContext_InnerClassesInfo_[] = {
-	{"sun.java2d.marlin.RendererContext$PathConsumer2DAdapter", "sun.java2d.marlin.RendererContext", "PathConsumer2DAdapter", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _RendererContext_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.java2d.marlin.RendererContext",
-	"sun.java2d.ReentrantContext",
-	"sun.java2d.marlin.MarlinConst",
-	_RendererContext_FieldInfo_,
-	_RendererContext_MethodInfo_,
-	nullptr,
-	nullptr,
-	_RendererContext_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.java2d.marlin.RendererContext$PathConsumer2DAdapter"
-};
-
-$Object* allocate$RendererContext($Class* clazz) {
-	return $of($alloc(RendererContext));
-}
-
 int32_t RendererContext::hashCode() {
 	 return this->$ReentrantContext::hashCode();
 }
@@ -180,8 +102,8 @@ $AtomicInteger* RendererContext::CTX_COUNT = nullptr;
 
 RendererContext* RendererContext::createContext() {
 	$init(RendererContext);
-	$useLocalCurrentObjectStackCache();
-	return $new(RendererContext, $$str({"ctx"_s, $($Integer::toString($nc(RendererContext::CTX_COUNT)->getAndIncrement()))}));
+	$useLocalObjectStack();
+	return $new(RendererContext, $$str({"ctx"_s, $($Integer::toString(RendererContext::CTX_COUNT->getAndIncrement()))}));
 }
 
 void RendererContext::init$($String* name) {
@@ -210,10 +132,10 @@ void RendererContext::init$($String* name) {
 	if ($MarlinConst::DO_STATS || $MarlinConst::DO_MONITORS) {
 		$set(this, stats$, $RendererStats::createInstance(this->cleanerObj, name));
 		$set($nc(this->stats$), cacheStats, $new($ArrayCacheConst$CacheStatsArray, {
-			$nc(this->cleanIntCache)->stats,
-			$nc(this->dirtyIntCache)->stats,
-			$nc(this->dirtyDoubleCache)->stats,
-			$nc(this->dirtyByteCache)->stats
+			this->cleanIntCache->stats,
+			this->dirtyIntCache->stats,
+			this->dirtyDoubleCache->stats,
+			this->dirtyByteCache->stats
 		}));
 	} else {
 		$set(this, stats$, nullptr);
@@ -234,9 +156,9 @@ void RendererContext::dispose() {
 	$init($MarlinConst);
 	if ($MarlinConst::DO_STATS) {
 		if ($nc(this->stats$)->totalOffHeap > $nc(this->stats$)->totalOffHeapMax) {
-			$nc(this->stats$)->totalOffHeapMax = $nc(this->stats$)->totalOffHeap;
+			this->stats$->totalOffHeapMax = this->stats$->totalOffHeap;
 		}
-		$nc(this->stats$)->totalOffHeap = 0;
+		this->stats$->totalOffHeap = 0;
 	}
 	this->stroking = 0;
 	this->doClip = false;
@@ -252,7 +174,7 @@ void RendererContext::dispose() {
 }
 
 $Path2D$Double* RendererContext::getPath2D() {
-	$var($Path2D$Double, p2d, (this->refPath2D != nullptr) ? $cast($Path2D$Double, $nc(this->refPath2D)->get()) : ($Path2D$Double*)nullptr);
+	$var($Path2D$Double, p2d, (this->refPath2D != nullptr) ? $cast($Path2D$Double, this->refPath2D->get()) : ($Path2D$Double*)nullptr);
 	if (p2d == nullptr) {
 		$init($MarlinConst);
 		$assign(p2d, $new($Path2D$Double, $MarlinConst::WIND_NON_ZERO, $MarlinConst::INITIAL_EDGES_COUNT));
@@ -275,22 +197,22 @@ $OffHeapArray* RendererContext::newOffHeapArray(int64_t initialSize) {
 }
 
 $IntArrayCache$Reference* RendererContext::newCleanIntArrayRef(int32_t initialSize) {
-	return $nc(this->cleanIntCache)->createRef(initialSize);
+	return this->cleanIntCache->createRef(initialSize);
 }
 
 $IntArrayCache$Reference* RendererContext::newDirtyIntArrayRef(int32_t initialSize) {
-	return $nc(this->dirtyIntCache)->createRef(initialSize);
+	return this->dirtyIntCache->createRef(initialSize);
 }
 
 $DoubleArrayCache$Reference* RendererContext::newDirtyDoubleArrayRef(int32_t initialSize) {
-	return $nc(this->dirtyDoubleCache)->createRef(initialSize);
+	return this->dirtyDoubleCache->createRef(initialSize);
 }
 
 $ByteArrayCache$Reference* RendererContext::newDirtyByteArrayRef(int32_t initialSize) {
-	return $nc(this->dirtyByteCache)->createRef(initialSize);
+	return this->dirtyByteCache->createRef(initialSize);
 }
 
-void clinit$RendererContext($Class* class$) {
+void RendererContext::clinit$($Class* clazz) {
 	$assignStatic(RendererContext::CTX_COUNT, $new($AtomicInteger, 1));
 }
 
@@ -298,7 +220,77 @@ RendererContext::RendererContext() {
 }
 
 $Class* RendererContext::load$($String* name, bool initialize) {
-	$loadClass(RendererContext, name, initialize, &_RendererContext_ClassInfo_, clinit$RendererContext, allocate$RendererContext);
+	$FieldInfo fieldInfos$$[] = {
+		{"CTX_COUNT", "Ljava/util/concurrent/atomic/AtomicInteger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(RendererContext, CTX_COUNT)},
+		{"cleanerObj", "Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $field(RendererContext, cleanerObj)},
+		{"dirty", "Z", nullptr, 0, $field(RendererContext, dirty)},
+		{"double6", "[D", nullptr, $FINAL, $field(RendererContext, double6)},
+		{"curve", "Lsun/java2d/marlin/Curve;", nullptr, $FINAL, $field(RendererContext, curve)},
+		{"nPCPathIterator", "Lsun/java2d/marlin/DMarlinRenderingEngine$NormalizingPathIterator;", nullptr, $FINAL, $field(RendererContext, nPCPathIterator)},
+		{"nPQPathIterator", "Lsun/java2d/marlin/DMarlinRenderingEngine$NormalizingPathIterator;", nullptr, $FINAL, $field(RendererContext, nPQPathIterator)},
+		{"transformerPC2D", "Lsun/java2d/marlin/TransformingPathConsumer2D;", nullptr, $FINAL, $field(RendererContext, transformerPC2D)},
+		{"refPath2D", "Ljava/lang/ref/WeakReference;", "Ljava/lang/ref/WeakReference<Ljava/awt/geom/Path2D$Double;>;", $PRIVATE, $field(RendererContext, refPath2D)},
+		{"renderer", "Lsun/java2d/marlin/Renderer;", nullptr, $FINAL, $field(RendererContext, renderer)},
+		{"stroker", "Lsun/java2d/marlin/Stroker;", nullptr, $FINAL, $field(RendererContext, stroker)},
+		{"simplifier", "Lsun/java2d/marlin/CollinearSimplifier;", nullptr, $FINAL, $field(RendererContext, simplifier)},
+		{"pathSimplifier", "Lsun/java2d/marlin/PathSimplifier;", nullptr, $FINAL, $field(RendererContext, pathSimplifier)},
+		{"dasher", "Lsun/java2d/marlin/Dasher;", nullptr, $FINAL, $field(RendererContext, dasher)},
+		{"ptg", "Lsun/java2d/marlin/MarlinTileGenerator;", nullptr, $FINAL, $field(RendererContext, ptg)},
+		{"cache", "Lsun/java2d/marlin/MarlinCache;", nullptr, $FINAL, $field(RendererContext, cache)},
+		{"stroking", "I", nullptr, 0, $field(RendererContext, stroking)},
+		{"doClip", "Z", nullptr, 0, $field(RendererContext, doClip)},
+		{"closedPath", "Z", nullptr, 0, $field(RendererContext, closedPath)},
+		{"clipRect", "[D", nullptr, $FINAL, $field(RendererContext, clipRect)},
+		{"clipInvScale", "D", nullptr, 0, $field(RendererContext, clipInvScale)},
+		{"monotonizer", "Lsun/java2d/marlin/TransformingPathConsumer2D$CurveBasicMonotonizer;", nullptr, $FINAL, $field(RendererContext, monotonizer)},
+		{"curveClipSplitter", "Lsun/java2d/marlin/TransformingPathConsumer2D$CurveClipSplitter;", nullptr, $FINAL, $field(RendererContext, curveClipSplitter)},
+		{"cleanIntCache", "Lsun/java2d/marlin/IntArrayCache;", nullptr, $PRIVATE | $FINAL, $field(RendererContext, cleanIntCache)},
+		{"dirtyIntCache", "Lsun/java2d/marlin/IntArrayCache;", nullptr, $PRIVATE | $FINAL, $field(RendererContext, dirtyIntCache)},
+		{"dirtyDoubleCache", "Lsun/java2d/marlin/DoubleArrayCache;", nullptr, $PRIVATE | $FINAL, $field(RendererContext, dirtyDoubleCache)},
+		{"dirtyByteCache", "Lsun/java2d/marlin/ByteArrayCache;", nullptr, $PRIVATE | $FINAL, $field(RendererContext, dirtyByteCache)},
+		{"stats", "Lsun/java2d/marlin/RendererStats;", nullptr, $FINAL, $field(RendererContext, stats$)},
+		{"p2dAdapter", "Lsun/java2d/marlin/RendererContext$PathConsumer2DAdapter;", nullptr, $FINAL, $field(RendererContext, p2dAdapter)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(RendererContext, init$, void, $String*)},
+		{"createContext", "()Lsun/java2d/marlin/RendererContext;", nullptr, $STATIC, $staticMethod(RendererContext, createContext, RendererContext*)},
+		{"dispose", "()V", nullptr, 0, $method(RendererContext, dispose, void)},
+		{"getPath2D", "()Ljava/awt/geom/Path2D$Double;", nullptr, 0, $method(RendererContext, getPath2D, $Path2D$Double*)},
+		{"newCleanIntArrayRef", "(I)Lsun/java2d/marlin/IntArrayCache$Reference;", nullptr, 0, $method(RendererContext, newCleanIntArrayRef, $IntArrayCache$Reference*, int32_t)},
+		{"newDirtyByteArrayRef", "(I)Lsun/java2d/marlin/ByteArrayCache$Reference;", nullptr, 0, $method(RendererContext, newDirtyByteArrayRef, $ByteArrayCache$Reference*, int32_t)},
+		{"newDirtyDoubleArrayRef", "(I)Lsun/java2d/marlin/DoubleArrayCache$Reference;", nullptr, 0, $method(RendererContext, newDirtyDoubleArrayRef, $DoubleArrayCache$Reference*, int32_t)},
+		{"newDirtyIntArrayRef", "(I)Lsun/java2d/marlin/IntArrayCache$Reference;", nullptr, 0, $method(RendererContext, newDirtyIntArrayRef, $IntArrayCache$Reference*, int32_t)},
+		{"newOffHeapArray", "(J)Lsun/java2d/marlin/OffHeapArray;", nullptr, 0, $method(RendererContext, newOffHeapArray, $OffHeapArray*, int64_t)},
+		{"stats", "()Lsun/java2d/marlin/RendererStats;", nullptr, 0, $method(RendererContext, stats, $RendererStats*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.java2d.marlin.RendererContext$PathConsumer2DAdapter", "sun.java2d.marlin.RendererContext", "PathConsumer2DAdapter", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.java2d.marlin.RendererContext",
+		"sun.java2d.ReentrantContext",
+		"sun.java2d.marlin.MarlinConst",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.java2d.marlin.RendererContext$PathConsumer2DAdapter"
+	};
+	$loadClass(RendererContext, name, initialize, &classInfo$$, RendererContext::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(RendererContext));
+	});
 	return class$;
 }
 

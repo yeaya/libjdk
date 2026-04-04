@@ -1,5 +1,4 @@
 #include <com/sun/naming/internal/VersionHelper.h>
-
 #include <com/sun/naming/internal/VersionHelper$InputStreamEnumeration.h>
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
@@ -53,7 +52,6 @@ using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Module = ::java::lang::Module;
 using $SecurityException = ::java::lang::SecurityException;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $URL = ::java::net::URL;
@@ -87,33 +85,29 @@ public:
 	virtual $Object* run() override {
 		 return $of(VersionHelper::lambda$getJndiProperty$1(i));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<VersionHelper$$Lambda$lambda$getJndiProperty$1>());
-	}
 	int32_t i = 0;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo VersionHelper$$Lambda$lambda$getJndiProperty$1::fieldInfos[2] = {
-	{"i", "I", nullptr, $PUBLIC, $field(VersionHelper$$Lambda$lambda$getJndiProperty$1, i)},
-	{}
-};
-$MethodInfo VersionHelper$$Lambda$lambda$getJndiProperty$1::methodInfos[3] = {
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(VersionHelper$$Lambda$lambda$getJndiProperty$1, init$, void, int32_t)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(VersionHelper$$Lambda$lambda$getJndiProperty$1, run, $Object*)},
-	{}
-};
-$ClassInfo VersionHelper$$Lambda$lambda$getJndiProperty$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.naming.internal.VersionHelper$$Lambda$lambda$getJndiProperty$1",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	fieldInfos,
-	methodInfos
 };
 $Class* VersionHelper$$Lambda$lambda$getJndiProperty$1::load$($String* name, bool initialize) {
-	$loadClass(VersionHelper$$Lambda$lambda$getJndiProperty$1, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"i", "I", nullptr, $PUBLIC, $field(VersionHelper$$Lambda$lambda$getJndiProperty$1, i)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(VersionHelper$$Lambda$lambda$getJndiProperty$1, init$, void, int32_t)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(VersionHelper$$Lambda$lambda$getJndiProperty$1, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.naming.internal.VersionHelper$$Lambda$lambda$getJndiProperty$1",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(VersionHelper$$Lambda$lambda$getJndiProperty$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(VersionHelper$$Lambda$lambda$getJndiProperty$1);
+	});
 	return class$;
 }
 $Class* VersionHelper$$Lambda$lambda$getJndiProperty$1::class$ = nullptr;
@@ -126,27 +120,24 @@ public:
 	virtual $Object* run() override {
 		 return $of(VersionHelper::lambda$getJndiProperties$2());
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<VersionHelper$$Lambda$lambda$getJndiProperties$2$1>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo VersionHelper$$Lambda$lambda$getJndiProperties$2$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(VersionHelper$$Lambda$lambda$getJndiProperties$2$1, init$, void)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(VersionHelper$$Lambda$lambda$getJndiProperties$2$1, run, $Object*)},
-	{}
-};
-$ClassInfo VersionHelper$$Lambda$lambda$getJndiProperties$2$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.naming.internal.VersionHelper$$Lambda$lambda$getJndiProperties$2$1",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	nullptr,
-	methodInfos
 };
 $Class* VersionHelper$$Lambda$lambda$getJndiProperties$2$1::load$($String* name, bool initialize) {
-	$loadClass(VersionHelper$$Lambda$lambda$getJndiProperties$2$1, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(VersionHelper$$Lambda$lambda$getJndiProperties$2$1, init$, void)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(VersionHelper$$Lambda$lambda$getJndiProperties$2$1, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.naming.internal.VersionHelper$$Lambda$lambda$getJndiProperties$2$1",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(VersionHelper$$Lambda$lambda$getJndiProperties$2$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(VersionHelper$$Lambda$lambda$getJndiProperties$2$1);
+	});
 	return class$;
 }
 $Class* VersionHelper$$Lambda$lambda$getJndiProperties$2$1::class$ = nullptr;
@@ -159,37 +150,33 @@ public:
 		$set(this, name, name);
 	}
 	virtual $Object* run() override {
-		 return $of(VersionHelper::lambda$getResourceAsStream$3(c, name));
-	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<VersionHelper$$Lambda$lambda$getResourceAsStream$3$2>());
+		 return VersionHelper::lambda$getResourceAsStream$3(c, name);
 	}
 	$Class* c = nullptr;
 	$String* name = nullptr;
-	static $FieldInfo fieldInfos[3];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo VersionHelper$$Lambda$lambda$getResourceAsStream$3$2::fieldInfos[3] = {
-	{"c", "Ljava/lang/Class;", nullptr, $PUBLIC, $field(VersionHelper$$Lambda$lambda$getResourceAsStream$3$2, c)},
-	{"name", "Ljava/lang/String;", nullptr, $PUBLIC, $field(VersionHelper$$Lambda$lambda$getResourceAsStream$3$2, name)},
-	{}
-};
-$MethodInfo VersionHelper$$Lambda$lambda$getResourceAsStream$3$2::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/Class;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(VersionHelper$$Lambda$lambda$getResourceAsStream$3$2, init$, void, $Class*, $String*)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(VersionHelper$$Lambda$lambda$getResourceAsStream$3$2, run, $Object*)},
-	{}
-};
-$ClassInfo VersionHelper$$Lambda$lambda$getResourceAsStream$3$2::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.naming.internal.VersionHelper$$Lambda$lambda$getResourceAsStream$3$2",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	fieldInfos,
-	methodInfos
 };
 $Class* VersionHelper$$Lambda$lambda$getResourceAsStream$3$2::load$($String* name, bool initialize) {
-	$loadClass(VersionHelper$$Lambda$lambda$getResourceAsStream$3$2, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"c", "Ljava/lang/Class;", nullptr, $PUBLIC, $field(VersionHelper$$Lambda$lambda$getResourceAsStream$3$2, c)},
+		{"name", "Ljava/lang/String;", nullptr, $PUBLIC, $field(VersionHelper$$Lambda$lambda$getResourceAsStream$3$2, name)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Class;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(VersionHelper$$Lambda$lambda$getResourceAsStream$3$2, init$, void, $Class*, $String*)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(VersionHelper$$Lambda$lambda$getResourceAsStream$3$2, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.naming.internal.VersionHelper$$Lambda$lambda$getResourceAsStream$3$2",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(VersionHelper$$Lambda$lambda$getResourceAsStream$3$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(VersionHelper$$Lambda$lambda$getResourceAsStream$3$2);
+	});
 	return class$;
 }
 $Class* VersionHelper$$Lambda$lambda$getResourceAsStream$3$2::class$ = nullptr;
@@ -201,35 +188,31 @@ public:
 		$set(this, filename, filename);
 	}
 	virtual $Object* run() override {
-		 return $of(VersionHelper::lambda$getJavaHomeConfStream$4(filename));
-	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<VersionHelper$$Lambda$lambda$getJavaHomeConfStream$4$3>());
+		 return VersionHelper::lambda$getJavaHomeConfStream$4(filename);
 	}
 	$String* filename = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo VersionHelper$$Lambda$lambda$getJavaHomeConfStream$4$3::fieldInfos[2] = {
-	{"filename", "Ljava/lang/String;", nullptr, $PUBLIC, $field(VersionHelper$$Lambda$lambda$getJavaHomeConfStream$4$3, filename)},
-	{}
-};
-$MethodInfo VersionHelper$$Lambda$lambda$getJavaHomeConfStream$4$3::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(VersionHelper$$Lambda$lambda$getJavaHomeConfStream$4$3, init$, void, $String*)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(VersionHelper$$Lambda$lambda$getJavaHomeConfStream$4$3, run, $Object*)},
-	{}
-};
-$ClassInfo VersionHelper$$Lambda$lambda$getJavaHomeConfStream$4$3::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.naming.internal.VersionHelper$$Lambda$lambda$getJavaHomeConfStream$4$3",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	fieldInfos,
-	methodInfos
 };
 $Class* VersionHelper$$Lambda$lambda$getJavaHomeConfStream$4$3::load$($String* name, bool initialize) {
-	$loadClass(VersionHelper$$Lambda$lambda$getJavaHomeConfStream$4$3, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"filename", "Ljava/lang/String;", nullptr, $PUBLIC, $field(VersionHelper$$Lambda$lambda$getJavaHomeConfStream$4$3, filename)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(VersionHelper$$Lambda$lambda$getJavaHomeConfStream$4$3, init$, void, $String*)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(VersionHelper$$Lambda$lambda$getJavaHomeConfStream$4$3, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.naming.internal.VersionHelper$$Lambda$lambda$getJavaHomeConfStream$4$3",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(VersionHelper$$Lambda$lambda$getJavaHomeConfStream$4$3, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(VersionHelper$$Lambda$lambda$getJavaHomeConfStream$4$3);
+	});
 	return class$;
 }
 $Class* VersionHelper$$Lambda$lambda$getJavaHomeConfStream$4$3::class$ = nullptr;
@@ -242,37 +225,33 @@ public:
 		$set(this, name, name);
 	}
 	virtual $Object* run() override {
-		 return $of(VersionHelper::lambda$getResources$5(cl, name));
-	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<VersionHelper$$Lambda$lambda$getResources$5$4>());
+		 return VersionHelper::lambda$getResources$5(cl, name);
 	}
 	$ClassLoader* cl = nullptr;
 	$String* name = nullptr;
-	static $FieldInfo fieldInfos[3];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo VersionHelper$$Lambda$lambda$getResources$5$4::fieldInfos[3] = {
-	{"cl", "Ljava/lang/ClassLoader;", nullptr, $PUBLIC, $field(VersionHelper$$Lambda$lambda$getResources$5$4, cl)},
-	{"name", "Ljava/lang/String;", nullptr, $PUBLIC, $field(VersionHelper$$Lambda$lambda$getResources$5$4, name)},
-	{}
-};
-$MethodInfo VersionHelper$$Lambda$lambda$getResources$5$4::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/ClassLoader;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(VersionHelper$$Lambda$lambda$getResources$5$4, init$, void, $ClassLoader*, $String*)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(VersionHelper$$Lambda$lambda$getResources$5$4, run, $Object*)},
-	{}
-};
-$ClassInfo VersionHelper$$Lambda$lambda$getResources$5$4::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.naming.internal.VersionHelper$$Lambda$lambda$getResources$5$4",
-	"java.lang.Object",
-	"java.security.PrivilegedExceptionAction",
-	fieldInfos,
-	methodInfos
 };
 $Class* VersionHelper$$Lambda$lambda$getResources$5$4::load$($String* name, bool initialize) {
-	$loadClass(VersionHelper$$Lambda$lambda$getResources$5$4, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"cl", "Ljava/lang/ClassLoader;", nullptr, $PUBLIC, $field(VersionHelper$$Lambda$lambda$getResources$5$4, cl)},
+		{"name", "Ljava/lang/String;", nullptr, $PUBLIC, $field(VersionHelper$$Lambda$lambda$getResources$5$4, name)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/ClassLoader;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(VersionHelper$$Lambda$lambda$getResources$5$4, init$, void, $ClassLoader*, $String*)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(VersionHelper$$Lambda$lambda$getResources$5$4, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.naming.internal.VersionHelper$$Lambda$lambda$getResources$5$4",
+		"java.lang.Object",
+		"java.security.PrivilegedExceptionAction",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(VersionHelper$$Lambda$lambda$getResources$5$4, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(VersionHelper$$Lambda$lambda$getResources$5$4);
+	});
 	return class$;
 }
 $Class* VersionHelper$$Lambda$lambda$getResources$5$4::class$ = nullptr;
@@ -283,29 +262,26 @@ public:
 	void init$() {
 	}
 	virtual $Object* run() override {
-		 return $of(VersionHelper::lambda$getContextClassLoader$6());
+		 return VersionHelper::lambda$getContextClassLoader$6();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<VersionHelper$$Lambda$lambda$getContextClassLoader$6$5>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo VersionHelper$$Lambda$lambda$getContextClassLoader$6$5::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(VersionHelper$$Lambda$lambda$getContextClassLoader$6$5, init$, void)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(VersionHelper$$Lambda$lambda$getContextClassLoader$6$5, run, $Object*)},
-	{}
-};
-$ClassInfo VersionHelper$$Lambda$lambda$getContextClassLoader$6$5::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.naming.internal.VersionHelper$$Lambda$lambda$getContextClassLoader$6$5",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	nullptr,
-	methodInfos
 };
 $Class* VersionHelper$$Lambda$lambda$getContextClassLoader$6$5::load$($String* name, bool initialize) {
-	$loadClass(VersionHelper$$Lambda$lambda$getContextClassLoader$6$5, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(VersionHelper$$Lambda$lambda$getContextClassLoader$6$5, init$, void)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(VersionHelper$$Lambda$lambda$getContextClassLoader$6$5, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.naming.internal.VersionHelper$$Lambda$lambda$getContextClassLoader$6$5",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(VersionHelper$$Lambda$lambda$getContextClassLoader$6$5, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(VersionHelper$$Lambda$lambda$getContextClassLoader$6$5);
+	});
 	return class$;
 }
 $Class* VersionHelper$$Lambda$lambda$getContextClassLoader$6$5::class$ = nullptr;
@@ -318,94 +294,27 @@ public:
 	virtual $Object* run() override {
 		 return $of(VersionHelper::lambda$static$0());
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<VersionHelper$$Lambda$lambda$static$0$6>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo VersionHelper$$Lambda$lambda$static$0$6::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(VersionHelper$$Lambda$lambda$static$0$6, init$, void)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(VersionHelper$$Lambda$lambda$static$0$6, run, $Object*)},
-	{}
-};
-$ClassInfo VersionHelper$$Lambda$lambda$static$0$6::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.naming.internal.VersionHelper$$Lambda$lambda$static$0$6",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	nullptr,
-	methodInfos
 };
 $Class* VersionHelper$$Lambda$lambda$static$0$6::load$($String* name, bool initialize) {
-	$loadClass(VersionHelper$$Lambda$lambda$static$0$6, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(VersionHelper$$Lambda$lambda$static$0$6, init$, void)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(VersionHelper$$Lambda$lambda$static$0$6, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.naming.internal.VersionHelper$$Lambda$lambda$static$0$6",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(VersionHelper$$Lambda$lambda$static$0$6, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(VersionHelper$$Lambda$lambda$static$0$6);
+	});
 	return class$;
 }
 $Class* VersionHelper$$Lambda$lambda$static$0$6::class$ = nullptr;
-
-$FieldInfo _VersionHelper_FieldInfo_[] = {
-	{"helper", "Lcom/sun/naming/internal/VersionHelper;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(VersionHelper, helper)},
-	{"TRUST_URL_CODE_BASE", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(VersionHelper, TRUST_URL_CODE_BASE)},
-	{"PROPS", "[Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(VersionHelper, PROPS)},
-	{"INITIAL_CONTEXT_FACTORY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(VersionHelper, INITIAL_CONTEXT_FACTORY)},
-	{"OBJECT_FACTORIES", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(VersionHelper, OBJECT_FACTORIES)},
-	{"URL_PKG_PREFIXES", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(VersionHelper, URL_PKG_PREFIXES)},
-	{"STATE_FACTORIES", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(VersionHelper, STATE_FACTORIES)},
-	{"PROVIDER_URL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(VersionHelper, PROVIDER_URL)},
-	{"DNS_URL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(VersionHelper, DNS_URL)},
-	{"CONTROL_FACTORIES", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(VersionHelper, CONTROL_FACTORIES)},
-	{}
-};
-
-$MethodInfo _VersionHelper_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(VersionHelper, init$, void)},
-	{"getContextClassLoader", "()Ljava/lang/ClassLoader;", nullptr, 0, $method(VersionHelper, getContextClassLoader, $ClassLoader*)},
-	{"getJavaHomeConfStream", "(Ljava/lang/String;)Ljava/io/InputStream;", nullptr, 0, $method(VersionHelper, getJavaHomeConfStream, $InputStream*, $String*)},
-	{"getJndiProperties", "()[Ljava/lang/String;", nullptr, 0, $method(VersionHelper, getJndiProperties, $StringArray*)},
-	{"getJndiProperty", "(I)Ljava/lang/String;", nullptr, 0, $method(VersionHelper, getJndiProperty, $String*, int32_t)},
-	{"getResourceAsStream", "(Ljava/lang/Class;Ljava/lang/String;)Ljava/io/InputStream;", "(Ljava/lang/Class<*>;Ljava/lang/String;)Ljava/io/InputStream;", 0, $method(VersionHelper, getResourceAsStream, $InputStream*, $Class*, $String*)},
-	{"getResources", "(Ljava/lang/ClassLoader;Ljava/lang/String;)Ljavax/naming/NamingEnumeration;", "(Ljava/lang/ClassLoader;Ljava/lang/String;)Ljavax/naming/NamingEnumeration<Ljava/io/InputStream;>;", 0, $method(VersionHelper, getResources, $NamingEnumeration*, $ClassLoader*, $String*), "java.io.IOException"},
-	{"getUrlArray", "(Ljava/lang/String;)[Ljava/net/URL;", nullptr, $PRIVATE | $STATIC, $staticMethod(VersionHelper, getUrlArray, $URLArray*, $String*), "java.net.MalformedURLException"},
-	{"getVersionHelper", "()Lcom/sun/naming/internal/VersionHelper;", nullptr, $PUBLIC | $STATIC, $staticMethod(VersionHelper, getVersionHelper, VersionHelper*)},
-	{"lambda$getContextClassLoader$6", "()Ljava/lang/ClassLoader;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(VersionHelper, lambda$getContextClassLoader$6, $ClassLoader*)},
-	{"lambda$getJavaHomeConfStream$4", "(Ljava/lang/String;)Ljava/io/InputStream;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(VersionHelper, lambda$getJavaHomeConfStream$4, $InputStream*, $String*)},
-	{"lambda$getJndiProperties$2", "()Ljava/util/Properties;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(VersionHelper, lambda$getJndiProperties$2, $Properties*)},
-	{"lambda$getJndiProperty$1", "(I)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(VersionHelper, lambda$getJndiProperty$1, $String*, int32_t)},
-	{"lambda$getResourceAsStream$3", "(Ljava/lang/Class;Ljava/lang/String;)Ljava/io/InputStream;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(VersionHelper, lambda$getResourceAsStream$3, $InputStream*, $Class*, $String*)},
-	{"lambda$getResources$5", "(Ljava/lang/ClassLoader;Ljava/lang/String;)Ljava/util/Enumeration;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(VersionHelper, lambda$getResources$5, $Enumeration*, $ClassLoader*, $String*), "java.lang.Exception"},
-	{"lambda$static$0", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(VersionHelper, lambda$static$0, $String*)},
-	{"loadClass", "(Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/String;)Ljava/lang/Class<*>;", $PUBLIC, $method(VersionHelper, loadClass, $Class*, $String*), "java.lang.ClassNotFoundException"},
-	{"loadClass", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/Class<*>;", $PUBLIC, $method(VersionHelper, loadClass, $Class*, $String*, $String*), "java.lang.ClassNotFoundException,java.net.MalformedURLException"},
-	{"loadClass", "(Ljava/lang/String;ZLjava/lang/ClassLoader;)Ljava/lang/Class;", "(Ljava/lang/String;ZLjava/lang/ClassLoader;)Ljava/lang/Class<*>;", 0, $method(VersionHelper, loadClass, $Class*, $String*, bool, $ClassLoader*), "java.lang.ClassNotFoundException"},
-	{"loadClass", "(Ljava/lang/String;Ljava/lang/ClassLoader;)Ljava/lang/Class;", "(Ljava/lang/String;Ljava/lang/ClassLoader;)Ljava/lang/Class<*>;", 0, $method(VersionHelper, loadClass, $Class*, $String*, $ClassLoader*), "java.lang.ClassNotFoundException"},
-	{"loadClassWithoutInit", "(Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/String;)Ljava/lang/Class<*>;", $PUBLIC, $method(VersionHelper, loadClassWithoutInit, $Class*, $String*), "java.lang.ClassNotFoundException"},
-	{"resolveName", "(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/String;", "(Ljava/lang/Class<*>;Ljava/lang/String;)Ljava/lang/String;", $PRIVATE | $STATIC, $staticMethod(VersionHelper, resolveName, $String*, $Class*, $String*)},
-	{}
-};
-
-$InnerClassInfo _VersionHelper_InnerClassesInfo_[] = {
-	{"com.sun.naming.internal.VersionHelper$InputStreamEnumeration", "com.sun.naming.internal.VersionHelper", "InputStreamEnumeration", $PRIVATE},
-	{}
-};
-
-$ClassInfo _VersionHelper_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.naming.internal.VersionHelper",
-	"java.lang.Object",
-	nullptr,
-	_VersionHelper_FieldInfo_,
-	_VersionHelper_MethodInfo_,
-	nullptr,
-	nullptr,
-	_VersionHelper_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.naming.internal.VersionHelper$InputStreamEnumeration"
-};
-
-$Object* allocate$VersionHelper($Class* clazz) {
-	return $of($alloc(VersionHelper));
-}
 
 VersionHelper* VersionHelper::helper = nullptr;
 bool VersionHelper::TRUST_URL_CODE_BASE = false;
@@ -428,7 +337,7 @@ $Class* VersionHelper::loadClassWithoutInit($String* className) {
 }
 
 $Class* VersionHelper::loadClass($String* className, $String* codebase) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (VersionHelper::TRUST_URL_CODE_BASE) {
 		$var($ClassLoader, parent, getContextClassLoader());
 		$var($ClassLoader, cl, $URLClassLoader::newInstance($(getUrlArray(codebase)), parent));
@@ -450,28 +359,28 @@ $Class* VersionHelper::loadClass($String* className, $ClassLoader* cl) {
 
 $String* VersionHelper::getJndiProperty(int32_t i) {
 	$beforeCallerSensitive();
-	$var($PrivilegedAction, act, static_cast<$PrivilegedAction*>($new(VersionHelper$$Lambda$lambda$getJndiProperty$1, i)));
+	$var($PrivilegedAction, act, $new(VersionHelper$$Lambda$lambda$getJndiProperty$1, i));
 	return $cast($String, $AccessController::doPrivileged(act));
 }
 
 $StringArray* VersionHelper::getJndiProperties() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
-	$var($PrivilegedAction, act, static_cast<$PrivilegedAction*>($new(VersionHelper$$Lambda$lambda$getJndiProperties$2$1)));
+	$var($PrivilegedAction, act, $new(VersionHelper$$Lambda$lambda$getJndiProperties$2$1));
 	$var($Properties, sysProps, $cast($Properties, $AccessController::doPrivileged(act)));
 	if (sysProps == nullptr) {
 		return nullptr;
 	}
-	$var($StringArray, jProps, $new($StringArray, $nc(VersionHelper::PROPS)->length));
-	for (int32_t i = 0; i < $nc(VersionHelper::PROPS)->length; ++i) {
-		jProps->set(i, $($nc(sysProps)->getProperty($nc(VersionHelper::PROPS)->get(i))));
+	$var($StringArray, jProps, $new($StringArray, VersionHelper::PROPS->length));
+	for (int32_t i = 0; i < VersionHelper::PROPS->length; ++i) {
+		jProps->set(i, $($nc(sysProps)->getProperty(VersionHelper::PROPS->get(i))));
 	}
 	return jProps;
 }
 
 $String* VersionHelper::resolveName($Class* c, $String* name$renamed) {
 	$init(VersionHelper);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, name, name$renamed);
 	if (name == nullptr) {
 		return name;
@@ -491,49 +400,49 @@ $String* VersionHelper::resolveName($Class* c, $String* name$renamed) {
 
 $InputStream* VersionHelper::getResourceAsStream($Class* c, $String* name) {
 	$beforeCallerSensitive();
-	$var($PrivilegedAction, act, static_cast<$PrivilegedAction*>($new(VersionHelper$$Lambda$lambda$getResourceAsStream$3$2, c, name)));
+	$var($PrivilegedAction, act, $new(VersionHelper$$Lambda$lambda$getResourceAsStream$3$2, c, name));
 	return $cast($InputStream, $AccessController::doPrivileged(act));
 }
 
 $InputStream* VersionHelper::getJavaHomeConfStream($String* filename) {
 	$beforeCallerSensitive();
-	$var($PrivilegedAction, act, static_cast<$PrivilegedAction*>($new(VersionHelper$$Lambda$lambda$getJavaHomeConfStream$4$3, filename)));
+	$var($PrivilegedAction, act, $new(VersionHelper$$Lambda$lambda$getJavaHomeConfStream$4$3, filename));
 	return $cast($InputStream, $AccessController::doPrivileged(act));
 }
 
 $NamingEnumeration* VersionHelper::getResources($ClassLoader* cl, $String* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$var($Enumeration, urls, nullptr);
-	$var($PrivilegedExceptionAction, act, static_cast<$PrivilegedExceptionAction*>($new(VersionHelper$$Lambda$lambda$getResources$5$4, cl, name)));
+	$var($PrivilegedExceptionAction, act, $new(VersionHelper$$Lambda$lambda$getResources$5$4, cl, name));
 	try {
 		$assign(urls, $cast($Enumeration, $AccessController::doPrivileged(act)));
 	} catch ($PrivilegedActionException& e) {
-		$throw($cast($IOException, $(e->getException())));
+		$throw($$cast($IOException, e->getException()));
 	}
 	return $new($VersionHelper$InputStreamEnumeration, this, urls);
 }
 
 $ClassLoader* VersionHelper::getContextClassLoader() {
 	$beforeCallerSensitive();
-	$var($PrivilegedAction, act, static_cast<$PrivilegedAction*>($new(VersionHelper$$Lambda$lambda$getContextClassLoader$6$5)));
+	$var($PrivilegedAction, act, $new(VersionHelper$$Lambda$lambda$getContextClassLoader$6$5));
 	return $cast($ClassLoader, $AccessController::doPrivileged(act));
 }
 
 $URLArray* VersionHelper::getUrlArray($String* codebase) {
 	$init(VersionHelper);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringTokenizer, parser, $new($StringTokenizer, codebase));
 	$var($List, list, $new($ArrayList));
 	while (parser->hasMoreTokens()) {
 		list->add($$new($URL, $(parser->nextToken())));
 	}
-	return $fcast($URLArray, list->toArray($$new($URLArray, 0)));
+	return $cast($URLArray, list->toArray($$new($URLArray, 0)));
 }
 
 $ClassLoader* VersionHelper::lambda$getContextClassLoader$6() {
 	$init(VersionHelper);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$var($ClassLoader, loader, $($Thread::currentThread())->getContextClassLoader());
 	if (loader == nullptr) {
@@ -544,12 +453,12 @@ $ClassLoader* VersionHelper::lambda$getContextClassLoader$6() {
 
 $Enumeration* VersionHelper::lambda$getResources$5($ClassLoader* cl, $String* name) {
 	$init(VersionHelper);
-	return (cl == nullptr) ? $ClassLoader::getSystemResources(name) : $nc(cl)->getResources(name);
+	return (cl == nullptr) ? $ClassLoader::getSystemResources(name) : cl->getResources(name);
 }
 
 $InputStream* VersionHelper::lambda$getJavaHomeConfStream$4($String* filename) {
 	$init(VersionHelper);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$var($String, javahome, $System::getProperty("java.home"_s));
 		if (javahome == nullptr) {
@@ -567,10 +476,10 @@ $InputStream* VersionHelper::lambda$getJavaHomeConfStream$4($String* filename) {
 
 $InputStream* VersionHelper::lambda$getResourceAsStream$3($Class* c, $String* name) {
 	$init(VersionHelper);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	try {
-		return $nc($($nc(c)->getModule()))->getResourceAsStream($(resolveName(c, name)));
+		return $$nc($nc(c)->getModule())->getResourceAsStream($(resolveName(c, name)));
 	} catch ($IOException& x) {
 		return nullptr;
 	}
@@ -590,7 +499,7 @@ $Properties* VersionHelper::lambda$getJndiProperties$2() {
 $String* VersionHelper::lambda$getJndiProperty$1(int32_t i) {
 	$init(VersionHelper);
 	try {
-		return $System::getProperty($nc(VersionHelper::PROPS)->get(i));
+		return $System::getProperty(VersionHelper::PROPS->get(i));
 	} catch ($SecurityException& e) {
 		return nullptr;
 	}
@@ -602,12 +511,12 @@ $String* VersionHelper::lambda$static$0() {
 	return $System::getProperty("com.sun.jndi.ldap.object.trustURLCodebase"_s, "false"_s);
 }
 
-void clinit$VersionHelper($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void VersionHelper::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$assignStatic(VersionHelper::helper, $new(VersionHelper));
 	{
-		$var($PrivilegedAction, act, static_cast<$PrivilegedAction*>($new(VersionHelper$$Lambda$lambda$static$0$6)));
+		$var($PrivilegedAction, act, $new(VersionHelper$$Lambda$lambda$static$0$6));
 		$var($String, trust, $cast($String, $AccessController::doPrivileged(act)));
 		VersionHelper::TRUST_URL_CODE_BASE = "true"_s->equalsIgnoreCase(trust);
 	}
@@ -629,29 +538,87 @@ VersionHelper::VersionHelper() {
 
 $Class* VersionHelper::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(VersionHelper$$Lambda$lambda$getJndiProperty$1::classInfo$.name)) {
+		if (name->equals("com.sun.naming.internal.VersionHelper$$Lambda$lambda$getJndiProperty$1")) {
 			return VersionHelper$$Lambda$lambda$getJndiProperty$1::load$(name, initialize);
 		}
-		if (name->equals(VersionHelper$$Lambda$lambda$getJndiProperties$2$1::classInfo$.name)) {
+		if (name->equals("com.sun.naming.internal.VersionHelper$$Lambda$lambda$getJndiProperties$2$1")) {
 			return VersionHelper$$Lambda$lambda$getJndiProperties$2$1::load$(name, initialize);
 		}
-		if (name->equals(VersionHelper$$Lambda$lambda$getResourceAsStream$3$2::classInfo$.name)) {
+		if (name->equals("com.sun.naming.internal.VersionHelper$$Lambda$lambda$getResourceAsStream$3$2")) {
 			return VersionHelper$$Lambda$lambda$getResourceAsStream$3$2::load$(name, initialize);
 		}
-		if (name->equals(VersionHelper$$Lambda$lambda$getJavaHomeConfStream$4$3::classInfo$.name)) {
+		if (name->equals("com.sun.naming.internal.VersionHelper$$Lambda$lambda$getJavaHomeConfStream$4$3")) {
 			return VersionHelper$$Lambda$lambda$getJavaHomeConfStream$4$3::load$(name, initialize);
 		}
-		if (name->equals(VersionHelper$$Lambda$lambda$getResources$5$4::classInfo$.name)) {
+		if (name->equals("com.sun.naming.internal.VersionHelper$$Lambda$lambda$getResources$5$4")) {
 			return VersionHelper$$Lambda$lambda$getResources$5$4::load$(name, initialize);
 		}
-		if (name->equals(VersionHelper$$Lambda$lambda$getContextClassLoader$6$5::classInfo$.name)) {
+		if (name->equals("com.sun.naming.internal.VersionHelper$$Lambda$lambda$getContextClassLoader$6$5")) {
 			return VersionHelper$$Lambda$lambda$getContextClassLoader$6$5::load$(name, initialize);
 		}
-		if (name->equals(VersionHelper$$Lambda$lambda$static$0$6::classInfo$.name)) {
+		if (name->equals("com.sun.naming.internal.VersionHelper$$Lambda$lambda$static$0$6")) {
 			return VersionHelper$$Lambda$lambda$static$0$6::load$(name, initialize);
 		}
 	}
-	$loadClass(VersionHelper, name, initialize, &_VersionHelper_ClassInfo_, clinit$VersionHelper, allocate$VersionHelper);
+	$FieldInfo fieldInfos$$[] = {
+		{"helper", "Lcom/sun/naming/internal/VersionHelper;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(VersionHelper, helper)},
+		{"TRUST_URL_CODE_BASE", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(VersionHelper, TRUST_URL_CODE_BASE)},
+		{"PROPS", "[Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(VersionHelper, PROPS)},
+		{"INITIAL_CONTEXT_FACTORY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(VersionHelper, INITIAL_CONTEXT_FACTORY)},
+		{"OBJECT_FACTORIES", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(VersionHelper, OBJECT_FACTORIES)},
+		{"URL_PKG_PREFIXES", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(VersionHelper, URL_PKG_PREFIXES)},
+		{"STATE_FACTORIES", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(VersionHelper, STATE_FACTORIES)},
+		{"PROVIDER_URL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(VersionHelper, PROVIDER_URL)},
+		{"DNS_URL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(VersionHelper, DNS_URL)},
+		{"CONTROL_FACTORIES", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(VersionHelper, CONTROL_FACTORIES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(VersionHelper, init$, void)},
+		{"getContextClassLoader", "()Ljava/lang/ClassLoader;", nullptr, 0, $method(VersionHelper, getContextClassLoader, $ClassLoader*)},
+		{"getJavaHomeConfStream", "(Ljava/lang/String;)Ljava/io/InputStream;", nullptr, 0, $method(VersionHelper, getJavaHomeConfStream, $InputStream*, $String*)},
+		{"getJndiProperties", "()[Ljava/lang/String;", nullptr, 0, $method(VersionHelper, getJndiProperties, $StringArray*)},
+		{"getJndiProperty", "(I)Ljava/lang/String;", nullptr, 0, $method(VersionHelper, getJndiProperty, $String*, int32_t)},
+		{"getResourceAsStream", "(Ljava/lang/Class;Ljava/lang/String;)Ljava/io/InputStream;", "(Ljava/lang/Class<*>;Ljava/lang/String;)Ljava/io/InputStream;", 0, $method(VersionHelper, getResourceAsStream, $InputStream*, $Class*, $String*)},
+		{"getResources", "(Ljava/lang/ClassLoader;Ljava/lang/String;)Ljavax/naming/NamingEnumeration;", "(Ljava/lang/ClassLoader;Ljava/lang/String;)Ljavax/naming/NamingEnumeration<Ljava/io/InputStream;>;", 0, $method(VersionHelper, getResources, $NamingEnumeration*, $ClassLoader*, $String*), "java.io.IOException"},
+		{"getUrlArray", "(Ljava/lang/String;)[Ljava/net/URL;", nullptr, $PRIVATE | $STATIC, $staticMethod(VersionHelper, getUrlArray, $URLArray*, $String*), "java.net.MalformedURLException"},
+		{"getVersionHelper", "()Lcom/sun/naming/internal/VersionHelper;", nullptr, $PUBLIC | $STATIC, $staticMethod(VersionHelper, getVersionHelper, VersionHelper*)},
+		{"lambda$getContextClassLoader$6", "()Ljava/lang/ClassLoader;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(VersionHelper, lambda$getContextClassLoader$6, $ClassLoader*)},
+		{"lambda$getJavaHomeConfStream$4", "(Ljava/lang/String;)Ljava/io/InputStream;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(VersionHelper, lambda$getJavaHomeConfStream$4, $InputStream*, $String*)},
+		{"lambda$getJndiProperties$2", "()Ljava/util/Properties;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(VersionHelper, lambda$getJndiProperties$2, $Properties*)},
+		{"lambda$getJndiProperty$1", "(I)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(VersionHelper, lambda$getJndiProperty$1, $String*, int32_t)},
+		{"lambda$getResourceAsStream$3", "(Ljava/lang/Class;Ljava/lang/String;)Ljava/io/InputStream;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(VersionHelper, lambda$getResourceAsStream$3, $InputStream*, $Class*, $String*)},
+		{"lambda$getResources$5", "(Ljava/lang/ClassLoader;Ljava/lang/String;)Ljava/util/Enumeration;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(VersionHelper, lambda$getResources$5, $Enumeration*, $ClassLoader*, $String*), "java.lang.Exception"},
+		{"lambda$static$0", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(VersionHelper, lambda$static$0, $String*)},
+		{"loadClass", "(Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/String;)Ljava/lang/Class<*>;", $PUBLIC, $method(VersionHelper, loadClass, $Class*, $String*), "java.lang.ClassNotFoundException"},
+		{"loadClass", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/Class<*>;", $PUBLIC, $method(VersionHelper, loadClass, $Class*, $String*, $String*), "java.lang.ClassNotFoundException,java.net.MalformedURLException"},
+		{"loadClass", "(Ljava/lang/String;ZLjava/lang/ClassLoader;)Ljava/lang/Class;", "(Ljava/lang/String;ZLjava/lang/ClassLoader;)Ljava/lang/Class<*>;", 0, $method(VersionHelper, loadClass, $Class*, $String*, bool, $ClassLoader*), "java.lang.ClassNotFoundException"},
+		{"loadClass", "(Ljava/lang/String;Ljava/lang/ClassLoader;)Ljava/lang/Class;", "(Ljava/lang/String;Ljava/lang/ClassLoader;)Ljava/lang/Class<*>;", 0, $method(VersionHelper, loadClass, $Class*, $String*, $ClassLoader*), "java.lang.ClassNotFoundException"},
+		{"loadClassWithoutInit", "(Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/String;)Ljava/lang/Class<*>;", $PUBLIC, $method(VersionHelper, loadClassWithoutInit, $Class*, $String*), "java.lang.ClassNotFoundException"},
+		{"resolveName", "(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/String;", "(Ljava/lang/Class<*>;Ljava/lang/String;)Ljava/lang/String;", $PRIVATE | $STATIC, $staticMethod(VersionHelper, resolveName, $String*, $Class*, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.naming.internal.VersionHelper$InputStreamEnumeration", "com.sun.naming.internal.VersionHelper", "InputStreamEnumeration", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.naming.internal.VersionHelper",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.naming.internal.VersionHelper$InputStreamEnumeration"
+	};
+	$loadClass(VersionHelper, name, initialize, &classInfo$$, VersionHelper::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(VersionHelper);
+	});
 	return class$;
 }
 

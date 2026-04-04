@@ -1,5 +1,4 @@
 #include <sun/java2d/xr/MutableInteger.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -10,33 +9,6 @@ namespace sun {
 	namespace java2d {
 		namespace xr {
 
-$FieldInfo _MutableInteger_FieldInfo_[] = {
-	{"value", "I", nullptr, $PRIVATE, $field(MutableInteger, value)},
-	{}
-};
-
-$MethodInfo _MutableInteger_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(MutableInteger, init$, void, int32_t)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(MutableInteger, equals, bool, Object$*)},
-	{"getValue", "()I", nullptr, $PUBLIC, $virtualMethod(MutableInteger, getValue, int32_t)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(MutableInteger, hashCode, int32_t)},
-	{"setValue", "(I)V", nullptr, $PUBLIC, $virtualMethod(MutableInteger, setValue, void, int32_t)},
-	{}
-};
-
-$ClassInfo _MutableInteger_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.java2d.xr.MutableInteger",
-	"java.lang.Object",
-	nullptr,
-	_MutableInteger_FieldInfo_,
-	_MutableInteger_MethodInfo_
-};
-
-$Object* allocate$MutableInteger($Class* clazz) {
-	return $of($alloc(MutableInteger));
-}
-
 void MutableInteger::init$(int32_t value) {
 	this->setValue(value);
 }
@@ -46,10 +18,10 @@ int32_t MutableInteger::hashCode() {
 }
 
 bool MutableInteger::equals(Object$* o) {
-	bool var$0 = ($instanceOf(MutableInteger, o));
+	bool var$0 = $instanceOf(MutableInteger, o);
 	if (var$0) {
-		int32_t var$1 = $nc(($cast(MutableInteger, o)))->getValue();
-		var$0 = (var$1 == getValue());
+		int32_t var$1 = $cast(MutableInteger, o)->getValue();
+		var$0 = var$1 == getValue();
 	}
 	return var$0;
 }
@@ -66,7 +38,29 @@ MutableInteger::MutableInteger() {
 }
 
 $Class* MutableInteger::load$($String* name, bool initialize) {
-	$loadClass(MutableInteger, name, initialize, &_MutableInteger_ClassInfo_, allocate$MutableInteger);
+	$FieldInfo fieldInfos$$[] = {
+		{"value", "I", nullptr, $PRIVATE, $field(MutableInteger, value)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(MutableInteger, init$, void, int32_t)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(MutableInteger, equals, bool, Object$*)},
+		{"getValue", "()I", nullptr, $PUBLIC, $virtualMethod(MutableInteger, getValue, int32_t)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(MutableInteger, hashCode, int32_t)},
+		{"setValue", "(I)V", nullptr, $PUBLIC, $virtualMethod(MutableInteger, setValue, void, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.java2d.xr.MutableInteger",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(MutableInteger, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MutableInteger);
+	});
 	return class$;
 }
 

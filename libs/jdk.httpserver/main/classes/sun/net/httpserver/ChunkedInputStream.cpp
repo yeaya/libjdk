@@ -1,5 +1,4 @@
 #include <sun/net/httpserver/ChunkedInputStream.h>
-
 #include <java/io/FilterInputStream.h>
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
@@ -22,48 +21,10 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ExchangeImpl = ::sun::net::httpserver::ExchangeImpl;
 using $LeftOverInputStream = ::sun::net::httpserver::LeftOverInputStream;
-using $ServerImpl = ::sun::net::httpserver::ServerImpl;
 
 namespace sun {
 	namespace net {
 		namespace httpserver {
-
-$FieldInfo _ChunkedInputStream_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(ChunkedInputStream, $assertionsDisabled)},
-	{"remaining", "I", nullptr, $PRIVATE, $field(ChunkedInputStream, remaining)},
-	{"needToReadHeader", "Z", nullptr, $PRIVATE, $field(ChunkedInputStream, needToReadHeader)},
-	{"CR", "C", nullptr, $STATIC | $FINAL, $constField(ChunkedInputStream, CR)},
-	{"LF", "C", nullptr, $STATIC | $FINAL, $constField(ChunkedInputStream, LF)},
-	{"MAX_CHUNK_HEADER_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ChunkedInputStream, MAX_CHUNK_HEADER_SIZE)},
-	{}
-};
-
-$MethodInfo _ChunkedInputStream_MethodInfo_[] = {
-	{"<init>", "(Lsun/net/httpserver/ExchangeImpl;Ljava/io/InputStream;)V", nullptr, 0, $method(ChunkedInputStream, init$, void, $ExchangeImpl*, $InputStream*)},
-	{"available", "()I", nullptr, $PUBLIC, $virtualMethod(ChunkedInputStream, available, int32_t), "java.io.IOException"},
-	{"consumeCRLF", "()V", nullptr, $PRIVATE, $method(ChunkedInputStream, consumeCRLF, void), "java.io.IOException"},
-	{"isDataBuffered", "()Z", nullptr, $PUBLIC, $virtualMethod(ChunkedInputStream, isDataBuffered, bool), "java.io.IOException"},
-	{"mark", "(I)V", nullptr, $PUBLIC, $virtualMethod(ChunkedInputStream, mark, void, int32_t)},
-	{"markSupported", "()Z", nullptr, $PUBLIC, $virtualMethod(ChunkedInputStream, markSupported, bool)},
-	{"numeric", "([CI)I", nullptr, $PRIVATE, $method(ChunkedInputStream, numeric, int32_t, $chars*, int32_t), "java.io.IOException"},
-	{"readChunkHeader", "()I", nullptr, $PRIVATE, $method(ChunkedInputStream, readChunkHeader, int32_t), "java.io.IOException"},
-	{"readImpl", "([BII)I", nullptr, $PROTECTED, $virtualMethod(ChunkedInputStream, readImpl, int32_t, $bytes*, int32_t, int32_t), "java.io.IOException"},
-	{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(ChunkedInputStream, reset, void), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _ChunkedInputStream_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.net.httpserver.ChunkedInputStream",
-	"sun.net.httpserver.LeftOverInputStream",
-	nullptr,
-	_ChunkedInputStream_FieldInfo_,
-	_ChunkedInputStream_MethodInfo_
-};
-
-$Object* allocate$ChunkedInputStream($Class* clazz) {
-	return $of($alloc(ChunkedInputStream));
-}
 
 bool ChunkedInputStream::$assertionsDisabled = false;
 
@@ -129,7 +90,7 @@ int32_t ChunkedInputStream::readChunkHeader() {
 }
 
 int32_t ChunkedInputStream::readImpl($bytes* b, int32_t off, int32_t len) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->eof) {
 		return -1;
 	}
@@ -138,7 +99,7 @@ int32_t ChunkedInputStream::readImpl($bytes* b, int32_t off, int32_t len) {
 		if (this->remaining == 0) {
 			this->eof = true;
 			consumeCRLF();
-			$nc($($nc(this->t)->getServerImpl()))->requestCompleted($($nc(this->t)->getConnection()));
+			$$nc($nc(this->t)->getServerImpl())->requestCompleted($($nc(this->t)->getConnection()));
 			return -1;
 		}
 		this->needToReadHeader = false;
@@ -198,7 +159,7 @@ void ChunkedInputStream::reset() {
 	$throwNew($IOException, "mark/reset not supported"_s);
 }
 
-void clinit$ChunkedInputStream($Class* class$) {
+void ChunkedInputStream::clinit$($Class* clazz) {
 	ChunkedInputStream::$assertionsDisabled = !ChunkedInputStream::class$->desiredAssertionStatus();
 }
 
@@ -206,7 +167,39 @@ ChunkedInputStream::ChunkedInputStream() {
 }
 
 $Class* ChunkedInputStream::load$($String* name, bool initialize) {
-	$loadClass(ChunkedInputStream, name, initialize, &_ChunkedInputStream_ClassInfo_, clinit$ChunkedInputStream, allocate$ChunkedInputStream);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(ChunkedInputStream, $assertionsDisabled)},
+		{"remaining", "I", nullptr, $PRIVATE, $field(ChunkedInputStream, remaining)},
+		{"needToReadHeader", "Z", nullptr, $PRIVATE, $field(ChunkedInputStream, needToReadHeader)},
+		{"CR", "C", nullptr, $STATIC | $FINAL, $constField(ChunkedInputStream, CR)},
+		{"LF", "C", nullptr, $STATIC | $FINAL, $constField(ChunkedInputStream, LF)},
+		{"MAX_CHUNK_HEADER_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ChunkedInputStream, MAX_CHUNK_HEADER_SIZE)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/net/httpserver/ExchangeImpl;Ljava/io/InputStream;)V", nullptr, 0, $method(ChunkedInputStream, init$, void, $ExchangeImpl*, $InputStream*)},
+		{"available", "()I", nullptr, $PUBLIC, $virtualMethod(ChunkedInputStream, available, int32_t), "java.io.IOException"},
+		{"consumeCRLF", "()V", nullptr, $PRIVATE, $method(ChunkedInputStream, consumeCRLF, void), "java.io.IOException"},
+		{"isDataBuffered", "()Z", nullptr, $PUBLIC, $virtualMethod(ChunkedInputStream, isDataBuffered, bool), "java.io.IOException"},
+		{"mark", "(I)V", nullptr, $PUBLIC, $virtualMethod(ChunkedInputStream, mark, void, int32_t)},
+		{"markSupported", "()Z", nullptr, $PUBLIC, $virtualMethod(ChunkedInputStream, markSupported, bool)},
+		{"numeric", "([CI)I", nullptr, $PRIVATE, $method(ChunkedInputStream, numeric, int32_t, $chars*, int32_t), "java.io.IOException"},
+		{"readChunkHeader", "()I", nullptr, $PRIVATE, $method(ChunkedInputStream, readChunkHeader, int32_t), "java.io.IOException"},
+		{"readImpl", "([BII)I", nullptr, $PROTECTED, $virtualMethod(ChunkedInputStream, readImpl, int32_t, $bytes*, int32_t, int32_t), "java.io.IOException"},
+		{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(ChunkedInputStream, reset, void), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.net.httpserver.ChunkedInputStream",
+		"sun.net.httpserver.LeftOverInputStream",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ChunkedInputStream, name, initialize, &classInfo$$, ChunkedInputStream::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ChunkedInputStream);
+	});
 	return class$;
 }
 

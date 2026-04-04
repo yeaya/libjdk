@@ -1,5 +1,4 @@
 #include <com/sun/jndi/toolkit/ctx/ComponentContext$1.h>
-
 #include <com/sun/jndi/toolkit/ctx/ComponentContext.h>
 #include <javax/naming/RefAddr.h>
 #include <jcpp.h>
@@ -18,50 +17,6 @@ namespace com {
 			namespace toolkit {
 				namespace ctx {
 
-$FieldInfo _ComponentContext$1_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/jndi/toolkit/ctx/ComponentContext;", nullptr, $FINAL | $SYNTHETIC, $field(ComponentContext$1, this$0)},
-	{"val$obj", "Ljava/lang/Object;", nullptr, $FINAL | $SYNTHETIC, $field(ComponentContext$1, val$obj)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ComponentContext$1, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _ComponentContext$1_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/jndi/toolkit/ctx/ComponentContext;Ljava/lang/String;Ljava/lang/Object;)V", nullptr, 0, $method(ComponentContext$1, init$, void, $ComponentContext*, $String*, Object$*)},
-	{"getContent", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ComponentContext$1, getContent, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _ComponentContext$1_EnclosingMethodInfo_ = {
-	"com.sun.jndi.toolkit.ctx.ComponentContext",
-	"c_resolveIntermediate_nns",
-	"(Ljavax/naming/Name;Lcom/sun/jndi/toolkit/ctx/Continuation;)Ljava/lang/Object;"
-};
-
-$InnerClassInfo _ComponentContext$1_InnerClassesInfo_[] = {
-	{"com.sun.jndi.toolkit.ctx.ComponentContext$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _ComponentContext$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.jndi.toolkit.ctx.ComponentContext$1",
-	"javax.naming.RefAddr",
-	nullptr,
-	_ComponentContext$1_FieldInfo_,
-	_ComponentContext$1_MethodInfo_,
-	nullptr,
-	&_ComponentContext$1_EnclosingMethodInfo_,
-	_ComponentContext$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.jndi.toolkit.ctx.ComponentContext"
-};
-
-$Object* allocate$ComponentContext$1($Class* clazz) {
-	return $of($alloc(ComponentContext$1));
-}
-
 void ComponentContext$1::init$($ComponentContext* this$0, $String* addrType, Object$* val$obj) {
 	$set(this, this$0, this$0);
 	$set(this, val$obj, val$obj);
@@ -69,14 +24,51 @@ void ComponentContext$1::init$($ComponentContext* this$0, $String* addrType, Obj
 }
 
 $Object* ComponentContext$1::getContent() {
-	return $of(this->val$obj);
+	return this->val$obj;
 }
 
 ComponentContext$1::ComponentContext$1() {
 }
 
 $Class* ComponentContext$1::load$($String* name, bool initialize) {
-	$loadClass(ComponentContext$1, name, initialize, &_ComponentContext$1_ClassInfo_, allocate$ComponentContext$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/jndi/toolkit/ctx/ComponentContext;", nullptr, $FINAL | $SYNTHETIC, $field(ComponentContext$1, this$0)},
+		{"val$obj", "Ljava/lang/Object;", nullptr, $FINAL | $SYNTHETIC, $field(ComponentContext$1, val$obj)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ComponentContext$1, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/jndi/toolkit/ctx/ComponentContext;Ljava/lang/String;Ljava/lang/Object;)V", nullptr, 0, $method(ComponentContext$1, init$, void, $ComponentContext*, $String*, Object$*)},
+		{"getContent", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ComponentContext$1, getContent, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.jndi.toolkit.ctx.ComponentContext",
+		"c_resolveIntermediate_nns",
+		"(Ljavax/naming/Name;Lcom/sun/jndi/toolkit/ctx/Continuation;)Ljava/lang/Object;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.jndi.toolkit.ctx.ComponentContext$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.jndi.toolkit.ctx.ComponentContext$1",
+		"javax.naming.RefAddr",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.jndi.toolkit.ctx.ComponentContext"
+	};
+	$loadClass(ComponentContext$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ComponentContext$1);
+	});
 	return class$;
 }
 

@@ -12,6 +12,7 @@ class $export bug7082443 : public ::java::lang::Object {
 	$class(bug7082443, 0, ::java::lang::Object)
 public:
 	bug7082443();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void main($StringArray* args);
 	static $String* GTK_LAF_CLASS;

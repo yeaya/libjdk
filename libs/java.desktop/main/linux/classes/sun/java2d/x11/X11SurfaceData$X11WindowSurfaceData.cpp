@@ -1,5 +1,4 @@
 #include <sun/java2d/x11/X11SurfaceData$X11WindowSurfaceData.h>
-
 #include <java/awt/GraphicsDevice.h>
 #include <java/awt/Rectangle.h>
 #include <java/awt/image/ColorModel.h>
@@ -28,51 +27,10 @@ namespace sun {
 	namespace java2d {
 		namespace x11 {
 
-$FieldInfo _X11SurfaceData$X11WindowSurfaceData_FieldInfo_[] = {
-	{"scale", "I", nullptr, $PRIVATE | $FINAL, $field(X11SurfaceData$X11WindowSurfaceData, scale)},
-	{}
-};
-
-$MethodInfo _X11SurfaceData$X11WindowSurfaceData_MethodInfo_[] = {
-	{"<init>", "(Lsun/awt/X11ComponentPeer;Lsun/awt/X11GraphicsConfig;Lsun/java2d/loops/SurfaceType;)V", nullptr, $PUBLIC, $method(X11SurfaceData$X11WindowSurfaceData, init$, void, $X11ComponentPeer*, $X11GraphicsConfig*, $SurfaceType*)},
-	{"canSourceSendExposures", "(IIII)Z", nullptr, $PUBLIC, $virtualMethod(X11SurfaceData$X11WindowSurfaceData, canSourceSendExposures, bool, int32_t, int32_t, int32_t, int32_t)},
-	{"getBounds", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(X11SurfaceData$X11WindowSurfaceData, getBounds, $Rectangle*)},
-	{"getDefaultScaleX", "()D", nullptr, $PUBLIC, $virtualMethod(X11SurfaceData$X11WindowSurfaceData, getDefaultScaleX, double)},
-	{"getDefaultScaleY", "()D", nullptr, $PUBLIC, $virtualMethod(X11SurfaceData$X11WindowSurfaceData, getDefaultScaleY, double)},
-	{"getDestination", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(X11SurfaceData$X11WindowSurfaceData, getDestination, $Object*)},
-	{"getReplacement", "()Lsun/java2d/SurfaceData;", nullptr, $PUBLIC, $virtualMethod(X11SurfaceData$X11WindowSurfaceData, getReplacement, $SurfaceData*)},
-	{}
-};
-
-$InnerClassInfo _X11SurfaceData$X11WindowSurfaceData_InnerClassesInfo_[] = {
-	{"sun.java2d.x11.X11SurfaceData$X11WindowSurfaceData", "sun.java2d.x11.X11SurfaceData", "X11WindowSurfaceData", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _X11SurfaceData$X11WindowSurfaceData_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.java2d.x11.X11SurfaceData$X11WindowSurfaceData",
-	"sun.java2d.x11.X11SurfaceData",
-	nullptr,
-	_X11SurfaceData$X11WindowSurfaceData_FieldInfo_,
-	_X11SurfaceData$X11WindowSurfaceData_MethodInfo_,
-	nullptr,
-	nullptr,
-	_X11SurfaceData$X11WindowSurfaceData_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.java2d.x11.X11SurfaceData"
-};
-
-$Object* allocate$X11SurfaceData$X11WindowSurfaceData($Class* clazz) {
-	return $of($alloc(X11SurfaceData$X11WindowSurfaceData));
-}
-
 void X11SurfaceData$X11WindowSurfaceData::init$($X11ComponentPeer* peer, $X11GraphicsConfig* gc, $SurfaceType* sType) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$X11SurfaceData::init$(peer, gc, sType, $($nc(peer)->getColorModel()));
-	this->scale = $nc($($cast($X11GraphicsDevice, $nc(gc)->getDevice())))->getScaleFactor();
+	this->scale = $$sure($X11GraphicsDevice, $nc(gc)->getDevice())->getScaleFactor();
 	if (isDrawableValid()) {
 		makePipes();
 	}
@@ -84,7 +42,7 @@ $SurfaceData* X11SurfaceData$X11WindowSurfaceData::getReplacement() {
 
 $Rectangle* X11SurfaceData$X11WindowSurfaceData::getBounds() {
 	$var($Rectangle, r, $nc(this->peer)->getBounds());
-	$nc(r)->x = (r->y = 0);
+	$nc(r)->x = ($nc(r)->y = 0);
 	r->width *= this->scale;
 	r->height *= this->scale;
 	return r;
@@ -95,7 +53,7 @@ bool X11SurfaceData$X11WindowSurfaceData::canSourceSendExposures(int32_t x, int3
 }
 
 $Object* X11SurfaceData$X11WindowSurfaceData::getDestination() {
-	return $of($nc(this->peer)->getTarget());
+	return $nc(this->peer)->getTarget();
 }
 
 double X11SurfaceData$X11WindowSurfaceData::getDefaultScaleX() {
@@ -110,7 +68,42 @@ X11SurfaceData$X11WindowSurfaceData::X11SurfaceData$X11WindowSurfaceData() {
 }
 
 $Class* X11SurfaceData$X11WindowSurfaceData::load$($String* name, bool initialize) {
-	$loadClass(X11SurfaceData$X11WindowSurfaceData, name, initialize, &_X11SurfaceData$X11WindowSurfaceData_ClassInfo_, allocate$X11SurfaceData$X11WindowSurfaceData);
+	$FieldInfo fieldInfos$$[] = {
+		{"scale", "I", nullptr, $PRIVATE | $FINAL, $field(X11SurfaceData$X11WindowSurfaceData, scale)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/awt/X11ComponentPeer;Lsun/awt/X11GraphicsConfig;Lsun/java2d/loops/SurfaceType;)V", nullptr, $PUBLIC, $method(X11SurfaceData$X11WindowSurfaceData, init$, void, $X11ComponentPeer*, $X11GraphicsConfig*, $SurfaceType*)},
+		{"canSourceSendExposures", "(IIII)Z", nullptr, $PUBLIC, $virtualMethod(X11SurfaceData$X11WindowSurfaceData, canSourceSendExposures, bool, int32_t, int32_t, int32_t, int32_t)},
+		{"getBounds", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(X11SurfaceData$X11WindowSurfaceData, getBounds, $Rectangle*)},
+		{"getDefaultScaleX", "()D", nullptr, $PUBLIC, $virtualMethod(X11SurfaceData$X11WindowSurfaceData, getDefaultScaleX, double)},
+		{"getDefaultScaleY", "()D", nullptr, $PUBLIC, $virtualMethod(X11SurfaceData$X11WindowSurfaceData, getDefaultScaleY, double)},
+		{"getDestination", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(X11SurfaceData$X11WindowSurfaceData, getDestination, $Object*)},
+		{"getReplacement", "()Lsun/java2d/SurfaceData;", nullptr, $PUBLIC, $virtualMethod(X11SurfaceData$X11WindowSurfaceData, getReplacement, $SurfaceData*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.java2d.x11.X11SurfaceData$X11WindowSurfaceData", "sun.java2d.x11.X11SurfaceData", "X11WindowSurfaceData", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.java2d.x11.X11SurfaceData$X11WindowSurfaceData",
+		"sun.java2d.x11.X11SurfaceData",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.java2d.x11.X11SurfaceData"
+	};
+	$loadClass(X11SurfaceData$X11WindowSurfaceData, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(X11SurfaceData$X11WindowSurfaceData));
+	});
 	return class$;
 }
 

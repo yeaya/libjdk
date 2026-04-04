@@ -50,6 +50,7 @@ class $import Tokens : public ::java::lang::Object {
 	$class(Tokens, 0, ::java::lang::Object)
 public:
 	Tokens();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::com::sun::tools::javac::util::Context* context);
 	static ::com::sun::tools::javac::parser::Tokens* instance(::com::sun::tools::javac::util::Context* context);
 	virtual ::com::sun::tools::javac::parser::Tokens$TokenKind* lookupKind(::com::sun::tools::javac::util::Name* name);

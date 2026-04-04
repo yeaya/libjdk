@@ -67,7 +67,7 @@ public:
 	$String* vendorName = nullptr;
 	$String* versionNumber = nullptr;
 	::com::sun::rowset::JdbcRowSetResourceBundle* resBundle = nullptr;
-	static const int64_t serialVersionUID = (int64_t)0xD4608434FF16B5F0;
+	static const int64_t serialVersionUID = (int64_t)0xd4608434ff16b5f0;
 };
 
 			} // providers

@@ -119,7 +119,7 @@ public:
 	bool isCursorAllowed$ = false;
 	bool supportsXEmbed$ = false;
 	::java::awt::KeyboardFocusManager* appletKFM = nullptr;
-	static const int64_t serialVersionUID = (int64_t)0x292D0DA7513783CA;
+	static const int64_t serialVersionUID = (int64_t)0x292d0da7513783ca;
 	static const bool FORWARD = true;
 	static const bool BACKWARD = false;
 };

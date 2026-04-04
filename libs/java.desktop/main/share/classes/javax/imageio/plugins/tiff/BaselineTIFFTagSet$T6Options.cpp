@@ -1,5 +1,4 @@
 #include <javax/imageio/plugins/tiff/BaselineTIFFTagSet$T6Options.h>
-
 #include <javax/imageio/plugins/tiff/BaselineTIFFTagSet.h>
 #include <javax/imageio/plugins/tiff/TIFFTag.h>
 #include <jcpp.h>
@@ -16,36 +15,6 @@ namespace javax {
 		namespace plugins {
 			namespace tiff {
 
-$MethodInfo _BaselineTIFFTagSet$T6Options_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(BaselineTIFFTagSet$T6Options, init$, void)},
-	{}
-};
-
-$InnerClassInfo _BaselineTIFFTagSet$T6Options_InnerClassesInfo_[] = {
-	{"javax.imageio.plugins.tiff.BaselineTIFFTagSet$T6Options", "javax.imageio.plugins.tiff.BaselineTIFFTagSet", "T6Options", $STATIC},
-	{}
-};
-
-$ClassInfo _BaselineTIFFTagSet$T6Options_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.imageio.plugins.tiff.BaselineTIFFTagSet$T6Options",
-	"javax.imageio.plugins.tiff.TIFFTag",
-	nullptr,
-	nullptr,
-	_BaselineTIFFTagSet$T6Options_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BaselineTIFFTagSet$T6Options_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.imageio.plugins.tiff.BaselineTIFFTagSet"
-};
-
-$Object* allocate$BaselineTIFFTagSet$T6Options($Class* clazz) {
-	return $of($alloc(BaselineTIFFTagSet$T6Options));
-}
-
 void BaselineTIFFTagSet$T6Options::init$() {
 	$TIFFTag::init$("T6Options"_s, 293, $sl(1, $TIFFTag::TIFF_LONG), 1);
 	addValueName(0, "Default"_s);
@@ -56,7 +25,32 @@ BaselineTIFFTagSet$T6Options::BaselineTIFFTagSet$T6Options() {
 }
 
 $Class* BaselineTIFFTagSet$T6Options::load$($String* name, bool initialize) {
-	$loadClass(BaselineTIFFTagSet$T6Options, name, initialize, &_BaselineTIFFTagSet$T6Options_ClassInfo_, allocate$BaselineTIFFTagSet$T6Options);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(BaselineTIFFTagSet$T6Options, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.imageio.plugins.tiff.BaselineTIFFTagSet$T6Options", "javax.imageio.plugins.tiff.BaselineTIFFTagSet", "T6Options", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.imageio.plugins.tiff.BaselineTIFFTagSet$T6Options",
+		"javax.imageio.plugins.tiff.TIFFTag",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.imageio.plugins.tiff.BaselineTIFFTagSet"
+	};
+	$loadClass(BaselineTIFFTagSet$T6Options, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BaselineTIFFTagSet$T6Options);
+	});
 	return class$;
 }
 

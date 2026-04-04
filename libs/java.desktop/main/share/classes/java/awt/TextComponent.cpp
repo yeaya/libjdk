@@ -1,5 +1,4 @@
 #include <java/awt/TextComponent.h>
-
 #include <java/awt/AWTEvent.h>
 #include <java/awt/AWTEventMulticaster.h>
 #include <java/awt/AWTPermission.h>
@@ -57,7 +56,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $SecurityException = ::java::lang::SecurityException;
 using $SecurityManager = ::java::lang::SecurityManager;
-using $Permission = ::java::security::Permission;
 using $EventListener = ::java::util::EventListener;
 using $AccessibleContext = ::javax::accessibility::AccessibleContext;
 using $AWTPermissions = ::sun::awt::AWTPermissions;
@@ -65,86 +63,6 @@ using $InputMethodSupport = ::sun::awt::InputMethodSupport;
 
 namespace java {
 	namespace awt {
-
-$FieldInfo _TextComponent_FieldInfo_[] = {
-	{"text", "Ljava/lang/String;", nullptr, 0, $field(TextComponent, text)},
-	{"editable", "Z", nullptr, 0, $field(TextComponent, editable)},
-	{"selectionStart", "I", nullptr, 0, $field(TextComponent, selectionStart)},
-	{"selectionEnd", "I", nullptr, 0, $field(TextComponent, selectionEnd)},
-	{"backgroundSetByClientCode", "Z", nullptr, 0, $field(TextComponent, backgroundSetByClientCode)},
-	{"textListener", "Ljava/awt/event/TextListener;", nullptr, $PROTECTED | $TRANSIENT, $field(TextComponent, textListener)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(TextComponent, serialVersionUID)},
-	{"textComponentSerializedDataVersion", "I", nullptr, $PRIVATE, $field(TextComponent, textComponentSerializedDataVersion)},
-	{"checkForEnableIM", "Z", nullptr, $PRIVATE, $field(TextComponent, checkForEnableIM)},
-	{}
-};
-
-$MethodInfo _TextComponent_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(TextComponent, init$, void, $String*), "java.awt.HeadlessException"},
-	{"addNotify", "()V", nullptr, $PUBLIC, $virtualMethod(TextComponent, addNotify, void)},
-	{"addTextListener", "(Ljava/awt/event/TextListener;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(TextComponent, addTextListener, void, $TextListener*)},
-	{"areInputMethodsEnabled", "()Z", nullptr, 0, $virtualMethod(TextComponent, areInputMethodsEnabled, bool)},
-	{"canAccessClipboard", "()Z", nullptr, $PRIVATE, $method(TextComponent, canAccessClipboard, bool)},
-	{"enableInputMethods", "(Z)V", nullptr, $PUBLIC, $virtualMethod(TextComponent, enableInputMethods, void, bool)},
-	{"enableInputMethodsIfNecessary", "()V", nullptr, $PRIVATE, $method(TextComponent, enableInputMethodsIfNecessary, void)},
-	{"eventEnabled", "(Ljava/awt/AWTEvent;)Z", nullptr, 0, $virtualMethod(TextComponent, eventEnabled, bool, $AWTEvent*)},
-	{"getAccessibleContext", "()Ljavax/accessibility/AccessibleContext;", nullptr, $PUBLIC, $virtualMethod(TextComponent, getAccessibleContext, $AccessibleContext*)},
-	{"getBackground", "()Ljava/awt/Color;", nullptr, $PUBLIC, $virtualMethod(TextComponent, getBackground, $Color*)},
-	{"getCaretPosition", "()I", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(TextComponent, getCaretPosition, int32_t)},
-	{"getInputMethodRequests", "()Ljava/awt/im/InputMethodRequests;", nullptr, $PUBLIC, $virtualMethod(TextComponent, getInputMethodRequests, $InputMethodRequests*)},
-	{"getListeners", "(Ljava/lang/Class;)[Ljava/util/EventListener;", "<T::Ljava/util/EventListener;>(Ljava/lang/Class<TT;>;)[TT;", $PUBLIC, $virtualMethod(TextComponent, getListeners, $EventListenerArray*, $Class*)},
-	{"getSelectedText", "()Ljava/lang/String;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(TextComponent, getSelectedText, $String*)},
-	{"getSelectionEnd", "()I", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(TextComponent, getSelectionEnd, int32_t)},
-	{"getSelectionStart", "()I", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(TextComponent, getSelectionStart, int32_t)},
-	{"getText", "()Ljava/lang/String;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(TextComponent, getText, $String*)},
-	{"getTextListeners", "()[Ljava/awt/event/TextListener;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(TextComponent, getTextListeners, $TextListenerArray*)},
-	{"isEditable", "()Z", nullptr, $PUBLIC, $virtualMethod(TextComponent, isEditable, bool)},
-	{"paramString", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(TextComponent, paramString, $String*)},
-	{"processEvent", "(Ljava/awt/AWTEvent;)V", nullptr, $PROTECTED, $virtualMethod(TextComponent, processEvent, void, $AWTEvent*)},
-	{"processTextEvent", "(Ljava/awt/event/TextEvent;)V", nullptr, $PROTECTED, $virtualMethod(TextComponent, processTextEvent, void, $TextEvent*)},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(TextComponent, readObject, void, $ObjectInputStream*), "java.lang.ClassNotFoundException,java.io.IOException,java.awt.HeadlessException"},
-	{"removeNotify", "()V", nullptr, $PUBLIC, $virtualMethod(TextComponent, removeNotify, void)},
-	{"removeTextListener", "(Ljava/awt/event/TextListener;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(TextComponent, removeTextListener, void, $TextListener*)},
-	{"select", "(II)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(TextComponent, select, void, int32_t, int32_t)},
-	{"selectAll", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(TextComponent, selectAll, void)},
-	{"setBackground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC, $virtualMethod(TextComponent, setBackground, void, $Color*)},
-	{"setCaretPosition", "(I)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(TextComponent, setCaretPosition, void, int32_t)},
-	{"setEditable", "(Z)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(TextComponent, setEditable, void, bool)},
-	{"setSelectionEnd", "(I)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(TextComponent, setSelectionEnd, void, int32_t)},
-	{"setSelectionStart", "(I)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(TextComponent, setSelectionStart, void, int32_t)},
-	{"setText", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(TextComponent, setText, void, $String*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(TextComponent, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _TextComponent_InnerClassesInfo_[] = {
-	{"java.awt.TextComponent$AccessibleAWTTextComponent", "java.awt.TextComponent", "AccessibleAWTTextComponent", $PROTECTED},
-	{}
-};
-
-$ClassInfo _TextComponent_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.awt.TextComponent",
-	"java.awt.Component",
-	"javax.accessibility.Accessible",
-	_TextComponent_FieldInfo_,
-	_TextComponent_MethodInfo_,
-	nullptr,
-	nullptr,
-	_TextComponent_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.awt.TextComponent$AccessibleAWTTextComponent"
-};
-
-$Object* allocate$TextComponent($Class* clazz) {
-	return $of($alloc(TextComponent));
-}
 
 $String* TextComponent::toString() {
 	 return this->$Component::toString();
@@ -184,7 +102,7 @@ void TextComponent::enableInputMethodsIfNecessary() {
 			$var($Toolkit, toolkit, $Toolkit::getDefaultToolkit());
 			bool shouldEnable = false;
 			if ($instanceOf($InputMethodSupport, toolkit)) {
-				shouldEnable = $nc(($cast($InputMethodSupport, toolkit)))->enableInputMethodsForTextComponent();
+				shouldEnable = $cast($InputMethodSupport, toolkit)->enableInputMethodsForTextComponent();
 			}
 			enableInputMethods(shouldEnable);
 		} catch ($Exception& e) {
@@ -201,7 +119,7 @@ bool TextComponent::areInputMethodsEnabled() {
 	if (this->checkForEnableIM) {
 		enableInputMethodsIfNecessary();
 	}
-	return ((int64_t)(this->eventMask & (uint64_t)$AWTEvent::INPUT_METHODS_ENABLED_MASK)) != 0;
+	return (this->eventMask & $AWTEvent::INPUT_METHODS_ENABLED_MASK) != 0;
 }
 
 $InputMethodRequests* TextComponent::getInputMethodRequests() {
@@ -232,7 +150,7 @@ void TextComponent::removeNotify() {
 
 void TextComponent::setText($String* t) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$set(this, text, (t != nullptr) ? t : ""_s);
 		int32_t selectionStart = getSelectionStart();
 		int32_t selectionEnd = getSelectionEnd();
@@ -259,7 +177,7 @@ $String* TextComponent::getText() {
 $String* TextComponent::getSelectedText() {
 	$synchronized(this) {
 		int32_t var$0 = getSelectionStart();
-		return $nc($(getText()))->substring(var$0, getSelectionEnd());
+		return $$nc(getText())->substring(var$0, getSelectionEnd());
 	}
 }
 
@@ -327,7 +245,7 @@ void TextComponent::setSelectionEnd(int32_t selectionEnd) {
 
 void TextComponent::select(int32_t selectionStart, int32_t selectionEnd) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$var($String, text, getText());
 		if (selectionStart < 0) {
 			selectionStart = 0;
@@ -335,7 +253,7 @@ void TextComponent::select(int32_t selectionStart, int32_t selectionEnd) {
 		if (selectionStart > $nc(text)->length()) {
 			selectionStart = text->length();
 		}
-		if (selectionEnd > $nc(text)->length()) {
+		if (selectionEnd > text->length()) {
 			selectionEnd = text->length();
 		}
 		if (selectionEnd < selectionStart) {
@@ -352,9 +270,9 @@ void TextComponent::select(int32_t selectionStart, int32_t selectionEnd) {
 
 void TextComponent::selectAll() {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		this->selectionStart = 0;
-		this->selectionEnd = $nc($(getText()))->length();
+		this->selectionEnd = $$nc(getText())->length();
 		$var($TextComponentPeer, peer, $cast($TextComponentPeer, this->peer));
 		if (peer != nullptr) {
 			peer->select(this->selectionStart, this->selectionEnd);
@@ -364,11 +282,11 @@ void TextComponent::selectAll() {
 
 void TextComponent::setCaretPosition(int32_t position) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		if (position < 0) {
 			$throwNew($IllegalArgumentException, "position less than zero."_s);
 		}
-		int32_t maxposition = $nc($(getText()))->length();
+		int32_t maxposition = $$nc(getText())->length();
 		if (position > maxposition) {
 			position = maxposition;
 		}
@@ -383,7 +301,7 @@ void TextComponent::setCaretPosition(int32_t position) {
 
 int32_t TextComponent::getCaretPosition() {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$var($TextComponentPeer, peer, $cast($TextComponentPeer, this->peer));
 		int32_t position = 0;
 		if (peer != nullptr) {
@@ -391,7 +309,7 @@ int32_t TextComponent::getCaretPosition() {
 		} else {
 			position = this->selectionStart;
 		}
-		int32_t maxposition = $nc($(getText()))->length();
+		int32_t maxposition = $$nc(getText())->length();
 		if (position > maxposition) {
 			position = maxposition;
 		}
@@ -421,7 +339,7 @@ void TextComponent::removeTextListener($TextListener* l) {
 $TextListenerArray* TextComponent::getTextListeners() {
 	$synchronized(this) {
 		$load($TextListener);
-		return $fcast($TextListenerArray, getListeners($TextListener::class$));
+		return $cast($TextListenerArray, getListeners($TextListener::class$));
 	}
 }
 
@@ -438,7 +356,7 @@ $EventListenerArray* TextComponent::getListeners($Class* listenerType) {
 
 bool TextComponent::eventEnabled($AWTEvent* e) {
 	if ($nc(e)->id == $TextEvent::TEXT_VALUE_CHANGED) {
-		if (((int64_t)(this->eventMask & (uint64_t)$AWTEvent::TEXT_EVENT_MASK)) != 0 || this->textListener != nullptr) {
+		if ((this->eventMask & $AWTEvent::TEXT_EVENT_MASK) != 0 || this->textListener != nullptr) {
 			return true;
 		}
 		return false;
@@ -460,23 +378,29 @@ void TextComponent::processTextEvent($TextEvent* e) {
 		int32_t id = $nc(e)->getID();
 		switch (id) {
 		case $TextEvent::TEXT_VALUE_CHANGED:
-			{
-				listener->textValueChanged(e);
-				break;
-			}
+			listener->textValueChanged(e);
+			break;
 		}
 	}
 }
 
 $String* TextComponent::paramString() {
-	$useLocalCurrentObjectStackCache();
-	$var($String, var$0, $$str({$($Component::paramString()), ",text="_s}));
-	$var($String, str, $concat(var$0, $(getText())));
+	$useLocalObjectStack();
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append($($Component::paramString()));
+	var$0->append(",text="_s);
+	var$0->append($(getText()));
+	$var($String, str, $str(var$0));
 	if (this->editable) {
 		$plusAssign(str, ",editable"_s);
 	}
-	$var($String, var$1, $$str({str, ",selection="_s, $$str(getSelectionStart()), "-"_s}));
-	return $concat(var$1, $$str(getSelectionEnd()));
+	$var($StringBuilder, var$1, $new($StringBuilder));
+	var$1->append(str);
+	var$1->append(",selection="_s);
+	var$1->append(getSelectionStart());
+	var$1->append("-"_s);
+	var$1->append(getSelectionEnd());
+	return $str(var$1);
 }
 
 bool TextComponent::canAccessClipboard() {
@@ -507,17 +431,17 @@ void TextComponent::writeObject($ObjectOutputStream* s) {
 }
 
 void TextComponent::readObject($ObjectInputStream* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$GraphicsEnvironment::checkHeadless();
 	$nc(s)->defaultReadObject();
 	$set(this, text, (this->text != nullptr) ? this->text : ""_s);
 	select(this->selectionStart, this->selectionEnd);
 	$var($Object, keyOrNull, nullptr);
 	while (nullptr != ($assign(keyOrNull, s->readObject()))) {
-		$var($String, key, $nc(($cast($String, keyOrNull)))->intern());
+		$var($String, key, $nc($cast($String, keyOrNull))->intern());
 		$init($Component);
 		if ($Component::textListenerK == key) {
-			addTextListener(($cast($TextListener, $(s->readObject()))));
+			addTextListener($$cast($TextListener, s->readObject()));
 		} else {
 			s->readObject();
 		}
@@ -536,7 +460,81 @@ TextComponent::TextComponent() {
 }
 
 $Class* TextComponent::load$($String* name, bool initialize) {
-	$loadClass(TextComponent, name, initialize, &_TextComponent_ClassInfo_, allocate$TextComponent);
+	$FieldInfo fieldInfos$$[] = {
+		{"text", "Ljava/lang/String;", nullptr, 0, $field(TextComponent, text)},
+		{"editable", "Z", nullptr, 0, $field(TextComponent, editable)},
+		{"selectionStart", "I", nullptr, 0, $field(TextComponent, selectionStart)},
+		{"selectionEnd", "I", nullptr, 0, $field(TextComponent, selectionEnd)},
+		{"backgroundSetByClientCode", "Z", nullptr, 0, $field(TextComponent, backgroundSetByClientCode)},
+		{"textListener", "Ljava/awt/event/TextListener;", nullptr, $PROTECTED | $TRANSIENT, $field(TextComponent, textListener)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(TextComponent, serialVersionUID)},
+		{"textComponentSerializedDataVersion", "I", nullptr, $PRIVATE, $field(TextComponent, textComponentSerializedDataVersion)},
+		{"checkForEnableIM", "Z", nullptr, $PRIVATE, $field(TextComponent, checkForEnableIM)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(TextComponent, init$, void, $String*), "java.awt.HeadlessException"},
+		{"addNotify", "()V", nullptr, $PUBLIC, $virtualMethod(TextComponent, addNotify, void)},
+		{"addTextListener", "(Ljava/awt/event/TextListener;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(TextComponent, addTextListener, void, $TextListener*)},
+		{"areInputMethodsEnabled", "()Z", nullptr, 0, $virtualMethod(TextComponent, areInputMethodsEnabled, bool)},
+		{"canAccessClipboard", "()Z", nullptr, $PRIVATE, $method(TextComponent, canAccessClipboard, bool)},
+		{"enableInputMethods", "(Z)V", nullptr, $PUBLIC, $virtualMethod(TextComponent, enableInputMethods, void, bool)},
+		{"enableInputMethodsIfNecessary", "()V", nullptr, $PRIVATE, $method(TextComponent, enableInputMethodsIfNecessary, void)},
+		{"eventEnabled", "(Ljava/awt/AWTEvent;)Z", nullptr, 0, $virtualMethod(TextComponent, eventEnabled, bool, $AWTEvent*)},
+		{"getAccessibleContext", "()Ljavax/accessibility/AccessibleContext;", nullptr, $PUBLIC, $virtualMethod(TextComponent, getAccessibleContext, $AccessibleContext*)},
+		{"getBackground", "()Ljava/awt/Color;", nullptr, $PUBLIC, $virtualMethod(TextComponent, getBackground, $Color*)},
+		{"getCaretPosition", "()I", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(TextComponent, getCaretPosition, int32_t)},
+		{"getInputMethodRequests", "()Ljava/awt/im/InputMethodRequests;", nullptr, $PUBLIC, $virtualMethod(TextComponent, getInputMethodRequests, $InputMethodRequests*)},
+		{"getListeners", "(Ljava/lang/Class;)[Ljava/util/EventListener;", "<T::Ljava/util/EventListener;>(Ljava/lang/Class<TT;>;)[TT;", $PUBLIC, $virtualMethod(TextComponent, getListeners, $EventListenerArray*, $Class*)},
+		{"getSelectedText", "()Ljava/lang/String;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(TextComponent, getSelectedText, $String*)},
+		{"getSelectionEnd", "()I", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(TextComponent, getSelectionEnd, int32_t)},
+		{"getSelectionStart", "()I", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(TextComponent, getSelectionStart, int32_t)},
+		{"getText", "()Ljava/lang/String;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(TextComponent, getText, $String*)},
+		{"getTextListeners", "()[Ljava/awt/event/TextListener;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(TextComponent, getTextListeners, $TextListenerArray*)},
+		{"isEditable", "()Z", nullptr, $PUBLIC, $virtualMethod(TextComponent, isEditable, bool)},
+		{"paramString", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(TextComponent, paramString, $String*)},
+		{"processEvent", "(Ljava/awt/AWTEvent;)V", nullptr, $PROTECTED, $virtualMethod(TextComponent, processEvent, void, $AWTEvent*)},
+		{"processTextEvent", "(Ljava/awt/event/TextEvent;)V", nullptr, $PROTECTED, $virtualMethod(TextComponent, processTextEvent, void, $TextEvent*)},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(TextComponent, readObject, void, $ObjectInputStream*), "java.lang.ClassNotFoundException,java.io.IOException,java.awt.HeadlessException"},
+		{"removeNotify", "()V", nullptr, $PUBLIC, $virtualMethod(TextComponent, removeNotify, void)},
+		{"removeTextListener", "(Ljava/awt/event/TextListener;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(TextComponent, removeTextListener, void, $TextListener*)},
+		{"select", "(II)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(TextComponent, select, void, int32_t, int32_t)},
+		{"selectAll", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(TextComponent, selectAll, void)},
+		{"setBackground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC, $virtualMethod(TextComponent, setBackground, void, $Color*)},
+		{"setCaretPosition", "(I)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(TextComponent, setCaretPosition, void, int32_t)},
+		{"setEditable", "(Z)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(TextComponent, setEditable, void, bool)},
+		{"setSelectionEnd", "(I)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(TextComponent, setSelectionEnd, void, int32_t)},
+		{"setSelectionStart", "(I)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(TextComponent, setSelectionStart, void, int32_t)},
+		{"setText", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(TextComponent, setText, void, $String*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(TextComponent, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.awt.TextComponent$AccessibleAWTTextComponent", "java.awt.TextComponent", "AccessibleAWTTextComponent", $PROTECTED},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.awt.TextComponent",
+		"java.awt.Component",
+		"javax.accessibility.Accessible",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.awt.TextComponent$AccessibleAWTTextComponent"
+	};
+	$loadClass(TextComponent, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(TextComponent));
+	});
 	return class$;
 }
 

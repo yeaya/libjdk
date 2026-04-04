@@ -14,10 +14,13 @@ class $export HttpTimeoutException : public ::java::io::IOException {
 public:
 	HttpTimeoutException();
 	void init$($String* message);
-	static const int64_t serialVersionUID = (int64_t)0x0D9E6F6A686E75F7;
+	static const int64_t serialVersionUID = (int64_t)0x0d9e6f6a686e75f7;
 	HttpTimeoutException(const HttpTimeoutException& e);
 	virtual void throw$() override;
-	inline HttpTimeoutException* operator ->() {
+	inline HttpTimeoutException* operator ->() const {
+		return (HttpTimeoutException*)throwing$;
+	}
+	inline operator HttpTimeoutException*() const {
 		return (HttpTimeoutException*)throwing$;
 	}
 };

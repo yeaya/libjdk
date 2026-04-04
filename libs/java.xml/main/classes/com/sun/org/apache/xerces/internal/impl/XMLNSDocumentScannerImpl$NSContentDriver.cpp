@@ -1,8 +1,6 @@
 #include <com/sun/org/apache/xerces/internal/impl/XMLNSDocumentScannerImpl$NSContentDriver.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/XMLDocumentFragmentScannerImpl$Driver.h>
 #include <com/sun/org/apache/xerces/internal/impl/XMLDocumentScannerImpl$ContentDriver.h>
-#include <com/sun/org/apache/xerces/internal/impl/XMLDocumentScannerImpl.h>
 #include <com/sun/org/apache/xerces/internal/impl/XMLNSDocumentScannerImpl.h>
 #include <com/sun/org/apache/xerces/internal/impl/XMLScanner.h>
 #include <com/sun/org/apache/xerces/internal/impl/dtd/XMLDTDValidatorFilter.h>
@@ -10,10 +8,8 @@
 #include <com/sun/org/apache/xerces/internal/xni/parser/XMLDocumentSource.h>
 #include <jcpp.h>
 
-using $XMLDocumentScannerImpl = ::com::sun::org::apache::xerces::internal::impl::XMLDocumentScannerImpl;
 using $XMLDocumentScannerImpl$ContentDriver = ::com::sun::org::apache::xerces::internal::impl::XMLDocumentScannerImpl$ContentDriver;
 using $XMLNSDocumentScannerImpl = ::com::sun::org::apache::xerces::internal::impl::XMLNSDocumentScannerImpl;
-using $XMLDTDValidatorFilter = ::com::sun::org::apache::xerces::internal::impl::dtd::XMLDTDValidatorFilter;
 using $XMLDocumentHandler = ::com::sun::org::apache::xerces::internal::xni::XMLDocumentHandler;
 using $XMLDocumentSource = ::com::sun::org::apache::xerces::internal::xni::parser::XMLDocumentSource;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -28,44 +24,6 @@ namespace com {
 				namespace xerces {
 					namespace internal {
 						namespace impl {
-
-$FieldInfo _XMLNSDocumentScannerImpl$NSContentDriver_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/org/apache/xerces/internal/impl/XMLNSDocumentScannerImpl;", nullptr, $FINAL | $SYNTHETIC, $field(XMLNSDocumentScannerImpl$NSContentDriver, this$0)},
-	{}
-};
-
-$MethodInfo _XMLNSDocumentScannerImpl$NSContentDriver_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/org/apache/xerces/internal/impl/XMLNSDocumentScannerImpl;)V", nullptr, $PROTECTED, $method(XMLNSDocumentScannerImpl$NSContentDriver, init$, void, $XMLNSDocumentScannerImpl*)},
-	{"reconfigurePipeline", "()V", nullptr, $PRIVATE, $method(XMLNSDocumentScannerImpl$NSContentDriver, reconfigurePipeline, void)},
-	{"scanRootElementHook", "()Z", nullptr, $PROTECTED, $virtualMethod(XMLNSDocumentScannerImpl$NSContentDriver, scanRootElementHook, bool), "java.io.IOException,com.sun.org.apache.xerces.internal.xni.XNIException"},
-	{}
-};
-
-$InnerClassInfo _XMLNSDocumentScannerImpl$NSContentDriver_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xerces.internal.impl.XMLNSDocumentScannerImpl$NSContentDriver", "com.sun.org.apache.xerces.internal.impl.XMLNSDocumentScannerImpl", "NSContentDriver", $PROTECTED | $FINAL},
-	{"com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl$ContentDriver", "com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl", "ContentDriver", $PROTECTED},
-	{}
-};
-
-$ClassInfo _XMLNSDocumentScannerImpl$NSContentDriver_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.impl.XMLNSDocumentScannerImpl$NSContentDriver",
-	"com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl$ContentDriver",
-	nullptr,
-	_XMLNSDocumentScannerImpl$NSContentDriver_FieldInfo_,
-	_XMLNSDocumentScannerImpl$NSContentDriver_MethodInfo_,
-	nullptr,
-	nullptr,
-	_XMLNSDocumentScannerImpl$NSContentDriver_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xerces.internal.impl.XMLNSDocumentScannerImpl"
-};
-
-$Object* allocate$XMLNSDocumentScannerImpl$NSContentDriver($Class* clazz) {
-	return $of($alloc(XMLNSDocumentScannerImpl$NSContentDriver));
-}
 
 void XMLNSDocumentScannerImpl$NSContentDriver::init$($XMLNSDocumentScannerImpl* this$0) {
 	$set(this, this$0, this$0);
@@ -83,7 +41,7 @@ bool XMLNSDocumentScannerImpl$NSContentDriver::scanRootElementHook() {
 }
 
 void XMLNSDocumentScannerImpl$NSContentDriver::reconfigurePipeline() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->this$0->fNamespaces && this->this$0->fDTDValidator == nullptr) {
 		this->this$0->fBindNamespaces = true;
 	} else if (this->this$0->fNamespaces && !$nc(this->this$0->fDTDValidator)->hasGrammar()) {
@@ -104,7 +62,39 @@ XMLNSDocumentScannerImpl$NSContentDriver::XMLNSDocumentScannerImpl$NSContentDriv
 }
 
 $Class* XMLNSDocumentScannerImpl$NSContentDriver::load$($String* name, bool initialize) {
-	$loadClass(XMLNSDocumentScannerImpl$NSContentDriver, name, initialize, &_XMLNSDocumentScannerImpl$NSContentDriver_ClassInfo_, allocate$XMLNSDocumentScannerImpl$NSContentDriver);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/org/apache/xerces/internal/impl/XMLNSDocumentScannerImpl;", nullptr, $FINAL | $SYNTHETIC, $field(XMLNSDocumentScannerImpl$NSContentDriver, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/org/apache/xerces/internal/impl/XMLNSDocumentScannerImpl;)V", nullptr, $PROTECTED, $method(XMLNSDocumentScannerImpl$NSContentDriver, init$, void, $XMLNSDocumentScannerImpl*)},
+		{"reconfigurePipeline", "()V", nullptr, $PRIVATE, $method(XMLNSDocumentScannerImpl$NSContentDriver, reconfigurePipeline, void)},
+		{"scanRootElementHook", "()Z", nullptr, $PROTECTED, $virtualMethod(XMLNSDocumentScannerImpl$NSContentDriver, scanRootElementHook, bool), "java.io.IOException,com.sun.org.apache.xerces.internal.xni.XNIException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xerces.internal.impl.XMLNSDocumentScannerImpl$NSContentDriver", "com.sun.org.apache.xerces.internal.impl.XMLNSDocumentScannerImpl", "NSContentDriver", $PROTECTED | $FINAL},
+		{"com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl$ContentDriver", "com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl", "ContentDriver", $PROTECTED},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.impl.XMLNSDocumentScannerImpl$NSContentDriver",
+		"com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl$ContentDriver",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xerces.internal.impl.XMLNSDocumentScannerImpl"
+	};
+	$loadClass(XMLNSDocumentScannerImpl$NSContentDriver, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XMLNSDocumentScannerImpl$NSContentDriver);
+	});
 	return class$;
 }
 

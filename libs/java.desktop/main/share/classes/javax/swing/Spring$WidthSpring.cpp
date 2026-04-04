@@ -1,5 +1,4 @@
 #include <javax/swing/Spring$WidthSpring.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Dimension.h>
 #include <java/lang/Math.h>
@@ -21,45 +20,6 @@ using $Spring$AbstractSpring = ::javax::swing::Spring$AbstractSpring;
 namespace javax {
 	namespace swing {
 
-$FieldInfo _Spring$WidthSpring_FieldInfo_[] = {
-	{"c", "Ljava/awt/Component;", nullptr, 0, $field(Spring$WidthSpring, c)},
-	{}
-};
-
-$MethodInfo _Spring$WidthSpring_MethodInfo_[] = {
-	{"<init>", "(Ljava/awt/Component;)V", nullptr, $PUBLIC, $method(Spring$WidthSpring, init$, void, $Component*)},
-	{"getMaximumValue", "()I", nullptr, $PUBLIC, $virtualMethod(Spring$WidthSpring, getMaximumValue, int32_t)},
-	{"getMinimumValue", "()I", nullptr, $PUBLIC, $virtualMethod(Spring$WidthSpring, getMinimumValue, int32_t)},
-	{"getPreferredValue", "()I", nullptr, $PUBLIC, $virtualMethod(Spring$WidthSpring, getPreferredValue, int32_t)},
-	{}
-};
-
-$InnerClassInfo _Spring$WidthSpring_InnerClassesInfo_[] = {
-	{"javax.swing.Spring$WidthSpring", "javax.swing.Spring", "WidthSpring", $STATIC},
-	{"javax.swing.Spring$AbstractSpring", "javax.swing.Spring", "AbstractSpring", $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Spring$WidthSpring_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.Spring$WidthSpring",
-	"javax.swing.Spring$AbstractSpring",
-	nullptr,
-	_Spring$WidthSpring_FieldInfo_,
-	_Spring$WidthSpring_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Spring$WidthSpring_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.Spring"
-};
-
-$Object* allocate$Spring$WidthSpring($Class* clazz) {
-	return $of($alloc(Spring$WidthSpring));
-}
-
 void Spring$WidthSpring::init$($Component* c) {
 	$Spring$AbstractSpring::init$();
 	$set(this, c, c);
@@ -74,14 +34,47 @@ int32_t Spring$WidthSpring::getPreferredValue() {
 }
 
 int32_t Spring$WidthSpring::getMaximumValue() {
-	return $Math::min((int32_t)$Short::MAX_VALUE, $nc($($nc(this->c)->getMaximumSize()))->width);
+	return $Math::min($Short::MAX_VALUE, $nc($($nc(this->c)->getMaximumSize()))->width);
 }
 
 Spring$WidthSpring::Spring$WidthSpring() {
 }
 
 $Class* Spring$WidthSpring::load$($String* name, bool initialize) {
-	$loadClass(Spring$WidthSpring, name, initialize, &_Spring$WidthSpring_ClassInfo_, allocate$Spring$WidthSpring);
+	$FieldInfo fieldInfos$$[] = {
+		{"c", "Ljava/awt/Component;", nullptr, 0, $field(Spring$WidthSpring, c)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/Component;)V", nullptr, $PUBLIC, $method(Spring$WidthSpring, init$, void, $Component*)},
+		{"getMaximumValue", "()I", nullptr, $PUBLIC, $virtualMethod(Spring$WidthSpring, getMaximumValue, int32_t)},
+		{"getMinimumValue", "()I", nullptr, $PUBLIC, $virtualMethod(Spring$WidthSpring, getMinimumValue, int32_t)},
+		{"getPreferredValue", "()I", nullptr, $PUBLIC, $virtualMethod(Spring$WidthSpring, getPreferredValue, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.Spring$WidthSpring", "javax.swing.Spring", "WidthSpring", $STATIC},
+		{"javax.swing.Spring$AbstractSpring", "javax.swing.Spring", "AbstractSpring", $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.Spring$WidthSpring",
+		"javax.swing.Spring$AbstractSpring",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.Spring"
+	};
+	$loadClass(Spring$WidthSpring, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Spring$WidthSpring);
+	});
 	return class$;
 }
 

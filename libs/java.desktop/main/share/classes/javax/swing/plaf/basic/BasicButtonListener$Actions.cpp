@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/basic/BasicButtonListener$Actions.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/event/ActionEvent.h>
 #include <java/util/EventObject.h>
@@ -26,44 +25,6 @@ namespace javax {
 		namespace plaf {
 			namespace basic {
 
-$FieldInfo _BasicButtonListener$Actions_FieldInfo_[] = {
-	{"PRESS", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicButtonListener$Actions, PRESS)},
-	{"RELEASE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicButtonListener$Actions, RELEASE)},
-	{}
-};
-
-$MethodInfo _BasicButtonListener$Actions_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(BasicButtonListener$Actions, init$, void, $String*)},
-	{"accept", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(BasicButtonListener$Actions, accept, bool, Object$*)},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicButtonListener$Actions, actionPerformed, void, $ActionEvent*)},
-	{}
-};
-
-$InnerClassInfo _BasicButtonListener$Actions_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.basic.BasicButtonListener$Actions", "javax.swing.plaf.basic.BasicButtonListener", "Actions", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _BasicButtonListener$Actions_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.basic.BasicButtonListener$Actions",
-	"sun.swing.UIAction",
-	nullptr,
-	_BasicButtonListener$Actions_FieldInfo_,
-	_BasicButtonListener$Actions_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BasicButtonListener$Actions_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.basic.BasicButtonListener"
-};
-
-$Object* allocate$BasicButtonListener$Actions($Class* clazz) {
-	return $of($alloc(BasicButtonListener$Actions));
-}
-
 $String* BasicButtonListener$Actions::PRESS = nullptr;
 $String* BasicButtonListener$Actions::RELEASE = nullptr;
 
@@ -72,7 +33,7 @@ void BasicButtonListener$Actions::init$($String* name) {
 }
 
 void BasicButtonListener$Actions::actionPerformed($ActionEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AbstractButton, b, $cast($AbstractButton, $nc(e)->getSource()));
 	$var($String, key, getName());
 	if (key == BasicButtonListener$Actions::PRESS) {
@@ -90,19 +51,51 @@ void BasicButtonListener$Actions::actionPerformed($ActionEvent* e) {
 }
 
 bool BasicButtonListener$Actions::accept(Object$* sender) {
-	return !(($instanceOf($AbstractButton, sender)) && !$nc($($nc(($cast($AbstractButton, sender)))->getModel()))->isEnabled());
+	return !(($instanceOf($AbstractButton, sender)) && !$$nc($cast($AbstractButton, sender)->getModel())->isEnabled());
 }
 
 BasicButtonListener$Actions::BasicButtonListener$Actions() {
 }
 
-void clinit$BasicButtonListener$Actions($Class* class$) {
+void BasicButtonListener$Actions::clinit$($Class* clazz) {
 	$assignStatic(BasicButtonListener$Actions::PRESS, "pressed"_s);
 	$assignStatic(BasicButtonListener$Actions::RELEASE, "released"_s);
 }
 
 $Class* BasicButtonListener$Actions::load$($String* name, bool initialize) {
-	$loadClass(BasicButtonListener$Actions, name, initialize, &_BasicButtonListener$Actions_ClassInfo_, clinit$BasicButtonListener$Actions, allocate$BasicButtonListener$Actions);
+	$FieldInfo fieldInfos$$[] = {
+		{"PRESS", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicButtonListener$Actions, PRESS)},
+		{"RELEASE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicButtonListener$Actions, RELEASE)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(BasicButtonListener$Actions, init$, void, $String*)},
+		{"accept", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(BasicButtonListener$Actions, accept, bool, Object$*)},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicButtonListener$Actions, actionPerformed, void, $ActionEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.basic.BasicButtonListener$Actions", "javax.swing.plaf.basic.BasicButtonListener", "Actions", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.basic.BasicButtonListener$Actions",
+		"sun.swing.UIAction",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.basic.BasicButtonListener"
+	};
+	$loadClass(BasicButtonListener$Actions, name, initialize, &classInfo$$, BasicButtonListener$Actions::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(BasicButtonListener$Actions);
+	});
 	return class$;
 }
 

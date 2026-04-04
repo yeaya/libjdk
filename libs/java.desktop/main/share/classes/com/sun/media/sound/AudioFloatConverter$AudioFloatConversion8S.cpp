@@ -1,5 +1,4 @@
 #include <com/sun/media/sound/AudioFloatConverter$AudioFloatConversion8S.h>
-
 #include <com/sun/media/sound/AudioFloatConverter.h>
 #include <jcpp.h>
 
@@ -13,38 +12,6 @@ namespace com {
 	namespace sun {
 		namespace media {
 			namespace sound {
-
-$MethodInfo _AudioFloatConverter$AudioFloatConversion8S_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(AudioFloatConverter$AudioFloatConversion8S, init$, void)},
-	{"toByteArray", "([FII[BI)[B", nullptr, $PUBLIC, $virtualMethod(AudioFloatConverter$AudioFloatConversion8S, toByteArray, $bytes*, $floats*, int32_t, int32_t, $bytes*, int32_t)},
-	{"toFloatArray", "([BI[FII)[F", nullptr, $PUBLIC, $virtualMethod(AudioFloatConverter$AudioFloatConversion8S, toFloatArray, $floats*, $bytes*, int32_t, $floats*, int32_t, int32_t)},
-	{}
-};
-
-$InnerClassInfo _AudioFloatConverter$AudioFloatConversion8S_InnerClassesInfo_[] = {
-	{"com.sun.media.sound.AudioFloatConverter$AudioFloatConversion8S", "com.sun.media.sound.AudioFloatConverter", "AudioFloatConversion8S", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _AudioFloatConverter$AudioFloatConversion8S_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.media.sound.AudioFloatConverter$AudioFloatConversion8S",
-	"com.sun.media.sound.AudioFloatConverter",
-	nullptr,
-	nullptr,
-	_AudioFloatConverter$AudioFloatConversion8S_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AudioFloatConverter$AudioFloatConversion8S_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.media.sound.AudioFloatConverter"
-};
-
-$Object* allocate$AudioFloatConverter$AudioFloatConversion8S($Class* clazz) {
-	return $of($alloc(AudioFloatConverter$AudioFloatConversion8S));
-}
 
 void AudioFloatConverter$AudioFloatConversion8S::init$() {
 	$AudioFloatConverter::init$();
@@ -74,7 +41,34 @@ AudioFloatConverter$AudioFloatConversion8S::AudioFloatConverter$AudioFloatConver
 }
 
 $Class* AudioFloatConverter$AudioFloatConversion8S::load$($String* name, bool initialize) {
-	$loadClass(AudioFloatConverter$AudioFloatConversion8S, name, initialize, &_AudioFloatConverter$AudioFloatConversion8S_ClassInfo_, allocate$AudioFloatConverter$AudioFloatConversion8S);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(AudioFloatConverter$AudioFloatConversion8S, init$, void)},
+		{"toByteArray", "([FII[BI)[B", nullptr, $PUBLIC, $virtualMethod(AudioFloatConverter$AudioFloatConversion8S, toByteArray, $bytes*, $floats*, int32_t, int32_t, $bytes*, int32_t)},
+		{"toFloatArray", "([BI[FII)[F", nullptr, $PUBLIC, $virtualMethod(AudioFloatConverter$AudioFloatConversion8S, toFloatArray, $floats*, $bytes*, int32_t, $floats*, int32_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.media.sound.AudioFloatConverter$AudioFloatConversion8S", "com.sun.media.sound.AudioFloatConverter", "AudioFloatConversion8S", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.media.sound.AudioFloatConverter$AudioFloatConversion8S",
+		"com.sun.media.sound.AudioFloatConverter",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.media.sound.AudioFloatConverter"
+	};
+	$loadClass(AudioFloatConverter$AudioFloatConversion8S, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AudioFloatConverter$AudioFloatConversion8S);
+	});
 	return class$;
 }
 

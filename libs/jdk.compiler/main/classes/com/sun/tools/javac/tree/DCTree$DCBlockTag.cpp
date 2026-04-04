@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/tree/DCTree$DCBlockTag.h>
-
 #include <com/sun/source/doctree/DocTree$Kind.h>
 #include <com/sun/source/doctree/DocTree.h>
 #include <com/sun/tools/javac/tree/DCTree.h>
@@ -15,44 +14,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace tree {
-
-$MethodInfo _DCTree$DCBlockTag_MethodInfo_[] = {
-	{"*accept", "(Lcom/sun/source/doctree/DocTreeVisitor;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*getKind", "()Lcom/sun/source/doctree/DocTree$Kind;", nullptr, $PUBLIC | $ABSTRACT},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(DCTree$DCBlockTag, init$, void)},
-	{"getTagName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DCTree$DCBlockTag, getTagName, $String*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _DCTree$DCBlockTag_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.tree.DCTree$DCBlockTag", "com.sun.tools.javac.tree.DCTree", "DCBlockTag", $PUBLIC | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _DCTree$DCBlockTag_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"com.sun.tools.javac.tree.DCTree$DCBlockTag",
-	"com.sun.tools.javac.tree.DCTree",
-	"com.sun.source.doctree.BlockTagTree",
-	nullptr,
-	_DCTree$DCBlockTag_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DCTree$DCBlockTag_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.tree.DCTree"
-};
-
-$Object* allocate$DCTree$DCBlockTag($Class* clazz) {
-	return $of($alloc(DCTree$DCBlockTag));
-}
 
 $String* DCTree$DCBlockTag::toString() {
 	 return this->$DCTree::toString();
@@ -86,7 +47,40 @@ DCTree$DCBlockTag::DCTree$DCBlockTag() {
 }
 
 $Class* DCTree$DCBlockTag::load$($String* name, bool initialize) {
-	$loadClass(DCTree$DCBlockTag, name, initialize, &_DCTree$DCBlockTag_ClassInfo_, allocate$DCTree$DCBlockTag);
+	$MethodInfo methodInfos$$[] = {
+		{"*accept", "(Lcom/sun/source/doctree/DocTreeVisitor;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*getKind", "()Lcom/sun/source/doctree/DocTree$Kind;", nullptr, $PUBLIC | $ABSTRACT},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(DCTree$DCBlockTag, init$, void)},
+		{"getTagName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DCTree$DCBlockTag, getTagName, $String*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.tree.DCTree$DCBlockTag", "com.sun.tools.javac.tree.DCTree", "DCBlockTag", $PUBLIC | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"com.sun.tools.javac.tree.DCTree$DCBlockTag",
+		"com.sun.tools.javac.tree.DCTree",
+		"com.sun.source.doctree.BlockTagTree",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.tree.DCTree"
+	};
+	$loadClass(DCTree$DCBlockTag, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DCTree$DCBlockTag));
+	});
 	return class$;
 }
 

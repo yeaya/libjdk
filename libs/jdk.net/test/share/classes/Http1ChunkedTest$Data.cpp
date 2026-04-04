@@ -1,5 +1,4 @@
 #include <Http1ChunkedTest$Data.h>
-
 #include <Http1ChunkedTest.h>
 #include <java/util/List.h>
 #include <jcpp.h>
@@ -18,47 +17,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $List = ::java::util::List;
 
-$FieldInfo _Http1ChunkedTest$Data_FieldInfo_[] = {
-	{"RESPONSE_HEADERS", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(Http1ChunkedTest$Data, RESPONSE_HEADERS)},
-	{"REQ0_RESPONSE_BODY", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/String;>;", $STATIC | $FINAL, $staticField(Http1ChunkedTest$Data, REQ0_RESPONSE_BODY)},
-	{"REQ1_RESPONSE_BODY", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/String;>;", $STATIC | $FINAL, $staticField(Http1ChunkedTest$Data, REQ1_RESPONSE_BODY)},
-	{"REQ2_RESPONSE_BODY", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/String;>;", $STATIC | $FINAL, $staticField(Http1ChunkedTest$Data, REQ2_RESPONSE_BODY)},
-	{"REQ3_RESPONSE_BODY", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/String;>;", $STATIC | $FINAL, $staticField(Http1ChunkedTest$Data, REQ3_RESPONSE_BODY)},
-	{"REQ4_RESPONSE_BODY", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/String;>;", $STATIC | $FINAL, $staticField(Http1ChunkedTest$Data, REQ4_RESPONSE_BODY)},
-	{"REQ5_RESPONSE_BODY", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/String;>;", $STATIC | $FINAL, $staticField(Http1ChunkedTest$Data, REQ5_RESPONSE_BODY)},
-	{}
-};
-
-$MethodInfo _Http1ChunkedTest$Data_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(Http1ChunkedTest$Data, init$, void)},
-	{}
-};
-
-$InnerClassInfo _Http1ChunkedTest$Data_InnerClassesInfo_[] = {
-	{"Http1ChunkedTest$Data", "Http1ChunkedTest", "Data", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _Http1ChunkedTest$Data_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"Http1ChunkedTest$Data",
-	"java.lang.Object",
-	nullptr,
-	_Http1ChunkedTest$Data_FieldInfo_,
-	_Http1ChunkedTest$Data_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Http1ChunkedTest$Data_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"Http1ChunkedTest"
-};
-
-$Object* allocate$Http1ChunkedTest$Data($Class* clazz) {
-	return $of($alloc(Http1ChunkedTest$Data));
-}
-
 $String* Http1ChunkedTest$Data::RESPONSE_HEADERS = nullptr;
 $List* Http1ChunkedTest$Data::REQ0_RESPONSE_BODY = nullptr;
 $List* Http1ChunkedTest$Data::REQ1_RESPONSE_BODY = nullptr;
@@ -70,8 +28,8 @@ $List* Http1ChunkedTest$Data::REQ5_RESPONSE_BODY = nullptr;
 void Http1ChunkedTest$Data::init$() {
 }
 
-void clinit$Http1ChunkedTest$Data($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void Http1ChunkedTest$Data::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(Http1ChunkedTest$Data::RESPONSE_HEADERS, "HTTP/1.1 200 OK\r\ncontent-type: application/text; charset=UTF-8\r\ntransfer-encoding: chunked\r\n\r\n"_s);
 	$assignStatic(Http1ChunkedTest$Data::REQ0_RESPONSE_BODY, $List::of($$new($StringArray, {
 		"26 \r\n"_s,
@@ -3467,7 +3425,42 @@ Http1ChunkedTest$Data::Http1ChunkedTest$Data() {
 }
 
 $Class* Http1ChunkedTest$Data::load$($String* name, bool initialize) {
-	$loadClass(Http1ChunkedTest$Data, name, initialize, &_Http1ChunkedTest$Data_ClassInfo_, clinit$Http1ChunkedTest$Data, allocate$Http1ChunkedTest$Data);
+	$FieldInfo fieldInfos$$[] = {
+		{"RESPONSE_HEADERS", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(Http1ChunkedTest$Data, RESPONSE_HEADERS)},
+		{"REQ0_RESPONSE_BODY", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/String;>;", $STATIC | $FINAL, $staticField(Http1ChunkedTest$Data, REQ0_RESPONSE_BODY)},
+		{"REQ1_RESPONSE_BODY", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/String;>;", $STATIC | $FINAL, $staticField(Http1ChunkedTest$Data, REQ1_RESPONSE_BODY)},
+		{"REQ2_RESPONSE_BODY", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/String;>;", $STATIC | $FINAL, $staticField(Http1ChunkedTest$Data, REQ2_RESPONSE_BODY)},
+		{"REQ3_RESPONSE_BODY", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/String;>;", $STATIC | $FINAL, $staticField(Http1ChunkedTest$Data, REQ3_RESPONSE_BODY)},
+		{"REQ4_RESPONSE_BODY", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/String;>;", $STATIC | $FINAL, $staticField(Http1ChunkedTest$Data, REQ4_RESPONSE_BODY)},
+		{"REQ5_RESPONSE_BODY", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/String;>;", $STATIC | $FINAL, $staticField(Http1ChunkedTest$Data, REQ5_RESPONSE_BODY)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(Http1ChunkedTest$Data, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"Http1ChunkedTest$Data", "Http1ChunkedTest", "Data", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"Http1ChunkedTest$Data",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"Http1ChunkedTest"
+	};
+	$loadClass(Http1ChunkedTest$Data, name, initialize, &classInfo$$, Http1ChunkedTest$Data::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Http1ChunkedTest$Data);
+	});
 	return class$;
 }
 

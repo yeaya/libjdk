@@ -60,6 +60,7 @@ class $export ShortRequestBody : public ::java::lang::Object {
 	$class(ShortRequestBody, 0, ::java::lang::Object)
 public:
 	ShortRequestBody();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static bool check(bool cond, $Throwable* t, $ObjectArray* failedArgs);
 	static void failureBlocking(::java::util::function::Supplier* clientSupplier, ::java::net::URI* uri, ::java::net::http::HttpRequest$BodyPublisher* publisher);

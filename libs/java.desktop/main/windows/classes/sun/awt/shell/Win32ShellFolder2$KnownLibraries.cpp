@@ -1,5 +1,4 @@
 #include <sun/awt/shell/Win32ShellFolder2$KnownLibraries.h>
-
 #include <java/util/List.h>
 #include <sun/awt/shell/Win32ShellFolder2.h>
 #include <jcpp.h>
@@ -17,47 +16,12 @@ namespace sun {
 	namespace awt {
 		namespace shell {
 
-$FieldInfo _Win32ShellFolder2$KnownLibraries_FieldInfo_[] = {
-	{"INSTANCE", "Ljava/util/List;", "Ljava/util/List<Lsun/awt/shell/Win32ShellFolder2$KnownFolderDefinition;>;", $STATIC | $FINAL, $staticField(Win32ShellFolder2$KnownLibraries, INSTANCE)},
-	{}
-};
-
-$MethodInfo _Win32ShellFolder2$KnownLibraries_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(Win32ShellFolder2$KnownLibraries, init$, void)},
-	{}
-};
-
-$InnerClassInfo _Win32ShellFolder2$KnownLibraries_InnerClassesInfo_[] = {
-	{"sun.awt.shell.Win32ShellFolder2$KnownLibraries", "sun.awt.shell.Win32ShellFolder2", "KnownLibraries", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _Win32ShellFolder2$KnownLibraries_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.awt.shell.Win32ShellFolder2$KnownLibraries",
-	"java.lang.Object",
-	nullptr,
-	_Win32ShellFolder2$KnownLibraries_FieldInfo_,
-	_Win32ShellFolder2$KnownLibraries_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Win32ShellFolder2$KnownLibraries_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.awt.shell.Win32ShellFolder2"
-};
-
-$Object* allocate$Win32ShellFolder2$KnownLibraries($Class* clazz) {
-	return $of($alloc(Win32ShellFolder2$KnownLibraries));
-}
-
 $List* Win32ShellFolder2$KnownLibraries::INSTANCE = nullptr;
 
 void Win32ShellFolder2$KnownLibraries::init$() {
 }
 
-void clinit$Win32ShellFolder2$KnownLibraries($Class* class$) {
+void Win32ShellFolder2$KnownLibraries::clinit$($Class* clazz) {
 	$assignStatic(Win32ShellFolder2$KnownLibraries::INSTANCE, $Win32ShellFolder2::getLibraries());
 }
 
@@ -65,7 +29,36 @@ Win32ShellFolder2$KnownLibraries::Win32ShellFolder2$KnownLibraries() {
 }
 
 $Class* Win32ShellFolder2$KnownLibraries::load$($String* name, bool initialize) {
-	$loadClass(Win32ShellFolder2$KnownLibraries, name, initialize, &_Win32ShellFolder2$KnownLibraries_ClassInfo_, clinit$Win32ShellFolder2$KnownLibraries, allocate$Win32ShellFolder2$KnownLibraries);
+	$FieldInfo fieldInfos$$[] = {
+		{"INSTANCE", "Ljava/util/List;", "Ljava/util/List<Lsun/awt/shell/Win32ShellFolder2$KnownFolderDefinition;>;", $STATIC | $FINAL, $staticField(Win32ShellFolder2$KnownLibraries, INSTANCE)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(Win32ShellFolder2$KnownLibraries, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.shell.Win32ShellFolder2$KnownLibraries", "sun.awt.shell.Win32ShellFolder2", "KnownLibraries", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.awt.shell.Win32ShellFolder2$KnownLibraries",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.awt.shell.Win32ShellFolder2"
+	};
+	$loadClass(Win32ShellFolder2$KnownLibraries, name, initialize, &classInfo$$, Win32ShellFolder2$KnownLibraries::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Win32ShellFolder2$KnownLibraries);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <java/beans/IntrospectionException.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -9,29 +8,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace java {
 	namespace beans {
-
-$FieldInfo _IntrospectionException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(IntrospectionException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _IntrospectionException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(IntrospectionException, init$, void, $String*)},
-	{}
-};
-
-$ClassInfo _IntrospectionException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.beans.IntrospectionException",
-	"java.lang.Exception",
-	nullptr,
-	_IntrospectionException_FieldInfo_,
-	_IntrospectionException_MethodInfo_
-};
-
-$Object* allocate$IntrospectionException($Class* clazz) {
-	return $of($alloc(IntrospectionException));
-}
 
 void IntrospectionException::init$($String* mess) {
 	$Exception::init$(mess);
@@ -48,7 +24,25 @@ void IntrospectionException::throw$() {
 }
 
 $Class* IntrospectionException::load$($String* name, bool initialize) {
-	$loadClass(IntrospectionException, name, initialize, &_IntrospectionException_ClassInfo_, allocate$IntrospectionException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(IntrospectionException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(IntrospectionException, init$, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.beans.IntrospectionException",
+		"java.lang.Exception",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(IntrospectionException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(IntrospectionException);
+	});
 	return class$;
 }
 

@@ -121,6 +121,7 @@ class SAX2DTM2 : public ::com::sun::org::apache::xml::internal::dtm::ref::sax2dt
 public:
 	SAX2DTM2();
 	using ::com::sun::org::apache::xml::internal::dtm::ref::sax2dtm::SAX2DTM::error;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::com::sun::org::apache::xml::internal::dtm::DTMManager* mgr, ::javax::xml::transform::Source* source, int32_t dtmIdentity, ::com::sun::org::apache::xml::internal::dtm::DTMWSFilter* whiteSpaceFilter, ::com::sun::org::apache::xml::internal::utils::XMLStringFactory* xstringfactory, bool doIndexing);
 	void init$(::com::sun::org::apache::xml::internal::dtm::DTMManager* mgr, ::javax::xml::transform::Source* source, int32_t dtmIdentity, ::com::sun::org::apache::xml::internal::dtm::DTMWSFilter* whiteSpaceFilter, ::com::sun::org::apache::xml::internal::utils::XMLStringFactory* xstringfactory, bool doIndexing, int32_t blocksize, bool usePrevsib, bool buildIdIndex, bool newNameTable);
 	virtual int32_t _exptype(int32_t identity) override;

@@ -24,6 +24,7 @@ class JavacParser$EnumeratorEstimate : public ::java::lang::Enum {
 public:
 	JavacParser$EnumeratorEstimate();
 	static $Array<::com::sun::tools::javac::parser::JavacParser$EnumeratorEstimate>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::com::sun::tools::javac::parser::JavacParser$EnumeratorEstimate* valueOf($String* name);
 	static $Array<::com::sun::tools::javac::parser::JavacParser$EnumeratorEstimate>* values();

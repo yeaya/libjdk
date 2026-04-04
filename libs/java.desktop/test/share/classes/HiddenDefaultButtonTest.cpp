@@ -1,12 +1,10 @@
 #include <HiddenDefaultButtonTest.h>
-
 #include <HiddenDefaultButtonTest$1.h>
 #include <HiddenDefaultButtonTest$2.h>
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <java/awt/Robot.h>
 #include <java/awt/Window.h>
-#include <java/awt/event/ActionListener.h>
 #include <java/awt/event/KeyEvent.h>
 #include <java/io/Serializable.h>
 #include <java/lang/Runnable.h>
@@ -28,7 +26,6 @@ using $HiddenDefaultButtonTest$1 = ::HiddenDefaultButtonTest$1;
 using $HiddenDefaultButtonTest$2 = ::HiddenDefaultButtonTest$2;
 using $Component = ::java::awt::Component;
 using $Robot = ::java::awt::Robot;
-using $ActionListener = ::java::awt::event::ActionListener;
 using $KeyEvent = ::java::awt::event::KeyEvent;
 using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -40,7 +37,6 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $JButton = ::javax::swing::JButton;
 using $JFrame = ::javax::swing::JFrame;
-using $JRootPane = ::javax::swing::JRootPane;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 
 class HiddenDefaultButtonTest$$Lambda$lambda$disposeTestUI$0 : public $Runnable {
@@ -51,71 +47,27 @@ public:
 	virtual void run() override {
 		HiddenDefaultButtonTest::lambda$disposeTestUI$0();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<HiddenDefaultButtonTest$$Lambda$lambda$disposeTestUI$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo HiddenDefaultButtonTest$$Lambda$lambda$disposeTestUI$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(HiddenDefaultButtonTest$$Lambda$lambda$disposeTestUI$0, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(HiddenDefaultButtonTest$$Lambda$lambda$disposeTestUI$0, run, void)},
-	{}
-};
-$ClassInfo HiddenDefaultButtonTest$$Lambda$lambda$disposeTestUI$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"HiddenDefaultButtonTest$$Lambda$lambda$disposeTestUI$0",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* HiddenDefaultButtonTest$$Lambda$lambda$disposeTestUI$0::load$($String* name, bool initialize) {
-	$loadClass(HiddenDefaultButtonTest$$Lambda$lambda$disposeTestUI$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(HiddenDefaultButtonTest$$Lambda$lambda$disposeTestUI$0, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(HiddenDefaultButtonTest$$Lambda$lambda$disposeTestUI$0, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"HiddenDefaultButtonTest$$Lambda$lambda$disposeTestUI$0",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(HiddenDefaultButtonTest$$Lambda$lambda$disposeTestUI$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HiddenDefaultButtonTest$$Lambda$lambda$disposeTestUI$0);
+	});
 	return class$;
 }
 $Class* HiddenDefaultButtonTest$$Lambda$lambda$disposeTestUI$0::class$ = nullptr;
-
-$FieldInfo _HiddenDefaultButtonTest_FieldInfo_[] = {
-	{"ButtonClickCount", "I", nullptr, $PRIVATE | $STATIC, $staticField(HiddenDefaultButtonTest, ButtonClickCount)},
-	{"frame", "Ljavax/swing/JFrame;", nullptr, $PRIVATE | $STATIC, $staticField(HiddenDefaultButtonTest, frame)},
-	{}
-};
-
-$MethodInfo _HiddenDefaultButtonTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(HiddenDefaultButtonTest, init$, void)},
-	{"createGUI", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(HiddenDefaultButtonTest, createGUI, void)},
-	{"disposeTestUI", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(HiddenDefaultButtonTest, disposeTestUI, void), "java.lang.Exception"},
-	{"lambda$disposeTestUI$0", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(HiddenDefaultButtonTest, lambda$disposeTestUI$0, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(HiddenDefaultButtonTest, main, void, $StringArray*), "java.lang.Exception"},
-	{"test", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(HiddenDefaultButtonTest, test, void), "java.lang.Exception"},
-	{}
-};
-
-$InnerClassInfo _HiddenDefaultButtonTest_InnerClassesInfo_[] = {
-	{"HiddenDefaultButtonTest$2", nullptr, nullptr, 0},
-	{"HiddenDefaultButtonTest$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _HiddenDefaultButtonTest_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"HiddenDefaultButtonTest",
-	"java.lang.Object",
-	nullptr,
-	_HiddenDefaultButtonTest_FieldInfo_,
-	_HiddenDefaultButtonTest_MethodInfo_,
-	nullptr,
-	nullptr,
-	_HiddenDefaultButtonTest_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"HiddenDefaultButtonTest$2,HiddenDefaultButtonTest$1"
-};
-
-$Object* allocate$HiddenDefaultButtonTest($Class* clazz) {
-	return $of($alloc(HiddenDefaultButtonTest));
-}
 
 int32_t HiddenDefaultButtonTest::ButtonClickCount = 0;
 $JFrame* HiddenDefaultButtonTest::frame = nullptr;
@@ -125,15 +77,15 @@ void HiddenDefaultButtonTest::init$() {
 
 void HiddenDefaultButtonTest::createGUI() {
 	$init(HiddenDefaultButtonTest);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$assignStatic(HiddenDefaultButtonTest::frame, $new($JFrame));
-	$nc(HiddenDefaultButtonTest::frame)->setDefaultCloseOperation($JFrame::EXIT_ON_CLOSE);
+	HiddenDefaultButtonTest::frame->setDefaultCloseOperation($JFrame::EXIT_ON_CLOSE);
 	$var($JButton, button, $new($JButton, "Default button"_s));
 	button->setDefaultCapable(true);
 	button->addActionListener($$new($HiddenDefaultButtonTest$1));
-	$nc(HiddenDefaultButtonTest::frame)->add(static_cast<$Component*>(button));
+	$nc(HiddenDefaultButtonTest::frame)->add(button);
 	button->setVisible(false);
-	$nc($($nc(HiddenDefaultButtonTest::frame)->getRootPane()))->setDefaultButton(button);
+	$$nc($nc(HiddenDefaultButtonTest::frame)->getRootPane())->setDefaultButton(button);
 	$nc(HiddenDefaultButtonTest::frame)->setSize(200, 200);
 	$nc(HiddenDefaultButtonTest::frame)->setLocationRelativeTo(nullptr);
 	$nc(HiddenDefaultButtonTest::frame)->setVisible(true);
@@ -141,7 +93,7 @@ void HiddenDefaultButtonTest::createGUI() {
 
 void HiddenDefaultButtonTest::disposeTestUI() {
 	$init(HiddenDefaultButtonTest);
-	$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(HiddenDefaultButtonTest$$Lambda$lambda$disposeTestUI$0)));
+	$SwingUtilities::invokeAndWait($$new(HiddenDefaultButtonTest$$Lambda$lambda$disposeTestUI$0));
 }
 
 void HiddenDefaultButtonTest::test() {
@@ -174,7 +126,7 @@ void HiddenDefaultButtonTest::lambda$disposeTestUI$0() {
 	$nc(HiddenDefaultButtonTest::frame)->dispose();
 }
 
-void clinit$HiddenDefaultButtonTest($Class* class$) {
+void HiddenDefaultButtonTest::clinit$($Class* clazz) {
 	HiddenDefaultButtonTest::ButtonClickCount = 0;
 }
 
@@ -183,11 +135,46 @@ HiddenDefaultButtonTest::HiddenDefaultButtonTest() {
 
 $Class* HiddenDefaultButtonTest::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(HiddenDefaultButtonTest$$Lambda$lambda$disposeTestUI$0::classInfo$.name)) {
+		if (name->equals("HiddenDefaultButtonTest$$Lambda$lambda$disposeTestUI$0")) {
 			return HiddenDefaultButtonTest$$Lambda$lambda$disposeTestUI$0::load$(name, initialize);
 		}
 	}
-	$loadClass(HiddenDefaultButtonTest, name, initialize, &_HiddenDefaultButtonTest_ClassInfo_, clinit$HiddenDefaultButtonTest, allocate$HiddenDefaultButtonTest);
+	$FieldInfo fieldInfos$$[] = {
+		{"ButtonClickCount", "I", nullptr, $PRIVATE | $STATIC, $staticField(HiddenDefaultButtonTest, ButtonClickCount)},
+		{"frame", "Ljavax/swing/JFrame;", nullptr, $PRIVATE | $STATIC, $staticField(HiddenDefaultButtonTest, frame)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(HiddenDefaultButtonTest, init$, void)},
+		{"createGUI", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(HiddenDefaultButtonTest, createGUI, void)},
+		{"disposeTestUI", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(HiddenDefaultButtonTest, disposeTestUI, void), "java.lang.Exception"},
+		{"lambda$disposeTestUI$0", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(HiddenDefaultButtonTest, lambda$disposeTestUI$0, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(HiddenDefaultButtonTest, main, void, $StringArray*), "java.lang.Exception"},
+		{"test", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(HiddenDefaultButtonTest, test, void), "java.lang.Exception"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"HiddenDefaultButtonTest$2", nullptr, nullptr, 0},
+		{"HiddenDefaultButtonTest$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"HiddenDefaultButtonTest",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"HiddenDefaultButtonTest$2,HiddenDefaultButtonTest$1"
+	};
+	$loadClass(HiddenDefaultButtonTest, name, initialize, &classInfo$$, HiddenDefaultButtonTest::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(HiddenDefaultButtonTest);
+	});
 	return class$;
 }
 

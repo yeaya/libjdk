@@ -1,5 +1,4 @@
 #include <sun/tools/jar/Main.h>
-
 #include <java/io/BufferedInputStream.h>
 #include <java/io/BufferedOutputStream.h>
 #include <java/io/ByteArrayInputStream.h>
@@ -171,7 +170,6 @@ using $ModuleDescriptor$Requires = ::java::lang::module::ModuleDescriptor$Requir
 using $ModuleFinder = ::java::lang::module::ModuleFinder;
 using $ModuleReference = ::java::lang::module::ModuleReference;
 using $ByteBuffer = ::java::nio::ByteBuffer;
-using $CopyOption = ::java::nio::file::CopyOption;
 using $Files = ::java::nio::file::Files;
 using $Path = ::java::nio::file::Path;
 using $Paths = ::java::nio::file::Paths;
@@ -194,7 +192,6 @@ using $Locale = ::java::util::Locale;
 using $Map = ::java::util::Map;
 using $Map$Entry = ::java::util::Map$Entry;
 using $MissingResourceException = ::java::util::MissingResourceException;
-using $Optional = ::java::util::Optional;
 using $ResourceBundle = ::java::util::ResourceBundle;
 using $Set = ::java::util::Set;
 using $StringTokenizer = ::java::util::StringTokenizer;
@@ -249,27 +246,24 @@ public:
 	virtual int32_t compare(Object$* s1, Object$* s2) override {
 		 return Main::lambda$static$27($cast($String, s1), $cast($String, s2));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Main$$Lambda$lambda$static$27>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo Main$$Lambda$lambda$static$27::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Main$$Lambda$lambda$static$27, init$, void)},
-	{"compare", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(Main$$Lambda$lambda$static$27, compare, int32_t, Object$*, Object$*)},
-	{}
-};
-$ClassInfo Main$$Lambda$lambda$static$27::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.tools.jar.Main$$Lambda$lambda$static$27",
-	"java.lang.Object",
-	"java.util.Comparator",
-	nullptr,
-	methodInfos
 };
 $Class* Main$$Lambda$lambda$static$27::load$($String* name, bool initialize) {
-	$loadClass(Main$$Lambda$lambda$static$27, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Main$$Lambda$lambda$static$27, init$, void)},
+		{"compare", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(Main$$Lambda$lambda$static$27, compare, int32_t, Object$*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.tools.jar.Main$$Lambda$lambda$static$27",
+		"java.lang.Object",
+		"java.util.Comparator",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Main$$Lambda$lambda$static$27, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Main$$Lambda$lambda$static$27);
+	});
 	return class$;
 }
 $Class* Main$$Lambda$lambda$static$27::class$ = nullptr;
@@ -282,27 +276,24 @@ public:
 	virtual $Object* apply(Object$* inst$) override {
 		 return $of($sure($ZipEntry, inst$)->getName());
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Main$$Lambda$getName$1>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo Main$$Lambda$getName$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Main$$Lambda$getName$1, init$, void)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Main$$Lambda$getName$1, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo Main$$Lambda$getName$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.tools.jar.Main$$Lambda$getName$1",
-	"java.lang.Object",
-	"java.util.function.Function",
-	nullptr,
-	methodInfos
 };
 $Class* Main$$Lambda$getName$1::load$($String* name, bool initialize) {
-	$loadClass(Main$$Lambda$getName$1, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Main$$Lambda$getName$1, init$, void)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Main$$Lambda$getName$1, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.tools.jar.Main$$Lambda$getName$1",
+		"java.lang.Object",
+		"java.util.function.Function",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Main$$Lambda$getName$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Main$$Lambda$getName$1);
+	});
 	return class$;
 }
 $Class* Main$$Lambda$getName$1::class$ = nullptr;
@@ -315,27 +306,24 @@ public:
 	virtual bool test(Object$* e) override {
 		 return Main::lambda$run$0($cast($Main$Entry, e));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Main$$Lambda$lambda$run$0$2>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo Main$$Lambda$lambda$run$0$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Main$$Lambda$lambda$run$0$2, init$, void)},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Main$$Lambda$lambda$run$0$2, test, bool, Object$*)},
-	{}
-};
-$ClassInfo Main$$Lambda$lambda$run$0$2::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.tools.jar.Main$$Lambda$lambda$run$0$2",
-	"java.lang.Object",
-	"java.util.function.Predicate",
-	nullptr,
-	methodInfos
 };
 $Class* Main$$Lambda$lambda$run$0$2::load$($String* name, bool initialize) {
-	$loadClass(Main$$Lambda$lambda$run$0$2, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Main$$Lambda$lambda$run$0$2, init$, void)},
+		{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Main$$Lambda$lambda$run$0$2, test, bool, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.tools.jar.Main$$Lambda$lambda$run$0$2",
+		"java.lang.Object",
+		"java.util.function.Predicate",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Main$$Lambda$lambda$run$0$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Main$$Lambda$lambda$run$0$2);
+	});
 	return class$;
 }
 $Class* Main$$Lambda$lambda$run$0$2::class$ = nullptr;
@@ -351,37 +339,33 @@ public:
 	virtual void accept(Object$* e) override {
 		$nc(inst$)->lambda$run$1(packages, jentries, $cast($Main$Entry, e));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Main$$Lambda$lambda$run$1$3>());
-	}
 	Main* inst$ = nullptr;
 	$Set* packages = nullptr;
 	$Set* jentries = nullptr;
-	static $FieldInfo fieldInfos[4];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Main$$Lambda$lambda$run$1$3::fieldInfos[4] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Main$$Lambda$lambda$run$1$3, inst$)},
-	{"packages", "Ljava/util/Set;", nullptr, $PUBLIC, $field(Main$$Lambda$lambda$run$1$3, packages)},
-	{"jentries", "Ljava/util/Set;", nullptr, $PUBLIC, $field(Main$$Lambda$lambda$run$1$3, jentries)},
-	{}
-};
-$MethodInfo Main$$Lambda$lambda$run$1$3::methodInfos[3] = {
-	{"<init>", "(Lsun/tools/jar/Main;Ljava/util/Set;Ljava/util/Set;)V", nullptr, $PUBLIC, $method(Main$$Lambda$lambda$run$1$3, init$, void, Main*, $Set*, $Set*)},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Main$$Lambda$lambda$run$1$3, accept, void, Object$*)},
-	{}
-};
-$ClassInfo Main$$Lambda$lambda$run$1$3::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.tools.jar.Main$$Lambda$lambda$run$1$3",
-	"java.lang.Object",
-	"java.util.function.Consumer",
-	fieldInfos,
-	methodInfos
 };
 $Class* Main$$Lambda$lambda$run$1$3::load$($String* name, bool initialize) {
-	$loadClass(Main$$Lambda$lambda$run$1$3, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Main$$Lambda$lambda$run$1$3, inst$)},
+		{"packages", "Ljava/util/Set;", nullptr, $PUBLIC, $field(Main$$Lambda$lambda$run$1$3, packages)},
+		{"jentries", "Ljava/util/Set;", nullptr, $PUBLIC, $field(Main$$Lambda$lambda$run$1$3, jentries)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/tools/jar/Main;Ljava/util/Set;Ljava/util/Set;)V", nullptr, $PUBLIC, $method(Main$$Lambda$lambda$run$1$3, init$, void, Main*, $Set*, $Set*)},
+		{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Main$$Lambda$lambda$run$1$3, accept, void, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.tools.jar.Main$$Lambda$lambda$run$1$3",
+		"java.lang.Object",
+		"java.util.function.Consumer",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Main$$Lambda$lambda$run$1$3, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Main$$Lambda$lambda$run$1$3);
+	});
 	return class$;
 }
 $Class* Main$$Lambda$lambda$run$1$3::class$ = nullptr;
@@ -393,35 +377,31 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* apply(Object$* fileEntries) override {
-		 return $of($nc(inst$)->filesToEntryNames($cast($Map$Entry, fileEntries)));
-	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Main$$Lambda$filesToEntryNames$4>());
+		 return $nc(inst$)->filesToEntryNames($cast($Map$Entry, fileEntries));
 	}
 	Main* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Main$$Lambda$filesToEntryNames$4::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Main$$Lambda$filesToEntryNames$4, inst$)},
-	{}
-};
-$MethodInfo Main$$Lambda$filesToEntryNames$4::methodInfos[3] = {
-	{"<init>", "(Lsun/tools/jar/Main;)V", nullptr, $PUBLIC, $method(Main$$Lambda$filesToEntryNames$4, init$, void, Main*)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Main$$Lambda$filesToEntryNames$4, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo Main$$Lambda$filesToEntryNames$4::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.tools.jar.Main$$Lambda$filesToEntryNames$4",
-	"java.lang.Object",
-	"java.util.function.Function",
-	fieldInfos,
-	methodInfos
 };
 $Class* Main$$Lambda$filesToEntryNames$4::load$($String* name, bool initialize) {
-	$loadClass(Main$$Lambda$filesToEntryNames$4, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Main$$Lambda$filesToEntryNames$4, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/tools/jar/Main;)V", nullptr, $PUBLIC, $method(Main$$Lambda$filesToEntryNames$4, init$, void, Main*)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Main$$Lambda$filesToEntryNames$4, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.tools.jar.Main$$Lambda$filesToEntryNames$4",
+		"java.lang.Object",
+		"java.util.function.Function",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Main$$Lambda$filesToEntryNames$4, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Main$$Lambda$filesToEntryNames$4);
+	});
 	return class$;
 }
 $Class* Main$$Lambda$filesToEntryNames$4::class$ = nullptr;
@@ -432,29 +412,26 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(int32_t x$0) override {
-		 return $of(Main::lambda$filesMapToFiles$2(x$0));
+		 return Main::lambda$filesMapToFiles$2(x$0);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Main$$Lambda$lambda$filesMapToFiles$2$5>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo Main$$Lambda$lambda$filesMapToFiles$2$5::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Main$$Lambda$lambda$filesMapToFiles$2$5, init$, void)},
-	{"apply", "(I)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Main$$Lambda$lambda$filesMapToFiles$2$5, apply, $Object*, int32_t)},
-	{}
-};
-$ClassInfo Main$$Lambda$lambda$filesMapToFiles$2$5::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.tools.jar.Main$$Lambda$lambda$filesMapToFiles$2$5",
-	"java.lang.Object",
-	"java.util.function.IntFunction",
-	nullptr,
-	methodInfos
 };
 $Class* Main$$Lambda$lambda$filesMapToFiles$2$5::load$($String* name, bool initialize) {
-	$loadClass(Main$$Lambda$lambda$filesMapToFiles$2$5, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Main$$Lambda$lambda$filesMapToFiles$2$5, init$, void)},
+		{"apply", "(I)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Main$$Lambda$lambda$filesMapToFiles$2$5, apply, $Object*, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.tools.jar.Main$$Lambda$lambda$filesMapToFiles$2$5",
+		"java.lang.Object",
+		"java.util.function.IntFunction",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Main$$Lambda$lambda$filesMapToFiles$2$5, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Main$$Lambda$lambda$filesMapToFiles$2$5);
+	});
 	return class$;
 }
 $Class* Main$$Lambda$lambda$filesMapToFiles$2$5::class$ = nullptr;
@@ -470,37 +447,33 @@ public:
 	virtual $Object* apply(Object$* f) override {
 		 return $of($nc(inst$)->lambda$filesToEntryNames$3(cpaths, version, $cast($String, f)));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Main$$Lambda$lambda$filesToEntryNames$3$6>());
-	}
 	Main* inst$ = nullptr;
 	$Set* cpaths = nullptr;
 	int32_t version = 0;
-	static $FieldInfo fieldInfos[4];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Main$$Lambda$lambda$filesToEntryNames$3$6::fieldInfos[4] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Main$$Lambda$lambda$filesToEntryNames$3$6, inst$)},
-	{"cpaths", "Ljava/util/Set;", nullptr, $PUBLIC, $field(Main$$Lambda$lambda$filesToEntryNames$3$6, cpaths)},
-	{"version", "I", nullptr, $PUBLIC, $field(Main$$Lambda$lambda$filesToEntryNames$3$6, version)},
-	{}
-};
-$MethodInfo Main$$Lambda$lambda$filesToEntryNames$3$6::methodInfos[3] = {
-	{"<init>", "(Lsun/tools/jar/Main;Ljava/util/Set;I)V", nullptr, $PUBLIC, $method(Main$$Lambda$lambda$filesToEntryNames$3$6, init$, void, Main*, $Set*, int32_t)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Main$$Lambda$lambda$filesToEntryNames$3$6, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo Main$$Lambda$lambda$filesToEntryNames$3$6::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.tools.jar.Main$$Lambda$lambda$filesToEntryNames$3$6",
-	"java.lang.Object",
-	"java.util.function.Function",
-	fieldInfos,
-	methodInfos
 };
 $Class* Main$$Lambda$lambda$filesToEntryNames$3$6::load$($String* name, bool initialize) {
-	$loadClass(Main$$Lambda$lambda$filesToEntryNames$3$6, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Main$$Lambda$lambda$filesToEntryNames$3$6, inst$)},
+		{"cpaths", "Ljava/util/Set;", nullptr, $PUBLIC, $field(Main$$Lambda$lambda$filesToEntryNames$3$6, cpaths)},
+		{"version", "I", nullptr, $PUBLIC, $field(Main$$Lambda$lambda$filesToEntryNames$3$6, version)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/tools/jar/Main;Ljava/util/Set;I)V", nullptr, $PUBLIC, $method(Main$$Lambda$lambda$filesToEntryNames$3$6, init$, void, Main*, $Set*, int32_t)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Main$$Lambda$lambda$filesToEntryNames$3$6, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.tools.jar.Main$$Lambda$lambda$filesToEntryNames$3$6",
+		"java.lang.Object",
+		"java.util.function.Function",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Main$$Lambda$lambda$filesToEntryNames$3$6, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Main$$Lambda$lambda$filesToEntryNames$3$6);
+	});
 	return class$;
 }
 $Class* Main$$Lambda$lambda$filesToEntryNames$3$6::class$ = nullptr;
@@ -515,35 +488,31 @@ public:
 	virtual void accept(Object$* je) override {
 		$nc(inst$)->lambda$update$4(pkgs, $cast($String, je));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Main$$Lambda$lambda$update$4$7>());
-	}
 	Main* inst$ = nullptr;
 	$Set* pkgs = nullptr;
-	static $FieldInfo fieldInfos[3];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Main$$Lambda$lambda$update$4$7::fieldInfos[3] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Main$$Lambda$lambda$update$4$7, inst$)},
-	{"pkgs", "Ljava/util/Set;", nullptr, $PUBLIC, $field(Main$$Lambda$lambda$update$4$7, pkgs)},
-	{}
-};
-$MethodInfo Main$$Lambda$lambda$update$4$7::methodInfos[3] = {
-	{"<init>", "(Lsun/tools/jar/Main;Ljava/util/Set;)V", nullptr, $PUBLIC, $method(Main$$Lambda$lambda$update$4$7, init$, void, Main*, $Set*)},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Main$$Lambda$lambda$update$4$7, accept, void, Object$*)},
-	{}
-};
-$ClassInfo Main$$Lambda$lambda$update$4$7::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.tools.jar.Main$$Lambda$lambda$update$4$7",
-	"java.lang.Object",
-	"java.util.function.Consumer",
-	fieldInfos,
-	methodInfos
 };
 $Class* Main$$Lambda$lambda$update$4$7::load$($String* name, bool initialize) {
-	$loadClass(Main$$Lambda$lambda$update$4$7, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Main$$Lambda$lambda$update$4$7, inst$)},
+		{"pkgs", "Ljava/util/Set;", nullptr, $PUBLIC, $field(Main$$Lambda$lambda$update$4$7, pkgs)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/tools/jar/Main;Ljava/util/Set;)V", nullptr, $PUBLIC, $method(Main$$Lambda$lambda$update$4$7, init$, void, Main*, $Set*)},
+		{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Main$$Lambda$lambda$update$4$7, accept, void, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.tools.jar.Main$$Lambda$lambda$update$4$7",
+		"java.lang.Object",
+		"java.util.function.Consumer",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Main$$Lambda$lambda$update$4$7, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Main$$Lambda$lambda$update$4$7);
+	});
 	return class$;
 }
 $Class* Main$$Lambda$lambda$update$4$7::class$ = nullptr;
@@ -557,33 +526,29 @@ public:
 	virtual void accept(Object$* version) override {
 		Main::lambda$replaceFSC$5(filesMap, $cast($Integer, version));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Main$$Lambda$lambda$replaceFSC$5$8>());
-	}
 	$Map* filesMap = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Main$$Lambda$lambda$replaceFSC$5$8::fieldInfos[2] = {
-	{"filesMap", "Ljava/util/Map;", nullptr, $PUBLIC, $field(Main$$Lambda$lambda$replaceFSC$5$8, filesMap)},
-	{}
-};
-$MethodInfo Main$$Lambda$lambda$replaceFSC$5$8::methodInfos[3] = {
-	{"<init>", "(Ljava/util/Map;)V", nullptr, $PUBLIC, $method(Main$$Lambda$lambda$replaceFSC$5$8, init$, void, $Map*)},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Main$$Lambda$lambda$replaceFSC$5$8, accept, void, Object$*)},
-	{}
-};
-$ClassInfo Main$$Lambda$lambda$replaceFSC$5$8::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.tools.jar.Main$$Lambda$lambda$replaceFSC$5$8",
-	"java.lang.Object",
-	"java.util.function.Consumer",
-	fieldInfos,
-	methodInfos
 };
 $Class* Main$$Lambda$lambda$replaceFSC$5$8::load$($String* name, bool initialize) {
-	$loadClass(Main$$Lambda$lambda$replaceFSC$5$8, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"filesMap", "Ljava/util/Map;", nullptr, $PUBLIC, $field(Main$$Lambda$lambda$replaceFSC$5$8, filesMap)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/Map;)V", nullptr, $PUBLIC, $method(Main$$Lambda$lambda$replaceFSC$5$8, init$, void, $Map*)},
+		{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Main$$Lambda$lambda$replaceFSC$5$8, accept, void, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.tools.jar.Main$$Lambda$lambda$replaceFSC$5$8",
+		"java.lang.Object",
+		"java.util.function.Consumer",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Main$$Lambda$lambda$replaceFSC$5$8, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Main$$Lambda$lambda$replaceFSC$5$8);
+	});
 	return class$;
 }
 $Class* Main$$Lambda$lambda$replaceFSC$5$8::class$ = nullptr;
@@ -596,27 +561,24 @@ public:
 	virtual bool test(Object$* e) override {
 		 return Main::lambda$describeModule$6($cast($ZipEntry, e));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Main$$Lambda$lambda$describeModule$6$9>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo Main$$Lambda$lambda$describeModule$6$9::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Main$$Lambda$lambda$describeModule$6$9, init$, void)},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Main$$Lambda$lambda$describeModule$6$9, test, bool, Object$*)},
-	{}
-};
-$ClassInfo Main$$Lambda$lambda$describeModule$6$9::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.tools.jar.Main$$Lambda$lambda$describeModule$6$9",
-	"java.lang.Object",
-	"java.util.function.Predicate",
-	nullptr,
-	methodInfos
 };
 $Class* Main$$Lambda$lambda$describeModule$6$9::load$($String* name, bool initialize) {
-	$loadClass(Main$$Lambda$lambda$describeModule$6$9, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Main$$Lambda$lambda$describeModule$6$9, init$, void)},
+		{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Main$$Lambda$lambda$describeModule$6$9, test, bool, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.tools.jar.Main$$Lambda$lambda$describeModule$6$9",
+		"java.lang.Object",
+		"java.util.function.Predicate",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Main$$Lambda$lambda$describeModule$6$9, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Main$$Lambda$lambda$describeModule$6$9);
+	});
 	return class$;
 }
 $Class* Main$$Lambda$lambda$describeModule$6$9::class$ = nullptr;
@@ -628,35 +590,31 @@ public:
 		$set(this, zipFile, zipFile);
 	}
 	virtual $Object* apply(Object$* e) override {
-		 return $of(Main::lambda$describeModule$7(zipFile, $cast($ZipEntry, e)));
-	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Main$$Lambda$lambda$describeModule$7$10>());
+		 return Main::lambda$describeModule$7(zipFile, $cast($ZipEntry, e));
 	}
 	$ZipFile* zipFile = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Main$$Lambda$lambda$describeModule$7$10::fieldInfos[2] = {
-	{"zipFile", "Ljava/util/zip/ZipFile;", nullptr, $PUBLIC, $field(Main$$Lambda$lambda$describeModule$7$10, zipFile)},
-	{}
-};
-$MethodInfo Main$$Lambda$lambda$describeModule$7$10::methodInfos[3] = {
-	{"<init>", "(Ljava/util/zip/ZipFile;)V", nullptr, $PUBLIC, $method(Main$$Lambda$lambda$describeModule$7$10, init$, void, $ZipFile*)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Main$$Lambda$lambda$describeModule$7$10, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo Main$$Lambda$lambda$describeModule$7$10::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.tools.jar.Main$$Lambda$lambda$describeModule$7$10",
-	"java.lang.Object",
-	"java.util.function.Function",
-	fieldInfos,
-	methodInfos
 };
 $Class* Main$$Lambda$lambda$describeModule$7$10::load$($String* name, bool initialize) {
-	$loadClass(Main$$Lambda$lambda$describeModule$7$10, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"zipFile", "Ljava/util/zip/ZipFile;", nullptr, $PUBLIC, $field(Main$$Lambda$lambda$describeModule$7$10, zipFile)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/zip/ZipFile;)V", nullptr, $PUBLIC, $method(Main$$Lambda$lambda$describeModule$7$10, init$, void, $ZipFile*)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Main$$Lambda$lambda$describeModule$7$10, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.tools.jar.Main$$Lambda$lambda$describeModule$7$10",
+		"java.lang.Object",
+		"java.util.function.Function",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Main$$Lambda$lambda$describeModule$7$10, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Main$$Lambda$lambda$describeModule$7$10);
+	});
 	return class$;
 }
 $Class* Main$$Lambda$lambda$describeModule$7$10::class$ = nullptr;
@@ -667,29 +625,26 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(int32_t x$0) override {
-		 return $of(Main::lambda$describeModule$8(x$0));
+		 return Main::lambda$describeModule$8(x$0);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Main$$Lambda$lambda$describeModule$8$11>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo Main$$Lambda$lambda$describeModule$8$11::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Main$$Lambda$lambda$describeModule$8$11, init$, void)},
-	{"apply", "(I)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Main$$Lambda$lambda$describeModule$8$11, apply, $Object*, int32_t)},
-	{}
-};
-$ClassInfo Main$$Lambda$lambda$describeModule$8$11::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.tools.jar.Main$$Lambda$lambda$describeModule$8$11",
-	"java.lang.Object",
-	"java.util.function.IntFunction",
-	nullptr,
-	methodInfos
 };
 $Class* Main$$Lambda$lambda$describeModule$8$11::load$($String* name, bool initialize) {
-	$loadClass(Main$$Lambda$lambda$describeModule$8$11, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Main$$Lambda$lambda$describeModule$8$11, init$, void)},
+		{"apply", "(I)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Main$$Lambda$lambda$describeModule$8$11, apply, $Object*, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.tools.jar.Main$$Lambda$lambda$describeModule$8$11",
+		"java.lang.Object",
+		"java.util.function.IntFunction",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Main$$Lambda$lambda$describeModule$8$11, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Main$$Lambda$lambda$describeModule$8$11);
+	});
 	return class$;
 }
 $Class* Main$$Lambda$lambda$describeModule$8$11::class$ = nullptr;
@@ -702,27 +657,24 @@ public:
 	virtual $Object* apply(Object$* inst$) override {
 		 return $of($sure($Main$ModuleInfoEntry, inst$)->name());
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Main$$Lambda$name$12>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo Main$$Lambda$name$12::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Main$$Lambda$name$12, init$, void)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Main$$Lambda$name$12, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo Main$$Lambda$name$12::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.tools.jar.Main$$Lambda$name$12",
-	"java.lang.Object",
-	"java.util.function.Function",
-	nullptr,
-	methodInfos
 };
 $Class* Main$$Lambda$name$12::load$($String* name, bool initialize) {
-	$loadClass(Main$$Lambda$name$12, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Main$$Lambda$name$12, init$, void)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Main$$Lambda$name$12, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.tools.jar.Main$$Lambda$name$12",
+		"java.lang.Object",
+		"java.util.function.Function",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Main$$Lambda$name$12, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Main$$Lambda$name$12);
+	});
 	return class$;
 }
 $Class* Main$$Lambda$name$12::class$ = nullptr;
@@ -733,29 +685,26 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(int32_t x$0) override {
-		 return $of(Main::lambda$describeModuleFromStream$9(x$0));
+		 return Main::lambda$describeModuleFromStream$9(x$0);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Main$$Lambda$lambda$describeModuleFromStream$9$13>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo Main$$Lambda$lambda$describeModuleFromStream$9$13::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Main$$Lambda$lambda$describeModuleFromStream$9$13, init$, void)},
-	{"apply", "(I)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Main$$Lambda$lambda$describeModuleFromStream$9$13, apply, $Object*, int32_t)},
-	{}
-};
-$ClassInfo Main$$Lambda$lambda$describeModuleFromStream$9$13::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.tools.jar.Main$$Lambda$lambda$describeModuleFromStream$9$13",
-	"java.lang.Object",
-	"java.util.function.IntFunction",
-	nullptr,
-	methodInfos
 };
 $Class* Main$$Lambda$lambda$describeModuleFromStream$9$13::load$($String* name, bool initialize) {
-	$loadClass(Main$$Lambda$lambda$describeModuleFromStream$9$13, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Main$$Lambda$lambda$describeModuleFromStream$9$13, init$, void)},
+		{"apply", "(I)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Main$$Lambda$lambda$describeModuleFromStream$9$13, apply, $Object*, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.tools.jar.Main$$Lambda$lambda$describeModuleFromStream$9$13",
+		"java.lang.Object",
+		"java.util.function.IntFunction",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Main$$Lambda$lambda$describeModuleFromStream$9$13, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Main$$Lambda$lambda$describeModuleFromStream$9$13);
+	});
 	return class$;
 }
 $Class* Main$$Lambda$lambda$describeModuleFromStream$9$13::class$ = nullptr;
@@ -768,27 +717,24 @@ public:
 	virtual bool test(Object$* e) override {
 		 return Main::lambda$describeModuleFromEntries$10($cast($Main$ModuleInfoEntry, e));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Main$$Lambda$lambda$describeModuleFromEntries$10$14>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo Main$$Lambda$lambda$describeModuleFromEntries$10$14::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Main$$Lambda$lambda$describeModuleFromEntries$10$14, init$, void)},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Main$$Lambda$lambda$describeModuleFromEntries$10$14, test, bool, Object$*)},
-	{}
-};
-$ClassInfo Main$$Lambda$lambda$describeModuleFromEntries$10$14::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.tools.jar.Main$$Lambda$lambda$describeModuleFromEntries$10$14",
-	"java.lang.Object",
-	"java.util.function.Predicate",
-	nullptr,
-	methodInfos
 };
 $Class* Main$$Lambda$lambda$describeModuleFromEntries$10$14::load$($String* name, bool initialize) {
-	$loadClass(Main$$Lambda$lambda$describeModuleFromEntries$10$14, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Main$$Lambda$lambda$describeModuleFromEntries$10$14, init$, void)},
+		{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Main$$Lambda$lambda$describeModuleFromEntries$10$14, test, bool, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.tools.jar.Main$$Lambda$lambda$describeModuleFromEntries$10$14",
+		"java.lang.Object",
+		"java.util.function.Predicate",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Main$$Lambda$lambda$describeModuleFromEntries$10$14, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Main$$Lambda$lambda$describeModuleFromEntries$10$14);
+	});
 	return class$;
 }
 $Class* Main$$Lambda$lambda$describeModuleFromEntries$10$14::class$ = nullptr;
@@ -801,27 +747,24 @@ public:
 	virtual $Object* apply(Object$* name) override {
 		 return $of(Main::versionFromEntryName($cast($String, name)));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Main$$Lambda$versionFromEntryName$15>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo Main$$Lambda$versionFromEntryName$15::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Main$$Lambda$versionFromEntryName$15, init$, void)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Main$$Lambda$versionFromEntryName$15, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo Main$$Lambda$versionFromEntryName$15::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.tools.jar.Main$$Lambda$versionFromEntryName$15",
-	"java.lang.Object",
-	"java.util.function.Function",
-	nullptr,
-	methodInfos
 };
 $Class* Main$$Lambda$versionFromEntryName$15::load$($String* name, bool initialize) {
-	$loadClass(Main$$Lambda$versionFromEntryName$15, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Main$$Lambda$versionFromEntryName$15, init$, void)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Main$$Lambda$versionFromEntryName$15, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.tools.jar.Main$$Lambda$versionFromEntryName$15",
+		"java.lang.Object",
+		"java.util.function.Function",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Main$$Lambda$versionFromEntryName$15, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Main$$Lambda$versionFromEntryName$15);
+	});
 	return class$;
 }
 $Class* Main$$Lambda$versionFromEntryName$15::class$ = nullptr;
@@ -834,27 +777,24 @@ public:
 	virtual $Object* apply(Object$* e) override {
 		 return $of(Main::lambda$toLowerCaseString$11(e));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Main$$Lambda$lambda$toLowerCaseString$11$16>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo Main$$Lambda$lambda$toLowerCaseString$11$16::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Main$$Lambda$lambda$toLowerCaseString$11$16, init$, void)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Main$$Lambda$lambda$toLowerCaseString$11$16, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo Main$$Lambda$lambda$toLowerCaseString$11$16::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.tools.jar.Main$$Lambda$lambda$toLowerCaseString$11$16",
-	"java.lang.Object",
-	"java.util.function.Function",
-	nullptr,
-	methodInfos
 };
 $Class* Main$$Lambda$lambda$toLowerCaseString$11$16::load$($String* name, bool initialize) {
-	$loadClass(Main$$Lambda$lambda$toLowerCaseString$11$16, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Main$$Lambda$lambda$toLowerCaseString$11$16, init$, void)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Main$$Lambda$lambda$toLowerCaseString$11$16, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.tools.jar.Main$$Lambda$lambda$toLowerCaseString$11$16",
+		"java.lang.Object",
+		"java.util.function.Function",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Main$$Lambda$lambda$toLowerCaseString$11$16, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Main$$Lambda$lambda$toLowerCaseString$11$16);
+	});
 	return class$;
 }
 $Class* Main$$Lambda$lambda$toLowerCaseString$11$16::class$ = nullptr;
@@ -867,27 +807,24 @@ public:
 	virtual $Object* apply(Object$* e) override {
 		 return $of(Main::lambda$toString$12(e));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Main$$Lambda$lambda$toString$12$17>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo Main$$Lambda$lambda$toString$12$17::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Main$$Lambda$lambda$toString$12$17, init$, void)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Main$$Lambda$lambda$toString$12$17, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo Main$$Lambda$lambda$toString$12$17::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.tools.jar.Main$$Lambda$lambda$toString$12$17",
-	"java.lang.Object",
-	"java.util.function.Function",
-	nullptr,
-	methodInfos
 };
 $Class* Main$$Lambda$lambda$toString$12$17::load$($String* name, bool initialize) {
-	$loadClass(Main$$Lambda$lambda$toString$12$17, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Main$$Lambda$lambda$toString$12$17, init$, void)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Main$$Lambda$lambda$toString$12$17, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.tools.jar.Main$$Lambda$lambda$toString$12$17",
+		"java.lang.Object",
+		"java.util.function.Function",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Main$$Lambda$lambda$toString$12$17, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Main$$Lambda$lambda$toString$12$17);
+	});
 	return class$;
 }
 $Class* Main$$Lambda$lambda$toString$12$17::class$ = nullptr;
@@ -900,27 +837,24 @@ public:
 	virtual $Object* apply(Object$* inst$) override {
 		 return $of($sure($ModuleDescriptor$Exports, inst$)->source());
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Main$$Lambda$source$18>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo Main$$Lambda$source$18::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Main$$Lambda$source$18, init$, void)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Main$$Lambda$source$18, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo Main$$Lambda$source$18::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.tools.jar.Main$$Lambda$source$18",
-	"java.lang.Object",
-	"java.util.function.Function",
-	nullptr,
-	methodInfos
 };
 $Class* Main$$Lambda$source$18::load$($String* name, bool initialize) {
-	$loadClass(Main$$Lambda$source$18, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Main$$Lambda$source$18, init$, void)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Main$$Lambda$source$18, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.tools.jar.Main$$Lambda$source$18",
+		"java.lang.Object",
+		"java.util.function.Function",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Main$$Lambda$source$18, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Main$$Lambda$source$18);
+	});
 	return class$;
 }
 $Class* Main$$Lambda$source$18::class$ = nullptr;
@@ -933,27 +867,24 @@ public:
 	virtual bool test(Object$* e) override {
 		 return Main::lambda$describeModule$13($cast($ModuleDescriptor$Exports, e));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Main$$Lambda$lambda$describeModule$13$19>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo Main$$Lambda$lambda$describeModule$13$19::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Main$$Lambda$lambda$describeModule$13$19, init$, void)},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Main$$Lambda$lambda$describeModule$13$19, test, bool, Object$*)},
-	{}
-};
-$ClassInfo Main$$Lambda$lambda$describeModule$13$19::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.tools.jar.Main$$Lambda$lambda$describeModule$13$19",
-	"java.lang.Object",
-	"java.util.function.Predicate",
-	nullptr,
-	methodInfos
 };
 $Class* Main$$Lambda$lambda$describeModule$13$19::load$($String* name, bool initialize) {
-	$loadClass(Main$$Lambda$lambda$describeModule$13$19, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Main$$Lambda$lambda$describeModule$13$19, init$, void)},
+		{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Main$$Lambda$lambda$describeModule$13$19, test, bool, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.tools.jar.Main$$Lambda$lambda$describeModule$13$19",
+		"java.lang.Object",
+		"java.util.function.Predicate",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Main$$Lambda$lambda$describeModule$13$19, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Main$$Lambda$lambda$describeModule$13$19);
+	});
 	return class$;
 }
 $Class* Main$$Lambda$lambda$describeModule$13$19::class$ = nullptr;
@@ -967,33 +898,29 @@ public:
 	virtual void accept(Object$* e) override {
 		Main::lambda$describeModule$14(sb, $cast($ModuleDescriptor$Exports, e));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Main$$Lambda$lambda$describeModule$14$20>());
-	}
 	$StringBuilder* sb = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Main$$Lambda$lambda$describeModule$14$20::fieldInfos[2] = {
-	{"sb", "Ljava/lang/StringBuilder;", nullptr, $PUBLIC, $field(Main$$Lambda$lambda$describeModule$14$20, sb)},
-	{}
-};
-$MethodInfo Main$$Lambda$lambda$describeModule$14$20::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/StringBuilder;)V", nullptr, $PUBLIC, $method(Main$$Lambda$lambda$describeModule$14$20, init$, void, $StringBuilder*)},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Main$$Lambda$lambda$describeModule$14$20, accept, void, Object$*)},
-	{}
-};
-$ClassInfo Main$$Lambda$lambda$describeModule$14$20::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.tools.jar.Main$$Lambda$lambda$describeModule$14$20",
-	"java.lang.Object",
-	"java.util.function.Consumer",
-	fieldInfos,
-	methodInfos
 };
 $Class* Main$$Lambda$lambda$describeModule$14$20::load$($String* name, bool initialize) {
-	$loadClass(Main$$Lambda$lambda$describeModule$14$20, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"sb", "Ljava/lang/StringBuilder;", nullptr, $PUBLIC, $field(Main$$Lambda$lambda$describeModule$14$20, sb)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/StringBuilder;)V", nullptr, $PUBLIC, $method(Main$$Lambda$lambda$describeModule$14$20, init$, void, $StringBuilder*)},
+		{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Main$$Lambda$lambda$describeModule$14$20, accept, void, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.tools.jar.Main$$Lambda$lambda$describeModule$14$20",
+		"java.lang.Object",
+		"java.util.function.Consumer",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Main$$Lambda$lambda$describeModule$14$20, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Main$$Lambda$lambda$describeModule$14$20);
+	});
 	return class$;
 }
 $Class* Main$$Lambda$lambda$describeModule$14$20::class$ = nullptr;
@@ -1007,33 +934,29 @@ public:
 	virtual void accept(Object$* r) override {
 		Main::lambda$describeModule$15(sb, $cast($ModuleDescriptor$Requires, r));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Main$$Lambda$lambda$describeModule$15$21>());
-	}
 	$StringBuilder* sb = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Main$$Lambda$lambda$describeModule$15$21::fieldInfos[2] = {
-	{"sb", "Ljava/lang/StringBuilder;", nullptr, $PUBLIC, $field(Main$$Lambda$lambda$describeModule$15$21, sb)},
-	{}
-};
-$MethodInfo Main$$Lambda$lambda$describeModule$15$21::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/StringBuilder;)V", nullptr, $PUBLIC, $method(Main$$Lambda$lambda$describeModule$15$21, init$, void, $StringBuilder*)},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Main$$Lambda$lambda$describeModule$15$21, accept, void, Object$*)},
-	{}
-};
-$ClassInfo Main$$Lambda$lambda$describeModule$15$21::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.tools.jar.Main$$Lambda$lambda$describeModule$15$21",
-	"java.lang.Object",
-	"java.util.function.Consumer",
-	fieldInfos,
-	methodInfos
 };
 $Class* Main$$Lambda$lambda$describeModule$15$21::load$($String* name, bool initialize) {
-	$loadClass(Main$$Lambda$lambda$describeModule$15$21, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"sb", "Ljava/lang/StringBuilder;", nullptr, $PUBLIC, $field(Main$$Lambda$lambda$describeModule$15$21, sb)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/StringBuilder;)V", nullptr, $PUBLIC, $method(Main$$Lambda$lambda$describeModule$15$21, init$, void, $StringBuilder*)},
+		{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Main$$Lambda$lambda$describeModule$15$21, accept, void, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.tools.jar.Main$$Lambda$lambda$describeModule$15$21",
+		"java.lang.Object",
+		"java.util.function.Consumer",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Main$$Lambda$lambda$describeModule$15$21, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Main$$Lambda$lambda$describeModule$15$21);
+	});
 	return class$;
 }
 $Class* Main$$Lambda$lambda$describeModule$15$21::class$ = nullptr;
@@ -1047,33 +970,29 @@ public:
 	virtual void accept(Object$* s) override {
 		Main::lambda$describeModule$16(sb, $cast($String, s));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Main$$Lambda$lambda$describeModule$16$22>());
-	}
 	$StringBuilder* sb = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Main$$Lambda$lambda$describeModule$16$22::fieldInfos[2] = {
-	{"sb", "Ljava/lang/StringBuilder;", nullptr, $PUBLIC, $field(Main$$Lambda$lambda$describeModule$16$22, sb)},
-	{}
-};
-$MethodInfo Main$$Lambda$lambda$describeModule$16$22::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/StringBuilder;)V", nullptr, $PUBLIC, $method(Main$$Lambda$lambda$describeModule$16$22, init$, void, $StringBuilder*)},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Main$$Lambda$lambda$describeModule$16$22, accept, void, Object$*)},
-	{}
-};
-$ClassInfo Main$$Lambda$lambda$describeModule$16$22::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.tools.jar.Main$$Lambda$lambda$describeModule$16$22",
-	"java.lang.Object",
-	"java.util.function.Consumer",
-	fieldInfos,
-	methodInfos
 };
 $Class* Main$$Lambda$lambda$describeModule$16$22::load$($String* name, bool initialize) {
-	$loadClass(Main$$Lambda$lambda$describeModule$16$22, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"sb", "Ljava/lang/StringBuilder;", nullptr, $PUBLIC, $field(Main$$Lambda$lambda$describeModule$16$22, sb)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/StringBuilder;)V", nullptr, $PUBLIC, $method(Main$$Lambda$lambda$describeModule$16$22, init$, void, $StringBuilder*)},
+		{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Main$$Lambda$lambda$describeModule$16$22, accept, void, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.tools.jar.Main$$Lambda$lambda$describeModule$16$22",
+		"java.lang.Object",
+		"java.util.function.Consumer",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Main$$Lambda$lambda$describeModule$16$22, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Main$$Lambda$lambda$describeModule$16$22);
+	});
 	return class$;
 }
 $Class* Main$$Lambda$lambda$describeModule$16$22::class$ = nullptr;
@@ -1086,27 +1005,24 @@ public:
 	virtual $Object* apply(Object$* inst$) override {
 		 return $of($sure($ModuleDescriptor$Provides, inst$)->service());
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Main$$Lambda$service$23>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo Main$$Lambda$service$23::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Main$$Lambda$service$23, init$, void)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Main$$Lambda$service$23, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo Main$$Lambda$service$23::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.tools.jar.Main$$Lambda$service$23",
-	"java.lang.Object",
-	"java.util.function.Function",
-	nullptr,
-	methodInfos
 };
 $Class* Main$$Lambda$service$23::load$($String* name, bool initialize) {
-	$loadClass(Main$$Lambda$service$23, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Main$$Lambda$service$23, init$, void)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Main$$Lambda$service$23, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.tools.jar.Main$$Lambda$service$23",
+		"java.lang.Object",
+		"java.util.function.Function",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Main$$Lambda$service$23, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Main$$Lambda$service$23);
+	});
 	return class$;
 }
 $Class* Main$$Lambda$service$23::class$ = nullptr;
@@ -1120,33 +1036,29 @@ public:
 	virtual void accept(Object$* p) override {
 		Main::lambda$describeModule$17(sb, $cast($ModuleDescriptor$Provides, p));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Main$$Lambda$lambda$describeModule$17$24>());
-	}
 	$StringBuilder* sb = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Main$$Lambda$lambda$describeModule$17$24::fieldInfos[2] = {
-	{"sb", "Ljava/lang/StringBuilder;", nullptr, $PUBLIC, $field(Main$$Lambda$lambda$describeModule$17$24, sb)},
-	{}
-};
-$MethodInfo Main$$Lambda$lambda$describeModule$17$24::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/StringBuilder;)V", nullptr, $PUBLIC, $method(Main$$Lambda$lambda$describeModule$17$24, init$, void, $StringBuilder*)},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Main$$Lambda$lambda$describeModule$17$24, accept, void, Object$*)},
-	{}
-};
-$ClassInfo Main$$Lambda$lambda$describeModule$17$24::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.tools.jar.Main$$Lambda$lambda$describeModule$17$24",
-	"java.lang.Object",
-	"java.util.function.Consumer",
-	fieldInfos,
-	methodInfos
 };
 $Class* Main$$Lambda$lambda$describeModule$17$24::load$($String* name, bool initialize) {
-	$loadClass(Main$$Lambda$lambda$describeModule$17$24, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"sb", "Ljava/lang/StringBuilder;", nullptr, $PUBLIC, $field(Main$$Lambda$lambda$describeModule$17$24, sb)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/StringBuilder;)V", nullptr, $PUBLIC, $method(Main$$Lambda$lambda$describeModule$17$24, init$, void, $StringBuilder*)},
+		{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Main$$Lambda$lambda$describeModule$17$24, accept, void, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.tools.jar.Main$$Lambda$lambda$describeModule$17$24",
+		"java.lang.Object",
+		"java.util.function.Consumer",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Main$$Lambda$lambda$describeModule$17$24, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Main$$Lambda$lambda$describeModule$17$24);
+	});
 	return class$;
 }
 $Class* Main$$Lambda$lambda$describeModule$17$24::class$ = nullptr;
@@ -1159,27 +1071,24 @@ public:
 	virtual bool test(Object$* inst$) override {
 		 return $sure($ModuleDescriptor$Exports, inst$)->isQualified();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Main$$Lambda$isQualified$25>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo Main$$Lambda$isQualified$25::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Main$$Lambda$isQualified$25, init$, void)},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Main$$Lambda$isQualified$25, test, bool, Object$*)},
-	{}
-};
-$ClassInfo Main$$Lambda$isQualified$25::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.tools.jar.Main$$Lambda$isQualified$25",
-	"java.lang.Object",
-	"java.util.function.Predicate",
-	nullptr,
-	methodInfos
 };
 $Class* Main$$Lambda$isQualified$25::load$($String* name, bool initialize) {
-	$loadClass(Main$$Lambda$isQualified$25, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Main$$Lambda$isQualified$25, init$, void)},
+		{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Main$$Lambda$isQualified$25, test, bool, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.tools.jar.Main$$Lambda$isQualified$25",
+		"java.lang.Object",
+		"java.util.function.Predicate",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Main$$Lambda$isQualified$25, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Main$$Lambda$isQualified$25);
+	});
 	return class$;
 }
 $Class* Main$$Lambda$isQualified$25::class$ = nullptr;
@@ -1193,33 +1102,29 @@ public:
 	virtual void accept(Object$* e) override {
 		Main::lambda$describeModule$18(sb, $cast($ModuleDescriptor$Exports, e));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Main$$Lambda$lambda$describeModule$18$26>());
-	}
 	$StringBuilder* sb = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Main$$Lambda$lambda$describeModule$18$26::fieldInfos[2] = {
-	{"sb", "Ljava/lang/StringBuilder;", nullptr, $PUBLIC, $field(Main$$Lambda$lambda$describeModule$18$26, sb)},
-	{}
-};
-$MethodInfo Main$$Lambda$lambda$describeModule$18$26::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/StringBuilder;)V", nullptr, $PUBLIC, $method(Main$$Lambda$lambda$describeModule$18$26, init$, void, $StringBuilder*)},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Main$$Lambda$lambda$describeModule$18$26, accept, void, Object$*)},
-	{}
-};
-$ClassInfo Main$$Lambda$lambda$describeModule$18$26::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.tools.jar.Main$$Lambda$lambda$describeModule$18$26",
-	"java.lang.Object",
-	"java.util.function.Consumer",
-	fieldInfos,
-	methodInfos
 };
 $Class* Main$$Lambda$lambda$describeModule$18$26::load$($String* name, bool initialize) {
-	$loadClass(Main$$Lambda$lambda$describeModule$18$26, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"sb", "Ljava/lang/StringBuilder;", nullptr, $PUBLIC, $field(Main$$Lambda$lambda$describeModule$18$26, sb)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/StringBuilder;)V", nullptr, $PUBLIC, $method(Main$$Lambda$lambda$describeModule$18$26, init$, void, $StringBuilder*)},
+		{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Main$$Lambda$lambda$describeModule$18$26, accept, void, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.tools.jar.Main$$Lambda$lambda$describeModule$18$26",
+		"java.lang.Object",
+		"java.util.function.Consumer",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Main$$Lambda$lambda$describeModule$18$26, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Main$$Lambda$lambda$describeModule$18$26);
+	});
 	return class$;
 }
 $Class* Main$$Lambda$lambda$describeModule$18$26::class$ = nullptr;
@@ -1232,27 +1137,24 @@ public:
 	virtual $Object* apply(Object$* inst$) override {
 		 return $of($sure($ModuleDescriptor$Opens, inst$)->source());
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Main$$Lambda$source$27>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo Main$$Lambda$source$27::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Main$$Lambda$source$27, init$, void)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Main$$Lambda$source$27, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo Main$$Lambda$source$27::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.tools.jar.Main$$Lambda$source$27",
-	"java.lang.Object",
-	"java.util.function.Function",
-	nullptr,
-	methodInfos
 };
 $Class* Main$$Lambda$source$27::load$($String* name, bool initialize) {
-	$loadClass(Main$$Lambda$source$27, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Main$$Lambda$source$27, init$, void)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Main$$Lambda$source$27, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.tools.jar.Main$$Lambda$source$27",
+		"java.lang.Object",
+		"java.util.function.Function",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Main$$Lambda$source$27, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Main$$Lambda$source$27);
+	});
 	return class$;
 }
 $Class* Main$$Lambda$source$27::class$ = nullptr;
@@ -1265,27 +1167,24 @@ public:
 	virtual bool test(Object$* o) override {
 		 return Main::lambda$describeModule$19($cast($ModuleDescriptor$Opens, o));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Main$$Lambda$lambda$describeModule$19$28>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo Main$$Lambda$lambda$describeModule$19$28::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Main$$Lambda$lambda$describeModule$19$28, init$, void)},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Main$$Lambda$lambda$describeModule$19$28, test, bool, Object$*)},
-	{}
-};
-$ClassInfo Main$$Lambda$lambda$describeModule$19$28::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.tools.jar.Main$$Lambda$lambda$describeModule$19$28",
-	"java.lang.Object",
-	"java.util.function.Predicate",
-	nullptr,
-	methodInfos
 };
 $Class* Main$$Lambda$lambda$describeModule$19$28::load$($String* name, bool initialize) {
-	$loadClass(Main$$Lambda$lambda$describeModule$19$28, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Main$$Lambda$lambda$describeModule$19$28, init$, void)},
+		{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Main$$Lambda$lambda$describeModule$19$28, test, bool, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.tools.jar.Main$$Lambda$lambda$describeModule$19$28",
+		"java.lang.Object",
+		"java.util.function.Predicate",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Main$$Lambda$lambda$describeModule$19$28, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Main$$Lambda$lambda$describeModule$19$28);
+	});
 	return class$;
 }
 $Class* Main$$Lambda$lambda$describeModule$19$28::class$ = nullptr;
@@ -1299,33 +1198,29 @@ public:
 	virtual void accept(Object$* o) override {
 		Main::lambda$describeModule$20(sb, $cast($ModuleDescriptor$Opens, o));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Main$$Lambda$lambda$describeModule$20$29>());
-	}
 	$StringBuilder* sb = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Main$$Lambda$lambda$describeModule$20$29::fieldInfos[2] = {
-	{"sb", "Ljava/lang/StringBuilder;", nullptr, $PUBLIC, $field(Main$$Lambda$lambda$describeModule$20$29, sb)},
-	{}
-};
-$MethodInfo Main$$Lambda$lambda$describeModule$20$29::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/StringBuilder;)V", nullptr, $PUBLIC, $method(Main$$Lambda$lambda$describeModule$20$29, init$, void, $StringBuilder*)},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Main$$Lambda$lambda$describeModule$20$29, accept, void, Object$*)},
-	{}
-};
-$ClassInfo Main$$Lambda$lambda$describeModule$20$29::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.tools.jar.Main$$Lambda$lambda$describeModule$20$29",
-	"java.lang.Object",
-	"java.util.function.Consumer",
-	fieldInfos,
-	methodInfos
 };
 $Class* Main$$Lambda$lambda$describeModule$20$29::load$($String* name, bool initialize) {
-	$loadClass(Main$$Lambda$lambda$describeModule$20$29, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"sb", "Ljava/lang/StringBuilder;", nullptr, $PUBLIC, $field(Main$$Lambda$lambda$describeModule$20$29, sb)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/StringBuilder;)V", nullptr, $PUBLIC, $method(Main$$Lambda$lambda$describeModule$20$29, init$, void, $StringBuilder*)},
+		{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Main$$Lambda$lambda$describeModule$20$29, accept, void, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.tools.jar.Main$$Lambda$lambda$describeModule$20$29",
+		"java.lang.Object",
+		"java.util.function.Consumer",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Main$$Lambda$lambda$describeModule$20$29, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Main$$Lambda$lambda$describeModule$20$29);
+	});
 	return class$;
 }
 $Class* Main$$Lambda$lambda$describeModule$20$29::class$ = nullptr;
@@ -1338,27 +1233,24 @@ public:
 	virtual bool test(Object$* inst$) override {
 		 return $sure($ModuleDescriptor$Opens, inst$)->isQualified();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Main$$Lambda$isQualified$30>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo Main$$Lambda$isQualified$30::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Main$$Lambda$isQualified$30, init$, void)},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Main$$Lambda$isQualified$30, test, bool, Object$*)},
-	{}
-};
-$ClassInfo Main$$Lambda$isQualified$30::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.tools.jar.Main$$Lambda$isQualified$30",
-	"java.lang.Object",
-	"java.util.function.Predicate",
-	nullptr,
-	methodInfos
 };
 $Class* Main$$Lambda$isQualified$30::load$($String* name, bool initialize) {
-	$loadClass(Main$$Lambda$isQualified$30, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Main$$Lambda$isQualified$30, init$, void)},
+		{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Main$$Lambda$isQualified$30, test, bool, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.tools.jar.Main$$Lambda$isQualified$30",
+		"java.lang.Object",
+		"java.util.function.Predicate",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Main$$Lambda$isQualified$30, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Main$$Lambda$isQualified$30);
+	});
 	return class$;
 }
 $Class* Main$$Lambda$isQualified$30::class$ = nullptr;
@@ -1372,33 +1264,29 @@ public:
 	virtual void accept(Object$* o) override {
 		Main::lambda$describeModule$21(sb, $cast($ModuleDescriptor$Opens, o));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Main$$Lambda$lambda$describeModule$21$31>());
-	}
 	$StringBuilder* sb = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Main$$Lambda$lambda$describeModule$21$31::fieldInfos[2] = {
-	{"sb", "Ljava/lang/StringBuilder;", nullptr, $PUBLIC, $field(Main$$Lambda$lambda$describeModule$21$31, sb)},
-	{}
-};
-$MethodInfo Main$$Lambda$lambda$describeModule$21$31::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/StringBuilder;)V", nullptr, $PUBLIC, $method(Main$$Lambda$lambda$describeModule$21$31, init$, void, $StringBuilder*)},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Main$$Lambda$lambda$describeModule$21$31, accept, void, Object$*)},
-	{}
-};
-$ClassInfo Main$$Lambda$lambda$describeModule$21$31::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.tools.jar.Main$$Lambda$lambda$describeModule$21$31",
-	"java.lang.Object",
-	"java.util.function.Consumer",
-	fieldInfos,
-	methodInfos
 };
 $Class* Main$$Lambda$lambda$describeModule$21$31::load$($String* name, bool initialize) {
-	$loadClass(Main$$Lambda$lambda$describeModule$21$31, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"sb", "Ljava/lang/StringBuilder;", nullptr, $PUBLIC, $field(Main$$Lambda$lambda$describeModule$21$31, sb)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/StringBuilder;)V", nullptr, $PUBLIC, $method(Main$$Lambda$lambda$describeModule$21$31, init$, void, $StringBuilder*)},
+		{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Main$$Lambda$lambda$describeModule$21$31, accept, void, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.tools.jar.Main$$Lambda$lambda$describeModule$21$31",
+		"java.lang.Object",
+		"java.util.function.Consumer",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Main$$Lambda$lambda$describeModule$21$31, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Main$$Lambda$lambda$describeModule$21$31);
+	});
 	return class$;
 }
 $Class* Main$$Lambda$lambda$describeModule$21$31::class$ = nullptr;
@@ -1412,33 +1300,29 @@ public:
 	virtual void accept(Object$* arg0) override {
 		$nc(inst$)->remove(arg0);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Main$$Lambda$remove$32>());
-	}
 	$Set* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Main$$Lambda$remove$32::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Main$$Lambda$remove$32, inst$)},
-	{}
-};
-$MethodInfo Main$$Lambda$remove$32::methodInfos[3] = {
-	{"<init>", "(Ljava/util/Set;)V", nullptr, $PUBLIC, $method(Main$$Lambda$remove$32, init$, void, $Set*)},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Main$$Lambda$remove$32, accept, void, Object$*)},
-	{}
-};
-$ClassInfo Main$$Lambda$remove$32::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.tools.jar.Main$$Lambda$remove$32",
-	"java.lang.Object",
-	"java.util.function.Consumer",
-	fieldInfos,
-	methodInfos
 };
 $Class* Main$$Lambda$remove$32::load$($String* name, bool initialize) {
-	$loadClass(Main$$Lambda$remove$32, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Main$$Lambda$remove$32, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/Set;)V", nullptr, $PUBLIC, $method(Main$$Lambda$remove$32, init$, void, $Set*)},
+		{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Main$$Lambda$remove$32, accept, void, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.tools.jar.Main$$Lambda$remove$32",
+		"java.lang.Object",
+		"java.util.function.Consumer",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Main$$Lambda$remove$32, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Main$$Lambda$remove$32);
+	});
 	return class$;
 }
 $Class* Main$$Lambda$remove$32::class$ = nullptr;
@@ -1452,33 +1336,29 @@ public:
 	virtual void accept(Object$* p) override {
 		Main::lambda$describeModule$22(sb, $cast($String, p));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Main$$Lambda$lambda$describeModule$22$33>());
-	}
 	$StringBuilder* sb = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Main$$Lambda$lambda$describeModule$22$33::fieldInfos[2] = {
-	{"sb", "Ljava/lang/StringBuilder;", nullptr, $PUBLIC, $field(Main$$Lambda$lambda$describeModule$22$33, sb)},
-	{}
-};
-$MethodInfo Main$$Lambda$lambda$describeModule$22$33::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/StringBuilder;)V", nullptr, $PUBLIC, $method(Main$$Lambda$lambda$describeModule$22$33, init$, void, $StringBuilder*)},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Main$$Lambda$lambda$describeModule$22$33, accept, void, Object$*)},
-	{}
-};
-$ClassInfo Main$$Lambda$lambda$describeModule$22$33::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.tools.jar.Main$$Lambda$lambda$describeModule$22$33",
-	"java.lang.Object",
-	"java.util.function.Consumer",
-	fieldInfos,
-	methodInfos
 };
 $Class* Main$$Lambda$lambda$describeModule$22$33::load$($String* name, bool initialize) {
-	$loadClass(Main$$Lambda$lambda$describeModule$22$33, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"sb", "Ljava/lang/StringBuilder;", nullptr, $PUBLIC, $field(Main$$Lambda$lambda$describeModule$22$33, sb)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/StringBuilder;)V", nullptr, $PUBLIC, $method(Main$$Lambda$lambda$describeModule$22$33, init$, void, $StringBuilder*)},
+		{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Main$$Lambda$lambda$describeModule$22$33, accept, void, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.tools.jar.Main$$Lambda$lambda$describeModule$22$33",
+		"java.lang.Object",
+		"java.util.function.Consumer",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Main$$Lambda$lambda$describeModule$22$33, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Main$$Lambda$lambda$describeModule$22$33);
+	});
 	return class$;
 }
 $Class* Main$$Lambda$lambda$describeModule$22$33::class$ = nullptr;
@@ -1492,33 +1372,29 @@ public:
 	virtual void accept(Object$* v) override {
 		Main::lambda$describeModule$23(sb, $cast($String, v));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Main$$Lambda$lambda$describeModule$23$34>());
-	}
 	$StringBuilder* sb = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Main$$Lambda$lambda$describeModule$23$34::fieldInfos[2] = {
-	{"sb", "Ljava/lang/StringBuilder;", nullptr, $PUBLIC, $field(Main$$Lambda$lambda$describeModule$23$34, sb)},
-	{}
-};
-$MethodInfo Main$$Lambda$lambda$describeModule$23$34::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/StringBuilder;)V", nullptr, $PUBLIC, $method(Main$$Lambda$lambda$describeModule$23$34, init$, void, $StringBuilder*)},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Main$$Lambda$lambda$describeModule$23$34, accept, void, Object$*)},
-	{}
-};
-$ClassInfo Main$$Lambda$lambda$describeModule$23$34::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.tools.jar.Main$$Lambda$lambda$describeModule$23$34",
-	"java.lang.Object",
-	"java.util.function.Consumer",
-	fieldInfos,
-	methodInfos
 };
 $Class* Main$$Lambda$lambda$describeModule$23$34::load$($String* name, bool initialize) {
-	$loadClass(Main$$Lambda$lambda$describeModule$23$34, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"sb", "Ljava/lang/StringBuilder;", nullptr, $PUBLIC, $field(Main$$Lambda$lambda$describeModule$23$34, sb)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/StringBuilder;)V", nullptr, $PUBLIC, $method(Main$$Lambda$lambda$describeModule$23$34, init$, void, $StringBuilder*)},
+		{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Main$$Lambda$lambda$describeModule$23$34, accept, void, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.tools.jar.Main$$Lambda$lambda$describeModule$23$34",
+		"java.lang.Object",
+		"java.util.function.Consumer",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Main$$Lambda$lambda$describeModule$23$34, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Main$$Lambda$lambda$describeModule$23$34);
+	});
 	return class$;
 }
 $Class* Main$$Lambda$lambda$describeModule$23$34::class$ = nullptr;
@@ -1533,35 +1409,31 @@ public:
 	virtual void accept(Object$* mod) override {
 		Main::lambda$describeModule$24(sb, hashes, $cast($String, mod));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Main$$Lambda$lambda$describeModule$24$35>());
-	}
 	$StringBuilder* sb = nullptr;
 	$ModuleHashes* hashes = nullptr;
-	static $FieldInfo fieldInfos[3];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Main$$Lambda$lambda$describeModule$24$35::fieldInfos[3] = {
-	{"sb", "Ljava/lang/StringBuilder;", nullptr, $PUBLIC, $field(Main$$Lambda$lambda$describeModule$24$35, sb)},
-	{"hashes", "Ljdk/internal/module/ModuleHashes;", nullptr, $PUBLIC, $field(Main$$Lambda$lambda$describeModule$24$35, hashes)},
-	{}
-};
-$MethodInfo Main$$Lambda$lambda$describeModule$24$35::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/StringBuilder;Ljdk/internal/module/ModuleHashes;)V", nullptr, $PUBLIC, $method(Main$$Lambda$lambda$describeModule$24$35, init$, void, $StringBuilder*, $ModuleHashes*)},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Main$$Lambda$lambda$describeModule$24$35, accept, void, Object$*)},
-	{}
-};
-$ClassInfo Main$$Lambda$lambda$describeModule$24$35::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.tools.jar.Main$$Lambda$lambda$describeModule$24$35",
-	"java.lang.Object",
-	"java.util.function.Consumer",
-	fieldInfos,
-	methodInfos
 };
 $Class* Main$$Lambda$lambda$describeModule$24$35::load$($String* name, bool initialize) {
-	$loadClass(Main$$Lambda$lambda$describeModule$24$35, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"sb", "Ljava/lang/StringBuilder;", nullptr, $PUBLIC, $field(Main$$Lambda$lambda$describeModule$24$35, sb)},
+		{"hashes", "Ljdk/internal/module/ModuleHashes;", nullptr, $PUBLIC, $field(Main$$Lambda$lambda$describeModule$24$35, hashes)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/StringBuilder;Ljdk/internal/module/ModuleHashes;)V", nullptr, $PUBLIC, $method(Main$$Lambda$lambda$describeModule$24$35, init$, void, $StringBuilder*, $ModuleHashes*)},
+		{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Main$$Lambda$lambda$describeModule$24$35, accept, void, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.tools.jar.Main$$Lambda$lambda$describeModule$24$35",
+		"java.lang.Object",
+		"java.util.function.Consumer",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Main$$Lambda$lambda$describeModule$24$35, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Main$$Lambda$lambda$describeModule$24$35);
+	});
 	return class$;
 }
 $Class* Main$$Lambda$lambda$describeModule$24$35::class$ = nullptr;
@@ -1572,29 +1444,26 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* inst$) override {
-		 return $of($sure($ModuleDescriptor$Provides, inst$)->providers());
+		 return $sure($ModuleDescriptor$Provides, inst$)->providers();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Main$$Lambda$providers$36>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo Main$$Lambda$providers$36::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Main$$Lambda$providers$36, init$, void)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Main$$Lambda$providers$36, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo Main$$Lambda$providers$36::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.tools.jar.Main$$Lambda$providers$36",
-	"java.lang.Object",
-	"java.util.function.Function",
-	nullptr,
-	methodInfos
 };
 $Class* Main$$Lambda$providers$36::load$($String* name, bool initialize) {
-	$loadClass(Main$$Lambda$providers$36, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Main$$Lambda$providers$36, init$, void)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Main$$Lambda$providers$36, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.tools.jar.Main$$Lambda$providers$36",
+		"java.lang.Object",
+		"java.util.function.Function",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Main$$Lambda$providers$36, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Main$$Lambda$providers$36);
+	});
 	return class$;
 }
 $Class* Main$$Lambda$providers$36::class$ = nullptr;
@@ -1605,29 +1474,26 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* inst$) override {
-		 return $of($sure($Collection, inst$)->stream());
+		 return $sure($Collection, inst$)->stream();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Main$$Lambda$stream$37>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo Main$$Lambda$stream$37::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Main$$Lambda$stream$37, init$, void)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Main$$Lambda$stream$37, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo Main$$Lambda$stream$37::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.tools.jar.Main$$Lambda$stream$37",
-	"java.lang.Object",
-	"java.util.function.Function",
-	nullptr,
-	methodInfos
 };
 $Class* Main$$Lambda$stream$37::load$($String* name, bool initialize) {
-	$loadClass(Main$$Lambda$stream$37, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Main$$Lambda$stream$37, init$, void)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Main$$Lambda$stream$37, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.tools.jar.Main$$Lambda$stream$37",
+		"java.lang.Object",
+		"java.util.function.Function",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Main$$Lambda$stream$37, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Main$$Lambda$stream$37);
+	});
 	return class$;
 }
 $Class* Main$$Lambda$stream$37::class$ = nullptr;
@@ -1641,33 +1507,29 @@ public:
 	virtual bool test(Object$* p) override {
 		 return Main::lambda$checkModuleInfo$25(entries, $cast($String, p));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Main$$Lambda$lambda$checkModuleInfo$25$38>());
-	}
 	$Set* entries = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Main$$Lambda$lambda$checkModuleInfo$25$38::fieldInfos[2] = {
-	{"entries", "Ljava/util/Set;", nullptr, $PUBLIC, $field(Main$$Lambda$lambda$checkModuleInfo$25$38, entries)},
-	{}
-};
-$MethodInfo Main$$Lambda$lambda$checkModuleInfo$25$38::methodInfos[3] = {
-	{"<init>", "(Ljava/util/Set;)V", nullptr, $PUBLIC, $method(Main$$Lambda$lambda$checkModuleInfo$25$38, init$, void, $Set*)},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Main$$Lambda$lambda$checkModuleInfo$25$38, test, bool, Object$*)},
-	{}
-};
-$ClassInfo Main$$Lambda$lambda$checkModuleInfo$25$38::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.tools.jar.Main$$Lambda$lambda$checkModuleInfo$25$38",
-	"java.lang.Object",
-	"java.util.function.Predicate",
-	fieldInfos,
-	methodInfos
 };
 $Class* Main$$Lambda$lambda$checkModuleInfo$25$38::load$($String* name, bool initialize) {
-	$loadClass(Main$$Lambda$lambda$checkModuleInfo$25$38, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"entries", "Ljava/util/Set;", nullptr, $PUBLIC, $field(Main$$Lambda$lambda$checkModuleInfo$25$38, entries)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/Set;)V", nullptr, $PUBLIC, $method(Main$$Lambda$lambda$checkModuleInfo$25$38, init$, void, $Set*)},
+		{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Main$$Lambda$lambda$checkModuleInfo$25$38, test, bool, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.tools.jar.Main$$Lambda$lambda$checkModuleInfo$25$38",
+		"java.lang.Object",
+		"java.util.function.Predicate",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Main$$Lambda$lambda$checkModuleInfo$25$38, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Main$$Lambda$lambda$checkModuleInfo$25$38);
+	});
 	return class$;
 }
 $Class* Main$$Lambda$lambda$checkModuleInfo$25$38::class$ = nullptr;
@@ -1681,224 +1543,32 @@ public:
 	virtual void accept(Object$* p) override {
 		$nc(inst$)->lambda$checkModuleInfo$26($cast($String, p));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Main$$Lambda$lambda$checkModuleInfo$26$39>());
-	}
 	Main* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Main$$Lambda$lambda$checkModuleInfo$26$39::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Main$$Lambda$lambda$checkModuleInfo$26$39, inst$)},
-	{}
-};
-$MethodInfo Main$$Lambda$lambda$checkModuleInfo$26$39::methodInfos[3] = {
-	{"<init>", "(Lsun/tools/jar/Main;)V", nullptr, $PUBLIC, $method(Main$$Lambda$lambda$checkModuleInfo$26$39, init$, void, Main*)},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Main$$Lambda$lambda$checkModuleInfo$26$39, accept, void, Object$*)},
-	{}
-};
-$ClassInfo Main$$Lambda$lambda$checkModuleInfo$26$39::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.tools.jar.Main$$Lambda$lambda$checkModuleInfo$26$39",
-	"java.lang.Object",
-	"java.util.function.Consumer",
-	fieldInfos,
-	methodInfos
 };
 $Class* Main$$Lambda$lambda$checkModuleInfo$26$39::load$($String* name, bool initialize) {
-	$loadClass(Main$$Lambda$lambda$checkModuleInfo$26$39, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Main$$Lambda$lambda$checkModuleInfo$26$39, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/tools/jar/Main;)V", nullptr, $PUBLIC, $method(Main$$Lambda$lambda$checkModuleInfo$26$39, init$, void, Main*)},
+		{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Main$$Lambda$lambda$checkModuleInfo$26$39, accept, void, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.tools.jar.Main$$Lambda$lambda$checkModuleInfo$26$39",
+		"java.lang.Object",
+		"java.util.function.Consumer",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Main$$Lambda$lambda$checkModuleInfo$26$39, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Main$$Lambda$lambda$checkModuleInfo$26$39);
+	});
 	return class$;
 }
 $Class* Main$$Lambda$lambda$checkModuleInfo$26$39::class$ = nullptr;
-
-$FieldInfo _Main_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(Main, $assertionsDisabled)},
-	{"program", "Ljava/lang/String;", nullptr, 0, $field(Main, program)},
-	{"out", "Ljava/io/PrintWriter;", nullptr, 0, $field(Main, out)},
-	{"err", "Ljava/io/PrintWriter;", nullptr, 0, $field(Main, err)},
-	{"fname", "Ljava/lang/String;", nullptr, 0, $field(Main, fname)},
-	{"mname", "Ljava/lang/String;", nullptr, 0, $field(Main, mname)},
-	{"ename", "Ljava/lang/String;", nullptr, 0, $field(Main, ename)},
-	{"zname", "Ljava/lang/String;", nullptr, 0, $field(Main, zname)},
-	{"rootjar", "Ljava/lang/String;", nullptr, 0, $field(Main, rootjar)},
-	{"BASE_VERSION", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Main, BASE_VERSION)},
-	{"entryMap", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Lsun/tools/jar/Main$Entry;>;", 0, $field(Main, entryMap)},
-	{"entries", "Ljava/util/Set;", "Ljava/util/Set<Lsun/tools/jar/Main$Entry;>;", 0, $field(Main, entries)},
-	{"moduleInfos", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;[B>;", 0, $field(Main, moduleInfos)},
-	{"pathsMap", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/Integer;Ljava/util/Set<Ljava/lang/String;>;>;", 0, $field(Main, pathsMap)},
-	{"filesMap", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/Integer;[Ljava/lang/String;>;", 0, $field(Main, filesMap)},
-	{"isMultiRelease", "Z", nullptr, 0, $field(Main, isMultiRelease)},
-	{"releaseValue", "I", nullptr, 0, $field(Main, releaseValue)},
-	{"cflag", "Z", nullptr, 0, $field(Main, cflag)},
-	{"uflag", "Z", nullptr, 0, $field(Main, uflag)},
-	{"xflag", "Z", nullptr, 0, $field(Main, xflag)},
-	{"tflag", "Z", nullptr, 0, $field(Main, tflag)},
-	{"vflag", "Z", nullptr, 0, $field(Main, vflag)},
-	{"flag0", "Z", nullptr, 0, $field(Main, flag0)},
-	{"Mflag", "Z", nullptr, 0, $field(Main, Mflag)},
-	{"iflag", "Z", nullptr, 0, $field(Main, iflag)},
-	{"pflag", "Z", nullptr, 0, $field(Main, pflag)},
-	{"dflag", "Z", nullptr, 0, $field(Main, dflag)},
-	{"validate", "Z", nullptr, 0, $field(Main, validate)},
-	{"suppressDeprecateMsg", "Z", nullptr, 0, $field(Main, suppressDeprecateMsg)},
-	{"info", "Ljava/util/function/Consumer;", "Ljava/util/function/Consumer<Ljava/io/PrintWriter;>;", 0, $field(Main, info)},
-	{"moduleVersion", "Ljava/lang/module/ModuleDescriptor$Version;", nullptr, 0, $field(Main, moduleVersion)},
-	{"modulesToHash", "Ljava/util/regex/Pattern;", nullptr, 0, $field(Main, modulesToHash)},
-	{"moduleResolution", "Ljdk/internal/module/ModuleResolution;", nullptr, 0, $field(Main, moduleResolution)},
-	{"moduleFinder", "Ljava/lang/module/ModuleFinder;", nullptr, 0, $field(Main, moduleFinder)},
-	{"MODULE_INFO", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(Main, MODULE_INFO)},
-	{"MANIFEST_DIR", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(Main, MANIFEST_DIR)},
-	{"VERSIONS_DIR", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(Main, VERSIONS_DIR)},
-	{"VERSION", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(Main, VERSION)},
-	{"VERSIONS_DIR_LENGTH", "I", nullptr, $STATIC | $FINAL, $staticField(Main, VERSIONS_DIR_LENGTH)},
-	{"rsrc", "Ljava/util/ResourceBundle;", nullptr, $PRIVATE | $STATIC, $staticField(Main, rsrc)},
-	{"useExtractionTime", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Main, useExtractionTime)},
-	{"ok", "Z", nullptr, $PRIVATE, $field(Main, ok)},
-	{"copyBuf", "[B", nullptr, $PRIVATE, $field(Main, copyBuf)},
-	{"jarPaths", "Ljava/util/HashSet;", "Ljava/util/HashSet<Ljava/lang/String;>;", $PRIVATE, $field(Main, jarPaths)},
-	{"ENTRYNAME_COMPARATOR", "Ljava/util/Comparator;", "Ljava/util/Comparator<Ljava/lang/String;>;", $STATIC, $staticField(Main, ENTRYNAME_COMPARATOR)},
-	{"ENTRY_COMPARATOR", "Ljava/util/Comparator;", "Ljava/util/Comparator<Ljava/util/zip/ZipEntry;>;", $STATIC, $staticField(Main, ENTRY_COMPARATOR)},
-	{}
-};
-
-$MethodInfo _Main_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/PrintStream;Ljava/io/PrintStream;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Main, init$, void, $PrintStream*, $PrintStream*, $String*)},
-	{"<init>", "(Ljava/io/PrintWriter;Ljava/io/PrintWriter;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Main, init$, void, $PrintWriter*, $PrintWriter*, $String*)},
-	{"addCreatedBy", "(Ljava/util/jar/Manifest;)V", nullptr, $PRIVATE, $method(Main, addCreatedBy, void, $Manifest*)},
-	{"addExtendedModuleAttributes", "(Ljava/util/Map;Ljava/util/Set;)V", "(Ljava/util/Map<Ljava/lang/String;[B>;Ljava/util/Set<Ljava/lang/String;>;)V", $PRIVATE, $method(Main, addExtendedModuleAttributes, void, $Map*, $Set*), "java.io.IOException"},
-	{"addFile", "(Ljava/util/zip/ZipOutputStream;Lsun/tools/jar/Main$Entry;)V", nullptr, 0, $virtualMethod(Main, addFile, void, $ZipOutputStream*, $Main$Entry*), "java.io.IOException"},
-	{"addIndex", "(Ljdk/internal/util/jar/JarIndex;Ljava/util/zip/ZipOutputStream;)V", nullptr, $PRIVATE, $method(Main, addIndex, void, $JarIndex*, $ZipOutputStream*), "java.io.IOException"},
-	{"addMainClass", "(Ljava/util/jar/Manifest;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(Main, addMainClass, void, $Manifest*, $String*)},
-	{"addMultiRelease", "(Ljava/util/jar/Manifest;)V", nullptr, $PRIVATE, $method(Main, addMultiRelease, void, $Manifest*)},
-	{"addPackageIfNamed", "(Ljava/util/Set;Ljava/lang/String;)V", "(Ljava/util/Set<Ljava/lang/String;>;Ljava/lang/String;)V", 0, $virtualMethod(Main, addPackageIfNamed, void, $Set*, $String*)},
-	{"addVersion", "(Ljava/util/jar/Manifest;)V", nullptr, $PRIVATE, $method(Main, addVersion, void, $Manifest*)},
-	{"checkModuleInfo", "([BLjava/util/Set;)Z", "([BLjava/util/Set<Ljava/lang/String;>;)Z", $PRIVATE, $method(Main, checkModuleInfo, bool, $bytes*, $Set*), "java.io.IOException"},
-	{"copy", "(Ljava/io/InputStream;Ljava/io/OutputStream;)V", nullptr, $PRIVATE, $method(Main, copy, void, $InputStream*, $OutputStream*), "java.io.IOException"},
-	{"copy", "(Ljava/io/File;Ljava/io/OutputStream;)V", nullptr, $PRIVATE, $method(Main, copy, void, $File*, $OutputStream*), "java.io.IOException"},
-	{"copy", "(Ljava/io/InputStream;Ljava/io/File;)V", nullptr, $PRIVATE, $method(Main, copy, void, $InputStream*, $File*), "java.io.IOException"},
-	{"crc32File", "(Ljava/util/zip/ZipEntry;Ljava/io/File;)V", nullptr, $PRIVATE, $method(Main, crc32File, void, $ZipEntry*, $File*), "java.io.IOException"},
-	{"crc32Manifest", "(Ljava/util/zip/ZipEntry;Ljava/util/jar/Manifest;)V", nullptr, $PRIVATE, $method(Main, crc32Manifest, void, $ZipEntry*, $Manifest*), "java.io.IOException"},
-	{"crc32ModuleInfo", "(Ljava/util/zip/ZipEntry;[B)V", nullptr, $PRIVATE, $method(Main, crc32ModuleInfo, void, $ZipEntry*, $bytes*), "java.io.IOException"},
-	{"create", "(Ljava/io/OutputStream;Ljava/util/jar/Manifest;)V", nullptr, 0, $virtualMethod(Main, create, void, $OutputStream*, $Manifest*), "java.io.IOException"},
-	{"createTempFileInSameDirectoryAs", "(Ljava/io/File;)Ljava/io/File;", nullptr, $PRIVATE | $STATIC, $staticMethod(Main, createTempFileInSameDirectoryAs, $File*, $File*), "java.io.IOException"},
-	{"createTemporaryFile", "(Ljava/lang/String;Ljava/lang/String;)Ljava/io/File;", nullptr, $PRIVATE, $method(Main, createTemporaryFile, $File*, $String*, $String*)},
-	{"describeModule", "(Ljava/util/zip/ZipFile;)Z", nullptr, $PRIVATE, $method(Main, describeModule, bool, $ZipFile*), "java.io.IOException"},
-	{"describeModule", "(Ljava/io/InputStream;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(Main, describeModule, void, $InputStream*, $String*), "java.io.IOException"},
-	{"describeModule", "(Ljava/lang/module/ModuleDescriptor;Ljdk/internal/module/ModuleTarget;Ljdk/internal/module/ModuleHashes;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(Main, describeModule, void, $ModuleDescriptor*, $ModuleTarget*, $ModuleHashes*, $String*), "java.io.IOException"},
-	{"describeModuleFromEntries", "([Lsun/tools/jar/Main$ModuleInfoEntry;)Z", nullptr, $PRIVATE, $method(Main, describeModuleFromEntries, bool, $Main$ModuleInfoEntryArray*), "java.io.IOException"},
-	{"describeModuleFromStream", "(Ljava/io/FileInputStream;)Z", nullptr, $PRIVATE, $method(Main, describeModuleFromStream, bool, $FileInputStream*), "java.io.IOException"},
-	{"dumpIndex", "(Ljava/lang/String;Ljdk/internal/util/jar/JarIndex;)V", nullptr, 0, $virtualMethod(Main, dumpIndex, void, $String*, $JarIndex*), "java.io.IOException"},
-	{"equalsIgnoreCase", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PRIVATE, $method(Main, equalsIgnoreCase, bool, $String*, $String*)},
-	{"error", "(Ljava/lang/String;)V", nullptr, 0, $virtualMethod(Main, error, void, $String*)},
-	{"expand", "()V", nullptr, $PRIVATE, $method(Main, expand, void), "java.io.IOException"},
-	{"expand", "(Ljava/io/File;[Ljava/lang/String;Ljava/util/Set;I)V", "(Ljava/io/File;[Ljava/lang/String;Ljava/util/Set<Ljava/lang/String;>;I)V", $PRIVATE, $method(Main, expand, void, $File*, $StringArray*, $Set*, int32_t), "java.io.IOException"},
-	{"extendedInfoBytes", "(Ljava/lang/module/ModuleDescriptor;[BLjava/util/Set;)[B", "(Ljava/lang/module/ModuleDescriptor;[BLjava/util/Set<Ljava/lang/String;>;)[B", $PRIVATE, $method(Main, extendedInfoBytes, $bytes*, $ModuleDescriptor*, $bytes*, $Set*), "java.io.IOException"},
-	{"extract", "(Ljava/io/InputStream;[Ljava/lang/String;)Z", nullptr, 0, $virtualMethod(Main, extract, bool, $InputStream*, $StringArray*), "java.io.IOException"},
-	{"extract", "(Ljava/lang/String;[Ljava/lang/String;)V", nullptr, 0, $virtualMethod(Main, extract, void, $String*, $StringArray*), "java.io.IOException"},
-	{"extractFile", "(Ljava/io/InputStream;Ljava/util/zip/ZipEntry;)Ljava/util/zip/ZipEntry;", nullptr, 0, $virtualMethod(Main, extractFile, $ZipEntry*, $InputStream*, $ZipEntry*), "java.io.IOException"},
-	{"fatalError", "(Ljava/lang/Exception;)V", nullptr, 0, $virtualMethod(Main, fatalError, void, $Exception*)},
-	{"fatalError", "(Ljava/lang/String;)V", nullptr, 0, $virtualMethod(Main, fatalError, void, $String*)},
-	{"filesMapToFiles", "(Ljava/util/Map;)[Ljava/lang/String;", "(Ljava/util/Map<Ljava/lang/Integer;[Ljava/lang/String;>;)[Ljava/lang/String;", $PRIVATE, $method(Main, filesMapToFiles, $StringArray*, $Map*)},
-	{"filesToEntryNames", "(Ljava/util/Map$Entry;)Ljava/util/stream/Stream;", "(Ljava/util/Map$Entry<Ljava/lang/Integer;[Ljava/lang/String;>;)Ljava/util/stream/Stream<Ljava/lang/String;>;", 0, $virtualMethod(Main, filesToEntryNames, $Stream*, $Map$Entry*)},
-	{"formatMsg", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(Main, formatMsg, $String*, $String*, $String*)},
-	{"formatMsg2", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(Main, formatMsg2, $String*, $String*, $String*, $String*)},
-	{"genIndex", "(Ljava/lang/String;[Ljava/lang/String;)V", nullptr, 0, $virtualMethod(Main, genIndex, void, $String*, $StringArray*), "java.io.IOException"},
-	{"getJarPath", "(Ljava/lang/String;)Ljava/util/List;", "(Ljava/lang/String;)Ljava/util/List<Ljava/lang/String;>;", 0, $virtualMethod(Main, getJarPath, $List*, $String*), "java.io.IOException"},
-	{"getMsg", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(Main, getMsg, $String*, $String*)},
-	{"intVersionFromEntry", "(Lsun/tools/jar/Main$ModuleInfoEntry;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(Main, intVersionFromEntry, int32_t, $Main$ModuleInfoEntry*)},
-	{"isAmbiguousMainClass", "(Ljava/util/jar/Manifest;)Z", nullptr, $PRIVATE, $method(Main, isAmbiguousMainClass, bool, $Manifest*)},
-	{"isModuleInfoEntry", "(Ljava/lang/String;)Z", nullptr, $STATIC, $staticMethod(Main, isModuleInfoEntry, bool, $String*)},
-	{"isWinDriveLetter", "(C)Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(Main, isWinDriveLetter, bool, char16_t)},
-	{"lambda$checkModuleInfo$25", "(Ljava/util/Set;Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Main, lambda$checkModuleInfo$25, bool, $Set*, $String*)},
-	{"lambda$checkModuleInfo$26", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(Main, lambda$checkModuleInfo$26, void, $String*)},
-	{"lambda$describeModule$13", "(Ljava/lang/module/ModuleDescriptor$Exports;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Main, lambda$describeModule$13, bool, $ModuleDescriptor$Exports*)},
-	{"lambda$describeModule$14", "(Ljava/lang/StringBuilder;Ljava/lang/module/ModuleDescriptor$Exports;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Main, lambda$describeModule$14, void, $StringBuilder*, $ModuleDescriptor$Exports*)},
-	{"lambda$describeModule$15", "(Ljava/lang/StringBuilder;Ljava/lang/module/ModuleDescriptor$Requires;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Main, lambda$describeModule$15, void, $StringBuilder*, $ModuleDescriptor$Requires*)},
-	{"lambda$describeModule$16", "(Ljava/lang/StringBuilder;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Main, lambda$describeModule$16, void, $StringBuilder*, $String*)},
-	{"lambda$describeModule$17", "(Ljava/lang/StringBuilder;Ljava/lang/module/ModuleDescriptor$Provides;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Main, lambda$describeModule$17, void, $StringBuilder*, $ModuleDescriptor$Provides*)},
-	{"lambda$describeModule$18", "(Ljava/lang/StringBuilder;Ljava/lang/module/ModuleDescriptor$Exports;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Main, lambda$describeModule$18, void, $StringBuilder*, $ModuleDescriptor$Exports*)},
-	{"lambda$describeModule$19", "(Ljava/lang/module/ModuleDescriptor$Opens;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Main, lambda$describeModule$19, bool, $ModuleDescriptor$Opens*)},
-	{"lambda$describeModule$20", "(Ljava/lang/StringBuilder;Ljava/lang/module/ModuleDescriptor$Opens;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Main, lambda$describeModule$20, void, $StringBuilder*, $ModuleDescriptor$Opens*)},
-	{"lambda$describeModule$21", "(Ljava/lang/StringBuilder;Ljava/lang/module/ModuleDescriptor$Opens;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Main, lambda$describeModule$21, void, $StringBuilder*, $ModuleDescriptor$Opens*)},
-	{"lambda$describeModule$22", "(Ljava/lang/StringBuilder;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Main, lambda$describeModule$22, void, $StringBuilder*, $String*)},
-	{"lambda$describeModule$23", "(Ljava/lang/StringBuilder;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Main, lambda$describeModule$23, void, $StringBuilder*, $String*)},
-	{"lambda$describeModule$24", "(Ljava/lang/StringBuilder;Ljdk/internal/module/ModuleHashes;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Main, lambda$describeModule$24, void, $StringBuilder*, $ModuleHashes*, $String*)},
-	{"lambda$describeModule$6", "(Ljava/util/zip/ZipEntry;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Main, lambda$describeModule$6, bool, $ZipEntry*)},
-	{"lambda$describeModule$7", "(Ljava/util/zip/ZipFile;Ljava/util/zip/ZipEntry;)Lsun/tools/jar/Main$ZipFileModuleInfoEntry;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Main, lambda$describeModule$7, $Main$ZipFileModuleInfoEntry*, $ZipFile*, $ZipEntry*)},
-	{"lambda$describeModule$8", "(I)[Lsun/tools/jar/Main$ZipFileModuleInfoEntry;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Main, lambda$describeModule$8, $Main$ZipFileModuleInfoEntryArray*, int32_t)},
-	{"lambda$describeModuleFromEntries$10", "(Lsun/tools/jar/Main$ModuleInfoEntry;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Main, lambda$describeModuleFromEntries$10, bool, $Main$ModuleInfoEntry*)},
-	{"lambda$describeModuleFromStream$9", "(I)[Lsun/tools/jar/Main$ModuleInfoEntry;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Main, lambda$describeModuleFromStream$9, $Main$ModuleInfoEntryArray*, int32_t)},
-	{"lambda$filesMapToFiles$2", "(I)[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Main, lambda$filesMapToFiles$2, $StringArray*, int32_t)},
-	{"lambda$filesToEntryNames$3", "(Ljava/util/Set;ILjava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $SYNTHETIC, $method(Main, lambda$filesToEntryNames$3, $String*, $Set*, int32_t, $String*)},
-	{"lambda$replaceFSC$5", "(Ljava/util/Map;Ljava/lang/Integer;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Main, lambda$replaceFSC$5, void, $Map*, $Integer*)},
-	{"lambda$run$0", "(Lsun/tools/jar/Main$Entry;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Main, lambda$run$0, bool, $Main$Entry*)},
-	{"lambda$run$1", "(Ljava/util/Set;Ljava/util/Set;Lsun/tools/jar/Main$Entry;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(Main, lambda$run$1, void, $Set*, $Set*, $Main$Entry*)},
-	{"lambda$static$27", "(Ljava/lang/String;Ljava/lang/String;)I", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Main, lambda$static$27, int32_t, $String*, $String*)},
-	{"lambda$toLowerCaseString$11", "(Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Main, lambda$toLowerCaseString$11, $String*, Object$*)},
-	{"lambda$toString$12", "(Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Main, lambda$toString$12, $String*, Object$*)},
-	{"lambda$update$4", "(Ljava/util/Set;Ljava/lang/String;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(Main, lambda$update$4, void, $Set*, $String*)},
-	{"lessThanEqualReleaseValue", "(Lsun/tools/jar/Main$ModuleInfoEntry;)Z", nullptr, $PRIVATE, $method(Main, lessThanEqualReleaseValue, bool, $Main$ModuleInfoEntry*)},
-	{"list", "(Ljava/io/InputStream;[Ljava/lang/String;)V", nullptr, 0, $virtualMethod(Main, list, void, $InputStream*, $StringArray*), "java.io.IOException"},
-	{"list", "(Ljava/lang/String;[Ljava/lang/String;)V", nullptr, 0, $virtualMethod(Main, list, void, $String*, $StringArray*), "java.io.IOException"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Main, main, void, $StringArray*)},
-	{"newDirSet", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/util/zip/ZipEntry;>;", 0, $virtualMethod(Main, newDirSet, $Set*)},
-	{"output", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(Main, output, void, $String*)},
-	{"parseArgs", "([Ljava/lang/String;)Z", nullptr, 0, $virtualMethod(Main, parseArgs, bool, $StringArray*)},
-	{"printEntry", "(Ljava/util/zip/ZipEntry;[Ljava/lang/String;)V", nullptr, 0, $virtualMethod(Main, printEntry, void, $ZipEntry*, $StringArray*), "java.io.IOException"},
-	{"printEntry", "(Ljava/util/zip/ZipEntry;)V", nullptr, 0, $virtualMethod(Main, printEntry, void, $ZipEntry*), "java.io.IOException"},
-	{"replaceFSC", "(Ljava/util/Map;)V", "(Ljava/util/Map<Ljava/lang/Integer;[Ljava/lang/String;>;)V", 0, $virtualMethod(Main, replaceFSC, void, $Map*)},
-	{"run", "([Ljava/lang/String;)Z", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Main, run, bool, $StringArray*)},
-	{"safeName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(Main, safeName, $String*, $String*)},
-	{"toBinaryName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(Main, toBinaryName, $String*, $String*)},
-	{"toEntryName", "(Ljava/lang/String;Ljava/util/Set;Z)Ljava/lang/String;", "(Ljava/lang/String;Ljava/util/Set<Ljava/lang/String;>;Z)Ljava/lang/String;", $PRIVATE, $method(Main, toEntryName, $String*, $String*, $Set*, bool)},
-	{"toHex", "([B)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Main, toHex, $String*, $bytes*)},
-	{"toLowerCaseString", "(Ljava/util/Collection;)Ljava/lang/String;", "<T:Ljava/lang/Object;>(Ljava/util/Collection<TT;>;)Ljava/lang/String;", $STATIC, $staticMethod(Main, toLowerCaseString, $String*, $Collection*)},
-	{"toPackageName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Main, toPackageName, $String*, $String*)},
-	{"toString", "(Ljava/util/Collection;)Ljava/lang/String;", "<T:Ljava/lang/Object;>(Ljava/util/Collection<TT;>;)Ljava/lang/String;", $STATIC, $staticMethod(Main, toString, $String*, $Collection*)},
-	{"toUpperCaseASCII", "(C)C", nullptr, $PRIVATE, $method(Main, toUpperCaseASCII, char16_t, char16_t)},
-	{"toVersionedName", "(Ljava/lang/String;I)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Main, toVersionedName, $String*, $String*, int32_t)},
-	{"update", "(Ljava/io/InputStream;Ljava/io/OutputStream;Ljava/io/InputStream;Ljava/util/Map;Ljdk/internal/util/jar/JarIndex;)Z", "(Ljava/io/InputStream;Ljava/io/OutputStream;Ljava/io/InputStream;Ljava/util/Map<Ljava/lang/String;[B>;Ljdk/internal/util/jar/JarIndex;)Z", 0, $virtualMethod(Main, update, bool, $InputStream*, $OutputStream*, $InputStream*, $Map*, $JarIndex*), "java.io.IOException"},
-	{"updateLastModifiedTime", "(Ljava/util/Set;)V", "(Ljava/util/Set<Ljava/util/zip/ZipEntry;>;)V", 0, $virtualMethod(Main, updateLastModifiedTime, void, $Set*), "java.io.IOException"},
-	{"updateManifest", "(Ljava/util/jar/Manifest;Ljava/util/zip/ZipOutputStream;)Z", nullptr, $PRIVATE, $method(Main, updateManifest, bool, $Manifest*, $ZipOutputStream*), "java.io.IOException"},
-	{"updateModuleInfo", "(Ljava/util/Map;Ljava/util/zip/ZipOutputStream;)V", "(Ljava/util/Map<Ljava/lang/String;[B>;Ljava/util/zip/ZipOutputStream;)V", $PRIVATE, $method(Main, updateModuleInfo, void, $Map*, $ZipOutputStream*), "java.io.IOException"},
-	{"usageError", "(Ljava/lang/String;)V", nullptr, 0, $virtualMethod(Main, usageError, void, $String*)},
-	{"validateAndClose", "(Ljava/io/File;)V", nullptr, $PRIVATE, $method(Main, validateAndClose, void, $File*), "java.io.IOException"},
-	{"validateJar", "(Ljava/io/File;)Z", nullptr, $PRIVATE, $method(Main, validateJar, bool, $File*), "java.io.IOException"},
-	{"versionFromEntryName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Main, versionFromEntryName, $String*, $String*)},
-	{"warn", "(Ljava/lang/String;)V", nullptr, 0, $virtualMethod(Main, warn, void, $String*)},
-	{}
-};
-
-$InnerClassInfo _Main_InnerClassesInfo_[] = {
-	{"sun.tools.jar.Main$Hasher", "sun.tools.jar.Main", "Hasher", $PRIVATE},
-	{"sun.tools.jar.Main$StreamedModuleInfoEntry", "sun.tools.jar.Main", "StreamedModuleInfoEntry", $STATIC},
-	{"sun.tools.jar.Main$ZipFileModuleInfoEntry", "sun.tools.jar.Main", "ZipFileModuleInfoEntry", $STATIC},
-	{"sun.tools.jar.Main$ModuleInfoEntry", "sun.tools.jar.Main", "ModuleInfoEntry", $STATIC | $INTERFACE | $ABSTRACT},
-	{"sun.tools.jar.Main$CRC32OutputStream", "sun.tools.jar.Main", "CRC32OutputStream", $PRIVATE | $STATIC},
-	{"sun.tools.jar.Main$Entry", "sun.tools.jar.Main", "Entry", $PRIVATE | $STATIC},
-	{"sun.tools.jar.Main$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Main_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.tools.jar.Main",
-	"java.lang.Object",
-	nullptr,
-	_Main_FieldInfo_,
-	_Main_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Main_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.tools.jar.Main$Hasher,sun.tools.jar.Main$Hasher$2,sun.tools.jar.Main$Hasher$1,sun.tools.jar.Main$StreamedModuleInfoEntry,sun.tools.jar.Main$ZipFileModuleInfoEntry,sun.tools.jar.Main$ModuleInfoEntry,sun.tools.jar.Main$CRC32OutputStream,sun.tools.jar.Main$Entry,sun.tools.jar.Main$1"
-};
-
-$Object* allocate$Main($Class* clazz) {
-	return $of($alloc(Main));
-}
 
 bool Main::$assertionsDisabled = false;
 $String* Main::MODULE_INFO = nullptr;
@@ -1923,21 +1593,21 @@ $String* Main::getMsg($String* key) {
 
 $String* Main::formatMsg($String* key, $String* arg) {
 	$init(Main);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, msg, getMsg(key));
 	$var($StringArray, args, $new($StringArray, 1));
 	args->set(0, arg);
-	return $MessageFormat::format(msg, args);
+	return $MessageFormat::format(msg, $cast($ObjectArray, args));
 }
 
 $String* Main::formatMsg2($String* key, $String* arg, $String* arg1) {
 	$init(Main);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, msg, getMsg(key));
 	$var($StringArray, args, $new($StringArray, 2));
 	args->set(0, arg);
 	args->set(1, arg1);
-	return $MessageFormat::format(msg, args);
+	return $MessageFormat::format(msg, $cast($ObjectArray, args));
 }
 
 void Main::init$($PrintStream* out, $PrintStream* err, $String* program) {
@@ -1954,8 +1624,8 @@ void Main::init$($PrintStream* out, $PrintStream* err, $String* program) {
 	$set(this, moduleFinder, $ModuleFinder::of($$new($PathArray, 0)));
 	$set(this, copyBuf, $new($bytes, 8192));
 	$set(this, jarPaths, $new($HashSet));
-	$set(this, out, $new($PrintWriter, static_cast<$OutputStream*>(out), true));
-	$set(this, err, $new($PrintWriter, static_cast<$OutputStream*>(err), true));
+	$set(this, out, $new($PrintWriter, out, true));
+	$set(this, err, $new($PrintWriter, err, true));
 	$set(this, program, program);
 }
 
@@ -1989,103 +1659,163 @@ $File* Main::createTempFileInSameDirectoryAs($File* file) {
 
 bool Main::run($StringArray* args) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		this->ok = true;
 		if (!parseArgs(args)) {
 			return false;
 		}
 		$var($File, tmpFile, nullptr);
-		{
-			$var($Throwable, var$0, nullptr);
-			bool var$2 = false;
-			bool return$1 = false;
+		$var($Throwable, var$0, nullptr);
+		bool var$2 = false;
+		bool return$1 = false;
+		try {
 			try {
-				try {
-					if (this->cflag || this->uflag) {
-						if (this->fname != nullptr) {
-							$init($File);
-							$set(this, zname, $nc(this->fname)->replace($File::separatorChar, u'/'));
-							if ($nc(this->zname)->startsWith("./"_s)) {
-								$set(this, zname, $nc(this->zname)->substring(2));
-							}
+				if (this->cflag || this->uflag) {
+					if (this->fname != nullptr) {
+						$init($File);
+						$set(this, zname, this->fname->replace($File::separatorChar, u'/'));
+						if (this->zname->startsWith("./"_s)) {
+							$set(this, zname, this->zname->substring(2));
 						}
 					}
-					if (this->cflag) {
-						$var($Manifest, manifest, nullptr);
-						if (!this->Mflag) {
-							if (this->mname != nullptr) {
-								{
-									$var($InputStream, in, $new($FileInputStream, this->mname));
-									{
-										$var($Throwable, var$3, nullptr);
-										try {
-											try {
-												$assign(manifest, $new($Manifest, static_cast<$InputStream*>($$new($BufferedInputStream, in))));
-											} catch ($Throwable& t$) {
-												try {
-													in->close();
-												} catch ($Throwable& x2) {
-													t$->addSuppressed(x2);
-												}
-												$throw(t$);
-											}
-										} catch ($Throwable& var$4) {
-											$assign(var$3, var$4);
-										} /*finally*/ {
-											in->close();
-										}
-										if (var$3 != nullptr) {
-											$throw(var$3);
-										}
+				}
+				if (this->cflag) {
+					$var($Manifest, manifest, nullptr);
+					if (!this->Mflag) {
+						if (this->mname != nullptr) {
+							$var($InputStream, in, $new($FileInputStream, this->mname));
+							$var($Throwable, var$3, nullptr);
+							try {
+								try {
+									$assign(manifest, $new($Manifest, $$new($BufferedInputStream, in)));
+								} catch ($Throwable& t$) {
+									try {
+										in->close();
+									} catch ($Throwable& x2) {
+										t$->addSuppressed(x2);
 									}
+									$throw(t$);
 								}
-							} else {
-								$assign(manifest, $new($Manifest));
+							} catch ($Throwable& var$4) {
+								$assign(var$3, var$4);
+							} /*finally*/ {
+								in->close();
 							}
-							addVersion(manifest);
-							addCreatedBy(manifest);
-							if (isAmbiguousMainClass(manifest)) {
-								var$2 = false;
-								return$1 = true;
-								goto $finally;
+							if (var$3 != nullptr) {
+								$throw(var$3);
 							}
-							if (this->ename != nullptr) {
-								addMainClass(manifest, this->ename);
-							}
-							if (this->isMultiRelease) {
-								addMultiRelease(manifest);
-							}
+						} else {
+							$assign(manifest, $new($Manifest));
 						}
-						expand();
-						if (!$nc(this->moduleInfos)->isEmpty()) {
-							$var($Set, jentries, $new($HashSet));
-							$var($Set, packages, $new($HashSet));
-							$nc($($nc($($nc(this->entries)->stream()))->filter(static_cast<$Predicate*>($$new(Main$$Lambda$lambda$run$0$2)))))->forEach(static_cast<$Consumer*>($$new(Main$$Lambda$lambda$run$1$3, this, packages, jentries)));
-							addExtendedModuleAttributes(this->moduleInfos, packages);
-							if (!checkModuleInfo($cast($bytes, $($nc(this->moduleInfos)->get(Main::MODULE_INFO))), jentries)) {
-								var$2 = false;
-								return$1 = true;
-								goto $finally;
-							}
-						} else if (this->moduleVersion != nullptr || this->modulesToHash != nullptr) {
-							error($(getMsg("error.module.options.without.info"_s)));
+						addVersion(manifest);
+						addCreatedBy(manifest);
+						if (isAmbiguousMainClass(manifest)) {
 							var$2 = false;
 							return$1 = true;
 							goto $finally;
 						}
-						if (this->vflag && this->fname == nullptr) {
-							this->vflag = false;
+						if (this->ename != nullptr) {
+							addMainClass(manifest, this->ename);
 						}
-						$init($File);
-						$var($String, tmpbase, (this->fname == nullptr) ? "tmpjar"_s : $nc(this->fname)->substring($nc(this->fname)->indexOf((int32_t)$File::separatorChar) + 1));
-						$assign(tmpFile, createTemporaryFile(tmpbase, ".jar"_s));
-						{
-							$var($OutputStream, out, $new($FileOutputStream, tmpFile));
-							{
-								$var($Throwable, var$5, nullptr);
+						if (this->isMultiRelease) {
+							addMultiRelease(manifest);
+						}
+					}
+					expand();
+					if (!$nc(this->moduleInfos)->isEmpty()) {
+						$var($Set, jentries, $new($HashSet));
+						$var($Set, packages, $new($HashSet));
+						$$nc($$nc($nc(this->entries)->stream())->filter($$new(Main$$Lambda$lambda$run$0$2)))->forEach($$new(Main$$Lambda$lambda$run$1$3, this, packages, jentries));
+						addExtendedModuleAttributes(this->moduleInfos, packages);
+						if (!checkModuleInfo($$cast($bytes, $nc(this->moduleInfos)->get(Main::MODULE_INFO)), jentries)) {
+							var$2 = false;
+							return$1 = true;
+							goto $finally;
+						}
+					} else if (this->moduleVersion != nullptr || this->modulesToHash != nullptr) {
+						error($(getMsg("error.module.options.without.info"_s)));
+						var$2 = false;
+						return$1 = true;
+						goto $finally;
+					}
+					if (this->vflag && this->fname == nullptr) {
+						this->vflag = false;
+					}
+					$init($File);
+					$var($String, tmpbase, (this->fname == nullptr) ? "tmpjar"_s : this->fname->substring(this->fname->indexOf($File::separatorChar) + 1));
+					$assign(tmpFile, createTemporaryFile(tmpbase, ".jar"_s));
+					{
+						$var($OutputStream, out, $new($FileOutputStream, tmpFile));
+						$var($Throwable, var$5, nullptr);
+						try {
+							try {
+								create($$new($BufferedOutputStream, out, 4096), manifest);
+							} catch ($Throwable& t$) {
+								try {
+									out->close();
+								} catch ($Throwable& x2) {
+									t$->addSuppressed(x2);
+								}
+								$throw(t$);
+							}
+						} catch ($Throwable& var$6) {
+							$assign(var$5, var$6);
+						} /*finally*/ {
+							out->close();
+						}
+						if (var$5 != nullptr) {
+							$throw(var$5);
+						}
+					}
+					validateAndClose(tmpFile);
+				} else if (this->uflag) {
+					$var($File, inputFile, nullptr);
+					if (this->fname != nullptr) {
+						$assign(inputFile, $new($File, this->fname));
+						$assign(tmpFile, createTempFileInSameDirectoryAs(inputFile));
+					} else {
+						this->vflag = false;
+						$assign(tmpFile, createTemporaryFile("tmpjar"_s, ".jar"_s));
+					}
+					expand();
+					{
+						$init($FileDescriptor);
+						$var($FileInputStream, in, (this->fname != nullptr) ? $new($FileInputStream, inputFile) : $new($FileInputStream, $FileDescriptor::in));
+						$var($Throwable, var$7, nullptr);
+						try {
+							try {
+								$var($FileOutputStream, out, $new($FileOutputStream, tmpFile));
+								$var($Throwable, var$8, nullptr);
 								try {
 									try {
-										create($$new($BufferedOutputStream, out, 4096), manifest);
+										$var($InputStream, manifest, (!this->Mflag && (this->mname != nullptr)) ? ($cast($InputStream, $new($FileInputStream, this->mname))) : ($InputStream*)nullptr);
+										$var($Throwable, var$9, nullptr);
+										try {
+											try {
+												bool updateOk = update(in, $$new($BufferedOutputStream, out), manifest, this->moduleInfos, nullptr);
+												if (this->ok) {
+													this->ok = updateOk;
+												}
+											} catch ($Throwable& t$) {
+												if (manifest != nullptr) {
+													try {
+														manifest->close();
+													} catch ($Throwable& x2) {
+														t$->addSuppressed(x2);
+													}
+												}
+												$throw(t$);
+											}
+										} catch ($Throwable& var$10) {
+											$assign(var$9, var$10);
+										} /*finally*/ {
+											if (manifest != nullptr) {
+												manifest->close();
+											}
+										}
+										if (var$9 != nullptr) {
+											$throw(var$9);
+										}
 									} catch ($Throwable& t$) {
 										try {
 											out->close();
@@ -2094,275 +1824,187 @@ bool Main::run($StringArray* args) {
 										}
 										$throw(t$);
 									}
-								} catch ($Throwable& var$6) {
-									$assign(var$5, var$6);
+								} catch ($Throwable& var$11) {
+									$assign(var$8, var$11);
 								} /*finally*/ {
 									out->close();
 								}
-								if (var$5 != nullptr) {
-									$throw(var$5);
+								if (var$8 != nullptr) {
+									$throw(var$8);
 								}
+							} catch ($Throwable& t$) {
+								if (in != nullptr) {
+									try {
+										in->close();
+									} catch ($Throwable& x2) {
+										t$->addSuppressed(x2);
+									}
+								}
+								$throw(t$);
+							}
+						} catch ($Throwable& var$12) {
+							$assign(var$7, var$12);
+						} /*finally*/ {
+							if (in != nullptr) {
+								in->close();
 							}
 						}
-						validateAndClose(tmpFile);
-					} else if (this->uflag) {
-						$var($File, inputFile, nullptr);
-						if (this->fname != nullptr) {
-							$assign(inputFile, $new($File, this->fname));
-							$assign(tmpFile, createTempFileInSameDirectoryAs(inputFile));
-						} else {
-							this->vflag = false;
-							$assign(tmpFile, createTemporaryFile("tmpjar"_s, ".jar"_s));
+						if (var$7 != nullptr) {
+							$throw(var$7);
 						}
-						expand();
+					}
+					validateAndClose(tmpFile);
+				} else if (this->tflag) {
+					replaceFSC(this->filesMap);
+					$var($StringArray, files, filesMapToFiles(this->filesMap));
+					if (this->fname != nullptr) {
+						list(this->fname, files);
+					} else {
+						$init($FileDescriptor);
+						$var($InputStream, in, $new($FileInputStream, $FileDescriptor::in));
+						$var($Throwable, var$13, nullptr);
+						try {
+							list($$new($BufferedInputStream, in), files);
+						} catch ($Throwable& var$14) {
+							$assign(var$13, var$14);
+						} /*finally*/ {
+							in->close();
+						}
+						if (var$13 != nullptr) {
+							$throw(var$13);
+						}
+					}
+				} else if (this->xflag) {
+					replaceFSC(this->filesMap);
+					$var($StringArray, files, filesMapToFiles(this->filesMap));
+					if (this->fname != nullptr && files != nullptr) {
+						extract(this->fname, files);
+					} else {
+						$init($FileDescriptor);
+						$var($InputStream, in, (this->fname == nullptr) ? $new($FileInputStream, $FileDescriptor::in) : $new($FileInputStream, this->fname));
+						$var($Throwable, var$15, nullptr);
+						try {
+							if (!extract($$new($BufferedInputStream, in), files) && this->fname != nullptr) {
+								extract(this->fname, files);
+							}
+						} catch ($Throwable& var$16) {
+							$assign(var$15, var$16);
+						} /*finally*/ {
+							$nc(in)->close();
+						}
+						if (var$15 != nullptr) {
+							$throw(var$15);
+						}
+					}
+				} else if (this->iflag) {
+					$var($StringArray, files, $cast($StringArray, $nc(this->filesMap)->get($($Integer::valueOf(Main::BASE_VERSION)))));
+					genIndex(this->rootjar, files);
+				} else if (this->dflag) {
+					bool found = false;
+					if (this->fname != nullptr) {
+						$var($ZipFile, zf, $new($ZipFile, this->fname));
+						$var($Throwable, var$17, nullptr);
+						try {
+							try {
+								found = describeModule(zf);
+							} catch ($Throwable& t$) {
+								try {
+									zf->close();
+								} catch ($Throwable& x2) {
+									t$->addSuppressed(x2);
+								}
+								$throw(t$);
+							}
+						} catch ($Throwable& var$18) {
+							$assign(var$17, var$18);
+						} /*finally*/ {
+							zf->close();
+						}
+						if (var$17 != nullptr) {
+							$throw(var$17);
+						}
+					} else {
+						$init($FileDescriptor);
+						$var($FileInputStream, fin, $new($FileInputStream, $FileDescriptor::in));
+						$var($Throwable, var$19, nullptr);
+						try {
+							try {
+								found = describeModuleFromStream(fin);
+							} catch ($Throwable& t$) {
+								try {
+									fin->close();
+								} catch ($Throwable& x2) {
+									t$->addSuppressed(x2);
+								}
+								$throw(t$);
+							}
+						} catch ($Throwable& var$20) {
+							$assign(var$19, var$20);
+						} /*finally*/ {
+							fin->close();
+						}
+						if (var$19 != nullptr) {
+							$throw(var$19);
+						}
+					}
+					if (!found) {
+						error($(getMsg("error.module.descriptor.not.found"_s)));
+					}
+				} else if (this->validate) {
+					$var($File, file, nullptr);
+					if (this->fname != nullptr) {
+						$assign(file, $new($File, this->fname));
+					} else {
+						$assign(file, createTemporaryFile("tmpJar"_s, ".jar"_s));
 						{
 							$init($FileDescriptor);
-							$var($FileInputStream, in, (this->fname != nullptr) ? $new($FileInputStream, inputFile) : $new($FileInputStream, $FileDescriptor::in));
-							{
-								$var($Throwable, var$7, nullptr);
-								try {
-									try {
-										$var($FileOutputStream, out, $new($FileOutputStream, tmpFile));
-										{
-											$var($Throwable, var$8, nullptr);
-											try {
-												try {
-													$var($InputStream, manifest, (!this->Mflag && (this->mname != nullptr)) ? (static_cast<$InputStream*>($new($FileInputStream, this->mname))) : ($InputStream*)nullptr);
-													{
-														$var($Throwable, var$9, nullptr);
-														try {
-															try {
-																bool updateOk = update(in, $$new($BufferedOutputStream, out), manifest, this->moduleInfos, nullptr);
-																if (this->ok) {
-																	this->ok = updateOk;
-																}
-															} catch ($Throwable& t$) {
-																if (manifest != nullptr) {
-																	try {
-																		manifest->close();
-																	} catch ($Throwable& x2) {
-																		t$->addSuppressed(x2);
-																	}
-																}
-																$throw(t$);
-															}
-														} catch ($Throwable& var$10) {
-															$assign(var$9, var$10);
-														} /*finally*/ {
-															if (manifest != nullptr) {
-																manifest->close();
-															}
-														}
-														if (var$9 != nullptr) {
-															$throw(var$9);
-														}
-													}
-												} catch ($Throwable& t$) {
-													try {
-														out->close();
-													} catch ($Throwable& x2) {
-														t$->addSuppressed(x2);
-													}
-													$throw(t$);
-												}
-											} catch ($Throwable& var$11) {
-												$assign(var$8, var$11);
-											} /*finally*/ {
-												out->close();
-											}
-											if (var$8 != nullptr) {
-												$throw(var$8);
-											}
-										}
-									} catch ($Throwable& t$) {
-										if (in != nullptr) {
-											try {
-												in->close();
-											} catch ($Throwable& x2) {
-												t$->addSuppressed(x2);
-											}
-										}
-										$throw(t$);
-									}
-								} catch ($Throwable& var$12) {
-									$assign(var$7, var$12);
-								} /*finally*/ {
-									if (in != nullptr) {
-										in->close();
-									}
-								}
-								if (var$7 != nullptr) {
-									$throw(var$7);
-								}
-							}
-						}
-						validateAndClose(tmpFile);
-					} else if (this->tflag) {
-						replaceFSC(this->filesMap);
-						$var($StringArray, files, filesMapToFiles(this->filesMap));
-						if (this->fname != nullptr) {
-							list(this->fname, files);
-						} else {
-							$init($FileDescriptor);
 							$var($InputStream, in, $new($FileInputStream, $FileDescriptor::in));
-							{
-								$var($Throwable, var$13, nullptr);
+							$var($Throwable, var$21, nullptr);
+							try {
 								try {
-									list(static_cast<$InputStream*>($$new($BufferedInputStream, in)), files);
-								} catch ($Throwable& var$14) {
-									$assign(var$13, var$14);
-								} /*finally*/ {
-									in->close();
-								}
-								if (var$13 != nullptr) {
-									$throw(var$13);
-								}
-							}
-						}
-					} else if (this->xflag) {
-						replaceFSC(this->filesMap);
-						$var($StringArray, files, filesMapToFiles(this->filesMap));
-						if (this->fname != nullptr && files != nullptr) {
-							extract(this->fname, files);
-						} else {
-							$init($FileDescriptor);
-							$var($InputStream, in, (this->fname == nullptr) ? static_cast<$InputStream*>($new($FileInputStream, $FileDescriptor::in)) : static_cast<$InputStream*>($new($FileInputStream, this->fname)));
-							{
-								$var($Throwable, var$15, nullptr);
-								try {
-									if (!extract(static_cast<$InputStream*>($$new($BufferedInputStream, in)), files) && this->fname != nullptr) {
-										extract(this->fname, files);
-									}
-								} catch ($Throwable& var$16) {
-									$assign(var$15, var$16);
-								} /*finally*/ {
-									$nc(in)->close();
-								}
-								if (var$15 != nullptr) {
-									$throw(var$15);
-								}
-							}
-						}
-					} else if (this->iflag) {
-						$var($StringArray, files, $cast($StringArray, $nc(this->filesMap)->get($($Integer::valueOf(Main::BASE_VERSION)))));
-						genIndex(this->rootjar, files);
-					} else if (this->dflag) {
-						bool found = false;
-						if (this->fname != nullptr) {
-							{
-								$var($ZipFile, zf, $new($ZipFile, this->fname));
-								{
-									$var($Throwable, var$17, nullptr);
+									$Files::copy(in, $($nc(file)->toPath()), $$new($CopyOptionArray, 0));
+								} catch ($Throwable& t$) {
 									try {
-										try {
-											found = describeModule(zf);
-										} catch ($Throwable& t$) {
-											try {
-												zf->close();
-											} catch ($Throwable& x2) {
-												t$->addSuppressed(x2);
-											}
-											$throw(t$);
-										}
-									} catch ($Throwable& var$18) {
-										$assign(var$17, var$18);
-									} /*finally*/ {
-										zf->close();
-									}
-									if (var$17 != nullptr) {
-										$throw(var$17);
-									}
-								}
-							}
-						} else {
-							{
-								$init($FileDescriptor);
-								$var($FileInputStream, fin, $new($FileInputStream, $FileDescriptor::in));
-								{
-									$var($Throwable, var$19, nullptr);
-									try {
-										try {
-											found = describeModuleFromStream(fin);
-										} catch ($Throwable& t$) {
-											try {
-												fin->close();
-											} catch ($Throwable& x2) {
-												t$->addSuppressed(x2);
-											}
-											$throw(t$);
-										}
-									} catch ($Throwable& var$20) {
-										$assign(var$19, var$20);
-									} /*finally*/ {
-										fin->close();
-									}
-									if (var$19 != nullptr) {
-										$throw(var$19);
-									}
-								}
-							}
-						}
-						if (!found) {
-							error($(getMsg("error.module.descriptor.not.found"_s)));
-						}
-					} else if (this->validate) {
-						$var($File, file, nullptr);
-						if (this->fname != nullptr) {
-							$assign(file, $new($File, this->fname));
-						} else {
-							$assign(file, createTemporaryFile("tmpJar"_s, ".jar"_s));
-							{
-								$init($FileDescriptor);
-								$var($InputStream, in, $new($FileInputStream, $FileDescriptor::in));
-								{
-									$var($Throwable, var$21, nullptr);
-									try {
-										try {
-											$Files::copy(in, $($nc(file)->toPath()), $$new($CopyOptionArray, 0));
-										} catch ($Throwable& t$) {
-											try {
-												in->close();
-											} catch ($Throwable& x2) {
-												t$->addSuppressed(x2);
-											}
-											$throw(t$);
-										}
-									} catch ($Throwable& var$22) {
-										$assign(var$21, var$22);
-									} /*finally*/ {
 										in->close();
+									} catch ($Throwable& x2) {
+										t$->addSuppressed(x2);
 									}
-									if (var$21 != nullptr) {
-										$throw(var$21);
-									}
+									$throw(t$);
 								}
+							} catch ($Throwable& var$22) {
+								$assign(var$21, var$22);
+							} /*finally*/ {
+								in->close();
+							}
+							if (var$21 != nullptr) {
+								$throw(var$21);
 							}
 						}
-						this->ok = validateJar(file);
 					}
-				} catch ($IOException& e) {
-					fatalError(static_cast<$Exception*>(e));
-					this->ok = false;
-				} catch ($Error& ee) {
-					ee->printStackTrace();
-					this->ok = false;
-				} catch ($Throwable& t) {
-					t->printStackTrace();
-					this->ok = false;
+					this->ok = validateJar(file);
 				}
-			} catch ($Throwable& var$23) {
-				$assign(var$0, var$23);
-			} $finally: {
-				if (tmpFile != nullptr && tmpFile->exists()) {
-					tmpFile->delete$();
-				}
+			} catch ($IOException& e) {
+				fatalError(e);
+				this->ok = false;
+			} catch ($Error& ee) {
+				ee->printStackTrace();
+				this->ok = false;
+			} catch ($Throwable& t) {
+				t->printStackTrace();
+				this->ok = false;
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
+		} catch ($Throwable& var$23) {
+			$assign(var$0, var$23);
+		} $finally: {
+			if (tmpFile != nullptr && tmpFile->exists()) {
+				tmpFile->delete$();
 			}
-			if (return$1) {
-				return var$2;
-			}
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
+		}
+		if (return$1) {
+			return var$2;
 		}
 		$nc(this->out)->flush();
 		$nc(this->err)->flush();
@@ -2371,37 +2013,35 @@ bool Main::run($StringArray* args) {
 }
 
 bool Main::validateJar($File* file) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$var($ZipFile, zf, $new($ZipFile, file));
-		{
-			$var($Throwable, var$0, nullptr);
-			bool var$2 = false;
-			bool return$1 = false;
+		$var($Throwable, var$0, nullptr);
+		bool var$2 = false;
+		bool return$1 = false;
+		try {
 			try {
+				var$2 = $Validator::validate(this, zf);
+				return$1 = true;
+				goto $finally;
+			} catch ($Throwable& t$) {
 				try {
-					var$2 = $Validator::validate(this, zf);
-					return$1 = true;
-					goto $finally;
-				} catch ($Throwable& t$) {
-					try {
-						zf->close();
-					} catch ($Throwable& x2) {
-						t$->addSuppressed(x2);
-					}
-					$throw(t$);
+					zf->close();
+				} catch ($Throwable& x2) {
+					t$->addSuppressed(x2);
 				}
-			} catch ($Throwable& var$3) {
-				$assign(var$0, var$3);
-			} $finally: {
-				zf->close();
+				$throw(t$);
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
-			if (return$1) {
-				return var$2;
-			}
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
+		} $finally: {
+			zf->close();
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
+		}
+		if (return$1) {
+			return var$2;
 		}
 	} catch ($IOException& e) {
 		error($(formatMsg2("error.validator.jarfile.exception"_s, this->fname, $(e->getMessage()))));
@@ -2411,7 +2051,7 @@ bool Main::validateJar($File* file) {
 }
 
 void Main::validateAndClose($File* tmpfile) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->ok && this->isMultiRelease) {
 		this->ok = validateJar(tmpfile);
 		if (!this->ok) {
@@ -2419,46 +2059,44 @@ void Main::validateAndClose($File* tmpfile) {
 		}
 	}
 	$var($Path, path, $nc(tmpfile)->toPath());
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			if (this->ok) {
-				if (this->fname != nullptr) {
-					$init($StandardCopyOption);
-					$Files::move(path, $($Paths::get(this->fname, $$new($StringArray, 0))), $$new($CopyOptionArray, {static_cast<$CopyOption*>($StandardCopyOption::REPLACE_EXISTING)}));
-				} else {
-					$init($FileDescriptor);
-					$Files::copy(path, $$new($FileOutputStream, $FileDescriptor::out));
-				}
+	$var($Throwable, var$0, nullptr);
+	try {
+		if (this->ok) {
+			if (this->fname != nullptr) {
+				$init($StandardCopyOption);
+				$Files::move(path, $($Paths::get(this->fname, $$new($StringArray, 0))), $$new($CopyOptionArray, {$StandardCopyOption::REPLACE_EXISTING}));
+			} else {
+				$init($FileDescriptor);
+				$Files::copy(path, $$new($FileOutputStream, $FileDescriptor::out));
 			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$Files::deleteIfExists(path);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$Files::deleteIfExists(path);
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 $StringArray* Main::filesMapToFiles($Map* filesMap) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(filesMap)->isEmpty()) {
 		return nullptr;
 	}
-	return $fcast($StringArray, $nc($($nc($($nc($($nc(filesMap)->entrySet()))->stream()))->flatMap(static_cast<$Function*>($$new(Main$$Lambda$filesToEntryNames$4, this)))))->toArray(static_cast<$IntFunction*>($$new(Main$$Lambda$lambda$filesMapToFiles$2$5))));
+	return $cast($StringArray, $$nc($$nc($$nc(filesMap->entrySet())->stream())->flatMap($$new(Main$$Lambda$filesToEntryNames$4, this)))->toArray($$new(Main$$Lambda$lambda$filesMapToFiles$2$5)));
 }
 
 $Stream* Main::filesToEntryNames($Map$Entry* fileEntries) {
-	$useLocalCurrentObjectStackCache();
-	int32_t version = $nc(($cast($Integer, $($nc(fileEntries)->getKey()))))->intValue();
+	$useLocalObjectStack();
+	int32_t version = $$sure($Integer, $nc(fileEntries)->getKey())->intValue();
 	$var($Set, cpaths, $cast($Set, $nc(this->pathsMap)->get($($Integer::valueOf(version)))));
-	return $nc($($Stream::of($cast($StringArray, $(fileEntries->getValue())))))->map(static_cast<$Function*>($$new(Main$$Lambda$lambda$filesToEntryNames$3$6, this, cpaths, version)));
+	return $$nc($Stream::of($$cast($StringArray, fileEntries->getValue())))->map($$new(Main$$Lambda$lambda$filesToEntryNames$3$6, this, cpaths, version));
 }
 
 bool Main::parseArgs($StringArray* args$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringArray, args, args$renamed);
 	try {
 		$assign(args, $CommandLine::parse(args));
@@ -2466,7 +2104,7 @@ bool Main::parseArgs($StringArray* args$renamed) {
 		fatalError($(formatMsg("error.cant.open"_s, $(e->getMessage()))));
 		return false;
 	} catch ($IOException& e) {
-		fatalError(static_cast<$Exception*>(e));
+		fatalError(e);
 		return false;
 	}
 	int32_t count = 1;
@@ -2474,8 +2112,8 @@ bool Main::parseArgs($StringArray* args$renamed) {
 		$var($String, flags, $nc(args)->get(0));
 		bool var$0 = $nc(flags)->startsWith("--"_s);
 		if (!var$0) {
-			bool var$1 = $nc(flags)->startsWith("-"_s);
-			var$0 = (var$1 && flags->length() == 2);
+			bool var$1 = flags->startsWith("-"_s);
+			var$0 = var$1 && flags->length() == 2;
 		}
 		if (var$0) {
 			try {
@@ -2491,7 +2129,7 @@ bool Main::parseArgs($StringArray* args$renamed) {
 				}
 			}
 			if (this->info != nullptr) {
-				$nc(this->info)->accept(this->out);
+				this->info->accept(this->out);
 				return true;
 			}
 		} else {
@@ -2501,91 +2139,65 @@ bool Main::parseArgs($StringArray* args$renamed) {
 			for (int32_t i = 0; i < flags->length(); ++i) {
 				switch (flags->charAt(i)) {
 				case u'c':
-					{
-						if (this->xflag || this->tflag || this->uflag || this->iflag) {
-							usageError($(getMsg("error.multiple.main.operations"_s)));
-							return false;
-						}
-						this->cflag = true;
-						break;
-					}
-				case u'u':
-					{
-						if (this->cflag || this->xflag || this->tflag || this->iflag) {
-							usageError($(getMsg("error.multiple.main.operations"_s)));
-							return false;
-						}
-						this->uflag = true;
-						break;
-					}
-				case u'x':
-					{
-						if (this->cflag || this->uflag || this->tflag || this->iflag) {
-							usageError($(getMsg("error.multiple.main.operations"_s)));
-							return false;
-						}
-						this->xflag = true;
-						break;
-					}
-				case u't':
-					{
-						if (this->cflag || this->uflag || this->xflag || this->iflag) {
-							usageError($(getMsg("error.multiple.main.operations"_s)));
-							return false;
-						}
-						this->tflag = true;
-						break;
-					}
-				case u'M':
-					{
-						this->Mflag = true;
-						break;
-					}
-				case u'v':
-					{
-						this->vflag = true;
-						break;
-					}
-				case u'f':
-					{
-						$set(this, fname, args->get(count++));
-						break;
-					}
-				case u'm':
-					{
-						$set(this, mname, args->get(count++));
-						break;
-					}
-				case u'0':
-					{
-						this->flag0 = true;
-						break;
-					}
-				case u'i':
-					{
-						if (this->cflag || this->uflag || this->xflag || this->tflag) {
-							usageError($(getMsg("error.multiple.main.operations"_s)));
-							return false;
-						}
-						$set(this, rootjar, args->get(count++));
-						this->iflag = true;
-						break;
-					}
-				case u'e':
-					{
-						$set(this, ename, args->get(count++));
-						break;
-					}
-				case u'P':
-					{
-						this->pflag = true;
-						break;
-					}
-				default:
-					{
-						usageError($(formatMsg("error.illegal.option"_s, $($String::valueOf(flags->charAt(i))))));
+					if (this->xflag || this->tflag || this->uflag || this->iflag) {
+						usageError($(getMsg("error.multiple.main.operations"_s)));
 						return false;
 					}
+					this->cflag = true;
+					break;
+				case u'u':
+					if (this->cflag || this->xflag || this->tflag || this->iflag) {
+						usageError($(getMsg("error.multiple.main.operations"_s)));
+						return false;
+					}
+					this->uflag = true;
+					break;
+				case u'x':
+					if (this->cflag || this->uflag || this->tflag || this->iflag) {
+						usageError($(getMsg("error.multiple.main.operations"_s)));
+						return false;
+					}
+					this->xflag = true;
+					break;
+				case u't':
+					if (this->cflag || this->uflag || this->xflag || this->iflag) {
+						usageError($(getMsg("error.multiple.main.operations"_s)));
+						return false;
+					}
+					this->tflag = true;
+					break;
+				case u'M':
+					this->Mflag = true;
+					break;
+				case u'v':
+					this->vflag = true;
+					break;
+				case u'f':
+					$set(this, fname, args->get(count++));
+					break;
+				case u'm':
+					$set(this, mname, args->get(count++));
+					break;
+				case u'0':
+					this->flag0 = true;
+					break;
+				case u'i':
+					if (this->cflag || this->uflag || this->xflag || this->tflag) {
+						usageError($(getMsg("error.multiple.main.operations"_s)));
+						return false;
+					}
+					$set(this, rootjar, args->get(count++));
+					this->iflag = true;
+					break;
+				case u'e':
+					$set(this, ename, args->get(count++));
+					break;
+				case u'P':
+					this->pflag = true;
+					break;
+				default:
+					usageError($(formatMsg("error.illegal.option"_s, $($String::valueOf(flags->charAt(i))))));
+					return false;
 				}
 			}
 		}
@@ -2602,7 +2214,7 @@ bool Main::parseArgs($StringArray* args$renamed) {
 		int32_t version = Main::BASE_VERSION;
 		int32_t k = 0;
 		$var($StringArray, nameBuf, $new($StringArray, n));
-		$var($Object, var$2, $of($Integer::valueOf(version)));
+		$var($Object, var$2, $Integer::valueOf(version));
 		$nc(this->pathsMap)->put(var$2, $$new($HashSet));
 		try {
 			for (int32_t i = count; i < args->length; ++i) {
@@ -2617,17 +2229,17 @@ bool Main::parseArgs($StringArray* args$renamed) {
 					$assign(dir, $nc(dir)->replace($File::separatorChar, u'/'));
 					bool hasUNC = ($File::separatorChar == u'\\' && dir->startsWith("//"_s));
 					while (dir->indexOf("//"_s) > -1) {
-						$assign(dir, dir->replace(static_cast<$CharSequence*>("//"_s), static_cast<$CharSequence*>("/"_s)));
+						$assign(dir, dir->replace("//"_s, "/"_s));
 					}
 					if (hasUNC) {
 						$assign(dir, $str({"/"_s, dir}));
 					}
-					$nc(($cast($Set, $($nc(this->pathsMap)->get($($Integer::valueOf(version)))))))->add(dir);
+					$$sure($Set, $nc(this->pathsMap)->get($($Integer::valueOf(version))))->add(dir);
 					nameBuf->set(k++, $$str({dir, args->get(++i)}));
 				} else if ($nc(args->get(i))->startsWith("--release"_s)) {
 					int32_t v = Main::BASE_VERSION;
 					try {
-						v = $nc($($Integer::valueOf(args->get(++i))))->intValue();
+						v = $($Integer::valueOf(args->get(++i)))->intValue();
 					} catch ($NumberFormatException& x) {
 						error($(formatMsg("error.release.value.notnumber"_s, args->get(i))));
 					}
@@ -2645,7 +2257,7 @@ bool Main::parseArgs($StringArray* args$renamed) {
 					$assign(nameBuf, $new($StringArray, n));
 					version = v;
 					this->releaseValue = version;
-					$var($Object, var$3, $of($Integer::valueOf(version)));
+					$var($Object, var$3, $Integer::valueOf(version));
 					$nc(this->pathsMap)->put(var$3, $$new($HashSet));
 				} else {
 					if (this->dflag) {
@@ -2680,11 +2292,11 @@ bool Main::parseArgs($StringArray* args$renamed) {
 }
 
 void Main::addPackageIfNamed($Set* packages, $String* name$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, name, name$renamed);
 	if ($nc(name)->startsWith(Main::VERSIONS_DIR)) {
 		int32_t i0 = Main::VERSIONS_DIR_LENGTH;
-		int32_t i = name->indexOf((int32_t)u'/', i0);
+		int32_t i = name->indexOf(u'/', i0);
 		if (i <= 0) {
 			warn($(formatMsg("warn.release.unexpected.versioned.entry"_s, name)));
 			return;
@@ -2706,7 +2318,7 @@ void Main::addPackageIfNamed($Set* packages, $String* name$renamed) {
 }
 
 $String* Main::toEntryName($String* name$renamed, $Set* cpaths, bool isDir) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, name, name$renamed);
 	$init($File);
 	$assign(name, $nc(name)->replace($File::separatorChar, u'/'));
@@ -2719,7 +2331,7 @@ $String* Main::toEntryName($String* name$renamed, $Set* cpaths, bool isDir) {
 		for (; $nc(i$)->hasNext();) {
 			$var($String, path, $cast($String, i$->next()));
 			{
-				bool var$0 = name->startsWith(path);
+				bool var$0 = $nc(name)->startsWith(path);
 				if (var$0) {
 					int32_t var$1 = $nc(path)->length();
 					var$0 = var$1 > $nc(matchPath)->length();
@@ -2730,8 +2342,8 @@ $String* Main::toEntryName($String* name$renamed, $Set* cpaths, bool isDir) {
 			}
 		}
 	}
-	$assign(name, safeName($(name->substring($nc(matchPath)->length()))));
-	if (name->startsWith("./"_s)) {
+	$assign(name, safeName($($nc(name)->substring($nc(matchPath)->length()))));
+	if ($nc(name)->startsWith("./"_s)) {
 		$assign(name, name->substring(2));
 	}
 	return name;
@@ -2744,7 +2356,7 @@ $String* Main::toVersionedName($String* name, int32_t version) {
 
 $String* Main::toPackageName($String* path) {
 	$init(Main);
-	int32_t index = $nc(path)->lastIndexOf((int32_t)u'/');
+	int32_t index = $nc(path)->lastIndexOf(u'/');
 	if (index != -1) {
 		return $(path->substring(0, index))->replace(u'/', u'.');
 	} else {
@@ -2753,21 +2365,19 @@ $String* Main::toPackageName($String* path) {
 }
 
 void Main::expand() {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Iterator, i$, $nc($($nc(this->filesMap)->keySet()))->iterator());
-		for (; $nc(i$)->hasNext();) {
-			int32_t version = $nc(($cast($Integer, $(i$->next()))))->intValue();
-			{
-				$var($StringArray, files, $cast($StringArray, $nc(this->filesMap)->get($($Integer::valueOf(version)))));
-				expand(nullptr, files, $cast($Set, $($nc(this->pathsMap)->get($($Integer::valueOf(version))))), version);
-			}
+	$useLocalObjectStack();
+	$var($Iterator, i$, $$nc($nc(this->filesMap)->keySet())->iterator());
+	for (; $nc(i$)->hasNext();) {
+		int32_t version = $$sure($Integer, i$->next())->intValue();
+		{
+			$var($StringArray, files, $cast($StringArray, $nc(this->filesMap)->get($($Integer::valueOf(version)))));
+			expand(nullptr, files, $$cast($Set, $nc(this->pathsMap)->get($($Integer::valueOf(version)))), version);
 		}
 	}
 }
 
 void Main::expand($File* dir, $StringArray* files, $Set* cpaths, int32_t version) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (files == nullptr) {
 		return;
 	}
@@ -2804,74 +2414,72 @@ void Main::expand($File* dir, $StringArray* files, $Set* cpaths, int32_t version
 			$var($Main$Entry, e, $new($Main$Entry, f, name, true));
 			if ($nc(this->entries)->add(e)) {
 				if ($nc(this->entryMap)->containsKey(name)) {
-					$nc(this->entries)->remove(e);
+					this->entries->remove(e);
 				} else {
-					$nc(this->entryMap)->put(name, e);
+					this->entryMap->put(name, e);
 				}
 				expand(f, $(f->list()), cpaths, version);
 			}
 		} else {
-			error($(formatMsg("error.nosuch.fileordir"_s, $($String::valueOf($of(f))))));
+			error($(formatMsg("error.nosuch.fileordir"_s, $($String::valueOf(f)))));
 			this->ok = false;
 		}
 	}
 }
 
 void Main::create($OutputStream* out, $Manifest* manifest) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	{
 		$var($ZipOutputStream, zos, $new($JarOutputStream, out));
-		{
-			$var($Throwable, var$0, nullptr);
+		$var($Throwable, var$0, nullptr);
+		try {
 			try {
-				try {
-					if (this->flag0) {
-						zos->setMethod($ZipOutputStream::STORED);
-					}
-					if (manifest != nullptr) {
-						if (this->vflag) {
-							output($(getMsg("out.added.manifest"_s)));
-						}
-						$var($ZipEntry, e, $new($ZipEntry, Main::MANIFEST_DIR));
-						e->setTime($System::currentTimeMillis());
-						e->setSize(0);
-						e->setCrc(0);
-						zos->putNextEntry(e);
-						$assign(e, $new($ZipEntry, "META-INF/MANIFEST.MF"_s));
-						e->setTime($System::currentTimeMillis());
-						if (this->flag0) {
-							crc32Manifest(e, manifest);
-						}
-						zos->putNextEntry(e);
-						manifest->write(zos);
-						zos->closeEntry();
-					}
-					updateModuleInfo(this->moduleInfos, zos);
-					{
-						$var($Iterator, i$, $nc(this->entries)->iterator());
-						for (; $nc(i$)->hasNext();) {
-							$var($Main$Entry, entry, $cast($Main$Entry, i$->next()));
-							{
-								addFile(zos, entry);
-							}
-						}
-					}
-				} catch ($Throwable& t$) {
-					try {
-						zos->close();
-					} catch ($Throwable& x2) {
-						t$->addSuppressed(x2);
-					}
-					$throw(t$);
+				if (this->flag0) {
+					zos->setMethod($ZipOutputStream::STORED);
 				}
-			} catch ($Throwable& var$1) {
-				$assign(var$0, var$1);
-			} /*finally*/ {
-				zos->close();
+				if (manifest != nullptr) {
+					if (this->vflag) {
+						output($(getMsg("out.added.manifest"_s)));
+					}
+					$var($ZipEntry, e, $new($ZipEntry, Main::MANIFEST_DIR));
+					e->setTime($System::currentTimeMillis());
+					e->setSize(0);
+					e->setCrc(0);
+					zos->putNextEntry(e);
+					$assign(e, $new($ZipEntry, "META-INF/MANIFEST.MF"_s));
+					e->setTime($System::currentTimeMillis());
+					if (this->flag0) {
+						crc32Manifest(e, manifest);
+					}
+					zos->putNextEntry(e);
+					manifest->write(zos);
+					zos->closeEntry();
+				}
+				updateModuleInfo(this->moduleInfos, zos);
+				{
+					$var($Iterator, i$, $nc(this->entries)->iterator());
+					for (; $nc(i$)->hasNext();) {
+						$var($Main$Entry, entry, $cast($Main$Entry, i$->next()));
+						{
+							addFile(zos, entry);
+						}
+					}
+				}
+			} catch ($Throwable& t$) {
+				try {
+					zos->close();
+				} catch ($Throwable& x2) {
+					t$->addSuppressed(x2);
+				}
+				$throw(t$);
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
+		} /*finally*/ {
+			zos->close();
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	}
 }
@@ -2886,13 +2494,13 @@ bool Main::equalsIgnoreCase($String* s, $String* upper) {
 		$throwNew($AssertionError);
 	}
 	int32_t len = 0;
-	int32_t var$0 = (len = $nc(s)->length());
+	int32_t var$0 = len = $nc(s)->length();
 	if (var$0 != $nc(upper)->length()) {
 		return false;
 	}
 	for (int32_t i = 0; i < len; ++i) {
-		char16_t c1 = $nc(s)->charAt(i);
-		char16_t c2 = $nc(upper)->charAt(i);
+		char16_t c1 = s->charAt(i);
+		char16_t c2 = upper->charAt(i);
 		if (c1 != c2 && toUpperCaseASCII(c1) != c2) {
 			return false;
 		}
@@ -2901,7 +2509,7 @@ bool Main::equalsIgnoreCase($String* s, $String* upper) {
 }
 
 bool Main::update($InputStream* in, $OutputStream* out, $InputStream* newManifest, $Map* moduleInfos, $JarIndex* jarIndex) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ZipInputStream, zis, $new($ZipInputStream, in));
 	$var($ZipOutputStream, zos, $new($JarOutputStream, out));
 	$var($ZipEntry, e, nullptr);
@@ -2920,42 +2528,38 @@ bool Main::update($InputStream* in, $OutputStream* out, $InputStream* newManifes
 		} else if (isManifestEntry && ((newManifest != nullptr) || (this->ename != nullptr) || this->isMultiRelease)) {
 			foundManifest = true;
 			if (newManifest != nullptr) {
-				{
-					$var($FileInputStream, fis, $new($FileInputStream, this->mname));
-					{
-						$var($Throwable, var$0, nullptr);
-						bool var$2 = false;
-						bool return$1 = false;
+				$var($FileInputStream, fis, $new($FileInputStream, this->mname));
+				$var($Throwable, var$0, nullptr);
+				bool var$2 = false;
+				bool return$1 = false;
+				try {
+					try {
+						if (isAmbiguousMainClass($$new($Manifest, fis))) {
+							var$2 = false;
+							return$1 = true;
+							goto $finally;
+						}
+					} catch ($Throwable& t$) {
 						try {
-							try {
-								if (isAmbiguousMainClass($$new($Manifest, static_cast<$InputStream*>(fis)))) {
-									var$2 = false;
-									return$1 = true;
-									goto $finally;
-								}
-							} catch ($Throwable& t$) {
-								try {
-									fis->close();
-								} catch ($Throwable& x2) {
-									t$->addSuppressed(x2);
-								}
-								$throw(t$);
-							}
-						} catch ($Throwable& var$3) {
-							$assign(var$0, var$3);
-						} $finally: {
 							fis->close();
+						} catch ($Throwable& x2) {
+							t$->addSuppressed(x2);
 						}
-						if (var$0 != nullptr) {
-							$throw(var$0);
-						}
-						if (return$1) {
-							return var$2;
-						}
+						$throw(t$);
 					}
+				} catch ($Throwable& var$3) {
+					$assign(var$0, var$3);
+				} $finally: {
+					fis->close();
+				}
+				if (var$0 != nullptr) {
+					$throw(var$0);
+				}
+				if (return$1) {
+					return var$2;
 				}
 			}
-			$var($Manifest, old, $new($Manifest, static_cast<$InputStream*>(zis)));
+			$var($Manifest, old, $new($Manifest, zis));
 			if (newManifest != nullptr) {
 				old->read(newManifest);
 			}
@@ -2977,9 +2581,9 @@ bool Main::update($InputStream* in, $OutputStream* out, $InputStream* newManifes
 					e2->setCrc(e->getCrc());
 				}
 				zos->putNextEntry(e2);
-				copy(static_cast<$InputStream*>(zis), static_cast<$OutputStream*>(zos));
+				copy(zis, zos);
 			} else {
-				$var($Main$Entry, ent, $cast($Main$Entry, $nc(this->entryMap)->get(name)));
+				$var($Main$Entry, ent, $cast($Main$Entry, this->entryMap->get(name)));
 				addFile(zos, ent);
 				$nc(this->entryMap)->remove(name);
 				$nc(this->entries)->remove(ent);
@@ -3020,9 +2624,9 @@ bool Main::update($InputStream* in, $OutputStream* out, $InputStream* newManifes
 	if (updateOk) {
 		if (moduleInfos != nullptr && !moduleInfos->isEmpty()) {
 			$var($Set, pkgs, $new($HashSet));
-			jentries->forEach(static_cast<$Consumer*>($$new(Main$$Lambda$lambda$update$4$7, this, pkgs)));
+			jentries->forEach($$new(Main$$Lambda$lambda$update$4$7, this, pkgs));
 			addExtendedModuleAttributes(moduleInfos, pkgs);
-			updateOk = checkModuleInfo($cast($bytes, $(moduleInfos->get(Main::MODULE_INFO))), jentries);
+			updateOk = checkModuleInfo($$cast($bytes, moduleInfos->get(Main::MODULE_INFO)), jentries);
 			updateModuleInfo(moduleInfos, zos);
 		} else if (this->moduleVersion != nullptr || this->modulesToHash != nullptr) {
 			error($(getMsg("error.module.options.without.info"_s)));
@@ -3035,7 +2639,7 @@ bool Main::update($InputStream* in, $OutputStream* out, $InputStream* newManifes
 }
 
 void Main::addIndex($JarIndex* index, $ZipOutputStream* zos) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ZipEntry, e, $new($ZipEntry, "META-INF/INDEX.LIST"_s));
 	e->setTime($System::currentTimeMillis());
 	if (this->flag0) {
@@ -3049,10 +2653,10 @@ void Main::addIndex($JarIndex* index, $ZipOutputStream* zos) {
 }
 
 void Main::updateModuleInfo($Map* moduleInfos, $ZipOutputStream* zos) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, fmt, this->uflag ? "out.update.module-info"_s : "out.added.module-info"_s);
 	{
-		$var($Iterator, i$, $nc($($nc(moduleInfos)->entrySet()))->iterator());
+		$var($Iterator, i$, $$nc($nc(moduleInfos)->entrySet())->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Map$Entry, mi, $cast($Map$Entry, i$->next()));
 			{
@@ -3075,7 +2679,7 @@ void Main::updateModuleInfo($Map* moduleInfos, $ZipOutputStream* zos) {
 }
 
 bool Main::updateManifest($Manifest* m, $ZipOutputStream* zos) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	addVersion(m);
 	addCreatedBy(m);
 	if (this->ename != nullptr) {
@@ -3148,7 +2752,7 @@ void Main::addVersion($Manifest* m) {
 }
 
 void Main::addCreatedBy($Manifest* m) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Attributes, global, $nc(m)->getMainAttributes());
 	if ($nc(global)->getValue($$new($Attributes$Name, "Created-By"_s)) == nullptr) {
 		$var($String, javaVendor, $System::getProperty("java.vendor"_s));
@@ -3170,7 +2774,7 @@ void Main::addMultiRelease($Manifest* m) {
 }
 
 bool Main::isAmbiguousMainClass($Manifest* m) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->ename != nullptr) {
 		$var($Attributes, global, $nc(m)->getMainAttributes());
 		$init($Attributes$Name);
@@ -3183,17 +2787,17 @@ bool Main::isAmbiguousMainClass($Manifest* m) {
 }
 
 void Main::addFile($ZipOutputStream* zos, $Main$Entry* entry) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($File, file, $nc(entry)->file);
 	$var($String, name, entry->name);
 	bool isDir = entry->isDir;
 	bool var$1 = $nc(name)->isEmpty();
-	bool var$0 = var$1 || $nc(name)->equals("."_s);
-	if (var$0 || $nc(name)->equals(this->zname)) {
+	bool var$0 = var$1 || name->equals("."_s);
+	if (var$0 || name->equals(this->zname)) {
 		return;
 	} else {
-		bool var$3 = name->equals(Main::MANIFEST_DIR);
-		if ((var$3 || name->equals("META-INF/MANIFEST.MF"_s)) && !this->Mflag) {
+		bool var$2 = name->equals(Main::MANIFEST_DIR);
+		if ((var$2 || name->equals("META-INF/MANIFEST.MF"_s)) && !this->Mflag) {
 			if (this->vflag) {
 				output($(formatMsg("out.ignore.entry"_s, name)));
 			}
@@ -3202,12 +2806,12 @@ void Main::addFile($ZipOutputStream* zos, $Main$Entry* entry) {
 			$throwNew($Error, $$str({"Unexpected module info: "_s, name}));
 		}
 	}
-	int64_t size = isDir ? (int64_t)0 : $nc(file)->length();
+	int64_t size = isDir ? 0 : $nc(file)->length();
 	if (this->vflag) {
 		$nc(this->out)->print($(formatMsg("out.adding"_s, name)));
 	}
 	$var($ZipEntry, e, $new($ZipEntry, name));
-	e->setTime(file->lastModified());
+	e->setTime($nc(file)->lastModified());
 	if (size == 0) {
 		e->setMethod($ZipEntry::STORED);
 		e->setSize(0);
@@ -3217,15 +2821,15 @@ void Main::addFile($ZipOutputStream* zos, $Main$Entry* entry) {
 	}
 	$nc(zos)->putNextEntry(e);
 	if (!isDir) {
-		copy(file, static_cast<$OutputStream*>(zos));
+		copy(file, zos);
 	}
 	zos->closeEntry();
 	if (this->vflag) {
 		size = e->getSize();
 		int64_t csize = e->getCompressedSize();
-		$var($String, var$4, "out.size"_s);
-		$var($String, var$5, $String::valueOf(size));
-		$nc(this->out)->print($(formatMsg2(var$4, var$5, $($String::valueOf(csize)))));
+		$var($String, var$3, "out.size"_s);
+		$var($String, var$4, $String::valueOf(size));
+		$nc(this->out)->print($(formatMsg2(var$3, var$4, $($String::valueOf(csize)))));
 		if (e->getMethod() == $ZipEntry::DEFLATED) {
 			int64_t ratio = 0;
 			if (size != 0) {
@@ -3246,65 +2850,61 @@ void Main::copy($InputStream* from, $OutputStream* to) {
 }
 
 void Main::copy($File* from, $OutputStream* to) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	{
 		$var($InputStream, in, $new($FileInputStream, from));
-		{
-			$var($Throwable, var$0, nullptr);
+		$var($Throwable, var$0, nullptr);
+		try {
 			try {
+				copy(in, to);
+			} catch ($Throwable& t$) {
 				try {
-					copy(in, to);
-				} catch ($Throwable& t$) {
-					try {
-						in->close();
-					} catch ($Throwable& x2) {
-						t$->addSuppressed(x2);
-					}
-					$throw(t$);
+					in->close();
+				} catch ($Throwable& x2) {
+					t$->addSuppressed(x2);
 				}
-			} catch ($Throwable& var$1) {
-				$assign(var$0, var$1);
-			} /*finally*/ {
-				in->close();
+				$throw(t$);
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
+		} /*finally*/ {
+			in->close();
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	}
 }
 
 void Main::copy($InputStream* from, $File* to) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	{
 		$var($OutputStream, out, $new($FileOutputStream, to));
-		{
-			$var($Throwable, var$0, nullptr);
+		$var($Throwable, var$0, nullptr);
+		try {
 			try {
+				copy(from, out);
+			} catch ($Throwable& t$) {
 				try {
-					copy(from, out);
-				} catch ($Throwable& t$) {
-					try {
-						out->close();
-					} catch ($Throwable& x2) {
-						t$->addSuppressed(x2);
-					}
-					$throw(t$);
+					out->close();
+				} catch ($Throwable& x2) {
+					t$->addSuppressed(x2);
 				}
-			} catch ($Throwable& var$1) {
-				$assign(var$0, var$1);
-			} /*finally*/ {
-				out->close();
+				$throw(t$);
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
+		} /*finally*/ {
+			out->close();
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	}
 }
 
 void Main::crc32ModuleInfo($ZipEntry* e, $bytes* bytes) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Main$CRC32OutputStream, os, $new($Main$CRC32OutputStream));
 	$var($ByteArrayInputStream, in, $new($ByteArrayInputStream, bytes));
 	in->transferTo(os);
@@ -3318,9 +2918,9 @@ void Main::crc32Manifest($ZipEntry* e, $Manifest* m) {
 }
 
 void Main::crc32File($ZipEntry* e, $File* f) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Main$CRC32OutputStream, os, $new($Main$CRC32OutputStream));
-	copy(f, static_cast<$OutputStream*>(os));
+	copy(f, os);
 	if (os->n != $nc(f)->length()) {
 		$throwNew($JarException, $(formatMsg("error.incorrect.length"_s, $(f->getPath()))));
 	}
@@ -3328,8 +2928,8 @@ void Main::crc32File($ZipEntry* e, $File* f) {
 }
 
 void Main::replaceFSC($Map* filesMap) {
-	$useLocalCurrentObjectStackCache();
-	$nc($($nc(filesMap)->keySet()))->forEach(static_cast<$Consumer*>($$new(Main$$Lambda$lambda$replaceFSC$5$8, filesMap)));
+	$useLocalObjectStack();
+	$$nc($nc(filesMap)->keySet())->forEach($$new(Main$$Lambda$lambda$replaceFSC$5$8, filesMap));
 }
 
 $Set* Main::newDirSet() {
@@ -3337,20 +2937,18 @@ $Set* Main::newDirSet() {
 }
 
 void Main::updateLastModifiedTime($Set* zes) {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Iterator, i$, $nc(zes)->iterator());
-		for (; $nc(i$)->hasNext();) {
-			$var($ZipEntry, ze, $cast($ZipEntry, i$->next()));
-			{
-				int64_t lastModified = $nc(ze)->getTime();
-				if (lastModified != -1) {
-					$init($File);
-					$var($String, name, safeName($($nc($(ze->getName()))->replace($File::separatorChar, u'/'))));
-					if ($nc(name)->length() != 0) {
-						$var($File, f, $new($File, $(name->replace(u'/', $File::separatorChar))));
-						f->setLastModified(lastModified);
-					}
+	$useLocalObjectStack();
+	$var($Iterator, i$, $nc(zes)->iterator());
+	for (; $nc(i$)->hasNext();) {
+		$var($ZipEntry, ze, $cast($ZipEntry, i$->next()));
+		{
+			int64_t lastModified = $nc(ze)->getTime();
+			if (lastModified != -1) {
+				$init($File);
+				$var($String, name, safeName($($$nc(ze->getName())->replace($File::separatorChar, u'/'))));
+				if ($nc(name)->length() != 0) {
+					$var($File, f, $new($File, $(name->replace(u'/', $File::separatorChar))));
+					f->setLastModified(lastModified);
 				}
 			}
 		}
@@ -3358,7 +2956,7 @@ void Main::updateLastModifiedTime($Set* zes) {
 }
 
 bool Main::extract($InputStream* in, $StringArray* files) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ZipInputStream, zis, $new($ZipInputStream, in));
 	$var($ZipEntry, e, nullptr);
 	bool entriesFound = false;
@@ -3371,15 +2969,11 @@ bool Main::extract($InputStream* in, $StringArray* files) {
 			$var($String, name, $nc(e)->getName());
 			{
 				$var($StringArray, arr$, files);
-				int32_t len$ = $nc(arr$)->length;
-				int32_t i$ = 0;
-				for (; i$ < len$; ++i$) {
+				for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 					$var($String, file, arr$->get(i$));
-					{
-						if ($nc(name)->startsWith(file)) {
-							$nc(dirs)->add($(extractFile(zis, e)));
-							break;
-						}
+					if ($nc(name)->startsWith(file)) {
+						$nc(dirs)->add($(extractFile(zis, e)));
+						break;
 					}
 				}
 			}
@@ -3390,7 +2984,7 @@ bool Main::extract($InputStream* in, $StringArray* files) {
 }
 
 void Main::extract($String* fname, $StringArray* files) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ZipFile, zf, $new($ZipFile, fname));
 	$var($Set, dirs, newDirSet());
 	$var($Enumeration, zes, zf->entries());
@@ -3402,15 +2996,11 @@ void Main::extract($String* fname, $StringArray* files) {
 			$var($String, name, $nc(e)->getName());
 			{
 				$var($StringArray, arr$, files);
-				int32_t len$ = $nc(arr$)->length;
-				int32_t i$ = 0;
-				for (; i$ < len$; ++i$) {
+				for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 					$var($String, file, arr$->get(i$));
-					{
-						if ($nc(name)->startsWith(file)) {
-							$nc(dirs)->add($(extractFile($(zf->getInputStream(e)), e)));
-							break;
-						}
+					if ($nc(name)->startsWith(file)) {
+						$nc(dirs)->add($(extractFile($(zf->getInputStream(e)), e)));
+						break;
 					}
 				}
 			}
@@ -3421,15 +3011,15 @@ void Main::extract($String* fname, $StringArray* files) {
 }
 
 $ZipEntry* Main::extractFile($InputStream* is, $ZipEntry* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ZipEntry, rc, nullptr);
 	$init($File);
-	$var($String, name, safeName($($nc($($nc(e)->getName()))->replace($File::separatorChar, u'/'))));
+	$var($String, name, safeName($($$nc($nc(e)->getName())->replace($File::separatorChar, u'/'))));
 	if ($nc(name)->length() == 0) {
 		return rc;
 	}
-	$var($File, f, $new($File, $($nc(name)->replace(u'/', $File::separatorChar))));
-	if ($nc(e)->isDirectory()) {
+	$var($File, f, $new($File, $(name->replace(u'/', $File::separatorChar))));
+	if (e->isDirectory()) {
 		if (f->exists()) {
 			if (!f->isDirectory()) {
 				$throwNew($IOException, $(formatMsg("error.create.dir"_s, $(f->getPath()))));
@@ -3451,22 +3041,20 @@ $ZipEntry* Main::extractFile($InputStream* is, $ZipEntry* e) {
 				$throwNew($IOException, $(formatMsg("error.create.dir"_s, $(d->getPath()))));
 			}
 		}
-		{
-			$var($Throwable, var$2, nullptr);
-			try {
-				copy(is, f);
-			} catch ($Throwable& var$3) {
-				$assign(var$2, var$3);
-			} /*finally*/ {
-				if ($instanceOf($ZipInputStream, is)) {
-					$nc(($cast($ZipInputStream, is)))->closeEntry();
-				} else {
-					$nc(is)->close();
-				}
+		$var($Throwable, var$2, nullptr);
+		try {
+			copy(is, f);
+		} catch ($Throwable& var$3) {
+			$assign(var$2, var$3);
+		} /*finally*/ {
+			if ($instanceOf($ZipInputStream, is)) {
+				$cast($ZipInputStream, is)->closeEntry();
+			} else {
+				$nc(is)->close();
 			}
-			if (var$2 != nullptr) {
-				$throw(var$2);
-			}
+		}
+		if (var$2 != nullptr) {
+			$throw(var$2);
 		}
 		if (this->vflag) {
 			if (e->getMethod() == $ZipEntry::DEFLATED) {
@@ -3477,7 +3065,7 @@ $ZipEntry* Main::extractFile($InputStream* is, $ZipEntry* e) {
 		}
 	}
 	if (!Main::useExtractionTime) {
-		int64_t lastModified = $nc(e)->getTime();
+		int64_t lastModified = e->getTime();
 		if (lastModified != -1) {
 			f->setLastModified(lastModified);
 		}
@@ -3486,7 +3074,7 @@ $ZipEntry* Main::extractFile($InputStream* is, $ZipEntry* e) {
 }
 
 void Main::list($InputStream* in, $StringArray* files) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ZipInputStream, zis, $new($ZipInputStream, in));
 	$var($ZipEntry, e, nullptr);
 	while (($assign(e, zis->getNextEntry())) != nullptr) {
@@ -3496,49 +3084,47 @@ void Main::list($InputStream* in, $StringArray* files) {
 }
 
 void Main::list($String* fname, $StringArray* files) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ZipFile, zf, $new($ZipFile, fname));
 	$var($Enumeration, zes, zf->entries());
 	while ($nc(zes)->hasMoreElements()) {
-		printEntry($cast($ZipEntry, $(zes->nextElement())), files);
+		printEntry($$cast($ZipEntry, zes->nextElement()), files);
 	}
 	zf->close();
 }
 
 void Main::dumpIndex($String* rootjar, $JarIndex* index) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($File, jarFile, $new($File, rootjar));
 	$var($Path, jarPath, jarFile->toPath());
-	$var($Path, tmpPath, $nc($(createTempFileInSameDirectoryAs(jarFile)))->toPath());
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$var($InputStream, var$1, $Files::newInputStream(jarPath, $$new($OpenOptionArray, 0)));
-			if (update(var$1, $($Files::newOutputStream(tmpPath, $$new($OpenOptionArray, 0))), nullptr, nullptr, index)) {
-				try {
-					$init($StandardCopyOption);
-					$Files::move(tmpPath, jarPath, $$new($CopyOptionArray, {static_cast<$CopyOption*>($StandardCopyOption::REPLACE_EXISTING)}));
-				} catch ($IOException& e) {
-					$throwNew($IOException, $(getMsg("error.write.file"_s)), e);
-				}
+	$var($Path, tmpPath, $$nc(createTempFileInSameDirectoryAs(jarFile))->toPath());
+	$var($Throwable, var$0, nullptr);
+	try {
+		$var($InputStream, var$1, $Files::newInputStream(jarPath, $$new($OpenOptionArray, 0)));
+		if (update(var$1, $($Files::newOutputStream(tmpPath, $$new($OpenOptionArray, 0))), nullptr, nullptr, index)) {
+			try {
+				$init($StandardCopyOption);
+				$Files::move(tmpPath, jarPath, $$new($CopyOptionArray, {$StandardCopyOption::REPLACE_EXISTING}));
+			} catch ($IOException& e) {
+				$throwNew($IOException, $(getMsg("error.write.file"_s)), e);
 			}
-		} catch ($Throwable& var$2) {
-			$assign(var$0, var$2);
-		} /*finally*/ {
-			$Files::deleteIfExists(tmpPath);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	} catch ($Throwable& var$2) {
+		$assign(var$0, var$2);
+	} /*finally*/ {
+		$Files::deleteIfExists(tmpPath);
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 $List* Main::getJarPath($String* jar) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, files, $new($ArrayList));
 	files->add(jar);
 	$nc(this->jarPaths)->add(jar);
-	$var($String, path, $nc(jar)->substring(0, $Math::max(0, jar->lastIndexOf((int32_t)u'/') + 1)));
+	$var($String, path, $nc(jar)->substring(0, $Math::max(0, $nc(jar)->lastIndexOf(u'/') + 1)));
 	$init($File);
 	$var($JarFile, rf, $new($JarFile, $(jar->replace(u'/', $File::separatorChar))));
 	if (rf != nullptr) {
@@ -3568,7 +3154,7 @@ $List* Main::getJarPath($String* jar) {
 }
 
 void Main::genIndex($String* rootjar, $StringArray* files) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, jars, getJarPath(rootjar));
 	int32_t njars = $nc(jars)->size();
 	$var($StringArray, jarfiles, nullptr);
@@ -3578,28 +3164,24 @@ void Main::genIndex($String* rootjar, $StringArray* files) {
 		}
 		njars = jars->size();
 	}
-	$assign(jarfiles, $fcast($StringArray, jars->toArray($$new($StringArray, njars))));
+	$assign(jarfiles, $cast($StringArray, jars->toArray($$new($StringArray, njars))));
 	$var($JarIndex, index, $new($JarIndex, jarfiles));
 	dumpIndex(rootjar, index);
 }
 
 void Main::printEntry($ZipEntry* e, $StringArray* files) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (files == nullptr) {
 		printEntry(e);
 	} else {
 		$var($String, name, $nc(e)->getName());
 		{
 			$var($StringArray, arr$, files);
-			int32_t len$ = $nc(arr$)->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
+			for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 				$var($String, file, arr$->get(i$));
-				{
-					if ($nc(name)->startsWith(file)) {
-						printEntry(e);
-						return;
-					}
+				if ($nc(name)->startsWith(file)) {
+					printEntry(e);
+					return;
 				}
 			}
 		}
@@ -3607,15 +3189,15 @@ void Main::printEntry($ZipEntry* e, $StringArray* files) {
 }
 
 void Main::printEntry($ZipEntry* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->vflag) {
 		$var($StringBuilder, sb, $new($StringBuilder));
 		$var($String, s, $Long::toString($nc(e)->getSize()));
-		for (int32_t i = 6 - $nc(s)->length(); i > 0; --i) {
+		for (int32_t i = 6 - s->length(); i > 0; --i) {
 			sb->append(u' ');
 		}
-		sb->append(s)->append(u' ')->append($($$new($Date, $nc(e)->getTime())->toString()));
-		sb->append(u' ')->append($($nc(e)->getName()));
+		sb->append(s)->append(u' ')->append($($$new($Date, e->getTime())->toString()));
+		sb->append(u' ')->append($(e->getName()));
 		output($(sb->toString()));
 	} else {
 		output($($nc(e)->getName()));
@@ -3624,7 +3206,7 @@ void Main::printEntry($ZipEntry* e) {
 
 void Main::usageError($String* s) {
 	$nc(this->err)->println(s);
-	$nc(this->err)->println($(getMsg("main.usage.summary.try"_s)));
+	this->err->println($(getMsg("main.usage.summary.try"_s)));
 }
 
 void Main::fatalError($Exception* e) {
@@ -3654,7 +3236,7 @@ void Main::main($StringArray* args) {
 }
 
 $File* Main::createTemporaryFile($String* tmpbase, $String* suffix) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($File, tmpfile, nullptr);
 	try {
 		$assign(tmpfile, $File::createTempFile(tmpbase, suffix));
@@ -3664,21 +3246,21 @@ $File* Main::createTemporaryFile($String* tmpbase, $String* suffix) {
 	if (tmpfile == nullptr) {
 		if (this->fname != nullptr) {
 			try {
-				$var($File, tmpfolder, $nc($($$new($File, this->fname)->getAbsoluteFile()))->getParentFile());
+				$var($File, tmpfolder, $$nc($$new($File, this->fname)->getAbsoluteFile())->getParentFile());
 				$assign(tmpfile, $File::createTempFile(this->fname, $$str({".tmp"_s, suffix}), tmpfolder));
 			} catch ($IOException& ioe) {
-				fatalError(static_cast<$Exception*>(ioe));
+				fatalError(ioe);
 			}
 		} else {
-			fatalError(static_cast<$Exception*>($$new($IOException, $(getMsg("error.create.tempfile"_s)))));
+			fatalError($$new($IOException, $(getMsg("error.create.tempfile"_s))));
 		}
 	}
 	return tmpfile;
 }
 
 bool Main::describeModule($ZipFile* zipFile) {
-	$useLocalCurrentObjectStackCache();
-	$var($Main$ZipFileModuleInfoEntryArray, infos, $fcast($Main$ZipFileModuleInfoEntryArray, $nc($($nc($($nc($($nc($($nc(zipFile)->stream()))->filter(static_cast<$Predicate*>($$new(Main$$Lambda$lambda$describeModule$6$9)))))->sorted(Main::ENTRY_COMPARATOR)))->map(static_cast<$Function*>($$new(Main$$Lambda$lambda$describeModule$7$10, zipFile)))))->toArray(static_cast<$IntFunction*>($$new(Main$$Lambda$lambda$describeModule$8$11)))));
+	$useLocalObjectStack();
+	$var($Main$ZipFileModuleInfoEntryArray, infos, $cast($Main$ZipFileModuleInfoEntryArray, $$nc($$nc($$nc($$nc($nc(zipFile)->stream())->filter($$new(Main$$Lambda$lambda$describeModule$6$9)))->sorted(Main::ENTRY_COMPARATOR))->map($$new(Main$$Lambda$lambda$describeModule$7$10, zipFile)))->toArray($$new(Main$$Lambda$lambda$describeModule$8$11))));
 	if ($nc(infos)->length == 0) {
 		$var($String, fn, zipFile->getName());
 		$var($ModuleFinder, mf, $ModuleFinder::of($$new($PathArray, {$($Paths::get(fn, $$new($StringArray, 0)))})));
@@ -3688,7 +3270,7 @@ bool Main::describeModule($ZipFile* zipFile) {
 				output($(formatMsg("error.unable.derive.automodule"_s, fn)));
 				return true;
 			}
-			$var($ModuleDescriptor, md, $nc(($cast($ModuleReference, $($nc($($nc(mref)->iterator()))->next()))))->descriptor());
+			$var($ModuleDescriptor, md, $$sure($ModuleReference, $$nc(mref->iterator())->next())->descriptor());
 			output($$str({$(getMsg("out.automodule"_s)), "\n"_s}));
 			describeModule(md, nullptr, nullptr, ""_s);
 		} catch ($FindException& e) {
@@ -3700,71 +3282,67 @@ bool Main::describeModule($ZipFile* zipFile) {
 			output(msg);
 		}
 	} else {
-		return describeModuleFromEntries($fcast($Main$ModuleInfoEntryArray, infos));
+		return describeModuleFromEntries($cast($Main$ModuleInfoEntryArray, infos));
 	}
 	return true;
 }
 
 bool Main::describeModuleFromStream($FileInputStream* fis) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, infos, $new($LinkedList));
 	{
 		$var($BufferedInputStream, bis, $new($BufferedInputStream, fis));
-		{
-			$var($Throwable, var$0, nullptr);
+		$var($Throwable, var$0, nullptr);
+		try {
 			try {
+				$var($ZipInputStream, zis, $new($ZipInputStream, bis));
+				$var($Throwable, var$1, nullptr);
 				try {
-					$var($ZipInputStream, zis, $new($ZipInputStream, bis));
-					{
-						$var($Throwable, var$1, nullptr);
-						try {
-							try {
-								$var($ZipEntry, e, nullptr);
-								while (($assign(e, zis->getNextEntry())) != nullptr) {
-									$var($String, ename, $nc(e)->getName());
-									if (isModuleInfoEntry(ename)) {
-										infos->add($$new($Main$StreamedModuleInfoEntry, ename, $(zis->readAllBytes())));
-									}
-								}
-							} catch ($Throwable& t$) {
-								try {
-									zis->close();
-								} catch ($Throwable& x2) {
-									t$->addSuppressed(x2);
-								}
-								$throw(t$);
-							}
-						} catch ($Throwable& var$2) {
-							$assign(var$1, var$2);
-						} /*finally*/ {
-							zis->close();
-						}
-						if (var$1 != nullptr) {
-							$throw(var$1);
-						}
-					}
-				} catch ($Throwable& t$) {
 					try {
-						bis->close();
-					} catch ($Throwable& x2) {
-						t$->addSuppressed(x2);
+						$var($ZipEntry, e, nullptr);
+						while (($assign(e, zis->getNextEntry())) != nullptr) {
+							$var($String, ename, $nc(e)->getName());
+							if (isModuleInfoEntry(ename)) {
+								infos->add($$new($Main$StreamedModuleInfoEntry, ename, $(zis->readAllBytes())));
+							}
+						}
+					} catch ($Throwable& t$) {
+						try {
+							zis->close();
+						} catch ($Throwable& x2) {
+							t$->addSuppressed(x2);
+						}
+						$throw(t$);
 					}
-					$throw(t$);
+				} catch ($Throwable& var$2) {
+					$assign(var$1, var$2);
+				} /*finally*/ {
+					zis->close();
 				}
-			} catch ($Throwable& var$3) {
-				$assign(var$0, var$3);
-			} /*finally*/ {
-				bis->close();
+				if (var$1 != nullptr) {
+					$throw(var$1);
+				}
+			} catch ($Throwable& t$) {
+				try {
+					bis->close();
+				} catch ($Throwable& x2) {
+					t$->addSuppressed(x2);
+				}
+				$throw(t$);
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
+		} /*finally*/ {
+			bis->close();
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	}
 	if (infos->size() == 0) {
 		return false;
 	}
-	$var($Main$ModuleInfoEntryArray, sorted, $fcast($Main$ModuleInfoEntryArray, $nc($($nc($(infos->stream()))->sorted($($Comparator::comparing(static_cast<$Function*>($$new(Main$$Lambda$name$12)), Main::ENTRYNAME_COMPARATOR)))))->toArray(static_cast<$IntFunction*>($$new(Main$$Lambda$lambda$describeModuleFromStream$9$13)))));
+	$var($Main$ModuleInfoEntryArray, sorted, $cast($Main$ModuleInfoEntryArray, $$nc($$nc(infos->stream())->sorted($($Comparator::comparing($$new(Main$$Lambda$name$12), Main::ENTRYNAME_COMPARATOR))))->toArray($$new(Main$$Lambda$lambda$describeModuleFromStream$9$13))));
 	return describeModuleFromEntries(sorted);
 }
 
@@ -3780,22 +3358,22 @@ $String* Main::versionFromEntryName($String* name) {
 
 int32_t Main::intVersionFromEntry($Main$ModuleInfoEntry* entry) {
 	$init(Main);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, name, $nc(entry)->name());
 	if (!$nc(name)->startsWith(Main::VERSIONS_DIR)) {
 		return Main::BASE_VERSION;
 	}
-	$var($String, s, $nc(name)->substring(Main::VERSIONS_DIR_LENGTH));
-	$assign(s, s->substring(0, s->indexOf((int32_t)u'/')));
-	return $nc($($Integer::valueOf(s)))->intValue();
+	$var($String, s, name->substring(Main::VERSIONS_DIR_LENGTH));
+	$assign(s, s->substring(0, s->indexOf(u'/')));
+	return $($Integer::valueOf(s))->intValue();
 }
 
 bool Main::describeModuleFromEntries($Main$ModuleInfoEntryArray* infos) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!Main::$assertionsDisabled && !($nc(infos)->length > 0)) {
 		$throwNew($AssertionError);
 	}
-	$var($String, releases, $cast($String, $nc($($nc($($nc($($nc($($Arrays::stream(infos)))->filter(static_cast<$Predicate*>($$new(Main$$Lambda$lambda$describeModuleFromEntries$10$14)))))->map(static_cast<$Function*>($$new(Main$$Lambda$name$12)))))->map(static_cast<$Function*>($$new(Main$$Lambda$versionFromEntryName$15)))))->collect($($Collectors::joining(" "_s)))));
+	$var($String, releases, $cast($String, $$nc($$nc($$nc($$nc($Arrays::stream(infos))->filter($$new(Main$$Lambda$lambda$describeModuleFromEntries$10$14)))->map($$new(Main$$Lambda$name$12)))->map($$new(Main$$Lambda$versionFromEntryName$15)))->collect($($Collectors::joining(" "_s)))));
 	if (!$nc(releases)->isEmpty()) {
 		output($$str({"releases: "_s, releases, "\n"_s}));
 	}
@@ -3810,65 +3388,61 @@ bool Main::describeModuleFromEntries($Main$ModuleInfoEntryArray* infos) {
 			output($(formatMsg("error.no.operative.descriptor"_s, $($String::valueOf(this->releaseValue)))));
 			return false;
 		}
-		$var($String, uriString, $cast($String, $nc($($nc(entry)->uriString()))->orElse(""_s)));
+		$var($String, uriString, $cast($String, $$nc($nc(entry)->uriString())->orElse(""_s)));
 		{
 			$var($InputStream, is, entry->bytes());
-			{
-				$var($Throwable, var$0, nullptr);
+			$var($Throwable, var$0, nullptr);
+			try {
 				try {
-					try {
-						describeModule(is, uriString);
-					} catch ($Throwable& t$) {
-						if (is != nullptr) {
-							try {
-								is->close();
-							} catch ($Throwable& x2) {
-								t$->addSuppressed(x2);
-							}
-						}
-						$throw(t$);
-					}
-				} catch ($Throwable& var$1) {
-					$assign(var$0, var$1);
-				} /*finally*/ {
+					describeModule(is, uriString);
+				} catch ($Throwable& t$) {
 					if (is != nullptr) {
-						is->close();
+						try {
+							is->close();
+						} catch ($Throwable& x2) {
+							t$->addSuppressed(x2);
+						}
 					}
+					$throw(t$);
 				}
-				if (var$0 != nullptr) {
-					$throw(var$0);
+			} catch ($Throwable& var$1) {
+				$assign(var$0, var$1);
+			} /*finally*/ {
+				if (is != nullptr) {
+					is->close();
 				}
 			}
+			if (var$0 != nullptr) {
+				$throw(var$0);
+			}
 		}
-	} else if ($nc($($nc($nc(infos)->get(0))->name()))->equals(Main::MODULE_INFO)) {
-		$var($String, uriString, $cast($String, $nc($($nc(infos->get(0))->uriString()))->orElse(""_s)));
+	} else if ($$nc($nc($nc(infos)->get(0))->name())->equals(Main::MODULE_INFO)) {
+		$var($String, uriString, $cast($String, $$nc($nc(infos->get(0))->uriString())->orElse(""_s)));
 		{
 			$var($InputStream, is, $nc(infos->get(0))->bytes());
-			{
-				$var($Throwable, var$2, nullptr);
+			$var($Throwable, var$2, nullptr);
+			try {
 				try {
-					try {
-						describeModule(is, uriString);
-					} catch ($Throwable& t$) {
-						if (is != nullptr) {
-							try {
-								is->close();
-							} catch ($Throwable& x2) {
-								t$->addSuppressed(x2);
-							}
-						}
-						$throw(t$);
-					}
-				} catch ($Throwable& var$3) {
-					$assign(var$2, var$3);
-				} /*finally*/ {
+					describeModule(is, uriString);
+				} catch ($Throwable& t$) {
 					if (is != nullptr) {
-						is->close();
+						try {
+							is->close();
+						} catch ($Throwable& x2) {
+							t$->addSuppressed(x2);
+						}
 					}
+					$throw(t$);
 				}
-				if (var$2 != nullptr) {
-					$throw(var$2);
+			} catch ($Throwable& var$3) {
+				$assign(var$2, var$3);
+			} /*finally*/ {
+				if (is != nullptr) {
+					is->close();
 				}
+			}
+			if (var$2 != nullptr) {
+				$throw(var$2);
 			}
 		}
 	} else {
@@ -3879,25 +3453,25 @@ bool Main::describeModuleFromEntries($Main$ModuleInfoEntryArray* infos) {
 
 $String* Main::toLowerCaseString($Collection* set) {
 	$init(Main);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(set)->isEmpty()) {
 		return ""_s;
 	}
-	return $str({" "_s, $cast($String, $($nc($($nc($($nc($($nc(set)->stream()))->map(static_cast<$Function*>($$new(Main$$Lambda$lambda$toLowerCaseString$11$16)))))->sorted()))->collect($($Collectors::joining(" "_s)))))});
+	return $str({" "_s, $$cast($String, $$nc($$nc($$nc(set->stream())->map($$new(Main$$Lambda$lambda$toLowerCaseString$11$16)))->sorted())->collect($($Collectors::joining(" "_s))))});
 }
 
 $String* Main::toString($Collection* set) {
 	$init(Main);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(set)->isEmpty()) {
 		return ""_s;
 	}
-	return $str({" "_s, $cast($String, $($nc($($nc($($nc($($nc(set)->stream()))->map(static_cast<$Function*>($$new(Main$$Lambda$lambda$toString$12$17)))))->sorted()))->collect($($Collectors::joining(" "_s)))))});
+	return $str({" "_s, $$cast($String, $$nc($$nc($$nc(set->stream())->map($$new(Main$$Lambda$lambda$toString$12$17)))->sorted())->collect($($Collectors::joining(" "_s))))});
 }
 
 void Main::describeModule($InputStream* entryInputStream, $String* uriString) {
-	$useLocalCurrentObjectStackCache();
-	$var($ModuleInfo$Attributes, attrs, $ModuleInfo::read(entryInputStream, ($Supplier*)nullptr));
+	$useLocalObjectStack();
+	$var($ModuleInfo$Attributes, attrs, $ModuleInfo::read(entryInputStream, nullptr));
 	$var($ModuleDescriptor, md, $nc(attrs)->descriptor());
 	$var($ModuleTarget, target, attrs->target());
 	$var($ModuleHashes, hashes, attrs->recordedHashes());
@@ -3905,31 +3479,31 @@ void Main::describeModule($InputStream* entryInputStream, $String* uriString) {
 }
 
 void Main::describeModule($ModuleDescriptor* md, $ModuleTarget* target, $ModuleHashes* hashes, $String* uriString) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, sb, $new($StringBuilder));
 	sb->append($($nc(md)->toNameAndVersion()));
 	if (!$nc(uriString)->isEmpty()) {
 		sb->append(" "_s)->append(uriString);
 	}
-	if ($nc(md)->isOpen()) {
+	if (md->isOpen()) {
 		sb->append(" open"_s);
 	}
-	if ($nc(md)->isAutomatic()) {
+	if (md->isAutomatic()) {
 		sb->append(" automatic"_s);
 	}
 	sb->append("\n"_s);
-	$nc($($nc($($nc($($nc($($nc(md)->exports()))->stream()))->sorted($($Comparator::comparing(static_cast<$Function*>($$new(Main$$Lambda$source$18)))))))->filter(static_cast<$Predicate*>($$new(Main$$Lambda$lambda$describeModule$13$19)))))->forEach(static_cast<$Consumer*>($$new(Main$$Lambda$lambda$describeModule$14$20, sb)));
-	$nc($($nc($($nc($(md->requires()))->stream()))->sorted()))->forEach(static_cast<$Consumer*>($$new(Main$$Lambda$lambda$describeModule$15$21, sb)));
-	$nc($($nc($($nc($(md->uses()))->stream()))->sorted()))->forEach(static_cast<$Consumer*>($$new(Main$$Lambda$lambda$describeModule$16$22, sb)));
-	$nc($($nc($($nc($(md->provides()))->stream()))->sorted($($Comparator::comparing(static_cast<$Function*>($$new(Main$$Lambda$service$23)))))))->forEach(static_cast<$Consumer*>($$new(Main$$Lambda$lambda$describeModule$17$24, sb)));
-	$nc($($nc($($nc($($nc($(md->exports()))->stream()))->sorted($($Comparator::comparing(static_cast<$Function*>($$new(Main$$Lambda$source$18)))))))->filter(static_cast<$Predicate*>($$new(Main$$Lambda$isQualified$25)))))->forEach(static_cast<$Consumer*>($$new(Main$$Lambda$lambda$describeModule$18$26, sb)));
-	$nc($($nc($($nc($($nc($(md->opens()))->stream()))->sorted($($Comparator::comparing(static_cast<$Function*>($$new(Main$$Lambda$source$27)))))))->filter(static_cast<$Predicate*>($$new(Main$$Lambda$lambda$describeModule$19$28)))))->forEach(static_cast<$Consumer*>($$new(Main$$Lambda$lambda$describeModule$20$29, sb)));
-	$nc($($nc($($nc($($nc($(md->opens()))->stream()))->sorted($($Comparator::comparing(static_cast<$Function*>($$new(Main$$Lambda$source$27)))))))->filter(static_cast<$Predicate*>($$new(Main$$Lambda$isQualified$30)))))->forEach(static_cast<$Consumer*>($$new(Main$$Lambda$lambda$describeModule$21$31, sb)));
-	$var($Set, concealed, static_cast<$Set*>(static_cast<$AbstractSet*>($new($TreeSet, $(static_cast<$Collection*>(md->packages()))))));
-	$nc($($nc($($nc($(md->exports()))->stream()))->map(static_cast<$Function*>($$new(Main$$Lambda$source$18)))))->forEach(static_cast<$Consumer*>($$new(Main$$Lambda$remove$32, static_cast<$Set*>(concealed))));
-	$nc($($nc($($nc($(md->opens()))->stream()))->map(static_cast<$Function*>($$new(Main$$Lambda$source$27)))))->forEach(static_cast<$Consumer*>($$new(Main$$Lambda$remove$32, static_cast<$Set*>(concealed))));
-	concealed->forEach(static_cast<$Consumer*>($$new(Main$$Lambda$lambda$describeModule$22$33, sb)));
-	$nc($(md->mainClass()))->ifPresent(static_cast<$Consumer*>($$new(Main$$Lambda$lambda$describeModule$23$34, sb)));
+	$$nc($$nc($$nc($$nc(md->exports())->stream())->sorted($($Comparator::comparing($$new(Main$$Lambda$source$18)))))->filter($$new(Main$$Lambda$lambda$describeModule$13$19)))->forEach($$new(Main$$Lambda$lambda$describeModule$14$20, sb));
+	$$nc($$nc($$nc(md->requires())->stream())->sorted())->forEach($$new(Main$$Lambda$lambda$describeModule$15$21, sb));
+	$$nc($$nc($$nc(md->uses())->stream())->sorted())->forEach($$new(Main$$Lambda$lambda$describeModule$16$22, sb));
+	$$nc($$nc($$nc(md->provides())->stream())->sorted($($Comparator::comparing($$new(Main$$Lambda$service$23)))))->forEach($$new(Main$$Lambda$lambda$describeModule$17$24, sb));
+	$$nc($$nc($$nc($$nc(md->exports())->stream())->sorted($($Comparator::comparing($$new(Main$$Lambda$source$18)))))->filter($$new(Main$$Lambda$isQualified$25)))->forEach($$new(Main$$Lambda$lambda$describeModule$18$26, sb));
+	$$nc($$nc($$nc($$nc(md->opens())->stream())->sorted($($Comparator::comparing($$new(Main$$Lambda$source$27)))))->filter($$new(Main$$Lambda$lambda$describeModule$19$28)))->forEach($$new(Main$$Lambda$lambda$describeModule$20$29, sb));
+	$$nc($$nc($$nc($$nc(md->opens())->stream())->sorted($($Comparator::comparing($$new(Main$$Lambda$source$27)))))->filter($$new(Main$$Lambda$isQualified$30)))->forEach($$new(Main$$Lambda$lambda$describeModule$21$31, sb));
+	$var($Set, concealed, $cast($AbstractSet, $new($TreeSet, $(md->packages()))));
+	$$nc($$nc($$nc(md->exports())->stream())->map($$new(Main$$Lambda$source$18)))->forEach($$new(Main$$Lambda$remove$32, concealed));
+	$$nc($$nc($$nc(md->opens())->stream())->map($$new(Main$$Lambda$source$27)))->forEach($$new(Main$$Lambda$remove$32, concealed));
+	concealed->forEach($$new(Main$$Lambda$lambda$describeModule$22$33, sb));
+	$$nc(md->mainClass())->ifPresent($$new(Main$$Lambda$lambda$describeModule$23$34, sb));
 	if (target != nullptr) {
 		$var($String, targetPlatform, target->targetPlatform());
 		if (!$nc(targetPlatform)->isEmpty()) {
@@ -3937,23 +3511,21 @@ void Main::describeModule($ModuleDescriptor* md, $ModuleTarget* target, $ModuleH
 		}
 	}
 	if (hashes != nullptr) {
-		$nc($($nc($($nc($(hashes->names()))->stream()))->sorted()))->forEach(static_cast<$Consumer*>($$new(Main$$Lambda$lambda$describeModule$24$35, sb, hashes)));
+		$$nc($$nc($$nc(hashes->names())->stream())->sorted())->forEach($$new(Main$$Lambda$lambda$describeModule$24$35, sb, hashes));
 	}
 	output($(sb->toString()));
 }
 
 $String* Main::toHex($bytes* ba) {
 	$init(Main);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, sb, $new($StringBuilder, $nc(ba)->length << 1));
 	{
 		$var($bytes, arr$, ba);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 			int8_t b = arr$->get(i$);
 			{
-				sb->append($($String::format("%02x"_s, $$new($ObjectArray, {$($of($Integer::valueOf((int32_t)(b & (uint32_t)255))))}))));
+				sb->append($($String::format("%02x"_s, $$new($ObjectArray, {$($Integer::valueOf(b & 0xff))}))));
 			}
 		}
 	}
@@ -3966,12 +3538,12 @@ $String* Main::toBinaryName($String* classname) {
 }
 
 bool Main::checkModuleInfo($bytes* moduleInfoBytes, $Set* entries) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool ok = true;
 	if (moduleInfoBytes != nullptr) {
 		try {
 			$var($ModuleDescriptor, md, $ModuleDescriptor::read($($ByteBuffer::wrap(moduleInfoBytes))));
-			if ($nc($($nc($($nc($($nc($($nc($($nc($($nc(md)->provides()))->stream()))->map(static_cast<$Function*>($$new(Main$$Lambda$providers$36)))))->flatMap(static_cast<$Function*>($$new(Main$$Lambda$stream$37)))))->filter(static_cast<$Predicate*>($$new(Main$$Lambda$lambda$checkModuleInfo$25$38, entries)))))->peek(static_cast<$Consumer*>($$new(Main$$Lambda$lambda$checkModuleInfo$26$39, this)))))->count() != 0) {
+			if ($$nc($$nc($$nc($$nc($$nc($$nc($nc(md)->provides())->stream())->map($$new(Main$$Lambda$providers$36)))->flatMap($$new(Main$$Lambda$stream$37)))->filter($$new(Main$$Lambda$lambda$checkModuleInfo$25$38, entries)))->peek($$new(Main$$Lambda$lambda$checkModuleInfo$26$39, this)))->count() != 0) {
 				ok = false;
 			}
 		} catch ($InvalidModuleDescriptorException& x) {
@@ -3983,15 +3555,13 @@ bool Main::checkModuleInfo($bytes* moduleInfoBytes, $Set* entries) {
 }
 
 void Main::addExtendedModuleAttributes($Map* moduleInfos, $Set* packages) {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Iterator, i$, $nc($($nc(moduleInfos)->entrySet()))->iterator());
-		for (; $nc(i$)->hasNext();) {
-			$var($Map$Entry, e, $cast($Map$Entry, i$->next()));
-			{
-				$var($ModuleDescriptor, md, $ModuleDescriptor::read($($ByteBuffer::wrap($cast($bytes, $($nc(e)->getValue()))))));
-				$nc(e)->setValue($(extendedInfoBytes(md, $cast($bytes, $(e->getValue())), packages)));
-			}
+	$useLocalObjectStack();
+	$var($Iterator, i$, $$nc($nc(moduleInfos)->entrySet())->iterator());
+	for (; $nc(i$)->hasNext();) {
+		$var($Map$Entry, e, $cast($Map$Entry, i$->next()));
+		{
+			$var($ModuleDescriptor, md, $ModuleDescriptor::read($($ByteBuffer::wrap($$cast($bytes, $nc(e)->getValue())))));
+			e->setValue($(extendedInfoBytes(md, $$cast($bytes, e->getValue()), packages)));
 		}
 	}
 }
@@ -4000,7 +3570,7 @@ bool Main::isModuleInfoEntry($String* name) {
 	$init(Main);
 	if ($nc(name)->endsWith(Main::MODULE_INFO)) {
 		int32_t var$0 = name->length();
-		int32_t end = var$0 - $nc(Main::MODULE_INFO)->length();
+		int32_t end = var$0 - Main::MODULE_INFO->length();
 		if (end == 0) {
 			return true;
 		}
@@ -4022,7 +3592,7 @@ bool Main::isModuleInfoEntry($String* name) {
 }
 
 $bytes* Main::extendedInfoBytes($ModuleDescriptor* md, $bytes* miBytes, $Set* packages) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ByteArrayOutputStream, baos, $new($ByteArrayOutputStream));
 	$var($InputStream, is, $new($ByteArrayInputStream, miBytes));
 	$var($ModuleInfoExtender, extender, $ModuleInfoExtender::newExtender(is));
@@ -4055,7 +3625,7 @@ int32_t Main::lambda$static$27($String* s1, $String* s2) {
 	if ($nc(s1)->equals(s2)) {
 		return 0;
 	}
-	bool b1 = $nc(s1)->startsWith(Main::VERSIONS_DIR);
+	bool b1 = s1->startsWith(Main::VERSIONS_DIR);
 	bool b2 = $nc(s2)->startsWith(Main::VERSIONS_DIR);
 	if (b1 && !b2) {
 		return 1;
@@ -4065,9 +3635,9 @@ int32_t Main::lambda$static$27($String* s1, $String* s2) {
 	}
 	int32_t n = 0;
 	if (b1 && b2) {
-		n = $nc(Main::VERSIONS_DIR)->length();
-		int32_t i1 = s1->indexOf((int32_t)u'/', n);
-		int32_t i2 = s2->indexOf((int32_t)u'/', n);
+		n = Main::VERSIONS_DIR->length();
+		int32_t i1 = s1->indexOf(u'/', n);
+		int32_t i2 = s2->indexOf(u'/', n);
 		if (i1 == -1) {
 			$throwNew($Validator$InvalidJarException, s1);
 		}
@@ -4108,7 +3678,7 @@ bool Main::lambda$checkModuleInfo$25($Set* entries, $String* p) {
 
 void Main::lambda$describeModule$24($StringBuilder* sb, $ModuleHashes* hashes, $String* mod) {
 	$init(Main);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(sb)->append("hashes "_s)->append(mod)->append(" "_s)->append($($nc(hashes)->algorithm()))->append(" "_s)->append($(toHex($($nc(hashes)->hashFor(mod)))))->append("\n"_s);
 }
 
@@ -4124,13 +3694,13 @@ void Main::lambda$describeModule$22($StringBuilder* sb, $String* p) {
 
 void Main::lambda$describeModule$21($StringBuilder* sb, $ModuleDescriptor$Opens* o) {
 	$init(Main);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(sb)->append("qualified opens "_s)->append($($nc(o)->source()))->append($(toLowerCaseString($($nc(o)->modifiers()))))->append(" to"_s)->append($(toLowerCaseString($($nc(o)->targets()))))->append("\n"_s);
 }
 
 void Main::lambda$describeModule$20($StringBuilder* sb, $ModuleDescriptor$Opens* o) {
 	$init(Main);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(sb)->append("opens "_s)->append($($nc(o)->source()))->append($(toLowerCaseString($($nc(o)->modifiers()))))->append("\n"_s);
 }
 
@@ -4141,13 +3711,13 @@ bool Main::lambda$describeModule$19($ModuleDescriptor$Opens* o) {
 
 void Main::lambda$describeModule$18($StringBuilder* sb, $ModuleDescriptor$Exports* e) {
 	$init(Main);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(sb)->append("qualified exports "_s)->append($($nc(e)->source()))->append(" to"_s)->append($(toLowerCaseString($($nc(e)->targets()))))->append("\n"_s);
 }
 
 void Main::lambda$describeModule$17($StringBuilder* sb, $ModuleDescriptor$Provides* p) {
 	$init(Main);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(sb)->append("provides "_s)->append($($nc(p)->service()))->append(" with"_s)->append($(toString($($nc(p)->providers()))))->append("\n"_s);
 }
 
@@ -4158,13 +3728,13 @@ void Main::lambda$describeModule$16($StringBuilder* sb, $String* s) {
 
 void Main::lambda$describeModule$15($StringBuilder* sb, $ModuleDescriptor$Requires* r) {
 	$init(Main);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(sb)->append("requires "_s)->append($($nc(r)->name()))->append($(toLowerCaseString($($nc(r)->modifiers()))))->append("\n"_s);
 }
 
 void Main::lambda$describeModule$14($StringBuilder* sb, $ModuleDescriptor$Exports* e) {
 	$init(Main);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(sb)->append("exports "_s)->append($($nc(e)->source()))->append($(toLowerCaseString($($nc(e)->modifiers()))))->append("\n"_s);
 }
 
@@ -4181,12 +3751,12 @@ $String* Main::lambda$toString$12(Object$* e) {
 $String* Main::lambda$toLowerCaseString$11(Object$* e) {
 	$init(Main);
 	$init($Locale);
-	return $nc($($nc($of(e))->toString()))->toLowerCase($Locale::ROOT);
+	return $$nc($nc($of(e))->toString())->toLowerCase($Locale::ROOT);
 }
 
 bool Main::lambda$describeModuleFromEntries$10($Main$ModuleInfoEntry* e) {
 	$init(Main);
-	return !$nc($($nc(e)->name()))->equals(Main::MODULE_INFO);
+	return !$$nc($nc(e)->name())->equals(Main::MODULE_INFO);
 }
 
 $Main$ModuleInfoEntryArray* Main::lambda$describeModuleFromStream$9(int32_t x$0) {
@@ -4211,7 +3781,7 @@ bool Main::lambda$describeModule$6($ZipEntry* e) {
 
 void Main::lambda$replaceFSC$5($Map* filesMap, $Integer* version) {
 	$init(Main);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringArray, files, $cast($StringArray, $nc(filesMap)->get(version)));
 	if (files != nullptr) {
 		for (int32_t i = 0; i < files->length; ++i) {
@@ -4236,7 +3806,7 @@ $StringArray* Main::lambda$filesMapToFiles$2(int32_t x$0) {
 
 void Main::lambda$run$1($Set* packages, $Set* jentries, $Main$Entry* e) {
 	addPackageIfNamed(packages, $nc(e)->name);
-	$nc(jentries)->add($nc(e)->name);
+	$nc(jentries)->add(e->name);
 }
 
 bool Main::lambda$run$0($Main$Entry* e) {
@@ -4244,14 +3814,14 @@ bool Main::lambda$run$0($Main$Entry* e) {
 	return !$nc(e)->isDir;
 }
 
-void clinit$Main($Class* class$) {
+void Main::clinit$($Class* clazz) {
 	$assignStatic(Main::MODULE_INFO, "module-info.class"_s);
 	$assignStatic(Main::MANIFEST_DIR, "META-INF/"_s);
 	$assignStatic(Main::VERSIONS_DIR, $str({Main::MANIFEST_DIR, "versions/"_s}));
 	$assignStatic(Main::VERSION, "1.0"_s);
 	$beforeCallerSensitive();
 	Main::$assertionsDisabled = !Main::class$->desiredAssertionStatus();
-	Main::VERSIONS_DIR_LENGTH = $nc(Main::VERSIONS_DIR)->length();
+	Main::VERSIONS_DIR_LENGTH = Main::VERSIONS_DIR->length();
 	Main::useExtractionTime = $Boolean::getBoolean("sun.tools.jar.useExtractionTime"_s);
 	{
 		try {
@@ -4260,8 +3830,8 @@ void clinit$Main($Class* class$) {
 			$throwNew($Error, "Fatal: Resource for jar is missing"_s);
 		}
 	}
-	$assignStatic(Main::ENTRYNAME_COMPARATOR, static_cast<$Comparator*>($new(Main$$Lambda$lambda$static$27)));
-	$assignStatic(Main::ENTRY_COMPARATOR, $Comparator::comparing(static_cast<$Function*>($$new(Main$$Lambda$getName$1)), Main::ENTRYNAME_COMPARATOR));
+	$assignStatic(Main::ENTRYNAME_COMPARATOR, $new(Main$$Lambda$lambda$static$27));
+	$assignStatic(Main::ENTRY_COMPARATOR, $Comparator::comparing($$new(Main$$Lambda$getName$1), Main::ENTRYNAME_COMPARATOR));
 }
 
 Main::Main() {
@@ -4269,128 +3839,310 @@ Main::Main() {
 
 $Class* Main::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(Main$$Lambda$lambda$static$27::classInfo$.name)) {
+		if (name->equals("sun.tools.jar.Main$$Lambda$lambda$static$27")) {
 			return Main$$Lambda$lambda$static$27::load$(name, initialize);
 		}
-		if (name->equals(Main$$Lambda$getName$1::classInfo$.name)) {
+		if (name->equals("sun.tools.jar.Main$$Lambda$getName$1")) {
 			return Main$$Lambda$getName$1::load$(name, initialize);
 		}
-		if (name->equals(Main$$Lambda$lambda$run$0$2::classInfo$.name)) {
+		if (name->equals("sun.tools.jar.Main$$Lambda$lambda$run$0$2")) {
 			return Main$$Lambda$lambda$run$0$2::load$(name, initialize);
 		}
-		if (name->equals(Main$$Lambda$lambda$run$1$3::classInfo$.name)) {
+		if (name->equals("sun.tools.jar.Main$$Lambda$lambda$run$1$3")) {
 			return Main$$Lambda$lambda$run$1$3::load$(name, initialize);
 		}
-		if (name->equals(Main$$Lambda$filesToEntryNames$4::classInfo$.name)) {
+		if (name->equals("sun.tools.jar.Main$$Lambda$filesToEntryNames$4")) {
 			return Main$$Lambda$filesToEntryNames$4::load$(name, initialize);
 		}
-		if (name->equals(Main$$Lambda$lambda$filesMapToFiles$2$5::classInfo$.name)) {
+		if (name->equals("sun.tools.jar.Main$$Lambda$lambda$filesMapToFiles$2$5")) {
 			return Main$$Lambda$lambda$filesMapToFiles$2$5::load$(name, initialize);
 		}
-		if (name->equals(Main$$Lambda$lambda$filesToEntryNames$3$6::classInfo$.name)) {
+		if (name->equals("sun.tools.jar.Main$$Lambda$lambda$filesToEntryNames$3$6")) {
 			return Main$$Lambda$lambda$filesToEntryNames$3$6::load$(name, initialize);
 		}
-		if (name->equals(Main$$Lambda$lambda$update$4$7::classInfo$.name)) {
+		if (name->equals("sun.tools.jar.Main$$Lambda$lambda$update$4$7")) {
 			return Main$$Lambda$lambda$update$4$7::load$(name, initialize);
 		}
-		if (name->equals(Main$$Lambda$lambda$replaceFSC$5$8::classInfo$.name)) {
+		if (name->equals("sun.tools.jar.Main$$Lambda$lambda$replaceFSC$5$8")) {
 			return Main$$Lambda$lambda$replaceFSC$5$8::load$(name, initialize);
 		}
-		if (name->equals(Main$$Lambda$lambda$describeModule$6$9::classInfo$.name)) {
+		if (name->equals("sun.tools.jar.Main$$Lambda$lambda$describeModule$6$9")) {
 			return Main$$Lambda$lambda$describeModule$6$9::load$(name, initialize);
 		}
-		if (name->equals(Main$$Lambda$lambda$describeModule$7$10::classInfo$.name)) {
+		if (name->equals("sun.tools.jar.Main$$Lambda$lambda$describeModule$7$10")) {
 			return Main$$Lambda$lambda$describeModule$7$10::load$(name, initialize);
 		}
-		if (name->equals(Main$$Lambda$lambda$describeModule$8$11::classInfo$.name)) {
+		if (name->equals("sun.tools.jar.Main$$Lambda$lambda$describeModule$8$11")) {
 			return Main$$Lambda$lambda$describeModule$8$11::load$(name, initialize);
 		}
-		if (name->equals(Main$$Lambda$name$12::classInfo$.name)) {
+		if (name->equals("sun.tools.jar.Main$$Lambda$name$12")) {
 			return Main$$Lambda$name$12::load$(name, initialize);
 		}
-		if (name->equals(Main$$Lambda$lambda$describeModuleFromStream$9$13::classInfo$.name)) {
+		if (name->equals("sun.tools.jar.Main$$Lambda$lambda$describeModuleFromStream$9$13")) {
 			return Main$$Lambda$lambda$describeModuleFromStream$9$13::load$(name, initialize);
 		}
-		if (name->equals(Main$$Lambda$lambda$describeModuleFromEntries$10$14::classInfo$.name)) {
+		if (name->equals("sun.tools.jar.Main$$Lambda$lambda$describeModuleFromEntries$10$14")) {
 			return Main$$Lambda$lambda$describeModuleFromEntries$10$14::load$(name, initialize);
 		}
-		if (name->equals(Main$$Lambda$versionFromEntryName$15::classInfo$.name)) {
+		if (name->equals("sun.tools.jar.Main$$Lambda$versionFromEntryName$15")) {
 			return Main$$Lambda$versionFromEntryName$15::load$(name, initialize);
 		}
-		if (name->equals(Main$$Lambda$lambda$toLowerCaseString$11$16::classInfo$.name)) {
+		if (name->equals("sun.tools.jar.Main$$Lambda$lambda$toLowerCaseString$11$16")) {
 			return Main$$Lambda$lambda$toLowerCaseString$11$16::load$(name, initialize);
 		}
-		if (name->equals(Main$$Lambda$lambda$toString$12$17::classInfo$.name)) {
+		if (name->equals("sun.tools.jar.Main$$Lambda$lambda$toString$12$17")) {
 			return Main$$Lambda$lambda$toString$12$17::load$(name, initialize);
 		}
-		if (name->equals(Main$$Lambda$source$18::classInfo$.name)) {
+		if (name->equals("sun.tools.jar.Main$$Lambda$source$18")) {
 			return Main$$Lambda$source$18::load$(name, initialize);
 		}
-		if (name->equals(Main$$Lambda$lambda$describeModule$13$19::classInfo$.name)) {
+		if (name->equals("sun.tools.jar.Main$$Lambda$lambda$describeModule$13$19")) {
 			return Main$$Lambda$lambda$describeModule$13$19::load$(name, initialize);
 		}
-		if (name->equals(Main$$Lambda$lambda$describeModule$14$20::classInfo$.name)) {
+		if (name->equals("sun.tools.jar.Main$$Lambda$lambda$describeModule$14$20")) {
 			return Main$$Lambda$lambda$describeModule$14$20::load$(name, initialize);
 		}
-		if (name->equals(Main$$Lambda$lambda$describeModule$15$21::classInfo$.name)) {
+		if (name->equals("sun.tools.jar.Main$$Lambda$lambda$describeModule$15$21")) {
 			return Main$$Lambda$lambda$describeModule$15$21::load$(name, initialize);
 		}
-		if (name->equals(Main$$Lambda$lambda$describeModule$16$22::classInfo$.name)) {
+		if (name->equals("sun.tools.jar.Main$$Lambda$lambda$describeModule$16$22")) {
 			return Main$$Lambda$lambda$describeModule$16$22::load$(name, initialize);
 		}
-		if (name->equals(Main$$Lambda$service$23::classInfo$.name)) {
+		if (name->equals("sun.tools.jar.Main$$Lambda$service$23")) {
 			return Main$$Lambda$service$23::load$(name, initialize);
 		}
-		if (name->equals(Main$$Lambda$lambda$describeModule$17$24::classInfo$.name)) {
+		if (name->equals("sun.tools.jar.Main$$Lambda$lambda$describeModule$17$24")) {
 			return Main$$Lambda$lambda$describeModule$17$24::load$(name, initialize);
 		}
-		if (name->equals(Main$$Lambda$isQualified$25::classInfo$.name)) {
+		if (name->equals("sun.tools.jar.Main$$Lambda$isQualified$25")) {
 			return Main$$Lambda$isQualified$25::load$(name, initialize);
 		}
-		if (name->equals(Main$$Lambda$lambda$describeModule$18$26::classInfo$.name)) {
+		if (name->equals("sun.tools.jar.Main$$Lambda$lambda$describeModule$18$26")) {
 			return Main$$Lambda$lambda$describeModule$18$26::load$(name, initialize);
 		}
-		if (name->equals(Main$$Lambda$source$27::classInfo$.name)) {
+		if (name->equals("sun.tools.jar.Main$$Lambda$source$27")) {
 			return Main$$Lambda$source$27::load$(name, initialize);
 		}
-		if (name->equals(Main$$Lambda$lambda$describeModule$19$28::classInfo$.name)) {
+		if (name->equals("sun.tools.jar.Main$$Lambda$lambda$describeModule$19$28")) {
 			return Main$$Lambda$lambda$describeModule$19$28::load$(name, initialize);
 		}
-		if (name->equals(Main$$Lambda$lambda$describeModule$20$29::classInfo$.name)) {
+		if (name->equals("sun.tools.jar.Main$$Lambda$lambda$describeModule$20$29")) {
 			return Main$$Lambda$lambda$describeModule$20$29::load$(name, initialize);
 		}
-		if (name->equals(Main$$Lambda$isQualified$30::classInfo$.name)) {
+		if (name->equals("sun.tools.jar.Main$$Lambda$isQualified$30")) {
 			return Main$$Lambda$isQualified$30::load$(name, initialize);
 		}
-		if (name->equals(Main$$Lambda$lambda$describeModule$21$31::classInfo$.name)) {
+		if (name->equals("sun.tools.jar.Main$$Lambda$lambda$describeModule$21$31")) {
 			return Main$$Lambda$lambda$describeModule$21$31::load$(name, initialize);
 		}
-		if (name->equals(Main$$Lambda$remove$32::classInfo$.name)) {
+		if (name->equals("sun.tools.jar.Main$$Lambda$remove$32")) {
 			return Main$$Lambda$remove$32::load$(name, initialize);
 		}
-		if (name->equals(Main$$Lambda$lambda$describeModule$22$33::classInfo$.name)) {
+		if (name->equals("sun.tools.jar.Main$$Lambda$lambda$describeModule$22$33")) {
 			return Main$$Lambda$lambda$describeModule$22$33::load$(name, initialize);
 		}
-		if (name->equals(Main$$Lambda$lambda$describeModule$23$34::classInfo$.name)) {
+		if (name->equals("sun.tools.jar.Main$$Lambda$lambda$describeModule$23$34")) {
 			return Main$$Lambda$lambda$describeModule$23$34::load$(name, initialize);
 		}
-		if (name->equals(Main$$Lambda$lambda$describeModule$24$35::classInfo$.name)) {
+		if (name->equals("sun.tools.jar.Main$$Lambda$lambda$describeModule$24$35")) {
 			return Main$$Lambda$lambda$describeModule$24$35::load$(name, initialize);
 		}
-		if (name->equals(Main$$Lambda$providers$36::classInfo$.name)) {
+		if (name->equals("sun.tools.jar.Main$$Lambda$providers$36")) {
 			return Main$$Lambda$providers$36::load$(name, initialize);
 		}
-		if (name->equals(Main$$Lambda$stream$37::classInfo$.name)) {
+		if (name->equals("sun.tools.jar.Main$$Lambda$stream$37")) {
 			return Main$$Lambda$stream$37::load$(name, initialize);
 		}
-		if (name->equals(Main$$Lambda$lambda$checkModuleInfo$25$38::classInfo$.name)) {
+		if (name->equals("sun.tools.jar.Main$$Lambda$lambda$checkModuleInfo$25$38")) {
 			return Main$$Lambda$lambda$checkModuleInfo$25$38::load$(name, initialize);
 		}
-		if (name->equals(Main$$Lambda$lambda$checkModuleInfo$26$39::classInfo$.name)) {
+		if (name->equals("sun.tools.jar.Main$$Lambda$lambda$checkModuleInfo$26$39")) {
 			return Main$$Lambda$lambda$checkModuleInfo$26$39::load$(name, initialize);
 		}
 	}
-	$loadClass(Main, name, initialize, &_Main_ClassInfo_, clinit$Main, allocate$Main);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(Main, $assertionsDisabled)},
+		{"program", "Ljava/lang/String;", nullptr, 0, $field(Main, program)},
+		{"out", "Ljava/io/PrintWriter;", nullptr, 0, $field(Main, out)},
+		{"err", "Ljava/io/PrintWriter;", nullptr, 0, $field(Main, err)},
+		{"fname", "Ljava/lang/String;", nullptr, 0, $field(Main, fname)},
+		{"mname", "Ljava/lang/String;", nullptr, 0, $field(Main, mname)},
+		{"ename", "Ljava/lang/String;", nullptr, 0, $field(Main, ename)},
+		{"zname", "Ljava/lang/String;", nullptr, 0, $field(Main, zname)},
+		{"rootjar", "Ljava/lang/String;", nullptr, 0, $field(Main, rootjar)},
+		{"BASE_VERSION", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Main, BASE_VERSION)},
+		{"entryMap", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Lsun/tools/jar/Main$Entry;>;", 0, $field(Main, entryMap)},
+		{"entries", "Ljava/util/Set;", "Ljava/util/Set<Lsun/tools/jar/Main$Entry;>;", 0, $field(Main, entries)},
+		{"moduleInfos", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;[B>;", 0, $field(Main, moduleInfos)},
+		{"pathsMap", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/Integer;Ljava/util/Set<Ljava/lang/String;>;>;", 0, $field(Main, pathsMap)},
+		{"filesMap", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/Integer;[Ljava/lang/String;>;", 0, $field(Main, filesMap)},
+		{"isMultiRelease", "Z", nullptr, 0, $field(Main, isMultiRelease)},
+		{"releaseValue", "I", nullptr, 0, $field(Main, releaseValue)},
+		{"cflag", "Z", nullptr, 0, $field(Main, cflag)},
+		{"uflag", "Z", nullptr, 0, $field(Main, uflag)},
+		{"xflag", "Z", nullptr, 0, $field(Main, xflag)},
+		{"tflag", "Z", nullptr, 0, $field(Main, tflag)},
+		{"vflag", "Z", nullptr, 0, $field(Main, vflag)},
+		{"flag0", "Z", nullptr, 0, $field(Main, flag0)},
+		{"Mflag", "Z", nullptr, 0, $field(Main, Mflag)},
+		{"iflag", "Z", nullptr, 0, $field(Main, iflag)},
+		{"pflag", "Z", nullptr, 0, $field(Main, pflag)},
+		{"dflag", "Z", nullptr, 0, $field(Main, dflag)},
+		{"validate", "Z", nullptr, 0, $field(Main, validate)},
+		{"suppressDeprecateMsg", "Z", nullptr, 0, $field(Main, suppressDeprecateMsg)},
+		{"info", "Ljava/util/function/Consumer;", "Ljava/util/function/Consumer<Ljava/io/PrintWriter;>;", 0, $field(Main, info)},
+		{"moduleVersion", "Ljava/lang/module/ModuleDescriptor$Version;", nullptr, 0, $field(Main, moduleVersion)},
+		{"modulesToHash", "Ljava/util/regex/Pattern;", nullptr, 0, $field(Main, modulesToHash)},
+		{"moduleResolution", "Ljdk/internal/module/ModuleResolution;", nullptr, 0, $field(Main, moduleResolution)},
+		{"moduleFinder", "Ljava/lang/module/ModuleFinder;", nullptr, 0, $field(Main, moduleFinder)},
+		{"MODULE_INFO", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(Main, MODULE_INFO)},
+		{"MANIFEST_DIR", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(Main, MANIFEST_DIR)},
+		{"VERSIONS_DIR", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(Main, VERSIONS_DIR)},
+		{"VERSION", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(Main, VERSION)},
+		{"VERSIONS_DIR_LENGTH", "I", nullptr, $STATIC | $FINAL, $staticField(Main, VERSIONS_DIR_LENGTH)},
+		{"rsrc", "Ljava/util/ResourceBundle;", nullptr, $PRIVATE | $STATIC, $staticField(Main, rsrc)},
+		{"useExtractionTime", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Main, useExtractionTime)},
+		{"ok", "Z", nullptr, $PRIVATE, $field(Main, ok)},
+		{"copyBuf", "[B", nullptr, $PRIVATE, $field(Main, copyBuf)},
+		{"jarPaths", "Ljava/util/HashSet;", "Ljava/util/HashSet<Ljava/lang/String;>;", $PRIVATE, $field(Main, jarPaths)},
+		{"ENTRYNAME_COMPARATOR", "Ljava/util/Comparator;", "Ljava/util/Comparator<Ljava/lang/String;>;", $STATIC, $staticField(Main, ENTRYNAME_COMPARATOR)},
+		{"ENTRY_COMPARATOR", "Ljava/util/Comparator;", "Ljava/util/Comparator<Ljava/util/zip/ZipEntry;>;", $STATIC, $staticField(Main, ENTRY_COMPARATOR)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/io/PrintStream;Ljava/io/PrintStream;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Main, init$, void, $PrintStream*, $PrintStream*, $String*)},
+		{"<init>", "(Ljava/io/PrintWriter;Ljava/io/PrintWriter;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Main, init$, void, $PrintWriter*, $PrintWriter*, $String*)},
+		{"addCreatedBy", "(Ljava/util/jar/Manifest;)V", nullptr, $PRIVATE, $method(Main, addCreatedBy, void, $Manifest*)},
+		{"addExtendedModuleAttributes", "(Ljava/util/Map;Ljava/util/Set;)V", "(Ljava/util/Map<Ljava/lang/String;[B>;Ljava/util/Set<Ljava/lang/String;>;)V", $PRIVATE, $method(Main, addExtendedModuleAttributes, void, $Map*, $Set*), "java.io.IOException"},
+		{"addFile", "(Ljava/util/zip/ZipOutputStream;Lsun/tools/jar/Main$Entry;)V", nullptr, 0, $virtualMethod(Main, addFile, void, $ZipOutputStream*, $Main$Entry*), "java.io.IOException"},
+		{"addIndex", "(Ljdk/internal/util/jar/JarIndex;Ljava/util/zip/ZipOutputStream;)V", nullptr, $PRIVATE, $method(Main, addIndex, void, $JarIndex*, $ZipOutputStream*), "java.io.IOException"},
+		{"addMainClass", "(Ljava/util/jar/Manifest;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(Main, addMainClass, void, $Manifest*, $String*)},
+		{"addMultiRelease", "(Ljava/util/jar/Manifest;)V", nullptr, $PRIVATE, $method(Main, addMultiRelease, void, $Manifest*)},
+		{"addPackageIfNamed", "(Ljava/util/Set;Ljava/lang/String;)V", "(Ljava/util/Set<Ljava/lang/String;>;Ljava/lang/String;)V", 0, $virtualMethod(Main, addPackageIfNamed, void, $Set*, $String*)},
+		{"addVersion", "(Ljava/util/jar/Manifest;)V", nullptr, $PRIVATE, $method(Main, addVersion, void, $Manifest*)},
+		{"checkModuleInfo", "([BLjava/util/Set;)Z", "([BLjava/util/Set<Ljava/lang/String;>;)Z", $PRIVATE, $method(Main, checkModuleInfo, bool, $bytes*, $Set*), "java.io.IOException"},
+		{"copy", "(Ljava/io/InputStream;Ljava/io/OutputStream;)V", nullptr, $PRIVATE, $method(Main, copy, void, $InputStream*, $OutputStream*), "java.io.IOException"},
+		{"copy", "(Ljava/io/File;Ljava/io/OutputStream;)V", nullptr, $PRIVATE, $method(Main, copy, void, $File*, $OutputStream*), "java.io.IOException"},
+		{"copy", "(Ljava/io/InputStream;Ljava/io/File;)V", nullptr, $PRIVATE, $method(Main, copy, void, $InputStream*, $File*), "java.io.IOException"},
+		{"crc32File", "(Ljava/util/zip/ZipEntry;Ljava/io/File;)V", nullptr, $PRIVATE, $method(Main, crc32File, void, $ZipEntry*, $File*), "java.io.IOException"},
+		{"crc32Manifest", "(Ljava/util/zip/ZipEntry;Ljava/util/jar/Manifest;)V", nullptr, $PRIVATE, $method(Main, crc32Manifest, void, $ZipEntry*, $Manifest*), "java.io.IOException"},
+		{"crc32ModuleInfo", "(Ljava/util/zip/ZipEntry;[B)V", nullptr, $PRIVATE, $method(Main, crc32ModuleInfo, void, $ZipEntry*, $bytes*), "java.io.IOException"},
+		{"create", "(Ljava/io/OutputStream;Ljava/util/jar/Manifest;)V", nullptr, 0, $virtualMethod(Main, create, void, $OutputStream*, $Manifest*), "java.io.IOException"},
+		{"createTempFileInSameDirectoryAs", "(Ljava/io/File;)Ljava/io/File;", nullptr, $PRIVATE | $STATIC, $staticMethod(Main, createTempFileInSameDirectoryAs, $File*, $File*), "java.io.IOException"},
+		{"createTemporaryFile", "(Ljava/lang/String;Ljava/lang/String;)Ljava/io/File;", nullptr, $PRIVATE, $method(Main, createTemporaryFile, $File*, $String*, $String*)},
+		{"describeModule", "(Ljava/util/zip/ZipFile;)Z", nullptr, $PRIVATE, $method(Main, describeModule, bool, $ZipFile*), "java.io.IOException"},
+		{"describeModule", "(Ljava/io/InputStream;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(Main, describeModule, void, $InputStream*, $String*), "java.io.IOException"},
+		{"describeModule", "(Ljava/lang/module/ModuleDescriptor;Ljdk/internal/module/ModuleTarget;Ljdk/internal/module/ModuleHashes;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(Main, describeModule, void, $ModuleDescriptor*, $ModuleTarget*, $ModuleHashes*, $String*), "java.io.IOException"},
+		{"describeModuleFromEntries", "([Lsun/tools/jar/Main$ModuleInfoEntry;)Z", nullptr, $PRIVATE, $method(Main, describeModuleFromEntries, bool, $Main$ModuleInfoEntryArray*), "java.io.IOException"},
+		{"describeModuleFromStream", "(Ljava/io/FileInputStream;)Z", nullptr, $PRIVATE, $method(Main, describeModuleFromStream, bool, $FileInputStream*), "java.io.IOException"},
+		{"dumpIndex", "(Ljava/lang/String;Ljdk/internal/util/jar/JarIndex;)V", nullptr, 0, $virtualMethod(Main, dumpIndex, void, $String*, $JarIndex*), "java.io.IOException"},
+		{"equalsIgnoreCase", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PRIVATE, $method(Main, equalsIgnoreCase, bool, $String*, $String*)},
+		{"error", "(Ljava/lang/String;)V", nullptr, 0, $virtualMethod(Main, error, void, $String*)},
+		{"expand", "()V", nullptr, $PRIVATE, $method(Main, expand, void), "java.io.IOException"},
+		{"expand", "(Ljava/io/File;[Ljava/lang/String;Ljava/util/Set;I)V", "(Ljava/io/File;[Ljava/lang/String;Ljava/util/Set<Ljava/lang/String;>;I)V", $PRIVATE, $method(Main, expand, void, $File*, $StringArray*, $Set*, int32_t), "java.io.IOException"},
+		{"extendedInfoBytes", "(Ljava/lang/module/ModuleDescriptor;[BLjava/util/Set;)[B", "(Ljava/lang/module/ModuleDescriptor;[BLjava/util/Set<Ljava/lang/String;>;)[B", $PRIVATE, $method(Main, extendedInfoBytes, $bytes*, $ModuleDescriptor*, $bytes*, $Set*), "java.io.IOException"},
+		{"extract", "(Ljava/io/InputStream;[Ljava/lang/String;)Z", nullptr, 0, $virtualMethod(Main, extract, bool, $InputStream*, $StringArray*), "java.io.IOException"},
+		{"extract", "(Ljava/lang/String;[Ljava/lang/String;)V", nullptr, 0, $virtualMethod(Main, extract, void, $String*, $StringArray*), "java.io.IOException"},
+		{"extractFile", "(Ljava/io/InputStream;Ljava/util/zip/ZipEntry;)Ljava/util/zip/ZipEntry;", nullptr, 0, $virtualMethod(Main, extractFile, $ZipEntry*, $InputStream*, $ZipEntry*), "java.io.IOException"},
+		{"fatalError", "(Ljava/lang/Exception;)V", nullptr, 0, $virtualMethod(Main, fatalError, void, $Exception*)},
+		{"fatalError", "(Ljava/lang/String;)V", nullptr, 0, $virtualMethod(Main, fatalError, void, $String*)},
+		{"filesMapToFiles", "(Ljava/util/Map;)[Ljava/lang/String;", "(Ljava/util/Map<Ljava/lang/Integer;[Ljava/lang/String;>;)[Ljava/lang/String;", $PRIVATE, $method(Main, filesMapToFiles, $StringArray*, $Map*)},
+		{"filesToEntryNames", "(Ljava/util/Map$Entry;)Ljava/util/stream/Stream;", "(Ljava/util/Map$Entry<Ljava/lang/Integer;[Ljava/lang/String;>;)Ljava/util/stream/Stream<Ljava/lang/String;>;", 0, $virtualMethod(Main, filesToEntryNames, $Stream*, $Map$Entry*)},
+		{"formatMsg", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(Main, formatMsg, $String*, $String*, $String*)},
+		{"formatMsg2", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(Main, formatMsg2, $String*, $String*, $String*, $String*)},
+		{"genIndex", "(Ljava/lang/String;[Ljava/lang/String;)V", nullptr, 0, $virtualMethod(Main, genIndex, void, $String*, $StringArray*), "java.io.IOException"},
+		{"getJarPath", "(Ljava/lang/String;)Ljava/util/List;", "(Ljava/lang/String;)Ljava/util/List<Ljava/lang/String;>;", 0, $virtualMethod(Main, getJarPath, $List*, $String*), "java.io.IOException"},
+		{"getMsg", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(Main, getMsg, $String*, $String*)},
+		{"intVersionFromEntry", "(Lsun/tools/jar/Main$ModuleInfoEntry;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(Main, intVersionFromEntry, int32_t, $Main$ModuleInfoEntry*)},
+		{"isAmbiguousMainClass", "(Ljava/util/jar/Manifest;)Z", nullptr, $PRIVATE, $method(Main, isAmbiguousMainClass, bool, $Manifest*)},
+		{"isModuleInfoEntry", "(Ljava/lang/String;)Z", nullptr, $STATIC, $staticMethod(Main, isModuleInfoEntry, bool, $String*)},
+		{"isWinDriveLetter", "(C)Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(Main, isWinDriveLetter, bool, char16_t)},
+		{"lambda$checkModuleInfo$25", "(Ljava/util/Set;Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Main, lambda$checkModuleInfo$25, bool, $Set*, $String*)},
+		{"lambda$checkModuleInfo$26", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(Main, lambda$checkModuleInfo$26, void, $String*)},
+		{"lambda$describeModule$13", "(Ljava/lang/module/ModuleDescriptor$Exports;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Main, lambda$describeModule$13, bool, $ModuleDescriptor$Exports*)},
+		{"lambda$describeModule$14", "(Ljava/lang/StringBuilder;Ljava/lang/module/ModuleDescriptor$Exports;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Main, lambda$describeModule$14, void, $StringBuilder*, $ModuleDescriptor$Exports*)},
+		{"lambda$describeModule$15", "(Ljava/lang/StringBuilder;Ljava/lang/module/ModuleDescriptor$Requires;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Main, lambda$describeModule$15, void, $StringBuilder*, $ModuleDescriptor$Requires*)},
+		{"lambda$describeModule$16", "(Ljava/lang/StringBuilder;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Main, lambda$describeModule$16, void, $StringBuilder*, $String*)},
+		{"lambda$describeModule$17", "(Ljava/lang/StringBuilder;Ljava/lang/module/ModuleDescriptor$Provides;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Main, lambda$describeModule$17, void, $StringBuilder*, $ModuleDescriptor$Provides*)},
+		{"lambda$describeModule$18", "(Ljava/lang/StringBuilder;Ljava/lang/module/ModuleDescriptor$Exports;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Main, lambda$describeModule$18, void, $StringBuilder*, $ModuleDescriptor$Exports*)},
+		{"lambda$describeModule$19", "(Ljava/lang/module/ModuleDescriptor$Opens;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Main, lambda$describeModule$19, bool, $ModuleDescriptor$Opens*)},
+		{"lambda$describeModule$20", "(Ljava/lang/StringBuilder;Ljava/lang/module/ModuleDescriptor$Opens;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Main, lambda$describeModule$20, void, $StringBuilder*, $ModuleDescriptor$Opens*)},
+		{"lambda$describeModule$21", "(Ljava/lang/StringBuilder;Ljava/lang/module/ModuleDescriptor$Opens;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Main, lambda$describeModule$21, void, $StringBuilder*, $ModuleDescriptor$Opens*)},
+		{"lambda$describeModule$22", "(Ljava/lang/StringBuilder;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Main, lambda$describeModule$22, void, $StringBuilder*, $String*)},
+		{"lambda$describeModule$23", "(Ljava/lang/StringBuilder;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Main, lambda$describeModule$23, void, $StringBuilder*, $String*)},
+		{"lambda$describeModule$24", "(Ljava/lang/StringBuilder;Ljdk/internal/module/ModuleHashes;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Main, lambda$describeModule$24, void, $StringBuilder*, $ModuleHashes*, $String*)},
+		{"lambda$describeModule$6", "(Ljava/util/zip/ZipEntry;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Main, lambda$describeModule$6, bool, $ZipEntry*)},
+		{"lambda$describeModule$7", "(Ljava/util/zip/ZipFile;Ljava/util/zip/ZipEntry;)Lsun/tools/jar/Main$ZipFileModuleInfoEntry;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Main, lambda$describeModule$7, $Main$ZipFileModuleInfoEntry*, $ZipFile*, $ZipEntry*)},
+		{"lambda$describeModule$8", "(I)[Lsun/tools/jar/Main$ZipFileModuleInfoEntry;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Main, lambda$describeModule$8, $Main$ZipFileModuleInfoEntryArray*, int32_t)},
+		{"lambda$describeModuleFromEntries$10", "(Lsun/tools/jar/Main$ModuleInfoEntry;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Main, lambda$describeModuleFromEntries$10, bool, $Main$ModuleInfoEntry*)},
+		{"lambda$describeModuleFromStream$9", "(I)[Lsun/tools/jar/Main$ModuleInfoEntry;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Main, lambda$describeModuleFromStream$9, $Main$ModuleInfoEntryArray*, int32_t)},
+		{"lambda$filesMapToFiles$2", "(I)[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Main, lambda$filesMapToFiles$2, $StringArray*, int32_t)},
+		{"lambda$filesToEntryNames$3", "(Ljava/util/Set;ILjava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $SYNTHETIC, $method(Main, lambda$filesToEntryNames$3, $String*, $Set*, int32_t, $String*)},
+		{"lambda$replaceFSC$5", "(Ljava/util/Map;Ljava/lang/Integer;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Main, lambda$replaceFSC$5, void, $Map*, $Integer*)},
+		{"lambda$run$0", "(Lsun/tools/jar/Main$Entry;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Main, lambda$run$0, bool, $Main$Entry*)},
+		{"lambda$run$1", "(Ljava/util/Set;Ljava/util/Set;Lsun/tools/jar/Main$Entry;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(Main, lambda$run$1, void, $Set*, $Set*, $Main$Entry*)},
+		{"lambda$static$27", "(Ljava/lang/String;Ljava/lang/String;)I", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Main, lambda$static$27, int32_t, $String*, $String*)},
+		{"lambda$toLowerCaseString$11", "(Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Main, lambda$toLowerCaseString$11, $String*, Object$*)},
+		{"lambda$toString$12", "(Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Main, lambda$toString$12, $String*, Object$*)},
+		{"lambda$update$4", "(Ljava/util/Set;Ljava/lang/String;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(Main, lambda$update$4, void, $Set*, $String*)},
+		{"lessThanEqualReleaseValue", "(Lsun/tools/jar/Main$ModuleInfoEntry;)Z", nullptr, $PRIVATE, $method(Main, lessThanEqualReleaseValue, bool, $Main$ModuleInfoEntry*)},
+		{"list", "(Ljava/io/InputStream;[Ljava/lang/String;)V", nullptr, 0, $virtualMethod(Main, list, void, $InputStream*, $StringArray*), "java.io.IOException"},
+		{"list", "(Ljava/lang/String;[Ljava/lang/String;)V", nullptr, 0, $virtualMethod(Main, list, void, $String*, $StringArray*), "java.io.IOException"},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Main, main, void, $StringArray*)},
+		{"newDirSet", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/util/zip/ZipEntry;>;", 0, $virtualMethod(Main, newDirSet, $Set*)},
+		{"output", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(Main, output, void, $String*)},
+		{"parseArgs", "([Ljava/lang/String;)Z", nullptr, 0, $virtualMethod(Main, parseArgs, bool, $StringArray*)},
+		{"printEntry", "(Ljava/util/zip/ZipEntry;[Ljava/lang/String;)V", nullptr, 0, $virtualMethod(Main, printEntry, void, $ZipEntry*, $StringArray*), "java.io.IOException"},
+		{"printEntry", "(Ljava/util/zip/ZipEntry;)V", nullptr, 0, $virtualMethod(Main, printEntry, void, $ZipEntry*), "java.io.IOException"},
+		{"replaceFSC", "(Ljava/util/Map;)V", "(Ljava/util/Map<Ljava/lang/Integer;[Ljava/lang/String;>;)V", 0, $virtualMethod(Main, replaceFSC, void, $Map*)},
+		{"run", "([Ljava/lang/String;)Z", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Main, run, bool, $StringArray*)},
+		{"safeName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(Main, safeName, $String*, $String*)},
+		{"toBinaryName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(Main, toBinaryName, $String*, $String*)},
+		{"toEntryName", "(Ljava/lang/String;Ljava/util/Set;Z)Ljava/lang/String;", "(Ljava/lang/String;Ljava/util/Set<Ljava/lang/String;>;Z)Ljava/lang/String;", $PRIVATE, $method(Main, toEntryName, $String*, $String*, $Set*, bool)},
+		{"toHex", "([B)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Main, toHex, $String*, $bytes*)},
+		{"toLowerCaseString", "(Ljava/util/Collection;)Ljava/lang/String;", "<T:Ljava/lang/Object;>(Ljava/util/Collection<TT;>;)Ljava/lang/String;", $STATIC, $staticMethod(Main, toLowerCaseString, $String*, $Collection*)},
+		{"toPackageName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Main, toPackageName, $String*, $String*)},
+		{"toString", "(Ljava/util/Collection;)Ljava/lang/String;", "<T:Ljava/lang/Object;>(Ljava/util/Collection<TT;>;)Ljava/lang/String;", $STATIC, $staticMethod(Main, toString, $String*, $Collection*)},
+		{"toUpperCaseASCII", "(C)C", nullptr, $PRIVATE, $method(Main, toUpperCaseASCII, char16_t, char16_t)},
+		{"toVersionedName", "(Ljava/lang/String;I)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Main, toVersionedName, $String*, $String*, int32_t)},
+		{"update", "(Ljava/io/InputStream;Ljava/io/OutputStream;Ljava/io/InputStream;Ljava/util/Map;Ljdk/internal/util/jar/JarIndex;)Z", "(Ljava/io/InputStream;Ljava/io/OutputStream;Ljava/io/InputStream;Ljava/util/Map<Ljava/lang/String;[B>;Ljdk/internal/util/jar/JarIndex;)Z", 0, $virtualMethod(Main, update, bool, $InputStream*, $OutputStream*, $InputStream*, $Map*, $JarIndex*), "java.io.IOException"},
+		{"updateLastModifiedTime", "(Ljava/util/Set;)V", "(Ljava/util/Set<Ljava/util/zip/ZipEntry;>;)V", 0, $virtualMethod(Main, updateLastModifiedTime, void, $Set*), "java.io.IOException"},
+		{"updateManifest", "(Ljava/util/jar/Manifest;Ljava/util/zip/ZipOutputStream;)Z", nullptr, $PRIVATE, $method(Main, updateManifest, bool, $Manifest*, $ZipOutputStream*), "java.io.IOException"},
+		{"updateModuleInfo", "(Ljava/util/Map;Ljava/util/zip/ZipOutputStream;)V", "(Ljava/util/Map<Ljava/lang/String;[B>;Ljava/util/zip/ZipOutputStream;)V", $PRIVATE, $method(Main, updateModuleInfo, void, $Map*, $ZipOutputStream*), "java.io.IOException"},
+		{"usageError", "(Ljava/lang/String;)V", nullptr, 0, $virtualMethod(Main, usageError, void, $String*)},
+		{"validateAndClose", "(Ljava/io/File;)V", nullptr, $PRIVATE, $method(Main, validateAndClose, void, $File*), "java.io.IOException"},
+		{"validateJar", "(Ljava/io/File;)Z", nullptr, $PRIVATE, $method(Main, validateJar, bool, $File*), "java.io.IOException"},
+		{"versionFromEntryName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Main, versionFromEntryName, $String*, $String*)},
+		{"warn", "(Ljava/lang/String;)V", nullptr, 0, $virtualMethod(Main, warn, void, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.tools.jar.Main$Hasher", "sun.tools.jar.Main", "Hasher", $PRIVATE},
+		{"sun.tools.jar.Main$StreamedModuleInfoEntry", "sun.tools.jar.Main", "StreamedModuleInfoEntry", $STATIC},
+		{"sun.tools.jar.Main$ZipFileModuleInfoEntry", "sun.tools.jar.Main", "ZipFileModuleInfoEntry", $STATIC},
+		{"sun.tools.jar.Main$ModuleInfoEntry", "sun.tools.jar.Main", "ModuleInfoEntry", $STATIC | $INTERFACE | $ABSTRACT},
+		{"sun.tools.jar.Main$CRC32OutputStream", "sun.tools.jar.Main", "CRC32OutputStream", $PRIVATE | $STATIC},
+		{"sun.tools.jar.Main$Entry", "sun.tools.jar.Main", "Entry", $PRIVATE | $STATIC},
+		{"sun.tools.jar.Main$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.tools.jar.Main",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.tools.jar.Main$Hasher,sun.tools.jar.Main$Hasher$2,sun.tools.jar.Main$Hasher$1,sun.tools.jar.Main$StreamedModuleInfoEntry,sun.tools.jar.Main$ZipFileModuleInfoEntry,sun.tools.jar.Main$ModuleInfoEntry,sun.tools.jar.Main$CRC32OutputStream,sun.tools.jar.Main$Entry,sun.tools.jar.Main$1"
+	};
+	$loadClass(Main, name, initialize, &classInfo$$, Main::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Main);
+	});
 	return class$;
 }
 

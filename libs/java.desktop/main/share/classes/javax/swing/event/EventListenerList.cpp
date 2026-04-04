@@ -1,5 +1,4 @@
 #include <javax/swing/event/EventListenerList.h>
-
 #include <java/io/ObjectInputStream.h>
 #include <java/io/ObjectOutputStream.h>
 #include <java/io/Serializable.h>
@@ -28,40 +27,6 @@ namespace javax {
 	namespace swing {
 		namespace event {
 
-$FieldInfo _EventListenerList_FieldInfo_[] = {
-	{"NULL_ARRAY", "[Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(EventListenerList, NULL_ARRAY)},
-	{"listenerList", "[Ljava/lang/Object;", nullptr, $PROTECTED | $VOLATILE | $TRANSIENT, $field(EventListenerList, listenerList)},
-	{}
-};
-
-$MethodInfo _EventListenerList_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(EventListenerList, init$, void)},
-	{"add", "(Ljava/lang/Class;Ljava/util/EventListener;)V", "<T::Ljava/util/EventListener;>(Ljava/lang/Class<TT;>;TT;)V", $PUBLIC | $SYNCHRONIZED, $virtualMethod(EventListenerList, add, void, $Class*, $EventListener*)},
-	{"getListenerCount", "()I", nullptr, $PUBLIC, $virtualMethod(EventListenerList, getListenerCount, int32_t)},
-	{"getListenerCount", "(Ljava/lang/Class;)I", "(Ljava/lang/Class<*>;)I", $PUBLIC, $virtualMethod(EventListenerList, getListenerCount, int32_t, $Class*)},
-	{"getListenerCount", "([Ljava/lang/Object;Ljava/lang/Class;)I", "([Ljava/lang/Object;Ljava/lang/Class<*>;)I", $PRIVATE, $method(EventListenerList, getListenerCount, int32_t, $ObjectArray*, $Class*)},
-	{"getListenerList", "()[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(EventListenerList, getListenerList, $ObjectArray*)},
-	{"getListeners", "(Ljava/lang/Class;)[Ljava/util/EventListener;", "<T::Ljava/util/EventListener;>(Ljava/lang/Class<TT;>;)[TT;", $PUBLIC, $virtualMethod(EventListenerList, getListeners, $EventListenerArray*, $Class*)},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(EventListenerList, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"remove", "(Ljava/lang/Class;Ljava/util/EventListener;)V", "<T::Ljava/util/EventListener;>(Ljava/lang/Class<TT;>;TT;)V", $PUBLIC | $SYNCHRONIZED, $virtualMethod(EventListenerList, remove, void, $Class*, $EventListener*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(EventListenerList, toString, $String*)},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(EventListenerList, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _EventListenerList_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.event.EventListenerList",
-	"java.lang.Object",
-	"java.io.Serializable",
-	_EventListenerList_FieldInfo_,
-	_EventListenerList_MethodInfo_
-};
-
-$Object* allocate$EventListenerList($Class* clazz) {
-	return $of($alloc(EventListenerList));
-}
-
 $ObjectArray* EventListenerList::NULL_ARRAY = nullptr;
 
 void EventListenerList::init$() {
@@ -73,7 +38,7 @@ $ObjectArray* EventListenerList::getListenerList() {
 }
 
 $EventListenerArray* EventListenerList::getListeners($Class* t) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectArray, lList, this->listenerList);
 	int32_t n = getListenerCount(lList, t);
 	$var($EventListenerArray, result, $cast($EventListenerArray, $1Array::newInstance(t, n)));
@@ -108,7 +73,7 @@ int32_t EventListenerList::getListenerCount($ObjectArray* list, $Class* t) {
 
 void EventListenerList::add($Class* t, $EventListener* l) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		if (l == nullptr) {
 			return;
 		}
@@ -117,8 +82,8 @@ void EventListenerList::add($Class* t, $EventListener* l) {
 		}
 		if (this->listenerList == EventListenerList::NULL_ARRAY) {
 			$set(this, listenerList, $new($ObjectArray, {
-				$of(t),
-				$of(l)
+				t,
+				l
 			}));
 		} else {
 			int32_t i = $nc(this->listenerList)->length;
@@ -133,7 +98,7 @@ void EventListenerList::add($Class* t, $EventListener* l) {
 
 void EventListenerList::remove($Class* t, $EventListener* l) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		if (l == nullptr) {
 			return;
 		}
@@ -142,7 +107,7 @@ void EventListenerList::remove($Class* t, $EventListener* l) {
 		}
 		int32_t index = -1;
 		for (int32_t i = $nc(this->listenerList)->length - 2; i >= 0; i -= 2) {
-			if (($equals($nc(this->listenerList)->get(i), t)) && ($nc($of($nc(this->listenerList)->get(i + 1)))->equals(l) == true)) {
+			if (($equals($nc(this->listenerList)->get(i), t)) && ($nc($nc(this->listenerList)->get(i + 1))->equals(l) == true)) {
 				index = i;
 				break;
 			}
@@ -159,7 +124,7 @@ void EventListenerList::remove($Class* t, $EventListener* l) {
 }
 
 void EventListenerList::writeObject($ObjectOutputStream* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectArray, lList, this->listenerList);
 	$nc(s)->defaultWriteObject();
 	for (int32_t i = 0; i < $nc(lList)->length; i += 2) {
@@ -174,7 +139,7 @@ void EventListenerList::writeObject($ObjectOutputStream* s) {
 }
 
 void EventListenerList::readObject($ObjectInputStream* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$set(this, listenerList, EventListenerList::NULL_ARRAY);
 	$nc(s)->defaultReadObject();
@@ -190,18 +155,18 @@ void EventListenerList::readObject($ObjectInputStream* s) {
 }
 
 $String* EventListenerList::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectArray, lList, this->listenerList);
 	$var($String, s, "EventListenerList: "_s);
 	$plusAssign(s, $$str({$$str($nc(lList)->length / 2), " listeners: "_s}));
 	for (int32_t i = 0; i <= lList->length - 2; i += 2) {
-		$plusAssign(s, $$str({" type "_s, $($nc(($cast($Class, lList->get(i))))->getName())}));
+		$plusAssign(s, $$str({" type "_s, $($nc($cast($Class, lList->get(i)))->getName())}));
 		$plusAssign(s, $$str({" listener "_s, lList->get(i + 1)}));
 	}
 	return s;
 }
 
-void clinit$EventListenerList($Class* class$) {
+void EventListenerList::clinit$($Class* clazz) {
 	$assignStatic(EventListenerList::NULL_ARRAY, $new($ObjectArray, 0));
 }
 
@@ -209,7 +174,36 @@ EventListenerList::EventListenerList() {
 }
 
 $Class* EventListenerList::load$($String* name, bool initialize) {
-	$loadClass(EventListenerList, name, initialize, &_EventListenerList_ClassInfo_, clinit$EventListenerList, allocate$EventListenerList);
+	$FieldInfo fieldInfos$$[] = {
+		{"NULL_ARRAY", "[Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(EventListenerList, NULL_ARRAY)},
+		{"listenerList", "[Ljava/lang/Object;", nullptr, $PROTECTED | $VOLATILE | $TRANSIENT, $field(EventListenerList, listenerList)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(EventListenerList, init$, void)},
+		{"add", "(Ljava/lang/Class;Ljava/util/EventListener;)V", "<T::Ljava/util/EventListener;>(Ljava/lang/Class<TT;>;TT;)V", $PUBLIC | $SYNCHRONIZED, $virtualMethod(EventListenerList, add, void, $Class*, $EventListener*)},
+		{"getListenerCount", "()I", nullptr, $PUBLIC, $virtualMethod(EventListenerList, getListenerCount, int32_t)},
+		{"getListenerCount", "(Ljava/lang/Class;)I", "(Ljava/lang/Class<*>;)I", $PUBLIC, $virtualMethod(EventListenerList, getListenerCount, int32_t, $Class*)},
+		{"getListenerCount", "([Ljava/lang/Object;Ljava/lang/Class;)I", "([Ljava/lang/Object;Ljava/lang/Class<*>;)I", $PRIVATE, $method(EventListenerList, getListenerCount, int32_t, $ObjectArray*, $Class*)},
+		{"getListenerList", "()[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(EventListenerList, getListenerList, $ObjectArray*)},
+		{"getListeners", "(Ljava/lang/Class;)[Ljava/util/EventListener;", "<T::Ljava/util/EventListener;>(Ljava/lang/Class<TT;>;)[TT;", $PUBLIC, $virtualMethod(EventListenerList, getListeners, $EventListenerArray*, $Class*)},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(EventListenerList, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+		{"remove", "(Ljava/lang/Class;Ljava/util/EventListener;)V", "<T::Ljava/util/EventListener;>(Ljava/lang/Class<TT;>;TT;)V", $PUBLIC | $SYNCHRONIZED, $virtualMethod(EventListenerList, remove, void, $Class*, $EventListener*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(EventListenerList, toString, $String*)},
+		{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(EventListenerList, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.event.EventListenerList",
+		"java.lang.Object",
+		"java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(EventListenerList, name, initialize, &classInfo$$, EventListenerList::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(EventListenerList);
+	});
 	return class$;
 }
 

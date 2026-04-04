@@ -1,5 +1,4 @@
 #include <jdk.localedata.test.h>
-
 #include <jdk.localedata.h>
 #include <java.base.h>
 #include <java/lang/ClassEntry.h>

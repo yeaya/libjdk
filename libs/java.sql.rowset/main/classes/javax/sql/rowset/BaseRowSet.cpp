@@ -1,5 +1,4 @@
 #include <javax/sql/rowset/BaseRowSet.h>
-
 #include <java/io/InputStream.h>
 #include <java/io/Reader.h>
 #include <java/io/Serializable.h>
@@ -98,195 +97,6 @@ namespace javax {
 	namespace sql {
 		namespace rowset {
 
-$CompoundAttribute _BaseRowSet_MethodAnnotations_setUnicodeStream128[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$FieldInfo _BaseRowSet_FieldInfo_[] = {
-	{"UNICODE_STREAM_PARAM", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(BaseRowSet, UNICODE_STREAM_PARAM)},
-	{"BINARY_STREAM_PARAM", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(BaseRowSet, BINARY_STREAM_PARAM)},
-	{"ASCII_STREAM_PARAM", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(BaseRowSet, ASCII_STREAM_PARAM)},
-	{"binaryStream", "Ljava/io/InputStream;", nullptr, $PROTECTED, $field(BaseRowSet, binaryStream)},
-	{"unicodeStream", "Ljava/io/InputStream;", nullptr, $PROTECTED, $field(BaseRowSet, unicodeStream)},
-	{"asciiStream", "Ljava/io/InputStream;", nullptr, $PROTECTED, $field(BaseRowSet, asciiStream)},
-	{"charStream", "Ljava/io/Reader;", nullptr, $PROTECTED, $field(BaseRowSet, charStream)},
-	{"command", "Ljava/lang/String;", nullptr, $PRIVATE, $field(BaseRowSet, command)},
-	{"URL", "Ljava/lang/String;", nullptr, $PRIVATE, $field(BaseRowSet, URL)},
-	{"dataSource", "Ljava/lang/String;", nullptr, $PRIVATE, $field(BaseRowSet, dataSource)},
-	{"username", "Ljava/lang/String;", nullptr, $PRIVATE | $TRANSIENT, $field(BaseRowSet, username)},
-	{"password", "Ljava/lang/String;", nullptr, $PRIVATE | $TRANSIENT, $field(BaseRowSet, password)},
-	{"rowSetType", "I", nullptr, $PRIVATE, $field(BaseRowSet, rowSetType)},
-	{"showDeleted", "Z", nullptr, $PRIVATE, $field(BaseRowSet, showDeleted)},
-	{"queryTimeout", "I", nullptr, $PRIVATE, $field(BaseRowSet, queryTimeout)},
-	{"maxRows", "I", nullptr, $PRIVATE, $field(BaseRowSet, maxRows)},
-	{"maxFieldSize", "I", nullptr, $PRIVATE, $field(BaseRowSet, maxFieldSize)},
-	{"concurrency", "I", nullptr, $PRIVATE, $field(BaseRowSet, concurrency)},
-	{"readOnly", "Z", nullptr, $PRIVATE, $field(BaseRowSet, readOnly)},
-	{"escapeProcessing", "Z", nullptr, $PRIVATE, $field(BaseRowSet, escapeProcessing)},
-	{"isolation", "I", nullptr, $PRIVATE, $field(BaseRowSet, isolation)},
-	{"fetchDir", "I", nullptr, $PRIVATE, $field(BaseRowSet, fetchDir)},
-	{"fetchSize", "I", nullptr, $PRIVATE, $field(BaseRowSet, fetchSize)},
-	{"map", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/Class<*>;>;", $PRIVATE, $field(BaseRowSet, map)},
-	{"listeners", "Ljava/util/Vector;", "Ljava/util/Vector<Ljavax/sql/RowSetListener;>;", $PRIVATE, $field(BaseRowSet, listeners)},
-	{"params", "Ljava/util/Hashtable;", "Ljava/util/Hashtable<Ljava/lang/Integer;Ljava/lang/Object;>;", $PRIVATE, $field(BaseRowSet, params)},
-	{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(BaseRowSet, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _BaseRowSet_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(BaseRowSet, init$, void)},
-	{"addRowSetListener", "(Ljavax/sql/RowSetListener;)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, addRowSetListener, void, $RowSetListener*)},
-	{"checkParamIndex", "(I)V", nullptr, $PRIVATE, $method(BaseRowSet, checkParamIndex, void, int32_t), "java.sql.SQLException"},
-	{"checkforRowSetInterface", "()V", nullptr, $PRIVATE, $method(BaseRowSet, checkforRowSetInterface, void), "java.sql.SQLException"},
-	{"clearParameters", "()V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, clearParameters, void), "java.sql.SQLException"},
-	{"getCommand", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, getCommand, $String*)},
-	{"getConcurrency", "()I", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, getConcurrency, int32_t), "java.sql.SQLException"},
-	{"getDataSourceName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, getDataSourceName, $String*)},
-	{"getEscapeProcessing", "()Z", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, getEscapeProcessing, bool), "java.sql.SQLException"},
-	{"getFetchDirection", "()I", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, getFetchDirection, int32_t), "java.sql.SQLException"},
-	{"getFetchSize", "()I", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, getFetchSize, int32_t), "java.sql.SQLException"},
-	{"getMaxFieldSize", "()I", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, getMaxFieldSize, int32_t), "java.sql.SQLException"},
-	{"getMaxRows", "()I", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, getMaxRows, int32_t), "java.sql.SQLException"},
-	{"getParams", "()[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, getParams, $ObjectArray*), "java.sql.SQLException"},
-	{"getPassword", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, getPassword, $String*)},
-	{"getQueryTimeout", "()I", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, getQueryTimeout, int32_t), "java.sql.SQLException"},
-	{"getShowDeleted", "()Z", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, getShowDeleted, bool), "java.sql.SQLException"},
-	{"getTransactionIsolation", "()I", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, getTransactionIsolation, int32_t)},
-	{"getType", "()I", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, getType, int32_t), "java.sql.SQLException"},
-	{"getTypeMap", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/lang/Class<*>;>;", $PUBLIC, $virtualMethod(BaseRowSet, getTypeMap, $Map*)},
-	{"getUrl", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, getUrl, $String*), "java.sql.SQLException"},
-	{"getUsername", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, getUsername, $String*)},
-	{"initParams", "()V", nullptr, $PROTECTED, $virtualMethod(BaseRowSet, initParams, void)},
-	{"isReadOnly", "()Z", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, isReadOnly, bool)},
-	{"notifyCursorMoved", "()V", nullptr, $PROTECTED, $virtualMethod(BaseRowSet, notifyCursorMoved, void), "java.sql.SQLException"},
-	{"notifyRowChanged", "()V", nullptr, $PROTECTED, $virtualMethod(BaseRowSet, notifyRowChanged, void), "java.sql.SQLException"},
-	{"notifyRowSetChanged", "()V", nullptr, $PROTECTED, $virtualMethod(BaseRowSet, notifyRowSetChanged, void), "java.sql.SQLException"},
-	{"removeRowSetListener", "(Ljavax/sql/RowSetListener;)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, removeRowSetListener, void, $RowSetListener*)},
-	{"setArray", "(ILjava/sql/Array;)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setArray, void, int32_t, $1Array*), "java.sql.SQLException"},
-	{"setAsciiStream", "(ILjava/io/InputStream;I)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setAsciiStream, void, int32_t, $InputStream*, int32_t), "java.sql.SQLException"},
-	{"setAsciiStream", "(ILjava/io/InputStream;)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setAsciiStream, void, int32_t, $InputStream*), "java.sql.SQLException"},
-	{"setAsciiStream", "(Ljava/lang/String;Ljava/io/InputStream;I)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setAsciiStream, void, $String*, $InputStream*, int32_t), "java.sql.SQLException"},
-	{"setAsciiStream", "(Ljava/lang/String;Ljava/io/InputStream;)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setAsciiStream, void, $String*, $InputStream*), "java.sql.SQLException"},
-	{"setBigDecimal", "(ILjava/math/BigDecimal;)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setBigDecimal, void, int32_t, $BigDecimal*), "java.sql.SQLException"},
-	{"setBigDecimal", "(Ljava/lang/String;Ljava/math/BigDecimal;)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setBigDecimal, void, $String*, $BigDecimal*), "java.sql.SQLException"},
-	{"setBinaryStream", "(ILjava/io/InputStream;I)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setBinaryStream, void, int32_t, $InputStream*, int32_t), "java.sql.SQLException"},
-	{"setBinaryStream", "(ILjava/io/InputStream;)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setBinaryStream, void, int32_t, $InputStream*), "java.sql.SQLException"},
-	{"setBinaryStream", "(Ljava/lang/String;Ljava/io/InputStream;I)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setBinaryStream, void, $String*, $InputStream*, int32_t), "java.sql.SQLException"},
-	{"setBinaryStream", "(Ljava/lang/String;Ljava/io/InputStream;)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setBinaryStream, void, $String*, $InputStream*), "java.sql.SQLException"},
-	{"setBlob", "(ILjava/sql/Blob;)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setBlob, void, int32_t, $Blob*), "java.sql.SQLException"},
-	{"setBlob", "(ILjava/io/InputStream;J)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setBlob, void, int32_t, $InputStream*, int64_t), "java.sql.SQLException"},
-	{"setBlob", "(ILjava/io/InputStream;)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setBlob, void, int32_t, $InputStream*), "java.sql.SQLException"},
-	{"setBlob", "(Ljava/lang/String;Ljava/io/InputStream;J)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setBlob, void, $String*, $InputStream*, int64_t), "java.sql.SQLException"},
-	{"setBlob", "(Ljava/lang/String;Ljava/sql/Blob;)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setBlob, void, $String*, $Blob*), "java.sql.SQLException"},
-	{"setBlob", "(Ljava/lang/String;Ljava/io/InputStream;)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setBlob, void, $String*, $InputStream*), "java.sql.SQLException"},
-	{"setBoolean", "(IZ)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setBoolean, void, int32_t, bool), "java.sql.SQLException"},
-	{"setBoolean", "(Ljava/lang/String;Z)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setBoolean, void, $String*, bool), "java.sql.SQLException"},
-	{"setByte", "(IB)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setByte, void, int32_t, int8_t), "java.sql.SQLException"},
-	{"setByte", "(Ljava/lang/String;B)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setByte, void, $String*, int8_t), "java.sql.SQLException"},
-	{"setBytes", "(I[B)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setBytes, void, int32_t, $bytes*), "java.sql.SQLException"},
-	{"setBytes", "(Ljava/lang/String;[B)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setBytes, void, $String*, $bytes*), "java.sql.SQLException"},
-	{"setCharacterStream", "(ILjava/io/Reader;I)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setCharacterStream, void, int32_t, $Reader*, int32_t), "java.sql.SQLException"},
-	{"setCharacterStream", "(ILjava/io/Reader;)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setCharacterStream, void, int32_t, $Reader*), "java.sql.SQLException"},
-	{"setCharacterStream", "(Ljava/lang/String;Ljava/io/Reader;I)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setCharacterStream, void, $String*, $Reader*, int32_t), "java.sql.SQLException"},
-	{"setCharacterStream", "(Ljava/lang/String;Ljava/io/Reader;)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setCharacterStream, void, $String*, $Reader*), "java.sql.SQLException"},
-	{"setClob", "(ILjava/sql/Clob;)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setClob, void, int32_t, $Clob*), "java.sql.SQLException"},
-	{"setClob", "(ILjava/io/Reader;J)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setClob, void, int32_t, $Reader*, int64_t), "java.sql.SQLException"},
-	{"setClob", "(ILjava/io/Reader;)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setClob, void, int32_t, $Reader*), "java.sql.SQLException"},
-	{"setClob", "(Ljava/lang/String;Ljava/io/Reader;J)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setClob, void, $String*, $Reader*, int64_t), "java.sql.SQLException"},
-	{"setClob", "(Ljava/lang/String;Ljava/sql/Clob;)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setClob, void, $String*, $Clob*), "java.sql.SQLException"},
-	{"setClob", "(Ljava/lang/String;Ljava/io/Reader;)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setClob, void, $String*, $Reader*), "java.sql.SQLException"},
-	{"setCommand", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setCommand, void, $String*), "java.sql.SQLException"},
-	{"setConcurrency", "(I)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setConcurrency, void, int32_t), "java.sql.SQLException"},
-	{"setDataSourceName", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setDataSourceName, void, $String*), "java.sql.SQLException"},
-	{"setDate", "(ILjava/sql/Date;)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setDate, void, int32_t, $Date*), "java.sql.SQLException"},
-	{"setDate", "(ILjava/sql/Date;Ljava/util/Calendar;)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setDate, void, int32_t, $Date*, $Calendar*), "java.sql.SQLException"},
-	{"setDate", "(Ljava/lang/String;Ljava/sql/Date;)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setDate, void, $String*, $Date*), "java.sql.SQLException"},
-	{"setDate", "(Ljava/lang/String;Ljava/sql/Date;Ljava/util/Calendar;)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setDate, void, $String*, $Date*, $Calendar*), "java.sql.SQLException"},
-	{"setDouble", "(ID)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setDouble, void, int32_t, double), "java.sql.SQLException"},
-	{"setDouble", "(Ljava/lang/String;D)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setDouble, void, $String*, double), "java.sql.SQLException"},
-	{"setEscapeProcessing", "(Z)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setEscapeProcessing, void, bool), "java.sql.SQLException"},
-	{"setFetchDirection", "(I)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setFetchDirection, void, int32_t), "java.sql.SQLException"},
-	{"setFetchSize", "(I)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setFetchSize, void, int32_t), "java.sql.SQLException"},
-	{"setFloat", "(IF)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setFloat, void, int32_t, float), "java.sql.SQLException"},
-	{"setFloat", "(Ljava/lang/String;F)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setFloat, void, $String*, float), "java.sql.SQLException"},
-	{"setInt", "(II)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setInt, void, int32_t, int32_t), "java.sql.SQLException"},
-	{"setInt", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setInt, void, $String*, int32_t), "java.sql.SQLException"},
-	{"setLong", "(IJ)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setLong, void, int32_t, int64_t), "java.sql.SQLException"},
-	{"setLong", "(Ljava/lang/String;J)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setLong, void, $String*, int64_t), "java.sql.SQLException"},
-	{"setMaxFieldSize", "(I)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setMaxFieldSize, void, int32_t), "java.sql.SQLException"},
-	{"setMaxRows", "(I)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setMaxRows, void, int32_t), "java.sql.SQLException"},
-	{"setNCharacterStream", "(ILjava/io/Reader;)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setNCharacterStream, void, int32_t, $Reader*), "java.sql.SQLException"},
-	{"setNCharacterStream", "(ILjava/io/Reader;J)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setNCharacterStream, void, int32_t, $Reader*, int64_t), "java.sql.SQLException"},
-	{"setNCharacterStream", "(Ljava/lang/String;Ljava/io/Reader;J)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setNCharacterStream, void, $String*, $Reader*, int64_t), "java.sql.SQLException"},
-	{"setNCharacterStream", "(Ljava/lang/String;Ljava/io/Reader;)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setNCharacterStream, void, $String*, $Reader*), "java.sql.SQLException"},
-	{"setNClob", "(Ljava/lang/String;Ljava/sql/NClob;)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setNClob, void, $String*, $NClob*), "java.sql.SQLException"},
-	{"setNClob", "(Ljava/lang/String;Ljava/io/Reader;J)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setNClob, void, $String*, $Reader*, int64_t), "java.sql.SQLException"},
-	{"setNClob", "(Ljava/lang/String;Ljava/io/Reader;)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setNClob, void, $String*, $Reader*), "java.sql.SQLException"},
-	{"setNClob", "(ILjava/io/Reader;J)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setNClob, void, int32_t, $Reader*, int64_t), "java.sql.SQLException"},
-	{"setNClob", "(ILjava/sql/NClob;)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setNClob, void, int32_t, $NClob*), "java.sql.SQLException"},
-	{"setNClob", "(ILjava/io/Reader;)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setNClob, void, int32_t, $Reader*), "java.sql.SQLException"},
-	{"setNString", "(ILjava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setNString, void, int32_t, $String*), "java.sql.SQLException"},
-	{"setNString", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setNString, void, $String*, $String*), "java.sql.SQLException"},
-	{"setNull", "(II)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setNull, void, int32_t, int32_t), "java.sql.SQLException"},
-	{"setNull", "(IILjava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setNull, void, int32_t, int32_t, $String*), "java.sql.SQLException"},
-	{"setNull", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setNull, void, $String*, int32_t), "java.sql.SQLException"},
-	{"setNull", "(Ljava/lang/String;ILjava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setNull, void, $String*, int32_t, $String*), "java.sql.SQLException"},
-	{"setObject", "(ILjava/lang/Object;II)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setObject, void, int32_t, Object$*, int32_t, int32_t), "java.sql.SQLException"},
-	{"setObject", "(ILjava/lang/Object;I)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setObject, void, int32_t, Object$*, int32_t), "java.sql.SQLException"},
-	{"setObject", "(ILjava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setObject, void, int32_t, Object$*), "java.sql.SQLException"},
-	{"setObject", "(Ljava/lang/String;Ljava/lang/Object;II)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setObject, void, $String*, Object$*, int32_t, int32_t), "java.sql.SQLException"},
-	{"setObject", "(Ljava/lang/String;Ljava/lang/Object;I)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setObject, void, $String*, Object$*, int32_t), "java.sql.SQLException"},
-	{"setObject", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setObject, void, $String*, Object$*), "java.sql.SQLException"},
-	{"setPassword", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setPassword, void, $String*)},
-	{"setQueryTimeout", "(I)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setQueryTimeout, void, int32_t), "java.sql.SQLException"},
-	{"setReadOnly", "(Z)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setReadOnly, void, bool)},
-	{"setRef", "(ILjava/sql/Ref;)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setRef, void, int32_t, $Ref*), "java.sql.SQLException"},
-	{"setRowId", "(ILjava/sql/RowId;)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setRowId, void, int32_t, $RowId*), "java.sql.SQLException"},
-	{"setRowId", "(Ljava/lang/String;Ljava/sql/RowId;)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setRowId, void, $String*, $RowId*), "java.sql.SQLException"},
-	{"setSQLXML", "(ILjava/sql/SQLXML;)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setSQLXML, void, int32_t, $SQLXML*), "java.sql.SQLException"},
-	{"setSQLXML", "(Ljava/lang/String;Ljava/sql/SQLXML;)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setSQLXML, void, $String*, $SQLXML*), "java.sql.SQLException"},
-	{"setShort", "(IS)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setShort, void, int32_t, int16_t), "java.sql.SQLException"},
-	{"setShort", "(Ljava/lang/String;S)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setShort, void, $String*, int16_t), "java.sql.SQLException"},
-	{"setShowDeleted", "(Z)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setShowDeleted, void, bool), "java.sql.SQLException"},
-	{"setString", "(ILjava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setString, void, int32_t, $String*), "java.sql.SQLException"},
-	{"setString", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setString, void, $String*, $String*), "java.sql.SQLException"},
-	{"setTime", "(ILjava/sql/Time;)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setTime, void, int32_t, $Time*), "java.sql.SQLException"},
-	{"setTime", "(ILjava/sql/Time;Ljava/util/Calendar;)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setTime, void, int32_t, $Time*, $Calendar*), "java.sql.SQLException"},
-	{"setTime", "(Ljava/lang/String;Ljava/sql/Time;)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setTime, void, $String*, $Time*), "java.sql.SQLException"},
-	{"setTime", "(Ljava/lang/String;Ljava/sql/Time;Ljava/util/Calendar;)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setTime, void, $String*, $Time*, $Calendar*), "java.sql.SQLException"},
-	{"setTimestamp", "(ILjava/sql/Timestamp;)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setTimestamp, void, int32_t, $Timestamp*), "java.sql.SQLException"},
-	{"setTimestamp", "(ILjava/sql/Timestamp;Ljava/util/Calendar;)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setTimestamp, void, int32_t, $Timestamp*, $Calendar*), "java.sql.SQLException"},
-	{"setTimestamp", "(Ljava/lang/String;Ljava/sql/Timestamp;)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setTimestamp, void, $String*, $Timestamp*), "java.sql.SQLException"},
-	{"setTimestamp", "(Ljava/lang/String;Ljava/sql/Timestamp;Ljava/util/Calendar;)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setTimestamp, void, $String*, $Timestamp*, $Calendar*), "java.sql.SQLException"},
-	{"setTransactionIsolation", "(I)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setTransactionIsolation, void, int32_t), "java.sql.SQLException"},
-	{"setType", "(I)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setType, void, int32_t), "java.sql.SQLException"},
-	{"setTypeMap", "(Ljava/util/Map;)V", "(Ljava/util/Map<Ljava/lang/String;Ljava/lang/Class<*>;>;)V", $PUBLIC, $virtualMethod(BaseRowSet, setTypeMap, void, $Map*)},
-	{"setURL", "(ILjava/net/URL;)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setURL, void, int32_t, $URL*), "java.sql.SQLException"},
-	{"setUnicodeStream", "(ILjava/io/InputStream;I)V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(BaseRowSet, setUnicodeStream, void, int32_t, $InputStream*, int32_t), "java.sql.SQLException", nullptr, _BaseRowSet_MethodAnnotations_setUnicodeStream128},
-	{"setUrl", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setUrl, void, $String*), "java.sql.SQLException"},
-	{"setUsername", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setUsername, void, $String*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _BaseRowSet_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"javax.sql.rowset.BaseRowSet",
-	"java.lang.Object",
-	"java.io.Serializable,java.lang.Cloneable",
-	_BaseRowSet_FieldInfo_,
-	_BaseRowSet_MethodInfo_
-};
-
-$Object* allocate$BaseRowSet($Class* clazz) {
-	return $of($alloc(BaseRowSet));
-}
-
 int32_t BaseRowSet::hashCode() {
 	 return this->$Serializable::hashCode();
 }
@@ -329,7 +139,7 @@ void BaseRowSet::addRowSetListener($RowSetListener* listener) {
 }
 
 void BaseRowSet::removeRowSetListener($RowSetListener* listener) {
-	$nc(this->listeners)->remove($of(listener));
+	$nc(this->listeners)->remove(listener);
 }
 
 void BaseRowSet::checkforRowSetInterface() {
@@ -339,12 +149,12 @@ void BaseRowSet::checkforRowSetInterface() {
 }
 
 void BaseRowSet::notifyCursorMoved() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	checkforRowSetInterface();
 	if ($nc(this->listeners)->isEmpty() == false) {
 		$var($RowSetEvent, event, $new($RowSetEvent, $cast($RowSet, this)));
 		{
-			$var($Iterator, i$, $nc(this->listeners)->iterator());
+			$var($Iterator, i$, this->listeners->iterator());
 			for (; $nc(i$)->hasNext();) {
 				$var($RowSetListener, rsl, $cast($RowSetListener, i$->next()));
 				{
@@ -356,12 +166,12 @@ void BaseRowSet::notifyCursorMoved() {
 }
 
 void BaseRowSet::notifyRowChanged() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	checkforRowSetInterface();
 	if ($nc(this->listeners)->isEmpty() == false) {
 		$var($RowSetEvent, event, $new($RowSetEvent, $cast($RowSet, this)));
 		{
-			$var($Iterator, i$, $nc(this->listeners)->iterator());
+			$var($Iterator, i$, this->listeners->iterator());
 			for (; $nc(i$)->hasNext();) {
 				$var($RowSetListener, rsl, $cast($RowSetListener, i$->next()));
 				{
@@ -373,12 +183,12 @@ void BaseRowSet::notifyRowChanged() {
 }
 
 void BaseRowSet::notifyRowSetChanged() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	checkforRowSetInterface();
 	if ($nc(this->listeners)->isEmpty() == false) {
 		$var($RowSetEvent, event, $new($RowSetEvent, $cast($RowSet, this)));
 		{
-			$var($Iterator, i$, $nc(this->listeners)->iterator());
+			$var($Iterator, i$, this->listeners->iterator());
 			for (; $nc(i$)->hasNext();) {
 				$var($RowSetListener, rsl, $cast($RowSetListener, i$->next()));
 				{
@@ -396,7 +206,7 @@ $String* BaseRowSet::getCommand() {
 void BaseRowSet::setCommand($String* cmd) {
 	if (cmd == nullptr) {
 		$set(this, command, nullptr);
-	} else if ($nc(cmd)->length() == 0) {
+	} else if (cmd->length() == 0) {
 		$throwNew($SQLException, "Invalid command string detected. Cannot be of length less than 0"_s);
 	} else {
 		if (this->params == nullptr) {
@@ -415,7 +225,7 @@ void BaseRowSet::setUrl($String* url$renamed) {
 	$var($String, url, url$renamed);
 	if (url == nullptr) {
 		$assign(url, nullptr);
-	} else if ($nc(url)->length() < 1) {
+	} else if (url->length() < 1) {
 		$throwNew($SQLException, "Invalid url string detected. Cannot be of length less than 1"_s);
 	} else {
 		$set(this, URL, url);
@@ -430,7 +240,7 @@ $String* BaseRowSet::getDataSourceName() {
 void BaseRowSet::setDataSourceName($String* name) {
 	if (name == nullptr) {
 		$set(this, dataSource, nullptr);
-	} else if ($nc(name)->isEmpty()) {
+	} else if (name->isEmpty()) {
 		$throwNew($SQLException, "DataSource name cannot be empty string"_s);
 	} else {
 		$set(this, dataSource, name);
@@ -512,7 +322,7 @@ int32_t BaseRowSet::getMaxFieldSize() {
 }
 
 void BaseRowSet::setMaxFieldSize(int32_t max) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (max < 0) {
 		$throwNew($SQLException, $$str({"Invalid max field size set. Cannot be of value: "_s, $$str(max)}));
 	}
@@ -524,7 +334,7 @@ int32_t BaseRowSet::getMaxRows() {
 }
 
 void BaseRowSet::setMaxRows(int32_t max) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (max < 0) {
 		$throwNew($SQLException, $$str({"Invalid max row size set. Cannot be of value: "_s, $$str(max)}));
 	} else if (max < this->getFetchSize()) {
@@ -542,7 +352,7 @@ int32_t BaseRowSet::getQueryTimeout() {
 }
 
 void BaseRowSet::setQueryTimeout(int32_t seconds) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (seconds < 0) {
 		$throwNew($SQLException, $$str({"Invalid query timeout value set. Cannot be of value: "_s, $$str(seconds)}));
 	}
@@ -573,7 +383,7 @@ int32_t BaseRowSet::getFetchDirection() {
 }
 
 void BaseRowSet::setFetchSize(int32_t rows) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (getMaxRows() == 0 && rows >= 0) {
 		this->fetchSize = rows;
 		return;
@@ -599,7 +409,7 @@ void BaseRowSet::checkParamIndex(int32_t idx) {
 }
 
 void BaseRowSet::setNull(int32_t parameterIndex, int32_t sqlType) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectArray, nullVal, nullptr);
 	checkParamIndex(parameterIndex);
 	$assign(nullVal, $new($ObjectArray, 2));
@@ -612,7 +422,7 @@ void BaseRowSet::setNull(int32_t parameterIndex, int32_t sqlType) {
 }
 
 void BaseRowSet::setNull(int32_t parameterIndex, int32_t sqlType, $String* typeName) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectArray, nullVal, nullptr);
 	checkParamIndex(parameterIndex);
 	$assign(nullVal, $new($ObjectArray, 3));
@@ -626,72 +436,72 @@ void BaseRowSet::setNull(int32_t parameterIndex, int32_t sqlType, $String* typeN
 }
 
 void BaseRowSet::setBoolean(int32_t parameterIndex, bool x) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	checkParamIndex(parameterIndex);
 	if (this->params == nullptr) {
 		$throwNew($SQLException, "Set initParams() before setNull"_s);
 	}
-	$var($Object, var$0, $of($Integer::valueOf(parameterIndex - 1)));
+	$var($Object, var$0, $Integer::valueOf(parameterIndex - 1));
 	$nc(this->params)->put(var$0, $($Boolean::valueOf(x)));
 }
 
 void BaseRowSet::setByte(int32_t parameterIndex, int8_t x) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	checkParamIndex(parameterIndex);
 	if (this->params == nullptr) {
 		$throwNew($SQLException, "Set initParams() before setByte"_s);
 	}
-	$var($Object, var$0, $of($Integer::valueOf(parameterIndex - 1)));
+	$var($Object, var$0, $Integer::valueOf(parameterIndex - 1));
 	$nc(this->params)->put(var$0, $($Byte::valueOf(x)));
 }
 
 void BaseRowSet::setShort(int32_t parameterIndex, int16_t x) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	checkParamIndex(parameterIndex);
 	if (this->params == nullptr) {
 		$throwNew($SQLException, "Set initParams() before setShort"_s);
 	}
-	$var($Object, var$0, $of($Integer::valueOf(parameterIndex - 1)));
+	$var($Object, var$0, $Integer::valueOf(parameterIndex - 1));
 	$nc(this->params)->put(var$0, $($Short::valueOf(x)));
 }
 
 void BaseRowSet::setInt(int32_t parameterIndex, int32_t x) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	checkParamIndex(parameterIndex);
 	if (this->params == nullptr) {
 		$throwNew($SQLException, "Set initParams() before setInt"_s);
 	}
-	$var($Object, var$0, $of($Integer::valueOf(parameterIndex - 1)));
+	$var($Object, var$0, $Integer::valueOf(parameterIndex - 1));
 	$nc(this->params)->put(var$0, $($Integer::valueOf(x)));
 }
 
 void BaseRowSet::setLong(int32_t parameterIndex, int64_t x) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	checkParamIndex(parameterIndex);
 	if (this->params == nullptr) {
 		$throwNew($SQLException, "Set initParams() before setLong"_s);
 	}
-	$var($Object, var$0, $of($Integer::valueOf(parameterIndex - 1)));
+	$var($Object, var$0, $Integer::valueOf(parameterIndex - 1));
 	$nc(this->params)->put(var$0, $($Long::valueOf(x)));
 }
 
 void BaseRowSet::setFloat(int32_t parameterIndex, float x) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	checkParamIndex(parameterIndex);
 	if (this->params == nullptr) {
 		$throwNew($SQLException, "Set initParams() before setFloat"_s);
 	}
-	$var($Object, var$0, $of($Integer::valueOf(parameterIndex - 1)));
+	$var($Object, var$0, $Integer::valueOf(parameterIndex - 1));
 	$nc(this->params)->put(var$0, $($Float::valueOf(x)));
 }
 
 void BaseRowSet::setDouble(int32_t parameterIndex, double x) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	checkParamIndex(parameterIndex);
 	if (this->params == nullptr) {
 		$throwNew($SQLException, "Set initParams() before setDouble"_s);
 	}
-	$var($Object, var$0, $of($Integer::valueOf(parameterIndex - 1)));
+	$var($Object, var$0, $Integer::valueOf(parameterIndex - 1));
 	$nc(this->params)->put(var$0, $($Double::valueOf(x)));
 }
 
@@ -744,7 +554,7 @@ void BaseRowSet::setTimestamp(int32_t parameterIndex, $Timestamp* x) {
 }
 
 void BaseRowSet::setAsciiStream(int32_t parameterIndex, $InputStream* x, int32_t length) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectArray, asciiStream, nullptr);
 	checkParamIndex(parameterIndex);
 	$assign(asciiStream, $new($ObjectArray, 3));
@@ -762,7 +572,7 @@ void BaseRowSet::setAsciiStream(int32_t parameterIndex, $InputStream* x) {
 }
 
 void BaseRowSet::setBinaryStream(int32_t parameterIndex, $InputStream* x, int32_t length) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectArray, binaryStream, nullptr);
 	checkParamIndex(parameterIndex);
 	$assign(binaryStream, $new($ObjectArray, 3));
@@ -780,7 +590,7 @@ void BaseRowSet::setBinaryStream(int32_t parameterIndex, $InputStream* x) {
 }
 
 void BaseRowSet::setUnicodeStream(int32_t parameterIndex, $InputStream* x, int32_t length) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectArray, unicodeStream, nullptr);
 	checkParamIndex(parameterIndex);
 	$assign(unicodeStream, $new($ObjectArray, 3));
@@ -794,7 +604,7 @@ void BaseRowSet::setUnicodeStream(int32_t parameterIndex, $InputStream* x, int32
 }
 
 void BaseRowSet::setCharacterStream(int32_t parameterIndex, $Reader* reader, int32_t length) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectArray, charStream, nullptr);
 	checkParamIndex(parameterIndex);
 	$assign(charStream, $new($ObjectArray, 2));
@@ -811,7 +621,7 @@ void BaseRowSet::setCharacterStream(int32_t parameterIndex, $Reader* reader) {
 }
 
 void BaseRowSet::setObject(int32_t parameterIndex, Object$* x, int32_t targetSqlType, int32_t scale) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectArray, obj, nullptr);
 	checkParamIndex(parameterIndex);
 	$assign(obj, $new($ObjectArray, 3));
@@ -825,7 +635,7 @@ void BaseRowSet::setObject(int32_t parameterIndex, Object$* x, int32_t targetSql
 }
 
 void BaseRowSet::setObject(int32_t parameterIndex, Object$* x, int32_t targetSqlType) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectArray, obj, nullptr);
 	checkParamIndex(parameterIndex);
 	$assign(obj, $new($ObjectArray, 2));
@@ -846,47 +656,47 @@ void BaseRowSet::setObject(int32_t parameterIndex, Object$* x) {
 }
 
 void BaseRowSet::setRef(int32_t parameterIndex, $Ref* ref) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	checkParamIndex(parameterIndex);
 	if (this->params == nullptr) {
 		$throwNew($SQLException, "Set initParams() before setRef"_s);
 	}
-	$var($Object, var$0, $of($Integer::valueOf(parameterIndex - 1)));
+	$var($Object, var$0, $Integer::valueOf(parameterIndex - 1));
 	$nc(this->params)->put(var$0, $$new($SerialRef, ref));
 }
 
 void BaseRowSet::setBlob(int32_t parameterIndex, $Blob* x) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	checkParamIndex(parameterIndex);
 	if (this->params == nullptr) {
 		$throwNew($SQLException, "Set initParams() before setBlob"_s);
 	}
-	$var($Object, var$0, $of($Integer::valueOf(parameterIndex - 1)));
+	$var($Object, var$0, $Integer::valueOf(parameterIndex - 1));
 	$nc(this->params)->put(var$0, $$new($SerialBlob, x));
 }
 
 void BaseRowSet::setClob(int32_t parameterIndex, $Clob* x) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	checkParamIndex(parameterIndex);
 	if (this->params == nullptr) {
 		$throwNew($SQLException, "Set initParams() before setClob"_s);
 	}
-	$var($Object, var$0, $of($Integer::valueOf(parameterIndex - 1)));
+	$var($Object, var$0, $Integer::valueOf(parameterIndex - 1));
 	$nc(this->params)->put(var$0, $$new($SerialClob, x));
 }
 
 void BaseRowSet::setArray(int32_t parameterIndex, $1Array* array) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	checkParamIndex(parameterIndex);
 	if (this->params == nullptr) {
 		$throwNew($SQLException, "Set initParams() before setArray"_s);
 	}
-	$var($Object, var$0, $of($Integer::valueOf(parameterIndex - 1)));
+	$var($Object, var$0, $Integer::valueOf(parameterIndex - 1));
 	$nc(this->params)->put(var$0, $$new($SerialArray, array));
 }
 
 void BaseRowSet::setDate(int32_t parameterIndex, $Date* x, $Calendar* cal) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectArray, date, nullptr);
 	checkParamIndex(parameterIndex);
 	$assign(date, $new($ObjectArray, 2));
@@ -899,7 +709,7 @@ void BaseRowSet::setDate(int32_t parameterIndex, $Date* x, $Calendar* cal) {
 }
 
 void BaseRowSet::setTime(int32_t parameterIndex, $Time* x, $Calendar* cal) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectArray, time, nullptr);
 	checkParamIndex(parameterIndex);
 	$assign(time, $new($ObjectArray, 2));
@@ -912,7 +722,7 @@ void BaseRowSet::setTime(int32_t parameterIndex, $Time* x, $Calendar* cal) {
 }
 
 void BaseRowSet::setTimestamp(int32_t parameterIndex, $Timestamp* x, $Calendar* cal) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectArray, timestamp, nullptr);
 	checkParamIndex(parameterIndex);
 	$assign(timestamp, $new($ObjectArray, 2));
@@ -929,15 +739,15 @@ void BaseRowSet::clearParameters() {
 }
 
 $ObjectArray* BaseRowSet::getParams() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->params == nullptr) {
 		initParams();
 		$var($ObjectArray, paramsArray, $new($ObjectArray, $nc(this->params)->size()));
 		return paramsArray;
 	} else {
-		$var($ObjectArray, paramsArray, $new($ObjectArray, $nc(this->params)->size()));
-		for (int32_t i = 0; i < $nc(this->params)->size(); ++i) {
-			paramsArray->set(i, $($nc(this->params)->get($($Integer::valueOf(i)))));
+		$var($ObjectArray, paramsArray, $new($ObjectArray, this->params->size()));
+		for (int32_t i = 0; i < this->params->size(); ++i) {
+			paramsArray->set(i, $(this->params->get($($Integer::valueOf(i)))));
 			if (paramsArray->get(i) == nullptr) {
 				$throwNew($SQLException, $$str({"missing parameter: "_s, $$str((i + 1))}));
 			}
@@ -1166,7 +976,190 @@ BaseRowSet::BaseRowSet() {
 }
 
 $Class* BaseRowSet::load$($String* name, bool initialize) {
-	$loadClass(BaseRowSet, name, initialize, &_BaseRowSet_ClassInfo_, allocate$BaseRowSet);
+	$FieldInfo fieldInfos$$[] = {
+		{"UNICODE_STREAM_PARAM", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(BaseRowSet, UNICODE_STREAM_PARAM)},
+		{"BINARY_STREAM_PARAM", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(BaseRowSet, BINARY_STREAM_PARAM)},
+		{"ASCII_STREAM_PARAM", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(BaseRowSet, ASCII_STREAM_PARAM)},
+		{"binaryStream", "Ljava/io/InputStream;", nullptr, $PROTECTED, $field(BaseRowSet, binaryStream)},
+		{"unicodeStream", "Ljava/io/InputStream;", nullptr, $PROTECTED, $field(BaseRowSet, unicodeStream)},
+		{"asciiStream", "Ljava/io/InputStream;", nullptr, $PROTECTED, $field(BaseRowSet, asciiStream)},
+		{"charStream", "Ljava/io/Reader;", nullptr, $PROTECTED, $field(BaseRowSet, charStream)},
+		{"command", "Ljava/lang/String;", nullptr, $PRIVATE, $field(BaseRowSet, command)},
+		{"URL", "Ljava/lang/String;", nullptr, $PRIVATE, $field(BaseRowSet, URL)},
+		{"dataSource", "Ljava/lang/String;", nullptr, $PRIVATE, $field(BaseRowSet, dataSource)},
+		{"username", "Ljava/lang/String;", nullptr, $PRIVATE | $TRANSIENT, $field(BaseRowSet, username)},
+		{"password", "Ljava/lang/String;", nullptr, $PRIVATE | $TRANSIENT, $field(BaseRowSet, password)},
+		{"rowSetType", "I", nullptr, $PRIVATE, $field(BaseRowSet, rowSetType)},
+		{"showDeleted", "Z", nullptr, $PRIVATE, $field(BaseRowSet, showDeleted)},
+		{"queryTimeout", "I", nullptr, $PRIVATE, $field(BaseRowSet, queryTimeout)},
+		{"maxRows", "I", nullptr, $PRIVATE, $field(BaseRowSet, maxRows)},
+		{"maxFieldSize", "I", nullptr, $PRIVATE, $field(BaseRowSet, maxFieldSize)},
+		{"concurrency", "I", nullptr, $PRIVATE, $field(BaseRowSet, concurrency)},
+		{"readOnly", "Z", nullptr, $PRIVATE, $field(BaseRowSet, readOnly)},
+		{"escapeProcessing", "Z", nullptr, $PRIVATE, $field(BaseRowSet, escapeProcessing)},
+		{"isolation", "I", nullptr, $PRIVATE, $field(BaseRowSet, isolation)},
+		{"fetchDir", "I", nullptr, $PRIVATE, $field(BaseRowSet, fetchDir)},
+		{"fetchSize", "I", nullptr, $PRIVATE, $field(BaseRowSet, fetchSize)},
+		{"map", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/Class<*>;>;", $PRIVATE, $field(BaseRowSet, map)},
+		{"listeners", "Ljava/util/Vector;", "Ljava/util/Vector<Ljavax/sql/RowSetListener;>;", $PRIVATE, $field(BaseRowSet, listeners)},
+		{"params", "Ljava/util/Hashtable;", "Ljava/util/Hashtable<Ljava/lang/Integer;Ljava/lang/Object;>;", $PRIVATE, $field(BaseRowSet, params)},
+		{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(BaseRowSet, serialVersionUID)},
+		{}
+	};
+	$CompoundAttribute setUnicodeStreammethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(BaseRowSet, init$, void)},
+		{"addRowSetListener", "(Ljavax/sql/RowSetListener;)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, addRowSetListener, void, $RowSetListener*)},
+		{"checkParamIndex", "(I)V", nullptr, $PRIVATE, $method(BaseRowSet, checkParamIndex, void, int32_t), "java.sql.SQLException"},
+		{"checkforRowSetInterface", "()V", nullptr, $PRIVATE, $method(BaseRowSet, checkforRowSetInterface, void), "java.sql.SQLException"},
+		{"clearParameters", "()V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, clearParameters, void), "java.sql.SQLException"},
+		{"getCommand", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, getCommand, $String*)},
+		{"getConcurrency", "()I", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, getConcurrency, int32_t), "java.sql.SQLException"},
+		{"getDataSourceName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, getDataSourceName, $String*)},
+		{"getEscapeProcessing", "()Z", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, getEscapeProcessing, bool), "java.sql.SQLException"},
+		{"getFetchDirection", "()I", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, getFetchDirection, int32_t), "java.sql.SQLException"},
+		{"getFetchSize", "()I", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, getFetchSize, int32_t), "java.sql.SQLException"},
+		{"getMaxFieldSize", "()I", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, getMaxFieldSize, int32_t), "java.sql.SQLException"},
+		{"getMaxRows", "()I", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, getMaxRows, int32_t), "java.sql.SQLException"},
+		{"getParams", "()[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, getParams, $ObjectArray*), "java.sql.SQLException"},
+		{"getPassword", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, getPassword, $String*)},
+		{"getQueryTimeout", "()I", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, getQueryTimeout, int32_t), "java.sql.SQLException"},
+		{"getShowDeleted", "()Z", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, getShowDeleted, bool), "java.sql.SQLException"},
+		{"getTransactionIsolation", "()I", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, getTransactionIsolation, int32_t)},
+		{"getType", "()I", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, getType, int32_t), "java.sql.SQLException"},
+		{"getTypeMap", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/lang/Class<*>;>;", $PUBLIC, $virtualMethod(BaseRowSet, getTypeMap, $Map*)},
+		{"getUrl", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, getUrl, $String*), "java.sql.SQLException"},
+		{"getUsername", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, getUsername, $String*)},
+		{"initParams", "()V", nullptr, $PROTECTED, $virtualMethod(BaseRowSet, initParams, void)},
+		{"isReadOnly", "()Z", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, isReadOnly, bool)},
+		{"notifyCursorMoved", "()V", nullptr, $PROTECTED, $virtualMethod(BaseRowSet, notifyCursorMoved, void), "java.sql.SQLException"},
+		{"notifyRowChanged", "()V", nullptr, $PROTECTED, $virtualMethod(BaseRowSet, notifyRowChanged, void), "java.sql.SQLException"},
+		{"notifyRowSetChanged", "()V", nullptr, $PROTECTED, $virtualMethod(BaseRowSet, notifyRowSetChanged, void), "java.sql.SQLException"},
+		{"removeRowSetListener", "(Ljavax/sql/RowSetListener;)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, removeRowSetListener, void, $RowSetListener*)},
+		{"setArray", "(ILjava/sql/Array;)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setArray, void, int32_t, $1Array*), "java.sql.SQLException"},
+		{"setAsciiStream", "(ILjava/io/InputStream;I)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setAsciiStream, void, int32_t, $InputStream*, int32_t), "java.sql.SQLException"},
+		{"setAsciiStream", "(ILjava/io/InputStream;)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setAsciiStream, void, int32_t, $InputStream*), "java.sql.SQLException"},
+		{"setAsciiStream", "(Ljava/lang/String;Ljava/io/InputStream;I)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setAsciiStream, void, $String*, $InputStream*, int32_t), "java.sql.SQLException"},
+		{"setAsciiStream", "(Ljava/lang/String;Ljava/io/InputStream;)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setAsciiStream, void, $String*, $InputStream*), "java.sql.SQLException"},
+		{"setBigDecimal", "(ILjava/math/BigDecimal;)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setBigDecimal, void, int32_t, $BigDecimal*), "java.sql.SQLException"},
+		{"setBigDecimal", "(Ljava/lang/String;Ljava/math/BigDecimal;)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setBigDecimal, void, $String*, $BigDecimal*), "java.sql.SQLException"},
+		{"setBinaryStream", "(ILjava/io/InputStream;I)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setBinaryStream, void, int32_t, $InputStream*, int32_t), "java.sql.SQLException"},
+		{"setBinaryStream", "(ILjava/io/InputStream;)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setBinaryStream, void, int32_t, $InputStream*), "java.sql.SQLException"},
+		{"setBinaryStream", "(Ljava/lang/String;Ljava/io/InputStream;I)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setBinaryStream, void, $String*, $InputStream*, int32_t), "java.sql.SQLException"},
+		{"setBinaryStream", "(Ljava/lang/String;Ljava/io/InputStream;)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setBinaryStream, void, $String*, $InputStream*), "java.sql.SQLException"},
+		{"setBlob", "(ILjava/sql/Blob;)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setBlob, void, int32_t, $Blob*), "java.sql.SQLException"},
+		{"setBlob", "(ILjava/io/InputStream;J)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setBlob, void, int32_t, $InputStream*, int64_t), "java.sql.SQLException"},
+		{"setBlob", "(ILjava/io/InputStream;)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setBlob, void, int32_t, $InputStream*), "java.sql.SQLException"},
+		{"setBlob", "(Ljava/lang/String;Ljava/io/InputStream;J)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setBlob, void, $String*, $InputStream*, int64_t), "java.sql.SQLException"},
+		{"setBlob", "(Ljava/lang/String;Ljava/sql/Blob;)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setBlob, void, $String*, $Blob*), "java.sql.SQLException"},
+		{"setBlob", "(Ljava/lang/String;Ljava/io/InputStream;)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setBlob, void, $String*, $InputStream*), "java.sql.SQLException"},
+		{"setBoolean", "(IZ)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setBoolean, void, int32_t, bool), "java.sql.SQLException"},
+		{"setBoolean", "(Ljava/lang/String;Z)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setBoolean, void, $String*, bool), "java.sql.SQLException"},
+		{"setByte", "(IB)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setByte, void, int32_t, int8_t), "java.sql.SQLException"},
+		{"setByte", "(Ljava/lang/String;B)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setByte, void, $String*, int8_t), "java.sql.SQLException"},
+		{"setBytes", "(I[B)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setBytes, void, int32_t, $bytes*), "java.sql.SQLException"},
+		{"setBytes", "(Ljava/lang/String;[B)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setBytes, void, $String*, $bytes*), "java.sql.SQLException"},
+		{"setCharacterStream", "(ILjava/io/Reader;I)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setCharacterStream, void, int32_t, $Reader*, int32_t), "java.sql.SQLException"},
+		{"setCharacterStream", "(ILjava/io/Reader;)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setCharacterStream, void, int32_t, $Reader*), "java.sql.SQLException"},
+		{"setCharacterStream", "(Ljava/lang/String;Ljava/io/Reader;I)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setCharacterStream, void, $String*, $Reader*, int32_t), "java.sql.SQLException"},
+		{"setCharacterStream", "(Ljava/lang/String;Ljava/io/Reader;)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setCharacterStream, void, $String*, $Reader*), "java.sql.SQLException"},
+		{"setClob", "(ILjava/sql/Clob;)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setClob, void, int32_t, $Clob*), "java.sql.SQLException"},
+		{"setClob", "(ILjava/io/Reader;J)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setClob, void, int32_t, $Reader*, int64_t), "java.sql.SQLException"},
+		{"setClob", "(ILjava/io/Reader;)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setClob, void, int32_t, $Reader*), "java.sql.SQLException"},
+		{"setClob", "(Ljava/lang/String;Ljava/io/Reader;J)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setClob, void, $String*, $Reader*, int64_t), "java.sql.SQLException"},
+		{"setClob", "(Ljava/lang/String;Ljava/sql/Clob;)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setClob, void, $String*, $Clob*), "java.sql.SQLException"},
+		{"setClob", "(Ljava/lang/String;Ljava/io/Reader;)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setClob, void, $String*, $Reader*), "java.sql.SQLException"},
+		{"setCommand", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setCommand, void, $String*), "java.sql.SQLException"},
+		{"setConcurrency", "(I)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setConcurrency, void, int32_t), "java.sql.SQLException"},
+		{"setDataSourceName", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setDataSourceName, void, $String*), "java.sql.SQLException"},
+		{"setDate", "(ILjava/sql/Date;)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setDate, void, int32_t, $Date*), "java.sql.SQLException"},
+		{"setDate", "(ILjava/sql/Date;Ljava/util/Calendar;)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setDate, void, int32_t, $Date*, $Calendar*), "java.sql.SQLException"},
+		{"setDate", "(Ljava/lang/String;Ljava/sql/Date;)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setDate, void, $String*, $Date*), "java.sql.SQLException"},
+		{"setDate", "(Ljava/lang/String;Ljava/sql/Date;Ljava/util/Calendar;)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setDate, void, $String*, $Date*, $Calendar*), "java.sql.SQLException"},
+		{"setDouble", "(ID)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setDouble, void, int32_t, double), "java.sql.SQLException"},
+		{"setDouble", "(Ljava/lang/String;D)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setDouble, void, $String*, double), "java.sql.SQLException"},
+		{"setEscapeProcessing", "(Z)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setEscapeProcessing, void, bool), "java.sql.SQLException"},
+		{"setFetchDirection", "(I)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setFetchDirection, void, int32_t), "java.sql.SQLException"},
+		{"setFetchSize", "(I)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setFetchSize, void, int32_t), "java.sql.SQLException"},
+		{"setFloat", "(IF)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setFloat, void, int32_t, float), "java.sql.SQLException"},
+		{"setFloat", "(Ljava/lang/String;F)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setFloat, void, $String*, float), "java.sql.SQLException"},
+		{"setInt", "(II)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setInt, void, int32_t, int32_t), "java.sql.SQLException"},
+		{"setInt", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setInt, void, $String*, int32_t), "java.sql.SQLException"},
+		{"setLong", "(IJ)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setLong, void, int32_t, int64_t), "java.sql.SQLException"},
+		{"setLong", "(Ljava/lang/String;J)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setLong, void, $String*, int64_t), "java.sql.SQLException"},
+		{"setMaxFieldSize", "(I)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setMaxFieldSize, void, int32_t), "java.sql.SQLException"},
+		{"setMaxRows", "(I)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setMaxRows, void, int32_t), "java.sql.SQLException"},
+		{"setNCharacterStream", "(ILjava/io/Reader;)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setNCharacterStream, void, int32_t, $Reader*), "java.sql.SQLException"},
+		{"setNCharacterStream", "(ILjava/io/Reader;J)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setNCharacterStream, void, int32_t, $Reader*, int64_t), "java.sql.SQLException"},
+		{"setNCharacterStream", "(Ljava/lang/String;Ljava/io/Reader;J)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setNCharacterStream, void, $String*, $Reader*, int64_t), "java.sql.SQLException"},
+		{"setNCharacterStream", "(Ljava/lang/String;Ljava/io/Reader;)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setNCharacterStream, void, $String*, $Reader*), "java.sql.SQLException"},
+		{"setNClob", "(Ljava/lang/String;Ljava/sql/NClob;)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setNClob, void, $String*, $NClob*), "java.sql.SQLException"},
+		{"setNClob", "(Ljava/lang/String;Ljava/io/Reader;J)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setNClob, void, $String*, $Reader*, int64_t), "java.sql.SQLException"},
+		{"setNClob", "(Ljava/lang/String;Ljava/io/Reader;)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setNClob, void, $String*, $Reader*), "java.sql.SQLException"},
+		{"setNClob", "(ILjava/io/Reader;J)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setNClob, void, int32_t, $Reader*, int64_t), "java.sql.SQLException"},
+		{"setNClob", "(ILjava/sql/NClob;)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setNClob, void, int32_t, $NClob*), "java.sql.SQLException"},
+		{"setNClob", "(ILjava/io/Reader;)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setNClob, void, int32_t, $Reader*), "java.sql.SQLException"},
+		{"setNString", "(ILjava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setNString, void, int32_t, $String*), "java.sql.SQLException"},
+		{"setNString", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setNString, void, $String*, $String*), "java.sql.SQLException"},
+		{"setNull", "(II)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setNull, void, int32_t, int32_t), "java.sql.SQLException"},
+		{"setNull", "(IILjava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setNull, void, int32_t, int32_t, $String*), "java.sql.SQLException"},
+		{"setNull", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setNull, void, $String*, int32_t), "java.sql.SQLException"},
+		{"setNull", "(Ljava/lang/String;ILjava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setNull, void, $String*, int32_t, $String*), "java.sql.SQLException"},
+		{"setObject", "(ILjava/lang/Object;II)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setObject, void, int32_t, Object$*, int32_t, int32_t), "java.sql.SQLException"},
+		{"setObject", "(ILjava/lang/Object;I)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setObject, void, int32_t, Object$*, int32_t), "java.sql.SQLException"},
+		{"setObject", "(ILjava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setObject, void, int32_t, Object$*), "java.sql.SQLException"},
+		{"setObject", "(Ljava/lang/String;Ljava/lang/Object;II)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setObject, void, $String*, Object$*, int32_t, int32_t), "java.sql.SQLException"},
+		{"setObject", "(Ljava/lang/String;Ljava/lang/Object;I)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setObject, void, $String*, Object$*, int32_t), "java.sql.SQLException"},
+		{"setObject", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setObject, void, $String*, Object$*), "java.sql.SQLException"},
+		{"setPassword", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setPassword, void, $String*)},
+		{"setQueryTimeout", "(I)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setQueryTimeout, void, int32_t), "java.sql.SQLException"},
+		{"setReadOnly", "(Z)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setReadOnly, void, bool)},
+		{"setRef", "(ILjava/sql/Ref;)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setRef, void, int32_t, $Ref*), "java.sql.SQLException"},
+		{"setRowId", "(ILjava/sql/RowId;)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setRowId, void, int32_t, $RowId*), "java.sql.SQLException"},
+		{"setRowId", "(Ljava/lang/String;Ljava/sql/RowId;)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setRowId, void, $String*, $RowId*), "java.sql.SQLException"},
+		{"setSQLXML", "(ILjava/sql/SQLXML;)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setSQLXML, void, int32_t, $SQLXML*), "java.sql.SQLException"},
+		{"setSQLXML", "(Ljava/lang/String;Ljava/sql/SQLXML;)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setSQLXML, void, $String*, $SQLXML*), "java.sql.SQLException"},
+		{"setShort", "(IS)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setShort, void, int32_t, int16_t), "java.sql.SQLException"},
+		{"setShort", "(Ljava/lang/String;S)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setShort, void, $String*, int16_t), "java.sql.SQLException"},
+		{"setShowDeleted", "(Z)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setShowDeleted, void, bool), "java.sql.SQLException"},
+		{"setString", "(ILjava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setString, void, int32_t, $String*), "java.sql.SQLException"},
+		{"setString", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setString, void, $String*, $String*), "java.sql.SQLException"},
+		{"setTime", "(ILjava/sql/Time;)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setTime, void, int32_t, $Time*), "java.sql.SQLException"},
+		{"setTime", "(ILjava/sql/Time;Ljava/util/Calendar;)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setTime, void, int32_t, $Time*, $Calendar*), "java.sql.SQLException"},
+		{"setTime", "(Ljava/lang/String;Ljava/sql/Time;)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setTime, void, $String*, $Time*), "java.sql.SQLException"},
+		{"setTime", "(Ljava/lang/String;Ljava/sql/Time;Ljava/util/Calendar;)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setTime, void, $String*, $Time*, $Calendar*), "java.sql.SQLException"},
+		{"setTimestamp", "(ILjava/sql/Timestamp;)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setTimestamp, void, int32_t, $Timestamp*), "java.sql.SQLException"},
+		{"setTimestamp", "(ILjava/sql/Timestamp;Ljava/util/Calendar;)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setTimestamp, void, int32_t, $Timestamp*, $Calendar*), "java.sql.SQLException"},
+		{"setTimestamp", "(Ljava/lang/String;Ljava/sql/Timestamp;)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setTimestamp, void, $String*, $Timestamp*), "java.sql.SQLException"},
+		{"setTimestamp", "(Ljava/lang/String;Ljava/sql/Timestamp;Ljava/util/Calendar;)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setTimestamp, void, $String*, $Timestamp*, $Calendar*), "java.sql.SQLException"},
+		{"setTransactionIsolation", "(I)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setTransactionIsolation, void, int32_t), "java.sql.SQLException"},
+		{"setType", "(I)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setType, void, int32_t), "java.sql.SQLException"},
+		{"setTypeMap", "(Ljava/util/Map;)V", "(Ljava/util/Map<Ljava/lang/String;Ljava/lang/Class<*>;>;)V", $PUBLIC, $virtualMethod(BaseRowSet, setTypeMap, void, $Map*)},
+		{"setURL", "(ILjava/net/URL;)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setURL, void, int32_t, $URL*), "java.sql.SQLException"},
+		{"setUnicodeStream", "(ILjava/io/InputStream;I)V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(BaseRowSet, setUnicodeStream, void, int32_t, $InputStream*, int32_t), "java.sql.SQLException", nullptr, setUnicodeStreammethodAnnotations$$},
+		{"setUrl", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setUrl, void, $String*), "java.sql.SQLException"},
+		{"setUsername", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(BaseRowSet, setUsername, void, $String*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"javax.sql.rowset.BaseRowSet",
+		"java.lang.Object",
+		"java.io.Serializable,java.lang.Cloneable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(BaseRowSet, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(BaseRowSet));
+	});
 	return class$;
 }
 

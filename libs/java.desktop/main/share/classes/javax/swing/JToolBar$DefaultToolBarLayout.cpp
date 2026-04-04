@@ -1,5 +1,4 @@
 #include <javax/swing/JToolBar$DefaultToolBarLayout.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <java/awt/Dimension.h>
@@ -28,58 +27,6 @@ using $JToolBar = ::javax::swing::JToolBar;
 
 namespace javax {
 	namespace swing {
-
-$FieldInfo _JToolBar$DefaultToolBarLayout_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/JToolBar;", nullptr, $FINAL | $SYNTHETIC, $field(JToolBar$DefaultToolBarLayout, this$0)},
-	{"lm", "Ljavax/swing/BoxLayout;", nullptr, 0, $field(JToolBar$DefaultToolBarLayout, lm)},
-	{}
-};
-
-$MethodInfo _JToolBar$DefaultToolBarLayout_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljavax/swing/JToolBar;I)V", nullptr, 0, $method(JToolBar$DefaultToolBarLayout, init$, void, $JToolBar*, int32_t)},
-	{"addLayoutComponent", "(Ljava/lang/String;Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(JToolBar$DefaultToolBarLayout, addLayoutComponent, void, $String*, $Component*)},
-	{"addLayoutComponent", "(Ljava/awt/Component;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(JToolBar$DefaultToolBarLayout, addLayoutComponent, void, $Component*, Object$*)},
-	{"getLayoutAlignmentX", "(Ljava/awt/Container;)F", nullptr, $PUBLIC, $virtualMethod(JToolBar$DefaultToolBarLayout, getLayoutAlignmentX, float, $Container*)},
-	{"getLayoutAlignmentY", "(Ljava/awt/Container;)F", nullptr, $PUBLIC, $virtualMethod(JToolBar$DefaultToolBarLayout, getLayoutAlignmentY, float, $Container*)},
-	{"invalidateLayout", "(Ljava/awt/Container;)V", nullptr, $PUBLIC, $virtualMethod(JToolBar$DefaultToolBarLayout, invalidateLayout, void, $Container*)},
-	{"layoutContainer", "(Ljava/awt/Container;)V", nullptr, $PUBLIC, $virtualMethod(JToolBar$DefaultToolBarLayout, layoutContainer, void, $Container*)},
-	{"maximumLayoutSize", "(Ljava/awt/Container;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(JToolBar$DefaultToolBarLayout, maximumLayoutSize, $Dimension*, $Container*)},
-	{"minimumLayoutSize", "(Ljava/awt/Container;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(JToolBar$DefaultToolBarLayout, minimumLayoutSize, $Dimension*, $Container*)},
-	{"preferredLayoutSize", "(Ljava/awt/Container;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(JToolBar$DefaultToolBarLayout, preferredLayoutSize, $Dimension*, $Container*)},
-	{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(JToolBar$DefaultToolBarLayout, propertyChange, void, $PropertyChangeEvent*)},
-	{"removeLayoutComponent", "(Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(JToolBar$DefaultToolBarLayout, removeLayoutComponent, void, $Component*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _JToolBar$DefaultToolBarLayout_InnerClassesInfo_[] = {
-	{"javax.swing.JToolBar$DefaultToolBarLayout", "javax.swing.JToolBar", "DefaultToolBarLayout", $PRIVATE},
-	{}
-};
-
-$ClassInfo _JToolBar$DefaultToolBarLayout_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.JToolBar$DefaultToolBarLayout",
-	"java.lang.Object",
-	"java.awt.LayoutManager2,java.io.Serializable,java.beans.PropertyChangeListener,javax.swing.plaf.UIResource",
-	_JToolBar$DefaultToolBarLayout_FieldInfo_,
-	_JToolBar$DefaultToolBarLayout_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JToolBar$DefaultToolBarLayout_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.JToolBar"
-};
-
-$Object* allocate$JToolBar$DefaultToolBarLayout($Class* clazz) {
-	return $of($alloc(JToolBar$DefaultToolBarLayout));
-}
 
 int32_t JToolBar$DefaultToolBarLayout::hashCode() {
 	 return this->$LayoutManager2::hashCode();
@@ -151,10 +98,10 @@ void JToolBar$DefaultToolBarLayout::invalidateLayout($Container* target) {
 }
 
 void JToolBar$DefaultToolBarLayout::propertyChange($PropertyChangeEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, name, $nc(e)->getPropertyName());
 	if ($nc(name)->equals("orientation"_s)) {
-		int32_t o = $nc(($cast($Integer, $(e->getNewValue()))))->intValue();
+		int32_t o = $$sure($Integer, e->getNewValue())->intValue();
 		if (o == $JToolBar::VERTICAL) {
 			$set(this, lm, $new($BoxLayout, this->this$0, $BoxLayout::PAGE_AXIS));
 		} else {
@@ -167,7 +114,53 @@ JToolBar$DefaultToolBarLayout::JToolBar$DefaultToolBarLayout() {
 }
 
 $Class* JToolBar$DefaultToolBarLayout::load$($String* name, bool initialize) {
-	$loadClass(JToolBar$DefaultToolBarLayout, name, initialize, &_JToolBar$DefaultToolBarLayout_ClassInfo_, allocate$JToolBar$DefaultToolBarLayout);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/JToolBar;", nullptr, $FINAL | $SYNTHETIC, $field(JToolBar$DefaultToolBarLayout, this$0)},
+		{"lm", "Ljavax/swing/BoxLayout;", nullptr, 0, $field(JToolBar$DefaultToolBarLayout, lm)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljavax/swing/JToolBar;I)V", nullptr, 0, $method(JToolBar$DefaultToolBarLayout, init$, void, $JToolBar*, int32_t)},
+		{"addLayoutComponent", "(Ljava/lang/String;Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(JToolBar$DefaultToolBarLayout, addLayoutComponent, void, $String*, $Component*)},
+		{"addLayoutComponent", "(Ljava/awt/Component;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(JToolBar$DefaultToolBarLayout, addLayoutComponent, void, $Component*, Object$*)},
+		{"getLayoutAlignmentX", "(Ljava/awt/Container;)F", nullptr, $PUBLIC, $virtualMethod(JToolBar$DefaultToolBarLayout, getLayoutAlignmentX, float, $Container*)},
+		{"getLayoutAlignmentY", "(Ljava/awt/Container;)F", nullptr, $PUBLIC, $virtualMethod(JToolBar$DefaultToolBarLayout, getLayoutAlignmentY, float, $Container*)},
+		{"invalidateLayout", "(Ljava/awt/Container;)V", nullptr, $PUBLIC, $virtualMethod(JToolBar$DefaultToolBarLayout, invalidateLayout, void, $Container*)},
+		{"layoutContainer", "(Ljava/awt/Container;)V", nullptr, $PUBLIC, $virtualMethod(JToolBar$DefaultToolBarLayout, layoutContainer, void, $Container*)},
+		{"maximumLayoutSize", "(Ljava/awt/Container;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(JToolBar$DefaultToolBarLayout, maximumLayoutSize, $Dimension*, $Container*)},
+		{"minimumLayoutSize", "(Ljava/awt/Container;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(JToolBar$DefaultToolBarLayout, minimumLayoutSize, $Dimension*, $Container*)},
+		{"preferredLayoutSize", "(Ljava/awt/Container;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(JToolBar$DefaultToolBarLayout, preferredLayoutSize, $Dimension*, $Container*)},
+		{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(JToolBar$DefaultToolBarLayout, propertyChange, void, $PropertyChangeEvent*)},
+		{"removeLayoutComponent", "(Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(JToolBar$DefaultToolBarLayout, removeLayoutComponent, void, $Component*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.JToolBar$DefaultToolBarLayout", "javax.swing.JToolBar", "DefaultToolBarLayout", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.JToolBar$DefaultToolBarLayout",
+		"java.lang.Object",
+		"java.awt.LayoutManager2,java.io.Serializable,java.beans.PropertyChangeListener,javax.swing.plaf.UIResource",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.JToolBar"
+	};
+	$loadClass(JToolBar$DefaultToolBarLayout, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JToolBar$DefaultToolBarLayout));
+	});
 	return class$;
 }
 

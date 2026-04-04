@@ -15,6 +15,7 @@ class WebSocketImpl$1 : public ::java::lang::Object {
 	$class(WebSocketImpl$1, 0, ::java::lang::Object)
 public:
 	WebSocketImpl$1();
+	static void clinit$(::java::lang::Class* clazz);
 	static $ints* $SwitchMap$jdk$internal$net$http$websocket$WebSocketImpl$State;
 };
 

@@ -1,5 +1,4 @@
 #include <MultiAuthTest$ServerAuth.h>
-
 #include <MultiAuthTest.h>
 #include <com/sun/net/httpserver/BasicAuthenticator.h>
 #include <jcpp.h>
@@ -9,42 +8,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-
-$FieldInfo _MultiAuthTest$ServerAuth_FieldInfo_[] = {
-	{"passwd", "Ljava/lang/String;", nullptr, $VOLATILE, $field(MultiAuthTest$ServerAuth, passwd)},
-	{}
-};
-
-$MethodInfo _MultiAuthTest$ServerAuth_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(MultiAuthTest$ServerAuth, init$, void, $String*)},
-	{"checkCredentials", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(MultiAuthTest$ServerAuth, checkCredentials, bool, $String*, $String*)},
-	{}
-};
-
-$InnerClassInfo _MultiAuthTest$ServerAuth_InnerClassesInfo_[] = {
-	{"MultiAuthTest$ServerAuth", "MultiAuthTest", "ServerAuth", $STATIC},
-	{}
-};
-
-$ClassInfo _MultiAuthTest$ServerAuth_ClassInfo_ = {
-	$ACC_SUPER,
-	"MultiAuthTest$ServerAuth",
-	"com.sun.net.httpserver.BasicAuthenticator",
-	nullptr,
-	_MultiAuthTest$ServerAuth_FieldInfo_,
-	_MultiAuthTest$ServerAuth_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MultiAuthTest$ServerAuth_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"MultiAuthTest"
-};
-
-$Object* allocate$MultiAuthTest$ServerAuth($Class* clazz) {
-	return $of($alloc(MultiAuthTest$ServerAuth));
-}
 
 void MultiAuthTest$ServerAuth::init$($String* realm) {
 	$BasicAuthenticator::init$(realm);
@@ -63,7 +26,37 @@ MultiAuthTest$ServerAuth::MultiAuthTest$ServerAuth() {
 }
 
 $Class* MultiAuthTest$ServerAuth::load$($String* name, bool initialize) {
-	$loadClass(MultiAuthTest$ServerAuth, name, initialize, &_MultiAuthTest$ServerAuth_ClassInfo_, allocate$MultiAuthTest$ServerAuth);
+	$FieldInfo fieldInfos$$[] = {
+		{"passwd", "Ljava/lang/String;", nullptr, $VOLATILE, $field(MultiAuthTest$ServerAuth, passwd)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(MultiAuthTest$ServerAuth, init$, void, $String*)},
+		{"checkCredentials", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(MultiAuthTest$ServerAuth, checkCredentials, bool, $String*, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"MultiAuthTest$ServerAuth", "MultiAuthTest", "ServerAuth", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"MultiAuthTest$ServerAuth",
+		"com.sun.net.httpserver.BasicAuthenticator",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"MultiAuthTest"
+	};
+	$loadClass(MultiAuthTest$ServerAuth, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MultiAuthTest$ServerAuth);
+	});
 	return class$;
 }
 

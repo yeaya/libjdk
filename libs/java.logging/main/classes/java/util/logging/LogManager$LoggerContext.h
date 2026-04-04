@@ -48,6 +48,7 @@ class $export LogManager$LoggerContext : public ::java::lang::Object {
 	$class(LogManager$LoggerContext, 0, ::java::lang::Object)
 public:
 	LogManager$LoggerContext();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::util::logging::LogManager* this$0);
 	virtual bool addLocalLogger(::java::util::logging::Logger* logger);
 	virtual bool addLocalLogger(::java::util::logging::Logger* logger, bool addDefaultLoggersIfNeeded);

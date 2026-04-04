@@ -1,5 +1,4 @@
 #include <com/sun/jmx/mbeanserver/DefaultMXBeanMappingFactory$TabularMapping.h>
-
 #include <com/sun/jmx/mbeanserver/DefaultMXBeanMappingFactory$NonNullMXBeanMapping.h>
 #include <com/sun/jmx/mbeanserver/DefaultMXBeanMappingFactory.h>
 #include <com/sun/jmx/mbeanserver/MXBeanMapping.h>
@@ -39,12 +38,10 @@ using $Comparator = ::java::util::Comparator;
 using $Iterator = ::java::util::Iterator;
 using $Map = ::java::util::Map;
 using $Map$Entry = ::java::util::Map$Entry;
-using $Set = ::java::util::Set;
 using $SortedMap = ::java::util::SortedMap;
 using $CompositeData = ::javax::management::openmbean::CompositeData;
 using $CompositeDataSupport = ::javax::management::openmbean::CompositeDataSupport;
 using $CompositeType = ::javax::management::openmbean::CompositeType;
-using $OpenType = ::javax::management::openmbean::OpenType;
 using $TabularData = ::javax::management::openmbean::TabularData;
 using $TabularDataSupport = ::javax::management::openmbean::TabularDataSupport;
 using $TabularType = ::javax::management::openmbean::TabularType;
@@ -54,47 +51,6 @@ namespace com {
 		namespace jmx {
 			namespace mbeanserver {
 
-$FieldInfo _DefaultMXBeanMappingFactory$TabularMapping_FieldInfo_[] = {
-	{"sortedMap", "Z", nullptr, $PRIVATE | $FINAL, $field(DefaultMXBeanMappingFactory$TabularMapping, sortedMap)},
-	{"keyMapping", "Lcom/sun/jmx/mbeanserver/MXBeanMapping;", nullptr, $PRIVATE | $FINAL, $field(DefaultMXBeanMappingFactory$TabularMapping, keyMapping)},
-	{"valueMapping", "Lcom/sun/jmx/mbeanserver/MXBeanMapping;", nullptr, $PRIVATE | $FINAL, $field(DefaultMXBeanMappingFactory$TabularMapping, valueMapping)},
-	{}
-};
-
-$MethodInfo _DefaultMXBeanMappingFactory$TabularMapping_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/reflect/Type;ZLjavax/management/openmbean/TabularType;Lcom/sun/jmx/mbeanserver/MXBeanMapping;Lcom/sun/jmx/mbeanserver/MXBeanMapping;)V", nullptr, 0, $method(DefaultMXBeanMappingFactory$TabularMapping, init$, void, $Type*, bool, $TabularType*, $MXBeanMapping*, $MXBeanMapping*)},
-	{"checkReconstructible", "()V", nullptr, $PUBLIC, $virtualMethod(DefaultMXBeanMappingFactory$TabularMapping, checkReconstructible, void), "java.io.InvalidObjectException"},
-	{"fromNonNullOpenValue", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $FINAL, $virtualMethod(DefaultMXBeanMappingFactory$TabularMapping, fromNonNullOpenValue, $Object*, Object$*), "java.io.InvalidObjectException"},
-	{"toNonNullOpenValue", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $FINAL, $virtualMethod(DefaultMXBeanMappingFactory$TabularMapping, toNonNullOpenValue, $Object*, Object$*), "javax.management.openmbean.OpenDataException"},
-	{}
-};
-
-$InnerClassInfo _DefaultMXBeanMappingFactory$TabularMapping_InnerClassesInfo_[] = {
-	{"com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory$TabularMapping", "com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory", "TabularMapping", $PRIVATE | $STATIC | $FINAL},
-	{"com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory$NonNullMXBeanMapping", "com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory", "NonNullMXBeanMapping", $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _DefaultMXBeanMappingFactory$TabularMapping_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory$TabularMapping",
-	"com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory$NonNullMXBeanMapping",
-	nullptr,
-	_DefaultMXBeanMappingFactory$TabularMapping_FieldInfo_,
-	_DefaultMXBeanMappingFactory$TabularMapping_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DefaultMXBeanMappingFactory$TabularMapping_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory"
-};
-
-$Object* allocate$DefaultMXBeanMappingFactory$TabularMapping($Class* clazz) {
-	return $of($alloc(DefaultMXBeanMappingFactory$TabularMapping));
-}
-
 void DefaultMXBeanMappingFactory$TabularMapping::init$($Type* targetType, bool sortedMap, $TabularType* tabularType, $MXBeanMapping* keyConverter, $MXBeanMapping* valueConverter) {
 	$DefaultMXBeanMappingFactory$NonNullMXBeanMapping::init$(targetType, tabularType);
 	this->sortedMap = sortedMap;
@@ -103,10 +59,10 @@ void DefaultMXBeanMappingFactory$TabularMapping::init$($Type* targetType, bool s
 }
 
 $Object* DefaultMXBeanMappingFactory$TabularMapping::toNonNullOpenValue(Object$* value) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Map, valueMap, $cast($Map, $Util::cast(value)));
 	if ($instanceOf($SortedMap, valueMap)) {
-		$var($Comparator, comparator, $nc(($cast($SortedMap, valueMap)))->comparator());
+		$var($Comparator, comparator, $cast($SortedMap, valueMap)->comparator());
 		if (comparator != nullptr) {
 			$var($String, msg, $str({"Cannot convert SortedMap with non-null comparator: "_s, comparator}));
 			$throw($($DefaultMXBeanMappingFactory::openDataException(msg, $$new($IllegalArgumentException, msg))));
@@ -116,12 +72,12 @@ $Object* DefaultMXBeanMappingFactory$TabularMapping::toNonNullOpenValue(Object$*
 	$var($TabularData, table, $new($TabularDataSupport, tabularType));
 	$var($CompositeType, rowType, $nc(tabularType)->getRowType());
 	{
-		$var($Iterator, i$, $nc($($nc(valueMap)->entrySet()))->iterator());
+		$var($Iterator, i$, $$nc($nc(valueMap)->entrySet())->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Map$Entry, entry, $cast($Map$Entry, i$->next()));
 			{
 				$var($Object, openKey, $nc(this->keyMapping)->toOpenValue($($nc(entry)->getKey())));
-				$var($Object, openValue, $nc(this->valueMapping)->toOpenValue($($nc(entry)->getValue())));
+				$var($Object, openValue, $nc(this->valueMapping)->toOpenValue($(entry->getValue())));
 				$var($CompositeData, row, nullptr);
 				$init($DefaultMXBeanMappingFactory);
 				$assign(row, $new($CompositeDataSupport, rowType, $DefaultMXBeanMappingFactory::keyValueArray, $$new($ObjectArray, {
@@ -132,21 +88,21 @@ $Object* DefaultMXBeanMappingFactory$TabularMapping::toNonNullOpenValue(Object$*
 			}
 		}
 	}
-	return $of(table);
+	return table;
 }
 
 $Object* DefaultMXBeanMappingFactory$TabularMapping::fromNonNullOpenValue(Object$* openValue) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($TabularData, table, $cast($TabularData, openValue));
 	$var($Collection, rows, $cast($Collection, $Util::cast($($nc(table)->values()))));
-	$var($Map, valueMap, this->sortedMap ? static_cast<$Map*>($Util::newSortedMap()) : $Util::newInsertionOrderMap());
+	$var($Map, valueMap, this->sortedMap ? $cast($Map, $Util::newSortedMap()) : $Util::newInsertionOrderMap());
 	{
 		$var($Iterator, i$, $nc(rows)->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($CompositeData, row, $cast($CompositeData, i$->next()));
 			{
 				$var($Object, key, $nc(this->keyMapping)->fromOpenValue($($nc(row)->get("key"_s))));
-				$var($Object, value, $nc(this->valueMapping)->fromOpenValue($($nc(row)->get("value"_s))));
+				$var($Object, value, $nc(this->valueMapping)->fromOpenValue($(row->get("value"_s))));
 				if ($nc(valueMap)->put(key, value) != nullptr) {
 					$var($String, msg, $str({"Duplicate entry in TabularData: key="_s, key}));
 					$throwNew($InvalidObjectException, msg);
@@ -154,7 +110,7 @@ $Object* DefaultMXBeanMappingFactory$TabularMapping::fromNonNullOpenValue(Object
 			}
 		}
 	}
-	return $of(valueMap);
+	return valueMap;
 }
 
 void DefaultMXBeanMappingFactory$TabularMapping::checkReconstructible() {
@@ -166,7 +122,42 @@ DefaultMXBeanMappingFactory$TabularMapping::DefaultMXBeanMappingFactory$TabularM
 }
 
 $Class* DefaultMXBeanMappingFactory$TabularMapping::load$($String* name, bool initialize) {
-	$loadClass(DefaultMXBeanMappingFactory$TabularMapping, name, initialize, &_DefaultMXBeanMappingFactory$TabularMapping_ClassInfo_, allocate$DefaultMXBeanMappingFactory$TabularMapping);
+	$FieldInfo fieldInfos$$[] = {
+		{"sortedMap", "Z", nullptr, $PRIVATE | $FINAL, $field(DefaultMXBeanMappingFactory$TabularMapping, sortedMap)},
+		{"keyMapping", "Lcom/sun/jmx/mbeanserver/MXBeanMapping;", nullptr, $PRIVATE | $FINAL, $field(DefaultMXBeanMappingFactory$TabularMapping, keyMapping)},
+		{"valueMapping", "Lcom/sun/jmx/mbeanserver/MXBeanMapping;", nullptr, $PRIVATE | $FINAL, $field(DefaultMXBeanMappingFactory$TabularMapping, valueMapping)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/reflect/Type;ZLjavax/management/openmbean/TabularType;Lcom/sun/jmx/mbeanserver/MXBeanMapping;Lcom/sun/jmx/mbeanserver/MXBeanMapping;)V", nullptr, 0, $method(DefaultMXBeanMappingFactory$TabularMapping, init$, void, $Type*, bool, $TabularType*, $MXBeanMapping*, $MXBeanMapping*)},
+		{"checkReconstructible", "()V", nullptr, $PUBLIC, $virtualMethod(DefaultMXBeanMappingFactory$TabularMapping, checkReconstructible, void), "java.io.InvalidObjectException"},
+		{"fromNonNullOpenValue", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $FINAL, $virtualMethod(DefaultMXBeanMappingFactory$TabularMapping, fromNonNullOpenValue, $Object*, Object$*), "java.io.InvalidObjectException"},
+		{"toNonNullOpenValue", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $FINAL, $virtualMethod(DefaultMXBeanMappingFactory$TabularMapping, toNonNullOpenValue, $Object*, Object$*), "javax.management.openmbean.OpenDataException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory$TabularMapping", "com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory", "TabularMapping", $PRIVATE | $STATIC | $FINAL},
+		{"com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory$NonNullMXBeanMapping", "com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory", "NonNullMXBeanMapping", $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory$TabularMapping",
+		"com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory$NonNullMXBeanMapping",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory"
+	};
+	$loadClass(DefaultMXBeanMappingFactory$TabularMapping, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DefaultMXBeanMappingFactory$TabularMapping);
+	});
 	return class$;
 }
 

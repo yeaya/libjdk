@@ -1,6 +1,4 @@
 #include <javax/swing/plaf/basic/BasicInternalFrameTitlePane.h>
-
-#include <java/awt/AWTEvent.h>
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
@@ -14,7 +12,6 @@
 #include <java/awt/RenderingHints$Key.h>
 #include <java/awt/RenderingHints.h>
 #include <java/awt/Toolkit.h>
-#include <java/awt/event/ActionListener.h>
 #include <java/beans/PropertyChangeListener.h>
 #include <java/lang/NumberFormatException.h>
 #include <java/lang/SecurityException.h>
@@ -55,9 +52,6 @@
 #undef RESTORE_CMD
 #undef SIZE_CMD
 
-using $AWTEvent = ::java::awt::AWTEvent;
-using $Component = ::java::awt::Component;
-using $EventQueue = ::java::awt::EventQueue;
 using $Font = ::java::awt::Font;
 using $FontMetrics = ::java::awt::FontMetrics;
 using $Graphics = ::java::awt::Graphics;
@@ -65,7 +59,6 @@ using $LayoutManager = ::java::awt::LayoutManager;
 using $Rectangle = ::java::awt::Rectangle;
 using $RenderingHints = ::java::awt::RenderingHints;
 using $Toolkit = ::java::awt::Toolkit;
-using $ActionListener = ::java::awt::event::ActionListener;
 using $PropertyChangeListener = ::java::beans::PropertyChangeListener;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -74,9 +67,7 @@ using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NumberFormatException = ::java::lang::NumberFormatException;
 using $SecurityException = ::java::lang::SecurityException;
-using $Action = ::javax::swing::Action;
 using $ActionMap = ::javax::swing::ActionMap;
-using $JButton = ::javax::swing::JButton;
 using $JComponent = ::javax::swing::JComponent;
 using $JInternalFrame = ::javax::swing::JInternalFrame;
 using $JMenu = ::javax::swing::JMenu;
@@ -103,107 +94,6 @@ namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace basic {
-
-$FieldInfo _BasicInternalFrameTitlePane_FieldInfo_[] = {
-	{"menuBar", "Ljavax/swing/JMenuBar;", nullptr, $PROTECTED, $field(BasicInternalFrameTitlePane, menuBar)},
-	{"iconButton", "Ljavax/swing/JButton;", nullptr, $PROTECTED, $field(BasicInternalFrameTitlePane, iconButton)},
-	{"maxButton", "Ljavax/swing/JButton;", nullptr, $PROTECTED, $field(BasicInternalFrameTitlePane, maxButton)},
-	{"closeButton", "Ljavax/swing/JButton;", nullptr, $PROTECTED, $field(BasicInternalFrameTitlePane, closeButton)},
-	{"windowMenu", "Ljavax/swing/JMenu;", nullptr, $PROTECTED, $field(BasicInternalFrameTitlePane, windowMenu)},
-	{"frame", "Ljavax/swing/JInternalFrame;", nullptr, $PROTECTED, $field(BasicInternalFrameTitlePane, frame)},
-	{"selectedTitleColor", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(BasicInternalFrameTitlePane, selectedTitleColor)},
-	{"selectedTextColor", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(BasicInternalFrameTitlePane, selectedTextColor)},
-	{"notSelectedTitleColor", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(BasicInternalFrameTitlePane, notSelectedTitleColor)},
-	{"notSelectedTextColor", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(BasicInternalFrameTitlePane, notSelectedTextColor)},
-	{"maxIcon", "Ljavax/swing/Icon;", nullptr, $PROTECTED, $field(BasicInternalFrameTitlePane, maxIcon)},
-	{"minIcon", "Ljavax/swing/Icon;", nullptr, $PROTECTED, $field(BasicInternalFrameTitlePane, minIcon)},
-	{"iconIcon", "Ljavax/swing/Icon;", nullptr, $PROTECTED, $field(BasicInternalFrameTitlePane, iconIcon)},
-	{"closeIcon", "Ljavax/swing/Icon;", nullptr, $PROTECTED, $field(BasicInternalFrameTitlePane, closeIcon)},
-	{"propertyChangeListener", "Ljava/beans/PropertyChangeListener;", nullptr, $PROTECTED, $field(BasicInternalFrameTitlePane, propertyChangeListener)},
-	{"closeAction", "Ljavax/swing/Action;", nullptr, $PROTECTED, $field(BasicInternalFrameTitlePane, closeAction)},
-	{"maximizeAction", "Ljavax/swing/Action;", nullptr, $PROTECTED, $field(BasicInternalFrameTitlePane, maximizeAction)},
-	{"iconifyAction", "Ljavax/swing/Action;", nullptr, $PROTECTED, $field(BasicInternalFrameTitlePane, iconifyAction)},
-	{"restoreAction", "Ljavax/swing/Action;", nullptr, $PROTECTED, $field(BasicInternalFrameTitlePane, restoreAction)},
-	{"moveAction", "Ljavax/swing/Action;", nullptr, $PROTECTED, $field(BasicInternalFrameTitlePane, moveAction)},
-	{"sizeAction", "Ljavax/swing/Action;", nullptr, $PROTECTED, $field(BasicInternalFrameTitlePane, sizeAction)},
-	{"CLOSE_CMD", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(BasicInternalFrameTitlePane, CLOSE_CMD)},
-	{"ICONIFY_CMD", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(BasicInternalFrameTitlePane, ICONIFY_CMD)},
-	{"RESTORE_CMD", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(BasicInternalFrameTitlePane, RESTORE_CMD)},
-	{"MAXIMIZE_CMD", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(BasicInternalFrameTitlePane, MAXIMIZE_CMD)},
-	{"MOVE_CMD", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(BasicInternalFrameTitlePane, MOVE_CMD)},
-	{"SIZE_CMD", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(BasicInternalFrameTitlePane, SIZE_CMD)},
-	{"closeButtonToolTip", "Ljava/lang/String;", nullptr, $PRIVATE, $field(BasicInternalFrameTitlePane, closeButtonToolTip)},
-	{"iconButtonToolTip", "Ljava/lang/String;", nullptr, $PRIVATE, $field(BasicInternalFrameTitlePane, iconButtonToolTip)},
-	{"restoreButtonToolTip", "Ljava/lang/String;", nullptr, $PRIVATE, $field(BasicInternalFrameTitlePane, restoreButtonToolTip)},
-	{"maxButtonToolTip", "Ljava/lang/String;", nullptr, $PRIVATE, $field(BasicInternalFrameTitlePane, maxButtonToolTip)},
-	{"handler", "Ljavax/swing/plaf/basic/BasicInternalFrameTitlePane$Handler;", nullptr, $PRIVATE, $field(BasicInternalFrameTitlePane, handler)},
-	{}
-};
-
-$MethodInfo _BasicInternalFrameTitlePane_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/JInternalFrame;)V", nullptr, $PUBLIC, $method(BasicInternalFrameTitlePane, init$, void, $JInternalFrame*)},
-	{"addSubComponents", "()V", nullptr, $PROTECTED, $virtualMethod(BasicInternalFrameTitlePane, addSubComponents, void)},
-	{"addSystemMenuItems", "(Ljavax/swing/JMenu;)V", nullptr, $PROTECTED, $virtualMethod(BasicInternalFrameTitlePane, addSystemMenuItems, void, $JMenu*)},
-	{"assembleSystemMenu", "()V", nullptr, $PROTECTED, $virtualMethod(BasicInternalFrameTitlePane, assembleSystemMenu, void)},
-	{"createActionMap", "()Ljavax/swing/ActionMap;", nullptr, 0, $virtualMethod(BasicInternalFrameTitlePane, createActionMap, $ActionMap*)},
-	{"createActions", "()V", nullptr, $PROTECTED, $virtualMethod(BasicInternalFrameTitlePane, createActions, void)},
-	{"createButtons", "()V", nullptr, $PROTECTED, $virtualMethod(BasicInternalFrameTitlePane, createButtons, void)},
-	{"createLayout", "()Ljava/awt/LayoutManager;", nullptr, $PROTECTED, $virtualMethod(BasicInternalFrameTitlePane, createLayout, $LayoutManager*)},
-	{"createPropertyChangeListener", "()Ljava/beans/PropertyChangeListener;", nullptr, $PROTECTED, $virtualMethod(BasicInternalFrameTitlePane, createPropertyChangeListener, $PropertyChangeListener*)},
-	{"createSystemMenu", "()Ljavax/swing/JMenu;", nullptr, $PROTECTED, $virtualMethod(BasicInternalFrameTitlePane, createSystemMenu, $JMenu*)},
-	{"createSystemMenuBar", "()Ljavax/swing/JMenuBar;", nullptr, $PROTECTED, $virtualMethod(BasicInternalFrameTitlePane, createSystemMenuBar, $JMenuBar*)},
-	{"enableActions", "()V", nullptr, $PROTECTED, $virtualMethod(BasicInternalFrameTitlePane, enableActions, void)},
-	{"getButtonMnemonic", "(Ljava/lang/String;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(BasicInternalFrameTitlePane, getButtonMnemonic, int32_t, $String*)},
-	{"getHandler", "()Ljavax/swing/plaf/basic/BasicInternalFrameTitlePane$Handler;", nullptr, $PRIVATE, $method(BasicInternalFrameTitlePane, getHandler, $BasicInternalFrameTitlePane$Handler*)},
-	{"getTitle", "(Ljava/lang/String;Ljava/awt/FontMetrics;I)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(BasicInternalFrameTitlePane, getTitle, $String*, $String*, $FontMetrics*, int32_t)},
-	{"installDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(BasicInternalFrameTitlePane, installDefaults, void)},
-	{"installListeners", "()V", nullptr, $PROTECTED, $virtualMethod(BasicInternalFrameTitlePane, installListeners, void)},
-	{"installTitlePane", "()V", nullptr, $PROTECTED, $virtualMethod(BasicInternalFrameTitlePane, installTitlePane, void)},
-	{"paintComponent", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(BasicInternalFrameTitlePane, paintComponent, void, $Graphics*)},
-	{"paintTitleBackground", "(Ljava/awt/Graphics;)V", nullptr, $PROTECTED, $virtualMethod(BasicInternalFrameTitlePane, paintTitleBackground, void, $Graphics*)},
-	{"postClosingEvent", "(Ljavax/swing/JInternalFrame;)V", nullptr, $PROTECTED, $virtualMethod(BasicInternalFrameTitlePane, postClosingEvent, void, $JInternalFrame*)},
-	{"setButtonIcons", "()V", nullptr, $PROTECTED, $virtualMethod(BasicInternalFrameTitlePane, setButtonIcons, void)},
-	{"showSystemMenu", "()V", nullptr, $PROTECTED, $virtualMethod(BasicInternalFrameTitlePane, showSystemMenu, void)},
-	{"uninstallDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(BasicInternalFrameTitlePane, uninstallDefaults, void)},
-	{"uninstallListeners", "()V", nullptr, $PROTECTED, $virtualMethod(BasicInternalFrameTitlePane, uninstallListeners, void)},
-	{"updateProperties", "()V", nullptr, $PRIVATE, $method(BasicInternalFrameTitlePane, updateProperties, void)},
-	{}
-};
-
-$InnerClassInfo _BasicInternalFrameTitlePane_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.basic.BasicInternalFrameTitlePane$NoFocusButton", "javax.swing.plaf.basic.BasicInternalFrameTitlePane", "NoFocusButton", $PRIVATE},
-	{"javax.swing.plaf.basic.BasicInternalFrameTitlePane$SystemMenuBar", "javax.swing.plaf.basic.BasicInternalFrameTitlePane", "SystemMenuBar", $PUBLIC},
-	{"javax.swing.plaf.basic.BasicInternalFrameTitlePane$SizeAction", "javax.swing.plaf.basic.BasicInternalFrameTitlePane", "SizeAction", $PUBLIC},
-	{"javax.swing.plaf.basic.BasicInternalFrameTitlePane$ShowSystemMenuAction", "javax.swing.plaf.basic.BasicInternalFrameTitlePane", "ShowSystemMenuAction", $PRIVATE},
-	{"javax.swing.plaf.basic.BasicInternalFrameTitlePane$MoveAction", "javax.swing.plaf.basic.BasicInternalFrameTitlePane", "MoveAction", $PUBLIC},
-	{"javax.swing.plaf.basic.BasicInternalFrameTitlePane$RestoreAction", "javax.swing.plaf.basic.BasicInternalFrameTitlePane", "RestoreAction", $PUBLIC},
-	{"javax.swing.plaf.basic.BasicInternalFrameTitlePane$IconifyAction", "javax.swing.plaf.basic.BasicInternalFrameTitlePane", "IconifyAction", $PUBLIC},
-	{"javax.swing.plaf.basic.BasicInternalFrameTitlePane$MaximizeAction", "javax.swing.plaf.basic.BasicInternalFrameTitlePane", "MaximizeAction", $PUBLIC},
-	{"javax.swing.plaf.basic.BasicInternalFrameTitlePane$CloseAction", "javax.swing.plaf.basic.BasicInternalFrameTitlePane", "CloseAction", $PUBLIC},
-	{"javax.swing.plaf.basic.BasicInternalFrameTitlePane$TitlePaneLayout", "javax.swing.plaf.basic.BasicInternalFrameTitlePane", "TitlePaneLayout", $PUBLIC},
-	{"javax.swing.plaf.basic.BasicInternalFrameTitlePane$PropertyChangeHandler", "javax.swing.plaf.basic.BasicInternalFrameTitlePane", "PropertyChangeHandler", $PUBLIC},
-	{"javax.swing.plaf.basic.BasicInternalFrameTitlePane$Handler", "javax.swing.plaf.basic.BasicInternalFrameTitlePane", "Handler", $PRIVATE},
-	{}
-};
-
-$ClassInfo _BasicInternalFrameTitlePane_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.basic.BasicInternalFrameTitlePane",
-	"javax.swing.JComponent",
-	nullptr,
-	_BasicInternalFrameTitlePane_FieldInfo_,
-	_BasicInternalFrameTitlePane_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BasicInternalFrameTitlePane_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.basic.BasicInternalFrameTitlePane$NoFocusButton,javax.swing.plaf.basic.BasicInternalFrameTitlePane$SystemMenuBar,javax.swing.plaf.basic.BasicInternalFrameTitlePane$SizeAction,javax.swing.plaf.basic.BasicInternalFrameTitlePane$ShowSystemMenuAction,javax.swing.plaf.basic.BasicInternalFrameTitlePane$MoveAction,javax.swing.plaf.basic.BasicInternalFrameTitlePane$RestoreAction,javax.swing.plaf.basic.BasicInternalFrameTitlePane$IconifyAction,javax.swing.plaf.basic.BasicInternalFrameTitlePane$MaximizeAction,javax.swing.plaf.basic.BasicInternalFrameTitlePane$CloseAction,javax.swing.plaf.basic.BasicInternalFrameTitlePane$TitlePaneLayout,javax.swing.plaf.basic.BasicInternalFrameTitlePane$PropertyChangeHandler,javax.swing.plaf.basic.BasicInternalFrameTitlePane$Handler"
-};
-
-$Object* allocate$BasicInternalFrameTitlePane($Class* clazz) {
-	return $of($alloc(BasicInternalFrameTitlePane));
-}
 
 $String* BasicInternalFrameTitlePane::CLOSE_CMD = nullptr;
 $String* BasicInternalFrameTitlePane::ICONIFY_CMD = nullptr;
@@ -232,17 +122,17 @@ void BasicInternalFrameTitlePane::installTitlePane() {
 }
 
 void BasicInternalFrameTitlePane::updateProperties() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($RenderingHints);
 	putClientProperty($RenderingHints::KEY_TEXT_ANTIALIASING, $($nc(this->frame)->getClientProperty($RenderingHints::KEY_TEXT_ANTIALIASING)));
 	putClientProperty($RenderingHints::KEY_TEXT_LCD_CONTRAST, $($nc(this->frame)->getClientProperty($RenderingHints::KEY_TEXT_LCD_CONTRAST)));
 }
 
 void BasicInternalFrameTitlePane::addSubComponents() {
-	add(static_cast<$Component*>(this->menuBar));
-	add(static_cast<$Component*>(this->iconButton));
-	add(static_cast<$Component*>(this->maxButton));
-	add(static_cast<$Component*>(this->closeButton));
+	add(this->menuBar);
+	add(this->iconButton);
+	add(this->maxButton);
+	add(this->closeButton);
 }
 
 void BasicInternalFrameTitlePane::createActions() {
@@ -255,7 +145,7 @@ void BasicInternalFrameTitlePane::createActions() {
 }
 
 $ActionMap* BasicInternalFrameTitlePane::createActionMap() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ActionMap, map, $new($ActionMapUIResource));
 	map->put("showSystemMenu"_s, $$new($BasicInternalFrameTitlePane$ShowSystemMenuAction, this, true));
 	map->put("hideSystemMenu"_s, $$new($BasicInternalFrameTitlePane$ShowSystemMenuAction, this, false));
@@ -295,15 +185,15 @@ void BasicInternalFrameTitlePane::uninstallDefaults() {
 
 void BasicInternalFrameTitlePane::createButtons() {
 	$set(this, iconButton, $new($BasicInternalFrameTitlePane$NoFocusButton, this, "InternalFrameTitlePane.iconifyButtonAccessibleName"_s, "InternalFrameTitlePane.iconifyButtonOpacity"_s));
-	$nc(this->iconButton)->addActionListener(this->iconifyAction);
-	if (this->iconButtonToolTip != nullptr && $nc(this->iconButtonToolTip)->length() != 0) {
+	this->iconButton->addActionListener(this->iconifyAction);
+	if (this->iconButtonToolTip != nullptr && this->iconButtonToolTip->length() != 0) {
 		$nc(this->iconButton)->setToolTipText(this->iconButtonToolTip);
 	}
 	$set(this, maxButton, $new($BasicInternalFrameTitlePane$NoFocusButton, this, "InternalFrameTitlePane.maximizeButtonAccessibleName"_s, "InternalFrameTitlePane.maximizeButtonOpacity"_s));
-	$nc(this->maxButton)->addActionListener(this->maximizeAction);
+	this->maxButton->addActionListener(this->maximizeAction);
 	$set(this, closeButton, $new($BasicInternalFrameTitlePane$NoFocusButton, this, "InternalFrameTitlePane.closeButtonAccessibleName"_s, "InternalFrameTitlePane.closeButtonOpacity"_s));
-	$nc(this->closeButton)->addActionListener(this->closeAction);
-	if (this->closeButtonToolTip != nullptr && $nc(this->closeButtonToolTip)->length() != 0) {
+	this->closeButton->addActionListener(this->closeAction);
+	if (this->closeButtonToolTip != nullptr && this->closeButtonToolTip->length() != 0) {
 		$nc(this->closeButton)->setToolTipText(this->closeButtonToolTip);
 	}
 	setButtonIcons();
@@ -314,39 +204,39 @@ void BasicInternalFrameTitlePane::setButtonIcons() {
 		if (this->minIcon != nullptr) {
 			$nc(this->iconButton)->setIcon(this->minIcon);
 		}
-		if (this->restoreButtonToolTip != nullptr && $nc(this->restoreButtonToolTip)->length() != 0) {
+		if (this->restoreButtonToolTip != nullptr && this->restoreButtonToolTip->length() != 0) {
 			$nc(this->iconButton)->setToolTipText(this->restoreButtonToolTip);
 		}
 		if (this->maxIcon != nullptr) {
 			$nc(this->maxButton)->setIcon(this->maxIcon);
 		}
-		if (this->maxButtonToolTip != nullptr && $nc(this->maxButtonToolTip)->length() != 0) {
+		if (this->maxButtonToolTip != nullptr && this->maxButtonToolTip->length() != 0) {
 			$nc(this->maxButton)->setToolTipText(this->maxButtonToolTip);
 		}
 	} else if ($nc(this->frame)->isMaximum()) {
 		if (this->iconIcon != nullptr) {
 			$nc(this->iconButton)->setIcon(this->iconIcon);
 		}
-		if (this->iconButtonToolTip != nullptr && $nc(this->iconButtonToolTip)->length() != 0) {
+		if (this->iconButtonToolTip != nullptr && this->iconButtonToolTip->length() != 0) {
 			$nc(this->iconButton)->setToolTipText(this->iconButtonToolTip);
 		}
 		if (this->minIcon != nullptr) {
 			$nc(this->maxButton)->setIcon(this->minIcon);
 		}
-		if (this->restoreButtonToolTip != nullptr && $nc(this->restoreButtonToolTip)->length() != 0) {
+		if (this->restoreButtonToolTip != nullptr && this->restoreButtonToolTip->length() != 0) {
 			$nc(this->maxButton)->setToolTipText(this->restoreButtonToolTip);
 		}
 	} else {
 		if (this->iconIcon != nullptr) {
 			$nc(this->iconButton)->setIcon(this->iconIcon);
 		}
-		if (this->iconButtonToolTip != nullptr && $nc(this->iconButtonToolTip)->length() != 0) {
+		if (this->iconButtonToolTip != nullptr && this->iconButtonToolTip->length() != 0) {
 			$nc(this->iconButton)->setToolTipText(this->iconButtonToolTip);
 		}
 		if (this->maxIcon != nullptr) {
 			$nc(this->maxButton)->setIcon(this->maxIcon);
 		}
-		if (this->maxButtonToolTip != nullptr && $nc(this->maxButtonToolTip)->length() != 0) {
+		if (this->maxButtonToolTip != nullptr && this->maxButtonToolTip->length() != 0) {
 			$nc(this->maxButton)->setToolTipText(this->maxButtonToolTip);
 		}
 	}
@@ -364,25 +254,25 @@ void BasicInternalFrameTitlePane::assembleSystemMenu() {
 }
 
 void BasicInternalFrameTitlePane::addSystemMenuItems($JMenu* systemMenu) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JMenuItem, mi, $nc(systemMenu)->add(this->restoreAction));
 	$nc(mi)->setMnemonic(getButtonMnemonic("restore"_s));
 	$assign(mi, systemMenu->add(this->moveAction));
-	mi->setMnemonic(getButtonMnemonic("move"_s));
+	$nc(mi)->setMnemonic(getButtonMnemonic("move"_s));
 	$assign(mi, systemMenu->add(this->sizeAction));
-	mi->setMnemonic(getButtonMnemonic("size"_s));
+	$nc(mi)->setMnemonic(getButtonMnemonic("size"_s));
 	$assign(mi, systemMenu->add(this->iconifyAction));
-	mi->setMnemonic(getButtonMnemonic("minimize"_s));
+	$nc(mi)->setMnemonic(getButtonMnemonic("minimize"_s));
 	$assign(mi, systemMenu->add(this->maximizeAction));
-	mi->setMnemonic(getButtonMnemonic("maximize"_s));
-	systemMenu->add(static_cast<$Component*>($$new($JSeparator)));
+	$nc(mi)->setMnemonic(getButtonMnemonic("maximize"_s));
+	systemMenu->add($$new($JSeparator));
 	$assign(mi, systemMenu->add(this->closeAction));
-	mi->setMnemonic(getButtonMnemonic("close"_s));
+	$nc(mi)->setMnemonic(getButtonMnemonic("close"_s));
 }
 
 int32_t BasicInternalFrameTitlePane::getButtonMnemonic($String* button) {
 	$init(BasicInternalFrameTitlePane);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		return $Integer::parseInt($($UIManager::getString($$str({"InternalFrameTitlePane."_s, button, "Button.mnemonic"_s}))));
 	} catch ($NumberFormatException& e) {
@@ -397,7 +287,7 @@ $JMenu* BasicInternalFrameTitlePane::createSystemMenu() {
 
 $JMenuBar* BasicInternalFrameTitlePane::createSystemMenuBar() {
 	$set(this, menuBar, $new($BasicInternalFrameTitlePane$SystemMenuBar, this));
-	$nc(this->menuBar)->setBorderPainted(false);
+	this->menuBar->setBorderPainted(false);
 	return this->menuBar;
 }
 
@@ -406,7 +296,7 @@ void BasicInternalFrameTitlePane::showSystemMenu() {
 }
 
 void BasicInternalFrameTitlePane::paintComponent($Graphics* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	paintTitleBackground(g);
 	if ($nc(this->frame)->getTitle() != nullptr) {
 		bool isSelected = $nc(this->frame)->isSelected();
@@ -417,7 +307,7 @@ void BasicInternalFrameTitlePane::paintComponent($Graphics* g) {
 		} else {
 			g->setColor(this->notSelectedTextColor);
 		}
-		$var($FontMetrics, fm, $SwingUtilities2::getFontMetrics(static_cast<$JComponent*>(this->frame), g));
+		$var($FontMetrics, fm, $SwingUtilities2::getFontMetrics(this->frame, g));
 		int32_t var$2 = getHeight();
 		int32_t var$1 = var$2 + $nc(fm)->getAscent();
 		int32_t var$0 = var$1 - fm->getLeading();
@@ -434,19 +324,19 @@ void BasicInternalFrameTitlePane::paintComponent($Graphics* g) {
 		int32_t titleW = 0;
 		$var($String, title, $nc(this->frame)->getTitle());
 		if ($BasicGraphicsUtils::isLeftToRight(this->frame)) {
-			if (r->x == 0) {
+			if ($nc(r)->x == 0) {
 				int32_t var$3 = $nc(this->frame)->getWidth();
-				r->x = var$3 - $nc($($nc(this->frame)->getInsets()))->right;
+				r->x = var$3 - $nc($(this->frame->getInsets()))->right;
 			}
 			int32_t var$4 = $nc(this->menuBar)->getX();
-			titleX = var$4 + $nc(this->menuBar)->getWidth() + 2;
+			titleX = var$4 + this->menuBar->getWidth() + 2;
 			titleW = r->x - titleX - 3;
 			$assign(title, getTitle($($nc(this->frame)->getTitle()), fm, titleW));
 		} else {
 			int32_t var$5 = $nc(this->menuBar)->getX() - 2;
 			titleX = var$5 - $SwingUtilities2::stringWidth(this->frame, fm, title);
 		}
-		$SwingUtilities2::drawString(static_cast<$JComponent*>(this->frame), g, title, titleX, baseline);
+		$SwingUtilities2::drawString(this->frame, g, title, titleX, baseline);
 		g->setFont(f);
 	}
 }
@@ -467,10 +357,10 @@ $String* BasicInternalFrameTitlePane::getTitle($String* text, $FontMetrics* fm, 
 }
 
 void BasicInternalFrameTitlePane::postClosingEvent($JInternalFrame* frame) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($InternalFrameEvent, e, $new($InternalFrameEvent, frame, $InternalFrameEvent::INTERNAL_FRAME_CLOSING));
 	try {
-		$nc($($nc($($Toolkit::getDefaultToolkit()))->getSystemEventQueue()))->postEvent(e);
+		$$nc($$nc($Toolkit::getDefaultToolkit())->getSystemEventQueue())->postEvent(e);
 	} catch ($SecurityException& se) {
 		$nc(frame)->dispatchEvent(e);
 	}
@@ -478,17 +368,17 @@ void BasicInternalFrameTitlePane::postClosingEvent($JInternalFrame* frame) {
 
 void BasicInternalFrameTitlePane::enableActions() {
 	bool var$0 = $nc(this->frame)->isMaximum();
-	$nc(this->restoreAction)->setEnabled(var$0 || $nc(this->frame)->isIcon());
+	$nc(this->restoreAction)->setEnabled(var$0 || this->frame->isIcon());
 	bool var$3 = $nc(this->frame)->isMaximizable();
-	bool var$2 = var$3 && !$nc(this->frame)->isMaximum();
-	bool var$1 = (var$2 && !$nc(this->frame)->isIcon());
+	bool var$2 = var$3 && !this->frame->isMaximum();
+	bool var$1 = var$2 && !this->frame->isIcon();
 	if (!var$1) {
-		bool var$4 = $nc(this->frame)->isMaximizable();
-		var$1 = (var$4 && $nc(this->frame)->isIcon());
+		bool var$4 = this->frame->isMaximizable();
+		var$1 = var$4 && this->frame->isIcon();
 	}
 	$nc(this->maximizeAction)->setEnabled(var$1);
 	bool var$5 = $nc(this->frame)->isIconifiable();
-	$nc(this->iconifyAction)->setEnabled(var$5 && !$nc(this->frame)->isIcon());
+	$nc(this->iconifyAction)->setEnabled(var$5 && !this->frame->isIcon());
 	$nc(this->closeAction)->setEnabled($nc(this->frame)->isClosable());
 	$nc(this->sizeAction)->setEnabled(false);
 	$nc(this->moveAction)->setEnabled(false);
@@ -509,7 +399,7 @@ $LayoutManager* BasicInternalFrameTitlePane::createLayout() {
 	return getHandler();
 }
 
-void clinit$BasicInternalFrameTitlePane($Class* class$) {
+void BasicInternalFrameTitlePane::clinit$($Class* clazz) {
 	$assignStatic(BasicInternalFrameTitlePane::CLOSE_CMD, $UIManager::getString("InternalFrameTitlePane.closeButtonText"_s));
 	$assignStatic(BasicInternalFrameTitlePane::ICONIFY_CMD, $UIManager::getString("InternalFrameTitlePane.minimizeButtonText"_s));
 	$assignStatic(BasicInternalFrameTitlePane::RESTORE_CMD, $UIManager::getString("InternalFrameTitlePane.restoreButtonText"_s));
@@ -522,7 +412,102 @@ BasicInternalFrameTitlePane::BasicInternalFrameTitlePane() {
 }
 
 $Class* BasicInternalFrameTitlePane::load$($String* name, bool initialize) {
-	$loadClass(BasicInternalFrameTitlePane, name, initialize, &_BasicInternalFrameTitlePane_ClassInfo_, clinit$BasicInternalFrameTitlePane, allocate$BasicInternalFrameTitlePane);
+	$FieldInfo fieldInfos$$[] = {
+		{"menuBar", "Ljavax/swing/JMenuBar;", nullptr, $PROTECTED, $field(BasicInternalFrameTitlePane, menuBar)},
+		{"iconButton", "Ljavax/swing/JButton;", nullptr, $PROTECTED, $field(BasicInternalFrameTitlePane, iconButton)},
+		{"maxButton", "Ljavax/swing/JButton;", nullptr, $PROTECTED, $field(BasicInternalFrameTitlePane, maxButton)},
+		{"closeButton", "Ljavax/swing/JButton;", nullptr, $PROTECTED, $field(BasicInternalFrameTitlePane, closeButton)},
+		{"windowMenu", "Ljavax/swing/JMenu;", nullptr, $PROTECTED, $field(BasicInternalFrameTitlePane, windowMenu)},
+		{"frame", "Ljavax/swing/JInternalFrame;", nullptr, $PROTECTED, $field(BasicInternalFrameTitlePane, frame)},
+		{"selectedTitleColor", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(BasicInternalFrameTitlePane, selectedTitleColor)},
+		{"selectedTextColor", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(BasicInternalFrameTitlePane, selectedTextColor)},
+		{"notSelectedTitleColor", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(BasicInternalFrameTitlePane, notSelectedTitleColor)},
+		{"notSelectedTextColor", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(BasicInternalFrameTitlePane, notSelectedTextColor)},
+		{"maxIcon", "Ljavax/swing/Icon;", nullptr, $PROTECTED, $field(BasicInternalFrameTitlePane, maxIcon)},
+		{"minIcon", "Ljavax/swing/Icon;", nullptr, $PROTECTED, $field(BasicInternalFrameTitlePane, minIcon)},
+		{"iconIcon", "Ljavax/swing/Icon;", nullptr, $PROTECTED, $field(BasicInternalFrameTitlePane, iconIcon)},
+		{"closeIcon", "Ljavax/swing/Icon;", nullptr, $PROTECTED, $field(BasicInternalFrameTitlePane, closeIcon)},
+		{"propertyChangeListener", "Ljava/beans/PropertyChangeListener;", nullptr, $PROTECTED, $field(BasicInternalFrameTitlePane, propertyChangeListener)},
+		{"closeAction", "Ljavax/swing/Action;", nullptr, $PROTECTED, $field(BasicInternalFrameTitlePane, closeAction)},
+		{"maximizeAction", "Ljavax/swing/Action;", nullptr, $PROTECTED, $field(BasicInternalFrameTitlePane, maximizeAction)},
+		{"iconifyAction", "Ljavax/swing/Action;", nullptr, $PROTECTED, $field(BasicInternalFrameTitlePane, iconifyAction)},
+		{"restoreAction", "Ljavax/swing/Action;", nullptr, $PROTECTED, $field(BasicInternalFrameTitlePane, restoreAction)},
+		{"moveAction", "Ljavax/swing/Action;", nullptr, $PROTECTED, $field(BasicInternalFrameTitlePane, moveAction)},
+		{"sizeAction", "Ljavax/swing/Action;", nullptr, $PROTECTED, $field(BasicInternalFrameTitlePane, sizeAction)},
+		{"CLOSE_CMD", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(BasicInternalFrameTitlePane, CLOSE_CMD)},
+		{"ICONIFY_CMD", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(BasicInternalFrameTitlePane, ICONIFY_CMD)},
+		{"RESTORE_CMD", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(BasicInternalFrameTitlePane, RESTORE_CMD)},
+		{"MAXIMIZE_CMD", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(BasicInternalFrameTitlePane, MAXIMIZE_CMD)},
+		{"MOVE_CMD", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(BasicInternalFrameTitlePane, MOVE_CMD)},
+		{"SIZE_CMD", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(BasicInternalFrameTitlePane, SIZE_CMD)},
+		{"closeButtonToolTip", "Ljava/lang/String;", nullptr, $PRIVATE, $field(BasicInternalFrameTitlePane, closeButtonToolTip)},
+		{"iconButtonToolTip", "Ljava/lang/String;", nullptr, $PRIVATE, $field(BasicInternalFrameTitlePane, iconButtonToolTip)},
+		{"restoreButtonToolTip", "Ljava/lang/String;", nullptr, $PRIVATE, $field(BasicInternalFrameTitlePane, restoreButtonToolTip)},
+		{"maxButtonToolTip", "Ljava/lang/String;", nullptr, $PRIVATE, $field(BasicInternalFrameTitlePane, maxButtonToolTip)},
+		{"handler", "Ljavax/swing/plaf/basic/BasicInternalFrameTitlePane$Handler;", nullptr, $PRIVATE, $field(BasicInternalFrameTitlePane, handler)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/JInternalFrame;)V", nullptr, $PUBLIC, $method(BasicInternalFrameTitlePane, init$, void, $JInternalFrame*)},
+		{"addSubComponents", "()V", nullptr, $PROTECTED, $virtualMethod(BasicInternalFrameTitlePane, addSubComponents, void)},
+		{"addSystemMenuItems", "(Ljavax/swing/JMenu;)V", nullptr, $PROTECTED, $virtualMethod(BasicInternalFrameTitlePane, addSystemMenuItems, void, $JMenu*)},
+		{"assembleSystemMenu", "()V", nullptr, $PROTECTED, $virtualMethod(BasicInternalFrameTitlePane, assembleSystemMenu, void)},
+		{"createActionMap", "()Ljavax/swing/ActionMap;", nullptr, 0, $virtualMethod(BasicInternalFrameTitlePane, createActionMap, $ActionMap*)},
+		{"createActions", "()V", nullptr, $PROTECTED, $virtualMethod(BasicInternalFrameTitlePane, createActions, void)},
+		{"createButtons", "()V", nullptr, $PROTECTED, $virtualMethod(BasicInternalFrameTitlePane, createButtons, void)},
+		{"createLayout", "()Ljava/awt/LayoutManager;", nullptr, $PROTECTED, $virtualMethod(BasicInternalFrameTitlePane, createLayout, $LayoutManager*)},
+		{"createPropertyChangeListener", "()Ljava/beans/PropertyChangeListener;", nullptr, $PROTECTED, $virtualMethod(BasicInternalFrameTitlePane, createPropertyChangeListener, $PropertyChangeListener*)},
+		{"createSystemMenu", "()Ljavax/swing/JMenu;", nullptr, $PROTECTED, $virtualMethod(BasicInternalFrameTitlePane, createSystemMenu, $JMenu*)},
+		{"createSystemMenuBar", "()Ljavax/swing/JMenuBar;", nullptr, $PROTECTED, $virtualMethod(BasicInternalFrameTitlePane, createSystemMenuBar, $JMenuBar*)},
+		{"enableActions", "()V", nullptr, $PROTECTED, $virtualMethod(BasicInternalFrameTitlePane, enableActions, void)},
+		{"getButtonMnemonic", "(Ljava/lang/String;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(BasicInternalFrameTitlePane, getButtonMnemonic, int32_t, $String*)},
+		{"getHandler", "()Ljavax/swing/plaf/basic/BasicInternalFrameTitlePane$Handler;", nullptr, $PRIVATE, $method(BasicInternalFrameTitlePane, getHandler, $BasicInternalFrameTitlePane$Handler*)},
+		{"getTitle", "(Ljava/lang/String;Ljava/awt/FontMetrics;I)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(BasicInternalFrameTitlePane, getTitle, $String*, $String*, $FontMetrics*, int32_t)},
+		{"installDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(BasicInternalFrameTitlePane, installDefaults, void)},
+		{"installListeners", "()V", nullptr, $PROTECTED, $virtualMethod(BasicInternalFrameTitlePane, installListeners, void)},
+		{"installTitlePane", "()V", nullptr, $PROTECTED, $virtualMethod(BasicInternalFrameTitlePane, installTitlePane, void)},
+		{"paintComponent", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(BasicInternalFrameTitlePane, paintComponent, void, $Graphics*)},
+		{"paintTitleBackground", "(Ljava/awt/Graphics;)V", nullptr, $PROTECTED, $virtualMethod(BasicInternalFrameTitlePane, paintTitleBackground, void, $Graphics*)},
+		{"postClosingEvent", "(Ljavax/swing/JInternalFrame;)V", nullptr, $PROTECTED, $virtualMethod(BasicInternalFrameTitlePane, postClosingEvent, void, $JInternalFrame*)},
+		{"setButtonIcons", "()V", nullptr, $PROTECTED, $virtualMethod(BasicInternalFrameTitlePane, setButtonIcons, void)},
+		{"showSystemMenu", "()V", nullptr, $PROTECTED, $virtualMethod(BasicInternalFrameTitlePane, showSystemMenu, void)},
+		{"uninstallDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(BasicInternalFrameTitlePane, uninstallDefaults, void)},
+		{"uninstallListeners", "()V", nullptr, $PROTECTED, $virtualMethod(BasicInternalFrameTitlePane, uninstallListeners, void)},
+		{"updateProperties", "()V", nullptr, $PRIVATE, $method(BasicInternalFrameTitlePane, updateProperties, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.basic.BasicInternalFrameTitlePane$NoFocusButton", "javax.swing.plaf.basic.BasicInternalFrameTitlePane", "NoFocusButton", $PRIVATE},
+		{"javax.swing.plaf.basic.BasicInternalFrameTitlePane$SystemMenuBar", "javax.swing.plaf.basic.BasicInternalFrameTitlePane", "SystemMenuBar", $PUBLIC},
+		{"javax.swing.plaf.basic.BasicInternalFrameTitlePane$SizeAction", "javax.swing.plaf.basic.BasicInternalFrameTitlePane", "SizeAction", $PUBLIC},
+		{"javax.swing.plaf.basic.BasicInternalFrameTitlePane$ShowSystemMenuAction", "javax.swing.plaf.basic.BasicInternalFrameTitlePane", "ShowSystemMenuAction", $PRIVATE},
+		{"javax.swing.plaf.basic.BasicInternalFrameTitlePane$MoveAction", "javax.swing.plaf.basic.BasicInternalFrameTitlePane", "MoveAction", $PUBLIC},
+		{"javax.swing.plaf.basic.BasicInternalFrameTitlePane$RestoreAction", "javax.swing.plaf.basic.BasicInternalFrameTitlePane", "RestoreAction", $PUBLIC},
+		{"javax.swing.plaf.basic.BasicInternalFrameTitlePane$IconifyAction", "javax.swing.plaf.basic.BasicInternalFrameTitlePane", "IconifyAction", $PUBLIC},
+		{"javax.swing.plaf.basic.BasicInternalFrameTitlePane$MaximizeAction", "javax.swing.plaf.basic.BasicInternalFrameTitlePane", "MaximizeAction", $PUBLIC},
+		{"javax.swing.plaf.basic.BasicInternalFrameTitlePane$CloseAction", "javax.swing.plaf.basic.BasicInternalFrameTitlePane", "CloseAction", $PUBLIC},
+		{"javax.swing.plaf.basic.BasicInternalFrameTitlePane$TitlePaneLayout", "javax.swing.plaf.basic.BasicInternalFrameTitlePane", "TitlePaneLayout", $PUBLIC},
+		{"javax.swing.plaf.basic.BasicInternalFrameTitlePane$PropertyChangeHandler", "javax.swing.plaf.basic.BasicInternalFrameTitlePane", "PropertyChangeHandler", $PUBLIC},
+		{"javax.swing.plaf.basic.BasicInternalFrameTitlePane$Handler", "javax.swing.plaf.basic.BasicInternalFrameTitlePane", "Handler", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.basic.BasicInternalFrameTitlePane",
+		"javax.swing.JComponent",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.basic.BasicInternalFrameTitlePane$NoFocusButton,javax.swing.plaf.basic.BasicInternalFrameTitlePane$SystemMenuBar,javax.swing.plaf.basic.BasicInternalFrameTitlePane$SizeAction,javax.swing.plaf.basic.BasicInternalFrameTitlePane$ShowSystemMenuAction,javax.swing.plaf.basic.BasicInternalFrameTitlePane$MoveAction,javax.swing.plaf.basic.BasicInternalFrameTitlePane$RestoreAction,javax.swing.plaf.basic.BasicInternalFrameTitlePane$IconifyAction,javax.swing.plaf.basic.BasicInternalFrameTitlePane$MaximizeAction,javax.swing.plaf.basic.BasicInternalFrameTitlePane$CloseAction,javax.swing.plaf.basic.BasicInternalFrameTitlePane$TitlePaneLayout,javax.swing.plaf.basic.BasicInternalFrameTitlePane$PropertyChangeHandler,javax.swing.plaf.basic.BasicInternalFrameTitlePane$Handler"
+	};
+	$loadClass(BasicInternalFrameTitlePane, name, initialize, &classInfo$$, BasicInternalFrameTitlePane::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(BasicInternalFrameTitlePane));
+	});
 	return class$;
 }
 

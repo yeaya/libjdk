@@ -1,5 +1,4 @@
 #include <com/sun/media/sound/AudioFileSoundbankReader.h>
-
 #include <com/sun/media/sound/ModelByteBuffer.h>
 #include <com/sun/media/sound/ModelByteBufferWavetable.h>
 #include <com/sun/media/sound/ModelPerformer.h>
@@ -35,11 +34,8 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $URL = ::java::net::URL;
-using $List = ::java::util::List;
-using $Instrument = ::javax::sound::midi::Instrument;
 using $Soundbank = ::javax::sound::midi::Soundbank;
 using $SoundbankReader = ::javax::sound::midi::spi::SoundbankReader;
-using $AudioFormat = ::javax::sound::sampled::AudioFormat;
 using $AudioInputStream = ::javax::sound::sampled::AudioInputStream;
 using $AudioSystem = ::javax::sound::sampled::AudioSystem;
 using $UnsupportedAudioFileException = ::javax::sound::sampled::UnsupportedAudioFileException;
@@ -49,34 +45,12 @@ namespace com {
 		namespace media {
 			namespace sound {
 
-$MethodInfo _AudioFileSoundbankReader_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AudioFileSoundbankReader, init$, void)},
-	{"getSoundbank", "(Ljava/net/URL;)Ljavax/sound/midi/Soundbank;", nullptr, $PUBLIC, $virtualMethod(AudioFileSoundbankReader, getSoundbank, $Soundbank*, $URL*), "javax.sound.midi.InvalidMidiDataException,java.io.IOException"},
-	{"getSoundbank", "(Ljava/io/InputStream;)Ljavax/sound/midi/Soundbank;", nullptr, $PUBLIC, $virtualMethod(AudioFileSoundbankReader, getSoundbank, $Soundbank*, $InputStream*), "javax.sound.midi.InvalidMidiDataException,java.io.IOException"},
-	{"getSoundbank", "(Ljavax/sound/sampled/AudioInputStream;)Ljavax/sound/midi/Soundbank;", nullptr, $PUBLIC, $method(AudioFileSoundbankReader, getSoundbank, $Soundbank*, $AudioInputStream*), "javax.sound.midi.InvalidMidiDataException,java.io.IOException"},
-	{"getSoundbank", "(Ljava/io/File;)Ljavax/sound/midi/Soundbank;", nullptr, $PUBLIC, $virtualMethod(AudioFileSoundbankReader, getSoundbank, $Soundbank*, $File*), "javax.sound.midi.InvalidMidiDataException,java.io.IOException"},
-	{}
-};
-
-$ClassInfo _AudioFileSoundbankReader_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.media.sound.AudioFileSoundbankReader",
-	"javax.sound.midi.spi.SoundbankReader",
-	nullptr,
-	nullptr,
-	_AudioFileSoundbankReader_MethodInfo_
-};
-
-$Object* allocate$AudioFileSoundbankReader($Class* clazz) {
-	return $of($alloc(AudioFileSoundbankReader));
-}
-
 void AudioFileSoundbankReader::init$() {
 	$SoundbankReader::init$();
 }
 
 $Soundbank* AudioFileSoundbankReader::getSoundbank($URL* url) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$var($AudioInputStream, ais, $AudioSystem::getAudioInputStream(url));
 		$var($Soundbank, sbk, getSoundbank(ais));
@@ -91,7 +65,7 @@ $Soundbank* AudioFileSoundbankReader::getSoundbank($URL* url) {
 }
 
 $Soundbank* AudioFileSoundbankReader::getSoundbank($InputStream* stream) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(stream)->mark(512);
 	try {
 		$var($AudioInputStream, ais, $AudioSystem::getAudioInputStream(stream));
@@ -107,12 +81,12 @@ $Soundbank* AudioFileSoundbankReader::getSoundbank($InputStream* stream) {
 }
 
 $Soundbank* AudioFileSoundbankReader::getSoundbank($AudioInputStream* ais) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$var($bytes, buffer, nullptr);
 		if ($nc(ais)->getFrameLength() == -1) {
 			$var($ByteArrayOutputStream, baos, $new($ByteArrayOutputStream));
-			$var($bytes, buff, $new($bytes, 1024 - ($mod(1024, $nc($(ais->getFormat()))->getFrameSize()))));
+			$var($bytes, buff, $new($bytes, 1024 - ($mod(1024, $$nc(ais->getFormat())->getFrameSize()))));
 			int32_t ret = 0;
 			while ((ret = ais->read(buff)) != -1) {
 				baos->write(buff, 0, ret);
@@ -121,13 +95,13 @@ $Soundbank* AudioFileSoundbankReader::getSoundbank($AudioInputStream* ais) {
 			$assign(buffer, baos->toByteArray());
 		} else {
 			int64_t var$0 = ais->getFrameLength();
-			$assign(buffer, $new($bytes, (int32_t)(var$0 * $nc($(ais->getFormat()))->getFrameSize())));
+			$assign(buffer, $new($bytes, (int32_t)(var$0 * $$nc(ais->getFormat())->getFrameSize())));
 			$$new($DataInputStream, ais)->readFully(buffer);
 		}
 		$var($ModelByteBuffer, var$1, $new($ModelByteBuffer, buffer));
-		$var($ModelByteBufferWavetable, osc, $new($ModelByteBufferWavetable, var$1, $($nc(ais)->getFormat()), (float)-4800));
+		$var($ModelByteBufferWavetable, osc, $new($ModelByteBufferWavetable, var$1, $(ais->getFormat()), -4800));
 		$var($ModelPerformer, performer, $new($ModelPerformer));
-		$nc($(performer->getOscillators()))->add(osc);
+		$$nc(performer->getOscillators())->add(osc);
 		$var($SimpleSoundbank, sbk, $new($SimpleSoundbank));
 		$var($SimpleInstrument, ins, $new($SimpleInstrument));
 		ins->add(performer);
@@ -140,13 +114,13 @@ $Soundbank* AudioFileSoundbankReader::getSoundbank($AudioInputStream* ais) {
 }
 
 $Soundbank* AudioFileSoundbankReader::getSoundbank($File* file) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$var($AudioInputStream, ais, $AudioSystem::getAudioInputStream(file));
 		$nc(ais)->close();
-		$var($ModelByteBufferWavetable, osc, $new($ModelByteBufferWavetable, $$new($ModelByteBuffer, file, (int64_t)0, $nc(file)->length()), (float)-4800));
+		$var($ModelByteBufferWavetable, osc, $new($ModelByteBufferWavetable, $$new($ModelByteBuffer, file, 0, $nc(file)->length()), -4800));
 		$var($ModelPerformer, performer, $new($ModelPerformer));
-		$nc($(performer->getOscillators()))->add(osc);
+		$$nc(performer->getOscillators())->add(osc);
 		$var($SimpleSoundbank, sbk, $new($SimpleSoundbank));
 		$var($SimpleInstrument, ins, $new($SimpleInstrument));
 		ins->add(performer);
@@ -164,7 +138,25 @@ AudioFileSoundbankReader::AudioFileSoundbankReader() {
 }
 
 $Class* AudioFileSoundbankReader::load$($String* name, bool initialize) {
-	$loadClass(AudioFileSoundbankReader, name, initialize, &_AudioFileSoundbankReader_ClassInfo_, allocate$AudioFileSoundbankReader);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AudioFileSoundbankReader, init$, void)},
+		{"getSoundbank", "(Ljava/net/URL;)Ljavax/sound/midi/Soundbank;", nullptr, $PUBLIC, $virtualMethod(AudioFileSoundbankReader, getSoundbank, $Soundbank*, $URL*), "javax.sound.midi.InvalidMidiDataException,java.io.IOException"},
+		{"getSoundbank", "(Ljava/io/InputStream;)Ljavax/sound/midi/Soundbank;", nullptr, $PUBLIC, $virtualMethod(AudioFileSoundbankReader, getSoundbank, $Soundbank*, $InputStream*), "javax.sound.midi.InvalidMidiDataException,java.io.IOException"},
+		{"getSoundbank", "(Ljavax/sound/sampled/AudioInputStream;)Ljavax/sound/midi/Soundbank;", nullptr, $PUBLIC, $method(AudioFileSoundbankReader, getSoundbank, $Soundbank*, $AudioInputStream*), "javax.sound.midi.InvalidMidiDataException,java.io.IOException"},
+		{"getSoundbank", "(Ljava/io/File;)Ljavax/sound/midi/Soundbank;", nullptr, $PUBLIC, $virtualMethod(AudioFileSoundbankReader, getSoundbank, $Soundbank*, $File*), "javax.sound.midi.InvalidMidiDataException,java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.media.sound.AudioFileSoundbankReader",
+		"javax.sound.midi.spi.SoundbankReader",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(AudioFileSoundbankReader, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AudioFileSoundbankReader);
+	});
 	return class$;
 }
 

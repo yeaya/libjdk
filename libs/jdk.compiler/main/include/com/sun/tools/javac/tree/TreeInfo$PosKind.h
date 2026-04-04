@@ -43,6 +43,7 @@ class $import TreeInfo$PosKind : public ::java::lang::Enum {
 public:
 	TreeInfo$PosKind();
 	static $Array<::com::sun::tools::javac::tree::TreeInfo$PosKind>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal, ::java::util::function::ToIntFunction* posFunc);
 	virtual int32_t toPos(::com::sun::tools::javac::tree::JCTree* tree);
 	static ::com::sun::tools::javac::tree::TreeInfo$PosKind* valueOf($String* name);

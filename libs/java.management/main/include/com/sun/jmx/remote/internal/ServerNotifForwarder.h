@@ -83,6 +83,7 @@ class $import ServerNotifForwarder : public ::java::lang::Object {
 	$class(ServerNotifForwarder, 0, ::java::lang::Object)
 public:
 	ServerNotifForwarder();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::javax::management::MBeanServer* mbeanServer, ::java::util::Map* env, ::com::sun::jmx::remote::internal::NotificationBuffer* notifBuffer, $String* connectionId);
 	virtual ::java::lang::Integer* addNotificationListener(::javax::management::ObjectName* name, ::javax::management::NotificationFilter* filter);
 	bool allowNotificationEmission(::javax::management::ObjectName* name, ::javax::management::remote::TargetedNotification* tn);

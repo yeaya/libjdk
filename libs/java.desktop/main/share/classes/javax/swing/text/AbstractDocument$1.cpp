@@ -1,5 +1,4 @@
 #include <javax/swing/text/AbstractDocument$1.h>
-
 #include <javax/swing/text/AbstractDocument.h>
 #include <jcpp.h>
 
@@ -14,50 +13,6 @@ namespace javax {
 	namespace swing {
 		namespace text {
 
-$FieldInfo _AbstractDocument$1_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/text/AbstractDocument;", nullptr, $FINAL | $SYNTHETIC, $field(AbstractDocument$1, this$0)},
-	{}
-};
-
-$MethodInfo _AbstractDocument$1_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/text/AbstractDocument;)V", nullptr, 0, $method(AbstractDocument$1, init$, void, $AbstractDocument*)},
-	{"run", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AbstractDocument$1, run, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _AbstractDocument$1_EnclosingMethodInfo_ = {
-	"javax.swing.text.AbstractDocument",
-	"<init>",
-	"(Ljavax/swing/text/AbstractDocument$Content;Ljavax/swing/text/AbstractDocument$AttributeContext;)V"
-};
-
-$InnerClassInfo _AbstractDocument$1_InnerClassesInfo_[] = {
-	{"javax.swing.text.AbstractDocument$1", nullptr, nullptr, 0},
-	{"javax.swing.text.AbstractDocument$Content", "javax.swing.text.AbstractDocument", "Content", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"javax.swing.text.AbstractDocument$AttributeContext", "javax.swing.text.AbstractDocument", "AttributeContext", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _AbstractDocument$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.text.AbstractDocument$1",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	_AbstractDocument$1_FieldInfo_,
-	_AbstractDocument$1_MethodInfo_,
-	"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/String;>;",
-	&_AbstractDocument$1_EnclosingMethodInfo_,
-	_AbstractDocument$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.AbstractDocument"
-};
-
-$Object* allocate$AbstractDocument$1($Class* clazz) {
-	return $of($alloc(AbstractDocument$1));
-}
-
 void AbstractDocument$1::init$($AbstractDocument* this$0) {
 	$set(this, this$0, this$0);
 }
@@ -70,7 +25,44 @@ AbstractDocument$1::AbstractDocument$1() {
 }
 
 $Class* AbstractDocument$1::load$($String* name, bool initialize) {
-	$loadClass(AbstractDocument$1, name, initialize, &_AbstractDocument$1_ClassInfo_, allocate$AbstractDocument$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/text/AbstractDocument;", nullptr, $FINAL | $SYNTHETIC, $field(AbstractDocument$1, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/text/AbstractDocument;)V", nullptr, 0, $method(AbstractDocument$1, init$, void, $AbstractDocument*)},
+		{"run", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AbstractDocument$1, run, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"javax.swing.text.AbstractDocument",
+		"<init>",
+		"(Ljavax/swing/text/AbstractDocument$Content;Ljavax/swing/text/AbstractDocument$AttributeContext;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.AbstractDocument$1", nullptr, nullptr, 0},
+		{"javax.swing.text.AbstractDocument$Content", "javax.swing.text.AbstractDocument", "Content", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"javax.swing.text.AbstractDocument$AttributeContext", "javax.swing.text.AbstractDocument", "AttributeContext", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.text.AbstractDocument$1",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/String;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.AbstractDocument"
+	};
+	$loadClass(AbstractDocument$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AbstractDocument$1);
+	});
 	return class$;
 }
 

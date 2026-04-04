@@ -33,11 +33,14 @@ public:
 	virtual void printStackTrace() override;
 	virtual void printStackTrace(::java::io::PrintStream* s) override;
 	virtual void printStackTrace(::java::io::PrintWriter* s) override;
-	static const int64_t serialVersionUID = (int64_t)0x3A24B1D22A335746;
+	static const int64_t serialVersionUID = (int64_t)0x3a24b1d22a335746;
 	$Throwable* cause = nullptr;
 	NoSuchMechanismException(const NoSuchMechanismException& e);
 	virtual void throw$() override;
-	inline NoSuchMechanismException* operator ->() {
+	inline NoSuchMechanismException* operator ->() const {
+		return (NoSuchMechanismException*)throwing$;
+	}
+	inline operator NoSuchMechanismException*() const {
 		return (NoSuchMechanismException*)throwing$;
 	}
 };

@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/synth/SynthSplitPaneDivider.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Cursor.h>
 #include <java/awt/Dimension.h>
@@ -7,7 +6,6 @@
 #include <java/awt/Rectangle.h>
 #include <java/beans/PropertyChangeEvent.h>
 #include <javax/swing/JButton.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JSplitPane.h>
 #include <javax/swing/SwingConstants.h>
 #include <javax/swing/plaf/ComponentUI.h>
@@ -41,10 +39,8 @@ using $PropertyChangeEvent = ::java::beans::PropertyChangeEvent;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $JButton = ::javax::swing::JButton;
-using $JComponent = ::javax::swing::JComponent;
 using $JSplitPane = ::javax::swing::JSplitPane;
 using $SwingConstants = ::javax::swing::SwingConstants;
-using $ComponentUI = ::javax::swing::plaf::ComponentUI;
 using $BasicSplitPaneDivider = ::javax::swing::plaf::basic::BasicSplitPaneDivider;
 using $BasicSplitPaneUI = ::javax::swing::plaf::basic::BasicSplitPaneUI;
 using $Region = ::javax::swing::plaf::synth::Region;
@@ -59,31 +55,6 @@ namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace synth {
-
-$MethodInfo _SynthSplitPaneDivider_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/plaf/basic/BasicSplitPaneUI;)V", nullptr, $PUBLIC, $method(SynthSplitPaneDivider, init$, void, $BasicSplitPaneUI*)},
-	{"createLeftOneTouchButton", "()Ljavax/swing/JButton;", nullptr, $PROTECTED, $virtualMethod(SynthSplitPaneDivider, createLeftOneTouchButton, $JButton*)},
-	{"createRightOneTouchButton", "()Ljavax/swing/JButton;", nullptr, $PROTECTED, $virtualMethod(SynthSplitPaneDivider, createRightOneTouchButton, $JButton*)},
-	{"lookupOneTouchSize", "()I", nullptr, $PRIVATE, $method(SynthSplitPaneDivider, lookupOneTouchSize, int32_t)},
-	{"mapDirection", "(Z)I", nullptr, $PRIVATE, $method(SynthSplitPaneDivider, mapDirection, int32_t, bool)},
-	{"paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(SynthSplitPaneDivider, paint, void, $Graphics*)},
-	{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(SynthSplitPaneDivider, propertyChange, void, $PropertyChangeEvent*)},
-	{"setMouseOver", "(Z)V", nullptr, $PROTECTED, $virtualMethod(SynthSplitPaneDivider, setMouseOver, void, bool)},
-	{}
-};
-
-$ClassInfo _SynthSplitPaneDivider_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.synth.SynthSplitPaneDivider",
-	"javax.swing.plaf.basic.BasicSplitPaneDivider",
-	nullptr,
-	nullptr,
-	_SynthSplitPaneDivider_MethodInfo_
-};
-
-$Object* allocate$SynthSplitPaneDivider($Class* clazz) {
-	return $of($alloc(SynthSplitPaneDivider));
-}
 
 void SynthSplitPaneDivider::init$($BasicSplitPaneUI* ui) {
 	$BasicSplitPaneDivider::init$(ui);
@@ -102,34 +73,32 @@ void SynthSplitPaneDivider::propertyChange($PropertyChangeEvent* e) {
 		$init($JSplitPane);
 		if (e->getPropertyName() == $JSplitPane::ORIENTATION_PROPERTY) {
 			if ($instanceOf($SynthArrowButton, this->leftButton)) {
-				$nc(($cast($SynthArrowButton, this->leftButton)))->setDirection(mapDirection(true));
+				$cast($SynthArrowButton, this->leftButton)->setDirection(mapDirection(true));
 			}
 			if ($instanceOf($SynthArrowButton, this->rightButton)) {
-				$nc(($cast($SynthArrowButton, this->rightButton)))->setDirection(mapDirection(false));
+				$cast($SynthArrowButton, this->rightButton)->setDirection(mapDirection(false));
 			}
 		}
 	}
 }
 
 void SynthSplitPaneDivider::paint($Graphics* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Graphics, g2, $nc(g)->create());
 	$init($Region);
-	$var($SynthContext, context, $nc(($cast($SynthSplitPaneUI, this->splitPaneUI)))->getContext(static_cast<$JComponent*>(this->splitPane), $Region::SPLIT_PANE_DIVIDER));
+	$var($SynthContext, context, $nc($cast($SynthSplitPaneUI, this->splitPaneUI))->getContext(this->splitPane, $Region::SPLIT_PANE_DIVIDER));
 	$var($Rectangle, bounds, getBounds());
-	$nc(bounds)->x = (bounds->y = 0);
+	$nc(bounds)->x = ($nc(bounds)->y = 0);
 	$SynthLookAndFeel::updateSubregion(context, g, bounds);
-	$nc($($nc(context)->getPainter()))->paintSplitPaneDividerBackground(context, g, 0, 0, bounds->width, bounds->height, $nc(this->splitPane)->getOrientation());
+	$$nc($nc(context)->getPainter())->paintSplitPaneDividerBackground(context, g, 0, 0, bounds->width, bounds->height, $nc(this->splitPane)->getOrientation());
 	$var($SynthPainter, foreground, nullptr);
-	$var($SynthContext, var$0, context);
-	$var($Graphics, var$1, g);
-	int32_t var$2 = getWidth();
-	int32_t var$3 = getHeight();
-	$nc($(context->getPainter()))->paintSplitPaneDividerForeground(var$0, var$1, 0, 0, var$2, var$3, $nc(this->splitPane)->getOrientation());
+	int32_t var$0 = getWidth();
+	int32_t var$1 = getHeight();
+	$$nc(context->getPainter())->paintSplitPaneDividerForeground(context, g, 0, 0, var$0, var$1, $nc(this->splitPane)->getOrientation());
 	for (int32_t counter = 0; counter < getComponentCount(); ++counter) {
 		$var($Component, child, getComponent(counter));
 		$var($Rectangle, childBounds, $nc(child)->getBounds());
-		$var($Graphics, childG, g->create($nc(childBounds)->x, childBounds->y, childBounds->width, childBounds->height));
+		$var($Graphics, childG, g->create($nc(childBounds)->x, $nc(childBounds)->y, $nc(childBounds)->width, $nc(childBounds)->height));
 		child->paint(childG);
 		$nc(childG)->dispose();
 	}
@@ -150,7 +119,7 @@ int32_t SynthSplitPaneDivider::mapDirection(bool isLeft) {
 }
 
 $JButton* SynthSplitPaneDivider::createLeftOneTouchButton() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SynthArrowButton, b, $new($SynthArrowButton, $SwingConstants::NORTH));
 	int32_t oneTouchSize = lookupOneTouchSize();
 	b->setName("SplitPaneDivider.leftOneTouchButton"_s);
@@ -168,7 +137,7 @@ int32_t SynthSplitPaneDivider::lookupOneTouchSize() {
 }
 
 $JButton* SynthSplitPaneDivider::createRightOneTouchButton() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SynthArrowButton, b, $new($SynthArrowButton, $SwingConstants::NORTH));
 	int32_t oneTouchSize = lookupOneTouchSize();
 	b->setName("SplitPaneDivider.rightOneTouchButton"_s);
@@ -185,7 +154,28 @@ SynthSplitPaneDivider::SynthSplitPaneDivider() {
 }
 
 $Class* SynthSplitPaneDivider::load$($String* name, bool initialize) {
-	$loadClass(SynthSplitPaneDivider, name, initialize, &_SynthSplitPaneDivider_ClassInfo_, allocate$SynthSplitPaneDivider);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/plaf/basic/BasicSplitPaneUI;)V", nullptr, $PUBLIC, $method(SynthSplitPaneDivider, init$, void, $BasicSplitPaneUI*)},
+		{"createLeftOneTouchButton", "()Ljavax/swing/JButton;", nullptr, $PROTECTED, $virtualMethod(SynthSplitPaneDivider, createLeftOneTouchButton, $JButton*)},
+		{"createRightOneTouchButton", "()Ljavax/swing/JButton;", nullptr, $PROTECTED, $virtualMethod(SynthSplitPaneDivider, createRightOneTouchButton, $JButton*)},
+		{"lookupOneTouchSize", "()I", nullptr, $PRIVATE, $method(SynthSplitPaneDivider, lookupOneTouchSize, int32_t)},
+		{"mapDirection", "(Z)I", nullptr, $PRIVATE, $method(SynthSplitPaneDivider, mapDirection, int32_t, bool)},
+		{"paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(SynthSplitPaneDivider, paint, void, $Graphics*)},
+		{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(SynthSplitPaneDivider, propertyChange, void, $PropertyChangeEvent*)},
+		{"setMouseOver", "(Z)V", nullptr, $PROTECTED, $virtualMethod(SynthSplitPaneDivider, setMouseOver, void, bool)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.synth.SynthSplitPaneDivider",
+		"javax.swing.plaf.basic.BasicSplitPaneDivider",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(SynthSplitPaneDivider, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SynthSplitPaneDivider));
+	});
 	return class$;
 }
 

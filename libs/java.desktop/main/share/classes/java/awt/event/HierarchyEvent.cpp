@@ -1,5 +1,4 @@
 #include <java/awt/event/HierarchyEvent.h>
-
 #include <java/awt/AWTEvent.h>
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
@@ -25,46 +24,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace java {
 	namespace awt {
 		namespace event {
-
-$FieldInfo _HierarchyEvent_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(HierarchyEvent, serialVersionUID)},
-	{"HIERARCHY_FIRST", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(HierarchyEvent, HIERARCHY_FIRST)},
-	{"HIERARCHY_CHANGED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(HierarchyEvent, HIERARCHY_CHANGED)},
-	{"ANCESTOR_MOVED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(HierarchyEvent, ANCESTOR_MOVED)},
-	{"ANCESTOR_RESIZED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(HierarchyEvent, ANCESTOR_RESIZED)},
-	{"HIERARCHY_LAST", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(HierarchyEvent, HIERARCHY_LAST)},
-	{"PARENT_CHANGED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(HierarchyEvent, PARENT_CHANGED)},
-	{"DISPLAYABILITY_CHANGED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(HierarchyEvent, DISPLAYABILITY_CHANGED)},
-	{"SHOWING_CHANGED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(HierarchyEvent, SHOWING_CHANGED)},
-	{"changed", "Ljava/awt/Component;", nullptr, 0, $field(HierarchyEvent, changed)},
-	{"changedParent", "Ljava/awt/Container;", nullptr, 0, $field(HierarchyEvent, changedParent)},
-	{"changeFlags", "J", nullptr, 0, $field(HierarchyEvent, changeFlags)},
-	{}
-};
-
-$MethodInfo _HierarchyEvent_MethodInfo_[] = {
-	{"<init>", "(Ljava/awt/Component;ILjava/awt/Component;Ljava/awt/Container;)V", nullptr, $PUBLIC, $method(HierarchyEvent, init$, void, $Component*, int32_t, $Component*, $Container*)},
-	{"<init>", "(Ljava/awt/Component;ILjava/awt/Component;Ljava/awt/Container;J)V", nullptr, $PUBLIC, $method(HierarchyEvent, init$, void, $Component*, int32_t, $Component*, $Container*, int64_t)},
-	{"getChangeFlags", "()J", nullptr, $PUBLIC, $virtualMethod(HierarchyEvent, getChangeFlags, int64_t)},
-	{"getChanged", "()Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(HierarchyEvent, getChanged, $Component*)},
-	{"getChangedParent", "()Ljava/awt/Container;", nullptr, $PUBLIC, $virtualMethod(HierarchyEvent, getChangedParent, $Container*)},
-	{"getComponent", "()Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(HierarchyEvent, getComponent, $Component*)},
-	{"paramString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HierarchyEvent, paramString, $String*)},
-	{}
-};
-
-$ClassInfo _HierarchyEvent_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.awt.event.HierarchyEvent",
-	"java.awt.AWTEvent",
-	nullptr,
-	_HierarchyEvent_FieldInfo_,
-	_HierarchyEvent_MethodInfo_
-};
-
-$Object* allocate$HierarchyEvent($Class* clazz) {
-	return $of($alloc(HierarchyEvent));
-}
 
 void HierarchyEvent::init$($Component* source, int32_t id, $Component* changed, $Container* changedParent) {
 	$AWTEvent::init$(source, id);
@@ -96,55 +55,47 @@ int64_t HierarchyEvent::getChangeFlags() {
 }
 
 $String* HierarchyEvent::paramString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, typeStr, nullptr);
 	switch (this->id) {
 	case HierarchyEvent::ANCESTOR_MOVED:
-		{
-			$assign(typeStr, $str({"ANCESTOR_MOVED ("_s, this->changed, ","_s, this->changedParent, ")"_s}));
-			break;
-		}
+		$assign(typeStr, $str({"ANCESTOR_MOVED ("_s, this->changed, ","_s, this->changedParent, ")"_s}));
+		break;
 	case HierarchyEvent::ANCESTOR_RESIZED:
-		{
-			$assign(typeStr, $str({"ANCESTOR_RESIZED ("_s, this->changed, ","_s, this->changedParent, ")"_s}));
-			break;
-		}
+		$assign(typeStr, $str({"ANCESTOR_RESIZED ("_s, this->changed, ","_s, this->changedParent, ")"_s}));
+		break;
 	case HierarchyEvent::HIERARCHY_CHANGED:
 		{
-			{
-				$assign(typeStr, "HIERARCHY_CHANGED ("_s);
-				bool first = true;
-				if (((int64_t)(this->changeFlags & (uint64_t)(int64_t)HierarchyEvent::PARENT_CHANGED)) != 0) {
+			$assign(typeStr, "HIERARCHY_CHANGED ("_s);
+			bool first = true;
+			if ((this->changeFlags & HierarchyEvent::PARENT_CHANGED) != 0) {
+				first = false;
+				$plusAssign(typeStr, "PARENT_CHANGED"_s);
+			}
+			if ((this->changeFlags & HierarchyEvent::DISPLAYABILITY_CHANGED) != 0) {
+				if (first) {
 					first = false;
-					$plusAssign(typeStr, "PARENT_CHANGED"_s);
-				}
-				if (((int64_t)(this->changeFlags & (uint64_t)(int64_t)HierarchyEvent::DISPLAYABILITY_CHANGED)) != 0) {
-					if (first) {
-						first = false;
-					} else {
-						$plusAssign(typeStr, ","_s);
-					}
-					$plusAssign(typeStr, "DISPLAYABILITY_CHANGED"_s);
-				}
-				if (((int64_t)(this->changeFlags & (uint64_t)(int64_t)HierarchyEvent::SHOWING_CHANGED)) != 0) {
-					if (first) {
-						first = false;
-					} else {
-						$plusAssign(typeStr, ","_s);
-					}
-					$plusAssign(typeStr, "SHOWING_CHANGED"_s);
-				}
-				if (!first) {
+				} else {
 					$plusAssign(typeStr, ","_s);
 				}
-				$plusAssign(typeStr, $$str({this->changed, ","_s, this->changedParent, ")"_s}));
-				break;
+				$plusAssign(typeStr, "DISPLAYABILITY_CHANGED"_s);
 			}
+			if ((this->changeFlags & HierarchyEvent::SHOWING_CHANGED) != 0) {
+				if (first) {
+					first = false;
+				} else {
+					$plusAssign(typeStr, ","_s);
+				}
+				$plusAssign(typeStr, "SHOWING_CHANGED"_s);
+			}
+			if (!first) {
+				$plusAssign(typeStr, ","_s);
+			}
+			$plusAssign(typeStr, $$str({this->changed, ","_s, this->changedParent, ")"_s}));
+			break;
 		}
 	default:
-		{
-			$assign(typeStr, "unknown type"_s);
-		}
+		$assign(typeStr, "unknown type"_s);
 	}
 	return typeStr;
 }
@@ -153,7 +104,42 @@ HierarchyEvent::HierarchyEvent() {
 }
 
 $Class* HierarchyEvent::load$($String* name, bool initialize) {
-	$loadClass(HierarchyEvent, name, initialize, &_HierarchyEvent_ClassInfo_, allocate$HierarchyEvent);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(HierarchyEvent, serialVersionUID)},
+		{"HIERARCHY_FIRST", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(HierarchyEvent, HIERARCHY_FIRST)},
+		{"HIERARCHY_CHANGED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(HierarchyEvent, HIERARCHY_CHANGED)},
+		{"ANCESTOR_MOVED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(HierarchyEvent, ANCESTOR_MOVED)},
+		{"ANCESTOR_RESIZED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(HierarchyEvent, ANCESTOR_RESIZED)},
+		{"HIERARCHY_LAST", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(HierarchyEvent, HIERARCHY_LAST)},
+		{"PARENT_CHANGED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(HierarchyEvent, PARENT_CHANGED)},
+		{"DISPLAYABILITY_CHANGED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(HierarchyEvent, DISPLAYABILITY_CHANGED)},
+		{"SHOWING_CHANGED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(HierarchyEvent, SHOWING_CHANGED)},
+		{"changed", "Ljava/awt/Component;", nullptr, 0, $field(HierarchyEvent, changed)},
+		{"changedParent", "Ljava/awt/Container;", nullptr, 0, $field(HierarchyEvent, changedParent)},
+		{"changeFlags", "J", nullptr, 0, $field(HierarchyEvent, changeFlags)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/Component;ILjava/awt/Component;Ljava/awt/Container;)V", nullptr, $PUBLIC, $method(HierarchyEvent, init$, void, $Component*, int32_t, $Component*, $Container*)},
+		{"<init>", "(Ljava/awt/Component;ILjava/awt/Component;Ljava/awt/Container;J)V", nullptr, $PUBLIC, $method(HierarchyEvent, init$, void, $Component*, int32_t, $Component*, $Container*, int64_t)},
+		{"getChangeFlags", "()J", nullptr, $PUBLIC, $virtualMethod(HierarchyEvent, getChangeFlags, int64_t)},
+		{"getChanged", "()Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(HierarchyEvent, getChanged, $Component*)},
+		{"getChangedParent", "()Ljava/awt/Container;", nullptr, $PUBLIC, $virtualMethod(HierarchyEvent, getChangedParent, $Container*)},
+		{"getComponent", "()Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(HierarchyEvent, getComponent, $Component*)},
+		{"paramString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HierarchyEvent, paramString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.awt.event.HierarchyEvent",
+		"java.awt.AWTEvent",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(HierarchyEvent, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HierarchyEvent);
+	});
 	return class$;
 }
 

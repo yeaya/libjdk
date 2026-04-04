@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/code/DeferredCompletionFailureHandler$1.h>
-
 #include <com/sun/tools/javac/code/DeferredCompletionFailureHandler$1$1.h>
 #include <com/sun/tools/javac/code/DeferredCompletionFailureHandler$FlipSymbolDescription.h>
 #include <com/sun/tools/javac/code/DeferredCompletionFailureHandler.h>
@@ -31,9 +30,7 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $Collection = ::java::util::Collection;
 using $HashMap = ::java::util::HashMap;
-using $Map = ::java::util::Map;
 using $Consumer = ::java::util::function::Consumer;
 
 namespace com {
@@ -50,80 +47,27 @@ public:
 	virtual void accept(Object$* f) override {
 		DeferredCompletionFailureHandler$1::lambda$install$0($cast($DeferredCompletionFailureHandler$FlipSymbolDescription, f));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<DeferredCompletionFailureHandler$1$$Lambda$lambda$install$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo DeferredCompletionFailureHandler$1$$Lambda$lambda$install$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(DeferredCompletionFailureHandler$1$$Lambda$lambda$install$0, init$, void)},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(DeferredCompletionFailureHandler$1$$Lambda$lambda$install$0, accept, void, Object$*)},
-	{}
-};
-$ClassInfo DeferredCompletionFailureHandler$1$$Lambda$lambda$install$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.code.DeferredCompletionFailureHandler$1$$Lambda$lambda$install$0",
-	"java.lang.Object",
-	"java.util.function.Consumer",
-	nullptr,
-	methodInfos
 };
 $Class* DeferredCompletionFailureHandler$1$$Lambda$lambda$install$0::load$($String* name, bool initialize) {
-	$loadClass(DeferredCompletionFailureHandler$1$$Lambda$lambda$install$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(DeferredCompletionFailureHandler$1$$Lambda$lambda$install$0, init$, void)},
+		{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(DeferredCompletionFailureHandler$1$$Lambda$lambda$install$0, accept, void, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.code.DeferredCompletionFailureHandler$1$$Lambda$lambda$install$0",
+		"java.lang.Object",
+		"java.util.function.Consumer",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(DeferredCompletionFailureHandler$1$$Lambda$lambda$install$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DeferredCompletionFailureHandler$1$$Lambda$lambda$install$0);
+	});
 	return class$;
 }
 $Class* DeferredCompletionFailureHandler$1$$Lambda$lambda$install$0::class$ = nullptr;
-
-$FieldInfo _DeferredCompletionFailureHandler$1_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/code/DeferredCompletionFailureHandler;", nullptr, $FINAL | $SYNTHETIC, $field(DeferredCompletionFailureHandler$1, this$0)},
-	{"class2Flip", "Ljava/util/Map;", "Ljava/util/Map<Lcom/sun/tools/javac/code/Symbol$ClassSymbol;Lcom/sun/tools/javac/code/DeferredCompletionFailureHandler$FlipSymbolDescription;>;", $PRIVATE | $FINAL, $field(DeferredCompletionFailureHandler$1, class2Flip)},
-	{}
-};
-
-$MethodInfo _DeferredCompletionFailureHandler$1_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/DeferredCompletionFailureHandler;)V", nullptr, 0, $method(DeferredCompletionFailureHandler$1, init$, void, $DeferredCompletionFailureHandler*)},
-	{"classSymbolCompleteFailed", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;Lcom/sun/tools/javac/code/Symbol$Completer;)V", nullptr, $PUBLIC, $virtualMethod(DeferredCompletionFailureHandler$1, classSymbolCompleteFailed, void, $Symbol$ClassSymbol*, $Symbol$Completer*)},
-	{"classSymbolRemoved", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)V", nullptr, $PUBLIC, $virtualMethod(DeferredCompletionFailureHandler$1, classSymbolRemoved, void, $Symbol$ClassSymbol*)},
-	{"handleAPICompletionFailure", "(Lcom/sun/tools/javac/code/Symbol$CompletionFailure;)V", nullptr, $PUBLIC, $virtualMethod(DeferredCompletionFailureHandler$1, handleAPICompletionFailure, void, $Symbol$CompletionFailure*)},
-	{"install", "()V", nullptr, $PUBLIC, $virtualMethod(DeferredCompletionFailureHandler$1, install, void)},
-	{"lambda$install$0", "(Lcom/sun/tools/javac/code/DeferredCompletionFailureHandler$FlipSymbolDescription;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(DeferredCompletionFailureHandler$1, lambda$install$0, void, $DeferredCompletionFailureHandler$FlipSymbolDescription*)},
-	{"uninstall", "()V", nullptr, $PUBLIC, $virtualMethod(DeferredCompletionFailureHandler$1, uninstall, void)},
-	{}
-};
-
-$EnclosingMethodInfo _DeferredCompletionFailureHandler$1_EnclosingMethodInfo_ = {
-	"com.sun.tools.javac.code.DeferredCompletionFailureHandler",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _DeferredCompletionFailureHandler$1_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.code.DeferredCompletionFailureHandler$1", nullptr, nullptr, 0},
-	{"com.sun.tools.javac.code.DeferredCompletionFailureHandler$Handler", "com.sun.tools.javac.code.DeferredCompletionFailureHandler", "Handler", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"com.sun.tools.javac.code.DeferredCompletionFailureHandler$1$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _DeferredCompletionFailureHandler$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.code.DeferredCompletionFailureHandler$1",
-	"java.lang.Object",
-	"com.sun.tools.javac.code.DeferredCompletionFailureHandler$Handler",
-	_DeferredCompletionFailureHandler$1_FieldInfo_,
-	_DeferredCompletionFailureHandler$1_MethodInfo_,
-	nullptr,
-	&_DeferredCompletionFailureHandler$1_EnclosingMethodInfo_,
-	_DeferredCompletionFailureHandler$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.code.DeferredCompletionFailureHandler"
-};
-
-$Object* allocate$DeferredCompletionFailureHandler$1($Class* clazz) {
-	return $of($alloc(DeferredCompletionFailureHandler$1));
-}
 
 void DeferredCompletionFailureHandler$1::init$($DeferredCompletionFailureHandler* this$0) {
 	$set(this, this$0, this$0);
@@ -131,25 +75,25 @@ void DeferredCompletionFailureHandler$1::init$($DeferredCompletionFailureHandler
 }
 
 void DeferredCompletionFailureHandler$1::install() {
-	$useLocalCurrentObjectStackCache();
-	$nc($($nc(this->class2Flip)->values()))->forEach(static_cast<$Consumer*>($$new(DeferredCompletionFailureHandler$1$$Lambda$lambda$install$0)));
+	$useLocalObjectStack();
+	$$nc(this->class2Flip->values())->forEach($$new(DeferredCompletionFailureHandler$1$$Lambda$lambda$install$0));
 }
 
 void DeferredCompletionFailureHandler$1::handleAPICompletionFailure($Symbol$CompletionFailure* cf) {
 }
 
 void DeferredCompletionFailureHandler$1::classSymbolCompleteFailed($Symbol$ClassSymbol* sym, $Symbol$Completer* origCompleter) {
-	$useLocalCurrentObjectStackCache();
-	$nc(this->class2Flip)->put(sym, $$new($DeferredCompletionFailureHandler$FlipSymbolDescription, sym, $$new($DeferredCompletionFailureHandler$1$1, this, origCompleter)));
+	$useLocalObjectStack();
+	this->class2Flip->put(sym, $$new($DeferredCompletionFailureHandler$FlipSymbolDescription, sym, $$new($DeferredCompletionFailureHandler$1$1, this, origCompleter)));
 }
 
 void DeferredCompletionFailureHandler$1::classSymbolRemoved($Symbol$ClassSymbol* sym) {
-	$nc(this->class2Flip)->remove(sym);
+	this->class2Flip->remove(sym);
 }
 
 void DeferredCompletionFailureHandler$1::uninstall() {
-	$useLocalCurrentObjectStackCache();
-	$nc($($nc(this->class2Flip)->values()))->forEach(static_cast<$Consumer*>($$new(DeferredCompletionFailureHandler$1$$Lambda$lambda$install$0)));
+	$useLocalObjectStack();
+	$$nc(this->class2Flip->values())->forEach($$new(DeferredCompletionFailureHandler$1$$Lambda$lambda$install$0));
 }
 
 void DeferredCompletionFailureHandler$1::lambda$install$0($DeferredCompletionFailureHandler$FlipSymbolDescription* f) {
@@ -162,11 +106,54 @@ DeferredCompletionFailureHandler$1::DeferredCompletionFailureHandler$1() {
 
 $Class* DeferredCompletionFailureHandler$1::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(DeferredCompletionFailureHandler$1$$Lambda$lambda$install$0::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.code.DeferredCompletionFailureHandler$1$$Lambda$lambda$install$0")) {
 			return DeferredCompletionFailureHandler$1$$Lambda$lambda$install$0::load$(name, initialize);
 		}
 	}
-	$loadClass(DeferredCompletionFailureHandler$1, name, initialize, &_DeferredCompletionFailureHandler$1_ClassInfo_, allocate$DeferredCompletionFailureHandler$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/code/DeferredCompletionFailureHandler;", nullptr, $FINAL | $SYNTHETIC, $field(DeferredCompletionFailureHandler$1, this$0)},
+		{"class2Flip", "Ljava/util/Map;", "Ljava/util/Map<Lcom/sun/tools/javac/code/Symbol$ClassSymbol;Lcom/sun/tools/javac/code/DeferredCompletionFailureHandler$FlipSymbolDescription;>;", $PRIVATE | $FINAL, $field(DeferredCompletionFailureHandler$1, class2Flip)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/code/DeferredCompletionFailureHandler;)V", nullptr, 0, $method(DeferredCompletionFailureHandler$1, init$, void, $DeferredCompletionFailureHandler*)},
+		{"classSymbolCompleteFailed", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;Lcom/sun/tools/javac/code/Symbol$Completer;)V", nullptr, $PUBLIC, $virtualMethod(DeferredCompletionFailureHandler$1, classSymbolCompleteFailed, void, $Symbol$ClassSymbol*, $Symbol$Completer*)},
+		{"classSymbolRemoved", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)V", nullptr, $PUBLIC, $virtualMethod(DeferredCompletionFailureHandler$1, classSymbolRemoved, void, $Symbol$ClassSymbol*)},
+		{"handleAPICompletionFailure", "(Lcom/sun/tools/javac/code/Symbol$CompletionFailure;)V", nullptr, $PUBLIC, $virtualMethod(DeferredCompletionFailureHandler$1, handleAPICompletionFailure, void, $Symbol$CompletionFailure*)},
+		{"install", "()V", nullptr, $PUBLIC, $virtualMethod(DeferredCompletionFailureHandler$1, install, void)},
+		{"lambda$install$0", "(Lcom/sun/tools/javac/code/DeferredCompletionFailureHandler$FlipSymbolDescription;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(DeferredCompletionFailureHandler$1, lambda$install$0, void, $DeferredCompletionFailureHandler$FlipSymbolDescription*)},
+		{"uninstall", "()V", nullptr, $PUBLIC, $virtualMethod(DeferredCompletionFailureHandler$1, uninstall, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.tools.javac.code.DeferredCompletionFailureHandler",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.code.DeferredCompletionFailureHandler$1", nullptr, nullptr, 0},
+		{"com.sun.tools.javac.code.DeferredCompletionFailureHandler$Handler", "com.sun.tools.javac.code.DeferredCompletionFailureHandler", "Handler", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"com.sun.tools.javac.code.DeferredCompletionFailureHandler$1$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.code.DeferredCompletionFailureHandler$1",
+		"java.lang.Object",
+		"com.sun.tools.javac.code.DeferredCompletionFailureHandler$Handler",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.code.DeferredCompletionFailureHandler"
+	};
+	$loadClass(DeferredCompletionFailureHandler$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DeferredCompletionFailureHandler$1);
+	});
 	return class$;
 }
 

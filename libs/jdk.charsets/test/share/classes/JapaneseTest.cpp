@@ -1,5 +1,4 @@
 #include <JapaneseTest.h>
-
 #include <java/text/Collator.h>
 #include <java/util/Locale.h>
 #include <jcpp.h>
@@ -9,55 +8,12 @@
 using $LocaleArray = $Array<::java::util::Locale>;
 using $intArray2 = $Array<int32_t, 2>;
 using $StringArray2 = $Array<::java::lang::String, 2>;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $Collator = ::java::text::Collator;
 using $Locale = ::java::util::Locale;
-
-$FieldInfo _JapaneseTest_FieldInfo_[] = {
-	{"results1", "[[I", nullptr, $STATIC | $FINAL, $staticField(JapaneseTest, results1)},
-	{"compData1", "[[Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(JapaneseTest, compData1)},
-	{"results2", "[[I", nullptr, $STATIC | $FINAL, $staticField(JapaneseTest, results2)},
-	{"compData2", "[[Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(JapaneseTest, compData2)},
-	{"results3", "[[I", nullptr, $STATIC | $FINAL, $staticField(JapaneseTest, results3)},
-	{"compData3", "[[Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(JapaneseTest, compData3)},
-	{"results4", "[[I", nullptr, $STATIC | $FINAL, $staticField(JapaneseTest, results4)},
-	{"compData4", "[[Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(JapaneseTest, compData4)},
-	{"results5", "[[I", nullptr, $STATIC | $FINAL, $staticField(JapaneseTest, results5)},
-	{"compData5", "[[Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(JapaneseTest, compData5)},
-	{"results6", "[[I", nullptr, $STATIC | $FINAL, $staticField(JapaneseTest, results6)},
-	{"compData6", "[[Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(JapaneseTest, compData6)},
-	{"compData0", "[[Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(JapaneseTest, compData0)},
-	{"decomp_name", "[Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(JapaneseTest, decomp_name)},
-	{"strength_name", "[Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(JapaneseTest, strength_name)},
-	{"col", "Ljava/text/Collator;", nullptr, 0, $field(JapaneseTest, col)},
-	{"result", "I", nullptr, 0, $field(JapaneseTest, result)},
-	{}
-};
-
-$MethodInfo _JapaneseTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(JapaneseTest, init$, void)},
-	{"doCompare", "([[Ljava/lang/String;III)V", nullptr, 0, $virtualMethod(JapaneseTest, doCompare, void, $StringArray2*, int32_t, int32_t, int32_t)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(JapaneseTest, main, void, $StringArray*), "java.lang.Exception"},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(JapaneseTest, run, void)},
-	{}
-};
-
-$ClassInfo _JapaneseTest_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"JapaneseTest",
-	"java.lang.Object",
-	nullptr,
-	_JapaneseTest_FieldInfo_,
-	_JapaneseTest_MethodInfo_
-};
-
-$Object* allocate$JapaneseTest($Class* clazz) {
-	return $of($alloc(JapaneseTest));
-}
 
 $intArray2* JapaneseTest::results1 = nullptr;
 $StringArray2* JapaneseTest::compData1 = nullptr;
@@ -87,7 +43,7 @@ void JapaneseTest::main($StringArray* args) {
 }
 
 void JapaneseTest::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($LocaleArray, locales, $new($LocaleArray, {$($Locale::getDefault())}));
 	for (int32_t l = 0; l < locales->length; ++l) {
 		$Locale::setDefault(locales->get(l));
@@ -95,12 +51,12 @@ void JapaneseTest::run() {
 			$nc(this->col)->setDecomposition(decomp);
 			for (int32_t strength = 0; strength < 3; ++strength) {
 				$nc(this->col)->setStrength(strength);
-				doCompare(JapaneseTest::compData1, $nc($nc(JapaneseTest::results1)->get(strength))->get(decomp), strength, decomp);
-				doCompare(JapaneseTest::compData2, $nc($nc(JapaneseTest::results2)->get(strength))->get(decomp), strength, decomp);
-				doCompare(JapaneseTest::compData3, $nc($nc(JapaneseTest::results3)->get(strength))->get(decomp), strength, decomp);
-				doCompare(JapaneseTest::compData4, $nc($nc(JapaneseTest::results4)->get(strength))->get(decomp), strength, decomp);
-				doCompare(JapaneseTest::compData5, $nc($nc(JapaneseTest::results5)->get(strength))->get(decomp), strength, decomp);
-				doCompare(JapaneseTest::compData6, $nc($nc(JapaneseTest::results6)->get(strength))->get(decomp), strength, decomp);
+				doCompare(JapaneseTest::compData1, $nc(JapaneseTest::results1->get(strength))->get(decomp), strength, decomp);
+				doCompare(JapaneseTest::compData2, $nc(JapaneseTest::results2->get(strength))->get(decomp), strength, decomp);
+				doCompare(JapaneseTest::compData3, $nc(JapaneseTest::results3->get(strength))->get(decomp), strength, decomp);
+				doCompare(JapaneseTest::compData4, $nc(JapaneseTest::results4->get(strength))->get(decomp), strength, decomp);
+				doCompare(JapaneseTest::compData5, $nc(JapaneseTest::results5->get(strength))->get(decomp), strength, decomp);
+				doCompare(JapaneseTest::compData6, $nc(JapaneseTest::results6->get(strength))->get(decomp), strength, decomp);
 			}
 		}
 	}
@@ -110,18 +66,18 @@ void JapaneseTest::run() {
 }
 
 void JapaneseTest::doCompare($StringArray2* s, int32_t expectedValue, int32_t strength, int32_t decomp) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t value = 0;
 	for (int32_t i = 0; i < $nc(s)->length; ++i) {
 		if ((value = $nc(this->col)->compare($nc(s->get(i))->get(0), $nc(s->get(i))->get(1))) != expectedValue) {
 			++this->result;
-			$nc($System::err)->println($$str({$nc(JapaneseTest::strength_name)->get(strength), ": compare() returned unexpected value.("_s, $$str(value), ") on "_s, $nc(JapaneseTest::decomp_name)->get(decomp), "     Expected("_s, $$str(expectedValue), ") for "_s, $nc(s->get(i))->get(2)}));
+			$nc($System::err)->println($$str({JapaneseTest::strength_name->get(strength), ": compare() returned unexpected value.("_s, $$str(value), ") on "_s, JapaneseTest::decomp_name->get(decomp), "     Expected("_s, $$str(expectedValue), ") for "_s, $nc(s->get(i))->get(2)}));
 		}
 	}
 }
 
-void clinit$JapaneseTest($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void JapaneseTest::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(JapaneseTest::results1, $new($intArray2, {
 		$$new($ints, {
 			-1,
@@ -517,7 +473,44 @@ JapaneseTest::JapaneseTest() {
 }
 
 $Class* JapaneseTest::load$($String* name, bool initialize) {
-	$loadClass(JapaneseTest, name, initialize, &_JapaneseTest_ClassInfo_, clinit$JapaneseTest, allocate$JapaneseTest);
+	$FieldInfo fieldInfos$$[] = {
+		{"results1", "[[I", nullptr, $STATIC | $FINAL, $staticField(JapaneseTest, results1)},
+		{"compData1", "[[Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(JapaneseTest, compData1)},
+		{"results2", "[[I", nullptr, $STATIC | $FINAL, $staticField(JapaneseTest, results2)},
+		{"compData2", "[[Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(JapaneseTest, compData2)},
+		{"results3", "[[I", nullptr, $STATIC | $FINAL, $staticField(JapaneseTest, results3)},
+		{"compData3", "[[Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(JapaneseTest, compData3)},
+		{"results4", "[[I", nullptr, $STATIC | $FINAL, $staticField(JapaneseTest, results4)},
+		{"compData4", "[[Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(JapaneseTest, compData4)},
+		{"results5", "[[I", nullptr, $STATIC | $FINAL, $staticField(JapaneseTest, results5)},
+		{"compData5", "[[Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(JapaneseTest, compData5)},
+		{"results6", "[[I", nullptr, $STATIC | $FINAL, $staticField(JapaneseTest, results6)},
+		{"compData6", "[[Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(JapaneseTest, compData6)},
+		{"compData0", "[[Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(JapaneseTest, compData0)},
+		{"decomp_name", "[Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(JapaneseTest, decomp_name)},
+		{"strength_name", "[Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(JapaneseTest, strength_name)},
+		{"col", "Ljava/text/Collator;", nullptr, 0, $field(JapaneseTest, col)},
+		{"result", "I", nullptr, 0, $field(JapaneseTest, result)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(JapaneseTest, init$, void)},
+		{"doCompare", "([[Ljava/lang/String;III)V", nullptr, 0, $virtualMethod(JapaneseTest, doCompare, void, $StringArray2*, int32_t, int32_t, int32_t)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(JapaneseTest, main, void, $StringArray*), "java.lang.Exception"},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(JapaneseTest, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"JapaneseTest",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(JapaneseTest, name, initialize, &classInfo$$, JapaneseTest::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(JapaneseTest);
+	});
 	return class$;
 }
 

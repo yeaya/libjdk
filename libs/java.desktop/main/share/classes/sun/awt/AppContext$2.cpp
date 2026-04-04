@@ -1,5 +1,4 @@
 #include <sun/awt/AppContext$2.h>
-
 #include <java/lang/ThreadGroup.h>
 #include <sun/awt/AppContext.h>
 #include <sun/awt/SunToolkit.h>
@@ -16,48 +15,11 @@ using $SunToolkit = ::sun::awt::SunToolkit;
 namespace sun {
 	namespace awt {
 
-$MethodInfo _AppContext$2_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(AppContext$2, init$, void)},
-	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(AppContext$2, run, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _AppContext$2_EnclosingMethodInfo_ = {
-	"sun.awt.AppContext",
-	"initMainAppContext",
-	"()V"
-};
-
-$InnerClassInfo _AppContext$2_InnerClassesInfo_[] = {
-	{"sun.awt.AppContext$2", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _AppContext$2_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.awt.AppContext$2",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	nullptr,
-	_AppContext$2_MethodInfo_,
-	"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/Void;>;",
-	&_AppContext$2_EnclosingMethodInfo_,
-	_AppContext$2_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.awt.AppContext"
-};
-
-$Object* allocate$AppContext$2($Class* clazz) {
-	return $of($alloc(AppContext$2));
-}
-
 void AppContext$2::init$() {
 }
 
 $Object* AppContext$2::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ThreadGroup, currentThreadGroup, $($Thread::currentThread())->getThreadGroup());
 	$var($ThreadGroup, parentThreadGroup, $nc(currentThreadGroup)->getParent());
 	while (parentThreadGroup != nullptr) {
@@ -66,14 +28,45 @@ $Object* AppContext$2::run() {
 	}
 	$init($AppContext);
 	$assignStatic($AppContext::mainAppContext, $SunToolkit::createNewAppContext(currentThreadGroup));
-	return $of(nullptr);
+	return nullptr;
 }
 
 AppContext$2::AppContext$2() {
 }
 
 $Class* AppContext$2::load$($String* name, bool initialize) {
-	$loadClass(AppContext$2, name, initialize, &_AppContext$2_ClassInfo_, allocate$AppContext$2);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(AppContext$2, init$, void)},
+		{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(AppContext$2, run, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.awt.AppContext",
+		"initMainAppContext",
+		"()V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.AppContext$2", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.awt.AppContext$2",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		nullptr,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/Void;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.awt.AppContext"
+	};
+	$loadClass(AppContext$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AppContext$2);
+	});
 	return class$;
 }
 

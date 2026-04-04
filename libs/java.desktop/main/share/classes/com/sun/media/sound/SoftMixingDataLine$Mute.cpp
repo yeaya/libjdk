@@ -1,5 +1,4 @@
 #include <com/sun/media/sound/SoftMixingDataLine$Mute.h>
-
 #include <com/sun/media/sound/SoftMixingDataLine.h>
 #include <javax/sound/sampled/BooleanControl$Type.h>
 #include <javax/sound/sampled/BooleanControl.h>
@@ -20,42 +19,6 @@ namespace com {
 		namespace media {
 			namespace sound {
 
-$FieldInfo _SoftMixingDataLine$Mute_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/media/sound/SoftMixingDataLine;", nullptr, $FINAL | $SYNTHETIC, $field(SoftMixingDataLine$Mute, this$0)},
-	{}
-};
-
-$MethodInfo _SoftMixingDataLine$Mute_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/media/sound/SoftMixingDataLine;)V", nullptr, $PRIVATE, $method(SoftMixingDataLine$Mute, init$, void, $SoftMixingDataLine*)},
-	{"setValue", "(Z)V", nullptr, $PUBLIC, $virtualMethod(SoftMixingDataLine$Mute, setValue, void, bool)},
-	{}
-};
-
-$InnerClassInfo _SoftMixingDataLine$Mute_InnerClassesInfo_[] = {
-	{"com.sun.media.sound.SoftMixingDataLine$Mute", "com.sun.media.sound.SoftMixingDataLine", "Mute", $PRIVATE | $FINAL},
-	{}
-};
-
-$ClassInfo _SoftMixingDataLine$Mute_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.media.sound.SoftMixingDataLine$Mute",
-	"javax.sound.sampled.BooleanControl",
-	nullptr,
-	_SoftMixingDataLine$Mute_FieldInfo_,
-	_SoftMixingDataLine$Mute_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SoftMixingDataLine$Mute_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.media.sound.SoftMixingDataLine"
-};
-
-$Object* allocate$SoftMixingDataLine$Mute($Class* clazz) {
-	return $of($alloc(SoftMixingDataLine$Mute));
-}
-
 void SoftMixingDataLine$Mute::init$($SoftMixingDataLine* this$0) {
 	$set(this, this$0, this$0);
 	$init($BooleanControl$Type);
@@ -71,7 +34,37 @@ SoftMixingDataLine$Mute::SoftMixingDataLine$Mute() {
 }
 
 $Class* SoftMixingDataLine$Mute::load$($String* name, bool initialize) {
-	$loadClass(SoftMixingDataLine$Mute, name, initialize, &_SoftMixingDataLine$Mute_ClassInfo_, allocate$SoftMixingDataLine$Mute);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/media/sound/SoftMixingDataLine;", nullptr, $FINAL | $SYNTHETIC, $field(SoftMixingDataLine$Mute, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/media/sound/SoftMixingDataLine;)V", nullptr, $PRIVATE, $method(SoftMixingDataLine$Mute, init$, void, $SoftMixingDataLine*)},
+		{"setValue", "(Z)V", nullptr, $PUBLIC, $virtualMethod(SoftMixingDataLine$Mute, setValue, void, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.media.sound.SoftMixingDataLine$Mute", "com.sun.media.sound.SoftMixingDataLine", "Mute", $PRIVATE | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.media.sound.SoftMixingDataLine$Mute",
+		"javax.sound.sampled.BooleanControl",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.media.sound.SoftMixingDataLine"
+	};
+	$loadClass(SoftMixingDataLine$Mute, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SoftMixingDataLine$Mute);
+	});
 	return class$;
 }
 

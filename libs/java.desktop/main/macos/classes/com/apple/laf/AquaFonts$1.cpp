@@ -1,5 +1,4 @@
 #include <com/apple/laf/AquaFonts$1.h>
-
 #include <com/apple/laf/AquaFonts$DerivedUIResourceFont.h>
 #include <com/apple/laf/AquaUtils$RecyclableSingleton.h>
 #include <java/awt/Font.h>
@@ -19,44 +18,6 @@ namespace com {
 	namespace apple {
 		namespace laf {
 
-$MethodInfo _AquaFonts$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(AquaFonts$1, init$, void)},
-	{"getInstance", "()Ljavax/swing/plaf/FontUIResource;", nullptr, $PROTECTED, $virtualMethod(AquaFonts$1, getInstance, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _AquaFonts$1_EnclosingMethodInfo_ = {
-	"com.apple.laf.AquaFonts",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _AquaFonts$1_InnerClassesInfo_[] = {
-	{"com.apple.laf.AquaFonts$1", nullptr, nullptr, 0},
-	{"com.apple.laf.AquaUtils$RecyclableSingleton", "com.apple.laf.AquaUtils", "RecyclableSingleton", $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _AquaFonts$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.apple.laf.AquaFonts$1",
-	"com.apple.laf.AquaUtils$RecyclableSingleton",
-	nullptr,
-	nullptr,
-	_AquaFonts$1_MethodInfo_,
-	"Lcom/apple/laf/AquaUtils$RecyclableSingleton<Ljavax/swing/plaf/FontUIResource;>;",
-	&_AquaFonts$1_EnclosingMethodInfo_,
-	_AquaFonts$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.apple.laf.AquaFonts"
-};
-
-$Object* allocate$AquaFonts$1($Class* clazz) {
-	return $of($alloc(AquaFonts$1));
-}
-
 void AquaFonts$1::init$() {
 	$AquaUtils$RecyclableSingleton::init$();
 }
@@ -69,7 +30,39 @@ AquaFonts$1::AquaFonts$1() {
 }
 
 $Class* AquaFonts$1::load$($String* name, bool initialize) {
-	$loadClass(AquaFonts$1, name, initialize, &_AquaFonts$1_ClassInfo_, allocate$AquaFonts$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(AquaFonts$1, init$, void)},
+		{"getInstance", "()Ljavax/swing/plaf/FontUIResource;", nullptr, $PROTECTED, $virtualMethod(AquaFonts$1, getInstance, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.apple.laf.AquaFonts",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.laf.AquaFonts$1", nullptr, nullptr, 0},
+		{"com.apple.laf.AquaUtils$RecyclableSingleton", "com.apple.laf.AquaUtils", "RecyclableSingleton", $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.apple.laf.AquaFonts$1",
+		"com.apple.laf.AquaUtils$RecyclableSingleton",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		"Lcom/apple/laf/AquaUtils$RecyclableSingleton<Ljavax/swing/plaf/FontUIResource;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.apple.laf.AquaFonts"
+	};
+	$loadClass(AquaFonts$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AquaFonts$1);
+	});
 	return class$;
 }
 

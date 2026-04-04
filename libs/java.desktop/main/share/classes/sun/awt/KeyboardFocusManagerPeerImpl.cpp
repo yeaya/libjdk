@@ -1,5 +1,4 @@
 #include <sun/awt/KeyboardFocusManagerPeerImpl.h>
-
 #include <java/awt/AWTEvent.h>
 #include <java/awt/Canvas.h>
 #include <java/awt/Component.h>
@@ -28,7 +27,6 @@
 #undef SNFH_SUCCESS_HANDLED
 #undef SNFH_SUCCESS_PROCEED
 
-using $AWTEvent = ::java::awt::AWTEvent;
 using $Canvas = ::java::awt::Canvas;
 using $Component = ::java::awt::Component;
 using $Panel = ::java::awt::Panel;
@@ -43,7 +41,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AWTAccessor = ::sun::awt::AWTAccessor;
 using $AWTAccessor$ComponentAccessor = ::sun::awt::AWTAccessor$ComponentAccessor;
-using $AWTAccessor$KeyboardFocusManagerAccessor = ::sun::awt::AWTAccessor$KeyboardFocusManagerAccessor;
 using $KeyboardFocusManagerPeerImpl$KfmAccessor = ::sun::awt::KeyboardFocusManagerPeerImpl$KfmAccessor;
 using $SunToolkit = ::sun::awt::SunToolkit;
 using $PlatformLogger = ::sun::util::logging::PlatformLogger;
@@ -52,62 +49,18 @@ using $PlatformLogger$Level = ::sun::util::logging::PlatformLogger$Level;
 namespace sun {
 	namespace awt {
 
-$FieldInfo _KeyboardFocusManagerPeerImpl_FieldInfo_[] = {
-	{"focusLog", "Lsun/util/logging/PlatformLogger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(KeyboardFocusManagerPeerImpl, focusLog)},
-	{"SNFH_FAILURE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(KeyboardFocusManagerPeerImpl, SNFH_FAILURE)},
-	{"SNFH_SUCCESS_HANDLED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(KeyboardFocusManagerPeerImpl, SNFH_SUCCESS_HANDLED)},
-	{"SNFH_SUCCESS_PROCEED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(KeyboardFocusManagerPeerImpl, SNFH_SUCCESS_PROCEED)},
-	{}
-};
-
-$MethodInfo _KeyboardFocusManagerPeerImpl_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(KeyboardFocusManagerPeerImpl, init$, void)},
-	{"clearGlobalFocusOwner", "(Ljava/awt/Window;)V", nullptr, $PUBLIC, $virtualMethod(KeyboardFocusManagerPeerImpl, clearGlobalFocusOwner, void, $Window*)},
-	{"deliverFocus", "(Ljava/awt/Component;Ljava/awt/Component;ZZJLjava/awt/event/FocusEvent$Cause;Ljava/awt/Component;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(KeyboardFocusManagerPeerImpl, deliverFocus, bool, $Component*, $Component*, bool, bool, int64_t, $FocusEvent$Cause*, $Component*)},
-	{"processSynchronousLightweightTransfer", "(Ljava/awt/Component;Ljava/awt/Component;ZZJ)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(KeyboardFocusManagerPeerImpl, processSynchronousLightweightTransfer, bool, $Component*, $Component*, bool, bool, int64_t)},
-	{"removeLastFocusRequest", "(Ljava/awt/Component;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(KeyboardFocusManagerPeerImpl, removeLastFocusRequest, void, $Component*)},
-	{"requestFocusFor", "(Ljava/awt/Component;Ljava/awt/event/FocusEvent$Cause;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(KeyboardFocusManagerPeerImpl, requestFocusFor, void, $Component*, $FocusEvent$Cause*)},
-	{"shouldFocusOnClick", "(Ljava/awt/Component;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(KeyboardFocusManagerPeerImpl, shouldFocusOnClick, bool, $Component*)},
-	{"shouldNativelyFocusHeavyweight", "(Ljava/awt/Component;Ljava/awt/Component;ZZJLjava/awt/event/FocusEvent$Cause;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(KeyboardFocusManagerPeerImpl, shouldNativelyFocusHeavyweight, int32_t, $Component*, $Component*, bool, bool, int64_t, $FocusEvent$Cause*)},
-	{}
-};
-
-$InnerClassInfo _KeyboardFocusManagerPeerImpl_InnerClassesInfo_[] = {
-	{"sun.awt.KeyboardFocusManagerPeerImpl$KfmAccessor", "sun.awt.KeyboardFocusManagerPeerImpl", "KfmAccessor", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _KeyboardFocusManagerPeerImpl_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"sun.awt.KeyboardFocusManagerPeerImpl",
-	"java.lang.Object",
-	"java.awt.peer.KeyboardFocusManagerPeer",
-	_KeyboardFocusManagerPeerImpl_FieldInfo_,
-	_KeyboardFocusManagerPeerImpl_MethodInfo_,
-	nullptr,
-	nullptr,
-	_KeyboardFocusManagerPeerImpl_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.awt.KeyboardFocusManagerPeerImpl$KfmAccessor"
-};
-
-$Object* allocate$KeyboardFocusManagerPeerImpl($Class* clazz) {
-	return $of($alloc(KeyboardFocusManagerPeerImpl));
-}
-
 $PlatformLogger* KeyboardFocusManagerPeerImpl::focusLog = nullptr;
 
 void KeyboardFocusManagerPeerImpl::init$() {
 }
 
 void KeyboardFocusManagerPeerImpl::clearGlobalFocusOwner($Window* activeWindow) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (activeWindow != nullptr) {
 		$var($Component, focusOwner, activeWindow->getFocusOwner());
 		$init($PlatformLogger$Level);
 		if ($nc(KeyboardFocusManagerPeerImpl::focusLog)->isLoggable($PlatformLogger$Level::FINE)) {
-			$nc(KeyboardFocusManagerPeerImpl::focusLog)->fine($$str({"Clearing global focus owner "_s, focusOwner}));
+			KeyboardFocusManagerPeerImpl::focusLog->fine($$str({"Clearing global focus owner "_s, focusOwner}));
 		}
 		if (focusOwner != nullptr) {
 			$init($FocusEvent$Cause);
@@ -119,23 +72,23 @@ void KeyboardFocusManagerPeerImpl::clearGlobalFocusOwner($Window* activeWindow) 
 
 bool KeyboardFocusManagerPeerImpl::shouldFocusOnClick($Component* component) {
 	$init(KeyboardFocusManagerPeerImpl);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool acceptFocusOnClick = false;
 	$var($AWTAccessor$ComponentAccessor, acc, $AWTAccessor::getComponentAccessor());
 	if ($instanceOf($Canvas, component) || $instanceOf($Scrollbar, component)) {
 		acceptFocusOnClick = true;
 	} else if ($instanceOf($Panel, component)) {
-		acceptFocusOnClick = ($nc(($cast($Panel, component)))->getComponentCount() == 0);
+		acceptFocusOnClick = ($cast($Panel, component)->getComponentCount() == 0);
 	} else {
 		$var($ComponentPeer, peer, component != nullptr ? $nc(acc)->getPeer(component) : ($ComponentPeer*)nullptr);
-		acceptFocusOnClick = (peer != nullptr ? $nc(peer)->isFocusable() : false);
+		acceptFocusOnClick = (peer != nullptr ? peer->isFocusable() : false);
 	}
 	return acceptFocusOnClick && $nc(acc)->canBeFocusOwner(component);
 }
 
 bool KeyboardFocusManagerPeerImpl::deliverFocus($Component* lightweightChild$renamed, $Component* target, bool temporary, bool focusedWindowChangeAllowed, int64_t time, $FocusEvent$Cause* cause, $Component* currentFocusOwner) {
 	$init(KeyboardFocusManagerPeerImpl);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Component, lightweightChild, lightweightChild$renamed);
 	if (lightweightChild == nullptr) {
 		$assign(lightweightChild, target);
@@ -148,14 +101,14 @@ bool KeyboardFocusManagerPeerImpl::deliverFocus($Component* lightweightChild$ren
 		$var($FocusEvent, fl, $new($FocusEvent, currentOwner, $FocusEvent::FOCUS_LOST, false, lightweightChild, cause));
 		$init($PlatformLogger$Level);
 		if ($nc(KeyboardFocusManagerPeerImpl::focusLog)->isLoggable($PlatformLogger$Level::FINER)) {
-			$nc(KeyboardFocusManagerPeerImpl::focusLog)->finer($$str({"Posting focus event: "_s, fl}));
+			KeyboardFocusManagerPeerImpl::focusLog->finer($$str({"Posting focus event: "_s, fl}));
 		}
 		$SunToolkit::postEvent($($SunToolkit::targetToAppContext(currentOwner)), fl);
 	}
 	$var($FocusEvent, fg, $new($FocusEvent, lightweightChild, $FocusEvent::FOCUS_GAINED, false, currentOwner, cause));
 	$init($PlatformLogger$Level);
 	if ($nc(KeyboardFocusManagerPeerImpl::focusLog)->isLoggable($PlatformLogger$Level::FINER)) {
-		$nc(KeyboardFocusManagerPeerImpl::focusLog)->finer($$str({"Posting focus event: "_s, fg}));
+		KeyboardFocusManagerPeerImpl::focusLog->finer($$str({"Posting focus event: "_s, fg}));
 	}
 	$SunToolkit::postEvent($($SunToolkit::targetToAppContext(lightweightChild)), fg);
 	return true;
@@ -163,7 +116,7 @@ bool KeyboardFocusManagerPeerImpl::deliverFocus($Component* lightweightChild$ren
 
 void KeyboardFocusManagerPeerImpl::requestFocusFor($Component* target, $FocusEvent$Cause* cause) {
 	$init(KeyboardFocusManagerPeerImpl);
-	$nc($($AWTAccessor::getComponentAccessor()))->requestFocus(target, cause);
+	$$nc($AWTAccessor::getComponentAccessor())->requestFocus(target, cause);
 }
 
 int32_t KeyboardFocusManagerPeerImpl::shouldNativelyFocusHeavyweight($Component* heavyweight, $Component* descendant, bool temporary, bool focusedWindowChangeAllowed, int64_t time, $FocusEvent$Cause* cause) {
@@ -184,7 +137,7 @@ bool KeyboardFocusManagerPeerImpl::processSynchronousLightweightTransfer($Compon
 	return $nc($KeyboardFocusManagerPeerImpl$KfmAccessor::instance)->processSynchronousLightweightTransfer(heavyweight, descendant, temporary, focusedWindowChangeAllowed, time);
 }
 
-void clinit$KeyboardFocusManagerPeerImpl($Class* class$) {
+void KeyboardFocusManagerPeerImpl::clinit$($Class* clazz) {
 	$assignStatic(KeyboardFocusManagerPeerImpl::focusLog, $PlatformLogger::getLogger("sun.awt.focus.KeyboardFocusManagerPeerImpl"_s));
 }
 
@@ -192,7 +145,45 @@ KeyboardFocusManagerPeerImpl::KeyboardFocusManagerPeerImpl() {
 }
 
 $Class* KeyboardFocusManagerPeerImpl::load$($String* name, bool initialize) {
-	$loadClass(KeyboardFocusManagerPeerImpl, name, initialize, &_KeyboardFocusManagerPeerImpl_ClassInfo_, clinit$KeyboardFocusManagerPeerImpl, allocate$KeyboardFocusManagerPeerImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"focusLog", "Lsun/util/logging/PlatformLogger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(KeyboardFocusManagerPeerImpl, focusLog)},
+		{"SNFH_FAILURE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(KeyboardFocusManagerPeerImpl, SNFH_FAILURE)},
+		{"SNFH_SUCCESS_HANDLED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(KeyboardFocusManagerPeerImpl, SNFH_SUCCESS_HANDLED)},
+		{"SNFH_SUCCESS_PROCEED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(KeyboardFocusManagerPeerImpl, SNFH_SUCCESS_PROCEED)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(KeyboardFocusManagerPeerImpl, init$, void)},
+		{"clearGlobalFocusOwner", "(Ljava/awt/Window;)V", nullptr, $PUBLIC, $virtualMethod(KeyboardFocusManagerPeerImpl, clearGlobalFocusOwner, void, $Window*)},
+		{"deliverFocus", "(Ljava/awt/Component;Ljava/awt/Component;ZZJLjava/awt/event/FocusEvent$Cause;Ljava/awt/Component;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(KeyboardFocusManagerPeerImpl, deliverFocus, bool, $Component*, $Component*, bool, bool, int64_t, $FocusEvent$Cause*, $Component*)},
+		{"processSynchronousLightweightTransfer", "(Ljava/awt/Component;Ljava/awt/Component;ZZJ)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(KeyboardFocusManagerPeerImpl, processSynchronousLightweightTransfer, bool, $Component*, $Component*, bool, bool, int64_t)},
+		{"removeLastFocusRequest", "(Ljava/awt/Component;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(KeyboardFocusManagerPeerImpl, removeLastFocusRequest, void, $Component*)},
+		{"requestFocusFor", "(Ljava/awt/Component;Ljava/awt/event/FocusEvent$Cause;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(KeyboardFocusManagerPeerImpl, requestFocusFor, void, $Component*, $FocusEvent$Cause*)},
+		{"shouldFocusOnClick", "(Ljava/awt/Component;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(KeyboardFocusManagerPeerImpl, shouldFocusOnClick, bool, $Component*)},
+		{"shouldNativelyFocusHeavyweight", "(Ljava/awt/Component;Ljava/awt/Component;ZZJLjava/awt/event/FocusEvent$Cause;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(KeyboardFocusManagerPeerImpl, shouldNativelyFocusHeavyweight, int32_t, $Component*, $Component*, bool, bool, int64_t, $FocusEvent$Cause*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.KeyboardFocusManagerPeerImpl$KfmAccessor", "sun.awt.KeyboardFocusManagerPeerImpl", "KfmAccessor", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"sun.awt.KeyboardFocusManagerPeerImpl",
+		"java.lang.Object",
+		"java.awt.peer.KeyboardFocusManagerPeer",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.awt.KeyboardFocusManagerPeerImpl$KfmAccessor"
+	};
+	$loadClass(KeyboardFocusManagerPeerImpl, name, initialize, &classInfo$$, KeyboardFocusManagerPeerImpl::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(KeyboardFocusManagerPeerImpl);
+	});
 	return class$;
 }
 

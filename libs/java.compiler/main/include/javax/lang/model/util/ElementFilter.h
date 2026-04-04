@@ -50,6 +50,7 @@ class $import ElementFilter : public ::java::lang::Object {
 	$class(ElementFilter, 0, ::java::lang::Object)
 public:
 	ElementFilter();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::util::List* constructorsIn(::java::lang::Iterable* elements);
 	static ::java::util::Set* constructorsIn(::java::util::Set* elements);

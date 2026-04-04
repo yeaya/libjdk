@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/PushGroup.h>
-
 #include <java/io/Serializable.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
@@ -53,86 +52,32 @@ public:
 	virtual $Object* apply(Object$* bodyHandler) override {
 		 return $of($nc(inst$)->accept($cast($HttpResponse$BodyHandler, bodyHandler)));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<PushGroup$$Lambda$accept>());
-	}
 	$PushGroup$AcceptorImpl* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo PushGroup$$Lambda$accept::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(PushGroup$$Lambda$accept, inst$)},
-	{}
-};
-$MethodInfo PushGroup$$Lambda$accept::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/PushGroup$AcceptorImpl;)V", nullptr, $PUBLIC, $method(PushGroup$$Lambda$accept, init$, void, $PushGroup$AcceptorImpl*)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(PushGroup$$Lambda$accept, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo PushGroup$$Lambda$accept::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.net.http.PushGroup$$Lambda$accept",
-	"java.lang.Object",
-	"java.util.function.Function",
-	fieldInfos,
-	methodInfos
 };
 $Class* PushGroup$$Lambda$accept::load$($String* name, bool initialize) {
-	$loadClass(PushGroup$$Lambda$accept, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(PushGroup$$Lambda$accept, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/internal/net/http/PushGroup$AcceptorImpl;)V", nullptr, $PUBLIC, $method(PushGroup$$Lambda$accept, init$, void, $PushGroup$AcceptorImpl*)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(PushGroup$$Lambda$accept, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.net.http.PushGroup$$Lambda$accept",
+		"java.lang.Object",
+		"java.util.function.Function",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(PushGroup$$Lambda$accept, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PushGroup$$Lambda$accept);
+	});
 	return class$;
 }
 $Class* PushGroup$$Lambda$accept::class$ = nullptr;
-
-$FieldInfo _PushGroup_FieldInfo_[] = {
-	{"initiatingRequest", "Ljava/net/http/HttpRequest;", nullptr, $PRIVATE | $FINAL, $field(PushGroup, initiatingRequest)},
-	{"noMorePushesCF", "Ljava/util/concurrent/CompletableFuture;", "Ljava/util/concurrent/CompletableFuture<Ljava/lang/Void;>;", $FINAL, $field(PushGroup, noMorePushesCF)},
-	{"error", "Ljava/lang/Throwable;", nullptr, $VOLATILE, $field(PushGroup, error)},
-	{"pushPromiseHandler", "Ljava/net/http/HttpResponse$PushPromiseHandler;", "Ljava/net/http/HttpResponse$PushPromiseHandler<TT;>;", $FINAL, $field(PushGroup, pushPromiseHandler)},
-	{"executor", "Ljava/util/concurrent/Executor;", nullptr, $PRIVATE | $FINAL, $field(PushGroup, executor)},
-	{"numberOfPushes", "I", nullptr, 0, $field(PushGroup, numberOfPushes)},
-	{"remainingPushes", "I", nullptr, 0, $field(PushGroup, remainingPushes)},
-	{"noMorePushes", "Z", nullptr, 0, $field(PushGroup, noMorePushes$)},
-	{}
-};
-
-$MethodInfo _PushGroup_MethodInfo_[] = {
-	{"<init>", "(Ljava/net/http/HttpResponse$PushPromiseHandler;Ljdk/internal/net/http/HttpRequestImpl;Ljava/util/concurrent/Executor;)V", "(Ljava/net/http/HttpResponse$PushPromiseHandler<TT;>;Ljdk/internal/net/http/HttpRequestImpl;Ljava/util/concurrent/Executor;)V", 0, $method(PushGroup, init$, void, $HttpResponse$PushPromiseHandler*, $HttpRequestImpl*, $Executor*)},
-	{"<init>", "(Ljava/net/http/HttpResponse$PushPromiseHandler;Ljdk/internal/net/http/HttpRequestImpl;Ljava/util/concurrent/CompletableFuture;Ljava/util/concurrent/Executor;)V", "(Ljava/net/http/HttpResponse$PushPromiseHandler<TT;>;Ljdk/internal/net/http/HttpRequestImpl;Ljava/util/concurrent/CompletableFuture<Ljava/net/http/HttpResponse<TT;>;>;Ljava/util/concurrent/Executor;)V", $PRIVATE, $method(PushGroup, init$, void, $HttpResponse$PushPromiseHandler*, $HttpRequestImpl*, $CompletableFuture*, $Executor*)},
-	{"acceptPushRequest", "(Ljava/net/http/HttpRequest;)Ljdk/internal/net/http/PushGroup$Acceptor;", "(Ljava/net/http/HttpRequest;)Ljdk/internal/net/http/PushGroup$Acceptor<TT;>;", 0, $virtualMethod(PushGroup, acceptPushRequest, $PushGroup$Acceptor*, $HttpRequest*)},
-	{"checkIfCompleted", "()V", nullptr, $SYNCHRONIZED, $virtualMethod(PushGroup, checkIfCompleted, void)},
-	{"noMorePushes", "(Z)V", nullptr, $SYNCHRONIZED, $virtualMethod(PushGroup, noMorePushes, void, bool)},
-	{"noMorePushes", "()Z", nullptr, $SYNCHRONIZED, $virtualMethod(PushGroup, noMorePushes, bool)},
-	{"pushCompleted", "()V", nullptr, $SYNCHRONIZED, $virtualMethod(PushGroup, pushCompleted, void)},
-	{"pushError", "(Ljava/lang/Throwable;)V", nullptr, $SYNCHRONIZED, $virtualMethod(PushGroup, pushError, void, $Throwable*)},
-	{"pushesCF", "()Ljava/util/concurrent/CompletableFuture;", "()Ljava/util/concurrent/CompletableFuture<Ljava/lang/Void;>;", $SYNCHRONIZED, $virtualMethod(PushGroup, pushesCF, $CompletableFuture*)},
-	{}
-};
-
-$InnerClassInfo _PushGroup_InnerClassesInfo_[] = {
-	{"jdk.internal.net.http.PushGroup$AcceptorImpl", "jdk.internal.net.http.PushGroup", "AcceptorImpl", $PRIVATE | $STATIC},
-	{"jdk.internal.net.http.PushGroup$Acceptor", "jdk.internal.net.http.PushGroup", "Acceptor", $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _PushGroup_ClassInfo_ = {
-	$ACC_SUPER,
-	"jdk.internal.net.http.PushGroup",
-	"java.lang.Object",
-	nullptr,
-	_PushGroup_FieldInfo_,
-	_PushGroup_MethodInfo_,
-	"<T:Ljava/lang/Object;>Ljava/lang/Object;",
-	nullptr,
-	_PushGroup_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"jdk.internal.net.http.PushGroup$AcceptorImpl,jdk.internal.net.http.PushGroup$Acceptor"
-};
-
-$Object* allocate$PushGroup($Class* clazz) {
-	return $of($alloc(PushGroup));
-}
 
 void PushGroup::init$($HttpResponse$PushPromiseHandler* pushPromiseHandler, $HttpRequestImpl* initiatingRequest, $Executor* executor) {
 	PushGroup::init$(pushPromiseHandler, initiatingRequest, $$new($MinimalFuture), executor);
@@ -147,10 +92,10 @@ void PushGroup::init$($HttpResponse$PushPromiseHandler* pushPromiseHandler, $Htt
 }
 
 $PushGroup$Acceptor* PushGroup::acceptPushRequest($HttpRequest* pushRequest) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($PushGroup$AcceptorImpl, acceptor, $new($PushGroup$AcceptorImpl, this->executor));
 	try {
-		$nc(this->pushPromiseHandler)->applyPushPromise(this->initiatingRequest, pushRequest, static_cast<$Function*>($$new(PushGroup$$Lambda$accept, static_cast<$PushGroup$AcceptorImpl*>(acceptor))));
+		$nc(this->pushPromiseHandler)->applyPushPromise(this->initiatingRequest, pushRequest, $$new(PushGroup$$Lambda$accept, acceptor));
 	} catch ($Throwable& t) {
 		if (acceptor->accepted()) {
 			$var($CompletableFuture, cf, acceptor->cf());
@@ -196,12 +141,12 @@ void PushGroup::pushCompleted() {
 
 void PushGroup::checkIfCompleted() {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		if ($Log::trace()) {
 			$Log::logTrace("PushGroup remainingPushes={0} error={1} noMorePushes={2}"_s, $$new($ObjectArray, {
-				$($of($Integer::valueOf(this->remainingPushes))),
-				(this->error == nullptr) ? $cast($Object, this->error) : $($of($nc($of(this->error))->getClass()->getSimpleName())),
-				$($of($Boolean::valueOf(this->noMorePushes$)))
+				$($Integer::valueOf(this->remainingPushes)),
+				(this->error == nullptr) ? $of(this->error) : $$of($nc(this->error)->getClass()->getSimpleName()),
+				$($Boolean::valueOf(this->noMorePushes$))
 			}));
 		}
 		if (this->remainingPushes == 0 && this->error == nullptr && this->noMorePushes$) {
@@ -226,11 +171,55 @@ PushGroup::PushGroup() {
 
 $Class* PushGroup::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(PushGroup$$Lambda$accept::classInfo$.name)) {
+		if (name->equals("jdk.internal.net.http.PushGroup$$Lambda$accept")) {
 			return PushGroup$$Lambda$accept::load$(name, initialize);
 		}
 	}
-	$loadClass(PushGroup, name, initialize, &_PushGroup_ClassInfo_, allocate$PushGroup);
+	$FieldInfo fieldInfos$$[] = {
+		{"initiatingRequest", "Ljava/net/http/HttpRequest;", nullptr, $PRIVATE | $FINAL, $field(PushGroup, initiatingRequest)},
+		{"noMorePushesCF", "Ljava/util/concurrent/CompletableFuture;", "Ljava/util/concurrent/CompletableFuture<Ljava/lang/Void;>;", $FINAL, $field(PushGroup, noMorePushesCF)},
+		{"error", "Ljava/lang/Throwable;", nullptr, $VOLATILE, $field(PushGroup, error)},
+		{"pushPromiseHandler", "Ljava/net/http/HttpResponse$PushPromiseHandler;", "Ljava/net/http/HttpResponse$PushPromiseHandler<TT;>;", $FINAL, $field(PushGroup, pushPromiseHandler)},
+		{"executor", "Ljava/util/concurrent/Executor;", nullptr, $PRIVATE | $FINAL, $field(PushGroup, executor)},
+		{"numberOfPushes", "I", nullptr, 0, $field(PushGroup, numberOfPushes)},
+		{"remainingPushes", "I", nullptr, 0, $field(PushGroup, remainingPushes)},
+		{"noMorePushes", "Z", nullptr, 0, $field(PushGroup, noMorePushes$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/net/http/HttpResponse$PushPromiseHandler;Ljdk/internal/net/http/HttpRequestImpl;Ljava/util/concurrent/Executor;)V", "(Ljava/net/http/HttpResponse$PushPromiseHandler<TT;>;Ljdk/internal/net/http/HttpRequestImpl;Ljava/util/concurrent/Executor;)V", 0, $method(PushGroup, init$, void, $HttpResponse$PushPromiseHandler*, $HttpRequestImpl*, $Executor*)},
+		{"<init>", "(Ljava/net/http/HttpResponse$PushPromiseHandler;Ljdk/internal/net/http/HttpRequestImpl;Ljava/util/concurrent/CompletableFuture;Ljava/util/concurrent/Executor;)V", "(Ljava/net/http/HttpResponse$PushPromiseHandler<TT;>;Ljdk/internal/net/http/HttpRequestImpl;Ljava/util/concurrent/CompletableFuture<Ljava/net/http/HttpResponse<TT;>;>;Ljava/util/concurrent/Executor;)V", $PRIVATE, $method(PushGroup, init$, void, $HttpResponse$PushPromiseHandler*, $HttpRequestImpl*, $CompletableFuture*, $Executor*)},
+		{"acceptPushRequest", "(Ljava/net/http/HttpRequest;)Ljdk/internal/net/http/PushGroup$Acceptor;", "(Ljava/net/http/HttpRequest;)Ljdk/internal/net/http/PushGroup$Acceptor<TT;>;", 0, $virtualMethod(PushGroup, acceptPushRequest, $PushGroup$Acceptor*, $HttpRequest*)},
+		{"checkIfCompleted", "()V", nullptr, $SYNCHRONIZED, $virtualMethod(PushGroup, checkIfCompleted, void)},
+		{"noMorePushes", "(Z)V", nullptr, $SYNCHRONIZED, $virtualMethod(PushGroup, noMorePushes, void, bool)},
+		{"noMorePushes", "()Z", nullptr, $SYNCHRONIZED, $virtualMethod(PushGroup, noMorePushes, bool)},
+		{"pushCompleted", "()V", nullptr, $SYNCHRONIZED, $virtualMethod(PushGroup, pushCompleted, void)},
+		{"pushError", "(Ljava/lang/Throwable;)V", nullptr, $SYNCHRONIZED, $virtualMethod(PushGroup, pushError, void, $Throwable*)},
+		{"pushesCF", "()Ljava/util/concurrent/CompletableFuture;", "()Ljava/util/concurrent/CompletableFuture<Ljava/lang/Void;>;", $SYNCHRONIZED, $virtualMethod(PushGroup, pushesCF, $CompletableFuture*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.net.http.PushGroup$AcceptorImpl", "jdk.internal.net.http.PushGroup", "AcceptorImpl", $PRIVATE | $STATIC},
+		{"jdk.internal.net.http.PushGroup$Acceptor", "jdk.internal.net.http.PushGroup", "Acceptor", $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"jdk.internal.net.http.PushGroup",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"<T:Ljava/lang/Object;>Ljava/lang/Object;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"jdk.internal.net.http.PushGroup$AcceptorImpl,jdk.internal.net.http.PushGroup$Acceptor"
+	};
+	$loadClass(PushGroup, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PushGroup);
+	});
 	return class$;
 }
 

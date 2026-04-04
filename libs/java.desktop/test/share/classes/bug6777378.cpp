@@ -1,5 +1,4 @@
 #include <bug6777378.h>
-
 #include <bug6777378$1.h>
 #include <java/awt/Component.h>
 #include <java/awt/Point.h>
@@ -43,67 +42,27 @@ public:
 	virtual void run() override {
 		bug6777378::lambda$main$0();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<bug6777378$$Lambda$lambda$main$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo bug6777378$$Lambda$lambda$main$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(bug6777378$$Lambda$lambda$main$0, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug6777378$$Lambda$lambda$main$0, run, void)},
-	{}
-};
-$ClassInfo bug6777378$$Lambda$lambda$main$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"bug6777378$$Lambda$lambda$main$0",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* bug6777378$$Lambda$lambda$main$0::load$($String* name, bool initialize) {
-	$loadClass(bug6777378$$Lambda$lambda$main$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(bug6777378$$Lambda$lambda$main$0, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug6777378$$Lambda$lambda$main$0, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"bug6777378$$Lambda$lambda$main$0",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(bug6777378$$Lambda$lambda$main$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(bug6777378$$Lambda$lambda$main$0);
+	});
 	return class$;
 }
 $Class* bug6777378$$Lambda$lambda$main$0::class$ = nullptr;
-
-$FieldInfo _bug6777378_FieldInfo_[] = {
-	{"frame", "Ljavax/swing/JFrame;", nullptr, $PRIVATE | $STATIC, $staticField(bug6777378, frame)},
-	{"header", "Ljavax/swing/table/JTableHeader;", nullptr, $PRIVATE | $STATIC, $staticField(bug6777378, header)},
-	{}
-};
-
-$MethodInfo _bug6777378_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(bug6777378, init$, void)},
-	{"lambda$main$0", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(bug6777378, lambda$main$0, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(bug6777378, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$InnerClassInfo _bug6777378_InnerClassesInfo_[] = {
-	{"bug6777378$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _bug6777378_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"bug6777378",
-	"java.lang.Object",
-	nullptr,
-	_bug6777378_FieldInfo_,
-	_bug6777378_MethodInfo_,
-	nullptr,
-	nullptr,
-	_bug6777378_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"bug6777378$1,bug6777378$1$1"
-};
-
-$Object* allocate$bug6777378($Class* clazz) {
-	return $of($alloc(bug6777378));
-}
 
 $JFrame* bug6777378::frame = nullptr;
 $JTableHeader* bug6777378::header = nullptr;
@@ -112,31 +71,29 @@ void bug6777378::init$() {
 }
 
 void bug6777378::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$var($Robot, robot, $new($Robot));
-			robot->setAutoDelay(20);
-			$SwingUtilities::invokeAndWait($$new($bug6777378$1));
-			robot->waitForIdle();
-			$init(bug6777378);
-			$var($Point, point, $nc(bug6777378::header)->getLocationOnScreen());
-			robot->mouseMove($nc(point)->x + 20, point->y + 50);
-			robot->mouseMove($nc(point)->x + 30, point->y + 50);
-			robot->mousePress($InputEvent::BUTTON1_MASK);
-			robot->mouseRelease($InputEvent::BUTTON1_MASK);
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$init(bug6777378);
-			if (bug6777378::frame != nullptr) {
-				$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(bug6777378$$Lambda$lambda$main$0)));
-			}
+	$useLocalObjectStack();
+	$var($Throwable, var$0, nullptr);
+	try {
+		$var($Robot, robot, $new($Robot));
+		robot->setAutoDelay(20);
+		$SwingUtilities::invokeAndWait($$new($bug6777378$1));
+		robot->waitForIdle();
+		$init(bug6777378);
+		$var($Point, point, $nc(bug6777378::header)->getLocationOnScreen());
+		robot->mouseMove($nc(point)->x + 20, $nc(point)->y + 50);
+		robot->mouseMove(point->x + 30, point->y + 50);
+		robot->mousePress($InputEvent::BUTTON1_MASK);
+		robot->mouseRelease($InputEvent::BUTTON1_MASK);
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$init(bug6777378);
+		if (bug6777378::frame != nullptr) {
+			$SwingUtilities::invokeAndWait($$new(bug6777378$$Lambda$lambda$main$0));
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
@@ -150,11 +107,42 @@ bug6777378::bug6777378() {
 
 $Class* bug6777378::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(bug6777378$$Lambda$lambda$main$0::classInfo$.name)) {
+		if (name->equals("bug6777378$$Lambda$lambda$main$0")) {
 			return bug6777378$$Lambda$lambda$main$0::load$(name, initialize);
 		}
 	}
-	$loadClass(bug6777378, name, initialize, &_bug6777378_ClassInfo_, allocate$bug6777378);
+	$FieldInfo fieldInfos$$[] = {
+		{"frame", "Ljavax/swing/JFrame;", nullptr, $PRIVATE | $STATIC, $staticField(bug6777378, frame)},
+		{"header", "Ljavax/swing/table/JTableHeader;", nullptr, $PRIVATE | $STATIC, $staticField(bug6777378, header)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(bug6777378, init$, void)},
+		{"lambda$main$0", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(bug6777378, lambda$main$0, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(bug6777378, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"bug6777378$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"bug6777378",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"bug6777378$1,bug6777378$1$1"
+	};
+	$loadClass(bug6777378, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(bug6777378);
+	});
 	return class$;
 }
 

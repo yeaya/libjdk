@@ -1,7 +1,5 @@
 #include <javax/swing/JTextField.h>
-
 #include <java/awt/AWTEvent.h>
-#include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <java/awt/Dimension.h>
 #include <java/awt/EventQueue.h>
@@ -28,7 +26,6 @@
 #include <javax/swing/JViewport.h>
 #include <javax/swing/SwingConstants.h>
 #include <javax/swing/SwingUtilities.h>
-#include <javax/swing/event/ChangeListener.h>
 #include <javax/swing/event/EventListenerList.h>
 #include <javax/swing/plaf/ComponentUI.h>
 #include <javax/swing/text/Document.h>
@@ -50,7 +47,6 @@
 using $ActionListenerArray = $Array<::java::awt::event::ActionListener>;
 using $ActionArray = $Array<::javax::swing::Action>;
 using $AWTEvent = ::java::awt::AWTEvent;
-using $Component = ::java::awt::Component;
 using $Dimension = ::java::awt::Dimension;
 using $EventQueue = ::java::awt::EventQueue;
 using $Font = ::java::awt::Font;
@@ -71,7 +67,6 @@ using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NamedAttribute = ::java::lang::NamedAttribute;
-using $EventListener = ::java::util::EventListener;
 using $AccessibleContext = ::javax::accessibility::AccessibleContext;
 using $AbstractAction = ::javax::swing::AbstractAction;
 using $Action = ::javax::swing::Action;
@@ -85,9 +80,6 @@ using $JTextField$TextFieldActionPropertyChangeListener = ::javax::swing::JTextF
 using $JViewport = ::javax::swing::JViewport;
 using $SwingConstants = ::javax::swing::SwingConstants;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
-using $ChangeListener = ::javax::swing::event::ChangeListener;
-using $EventListenerList = ::javax::swing::event::EventListenerList;
-using $ComponentUI = ::javax::swing::plaf::ComponentUI;
 using $Document = ::javax::swing::text::Document;
 using $JTextComponent = ::javax::swing::text::JTextComponent;
 using $PlainDocument = ::javax::swing::text::PlainDocument;
@@ -95,215 +87,6 @@ using $TextAction = ::javax::swing::text::TextAction;
 
 namespace javax {
 	namespace swing {
-
-$NamedAttribute JTextField_Attribute_var$0[] = {
-	{"defaultProperty", 's', "UIClassID"},
-	{"description", 's', "A component which allows for the editing of a single line of text."},
-	{}
-};
-
-$NamedAttribute JTextField_Attribute_var$1[] = {
-	{"value", 'Z', "false"},
-	{}
-};
-
-$CompoundAttribute _JTextField_Annotations_[] = {
-	{"Ljava/beans/JavaBean;", JTextField_Attribute_var$0},
-	{"Ljavax/swing/SwingContainer;", JTextField_Attribute_var$1},
-	{}
-};
-
-$NamedAttribute JTextField_Attribute_var$2[] = {
-	{"bound", 'Z', "false"},
-	{}
-};
-
-$CompoundAttribute _JTextField_MethodAnnotations_getAccessibleContext11[] = {
-	{"Ljava/beans/BeanProperty;", JTextField_Attribute_var$2},
-	{}
-};
-
-$NamedAttribute JTextField_Attribute_var$3[] = {
-	{"bound", 'Z', "false"},
-	{}
-};
-
-$CompoundAttribute _JTextField_MethodAnnotations_getActionListeners13[] = {
-	{"Ljava/beans/BeanProperty;", JTextField_Attribute_var$3},
-	{}
-};
-
-$NamedAttribute JTextField_Attribute_var$4[] = {
-	{"bound", 'Z', "false"},
-	{}
-};
-
-$CompoundAttribute _JTextField_MethodAnnotations_getActions14[] = {
-	{"Ljava/beans/BeanProperty;", JTextField_Attribute_var$4},
-	{}
-};
-
-$NamedAttribute JTextField_Attribute_var$5[] = {
-	{"bound", 'Z', "false"},
-	{}
-};
-
-$CompoundAttribute _JTextField_MethodAnnotations_getHorizontalVisibility18[] = {
-	{"Ljava/beans/BeanProperty;", JTextField_Attribute_var$5},
-	{}
-};
-
-$NamedAttribute JTextField_Attribute_var$6[] = {
-	{"bound", 'Z', "false"},
-	{}
-};
-
-$CompoundAttribute _JTextField_MethodAnnotations_getUIClassID21[] = {
-	{"Ljava/beans/BeanProperty;", JTextField_Attribute_var$6},
-	{}
-};
-
-$NamedAttribute JTextField_Attribute_var$7[] = {
-	{"visualUpdate", 'Z', "true"},
-	{"description", 's', "the Action instance connected with this ActionEvent source"},
-	{}
-};
-
-$CompoundAttribute _JTextField_MethodAnnotations_setAction29[] = {
-	{"Ljava/beans/BeanProperty;", JTextField_Attribute_var$7},
-	{}
-};
-
-$NamedAttribute JTextField_Attribute_var$8[] = {
-	{"bound", 'Z', "false"},
-	{"description", 's', "the number of columns preferred for display"},
-	{}
-};
-
-$CompoundAttribute _JTextField_MethodAnnotations_setColumns32[] = {
-	{"Ljava/beans/BeanProperty;", JTextField_Attribute_var$8},
-	{}
-};
-
-$NamedAttribute JTextField_Attribute_var$9[] = {
-	{"expert", 'Z', "true"},
-	{"description", 's', "the text document model"},
-	{}
-};
-
-$CompoundAttribute _JTextField_MethodAnnotations_setDocument33[] = {
-	{"Ljava/beans/BeanProperty;", JTextField_Attribute_var$9},
-	{}
-};
-
-$Attribute JTextField_Attribute_var$11[] = {
-	{'s', "JTextField.LEFT"},
-	{'s', "JTextField.CENTER"},
-	{'s', "JTextField.RIGHT"},
-	{'s', "JTextField.LEADING"},
-	{'s', "JTextField.TRAILING"},
-	{'-'}
-};
-
-$NamedAttribute JTextField_Attribute_var$10[] = {
-	{"preferred", 'Z', "true"},
-	{"enumerationValues", '[', JTextField_Attribute_var$11},
-	{"description", 's', "Set the field alignment to LEFT, CENTER, RIGHT, LEADING (the default) or TRAILING"},
-	{}
-};
-
-$CompoundAttribute _JTextField_MethodAnnotations_setHorizontalAlignment35[] = {
-	{"Ljava/beans/BeanProperty;", JTextField_Attribute_var$10},
-	{}
-};
-
-$FieldInfo _JTextField_FieldInfo_[] = {
-	{"action", "Ljavax/swing/Action;", nullptr, $PRIVATE, $field(JTextField, action$)},
-	{"actionPropertyChangeListener", "Ljava/beans/PropertyChangeListener;", nullptr, $PRIVATE, $field(JTextField, actionPropertyChangeListener)},
-	{"notifyAction", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JTextField, notifyAction)},
-	{"visibility", "Ljavax/swing/BoundedRangeModel;", nullptr, $PRIVATE, $field(JTextField, visibility)},
-	{"horizontalAlignment", "I", nullptr, $PRIVATE, $field(JTextField, horizontalAlignment)},
-	{"columns", "I", nullptr, $PRIVATE, $field(JTextField, columns)},
-	{"columnWidth", "I", nullptr, $PRIVATE, $field(JTextField, columnWidth)},
-	{"command", "Ljava/lang/String;", nullptr, $PRIVATE, $field(JTextField, command)},
-	{"defaultActions", "[Ljavax/swing/Action;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JTextField, defaultActions)},
-	{"uiClassID", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JTextField, uiClassID)},
-	{}
-};
-
-$MethodInfo _JTextField_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(JTextField, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(JTextField, init$, void, $String*)},
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(JTextField, init$, void, int32_t)},
-	{"<init>", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(JTextField, init$, void, $String*, int32_t)},
-	{"<init>", "(Ljavax/swing/text/Document;Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(JTextField, init$, void, $Document*, $String*, int32_t)},
-	{"actionPropertyChanged", "(Ljavax/swing/Action;Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(JTextField, actionPropertyChanged, void, $Action*, $String*)},
-	{"addActionListener", "(Ljava/awt/event/ActionListener;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(JTextField, addActionListener, void, $ActionListener*)},
-	{"configurePropertiesFromAction", "(Ljavax/swing/Action;)V", nullptr, $PROTECTED, $virtualMethod(JTextField, configurePropertiesFromAction, void, $Action*)},
-	{"createActionPropertyChangeListener", "(Ljavax/swing/Action;)Ljava/beans/PropertyChangeListener;", nullptr, $PROTECTED, $virtualMethod(JTextField, createActionPropertyChangeListener, $PropertyChangeListener*, $Action*)},
-	{"createDefaultModel", "()Ljavax/swing/text/Document;", nullptr, $PROTECTED, $virtualMethod(JTextField, createDefaultModel, $Document*)},
-	{"fireActionPerformed", "()V", nullptr, $PROTECTED, $virtualMethod(JTextField, fireActionPerformed, void)},
-	{"getAccessibleContext", "()Ljavax/accessibility/AccessibleContext;", nullptr, $PUBLIC, $virtualMethod(JTextField, getAccessibleContext, $AccessibleContext*), nullptr, nullptr, _JTextField_MethodAnnotations_getAccessibleContext11},
-	{"getAction", "()Ljavax/swing/Action;", nullptr, $PUBLIC, $virtualMethod(JTextField, getAction, $Action*)},
-	{"getActionListeners", "()[Ljava/awt/event/ActionListener;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(JTextField, getActionListeners, $ActionListenerArray*), nullptr, nullptr, _JTextField_MethodAnnotations_getActionListeners13},
-	{"getActions", "()[Ljavax/swing/Action;", nullptr, $PUBLIC, $virtualMethod(JTextField, getActions, $ActionArray*), nullptr, nullptr, _JTextField_MethodAnnotations_getActions14},
-	{"getColumnWidth", "()I", nullptr, $PROTECTED, $virtualMethod(JTextField, getColumnWidth, int32_t)},
-	{"getColumns", "()I", nullptr, $PUBLIC, $virtualMethod(JTextField, getColumns, int32_t)},
-	{"getHorizontalAlignment", "()I", nullptr, $PUBLIC, $virtualMethod(JTextField, getHorizontalAlignment, int32_t)},
-	{"getHorizontalVisibility", "()Ljavax/swing/BoundedRangeModel;", nullptr, $PUBLIC, $virtualMethod(JTextField, getHorizontalVisibility, $BoundedRangeModel*), nullptr, nullptr, _JTextField_MethodAnnotations_getHorizontalVisibility18},
-	{"getPreferredSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(JTextField, getPreferredSize, $Dimension*)},
-	{"getScrollOffset", "()I", nullptr, $PUBLIC, $virtualMethod(JTextField, getScrollOffset, int32_t)},
-	{"getUIClassID", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JTextField, getUIClassID, $String*), nullptr, nullptr, _JTextField_MethodAnnotations_getUIClassID21},
-	{"hasActionListener", "()Z", nullptr, 0, $virtualMethod(JTextField, hasActionListener, bool)},
-	{"isListener", "(Ljava/lang/Class;Ljava/awt/event/ActionListener;)Z", "(Ljava/lang/Class<*>;Ljava/awt/event/ActionListener;)Z", $PRIVATE, $method(JTextField, isListener, bool, $Class*, $ActionListener*)},
-	{"isValidateRoot", "()Z", nullptr, $PUBLIC, $virtualMethod(JTextField, isValidateRoot, bool)},
-	{"paramString", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(JTextField, paramString, $String*)},
-	{"postActionEvent", "()V", nullptr, $PUBLIC, $virtualMethod(JTextField, postActionEvent, void)},
-	{"removeActionListener", "(Ljava/awt/event/ActionListener;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(JTextField, removeActionListener, void, $ActionListener*)},
-	{"scrollRectToVisible", "(Ljava/awt/Rectangle;)V", nullptr, $PUBLIC, $virtualMethod(JTextField, scrollRectToVisible, void, $Rectangle*)},
-	{"setAction", "(Ljavax/swing/Action;)V", nullptr, $PUBLIC, $virtualMethod(JTextField, setAction, void, $Action*), nullptr, nullptr, _JTextField_MethodAnnotations_setAction29},
-	{"setActionCommand", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(JTextField, setActionCommand, void, $String*)},
-	{"setActionCommandFromAction", "(Ljavax/swing/Action;)V", nullptr, $PRIVATE, $method(JTextField, setActionCommandFromAction, void, $Action*)},
-	{"setColumns", "(I)V", nullptr, $PUBLIC, $virtualMethod(JTextField, setColumns, void, int32_t), nullptr, nullptr, _JTextField_MethodAnnotations_setColumns32},
-	{"setDocument", "(Ljavax/swing/text/Document;)V", nullptr, $PUBLIC, $virtualMethod(JTextField, setDocument, void, $Document*), nullptr, nullptr, _JTextField_MethodAnnotations_setDocument33},
-	{"setFont", "(Ljava/awt/Font;)V", nullptr, $PUBLIC, $virtualMethod(JTextField, setFont, void, $Font*)},
-	{"setHorizontalAlignment", "(I)V", nullptr, $PUBLIC, $virtualMethod(JTextField, setHorizontalAlignment, void, int32_t), nullptr, nullptr, _JTextField_MethodAnnotations_setHorizontalAlignment35},
-	{"setScrollOffset", "(I)V", nullptr, $PUBLIC, $virtualMethod(JTextField, setScrollOffset, void, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(JTextField, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _JTextField_InnerClassesInfo_[] = {
-	{"javax.swing.JTextField$AccessibleJTextField", "javax.swing.JTextField", "AccessibleJTextField", $PROTECTED},
-	{"javax.swing.JTextField$ScrollRepainter", "javax.swing.JTextField", "ScrollRepainter", 0},
-	{"javax.swing.JTextField$NotifyAction", "javax.swing.JTextField", "NotifyAction", $STATIC},
-	{"javax.swing.JTextField$TextFieldActionPropertyChangeListener", "javax.swing.JTextField", "TextFieldActionPropertyChangeListener", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _JTextField_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.JTextField",
-	"javax.swing.text.JTextComponent",
-	"javax.swing.SwingConstants",
-	_JTextField_FieldInfo_,
-	_JTextField_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JTextField_InnerClassesInfo_,
-	_JTextField_Annotations_,
-	nullptr,
-	"javax.swing.JTextField$AccessibleJTextField,javax.swing.JTextField$ScrollRepainter,javax.swing.JTextField$NotifyAction,javax.swing.JTextField$TextFieldActionPropertyChangeListener"
-};
-
-$Object* allocate$JTextField($Class* clazz) {
-	return $of($alloc(JTextField));
-}
 
 $String* JTextField::toString() {
 	 return this->$JTextComponent::toString();
@@ -346,7 +129,7 @@ void JTextField::init$($String* text, int32_t columns) {
 }
 
 void JTextField::init$($Document* doc$renamed, $String* text, int32_t columns) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Document, doc, doc$renamed);
 	$JTextComponent::init$();
 	this->horizontalAlignment = $SwingConstants::LEADING;
@@ -354,7 +137,7 @@ void JTextField::init$($Document* doc$renamed, $String* text, int32_t columns) {
 		$throwNew($IllegalArgumentException, "columns less than zero."_s);
 	}
 	$set(this, visibility, $new($DefaultBoundedRangeModel));
-	$nc(this->visibility)->addChangeListener($$new($JTextField$ScrollRepainter, this));
+	this->visibility->addChangeListener($$new($JTextField$ScrollRepainter, this));
 	this->columns = columns;
 	if (doc == nullptr) {
 		$assign(doc, createDefaultModel());
@@ -371,7 +154,6 @@ $String* JTextField::getUIClassID() {
 
 void JTextField::setDocument($Document* doc) {
 	if (doc != nullptr) {
-		$init($Boolean);
 		doc->putProperty("filterNewlines"_s, $Boolean::TRUE);
 	}
 	$JTextComponent::setDocument(doc);
@@ -420,7 +202,7 @@ void JTextField::setColumns(int32_t columns) {
 }
 
 int32_t JTextField::getColumnWidth() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->columnWidth == 0) {
 		$var($FontMetrics, metrics, getFontMetrics($(getFont())));
 		this->columnWidth = $nc(metrics)->charWidth(u'm');
@@ -429,11 +211,11 @@ int32_t JTextField::getColumnWidth() {
 }
 
 $Dimension* JTextField::getPreferredSize() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Dimension, size, $JTextComponent::getPreferredSize());
 	if (this->columns != 0) {
 		$var($Insets, insets, getInsets());
-		$nc(size)->width = this->columns * getColumnWidth() + $nc(insets)->left + insets->right;
+		$nc(size)->width = this->columns * getColumnWidth() + $nc(insets)->left + $nc(insets)->right;
 	}
 	return size;
 }
@@ -464,26 +246,26 @@ void JTextField::removeActionListener($ActionListener* l) {
 $ActionListenerArray* JTextField::getActionListeners() {
 	$synchronized(this) {
 		$load($ActionListener);
-		return $fcast($ActionListenerArray, $nc(this->listenerList)->getListeners($ActionListener::class$));
+		return $cast($ActionListenerArray, $nc(this->listenerList)->getListeners($ActionListener::class$));
 	}
 }
 
 void JTextField::fireActionPerformed() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectArray, listeners, $nc(this->listenerList)->getListenerList());
 	int32_t modifiers = 0;
 	$var($AWTEvent, currentEvent, $EventQueue::getCurrentEvent());
 	if ($instanceOf($InputEvent, currentEvent)) {
-		modifiers = $nc(($cast($InputEvent, currentEvent)))->getModifiers();
+		modifiers = $cast($InputEvent, currentEvent)->getModifiers();
 	} else if ($instanceOf($ActionEvent, currentEvent)) {
-		modifiers = $nc(($cast($ActionEvent, currentEvent)))->getModifiers();
+		modifiers = $cast($ActionEvent, currentEvent)->getModifiers();
 	}
 	$var($String, var$0, (this->command != nullptr) ? this->command : getText());
 	$var($ActionEvent, e, $new($ActionEvent, this, $ActionEvent::ACTION_PERFORMED, var$0, $EventQueue::getMostRecentEventTime(), modifiers));
 	for (int32_t i = $nc(listeners)->length - 2; i >= 0; i -= 2) {
 		$load($ActionListener);
 		if ($equals(listeners->get(i), $ActionListener::class$)) {
-			$nc(($cast($ActionListener, listeners->get(i + 1))))->actionPerformed(e);
+			$nc($cast($ActionListener, listeners->get(i + 1)))->actionPerformed(e);
 		}
 	}
 }
@@ -494,7 +276,7 @@ void JTextField::setActionCommand($String* command) {
 
 void JTextField::setAction($Action* a) {
 	$var($Action, oldValue, getAction());
-	if (this->action$ == nullptr || !$nc($of(this->action$))->equals(a)) {
+	if (this->action$ == nullptr || !this->action$->equals(a)) {
 		$set(this, action$, a);
 		if (oldValue != nullptr) {
 			removeActionListener(oldValue);
@@ -510,7 +292,7 @@ void JTextField::setAction($Action* a) {
 			$set(this, actionPropertyChangeListener, createActionPropertyChangeListener(this->action$));
 			$nc(this->action$)->addPropertyChangeListener(this->actionPropertyChangeListener);
 		}
-		firePropertyChange("action"_s, $of(oldValue), $of(this->action$));
+		firePropertyChange("action"_s, oldValue, this->action$);
 	}
 }
 
@@ -541,16 +323,14 @@ void JTextField::actionPropertyChanged($Action* action, $String* propertyName) {
 		setActionCommandFromAction(action);
 	} else if (propertyName == "enabled"_s) {
 		$AbstractAction::setEnabledFromAction(this, action);
-	} else {
-		if (propertyName == $Action::SHORT_DESCRIPTION) {
-			$AbstractAction::setToolTipTextFromAction(this, action);
-		}
+	} else if (propertyName == $Action::SHORT_DESCRIPTION) {
+		$AbstractAction::setToolTipTextFromAction(this, action);
 	}
 }
 
 void JTextField::setActionCommandFromAction($Action* action) {
 	$init($Action);
-	setActionCommand((action == nullptr) ? ($String*)nullptr : $cast($String, $($nc(action)->getValue($Action::ACTION_COMMAND_KEY))));
+	setActionCommand((action == nullptr) ? ($String*)nullptr : $$cast($String, action->getValue($Action::ACTION_COMMAND_KEY)));
 }
 
 $PropertyChangeListener* JTextField::createActionPropertyChangeListener($Action* a) {
@@ -584,10 +364,10 @@ void JTextField::scrollRectToVisible($Rectangle* r) {
 	if (x0 < $nc(this->visibility)->getValue()) {
 		$nc(this->visibility)->setValue(x0);
 	} else {
-		int32_t var$3 = x1;
-		int32_t var$5 = $nc(this->visibility)->getValue();
-		int32_t var$4 = var$5 + $nc(this->visibility)->getExtent();
-		if (var$3 > var$4) {
+		int32_t var$0 = x1;
+		int32_t var$2 = $nc(this->visibility)->getValue();
+		int32_t var$1 = var$2 + this->visibility->getExtent();
+		if (var$0 > var$1) {
 			$nc(this->visibility)->setValue(x1 - $nc(this->visibility)->getExtent());
 		}
 	}
@@ -606,17 +386,17 @@ bool JTextField::hasActionListener() {
 
 void JTextField::writeObject($ObjectOutputStream* s) {
 	$nc(s)->defaultWriteObject();
-	if ($nc($(getUIClassID()))->equals(JTextField::uiClassID)) {
+	if ($$nc(getUIClassID())->equals(JTextField::uiClassID)) {
 		int8_t count = $JComponent::getWriteObjCounter(this);
 		$JComponent::setWriteObjCounter(this, --count);
 		if (count == 0 && this->ui != nullptr) {
-			$nc(this->ui)->installUI(this);
+			this->ui->installUI(this);
 		}
 	}
 }
 
 $String* JTextField::paramString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, horizontalAlignmentString, nullptr);
 	if (this->horizontalAlignment == $SwingConstants::LEFT) {
 		$assign(horizontalAlignmentString, "LEFT"_s);
@@ -642,17 +422,198 @@ $AccessibleContext* JTextField::getAccessibleContext() {
 	return this->accessibleContext;
 }
 
-void clinit$JTextField($Class* class$) {
+void JTextField::clinit$($Class* clazz) {
 	$assignStatic(JTextField::notifyAction, "notify-field-accept"_s);
 	$assignStatic(JTextField::uiClassID, "TextFieldUI"_s);
-	$assignStatic(JTextField::defaultActions, $new($ActionArray, {static_cast<$Action*>($$new($JTextField$NotifyAction))}));
+	$assignStatic(JTextField::defaultActions, $new($ActionArray, {$$new($JTextField$NotifyAction)}));
 }
 
 JTextField::JTextField() {
 }
 
 $Class* JTextField::load$($String* name, bool initialize) {
-	$loadClass(JTextField, name, initialize, &_JTextField_ClassInfo_, clinit$JTextField, allocate$JTextField);
+	$FieldInfo fieldInfos$$[] = {
+		{"action", "Ljavax/swing/Action;", nullptr, $PRIVATE, $field(JTextField, action$)},
+		{"actionPropertyChangeListener", "Ljava/beans/PropertyChangeListener;", nullptr, $PRIVATE, $field(JTextField, actionPropertyChangeListener)},
+		{"notifyAction", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JTextField, notifyAction)},
+		{"visibility", "Ljavax/swing/BoundedRangeModel;", nullptr, $PRIVATE, $field(JTextField, visibility)},
+		{"horizontalAlignment", "I", nullptr, $PRIVATE, $field(JTextField, horizontalAlignment)},
+		{"columns", "I", nullptr, $PRIVATE, $field(JTextField, columns)},
+		{"columnWidth", "I", nullptr, $PRIVATE, $field(JTextField, columnWidth)},
+		{"command", "Ljava/lang/String;", nullptr, $PRIVATE, $field(JTextField, command)},
+		{"defaultActions", "[Ljavax/swing/Action;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JTextField, defaultActions)},
+		{"uiClassID", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JTextField, uiClassID)},
+		{}
+	};
+	$NamedAttribute getAccessibleContextmethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{}
+	};
+	$CompoundAttribute getAccessibleContextmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", getAccessibleContextmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute getActionListenersmethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{}
+	};
+	$CompoundAttribute getActionListenersmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", getActionListenersmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute getActionsmethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{}
+	};
+	$CompoundAttribute getActionsmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", getActionsmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute getHorizontalVisibilitymethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{}
+	};
+	$CompoundAttribute getHorizontalVisibilitymethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", getHorizontalVisibilitymethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute getUIClassIDmethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{}
+	};
+	$CompoundAttribute getUIClassIDmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", getUIClassIDmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setActionmethodAnnotations$$$namedAttribute[] = {
+		{"visualUpdate", 'Z', "true"},
+		{"description", 's', "the Action instance connected with this ActionEvent source"},
+		{}
+	};
+	$CompoundAttribute setActionmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setActionmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setColumnsmethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{"description", 's', "the number of columns preferred for display"},
+		{}
+	};
+	$CompoundAttribute setColumnsmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setColumnsmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setDocumentmethodAnnotations$$$namedAttribute[] = {
+		{"expert", 'Z', "true"},
+		{"description", 's', "the text document model"},
+		{}
+	};
+	$CompoundAttribute setDocumentmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setDocumentmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$Attribute $attribute[] = {
+		{'s', "JTextField.LEFT"},
+		{'s', "JTextField.CENTER"},
+		{'s', "JTextField.RIGHT"},
+		{'s', "JTextField.LEADING"},
+		{'s', "JTextField.TRAILING"},
+		{'-'}
+	};
+	$NamedAttribute setHorizontalAlignmentmethodAnnotations$$$namedAttribute[] = {
+		{"preferred", 'Z', "true"},
+		{"enumerationValues", '[', $attribute},
+		{"description", 's', "Set the field alignment to LEFT, CENTER, RIGHT, LEADING (the default) or TRAILING"},
+		{}
+	};
+	$CompoundAttribute setHorizontalAlignmentmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setHorizontalAlignmentmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(JTextField, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(JTextField, init$, void, $String*)},
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(JTextField, init$, void, int32_t)},
+		{"<init>", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(JTextField, init$, void, $String*, int32_t)},
+		{"<init>", "(Ljavax/swing/text/Document;Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(JTextField, init$, void, $Document*, $String*, int32_t)},
+		{"actionPropertyChanged", "(Ljavax/swing/Action;Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(JTextField, actionPropertyChanged, void, $Action*, $String*)},
+		{"addActionListener", "(Ljava/awt/event/ActionListener;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(JTextField, addActionListener, void, $ActionListener*)},
+		{"configurePropertiesFromAction", "(Ljavax/swing/Action;)V", nullptr, $PROTECTED, $virtualMethod(JTextField, configurePropertiesFromAction, void, $Action*)},
+		{"createActionPropertyChangeListener", "(Ljavax/swing/Action;)Ljava/beans/PropertyChangeListener;", nullptr, $PROTECTED, $virtualMethod(JTextField, createActionPropertyChangeListener, $PropertyChangeListener*, $Action*)},
+		{"createDefaultModel", "()Ljavax/swing/text/Document;", nullptr, $PROTECTED, $virtualMethod(JTextField, createDefaultModel, $Document*)},
+		{"fireActionPerformed", "()V", nullptr, $PROTECTED, $virtualMethod(JTextField, fireActionPerformed, void)},
+		{"getAccessibleContext", "()Ljavax/accessibility/AccessibleContext;", nullptr, $PUBLIC, $virtualMethod(JTextField, getAccessibleContext, $AccessibleContext*), nullptr, nullptr, getAccessibleContextmethodAnnotations$$},
+		{"getAction", "()Ljavax/swing/Action;", nullptr, $PUBLIC, $virtualMethod(JTextField, getAction, $Action*)},
+		{"getActionListeners", "()[Ljava/awt/event/ActionListener;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(JTextField, getActionListeners, $ActionListenerArray*), nullptr, nullptr, getActionListenersmethodAnnotations$$},
+		{"getActions", "()[Ljavax/swing/Action;", nullptr, $PUBLIC, $virtualMethod(JTextField, getActions, $ActionArray*), nullptr, nullptr, getActionsmethodAnnotations$$},
+		{"getColumnWidth", "()I", nullptr, $PROTECTED, $virtualMethod(JTextField, getColumnWidth, int32_t)},
+		{"getColumns", "()I", nullptr, $PUBLIC, $virtualMethod(JTextField, getColumns, int32_t)},
+		{"getHorizontalAlignment", "()I", nullptr, $PUBLIC, $virtualMethod(JTextField, getHorizontalAlignment, int32_t)},
+		{"getHorizontalVisibility", "()Ljavax/swing/BoundedRangeModel;", nullptr, $PUBLIC, $virtualMethod(JTextField, getHorizontalVisibility, $BoundedRangeModel*), nullptr, nullptr, getHorizontalVisibilitymethodAnnotations$$},
+		{"getPreferredSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(JTextField, getPreferredSize, $Dimension*)},
+		{"getScrollOffset", "()I", nullptr, $PUBLIC, $virtualMethod(JTextField, getScrollOffset, int32_t)},
+		{"getUIClassID", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JTextField, getUIClassID, $String*), nullptr, nullptr, getUIClassIDmethodAnnotations$$},
+		{"hasActionListener", "()Z", nullptr, 0, $virtualMethod(JTextField, hasActionListener, bool)},
+		{"isListener", "(Ljava/lang/Class;Ljava/awt/event/ActionListener;)Z", "(Ljava/lang/Class<*>;Ljava/awt/event/ActionListener;)Z", $PRIVATE, $method(JTextField, isListener, bool, $Class*, $ActionListener*)},
+		{"isValidateRoot", "()Z", nullptr, $PUBLIC, $virtualMethod(JTextField, isValidateRoot, bool)},
+		{"paramString", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(JTextField, paramString, $String*)},
+		{"postActionEvent", "()V", nullptr, $PUBLIC, $virtualMethod(JTextField, postActionEvent, void)},
+		{"removeActionListener", "(Ljava/awt/event/ActionListener;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(JTextField, removeActionListener, void, $ActionListener*)},
+		{"scrollRectToVisible", "(Ljava/awt/Rectangle;)V", nullptr, $PUBLIC, $virtualMethod(JTextField, scrollRectToVisible, void, $Rectangle*)},
+		{"setAction", "(Ljavax/swing/Action;)V", nullptr, $PUBLIC, $virtualMethod(JTextField, setAction, void, $Action*), nullptr, nullptr, setActionmethodAnnotations$$},
+		{"setActionCommand", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(JTextField, setActionCommand, void, $String*)},
+		{"setActionCommandFromAction", "(Ljavax/swing/Action;)V", nullptr, $PRIVATE, $method(JTextField, setActionCommandFromAction, void, $Action*)},
+		{"setColumns", "(I)V", nullptr, $PUBLIC, $virtualMethod(JTextField, setColumns, void, int32_t), nullptr, nullptr, setColumnsmethodAnnotations$$},
+		{"setDocument", "(Ljavax/swing/text/Document;)V", nullptr, $PUBLIC, $virtualMethod(JTextField, setDocument, void, $Document*), nullptr, nullptr, setDocumentmethodAnnotations$$},
+		{"setFont", "(Ljava/awt/Font;)V", nullptr, $PUBLIC, $virtualMethod(JTextField, setFont, void, $Font*)},
+		{"setHorizontalAlignment", "(I)V", nullptr, $PUBLIC, $virtualMethod(JTextField, setHorizontalAlignment, void, int32_t), nullptr, nullptr, setHorizontalAlignmentmethodAnnotations$$},
+		{"setScrollOffset", "(I)V", nullptr, $PUBLIC, $virtualMethod(JTextField, setScrollOffset, void, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(JTextField, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.JTextField$AccessibleJTextField", "javax.swing.JTextField", "AccessibleJTextField", $PROTECTED},
+		{"javax.swing.JTextField$ScrollRepainter", "javax.swing.JTextField", "ScrollRepainter", 0},
+		{"javax.swing.JTextField$NotifyAction", "javax.swing.JTextField", "NotifyAction", $STATIC},
+		{"javax.swing.JTextField$TextFieldActionPropertyChangeListener", "javax.swing.JTextField", "TextFieldActionPropertyChangeListener", $PRIVATE | $STATIC},
+		{}
+	};
+	$NamedAttribute annotations$$$namedAttribute[] = {
+		{"defaultProperty", 's', "UIClassID"},
+		{"description", 's', "A component which allows for the editing of a single line of text."},
+		{}
+	};
+	$NamedAttribute annotations$$$namedAttribute$1[] = {
+		{"value", 'Z', "false"},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/beans/JavaBean;", annotations$$$namedAttribute},
+		{"Ljavax/swing/SwingContainer;", annotations$$$namedAttribute$1},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.JTextField",
+		"javax.swing.text.JTextComponent",
+		"javax.swing.SwingConstants",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		annotations$$,
+		nullptr,
+		"javax.swing.JTextField$AccessibleJTextField,javax.swing.JTextField$ScrollRepainter,javax.swing.JTextField$NotifyAction,javax.swing.JTextField$TextFieldActionPropertyChangeListener"
+	};
+	$loadClass(JTextField, name, initialize, &classInfo$$, JTextField::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JTextField));
+	});
 	return class$;
 }
 

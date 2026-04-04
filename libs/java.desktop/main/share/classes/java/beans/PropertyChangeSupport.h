@@ -28,6 +28,7 @@ class $export PropertyChangeSupport : public ::java::io::Serializable {
 	$class(PropertyChangeSupport, 0, ::java::io::Serializable)
 public:
 	PropertyChangeSupport();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(Object$* sourceBean);
 	virtual void addPropertyChangeListener(::java::beans::PropertyChangeListener* listener);
 	virtual void addPropertyChangeListener($String* propertyName, ::java::beans::PropertyChangeListener* listener);
@@ -49,7 +50,7 @@ public:
 	::java::beans::PropertyChangeSupport$PropertyChangeListenerMap* map = nullptr;
 	$Object* source = nullptr;
 	static $Array<::java::io::ObjectStreamField>* serialPersistentFields;
-	static const int64_t serialVersionUID = (int64_t)0x58D5D264574860BB;
+	static const int64_t serialVersionUID = (int64_t)0x58d5d264574860bb;
 };
 
 	} // beans

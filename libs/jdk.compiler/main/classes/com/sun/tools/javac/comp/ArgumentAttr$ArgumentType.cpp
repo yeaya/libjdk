@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/ArgumentAttr$ArgumentType.h>
-
 #include <com/sun/tools/javac/code/Symbol.h>
 #include <com/sun/tools/javac/code/Type$JCNoType.h>
 #include <com/sun/tools/javac/code/Type.h>
@@ -31,8 +30,6 @@ using $ArgumentAttr = ::com::sun::tools::javac::comp::ArgumentAttr;
 using $ArgumentAttr$UniquePos = ::com::sun::tools::javac::comp::ArgumentAttr$UniquePos;
 using $Attr$ResultInfo = ::com::sun::tools::javac::comp::Attr$ResultInfo;
 using $AttrContext = ::com::sun::tools::javac::comp::AttrContext;
-using $Check$CheckContext = ::com::sun::tools::javac::comp::Check$CheckContext;
-using $DeferredAttr = ::com::sun::tools::javac::comp::DeferredAttr;
 using $DeferredAttr$AttrMode = ::com::sun::tools::javac::comp::DeferredAttr$AttrMode;
 using $DeferredAttr$DeferredAttrContext = ::com::sun::tools::javac::comp::DeferredAttr$DeferredAttrContext;
 using $DeferredAttr$DeferredType = ::com::sun::tools::javac::comp::DeferredAttr$DeferredType;
@@ -47,7 +44,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Iterator = ::java::util::Iterator;
 using $Map = ::java::util::Map;
 using $Map$Entry = ::java::util::Map$Entry;
-using $Set = ::java::util::Set;
 
 namespace com {
 	namespace sun {
@@ -55,59 +51,15 @@ namespace com {
 			namespace javac {
 				namespace comp {
 
-$FieldInfo _ArgumentAttr$ArgumentType_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/comp/ArgumentAttr;", nullptr, $FINAL | $SYNTHETIC, $field(ArgumentAttr$ArgumentType, this$0)},
-	{"speculativeTree", "Lcom/sun/tools/javac/tree/JCTree$JCExpression;", "TT;", 0, $field(ArgumentAttr$ArgumentType, speculativeTree$)},
-	{"speculativeTypes", "Ljava/util/Map;", "Ljava/util/Map<Lcom/sun/tools/javac/comp/Attr$ResultInfo;Lcom/sun/tools/javac/code/Type;>;", 0, $field(ArgumentAttr$ArgumentType, speculativeTypes)},
-	{}
-};
-
-$MethodInfo _ArgumentAttr$ArgumentType_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/ArgumentAttr;Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/tree/JCTree$JCExpression;Ljava/util/Map;)V", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;TT;Ljava/util/Map<Lcom/sun/tools/javac/comp/Attr$ResultInfo;Lcom/sun/tools/javac/code/Type;>;)V", $PUBLIC, $method(ArgumentAttr$ArgumentType, init$, void, $ArgumentAttr*, $JCTree$JCExpression*, $Env*, $JCTree$JCExpression*, $Map*)},
-	{"complete", "(Lcom/sun/tools/javac/comp/Attr$ResultInfo;Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $FINAL, $virtualMethod(ArgumentAttr$ArgumentType, complete, $Type*, $Attr$ResultInfo*, $DeferredAttr$DeferredAttrContext*)},
-	{"dup", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/comp/Env;)Lcom/sun/tools/javac/comp/ArgumentAttr$ArgumentType;", "(TT;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)Lcom/sun/tools/javac/comp/ArgumentAttr$ArgumentType<TT;>;", $ABSTRACT, $virtualMethod(ArgumentAttr$ArgumentType, dup, ArgumentAttr$ArgumentType*, $JCTree$JCExpression*, $Env*)},
-	{"overloadCheck", "(Lcom/sun/tools/javac/comp/Attr$ResultInfo;Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext;)Lcom/sun/tools/javac/code/Type;", nullptr, $ABSTRACT, $virtualMethod(ArgumentAttr$ArgumentType, overloadCheck, $Type*, $Attr$ResultInfo*, $DeferredAttr$DeferredAttrContext*)},
-	{"speculativeTree", "(Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext;)Lcom/sun/tools/javac/tree/JCTree;", nullptr, 0, $virtualMethod(ArgumentAttr$ArgumentType, speculativeTree, $JCTree*, $DeferredAttr$DeferredAttrContext*)},
-	{"speculativeType", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/comp/Resolve$MethodResolutionPhase;)Lcom/sun/tools/javac/code/Type;", nullptr, 0, $virtualMethod(ArgumentAttr$ArgumentType, speculativeType, $Type*, $Symbol*, $Resolve$MethodResolutionPhase*)},
-	{}
-};
-
-$InnerClassInfo _ArgumentAttr$ArgumentType_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.ArgumentAttr$ArgumentType", "com.sun.tools.javac.comp.ArgumentAttr", "ArgumentType", $ABSTRACT},
-	{"com.sun.tools.javac.comp.DeferredAttr$DeferredType", "com.sun.tools.javac.comp.DeferredAttr", "DeferredType", $PUBLIC},
-	{"com.sun.tools.javac.tree.JCTree$JCExpression", "com.sun.tools.javac.tree.JCTree", "JCExpression", $PUBLIC | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _ArgumentAttr$ArgumentType_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"com.sun.tools.javac.comp.ArgumentAttr$ArgumentType",
-	"com.sun.tools.javac.comp.DeferredAttr$DeferredType",
-	nullptr,
-	_ArgumentAttr$ArgumentType_FieldInfo_,
-	_ArgumentAttr$ArgumentType_MethodInfo_,
-	"<T:Lcom/sun/tools/javac/tree/JCTree$JCExpression;>Lcom/sun/tools/javac/comp/DeferredAttr$DeferredType;",
-	nullptr,
-	_ArgumentAttr$ArgumentType_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.ArgumentAttr"
-};
-
-$Object* allocate$ArgumentAttr$ArgumentType($Class* clazz) {
-	return $of($alloc(ArgumentAttr$ArgumentType));
-}
-
 void ArgumentAttr$ArgumentType::init$($ArgumentAttr* this$0, $JCTree$JCExpression* tree, $Env* env, $JCTree$JCExpression* speculativeTree, $Map* speculativeTypes) {
 	$set(this, this$0, this$0);
-	$DeferredAttr$DeferredType::init$(static_cast<$DeferredAttr*>($nc(this$0->deferredAttr)), tree, env);
+	$DeferredAttr$DeferredType::init$($nc(this$0->deferredAttr), tree, env);
 	$set(this, speculativeTree$, speculativeTree);
 	$set(this, speculativeTypes, speculativeTypes);
 }
 
 $Type* ArgumentAttr$ArgumentType::complete($Attr$ResultInfo* resultInfo, $DeferredAttr$DeferredAttrContext* deferredAttrContext) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($DeferredAttr$AttrMode);
 	if ($nc(deferredAttrContext)->mode == $DeferredAttr$AttrMode::SPECULATIVE) {
 		$init($Type);
@@ -123,16 +75,16 @@ $Type* ArgumentAttr$ArgumentType::complete($Attr$ResultInfo* resultInfo, $Deferr
 }
 
 $Type* ArgumentAttr$ArgumentType::speculativeType($Symbol* msym, $Resolve$MethodResolutionPhase* phase) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(this->notPertinentToApplicability)->contains(msym)) {
 		return $DeferredAttr$DeferredType::speculativeType(msym, phase);
 	} else {
 		{
-			$var($Iterator, i$, $nc($($nc(this->speculativeTypes)->entrySet()))->iterator());
+			$var($Iterator, i$, $$nc($nc(this->speculativeTypes)->entrySet())->iterator());
 			for (; $nc(i$)->hasNext();) {
 				$var($Map$Entry, _entry, $cast($Map$Entry, i$->next()));
 				{
-					$var($DeferredAttr$DeferredAttrContext, deferredAttrContext, $nc($nc(($cast($Attr$ResultInfo, $($nc(_entry)->getKey()))))->checkContext)->deferredAttrContext());
+					$var($DeferredAttr$DeferredAttrContext, deferredAttrContext, $nc($nc(($$cast($Attr$ResultInfo, $nc(_entry)->getKey())))->checkContext)->deferredAttrContext());
 					if ($nc(deferredAttrContext)->phase == phase && deferredAttrContext->msym == msym) {
 						return $cast($Type, _entry->getValue());
 					}
@@ -145,14 +97,52 @@ $Type* ArgumentAttr$ArgumentType::speculativeType($Symbol* msym, $Resolve$Method
 }
 
 $JCTree* ArgumentAttr$ArgumentType::speculativeTree($DeferredAttr$DeferredAttrContext* deferredAttrContext) {
-	return $nc(this->notPertinentToApplicability)->contains($nc(deferredAttrContext)->msym) ? $DeferredAttr$DeferredType::speculativeTree(deferredAttrContext) : static_cast<$JCTree*>(this->speculativeTree$);
+	return $nc(this->notPertinentToApplicability)->contains($nc(deferredAttrContext)->msym) ? $DeferredAttr$DeferredType::speculativeTree(deferredAttrContext) : $cast($JCTree, this->speculativeTree$);
 }
 
 ArgumentAttr$ArgumentType::ArgumentAttr$ArgumentType() {
 }
 
 $Class* ArgumentAttr$ArgumentType::load$($String* name, bool initialize) {
-	$loadClass(ArgumentAttr$ArgumentType, name, initialize, &_ArgumentAttr$ArgumentType_ClassInfo_, allocate$ArgumentAttr$ArgumentType);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/comp/ArgumentAttr;", nullptr, $FINAL | $SYNTHETIC, $field(ArgumentAttr$ArgumentType, this$0)},
+		{"speculativeTree", "Lcom/sun/tools/javac/tree/JCTree$JCExpression;", "TT;", 0, $field(ArgumentAttr$ArgumentType, speculativeTree$)},
+		{"speculativeTypes", "Ljava/util/Map;", "Ljava/util/Map<Lcom/sun/tools/javac/comp/Attr$ResultInfo;Lcom/sun/tools/javac/code/Type;>;", 0, $field(ArgumentAttr$ArgumentType, speculativeTypes)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/comp/ArgumentAttr;Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/tree/JCTree$JCExpression;Ljava/util/Map;)V", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;TT;Ljava/util/Map<Lcom/sun/tools/javac/comp/Attr$ResultInfo;Lcom/sun/tools/javac/code/Type;>;)V", $PUBLIC, $method(ArgumentAttr$ArgumentType, init$, void, $ArgumentAttr*, $JCTree$JCExpression*, $Env*, $JCTree$JCExpression*, $Map*)},
+		{"complete", "(Lcom/sun/tools/javac/comp/Attr$ResultInfo;Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $FINAL, $virtualMethod(ArgumentAttr$ArgumentType, complete, $Type*, $Attr$ResultInfo*, $DeferredAttr$DeferredAttrContext*)},
+		{"dup", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/comp/Env;)Lcom/sun/tools/javac/comp/ArgumentAttr$ArgumentType;", "(TT;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)Lcom/sun/tools/javac/comp/ArgumentAttr$ArgumentType<TT;>;", $ABSTRACT, $virtualMethod(ArgumentAttr$ArgumentType, dup, ArgumentAttr$ArgumentType*, $JCTree$JCExpression*, $Env*)},
+		{"overloadCheck", "(Lcom/sun/tools/javac/comp/Attr$ResultInfo;Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext;)Lcom/sun/tools/javac/code/Type;", nullptr, $ABSTRACT, $virtualMethod(ArgumentAttr$ArgumentType, overloadCheck, $Type*, $Attr$ResultInfo*, $DeferredAttr$DeferredAttrContext*)},
+		{"speculativeTree", "(Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext;)Lcom/sun/tools/javac/tree/JCTree;", nullptr, 0, $virtualMethod(ArgumentAttr$ArgumentType, speculativeTree, $JCTree*, $DeferredAttr$DeferredAttrContext*)},
+		{"speculativeType", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/comp/Resolve$MethodResolutionPhase;)Lcom/sun/tools/javac/code/Type;", nullptr, 0, $virtualMethod(ArgumentAttr$ArgumentType, speculativeType, $Type*, $Symbol*, $Resolve$MethodResolutionPhase*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.ArgumentAttr$ArgumentType", "com.sun.tools.javac.comp.ArgumentAttr", "ArgumentType", $ABSTRACT},
+		{"com.sun.tools.javac.comp.DeferredAttr$DeferredType", "com.sun.tools.javac.comp.DeferredAttr", "DeferredType", $PUBLIC},
+		{"com.sun.tools.javac.tree.JCTree$JCExpression", "com.sun.tools.javac.tree.JCTree", "JCExpression", $PUBLIC | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"com.sun.tools.javac.comp.ArgumentAttr$ArgumentType",
+		"com.sun.tools.javac.comp.DeferredAttr$DeferredType",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"<T:Lcom/sun/tools/javac/tree/JCTree$JCExpression;>Lcom/sun/tools/javac/comp/DeferredAttr$DeferredType;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.ArgumentAttr"
+	};
+	$loadClass(ArgumentAttr$ArgumentType, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ArgumentAttr$ArgumentType));
+	});
 	return class$;
 }
 

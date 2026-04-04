@@ -1,9 +1,7 @@
 #include <sun/font/FontUtilities.h>
-
 #include <java/awt/Font.h>
 #include <java/lang/ref/SoftReference.h>
 #include <java/security/AccessController.h>
-#include <java/security/PrivilegedAction.h>
 #include <java/util/concurrent/ConcurrentHashMap.h>
 #include <javax/swing/plaf/FontUIResource.h>
 #include <sun/font/CharToGlyphMapper.h>
@@ -35,7 +33,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $SoftReference = ::java::lang::ref::SoftReference;
 using $AccessController = ::java::security::AccessController;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $ConcurrentHashMap = ::java::util::concurrent::ConcurrentHashMap;
 using $FontUIResource = ::javax::swing::plaf::FontUIResource;
 using $CharToGlyphMapper = ::sun::font::CharToGlyphMapper;
@@ -53,67 +50,6 @@ using $PlatformLogger = ::sun::util::logging::PlatformLogger;
 namespace sun {
 	namespace font {
 
-$FieldInfo _FontUtilities_FieldInfo_[] = {
-	{"isLinux", "Z", nullptr, $PUBLIC | $STATIC, $staticField(FontUtilities, isLinux)},
-	{"isMacOSX", "Z", nullptr, $PUBLIC | $STATIC, $staticField(FontUtilities, isMacOSX)},
-	{"isMacOSX14", "Z", nullptr, $PUBLIC | $STATIC, $staticField(FontUtilities, isMacOSX14)},
-	{"useJDKScaler", "Z", nullptr, $PUBLIC | $STATIC, $staticField(FontUtilities, useJDKScaler)},
-	{"isWindows", "Z", nullptr, $PUBLIC | $STATIC, $staticField(FontUtilities, isWindows)},
-	{"debugFonts", "Z", nullptr, $PRIVATE | $STATIC, $staticField(FontUtilities, debugFonts$)},
-	{"logger", "Lsun/util/logging/PlatformLogger;", nullptr, $PRIVATE | $STATIC, $staticField(FontUtilities, logger)},
-	{"logging", "Z", nullptr, $PRIVATE | $STATIC, $staticField(FontUtilities, logging)},
-	{"MIN_LAYOUT_CHARCODE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(FontUtilities, MIN_LAYOUT_CHARCODE)},
-	{"MAX_LAYOUT_CHARCODE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(FontUtilities, MAX_LAYOUT_CHARCODE)},
-	{"compMapRef", "Ljava/lang/ref/SoftReference;", "Ljava/lang/ref/SoftReference<Ljava/util/concurrent/ConcurrentHashMap<Lsun/font/PhysicalFont;Lsun/font/CompositeFont;>;>;", $PRIVATE | $STATIC | $VOLATILE, $staticField(FontUtilities, compMapRef)},
-	{"nameMap", "[[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(FontUtilities, nameMap)},
-	{}
-};
-
-$MethodInfo _FontUtilities_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(FontUtilities, init$, void)},
-	{"debugFonts", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(FontUtilities, debugFonts, bool)},
-	{"fontSupportsDefaultEncoding", "(Ljava/awt/Font;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(FontUtilities, fontSupportsDefaultEncoding, bool, $Font*)},
-	{"getCompositeFontUIResource", "(Ljava/awt/Font;)Ljavax/swing/plaf/FontUIResource;", nullptr, $PUBLIC | $STATIC, $staticMethod(FontUtilities, getCompositeFontUIResource, $FontUIResource*, $Font*)},
-	{"getFont2D", "(Ljava/awt/Font;)Lsun/font/Font2D;", nullptr, $PUBLIC | $STATIC, $staticMethod(FontUtilities, getFont2D, $Font2D*, $Font*)},
-	{"getFontConfigFUIR", "(Ljava/lang/String;II)Ljavax/swing/plaf/FontUIResource;", nullptr, $PUBLIC | $STATIC, $staticMethod(FontUtilities, getFontConfigFUIR, $FontUIResource*, $String*, int32_t, int32_t)},
-	{"getLogger", "()Lsun/util/logging/PlatformLogger;", nullptr, $PUBLIC | $STATIC, $staticMethod(FontUtilities, getLogger, $PlatformLogger*)},
-	{"isComplexCharCode", "(I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(FontUtilities, isComplexCharCode, bool, int32_t)},
-	{"isComplexScript", "([CII)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(FontUtilities, isComplexScript, bool, $chars*, int32_t, int32_t)},
-	{"isComplexText", "([CII)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(FontUtilities, isComplexText, bool, $chars*, int32_t, int32_t)},
-	{"isLogging", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(FontUtilities, isLogging, bool)},
-	{"isNonSimpleChar", "(C)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(FontUtilities, isNonSimpleChar, bool, char16_t)},
-	{"logInfo", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(FontUtilities, logInfo, void, $String*)},
-	{"logSevere", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(FontUtilities, logSevere, void, $String*)},
-	{"logWarning", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(FontUtilities, logWarning, void, $String*)},
-	{"mapFcName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(FontUtilities, mapFcName, $String*, $String*)},
-	{"textLayoutIsCompatible", "(Ljava/awt/Font;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(FontUtilities, textLayoutIsCompatible, bool, $Font*)},
-	{}
-};
-
-$InnerClassInfo _FontUtilities_InnerClassesInfo_[] = {
-	{"sun.font.FontUtilities$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _FontUtilities_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.font.FontUtilities",
-	"java.lang.Object",
-	nullptr,
-	_FontUtilities_FieldInfo_,
-	_FontUtilities_MethodInfo_,
-	nullptr,
-	nullptr,
-	_FontUtilities_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.font.FontUtilities$1"
-};
-
-$Object* allocate$FontUtilities($Class* clazz) {
-	return $of($alloc(FontUtilities));
-}
-
 bool FontUtilities::isLinux = false;
 bool FontUtilities::isMacOSX = false;
 bool FontUtilities::isMacOSX14 = false;
@@ -130,7 +66,7 @@ void FontUtilities::init$() {
 
 $Font2D* FontUtilities::getFont2D($Font* font) {
 	$init(FontUtilities);
-	return $nc($($FontAccess::getFontAccess()))->getFont2D(font);
+	return $$nc($FontAccess::getFontAccess())->getFont2D(font);
 }
 
 bool FontUtilities::isComplexScript($chars* chs, int32_t start, int32_t limit) {
@@ -219,17 +155,17 @@ bool FontUtilities::debugFonts() {
 
 void FontUtilities::logWarning($String* s) {
 	$init(FontUtilities);
-	$nc($(getLogger()))->warning(s);
+	$$nc(getLogger())->warning(s);
 }
 
 void FontUtilities::logInfo($String* s) {
 	$init(FontUtilities);
-	$nc($(getLogger()))->info(s);
+	$$nc(getLogger())->info(s);
 }
 
 void FontUtilities::logSevere($String* s) {
 	$init(FontUtilities);
-	$nc($(getLogger()))->severe(s);
+	$$nc(getLogger())->severe(s);
 }
 
 bool FontUtilities::fontSupportsDefaultEncoding($Font* font) {
@@ -239,7 +175,7 @@ bool FontUtilities::fontSupportsDefaultEncoding($Font* font) {
 
 $FontUIResource* FontUtilities::getCompositeFontUIResource($Font* font) {
 	$init(FontUtilities);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($FontUIResource, fuir, $new($FontUIResource, font));
 	$var($Font2D, font2D, FontUtilities::getFont2D(font));
 	if (!($instanceOf($PhysicalFont, font2D))) {
@@ -262,16 +198,16 @@ $FontUIResource* FontUtilities::getCompositeFontUIResource($Font* font) {
 		$assign(compFont, $new($CompositeFont, physicalFont, dialog2D));
 		compMap->put(physicalFont, compFont);
 	}
-	$nc($($FontAccess::getFontAccess()))->setFont2D(fuir, $nc(compFont)->handle);
-	$nc($($FontAccess::getFontAccess()))->setCreatedFont(fuir);
+	$$nc($FontAccess::getFontAccess())->setFont2D(fuir, $nc(compFont)->handle);
+	$$nc($FontAccess::getFontAccess())->setCreatedFont(fuir);
 	return fuir;
 }
 
 $String* FontUtilities::mapFcName($String* name) {
 	$init(FontUtilities);
-	for (int32_t i = 0; i < $nc(FontUtilities::nameMap)->length; ++i) {
-		if ($nc(name)->equals($nc($nc(FontUtilities::nameMap)->get(i))->get(0))) {
-			return $nc($nc(FontUtilities::nameMap)->get(i))->get(1);
+	for (int32_t i = 0; i < FontUtilities::nameMap->length; ++i) {
+		if ($nc(name)->equals($nc(FontUtilities::nameMap->get(i))->get(0))) {
+			return $nc(FontUtilities::nameMap->get(i))->get(1);
 		}
 	}
 	return nullptr;
@@ -279,7 +215,7 @@ $String* FontUtilities::mapFcName($String* name) {
 
 $FontUIResource* FontUtilities::getFontConfigFUIR($String* fcFamily, int32_t style, int32_t size) {
 	$init(FontUtilities);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, mapped, mapFcName(fcFamily));
 	if (mapped == nullptr) {
 		$assign(mapped, "sansserif"_s);
@@ -288,7 +224,7 @@ $FontUIResource* FontUtilities::getFontConfigFUIR($String* fcFamily, int32_t sty
 	$var($FontManager, fm, $FontManagerFactory::getInstance());
 	if ($instanceOf($SunFontManager, fm)) {
 		$var($SunFontManager, sfm, $cast($SunFontManager, fm));
-		$assign(fuir, $nc(sfm)->getFontConfigFUIR(mapped, style, size));
+		$assign(fuir, sfm->getFontConfigFUIR(mapped, style, size));
 	} else {
 		$assign(fuir, $new($FontUIResource, mapped, style, size));
 	}
@@ -297,24 +233,24 @@ $FontUIResource* FontUtilities::getFontConfigFUIR($String* fcFamily, int32_t sty
 
 bool FontUtilities::textLayoutIsCompatible($Font* font) {
 	$init(FontUtilities);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Font2D, font2D, getFont2D(font));
 	if ($instanceOf($TrueTypeFont, font2D)) {
 		$var($TrueTypeFont, ttf, $cast($TrueTypeFont, font2D));
-		bool var$0 = $nc(ttf)->getDirectoryEntry($TrueTypeFont::GSUBTag) == nullptr;
-		return var$0 || $nc(ttf)->getDirectoryEntry($TrueTypeFont::GPOSTag) != nullptr;
+		bool var$0 = ttf->getDirectoryEntry($TrueTypeFont::GSUBTag) == nullptr;
+		return var$0 || ttf->getDirectoryEntry($TrueTypeFont::GPOSTag) != nullptr;
 	} else {
 		return false;
 	}
 }
 
-void clinit$FontUtilities($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void FontUtilities::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	FontUtilities::debugFonts$ = false;
 	$assignStatic(FontUtilities::logger, nullptr);
 	{
-		$AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($FontUtilities$1)));
+		$AccessController::doPrivileged($$new($FontUtilities$1));
 	}
 	$assignStatic(FontUtilities::compMapRef, $new($SoftReference, nullptr));
 	$assignStatic(FontUtilities::nameMap, $new($StringArray2, {
@@ -341,7 +277,62 @@ FontUtilities::FontUtilities() {
 }
 
 $Class* FontUtilities::load$($String* name, bool initialize) {
-	$loadClass(FontUtilities, name, initialize, &_FontUtilities_ClassInfo_, clinit$FontUtilities, allocate$FontUtilities);
+	$FieldInfo fieldInfos$$[] = {
+		{"isLinux", "Z", nullptr, $PUBLIC | $STATIC, $staticField(FontUtilities, isLinux)},
+		{"isMacOSX", "Z", nullptr, $PUBLIC | $STATIC, $staticField(FontUtilities, isMacOSX)},
+		{"isMacOSX14", "Z", nullptr, $PUBLIC | $STATIC, $staticField(FontUtilities, isMacOSX14)},
+		{"useJDKScaler", "Z", nullptr, $PUBLIC | $STATIC, $staticField(FontUtilities, useJDKScaler)},
+		{"isWindows", "Z", nullptr, $PUBLIC | $STATIC, $staticField(FontUtilities, isWindows)},
+		{"debugFonts", "Z", nullptr, $PRIVATE | $STATIC, $staticField(FontUtilities, debugFonts$)},
+		{"logger", "Lsun/util/logging/PlatformLogger;", nullptr, $PRIVATE | $STATIC, $staticField(FontUtilities, logger)},
+		{"logging", "Z", nullptr, $PRIVATE | $STATIC, $staticField(FontUtilities, logging)},
+		{"MIN_LAYOUT_CHARCODE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(FontUtilities, MIN_LAYOUT_CHARCODE)},
+		{"MAX_LAYOUT_CHARCODE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(FontUtilities, MAX_LAYOUT_CHARCODE)},
+		{"compMapRef", "Ljava/lang/ref/SoftReference;", "Ljava/lang/ref/SoftReference<Ljava/util/concurrent/ConcurrentHashMap<Lsun/font/PhysicalFont;Lsun/font/CompositeFont;>;>;", $PRIVATE | $STATIC | $VOLATILE, $staticField(FontUtilities, compMapRef)},
+		{"nameMap", "[[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(FontUtilities, nameMap)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(FontUtilities, init$, void)},
+		{"debugFonts", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(FontUtilities, debugFonts, bool)},
+		{"fontSupportsDefaultEncoding", "(Ljava/awt/Font;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(FontUtilities, fontSupportsDefaultEncoding, bool, $Font*)},
+		{"getCompositeFontUIResource", "(Ljava/awt/Font;)Ljavax/swing/plaf/FontUIResource;", nullptr, $PUBLIC | $STATIC, $staticMethod(FontUtilities, getCompositeFontUIResource, $FontUIResource*, $Font*)},
+		{"getFont2D", "(Ljava/awt/Font;)Lsun/font/Font2D;", nullptr, $PUBLIC | $STATIC, $staticMethod(FontUtilities, getFont2D, $Font2D*, $Font*)},
+		{"getFontConfigFUIR", "(Ljava/lang/String;II)Ljavax/swing/plaf/FontUIResource;", nullptr, $PUBLIC | $STATIC, $staticMethod(FontUtilities, getFontConfigFUIR, $FontUIResource*, $String*, int32_t, int32_t)},
+		{"getLogger", "()Lsun/util/logging/PlatformLogger;", nullptr, $PUBLIC | $STATIC, $staticMethod(FontUtilities, getLogger, $PlatformLogger*)},
+		{"isComplexCharCode", "(I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(FontUtilities, isComplexCharCode, bool, int32_t)},
+		{"isComplexScript", "([CII)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(FontUtilities, isComplexScript, bool, $chars*, int32_t, int32_t)},
+		{"isComplexText", "([CII)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(FontUtilities, isComplexText, bool, $chars*, int32_t, int32_t)},
+		{"isLogging", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(FontUtilities, isLogging, bool)},
+		{"isNonSimpleChar", "(C)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(FontUtilities, isNonSimpleChar, bool, char16_t)},
+		{"logInfo", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(FontUtilities, logInfo, void, $String*)},
+		{"logSevere", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(FontUtilities, logSevere, void, $String*)},
+		{"logWarning", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(FontUtilities, logWarning, void, $String*)},
+		{"mapFcName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(FontUtilities, mapFcName, $String*, $String*)},
+		{"textLayoutIsCompatible", "(Ljava/awt/Font;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(FontUtilities, textLayoutIsCompatible, bool, $Font*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.font.FontUtilities$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.font.FontUtilities",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.font.FontUtilities$1"
+	};
+	$loadClass(FontUtilities, name, initialize, &classInfo$$, FontUtilities::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(FontUtilities);
+	});
 	return class$;
 }
 

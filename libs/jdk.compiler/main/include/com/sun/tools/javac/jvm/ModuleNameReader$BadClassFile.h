@@ -19,7 +19,10 @@ public:
 	static const int64_t serialVersionUID = 0;
 	ModuleNameReader$BadClassFile(const ModuleNameReader$BadClassFile& e);
 	virtual void throw$() override;
-	inline ModuleNameReader$BadClassFile* operator ->() {
+	inline ModuleNameReader$BadClassFile* operator ->() const {
+		return (ModuleNameReader$BadClassFile*)throwing$;
+	}
+	inline operator ModuleNameReader$BadClassFile*() const {
 		return (ModuleNameReader$BadClassFile*)throwing$;
 	}
 };

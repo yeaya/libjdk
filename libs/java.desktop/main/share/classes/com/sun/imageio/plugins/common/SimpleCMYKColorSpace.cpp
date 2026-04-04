@@ -1,5 +1,4 @@
 #include <com/sun/imageio/plugins/common/SimpleCMYKColorSpace.h>
-
 #include <java/awt/color/ColorSpace.h>
 #include <java/lang/Math.h>
 #include <jcpp.h>
@@ -25,46 +24,12 @@ namespace com {
 			namespace plugins {
 				namespace common {
 
-$FieldInfo _SimpleCMYKColorSpace_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SimpleCMYKColorSpace, serialVersionUID)},
-	{"theInstance", "Ljava/awt/color/ColorSpace;", nullptr, $PRIVATE | $STATIC, $staticField(SimpleCMYKColorSpace, theInstance)},
-	{"csRGB", "Ljava/awt/color/ColorSpace;", nullptr, $PRIVATE, $field(SimpleCMYKColorSpace, csRGB)},
-	{"power1", "D", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SimpleCMYKColorSpace, power1)},
-	{}
-};
-
-$MethodInfo _SimpleCMYKColorSpace_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(SimpleCMYKColorSpace, init$, void)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(SimpleCMYKColorSpace, equals, bool, Object$*)},
-	{"fromCIEXYZ", "([F)[F", nullptr, $PUBLIC, $virtualMethod(SimpleCMYKColorSpace, fromCIEXYZ, $floats*, $floats*)},
-	{"fromRGB", "([F)[F", nullptr, $PUBLIC, $virtualMethod(SimpleCMYKColorSpace, fromRGB, $floats*, $floats*)},
-	{"getInstance", "()Ljava/awt/color/ColorSpace;", nullptr, $PUBLIC | $STATIC | $FINAL | $SYNCHRONIZED, $staticMethod(SimpleCMYKColorSpace, getInstance, $ColorSpace*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(SimpleCMYKColorSpace, hashCode, int32_t)},
-	{"toCIEXYZ", "([F)[F", nullptr, $PUBLIC, $virtualMethod(SimpleCMYKColorSpace, toCIEXYZ, $floats*, $floats*)},
-	{"toRGB", "([F)[F", nullptr, $PUBLIC, $virtualMethod(SimpleCMYKColorSpace, toRGB, $floats*, $floats*)},
-	{}
-};
-
-$ClassInfo _SimpleCMYKColorSpace_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.imageio.plugins.common.SimpleCMYKColorSpace",
-	"java.awt.color.ColorSpace",
-	nullptr,
-	_SimpleCMYKColorSpace_FieldInfo_,
-	_SimpleCMYKColorSpace_MethodInfo_
-};
-
-$Object* allocate$SimpleCMYKColorSpace($Class* clazz) {
-	return $of($alloc(SimpleCMYKColorSpace));
-}
-
 $ColorSpace* SimpleCMYKColorSpace::theInstance = nullptr;
 double SimpleCMYKColorSpace::power1 = 0.0;
 
 $ColorSpace* SimpleCMYKColorSpace::getInstance() {
-	$load(SimpleCMYKColorSpace);
+	$init(SimpleCMYKColorSpace);
 	$synchronized(class$) {
-		$init(SimpleCMYKColorSpace);
 		if (SimpleCMYKColorSpace::theInstance == nullptr) {
 			$assignStatic(SimpleCMYKColorSpace::theInstance, $new(SimpleCMYKColorSpace));
 		}
@@ -82,7 +47,7 @@ bool SimpleCMYKColorSpace::equals(Object$* o) {
 }
 
 int32_t SimpleCMYKColorSpace::hashCode() {
-	return $nc($of(SimpleCMYKColorSpace::theInstance))->hashCode();
+	return $nc(SimpleCMYKColorSpace::theInstance)->hashCode();
 }
 
 $floats* SimpleCMYKColorSpace::toRGB($floats* colorvalue) {
@@ -149,7 +114,7 @@ $floats* SimpleCMYKColorSpace::fromCIEXYZ($floats* xyzvalue) {
 	return fromRGB($($nc(this->csRGB)->fromCIEXYZ(xyzvalue)));
 }
 
-void clinit$SimpleCMYKColorSpace($Class* class$) {
+void SimpleCMYKColorSpace::clinit$($Class* clazz) {
 	SimpleCMYKColorSpace::power1 = 1.0 / 2.4;
 	$assignStatic(SimpleCMYKColorSpace::theInstance, nullptr);
 }
@@ -158,7 +123,35 @@ SimpleCMYKColorSpace::SimpleCMYKColorSpace() {
 }
 
 $Class* SimpleCMYKColorSpace::load$($String* name, bool initialize) {
-	$loadClass(SimpleCMYKColorSpace, name, initialize, &_SimpleCMYKColorSpace_ClassInfo_, clinit$SimpleCMYKColorSpace, allocate$SimpleCMYKColorSpace);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SimpleCMYKColorSpace, serialVersionUID)},
+		{"theInstance", "Ljava/awt/color/ColorSpace;", nullptr, $PRIVATE | $STATIC, $staticField(SimpleCMYKColorSpace, theInstance)},
+		{"csRGB", "Ljava/awt/color/ColorSpace;", nullptr, $PRIVATE, $field(SimpleCMYKColorSpace, csRGB)},
+		{"power1", "D", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SimpleCMYKColorSpace, power1)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(SimpleCMYKColorSpace, init$, void)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(SimpleCMYKColorSpace, equals, bool, Object$*)},
+		{"fromCIEXYZ", "([F)[F", nullptr, $PUBLIC, $virtualMethod(SimpleCMYKColorSpace, fromCIEXYZ, $floats*, $floats*)},
+		{"fromRGB", "([F)[F", nullptr, $PUBLIC, $virtualMethod(SimpleCMYKColorSpace, fromRGB, $floats*, $floats*)},
+		{"getInstance", "()Ljava/awt/color/ColorSpace;", nullptr, $PUBLIC | $STATIC | $FINAL | $SYNCHRONIZED, $staticMethod(SimpleCMYKColorSpace, getInstance, $ColorSpace*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(SimpleCMYKColorSpace, hashCode, int32_t)},
+		{"toCIEXYZ", "([F)[F", nullptr, $PUBLIC, $virtualMethod(SimpleCMYKColorSpace, toCIEXYZ, $floats*, $floats*)},
+		{"toRGB", "([F)[F", nullptr, $PUBLIC, $virtualMethod(SimpleCMYKColorSpace, toRGB, $floats*, $floats*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.imageio.plugins.common.SimpleCMYKColorSpace",
+		"java.awt.color.ColorSpace",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SimpleCMYKColorSpace, name, initialize, &classInfo$$, SimpleCMYKColorSpace::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(SimpleCMYKColorSpace);
+	});
 	return class$;
 }
 

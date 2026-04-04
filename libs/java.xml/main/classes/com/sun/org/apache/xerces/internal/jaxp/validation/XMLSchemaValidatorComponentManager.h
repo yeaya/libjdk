@@ -220,6 +220,7 @@ class XMLSchemaValidatorComponentManager : public ::com::sun::org::apache::xerce
 	$class(XMLSchemaValidatorComponentManager, 0, ::com::sun::org::apache::xerces::internal::util::ParserConfigurationSettings)
 public:
 	XMLSchemaValidatorComponentManager();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::com::sun::org::apache::xerces::internal::jaxp::validation::XSGrammarPoolContainer* grammarContainer);
 	void addRecognizedParamsAndSetDefaults(::com::sun::org::apache::xerces::internal::xni::parser::XMLComponent* component, ::com::sun::org::apache::xerces::internal::jaxp::validation::XSGrammarPoolContainer* grammarContainer);
 	::org::xml::sax::ErrorHandler* getErrorHandler();

@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/dom/NodeSortRecordFactory.h>
-
 #include <com/sun/org/apache/xalan/internal/utils/ObjectFactory.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/DOM.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/Translet.h>
@@ -35,13 +34,11 @@ using $LocaleUtility = ::com::sun::org::apache::xml::internal::utils::LocaleUtil
 using $ClassInfo = ::java::lang::ClassInfo;
 using $ClassNotFoundException = ::java::lang::ClassNotFoundException;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $InstantiationException = ::java::lang::InstantiationException;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NoSuchMethodException = ::java::lang::NoSuchMethodException;
-using $Constructor = ::java::lang::reflect::Constructor;
 using $InvocationTargetException = ::java::lang::reflect::InvocationTargetException;
 using $Collator = ::java::text::Collator;
 
@@ -54,44 +51,6 @@ namespace com {
 						namespace xsltc {
 							namespace dom {
 
-$CompoundAttribute _NodeSortRecordFactory_MethodAnnotations_init$0[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$FieldInfo _NodeSortRecordFactory_FieldInfo_[] = {
-	{"DESCENDING", "I", nullptr, $PRIVATE | $STATIC, $staticField(NodeSortRecordFactory, DESCENDING)},
-	{"NUMBER", "I", nullptr, $PRIVATE | $STATIC, $staticField(NodeSortRecordFactory, NUMBER)},
-	{"_dom", "Lcom/sun/org/apache/xalan/internal/xsltc/DOM;", nullptr, $PRIVATE | $FINAL, $field(NodeSortRecordFactory, _dom)},
-	{"_className", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(NodeSortRecordFactory, _className)},
-	{"_class", "Ljava/lang/Class;", "Ljava/lang/Class<*>;", $PRIVATE, $field(NodeSortRecordFactory, _class)},
-	{"_sortSettings", "Lcom/sun/org/apache/xalan/internal/xsltc/dom/SortSettings;", nullptr, $PRIVATE, $field(NodeSortRecordFactory, _sortSettings)},
-	{"_collator", "Ljava/text/Collator;", nullptr, $PROTECTED, $field(NodeSortRecordFactory, _collator)},
-	{}
-};
-
-$MethodInfo _NodeSortRecordFactory_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/org/apache/xalan/internal/xsltc/DOM;Ljava/lang/String;Lcom/sun/org/apache/xalan/internal/xsltc/Translet;[Ljava/lang/String;[Ljava/lang/String;)V", nullptr, $PUBLIC | $DEPRECATED, $method(NodeSortRecordFactory, init$, void, $DOM*, $String*, $Translet*, $StringArray*, $StringArray*), "com.sun.org.apache.xalan.internal.xsltc.TransletException", nullptr, _NodeSortRecordFactory_MethodAnnotations_init$0},
-	{"<init>", "(Lcom/sun/org/apache/xalan/internal/xsltc/DOM;Ljava/lang/String;Lcom/sun/org/apache/xalan/internal/xsltc/Translet;[Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;)V", nullptr, $PUBLIC, $method(NodeSortRecordFactory, init$, void, $DOM*, $String*, $Translet*, $StringArray*, $StringArray*, $StringArray*, $StringArray*), "com.sun.org.apache.xalan.internal.xsltc.TransletException"},
-	{"getClassName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(NodeSortRecordFactory, getClassName, $String*)},
-	{"makeNodeSortRecord", "(II)Lcom/sun/org/apache/xalan/internal/xsltc/dom/NodeSortRecord;", nullptr, $PUBLIC, $virtualMethod(NodeSortRecordFactory, makeNodeSortRecord, $NodeSortRecord*, int32_t, int32_t), "java.lang.ExceptionInInitializerError,java.lang.LinkageError,java.lang.IllegalAccessException,java.lang.InstantiationException,java.lang.SecurityException,com.sun.org.apache.xalan.internal.xsltc.TransletException"},
-	{"setLang", "([Ljava/lang/String;)V", nullptr, $PRIVATE | $FINAL, $method(NodeSortRecordFactory, setLang, void, $StringArray*)},
-	{}
-};
-
-$ClassInfo _NodeSortRecordFactory_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xalan.internal.xsltc.dom.NodeSortRecordFactory",
-	"java.lang.Object",
-	nullptr,
-	_NodeSortRecordFactory_FieldInfo_,
-	_NodeSortRecordFactory_MethodInfo_
-};
-
-$Object* allocate$NodeSortRecordFactory($Class* clazz) {
-	return $of($alloc(NodeSortRecordFactory));
-}
-
 int32_t NodeSortRecordFactory::DESCENDING = 0;
 int32_t NodeSortRecordFactory::NUMBER = 0;
 
@@ -100,7 +59,7 @@ void NodeSortRecordFactory::init$($DOM* dom, $String* className, $Translet* tran
 }
 
 void NodeSortRecordFactory::init$($DOM* dom, $String* className, $Translet* translet, $StringArray* order, $StringArray* type, $StringArray* lang$renamed, $StringArray* caseOrder$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringArray, caseOrder, caseOrder$renamed);
 	$var($StringArray, lang, lang$renamed);
 	try {
@@ -144,16 +103,16 @@ void NodeSortRecordFactory::init$($DOM* dom, $String* className, $Translet* tran
 		}
 		$set(this, _sortSettings, $new($SortSettings, $cast($AbstractTranslet, translet), iOrder, iType, locales, collators, caseOrder));
 	} catch ($ClassNotFoundException& e) {
-		$throwNew($TransletException, static_cast<$Exception*>(e));
+		$throwNew($TransletException, e);
 	}
 }
 
 $NodeSortRecord* NodeSortRecordFactory::makeNodeSortRecord(int32_t node, int32_t last) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	try {
 		$var($NodeSortRecord, sortRecord, nullptr);
-		$assign(sortRecord, $cast($NodeSortRecord, $nc($($nc(this->_class)->getConstructor($$new($ClassArray, 0))))->newInstance($$new($ObjectArray, 0))));
+		$assign(sortRecord, $cast($NodeSortRecord, $$nc($nc(this->_class)->getConstructor($$new($ClassArray, 0)))->newInstance($$new($ObjectArray, 0))));
 		$nc(sortRecord)->initialize(node, last, this->_dom, this->_sortSettings);
 		return sortRecord;
 	} catch ($NoSuchMethodException& ex) {
@@ -173,7 +132,7 @@ $String* NodeSortRecordFactory::getClassName() {
 void NodeSortRecordFactory::setLang($StringArray* lang) {
 }
 
-void clinit$NodeSortRecordFactory($Class* class$) {
+void NodeSortRecordFactory::clinit$($Class* clazz) {
 	NodeSortRecordFactory::DESCENDING = "descending"_s->length();
 	NodeSortRecordFactory::NUMBER = "number"_s->length();
 }
@@ -182,7 +141,39 @@ NodeSortRecordFactory::NodeSortRecordFactory() {
 }
 
 $Class* NodeSortRecordFactory::load$($String* name, bool initialize) {
-	$loadClass(NodeSortRecordFactory, name, initialize, &_NodeSortRecordFactory_ClassInfo_, clinit$NodeSortRecordFactory, allocate$NodeSortRecordFactory);
+	$FieldInfo fieldInfos$$[] = {
+		{"DESCENDING", "I", nullptr, $PRIVATE | $STATIC, $staticField(NodeSortRecordFactory, DESCENDING)},
+		{"NUMBER", "I", nullptr, $PRIVATE | $STATIC, $staticField(NodeSortRecordFactory, NUMBER)},
+		{"_dom", "Lcom/sun/org/apache/xalan/internal/xsltc/DOM;", nullptr, $PRIVATE | $FINAL, $field(NodeSortRecordFactory, _dom)},
+		{"_className", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(NodeSortRecordFactory, _className)},
+		{"_class", "Ljava/lang/Class;", "Ljava/lang/Class<*>;", $PRIVATE, $field(NodeSortRecordFactory, _class)},
+		{"_sortSettings", "Lcom/sun/org/apache/xalan/internal/xsltc/dom/SortSettings;", nullptr, $PRIVATE, $field(NodeSortRecordFactory, _sortSettings)},
+		{"_collator", "Ljava/text/Collator;", nullptr, $PROTECTED, $field(NodeSortRecordFactory, _collator)},
+		{}
+	};
+	$CompoundAttribute init$methodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/org/apache/xalan/internal/xsltc/DOM;Ljava/lang/String;Lcom/sun/org/apache/xalan/internal/xsltc/Translet;[Ljava/lang/String;[Ljava/lang/String;)V", nullptr, $PUBLIC | $DEPRECATED, $method(NodeSortRecordFactory, init$, void, $DOM*, $String*, $Translet*, $StringArray*, $StringArray*), "com.sun.org.apache.xalan.internal.xsltc.TransletException", nullptr, init$methodAnnotations$$},
+		{"<init>", "(Lcom/sun/org/apache/xalan/internal/xsltc/DOM;Ljava/lang/String;Lcom/sun/org/apache/xalan/internal/xsltc/Translet;[Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;)V", nullptr, $PUBLIC, $method(NodeSortRecordFactory, init$, void, $DOM*, $String*, $Translet*, $StringArray*, $StringArray*, $StringArray*, $StringArray*), "com.sun.org.apache.xalan.internal.xsltc.TransletException"},
+		{"getClassName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(NodeSortRecordFactory, getClassName, $String*)},
+		{"makeNodeSortRecord", "(II)Lcom/sun/org/apache/xalan/internal/xsltc/dom/NodeSortRecord;", nullptr, $PUBLIC, $virtualMethod(NodeSortRecordFactory, makeNodeSortRecord, $NodeSortRecord*, int32_t, int32_t), "java.lang.ExceptionInInitializerError,java.lang.LinkageError,java.lang.IllegalAccessException,java.lang.InstantiationException,java.lang.SecurityException,com.sun.org.apache.xalan.internal.xsltc.TransletException"},
+		{"setLang", "([Ljava/lang/String;)V", nullptr, $PRIVATE | $FINAL, $method(NodeSortRecordFactory, setLang, void, $StringArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xalan.internal.xsltc.dom.NodeSortRecordFactory",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(NodeSortRecordFactory, name, initialize, &classInfo$$, NodeSortRecordFactory::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(NodeSortRecordFactory);
+	});
 	return class$;
 }
 

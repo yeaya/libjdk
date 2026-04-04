@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/impl/xs/opti/SchemaDOM.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/xs/opti/AttrImpl.h>
 #include <com/sun/org/apache/xerces/internal/impl/xs/opti/DefaultDocument.h>
 #include <com/sun/org/apache/xerces/internal/impl/xs/opti/ElementImpl.h>
@@ -37,7 +36,6 @@ using $NamespaceContext = ::com::sun::org::apache::xerces::internal::xni::Namesp
 using $QName = ::com::sun::org::apache::xerces::internal::xni::QName;
 using $XMLAttributes = ::com::sun::org::apache::xerces::internal::xni::XMLAttributes;
 using $XMLString = ::com::sun::org::apache::xerces::internal::xni::XMLString;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -60,68 +58,6 @@ namespace com {
 						namespace impl {
 							namespace xs {
 								namespace opti {
-
-$FieldInfo _SchemaDOM_FieldInfo_[] = {
-	{"relationsRowResizeFactor", "I", nullptr, $STATIC | $FINAL, $constField(SchemaDOM, relationsRowResizeFactor)},
-	{"relationsColResizeFactor", "I", nullptr, $STATIC | $FINAL, $constField(SchemaDOM, relationsColResizeFactor)},
-	{"relations", "[[Lcom/sun/org/apache/xerces/internal/impl/xs/opti/NodeImpl;", nullptr, 0, $field(SchemaDOM, relations)},
-	{"parent", "Lcom/sun/org/apache/xerces/internal/impl/xs/opti/ElementImpl;", nullptr, 0, $field(SchemaDOM, parent)},
-	{"currLoc", "I", nullptr, 0, $field(SchemaDOM, currLoc)},
-	{"nextFreeLoc", "I", nullptr, 0, $field(SchemaDOM, nextFreeLoc)},
-	{"hidden", "Z", nullptr, 0, $field(SchemaDOM, hidden)},
-	{"inCDATA", "Z", nullptr, 0, $field(SchemaDOM, inCDATA)},
-	{"fAnnotationBuffer", "Ljava/lang/StringBuffer;", nullptr, $PRIVATE, $field(SchemaDOM, fAnnotationBuffer)},
-	{}
-};
-
-$MethodInfo _SchemaDOM_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SchemaDOM, init$, void)},
-	{"characters", "(Lcom/sun/org/apache/xerces/internal/xni/XMLString;)V", nullptr, 0, $virtualMethod(SchemaDOM, characters, void, $XMLString*)},
-	{"charactersRaw", "(Ljava/lang/String;)V", nullptr, 0, $virtualMethod(SchemaDOM, charactersRaw, void, $String*)},
-	{"comment", "(Lcom/sun/org/apache/xerces/internal/xni/XMLString;)V", nullptr, 0, $virtualMethod(SchemaDOM, comment, void, $XMLString*)},
-	{"emptyElement", "(Lcom/sun/org/apache/xerces/internal/xni/QName;Lcom/sun/org/apache/xerces/internal/xni/XMLAttributes;III)Lcom/sun/org/apache/xerces/internal/impl/xs/opti/ElementImpl;", nullptr, $PUBLIC, $virtualMethod(SchemaDOM, emptyElement, $ElementImpl*, $QName*, $XMLAttributes*, int32_t, int32_t, int32_t)},
-	{"emptyElement", "(Lcom/sun/org/apache/xerces/internal/xni/QName;Lcom/sun/org/apache/xerces/internal/xni/XMLAttributes;II)Lcom/sun/org/apache/xerces/internal/impl/xs/opti/ElementImpl;", nullptr, $PUBLIC, $virtualMethod(SchemaDOM, emptyElement, $ElementImpl*, $QName*, $XMLAttributes*, int32_t, int32_t)},
-	{"endAnnotation", "(Lcom/sun/org/apache/xerces/internal/xni/QName;Lcom/sun/org/apache/xerces/internal/impl/xs/opti/ElementImpl;)V", nullptr, 0, $virtualMethod(SchemaDOM, endAnnotation, void, $QName*, $ElementImpl*)},
-	{"endAnnotationCDATA", "()V", nullptr, 0, $virtualMethod(SchemaDOM, endAnnotationCDATA, void)},
-	{"endAnnotationElement", "(Lcom/sun/org/apache/xerces/internal/xni/QName;)V", nullptr, 0, $virtualMethod(SchemaDOM, endAnnotationElement, void, $QName*)},
-	{"endAnnotationElement", "(Ljava/lang/String;)V", nullptr, 0, $virtualMethod(SchemaDOM, endAnnotationElement, void, $String*)},
-	{"endElement", "()V", nullptr, $PUBLIC, $virtualMethod(SchemaDOM, endElement, void)},
-	{"endSyntheticAnnotationElement", "(Lcom/sun/org/apache/xerces/internal/xni/QName;Z)V", nullptr, 0, $virtualMethod(SchemaDOM, endSyntheticAnnotationElement, void, $QName*, bool)},
-	{"endSyntheticAnnotationElement", "(Ljava/lang/String;Z)V", nullptr, 0, $virtualMethod(SchemaDOM, endSyntheticAnnotationElement, void, $String*, bool)},
-	{"escapeAttValue", "(Ljava/lang/String;I)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(SchemaDOM, escapeAttValue, $String*, $String*, int32_t)},
-	{"getDocumentElement", "()Lorg/w3c/dom/Element;", nullptr, $PUBLIC, $virtualMethod(SchemaDOM, getDocumentElement, $Element*)},
-	{"getImplementation", "()Lorg/w3c/dom/DOMImplementation;", nullptr, $PUBLIC, $virtualMethod(SchemaDOM, getImplementation, $DOMImplementation*)},
-	{"indent", "(I)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SchemaDOM, indent, void, int32_t)},
-	{"printDOM", "()V", nullptr, $PUBLIC, $virtualMethod(SchemaDOM, printDOM, void)},
-	{"processAttValue", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(SchemaDOM, processAttValue, $String*, $String*)},
-	{"processElement", "(Lcom/sun/org/apache/xerces/internal/xni/QName;Lcom/sun/org/apache/xerces/internal/xni/XMLAttributes;Lcom/sun/org/apache/xerces/internal/impl/xs/opti/ElementImpl;)V", nullptr, $PRIVATE, $method(SchemaDOM, processElement, void, $QName*, $XMLAttributes*, $ElementImpl*)},
-	{"processingInstruction", "(Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/xni/XMLString;)V", nullptr, 0, $virtualMethod(SchemaDOM, processingInstruction, void, $String*, $XMLString*)},
-	{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(SchemaDOM, reset, void)},
-	{"resizeRelations", "()V", nullptr, $PRIVATE, $method(SchemaDOM, resizeRelations, void)},
-	{"resizeRelations", "(I)V", nullptr, $PRIVATE, $method(SchemaDOM, resizeRelations, void, int32_t)},
-	{"startAnnotation", "(Lcom/sun/org/apache/xerces/internal/xni/QName;Lcom/sun/org/apache/xerces/internal/xni/XMLAttributes;Lcom/sun/org/apache/xerces/internal/xni/NamespaceContext;)V", nullptr, 0, $virtualMethod(SchemaDOM, startAnnotation, void, $QName*, $XMLAttributes*, $NamespaceContext*)},
-	{"startAnnotation", "(Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/xni/XMLAttributes;Lcom/sun/org/apache/xerces/internal/xni/NamespaceContext;)V", nullptr, 0, $virtualMethod(SchemaDOM, startAnnotation, void, $String*, $XMLAttributes*, $NamespaceContext*)},
-	{"startAnnotationCDATA", "()V", nullptr, 0, $virtualMethod(SchemaDOM, startAnnotationCDATA, void)},
-	{"startAnnotationElement", "(Lcom/sun/org/apache/xerces/internal/xni/QName;Lcom/sun/org/apache/xerces/internal/xni/XMLAttributes;)V", nullptr, 0, $virtualMethod(SchemaDOM, startAnnotationElement, void, $QName*, $XMLAttributes*)},
-	{"startAnnotationElement", "(Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/xni/XMLAttributes;)V", nullptr, 0, $virtualMethod(SchemaDOM, startAnnotationElement, void, $String*, $XMLAttributes*)},
-	{"startElement", "(Lcom/sun/org/apache/xerces/internal/xni/QName;Lcom/sun/org/apache/xerces/internal/xni/XMLAttributes;III)Lcom/sun/org/apache/xerces/internal/impl/xs/opti/ElementImpl;", nullptr, $PUBLIC, $virtualMethod(SchemaDOM, startElement, $ElementImpl*, $QName*, $XMLAttributes*, int32_t, int32_t, int32_t)},
-	{"startElement", "(Lcom/sun/org/apache/xerces/internal/xni/QName;Lcom/sun/org/apache/xerces/internal/xni/XMLAttributes;II)Lcom/sun/org/apache/xerces/internal/impl/xs/opti/ElementImpl;", nullptr, $PUBLIC, $virtualMethod(SchemaDOM, startElement, $ElementImpl*, $QName*, $XMLAttributes*, int32_t, int32_t)},
-	{"traverse", "(Lorg/w3c/dom/Node;I)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SchemaDOM, traverse, void, $Node*, int32_t)},
-	{}
-};
-
-$ClassInfo _SchemaDOM_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.impl.xs.opti.SchemaDOM",
-	"com.sun.org.apache.xerces.internal.impl.xs.opti.DefaultDocument",
-	nullptr,
-	_SchemaDOM_FieldInfo_,
-	_SchemaDOM_MethodInfo_
-};
-
-$Object* allocate$SchemaDOM($Class* clazz) {
-	return $of($alloc(SchemaDOM));
-}
 
 void SchemaDOM::init$() {
 	$DefaultDocument::init$();
@@ -151,7 +87,7 @@ $ElementImpl* SchemaDOM::emptyElement($QName* element, $XMLAttributes* attribute
 }
 
 void SchemaDOM::processElement($QName* element, $XMLAttributes* attributes, $ElementImpl* node) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set($nc(node), prefix, $nc(element)->prefix);
 	$set(node, localpart, element->localpart);
 	$set(node, rawname, element->rawname);
@@ -159,25 +95,24 @@ void SchemaDOM::processElement($QName* element, $XMLAttributes* attributes, $Ele
 	$set(node, schemaDOM, this);
 	$var($AttrArray, attrs, $new($AttrArray, $nc(attributes)->getLength()));
 	for (int32_t i = 0; i < attributes->getLength(); ++i) {
-		$var($Element, var$0, static_cast<$Element*>(node));
-		$var($String, var$1, attributes->getPrefix(i));
-		$var($String, var$2, attributes->getLocalName(i));
-		$var($String, var$3, attributes->getQName(i));
-		$var($String, var$4, attributes->getURI(i));
-		attrs->set(i, $$new($AttrImpl, var$0, var$1, var$2, var$3, var$4, $(attributes->getValue(i))));
+		$var($String, var$0, attributes->getPrefix(i));
+		$var($String, var$1, attributes->getLocalName(i));
+		$var($String, var$2, attributes->getQName(i));
+		$var($String, var$3, attributes->getURI(i));
+		attrs->set(i, $$new($AttrImpl, node, var$0, var$1, var$2, var$3, $(attributes->getValue(i))));
 	}
 	$set(node, attrs, attrs);
 	if (this->nextFreeLoc == $nc(this->relations)->length) {
 		resizeRelations();
 	}
 	if (!$equals($nc($nc(this->relations)->get(this->currLoc))->get(0), this->parent)) {
-		$nc($nc(this->relations)->get(this->nextFreeLoc))->set(0, this->parent);
+		$nc(this->relations->get(this->nextFreeLoc))->set(0, this->parent);
 		this->currLoc = this->nextFreeLoc++;
 	}
 	bool foundPlace = false;
 	int32_t i = 1;
-	for (i = 1; i < $nc($nc(this->relations)->get(this->currLoc))->length; ++i) {
-		if ($nc($nc(this->relations)->get(this->currLoc))->get(i) == nullptr) {
+	for (i = 1; i < $nc(this->relations->get(this->currLoc))->length; ++i) {
+		if ($nc(this->relations->get(this->currLoc))->get(i) == nullptr) {
 			foundPlace = true;
 			break;
 		}
@@ -199,17 +134,17 @@ void SchemaDOM::endElement() {
 void SchemaDOM::comment($XMLString* text) {
 	$nc(this->fAnnotationBuffer)->append("<!--"_s);
 	if ($nc(text)->length > 0) {
-		$nc(this->fAnnotationBuffer)->append(text->ch, text->offset, text->length);
+		this->fAnnotationBuffer->append(text->ch, text->offset, text->length);
 	}
-	$nc(this->fAnnotationBuffer)->append("-->"_s);
+	this->fAnnotationBuffer->append("-->"_s);
 }
 
 void SchemaDOM::processingInstruction($String* target, $XMLString* data) {
 	$nc(this->fAnnotationBuffer)->append("<?"_s)->append(target);
 	if ($nc(data)->length > 0) {
-		$nc(this->fAnnotationBuffer)->append(u' ')->append(data->ch, data->offset, data->length);
+		this->fAnnotationBuffer->append(u' ')->append(data->ch, data->offset, data->length);
 	}
-	$nc(this->fAnnotationBuffer)->append("?>"_s);
+	this->fAnnotationBuffer->append("?>"_s);
 }
 
 void SchemaDOM::characters($XMLString* text) {
@@ -230,7 +165,7 @@ void SchemaDOM::characters($XMLString* text) {
 			}
 		}
 	} else {
-		$nc(this->fAnnotationBuffer)->append($nc(text)->ch, text->offset, text->length);
+		$nc(this->fAnnotationBuffer)->append($nc(text)->ch, $nc(text)->offset, $nc(text)->length);
 	}
 }
 
@@ -240,7 +175,7 @@ void SchemaDOM::charactersRaw($String* text) {
 
 void SchemaDOM::endAnnotation($QName* elemName, $ElementImpl* annotation) {
 	$nc(this->fAnnotationBuffer)->append("\n</"_s)->append($nc(elemName)->rawname)->append(">"_s);
-	$set($nc(annotation), fAnnotation, $nc(this->fAnnotationBuffer)->toString());
+	$set($nc(annotation), fAnnotation, this->fAnnotationBuffer->toString());
 	$set(this, fAnnotationBuffer, nullptr);
 }
 
@@ -259,7 +194,7 @@ void SchemaDOM::endSyntheticAnnotationElement($QName* elemName, bool complete) {
 void SchemaDOM::endSyntheticAnnotationElement($String* elemRawName, bool complete) {
 	if (complete) {
 		$nc(this->fAnnotationBuffer)->append("\n</"_s)->append(elemRawName)->append(">"_s);
-		$set($nc(this->parent), fSyntheticAnnotation, $nc(this->fAnnotationBuffer)->toString());
+		$set($nc(this->parent), fSyntheticAnnotation, this->fAnnotationBuffer->toString());
 		$set(this, fAnnotationBuffer, nullptr);
 	} else {
 		$nc(this->fAnnotationBuffer)->append("</"_s)->append(elemRawName)->append(">"_s);
@@ -277,10 +212,10 @@ void SchemaDOM::endAnnotationCDATA() {
 }
 
 void SchemaDOM::resizeRelations() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($NodeImplArray2, temp, $new($NodeImplArray2, $nc(this->relations)->length + SchemaDOM::relationsRowResizeFactor));
-	$System::arraycopy(this->relations, 0, temp, 0, $nc(this->relations)->length);
-	for (int32_t i = $nc(this->relations)->length; i < temp->length; ++i) {
+	$System::arraycopy(this->relations, 0, temp, 0, this->relations->length);
+	for (int32_t i = this->relations->length; i < temp->length; ++i) {
 		temp->set(i, $$new($NodeImplArray, SchemaDOM::relationsColResizeFactor));
 	}
 	$set(this, relations, temp);
@@ -288,29 +223,29 @@ void SchemaDOM::resizeRelations() {
 
 void SchemaDOM::resizeRelations(int32_t i) {
 	$var($NodeImplArray, temp, $new($NodeImplArray, $nc($nc(this->relations)->get(i))->length + SchemaDOM::relationsColResizeFactor));
-	$System::arraycopy($nc(this->relations)->get(i), 0, temp, 0, $nc($nc(this->relations)->get(i))->length);
-	$nc(this->relations)->set(i, temp);
+	$System::arraycopy(this->relations->get(i), 0, temp, 0, $nc(this->relations->get(i))->length);
+	this->relations->set(i, temp);
 }
 
 void SchemaDOM::reset() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->relations != nullptr) {
-		for (int32_t i = 0; i < $nc(this->relations)->length; ++i) {
-			for (int32_t j = 0; j < $nc($nc(this->relations)->get(i))->length; ++j) {
-				$nc($nc(this->relations)->get(i))->set(j, nullptr);
+		for (int32_t i = 0; i < this->relations->length; ++i) {
+			for (int32_t j = 0; j < $nc(this->relations->get(i))->length; ++j) {
+				$nc(this->relations->get(i))->set(j, nullptr);
 			}
 		}
 	}
 	$set(this, relations, $new($NodeImplArray2, SchemaDOM::relationsRowResizeFactor));
 	$set(this, parent, $new($ElementImpl, 0, 0, 0));
-	$set($nc(this->parent), rawname, "DOCUMENT_NODE"_s);
+	$set(this->parent, rawname, "DOCUMENT_NODE"_s);
 	this->currLoc = 0;
 	this->nextFreeLoc = 1;
 	this->inCDATA = false;
 	for (int32_t i = 0; i < SchemaDOM::relationsRowResizeFactor; ++i) {
-		$nc(this->relations)->set(i, $$new($NodeImplArray, SchemaDOM::relationsColResizeFactor));
+		this->relations->set(i, $$new($NodeImplArray, SchemaDOM::relationsColResizeFactor));
 	}
-	$nc($nc(this->relations)->get(this->currLoc))->set(0, this->parent);
+	$nc(this->relations->get(this->currLoc))->set(0, this->parent);
 }
 
 void SchemaDOM::printDOM() {
@@ -318,31 +253,35 @@ void SchemaDOM::printDOM() {
 
 void SchemaDOM::traverse($Node* node, int32_t depth) {
 	$init(SchemaDOM);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	indent(depth);
 	$nc($System::out)->print($$str({"<"_s, $($nc(node)->getNodeName())}));
-	if ($nc(node)->hasAttributes()) {
+	if (node->hasAttributes()) {
 		$var($NamedNodeMap, attrs, node->getAttributes());
 		for (int32_t i = 0; i < $nc(attrs)->getLength(); ++i) {
-			$var($String, var$1, $$str({"  "_s, $($nc(($cast($Attr, $(attrs->item(i)))))->getName()), "=\""_s}));
-			$var($String, var$0, $$concat(var$1, $($nc(($cast($Attr, $(attrs->item(i)))))->getValue())));
-			$nc($System::out)->print($$concat(var$0, "\""_s));
+			$var($StringBuilder, var$0, $new($StringBuilder));
+			var$0->append("  "_s);
+			var$0->append($($$sure($Attr, attrs->item(i))->getName()));
+			var$0->append("=\""_s);
+			var$0->append($($$sure($Attr, attrs->item(i))->getValue()));
+			var$0->append("\""_s);
+			$System::out->print($$str(var$0));
 		}
 	}
-	if ($nc(node)->hasChildNodes()) {
-		$nc($System::out)->println(">"_s);
+	if (node->hasChildNodes()) {
+		$System::out->println(">"_s);
 		depth += 4;
 		{
 			$var($Node, child, node->getFirstChild());
-			for (; child != nullptr; $assign(child, $nc(child)->getNextSibling())) {
+			for (; child != nullptr; $assign(child, child->getNextSibling())) {
 				traverse(child, depth);
 			}
 		}
 		depth -= 4;
 		indent(depth);
-		$nc($System::out)->println($$str({"</"_s, $(node->getNodeName()), ">"_s}));
+		$System::out->println($$str({"</"_s, $(node->getNodeName()), ">"_s}));
 	} else {
-		$nc($System::out)->println("/>"_s);
+		$System::out->println("/>"_s);
 	}
 }
 
@@ -366,7 +305,7 @@ void SchemaDOM::startAnnotation($QName* elemName, $XMLAttributes* attributes, $N
 }
 
 void SchemaDOM::startAnnotation($String* elemRawName, $XMLAttributes* attributes, $NamespaceContext* namespaceContext) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->fAnnotationBuffer == nullptr) {
 		$set(this, fAnnotationBuffer, $new($StringBuffer, 256));
 	}
@@ -407,7 +346,7 @@ void SchemaDOM::startAnnotationElement($QName* elemName, $XMLAttributes* attribu
 }
 
 void SchemaDOM::startAnnotationElement($String* elemRawName, $XMLAttributes* attributes) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(this->fAnnotationBuffer)->append("<"_s)->append(elemRawName);
 	for (int32_t i = 0; i < $nc(attributes)->getLength(); ++i) {
 		$var($String, aValue, attributes->getValue(i));
@@ -430,7 +369,7 @@ $String* SchemaDOM::processAttValue($String* original) {
 
 $String* SchemaDOM::escapeAttValue($String* original, int32_t from) {
 	$init(SchemaDOM);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t i = 0;
 	int32_t length = $nc(original)->length();
 	$var($StringBuffer, newVal, $new($StringBuffer, length));
@@ -460,7 +399,64 @@ SchemaDOM::SchemaDOM() {
 }
 
 $Class* SchemaDOM::load$($String* name, bool initialize) {
-	$loadClass(SchemaDOM, name, initialize, &_SchemaDOM_ClassInfo_, allocate$SchemaDOM);
+	$FieldInfo fieldInfos$$[] = {
+		{"relationsRowResizeFactor", "I", nullptr, $STATIC | $FINAL, $constField(SchemaDOM, relationsRowResizeFactor)},
+		{"relationsColResizeFactor", "I", nullptr, $STATIC | $FINAL, $constField(SchemaDOM, relationsColResizeFactor)},
+		{"relations", "[[Lcom/sun/org/apache/xerces/internal/impl/xs/opti/NodeImpl;", nullptr, 0, $field(SchemaDOM, relations)},
+		{"parent", "Lcom/sun/org/apache/xerces/internal/impl/xs/opti/ElementImpl;", nullptr, 0, $field(SchemaDOM, parent)},
+		{"currLoc", "I", nullptr, 0, $field(SchemaDOM, currLoc)},
+		{"nextFreeLoc", "I", nullptr, 0, $field(SchemaDOM, nextFreeLoc)},
+		{"hidden", "Z", nullptr, 0, $field(SchemaDOM, hidden)},
+		{"inCDATA", "Z", nullptr, 0, $field(SchemaDOM, inCDATA)},
+		{"fAnnotationBuffer", "Ljava/lang/StringBuffer;", nullptr, $PRIVATE, $field(SchemaDOM, fAnnotationBuffer)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SchemaDOM, init$, void)},
+		{"characters", "(Lcom/sun/org/apache/xerces/internal/xni/XMLString;)V", nullptr, 0, $virtualMethod(SchemaDOM, characters, void, $XMLString*)},
+		{"charactersRaw", "(Ljava/lang/String;)V", nullptr, 0, $virtualMethod(SchemaDOM, charactersRaw, void, $String*)},
+		{"comment", "(Lcom/sun/org/apache/xerces/internal/xni/XMLString;)V", nullptr, 0, $virtualMethod(SchemaDOM, comment, void, $XMLString*)},
+		{"emptyElement", "(Lcom/sun/org/apache/xerces/internal/xni/QName;Lcom/sun/org/apache/xerces/internal/xni/XMLAttributes;III)Lcom/sun/org/apache/xerces/internal/impl/xs/opti/ElementImpl;", nullptr, $PUBLIC, $virtualMethod(SchemaDOM, emptyElement, $ElementImpl*, $QName*, $XMLAttributes*, int32_t, int32_t, int32_t)},
+		{"emptyElement", "(Lcom/sun/org/apache/xerces/internal/xni/QName;Lcom/sun/org/apache/xerces/internal/xni/XMLAttributes;II)Lcom/sun/org/apache/xerces/internal/impl/xs/opti/ElementImpl;", nullptr, $PUBLIC, $virtualMethod(SchemaDOM, emptyElement, $ElementImpl*, $QName*, $XMLAttributes*, int32_t, int32_t)},
+		{"endAnnotation", "(Lcom/sun/org/apache/xerces/internal/xni/QName;Lcom/sun/org/apache/xerces/internal/impl/xs/opti/ElementImpl;)V", nullptr, 0, $virtualMethod(SchemaDOM, endAnnotation, void, $QName*, $ElementImpl*)},
+		{"endAnnotationCDATA", "()V", nullptr, 0, $virtualMethod(SchemaDOM, endAnnotationCDATA, void)},
+		{"endAnnotationElement", "(Lcom/sun/org/apache/xerces/internal/xni/QName;)V", nullptr, 0, $virtualMethod(SchemaDOM, endAnnotationElement, void, $QName*)},
+		{"endAnnotationElement", "(Ljava/lang/String;)V", nullptr, 0, $virtualMethod(SchemaDOM, endAnnotationElement, void, $String*)},
+		{"endElement", "()V", nullptr, $PUBLIC, $virtualMethod(SchemaDOM, endElement, void)},
+		{"endSyntheticAnnotationElement", "(Lcom/sun/org/apache/xerces/internal/xni/QName;Z)V", nullptr, 0, $virtualMethod(SchemaDOM, endSyntheticAnnotationElement, void, $QName*, bool)},
+		{"endSyntheticAnnotationElement", "(Ljava/lang/String;Z)V", nullptr, 0, $virtualMethod(SchemaDOM, endSyntheticAnnotationElement, void, $String*, bool)},
+		{"escapeAttValue", "(Ljava/lang/String;I)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(SchemaDOM, escapeAttValue, $String*, $String*, int32_t)},
+		{"getDocumentElement", "()Lorg/w3c/dom/Element;", nullptr, $PUBLIC, $virtualMethod(SchemaDOM, getDocumentElement, $Element*)},
+		{"getImplementation", "()Lorg/w3c/dom/DOMImplementation;", nullptr, $PUBLIC, $virtualMethod(SchemaDOM, getImplementation, $DOMImplementation*)},
+		{"indent", "(I)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SchemaDOM, indent, void, int32_t)},
+		{"printDOM", "()V", nullptr, $PUBLIC, $virtualMethod(SchemaDOM, printDOM, void)},
+		{"processAttValue", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(SchemaDOM, processAttValue, $String*, $String*)},
+		{"processElement", "(Lcom/sun/org/apache/xerces/internal/xni/QName;Lcom/sun/org/apache/xerces/internal/xni/XMLAttributes;Lcom/sun/org/apache/xerces/internal/impl/xs/opti/ElementImpl;)V", nullptr, $PRIVATE, $method(SchemaDOM, processElement, void, $QName*, $XMLAttributes*, $ElementImpl*)},
+		{"processingInstruction", "(Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/xni/XMLString;)V", nullptr, 0, $virtualMethod(SchemaDOM, processingInstruction, void, $String*, $XMLString*)},
+		{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(SchemaDOM, reset, void)},
+		{"resizeRelations", "()V", nullptr, $PRIVATE, $method(SchemaDOM, resizeRelations, void)},
+		{"resizeRelations", "(I)V", nullptr, $PRIVATE, $method(SchemaDOM, resizeRelations, void, int32_t)},
+		{"startAnnotation", "(Lcom/sun/org/apache/xerces/internal/xni/QName;Lcom/sun/org/apache/xerces/internal/xni/XMLAttributes;Lcom/sun/org/apache/xerces/internal/xni/NamespaceContext;)V", nullptr, 0, $virtualMethod(SchemaDOM, startAnnotation, void, $QName*, $XMLAttributes*, $NamespaceContext*)},
+		{"startAnnotation", "(Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/xni/XMLAttributes;Lcom/sun/org/apache/xerces/internal/xni/NamespaceContext;)V", nullptr, 0, $virtualMethod(SchemaDOM, startAnnotation, void, $String*, $XMLAttributes*, $NamespaceContext*)},
+		{"startAnnotationCDATA", "()V", nullptr, 0, $virtualMethod(SchemaDOM, startAnnotationCDATA, void)},
+		{"startAnnotationElement", "(Lcom/sun/org/apache/xerces/internal/xni/QName;Lcom/sun/org/apache/xerces/internal/xni/XMLAttributes;)V", nullptr, 0, $virtualMethod(SchemaDOM, startAnnotationElement, void, $QName*, $XMLAttributes*)},
+		{"startAnnotationElement", "(Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/xni/XMLAttributes;)V", nullptr, 0, $virtualMethod(SchemaDOM, startAnnotationElement, void, $String*, $XMLAttributes*)},
+		{"startElement", "(Lcom/sun/org/apache/xerces/internal/xni/QName;Lcom/sun/org/apache/xerces/internal/xni/XMLAttributes;III)Lcom/sun/org/apache/xerces/internal/impl/xs/opti/ElementImpl;", nullptr, $PUBLIC, $virtualMethod(SchemaDOM, startElement, $ElementImpl*, $QName*, $XMLAttributes*, int32_t, int32_t, int32_t)},
+		{"startElement", "(Lcom/sun/org/apache/xerces/internal/xni/QName;Lcom/sun/org/apache/xerces/internal/xni/XMLAttributes;II)Lcom/sun/org/apache/xerces/internal/impl/xs/opti/ElementImpl;", nullptr, $PUBLIC, $virtualMethod(SchemaDOM, startElement, $ElementImpl*, $QName*, $XMLAttributes*, int32_t, int32_t)},
+		{"traverse", "(Lorg/w3c/dom/Node;I)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SchemaDOM, traverse, void, $Node*, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.impl.xs.opti.SchemaDOM",
+		"com.sun.org.apache.xerces.internal.impl.xs.opti.DefaultDocument",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SchemaDOM, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SchemaDOM));
+	});
 	return class$;
 }
 

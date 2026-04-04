@@ -1,5 +1,4 @@
 #include <javax/swing/PopupFactory$HeadlessPopup.h>
-
 #include <java/awt/BorderLayout.h>
 #include <java/awt/Component.h>
 #include <java/awt/LayoutManager.h>
@@ -11,7 +10,6 @@
 
 using $BorderLayout = ::java::awt::BorderLayout;
 using $Component = ::java::awt::Component;
-using $LayoutManager = ::java::awt::LayoutManager;
 using $Panel = ::java::awt::Panel;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -21,41 +19,6 @@ using $PopupFactory$ContainerPopup = ::javax::swing::PopupFactory$ContainerPopup
 
 namespace javax {
 	namespace swing {
-
-$MethodInfo _PopupFactory$HeadlessPopup_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(PopupFactory$HeadlessPopup, init$, void)},
-	{"createComponent", "(Ljava/awt/Component;)Ljava/awt/Component;", nullptr, 0, $virtualMethod(PopupFactory$HeadlessPopup, createComponent, $Component*, $Component*)},
-	{"getHeadlessPopup", "(Ljava/awt/Component;Ljava/awt/Component;II)Ljavax/swing/Popup;", nullptr, $STATIC, $staticMethod(PopupFactory$HeadlessPopup, getHeadlessPopup, $Popup*, $Component*, $Component*, int32_t, int32_t)},
-	{"hide", "()V", nullptr, $PUBLIC, $virtualMethod(PopupFactory$HeadlessPopup, hide, void)},
-	{"show", "()V", nullptr, $PUBLIC, $virtualMethod(PopupFactory$HeadlessPopup, show, void)},
-	{}
-};
-
-$InnerClassInfo _PopupFactory$HeadlessPopup_InnerClassesInfo_[] = {
-	{"javax.swing.PopupFactory$HeadlessPopup", "javax.swing.PopupFactory", "HeadlessPopup", $PRIVATE | $STATIC},
-	{"javax.swing.PopupFactory$ContainerPopup", "javax.swing.PopupFactory", "ContainerPopup", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _PopupFactory$HeadlessPopup_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.PopupFactory$HeadlessPopup",
-	"javax.swing.PopupFactory$ContainerPopup",
-	nullptr,
-	nullptr,
-	_PopupFactory$HeadlessPopup_MethodInfo_,
-	nullptr,
-	nullptr,
-	_PopupFactory$HeadlessPopup_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.PopupFactory"
-};
-
-$Object* allocate$PopupFactory$HeadlessPopup($Class* clazz) {
-	return $of($alloc(PopupFactory$HeadlessPopup));
-}
 
 void PopupFactory$HeadlessPopup::init$() {
 	$PopupFactory$ContainerPopup::init$();
@@ -82,7 +45,37 @@ PopupFactory$HeadlessPopup::PopupFactory$HeadlessPopup() {
 }
 
 $Class* PopupFactory$HeadlessPopup::load$($String* name, bool initialize) {
-	$loadClass(PopupFactory$HeadlessPopup, name, initialize, &_PopupFactory$HeadlessPopup_ClassInfo_, allocate$PopupFactory$HeadlessPopup);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(PopupFactory$HeadlessPopup, init$, void)},
+		{"createComponent", "(Ljava/awt/Component;)Ljava/awt/Component;", nullptr, 0, $virtualMethod(PopupFactory$HeadlessPopup, createComponent, $Component*, $Component*)},
+		{"getHeadlessPopup", "(Ljava/awt/Component;Ljava/awt/Component;II)Ljavax/swing/Popup;", nullptr, $STATIC, $staticMethod(PopupFactory$HeadlessPopup, getHeadlessPopup, $Popup*, $Component*, $Component*, int32_t, int32_t)},
+		{"hide", "()V", nullptr, $PUBLIC, $virtualMethod(PopupFactory$HeadlessPopup, hide, void)},
+		{"show", "()V", nullptr, $PUBLIC, $virtualMethod(PopupFactory$HeadlessPopup, show, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.PopupFactory$HeadlessPopup", "javax.swing.PopupFactory", "HeadlessPopup", $PRIVATE | $STATIC},
+		{"javax.swing.PopupFactory$ContainerPopup", "javax.swing.PopupFactory", "ContainerPopup", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.PopupFactory$HeadlessPopup",
+		"javax.swing.PopupFactory$ContainerPopup",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.PopupFactory"
+	};
+	$loadClass(PopupFactory$HeadlessPopup, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PopupFactory$HeadlessPopup);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <TestThread.h>
-
 #include <java/awt/Robot.h>
 #include <java/awt/event/KeyEvent.h>
 #include <java/lang/InterruptedException.h>
@@ -14,30 +13,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InterruptedException = ::java::lang::InterruptedException;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
-
-$FieldInfo _TestThread_FieldInfo_[] = {
-	{"testRobot", "Ljava/awt/Robot;", nullptr, 0, $field(TestThread, testRobot)},
-	{}
-};
-
-$MethodInfo _TestThread_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(TestThread, init$, void), "java.awt.AWTException"},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestThread, run, void)},
-	{}
-};
-
-$ClassInfo _TestThread_ClassInfo_ = {
-	$ACC_SUPER,
-	"TestThread",
-	"java.lang.Thread",
-	nullptr,
-	_TestThread_FieldInfo_,
-	_TestThread_MethodInfo_
-};
-
-$Object* allocate$TestThread($Class* clazz) {
-	return $of($alloc(TestThread));
-}
 
 void TestThread::init$() {
 	$Thread::init$();
@@ -59,7 +34,26 @@ TestThread::TestThread() {
 }
 
 $Class* TestThread::load$($String* name, bool initialize) {
-	$loadClass(TestThread, name, initialize, &_TestThread_ClassInfo_, allocate$TestThread);
+	$FieldInfo fieldInfos$$[] = {
+		{"testRobot", "Ljava/awt/Robot;", nullptr, 0, $field(TestThread, testRobot)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(TestThread, init$, void), "java.awt.AWTException"},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestThread, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"TestThread",
+		"java.lang.Thread",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TestThread, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TestThread);
+	});
 	return class$;
 }
 

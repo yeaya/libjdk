@@ -1,5 +1,4 @@
 #include <org/jcp/xml/dsig/internal/dom/DOMXSLTTransform.h>
-
 #include <java/security/InvalidAlgorithmParameterException.h>
 #include <java/security/spec/AlgorithmParameterSpec.h>
 #include <javax/xml/crypto/XMLCryptoContext.h>
@@ -33,28 +32,6 @@ namespace org {
 				namespace internal {
 					namespace dom {
 
-$MethodInfo _DOMXSLTTransform_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(DOMXSLTTransform, init$, void)},
-	{"init", "(Ljavax/xml/crypto/dsig/spec/TransformParameterSpec;)V", nullptr, $PUBLIC, $virtualMethod(DOMXSLTTransform, init, void, $TransformParameterSpec*), "java.security.InvalidAlgorithmParameterException"},
-	{"init", "(Ljavax/xml/crypto/XMLStructure;Ljavax/xml/crypto/XMLCryptoContext;)V", nullptr, $PUBLIC, $virtualMethod(DOMXSLTTransform, init, void, $XMLStructure*, $XMLCryptoContext*), "java.security.InvalidAlgorithmParameterException"},
-	{"marshalParams", "(Ljavax/xml/crypto/XMLStructure;Ljavax/xml/crypto/XMLCryptoContext;)V", nullptr, $PUBLIC, $virtualMethod(DOMXSLTTransform, marshalParams, void, $XMLStructure*, $XMLCryptoContext*), "javax.xml.crypto.MarshalException"},
-	{"unmarshalParams", "(Lorg/w3c/dom/Element;)V", nullptr, $PRIVATE, $method(DOMXSLTTransform, unmarshalParams, void, $Element*)},
-	{}
-};
-
-$ClassInfo _DOMXSLTTransform_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"org.jcp.xml.dsig.internal.dom.DOMXSLTTransform",
-	"org.jcp.xml.dsig.internal.dom.ApacheTransform",
-	nullptr,
-	nullptr,
-	_DOMXSLTTransform_MethodInfo_
-};
-
-$Object* allocate$DOMXSLTTransform($Class* clazz) {
-	return $of($alloc(DOMXSLTTransform));
-}
-
 void DOMXSLTTransform::init$() {
 	$ApacheTransform::init$();
 }
@@ -79,10 +56,10 @@ void DOMXSLTTransform::unmarshalParams($Element* sheet) {
 }
 
 void DOMXSLTTransform::marshalParams($XMLStructure* parent, $XMLCryptoContext* context) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$ApacheTransform::marshalParams(parent, context);
 	$var($XSLTTransformParameterSpec, xp, $cast($XSLTTransformParameterSpec, getParameterSpec()));
-	$var($Node, xsltElem, $nc(($cast($DOMStructure, $($nc(xp)->getStylesheet()))))->getNode());
+	$var($Node, xsltElem, $$sure($DOMStructure, $nc(xp)->getStylesheet())->getNode());
 	$DOMUtils::appendChild(this->transformElem, xsltElem);
 }
 
@@ -90,7 +67,25 @@ DOMXSLTTransform::DOMXSLTTransform() {
 }
 
 $Class* DOMXSLTTransform::load$($String* name, bool initialize) {
-	$loadClass(DOMXSLTTransform, name, initialize, &_DOMXSLTTransform_ClassInfo_, allocate$DOMXSLTTransform);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(DOMXSLTTransform, init$, void)},
+		{"init", "(Ljavax/xml/crypto/dsig/spec/TransformParameterSpec;)V", nullptr, $PUBLIC, $virtualMethod(DOMXSLTTransform, init, void, $TransformParameterSpec*), "java.security.InvalidAlgorithmParameterException"},
+		{"init", "(Ljavax/xml/crypto/XMLStructure;Ljavax/xml/crypto/XMLCryptoContext;)V", nullptr, $PUBLIC, $virtualMethod(DOMXSLTTransform, init, void, $XMLStructure*, $XMLCryptoContext*), "java.security.InvalidAlgorithmParameterException"},
+		{"marshalParams", "(Ljavax/xml/crypto/XMLStructure;Ljavax/xml/crypto/XMLCryptoContext;)V", nullptr, $PUBLIC, $virtualMethod(DOMXSLTTransform, marshalParams, void, $XMLStructure*, $XMLCryptoContext*), "javax.xml.crypto.MarshalException"},
+		{"unmarshalParams", "(Lorg/w3c/dom/Element;)V", nullptr, $PRIVATE, $method(DOMXSLTTransform, unmarshalParams, void, $Element*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"org.jcp.xml.dsig.internal.dom.DOMXSLTTransform",
+		"org.jcp.xml.dsig.internal.dom.ApacheTransform",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(DOMXSLTTransform, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DOMXSLTTransform));
+	});
 	return class$;
 }
 

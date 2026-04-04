@@ -40,6 +40,7 @@ class $import MonitorNotification : public ::javax::management::Notification {
 	$class(MonitorNotification, 0, ::javax::management::Notification)
 public:
 	MonitorNotification();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* type, Object$* source, int64_t sequenceNumber, int64_t timeStamp, $String* msg, ::javax::management::ObjectName* obsObj, $String* obsAtt, Object$* derGauge, Object$* trigger);
 	virtual $Object* getDerivedGauge();
 	virtual $String* getObservedAttribute();
@@ -55,7 +56,7 @@ public:
 	static $String* THRESHOLD_LOW_VALUE_EXCEEDED;
 	static $String* STRING_TO_COMPARE_VALUE_MATCHED;
 	static $String* STRING_TO_COMPARE_VALUE_DIFFERED;
-	static const int64_t serialVersionUID = (int64_t)0xC00C6BEA87CDCD0C;
+	static const int64_t serialVersionUID = (int64_t)0xc00c6bea87cdcd0c;
 	::javax::management::ObjectName* observedObject = nullptr;
 	$String* observedAttribute = nullptr;
 	$Object* derivedGauge = nullptr;

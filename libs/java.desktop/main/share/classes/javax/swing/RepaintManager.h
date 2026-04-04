@@ -82,6 +82,7 @@ class $export RepaintManager : public ::java::lang::Object {
 	$class(RepaintManager, 0, ::java::lang::Object)
 public:
 	RepaintManager();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(int16_t bufferStrategyType);
 	::java::awt::Image* _getOffscreenBuffer(::java::awt::Component* c, int32_t proposedWidth, int32_t proposedHeight);

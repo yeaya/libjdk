@@ -38,6 +38,7 @@ class $import MemoryUsageCompositeData : public ::sun::management::LazyComposite
 	$class(MemoryUsageCompositeData, 0, ::sun::management::LazyCompositeData)
 public:
 	MemoryUsageCompositeData();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::lang::management::MemoryUsage* u);
 	static int64_t getCommitted(::javax::management::openmbean::CompositeData* cd);
 	virtual ::javax::management::openmbean::CompositeData* getCompositeData() override;
@@ -55,7 +56,7 @@ public:
 	static $String* COMMITTED;
 	static $String* MAX;
 	static $StringArray* memoryUsageItemNames;
-	static const int64_t serialVersionUID = (int64_t)0x89FAAFE6AB561CA1;
+	static const int64_t serialVersionUID = (int64_t)0x89faafe6ab561ca1;
 };
 
 	} // management

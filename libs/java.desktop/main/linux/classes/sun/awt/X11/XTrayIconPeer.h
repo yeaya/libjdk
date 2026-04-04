@@ -54,6 +54,7 @@ public:
 	virtual bool equals(Object$* arg0) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::awt::TrayIcon* target);
 	virtual void addListeners();
 	void addXED(int64_t window, ::sun::awt::X11::XEventDispatcher* xed, int64_t mask);

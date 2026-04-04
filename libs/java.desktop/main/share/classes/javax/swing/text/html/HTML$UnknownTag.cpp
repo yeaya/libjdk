@@ -1,5 +1,4 @@
 #include <javax/swing/text/html/HTML$UnknownTag.h>
-
 #include <java/io/ObjectInputStream.h>
 #include <java/io/ObjectOutputStream.h>
 #include <javax/swing/text/html/HTML$Tag.h>
@@ -18,44 +17,6 @@ namespace javax {
 		namespace text {
 			namespace html {
 
-$MethodInfo _HTML$UnknownTag_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(HTML$UnknownTag, init$, void, $String*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(HTML$UnknownTag, equals, bool, Object$*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(HTML$UnknownTag, hashCode, int32_t)},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(HTML$UnknownTag, readObject, void, $ObjectInputStream*), "java.lang.ClassNotFoundException,java.io.IOException"},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(HTML$UnknownTag, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _HTML$UnknownTag_InnerClassesInfo_[] = {
-	{"javax.swing.text.html.HTML$UnknownTag", "javax.swing.text.html.HTML", "UnknownTag", $PUBLIC | $STATIC},
-	{"javax.swing.text.html.HTML$Tag", "javax.swing.text.html.HTML", "Tag", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _HTML$UnknownTag_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.text.html.HTML$UnknownTag",
-	"javax.swing.text.html.HTML$Tag",
-	"java.io.Serializable",
-	nullptr,
-	_HTML$UnknownTag_MethodInfo_,
-	nullptr,
-	nullptr,
-	_HTML$UnknownTag_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.html.HTML"
-};
-
-$Object* allocate$HTML$UnknownTag($Class* clazz) {
-	return $of($alloc(HTML$UnknownTag));
-}
-
 $String* HTML$UnknownTag::toString() {
 	 return this->$HTML$Tag::toString();
 }
@@ -73,13 +34,13 @@ void HTML$UnknownTag::init$($String* id) {
 }
 
 int32_t HTML$UnknownTag::hashCode() {
-	return $nc($(toString()))->hashCode();
+	return $$nc(toString())->hashCode();
 }
 
 bool HTML$UnknownTag::equals(Object$* obj) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($instanceOf(HTML$UnknownTag, obj)) {
-		return $nc($(toString()))->equals($($nc($of(obj))->toString()));
+		return $$nc(toString())->equals($($of(obj)->toString()));
 	}
 	return false;
 }
@@ -104,7 +65,40 @@ HTML$UnknownTag::HTML$UnknownTag() {
 }
 
 $Class* HTML$UnknownTag::load$($String* name, bool initialize) {
-	$loadClass(HTML$UnknownTag, name, initialize, &_HTML$UnknownTag_ClassInfo_, allocate$HTML$UnknownTag);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(HTML$UnknownTag, init$, void, $String*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(HTML$UnknownTag, equals, bool, Object$*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(HTML$UnknownTag, hashCode, int32_t)},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(HTML$UnknownTag, readObject, void, $ObjectInputStream*), "java.lang.ClassNotFoundException,java.io.IOException"},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(HTML$UnknownTag, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.html.HTML$UnknownTag", "javax.swing.text.html.HTML", "UnknownTag", $PUBLIC | $STATIC},
+		{"javax.swing.text.html.HTML$Tag", "javax.swing.text.html.HTML", "Tag", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.text.html.HTML$UnknownTag",
+		"javax.swing.text.html.HTML$Tag",
+		"java.io.Serializable",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.html.HTML"
+	};
+	$loadClass(HTML$UnknownTag, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(HTML$UnknownTag));
+	});
 	return class$;
 }
 

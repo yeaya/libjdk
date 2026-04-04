@@ -1,5 +1,4 @@
 #include <javax/lang/model/util/TypeKindVisitor6$1.h>
-
 #include <java/lang/NoSuchFieldError.h>
 #include <javax/lang/model/type/TypeKind.h>
 #include <javax/lang/model/util/TypeKindVisitor6.h>
@@ -30,93 +29,57 @@ namespace javax {
 		namespace model {
 			namespace util {
 
-$FieldInfo _TypeKindVisitor6$1_FieldInfo_[] = {
-	{"$SwitchMap$javax$lang$model$type$TypeKind", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(TypeKindVisitor6$1, $SwitchMap$javax$lang$model$type$TypeKind)},
-	{}
-};
-
-$EnclosingMethodInfo _TypeKindVisitor6$1_EnclosingMethodInfo_ = {
-	"javax.lang.model.util.TypeKindVisitor6",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _TypeKindVisitor6$1_InnerClassesInfo_[] = {
-	{"javax.lang.model.util.TypeKindVisitor6$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{}
-};
-
-$ClassInfo _TypeKindVisitor6$1_ClassInfo_ = {
-	$ACC_SUPER | $SYNTHETIC,
-	"javax.lang.model.util.TypeKindVisitor6$1",
-	"java.lang.Object",
-	nullptr,
-	_TypeKindVisitor6$1_FieldInfo_,
-	nullptr,
-	nullptr,
-	&_TypeKindVisitor6$1_EnclosingMethodInfo_,
-	_TypeKindVisitor6$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.lang.model.util.TypeKindVisitor6"
-};
-
-$Object* allocate$TypeKindVisitor6$1($Class* clazz) {
-	return $of($alloc(TypeKindVisitor6$1));
-}
-
 $ints* TypeKindVisitor6$1::$SwitchMap$javax$lang$model$type$TypeKind = nullptr;
 
-void clinit$TypeKindVisitor6$1($Class* class$) {
+void TypeKindVisitor6$1::clinit$($Class* clazz) {
 	$assignStatic(TypeKindVisitor6$1::$SwitchMap$javax$lang$model$type$TypeKind, $new($ints, $($TypeKind::values())->length));
 	{
 		try {
-			$nc(TypeKindVisitor6$1::$SwitchMap$javax$lang$model$type$TypeKind)->set($TypeKind::BOOLEAN->ordinal(), 1);
+			TypeKindVisitor6$1::$SwitchMap$javax$lang$model$type$TypeKind->set($TypeKind::BOOLEAN->ordinal(), 1);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(TypeKindVisitor6$1::$SwitchMap$javax$lang$model$type$TypeKind)->set($TypeKind::BYTE->ordinal(), 2);
+			TypeKindVisitor6$1::$SwitchMap$javax$lang$model$type$TypeKind->set($TypeKind::BYTE->ordinal(), 2);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(TypeKindVisitor6$1::$SwitchMap$javax$lang$model$type$TypeKind)->set($TypeKind::SHORT->ordinal(), 3);
+			TypeKindVisitor6$1::$SwitchMap$javax$lang$model$type$TypeKind->set($TypeKind::SHORT->ordinal(), 3);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(TypeKindVisitor6$1::$SwitchMap$javax$lang$model$type$TypeKind)->set($TypeKind::INT->ordinal(), 4);
+			TypeKindVisitor6$1::$SwitchMap$javax$lang$model$type$TypeKind->set($TypeKind::INT->ordinal(), 4);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(TypeKindVisitor6$1::$SwitchMap$javax$lang$model$type$TypeKind)->set($TypeKind::LONG->ordinal(), 5);
+			TypeKindVisitor6$1::$SwitchMap$javax$lang$model$type$TypeKind->set($TypeKind::LONG->ordinal(), 5);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(TypeKindVisitor6$1::$SwitchMap$javax$lang$model$type$TypeKind)->set($TypeKind::CHAR->ordinal(), 6);
+			TypeKindVisitor6$1::$SwitchMap$javax$lang$model$type$TypeKind->set($TypeKind::CHAR->ordinal(), 6);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(TypeKindVisitor6$1::$SwitchMap$javax$lang$model$type$TypeKind)->set($TypeKind::FLOAT->ordinal(), 7);
+			TypeKindVisitor6$1::$SwitchMap$javax$lang$model$type$TypeKind->set($TypeKind::FLOAT->ordinal(), 7);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(TypeKindVisitor6$1::$SwitchMap$javax$lang$model$type$TypeKind)->set($TypeKind::DOUBLE->ordinal(), 8);
+			TypeKindVisitor6$1::$SwitchMap$javax$lang$model$type$TypeKind->set($TypeKind::DOUBLE->ordinal(), 8);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(TypeKindVisitor6$1::$SwitchMap$javax$lang$model$type$TypeKind)->set($TypeKind::VOID->ordinal(), 9);
+			TypeKindVisitor6$1::$SwitchMap$javax$lang$model$type$TypeKind->set($TypeKind::VOID->ordinal(), 9);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(TypeKindVisitor6$1::$SwitchMap$javax$lang$model$type$TypeKind)->set($TypeKind::PACKAGE->ordinal(), 10);
+			TypeKindVisitor6$1::$SwitchMap$javax$lang$model$type$TypeKind->set($TypeKind::PACKAGE->ordinal(), 10);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(TypeKindVisitor6$1::$SwitchMap$javax$lang$model$type$TypeKind)->set($TypeKind::MODULE->ordinal(), 11);
+			TypeKindVisitor6$1::$SwitchMap$javax$lang$model$type$TypeKind->set($TypeKind::MODULE->ordinal(), 11);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(TypeKindVisitor6$1::$SwitchMap$javax$lang$model$type$TypeKind)->set($TypeKind::NONE->ordinal(), 12);
+			TypeKindVisitor6$1::$SwitchMap$javax$lang$model$type$TypeKind->set($TypeKind::NONE->ordinal(), 12);
 		} catch ($NoSuchFieldError& ex) {
 		}
 	}
@@ -126,7 +89,37 @@ TypeKindVisitor6$1::TypeKindVisitor6$1() {
 }
 
 $Class* TypeKindVisitor6$1::load$($String* name, bool initialize) {
-	$loadClass(TypeKindVisitor6$1, name, initialize, &_TypeKindVisitor6$1_ClassInfo_, clinit$TypeKindVisitor6$1, allocate$TypeKindVisitor6$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"$SwitchMap$javax$lang$model$type$TypeKind", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(TypeKindVisitor6$1, $SwitchMap$javax$lang$model$type$TypeKind)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"javax.lang.model.util.TypeKindVisitor6",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.lang.model.util.TypeKindVisitor6$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $SYNTHETIC,
+		"javax.lang.model.util.TypeKindVisitor6$1",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		nullptr,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.lang.model.util.TypeKindVisitor6"
+	};
+	$loadClass(TypeKindVisitor6$1, name, initialize, &classInfo$$, TypeKindVisitor6$1::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(TypeKindVisitor6$1);
+	});
 	return class$;
 }
 

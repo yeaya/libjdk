@@ -1,5 +1,4 @@
 #include <javax/naming/LinkException.h>
-
 #include <javax/naming/Name.h>
 #include <javax/naming/NamingException.h>
 #include <jcpp.h>
@@ -12,44 +11,6 @@ using $NamingException = ::javax::naming::NamingException;
 
 namespace javax {
 	namespace naming {
-
-$FieldInfo _LinkException_FieldInfo_[] = {
-	{"linkResolvedName", "Ljavax/naming/Name;", nullptr, $PROTECTED, $field(LinkException, linkResolvedName)},
-	{"linkResolvedObj", "Ljava/lang/Object;", nullptr, $PROTECTED, $field(LinkException, linkResolvedObj)},
-	{"linkRemainingName", "Ljavax/naming/Name;", nullptr, $PROTECTED, $field(LinkException, linkRemainingName)},
-	{"linkExplanation", "Ljava/lang/String;", nullptr, $PROTECTED, $field(LinkException, linkExplanation)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LinkException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _LinkException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(LinkException, init$, void, $String*)},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(LinkException, init$, void)},
-	{"getLinkExplanation", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LinkException, getLinkExplanation, $String*)},
-	{"getLinkRemainingName", "()Ljavax/naming/Name;", nullptr, $PUBLIC, $virtualMethod(LinkException, getLinkRemainingName, $Name*)},
-	{"getLinkResolvedName", "()Ljavax/naming/Name;", nullptr, $PUBLIC, $virtualMethod(LinkException, getLinkResolvedName, $Name*)},
-	{"getLinkResolvedObj", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LinkException, getLinkResolvedObj, $Object*)},
-	{"setLinkExplanation", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(LinkException, setLinkExplanation, void, $String*)},
-	{"setLinkRemainingName", "(Ljavax/naming/Name;)V", nullptr, $PUBLIC, $virtualMethod(LinkException, setLinkRemainingName, void, $Name*)},
-	{"setLinkResolvedName", "(Ljavax/naming/Name;)V", nullptr, $PUBLIC, $virtualMethod(LinkException, setLinkResolvedName, void, $Name*)},
-	{"setLinkResolvedObj", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(LinkException, setLinkResolvedObj, void, Object$*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LinkException, toString, $String*)},
-	{"toString", "(Z)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LinkException, toString, $String*, bool)},
-	{}
-};
-
-$ClassInfo _LinkException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.naming.LinkException",
-	"javax.naming.NamingException",
-	nullptr,
-	_LinkException_FieldInfo_,
-	_LinkException_MethodInfo_
-};
-
-$Object* allocate$LinkException($Class* clazz) {
-	return $of($alloc(LinkException));
-}
 
 void LinkException::init$($String* explanation) {
 	$NamingException::init$(explanation);
@@ -76,7 +37,7 @@ $Name* LinkException::getLinkRemainingName() {
 }
 
 $Object* LinkException::getLinkResolvedObj() {
-	return $of(this->linkResolvedObj);
+	return this->linkResolvedObj;
 }
 
 $String* LinkException::getLinkExplanation() {
@@ -89,7 +50,7 @@ void LinkException::setLinkExplanation($String* msg) {
 
 void LinkException::setLinkResolvedName($Name* name) {
 	if (name != nullptr) {
-		$set(this, linkResolvedName, ($cast($Name, name->clone())));
+		$set(this, linkResolvedName, $cast($Name, name->clone()));
 	} else {
 		$set(this, linkResolvedName, nullptr);
 	}
@@ -97,7 +58,7 @@ void LinkException::setLinkResolvedName($Name* name) {
 
 void LinkException::setLinkRemainingName($Name* name) {
 	if (name != nullptr) {
-		$set(this, linkRemainingName, ($cast($Name, name->clone())));
+		$set(this, linkRemainingName, $cast($Name, name->clone()));
 	} else {
 		$set(this, linkRemainingName, nullptr);
 	}
@@ -129,7 +90,40 @@ void LinkException::throw$() {
 }
 
 $Class* LinkException::load$($String* name, bool initialize) {
-	$loadClass(LinkException, name, initialize, &_LinkException_ClassInfo_, allocate$LinkException);
+	$FieldInfo fieldInfos$$[] = {
+		{"linkResolvedName", "Ljavax/naming/Name;", nullptr, $PROTECTED, $field(LinkException, linkResolvedName)},
+		{"linkResolvedObj", "Ljava/lang/Object;", nullptr, $PROTECTED, $field(LinkException, linkResolvedObj)},
+		{"linkRemainingName", "Ljavax/naming/Name;", nullptr, $PROTECTED, $field(LinkException, linkRemainingName)},
+		{"linkExplanation", "Ljava/lang/String;", nullptr, $PROTECTED, $field(LinkException, linkExplanation)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LinkException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(LinkException, init$, void, $String*)},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(LinkException, init$, void)},
+		{"getLinkExplanation", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LinkException, getLinkExplanation, $String*)},
+		{"getLinkRemainingName", "()Ljavax/naming/Name;", nullptr, $PUBLIC, $virtualMethod(LinkException, getLinkRemainingName, $Name*)},
+		{"getLinkResolvedName", "()Ljavax/naming/Name;", nullptr, $PUBLIC, $virtualMethod(LinkException, getLinkResolvedName, $Name*)},
+		{"getLinkResolvedObj", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LinkException, getLinkResolvedObj, $Object*)},
+		{"setLinkExplanation", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(LinkException, setLinkExplanation, void, $String*)},
+		{"setLinkRemainingName", "(Ljavax/naming/Name;)V", nullptr, $PUBLIC, $virtualMethod(LinkException, setLinkRemainingName, void, $Name*)},
+		{"setLinkResolvedName", "(Ljavax/naming/Name;)V", nullptr, $PUBLIC, $virtualMethod(LinkException, setLinkResolvedName, void, $Name*)},
+		{"setLinkResolvedObj", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(LinkException, setLinkResolvedObj, void, Object$*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LinkException, toString, $String*)},
+		{"toString", "(Z)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LinkException, toString, $String*, bool)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.naming.LinkException",
+		"javax.naming.NamingException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(LinkException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LinkException);
+	});
 	return class$;
 }
 

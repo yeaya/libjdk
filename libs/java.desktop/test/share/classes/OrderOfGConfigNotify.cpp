@@ -1,5 +1,4 @@
 #include <OrderOfGConfigNotify.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <java/awt/EventQueue.h>
@@ -18,7 +17,6 @@
 #include <javax/swing/JPanel.h>
 #include <jcpp.h>
 
-using $Component = ::java::awt::Component;
 using $EventQueue = ::java::awt::EventQueue;
 using $PropertyChangeEvent = ::java::beans::PropertyChangeEvent;
 using $PropertyChangeListener = ::java::beans::PropertyChangeListener;
@@ -41,27 +39,24 @@ public:
 	virtual void run() override {
 		OrderOfGConfigNotify::lambda$main$2();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<OrderOfGConfigNotify$$Lambda$lambda$main$2>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo OrderOfGConfigNotify$$Lambda$lambda$main$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(OrderOfGConfigNotify$$Lambda$lambda$main$2, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(OrderOfGConfigNotify$$Lambda$lambda$main$2, run, void)},
-	{}
-};
-$ClassInfo OrderOfGConfigNotify$$Lambda$lambda$main$2::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"OrderOfGConfigNotify$$Lambda$lambda$main$2",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* OrderOfGConfigNotify$$Lambda$lambda$main$2::load$($String* name, bool initialize) {
-	$loadClass(OrderOfGConfigNotify$$Lambda$lambda$main$2, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(OrderOfGConfigNotify$$Lambda$lambda$main$2, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(OrderOfGConfigNotify$$Lambda$lambda$main$2, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"OrderOfGConfigNotify$$Lambda$lambda$main$2",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(OrderOfGConfigNotify$$Lambda$lambda$main$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(OrderOfGConfigNotify$$Lambda$lambda$main$2);
+	});
 	return class$;
 }
 $Class* OrderOfGConfigNotify$$Lambda$lambda$main$2::class$ = nullptr;
@@ -77,37 +72,33 @@ public:
 	virtual void propertyChange($PropertyChangeEvent* evt) override {
 		OrderOfGConfigNotify::lambda$main$0(childCalled, parentCalled, parent, evt);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<OrderOfGConfigNotify$$Lambda$lambda$main$0$1>());
-	}
 	$AtomicBoolean* childCalled = nullptr;
 	$AtomicBoolean* parentCalled = nullptr;
 	$JPanel* parent = nullptr;
-	static $FieldInfo fieldInfos[4];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo OrderOfGConfigNotify$$Lambda$lambda$main$0$1::fieldInfos[4] = {
-	{"childCalled", "Ljava/util/concurrent/atomic/AtomicBoolean;", nullptr, $PUBLIC, $field(OrderOfGConfigNotify$$Lambda$lambda$main$0$1, childCalled)},
-	{"parentCalled", "Ljava/util/concurrent/atomic/AtomicBoolean;", nullptr, $PUBLIC, $field(OrderOfGConfigNotify$$Lambda$lambda$main$0$1, parentCalled)},
-	{"parent", "Ljavax/swing/JPanel;", nullptr, $PUBLIC, $field(OrderOfGConfigNotify$$Lambda$lambda$main$0$1, parent)},
-	{}
-};
-$MethodInfo OrderOfGConfigNotify$$Lambda$lambda$main$0$1::methodInfos[3] = {
-	{"<init>", "(Ljava/util/concurrent/atomic/AtomicBoolean;Ljava/util/concurrent/atomic/AtomicBoolean;Ljavax/swing/JPanel;)V", nullptr, $PUBLIC, $method(OrderOfGConfigNotify$$Lambda$lambda$main$0$1, init$, void, $AtomicBoolean*, $AtomicBoolean*, $JPanel*)},
-	{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(OrderOfGConfigNotify$$Lambda$lambda$main$0$1, propertyChange, void, $PropertyChangeEvent*)},
-	{}
-};
-$ClassInfo OrderOfGConfigNotify$$Lambda$lambda$main$0$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"OrderOfGConfigNotify$$Lambda$lambda$main$0$1",
-	"java.lang.Object",
-	"java.beans.PropertyChangeListener",
-	fieldInfos,
-	methodInfos
 };
 $Class* OrderOfGConfigNotify$$Lambda$lambda$main$0$1::load$($String* name, bool initialize) {
-	$loadClass(OrderOfGConfigNotify$$Lambda$lambda$main$0$1, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"childCalled", "Ljava/util/concurrent/atomic/AtomicBoolean;", nullptr, $PUBLIC, $field(OrderOfGConfigNotify$$Lambda$lambda$main$0$1, childCalled)},
+		{"parentCalled", "Ljava/util/concurrent/atomic/AtomicBoolean;", nullptr, $PUBLIC, $field(OrderOfGConfigNotify$$Lambda$lambda$main$0$1, parentCalled)},
+		{"parent", "Ljavax/swing/JPanel;", nullptr, $PUBLIC, $field(OrderOfGConfigNotify$$Lambda$lambda$main$0$1, parent)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/concurrent/atomic/AtomicBoolean;Ljava/util/concurrent/atomic/AtomicBoolean;Ljavax/swing/JPanel;)V", nullptr, $PUBLIC, $method(OrderOfGConfigNotify$$Lambda$lambda$main$0$1, init$, void, $AtomicBoolean*, $AtomicBoolean*, $JPanel*)},
+		{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(OrderOfGConfigNotify$$Lambda$lambda$main$0$1, propertyChange, void, $PropertyChangeEvent*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"OrderOfGConfigNotify$$Lambda$lambda$main$0$1",
+		"java.lang.Object",
+		"java.beans.PropertyChangeListener",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(OrderOfGConfigNotify$$Lambda$lambda$main$0$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(OrderOfGConfigNotify$$Lambda$lambda$main$0$1);
+	});
 	return class$;
 }
 $Class* OrderOfGConfigNotify$$Lambda$lambda$main$0$1::class$ = nullptr;
@@ -122,65 +113,34 @@ public:
 	virtual void propertyChange($PropertyChangeEvent* evt) override {
 		OrderOfGConfigNotify::lambda$main$1(childCalled, child, evt);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<OrderOfGConfigNotify$$Lambda$lambda$main$1$2>());
-	}
 	$AtomicBoolean* childCalled = nullptr;
 	$JPanel* child = nullptr;
-	static $FieldInfo fieldInfos[3];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo OrderOfGConfigNotify$$Lambda$lambda$main$1$2::fieldInfos[3] = {
-	{"childCalled", "Ljava/util/concurrent/atomic/AtomicBoolean;", nullptr, $PUBLIC, $field(OrderOfGConfigNotify$$Lambda$lambda$main$1$2, childCalled)},
-	{"child", "Ljavax/swing/JPanel;", nullptr, $PUBLIC, $field(OrderOfGConfigNotify$$Lambda$lambda$main$1$2, child)},
-	{}
-};
-$MethodInfo OrderOfGConfigNotify$$Lambda$lambda$main$1$2::methodInfos[3] = {
-	{"<init>", "(Ljava/util/concurrent/atomic/AtomicBoolean;Ljavax/swing/JPanel;)V", nullptr, $PUBLIC, $method(OrderOfGConfigNotify$$Lambda$lambda$main$1$2, init$, void, $AtomicBoolean*, $JPanel*)},
-	{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(OrderOfGConfigNotify$$Lambda$lambda$main$1$2, propertyChange, void, $PropertyChangeEvent*)},
-	{}
-};
-$ClassInfo OrderOfGConfigNotify$$Lambda$lambda$main$1$2::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"OrderOfGConfigNotify$$Lambda$lambda$main$1$2",
-	"java.lang.Object",
-	"java.beans.PropertyChangeListener",
-	fieldInfos,
-	methodInfos
 };
 $Class* OrderOfGConfigNotify$$Lambda$lambda$main$1$2::load$($String* name, bool initialize) {
-	$loadClass(OrderOfGConfigNotify$$Lambda$lambda$main$1$2, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"childCalled", "Ljava/util/concurrent/atomic/AtomicBoolean;", nullptr, $PUBLIC, $field(OrderOfGConfigNotify$$Lambda$lambda$main$1$2, childCalled)},
+		{"child", "Ljavax/swing/JPanel;", nullptr, $PUBLIC, $field(OrderOfGConfigNotify$$Lambda$lambda$main$1$2, child)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/concurrent/atomic/AtomicBoolean;Ljavax/swing/JPanel;)V", nullptr, $PUBLIC, $method(OrderOfGConfigNotify$$Lambda$lambda$main$1$2, init$, void, $AtomicBoolean*, $JPanel*)},
+		{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(OrderOfGConfigNotify$$Lambda$lambda$main$1$2, propertyChange, void, $PropertyChangeEvent*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"OrderOfGConfigNotify$$Lambda$lambda$main$1$2",
+		"java.lang.Object",
+		"java.beans.PropertyChangeListener",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(OrderOfGConfigNotify$$Lambda$lambda$main$1$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(OrderOfGConfigNotify$$Lambda$lambda$main$1$2);
+	});
 	return class$;
 }
 $Class* OrderOfGConfigNotify$$Lambda$lambda$main$1$2::class$ = nullptr;
-
-$FieldInfo _OrderOfGConfigNotify_FieldInfo_[] = {
-	{"name", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(OrderOfGConfigNotify, name)},
-	{}
-};
-
-$MethodInfo _OrderOfGConfigNotify_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(OrderOfGConfigNotify, init$, void)},
-	{"lambda$main$0", "(Ljava/util/concurrent/atomic/AtomicBoolean;Ljava/util/concurrent/atomic/AtomicBoolean;Ljavax/swing/JPanel;Ljava/beans/PropertyChangeEvent;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(OrderOfGConfigNotify, lambda$main$0, void, $AtomicBoolean*, $AtomicBoolean*, $JPanel*, $PropertyChangeEvent*)},
-	{"lambda$main$1", "(Ljava/util/concurrent/atomic/AtomicBoolean;Ljavax/swing/JPanel;Ljava/beans/PropertyChangeEvent;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(OrderOfGConfigNotify, lambda$main$1, void, $AtomicBoolean*, $JPanel*, $PropertyChangeEvent*)},
-	{"lambda$main$2", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(OrderOfGConfigNotify, lambda$main$2, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(OrderOfGConfigNotify, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _OrderOfGConfigNotify_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"OrderOfGConfigNotify",
-	"java.lang.Object",
-	nullptr,
-	_OrderOfGConfigNotify_FieldInfo_,
-	_OrderOfGConfigNotify_MethodInfo_
-};
-
-$Object* allocate$OrderOfGConfigNotify($Class* clazz) {
-	return $of($alloc(OrderOfGConfigNotify));
-}
 
 $String* OrderOfGConfigNotify::name = nullptr;
 
@@ -189,21 +149,21 @@ void OrderOfGConfigNotify::init$() {
 
 void OrderOfGConfigNotify::main($StringArray* args) {
 	$init(OrderOfGConfigNotify);
-	$EventQueue::invokeAndWait(static_cast<$Runnable*>($$new(OrderOfGConfigNotify$$Lambda$lambda$main$2)));
+	$EventQueue::invokeAndWait($$new(OrderOfGConfigNotify$$Lambda$lambda$main$2));
 }
 
 void OrderOfGConfigNotify::lambda$main$2() {
 	$init(OrderOfGConfigNotify);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AtomicBoolean, parentCalled, $new($AtomicBoolean, false));
 	$var($AtomicBoolean, childCalled, $new($AtomicBoolean, false));
 	$var($JFrame, frame, $new($JFrame));
 	$var($JPanel, parent, $new($JPanel));
-	parent->addPropertyChangeListener(static_cast<$PropertyChangeListener*>($$new(OrderOfGConfigNotify$$Lambda$lambda$main$0$1, childCalled, parentCalled, parent)));
+	parent->addPropertyChangeListener($$new(OrderOfGConfigNotify$$Lambda$lambda$main$0$1, childCalled, parentCalled, parent));
 	$var($JPanel, child, $new($JPanel));
-	child->addPropertyChangeListener(static_cast<$PropertyChangeListener*>($$new(OrderOfGConfigNotify$$Lambda$lambda$main$1$2, childCalled, child)));
-	parent->add(static_cast<$Component*>(child));
-	frame->add(static_cast<$Component*>(parent));
+	child->addPropertyChangeListener($$new(OrderOfGConfigNotify$$Lambda$lambda$main$1$2, childCalled, child));
+	parent->add(child);
+	frame->add(parent);
 	bool var$0 = !parentCalled->get();
 	if (var$0 || !childCalled->get()) {
 		$throwNew($RuntimeException, "Property listener was not called"_s);
@@ -212,7 +172,7 @@ void OrderOfGConfigNotify::lambda$main$2() {
 
 void OrderOfGConfigNotify::lambda$main$1($AtomicBoolean* childCalled, $JPanel* child, $PropertyChangeEvent* evt) {
 	$init(OrderOfGConfigNotify);
-	if (!$nc($($nc(evt)->getPropertyName()))->equals(OrderOfGConfigNotify::name)) {
+	if (!$$nc($nc(evt)->getPropertyName())->equals(OrderOfGConfigNotify::name)) {
 		return;
 	}
 	$nc(childCalled)->set(true);
@@ -223,7 +183,7 @@ void OrderOfGConfigNotify::lambda$main$1($AtomicBoolean* childCalled, $JPanel* c
 
 void OrderOfGConfigNotify::lambda$main$0($AtomicBoolean* childCalled, $AtomicBoolean* parentCalled, $JPanel* parent, $PropertyChangeEvent* evt) {
 	$init(OrderOfGConfigNotify);
-	if (!$nc($($nc(evt)->getPropertyName()))->equals(OrderOfGConfigNotify::name)) {
+	if (!$$nc($nc(evt)->getPropertyName())->equals(OrderOfGConfigNotify::name)) {
 		return;
 	}
 	if (!$nc(childCalled)->get()) {
@@ -235,7 +195,7 @@ void OrderOfGConfigNotify::lambda$main$0($AtomicBoolean* childCalled, $AtomicBoo
 	}
 }
 
-void clinit$OrderOfGConfigNotify($Class* class$) {
+void OrderOfGConfigNotify::clinit$($Class* clazz) {
 	$assignStatic(OrderOfGConfigNotify::name, "graphicsConfiguration"_s);
 }
 
@@ -244,17 +204,39 @@ OrderOfGConfigNotify::OrderOfGConfigNotify() {
 
 $Class* OrderOfGConfigNotify::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(OrderOfGConfigNotify$$Lambda$lambda$main$2::classInfo$.name)) {
+		if (name->equals("OrderOfGConfigNotify$$Lambda$lambda$main$2")) {
 			return OrderOfGConfigNotify$$Lambda$lambda$main$2::load$(name, initialize);
 		}
-		if (name->equals(OrderOfGConfigNotify$$Lambda$lambda$main$0$1::classInfo$.name)) {
+		if (name->equals("OrderOfGConfigNotify$$Lambda$lambda$main$0$1")) {
 			return OrderOfGConfigNotify$$Lambda$lambda$main$0$1::load$(name, initialize);
 		}
-		if (name->equals(OrderOfGConfigNotify$$Lambda$lambda$main$1$2::classInfo$.name)) {
+		if (name->equals("OrderOfGConfigNotify$$Lambda$lambda$main$1$2")) {
 			return OrderOfGConfigNotify$$Lambda$lambda$main$1$2::load$(name, initialize);
 		}
 	}
-	$loadClass(OrderOfGConfigNotify, name, initialize, &_OrderOfGConfigNotify_ClassInfo_, clinit$OrderOfGConfigNotify, allocate$OrderOfGConfigNotify);
+	$FieldInfo fieldInfos$$[] = {
+		{"name", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(OrderOfGConfigNotify, name)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(OrderOfGConfigNotify, init$, void)},
+		{"lambda$main$0", "(Ljava/util/concurrent/atomic/AtomicBoolean;Ljava/util/concurrent/atomic/AtomicBoolean;Ljavax/swing/JPanel;Ljava/beans/PropertyChangeEvent;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(OrderOfGConfigNotify, lambda$main$0, void, $AtomicBoolean*, $AtomicBoolean*, $JPanel*, $PropertyChangeEvent*)},
+		{"lambda$main$1", "(Ljava/util/concurrent/atomic/AtomicBoolean;Ljavax/swing/JPanel;Ljava/beans/PropertyChangeEvent;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(OrderOfGConfigNotify, lambda$main$1, void, $AtomicBoolean*, $JPanel*, $PropertyChangeEvent*)},
+		{"lambda$main$2", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(OrderOfGConfigNotify, lambda$main$2, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(OrderOfGConfigNotify, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"OrderOfGConfigNotify",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(OrderOfGConfigNotify, name, initialize, &classInfo$$, OrderOfGConfigNotify::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(OrderOfGConfigNotify);
+	});
 	return class$;
 }
 

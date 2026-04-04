@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext.h>
-
 #include <com/sun/tools/javac/code/Symbol.h>
 #include <com/sun/tools/javac/code/Type$JCNoType.h>
 #include <com/sun/tools/javac/code/Type.h>
@@ -32,9 +31,7 @@
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
 #include <java/util/AbstractCollection.h>
-#include <java/util/AbstractList.h>
 #include <java/util/ArrayList.h>
-#include <java/util/Collection.h>
 #include <java/util/Iterator.h>
 #include <java/util/Set.h>
 #include <java/util/function/Function.h>
@@ -54,7 +51,6 @@ using $DeferredAttr$DeferredAttrContext$StuckNode = ::com::sun::tools::javac::co
 using $DeferredAttr$DeferredAttrNode = ::com::sun::tools::javac::comp::DeferredAttr$DeferredAttrNode;
 using $DeferredAttr$DeferredStuckPolicy = ::com::sun::tools::javac::comp::DeferredAttr$DeferredStuckPolicy;
 using $DeferredAttr$DeferredType = ::com::sun::tools::javac::comp::DeferredAttr$DeferredType;
-using $Infer = ::com::sun::tools::javac::comp::Infer;
 using $Infer$GraphSolver = ::com::sun::tools::javac::comp::Infer$GraphSolver;
 using $Infer$GraphSolver$InferenceGraph = ::com::sun::tools::javac::comp::Infer$GraphSolver$InferenceGraph;
 using $Infer$GraphSolver$InferenceGraph$Node = ::com::sun::tools::javac::comp::Infer$GraphSolver$InferenceGraph$Node;
@@ -68,18 +64,14 @@ using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
-using $Iterable = ::java::lang::Iterable;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $AbstractCollection = ::java::util::AbstractCollection;
-using $AbstractList = ::java::util::AbstractList;
 using $ArrayList = ::java::util::ArrayList;
-using $Collection = ::java::util::Collection;
 using $Iterator = ::java::util::Iterator;
 using $Set = ::java::util::Set;
 using $Function = ::java::util::function::Function;
 using $Predicate = ::java::util::function::Predicate;
-using $Stream = ::java::util::stream::Stream;
 
 namespace com {
 	namespace sun {
@@ -96,33 +88,29 @@ public:
 	virtual $Object* apply(Object$* x$0) override {
 		 return $of($nc(inst$)->lambda$buildStuckGraph$0($cast($DeferredAttr$DeferredAttrNode, x$0)));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<DeferredAttr$DeferredAttrContext$$Lambda$lambda$buildStuckGraph$0>());
-	}
 	DeferredAttr$DeferredAttrContext* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo DeferredAttr$DeferredAttrContext$$Lambda$lambda$buildStuckGraph$0::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(DeferredAttr$DeferredAttrContext$$Lambda$lambda$buildStuckGraph$0, inst$)},
-	{}
-};
-$MethodInfo DeferredAttr$DeferredAttrContext$$Lambda$lambda$buildStuckGraph$0::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext;)V", nullptr, $PUBLIC, $method(DeferredAttr$DeferredAttrContext$$Lambda$lambda$buildStuckGraph$0, init$, void, DeferredAttr$DeferredAttrContext*)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DeferredAttr$DeferredAttrContext$$Lambda$lambda$buildStuckGraph$0, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo DeferredAttr$DeferredAttrContext$$Lambda$lambda$buildStuckGraph$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.comp.DeferredAttr$DeferredAttrContext$$Lambda$lambda$buildStuckGraph$0",
-	"java.lang.Object",
-	"java.util.function.Function",
-	fieldInfos,
-	methodInfos
 };
 $Class* DeferredAttr$DeferredAttrContext$$Lambda$lambda$buildStuckGraph$0::load$($String* name, bool initialize) {
-	$loadClass(DeferredAttr$DeferredAttrContext$$Lambda$lambda$buildStuckGraph$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(DeferredAttr$DeferredAttrContext$$Lambda$lambda$buildStuckGraph$0, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext;)V", nullptr, $PUBLIC, $method(DeferredAttr$DeferredAttrContext$$Lambda$lambda$buildStuckGraph$0, init$, void, DeferredAttr$DeferredAttrContext*)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DeferredAttr$DeferredAttrContext$$Lambda$lambda$buildStuckGraph$0, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.comp.DeferredAttr$DeferredAttrContext$$Lambda$lambda$buildStuckGraph$0",
+		"java.lang.Object",
+		"java.util.function.Function",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DeferredAttr$DeferredAttrContext$$Lambda$lambda$buildStuckGraph$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DeferredAttr$DeferredAttrContext$$Lambda$lambda$buildStuckGraph$0);
+	});
 	return class$;
 }
 $Class* DeferredAttr$DeferredAttrContext$$Lambda$lambda$buildStuckGraph$0::class$ = nullptr;
@@ -136,33 +124,29 @@ public:
 	virtual $Object* apply(Object$* t) override {
 		 return $of($nc(inst$)->findNode($cast($Type, t)));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<DeferredAttr$DeferredAttrContext$$Lambda$findNode$1>());
-	}
 	$Infer$GraphSolver$InferenceGraph* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo DeferredAttr$DeferredAttrContext$$Lambda$findNode$1::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(DeferredAttr$DeferredAttrContext$$Lambda$findNode$1, inst$)},
-	{}
-};
-$MethodInfo DeferredAttr$DeferredAttrContext$$Lambda$findNode$1::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Infer$GraphSolver$InferenceGraph;)V", nullptr, $PUBLIC, $method(DeferredAttr$DeferredAttrContext$$Lambda$findNode$1, init$, void, $Infer$GraphSolver$InferenceGraph*)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DeferredAttr$DeferredAttrContext$$Lambda$findNode$1, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo DeferredAttr$DeferredAttrContext$$Lambda$findNode$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.comp.DeferredAttr$DeferredAttrContext$$Lambda$findNode$1",
-	"java.lang.Object",
-	"java.util.function.Function",
-	fieldInfos,
-	methodInfos
 };
 $Class* DeferredAttr$DeferredAttrContext$$Lambda$findNode$1::load$($String* name, bool initialize) {
-	$loadClass(DeferredAttr$DeferredAttrContext$$Lambda$findNode$1, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(DeferredAttr$DeferredAttrContext$$Lambda$findNode$1, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/comp/Infer$GraphSolver$InferenceGraph;)V", nullptr, $PUBLIC, $method(DeferredAttr$DeferredAttrContext$$Lambda$findNode$1, init$, void, $Infer$GraphSolver$InferenceGraph*)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DeferredAttr$DeferredAttrContext$$Lambda$findNode$1, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.comp.DeferredAttr$DeferredAttrContext$$Lambda$findNode$1",
+		"java.lang.Object",
+		"java.util.function.Function",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DeferredAttr$DeferredAttrContext$$Lambda$findNode$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DeferredAttr$DeferredAttrContext$$Lambda$findNode$1);
+	});
 	return class$;
 }
 $Class* DeferredAttr$DeferredAttrContext$$Lambda$findNode$1::class$ = nullptr;
@@ -176,86 +160,32 @@ public:
 	virtual bool test(Object$* arg0) override {
 		 return $nc(inst$)->contains(arg0);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<DeferredAttr$DeferredAttrContext$$Lambda$contains$2>());
-	}
 	$Set* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo DeferredAttr$DeferredAttrContext$$Lambda$contains$2::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(DeferredAttr$DeferredAttrContext$$Lambda$contains$2, inst$)},
-	{}
-};
-$MethodInfo DeferredAttr$DeferredAttrContext$$Lambda$contains$2::methodInfos[3] = {
-	{"<init>", "(Ljava/util/Set;)V", nullptr, $PUBLIC, $method(DeferredAttr$DeferredAttrContext$$Lambda$contains$2, init$, void, $Set*)},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(DeferredAttr$DeferredAttrContext$$Lambda$contains$2, test, bool, Object$*)},
-	{}
-};
-$ClassInfo DeferredAttr$DeferredAttrContext$$Lambda$contains$2::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.comp.DeferredAttr$DeferredAttrContext$$Lambda$contains$2",
-	"java.lang.Object",
-	"java.util.function.Predicate",
-	fieldInfos,
-	methodInfos
 };
 $Class* DeferredAttr$DeferredAttrContext$$Lambda$contains$2::load$($String* name, bool initialize) {
-	$loadClass(DeferredAttr$DeferredAttrContext$$Lambda$contains$2, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(DeferredAttr$DeferredAttrContext$$Lambda$contains$2, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/Set;)V", nullptr, $PUBLIC, $method(DeferredAttr$DeferredAttrContext$$Lambda$contains$2, init$, void, $Set*)},
+		{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(DeferredAttr$DeferredAttrContext$$Lambda$contains$2, test, bool, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.comp.DeferredAttr$DeferredAttrContext$$Lambda$contains$2",
+		"java.lang.Object",
+		"java.util.function.Predicate",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DeferredAttr$DeferredAttrContext$$Lambda$contains$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DeferredAttr$DeferredAttrContext$$Lambda$contains$2);
+	});
 	return class$;
 }
 $Class* DeferredAttr$DeferredAttrContext$$Lambda$contains$2::class$ = nullptr;
-
-$FieldInfo _DeferredAttr$DeferredAttrContext_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/comp/DeferredAttr;", nullptr, $FINAL | $SYNTHETIC, $field(DeferredAttr$DeferredAttrContext, this$0)},
-	{"mode", "Lcom/sun/tools/javac/comp/DeferredAttr$AttrMode;", nullptr, $FINAL, $field(DeferredAttr$DeferredAttrContext, mode)},
-	{"msym", "Lcom/sun/tools/javac/code/Symbol;", nullptr, $FINAL, $field(DeferredAttr$DeferredAttrContext, msym)},
-	{"phase", "Lcom/sun/tools/javac/comp/Resolve$MethodResolutionPhase;", nullptr, $FINAL, $field(DeferredAttr$DeferredAttrContext, phase)},
-	{"inferenceContext", "Lcom/sun/tools/javac/comp/InferenceContext;", nullptr, $FINAL, $field(DeferredAttr$DeferredAttrContext, inferenceContext)},
-	{"parent", "Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext;", nullptr, $FINAL, $field(DeferredAttr$DeferredAttrContext, parent)},
-	{"warn", "Lcom/sun/tools/javac/util/Warner;", nullptr, $FINAL, $field(DeferredAttr$DeferredAttrContext, warn)},
-	{"deferredAttrNodes", "Ljava/util/ArrayList;", "Ljava/util/ArrayList<Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrNode;>;", 0, $field(DeferredAttr$DeferredAttrContext, deferredAttrNodes)},
-	{}
-};
-
-$MethodInfo _DeferredAttr$DeferredAttrContext_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/DeferredAttr;Lcom/sun/tools/javac/comp/DeferredAttr$AttrMode;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/comp/Resolve$MethodResolutionPhase;Lcom/sun/tools/javac/comp/InferenceContext;Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext;Lcom/sun/tools/javac/util/Warner;)V", nullptr, 0, $method(DeferredAttr$DeferredAttrContext, init$, void, $DeferredAttr*, $DeferredAttr$AttrMode*, $Symbol*, $Resolve$MethodResolutionPhase*, $InferenceContext*, DeferredAttr$DeferredAttrContext*, $Warner*)},
-	{"addDeferredAttrNode", "(Lcom/sun/tools/javac/comp/DeferredAttr$DeferredType;Lcom/sun/tools/javac/comp/Attr$ResultInfo;Lcom/sun/tools/javac/comp/DeferredAttr$DeferredStuckPolicy;)V", nullptr, 0, $virtualMethod(DeferredAttr$DeferredAttrContext, addDeferredAttrNode, void, $DeferredAttr$DeferredType*, $Attr$ResultInfo*, $DeferredAttr$DeferredStuckPolicy*)},
-	{"buildStuckGraph", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext$StuckNode;>;", 0, $virtualMethod(DeferredAttr$DeferredAttrContext, buildStuckGraph, $List*)},
-	{"canInfluence", "(Lcom/sun/tools/javac/comp/Infer$GraphSolver$InferenceGraph;Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext$StuckNode;Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext$StuckNode;)Z", nullptr, 0, $virtualMethod(DeferredAttr$DeferredAttrContext, canInfluence, bool, $Infer$GraphSolver$InferenceGraph*, $DeferredAttr$DeferredAttrContext$StuckNode*, $DeferredAttr$DeferredAttrContext$StuckNode*)},
-	{"complete", "()V", nullptr, 0, $virtualMethod(DeferredAttr$DeferredAttrContext, complete, void)},
-	{"insideOverloadPhase", "()Z", nullptr, $PUBLIC, $virtualMethod(DeferredAttr$DeferredAttrContext, insideOverloadPhase, bool)},
-	{"lambda$buildStuckGraph$0", "(Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrNode;)Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext$StuckNode;", nullptr, $PRIVATE | $SYNTHETIC, $method(DeferredAttr$DeferredAttrContext, lambda$buildStuckGraph$0, $DeferredAttr$DeferredAttrContext$StuckNode*, $DeferredAttr$DeferredAttrNode*)},
-	{"pickDeferredNode", "()Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrNode;", nullptr, 0, $virtualMethod(DeferredAttr$DeferredAttrContext, pickDeferredNode, $DeferredAttr$DeferredAttrNode*)},
-	{}
-};
-
-$InnerClassInfo _DeferredAttr$DeferredAttrContext_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.DeferredAttr$DeferredAttrContext", "com.sun.tools.javac.comp.DeferredAttr", "DeferredAttrContext", 0},
-	{"com.sun.tools.javac.comp.DeferredAttr$DeferredAttrContext$StuckNode", "com.sun.tools.javac.comp.DeferredAttr$DeferredAttrContext", "StuckNode", 0},
-	{}
-};
-
-$ClassInfo _DeferredAttr$DeferredAttrContext_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.comp.DeferredAttr$DeferredAttrContext",
-	"java.lang.Object",
-	nullptr,
-	_DeferredAttr$DeferredAttrContext_FieldInfo_,
-	_DeferredAttr$DeferredAttrContext_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DeferredAttr$DeferredAttrContext_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.DeferredAttr"
-};
-
-$Object* allocate$DeferredAttr$DeferredAttrContext($Class* clazz) {
-	return $of($alloc(DeferredAttr$DeferredAttrContext));
-}
 
 void DeferredAttr$DeferredAttrContext::init$($DeferredAttr* this$0, $DeferredAttr$AttrMode* mode, $Symbol* msym, $Resolve$MethodResolutionPhase* phase, $InferenceContext* inferenceContext, DeferredAttr$DeferredAttrContext* parent, $Warner* warn) {
 	$set(this, this$0, this$0);
@@ -273,39 +203,35 @@ void DeferredAttr$DeferredAttrContext::addDeferredAttrNode($DeferredAttr$Deferre
 }
 
 void DeferredAttr$DeferredAttrContext::complete() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	while (!$nc(this->deferredAttrNodes)->isEmpty()) {
 		bool progress = false;
 		{
-			$var($Iterator, i$, $nc($($List::from(static_cast<$Iterable*>(static_cast<$Collection*>(static_cast<$AbstractCollection*>(static_cast<$AbstractList*>(this->deferredAttrNodes)))))))->iterator());
+			$var($Iterator, i$, $$nc($List::from($cast($AbstractCollection, this->deferredAttrNodes)))->iterator());
 			for (; $nc(i$)->hasNext();) {
 				$var($DeferredAttr$DeferredAttrNode, deferredAttrNode, $cast($DeferredAttr$DeferredAttrNode, i$->next()));
-				{
-					if ($nc(deferredAttrNode)->process(this)) {
-						$nc(this->deferredAttrNodes)->remove($of(deferredAttrNode));
-						progress = true;
-					}
+				if ($nc(deferredAttrNode)->process(this)) {
+					$nc(this->deferredAttrNodes)->remove(deferredAttrNode);
+					progress = true;
 				}
 			}
 		}
 		if (!progress) {
 			if (insideOverloadPhase()) {
-				{
-					$var($Iterator, i$, $nc(this->deferredAttrNodes)->iterator());
-					for (; $nc(i$)->hasNext();) {
-						$var($DeferredAttr$DeferredAttrNode, deferredNode, $cast($DeferredAttr$DeferredAttrNode, i$->next()));
-						{
-							$init($Type);
-							$set($nc($nc($nc(deferredNode)->dt)->tree), type, $Type::noType);
-						}
+				$var($Iterator, i$, $nc(this->deferredAttrNodes)->iterator());
+				for (; $nc(i$)->hasNext();) {
+					$var($DeferredAttr$DeferredAttrNode, deferredNode, $cast($DeferredAttr$DeferredAttrNode, i$->next()));
+					{
+						$init($Type);
+						$set($nc($nc($nc(deferredNode)->dt)->tree), type, $Type::noType);
 					}
 				}
 				return;
 			}
 			try {
 				$var($DeferredAttr$DeferredAttrNode, toUnstuck, pickDeferredNode());
-				$nc(this->inferenceContext)->solveAny($($List::from($(static_cast<$Iterable*>($nc($nc(toUnstuck)->deferredStuckPolicy)->stuckVars())))), this->warn);
-				$nc(this->inferenceContext)->notifyChange();
+				$nc(this->inferenceContext)->solveAny($($List::from($($nc($nc(toUnstuck)->deferredStuckPolicy)->stuckVars()))), this->warn);
+				this->inferenceContext->notifyChange();
 			} catch ($Infer$GraphStrategy$NodeNotFoundException& ex) {
 				break;
 			}
@@ -326,31 +252,27 @@ bool DeferredAttr$DeferredAttrContext::insideOverloadPhase() {
 }
 
 $DeferredAttr$DeferredAttrNode* DeferredAttr$DeferredAttrContext::pickDeferredNode() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, stuckGraph, buildStuckGraph());
-	$var($List, csn, $cast($List, $nc($($GraphUtils::tarjan(static_cast<$Iterable*>(static_cast<$Collection*>(static_cast<$AbstractCollection*>(stuckGraph))))))->get(0)));
-	return $nc(csn)->length() == 1 ? $cast($DeferredAttr$DeferredAttrNode, $nc(($cast($DeferredAttr$DeferredAttrContext$StuckNode, $($nc(csn)->get(0)))))->data) : $cast($DeferredAttr$DeferredAttrNode, $nc(this->deferredAttrNodes)->get(0));
+	$var($List, csn, $cast($List, $$nc($GraphUtils::tarjan($cast($AbstractCollection, stuckGraph)))->get(0)));
+	return $nc(csn)->length() == 1 ? $cast($DeferredAttr$DeferredAttrNode, $nc(($$cast($DeferredAttr$DeferredAttrContext$StuckNode, csn->get(0))))->data) : $cast($DeferredAttr$DeferredAttrNode, $nc(this->deferredAttrNodes)->get(0));
 }
 
 $List* DeferredAttr$DeferredAttrContext::buildStuckGraph() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(this->this$0->infer)->doIncorporation(this->inferenceContext, this->warn);
-	$var($Infer$GraphSolver$InferenceGraph, graph, $new($Infer$GraphSolver$InferenceGraph, $$new($Infer$GraphSolver, static_cast<$Infer*>($nc(this->this$0->infer)), this->inferenceContext, $nc(this->this$0->types)->noWarnings)));
-	$var($List, nodes, $cast($List, $nc($($nc($($nc(this->deferredAttrNodes)->stream()))->map(static_cast<$Function*>($$new(DeferredAttr$DeferredAttrContext$$Lambda$lambda$buildStuckGraph$0, this)))))->collect($($List::collector()))));
+	$var($Infer$GraphSolver$InferenceGraph, graph, $new($Infer$GraphSolver$InferenceGraph, $$new($Infer$GraphSolver, this->this$0->infer, this->inferenceContext, $nc(this->this$0->types)->noWarnings)));
+	$var($List, nodes, $cast($List, $$nc($$nc($nc(this->deferredAttrNodes)->stream())->map($$new(DeferredAttr$DeferredAttrContext$$Lambda$lambda$buildStuckGraph$0, this)))->collect($($List::collector()))));
 	{
 		$var($Iterator, i$, $nc(nodes)->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($DeferredAttr$DeferredAttrContext$StuckNode, sn1, $cast($DeferredAttr$DeferredAttrContext$StuckNode, i$->next()));
 			{
-				{
-					$var($Iterator, i$, nodes->iterator());
-					for (; $nc(i$)->hasNext();) {
-						$var($DeferredAttr$DeferredAttrContext$StuckNode, sn2, $cast($DeferredAttr$DeferredAttrContext$StuckNode, i$->next()));
-						{
-							if (sn1 != sn2 && canInfluence(graph, sn2, sn1)) {
-								$nc($nc(sn1)->deps)->add(sn2);
-							}
-						}
+				$var($Iterator, i$, nodes->iterator());
+				for (; $nc(i$)->hasNext();) {
+					$var($DeferredAttr$DeferredAttrContext$StuckNode, sn2, $cast($DeferredAttr$DeferredAttrContext$StuckNode, i$->next()));
+					if (sn1 != sn2 && canInfluence(graph, sn2, sn1)) {
+						$nc($nc(sn1)->deps)->add(sn2);
 					}
 				}
 			}
@@ -360,17 +282,17 @@ $List* DeferredAttr$DeferredAttrContext::buildStuckGraph() {
 }
 
 bool DeferredAttr$DeferredAttrContext::canInfluence($Infer$GraphSolver$InferenceGraph* graph, $DeferredAttr$DeferredAttrContext$StuckNode* sn1, $DeferredAttr$DeferredAttrContext$StuckNode* sn2) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Set, outputVars, $nc($nc(($cast($DeferredAttr$DeferredAttrNode, $nc(sn1)->data)))->deferredStuckPolicy)->depVars());
 	{
-		$var($Iterator, i$, $nc($($nc($nc(($cast($DeferredAttr$DeferredAttrNode, $nc(sn2)->data)))->deferredStuckPolicy)->stuckVars()))->iterator());
+		$var($Iterator, i$, $$nc($nc($nc(($cast($DeferredAttr$DeferredAttrNode, $nc(sn2)->data)))->deferredStuckPolicy)->stuckVars())->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Type, inputVar, $cast($Type, i$->next()));
 			{
 				$var($Infer$GraphSolver$InferenceGraph$Node, inputNode, $nc(graph)->findNode(inputVar));
 				if (inputNode != nullptr) {
 					$var($Set, inputClosure, inputNode->closure());
-					if ($nc($($nc($($nc(outputVars)->stream()))->map(static_cast<$Function*>($$new(DeferredAttr$DeferredAttrContext$$Lambda$findNode$1, static_cast<$Infer$GraphSolver$InferenceGraph*>(graph))))))->anyMatch(static_cast<$Predicate*>($$new(DeferredAttr$DeferredAttrContext$$Lambda$contains$2, static_cast<$Set*>($nc(inputClosure)))))) {
+					if ($$nc($$nc($nc(outputVars)->stream())->map($$new(DeferredAttr$DeferredAttrContext$$Lambda$findNode$1, graph)))->anyMatch($$new(DeferredAttr$DeferredAttrContext$$Lambda$contains$2, $nc(inputClosure)))) {
 						return true;
 					}
 				}
@@ -389,17 +311,61 @@ DeferredAttr$DeferredAttrContext::DeferredAttr$DeferredAttrContext() {
 
 $Class* DeferredAttr$DeferredAttrContext::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(DeferredAttr$DeferredAttrContext$$Lambda$lambda$buildStuckGraph$0::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.comp.DeferredAttr$DeferredAttrContext$$Lambda$lambda$buildStuckGraph$0")) {
 			return DeferredAttr$DeferredAttrContext$$Lambda$lambda$buildStuckGraph$0::load$(name, initialize);
 		}
-		if (name->equals(DeferredAttr$DeferredAttrContext$$Lambda$findNode$1::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.comp.DeferredAttr$DeferredAttrContext$$Lambda$findNode$1")) {
 			return DeferredAttr$DeferredAttrContext$$Lambda$findNode$1::load$(name, initialize);
 		}
-		if (name->equals(DeferredAttr$DeferredAttrContext$$Lambda$contains$2::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.comp.DeferredAttr$DeferredAttrContext$$Lambda$contains$2")) {
 			return DeferredAttr$DeferredAttrContext$$Lambda$contains$2::load$(name, initialize);
 		}
 	}
-	$loadClass(DeferredAttr$DeferredAttrContext, name, initialize, &_DeferredAttr$DeferredAttrContext_ClassInfo_, allocate$DeferredAttr$DeferredAttrContext);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/comp/DeferredAttr;", nullptr, $FINAL | $SYNTHETIC, $field(DeferredAttr$DeferredAttrContext, this$0)},
+		{"mode", "Lcom/sun/tools/javac/comp/DeferredAttr$AttrMode;", nullptr, $FINAL, $field(DeferredAttr$DeferredAttrContext, mode)},
+		{"msym", "Lcom/sun/tools/javac/code/Symbol;", nullptr, $FINAL, $field(DeferredAttr$DeferredAttrContext, msym)},
+		{"phase", "Lcom/sun/tools/javac/comp/Resolve$MethodResolutionPhase;", nullptr, $FINAL, $field(DeferredAttr$DeferredAttrContext, phase)},
+		{"inferenceContext", "Lcom/sun/tools/javac/comp/InferenceContext;", nullptr, $FINAL, $field(DeferredAttr$DeferredAttrContext, inferenceContext)},
+		{"parent", "Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext;", nullptr, $FINAL, $field(DeferredAttr$DeferredAttrContext, parent)},
+		{"warn", "Lcom/sun/tools/javac/util/Warner;", nullptr, $FINAL, $field(DeferredAttr$DeferredAttrContext, warn)},
+		{"deferredAttrNodes", "Ljava/util/ArrayList;", "Ljava/util/ArrayList<Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrNode;>;", 0, $field(DeferredAttr$DeferredAttrContext, deferredAttrNodes)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/comp/DeferredAttr;Lcom/sun/tools/javac/comp/DeferredAttr$AttrMode;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/comp/Resolve$MethodResolutionPhase;Lcom/sun/tools/javac/comp/InferenceContext;Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext;Lcom/sun/tools/javac/util/Warner;)V", nullptr, 0, $method(DeferredAttr$DeferredAttrContext, init$, void, $DeferredAttr*, $DeferredAttr$AttrMode*, $Symbol*, $Resolve$MethodResolutionPhase*, $InferenceContext*, DeferredAttr$DeferredAttrContext*, $Warner*)},
+		{"addDeferredAttrNode", "(Lcom/sun/tools/javac/comp/DeferredAttr$DeferredType;Lcom/sun/tools/javac/comp/Attr$ResultInfo;Lcom/sun/tools/javac/comp/DeferredAttr$DeferredStuckPolicy;)V", nullptr, 0, $virtualMethod(DeferredAttr$DeferredAttrContext, addDeferredAttrNode, void, $DeferredAttr$DeferredType*, $Attr$ResultInfo*, $DeferredAttr$DeferredStuckPolicy*)},
+		{"buildStuckGraph", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext$StuckNode;>;", 0, $virtualMethod(DeferredAttr$DeferredAttrContext, buildStuckGraph, $List*)},
+		{"canInfluence", "(Lcom/sun/tools/javac/comp/Infer$GraphSolver$InferenceGraph;Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext$StuckNode;Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext$StuckNode;)Z", nullptr, 0, $virtualMethod(DeferredAttr$DeferredAttrContext, canInfluence, bool, $Infer$GraphSolver$InferenceGraph*, $DeferredAttr$DeferredAttrContext$StuckNode*, $DeferredAttr$DeferredAttrContext$StuckNode*)},
+		{"complete", "()V", nullptr, 0, $virtualMethod(DeferredAttr$DeferredAttrContext, complete, void)},
+		{"insideOverloadPhase", "()Z", nullptr, $PUBLIC, $virtualMethod(DeferredAttr$DeferredAttrContext, insideOverloadPhase, bool)},
+		{"lambda$buildStuckGraph$0", "(Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrNode;)Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext$StuckNode;", nullptr, $PRIVATE | $SYNTHETIC, $method(DeferredAttr$DeferredAttrContext, lambda$buildStuckGraph$0, $DeferredAttr$DeferredAttrContext$StuckNode*, $DeferredAttr$DeferredAttrNode*)},
+		{"pickDeferredNode", "()Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrNode;", nullptr, 0, $virtualMethod(DeferredAttr$DeferredAttrContext, pickDeferredNode, $DeferredAttr$DeferredAttrNode*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.DeferredAttr$DeferredAttrContext", "com.sun.tools.javac.comp.DeferredAttr", "DeferredAttrContext", 0},
+		{"com.sun.tools.javac.comp.DeferredAttr$DeferredAttrContext$StuckNode", "com.sun.tools.javac.comp.DeferredAttr$DeferredAttrContext", "StuckNode", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.comp.DeferredAttr$DeferredAttrContext",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.DeferredAttr"
+	};
+	$loadClass(DeferredAttr$DeferredAttrContext, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DeferredAttr$DeferredAttrContext);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <LastNodeLowerHalfDrop$1.h>
-
 #include <LastNodeLowerHalfDrop.h>
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
@@ -18,52 +17,15 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $JFrame = ::javax::swing::JFrame;
 
-$MethodInfo _LastNodeLowerHalfDrop$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(LastNodeLowerHalfDrop$1, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(LastNodeLowerHalfDrop$1, run, void)},
-	{}
-};
-
-$EnclosingMethodInfo _LastNodeLowerHalfDrop$1_EnclosingMethodInfo_ = {
-	"LastNodeLowerHalfDrop",
-	"main",
-	"([Ljava/lang/String;)V"
-};
-
-$InnerClassInfo _LastNodeLowerHalfDrop$1_InnerClassesInfo_[] = {
-	{"LastNodeLowerHalfDrop$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _LastNodeLowerHalfDrop$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"LastNodeLowerHalfDrop$1",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	_LastNodeLowerHalfDrop$1_MethodInfo_,
-	nullptr,
-	&_LastNodeLowerHalfDrop$1_EnclosingMethodInfo_,
-	_LastNodeLowerHalfDrop$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"LastNodeLowerHalfDrop"
-};
-
-$Object* allocate$LastNodeLowerHalfDrop$1($Class* clazz) {
-	return $of($alloc(LastNodeLowerHalfDrop$1));
-}
-
 void LastNodeLowerHalfDrop$1::init$() {
 }
 
 void LastNodeLowerHalfDrop$1::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($LastNodeLowerHalfDrop);
 	$assignStatic($LastNodeLowerHalfDrop::f, $new($JFrame));
-	$nc($LastNodeLowerHalfDrop::f)->setDefaultCloseOperation($JFrame::EXIT_ON_CLOSE);
-	$nc($LastNodeLowerHalfDrop::f)->add($(static_cast<$Component*>($$new($LastNodeLowerHalfDrop)->getContent())));
+	$LastNodeLowerHalfDrop::f->setDefaultCloseOperation($JFrame::EXIT_ON_CLOSE);
+	$nc($LastNodeLowerHalfDrop::f)->add($($$new($LastNodeLowerHalfDrop)->getContent()));
 	$nc($LastNodeLowerHalfDrop::f)->setSize(400, 400);
 	$nc($LastNodeLowerHalfDrop::f)->setLocationRelativeTo(nullptr);
 	$nc($LastNodeLowerHalfDrop::f)->setVisible(true);
@@ -73,7 +35,38 @@ LastNodeLowerHalfDrop$1::LastNodeLowerHalfDrop$1() {
 }
 
 $Class* LastNodeLowerHalfDrop$1::load$($String* name, bool initialize) {
-	$loadClass(LastNodeLowerHalfDrop$1, name, initialize, &_LastNodeLowerHalfDrop$1_ClassInfo_, allocate$LastNodeLowerHalfDrop$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(LastNodeLowerHalfDrop$1, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(LastNodeLowerHalfDrop$1, run, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"LastNodeLowerHalfDrop",
+		"main",
+		"([Ljava/lang/String;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"LastNodeLowerHalfDrop$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"LastNodeLowerHalfDrop$1",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"LastNodeLowerHalfDrop"
+	};
+	$loadClass(LastNodeLowerHalfDrop$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LastNodeLowerHalfDrop$1);
+	});
 	return class$;
 }
 

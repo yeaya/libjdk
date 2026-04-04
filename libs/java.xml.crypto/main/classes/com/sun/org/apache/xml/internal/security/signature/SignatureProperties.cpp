@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/security/signature/SignatureProperties.h>
-
 #include <com/sun/org/apache/xml/internal/security/exceptions/XMLSecurityException.h>
 #include <com/sun/org/apache/xml/internal/security/signature/SignatureProperty.h>
 #include <com/sun/org/apache/xml/internal/security/signature/XMLSignatureException.h>
@@ -22,11 +21,9 @@ using $XMLSecurityException = ::com::sun::org::apache::xml::internal::security::
 using $SignatureProperty = ::com::sun::org::apache::xml::internal::security::signature::SignatureProperty;
 using $XMLSignatureException = ::com::sun::org::apache::xml::internal::security::signature::XMLSignatureException;
 using $Constants = ::com::sun::org::apache::xml::internal::security::utils::Constants;
-using $ElementProxy = ::com::sun::org::apache::xml::internal::security::utils::ElementProxy;
 using $SignatureElementProxy = ::com::sun::org::apache::xml::internal::security::utils::SignatureElementProxy;
 using $XMLUtils = ::com::sun::org::apache::xml::internal::security::utils::XMLUtils;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Exception = ::java::lang::Exception;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Attr = ::org::w3c::dom::Attr;
 using $Document = ::org::w3c::dom::Document;
@@ -41,38 +38,13 @@ namespace com {
 						namespace security {
 							namespace signature {
 
-$MethodInfo _SignatureProperties_MethodInfo_[] = {
-	{"<init>", "(Lorg/w3c/dom/Document;)V", nullptr, $PUBLIC, $method(SignatureProperties, init$, void, $Document*)},
-	{"<init>", "(Lorg/w3c/dom/Element;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SignatureProperties, init$, void, $Element*, $String*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
-	{"addSignatureProperty", "(Lcom/sun/org/apache/xml/internal/security/signature/SignatureProperty;)V", nullptr, $PUBLIC, $virtualMethod(SignatureProperties, addSignatureProperty, void, $SignatureProperty*)},
-	{"getBaseLocalName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SignatureProperties, getBaseLocalName, $String*)},
-	{"getId", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SignatureProperties, getId, $String*)},
-	{"getLength", "()I", nullptr, $PUBLIC, $virtualMethod(SignatureProperties, getLength, int32_t)},
-	{"item", "(I)Lcom/sun/org/apache/xml/internal/security/signature/SignatureProperty;", nullptr, $PUBLIC, $virtualMethod(SignatureProperties, item, $SignatureProperty*, int32_t), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
-	{"setId", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SignatureProperties, setId, void, $String*)},
-	{}
-};
-
-$ClassInfo _SignatureProperties_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.security.signature.SignatureProperties",
-	"com.sun.org.apache.xml.internal.security.utils.SignatureElementProxy",
-	nullptr,
-	nullptr,
-	_SignatureProperties_MethodInfo_
-};
-
-$Object* allocate$SignatureProperties($Class* clazz) {
-	return $of($alloc(SignatureProperties));
-}
-
 void SignatureProperties::init$($Document* doc) {
 	$SignatureElementProxy::init$(doc);
 	addReturnToSelf();
 }
 
 void SignatureProperties::init$($Element* element, $String* baseURI) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$SignatureElementProxy::init$(element, baseURI);
 	$var($Attr, attr, $nc(element)->getAttributeNodeNS(nullptr, "Id"_s));
 	if (attr != nullptr) {
@@ -82,9 +54,7 @@ void SignatureProperties::init$($Element* element, $String* baseURI) {
 	$var($ElementArray, propertyElems, $XMLUtils::selectDsNodes($(getFirstChild()), $Constants::_TAG_SIGNATUREPROPERTY));
 	{
 		$var($ElementArray, arr$, propertyElems);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($Element, propertyElem, arr$->get(i$));
 			{
 				$var($Attr, propertyAttr, $nc(propertyElem)->getAttributeNodeNS(nullptr, "Id"_s));
@@ -97,14 +67,14 @@ void SignatureProperties::init$($Element* element, $String* baseURI) {
 }
 
 int32_t SignatureProperties::getLength() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Constants);
 	$var($ElementArray, propertyElems, $XMLUtils::selectDsNodes($(getFirstChild()), $Constants::_TAG_SIGNATUREPROPERTY));
 	return $nc(propertyElems)->length;
 }
 
 $SignatureProperty* SignatureProperties::item(int32_t i) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$init($Constants);
 		$var($Element, propertyElem, $XMLUtils::selectDsNode($(getFirstChild()), $Constants::_TAG_SIGNATUREPROPERTY, i));
@@ -113,7 +83,7 @@ $SignatureProperty* SignatureProperties::item(int32_t i) {
 		}
 		return $new($SignatureProperty, propertyElem, this->baseURI);
 	} catch ($XMLSecurityException& ex) {
-		$throwNew($XMLSignatureException, static_cast<$Exception*>(ex));
+		$throwNew($XMLSignatureException, ex);
 	}
 	$shouldNotReachHere();
 }
@@ -131,7 +101,7 @@ $String* SignatureProperties::getId() {
 }
 
 void SignatureProperties::addSignatureProperty($SignatureProperty* sp) {
-	appendSelf(static_cast<$ElementProxy*>(sp));
+	appendSelf(sp);
 	addReturnToSelf();
 }
 
@@ -144,7 +114,28 @@ SignatureProperties::SignatureProperties() {
 }
 
 $Class* SignatureProperties::load$($String* name, bool initialize) {
-	$loadClass(SignatureProperties, name, initialize, &_SignatureProperties_ClassInfo_, allocate$SignatureProperties);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lorg/w3c/dom/Document;)V", nullptr, $PUBLIC, $method(SignatureProperties, init$, void, $Document*)},
+		{"<init>", "(Lorg/w3c/dom/Element;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SignatureProperties, init$, void, $Element*, $String*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
+		{"addSignatureProperty", "(Lcom/sun/org/apache/xml/internal/security/signature/SignatureProperty;)V", nullptr, $PUBLIC, $virtualMethod(SignatureProperties, addSignatureProperty, void, $SignatureProperty*)},
+		{"getBaseLocalName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SignatureProperties, getBaseLocalName, $String*)},
+		{"getId", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SignatureProperties, getId, $String*)},
+		{"getLength", "()I", nullptr, $PUBLIC, $virtualMethod(SignatureProperties, getLength, int32_t)},
+		{"item", "(I)Lcom/sun/org/apache/xml/internal/security/signature/SignatureProperty;", nullptr, $PUBLIC, $virtualMethod(SignatureProperties, item, $SignatureProperty*, int32_t), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
+		{"setId", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SignatureProperties, setId, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.security.signature.SignatureProperties",
+		"com.sun.org.apache.xml.internal.security.utils.SignatureElementProxy",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(SignatureProperties, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SignatureProperties);
+	});
 	return class$;
 }
 

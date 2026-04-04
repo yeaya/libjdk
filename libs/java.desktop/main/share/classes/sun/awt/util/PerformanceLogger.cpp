@@ -1,10 +1,8 @@
 #include <sun/awt/util/PerformanceLogger.h>
-
 #include <java/io/OutputStream.h>
 #include <java/io/OutputStreamWriter.h>
 #include <java/io/Writer.h>
 #include <java/security/AccessController.h>
-#include <java/security/PrivilegedAction.h>
 #include <java/util/Vector.h>
 #include <sun/awt/util/PerformanceLogger$1.h>
 #include <sun/awt/util/PerformanceLogger$TimeData.h>
@@ -14,9 +12,7 @@
 #undef LAST_RESERVED
 #undef START_INDEX
 
-using $OutputStream = ::java::io::OutputStream;
 using $OutputStreamWriter = ::java::io::OutputStreamWriter;
-using $PrintStream = ::java::io::PrintStream;
 using $Writer = ::java::io::Writer;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
@@ -24,7 +20,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AccessController = ::java::security::AccessController;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $Vector = ::java::util::Vector;
 using $PerformanceLogger$1 = ::sun::awt::util::PerformanceLogger$1;
 using $PerformanceLogger$TimeData = ::sun::awt::util::PerformanceLogger$TimeData;
@@ -33,60 +28,6 @@ using $GetPropertyAction = ::sun::security::action::GetPropertyAction;
 namespace sun {
 	namespace awt {
 		namespace util {
-
-$FieldInfo _PerformanceLogger_FieldInfo_[] = {
-	{"START_INDEX", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PerformanceLogger, START_INDEX)},
-	{"LAST_RESERVED", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PerformanceLogger, LAST_RESERVED)},
-	{"perfLoggingOn", "Z", nullptr, $PRIVATE | $STATIC, $staticField(PerformanceLogger, perfLoggingOn)},
-	{"useNanoTime", "Z", nullptr, $PRIVATE | $STATIC, $staticField(PerformanceLogger, useNanoTime)},
-	{"times", "Ljava/util/Vector;", "Ljava/util/Vector<Lsun/awt/util/PerformanceLogger$TimeData;>;", $PRIVATE | $STATIC, $staticField(PerformanceLogger, times)},
-	{"logFileName", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(PerformanceLogger, logFileName)},
-	{"logWriter", "Ljava/io/Writer;", nullptr, $PRIVATE | $STATIC, $staticField(PerformanceLogger, logWriter)},
-	{"baseTime", "J", nullptr, $PRIVATE | $STATIC, $staticField(PerformanceLogger, baseTime)},
-	{}
-};
-
-$MethodInfo _PerformanceLogger_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(PerformanceLogger, init$, void)},
-	{"getCurrentTime", "()J", nullptr, $PRIVATE | $STATIC, $staticMethod(PerformanceLogger, getCurrentTime, int64_t)},
-	{"getMessageAtIndex", "(I)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(PerformanceLogger, getMessageAtIndex, $String*, int32_t)},
-	{"getStartTime", "()J", nullptr, $PUBLIC | $STATIC, $staticMethod(PerformanceLogger, getStartTime, int64_t)},
-	{"getTimeAtIndex", "(I)J", nullptr, $PUBLIC | $STATIC, $staticMethod(PerformanceLogger, getTimeAtIndex, int64_t, int32_t)},
-	{"loggingEnabled", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(PerformanceLogger, loggingEnabled, bool)},
-	{"outputLog", "(Ljava/io/Writer;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(PerformanceLogger, outputLog, void, $Writer*)},
-	{"outputLog", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(PerformanceLogger, outputLog, void)},
-	{"setBaseTime", "(J)V", nullptr, $PUBLIC | $STATIC, $staticMethod(PerformanceLogger, setBaseTime, void, int64_t)},
-	{"setStartTime", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(PerformanceLogger, setStartTime, void, $String*)},
-	{"setStartTime", "(Ljava/lang/String;J)V", nullptr, $PUBLIC | $STATIC, $staticMethod(PerformanceLogger, setStartTime, void, $String*, int64_t)},
-	{"setTime", "(Ljava/lang/String;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(PerformanceLogger, setTime, int32_t, $String*)},
-	{"setTime", "(Ljava/lang/String;J)I", nullptr, $PUBLIC | $STATIC, $staticMethod(PerformanceLogger, setTime, int32_t, $String*, int64_t)},
-	{}
-};
-
-$InnerClassInfo _PerformanceLogger_InnerClassesInfo_[] = {
-	{"sun.awt.util.PerformanceLogger$TimeData", "sun.awt.util.PerformanceLogger", "TimeData", $STATIC},
-	{"sun.awt.util.PerformanceLogger$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _PerformanceLogger_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.awt.util.PerformanceLogger",
-	"java.lang.Object",
-	nullptr,
-	_PerformanceLogger_FieldInfo_,
-	_PerformanceLogger_MethodInfo_,
-	nullptr,
-	nullptr,
-	_PerformanceLogger_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.awt.util.PerformanceLogger$TimeData,sun.awt.util.PerformanceLogger$1"
-};
-
-$Object* allocate$PerformanceLogger($Class* clazz) {
-	return $of($alloc(PerformanceLogger));
-}
 
 bool PerformanceLogger::perfLoggingOn = false;
 bool PerformanceLogger::useNanoTime = false;
@@ -137,7 +78,7 @@ void PerformanceLogger::setStartTime($String* message, int64_t time) {
 int64_t PerformanceLogger::getStartTime() {
 	$init(PerformanceLogger);
 	if (loggingEnabled()) {
-		return $nc(($cast($PerformanceLogger$TimeData, $($nc(PerformanceLogger::times)->get(PerformanceLogger::START_INDEX)))))->getTime();
+		return $$sure($PerformanceLogger$TimeData, $nc(PerformanceLogger::times)->get(PerformanceLogger::START_INDEX))->getTime();
 	} else {
 		return 0;
 	}
@@ -157,8 +98,8 @@ int32_t PerformanceLogger::setTime($String* message, int64_t time) {
 	$init(PerformanceLogger);
 	if (loggingEnabled()) {
 		$synchronized(PerformanceLogger::times) {
-			$nc(PerformanceLogger::times)->add($$new($PerformanceLogger$TimeData, message, time));
-			return ($nc(PerformanceLogger::times)->size() - 1);
+			PerformanceLogger::times->add($$new($PerformanceLogger$TimeData, message, time));
+			return (PerformanceLogger::times->size() - 1);
 		}
 	} else {
 		return 0;
@@ -168,7 +109,7 @@ int32_t PerformanceLogger::setTime($String* message, int64_t time) {
 int64_t PerformanceLogger::getTimeAtIndex(int32_t index) {
 	$init(PerformanceLogger);
 	if (loggingEnabled()) {
-		return $nc(($cast($PerformanceLogger$TimeData, $($nc(PerformanceLogger::times)->get(index)))))->getTime();
+		return $$sure($PerformanceLogger$TimeData, $nc(PerformanceLogger::times)->get(index))->getTime();
 	} else {
 		return 0;
 	}
@@ -177,7 +118,7 @@ int64_t PerformanceLogger::getTimeAtIndex(int32_t index) {
 $String* PerformanceLogger::getMessageAtIndex(int32_t index) {
 	$init(PerformanceLogger);
 	if (loggingEnabled()) {
-		return $nc(($cast($PerformanceLogger$TimeData, $($nc(PerformanceLogger::times)->get(index)))))->getMessage();
+		return $$sure($PerformanceLogger$TimeData, $nc(PerformanceLogger::times)->get(index))->getMessage();
 	} else {
 		return nullptr;
 	}
@@ -185,16 +126,22 @@ $String* PerformanceLogger::getMessageAtIndex(int32_t index) {
 
 void PerformanceLogger::outputLog($Writer* writer) {
 	$init(PerformanceLogger);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (loggingEnabled()) {
 		try {
 			$synchronized(PerformanceLogger::times) {
 				for (int32_t i = 0; i < $nc(PerformanceLogger::times)->size(); ++i) {
-					$var($PerformanceLogger$TimeData, td, $cast($PerformanceLogger$TimeData, $nc(PerformanceLogger::times)->get(i)));
+					$var($PerformanceLogger$TimeData, td, $cast($PerformanceLogger$TimeData, PerformanceLogger::times->get(i)));
 					if (td != nullptr) {
-						$var($String, var$1, $$str({$$str(i), " "_s, $(td->getMessage()), ": "_s}));
-						$var($String, var$0, $$concat(var$1, $$str((td->getTime() - PerformanceLogger::baseTime))));
-						$nc(writer)->write($$concat(var$0, "\n"_s));
+						$var($StringBuilder, var$0, $new($StringBuilder));
+						var$0->append(i);
+						var$0->append(" "_s);
+						var$0->append($(td->getMessage()));
+						var$0->append(": "_s);
+						var$0->append(td->getTime());
+						var$0->append(PerformanceLogger::baseTime);
+						var$0->append("\n"_s);
+						$nc(writer)->write($$str(var$0));
 					}
 				}
 			}
@@ -210,18 +157,18 @@ void PerformanceLogger::outputLog() {
 	outputLog(PerformanceLogger::logWriter);
 }
 
-void clinit$PerformanceLogger($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void PerformanceLogger::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	PerformanceLogger::perfLoggingOn = false;
 	PerformanceLogger::useNanoTime = false;
 	$assignStatic(PerformanceLogger::logFileName, nullptr);
 	$assignStatic(PerformanceLogger::logWriter, nullptr);
 	{
-		$var($String, perfLoggingProp, $cast($String, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($GetPropertyAction, "sun.perflog"_s)))));
+		$var($String, perfLoggingProp, $cast($String, $AccessController::doPrivileged($$new($GetPropertyAction, "sun.perflog"_s))));
 		if (perfLoggingProp != nullptr) {
 			PerformanceLogger::perfLoggingOn = true;
-			$var($String, perfNanoProp, $cast($String, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($GetPropertyAction, "sun.perflog.nano"_s)))));
+			$var($String, perfNanoProp, $cast($String, $AccessController::doPrivileged($$new($GetPropertyAction, "sun.perflog.nano"_s))));
 			if (perfNanoProp != nullptr) {
 				PerformanceLogger::useNanoTime = true;
 			}
@@ -230,7 +177,7 @@ void clinit$PerformanceLogger($Class* class$) {
 			}
 			if (PerformanceLogger::logFileName != nullptr) {
 				if (PerformanceLogger::logWriter == nullptr) {
-					$AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($PerformanceLogger$1)));
+					$AccessController::doPrivileged($$new($PerformanceLogger$1));
 				}
 			}
 			if (PerformanceLogger::logWriter == nullptr) {
@@ -239,7 +186,7 @@ void clinit$PerformanceLogger($Class* class$) {
 		}
 		$assignStatic(PerformanceLogger::times, $new($Vector, 10));
 		for (int32_t i = 0; i <= PerformanceLogger::LAST_RESERVED; ++i) {
-			$nc(PerformanceLogger::times)->add($$new($PerformanceLogger$TimeData, $$str({"Time "_s, $$str(i), " not set"_s}), 0));
+			PerformanceLogger::times->add($$new($PerformanceLogger$TimeData, $$str({"Time "_s, $$str(i), " not set"_s}), 0));
 		}
 	}
 }
@@ -248,7 +195,55 @@ PerformanceLogger::PerformanceLogger() {
 }
 
 $Class* PerformanceLogger::load$($String* name, bool initialize) {
-	$loadClass(PerformanceLogger, name, initialize, &_PerformanceLogger_ClassInfo_, clinit$PerformanceLogger, allocate$PerformanceLogger);
+	$FieldInfo fieldInfos$$[] = {
+		{"START_INDEX", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PerformanceLogger, START_INDEX)},
+		{"LAST_RESERVED", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PerformanceLogger, LAST_RESERVED)},
+		{"perfLoggingOn", "Z", nullptr, $PRIVATE | $STATIC, $staticField(PerformanceLogger, perfLoggingOn)},
+		{"useNanoTime", "Z", nullptr, $PRIVATE | $STATIC, $staticField(PerformanceLogger, useNanoTime)},
+		{"times", "Ljava/util/Vector;", "Ljava/util/Vector<Lsun/awt/util/PerformanceLogger$TimeData;>;", $PRIVATE | $STATIC, $staticField(PerformanceLogger, times)},
+		{"logFileName", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(PerformanceLogger, logFileName)},
+		{"logWriter", "Ljava/io/Writer;", nullptr, $PRIVATE | $STATIC, $staticField(PerformanceLogger, logWriter)},
+		{"baseTime", "J", nullptr, $PRIVATE | $STATIC, $staticField(PerformanceLogger, baseTime)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(PerformanceLogger, init$, void)},
+		{"getCurrentTime", "()J", nullptr, $PRIVATE | $STATIC, $staticMethod(PerformanceLogger, getCurrentTime, int64_t)},
+		{"getMessageAtIndex", "(I)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(PerformanceLogger, getMessageAtIndex, $String*, int32_t)},
+		{"getStartTime", "()J", nullptr, $PUBLIC | $STATIC, $staticMethod(PerformanceLogger, getStartTime, int64_t)},
+		{"getTimeAtIndex", "(I)J", nullptr, $PUBLIC | $STATIC, $staticMethod(PerformanceLogger, getTimeAtIndex, int64_t, int32_t)},
+		{"loggingEnabled", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(PerformanceLogger, loggingEnabled, bool)},
+		{"outputLog", "(Ljava/io/Writer;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(PerformanceLogger, outputLog, void, $Writer*)},
+		{"outputLog", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(PerformanceLogger, outputLog, void)},
+		{"setBaseTime", "(J)V", nullptr, $PUBLIC | $STATIC, $staticMethod(PerformanceLogger, setBaseTime, void, int64_t)},
+		{"setStartTime", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(PerformanceLogger, setStartTime, void, $String*)},
+		{"setStartTime", "(Ljava/lang/String;J)V", nullptr, $PUBLIC | $STATIC, $staticMethod(PerformanceLogger, setStartTime, void, $String*, int64_t)},
+		{"setTime", "(Ljava/lang/String;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(PerformanceLogger, setTime, int32_t, $String*)},
+		{"setTime", "(Ljava/lang/String;J)I", nullptr, $PUBLIC | $STATIC, $staticMethod(PerformanceLogger, setTime, int32_t, $String*, int64_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.util.PerformanceLogger$TimeData", "sun.awt.util.PerformanceLogger", "TimeData", $STATIC},
+		{"sun.awt.util.PerformanceLogger$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.awt.util.PerformanceLogger",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.awt.util.PerformanceLogger$TimeData,sun.awt.util.PerformanceLogger$1"
+	};
+	$loadClass(PerformanceLogger, name, initialize, &classInfo$$, PerformanceLogger::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(PerformanceLogger);
+	});
 	return class$;
 }
 

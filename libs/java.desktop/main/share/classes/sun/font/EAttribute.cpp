@@ -1,5 +1,4 @@
 #include <sun/font/EAttribute.h>
-
 #include <java/awt/font/TextAttribute.h>
 #include <java/lang/Enum.h>
 #include <java/text/AttributedCharacterIterator$Attribute.h>
@@ -63,62 +62,6 @@ using $AttributedCharacterIterator$Attribute = ::java::text::AttributedCharacter
 
 namespace sun {
 	namespace font {
-
-$FieldInfo _EAttribute_FieldInfo_[] = {
-	{"EFAMILY", "Lsun/font/EAttribute;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(EAttribute, EFAMILY)},
-	{"EWEIGHT", "Lsun/font/EAttribute;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(EAttribute, EWEIGHT)},
-	{"EWIDTH", "Lsun/font/EAttribute;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(EAttribute, EWIDTH)},
-	{"EPOSTURE", "Lsun/font/EAttribute;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(EAttribute, EPOSTURE)},
-	{"ESIZE", "Lsun/font/EAttribute;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(EAttribute, ESIZE)},
-	{"ETRANSFORM", "Lsun/font/EAttribute;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(EAttribute, ETRANSFORM)},
-	{"ESUPERSCRIPT", "Lsun/font/EAttribute;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(EAttribute, ESUPERSCRIPT)},
-	{"EFONT", "Lsun/font/EAttribute;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(EAttribute, EFONT)},
-	{"ECHAR_REPLACEMENT", "Lsun/font/EAttribute;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(EAttribute, ECHAR_REPLACEMENT)},
-	{"EFOREGROUND", "Lsun/font/EAttribute;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(EAttribute, EFOREGROUND)},
-	{"EBACKGROUND", "Lsun/font/EAttribute;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(EAttribute, EBACKGROUND)},
-	{"EUNDERLINE", "Lsun/font/EAttribute;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(EAttribute, EUNDERLINE)},
-	{"ESTRIKETHROUGH", "Lsun/font/EAttribute;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(EAttribute, ESTRIKETHROUGH)},
-	{"ERUN_DIRECTION", "Lsun/font/EAttribute;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(EAttribute, ERUN_DIRECTION)},
-	{"EBIDI_EMBEDDING", "Lsun/font/EAttribute;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(EAttribute, EBIDI_EMBEDDING)},
-	{"EJUSTIFICATION", "Lsun/font/EAttribute;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(EAttribute, EJUSTIFICATION)},
-	{"EINPUT_METHOD_HIGHLIGHT", "Lsun/font/EAttribute;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(EAttribute, EINPUT_METHOD_HIGHLIGHT)},
-	{"EINPUT_METHOD_UNDERLINE", "Lsun/font/EAttribute;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(EAttribute, EINPUT_METHOD_UNDERLINE)},
-	{"ESWAP_COLORS", "Lsun/font/EAttribute;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(EAttribute, ESWAP_COLORS)},
-	{"ENUMERIC_SHAPING", "Lsun/font/EAttribute;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(EAttribute, ENUMERIC_SHAPING)},
-	{"EKERNING", "Lsun/font/EAttribute;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(EAttribute, EKERNING)},
-	{"ELIGATURES", "Lsun/font/EAttribute;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(EAttribute, ELIGATURES)},
-	{"ETRACKING", "Lsun/font/EAttribute;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(EAttribute, ETRACKING)},
-	{"EBASELINE_TRANSFORM", "Lsun/font/EAttribute;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(EAttribute, EBASELINE_TRANSFORM)},
-	{"$VALUES", "[Lsun/font/EAttribute;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(EAttribute, $VALUES)},
-	{"mask", "I", nullptr, $FINAL, $field(EAttribute, mask)},
-	{"att", "Ljava/awt/font/TextAttribute;", nullptr, $FINAL, $field(EAttribute, att)},
-	{"atts", "[Lsun/font/EAttribute;", nullptr, $STATIC | $FINAL, $staticField(EAttribute, atts)},
-	{}
-};
-
-$MethodInfo _EAttribute_MethodInfo_[] = {
-	{"$values", "()[Lsun/font/EAttribute;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(EAttribute, $values, $EAttributeArray*)},
-	{"<init>", "(Ljava/lang/String;ILjava/awt/font/TextAttribute;)V", "(Ljava/awt/font/TextAttribute;)V", $PRIVATE, $method(EAttribute, init$, void, $String*, int32_t, $TextAttribute*)},
-	{"forAttribute", "(Ljava/text/AttributedCharacterIterator$Attribute;)Lsun/font/EAttribute;", nullptr, $PUBLIC | $STATIC, $staticMethod(EAttribute, forAttribute, EAttribute*, $AttributedCharacterIterator$Attribute*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(EAttribute, toString, $String*)},
-	{"valueOf", "(Ljava/lang/String;)Lsun/font/EAttribute;", nullptr, $PUBLIC | $STATIC, $staticMethod(EAttribute, valueOf, EAttribute*, $String*)},
-	{"values", "()[Lsun/font/EAttribute;", nullptr, $PUBLIC | $STATIC, $staticMethod(EAttribute, values, $EAttributeArray*)},
-	{}
-};
-
-$ClassInfo _EAttribute_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"sun.font.EAttribute",
-	"java.lang.Enum",
-	nullptr,
-	_EAttribute_FieldInfo_,
-	_EAttribute_MethodInfo_,
-	"Ljava/lang/Enum<Lsun/font/EAttribute;>;"
-};
-
-$Object* allocate$EAttribute($Class* clazz) {
-	return $of($alloc(EAttribute));
-}
 
 EAttribute* EAttribute::EFAMILY = nullptr;
 EAttribute* EAttribute::EWEIGHT = nullptr;
@@ -195,28 +138,22 @@ void EAttribute::init$($String* $enum$name, int32_t $enum$ordinal, $TextAttribut
 
 EAttribute* EAttribute::forAttribute($AttributedCharacterIterator$Attribute* ta) {
 	$init(EAttribute);
-	{
-		$var($EAttributeArray, arr$, EAttribute::atts);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
-			EAttribute* ea = arr$->get(i$);
-			{
-				if ($equals($nc(ea)->att, ta)) {
-					return ea;
-				}
-			}
+	$var($EAttributeArray, arr$, EAttribute::atts);
+	for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
+		EAttribute* ea = arr$->get(i$);
+		if ($equals($nc(ea)->att, ta)) {
+			return ea;
 		}
 	}
 	return nullptr;
 }
 
 $String* EAttribute::toString() {
-	$useLocalCurrentObjectStackCache();
-	return $($nc($(name()))->substring(1))->toLowerCase();
+	$useLocalObjectStack();
+	return $($$nc(name())->substring(1))->toLowerCase();
 }
 
-void clinit$EAttribute($Class* class$) {
+void EAttribute::clinit$($Class* clazz) {
 	$init($TextAttribute);
 	$assignStatic(EAttribute::EFAMILY, $new(EAttribute, "EFAMILY"_s, 0, $TextAttribute::FAMILY));
 	$assignStatic(EAttribute::EWEIGHT, $new(EAttribute, "EWEIGHT"_s, 1, $TextAttribute::WEIGHT));
@@ -243,14 +180,65 @@ void clinit$EAttribute($Class* class$) {
 	$assignStatic(EAttribute::ETRACKING, $new(EAttribute, "ETRACKING"_s, 22, $TextAttribute::TRACKING));
 	$assignStatic(EAttribute::EBASELINE_TRANSFORM, $new(EAttribute, "EBASELINE_TRANSFORM"_s, 23, nullptr));
 	$assignStatic(EAttribute::$VALUES, EAttribute::$values());
-	$assignStatic(EAttribute::atts, $fcast($EAttributeArray, EAttribute::class$->getEnumConstants()));
+	$assignStatic(EAttribute::atts, $cast($EAttributeArray, EAttribute::class$->getEnumConstants()));
 }
 
 EAttribute::EAttribute() {
 }
 
 $Class* EAttribute::load$($String* name, bool initialize) {
-	$loadClass(EAttribute, name, initialize, &_EAttribute_ClassInfo_, clinit$EAttribute, allocate$EAttribute);
+	$FieldInfo fieldInfos$$[] = {
+		{"EFAMILY", "Lsun/font/EAttribute;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(EAttribute, EFAMILY)},
+		{"EWEIGHT", "Lsun/font/EAttribute;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(EAttribute, EWEIGHT)},
+		{"EWIDTH", "Lsun/font/EAttribute;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(EAttribute, EWIDTH)},
+		{"EPOSTURE", "Lsun/font/EAttribute;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(EAttribute, EPOSTURE)},
+		{"ESIZE", "Lsun/font/EAttribute;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(EAttribute, ESIZE)},
+		{"ETRANSFORM", "Lsun/font/EAttribute;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(EAttribute, ETRANSFORM)},
+		{"ESUPERSCRIPT", "Lsun/font/EAttribute;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(EAttribute, ESUPERSCRIPT)},
+		{"EFONT", "Lsun/font/EAttribute;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(EAttribute, EFONT)},
+		{"ECHAR_REPLACEMENT", "Lsun/font/EAttribute;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(EAttribute, ECHAR_REPLACEMENT)},
+		{"EFOREGROUND", "Lsun/font/EAttribute;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(EAttribute, EFOREGROUND)},
+		{"EBACKGROUND", "Lsun/font/EAttribute;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(EAttribute, EBACKGROUND)},
+		{"EUNDERLINE", "Lsun/font/EAttribute;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(EAttribute, EUNDERLINE)},
+		{"ESTRIKETHROUGH", "Lsun/font/EAttribute;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(EAttribute, ESTRIKETHROUGH)},
+		{"ERUN_DIRECTION", "Lsun/font/EAttribute;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(EAttribute, ERUN_DIRECTION)},
+		{"EBIDI_EMBEDDING", "Lsun/font/EAttribute;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(EAttribute, EBIDI_EMBEDDING)},
+		{"EJUSTIFICATION", "Lsun/font/EAttribute;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(EAttribute, EJUSTIFICATION)},
+		{"EINPUT_METHOD_HIGHLIGHT", "Lsun/font/EAttribute;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(EAttribute, EINPUT_METHOD_HIGHLIGHT)},
+		{"EINPUT_METHOD_UNDERLINE", "Lsun/font/EAttribute;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(EAttribute, EINPUT_METHOD_UNDERLINE)},
+		{"ESWAP_COLORS", "Lsun/font/EAttribute;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(EAttribute, ESWAP_COLORS)},
+		{"ENUMERIC_SHAPING", "Lsun/font/EAttribute;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(EAttribute, ENUMERIC_SHAPING)},
+		{"EKERNING", "Lsun/font/EAttribute;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(EAttribute, EKERNING)},
+		{"ELIGATURES", "Lsun/font/EAttribute;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(EAttribute, ELIGATURES)},
+		{"ETRACKING", "Lsun/font/EAttribute;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(EAttribute, ETRACKING)},
+		{"EBASELINE_TRANSFORM", "Lsun/font/EAttribute;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(EAttribute, EBASELINE_TRANSFORM)},
+		{"$VALUES", "[Lsun/font/EAttribute;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(EAttribute, $VALUES)},
+		{"mask", "I", nullptr, $FINAL, $field(EAttribute, mask)},
+		{"att", "Ljava/awt/font/TextAttribute;", nullptr, $FINAL, $field(EAttribute, att)},
+		{"atts", "[Lsun/font/EAttribute;", nullptr, $STATIC | $FINAL, $staticField(EAttribute, atts)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lsun/font/EAttribute;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(EAttribute, $values, $EAttributeArray*)},
+		{"<init>", "(Ljava/lang/String;ILjava/awt/font/TextAttribute;)V", "(Ljava/awt/font/TextAttribute;)V", $PRIVATE, $method(EAttribute, init$, void, $String*, int32_t, $TextAttribute*)},
+		{"forAttribute", "(Ljava/text/AttributedCharacterIterator$Attribute;)Lsun/font/EAttribute;", nullptr, $PUBLIC | $STATIC, $staticMethod(EAttribute, forAttribute, EAttribute*, $AttributedCharacterIterator$Attribute*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(EAttribute, toString, $String*)},
+		{"valueOf", "(Ljava/lang/String;)Lsun/font/EAttribute;", nullptr, $PUBLIC | $STATIC, $staticMethod(EAttribute, valueOf, EAttribute*, $String*)},
+		{"values", "()[Lsun/font/EAttribute;", nullptr, $PUBLIC | $STATIC, $staticMethod(EAttribute, values, $EAttributeArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"sun.font.EAttribute",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lsun/font/EAttribute;>;"
+	};
+	$loadClass(EAttribute, name, initialize, &classInfo$$, EAttribute::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(EAttribute));
+	});
 	return class$;
 }
 

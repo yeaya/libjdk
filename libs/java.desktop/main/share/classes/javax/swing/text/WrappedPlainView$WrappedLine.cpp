@@ -1,5 +1,4 @@
 #include <javax/swing/text/WrappedPlainView$WrappedLine.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <java/awt/FontMetrics.h>
@@ -19,7 +18,6 @@
 #include <javax/swing/text/Position$Bias.h>
 #include <javax/swing/text/Segment.h>
 #include <javax/swing/text/SegmentCache.h>
-#include <javax/swing/text/TabExpander.h>
 #include <javax/swing/text/Utilities.h>
 #include <javax/swing/text/View.h>
 #include <javax/swing/text/ViewFactory.h>
@@ -32,8 +30,6 @@
 
 using $Position$BiasArray = $Array<::javax::swing::text::Position$Bias>;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
-using $FontMetrics = ::java::awt::FontMetrics;
 using $Graphics = ::java::awt::Graphics;
 using $Graphics2D = ::java::awt::Graphics2D;
 using $Rectangle = ::java::awt::Rectangle;
@@ -57,7 +53,6 @@ using $LayeredHighlighter = ::javax::swing::text::LayeredHighlighter;
 using $Position$Bias = ::javax::swing::text::Position$Bias;
 using $Segment = ::javax::swing::text::Segment;
 using $SegmentCache = ::javax::swing::text::SegmentCache;
-using $TabExpander = ::javax::swing::text::TabExpander;
 using $Utilities = ::javax::swing::text::Utilities;
 using $View = ::javax::swing::text::View;
 using $ViewFactory = ::javax::swing::text::ViewFactory;
@@ -67,54 +62,6 @@ namespace javax {
 	namespace swing {
 		namespace text {
 
-$FieldInfo _WrappedPlainView$WrappedLine_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/text/WrappedPlainView;", nullptr, $FINAL | $SYNTHETIC, $field(WrappedPlainView$WrappedLine, this$0)},
-	{"lineCount", "I", nullptr, 0, $field(WrappedPlainView$WrappedLine, lineCount)},
-	{"lineCache", "Ljava/lang/ref/SoftReference;", "Ljava/lang/ref/SoftReference<[I>;", 0, $field(WrappedPlainView$WrappedLine, lineCache)},
-	{}
-};
-
-$MethodInfo _WrappedPlainView$WrappedLine_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/text/WrappedPlainView;Ljavax/swing/text/Element;)V", nullptr, 0, $method(WrappedPlainView$WrappedLine, init$, void, $WrappedPlainView*, $Element*)},
-	{"breakLines", "(I)[I", nullptr, $FINAL, $method(WrappedPlainView$WrappedLine, breakLines, $ints*, int32_t)},
-	{"findLine", "(I)I", nullptr, $PRIVATE, $method(WrappedPlainView$WrappedLine, findLine, int32_t, int32_t)},
-	{"findLine", "([IIII)I", nullptr, $PRIVATE, $method(WrappedPlainView$WrappedLine, findLine, int32_t, $ints*, int32_t, int32_t, int32_t)},
-	{"getLineEnds", "()[I", nullptr, $FINAL, $method(WrappedPlainView$WrappedLine, getLineEnds, $ints*)},
-	{"getPreferredSpan", "(I)F", nullptr, $PUBLIC, $virtualMethod(WrappedPlainView$WrappedLine, getPreferredSpan, float, int32_t)},
-	{"insertUpdate", "(Ljavax/swing/event/DocumentEvent;Ljava/awt/Shape;Ljavax/swing/text/ViewFactory;)V", nullptr, $PUBLIC, $virtualMethod(WrappedPlainView$WrappedLine, insertUpdate, void, $DocumentEvent*, $Shape*, $ViewFactory*)},
-	{"modelToView", "(ILjava/awt/Shape;Ljavax/swing/text/Position$Bias;)Ljava/awt/Shape;", nullptr, $PUBLIC, $virtualMethod(WrappedPlainView$WrappedLine, modelToView, $Shape*, int32_t, $Shape*, $Position$Bias*), "javax.swing.text.BadLocationException"},
-	{"paint", "(Ljava/awt/Graphics;Ljava/awt/Shape;)V", nullptr, $PUBLIC, $virtualMethod(WrappedPlainView$WrappedLine, paint, void, $Graphics*, $Shape*)},
-	{"removeUpdate", "(Ljavax/swing/event/DocumentEvent;Ljava/awt/Shape;Ljavax/swing/text/ViewFactory;)V", nullptr, $PUBLIC, $virtualMethod(WrappedPlainView$WrappedLine, removeUpdate, void, $DocumentEvent*, $Shape*, $ViewFactory*)},
-	{"update", "(Ljavax/swing/event/DocumentEvent;Ljava/awt/Shape;)V", nullptr, $PRIVATE, $method(WrappedPlainView$WrappedLine, update, void, $DocumentEvent*, $Shape*)},
-	{"viewToModel", "(FFLjava/awt/Shape;[Ljavax/swing/text/Position$Bias;)I", nullptr, $PUBLIC, $virtualMethod(WrappedPlainView$WrappedLine, viewToModel, int32_t, float, float, $Shape*, $Position$BiasArray*)},
-	{}
-};
-
-$InnerClassInfo _WrappedPlainView$WrappedLine_InnerClassesInfo_[] = {
-	{"javax.swing.text.WrappedPlainView$WrappedLine", "javax.swing.text.WrappedPlainView", "WrappedLine", 0},
-	{}
-};
-
-$ClassInfo _WrappedPlainView$WrappedLine_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.text.WrappedPlainView$WrappedLine",
-	"javax.swing.text.View",
-	nullptr,
-	_WrappedPlainView$WrappedLine_FieldInfo_,
-	_WrappedPlainView$WrappedLine_MethodInfo_,
-	nullptr,
-	nullptr,
-	_WrappedPlainView$WrappedLine_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.WrappedPlainView"
-};
-
-$Object* allocate$WrappedPlainView$WrappedLine($Class* clazz) {
-	return $of($alloc(WrappedPlainView$WrappedLine));
-}
-
 void WrappedPlainView$WrappedLine::init$($WrappedPlainView* this$0, $Element* elem) {
 	$set(this, this$0, this$0);
 	$View::init$(elem);
@@ -123,35 +70,27 @@ void WrappedPlainView$WrappedLine::init$($WrappedPlainView* this$0, $Element* el
 }
 
 float WrappedPlainView$WrappedLine::getPreferredSpan(int32_t axis) {
-	$useLocalCurrentObjectStackCache();
-	{
-		float width = 0;
-		switch (axis) {
-		case $View::X_AXIS:
-			{
-				width = (float)this->this$0->getWidth();
-				if (width == $Integer::MAX_VALUE) {
-					return 100.0f;
-				}
-				return width;
-			}
-		case $View::Y_AXIS:
-			{
-				if (this->lineCount < 0 || this->this$0->widthChanging) {
-					breakLines(getStartOffset());
-				}
-				return (float)(this->lineCount * $nc(this->this$0->metrics)->getHeight());
-			}
-		default:
-			{
-				$throwNew($IllegalArgumentException, $$str({"Invalid axis: "_s, $$str(axis)}));
-			}
+	$useLocalObjectStack();
+	float width = 0;
+	switch (axis) {
+	case $View::X_AXIS:
+		width = (float)this->this$0->getWidth();
+		if (width == $Integer::MAX_VALUE) {
+			return 100.0f;
 		}
+		return width;
+	case $View::Y_AXIS:
+		if (this->lineCount < 0 || this->this$0->widthChanging) {
+			breakLines(getStartOffset());
+		}
+		return (float)(this->lineCount * $nc(this->this$0->metrics)->getHeight());
+	default:
+		$throwNew($IllegalArgumentException, $$str({"Invalid axis: "_s, $$str(axis)}));
 	}
 }
 
 void WrappedPlainView$WrappedLine::paint($Graphics* g, $Shape* a) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle, alloc, $cast($Rectangle, a));
 	int32_t y = $nc(alloc)->y + $nc(this->this$0->metrics)->getAscent();
 	int32_t x = alloc->x;
@@ -164,7 +103,7 @@ void WrappedPlainView$WrappedLine::paint($Graphics* g, $Shape* a) {
 	$var($ints, lineEnds, getLineEnds());
 	bool useDrawLineFP = this->this$0->drawLineOverridden && $instanceOf($Graphics2D, g);
 	for (int32_t i = 0; i < this->lineCount; ++i) {
-		int32_t p1 = (lineEnds == nullptr) ? end : start + $nc(lineEnds)->get(i);
+		int32_t p1 = (lineEnds == nullptr) ? end : start + lineEnds->get(i);
 		if (dh != nullptr) {
 			int32_t hOffset = (p1 == end) ? (p1 - 1) : p1;
 			dh->paintLayeredHighlights(g, p0, hOffset, a, host, this);
@@ -180,7 +119,7 @@ void WrappedPlainView$WrappedLine::paint($Graphics* g, $Shape* a) {
 }
 
 $Shape* WrappedPlainView$WrappedLine::modelToView(int32_t pos, $Shape* a, $Position$Bias* b) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle, alloc, $nc(a)->getBounds());
 	$nc(alloc)->height = $nc(this->this$0->metrics)->getHeight();
 	alloc->width = 1;
@@ -203,7 +142,7 @@ $Shape* WrappedPlainView$WrappedLine::modelToView(int32_t pos, $Shape* a, $Posit
 		$var($Segment, segment, $SegmentCache::getSharedSegment());
 		this->this$0->loadText(segment, p0, pos);
 		float x = (float)alloc->x;
-		x += $Utilities::getTabbedTextWidth(segment, this->this$0->metrics, x, static_cast<$TabExpander*>(this->this$0), p0);
+		x += $Utilities::getTabbedTextWidth(segment, this->this$0->metrics, x, this->this$0, p0);
 		$SegmentCache::releaseSharedSegment(segment);
 		return $new($Rectangle2D$Float, x, (float)alloc->y, (float)alloc->width, (float)alloc->height);
 	}
@@ -211,7 +150,7 @@ $Shape* WrappedPlainView$WrappedLine::modelToView(int32_t pos, $Shape* a, $Posit
 }
 
 int32_t WrappedPlainView$WrappedLine::viewToModel(float fx, float fy, $Shape* a, $Position$BiasArray* bias) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Position$Bias);
 	$nc(bias)->set(0, $Position$Bias::Forward);
 	$var($Rectangle, alloc, $cast($Rectangle, a));
@@ -245,7 +184,7 @@ int32_t WrappedPlainView$WrappedLine::viewToModel(float fx, float fy, $Shape* a,
 			} else {
 				$var($Segment, segment, $SegmentCache::getSharedSegment());
 				this->this$0->loadText(segment, p0, p1);
-				int32_t n = $Utilities::getTabbedTextOffset(segment, this->this$0->metrics, (float)alloc->x, (float)x, static_cast<$TabExpander*>(this->this$0), p0, false);
+				int32_t n = $Utilities::getTabbedTextOffset(segment, this->this$0->metrics, (float)alloc->x, (float)x, this->this$0, p0, false);
 				$SegmentCache::releaseSharedSegment(segment);
 				return $Math::min(p0 + n, p1 - 1);
 			}
@@ -262,12 +201,12 @@ void WrappedPlainView$WrappedLine::removeUpdate($DocumentEvent* e, $Shape* a, $V
 }
 
 void WrappedPlainView$WrappedLine::update($DocumentEvent* ev, $Shape* a) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t oldCount = this->lineCount;
 	breakLines($nc(ev)->getOffset());
 	if (oldCount != this->lineCount) {
 		this->this$0->preferenceChanged(this, false, true);
-		$nc($(getContainer()))->repaint();
+		$$nc(getContainer())->repaint();
 	} else if (a != nullptr) {
 		$var($Component, c, getContainer());
 		$var($Rectangle, alloc, $cast($Rectangle, a));
@@ -279,7 +218,7 @@ $ints* WrappedPlainView$WrappedLine::getLineEnds() {
 	if (this->lineCache == nullptr) {
 		return nullptr;
 	} else {
-		$var($ints, lineEnds, $cast($ints, $nc(this->lineCache)->get()));
+		$var($ints, lineEnds, $cast($ints, this->lineCache->get()));
 		if (lineEnds == nullptr) {
 			return breakLines(getStartOffset());
 		} else {
@@ -289,8 +228,8 @@ $ints* WrappedPlainView$WrappedLine::getLineEnds() {
 }
 
 $ints* WrappedPlainView$WrappedLine::breakLines(int32_t startPos) {
-	$useLocalCurrentObjectStackCache();
-	$var($ints, lineEnds, (this->lineCache == nullptr) ? ($ints*)nullptr : $cast($ints, $nc(this->lineCache)->get()));
+	$useLocalObjectStack();
+	$var($ints, lineEnds, (this->lineCache == nullptr) ? ($ints*)nullptr : $cast($ints, this->lineCache->get()));
 	$var($ints, oldLineEnds, lineEnds);
 	int32_t start = getStartOffset();
 	int32_t lineIndex = 0;
@@ -320,12 +259,12 @@ $ints* WrappedPlainView$WrappedLine::breakLines(int32_t startPos) {
 			}
 			$assign(lineEnds, tmp);
 		}
-		lineEnds->set(lineIndex++, p0 - start);
+		$nc(lineEnds)->set(lineIndex++, p0 - start);
 	}
 	this->lineCount = lineIndex;
 	if (this->lineCount > 1) {
 		int32_t maxCapacity = this->lineCount + this->lineCount / 3;
-		if (lineEnds->length > maxCapacity) {
+		if ($nc(lineEnds)->length > maxCapacity) {
 			$var($ints, tmp, $new($ints, maxCapacity));
 			$System::arraycopy(lineEnds, 0, tmp, 0, this->lineCount);
 			$assign(lineEnds, tmp);
@@ -361,7 +300,49 @@ WrappedPlainView$WrappedLine::WrappedPlainView$WrappedLine() {
 }
 
 $Class* WrappedPlainView$WrappedLine::load$($String* name, bool initialize) {
-	$loadClass(WrappedPlainView$WrappedLine, name, initialize, &_WrappedPlainView$WrappedLine_ClassInfo_, allocate$WrappedPlainView$WrappedLine);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/text/WrappedPlainView;", nullptr, $FINAL | $SYNTHETIC, $field(WrappedPlainView$WrappedLine, this$0)},
+		{"lineCount", "I", nullptr, 0, $field(WrappedPlainView$WrappedLine, lineCount)},
+		{"lineCache", "Ljava/lang/ref/SoftReference;", "Ljava/lang/ref/SoftReference<[I>;", 0, $field(WrappedPlainView$WrappedLine, lineCache)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/text/WrappedPlainView;Ljavax/swing/text/Element;)V", nullptr, 0, $method(WrappedPlainView$WrappedLine, init$, void, $WrappedPlainView*, $Element*)},
+		{"breakLines", "(I)[I", nullptr, $FINAL, $method(WrappedPlainView$WrappedLine, breakLines, $ints*, int32_t)},
+		{"findLine", "(I)I", nullptr, $PRIVATE, $method(WrappedPlainView$WrappedLine, findLine, int32_t, int32_t)},
+		{"findLine", "([IIII)I", nullptr, $PRIVATE, $method(WrappedPlainView$WrappedLine, findLine, int32_t, $ints*, int32_t, int32_t, int32_t)},
+		{"getLineEnds", "()[I", nullptr, $FINAL, $method(WrappedPlainView$WrappedLine, getLineEnds, $ints*)},
+		{"getPreferredSpan", "(I)F", nullptr, $PUBLIC, $virtualMethod(WrappedPlainView$WrappedLine, getPreferredSpan, float, int32_t)},
+		{"insertUpdate", "(Ljavax/swing/event/DocumentEvent;Ljava/awt/Shape;Ljavax/swing/text/ViewFactory;)V", nullptr, $PUBLIC, $virtualMethod(WrappedPlainView$WrappedLine, insertUpdate, void, $DocumentEvent*, $Shape*, $ViewFactory*)},
+		{"modelToView", "(ILjava/awt/Shape;Ljavax/swing/text/Position$Bias;)Ljava/awt/Shape;", nullptr, $PUBLIC, $virtualMethod(WrappedPlainView$WrappedLine, modelToView, $Shape*, int32_t, $Shape*, $Position$Bias*), "javax.swing.text.BadLocationException"},
+		{"paint", "(Ljava/awt/Graphics;Ljava/awt/Shape;)V", nullptr, $PUBLIC, $virtualMethod(WrappedPlainView$WrappedLine, paint, void, $Graphics*, $Shape*)},
+		{"removeUpdate", "(Ljavax/swing/event/DocumentEvent;Ljava/awt/Shape;Ljavax/swing/text/ViewFactory;)V", nullptr, $PUBLIC, $virtualMethod(WrappedPlainView$WrappedLine, removeUpdate, void, $DocumentEvent*, $Shape*, $ViewFactory*)},
+		{"update", "(Ljavax/swing/event/DocumentEvent;Ljava/awt/Shape;)V", nullptr, $PRIVATE, $method(WrappedPlainView$WrappedLine, update, void, $DocumentEvent*, $Shape*)},
+		{"viewToModel", "(FFLjava/awt/Shape;[Ljavax/swing/text/Position$Bias;)I", nullptr, $PUBLIC, $virtualMethod(WrappedPlainView$WrappedLine, viewToModel, int32_t, float, float, $Shape*, $Position$BiasArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.WrappedPlainView$WrappedLine", "javax.swing.text.WrappedPlainView", "WrappedLine", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.text.WrappedPlainView$WrappedLine",
+		"javax.swing.text.View",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.WrappedPlainView"
+	};
+	$loadClass(WrappedPlainView$WrappedLine, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WrappedPlainView$WrappedLine);
+	});
 	return class$;
 }
 

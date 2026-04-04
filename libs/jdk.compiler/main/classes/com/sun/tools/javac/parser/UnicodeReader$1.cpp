@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/parser/UnicodeReader$1.h>
-
 #include <com/sun/tools/javac/parser/UnicodeReader$UnicodeEscapeResult.h>
 #include <com/sun/tools/javac/parser/UnicodeReader.h>
 #include <java/lang/NoSuchFieldError.h>
@@ -22,57 +21,21 @@ namespace com {
 			namespace javac {
 				namespace parser {
 
-$FieldInfo _UnicodeReader$1_FieldInfo_[] = {
-	{"$SwitchMap$com$sun$tools$javac$parser$UnicodeReader$UnicodeEscapeResult", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(UnicodeReader$1, $SwitchMap$com$sun$tools$javac$parser$UnicodeReader$UnicodeEscapeResult)},
-	{}
-};
-
-$EnclosingMethodInfo _UnicodeReader$1_EnclosingMethodInfo_ = {
-	"com.sun.tools.javac.parser.UnicodeReader",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _UnicodeReader$1_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.parser.UnicodeReader$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{}
-};
-
-$ClassInfo _UnicodeReader$1_ClassInfo_ = {
-	$ACC_SUPER | $SYNTHETIC,
-	"com.sun.tools.javac.parser.UnicodeReader$1",
-	"java.lang.Object",
-	nullptr,
-	_UnicodeReader$1_FieldInfo_,
-	nullptr,
-	nullptr,
-	&_UnicodeReader$1_EnclosingMethodInfo_,
-	_UnicodeReader$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.parser.UnicodeReader"
-};
-
-$Object* allocate$UnicodeReader$1($Class* clazz) {
-	return $of($alloc(UnicodeReader$1));
-}
-
 $ints* UnicodeReader$1::$SwitchMap$com$sun$tools$javac$parser$UnicodeReader$UnicodeEscapeResult = nullptr;
 
-void clinit$UnicodeReader$1($Class* class$) {
+void UnicodeReader$1::clinit$($Class* clazz) {
 	$assignStatic(UnicodeReader$1::$SwitchMap$com$sun$tools$javac$parser$UnicodeReader$UnicodeEscapeResult, $new($ints, $($UnicodeReader$UnicodeEscapeResult::values())->length));
 	{
 		try {
-			$nc(UnicodeReader$1::$SwitchMap$com$sun$tools$javac$parser$UnicodeReader$UnicodeEscapeResult)->set($UnicodeReader$UnicodeEscapeResult::BACKSLASH->ordinal(), 1);
+			UnicodeReader$1::$SwitchMap$com$sun$tools$javac$parser$UnicodeReader$UnicodeEscapeResult->set($UnicodeReader$UnicodeEscapeResult::BACKSLASH->ordinal(), 1);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(UnicodeReader$1::$SwitchMap$com$sun$tools$javac$parser$UnicodeReader$UnicodeEscapeResult)->set($UnicodeReader$UnicodeEscapeResult::VALID_ESCAPE->ordinal(), 2);
+			UnicodeReader$1::$SwitchMap$com$sun$tools$javac$parser$UnicodeReader$UnicodeEscapeResult->set($UnicodeReader$UnicodeEscapeResult::VALID_ESCAPE->ordinal(), 2);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(UnicodeReader$1::$SwitchMap$com$sun$tools$javac$parser$UnicodeReader$UnicodeEscapeResult)->set($UnicodeReader$UnicodeEscapeResult::BROKEN_ESCAPE->ordinal(), 3);
+			UnicodeReader$1::$SwitchMap$com$sun$tools$javac$parser$UnicodeReader$UnicodeEscapeResult->set($UnicodeReader$UnicodeEscapeResult::BROKEN_ESCAPE->ordinal(), 3);
 		} catch ($NoSuchFieldError& ex) {
 		}
 	}
@@ -82,7 +45,37 @@ UnicodeReader$1::UnicodeReader$1() {
 }
 
 $Class* UnicodeReader$1::load$($String* name, bool initialize) {
-	$loadClass(UnicodeReader$1, name, initialize, &_UnicodeReader$1_ClassInfo_, clinit$UnicodeReader$1, allocate$UnicodeReader$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"$SwitchMap$com$sun$tools$javac$parser$UnicodeReader$UnicodeEscapeResult", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(UnicodeReader$1, $SwitchMap$com$sun$tools$javac$parser$UnicodeReader$UnicodeEscapeResult)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.tools.javac.parser.UnicodeReader",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.parser.UnicodeReader$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $SYNTHETIC,
+		"com.sun.tools.javac.parser.UnicodeReader$1",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		nullptr,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.parser.UnicodeReader"
+	};
+	$loadClass(UnicodeReader$1, name, initialize, &classInfo$$, UnicodeReader$1::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(UnicodeReader$1);
+	});
 	return class$;
 }
 

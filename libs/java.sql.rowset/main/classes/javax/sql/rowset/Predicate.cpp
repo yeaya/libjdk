@@ -1,5 +1,4 @@
 #include <javax/sql/rowset/Predicate.h>
-
 #include <javax/sql/RowSet.h>
 #include <jcpp.h>
 
@@ -11,28 +10,24 @@ namespace javax {
 	namespace sql {
 		namespace rowset {
 
-$MethodInfo _Predicate_MethodInfo_[] = {
-	{"evaluate", "(Ljavax/sql/RowSet;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Predicate, evaluate, bool, $RowSet*)},
-	{"evaluate", "(Ljava/lang/Object;I)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Predicate, evaluate, bool, Object$*, int32_t), "java.sql.SQLException"},
-	{"evaluate", "(Ljava/lang/Object;Ljava/lang/String;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Predicate, evaluate, bool, Object$*, $String*), "java.sql.SQLException"},
-	{}
-};
-
-$ClassInfo _Predicate_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"javax.sql.rowset.Predicate",
-	nullptr,
-	nullptr,
-	nullptr,
-	_Predicate_MethodInfo_
-};
-
-$Object* allocate$Predicate($Class* clazz) {
-	return $of($alloc(Predicate));
-}
-
 $Class* Predicate::load$($String* name, bool initialize) {
-	$loadClass(Predicate, name, initialize, &_Predicate_ClassInfo_, allocate$Predicate);
+	$MethodInfo methodInfos$$[] = {
+		{"evaluate", "(Ljavax/sql/RowSet;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Predicate, evaluate, bool, $RowSet*)},
+		{"evaluate", "(Ljava/lang/Object;I)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Predicate, evaluate, bool, Object$*, int32_t), "java.sql.SQLException"},
+		{"evaluate", "(Ljava/lang/Object;Ljava/lang/String;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Predicate, evaluate, bool, Object$*, $String*), "java.sql.SQLException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"javax.sql.rowset.Predicate",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Predicate, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Predicate);
+	});
 	return class$;
 }
 

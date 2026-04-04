@@ -1,5 +1,4 @@
 #include <sun/java2d/DestSurfaceProvider.h>
-
 #include <sun/java2d/Surface.h>
 #include <jcpp.h>
 
@@ -10,26 +9,22 @@ using $Surface = ::sun::java2d::Surface;
 namespace sun {
 	namespace java2d {
 
-$MethodInfo _DestSurfaceProvider_MethodInfo_[] = {
-	{"getDestSurface", "()Lsun/java2d/Surface;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DestSurfaceProvider, getDestSurface, $Surface*)},
-	{}
-};
-
-$ClassInfo _DestSurfaceProvider_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"sun.java2d.DestSurfaceProvider",
-	nullptr,
-	nullptr,
-	nullptr,
-	_DestSurfaceProvider_MethodInfo_
-};
-
-$Object* allocate$DestSurfaceProvider($Class* clazz) {
-	return $of($alloc(DestSurfaceProvider));
-}
-
 $Class* DestSurfaceProvider::load$($String* name, bool initialize) {
-	$loadClass(DestSurfaceProvider, name, initialize, &_DestSurfaceProvider_ClassInfo_, allocate$DestSurfaceProvider);
+	$MethodInfo methodInfos$$[] = {
+		{"getDestSurface", "()Lsun/java2d/Surface;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DestSurfaceProvider, getDestSurface, $Surface*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"sun.java2d.DestSurfaceProvider",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(DestSurfaceProvider, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DestSurfaceProvider);
+	});
 	return class$;
 }
 

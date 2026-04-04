@@ -1,15 +1,11 @@
 #include <sun/print/ServiceDialog$JobAttributesPanel.h>
-
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/GridBagConstraints.h>
 #include <java/awt/GridBagLayout.h>
 #include <java/awt/Insets.h>
 #include <java/awt/LayoutManager.h>
 #include <java/awt/event/ActionEvent.h>
-#include <java/awt/event/ActionListener.h>
 #include <java/awt/event/FocusEvent.h>
-#include <java/awt/event/FocusListener.h>
 #include <java/lang/Number.h>
 #include <java/util/Locale.h>
 #include <javax/accessibility/AccessibleContext.h>
@@ -37,7 +33,6 @@
 #include <javax/swing/border/Border.h>
 #include <javax/swing/border/TitledBorder.h>
 #include <javax/swing/event/ChangeEvent.h>
-#include <javax/swing/event/ChangeListener.h>
 #include <sun/print/ServiceDialog.h>
 #include <jcpp.h>
 
@@ -50,103 +45,34 @@
 #undef STANDARD
 #undef TRAILING
 
-using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $GridBagConstraints = ::java::awt::GridBagConstraints;
 using $GridBagLayout = ::java::awt::GridBagLayout;
-using $LayoutManager = ::java::awt::LayoutManager;
 using $ActionEvent = ::java::awt::event::ActionEvent;
-using $ActionListener = ::java::awt::event::ActionListener;
 using $FocusEvent = ::java::awt::event::FocusEvent;
-using $FocusListener = ::java::awt::event::FocusListener;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Double = ::java::lang::Double;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Number = ::java::lang::Number;
 using $Locale = ::java::util::Locale;
-using $AccessibleContext = ::javax::accessibility::AccessibleContext;
-using $PrintService = ::javax::print::PrintService;
-using $Attribute = ::javax::print::attribute::Attribute;
-using $HashPrintRequestAttributeSet = ::javax::print::attribute::HashPrintRequestAttributeSet;
 using $PrintRequestAttribute = ::javax::print::attribute::PrintRequestAttribute;
 using $JobName = ::javax::print::attribute::standard::JobName;
 using $JobPriority = ::javax::print::attribute::standard::JobPriority;
 using $JobSheets = ::javax::print::attribute::standard::JobSheets;
 using $RequestingUserName = ::javax::print::attribute::standard::RequestingUserName;
 using $BorderFactory = ::javax::swing::BorderFactory;
-using $JCheckBox = ::javax::swing::JCheckBox;
-using $JFormattedTextField = ::javax::swing::JFormattedTextField;
 using $JLabel = ::javax::swing::JLabel;
 using $JPanel = ::javax::swing::JPanel;
 using $JSpinner = ::javax::swing::JSpinner;
 using $JSpinner$NumberEditor = ::javax::swing::JSpinner$NumberEditor;
 using $JTextField = ::javax::swing::JTextField;
-using $SpinnerModel = ::javax::swing::SpinnerModel;
 using $SpinnerNumberModel = ::javax::swing::SpinnerNumberModel;
-using $Border = ::javax::swing::border::Border;
 using $ChangeEvent = ::javax::swing::event::ChangeEvent;
-using $ChangeListener = ::javax::swing::event::ChangeListener;
 using $ServiceDialog = ::sun::print::ServiceDialog;
 
 namespace sun {
 	namespace print {
-
-$FieldInfo _ServiceDialog$JobAttributesPanel_FieldInfo_[] = {
-	{"this$0", "Lsun/print/ServiceDialog;", nullptr, $FINAL | $SYNTHETIC, $field(ServiceDialog$JobAttributesPanel, this$0)},
-	{"strTitle", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(ServiceDialog$JobAttributesPanel, strTitle)},
-	{"lblPriority", "Ljavax/swing/JLabel;", nullptr, $PRIVATE, $field(ServiceDialog$JobAttributesPanel, lblPriority)},
-	{"lblJobName", "Ljavax/swing/JLabel;", nullptr, $PRIVATE, $field(ServiceDialog$JobAttributesPanel, lblJobName)},
-	{"lblUserName", "Ljavax/swing/JLabel;", nullptr, $PRIVATE, $field(ServiceDialog$JobAttributesPanel, lblUserName)},
-	{"spinPriority", "Ljavax/swing/JSpinner;", nullptr, $PRIVATE, $field(ServiceDialog$JobAttributesPanel, spinPriority)},
-	{"snModel", "Ljavax/swing/SpinnerNumberModel;", nullptr, $PRIVATE, $field(ServiceDialog$JobAttributesPanel, snModel)},
-	{"cbJobSheets", "Ljavax/swing/JCheckBox;", nullptr, $PRIVATE, $field(ServiceDialog$JobAttributesPanel, cbJobSheets)},
-	{"tfJobName", "Ljavax/swing/JTextField;", nullptr, $PRIVATE, $field(ServiceDialog$JobAttributesPanel, tfJobName)},
-	{"tfUserName", "Ljavax/swing/JTextField;", nullptr, $PRIVATE, $field(ServiceDialog$JobAttributesPanel, tfUserName)},
-	{}
-};
-
-$MethodInfo _ServiceDialog$JobAttributesPanel_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lsun/print/ServiceDialog;)V", nullptr, $PUBLIC, $method(ServiceDialog$JobAttributesPanel, init$, void, $ServiceDialog*)},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(ServiceDialog$JobAttributesPanel, actionPerformed, void, $ActionEvent*)},
-	{"focusGained", "(Ljava/awt/event/FocusEvent;)V", nullptr, $PUBLIC, $virtualMethod(ServiceDialog$JobAttributesPanel, focusGained, void, $FocusEvent*)},
-	{"focusLost", "(Ljava/awt/event/FocusEvent;)V", nullptr, $PUBLIC, $virtualMethod(ServiceDialog$JobAttributesPanel, focusLost, void, $FocusEvent*)},
-	{"stateChanged", "(Ljavax/swing/event/ChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(ServiceDialog$JobAttributesPanel, stateChanged, void, $ChangeEvent*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"updateInfo", "()V", nullptr, $PUBLIC, $virtualMethod(ServiceDialog$JobAttributesPanel, updateInfo, void)},
-	{}
-};
-
-$InnerClassInfo _ServiceDialog$JobAttributesPanel_InnerClassesInfo_[] = {
-	{"sun.print.ServiceDialog$JobAttributesPanel", "sun.print.ServiceDialog", "JobAttributesPanel", $PRIVATE},
-	{}
-};
-
-$ClassInfo _ServiceDialog$JobAttributesPanel_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.print.ServiceDialog$JobAttributesPanel",
-	"javax.swing.JPanel",
-	"java.awt.event.ActionListener,javax.swing.event.ChangeListener,java.awt.event.FocusListener",
-	_ServiceDialog$JobAttributesPanel_FieldInfo_,
-	_ServiceDialog$JobAttributesPanel_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ServiceDialog$JobAttributesPanel_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.print.ServiceDialog"
-};
-
-$Object* allocate$ServiceDialog$JobAttributesPanel($Class* clazz) {
-	return $of($alloc(ServiceDialog$JobAttributesPanel));
-}
 
 $String* ServiceDialog$JobAttributesPanel::toString() {
 	 return this->$JPanel::toString();
@@ -169,7 +95,7 @@ void ServiceDialog$JobAttributesPanel::finalize() {
 }
 
 void ServiceDialog$JobAttributesPanel::init$($ServiceDialog* this$0) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, this$0, this$0);
 	$JPanel::init$();
 	$set(this, strTitle, $ServiceDialog::getMsg("border.jobattributes"_s));
@@ -186,16 +112,16 @@ void ServiceDialog$JobAttributesPanel::init$($ServiceDialog* this$0) {
 	$var($JPanel, pnlTop, $new($JPanel));
 	$set(this, lblPriority, $new($JLabel, $($ServiceDialog::getMsg("label.priority"_s)), $JLabel::TRAILING));
 	$nc(this->lblPriority)->setDisplayedMnemonic($ServiceDialog::getMnemonic("label.priority"_s));
-	pnlTop->add(static_cast<$Component*>(this->lblPriority));
+	pnlTop->add(this->lblPriority);
 	$set(this, snModel, $new($SpinnerNumberModel, 1, 1, 100, 1));
 	$set(this, spinPriority, $new($JSpinner, this->snModel));
 	$nc(this->lblPriority)->setLabelFor(this->spinPriority);
-	$nc($($nc(($cast($JSpinner$NumberEditor, $($nc(this->spinPriority)->getEditor()))))->getTextField()))->setColumns(3);
+	$$nc($$sure($JSpinner$NumberEditor, $nc(this->spinPriority)->getEditor())->getTextField())->setColumns(3);
 	$nc(this->spinPriority)->addChangeListener(this);
-	pnlTop->add(static_cast<$Component*>(this->spinPriority));
+	pnlTop->add(this->spinPriority);
 	c->anchor = $GridBagConstraints::LINE_END;
 	c->gridwidth = $GridBagConstraints::REMAINDER;
-	$nc($(pnlTop->getAccessibleContext()))->setAccessibleName($($ServiceDialog::getMsg("label.priority"_s)));
+	$$nc(pnlTop->getAccessibleContext())->setAccessibleName($($ServiceDialog::getMsg("label.priority"_s)));
 	$ServiceDialog::addToGB(pnlTop, this, gridbag, c);
 	c->fill = $GridBagConstraints::HORIZONTAL;
 	c->anchor = $GridBagConstraints::CENTER;
@@ -211,7 +137,7 @@ void ServiceDialog$JobAttributesPanel::init$($ServiceDialog* this$0) {
 	$nc(this->lblJobName)->setLabelFor(this->tfJobName);
 	$nc(this->tfJobName)->addFocusListener(this);
 	$nc(this->tfJobName)->setFocusAccelerator(jmnemonic);
-	$nc($($nc(this->tfJobName)->getAccessibleContext()))->setAccessibleName($($ServiceDialog::getMsg("label.jobname"_s)));
+	$$nc($nc(this->tfJobName)->getAccessibleContext())->setAccessibleName($($ServiceDialog::getMsg("label.jobname"_s)));
 	$ServiceDialog::addToGB(this->tfJobName, this, gridbag, c);
 	c->weightx = 0.0;
 	c->gridwidth = 1;
@@ -224,31 +150,31 @@ void ServiceDialog$JobAttributesPanel::init$($ServiceDialog* this$0) {
 	$nc(this->lblUserName)->setLabelFor(this->tfUserName);
 	$nc(this->tfUserName)->addFocusListener(this);
 	$nc(this->tfUserName)->setFocusAccelerator(umnemonic);
-	$nc($($nc(this->tfUserName)->getAccessibleContext()))->setAccessibleName($($ServiceDialog::getMsg("label.username"_s)));
+	$$nc($nc(this->tfUserName)->getAccessibleContext())->setAccessibleName($($ServiceDialog::getMsg("label.username"_s)));
 	$ServiceDialog::addToGB(this->tfUserName, this, gridbag, c);
 }
 
 void ServiceDialog$JobAttributesPanel::actionPerformed($ActionEvent* e) {
 	if ($nc(this->cbJobSheets)->isSelected()) {
 		$init($JobSheets);
-		$nc(this->this$0->asCurrent)->add(static_cast<$Attribute*>(static_cast<$PrintRequestAttribute*>($JobSheets::STANDARD)));
+		$nc(this->this$0->asCurrent)->add($cast($PrintRequestAttribute, $JobSheets::STANDARD));
 	} else {
 		$init($JobSheets);
-		$nc(this->this$0->asCurrent)->add(static_cast<$Attribute*>(static_cast<$PrintRequestAttribute*>($JobSheets::NONE)));
+		$nc(this->this$0->asCurrent)->add($cast($PrintRequestAttribute, $JobSheets::NONE));
 	}
 }
 
 void ServiceDialog$JobAttributesPanel::stateChanged($ChangeEvent* e) {
-	$useLocalCurrentObjectStackCache();
-	$nc(this->this$0->asCurrent)->add(static_cast<$Attribute*>(static_cast<$PrintRequestAttribute*>($$new($JobPriority, $nc($($nc(this->snModel)->getNumber()))->intValue()))));
+	$useLocalObjectStack();
+	$nc(this->this$0->asCurrent)->add($$cast($PrintRequestAttribute, $new($JobPriority, $$nc($nc(this->snModel)->getNumber())->intValue())));
 }
 
 void ServiceDialog$JobAttributesPanel::focusLost($FocusEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, source, $nc(e)->getSource());
 	if ($equals(source, this->tfJobName)) {
 		$var($String, var$0, $nc(this->tfJobName)->getText());
-		$nc(this->this$0->asCurrent)->add(static_cast<$Attribute*>(static_cast<$PrintRequestAttribute*>($$new($JobName, var$0, $($Locale::getDefault())))));
+		$nc(this->this$0->asCurrent)->add($$cast($PrintRequestAttribute, $new($JobName, var$0, $($Locale::getDefault()))));
 	} else if ($equals(source, this->tfUserName)) {
 		$var($String, var$1, $nc(this->tfUserName)->getText());
 		$nc(this->this$0->asCurrent)->add($$new($RequestingUserName, var$1, $($Locale::getDefault())));
@@ -259,7 +185,7 @@ void ServiceDialog$JobAttributesPanel::focusGained($FocusEvent* e) {
 }
 
 void ServiceDialog$JobAttributesPanel::updateInfo() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$load($JobSheets);
 	$Class* jsCategory = $JobSheets::class$;
 	$load($JobPriority);
@@ -335,7 +261,55 @@ ServiceDialog$JobAttributesPanel::ServiceDialog$JobAttributesPanel() {
 }
 
 $Class* ServiceDialog$JobAttributesPanel::load$($String* name, bool initialize) {
-	$loadClass(ServiceDialog$JobAttributesPanel, name, initialize, &_ServiceDialog$JobAttributesPanel_ClassInfo_, allocate$ServiceDialog$JobAttributesPanel);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/print/ServiceDialog;", nullptr, $FINAL | $SYNTHETIC, $field(ServiceDialog$JobAttributesPanel, this$0)},
+		{"strTitle", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(ServiceDialog$JobAttributesPanel, strTitle)},
+		{"lblPriority", "Ljavax/swing/JLabel;", nullptr, $PRIVATE, $field(ServiceDialog$JobAttributesPanel, lblPriority)},
+		{"lblJobName", "Ljavax/swing/JLabel;", nullptr, $PRIVATE, $field(ServiceDialog$JobAttributesPanel, lblJobName)},
+		{"lblUserName", "Ljavax/swing/JLabel;", nullptr, $PRIVATE, $field(ServiceDialog$JobAttributesPanel, lblUserName)},
+		{"spinPriority", "Ljavax/swing/JSpinner;", nullptr, $PRIVATE, $field(ServiceDialog$JobAttributesPanel, spinPriority)},
+		{"snModel", "Ljavax/swing/SpinnerNumberModel;", nullptr, $PRIVATE, $field(ServiceDialog$JobAttributesPanel, snModel)},
+		{"cbJobSheets", "Ljavax/swing/JCheckBox;", nullptr, $PRIVATE, $field(ServiceDialog$JobAttributesPanel, cbJobSheets)},
+		{"tfJobName", "Ljavax/swing/JTextField;", nullptr, $PRIVATE, $field(ServiceDialog$JobAttributesPanel, tfJobName)},
+		{"tfUserName", "Ljavax/swing/JTextField;", nullptr, $PRIVATE, $field(ServiceDialog$JobAttributesPanel, tfUserName)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lsun/print/ServiceDialog;)V", nullptr, $PUBLIC, $method(ServiceDialog$JobAttributesPanel, init$, void, $ServiceDialog*)},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(ServiceDialog$JobAttributesPanel, actionPerformed, void, $ActionEvent*)},
+		{"focusGained", "(Ljava/awt/event/FocusEvent;)V", nullptr, $PUBLIC, $virtualMethod(ServiceDialog$JobAttributesPanel, focusGained, void, $FocusEvent*)},
+		{"focusLost", "(Ljava/awt/event/FocusEvent;)V", nullptr, $PUBLIC, $virtualMethod(ServiceDialog$JobAttributesPanel, focusLost, void, $FocusEvent*)},
+		{"stateChanged", "(Ljavax/swing/event/ChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(ServiceDialog$JobAttributesPanel, stateChanged, void, $ChangeEvent*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"updateInfo", "()V", nullptr, $PUBLIC, $virtualMethod(ServiceDialog$JobAttributesPanel, updateInfo, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.print.ServiceDialog$JobAttributesPanel", "sun.print.ServiceDialog", "JobAttributesPanel", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.print.ServiceDialog$JobAttributesPanel",
+		"javax.swing.JPanel",
+		"java.awt.event.ActionListener,javax.swing.event.ChangeListener,java.awt.event.FocusListener",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.print.ServiceDialog"
+	};
+	$loadClass(ServiceDialog$JobAttributesPanel, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ServiceDialog$JobAttributesPanel));
+	});
 	return class$;
 }
 

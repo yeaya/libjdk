@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/dom/BitArray.h>
-
 #include <com/sun/org/apache/xml/internal/dtm/DTMAxisIterator.h>
 #include <java/io/ObjectInput.h>
 #include <java/io/ObjectOutput.h>
@@ -26,56 +25,6 @@ namespace com {
 					namespace internal {
 						namespace xsltc {
 							namespace dom {
-
-$FieldInfo _BitArray_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(BitArray, serialVersionUID)},
-	{"_bits", "[I", nullptr, $PRIVATE, $field(BitArray, _bits)},
-	{"_bitSize", "I", nullptr, $PRIVATE, $field(BitArray, _bitSize)},
-	{"_intSize", "I", nullptr, $PRIVATE, $field(BitArray, _intSize)},
-	{"_mask", "I", nullptr, $PRIVATE, $field(BitArray, _mask)},
-	{"_masks", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BitArray, _masks)},
-	{"DEBUG_ASSERTIONS", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BitArray, DEBUG_ASSERTIONS)},
-	{"_pos", "I", nullptr, $PRIVATE, $field(BitArray, _pos)},
-	{"_node", "I", nullptr, $PRIVATE, $field(BitArray, _node)},
-	{"_int", "I", nullptr, $PRIVATE, $field(BitArray, _int)},
-	{"_bit", "I", nullptr, $PRIVATE, $field(BitArray, _bit)},
-	{"_first", "I", nullptr, 0, $field(BitArray, _first)},
-	{"_last", "I", nullptr, 0, $field(BitArray, _last)},
-	{}
-};
-
-$MethodInfo _BitArray_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(BitArray, init$, void)},
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(BitArray, init$, void, int32_t)},
-	{"<init>", "(I[I)V", nullptr, $PUBLIC, $method(BitArray, init$, void, int32_t, $ints*)},
-	{"cloneArray", "()Lcom/sun/org/apache/xalan/internal/xsltc/dom/BitArray;", nullptr, $PUBLIC, $virtualMethod(BitArray, cloneArray, BitArray*)},
-	{"data", "()[I", nullptr, $PUBLIC | $FINAL, $method(BitArray, data, $ints*)},
-	{"getBit", "(I)Z", nullptr, $PUBLIC | $FINAL, $method(BitArray, getBit, bool, int32_t)},
-	{"getBitNumber", "(I)I", nullptr, $PUBLIC | $FINAL, $method(BitArray, getBitNumber, int32_t, int32_t)},
-	{"getMask", "()I", nullptr, $PUBLIC, $virtualMethod(BitArray, getMask, int32_t)},
-	{"getNextBit", "(I)I", nullptr, $PUBLIC | $FINAL, $method(BitArray, getNextBit, int32_t, int32_t)},
-	{"merge", "(Lcom/sun/org/apache/xalan/internal/xsltc/dom/BitArray;)Lcom/sun/org/apache/xalan/internal/xsltc/dom/BitArray;", nullptr, $PUBLIC | $FINAL, $method(BitArray, merge, BitArray*, BitArray*)},
-	{"readExternal", "(Ljava/io/ObjectInput;)V", nullptr, $PUBLIC, $virtualMethod(BitArray, readExternal, void, $ObjectInput*), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"resize", "(I)V", nullptr, $PUBLIC | $FINAL, $method(BitArray, resize, void, int32_t)},
-	{"setBit", "(I)V", nullptr, $PUBLIC | $FINAL, $method(BitArray, setBit, void, int32_t)},
-	{"setMask", "(I)V", nullptr, $PUBLIC, $virtualMethod(BitArray, setMask, void, int32_t)},
-	{"size", "()I", nullptr, $PUBLIC | $FINAL, $method(BitArray, size, int32_t)},
-	{"writeExternal", "(Ljava/io/ObjectOutput;)V", nullptr, $PUBLIC, $virtualMethod(BitArray, writeExternal, void, $ObjectOutput*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _BitArray_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xalan.internal.xsltc.dom.BitArray",
-	"java.lang.Object",
-	"java.io.Externalizable",
-	_BitArray_FieldInfo_,
-	_BitArray_MethodInfo_
-};
-
-$Object* allocate$BitArray($Class* clazz) {
-	return $of($alloc(BitArray));
-}
 
 $ints* BitArray::_masks = nullptr;
 
@@ -126,7 +75,8 @@ int32_t BitArray::size() {
 }
 
 bool BitArray::getBit(int32_t bit) {
-	return (((int32_t)($nc(this->_bits)->get((int32_t)((uint32_t)bit >> 5)) & (uint32_t)$nc(BitArray::_masks)->get(bit % 32))) != 0);
+	;
+	return (($nc(this->_bits)->get((int32_t)((uint32_t)bit >> 5)) & BitArray::_masks->get(bit % 32)) != 0);
 }
 
 int32_t BitArray::getNextBit(int32_t startBit) {
@@ -134,7 +84,7 @@ int32_t BitArray::getNextBit(int32_t startBit) {
 		int32_t bits = $nc(this->_bits)->get(i);
 		if (bits != 0) {
 			for (int32_t b = (startBit % 32); b < 32; ++b) {
-				if (((int32_t)(bits & (uint32_t)$nc(BitArray::_masks)->get(b))) != 0) {
+				if ((bits & BitArray::_masks->get(b)) != 0) {
 					return ((i << 5) + b);
 				}
 			}
@@ -155,7 +105,7 @@ int32_t BitArray::getBitNumber(int32_t pos) {
 		int32_t bits = $nc(this->_bits)->get(this->_int);
 		if (bits != 0) {
 			for (; this->_bit < 32; ++this->_bit) {
-				if (((int32_t)(bits & (uint32_t)$nc(BitArray::_masks)->get(this->_bit))) != 0) {
+				if ((bits & BitArray::_masks->get(this->_bit)) != 0) {
 					if (++this->_pos == pos) {
 						this->_node = ((this->_int << 5) + this->_bit) - 1;
 						return (this->_node);
@@ -173,6 +123,7 @@ $ints* BitArray::data() {
 }
 
 void BitArray::setBit(int32_t bit) {
+	;
 	if (bit >= this->_bitSize) {
 		return;
 	}
@@ -183,7 +134,7 @@ void BitArray::setBit(int32_t bit) {
 	if (i > this->_last) {
 		this->_last = i;
 	}
-	(*$nc(this->_bits))[i] |= $nc(BitArray::_masks)->get(bit % 32);
+	(*$nc(this->_bits))[i] |= BitArray::_masks->get(bit % 32);
 }
 
 BitArray* BitArray::merge(BitArray* other) {
@@ -240,7 +191,7 @@ void BitArray::readExternal($ObjectInput* in) {
 	$set(this, _bits, $cast($ints, in->readObject()));
 }
 
-void clinit$BitArray($Class* class$) {
+void BitArray::clinit$($Class* clazz) {
 	$assignStatic(BitArray::_masks, $new($ints, {
 		(int32_t)0x80000000,
 		0x40000000,
@@ -258,22 +209,22 @@ void clinit$BitArray($Class* class$) {
 		0x00040000,
 		0x00020000,
 		0x00010000,
-		32768,
-		16384,
-		8192,
-		4096,
-		2048,
-		1024,
-		512,
-		256,
-		128,
-		64,
-		32,
-		16,
-		8,
-		4,
-		2,
-		1
+		0x00008000,
+		0x00004000,
+		0x00002000,
+		0x00001000,
+		0x00000800,
+		0x00000400,
+		0x00000200,
+		0x00000100,
+		0x00000080,
+		0x00000040,
+		0x00000020,
+		0x00000010,
+		0x00000008,
+		0x00000004,
+		0x00000002,
+		0x00000001
 	}));
 }
 
@@ -281,7 +232,52 @@ BitArray::BitArray() {
 }
 
 $Class* BitArray::load$($String* name, bool initialize) {
-	$loadClass(BitArray, name, initialize, &_BitArray_ClassInfo_, clinit$BitArray, allocate$BitArray);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(BitArray, serialVersionUID)},
+		{"_bits", "[I", nullptr, $PRIVATE, $field(BitArray, _bits)},
+		{"_bitSize", "I", nullptr, $PRIVATE, $field(BitArray, _bitSize)},
+		{"_intSize", "I", nullptr, $PRIVATE, $field(BitArray, _intSize)},
+		{"_mask", "I", nullptr, $PRIVATE, $field(BitArray, _mask)},
+		{"_masks", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BitArray, _masks)},
+		{"DEBUG_ASSERTIONS", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BitArray, DEBUG_ASSERTIONS)},
+		{"_pos", "I", nullptr, $PRIVATE, $field(BitArray, _pos)},
+		{"_node", "I", nullptr, $PRIVATE, $field(BitArray, _node)},
+		{"_int", "I", nullptr, $PRIVATE, $field(BitArray, _int)},
+		{"_bit", "I", nullptr, $PRIVATE, $field(BitArray, _bit)},
+		{"_first", "I", nullptr, 0, $field(BitArray, _first)},
+		{"_last", "I", nullptr, 0, $field(BitArray, _last)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(BitArray, init$, void)},
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(BitArray, init$, void, int32_t)},
+		{"<init>", "(I[I)V", nullptr, $PUBLIC, $method(BitArray, init$, void, int32_t, $ints*)},
+		{"cloneArray", "()Lcom/sun/org/apache/xalan/internal/xsltc/dom/BitArray;", nullptr, $PUBLIC, $virtualMethod(BitArray, cloneArray, BitArray*)},
+		{"data", "()[I", nullptr, $PUBLIC | $FINAL, $method(BitArray, data, $ints*)},
+		{"getBit", "(I)Z", nullptr, $PUBLIC | $FINAL, $method(BitArray, getBit, bool, int32_t)},
+		{"getBitNumber", "(I)I", nullptr, $PUBLIC | $FINAL, $method(BitArray, getBitNumber, int32_t, int32_t)},
+		{"getMask", "()I", nullptr, $PUBLIC, $virtualMethod(BitArray, getMask, int32_t)},
+		{"getNextBit", "(I)I", nullptr, $PUBLIC | $FINAL, $method(BitArray, getNextBit, int32_t, int32_t)},
+		{"merge", "(Lcom/sun/org/apache/xalan/internal/xsltc/dom/BitArray;)Lcom/sun/org/apache/xalan/internal/xsltc/dom/BitArray;", nullptr, $PUBLIC | $FINAL, $method(BitArray, merge, BitArray*, BitArray*)},
+		{"readExternal", "(Ljava/io/ObjectInput;)V", nullptr, $PUBLIC, $virtualMethod(BitArray, readExternal, void, $ObjectInput*), "java.io.IOException,java.lang.ClassNotFoundException"},
+		{"resize", "(I)V", nullptr, $PUBLIC | $FINAL, $method(BitArray, resize, void, int32_t)},
+		{"setBit", "(I)V", nullptr, $PUBLIC | $FINAL, $method(BitArray, setBit, void, int32_t)},
+		{"setMask", "(I)V", nullptr, $PUBLIC, $virtualMethod(BitArray, setMask, void, int32_t)},
+		{"size", "()I", nullptr, $PUBLIC | $FINAL, $method(BitArray, size, int32_t)},
+		{"writeExternal", "(Ljava/io/ObjectOutput;)V", nullptr, $PUBLIC, $virtualMethod(BitArray, writeExternal, void, $ObjectOutput*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xalan.internal.xsltc.dom.BitArray",
+		"java.lang.Object",
+		"java.io.Externalizable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(BitArray, name, initialize, &classInfo$$, BitArray::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(BitArray);
+	});
 	return class$;
 }
 

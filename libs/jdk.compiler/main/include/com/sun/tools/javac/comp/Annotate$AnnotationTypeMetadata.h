@@ -47,6 +47,7 @@ class $import Annotate$AnnotationTypeMetadata : public ::java::lang::Object {
 	$class(Annotate$AnnotationTypeMetadata, 0, ::java::lang::Object)
 public:
 	Annotate$AnnotationTypeMetadata();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::com::sun::tools::javac::code::Symbol$ClassSymbol* metaDataFor, ::com::sun::tools::javac::comp::Annotate$AnnotationTypeCompleter* annotationTypeCompleter);
 	virtual void complete();
 	virtual ::java::util::Set* getAnnotationElements();

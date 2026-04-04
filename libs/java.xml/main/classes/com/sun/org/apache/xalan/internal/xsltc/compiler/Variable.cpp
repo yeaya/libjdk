@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/Variable.h>
-
 #include <com/sun/org/apache/bcel/internal/classfile/Attribute.h>
 #include <com/sun/org/apache/bcel/internal/classfile/ConstantPool.h>
 #include <com/sun/org/apache/bcel/internal/classfile/Field.h>
@@ -41,15 +40,11 @@ using $ACONST_NULL = ::com::sun::org::apache::bcel::internal::generic::ACONST_NU
 using $ConstantPoolGen = ::com::sun::org::apache::bcel::internal::generic::ConstantPoolGen;
 using $DCONST = ::com::sun::org::apache::bcel::internal::generic::DCONST;
 using $ICONST = ::com::sun::org::apache::bcel::internal::generic::ICONST;
-using $Instruction = ::com::sun::org::apache::bcel::internal::generic::Instruction;
 using $InstructionHandle = ::com::sun::org::apache::bcel::internal::generic::InstructionHandle;
 using $InstructionList = ::com::sun::org::apache::bcel::internal::generic::InstructionList;
-using $LocalVariableGen = ::com::sun::org::apache::bcel::internal::generic::LocalVariableGen;
 using $PUTFIELD = ::com::sun::org::apache::bcel::internal::generic::PUTFIELD;
 using $Constants = ::com::sun::org::apache::xalan::internal::xsltc::compiler::Constants;
-using $Expression = ::com::sun::org::apache::xalan::internal::xsltc::compiler::Expression;
 using $Parser = ::com::sun::org::apache::xalan::internal::xsltc::compiler::Parser;
-using $QName = ::com::sun::org::apache::xalan::internal::xsltc::compiler::QName;
 using $Stylesheet = ::com::sun::org::apache::xalan::internal::xsltc::compiler::Stylesheet;
 using $SymbolTable = ::com::sun::org::apache::xalan::internal::xsltc::compiler::SymbolTable;
 using $SyntaxTreeNode = ::com::sun::org::apache::xalan::internal::xsltc::compiler::SyntaxTreeNode;
@@ -64,7 +59,6 @@ using $RealType = ::com::sun::org::apache::xalan::internal::xsltc::compiler::uti
 using $Type = ::com::sun::org::apache::xalan::internal::xsltc::compiler::util::Type;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $List = ::java::util::List;
 
 namespace com {
 	namespace sun {
@@ -75,44 +69,21 @@ namespace com {
 						namespace xsltc {
 							namespace compiler {
 
-$MethodInfo _Variable_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(Variable, init$, void)},
-	{"getIndex", "()I", nullptr, $PUBLIC, $method(Variable, getIndex, int32_t)},
-	{"initialize", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;)V", nullptr, $PUBLIC, $method(Variable, initialize, void, $ClassGenerator*, $MethodGenerator*)},
-	{"parseContents", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Parser;)V", nullptr, $PUBLIC, $virtualMethod(Variable, parseContents, void, $Parser*)},
-	{"translate", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;)V", nullptr, $PUBLIC, $virtualMethod(Variable, translate, void, $ClassGenerator*, $MethodGenerator*)},
-	{"typeCheck", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SymbolTable;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/Type;", nullptr, $PUBLIC, $virtualMethod(Variable, typeCheck, $Type*, $SymbolTable*), "com.sun.org.apache.xalan.internal.xsltc.compiler.util.TypeCheckError"},
-	{}
-};
-
-$ClassInfo _Variable_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xalan.internal.xsltc.compiler.Variable",
-	"com.sun.org.apache.xalan.internal.xsltc.compiler.VariableBase",
-	nullptr,
-	nullptr,
-	_Variable_MethodInfo_
-};
-
-$Object* allocate$Variable($Class* clazz) {
-	return $of($alloc(Variable));
-}
-
 void Variable::init$() {
 	$VariableBase::init$();
 }
 
 int32_t Variable::getIndex() {
-	return (this->_local != nullptr) ? $nc(this->_local)->getIndex() : -1;
+	return (this->_local != nullptr) ? this->_local->getIndex() : -1;
 }
 
 void Variable::parseContents($Parser* parser) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$VariableBase::parseContents(parser);
 	$var($SyntaxTreeNode, parent, getParent());
 	if ($instanceOf($Stylesheet, parent)) {
 		this->_isLocal = false;
-		$var(Variable, var, $nc($($nc(parser)->getSymbolTable()))->lookupVariable(this->_name));
+		$var(Variable, var, $$nc($nc(parser)->getSymbolTable())->lookupVariable(this->_name));
 		if (var != nullptr) {
 			int32_t us = this->getImportPrecedence();
 			int32_t them = var->getImportPrecedence();
@@ -129,8 +100,8 @@ void Variable::parseContents($Parser* parser) {
 				var->disable();
 			}
 		}
-		$nc(($cast($Stylesheet, parent)))->addVariable(this);
-		$nc($(parser->getSymbolTable()))->addVariable(this);
+		$cast($Stylesheet, parent)->addVariable(this);
+		$$nc(parser->getSymbolTable())->addVariable(this);
 	} else {
 		this->_isLocal = true;
 	}
@@ -138,7 +109,7 @@ void Variable::parseContents($Parser* parser) {
 
 $Type* Variable::typeCheck($SymbolTable* stable) {
 	if (this->_select != nullptr) {
-		$set(this, _type, $nc(this->_select)->typeCheck(stable));
+		$set(this, _type, this->_select->typeCheck(stable));
 	} else if (hasContents()) {
 		typeCheckContents(stable);
 		$init($Type);
@@ -152,7 +123,7 @@ $Type* Variable::typeCheck($SymbolTable* stable) {
 }
 
 void Variable::initialize($ClassGenerator* classGen, $MethodGenerator* methodGen) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ConstantPoolGen, cpg, $nc(classGen)->getConstantPool());
 	$var($InstructionList, il, $nc(methodGen)->getInstructionList());
 	bool var$0 = isLocal();
@@ -162,18 +133,18 @@ void Variable::initialize($ClassGenerator* classGen, $MethodGenerator* methodGen
 			$set(this, _local, methodGen->addLocalVariable2(var$1, $($nc(this->_type)->toJCType()), nullptr));
 		}
 		if (($instanceOf($IntType, this->_type)) || ($instanceOf($NodeType, this->_type)) || ($instanceOf($BooleanType, this->_type))) {
-			$nc(il)->append(static_cast<$Instruction*>($$new($ICONST, 0)));
+			$nc(il)->append($$new($ICONST, 0));
 		} else if ($instanceOf($RealType, this->_type)) {
-			$nc(il)->append(static_cast<$Instruction*>($$new($DCONST, (double)0)));
+			$nc(il)->append($$new($DCONST, 0));
 		} else {
-			$nc(il)->append(static_cast<$Instruction*>($$new($ACONST_NULL)));
+			$nc(il)->append($$new($ACONST_NULL));
 		}
 		$nc(this->_local)->setStart($($nc(il)->append($($nc(this->_type)->STORE($nc(this->_local)->getIndex())))));
 	}
 }
 
 void Variable::translate($ClassGenerator* classGen, $MethodGenerator* methodGen) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ConstantPoolGen, cpg, $nc(classGen)->getConstantPool());
 	$var($InstructionList, il, $nc(methodGen)->getInstructionList());
 	if ($nc(this->_refs)->isEmpty()) {
@@ -197,13 +168,12 @@ void Variable::translate($ClassGenerator* classGen, $MethodGenerator* methodGen)
 	} else {
 		$var($String, signature, $nc(this->_type)->toSignature());
 		if (classGen->containsField(name) == nullptr) {
-			int32_t var$0 = $Constants::ACC_PUBLIC;
-			int32_t var$1 = $nc(cpg)->addUtf8(name);
-			int32_t var$2 = cpg->addUtf8(signature);
-			classGen->addField($$new($Field, var$0, var$1, var$2, nullptr, $(cpg->getConstantPool())));
+			int32_t var$0 = $nc(cpg)->addUtf8(name);
+			int32_t var$1 = cpg->addUtf8(signature);
+			classGen->addField($$new($Field, $Constants::ACC_PUBLIC, var$0, var$1, nullptr, $(cpg->getConstantPool())));
 			$nc(il)->append($(classGen->loadTranslet()));
 			translateValue(classGen, methodGen);
-			il->append(static_cast<$Instruction*>($$new($PUTFIELD, $nc(cpg)->addFieldref($(classGen->getClassName()), name, signature))));
+			il->append($$new($PUTFIELD, cpg->addFieldref($(classGen->getClassName()), name, signature)));
 		}
 	}
 }
@@ -212,7 +182,26 @@ Variable::Variable() {
 }
 
 $Class* Variable::load$($String* name, bool initialize) {
-	$loadClass(Variable, name, initialize, &_Variable_ClassInfo_, allocate$Variable);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(Variable, init$, void)},
+		{"getIndex", "()I", nullptr, $PUBLIC, $method(Variable, getIndex, int32_t)},
+		{"initialize", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;)V", nullptr, $PUBLIC, $method(Variable, initialize, void, $ClassGenerator*, $MethodGenerator*)},
+		{"parseContents", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Parser;)V", nullptr, $PUBLIC, $virtualMethod(Variable, parseContents, void, $Parser*)},
+		{"translate", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;)V", nullptr, $PUBLIC, $virtualMethod(Variable, translate, void, $ClassGenerator*, $MethodGenerator*)},
+		{"typeCheck", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SymbolTable;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/Type;", nullptr, $PUBLIC, $virtualMethod(Variable, typeCheck, $Type*, $SymbolTable*), "com.sun.org.apache.xalan.internal.xsltc.compiler.util.TypeCheckError"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xalan.internal.xsltc.compiler.Variable",
+		"com.sun.org.apache.xalan.internal.xsltc.compiler.VariableBase",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Variable, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Variable);
+	});
 	return class$;
 }
 

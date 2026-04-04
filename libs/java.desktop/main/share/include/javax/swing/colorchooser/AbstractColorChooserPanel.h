@@ -41,6 +41,7 @@ class $import AbstractColorChooserPanel : public ::javax::swing::JPanel {
 	$class(AbstractColorChooserPanel, 0, ::javax::swing::JPanel)
 public:
 	AbstractColorChooserPanel();
+	static void clinit$(::java::lang::Class* clazz);
 	using ::javax::swing::JPanel::contains;
 	using ::javax::swing::JPanel::enable;
 	using ::javax::swing::JPanel::getBounds;

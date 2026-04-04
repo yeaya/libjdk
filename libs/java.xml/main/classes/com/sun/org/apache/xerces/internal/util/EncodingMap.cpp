@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/util/EncodingMap.h>
-
 #include <java/util/Collections.h>
 #include <java/util/HashMap.h>
 #include <java/util/Map.h>
@@ -20,32 +19,6 @@ namespace com {
 					namespace internal {
 						namespace util {
 
-$FieldInfo _EncodingMap_FieldInfo_[] = {
-	{"fIANA2JavaMap", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;", $PROTECTED | $STATIC | $FINAL, $staticField(EncodingMap, fIANA2JavaMap)},
-	{"fJava2IANAMap", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;", $PROTECTED | $STATIC | $FINAL, $staticField(EncodingMap, fJava2IANAMap)},
-	{}
-};
-
-$MethodInfo _EncodingMap_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(EncodingMap, init$, void)},
-	{"getIANA2JavaMapping", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(EncodingMap, getIANA2JavaMapping, $String*, $String*)},
-	{"getJava2IANAMapping", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(EncodingMap, getJava2IANAMapping, $String*, $String*)},
-	{}
-};
-
-$ClassInfo _EncodingMap_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.util.EncodingMap",
-	"java.lang.Object",
-	nullptr,
-	_EncodingMap_FieldInfo_,
-	_EncodingMap_MethodInfo_
-};
-
-$Object* allocate$EncodingMap($Class* clazz) {
-	return $of($alloc(EncodingMap));
-}
-
 $Map* EncodingMap::fIANA2JavaMap = nullptr;
 $Map* EncodingMap::fJava2IANAMap = nullptr;
 
@@ -62,8 +35,8 @@ $String* EncodingMap::getJava2IANAMapping($String* javaEncoding) {
 	return $cast($String, $nc(EncodingMap::fJava2IANAMap)->get(javaEncoding));
 }
 
-void clinit$EncodingMap($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void EncodingMap::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	{
 		$var($Map, aIANA2JavaMap, $new($HashMap));
 		$var($Map, aJava2IANAMap, $new($HashMap));
@@ -494,7 +467,28 @@ EncodingMap::EncodingMap() {
 }
 
 $Class* EncodingMap::load$($String* name, bool initialize) {
-	$loadClass(EncodingMap, name, initialize, &_EncodingMap_ClassInfo_, clinit$EncodingMap, allocate$EncodingMap);
+	$FieldInfo fieldInfos$$[] = {
+		{"fIANA2JavaMap", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;", $PROTECTED | $STATIC | $FINAL, $staticField(EncodingMap, fIANA2JavaMap)},
+		{"fJava2IANAMap", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;", $PROTECTED | $STATIC | $FINAL, $staticField(EncodingMap, fJava2IANAMap)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(EncodingMap, init$, void)},
+		{"getIANA2JavaMapping", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(EncodingMap, getIANA2JavaMapping, $String*, $String*)},
+		{"getJava2IANAMapping", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(EncodingMap, getJava2IANAMapping, $String*, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.util.EncodingMap",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(EncodingMap, name, initialize, &classInfo$$, EncodingMap::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(EncodingMap);
+	});
 	return class$;
 }
 

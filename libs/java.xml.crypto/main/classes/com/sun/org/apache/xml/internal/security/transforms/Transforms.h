@@ -102,6 +102,7 @@ class Transforms : public ::com::sun::org::apache::xml::internal::security::util
 	$class(Transforms, 0, ::com::sun::org::apache::xml::internal::security::utils::SignatureElementProxy)
 public:
 	Transforms();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(::org::w3c::dom::Document* doc);
 	void init$(::org::w3c::dom::Element* element, $String* baseURI);

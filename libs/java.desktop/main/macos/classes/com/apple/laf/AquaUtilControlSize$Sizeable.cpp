@@ -1,5 +1,4 @@
 #include <com/apple/laf/AquaUtilControlSize$Sizeable.h>
-
 #include <apple/laf/JRSUIConstants$Size.h>
 #include <com/apple/laf/AquaUtilControlSize.h>
 #include <javax/swing/JComponent.h>
@@ -15,38 +14,33 @@ namespace com {
 	namespace apple {
 		namespace laf {
 
-$MethodInfo _AquaUtilControlSize$Sizeable_MethodInfo_[] = {
-	{"applySizeFor", "(Ljavax/swing/JComponent;Lapple/laf/JRSUIConstants$Size;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AquaUtilControlSize$Sizeable, applySizeFor, void, $JComponent*, $JRSUIConstants$Size*)},
-	{}
-};
-
-$InnerClassInfo _AquaUtilControlSize$Sizeable_InnerClassesInfo_[] = {
-	{"com.apple.laf.AquaUtilControlSize$Sizeable", "com.apple.laf.AquaUtilControlSize", "Sizeable", $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _AquaUtilControlSize$Sizeable_ClassInfo_ = {
-	$INTERFACE | $ABSTRACT,
-	"com.apple.laf.AquaUtilControlSize$Sizeable",
-	nullptr,
-	nullptr,
-	nullptr,
-	_AquaUtilControlSize$Sizeable_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AquaUtilControlSize$Sizeable_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.apple.laf.AquaUtilControlSize"
-};
-
-$Object* allocate$AquaUtilControlSize$Sizeable($Class* clazz) {
-	return $of($alloc(AquaUtilControlSize$Sizeable));
-}
-
 $Class* AquaUtilControlSize$Sizeable::load$($String* name, bool initialize) {
-	$loadClass(AquaUtilControlSize$Sizeable, name, initialize, &_AquaUtilControlSize$Sizeable_ClassInfo_, allocate$AquaUtilControlSize$Sizeable);
+	$MethodInfo methodInfos$$[] = {
+		{"applySizeFor", "(Ljavax/swing/JComponent;Lapple/laf/JRSUIConstants$Size;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AquaUtilControlSize$Sizeable, applySizeFor, void, $JComponent*, $JRSUIConstants$Size*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.laf.AquaUtilControlSize$Sizeable", "com.apple.laf.AquaUtilControlSize", "Sizeable", $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$INTERFACE | $ABSTRACT,
+		"com.apple.laf.AquaUtilControlSize$Sizeable",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.apple.laf.AquaUtilControlSize"
+	};
+	$loadClass(AquaUtilControlSize$Sizeable, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AquaUtilControlSize$Sizeable);
+	});
 	return class$;
 }
 

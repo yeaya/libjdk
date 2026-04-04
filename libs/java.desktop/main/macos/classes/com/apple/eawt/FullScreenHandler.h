@@ -56,6 +56,7 @@ class FullScreenHandler : public ::java::lang::Object {
 	$class(FullScreenHandler, 0, ::java::lang::Object)
 public:
 	FullScreenHandler();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void addFullScreenListenerTo(::javax::swing::RootPaneContainer* window, ::com::apple::eawt::FullScreenListener* listener);
 	void addListener(::com::apple::eawt::FullScreenListener* listener);

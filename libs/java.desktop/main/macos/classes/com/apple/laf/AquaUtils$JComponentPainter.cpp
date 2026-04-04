@@ -1,5 +1,4 @@
 #include <com/apple/laf/AquaUtils$JComponentPainter.h>
-
 #include <com/apple/laf/AquaUtils.h>
 #include <java/awt/Graphics.h>
 #include <javax/swing/JComponent.h>
@@ -15,38 +14,33 @@ namespace com {
 	namespace apple {
 		namespace laf {
 
-$MethodInfo _AquaUtils$JComponentPainter_MethodInfo_[] = {
-	{"paint", "(Ljavax/swing/JComponent;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AquaUtils$JComponentPainter, paint, void, $JComponent*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{}
-};
-
-$InnerClassInfo _AquaUtils$JComponentPainter_InnerClassesInfo_[] = {
-	{"com.apple.laf.AquaUtils$JComponentPainter", "com.apple.laf.AquaUtils", "JComponentPainter", $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _AquaUtils$JComponentPainter_ClassInfo_ = {
-	$INTERFACE | $ABSTRACT,
-	"com.apple.laf.AquaUtils$JComponentPainter",
-	nullptr,
-	nullptr,
-	nullptr,
-	_AquaUtils$JComponentPainter_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AquaUtils$JComponentPainter_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.apple.laf.AquaUtils"
-};
-
-$Object* allocate$AquaUtils$JComponentPainter($Class* clazz) {
-	return $of($alloc(AquaUtils$JComponentPainter));
-}
-
 $Class* AquaUtils$JComponentPainter::load$($String* name, bool initialize) {
-	$loadClass(AquaUtils$JComponentPainter, name, initialize, &_AquaUtils$JComponentPainter_ClassInfo_, allocate$AquaUtils$JComponentPainter);
+	$MethodInfo methodInfos$$[] = {
+		{"paint", "(Ljavax/swing/JComponent;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AquaUtils$JComponentPainter, paint, void, $JComponent*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.laf.AquaUtils$JComponentPainter", "com.apple.laf.AquaUtils", "JComponentPainter", $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$INTERFACE | $ABSTRACT,
+		"com.apple.laf.AquaUtils$JComponentPainter",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.apple.laf.AquaUtils"
+	};
+	$loadClass(AquaUtils$JComponentPainter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AquaUtils$JComponentPainter);
+	});
 	return class$;
 }
 

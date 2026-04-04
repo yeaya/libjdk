@@ -1,5 +1,4 @@
 #include <sun/security/krb5/internal/APReq.h>
-
 #include <java/math/BigInteger.h>
 #include <sun/security/krb5/Asn1Exception.h>
 #include <sun/security/krb5/EncryptedData.h>
@@ -30,7 +29,6 @@ using $APOptions = ::sun::security::krb5::internal::APOptions;
 using $Krb5 = ::sun::security::krb5::internal::Krb5;
 using $KrbApErrException = ::sun::security::krb5::internal::KrbApErrException;
 using $Ticket = ::sun::security::krb5::internal::Ticket;
-using $DerInputStream = ::sun::security::util::DerInputStream;
 using $DerOutputStream = ::sun::security::util::DerOutputStream;
 using $DerValue = ::sun::security::util::DerValue;
 
@@ -38,37 +36,6 @@ namespace sun {
 	namespace security {
 		namespace krb5 {
 			namespace internal {
-
-$FieldInfo _APReq_FieldInfo_[] = {
-	{"pvno", "I", nullptr, $PUBLIC, $field(APReq, pvno)},
-	{"msgType", "I", nullptr, $PUBLIC, $field(APReq, msgType)},
-	{"apOptions", "Lsun/security/krb5/internal/APOptions;", nullptr, $PUBLIC, $field(APReq, apOptions)},
-	{"ticket", "Lsun/security/krb5/internal/Ticket;", nullptr, $PUBLIC, $field(APReq, ticket)},
-	{"authenticator", "Lsun/security/krb5/EncryptedData;", nullptr, $PUBLIC, $field(APReq, authenticator)},
-	{}
-};
-
-$MethodInfo _APReq_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/krb5/internal/APOptions;Lsun/security/krb5/internal/Ticket;Lsun/security/krb5/EncryptedData;)V", nullptr, $PUBLIC, $method(APReq, init$, void, $APOptions*, $Ticket*, $EncryptedData*)},
-	{"<init>", "([B)V", nullptr, $PUBLIC, $method(APReq, init$, void, $bytes*), "sun.security.krb5.Asn1Exception,java.io.IOException,sun.security.krb5.internal.KrbApErrException,sun.security.krb5.RealmException"},
-	{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(APReq, init$, void, $DerValue*), "sun.security.krb5.Asn1Exception,java.io.IOException,sun.security.krb5.internal.KrbApErrException,sun.security.krb5.RealmException"},
-	{"asn1Encode", "()[B", nullptr, $PUBLIC, $virtualMethod(APReq, asn1Encode, $bytes*), "sun.security.krb5.Asn1Exception,java.io.IOException"},
-	{"init", "(Lsun/security/util/DerValue;)V", nullptr, $PRIVATE, $method(APReq, init, void, $DerValue*), "sun.security.krb5.Asn1Exception,java.io.IOException,sun.security.krb5.internal.KrbApErrException,sun.security.krb5.RealmException"},
-	{}
-};
-
-$ClassInfo _APReq_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.krb5.internal.APReq",
-	"java.lang.Object",
-	nullptr,
-	_APReq_FieldInfo_,
-	_APReq_MethodInfo_
-};
-
-$Object* allocate$APReq($Class* clazz) {
-	return $of($alloc(APReq));
-}
 
 void APReq::init$($APOptions* new_apOptions, $Ticket* new_ticket, $EncryptedData* new_authenticator) {
 	this->pvno = $Krb5::PVNO;
@@ -87,50 +54,50 @@ void APReq::init$($DerValue* encoding) {
 }
 
 void APReq::init($DerValue* encoding) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DerValue, der, nullptr);
 	$var($DerValue, subDer, nullptr);
-	bool var$1 = (((int32_t)($nc(encoding)->getTag() & (uint32_t)(int32_t)(int8_t)31)) != $Krb5::KRB_AP_REQ);
-	bool var$0 = var$1 || ($nc(encoding)->isApplication() != true);
-	if (var$0 || ($nc(encoding)->isConstructed() != true)) {
+	bool var$1 = ($nc(encoding)->getTag() & (int8_t)31) != $Krb5::KRB_AP_REQ;
+	bool var$0 = var$1 || (encoding->isApplication() != true);
+	if (var$0 || (encoding->isConstructed() != true)) {
 		$throwNew($Asn1Exception, $Krb5::ASN1_BAD_ID);
 	}
-	$assign(der, $nc($($nc(encoding)->getData()))->getDerValue());
+	$assign(der, $$nc(encoding->getData())->getDerValue());
 	if ($nc(der)->getTag() != $DerValue::tag_Sequence) {
 		$throwNew($Asn1Exception, $Krb5::ASN1_BAD_ID);
 	}
-	$assign(subDer, $nc($($nc(der)->getData()))->getDerValue());
-	if (((int32_t)($nc(subDer)->getTag() & (uint32_t)(int32_t)(int8_t)31)) != (int8_t)0) {
+	$assign(subDer, $$nc(der->getData())->getDerValue());
+	if (($nc(subDer)->getTag() & (int8_t)31) != (int8_t)0) {
 		$throwNew($Asn1Exception, $Krb5::ASN1_BAD_ID);
 	}
-	this->pvno = $nc($($nc($($nc(subDer)->getData()))->getBigInteger()))->intValue();
+	this->pvno = $$nc($$nc(subDer->getData())->getBigInteger())->intValue();
 	if (this->pvno != $Krb5::PVNO) {
 		$throwNew($KrbApErrException, $Krb5::KRB_AP_ERR_BADVERSION);
 	}
-	$assign(subDer, $nc($(der->getData()))->getDerValue());
-	if (((int32_t)(subDer->getTag() & (uint32_t)(int32_t)(int8_t)31)) != (int8_t)1) {
+	$assign(subDer, $$nc(der->getData())->getDerValue());
+	if (($nc(subDer)->getTag() & (int8_t)31) != (int8_t)1) {
 		$throwNew($Asn1Exception, $Krb5::ASN1_BAD_ID);
 	}
-	this->msgType = $nc($($nc($(subDer->getData()))->getBigInteger()))->intValue();
+	this->msgType = $$nc($$nc(subDer->getData())->getBigInteger())->intValue();
 	if (this->msgType != $Krb5::KRB_AP_REQ) {
 		$throwNew($KrbApErrException, $Krb5::KRB_AP_ERR_MSG_TYPE);
 	}
 	$set(this, apOptions, $APOptions::parse($(der->getData()), (int8_t)2, false));
 	$set(this, ticket, $Ticket::parse($(der->getData()), (int8_t)3, false));
 	$set(this, authenticator, $EncryptedData::parse($(der->getData()), (int8_t)4, false));
-	if ($nc($(der->getData()))->available() > 0) {
+	if ($$nc(der->getData())->available() > 0) {
 		$throwNew($Asn1Exception, $Krb5::ASN1_BAD_ID);
 	}
 }
 
 $bytes* APReq::asn1Encode() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DerOutputStream, bytes, $new($DerOutputStream));
 	$var($DerOutputStream, temp, $new($DerOutputStream));
-	temp->putInteger($($BigInteger::valueOf((int64_t)this->pvno)));
+	temp->putInteger($($BigInteger::valueOf(this->pvno)));
 	bytes->write($DerValue::createTag($DerValue::TAG_CONTEXT, true, (int8_t)0), temp);
 	$assign(temp, $new($DerOutputStream));
-	temp->putInteger($($BigInteger::valueOf((int64_t)this->msgType)));
+	temp->putInteger($($BigInteger::valueOf(this->msgType)));
 	bytes->write($DerValue::createTag($DerValue::TAG_CONTEXT, true, (int8_t)1), temp);
 	int8_t var$0 = $DerValue::createTag($DerValue::TAG_CONTEXT, true, (int8_t)2);
 	bytes->write(var$0, $($nc(this->apOptions)->asn1Encode()));
@@ -149,7 +116,33 @@ APReq::APReq() {
 }
 
 $Class* APReq::load$($String* name, bool initialize) {
-	$loadClass(APReq, name, initialize, &_APReq_ClassInfo_, allocate$APReq);
+	$FieldInfo fieldInfos$$[] = {
+		{"pvno", "I", nullptr, $PUBLIC, $field(APReq, pvno)},
+		{"msgType", "I", nullptr, $PUBLIC, $field(APReq, msgType)},
+		{"apOptions", "Lsun/security/krb5/internal/APOptions;", nullptr, $PUBLIC, $field(APReq, apOptions)},
+		{"ticket", "Lsun/security/krb5/internal/Ticket;", nullptr, $PUBLIC, $field(APReq, ticket)},
+		{"authenticator", "Lsun/security/krb5/EncryptedData;", nullptr, $PUBLIC, $field(APReq, authenticator)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/security/krb5/internal/APOptions;Lsun/security/krb5/internal/Ticket;Lsun/security/krb5/EncryptedData;)V", nullptr, $PUBLIC, $method(APReq, init$, void, $APOptions*, $Ticket*, $EncryptedData*)},
+		{"<init>", "([B)V", nullptr, $PUBLIC, $method(APReq, init$, void, $bytes*), "sun.security.krb5.Asn1Exception,java.io.IOException,sun.security.krb5.internal.KrbApErrException,sun.security.krb5.RealmException"},
+		{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(APReq, init$, void, $DerValue*), "sun.security.krb5.Asn1Exception,java.io.IOException,sun.security.krb5.internal.KrbApErrException,sun.security.krb5.RealmException"},
+		{"asn1Encode", "()[B", nullptr, $PUBLIC, $virtualMethod(APReq, asn1Encode, $bytes*), "sun.security.krb5.Asn1Exception,java.io.IOException"},
+		{"init", "(Lsun/security/util/DerValue;)V", nullptr, $PRIVATE, $method(APReq, init, void, $DerValue*), "sun.security.krb5.Asn1Exception,java.io.IOException,sun.security.krb5.internal.KrbApErrException,sun.security.krb5.RealmException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.krb5.internal.APReq",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(APReq, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(APReq);
+	});
 	return class$;
 }
 

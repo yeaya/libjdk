@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/bcel/internal/generic/PushInstruction.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -12,19 +11,16 @@ namespace com {
 					namespace internal {
 						namespace generic {
 
-$ClassInfo _PushInstruction_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.org.apache.bcel.internal.generic.PushInstruction",
-	nullptr,
-	"com.sun.org.apache.bcel.internal.generic.StackProducer"
-};
-
-$Object* allocate$PushInstruction($Class* clazz) {
-	return $of($alloc(PushInstruction));
-}
-
 $Class* PushInstruction::load$($String* name, bool initialize) {
-	$loadClass(PushInstruction, name, initialize, &_PushInstruction_ClassInfo_, allocate$PushInstruction);
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.org.apache.bcel.internal.generic.PushInstruction",
+		nullptr,
+		"com.sun.org.apache.bcel.internal.generic.StackProducer"
+	};
+	$loadClass(PushInstruction, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PushInstruction);
+	});
 	return class$;
 }
 

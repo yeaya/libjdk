@@ -1,5 +1,4 @@
 #include <sun/print/PathGraphics.h>
-
 #include <java/awt/AlphaComposite.h>
 #include <java/awt/Color.h>
 #include <java/awt/Composite.h>
@@ -90,7 +89,6 @@ using $Image = ::java::awt::Image;
 using $Paint = ::java::awt::Paint;
 using $Polygon = ::java::awt::Polygon;
 using $Shape = ::java::awt::Shape;
-using $Stroke = ::java::awt::Stroke;
 using $FontRenderContext = ::java::awt::font::FontRenderContext;
 using $GlyphVector = ::java::awt::font::GlyphVector;
 using $TextAttribute = ::java::awt::font::TextAttribute;
@@ -119,7 +117,6 @@ using $RenderedImage = ::java::awt::image::RenderedImage;
 using $SampleModel = ::java::awt::image::SampleModel;
 using $SinglePixelPackedSampleModel = ::java::awt::image::SinglePixelPackedSampleModel;
 using $VolatileImage = ::java::awt::image::VolatileImage;
-using $WritableRaster = ::java::awt::image::WritableRaster;
 using $PageFormat = ::java::awt::print::PageFormat;
 using $Printable = ::java::awt::print::Printable;
 using $PrinterJob = ::java::awt::print::PrinterJob;
@@ -150,90 +147,6 @@ using $RasterPrinterJob = ::sun::print::RasterPrinterJob;
 namespace sun {
 	namespace print {
 
-$FieldInfo _PathGraphics_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(PathGraphics, $assertionsDisabled)},
-	{"mPainter", "Ljava/awt/print/Printable;", nullptr, $PRIVATE, $field(PathGraphics, mPainter)},
-	{"mPageFormat", "Ljava/awt/print/PageFormat;", nullptr, $PRIVATE, $field(PathGraphics, mPageFormat)},
-	{"mPageIndex", "I", nullptr, $PRIVATE, $field(PathGraphics, mPageIndex)},
-	{"mCanRedraw", "Z", nullptr, $PRIVATE, $field(PathGraphics, mCanRedraw)},
-	{"printingGlyphVector", "Z", nullptr, $PROTECTED, $field(PathGraphics, printingGlyphVector)},
-	{"fontMapRef", "Ljava/lang/ref/SoftReference;", "Ljava/lang/ref/SoftReference<Ljava/util/Hashtable<Lsun/font/Font2DHandle;Ljava/lang/Object;>;>;", $PROTECTED | $STATIC, $staticField(PathGraphics, fontMapRef)},
-	{}
-};
-
-$MethodInfo _PathGraphics_MethodInfo_[] = {
-	{"<init>", "(Ljava/awt/Graphics2D;Ljava/awt/print/PrinterJob;Ljava/awt/print/Printable;Ljava/awt/print/PageFormat;IZ)V", nullptr, $PROTECTED, $method(PathGraphics, init$, void, $Graphics2D*, $PrinterJob*, $Printable*, $PageFormat*, int32_t, bool)},
-	{"canDoRedraws", "()Z", nullptr, $PUBLIC, $virtualMethod(PathGraphics, canDoRedraws, bool)},
-	{"canDrawStringToWidth", "()Z", nullptr, $PROTECTED, $virtualMethod(PathGraphics, canDrawStringToWidth, bool)},
-	{"clearRect", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(PathGraphics, clearRect, void, int32_t, int32_t, int32_t, int32_t)},
-	{"deviceClip", "(Ljava/awt/geom/PathIterator;)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(PathGraphics, deviceClip, void, $PathIterator*)},
-	{"deviceDrawLine", "(IIIILjava/awt/Color;)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(PathGraphics, deviceDrawLine, void, int32_t, int32_t, int32_t, int32_t, $Color*)},
-	{"deviceFill", "(Ljava/awt/geom/PathIterator;Ljava/awt/Color;)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(PathGraphics, deviceFill, void, $PathIterator*, $Color*)},
-	{"deviceFillRect", "(IIIILjava/awt/Color;)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(PathGraphics, deviceFillRect, void, int32_t, int32_t, int32_t, int32_t, $Color*)},
-	{"deviceFrameRect", "(IIIILjava/awt/Color;)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(PathGraphics, deviceFrameRect, void, int32_t, int32_t, int32_t, int32_t, $Color*)},
-	{"draw", "(Ljava/awt/Shape;)V", nullptr, $PUBLIC, $virtualMethod(PathGraphics, draw, void, $Shape*)},
-	{"drawArc", "(IIIIII)V", nullptr, $PUBLIC, $virtualMethod(PathGraphics, drawArc, void, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"drawBitmaskImage", "(Ljava/awt/image/BufferedImage;Ljava/awt/geom/AffineTransform;Ljava/awt/Color;IIII)Z", nullptr, $PROTECTED, $virtualMethod(PathGraphics, drawBitmaskImage, bool, $BufferedImage*, $AffineTransform*, $Color*, int32_t, int32_t, int32_t, int32_t)},
-	{"drawGlyphVector", "(Ljava/awt/font/GlyphVector;FF)V", nullptr, $PUBLIC, $virtualMethod(PathGraphics, drawGlyphVector, void, $GlyphVector*, float, float)},
-	{"drawImage", "(Ljava/awt/Image;IILjava/awt/image/ImageObserver;)Z", nullptr, $PUBLIC, $virtualMethod(PathGraphics, drawImage, bool, $Image*, int32_t, int32_t, $ImageObserver*)},
-	{"drawImage", "(Ljava/awt/Image;IIIILjava/awt/image/ImageObserver;)Z", nullptr, $PUBLIC, $virtualMethod(PathGraphics, drawImage, bool, $Image*, int32_t, int32_t, int32_t, int32_t, $ImageObserver*)},
-	{"drawImage", "(Ljava/awt/Image;IILjava/awt/Color;Ljava/awt/image/ImageObserver;)Z", nullptr, $PUBLIC, $virtualMethod(PathGraphics, drawImage, bool, $Image*, int32_t, int32_t, $Color*, $ImageObserver*)},
-	{"drawImage", "(Ljava/awt/Image;IIIILjava/awt/Color;Ljava/awt/image/ImageObserver;)Z", nullptr, $PUBLIC, $virtualMethod(PathGraphics, drawImage, bool, $Image*, int32_t, int32_t, int32_t, int32_t, $Color*, $ImageObserver*)},
-	{"drawImage", "(Ljava/awt/Image;IIIIIIIILjava/awt/image/ImageObserver;)Z", nullptr, $PUBLIC, $virtualMethod(PathGraphics, drawImage, bool, $Image*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, $ImageObserver*)},
-	{"drawImage", "(Ljava/awt/Image;IIIIIIIILjava/awt/Color;Ljava/awt/image/ImageObserver;)Z", nullptr, $PUBLIC, $virtualMethod(PathGraphics, drawImage, bool, $Image*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, $Color*, $ImageObserver*)},
-	{"drawImage", "(Ljava/awt/Image;Ljava/awt/geom/AffineTransform;Ljava/awt/image/ImageObserver;)Z", nullptr, $PUBLIC, $virtualMethod(PathGraphics, drawImage, bool, $Image*, $AffineTransform*, $ImageObserver*)},
-	{"drawImage", "(Ljava/awt/image/BufferedImage;Ljava/awt/image/BufferedImageOp;II)V", nullptr, $PUBLIC, $virtualMethod(PathGraphics, drawImage, void, $BufferedImage*, $BufferedImageOp*, int32_t, int32_t)},
-	{"drawImageToPlatform", "(Ljava/awt/Image;Ljava/awt/geom/AffineTransform;Ljava/awt/Color;IIIIZ)Z", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(PathGraphics, drawImageToPlatform, bool, $Image*, $AffineTransform*, $Color*, int32_t, int32_t, int32_t, int32_t, bool)},
-	{"drawLine", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(PathGraphics, drawLine, void, int32_t, int32_t, int32_t, int32_t)},
-	{"drawOval", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(PathGraphics, drawOval, void, int32_t, int32_t, int32_t, int32_t)},
-	{"drawPolygon", "([I[II)V", nullptr, $PUBLIC, $virtualMethod(PathGraphics, drawPolygon, void, $ints*, $ints*, int32_t)},
-	{"drawPolygon", "(Ljava/awt/Polygon;)V", nullptr, $PUBLIC, $virtualMethod(PathGraphics, drawPolygon, void, $Polygon*)},
-	{"drawPolyline", "([I[II)V", nullptr, $PUBLIC, $virtualMethod(PathGraphics, drawPolyline, void, $ints*, $ints*, int32_t)},
-	{"drawRect", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(PathGraphics, drawRect, void, int32_t, int32_t, int32_t, int32_t)},
-	{"drawRenderedImage", "(Ljava/awt/image/RenderedImage;Ljava/awt/geom/AffineTransform;)V", nullptr, $PUBLIC, $virtualMethod(PathGraphics, drawRenderedImage, void, $RenderedImage*, $AffineTransform*)},
-	{"drawRoundRect", "(IIIIII)V", nullptr, $PUBLIC, $virtualMethod(PathGraphics, drawRoundRect, void, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"drawString", "(Ljava/lang/String;II)V", nullptr, $PUBLIC, $virtualMethod(PathGraphics, drawString, void, $String*, int32_t, int32_t)},
-	{"drawString", "(Ljava/lang/String;FF)V", nullptr, $PUBLIC, $virtualMethod(PathGraphics, drawString, void, $String*, float, float)},
-	{"drawString", "(Ljava/lang/String;FFLjava/awt/Font;Ljava/awt/font/FontRenderContext;F)V", nullptr, $PROTECTED, $virtualMethod(PathGraphics, drawString, void, $String*, float, float, $Font*, $FontRenderContext*, float)},
-	{"drawString", "(Ljava/text/AttributedCharacterIterator;II)V", nullptr, $PUBLIC, $virtualMethod(PathGraphics, drawString, void, $AttributedCharacterIterator*, int32_t, int32_t)},
-	{"drawString", "(Ljava/text/AttributedCharacterIterator;FF)V", nullptr, $PUBLIC, $virtualMethod(PathGraphics, drawString, void, $AttributedCharacterIterator*, float, float)},
-	{"fill", "(Ljava/awt/Shape;)V", nullptr, $PUBLIC, $virtualMethod(PathGraphics, fill, void, $Shape*)},
-	{"fill", "(Ljava/awt/Shape;Ljava/awt/Color;)V", nullptr, $PUBLIC, $virtualMethod(PathGraphics, fill, void, $Shape*, $Color*)},
-	{"fillArc", "(IIIIII)V", nullptr, $PUBLIC, $virtualMethod(PathGraphics, fillArc, void, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"fillOval", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(PathGraphics, fillOval, void, int32_t, int32_t, int32_t, int32_t)},
-	{"fillPolygon", "([I[II)V", nullptr, $PUBLIC, $virtualMethod(PathGraphics, fillPolygon, void, $ints*, $ints*, int32_t)},
-	{"fillPolygon", "(Ljava/awt/Polygon;)V", nullptr, $PUBLIC, $virtualMethod(PathGraphics, fillPolygon, void, $Polygon*)},
-	{"fillRect", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(PathGraphics, fillRect, void, int32_t, int32_t, int32_t, int32_t)},
-	{"fillRoundRect", "(IIIIII)V", nullptr, $PUBLIC, $virtualMethod(PathGraphics, fillRoundRect, void, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"getBufferedImage", "(Ljava/awt/Image;)Ljava/awt/image/BufferedImage;", nullptr, $PROTECTED, $virtualMethod(PathGraphics, getBufferedImage, $BufferedImage*, $Image*)},
-	{"getGlyphToCharMapForFont", "(Lsun/font/Font2D;)[C", nullptr, $PRIVATE | $STATIC, $staticMethod(PathGraphics, getGlyphToCharMapForFont, $chars*, $Font2D*)},
-	{"getPageFormat", "()Ljava/awt/print/PageFormat;", nullptr, $PROTECTED, $virtualMethod(PathGraphics, getPageFormat, $PageFormat*)},
-	{"getPageIndex", "()I", nullptr, $PROTECTED, $virtualMethod(PathGraphics, getPageIndex, int32_t)},
-	{"getPrintable", "()Ljava/awt/print/Printable;", nullptr, $PROTECTED, $virtualMethod(PathGraphics, getPrintable, $Printable*)},
-	{"hasTransparentPixels", "(Ljava/awt/image/BufferedImage;)Z", nullptr, $PROTECTED, $virtualMethod(PathGraphics, hasTransparentPixels, bool, $BufferedImage*)},
-	{"isBitmaskTransparency", "(Ljava/awt/image/BufferedImage;)Z", nullptr, $PROTECTED, $virtualMethod(PathGraphics, isBitmaskTransparency, bool, $BufferedImage*)},
-	{"isCompositing", "(Ljava/awt/Composite;)Z", nullptr, $PROTECTED, $virtualMethod(PathGraphics, isCompositing, bool, $Composite*)},
-	{"platformFontCount", "(Ljava/awt/Font;Ljava/lang/String;)I", nullptr, $PROTECTED, $virtualMethod(PathGraphics, platformFontCount, int32_t, $Font*, $String*)},
-	{"printGlyphVector", "(Ljava/awt/font/GlyphVector;FF)Z", nullptr, $PROTECTED, $virtualMethod(PathGraphics, printGlyphVector, bool, $GlyphVector*, float, float)},
-	{"printedSimpleGlyphVector", "(Ljava/awt/font/GlyphVector;FF)Z", nullptr, 0, $virtualMethod(PathGraphics, printedSimpleGlyphVector, bool, $GlyphVector*, float, float)},
-	{"redrawRegion", "(Ljava/awt/geom/Rectangle2D;DDLjava/awt/Shape;Ljava/awt/geom/AffineTransform;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(PathGraphics, redrawRegion, void, $Rectangle2D*, double, double, $Shape*, $AffineTransform*), "java.awt.print.PrinterException"},
-	{"samePositions", "(Ljava/awt/font/GlyphVector;[I[I[F)Z", nullptr, $PRIVATE, $method(PathGraphics, samePositions, bool, $GlyphVector*, $ints*, $ints*, $floats*)},
-	{}
-};
-
-$ClassInfo _PathGraphics_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"sun.print.PathGraphics",
-	"sun.print.ProxyGraphics2D",
-	nullptr,
-	_PathGraphics_FieldInfo_,
-	_PathGraphics_MethodInfo_
-};
-
-$Object* allocate$PathGraphics($Class* clazz) {
-	return $of($alloc(PathGraphics));
-}
-
 bool PathGraphics::$assertionsDisabled = false;
 $SoftReference* PathGraphics::fontMapRef = nullptr;
 
@@ -262,12 +175,12 @@ bool PathGraphics::canDoRedraws() {
 }
 
 void PathGraphics::drawLine(int32_t x1, int32_t y1, int32_t x2, int32_t y2) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Paint, paint, getPaint());
 	try {
 		$var($AffineTransform, deviceTransform, getTransform());
 		if (getClip() != nullptr) {
-			deviceClip($($nc($(getClip()))->getPathIterator(deviceTransform)));
+			deviceClip($($$nc(getClip())->getPathIterator(deviceTransform)));
 		}
 		deviceDrawLine(x1, y1, x2, y2, $cast($Color, paint));
 	} catch ($ClassCastException& e) {
@@ -276,12 +189,12 @@ void PathGraphics::drawLine(int32_t x1, int32_t y1, int32_t x2, int32_t y2) {
 }
 
 void PathGraphics::drawRect(int32_t x, int32_t y, int32_t width, int32_t height) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Paint, paint, getPaint());
 	try {
 		$var($AffineTransform, deviceTransform, getTransform());
 		if (getClip() != nullptr) {
-			deviceClip($($nc($(getClip()))->getPathIterator(deviceTransform)));
+			deviceClip($($$nc(getClip())->getPathIterator(deviceTransform)));
 		}
 		deviceFrameRect(x, y, width, height, $cast($Color, paint));
 	} catch ($ClassCastException& e) {
@@ -290,12 +203,12 @@ void PathGraphics::drawRect(int32_t x, int32_t y, int32_t width, int32_t height)
 }
 
 void PathGraphics::fillRect(int32_t x, int32_t y, int32_t width, int32_t height) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Paint, paint, getPaint());
 	try {
 		$var($AffineTransform, deviceTransform, getTransform());
 		if (getClip() != nullptr) {
-			deviceClip($($nc($(getClip()))->getPathIterator(deviceTransform)));
+			deviceClip($($$nc(getClip())->getPathIterator(deviceTransform)));
 		}
 		deviceFillRect(x, y, width, height, $cast($Color, paint));
 	} catch ($ClassCastException& e) {
@@ -304,8 +217,8 @@ void PathGraphics::fillRect(int32_t x, int32_t y, int32_t width, int32_t height)
 }
 
 void PathGraphics::clearRect(int32_t x, int32_t y, int32_t width, int32_t height) {
-	$useLocalCurrentObjectStackCache();
-	$var($Shape, var$0, static_cast<$Shape*>($new($Rectangle2D$Float, (float)x, (float)y, (float)width, (float)height)));
+	$useLocalObjectStack();
+	$var($Shape, var$0, $new($Rectangle2D$Float, (float)x, (float)y, (float)width, (float)height));
 	fill(var$0, $(getBackground()));
 }
 
@@ -334,14 +247,14 @@ void PathGraphics::fillArc(int32_t x, int32_t y, int32_t width, int32_t height, 
 }
 
 void PathGraphics::drawPolyline($ints* xPoints, $ints* yPoints, int32_t nPoints) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (nPoints == 2) {
-		draw($$new($Line2D$Float, (float)$nc(xPoints)->get(0), (float)$nc(yPoints)->get(0), (float)xPoints->get(1), (float)yPoints->get(1)));
+		draw($$new($Line2D$Float, (float)$nc(xPoints)->get(0), (float)$nc(yPoints)->get(0), (float)$nc(xPoints)->get(1), (float)$nc(yPoints)->get(1)));
 	} else if (nPoints > 2) {
 		$var($Path2D, path, $new($Path2D$Float, $Path2D::WIND_EVEN_ODD, nPoints));
 		path->moveTo((double)$nc(xPoints)->get(0), (double)$nc(yPoints)->get(0));
 		for (int32_t i = 1; i < nPoints; ++i) {
-			path->lineTo((double)$nc(xPoints)->get(i), (double)$nc(yPoints)->get(i));
+			path->lineTo((double)xPoints->get(i), (double)yPoints->get(i));
 		}
 		draw(path);
 	}
@@ -368,18 +281,17 @@ void PathGraphics::drawString($String* str, int32_t x, int32_t y) {
 }
 
 void PathGraphics::drawString($String* str, float x, float y) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(str)->length() == 0) {
 		return;
 	}
-	$var($String, var$0, str);
-	$var($Font, var$1, getFont());
-	$var($TextLayout, layout, $new($TextLayout, var$0, var$1, $(getFontRenderContext())));
+	$var($Font, var$0, getFont());
+	$var($TextLayout, layout, $new($TextLayout, str, var$0, $(getFontRenderContext())));
 	layout->draw(this, x, y);
 }
 
 void PathGraphics::drawString($String* str, float x, float y, $Font* font, $FontRenderContext* frc, float w) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($TextLayout, layout, $new($TextLayout, str, font, frc));
 	$var($Shape, textShape, layout->getOutline($($AffineTransform::getTranslateInstance(x, y))));
 	fill(textShape);
@@ -390,7 +302,7 @@ void PathGraphics::drawString($AttributedCharacterIterator* iterator, int32_t x,
 }
 
 void PathGraphics::drawString($AttributedCharacterIterator* iterator, float x, float y) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (iterator == nullptr) {
 		$throwNew($NullPointerException, "attributedcharacteriterator is null"_s);
 	}
@@ -399,7 +311,7 @@ void PathGraphics::drawString($AttributedCharacterIterator* iterator, float x, f
 }
 
 void PathGraphics::drawGlyphVector($GlyphVector* g, float x, float y) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->printingGlyphVector) {
 		if (!PathGraphics::$assertionsDisabled && ! !this->printingGlyphVector) {
 			$throwNew($AssertionError);
@@ -407,22 +319,20 @@ void PathGraphics::drawGlyphVector($GlyphVector* g, float x, float y) {
 		fill($($nc(g)->getOutline(x, y)));
 		return;
 	}
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			this->printingGlyphVector = true;
-			$init($RasterPrinterJob);
-			if ($RasterPrinterJob::shapeTextProp || !printedSimpleGlyphVector(g, x, y)) {
-				fill($($nc(g)->getOutline(x, y)));
-			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			this->printingGlyphVector = false;
+	$var($Throwable, var$0, nullptr);
+	try {
+		this->printingGlyphVector = true;
+		$init($RasterPrinterJob);
+		if ($RasterPrinterJob::shapeTextProp || !printedSimpleGlyphVector(g, x, y)) {
+			fill($($nc(g)->getOutline(x, y)));
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		this->printingGlyphVector = false;
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
@@ -435,7 +345,7 @@ bool PathGraphics::printGlyphVector($GlyphVector* gv, float x, float y) {
 }
 
 bool PathGraphics::printedSimpleGlyphVector($GlyphVector* g, float x, float y) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t flags = $nc(g)->getLayoutFlags();
 	if (flags != 0 && flags != $GlyphVector::FLAG_HAS_POSITION_ADJUSTMENTS) {
 		return printGlyphVector(g, x, y);
@@ -461,11 +371,11 @@ bool PathGraphics::printedSimpleGlyphVector($GlyphVector* g, float x, float y) {
 	$synchronized(fontMap) {
 		if ($instanceOf($CompositeFont, font2D)) {
 			$assign(cf, $cast($CompositeFont, font2D));
-			int32_t numSlots = $nc(cf)->getNumSlots();
-			$assign(mapArray, $cast($charArray2, $nc(fontMap)->get($nc(font2D)->handle)));
+			int32_t numSlots = cf->getNumSlots();
+			$assign(mapArray, $cast($charArray2, fontMap->get(font2D->handle)));
 			if (mapArray == nullptr) {
 				$assign(mapArray, $new($charArray2, numSlots));
-				fontMap->put($nc(font2D)->handle, mapArray);
+				fontMap->put(font2D->handle, mapArray);
 			}
 			for (int32_t i = 0; i < numGlyphs; ++i) {
 				int32_t slot = (int32_t)((uint32_t)$nc(glyphCodes)->get(i) >> 24);
@@ -482,10 +392,10 @@ bool PathGraphics::printedSimpleGlyphVector($GlyphVector* g, float x, float y) {
 				}
 			}
 		} else {
-			$assign(glyphToCharMap, $cast($chars, $nc(fontMap)->get($nc(font2D)->handle)));
+			$assign(glyphToCharMap, $cast($chars, fontMap->get(font2D->handle)));
 			if (glyphToCharMap == nullptr) {
 				$assign(glyphToCharMap, getGlyphToCharMapForFont(font2D));
-				fontMap->put($nc(font2D)->handle, glyphToCharMap);
+				fontMap->put(font2D->handle, glyphToCharMap);
 			}
 		}
 	}
@@ -494,7 +404,7 @@ bool PathGraphics::printedSimpleGlyphVector($GlyphVector* g, float x, float y) {
 		for (int32_t i = 0; i < numGlyphs; ++i) {
 			int32_t gc = $nc(glyphCodes)->get(i);
 			$var($chars, map, $nc(mapArray)->get((int32_t)((uint32_t)gc >> 24)));
-			gc = (int32_t)(gc & (uint32_t)0x00FFFFFF);
+			gc = gc & 0x00ffffff;
 			if (map == nullptr) {
 				return false;
 			}
@@ -504,7 +414,7 @@ bool PathGraphics::printedSimpleGlyphVector($GlyphVector* g, float x, float y) {
 			} else if (gc < 0 || gc >= $nc(map)->length) {
 				return false;
 			} else {
-				ch = map->get(gc);
+				ch = $nc(map)->get(gc);
 			}
 			if (ch != $CharToGlyphMapper::INVISIBLE_GLYPH_ID) {
 				chars->set(i, ch);
@@ -521,7 +431,7 @@ bool PathGraphics::printedSimpleGlyphVector($GlyphVector* g, float x, float y) {
 			} else if (gc < 0 || gc >= $nc(glyphToCharMap)->length) {
 				return false;
 			} else {
-				ch = glyphToCharMap->get(gc);
+				ch = $nc(glyphToCharMap)->get(gc);
 			}
 			if (ch != $CharToGlyphMapper::INVISIBLE_GLYPH_ID) {
 				chars->set(i, ch);
@@ -535,7 +445,7 @@ bool PathGraphics::printedSimpleGlyphVector($GlyphVector* g, float x, float y) {
 	if ($nc(gv2)->getNumGlyphs() != numGlyphs) {
 		return printGlyphVector(g, x, y);
 	}
-	$var($ints, glyphCodes2, $nc(gv2)->getGlyphCodes(0, numGlyphs, nullptr));
+	$var($ints, glyphCodes2, gv2->getGlyphCodes(0, numGlyphs, nullptr));
 	for (int32_t i = 0; i < numGlyphs; ++i) {
 		if ($nc(glyphCodes)->get(i) != $nc(glyphCodes2)->get(i)) {
 			return printGlyphVector(g, x, y);
@@ -569,7 +479,7 @@ bool PathGraphics::printedSimpleGlyphVector($GlyphVector* g, float x, float y) {
 		return false;
 	}
 	$var($floats, positions, g->getGlyphPositions(0, numGlyphs, nullptr));
-	bool noPositionAdjustments = (((int32_t)(flags & (uint32_t)$GlyphVector::FLAG_HAS_POSITION_ADJUSTMENTS)) == 0) || samePositions(gv2, glyphCodes2, glyphCodes, positions);
+	bool noPositionAdjustments = ((flags & $GlyphVector::FLAG_HAS_POSITION_ADJUSTMENTS) == 0) || samePositions(gv2, glyphCodes2, glyphCodes, positions);
 	$var($Point2D, gvAdvancePt, g->getGlyphPosition(numGlyphs));
 	float gvAdvanceX = (float)$nc(gvAdvancePt)->getX();
 	bool layoutAffectsAdvance = false;
@@ -577,7 +487,7 @@ bool PathGraphics::printedSimpleGlyphVector($GlyphVector* g, float x, float y) {
 		$var($Map, map, font->getAttributes());
 		$init($TextAttribute);
 		$var($Object, o, $nc(map)->get($TextAttribute::TRACKING));
-		bool tracking = o != nullptr && ($instanceOf($Number, o)) && ($nc(($cast($Number, o)))->floatValue() != 0.0f);
+		bool tracking = o != nullptr && ($instanceOf($Number, o)) && ($cast($Number, o)->floatValue() != 0.0f);
 		if (tracking) {
 			noPositionAdjustments = false;
 		} else {
@@ -604,7 +514,7 @@ bool PathGraphics::printedSimpleGlyphVector($GlyphVector* g, float x, float y) {
 	}
 	for (int32_t i = 0; i < numGlyphs; ++i) {
 		$var($String, s, $new($String, chars, i, 1));
-		drawString(s, x + $nc(positions)->get(i * 2), y + positions->get(i * 2 + 1), font, gvFrc, 0.0f);
+		drawString(s, x + $nc(positions)->get(i * 2), y + $nc(positions)->get(i * 2 + 1), font, gvFrc, 0.0f);
 	}
 	return true;
 }
@@ -612,11 +522,11 @@ bool PathGraphics::printedSimpleGlyphVector($GlyphVector* g, float x, float y) {
 bool PathGraphics::samePositions($GlyphVector* gv, $ints* gvcodes, $ints* origCodes, $floats* origPositions) {
 	int32_t numGlyphs = $nc(gv)->getNumGlyphs();
 	$var($floats, gvpos, gv->getGlyphPositions(0, numGlyphs, nullptr));
-	if (numGlyphs != $nc(gvcodes)->length || $nc(origCodes)->length != $nc(gvcodes)->length || $nc(origPositions)->length != $nc(gvpos)->length) {
+	if (numGlyphs != $nc(gvcodes)->length || $nc(origCodes)->length != gvcodes->length || $nc(origPositions)->length != $nc(gvpos)->length) {
 		return false;
 	}
 	for (int32_t i = 0; i < numGlyphs; ++i) {
-		if ($nc(gvcodes)->get(i) != $nc(origCodes)->get(i) || $nc(gvpos)->get(i) != $nc(origPositions)->get(i)) {
+		if (gvcodes->get(i) != $nc(origCodes)->get(i) || $nc(gvpos)->get(i) != $nc(origPositions)->get(i)) {
 			return false;
 		}
 	}
@@ -636,7 +546,7 @@ $chars* PathGraphics::getGlyphToCharMapForFont($Font2D* font2D) {
 	for (int32_t i = 0; i < numGlyphs; ++i) {
 		glyphToCharMap->set(i, (char16_t)$CharToGlyphMapper::INVISIBLE_GLYPH_ID);
 	}
-	for (char16_t c = (char16_t)0; c < 0x0000FFFF; ++c) {
+	for (char16_t c = 0; c < 0x0000ffff; ++c) {
 		if (c >= $CharToGlyphMapper::HI_SURROGATE_START && c <= $CharToGlyphMapper::LO_SURROGATE_END) {
 			continue;
 		}
@@ -649,8 +559,8 @@ $chars* PathGraphics::getGlyphToCharMapForFont($Font2D* font2D) {
 }
 
 void PathGraphics::draw($Shape* s) {
-	$useLocalCurrentObjectStackCache();
-	fill($($nc($(getStroke()))->createStrokedShape(s)));
+	$useLocalObjectStack();
+	fill($($$nc(getStroke())->createStrokedShape(s)));
 }
 
 void PathGraphics::fill($Shape* s) {
@@ -663,10 +573,10 @@ void PathGraphics::fill($Shape* s) {
 }
 
 void PathGraphics::fill($Shape* s, $Color* color) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AffineTransform, deviceTransform, getTransform());
 	if (getClip() != nullptr) {
-		deviceClip($($nc($(getClip()))->getPathIterator(deviceTransform)));
+		deviceClip($($$nc(getClip())->getPathIterator(deviceTransform)));
 	}
 	deviceFill($($nc(s)->getPathIterator(deviceTransform)), color);
 }
@@ -675,23 +585,23 @@ $BufferedImage* PathGraphics::getBufferedImage($Image* img) {
 	if ($instanceOf($BufferedImage, img)) {
 		return $cast($BufferedImage, img);
 	} else if ($instanceOf($ToolkitImage, img)) {
-		return $nc(($cast($ToolkitImage, img)))->getBufferedImage();
+		return $cast($ToolkitImage, img)->getBufferedImage();
 	} else if ($instanceOf($VolatileImage, img)) {
-		return $nc(($cast($VolatileImage, img)))->getSnapshot();
+		return $cast($VolatileImage, img)->getSnapshot();
 	} else {
 		return nullptr;
 	}
 }
 
 bool PathGraphics::hasTransparentPixels($BufferedImage* bufferedImage) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ColorModel, colorModel, $nc(bufferedImage)->getColorModel());
-	bool hasTransparency = colorModel == nullptr ? true : $nc(colorModel)->getTransparency() != $ColorModel::OPAQUE;
+	bool hasTransparency = colorModel == nullptr ? true : colorModel->getTransparency() != $ColorModel::OPAQUE;
 	if (hasTransparency && bufferedImage != nullptr) {
 		bool var$0 = bufferedImage->getType() == $BufferedImage::TYPE_INT_ARGB;
 		if (var$0 || bufferedImage->getType() == $BufferedImage::TYPE_INT_ARGB_PRE) {
-			$var($DataBuffer, db, $nc($(bufferedImage->getRaster()))->getDataBuffer());
-			$var($SampleModel, sm, $nc($(bufferedImage->getRaster()))->getSampleModel());
+			$var($DataBuffer, db, $$nc(bufferedImage->getRaster())->getDataBuffer());
+			$var($SampleModel, sm, $$nc(bufferedImage->getRaster())->getSampleModel());
 			if ($instanceOf($DataBufferInt, db) && $instanceOf($SinglePixelPackedSampleModel, sm)) {
 				$var($SinglePixelPackedSampleModel, psm, $cast($SinglePixelPackedSampleModel, sm));
 				$var($ints, int_data, $SunWritableRaster::stealData($cast($DataBufferInt, db), 0));
@@ -699,12 +609,12 @@ bool PathGraphics::hasTransparentPixels($BufferedImage* bufferedImage) {
 				int32_t y = bufferedImage->getMinY();
 				int32_t w = bufferedImage->getWidth();
 				int32_t h = bufferedImage->getHeight();
-				int32_t stride = $nc(psm)->getScanlineStride();
+				int32_t stride = psm->getScanlineStride();
 				bool hastranspixel = false;
 				for (int32_t j = y; j < y + h; ++j) {
 					int32_t yoff = j * stride;
 					for (int32_t i = x; i < x + w; ++i) {
-						if (((int32_t)($nc(int_data)->get(yoff + i) & (uint32_t)(int32_t)0xFF000000)) != (int32_t)0xFF000000) {
+						if (($nc(int_data)->get(yoff + i) & (int32_t)0xff000000) != (int32_t)0xff000000) {
 							hastranspixel = true;
 							break;
 						}
@@ -728,7 +638,7 @@ bool PathGraphics::isBitmaskTransparency($BufferedImage* bufferedImage) {
 }
 
 bool PathGraphics::drawBitmaskImage($BufferedImage* bufferedImage, $AffineTransform* xform, $Color* bgcolor, int32_t srcX, int32_t srcY, int32_t srcWidth, int32_t srcHeight) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ColorModel, colorModel, $nc(bufferedImage)->getColorModel());
 	$var($IndexColorModel, icm, nullptr);
 	$var($ints, pixels, nullptr);
@@ -743,10 +653,10 @@ bool PathGraphics::drawBitmaskImage($BufferedImage* bufferedImage, $AffineTransf
 	if (bgcolor != nullptr && bgcolor->getAlpha() < 128) {
 		return false;
 	}
-	if (((int32_t)($nc(xform)->getType() & (uint32_t)~(($AffineTransform::TYPE_UNIFORM_SCALE | $AffineTransform::TYPE_TRANSLATION) | $AffineTransform::TYPE_QUADRANT_ROTATION))) != 0) {
+	if (($nc(xform)->getType() & ~(($AffineTransform::TYPE_UNIFORM_SCALE | $AffineTransform::TYPE_TRANSLATION) | $AffineTransform::TYPE_QUADRANT_ROTATION)) != 0) {
 		return false;
 	}
-	if (((int32_t)($nc($(getTransform()))->getType() & (uint32_t)~(($AffineTransform::TYPE_UNIFORM_SCALE | $AffineTransform::TYPE_TRANSLATION) | $AffineTransform::TYPE_QUADRANT_ROTATION))) != 0) {
+	if (($$nc(getTransform())->getType() & ~(($AffineTransform::TYPE_UNIFORM_SCALE | $AffineTransform::TYPE_TRANSLATION) | $AffineTransform::TYPE_QUADRANT_ROTATION)) != 0) {
 		return false;
 	}
 	$var($BufferedImage, subImage, nullptr);
@@ -755,7 +665,7 @@ bool PathGraphics::drawBitmaskImage($BufferedImage* bufferedImage, $AffineTransf
 	$var($bytes, alphas, $new($bytes, icm->getMapSize()));
 	icm->getAlphas(alphas);
 	if (transpixel >= 0) {
-		alphas->set(transpixel, (int8_t)0);
+		alphas->set(transpixel, 0);
 	}
 	int32_t rw = $nc(raster)->getWidth();
 	int32_t rh = raster->getHeight();
@@ -788,9 +698,9 @@ bool PathGraphics::drawBitmaskImage($BufferedImage* bufferedImage, $AffineTransf
 			if (alphas->get(pixels->get(i - srcX)) == 0) {
 				if (startx >= 0) {
 					$assign(subImage, bufferedImage->getSubimage(startx, j, i - startx, 1));
-					$nc(xform)->translate((double)startx, (double)j);
+					xform->translate((double)startx, (double)j);
 					drawImageToPlatform(subImage, xform, bgcolor, 0, 0, i - startx, 1, true);
-					xform->translate((double)(-startx), (double)(-j));
+					xform->translate((double)-startx, (double)-j);
 					startx = -1;
 				}
 			} else if (startx < 0) {
@@ -799,9 +709,9 @@ bool PathGraphics::drawBitmaskImage($BufferedImage* bufferedImage, $AffineTransf
 		}
 		if (startx >= 0) {
 			$assign(subImage, bufferedImage->getSubimage(startx, j, right - startx, 1));
-			$nc(xform)->translate((double)startx, (double)j);
+			xform->translate((double)startx, (double)j);
 			drawImageToPlatform(subImage, xform, bgcolor, 0, 0, right - startx, 1, true);
-			xform->translate((double)(-startx), (double)(-j));
+			xform->translate((double)-startx, (double)-j);
 		}
 	}
 	return true;
@@ -862,7 +772,7 @@ bool PathGraphics::drawImage($Image* img, int32_t dx1, int32_t dy1, int32_t dx2,
 	int32_t srcHeight = sy2 - sy1;
 	float scalex = (float)(dx2 - dx1) / srcWidth;
 	float scaley = (float)(dy2 - dy1) / srcHeight;
-	$var($AffineTransform, xForm, $new($AffineTransform, scalex, (float)0, (float)0, scaley, dx1 - (sx1 * scalex), dy1 - (sy1 * scaley)));
+	$var($AffineTransform, xForm, $new($AffineTransform, scalex, 0, 0, scaley, dx1 - (sx1 * scalex), dy1 - (sy1 * scaley)));
 	int32_t tmp = 0;
 	if (sx2 < sx1) {
 		tmp = sx1;
@@ -918,7 +828,7 @@ bool PathGraphics::drawImage($Image* img, $AffineTransform* xform, $ImageObserve
 }
 
 void PathGraphics::drawImage($BufferedImage* img$renamed, $BufferedImageOp* op, int32_t x, int32_t y) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($BufferedImage, img, img$renamed);
 	if (img == nullptr) {
 		return;
@@ -937,7 +847,7 @@ void PathGraphics::drawImage($BufferedImage* img$renamed, $BufferedImageOp* op, 
 }
 
 void PathGraphics::drawRenderedImage($RenderedImage* img, $AffineTransform* xform) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (img == nullptr) {
 		return;
 	}
@@ -961,7 +871,7 @@ bool PathGraphics::isCompositing($Composite* composite) {
 	bool isCompositing = false;
 	if ($instanceOf($AlphaComposite, composite)) {
 		$var($AlphaComposite, alphaComposite, $cast($AlphaComposite, composite));
-		float alpha = $nc(alphaComposite)->getAlpha();
+		float alpha = alphaComposite->getAlpha();
 		int32_t rule = alphaComposite->getRule();
 		if (alpha != 1.0 || (rule != $AlphaComposite::SRC && rule != $AlphaComposite::SRC_OVER)) {
 			isCompositing = true;
@@ -972,7 +882,7 @@ bool PathGraphics::isCompositing($Composite* composite) {
 	return isCompositing;
 }
 
-void clinit$PathGraphics($Class* class$) {
+void PathGraphics::clinit$($Class* clazz) {
 	PathGraphics::$assertionsDisabled = !PathGraphics::class$->desiredAssertionStatus();
 	$assignStatic(PathGraphics::fontMapRef, $new($SoftReference, nullptr));
 }
@@ -981,7 +891,86 @@ PathGraphics::PathGraphics() {
 }
 
 $Class* PathGraphics::load$($String* name, bool initialize) {
-	$loadClass(PathGraphics, name, initialize, &_PathGraphics_ClassInfo_, clinit$PathGraphics, allocate$PathGraphics);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(PathGraphics, $assertionsDisabled)},
+		{"mPainter", "Ljava/awt/print/Printable;", nullptr, $PRIVATE, $field(PathGraphics, mPainter)},
+		{"mPageFormat", "Ljava/awt/print/PageFormat;", nullptr, $PRIVATE, $field(PathGraphics, mPageFormat)},
+		{"mPageIndex", "I", nullptr, $PRIVATE, $field(PathGraphics, mPageIndex)},
+		{"mCanRedraw", "Z", nullptr, $PRIVATE, $field(PathGraphics, mCanRedraw)},
+		{"printingGlyphVector", "Z", nullptr, $PROTECTED, $field(PathGraphics, printingGlyphVector)},
+		{"fontMapRef", "Ljava/lang/ref/SoftReference;", "Ljava/lang/ref/SoftReference<Ljava/util/Hashtable<Lsun/font/Font2DHandle;Ljava/lang/Object;>;>;", $PROTECTED | $STATIC, $staticField(PathGraphics, fontMapRef)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/Graphics2D;Ljava/awt/print/PrinterJob;Ljava/awt/print/Printable;Ljava/awt/print/PageFormat;IZ)V", nullptr, $PROTECTED, $method(PathGraphics, init$, void, $Graphics2D*, $PrinterJob*, $Printable*, $PageFormat*, int32_t, bool)},
+		{"canDoRedraws", "()Z", nullptr, $PUBLIC, $virtualMethod(PathGraphics, canDoRedraws, bool)},
+		{"canDrawStringToWidth", "()Z", nullptr, $PROTECTED, $virtualMethod(PathGraphics, canDrawStringToWidth, bool)},
+		{"clearRect", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(PathGraphics, clearRect, void, int32_t, int32_t, int32_t, int32_t)},
+		{"deviceClip", "(Ljava/awt/geom/PathIterator;)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(PathGraphics, deviceClip, void, $PathIterator*)},
+		{"deviceDrawLine", "(IIIILjava/awt/Color;)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(PathGraphics, deviceDrawLine, void, int32_t, int32_t, int32_t, int32_t, $Color*)},
+		{"deviceFill", "(Ljava/awt/geom/PathIterator;Ljava/awt/Color;)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(PathGraphics, deviceFill, void, $PathIterator*, $Color*)},
+		{"deviceFillRect", "(IIIILjava/awt/Color;)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(PathGraphics, deviceFillRect, void, int32_t, int32_t, int32_t, int32_t, $Color*)},
+		{"deviceFrameRect", "(IIIILjava/awt/Color;)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(PathGraphics, deviceFrameRect, void, int32_t, int32_t, int32_t, int32_t, $Color*)},
+		{"draw", "(Ljava/awt/Shape;)V", nullptr, $PUBLIC, $virtualMethod(PathGraphics, draw, void, $Shape*)},
+		{"drawArc", "(IIIIII)V", nullptr, $PUBLIC, $virtualMethod(PathGraphics, drawArc, void, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"drawBitmaskImage", "(Ljava/awt/image/BufferedImage;Ljava/awt/geom/AffineTransform;Ljava/awt/Color;IIII)Z", nullptr, $PROTECTED, $virtualMethod(PathGraphics, drawBitmaskImage, bool, $BufferedImage*, $AffineTransform*, $Color*, int32_t, int32_t, int32_t, int32_t)},
+		{"drawGlyphVector", "(Ljava/awt/font/GlyphVector;FF)V", nullptr, $PUBLIC, $virtualMethod(PathGraphics, drawGlyphVector, void, $GlyphVector*, float, float)},
+		{"drawImage", "(Ljava/awt/Image;IILjava/awt/image/ImageObserver;)Z", nullptr, $PUBLIC, $virtualMethod(PathGraphics, drawImage, bool, $Image*, int32_t, int32_t, $ImageObserver*)},
+		{"drawImage", "(Ljava/awt/Image;IIIILjava/awt/image/ImageObserver;)Z", nullptr, $PUBLIC, $virtualMethod(PathGraphics, drawImage, bool, $Image*, int32_t, int32_t, int32_t, int32_t, $ImageObserver*)},
+		{"drawImage", "(Ljava/awt/Image;IILjava/awt/Color;Ljava/awt/image/ImageObserver;)Z", nullptr, $PUBLIC, $virtualMethod(PathGraphics, drawImage, bool, $Image*, int32_t, int32_t, $Color*, $ImageObserver*)},
+		{"drawImage", "(Ljava/awt/Image;IIIILjava/awt/Color;Ljava/awt/image/ImageObserver;)Z", nullptr, $PUBLIC, $virtualMethod(PathGraphics, drawImage, bool, $Image*, int32_t, int32_t, int32_t, int32_t, $Color*, $ImageObserver*)},
+		{"drawImage", "(Ljava/awt/Image;IIIIIIIILjava/awt/image/ImageObserver;)Z", nullptr, $PUBLIC, $virtualMethod(PathGraphics, drawImage, bool, $Image*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, $ImageObserver*)},
+		{"drawImage", "(Ljava/awt/Image;IIIIIIIILjava/awt/Color;Ljava/awt/image/ImageObserver;)Z", nullptr, $PUBLIC, $virtualMethod(PathGraphics, drawImage, bool, $Image*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, $Color*, $ImageObserver*)},
+		{"drawImage", "(Ljava/awt/Image;Ljava/awt/geom/AffineTransform;Ljava/awt/image/ImageObserver;)Z", nullptr, $PUBLIC, $virtualMethod(PathGraphics, drawImage, bool, $Image*, $AffineTransform*, $ImageObserver*)},
+		{"drawImage", "(Ljava/awt/image/BufferedImage;Ljava/awt/image/BufferedImageOp;II)V", nullptr, $PUBLIC, $virtualMethod(PathGraphics, drawImage, void, $BufferedImage*, $BufferedImageOp*, int32_t, int32_t)},
+		{"drawImageToPlatform", "(Ljava/awt/Image;Ljava/awt/geom/AffineTransform;Ljava/awt/Color;IIIIZ)Z", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(PathGraphics, drawImageToPlatform, bool, $Image*, $AffineTransform*, $Color*, int32_t, int32_t, int32_t, int32_t, bool)},
+		{"drawLine", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(PathGraphics, drawLine, void, int32_t, int32_t, int32_t, int32_t)},
+		{"drawOval", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(PathGraphics, drawOval, void, int32_t, int32_t, int32_t, int32_t)},
+		{"drawPolygon", "([I[II)V", nullptr, $PUBLIC, $virtualMethod(PathGraphics, drawPolygon, void, $ints*, $ints*, int32_t)},
+		{"drawPolygon", "(Ljava/awt/Polygon;)V", nullptr, $PUBLIC, $virtualMethod(PathGraphics, drawPolygon, void, $Polygon*)},
+		{"drawPolyline", "([I[II)V", nullptr, $PUBLIC, $virtualMethod(PathGraphics, drawPolyline, void, $ints*, $ints*, int32_t)},
+		{"drawRect", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(PathGraphics, drawRect, void, int32_t, int32_t, int32_t, int32_t)},
+		{"drawRenderedImage", "(Ljava/awt/image/RenderedImage;Ljava/awt/geom/AffineTransform;)V", nullptr, $PUBLIC, $virtualMethod(PathGraphics, drawRenderedImage, void, $RenderedImage*, $AffineTransform*)},
+		{"drawRoundRect", "(IIIIII)V", nullptr, $PUBLIC, $virtualMethod(PathGraphics, drawRoundRect, void, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"drawString", "(Ljava/lang/String;II)V", nullptr, $PUBLIC, $virtualMethod(PathGraphics, drawString, void, $String*, int32_t, int32_t)},
+		{"drawString", "(Ljava/lang/String;FF)V", nullptr, $PUBLIC, $virtualMethod(PathGraphics, drawString, void, $String*, float, float)},
+		{"drawString", "(Ljava/lang/String;FFLjava/awt/Font;Ljava/awt/font/FontRenderContext;F)V", nullptr, $PROTECTED, $virtualMethod(PathGraphics, drawString, void, $String*, float, float, $Font*, $FontRenderContext*, float)},
+		{"drawString", "(Ljava/text/AttributedCharacterIterator;II)V", nullptr, $PUBLIC, $virtualMethod(PathGraphics, drawString, void, $AttributedCharacterIterator*, int32_t, int32_t)},
+		{"drawString", "(Ljava/text/AttributedCharacterIterator;FF)V", nullptr, $PUBLIC, $virtualMethod(PathGraphics, drawString, void, $AttributedCharacterIterator*, float, float)},
+		{"fill", "(Ljava/awt/Shape;)V", nullptr, $PUBLIC, $virtualMethod(PathGraphics, fill, void, $Shape*)},
+		{"fill", "(Ljava/awt/Shape;Ljava/awt/Color;)V", nullptr, $PUBLIC, $virtualMethod(PathGraphics, fill, void, $Shape*, $Color*)},
+		{"fillArc", "(IIIIII)V", nullptr, $PUBLIC, $virtualMethod(PathGraphics, fillArc, void, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"fillOval", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(PathGraphics, fillOval, void, int32_t, int32_t, int32_t, int32_t)},
+		{"fillPolygon", "([I[II)V", nullptr, $PUBLIC, $virtualMethod(PathGraphics, fillPolygon, void, $ints*, $ints*, int32_t)},
+		{"fillPolygon", "(Ljava/awt/Polygon;)V", nullptr, $PUBLIC, $virtualMethod(PathGraphics, fillPolygon, void, $Polygon*)},
+		{"fillRect", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(PathGraphics, fillRect, void, int32_t, int32_t, int32_t, int32_t)},
+		{"fillRoundRect", "(IIIIII)V", nullptr, $PUBLIC, $virtualMethod(PathGraphics, fillRoundRect, void, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"getBufferedImage", "(Ljava/awt/Image;)Ljava/awt/image/BufferedImage;", nullptr, $PROTECTED, $virtualMethod(PathGraphics, getBufferedImage, $BufferedImage*, $Image*)},
+		{"getGlyphToCharMapForFont", "(Lsun/font/Font2D;)[C", nullptr, $PRIVATE | $STATIC, $staticMethod(PathGraphics, getGlyphToCharMapForFont, $chars*, $Font2D*)},
+		{"getPageFormat", "()Ljava/awt/print/PageFormat;", nullptr, $PROTECTED, $virtualMethod(PathGraphics, getPageFormat, $PageFormat*)},
+		{"getPageIndex", "()I", nullptr, $PROTECTED, $virtualMethod(PathGraphics, getPageIndex, int32_t)},
+		{"getPrintable", "()Ljava/awt/print/Printable;", nullptr, $PROTECTED, $virtualMethod(PathGraphics, getPrintable, $Printable*)},
+		{"hasTransparentPixels", "(Ljava/awt/image/BufferedImage;)Z", nullptr, $PROTECTED, $virtualMethod(PathGraphics, hasTransparentPixels, bool, $BufferedImage*)},
+		{"isBitmaskTransparency", "(Ljava/awt/image/BufferedImage;)Z", nullptr, $PROTECTED, $virtualMethod(PathGraphics, isBitmaskTransparency, bool, $BufferedImage*)},
+		{"isCompositing", "(Ljava/awt/Composite;)Z", nullptr, $PROTECTED, $virtualMethod(PathGraphics, isCompositing, bool, $Composite*)},
+		{"platformFontCount", "(Ljava/awt/Font;Ljava/lang/String;)I", nullptr, $PROTECTED, $virtualMethod(PathGraphics, platformFontCount, int32_t, $Font*, $String*)},
+		{"printGlyphVector", "(Ljava/awt/font/GlyphVector;FF)Z", nullptr, $PROTECTED, $virtualMethod(PathGraphics, printGlyphVector, bool, $GlyphVector*, float, float)},
+		{"printedSimpleGlyphVector", "(Ljava/awt/font/GlyphVector;FF)Z", nullptr, 0, $virtualMethod(PathGraphics, printedSimpleGlyphVector, bool, $GlyphVector*, float, float)},
+		{"redrawRegion", "(Ljava/awt/geom/Rectangle2D;DDLjava/awt/Shape;Ljava/awt/geom/AffineTransform;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(PathGraphics, redrawRegion, void, $Rectangle2D*, double, double, $Shape*, $AffineTransform*), "java.awt.print.PrinterException"},
+		{"samePositions", "(Ljava/awt/font/GlyphVector;[I[I[F)Z", nullptr, $PRIVATE, $method(PathGraphics, samePositions, bool, $GlyphVector*, $ints*, $ints*, $floats*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"sun.print.PathGraphics",
+		"sun.print.ProxyGraphics2D",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(PathGraphics, name, initialize, &classInfo$$, PathGraphics::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(PathGraphics));
+	});
 	return class$;
 }
 

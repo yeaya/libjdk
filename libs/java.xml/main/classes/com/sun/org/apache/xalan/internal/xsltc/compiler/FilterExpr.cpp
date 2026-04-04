@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/FilterExpr.h>
-
 #include <com/sun/org/apache/bcel/internal/generic/ALOAD.h>
 #include <com/sun/org/apache/bcel/internal/generic/ASTORE.h>
 #include <com/sun/org/apache/bcel/internal/generic/ConstantPoolGen.h>
@@ -46,7 +45,6 @@ using $ConstantPoolGen = ::com::sun::org::apache::bcel::internal::generic::Const
 using $ILOAD = ::com::sun::org::apache::bcel::internal::generic::ILOAD;
 using $INVOKESPECIAL = ::com::sun::org::apache::bcel::internal::generic::INVOKESPECIAL;
 using $ISTORE = ::com::sun::org::apache::bcel::internal::generic::ISTORE;
-using $Instruction = ::com::sun::org::apache::bcel::internal::generic::Instruction;
 using $InstructionHandle = ::com::sun::org::apache::bcel::internal::generic::InstructionHandle;
 using $InstructionList = ::com::sun::org::apache::bcel::internal::generic::InstructionList;
 using $LocalVariableGen = ::com::sun::org::apache::bcel::internal::generic::LocalVariableGen;
@@ -58,7 +56,6 @@ using $KeyCall = ::com::sun::org::apache::xalan::internal::xsltc::compiler::KeyC
 using $Parser = ::com::sun::org::apache::xalan::internal::xsltc::compiler::Parser;
 using $Predicate = ::com::sun::org::apache::xalan::internal::xsltc::compiler::Predicate;
 using $SymbolTable = ::com::sun::org::apache::xalan::internal::xsltc::compiler::SymbolTable;
-using $SyntaxTreeNode = ::com::sun::org::apache::xalan::internal::xsltc::compiler::SyntaxTreeNode;
 using $ClassGenerator = ::com::sun::org::apache::xalan::internal::xsltc::compiler::util::ClassGenerator;
 using $MethodGenerator = ::com::sun::org::apache::xalan::internal::xsltc::compiler::util::MethodGenerator;
 using $NodeSetType = ::com::sun::org::apache::xalan::internal::xsltc::compiler::util::NodeSetType;
@@ -80,37 +77,6 @@ namespace com {
 						namespace xsltc {
 							namespace compiler {
 
-$FieldInfo _FilterExpr_FieldInfo_[] = {
-	{"_primary", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Expression;", nullptr, $PRIVATE, $field(FilterExpr, _primary)},
-	{"_predicates", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Expression;>;", $PRIVATE | $FINAL, $field(FilterExpr, _predicates)},
-	{}
-};
-
-$MethodInfo _FilterExpr_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Expression;Ljava/util/List;)V", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Expression;Ljava/util/List<Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Expression;>;)V", $PUBLIC, $method(FilterExpr, init$, void, $Expression*, $List*)},
-	{"getExpr", "()Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Expression;", nullptr, $PROTECTED, $virtualMethod(FilterExpr, getExpr, $Expression*)},
-	{"setParser", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Parser;)V", nullptr, $PUBLIC, $virtualMethod(FilterExpr, setParser, void, $Parser*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(FilterExpr, toString, $String*)},
-	{"translate", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;)V", nullptr, $PUBLIC, $virtualMethod(FilterExpr, translate, void, $ClassGenerator*, $MethodGenerator*)},
-	{"translateFilterExpr", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;I)V", nullptr, $PRIVATE, $method(FilterExpr, translateFilterExpr, void, $ClassGenerator*, $MethodGenerator*, int32_t)},
-	{"translatePredicates", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;I)V", nullptr, $PUBLIC, $virtualMethod(FilterExpr, translatePredicates, void, $ClassGenerator*, $MethodGenerator*, int32_t)},
-	{"typeCheck", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SymbolTable;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/Type;", nullptr, $PUBLIC, $virtualMethod(FilterExpr, typeCheck, $Type*, $SymbolTable*), "com.sun.org.apache.xalan.internal.xsltc.compiler.util.TypeCheckError"},
-	{}
-};
-
-$ClassInfo _FilterExpr_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.org.apache.xalan.internal.xsltc.compiler.FilterExpr",
-	"com.sun.org.apache.xalan.internal.xsltc.compiler.Expression",
-	nullptr,
-	_FilterExpr_FieldInfo_,
-	_FilterExpr_MethodInfo_
-};
-
-$Object* allocate$FilterExpr($Class* clazz) {
-	return $of($alloc(FilterExpr));
-}
-
 void FilterExpr::init$($Expression* primary, $List* predicates) {
 	$Expression::init$();
 	$set(this, _primary, primary);
@@ -120,20 +86,20 @@ void FilterExpr::init$($Expression* primary, $List* predicates) {
 
 $Expression* FilterExpr::getExpr() {
 	if ($instanceOf($CastExpr, this->_primary)) {
-		return $nc(($cast($CastExpr, this->_primary)))->getExpr();
+		return $cast($CastExpr, this->_primary)->getExpr();
 	} else {
 		return this->_primary;
 	}
 }
 
 void FilterExpr::setParser($Parser* parser) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Expression::setParser(parser);
 	$nc(this->_primary)->setParser(parser);
 	if (this->_predicates != nullptr) {
-		int32_t n = $nc(this->_predicates)->size();
+		int32_t n = this->_predicates->size();
 		for (int32_t i = 0; i < n; ++i) {
-			$var($Expression, exp, $cast($Expression, $nc(this->_predicates)->get(i)));
+			$var($Expression, exp, $cast($Expression, this->_predicates->get(i)));
 			$nc(exp)->setParser(parser);
 			exp->setParent(this);
 		}
@@ -145,7 +111,7 @@ $String* FilterExpr::toString() {
 }
 
 $Type* FilterExpr::typeCheck($SymbolTable* stable) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Type, ptype, $nc(this->_primary)->typeCheck(stable));
 	bool canOptimize = $instanceOf($KeyCall, this->_primary);
 	if ($instanceOf($NodeSetType, ptype) == false) {
@@ -153,12 +119,12 @@ $Type* FilterExpr::typeCheck($SymbolTable* stable) {
 			$init($Type);
 			$set(this, _primary, $new($CastExpr, this->_primary, $Type::NodeSet));
 		} else {
-			$throwNew($TypeCheckError, static_cast<$SyntaxTreeNode*>(this));
+			$throwNew($TypeCheckError, this);
 		}
 	}
 	int32_t n = $nc(this->_predicates)->size();
 	for (int32_t i = 0; i < n; ++i) {
-		$var($Predicate, pred, $cast($Predicate, $nc(this->_predicates)->get(i)));
+		$var($Predicate, pred, $cast($Predicate, this->_predicates->get(i)));
 		if (!canOptimize) {
 			$nc(pred)->dontOptimize();
 		}
@@ -169,7 +135,7 @@ $Type* FilterExpr::typeCheck($SymbolTable* stable) {
 }
 
 void FilterExpr::translate($ClassGenerator* classGen, $MethodGenerator* methodGen) {
-	translateFilterExpr(classGen, methodGen, this->_predicates == nullptr ? -1 : $nc(this->_predicates)->size() - 1);
+	translateFilterExpr(classGen, methodGen, this->_predicates == nullptr ? -1 : this->_predicates->size() - 1);
 }
 
 void FilterExpr::translateFilterExpr($ClassGenerator* classGen, $MethodGenerator* methodGen, int32_t predicateIndex) {
@@ -181,7 +147,7 @@ void FilterExpr::translateFilterExpr($ClassGenerator* classGen, $MethodGenerator
 }
 
 void FilterExpr::translatePredicates($ClassGenerator* classGen, $MethodGenerator* methodGen, int32_t predicateIndex) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ConstantPoolGen, cpg, $nc(classGen)->getConstantPool());
 	$var($InstructionList, il, $nc(methodGen)->getInstructionList());
 	if (predicateIndex < 0) {
@@ -193,31 +159,31 @@ void FilterExpr::translatePredicates($ClassGenerator* classGen, $MethodGenerator
 			$init($Constants);
 			int32_t nthIteratorIdx = $nc(cpg)->addMethodref($Constants::NTH_ITERATOR_CLASS, "<init>"_s, $$str({"("_s, $Constants::NODE_ITERATOR_SIG, "I)V"_s}));
 			$var($LocalVariableGen, iteratorTemp, methodGen->addLocalVariable("filter_expr_tmp1"_s, $($Util::getJCRefType($Constants::NODE_ITERATOR_SIG)), nullptr, nullptr));
-			$nc(iteratorTemp)->setStart($($nc(il)->append(static_cast<$Instruction*>($$new($ASTORE, iteratorTemp->getIndex())))));
+			$nc(iteratorTemp)->setStart($($nc(il)->append($$new($ASTORE, $nc(iteratorTemp)->getIndex()))));
 			predicate->translate(classGen, methodGen);
 			$var($LocalVariableGen, predicateValueTemp, methodGen->addLocalVariable("filter_expr_tmp2"_s, $($Util::getJCRefType("I"_s)), nullptr, nullptr));
-			$nc(predicateValueTemp)->setStart($($nc(il)->append(static_cast<$Instruction*>($$new($ISTORE, predicateValueTemp->getIndex())))));
-			$nc(il)->append(static_cast<$Instruction*>($$new($NEW, cpg->addClass($Constants::NTH_ITERATOR_CLASS))));
-			il->append(static_cast<$Instruction*>($Constants::DUP));
-			iteratorTemp->setEnd($(il->append(static_cast<$Instruction*>($$new($ALOAD, iteratorTemp->getIndex())))));
-			predicateValueTemp->setEnd($(il->append(static_cast<$Instruction*>($$new($ILOAD, predicateValueTemp->getIndex())))));
-			il->append(static_cast<$Instruction*>($$new($INVOKESPECIAL, nthIteratorIdx)));
+			$nc(predicateValueTemp)->setStart($(il->append($$new($ISTORE, $nc(predicateValueTemp)->getIndex()))));
+			il->append($$new($NEW, cpg->addClass($Constants::NTH_ITERATOR_CLASS)));
+			il->append($Constants::DUP);
+			iteratorTemp->setEnd($(il->append($$new($ALOAD, iteratorTemp->getIndex()))));
+			predicateValueTemp->setEnd($(il->append($$new($ILOAD, predicateValueTemp->getIndex()))));
+			il->append($$new($INVOKESPECIAL, nthIteratorIdx));
 		} else {
 			$init($Constants);
 			int32_t initCNLI = $nc(cpg)->addMethodref($Constants::CURRENT_NODE_LIST_ITERATOR, "<init>"_s, $$str({"("_s, $Constants::NODE_ITERATOR_SIG, "Z"_s, $Constants::CURRENT_NODE_LIST_FILTER_SIG, $Constants::NODE_SIG, $Constants::TRANSLET_SIG, ")V"_s}));
 			$var($LocalVariableGen, nodeIteratorTemp, methodGen->addLocalVariable("filter_expr_tmp1"_s, $($Util::getJCRefType($Constants::NODE_ITERATOR_SIG)), nullptr, nullptr));
-			$nc(nodeIteratorTemp)->setStart($($nc(il)->append(static_cast<$Instruction*>($$new($ASTORE, nodeIteratorTemp->getIndex())))));
+			$nc(nodeIteratorTemp)->setStart($($nc(il)->append($$new($ASTORE, $nc(nodeIteratorTemp)->getIndex()))));
 			predicate->translate(classGen, methodGen);
 			$var($LocalVariableGen, filterTemp, methodGen->addLocalVariable("filter_expr_tmp2"_s, $($Util::getJCRefType($Constants::CURRENT_NODE_LIST_FILTER_SIG)), nullptr, nullptr));
-			$nc(filterTemp)->setStart($($nc(il)->append(static_cast<$Instruction*>($$new($ASTORE, filterTemp->getIndex())))));
-			$nc(il)->append(static_cast<$Instruction*>($$new($NEW, cpg->addClass($Constants::CURRENT_NODE_LIST_ITERATOR))));
-			il->append(static_cast<$Instruction*>($Constants::DUP));
-			nodeIteratorTemp->setEnd($(il->append(static_cast<$Instruction*>($$new($ALOAD, nodeIteratorTemp->getIndex())))));
+			$nc(filterTemp)->setStart($(il->append($$new($ASTORE, $nc(filterTemp)->getIndex()))));
+			il->append($$new($NEW, cpg->addClass($Constants::CURRENT_NODE_LIST_ITERATOR)));
+			il->append($Constants::DUP);
+			nodeIteratorTemp->setEnd($(il->append($$new($ALOAD, nodeIteratorTemp->getIndex()))));
 			il->append($Constants::ICONST_1);
-			filterTemp->setEnd($(il->append(static_cast<$Instruction*>($$new($ALOAD, filterTemp->getIndex())))));
+			filterTemp->setEnd($(il->append($$new($ALOAD, filterTemp->getIndex()))));
 			il->append($(methodGen->loadCurrentNode()));
 			il->append($(classGen->loadTranslet()));
-			il->append(static_cast<$Instruction*>($$new($INVOKESPECIAL, initCNLI)));
+			il->append($$new($INVOKESPECIAL, initCNLI));
 		}
 	}
 }
@@ -226,7 +192,33 @@ FilterExpr::FilterExpr() {
 }
 
 $Class* FilterExpr::load$($String* name, bool initialize) {
-	$loadClass(FilterExpr, name, initialize, &_FilterExpr_ClassInfo_, allocate$FilterExpr);
+	$FieldInfo fieldInfos$$[] = {
+		{"_primary", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Expression;", nullptr, $PRIVATE, $field(FilterExpr, _primary)},
+		{"_predicates", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Expression;>;", $PRIVATE | $FINAL, $field(FilterExpr, _predicates)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Expression;Ljava/util/List;)V", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Expression;Ljava/util/List<Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Expression;>;)V", $PUBLIC, $method(FilterExpr, init$, void, $Expression*, $List*)},
+		{"getExpr", "()Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Expression;", nullptr, $PROTECTED, $virtualMethod(FilterExpr, getExpr, $Expression*)},
+		{"setParser", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Parser;)V", nullptr, $PUBLIC, $virtualMethod(FilterExpr, setParser, void, $Parser*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(FilterExpr, toString, $String*)},
+		{"translate", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;)V", nullptr, $PUBLIC, $virtualMethod(FilterExpr, translate, void, $ClassGenerator*, $MethodGenerator*)},
+		{"translateFilterExpr", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;I)V", nullptr, $PRIVATE, $method(FilterExpr, translateFilterExpr, void, $ClassGenerator*, $MethodGenerator*, int32_t)},
+		{"translatePredicates", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;I)V", nullptr, $PUBLIC, $virtualMethod(FilterExpr, translatePredicates, void, $ClassGenerator*, $MethodGenerator*, int32_t)},
+		{"typeCheck", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SymbolTable;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/Type;", nullptr, $PUBLIC, $virtualMethod(FilterExpr, typeCheck, $Type*, $SymbolTable*), "com.sun.org.apache.xalan.internal.xsltc.compiler.util.TypeCheckError"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.org.apache.xalan.internal.xsltc.compiler.FilterExpr",
+		"com.sun.org.apache.xalan.internal.xsltc.compiler.Expression",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(FilterExpr, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FilterExpr);
+	});
 	return class$;
 }
 

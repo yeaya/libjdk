@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/main/Option$InvalidValueException.h>
-
 #include <com/sun/tools/javac/main/Option.h>
 #include <jcpp.h>
 
@@ -14,42 +13,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace main {
-
-$FieldInfo _Option$InvalidValueException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Option$InvalidValueException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _Option$InvalidValueException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Option$InvalidValueException, init$, void, $String*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(Option$InvalidValueException, init$, void, $String*, $Throwable*)},
-	{}
-};
-
-$InnerClassInfo _Option$InvalidValueException_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.main.Option$InvalidValueException", "com.sun.tools.javac.main.Option", "InvalidValueException", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _Option$InvalidValueException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.main.Option$InvalidValueException",
-	"java.lang.Exception",
-	nullptr,
-	_Option$InvalidValueException_FieldInfo_,
-	_Option$InvalidValueException_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Option$InvalidValueException_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.main.Option"
-};
-
-$Object* allocate$Option$InvalidValueException($Class* clazz) {
-	return $of($alloc(Option$InvalidValueException));
-}
 
 void Option$InvalidValueException::init$($String* msg) {
 	$Exception::init$(msg);
@@ -70,7 +33,37 @@ void Option$InvalidValueException::throw$() {
 }
 
 $Class* Option$InvalidValueException::load$($String* name, bool initialize) {
-	$loadClass(Option$InvalidValueException, name, initialize, &_Option$InvalidValueException_ClassInfo_, allocate$Option$InvalidValueException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Option$InvalidValueException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Option$InvalidValueException, init$, void, $String*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(Option$InvalidValueException, init$, void, $String*, $Throwable*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.main.Option$InvalidValueException", "com.sun.tools.javac.main.Option", "InvalidValueException", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.main.Option$InvalidValueException",
+		"java.lang.Exception",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.main.Option"
+	};
+	$loadClass(Option$InvalidValueException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Option$InvalidValueException);
+	});
 	return class$;
 }
 

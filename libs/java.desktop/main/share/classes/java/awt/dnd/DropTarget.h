@@ -98,7 +98,7 @@ public:
 	virtual $String* toString() override;
 	virtual void updateAutoscroll(::java::awt::Point* dragCursorLocn);
 	void writeObject(::java::io::ObjectOutputStream* s);
-	static const int64_t serialVersionUID = (int64_t)0xA8CB3DE73E71A9D9;
+	static const int64_t serialVersionUID = (int64_t)0xa8cb3de73e71a9d9;
 	::java::awt::dnd::DropTargetContext* dropTargetContext = nullptr;
 	::java::awt::Component* component = nullptr;
 	::java::awt::peer::ComponentPeer* componentPeer = nullptr;

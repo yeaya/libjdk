@@ -1,5 +1,4 @@
 #include <javax/xml/xpath/XPathFunctionResolver.h>
-
 #include <javax/xml/namespace/QName.h>
 #include <javax/xml/xpath/XPathFunction.h>
 #include <jcpp.h>
@@ -13,26 +12,22 @@ namespace javax {
 	namespace xml {
 		namespace xpath {
 
-$MethodInfo _XPathFunctionResolver_MethodInfo_[] = {
-	{"resolveFunction", "(Ljavax/xml/namespace/QName;I)Ljavax/xml/xpath/XPathFunction;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XPathFunctionResolver, resolveFunction, $XPathFunction*, $QName*, int32_t)},
-	{}
-};
-
-$ClassInfo _XPathFunctionResolver_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"javax.xml.xpath.XPathFunctionResolver",
-	nullptr,
-	nullptr,
-	nullptr,
-	_XPathFunctionResolver_MethodInfo_
-};
-
-$Object* allocate$XPathFunctionResolver($Class* clazz) {
-	return $of($alloc(XPathFunctionResolver));
-}
-
 $Class* XPathFunctionResolver::load$($String* name, bool initialize) {
-	$loadClass(XPathFunctionResolver, name, initialize, &_XPathFunctionResolver_ClassInfo_, allocate$XPathFunctionResolver);
+	$MethodInfo methodInfos$$[] = {
+		{"resolveFunction", "(Ljavax/xml/namespace/QName;I)Ljavax/xml/xpath/XPathFunction;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XPathFunctionResolver, resolveFunction, $XPathFunction*, $QName*, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"javax.xml.xpath.XPathFunctionResolver",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(XPathFunctionResolver, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XPathFunctionResolver);
+	});
 	return class$;
 }
 

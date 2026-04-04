@@ -1,7 +1,5 @@
 #include <javax/swing/plaf/basic/DragRecognitionSupport.h>
-
 #include <java/awt/dnd/DragSource.h>
-#include <java/awt/event/InputEvent.h>
 #include <java/awt/event/MouseEvent.h>
 #include <java/lang/Math.h>
 #include <java/util/EventObject.h>
@@ -16,7 +14,6 @@
 #undef NONE
 
 using $DragSource = ::java::awt::dnd::DragSource;
-using $InputEvent = ::java::awt::event::InputEvent;
 using $MouseEvent = ::java::awt::event::MouseEvent;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -35,75 +32,30 @@ namespace javax {
 		namespace plaf {
 			namespace basic {
 
-$FieldInfo _DragRecognitionSupport_FieldInfo_[] = {
-	{"motionThreshold", "I", nullptr, $PRIVATE, $field(DragRecognitionSupport, motionThreshold)},
-	{"dndArmedEvent", "Ljava/awt/event/MouseEvent;", nullptr, $PRIVATE, $field(DragRecognitionSupport, dndArmedEvent)},
-	{"component", "Ljavax/swing/JComponent;", nullptr, $PRIVATE, $field(DragRecognitionSupport, component)},
-	{}
-};
-
-$MethodInfo _DragRecognitionSupport_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(DragRecognitionSupport, init$, void)},
-	{"clearState", "()V", nullptr, $PRIVATE, $method(DragRecognitionSupport, clearState, void)},
-	{"getDragRecognitionSupport", "()Ljavax/swing/plaf/basic/DragRecognitionSupport;", nullptr, $PRIVATE | $STATIC, $staticMethod(DragRecognitionSupport, getDragRecognitionSupport, DragRecognitionSupport*)},
-	{"mapDragOperationFromModifiers", "(Ljava/awt/event/MouseEvent;Ljavax/swing/TransferHandler;)I", nullptr, $PRIVATE, $method(DragRecognitionSupport, mapDragOperationFromModifiers, int32_t, $MouseEvent*, $TransferHandler*)},
-	{"mouseDragged", "(Ljava/awt/event/MouseEvent;Ljavax/swing/plaf/basic/DragRecognitionSupport$BeforeDrag;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(DragRecognitionSupport, mouseDragged, bool, $MouseEvent*, $DragRecognitionSupport$BeforeDrag*)},
-	{"mouseDraggedImpl", "(Ljava/awt/event/MouseEvent;Ljavax/swing/plaf/basic/DragRecognitionSupport$BeforeDrag;)Z", nullptr, $PRIVATE, $method(DragRecognitionSupport, mouseDraggedImpl, bool, $MouseEvent*, $DragRecognitionSupport$BeforeDrag*)},
-	{"mousePressed", "(Ljava/awt/event/MouseEvent;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(DragRecognitionSupport, mousePressed, bool, $MouseEvent*)},
-	{"mousePressedImpl", "(Ljava/awt/event/MouseEvent;)Z", nullptr, $PRIVATE, $method(DragRecognitionSupport, mousePressedImpl, bool, $MouseEvent*)},
-	{"mouseReleased", "(Ljava/awt/event/MouseEvent;)Ljava/awt/event/MouseEvent;", nullptr, $PUBLIC | $STATIC, $staticMethod(DragRecognitionSupport, mouseReleased, $MouseEvent*, $MouseEvent*)},
-	{"mouseReleasedImpl", "(Ljava/awt/event/MouseEvent;)Ljava/awt/event/MouseEvent;", nullptr, $PRIVATE, $method(DragRecognitionSupport, mouseReleasedImpl, $MouseEvent*, $MouseEvent*)},
-	{}
-};
-
-$InnerClassInfo _DragRecognitionSupport_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.basic.DragRecognitionSupport$BeforeDrag", "javax.swing.plaf.basic.DragRecognitionSupport", "BeforeDrag", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _DragRecognitionSupport_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.basic.DragRecognitionSupport",
-	"java.lang.Object",
-	nullptr,
-	_DragRecognitionSupport_FieldInfo_,
-	_DragRecognitionSupport_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DragRecognitionSupport_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.basic.DragRecognitionSupport$BeforeDrag"
-};
-
-$Object* allocate$DragRecognitionSupport($Class* clazz) {
-	return $of($alloc(DragRecognitionSupport));
-}
-
 void DragRecognitionSupport::init$() {
 }
 
 DragRecognitionSupport* DragRecognitionSupport::getDragRecognitionSupport() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$load(DragRecognitionSupport);
-	$var(DragRecognitionSupport, support, $cast(DragRecognitionSupport, $nc($($AppContext::getAppContext()))->get(DragRecognitionSupport::class$)));
+	$var(DragRecognitionSupport, support, $cast(DragRecognitionSupport, $$nc($AppContext::getAppContext())->get(DragRecognitionSupport::class$)));
 	if (support == nullptr) {
 		$assign(support, $new(DragRecognitionSupport));
-		$nc($($AppContext::getAppContext()))->put(DragRecognitionSupport::class$, support);
+		$$nc($AppContext::getAppContext())->put(DragRecognitionSupport::class$, support);
 	}
 	return support;
 }
 
 bool DragRecognitionSupport::mousePressed($MouseEvent* me) {
-	return $nc($(getDragRecognitionSupport()))->mousePressedImpl(me);
+	return $$nc(getDragRecognitionSupport())->mousePressedImpl(me);
 }
 
 $MouseEvent* DragRecognitionSupport::mouseReleased($MouseEvent* me) {
-	return $nc($(getDragRecognitionSupport()))->mouseReleasedImpl(me);
+	return $$nc(getDragRecognitionSupport())->mouseReleasedImpl(me);
 }
 
 bool DragRecognitionSupport::mouseDragged($MouseEvent* me, $DragRecognitionSupport$BeforeDrag* bd) {
-	return $nc($(getDragRecognitionSupport()))->mouseDraggedImpl(me, bd);
+	return $$nc(getDragRecognitionSupport())->mouseDraggedImpl(me, bd);
 }
 
 void DragRecognitionSupport::clearState() {
@@ -150,9 +102,9 @@ bool DragRecognitionSupport::mouseDraggedImpl($MouseEvent* me, $DragRecognitionS
 		clearState();
 		return false;
 	}
-	int32_t var$0 = $nc(me)->getX();
+	int32_t var$0 = me->getX();
 	int32_t dx = $Math::abs(var$0 - $nc(this->dndArmedEvent)->getX());
-	int32_t var$1 = $nc(me)->getY();
+	int32_t var$1 = me->getY();
 	int32_t dy = $Math::abs(var$1 - $nc(this->dndArmedEvent)->getY());
 	if ((dx > this->motionThreshold) || (dy > this->motionThreshold)) {
 		$var($TransferHandler, th, $nc(this->component)->getTransferHandler());
@@ -172,7 +124,46 @@ DragRecognitionSupport::DragRecognitionSupport() {
 }
 
 $Class* DragRecognitionSupport::load$($String* name, bool initialize) {
-	$loadClass(DragRecognitionSupport, name, initialize, &_DragRecognitionSupport_ClassInfo_, allocate$DragRecognitionSupport);
+	$FieldInfo fieldInfos$$[] = {
+		{"motionThreshold", "I", nullptr, $PRIVATE, $field(DragRecognitionSupport, motionThreshold)},
+		{"dndArmedEvent", "Ljava/awt/event/MouseEvent;", nullptr, $PRIVATE, $field(DragRecognitionSupport, dndArmedEvent)},
+		{"component", "Ljavax/swing/JComponent;", nullptr, $PRIVATE, $field(DragRecognitionSupport, component)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(DragRecognitionSupport, init$, void)},
+		{"clearState", "()V", nullptr, $PRIVATE, $method(DragRecognitionSupport, clearState, void)},
+		{"getDragRecognitionSupport", "()Ljavax/swing/plaf/basic/DragRecognitionSupport;", nullptr, $PRIVATE | $STATIC, $staticMethod(DragRecognitionSupport, getDragRecognitionSupport, DragRecognitionSupport*)},
+		{"mapDragOperationFromModifiers", "(Ljava/awt/event/MouseEvent;Ljavax/swing/TransferHandler;)I", nullptr, $PRIVATE, $method(DragRecognitionSupport, mapDragOperationFromModifiers, int32_t, $MouseEvent*, $TransferHandler*)},
+		{"mouseDragged", "(Ljava/awt/event/MouseEvent;Ljavax/swing/plaf/basic/DragRecognitionSupport$BeforeDrag;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(DragRecognitionSupport, mouseDragged, bool, $MouseEvent*, $DragRecognitionSupport$BeforeDrag*)},
+		{"mouseDraggedImpl", "(Ljava/awt/event/MouseEvent;Ljavax/swing/plaf/basic/DragRecognitionSupport$BeforeDrag;)Z", nullptr, $PRIVATE, $method(DragRecognitionSupport, mouseDraggedImpl, bool, $MouseEvent*, $DragRecognitionSupport$BeforeDrag*)},
+		{"mousePressed", "(Ljava/awt/event/MouseEvent;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(DragRecognitionSupport, mousePressed, bool, $MouseEvent*)},
+		{"mousePressedImpl", "(Ljava/awt/event/MouseEvent;)Z", nullptr, $PRIVATE, $method(DragRecognitionSupport, mousePressedImpl, bool, $MouseEvent*)},
+		{"mouseReleased", "(Ljava/awt/event/MouseEvent;)Ljava/awt/event/MouseEvent;", nullptr, $PUBLIC | $STATIC, $staticMethod(DragRecognitionSupport, mouseReleased, $MouseEvent*, $MouseEvent*)},
+		{"mouseReleasedImpl", "(Ljava/awt/event/MouseEvent;)Ljava/awt/event/MouseEvent;", nullptr, $PRIVATE, $method(DragRecognitionSupport, mouseReleasedImpl, $MouseEvent*, $MouseEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.basic.DragRecognitionSupport$BeforeDrag", "javax.swing.plaf.basic.DragRecognitionSupport", "BeforeDrag", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.basic.DragRecognitionSupport",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.basic.DragRecognitionSupport$BeforeDrag"
+	};
+	$loadClass(DragRecognitionSupport, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DragRecognitionSupport);
+	});
 	return class$;
 }
 

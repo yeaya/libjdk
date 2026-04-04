@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/impl/xs/identity/Selector$XPath.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/xpath/XPath$Axis.h>
 #include <com/sun/org/apache/xerces/internal/impl/xpath/XPath$LocationPath.h>
 #include <com/sun/org/apache/xerces/internal/impl/xpath/XPath$Step.h>
@@ -35,42 +34,11 @@ namespace com {
 							namespace xs {
 								namespace identity {
 
-$MethodInfo _Selector$XPath_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/util/SymbolTable;Lcom/sun/org/apache/xerces/internal/xni/NamespaceContext;)V", nullptr, $PUBLIC, $method(Selector$XPath, init$, void, $String*, $SymbolTable*, $NamespaceContext*), "com.sun.org.apache.xerces.internal.impl.xpath.XPathException"},
-	{"normalize", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Selector$XPath, normalize, $String*, $String*)},
-	{}
-};
-
-$InnerClassInfo _Selector$XPath_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xerces.internal.impl.xs.identity.Selector$XPath", "com.sun.org.apache.xerces.internal.impl.xs.identity.Selector", "XPath", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _Selector$XPath_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.impl.xs.identity.Selector$XPath",
-	"com.sun.org.apache.xerces.internal.impl.xpath.XPath",
-	nullptr,
-	nullptr,
-	_Selector$XPath_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Selector$XPath_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xerces.internal.impl.xs.identity.Selector"
-};
-
-$Object* allocate$Selector$XPath($Class* clazz) {
-	return $of($alloc(Selector$XPath));
-}
-
 void Selector$XPath::init$($String* xpath, $SymbolTable* symbolTable, $NamespaceContext* context) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$XPath::init$($(normalize(xpath)), symbolTable, context);
 	for (int32_t i = 0; i < $nc(this->fLocationPaths)->length; ++i) {
-		$var($XPath$Axis, axis, $nc($nc($nc($nc(this->fLocationPaths)->get(i))->steps)->get($nc($nc($nc(this->fLocationPaths)->get(i))->steps)->length - 1))->axis);
+		$var($XPath$Axis, axis, $nc($nc($nc(this->fLocationPaths->get(i))->steps)->get($nc($nc(this->fLocationPaths->get(i))->steps)->length - 1))->axis);
 		if ($nc(axis)->type == $XPath$Axis::ATTRIBUTE) {
 			$throwNew($XPathException, "c-selector-xpath"_s);
 		}
@@ -79,16 +47,16 @@ void Selector$XPath::init$($String* xpath, $SymbolTable* symbolTable, $Namespace
 
 $String* Selector$XPath::normalize($String* xpath$renamed) {
 	$init(Selector$XPath);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, xpath, xpath$renamed);
 	$var($StringBuffer, modifiedXPath, $new($StringBuffer, $nc(xpath)->length() + 5));
 	int32_t unionIndex = -1;
 	do {
-		bool var$0 = $nc($($XMLChar::trim(xpath)))->startsWith("/"_s);
-		if (!(var$0 || $nc($($XMLChar::trim(xpath)))->startsWith("."_s))) {
+		bool var$0 = $$nc($XMLChar::trim(xpath))->startsWith("/"_s);
+		if (!(var$0 || $$nc($XMLChar::trim(xpath))->startsWith("."_s))) {
 			modifiedXPath->append("./"_s);
 		}
-		unionIndex = $nc(xpath)->indexOf((int32_t)u'|');
+		unionIndex = xpath->indexOf(u'|');
 		if (unionIndex == -1) {
 			modifiedXPath->append(xpath);
 			break;
@@ -103,7 +71,33 @@ Selector$XPath::Selector$XPath() {
 }
 
 $Class* Selector$XPath::load$($String* name, bool initialize) {
-	$loadClass(Selector$XPath, name, initialize, &_Selector$XPath_ClassInfo_, allocate$Selector$XPath);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/util/SymbolTable;Lcom/sun/org/apache/xerces/internal/xni/NamespaceContext;)V", nullptr, $PUBLIC, $method(Selector$XPath, init$, void, $String*, $SymbolTable*, $NamespaceContext*), "com.sun.org.apache.xerces.internal.impl.xpath.XPathException"},
+		{"normalize", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Selector$XPath, normalize, $String*, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xerces.internal.impl.xs.identity.Selector$XPath", "com.sun.org.apache.xerces.internal.impl.xs.identity.Selector", "XPath", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.impl.xs.identity.Selector$XPath",
+		"com.sun.org.apache.xerces.internal.impl.xpath.XPath",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xerces.internal.impl.xs.identity.Selector"
+	};
+	$loadClass(Selector$XPath, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Selector$XPath);
+	});
 	return class$;
 }
 

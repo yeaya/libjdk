@@ -70,6 +70,7 @@ class FieldGen : public ::com::sun::org::apache::bcel::internal::generic::FieldG
 	$class(FieldGen, 0, ::com::sun::org::apache::bcel::internal::generic::FieldGenOrMethodGen)
 public:
 	FieldGen();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int32_t access_flags, ::com::sun::org::apache::bcel::internal::generic::Type* type, $String* name, ::com::sun::org::apache::bcel::internal::generic::ConstantPoolGen* cp);
 	void init$(::com::sun::org::apache::bcel::internal::classfile::Field* field, ::com::sun::org::apache::bcel::internal::generic::ConstantPoolGen* cp);
 	void addAnnotationsAsAttribute(::com::sun::org::apache::bcel::internal::generic::ConstantPoolGen* cp);

@@ -1,5 +1,4 @@
 #include <sun/nio/cs/ext/MacCyrillic$Holder.h>
-
 #include <sun/nio/cs/SingleByte.h>
 #include <sun/nio/cs/ext/MacCyrillic.h>
 #include <jcpp.h>
@@ -15,44 +14,6 @@ namespace sun {
 		namespace cs {
 			namespace ext {
 
-$FieldInfo _MacCyrillic$Holder_FieldInfo_[] = {
-	{"b2cTable", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MacCyrillic$Holder, b2cTable)},
-	{"b2c", "[C", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MacCyrillic$Holder, b2c)},
-	{"c2b", "[C", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MacCyrillic$Holder, c2b)},
-	{"c2bIndex", "[C", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MacCyrillic$Holder, c2bIndex)},
-	{}
-};
-
-$MethodInfo _MacCyrillic$Holder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(MacCyrillic$Holder, init$, void)},
-	{}
-};
-
-$InnerClassInfo _MacCyrillic$Holder_InnerClassesInfo_[] = {
-	{"sun.nio.cs.ext.MacCyrillic$Holder", "sun.nio.cs.ext.MacCyrillic", "Holder", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _MacCyrillic$Holder_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.nio.cs.ext.MacCyrillic$Holder",
-	"java.lang.Object",
-	nullptr,
-	_MacCyrillic$Holder_FieldInfo_,
-	_MacCyrillic$Holder_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MacCyrillic$Holder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.nio.cs.ext.MacCyrillic"
-};
-
-$Object* allocate$MacCyrillic$Holder($Class* clazz) {
-	return $of($alloc(MacCyrillic$Holder));
-}
-
 $String* MacCyrillic$Holder::b2cTable = nullptr;
 $chars* MacCyrillic$Holder::b2c = nullptr;
 $chars* MacCyrillic$Holder::c2b = nullptr;
@@ -61,10 +22,10 @@ $chars* MacCyrillic$Holder::c2bIndex = nullptr;
 void MacCyrillic$Holder::init$() {
 }
 
-void clinit$MacCyrillic$Holder($Class* class$) {
-	$useLocalCurrentObjectStackCache();
-	$assignStatic(MacCyrillic$Holder::b2cTable, $cstr({0x410, 0x411, 0x412, 0x413, 0x414, 0x415, 0x416, 0x417, 0x418, 0x419, 0x41A, 0x41B, 0x41C, 0x41D, 0x41E, 0x41F, 0x420, 0x421, 0x422, 0x423, 0x424, 0x425, 0x426, 0x427, 0x428, 0x429, 0x42A, 0x42B, 0x42C, 0x42D, 0x42E, 0x42F, 0x2020, 0xB0, 0xA2, 0xA3, 0xA7, 0x2022, 0xB6, 0x406, 0xAE, 0xA9, 0x2122, 0x402, 0x452, 0x2260, 0x403, 0x453, 0x221E, 0xB1, 0x2264, 0x2265, 0x456, 0xB5, 0x2202, 0x408, 0x404, 0x454, 0x407, 0x457, 0x409, 0x459, 0x40A, 0x45A, 0x458, 0x405, 0xAC, 0x221A, 0x192, 0x2248, 0x2206, 0xAB, 0xBB, 0x2026, 0xA0, 0x40B, 0x45B, 0x40C, 0x45C, 0x455, 0x2013, 0x2014, 0x201C, 0x201D, 0x2018, 0x2019, 0xF7, 0x201E, 0x40E, 0x45E, 0x40F, 0x45F, 0x2116, 0x401, 0x451, 0x44F, 0x430, 0x431, 0x432, 0x433, 0x434, 0x435, 0x436, 0x437, 0x438, 0x439, 0x43A, 0x43B, 0x43C, 0x43D, 0x43E, 0x43F, 0x440, 0x441, 0x442, 0x443, 0x444, 0x445, 0x446, 0x447, 0x448, 0x449, 0x44A, 0x44B, 0x44C, 0x44D, 0x44E, 0xA4, '\0', 0x1, 0x2, 0x3, 0x4, 0x5, 0x6, 0x7, '\b', '\t', '\n', 0xB, '\f', '\r', 0xE, 0xF, 0x10, 0x11, 0x12, 0x13, 0x14, 0x15, 0x16, 0x17, 0x18, 0x19, 0x1A, 0x1B, 0x1C, 0x1D, 0x1E, 0x1F, ' ', '!', '\"', '#', '$', '%', '&', '\'', '(', ')', '*', '+', ',', '-', '.', '/', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', ':', ';', '<', '=', '>', '?', '@', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', '[', '\\', ']', '^', '_', '`', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '{', '|', '}', '~', 0x7F}));
-	$assignStatic(MacCyrillic$Holder::b2c, $nc(MacCyrillic$Holder::b2cTable)->toCharArray());
+void MacCyrillic$Holder::clinit$($Class* clazz) {
+	$useLocalObjectStack();
+	$assignStatic(MacCyrillic$Holder::b2cTable, $cstr({0x0410, 0x0411, 0x0412, 0x0413, 0x0414, 0x0415, 0x0416, 0x0417, 0x0418, 0x0419, 0x041a, 0x041b, 0x041c, 0x041d, 0x041e, 0x041f, 0x0420, 0x0421, 0x0422, 0x0423, 0x0424, 0x0425, 0x0426, 0x0427, 0x0428, 0x0429, 0x042a, 0x042b, 0x042c, 0x042d, 0x042e, 0x042f, 0x2020, 0xb0, 0xa2, 0xa3, 0xa7, 0x2022, 0xb6, 0x0406, 0xae, 0xa9, 0x2122, 0x0402, 0x0452, 0x2260, 0x0403, 0x0453, 0x221e, 0xb1, 0x2264, 0x2265, 0x0456, 0xb5, 0x2202, 0x0408, 0x0404, 0x0454, 0x0407, 0x0457, 0x0409, 0x0459, 0x040a, 0x045a, 0x0458, 0x0405, 0xac, 0x221a, 0x0192, 0x2248, 0x2206, 0xab, 0xbb, 0x2026, 0xa0, 0x040b, 0x045b, 0x040c, 0x045c, 0x0455, 0x2013, 0x2014, 0x201c, 0x201d, 0x2018, 0x2019, 0xf7, 0x201e, 0x040e, 0x045e, 0x040f, 0x045f, 0x2116, 0x0401, 0x0451, 0x044f, 0x0430, 0x0431, 0x0432, 0x0433, 0x0434, 0x0435, 0x0436, 0x0437, 0x0438, 0x0439, 0x043a, 0x043b, 0x043c, 0x043d, 0x043e, 0x043f, 0x0440, 0x0441, 0x0442, 0x0443, 0x0444, 0x0445, 0x0446, 0x0447, 0x0448, 0x0449, 0x044a, 0x044b, 0x044c, 0x044d, 0x044e, 0xa4, '\0', 0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, '\b', '\t', '\n', 0x0b, '\f', '\r', 0x0e, 0x0f, 0x10, 0x11, 0x12, 0x13, 0x14, 0x15, 0x16, 0x17, 0x18, 0x19, 0x1a, 0x1b, 0x1c, 0x1d, 0x1e, 0x1f, ' ', '!', '\"', '#', '$', '%', '&', '\'', '(', ')', '*', '+', ',', '-', '.', '/', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', ':', ';', '<', '=', '>', '?', '@', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', '[', '\\', ']', '^', '_', '`', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '{', '|', '}', '~', 0x7f}));
+	$assignStatic(MacCyrillic$Holder::b2c, MacCyrillic$Holder::b2cTable->toCharArray());
 	$assignStatic(MacCyrillic$Holder::c2b, $new($chars, 1536));
 	$assignStatic(MacCyrillic$Holder::c2bIndex, $new($chars, 256));
 	{
@@ -78,7 +39,39 @@ MacCyrillic$Holder::MacCyrillic$Holder() {
 }
 
 $Class* MacCyrillic$Holder::load$($String* name, bool initialize) {
-	$loadClass(MacCyrillic$Holder, name, initialize, &_MacCyrillic$Holder_ClassInfo_, clinit$MacCyrillic$Holder, allocate$MacCyrillic$Holder);
+	$FieldInfo fieldInfos$$[] = {
+		{"b2cTable", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MacCyrillic$Holder, b2cTable)},
+		{"b2c", "[C", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MacCyrillic$Holder, b2c)},
+		{"c2b", "[C", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MacCyrillic$Holder, c2b)},
+		{"c2bIndex", "[C", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MacCyrillic$Holder, c2bIndex)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(MacCyrillic$Holder, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.cs.ext.MacCyrillic$Holder", "sun.nio.cs.ext.MacCyrillic", "Holder", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.nio.cs.ext.MacCyrillic$Holder",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.nio.cs.ext.MacCyrillic"
+	};
+	$loadClass(MacCyrillic$Holder, name, initialize, &classInfo$$, MacCyrillic$Holder::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(MacCyrillic$Holder);
+	});
 	return class$;
 }
 

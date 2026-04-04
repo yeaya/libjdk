@@ -1,8 +1,6 @@
 #include <javax/swing/plaf/synth/DefaultSynthStyleFactory.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Font.h>
-#include <java/lang/CharSequence.h>
 #include <java/util/ArrayList.h>
 #include <java/util/HashMap.h>
 #include <java/util/List.h>
@@ -23,14 +21,12 @@
 #undef REGION
 
 using $Font = ::java::awt::Font;
-using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ArrayList = ::java::util::ArrayList;
 using $HashMap = ::java::util::HashMap;
 using $List = ::java::util::List;
-using $Map = ::java::util::Map;
 using $JComponent = ::javax::swing::JComponent;
 using $FontUIResource = ::javax::swing::plaf::FontUIResource;
 using $Region = ::javax::swing::plaf::synth::Region;
@@ -45,41 +41,6 @@ namespace javax {
 		namespace plaf {
 			namespace synth {
 
-$FieldInfo _DefaultSynthStyleFactory_FieldInfo_[] = {
-	{"NAME", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DefaultSynthStyleFactory, NAME)},
-	{"REGION", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DefaultSynthStyleFactory, REGION)},
-	{"_styles", "Ljava/util/List;", "Ljava/util/List<Lsun/swing/plaf/synth/StyleAssociation;>;", $PRIVATE, $field(DefaultSynthStyleFactory, _styles)},
-	{"_tmpList", "Lsun/swing/BakedArrayList;", "Lsun/swing/BakedArrayList<Ljavax/swing/plaf/synth/SynthStyle;>;", $PRIVATE, $field(DefaultSynthStyleFactory, _tmpList)},
-	{"_resolvedStyles", "Ljava/util/Map;", "Ljava/util/Map<Lsun/swing/BakedArrayList<Ljavax/swing/plaf/synth/SynthStyle;>;Ljavax/swing/plaf/synth/SynthStyle;>;", $PRIVATE, $field(DefaultSynthStyleFactory, _resolvedStyles)},
-	{"_defaultStyle", "Ljavax/swing/plaf/synth/SynthStyle;", nullptr, $PRIVATE, $field(DefaultSynthStyleFactory, _defaultStyle)},
-	{}
-};
-
-$MethodInfo _DefaultSynthStyleFactory_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(DefaultSynthStyleFactory, init$, void)},
-	{"addStyle", "(Lsun/swing/plaf/synth/DefaultSynthStyle;Ljava/lang/String;I)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(DefaultSynthStyleFactory, addStyle, void, $DefaultSynthStyle*, $String*, int32_t), "java.util.regex.PatternSyntaxException"},
-	{"cacheStyle", "(Ljava/util/List;Ljavax/swing/plaf/synth/SynthStyle;)V", "(Ljava/util/List<Ljavax/swing/plaf/synth/SynthStyle;>;Ljavax/swing/plaf/synth/SynthStyle;)V", $PRIVATE, $method(DefaultSynthStyleFactory, cacheStyle, void, $List*, $SynthStyle*)},
-	{"getCachedStyle", "(Ljava/util/List;)Ljavax/swing/plaf/synth/SynthStyle;", "(Ljava/util/List<Ljavax/swing/plaf/synth/SynthStyle;>;)Ljavax/swing/plaf/synth/SynthStyle;", $PRIVATE, $method(DefaultSynthStyleFactory, getCachedStyle, $SynthStyle*, $List*)},
-	{"getDefaultStyle", "()Ljavax/swing/plaf/synth/SynthStyle;", nullptr, $PRIVATE, $method(DefaultSynthStyleFactory, getDefaultStyle, $SynthStyle*)},
-	{"getMatchingStyles", "(Ljava/util/List;Ljavax/swing/JComponent;Ljavax/swing/plaf/synth/Region;)V", "(Ljava/util/List<Ljavax/swing/plaf/synth/SynthStyle;>;Ljavax/swing/JComponent;Ljavax/swing/plaf/synth/Region;)V", $PRIVATE, $method(DefaultSynthStyleFactory, getMatchingStyles, void, $List*, $JComponent*, $Region*)},
-	{"getStyle", "(Ljavax/swing/JComponent;Ljavax/swing/plaf/synth/Region;)Ljavax/swing/plaf/synth/SynthStyle;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(DefaultSynthStyleFactory, getStyle, $SynthStyle*, $JComponent*, $Region*)},
-	{"mergeStyles", "(Ljava/util/List;)Ljavax/swing/plaf/synth/SynthStyle;", "(Ljava/util/List<Ljavax/swing/plaf/synth/SynthStyle;>;)Ljavax/swing/plaf/synth/SynthStyle;", $PRIVATE, $method(DefaultSynthStyleFactory, mergeStyles, $SynthStyle*, $List*)},
-	{}
-};
-
-$ClassInfo _DefaultSynthStyleFactory_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.synth.DefaultSynthStyleFactory",
-	"javax.swing.plaf.synth.SynthStyleFactory",
-	nullptr,
-	_DefaultSynthStyleFactory_FieldInfo_,
-	_DefaultSynthStyleFactory_MethodInfo_
-};
-
-$Object* allocate$DefaultSynthStyleFactory($Class* clazz) {
-	return $of($alloc(DefaultSynthStyleFactory));
-}
-
 void DefaultSynthStyleFactory::init$() {
 	$SynthStyleFactory::init$();
 	$set(this, _tmpList, $new($BakedArrayList, 5));
@@ -89,7 +50,7 @@ void DefaultSynthStyleFactory::init$() {
 
 void DefaultSynthStyleFactory::addStyle($DefaultSynthStyle* style, $String* path$renamed, int32_t type) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$var($String, path, path$renamed);
 		if (path == nullptr) {
 			$assign(path, ".*"_s);
@@ -104,7 +65,7 @@ void DefaultSynthStyleFactory::addStyle($DefaultSynthStyle* style, $String* path
 
 $SynthStyle* DefaultSynthStyleFactory::getStyle($JComponent* c, $Region* id) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$var($BakedArrayList, matches, this->_tmpList);
 		$nc(matches)->clear();
 		getMatchingStyles(matches, c, id);
@@ -127,13 +88,13 @@ $SynthStyle* DefaultSynthStyleFactory::getDefaultStyle() {
 	if (this->_defaultStyle == nullptr) {
 		$set(this, _defaultStyle, $new($DefaultSynthStyle));
 		$init($Font);
-		$nc(($cast($DefaultSynthStyle, this->_defaultStyle)))->setFont($$new($FontUIResource, $Font::DIALOG, $Font::PLAIN, 12));
+		$cast($DefaultSynthStyle, this->_defaultStyle)->setFont($$new($FontUIResource, $Font::DIALOG, $Font::PLAIN, 12));
 	}
 	return this->_defaultStyle;
 }
 
 void DefaultSynthStyleFactory::getMatchingStyles($List* matches, $JComponent* c, $Region* id) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, idName, $nc(id)->getLowerCaseName());
 	$var($String, cName, $nc(c)->getName());
 	if (cName == nullptr) {
@@ -147,7 +108,7 @@ void DefaultSynthStyleFactory::getMatchingStyles($List* matches, $JComponent* c,
 		} else {
 			$assign(path, idName);
 		}
-		bool var$0 = $nc(sa)->matches(path);
+		bool var$0 = sa->matches(path);
 		if (var$0 && $nc(matches)->indexOf($(sa->getStyle())) == -1) {
 			matches->add($(sa->getStyle()));
 		}
@@ -167,17 +128,17 @@ $SynthStyle* DefaultSynthStyleFactory::getCachedStyle($List* styles) {
 }
 
 $SynthStyle* DefaultSynthStyleFactory::mergeStyles($List* styles) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t size = $nc(styles)->size();
 	if (size == 0) {
 		return nullptr;
 	} else if (size == 1) {
-		return $cast($SynthStyle, $nc(($cast($DefaultSynthStyle, $(styles->get(0)))))->clone());
+		return $cast($SynthStyle, $$sure($DefaultSynthStyle, styles->get(0))->clone());
 	}
 	$var($DefaultSynthStyle, style, $cast($DefaultSynthStyle, styles->get(size - 1)));
 	$assign(style, $cast($DefaultSynthStyle, $nc(style)->clone()));
 	for (int32_t counter = size - 2; counter >= 0; --counter) {
-		$assign(style, $nc(($cast($DefaultSynthStyle, $(styles->get(counter)))))->addTo(style));
+		$assign(style, $$sure($DefaultSynthStyle, styles->get(counter))->addTo(style));
 	}
 	return style;
 }
@@ -186,7 +147,37 @@ DefaultSynthStyleFactory::DefaultSynthStyleFactory() {
 }
 
 $Class* DefaultSynthStyleFactory::load$($String* name, bool initialize) {
-	$loadClass(DefaultSynthStyleFactory, name, initialize, &_DefaultSynthStyleFactory_ClassInfo_, allocate$DefaultSynthStyleFactory);
+	$FieldInfo fieldInfos$$[] = {
+		{"NAME", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DefaultSynthStyleFactory, NAME)},
+		{"REGION", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DefaultSynthStyleFactory, REGION)},
+		{"_styles", "Ljava/util/List;", "Ljava/util/List<Lsun/swing/plaf/synth/StyleAssociation;>;", $PRIVATE, $field(DefaultSynthStyleFactory, _styles)},
+		{"_tmpList", "Lsun/swing/BakedArrayList;", "Lsun/swing/BakedArrayList<Ljavax/swing/plaf/synth/SynthStyle;>;", $PRIVATE, $field(DefaultSynthStyleFactory, _tmpList)},
+		{"_resolvedStyles", "Ljava/util/Map;", "Ljava/util/Map<Lsun/swing/BakedArrayList<Ljavax/swing/plaf/synth/SynthStyle;>;Ljavax/swing/plaf/synth/SynthStyle;>;", $PRIVATE, $field(DefaultSynthStyleFactory, _resolvedStyles)},
+		{"_defaultStyle", "Ljavax/swing/plaf/synth/SynthStyle;", nullptr, $PRIVATE, $field(DefaultSynthStyleFactory, _defaultStyle)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(DefaultSynthStyleFactory, init$, void)},
+		{"addStyle", "(Lsun/swing/plaf/synth/DefaultSynthStyle;Ljava/lang/String;I)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(DefaultSynthStyleFactory, addStyle, void, $DefaultSynthStyle*, $String*, int32_t), "java.util.regex.PatternSyntaxException"},
+		{"cacheStyle", "(Ljava/util/List;Ljavax/swing/plaf/synth/SynthStyle;)V", "(Ljava/util/List<Ljavax/swing/plaf/synth/SynthStyle;>;Ljavax/swing/plaf/synth/SynthStyle;)V", $PRIVATE, $method(DefaultSynthStyleFactory, cacheStyle, void, $List*, $SynthStyle*)},
+		{"getCachedStyle", "(Ljava/util/List;)Ljavax/swing/plaf/synth/SynthStyle;", "(Ljava/util/List<Ljavax/swing/plaf/synth/SynthStyle;>;)Ljavax/swing/plaf/synth/SynthStyle;", $PRIVATE, $method(DefaultSynthStyleFactory, getCachedStyle, $SynthStyle*, $List*)},
+		{"getDefaultStyle", "()Ljavax/swing/plaf/synth/SynthStyle;", nullptr, $PRIVATE, $method(DefaultSynthStyleFactory, getDefaultStyle, $SynthStyle*)},
+		{"getMatchingStyles", "(Ljava/util/List;Ljavax/swing/JComponent;Ljavax/swing/plaf/synth/Region;)V", "(Ljava/util/List<Ljavax/swing/plaf/synth/SynthStyle;>;Ljavax/swing/JComponent;Ljavax/swing/plaf/synth/Region;)V", $PRIVATE, $method(DefaultSynthStyleFactory, getMatchingStyles, void, $List*, $JComponent*, $Region*)},
+		{"getStyle", "(Ljavax/swing/JComponent;Ljavax/swing/plaf/synth/Region;)Ljavax/swing/plaf/synth/SynthStyle;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(DefaultSynthStyleFactory, getStyle, $SynthStyle*, $JComponent*, $Region*)},
+		{"mergeStyles", "(Ljava/util/List;)Ljavax/swing/plaf/synth/SynthStyle;", "(Ljava/util/List<Ljavax/swing/plaf/synth/SynthStyle;>;)Ljavax/swing/plaf/synth/SynthStyle;", $PRIVATE, $method(DefaultSynthStyleFactory, mergeStyles, $SynthStyle*, $List*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.synth.DefaultSynthStyleFactory",
+		"javax.swing.plaf.synth.SynthStyleFactory",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DefaultSynthStyleFactory, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DefaultSynthStyleFactory);
+	});
 	return class$;
 }
 

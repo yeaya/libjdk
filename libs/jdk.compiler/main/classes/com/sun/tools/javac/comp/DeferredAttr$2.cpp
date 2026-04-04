@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/DeferredAttr$2.h>
-
 #include <com/sun/source/tree/MemberReferenceTree$ReferenceMode.h>
 #include <com/sun/source/tree/MemberReferenceTree.h>
 #include <com/sun/source/tree/NewClassTree.h>
@@ -45,79 +44,33 @@ namespace com {
 			namespace javac {
 				namespace comp {
 
-$FieldInfo _DeferredAttr$2_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/comp/DeferredAttr;", nullptr, $FINAL | $SYNTHETIC, $field(DeferredAttr$2, this$0)},
-	{}
-};
-
-$MethodInfo _DeferredAttr$2_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/DeferredAttr;Lcom/sun/tools/javac/tree/TreeMaker;)V", nullptr, 0, $method(DeferredAttr$2, init$, void, $DeferredAttr*, $TreeMaker*)},
-	{"visitMemberReference", "(Lcom/sun/source/tree/MemberReferenceTree;Ljava/lang/Void;)Lcom/sun/tools/javac/tree/JCTree;", nullptr, $PUBLIC, $virtualMethod(DeferredAttr$2, visitMemberReference, $JCTree*, $MemberReferenceTree*, $Void*)},
-	{"visitMemberReference", "(Lcom/sun/source/tree/MemberReferenceTree;Ljava/lang/Object;)Lcom/sun/tools/javac/tree/JCTree;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(DeferredAttr$2, visitMemberReference, $Object*, $MemberReferenceTree*, Object$*)},
-	{"visitNewClass", "(Lcom/sun/source/tree/NewClassTree;Ljava/lang/Void;)Lcom/sun/tools/javac/tree/JCTree;", nullptr, $PUBLIC, $virtualMethod(DeferredAttr$2, visitNewClass, $JCTree*, $NewClassTree*, $Void*)},
-	{"visitNewClass", "(Lcom/sun/source/tree/NewClassTree;Ljava/lang/Object;)Lcom/sun/tools/javac/tree/JCTree;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(DeferredAttr$2, visitNewClass, $Object*, $NewClassTree*, Object$*)},
-	{}
-};
-
-$EnclosingMethodInfo _DeferredAttr$2_EnclosingMethodInfo_ = {
-	"com.sun.tools.javac.comp.DeferredAttr",
-	"<init>",
-	"(Lcom/sun/tools/javac/util/Context;)V"
-};
-
-$InnerClassInfo _DeferredAttr$2_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.DeferredAttr$2", nullptr, nullptr, 0},
-	{"com.sun.tools.javac.comp.DeferredAttr$2$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _DeferredAttr$2_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.comp.DeferredAttr$2",
-	"com.sun.tools.javac.tree.TreeCopier",
-	nullptr,
-	_DeferredAttr$2_FieldInfo_,
-	_DeferredAttr$2_MethodInfo_,
-	"Lcom/sun/tools/javac/tree/TreeCopier<Ljava/lang/Void;>;",
-	&_DeferredAttr$2_EnclosingMethodInfo_,
-	_DeferredAttr$2_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.DeferredAttr"
-};
-
-$Object* allocate$DeferredAttr$2($Class* clazz) {
-	return $of($alloc(DeferredAttr$2));
-}
-
 void DeferredAttr$2::init$($DeferredAttr* this$0, $TreeMaker* M) {
 	$set(this, this$0, this$0);
 	$TreeCopier::init$(M);
 }
 
 $JCTree* DeferredAttr$2::visitNewClass($NewClassTree* node, $Void* p) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JCTree$JCNewClass, t, $cast($JCTree$JCNewClass, node));
 	if ($TreeInfo::isDiamond(t)) {
-		$var($JCTree$JCExpression, encl, $cast($JCTree$JCExpression, copy(static_cast<$JCTree*>($nc(t)->encl), $of(p))));
-		$var($List, typeargs, copy($nc(t)->typeargs, $of(p)));
-		$var($JCTree$JCExpression, clazz, $cast($JCTree$JCExpression, copy(static_cast<$JCTree*>($nc(t)->clazz), $of(p))));
-		$var($List, args, copy($nc(t)->args, $of(p)));
+		$var($JCTree$JCExpression, encl, $cast($JCTree$JCExpression, copy($nc(t)->encl, p)));
+		$var($List, typeargs, copy(t->typeargs, p));
+		$var($JCTree$JCExpression, clazz, $cast($JCTree$JCExpression, copy(t->clazz, p)));
+		$var($List, args, copy(t->args, p));
 		$var($JCTree$JCClassDecl, def, nullptr);
-		return $nc($($nc(this->this$0->make)->at($nc(t)->pos$)))->SpeculativeNewClass(encl, typeargs, clazz, args, def, $nc(t)->def != nullptr);
+		return $$nc($nc(this->this$0->make)->at(t->pos$))->SpeculativeNewClass(encl, typeargs, clazz, args, def, t->def != nullptr);
 	} else {
 		return $cast($JCTree, $TreeCopier::visitNewClass(node, p));
 	}
 }
 
 $JCTree* DeferredAttr$2::visitMemberReference($MemberReferenceTree* node, $Void* p) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JCTree$JCMemberReference, t, $cast($JCTree$JCMemberReference, node));
-	$var($JCTree$JCExpression, expr, $cast($JCTree$JCExpression, copy(static_cast<$JCTree*>($nc(t)->expr), $of(p))));
-	$var($List, typeargs, copy($nc(t)->typeargs, $of(p)));
-	$var($JCTree$JCMemberReference, result, $new($DeferredAttr$2$1, this, $nc(t)->mode, t->name, expr, typeargs, t));
-	result->pos$ = $nc(t)->pos$;
+	$var($JCTree$JCExpression, expr, $cast($JCTree$JCExpression, copy($nc(t)->expr, p)));
+	$var($List, typeargs, copy(t->typeargs, p));
+	$var($JCTree$JCMemberReference, result, $new($DeferredAttr$2$1, this, t->mode, t->name, expr, typeargs, t));
+	result->pos$ = t->pos$;
 	return result;
 }
 
@@ -133,7 +86,46 @@ DeferredAttr$2::DeferredAttr$2() {
 }
 
 $Class* DeferredAttr$2::load$($String* name, bool initialize) {
-	$loadClass(DeferredAttr$2, name, initialize, &_DeferredAttr$2_ClassInfo_, allocate$DeferredAttr$2);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/comp/DeferredAttr;", nullptr, $FINAL | $SYNTHETIC, $field(DeferredAttr$2, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/comp/DeferredAttr;Lcom/sun/tools/javac/tree/TreeMaker;)V", nullptr, 0, $method(DeferredAttr$2, init$, void, $DeferredAttr*, $TreeMaker*)},
+		{"visitMemberReference", "(Lcom/sun/source/tree/MemberReferenceTree;Ljava/lang/Void;)Lcom/sun/tools/javac/tree/JCTree;", nullptr, $PUBLIC, $virtualMethod(DeferredAttr$2, visitMemberReference, $JCTree*, $MemberReferenceTree*, $Void*)},
+		{"visitMemberReference", "(Lcom/sun/source/tree/MemberReferenceTree;Ljava/lang/Object;)Lcom/sun/tools/javac/tree/JCTree;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(DeferredAttr$2, visitMemberReference, $Object*, $MemberReferenceTree*, Object$*)},
+		{"visitNewClass", "(Lcom/sun/source/tree/NewClassTree;Ljava/lang/Void;)Lcom/sun/tools/javac/tree/JCTree;", nullptr, $PUBLIC, $virtualMethod(DeferredAttr$2, visitNewClass, $JCTree*, $NewClassTree*, $Void*)},
+		{"visitNewClass", "(Lcom/sun/source/tree/NewClassTree;Ljava/lang/Object;)Lcom/sun/tools/javac/tree/JCTree;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(DeferredAttr$2, visitNewClass, $Object*, $NewClassTree*, Object$*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.tools.javac.comp.DeferredAttr",
+		"<init>",
+		"(Lcom/sun/tools/javac/util/Context;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.DeferredAttr$2", nullptr, nullptr, 0},
+		{"com.sun.tools.javac.comp.DeferredAttr$2$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.comp.DeferredAttr$2",
+		"com.sun.tools.javac.tree.TreeCopier",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Lcom/sun/tools/javac/tree/TreeCopier<Ljava/lang/Void;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.DeferredAttr"
+	};
+	$loadClass(DeferredAttr$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DeferredAttr$2);
+	});
 	return class$;
 }
 

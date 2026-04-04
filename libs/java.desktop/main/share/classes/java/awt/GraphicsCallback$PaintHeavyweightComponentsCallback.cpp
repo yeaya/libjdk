@@ -1,5 +1,4 @@
 #include <java/awt/GraphicsCallback$PaintHeavyweightComponentsCallback.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Graphics.h>
 #include <java/awt/GraphicsCallback.h>
@@ -18,43 +17,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace java {
 	namespace awt {
-
-$FieldInfo _GraphicsCallback$PaintHeavyweightComponentsCallback_FieldInfo_[] = {
-	{"instance", "Ljava/awt/GraphicsCallback$PaintHeavyweightComponentsCallback;", nullptr, $PRIVATE | $STATIC, $staticField(GraphicsCallback$PaintHeavyweightComponentsCallback, instance)},
-	{}
-};
-
-$MethodInfo _GraphicsCallback$PaintHeavyweightComponentsCallback_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(GraphicsCallback$PaintHeavyweightComponentsCallback, init$, void)},
-	{"getInstance", "()Ljava/awt/GraphicsCallback$PaintHeavyweightComponentsCallback;", nullptr, $STATIC, $staticMethod(GraphicsCallback$PaintHeavyweightComponentsCallback, getInstance, GraphicsCallback$PaintHeavyweightComponentsCallback*)},
-	{"run", "(Ljava/awt/Component;Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(GraphicsCallback$PaintHeavyweightComponentsCallback, run, void, $Component*, $Graphics*)},
-	{}
-};
-
-$InnerClassInfo _GraphicsCallback$PaintHeavyweightComponentsCallback_InnerClassesInfo_[] = {
-	{"java.awt.GraphicsCallback$PaintHeavyweightComponentsCallback", "java.awt.GraphicsCallback", "PaintHeavyweightComponentsCallback", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _GraphicsCallback$PaintHeavyweightComponentsCallback_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.awt.GraphicsCallback$PaintHeavyweightComponentsCallback",
-	"java.awt.GraphicsCallback",
-	nullptr,
-	_GraphicsCallback$PaintHeavyweightComponentsCallback_FieldInfo_,
-	_GraphicsCallback$PaintHeavyweightComponentsCallback_MethodInfo_,
-	nullptr,
-	nullptr,
-	_GraphicsCallback$PaintHeavyweightComponentsCallback_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.awt.GraphicsCallback"
-};
-
-$Object* allocate$GraphicsCallback$PaintHeavyweightComponentsCallback($Class* clazz) {
-	return $of($alloc(GraphicsCallback$PaintHeavyweightComponentsCallback));
-}
 
 GraphicsCallback$PaintHeavyweightComponentsCallback* GraphicsCallback$PaintHeavyweightComponentsCallback::instance = nullptr;
 
@@ -75,7 +37,7 @@ GraphicsCallback$PaintHeavyweightComponentsCallback* GraphicsCallback$PaintHeavy
 	return GraphicsCallback$PaintHeavyweightComponentsCallback::instance;
 }
 
-void clinit$GraphicsCallback$PaintHeavyweightComponentsCallback($Class* class$) {
+void GraphicsCallback$PaintHeavyweightComponentsCallback::clinit$($Class* clazz) {
 	$assignStatic(GraphicsCallback$PaintHeavyweightComponentsCallback::instance, $new(GraphicsCallback$PaintHeavyweightComponentsCallback));
 }
 
@@ -83,7 +45,38 @@ GraphicsCallback$PaintHeavyweightComponentsCallback::GraphicsCallback$PaintHeavy
 }
 
 $Class* GraphicsCallback$PaintHeavyweightComponentsCallback::load$($String* name, bool initialize) {
-	$loadClass(GraphicsCallback$PaintHeavyweightComponentsCallback, name, initialize, &_GraphicsCallback$PaintHeavyweightComponentsCallback_ClassInfo_, clinit$GraphicsCallback$PaintHeavyweightComponentsCallback, allocate$GraphicsCallback$PaintHeavyweightComponentsCallback);
+	$FieldInfo fieldInfos$$[] = {
+		{"instance", "Ljava/awt/GraphicsCallback$PaintHeavyweightComponentsCallback;", nullptr, $PRIVATE | $STATIC, $staticField(GraphicsCallback$PaintHeavyweightComponentsCallback, instance)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(GraphicsCallback$PaintHeavyweightComponentsCallback, init$, void)},
+		{"getInstance", "()Ljava/awt/GraphicsCallback$PaintHeavyweightComponentsCallback;", nullptr, $STATIC, $staticMethod(GraphicsCallback$PaintHeavyweightComponentsCallback, getInstance, GraphicsCallback$PaintHeavyweightComponentsCallback*)},
+		{"run", "(Ljava/awt/Component;Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(GraphicsCallback$PaintHeavyweightComponentsCallback, run, void, $Component*, $Graphics*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.awt.GraphicsCallback$PaintHeavyweightComponentsCallback", "java.awt.GraphicsCallback", "PaintHeavyweightComponentsCallback", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.awt.GraphicsCallback$PaintHeavyweightComponentsCallback",
+		"java.awt.GraphicsCallback",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.awt.GraphicsCallback"
+	};
+	$loadClass(GraphicsCallback$PaintHeavyweightComponentsCallback, name, initialize, &classInfo$$, GraphicsCallback$PaintHeavyweightComponentsCallback::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(GraphicsCallback$PaintHeavyweightComponentsCallback);
+	});
 	return class$;
 }
 

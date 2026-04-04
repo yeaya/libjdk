@@ -20,10 +20,13 @@ public:
 	URI$MalformedURIException();
 	void init$();
 	void init$($String* p_msg);
-	static const int64_t serialVersionUID = (int64_t)0x408D49F065452367;
+	static const int64_t serialVersionUID = (int64_t)0x408d49f065452367;
 	URI$MalformedURIException(const URI$MalformedURIException& e);
 	virtual void throw$() override;
-	inline URI$MalformedURIException* operator ->() {
+	inline URI$MalformedURIException* operator ->() const {
+		return (URI$MalformedURIException*)throwing$;
+	}
+	inline operator URI$MalformedURIException*() const {
 		return (URI$MalformedURIException*)throwing$;
 	}
 };

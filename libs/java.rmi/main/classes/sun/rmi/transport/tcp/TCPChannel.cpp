@@ -1,12 +1,10 @@
 #include <sun/rmi/transport/tcp/TCPChannel.h>
-
 #include <java/io/DataInputStream.h>
 #include <java/io/DataOutputStream.h>
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
 #include <java/io/OutputStream.h>
 #include <java/io/Serializable.h>
-#include <java/lang/Runnable.h>
 #include <java/lang/SecurityManager.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
@@ -53,7 +51,6 @@ using $ConnectionArray = $Array<::sun::rmi::transport::Connection>;
 using $DataInputStream = ::java::io::DataInputStream;
 using $DataOutputStream = ::java::io::DataOutputStream;
 using $IOException = ::java::io::IOException;
-using $OutputStream = ::java::io::OutputStream;
 using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
@@ -62,7 +59,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $Long = ::java::lang::Long;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
 using $SecurityManager = ::java::lang::SecurityManager;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $SoftReference = ::java::lang::ref::SoftReference;
@@ -75,10 +71,8 @@ using $AccessControlContext = ::java::security::AccessControlContext;
 using $AccessController = ::java::security::AccessController;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $ArrayList = ::java::util::ArrayList;
-using $List = ::java::util::List;
 using $ListIterator = ::java::util::ListIterator;
 using $WeakHashMap = ::java::util::WeakHashMap;
-using $Future = ::java::util::concurrent::Future;
 using $ScheduledExecutorService = ::java::util::concurrent::ScheduledExecutorService;
 using $TimeUnit = ::java::util::concurrent::TimeUnit;
 using $Log = ::sun::rmi::runtime::Log;
@@ -105,27 +99,24 @@ public:
 	virtual $Object* run() override {
 		 return $of(TCPChannel::lambda$static$0());
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<TCPChannel$$Lambda$lambda$static$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo TCPChannel$$Lambda$lambda$static$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TCPChannel$$Lambda$lambda$static$0, init$, void)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(TCPChannel$$Lambda$lambda$static$0, run, $Object*)},
-	{}
-};
-$ClassInfo TCPChannel$$Lambda$lambda$static$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.rmi.transport.tcp.TCPChannel$$Lambda$lambda$static$0",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	nullptr,
-	methodInfos
 };
 $Class* TCPChannel$$Lambda$lambda$static$0::load$($String* name, bool initialize) {
-	$loadClass(TCPChannel$$Lambda$lambda$static$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TCPChannel$$Lambda$lambda$static$0, init$, void)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(TCPChannel$$Lambda$lambda$static$0, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.rmi.transport.tcp.TCPChannel$$Lambda$lambda$static$0",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(TCPChannel$$Lambda$lambda$static$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TCPChannel$$Lambda$lambda$static$0);
+	});
 	return class$;
 }
 $Class* TCPChannel$$Lambda$lambda$static$0::class$ = nullptr;
@@ -138,27 +129,24 @@ public:
 	virtual $Object* run() override {
 		 return $of(TCPChannel::lambda$static$1());
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<TCPChannel$$Lambda$lambda$static$1$1>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo TCPChannel$$Lambda$lambda$static$1$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TCPChannel$$Lambda$lambda$static$1$1, init$, void)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(TCPChannel$$Lambda$lambda$static$1$1, run, $Object*)},
-	{}
-};
-$ClassInfo TCPChannel$$Lambda$lambda$static$1$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.rmi.transport.tcp.TCPChannel$$Lambda$lambda$static$1$1",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	nullptr,
-	methodInfos
 };
 $Class* TCPChannel$$Lambda$lambda$static$1$1::load$($String* name, bool initialize) {
-	$loadClass(TCPChannel$$Lambda$lambda$static$1$1, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TCPChannel$$Lambda$lambda$static$1$1, init$, void)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(TCPChannel$$Lambda$lambda$static$1$1, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.rmi.transport.tcp.TCPChannel$$Lambda$lambda$static$1$1",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(TCPChannel$$Lambda$lambda$static$1$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TCPChannel$$Lambda$lambda$static$1$1);
+	});
 	return class$;
 }
 $Class* TCPChannel$$Lambda$lambda$static$1$1::class$ = nullptr;
@@ -171,86 +159,27 @@ public:
 	virtual $Object* run() override {
 		 return $of(TCPChannel::lambda$static$2());
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<TCPChannel$$Lambda$lambda$static$2$2>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo TCPChannel$$Lambda$lambda$static$2$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TCPChannel$$Lambda$lambda$static$2$2, init$, void)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(TCPChannel$$Lambda$lambda$static$2$2, run, $Object*)},
-	{}
-};
-$ClassInfo TCPChannel$$Lambda$lambda$static$2$2::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.rmi.transport.tcp.TCPChannel$$Lambda$lambda$static$2$2",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	nullptr,
-	methodInfos
 };
 $Class* TCPChannel$$Lambda$lambda$static$2$2::load$($String* name, bool initialize) {
-	$loadClass(TCPChannel$$Lambda$lambda$static$2$2, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TCPChannel$$Lambda$lambda$static$2$2, init$, void)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(TCPChannel$$Lambda$lambda$static$2$2, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.rmi.transport.tcp.TCPChannel$$Lambda$lambda$static$2$2",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(TCPChannel$$Lambda$lambda$static$2$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TCPChannel$$Lambda$lambda$static$2$2);
+	});
 	return class$;
 }
 $Class* TCPChannel$$Lambda$lambda$static$2$2::class$ = nullptr;
-
-$FieldInfo _TCPChannel_FieldInfo_[] = {
-	{"ep", "Lsun/rmi/transport/tcp/TCPEndpoint;", nullptr, $PRIVATE | $FINAL, $field(TCPChannel, ep)},
-	{"tr", "Lsun/rmi/transport/tcp/TCPTransport;", nullptr, $PRIVATE | $FINAL, $field(TCPChannel, tr)},
-	{"freeList", "Ljava/util/List;", "Ljava/util/List<Lsun/rmi/transport/tcp/TCPConnection;>;", $PRIVATE | $FINAL, $field(TCPChannel, freeList)},
-	{"reaper", "Ljava/util/concurrent/Future;", "Ljava/util/concurrent/Future<*>;", $PRIVATE, $field(TCPChannel, reaper)},
-	{"acceptor", "Lsun/rmi/transport/tcp/ConnectionAcceptor;", nullptr, $PRIVATE, $field(TCPChannel, acceptor)},
-	{"okContext", "Ljava/security/AccessControlContext;", nullptr, $PRIVATE, $field(TCPChannel, okContext)},
-	{"authcache", "Ljava/util/WeakHashMap;", "Ljava/util/WeakHashMap<Ljava/security/AccessControlContext;Ljava/lang/ref/Reference<Ljava/security/AccessControlContext;>;>;", $PRIVATE, $field(TCPChannel, authcache)},
-	{"cacheSecurityManager", "Ljava/lang/SecurityManager;", nullptr, $PRIVATE, $field(TCPChannel, cacheSecurityManager)},
-	{"idleTimeout", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(TCPChannel, idleTimeout)},
-	{"handshakeTimeout", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(TCPChannel, handshakeTimeout)},
-	{"responseTimeout", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(TCPChannel, responseTimeout)},
-	{"scheduler", "Ljava/util/concurrent/ScheduledExecutorService;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(TCPChannel, scheduler)},
-	{}
-};
-
-$MethodInfo _TCPChannel_MethodInfo_[] = {
-	{"<init>", "(Lsun/rmi/transport/tcp/TCPTransport;Lsun/rmi/transport/tcp/TCPEndpoint;)V", nullptr, 0, $method(TCPChannel, init$, void, $TCPTransport*, $TCPEndpoint*)},
-	{"checkConnectPermission", "()V", nullptr, $PRIVATE, $method(TCPChannel, checkConnectPermission, void), "java.lang.SecurityException"},
-	{"createConnection", "()Lsun/rmi/transport/Connection;", nullptr, $PRIVATE, $method(TCPChannel, createConnection, $Connection*), "java.rmi.RemoteException"},
-	{"free", "(Lsun/rmi/transport/Connection;Z)V", nullptr, $PUBLIC, $virtualMethod(TCPChannel, free, void, $Connection*, bool)},
-	{"freeCachedConnections", "()V", nullptr, $PRIVATE, $method(TCPChannel, freeCachedConnections, void)},
-	{"getEndpoint", "()Lsun/rmi/transport/Endpoint;", nullptr, $PUBLIC, $virtualMethod(TCPChannel, getEndpoint, $Endpoint*)},
-	{"lambda$static$0", "()Ljava/lang/Long;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TCPChannel, lambda$static$0, $Long*)},
-	{"lambda$static$1", "()Ljava/lang/Integer;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TCPChannel, lambda$static$1, $Integer*)},
-	{"lambda$static$2", "()Ljava/lang/Integer;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TCPChannel, lambda$static$2, $Integer*)},
-	{"newConnection", "()Lsun/rmi/transport/Connection;", nullptr, $PUBLIC, $virtualMethod(TCPChannel, newConnection, $Connection*), "java.rmi.RemoteException"},
-	{"shedCache", "()V", nullptr, $PUBLIC, $virtualMethod(TCPChannel, shedCache, void)},
-	{"writeTransportHeader", "(Ljava/io/DataOutputStream;)V", nullptr, $PRIVATE, $method(TCPChannel, writeTransportHeader, void, $DataOutputStream*), "java.rmi.RemoteException"},
-	{}
-};
-
-$InnerClassInfo _TCPChannel_InnerClassesInfo_[] = {
-	{"sun.rmi.transport.tcp.TCPChannel$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _TCPChannel_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.rmi.transport.tcp.TCPChannel",
-	"java.lang.Object",
-	"sun.rmi.transport.Channel",
-	_TCPChannel_FieldInfo_,
-	_TCPChannel_MethodInfo_,
-	nullptr,
-	nullptr,
-	_TCPChannel_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.rmi.transport.tcp.TCPChannel$1"
-};
-
-$Object* allocate$TCPChannel($Class* clazz) {
-	return $of($alloc(TCPChannel));
-}
 
 int64_t TCPChannel::idleTimeout = 0;
 int32_t TCPChannel::handshakeTimeout = 0;
@@ -270,7 +199,7 @@ $Endpoint* TCPChannel::getEndpoint() {
 }
 
 void TCPChannel::checkConnectPermission() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SecurityManager, security, $System::getSecurityManager());
 	if (security == nullptr) {
 		return;
@@ -283,12 +212,12 @@ void TCPChannel::checkConnectPermission() {
 	$var($AccessControlContext, ctx, $AccessController::getContext());
 	bool var$0 = this->okContext == nullptr;
 	if (!var$0) {
-		bool var$1 = $nc(this->okContext)->equals(ctx);
+		bool var$1 = this->okContext->equals(ctx);
 		var$0 = !(var$1 || $nc(this->authcache)->containsKey(ctx));
 	}
 	if (var$0) {
 		$var($String, var$2, $nc(this->ep)->getHost());
-		$nc(security)->checkConnect(var$2, $nc(this->ep)->getPort());
+		$nc(security)->checkConnect(var$2, this->ep->getPort());
 		$nc(this->authcache)->put(ctx, $$new($SoftReference, ctx));
 	}
 	$set(this, okContext, ctx);
@@ -299,11 +228,11 @@ $Connection* TCPChannel::newConnection() {
 	do {
 		$assign(conn, nullptr);
 		$synchronized(this->freeList) {
-			int32_t elementPos = $nc(this->freeList)->size() - 1;
+			int32_t elementPos = this->freeList->size() - 1;
 			if (elementPos >= 0) {
 				checkConnectPermission();
-				$assign(conn, $cast($TCPConnection, $nc(this->freeList)->get(elementPos)));
-				$nc(this->freeList)->remove(elementPos);
+				$assign(conn, $cast($TCPConnection, this->freeList->get(elementPos)));
+				this->freeList->remove(elementPos);
 			}
 		}
 		if (conn != nullptr) {
@@ -320,7 +249,7 @@ $Connection* TCPChannel::newConnection() {
 }
 
 $Connection* TCPChannel::createConnection() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Connection, conn, nullptr);
 	$init($TCPTransport);
 	$init($Log);
@@ -348,16 +277,20 @@ $Connection* TCPChannel::createConnection() {
 			}
 			$var($String, suggestedHost, in->readUTF());
 			int32_t suggestedPort = in->readInt();
-			if ($nc($TCPTransport::tcpLog)->isLoggable($Log::VERBOSE)) {
-				$nc($TCPTransport::tcpLog)->log($Log::VERBOSE, $$str({"server suggested "_s, suggestedHost, ":"_s, $$str(suggestedPort)}));
+			if ($TCPTransport::tcpLog->isLoggable($Log::VERBOSE)) {
+				$TCPTransport::tcpLog->log($Log::VERBOSE, $$str({"server suggested "_s, suggestedHost, ":"_s, $$str(suggestedPort)}));
 			}
 			$TCPEndpoint::setLocalHost(suggestedHost);
 			$var($TCPEndpoint, localEp, $TCPEndpoint::getLocalEndpoint(0, nullptr, nullptr));
 			out->writeUTF($($nc(localEp)->getHost()));
-			out->writeInt($nc(localEp)->getPort());
-			if ($nc($TCPTransport::tcpLog)->isLoggable($Log::VERBOSE)) {
-				$var($String, var$0, $$str({"using "_s, $($nc(localEp)->getHost()), ":"_s}));
-				$nc($TCPTransport::tcpLog)->log($Log::VERBOSE, $$concat(var$0, $$str(localEp->getPort())));
+			out->writeInt(localEp->getPort());
+			if ($TCPTransport::tcpLog->isLoggable($Log::VERBOSE)) {
+				$var($StringBuilder, var$0, $new($StringBuilder));
+				var$0->append("using "_s);
+				var$0->append($(localEp->getHost()));
+				var$0->append(":"_s);
+				var$0->append(localEp->getPort());
+				$TCPTransport::tcpLog->log($Log::VERBOSE, $$str(var$0));
 			}
 			try {
 				$nc(sock)->setSoTimeout((originalSoTimeout != 0 ? originalSoTimeout : TCPChannel::responseTimeout));
@@ -380,7 +313,7 @@ $Connection* TCPChannel::createConnection() {
 }
 
 void TCPChannel::free($Connection* conn, bool reuse) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (conn == nullptr) {
 		return;
 	}
@@ -391,9 +324,9 @@ void TCPChannel::free($Connection* conn, bool reuse) {
 		$init($Log);
 		$nc($TCPTransport::tcpLog)->log($Log::BRIEF, "reuse connection"_s);
 		$synchronized(this->freeList) {
-			$nc(this->freeList)->add(tcpConnection);
+			this->freeList->add(tcpConnection);
 			if (this->reaper == nullptr) {
-				$nc($TCPTransport::tcpLog)->log($Log::BRIEF, "create reaper"_s);
+				$TCPTransport::tcpLog->log($Log::BRIEF, "create reaper"_s);
 				$init($TimeUnit);
 				$set(this, reaper, $nc(TCPChannel::scheduler)->scheduleWithFixedDelay($$new($TCPChannel$1, this), TCPChannel::idleTimeout, TCPChannel::idleTimeout, $TimeUnit::MILLISECONDS));
 			}
@@ -405,7 +338,7 @@ void TCPChannel::free($Connection* conn, bool reuse) {
 		$init($Log);
 		$nc($TCPTransport::tcpLog)->log($Log::BRIEF, "close connection"_s);
 		try {
-			conn->close();
+			$nc(conn)->close();
 		} catch ($IOException& ignored) {
 		}
 	}
@@ -422,11 +355,11 @@ void TCPChannel::writeTransportHeader($DataOutputStream* out) {
 }
 
 void TCPChannel::shedCache() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ConnectionArray, conn, nullptr);
 	$synchronized(this->freeList) {
-		$assign(conn, $fcast($ConnectionArray, $nc(this->freeList)->toArray($$new($ConnectionArray, $nc(this->freeList)->size()))));
-		$nc(this->freeList)->clear();
+		$assign(conn, $cast($ConnectionArray, this->freeList->toArray($$new($ConnectionArray, this->freeList->size()))));
+		this->freeList->clear();
 	}
 	for (int32_t i = $nc(conn)->length; --i >= 0;) {
 		$var($Connection, c, conn->get(i));
@@ -439,12 +372,12 @@ void TCPChannel::shedCache() {
 }
 
 void TCPChannel::freeCachedConnections() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized(this->freeList) {
-		int32_t size = $nc(this->freeList)->size();
+		int32_t size = this->freeList->size();
 		if (size > 0) {
 			int64_t time = $System::currentTimeMillis();
-			$var($ListIterator, iter, $nc(this->freeList)->listIterator(size));
+			$var($ListIterator, iter, this->freeList->listIterator(size));
 			while ($nc(iter)->hasPrevious()) {
 				$var($TCPConnection, conn, $cast($TCPConnection, iter->previous()));
 				if ($nc(conn)->expired(time)) {
@@ -459,7 +392,7 @@ void TCPChannel::freeCachedConnections() {
 				}
 			}
 		}
-		if ($nc(this->freeList)->isEmpty()) {
+		if (this->freeList->isEmpty()) {
 			$nc(this->reaper)->cancel(false);
 			$set(this, reaper, nullptr);
 		}
@@ -473,21 +406,21 @@ $Integer* TCPChannel::lambda$static$2() {
 
 $Integer* TCPChannel::lambda$static$1() {
 	$init(TCPChannel);
-	return $Integer::getInteger("sun.rmi.transport.tcp.handshakeTimeout"_s, 0x0000EA60);
+	return $Integer::getInteger("sun.rmi.transport.tcp.handshakeTimeout"_s, 60000);
 }
 
 $Long* TCPChannel::lambda$static$0() {
 	$init(TCPChannel);
-	return $Long::getLong("sun.rmi.transport.connectionTimeout"_s, (int64_t)15000);
+	return $Long::getLong("sun.rmi.transport.connectionTimeout"_s, 15000);
 }
 
-void clinit$TCPChannel($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void TCPChannel::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
-	TCPChannel::idleTimeout = $nc(($cast($Long, $($AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new(TCPChannel$$Lambda$lambda$static$0)))))))->longValue();
-	TCPChannel::handshakeTimeout = $nc(($cast($Integer, $($AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new(TCPChannel$$Lambda$lambda$static$1$1)))))))->intValue();
-	TCPChannel::responseTimeout = $nc(($cast($Integer, $($AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new(TCPChannel$$Lambda$lambda$static$2$2)))))))->intValue();
-	$assignStatic(TCPChannel::scheduler, $nc(($cast($RuntimeUtil, $($AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($RuntimeUtil$GetInstanceAction)))))))->getScheduler());
+	TCPChannel::idleTimeout = $$sure($Long, $AccessController::doPrivileged($cast($PrivilegedAction, $$new(TCPChannel$$Lambda$lambda$static$0))))->longValue();
+	TCPChannel::handshakeTimeout = $$sure($Integer, $AccessController::doPrivileged($cast($PrivilegedAction, $$new(TCPChannel$$Lambda$lambda$static$1$1))))->intValue();
+	TCPChannel::responseTimeout = $$sure($Integer, $AccessController::doPrivileged($cast($PrivilegedAction, $$new(TCPChannel$$Lambda$lambda$static$2$2))))->intValue();
+	$assignStatic(TCPChannel::scheduler, $$sure($RuntimeUtil, $AccessController::doPrivileged($$new($RuntimeUtil$GetInstanceAction)))->getScheduler());
 }
 
 TCPChannel::TCPChannel() {
@@ -495,17 +428,67 @@ TCPChannel::TCPChannel() {
 
 $Class* TCPChannel::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(TCPChannel$$Lambda$lambda$static$0::classInfo$.name)) {
+		if (name->equals("sun.rmi.transport.tcp.TCPChannel$$Lambda$lambda$static$0")) {
 			return TCPChannel$$Lambda$lambda$static$0::load$(name, initialize);
 		}
-		if (name->equals(TCPChannel$$Lambda$lambda$static$1$1::classInfo$.name)) {
+		if (name->equals("sun.rmi.transport.tcp.TCPChannel$$Lambda$lambda$static$1$1")) {
 			return TCPChannel$$Lambda$lambda$static$1$1::load$(name, initialize);
 		}
-		if (name->equals(TCPChannel$$Lambda$lambda$static$2$2::classInfo$.name)) {
+		if (name->equals("sun.rmi.transport.tcp.TCPChannel$$Lambda$lambda$static$2$2")) {
 			return TCPChannel$$Lambda$lambda$static$2$2::load$(name, initialize);
 		}
 	}
-	$loadClass(TCPChannel, name, initialize, &_TCPChannel_ClassInfo_, clinit$TCPChannel, allocate$TCPChannel);
+	$FieldInfo fieldInfos$$[] = {
+		{"ep", "Lsun/rmi/transport/tcp/TCPEndpoint;", nullptr, $PRIVATE | $FINAL, $field(TCPChannel, ep)},
+		{"tr", "Lsun/rmi/transport/tcp/TCPTransport;", nullptr, $PRIVATE | $FINAL, $field(TCPChannel, tr)},
+		{"freeList", "Ljava/util/List;", "Ljava/util/List<Lsun/rmi/transport/tcp/TCPConnection;>;", $PRIVATE | $FINAL, $field(TCPChannel, freeList)},
+		{"reaper", "Ljava/util/concurrent/Future;", "Ljava/util/concurrent/Future<*>;", $PRIVATE, $field(TCPChannel, reaper)},
+		{"acceptor", "Lsun/rmi/transport/tcp/ConnectionAcceptor;", nullptr, $PRIVATE, $field(TCPChannel, acceptor)},
+		{"okContext", "Ljava/security/AccessControlContext;", nullptr, $PRIVATE, $field(TCPChannel, okContext)},
+		{"authcache", "Ljava/util/WeakHashMap;", "Ljava/util/WeakHashMap<Ljava/security/AccessControlContext;Ljava/lang/ref/Reference<Ljava/security/AccessControlContext;>;>;", $PRIVATE, $field(TCPChannel, authcache)},
+		{"cacheSecurityManager", "Ljava/lang/SecurityManager;", nullptr, $PRIVATE, $field(TCPChannel, cacheSecurityManager)},
+		{"idleTimeout", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(TCPChannel, idleTimeout)},
+		{"handshakeTimeout", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(TCPChannel, handshakeTimeout)},
+		{"responseTimeout", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(TCPChannel, responseTimeout)},
+		{"scheduler", "Ljava/util/concurrent/ScheduledExecutorService;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(TCPChannel, scheduler)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/rmi/transport/tcp/TCPTransport;Lsun/rmi/transport/tcp/TCPEndpoint;)V", nullptr, 0, $method(TCPChannel, init$, void, $TCPTransport*, $TCPEndpoint*)},
+		{"checkConnectPermission", "()V", nullptr, $PRIVATE, $method(TCPChannel, checkConnectPermission, void), "java.lang.SecurityException"},
+		{"createConnection", "()Lsun/rmi/transport/Connection;", nullptr, $PRIVATE, $method(TCPChannel, createConnection, $Connection*), "java.rmi.RemoteException"},
+		{"free", "(Lsun/rmi/transport/Connection;Z)V", nullptr, $PUBLIC, $virtualMethod(TCPChannel, free, void, $Connection*, bool)},
+		{"freeCachedConnections", "()V", nullptr, $PRIVATE, $method(TCPChannel, freeCachedConnections, void)},
+		{"getEndpoint", "()Lsun/rmi/transport/Endpoint;", nullptr, $PUBLIC, $virtualMethod(TCPChannel, getEndpoint, $Endpoint*)},
+		{"lambda$static$0", "()Ljava/lang/Long;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TCPChannel, lambda$static$0, $Long*)},
+		{"lambda$static$1", "()Ljava/lang/Integer;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TCPChannel, lambda$static$1, $Integer*)},
+		{"lambda$static$2", "()Ljava/lang/Integer;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TCPChannel, lambda$static$2, $Integer*)},
+		{"newConnection", "()Lsun/rmi/transport/Connection;", nullptr, $PUBLIC, $virtualMethod(TCPChannel, newConnection, $Connection*), "java.rmi.RemoteException"},
+		{"shedCache", "()V", nullptr, $PUBLIC, $virtualMethod(TCPChannel, shedCache, void)},
+		{"writeTransportHeader", "(Ljava/io/DataOutputStream;)V", nullptr, $PRIVATE, $method(TCPChannel, writeTransportHeader, void, $DataOutputStream*), "java.rmi.RemoteException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.rmi.transport.tcp.TCPChannel$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.rmi.transport.tcp.TCPChannel",
+		"java.lang.Object",
+		"sun.rmi.transport.Channel",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.rmi.transport.tcp.TCPChannel$1"
+	};
+	$loadClass(TCPChannel, name, initialize, &classInfo$$, TCPChannel::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(TCPChannel);
+	});
 	return class$;
 }
 

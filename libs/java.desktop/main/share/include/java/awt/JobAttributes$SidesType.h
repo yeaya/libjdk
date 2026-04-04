@@ -28,6 +28,7 @@ class $import JobAttributes$SidesType : public ::java::awt::AttributeValue {
 	$class(JobAttributes$SidesType, 0, ::java::awt::AttributeValue)
 public:
 	JobAttributes$SidesType();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int32_t type);
 	virtual int32_t hashCode() override;
 	virtual $String* toString() override;

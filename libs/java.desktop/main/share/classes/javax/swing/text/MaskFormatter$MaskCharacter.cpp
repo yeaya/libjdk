@@ -1,5 +1,4 @@
 #include <javax/swing/text/MaskFormatter$MaskCharacter.h>
-
 #include <java/text/ParseException.h>
 #include <javax/swing/text/MaskFormatter.h>
 #include <jcpp.h>
@@ -15,45 +14,6 @@ namespace javax {
 	namespace swing {
 		namespace text {
 
-$FieldInfo _MaskFormatter$MaskCharacter_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/text/MaskFormatter;", nullptr, $FINAL | $SYNTHETIC, $field(MaskFormatter$MaskCharacter, this$0)},
-	{}
-};
-
-$MethodInfo _MaskFormatter$MaskCharacter_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/text/MaskFormatter;)V", nullptr, $PRIVATE, $method(MaskFormatter$MaskCharacter, init$, void, $MaskFormatter*)},
-	{"append", "(Ljava/lang/StringBuilder;Ljava/lang/String;[ILjava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(MaskFormatter$MaskCharacter, append, void, $StringBuilder*, $String*, $ints*, $String*), "java.text.ParseException"},
-	{"getChar", "(C)C", nullptr, $PUBLIC, $virtualMethod(MaskFormatter$MaskCharacter, getChar, char16_t, char16_t)},
-	{"isLiteral", "()Z", nullptr, $PUBLIC, $virtualMethod(MaskFormatter$MaskCharacter, isLiteral, bool)},
-	{"isValidCharacter", "(C)Z", nullptr, $PUBLIC, $virtualMethod(MaskFormatter$MaskCharacter, isValidCharacter, bool, char16_t)},
-	{}
-};
-
-$InnerClassInfo _MaskFormatter$MaskCharacter_InnerClassesInfo_[] = {
-	{"javax.swing.text.MaskFormatter$MaskCharacter", "javax.swing.text.MaskFormatter", "MaskCharacter", $PRIVATE},
-	{}
-};
-
-$ClassInfo _MaskFormatter$MaskCharacter_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.text.MaskFormatter$MaskCharacter",
-	"java.lang.Object",
-	nullptr,
-	_MaskFormatter$MaskCharacter_FieldInfo_,
-	_MaskFormatter$MaskCharacter_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MaskFormatter$MaskCharacter_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.MaskFormatter"
-};
-
-$Object* allocate$MaskFormatter$MaskCharacter($Class* clazz) {
-	return $of($alloc(MaskFormatter$MaskCharacter));
-}
-
 void MaskFormatter$MaskCharacter::init$($MaskFormatter* this$0) {
 	$set(this, this$0, this$0);
 }
@@ -68,11 +28,11 @@ bool MaskFormatter$MaskCharacter::isValidCharacter(char16_t aChar) {
 	}
 	aChar = getChar(aChar);
 	$var($String, filter, this->this$0->getValidCharacters());
-	if (filter != nullptr && filter->indexOf((int32_t)aChar) == -1) {
+	if (filter != nullptr && filter->indexOf(aChar) == -1) {
 		return false;
 	}
 	$assign(filter, this->this$0->getInvalidCharacters());
-	if (filter != nullptr && filter->indexOf((int32_t)aChar) != -1) {
+	if (filter != nullptr && filter->indexOf(aChar) != -1) {
 		return false;
 	}
 	return true;
@@ -83,9 +43,9 @@ char16_t MaskFormatter$MaskCharacter::getChar(char16_t aChar) {
 }
 
 void MaskFormatter$MaskCharacter::append($StringBuilder* buff, $String* formatting, $ints* index, $String* placeholder) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool inString = $nc(index)->get(0) < $nc(formatting)->length();
-	char16_t aChar = inString ? formatting->charAt(index->get(0)) : (char16_t)0;
+	char16_t aChar = inString ? formatting->charAt(index->get(0)) : 0;
 	if (isLiteral()) {
 		$nc(buff)->append(getChar(aChar));
 		if (this->this$0->getValueContainsLiteralCharacters()) {
@@ -113,7 +73,40 @@ MaskFormatter$MaskCharacter::MaskFormatter$MaskCharacter() {
 }
 
 $Class* MaskFormatter$MaskCharacter::load$($String* name, bool initialize) {
-	$loadClass(MaskFormatter$MaskCharacter, name, initialize, &_MaskFormatter$MaskCharacter_ClassInfo_, allocate$MaskFormatter$MaskCharacter);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/text/MaskFormatter;", nullptr, $FINAL | $SYNTHETIC, $field(MaskFormatter$MaskCharacter, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/text/MaskFormatter;)V", nullptr, $PRIVATE, $method(MaskFormatter$MaskCharacter, init$, void, $MaskFormatter*)},
+		{"append", "(Ljava/lang/StringBuilder;Ljava/lang/String;[ILjava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(MaskFormatter$MaskCharacter, append, void, $StringBuilder*, $String*, $ints*, $String*), "java.text.ParseException"},
+		{"getChar", "(C)C", nullptr, $PUBLIC, $virtualMethod(MaskFormatter$MaskCharacter, getChar, char16_t, char16_t)},
+		{"isLiteral", "()Z", nullptr, $PUBLIC, $virtualMethod(MaskFormatter$MaskCharacter, isLiteral, bool)},
+		{"isValidCharacter", "(C)Z", nullptr, $PUBLIC, $virtualMethod(MaskFormatter$MaskCharacter, isValidCharacter, bool, char16_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.MaskFormatter$MaskCharacter", "javax.swing.text.MaskFormatter", "MaskCharacter", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.text.MaskFormatter$MaskCharacter",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.MaskFormatter"
+	};
+	$loadClass(MaskFormatter$MaskCharacter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MaskFormatter$MaskCharacter);
+	});
 	return class$;
 }
 

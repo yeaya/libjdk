@@ -72,6 +72,7 @@ class $export LineSubscriberAdapter$LineSubscription : public ::java::util::conc
 	$class(LineSubscriberAdapter$LineSubscription, 0, ::java::util::concurrent::Flow$Subscription)
 public:
 	LineSubscriberAdapter$LineSubscription();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::util::concurrent::Flow$Subscription* s, ::java::nio::charset::CharsetDecoder* dec, $String* separator, ::java::util::concurrent::Flow$Subscriber* subscriber, ::java::util::concurrent::CompletableFuture* completion);
 	virtual void cancel() override;
 	static ::jdk::internal::net::http::LineSubscriberAdapter$LineSubscription* create(::java::util::concurrent::Flow$Subscription* s, ::java::nio::charset::Charset* charset, $String* lineSeparator, ::java::util::concurrent::Flow$Subscriber* upstream, ::java::util::concurrent::CompletableFuture* cf);

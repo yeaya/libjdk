@@ -58,6 +58,7 @@ class DefaultMXBeanMappingFactory : public ::com::sun::jmx::mbeanserver::MXBeanM
 	$class(DefaultMXBeanMappingFactory, 0, ::com::sun::jmx::mbeanserver::MXBeanMappingFactory)
 public:
 	DefaultMXBeanMappingFactory();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $String* capitalize($String* name);
 	static $String* decapitalize($String* name);

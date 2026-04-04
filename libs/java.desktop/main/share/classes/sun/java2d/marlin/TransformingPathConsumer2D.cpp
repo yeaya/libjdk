@@ -1,5 +1,4 @@
 #include <sun/java2d/marlin/TransformingPathConsumer2D.h>
-
 #include <java/awt/geom/AffineTransform.h>
 #include <java/awt/geom/Path2D$Double.h>
 #include <java/lang/Math.h>
@@ -43,72 +42,6 @@ namespace sun {
 	namespace java2d {
 		namespace marlin {
 
-$FieldInfo _TransformingPathConsumer2D_FieldInfo_[] = {
-	{"CLIP_RECT_PADDING", "D", nullptr, $STATIC | $FINAL, $staticField(TransformingPathConsumer2D, CLIP_RECT_PADDING)},
-	{"rdrCtx", "Lsun/java2d/marlin/RendererContext;", nullptr, $PRIVATE | $FINAL, $field(TransformingPathConsumer2D, rdrCtx)},
-	{"cpDetector", "Lsun/java2d/marlin/TransformingPathConsumer2D$ClosedPathDetector;", nullptr, $PRIVATE | $FINAL, $field(TransformingPathConsumer2D, cpDetector)},
-	{"pathClipper", "Lsun/java2d/marlin/TransformingPathConsumer2D$PathClipFilter;", nullptr, $PRIVATE | $FINAL, $field(TransformingPathConsumer2D, pathClipper$)},
-	{"wp_Path2DWrapper", "Lsun/java2d/marlin/TransformingPathConsumer2D$Path2DWrapper;", nullptr, $PRIVATE | $FINAL, $field(TransformingPathConsumer2D, wp_Path2DWrapper)},
-	{"dt_DeltaScaleFilter", "Lsun/java2d/marlin/TransformingPathConsumer2D$DeltaScaleFilter;", nullptr, $PRIVATE | $FINAL, $field(TransformingPathConsumer2D, dt_DeltaScaleFilter)},
-	{"dt_DeltaTransformFilter", "Lsun/java2d/marlin/TransformingPathConsumer2D$DeltaTransformFilter;", nullptr, $PRIVATE | $FINAL, $field(TransformingPathConsumer2D, dt_DeltaTransformFilter)},
-	{"iv_DeltaScaleFilter", "Lsun/java2d/marlin/TransformingPathConsumer2D$DeltaScaleFilter;", nullptr, $PRIVATE | $FINAL, $field(TransformingPathConsumer2D, iv_DeltaScaleFilter)},
-	{"iv_DeltaTransformFilter", "Lsun/java2d/marlin/TransformingPathConsumer2D$DeltaTransformFilter;", nullptr, $PRIVATE | $FINAL, $field(TransformingPathConsumer2D, iv_DeltaTransformFilter)},
-	{"tracerInput", "Lsun/java2d/marlin/TransformingPathConsumer2D$PathTracer;", nullptr, $PRIVATE | $FINAL, $field(TransformingPathConsumer2D, tracerInput)},
-	{"tracerCPDetector", "Lsun/java2d/marlin/TransformingPathConsumer2D$PathTracer;", nullptr, $PRIVATE | $FINAL, $field(TransformingPathConsumer2D, tracerCPDetector)},
-	{"tracerFiller", "Lsun/java2d/marlin/TransformingPathConsumer2D$PathTracer;", nullptr, $PRIVATE | $FINAL, $field(TransformingPathConsumer2D, tracerFiller)},
-	{"tracerStroker", "Lsun/java2d/marlin/TransformingPathConsumer2D$PathTracer;", nullptr, $PRIVATE | $FINAL, $field(TransformingPathConsumer2D, tracerStroker)},
-	{"tracerDasher", "Lsun/java2d/marlin/TransformingPathConsumer2D$PathTracer;", nullptr, $PRIVATE | $FINAL, $field(TransformingPathConsumer2D, tracerDasher)},
-	{}
-};
-
-$MethodInfo _TransformingPathConsumer2D_MethodInfo_[] = {
-	{"<init>", "(Lsun/java2d/marlin/RendererContext;)V", nullptr, 0, $method(TransformingPathConsumer2D, init$, void, $RendererContext*)},
-	{"adjustClipInverseDelta", "([DDDDD)D", nullptr, $PRIVATE | $STATIC, $staticMethod(TransformingPathConsumer2D, adjustClipInverseDelta, double, $doubles*, double, double, double, double)},
-	{"adjustClipScale", "([DDD)D", nullptr, $PRIVATE | $STATIC, $staticMethod(TransformingPathConsumer2D, adjustClipScale, double, $doubles*, double, double)},
-	{"deltaTransformConsumer", "(Lsun/java2d/marlin/DPathConsumer2D;Ljava/awt/geom/AffineTransform;)Lsun/java2d/marlin/DPathConsumer2D;", nullptr, 0, $method(TransformingPathConsumer2D, deltaTransformConsumer, $DPathConsumer2D*, $DPathConsumer2D*, $AffineTransform*)},
-	{"detectClosedPath", "(Lsun/java2d/marlin/DPathConsumer2D;)Lsun/java2d/marlin/DPathConsumer2D;", nullptr, 0, $method(TransformingPathConsumer2D, detectClosedPath, $DPathConsumer2D*, $DPathConsumer2D*)},
-	{"inverseDeltaTransformConsumer", "(Lsun/java2d/marlin/DPathConsumer2D;Ljava/awt/geom/AffineTransform;)Lsun/java2d/marlin/DPathConsumer2D;", nullptr, 0, $method(TransformingPathConsumer2D, inverseDeltaTransformConsumer, $DPathConsumer2D*, $DPathConsumer2D*, $AffineTransform*)},
-	{"pathClipper", "(Lsun/java2d/marlin/DPathConsumer2D;)Lsun/java2d/marlin/DPathConsumer2D;", nullptr, 0, $method(TransformingPathConsumer2D, pathClipper, $DPathConsumer2D*, $DPathConsumer2D*)},
-	{"traceClosedPathDetector", "(Lsun/java2d/marlin/DPathConsumer2D;)Lsun/java2d/marlin/DPathConsumer2D;", nullptr, 0, $method(TransformingPathConsumer2D, traceClosedPathDetector, $DPathConsumer2D*, $DPathConsumer2D*)},
-	{"traceDasher", "(Lsun/java2d/marlin/DPathConsumer2D;)Lsun/java2d/marlin/DPathConsumer2D;", nullptr, 0, $method(TransformingPathConsumer2D, traceDasher, $DPathConsumer2D*, $DPathConsumer2D*)},
-	{"traceFiller", "(Lsun/java2d/marlin/DPathConsumer2D;)Lsun/java2d/marlin/DPathConsumer2D;", nullptr, 0, $method(TransformingPathConsumer2D, traceFiller, $DPathConsumer2D*, $DPathConsumer2D*)},
-	{"traceInput", "(Lsun/java2d/marlin/DPathConsumer2D;)Lsun/java2d/marlin/DPathConsumer2D;", nullptr, 0, $method(TransformingPathConsumer2D, traceInput, $DPathConsumer2D*, $DPathConsumer2D*)},
-	{"traceStroker", "(Lsun/java2d/marlin/DPathConsumer2D;)Lsun/java2d/marlin/DPathConsumer2D;", nullptr, 0, $method(TransformingPathConsumer2D, traceStroker, $DPathConsumer2D*, $DPathConsumer2D*)},
-	{"wrapPath2D", "(Ljava/awt/geom/Path2D$Double;)Lsun/java2d/marlin/DPathConsumer2D;", nullptr, 0, $method(TransformingPathConsumer2D, wrapPath2D, $DPathConsumer2D*, $Path2D$Double*)},
-	{}
-};
-
-$InnerClassInfo _TransformingPathConsumer2D_InnerClassesInfo_[] = {
-	{"sun.java2d.marlin.TransformingPathConsumer2D$PathTracer", "sun.java2d.marlin.TransformingPathConsumer2D", "PathTracer", $STATIC | $FINAL},
-	{"sun.java2d.marlin.TransformingPathConsumer2D$CurveBasicMonotonizer", "sun.java2d.marlin.TransformingPathConsumer2D", "CurveBasicMonotonizer", $STATIC | $FINAL},
-	{"sun.java2d.marlin.TransformingPathConsumer2D$CurveClipSplitter", "sun.java2d.marlin.TransformingPathConsumer2D", "CurveClipSplitter", $STATIC | $FINAL},
-	{"sun.java2d.marlin.TransformingPathConsumer2D$PathClipFilter", "sun.java2d.marlin.TransformingPathConsumer2D", "PathClipFilter", $STATIC | $FINAL},
-	{"sun.java2d.marlin.TransformingPathConsumer2D$ClosedPathDetector", "sun.java2d.marlin.TransformingPathConsumer2D", "ClosedPathDetector", $STATIC | $FINAL},
-	{"sun.java2d.marlin.TransformingPathConsumer2D$Path2DWrapper", "sun.java2d.marlin.TransformingPathConsumer2D", "Path2DWrapper", $STATIC | $FINAL},
-	{"sun.java2d.marlin.TransformingPathConsumer2D$DeltaTransformFilter", "sun.java2d.marlin.TransformingPathConsumer2D", "DeltaTransformFilter", $STATIC | $FINAL},
-	{"sun.java2d.marlin.TransformingPathConsumer2D$DeltaScaleFilter", "sun.java2d.marlin.TransformingPathConsumer2D", "DeltaScaleFilter", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _TransformingPathConsumer2D_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.java2d.marlin.TransformingPathConsumer2D",
-	"java.lang.Object",
-	nullptr,
-	_TransformingPathConsumer2D_FieldInfo_,
-	_TransformingPathConsumer2D_MethodInfo_,
-	nullptr,
-	nullptr,
-	_TransformingPathConsumer2D_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.java2d.marlin.TransformingPathConsumer2D$PathTracer,sun.java2d.marlin.TransformingPathConsumer2D$CurveBasicMonotonizer,sun.java2d.marlin.TransformingPathConsumer2D$CurveClipSplitter,sun.java2d.marlin.TransformingPathConsumer2D$PathClipFilter,sun.java2d.marlin.TransformingPathConsumer2D$ClosedPathDetector,sun.java2d.marlin.TransformingPathConsumer2D$Path2DWrapper,sun.java2d.marlin.TransformingPathConsumer2D$DeltaTransformFilter,sun.java2d.marlin.TransformingPathConsumer2D$DeltaScaleFilter"
-};
-
-$Object* allocate$TransformingPathConsumer2D($Class* clazz) {
-	return $of($alloc(TransformingPathConsumer2D));
-}
-
 double TransformingPathConsumer2D::CLIP_RECT_PADDING = 0.0;
 
 void TransformingPathConsumer2D::init$($RendererContext* rdrCtx) {
@@ -128,27 +61,27 @@ void TransformingPathConsumer2D::init$($RendererContext* rdrCtx) {
 }
 
 $DPathConsumer2D* TransformingPathConsumer2D::wrapPath2D($Path2D$Double* p2d) {
-	return $nc(this->wp_Path2DWrapper)->init(p2d);
+	return this->wp_Path2DWrapper->init(p2d);
 }
 
 $DPathConsumer2D* TransformingPathConsumer2D::traceInput($DPathConsumer2D* out) {
-	return $nc(this->tracerInput)->init(out);
+	return this->tracerInput->init(out);
 }
 
 $DPathConsumer2D* TransformingPathConsumer2D::traceClosedPathDetector($DPathConsumer2D* out) {
-	return $nc(this->tracerCPDetector)->init(out);
+	return this->tracerCPDetector->init(out);
 }
 
 $DPathConsumer2D* TransformingPathConsumer2D::traceFiller($DPathConsumer2D* out) {
-	return $nc(this->tracerFiller)->init(out);
+	return this->tracerFiller->init(out);
 }
 
 $DPathConsumer2D* TransformingPathConsumer2D::traceStroker($DPathConsumer2D* out) {
-	return $nc(this->tracerStroker)->init(out);
+	return this->tracerStroker->init(out);
 }
 
 $DPathConsumer2D* TransformingPathConsumer2D::traceDasher($DPathConsumer2D* out) {
-	return $nc(this->tracerDasher)->init(out);
+	return this->tracerDasher->init(out);
 }
 
 $DPathConsumer2D* TransformingPathConsumer2D::detectClosedPath($DPathConsumer2D* out) {
@@ -172,21 +105,21 @@ $DPathConsumer2D* TransformingPathConsumer2D::deltaTransformConsumer($DPathConsu
 			return out;
 		} else {
 			if ($nc(this->rdrCtx)->doClip) {
-				$nc(this->rdrCtx)->clipInvScale = adjustClipScale($nc(this->rdrCtx)->clipRect, mxx, myy);
+				this->rdrCtx->clipInvScale = adjustClipScale(this->rdrCtx->clipRect, mxx, myy);
 			}
-			return $nc(this->dt_DeltaScaleFilter)->init(out, mxx, myy);
+			return this->dt_DeltaScaleFilter->init(out, mxx, myy);
 		}
 	} else {
 		if ($nc(this->rdrCtx)->doClip) {
-			$nc(this->rdrCtx)->clipInvScale = adjustClipInverseDelta($nc(this->rdrCtx)->clipRect, mxx, mxy, myx, myy);
+			this->rdrCtx->clipInvScale = adjustClipInverseDelta(this->rdrCtx->clipRect, mxx, mxy, myx, myy);
 		}
-		return $nc(this->dt_DeltaTransformFilter)->init(out, mxx, mxy, myx, myy);
+		return this->dt_DeltaTransformFilter->init(out, mxx, mxy, myx, myy);
 	}
 }
 
 double TransformingPathConsumer2D::adjustClipScale($doubles* clipRect, double mxx, double myy) {
 	$init(TransformingPathConsumer2D);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	double scaleY = 1.0 / myy;
 	(*$nc(clipRect))[0] *= scaleY;
 	(*clipRect)[1] *= scaleY;
@@ -215,7 +148,7 @@ double TransformingPathConsumer2D::adjustClipScale($doubles* clipRect, double mx
 
 double TransformingPathConsumer2D::adjustClipInverseDelta($doubles* clipRect, double mxx, double mxy, double myx, double myy) {
 	$init(TransformingPathConsumer2D);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	double det = mxx * myy - mxy * myx;
 	double imxx = myy / det;
 	double imxy = -mxy / det;
@@ -227,7 +160,7 @@ double TransformingPathConsumer2D::adjustClipInverseDelta($doubles* clipRect, do
 	double ymax = 0.0;
 	double x = 0.0;
 	double y = 0.0;
-	x = $nc(clipRect)->get(2) * imxx + clipRect->get(0) * imxy;
+	x = $nc(clipRect)->get(2) * imxx + $nc(clipRect)->get(0) * imxy;
 	y = clipRect->get(2) * imyx + clipRect->get(0) * imyy;
 	xmin = (xmax = x);
 	ymin = (ymax = y);
@@ -292,23 +225,83 @@ $DPathConsumer2D* TransformingPathConsumer2D::inverseDeltaTransformConsumer($DPa
 		if (mxx == 1.0 && myy == 1.0) {
 			return out;
 		} else {
-			return $nc(this->iv_DeltaScaleFilter)->init(out, 1.0 / mxx, 1.0 / myy);
+			return this->iv_DeltaScaleFilter->init(out, 1.0 / mxx, 1.0 / myy);
 		}
 	} else {
 		double det = mxx * myy - mxy * myx;
-		return $nc(this->iv_DeltaTransformFilter)->init(out, myy / det, -mxy / det, -myx / det, mxx / det);
+		return this->iv_DeltaTransformFilter->init(out, myy / det, -mxy / det, -myx / det, mxx / det);
 	}
 }
 
 TransformingPathConsumer2D::TransformingPathConsumer2D() {
 }
 
-void clinit$TransformingPathConsumer2D($Class* class$) {
+void TransformingPathConsumer2D::clinit$($Class* clazz) {
 	TransformingPathConsumer2D::CLIP_RECT_PADDING = 0.25;
 }
 
 $Class* TransformingPathConsumer2D::load$($String* name, bool initialize) {
-	$loadClass(TransformingPathConsumer2D, name, initialize, &_TransformingPathConsumer2D_ClassInfo_, clinit$TransformingPathConsumer2D, allocate$TransformingPathConsumer2D);
+	$FieldInfo fieldInfos$$[] = {
+		{"CLIP_RECT_PADDING", "D", nullptr, $STATIC | $FINAL, $staticField(TransformingPathConsumer2D, CLIP_RECT_PADDING)},
+		{"rdrCtx", "Lsun/java2d/marlin/RendererContext;", nullptr, $PRIVATE | $FINAL, $field(TransformingPathConsumer2D, rdrCtx)},
+		{"cpDetector", "Lsun/java2d/marlin/TransformingPathConsumer2D$ClosedPathDetector;", nullptr, $PRIVATE | $FINAL, $field(TransformingPathConsumer2D, cpDetector)},
+		{"pathClipper", "Lsun/java2d/marlin/TransformingPathConsumer2D$PathClipFilter;", nullptr, $PRIVATE | $FINAL, $field(TransformingPathConsumer2D, pathClipper$)},
+		{"wp_Path2DWrapper", "Lsun/java2d/marlin/TransformingPathConsumer2D$Path2DWrapper;", nullptr, $PRIVATE | $FINAL, $field(TransformingPathConsumer2D, wp_Path2DWrapper)},
+		{"dt_DeltaScaleFilter", "Lsun/java2d/marlin/TransformingPathConsumer2D$DeltaScaleFilter;", nullptr, $PRIVATE | $FINAL, $field(TransformingPathConsumer2D, dt_DeltaScaleFilter)},
+		{"dt_DeltaTransformFilter", "Lsun/java2d/marlin/TransformingPathConsumer2D$DeltaTransformFilter;", nullptr, $PRIVATE | $FINAL, $field(TransformingPathConsumer2D, dt_DeltaTransformFilter)},
+		{"iv_DeltaScaleFilter", "Lsun/java2d/marlin/TransformingPathConsumer2D$DeltaScaleFilter;", nullptr, $PRIVATE | $FINAL, $field(TransformingPathConsumer2D, iv_DeltaScaleFilter)},
+		{"iv_DeltaTransformFilter", "Lsun/java2d/marlin/TransformingPathConsumer2D$DeltaTransformFilter;", nullptr, $PRIVATE | $FINAL, $field(TransformingPathConsumer2D, iv_DeltaTransformFilter)},
+		{"tracerInput", "Lsun/java2d/marlin/TransformingPathConsumer2D$PathTracer;", nullptr, $PRIVATE | $FINAL, $field(TransformingPathConsumer2D, tracerInput)},
+		{"tracerCPDetector", "Lsun/java2d/marlin/TransformingPathConsumer2D$PathTracer;", nullptr, $PRIVATE | $FINAL, $field(TransformingPathConsumer2D, tracerCPDetector)},
+		{"tracerFiller", "Lsun/java2d/marlin/TransformingPathConsumer2D$PathTracer;", nullptr, $PRIVATE | $FINAL, $field(TransformingPathConsumer2D, tracerFiller)},
+		{"tracerStroker", "Lsun/java2d/marlin/TransformingPathConsumer2D$PathTracer;", nullptr, $PRIVATE | $FINAL, $field(TransformingPathConsumer2D, tracerStroker)},
+		{"tracerDasher", "Lsun/java2d/marlin/TransformingPathConsumer2D$PathTracer;", nullptr, $PRIVATE | $FINAL, $field(TransformingPathConsumer2D, tracerDasher)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/java2d/marlin/RendererContext;)V", nullptr, 0, $method(TransformingPathConsumer2D, init$, void, $RendererContext*)},
+		{"adjustClipInverseDelta", "([DDDDD)D", nullptr, $PRIVATE | $STATIC, $staticMethod(TransformingPathConsumer2D, adjustClipInverseDelta, double, $doubles*, double, double, double, double)},
+		{"adjustClipScale", "([DDD)D", nullptr, $PRIVATE | $STATIC, $staticMethod(TransformingPathConsumer2D, adjustClipScale, double, $doubles*, double, double)},
+		{"deltaTransformConsumer", "(Lsun/java2d/marlin/DPathConsumer2D;Ljava/awt/geom/AffineTransform;)Lsun/java2d/marlin/DPathConsumer2D;", nullptr, 0, $method(TransformingPathConsumer2D, deltaTransformConsumer, $DPathConsumer2D*, $DPathConsumer2D*, $AffineTransform*)},
+		{"detectClosedPath", "(Lsun/java2d/marlin/DPathConsumer2D;)Lsun/java2d/marlin/DPathConsumer2D;", nullptr, 0, $method(TransformingPathConsumer2D, detectClosedPath, $DPathConsumer2D*, $DPathConsumer2D*)},
+		{"inverseDeltaTransformConsumer", "(Lsun/java2d/marlin/DPathConsumer2D;Ljava/awt/geom/AffineTransform;)Lsun/java2d/marlin/DPathConsumer2D;", nullptr, 0, $method(TransformingPathConsumer2D, inverseDeltaTransformConsumer, $DPathConsumer2D*, $DPathConsumer2D*, $AffineTransform*)},
+		{"pathClipper", "(Lsun/java2d/marlin/DPathConsumer2D;)Lsun/java2d/marlin/DPathConsumer2D;", nullptr, 0, $method(TransformingPathConsumer2D, pathClipper, $DPathConsumer2D*, $DPathConsumer2D*)},
+		{"traceClosedPathDetector", "(Lsun/java2d/marlin/DPathConsumer2D;)Lsun/java2d/marlin/DPathConsumer2D;", nullptr, 0, $method(TransformingPathConsumer2D, traceClosedPathDetector, $DPathConsumer2D*, $DPathConsumer2D*)},
+		{"traceDasher", "(Lsun/java2d/marlin/DPathConsumer2D;)Lsun/java2d/marlin/DPathConsumer2D;", nullptr, 0, $method(TransformingPathConsumer2D, traceDasher, $DPathConsumer2D*, $DPathConsumer2D*)},
+		{"traceFiller", "(Lsun/java2d/marlin/DPathConsumer2D;)Lsun/java2d/marlin/DPathConsumer2D;", nullptr, 0, $method(TransformingPathConsumer2D, traceFiller, $DPathConsumer2D*, $DPathConsumer2D*)},
+		{"traceInput", "(Lsun/java2d/marlin/DPathConsumer2D;)Lsun/java2d/marlin/DPathConsumer2D;", nullptr, 0, $method(TransformingPathConsumer2D, traceInput, $DPathConsumer2D*, $DPathConsumer2D*)},
+		{"traceStroker", "(Lsun/java2d/marlin/DPathConsumer2D;)Lsun/java2d/marlin/DPathConsumer2D;", nullptr, 0, $method(TransformingPathConsumer2D, traceStroker, $DPathConsumer2D*, $DPathConsumer2D*)},
+		{"wrapPath2D", "(Ljava/awt/geom/Path2D$Double;)Lsun/java2d/marlin/DPathConsumer2D;", nullptr, 0, $method(TransformingPathConsumer2D, wrapPath2D, $DPathConsumer2D*, $Path2D$Double*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.java2d.marlin.TransformingPathConsumer2D$PathTracer", "sun.java2d.marlin.TransformingPathConsumer2D", "PathTracer", $STATIC | $FINAL},
+		{"sun.java2d.marlin.TransformingPathConsumer2D$CurveBasicMonotonizer", "sun.java2d.marlin.TransformingPathConsumer2D", "CurveBasicMonotonizer", $STATIC | $FINAL},
+		{"sun.java2d.marlin.TransformingPathConsumer2D$CurveClipSplitter", "sun.java2d.marlin.TransformingPathConsumer2D", "CurveClipSplitter", $STATIC | $FINAL},
+		{"sun.java2d.marlin.TransformingPathConsumer2D$PathClipFilter", "sun.java2d.marlin.TransformingPathConsumer2D", "PathClipFilter", $STATIC | $FINAL},
+		{"sun.java2d.marlin.TransformingPathConsumer2D$ClosedPathDetector", "sun.java2d.marlin.TransformingPathConsumer2D", "ClosedPathDetector", $STATIC | $FINAL},
+		{"sun.java2d.marlin.TransformingPathConsumer2D$Path2DWrapper", "sun.java2d.marlin.TransformingPathConsumer2D", "Path2DWrapper", $STATIC | $FINAL},
+		{"sun.java2d.marlin.TransformingPathConsumer2D$DeltaTransformFilter", "sun.java2d.marlin.TransformingPathConsumer2D", "DeltaTransformFilter", $STATIC | $FINAL},
+		{"sun.java2d.marlin.TransformingPathConsumer2D$DeltaScaleFilter", "sun.java2d.marlin.TransformingPathConsumer2D", "DeltaScaleFilter", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.java2d.marlin.TransformingPathConsumer2D",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.java2d.marlin.TransformingPathConsumer2D$PathTracer,sun.java2d.marlin.TransformingPathConsumer2D$CurveBasicMonotonizer,sun.java2d.marlin.TransformingPathConsumer2D$CurveClipSplitter,sun.java2d.marlin.TransformingPathConsumer2D$PathClipFilter,sun.java2d.marlin.TransformingPathConsumer2D$ClosedPathDetector,sun.java2d.marlin.TransformingPathConsumer2D$Path2DWrapper,sun.java2d.marlin.TransformingPathConsumer2D$DeltaTransformFilter,sun.java2d.marlin.TransformingPathConsumer2D$DeltaScaleFilter"
+	};
+	$loadClass(TransformingPathConsumer2D, name, initialize, &classInfo$$, TransformingPathConsumer2D::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(TransformingPathConsumer2D);
+	});
 	return class$;
 }
 

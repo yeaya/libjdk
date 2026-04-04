@@ -1,5 +1,4 @@
 #include <javax/management/loading/MLetContent.h>
-
 #include <java/net/MalformedURLException.h>
 #include <java/net/URL.h>
 #include <java/util/Collections.h>
@@ -20,46 +19,8 @@ namespace javax {
 	namespace management {
 		namespace loading {
 
-$FieldInfo _MLetContent_FieldInfo_[] = {
-	{"attributes", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;", $PRIVATE, $field(MLetContent, attributes)},
-	{"types", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/String;>;", $PRIVATE, $field(MLetContent, types)},
-	{"values", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/String;>;", $PRIVATE, $field(MLetContent, values)},
-	{"documentURL", "Ljava/net/URL;", nullptr, $PRIVATE, $field(MLetContent, documentURL)},
-	{"baseURL", "Ljava/net/URL;", nullptr, $PRIVATE, $field(MLetContent, baseURL)},
-	{}
-};
-
-$MethodInfo _MLetContent_MethodInfo_[] = {
-	{"<init>", "(Ljava/net/URL;Ljava/util/Map;Ljava/util/List;Ljava/util/List;)V", "(Ljava/net/URL;Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;Ljava/util/List<Ljava/lang/String;>;Ljava/util/List<Ljava/lang/String;>;)V", $PUBLIC, $method(MLetContent, init$, void, $URL*, $Map*, $List*, $List*)},
-	{"getAttributes", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;", $PUBLIC, $virtualMethod(MLetContent, getAttributes, $Map*)},
-	{"getCode", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MLetContent, getCode, $String*)},
-	{"getCodeBase", "()Ljava/net/URL;", nullptr, $PUBLIC, $virtualMethod(MLetContent, getCodeBase, $URL*)},
-	{"getDocumentBase", "()Ljava/net/URL;", nullptr, $PUBLIC, $virtualMethod(MLetContent, getDocumentBase, $URL*)},
-	{"getJarFiles", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MLetContent, getJarFiles, $String*)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MLetContent, getName, $String*)},
-	{"getParameter", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(MLetContent, getParameter, $String*, $String*)},
-	{"getParameterTypes", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(MLetContent, getParameterTypes, $List*)},
-	{"getParameterValues", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(MLetContent, getParameterValues, $List*)},
-	{"getSerializedObject", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MLetContent, getSerializedObject, $String*)},
-	{"getVersion", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MLetContent, getVersion, $String*)},
-	{}
-};
-
-$ClassInfo _MLetContent_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.management.loading.MLetContent",
-	"java.lang.Object",
-	nullptr,
-	_MLetContent_FieldInfo_,
-	_MLetContent_MethodInfo_
-};
-
-$Object* allocate$MLetContent($Class* clazz) {
-	return $of($alloc(MLetContent));
-}
-
 void MLetContent::init$($URL* url, $Map* attributes, $List* types, $List* values) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, documentURL, url);
 	$set(this, attributes, $Collections::unmodifiableMap(attributes));
 	$set(this, types, $Collections::unmodifiableList(types));
@@ -76,7 +37,7 @@ void MLetContent::init$($URL* url, $Map* attributes, $List* types, $List* values
 	}
 	if (this->baseURL == nullptr) {
 		$var($String, file, $nc(this->documentURL)->getFile());
-		int32_t i = $nc(file)->lastIndexOf((int32_t)u'/');
+		int32_t i = $nc(file)->lastIndexOf(u'/');
 		if (i >= 0 && i < file->length() - 1) {
 			try {
 				$set(this, baseURL, $new($URL, this->documentURL, $(file->substring(0, i + 1))));
@@ -137,7 +98,40 @@ MLetContent::MLetContent() {
 }
 
 $Class* MLetContent::load$($String* name, bool initialize) {
-	$loadClass(MLetContent, name, initialize, &_MLetContent_ClassInfo_, allocate$MLetContent);
+	$FieldInfo fieldInfos$$[] = {
+		{"attributes", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;", $PRIVATE, $field(MLetContent, attributes)},
+		{"types", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/String;>;", $PRIVATE, $field(MLetContent, types)},
+		{"values", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/String;>;", $PRIVATE, $field(MLetContent, values)},
+		{"documentURL", "Ljava/net/URL;", nullptr, $PRIVATE, $field(MLetContent, documentURL)},
+		{"baseURL", "Ljava/net/URL;", nullptr, $PRIVATE, $field(MLetContent, baseURL)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/net/URL;Ljava/util/Map;Ljava/util/List;Ljava/util/List;)V", "(Ljava/net/URL;Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;Ljava/util/List<Ljava/lang/String;>;Ljava/util/List<Ljava/lang/String;>;)V", $PUBLIC, $method(MLetContent, init$, void, $URL*, $Map*, $List*, $List*)},
+		{"getAttributes", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;", $PUBLIC, $virtualMethod(MLetContent, getAttributes, $Map*)},
+		{"getCode", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MLetContent, getCode, $String*)},
+		{"getCodeBase", "()Ljava/net/URL;", nullptr, $PUBLIC, $virtualMethod(MLetContent, getCodeBase, $URL*)},
+		{"getDocumentBase", "()Ljava/net/URL;", nullptr, $PUBLIC, $virtualMethod(MLetContent, getDocumentBase, $URL*)},
+		{"getJarFiles", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MLetContent, getJarFiles, $String*)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MLetContent, getName, $String*)},
+		{"getParameter", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(MLetContent, getParameter, $String*, $String*)},
+		{"getParameterTypes", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(MLetContent, getParameterTypes, $List*)},
+		{"getParameterValues", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(MLetContent, getParameterValues, $List*)},
+		{"getSerializedObject", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MLetContent, getSerializedObject, $String*)},
+		{"getVersion", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MLetContent, getVersion, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.management.loading.MLetContent",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(MLetContent, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MLetContent);
+	});
 	return class$;
 }
 

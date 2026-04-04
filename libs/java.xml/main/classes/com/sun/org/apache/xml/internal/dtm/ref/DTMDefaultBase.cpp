@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/dtm/ref/DTMDefaultBase.h>
-
 #include <com/sun/org/apache/xml/internal/dtm/DTM.h>
 #include <com/sun/org/apache/xml/internal/dtm/DTMAxisTraverser.h>
 #include <com/sun/org/apache/xml/internal/dtm/DTMException.h>
@@ -90,146 +89,6 @@ namespace com {
 						namespace dtm {
 							namespace ref {
 
-$FieldInfo _DTMDefaultBase_FieldInfo_[] = {
-	{"JJK_DEBUG", "Z", nullptr, $STATIC | $FINAL, $constField(DTMDefaultBase, JJK_DEBUG)},
-	{"ROOTNODE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DTMDefaultBase, ROOTNODE)},
-	{"m_size", "I", nullptr, $PROTECTED, $field(DTMDefaultBase, m_size)},
-	{"m_exptype", "Lcom/sun/org/apache/xml/internal/utils/SuballocatedIntVector;", nullptr, $PROTECTED, $field(DTMDefaultBase, m_exptype)},
-	{"m_firstch", "Lcom/sun/org/apache/xml/internal/utils/SuballocatedIntVector;", nullptr, $PROTECTED, $field(DTMDefaultBase, m_firstch)},
-	{"m_nextsib", "Lcom/sun/org/apache/xml/internal/utils/SuballocatedIntVector;", nullptr, $PROTECTED, $field(DTMDefaultBase, m_nextsib)},
-	{"m_prevsib", "Lcom/sun/org/apache/xml/internal/utils/SuballocatedIntVector;", nullptr, $PROTECTED, $field(DTMDefaultBase, m_prevsib)},
-	{"m_parent", "Lcom/sun/org/apache/xml/internal/utils/SuballocatedIntVector;", nullptr, $PROTECTED, $field(DTMDefaultBase, m_parent)},
-	{"m_namespaceDeclSets", "Ljava/util/Vector;", "Ljava/util/Vector<Lcom/sun/org/apache/xml/internal/utils/SuballocatedIntVector;>;", $PROTECTED, $field(DTMDefaultBase, m_namespaceDeclSets)},
-	{"m_namespaceDeclSetElements", "Lcom/sun/org/apache/xml/internal/utils/SuballocatedIntVector;", nullptr, $PROTECTED, $field(DTMDefaultBase, m_namespaceDeclSetElements)},
-	{"m_elemIndexes", "[[[I", nullptr, $PROTECTED, $field(DTMDefaultBase, m_elemIndexes)},
-	{"DEFAULT_BLOCKSIZE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DTMDefaultBase, DEFAULT_BLOCKSIZE)},
-	{"DEFAULT_NUMBLOCKS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DTMDefaultBase, DEFAULT_NUMBLOCKS)},
-	{"DEFAULT_NUMBLOCKS_SMALL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DTMDefaultBase, DEFAULT_NUMBLOCKS_SMALL)},
-	{"NOTPROCESSED", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(DTMDefaultBase, NOTPROCESSED)},
-	{"m_mgr", "Lcom/sun/org/apache/xml/internal/dtm/DTMManager;", nullptr, $PUBLIC, $field(DTMDefaultBase, m_mgr)},
-	{"m_mgrDefault", "Lcom/sun/org/apache/xml/internal/dtm/ref/DTMManagerDefault;", nullptr, $PROTECTED, $field(DTMDefaultBase, m_mgrDefault)},
-	{"m_dtmIdent", "Lcom/sun/org/apache/xml/internal/utils/SuballocatedIntVector;", nullptr, $PROTECTED, $field(DTMDefaultBase, m_dtmIdent)},
-	{"m_documentBaseURI", "Ljava/lang/String;", nullptr, $PROTECTED, $field(DTMDefaultBase, m_documentBaseURI)},
-	{"m_wsfilter", "Lcom/sun/org/apache/xml/internal/dtm/DTMWSFilter;", nullptr, $PROTECTED, $field(DTMDefaultBase, m_wsfilter)},
-	{"m_shouldStripWS", "Z", nullptr, $PROTECTED, $field(DTMDefaultBase, m_shouldStripWS)},
-	{"m_shouldStripWhitespaceStack", "Lcom/sun/org/apache/xml/internal/utils/BoolStack;", nullptr, $PROTECTED, $field(DTMDefaultBase, m_shouldStripWhitespaceStack)},
-	{"m_xstrf", "Lcom/sun/org/apache/xml/internal/utils/XMLStringFactory;", nullptr, $PROTECTED, $field(DTMDefaultBase, m_xstrf)},
-	{"m_expandedNameTable", "Lcom/sun/org/apache/xml/internal/dtm/ref/ExpandedNameTable;", nullptr, $PROTECTED, $field(DTMDefaultBase, m_expandedNameTable)},
-	{"m_indexing", "Z", nullptr, $PROTECTED, $field(DTMDefaultBase, m_indexing)},
-	{"m_traversers", "[Lcom/sun/org/apache/xml/internal/dtm/DTMAxisTraverser;", nullptr, $PROTECTED, $field(DTMDefaultBase, m_traversers)},
-	{}
-};
-
-$MethodInfo _DTMDefaultBase_MethodInfo_[] = {
-	{"dispatchCharactersEvents", "(ILorg/xml/sax/ContentHandler;Z)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"dispatchToEvents", "(ILorg/xml/sax/ContentHandler;)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"getAttributeNode", "(ILjava/lang/String;Ljava/lang/String;)I", nullptr, $PUBLIC | $ABSTRACT},
-	{"getDocumentTypeDeclarationPublicIdentifier", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getDocumentTypeDeclarationSystemIdentifier", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getElementById", "(Ljava/lang/String;)I", nullptr, $PUBLIC | $ABSTRACT},
-	{"getLocalName", "(I)Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getNamespaceURI", "(I)Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getNodeName", "(I)Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getNodeValue", "(I)Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getPrefix", "(I)Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getStringValue", "(I)Lcom/sun/org/apache/xml/internal/utils/XMLString;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getUnparsedEntityURI", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
-	{"<init>", "(Lcom/sun/org/apache/xml/internal/dtm/DTMManager;Ljavax/xml/transform/Source;ILcom/sun/org/apache/xml/internal/dtm/DTMWSFilter;Lcom/sun/org/apache/xml/internal/utils/XMLStringFactory;Z)V", nullptr, $PUBLIC, $method(DTMDefaultBase, init$, void, $DTMManager*, $Source*, int32_t, $DTMWSFilter*, $XMLStringFactory*, bool)},
-	{"<init>", "(Lcom/sun/org/apache/xml/internal/dtm/DTMManager;Ljavax/xml/transform/Source;ILcom/sun/org/apache/xml/internal/dtm/DTMWSFilter;Lcom/sun/org/apache/xml/internal/utils/XMLStringFactory;ZIZZ)V", nullptr, $PUBLIC, $method(DTMDefaultBase, init$, void, $DTMManager*, $Source*, int32_t, $DTMWSFilter*, $XMLStringFactory*, bool, int32_t, bool, bool)},
-	{"_exptype", "(I)I", nullptr, $PROTECTED, $virtualMethod(DTMDefaultBase, _exptype, int32_t, int32_t)},
-	{"_firstch", "(I)I", nullptr, $PROTECTED, $virtualMethod(DTMDefaultBase, _firstch, int32_t, int32_t)},
-	{"_level", "(I)I", nullptr, $PROTECTED, $virtualMethod(DTMDefaultBase, _level, int32_t, int32_t)},
-	{"_nextsib", "(I)I", nullptr, $PROTECTED, $virtualMethod(DTMDefaultBase, _nextsib, int32_t, int32_t)},
-	{"_parent", "(I)I", nullptr, $PROTECTED, $virtualMethod(DTMDefaultBase, _parent, int32_t, int32_t)},
-	{"_prevsib", "(I)I", nullptr, $PROTECTED, $virtualMethod(DTMDefaultBase, _prevsib, int32_t, int32_t)},
-	{"_type", "(I)S", nullptr, $PROTECTED, $virtualMethod(DTMDefaultBase, _type, int16_t, int32_t)},
-	{"appendChild", "(IZZ)V", nullptr, $PUBLIC, $virtualMethod(DTMDefaultBase, appendChild, void, int32_t, bool, bool)},
-	{"appendTextChild", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(DTMDefaultBase, appendTextChild, void, $String*)},
-	{"declareNamespaceInContext", "(II)V", nullptr, $PROTECTED, $virtualMethod(DTMDefaultBase, declareNamespaceInContext, void, int32_t, int32_t)},
-	{"documentRegistration", "()V", nullptr, $PUBLIC, $virtualMethod(DTMDefaultBase, documentRegistration, void)},
-	{"documentRelease", "()V", nullptr, $PUBLIC, $virtualMethod(DTMDefaultBase, documentRelease, void)},
-	{"dumpDTM", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $virtualMethod(DTMDefaultBase, dumpDTM, void, $OutputStream*)},
-	{"dumpNode", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DTMDefaultBase, dumpNode, $String*, int32_t)},
-	{"ensureSizeOfIndex", "(II)V", nullptr, $PROTECTED, $virtualMethod(DTMDefaultBase, ensureSizeOfIndex, void, int32_t, int32_t)},
-	{"error", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(DTMDefaultBase, error, void, $String*)},
-	{"findElementFromIndex", "(III)I", nullptr, 0, $virtualMethod(DTMDefaultBase, findElementFromIndex, int32_t, int32_t, int32_t, int32_t)},
-	{"findGTE", "([IIII)I", nullptr, $PROTECTED, $virtualMethod(DTMDefaultBase, findGTE, int32_t, $ints*, int32_t, int32_t, int32_t)},
-	{"findInSortedSuballocatedIntVector", "(Lcom/sun/org/apache/xml/internal/utils/SuballocatedIntVector;I)I", nullptr, $PROTECTED, $virtualMethod(DTMDefaultBase, findInSortedSuballocatedIntVector, int32_t, $SuballocatedIntVector*, int32_t)},
-	{"findNamespaceContext", "(I)Lcom/sun/org/apache/xml/internal/utils/SuballocatedIntVector;", nullptr, $PROTECTED, $virtualMethod(DTMDefaultBase, findNamespaceContext, $SuballocatedIntVector*, int32_t)},
-	{"getDTMIDs", "()Lcom/sun/org/apache/xml/internal/utils/SuballocatedIntVector;", nullptr, $PUBLIC, $virtualMethod(DTMDefaultBase, getDTMIDs, $SuballocatedIntVector*)},
-	{"getDocument", "()I", nullptr, $PUBLIC, $virtualMethod(DTMDefaultBase, getDocument, int32_t)},
-	{"getDocumentAllDeclarationsProcessed", "()Z", nullptr, $PUBLIC, $virtualMethod(DTMDefaultBase, getDocumentAllDeclarationsProcessed, bool)},
-	{"getDocumentBaseURI", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DTMDefaultBase, getDocumentBaseURI, $String*)},
-	{"getDocumentEncoding", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DTMDefaultBase, getDocumentEncoding, $String*, int32_t)},
-	{"getDocumentRoot", "(I)I", nullptr, $PUBLIC, $virtualMethod(DTMDefaultBase, getDocumentRoot, int32_t, int32_t)},
-	{"getDocumentStandalone", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DTMDefaultBase, getDocumentStandalone, $String*, int32_t)},
-	{"getDocumentSystemIdentifier", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DTMDefaultBase, getDocumentSystemIdentifier, $String*, int32_t)},
-	{"getDocumentVersion", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DTMDefaultBase, getDocumentVersion, $String*, int32_t)},
-	{"getExpandedTypeID", "(I)I", nullptr, $PUBLIC, $virtualMethod(DTMDefaultBase, getExpandedTypeID, int32_t, int32_t)},
-	{"getExpandedTypeID", "(Ljava/lang/String;Ljava/lang/String;I)I", nullptr, $PUBLIC, $virtualMethod(DTMDefaultBase, getExpandedTypeID, int32_t, $String*, $String*, int32_t)},
-	{"getFirstAttribute", "(I)I", nullptr, $PUBLIC, $virtualMethod(DTMDefaultBase, getFirstAttribute, int32_t, int32_t)},
-	{"getFirstAttributeIdentity", "(I)I", nullptr, $PROTECTED, $virtualMethod(DTMDefaultBase, getFirstAttributeIdentity, int32_t, int32_t)},
-	{"getFirstChild", "(I)I", nullptr, $PUBLIC, $virtualMethod(DTMDefaultBase, getFirstChild, int32_t, int32_t)},
-	{"getFirstNamespaceNode", "(IZ)I", nullptr, $PUBLIC, $virtualMethod(DTMDefaultBase, getFirstNamespaceNode, int32_t, int32_t, bool)},
-	{"getLastChild", "(I)I", nullptr, $PUBLIC, $virtualMethod(DTMDefaultBase, getLastChild, int32_t, int32_t)},
-	{"getLevel", "(I)S", nullptr, $PUBLIC, $virtualMethod(DTMDefaultBase, getLevel, int16_t, int32_t)},
-	{"getLocalNameFromExpandedNameID", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DTMDefaultBase, getLocalNameFromExpandedNameID, $String*, int32_t)},
-	{"getManager", "()Lcom/sun/org/apache/xml/internal/dtm/DTMManager;", nullptr, $PUBLIC, $virtualMethod(DTMDefaultBase, getManager, $DTMManager*)},
-	{"getNamespaceFromExpandedNameID", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DTMDefaultBase, getNamespaceFromExpandedNameID, $String*, int32_t)},
-	{"getNamespaceType", "(I)I", nullptr, $PUBLIC, $virtualMethod(DTMDefaultBase, getNamespaceType, int32_t, int32_t)},
-	{"getNextAttribute", "(I)I", nullptr, $PUBLIC, $virtualMethod(DTMDefaultBase, getNextAttribute, int32_t, int32_t)},
-	{"getNextAttributeIdentity", "(I)I", nullptr, $PROTECTED, $virtualMethod(DTMDefaultBase, getNextAttributeIdentity, int32_t, int32_t)},
-	{"getNextNamespaceNode", "(IIZ)I", nullptr, $PUBLIC, $virtualMethod(DTMDefaultBase, getNextNamespaceNode, int32_t, int32_t, int32_t, bool)},
-	{"getNextNodeIdentity", "(I)I", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(DTMDefaultBase, getNextNodeIdentity, int32_t, int32_t)},
-	{"getNextSibling", "(I)I", nullptr, $PUBLIC, $virtualMethod(DTMDefaultBase, getNextSibling, int32_t, int32_t)},
-	{"getNode", "(I)Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(DTMDefaultBase, getNode, $Node*, int32_t)},
-	{"getNodeHandle", "(I)I", nullptr, $PUBLIC, $virtualMethod(DTMDefaultBase, getNodeHandle, int32_t, int32_t)},
-	{"getNodeIdent", "(I)I", nullptr, $PUBLIC, $virtualMethod(DTMDefaultBase, getNodeIdent, int32_t, int32_t)},
-	{"getNodeNameX", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DTMDefaultBase, getNodeNameX, $String*, int32_t)},
-	{"getNodeType", "(I)S", nullptr, $PUBLIC, $virtualMethod(DTMDefaultBase, getNodeType, int16_t, int32_t)},
-	{"getNumberOfNodes", "()I", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(DTMDefaultBase, getNumberOfNodes, int32_t)},
-	{"getOwnerDocument", "(I)I", nullptr, $PUBLIC, $virtualMethod(DTMDefaultBase, getOwnerDocument, int32_t, int32_t)},
-	{"getParent", "(I)I", nullptr, $PUBLIC, $virtualMethod(DTMDefaultBase, getParent, int32_t, int32_t)},
-	{"getPreviousSibling", "(I)I", nullptr, $PUBLIC, $virtualMethod(DTMDefaultBase, getPreviousSibling, int32_t, int32_t)},
-	{"getShouldStripWhitespace", "()Z", nullptr, $PROTECTED, $virtualMethod(DTMDefaultBase, getShouldStripWhitespace, bool)},
-	{"getStringValueChunk", "(II[I)[C", nullptr, $PUBLIC, $virtualMethod(DTMDefaultBase, getStringValueChunk, $chars*, int32_t, int32_t, $ints*)},
-	{"getStringValueChunkCount", "(I)I", nullptr, $PUBLIC, $virtualMethod(DTMDefaultBase, getStringValueChunkCount, int32_t, int32_t)},
-	{"getTypedAttribute", "(II)I", nullptr, $PROTECTED, $virtualMethod(DTMDefaultBase, getTypedAttribute, int32_t, int32_t, int32_t)},
-	{"getTypedFirstChild", "(II)I", nullptr, $PUBLIC, $virtualMethod(DTMDefaultBase, getTypedFirstChild, int32_t, int32_t, int32_t)},
-	{"getTypedNextSibling", "(II)I", nullptr, $PUBLIC, $virtualMethod(DTMDefaultBase, getTypedNextSibling, int32_t, int32_t, int32_t)},
-	{"hasChildNodes", "(I)Z", nullptr, $PUBLIC, $virtualMethod(DTMDefaultBase, hasChildNodes, bool, int32_t)},
-	{"indexNode", "(II)V", nullptr, $PROTECTED, $virtualMethod(DTMDefaultBase, indexNode, void, int32_t, int32_t)},
-	{"isAttributeSpecified", "(I)Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"isCharacterElementContentWhitespace", "(I)Z", nullptr, $PUBLIC, $virtualMethod(DTMDefaultBase, isCharacterElementContentWhitespace, bool, int32_t)},
-	{"isDocumentAllDeclarationsProcessed", "(I)Z", nullptr, $PUBLIC, $virtualMethod(DTMDefaultBase, isDocumentAllDeclarationsProcessed, bool, int32_t)},
-	{"isNodeAfter", "(II)Z", nullptr, $PUBLIC, $virtualMethod(DTMDefaultBase, isNodeAfter, bool, int32_t, int32_t)},
-	{"isSupported", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(DTMDefaultBase, isSupported, bool, $String*, $String*)},
-	{"makeNodeHandle", "(I)I", nullptr, $PUBLIC | $FINAL, $method(DTMDefaultBase, makeNodeHandle, int32_t, int32_t)},
-	{"makeNodeIdentity", "(I)I", nullptr, $PUBLIC | $FINAL, $method(DTMDefaultBase, makeNodeIdentity, int32_t, int32_t)},
-	{"migrateTo", "(Lcom/sun/org/apache/xml/internal/dtm/DTMManager;)V", nullptr, $PUBLIC, $virtualMethod(DTMDefaultBase, migrateTo, void, $DTMManager*)},
-	{"nextNode", "()Z", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(DTMDefaultBase, nextNode, bool)},
-	{"popShouldStripWhitespace", "()V", nullptr, $PROTECTED, $virtualMethod(DTMDefaultBase, popShouldStripWhitespace, void)},
-	{"pushShouldStripWhitespace", "(Z)V", nullptr, $PROTECTED, $virtualMethod(DTMDefaultBase, pushShouldStripWhitespace, void, bool)},
-	{"setDocumentBaseURI", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(DTMDefaultBase, setDocumentBaseURI, void, $String*)},
-	{"setFeature", "(Ljava/lang/String;Z)V", nullptr, $PUBLIC, $virtualMethod(DTMDefaultBase, setFeature, void, $String*, bool)},
-	{"setShouldStripWhitespace", "(Z)V", nullptr, $PROTECTED, $virtualMethod(DTMDefaultBase, setShouldStripWhitespace, void, bool)},
-	{"supportsPreStripping", "()Z", nullptr, $PUBLIC, $virtualMethod(DTMDefaultBase, supportsPreStripping, bool)},
-	{}
-};
-
-$ClassInfo _DTMDefaultBase_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"com.sun.org.apache.xml.internal.dtm.ref.DTMDefaultBase",
-	"java.lang.Object",
-	"com.sun.org.apache.xml.internal.dtm.DTM",
-	_DTMDefaultBase_FieldInfo_,
-	_DTMDefaultBase_MethodInfo_
-};
-
-$Object* allocate$DTMDefaultBase($Class* clazz) {
-	return $of($alloc(DTMDefaultBase));
-}
-
 void DTMDefaultBase::init$($DTMManager* mgr, $Source* source, int32_t dtmIdentity, $DTMWSFilter* whiteSpaceFilter, $XMLStringFactory* xstringfactory, bool doIndexing) {
 	DTMDefaultBase::init$(mgr, source, dtmIdentity, whiteSpaceFilter, xstringfactory, doIndexing, DTMDefaultBase::DEFAULT_BLOCKSIZE, true, false);
 }
@@ -259,7 +118,7 @@ void DTMDefaultBase::init$($DTMManager* mgr, $Source* source, int32_t dtmIdentit
 	if ($instanceOf($DTMManagerDefault, mgr)) {
 		$set(this, m_mgrDefault, $cast($DTMManagerDefault, mgr));
 	}
-	$set(this, m_documentBaseURI, (nullptr != source) ? $nc(source)->getSystemId() : ($String*)nullptr);
+	$set(this, m_documentBaseURI, (nullptr != source) ? source->getSystemId() : ($String*)nullptr);
 	$nc(this->m_dtmIdent)->setElementAt(dtmIdentity, 0);
 	$set(this, m_wsfilter, whiteSpaceFilter);
 	$set(this, m_xstrf, xstringfactory);
@@ -276,10 +135,10 @@ void DTMDefaultBase::init$($DTMManager* mgr, $Source* source, int32_t dtmIdentit
 }
 
 void DTMDefaultBase::ensureSizeOfIndex(int32_t namespaceID, int32_t LocalNameID) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (nullptr == this->m_elemIndexes) {
 		$set(this, m_elemIndexes, $new($intArray3, namespaceID + 20));
-	} else if ($nc(this->m_elemIndexes)->length <= namespaceID) {
+	} else if (this->m_elemIndexes->length <= namespaceID) {
 		$var($intArray3, indexes, this->m_elemIndexes);
 		$set(this, m_elemIndexes, $new($intArray3, namespaceID + 20));
 		$System::arraycopy(indexes, 0, this->m_elemIndexes, 0, $nc(indexes)->length);
@@ -287,19 +146,19 @@ void DTMDefaultBase::ensureSizeOfIndex(int32_t namespaceID, int32_t LocalNameID)
 	$var($intArray2, localNameIndex, $nc(this->m_elemIndexes)->get(namespaceID));
 	if (nullptr == localNameIndex) {
 		$assign(localNameIndex, $new($intArray2, LocalNameID + 100));
-		$nc(this->m_elemIndexes)->set(namespaceID, localNameIndex);
-	} else if ($nc(localNameIndex)->length <= LocalNameID) {
+		this->m_elemIndexes->set(namespaceID, localNameIndex);
+	} else if (localNameIndex->length <= LocalNameID) {
 		$var($intArray2, indexes, localNameIndex);
 		$assign(localNameIndex, $new($intArray2, LocalNameID + 100));
 		$System::arraycopy(indexes, 0, localNameIndex, 0, indexes->length);
-		$nc(this->m_elemIndexes)->set(namespaceID, localNameIndex);
+		this->m_elemIndexes->set(namespaceID, localNameIndex);
 	}
 	$var($ints, elemHandles, $nc(localNameIndex)->get(LocalNameID));
 	if (nullptr == elemHandles) {
 		$assign(elemHandles, $new($ints, 128));
 		localNameIndex->set(LocalNameID, elemHandles);
 		elemHandles->set(0, 1);
-	} else if ($nc(elemHandles)->length <= elemHandles->get(0) + 1) {
+	} else if (elemHandles->length <= elemHandles->get(0) + 1) {
 		$var($ints, indexes, elemHandles);
 		$assign(elemHandles, $new($ints, elemHandles->get(0) + 1024));
 		$System::arraycopy(indexes, 0, elemHandles, 0, indexes->length);
@@ -308,7 +167,7 @@ void DTMDefaultBase::ensureSizeOfIndex(int32_t namespaceID, int32_t LocalNameID)
 }
 
 void DTMDefaultBase::indexNode(int32_t expandedTypeID, int32_t identity) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ExpandedNameTable, ent, this->m_expandedNameTable);
 	int16_t type = $nc(ent)->getType(expandedTypeID);
 	if ($DTM::ELEMENT_NODE == type) {
@@ -316,7 +175,7 @@ void DTMDefaultBase::indexNode(int32_t expandedTypeID, int32_t identity) {
 		int32_t localNameID = ent->getLocalNameID(expandedTypeID);
 		ensureSizeOfIndex(namespaceID, localNameID);
 		$var($ints, index, $nc($nc(this->m_elemIndexes)->get(namespaceID))->get(localNameID));
-		$nc(index)->set(index->get(0), identity);
+		$nc(index)->set($nc(index)->get(0), identity);
 		++(*index)[0];
 	}
 }
@@ -340,7 +199,7 @@ int32_t DTMDefaultBase::findGTE($ints* list, int32_t start, int32_t len, int32_t
 }
 
 int32_t DTMDefaultBase::findElementFromIndex(int32_t nsIndex, int32_t lnIndex, int32_t firstPotential) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($intArray3, indexes, this->m_elemIndexes);
 	if (nullptr != indexes && nsIndex < indexes->length) {
 		$var($intArray2, lnIndexs, indexes->get(nsIndex));
@@ -453,11 +312,11 @@ int32_t DTMDefaultBase::_parent(int32_t identity) {
 }
 
 void DTMDefaultBase::dumpDTM($OutputStream* os$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($OutputStream, os, os$renamed);
 	try {
 		if (os == nullptr) {
-			$var($File, f, $new($File, $$str({"DTMDump"_s, $$str($nc($of(($of(this))))->hashCode()), ".txt"_s})));
+			$var($File, f, $new($File, $$str({"DTMDump"_s, $$str($of(this)->hashCode()), ".txt"_s})));
 			$nc($System::err)->println($$str({"Dumping... "_s, $(f->getAbsolutePath())}));
 			$assign(os, $new($FileOutputStream, f));
 		}
@@ -480,80 +339,50 @@ void DTMDefaultBase::dumpDTM($OutputStream* os$renamed) {
 			$var($String, typestring, nullptr);
 			switch (type) {
 			case $DTM::ATTRIBUTE_NODE:
-				{
-					$assign(typestring, "ATTRIBUTE_NODE"_s);
-					break;
-				}
+				$assign(typestring, "ATTRIBUTE_NODE"_s);
+				break;
 			case $DTM::CDATA_SECTION_NODE:
-				{
-					$assign(typestring, "CDATA_SECTION_NODE"_s);
-					break;
-				}
+				$assign(typestring, "CDATA_SECTION_NODE"_s);
+				break;
 			case $DTM::COMMENT_NODE:
-				{
-					$assign(typestring, "COMMENT_NODE"_s);
-					break;
-				}
+				$assign(typestring, "COMMENT_NODE"_s);
+				break;
 			case $DTM::DOCUMENT_FRAGMENT_NODE:
-				{
-					$assign(typestring, "DOCUMENT_FRAGMENT_NODE"_s);
-					break;
-				}
+				$assign(typestring, "DOCUMENT_FRAGMENT_NODE"_s);
+				break;
 			case $DTM::DOCUMENT_NODE:
-				{
-					$assign(typestring, "DOCUMENT_NODE"_s);
-					break;
-				}
+				$assign(typestring, "DOCUMENT_NODE"_s);
+				break;
 			case $DTM::DOCUMENT_TYPE_NODE:
-				{
-					$assign(typestring, "DOCUMENT_NODE"_s);
-					break;
-				}
+				$assign(typestring, "DOCUMENT_NODE"_s);
+				break;
 			case $DTM::ELEMENT_NODE:
-				{
-					$assign(typestring, "ELEMENT_NODE"_s);
-					break;
-				}
+				$assign(typestring, "ELEMENT_NODE"_s);
+				break;
 			case $DTM::ENTITY_NODE:
-				{
-					$assign(typestring, "ENTITY_NODE"_s);
-					break;
-				}
+				$assign(typestring, "ENTITY_NODE"_s);
+				break;
 			case $DTM::ENTITY_REFERENCE_NODE:
-				{
-					$assign(typestring, "ENTITY_REFERENCE_NODE"_s);
-					break;
-				}
+				$assign(typestring, "ENTITY_REFERENCE_NODE"_s);
+				break;
 			case $DTM::NAMESPACE_NODE:
-				{
-					$assign(typestring, "NAMESPACE_NODE"_s);
-					break;
-				}
+				$assign(typestring, "NAMESPACE_NODE"_s);
+				break;
 			case $DTM::NOTATION_NODE:
-				{
-					$assign(typestring, "NOTATION_NODE"_s);
-					break;
-				}
+				$assign(typestring, "NOTATION_NODE"_s);
+				break;
 			case $DTM::NULL:
-				{
-					$assign(typestring, "NULL"_s);
-					break;
-				}
+				$assign(typestring, "NULL"_s);
+				break;
 			case $DTM::PROCESSING_INSTRUCTION_NODE:
-				{
-					$assign(typestring, "PROCESSING_INSTRUCTION_NODE"_s);
-					break;
-				}
+				$assign(typestring, "PROCESSING_INSTRUCTION_NODE"_s);
+				break;
 			case $DTM::TEXT_NODE:
-				{
-					$assign(typestring, "TEXT_NODE"_s);
-					break;
-				}
+				$assign(typestring, "TEXT_NODE"_s);
+				break;
 			default:
-				{
-					$assign(typestring, "Unknown!"_s);
-					break;
-				}
+				$assign(typestring, "Unknown!"_s);
+				break;
 			}
 			ps->println($$str({"Type: "_s, typestring}));
 			int32_t firstChild = _firstch(index);
@@ -602,95 +431,73 @@ void DTMDefaultBase::dumpDTM($OutputStream* os$renamed) {
 }
 
 $String* DTMDefaultBase::dumpNode(int32_t nodeHandle) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (nodeHandle == $DTM::NULL) {
 		return "[null]"_s;
 	}
 	$var($String, typestring, nullptr);
 	switch (getNodeType(nodeHandle)) {
 	case $DTM::ATTRIBUTE_NODE:
-		{
-			$assign(typestring, "ATTR"_s);
-			break;
-		}
+		$assign(typestring, "ATTR"_s);
+		break;
 	case $DTM::CDATA_SECTION_NODE:
-		{
-			$assign(typestring, "CDATA"_s);
-			break;
-		}
+		$assign(typestring, "CDATA"_s);
+		break;
 	case $DTM::COMMENT_NODE:
-		{
-			$assign(typestring, "COMMENT"_s);
-			break;
-		}
+		$assign(typestring, "COMMENT"_s);
+		break;
 	case $DTM::DOCUMENT_FRAGMENT_NODE:
-		{
-			$assign(typestring, "DOC_FRAG"_s);
-			break;
-		}
+		$assign(typestring, "DOC_FRAG"_s);
+		break;
 	case $DTM::DOCUMENT_NODE:
-		{
-			$assign(typestring, "DOC"_s);
-			break;
-		}
+		$assign(typestring, "DOC"_s);
+		break;
 	case $DTM::DOCUMENT_TYPE_NODE:
-		{
-			$assign(typestring, "DOC_TYPE"_s);
-			break;
-		}
+		$assign(typestring, "DOC_TYPE"_s);
+		break;
 	case $DTM::ELEMENT_NODE:
-		{
-			$assign(typestring, "ELEMENT"_s);
-			break;
-		}
+		$assign(typestring, "ELEMENT"_s);
+		break;
 	case $DTM::ENTITY_NODE:
-		{
-			$assign(typestring, "ENTITY"_s);
-			break;
-		}
+		$assign(typestring, "ENTITY"_s);
+		break;
 	case $DTM::ENTITY_REFERENCE_NODE:
-		{
-			$assign(typestring, "ENT_REF"_s);
-			break;
-		}
+		$assign(typestring, "ENT_REF"_s);
+		break;
 	case $DTM::NAMESPACE_NODE:
-		{
-			$assign(typestring, "NAMESPACE"_s);
-			break;
-		}
+		$assign(typestring, "NAMESPACE"_s);
+		break;
 	case $DTM::NOTATION_NODE:
-		{
-			$assign(typestring, "NOTATION"_s);
-			break;
-		}
+		$assign(typestring, "NOTATION"_s);
+		break;
 	case $DTM::NULL:
-		{
-			$assign(typestring, "null"_s);
-			break;
-		}
+		$assign(typestring, "null"_s);
+		break;
 	case $DTM::PROCESSING_INSTRUCTION_NODE:
-		{
-			$assign(typestring, "PI"_s);
-			break;
-		}
+		$assign(typestring, "PI"_s);
+		break;
 	case $DTM::TEXT_NODE:
-		{
-			$assign(typestring, "TEXT"_s);
-			break;
-		}
+		$assign(typestring, "TEXT"_s);
+		break;
 	default:
-		{
-			$assign(typestring, "Unknown!"_s);
-			break;
-		}
+		$assign(typestring, "Unknown!"_s);
+		break;
 	}
-	$var($String, var$5, $$str({"["_s, $$str(nodeHandle), ": "_s, typestring, "(0x"_s, $($Integer::toHexString(getExpandedTypeID(nodeHandle))), ") "_s}));
-	$var($String, var$4, $$concat(var$5, $(getNodeNameX(nodeHandle))));
-	$var($String, var$3, $$concat(var$4, " {"_s));
-	$var($String, var$2, $$concat(var$3, $(getNamespaceURI(nodeHandle))));
-	$var($String, var$1, $$concat(var$2, "}=\""_s));
-	$var($String, var$0, $$concat(var$1, $(getNodeValue(nodeHandle))));
-	return $concat(var$0, "\"]"_s);
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append("["_s);
+	var$0->append(nodeHandle);
+	var$0->append(": "_s);
+	var$0->append(typestring);
+	var$0->append("(0x"_s);
+	var$0->append($($Integer::toHexString(getExpandedTypeID(nodeHandle))));
+	var$0->append(") "_s);
+	var$0->append($(getNodeNameX(nodeHandle)));
+	var$0->append(" {"_s);
+	var$0->append($(getNamespaceURI(nodeHandle)));
+	var$0->append("}=\""_s);
+	var$0->append($(getNodeValue(nodeHandle)));
+	var$0->append("\"]"_s);
+	return $str(var$0);
 }
 
 void DTMDefaultBase::setFeature($String* featureId, bool state) {
@@ -706,7 +513,8 @@ int32_t DTMDefaultBase::makeNodeHandle(int32_t nodeIdentity) {
 	if ($DTM::NULL == nodeIdentity) {
 		return $DTM::NULL;
 	}
-	return $nc(this->m_dtmIdent)->elementAt($usr(nodeIdentity, $DTMManager::IDENT_DTM_NODE_BITS)) + ((int32_t)(nodeIdentity & (uint32_t)$DTMManager::IDENT_NODE_DEFAULT));
+	;
+	return $nc(this->m_dtmIdent)->elementAt($usr(nodeIdentity, $DTMManager::IDENT_DTM_NODE_BITS)) + (nodeIdentity & $DTMManager::IDENT_NODE_DEFAULT);
 }
 
 int32_t DTMDefaultBase::makeNodeIdentity(int32_t nodeHandle) {
@@ -715,14 +523,14 @@ int32_t DTMDefaultBase::makeNodeIdentity(int32_t nodeHandle) {
 	}
 	if (this->m_mgrDefault != nullptr) {
 		int32_t whichDTMindex = $usr(nodeHandle, $DTMManager::IDENT_DTM_NODE_BITS);
-		if (!$equals($nc($nc(this->m_mgrDefault)->m_dtms)->get(whichDTMindex), this)) {
+		if (!$equals($nc(this->m_mgrDefault->m_dtms)->get(whichDTMindex), this)) {
 			return $DTM::NULL;
 		} else {
-			return $nc($nc(this->m_mgrDefault)->m_dtm_offsets)->get(whichDTMindex) | ((int32_t)(nodeHandle & (uint32_t)$DTMManager::IDENT_NODE_DEFAULT));
+			return $nc(this->m_mgrDefault->m_dtm_offsets)->get(whichDTMindex) | (nodeHandle & $DTMManager::IDENT_NODE_DEFAULT);
 		}
 	}
-	int32_t whichDTMid = $nc(this->m_dtmIdent)->indexOf((int32_t)(nodeHandle & (uint32_t)$DTMManager::IDENT_DTM_DEFAULT));
-	return (whichDTMid == $DTM::NULL) ? $DTM::NULL : ($sl(whichDTMid, $DTMManager::IDENT_DTM_NODE_BITS)) + ((int32_t)(nodeHandle & (uint32_t)$DTMManager::IDENT_NODE_DEFAULT));
+	int32_t whichDTMid = $nc(this->m_dtmIdent)->indexOf(nodeHandle & $DTMManager::IDENT_DTM_DEFAULT);
+	return (whichDTMid == $DTM::NULL) ? $DTM::NULL : ($sl(whichDTMid, $DTMManager::IDENT_DTM_NODE_BITS)) + (nodeHandle & $DTMManager::IDENT_NODE_DEFAULT);
 }
 
 int32_t DTMDefaultBase::getFirstChild(int32_t nodeHandle) {
@@ -817,12 +625,13 @@ int32_t DTMDefaultBase::getTypedNextSibling(int32_t nodeHandle, int32_t nodeType
 		bool var$0 = (node = _nextsib(node)) != $DTM::NULL;
 		if (var$0) {
 			bool var$1 = (eType = _exptype(node)) != nodeType;
-			var$0 = (var$1 && $nc(this->m_expandedNameTable)->getType(eType) != nodeType);
+			var$0 = var$1 && $nc(this->m_expandedNameTable)->getType(eType) != nodeType;
 		}
 		if (!(var$0)) {
 			break;
 		}
 		{
+			;
 		}
 	}
 	return (node == $DTM::NULL ? $DTM::NULL : makeNodeHandle(node));
@@ -868,14 +677,14 @@ int32_t DTMDefaultBase::getNextAttributeIdentity(int32_t identity) {
 }
 
 void DTMDefaultBase::declareNamespaceInContext(int32_t elementNodeIndex, int32_t namespaceNodeIndex) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SuballocatedIntVector, nsList, nullptr);
 	if (this->m_namespaceDeclSets == nullptr) {
 		$set(this, m_namespaceDeclSetElements, $new($SuballocatedIntVector, 32));
-		$nc(this->m_namespaceDeclSetElements)->addElement(elementNodeIndex);
+		this->m_namespaceDeclSetElements->addElement(elementNodeIndex);
 		$set(this, m_namespaceDeclSets, $new($Vector));
 		$assign(nsList, $new($SuballocatedIntVector, 32));
-		$nc(this->m_namespaceDeclSets)->add(nsList);
+		this->m_namespaceDeclSets->add(nsList);
 	} else {
 		int32_t last = $nc(this->m_namespaceDeclSetElements)->size() - 1;
 		if (last >= 0 && elementNodeIndex == $nc(this->m_namespaceDeclSetElements)->elementAt(last)) {
@@ -977,7 +786,7 @@ int32_t DTMDefaultBase::getFirstNamespaceNode(int32_t nodeHandle, bool inScope) 
 		int32_t identity = makeNodeIdentity(nodeHandle);
 		if (_type(identity) == $DTM::ELEMENT_NODE) {
 			$var($SuballocatedIntVector, nsContext, findNamespaceContext(identity));
-			if (nsContext == nullptr || $nc(nsContext)->size() < 1) {
+			if (nsContext == nullptr || nsContext->size() < 1) {
 				return $DTM::NULL;
 			}
 			return $nc(nsContext)->elementAt(0);
@@ -1048,8 +857,8 @@ int32_t DTMDefaultBase::getOwnerDocument(int32_t nodeHandle) {
 }
 
 int32_t DTMDefaultBase::getDocumentRoot(int32_t nodeHandle) {
-	$useLocalCurrentObjectStackCache();
-	return $nc($($nc($(getManager()))->getDTM(nodeHandle)))->getDocument();
+	$useLocalObjectStack();
+	return $$nc($$nc(getManager())->getDTM(nodeHandle))->getDocument();
 }
 
 int32_t DTMDefaultBase::getStringValueChunkCount(int32_t nodeHandle) {
@@ -1168,7 +977,7 @@ bool DTMDefaultBase::isDocumentAllDeclarationsProcessed(int32_t documentHandle) 
 }
 
 $Node* DTMDefaultBase::getNode(int32_t nodeHandle) {
-	return static_cast<$Node*>(static_cast<$Document*>($new($DTMNodeProxy, this, nodeHandle)));
+	return $cast($Document, $new($DTMNodeProxy, this, nodeHandle));
 }
 
 void DTMDefaultBase::appendChild(int32_t newChild, bool clone, bool cloneDepth) {
@@ -1192,20 +1001,20 @@ bool DTMDefaultBase::getShouldStripWhitespace() {
 void DTMDefaultBase::pushShouldStripWhitespace(bool shouldStrip) {
 	this->m_shouldStripWS = shouldStrip;
 	if (nullptr != this->m_shouldStripWhitespaceStack) {
-		$nc(this->m_shouldStripWhitespaceStack)->push(shouldStrip);
+		this->m_shouldStripWhitespaceStack->push(shouldStrip);
 	}
 }
 
 void DTMDefaultBase::popShouldStripWhitespace() {
 	if (nullptr != this->m_shouldStripWhitespaceStack) {
-		this->m_shouldStripWS = $nc(this->m_shouldStripWhitespaceStack)->popAndTop();
+		this->m_shouldStripWS = this->m_shouldStripWhitespaceStack->popAndTop();
 	}
 }
 
 void DTMDefaultBase::setShouldStripWhitespace(bool shouldStrip) {
 	this->m_shouldStripWS = shouldStrip;
 	if (nullptr != this->m_shouldStripWhitespaceStack) {
-		$nc(this->m_shouldStripWhitespaceStack)->setTop(shouldStrip);
+		this->m_shouldStripWhitespaceStack->setTop(shouldStrip);
 	}
 }
 
@@ -1237,7 +1046,142 @@ DTMDefaultBase::DTMDefaultBase() {
 }
 
 $Class* DTMDefaultBase::load$($String* name, bool initialize) {
-	$loadClass(DTMDefaultBase, name, initialize, &_DTMDefaultBase_ClassInfo_, allocate$DTMDefaultBase);
+	$FieldInfo fieldInfos$$[] = {
+		{"JJK_DEBUG", "Z", nullptr, $STATIC | $FINAL, $constField(DTMDefaultBase, JJK_DEBUG)},
+		{"ROOTNODE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DTMDefaultBase, ROOTNODE)},
+		{"m_size", "I", nullptr, $PROTECTED, $field(DTMDefaultBase, m_size)},
+		{"m_exptype", "Lcom/sun/org/apache/xml/internal/utils/SuballocatedIntVector;", nullptr, $PROTECTED, $field(DTMDefaultBase, m_exptype)},
+		{"m_firstch", "Lcom/sun/org/apache/xml/internal/utils/SuballocatedIntVector;", nullptr, $PROTECTED, $field(DTMDefaultBase, m_firstch)},
+		{"m_nextsib", "Lcom/sun/org/apache/xml/internal/utils/SuballocatedIntVector;", nullptr, $PROTECTED, $field(DTMDefaultBase, m_nextsib)},
+		{"m_prevsib", "Lcom/sun/org/apache/xml/internal/utils/SuballocatedIntVector;", nullptr, $PROTECTED, $field(DTMDefaultBase, m_prevsib)},
+		{"m_parent", "Lcom/sun/org/apache/xml/internal/utils/SuballocatedIntVector;", nullptr, $PROTECTED, $field(DTMDefaultBase, m_parent)},
+		{"m_namespaceDeclSets", "Ljava/util/Vector;", "Ljava/util/Vector<Lcom/sun/org/apache/xml/internal/utils/SuballocatedIntVector;>;", $PROTECTED, $field(DTMDefaultBase, m_namespaceDeclSets)},
+		{"m_namespaceDeclSetElements", "Lcom/sun/org/apache/xml/internal/utils/SuballocatedIntVector;", nullptr, $PROTECTED, $field(DTMDefaultBase, m_namespaceDeclSetElements)},
+		{"m_elemIndexes", "[[[I", nullptr, $PROTECTED, $field(DTMDefaultBase, m_elemIndexes)},
+		{"DEFAULT_BLOCKSIZE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DTMDefaultBase, DEFAULT_BLOCKSIZE)},
+		{"DEFAULT_NUMBLOCKS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DTMDefaultBase, DEFAULT_NUMBLOCKS)},
+		{"DEFAULT_NUMBLOCKS_SMALL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DTMDefaultBase, DEFAULT_NUMBLOCKS_SMALL)},
+		{"NOTPROCESSED", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(DTMDefaultBase, NOTPROCESSED)},
+		{"m_mgr", "Lcom/sun/org/apache/xml/internal/dtm/DTMManager;", nullptr, $PUBLIC, $field(DTMDefaultBase, m_mgr)},
+		{"m_mgrDefault", "Lcom/sun/org/apache/xml/internal/dtm/ref/DTMManagerDefault;", nullptr, $PROTECTED, $field(DTMDefaultBase, m_mgrDefault)},
+		{"m_dtmIdent", "Lcom/sun/org/apache/xml/internal/utils/SuballocatedIntVector;", nullptr, $PROTECTED, $field(DTMDefaultBase, m_dtmIdent)},
+		{"m_documentBaseURI", "Ljava/lang/String;", nullptr, $PROTECTED, $field(DTMDefaultBase, m_documentBaseURI)},
+		{"m_wsfilter", "Lcom/sun/org/apache/xml/internal/dtm/DTMWSFilter;", nullptr, $PROTECTED, $field(DTMDefaultBase, m_wsfilter)},
+		{"m_shouldStripWS", "Z", nullptr, $PROTECTED, $field(DTMDefaultBase, m_shouldStripWS)},
+		{"m_shouldStripWhitespaceStack", "Lcom/sun/org/apache/xml/internal/utils/BoolStack;", nullptr, $PROTECTED, $field(DTMDefaultBase, m_shouldStripWhitespaceStack)},
+		{"m_xstrf", "Lcom/sun/org/apache/xml/internal/utils/XMLStringFactory;", nullptr, $PROTECTED, $field(DTMDefaultBase, m_xstrf)},
+		{"m_expandedNameTable", "Lcom/sun/org/apache/xml/internal/dtm/ref/ExpandedNameTable;", nullptr, $PROTECTED, $field(DTMDefaultBase, m_expandedNameTable)},
+		{"m_indexing", "Z", nullptr, $PROTECTED, $field(DTMDefaultBase, m_indexing)},
+		{"m_traversers", "[Lcom/sun/org/apache/xml/internal/dtm/DTMAxisTraverser;", nullptr, $PROTECTED, $field(DTMDefaultBase, m_traversers)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"dispatchCharactersEvents", "(ILorg/xml/sax/ContentHandler;Z)V", nullptr, $PUBLIC | $ABSTRACT},
+		{"dispatchToEvents", "(ILorg/xml/sax/ContentHandler;)V", nullptr, $PUBLIC | $ABSTRACT},
+		{"getAttributeNode", "(ILjava/lang/String;Ljava/lang/String;)I", nullptr, $PUBLIC | $ABSTRACT},
+		{"getDocumentTypeDeclarationPublicIdentifier", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
+		{"getDocumentTypeDeclarationSystemIdentifier", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
+		{"getElementById", "(Ljava/lang/String;)I", nullptr, $PUBLIC | $ABSTRACT},
+		{"getLocalName", "(I)Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
+		{"getNamespaceURI", "(I)Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
+		{"getNodeName", "(I)Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
+		{"getNodeValue", "(I)Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
+		{"getPrefix", "(I)Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
+		{"getStringValue", "(I)Lcom/sun/org/apache/xml/internal/utils/XMLString;", nullptr, $PUBLIC | $ABSTRACT},
+		{"getUnparsedEntityURI", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
+		{"<init>", "(Lcom/sun/org/apache/xml/internal/dtm/DTMManager;Ljavax/xml/transform/Source;ILcom/sun/org/apache/xml/internal/dtm/DTMWSFilter;Lcom/sun/org/apache/xml/internal/utils/XMLStringFactory;Z)V", nullptr, $PUBLIC, $method(DTMDefaultBase, init$, void, $DTMManager*, $Source*, int32_t, $DTMWSFilter*, $XMLStringFactory*, bool)},
+		{"<init>", "(Lcom/sun/org/apache/xml/internal/dtm/DTMManager;Ljavax/xml/transform/Source;ILcom/sun/org/apache/xml/internal/dtm/DTMWSFilter;Lcom/sun/org/apache/xml/internal/utils/XMLStringFactory;ZIZZ)V", nullptr, $PUBLIC, $method(DTMDefaultBase, init$, void, $DTMManager*, $Source*, int32_t, $DTMWSFilter*, $XMLStringFactory*, bool, int32_t, bool, bool)},
+		{"_exptype", "(I)I", nullptr, $PROTECTED, $virtualMethod(DTMDefaultBase, _exptype, int32_t, int32_t)},
+		{"_firstch", "(I)I", nullptr, $PROTECTED, $virtualMethod(DTMDefaultBase, _firstch, int32_t, int32_t)},
+		{"_level", "(I)I", nullptr, $PROTECTED, $virtualMethod(DTMDefaultBase, _level, int32_t, int32_t)},
+		{"_nextsib", "(I)I", nullptr, $PROTECTED, $virtualMethod(DTMDefaultBase, _nextsib, int32_t, int32_t)},
+		{"_parent", "(I)I", nullptr, $PROTECTED, $virtualMethod(DTMDefaultBase, _parent, int32_t, int32_t)},
+		{"_prevsib", "(I)I", nullptr, $PROTECTED, $virtualMethod(DTMDefaultBase, _prevsib, int32_t, int32_t)},
+		{"_type", "(I)S", nullptr, $PROTECTED, $virtualMethod(DTMDefaultBase, _type, int16_t, int32_t)},
+		{"appendChild", "(IZZ)V", nullptr, $PUBLIC, $virtualMethod(DTMDefaultBase, appendChild, void, int32_t, bool, bool)},
+		{"appendTextChild", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(DTMDefaultBase, appendTextChild, void, $String*)},
+		{"declareNamespaceInContext", "(II)V", nullptr, $PROTECTED, $virtualMethod(DTMDefaultBase, declareNamespaceInContext, void, int32_t, int32_t)},
+		{"documentRegistration", "()V", nullptr, $PUBLIC, $virtualMethod(DTMDefaultBase, documentRegistration, void)},
+		{"documentRelease", "()V", nullptr, $PUBLIC, $virtualMethod(DTMDefaultBase, documentRelease, void)},
+		{"dumpDTM", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $virtualMethod(DTMDefaultBase, dumpDTM, void, $OutputStream*)},
+		{"dumpNode", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DTMDefaultBase, dumpNode, $String*, int32_t)},
+		{"ensureSizeOfIndex", "(II)V", nullptr, $PROTECTED, $virtualMethod(DTMDefaultBase, ensureSizeOfIndex, void, int32_t, int32_t)},
+		{"error", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(DTMDefaultBase, error, void, $String*)},
+		{"findElementFromIndex", "(III)I", nullptr, 0, $virtualMethod(DTMDefaultBase, findElementFromIndex, int32_t, int32_t, int32_t, int32_t)},
+		{"findGTE", "([IIII)I", nullptr, $PROTECTED, $virtualMethod(DTMDefaultBase, findGTE, int32_t, $ints*, int32_t, int32_t, int32_t)},
+		{"findInSortedSuballocatedIntVector", "(Lcom/sun/org/apache/xml/internal/utils/SuballocatedIntVector;I)I", nullptr, $PROTECTED, $virtualMethod(DTMDefaultBase, findInSortedSuballocatedIntVector, int32_t, $SuballocatedIntVector*, int32_t)},
+		{"findNamespaceContext", "(I)Lcom/sun/org/apache/xml/internal/utils/SuballocatedIntVector;", nullptr, $PROTECTED, $virtualMethod(DTMDefaultBase, findNamespaceContext, $SuballocatedIntVector*, int32_t)},
+		{"getDTMIDs", "()Lcom/sun/org/apache/xml/internal/utils/SuballocatedIntVector;", nullptr, $PUBLIC, $virtualMethod(DTMDefaultBase, getDTMIDs, $SuballocatedIntVector*)},
+		{"getDocument", "()I", nullptr, $PUBLIC, $virtualMethod(DTMDefaultBase, getDocument, int32_t)},
+		{"getDocumentAllDeclarationsProcessed", "()Z", nullptr, $PUBLIC, $virtualMethod(DTMDefaultBase, getDocumentAllDeclarationsProcessed, bool)},
+		{"getDocumentBaseURI", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DTMDefaultBase, getDocumentBaseURI, $String*)},
+		{"getDocumentEncoding", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DTMDefaultBase, getDocumentEncoding, $String*, int32_t)},
+		{"getDocumentRoot", "(I)I", nullptr, $PUBLIC, $virtualMethod(DTMDefaultBase, getDocumentRoot, int32_t, int32_t)},
+		{"getDocumentStandalone", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DTMDefaultBase, getDocumentStandalone, $String*, int32_t)},
+		{"getDocumentSystemIdentifier", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DTMDefaultBase, getDocumentSystemIdentifier, $String*, int32_t)},
+		{"getDocumentVersion", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DTMDefaultBase, getDocumentVersion, $String*, int32_t)},
+		{"getExpandedTypeID", "(I)I", nullptr, $PUBLIC, $virtualMethod(DTMDefaultBase, getExpandedTypeID, int32_t, int32_t)},
+		{"getExpandedTypeID", "(Ljava/lang/String;Ljava/lang/String;I)I", nullptr, $PUBLIC, $virtualMethod(DTMDefaultBase, getExpandedTypeID, int32_t, $String*, $String*, int32_t)},
+		{"getFirstAttribute", "(I)I", nullptr, $PUBLIC, $virtualMethod(DTMDefaultBase, getFirstAttribute, int32_t, int32_t)},
+		{"getFirstAttributeIdentity", "(I)I", nullptr, $PROTECTED, $virtualMethod(DTMDefaultBase, getFirstAttributeIdentity, int32_t, int32_t)},
+		{"getFirstChild", "(I)I", nullptr, $PUBLIC, $virtualMethod(DTMDefaultBase, getFirstChild, int32_t, int32_t)},
+		{"getFirstNamespaceNode", "(IZ)I", nullptr, $PUBLIC, $virtualMethod(DTMDefaultBase, getFirstNamespaceNode, int32_t, int32_t, bool)},
+		{"getLastChild", "(I)I", nullptr, $PUBLIC, $virtualMethod(DTMDefaultBase, getLastChild, int32_t, int32_t)},
+		{"getLevel", "(I)S", nullptr, $PUBLIC, $virtualMethod(DTMDefaultBase, getLevel, int16_t, int32_t)},
+		{"getLocalNameFromExpandedNameID", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DTMDefaultBase, getLocalNameFromExpandedNameID, $String*, int32_t)},
+		{"getManager", "()Lcom/sun/org/apache/xml/internal/dtm/DTMManager;", nullptr, $PUBLIC, $virtualMethod(DTMDefaultBase, getManager, $DTMManager*)},
+		{"getNamespaceFromExpandedNameID", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DTMDefaultBase, getNamespaceFromExpandedNameID, $String*, int32_t)},
+		{"getNamespaceType", "(I)I", nullptr, $PUBLIC, $virtualMethod(DTMDefaultBase, getNamespaceType, int32_t, int32_t)},
+		{"getNextAttribute", "(I)I", nullptr, $PUBLIC, $virtualMethod(DTMDefaultBase, getNextAttribute, int32_t, int32_t)},
+		{"getNextAttributeIdentity", "(I)I", nullptr, $PROTECTED, $virtualMethod(DTMDefaultBase, getNextAttributeIdentity, int32_t, int32_t)},
+		{"getNextNamespaceNode", "(IIZ)I", nullptr, $PUBLIC, $virtualMethod(DTMDefaultBase, getNextNamespaceNode, int32_t, int32_t, int32_t, bool)},
+		{"getNextNodeIdentity", "(I)I", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(DTMDefaultBase, getNextNodeIdentity, int32_t, int32_t)},
+		{"getNextSibling", "(I)I", nullptr, $PUBLIC, $virtualMethod(DTMDefaultBase, getNextSibling, int32_t, int32_t)},
+		{"getNode", "(I)Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(DTMDefaultBase, getNode, $Node*, int32_t)},
+		{"getNodeHandle", "(I)I", nullptr, $PUBLIC, $virtualMethod(DTMDefaultBase, getNodeHandle, int32_t, int32_t)},
+		{"getNodeIdent", "(I)I", nullptr, $PUBLIC, $virtualMethod(DTMDefaultBase, getNodeIdent, int32_t, int32_t)},
+		{"getNodeNameX", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DTMDefaultBase, getNodeNameX, $String*, int32_t)},
+		{"getNodeType", "(I)S", nullptr, $PUBLIC, $virtualMethod(DTMDefaultBase, getNodeType, int16_t, int32_t)},
+		{"getNumberOfNodes", "()I", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(DTMDefaultBase, getNumberOfNodes, int32_t)},
+		{"getOwnerDocument", "(I)I", nullptr, $PUBLIC, $virtualMethod(DTMDefaultBase, getOwnerDocument, int32_t, int32_t)},
+		{"getParent", "(I)I", nullptr, $PUBLIC, $virtualMethod(DTMDefaultBase, getParent, int32_t, int32_t)},
+		{"getPreviousSibling", "(I)I", nullptr, $PUBLIC, $virtualMethod(DTMDefaultBase, getPreviousSibling, int32_t, int32_t)},
+		{"getShouldStripWhitespace", "()Z", nullptr, $PROTECTED, $virtualMethod(DTMDefaultBase, getShouldStripWhitespace, bool)},
+		{"getStringValueChunk", "(II[I)[C", nullptr, $PUBLIC, $virtualMethod(DTMDefaultBase, getStringValueChunk, $chars*, int32_t, int32_t, $ints*)},
+		{"getStringValueChunkCount", "(I)I", nullptr, $PUBLIC, $virtualMethod(DTMDefaultBase, getStringValueChunkCount, int32_t, int32_t)},
+		{"getTypedAttribute", "(II)I", nullptr, $PROTECTED, $virtualMethod(DTMDefaultBase, getTypedAttribute, int32_t, int32_t, int32_t)},
+		{"getTypedFirstChild", "(II)I", nullptr, $PUBLIC, $virtualMethod(DTMDefaultBase, getTypedFirstChild, int32_t, int32_t, int32_t)},
+		{"getTypedNextSibling", "(II)I", nullptr, $PUBLIC, $virtualMethod(DTMDefaultBase, getTypedNextSibling, int32_t, int32_t, int32_t)},
+		{"hasChildNodes", "(I)Z", nullptr, $PUBLIC, $virtualMethod(DTMDefaultBase, hasChildNodes, bool, int32_t)},
+		{"indexNode", "(II)V", nullptr, $PROTECTED, $virtualMethod(DTMDefaultBase, indexNode, void, int32_t, int32_t)},
+		{"isAttributeSpecified", "(I)Z", nullptr, $PUBLIC | $ABSTRACT},
+		{"isCharacterElementContentWhitespace", "(I)Z", nullptr, $PUBLIC, $virtualMethod(DTMDefaultBase, isCharacterElementContentWhitespace, bool, int32_t)},
+		{"isDocumentAllDeclarationsProcessed", "(I)Z", nullptr, $PUBLIC, $virtualMethod(DTMDefaultBase, isDocumentAllDeclarationsProcessed, bool, int32_t)},
+		{"isNodeAfter", "(II)Z", nullptr, $PUBLIC, $virtualMethod(DTMDefaultBase, isNodeAfter, bool, int32_t, int32_t)},
+		{"isSupported", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(DTMDefaultBase, isSupported, bool, $String*, $String*)},
+		{"makeNodeHandle", "(I)I", nullptr, $PUBLIC | $FINAL, $method(DTMDefaultBase, makeNodeHandle, int32_t, int32_t)},
+		{"makeNodeIdentity", "(I)I", nullptr, $PUBLIC | $FINAL, $method(DTMDefaultBase, makeNodeIdentity, int32_t, int32_t)},
+		{"migrateTo", "(Lcom/sun/org/apache/xml/internal/dtm/DTMManager;)V", nullptr, $PUBLIC, $virtualMethod(DTMDefaultBase, migrateTo, void, $DTMManager*)},
+		{"nextNode", "()Z", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(DTMDefaultBase, nextNode, bool)},
+		{"popShouldStripWhitespace", "()V", nullptr, $PROTECTED, $virtualMethod(DTMDefaultBase, popShouldStripWhitespace, void)},
+		{"pushShouldStripWhitespace", "(Z)V", nullptr, $PROTECTED, $virtualMethod(DTMDefaultBase, pushShouldStripWhitespace, void, bool)},
+		{"setDocumentBaseURI", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(DTMDefaultBase, setDocumentBaseURI, void, $String*)},
+		{"setFeature", "(Ljava/lang/String;Z)V", nullptr, $PUBLIC, $virtualMethod(DTMDefaultBase, setFeature, void, $String*, bool)},
+		{"setShouldStripWhitespace", "(Z)V", nullptr, $PROTECTED, $virtualMethod(DTMDefaultBase, setShouldStripWhitespace, void, bool)},
+		{"supportsPreStripping", "()Z", nullptr, $PUBLIC, $virtualMethod(DTMDefaultBase, supportsPreStripping, bool)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"com.sun.org.apache.xml.internal.dtm.ref.DTMDefaultBase",
+		"java.lang.Object",
+		"com.sun.org.apache.xml.internal.dtm.DTM",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DTMDefaultBase, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DTMDefaultBase);
+	});
 	return class$;
 }
 

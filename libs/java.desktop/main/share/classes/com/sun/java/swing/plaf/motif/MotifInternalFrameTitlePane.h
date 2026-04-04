@@ -81,6 +81,7 @@ public:
 	virtual bool equals(Object$* arg0) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::javax::swing::JInternalFrame* frame);
 	static ::javax::swing::JInternalFrame* access$000(::com::sun::java::swing::plaf::motif::MotifInternalFrameTitlePane* x0);
 	static ::javax::swing::Action* access$100(::com::sun::java::swing::plaf::motif::MotifInternalFrameTitlePane* x0);

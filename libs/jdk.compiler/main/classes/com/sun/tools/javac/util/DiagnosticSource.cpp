@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/util/DiagnosticSource.h>
-
 #include <com/sun/tools/javac/file/JavacFileManager.h>
 #include <com/sun/tools/javac/tree/EndPosTable.h>
 #include <com/sun/tools/javac/util/AbstractLog.h>
@@ -40,57 +39,6 @@ namespace com {
 			namespace javac {
 				namespace util {
 
-$FieldInfo _DiagnosticSource_FieldInfo_[] = {
-	{"NO_SOURCE", "Lcom/sun/tools/javac/util/DiagnosticSource;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DiagnosticSource, NO_SOURCE)},
-	{"fileObject", "Ljavax/tools/JavaFileObject;", nullptr, $PROTECTED, $field(DiagnosticSource, fileObject)},
-	{"endPosTable", "Lcom/sun/tools/javac/tree/EndPosTable;", nullptr, $PROTECTED, $field(DiagnosticSource, endPosTable)},
-	{"refBuf", "Ljava/lang/ref/SoftReference;", "Ljava/lang/ref/SoftReference<[C>;", $PROTECTED, $field(DiagnosticSource, refBuf)},
-	{"buf", "[C", nullptr, $PROTECTED, $field(DiagnosticSource, buf)},
-	{"bufLen", "I", nullptr, $PROTECTED, $field(DiagnosticSource, bufLen)},
-	{"lineStart", "I", nullptr, $PROTECTED, $field(DiagnosticSource, lineStart)},
-	{"line", "I", nullptr, $PROTECTED, $field(DiagnosticSource, line)},
-	{"log", "Lcom/sun/tools/javac/util/AbstractLog;", nullptr, $PROTECTED, $field(DiagnosticSource, log)},
-	{}
-};
-
-$MethodInfo _DiagnosticSource_MethodInfo_[] = {
-	{"<init>", "(Ljavax/tools/JavaFileObject;Lcom/sun/tools/javac/util/AbstractLog;)V", nullptr, $PUBLIC, $method(DiagnosticSource, init$, void, $JavaFileObject*, $AbstractLog*)},
-	{"<init>", "()V", nullptr, $PRIVATE, $method(DiagnosticSource, init$, void)},
-	{"findLine", "(I)Z", nullptr, $PROTECTED, $virtualMethod(DiagnosticSource, findLine, bool, int32_t)},
-	{"getColumnNumber", "(IZ)I", nullptr, $PUBLIC, $virtualMethod(DiagnosticSource, getColumnNumber, int32_t, int32_t, bool)},
-	{"getEndPosTable", "()Lcom/sun/tools/javac/tree/EndPosTable;", nullptr, $PUBLIC, $virtualMethod(DiagnosticSource, getEndPosTable, $EndPosTable*)},
-	{"getFile", "()Ljavax/tools/JavaFileObject;", nullptr, $PUBLIC, $virtualMethod(DiagnosticSource, getFile, $JavaFileObject*)},
-	{"getLine", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DiagnosticSource, getLine, $String*, int32_t)},
-	{"getLineNumber", "(I)I", nullptr, $PUBLIC, $virtualMethod(DiagnosticSource, getLineNumber, int32_t, int32_t)},
-	{"initBuf", "(Ljavax/tools/JavaFileObject;)[C", nullptr, $PROTECTED, $virtualMethod(DiagnosticSource, initBuf, $chars*, $JavaFileObject*), "java.io.IOException"},
-	{"setEndPosTable", "(Lcom/sun/tools/javac/tree/EndPosTable;)V", nullptr, $PUBLIC, $virtualMethod(DiagnosticSource, setEndPosTable, void, $EndPosTable*)},
-	{}
-};
-
-$InnerClassInfo _DiagnosticSource_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.util.DiagnosticSource$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _DiagnosticSource_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.util.DiagnosticSource",
-	"java.lang.Object",
-	nullptr,
-	_DiagnosticSource_FieldInfo_,
-	_DiagnosticSource_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DiagnosticSource_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.util.DiagnosticSource$1"
-};
-
-$Object* allocate$DiagnosticSource($Class* clazz) {
-	return $of($alloc(DiagnosticSource));
-}
-
 DiagnosticSource* DiagnosticSource::NO_SOURCE = nullptr;
 
 void DiagnosticSource::init$($JavaFileObject* fo, $AbstractLog* log) {
@@ -106,111 +54,105 @@ $JavaFileObject* DiagnosticSource::getFile() {
 }
 
 int32_t DiagnosticSource::getLineNumber(int32_t pos) {
-	{
-		$var($Throwable, var$0, nullptr);
-		int32_t var$2 = 0;
-		bool return$1 = false;
-		try {
-			if (findLine(pos)) {
-				var$2 = this->line;
-				return$1 = true;
-				goto $finally;
-			}
-			var$2 = 0;
+	$var($Throwable, var$0, nullptr);
+	int32_t var$2 = 0;
+	bool return$1 = false;
+	try {
+		if (findLine(pos)) {
+			var$2 = this->line;
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			$set(this, buf, nullptr);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+		var$2 = 0;
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		$set(this, buf, nullptr);
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
 
 int32_t DiagnosticSource::getColumnNumber(int32_t pos, bool expandTabs) {
-	{
-		$var($Throwable, var$0, nullptr);
-		int32_t var$2 = 0;
-		bool return$1 = false;
-		try {
-			if (findLine(pos)) {
-				int32_t column = 0;
-				for (int32_t bp = this->lineStart; bp < pos; ++bp) {
-					if (bp >= this->bufLen) {
-						var$2 = 0;
-						return$1 = true;
-						goto $finally;
-					}
-					if ($nc(this->buf)->get(bp) == u'\t' && expandTabs) {
-						column = $LayoutCharacters::tabulate(column);
-					} else {
-						++column;
-					}
+	$var($Throwable, var$0, nullptr);
+	int32_t var$2 = 0;
+	bool return$1 = false;
+	try {
+		if (findLine(pos)) {
+			int32_t column = 0;
+			for (int32_t bp = this->lineStart; bp < pos; ++bp) {
+				if (bp >= this->bufLen) {
+					var$2 = 0;
+					return$1 = true;
+					goto $finally;
 				}
-				var$2 = column + 1;
-				return$1 = true;
-				goto $finally;
+				if ($nc(this->buf)->get(bp) == u'\t' && expandTabs) {
+					column = $LayoutCharacters::tabulate(column);
+				} else {
+					++column;
+				}
 			}
-			var$2 = 0;
+			var$2 = column + 1;
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			$set(this, buf, nullptr);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+		var$2 = 0;
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		$set(this, buf, nullptr);
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
 
 $String* DiagnosticSource::getLine(int32_t pos) {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Throwable, var$0, nullptr);
-		$var($String, var$2, nullptr);
-		bool return$1 = false;
-		try {
-			if (!findLine(pos)) {
-				$assign(var$2, nullptr);
-				return$1 = true;
-				goto $finally;
-			}
-			int32_t lineEnd = this->lineStart;
-			while (lineEnd < this->bufLen && $nc(this->buf)->get(lineEnd) != (int8_t)13 && $nc(this->buf)->get(lineEnd) != (int8_t)10) {
-				++lineEnd;
-			}
-			if (lineEnd - this->lineStart == 0) {
-				$assign(var$2, nullptr);
-				return$1 = true;
-				goto $finally;
-			}
-			$assign(var$2, $new($String, this->buf, this->lineStart, lineEnd - this->lineStart));
+	$useLocalObjectStack();
+	$var($Throwable, var$0, nullptr);
+	$var($String, var$2, nullptr);
+	bool return$1 = false;
+	try {
+		if (!findLine(pos)) {
+			$assign(var$2, nullptr);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			$set(this, buf, nullptr);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+		int32_t lineEnd = this->lineStart;
+		while (lineEnd < this->bufLen && $nc(this->buf)->get(lineEnd) != 13 && this->buf->get(lineEnd) != 10) {
+			++lineEnd;
 		}
-		if (return$1) {
-			return var$2;
+		if (lineEnd - this->lineStart == 0) {
+			$assign(var$2, nullptr);
+			return$1 = true;
+			goto $finally;
 		}
+		$assign(var$2, $new($String, this->buf, this->lineStart, lineEnd - this->lineStart));
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		$set(this, buf, nullptr);
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
@@ -232,7 +174,7 @@ bool DiagnosticSource::findLine(int32_t pos) {
 	}
 	try {
 		if (this->buf == nullptr && this->refBuf != nullptr) {
-			$set(this, buf, $cast($chars, $nc(this->refBuf)->get()));
+			$set(this, buf, $cast($chars, this->refBuf->get()));
 		}
 		if (this->buf == nullptr) {
 			$set(this, buf, initBuf(this->fileObject));
@@ -246,20 +188,16 @@ bool DiagnosticSource::findLine(int32_t pos) {
 		while (bp < this->bufLen && bp < pos) {
 			switch ($nc(this->buf)->get(bp++)) {
 			case 13:
-				{
-					if (bp < this->bufLen && $nc(this->buf)->get(bp) == (int8_t)10) {
-						++bp;
-					}
-					++this->line;
-					this->lineStart = bp;
-					break;
+				if (bp < this->bufLen && this->buf->get(bp) == 10) {
+					++bp;
 				}
+				++this->line;
+				this->lineStart = bp;
+				break;
 			case 10:
-				{
-					++this->line;
-					this->lineStart = bp;
-					break;
-				}
+				++this->line;
+				this->lineStart = bp;
+				break;
 			}
 		}
 		return bp <= this->bufLen;
@@ -272,7 +210,7 @@ bool DiagnosticSource::findLine(int32_t pos) {
 }
 
 $chars* DiagnosticSource::initBuf($JavaFileObject* fileObject) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($chars, buf, nullptr);
 	$var($CharSequence, cs, $nc(fileObject)->getCharContent(true));
 	{
@@ -286,7 +224,7 @@ $chars* DiagnosticSource::initBuf($JavaFileObject* fileObject) {
 			$assign(buf, $JavacFileManager::toArray(charBuffer));
 			this->bufLen = $nc(charBuffer)->limit();
 		} else {
-			$assign(buf, $nc($($nc(cs)->toString()))->toCharArray());
+			$assign(buf, $$nc($nc(cs)->toString())->toCharArray());
 			this->bufLen = buf->length;
 		}
 	}
@@ -294,7 +232,7 @@ $chars* DiagnosticSource::initBuf($JavaFileObject* fileObject) {
 	return buf;
 }
 
-void clinit$DiagnosticSource($Class* class$) {
+void DiagnosticSource::clinit$($Class* clazz) {
 	$assignStatic(DiagnosticSource::NO_SOURCE, $new($DiagnosticSource$1));
 }
 
@@ -302,7 +240,52 @@ DiagnosticSource::DiagnosticSource() {
 }
 
 $Class* DiagnosticSource::load$($String* name, bool initialize) {
-	$loadClass(DiagnosticSource, name, initialize, &_DiagnosticSource_ClassInfo_, clinit$DiagnosticSource, allocate$DiagnosticSource);
+	$FieldInfo fieldInfos$$[] = {
+		{"NO_SOURCE", "Lcom/sun/tools/javac/util/DiagnosticSource;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DiagnosticSource, NO_SOURCE)},
+		{"fileObject", "Ljavax/tools/JavaFileObject;", nullptr, $PROTECTED, $field(DiagnosticSource, fileObject)},
+		{"endPosTable", "Lcom/sun/tools/javac/tree/EndPosTable;", nullptr, $PROTECTED, $field(DiagnosticSource, endPosTable)},
+		{"refBuf", "Ljava/lang/ref/SoftReference;", "Ljava/lang/ref/SoftReference<[C>;", $PROTECTED, $field(DiagnosticSource, refBuf)},
+		{"buf", "[C", nullptr, $PROTECTED, $field(DiagnosticSource, buf)},
+		{"bufLen", "I", nullptr, $PROTECTED, $field(DiagnosticSource, bufLen)},
+		{"lineStart", "I", nullptr, $PROTECTED, $field(DiagnosticSource, lineStart)},
+		{"line", "I", nullptr, $PROTECTED, $field(DiagnosticSource, line)},
+		{"log", "Lcom/sun/tools/javac/util/AbstractLog;", nullptr, $PROTECTED, $field(DiagnosticSource, log)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/tools/JavaFileObject;Lcom/sun/tools/javac/util/AbstractLog;)V", nullptr, $PUBLIC, $method(DiagnosticSource, init$, void, $JavaFileObject*, $AbstractLog*)},
+		{"<init>", "()V", nullptr, $PRIVATE, $method(DiagnosticSource, init$, void)},
+		{"findLine", "(I)Z", nullptr, $PROTECTED, $virtualMethod(DiagnosticSource, findLine, bool, int32_t)},
+		{"getColumnNumber", "(IZ)I", nullptr, $PUBLIC, $virtualMethod(DiagnosticSource, getColumnNumber, int32_t, int32_t, bool)},
+		{"getEndPosTable", "()Lcom/sun/tools/javac/tree/EndPosTable;", nullptr, $PUBLIC, $virtualMethod(DiagnosticSource, getEndPosTable, $EndPosTable*)},
+		{"getFile", "()Ljavax/tools/JavaFileObject;", nullptr, $PUBLIC, $virtualMethod(DiagnosticSource, getFile, $JavaFileObject*)},
+		{"getLine", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DiagnosticSource, getLine, $String*, int32_t)},
+		{"getLineNumber", "(I)I", nullptr, $PUBLIC, $virtualMethod(DiagnosticSource, getLineNumber, int32_t, int32_t)},
+		{"initBuf", "(Ljavax/tools/JavaFileObject;)[C", nullptr, $PROTECTED, $virtualMethod(DiagnosticSource, initBuf, $chars*, $JavaFileObject*), "java.io.IOException"},
+		{"setEndPosTable", "(Lcom/sun/tools/javac/tree/EndPosTable;)V", nullptr, $PUBLIC, $virtualMethod(DiagnosticSource, setEndPosTable, void, $EndPosTable*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.util.DiagnosticSource$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.util.DiagnosticSource",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.util.DiagnosticSource$1"
+	};
+	$loadClass(DiagnosticSource, name, initialize, &classInfo$$, DiagnosticSource::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(DiagnosticSource);
+	});
 	return class$;
 }
 

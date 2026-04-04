@@ -37,7 +37,7 @@ public:
 	void init$(::com::sun::org::apache::xpath::internal::compiler::Compiler* compiler, int32_t opPos, int32_t analysis);
 	virtual int32_t getAxis() override;
 	virtual int32_t getNextNode() override;
-	static const int64_t serialVersionUID = (int64_t)0x8B2D4DB23415C4CA;
+	static const int64_t serialVersionUID = (int64_t)0x8b2d4db23415c4ca;
 };
 
 						} // axes

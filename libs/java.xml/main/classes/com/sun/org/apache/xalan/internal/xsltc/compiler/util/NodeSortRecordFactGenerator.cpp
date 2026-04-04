@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/util/NodeSortRecordFactGenerator.h>
-
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/Stylesheet.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator.h>
 #include <jcpp.h>
@@ -19,25 +18,6 @@ namespace com {
 							namespace compiler {
 								namespace util {
 
-$MethodInfo _NodeSortRecordFactGenerator_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;I[Ljava/lang/String;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Stylesheet;)V", nullptr, $PUBLIC, $method(NodeSortRecordFactGenerator, init$, void, $String*, $String*, $String*, int32_t, $StringArray*, $Stylesheet*)},
-	{"isExternal", "()Z", nullptr, $PUBLIC, $virtualMethod(NodeSortRecordFactGenerator, isExternal, bool)},
-	{}
-};
-
-$ClassInfo _NodeSortRecordFactGenerator_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xalan.internal.xsltc.compiler.util.NodeSortRecordFactGenerator",
-	"com.sun.org.apache.xalan.internal.xsltc.compiler.util.ClassGenerator",
-	nullptr,
-	nullptr,
-	_NodeSortRecordFactGenerator_MethodInfo_
-};
-
-$Object* allocate$NodeSortRecordFactGenerator($Class* clazz) {
-	return $of($alloc(NodeSortRecordFactGenerator));
-}
-
 void NodeSortRecordFactGenerator::init$($String* className, $String* superClassName, $String* fileName, int32_t accessFlags, $StringArray* interfaces, $Stylesheet* stylesheet) {
 	$ClassGenerator::init$(className, superClassName, fileName, accessFlags, interfaces, stylesheet);
 }
@@ -50,7 +30,22 @@ NodeSortRecordFactGenerator::NodeSortRecordFactGenerator() {
 }
 
 $Class* NodeSortRecordFactGenerator::load$($String* name, bool initialize) {
-	$loadClass(NodeSortRecordFactGenerator, name, initialize, &_NodeSortRecordFactGenerator_ClassInfo_, allocate$NodeSortRecordFactGenerator);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;I[Ljava/lang/String;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Stylesheet;)V", nullptr, $PUBLIC, $method(NodeSortRecordFactGenerator, init$, void, $String*, $String*, $String*, int32_t, $StringArray*, $Stylesheet*)},
+		{"isExternal", "()Z", nullptr, $PUBLIC, $virtualMethod(NodeSortRecordFactGenerator, isExternal, bool)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xalan.internal.xsltc.compiler.util.NodeSortRecordFactGenerator",
+		"com.sun.org.apache.xalan.internal.xsltc.compiler.util.ClassGenerator",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(NodeSortRecordFactGenerator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(NodeSortRecordFactGenerator));
+	});
 	return class$;
 }
 

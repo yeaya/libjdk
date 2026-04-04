@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/synth/SynthButtonUI.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/Dimension.h>
@@ -10,7 +9,6 @@
 #include <java/awt/LayoutManager.h>
 #include <java/awt/Rectangle.h>
 #include <java/beans/PropertyChangeEvent.h>
-#include <java/beans/PropertyChangeListener.h>
 #include <javax/swing/AbstractButton.h>
 #include <javax/swing/ButtonModel.h>
 #include <javax/swing/Icon.h>
@@ -28,7 +26,6 @@
 #include <javax/swing/plaf/synth/SynthLookAndFeel.h>
 #include <javax/swing/plaf/synth/SynthPainter.h>
 #include <javax/swing/plaf/synth/SynthStyle.h>
-#include <javax/swing/plaf/synth/SynthUI.h>
 #include <javax/swing/text/View.h>
 #include <jcpp.h>
 
@@ -51,7 +48,6 @@ using $Graphics = ::java::awt::Graphics;
 using $Insets = ::java::awt::Insets;
 using $Rectangle = ::java::awt::Rectangle;
 using $PropertyChangeEvent = ::java::beans::PropertyChangeEvent;
-using $PropertyChangeListener = ::java::beans::PropertyChangeListener;
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -71,77 +67,14 @@ using $BasicHTML = ::javax::swing::plaf::basic::BasicHTML;
 using $ColorType = ::javax::swing::plaf::synth::ColorType;
 using $SynthConstants = ::javax::swing::plaf::synth::SynthConstants;
 using $SynthContext = ::javax::swing::plaf::synth::SynthContext;
-using $SynthGraphicsUtils = ::javax::swing::plaf::synth::SynthGraphicsUtils;
 using $SynthLookAndFeel = ::javax::swing::plaf::synth::SynthLookAndFeel;
-using $SynthPainter = ::javax::swing::plaf::synth::SynthPainter;
 using $SynthStyle = ::javax::swing::plaf::synth::SynthStyle;
-using $SynthUI = ::javax::swing::plaf::synth::SynthUI;
 using $View = ::javax::swing::text::View;
 
 namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace synth {
-
-$FieldInfo _SynthButtonUI_FieldInfo_[] = {
-	{"style", "Ljavax/swing/plaf/synth/SynthStyle;", nullptr, $PRIVATE, $field(SynthButtonUI, style)},
-	{"SYNTH_BUTTON_UI_KEY", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SynthButtonUI, SYNTH_BUTTON_UI_KEY)},
-	{}
-};
-
-$MethodInfo _SynthButtonUI_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SynthButtonUI, init$, void)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(SynthButtonUI, createUI, $ComponentUI*, $JComponent*)},
-	{"getBaseline", "(Ljavax/swing/JComponent;II)I", nullptr, $PUBLIC, $virtualMethod(SynthButtonUI, getBaseline, int32_t, $JComponent*, int32_t, int32_t)},
-	{"getComponentState", "(Ljavax/swing/JComponent;)I", nullptr, $PRIVATE, $method(SynthButtonUI, getComponentState, int32_t, $JComponent*)},
-	{"getContext", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/synth/SynthContext;", nullptr, $PUBLIC, $virtualMethod(SynthButtonUI, getContext, $SynthContext*, $JComponent*)},
-	{"getContext", "(Ljavax/swing/JComponent;I)Ljavax/swing/plaf/synth/SynthContext;", nullptr, 0, $virtualMethod(SynthButtonUI, getContext, $SynthContext*, $JComponent*, int32_t)},
-	{"getDefaultIcon", "(Ljavax/swing/AbstractButton;)Ljavax/swing/Icon;", nullptr, $PROTECTED, $virtualMethod(SynthButtonUI, getDefaultIcon, $Icon*, $AbstractButton*)},
-	{"getEnabledIcon", "(Ljavax/swing/AbstractButton;Ljavax/swing/Icon;)Ljavax/swing/Icon;", nullptr, $PRIVATE, $method(SynthButtonUI, getEnabledIcon, $Icon*, $AbstractButton*, $Icon*)},
-	{"getIcon", "(Ljavax/swing/AbstractButton;)Ljavax/swing/Icon;", nullptr, $PROTECTED, $virtualMethod(SynthButtonUI, getIcon, $Icon*, $AbstractButton*)},
-	{"getIcon", "(Ljavax/swing/AbstractButton;Ljavax/swing/Icon;Ljavax/swing/Icon;I)Ljavax/swing/Icon;", nullptr, $PRIVATE, $method(SynthButtonUI, getIcon, $Icon*, $AbstractButton*, $Icon*, $Icon*, int32_t)},
-	{"getMaximumSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(SynthButtonUI, getMaximumSize, $Dimension*, $JComponent*)},
-	{"getMinimumSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(SynthButtonUI, getMinimumSize, $Dimension*, $JComponent*)},
-	{"getPreferredSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(SynthButtonUI, getPreferredSize, $Dimension*, $JComponent*)},
-	{"getPressedIcon", "(Ljavax/swing/AbstractButton;Ljavax/swing/Icon;)Ljavax/swing/Icon;", nullptr, $PRIVATE, $method(SynthButtonUI, getPressedIcon, $Icon*, $AbstractButton*, $Icon*)},
-	{"getRolloverIcon", "(Ljavax/swing/AbstractButton;Ljavax/swing/Icon;)Ljavax/swing/Icon;", nullptr, $PRIVATE, $method(SynthButtonUI, getRolloverIcon, $Icon*, $AbstractButton*, $Icon*)},
-	{"getSelectedIcon", "(Ljavax/swing/AbstractButton;Ljavax/swing/Icon;)Ljavax/swing/Icon;", nullptr, $PRIVATE, $method(SynthButtonUI, getSelectedIcon, $Icon*, $AbstractButton*, $Icon*)},
-	{"getSizingIcon", "(Ljavax/swing/AbstractButton;)Ljavax/swing/Icon;", nullptr, $PROTECTED, $virtualMethod(SynthButtonUI, getSizingIcon, $Icon*, $AbstractButton*)},
-	{"getSpecificIcon", "(Ljavax/swing/AbstractButton;Ljavax/swing/Icon;Ljavax/swing/Icon;Ljavax/swing/Icon;I)Ljavax/swing/Icon;", nullptr, $PRIVATE, $method(SynthButtonUI, getSpecificIcon, $Icon*, $AbstractButton*, $Icon*, $Icon*, $Icon*, int32_t)},
-	{"getSynthDisabledIcon", "(Ljavax/swing/AbstractButton;Ljavax/swing/Icon;)Ljavax/swing/Icon;", nullptr, $PRIVATE, $method(SynthButtonUI, getSynthDisabledIcon, $Icon*, $AbstractButton*, $Icon*)},
-	{"getSynthIcon", "(Ljavax/swing/AbstractButton;I)Ljavax/swing/Icon;", nullptr, $PRIVATE, $method(SynthButtonUI, getSynthIcon, $Icon*, $AbstractButton*, int32_t)},
-	{"getTextShiftOffset", "(Ljavax/swing/plaf/synth/SynthContext;)I", nullptr, $PRIVATE, $method(SynthButtonUI, getTextShiftOffset, int32_t, $SynthContext*)},
-	{"installDefaults", "(Ljavax/swing/AbstractButton;)V", nullptr, $PROTECTED, $virtualMethod(SynthButtonUI, installDefaults, void, $AbstractButton*)},
-	{"installListeners", "(Ljavax/swing/AbstractButton;)V", nullptr, $PROTECTED, $virtualMethod(SynthButtonUI, installListeners, void, $AbstractButton*)},
-	{"paint", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(SynthButtonUI, paint, void, $Graphics*, $JComponent*)},
-	{"paint", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;)V", nullptr, $PROTECTED, $virtualMethod(SynthButtonUI, paint, void, $SynthContext*, $Graphics*)},
-	{"paintBackground", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, 0, $virtualMethod(SynthButtonUI, paintBackground, void, $SynthContext*, $Graphics*, $JComponent*)},
-	{"paintBorder", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(SynthButtonUI, paintBorder, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(SynthButtonUI, propertyChange, void, $PropertyChangeEvent*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"uninstallDefaults", "(Ljavax/swing/AbstractButton;)V", nullptr, $PROTECTED, $virtualMethod(SynthButtonUI, uninstallDefaults, void, $AbstractButton*)},
-	{"uninstallListeners", "(Ljavax/swing/AbstractButton;)V", nullptr, $PROTECTED, $virtualMethod(SynthButtonUI, uninstallListeners, void, $AbstractButton*)},
-	{"update", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(SynthButtonUI, update, void, $Graphics*, $JComponent*)},
-	{"updateStyle", "(Ljavax/swing/AbstractButton;)V", nullptr, 0, $virtualMethod(SynthButtonUI, updateStyle, void, $AbstractButton*)},
-	{}
-};
-
-$ClassInfo _SynthButtonUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.synth.SynthButtonUI",
-	"javax.swing.plaf.basic.BasicButtonUI",
-	"java.beans.PropertyChangeListener,javax.swing.plaf.synth.SynthUI",
-	_SynthButtonUI_FieldInfo_,
-	_SynthButtonUI_MethodInfo_
-};
-
-$Object* allocate$SynthButtonUI($Class* clazz) {
-	return $of($alloc(SynthButtonUI));
-}
 
 int32_t SynthButtonUI::hashCode() {
 	 return this->$BasicButtonUI::hashCode();
@@ -176,7 +109,6 @@ $ComponentUI* SynthButtonUI::createUI($JComponent* c) {
 
 void SynthButtonUI::installDefaults($AbstractButton* b) {
 	updateStyle(b);
-	$init($Boolean);
 	$LookAndFeel::installProperty(b, "rolloverEnabled"_s, $Boolean::TRUE);
 }
 
@@ -186,13 +118,13 @@ void SynthButtonUI::installListeners($AbstractButton* b) {
 }
 
 void SynthButtonUI::updateStyle($AbstractButton* b) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SynthContext, context, getContext(b, $SynthConstants::ENABLED));
 	$var($SynthStyle, oldStyle, this->style);
 	$set(this, style, $SynthLookAndFeel::updateStyle(context, this));
 	if (this->style != oldStyle) {
 		bool var$0 = $nc(b)->getMargin() == nullptr;
-		if (var$0 || ($instanceOf($UIResource, $($nc(b)->getMargin())))) {
+		if (var$0 || ($instanceOf($UIResource, $(b->getMargin())))) {
 			$var($Insets, margin, $cast($Insets, $nc(this->style)->get(context, $$str({$(getPropertyPrefix()), "margin"_s}))));
 			if (margin == nullptr) {
 				$assign(margin, $SynthLookAndFeel::EMPTY_UIRESOURCE_INSETS);
@@ -204,7 +136,6 @@ void SynthButtonUI::updateStyle($AbstractButton* b) {
 			$LookAndFeel::installProperty(b, "iconTextGap"_s, value);
 		}
 		$assign(value, $nc(this->style)->get(context, $$str({$(getPropertyPrefix()), "contentAreaFilled"_s})));
-		$init($Boolean);
 		$LookAndFeel::installProperty(b, "contentAreaFilled"_s, value != nullptr ? value : $of($Boolean::TRUE));
 		if (oldStyle != nullptr) {
 			uninstallKeyboardActions(b);
@@ -233,7 +164,7 @@ $SynthContext* SynthButtonUI::getContext($JComponent* c, int32_t state) {
 }
 
 int32_t SynthButtonUI::getComponentState($JComponent* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t state = $SynthConstants::ENABLED;
 	if (!$nc(c)->isEnabled()) {
 		state = $SynthConstants::DISABLED;
@@ -242,7 +173,7 @@ int32_t SynthButtonUI::getComponentState($JComponent* c) {
 		return $SynthLookAndFeel::getSelectedUIState() | $SynthConstants::ENABLED;
 	}
 	$var($AbstractButton, button, $cast($AbstractButton, c));
-	$var($ButtonModel, model, $nc(button)->getModel());
+	$var($ButtonModel, model, button->getModel());
 	if ($nc(model)->isPressed()) {
 		if (model->isArmed()) {
 			state = $SynthConstants::PRESSED;
@@ -250,24 +181,24 @@ int32_t SynthButtonUI::getComponentState($JComponent* c) {
 			state = $SynthConstants::MOUSE_OVER;
 		}
 	}
-	if ($nc(model)->isRollover()) {
+	if (model->isRollover()) {
 		state |= $SynthConstants::MOUSE_OVER;
 	}
-	if ($nc(model)->isSelected()) {
+	if (model->isSelected()) {
 		state |= $SynthConstants::SELECTED;
 	}
-	bool var$0 = $nc(c)->isFocusOwner();
+	bool var$0 = c->isFocusOwner();
 	if (var$0 && button->isFocusPainted()) {
 		state |= $SynthConstants::FOCUSED;
 	}
-	if (($instanceOf($JButton, c)) && $nc(($cast($JButton, c)))->isDefaultButton()) {
+	if (($instanceOf($JButton, c)) && $cast($JButton, c)->isDefaultButton()) {
 		state |= $SynthConstants::DEFAULT;
 	}
 	return state;
 }
 
 int32_t SynthButtonUI::getBaseline($JComponent* c, int32_t width, int32_t height) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (c == nullptr) {
 		$throwNew($NullPointerException, "Component must be non-null"_s);
 	}
@@ -276,7 +207,7 @@ int32_t SynthButtonUI::getBaseline($JComponent* c, int32_t width, int32_t height
 	}
 	$var($AbstractButton, b, $cast($AbstractButton, c));
 	$var($String, text, $nc(b)->getText());
-	if (text == nullptr || $nc(text)->isEmpty()) {
+	if (text == nullptr || text->isEmpty()) {
 		return -1;
 	}
 	$var($Insets, i, b->getInsets());
@@ -294,19 +225,14 @@ int32_t SynthButtonUI::getBaseline($JComponent* c, int32_t width, int32_t height
 	} else {
 		$assign(style, $SynthLookAndFeel::updateStyle(context, this));
 	}
-	$var($FontMetrics, fm, $nc($($nc(context)->getComponent()))->getFontMetrics($($nc(style)->getFont(context))));
-	$var($SynthContext, var$0, context);
-	$var($FontMetrics, var$1, fm);
-	$var($String, var$2, b->getText());
-	$var($Icon, var$3, b->getIcon());
-	int32_t var$4 = b->getHorizontalAlignment();
-	int32_t var$5 = b->getVerticalAlignment();
-	int32_t var$6 = b->getHorizontalTextPosition();
-	int32_t var$7 = b->getVerticalTextPosition();
-	$var($Rectangle, var$8, viewRect);
-	$var($Rectangle, var$9, iconRect);
-	$var($Rectangle, var$10, textRect);
-	$nc($($nc(style)->getGraphicsUtils(context)))->layoutText(var$0, var$1, var$2, var$3, var$4, var$5, var$6, var$7, var$8, var$9, var$10, b->getIconTextGap());
+	$var($FontMetrics, fm, $$nc(context->getComponent())->getFontMetrics($($nc(style)->getFont(context))));
+	$var($String, var$0, b->getText());
+	$var($Icon, var$1, b->getIcon());
+	int32_t var$2 = b->getHorizontalAlignment();
+	int32_t var$3 = b->getVerticalAlignment();
+	int32_t var$4 = b->getHorizontalTextPosition();
+	int32_t var$5 = b->getVerticalTextPosition();
+	$$nc(style->getGraphicsUtils(context))->layoutText(context, fm, var$0, var$1, var$2, var$3, var$4, var$5, viewRect, iconRect, textRect, b->getIconTextGap());
 	$init($BasicHTML);
 	$var($View, view, $cast($View, b->getClientProperty($BasicHTML::propertyKey)));
 	int32_t baseline = 0;
@@ -334,58 +260,53 @@ void SynthButtonUI::paint($Graphics* g, $JComponent* c) {
 }
 
 void SynthButtonUI::paint($SynthContext* context, $Graphics* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AbstractButton, b, $cast($AbstractButton, $nc(context)->getComponent()));
 	$init($ColorType);
-	$nc(g)->setColor($($nc($(context->getStyle()))->getColor(context, $ColorType::TEXT_FOREGROUND)));
+	$nc(g)->setColor($($$nc(context->getStyle())->getColor(context, $ColorType::TEXT_FOREGROUND)));
 	g->setFont($($nc(this->style)->getFont(context)));
-	$var($SynthContext, var$0, context);
-	$var($Graphics, var$1, g);
-	$var($String, var$2, $nc(b)->getText());
-	$var($Icon, var$3, getIcon(b));
-	int32_t var$4 = b->getHorizontalAlignment();
-	int32_t var$5 = b->getVerticalAlignment();
-	int32_t var$6 = b->getHorizontalTextPosition();
-	int32_t var$7 = b->getVerticalTextPosition();
-	int32_t var$8 = b->getIconTextGap();
-	int32_t var$9 = b->getDisplayedMnemonicIndex();
-	$nc($($nc($(context->getStyle()))->getGraphicsUtils(context)))->paintText(var$0, var$1, var$2, var$3, var$4, var$5, var$6, var$7, var$8, var$9, getTextShiftOffset(context));
+	$var($String, var$0, $nc(b)->getText());
+	$var($Icon, var$1, getIcon(b));
+	int32_t var$2 = b->getHorizontalAlignment();
+	int32_t var$3 = b->getVerticalAlignment();
+	int32_t var$4 = b->getHorizontalTextPosition();
+	int32_t var$5 = b->getVerticalTextPosition();
+	int32_t var$6 = b->getIconTextGap();
+	int32_t var$7 = b->getDisplayedMnemonicIndex();
+	$$nc($$nc(context->getStyle())->getGraphicsUtils(context))->paintText(context, g, var$0, var$1, var$2, var$3, var$4, var$5, var$6, var$7, getTextShiftOffset(context));
 }
 
 void SynthButtonUI::paintBackground($SynthContext* context, $Graphics* g, $JComponent* c) {
-	$useLocalCurrentObjectStackCache();
-	if ($nc(($cast($AbstractButton, c)))->isContentAreaFilled()) {
-		$var($SynthContext, var$0, context);
-		$var($Graphics, var$1, g);
-		int32_t var$2 = $nc(c)->getWidth();
-		$nc($($nc(context)->getPainter()))->paintButtonBackground(var$0, var$1, 0, 0, var$2, c->getHeight());
+	if ($nc($cast($AbstractButton, c))->isContentAreaFilled()) {
+		int32_t var$0 = c->getWidth();
+		$$nc($nc(context)->getPainter())->paintButtonBackground(context, g, 0, 0, var$0, c->getHeight());
 	}
 }
 
 void SynthButtonUI::paintBorder($SynthContext* context, $Graphics* g, int32_t x, int32_t y, int32_t w, int32_t h) {
-	$nc($($nc(context)->getPainter()))->paintButtonBorder(context, g, x, y, w, h);
+	$$nc($nc(context)->getPainter())->paintButtonBorder(context, g, x, y, w, h);
 }
 
 $Icon* SynthButtonUI::getDefaultIcon($AbstractButton* b) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SynthContext, context, getContext(b));
-	$var($Icon, icon, $nc($($nc(context)->getStyle()))->getIcon(context, $$str({$(getPropertyPrefix()), "icon"_s})));
+	$var($Icon, icon, $$nc($nc(context)->getStyle())->getIcon(context, $$str({$(getPropertyPrefix()), "icon"_s})));
 	return icon;
 }
 
 $Icon* SynthButtonUI::getIcon($AbstractButton* b) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Icon, icon, $nc(b)->getIcon());
 	$var($ButtonModel, model, b->getModel());
 	if (!$nc(model)->isEnabled()) {
 		$assign(icon, getSynthDisabledIcon(b, icon));
 	} else {
-		bool var$1 = model->isPressed();
-		if (var$1 && model->isArmed()) {
+		bool var$0 = model->isPressed();
+		if (var$0 && model->isArmed()) {
 			$assign(icon, getPressedIcon(b, $(getSelectedIcon(b, icon))));
 		} else {
-			bool var$3 = b->isRolloverEnabled();
-			if (var$3 && model->isRollover()) {
+			bool var$1 = b->isRolloverEnabled();
+			if (var$1 && model->isRollover()) {
 				$assign(icon, getRolloverIcon(b, $(getSelectedIcon(b, icon))));
 			} else if (model->isSelected()) {
 				$assign(icon, getSelectedIcon(b, icon));
@@ -416,7 +337,7 @@ $Icon* SynthButtonUI::getIcon($AbstractButton* b, $Icon* specificIcon, $Icon* de
 }
 
 $Icon* SynthButtonUI::getSynthIcon($AbstractButton* b, int32_t synthConstant) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SynthContext, var$0, getContext(b, synthConstant));
 	return $nc(this->style)->getIcon(var$0, $$str({$(getPropertyPrefix()), "icon"_s}));
 }
@@ -434,10 +355,9 @@ $Icon* SynthButtonUI::getSelectedIcon($AbstractButton* b, $Icon* defaultIcon) {
 }
 
 $Icon* SynthButtonUI::getRolloverIcon($AbstractButton* b, $Icon* defaultIcon) {
-	$useLocalCurrentObjectStackCache();
-	$var($AbstractButton, var$0, b);
-	$var($Icon, var$1, $nc(b)->getRolloverSelectedIcon());
-	return getSpecificIcon(var$0, var$1, $(b->getRolloverIcon()), defaultIcon, $SynthConstants::MOUSE_OVER);
+	$useLocalObjectStack();
+	$var($Icon, var$0, $nc(b)->getRolloverSelectedIcon());
+	return getSpecificIcon(b, var$0, $(b->getRolloverIcon()), defaultIcon, $SynthConstants::MOUSE_OVER);
 }
 
 $Icon* SynthButtonUI::getPressedIcon($AbstractButton* b, $Icon* defaultIcon) {
@@ -445,15 +365,14 @@ $Icon* SynthButtonUI::getPressedIcon($AbstractButton* b, $Icon* defaultIcon) {
 }
 
 $Icon* SynthButtonUI::getSynthDisabledIcon($AbstractButton* b, $Icon* defaultIcon) {
-	$useLocalCurrentObjectStackCache();
-	$var($AbstractButton, var$0, b);
-	$var($Icon, var$1, $nc(b)->getDisabledSelectedIcon());
-	return getSpecificIcon(var$0, var$1, $(b->getDisabledIcon()), defaultIcon, $SynthConstants::DISABLED);
+	$useLocalObjectStack();
+	$var($Icon, var$0, $nc(b)->getDisabledSelectedIcon());
+	return getSpecificIcon(b, var$0, $(b->getDisabledIcon()), defaultIcon, $SynthConstants::DISABLED);
 }
 
 $Icon* SynthButtonUI::getSpecificIcon($AbstractButton* b, $Icon* specificSelectedIcon, $Icon* specificIcon, $Icon* defaultIcon, int32_t state) {
-	$useLocalCurrentObjectStackCache();
-	bool selected = $nc($($nc(b)->getModel()))->isSelected();
+	$useLocalObjectStack();
+	bool selected = $$nc($nc(b)->getModel())->isSelected();
 	$var($Icon, icon, nullptr);
 	if (selected) {
 		$assign(icon, specificSelectedIcon);
@@ -482,82 +401,79 @@ $Icon* SynthButtonUI::getSpecificIcon($AbstractButton* b, $Icon* specificSelecte
 }
 
 int32_t SynthButtonUI::getTextShiftOffset($SynthContext* state) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AbstractButton, button, $cast($AbstractButton, $nc(state)->getComponent()));
 	$var($ButtonModel, model, $nc(button)->getModel());
 	bool var$1 = $nc(model)->isArmed();
 	bool var$0 = var$1 && model->isPressed();
 	if (var$0 && button->getPressedIcon() == nullptr) {
-		return $nc($(state->getStyle()))->getInt(state, $$str({$(getPropertyPrefix()), "textShiftOffset"_s}), 0);
+		return $$nc(state->getStyle())->getInt(state, $$str({$(getPropertyPrefix()), "textShiftOffset"_s}), 0);
 	}
 	return 0;
 }
 
 $Dimension* SynthButtonUI::getMinimumSize($JComponent* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool var$0 = $nc(c)->getComponentCount() > 0;
 	if (var$0 && c->getLayout() != nullptr) {
 		return nullptr;
 	}
 	$var($AbstractButton, b, $cast($AbstractButton, c));
 	$var($SynthContext, ss, getContext(c));
-	$var($SynthContext, var$1, ss);
-	$var($Font, var$2, $nc($(ss->getStyle()))->getFont(ss));
-	$var($String, var$3, $nc(b)->getText());
-	$var($Icon, var$4, getSizingIcon(b));
-	int32_t var$5 = b->getHorizontalAlignment();
-	int32_t var$6 = b->getVerticalAlignment();
-	int32_t var$7 = b->getHorizontalTextPosition();
-	int32_t var$8 = b->getVerticalTextPosition();
-	int32_t var$9 = b->getIconTextGap();
-	$var($Dimension, size, $nc($($nc($($nc(ss)->getStyle()))->getGraphicsUtils(ss)))->getMinimumSize(var$1, var$2, var$3, var$4, var$5, var$6, var$7, var$8, var$9, b->getDisplayedMnemonicIndex()));
+	$var($Font, var$1, $$nc($nc(ss)->getStyle())->getFont(ss));
+	$var($String, var$2, b->getText());
+	$var($Icon, var$3, getSizingIcon(b));
+	int32_t var$4 = b->getHorizontalAlignment();
+	int32_t var$5 = b->getVerticalAlignment();
+	int32_t var$6 = b->getHorizontalTextPosition();
+	int32_t var$7 = b->getVerticalTextPosition();
+	int32_t var$8 = b->getIconTextGap();
+	$var($Dimension, size, $$nc($$nc($nc(ss)->getStyle())->getGraphicsUtils(ss))->getMinimumSize(ss, var$1, var$2, var$3, var$4, var$5, var$6, var$7, var$8, b->getDisplayedMnemonicIndex()));
 	return size;
 }
 
 $Dimension* SynthButtonUI::getPreferredSize($JComponent* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool var$0 = $nc(c)->getComponentCount() > 0;
 	if (var$0 && c->getLayout() != nullptr) {
 		return nullptr;
 	}
 	$var($AbstractButton, b, $cast($AbstractButton, c));
 	$var($SynthContext, ss, getContext(c));
-	$var($SynthContext, var$1, ss);
-	$var($Font, var$2, $nc($(ss->getStyle()))->getFont(ss));
-	$var($String, var$3, $nc(b)->getText());
-	$var($Icon, var$4, getSizingIcon(b));
-	int32_t var$5 = b->getHorizontalAlignment();
-	int32_t var$6 = b->getVerticalAlignment();
-	int32_t var$7 = b->getHorizontalTextPosition();
-	int32_t var$8 = b->getVerticalTextPosition();
-	int32_t var$9 = b->getIconTextGap();
-	$var($Dimension, size, $nc($($nc($($nc(ss)->getStyle()))->getGraphicsUtils(ss)))->getPreferredSize(var$1, var$2, var$3, var$4, var$5, var$6, var$7, var$8, var$9, b->getDisplayedMnemonicIndex()));
+	$var($Font, var$1, $$nc($nc(ss)->getStyle())->getFont(ss));
+	$var($String, var$2, b->getText());
+	$var($Icon, var$3, getSizingIcon(b));
+	int32_t var$4 = b->getHorizontalAlignment();
+	int32_t var$5 = b->getVerticalAlignment();
+	int32_t var$6 = b->getHorizontalTextPosition();
+	int32_t var$7 = b->getVerticalTextPosition();
+	int32_t var$8 = b->getIconTextGap();
+	$var($Dimension, size, $$nc($$nc($nc(ss)->getStyle())->getGraphicsUtils(ss))->getPreferredSize(ss, var$1, var$2, var$3, var$4, var$5, var$6, var$7, var$8, b->getDisplayedMnemonicIndex()));
 	return size;
 }
 
 $Dimension* SynthButtonUI::getMaximumSize($JComponent* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool var$0 = $nc(c)->getComponentCount() > 0;
 	if (var$0 && c->getLayout() != nullptr) {
 		return nullptr;
 	}
 	$var($AbstractButton, b, $cast($AbstractButton, c));
 	$var($SynthContext, ss, getContext(c));
-	$var($SynthContext, var$1, ss);
-	$var($Font, var$2, $nc($(ss->getStyle()))->getFont(ss));
-	$var($String, var$3, $nc(b)->getText());
-	$var($Icon, var$4, getSizingIcon(b));
-	int32_t var$5 = b->getHorizontalAlignment();
-	int32_t var$6 = b->getVerticalAlignment();
-	int32_t var$7 = b->getHorizontalTextPosition();
-	int32_t var$8 = b->getVerticalTextPosition();
-	int32_t var$9 = b->getIconTextGap();
-	$var($Dimension, size, $nc($($nc($($nc(ss)->getStyle()))->getGraphicsUtils(ss)))->getMaximumSize(var$1, var$2, var$3, var$4, var$5, var$6, var$7, var$8, var$9, b->getDisplayedMnemonicIndex()));
+	$var($Font, var$1, $$nc($nc(ss)->getStyle())->getFont(ss));
+	$var($String, var$2, b->getText());
+	$var($Icon, var$3, getSizingIcon(b));
+	int32_t var$4 = b->getHorizontalAlignment();
+	int32_t var$5 = b->getVerticalAlignment();
+	int32_t var$6 = b->getHorizontalTextPosition();
+	int32_t var$7 = b->getVerticalTextPosition();
+	int32_t var$8 = b->getIconTextGap();
+	$var($Dimension, size, $$nc($$nc($nc(ss)->getStyle())->getGraphicsUtils(ss))->getMaximumSize(ss, var$1, var$2, var$3, var$4, var$5, var$6, var$7, var$8, b->getDisplayedMnemonicIndex()));
 	return size;
 }
 
 $Icon* SynthButtonUI::getSizingIcon($AbstractButton* b) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Icon, icon, getEnabledIcon(b, $($nc(b)->getIcon())));
 	if (icon == nullptr) {
 		$assign(icon, getDefaultIcon(b));
@@ -567,11 +483,11 @@ $Icon* SynthButtonUI::getSizingIcon($AbstractButton* b) {
 
 void SynthButtonUI::propertyChange($PropertyChangeEvent* e) {
 	if ($SynthLookAndFeel::shouldUpdateStyle(e)) {
-		updateStyle($cast($AbstractButton, $($nc(e)->getSource())));
+		updateStyle($$cast($AbstractButton, $nc(e)->getSource()));
 	}
 }
 
-void clinit$SynthButtonUI($Class* class$) {
+void SynthButtonUI::clinit$($Class* clazz) {
 	$assignStatic(SynthButtonUI::SYNTH_BUTTON_UI_KEY, $new($Object));
 }
 
@@ -579,7 +495,62 @@ SynthButtonUI::SynthButtonUI() {
 }
 
 $Class* SynthButtonUI::load$($String* name, bool initialize) {
-	$loadClass(SynthButtonUI, name, initialize, &_SynthButtonUI_ClassInfo_, clinit$SynthButtonUI, allocate$SynthButtonUI);
+	$FieldInfo fieldInfos$$[] = {
+		{"style", "Ljavax/swing/plaf/synth/SynthStyle;", nullptr, $PRIVATE, $field(SynthButtonUI, style)},
+		{"SYNTH_BUTTON_UI_KEY", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SynthButtonUI, SYNTH_BUTTON_UI_KEY)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SynthButtonUI, init$, void)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(SynthButtonUI, createUI, $ComponentUI*, $JComponent*)},
+		{"getBaseline", "(Ljavax/swing/JComponent;II)I", nullptr, $PUBLIC, $virtualMethod(SynthButtonUI, getBaseline, int32_t, $JComponent*, int32_t, int32_t)},
+		{"getComponentState", "(Ljavax/swing/JComponent;)I", nullptr, $PRIVATE, $method(SynthButtonUI, getComponentState, int32_t, $JComponent*)},
+		{"getContext", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/synth/SynthContext;", nullptr, $PUBLIC, $virtualMethod(SynthButtonUI, getContext, $SynthContext*, $JComponent*)},
+		{"getContext", "(Ljavax/swing/JComponent;I)Ljavax/swing/plaf/synth/SynthContext;", nullptr, 0, $virtualMethod(SynthButtonUI, getContext, $SynthContext*, $JComponent*, int32_t)},
+		{"getDefaultIcon", "(Ljavax/swing/AbstractButton;)Ljavax/swing/Icon;", nullptr, $PROTECTED, $virtualMethod(SynthButtonUI, getDefaultIcon, $Icon*, $AbstractButton*)},
+		{"getEnabledIcon", "(Ljavax/swing/AbstractButton;Ljavax/swing/Icon;)Ljavax/swing/Icon;", nullptr, $PRIVATE, $method(SynthButtonUI, getEnabledIcon, $Icon*, $AbstractButton*, $Icon*)},
+		{"getIcon", "(Ljavax/swing/AbstractButton;)Ljavax/swing/Icon;", nullptr, $PROTECTED, $virtualMethod(SynthButtonUI, getIcon, $Icon*, $AbstractButton*)},
+		{"getIcon", "(Ljavax/swing/AbstractButton;Ljavax/swing/Icon;Ljavax/swing/Icon;I)Ljavax/swing/Icon;", nullptr, $PRIVATE, $method(SynthButtonUI, getIcon, $Icon*, $AbstractButton*, $Icon*, $Icon*, int32_t)},
+		{"getMaximumSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(SynthButtonUI, getMaximumSize, $Dimension*, $JComponent*)},
+		{"getMinimumSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(SynthButtonUI, getMinimumSize, $Dimension*, $JComponent*)},
+		{"getPreferredSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(SynthButtonUI, getPreferredSize, $Dimension*, $JComponent*)},
+		{"getPressedIcon", "(Ljavax/swing/AbstractButton;Ljavax/swing/Icon;)Ljavax/swing/Icon;", nullptr, $PRIVATE, $method(SynthButtonUI, getPressedIcon, $Icon*, $AbstractButton*, $Icon*)},
+		{"getRolloverIcon", "(Ljavax/swing/AbstractButton;Ljavax/swing/Icon;)Ljavax/swing/Icon;", nullptr, $PRIVATE, $method(SynthButtonUI, getRolloverIcon, $Icon*, $AbstractButton*, $Icon*)},
+		{"getSelectedIcon", "(Ljavax/swing/AbstractButton;Ljavax/swing/Icon;)Ljavax/swing/Icon;", nullptr, $PRIVATE, $method(SynthButtonUI, getSelectedIcon, $Icon*, $AbstractButton*, $Icon*)},
+		{"getSizingIcon", "(Ljavax/swing/AbstractButton;)Ljavax/swing/Icon;", nullptr, $PROTECTED, $virtualMethod(SynthButtonUI, getSizingIcon, $Icon*, $AbstractButton*)},
+		{"getSpecificIcon", "(Ljavax/swing/AbstractButton;Ljavax/swing/Icon;Ljavax/swing/Icon;Ljavax/swing/Icon;I)Ljavax/swing/Icon;", nullptr, $PRIVATE, $method(SynthButtonUI, getSpecificIcon, $Icon*, $AbstractButton*, $Icon*, $Icon*, $Icon*, int32_t)},
+		{"getSynthDisabledIcon", "(Ljavax/swing/AbstractButton;Ljavax/swing/Icon;)Ljavax/swing/Icon;", nullptr, $PRIVATE, $method(SynthButtonUI, getSynthDisabledIcon, $Icon*, $AbstractButton*, $Icon*)},
+		{"getSynthIcon", "(Ljavax/swing/AbstractButton;I)Ljavax/swing/Icon;", nullptr, $PRIVATE, $method(SynthButtonUI, getSynthIcon, $Icon*, $AbstractButton*, int32_t)},
+		{"getTextShiftOffset", "(Ljavax/swing/plaf/synth/SynthContext;)I", nullptr, $PRIVATE, $method(SynthButtonUI, getTextShiftOffset, int32_t, $SynthContext*)},
+		{"installDefaults", "(Ljavax/swing/AbstractButton;)V", nullptr, $PROTECTED, $virtualMethod(SynthButtonUI, installDefaults, void, $AbstractButton*)},
+		{"installListeners", "(Ljavax/swing/AbstractButton;)V", nullptr, $PROTECTED, $virtualMethod(SynthButtonUI, installListeners, void, $AbstractButton*)},
+		{"paint", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(SynthButtonUI, paint, void, $Graphics*, $JComponent*)},
+		{"paint", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;)V", nullptr, $PROTECTED, $virtualMethod(SynthButtonUI, paint, void, $SynthContext*, $Graphics*)},
+		{"paintBackground", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, 0, $virtualMethod(SynthButtonUI, paintBackground, void, $SynthContext*, $Graphics*, $JComponent*)},
+		{"paintBorder", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(SynthButtonUI, paintBorder, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(SynthButtonUI, propertyChange, void, $PropertyChangeEvent*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"uninstallDefaults", "(Ljavax/swing/AbstractButton;)V", nullptr, $PROTECTED, $virtualMethod(SynthButtonUI, uninstallDefaults, void, $AbstractButton*)},
+		{"uninstallListeners", "(Ljavax/swing/AbstractButton;)V", nullptr, $PROTECTED, $virtualMethod(SynthButtonUI, uninstallListeners, void, $AbstractButton*)},
+		{"update", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(SynthButtonUI, update, void, $Graphics*, $JComponent*)},
+		{"updateStyle", "(Ljavax/swing/AbstractButton;)V", nullptr, 0, $virtualMethod(SynthButtonUI, updateStyle, void, $AbstractButton*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.synth.SynthButtonUI",
+		"javax.swing.plaf.basic.BasicButtonUI",
+		"java.beans.PropertyChangeListener,javax.swing.plaf.synth.SynthUI",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SynthButtonUI, name, initialize, &classInfo$$, SynthButtonUI::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SynthButtonUI));
+	});
 	return class$;
 }
 

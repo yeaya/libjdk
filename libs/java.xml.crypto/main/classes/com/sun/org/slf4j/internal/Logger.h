@@ -45,6 +45,7 @@ class Logger : public ::java::lang::Object {
 	$class(Logger, 0, ::java::lang::Object)
 public:
 	Logger();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* name);
 	static $String* addIndex($String* s);
 	virtual void debug($String* s);

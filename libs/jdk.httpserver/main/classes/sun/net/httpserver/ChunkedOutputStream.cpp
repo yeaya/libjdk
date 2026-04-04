@@ -1,10 +1,8 @@
 #include <sun/net/httpserver/ChunkedOutputStream.h>
-
 #include <java/io/FilterOutputStream.h>
 #include <java/io/IOException.h>
 #include <java/io/OutputStream.h>
 #include <java/lang/AssertionError.h>
-#include <sun/net/httpserver/Event.h>
 #include <sun/net/httpserver/ExchangeImpl.h>
 #include <sun/net/httpserver/HttpContextImpl.h>
 #include <sun/net/httpserver/LeftOverInputStream.h>
@@ -24,52 +22,14 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Event = ::sun::net::httpserver::Event;
 using $ExchangeImpl = ::sun::net::httpserver::ExchangeImpl;
-using $HttpContextImpl = ::sun::net::httpserver::HttpContextImpl;
 using $LeftOverInputStream = ::sun::net::httpserver::LeftOverInputStream;
-using $ServerImpl = ::sun::net::httpserver::ServerImpl;
 using $StreamClosedException = ::sun::net::httpserver::StreamClosedException;
 using $WriteFinishedEvent = ::sun::net::httpserver::WriteFinishedEvent;
 
 namespace sun {
 	namespace net {
 		namespace httpserver {
-
-$FieldInfo _ChunkedOutputStream_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(ChunkedOutputStream, $assertionsDisabled)},
-	{"closed", "Z", nullptr, $PRIVATE, $field(ChunkedOutputStream, closed)},
-	{"CHUNK_SIZE", "I", nullptr, $STATIC | $FINAL, $constField(ChunkedOutputStream, CHUNK_SIZE)},
-	{"OFFSET", "I", nullptr, $STATIC | $FINAL, $constField(ChunkedOutputStream, OFFSET)},
-	{"pos", "I", nullptr, $PRIVATE, $field(ChunkedOutputStream, pos)},
-	{"count", "I", nullptr, $PRIVATE, $field(ChunkedOutputStream, count)},
-	{"buf", "[B", nullptr, $PRIVATE, $field(ChunkedOutputStream, buf)},
-	{"t", "Lsun/net/httpserver/ExchangeImpl;", nullptr, 0, $field(ChunkedOutputStream, t)},
-	{}
-};
-
-$MethodInfo _ChunkedOutputStream_MethodInfo_[] = {
-	{"<init>", "(Lsun/net/httpserver/ExchangeImpl;Ljava/io/OutputStream;)V", nullptr, 0, $method(ChunkedOutputStream, init$, void, $ExchangeImpl*, $OutputStream*)},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(ChunkedOutputStream, close, void), "java.io.IOException"},
-	{"flush", "()V", nullptr, $PUBLIC, $virtualMethod(ChunkedOutputStream, flush, void), "java.io.IOException"},
-	{"write", "(I)V", nullptr, $PUBLIC, $virtualMethod(ChunkedOutputStream, write, void, int32_t), "java.io.IOException"},
-	{"write", "([BII)V", nullptr, $PUBLIC, $virtualMethod(ChunkedOutputStream, write, void, $bytes*, int32_t, int32_t), "java.io.IOException"},
-	{"writeChunk", "()V", nullptr, $PRIVATE, $method(ChunkedOutputStream, writeChunk, void), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _ChunkedOutputStream_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.net.httpserver.ChunkedOutputStream",
-	"java.io.FilterOutputStream",
-	nullptr,
-	_ChunkedOutputStream_FieldInfo_,
-	_ChunkedOutputStream_MethodInfo_
-};
-
-$Object* allocate$ChunkedOutputStream($Class* clazz) {
-	return $of($alloc(ChunkedOutputStream));
-}
 
 bool ChunkedOutputStream::$assertionsDisabled = false;
 
@@ -126,8 +86,8 @@ void ChunkedOutputStream::write($bytes* b, int32_t off, int32_t len) {
 }
 
 void ChunkedOutputStream::writeChunk() {
-	$useLocalCurrentObjectStackCache();
-	$var($chars, c, $nc($($Integer::toHexString(this->count)))->toCharArray());
+	$useLocalObjectStack();
+	$var($chars, c, $$nc($Integer::toHexString(this->count))->toCharArray());
 	int32_t clen = c->length;
 	int32_t startByte = 4 - clen;
 	int32_t i = 0;
@@ -135,43 +95,41 @@ void ChunkedOutputStream::writeChunk() {
 		$nc(this->buf)->set(startByte + i, (int8_t)c->get(i));
 	}
 	$nc(this->buf)->set(startByte + (i++), (int8_t)u'\r');
-	$nc(this->buf)->set(startByte + (i++), (int8_t)u'\n');
-	$nc(this->buf)->set(startByte + (i++) + this->count, (int8_t)u'\r');
-	$nc(this->buf)->set(startByte + (i++) + this->count, (int8_t)u'\n');
+	this->buf->set(startByte + (i++), (int8_t)u'\n');
+	this->buf->set(startByte + (i++) + this->count, (int8_t)u'\r');
+	this->buf->set(startByte + (i++) + this->count, (int8_t)u'\n');
 	$nc(this->out)->write(this->buf, startByte, i + this->count);
 	this->count = 0;
 	this->pos = ChunkedOutputStream::OFFSET;
 }
 
 void ChunkedOutputStream::close() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->closed) {
 		return;
 	}
 	flush();
-	{
-		$var($Throwable, var$0, nullptr);
+	$var($Throwable, var$0, nullptr);
+	try {
 		try {
-			try {
-				writeChunk();
-				$nc(this->out)->flush();
-				$var($LeftOverInputStream, is, $nc(this->t)->getOriginalInputStream());
-				if (!$nc(is)->isClosed()) {
-					is->close();
-				}
-			} catch ($IOException& e) {
+			writeChunk();
+			$nc(this->out)->flush();
+			$var($LeftOverInputStream, is, $nc(this->t)->getOriginalInputStream());
+			if (!$nc(is)->isClosed()) {
+				is->close();
 			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			this->closed = true;
+		} catch ($IOException& e) {
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		this->closed = true;
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 	$var($WriteFinishedEvent, e, $new($WriteFinishedEvent, this->t));
-	$nc($($nc($($nc(this->t)->getHttpContext()))->getServerImpl()))->addEvent(e);
+	$$nc($$nc($nc(this->t)->getHttpContext())->getServerImpl())->addEvent(e);
 }
 
 void ChunkedOutputStream::flush() {
@@ -184,7 +142,7 @@ void ChunkedOutputStream::flush() {
 	$nc(this->out)->flush();
 }
 
-void clinit$ChunkedOutputStream($Class* class$) {
+void ChunkedOutputStream::clinit$($Class* clazz) {
 	ChunkedOutputStream::$assertionsDisabled = !ChunkedOutputStream::class$->desiredAssertionStatus();
 }
 
@@ -192,7 +150,37 @@ ChunkedOutputStream::ChunkedOutputStream() {
 }
 
 $Class* ChunkedOutputStream::load$($String* name, bool initialize) {
-	$loadClass(ChunkedOutputStream, name, initialize, &_ChunkedOutputStream_ClassInfo_, clinit$ChunkedOutputStream, allocate$ChunkedOutputStream);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(ChunkedOutputStream, $assertionsDisabled)},
+		{"closed", "Z", nullptr, $PRIVATE, $field(ChunkedOutputStream, closed)},
+		{"CHUNK_SIZE", "I", nullptr, $STATIC | $FINAL, $constField(ChunkedOutputStream, CHUNK_SIZE)},
+		{"OFFSET", "I", nullptr, $STATIC | $FINAL, $constField(ChunkedOutputStream, OFFSET)},
+		{"pos", "I", nullptr, $PRIVATE, $field(ChunkedOutputStream, pos)},
+		{"count", "I", nullptr, $PRIVATE, $field(ChunkedOutputStream, count)},
+		{"buf", "[B", nullptr, $PRIVATE, $field(ChunkedOutputStream, buf)},
+		{"t", "Lsun/net/httpserver/ExchangeImpl;", nullptr, 0, $field(ChunkedOutputStream, t)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/net/httpserver/ExchangeImpl;Ljava/io/OutputStream;)V", nullptr, 0, $method(ChunkedOutputStream, init$, void, $ExchangeImpl*, $OutputStream*)},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(ChunkedOutputStream, close, void), "java.io.IOException"},
+		{"flush", "()V", nullptr, $PUBLIC, $virtualMethod(ChunkedOutputStream, flush, void), "java.io.IOException"},
+		{"write", "(I)V", nullptr, $PUBLIC, $virtualMethod(ChunkedOutputStream, write, void, int32_t), "java.io.IOException"},
+		{"write", "([BII)V", nullptr, $PUBLIC, $virtualMethod(ChunkedOutputStream, write, void, $bytes*, int32_t, int32_t), "java.io.IOException"},
+		{"writeChunk", "()V", nullptr, $PRIVATE, $method(ChunkedOutputStream, writeChunk, void), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.net.httpserver.ChunkedOutputStream",
+		"java.io.FilterOutputStream",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ChunkedOutputStream, name, initialize, &classInfo$$, ChunkedOutputStream::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ChunkedOutputStream));
+	});
 	return class$;
 }
 

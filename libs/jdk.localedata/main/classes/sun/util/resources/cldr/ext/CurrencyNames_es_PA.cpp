@@ -1,5 +1,4 @@
 #include <sun/util/resources/cldr/ext/CurrencyNames_es_PA.h>
-
 #include <sun/util/resources/OpenListResourceBundle.h>
 #include <jcpp.h>
 
@@ -14,34 +13,15 @@ namespace sun {
 			namespace cldr {
 				namespace ext {
 
-$MethodInfo _CurrencyNames_es_PA_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(CurrencyNames_es_PA, init$, void)},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(CurrencyNames_es_PA, getContents, $ObjectArray2*)},
-	{}
-};
-
-$ClassInfo _CurrencyNames_es_PA_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.util.resources.cldr.ext.CurrencyNames_es_PA",
-	"sun.util.resources.OpenListResourceBundle",
-	nullptr,
-	nullptr,
-	_CurrencyNames_es_PA_MethodInfo_
-};
-
-$Object* allocate$CurrencyNames_es_PA($Class* clazz) {
-	return $of($alloc(CurrencyNames_es_PA));
-}
-
 void CurrencyNames_es_PA::init$() {
 	$OpenListResourceBundle::init$();
 }
 
 $ObjectArray2* CurrencyNames_es_PA::getContents() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectArray2, data, $new($ObjectArray2, {$$new($ObjectArray, {
-		$of("PAB"_s),
-		$of("B/."_s)
+		"PAB"_s,
+		"B/."_s
 	})}));
 	return data;
 }
@@ -50,7 +30,22 @@ CurrencyNames_es_PA::CurrencyNames_es_PA() {
 }
 
 $Class* CurrencyNames_es_PA::load$($String* name, bool initialize) {
-	$loadClass(CurrencyNames_es_PA, name, initialize, &_CurrencyNames_es_PA_ClassInfo_, allocate$CurrencyNames_es_PA);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(CurrencyNames_es_PA, init$, void)},
+		{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(CurrencyNames_es_PA, getContents, $ObjectArray2*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.util.resources.cldr.ext.CurrencyNames_es_PA",
+		"sun.util.resources.OpenListResourceBundle",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(CurrencyNames_es_PA, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CurrencyNames_es_PA);
+	});
 	return class$;
 }
 

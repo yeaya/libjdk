@@ -1,5 +1,4 @@
 #include <NonOpaquePopupMenuTest$3.h>
-
 #include <NonOpaquePopupMenuTest.h>
 #include <java/awt/Component.h>
 #include <java/awt/Dimension.h>
@@ -16,67 +15,59 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $JMenu = ::javax::swing::JMenu;
-
-$FieldInfo _NonOpaquePopupMenuTest$3_FieldInfo_[] = {
-	{"val$result", "[Ljava/awt/Point;", nullptr, $FINAL | $SYNTHETIC, $field(NonOpaquePopupMenuTest$3, val$result)},
-	{}
-};
-
-$MethodInfo _NonOpaquePopupMenuTest$3_MethodInfo_[] = {
-	{"<init>", "([Ljava/awt/Point;)V", "()V", 0, $method(NonOpaquePopupMenuTest$3, init$, void, $PointArray*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(NonOpaquePopupMenuTest$3, run, void)},
-	{}
-};
-
-$EnclosingMethodInfo _NonOpaquePopupMenuTest$3_EnclosingMethodInfo_ = {
-	"NonOpaquePopupMenuTest",
-	"getMenuClickPoint",
-	"()Ljava/awt/Point;"
-};
-
-$InnerClassInfo _NonOpaquePopupMenuTest$3_InnerClassesInfo_[] = {
-	{"NonOpaquePopupMenuTest$3", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _NonOpaquePopupMenuTest$3_ClassInfo_ = {
-	$ACC_SUPER,
-	"NonOpaquePopupMenuTest$3",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	_NonOpaquePopupMenuTest$3_FieldInfo_,
-	_NonOpaquePopupMenuTest$3_MethodInfo_,
-	nullptr,
-	&_NonOpaquePopupMenuTest$3_EnclosingMethodInfo_,
-	_NonOpaquePopupMenuTest$3_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"NonOpaquePopupMenuTest"
-};
-
-$Object* allocate$NonOpaquePopupMenuTest$3($Class* clazz) {
-	return $of($alloc(NonOpaquePopupMenuTest$3));
-}
 
 void NonOpaquePopupMenuTest$3::init$($PointArray* val$result) {
 	$set(this, val$result, val$result);
 }
 
 void NonOpaquePopupMenuTest$3::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($NonOpaquePopupMenuTest);
 	$var($Point, p, $nc($NonOpaquePopupMenuTest::fileMenu)->getLocationOnScreen());
 	$var($Dimension, size, $nc($NonOpaquePopupMenuTest::fileMenu)->getSize());
-	$nc(this->val$result)->set(0, $$new($Point, $nc(p)->x + $nc(size)->width / 2, p->y + size->height / 2));
+	$nc(this->val$result)->set(0, $$new($Point, $nc(p)->x + $nc(size)->width / 2, $nc(p)->y + $nc(size)->height / 2));
 }
 
 NonOpaquePopupMenuTest$3::NonOpaquePopupMenuTest$3() {
 }
 
 $Class* NonOpaquePopupMenuTest$3::load$($String* name, bool initialize) {
-	$loadClass(NonOpaquePopupMenuTest$3, name, initialize, &_NonOpaquePopupMenuTest$3_ClassInfo_, allocate$NonOpaquePopupMenuTest$3);
+	$FieldInfo fieldInfos$$[] = {
+		{"val$result", "[Ljava/awt/Point;", nullptr, $FINAL | $SYNTHETIC, $field(NonOpaquePopupMenuTest$3, val$result)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "([Ljava/awt/Point;)V", "()V", 0, $method(NonOpaquePopupMenuTest$3, init$, void, $PointArray*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(NonOpaquePopupMenuTest$3, run, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"NonOpaquePopupMenuTest",
+		"getMenuClickPoint",
+		"()Ljava/awt/Point;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"NonOpaquePopupMenuTest$3", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"NonOpaquePopupMenuTest$3",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"NonOpaquePopupMenuTest"
+	};
+	$loadClass(NonOpaquePopupMenuTest$3, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(NonOpaquePopupMenuTest$3);
+	});
 	return class$;
 }
 

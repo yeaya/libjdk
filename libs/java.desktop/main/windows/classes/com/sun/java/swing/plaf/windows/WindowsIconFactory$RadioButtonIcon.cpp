@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/windows/WindowsIconFactory$RadioButtonIcon.h>
-
 #include <com/sun/java/swing/plaf/windows/TMSchema$Part.h>
 #include <com/sun/java/swing/plaf/windows/TMSchema$State.h>
 #include <com/sun/java/swing/plaf/windows/WindowsIconFactory.h>
@@ -61,44 +60,6 @@ namespace com {
 				namespace plaf {
 					namespace windows {
 
-$MethodInfo _WindowsIconFactory$RadioButtonIcon_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PRIVATE, $method(WindowsIconFactory$RadioButtonIcon, init$, void)},
-	{"getIconHeight", "()I", nullptr, $PUBLIC, $virtualMethod(WindowsIconFactory$RadioButtonIcon, getIconHeight, int32_t)},
-	{"getIconWidth", "()I", nullptr, $PUBLIC, $virtualMethod(WindowsIconFactory$RadioButtonIcon, getIconWidth, int32_t)},
-	{"paintIcon", "(Ljava/awt/Component;Ljava/awt/Graphics;II)V", nullptr, $PUBLIC, $virtualMethod(WindowsIconFactory$RadioButtonIcon, paintIcon, void, $Component*, $Graphics*, int32_t, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _WindowsIconFactory$RadioButtonIcon_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.windows.WindowsIconFactory$RadioButtonIcon", "com.sun.java.swing.plaf.windows.WindowsIconFactory", "RadioButtonIcon", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _WindowsIconFactory$RadioButtonIcon_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.java.swing.plaf.windows.WindowsIconFactory$RadioButtonIcon",
-	"java.lang.Object",
-	"javax.swing.Icon,javax.swing.plaf.UIResource,java.io.Serializable",
-	nullptr,
-	_WindowsIconFactory$RadioButtonIcon_MethodInfo_,
-	nullptr,
-	nullptr,
-	_WindowsIconFactory$RadioButtonIcon_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.windows.WindowsIconFactory"
-};
-
-$Object* allocate$WindowsIconFactory$RadioButtonIcon($Class* clazz) {
-	return $of($alloc(WindowsIconFactory$RadioButtonIcon));
-}
-
 int32_t WindowsIconFactory$RadioButtonIcon::hashCode() {
 	 return this->$Icon::hashCode();
 }
@@ -123,7 +84,7 @@ void WindowsIconFactory$RadioButtonIcon::init$() {
 }
 
 void WindowsIconFactory$RadioButtonIcon::paintIcon($Component* c, $Graphics* g, int32_t x, int32_t y) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AbstractButton, b, $cast($AbstractButton, c));
 	$var($ButtonModel, model, $nc(b)->getModel());
 	$var($XPStyle, xp, $XPStyle::getXP());
@@ -139,8 +100,8 @@ void WindowsIconFactory$RadioButtonIcon::paintIcon($Component* c, $Graphics* g, 
 			if (!model->isEnabled()) {
 				state = $TMSchema$State::CHECKEDDISABLED;
 			} else {
-				bool var$1 = model->isPressed();
-				if (var$1 && model->isArmed()) {
+				bool var$0 = model->isPressed();
+				if (var$0 && model->isArmed()) {
 					state = $TMSchema$State::CHECKEDPRESSED;
 				} else if (model->isRollover()) {
 					state = $TMSchema$State::CHECKEDHOT;
@@ -152,8 +113,8 @@ void WindowsIconFactory$RadioButtonIcon::paintIcon($Component* c, $Graphics* g, 
 			if (!model->isEnabled()) {
 				state = $TMSchema$State::UNCHECKEDDISABLED;
 			} else {
-				bool var$3 = model->isPressed();
-				if (var$3 && model->isArmed()) {
+				bool var$1 = model->isPressed();
+				if (var$1 && model->isArmed()) {
 					state = $TMSchema$State::UNCHECKEDPRESSED;
 				} else if (model->isRollover()) {
 					state = $TMSchema$State::UNCHECKEDHOT;
@@ -162,9 +123,9 @@ void WindowsIconFactory$RadioButtonIcon::paintIcon($Component* c, $Graphics* g, 
 		}
 		$nc(skin)->paintSkin(g, x, y, state);
 	} else {
-		bool var$5 = $nc(model)->isPressed();
-		bool var$4 = (var$5 && model->isArmed());
-		if (var$4 || !$nc(model)->isEnabled()) {
+		bool var$3 = $nc(model)->isPressed();
+		bool var$2 = var$3 && model->isArmed();
+		if (var$2 || !model->isEnabled()) {
 			$nc(g)->setColor($($UIManager::getColor("RadioButton.background"_s)));
 		} else {
 			$nc(g)->setColor($($UIManager::getColor("RadioButton.interiorBackground"_s)));
@@ -187,7 +148,7 @@ void WindowsIconFactory$RadioButtonIcon::paintIcon($Component* c, $Graphics* g, 
 			g->setColor($($UIManager::getColor("RadioButton.light"_s)));
 			g->drawArc(x + 1, y + 1, 9, 9, 45, -180);
 			g2d->setStroke(oldStroke);
-			if ($nc(model)->isSelected()) {
+			if (model->isSelected()) {
 				if (model->isEnabled()) {
 					g->setColor($($UIManager::getColor("RadioButton.foreground"_s)));
 				} else {
@@ -225,7 +186,7 @@ void WindowsIconFactory$RadioButtonIcon::paintIcon($Component* c, $Graphics* g, 
 			g->drawLine(x + 9, y + 8, x + 9, y + 8);
 			g->drawLine(x + 10, y + 7, x + 10, y + 4);
 			g->drawLine(x + 9, y + 3, x + 9, y + 3);
-			if ($nc(model)->isSelected()) {
+			if (model->isSelected()) {
 				if (model->isEnabled()) {
 					g->setColor($($UIManager::getColor("RadioButton.foreground"_s)));
 				} else {
@@ -239,22 +200,22 @@ void WindowsIconFactory$RadioButtonIcon::paintIcon($Component* c, $Graphics* g, 
 }
 
 int32_t WindowsIconFactory$RadioButtonIcon::getIconWidth() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($XPStyle, xp, $XPStyle::getXP());
 	if (xp != nullptr) {
 		$init($TMSchema$Part);
-		return $nc($(xp->getSkin(nullptr, $TMSchema$Part::BP_RADIOBUTTON)))->getWidth();
+		return $$nc(xp->getSkin(nullptr, $TMSchema$Part::BP_RADIOBUTTON))->getWidth();
 	} else {
 		return 13;
 	}
 }
 
 int32_t WindowsIconFactory$RadioButtonIcon::getIconHeight() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($XPStyle, xp, $XPStyle::getXP());
 	if (xp != nullptr) {
 		$init($TMSchema$Part);
-		return $nc($(xp->getSkin(nullptr, $TMSchema$Part::BP_RADIOBUTTON)))->getHeight();
+		return $$nc(xp->getSkin(nullptr, $TMSchema$Part::BP_RADIOBUTTON))->getHeight();
 	} else {
 		return 13;
 	}
@@ -264,7 +225,40 @@ WindowsIconFactory$RadioButtonIcon::WindowsIconFactory$RadioButtonIcon() {
 }
 
 $Class* WindowsIconFactory$RadioButtonIcon::load$($String* name, bool initialize) {
-	$loadClass(WindowsIconFactory$RadioButtonIcon, name, initialize, &_WindowsIconFactory$RadioButtonIcon_ClassInfo_, allocate$WindowsIconFactory$RadioButtonIcon);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PRIVATE, $method(WindowsIconFactory$RadioButtonIcon, init$, void)},
+		{"getIconHeight", "()I", nullptr, $PUBLIC, $virtualMethod(WindowsIconFactory$RadioButtonIcon, getIconHeight, int32_t)},
+		{"getIconWidth", "()I", nullptr, $PUBLIC, $virtualMethod(WindowsIconFactory$RadioButtonIcon, getIconWidth, int32_t)},
+		{"paintIcon", "(Ljava/awt/Component;Ljava/awt/Graphics;II)V", nullptr, $PUBLIC, $virtualMethod(WindowsIconFactory$RadioButtonIcon, paintIcon, void, $Component*, $Graphics*, int32_t, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.windows.WindowsIconFactory$RadioButtonIcon", "com.sun.java.swing.plaf.windows.WindowsIconFactory", "RadioButtonIcon", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.java.swing.plaf.windows.WindowsIconFactory$RadioButtonIcon",
+		"java.lang.Object",
+		"javax.swing.Icon,javax.swing.plaf.UIResource,java.io.Serializable",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.windows.WindowsIconFactory"
+	};
+	$loadClass(WindowsIconFactory$RadioButtonIcon, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(WindowsIconFactory$RadioButtonIcon));
+	});
 	return class$;
 }
 

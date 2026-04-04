@@ -19,6 +19,7 @@ class GenericFileSystemView : public ::javax::swing::filechooser::FileSystemView
 	$class(GenericFileSystemView, 0, ::javax::swing::filechooser::FileSystemView)
 public:
 	GenericFileSystemView();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual ::java::io::File* createNewFolder(::java::io::File* containingDir) override;
 	static $String* newFolderString;

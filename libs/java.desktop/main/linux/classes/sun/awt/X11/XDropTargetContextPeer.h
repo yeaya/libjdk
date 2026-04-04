@@ -56,6 +56,7 @@ class XDropTargetContextPeer : public ::sun::awt::dnd::SunDropTargetContextPeer 
 	$class(XDropTargetContextPeer, 0, ::sun::awt::dnd::SunDropTargetContextPeer)
 public:
 	XDropTargetContextPeer();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static int32_t access$000(::sun::awt::X11::XDropTargetContextPeer* x0, ::java::awt::Component* x1, int32_t x2, int32_t x3, int32_t x4, int32_t x5, $longs* x6, int64_t x7, int32_t x8, bool x9);
 	void cleanup();

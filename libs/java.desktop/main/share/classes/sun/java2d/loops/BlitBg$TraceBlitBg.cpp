@@ -1,5 +1,4 @@
 #include <sun/java2d/loops/BlitBg$TraceBlitBg.h>
-
 #include <java/awt/Composite.h>
 #include <sun/java2d/SurfaceData.h>
 #include <sun/java2d/loops/BlitBg.h>
@@ -25,45 +24,8 @@ namespace sun {
 	namespace java2d {
 		namespace loops {
 
-$FieldInfo _BlitBg$TraceBlitBg_FieldInfo_[] = {
-	{"target", "Lsun/java2d/loops/BlitBg;", nullptr, 0, $field(BlitBg$TraceBlitBg, target)},
-	{}
-};
-
-$MethodInfo _BlitBg$TraceBlitBg_MethodInfo_[] = {
-	{"<init>", "(Lsun/java2d/loops/BlitBg;)V", nullptr, $PUBLIC, $method(BlitBg$TraceBlitBg, init$, void, $BlitBg*)},
-	{"BlitBg", "(Lsun/java2d/SurfaceData;Lsun/java2d/SurfaceData;Ljava/awt/Composite;Lsun/java2d/pipe/Region;IIIIIII)V", nullptr, $PUBLIC, $virtualMethod(BlitBg$TraceBlitBg, BlitBg$, void, $SurfaceData*, $SurfaceData*, $Composite*, $Region*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"traceWrap", "()Lsun/java2d/loops/GraphicsPrimitive;", nullptr, $PUBLIC, $virtualMethod(BlitBg$TraceBlitBg, traceWrap, $GraphicsPrimitive*)},
-	{}
-};
-
-$InnerClassInfo _BlitBg$TraceBlitBg_InnerClassesInfo_[] = {
-	{"sun.java2d.loops.BlitBg$TraceBlitBg", "sun.java2d.loops.BlitBg", "TraceBlitBg", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _BlitBg$TraceBlitBg_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.java2d.loops.BlitBg$TraceBlitBg",
-	"sun.java2d.loops.BlitBg",
-	nullptr,
-	_BlitBg$TraceBlitBg_FieldInfo_,
-	_BlitBg$TraceBlitBg_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BlitBg$TraceBlitBg_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.java2d.loops.BlitBg"
-};
-
-$Object* allocate$BlitBg$TraceBlitBg($Class* clazz) {
-	return $of($alloc(BlitBg$TraceBlitBg));
-}
-
 void BlitBg$TraceBlitBg::init$($BlitBg* target) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SurfaceType, var$0, $nc(target)->getSourceType());
 	$var($CompositeType, var$1, target->getCompositeType());
 	$BlitBg::init$(var$0, var$1, $(target->getDestType()));
@@ -83,7 +45,38 @@ BlitBg$TraceBlitBg::BlitBg$TraceBlitBg() {
 }
 
 $Class* BlitBg$TraceBlitBg::load$($String* name, bool initialize) {
-	$loadClass(BlitBg$TraceBlitBg, name, initialize, &_BlitBg$TraceBlitBg_ClassInfo_, allocate$BlitBg$TraceBlitBg);
+	$FieldInfo fieldInfos$$[] = {
+		{"target", "Lsun/java2d/loops/BlitBg;", nullptr, 0, $field(BlitBg$TraceBlitBg, target)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/java2d/loops/BlitBg;)V", nullptr, $PUBLIC, $method(BlitBg$TraceBlitBg, init$, void, $BlitBg*)},
+		{"BlitBg", "(Lsun/java2d/SurfaceData;Lsun/java2d/SurfaceData;Ljava/awt/Composite;Lsun/java2d/pipe/Region;IIIIIII)V", nullptr, $PUBLIC, $virtualMethod(BlitBg$TraceBlitBg, BlitBg$, void, $SurfaceData*, $SurfaceData*, $Composite*, $Region*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"traceWrap", "()Lsun/java2d/loops/GraphicsPrimitive;", nullptr, $PUBLIC, $virtualMethod(BlitBg$TraceBlitBg, traceWrap, $GraphicsPrimitive*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.java2d.loops.BlitBg$TraceBlitBg", "sun.java2d.loops.BlitBg", "TraceBlitBg", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.java2d.loops.BlitBg$TraceBlitBg",
+		"sun.java2d.loops.BlitBg",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.java2d.loops.BlitBg"
+	};
+	$loadClass(BlitBg$TraceBlitBg, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BlitBg$TraceBlitBg);
+	});
 	return class$;
 }
 

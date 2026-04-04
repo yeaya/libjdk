@@ -1,5 +1,4 @@
 #include <javax/swing/UIManager$LookAndFeelInfo.h>
-
 #include <javax/swing/UIManager.h>
 #include <jcpp.h>
 
@@ -10,45 +9,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace javax {
 	namespace swing {
-
-$FieldInfo _UIManager$LookAndFeelInfo_FieldInfo_[] = {
-	{"name", "Ljava/lang/String;", nullptr, $PRIVATE, $field(UIManager$LookAndFeelInfo, name)},
-	{"className", "Ljava/lang/String;", nullptr, $PRIVATE, $field(UIManager$LookAndFeelInfo, className)},
-	{}
-};
-
-$MethodInfo _UIManager$LookAndFeelInfo_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(UIManager$LookAndFeelInfo, init$, void, $String*, $String*)},
-	{"getClassName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(UIManager$LookAndFeelInfo, getClassName, $String*)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(UIManager$LookAndFeelInfo, getName, $String*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(UIManager$LookAndFeelInfo, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _UIManager$LookAndFeelInfo_InnerClassesInfo_[] = {
-	{"javax.swing.UIManager$LookAndFeelInfo", "javax.swing.UIManager", "LookAndFeelInfo", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _UIManager$LookAndFeelInfo_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.UIManager$LookAndFeelInfo",
-	"java.lang.Object",
-	nullptr,
-	_UIManager$LookAndFeelInfo_FieldInfo_,
-	_UIManager$LookAndFeelInfo_MethodInfo_,
-	nullptr,
-	nullptr,
-	_UIManager$LookAndFeelInfo_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.UIManager"
-};
-
-$Object* allocate$UIManager$LookAndFeelInfo($Class* clazz) {
-	return $of($alloc(UIManager$LookAndFeelInfo));
-}
 
 void UIManager$LookAndFeelInfo::init$($String* name, $String* className) {
 	$set(this, name, name);
@@ -64,19 +24,55 @@ $String* UIManager$LookAndFeelInfo::getClassName() {
 }
 
 $String* UIManager$LookAndFeelInfo::toString() {
-	$useLocalCurrentObjectStackCache();
-	$var($String, var$3, $$str({$($of(this)->getClass()->getName()), "["_s}));
-	$var($String, var$2, $$concat(var$3, $(getName())));
-	$var($String, var$1, $$concat(var$2, " "_s));
-	$var($String, var$0, $$concat(var$1, $(getClassName())));
-	return $concat(var$0, "]"_s);
+	$useLocalObjectStack();
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append($($of(this)->getClass()->getName()));
+	var$0->append("["_s);
+	var$0->append($(getName()));
+	var$0->append(" "_s);
+	var$0->append($(getClassName()));
+	var$0->append("]"_s);
+	return $str(var$0);
 }
 
 UIManager$LookAndFeelInfo::UIManager$LookAndFeelInfo() {
 }
 
 $Class* UIManager$LookAndFeelInfo::load$($String* name, bool initialize) {
-	$loadClass(UIManager$LookAndFeelInfo, name, initialize, &_UIManager$LookAndFeelInfo_ClassInfo_, allocate$UIManager$LookAndFeelInfo);
+	$FieldInfo fieldInfos$$[] = {
+		{"name", "Ljava/lang/String;", nullptr, $PRIVATE, $field(UIManager$LookAndFeelInfo, name)},
+		{"className", "Ljava/lang/String;", nullptr, $PRIVATE, $field(UIManager$LookAndFeelInfo, className)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(UIManager$LookAndFeelInfo, init$, void, $String*, $String*)},
+		{"getClassName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(UIManager$LookAndFeelInfo, getClassName, $String*)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(UIManager$LookAndFeelInfo, getName, $String*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(UIManager$LookAndFeelInfo, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.UIManager$LookAndFeelInfo", "javax.swing.UIManager", "LookAndFeelInfo", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.UIManager$LookAndFeelInfo",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.UIManager"
+	};
+	$loadClass(UIManager$LookAndFeelInfo, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(UIManager$LookAndFeelInfo);
+	});
 	return class$;
 }
 

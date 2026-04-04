@@ -76,7 +76,7 @@ public:
 	virtual ::com::sun::org::apache::xpath::internal::objects::XObject* execute(::com::sun::org::apache::xpath::internal::XPathContext* xctxt, int32_t context, ::com::sun::org::apache::xml::internal::dtm::DTM* dtm, int32_t expType) override;
 	virtual ::com::sun::org::apache::xpath::internal::objects::XObject* execute(::com::sun::org::apache::xpath::internal::XPathContext* xctxt) override;
 	virtual void fixupVariables(::java::util::List* vars, int32_t globalsSize) override;
-	static const int64_t serialVersionUID = (int64_t)0xB4B02824A744CD28;
+	static const int64_t serialVersionUID = (int64_t)0xb4b02824a744cd28;
 	::com::sun::org::apache::xpath::internal::Expression* m_functionExpr = nullptr;
 };
 

@@ -1,5 +1,4 @@
 #include <sun/java2d/marlin/RendererStats$RendererStatsHolder.h>
-
 #include <java/io/Serializable.h>
 #include <java/lang/ClassLoader.h>
 #include <java/lang/Runnable.h>
@@ -35,7 +34,6 @@ using $Runtime = ::java::lang::Runtime;
 using $ThreadGroup = ::java::lang::ThreadGroup;
 using $Void = ::java::lang::Void;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $Cleaner = ::java::lang::ref::Cleaner;
 using $AccessController = ::java::security::AccessController;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $Iterator = ::java::util::Iterator;
@@ -56,35 +54,31 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* run() override {
-		 return $of($nc(inst$)->lambda$new$0());
-	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<RendererStats$RendererStatsHolder$$Lambda$lambda$new$0>());
+		 return $nc(inst$)->lambda$new$0();
 	}
 	RendererStats$RendererStatsHolder* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo RendererStats$RendererStatsHolder$$Lambda$lambda$new$0::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(RendererStats$RendererStatsHolder$$Lambda$lambda$new$0, inst$)},
-	{}
-};
-$MethodInfo RendererStats$RendererStatsHolder$$Lambda$lambda$new$0::methodInfos[3] = {
-	{"<init>", "(Lsun/java2d/marlin/RendererStats$RendererStatsHolder;)V", nullptr, $PUBLIC, $method(RendererStats$RendererStatsHolder$$Lambda$lambda$new$0, init$, void, RendererStats$RendererStatsHolder*)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(RendererStats$RendererStatsHolder$$Lambda$lambda$new$0, run, $Object*)},
-	{}
-};
-$ClassInfo RendererStats$RendererStatsHolder$$Lambda$lambda$new$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.java2d.marlin.RendererStats$RendererStatsHolder$$Lambda$lambda$new$0",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	fieldInfos,
-	methodInfos
 };
 $Class* RendererStats$RendererStatsHolder$$Lambda$lambda$new$0::load$($String* name, bool initialize) {
-	$loadClass(RendererStats$RendererStatsHolder$$Lambda$lambda$new$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(RendererStats$RendererStatsHolder$$Lambda$lambda$new$0, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/java2d/marlin/RendererStats$RendererStatsHolder;)V", nullptr, $PUBLIC, $method(RendererStats$RendererStatsHolder$$Lambda$lambda$new$0, init$, void, RendererStats$RendererStatsHolder*)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(RendererStats$RendererStatsHolder$$Lambda$lambda$new$0, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.java2d.marlin.RendererStats$RendererStatsHolder$$Lambda$lambda$new$0",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(RendererStats$RendererStatsHolder$$Lambda$lambda$new$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RendererStats$RendererStatsHolder$$Lambda$lambda$new$0);
+	});
 	return class$;
 }
 $Class* RendererStats$RendererStatsHolder$$Lambda$lambda$new$0::class$ = nullptr;
@@ -99,89 +93,40 @@ public:
 	virtual void run() override {
 		$nc(inst$)->lambda$add$1(stats);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<RendererStats$RendererStatsHolder$$Lambda$lambda$add$1$1>());
-	}
 	RendererStats$RendererStatsHolder* inst$ = nullptr;
 	$RendererStats* stats = nullptr;
-	static $FieldInfo fieldInfos[3];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo RendererStats$RendererStatsHolder$$Lambda$lambda$add$1$1::fieldInfos[3] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(RendererStats$RendererStatsHolder$$Lambda$lambda$add$1$1, inst$)},
-	{"stats", "Lsun/java2d/marlin/RendererStats;", nullptr, $PUBLIC, $field(RendererStats$RendererStatsHolder$$Lambda$lambda$add$1$1, stats)},
-	{}
-};
-$MethodInfo RendererStats$RendererStatsHolder$$Lambda$lambda$add$1$1::methodInfos[3] = {
-	{"<init>", "(Lsun/java2d/marlin/RendererStats$RendererStatsHolder;Lsun/java2d/marlin/RendererStats;)V", nullptr, $PUBLIC, $method(RendererStats$RendererStatsHolder$$Lambda$lambda$add$1$1, init$, void, RendererStats$RendererStatsHolder*, $RendererStats*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(RendererStats$RendererStatsHolder$$Lambda$lambda$add$1$1, run, void)},
-	{}
-};
-$ClassInfo RendererStats$RendererStatsHolder$$Lambda$lambda$add$1$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.java2d.marlin.RendererStats$RendererStatsHolder$$Lambda$lambda$add$1$1",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	fieldInfos,
-	methodInfos
 };
 $Class* RendererStats$RendererStatsHolder$$Lambda$lambda$add$1$1::load$($String* name, bool initialize) {
-	$loadClass(RendererStats$RendererStatsHolder$$Lambda$lambda$add$1$1, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(RendererStats$RendererStatsHolder$$Lambda$lambda$add$1$1, inst$)},
+		{"stats", "Lsun/java2d/marlin/RendererStats;", nullptr, $PUBLIC, $field(RendererStats$RendererStatsHolder$$Lambda$lambda$add$1$1, stats)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/java2d/marlin/RendererStats$RendererStatsHolder;Lsun/java2d/marlin/RendererStats;)V", nullptr, $PUBLIC, $method(RendererStats$RendererStatsHolder$$Lambda$lambda$add$1$1, init$, void, RendererStats$RendererStatsHolder*, $RendererStats*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(RendererStats$RendererStatsHolder$$Lambda$lambda$add$1$1, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.java2d.marlin.RendererStats$RendererStatsHolder$$Lambda$lambda$add$1$1",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(RendererStats$RendererStatsHolder$$Lambda$lambda$add$1$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RendererStats$RendererStatsHolder$$Lambda$lambda$add$1$1);
+	});
 	return class$;
 }
 $Class* RendererStats$RendererStatsHolder$$Lambda$lambda$add$1$1::class$ = nullptr;
 
-$FieldInfo _RendererStats$RendererStatsHolder_FieldInfo_[] = {
-	{"SINGLETON", "Lsun/java2d/marlin/RendererStats$RendererStatsHolder;", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(RendererStats$RendererStatsHolder, SINGLETON)},
-	{"allStats", "Ljava/util/concurrent/ConcurrentLinkedQueue;", "Ljava/util/concurrent/ConcurrentLinkedQueue<Lsun/java2d/marlin/RendererStats;>;", $PRIVATE | $FINAL, $field(RendererStats$RendererStatsHolder, allStats)},
-	{}
-};
-
-$MethodInfo _RendererStats$RendererStatsHolder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(RendererStats$RendererStatsHolder, init$, void)},
-	{"add", "(Ljava/lang/Object;Lsun/java2d/marlin/RendererStats;)V", nullptr, 0, $method(RendererStats$RendererStatsHolder, add, void, Object$*, $RendererStats*)},
-	{"dump", "()V", nullptr, 0, $method(RendererStats$RendererStatsHolder, dump, void)},
-	{"dumpStats", "()V", nullptr, $STATIC, $staticMethod(RendererStats$RendererStatsHolder, dumpStats, void)},
-	{"getInstance", "()Lsun/java2d/marlin/RendererStats$RendererStatsHolder;", nullptr, $STATIC | $SYNCHRONIZED, $staticMethod(RendererStats$RendererStatsHolder, getInstance, RendererStats$RendererStatsHolder*)},
-	{"lambda$add$1", "(Lsun/java2d/marlin/RendererStats;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(RendererStats$RendererStatsHolder, lambda$add$1, void, $RendererStats*)},
-	{"lambda$new$0", "()Ljava/lang/Void;", nullptr, $PRIVATE | $SYNTHETIC, $method(RendererStats$RendererStatsHolder, lambda$new$0, $Void*)},
-	{"remove", "(Lsun/java2d/marlin/RendererStats;)V", nullptr, 0, $method(RendererStats$RendererStatsHolder, remove, void, $RendererStats*)},
-	{}
-};
-
-$InnerClassInfo _RendererStats$RendererStatsHolder_InnerClassesInfo_[] = {
-	{"sun.java2d.marlin.RendererStats$RendererStatsHolder", "sun.java2d.marlin.RendererStats", "RendererStatsHolder", $STATIC | $FINAL},
-	{"sun.java2d.marlin.RendererStats$RendererStatsHolder$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _RendererStats$RendererStatsHolder_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.java2d.marlin.RendererStats$RendererStatsHolder",
-	"java.lang.Object",
-	nullptr,
-	_RendererStats$RendererStatsHolder_FieldInfo_,
-	_RendererStats$RendererStatsHolder_MethodInfo_,
-	nullptr,
-	nullptr,
-	_RendererStats$RendererStatsHolder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.java2d.marlin.RendererStats"
-};
-
-$Object* allocate$RendererStats$RendererStatsHolder($Class* clazz) {
-	return $of($alloc(RendererStats$RendererStatsHolder));
-}
-
 $volatile(RendererStats$RendererStatsHolder*) RendererStats$RendererStatsHolder::SINGLETON = nullptr;
 
 RendererStats$RendererStatsHolder* RendererStats$RendererStatsHolder::getInstance() {
-	$load(RendererStats$RendererStatsHolder);
+	$init(RendererStats$RendererStatsHolder);
 	$synchronized(class$) {
-		$init(RendererStats$RendererStatsHolder);
 		if (RendererStats$RendererStatsHolder::SINGLETON == nullptr) {
 			$assignStatic(RendererStats$RendererStatsHolder::SINGLETON, $new(RendererStats$RendererStatsHolder));
 		}
@@ -199,29 +144,27 @@ void RendererStats$RendererStatsHolder::dumpStats() {
 void RendererStats$RendererStatsHolder::init$() {
 	$beforeCallerSensitive();
 	$set(this, allStats, $new($ConcurrentLinkedQueue));
-	$AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new(RendererStats$RendererStatsHolder$$Lambda$lambda$new$0, this)));
+	$AccessController::doPrivileged($cast($PrivilegedAction, $$new(RendererStats$RendererStatsHolder$$Lambda$lambda$new$0, this)));
 }
 
 void RendererStats$RendererStatsHolder::add(Object$* parent, $RendererStats* stats) {
-	$useLocalCurrentObjectStackCache();
-	$nc(this->allStats)->add(stats);
-	$nc($($CleanerFactory::cleaner()))->register$(parent, static_cast<$Runnable*>($$new(RendererStats$RendererStatsHolder$$Lambda$lambda$add$1$1, this, stats)));
+	$useLocalObjectStack();
+	this->allStats->add(stats);
+	$$nc($CleanerFactory::cleaner())->register$(parent, $$new(RendererStats$RendererStatsHolder$$Lambda$lambda$add$1$1, this, stats));
 }
 
 void RendererStats$RendererStatsHolder::remove($RendererStats* stats) {
 	$nc(stats)->dump();
-	$nc(this->allStats)->remove(stats);
+	this->allStats->remove(stats);
 }
 
 void RendererStats$RendererStatsHolder::dump() {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Iterator, i$, $nc(this->allStats)->iterator());
-		for (; $nc(i$)->hasNext();) {
-			$var($RendererStats, stats, $cast($RendererStats, i$->next()));
-			{
-				$nc(stats)->dump();
-			}
+	$useLocalObjectStack();
+	$var($Iterator, i$, this->allStats->iterator());
+	for (; $nc(i$)->hasNext();) {
+		$var($RendererStats, stats, $cast($RendererStats, i$->next()));
+		{
+			$nc(stats)->dump();
 		}
 	}
 }
@@ -231,15 +174,16 @@ void RendererStats$RendererStatsHolder::lambda$add$1($RendererStats* stats) {
 }
 
 $Void* RendererStats$RendererStatsHolder::lambda$new$0() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ThreadGroup, var$0, $MarlinUtils::getRootThreadGroup());
 	$var($Thread, hook, $new($Thread, var$0, $$new($RendererStats$RendererStatsHolder$1, this), "MarlinStatsHook"_s));
 	hook->setContextClassLoader(nullptr);
-	$nc($($Runtime::getRuntime()))->addShutdownHook(hook);
+	$$nc($Runtime::getRuntime())->addShutdownHook(hook);
+	;
 	return nullptr;
 }
 
-void clinit$RendererStats$RendererStatsHolder($Class* class$) {
+void RendererStats$RendererStatsHolder::clinit$($Class* clazz) {
 	$assignStatic(RendererStats$RendererStatsHolder::SINGLETON, nullptr);
 }
 
@@ -248,14 +192,52 @@ RendererStats$RendererStatsHolder::RendererStats$RendererStatsHolder() {
 
 $Class* RendererStats$RendererStatsHolder::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(RendererStats$RendererStatsHolder$$Lambda$lambda$new$0::classInfo$.name)) {
+		if (name->equals("sun.java2d.marlin.RendererStats$RendererStatsHolder$$Lambda$lambda$new$0")) {
 			return RendererStats$RendererStatsHolder$$Lambda$lambda$new$0::load$(name, initialize);
 		}
-		if (name->equals(RendererStats$RendererStatsHolder$$Lambda$lambda$add$1$1::classInfo$.name)) {
+		if (name->equals("sun.java2d.marlin.RendererStats$RendererStatsHolder$$Lambda$lambda$add$1$1")) {
 			return RendererStats$RendererStatsHolder$$Lambda$lambda$add$1$1::load$(name, initialize);
 		}
 	}
-	$loadClass(RendererStats$RendererStatsHolder, name, initialize, &_RendererStats$RendererStatsHolder_ClassInfo_, clinit$RendererStats$RendererStatsHolder, allocate$RendererStats$RendererStatsHolder);
+	$FieldInfo fieldInfos$$[] = {
+		{"SINGLETON", "Lsun/java2d/marlin/RendererStats$RendererStatsHolder;", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(RendererStats$RendererStatsHolder, SINGLETON)},
+		{"allStats", "Ljava/util/concurrent/ConcurrentLinkedQueue;", "Ljava/util/concurrent/ConcurrentLinkedQueue<Lsun/java2d/marlin/RendererStats;>;", $PRIVATE | $FINAL, $field(RendererStats$RendererStatsHolder, allStats)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(RendererStats$RendererStatsHolder, init$, void)},
+		{"add", "(Ljava/lang/Object;Lsun/java2d/marlin/RendererStats;)V", nullptr, 0, $method(RendererStats$RendererStatsHolder, add, void, Object$*, $RendererStats*)},
+		{"dump", "()V", nullptr, 0, $method(RendererStats$RendererStatsHolder, dump, void)},
+		{"dumpStats", "()V", nullptr, $STATIC, $staticMethod(RendererStats$RendererStatsHolder, dumpStats, void)},
+		{"getInstance", "()Lsun/java2d/marlin/RendererStats$RendererStatsHolder;", nullptr, $STATIC | $SYNCHRONIZED, $staticMethod(RendererStats$RendererStatsHolder, getInstance, RendererStats$RendererStatsHolder*)},
+		{"lambda$add$1", "(Lsun/java2d/marlin/RendererStats;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(RendererStats$RendererStatsHolder, lambda$add$1, void, $RendererStats*)},
+		{"lambda$new$0", "()Ljava/lang/Void;", nullptr, $PRIVATE | $SYNTHETIC, $method(RendererStats$RendererStatsHolder, lambda$new$0, $Void*)},
+		{"remove", "(Lsun/java2d/marlin/RendererStats;)V", nullptr, 0, $method(RendererStats$RendererStatsHolder, remove, void, $RendererStats*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.java2d.marlin.RendererStats$RendererStatsHolder", "sun.java2d.marlin.RendererStats", "RendererStatsHolder", $STATIC | $FINAL},
+		{"sun.java2d.marlin.RendererStats$RendererStatsHolder$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.java2d.marlin.RendererStats$RendererStatsHolder",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.java2d.marlin.RendererStats"
+	};
+	$loadClass(RendererStats$RendererStatsHolder, name, initialize, &classInfo$$, RendererStats$RendererStatsHolder::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(RendererStats$RendererStatsHolder);
+	});
 	return class$;
 }
 

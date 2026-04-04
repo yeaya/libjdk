@@ -1,5 +1,4 @@
 #include <sun/management/MappedMXBeanType$GenericArrayMXBeanType.h>
-
 #include <java/lang/ClassNotFoundException.h>
 #include <java/lang/reflect/GenericArrayType.h>
 #include <java/lang/reflect/Type.h>
@@ -19,53 +18,13 @@ using $GenericArrayType = ::java::lang::reflect::GenericArrayType;
 using $Type = ::java::lang::reflect::Type;
 using $ArrayType = ::javax::management::openmbean::ArrayType;
 using $OpenDataException = ::javax::management::openmbean::OpenDataException;
-using $OpenType = ::javax::management::openmbean::OpenType;
-using $MappedMXBeanType = ::sun::management::MappedMXBeanType;
 using $MappedMXBeanType$ArrayMXBeanType = ::sun::management::MappedMXBeanType$ArrayMXBeanType;
 
 namespace sun {
 	namespace management {
 
-$FieldInfo _MappedMXBeanType$GenericArrayMXBeanType_FieldInfo_[] = {
-	{"gtype", "Ljava/lang/reflect/GenericArrayType;", nullptr, $FINAL, $field(MappedMXBeanType$GenericArrayMXBeanType, gtype)},
-	{}
-};
-
-$MethodInfo _MappedMXBeanType$GenericArrayMXBeanType_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/reflect/GenericArrayType;)V", nullptr, 0, $method(MappedMXBeanType$GenericArrayMXBeanType, init$, void, $GenericArrayType*), "javax.management.openmbean.OpenDataException"},
-	{"getJavaType", "()Ljava/lang/reflect/Type;", nullptr, 0, $virtualMethod(MappedMXBeanType$GenericArrayMXBeanType, getJavaType, $Type*)},
-	{"getName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(MappedMXBeanType$GenericArrayMXBeanType, getName, $String*)},
-	{}
-};
-
-$InnerClassInfo _MappedMXBeanType$GenericArrayMXBeanType_InnerClassesInfo_[] = {
-	{"sun.management.MappedMXBeanType$GenericArrayMXBeanType", "sun.management.MappedMXBeanType", "GenericArrayMXBeanType", $STATIC},
-	{"sun.management.MappedMXBeanType$ArrayMXBeanType", "sun.management.MappedMXBeanType", "ArrayMXBeanType", $STATIC},
-	{}
-};
-
-$ClassInfo _MappedMXBeanType$GenericArrayMXBeanType_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.management.MappedMXBeanType$GenericArrayMXBeanType",
-	"sun.management.MappedMXBeanType$ArrayMXBeanType",
-	nullptr,
-	_MappedMXBeanType$GenericArrayMXBeanType_FieldInfo_,
-	_MappedMXBeanType$GenericArrayMXBeanType_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MappedMXBeanType$GenericArrayMXBeanType_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.management.MappedMXBeanType"
-};
-
-$Object* allocate$MappedMXBeanType$GenericArrayMXBeanType($Class* clazz) {
-	return $of($alloc(MappedMXBeanType$GenericArrayMXBeanType));
-}
-
 void MappedMXBeanType$GenericArrayMXBeanType::init$($GenericArrayType* gat) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$MappedMXBeanType$ArrayMXBeanType::init$();
 	$set(this, gtype, gat);
@@ -76,11 +35,11 @@ void MappedMXBeanType$GenericArrayMXBeanType::init$($GenericArrayType* gat) {
 	for (dim = 0; $instanceOf($GenericArrayType, elementType); ++dim) {
 		className->append(u'[');
 		$var($GenericArrayType, et, $cast($GenericArrayType, elementType));
-		$assign(elementType, $nc(et)->getGenericComponentType());
+		$assign(elementType, et->getGenericComponentType());
 	}
 	$set(this, baseElementType, getMappedType(elementType));
-	if ($instanceOf($Class, elementType) && $nc(($cast($Class, elementType)))->isPrimitive()) {
-		$assign(className, $new($StringBuilder, $($nc($of(gat))->toString())));
+	if ($instanceOf($Class, elementType) && $cast($Class, elementType)->isPrimitive()) {
+		$assign(className, $new($StringBuilder, $($of(gat)->toString())));
 	} else {
 		className->append(u'L')->append($($nc(this->baseElementType)->getTypeName()))->append(u';');
 	}
@@ -99,14 +58,46 @@ $Type* MappedMXBeanType$GenericArrayMXBeanType::getJavaType() {
 }
 
 $String* MappedMXBeanType$GenericArrayMXBeanType::getName() {
-	return $nc($of(this->gtype))->toString();
+	return $nc(this->gtype)->toString();
 }
 
 MappedMXBeanType$GenericArrayMXBeanType::MappedMXBeanType$GenericArrayMXBeanType() {
 }
 
 $Class* MappedMXBeanType$GenericArrayMXBeanType::load$($String* name, bool initialize) {
-	$loadClass(MappedMXBeanType$GenericArrayMXBeanType, name, initialize, &_MappedMXBeanType$GenericArrayMXBeanType_ClassInfo_, allocate$MappedMXBeanType$GenericArrayMXBeanType);
+	$FieldInfo fieldInfos$$[] = {
+		{"gtype", "Ljava/lang/reflect/GenericArrayType;", nullptr, $FINAL, $field(MappedMXBeanType$GenericArrayMXBeanType, gtype)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/reflect/GenericArrayType;)V", nullptr, 0, $method(MappedMXBeanType$GenericArrayMXBeanType, init$, void, $GenericArrayType*), "javax.management.openmbean.OpenDataException"},
+		{"getJavaType", "()Ljava/lang/reflect/Type;", nullptr, 0, $virtualMethod(MappedMXBeanType$GenericArrayMXBeanType, getJavaType, $Type*)},
+		{"getName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(MappedMXBeanType$GenericArrayMXBeanType, getName, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.management.MappedMXBeanType$GenericArrayMXBeanType", "sun.management.MappedMXBeanType", "GenericArrayMXBeanType", $STATIC},
+		{"sun.management.MappedMXBeanType$ArrayMXBeanType", "sun.management.MappedMXBeanType", "ArrayMXBeanType", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.management.MappedMXBeanType$GenericArrayMXBeanType",
+		"sun.management.MappedMXBeanType$ArrayMXBeanType",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.management.MappedMXBeanType"
+	};
+	$loadClass(MappedMXBeanType$GenericArrayMXBeanType, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MappedMXBeanType$GenericArrayMXBeanType);
+	});
 	return class$;
 }
 

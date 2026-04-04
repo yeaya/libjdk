@@ -80,6 +80,7 @@ class $export Lint$LintCategory : public ::java::lang::Enum {
 public:
 	Lint$LintCategory();
 	static $Array<::com::sun::tools::javac::code::Lint$LintCategory>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal, $String* option);
 	void init$($String* $enum$name, int32_t $enum$ordinal, $String* option, bool hidden);
 	static ::com::sun::tools::javac::code::Lint$LintCategory* get($String* option);

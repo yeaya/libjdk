@@ -167,6 +167,7 @@ class JRSUIConstants$Widget : public ::apple::laf::JRSUIConstants$Property {
 	$class(JRSUIConstants$Widget, 0, ::apple::laf::JRSUIConstants$Property)
 public:
 	JRSUIConstants$Widget();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int8_t constant);
 	virtual int64_t apply(int64_t encodedState) override;
 	virtual $String* toString() override;

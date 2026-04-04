@@ -1,5 +1,4 @@
 #include <bug6742358.h>
-
 #include <bug6742358$TestPanel.h>
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
@@ -10,7 +9,6 @@
 #include <javax/swing/SwingConstants.h>
 #include <javax/swing/plaf/metal/DefaultMetalTheme.h>
 #include <javax/swing/plaf/metal/MetalLookAndFeel.h>
-#include <javax/swing/plaf/metal/MetalTheme.h>
 #include <jcpp.h>
 
 #undef DISPOSE_ON_CLOSE
@@ -19,7 +17,6 @@
 
 using $bug6742358$TestPanel = ::bug6742358$TestPanel;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -30,39 +27,6 @@ using $JSlider = ::javax::swing::JSlider;
 using $SwingConstants = ::javax::swing::SwingConstants;
 using $DefaultMetalTheme = ::javax::swing::plaf::metal::DefaultMetalTheme;
 using $MetalLookAndFeel = ::javax::swing::plaf::metal::MetalLookAndFeel;
-using $MetalTheme = ::javax::swing::plaf::metal::MetalTheme;
-
-$MethodInfo _bug6742358_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(bug6742358, init$, void)},
-	{"createSlider", "(ZZZZ)Ljavax/swing/JSlider;", nullptr, $PRIVATE | $STATIC, $staticMethod(bug6742358, createSlider, $JSlider*, bool, bool, bool, bool)},
-	{"init", "()V", nullptr, $PUBLIC, $virtualMethod(bug6742358, init, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(bug6742358, main, void, $StringArray*)},
-	{}
-};
-
-$InnerClassInfo _bug6742358_InnerClassesInfo_[] = {
-	{"bug6742358$TestPanel", "bug6742358", "TestPanel", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _bug6742358_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"bug6742358",
-	"javax.swing.JApplet",
-	nullptr,
-	nullptr,
-	_bug6742358_MethodInfo_,
-	nullptr,
-	nullptr,
-	_bug6742358_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"bug6742358$TestPanel"
-};
-
-$Object* allocate$bug6742358($Class* clazz) {
-	return $of($alloc(bug6742358));
-}
 
 void bug6742358::init$() {
 	$JApplet::init$();
@@ -70,7 +34,7 @@ void bug6742358::init$() {
 
 void bug6742358::main($StringArray* args) {
 	$init(bug6742358);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$MetalLookAndFeel::setCurrentTheme($$new($DefaultMetalTheme));
 	$var($JFrame, frame, $new($JFrame));
 	frame->setContentPane($$new($bug6742358$TestPanel));
@@ -81,7 +45,7 @@ void bug6742358::main($StringArray* args) {
 }
 
 void bug6742358::init() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$MetalLookAndFeel::setCurrentTheme($$new($DefaultMetalTheme));
 	$var($bug6742358$TestPanel, panel, $new($bug6742358$TestPanel));
 	setContentPane(panel);
@@ -89,7 +53,7 @@ void bug6742358::init() {
 
 $JSlider* bug6742358::createSlider(bool vertical, bool enabled, bool filled, bool inverted) {
 	$init(bug6742358);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JSlider, result, $new($JSlider, vertical ? $SwingConstants::VERTICAL : $SwingConstants::HORIZONTAL, 0, 10, 5));
 	result->setEnabled(enabled);
 	result->putClientProperty("JSlider.isFilled"_s, $($Boolean::valueOf(filled)));
@@ -102,7 +66,34 @@ bug6742358::bug6742358() {
 }
 
 $Class* bug6742358::load$($String* name, bool initialize) {
-	$loadClass(bug6742358, name, initialize, &_bug6742358_ClassInfo_, allocate$bug6742358);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(bug6742358, init$, void)},
+		{"createSlider", "(ZZZZ)Ljavax/swing/JSlider;", nullptr, $PRIVATE | $STATIC, $staticMethod(bug6742358, createSlider, $JSlider*, bool, bool, bool, bool)},
+		{"init", "()V", nullptr, $PUBLIC, $virtualMethod(bug6742358, init, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(bug6742358, main, void, $StringArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"bug6742358$TestPanel", "bug6742358", "TestPanel", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"bug6742358",
+		"javax.swing.JApplet",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"bug6742358$TestPanel"
+	};
+	$loadClass(bug6742358, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(bug6742358));
+	});
 	return class$;
 }
 

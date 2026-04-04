@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/metal/BumpBuffer.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Graphics.h>
 #include <java/awt/GraphicsConfiguration.h>
@@ -36,38 +35,6 @@ namespace javax {
 		namespace plaf {
 			namespace metal {
 
-$FieldInfo _BumpBuffer_FieldInfo_[] = {
-	{"IMAGE_SIZE", "I", nullptr, $STATIC | $FINAL, $constField(BumpBuffer, IMAGE_SIZE)},
-	{"image", "Ljava/awt/Image;", nullptr, $TRANSIENT, $field(BumpBuffer, image)},
-	{"topColor", "Ljava/awt/Color;", nullptr, 0, $field(BumpBuffer, topColor)},
-	{"shadowColor", "Ljava/awt/Color;", nullptr, 0, $field(BumpBuffer, shadowColor)},
-	{"backColor", "Ljava/awt/Color;", nullptr, 0, $field(BumpBuffer, backColor)},
-	{"gc", "Ljava/awt/GraphicsConfiguration;", nullptr, $PRIVATE, $field(BumpBuffer, gc)},
-	{}
-};
-
-$MethodInfo _BumpBuffer_MethodInfo_[] = {
-	{"<init>", "(Ljava/awt/GraphicsConfiguration;Ljava/awt/Color;Ljava/awt/Color;Ljava/awt/Color;)V", nullptr, $PUBLIC, $method(BumpBuffer, init$, void, $GraphicsConfiguration*, $Color*, $Color*, $Color*)},
-	{"createImage", "()V", nullptr, $PRIVATE, $method(BumpBuffer, createImage, void)},
-	{"fillBumpBuffer", "()V", nullptr, $PRIVATE, $method(BumpBuffer, fillBumpBuffer, void)},
-	{"getImage", "()Ljava/awt/Image;", nullptr, $PUBLIC, $virtualMethod(BumpBuffer, getImage, $Image*)},
-	{"hasSameConfiguration", "(Ljava/awt/GraphicsConfiguration;Ljava/awt/Color;Ljava/awt/Color;Ljava/awt/Color;)Z", nullptr, $PUBLIC, $virtualMethod(BumpBuffer, hasSameConfiguration, bool, $GraphicsConfiguration*, $Color*, $Color*, $Color*)},
-	{}
-};
-
-$ClassInfo _BumpBuffer_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.metal.BumpBuffer",
-	"java.lang.Object",
-	nullptr,
-	_BumpBuffer_FieldInfo_,
-	_BumpBuffer_MethodInfo_
-};
-
-$Object* allocate$BumpBuffer($Class* clazz) {
-	return $of($alloc(BumpBuffer));
-}
-
 void BumpBuffer::init$($GraphicsConfiguration* gc, $Color* aTopColor, $Color* aShadowColor, $Color* aBackColor) {
 	$set(this, gc, gc);
 	$set(this, topColor, aTopColor);
@@ -79,7 +46,7 @@ void BumpBuffer::init$($GraphicsConfiguration* gc, $Color* aTopColor, $Color* aS
 
 bool BumpBuffer::hasSameConfiguration($GraphicsConfiguration* gc, $Color* aTopColor, $Color* aShadowColor, $Color* aBackColor) {
 	if (this->gc != nullptr) {
-		if (!$nc($of(this->gc))->equals(gc)) {
+		if (!this->gc->equals(gc)) {
 			return false;
 		}
 	} else if (gc != nullptr) {
@@ -116,10 +83,10 @@ void BumpBuffer::fillBumpBuffer() {
 }
 
 void BumpBuffer::createImage() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->gc != nullptr) {
 		$init($MetalBumps);
-		$set(this, image, $nc(this->gc)->createCompatibleImage(BumpBuffer::IMAGE_SIZE, BumpBuffer::IMAGE_SIZE, (this->backColor != $MetalBumps::ALPHA) ? $Transparency::OPAQUE : $Transparency::BITMASK));
+		$set(this, image, this->gc->createCompatibleImage(BumpBuffer::IMAGE_SIZE, BumpBuffer::IMAGE_SIZE, (this->backColor != $MetalBumps::ALPHA) ? $Transparency::OPAQUE : $Transparency::BITMASK));
 	} else {
 		$var($ints, cmap, $new($ints, {
 			$nc(this->backColor)->getRGB(),
@@ -136,7 +103,34 @@ BumpBuffer::BumpBuffer() {
 }
 
 $Class* BumpBuffer::load$($String* name, bool initialize) {
-	$loadClass(BumpBuffer, name, initialize, &_BumpBuffer_ClassInfo_, allocate$BumpBuffer);
+	$FieldInfo fieldInfos$$[] = {
+		{"IMAGE_SIZE", "I", nullptr, $STATIC | $FINAL, $constField(BumpBuffer, IMAGE_SIZE)},
+		{"image", "Ljava/awt/Image;", nullptr, $TRANSIENT, $field(BumpBuffer, image)},
+		{"topColor", "Ljava/awt/Color;", nullptr, 0, $field(BumpBuffer, topColor)},
+		{"shadowColor", "Ljava/awt/Color;", nullptr, 0, $field(BumpBuffer, shadowColor)},
+		{"backColor", "Ljava/awt/Color;", nullptr, 0, $field(BumpBuffer, backColor)},
+		{"gc", "Ljava/awt/GraphicsConfiguration;", nullptr, $PRIVATE, $field(BumpBuffer, gc)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/GraphicsConfiguration;Ljava/awt/Color;Ljava/awt/Color;Ljava/awt/Color;)V", nullptr, $PUBLIC, $method(BumpBuffer, init$, void, $GraphicsConfiguration*, $Color*, $Color*, $Color*)},
+		{"createImage", "()V", nullptr, $PRIVATE, $method(BumpBuffer, createImage, void)},
+		{"fillBumpBuffer", "()V", nullptr, $PRIVATE, $method(BumpBuffer, fillBumpBuffer, void)},
+		{"getImage", "()Ljava/awt/Image;", nullptr, $PUBLIC, $virtualMethod(BumpBuffer, getImage, $Image*)},
+		{"hasSameConfiguration", "(Ljava/awt/GraphicsConfiguration;Ljava/awt/Color;Ljava/awt/Color;Ljava/awt/Color;)Z", nullptr, $PUBLIC, $virtualMethod(BumpBuffer, hasSameConfiguration, bool, $GraphicsConfiguration*, $Color*, $Color*, $Color*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.metal.BumpBuffer",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(BumpBuffer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BumpBuffer);
+	});
 	return class$;
 }
 

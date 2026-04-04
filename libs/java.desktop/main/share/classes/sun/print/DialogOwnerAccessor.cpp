@@ -1,5 +1,4 @@
 #include <sun/print/DialogOwnerAccessor.h>
-
 #include <javax/print/attribute/standard/DialogOwner.h>
 #include <jcpp.h>
 
@@ -10,32 +9,6 @@ using $DialogOwner = ::javax::print::attribute::standard::DialogOwner;
 
 namespace sun {
 	namespace print {
-
-$FieldInfo _DialogOwnerAccessor_FieldInfo_[] = {
-	{"accessor", "Lsun/print/DialogOwnerAccessor;", nullptr, $PUBLIC | $STATIC, $staticField(DialogOwnerAccessor, accessor)},
-	{}
-};
-
-$MethodInfo _DialogOwnerAccessor_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(DialogOwnerAccessor, init$, void)},
-	{"getID", "(Ljavax/print/attribute/standard/DialogOwner;)J", nullptr, $PUBLIC | $STATIC, $staticMethod(DialogOwnerAccessor, getID, int64_t, $DialogOwner*)},
-	{"getOwnerID", "(Ljavax/print/attribute/standard/DialogOwner;)J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DialogOwnerAccessor, getOwnerID, int64_t, $DialogOwner*)},
-	{"setAccessor", "(Lsun/print/DialogOwnerAccessor;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(DialogOwnerAccessor, setAccessor, void, DialogOwnerAccessor*)},
-	{}
-};
-
-$ClassInfo _DialogOwnerAccessor_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"sun.print.DialogOwnerAccessor",
-	"java.lang.Object",
-	nullptr,
-	_DialogOwnerAccessor_FieldInfo_,
-	_DialogOwnerAccessor_MethodInfo_
-};
-
-$Object* allocate$DialogOwnerAccessor($Class* clazz) {
-	return $of($alloc(DialogOwnerAccessor));
-}
 
 DialogOwnerAccessor* DialogOwnerAccessor::accessor = nullptr;
 
@@ -52,11 +25,11 @@ int64_t DialogOwnerAccessor::getID($DialogOwner* owner) {
 	if (DialogOwnerAccessor::accessor == nullptr || owner == nullptr) {
 		return 0;
 	} else {
-		return $nc(DialogOwnerAccessor::accessor)->getOwnerID(owner);
+		return DialogOwnerAccessor::accessor->getOwnerID(owner);
 	}
 }
 
-void clinit$DialogOwnerAccessor($Class* class$) {
+void DialogOwnerAccessor::clinit$($Class* clazz) {
 	$assignStatic(DialogOwnerAccessor::accessor, nullptr);
 }
 
@@ -64,7 +37,28 @@ DialogOwnerAccessor::DialogOwnerAccessor() {
 }
 
 $Class* DialogOwnerAccessor::load$($String* name, bool initialize) {
-	$loadClass(DialogOwnerAccessor, name, initialize, &_DialogOwnerAccessor_ClassInfo_, clinit$DialogOwnerAccessor, allocate$DialogOwnerAccessor);
+	$FieldInfo fieldInfos$$[] = {
+		{"accessor", "Lsun/print/DialogOwnerAccessor;", nullptr, $PUBLIC | $STATIC, $staticField(DialogOwnerAccessor, accessor)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(DialogOwnerAccessor, init$, void)},
+		{"getID", "(Ljavax/print/attribute/standard/DialogOwner;)J", nullptr, $PUBLIC | $STATIC, $staticMethod(DialogOwnerAccessor, getID, int64_t, $DialogOwner*)},
+		{"getOwnerID", "(Ljavax/print/attribute/standard/DialogOwner;)J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DialogOwnerAccessor, getOwnerID, int64_t, $DialogOwner*)},
+		{"setAccessor", "(Lsun/print/DialogOwnerAccessor;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(DialogOwnerAccessor, setAccessor, void, DialogOwnerAccessor*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"sun.print.DialogOwnerAccessor",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DialogOwnerAccessor, name, initialize, &classInfo$$, DialogOwnerAccessor::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(DialogOwnerAccessor);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/TopLevelElement.h>
-
 #include <com/sun/org/apache/bcel/internal/generic/InstructionList.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/Constants.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/Parser.h>
@@ -19,7 +18,6 @@
 
 using $InstructionList = ::com::sun::org::apache::bcel::internal::generic::InstructionList;
 using $Constants = ::com::sun::org::apache::xalan::internal::xsltc::compiler::Constants;
-using $Parser = ::com::sun::org::apache::xalan::internal::xsltc::compiler::Parser;
 using $SymbolTable = ::com::sun::org::apache::xalan::internal::xsltc::compiler::SymbolTable;
 using $SyntaxTreeNode = ::com::sun::org::apache::xalan::internal::xsltc::compiler::SyntaxTreeNode;
 using $ClassGenerator = ::com::sun::org::apache::xalan::internal::xsltc::compiler::util::ClassGenerator;
@@ -42,35 +40,6 @@ namespace com {
 						namespace xsltc {
 							namespace compiler {
 
-$FieldInfo _TopLevelElement_FieldInfo_[] = {
-	{"_dependencies", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SyntaxTreeNode;>;", $PROTECTED, $field(TopLevelElement, _dependencies)},
-	{}
-};
-
-$MethodInfo _TopLevelElement_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(TopLevelElement, init$, void)},
-	{"addDependency", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/TopLevelElement;)V", nullptr, $PUBLIC, $virtualMethod(TopLevelElement, addDependency, void, TopLevelElement*)},
-	{"compile", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;)Lcom/sun/org/apache/bcel/internal/generic/InstructionList;", nullptr, $PUBLIC, $virtualMethod(TopLevelElement, compile, $InstructionList*, $ClassGenerator*, $MethodGenerator*)},
-	{"display", "(I)V", nullptr, $PUBLIC, $virtualMethod(TopLevelElement, display, void, int32_t)},
-	{"getDependencies", "()Ljava/util/List;", "()Ljava/util/List<Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SyntaxTreeNode;>;", $PUBLIC, $virtualMethod(TopLevelElement, getDependencies, $List*)},
-	{"translate", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;)V", nullptr, $PUBLIC, $virtualMethod(TopLevelElement, translate, void, $ClassGenerator*, $MethodGenerator*)},
-	{"typeCheck", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SymbolTable;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/Type;", nullptr, $PUBLIC, $virtualMethod(TopLevelElement, typeCheck, $Type*, $SymbolTable*), "com.sun.org.apache.xalan.internal.xsltc.compiler.util.TypeCheckError"},
-	{}
-};
-
-$ClassInfo _TopLevelElement_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.org.apache.xalan.internal.xsltc.compiler.TopLevelElement",
-	"com.sun.org.apache.xalan.internal.xsltc.compiler.SyntaxTreeNode",
-	nullptr,
-	_TopLevelElement_FieldInfo_,
-	_TopLevelElement_MethodInfo_
-};
-
-$Object* allocate$TopLevelElement($Class* clazz) {
-	return $of($alloc(TopLevelElement));
-}
-
 void TopLevelElement::init$() {
 	$SyntaxTreeNode::init$();
 	$set(this, _dependencies, nullptr);
@@ -81,14 +50,14 @@ $Type* TopLevelElement::typeCheck($SymbolTable* stable) {
 }
 
 void TopLevelElement::translate($ClassGenerator* classGen, $MethodGenerator* methodGen) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($ErrorMsg);
-	$var($ErrorMsg, msg, $new($ErrorMsg, $ErrorMsg::NOT_IMPLEMENTED_ERR, $of($of(this)->getClass()), static_cast<$SyntaxTreeNode*>(this)));
-	$nc($(getParser()))->reportError($Constants::FATAL, msg);
+	$var($ErrorMsg, msg, $new($ErrorMsg, $ErrorMsg::NOT_IMPLEMENTED_ERR, $of(this)->getClass(), this));
+	$$nc(getParser())->reportError($Constants::FATAL, msg);
 }
 
 $InstructionList* TopLevelElement::compile($ClassGenerator* classGen, $MethodGenerator* methodGen) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($InstructionList, result, nullptr);
 	$var($InstructionList, save, $nc(methodGen)->getInstructionList());
 	methodGen->setInstructionList($assign(result, $new($InstructionList)));
@@ -108,7 +77,7 @@ void TopLevelElement::addDependency(TopLevelElement* other) {
 		$set(this, _dependencies, $new($ArrayList));
 	}
 	if (!$nc(this->_dependencies)->contains(other)) {
-		$nc(this->_dependencies)->add(other);
+		this->_dependencies->add(other);
 	}
 }
 
@@ -120,7 +89,31 @@ TopLevelElement::TopLevelElement() {
 }
 
 $Class* TopLevelElement::load$($String* name, bool initialize) {
-	$loadClass(TopLevelElement, name, initialize, &_TopLevelElement_ClassInfo_, allocate$TopLevelElement);
+	$FieldInfo fieldInfos$$[] = {
+		{"_dependencies", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SyntaxTreeNode;>;", $PROTECTED, $field(TopLevelElement, _dependencies)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(TopLevelElement, init$, void)},
+		{"addDependency", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/TopLevelElement;)V", nullptr, $PUBLIC, $virtualMethod(TopLevelElement, addDependency, void, TopLevelElement*)},
+		{"compile", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;)Lcom/sun/org/apache/bcel/internal/generic/InstructionList;", nullptr, $PUBLIC, $virtualMethod(TopLevelElement, compile, $InstructionList*, $ClassGenerator*, $MethodGenerator*)},
+		{"display", "(I)V", nullptr, $PUBLIC, $virtualMethod(TopLevelElement, display, void, int32_t)},
+		{"getDependencies", "()Ljava/util/List;", "()Ljava/util/List<Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SyntaxTreeNode;>;", $PUBLIC, $virtualMethod(TopLevelElement, getDependencies, $List*)},
+		{"translate", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;)V", nullptr, $PUBLIC, $virtualMethod(TopLevelElement, translate, void, $ClassGenerator*, $MethodGenerator*)},
+		{"typeCheck", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SymbolTable;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/Type;", nullptr, $PUBLIC, $virtualMethod(TopLevelElement, typeCheck, $Type*, $SymbolTable*), "com.sun.org.apache.xalan.internal.xsltc.compiler.util.TypeCheckError"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.org.apache.xalan.internal.xsltc.compiler.TopLevelElement",
+		"com.sun.org.apache.xalan.internal.xsltc.compiler.SyntaxTreeNode",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TopLevelElement, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TopLevelElement);
+	});
 	return class$;
 }
 

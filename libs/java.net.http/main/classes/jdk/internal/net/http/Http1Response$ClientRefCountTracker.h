@@ -25,6 +25,7 @@ class $export Http1Response$ClientRefCountTracker : public ::java::lang::Object 
 	$class(Http1Response$ClientRefCountTracker, 0, ::java::lang::Object)
 public:
 	Http1Response$ClientRefCountTracker();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::jdk::internal::net::http::Http1Response* this$0);
 	void acquire();
 	void tryRelease();

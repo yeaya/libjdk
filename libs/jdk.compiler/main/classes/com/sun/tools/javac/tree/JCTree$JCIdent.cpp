@@ -1,6 +1,4 @@
 #include <com/sun/tools/javac/tree/JCTree$JCIdent.h>
-
-#include <com/sun/source/tree/IdentifierTree.h>
 #include <com/sun/source/tree/Tree$Kind.h>
 #include <com/sun/source/tree/TreeVisitor.h>
 #include <com/sun/tools/javac/code/Symbol.h>
@@ -15,7 +13,6 @@
 #undef IDENT
 #undef IDENTIFIER
 
-using $IdentifierTree = ::com::sun::source::tree::IdentifierTree;
 using $Tree$Kind = ::com::sun::source::tree::Tree$Kind;
 using $TreeVisitor = ::com::sun::source::tree::TreeVisitor;
 using $Symbol = ::com::sun::tools::javac::code::Symbol;
@@ -34,53 +31,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace tree {
-
-$FieldInfo _JCTree$JCIdent_FieldInfo_[] = {
-	{"name", "Lcom/sun/tools/javac/util/Name;", nullptr, $PUBLIC, $field(JCTree$JCIdent, name)},
-	{"sym", "Lcom/sun/tools/javac/code/Symbol;", nullptr, $PUBLIC, $field(JCTree$JCIdent, sym)},
-	{}
-};
-
-$MethodInfo _JCTree$JCIdent_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PROTECTED, $method(JCTree$JCIdent, init$, void, $Name*, $Symbol*)},
-	{"accept", "(Lcom/sun/tools/javac/tree/JCTree$Visitor;)V", nullptr, $PUBLIC, $virtualMethod(JCTree$JCIdent, accept, void, $JCTree$Visitor*)},
-	{"accept", "(Lcom/sun/source/tree/TreeVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;D:Ljava/lang/Object;>(Lcom/sun/source/tree/TreeVisitor<TR;TD;>;TD;)TR;", $PUBLIC, $virtualMethod(JCTree$JCIdent, accept, $Object*, $TreeVisitor*, Object$*)},
-	{"getKind", "()Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCIdent, getKind, $Tree$Kind*)},
-	{"getName", "()Lcom/sun/tools/javac/util/Name;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCIdent, getName, $1Name*)},
-	{"getTag", "()Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCIdent, getTag, $JCTree$Tag*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _JCTree$JCIdent_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.tree.JCTree$JCIdent", "com.sun.tools.javac.tree.JCTree", "JCIdent", $PUBLIC | $STATIC},
-	{"com.sun.tools.javac.tree.JCTree$JCExpression", "com.sun.tools.javac.tree.JCTree", "JCExpression", $PUBLIC | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _JCTree$JCIdent_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.tree.JCTree$JCIdent",
-	"com.sun.tools.javac.tree.JCTree$JCExpression",
-	"com.sun.source.tree.IdentifierTree",
-	_JCTree$JCIdent_FieldInfo_,
-	_JCTree$JCIdent_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JCTree$JCIdent_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.tree.JCTree"
-};
-
-$Object* allocate$JCTree$JCIdent($Class* clazz) {
-	return $of($alloc(JCTree$JCIdent));
-}
 
 $String* JCTree$JCIdent::toString() {
 	 return this->$JCTree$JCExpression::toString();
@@ -122,7 +72,7 @@ $1Name* JCTree$JCIdent::getName() {
 }
 
 $Object* JCTree$JCIdent::accept($TreeVisitor* v, Object$* d) {
-	return $of($nc(v)->visitIdentifier(this, d));
+	return $nc(v)->visitIdentifier(this, d);
 }
 
 $JCTree$Tag* JCTree$JCIdent::getTag() {
@@ -134,7 +84,48 @@ JCTree$JCIdent::JCTree$JCIdent() {
 }
 
 $Class* JCTree$JCIdent::load$($String* name, bool initialize) {
-	$loadClass(JCTree$JCIdent, name, initialize, &_JCTree$JCIdent_ClassInfo_, allocate$JCTree$JCIdent);
+	$FieldInfo fieldInfos$$[] = {
+		{"name", "Lcom/sun/tools/javac/util/Name;", nullptr, $PUBLIC, $field(JCTree$JCIdent, name)},
+		{"sym", "Lcom/sun/tools/javac/code/Symbol;", nullptr, $PUBLIC, $field(JCTree$JCIdent, sym)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PROTECTED, $method(JCTree$JCIdent, init$, void, $Name*, $Symbol*)},
+		{"accept", "(Lcom/sun/tools/javac/tree/JCTree$Visitor;)V", nullptr, $PUBLIC, $virtualMethod(JCTree$JCIdent, accept, void, $JCTree$Visitor*)},
+		{"accept", "(Lcom/sun/source/tree/TreeVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;D:Ljava/lang/Object;>(Lcom/sun/source/tree/TreeVisitor<TR;TD;>;TD;)TR;", $PUBLIC, $virtualMethod(JCTree$JCIdent, accept, $Object*, $TreeVisitor*, Object$*)},
+		{"getKind", "()Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCIdent, getKind, $Tree$Kind*)},
+		{"getName", "()Lcom/sun/tools/javac/util/Name;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCIdent, getName, $1Name*)},
+		{"getTag", "()Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCIdent, getTag, $JCTree$Tag*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.tree.JCTree$JCIdent", "com.sun.tools.javac.tree.JCTree", "JCIdent", $PUBLIC | $STATIC},
+		{"com.sun.tools.javac.tree.JCTree$JCExpression", "com.sun.tools.javac.tree.JCTree", "JCExpression", $PUBLIC | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.tree.JCTree$JCIdent",
+		"com.sun.tools.javac.tree.JCTree$JCExpression",
+		"com.sun.source.tree.IdentifierTree",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.tree.JCTree"
+	};
+	$loadClass(JCTree$JCIdent, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JCTree$JCIdent));
+	});
 	return class$;
 }
 

@@ -37,7 +37,7 @@ public:
 	virtual ::javax::accessibility::AccessibleRole* getAccessibleRole() override;
 	virtual $String* toString() override;
 	::java::awt::Choice* this$0 = nullptr;
-	static const int64_t serialVersionUID = (int64_t)0x6394DD70B3ABF48A;
+	static const int64_t serialVersionUID = (int64_t)0x6394dd70b3abf48a;
 };
 
 	} // awt

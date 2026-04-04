@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/xpointer/ShortHandPointer.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/Constants.h>
 #include <com/sun/org/apache/xerces/internal/impl/dv/XSSimpleType.h>
 #include <com/sun/org/apache/xerces/internal/util/SymbolTable.h>
@@ -26,7 +25,6 @@ using $XMLAttributes = ::com::sun::org::apache::xerces::internal::xni::XMLAttrib
 using $XPointerPart = ::com::sun::org::apache::xerces::internal::xpointer::XPointerPart;
 using $AttributePSVI = ::com::sun::org::apache::xerces::internal::xs::AttributePSVI;
 using $XSTypeDefinition = ::com::sun::org::apache::xerces::internal::xs::XSTypeDefinition;
-using $XSValue = ::com::sun::org::apache::xerces::internal::xs::XSValue;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -38,45 +36,6 @@ namespace com {
 				namespace xerces {
 					namespace internal {
 						namespace xpointer {
-
-$FieldInfo _ShortHandPointer_FieldInfo_[] = {
-	{"fShortHandPointer", "Ljava/lang/String;", nullptr, $PRIVATE, $field(ShortHandPointer, fShortHandPointer)},
-	{"fIsFragmentResolved", "Z", nullptr, $PRIVATE, $field(ShortHandPointer, fIsFragmentResolved)},
-	{"fSymbolTable", "Lcom/sun/org/apache/xerces/internal/util/SymbolTable;", nullptr, $PRIVATE, $field(ShortHandPointer, fSymbolTable)},
-	{"fMatchingChildCount", "I", nullptr, 0, $field(ShortHandPointer, fMatchingChildCount)},
-	{}
-};
-
-$MethodInfo _ShortHandPointer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ShortHandPointer, init$, void)},
-	{"<init>", "(Lcom/sun/org/apache/xerces/internal/util/SymbolTable;)V", nullptr, $PUBLIC, $method(ShortHandPointer, init$, void, $SymbolTable*)},
-	{"getChildrenSchemaDeterminedID", "(Lcom/sun/org/apache/xerces/internal/xni/XMLAttributes;I)Ljava/lang/String;", nullptr, $PUBLIC, $method(ShortHandPointer, getChildrenSchemaDeterminedID, $String*, $XMLAttributes*, int32_t), "com.sun.org.apache.xerces.internal.xni.XNIException"},
-	{"getDTDDeterminedID", "(Lcom/sun/org/apache/xerces/internal/xni/XMLAttributes;I)Ljava/lang/String;", nullptr, $PUBLIC, $method(ShortHandPointer, getDTDDeterminedID, $String*, $XMLAttributes*, int32_t), "com.sun.org.apache.xerces.internal.xni.XNIException"},
-	{"getSchemaDeterminedID", "(Lcom/sun/org/apache/xerces/internal/xni/XMLAttributes;I)Ljava/lang/String;", nullptr, $PUBLIC, $method(ShortHandPointer, getSchemaDeterminedID, $String*, $XMLAttributes*, int32_t), "com.sun.org.apache.xerces.internal.xni.XNIException"},
-	{"getSchemeData", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ShortHandPointer, getSchemeData, $String*)},
-	{"getSchemeName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ShortHandPointer, getSchemeName, $String*)},
-	{"hasMatchingIdentifier", "(Lcom/sun/org/apache/xerces/internal/xni/QName;Lcom/sun/org/apache/xerces/internal/xni/XMLAttributes;Lcom/sun/org/apache/xerces/internal/xni/Augmentations;I)Z", nullptr, $PRIVATE, $method(ShortHandPointer, hasMatchingIdentifier, bool, $QName*, $XMLAttributes*, $Augmentations*, int32_t), "com.sun.org.apache.xerces.internal.xni.XNIException"},
-	{"isChildFragmentResolved", "()Z", nullptr, $PUBLIC, $virtualMethod(ShortHandPointer, isChildFragmentResolved, bool)},
-	{"isFragmentResolved", "()Z", nullptr, $PUBLIC, $virtualMethod(ShortHandPointer, isFragmentResolved, bool)},
-	{"parseXPointer", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ShortHandPointer, parseXPointer, void, $String*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
-	{"resolveXPointer", "(Lcom/sun/org/apache/xerces/internal/xni/QName;Lcom/sun/org/apache/xerces/internal/xni/XMLAttributes;Lcom/sun/org/apache/xerces/internal/xni/Augmentations;I)Z", nullptr, $PUBLIC, $virtualMethod(ShortHandPointer, resolveXPointer, bool, $QName*, $XMLAttributes*, $Augmentations*, int32_t), "com.sun.org.apache.xerces.internal.xni.XNIException"},
-	{"setSchemeData", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ShortHandPointer, setSchemeData, void, $String*)},
-	{"setSchemeName", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ShortHandPointer, setSchemeName, void, $String*)},
-	{}
-};
-
-$ClassInfo _ShortHandPointer_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.xpointer.ShortHandPointer",
-	"java.lang.Object",
-	"com.sun.org.apache.xerces.internal.xpointer.XPointerPart",
-	_ShortHandPointer_FieldInfo_,
-	_ShortHandPointer_MethodInfo_
-};
-
-$Object* allocate$ShortHandPointer($Class* clazz) {
-	return $of($alloc(ShortHandPointer));
-}
 
 void ShortHandPointer::init$() {
 	this->fIsFragmentResolved = false;
@@ -140,14 +99,14 @@ bool ShortHandPointer::hasMatchingIdentifier($QName* element, $XMLAttributes* at
 }
 
 $String* ShortHandPointer::getDTDDeterminedID($XMLAttributes* attributes, int32_t index) {
-	if ($nc($($nc(attributes)->getType(index)))->equals("ID"_s)) {
+	if ($$nc($nc(attributes)->getType(index))->equals("ID"_s)) {
 		return attributes->getValue(index);
 	}
 	return nullptr;
 }
 
 $String* ShortHandPointer::getSchemaDeterminedID($XMLAttributes* attributes, int32_t index) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Augmentations, augs, $nc(attributes)->getAugmentations(index));
 	$init($Constants);
 	$var($AttributePSVI, attrPSVI, $cast($AttributePSVI, $nc(augs)->getItem($Constants::ATTRIBUTE_PSVI)));
@@ -156,8 +115,8 @@ $String* ShortHandPointer::getSchemaDeterminedID($XMLAttributes* attributes, int
 		if (typeDef != nullptr) {
 			$assign(typeDef, attrPSVI->getTypeDefinition());
 		}
-		if (typeDef != nullptr && $nc(($cast($XSSimpleType, typeDef)))->isIDType()) {
-			return $nc($(attrPSVI->getSchemaValue()))->getNormalizedValue();
+		if (typeDef != nullptr && $cast($XSSimpleType, typeDef)->isIDType()) {
+			return $$nc(attrPSVI->getSchemaValue())->getNormalizedValue();
 		}
 	}
 	return nullptr;
@@ -194,7 +153,41 @@ ShortHandPointer::ShortHandPointer() {
 }
 
 $Class* ShortHandPointer::load$($String* name, bool initialize) {
-	$loadClass(ShortHandPointer, name, initialize, &_ShortHandPointer_ClassInfo_, allocate$ShortHandPointer);
+	$FieldInfo fieldInfos$$[] = {
+		{"fShortHandPointer", "Ljava/lang/String;", nullptr, $PRIVATE, $field(ShortHandPointer, fShortHandPointer)},
+		{"fIsFragmentResolved", "Z", nullptr, $PRIVATE, $field(ShortHandPointer, fIsFragmentResolved)},
+		{"fSymbolTable", "Lcom/sun/org/apache/xerces/internal/util/SymbolTable;", nullptr, $PRIVATE, $field(ShortHandPointer, fSymbolTable)},
+		{"fMatchingChildCount", "I", nullptr, 0, $field(ShortHandPointer, fMatchingChildCount)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ShortHandPointer, init$, void)},
+		{"<init>", "(Lcom/sun/org/apache/xerces/internal/util/SymbolTable;)V", nullptr, $PUBLIC, $method(ShortHandPointer, init$, void, $SymbolTable*)},
+		{"getChildrenSchemaDeterminedID", "(Lcom/sun/org/apache/xerces/internal/xni/XMLAttributes;I)Ljava/lang/String;", nullptr, $PUBLIC, $method(ShortHandPointer, getChildrenSchemaDeterminedID, $String*, $XMLAttributes*, int32_t), "com.sun.org.apache.xerces.internal.xni.XNIException"},
+		{"getDTDDeterminedID", "(Lcom/sun/org/apache/xerces/internal/xni/XMLAttributes;I)Ljava/lang/String;", nullptr, $PUBLIC, $method(ShortHandPointer, getDTDDeterminedID, $String*, $XMLAttributes*, int32_t), "com.sun.org.apache.xerces.internal.xni.XNIException"},
+		{"getSchemaDeterminedID", "(Lcom/sun/org/apache/xerces/internal/xni/XMLAttributes;I)Ljava/lang/String;", nullptr, $PUBLIC, $method(ShortHandPointer, getSchemaDeterminedID, $String*, $XMLAttributes*, int32_t), "com.sun.org.apache.xerces.internal.xni.XNIException"},
+		{"getSchemeData", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ShortHandPointer, getSchemeData, $String*)},
+		{"getSchemeName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ShortHandPointer, getSchemeName, $String*)},
+		{"hasMatchingIdentifier", "(Lcom/sun/org/apache/xerces/internal/xni/QName;Lcom/sun/org/apache/xerces/internal/xni/XMLAttributes;Lcom/sun/org/apache/xerces/internal/xni/Augmentations;I)Z", nullptr, $PRIVATE, $method(ShortHandPointer, hasMatchingIdentifier, bool, $QName*, $XMLAttributes*, $Augmentations*, int32_t), "com.sun.org.apache.xerces.internal.xni.XNIException"},
+		{"isChildFragmentResolved", "()Z", nullptr, $PUBLIC, $virtualMethod(ShortHandPointer, isChildFragmentResolved, bool)},
+		{"isFragmentResolved", "()Z", nullptr, $PUBLIC, $virtualMethod(ShortHandPointer, isFragmentResolved, bool)},
+		{"parseXPointer", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ShortHandPointer, parseXPointer, void, $String*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
+		{"resolveXPointer", "(Lcom/sun/org/apache/xerces/internal/xni/QName;Lcom/sun/org/apache/xerces/internal/xni/XMLAttributes;Lcom/sun/org/apache/xerces/internal/xni/Augmentations;I)Z", nullptr, $PUBLIC, $virtualMethod(ShortHandPointer, resolveXPointer, bool, $QName*, $XMLAttributes*, $Augmentations*, int32_t), "com.sun.org.apache.xerces.internal.xni.XNIException"},
+		{"setSchemeData", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ShortHandPointer, setSchemeData, void, $String*)},
+		{"setSchemeName", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ShortHandPointer, setSchemeName, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.xpointer.ShortHandPointer",
+		"java.lang.Object",
+		"com.sun.org.apache.xerces.internal.xpointer.XPointerPart",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ShortHandPointer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ShortHandPointer);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/text/resources/cldr/ext/FormatData_fr_BE.h>
-
 #include <java/util/ListResourceBundle.h>
 #include <jcpp.h>
 
@@ -14,31 +13,12 @@ namespace sun {
 			namespace cldr {
 				namespace ext {
 
-$MethodInfo _FormatData_fr_BE_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(FormatData_fr_BE, init$, void)},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(FormatData_fr_BE, getContents, $ObjectArray2*)},
-	{}
-};
-
-$ClassInfo _FormatData_fr_BE_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.text.resources.cldr.ext.FormatData_fr_BE",
-	"java.util.ListResourceBundle",
-	nullptr,
-	nullptr,
-	_FormatData_fr_BE_MethodInfo_
-};
-
-$Object* allocate$FormatData_fr_BE($Class* clazz) {
-	return $of($alloc(FormatData_fr_BE));
-}
-
 void FormatData_fr_BE::init$() {
 	$ListResourceBundle::init$();
 }
 
 $ObjectArray2* FormatData_fr_BE::getContents() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringArray, metaValue_buddhist_TimePatterns, $new($StringArray, {
 		"H \'h\' mm \'min\' ss \'s\' zzzz"_s,
 		""_s,
@@ -59,80 +39,80 @@ $ObjectArray2* FormatData_fr_BE::getContents() {
 	}));
 	$var($ObjectArray2, data, $new($ObjectArray2, {
 		$$new($ObjectArray, {
-			$of("java.time.buddhist.DatePatterns"_s),
-			$of(metaValue_java_time_buddhist_DatePatterns)
+			"java.time.buddhist.DatePatterns"_s,
+			metaValue_java_time_buddhist_DatePatterns
 		}),
 		$$new($ObjectArray, {
-			$of("java.time.roc.DatePatterns"_s),
-			$of($$new($StringArray, {
+			"java.time.roc.DatePatterns"_s,
+			$$new($StringArray, {
 				""_s,
 				""_s,
 				""_s,
 				"d/MM/yy GGGGG"_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("java.time.japanese.DatePatterns"_s),
-			$of(metaValue_java_time_buddhist_DatePatterns)
+			"java.time.japanese.DatePatterns"_s,
+			metaValue_java_time_buddhist_DatePatterns
 		}),
 		$$new($ObjectArray, {
-			$of("TimePatterns"_s),
-			$of($$new($StringArray, {
+			"TimePatterns"_s,
+			$$new($StringArray, {
 				"H \'h\' mm \'min\' ss \'s\' zzzz"_s,
 				"HH:mm:ss z"_s,
 				"HH:mm:ss"_s,
 				"HH:mm"_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("java.time.islamic.DatePatterns"_s),
-			$of(metaValue_java_time_buddhist_DatePatterns)
+			"java.time.islamic.DatePatterns"_s,
+			metaValue_java_time_buddhist_DatePatterns
 		}),
 		$$new($ObjectArray, {
-			$of("islamic.DatePatterns"_s),
-			$of(metaValue_buddhist_DatePatterns)
+			"islamic.DatePatterns"_s,
+			metaValue_buddhist_DatePatterns
 		}),
 		$$new($ObjectArray, {
-			$of("DatePatterns"_s),
-			$of($$new($StringArray, {
+			"DatePatterns"_s,
+			$$new($StringArray, {
 				"EEEE d MMMM y"_s,
 				"d MMMM y"_s,
 				"d MMM y"_s,
 				"d/MM/yy"_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("islamic.TimePatterns"_s),
-			$of(metaValue_buddhist_TimePatterns)
+			"islamic.TimePatterns"_s,
+			metaValue_buddhist_TimePatterns
 		}),
 		$$new($ObjectArray, {
-			$of("japanese.DatePatterns"_s),
-			$of(metaValue_buddhist_DatePatterns)
+			"japanese.DatePatterns"_s,
+			metaValue_buddhist_DatePatterns
 		}),
 		$$new($ObjectArray, {
-			$of("buddhist.DatePatterns"_s),
-			$of(metaValue_buddhist_DatePatterns)
+			"buddhist.DatePatterns"_s,
+			metaValue_buddhist_DatePatterns
 		}),
 		$$new($ObjectArray, {
-			$of("buddhist.TimePatterns"_s),
-			$of(metaValue_buddhist_TimePatterns)
+			"buddhist.TimePatterns"_s,
+			metaValue_buddhist_TimePatterns
 		}),
 		$$new($ObjectArray, {
-			$of("japanese.TimePatterns"_s),
-			$of(metaValue_buddhist_TimePatterns)
+			"japanese.TimePatterns"_s,
+			metaValue_buddhist_TimePatterns
 		}),
 		$$new($ObjectArray, {
-			$of("roc.TimePatterns"_s),
-			$of(metaValue_buddhist_TimePatterns)
+			"roc.TimePatterns"_s,
+			metaValue_buddhist_TimePatterns
 		}),
 		$$new($ObjectArray, {
-			$of("roc.DatePatterns"_s),
-			$of($$new($StringArray, {
+			"roc.DatePatterns"_s,
+			$$new($StringArray, {
 				""_s,
 				""_s,
 				""_s,
 				"d/MM/yy G"_s
-			}))
+			})
 		})
 	}));
 	return data;
@@ -142,7 +122,22 @@ FormatData_fr_BE::FormatData_fr_BE() {
 }
 
 $Class* FormatData_fr_BE::load$($String* name, bool initialize) {
-	$loadClass(FormatData_fr_BE, name, initialize, &_FormatData_fr_BE_ClassInfo_, allocate$FormatData_fr_BE);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(FormatData_fr_BE, init$, void)},
+		{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(FormatData_fr_BE, getContents, $ObjectArray2*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.text.resources.cldr.ext.FormatData_fr_BE",
+		"java.util.ListResourceBundle",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(FormatData_fr_BE, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FormatData_fr_BE);
+	});
 	return class$;
 }
 

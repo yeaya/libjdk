@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/Attr$CheckMode.h>
-
 #include <com/sun/tools/javac/comp/Attr$CheckMode$1.h>
 #include <com/sun/tools/javac/comp/Attr$CheckMode$2.h>
 #include <com/sun/tools/javac/comp/Attr.h>
@@ -24,51 +23,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace comp {
-
-$FieldInfo _Attr$CheckMode_FieldInfo_[] = {
-	{"NORMAL", "Lcom/sun/tools/javac/comp/Attr$CheckMode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Attr$CheckMode, NORMAL)},
-	{"NO_TREE_UPDATE", "Lcom/sun/tools/javac/comp/Attr$CheckMode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Attr$CheckMode, NO_TREE_UPDATE)},
-	{"NO_INFERENCE_HOOK", "Lcom/sun/tools/javac/comp/Attr$CheckMode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Attr$CheckMode, NO_INFERENCE_HOOK)},
-	{"$VALUES", "[Lcom/sun/tools/javac/comp/Attr$CheckMode;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(Attr$CheckMode, $VALUES)},
-	{}
-};
-
-$MethodInfo _Attr$CheckMode_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/javac/comp/Attr$CheckMode;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Attr$CheckMode, $values, $Attr$CheckModeArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(Attr$CheckMode, init$, void, $String*, int32_t)},
-	{"installPostInferenceHook", "()Z", nullptr, $PUBLIC, $virtualMethod(Attr$CheckMode, installPostInferenceHook, bool)},
-	{"updateTreeType", "()Z", nullptr, $PUBLIC, $virtualMethod(Attr$CheckMode, updateTreeType, bool)},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/comp/Attr$CheckMode;", nullptr, $PUBLIC | $STATIC, $staticMethod(Attr$CheckMode, valueOf, Attr$CheckMode*, $String*)},
-	{"values", "()[Lcom/sun/tools/javac/comp/Attr$CheckMode;", nullptr, $PUBLIC | $STATIC, $staticMethod(Attr$CheckMode, values, $Attr$CheckModeArray*)},
-	{}
-};
-
-$InnerClassInfo _Attr$CheckMode_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.Attr$CheckMode", "com.sun.tools.javac.comp.Attr", "CheckMode", $STATIC | $ENUM},
-	{"com.sun.tools.javac.comp.Attr$CheckMode$2", nullptr, nullptr, $FINAL | $ENUM},
-	{"com.sun.tools.javac.comp.Attr$CheckMode$1", nullptr, nullptr, $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _Attr$CheckMode_ClassInfo_ = {
-	$ACC_SUPER | $ENUM,
-	"com.sun.tools.javac.comp.Attr$CheckMode",
-	"java.lang.Enum",
-	nullptr,
-	_Attr$CheckMode_FieldInfo_,
-	_Attr$CheckMode_MethodInfo_,
-	"Ljava/lang/Enum<Lcom/sun/tools/javac/comp/Attr$CheckMode;>;",
-	nullptr,
-	_Attr$CheckMode_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.Attr"
-};
-
-$Object* allocate$Attr$CheckMode($Class* clazz) {
-	return $of($alloc(Attr$CheckMode));
-}
 
 Attr$CheckMode* Attr$CheckMode::NORMAL = nullptr;
 Attr$CheckMode* Attr$CheckMode::NO_TREE_UPDATE = nullptr;
@@ -106,7 +60,7 @@ bool Attr$CheckMode::installPostInferenceHook() {
 	return true;
 }
 
-void clinit$Attr$CheckMode($Class* class$) {
+void Attr$CheckMode::clinit$($Class* clazz) {
 	$assignStatic(Attr$CheckMode::NORMAL, $new(Attr$CheckMode, "NORMAL"_s, 0));
 	$assignStatic(Attr$CheckMode::NO_TREE_UPDATE, $new($Attr$CheckMode$1, "NO_TREE_UPDATE"_s, 1));
 	$assignStatic(Attr$CheckMode::NO_INFERENCE_HOOK, $new($Attr$CheckMode$2, "NO_INFERENCE_HOOK"_s, 2));
@@ -117,7 +71,46 @@ Attr$CheckMode::Attr$CheckMode() {
 }
 
 $Class* Attr$CheckMode::load$($String* name, bool initialize) {
-	$loadClass(Attr$CheckMode, name, initialize, &_Attr$CheckMode_ClassInfo_, clinit$Attr$CheckMode, allocate$Attr$CheckMode);
+	$FieldInfo fieldInfos$$[] = {
+		{"NORMAL", "Lcom/sun/tools/javac/comp/Attr$CheckMode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Attr$CheckMode, NORMAL)},
+		{"NO_TREE_UPDATE", "Lcom/sun/tools/javac/comp/Attr$CheckMode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Attr$CheckMode, NO_TREE_UPDATE)},
+		{"NO_INFERENCE_HOOK", "Lcom/sun/tools/javac/comp/Attr$CheckMode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Attr$CheckMode, NO_INFERENCE_HOOK)},
+		{"$VALUES", "[Lcom/sun/tools/javac/comp/Attr$CheckMode;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(Attr$CheckMode, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lcom/sun/tools/javac/comp/Attr$CheckMode;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Attr$CheckMode, $values, $Attr$CheckModeArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(Attr$CheckMode, init$, void, $String*, int32_t)},
+		{"installPostInferenceHook", "()Z", nullptr, $PUBLIC, $virtualMethod(Attr$CheckMode, installPostInferenceHook, bool)},
+		{"updateTreeType", "()Z", nullptr, $PUBLIC, $virtualMethod(Attr$CheckMode, updateTreeType, bool)},
+		{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/comp/Attr$CheckMode;", nullptr, $PUBLIC | $STATIC, $staticMethod(Attr$CheckMode, valueOf, Attr$CheckMode*, $String*)},
+		{"values", "()[Lcom/sun/tools/javac/comp/Attr$CheckMode;", nullptr, $PUBLIC | $STATIC, $staticMethod(Attr$CheckMode, values, $Attr$CheckModeArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.Attr$CheckMode", "com.sun.tools.javac.comp.Attr", "CheckMode", $STATIC | $ENUM},
+		{"com.sun.tools.javac.comp.Attr$CheckMode$2", nullptr, nullptr, $FINAL | $ENUM},
+		{"com.sun.tools.javac.comp.Attr$CheckMode$1", nullptr, nullptr, $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ENUM,
+		"com.sun.tools.javac.comp.Attr$CheckMode",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lcom/sun/tools/javac/comp/Attr$CheckMode;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.Attr"
+	};
+	$loadClass(Attr$CheckMode, name, initialize, &classInfo$$, Attr$CheckMode::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Attr$CheckMode));
+	});
 	return class$;
 }
 

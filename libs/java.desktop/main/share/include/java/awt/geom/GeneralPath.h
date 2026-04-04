@@ -27,7 +27,7 @@ public:
 	void init$(int32_t rule, int32_t initialCapacity);
 	void init$(::java::awt::Shape* s);
 	void init$(int32_t windingRule, $bytes* pointTypes, int32_t numTypes, $floats* pointCoords, int32_t numCoords);
-	static const int64_t serialVersionUID = (int64_t)0x8C7035B43D543BFA;
+	static const int64_t serialVersionUID = (int64_t)0x8c7035b43d543bfa;
 };
 
 		} // geom

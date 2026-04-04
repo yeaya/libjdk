@@ -1,5 +1,4 @@
 #include <sun/java2d/loops/ProcessPath$ActiveEdgeList.h>
-
 #include <sun/java2d/loops/ProcessPath$Edge.h>
 #include <sun/java2d/loops/ProcessPath$Point.h>
 #include <sun/java2d/loops/ProcessPath.h>
@@ -17,45 +16,6 @@ namespace sun {
 	namespace java2d {
 		namespace loops {
 
-$FieldInfo _ProcessPath$ActiveEdgeList_FieldInfo_[] = {
-	{"head", "Lsun/java2d/loops/ProcessPath$Edge;", nullptr, 0, $field(ProcessPath$ActiveEdgeList, head)},
-	{}
-};
-
-$MethodInfo _ProcessPath$ActiveEdgeList_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(ProcessPath$ActiveEdgeList, init$, void)},
-	{"delete", "(Lsun/java2d/loops/ProcessPath$Edge;)V", nullptr, $PUBLIC, $virtualMethod(ProcessPath$ActiveEdgeList, delete$, void, $ProcessPath$Edge*)},
-	{"insert", "(Lsun/java2d/loops/ProcessPath$Point;I)V", nullptr, $PUBLIC, $virtualMethod(ProcessPath$ActiveEdgeList, insert, void, $ProcessPath$Point*, int32_t)},
-	{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(ProcessPath$ActiveEdgeList, isEmpty, bool)},
-	{"sort", "()V", nullptr, $PUBLIC, $virtualMethod(ProcessPath$ActiveEdgeList, sort, void)},
-	{}
-};
-
-$InnerClassInfo _ProcessPath$ActiveEdgeList_InnerClassesInfo_[] = {
-	{"sun.java2d.loops.ProcessPath$ActiveEdgeList", "sun.java2d.loops.ProcessPath", "ActiveEdgeList", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _ProcessPath$ActiveEdgeList_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.java2d.loops.ProcessPath$ActiveEdgeList",
-	"java.lang.Object",
-	nullptr,
-	_ProcessPath$ActiveEdgeList_FieldInfo_,
-	_ProcessPath$ActiveEdgeList_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ProcessPath$ActiveEdgeList_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.java2d.loops.ProcessPath"
-};
-
-$Object* allocate$ProcessPath$ActiveEdgeList($Class* clazz) {
-	return $of($alloc(ProcessPath$ActiveEdgeList));
-}
-
 void ProcessPath$ActiveEdgeList::init$() {
 }
 
@@ -64,7 +24,7 @@ bool ProcessPath$ActiveEdgeList::isEmpty() {
 }
 
 void ProcessPath$ActiveEdgeList::insert($ProcessPath$Point* pnt, int32_t cy) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ProcessPath$Point, np, $nc(pnt)->next);
 	int32_t X1 = pnt->x;
 	int32_t Y1 = pnt->y;
@@ -101,13 +61,13 @@ void ProcessPath$ActiveEdgeList::insert($ProcessPath$Point* pnt, int32_t cy) {
 	$set($nc(ne), next, this->head);
 	$set(ne, prev, nullptr);
 	if (this->head != nullptr) {
-		$set($nc(this->head), prev, ne);
+		$set(this->head, prev, ne);
 	}
-	$set(this, head, ($set(pnt, edge, ne)));
+	$set(this, head, $set(pnt, edge, ne));
 }
 
 void ProcessPath$ActiveEdgeList::delete$($ProcessPath$Edge* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ProcessPath$Edge, prevp, $nc(e)->prev);
 	$var($ProcessPath$Edge, nextp, e->next);
 	if (prevp != nullptr) {
@@ -121,7 +81,7 @@ void ProcessPath$ActiveEdgeList::delete$($ProcessPath$Edge* e) {
 }
 
 void ProcessPath$ActiveEdgeList::sort() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ProcessPath$Edge, p, nullptr);
 	$var($ProcessPath$Edge, q, nullptr);
 	$var($ProcessPath$Edge, r, nullptr);
@@ -129,11 +89,11 @@ void ProcessPath$ActiveEdgeList::sort() {
 	$var($ProcessPath$Edge, temp, nullptr);
 	bool wasSwap = true;
 	while (s != $nc(this->head)->next && wasSwap) {
-		$assign(r, ($assign(p, this->head)));
+		$assign(r, $assign(p, this->head));
 		$assign(q, $nc(p)->next);
 		wasSwap = false;
 		while (p != s) {
-			if (p->x >= $nc(q)->x) {
+			if ($nc(p)->x >= $nc(q)->x) {
 				wasSwap = true;
 				if (p == this->head) {
 					$assign(temp, q->next);
@@ -152,7 +112,7 @@ void ProcessPath$ActiveEdgeList::sort() {
 				$assign(r, p);
 				$assign(p, p->next);
 			}
-			$assign(q, p->next);
+			$assign(q, $nc(p)->next);
 			if (q == s) {
 				$assign(s, p);
 			}
@@ -171,7 +131,40 @@ ProcessPath$ActiveEdgeList::ProcessPath$ActiveEdgeList() {
 }
 
 $Class* ProcessPath$ActiveEdgeList::load$($String* name, bool initialize) {
-	$loadClass(ProcessPath$ActiveEdgeList, name, initialize, &_ProcessPath$ActiveEdgeList_ClassInfo_, allocate$ProcessPath$ActiveEdgeList);
+	$FieldInfo fieldInfos$$[] = {
+		{"head", "Lsun/java2d/loops/ProcessPath$Edge;", nullptr, 0, $field(ProcessPath$ActiveEdgeList, head)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(ProcessPath$ActiveEdgeList, init$, void)},
+		{"delete", "(Lsun/java2d/loops/ProcessPath$Edge;)V", nullptr, $PUBLIC, $virtualMethod(ProcessPath$ActiveEdgeList, delete$, void, $ProcessPath$Edge*)},
+		{"insert", "(Lsun/java2d/loops/ProcessPath$Point;I)V", nullptr, $PUBLIC, $virtualMethod(ProcessPath$ActiveEdgeList, insert, void, $ProcessPath$Point*, int32_t)},
+		{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(ProcessPath$ActiveEdgeList, isEmpty, bool)},
+		{"sort", "()V", nullptr, $PUBLIC, $virtualMethod(ProcessPath$ActiveEdgeList, sort, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.java2d.loops.ProcessPath$ActiveEdgeList", "sun.java2d.loops.ProcessPath", "ActiveEdgeList", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.java2d.loops.ProcessPath$ActiveEdgeList",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.java2d.loops.ProcessPath"
+	};
+	$loadClass(ProcessPath$ActiveEdgeList, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ProcessPath$ActiveEdgeList);
+	});
 	return class$;
 }
 

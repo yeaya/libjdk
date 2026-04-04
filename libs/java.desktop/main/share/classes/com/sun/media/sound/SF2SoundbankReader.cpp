@@ -1,5 +1,4 @@
 #include <com/sun/media/sound/SF2SoundbankReader.h>
-
 #include <com/sun/media/sound/RIFFInvalidFormatException.h>
 #include <com/sun/media/sound/SF2Soundbank.h>
 #include <java/io/File.h>
@@ -25,27 +24,6 @@ namespace com {
 	namespace sun {
 		namespace media {
 			namespace sound {
-
-$MethodInfo _SF2SoundbankReader_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SF2SoundbankReader, init$, void)},
-	{"getSoundbank", "(Ljava/net/URL;)Ljavax/sound/midi/Soundbank;", nullptr, $PUBLIC, $virtualMethod(SF2SoundbankReader, getSoundbank, $Soundbank*, $URL*), "javax.sound.midi.InvalidMidiDataException,java.io.IOException"},
-	{"getSoundbank", "(Ljava/io/InputStream;)Ljavax/sound/midi/Soundbank;", nullptr, $PUBLIC, $virtualMethod(SF2SoundbankReader, getSoundbank, $Soundbank*, $InputStream*), "javax.sound.midi.InvalidMidiDataException,java.io.IOException"},
-	{"getSoundbank", "(Ljava/io/File;)Ljavax/sound/midi/Soundbank;", nullptr, $PUBLIC, $virtualMethod(SF2SoundbankReader, getSoundbank, $Soundbank*, $File*), "javax.sound.midi.InvalidMidiDataException,java.io.IOException"},
-	{}
-};
-
-$ClassInfo _SF2SoundbankReader_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.media.sound.SF2SoundbankReader",
-	"javax.sound.midi.spi.SoundbankReader",
-	nullptr,
-	nullptr,
-	_SF2SoundbankReader_MethodInfo_
-};
-
-$Object* allocate$SF2SoundbankReader($Class* clazz) {
-	return $of($alloc(SF2SoundbankReader));
-}
 
 void SF2SoundbankReader::init$() {
 	$SoundbankReader::init$();
@@ -86,7 +64,24 @@ SF2SoundbankReader::SF2SoundbankReader() {
 }
 
 $Class* SF2SoundbankReader::load$($String* name, bool initialize) {
-	$loadClass(SF2SoundbankReader, name, initialize, &_SF2SoundbankReader_ClassInfo_, allocate$SF2SoundbankReader);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SF2SoundbankReader, init$, void)},
+		{"getSoundbank", "(Ljava/net/URL;)Ljavax/sound/midi/Soundbank;", nullptr, $PUBLIC, $virtualMethod(SF2SoundbankReader, getSoundbank, $Soundbank*, $URL*), "javax.sound.midi.InvalidMidiDataException,java.io.IOException"},
+		{"getSoundbank", "(Ljava/io/InputStream;)Ljavax/sound/midi/Soundbank;", nullptr, $PUBLIC, $virtualMethod(SF2SoundbankReader, getSoundbank, $Soundbank*, $InputStream*), "javax.sound.midi.InvalidMidiDataException,java.io.IOException"},
+		{"getSoundbank", "(Ljava/io/File;)Ljavax/sound/midi/Soundbank;", nullptr, $PUBLIC, $virtualMethod(SF2SoundbankReader, getSoundbank, $Soundbank*, $File*), "javax.sound.midi.InvalidMidiDataException,java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.media.sound.SF2SoundbankReader",
+		"javax.sound.midi.spi.SoundbankReader",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(SF2SoundbankReader, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SF2SoundbankReader);
+	});
 	return class$;
 }
 

@@ -1,8 +1,6 @@
 #include <com/sun/org/apache/xerces/internal/impl/XMLDTDScannerImpl.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/Constants.h>
 #include <com/sun/org/apache/xerces/internal/impl/PropertyManager.h>
-#include <com/sun/org/apache/xerces/internal/impl/XMLEntityHandler.h>
 #include <com/sun/org/apache/xerces/internal/impl/XMLEntityManager.h>
 #include <com/sun/org/apache/xerces/internal/impl/XMLEntityScanner.h>
 #include <com/sun/org/apache/xerces/internal/impl/XMLErrorReporter.h>
@@ -18,7 +16,6 @@
 #include <com/sun/org/apache/xerces/internal/utils/XMLSecurityManager$Limit.h>
 #include <com/sun/org/apache/xerces/internal/utils/XMLSecurityManager.h>
 #include <com/sun/org/apache/xerces/internal/xni/Augmentations.h>
-#include <com/sun/org/apache/xerces/internal/xni/XMLAttributes.h>
 #include <com/sun/org/apache/xerces/internal/xni/XMLDTDContentModelHandler.h>
 #include <com/sun/org/apache/xerces/internal/xni/XMLDTDHandler.h>
 #include <com/sun/org/apache/xerces/internal/xni/XMLLocator.h>
@@ -71,9 +68,7 @@
 using $BooleanArray = $Array<::java::lang::Boolean>;
 using $Constants = ::com::sun::org::apache::xerces::internal::impl::Constants;
 using $PropertyManager = ::com::sun::org::apache::xerces::internal::impl::PropertyManager;
-using $XMLEntityHandler = ::com::sun::org::apache::xerces::internal::impl::XMLEntityHandler;
 using $XMLEntityManager = ::com::sun::org::apache::xerces::internal::impl::XMLEntityManager;
-using $XMLEntityScanner = ::com::sun::org::apache::xerces::internal::impl::XMLEntityScanner;
 using $XMLErrorReporter = ::com::sun::org::apache::xerces::internal::impl::XMLErrorReporter;
 using $XMLScanner = ::com::sun::org::apache::xerces::internal::impl::XMLScanner;
 using $XMLScanner$NameType = ::com::sun::org::apache::xerces::internal::impl::XMLScanner$NameType;
@@ -81,12 +76,10 @@ using $XMLMessageFormatter = ::com::sun::org::apache::xerces::internal::impl::ms
 using $SymbolTable = ::com::sun::org::apache::xerces::internal::util::SymbolTable;
 using $XMLAttributesImpl = ::com::sun::org::apache::xerces::internal::util::XMLAttributesImpl;
 using $XMLChar = ::com::sun::org::apache::xerces::internal::util::XMLChar;
-using $XMLResourceIdentifierImpl = ::com::sun::org::apache::xerces::internal::util::XMLResourceIdentifierImpl;
 using $XMLStringBuffer = ::com::sun::org::apache::xerces::internal::util::XMLStringBuffer;
 using $XMLLimitAnalyzer = ::com::sun::org::apache::xerces::internal::utils::XMLLimitAnalyzer;
 using $XMLSecurityManager$Limit = ::com::sun::org::apache::xerces::internal::utils::XMLSecurityManager$Limit;
 using $Augmentations = ::com::sun::org::apache::xerces::internal::xni::Augmentations;
-using $XMLAttributes = ::com::sun::org::apache::xerces::internal::xni::XMLAttributes;
 using $XMLDTDContentModelHandler = ::com::sun::org::apache::xerces::internal::xni::XMLDTDContentModelHandler;
 using $XMLDTDHandler = ::com::sun::org::apache::xerces::internal::xni::XMLDTDHandler;
 using $XMLLocator = ::com::sun::org::apache::xerces::internal::xni::XMLLocator;
@@ -94,7 +87,6 @@ using $XMLResourceIdentifier = ::com::sun::org::apache::xerces::internal::xni::X
 using $XMLString = ::com::sun::org::apache::xerces::internal::xni::XMLString;
 using $XMLComponentManager = ::com::sun::org::apache::xerces::internal::xni::parser::XMLComponentManager;
 using $XMLInputSource = ::com::sun::org::apache::xerces::internal::xni::parser::XMLInputSource;
-using $XMLEntityStorage = ::com::sun::xml::internal::stream::XMLEntityStorage;
 using $DTDGrammar = ::com::sun::xml::internal::stream::dtd::nonvalidating::DTDGrammar;
 using $EOFException = ::java::io::EOFException;
 using $Boolean = ::java::lang::Boolean;
@@ -110,114 +102,6 @@ namespace com {
 				namespace xerces {
 					namespace internal {
 						namespace impl {
-
-$FieldInfo _XMLDTDScannerImpl_FieldInfo_[] = {
-	{"SCANNER_STATE_END_OF_INPUT", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(XMLDTDScannerImpl, SCANNER_STATE_END_OF_INPUT)},
-	{"SCANNER_STATE_TEXT_DECL", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(XMLDTDScannerImpl, SCANNER_STATE_TEXT_DECL)},
-	{"SCANNER_STATE_MARKUP_DECL", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(XMLDTDScannerImpl, SCANNER_STATE_MARKUP_DECL)},
-	{"RECOGNIZED_FEATURES", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XMLDTDScannerImpl, RECOGNIZED_FEATURES)},
-	{"FEATURE_DEFAULTS", "[Ljava/lang/Boolean;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XMLDTDScannerImpl, FEATURE_DEFAULTS)},
-	{"RECOGNIZED_PROPERTIES", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XMLDTDScannerImpl, RECOGNIZED_PROPERTIES)},
-	{"PROPERTY_DEFAULTS", "[Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XMLDTDScannerImpl, PROPERTY_DEFAULTS)},
-	{"DEBUG_SCANNER_STATE", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XMLDTDScannerImpl, DEBUG_SCANNER_STATE)},
-	{"fDTDHandler", "Lcom/sun/org/apache/xerces/internal/xni/XMLDTDHandler;", nullptr, $PUBLIC, $field(XMLDTDScannerImpl, fDTDHandler)},
-	{"fDTDContentModelHandler", "Lcom/sun/org/apache/xerces/internal/xni/XMLDTDContentModelHandler;", nullptr, $PROTECTED, $field(XMLDTDScannerImpl, fDTDContentModelHandler)},
-	{"fScannerState", "I", nullptr, $PROTECTED, $field(XMLDTDScannerImpl, fScannerState)},
-	{"fStandalone", "Z", nullptr, $PROTECTED, $field(XMLDTDScannerImpl, fStandalone)},
-	{"fSeenExternalDTD", "Z", nullptr, $PROTECTED, $field(XMLDTDScannerImpl, fSeenExternalDTD)},
-	{"fSeenExternalPE", "Z", nullptr, $PROTECTED, $field(XMLDTDScannerImpl, fSeenExternalPE)},
-	{"fStartDTDCalled", "Z", nullptr, $PRIVATE, $field(XMLDTDScannerImpl, fStartDTDCalled)},
-	{"fAttributes", "Lcom/sun/org/apache/xerces/internal/util/XMLAttributesImpl;", nullptr, $PRIVATE, $field(XMLDTDScannerImpl, fAttributes)},
-	{"fContentStack", "[I", nullptr, $PRIVATE, $field(XMLDTDScannerImpl, fContentStack)},
-	{"fContentDepth", "I", nullptr, $PRIVATE, $field(XMLDTDScannerImpl, fContentDepth)},
-	{"fPEStack", "[I", nullptr, $PRIVATE, $field(XMLDTDScannerImpl, fPEStack)},
-	{"fPEReport", "[Z", nullptr, $PRIVATE, $field(XMLDTDScannerImpl, fPEReport)},
-	{"fPEDepth", "I", nullptr, $PRIVATE, $field(XMLDTDScannerImpl, fPEDepth)},
-	{"fMarkUpDepth", "I", nullptr, $PRIVATE, $field(XMLDTDScannerImpl, fMarkUpDepth)},
-	{"fExtEntityDepth", "I", nullptr, $PRIVATE, $field(XMLDTDScannerImpl, fExtEntityDepth)},
-	{"fIncludeSectDepth", "I", nullptr, $PRIVATE, $field(XMLDTDScannerImpl, fIncludeSectDepth)},
-	{"fStrings", "[Ljava/lang/String;", nullptr, $PRIVATE, $field(XMLDTDScannerImpl, fStrings)},
-	{"fString", "Lcom/sun/org/apache/xerces/internal/xni/XMLString;", nullptr, $PRIVATE, $field(XMLDTDScannerImpl, fString)},
-	{"fStringBuffer", "Lcom/sun/org/apache/xerces/internal/util/XMLStringBuffer;", nullptr, $PRIVATE, $field(XMLDTDScannerImpl, fStringBuffer)},
-	{"fStringBuffer2", "Lcom/sun/org/apache/xerces/internal/util/XMLStringBuffer;", nullptr, $PRIVATE, $field(XMLDTDScannerImpl, fStringBuffer2)},
-	{"fLiteral", "Lcom/sun/org/apache/xerces/internal/xni/XMLString;", nullptr, $PRIVATE, $field(XMLDTDScannerImpl, fLiteral)},
-	{"fLiteral2", "Lcom/sun/org/apache/xerces/internal/xni/XMLString;", nullptr, $PRIVATE, $field(XMLDTDScannerImpl, fLiteral2)},
-	{"fEnumeration", "[Ljava/lang/String;", nullptr, $PRIVATE, $field(XMLDTDScannerImpl, fEnumeration)},
-	{"fEnumerationCount", "I", nullptr, $PRIVATE, $field(XMLDTDScannerImpl, fEnumerationCount)},
-	{"fIgnoreConditionalBuffer", "Lcom/sun/org/apache/xerces/internal/util/XMLStringBuffer;", nullptr, $PRIVATE, $field(XMLDTDScannerImpl, fIgnoreConditionalBuffer)},
-	{"nvGrammarInfo", "Lcom/sun/xml/internal/stream/dtd/nonvalidating/DTDGrammar;", nullptr, 0, $field(XMLDTDScannerImpl, nvGrammarInfo)},
-	{"nonValidatingMode", "Z", nullptr, 0, $field(XMLDTDScannerImpl, nonValidatingMode)},
-	{}
-};
-
-$MethodInfo _XMLDTDScannerImpl_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(XMLDTDScannerImpl, init$, void)},
-	{"<init>", "(Lcom/sun/org/apache/xerces/internal/util/SymbolTable;Lcom/sun/org/apache/xerces/internal/impl/XMLErrorReporter;Lcom/sun/org/apache/xerces/internal/impl/XMLEntityManager;)V", nullptr, $PUBLIC, $method(XMLDTDScannerImpl, init$, void, $SymbolTable*, $XMLErrorReporter*, $XMLEntityManager*)},
-	{"endEntity", "(Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/xni/Augmentations;)V", nullptr, $PUBLIC, $virtualMethod(XMLDTDScannerImpl, endEntity, void, $String*, $Augmentations*), "com.sun.org.apache.xerces.internal.xni.XNIException,java.io.IOException"},
-	{"ensureEnumerationSize", "(I)V", nullptr, $PRIVATE | $FINAL, $method(XMLDTDScannerImpl, ensureEnumerationSize, void, int32_t)},
-	{"getDTDContentModelHandler", "()Lcom/sun/org/apache/xerces/internal/xni/XMLDTDContentModelHandler;", nullptr, $PUBLIC, $virtualMethod(XMLDTDScannerImpl, getDTDContentModelHandler, $XMLDTDContentModelHandler*)},
-	{"getDTDHandler", "()Lcom/sun/org/apache/xerces/internal/xni/XMLDTDHandler;", nullptr, $PUBLIC, $virtualMethod(XMLDTDScannerImpl, getDTDHandler, $XMLDTDHandler*)},
-	{"getFeatureDefault", "(Ljava/lang/String;)Ljava/lang/Boolean;", nullptr, $PUBLIC, $virtualMethod(XMLDTDScannerImpl, getFeatureDefault, $Boolean*, $String*)},
-	{"getGrammar", "()Lcom/sun/xml/internal/stream/dtd/nonvalidating/DTDGrammar;", nullptr, $PUBLIC, $virtualMethod(XMLDTDScannerImpl, getGrammar, $DTDGrammar*)},
-	{"getPropertyDefault", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(XMLDTDScannerImpl, getPropertyDefault, $Object*, $String*)},
-	{"getRecognizedFeatures", "()[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLDTDScannerImpl, getRecognizedFeatures, $StringArray*)},
-	{"getRecognizedProperties", "()[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLDTDScannerImpl, getRecognizedProperties, $StringArray*)},
-	{"getScannerStateName", "(I)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(XMLDTDScannerImpl, getScannerStateName, $String*, int32_t)},
-	{"init", "()V", nullptr, $PRIVATE, $method(XMLDTDScannerImpl, init, void)},
-	{"peekReportEntity", "()Z", nullptr, $PRIVATE | $FINAL, $method(XMLDTDScannerImpl, peekReportEntity, bool)},
-	{"popContentStack", "()I", nullptr, $PRIVATE | $FINAL, $method(XMLDTDScannerImpl, popContentStack, int32_t)},
-	{"popPEStack", "()I", nullptr, $PRIVATE | $FINAL, $method(XMLDTDScannerImpl, popPEStack, int32_t)},
-	{"pushContentStack", "(I)V", nullptr, $PRIVATE | $FINAL, $method(XMLDTDScannerImpl, pushContentStack, void, int32_t)},
-	{"pushPEStack", "(IZ)V", nullptr, $PRIVATE | $FINAL, $method(XMLDTDScannerImpl, pushPEStack, void, int32_t, bool)},
-	{"reset", "(Lcom/sun/org/apache/xerces/internal/xni/parser/XMLComponentManager;)V", nullptr, $PUBLIC, $virtualMethod(XMLDTDScannerImpl, reset, void, $XMLComponentManager*), "com.sun.org.apache.xerces.internal.xni.parser.XMLConfigurationException"},
-	{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(XMLDTDScannerImpl, reset, void)},
-	{"reset", "(Lcom/sun/org/apache/xerces/internal/impl/PropertyManager;)V", nullptr, $PUBLIC, $virtualMethod(XMLDTDScannerImpl, reset, void, $PropertyManager*)},
-	{"scanAttDefaultDecl", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/xni/XMLString;Lcom/sun/org/apache/xerces/internal/xni/XMLString;)Ljava/lang/String;", nullptr, $PROTECTED | $FINAL, $method(XMLDTDScannerImpl, scanAttDefaultDecl, $String*, $String*, $String*, $String*, $XMLString*, $XMLString*), "java.io.IOException,com.sun.org.apache.xerces.internal.xni.XNIException"},
-	{"scanAttType", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $method(XMLDTDScannerImpl, scanAttType, $String*, $String*, $String*), "java.io.IOException,com.sun.org.apache.xerces.internal.xni.XNIException"},
-	{"scanAttlistDecl", "()V", nullptr, $PROTECTED | $FINAL, $method(XMLDTDScannerImpl, scanAttlistDecl, void), "java.io.IOException,com.sun.org.apache.xerces.internal.xni.XNIException"},
-	{"scanChildren", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $FINAL, $method(XMLDTDScannerImpl, scanChildren, void, $String*), "java.io.IOException,com.sun.org.apache.xerces.internal.xni.XNIException"},
-	{"scanComment", "()V", nullptr, $PROTECTED | $FINAL, $method(XMLDTDScannerImpl, scanComment, void), "java.io.IOException,com.sun.org.apache.xerces.internal.xni.XNIException"},
-	{"scanConditionalSect", "(I)V", nullptr, $PRIVATE | $FINAL, $method(XMLDTDScannerImpl, scanConditionalSect, void, int32_t), "java.io.IOException,com.sun.org.apache.xerces.internal.xni.XNIException"},
-	{"scanDTDExternalSubset", "(Z)Z", nullptr, $PUBLIC, $virtualMethod(XMLDTDScannerImpl, scanDTDExternalSubset, bool, bool), "java.io.IOException,com.sun.org.apache.xerces.internal.xni.XNIException"},
-	{"scanDTDInternalSubset", "(ZZZ)Z", nullptr, $PUBLIC, $virtualMethod(XMLDTDScannerImpl, scanDTDInternalSubset, bool, bool, bool, bool), "java.io.IOException,com.sun.org.apache.xerces.internal.xni.XNIException"},
-	{"scanDecls", "(Z)Z", nullptr, $PROTECTED | $FINAL, $method(XMLDTDScannerImpl, scanDecls, bool, bool), "java.io.IOException,com.sun.org.apache.xerces.internal.xni.XNIException"},
-	{"scanElementDecl", "()V", nullptr, $PROTECTED | $FINAL, $method(XMLDTDScannerImpl, scanElementDecl, void), "java.io.IOException,com.sun.org.apache.xerces.internal.xni.XNIException"},
-	{"scanEntityDecl", "()V", nullptr, $PRIVATE | $FINAL, $method(XMLDTDScannerImpl, scanEntityDecl, void), "java.io.IOException,com.sun.org.apache.xerces.internal.xni.XNIException"},
-	{"scanEntityValue", "(Ljava/lang/String;ZLcom/sun/org/apache/xerces/internal/xni/XMLString;Lcom/sun/org/apache/xerces/internal/xni/XMLString;)V", nullptr, $PROTECTED | $FINAL, $method(XMLDTDScannerImpl, scanEntityValue, void, $String*, bool, $XMLString*, $XMLString*), "java.io.IOException,com.sun.org.apache.xerces.internal.xni.XNIException"},
-	{"scanMixed", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $FINAL, $method(XMLDTDScannerImpl, scanMixed, void, $String*), "java.io.IOException,com.sun.org.apache.xerces.internal.xni.XNIException"},
-	{"scanNotationDecl", "()V", nullptr, $PRIVATE | $FINAL, $method(XMLDTDScannerImpl, scanNotationDecl, void), "java.io.IOException,com.sun.org.apache.xerces.internal.xni.XNIException"},
-	{"scanPIData", "(Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/xni/XMLString;)V", nullptr, $PROTECTED | $FINAL, $method(XMLDTDScannerImpl, scanPIData, void, $String*, $XMLString*), "java.io.IOException,com.sun.org.apache.xerces.internal.xni.XNIException"},
-	{"scanTextDecl", "()Z", nullptr, $PROTECTED | $FINAL, $method(XMLDTDScannerImpl, scanTextDecl, bool), "java.io.IOException,com.sun.org.apache.xerces.internal.xni.XNIException"},
-	{"scanningInternalSubset", "()Z", nullptr, $PROTECTED | $FINAL, $method(XMLDTDScannerImpl, scanningInternalSubset, bool)},
-	{"setDTDContentModelHandler", "(Lcom/sun/org/apache/xerces/internal/xni/XMLDTDContentModelHandler;)V", nullptr, $PUBLIC, $virtualMethod(XMLDTDScannerImpl, setDTDContentModelHandler, void, $XMLDTDContentModelHandler*)},
-	{"setDTDHandler", "(Lcom/sun/org/apache/xerces/internal/xni/XMLDTDHandler;)V", nullptr, $PUBLIC, $virtualMethod(XMLDTDScannerImpl, setDTDHandler, void, $XMLDTDHandler*)},
-	{"setInputSource", "(Lcom/sun/org/apache/xerces/internal/xni/parser/XMLInputSource;)V", nullptr, $PUBLIC, $virtualMethod(XMLDTDScannerImpl, setInputSource, void, $XMLInputSource*), "java.io.IOException"},
-	{"setLimitAnalyzer", "(Lcom/sun/org/apache/xerces/internal/utils/XMLLimitAnalyzer;)V", nullptr, $PUBLIC, $virtualMethod(XMLDTDScannerImpl, setLimitAnalyzer, void, $XMLLimitAnalyzer*)},
-	{"setScannerState", "(I)V", nullptr, $PROTECTED | $FINAL, $method(XMLDTDScannerImpl, setScannerState, void, int32_t)},
-	{"skipDTD", "(Z)Z", nullptr, $PUBLIC, $virtualMethod(XMLDTDScannerImpl, skipDTD, bool, bool), "java.io.IOException"},
-	{"skipSeparator", "(ZZ)Z", nullptr, $PRIVATE, $method(XMLDTDScannerImpl, skipSeparator, bool, bool, bool), "java.io.IOException,com.sun.org.apache.xerces.internal.xni.XNIException"},
-	{"startEntity", "(Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/xni/XMLResourceIdentifier;Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/xni/Augmentations;)V", nullptr, $PUBLIC, $virtualMethod(XMLDTDScannerImpl, startEntity, void, $String*, $XMLResourceIdentifier*, $String*, $Augmentations*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
-	{"startPE", "(Ljava/lang/String;Z)V", nullptr, $PROTECTED, $virtualMethod(XMLDTDScannerImpl, startPE, void, $String*, bool), "java.io.IOException,com.sun.org.apache.xerces.internal.xni.XNIException"},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _XMLDTDScannerImpl_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.impl.XMLDTDScannerImpl",
-	"com.sun.org.apache.xerces.internal.impl.XMLScanner",
-	"com.sun.org.apache.xerces.internal.xni.parser.XMLDTDScanner,com.sun.org.apache.xerces.internal.impl.XMLEntityHandler",
-	_XMLDTDScannerImpl_FieldInfo_,
-	_XMLDTDScannerImpl_MethodInfo_
-};
-
-$Object* allocate$XMLDTDScannerImpl($Class* clazz) {
-	return $of($alloc(XMLDTDScannerImpl));
-}
 
 int32_t XMLDTDScannerImpl::hashCode() {
 	 return this->$XMLScanner::hashCode();
@@ -290,7 +174,7 @@ void XMLDTDScannerImpl::init$($SymbolTable* symbolTable, $XMLErrorReporter* erro
 void XMLDTDScannerImpl::setInputSource($XMLInputSource* inputSource) {
 	if (inputSource == nullptr) {
 		if (this->fDTDHandler != nullptr) {
-			$nc(this->fDTDHandler)->startDTD(nullptr, nullptr);
+			this->fDTDHandler->startDTD(nullptr, nullptr);
 			$nc(this->fDTDHandler)->endDTD(nullptr);
 		}
 		if (this->nonValidatingMode) {
@@ -335,7 +219,7 @@ bool XMLDTDScannerImpl::scanDTDInternalSubset(bool complete, bool standalone, bo
 	this->fStandalone = standalone;
 	if (this->fScannerState == XMLDTDScannerImpl::SCANNER_STATE_TEXT_DECL) {
 		if (this->fDTDHandler != nullptr) {
-			$nc(this->fDTDHandler)->startDTD(this->fEntityScanner, nullptr);
+			this->fDTDHandler->startDTD(this->fEntityScanner, nullptr);
 			this->fStartDTDCalled = true;
 		}
 		if (this->nonValidatingMode) {
@@ -347,7 +231,7 @@ bool XMLDTDScannerImpl::scanDTDInternalSubset(bool complete, bool standalone, bo
 	do {
 		if (!scanDecls(complete)) {
 			if (this->fDTDHandler != nullptr && hasExternalSubset == false) {
-				$nc(this->fDTDHandler)->endDTD(nullptr);
+				this->fDTDHandler->endDTD(nullptr);
 			}
 			if (this->nonValidatingMode && hasExternalSubset == false) {
 				$nc(this->nvGrammarInfo)->endDTD(nullptr);
@@ -363,19 +247,19 @@ bool XMLDTDScannerImpl::scanDTDInternalSubset(bool complete, bool standalone, bo
 }
 
 bool XMLDTDScannerImpl::skipDTD(bool supportDTD) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (supportDTD) {
 		return false;
 	}
 	$nc(this->fStringBuffer)->clear();
 	while ($nc(this->fEntityScanner)->scanData("]"_s, this->fStringBuffer, 0)) {
-		int32_t c = $nc(this->fEntityScanner)->peekChar();
+		int32_t c = this->fEntityScanner->peekChar();
 		if (c != -1) {
 			if ($XMLChar::isHighSurrogate(c)) {
 				scanSurrogates(this->fStringBuffer);
 			}
 			if (isInvalidLiteral(c)) {
-				reportFatalError("InvalidCharInDTD"_s, $$new($ObjectArray, {$($of($Integer::toHexString(c)))}));
+				reportFatalError("InvalidCharInDTD"_s, $$new($ObjectArray, {$($Integer::toHexString(c))}));
 				$nc(this->fEntityScanner)->scanChar(nullptr);
 			}
 		}
@@ -403,29 +287,29 @@ void XMLDTDScannerImpl::reset($PropertyManager* props) {
 }
 
 $StringArray* XMLDTDScannerImpl::getRecognizedFeatures() {
-	return $cast($StringArray, $nc(XMLDTDScannerImpl::RECOGNIZED_FEATURES)->clone());
+	return $cast($StringArray, XMLDTDScannerImpl::RECOGNIZED_FEATURES->clone());
 }
 
 $StringArray* XMLDTDScannerImpl::getRecognizedProperties() {
-	return $cast($StringArray, $nc(XMLDTDScannerImpl::RECOGNIZED_PROPERTIES)->clone());
+	return $cast($StringArray, XMLDTDScannerImpl::RECOGNIZED_PROPERTIES->clone());
 }
 
 $Boolean* XMLDTDScannerImpl::getFeatureDefault($String* featureId) {
-	for (int32_t i = 0; i < $nc(XMLDTDScannerImpl::RECOGNIZED_FEATURES)->length; ++i) {
-		if ($nc($nc(XMLDTDScannerImpl::RECOGNIZED_FEATURES)->get(i))->equals(featureId)) {
-			return $nc(XMLDTDScannerImpl::FEATURE_DEFAULTS)->get(i);
+	for (int32_t i = 0; i < XMLDTDScannerImpl::RECOGNIZED_FEATURES->length; ++i) {
+		if ($nc(XMLDTDScannerImpl::RECOGNIZED_FEATURES->get(i))->equals(featureId)) {
+			return XMLDTDScannerImpl::FEATURE_DEFAULTS->get(i);
 		}
 	}
 	return nullptr;
 }
 
 $Object* XMLDTDScannerImpl::getPropertyDefault($String* propertyId) {
-	for (int32_t i = 0; i < $nc(XMLDTDScannerImpl::RECOGNIZED_PROPERTIES)->length; ++i) {
-		if ($nc($nc(XMLDTDScannerImpl::RECOGNIZED_PROPERTIES)->get(i))->equals(propertyId)) {
-			return $of($nc(XMLDTDScannerImpl::PROPERTY_DEFAULTS)->get(i));
+	for (int32_t i = 0; i < XMLDTDScannerImpl::RECOGNIZED_PROPERTIES->length; ++i) {
+		if ($nc(XMLDTDScannerImpl::RECOGNIZED_PROPERTIES->get(i))->equals(propertyId)) {
+			return XMLDTDScannerImpl::PROPERTY_DEFAULTS->get(i);
 		}
 	}
-	return $of(nullptr);
+	return nullptr;
 }
 
 void XMLDTDScannerImpl::setDTDHandler($XMLDTDHandler* dtdHandler) {
@@ -449,10 +333,10 @@ void XMLDTDScannerImpl::startEntity($String* name, $XMLResourceIdentifier* ident
 	bool dtdEntity = $nc(name)->equals("[dtd]"_s);
 	if (dtdEntity) {
 		if (this->fDTDHandler != nullptr && !this->fStartDTDCalled) {
-			$nc(this->fDTDHandler)->startDTD(this->fEntityScanner, nullptr);
+			this->fDTDHandler->startDTD(this->fEntityScanner, nullptr);
 		}
 		if (this->fDTDHandler != nullptr) {
-			$nc(this->fDTDHandler)->startExternalSubset(identifier, nullptr);
+			this->fDTDHandler->startExternalSubset(identifier, nullptr);
 		}
 		$nc(this->fEntityManager)->startExternalSubset();
 		$nc(this->fEntityStore)->startExternalSubset();
@@ -464,12 +348,12 @@ void XMLDTDScannerImpl::startEntity($String* name, $XMLResourceIdentifier* ident
 		}
 	}
 	if (this->fDTDHandler != nullptr && !dtdEntity && this->fReportEntity) {
-		$nc(this->fDTDHandler)->startParameterEntity(name, identifier, encoding, nullptr);
+		this->fDTDHandler->startParameterEntity(name, identifier, encoding, nullptr);
 	}
 }
 
 void XMLDTDScannerImpl::endEntity($String* name, $Augmentations* augs) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$XMLScanner::endEntity(name, augs);
 	if (this->fScannerState == XMLDTDScannerImpl::SCANNER_STATE_END_OF_INPUT) {
 		return;
@@ -481,20 +365,20 @@ void XMLDTDScannerImpl::endEntity($String* name, $Augmentations* augs) {
 		int32_t startMarkUpDepth = popPEStack();
 		if (startMarkUpDepth == 0 && startMarkUpDepth < this->fMarkUpDepth) {
 			$init($XMLMessageFormatter);
-			$nc(this->fErrorReporter)->reportError($XMLMessageFormatter::XML_DOMAIN, "ILL_FORMED_PARAMETER_ENTITY_WHEN_USED_IN_DECL"_s, $$new($ObjectArray, {$of($nc($nc(this->fEntityManager)->fCurrentEntity)->name)}), $XMLErrorReporter::SEVERITY_FATAL_ERROR);
+			$nc(this->fErrorReporter)->reportError($XMLMessageFormatter::XML_DOMAIN, "ILL_FORMED_PARAMETER_ENTITY_WHEN_USED_IN_DECL"_s, $$new($ObjectArray, {$nc($nc(this->fEntityManager)->fCurrentEntity)->name}), $XMLErrorReporter::SEVERITY_FATAL_ERROR);
 		}
 		if (startMarkUpDepth != this->fMarkUpDepth) {
 			reportEntity = false;
 			if (this->fValidation) {
 				$init($XMLMessageFormatter);
-				$nc(this->fErrorReporter)->reportError($XMLMessageFormatter::XML_DOMAIN, "ImproperDeclarationNesting"_s, $$new($ObjectArray, {$of(name)}), $XMLErrorReporter::SEVERITY_ERROR);
+				$nc(this->fErrorReporter)->reportError($XMLMessageFormatter::XML_DOMAIN, "ImproperDeclarationNesting"_s, $$new($ObjectArray, {name}), $XMLErrorReporter::SEVERITY_ERROR);
 			}
 		}
 		if ($nc(this->fEntityScanner)->isExternal()) {
 			--this->fExtEntityDepth;
 		}
 		if (this->fDTDHandler != nullptr && reportEntity) {
-			$nc(this->fDTDHandler)->endParameterEntity(name, nullptr);
+			this->fDTDHandler->endParameterEntity(name, nullptr);
 		}
 	}
 	if (dtdEntity) {
@@ -505,12 +389,11 @@ void XMLDTDScannerImpl::endEntity($String* name, $Augmentations* augs) {
 		$nc(this->fEntityManager)->endExternalSubset();
 		$nc(this->fEntityStore)->endExternalSubset();
 		if (this->fDTDHandler != nullptr) {
-			$nc(this->fDTDHandler)->endExternalSubset(nullptr);
+			this->fDTDHandler->endExternalSubset(nullptr);
 			$nc(this->fDTDHandler)->endDTD(nullptr);
 		}
 		--this->fExtEntityDepth;
 	}
-	$init($Boolean);
 	$init($Constants);
 	if (augs != nullptr && $nc($Boolean::TRUE)->equals($(augs->getItem($Constants::LAST_ENTITY))) && (this->fMarkUpDepth != 0 || this->fExtEntityDepth != 0 || this->fIncludeSectDepth != 0)) {
 		$throwNew($EOFException);
@@ -519,11 +402,13 @@ void XMLDTDScannerImpl::endEntity($String* name, $Augmentations* augs) {
 
 void XMLDTDScannerImpl::setScannerState(int32_t state) {
 	this->fScannerState = state;
+	;
 }
 
 $String* XMLDTDScannerImpl::getScannerStateName(int32_t state) {
 	$init(XMLDTDScannerImpl);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
+	;
 	return $str({"??? ("_s, $$str(state), $$str(u')')});
 }
 
@@ -532,12 +417,12 @@ bool XMLDTDScannerImpl::scanningInternalSubset() {
 }
 
 void XMLDTDScannerImpl::startPE($String* name, bool literal) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t depth = this->fPEDepth;
 	$var($String, pName, $str({"%"_s, name}));
 	if (this->fValidation && !$nc(this->fEntityStore)->isDeclaredEntity(pName)) {
 		$init($XMLMessageFormatter);
-		$nc(this->fErrorReporter)->reportError($XMLMessageFormatter::XML_DOMAIN, "EntityNotDeclared"_s, $$new($ObjectArray, {$of(name)}), $XMLErrorReporter::SEVERITY_ERROR);
+		$nc(this->fErrorReporter)->reportError($XMLMessageFormatter::XML_DOMAIN, "EntityNotDeclared"_s, $$new($ObjectArray, {name}), $XMLErrorReporter::SEVERITY_ERROR);
 	}
 	$nc(this->fEntityManager)->startEntity(false, $($nc(this->fSymbolTable)->addSymbol(pName)), literal);
 	if (depth != this->fPEDepth && $nc(this->fEntityScanner)->isExternal()) {
@@ -546,7 +431,7 @@ void XMLDTDScannerImpl::startPE($String* name, bool literal) {
 }
 
 bool XMLDTDScannerImpl::scanTextDecl() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool textDecl = false;
 	if ($nc(this->fEntityScanner)->skipString("<?xml"_s)) {
 		++this->fMarkUpDepth;
@@ -554,7 +439,7 @@ bool XMLDTDScannerImpl::scanTextDecl() {
 			$nc(this->fStringBuffer)->clear();
 			$nc(this->fStringBuffer)->append("xml"_s);
 			while (isValidNameChar($nc(this->fEntityScanner)->peekChar())) {
-				$nc(this->fStringBuffer)->append((char16_t)$nc(this->fEntityScanner)->scanChar(nullptr));
+				$nc(this->fStringBuffer)->append((char16_t)this->fEntityScanner->scanChar(nullptr));
 			}
 			$var($String, target, $nc(this->fSymbolTable)->addSymbol($nc(this->fStringBuffer)->ch, $nc(this->fStringBuffer)->offset, $nc(this->fStringBuffer)->length));
 			scanPIData(target, this->fString);
@@ -565,10 +450,10 @@ bool XMLDTDScannerImpl::scanTextDecl() {
 			textDecl = true;
 			--this->fMarkUpDepth;
 			$assign(version, $nc(this->fStrings)->get(0));
-			$assign(encoding, $nc(this->fStrings)->get(1));
+			$assign(encoding, this->fStrings->get(1));
 			$nc(this->fEntityScanner)->setEncoding(encoding);
 			if (this->fDTDHandler != nullptr) {
-				$nc(this->fDTDHandler)->textDecl(version, encoding, nullptr);
+				this->fDTDHandler->textDecl(version, encoding, nullptr);
 			}
 		}
 	}
@@ -579,7 +464,7 @@ bool XMLDTDScannerImpl::scanTextDecl() {
 void XMLDTDScannerImpl::scanPIData($String* target, $XMLString* data) {
 	--this->fMarkUpDepth;
 	if (this->fDTDHandler != nullptr) {
-		$nc(this->fDTDHandler)->processingInstruction(target, data, nullptr);
+		this->fDTDHandler->processingInstruction(target, data, nullptr);
 	}
 }
 
@@ -588,13 +473,13 @@ void XMLDTDScannerImpl::scanComment() {
 	scanComment(this->fStringBuffer);
 	--this->fMarkUpDepth;
 	if (this->fDTDHandler != nullptr) {
-		$nc(this->fDTDHandler)->comment(this->fStringBuffer, nullptr);
+		this->fDTDHandler->comment(this->fStringBuffer, nullptr);
 	}
 	this->fReportEntity = true;
 }
 
 void XMLDTDScannerImpl::scanElementDecl() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->fReportEntity = false;
 	if (!skipSeparator(true, !scanningInternalSubset())) {
 		reportFatalError("MSG_SPACE_REQUIRED_BEFORE_ELEMENT_TYPE_IN_ELEMENTDECL"_s, nullptr);
@@ -605,29 +490,29 @@ void XMLDTDScannerImpl::scanElementDecl() {
 		reportFatalError("MSG_ELEMENT_TYPE_REQUIRED_IN_ELEMENTDECL"_s, nullptr);
 	}
 	if (!skipSeparator(true, !scanningInternalSubset())) {
-		reportFatalError("MSG_SPACE_REQUIRED_BEFORE_CONTENTSPEC_IN_ELEMENTDECL"_s, $$new($ObjectArray, {$of(name)}));
+		reportFatalError("MSG_SPACE_REQUIRED_BEFORE_CONTENTSPEC_IN_ELEMENTDECL"_s, $$new($ObjectArray, {name}));
 	}
 	if (this->fDTDContentModelHandler != nullptr) {
-		$nc(this->fDTDContentModelHandler)->startContentModel(name, nullptr);
+		this->fDTDContentModelHandler->startContentModel(name, nullptr);
 	}
 	$var($String, contentModel, nullptr);
 	this->fReportEntity = true;
 	if ($nc(this->fEntityScanner)->skipString("EMPTY"_s)) {
 		$assign(contentModel, "EMPTY"_s);
 		if (this->fDTDContentModelHandler != nullptr) {
-			$nc(this->fDTDContentModelHandler)->empty(nullptr);
+			this->fDTDContentModelHandler->empty(nullptr);
 		}
 	} else if ($nc(this->fEntityScanner)->skipString("ANY"_s)) {
 		$assign(contentModel, "ANY"_s);
 		if (this->fDTDContentModelHandler != nullptr) {
-			$nc(this->fDTDContentModelHandler)->any(nullptr);
+			this->fDTDContentModelHandler->any(nullptr);
 		}
 	} else {
 		if (!$nc(this->fEntityScanner)->skipChar(u'(', nullptr)) {
-			reportFatalError("MSG_OPEN_PAREN_OR_ELEMENT_TYPE_REQUIRED_IN_CHILDREN"_s, $$new($ObjectArray, {$of(name)}));
+			reportFatalError("MSG_OPEN_PAREN_OR_ELEMENT_TYPE_REQUIRED_IN_CHILDREN"_s, $$new($ObjectArray, {name}));
 		}
 		if (this->fDTDContentModelHandler != nullptr) {
-			$nc(this->fDTDContentModelHandler)->startGroup(nullptr);
+			this->fDTDContentModelHandler->startGroup(nullptr);
 		}
 		$nc(this->fStringBuffer)->clear();
 		$nc(this->fStringBuffer)->append(u'(');
@@ -641,17 +526,17 @@ void XMLDTDScannerImpl::scanElementDecl() {
 		$assign(contentModel, $nc(this->fStringBuffer)->toString());
 	}
 	if (this->fDTDContentModelHandler != nullptr) {
-		$nc(this->fDTDContentModelHandler)->endContentModel(nullptr);
+		this->fDTDContentModelHandler->endContentModel(nullptr);
 	}
 	this->fReportEntity = false;
 	skipSeparator(false, !scanningInternalSubset());
 	if (!$nc(this->fEntityScanner)->skipChar(u'>', nullptr)) {
-		reportFatalError("ElementDeclUnterminated"_s, $$new($ObjectArray, {$of(name)}));
+		reportFatalError("ElementDeclUnterminated"_s, $$new($ObjectArray, {name}));
 	}
 	this->fReportEntity = true;
 	--this->fMarkUpDepth;
 	if (this->fDTDHandler != nullptr) {
-		$nc(this->fDTDHandler)->elementDecl(name, contentModel, nullptr);
+		this->fDTDHandler->elementDecl(name, contentModel, nullptr);
 	}
 	if (this->nonValidatingMode) {
 		$nc(this->nvGrammarInfo)->elementDecl(name, contentModel, nullptr);
@@ -659,51 +544,51 @@ void XMLDTDScannerImpl::scanElementDecl() {
 }
 
 void XMLDTDScannerImpl::scanMixed($String* elName) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, childName, nullptr);
 	$nc(this->fStringBuffer)->append("#PCDATA"_s);
 	if (this->fDTDContentModelHandler != nullptr) {
-		$nc(this->fDTDContentModelHandler)->pcdata(nullptr);
+		this->fDTDContentModelHandler->pcdata(nullptr);
 	}
 	skipSeparator(false, !scanningInternalSubset());
 	while ($nc(this->fEntityScanner)->skipChar(u'|', nullptr)) {
 		$nc(this->fStringBuffer)->append(u'|');
 		if (this->fDTDContentModelHandler != nullptr) {
-			$nc(this->fDTDContentModelHandler)->separator($XMLDTDContentModelHandler::SEPARATOR_CHOICE, nullptr);
+			this->fDTDContentModelHandler->separator($XMLDTDContentModelHandler::SEPARATOR_CHOICE, nullptr);
 		}
 		skipSeparator(false, !scanningInternalSubset());
 		$init($XMLScanner$NameType);
 		$assign(childName, $nc(this->fEntityScanner)->scanName($XMLScanner$NameType::ENTITY));
 		if (childName == nullptr) {
-			reportFatalError("MSG_ELEMENT_TYPE_REQUIRED_IN_MIXED_CONTENT"_s, $$new($ObjectArray, {$of(elName)}));
+			reportFatalError("MSG_ELEMENT_TYPE_REQUIRED_IN_MIXED_CONTENT"_s, $$new($ObjectArray, {elName}));
 		}
 		$nc(this->fStringBuffer)->append(childName);
 		if (this->fDTDContentModelHandler != nullptr) {
-			$nc(this->fDTDContentModelHandler)->element(childName, nullptr);
+			this->fDTDContentModelHandler->element(childName, nullptr);
 		}
 		skipSeparator(false, !scanningInternalSubset());
 	}
 	if ($nc(this->fEntityScanner)->skipString(")*"_s)) {
 		$nc(this->fStringBuffer)->append(")*"_s);
 		if (this->fDTDContentModelHandler != nullptr) {
-			$nc(this->fDTDContentModelHandler)->endGroup(nullptr);
+			this->fDTDContentModelHandler->endGroup(nullptr);
 			$nc(this->fDTDContentModelHandler)->occurrence($XMLDTDContentModelHandler::OCCURS_ZERO_OR_MORE, nullptr);
 		}
 	} else if (childName != nullptr) {
-		reportFatalError("MixedContentUnterminated"_s, $$new($ObjectArray, {$of(elName)}));
+		reportFatalError("MixedContentUnterminated"_s, $$new($ObjectArray, {elName}));
 	} else if ($nc(this->fEntityScanner)->skipChar(u')', nullptr)) {
 		$nc(this->fStringBuffer)->append(u')');
 		if (this->fDTDContentModelHandler != nullptr) {
-			$nc(this->fDTDContentModelHandler)->endGroup(nullptr);
+			this->fDTDContentModelHandler->endGroup(nullptr);
 		}
 	} else {
-		reportFatalError("MSG_CLOSE_PAREN_REQUIRED_IN_CHILDREN"_s, $$new($ObjectArray, {$of(elName)}));
+		reportFatalError("MSG_CLOSE_PAREN_REQUIRED_IN_CHILDREN"_s, $$new($ObjectArray, {elName}));
 	}
 	--this->fMarkUpDepth;
 }
 
 void XMLDTDScannerImpl::scanChildren($String* elName) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->fContentDepth = 0;
 	pushContentStack(0);
 	int32_t currentOp = 0;
@@ -713,7 +598,7 @@ void XMLDTDScannerImpl::scanChildren($String* elName) {
 			++this->fMarkUpDepth;
 			$nc(this->fStringBuffer)->append(u'(');
 			if (this->fDTDContentModelHandler != nullptr) {
-				$nc(this->fDTDContentModelHandler)->startGroup(nullptr);
+				this->fDTDContentModelHandler->startGroup(nullptr);
 			}
 			pushContentStack(currentOp);
 			currentOp = 0;
@@ -724,11 +609,11 @@ void XMLDTDScannerImpl::scanChildren($String* elName) {
 		$init($XMLScanner$NameType);
 		$var($String, childName, $nc(this->fEntityScanner)->scanName($XMLScanner$NameType::ELEMENTSTART));
 		if (childName == nullptr) {
-			reportFatalError("MSG_OPEN_PAREN_OR_ELEMENT_TYPE_REQUIRED_IN_CHILDREN"_s, $$new($ObjectArray, {$of(elName)}));
+			reportFatalError("MSG_OPEN_PAREN_OR_ELEMENT_TYPE_REQUIRED_IN_CHILDREN"_s, $$new($ObjectArray, {elName}));
 			return;
 		}
 		if (this->fDTDContentModelHandler != nullptr) {
-			$nc(this->fDTDContentModelHandler)->element(childName, nullptr);
+			this->fDTDContentModelHandler->element(childName, nullptr);
 		}
 		$nc(this->fStringBuffer)->append(childName);
 		c = $nc(this->fEntityScanner)->peekChar();
@@ -742,7 +627,7 @@ void XMLDTDScannerImpl::scanChildren($String* elName) {
 				} else {
 					oc = $XMLDTDContentModelHandler::OCCURS_ONE_OR_MORE;
 				}
-				$nc(this->fDTDContentModelHandler)->occurrence(oc, nullptr);
+				this->fDTDContentModelHandler->occurrence(oc, nullptr);
 			}
 			$nc(this->fEntityScanner)->scanChar(nullptr);
 			$nc(this->fStringBuffer)->append((char16_t)c);
@@ -753,7 +638,7 @@ void XMLDTDScannerImpl::scanChildren($String* elName) {
 			if (c == u',' && currentOp != u'|') {
 				currentOp = c;
 				if (this->fDTDContentModelHandler != nullptr) {
-					$nc(this->fDTDContentModelHandler)->separator($XMLDTDContentModelHandler::SEPARATOR_SEQUENCE, nullptr);
+					this->fDTDContentModelHandler->separator($XMLDTDContentModelHandler::SEPARATOR_SEQUENCE, nullptr);
 				}
 				$nc(this->fEntityScanner)->scanChar(nullptr);
 				$nc(this->fStringBuffer)->append(u',');
@@ -761,16 +646,16 @@ void XMLDTDScannerImpl::scanChildren($String* elName) {
 			} else if (c == u'|' && currentOp != u',') {
 				currentOp = c;
 				if (this->fDTDContentModelHandler != nullptr) {
-					$nc(this->fDTDContentModelHandler)->separator($XMLDTDContentModelHandler::SEPARATOR_CHOICE, nullptr);
+					this->fDTDContentModelHandler->separator($XMLDTDContentModelHandler::SEPARATOR_CHOICE, nullptr);
 				}
 				$nc(this->fEntityScanner)->scanChar(nullptr);
 				$nc(this->fStringBuffer)->append(u'|');
 				break;
 			} else if (c != u')') {
-				reportFatalError("MSG_CLOSE_PAREN_REQUIRED_IN_CHILDREN"_s, $$new($ObjectArray, {$of(elName)}));
+				reportFatalError("MSG_CLOSE_PAREN_REQUIRED_IN_CHILDREN"_s, $$new($ObjectArray, {elName}));
 			}
 			if (this->fDTDContentModelHandler != nullptr) {
-				$nc(this->fDTDContentModelHandler)->endGroup(nullptr);
+				this->fDTDContentModelHandler->endGroup(nullptr);
 			}
 			currentOp = popContentStack();
 			int16_t oc = 0;
@@ -778,19 +663,19 @@ void XMLDTDScannerImpl::scanChildren($String* elName) {
 				$nc(this->fStringBuffer)->append(")?"_s);
 				if (this->fDTDContentModelHandler != nullptr) {
 					oc = $XMLDTDContentModelHandler::OCCURS_ZERO_OR_ONE;
-					$nc(this->fDTDContentModelHandler)->occurrence(oc, nullptr);
+					this->fDTDContentModelHandler->occurrence(oc, nullptr);
 				}
 			} else if ($nc(this->fEntityScanner)->skipString(")+"_s)) {
 				$nc(this->fStringBuffer)->append(")+"_s);
 				if (this->fDTDContentModelHandler != nullptr) {
 					oc = $XMLDTDContentModelHandler::OCCURS_ONE_OR_MORE;
-					$nc(this->fDTDContentModelHandler)->occurrence(oc, nullptr);
+					this->fDTDContentModelHandler->occurrence(oc, nullptr);
 				}
 			} else if ($nc(this->fEntityScanner)->skipString(")*"_s)) {
 				$nc(this->fStringBuffer)->append(")*"_s);
 				if (this->fDTDContentModelHandler != nullptr) {
 					oc = $XMLDTDContentModelHandler::OCCURS_ZERO_OR_MORE;
-					$nc(this->fDTDContentModelHandler)->occurrence(oc, nullptr);
+					this->fDTDContentModelHandler->occurrence(oc, nullptr);
 				}
 			} else {
 				$nc(this->fEntityScanner)->scanChar(nullptr);
@@ -806,7 +691,7 @@ void XMLDTDScannerImpl::scanChildren($String* elName) {
 }
 
 void XMLDTDScannerImpl::scanAttlistDecl() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->fReportEntity = false;
 	if (!skipSeparator(true, !scanningInternalSubset())) {
 		reportFatalError("MSG_SPACE_REQUIRED_BEFORE_ELEMENT_TYPE_IN_ATTLISTDECL"_s, nullptr);
@@ -817,35 +702,35 @@ void XMLDTDScannerImpl::scanAttlistDecl() {
 		reportFatalError("MSG_ELEMENT_TYPE_REQUIRED_IN_ATTLISTDECL"_s, nullptr);
 	}
 	if (this->fDTDHandler != nullptr) {
-		$nc(this->fDTDHandler)->startAttlist(elName, nullptr);
+		this->fDTDHandler->startAttlist(elName, nullptr);
 	}
 	if (!skipSeparator(true, !scanningInternalSubset())) {
 		if ($nc(this->fEntityScanner)->skipChar(u'>', nullptr)) {
 			if (this->fDTDHandler != nullptr) {
-				$nc(this->fDTDHandler)->endAttlist(nullptr);
+				this->fDTDHandler->endAttlist(nullptr);
 			}
 			--this->fMarkUpDepth;
 			return;
 		} else {
-			reportFatalError("MSG_SPACE_REQUIRED_BEFORE_ATTRIBUTE_NAME_IN_ATTDEF"_s, $$new($ObjectArray, {$of(elName)}));
+			reportFatalError("MSG_SPACE_REQUIRED_BEFORE_ATTRIBUTE_NAME_IN_ATTDEF"_s, $$new($ObjectArray, {elName}));
 		}
 	}
 	while (!$nc(this->fEntityScanner)->skipChar(u'>', nullptr)) {
-		$var($String, name, $nc(this->fEntityScanner)->scanName($XMLScanner$NameType::ATTRIBUTENAME));
+		$var($String, name, this->fEntityScanner->scanName($XMLScanner$NameType::ATTRIBUTENAME));
 		if (name == nullptr) {
-			reportFatalError("AttNameRequiredInAttDef"_s, $$new($ObjectArray, {$of(elName)}));
+			reportFatalError("AttNameRequiredInAttDef"_s, $$new($ObjectArray, {elName}));
 		}
 		if (!skipSeparator(true, !scanningInternalSubset())) {
 			reportFatalError("MSG_SPACE_REQUIRED_BEFORE_ATTTYPE_IN_ATTDEF"_s, $$new($ObjectArray, {
-				$of(elName),
-				$of(name)
+				elName,
+				name
 			}));
 		}
 		$var($String, type, scanAttType(elName, name));
 		if (!skipSeparator(true, !scanningInternalSubset())) {
 			reportFatalError("MSG_SPACE_REQUIRED_BEFORE_DEFAULTDECL_IN_ATTDEF"_s, $$new($ObjectArray, {
-				$of(elName),
-				$of(name)
+				elName,
+				name
 			}));
 		}
 		$var($String, defaultType, scanAttDefaultDecl(elName, name, type, this->fLiteral, this->fLiteral2));
@@ -859,18 +744,18 @@ void XMLDTDScannerImpl::scanAttlistDecl() {
 		bool var$0 = defaultType != nullptr;
 		if (var$0) {
 			bool var$1 = defaultType->equals("#REQUIRED"_s);
-			var$0 = (var$1 || defaultType->equals("#IMPLIED"_s));
+			var$0 = var$1 || defaultType->equals("#IMPLIED"_s);
 		}
 		if (var$0) {
 			if (this->fDTDHandler != nullptr) {
-				$nc(this->fDTDHandler)->attributeDecl(elName, name, type, enumr, defaultType, nullptr, nullptr, nullptr);
+				this->fDTDHandler->attributeDecl(elName, name, type, enumr, defaultType, nullptr, nullptr, nullptr);
 			}
 			if (this->nonValidatingMode) {
 				$nc(this->nvGrammarInfo)->attributeDecl(elName, name, type, enumr, defaultType, nullptr, nullptr, nullptr);
 			}
 		} else {
 			if (this->fDTDHandler != nullptr) {
-				$nc(this->fDTDHandler)->attributeDecl(elName, name, type, enumr, defaultType, this->fLiteral, this->fLiteral2, nullptr);
+				this->fDTDHandler->attributeDecl(elName, name, type, enumr, defaultType, this->fLiteral, this->fLiteral2, nullptr);
 			}
 			if (this->nonValidatingMode) {
 				$nc(this->nvGrammarInfo)->attributeDecl(elName, name, type, enumr, defaultType, this->fLiteral, this->fLiteral2, nullptr);
@@ -879,14 +764,14 @@ void XMLDTDScannerImpl::scanAttlistDecl() {
 		skipSeparator(false, !scanningInternalSubset());
 	}
 	if (this->fDTDHandler != nullptr) {
-		$nc(this->fDTDHandler)->endAttlist(nullptr);
+		this->fDTDHandler->endAttlist(nullptr);
 	}
 	--this->fMarkUpDepth;
 	this->fReportEntity = true;
 }
 
 $String* XMLDTDScannerImpl::scanAttType($String* elName, $String* atName) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, type, nullptr);
 	this->fEnumerationCount = 0;
 	if ($nc(this->fEntityScanner)->skipString("CDATA"_s)) {
@@ -909,15 +794,15 @@ $String* XMLDTDScannerImpl::scanAttType($String* elName, $String* atName) {
 		$assign(type, "NOTATION"_s);
 		if (!skipSeparator(true, !scanningInternalSubset())) {
 			reportFatalError("MSG_SPACE_REQUIRED_AFTER_NOTATION_IN_NOTATIONTYPE"_s, $$new($ObjectArray, {
-				$of(elName),
-				$of(atName)
+				elName,
+				atName
 			}));
 		}
 		int32_t c = $nc(this->fEntityScanner)->scanChar(nullptr);
 		if (c != u'(') {
 			reportFatalError("MSG_OPEN_PAREN_REQUIRED_IN_NOTATIONTYPE"_s, $$new($ObjectArray, {
-				$of(elName),
-				$of(atName)
+				elName,
+				atName
 			}));
 		}
 		++this->fMarkUpDepth;
@@ -927,8 +812,8 @@ $String* XMLDTDScannerImpl::scanAttType($String* elName, $String* atName) {
 			$var($String, aName, $nc(this->fEntityScanner)->scanName($XMLScanner$NameType::ATTRIBUTENAME));
 			if (aName == nullptr) {
 				reportFatalError("MSG_NAME_REQUIRED_IN_NOTATIONTYPE"_s, $$new($ObjectArray, {
-					$of(elName),
-					$of(atName)
+					elName,
+					atName
 				}));
 			}
 			ensureEnumerationSize(this->fEnumerationCount + 1);
@@ -938,8 +823,8 @@ $String* XMLDTDScannerImpl::scanAttType($String* elName, $String* atName) {
 		} while (c == u'|');
 		if (c != u')') {
 			reportFatalError("NotationTypeUnterminated"_s, $$new($ObjectArray, {
-				$of(elName),
-				$of(atName)
+				elName,
+				atName
 			}));
 		}
 		--this->fMarkUpDepth;
@@ -948,8 +833,8 @@ $String* XMLDTDScannerImpl::scanAttType($String* elName, $String* atName) {
 		int32_t c = $nc(this->fEntityScanner)->scanChar(nullptr);
 		if (c != u'(') {
 			reportFatalError("AttTypeRequiredInAttDef"_s, $$new($ObjectArray, {
-				$of(elName),
-				$of(atName)
+				elName,
+				atName
 			}));
 		}
 		++this->fMarkUpDepth;
@@ -958,8 +843,8 @@ $String* XMLDTDScannerImpl::scanAttType($String* elName, $String* atName) {
 			$var($String, token, $nc(this->fEntityScanner)->scanNmtoken());
 			if (token == nullptr) {
 				reportFatalError("MSG_NMTOKEN_REQUIRED_IN_ENUMERATION"_s, $$new($ObjectArray, {
-					$of(elName),
-					$of(atName)
+					elName,
+					atName
 				}));
 			}
 			ensureEnumerationSize(this->fEnumerationCount + 1);
@@ -969,8 +854,8 @@ $String* XMLDTDScannerImpl::scanAttType($String* elName, $String* atName) {
 		} while (c == u'|');
 		if (c != u')') {
 			reportFatalError("EnumerationUnterminated"_s, $$new($ObjectArray, {
-				$of(elName),
-				$of(atName)
+				elName,
+				atName
 			}));
 		}
 		--this->fMarkUpDepth;
@@ -979,7 +864,7 @@ $String* XMLDTDScannerImpl::scanAttType($String* elName, $String* atName) {
 }
 
 $String* XMLDTDScannerImpl::scanAttDefaultDecl($String* elName, $String* atName, $String* type, $XMLString* defaultVal, $XMLString* nonNormalizedDefaultVal) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, defaultType, nullptr);
 	$nc(this->fString)->clear();
 	$nc(defaultVal)->clear();
@@ -992,8 +877,8 @@ $String* XMLDTDScannerImpl::scanAttDefaultDecl($String* elName, $String* atName,
 			$assign(defaultType, "#FIXED"_s);
 			if (!skipSeparator(true, !scanningInternalSubset())) {
 				reportFatalError("MSG_SPACE_REQUIRED_AFTER_FIXED_IN_DEFAULTDECL"_s, $$new($ObjectArray, {
-					$of(elName),
-					$of(atName)
+					elName,
+					atName
 				}));
 			}
 		}
@@ -1004,7 +889,7 @@ $String* XMLDTDScannerImpl::scanAttDefaultDecl($String* elName, $String* atName,
 }
 
 void XMLDTDScannerImpl::scanEntityDecl() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool isPEDecl = false;
 	bool sawPERef = false;
 	this->fReportEntity = false;
@@ -1024,9 +909,9 @@ void XMLDTDScannerImpl::scanEntityDecl() {
 			sawPERef = true;
 		}
 	} else {
-		bool var$1 = scanningInternalSubset();
+		bool var$0 = scanningInternalSubset();
 		$init($XMLScanner$NameType);
-		if (var$1 || !$nc(this->fEntityScanner)->skipChar(u'%', $XMLScanner$NameType::REFERENCE)) {
+		if (var$0 || !$nc(this->fEntityScanner)->skipChar(u'%', $XMLScanner$NameType::REFERENCE)) {
 			reportFatalError("MSG_SPACE_REQUIRED_BEFORE_ENTITY_NAME_IN_ENTITYDECL"_s, nullptr);
 			isPEDecl = false;
 		} else if ($nc(this->fEntityScanner)->skipSpaces()) {
@@ -1042,12 +927,10 @@ void XMLDTDScannerImpl::scanEntityDecl() {
 			$var($String, peName, $nc(this->fEntityScanner)->scanName($XMLScanner$NameType::REFERENCE));
 			if (peName == nullptr) {
 				reportFatalError("NameRequiredInPEReference"_s, nullptr);
+			} else if (!$nc(this->fEntityScanner)->skipChar(u';', $XMLScanner$NameType::REFERENCE)) {
+				reportFatalError("SemicolonRequiredInPEReference"_s, $$new($ObjectArray, {peName}));
 			} else {
-				if (!$nc(this->fEntityScanner)->skipChar(u';', $XMLScanner$NameType::REFERENCE)) {
-					reportFatalError("SemicolonRequiredInPEReference"_s, $$new($ObjectArray, {$of(peName)}));
-				} else {
-					startPE(peName, false);
-				}
+				startPE(peName, false);
 			}
 			$nc(this->fEntityScanner)->skipSpaces();
 			if (!$nc(this->fEntityScanner)->skipChar(u'%', $XMLScanner$NameType::REFERENCE)) {
@@ -1068,11 +951,11 @@ void XMLDTDScannerImpl::scanEntityDecl() {
 		reportFatalError("MSG_ENTITY_NAME_REQUIRED_IN_ENTITYDECL"_s, nullptr);
 	}
 	if (!skipSeparator(true, !scanningInternalSubset())) {
-		reportFatalError("MSG_SPACE_REQUIRED_AFTER_ENTITY_NAME_IN_ENTITYDECL"_s, $$new($ObjectArray, {$of(name)}));
+		reportFatalError("MSG_SPACE_REQUIRED_AFTER_ENTITY_NAME_IN_ENTITYDECL"_s, $$new($ObjectArray, {name}));
 	}
 	scanExternalID(this->fStrings, false);
 	$var($String, systemId, $nc(this->fStrings)->get(0));
-	$var($String, publicId, $nc(this->fStrings)->get(1));
+	$var($String, publicId, this->fStrings->get(1));
 	if (isPEDecl && systemId != nullptr) {
 		this->fSeenExternalPE = true;
 	}
@@ -1080,14 +963,14 @@ void XMLDTDScannerImpl::scanEntityDecl() {
 	bool sawSpace = skipSeparator(true, !scanningInternalSubset());
 	if (!isPEDecl && $nc(this->fEntityScanner)->skipString("NDATA"_s)) {
 		if (!sawSpace) {
-			reportFatalError("MSG_SPACE_REQUIRED_BEFORE_NDATA_IN_UNPARSED_ENTITYDECL"_s, $$new($ObjectArray, {$of(name)}));
+			reportFatalError("MSG_SPACE_REQUIRED_BEFORE_NDATA_IN_UNPARSED_ENTITYDECL"_s, $$new($ObjectArray, {name}));
 		}
 		if (!skipSeparator(true, !scanningInternalSubset())) {
-			reportFatalError("MSG_SPACE_REQUIRED_BEFORE_NOTATION_NAME_IN_UNPARSED_ENTITYDECL"_s, $$new($ObjectArray, {$of(name)}));
+			reportFatalError("MSG_SPACE_REQUIRED_BEFORE_NOTATION_NAME_IN_UNPARSED_ENTITYDECL"_s, $$new($ObjectArray, {name}));
 		}
 		$assign(notation, $nc(this->fEntityScanner)->scanName($XMLScanner$NameType::NOTATION));
 		if (notation == nullptr) {
-			reportFatalError("MSG_NOTATION_NAME_REQUIRED_FOR_UNPARSED_ENTITYDECL"_s, $$new($ObjectArray, {$of(name)}));
+			reportFatalError("MSG_NOTATION_NAME_REQUIRED_FOR_UNPARSED_ENTITYDECL"_s, $$new($ObjectArray, {name}));
 		}
 	}
 	if (systemId == nullptr) {
@@ -1099,7 +982,7 @@ void XMLDTDScannerImpl::scanEntityDecl() {
 	}
 	skipSeparator(false, !scanningInternalSubset());
 	if (!$nc(this->fEntityScanner)->skipChar(u'>', nullptr)) {
-		reportFatalError("EntityDeclUnterminated"_s, $$new($ObjectArray, {$of(name)}));
+		reportFatalError("EntityDeclUnterminated"_s, $$new($ObjectArray, {name}));
 	}
 	--this->fMarkUpDepth;
 	if (isPEDecl) {
@@ -1123,14 +1006,14 @@ void XMLDTDScannerImpl::scanEntityDecl() {
 	} else {
 		$nc(this->fEntityStore)->addInternalEntity(name, $($nc(this->fStringBuffer)->toString()));
 		if (this->fDTDHandler != nullptr) {
-			$nc(this->fDTDHandler)->internalEntityDecl(name, this->fStringBuffer, this->fStringBuffer2, nullptr);
+			this->fDTDHandler->internalEntityDecl(name, this->fStringBuffer, this->fStringBuffer2, nullptr);
 		}
 	}
 	this->fReportEntity = true;
 }
 
 void XMLDTDScannerImpl::scanEntityValue($String* entityName, bool isPEDecl, $XMLString* value, $XMLString* nonNormalizedValue) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t quote = $nc(this->fEntityScanner)->scanChar(nullptr);
 	if (quote != u'\'' && quote != u'\"') {
 		reportFatalError("OpenQuoteMissingInDecl"_s, nullptr);
@@ -1150,7 +1033,7 @@ void XMLDTDScannerImpl::scanEntityValue($String* entityName, bool isPEDecl, $XML
 		do {
 			countChar = 0;
 			offset = $nc(this->fStringBuffer)->length;
-			$nc(this->fStringBuffer)->append(this->fString);
+			this->fStringBuffer->append(this->fString);
 			$nc(this->fStringBuffer2)->append(this->fString);
 			$init($XMLScanner$NameType);
 			if ($nc(this->fEntityScanner)->skipChar(u'&', $XMLScanner$NameType::REFERENCE)) {
@@ -1168,49 +1051,45 @@ void XMLDTDScannerImpl::scanEntityValue($String* entityName, bool isPEDecl, $XML
 						$nc(this->fStringBuffer2)->append(eName);
 					}
 					if (!$nc(this->fEntityScanner)->skipChar(u';', $XMLScanner$NameType::REFERENCE)) {
-						reportFatalError("SemicolonRequiredInReference"_s, $$new($ObjectArray, {$of(eName)}));
+						reportFatalError("SemicolonRequiredInReference"_s, $$new($ObjectArray, {eName}));
 					} else {
 						$nc(this->fStringBuffer)->append(u';');
 						$nc(this->fStringBuffer2)->append(u';');
 					}
 				}
+			} else if ($nc(this->fEntityScanner)->skipChar(u'%', $XMLScanner$NameType::REFERENCE)) {
+				while (true) {
+					$nc(this->fStringBuffer2)->append(u'%');
+					$var($String, peName, $nc(this->fEntityScanner)->scanName($XMLScanner$NameType::REFERENCE));
+					if (peName == nullptr) {
+						reportFatalError("NameRequiredInPEReference"_s, nullptr);
+					} else if (!$nc(this->fEntityScanner)->skipChar(u';', $XMLScanner$NameType::REFERENCE)) {
+						reportFatalError("SemicolonRequiredInPEReference"_s, $$new($ObjectArray, {peName}));
+					} else {
+						if (scanningInternalSubset()) {
+							reportFatalError("PEReferenceWithinMarkup"_s, $$new($ObjectArray, {peName}));
+						}
+						$nc(this->fStringBuffer2)->append(peName);
+						$nc(this->fStringBuffer2)->append(u';');
+					}
+					startPE(peName, true);
+					$nc(this->fEntityScanner)->skipSpaces();
+					if (!$nc(this->fEntityScanner)->skipChar(u'%', $XMLScanner$NameType::REFERENCE)) {
+						break;
+					}
+				}
 			} else {
-				if ($nc(this->fEntityScanner)->skipChar(u'%', $XMLScanner$NameType::REFERENCE)) {
-					while (true) {
-						$nc(this->fStringBuffer2)->append(u'%');
-						$var($String, peName, $nc(this->fEntityScanner)->scanName($XMLScanner$NameType::REFERENCE));
-						if (peName == nullptr) {
-							reportFatalError("NameRequiredInPEReference"_s, nullptr);
-						} else {
-							if (!$nc(this->fEntityScanner)->skipChar(u';', $XMLScanner$NameType::REFERENCE)) {
-								reportFatalError("SemicolonRequiredInPEReference"_s, $$new($ObjectArray, {$of(peName)}));
-							} else {
-								if (scanningInternalSubset()) {
-									reportFatalError("PEReferenceWithinMarkup"_s, $$new($ObjectArray, {$of(peName)}));
-								}
-								$nc(this->fStringBuffer2)->append(peName);
-								$nc(this->fStringBuffer2)->append(u';');
-							}
-						}
-						startPE(peName, true);
-						$nc(this->fEntityScanner)->skipSpaces();
-						if (!$nc(this->fEntityScanner)->skipChar(u'%', $XMLScanner$NameType::REFERENCE)) {
-							break;
-						}
-					}
-				} else {
-					int32_t c = $nc(this->fEntityScanner)->peekChar();
-					if ($XMLChar::isHighSurrogate(c)) {
-						++countChar;
-						scanSurrogates(this->fStringBuffer2);
-					} else if (isInvalidLiteral(c)) {
-						reportFatalError("InvalidCharInLiteral"_s, $$new($ObjectArray, {$($of($Integer::toHexString(c)))}));
-						$nc(this->fEntityScanner)->scanChar(nullptr);
-					} else if (c != quote || entityDepth != this->fEntityDepth) {
-						$nc(this->fStringBuffer)->append((char16_t)c);
-						$nc(this->fStringBuffer2)->append((char16_t)c);
-						$nc(this->fEntityScanner)->scanChar(nullptr);
-					}
+				int32_t c = $nc(this->fEntityScanner)->peekChar();
+				if ($XMLChar::isHighSurrogate(c)) {
+					++countChar;
+					scanSurrogates(this->fStringBuffer2);
+				} else if (isInvalidLiteral(c)) {
+					reportFatalError("InvalidCharInLiteral"_s, $$new($ObjectArray, {$($Integer::toHexString(c))}));
+					$nc(this->fEntityScanner)->scanChar(nullptr);
+				} else if (c != quote || entityDepth != this->fEntityDepth) {
+					$nc(this->fStringBuffer)->append((char16_t)c);
+					$nc(this->fStringBuffer2)->append((char16_t)c);
+					$nc(this->fEntityScanner)->scanChar(nullptr);
 				}
 			}
 			checkEntityLimit(isPEDecl, entityName, $nc(this->fStringBuffer)->length - offset + countChar);
@@ -1228,7 +1107,7 @@ void XMLDTDScannerImpl::scanEntityValue($String* entityName, bool isPEDecl, $XML
 	if (this->fLimitAnalyzer != nullptr) {
 		if (isPEDecl) {
 			$init($XMLSecurityManager$Limit);
-			$nc(this->fLimitAnalyzer)->endEntity($XMLSecurityManager$Limit::PARAMETER_ENTITY_SIZE_LIMIT, entityName);
+			this->fLimitAnalyzer->endEntity($XMLSecurityManager$Limit::PARAMETER_ENTITY_SIZE_LIMIT, entityName);
 		} else {
 			$init($XMLSecurityManager$Limit);
 			$nc(this->fLimitAnalyzer)->endEntity($XMLSecurityManager$Limit::GENERAL_ENTITY_SIZE_LIMIT, entityName);
@@ -1240,7 +1119,7 @@ void XMLDTDScannerImpl::scanEntityValue($String* entityName, bool isPEDecl, $XML
 }
 
 void XMLDTDScannerImpl::scanNotationDecl() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->fReportEntity = false;
 	if (!skipSeparator(true, !scanningInternalSubset())) {
 		reportFatalError("MSG_SPACE_REQUIRED_BEFORE_NOTATION_NAME_IN_NOTATIONDECL"_s, nullptr);
@@ -1251,18 +1130,18 @@ void XMLDTDScannerImpl::scanNotationDecl() {
 		reportFatalError("MSG_NOTATION_NAME_REQUIRED_IN_NOTATIONDECL"_s, nullptr);
 	}
 	if (!skipSeparator(true, !scanningInternalSubset())) {
-		reportFatalError("MSG_SPACE_REQUIRED_AFTER_NOTATION_NAME_IN_NOTATIONDECL"_s, $$new($ObjectArray, {$of(name)}));
+		reportFatalError("MSG_SPACE_REQUIRED_AFTER_NOTATION_NAME_IN_NOTATIONDECL"_s, $$new($ObjectArray, {name}));
 	}
 	scanExternalID(this->fStrings, true);
 	$var($String, systemId, $nc(this->fStrings)->get(0));
-	$var($String, publicId, $nc(this->fStrings)->get(1));
+	$var($String, publicId, this->fStrings->get(1));
 	$var($String, baseSystemId, $nc(this->fEntityScanner)->getBaseSystemId());
 	if (systemId == nullptr && publicId == nullptr) {
-		reportFatalError("ExternalIDorPublicIDRequired"_s, $$new($ObjectArray, {$of(name)}));
+		reportFatalError("ExternalIDorPublicIDRequired"_s, $$new($ObjectArray, {name}));
 	}
 	skipSeparator(false, !scanningInternalSubset());
 	if (!$nc(this->fEntityScanner)->skipChar(u'>', nullptr)) {
-		reportFatalError("NotationDeclUnterminated"_s, $$new($ObjectArray, {$of(name)}));
+		reportFatalError("NotationDeclUnterminated"_s, $$new($ObjectArray, {name}));
 	}
 	--this->fMarkUpDepth;
 	$nc(this->fResourceIdentifier)->setValues(publicId, systemId, baseSystemId, $($XMLEntityManager::expandSystemId(systemId, baseSystemId)));
@@ -1270,26 +1149,26 @@ void XMLDTDScannerImpl::scanNotationDecl() {
 		$nc(this->nvGrammarInfo)->notationDecl(name, this->fResourceIdentifier, nullptr);
 	}
 	if (this->fDTDHandler != nullptr) {
-		$nc(this->fDTDHandler)->notationDecl(name, this->fResourceIdentifier, nullptr);
+		this->fDTDHandler->notationDecl(name, this->fResourceIdentifier, nullptr);
 	}
 	this->fReportEntity = true;
 }
 
 void XMLDTDScannerImpl::scanConditionalSect(int32_t currPEDepth) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->fReportEntity = false;
 	skipSeparator(false, !scanningInternalSubset());
 	if ($nc(this->fEntityScanner)->skipString("INCLUDE"_s)) {
 		skipSeparator(false, !scanningInternalSubset());
 		if (currPEDepth != this->fPEDepth && this->fValidation) {
 			$init($XMLMessageFormatter);
-			$nc(this->fErrorReporter)->reportError($XMLMessageFormatter::XML_DOMAIN, "INVALID_PE_IN_CONDITIONAL"_s, $$new($ObjectArray, {$of($nc($nc(this->fEntityManager)->fCurrentEntity)->name)}), $XMLErrorReporter::SEVERITY_ERROR);
+			$nc(this->fErrorReporter)->reportError($XMLMessageFormatter::XML_DOMAIN, "INVALID_PE_IN_CONDITIONAL"_s, $$new($ObjectArray, {$nc($nc(this->fEntityManager)->fCurrentEntity)->name}), $XMLErrorReporter::SEVERITY_ERROR);
 		}
 		if (!$nc(this->fEntityScanner)->skipChar(u'[', nullptr)) {
 			reportFatalError("MSG_MARKUP_NOT_RECOGNIZED_IN_DTD"_s, nullptr);
 		}
 		if (this->fDTDHandler != nullptr) {
-			$nc(this->fDTDHandler)->startConditional($XMLDTDHandler::CONDITIONAL_INCLUDE, nullptr);
+			this->fDTDHandler->startConditional($XMLDTDHandler::CONDITIONAL_INCLUDE, nullptr);
 		}
 		++this->fIncludeSectDepth;
 		this->fReportEntity = true;
@@ -1297,10 +1176,10 @@ void XMLDTDScannerImpl::scanConditionalSect(int32_t currPEDepth) {
 		skipSeparator(false, !scanningInternalSubset());
 		if (currPEDepth != this->fPEDepth && this->fValidation) {
 			$init($XMLMessageFormatter);
-			$nc(this->fErrorReporter)->reportError($XMLMessageFormatter::XML_DOMAIN, "INVALID_PE_IN_CONDITIONAL"_s, $$new($ObjectArray, {$of($nc($nc(this->fEntityManager)->fCurrentEntity)->name)}), $XMLErrorReporter::SEVERITY_ERROR);
+			$nc(this->fErrorReporter)->reportError($XMLMessageFormatter::XML_DOMAIN, "INVALID_PE_IN_CONDITIONAL"_s, $$new($ObjectArray, {$nc($nc(this->fEntityManager)->fCurrentEntity)->name}), $XMLErrorReporter::SEVERITY_ERROR);
 		}
 		if (this->fDTDHandler != nullptr) {
-			$nc(this->fDTDHandler)->startConditional($XMLDTDHandler::CONDITIONAL_IGNORE, nullptr);
+			this->fDTDHandler->startConditional($XMLDTDHandler::CONDITIONAL_IGNORE, nullptr);
 		}
 		if (!$nc(this->fEntityScanner)->skipChar(u'[', nullptr)) {
 			reportFatalError("MSG_MARKUP_NOT_RECOGNIZED_IN_DTD"_s, nullptr);
@@ -1395,8 +1274,8 @@ bool XMLDTDScannerImpl::scanDecls(bool complete) {
 				} else if ($nc(this->fEntityScanner)->skipString("NOTATION"_s)) {
 					scanNotationDecl();
 				} else {
-					bool var$1 = $nc(this->fEntityScanner)->skipChar(u'[', nullptr);
-					if (var$1 && !scanningInternalSubset()) {
+					bool var$0 = $nc(this->fEntityScanner)->skipChar(u'[', nullptr);
+					if (var$0 && !scanningInternalSubset()) {
 						scanConditionalSect(this->fPEDepth);
 					} else {
 						--this->fMarkUpDepth;
@@ -1408,18 +1287,18 @@ bool XMLDTDScannerImpl::scanDecls(bool complete) {
 				reportFatalError("MSG_MARKUP_NOT_RECOGNIZED_IN_DTD"_s, nullptr);
 			}
 		} else if (this->fIncludeSectDepth > 0 && $nc(this->fEntityScanner)->skipChar(u']', nullptr)) {
-			bool var$2 = !$nc(this->fEntityScanner)->skipChar(u']', nullptr);
-			if (var$2 || !$nc(this->fEntityScanner)->skipChar(u'>', nullptr)) {
+			bool var$1 = !$nc(this->fEntityScanner)->skipChar(u']', nullptr);
+			if (var$1 || !this->fEntityScanner->skipChar(u'>', nullptr)) {
 				reportFatalError("IncludeSectUnterminated"_s, nullptr);
 			}
 			if (this->fDTDHandler != nullptr) {
-				$nc(this->fDTDHandler)->endConditional(nullptr);
+				this->fDTDHandler->endConditional(nullptr);
 			}
 			--this->fIncludeSectDepth;
 			--this->fMarkUpDepth;
 		} else {
-			bool var$4 = scanningInternalSubset();
-			if (var$4 && $nc(this->fEntityScanner)->peekChar() == u']') {
+			bool var$2 = scanningInternalSubset();
+			if (var$2 && $nc(this->fEntityScanner)->peekChar() == u']') {
 				return false;
 			} else if ($nc(this->fEntityScanner)->skipSpaces()) {
 			} else {
@@ -1432,7 +1311,7 @@ bool XMLDTDScannerImpl::scanDecls(bool complete) {
 }
 
 bool XMLDTDScannerImpl::skipSeparator(bool spaceRequired, bool lookForPERefs) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t depth = this->fPEDepth;
 	bool sawSpace = $nc(this->fEntityScanner)->skipSpaces();
 	$init($XMLScanner$NameType);
@@ -1443,10 +1322,8 @@ bool XMLDTDScannerImpl::skipSeparator(bool spaceRequired, bool lookForPERefs) {
 		$var($String, name, $nc(this->fEntityScanner)->scanName($XMLScanner$NameType::ENTITY));
 		if (name == nullptr) {
 			reportFatalError("NameRequiredInPEReference"_s, nullptr);
-		} else {
-			if (!$nc(this->fEntityScanner)->skipChar(u';', $XMLScanner$NameType::REFERENCE)) {
-				reportFatalError("SemicolonRequiredInPEReference"_s, $$new($ObjectArray, {$of(name)}));
-			}
+		} else if (!$nc(this->fEntityScanner)->skipChar(u';', $XMLScanner$NameType::REFERENCE)) {
+			reportFatalError("SemicolonRequiredInPEReference"_s, $$new($ObjectArray, {name}));
 		}
 		startPE(name, false);
 		$nc(this->fEntityScanner)->skipSpaces();
@@ -1462,7 +1339,7 @@ void XMLDTDScannerImpl::pushContentStack(int32_t c) {
 		$System::arraycopy(this->fContentStack, 0, newStack, 0, this->fContentDepth);
 		$set(this, fContentStack, newStack);
 	}
-	$nc(this->fContentStack)->set(this->fContentDepth++, c);
+	this->fContentStack->set(this->fContentDepth++, c);
 }
 
 int32_t XMLDTDScannerImpl::popContentStack() {
@@ -1470,7 +1347,7 @@ int32_t XMLDTDScannerImpl::popContentStack() {
 }
 
 void XMLDTDScannerImpl::pushPEStack(int32_t depth, bool report) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(this->fPEStack)->length == this->fPEDepth) {
 		$var($ints, newIntStack, $new($ints, this->fPEDepth * 2));
 		$System::arraycopy(this->fPEStack, 0, newIntStack, 0, this->fPEDepth);
@@ -1480,7 +1357,7 @@ void XMLDTDScannerImpl::pushPEStack(int32_t depth, bool report) {
 		$set(this, fPEReport, newBooleanStack);
 	}
 	$nc(this->fPEReport)->set(this->fPEDepth, report);
-	$nc(this->fPEStack)->set(this->fPEDepth++, depth);
+	this->fPEStack->set(this->fPEDepth++, depth);
 }
 
 int32_t XMLDTDScannerImpl::popPEStack() {
@@ -1510,22 +1387,21 @@ void XMLDTDScannerImpl::init() {
 	this->fSeenExternalPE = false;
 	setScannerState(XMLDTDScannerImpl::SCANNER_STATE_TEXT_DECL);
 	$set(this, fLimitAnalyzer, $nc(this->fEntityManager)->fLimitAnalyzer);
-	$set(this, fSecurityManager, $nc(this->fEntityManager)->fSecurityManager);
+	$set(this, fSecurityManager, this->fEntityManager->fSecurityManager);
 }
 
 $DTDGrammar* XMLDTDScannerImpl::getGrammar() {
 	return this->nvGrammarInfo;
 }
 
-void clinit$XMLDTDScannerImpl($Class* class$) {
+void XMLDTDScannerImpl::clinit$($Class* clazz) {
 	$init($XMLScanner);
 	$assignStatic(XMLDTDScannerImpl::RECOGNIZED_FEATURES, $new($StringArray, {
 		$XMLScanner::VALIDATION,
 		$XMLScanner::NOTIFY_CHAR_REFS
 	}));
-	$init($Boolean);
 	$assignStatic(XMLDTDScannerImpl::FEATURE_DEFAULTS, $new($BooleanArray, {
-		($Boolean*)nullptr,
+		nullptr,
 		$Boolean::FALSE
 	}));
 	$assignStatic(XMLDTDScannerImpl::RECOGNIZED_PROPERTIES, $new($StringArray, {
@@ -1534,9 +1410,9 @@ void clinit$XMLDTDScannerImpl($Class* class$) {
 		$XMLScanner::ENTITY_MANAGER
 	}));
 	$assignStatic(XMLDTDScannerImpl::PROPERTY_DEFAULTS, $new($ObjectArray, {
-		($Object*)nullptr,
-		($Object*)nullptr,
-		($Object*)nullptr
+		nullptr,
+		nullptr,
+		nullptr
 	}));
 }
 
@@ -1544,7 +1420,110 @@ XMLDTDScannerImpl::XMLDTDScannerImpl() {
 }
 
 $Class* XMLDTDScannerImpl::load$($String* name, bool initialize) {
-	$loadClass(XMLDTDScannerImpl, name, initialize, &_XMLDTDScannerImpl_ClassInfo_, clinit$XMLDTDScannerImpl, allocate$XMLDTDScannerImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"SCANNER_STATE_END_OF_INPUT", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(XMLDTDScannerImpl, SCANNER_STATE_END_OF_INPUT)},
+		{"SCANNER_STATE_TEXT_DECL", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(XMLDTDScannerImpl, SCANNER_STATE_TEXT_DECL)},
+		{"SCANNER_STATE_MARKUP_DECL", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(XMLDTDScannerImpl, SCANNER_STATE_MARKUP_DECL)},
+		{"RECOGNIZED_FEATURES", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XMLDTDScannerImpl, RECOGNIZED_FEATURES)},
+		{"FEATURE_DEFAULTS", "[Ljava/lang/Boolean;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XMLDTDScannerImpl, FEATURE_DEFAULTS)},
+		{"RECOGNIZED_PROPERTIES", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XMLDTDScannerImpl, RECOGNIZED_PROPERTIES)},
+		{"PROPERTY_DEFAULTS", "[Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XMLDTDScannerImpl, PROPERTY_DEFAULTS)},
+		{"DEBUG_SCANNER_STATE", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XMLDTDScannerImpl, DEBUG_SCANNER_STATE)},
+		{"fDTDHandler", "Lcom/sun/org/apache/xerces/internal/xni/XMLDTDHandler;", nullptr, $PUBLIC, $field(XMLDTDScannerImpl, fDTDHandler)},
+		{"fDTDContentModelHandler", "Lcom/sun/org/apache/xerces/internal/xni/XMLDTDContentModelHandler;", nullptr, $PROTECTED, $field(XMLDTDScannerImpl, fDTDContentModelHandler)},
+		{"fScannerState", "I", nullptr, $PROTECTED, $field(XMLDTDScannerImpl, fScannerState)},
+		{"fStandalone", "Z", nullptr, $PROTECTED, $field(XMLDTDScannerImpl, fStandalone)},
+		{"fSeenExternalDTD", "Z", nullptr, $PROTECTED, $field(XMLDTDScannerImpl, fSeenExternalDTD)},
+		{"fSeenExternalPE", "Z", nullptr, $PROTECTED, $field(XMLDTDScannerImpl, fSeenExternalPE)},
+		{"fStartDTDCalled", "Z", nullptr, $PRIVATE, $field(XMLDTDScannerImpl, fStartDTDCalled)},
+		{"fAttributes", "Lcom/sun/org/apache/xerces/internal/util/XMLAttributesImpl;", nullptr, $PRIVATE, $field(XMLDTDScannerImpl, fAttributes)},
+		{"fContentStack", "[I", nullptr, $PRIVATE, $field(XMLDTDScannerImpl, fContentStack)},
+		{"fContentDepth", "I", nullptr, $PRIVATE, $field(XMLDTDScannerImpl, fContentDepth)},
+		{"fPEStack", "[I", nullptr, $PRIVATE, $field(XMLDTDScannerImpl, fPEStack)},
+		{"fPEReport", "[Z", nullptr, $PRIVATE, $field(XMLDTDScannerImpl, fPEReport)},
+		{"fPEDepth", "I", nullptr, $PRIVATE, $field(XMLDTDScannerImpl, fPEDepth)},
+		{"fMarkUpDepth", "I", nullptr, $PRIVATE, $field(XMLDTDScannerImpl, fMarkUpDepth)},
+		{"fExtEntityDepth", "I", nullptr, $PRIVATE, $field(XMLDTDScannerImpl, fExtEntityDepth)},
+		{"fIncludeSectDepth", "I", nullptr, $PRIVATE, $field(XMLDTDScannerImpl, fIncludeSectDepth)},
+		{"fStrings", "[Ljava/lang/String;", nullptr, $PRIVATE, $field(XMLDTDScannerImpl, fStrings)},
+		{"fString", "Lcom/sun/org/apache/xerces/internal/xni/XMLString;", nullptr, $PRIVATE, $field(XMLDTDScannerImpl, fString)},
+		{"fStringBuffer", "Lcom/sun/org/apache/xerces/internal/util/XMLStringBuffer;", nullptr, $PRIVATE, $field(XMLDTDScannerImpl, fStringBuffer)},
+		{"fStringBuffer2", "Lcom/sun/org/apache/xerces/internal/util/XMLStringBuffer;", nullptr, $PRIVATE, $field(XMLDTDScannerImpl, fStringBuffer2)},
+		{"fLiteral", "Lcom/sun/org/apache/xerces/internal/xni/XMLString;", nullptr, $PRIVATE, $field(XMLDTDScannerImpl, fLiteral)},
+		{"fLiteral2", "Lcom/sun/org/apache/xerces/internal/xni/XMLString;", nullptr, $PRIVATE, $field(XMLDTDScannerImpl, fLiteral2)},
+		{"fEnumeration", "[Ljava/lang/String;", nullptr, $PRIVATE, $field(XMLDTDScannerImpl, fEnumeration)},
+		{"fEnumerationCount", "I", nullptr, $PRIVATE, $field(XMLDTDScannerImpl, fEnumerationCount)},
+		{"fIgnoreConditionalBuffer", "Lcom/sun/org/apache/xerces/internal/util/XMLStringBuffer;", nullptr, $PRIVATE, $field(XMLDTDScannerImpl, fIgnoreConditionalBuffer)},
+		{"nvGrammarInfo", "Lcom/sun/xml/internal/stream/dtd/nonvalidating/DTDGrammar;", nullptr, 0, $field(XMLDTDScannerImpl, nvGrammarInfo)},
+		{"nonValidatingMode", "Z", nullptr, 0, $field(XMLDTDScannerImpl, nonValidatingMode)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(XMLDTDScannerImpl, init$, void)},
+		{"<init>", "(Lcom/sun/org/apache/xerces/internal/util/SymbolTable;Lcom/sun/org/apache/xerces/internal/impl/XMLErrorReporter;Lcom/sun/org/apache/xerces/internal/impl/XMLEntityManager;)V", nullptr, $PUBLIC, $method(XMLDTDScannerImpl, init$, void, $SymbolTable*, $XMLErrorReporter*, $XMLEntityManager*)},
+		{"endEntity", "(Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/xni/Augmentations;)V", nullptr, $PUBLIC, $virtualMethod(XMLDTDScannerImpl, endEntity, void, $String*, $Augmentations*), "com.sun.org.apache.xerces.internal.xni.XNIException,java.io.IOException"},
+		{"ensureEnumerationSize", "(I)V", nullptr, $PRIVATE | $FINAL, $method(XMLDTDScannerImpl, ensureEnumerationSize, void, int32_t)},
+		{"getDTDContentModelHandler", "()Lcom/sun/org/apache/xerces/internal/xni/XMLDTDContentModelHandler;", nullptr, $PUBLIC, $virtualMethod(XMLDTDScannerImpl, getDTDContentModelHandler, $XMLDTDContentModelHandler*)},
+		{"getDTDHandler", "()Lcom/sun/org/apache/xerces/internal/xni/XMLDTDHandler;", nullptr, $PUBLIC, $virtualMethod(XMLDTDScannerImpl, getDTDHandler, $XMLDTDHandler*)},
+		{"getFeatureDefault", "(Ljava/lang/String;)Ljava/lang/Boolean;", nullptr, $PUBLIC, $virtualMethod(XMLDTDScannerImpl, getFeatureDefault, $Boolean*, $String*)},
+		{"getGrammar", "()Lcom/sun/xml/internal/stream/dtd/nonvalidating/DTDGrammar;", nullptr, $PUBLIC, $virtualMethod(XMLDTDScannerImpl, getGrammar, $DTDGrammar*)},
+		{"getPropertyDefault", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(XMLDTDScannerImpl, getPropertyDefault, $Object*, $String*)},
+		{"getRecognizedFeatures", "()[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLDTDScannerImpl, getRecognizedFeatures, $StringArray*)},
+		{"getRecognizedProperties", "()[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLDTDScannerImpl, getRecognizedProperties, $StringArray*)},
+		{"getScannerStateName", "(I)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(XMLDTDScannerImpl, getScannerStateName, $String*, int32_t)},
+		{"init", "()V", nullptr, $PRIVATE, $method(XMLDTDScannerImpl, init, void)},
+		{"peekReportEntity", "()Z", nullptr, $PRIVATE | $FINAL, $method(XMLDTDScannerImpl, peekReportEntity, bool)},
+		{"popContentStack", "()I", nullptr, $PRIVATE | $FINAL, $method(XMLDTDScannerImpl, popContentStack, int32_t)},
+		{"popPEStack", "()I", nullptr, $PRIVATE | $FINAL, $method(XMLDTDScannerImpl, popPEStack, int32_t)},
+		{"pushContentStack", "(I)V", nullptr, $PRIVATE | $FINAL, $method(XMLDTDScannerImpl, pushContentStack, void, int32_t)},
+		{"pushPEStack", "(IZ)V", nullptr, $PRIVATE | $FINAL, $method(XMLDTDScannerImpl, pushPEStack, void, int32_t, bool)},
+		{"reset", "(Lcom/sun/org/apache/xerces/internal/xni/parser/XMLComponentManager;)V", nullptr, $PUBLIC, $virtualMethod(XMLDTDScannerImpl, reset, void, $XMLComponentManager*), "com.sun.org.apache.xerces.internal.xni.parser.XMLConfigurationException"},
+		{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(XMLDTDScannerImpl, reset, void)},
+		{"reset", "(Lcom/sun/org/apache/xerces/internal/impl/PropertyManager;)V", nullptr, $PUBLIC, $virtualMethod(XMLDTDScannerImpl, reset, void, $PropertyManager*)},
+		{"scanAttDefaultDecl", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/xni/XMLString;Lcom/sun/org/apache/xerces/internal/xni/XMLString;)Ljava/lang/String;", nullptr, $PROTECTED | $FINAL, $method(XMLDTDScannerImpl, scanAttDefaultDecl, $String*, $String*, $String*, $String*, $XMLString*, $XMLString*), "java.io.IOException,com.sun.org.apache.xerces.internal.xni.XNIException"},
+		{"scanAttType", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $method(XMLDTDScannerImpl, scanAttType, $String*, $String*, $String*), "java.io.IOException,com.sun.org.apache.xerces.internal.xni.XNIException"},
+		{"scanAttlistDecl", "()V", nullptr, $PROTECTED | $FINAL, $method(XMLDTDScannerImpl, scanAttlistDecl, void), "java.io.IOException,com.sun.org.apache.xerces.internal.xni.XNIException"},
+		{"scanChildren", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $FINAL, $method(XMLDTDScannerImpl, scanChildren, void, $String*), "java.io.IOException,com.sun.org.apache.xerces.internal.xni.XNIException"},
+		{"scanComment", "()V", nullptr, $PROTECTED | $FINAL, $method(XMLDTDScannerImpl, scanComment, void), "java.io.IOException,com.sun.org.apache.xerces.internal.xni.XNIException"},
+		{"scanConditionalSect", "(I)V", nullptr, $PRIVATE | $FINAL, $method(XMLDTDScannerImpl, scanConditionalSect, void, int32_t), "java.io.IOException,com.sun.org.apache.xerces.internal.xni.XNIException"},
+		{"scanDTDExternalSubset", "(Z)Z", nullptr, $PUBLIC, $virtualMethod(XMLDTDScannerImpl, scanDTDExternalSubset, bool, bool), "java.io.IOException,com.sun.org.apache.xerces.internal.xni.XNIException"},
+		{"scanDTDInternalSubset", "(ZZZ)Z", nullptr, $PUBLIC, $virtualMethod(XMLDTDScannerImpl, scanDTDInternalSubset, bool, bool, bool, bool), "java.io.IOException,com.sun.org.apache.xerces.internal.xni.XNIException"},
+		{"scanDecls", "(Z)Z", nullptr, $PROTECTED | $FINAL, $method(XMLDTDScannerImpl, scanDecls, bool, bool), "java.io.IOException,com.sun.org.apache.xerces.internal.xni.XNIException"},
+		{"scanElementDecl", "()V", nullptr, $PROTECTED | $FINAL, $method(XMLDTDScannerImpl, scanElementDecl, void), "java.io.IOException,com.sun.org.apache.xerces.internal.xni.XNIException"},
+		{"scanEntityDecl", "()V", nullptr, $PRIVATE | $FINAL, $method(XMLDTDScannerImpl, scanEntityDecl, void), "java.io.IOException,com.sun.org.apache.xerces.internal.xni.XNIException"},
+		{"scanEntityValue", "(Ljava/lang/String;ZLcom/sun/org/apache/xerces/internal/xni/XMLString;Lcom/sun/org/apache/xerces/internal/xni/XMLString;)V", nullptr, $PROTECTED | $FINAL, $method(XMLDTDScannerImpl, scanEntityValue, void, $String*, bool, $XMLString*, $XMLString*), "java.io.IOException,com.sun.org.apache.xerces.internal.xni.XNIException"},
+		{"scanMixed", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $FINAL, $method(XMLDTDScannerImpl, scanMixed, void, $String*), "java.io.IOException,com.sun.org.apache.xerces.internal.xni.XNIException"},
+		{"scanNotationDecl", "()V", nullptr, $PRIVATE | $FINAL, $method(XMLDTDScannerImpl, scanNotationDecl, void), "java.io.IOException,com.sun.org.apache.xerces.internal.xni.XNIException"},
+		{"scanPIData", "(Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/xni/XMLString;)V", nullptr, $PROTECTED | $FINAL, $method(XMLDTDScannerImpl, scanPIData, void, $String*, $XMLString*), "java.io.IOException,com.sun.org.apache.xerces.internal.xni.XNIException"},
+		{"scanTextDecl", "()Z", nullptr, $PROTECTED | $FINAL, $method(XMLDTDScannerImpl, scanTextDecl, bool), "java.io.IOException,com.sun.org.apache.xerces.internal.xni.XNIException"},
+		{"scanningInternalSubset", "()Z", nullptr, $PROTECTED | $FINAL, $method(XMLDTDScannerImpl, scanningInternalSubset, bool)},
+		{"setDTDContentModelHandler", "(Lcom/sun/org/apache/xerces/internal/xni/XMLDTDContentModelHandler;)V", nullptr, $PUBLIC, $virtualMethod(XMLDTDScannerImpl, setDTDContentModelHandler, void, $XMLDTDContentModelHandler*)},
+		{"setDTDHandler", "(Lcom/sun/org/apache/xerces/internal/xni/XMLDTDHandler;)V", nullptr, $PUBLIC, $virtualMethod(XMLDTDScannerImpl, setDTDHandler, void, $XMLDTDHandler*)},
+		{"setInputSource", "(Lcom/sun/org/apache/xerces/internal/xni/parser/XMLInputSource;)V", nullptr, $PUBLIC, $virtualMethod(XMLDTDScannerImpl, setInputSource, void, $XMLInputSource*), "java.io.IOException"},
+		{"setLimitAnalyzer", "(Lcom/sun/org/apache/xerces/internal/utils/XMLLimitAnalyzer;)V", nullptr, $PUBLIC, $virtualMethod(XMLDTDScannerImpl, setLimitAnalyzer, void, $XMLLimitAnalyzer*)},
+		{"setScannerState", "(I)V", nullptr, $PROTECTED | $FINAL, $method(XMLDTDScannerImpl, setScannerState, void, int32_t)},
+		{"skipDTD", "(Z)Z", nullptr, $PUBLIC, $virtualMethod(XMLDTDScannerImpl, skipDTD, bool, bool), "java.io.IOException"},
+		{"skipSeparator", "(ZZ)Z", nullptr, $PRIVATE, $method(XMLDTDScannerImpl, skipSeparator, bool, bool, bool), "java.io.IOException,com.sun.org.apache.xerces.internal.xni.XNIException"},
+		{"startEntity", "(Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/xni/XMLResourceIdentifier;Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/xni/Augmentations;)V", nullptr, $PUBLIC, $virtualMethod(XMLDTDScannerImpl, startEntity, void, $String*, $XMLResourceIdentifier*, $String*, $Augmentations*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
+		{"startPE", "(Ljava/lang/String;Z)V", nullptr, $PROTECTED, $virtualMethod(XMLDTDScannerImpl, startPE, void, $String*, bool), "java.io.IOException,com.sun.org.apache.xerces.internal.xni.XNIException"},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.impl.XMLDTDScannerImpl",
+		"com.sun.org.apache.xerces.internal.impl.XMLScanner",
+		"com.sun.org.apache.xerces.internal.xni.parser.XMLDTDScanner,com.sun.org.apache.xerces.internal.impl.XMLEntityHandler",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XMLDTDScannerImpl, name, initialize, &classInfo$$, XMLDTDScannerImpl::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(XMLDTDScannerImpl));
+	});
 	return class$;
 }
 

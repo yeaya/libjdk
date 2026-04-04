@@ -64,6 +64,7 @@ class MWMConstants : public ::java::lang::Object {
 	$class(MWMConstants, 0, ::java::lang::Object)
 public:
 	MWMConstants();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static const int32_t MWM_HINTS_FUNCTIONS = 1; // (1 << 0)
 	static const int32_t MWM_HINTS_DECORATIONS = 2; // (1 << 1)

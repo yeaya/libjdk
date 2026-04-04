@@ -1,5 +1,4 @@
 #include <java/awt/Robot.h>
-
 #include <java/awt/AWTException.h>
 #include <java/awt/AWTPermission.h>
 #include <java/awt/Color.h>
@@ -21,7 +20,6 @@
 #include <java/awt/image/BaseMultiResolutionImage.h>
 #include <java/awt/image/BufferedImage.h>
 #include <java/awt/image/ColorModel.h>
-#include <java/awt/image/DataBuffer.h>
 #include <java/awt/image/DataBufferInt.h>
 #include <java/awt/image/DirectColorModel.h>
 #include <java/awt/image/ImageObserver.h>
@@ -69,7 +67,6 @@ using $Graphics2D = ::java::awt::Graphics2D;
 using $GraphicsConfiguration = ::java::awt::GraphicsConfiguration;
 using $GraphicsDevice = ::java::awt::GraphicsDevice;
 using $GraphicsEnvironment = ::java::awt::GraphicsEnvironment;
-using $Image = ::java::awt::Image;
 using $Point = ::java::awt::Point;
 using $Rectangle = ::java::awt::Rectangle;
 using $RenderingHints = ::java::awt::RenderingHints;
@@ -79,15 +76,12 @@ using $KeyEvent = ::java::awt::event::KeyEvent;
 using $AffineTransform = ::java::awt::geom::AffineTransform;
 using $BaseMultiResolutionImage = ::java::awt::image::BaseMultiResolutionImage;
 using $BufferedImage = ::java::awt::image::BufferedImage;
-using $ColorModel = ::java::awt::image::ColorModel;
-using $DataBuffer = ::java::awt::image::DataBuffer;
 using $DataBufferInt = ::java::awt::image::DataBufferInt;
 using $DirectColorModel = ::java::awt::image::DirectColorModel;
 using $ImageObserver = ::java::awt::image::ImageObserver;
 using $MultiResolutionImage = ::java::awt::image::MultiResolutionImage;
 using $Raster = ::java::awt::image::Raster;
 using $WritableRaster = ::java::awt::image::WritableRaster;
-using $RobotPeer = ::java::awt::peer::RobotPeer;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
@@ -95,7 +89,6 @@ using $IllegalThreadStateException = ::java::lang::IllegalThreadStateException;
 using $InterruptedException = ::java::lang::InterruptedException;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $SecurityManager = ::java::lang::SecurityManager;
-using $Permission = ::java::security::Permission;
 using $Hashtable = ::java::util::Hashtable;
 using $AWTPermissions = ::sun::awt::AWTPermissions;
 using $ComponentFactory = ::sun::awt::ComponentFactory;
@@ -106,75 +99,15 @@ using $SunGraphicsEnvironment = ::sun::java2d::SunGraphicsEnvironment;
 namespace java {
 	namespace awt {
 
-$FieldInfo _Robot_FieldInfo_[] = {
-	{"MAX_DELAY", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Robot, MAX_DELAY)},
-	{"peer", "Ljava/awt/peer/RobotPeer;", nullptr, $PRIVATE, $field(Robot, peer)},
-	{"isAutoWaitForIdle", "Z", nullptr, $PRIVATE, $field(Robot, isAutoWaitForIdle$)},
-	{"autoDelay", "I", nullptr, $PRIVATE, $field(Robot, autoDelay$)},
-	{"LEGAL_BUTTON_MASK", "I", nullptr, $PRIVATE | $STATIC, $staticField(Robot, LEGAL_BUTTON_MASK)},
-	{"screenCapCM", "Ljava/awt/image/DirectColorModel;", nullptr, $PRIVATE, $field(Robot, screenCapCM)},
-	{}
-};
-
-$MethodInfo _Robot_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Robot, init$, void), "java.awt.AWTException"},
-	{"<init>", "(Ljava/awt/GraphicsDevice;)V", nullptr, $PUBLIC, $method(Robot, init$, void, $GraphicsDevice*), "java.awt.AWTException"},
-	{"afterEvent", "()V", nullptr, $PRIVATE, $method(Robot, afterEvent, void)},
-	{"autoDelay", "()V", nullptr, $PRIVATE, $method(Robot, autoDelay, void)},
-	{"autoWaitForIdle", "()V", nullptr, $PRIVATE, $method(Robot, autoWaitForIdle, void)},
-	{"checkButtonsArgument", "(I)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Robot, checkButtonsArgument, void, int32_t)},
-	{"checkDelayArgument", "(I)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Robot, checkDelayArgument, void, int32_t)},
-	{"checkHeadless", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(Robot, checkHeadless, void), "java.awt.AWTException"},
-	{"checkIsScreenDevice", "(Ljava/awt/GraphicsDevice;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Robot, checkIsScreenDevice, void, $GraphicsDevice*)},
-	{"checkKeycodeArgument", "(I)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Robot, checkKeycodeArgument, void, int32_t)},
-	{"checkNotDispatchThread", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(Robot, checkNotDispatchThread, void)},
-	{"checkRobotAllowed", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(Robot, checkRobotAllowed, void)},
-	{"checkScreenCaptureAllowed", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(Robot, checkScreenCaptureAllowed, void)},
-	{"checkValidRect", "(Ljava/awt/Rectangle;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Robot, checkValidRect, void, $Rectangle*)},
-	{"createCompatibleImage", "(Ljava/awt/Rectangle;Z)[Ljava/awt/image/BufferedImage;", nullptr, $PRIVATE | $SYNCHRONIZED, $method(Robot, createCompatibleImage, $BufferedImageArray*, $Rectangle*, bool)},
-	{"createMultiResolutionScreenCapture", "(Ljava/awt/Rectangle;)Ljava/awt/image/MultiResolutionImage;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Robot, createMultiResolutionScreenCapture, $MultiResolutionImage*, $Rectangle*)},
-	{"createScreenCapture", "(Ljava/awt/Rectangle;)Ljava/awt/image/BufferedImage;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Robot, createScreenCapture, $BufferedImage*, $Rectangle*)},
-	{"delay", "(I)V", nullptr, $PUBLIC, $virtualMethod(Robot, delay, void, int32_t)},
-	{"getAutoDelay", "()I", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Robot, getAutoDelay, int32_t)},
-	{"getPixelColor", "(II)Ljava/awt/Color;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Robot, getPixelColor, $Color*, int32_t, int32_t)},
-	{"init", "(Ljava/awt/GraphicsDevice;)V", nullptr, $PRIVATE, $method(Robot, init, void, $GraphicsDevice*), "java.awt.AWTException"},
-	{"initLegalButtonMask", "()V", nullptr, $PRIVATE | $STATIC | $SYNCHRONIZED, $staticMethod(Robot, initLegalButtonMask, void)},
-	{"isAutoWaitForIdle", "()Z", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Robot, isAutoWaitForIdle, bool)},
-	{"keyPress", "(I)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Robot, keyPress, void, int32_t)},
-	{"keyRelease", "(I)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Robot, keyRelease, void, int32_t)},
-	{"mouseMove", "(II)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Robot, mouseMove, void, int32_t, int32_t)},
-	{"mousePress", "(I)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Robot, mousePress, void, int32_t)},
-	{"mouseRelease", "(I)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Robot, mouseRelease, void, int32_t)},
-	{"mouseWheel", "(I)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Robot, mouseWheel, void, int32_t)},
-	{"setAutoDelay", "(I)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Robot, setAutoDelay, void, int32_t)},
-	{"setAutoWaitForIdle", "(Z)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Robot, setAutoWaitForIdle, void, bool)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Robot, toString, $String*)},
-	{"waitForIdle", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Robot, waitForIdle, void)},
-	{}
-};
-
-$ClassInfo _Robot_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.awt.Robot",
-	"java.lang.Object",
-	nullptr,
-	_Robot_FieldInfo_,
-	_Robot_MethodInfo_
-};
-
-$Object* allocate$Robot($Class* clazz) {
-	return $of($alloc(Robot));
-}
-
 int32_t Robot::LEGAL_BUTTON_MASK = 0;
 
 void Robot::init$() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->isAutoWaitForIdle$ = false;
 	this->autoDelay$ = 0;
 	$set(this, screenCapCM, nullptr);
 	checkHeadless();
-	init($($nc($($GraphicsEnvironment::getLocalGraphicsEnvironment()))->getDefaultScreenDevice()));
+	init($($$nc($GraphicsEnvironment::getLocalGraphicsEnvironment())->getDefaultScreenDevice()));
 }
 
 void Robot::init$($GraphicsDevice* screen) {
@@ -190,23 +123,22 @@ void Robot::init($GraphicsDevice* screen) {
 	checkRobotAllowed();
 	$var($Toolkit, toolkit, $Toolkit::getDefaultToolkit());
 	if ($instanceOf($ComponentFactory, toolkit)) {
-		$set(this, peer, $nc(($cast($ComponentFactory, toolkit)))->createRobot(screen));
+		$set(this, peer, $cast($ComponentFactory, toolkit)->createRobot(screen));
 	}
 	initLegalButtonMask();
 }
 
 void Robot::initLegalButtonMask() {
-	$load(Robot);
+	$init(Robot);
 	$synchronized(class$) {
-		$init(Robot);
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		if (Robot::LEGAL_BUTTON_MASK != 0) {
 			return;
 		}
 		int32_t tmpMask = 0;
-		if ($nc($($Toolkit::getDefaultToolkit()))->areExtraMouseButtonsEnabled()) {
+		if ($$nc($Toolkit::getDefaultToolkit())->areExtraMouseButtonsEnabled()) {
 			if ($instanceOf($SunToolkit, $($Toolkit::getDefaultToolkit()))) {
-				int32_t buttonsNumber = $nc((($cast($SunToolkit, $($Toolkit::getDefaultToolkit())))))->getNumberOfButtons();
+				int32_t buttonsNumber = $$cast($SunToolkit, $Toolkit::getDefaultToolkit())->getNumberOfButtons();
 				for (int32_t i = 0; i < buttonsNumber; ++i) {
 					tmpMask |= $InputEvent::getMaskForButton(i + 1);
 				}
@@ -235,7 +167,7 @@ void Robot::checkHeadless() {
 
 void Robot::checkIsScreenDevice($GraphicsDevice* device) {
 	$init(Robot);
-	if (device == nullptr || $nc(device)->getType() != $GraphicsDevice::TYPE_RASTER_SCREEN) {
+	if (device == nullptr || device->getType() != $GraphicsDevice::TYPE_RASTER_SCREEN) {
 		$throwNew($IllegalArgumentException, "not a valid screen device"_s);
 	}
 }
@@ -304,7 +236,7 @@ $Color* Robot::getPixelColor(int32_t x, int32_t y) {
 	$synchronized(this) {
 		checkScreenCaptureAllowed();
 		$var($Point, point, $nc(this->peer)->useAbsoluteCoordinates() ? $SunGraphicsEnvironment::toDeviceSpaceAbs(x, y) : $SunGraphicsEnvironment::toDeviceSpace(x, y));
-		return $new($Color, $nc(this->peer)->getRGBPixel($nc(point)->x, point->y));
+		return $new($Color, $nc(this->peer)->getRGBPixel($nc(point)->x, $nc(point)->y));
 	}
 }
 
@@ -316,13 +248,13 @@ $BufferedImage* Robot::createScreenCapture($Rectangle* screenRect) {
 
 $MultiResolutionImage* Robot::createMultiResolutionScreenCapture($Rectangle* screenRect) {
 	$synchronized(this) {
-		return $new($BaseMultiResolutionImage, $($fcast($ImageArray, createCompatibleImage(screenRect, true))));
+		return $new($BaseMultiResolutionImage, $$cast($ImageArray, createCompatibleImage(screenRect, true)));
 	}
 }
 
 $BufferedImageArray* Robot::createCompatibleImage($Rectangle* screenRect, bool isHiDPI) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		checkScreenCaptureAllowed();
 		checkValidRect(screenRect);
 		$var($BufferedImage, lowResolutionImage, nullptr);
@@ -331,17 +263,16 @@ $BufferedImageArray* Robot::createCompatibleImage($Rectangle* screenRect, bool i
 		$var($WritableRaster, raster, nullptr);
 		$var($BufferedImageArray, imageArray, nullptr);
 		if (this->screenCapCM == nullptr) {
-			$set(this, screenCapCM, $new($DirectColorModel, 24, 0x00FF0000, 0x0000FF00, 255));
+			$set(this, screenCapCM, $new($DirectColorModel, 24, 0x00ff0000, 0x0000ff00, 255));
 		}
 		$var($ints, bandmasks, $new($ints, 3));
 		bandmasks->set(0, $nc(this->screenCapCM)->getRedMask());
 		bandmasks->set(1, $nc(this->screenCapCM)->getGreenMask());
 		bandmasks->set(2, $nc(this->screenCapCM)->getBlueMask());
-		$nc($($Toolkit::getDefaultToolkit()))->sync();
-		$var($GraphicsConfiguration, gc, $nc($($nc($($GraphicsEnvironment::getLocalGraphicsEnvironment()))->getDefaultScreenDevice()))->getDefaultConfiguration());
-		$var($GraphicsConfiguration, var$0, gc);
-		double var$1 = $nc(screenRect)->getCenterX();
-		$assign(gc, $SunGraphicsEnvironment::getGraphicsConfigurationAtPoint(var$0, var$1, screenRect->getCenterY()));
+		$$nc($Toolkit::getDefaultToolkit())->sync();
+		$var($GraphicsConfiguration, gc, $$nc($$nc($GraphicsEnvironment::getLocalGraphicsEnvironment())->getDefaultScreenDevice())->getDefaultConfiguration());
+		double var$0 = $nc(screenRect)->getCenterX();
+		$assign(gc, $SunGraphicsEnvironment::getGraphicsConfigurationAtPoint(gc, var$0, screenRect->getCenterY()));
 		$var($AffineTransform, tx, $nc(gc)->getDefaultTransform());
 		double uiScaleX = $nc(tx)->getScaleX();
 		double uiScaleY = tx->getScaleY();
@@ -352,30 +283,30 @@ $BufferedImageArray* Robot::createCompatibleImage($Rectangle* screenRect, bool i
 			bandmasks->set(0, $nc(this->screenCapCM)->getRedMask());
 			bandmasks->set(1, $nc(this->screenCapCM)->getGreenMask());
 			bandmasks->set(2, $nc(this->screenCapCM)->getBlueMask());
-			$assign(raster, $Raster::createPackedRaster(static_cast<$DataBuffer*>(buffer), $nc(screenRect)->width, screenRect->height, screenRect->width, bandmasks, ($Point*)nullptr));
+			$assign(raster, $Raster::createPackedRaster(buffer, screenRect->width, screenRect->height, screenRect->width, bandmasks, nullptr));
 			$SunWritableRaster::makeTrackable(buffer);
-			$assign(highResolutionImage, $new($BufferedImage, static_cast<$ColorModel*>(this->screenCapCM), raster, false, ($Hashtable*)nullptr));
+			$assign(highResolutionImage, $new($BufferedImage, this->screenCapCM, raster, false, nullptr));
 			$assign(imageArray, $new($BufferedImageArray, 1));
 			imageArray->set(0, highResolutionImage);
 		} else {
 			$var($Rectangle, scaledRect, nullptr);
 			if ($nc(this->peer)->useAbsoluteCoordinates()) {
-				$assign(scaledRect, $SunGraphicsEnvironment::toDeviceSpaceAbs(gc, $nc(screenRect)->x, screenRect->y, screenRect->width, screenRect->height));
+				$assign(scaledRect, $SunGraphicsEnvironment::toDeviceSpaceAbs(gc, screenRect->x, screenRect->y, screenRect->width, screenRect->height));
 			} else {
-				$assign(scaledRect, $SunGraphicsEnvironment::toDeviceSpace(gc, $nc(screenRect)->x, screenRect->y, screenRect->width, screenRect->height));
+				$assign(scaledRect, $SunGraphicsEnvironment::toDeviceSpace(gc, screenRect->x, screenRect->y, screenRect->width, screenRect->height));
 			}
 			$assign(pixels, $nc(this->peer)->getRGBPixels(scaledRect));
 			$assign(buffer, $new($DataBufferInt, pixels, $nc(pixels)->length));
-			$assign(raster, $Raster::createPackedRaster(static_cast<$DataBuffer*>(buffer), $nc(scaledRect)->width, scaledRect->height, scaledRect->width, bandmasks, ($Point*)nullptr));
+			$assign(raster, $Raster::createPackedRaster(buffer, $nc(scaledRect)->width, $nc(scaledRect)->height, $nc(scaledRect)->width, bandmasks, nullptr));
 			$SunWritableRaster::makeTrackable(buffer);
-			$assign(highResolutionImage, $new($BufferedImage, static_cast<$ColorModel*>(this->screenCapCM), raster, false, ($Hashtable*)nullptr));
-			$assign(lowResolutionImage, $new($BufferedImage, $nc(screenRect)->width, screenRect->height, highResolutionImage->getType()));
+			$assign(highResolutionImage, $new($BufferedImage, this->screenCapCM, raster, false, nullptr));
+			$assign(lowResolutionImage, $new($BufferedImage, screenRect->width, screenRect->height, highResolutionImage->getType()));
 			$var($Graphics2D, g, lowResolutionImage->createGraphics());
 			$init($RenderingHints);
 			$nc(g)->setRenderingHint($RenderingHints::KEY_INTERPOLATION, $RenderingHints::VALUE_INTERPOLATION_BILINEAR);
 			g->setRenderingHint($RenderingHints::KEY_RENDERING, $RenderingHints::VALUE_RENDER_QUALITY);
 			g->setRenderingHint($RenderingHints::KEY_ANTIALIASING, $RenderingHints::VALUE_ANTIALIAS_ON);
-			g->drawImage(highResolutionImage, 0, 0, $nc(screenRect)->width, screenRect->height, 0, 0, $nc(scaledRect)->width, scaledRect->height, nullptr);
+			g->drawImage(highResolutionImage, 0, 0, screenRect->width, screenRect->height, 0, 0, scaledRect->width, scaledRect->height, nullptr);
 			g->dispose();
 			if (!isHiDPI) {
 				$assign(imageArray, $new($BufferedImageArray, 1));
@@ -392,7 +323,7 @@ $BufferedImageArray* Robot::createCompatibleImage($Rectangle* screenRect, bool i
 
 void Robot::checkValidRect($Rectangle* rect) {
 	$init(Robot);
-	if ($nc(rect)->width <= 0 || $nc(rect)->height <= 0) {
+	if ($nc(rect)->width <= 0 || rect->height <= 0) {
 		$throwNew($IllegalArgumentException, "Rectangle width and height must be > 0"_s);
 	}
 }
@@ -469,7 +400,7 @@ void Robot::waitForIdle() {
 	$synchronized(this) {
 		checkNotDispatchThread();
 		$SunToolkit::flushPendingEvents();
-		$nc(($cast($SunToolkit, $($Toolkit::getDefaultToolkit()))))->realSync();
+		$$sure($SunToolkit, $Toolkit::getDefaultToolkit())->realSync();
 	}
 }
 
@@ -482,14 +413,18 @@ void Robot::checkNotDispatchThread() {
 
 $String* Robot::toString() {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
-		$var($String, var$0, $$str({"autoDelay = "_s, $$str(getAutoDelay()), ", autoWaitForIdle = "_s}));
-		$var($String, params, $concat(var$0, $$str(isAutoWaitForIdle())));
+		$useLocalObjectStack();
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append("autoDelay = "_s);
+		var$0->append(getAutoDelay());
+		var$0->append(", autoWaitForIdle = "_s);
+		var$0->append(isAutoWaitForIdle());
+		$var($String, params, $str(var$0));
 		return $str({$($of(this)->getClass()->getName()), "[ "_s, params, " ]"_s});
 	}
 }
 
-void clinit$Robot($Class* class$) {
+void Robot::clinit$($Class* clazz) {
 	Robot::LEGAL_BUTTON_MASK = 0;
 }
 
@@ -497,7 +432,62 @@ Robot::Robot() {
 }
 
 $Class* Robot::load$($String* name, bool initialize) {
-	$loadClass(Robot, name, initialize, &_Robot_ClassInfo_, clinit$Robot, allocate$Robot);
+	$FieldInfo fieldInfos$$[] = {
+		{"MAX_DELAY", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Robot, MAX_DELAY)},
+		{"peer", "Ljava/awt/peer/RobotPeer;", nullptr, $PRIVATE, $field(Robot, peer)},
+		{"isAutoWaitForIdle", "Z", nullptr, $PRIVATE, $field(Robot, isAutoWaitForIdle$)},
+		{"autoDelay", "I", nullptr, $PRIVATE, $field(Robot, autoDelay$)},
+		{"LEGAL_BUTTON_MASK", "I", nullptr, $PRIVATE | $STATIC, $staticField(Robot, LEGAL_BUTTON_MASK)},
+		{"screenCapCM", "Ljava/awt/image/DirectColorModel;", nullptr, $PRIVATE, $field(Robot, screenCapCM)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Robot, init$, void), "java.awt.AWTException"},
+		{"<init>", "(Ljava/awt/GraphicsDevice;)V", nullptr, $PUBLIC, $method(Robot, init$, void, $GraphicsDevice*), "java.awt.AWTException"},
+		{"afterEvent", "()V", nullptr, $PRIVATE, $method(Robot, afterEvent, void)},
+		{"autoDelay", "()V", nullptr, $PRIVATE, $method(Robot, autoDelay, void)},
+		{"autoWaitForIdle", "()V", nullptr, $PRIVATE, $method(Robot, autoWaitForIdle, void)},
+		{"checkButtonsArgument", "(I)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Robot, checkButtonsArgument, void, int32_t)},
+		{"checkDelayArgument", "(I)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Robot, checkDelayArgument, void, int32_t)},
+		{"checkHeadless", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(Robot, checkHeadless, void), "java.awt.AWTException"},
+		{"checkIsScreenDevice", "(Ljava/awt/GraphicsDevice;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Robot, checkIsScreenDevice, void, $GraphicsDevice*)},
+		{"checkKeycodeArgument", "(I)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Robot, checkKeycodeArgument, void, int32_t)},
+		{"checkNotDispatchThread", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(Robot, checkNotDispatchThread, void)},
+		{"checkRobotAllowed", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(Robot, checkRobotAllowed, void)},
+		{"checkScreenCaptureAllowed", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(Robot, checkScreenCaptureAllowed, void)},
+		{"checkValidRect", "(Ljava/awt/Rectangle;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Robot, checkValidRect, void, $Rectangle*)},
+		{"createCompatibleImage", "(Ljava/awt/Rectangle;Z)[Ljava/awt/image/BufferedImage;", nullptr, $PRIVATE | $SYNCHRONIZED, $method(Robot, createCompatibleImage, $BufferedImageArray*, $Rectangle*, bool)},
+		{"createMultiResolutionScreenCapture", "(Ljava/awt/Rectangle;)Ljava/awt/image/MultiResolutionImage;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Robot, createMultiResolutionScreenCapture, $MultiResolutionImage*, $Rectangle*)},
+		{"createScreenCapture", "(Ljava/awt/Rectangle;)Ljava/awt/image/BufferedImage;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Robot, createScreenCapture, $BufferedImage*, $Rectangle*)},
+		{"delay", "(I)V", nullptr, $PUBLIC, $virtualMethod(Robot, delay, void, int32_t)},
+		{"getAutoDelay", "()I", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Robot, getAutoDelay, int32_t)},
+		{"getPixelColor", "(II)Ljava/awt/Color;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Robot, getPixelColor, $Color*, int32_t, int32_t)},
+		{"init", "(Ljava/awt/GraphicsDevice;)V", nullptr, $PRIVATE, $method(Robot, init, void, $GraphicsDevice*), "java.awt.AWTException"},
+		{"initLegalButtonMask", "()V", nullptr, $PRIVATE | $STATIC | $SYNCHRONIZED, $staticMethod(Robot, initLegalButtonMask, void)},
+		{"isAutoWaitForIdle", "()Z", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Robot, isAutoWaitForIdle, bool)},
+		{"keyPress", "(I)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Robot, keyPress, void, int32_t)},
+		{"keyRelease", "(I)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Robot, keyRelease, void, int32_t)},
+		{"mouseMove", "(II)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Robot, mouseMove, void, int32_t, int32_t)},
+		{"mousePress", "(I)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Robot, mousePress, void, int32_t)},
+		{"mouseRelease", "(I)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Robot, mouseRelease, void, int32_t)},
+		{"mouseWheel", "(I)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Robot, mouseWheel, void, int32_t)},
+		{"setAutoDelay", "(I)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Robot, setAutoDelay, void, int32_t)},
+		{"setAutoWaitForIdle", "(Z)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Robot, setAutoWaitForIdle, void, bool)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Robot, toString, $String*)},
+		{"waitForIdle", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Robot, waitForIdle, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.awt.Robot",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Robot, name, initialize, &classInfo$$, Robot::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Robot);
+	});
 	return class$;
 }
 

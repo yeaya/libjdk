@@ -493,7 +493,7 @@ public:
 	$String* strMatchKey = nullptr;
 	$booleans* supportedJOINs = nullptr;
 	::javax::sql::rowset::WebRowSet* wrs = nullptr;
-	static const int64_t serialVersionUID = (int64_t)0xB26A8C651AABA0FB;
+	static const int64_t serialVersionUID = (int64_t)0xb26a8c651aaba0fb;
 };
 
 		} // rowset

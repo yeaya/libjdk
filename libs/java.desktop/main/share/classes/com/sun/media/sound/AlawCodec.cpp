@@ -1,5 +1,4 @@
 #include <com/sun/media/sound/AlawCodec.h>
-
 #include <com/sun/media/sound/AlawCodec$AlawCodecStream.h>
 #include <java/util/Objects.h>
 #include <java/util/Vector.h>
@@ -34,50 +33,6 @@ namespace com {
 		namespace media {
 			namespace sound {
 
-$FieldInfo _AlawCodec_FieldInfo_[] = {
-	{"ALAW_TABH", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AlawCodec, ALAW_TABH)},
-	{"ALAW_TABL", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AlawCodec, ALAW_TABL)},
-	{"seg_end", "[S", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AlawCodec, seg_end)},
-	{}
-};
-
-$MethodInfo _AlawCodec_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AlawCodec, init$, void)},
-	{"getAudioInputStream", "(Ljavax/sound/sampled/AudioFormat$Encoding;Ljavax/sound/sampled/AudioInputStream;)Ljavax/sound/sampled/AudioInputStream;", nullptr, $PUBLIC, $virtualMethod(AlawCodec, getAudioInputStream, $AudioInputStream*, $AudioFormat$Encoding*, $AudioInputStream*)},
-	{"getAudioInputStream", "(Ljavax/sound/sampled/AudioFormat;Ljavax/sound/sampled/AudioInputStream;)Ljavax/sound/sampled/AudioInputStream;", nullptr, $PUBLIC, $virtualMethod(AlawCodec, getAudioInputStream, $AudioInputStream*, $AudioFormat*, $AudioInputStream*)},
-	{"getConvertedStream", "(Ljavax/sound/sampled/AudioFormat;Ljavax/sound/sampled/AudioInputStream;)Ljavax/sound/sampled/AudioInputStream;", nullptr, $PRIVATE, $method(AlawCodec, getConvertedStream, $AudioInputStream*, $AudioFormat*, $AudioInputStream*)},
-	{"getOutputFormats", "(Ljavax/sound/sampled/AudioFormat;)[Ljavax/sound/sampled/AudioFormat;", nullptr, $PRIVATE, $method(AlawCodec, getOutputFormats, $AudioFormatArray*, $AudioFormat*)},
-	{"getSourceEncodings", "()[Ljavax/sound/sampled/AudioFormat$Encoding;", nullptr, $PUBLIC, $virtualMethod(AlawCodec, getSourceEncodings, $AudioFormat$EncodingArray*)},
-	{"getTargetEncodings", "()[Ljavax/sound/sampled/AudioFormat$Encoding;", nullptr, $PUBLIC, $virtualMethod(AlawCodec, getTargetEncodings, $AudioFormat$EncodingArray*)},
-	{"getTargetEncodings", "(Ljavax/sound/sampled/AudioFormat;)[Ljavax/sound/sampled/AudioFormat$Encoding;", nullptr, $PUBLIC, $virtualMethod(AlawCodec, getTargetEncodings, $AudioFormat$EncodingArray*, $AudioFormat*)},
-	{"getTargetFormats", "(Ljavax/sound/sampled/AudioFormat$Encoding;Ljavax/sound/sampled/AudioFormat;)[Ljavax/sound/sampled/AudioFormat;", nullptr, $PUBLIC, $virtualMethod(AlawCodec, getTargetFormats, $AudioFormatArray*, $AudioFormat$Encoding*, $AudioFormat*)},
-	{}
-};
-
-$InnerClassInfo _AlawCodec_InnerClassesInfo_[] = {
-	{"com.sun.media.sound.AlawCodec$AlawCodecStream", "com.sun.media.sound.AlawCodec", "AlawCodecStream", $PRIVATE | $FINAL},
-	{}
-};
-
-$ClassInfo _AlawCodec_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.media.sound.AlawCodec",
-	"javax.sound.sampled.spi.FormatConversionProvider",
-	nullptr,
-	_AlawCodec_FieldInfo_,
-	_AlawCodec_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AlawCodec_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.media.sound.AlawCodec$AlawCodecStream"
-};
-
-$Object* allocate$AlawCodec($Class* clazz) {
-	return $of($alloc(AlawCodec));
-}
-
 $bytes* AlawCodec::ALAW_TABH = nullptr;
 $bytes* AlawCodec::ALAW_TABL = nullptr;
 $shorts* AlawCodec::seg_end = nullptr;
@@ -99,9 +54,9 @@ $AudioFormat$EncodingArray* AlawCodec::getTargetEncodings() {
 }
 
 $AudioFormat$EncodingArray* AlawCodec::getTargetEncodings($AudioFormat* sourceFormat) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($AudioFormat$Encoding);
-	if ($nc($($nc(sourceFormat)->getEncoding()))->equals($AudioFormat$Encoding::PCM_SIGNED)) {
+	if ($$nc($nc(sourceFormat)->getEncoding())->equals($AudioFormat$Encoding::PCM_SIGNED)) {
 		if (sourceFormat->getSampleSizeInBits() == 16) {
 			$var($AudioFormat$EncodingArray, enc, $new($AudioFormat$EncodingArray, 1));
 			enc->set(0, $AudioFormat$Encoding::ALAW);
@@ -109,30 +64,28 @@ $AudioFormat$EncodingArray* AlawCodec::getTargetEncodings($AudioFormat* sourceFo
 		} else {
 			return $new($AudioFormat$EncodingArray, 0);
 		}
-	} else {
-		if ($nc($(sourceFormat->getEncoding()))->equals($AudioFormat$Encoding::ALAW)) {
-			if (sourceFormat->getSampleSizeInBits() == 8) {
-				$var($AudioFormat$EncodingArray, enc, $new($AudioFormat$EncodingArray, 1));
-				enc->set(0, $AudioFormat$Encoding::PCM_SIGNED);
-				return enc;
-			} else {
-				return $new($AudioFormat$EncodingArray, 0);
-			}
+	} else if ($$nc(sourceFormat->getEncoding())->equals($AudioFormat$Encoding::ALAW)) {
+		if (sourceFormat->getSampleSizeInBits() == 8) {
+			$var($AudioFormat$EncodingArray, enc, $new($AudioFormat$EncodingArray, 1));
+			enc->set(0, $AudioFormat$Encoding::PCM_SIGNED);
+			return enc;
 		} else {
 			return $new($AudioFormat$EncodingArray, 0);
 		}
+	} else {
+		return $new($AudioFormat$EncodingArray, 0);
 	}
 }
 
 $AudioFormatArray* AlawCodec::getTargetFormats($AudioFormat$Encoding* targetEncoding, $AudioFormat* sourceFormat) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Objects::requireNonNull(sourceFormat);
 	$init($AudioFormat$Encoding);
 	bool var$1 = $nc(targetEncoding)->equals($AudioFormat$Encoding::PCM_SIGNED);
-	bool var$0 = (var$1 && $nc($(sourceFormat->getEncoding()))->equals($AudioFormat$Encoding::ALAW));
+	bool var$0 = var$1 && $$nc(sourceFormat->getEncoding())->equals($AudioFormat$Encoding::ALAW);
 	if (!var$0) {
-		bool var$2 = $nc(targetEncoding)->equals($AudioFormat$Encoding::ALAW);
-		var$0 = (var$2 && $nc($(sourceFormat->getEncoding()))->equals($AudioFormat$Encoding::PCM_SIGNED));
+		bool var$2 = targetEncoding->equals($AudioFormat$Encoding::ALAW);
+		var$0 = var$2 && $$nc(sourceFormat->getEncoding())->equals($AudioFormat$Encoding::PCM_SIGNED);
 	}
 	if (var$0) {
 		return getOutputFormats(sourceFormat);
@@ -142,52 +95,62 @@ $AudioFormatArray* AlawCodec::getTargetFormats($AudioFormat$Encoding* targetEnco
 }
 
 $AudioInputStream* AlawCodec::getAudioInputStream($AudioFormat$Encoding* targetEncoding, $AudioInputStream* sourceStream) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AudioFormat, sourceFormat, $nc(sourceStream)->getFormat());
 	$var($AudioFormat$Encoding, sourceEncoding, $nc(sourceFormat)->getEncoding());
 	if (!isConversionSupported(targetEncoding, $(sourceStream->getFormat()))) {
-		$var($String, var$0, $$str({"Unsupported conversion: "_s, $($nc($(sourceStream->getFormat()))->toString()), " to "_s}));
-		$throwNew($IllegalArgumentException, $$concat(var$0, $($nc(targetEncoding)->toString())));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append("Unsupported conversion: "_s);
+		var$0->append($($$nc(sourceStream->getFormat())->toString()));
+		var$0->append(" to "_s);
+		var$0->append($($nc(targetEncoding)->toString()));
+		$throwNew($IllegalArgumentException, $$str(var$0));
 	}
 	if ($nc(sourceEncoding)->equals(targetEncoding)) {
 		return sourceStream;
 	}
 	$var($AudioFormat, targetFormat, nullptr);
-	bool var$1 = $nc(sourceEncoding)->equals($AudioFormat$Encoding::ALAW);
+	bool var$1 = sourceEncoding->equals($AudioFormat$Encoding::ALAW);
 	if (var$1 && $nc(targetEncoding)->equals($AudioFormat$Encoding::PCM_SIGNED)) {
-		$var($AudioFormat$Encoding, var$2, targetEncoding);
-		float var$3 = sourceFormat->getSampleRate();
-		int32_t var$4 = sourceFormat->getChannels();
-		int32_t var$5 = 2 * sourceFormat->getChannels();
-		float var$6 = sourceFormat->getSampleRate();
-		$assign(targetFormat, $new($AudioFormat, var$2, var$3, 16, var$4, var$5, var$6, sourceFormat->isBigEndian()));
+		float var$2 = sourceFormat->getSampleRate();
+		int32_t var$3 = sourceFormat->getChannels();
+		int32_t var$4 = 2 * sourceFormat->getChannels();
+		float var$5 = sourceFormat->getSampleRate();
+		$assign(targetFormat, $new($AudioFormat, targetEncoding, var$2, 16, var$3, var$4, var$5, sourceFormat->isBigEndian()));
 	} else {
-		bool var$8 = sourceEncoding->equals($AudioFormat$Encoding::PCM_SIGNED);
-		if (var$8 && targetEncoding->equals($AudioFormat$Encoding::ALAW)) {
-			$var($AudioFormat$Encoding, var$9, targetEncoding);
-			float var$10 = sourceFormat->getSampleRate();
-			int32_t var$11 = sourceFormat->getChannels();
-			int32_t var$12 = sourceFormat->getChannels();
-			$assign(targetFormat, $new($AudioFormat, var$9, var$10, 8, var$11, var$12, sourceFormat->getSampleRate(), false));
+		bool var$6 = sourceEncoding->equals($AudioFormat$Encoding::PCM_SIGNED);
+		if (var$6 && $nc(targetEncoding)->equals($AudioFormat$Encoding::ALAW)) {
+			float var$7 = sourceFormat->getSampleRate();
+			int32_t var$8 = sourceFormat->getChannels();
+			int32_t var$9 = sourceFormat->getChannels();
+			$assign(targetFormat, $new($AudioFormat, targetEncoding, var$7, 8, var$8, var$9, sourceFormat->getSampleRate(), false));
 		} else {
-			$var($String, var$13, $$str({"Unsupported conversion: "_s, $($nc($(sourceStream->getFormat()))->toString()), " to "_s}));
-			$throwNew($IllegalArgumentException, $$concat(var$13, $(targetEncoding->toString())));
+			$var($StringBuilder, var$10, $new($StringBuilder));
+			var$10->append("Unsupported conversion: "_s);
+			var$10->append($($$nc(sourceStream->getFormat())->toString()));
+			var$10->append(" to "_s);
+			var$10->append($($nc(targetEncoding)->toString()));
+			$throwNew($IllegalArgumentException, $$str(var$10));
 		}
 	}
 	return getConvertedStream(targetFormat, sourceStream);
 }
 
 $AudioInputStream* AlawCodec::getAudioInputStream($AudioFormat* targetFormat, $AudioInputStream* sourceStream) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!isConversionSupported(targetFormat, $($nc(sourceStream)->getFormat()))) {
-		$var($String, var$0, $$str({"Unsupported conversion: "_s, $($nc($($nc(sourceStream)->getFormat()))->toString()), " to "_s}));
-		$throwNew($IllegalArgumentException, $$concat(var$0, $($nc(targetFormat)->toString())));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append("Unsupported conversion: "_s);
+		var$0->append($($$nc(sourceStream->getFormat())->toString()));
+		var$0->append(" to "_s);
+		var$0->append($($nc(targetFormat)->toString()));
+		$throwNew($IllegalArgumentException, $$str(var$0));
 	}
 	return getConvertedStream(targetFormat, sourceStream);
 }
 
 $AudioInputStream* AlawCodec::getConvertedStream($AudioFormat* outputFormat, $AudioInputStream* stream) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AudioInputStream, cs, nullptr);
 	$var($AudioFormat, inputFormat, $nc(stream)->getFormat());
 	if ($nc(inputFormat)->matches(outputFormat)) {
@@ -199,7 +162,7 @@ $AudioInputStream* AlawCodec::getConvertedStream($AudioFormat* outputFormat, $Au
 }
 
 $AudioFormatArray* AlawCodec::getOutputFormats($AudioFormat* inputFormat) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Vector, formats, $new($Vector));
 	$var($AudioFormat, format, nullptr);
 	bool var$0 = $nc(inputFormat)->getSampleSizeInBits() == 16;
@@ -212,7 +175,7 @@ $AudioFormatArray* AlawCodec::getOutputFormats($AudioFormat* inputFormat) {
 		$assign(format, $new($AudioFormat, var$1, var$2, 8, var$3, var$4, inputFormat->getSampleRate(), false));
 		formats->addElement(format);
 	}
-	bool var$5 = $nc(inputFormat)->getSampleSizeInBits() == 8;
+	bool var$5 = inputFormat->getSampleSizeInBits() == 8;
 	if (var$5 && $nc($AudioFormat$Encoding::ALAW)->equals($(inputFormat->getEncoding()))) {
 		$var($AudioFormat$Encoding, var$6, $AudioFormat$Encoding::PCM_SIGNED);
 		float var$7 = inputFormat->getSampleRate();
@@ -229,29 +192,29 @@ $AudioFormatArray* AlawCodec::getOutputFormats($AudioFormat* inputFormat) {
 	}
 	$var($AudioFormatArray, formatArray, $new($AudioFormatArray, formats->size()));
 	for (int32_t i = 0; i < formatArray->length; ++i) {
-		formatArray->set(i, $cast($AudioFormat, $(formats->elementAt(i))));
+		formatArray->set(i, $$cast($AudioFormat, formats->elementAt(i)));
 	}
 	return formatArray;
 }
 
-void clinit$AlawCodec($Class* class$) {
+void AlawCodec::clinit$($Class* clazz) {
 	$assignStatic(AlawCodec::ALAW_TABH, $new($bytes, 256));
 	$assignStatic(AlawCodec::ALAW_TABL, $new($bytes, 256));
 	$assignStatic(AlawCodec::seg_end, $new($shorts, {
-		(int16_t)255,
-		(int16_t)511,
-		(int16_t)1023,
-		(int16_t)2047,
-		(int16_t)4095,
-		(int16_t)8191,
-		(int16_t)16383,
-		(int16_t)32767
+		255,
+		511,
+		1023,
+		2047,
+		4095,
+		8191,
+		16383,
+		32767
 	}));
 	{
 		for (int32_t i = 0; i < 256; ++i) {
-			int32_t input = i ^ 85;
-			int32_t mantissa = ((int32_t)(input & (uint32_t)15)) << 4;
-			int32_t segment = ((int32_t)(input & (uint32_t)112)) >> 4;
+			int32_t input = i ^ 0x55;
+			int32_t mantissa = (input & 0x0f) << 4;
+			int32_t segment = (input & 0x70) >> 4;
 			int32_t value = mantissa + 8;
 			if (segment >= 1) {
 				value += 256;
@@ -259,11 +222,11 @@ void clinit$AlawCodec($Class* class$) {
 			if (segment > 1) {
 				value <<= (segment - 1);
 			}
-			if (((int32_t)(input & (uint32_t)128)) == 0) {
+			if ((input & 0x80) == 0) {
 				value = -value;
 			}
-			$nc(AlawCodec::ALAW_TABL)->set(i, (int8_t)value);
-			$nc(AlawCodec::ALAW_TABH)->set(i, (int8_t)(value >> 8));
+			AlawCodec::ALAW_TABL->set(i, (int8_t)value);
+			AlawCodec::ALAW_TABH->set(i, (int8_t)(value >> 8));
 		}
 	}
 }
@@ -272,7 +235,45 @@ AlawCodec::AlawCodec() {
 }
 
 $Class* AlawCodec::load$($String* name, bool initialize) {
-	$loadClass(AlawCodec, name, initialize, &_AlawCodec_ClassInfo_, clinit$AlawCodec, allocate$AlawCodec);
+	$FieldInfo fieldInfos$$[] = {
+		{"ALAW_TABH", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AlawCodec, ALAW_TABH)},
+		{"ALAW_TABL", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AlawCodec, ALAW_TABL)},
+		{"seg_end", "[S", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AlawCodec, seg_end)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AlawCodec, init$, void)},
+		{"getAudioInputStream", "(Ljavax/sound/sampled/AudioFormat$Encoding;Ljavax/sound/sampled/AudioInputStream;)Ljavax/sound/sampled/AudioInputStream;", nullptr, $PUBLIC, $virtualMethod(AlawCodec, getAudioInputStream, $AudioInputStream*, $AudioFormat$Encoding*, $AudioInputStream*)},
+		{"getAudioInputStream", "(Ljavax/sound/sampled/AudioFormat;Ljavax/sound/sampled/AudioInputStream;)Ljavax/sound/sampled/AudioInputStream;", nullptr, $PUBLIC, $virtualMethod(AlawCodec, getAudioInputStream, $AudioInputStream*, $AudioFormat*, $AudioInputStream*)},
+		{"getConvertedStream", "(Ljavax/sound/sampled/AudioFormat;Ljavax/sound/sampled/AudioInputStream;)Ljavax/sound/sampled/AudioInputStream;", nullptr, $PRIVATE, $method(AlawCodec, getConvertedStream, $AudioInputStream*, $AudioFormat*, $AudioInputStream*)},
+		{"getOutputFormats", "(Ljavax/sound/sampled/AudioFormat;)[Ljavax/sound/sampled/AudioFormat;", nullptr, $PRIVATE, $method(AlawCodec, getOutputFormats, $AudioFormatArray*, $AudioFormat*)},
+		{"getSourceEncodings", "()[Ljavax/sound/sampled/AudioFormat$Encoding;", nullptr, $PUBLIC, $virtualMethod(AlawCodec, getSourceEncodings, $AudioFormat$EncodingArray*)},
+		{"getTargetEncodings", "()[Ljavax/sound/sampled/AudioFormat$Encoding;", nullptr, $PUBLIC, $virtualMethod(AlawCodec, getTargetEncodings, $AudioFormat$EncodingArray*)},
+		{"getTargetEncodings", "(Ljavax/sound/sampled/AudioFormat;)[Ljavax/sound/sampled/AudioFormat$Encoding;", nullptr, $PUBLIC, $virtualMethod(AlawCodec, getTargetEncodings, $AudioFormat$EncodingArray*, $AudioFormat*)},
+		{"getTargetFormats", "(Ljavax/sound/sampled/AudioFormat$Encoding;Ljavax/sound/sampled/AudioFormat;)[Ljavax/sound/sampled/AudioFormat;", nullptr, $PUBLIC, $virtualMethod(AlawCodec, getTargetFormats, $AudioFormatArray*, $AudioFormat$Encoding*, $AudioFormat*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.media.sound.AlawCodec$AlawCodecStream", "com.sun.media.sound.AlawCodec", "AlawCodecStream", $PRIVATE | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.media.sound.AlawCodec",
+		"javax.sound.sampled.spi.FormatConversionProvider",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.media.sound.AlawCodec$AlawCodecStream"
+	};
+	$loadClass(AlawCodec, name, initialize, &classInfo$$, AlawCodec::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(AlawCodec);
+	});
 	return class$;
 }
 

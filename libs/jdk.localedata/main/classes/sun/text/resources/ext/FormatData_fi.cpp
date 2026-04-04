@@ -1,5 +1,4 @@
 #include <sun/text/resources/ext/FormatData_fi.h>
-
 #include <sun/util/resources/ParallelListResourceBundle.h>
 #include <jcpp.h>
 
@@ -13,35 +12,16 @@ namespace sun {
 		namespace resources {
 			namespace ext {
 
-$MethodInfo _FormatData_fi_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(FormatData_fi, init$, void)},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(FormatData_fi, getContents, $ObjectArray2*)},
-	{}
-};
-
-$ClassInfo _FormatData_fi_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.text.resources.ext.FormatData_fi",
-	"sun.util.resources.ParallelListResourceBundle",
-	nullptr,
-	nullptr,
-	_FormatData_fi_MethodInfo_
-};
-
-$Object* allocate$FormatData_fi($Class* clazz) {
-	return $of($alloc(FormatData_fi));
-}
-
 void FormatData_fi::init$() {
 	$ParallelListResourceBundle::init$();
 }
 
 $ObjectArray2* FormatData_fi::getContents() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $new($ObjectArray2, {
 		$$new($ObjectArray, {
-			$of("MonthNames"_s),
-			$of($$new($StringArray, {
+			"MonthNames"_s,
+			$$new($StringArray, {
 				"tammikuuta"_s,
 				"helmikuuta"_s,
 				"maaliskuuta"_s,
@@ -55,11 +35,11 @@ $ObjectArray2* FormatData_fi::getContents() {
 				"marraskuuta"_s,
 				"joulukuuta"_s,
 				""_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("standalone.MonthNames"_s),
-			$of($$new($StringArray, {
+			"standalone.MonthNames"_s,
+			$$new($StringArray, {
 				"tammikuu"_s,
 				"helmikuu"_s,
 				"maaliskuu"_s,
@@ -73,11 +53,11 @@ $ObjectArray2* FormatData_fi::getContents() {
 				"marraskuu"_s,
 				"joulukuu"_s,
 				""_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("MonthAbbreviations"_s),
-			$of($$new($StringArray, {
+			"MonthAbbreviations"_s,
+			$$new($StringArray, {
 				"tammikuuta"_s,
 				"helmikuuta"_s,
 				"maaliskuuta"_s,
@@ -91,11 +71,11 @@ $ObjectArray2* FormatData_fi::getContents() {
 				"marraskuuta"_s,
 				"joulukuuta"_s,
 				""_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("standalone.MonthAbbreviations"_s),
-			$of($$new($StringArray, {
+			"standalone.MonthAbbreviations"_s,
+			$$new($StringArray, {
 				"tammi"_s,
 				"helmi"_s,
 				"maalis"_s,
@@ -109,11 +89,11 @@ $ObjectArray2* FormatData_fi::getContents() {
 				"marras"_s,
 				"joulu"_s,
 				""_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("MonthNarrows"_s),
-			$of($$new($StringArray, {
+			"MonthNarrows"_s,
+			$$new($StringArray, {
 				"T"_s,
 				"H"_s,
 				"M"_s,
@@ -127,11 +107,11 @@ $ObjectArray2* FormatData_fi::getContents() {
 				"M"_s,
 				"J"_s,
 				""_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("standalone.MonthNarrows"_s),
-			$of($$new($StringArray, {
+			"standalone.MonthNarrows"_s,
+			$$new($StringArray, {
 				"T"_s,
 				"H"_s,
 				"M"_s,
@@ -145,32 +125,32 @@ $ObjectArray2* FormatData_fi::getContents() {
 				"M"_s,
 				"J"_s,
 				""_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("long.Eras"_s),
-			$of($$new($StringArray, {
+			"long.Eras"_s,
+			$$new($StringArray, {
 				u"ennen Kristuksen syntymää"_s,
 				u"jälkeen Kristuksen syntymän"_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("Eras"_s),
-			$of($$new($StringArray, {
+			"Eras"_s,
+			$$new($StringArray, {
 				"eKr."_s,
 				"jKr."_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("narrow.Eras"_s),
-			$of($$new($StringArray, {
+			"narrow.Eras"_s,
+			$$new($StringArray, {
 				"eK"_s,
 				"jK"_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("DayNames"_s),
-			$of($$new($StringArray, {
+			"DayNames"_s,
+			$$new($StringArray, {
 				"sunnuntai"_s,
 				"maanantai"_s,
 				"tiistai"_s,
@@ -178,11 +158,11 @@ $ObjectArray2* FormatData_fi::getContents() {
 				"torstai"_s,
 				"perjantai"_s,
 				"lauantai"_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("standalone.DayNames"_s),
-			$of($$new($StringArray, {
+			"standalone.DayNames"_s,
+			$$new($StringArray, {
 				"sunnuntai"_s,
 				"maanantai"_s,
 				"tiistai"_s,
@@ -190,11 +170,11 @@ $ObjectArray2* FormatData_fi::getContents() {
 				"torstai"_s,
 				"perjantai"_s,
 				"lauantai"_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("DayAbbreviations"_s),
-			$of($$new($StringArray, {
+			"DayAbbreviations"_s,
+			$$new($StringArray, {
 				"su"_s,
 				"ma"_s,
 				"ti"_s,
@@ -202,11 +182,11 @@ $ObjectArray2* FormatData_fi::getContents() {
 				"to"_s,
 				"pe"_s,
 				"la"_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("standalone.DayAbbreviations"_s),
-			$of($$new($StringArray, {
+			"standalone.DayAbbreviations"_s,
+			$$new($StringArray, {
 				"su"_s,
 				"ma"_s,
 				"ti"_s,
@@ -214,11 +194,11 @@ $ObjectArray2* FormatData_fi::getContents() {
 				"to"_s,
 				"pe"_s,
 				"la"_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("DayNarrows"_s),
-			$of($$new($StringArray, {
+			"DayNarrows"_s,
+			$$new($StringArray, {
 				"S"_s,
 				"M"_s,
 				"T"_s,
@@ -226,11 +206,11 @@ $ObjectArray2* FormatData_fi::getContents() {
 				"T"_s,
 				"P"_s,
 				"L"_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("standalone.DayNarrows"_s),
-			$of($$new($StringArray, {
+			"standalone.DayNarrows"_s,
+			$$new($StringArray, {
 				"S"_s,
 				"M"_s,
 				"T"_s,
@@ -238,11 +218,11 @@ $ObjectArray2* FormatData_fi::getContents() {
 				"T"_s,
 				"P"_s,
 				"L"_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("NumberElements"_s),
-			$of($$new($StringArray, {
+			"NumberElements"_s,
+			$$new($StringArray, {
 				","_s,
 				u" "_s,
 				";"_s,
@@ -254,47 +234,47 @@ $ObjectArray2* FormatData_fi::getContents() {
 				u"‰"_s,
 				u"∞"_s,
 				u"�"_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("TimePatterns"_s),
-			$of($$new($StringArray, {
+			"TimePatterns"_s,
+			$$new($StringArray, {
 				"H.mm.ss z"_s,
 				"\'klo \'H.mm.ss"_s,
 				"H:mm:ss"_s,
 				"H:mm"_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("DatePatterns"_s),
-			$of($$new($StringArray, {
+			"DatePatterns"_s,
+			$$new($StringArray, {
 				"d. MMMM yyyy"_s,
 				"d. MMMM yyyy"_s,
 				"d.M.yyyy"_s,
 				"d.M.yyyy"_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("DateTimePatterns"_s),
-			$of($$new($StringArray, {"{1} {0}"_s}))
+			"DateTimePatterns"_s,
+			$$new($StringArray, {"{1} {0}"_s})
 		}),
 		$$new($ObjectArray, {
-			$of("DateTimePatternChars"_s),
-			$of("GanjkHmsSEDFwWxhKzZ"_s)
+			"DateTimePatternChars"_s,
+			"GanjkHmsSEDFwWxhKzZ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AmPmMarkers"_s),
-			$of($$new($StringArray, {
+			"AmPmMarkers"_s,
+			$$new($StringArray, {
 				"ap."_s,
 				"ip."_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("narrow.AmPmMarkers"_s),
-			$of($$new($StringArray, {
+			"narrow.AmPmMarkers"_s,
+			$$new($StringArray, {
 				"ap."_s,
 				"ip."_s
-			}))
+			})
 		})
 	});
 }
@@ -303,7 +283,22 @@ FormatData_fi::FormatData_fi() {
 }
 
 $Class* FormatData_fi::load$($String* name, bool initialize) {
-	$loadClass(FormatData_fi, name, initialize, &_FormatData_fi_ClassInfo_, allocate$FormatData_fi);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(FormatData_fi, init$, void)},
+		{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(FormatData_fi, getContents, $ObjectArray2*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.text.resources.ext.FormatData_fi",
+		"sun.util.resources.ParallelListResourceBundle",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(FormatData_fi, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FormatData_fi);
+	});
 	return class$;
 }
 

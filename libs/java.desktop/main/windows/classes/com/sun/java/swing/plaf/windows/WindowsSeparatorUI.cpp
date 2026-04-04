@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/windows/WindowsSeparatorUI.h>
-
 #include <javax/swing/plaf/basic/BasicSeparatorUI.h>
 #include <jcpp.h>
 
@@ -14,24 +13,6 @@ namespace com {
 				namespace plaf {
 					namespace windows {
 
-$MethodInfo _WindowsSeparatorUI_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(WindowsSeparatorUI, init$, void)},
-	{}
-};
-
-$ClassInfo _WindowsSeparatorUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.java.swing.plaf.windows.WindowsSeparatorUI",
-	"javax.swing.plaf.basic.BasicSeparatorUI",
-	nullptr,
-	nullptr,
-	_WindowsSeparatorUI_MethodInfo_
-};
-
-$Object* allocate$WindowsSeparatorUI($Class* clazz) {
-	return $of($alloc(WindowsSeparatorUI));
-}
-
 void WindowsSeparatorUI::init$() {
 	$BasicSeparatorUI::init$();
 }
@@ -40,7 +21,21 @@ WindowsSeparatorUI::WindowsSeparatorUI() {
 }
 
 $Class* WindowsSeparatorUI::load$($String* name, bool initialize) {
-	$loadClass(WindowsSeparatorUI, name, initialize, &_WindowsSeparatorUI_ClassInfo_, allocate$WindowsSeparatorUI);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(WindowsSeparatorUI, init$, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.java.swing.plaf.windows.WindowsSeparatorUI",
+		"javax.swing.plaf.basic.BasicSeparatorUI",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(WindowsSeparatorUI, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WindowsSeparatorUI);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/media/sound/SoftLinearResampler.h>
-
 #include <com/sun/media/sound/SoftAbstractResampler.h>
 #include <jcpp.h>
 
@@ -12,26 +11,6 @@ namespace com {
 	namespace sun {
 		namespace media {
 			namespace sound {
-
-$MethodInfo _SoftLinearResampler_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SoftLinearResampler, init$, void)},
-	{"getPadding", "()I", nullptr, $PUBLIC, $virtualMethod(SoftLinearResampler, getPadding, int32_t)},
-	{"interpolate", "([F[FF[FF[F[II)V", nullptr, $PUBLIC, $virtualMethod(SoftLinearResampler, interpolate, void, $floats*, $floats*, float, $floats*, float, $floats*, $ints*, int32_t)},
-	{}
-};
-
-$ClassInfo _SoftLinearResampler_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.media.sound.SoftLinearResampler",
-	"com.sun.media.sound.SoftAbstractResampler",
-	nullptr,
-	nullptr,
-	_SoftLinearResampler_MethodInfo_
-};
-
-$Object* allocate$SoftLinearResampler($Class* clazz) {
-	return $of($alloc(SoftLinearResampler));
-}
 
 void SoftLinearResampler::init$() {
 	$SoftAbstractResampler::init$();
@@ -74,7 +53,23 @@ SoftLinearResampler::SoftLinearResampler() {
 }
 
 $Class* SoftLinearResampler::load$($String* name, bool initialize) {
-	$loadClass(SoftLinearResampler, name, initialize, &_SoftLinearResampler_ClassInfo_, allocate$SoftLinearResampler);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SoftLinearResampler, init$, void)},
+		{"getPadding", "()I", nullptr, $PUBLIC, $virtualMethod(SoftLinearResampler, getPadding, int32_t)},
+		{"interpolate", "([F[FF[FF[F[II)V", nullptr, $PUBLIC, $virtualMethod(SoftLinearResampler, interpolate, void, $floats*, $floats*, float, $floats*, float, $floats*, $ints*, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.media.sound.SoftLinearResampler",
+		"com.sun.media.sound.SoftAbstractResampler",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(SoftLinearResampler, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SoftLinearResampler);
+	});
 	return class$;
 }
 

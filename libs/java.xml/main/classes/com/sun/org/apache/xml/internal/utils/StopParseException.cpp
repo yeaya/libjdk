@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/utils/StopParseException.h>
-
 #include <org/xml/sax/SAXException.h>
 #include <jcpp.h>
 
@@ -16,29 +15,6 @@ namespace com {
 					namespace internal {
 						namespace utils {
 
-$FieldInfo _StopParseException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(StopParseException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _StopParseException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(StopParseException, init$, void)},
-	{}
-};
-
-$ClassInfo _StopParseException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.utils.StopParseException",
-	"org.xml.sax.SAXException",
-	nullptr,
-	_StopParseException_FieldInfo_,
-	_StopParseException_MethodInfo_
-};
-
-$Object* allocate$StopParseException($Class* clazz) {
-	return $of($alloc(StopParseException));
-}
-
 void StopParseException::init$() {
 	$SAXException::init$("Stylesheet PIs found, stop the parse"_s);
 }
@@ -54,7 +30,25 @@ void StopParseException::throw$() {
 }
 
 $Class* StopParseException::load$($String* name, bool initialize) {
-	$loadClass(StopParseException, name, initialize, &_StopParseException_ClassInfo_, allocate$StopParseException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(StopParseException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(StopParseException, init$, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.utils.StopParseException",
+		"org.xml.sax.SAXException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(StopParseException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(StopParseException);
+	});
 	return class$;
 }
 

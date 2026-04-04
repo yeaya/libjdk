@@ -54,7 +54,7 @@ public:
 	static const int32_t LINESHIFT = 10;
 	static const int32_t MAXCOLUMN = 1023; // (1 << LINESHIFT) - 1
 	static const int32_t MAXLINE = 4194303; // (1 << (Integer.SIZE - LINESHIFT)) - 1
-	static const int32_t MAXPOS = 0x7FFFFFFF; // Integer.MAX_VALUE
+	static const int32_t MAXPOS = 0x7fffffff; // Integer.MAX_VALUE
 };
 
 				} // util

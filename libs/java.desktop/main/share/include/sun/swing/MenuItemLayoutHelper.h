@@ -56,6 +56,7 @@ class $import MenuItemLayoutHelper : public ::java::lang::Object {
 	$class(MenuItemLayoutHelper, 0, ::java::lang::Object)
 public:
 	MenuItemLayoutHelper();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(::javax::swing::JMenuItem* mi, ::javax::swing::Icon* checkIcon, ::javax::swing::Icon* arrowIcon, ::java::awt::Rectangle* viewRect, int32_t gap, $String* accDelimiter, bool isLeftToRight, ::java::awt::Font* font, ::java::awt::Font* accFont, bool useCheckAndArrow, $String* propertyPrefix);
 	static void addMaxWidth(::sun::swing::MenuItemLayoutHelper$RectSize* size, int32_t gap, ::java::awt::Dimension* result);

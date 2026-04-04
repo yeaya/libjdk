@@ -1,5 +1,4 @@
 #include <sun/awt/TimedWindowEvent.h>
-
 #include <java/awt/Window.h>
 #include <java/awt/event/WindowEvent.h>
 #include <jcpp.h>
@@ -12,31 +11,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace sun {
 	namespace awt {
-
-$FieldInfo _TimedWindowEvent_FieldInfo_[] = {
-	{"time", "J", nullptr, $PRIVATE, $field(TimedWindowEvent, time)},
-	{}
-};
-
-$MethodInfo _TimedWindowEvent_MethodInfo_[] = {
-	{"<init>", "(Ljava/awt/Window;ILjava/awt/Window;J)V", nullptr, $PUBLIC, $method(TimedWindowEvent, init$, void, $Window*, int32_t, $Window*, int64_t)},
-	{"<init>", "(Ljava/awt/Window;ILjava/awt/Window;IIJ)V", nullptr, $PUBLIC, $method(TimedWindowEvent, init$, void, $Window*, int32_t, $Window*, int32_t, int32_t, int64_t)},
-	{"getWhen", "()J", nullptr, $PUBLIC, $virtualMethod(TimedWindowEvent, getWhen, int64_t)},
-	{}
-};
-
-$ClassInfo _TimedWindowEvent_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.awt.TimedWindowEvent",
-	"java.awt.event.WindowEvent",
-	nullptr,
-	_TimedWindowEvent_FieldInfo_,
-	_TimedWindowEvent_MethodInfo_
-};
-
-$Object* allocate$TimedWindowEvent($Class* clazz) {
-	return $of($alloc(TimedWindowEvent));
-}
 
 int64_t TimedWindowEvent::getWhen() {
 	return this->time;
@@ -56,7 +30,27 @@ TimedWindowEvent::TimedWindowEvent() {
 }
 
 $Class* TimedWindowEvent::load$($String* name, bool initialize) {
-	$loadClass(TimedWindowEvent, name, initialize, &_TimedWindowEvent_ClassInfo_, allocate$TimedWindowEvent);
+	$FieldInfo fieldInfos$$[] = {
+		{"time", "J", nullptr, $PRIVATE, $field(TimedWindowEvent, time)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/Window;ILjava/awt/Window;J)V", nullptr, $PUBLIC, $method(TimedWindowEvent, init$, void, $Window*, int32_t, $Window*, int64_t)},
+		{"<init>", "(Ljava/awt/Window;ILjava/awt/Window;IIJ)V", nullptr, $PUBLIC, $method(TimedWindowEvent, init$, void, $Window*, int32_t, $Window*, int32_t, int32_t, int64_t)},
+		{"getWhen", "()J", nullptr, $PUBLIC, $virtualMethod(TimedWindowEvent, getWhen, int64_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.awt.TimedWindowEvent",
+		"java.awt.event.WindowEvent",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TimedWindowEvent, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TimedWindowEvent);
+	});
 	return class$;
 }
 

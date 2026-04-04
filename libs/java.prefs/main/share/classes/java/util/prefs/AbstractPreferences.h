@@ -45,6 +45,7 @@ class $export AbstractPreferences : public ::java::util::prefs::Preferences {
 	$class(AbstractPreferences, 0, ::java::util::prefs::Preferences)
 public:
 	AbstractPreferences();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::util::prefs::AbstractPreferences* parent, $String* name);
 	virtual $String* absolutePath() override;
 	virtual void addNodeChangeListener(::java::util::prefs::NodeChangeListener* ncl) override;

@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/security/algorithms/implementations/SignatureBaseRSA$SignatureRSASSAPSS.h>
-
 #include <com/sun/org/apache/xml/internal/security/algorithms/SignatureAlgorithmSpi.h>
 #include <com/sun/org/apache/xml/internal/security/algorithms/implementations/SignatureBaseRSA$SignatureRSASSAPSS$DigestAlgorithm.h>
 #include <com/sun/org/apache/xml/internal/security/algorithms/implementations/SignatureBaseRSA.h>
@@ -44,7 +43,6 @@ using $MGF1ParameterSpec = ::java::security::spec::MGF1ParameterSpec;
 using $PSSParameterSpec = ::java::security::spec::PSSParameterSpec;
 using $Document = ::org::w3c::dom::Document;
 using $Element = ::org::w3c::dom::Element;
-using $Node = ::org::w3c::dom::Node;
 using $Text = ::org::w3c::dom::Text;
 
 namespace com {
@@ -56,47 +54,6 @@ namespace com {
 						namespace security {
 							namespace algorithms {
 								namespace implementations {
-
-$FieldInfo _SignatureBaseRSA$SignatureRSASSAPSS_FieldInfo_[] = {
-	{"pssParameterSpec", "Ljava/security/spec/PSSParameterSpec;", nullptr, 0, $field(SignatureBaseRSA$SignatureRSASSAPSS, pssParameterSpec)},
-	{}
-};
-
-$MethodInfo _SignatureBaseRSA$SignatureRSASSAPSS_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SignatureBaseRSA$SignatureRSASSAPSS, init$, void), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
-	{"<init>", "(Ljava/security/Provider;)V", nullptr, $PUBLIC, $method(SignatureBaseRSA$SignatureRSASSAPSS, init$, void, $Provider*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
-	{"engineAddContextToElement", "(Lorg/w3c/dom/Element;)V", nullptr, $PROTECTED, $virtualMethod(SignatureBaseRSA$SignatureRSASSAPSS, engineAddContextToElement, void, $Element*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
-	{"engineGetContextFromElement", "(Lorg/w3c/dom/Element;)V", nullptr, $PROTECTED, $virtualMethod(SignatureBaseRSA$SignatureRSASSAPSS, engineGetContextFromElement, void, $Element*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
-	{"engineGetURI", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SignatureBaseRSA$SignatureRSASSAPSS, engineGetURI, $String*)},
-	{"engineSetParameter", "(Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, $PROTECTED, $virtualMethod(SignatureBaseRSA$SignatureRSASSAPSS, engineSetParameter, void, $AlgorithmParameterSpec*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
-	{}
-};
-
-$InnerClassInfo _SignatureBaseRSA$SignatureRSASSAPSS_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureBaseRSA$SignatureRSASSAPSS", "com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureBaseRSA", "SignatureRSASSAPSS", $PUBLIC | $STATIC},
-	{"com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureBaseRSA$SignatureRSASSAPSS$DigestAlgorithm", "com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureBaseRSA$SignatureRSASSAPSS", "DigestAlgorithm", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _SignatureBaseRSA$SignatureRSASSAPSS_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureBaseRSA$SignatureRSASSAPSS",
-	"com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureBaseRSA",
-	nullptr,
-	_SignatureBaseRSA$SignatureRSASSAPSS_FieldInfo_,
-	_SignatureBaseRSA$SignatureRSASSAPSS_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SignatureBaseRSA$SignatureRSASSAPSS_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureBaseRSA"
-};
-
-$Object* allocate$SignatureBaseRSA$SignatureRSASSAPSS($Class* clazz) {
-	return $of($alloc(SignatureBaseRSA$SignatureRSASSAPSS));
-}
 
 void SignatureBaseRSA$SignatureRSASSAPSS::init$() {
 	$SignatureBaseRSA::init$();
@@ -112,7 +69,7 @@ $String* SignatureBaseRSA$SignatureRSASSAPSS::engineGetURI() {
 }
 
 void SignatureBaseRSA$SignatureRSASSAPSS::engineAddContextToElement($Element* element) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (element == nullptr) {
 		$throwNew($IllegalArgumentException, "null element"_s);
 	}
@@ -121,17 +78,17 @@ void SignatureBaseRSA$SignatureRSASSAPSS::engineAddContextToElement($Element* el
 	$var($Element, rsaPssParamsElement, $nc(doc)->createElementNS($Constants::XML_DSIG_NS_MORE_07_05, $$str({"pss:"_s, $Constants::_TAG_RSAPSSPARAMS})));
 	$nc(rsaPssParamsElement)->setAttributeNS($Constants::NamespaceSpecNS, "xmlns:pss"_s, $Constants::XML_DSIG_NS_MORE_07_05);
 	$var($Element, digestMethodElement, $XMLUtils::createElementInSignatureSpace($(rsaPssParamsElement->getOwnerDocument()), $Constants::_TAG_DIGESTMETHOD));
-	$nc(digestMethodElement)->setAttributeNS(nullptr, $Constants::_ATT_ALGORITHM, $($nc($($SignatureBaseRSA$SignatureRSASSAPSS$DigestAlgorithm::fromDigestAlgorithm($($nc(this->pssParameterSpec)->getDigestAlgorithm()))))->getXmlDigestAlgorithm()));
+	$nc(digestMethodElement)->setAttributeNS(nullptr, $Constants::_ATT_ALGORITHM, $($$nc($SignatureBaseRSA$SignatureRSASSAPSS$DigestAlgorithm::fromDigestAlgorithm($($nc(this->pssParameterSpec)->getDigestAlgorithm())))->getXmlDigestAlgorithm()));
 	$XMLUtils::addReturnToElement(rsaPssParamsElement);
 	rsaPssParamsElement->appendChild(digestMethodElement);
 	$XMLUtils::addReturnToElement(rsaPssParamsElement);
-	$var($Element, saltLengthElement, $nc($(rsaPssParamsElement->getOwnerDocument()))->createElementNS($Constants::XML_DSIG_NS_MORE_07_05, $$str({"pss:"_s, $Constants::_TAG_SALTLENGTH})));
-	$var($Text, saltLengthText, $nc($(rsaPssParamsElement->getOwnerDocument()))->createTextNode($($String::valueOf($nc(this->pssParameterSpec)->getSaltLength()))));
+	$var($Element, saltLengthElement, $$nc(rsaPssParamsElement->getOwnerDocument())->createElementNS($Constants::XML_DSIG_NS_MORE_07_05, $$str({"pss:"_s, $Constants::_TAG_SALTLENGTH})));
+	$var($Text, saltLengthText, $$nc(rsaPssParamsElement->getOwnerDocument())->createTextNode($($String::valueOf($nc(this->pssParameterSpec)->getSaltLength()))));
 	$nc(saltLengthElement)->appendChild(saltLengthText);
 	rsaPssParamsElement->appendChild(saltLengthElement);
 	$XMLUtils::addReturnToElement(rsaPssParamsElement);
-	$var($Element, trailerFieldElement, $nc($(rsaPssParamsElement->getOwnerDocument()))->createElementNS($Constants::XML_DSIG_NS_MORE_07_05, $$str({"pss:"_s, $Constants::_TAG_TRAILERFIELD})));
-	$var($Text, trailerFieldText, $nc($(rsaPssParamsElement->getOwnerDocument()))->createTextNode($($String::valueOf($nc(this->pssParameterSpec)->getTrailerField()))));
+	$var($Element, trailerFieldElement, $$nc(rsaPssParamsElement->getOwnerDocument())->createElementNS($Constants::XML_DSIG_NS_MORE_07_05, $$str({"pss:"_s, $Constants::_TAG_TRAILERFIELD})));
+	$var($Text, trailerFieldText, $$nc(rsaPssParamsElement->getOwnerDocument())->createTextNode($($String::valueOf($nc(this->pssParameterSpec)->getTrailerField()))));
 	$nc(trailerFieldElement)->appendChild(trailerFieldText);
 	rsaPssParamsElement->appendChild(trailerFieldElement);
 	$XMLUtils::addReturnToElement(rsaPssParamsElement);
@@ -141,7 +98,7 @@ void SignatureBaseRSA$SignatureRSASSAPSS::engineAddContextToElement($Element* el
 }
 
 void SignatureBaseRSA$SignatureRSASSAPSS::engineGetContextFromElement($Element* element) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->pssParameterSpec == nullptr) {
 		$SignatureBaseRSA::engineGetContextFromElement(element);
 		$init($Constants);
@@ -150,16 +107,16 @@ void SignatureBaseRSA$SignatureRSASSAPSS::engineGetContextFromElement($Element* 
 			$throwNew($XMLSignatureException, "algorithms.MissingRSAPSSParams"_s);
 		}
 		$var($Element, saltLengthNode, $XMLUtils::selectNode($($nc(rsaPssParams)->getFirstChild()), $Constants::XML_DSIG_NS_MORE_07_05, $Constants::_TAG_SALTLENGTH, 0));
-		$var($Element, trailerFieldNode, $XMLUtils::selectNode($($nc(rsaPssParams)->getFirstChild()), $Constants::XML_DSIG_NS_MORE_07_05, $Constants::_TAG_TRAILERFIELD, 0));
+		$var($Element, trailerFieldNode, $XMLUtils::selectNode($(rsaPssParams->getFirstChild()), $Constants::XML_DSIG_NS_MORE_07_05, $Constants::_TAG_TRAILERFIELD, 0));
 		int32_t trailerField = 1;
 		if (trailerFieldNode != nullptr) {
 			try {
 				trailerField = $Integer::parseInt($(trailerFieldNode->getTextContent()));
 			} catch ($NumberFormatException& ex) {
-				$throwNew($XMLSignatureException, "empty"_s, $$new($ObjectArray, {$of("Invalid trailer field value supplied"_s)}));
+				$throwNew($XMLSignatureException, "empty"_s, $$new($ObjectArray, {"Invalid trailer field value supplied"_s}));
 			}
 		}
-		$var($String, xmlAlgorithm, $nc($($XMLUtils::selectDsNode($($nc(rsaPssParams)->getFirstChild()), $Constants::_TAG_DIGESTMETHOD, 0)))->getAttribute($Constants::_ATT_ALGORITHM));
+		$var($String, xmlAlgorithm, $$nc($XMLUtils::selectDsNode($(rsaPssParams->getFirstChild()), $Constants::_TAG_DIGESTMETHOD, 0))->getAttribute($Constants::_ATT_ALGORITHM));
 		$SignatureBaseRSA$SignatureRSASSAPSS$DigestAlgorithm* digestAlgorithm = $SignatureBaseRSA$SignatureRSASSAPSS$DigestAlgorithm::fromXmlDigestAlgorithm(xmlAlgorithm);
 		$var($String, digestAlgorithmName, $nc(digestAlgorithm)->getDigestAlgorithm());
 		int32_t saltLength = digestAlgorithm->getSaltLength();
@@ -167,7 +124,7 @@ void SignatureBaseRSA$SignatureRSASSAPSS::engineGetContextFromElement($Element* 
 			try {
 				saltLength = $Integer::parseInt($(saltLengthNode->getTextContent()));
 			} catch ($NumberFormatException& ex) {
-				$throwNew($XMLSignatureException, "empty"_s, $$new($ObjectArray, {$of("Invalid salt length value supplied"_s)}));
+				$throwNew($XMLSignatureException, "empty"_s, $$new($ObjectArray, {"Invalid salt length value supplied"_s}));
 			}
 		}
 		engineSetParameter($$new($PSSParameterSpec, digestAlgorithmName, "MGF1"_s, $$new($MGF1ParameterSpec, digestAlgorithmName), saltLength, trailerField));
@@ -183,7 +140,42 @@ SignatureBaseRSA$SignatureRSASSAPSS::SignatureBaseRSA$SignatureRSASSAPSS() {
 }
 
 $Class* SignatureBaseRSA$SignatureRSASSAPSS::load$($String* name, bool initialize) {
-	$loadClass(SignatureBaseRSA$SignatureRSASSAPSS, name, initialize, &_SignatureBaseRSA$SignatureRSASSAPSS_ClassInfo_, allocate$SignatureBaseRSA$SignatureRSASSAPSS);
+	$FieldInfo fieldInfos$$[] = {
+		{"pssParameterSpec", "Ljava/security/spec/PSSParameterSpec;", nullptr, 0, $field(SignatureBaseRSA$SignatureRSASSAPSS, pssParameterSpec)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SignatureBaseRSA$SignatureRSASSAPSS, init$, void), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
+		{"<init>", "(Ljava/security/Provider;)V", nullptr, $PUBLIC, $method(SignatureBaseRSA$SignatureRSASSAPSS, init$, void, $Provider*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
+		{"engineAddContextToElement", "(Lorg/w3c/dom/Element;)V", nullptr, $PROTECTED, $virtualMethod(SignatureBaseRSA$SignatureRSASSAPSS, engineAddContextToElement, void, $Element*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
+		{"engineGetContextFromElement", "(Lorg/w3c/dom/Element;)V", nullptr, $PROTECTED, $virtualMethod(SignatureBaseRSA$SignatureRSASSAPSS, engineGetContextFromElement, void, $Element*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
+		{"engineGetURI", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SignatureBaseRSA$SignatureRSASSAPSS, engineGetURI, $String*)},
+		{"engineSetParameter", "(Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, $PROTECTED, $virtualMethod(SignatureBaseRSA$SignatureRSASSAPSS, engineSetParameter, void, $AlgorithmParameterSpec*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureBaseRSA$SignatureRSASSAPSS", "com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureBaseRSA", "SignatureRSASSAPSS", $PUBLIC | $STATIC},
+		{"com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureBaseRSA$SignatureRSASSAPSS$DigestAlgorithm", "com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureBaseRSA$SignatureRSASSAPSS", "DigestAlgorithm", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureBaseRSA$SignatureRSASSAPSS",
+		"com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureBaseRSA",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureBaseRSA"
+	};
+	$loadClass(SignatureBaseRSA$SignatureRSASSAPSS, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SignatureBaseRSA$SignatureRSASSAPSS);
+	});
 	return class$;
 }
 

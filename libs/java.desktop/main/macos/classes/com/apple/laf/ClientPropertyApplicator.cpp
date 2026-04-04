@@ -1,9 +1,7 @@
 #include <com/apple/laf/ClientPropertyApplicator.h>
-
 #include <com/apple/laf/ClientPropertyApplicator$Property.h>
 #include <java/awt/Component.h>
 #include <java/beans/PropertyChangeEvent.h>
-#include <java/beans/PropertyChangeListener.h>
 #include <java/util/HashMap.h>
 #include <java/util/Iterator.h>
 #include <java/util/Map.h>
@@ -14,14 +12,12 @@
 using $ClientPropertyApplicator$PropertyArray = $Array<::com::apple::laf::ClientPropertyApplicator$Property>;
 using $ClientPropertyApplicator$Property = ::com::apple::laf::ClientPropertyApplicator$Property;
 using $PropertyChangeEvent = ::java::beans::PropertyChangeEvent;
-using $PropertyChangeListener = ::java::beans::PropertyChangeListener;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $HashMap = ::java::util::HashMap;
 using $Iterator = ::java::util::Iterator;
-using $Map = ::java::util::Map;
 using $Set = ::java::util::Set;
 using $JComponent = ::javax::swing::JComponent;
 
@@ -29,76 +25,35 @@ namespace com {
 	namespace apple {
 		namespace laf {
 
-$FieldInfo _ClientPropertyApplicator_FieldInfo_[] = {
-	{"properties", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Lcom/apple/laf/ClientPropertyApplicator$Property<TN;>;>;", $PRIVATE | $FINAL, $field(ClientPropertyApplicator, properties)},
-	{}
-};
-
-$MethodInfo _ClientPropertyApplicator_MethodInfo_[] = {
-	{"<init>", "([Lcom/apple/laf/ClientPropertyApplicator$Property;)V", "([Lcom/apple/laf/ClientPropertyApplicator$Property<TN;>;)V", $PUBLIC | $TRANSIENT, $method(ClientPropertyApplicator, init$, void, $ClientPropertyApplicator$PropertyArray*)},
-	{"applyProperty", "(Ljava/lang/Object;Ljava/lang/String;Ljava/lang/Object;)V", "(TN;Ljava/lang/String;Ljava/lang/Object;)V", 0, $virtualMethod(ClientPropertyApplicator, applyProperty, void, Object$*, $String*, Object$*)},
-	{"attachAndApplyClientProperties", "(Ljavax/swing/JComponent;)V", "(TT;)V", $PUBLIC, $virtualMethod(ClientPropertyApplicator, attachAndApplyClientProperties, void, $JComponent*)},
-	{"convertJComponentToTarget", "(Ljavax/swing/JComponent;)Ljava/lang/Object;", "(TT;)TN;", $PUBLIC, $virtualMethod(ClientPropertyApplicator, convertJComponentToTarget, $Object*, $JComponent*)},
-	{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(ClientPropertyApplicator, propertyChange, void, $PropertyChangeEvent*)},
-	{"removeFrom", "(Ljavax/swing/JComponent;)V", "(TT;)V", $PUBLIC, $virtualMethod(ClientPropertyApplicator, removeFrom, void, $JComponent*)},
-	{}
-};
-
-$InnerClassInfo _ClientPropertyApplicator_InnerClassesInfo_[] = {
-	{"com.apple.laf.ClientPropertyApplicator$Property", "com.apple.laf.ClientPropertyApplicator", "Property", $PUBLIC | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _ClientPropertyApplicator_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.apple.laf.ClientPropertyApplicator",
-	"java.lang.Object",
-	"java.beans.PropertyChangeListener",
-	_ClientPropertyApplicator_FieldInfo_,
-	_ClientPropertyApplicator_MethodInfo_,
-	"<T:Ljavax/swing/JComponent;N:Ljava/lang/Object;>Ljava/lang/Object;Ljava/beans/PropertyChangeListener;",
-	nullptr,
-	_ClientPropertyApplicator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.apple.laf.ClientPropertyApplicator$Property"
-};
-
-$Object* allocate$ClientPropertyApplicator($Class* clazz) {
-	return $of($alloc(ClientPropertyApplicator));
-}
-
 void ClientPropertyApplicator::init$($ClientPropertyApplicator$PropertyArray* propertyList) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, properties, $new($HashMap));
 	{
 		$var($ClientPropertyApplicator$PropertyArray, arr$, propertyList);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($ClientPropertyApplicator$Property, p, arr$->get(i$));
 			{
-				$nc(this->properties)->put($nc(p)->name, p);
+				this->properties->put($nc(p)->name, p);
 			}
 		}
 	}
 }
 
 void ClientPropertyApplicator::applyProperty(Object$* target, $String* propName, Object$* value) {
-	$var($ClientPropertyApplicator$Property, property, $cast($ClientPropertyApplicator$Property, $nc(this->properties)->get(propName)));
+	$var($ClientPropertyApplicator$Property, property, $cast($ClientPropertyApplicator$Property, this->properties->get(propName)));
 	if (property != nullptr) {
 		property->applyProperty(target, value);
 	}
 }
 
 void ClientPropertyApplicator::attachAndApplyClientProperties($JComponent* target) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(target)->addPropertyChangeListener(this);
 	$var($Object, obj, convertJComponentToTarget(target));
 	if (obj == nullptr) {
 		return;
 	}
-	$var($Set, propNames, $nc(this->properties)->keySet());
+	$var($Set, propNames, this->properties->keySet());
 	{
 		$var($Iterator, i$, $nc(propNames)->iterator());
 		for (; $nc(i$)->hasNext();) {
@@ -119,14 +74,13 @@ void ClientPropertyApplicator::removeFrom($JComponent* target) {
 }
 
 void ClientPropertyApplicator::propertyChange($PropertyChangeEvent* evt) {
-	$useLocalCurrentObjectStackCache();
-	$var($Object, obj, convertJComponentToTarget($cast($JComponent, $($nc(evt)->getSource()))));
+	$useLocalObjectStack();
+	$var($Object, obj, convertJComponentToTarget($$cast($JComponent, $nc(evt)->getSource())));
 	if (obj == nullptr) {
 		return;
 	}
-	$var($Object, var$0, obj);
-	$var($String, var$1, $nc(evt)->getPropertyName());
-	applyProperty(var$0, var$1, $(evt->getNewValue()));
+	$var($String, var$0, evt->getPropertyName());
+	applyProperty(obj, var$0, $(evt->getNewValue()));
 }
 
 $Object* ClientPropertyApplicator::convertJComponentToTarget($JComponent* component) {
@@ -137,7 +91,40 @@ ClientPropertyApplicator::ClientPropertyApplicator() {
 }
 
 $Class* ClientPropertyApplicator::load$($String* name, bool initialize) {
-	$loadClass(ClientPropertyApplicator, name, initialize, &_ClientPropertyApplicator_ClassInfo_, allocate$ClientPropertyApplicator);
+	$FieldInfo fieldInfos$$[] = {
+		{"properties", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Lcom/apple/laf/ClientPropertyApplicator$Property<TN;>;>;", $PRIVATE | $FINAL, $field(ClientPropertyApplicator, properties)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "([Lcom/apple/laf/ClientPropertyApplicator$Property;)V", "([Lcom/apple/laf/ClientPropertyApplicator$Property<TN;>;)V", $PUBLIC | $TRANSIENT, $method(ClientPropertyApplicator, init$, void, $ClientPropertyApplicator$PropertyArray*)},
+		{"applyProperty", "(Ljava/lang/Object;Ljava/lang/String;Ljava/lang/Object;)V", "(TN;Ljava/lang/String;Ljava/lang/Object;)V", 0, $virtualMethod(ClientPropertyApplicator, applyProperty, void, Object$*, $String*, Object$*)},
+		{"attachAndApplyClientProperties", "(Ljavax/swing/JComponent;)V", "(TT;)V", $PUBLIC, $virtualMethod(ClientPropertyApplicator, attachAndApplyClientProperties, void, $JComponent*)},
+		{"convertJComponentToTarget", "(Ljavax/swing/JComponent;)Ljava/lang/Object;", "(TT;)TN;", $PUBLIC, $virtualMethod(ClientPropertyApplicator, convertJComponentToTarget, $Object*, $JComponent*)},
+		{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(ClientPropertyApplicator, propertyChange, void, $PropertyChangeEvent*)},
+		{"removeFrom", "(Ljavax/swing/JComponent;)V", "(TT;)V", $PUBLIC, $virtualMethod(ClientPropertyApplicator, removeFrom, void, $JComponent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.laf.ClientPropertyApplicator$Property", "com.apple.laf.ClientPropertyApplicator", "Property", $PUBLIC | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.apple.laf.ClientPropertyApplicator",
+		"java.lang.Object",
+		"java.beans.PropertyChangeListener",
+		fieldInfos$$,
+		methodInfos$$,
+		"<T:Ljavax/swing/JComponent;N:Ljava/lang/Object;>Ljava/lang/Object;Ljava/beans/PropertyChangeListener;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.apple.laf.ClientPropertyApplicator$Property"
+	};
+	$loadClass(ClientPropertyApplicator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ClientPropertyApplicator);
+	});
 	return class$;
 }
 

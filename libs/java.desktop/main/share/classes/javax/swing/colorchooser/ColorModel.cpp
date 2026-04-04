@@ -1,5 +1,4 @@
 #include <javax/swing/colorchooser/ColorModel.h>
-
 #include <java/awt/Component.h>
 #include <java/lang/NumberFormatException.h>
 #include <java/util/Locale.h>
@@ -18,42 +17,6 @@ using $UIManager = ::javax::swing::UIManager;
 namespace javax {
 	namespace swing {
 		namespace colorchooser {
-
-$FieldInfo _ColorModel_FieldInfo_[] = {
-	{"prefix", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(ColorModel, prefix)},
-	{"labels", "[Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(ColorModel, labels)},
-	{}
-};
-
-$MethodInfo _ColorModel_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;[Ljava/lang/String;)V", nullptr, $TRANSIENT, $method(ColorModel, init$, void, $String*, $StringArray*)},
-	{"<init>", "()V", nullptr, 0, $method(ColorModel, init$, void)},
-	{"getColor", "([F)I", nullptr, 0, $virtualMethod(ColorModel, getColor, int32_t, $floats*)},
-	{"getCount", "()I", nullptr, 0, $virtualMethod(ColorModel, getCount, int32_t)},
-	{"getDefault", "(I)F", nullptr, 0, $virtualMethod(ColorModel, getDefault, float, int32_t)},
-	{"getInteger", "(Ljava/awt/Component;Ljava/lang/String;)I", nullptr, $FINAL, $method(ColorModel, getInteger, int32_t, $Component*, $String*)},
-	{"getLabel", "(Ljava/awt/Component;I)Ljava/lang/String;", nullptr, $FINAL, $method(ColorModel, getLabel, $String*, $Component*, int32_t)},
-	{"getMaximum", "(I)I", nullptr, 0, $virtualMethod(ColorModel, getMaximum, int32_t, int32_t)},
-	{"getMinimum", "(I)I", nullptr, 0, $virtualMethod(ColorModel, getMinimum, int32_t, int32_t)},
-	{"getText", "(Ljava/awt/Component;Ljava/lang/String;)Ljava/lang/String;", nullptr, $FINAL, $method(ColorModel, getText, $String*, $Component*, $String*)},
-	{"normalize", "(I)F", nullptr, $PRIVATE | $STATIC, $staticMethod(ColorModel, normalize, float, int32_t)},
-	{"setColor", "(I[F)V", nullptr, 0, $virtualMethod(ColorModel, setColor, void, int32_t, $floats*)},
-	{"to8bit", "(F)I", nullptr, $PRIVATE | $STATIC, $staticMethod(ColorModel, to8bit, int32_t, float)},
-	{}
-};
-
-$ClassInfo _ColorModel_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.colorchooser.ColorModel",
-	"java.lang.Object",
-	nullptr,
-	_ColorModel_FieldInfo_,
-	_ColorModel_MethodInfo_
-};
-
-$Object* allocate$ColorModel($Class* clazz) {
-	return $of($alloc(ColorModel));
-}
 
 void ColorModel::init$($String* name, $StringArray* labels) {
 	$set(this, prefix, $str({"ColorChooser."_s, name}));
@@ -78,9 +41,9 @@ void ColorModel::setColor(int32_t color, $floats* model) {
 
 int32_t ColorModel::getColor($floats* model) {
 	int32_t var$2 = to8bit($nc(model)->get(2));
-	int32_t var$1 = var$2 | (to8bit($nc(model)->get(1)) << 8);
-	int32_t var$0 = var$1 | (to8bit($nc(model)->get(0)) << 16);
-	return var$0 | (to8bit($nc(model)->get(3)) << 24);
+	int32_t var$1 = var$2 | (to8bit(model->get(1)) << 8);
+	int32_t var$0 = var$1 | (to8bit(model->get(0)) << 16);
+	return var$0 | (to8bit(model->get(3)) << 24);
 }
 
 int32_t ColorModel::getCount() {
@@ -104,7 +67,7 @@ $String* ColorModel::getLabel($Component* component, int32_t index) {
 }
 
 float ColorModel::normalize(int32_t value) {
-	return (float)((int32_t)(value & (uint32_t)255)) / 255.0f;
+	return (float)(value & 0xff) / 255.0f;
 }
 
 int32_t ColorModel::to8bit(float value) {
@@ -112,15 +75,15 @@ int32_t ColorModel::to8bit(float value) {
 }
 
 $String* ColorModel::getText($Component* component, $String* suffix) {
-	$useLocalCurrentObjectStackCache();
-	return $UIManager::getString($of($$str({this->prefix, suffix, "Text"_s})), $($nc(component)->getLocale()));
+	$useLocalObjectStack();
+	return $UIManager::getString($$str({this->prefix, suffix, "Text"_s}), $($nc(component)->getLocale()));
 }
 
 int32_t ColorModel::getInteger($Component* component, $String* suffix) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, value, $UIManager::get($$str({this->prefix, suffix}), $($nc(component)->getLocale())));
 	if ($instanceOf($Integer, value)) {
-		return $nc(($cast($Integer, value)))->intValue();
+		return $cast($Integer, value)->intValue();
 	}
 	if ($instanceOf($String, value)) {
 		try {
@@ -135,7 +98,38 @@ ColorModel::ColorModel() {
 }
 
 $Class* ColorModel::load$($String* name, bool initialize) {
-	$loadClass(ColorModel, name, initialize, &_ColorModel_ClassInfo_, allocate$ColorModel);
+	$FieldInfo fieldInfos$$[] = {
+		{"prefix", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(ColorModel, prefix)},
+		{"labels", "[Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(ColorModel, labels)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;[Ljava/lang/String;)V", nullptr, $TRANSIENT, $method(ColorModel, init$, void, $String*, $StringArray*)},
+		{"<init>", "()V", nullptr, 0, $method(ColorModel, init$, void)},
+		{"getColor", "([F)I", nullptr, 0, $virtualMethod(ColorModel, getColor, int32_t, $floats*)},
+		{"getCount", "()I", nullptr, 0, $virtualMethod(ColorModel, getCount, int32_t)},
+		{"getDefault", "(I)F", nullptr, 0, $virtualMethod(ColorModel, getDefault, float, int32_t)},
+		{"getInteger", "(Ljava/awt/Component;Ljava/lang/String;)I", nullptr, $FINAL, $method(ColorModel, getInteger, int32_t, $Component*, $String*)},
+		{"getLabel", "(Ljava/awt/Component;I)Ljava/lang/String;", nullptr, $FINAL, $method(ColorModel, getLabel, $String*, $Component*, int32_t)},
+		{"getMaximum", "(I)I", nullptr, 0, $virtualMethod(ColorModel, getMaximum, int32_t, int32_t)},
+		{"getMinimum", "(I)I", nullptr, 0, $virtualMethod(ColorModel, getMinimum, int32_t, int32_t)},
+		{"getText", "(Ljava/awt/Component;Ljava/lang/String;)Ljava/lang/String;", nullptr, $FINAL, $method(ColorModel, getText, $String*, $Component*, $String*)},
+		{"normalize", "(I)F", nullptr, $PRIVATE | $STATIC, $staticMethod(ColorModel, normalize, float, int32_t)},
+		{"setColor", "(I[F)V", nullptr, 0, $virtualMethod(ColorModel, setColor, void, int32_t, $floats*)},
+		{"to8bit", "(F)I", nullptr, $PRIVATE | $STATIC, $staticMethod(ColorModel, to8bit, int32_t, float)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.colorchooser.ColorModel",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ColorModel, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ColorModel);
+	});
 	return class$;
 }
 

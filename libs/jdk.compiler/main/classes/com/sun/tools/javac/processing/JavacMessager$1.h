@@ -15,6 +15,7 @@ class JavacMessager$1 : public ::java::lang::Object {
 	$class(JavacMessager$1, 0, ::java::lang::Object)
 public:
 	JavacMessager$1();
+	static void clinit$(::java::lang::Class* clazz);
 	static $ints* $SwitchMap$javax$tools$Diagnostic$Kind;
 };
 

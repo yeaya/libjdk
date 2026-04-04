@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/metal/MetalInternalFrameUI.h>
-
 #include <java/awt/Container.h>
 #include <java/beans/PropertyChangeListener.h>
 #include <javax/swing/ActionMap.h>
@@ -53,68 +52,6 @@ namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace metal {
-
-$FieldInfo _MetalInternalFrameUI_FieldInfo_[] = {
-	{"metalPropertyChangeListener", "Ljava/beans/PropertyChangeListener;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MetalInternalFrameUI, metalPropertyChangeListener)},
-	{"handyEmptyBorder", "Ljavax/swing/border/Border;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MetalInternalFrameUI, handyEmptyBorder)},
-	{"IS_PALETTE", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC, $staticField(MetalInternalFrameUI, IS_PALETTE)},
-	{"IS_PALETTE_KEY", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(MetalInternalFrameUI, IS_PALETTE_KEY)},
-	{"FRAME_TYPE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(MetalInternalFrameUI, FRAME_TYPE)},
-	{"NORMAL_FRAME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(MetalInternalFrameUI, NORMAL_FRAME)},
-	{"PALETTE_FRAME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(MetalInternalFrameUI, PALETTE_FRAME)},
-	{"OPTION_DIALOG", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(MetalInternalFrameUI, OPTION_DIALOG)},
-	{}
-};
-
-$MethodInfo _MetalInternalFrameUI_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/JInternalFrame;)V", nullptr, $PUBLIC, $method(MetalInternalFrameUI, init$, void, $JInternalFrame*)},
-	{"access$000", "(Ljavax/swing/plaf/metal/MetalInternalFrameUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(MetalInternalFrameUI, access$000, $JInternalFrame*, MetalInternalFrameUI*)},
-	{"access$100", "(Ljavax/swing/plaf/metal/MetalInternalFrameUI;)Ljavax/swing/plaf/basic/BasicInternalFrameTitlePane;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(MetalInternalFrameUI, access$100, $BasicInternalFrameTitlePane*, MetalInternalFrameUI*)},
-	{"access$200", "(Ljavax/swing/plaf/metal/MetalInternalFrameUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(MetalInternalFrameUI, access$200, $JInternalFrame*, MetalInternalFrameUI*)},
-	{"access$300", "(Ljavax/swing/plaf/metal/MetalInternalFrameUI;)Ljavax/swing/plaf/basic/BasicInternalFrameTitlePane;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(MetalInternalFrameUI, access$300, $BasicInternalFrameTitlePane*, MetalInternalFrameUI*)},
-	{"access$400", "(Ljavax/swing/plaf/metal/MetalInternalFrameUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(MetalInternalFrameUI, access$400, $JInternalFrame*, MetalInternalFrameUI*)},
-	{"access$500", "(Ljavax/swing/plaf/metal/MetalInternalFrameUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(MetalInternalFrameUI, access$500, $JInternalFrame*, MetalInternalFrameUI*)},
-	{"access$600", "(Ljavax/swing/plaf/metal/MetalInternalFrameUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(MetalInternalFrameUI, access$600, $JInternalFrame*, MetalInternalFrameUI*)},
-	{"createBorderListener", "(Ljavax/swing/JInternalFrame;)Ljavax/swing/event/MouseInputAdapter;", nullptr, $PROTECTED, $virtualMethod(MetalInternalFrameUI, createBorderListener, $MouseInputAdapter*, $JInternalFrame*)},
-	{"createNorthPane", "(Ljavax/swing/JInternalFrame;)Ljavax/swing/JComponent;", nullptr, $PROTECTED, $virtualMethod(MetalInternalFrameUI, createNorthPane, $JComponent*, $JInternalFrame*)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalInternalFrameUI, createUI, $ComponentUI*, $JComponent*)},
-	{"installKeyboardActions", "()V", nullptr, $PROTECTED, $virtualMethod(MetalInternalFrameUI, installKeyboardActions, void)},
-	{"installListeners", "()V", nullptr, $PROTECTED, $virtualMethod(MetalInternalFrameUI, installListeners, void)},
-	{"installUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(MetalInternalFrameUI, installUI, void, $JComponent*)},
-	{"setFrameType", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(MetalInternalFrameUI, setFrameType, void, $String*)},
-	{"setPalette", "(Z)V", nullptr, $PUBLIC, $virtualMethod(MetalInternalFrameUI, setPalette, void, bool)},
-	{"stripContentBorder", "(Ljava/lang/Object;)V", nullptr, $PRIVATE, $method(MetalInternalFrameUI, stripContentBorder, void, Object$*)},
-	{"uninstallComponents", "()V", nullptr, $PROTECTED, $virtualMethod(MetalInternalFrameUI, uninstallComponents, void)},
-	{"uninstallKeyboardActions", "()V", nullptr, $PROTECTED, $virtualMethod(MetalInternalFrameUI, uninstallKeyboardActions, void)},
-	{"uninstallListeners", "()V", nullptr, $PROTECTED, $virtualMethod(MetalInternalFrameUI, uninstallListeners, void)},
-	{"uninstallUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(MetalInternalFrameUI, uninstallUI, void, $JComponent*)},
-	{}
-};
-
-$InnerClassInfo _MetalInternalFrameUI_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.metal.MetalInternalFrameUI$BorderListener1", "javax.swing.plaf.metal.MetalInternalFrameUI", "BorderListener1", $PRIVATE},
-	{"javax.swing.plaf.metal.MetalInternalFrameUI$MetalPropertyChangeHandler", "javax.swing.plaf.metal.MetalInternalFrameUI", "MetalPropertyChangeHandler", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _MetalInternalFrameUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.metal.MetalInternalFrameUI",
-	"javax.swing.plaf.basic.BasicInternalFrameUI",
-	nullptr,
-	_MetalInternalFrameUI_FieldInfo_,
-	_MetalInternalFrameUI_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MetalInternalFrameUI_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.metal.MetalInternalFrameUI$BorderListener1,javax.swing.plaf.metal.MetalInternalFrameUI$MetalPropertyChangeHandler"
-};
-
-$Object* allocate$MetalInternalFrameUI($Class* clazz) {
-	return $of($alloc(MetalInternalFrameUI));
-}
 
 $PropertyChangeListener* MetalInternalFrameUI::metalPropertyChangeListener = nullptr;
 $Border* MetalInternalFrameUI::handyEmptyBorder = nullptr;
@@ -170,23 +107,23 @@ $ComponentUI* MetalInternalFrameUI::createUI($JComponent* c) {
 }
 
 void MetalInternalFrameUI::installUI($JComponent* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$BasicInternalFrameUI::installUI(c);
 	$var($Object, paletteProp, $nc(c)->getClientProperty(MetalInternalFrameUI::IS_PALETTE_KEY));
 	if (paletteProp != nullptr) {
-		setPalette($nc(($cast($Boolean, paletteProp)))->booleanValue());
+		setPalette($cast($Boolean, paletteProp)->booleanValue());
 	}
 	$var($Container, content, $nc(this->frame)->getContentPane());
 	stripContentBorder(content);
 }
 
 void MetalInternalFrameUI::uninstallUI($JComponent* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, frame, $cast($JInternalFrame, c));
-	$var($Container, cont, $nc((($cast($JInternalFrame, c))))->getContentPane());
+	$var($Container, cont, $nc($cast($JInternalFrame, c))->getContentPane());
 	if ($instanceOf($JComponent, cont)) {
 		$var($JComponent, content, $cast($JComponent, cont));
-		if ($nc(content)->getBorder() == MetalInternalFrameUI::handyEmptyBorder) {
+		if (content->getBorder() == MetalInternalFrameUI::handyEmptyBorder) {
 			content->setBorder(nullptr);
 		}
 	}
@@ -221,10 +158,10 @@ void MetalInternalFrameUI::uninstallComponents() {
 }
 
 void MetalInternalFrameUI::stripContentBorder(Object$* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($instanceOf($JComponent, c)) {
 		$var($JComponent, contentComp, $cast($JComponent, c));
-		$var($Border, contentBorder, $nc(contentComp)->getBorder());
+		$var($Border, contentBorder, contentComp->getBorder());
 		if (contentBorder == nullptr || $instanceOf($UIResource, contentBorder)) {
 			contentComp->setBorder(MetalInternalFrameUI::handyEmptyBorder);
 		}
@@ -238,13 +175,13 @@ $JComponent* MetalInternalFrameUI::createNorthPane($JInternalFrame* w) {
 void MetalInternalFrameUI::setFrameType($String* frameType) {
 	if ($nc(frameType)->equals(MetalInternalFrameUI::OPTION_DIALOG)) {
 		$LookAndFeel::installBorder(this->frame, "InternalFrame.optionDialogBorder"_s);
-		$nc(($cast($MetalInternalFrameTitlePane, this->titlePane)))->setPalette(false);
+		$nc($cast($MetalInternalFrameTitlePane, this->titlePane))->setPalette(false);
 	} else if (frameType->equals(MetalInternalFrameUI::PALETTE_FRAME)) {
 		$LookAndFeel::installBorder(this->frame, "InternalFrame.paletteBorder"_s);
-		$nc(($cast($MetalInternalFrameTitlePane, this->titlePane)))->setPalette(true);
+		$nc($cast($MetalInternalFrameTitlePane, this->titlePane))->setPalette(true);
 	} else {
 		$LookAndFeel::installBorder(this->frame, "InternalFrame.border"_s);
-		$nc(($cast($MetalInternalFrameTitlePane, this->titlePane)))->setPalette(false);
+		$nc($cast($MetalInternalFrameTitlePane, this->titlePane))->setPalette(false);
 	}
 }
 
@@ -254,14 +191,14 @@ void MetalInternalFrameUI::setPalette(bool isPalette) {
 	} else {
 		$LookAndFeel::installBorder(this->frame, "InternalFrame.border"_s);
 	}
-	$nc(($cast($MetalInternalFrameTitlePane, this->titlePane)))->setPalette(isPalette);
+	$nc($cast($MetalInternalFrameTitlePane, this->titlePane))->setPalette(isPalette);
 }
 
 $MouseInputAdapter* MetalInternalFrameUI::createBorderListener($JInternalFrame* w) {
 	return $new($MetalInternalFrameUI$BorderListener1, this);
 }
 
-void clinit$MetalInternalFrameUI($Class* class$) {
+void MetalInternalFrameUI::clinit$($Class* clazz) {
 	$assignStatic(MetalInternalFrameUI::metalPropertyChangeListener, $new($MetalInternalFrameUI$MetalPropertyChangeHandler));
 	$assignStatic(MetalInternalFrameUI::handyEmptyBorder, $new($EmptyBorder, 0, 0, 0, 0));
 	$assignStatic(MetalInternalFrameUI::IS_PALETTE, "JInternalFrame.isPalette"_s);
@@ -276,7 +213,63 @@ MetalInternalFrameUI::MetalInternalFrameUI() {
 }
 
 $Class* MetalInternalFrameUI::load$($String* name, bool initialize) {
-	$loadClass(MetalInternalFrameUI, name, initialize, &_MetalInternalFrameUI_ClassInfo_, clinit$MetalInternalFrameUI, allocate$MetalInternalFrameUI);
+	$FieldInfo fieldInfos$$[] = {
+		{"metalPropertyChangeListener", "Ljava/beans/PropertyChangeListener;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MetalInternalFrameUI, metalPropertyChangeListener)},
+		{"handyEmptyBorder", "Ljavax/swing/border/Border;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MetalInternalFrameUI, handyEmptyBorder)},
+		{"IS_PALETTE", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC, $staticField(MetalInternalFrameUI, IS_PALETTE)},
+		{"IS_PALETTE_KEY", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(MetalInternalFrameUI, IS_PALETTE_KEY)},
+		{"FRAME_TYPE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(MetalInternalFrameUI, FRAME_TYPE)},
+		{"NORMAL_FRAME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(MetalInternalFrameUI, NORMAL_FRAME)},
+		{"PALETTE_FRAME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(MetalInternalFrameUI, PALETTE_FRAME)},
+		{"OPTION_DIALOG", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(MetalInternalFrameUI, OPTION_DIALOG)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/JInternalFrame;)V", nullptr, $PUBLIC, $method(MetalInternalFrameUI, init$, void, $JInternalFrame*)},
+		{"access$000", "(Ljavax/swing/plaf/metal/MetalInternalFrameUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(MetalInternalFrameUI, access$000, $JInternalFrame*, MetalInternalFrameUI*)},
+		{"access$100", "(Ljavax/swing/plaf/metal/MetalInternalFrameUI;)Ljavax/swing/plaf/basic/BasicInternalFrameTitlePane;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(MetalInternalFrameUI, access$100, $BasicInternalFrameTitlePane*, MetalInternalFrameUI*)},
+		{"access$200", "(Ljavax/swing/plaf/metal/MetalInternalFrameUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(MetalInternalFrameUI, access$200, $JInternalFrame*, MetalInternalFrameUI*)},
+		{"access$300", "(Ljavax/swing/plaf/metal/MetalInternalFrameUI;)Ljavax/swing/plaf/basic/BasicInternalFrameTitlePane;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(MetalInternalFrameUI, access$300, $BasicInternalFrameTitlePane*, MetalInternalFrameUI*)},
+		{"access$400", "(Ljavax/swing/plaf/metal/MetalInternalFrameUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(MetalInternalFrameUI, access$400, $JInternalFrame*, MetalInternalFrameUI*)},
+		{"access$500", "(Ljavax/swing/plaf/metal/MetalInternalFrameUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(MetalInternalFrameUI, access$500, $JInternalFrame*, MetalInternalFrameUI*)},
+		{"access$600", "(Ljavax/swing/plaf/metal/MetalInternalFrameUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(MetalInternalFrameUI, access$600, $JInternalFrame*, MetalInternalFrameUI*)},
+		{"createBorderListener", "(Ljavax/swing/JInternalFrame;)Ljavax/swing/event/MouseInputAdapter;", nullptr, $PROTECTED, $virtualMethod(MetalInternalFrameUI, createBorderListener, $MouseInputAdapter*, $JInternalFrame*)},
+		{"createNorthPane", "(Ljavax/swing/JInternalFrame;)Ljavax/swing/JComponent;", nullptr, $PROTECTED, $virtualMethod(MetalInternalFrameUI, createNorthPane, $JComponent*, $JInternalFrame*)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalInternalFrameUI, createUI, $ComponentUI*, $JComponent*)},
+		{"installKeyboardActions", "()V", nullptr, $PROTECTED, $virtualMethod(MetalInternalFrameUI, installKeyboardActions, void)},
+		{"installListeners", "()V", nullptr, $PROTECTED, $virtualMethod(MetalInternalFrameUI, installListeners, void)},
+		{"installUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(MetalInternalFrameUI, installUI, void, $JComponent*)},
+		{"setFrameType", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(MetalInternalFrameUI, setFrameType, void, $String*)},
+		{"setPalette", "(Z)V", nullptr, $PUBLIC, $virtualMethod(MetalInternalFrameUI, setPalette, void, bool)},
+		{"stripContentBorder", "(Ljava/lang/Object;)V", nullptr, $PRIVATE, $method(MetalInternalFrameUI, stripContentBorder, void, Object$*)},
+		{"uninstallComponents", "()V", nullptr, $PROTECTED, $virtualMethod(MetalInternalFrameUI, uninstallComponents, void)},
+		{"uninstallKeyboardActions", "()V", nullptr, $PROTECTED, $virtualMethod(MetalInternalFrameUI, uninstallKeyboardActions, void)},
+		{"uninstallListeners", "()V", nullptr, $PROTECTED, $virtualMethod(MetalInternalFrameUI, uninstallListeners, void)},
+		{"uninstallUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(MetalInternalFrameUI, uninstallUI, void, $JComponent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.metal.MetalInternalFrameUI$BorderListener1", "javax.swing.plaf.metal.MetalInternalFrameUI", "BorderListener1", $PRIVATE},
+		{"javax.swing.plaf.metal.MetalInternalFrameUI$MetalPropertyChangeHandler", "javax.swing.plaf.metal.MetalInternalFrameUI", "MetalPropertyChangeHandler", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.metal.MetalInternalFrameUI",
+		"javax.swing.plaf.basic.BasicInternalFrameUI",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.metal.MetalInternalFrameUI$BorderListener1,javax.swing.plaf.metal.MetalInternalFrameUI$MetalPropertyChangeHandler"
+	};
+	$loadClass(MetalInternalFrameUI, name, initialize, &classInfo$$, MetalInternalFrameUI::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(MetalInternalFrameUI);
+	});
 	return class$;
 }
 

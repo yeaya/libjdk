@@ -1,5 +1,4 @@
 #include <sun/java2d/loops/PixelWriterDrawHandler.h>
-
 #include <sun/java2d/SurfaceData.h>
 #include <sun/java2d/loops/GeneralRenderer.h>
 #include <sun/java2d/loops/PixelWriter.h>
@@ -20,42 +19,6 @@ using $Region = ::sun::java2d::pipe::Region;
 namespace sun {
 	namespace java2d {
 		namespace loops {
-
-$FieldInfo _PixelWriterDrawHandler_FieldInfo_[] = {
-	{"pw", "Lsun/java2d/loops/PixelWriter;", nullptr, 0, $field(PixelWriterDrawHandler, pw)},
-	{"sData", "Lsun/java2d/SurfaceData;", nullptr, 0, $field(PixelWriterDrawHandler, sData)},
-	{"clip", "Lsun/java2d/pipe/Region;", nullptr, 0, $field(PixelWriterDrawHandler, clip)},
-	{}
-};
-
-$MethodInfo _PixelWriterDrawHandler_MethodInfo_[] = {
-	{"<init>", "(Lsun/java2d/SurfaceData;Lsun/java2d/loops/PixelWriter;Lsun/java2d/pipe/Region;I)V", nullptr, $PUBLIC, $method(PixelWriterDrawHandler, init$, void, $SurfaceData*, $PixelWriter*, $Region*, int32_t)},
-	{"drawLine", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(PixelWriterDrawHandler, drawLine, void, int32_t, int32_t, int32_t, int32_t)},
-	{"drawPixel", "(II)V", nullptr, $PUBLIC, $virtualMethod(PixelWriterDrawHandler, drawPixel, void, int32_t, int32_t)},
-	{"drawScanline", "(III)V", nullptr, $PUBLIC, $virtualMethod(PixelWriterDrawHandler, drawScanline, void, int32_t, int32_t, int32_t)},
-	{}
-};
-
-$InnerClassInfo _PixelWriterDrawHandler_InnerClassesInfo_[] = {
-	{"sun.java2d.loops.ProcessPath$DrawHandler", "sun.java2d.loops.ProcessPath", "DrawHandler", $PUBLIC | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _PixelWriterDrawHandler_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.java2d.loops.PixelWriterDrawHandler",
-	"sun.java2d.loops.ProcessPath$DrawHandler",
-	nullptr,
-	_PixelWriterDrawHandler_FieldInfo_,
-	_PixelWriterDrawHandler_MethodInfo_,
-	nullptr,
-	nullptr,
-	_PixelWriterDrawHandler_InnerClassesInfo_
-};
-
-$Object* allocate$PixelWriterDrawHandler($Class* clazz) {
-	return $of($alloc(PixelWriterDrawHandler));
-}
 
 void PixelWriterDrawHandler::init$($SurfaceData* sData, $PixelWriter* pw, $Region* clip, int32_t strokeHint) {
 	int32_t var$0 = $nc(clip)->getLoX();
@@ -83,7 +46,37 @@ PixelWriterDrawHandler::PixelWriterDrawHandler() {
 }
 
 $Class* PixelWriterDrawHandler::load$($String* name, bool initialize) {
-	$loadClass(PixelWriterDrawHandler, name, initialize, &_PixelWriterDrawHandler_ClassInfo_, allocate$PixelWriterDrawHandler);
+	$FieldInfo fieldInfos$$[] = {
+		{"pw", "Lsun/java2d/loops/PixelWriter;", nullptr, 0, $field(PixelWriterDrawHandler, pw)},
+		{"sData", "Lsun/java2d/SurfaceData;", nullptr, 0, $field(PixelWriterDrawHandler, sData)},
+		{"clip", "Lsun/java2d/pipe/Region;", nullptr, 0, $field(PixelWriterDrawHandler, clip)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/java2d/SurfaceData;Lsun/java2d/loops/PixelWriter;Lsun/java2d/pipe/Region;I)V", nullptr, $PUBLIC, $method(PixelWriterDrawHandler, init$, void, $SurfaceData*, $PixelWriter*, $Region*, int32_t)},
+		{"drawLine", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(PixelWriterDrawHandler, drawLine, void, int32_t, int32_t, int32_t, int32_t)},
+		{"drawPixel", "(II)V", nullptr, $PUBLIC, $virtualMethod(PixelWriterDrawHandler, drawPixel, void, int32_t, int32_t)},
+		{"drawScanline", "(III)V", nullptr, $PUBLIC, $virtualMethod(PixelWriterDrawHandler, drawScanline, void, int32_t, int32_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.java2d.loops.ProcessPath$DrawHandler", "sun.java2d.loops.ProcessPath", "DrawHandler", $PUBLIC | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.java2d.loops.PixelWriterDrawHandler",
+		"sun.java2d.loops.ProcessPath$DrawHandler",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$
+	};
+	$loadClass(PixelWriterDrawHandler, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PixelWriterDrawHandler);
+	});
 	return class$;
 }
 

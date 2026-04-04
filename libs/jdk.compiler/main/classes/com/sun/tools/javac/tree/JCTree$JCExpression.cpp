@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/tree/JCTree$JCExpression.h>
-
 #include <com/sun/tools/javac/code/Type.h>
 #include <com/sun/tools/javac/tree/JCTree$JCCaseLabel.h>
 #include <com/sun/tools/javac/tree/JCTree.h>
@@ -16,50 +15,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace tree {
-
-$MethodInfo _JCTree$JCExpression_MethodInfo_[] = {
-	{"*accept", "(Lcom/sun/source/tree/TreeVisitor;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*getKind", "()Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $ABSTRACT},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(JCTree$JCExpression, init$, void)},
-	{"isExpression", "()Z", nullptr, $PUBLIC, $virtualMethod(JCTree$JCExpression, isExpression, bool)},
-	{"isPattern", "()Z", nullptr, $PUBLIC, $virtualMethod(JCTree$JCExpression, isPattern, bool)},
-	{"isPoly", "()Z", nullptr, $PUBLIC, $virtualMethod(JCTree$JCExpression, isPoly, bool)},
-	{"isStandalone", "()Z", nullptr, $PUBLIC, $virtualMethod(JCTree$JCExpression, isStandalone, bool)},
-	{"setPos", "(I)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCExpression, setPos, JCTree$JCExpression*, int32_t)},
-	{"setType", "(Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCExpression, setType, JCTree$JCExpression*, $Type*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _JCTree$JCExpression_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.tree.JCTree$JCExpression", "com.sun.tools.javac.tree.JCTree", "JCExpression", $PUBLIC | $STATIC | $ABSTRACT},
-	{"com.sun.tools.javac.tree.JCTree$JCCaseLabel", "com.sun.tools.javac.tree.JCTree", "JCCaseLabel", $PUBLIC | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _JCTree$JCExpression_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"com.sun.tools.javac.tree.JCTree$JCExpression",
-	"com.sun.tools.javac.tree.JCTree$JCCaseLabel",
-	"com.sun.source.tree.ExpressionTree",
-	nullptr,
-	_JCTree$JCExpression_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JCTree$JCExpression_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.tree.JCTree"
-};
-
-$Object* allocate$JCTree$JCExpression($Class* clazz) {
-	return $of($alloc(JCTree$JCExpression));
-}
 
 $String* JCTree$JCExpression::toString() {
 	 return this->$JCTree$JCCaseLabel::toString();
@@ -115,7 +70,46 @@ JCTree$JCExpression::JCTree$JCExpression() {
 }
 
 $Class* JCTree$JCExpression::load$($String* name, bool initialize) {
-	$loadClass(JCTree$JCExpression, name, initialize, &_JCTree$JCExpression_ClassInfo_, allocate$JCTree$JCExpression);
+	$MethodInfo methodInfos$$[] = {
+		{"*accept", "(Lcom/sun/source/tree/TreeVisitor;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*getKind", "()Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $ABSTRACT},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(JCTree$JCExpression, init$, void)},
+		{"isExpression", "()Z", nullptr, $PUBLIC, $virtualMethod(JCTree$JCExpression, isExpression, bool)},
+		{"isPattern", "()Z", nullptr, $PUBLIC, $virtualMethod(JCTree$JCExpression, isPattern, bool)},
+		{"isPoly", "()Z", nullptr, $PUBLIC, $virtualMethod(JCTree$JCExpression, isPoly, bool)},
+		{"isStandalone", "()Z", nullptr, $PUBLIC, $virtualMethod(JCTree$JCExpression, isStandalone, bool)},
+		{"setPos", "(I)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCExpression, setPos, JCTree$JCExpression*, int32_t)},
+		{"setType", "(Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCExpression, setType, JCTree$JCExpression*, $Type*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.tree.JCTree$JCExpression", "com.sun.tools.javac.tree.JCTree", "JCExpression", $PUBLIC | $STATIC | $ABSTRACT},
+		{"com.sun.tools.javac.tree.JCTree$JCCaseLabel", "com.sun.tools.javac.tree.JCTree", "JCCaseLabel", $PUBLIC | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"com.sun.tools.javac.tree.JCTree$JCExpression",
+		"com.sun.tools.javac.tree.JCTree$JCCaseLabel",
+		"com.sun.source.tree.ExpressionTree",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.tree.JCTree"
+	};
+	$loadClass(JCTree$JCExpression, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JCTree$JCExpression));
+	});
 	return class$;
 }
 

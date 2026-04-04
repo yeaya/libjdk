@@ -1,5 +1,4 @@
 #include <java/awt/image/ColorModel.h>
-
 #include <java/awt/Transparency.h>
 #include <java/awt/color/ColorSpace.h>
 #include <java/awt/color/ICC_ColorSpace.h>
@@ -13,7 +12,6 @@
 #include <java/lang/Math.h>
 #include <java/lang/UnsupportedOperationException.h>
 #include <java/security/AccessController.h>
-#include <java/security/PrivilegedAction.h>
 #include <java/util/Arrays.h>
 #include <java/util/Collections.h>
 #include <java/util/Map.h>
@@ -56,7 +54,6 @@ using $NamedAttribute = ::java::lang::NamedAttribute;
 using $NullPointerException = ::java::lang::NullPointerException;
 using $UnsupportedOperationException = ::java::lang::UnsupportedOperationException;
 using $AccessController = ::java::security::AccessController;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $Arrays = ::java::util::Arrays;
 using $Collections = ::java::util::Collections;
 using $Map = ::java::util::Map;
@@ -68,130 +65,6 @@ using $PCMM = ::sun::java2d::cmm::PCMM;
 namespace java {
 	namespace awt {
 		namespace image {
-
-$NamedAttribute ColorModel_Attribute_var$0[] = {
-	{"since", 's', "9"},
-	{"forRemoval", 'Z', "true"},
-	{}
-};
-
-$CompoundAttribute _ColorModel_MethodAnnotations_finalize6[] = {
-	{"Ljava/lang/Deprecated;", ColorModel_Attribute_var$0},
-	{}
-};
-
-$FieldInfo _ColorModel_FieldInfo_[] = {
-	{"pData", "J", nullptr, $PRIVATE, $field(ColorModel, pData)},
-	{"pixel_bits", "I", nullptr, $PROTECTED, $field(ColorModel, pixel_bits)},
-	{"nBits", "[I", nullptr, 0, $field(ColorModel, nBits)},
-	{"transparency", "I", nullptr, 0, $field(ColorModel, transparency)},
-	{"supportsAlpha", "Z", nullptr, 0, $field(ColorModel, supportsAlpha)},
-	{"isAlphaPremultiplied", "Z", nullptr, 0, $field(ColorModel, isAlphaPremultiplied$)},
-	{"numComponents", "I", nullptr, 0, $field(ColorModel, numComponents)},
-	{"numColorComponents", "I", nullptr, 0, $field(ColorModel, numColorComponents)},
-	{"colorSpace", "Ljava/awt/color/ColorSpace;", nullptr, 0, $field(ColorModel, colorSpace)},
-	{"colorSpaceType", "I", nullptr, 0, $field(ColorModel, colorSpaceType)},
-	{"maxBits", "I", nullptr, 0, $field(ColorModel, maxBits)},
-	{"is_sRGB", "Z", nullptr, 0, $field(ColorModel, is_sRGB)},
-	{"transferType", "I", nullptr, $PROTECTED, $field(ColorModel, transferType)},
-	{"loaded", "Z", nullptr, $PRIVATE | $STATIC, $staticField(ColorModel, loaded)},
-	{"RGBdefault", "Ljava/awt/image/ColorModel;", nullptr, $PRIVATE | $STATIC, $staticField(ColorModel, RGBdefault)},
-	{"l8Tos8", "[B", nullptr, $STATIC, $staticField(ColorModel, l8Tos8)},
-	{"s8Tol8", "[B", nullptr, $STATIC, $staticField(ColorModel, s8Tol8)},
-	{"l16Tos8", "[B", nullptr, $STATIC, $staticField(ColorModel, l16Tos8)},
-	{"s8Tol16", "[S", nullptr, $STATIC, $staticField(ColorModel, s8Tol16)},
-	{"g8Tos8Map", "Ljava/util/Map;", "Ljava/util/Map<Ljava/awt/color/ICC_ColorSpace;[B>;", $STATIC, $staticField(ColorModel, g8Tos8Map)},
-	{"lg16Toog8Map", "Ljava/util/Map;", "Ljava/util/Map<Ljava/awt/color/ICC_ColorSpace;[B>;", $STATIC, $staticField(ColorModel, lg16Toog8Map)},
-	{"g16Tos8Map", "Ljava/util/Map;", "Ljava/util/Map<Ljava/awt/color/ICC_ColorSpace;[B>;", $STATIC, $staticField(ColorModel, g16Tos8Map)},
-	{"lg16Toog16Map", "Ljava/util/Map;", "Ljava/util/Map<Ljava/awt/color/ICC_ColorSpace;[S>;", $STATIC, $staticField(ColorModel, lg16Toog16Map)},
-	{}
-};
-
-$MethodInfo _ColorModel_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(ColorModel, init$, void, int32_t)},
-	{"<init>", "(I[ILjava/awt/color/ColorSpace;ZZII)V", nullptr, $PROTECTED, $method(ColorModel, init$, void, int32_t, $ints*, $ColorSpace*, bool, bool, int32_t, int32_t)},
-	{"coerceData", "(Ljava/awt/image/WritableRaster;Z)Ljava/awt/image/ColorModel;", nullptr, $PUBLIC, $virtualMethod(ColorModel, coerceData, ColorModel*, $WritableRaster*, bool)},
-	{"createCompatibleSampleModel", "(II)Ljava/awt/image/SampleModel;", nullptr, $PUBLIC, $virtualMethod(ColorModel, createCompatibleSampleModel, $SampleModel*, int32_t, int32_t)},
-	{"createCompatibleWritableRaster", "(II)Ljava/awt/image/WritableRaster;", nullptr, $PUBLIC, $virtualMethod(ColorModel, createCompatibleWritableRaster, $WritableRaster*, int32_t, int32_t)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ColorModel, equals, bool, Object$*)},
-	{"finalize", "()V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(ColorModel, finalize, void), nullptr, nullptr, _ColorModel_MethodAnnotations_finalize6},
-	{"getAlpha", "(I)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ColorModel, getAlpha, int32_t, int32_t)},
-	{"getAlpha", "(Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(ColorModel, getAlpha, int32_t, Object$*)},
-	{"getAlphaRaster", "(Ljava/awt/image/WritableRaster;)Ljava/awt/image/WritableRaster;", nullptr, $PUBLIC, $virtualMethod(ColorModel, getAlphaRaster, $WritableRaster*, $WritableRaster*)},
-	{"getBlue", "(I)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ColorModel, getBlue, int32_t, int32_t)},
-	{"getBlue", "(Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(ColorModel, getBlue, int32_t, Object$*)},
-	{"getColorSpace", "()Ljava/awt/color/ColorSpace;", nullptr, $PUBLIC | $FINAL, $method(ColorModel, getColorSpace, $ColorSpace*)},
-	{"getComponentSize", "(I)I", nullptr, $PUBLIC, $virtualMethod(ColorModel, getComponentSize, int32_t, int32_t)},
-	{"getComponentSize", "()[I", nullptr, $PUBLIC, $virtualMethod(ColorModel, getComponentSize, $ints*)},
-	{"getComponents", "(I[II)[I", nullptr, $PUBLIC, $virtualMethod(ColorModel, getComponents, $ints*, int32_t, $ints*, int32_t)},
-	{"getComponents", "(Ljava/lang/Object;[II)[I", nullptr, $PUBLIC, $virtualMethod(ColorModel, getComponents, $ints*, Object$*, $ints*, int32_t)},
-	{"getDataElement", "([II)I", nullptr, $PUBLIC, $virtualMethod(ColorModel, getDataElement, int32_t, $ints*, int32_t)},
-	{"getDataElement", "([FI)I", nullptr, $PUBLIC, $virtualMethod(ColorModel, getDataElement, int32_t, $floats*, int32_t)},
-	{"getDataElements", "(ILjava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ColorModel, getDataElements, $Object*, int32_t, Object$*)},
-	{"getDataElements", "([IILjava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ColorModel, getDataElements, $Object*, $ints*, int32_t, Object$*)},
-	{"getDataElements", "([FILjava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ColorModel, getDataElements, $Object*, $floats*, int32_t, Object$*)},
-	{"getDefaultTransferType", "(I)I", nullptr, $STATIC, $staticMethod(ColorModel, getDefaultTransferType, int32_t, int32_t)},
-	{"getGray16TosRGB8LUT", "(Ljava/awt/color/ICC_ColorSpace;)[B", nullptr, $STATIC, $staticMethod(ColorModel, getGray16TosRGB8LUT, $bytes*, $ICC_ColorSpace*)},
-	{"getGray8TosRGB8LUT", "(Ljava/awt/color/ICC_ColorSpace;)[B", nullptr, $STATIC, $staticMethod(ColorModel, getGray8TosRGB8LUT, $bytes*, $ICC_ColorSpace*)},
-	{"getGreen", "(I)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ColorModel, getGreen, int32_t, int32_t)},
-	{"getGreen", "(Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(ColorModel, getGreen, int32_t, Object$*)},
-	{"getLinearGray16ToOtherGray16LUT", "(Ljava/awt/color/ICC_ColorSpace;)[S", nullptr, $STATIC, $staticMethod(ColorModel, getLinearGray16ToOtherGray16LUT, $shorts*, $ICC_ColorSpace*)},
-	{"getLinearGray16ToOtherGray8LUT", "(Ljava/awt/color/ICC_ColorSpace;)[B", nullptr, $STATIC, $staticMethod(ColorModel, getLinearGray16ToOtherGray8LUT, $bytes*, $ICC_ColorSpace*)},
-	{"getLinearRGB16TosRGB8LUT", "()[B", nullptr, $STATIC, $staticMethod(ColorModel, getLinearRGB16TosRGB8LUT, $bytes*)},
-	{"getLinearRGB8TosRGB8LUT", "()[B", nullptr, $STATIC, $staticMethod(ColorModel, getLinearRGB8TosRGB8LUT, $bytes*)},
-	{"getNormalizedComponents", "([II[FI)[F", nullptr, $PUBLIC, $virtualMethod(ColorModel, getNormalizedComponents, $floats*, $ints*, int32_t, $floats*, int32_t)},
-	{"getNormalizedComponents", "(Ljava/lang/Object;[FI)[F", nullptr, $PUBLIC, $virtualMethod(ColorModel, getNormalizedComponents, $floats*, Object$*, $floats*, int32_t)},
-	{"getNumColorComponents", "()I", nullptr, $PUBLIC, $virtualMethod(ColorModel, getNumColorComponents, int32_t)},
-	{"getNumComponents", "()I", nullptr, $PUBLIC, $virtualMethod(ColorModel, getNumComponents, int32_t)},
-	{"getPixelSize", "()I", nullptr, $PUBLIC, $virtualMethod(ColorModel, getPixelSize, int32_t)},
-	{"getRGB", "(I)I", nullptr, $PUBLIC, $virtualMethod(ColorModel, getRGB, int32_t, int32_t)},
-	{"getRGB", "(Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(ColorModel, getRGB, int32_t, Object$*)},
-	{"getRGBdefault", "()Ljava/awt/image/ColorModel;", nullptr, $PUBLIC | $STATIC, $staticMethod(ColorModel, getRGBdefault, ColorModel*)},
-	{"getRed", "(I)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ColorModel, getRed, int32_t, int32_t)},
-	{"getRed", "(Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(ColorModel, getRed, int32_t, Object$*)},
-	{"getTransferType", "()I", nullptr, $PUBLIC | $FINAL, $method(ColorModel, getTransferType, int32_t)},
-	{"getTransparency", "()I", nullptr, $PUBLIC, $virtualMethod(ColorModel, getTransparency, int32_t)},
-	{"getUnnormalizedComponents", "([FI[II)[I", nullptr, $PUBLIC, $virtualMethod(ColorModel, getUnnormalizedComponents, $ints*, $floats*, int32_t, $ints*, int32_t)},
-	{"getsRGB8ToLinearRGB16LUT", "()[S", nullptr, $STATIC, $staticMethod(ColorModel, getsRGB8ToLinearRGB16LUT, $shorts*)},
-	{"getsRGB8ToLinearRGB8LUT", "()[B", nullptr, $STATIC, $staticMethod(ColorModel, getsRGB8ToLinearRGB8LUT, $bytes*)},
-	{"hasAlpha", "()Z", nullptr, $PUBLIC | $FINAL, $method(ColorModel, hasAlpha, bool)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(ColorModel, hashCode, int32_t)},
-	{"initIDs", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(ColorModel, initIDs, void)},
-	{"isAlphaPremultiplied", "()Z", nullptr, $PUBLIC | $FINAL, $method(ColorModel, isAlphaPremultiplied, bool)},
-	{"isCompatibleRaster", "(Ljava/awt/image/Raster;)Z", nullptr, $PUBLIC, $virtualMethod(ColorModel, isCompatibleRaster, bool, $Raster*)},
-	{"isCompatibleSampleModel", "(Ljava/awt/image/SampleModel;)Z", nullptr, $PUBLIC, $virtualMethod(ColorModel, isCompatibleSampleModel, bool, $SampleModel*)},
-	{"isLinearGRAYspace", "(Ljava/awt/color/ColorSpace;)Z", nullptr, $STATIC, $staticMethod(ColorModel, isLinearGRAYspace, bool, $ColorSpace*)},
-	{"isLinearRGBspace", "(Ljava/awt/color/ColorSpace;)Z", nullptr, $STATIC, $staticMethod(ColorModel, isLinearRGBspace, bool, $ColorSpace*)},
-	{"loadLibraries", "()V", nullptr, $STATIC, $staticMethod(ColorModel, loadLibraries, void)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ColorModel, toString, $String*)},
-	{}
-};
-
-#define _METHOD_INDEX_initIDs 48
-
-$InnerClassInfo _ColorModel_InnerClassesInfo_[] = {
-	{"java.awt.image.ColorModel$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _ColorModel_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"java.awt.image.ColorModel",
-	"java.lang.Object",
-	"java.awt.Transparency",
-	_ColorModel_FieldInfo_,
-	_ColorModel_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ColorModel_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.awt.image.ColorModel$1"
-};
-
-$Object* allocate$ColorModel($Class* clazz) {
-	return $of($alloc(ColorModel));
-}
 
 bool ColorModel::loaded = false;
 ColorModel* ColorModel::RGBdefault = nullptr;
@@ -208,14 +81,14 @@ void ColorModel::loadLibraries() {
 	$init(ColorModel);
 	$beforeCallerSensitive();
 	if (!ColorModel::loaded) {
-		$AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($ColorModel$1)));
+		$AccessController::doPrivileged($$new($ColorModel$1));
 		ColorModel::loaded = true;
 	}
 }
 
 void ColorModel::initIDs() {
 	$init(ColorModel);
-	$prepareNativeStatic(ColorModel, initIDs, void);
+	$prepareNativeStatic(initIDs, void);
 	$invokeNativeStatic();
 	$finishNativeStatic();
 }
@@ -223,7 +96,7 @@ void ColorModel::initIDs() {
 ColorModel* ColorModel::getRGBdefault() {
 	$init(ColorModel);
 	if (ColorModel::RGBdefault == nullptr) {
-		$assignStatic(ColorModel::RGBdefault, $new($DirectColorModel, 32, 0x00FF0000, 0x0000FF00, 255, (int32_t)0xFF000000));
+		$assignStatic(ColorModel::RGBdefault, $new($DirectColorModel, 32, 0x00ff0000, 0x0000ff00, 255, (int32_t)0xff000000));
 	}
 	return ColorModel::RGBdefault;
 }
@@ -248,7 +121,7 @@ void ColorModel::init$(int32_t bits) {
 }
 
 void ColorModel::init$(int32_t pixel_bits, $ints* bits, $ColorSpace* cspace, bool hasAlpha, bool isAlphaPremultiplied, int32_t transparency, int32_t transferType) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->transparency = $Transparency::TRANSLUCENT;
 	this->supportsAlpha = true;
 	this->isAlphaPremultiplied$ = false;
@@ -281,7 +154,7 @@ void ColorModel::init$(int32_t pixel_bits, $ints* bits, $ColorSpace* cspace, boo
 		$throwNew($IllegalArgumentException, "Number of pixel bits must be > 0"_s);
 	}
 	this->maxBits = 0;
-	for (int32_t i = 0; i < $nc(bits)->length; ++i) {
+	for (int32_t i = 0; i < bits->length; ++i) {
 		if (bits->get(i) < 0) {
 			$throwNew($IllegalArgumentException, "Number of bits must be >= 0"_s);
 		}
@@ -323,7 +196,7 @@ int32_t ColorModel::getComponentSize(int32_t componentIdx) {
 
 $ints* ColorModel::getComponentSize() {
 	if (this->nBits != nullptr) {
-		return $cast($ints, $nc(this->nBits)->clone());
+		return $cast($ints, this->nBits->clone());
 	}
 	return nullptr;
 }
@@ -341,46 +214,38 @@ int32_t ColorModel::getNumColorComponents() {
 }
 
 int32_t ColorModel::getRGB(int32_t pixel) {
-	int32_t var$2 = (getAlpha(pixel) << 24);
+	int32_t var$2 = getAlpha(pixel) << 24;
 	int32_t var$1 = var$2 | (getRed(pixel) << 16);
 	int32_t var$0 = var$1 | (getGreen(pixel) << 8);
 	return var$0 | (getBlue(pixel) << 0);
 }
 
 int32_t ColorModel::getRed(Object$* inData) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t pixel = 0;
 	int32_t length = 0;
 	{
-		$var($bytes, bdata, nullptr)
-		$var($shorts, sdata, nullptr)
-		$var($ints, idata, nullptr)
+		$var($bytes, bdata, nullptr);
+		$var($shorts, sdata, nullptr);
+		$var($ints, idata, nullptr);
 		switch (this->transferType) {
 		case $DataBuffer::TYPE_BYTE:
-			{
-				$assign(bdata, $cast($bytes, inData));
-				pixel = (int32_t)($nc(bdata)->get(0) & (uint32_t)255);
-				length = $nc(bdata)->length;
-				break;
-			}
+			$assign(bdata, $cast($bytes, inData));
+			pixel = $nc(bdata)->get(0) & 0xff;
+			length = bdata->length;
+			break;
 		case $DataBuffer::TYPE_USHORT:
-			{
-				$assign(sdata, $cast($shorts, inData));
-				pixel = (int32_t)($nc(sdata)->get(0) & (uint32_t)0x0000FFFF);
-				length = $nc(sdata)->length;
-				break;
-			}
+			$assign(sdata, $cast($shorts, inData));
+			pixel = $nc(sdata)->get(0) & 0xffff;
+			length = sdata->length;
+			break;
 		case $DataBuffer::TYPE_INT:
-			{
-				$assign(idata, $cast($ints, inData));
-				pixel = $nc(idata)->get(0);
-				length = $nc(idata)->length;
-				break;
-			}
+			$assign(idata, $cast($ints, inData));
+			pixel = $nc(idata)->get(0);
+			length = idata->length;
+			break;
 		default:
-			{
-				$throwNew($UnsupportedOperationException, $$str({"This method has not been implemented for transferType "_s, $$str(this->transferType)}));
-			}
+			$throwNew($UnsupportedOperationException, $$str({"This method has not been implemented for transferType "_s, $$str(this->transferType)}));
 		}
 	}
 	if (length == 1) {
@@ -391,39 +256,31 @@ int32_t ColorModel::getRed(Object$* inData) {
 }
 
 int32_t ColorModel::getGreen(Object$* inData) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t pixel = 0;
 	int32_t length = 0;
 	{
-		$var($bytes, bdata, nullptr)
-		$var($shorts, sdata, nullptr)
-		$var($ints, idata, nullptr)
+		$var($bytes, bdata, nullptr);
+		$var($shorts, sdata, nullptr);
+		$var($ints, idata, nullptr);
 		switch (this->transferType) {
 		case $DataBuffer::TYPE_BYTE:
-			{
-				$assign(bdata, $cast($bytes, inData));
-				pixel = (int32_t)($nc(bdata)->get(0) & (uint32_t)255);
-				length = $nc(bdata)->length;
-				break;
-			}
+			$assign(bdata, $cast($bytes, inData));
+			pixel = $nc(bdata)->get(0) & 0xff;
+			length = bdata->length;
+			break;
 		case $DataBuffer::TYPE_USHORT:
-			{
-				$assign(sdata, $cast($shorts, inData));
-				pixel = (int32_t)($nc(sdata)->get(0) & (uint32_t)0x0000FFFF);
-				length = $nc(sdata)->length;
-				break;
-			}
+			$assign(sdata, $cast($shorts, inData));
+			pixel = $nc(sdata)->get(0) & 0xffff;
+			length = sdata->length;
+			break;
 		case $DataBuffer::TYPE_INT:
-			{
-				$assign(idata, $cast($ints, inData));
-				pixel = $nc(idata)->get(0);
-				length = $nc(idata)->length;
-				break;
-			}
+			$assign(idata, $cast($ints, inData));
+			pixel = $nc(idata)->get(0);
+			length = idata->length;
+			break;
 		default:
-			{
-				$throwNew($UnsupportedOperationException, $$str({"This method has not been implemented for transferType "_s, $$str(this->transferType)}));
-			}
+			$throwNew($UnsupportedOperationException, $$str({"This method has not been implemented for transferType "_s, $$str(this->transferType)}));
 		}
 	}
 	if (length == 1) {
@@ -434,39 +291,31 @@ int32_t ColorModel::getGreen(Object$* inData) {
 }
 
 int32_t ColorModel::getBlue(Object$* inData) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t pixel = 0;
 	int32_t length = 0;
 	{
-		$var($bytes, bdata, nullptr)
-		$var($shorts, sdata, nullptr)
-		$var($ints, idata, nullptr)
+		$var($bytes, bdata, nullptr);
+		$var($shorts, sdata, nullptr);
+		$var($ints, idata, nullptr);
 		switch (this->transferType) {
 		case $DataBuffer::TYPE_BYTE:
-			{
-				$assign(bdata, $cast($bytes, inData));
-				pixel = (int32_t)($nc(bdata)->get(0) & (uint32_t)255);
-				length = $nc(bdata)->length;
-				break;
-			}
+			$assign(bdata, $cast($bytes, inData));
+			pixel = $nc(bdata)->get(0) & 0xff;
+			length = bdata->length;
+			break;
 		case $DataBuffer::TYPE_USHORT:
-			{
-				$assign(sdata, $cast($shorts, inData));
-				pixel = (int32_t)($nc(sdata)->get(0) & (uint32_t)0x0000FFFF);
-				length = $nc(sdata)->length;
-				break;
-			}
+			$assign(sdata, $cast($shorts, inData));
+			pixel = $nc(sdata)->get(0) & 0xffff;
+			length = sdata->length;
+			break;
 		case $DataBuffer::TYPE_INT:
-			{
-				$assign(idata, $cast($ints, inData));
-				pixel = $nc(idata)->get(0);
-				length = $nc(idata)->length;
-				break;
-			}
+			$assign(idata, $cast($ints, inData));
+			pixel = $nc(idata)->get(0);
+			length = idata->length;
+			break;
 		default:
-			{
-				$throwNew($UnsupportedOperationException, $$str({"This method has not been implemented for transferType "_s, $$str(this->transferType)}));
-			}
+			$throwNew($UnsupportedOperationException, $$str({"This method has not been implemented for transferType "_s, $$str(this->transferType)}));
 		}
 	}
 	if (length == 1) {
@@ -477,39 +326,31 @@ int32_t ColorModel::getBlue(Object$* inData) {
 }
 
 int32_t ColorModel::getAlpha(Object$* inData) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t pixel = 0;
 	int32_t length = 0;
 	{
-		$var($bytes, bdata, nullptr)
-		$var($shorts, sdata, nullptr)
-		$var($ints, idata, nullptr)
+		$var($bytes, bdata, nullptr);
+		$var($shorts, sdata, nullptr);
+		$var($ints, idata, nullptr);
 		switch (this->transferType) {
 		case $DataBuffer::TYPE_BYTE:
-			{
-				$assign(bdata, $cast($bytes, inData));
-				pixel = (int32_t)($nc(bdata)->get(0) & (uint32_t)255);
-				length = $nc(bdata)->length;
-				break;
-			}
+			$assign(bdata, $cast($bytes, inData));
+			pixel = $nc(bdata)->get(0) & 0xff;
+			length = bdata->length;
+			break;
 		case $DataBuffer::TYPE_USHORT:
-			{
-				$assign(sdata, $cast($shorts, inData));
-				pixel = (int32_t)($nc(sdata)->get(0) & (uint32_t)0x0000FFFF);
-				length = $nc(sdata)->length;
-				break;
-			}
+			$assign(sdata, $cast($shorts, inData));
+			pixel = $nc(sdata)->get(0) & 0xffff;
+			length = sdata->length;
+			break;
 		case $DataBuffer::TYPE_INT:
-			{
-				$assign(idata, $cast($ints, inData));
-				pixel = $nc(idata)->get(0);
-				length = $nc(idata)->length;
-				break;
-			}
+			$assign(idata, $cast($ints, inData));
+			pixel = $nc(idata)->get(0);
+			length = idata->length;
+			break;
 		default:
-			{
-				$throwNew($UnsupportedOperationException, $$str({"This method has not been implemented for transferType "_s, $$str(this->transferType)}));
-			}
+			$throwNew($UnsupportedOperationException, $$str({"This method has not been implemented for transferType "_s, $$str(this->transferType)}));
 		}
 	}
 	if (length == 1) {
@@ -520,7 +361,7 @@ int32_t ColorModel::getAlpha(Object$* inData) {
 }
 
 int32_t ColorModel::getRGB(Object$* inData) {
-	int32_t var$2 = (getAlpha(inData) << 24);
+	int32_t var$2 = getAlpha(inData) << 24;
 	int32_t var$1 = var$2 | (getRed(inData) << 16);
 	int32_t var$0 = var$1 | (getGreen(inData) << 8);
 	return var$0 | (getBlue(inData) << 0);
@@ -542,7 +383,7 @@ $ints* ColorModel::getComponents(Object$* pixel, $ints* components, int32_t offs
 }
 
 $ints* ColorModel::getUnnormalizedComponents($floats* normComponents, int32_t normOffset, $ints* components$renamed, int32_t offset) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ints, components, components$renamed);
 	if (this->colorSpace == nullptr) {
 		$throwNew($UnsupportedOperationException, "This method is not supported by this color model."_s);
@@ -557,21 +398,21 @@ $ints* ColorModel::getUnnormalizedComponents($floats* normComponents, int32_t no
 		$assign(components, $new($ints, offset + this->numComponents));
 	}
 	if (this->supportsAlpha && this->isAlphaPremultiplied$) {
-		float normAlpha = $nc(normComponents)->get(normOffset + this->numColorComponents);
+		float normAlpha = normComponents->get(normOffset + this->numColorComponents);
 		for (int32_t i = 0; i < this->numColorComponents; ++i) {
 			$nc(components)->set(offset + i, $cast(int32_t, (normComponents->get(normOffset + i) * (($sl(1, $nc(this->nBits)->get(i))) - 1) * normAlpha + 0.5f)));
 		}
 		$nc(components)->set(offset + this->numColorComponents, $cast(int32_t, (normAlpha * (($sl(1, $nc(this->nBits)->get(this->numColorComponents))) - 1) + 0.5f)));
 	} else {
 		for (int32_t i = 0; i < this->numComponents; ++i) {
-			$nc(components)->set(offset + i, $cast(int32_t, ($nc(normComponents)->get(normOffset + i) * (($sl(1, $nc(this->nBits)->get(i))) - 1) + 0.5f)));
+			$nc(components)->set(offset + i, $cast(int32_t, (normComponents->get(normOffset + i) * (($sl(1, $nc(this->nBits)->get(i))) - 1) + 0.5f)));
 		}
 	}
 	return components;
 }
 
 $floats* ColorModel::getNormalizedComponents($ints* components, int32_t offset, $floats* normComponents$renamed, int32_t normOffset) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($floats, normComponents, normComponents$renamed);
 	if (this->colorSpace == nullptr) {
 		$throwNew($UnsupportedOperationException, "This method is not supported by this color model."_s);
@@ -586,11 +427,11 @@ $floats* ColorModel::getNormalizedComponents($ints* components, int32_t offset, 
 		$assign(normComponents, $new($floats, this->numComponents + normOffset));
 	}
 	if (this->supportsAlpha && this->isAlphaPremultiplied$) {
-		float normAlpha = (float)$nc(components)->get(offset + this->numColorComponents);
+		float normAlpha = (float)components->get(offset + this->numColorComponents);
 		normAlpha /= (float)(($sl(1, $nc(this->nBits)->get(this->numColorComponents))) - 1);
 		if (normAlpha != 0.0f) {
 			for (int32_t i = 0; i < this->numColorComponents; ++i) {
-				$nc(normComponents)->set(normOffset + i, ((float)components->get(offset + i)) / (normAlpha * ((float)(($sl(1, $nc(this->nBits)->get(i))) - 1))));
+				$nc(normComponents)->set(normOffset + i, ((float)components->get(offset + i)) / (normAlpha * ((float)(($sl(1, this->nBits->get(i))) - 1))));
 			}
 		} else {
 			for (int32_t i = 0; i < this->numColorComponents; ++i) {
@@ -600,7 +441,7 @@ $floats* ColorModel::getNormalizedComponents($ints* components, int32_t offset, 
 		$nc(normComponents)->set(normOffset + this->numColorComponents, normAlpha);
 	} else {
 		for (int32_t i = 0; i < this->numComponents; ++i) {
-			$nc(normComponents)->set(normOffset + i, ((float)$nc(components)->get(offset + i)) / ((float)(($sl(1, $nc(this->nBits)->get(i))) - 1)));
+			$nc(normComponents)->set(normOffset + i, ((float)components->get(offset + i)) / ((float)(($sl(1, $nc(this->nBits)->get(i))) - 1)));
 		}
 	}
 	return normComponents;
@@ -623,11 +464,11 @@ int32_t ColorModel::getDataElement($floats* normComponents, int32_t normOffset) 
 
 $Object* ColorModel::getDataElements($floats* normComponents, int32_t normOffset, Object$* obj) {
 	$var($ints, components, getUnnormalizedComponents(normComponents, normOffset, nullptr, 0));
-	return $of(getDataElements(components, 0, obj));
+	return getDataElements(components, 0, obj);
 }
 
 $floats* ColorModel::getNormalizedComponents(Object$* pixel, $floats* normComponents, int32_t normOffset) {
-	$var($ints, components, getComponents(pixel, ($ints*)nullptr, 0));
+	$var($ints, components, getComponents(pixel, nullptr, 0));
 	return getNormalizedComponents(components, 0, normComponents, normOffset);
 }
 
@@ -676,7 +517,7 @@ $WritableRaster* ColorModel::getAlphaRaster($WritableRaster* raster) {
 }
 
 $String* ColorModel::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $new($String, $$str({"ColorModel: #pixelBits = "_s, $$str(this->pixel_bits), " numComponents = "_s, $$str(this->numComponents), " color space = "_s, this->colorSpace, " transparency = "_s, $$str(this->transparency), " has alpha = "_s, $$str(this->supportsAlpha), " isAlphaPre = "_s, $$str(this->isAlphaPremultiplied$)}));
 }
 
@@ -716,7 +557,7 @@ $bytes* ColorModel::getLinearRGB8TosRGB8LUT() {
 			} else {
 				output = 1.055f * ((float)$Math::pow(input, (1.0 / 2.4))) - 0.055f;
 			}
-			$nc(ColorModel::l8Tos8)->set(i, (int8_t)$Math::round(output * 255.0f));
+			ColorModel::l8Tos8->set(i, (int8_t)$Math::round(output * 255.0f));
 		}
 	}
 	return ColorModel::l8Tos8;
@@ -735,7 +576,7 @@ $bytes* ColorModel::getsRGB8ToLinearRGB8LUT() {
 			} else {
 				output = (float)$Math::pow((input + 0.055f) / 1.055f, 2.4);
 			}
-			$nc(ColorModel::s8Tol8)->set(i, (int8_t)$Math::round(output * 255.0f));
+			ColorModel::s8Tol8->set(i, (int8_t)$Math::round(output * 255.0f));
 		}
 	}
 	return ColorModel::s8Tol8;
@@ -747,14 +588,14 @@ $bytes* ColorModel::getLinearRGB16TosRGB8LUT() {
 		$assignStatic(ColorModel::l16Tos8, $new($bytes, 0x00010000));
 		float input = 0.0;
 		float output = 0.0;
-		for (int32_t i = 0; i <= 0x0000FFFF; ++i) {
+		for (int32_t i = 0; i <= 0x0000ffff; ++i) {
 			input = ((float)i) / 65535.0f;
 			if (input <= 0.0031308f) {
 				output = input * 12.92f;
 			} else {
 				output = 1.055f * ((float)$Math::pow(input, (1.0 / 2.4))) - 0.055f;
 			}
-			$nc(ColorModel::l16Tos8)->set(i, (int8_t)$Math::round(output * 255.0f));
+			ColorModel::l16Tos8->set(i, (int8_t)$Math::round(output * 255.0f));
 		}
 	}
 	return ColorModel::l16Tos8;
@@ -773,7 +614,7 @@ $shorts* ColorModel::getsRGB8ToLinearRGB16LUT() {
 			} else {
 				output = (float)$Math::pow((input + 0.055f) / 1.055f, 2.4);
 			}
-			$nc(ColorModel::s8Tol16)->set(i, (int16_t)$Math::round(output * 65535.0f));
+			ColorModel::s8Tol16->set(i, (int16_t)$Math::round(output * 65535.0f));
 		}
 	}
 	return ColorModel::s8Tol16;
@@ -781,12 +622,12 @@ $shorts* ColorModel::getsRGB8ToLinearRGB16LUT() {
 
 $bytes* ColorModel::getGray8TosRGB8LUT($ICC_ColorSpace* grayCS) {
 	$init(ColorModel);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (isLinearGRAYspace(grayCS)) {
 		return getLinearRGB8TosRGB8LUT();
 	}
 	if (ColorModel::g8Tos8Map != nullptr) {
-		$var($bytes, g8Tos8LUT, $cast($bytes, $nc(ColorModel::g8Tos8Map)->get(grayCS)));
+		$var($bytes, g8Tos8LUT, $cast($bytes, ColorModel::g8Tos8Map->get(grayCS)));
 		if (g8Tos8LUT != nullptr) {
 			return g8Tos8LUT;
 		}
@@ -801,13 +642,9 @@ $bytes* ColorModel::getGray8TosRGB8LUT($ICC_ColorSpace* grayCS) {
 	transformList->set(0, $($nc(mdl)->createTransform($($nc(grayCS)->getProfile()), $ColorTransform::Any, $ColorTransform::In)));
 	transformList->set(1, $(mdl->createTransform($($nc(srgbCS)->getProfile()), $ColorTransform::Any, $ColorTransform::Out)));
 	$var($ColorTransform, t, mdl->createTransform(transformList));
-	$var($bytes, tmp, $nc(t)->colorConvert(g8Tos8LUT, ($bytes*)nullptr));
-	{
-		int32_t i = 0;
-		int32_t j = 2;
-		for (; i <= 255; ++i, j += 3) {
-			g8Tos8LUT->set(i, $nc(tmp)->get(j));
-		}
+	$var($bytes, tmp, $nc(t)->colorConvert(g8Tos8LUT, nullptr));
+	for (int32_t i = 0, j = 2; i <= 255; ++i, j += 3) {
+		g8Tos8LUT->set(i, $nc(tmp)->get(j));
 	}
 	if (ColorModel::g8Tos8Map == nullptr) {
 		$assignStatic(ColorModel::g8Tos8Map, $Collections::synchronizedMap($$new($WeakHashMap, 2)));
@@ -818,15 +655,15 @@ $bytes* ColorModel::getGray8TosRGB8LUT($ICC_ColorSpace* grayCS) {
 
 $bytes* ColorModel::getLinearGray16ToOtherGray8LUT($ICC_ColorSpace* grayCS) {
 	$init(ColorModel);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (ColorModel::lg16Toog8Map != nullptr) {
-		$var($bytes, lg16Toog8LUT, $cast($bytes, $nc(ColorModel::lg16Toog8Map)->get(grayCS)));
+		$var($bytes, lg16Toog8LUT, $cast($bytes, ColorModel::lg16Toog8Map->get(grayCS)));
 		if (lg16Toog8LUT != nullptr) {
 			return lg16Toog8LUT;
 		}
 	}
 	$var($shorts, tmp, $new($shorts, 0x00010000));
-	for (int32_t i = 0; i <= 0x0000FFFF; ++i) {
+	for (int32_t i = 0; i <= 0x0000ffff; ++i) {
 		tmp->set(i, (int16_t)i);
 	}
 	$var($ColorTransformArray, transformList, $new($ColorTransformArray, 2));
@@ -835,10 +672,10 @@ $bytes* ColorModel::getLinearGray16ToOtherGray8LUT($ICC_ColorSpace* grayCS) {
 	transformList->set(0, $($nc(mdl)->createTransform($($nc(lgCS)->getProfile()), $ColorTransform::Any, $ColorTransform::In)));
 	transformList->set(1, $(mdl->createTransform($($nc(grayCS)->getProfile()), $ColorTransform::Any, $ColorTransform::Out)));
 	$var($ColorTransform, t, mdl->createTransform(transformList));
-	$assign(tmp, $nc(t)->colorConvert(tmp, ($shorts*)nullptr));
+	$assign(tmp, $nc(t)->colorConvert(tmp, nullptr));
 	$var($bytes, lg16Toog8LUT, $new($bytes, 0x00010000));
-	for (int32_t i = 0; i <= 0x0000FFFF; ++i) {
-		lg16Toog8LUT->set(i, $cast(int8_t, (((float)((int32_t)($nc(tmp)->get(i) & (uint32_t)0x0000FFFF))) * (1.0f / 257.0f) + 0.5f)));
+	for (int32_t i = 0; i <= 0x0000ffff; ++i) {
+		lg16Toog8LUT->set(i, $cast(int8_t, (((float)($nc(tmp)->get(i) & 0xffff)) * (1.0f / 257.0f) + 0.5f)));
 	}
 	if (ColorModel::lg16Toog8Map == nullptr) {
 		$assignStatic(ColorModel::lg16Toog8Map, $Collections::synchronizedMap($$new($WeakHashMap, 2)));
@@ -849,18 +686,18 @@ $bytes* ColorModel::getLinearGray16ToOtherGray8LUT($ICC_ColorSpace* grayCS) {
 
 $bytes* ColorModel::getGray16TosRGB8LUT($ICC_ColorSpace* grayCS) {
 	$init(ColorModel);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (isLinearGRAYspace(grayCS)) {
 		return getLinearRGB16TosRGB8LUT();
 	}
 	if (ColorModel::g16Tos8Map != nullptr) {
-		$var($bytes, g16Tos8LUT, $cast($bytes, $nc(ColorModel::g16Tos8Map)->get(grayCS)));
+		$var($bytes, g16Tos8LUT, $cast($bytes, ColorModel::g16Tos8Map->get(grayCS)));
 		if (g16Tos8LUT != nullptr) {
 			return g16Tos8LUT;
 		}
 	}
 	$var($shorts, tmp, $new($shorts, 0x00010000));
-	for (int32_t i = 0; i <= 0x0000FFFF; ++i) {
+	for (int32_t i = 0; i <= 0x0000ffff; ++i) {
 		tmp->set(i, (int16_t)i);
 	}
 	$var($ColorTransformArray, transformList, $new($ColorTransformArray, 2));
@@ -869,14 +706,10 @@ $bytes* ColorModel::getGray16TosRGB8LUT($ICC_ColorSpace* grayCS) {
 	transformList->set(0, $($nc(mdl)->createTransform($($nc(grayCS)->getProfile()), $ColorTransform::Any, $ColorTransform::In)));
 	transformList->set(1, $(mdl->createTransform($($nc(srgbCS)->getProfile()), $ColorTransform::Any, $ColorTransform::Out)));
 	$var($ColorTransform, t, mdl->createTransform(transformList));
-	$assign(tmp, $nc(t)->colorConvert(tmp, ($shorts*)nullptr));
+	$assign(tmp, $nc(t)->colorConvert(tmp, nullptr));
 	$var($bytes, g16Tos8LUT, $new($bytes, 0x00010000));
-	{
-		int32_t i = 0;
-		int32_t j = 2;
-		for (; i <= 0x0000FFFF; ++i, j += 3) {
-			g16Tos8LUT->set(i, $cast(int8_t, (((float)((int32_t)($nc(tmp)->get(j) & (uint32_t)0x0000FFFF))) * (1.0f / 257.0f) + 0.5f)));
-		}
+	for (int32_t i = 0, j = 2; i <= 0x0000ffff; ++i, j += 3) {
+		g16Tos8LUT->set(i, $cast(int8_t, (((float)($nc(tmp)->get(j) & 0xffff)) * (1.0f / 257.0f) + 0.5f)));
 	}
 	if (ColorModel::g16Tos8Map == nullptr) {
 		$assignStatic(ColorModel::g16Tos8Map, $Collections::synchronizedMap($$new($WeakHashMap, 2)));
@@ -887,15 +720,15 @@ $bytes* ColorModel::getGray16TosRGB8LUT($ICC_ColorSpace* grayCS) {
 
 $shorts* ColorModel::getLinearGray16ToOtherGray16LUT($ICC_ColorSpace* grayCS) {
 	$init(ColorModel);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (ColorModel::lg16Toog16Map != nullptr) {
-		$var($shorts, lg16Toog16LUT, $cast($shorts, $nc(ColorModel::lg16Toog16Map)->get(grayCS)));
+		$var($shorts, lg16Toog16LUT, $cast($shorts, ColorModel::lg16Toog16Map->get(grayCS)));
 		if (lg16Toog16LUT != nullptr) {
 			return lg16Toog16LUT;
 		}
 	}
 	$var($shorts, tmp, $new($shorts, 0x00010000));
-	for (int32_t i = 0; i <= 0x0000FFFF; ++i) {
+	for (int32_t i = 0; i <= 0x0000ffff; ++i) {
 		tmp->set(i, (int16_t)i);
 	}
 	$var($ColorTransformArray, transformList, $new($ColorTransformArray, 2));
@@ -904,7 +737,7 @@ $shorts* ColorModel::getLinearGray16ToOtherGray16LUT($ICC_ColorSpace* grayCS) {
 	transformList->set(0, $($nc(mdl)->createTransform($($nc(lgCS)->getProfile()), $ColorTransform::Any, $ColorTransform::In)));
 	transformList->set(1, $(mdl->createTransform($($nc(grayCS)->getProfile()), $ColorTransform::Any, $ColorTransform::Out)));
 	$var($ColorTransform, t, mdl->createTransform(transformList));
-	$var($shorts, lg16Toog16LUT, $nc(t)->colorConvert(tmp, ($shorts*)nullptr));
+	$var($shorts, lg16Toog16LUT, $nc(t)->colorConvert(tmp, nullptr));
 	if (ColorModel::lg16Toog16Map == nullptr) {
 		$assignStatic(ColorModel::lg16Toog16Map, $Collections::synchronizedMap($$new($WeakHashMap, 2)));
 	}
@@ -912,7 +745,7 @@ $shorts* ColorModel::getLinearGray16ToOtherGray16LUT($ICC_ColorSpace* grayCS) {
 	return lg16Toog16LUT;
 }
 
-void clinit$ColorModel($Class* class$) {
+void ColorModel::clinit$($Class* clazz) {
 	ColorModel::loaded = false;
 	{
 		ColorModel::loadLibraries();
@@ -932,7 +765,121 @@ ColorModel::ColorModel() {
 }
 
 $Class* ColorModel::load$($String* name, bool initialize) {
-	$loadClass(ColorModel, name, initialize, &_ColorModel_ClassInfo_, clinit$ColorModel, allocate$ColorModel);
+	$FieldInfo fieldInfos$$[] = {
+		{"pData", "J", nullptr, $PRIVATE, $field(ColorModel, pData)},
+		{"pixel_bits", "I", nullptr, $PROTECTED, $field(ColorModel, pixel_bits)},
+		{"nBits", "[I", nullptr, 0, $field(ColorModel, nBits)},
+		{"transparency", "I", nullptr, 0, $field(ColorModel, transparency)},
+		{"supportsAlpha", "Z", nullptr, 0, $field(ColorModel, supportsAlpha)},
+		{"isAlphaPremultiplied", "Z", nullptr, 0, $field(ColorModel, isAlphaPremultiplied$)},
+		{"numComponents", "I", nullptr, 0, $field(ColorModel, numComponents)},
+		{"numColorComponents", "I", nullptr, 0, $field(ColorModel, numColorComponents)},
+		{"colorSpace", "Ljava/awt/color/ColorSpace;", nullptr, 0, $field(ColorModel, colorSpace)},
+		{"colorSpaceType", "I", nullptr, 0, $field(ColorModel, colorSpaceType)},
+		{"maxBits", "I", nullptr, 0, $field(ColorModel, maxBits)},
+		{"is_sRGB", "Z", nullptr, 0, $field(ColorModel, is_sRGB)},
+		{"transferType", "I", nullptr, $PROTECTED, $field(ColorModel, transferType)},
+		{"loaded", "Z", nullptr, $PRIVATE | $STATIC, $staticField(ColorModel, loaded)},
+		{"RGBdefault", "Ljava/awt/image/ColorModel;", nullptr, $PRIVATE | $STATIC, $staticField(ColorModel, RGBdefault)},
+		{"l8Tos8", "[B", nullptr, $STATIC, $staticField(ColorModel, l8Tos8)},
+		{"s8Tol8", "[B", nullptr, $STATIC, $staticField(ColorModel, s8Tol8)},
+		{"l16Tos8", "[B", nullptr, $STATIC, $staticField(ColorModel, l16Tos8)},
+		{"s8Tol16", "[S", nullptr, $STATIC, $staticField(ColorModel, s8Tol16)},
+		{"g8Tos8Map", "Ljava/util/Map;", "Ljava/util/Map<Ljava/awt/color/ICC_ColorSpace;[B>;", $STATIC, $staticField(ColorModel, g8Tos8Map)},
+		{"lg16Toog8Map", "Ljava/util/Map;", "Ljava/util/Map<Ljava/awt/color/ICC_ColorSpace;[B>;", $STATIC, $staticField(ColorModel, lg16Toog8Map)},
+		{"g16Tos8Map", "Ljava/util/Map;", "Ljava/util/Map<Ljava/awt/color/ICC_ColorSpace;[B>;", $STATIC, $staticField(ColorModel, g16Tos8Map)},
+		{"lg16Toog16Map", "Ljava/util/Map;", "Ljava/util/Map<Ljava/awt/color/ICC_ColorSpace;[S>;", $STATIC, $staticField(ColorModel, lg16Toog16Map)},
+		{}
+	};
+	$NamedAttribute finalizemethodAnnotations$$$namedAttribute[] = {
+		{"since", 's', "9"},
+		{"forRemoval", 'Z', "true"},
+		{}
+	};
+	$CompoundAttribute finalizemethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", finalizemethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(ColorModel, init$, void, int32_t)},
+		{"<init>", "(I[ILjava/awt/color/ColorSpace;ZZII)V", nullptr, $PROTECTED, $method(ColorModel, init$, void, int32_t, $ints*, $ColorSpace*, bool, bool, int32_t, int32_t)},
+		{"coerceData", "(Ljava/awt/image/WritableRaster;Z)Ljava/awt/image/ColorModel;", nullptr, $PUBLIC, $virtualMethod(ColorModel, coerceData, ColorModel*, $WritableRaster*, bool)},
+		{"createCompatibleSampleModel", "(II)Ljava/awt/image/SampleModel;", nullptr, $PUBLIC, $virtualMethod(ColorModel, createCompatibleSampleModel, $SampleModel*, int32_t, int32_t)},
+		{"createCompatibleWritableRaster", "(II)Ljava/awt/image/WritableRaster;", nullptr, $PUBLIC, $virtualMethod(ColorModel, createCompatibleWritableRaster, $WritableRaster*, int32_t, int32_t)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ColorModel, equals, bool, Object$*)},
+		{"finalize", "()V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(ColorModel, finalize, void), nullptr, nullptr, finalizemethodAnnotations$$},
+		{"getAlpha", "(I)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ColorModel, getAlpha, int32_t, int32_t)},
+		{"getAlpha", "(Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(ColorModel, getAlpha, int32_t, Object$*)},
+		{"getAlphaRaster", "(Ljava/awt/image/WritableRaster;)Ljava/awt/image/WritableRaster;", nullptr, $PUBLIC, $virtualMethod(ColorModel, getAlphaRaster, $WritableRaster*, $WritableRaster*)},
+		{"getBlue", "(I)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ColorModel, getBlue, int32_t, int32_t)},
+		{"getBlue", "(Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(ColorModel, getBlue, int32_t, Object$*)},
+		{"getColorSpace", "()Ljava/awt/color/ColorSpace;", nullptr, $PUBLIC | $FINAL, $method(ColorModel, getColorSpace, $ColorSpace*)},
+		{"getComponentSize", "(I)I", nullptr, $PUBLIC, $virtualMethod(ColorModel, getComponentSize, int32_t, int32_t)},
+		{"getComponentSize", "()[I", nullptr, $PUBLIC, $virtualMethod(ColorModel, getComponentSize, $ints*)},
+		{"getComponents", "(I[II)[I", nullptr, $PUBLIC, $virtualMethod(ColorModel, getComponents, $ints*, int32_t, $ints*, int32_t)},
+		{"getComponents", "(Ljava/lang/Object;[II)[I", nullptr, $PUBLIC, $virtualMethod(ColorModel, getComponents, $ints*, Object$*, $ints*, int32_t)},
+		{"getDataElement", "([II)I", nullptr, $PUBLIC, $virtualMethod(ColorModel, getDataElement, int32_t, $ints*, int32_t)},
+		{"getDataElement", "([FI)I", nullptr, $PUBLIC, $virtualMethod(ColorModel, getDataElement, int32_t, $floats*, int32_t)},
+		{"getDataElements", "(ILjava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ColorModel, getDataElements, $Object*, int32_t, Object$*)},
+		{"getDataElements", "([IILjava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ColorModel, getDataElements, $Object*, $ints*, int32_t, Object$*)},
+		{"getDataElements", "([FILjava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ColorModel, getDataElements, $Object*, $floats*, int32_t, Object$*)},
+		{"getDefaultTransferType", "(I)I", nullptr, $STATIC, $staticMethod(ColorModel, getDefaultTransferType, int32_t, int32_t)},
+		{"getGray16TosRGB8LUT", "(Ljava/awt/color/ICC_ColorSpace;)[B", nullptr, $STATIC, $staticMethod(ColorModel, getGray16TosRGB8LUT, $bytes*, $ICC_ColorSpace*)},
+		{"getGray8TosRGB8LUT", "(Ljava/awt/color/ICC_ColorSpace;)[B", nullptr, $STATIC, $staticMethod(ColorModel, getGray8TosRGB8LUT, $bytes*, $ICC_ColorSpace*)},
+		{"getGreen", "(I)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ColorModel, getGreen, int32_t, int32_t)},
+		{"getGreen", "(Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(ColorModel, getGreen, int32_t, Object$*)},
+		{"getLinearGray16ToOtherGray16LUT", "(Ljava/awt/color/ICC_ColorSpace;)[S", nullptr, $STATIC, $staticMethod(ColorModel, getLinearGray16ToOtherGray16LUT, $shorts*, $ICC_ColorSpace*)},
+		{"getLinearGray16ToOtherGray8LUT", "(Ljava/awt/color/ICC_ColorSpace;)[B", nullptr, $STATIC, $staticMethod(ColorModel, getLinearGray16ToOtherGray8LUT, $bytes*, $ICC_ColorSpace*)},
+		{"getLinearRGB16TosRGB8LUT", "()[B", nullptr, $STATIC, $staticMethod(ColorModel, getLinearRGB16TosRGB8LUT, $bytes*)},
+		{"getLinearRGB8TosRGB8LUT", "()[B", nullptr, $STATIC, $staticMethod(ColorModel, getLinearRGB8TosRGB8LUT, $bytes*)},
+		{"getNormalizedComponents", "([II[FI)[F", nullptr, $PUBLIC, $virtualMethod(ColorModel, getNormalizedComponents, $floats*, $ints*, int32_t, $floats*, int32_t)},
+		{"getNormalizedComponents", "(Ljava/lang/Object;[FI)[F", nullptr, $PUBLIC, $virtualMethod(ColorModel, getNormalizedComponents, $floats*, Object$*, $floats*, int32_t)},
+		{"getNumColorComponents", "()I", nullptr, $PUBLIC, $virtualMethod(ColorModel, getNumColorComponents, int32_t)},
+		{"getNumComponents", "()I", nullptr, $PUBLIC, $virtualMethod(ColorModel, getNumComponents, int32_t)},
+		{"getPixelSize", "()I", nullptr, $PUBLIC, $virtualMethod(ColorModel, getPixelSize, int32_t)},
+		{"getRGB", "(I)I", nullptr, $PUBLIC, $virtualMethod(ColorModel, getRGB, int32_t, int32_t)},
+		{"getRGB", "(Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(ColorModel, getRGB, int32_t, Object$*)},
+		{"getRGBdefault", "()Ljava/awt/image/ColorModel;", nullptr, $PUBLIC | $STATIC, $staticMethod(ColorModel, getRGBdefault, ColorModel*)},
+		{"getRed", "(I)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ColorModel, getRed, int32_t, int32_t)},
+		{"getRed", "(Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(ColorModel, getRed, int32_t, Object$*)},
+		{"getTransferType", "()I", nullptr, $PUBLIC | $FINAL, $method(ColorModel, getTransferType, int32_t)},
+		{"getTransparency", "()I", nullptr, $PUBLIC, $virtualMethod(ColorModel, getTransparency, int32_t)},
+		{"getUnnormalizedComponents", "([FI[II)[I", nullptr, $PUBLIC, $virtualMethod(ColorModel, getUnnormalizedComponents, $ints*, $floats*, int32_t, $ints*, int32_t)},
+		{"getsRGB8ToLinearRGB16LUT", "()[S", nullptr, $STATIC, $staticMethod(ColorModel, getsRGB8ToLinearRGB16LUT, $shorts*)},
+		{"getsRGB8ToLinearRGB8LUT", "()[B", nullptr, $STATIC, $staticMethod(ColorModel, getsRGB8ToLinearRGB8LUT, $bytes*)},
+		{"hasAlpha", "()Z", nullptr, $PUBLIC | $FINAL, $method(ColorModel, hasAlpha, bool)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(ColorModel, hashCode, int32_t)},
+		{"initIDs", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(ColorModel, initIDs, void)},
+		{"isAlphaPremultiplied", "()Z", nullptr, $PUBLIC | $FINAL, $method(ColorModel, isAlphaPremultiplied, bool)},
+		{"isCompatibleRaster", "(Ljava/awt/image/Raster;)Z", nullptr, $PUBLIC, $virtualMethod(ColorModel, isCompatibleRaster, bool, $Raster*)},
+		{"isCompatibleSampleModel", "(Ljava/awt/image/SampleModel;)Z", nullptr, $PUBLIC, $virtualMethod(ColorModel, isCompatibleSampleModel, bool, $SampleModel*)},
+		{"isLinearGRAYspace", "(Ljava/awt/color/ColorSpace;)Z", nullptr, $STATIC, $staticMethod(ColorModel, isLinearGRAYspace, bool, $ColorSpace*)},
+		{"isLinearRGBspace", "(Ljava/awt/color/ColorSpace;)Z", nullptr, $STATIC, $staticMethod(ColorModel, isLinearRGBspace, bool, $ColorSpace*)},
+		{"loadLibraries", "()V", nullptr, $STATIC, $staticMethod(ColorModel, loadLibraries, void)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ColorModel, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.awt.image.ColorModel$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"java.awt.image.ColorModel",
+		"java.lang.Object",
+		"java.awt.Transparency",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.awt.image.ColorModel$1"
+	};
+	$loadClass(ColorModel, name, initialize, &classInfo$$, ColorModel::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ColorModel);
+	});
 	return class$;
 }
 

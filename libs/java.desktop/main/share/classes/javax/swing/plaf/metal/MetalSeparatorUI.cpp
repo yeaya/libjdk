@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/metal/MetalSeparatorUI.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/Dimension.h>
@@ -28,28 +27,6 @@ namespace javax {
 		namespace plaf {
 			namespace metal {
 
-$MethodInfo _MetalSeparatorUI_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MetalSeparatorUI, init$, void)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalSeparatorUI, createUI, $ComponentUI*, $JComponent*)},
-	{"getPreferredSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(MetalSeparatorUI, getPreferredSize, $Dimension*, $JComponent*)},
-	{"installDefaults", "(Ljavax/swing/JSeparator;)V", nullptr, $PROTECTED, $virtualMethod(MetalSeparatorUI, installDefaults, void, $JSeparator*)},
-	{"paint", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(MetalSeparatorUI, paint, void, $Graphics*, $JComponent*)},
-	{}
-};
-
-$ClassInfo _MetalSeparatorUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.metal.MetalSeparatorUI",
-	"javax.swing.plaf.basic.BasicSeparatorUI",
-	nullptr,
-	nullptr,
-	_MetalSeparatorUI_MethodInfo_
-};
-
-$Object* allocate$MetalSeparatorUI($Class* clazz) {
-	return $of($alloc(MetalSeparatorUI));
-}
-
 void MetalSeparatorUI::init$() {
 	$BasicSeparatorUI::init$();
 }
@@ -64,23 +41,23 @@ void MetalSeparatorUI::installDefaults($JSeparator* s) {
 }
 
 void MetalSeparatorUI::paint($Graphics* g, $JComponent* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Dimension, s, $nc(c)->getSize());
-	if ($nc(($cast($JSeparator, c)))->getOrientation() == $JSeparator::VERTICAL) {
+	if ($cast($JSeparator, c)->getOrientation() == $JSeparator::VERTICAL) {
 		$nc(g)->setColor($(c->getForeground()));
 		g->drawLine(0, 0, 0, $nc(s)->height);
 		g->setColor($(c->getBackground()));
-		g->drawLine(1, 0, 1, $nc(s)->height);
+		g->drawLine(1, 0, 1, s->height);
 	} else {
 		$nc(g)->setColor($(c->getForeground()));
 		g->drawLine(0, 0, $nc(s)->width, 0);
 		g->setColor($(c->getBackground()));
-		g->drawLine(0, 1, $nc(s)->width, 1);
+		g->drawLine(0, 1, s->width, 1);
 	}
 }
 
 $Dimension* MetalSeparatorUI::getPreferredSize($JComponent* c) {
-	if ($nc(($cast($JSeparator, c)))->getOrientation() == $JSeparator::VERTICAL) {
+	if ($nc($cast($JSeparator, c))->getOrientation() == $JSeparator::VERTICAL) {
 		return $new($Dimension, 2, 0);
 	} else {
 		return $new($Dimension, 0, 2);
@@ -91,7 +68,25 @@ MetalSeparatorUI::MetalSeparatorUI() {
 }
 
 $Class* MetalSeparatorUI::load$($String* name, bool initialize) {
-	$loadClass(MetalSeparatorUI, name, initialize, &_MetalSeparatorUI_ClassInfo_, allocate$MetalSeparatorUI);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MetalSeparatorUI, init$, void)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalSeparatorUI, createUI, $ComponentUI*, $JComponent*)},
+		{"getPreferredSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(MetalSeparatorUI, getPreferredSize, $Dimension*, $JComponent*)},
+		{"installDefaults", "(Ljavax/swing/JSeparator;)V", nullptr, $PROTECTED, $virtualMethod(MetalSeparatorUI, installDefaults, void, $JSeparator*)},
+		{"paint", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(MetalSeparatorUI, paint, void, $Graphics*, $JComponent*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.metal.MetalSeparatorUI",
+		"javax.swing.plaf.basic.BasicSeparatorUI",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(MetalSeparatorUI, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MetalSeparatorUI);
+	});
 	return class$;
 }
 

@@ -20,6 +20,7 @@ class PrimitiveTypeMap : public ::java::lang::Object {
 	$class(PrimitiveTypeMap, 0, ::java::lang::Object)
 public:
 	PrimitiveTypeMap();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $Class* getType($String* name);
 	static ::java::util::Map* map;

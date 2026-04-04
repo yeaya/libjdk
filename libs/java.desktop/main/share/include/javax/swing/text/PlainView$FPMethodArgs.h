@@ -24,6 +24,7 @@ class $import PlainView$FPMethodArgs : public ::java::lang::Enum {
 public:
 	PlainView$FPMethodArgs();
 	static $Array<::javax::swing::text::PlainView$FPMethodArgs>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	virtual $ClassArray* getMethodArguments(bool isFPType);
 	static ::javax::swing::text::PlainView$FPMethodArgs* valueOf($String* name);

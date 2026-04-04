@@ -1,5 +1,4 @@
 #include <sun/java2d/d3d/D3DGeneralTransformedBlit.h>
-
 #include <java/awt/Composite.h>
 #include <java/awt/geom/AffineTransform.h>
 #include <java/awt/image/BufferedImage.h>
@@ -34,31 +33,6 @@ namespace sun {
 	namespace java2d {
 		namespace d3d {
 
-$FieldInfo _D3DGeneralTransformedBlit_FieldInfo_[] = {
-	{"performop", "Lsun/java2d/loops/TransformBlit;", nullptr, $PRIVATE | $FINAL, $field(D3DGeneralTransformedBlit, performop)},
-	{"srcTmp", "Ljava/lang/ref/WeakReference;", "Ljava/lang/ref/WeakReference<Lsun/java2d/SurfaceData;>;", $PRIVATE, $field(D3DGeneralTransformedBlit, srcTmp)},
-	{}
-};
-
-$MethodInfo _D3DGeneralTransformedBlit_MethodInfo_[] = {
-	{"<init>", "(Lsun/java2d/loops/TransformBlit;)V", nullptr, 0, $method(D3DGeneralTransformedBlit, init$, void, $TransformBlit*)},
-	{"Transform", "(Lsun/java2d/SurfaceData;Lsun/java2d/SurfaceData;Ljava/awt/Composite;Lsun/java2d/pipe/Region;Ljava/awt/geom/AffineTransform;IIIIIII)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(D3DGeneralTransformedBlit, Transform, void, $SurfaceData*, $SurfaceData*, $Composite*, $Region*, $AffineTransform*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _D3DGeneralTransformedBlit_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.java2d.d3d.D3DGeneralTransformedBlit",
-	"sun.java2d.loops.TransformBlit",
-	nullptr,
-	_D3DGeneralTransformedBlit_FieldInfo_,
-	_D3DGeneralTransformedBlit_MethodInfo_
-};
-
-$Object* allocate$D3DGeneralTransformedBlit($Class* clazz) {
-	return $of($alloc(D3DGeneralTransformedBlit));
-}
-
 void D3DGeneralTransformedBlit::init$($TransformBlit* performop) {
 	$init($SurfaceType);
 	$init($CompositeType);
@@ -69,12 +43,12 @@ void D3DGeneralTransformedBlit::init$($TransformBlit* performop) {
 
 void D3DGeneralTransformedBlit::Transform($SurfaceData* src$renamed, $SurfaceData* dst, $Composite* comp, $Region* clip, $AffineTransform* at, int32_t hint, int32_t srcx, int32_t srcy, int32_t dstx, int32_t dsty, int32_t width, int32_t height) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$var($SurfaceData, src, src$renamed);
 		$init($CompositeType);
 		$init($SurfaceType);
 		$var($Blit, convertsrc, $Blit::getFromCache($($nc(src)->getSurfaceType()), $CompositeType::SrcNoEa, $SurfaceType::IntArgbPre));
-		$var($SurfaceData, cachedSrc, this->srcTmp != nullptr ? $cast($SurfaceData, $nc(this->srcTmp)->get()) : ($SurfaceData*)nullptr);
+		$var($SurfaceData, cachedSrc, this->srcTmp != nullptr ? $cast($SurfaceData, this->srcTmp->get()) : ($SurfaceData*)nullptr);
 		$assign(src, convertFrom(convertsrc, src, srcx, srcy, width, height, cachedSrc, $BufferedImage::TYPE_INT_ARGB_PRE));
 		$nc(this->performop)->Transform(src, dst, comp, clip, at, hint, 0, 0, dstx, dsty, width, height);
 		if (src != cachedSrc) {
@@ -87,7 +61,27 @@ D3DGeneralTransformedBlit::D3DGeneralTransformedBlit() {
 }
 
 $Class* D3DGeneralTransformedBlit::load$($String* name, bool initialize) {
-	$loadClass(D3DGeneralTransformedBlit, name, initialize, &_D3DGeneralTransformedBlit_ClassInfo_, allocate$D3DGeneralTransformedBlit);
+	$FieldInfo fieldInfos$$[] = {
+		{"performop", "Lsun/java2d/loops/TransformBlit;", nullptr, $PRIVATE | $FINAL, $field(D3DGeneralTransformedBlit, performop)},
+		{"srcTmp", "Ljava/lang/ref/WeakReference;", "Ljava/lang/ref/WeakReference<Lsun/java2d/SurfaceData;>;", $PRIVATE, $field(D3DGeneralTransformedBlit, srcTmp)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/java2d/loops/TransformBlit;)V", nullptr, 0, $method(D3DGeneralTransformedBlit, init$, void, $TransformBlit*)},
+		{"Transform", "(Lsun/java2d/SurfaceData;Lsun/java2d/SurfaceData;Ljava/awt/Composite;Lsun/java2d/pipe/Region;Ljava/awt/geom/AffineTransform;IIIIIII)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(D3DGeneralTransformedBlit, Transform, void, $SurfaceData*, $SurfaceData*, $Composite*, $Region*, $AffineTransform*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.java2d.d3d.D3DGeneralTransformedBlit",
+		"sun.java2d.loops.TransformBlit",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(D3DGeneralTransformedBlit, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(D3DGeneralTransformedBlit);
+	});
 	return class$;
 }
 

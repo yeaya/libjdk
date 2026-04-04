@@ -39,6 +39,7 @@ namespace javax {
 class $export ScriptEngine : public ::java::lang::Object {
 	$interface(ScriptEngine, 0, ::java::lang::Object)
 public:
+	static void clinit$(::java::lang::Class* clazz);
 	virtual ::javax::script::Bindings* createBindings() {return nullptr;}
 	virtual $Object* eval($String* script, ::javax::script::ScriptContext* context) {return nullptr;}
 	virtual $Object* eval(::java::io::Reader* reader, ::javax::script::ScriptContext* context) {return nullptr;}

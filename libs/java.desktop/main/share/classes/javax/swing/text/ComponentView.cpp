@@ -1,12 +1,10 @@
 #include <javax/swing/text/ComponentView.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <java/awt/Dimension.h>
 #include <java/awt/Graphics.h>
 #include <java/awt/Rectangle.h>
 #include <java/awt/Shape.h>
-#include <java/beans/PropertyChangeListener.h>
 #include <java/lang/Runnable.h>
 #include <javax/swing/SwingUtilities.h>
 #include <javax/swing/text/AttributeSet.h>
@@ -29,7 +27,6 @@ using $Dimension = ::java::awt::Dimension;
 using $Graphics = ::java::awt::Graphics;
 using $Rectangle = ::java::awt::Rectangle;
 using $Shape = ::java::awt::Shape;
-using $PropertyChangeListener = ::java::beans::PropertyChangeListener;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
@@ -50,60 +47,13 @@ namespace javax {
 	namespace swing {
 		namespace text {
 
-$FieldInfo _ComponentView_FieldInfo_[] = {
-	{"createdC", "Ljava/awt/Component;", nullptr, $PRIVATE, $field(ComponentView, createdC)},
-	{"c", "Ljavax/swing/text/ComponentView$Invalidator;", nullptr, $PRIVATE, $field(ComponentView, c)},
-	{}
-};
-
-$MethodInfo _ComponentView_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/text/Element;)V", nullptr, $PUBLIC, $method(ComponentView, init$, void, $Element*)},
-	{"createComponent", "()Ljava/awt/Component;", nullptr, $PROTECTED, $virtualMethod(ComponentView, createComponent, $Component*)},
-	{"getAlignment", "(I)F", nullptr, $PUBLIC, $virtualMethod(ComponentView, getAlignment, float, int32_t)},
-	{"getComponent", "()Ljava/awt/Component;", nullptr, $PUBLIC | $FINAL, $method(ComponentView, getComponent, $Component*)},
-	{"getMaximumSpan", "(I)F", nullptr, $PUBLIC, $virtualMethod(ComponentView, getMaximumSpan, float, int32_t)},
-	{"getMinimumSpan", "(I)F", nullptr, $PUBLIC, $virtualMethod(ComponentView, getMinimumSpan, float, int32_t)},
-	{"getPreferredSpan", "(I)F", nullptr, $PUBLIC, $virtualMethod(ComponentView, getPreferredSpan, float, int32_t)},
-	{"modelToView", "(ILjava/awt/Shape;Ljavax/swing/text/Position$Bias;)Ljava/awt/Shape;", nullptr, $PUBLIC, $virtualMethod(ComponentView, modelToView, $Shape*, int32_t, $Shape*, $Position$Bias*), "javax.swing.text.BadLocationException"},
-	{"paint", "(Ljava/awt/Graphics;Ljava/awt/Shape;)V", nullptr, $PUBLIC, $virtualMethod(ComponentView, paint, void, $Graphics*, $Shape*)},
-	{"setComponentParent", "()V", nullptr, 0, $virtualMethod(ComponentView, setComponentParent, void)},
-	{"setParent", "(Ljavax/swing/text/View;)V", nullptr, $PUBLIC, $virtualMethod(ComponentView, setParent, void, $View*)},
-	{"viewToModel", "(FFLjava/awt/Shape;[Ljavax/swing/text/Position$Bias;)I", nullptr, $PUBLIC, $virtualMethod(ComponentView, viewToModel, int32_t, float, float, $Shape*, $Position$BiasArray*)},
-	{}
-};
-
-$InnerClassInfo _ComponentView_InnerClassesInfo_[] = {
-	{"javax.swing.text.ComponentView$Invalidator", "javax.swing.text.ComponentView", "Invalidator", 0},
-	{"javax.swing.text.ComponentView$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _ComponentView_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.text.ComponentView",
-	"javax.swing.text.View",
-	nullptr,
-	_ComponentView_FieldInfo_,
-	_ComponentView_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ComponentView_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.swing.text.ComponentView$Invalidator,javax.swing.text.ComponentView$1"
-};
-
-$Object* allocate$ComponentView($Class* clazz) {
-	return $of($alloc(ComponentView));
-}
-
 void ComponentView::init$($Element* elem) {
 	$View::init$(elem);
 }
 
 $Component* ComponentView::createComponent() {
-	$useLocalCurrentObjectStackCache();
-	$var($AttributeSet, attr, $nc($(getElement()))->getAttributes());
+	$useLocalObjectStack();
+	$var($AttributeSet, attr, $$nc(getElement())->getAttributes());
 	$var($Component, comp, $StyleConstants::getComponent(attr));
 	return comp;
 }
@@ -115,69 +65,65 @@ $Component* ComponentView::getComponent() {
 void ComponentView::paint($Graphics* g, $Shape* a) {
 	if (this->c != nullptr) {
 		$var($Rectangle, alloc, ($instanceOf($Rectangle, a)) ? $cast($Rectangle, a) : $nc(a)->getBounds());
-		$nc(this->c)->setBounds($nc(alloc)->x, alloc->y, alloc->width, alloc->height);
+		$nc(this->c)->setBounds($nc(alloc)->x, $nc(alloc)->y, $nc(alloc)->width, $nc(alloc)->height);
 	}
 }
 
 float ComponentView::getPreferredSpan(int32_t axis) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ((axis != $View::X_AXIS) && (axis != $View::Y_AXIS)) {
 		$throwNew($IllegalArgumentException, $$str({"Invalid axis: "_s, $$str(axis)}));
 	}
 	if (this->c != nullptr) {
-		$var($Dimension, size, $nc(this->c)->getPreferredSize());
+		$var($Dimension, size, this->c->getPreferredSize());
 		if (axis == $View::X_AXIS) {
 			return (float)$nc(size)->width;
 		} else {
 			return (float)$nc(size)->height;
 		}
 	}
-	return (float)0;
+	return 0;
 }
 
 float ComponentView::getMinimumSpan(int32_t axis) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ((axis != $View::X_AXIS) && (axis != $View::Y_AXIS)) {
 		$throwNew($IllegalArgumentException, $$str({"Invalid axis: "_s, $$str(axis)}));
 	}
 	if (this->c != nullptr) {
-		$var($Dimension, size, $nc(this->c)->getMinimumSize());
+		$var($Dimension, size, this->c->getMinimumSize());
 		if (axis == $View::X_AXIS) {
 			return (float)$nc(size)->width;
 		} else {
 			return (float)$nc(size)->height;
 		}
 	}
-	return (float)0;
+	return 0;
 }
 
 float ComponentView::getMaximumSpan(int32_t axis) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ((axis != $View::X_AXIS) && (axis != $View::Y_AXIS)) {
 		$throwNew($IllegalArgumentException, $$str({"Invalid axis: "_s, $$str(axis)}));
 	}
 	if (this->c != nullptr) {
-		$var($Dimension, size, $nc(this->c)->getMaximumSize());
+		$var($Dimension, size, this->c->getMaximumSize());
 		if (axis == $View::X_AXIS) {
 			return (float)$nc(size)->width;
 		} else {
 			return (float)$nc(size)->height;
 		}
 	}
-	return (float)0;
+	return 0;
 }
 
 float ComponentView::getAlignment(int32_t axis) {
 	if (this->c != nullptr) {
 		switch (axis) {
 		case $View::X_AXIS:
-			{
-				return $nc(this->c)->getAlignmentX();
-			}
+			return this->c->getAlignmentX();
 		case $View::Y_AXIS:
-			{
-				return $nc(this->c)->getAlignmentY();
-			}
+			return this->c->getAlignmentY();
 		}
 	}
 	return $View::getAlignment(axis);
@@ -194,7 +140,7 @@ void ComponentView::setParent($View* p) {
 }
 
 void ComponentView::setComponentParent() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($View, p, getParent());
 	if (p != nullptr) {
 		$var($Container, parent, getContainer());
@@ -207,29 +153,29 @@ void ComponentView::setComponentParent() {
 				}
 			}
 			if (this->c != nullptr) {
-				if ($nc(this->c)->getParent() == nullptr) {
-					parent->add(static_cast<$Component*>(this->c), $of(this));
+				if (this->c->getParent() == nullptr) {
+					parent->add(this->c, this);
 					parent->addPropertyChangeListener("enabled"_s, this->c);
 				}
 			}
 		}
 	} else if (this->c != nullptr) {
-		$var($Container, parent, $nc(this->c)->getParent());
+		$var($Container, parent, this->c->getParent());
 		if (parent != nullptr) {
-			parent->remove(static_cast<$Component*>(this->c));
+			parent->remove(this->c);
 			parent->removePropertyChangeListener("enabled"_s, this->c);
 		}
 	}
 }
 
 $Shape* ComponentView::modelToView(int32_t pos, $Shape* a, $Position$Bias* b) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t p0 = getStartOffset();
 	int32_t p1 = getEndOffset();
 	if ((pos >= p0) && (pos <= p1)) {
 		$var($Rectangle, r, $nc(a)->getBounds());
 		if (pos == p1) {
-			$nc(r)->x += r->width;
+			$nc(r)->x += $nc(r)->width;
 		}
 		$nc(r)->width = 0;
 		return r;
@@ -239,7 +185,7 @@ $Shape* ComponentView::modelToView(int32_t pos, $Shape* a, $Position$Bias* b) {
 
 int32_t ComponentView::viewToModel(float x, float y, $Shape* a, $Position$BiasArray* bias) {
 	$var($Rectangle, alloc, $cast($Rectangle, a));
-	if (x < $nc(alloc)->x + (alloc->width / 2)) {
+	if (x < $nc(alloc)->x + ($nc(alloc)->width / 2)) {
 		$init($Position$Bias);
 		$nc(bias)->set(0, $Position$Bias::Forward);
 		return getStartOffset();
@@ -253,7 +199,48 @@ ComponentView::ComponentView() {
 }
 
 $Class* ComponentView::load$($String* name, bool initialize) {
-	$loadClass(ComponentView, name, initialize, &_ComponentView_ClassInfo_, allocate$ComponentView);
+	$FieldInfo fieldInfos$$[] = {
+		{"createdC", "Ljava/awt/Component;", nullptr, $PRIVATE, $field(ComponentView, createdC)},
+		{"c", "Ljavax/swing/text/ComponentView$Invalidator;", nullptr, $PRIVATE, $field(ComponentView, c)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/text/Element;)V", nullptr, $PUBLIC, $method(ComponentView, init$, void, $Element*)},
+		{"createComponent", "()Ljava/awt/Component;", nullptr, $PROTECTED, $virtualMethod(ComponentView, createComponent, $Component*)},
+		{"getAlignment", "(I)F", nullptr, $PUBLIC, $virtualMethod(ComponentView, getAlignment, float, int32_t)},
+		{"getComponent", "()Ljava/awt/Component;", nullptr, $PUBLIC | $FINAL, $method(ComponentView, getComponent, $Component*)},
+		{"getMaximumSpan", "(I)F", nullptr, $PUBLIC, $virtualMethod(ComponentView, getMaximumSpan, float, int32_t)},
+		{"getMinimumSpan", "(I)F", nullptr, $PUBLIC, $virtualMethod(ComponentView, getMinimumSpan, float, int32_t)},
+		{"getPreferredSpan", "(I)F", nullptr, $PUBLIC, $virtualMethod(ComponentView, getPreferredSpan, float, int32_t)},
+		{"modelToView", "(ILjava/awt/Shape;Ljavax/swing/text/Position$Bias;)Ljava/awt/Shape;", nullptr, $PUBLIC, $virtualMethod(ComponentView, modelToView, $Shape*, int32_t, $Shape*, $Position$Bias*), "javax.swing.text.BadLocationException"},
+		{"paint", "(Ljava/awt/Graphics;Ljava/awt/Shape;)V", nullptr, $PUBLIC, $virtualMethod(ComponentView, paint, void, $Graphics*, $Shape*)},
+		{"setComponentParent", "()V", nullptr, 0, $virtualMethod(ComponentView, setComponentParent, void)},
+		{"setParent", "(Ljavax/swing/text/View;)V", nullptr, $PUBLIC, $virtualMethod(ComponentView, setParent, void, $View*)},
+		{"viewToModel", "(FFLjava/awt/Shape;[Ljavax/swing/text/Position$Bias;)I", nullptr, $PUBLIC, $virtualMethod(ComponentView, viewToModel, int32_t, float, float, $Shape*, $Position$BiasArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.ComponentView$Invalidator", "javax.swing.text.ComponentView", "Invalidator", 0},
+		{"javax.swing.text.ComponentView$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.text.ComponentView",
+		"javax.swing.text.View",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.swing.text.ComponentView$Invalidator,javax.swing.text.ComponentView$1"
+	};
+	$loadClass(ComponentView, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ComponentView);
+	});
 	return class$;
 }
 

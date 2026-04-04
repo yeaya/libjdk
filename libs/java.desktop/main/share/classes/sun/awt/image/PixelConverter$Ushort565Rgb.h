@@ -21,6 +21,7 @@ class PixelConverter$Ushort565Rgb : public ::sun::awt::image::PixelConverter {
 	$class(PixelConverter$Ushort565Rgb, 0, ::sun::awt::image::PixelConverter)
 public:
 	PixelConverter$Ushort565Rgb();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual int32_t pixelToRgb(int32_t pixel, ::java::awt::image::ColorModel* cm) override;
 	virtual int32_t rgbToPixel(int32_t rgb, ::java::awt::image::ColorModel* cm) override;

@@ -31,6 +31,7 @@ class MotifDnDDropTargetProtocol : public ::sun::awt::X11::XDropTargetProtocol {
 	$class(MotifDnDDropTargetProtocol, 0, ::sun::awt::X11::XDropTargetProtocol)
 public:
 	MotifDnDDropTargetProtocol();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::awt::X11::XDropTargetProtocolListener* listener);
 	virtual void cleanup() override;
 	static ::sun::awt::X11::XDropTargetProtocol* createInstance(::sun::awt::X11::XDropTargetProtocolListener* listener);

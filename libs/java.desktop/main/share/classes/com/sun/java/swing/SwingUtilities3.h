@@ -35,6 +35,7 @@ class SwingUtilities3 : public ::java::lang::Object {
 	$class(SwingUtilities3, 0, ::java::lang::Object)
 public:
 	SwingUtilities3();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::javax::swing::RepaintManager* getDelegateRepaintManager(::java::awt::Component* component);
 	static bool isVsyncRequested(::java::awt::Container* rootContainer);

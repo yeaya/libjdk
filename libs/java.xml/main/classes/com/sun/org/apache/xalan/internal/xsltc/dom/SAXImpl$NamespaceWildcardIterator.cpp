@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/dom/SAXImpl$NamespaceWildcardIterator.h>
-
 #include <com/sun/org/apache/xalan/internal/xsltc/dom/SAXImpl.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/runtime/BasisLibrary.h>
 #include <com/sun/org/apache/xml/internal/dtm/Axis.h>
@@ -22,7 +21,6 @@ using $BasisLibrary = ::com::sun::org::apache::xalan::internal::xsltc::runtime::
 using $Axis = ::com::sun::org::apache::xml::internal::dtm::Axis;
 using $DTM = ::com::sun::org::apache::xml::internal::dtm::DTM;
 using $DTMAxisIterator = ::com::sun::org::apache::xml::internal::dtm::DTMAxisIterator;
-using $DTMDefaultBaseIterators = ::com::sun::org::apache::xml::internal::dtm::ref::DTMDefaultBaseIterators;
 using $DTMDefaultBaseIterators$InternalAxisIteratorBase = ::com::sun::org::apache::xml::internal::dtm::ref::DTMDefaultBaseIterators$InternalAxisIteratorBase;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CloneNotSupportedException = ::java::lang::CloneNotSupportedException;
@@ -39,50 +37,6 @@ namespace com {
 						namespace xsltc {
 							namespace dom {
 
-$FieldInfo _SAXImpl$NamespaceWildcardIterator_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/org/apache/xalan/internal/xsltc/dom/SAXImpl;", nullptr, $FINAL | $SYNTHETIC, $field(SAXImpl$NamespaceWildcardIterator, this$0)},
-	{"m_nsType", "I", nullptr, $PROTECTED, $field(SAXImpl$NamespaceWildcardIterator, m_nsType)},
-	{"m_baseIterator", "Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;", nullptr, $PROTECTED, $field(SAXImpl$NamespaceWildcardIterator, m_baseIterator)},
-	{}
-};
-
-$MethodInfo _SAXImpl$NamespaceWildcardIterator_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/org/apache/xalan/internal/xsltc/dom/SAXImpl;II)V", nullptr, $PUBLIC, $method(SAXImpl$NamespaceWildcardIterator, init$, void, $SAXImpl*, int32_t, int32_t)},
-	{"cloneIterator", "()Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;", nullptr, $PUBLIC, $virtualMethod(SAXImpl$NamespaceWildcardIterator, cloneIterator, $DTMAxisIterator*)},
-	{"gotoMark", "()V", nullptr, $PUBLIC, $virtualMethod(SAXImpl$NamespaceWildcardIterator, gotoMark, void)},
-	{"isReverse", "()Z", nullptr, $PUBLIC, $virtualMethod(SAXImpl$NamespaceWildcardIterator, isReverse, bool)},
-	{"next", "()I", nullptr, $PUBLIC, $virtualMethod(SAXImpl$NamespaceWildcardIterator, next, int32_t)},
-	{"setMark", "()V", nullptr, $PUBLIC, $virtualMethod(SAXImpl$NamespaceWildcardIterator, setMark, void)},
-	{"setStartNode", "(I)Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;", nullptr, $PUBLIC, $virtualMethod(SAXImpl$NamespaceWildcardIterator, setStartNode, $DTMAxisIterator*, int32_t)},
-	{}
-};
-
-$InnerClassInfo _SAXImpl$NamespaceWildcardIterator_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xalan.internal.xsltc.dom.SAXImpl$NamespaceWildcardIterator", "com.sun.org.apache.xalan.internal.xsltc.dom.SAXImpl", "NamespaceWildcardIterator", $PUBLIC | $FINAL},
-	{"com.sun.org.apache.xml.internal.dtm.ref.DTMDefaultBaseIterators$InternalAxisIteratorBase", "com.sun.org.apache.xml.internal.dtm.ref.DTMDefaultBaseIterators", "InternalAxisIteratorBase", $PUBLIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _SAXImpl$NamespaceWildcardIterator_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xalan.internal.xsltc.dom.SAXImpl$NamespaceWildcardIterator",
-	"com.sun.org.apache.xml.internal.dtm.ref.DTMDefaultBaseIterators$InternalAxisIteratorBase",
-	nullptr,
-	_SAXImpl$NamespaceWildcardIterator_FieldInfo_,
-	_SAXImpl$NamespaceWildcardIterator_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SAXImpl$NamespaceWildcardIterator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xalan.internal.xsltc.dom.SAXImpl"
-};
-
-$Object* allocate$SAXImpl$NamespaceWildcardIterator($Class* clazz) {
-	return $of($alloc(SAXImpl$NamespaceWildcardIterator));
-}
-
 void SAXImpl$NamespaceWildcardIterator::init$($SAXImpl* this$0, int32_t axis, int32_t nsType) {
 	$set(this, this$0, this$0);
 	$DTMDefaultBaseIterators$InternalAxisIteratorBase::init$(this$0);
@@ -90,23 +44,17 @@ void SAXImpl$NamespaceWildcardIterator::init$($SAXImpl* this$0, int32_t axis, in
 	switch (axis) {
 	case $Axis::ATTRIBUTE:
 		{
-			{
-				$set(this, m_baseIterator, this$0->getAxisIterator(axis));
-				break;
-			}
+			$set(this, m_baseIterator, this$0->getAxisIterator(axis));
+			break;
 		}
 	case $Axis::NAMESPACE:
 		{
-			{
-				$set(this, m_baseIterator, this$0->getAxisIterator(axis));
-				break;
-			}
+			$set(this, m_baseIterator, this$0->getAxisIterator(axis));
+			break;
 		}
 	default:
 		{
-			{
-				$set(this, m_baseIterator, this$0->getTypedAxisIterator(axis, $DTM::ELEMENT_NODE));
-			}
+			$set(this, m_baseIterator, this$0->getTypedAxisIterator(axis, $DTM::ELEMENT_NODE));
 		}
 	}
 }
@@ -131,7 +79,7 @@ int32_t SAXImpl$NamespaceWildcardIterator::next() {
 }
 
 $DTMAxisIterator* SAXImpl$NamespaceWildcardIterator::cloneIterator() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$var($DTMAxisIterator, nestedClone, $nc(this->m_baseIterator)->cloneIterator());
 		$var(SAXImpl$NamespaceWildcardIterator, clone, $cast(SAXImpl$NamespaceWildcardIterator, $DTMDefaultBaseIterators$InternalAxisIteratorBase::clone()));
@@ -141,7 +89,7 @@ $DTMAxisIterator* SAXImpl$NamespaceWildcardIterator::cloneIterator() {
 		return clone;
 	} catch ($CloneNotSupportedException& e) {
 		$init($BasisLibrary);
-		$BasisLibrary::runTimeError($BasisLibrary::ITERATOR_CLONE_ERR, $($of(e->toString())));
+		$BasisLibrary::runTimeError($BasisLibrary::ITERATOR_CLONE_ERR, $(e->toString()));
 		return nullptr;
 	}
 	$shouldNotReachHere();
@@ -163,7 +111,45 @@ SAXImpl$NamespaceWildcardIterator::SAXImpl$NamespaceWildcardIterator() {
 }
 
 $Class* SAXImpl$NamespaceWildcardIterator::load$($String* name, bool initialize) {
-	$loadClass(SAXImpl$NamespaceWildcardIterator, name, initialize, &_SAXImpl$NamespaceWildcardIterator_ClassInfo_, allocate$SAXImpl$NamespaceWildcardIterator);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/org/apache/xalan/internal/xsltc/dom/SAXImpl;", nullptr, $FINAL | $SYNTHETIC, $field(SAXImpl$NamespaceWildcardIterator, this$0)},
+		{"m_nsType", "I", nullptr, $PROTECTED, $field(SAXImpl$NamespaceWildcardIterator, m_nsType)},
+		{"m_baseIterator", "Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;", nullptr, $PROTECTED, $field(SAXImpl$NamespaceWildcardIterator, m_baseIterator)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/org/apache/xalan/internal/xsltc/dom/SAXImpl;II)V", nullptr, $PUBLIC, $method(SAXImpl$NamespaceWildcardIterator, init$, void, $SAXImpl*, int32_t, int32_t)},
+		{"cloneIterator", "()Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;", nullptr, $PUBLIC, $virtualMethod(SAXImpl$NamespaceWildcardIterator, cloneIterator, $DTMAxisIterator*)},
+		{"gotoMark", "()V", nullptr, $PUBLIC, $virtualMethod(SAXImpl$NamespaceWildcardIterator, gotoMark, void)},
+		{"isReverse", "()Z", nullptr, $PUBLIC, $virtualMethod(SAXImpl$NamespaceWildcardIterator, isReverse, bool)},
+		{"next", "()I", nullptr, $PUBLIC, $virtualMethod(SAXImpl$NamespaceWildcardIterator, next, int32_t)},
+		{"setMark", "()V", nullptr, $PUBLIC, $virtualMethod(SAXImpl$NamespaceWildcardIterator, setMark, void)},
+		{"setStartNode", "(I)Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;", nullptr, $PUBLIC, $virtualMethod(SAXImpl$NamespaceWildcardIterator, setStartNode, $DTMAxisIterator*, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xalan.internal.xsltc.dom.SAXImpl$NamespaceWildcardIterator", "com.sun.org.apache.xalan.internal.xsltc.dom.SAXImpl", "NamespaceWildcardIterator", $PUBLIC | $FINAL},
+		{"com.sun.org.apache.xml.internal.dtm.ref.DTMDefaultBaseIterators$InternalAxisIteratorBase", "com.sun.org.apache.xml.internal.dtm.ref.DTMDefaultBaseIterators", "InternalAxisIteratorBase", $PUBLIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xalan.internal.xsltc.dom.SAXImpl$NamespaceWildcardIterator",
+		"com.sun.org.apache.xml.internal.dtm.ref.DTMDefaultBaseIterators$InternalAxisIteratorBase",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xalan.internal.xsltc.dom.SAXImpl"
+	};
+	$loadClass(SAXImpl$NamespaceWildcardIterator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SAXImpl$NamespaceWildcardIterator);
+	});
 	return class$;
 }
 

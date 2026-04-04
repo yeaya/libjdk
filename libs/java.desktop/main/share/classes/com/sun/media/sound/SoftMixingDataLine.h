@@ -54,6 +54,7 @@ class SoftMixingDataLine : public ::javax::sound::sampled::DataLine {
 	$class(SoftMixingDataLine, 0, ::javax::sound::sampled::DataLine)
 public:
 	SoftMixingDataLine();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::com::sun::media::sound::SoftMixingMixer* mixer, ::javax::sound::sampled::DataLine$Info* info);
 	virtual void addLineListener(::javax::sound::sampled::LineListener* listener) override;
 	void calcVolume();

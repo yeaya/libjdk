@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/util/RichDiagnosticFormatter$RichConfiguration$RichFormatterFeature.h>
-
 #include <com/sun/tools/javac/util/RichDiagnosticFormatter$RichConfiguration.h>
 #include <java/lang/Enum.h>
 #include <jcpp.h>
@@ -20,48 +19,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace util {
-
-$FieldInfo _RichDiagnosticFormatter$RichConfiguration$RichFormatterFeature_FieldInfo_[] = {
-	{"WHERE_CLAUSES", "Lcom/sun/tools/javac/util/RichDiagnosticFormatter$RichConfiguration$RichFormatterFeature;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(RichDiagnosticFormatter$RichConfiguration$RichFormatterFeature, WHERE_CLAUSES)},
-	{"SIMPLE_NAMES", "Lcom/sun/tools/javac/util/RichDiagnosticFormatter$RichConfiguration$RichFormatterFeature;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(RichDiagnosticFormatter$RichConfiguration$RichFormatterFeature, SIMPLE_NAMES)},
-	{"UNIQUE_TYPEVAR_NAMES", "Lcom/sun/tools/javac/util/RichDiagnosticFormatter$RichConfiguration$RichFormatterFeature;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(RichDiagnosticFormatter$RichConfiguration$RichFormatterFeature, UNIQUE_TYPEVAR_NAMES)},
-	{"$VALUES", "[Lcom/sun/tools/javac/util/RichDiagnosticFormatter$RichConfiguration$RichFormatterFeature;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(RichDiagnosticFormatter$RichConfiguration$RichFormatterFeature, $VALUES)},
-	{}
-};
-
-$MethodInfo _RichDiagnosticFormatter$RichConfiguration$RichFormatterFeature_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/javac/util/RichDiagnosticFormatter$RichConfiguration$RichFormatterFeature;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(RichDiagnosticFormatter$RichConfiguration$RichFormatterFeature, $values, $RichDiagnosticFormatter$RichConfiguration$RichFormatterFeatureArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(RichDiagnosticFormatter$RichConfiguration$RichFormatterFeature, init$, void, $String*, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/util/RichDiagnosticFormatter$RichConfiguration$RichFormatterFeature;", nullptr, $PUBLIC | $STATIC, $staticMethod(RichDiagnosticFormatter$RichConfiguration$RichFormatterFeature, valueOf, RichDiagnosticFormatter$RichConfiguration$RichFormatterFeature*, $String*)},
-	{"values", "()[Lcom/sun/tools/javac/util/RichDiagnosticFormatter$RichConfiguration$RichFormatterFeature;", nullptr, $PUBLIC | $STATIC, $staticMethod(RichDiagnosticFormatter$RichConfiguration$RichFormatterFeature, values, $RichDiagnosticFormatter$RichConfiguration$RichFormatterFeatureArray*)},
-	{}
-};
-
-$InnerClassInfo _RichDiagnosticFormatter$RichConfiguration$RichFormatterFeature_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.util.RichDiagnosticFormatter$RichConfiguration", "com.sun.tools.javac.util.RichDiagnosticFormatter", "RichConfiguration", $PUBLIC | $STATIC},
-	{"com.sun.tools.javac.util.RichDiagnosticFormatter$RichConfiguration$RichFormatterFeature", "com.sun.tools.javac.util.RichDiagnosticFormatter$RichConfiguration", "RichFormatterFeature", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _RichDiagnosticFormatter$RichConfiguration$RichFormatterFeature_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"com.sun.tools.javac.util.RichDiagnosticFormatter$RichConfiguration$RichFormatterFeature",
-	"java.lang.Enum",
-	nullptr,
-	_RichDiagnosticFormatter$RichConfiguration$RichFormatterFeature_FieldInfo_,
-	_RichDiagnosticFormatter$RichConfiguration$RichFormatterFeature_MethodInfo_,
-	"Ljava/lang/Enum<Lcom/sun/tools/javac/util/RichDiagnosticFormatter$RichConfiguration$RichFormatterFeature;>;",
-	nullptr,
-	_RichDiagnosticFormatter$RichConfiguration$RichFormatterFeature_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.util.RichDiagnosticFormatter"
-};
-
-$Object* allocate$RichDiagnosticFormatter$RichConfiguration$RichFormatterFeature($Class* clazz) {
-	return $of($alloc(RichDiagnosticFormatter$RichConfiguration$RichFormatterFeature));
-}
 
 RichDiagnosticFormatter$RichConfiguration$RichFormatterFeature* RichDiagnosticFormatter$RichConfiguration$RichFormatterFeature::WHERE_CLAUSES = nullptr;
 RichDiagnosticFormatter$RichConfiguration$RichFormatterFeature* RichDiagnosticFormatter$RichConfiguration$RichFormatterFeature::SIMPLE_NAMES = nullptr;
@@ -91,7 +48,7 @@ void RichDiagnosticFormatter$RichConfiguration$RichFormatterFeature::init$($Stri
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$RichDiagnosticFormatter$RichConfiguration$RichFormatterFeature($Class* class$) {
+void RichDiagnosticFormatter$RichConfiguration$RichFormatterFeature::clinit$($Class* clazz) {
 	$assignStatic(RichDiagnosticFormatter$RichConfiguration$RichFormatterFeature::WHERE_CLAUSES, $new(RichDiagnosticFormatter$RichConfiguration$RichFormatterFeature, "WHERE_CLAUSES"_s, 0));
 	$assignStatic(RichDiagnosticFormatter$RichConfiguration$RichFormatterFeature::SIMPLE_NAMES, $new(RichDiagnosticFormatter$RichConfiguration$RichFormatterFeature, "SIMPLE_NAMES"_s, 1));
 	$assignStatic(RichDiagnosticFormatter$RichConfiguration$RichFormatterFeature::UNIQUE_TYPEVAR_NAMES, $new(RichDiagnosticFormatter$RichConfiguration$RichFormatterFeature, "UNIQUE_TYPEVAR_NAMES"_s, 2));
@@ -102,7 +59,43 @@ RichDiagnosticFormatter$RichConfiguration$RichFormatterFeature::RichDiagnosticFo
 }
 
 $Class* RichDiagnosticFormatter$RichConfiguration$RichFormatterFeature::load$($String* name, bool initialize) {
-	$loadClass(RichDiagnosticFormatter$RichConfiguration$RichFormatterFeature, name, initialize, &_RichDiagnosticFormatter$RichConfiguration$RichFormatterFeature_ClassInfo_, clinit$RichDiagnosticFormatter$RichConfiguration$RichFormatterFeature, allocate$RichDiagnosticFormatter$RichConfiguration$RichFormatterFeature);
+	$FieldInfo fieldInfos$$[] = {
+		{"WHERE_CLAUSES", "Lcom/sun/tools/javac/util/RichDiagnosticFormatter$RichConfiguration$RichFormatterFeature;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(RichDiagnosticFormatter$RichConfiguration$RichFormatterFeature, WHERE_CLAUSES)},
+		{"SIMPLE_NAMES", "Lcom/sun/tools/javac/util/RichDiagnosticFormatter$RichConfiguration$RichFormatterFeature;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(RichDiagnosticFormatter$RichConfiguration$RichFormatterFeature, SIMPLE_NAMES)},
+		{"UNIQUE_TYPEVAR_NAMES", "Lcom/sun/tools/javac/util/RichDiagnosticFormatter$RichConfiguration$RichFormatterFeature;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(RichDiagnosticFormatter$RichConfiguration$RichFormatterFeature, UNIQUE_TYPEVAR_NAMES)},
+		{"$VALUES", "[Lcom/sun/tools/javac/util/RichDiagnosticFormatter$RichConfiguration$RichFormatterFeature;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(RichDiagnosticFormatter$RichConfiguration$RichFormatterFeature, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lcom/sun/tools/javac/util/RichDiagnosticFormatter$RichConfiguration$RichFormatterFeature;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(RichDiagnosticFormatter$RichConfiguration$RichFormatterFeature, $values, $RichDiagnosticFormatter$RichConfiguration$RichFormatterFeatureArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(RichDiagnosticFormatter$RichConfiguration$RichFormatterFeature, init$, void, $String*, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/util/RichDiagnosticFormatter$RichConfiguration$RichFormatterFeature;", nullptr, $PUBLIC | $STATIC, $staticMethod(RichDiagnosticFormatter$RichConfiguration$RichFormatterFeature, valueOf, RichDiagnosticFormatter$RichConfiguration$RichFormatterFeature*, $String*)},
+		{"values", "()[Lcom/sun/tools/javac/util/RichDiagnosticFormatter$RichConfiguration$RichFormatterFeature;", nullptr, $PUBLIC | $STATIC, $staticMethod(RichDiagnosticFormatter$RichConfiguration$RichFormatterFeature, values, $RichDiagnosticFormatter$RichConfiguration$RichFormatterFeatureArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.util.RichDiagnosticFormatter$RichConfiguration", "com.sun.tools.javac.util.RichDiagnosticFormatter", "RichConfiguration", $PUBLIC | $STATIC},
+		{"com.sun.tools.javac.util.RichDiagnosticFormatter$RichConfiguration$RichFormatterFeature", "com.sun.tools.javac.util.RichDiagnosticFormatter$RichConfiguration", "RichFormatterFeature", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"com.sun.tools.javac.util.RichDiagnosticFormatter$RichConfiguration$RichFormatterFeature",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lcom/sun/tools/javac/util/RichDiagnosticFormatter$RichConfiguration$RichFormatterFeature;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.util.RichDiagnosticFormatter"
+	};
+	$loadClass(RichDiagnosticFormatter$RichConfiguration$RichFormatterFeature, name, initialize, &classInfo$$, RichDiagnosticFormatter$RichConfiguration$RichFormatterFeature::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(RichDiagnosticFormatter$RichConfiguration$RichFormatterFeature));
+	});
 	return class$;
 }
 

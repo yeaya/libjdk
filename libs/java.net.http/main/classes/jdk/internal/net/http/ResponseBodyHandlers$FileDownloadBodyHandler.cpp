@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/ResponseBodyHandlers$FileDownloadBodyHandler.h>
-
 #include <java/io/File.h>
 #include <java/io/FilePermission.h>
 #include <java/io/IOException.h>
@@ -23,7 +22,6 @@
 #include <java/nio/file/Paths.h>
 #include <java/security/AccessControlContext.h>
 #include <java/security/AccessController.h>
-#include <java/security/Permission.h>
 #include <java/util/List.h>
 #include <java/util/Optional.h>
 #include <java/util/function/Supplier.h>
@@ -55,7 +53,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $SecurityManager = ::java::lang::SecurityManager;
 using $UnsupportedOperationException = ::java::lang::UnsupportedOperationException;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $HttpHeaders = ::java::net::http::HttpHeaders;
 using $HttpResponse$BodySubscriber = ::java::net::http::HttpResponse$BodySubscriber;
 using $HttpResponse$ResponseInfo = ::java::net::http::HttpResponse$ResponseInfo;
 using $Files = ::java::nio::file::Files;
@@ -63,9 +60,7 @@ using $Path = ::java::nio::file::Path;
 using $Paths = ::java::nio::file::Paths;
 using $AccessControlContext = ::java::security::AccessControlContext;
 using $AccessController = ::java::security::AccessController;
-using $Permission = ::java::security::Permission;
 using $List = ::java::util::List;
-using $Optional = ::java::util::Optional;
 using $Supplier = ::java::util::function::Supplier;
 using $Matcher = ::java::util::regex::Matcher;
 using $Pattern = ::java::util::regex::Pattern;
@@ -84,85 +79,34 @@ public:
 		$set(this, responseInfo, responseInfo);
 	}
 	virtual $Object* get() override {
-		 return $of(ResponseBodyHandlers$FileDownloadBodyHandler::lambda$apply$0(responseInfo));
-	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<ResponseBodyHandlers$FileDownloadBodyHandler$$Lambda$lambda$apply$0>());
+		 return ResponseBodyHandlers$FileDownloadBodyHandler::lambda$apply$0(responseInfo);
 	}
 	$HttpResponse$ResponseInfo* responseInfo = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo ResponseBodyHandlers$FileDownloadBodyHandler$$Lambda$lambda$apply$0::fieldInfos[2] = {
-	{"responseInfo", "Ljava/net/http/HttpResponse$ResponseInfo;", nullptr, $PUBLIC, $field(ResponseBodyHandlers$FileDownloadBodyHandler$$Lambda$lambda$apply$0, responseInfo)},
-	{}
-};
-$MethodInfo ResponseBodyHandlers$FileDownloadBodyHandler$$Lambda$lambda$apply$0::methodInfos[3] = {
-	{"<init>", "(Ljava/net/http/HttpResponse$ResponseInfo;)V", nullptr, $PUBLIC, $method(ResponseBodyHandlers$FileDownloadBodyHandler$$Lambda$lambda$apply$0, init$, void, $HttpResponse$ResponseInfo*)},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ResponseBodyHandlers$FileDownloadBodyHandler$$Lambda$lambda$apply$0, get, $Object*)},
-	{}
-};
-$ClassInfo ResponseBodyHandlers$FileDownloadBodyHandler$$Lambda$lambda$apply$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.net.http.ResponseBodyHandlers$FileDownloadBodyHandler$$Lambda$lambda$apply$0",
-	"java.lang.Object",
-	"java.util.function.Supplier",
-	fieldInfos,
-	methodInfos
 };
 $Class* ResponseBodyHandlers$FileDownloadBodyHandler$$Lambda$lambda$apply$0::load$($String* name, bool initialize) {
-	$loadClass(ResponseBodyHandlers$FileDownloadBodyHandler$$Lambda$lambda$apply$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"responseInfo", "Ljava/net/http/HttpResponse$ResponseInfo;", nullptr, $PUBLIC, $field(ResponseBodyHandlers$FileDownloadBodyHandler$$Lambda$lambda$apply$0, responseInfo)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/net/http/HttpResponse$ResponseInfo;)V", nullptr, $PUBLIC, $method(ResponseBodyHandlers$FileDownloadBodyHandler$$Lambda$lambda$apply$0, init$, void, $HttpResponse$ResponseInfo*)},
+		{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ResponseBodyHandlers$FileDownloadBodyHandler$$Lambda$lambda$apply$0, get, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.net.http.ResponseBodyHandlers$FileDownloadBodyHandler$$Lambda$lambda$apply$0",
+		"java.lang.Object",
+		"java.util.function.Supplier",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ResponseBodyHandlers$FileDownloadBodyHandler$$Lambda$lambda$apply$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ResponseBodyHandlers$FileDownloadBodyHandler$$Lambda$lambda$apply$0);
+	});
 	return class$;
 }
 $Class* ResponseBodyHandlers$FileDownloadBodyHandler$$Lambda$lambda$apply$0::class$ = nullptr;
-
-$FieldInfo _ResponseBodyHandlers$FileDownloadBodyHandler_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(ResponseBodyHandlers$FileDownloadBodyHandler, $assertionsDisabled)},
-	{"directory", "Ljava/nio/file/Path;", nullptr, $PRIVATE | $FINAL, $field(ResponseBodyHandlers$FileDownloadBodyHandler, directory)},
-	{"openOptions", "Ljava/util/List;", "Ljava/util/List<Ljava/nio/file/OpenOption;>;", $PRIVATE | $FINAL, $field(ResponseBodyHandlers$FileDownloadBodyHandler, openOptions)},
-	{"acc", "Ljava/security/AccessControlContext;", nullptr, $PRIVATE | $FINAL, $field(ResponseBodyHandlers$FileDownloadBodyHandler, acc)},
-	{"filePermissions", "[Ljava/io/FilePermission;", nullptr, $PRIVATE | $FINAL, $field(ResponseBodyHandlers$FileDownloadBodyHandler, filePermissions)},
-	{"DISPOSITION_TYPE", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(ResponseBodyHandlers$FileDownloadBodyHandler, DISPOSITION_TYPE)},
-	{"FILENAME", "Ljava/util/regex/Pattern;", nullptr, $STATIC | $FINAL, $staticField(ResponseBodyHandlers$FileDownloadBodyHandler, FILENAME)},
-	{"PROHIBITED", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/String;>;", $STATIC | $FINAL, $staticField(ResponseBodyHandlers$FileDownloadBodyHandler, PROHIBITED)},
-	{}
-};
-
-$MethodInfo _ResponseBodyHandlers$FileDownloadBodyHandler_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/file/Path;Ljava/util/List;Ljava/security/AccessControlContext;[Ljava/io/FilePermission;)V", "(Ljava/nio/file/Path;Ljava/util/List<Ljava/nio/file/OpenOption;>;Ljava/security/AccessControlContext;[Ljava/io/FilePermission;)V", $PRIVATE | $TRANSIENT, $method(ResponseBodyHandlers$FileDownloadBodyHandler, init$, void, $Path*, $List*, $AccessControlContext*, $FilePermissionArray*)},
-	{"apply", "(Ljava/net/http/HttpResponse$ResponseInfo;)Ljava/net/http/HttpResponse$BodySubscriber;", "(Ljava/net/http/HttpResponse$ResponseInfo;)Ljava/net/http/HttpResponse$BodySubscriber<Ljava/nio/file/Path;>;", $PUBLIC, $virtualMethod(ResponseBodyHandlers$FileDownloadBodyHandler, apply, $HttpResponse$BodySubscriber*, $HttpResponse$ResponseInfo*)},
-	{"create", "(Ljava/nio/file/Path;Ljava/util/List;)Ljdk/internal/net/http/ResponseBodyHandlers$FileDownloadBodyHandler;", "(Ljava/nio/file/Path;Ljava/util/List<Ljava/nio/file/OpenOption;>;)Ljdk/internal/net/http/ResponseBodyHandlers$FileDownloadBodyHandler;", $PUBLIC | $STATIC, $staticMethod(ResponseBodyHandlers$FileDownloadBodyHandler, create, ResponseBodyHandlers$FileDownloadBodyHandler*, $Path*, $List*)},
-	{"lambda$apply$0", "(Ljava/net/http/HttpResponse$ResponseInfo;)Ljava/io/UncheckedIOException;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ResponseBodyHandlers$FileDownloadBodyHandler, lambda$apply$0, $UncheckedIOException*, $HttpResponse$ResponseInfo*)},
-	{"unchecked", "(Ljava/net/http/HttpResponse$ResponseInfo;Ljava/lang/String;)Ljava/io/UncheckedIOException;", nullptr, $STATIC | $FINAL, $staticMethod(ResponseBodyHandlers$FileDownloadBodyHandler, unchecked, $UncheckedIOException*, $HttpResponse$ResponseInfo*, $String*)},
-	{}
-};
-
-$InnerClassInfo _ResponseBodyHandlers$FileDownloadBodyHandler_InnerClassesInfo_[] = {
-	{"jdk.internal.net.http.ResponseBodyHandlers$FileDownloadBodyHandler", "jdk.internal.net.http.ResponseBodyHandlers", "FileDownloadBodyHandler", $PUBLIC | $STATIC},
-	{"java.net.http.HttpResponse$BodyHandler", "java.net.http.HttpResponse", "BodyHandler", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _ResponseBodyHandlers$FileDownloadBodyHandler_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"jdk.internal.net.http.ResponseBodyHandlers$FileDownloadBodyHandler",
-	"java.lang.Object",
-	"java.net.http.HttpResponse$BodyHandler",
-	_ResponseBodyHandlers$FileDownloadBodyHandler_FieldInfo_,
-	_ResponseBodyHandlers$FileDownloadBodyHandler_MethodInfo_,
-	"Ljava/lang/Object;Ljava/net/http/HttpResponse$BodyHandler<Ljava/nio/file/Path;>;",
-	nullptr,
-	_ResponseBodyHandlers$FileDownloadBodyHandler_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.net.http.ResponseBodyHandlers"
-};
-
-$Object* allocate$ResponseBodyHandlers$FileDownloadBodyHandler($Class* clazz) {
-	return $of($alloc(ResponseBodyHandlers$FileDownloadBodyHandler));
-}
 
 bool ResponseBodyHandlers$FileDownloadBodyHandler::$assertionsDisabled = false;
 $String* ResponseBodyHandlers$FileDownloadBodyHandler::DISPOSITION_TYPE = nullptr;
@@ -171,7 +115,7 @@ $List* ResponseBodyHandlers$FileDownloadBodyHandler::PROHIBITED = nullptr;
 
 ResponseBodyHandlers$FileDownloadBodyHandler* ResponseBodyHandlers$FileDownloadBodyHandler::create($Path* directory, $List* openOptions) {
 	$init(ResponseBodyHandlers$FileDownloadBodyHandler);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, fn, nullptr);
 	try {
 		$assign(fn, $ResponseBodyHandlers::pathForSecurityCheck(directory));
@@ -206,8 +150,8 @@ ResponseBodyHandlers$FileDownloadBodyHandler* ResponseBodyHandlers$FileDownloadB
 	if (var$0) {
 		bool var$1 = filePermissions == nullptr;
 		if (!var$1) {
-			bool var$2 = $nc($($nc($nc(filePermissions)->get(0))->getActions()))->equals("write"_s);
-			var$1 = (var$2 && $nc($($nc(filePermissions->get(1))->getActions()))->equals("write"_s));
+			bool var$2 = $$nc($nc(filePermissions->get(0))->getActions())->equals("write"_s);
+			var$1 = var$2 && $$nc($nc(filePermissions->get(1))->getActions())->equals("write"_s);
 		}
 		var$0 = !var$1;
 	}
@@ -227,27 +171,27 @@ void ResponseBodyHandlers$FileDownloadBodyHandler::init$($Path* directory, $List
 
 $UncheckedIOException* ResponseBodyHandlers$FileDownloadBodyHandler::unchecked($HttpResponse$ResponseInfo* rinfo, $String* msg) {
 	$init(ResponseBodyHandlers$FileDownloadBodyHandler);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, s, $String::format("%s in response [%d, %s]"_s, $$new($ObjectArray, {
-		$of(msg),
-		$($of($Integer::valueOf($nc(rinfo)->statusCode()))),
-		$($of($nc(rinfo)->headers()))
+		msg,
+		$($Integer::valueOf($nc(rinfo)->statusCode())),
+		$($nc(rinfo)->headers())
 	})));
 	return $new($UncheckedIOException, $$new($IOException, s));
 }
 
 $HttpResponse$BodySubscriber* ResponseBodyHandlers$FileDownloadBodyHandler::apply($HttpResponse$ResponseInfo* responseInfo) {
-	$useLocalCurrentObjectStackCache();
-	$var($String, dispoHeader, $cast($String, $nc($($nc($($nc(responseInfo)->headers()))->firstValue("Content-Disposition"_s)))->orElseThrow(static_cast<$Supplier*>($$new(ResponseBodyHandlers$FileDownloadBodyHandler$$Lambda$lambda$apply$0, responseInfo)))));
-	if (!$nc(dispoHeader)->regionMatches(true, 0, ResponseBodyHandlers$FileDownloadBodyHandler::DISPOSITION_TYPE, 0, $nc(ResponseBodyHandlers$FileDownloadBodyHandler::DISPOSITION_TYPE)->length())) {
+	$useLocalObjectStack();
+	$var($String, dispoHeader, $cast($String, $$nc($$nc($nc(responseInfo)->headers())->firstValue("Content-Disposition"_s))->orElseThrow($$new(ResponseBodyHandlers$FileDownloadBodyHandler$$Lambda$lambda$apply$0, responseInfo))));
+	if (!$nc(dispoHeader)->regionMatches(true, 0, ResponseBodyHandlers$FileDownloadBodyHandler::DISPOSITION_TYPE, 0, ResponseBodyHandlers$FileDownloadBodyHandler::DISPOSITION_TYPE->length())) {
 		$throw($(unchecked(responseInfo, "Unknown Content-Disposition type"_s)));
 	}
 	$var($Matcher, matcher, $nc(ResponseBodyHandlers$FileDownloadBodyHandler::FILENAME)->matcher(dispoHeader));
 	if (!$nc(matcher)->find()) {
 		$throw($(unchecked(responseInfo, "Bad Content-Disposition filename parameter"_s)));
 	}
-	int32_t n = $nc(matcher)->end();
-	int32_t semi = $($nc(dispoHeader)->substring(n))->indexOf(";"_s);
+	int32_t n = matcher->end();
+	int32_t semi = $(dispoHeader->substring(n))->indexOf(";"_s);
 	$var($String, filenameParam, nullptr);
 	if (semi < 0) {
 		$assign(filenameParam, dispoHeader->substring(n));
@@ -287,7 +231,7 @@ $UncheckedIOException* ResponseBodyHandlers$FileDownloadBodyHandler::lambda$appl
 	return unchecked(responseInfo, "No Content-Disposition header"_s);
 }
 
-void clinit$ResponseBodyHandlers$FileDownloadBodyHandler($Class* class$) {
+void ResponseBodyHandlers$FileDownloadBodyHandler::clinit$($Class* clazz) {
 	$assignStatic(ResponseBodyHandlers$FileDownloadBodyHandler::DISPOSITION_TYPE, "attachment;"_s);
 	$load($ResponseBodyHandlers);
 	ResponseBodyHandlers$FileDownloadBodyHandler::$assertionsDisabled = !$ResponseBodyHandlers::class$->desiredAssertionStatus();
@@ -300,11 +244,52 @@ ResponseBodyHandlers$FileDownloadBodyHandler::ResponseBodyHandlers$FileDownloadB
 
 $Class* ResponseBodyHandlers$FileDownloadBodyHandler::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(ResponseBodyHandlers$FileDownloadBodyHandler$$Lambda$lambda$apply$0::classInfo$.name)) {
+		if (name->equals("jdk.internal.net.http.ResponseBodyHandlers$FileDownloadBodyHandler$$Lambda$lambda$apply$0")) {
 			return ResponseBodyHandlers$FileDownloadBodyHandler$$Lambda$lambda$apply$0::load$(name, initialize);
 		}
 	}
-	$loadClass(ResponseBodyHandlers$FileDownloadBodyHandler, name, initialize, &_ResponseBodyHandlers$FileDownloadBodyHandler_ClassInfo_, clinit$ResponseBodyHandlers$FileDownloadBodyHandler, allocate$ResponseBodyHandlers$FileDownloadBodyHandler);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(ResponseBodyHandlers$FileDownloadBodyHandler, $assertionsDisabled)},
+		{"directory", "Ljava/nio/file/Path;", nullptr, $PRIVATE | $FINAL, $field(ResponseBodyHandlers$FileDownloadBodyHandler, directory)},
+		{"openOptions", "Ljava/util/List;", "Ljava/util/List<Ljava/nio/file/OpenOption;>;", $PRIVATE | $FINAL, $field(ResponseBodyHandlers$FileDownloadBodyHandler, openOptions)},
+		{"acc", "Ljava/security/AccessControlContext;", nullptr, $PRIVATE | $FINAL, $field(ResponseBodyHandlers$FileDownloadBodyHandler, acc)},
+		{"filePermissions", "[Ljava/io/FilePermission;", nullptr, $PRIVATE | $FINAL, $field(ResponseBodyHandlers$FileDownloadBodyHandler, filePermissions)},
+		{"DISPOSITION_TYPE", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(ResponseBodyHandlers$FileDownloadBodyHandler, DISPOSITION_TYPE)},
+		{"FILENAME", "Ljava/util/regex/Pattern;", nullptr, $STATIC | $FINAL, $staticField(ResponseBodyHandlers$FileDownloadBodyHandler, FILENAME)},
+		{"PROHIBITED", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/String;>;", $STATIC | $FINAL, $staticField(ResponseBodyHandlers$FileDownloadBodyHandler, PROHIBITED)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/nio/file/Path;Ljava/util/List;Ljava/security/AccessControlContext;[Ljava/io/FilePermission;)V", "(Ljava/nio/file/Path;Ljava/util/List<Ljava/nio/file/OpenOption;>;Ljava/security/AccessControlContext;[Ljava/io/FilePermission;)V", $PRIVATE | $TRANSIENT, $method(ResponseBodyHandlers$FileDownloadBodyHandler, init$, void, $Path*, $List*, $AccessControlContext*, $FilePermissionArray*)},
+		{"apply", "(Ljava/net/http/HttpResponse$ResponseInfo;)Ljava/net/http/HttpResponse$BodySubscriber;", "(Ljava/net/http/HttpResponse$ResponseInfo;)Ljava/net/http/HttpResponse$BodySubscriber<Ljava/nio/file/Path;>;", $PUBLIC, $virtualMethod(ResponseBodyHandlers$FileDownloadBodyHandler, apply, $HttpResponse$BodySubscriber*, $HttpResponse$ResponseInfo*)},
+		{"create", "(Ljava/nio/file/Path;Ljava/util/List;)Ljdk/internal/net/http/ResponseBodyHandlers$FileDownloadBodyHandler;", "(Ljava/nio/file/Path;Ljava/util/List<Ljava/nio/file/OpenOption;>;)Ljdk/internal/net/http/ResponseBodyHandlers$FileDownloadBodyHandler;", $PUBLIC | $STATIC, $staticMethod(ResponseBodyHandlers$FileDownloadBodyHandler, create, ResponseBodyHandlers$FileDownloadBodyHandler*, $Path*, $List*)},
+		{"lambda$apply$0", "(Ljava/net/http/HttpResponse$ResponseInfo;)Ljava/io/UncheckedIOException;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ResponseBodyHandlers$FileDownloadBodyHandler, lambda$apply$0, $UncheckedIOException*, $HttpResponse$ResponseInfo*)},
+		{"unchecked", "(Ljava/net/http/HttpResponse$ResponseInfo;Ljava/lang/String;)Ljava/io/UncheckedIOException;", nullptr, $STATIC | $FINAL, $staticMethod(ResponseBodyHandlers$FileDownloadBodyHandler, unchecked, $UncheckedIOException*, $HttpResponse$ResponseInfo*, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.net.http.ResponseBodyHandlers$FileDownloadBodyHandler", "jdk.internal.net.http.ResponseBodyHandlers", "FileDownloadBodyHandler", $PUBLIC | $STATIC},
+		{"java.net.http.HttpResponse$BodyHandler", "java.net.http.HttpResponse", "BodyHandler", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"jdk.internal.net.http.ResponseBodyHandlers$FileDownloadBodyHandler",
+		"java.lang.Object",
+		"java.net.http.HttpResponse$BodyHandler",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/net/http/HttpResponse$BodyHandler<Ljava/nio/file/Path;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.net.http.ResponseBodyHandlers"
+	};
+	$loadClass(ResponseBodyHandlers$FileDownloadBodyHandler, name, initialize, &classInfo$$, ResponseBodyHandlers$FileDownloadBodyHandler::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ResponseBodyHandlers$FileDownloadBodyHandler);
+	});
 	return class$;
 }
 

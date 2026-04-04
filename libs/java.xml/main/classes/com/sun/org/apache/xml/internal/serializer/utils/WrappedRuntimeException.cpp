@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/serializer/utils/WrappedRuntimeException.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -16,32 +15,6 @@ namespace com {
 					namespace internal {
 						namespace serializer {
 							namespace utils {
-
-$FieldInfo _WrappedRuntimeException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(WrappedRuntimeException, serialVersionUID)},
-	{"m_exception", "Ljava/lang/Exception;", nullptr, $PRIVATE, $field(WrappedRuntimeException, m_exception)},
-	{}
-};
-
-$MethodInfo _WrappedRuntimeException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Exception;)V", nullptr, $PUBLIC, $method(WrappedRuntimeException, init$, void, $Exception*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Exception;)V", nullptr, $PUBLIC, $method(WrappedRuntimeException, init$, void, $String*, $Exception*)},
-	{"getException", "()Ljava/lang/Exception;", nullptr, $PUBLIC, $method(WrappedRuntimeException, getException, $Exception*)},
-	{}
-};
-
-$ClassInfo _WrappedRuntimeException_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.serializer.utils.WrappedRuntimeException",
-	"java.lang.RuntimeException",
-	nullptr,
-	_WrappedRuntimeException_FieldInfo_,
-	_WrappedRuntimeException_MethodInfo_
-};
-
-$Object* allocate$WrappedRuntimeException($Class* clazz) {
-	return $of($alloc(WrappedRuntimeException));
-}
 
 void WrappedRuntimeException::init$($Exception* e) {
 	$RuntimeException::init$($($nc(e)->getMessage()));
@@ -68,7 +41,28 @@ void WrappedRuntimeException::throw$() {
 }
 
 $Class* WrappedRuntimeException::load$($String* name, bool initialize) {
-	$loadClass(WrappedRuntimeException, name, initialize, &_WrappedRuntimeException_ClassInfo_, allocate$WrappedRuntimeException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(WrappedRuntimeException, serialVersionUID)},
+		{"m_exception", "Ljava/lang/Exception;", nullptr, $PRIVATE, $field(WrappedRuntimeException, m_exception)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Exception;)V", nullptr, $PUBLIC, $method(WrappedRuntimeException, init$, void, $Exception*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/Exception;)V", nullptr, $PUBLIC, $method(WrappedRuntimeException, init$, void, $String*, $Exception*)},
+		{"getException", "()Ljava/lang/Exception;", nullptr, $PUBLIC, $method(WrappedRuntimeException, getException, $Exception*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.serializer.utils.WrappedRuntimeException",
+		"java.lang.RuntimeException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(WrappedRuntimeException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WrappedRuntimeException);
+	});
 	return class$;
 }
 

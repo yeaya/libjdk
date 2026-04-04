@@ -49,6 +49,7 @@ class TransformHelper : public ::sun::java2d::loops::GraphicsPrimitive {
 	$class(TransformHelper, 0, ::sun::java2d::loops::GraphicsPrimitive)
 public:
 	TransformHelper();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::java2d::loops::SurfaceType* srctype);
 	void init$(int64_t pNativePrim, ::sun::java2d::loops::SurfaceType* srctype, ::sun::java2d::loops::CompositeType* comptype, ::sun::java2d::loops::SurfaceType* dsttype);
 	virtual void Transform(::sun::java2d::loops::MaskBlit* output, ::sun::java2d::SurfaceData* src, ::sun::java2d::SurfaceData* dst, ::java::awt::Composite* comp, ::sun::java2d::pipe::Region* clip, ::java::awt::geom::AffineTransform* itx, int32_t txtype, int32_t sx1, int32_t sy1, int32_t sx2, int32_t sy2, int32_t dx1, int32_t dy1, int32_t dx2, int32_t dy2, $ints* edges, int32_t dxoff, int32_t dyoff);

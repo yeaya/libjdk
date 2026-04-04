@@ -84,6 +84,7 @@ public:
 	virtual bool equals(Object$* arg0) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::awt::MenuBar* menuBarTarget);
 	virtual void addHelpMenu(::java::awt::Menu* m) override;
 	virtual void addMenu(::java::awt::Menu* m) override;

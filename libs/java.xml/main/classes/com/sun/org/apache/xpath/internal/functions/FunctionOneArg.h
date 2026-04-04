@@ -56,7 +56,7 @@ public:
 	virtual void setArg(::com::sun::org::apache::xpath::internal::Expression* arg, int32_t argNum) override;
 	virtual void setExpression(::com::sun::org::apache::xpath::internal::Expression* exp) override;
 	virtual $String* toString() override;
-	static const int64_t serialVersionUID = (int64_t)0xB81C530740D0D0E2;
+	static const int64_t serialVersionUID = (int64_t)0xb81c530740d0d0e2;
 	::com::sun::org::apache::xpath::internal::Expression* m_arg0 = nullptr;
 };
 

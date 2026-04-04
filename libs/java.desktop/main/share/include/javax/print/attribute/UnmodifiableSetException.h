@@ -15,10 +15,13 @@ public:
 	UnmodifiableSetException();
 	void init$();
 	void init$($String* message);
-	static const int64_t serialVersionUID = (int64_t)0x1F4C4234F1FEBBB3;
+	static const int64_t serialVersionUID = (int64_t)0x1f4c4234f1febbb3;
 	UnmodifiableSetException(const UnmodifiableSetException& e);
 	virtual void throw$() override;
-	inline UnmodifiableSetException* operator ->() {
+	inline UnmodifiableSetException* operator ->() const {
+		return (UnmodifiableSetException*)throwing$;
+	}
+	inline operator UnmodifiableSetException*() const {
 		return (UnmodifiableSetException*)throwing$;
 	}
 };

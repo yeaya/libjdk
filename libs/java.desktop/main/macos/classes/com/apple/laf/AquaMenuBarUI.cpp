@@ -1,5 +1,4 @@
 #include <com/apple/laf/AquaMenuBarUI.h>
-
 #include <com/apple/laf/AquaLookAndFeel.h>
 #include <com/apple/laf/AquaMenuPainter.h>
 #include <com/apple/laf/ScreenMenuBar.h>
@@ -60,73 +59,29 @@ public:
 	void init$() {
 	}
 	virtual $Object* run() override {
-		 return $of(AquaMenuBarUI::lambda$static$0());
+		 return AquaMenuBarUI::lambda$static$0();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<AquaMenuBarUI$$Lambda$lambda$static$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo AquaMenuBarUI$$Lambda$lambda$static$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AquaMenuBarUI$$Lambda$lambda$static$0, init$, void)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AquaMenuBarUI$$Lambda$lambda$static$0, run, $Object*)},
-	{}
-};
-$ClassInfo AquaMenuBarUI$$Lambda$lambda$static$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.apple.laf.AquaMenuBarUI$$Lambda$lambda$static$0",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	nullptr,
-	methodInfos
 };
 $Class* AquaMenuBarUI$$Lambda$lambda$static$0::load$($String* name, bool initialize) {
-	$loadClass(AquaMenuBarUI$$Lambda$lambda$static$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AquaMenuBarUI$$Lambda$lambda$static$0, init$, void)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AquaMenuBarUI$$Lambda$lambda$static$0, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.apple.laf.AquaMenuBarUI$$Lambda$lambda$static$0",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(AquaMenuBarUI$$Lambda$lambda$static$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AquaMenuBarUI$$Lambda$lambda$static$0);
+	});
 	return class$;
 }
 $Class* AquaMenuBarUI$$Lambda$lambda$static$0::class$ = nullptr;
-
-$FieldInfo _AquaMenuBarUI_FieldInfo_[] = {
-	{"fScreenMenuBar", "Lcom/apple/laf/ScreenMenuBar;", nullptr, 0, $field(AquaMenuBarUI, fScreenMenuBar)},
-	{"useScreenMenuBar", "Z", nullptr, 0, $field(AquaMenuBarUI, useScreenMenuBar)},
-	{}
-};
-
-$MethodInfo _AquaMenuBarUI_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AquaMenuBarUI, init$, void)},
-	{"clearScreenMenuBar", "(Ljavax/swing/JFrame;)V", nullptr, 0, $virtualMethod(AquaMenuBarUI, clearScreenMenuBar, void, $JFrame*)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(AquaMenuBarUI, createUI, $ComponentUI*, $JComponent*)},
-	{"getPreferredSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(AquaMenuBarUI, getPreferredSize, $Dimension*, $JComponent*)},
-	{"getScreenMenuBar", "()Lcom/apple/laf/ScreenMenuBar;", nullptr, $PUBLIC, $virtualMethod(AquaMenuBarUI, getScreenMenuBar, $ScreenMenuBar*)},
-	{"getScreenMenuBarProperty", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(AquaMenuBarUI, getScreenMenuBarProperty, bool)},
-	{"installKeyboardActions", "()V", nullptr, $PROTECTED, $virtualMethod(AquaMenuBarUI, installKeyboardActions, void)},
-	{"isScreenMenuBar", "(Ljavax/swing/JMenuBar;)Z", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(AquaMenuBarUI, isScreenMenuBar, bool, $JMenuBar*)},
-	{"lambda$static$0", "()Ljava/lang/Void;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(AquaMenuBarUI, lambda$static$0, $Void*)},
-	{"paint", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(AquaMenuBarUI, paint, void, $Graphics*, $JComponent*)},
-	{"setScreenMenuBar", "(Ljavax/swing/JFrame;)Z", nullptr, 0, $virtualMethod(AquaMenuBarUI, setScreenMenuBar, bool, $JFrame*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"uninstallKeyboardActions", "()V", nullptr, $PROTECTED, $virtualMethod(AquaMenuBarUI, uninstallKeyboardActions, void)},
-	{"uninstallUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(AquaMenuBarUI, uninstallUI, void, $JComponent*)},
-	{}
-};
-
-$ClassInfo _AquaMenuBarUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.apple.laf.AquaMenuBarUI",
-	"javax.swing.plaf.basic.BasicMenuBarUI",
-	"com.apple.laf.ScreenMenuBarProvider",
-	_AquaMenuBarUI_FieldInfo_,
-	_AquaMenuBarUI_MethodInfo_
-};
-
-$Object* allocate$AquaMenuBarUI($Class* clazz) {
-	return $of($alloc(AquaMenuBarUI));
-}
 
 int32_t AquaMenuBarUI::hashCode() {
 	 return this->$BasicMenuBarUI::hashCode();
@@ -155,7 +110,7 @@ void AquaMenuBarUI::init$() {
 
 void AquaMenuBarUI::uninstallUI($JComponent* c) {
 	if (this->fScreenMenuBar != nullptr) {
-		$var($JFrame, frame, ($cast($JFrame, $nc(c)->getTopLevelAncestor())));
+		$var($JFrame, frame, $cast($JFrame, $nc(c)->getTopLevelAncestor()));
 		if (frame != nullptr && $equals(frame->getMenuBar(), this->fScreenMenuBar)) {
 			frame->setMenuBar(($MenuBar*)nullptr);
 		}
@@ -182,15 +137,13 @@ void AquaMenuBarUI::uninstallKeyboardActions() {
 }
 
 void AquaMenuBarUI::paint($Graphics* g, $JComponent* c) {
-	$useLocalCurrentObjectStackCache();
-	$var($Graphics, var$0, g);
-	int32_t var$1 = $nc(c)->getWidth();
-	$nc($($AquaMenuPainter::instance()))->paintMenuBarBackground(var$0, var$1, c->getHeight(), c);
+	int32_t var$0 = $nc(c)->getWidth();
+	$$nc($AquaMenuPainter::instance())->paintMenuBarBackground(g, var$0, c->getHeight(), c);
 }
 
 $Dimension* AquaMenuBarUI::getPreferredSize($JComponent* c) {
 	if (isScreenMenuBar($cast($JMenuBar, c))) {
-		if (setScreenMenuBar(($cast($JFrame, $($nc(c)->getTopLevelAncestor()))))) {
+		if (setScreenMenuBar($$cast($JFrame, $nc(c)->getTopLevelAncestor()))) {
 			return $new($Dimension, 0, 0);
 		}
 	}
@@ -226,16 +179,16 @@ $ScreenMenuBar* AquaMenuBarUI::getScreenMenuBar() {
 
 bool AquaMenuBarUI::isScreenMenuBar($JMenuBar* c) {
 	$init(AquaMenuBarUI);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ComponentUI, ui, $nc(c)->getUI());
 	if ($instanceOf(AquaMenuBarUI, ui)) {
-		if (!$nc(($cast(AquaMenuBarUI, ui)))->useScreenMenuBar) {
+		if (!$cast(AquaMenuBarUI, ui)->useScreenMenuBar) {
 			return false;
 		}
 		$var($Component, parent, c->getTopLevelAncestor());
 		if ($instanceOf($JFrame, parent)) {
-			$var($MenuBar, mb, $nc(($cast($JFrame, parent)))->getMenuBar());
-			bool thisIsTheJMenuBar = ($nc(($cast($JFrame, parent)))->getJMenuBar() == c);
+			$var($MenuBar, mb, $cast($JFrame, parent)->getMenuBar());
+			bool thisIsTheJMenuBar = ($cast($JFrame, parent)->getJMenuBar() == c);
 			if (mb == nullptr) {
 				return thisIsTheJMenuBar;
 			}
@@ -247,13 +200,13 @@ bool AquaMenuBarUI::isScreenMenuBar($JMenuBar* c) {
 
 bool AquaMenuBarUI::getScreenMenuBarProperty() {
 	$init(AquaMenuBarUI);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	if ($LWCToolkit::isEmbedded()) {
 		return false;
 	}
 	$init($AquaLookAndFeel);
-	return $nc(($cast($Boolean, $($AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($GetBooleanAction, $$str({$AquaLookAndFeel::sPropertyPrefix, "useScreenMenuBar"_s}))))))))->booleanValue();
+	return $$sure($Boolean, $AccessController::doPrivileged($$new($GetBooleanAction, $$str({$AquaLookAndFeel::sPropertyPrefix, "useScreenMenuBar"_s}))))->booleanValue();
 }
 
 $Void* AquaMenuBarUI::lambda$static$0() {
@@ -263,10 +216,10 @@ $Void* AquaMenuBarUI::lambda$static$0() {
 	return nullptr;
 }
 
-void clinit$AquaMenuBarUI($Class* class$) {
+void AquaMenuBarUI::clinit$($Class* clazz) {
 	$beforeCallerSensitive();
 	{
-		$AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new(AquaMenuBarUI$$Lambda$lambda$static$0)));
+		$AccessController::doPrivileged($cast($PrivilegedAction, $$new(AquaMenuBarUI$$Lambda$lambda$static$0)));
 	}
 }
 
@@ -275,11 +228,47 @@ AquaMenuBarUI::AquaMenuBarUI() {
 
 $Class* AquaMenuBarUI::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(AquaMenuBarUI$$Lambda$lambda$static$0::classInfo$.name)) {
+		if (name->equals("com.apple.laf.AquaMenuBarUI$$Lambda$lambda$static$0")) {
 			return AquaMenuBarUI$$Lambda$lambda$static$0::load$(name, initialize);
 		}
 	}
-	$loadClass(AquaMenuBarUI, name, initialize, &_AquaMenuBarUI_ClassInfo_, clinit$AquaMenuBarUI, allocate$AquaMenuBarUI);
+	$FieldInfo fieldInfos$$[] = {
+		{"fScreenMenuBar", "Lcom/apple/laf/ScreenMenuBar;", nullptr, 0, $field(AquaMenuBarUI, fScreenMenuBar)},
+		{"useScreenMenuBar", "Z", nullptr, 0, $field(AquaMenuBarUI, useScreenMenuBar)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AquaMenuBarUI, init$, void)},
+		{"clearScreenMenuBar", "(Ljavax/swing/JFrame;)V", nullptr, 0, $virtualMethod(AquaMenuBarUI, clearScreenMenuBar, void, $JFrame*)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(AquaMenuBarUI, createUI, $ComponentUI*, $JComponent*)},
+		{"getPreferredSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(AquaMenuBarUI, getPreferredSize, $Dimension*, $JComponent*)},
+		{"getScreenMenuBar", "()Lcom/apple/laf/ScreenMenuBar;", nullptr, $PUBLIC, $virtualMethod(AquaMenuBarUI, getScreenMenuBar, $ScreenMenuBar*)},
+		{"getScreenMenuBarProperty", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(AquaMenuBarUI, getScreenMenuBarProperty, bool)},
+		{"installKeyboardActions", "()V", nullptr, $PROTECTED, $virtualMethod(AquaMenuBarUI, installKeyboardActions, void)},
+		{"isScreenMenuBar", "(Ljavax/swing/JMenuBar;)Z", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(AquaMenuBarUI, isScreenMenuBar, bool, $JMenuBar*)},
+		{"lambda$static$0", "()Ljava/lang/Void;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(AquaMenuBarUI, lambda$static$0, $Void*)},
+		{"paint", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(AquaMenuBarUI, paint, void, $Graphics*, $JComponent*)},
+		{"setScreenMenuBar", "(Ljavax/swing/JFrame;)Z", nullptr, 0, $virtualMethod(AquaMenuBarUI, setScreenMenuBar, bool, $JFrame*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"uninstallKeyboardActions", "()V", nullptr, $PROTECTED, $virtualMethod(AquaMenuBarUI, uninstallKeyboardActions, void)},
+		{"uninstallUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(AquaMenuBarUI, uninstallUI, void, $JComponent*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.apple.laf.AquaMenuBarUI",
+		"javax.swing.plaf.basic.BasicMenuBarUI",
+		"com.apple.laf.ScreenMenuBarProvider",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(AquaMenuBarUI, name, initialize, &classInfo$$, AquaMenuBarUI::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AquaMenuBarUI));
+	});
 	return class$;
 }
 

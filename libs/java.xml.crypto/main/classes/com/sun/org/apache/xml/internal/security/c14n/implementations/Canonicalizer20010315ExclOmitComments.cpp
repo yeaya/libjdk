@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/security/c14n/implementations/Canonicalizer20010315ExclOmitComments.h>
-
 #include <com/sun/org/apache/xml/internal/security/c14n/Canonicalizer.h>
 #include <com/sun/org/apache/xml/internal/security/c14n/implementations/Canonicalizer20010315Excl.h>
 #include <jcpp.h>
@@ -21,25 +20,6 @@ namespace com {
 							namespace c14n {
 								namespace implementations {
 
-$MethodInfo _Canonicalizer20010315ExclOmitComments_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Canonicalizer20010315ExclOmitComments, init$, void)},
-	{"engineGetURI", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(Canonicalizer20010315ExclOmitComments, engineGetURI, $String*)},
-	{}
-};
-
-$ClassInfo _Canonicalizer20010315ExclOmitComments_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.security.c14n.implementations.Canonicalizer20010315ExclOmitComments",
-	"com.sun.org.apache.xml.internal.security.c14n.implementations.Canonicalizer20010315Excl",
-	nullptr,
-	nullptr,
-	_Canonicalizer20010315ExclOmitComments_MethodInfo_
-};
-
-$Object* allocate$Canonicalizer20010315ExclOmitComments($Class* clazz) {
-	return $of($alloc(Canonicalizer20010315ExclOmitComments));
-}
-
 void Canonicalizer20010315ExclOmitComments::init$() {
 	$Canonicalizer20010315Excl::init$(false);
 }
@@ -53,7 +33,22 @@ Canonicalizer20010315ExclOmitComments::Canonicalizer20010315ExclOmitComments() {
 }
 
 $Class* Canonicalizer20010315ExclOmitComments::load$($String* name, bool initialize) {
-	$loadClass(Canonicalizer20010315ExclOmitComments, name, initialize, &_Canonicalizer20010315ExclOmitComments_ClassInfo_, allocate$Canonicalizer20010315ExclOmitComments);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Canonicalizer20010315ExclOmitComments, init$, void)},
+		{"engineGetURI", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(Canonicalizer20010315ExclOmitComments, engineGetURI, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.security.c14n.implementations.Canonicalizer20010315ExclOmitComments",
+		"com.sun.org.apache.xml.internal.security.c14n.implementations.Canonicalizer20010315Excl",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Canonicalizer20010315ExclOmitComments, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Canonicalizer20010315ExclOmitComments);
+	});
 	return class$;
 }
 

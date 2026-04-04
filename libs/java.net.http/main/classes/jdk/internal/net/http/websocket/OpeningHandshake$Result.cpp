@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/websocket/OpeningHandshake$Result.h>
-
 #include <jdk/internal/net/http/websocket/OpeningHandshake.h>
 #include <jdk/internal/net/http/websocket/TransportFactory.h>
 #include <jcpp.h>
@@ -16,42 +15,6 @@ namespace jdk {
 			namespace http {
 				namespace websocket {
 
-$FieldInfo _OpeningHandshake$Result_FieldInfo_[] = {
-	{"subprotocol", "Ljava/lang/String;", nullptr, $FINAL, $field(OpeningHandshake$Result, subprotocol)},
-	{"transport", "Ljdk/internal/net/http/websocket/TransportFactory;", nullptr, $FINAL, $field(OpeningHandshake$Result, transport)},
-	{}
-};
-
-$MethodInfo _OpeningHandshake$Result_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljdk/internal/net/http/websocket/TransportFactory;)V", nullptr, $PRIVATE, $method(OpeningHandshake$Result, init$, void, $String*, $TransportFactory*)},
-	{}
-};
-
-$InnerClassInfo _OpeningHandshake$Result_InnerClassesInfo_[] = {
-	{"jdk.internal.net.http.websocket.OpeningHandshake$Result", "jdk.internal.net.http.websocket.OpeningHandshake", "Result", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _OpeningHandshake$Result_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"jdk.internal.net.http.websocket.OpeningHandshake$Result",
-	"java.lang.Object",
-	nullptr,
-	_OpeningHandshake$Result_FieldInfo_,
-	_OpeningHandshake$Result_MethodInfo_,
-	nullptr,
-	nullptr,
-	_OpeningHandshake$Result_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.net.http.websocket.OpeningHandshake"
-};
-
-$Object* allocate$OpeningHandshake$Result($Class* clazz) {
-	return $of($alloc(OpeningHandshake$Result));
-}
-
 void OpeningHandshake$Result::init$($String* subprotocol, $TransportFactory* transport) {
 	$set(this, subprotocol, subprotocol);
 	$set(this, transport, transport);
@@ -61,7 +24,37 @@ OpeningHandshake$Result::OpeningHandshake$Result() {
 }
 
 $Class* OpeningHandshake$Result::load$($String* name, bool initialize) {
-	$loadClass(OpeningHandshake$Result, name, initialize, &_OpeningHandshake$Result_ClassInfo_, allocate$OpeningHandshake$Result);
+	$FieldInfo fieldInfos$$[] = {
+		{"subprotocol", "Ljava/lang/String;", nullptr, $FINAL, $field(OpeningHandshake$Result, subprotocol)},
+		{"transport", "Ljdk/internal/net/http/websocket/TransportFactory;", nullptr, $FINAL, $field(OpeningHandshake$Result, transport)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljdk/internal/net/http/websocket/TransportFactory;)V", nullptr, $PRIVATE, $method(OpeningHandshake$Result, init$, void, $String*, $TransportFactory*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.net.http.websocket.OpeningHandshake$Result", "jdk.internal.net.http.websocket.OpeningHandshake", "Result", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"jdk.internal.net.http.websocket.OpeningHandshake$Result",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.net.http.websocket.OpeningHandshake"
+	};
+	$loadClass(OpeningHandshake$Result, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(OpeningHandshake$Result);
+	});
 	return class$;
 }
 

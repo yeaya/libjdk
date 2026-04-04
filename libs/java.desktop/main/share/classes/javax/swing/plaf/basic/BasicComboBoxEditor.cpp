@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/basic/BasicComboBoxEditor.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/event/ActionListener.h>
 #include <java/awt/event/FocusEvent.h>
@@ -31,56 +30,6 @@ namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace basic {
-
-$FieldInfo _BasicComboBoxEditor_FieldInfo_[] = {
-	{"editor", "Ljavax/swing/JTextField;", nullptr, $PROTECTED, $field(BasicComboBoxEditor, editor)},
-	{"oldValue", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(BasicComboBoxEditor, oldValue)},
-	{}
-};
-
-$MethodInfo _BasicComboBoxEditor_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(BasicComboBoxEditor, init$, void)},
-	{"addActionListener", "(Ljava/awt/event/ActionListener;)V", nullptr, $PUBLIC, $virtualMethod(BasicComboBoxEditor, addActionListener, void, $ActionListener*)},
-	{"createEditorComponent", "()Ljavax/swing/JTextField;", nullptr, $PROTECTED, $virtualMethod(BasicComboBoxEditor, createEditorComponent, $JTextField*)},
-	{"focusGained", "(Ljava/awt/event/FocusEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicComboBoxEditor, focusGained, void, $FocusEvent*)},
-	{"focusLost", "(Ljava/awt/event/FocusEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicComboBoxEditor, focusLost, void, $FocusEvent*)},
-	{"getEditorComponent", "()Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(BasicComboBoxEditor, getEditorComponent, $Component*)},
-	{"getItem", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(BasicComboBoxEditor, getItem, $Object*)},
-	{"removeActionListener", "(Ljava/awt/event/ActionListener;)V", nullptr, $PUBLIC, $virtualMethod(BasicComboBoxEditor, removeActionListener, void, $ActionListener*)},
-	{"selectAll", "()V", nullptr, $PUBLIC, $virtualMethod(BasicComboBoxEditor, selectAll, void)},
-	{"setItem", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(BasicComboBoxEditor, setItem, void, Object$*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _BasicComboBoxEditor_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.basic.BasicComboBoxEditor$UIResource", "javax.swing.plaf.basic.BasicComboBoxEditor", "UIResource", $PUBLIC | $STATIC},
-	{"javax.swing.plaf.basic.BasicComboBoxEditor$BorderlessTextField", "javax.swing.plaf.basic.BasicComboBoxEditor", "BorderlessTextField", $STATIC},
-	{}
-};
-
-$ClassInfo _BasicComboBoxEditor_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.basic.BasicComboBoxEditor",
-	"java.lang.Object",
-	"javax.swing.ComboBoxEditor,java.awt.event.FocusListener",
-	_BasicComboBoxEditor_FieldInfo_,
-	_BasicComboBoxEditor_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BasicComboBoxEditor_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.basic.BasicComboBoxEditor$UIResource,javax.swing.plaf.basic.BasicComboBoxEditor$BorderlessTextField"
-};
-
-$Object* allocate$BasicComboBoxEditor($Class* clazz) {
-	return $of($alloc(BasicComboBoxEditor));
-}
 
 int32_t BasicComboBoxEditor::hashCode() {
 	 return this->$ComboBoxEditor::hashCode();
@@ -117,7 +66,7 @@ $JTextField* BasicComboBoxEditor::createEditorComponent() {
 }
 
 void BasicComboBoxEditor::setItem(Object$* anObject) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, text, nullptr);
 	if (anObject != nullptr) {
 		$assign(text, $of(anObject)->toString());
@@ -134,21 +83,21 @@ void BasicComboBoxEditor::setItem(Object$* anObject) {
 }
 
 $Object* BasicComboBoxEditor::getItem() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, newValue, $nc(this->editor)->getText());
 	if (this->oldValue != nullptr && !($instanceOf($String, this->oldValue))) {
-		if ($nc($of(newValue))->equals($($nc($of(this->oldValue))->toString()))) {
-			return $of(this->oldValue);
+		if ($nc(newValue)->equals($(this->oldValue->toString()))) {
+			return this->oldValue;
 		} else {
-			$Class* cls = $nc($of(this->oldValue))->getClass();
+			$Class* cls = this->oldValue->getClass();
 			try {
 				$var($Method, method, $MethodUtil::getMethod(cls, "valueOf"_s, $$new($ClassArray, {$String::class$})));
-				$assign(newValue, $MethodUtil::invoke(method, this->oldValue, $$new($ObjectArray, {$($of($nc(this->editor)->getText()))})));
+				$assign(newValue, $MethodUtil::invoke(method, this->oldValue, $$new($ObjectArray, {$($nc(this->editor)->getText())})));
 			} catch ($Exception& ex) {
 			}
 		}
 	}
-	return $of(newValue);
+	return newValue;
 }
 
 void BasicComboBoxEditor::selectAll() {
@@ -174,7 +123,51 @@ BasicComboBoxEditor::BasicComboBoxEditor() {
 }
 
 $Class* BasicComboBoxEditor::load$($String* name, bool initialize) {
-	$loadClass(BasicComboBoxEditor, name, initialize, &_BasicComboBoxEditor_ClassInfo_, allocate$BasicComboBoxEditor);
+	$FieldInfo fieldInfos$$[] = {
+		{"editor", "Ljavax/swing/JTextField;", nullptr, $PROTECTED, $field(BasicComboBoxEditor, editor)},
+		{"oldValue", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(BasicComboBoxEditor, oldValue)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(BasicComboBoxEditor, init$, void)},
+		{"addActionListener", "(Ljava/awt/event/ActionListener;)V", nullptr, $PUBLIC, $virtualMethod(BasicComboBoxEditor, addActionListener, void, $ActionListener*)},
+		{"createEditorComponent", "()Ljavax/swing/JTextField;", nullptr, $PROTECTED, $virtualMethod(BasicComboBoxEditor, createEditorComponent, $JTextField*)},
+		{"focusGained", "(Ljava/awt/event/FocusEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicComboBoxEditor, focusGained, void, $FocusEvent*)},
+		{"focusLost", "(Ljava/awt/event/FocusEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicComboBoxEditor, focusLost, void, $FocusEvent*)},
+		{"getEditorComponent", "()Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(BasicComboBoxEditor, getEditorComponent, $Component*)},
+		{"getItem", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(BasicComboBoxEditor, getItem, $Object*)},
+		{"removeActionListener", "(Ljava/awt/event/ActionListener;)V", nullptr, $PUBLIC, $virtualMethod(BasicComboBoxEditor, removeActionListener, void, $ActionListener*)},
+		{"selectAll", "()V", nullptr, $PUBLIC, $virtualMethod(BasicComboBoxEditor, selectAll, void)},
+		{"setItem", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(BasicComboBoxEditor, setItem, void, Object$*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.basic.BasicComboBoxEditor$UIResource", "javax.swing.plaf.basic.BasicComboBoxEditor", "UIResource", $PUBLIC | $STATIC},
+		{"javax.swing.plaf.basic.BasicComboBoxEditor$BorderlessTextField", "javax.swing.plaf.basic.BasicComboBoxEditor", "BorderlessTextField", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.basic.BasicComboBoxEditor",
+		"java.lang.Object",
+		"javax.swing.ComboBoxEditor,java.awt.event.FocusListener",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.basic.BasicComboBoxEditor$UIResource,javax.swing.plaf.basic.BasicComboBoxEditor$BorderlessTextField"
+	};
+	$loadClass(BasicComboBoxEditor, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(BasicComboBoxEditor));
+	});
 	return class$;
 }
 

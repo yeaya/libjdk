@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/serializer/utils/Messages.h>
-
 #include <com/sun/org/apache/xml/internal/serializer/utils/MsgKey.h>
 #include <java/text/MessageFormat.h>
 #include <java/util/Locale.h>
@@ -30,34 +29,6 @@ namespace com {
 						namespace serializer {
 							namespace utils {
 
-$FieldInfo _Messages_FieldInfo_[] = {
-	{"m_locale", "Ljava/util/Locale;", nullptr, $PRIVATE | $FINAL, $field(Messages, m_locale)},
-	{"m_resourceBundle", "Ljava/util/ResourceBundle;", nullptr, $PRIVATE, $field(Messages, m_resourceBundle)},
-	{"m_resourceBundleName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(Messages, m_resourceBundleName)},
-	{}
-};
-
-$MethodInfo _Messages_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(Messages, init$, void, $String*)},
-	{"createMessage", "(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(Messages, createMessage, $String*, $String*, $ObjectArray*)},
-	{"createMsg", "(Ljava/util/ResourceBundle;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $method(Messages, createMsg, $String*, $ResourceBundle*, $String*, $ObjectArray*)},
-	{"getLocale", "()Ljava/util/Locale;", nullptr, $PRIVATE, $method(Messages, getLocale, $Locale*)},
-	{}
-};
-
-$ClassInfo _Messages_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.serializer.utils.Messages",
-	"java.lang.Object",
-	nullptr,
-	_Messages_FieldInfo_,
-	_Messages_MethodInfo_
-};
-
-$Object* allocate$Messages($Class* clazz) {
-	return $of($alloc(Messages));
-}
-
 void Messages::init$($String* resourceBundle) {
 	$set(this, m_locale, $Locale::getDefault());
 	$set(this, m_resourceBundleName, resourceBundle);
@@ -79,7 +50,7 @@ $String* Messages::createMessage($String* msgKey, $ObjectArray* args) {
 }
 
 $String* Messages::createMsg($ResourceBundle* fResourceBundle, $String* msgKey$renamed, $ObjectArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, msgKey, msgKey$renamed);
 	$var($String, fmsg, nullptr);
 	bool throwex = false;
@@ -94,8 +65,8 @@ $String* Messages::createMsg($ResourceBundle* fResourceBundle, $String* msgKey$r
 		try {
 			$init($MsgKey);
 			$assign(msg, $MessageFormat::format($MsgKey::BAD_MSGKEY, $$new($ObjectArray, {
-				$of(msgKey),
-				$of(this->m_resourceBundleName)
+				msgKey,
+				this->m_resourceBundleName
 			})));
 		} catch ($Exception& e) {
 			$assign(msg, $str({"The message key \'"_s, msgKey, "\' is not in the message class \'"_s, this->m_resourceBundleName, "\'"_s}));
@@ -114,8 +85,8 @@ $String* Messages::createMsg($ResourceBundle* fResourceBundle, $String* msgKey$r
 			try {
 				$init($MsgKey);
 				$assign(fmsg, $MessageFormat::format($MsgKey::BAD_MSGFORMAT, $$new($ObjectArray, {
-					$of(msgKey),
-					$of(this->m_resourceBundleName)
+					msgKey,
+					this->m_resourceBundleName
 				})));
 				$plusAssign(fmsg, $$str({" "_s, msg}));
 			} catch ($Exception& formatfailed) {
@@ -135,7 +106,30 @@ Messages::Messages() {
 }
 
 $Class* Messages::load$($String* name, bool initialize) {
-	$loadClass(Messages, name, initialize, &_Messages_ClassInfo_, allocate$Messages);
+	$FieldInfo fieldInfos$$[] = {
+		{"m_locale", "Ljava/util/Locale;", nullptr, $PRIVATE | $FINAL, $field(Messages, m_locale)},
+		{"m_resourceBundle", "Ljava/util/ResourceBundle;", nullptr, $PRIVATE, $field(Messages, m_resourceBundle)},
+		{"m_resourceBundleName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(Messages, m_resourceBundleName)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(Messages, init$, void, $String*)},
+		{"createMessage", "(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(Messages, createMessage, $String*, $String*, $ObjectArray*)},
+		{"createMsg", "(Ljava/util/ResourceBundle;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $method(Messages, createMsg, $String*, $ResourceBundle*, $String*, $ObjectArray*)},
+		{"getLocale", "()Ljava/util/Locale;", nullptr, $PRIVATE, $method(Messages, getLocale, $Locale*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.serializer.utils.Messages",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Messages, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Messages);
+	});
 	return class$;
 }
 

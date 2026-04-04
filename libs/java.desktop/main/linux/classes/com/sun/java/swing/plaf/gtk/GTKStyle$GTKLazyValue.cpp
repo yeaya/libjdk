@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/gtk/GTKStyle$GTKLazyValue.h>
-
 #include <com/sun/java/swing/plaf/gtk/GTKStyle.h>
 #include <java/lang/ClassLoader.h>
 #include <java/lang/ReflectiveOperationException.h>
@@ -22,45 +21,6 @@ namespace com {
 				namespace plaf {
 					namespace gtk {
 
-$FieldInfo _GTKStyle$GTKLazyValue_FieldInfo_[] = {
-	{"className", "Ljava/lang/String;", nullptr, $PRIVATE, $field(GTKStyle$GTKLazyValue, className)},
-	{"methodName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(GTKStyle$GTKLazyValue, methodName)},
-	{}
-};
-
-$MethodInfo _GTKStyle$GTKLazyValue_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(GTKStyle$GTKLazyValue, init$, void, $String*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, 0, $method(GTKStyle$GTKLazyValue, init$, void, $String*, $String*)},
-	{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(GTKStyle$GTKLazyValue, createValue, $Object*, $UIDefaults*)},
-	{}
-};
-
-$InnerClassInfo _GTKStyle$GTKLazyValue_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.gtk.GTKStyle$GTKLazyValue", "com.sun.java.swing.plaf.gtk.GTKStyle", "GTKLazyValue", $STATIC},
-	{"javax.swing.UIDefaults$LazyValue", "javax.swing.UIDefaults", "LazyValue", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _GTKStyle$GTKLazyValue_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.java.swing.plaf.gtk.GTKStyle$GTKLazyValue",
-	"java.lang.Object",
-	"javax.swing.UIDefaults$LazyValue",
-	_GTKStyle$GTKLazyValue_FieldInfo_,
-	_GTKStyle$GTKLazyValue_MethodInfo_,
-	nullptr,
-	nullptr,
-	_GTKStyle$GTKLazyValue_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.gtk.GTKStyle"
-};
-
-$Object* allocate$GTKStyle$GTKLazyValue($Class* clazz) {
-	return $of($alloc(GTKStyle$GTKLazyValue));
-}
-
 void GTKStyle$GTKLazyValue::init$($String* name) {
 	GTKStyle$GTKLazyValue::init$(name, nullptr);
 }
@@ -71,25 +31,58 @@ void GTKStyle$GTKLazyValue::init$($String* name, $String* methodName) {
 }
 
 $Object* GTKStyle$GTKLazyValue::createValue($UIDefaults* table) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	try {
 		$Class* c = $Class::forName(this->className, true, $($($Thread::currentThread())->getContextClassLoader()));
 		if (this->methodName == nullptr) {
-			return $of($nc(c)->newInstance());
+			return c->newInstance();
 		}
-		$var($Method, m, $nc(c)->getMethod(this->methodName, ($ClassArray*)nullptr));
-		return $of($nc(m)->invoke(c, ($ObjectArray*)nullptr));
+		$var($Method, m, c->getMethod(this->methodName, ($ClassArray*)nullptr));
+		return $nc(m)->invoke(c, ($ObjectArray*)nullptr);
 	} catch ($ReflectiveOperationException& e) {
 	}
-	return $of(nullptr);
+	return nullptr;
 }
 
 GTKStyle$GTKLazyValue::GTKStyle$GTKLazyValue() {
 }
 
 $Class* GTKStyle$GTKLazyValue::load$($String* name, bool initialize) {
-	$loadClass(GTKStyle$GTKLazyValue, name, initialize, &_GTKStyle$GTKLazyValue_ClassInfo_, allocate$GTKStyle$GTKLazyValue);
+	$FieldInfo fieldInfos$$[] = {
+		{"className", "Ljava/lang/String;", nullptr, $PRIVATE, $field(GTKStyle$GTKLazyValue, className)},
+		{"methodName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(GTKStyle$GTKLazyValue, methodName)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(GTKStyle$GTKLazyValue, init$, void, $String*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, 0, $method(GTKStyle$GTKLazyValue, init$, void, $String*, $String*)},
+		{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(GTKStyle$GTKLazyValue, createValue, $Object*, $UIDefaults*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.gtk.GTKStyle$GTKLazyValue", "com.sun.java.swing.plaf.gtk.GTKStyle", "GTKLazyValue", $STATIC},
+		{"javax.swing.UIDefaults$LazyValue", "javax.swing.UIDefaults", "LazyValue", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.java.swing.plaf.gtk.GTKStyle$GTKLazyValue",
+		"java.lang.Object",
+		"javax.swing.UIDefaults$LazyValue",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.gtk.GTKStyle"
+	};
+	$loadClass(GTKStyle$GTKLazyValue, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(GTKStyle$GTKLazyValue);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/rmi/transport/Channel.h>
-
 #include <sun/rmi/transport/Connection.h>
 #include <sun/rmi/transport/Endpoint.h>
 #include <jcpp.h>
@@ -13,28 +12,24 @@ namespace sun {
 	namespace rmi {
 		namespace transport {
 
-$MethodInfo _Channel_MethodInfo_[] = {
-	{"free", "(Lsun/rmi/transport/Connection;Z)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Channel, free, void, $Connection*, bool), "java.rmi.RemoteException"},
-	{"getEndpoint", "()Lsun/rmi/transport/Endpoint;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Channel, getEndpoint, $Endpoint*)},
-	{"newConnection", "()Lsun/rmi/transport/Connection;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Channel, newConnection, $Connection*), "java.rmi.RemoteException"},
-	{}
-};
-
-$ClassInfo _Channel_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"sun.rmi.transport.Channel",
-	nullptr,
-	nullptr,
-	nullptr,
-	_Channel_MethodInfo_
-};
-
-$Object* allocate$Channel($Class* clazz) {
-	return $of($alloc(Channel));
-}
-
 $Class* Channel::load$($String* name, bool initialize) {
-	$loadClass(Channel, name, initialize, &_Channel_ClassInfo_, allocate$Channel);
+	$MethodInfo methodInfos$$[] = {
+		{"free", "(Lsun/rmi/transport/Connection;Z)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Channel, free, void, $Connection*, bool), "java.rmi.RemoteException"},
+		{"getEndpoint", "()Lsun/rmi/transport/Endpoint;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Channel, getEndpoint, $Endpoint*)},
+		{"newConnection", "()Lsun/rmi/transport/Connection;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Channel, newConnection, $Connection*), "java.rmi.RemoteException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"sun.rmi.transport.Channel",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Channel, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Channel);
+	});
 	return class$;
 }
 

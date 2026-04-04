@@ -36,6 +36,7 @@ class CommentView : public ::javax::swing::text::html::HiddenTagView {
 public:
 	CommentView();
 	using ::javax::swing::text::html::HiddenTagView::insertUpdate;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::javax::swing::text::Element* e);
 	virtual void _updateModelFromText() override;
 	virtual ::java::awt::Component* createComponent() override;

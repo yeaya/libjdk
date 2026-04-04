@@ -40,11 +40,12 @@ class $import CompileStates : public ::java::util::HashMap {
 	$class(CompileStates, 0, ::java::util::HashMap)
 public:
 	CompileStates();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::com::sun::tools::javac::util::Context* context);
 	static ::com::sun::tools::javac::comp::CompileStates* instance(::com::sun::tools::javac::util::Context* context);
 	virtual bool isDone(::com::sun::tools::javac::comp::Env* env, ::com::sun::tools::javac::comp::CompileStates$CompileState* cs);
 	static ::com::sun::tools::javac::util::Context$Key* compileStatesKey;
-	static const int64_t serialVersionUID = (int64_t)0x192677B61E5DDCF1;
+	static const int64_t serialVersionUID = (int64_t)0x192677b61e5ddcf1;
 	::com::sun::tools::javac::util::Context* context = nullptr;
 };
 

@@ -31,6 +31,7 @@ class $export bug7049024 : public ::java::lang::Object {
 	$class(bug7049024, 0, ::java::lang::Object)
 public:
 	bug7049024();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void main($StringArray* args);
 	static ::java::awt::datatransfer::Clipboard* clipboard;

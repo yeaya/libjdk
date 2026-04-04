@@ -50,6 +50,7 @@ class NTLMServer : public ::javax::security::sasl::SaslServer {
 	$class(NTLMServer, 0, ::javax::security::sasl::SaslServer)
 public:
 	NTLMServer();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* mech, $String* protocol, $String* serverName, ::java::util::Map* props, ::javax::security::auth::callback::CallbackHandler* cbh);
 	virtual void dispose() override;
 	virtual $bytes* evaluateResponse($bytes* response) override;

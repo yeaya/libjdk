@@ -1,5 +1,4 @@
 #include <com/sun/media/sound/DLSSoundbank$DLSID.h>
-
 #include <com/sun/media/sound/DLSSoundbank.h>
 #include <com/sun/media/sound/RIFFReader.h>
 #include <jcpp.h>
@@ -14,55 +13,6 @@ namespace com {
 	namespace sun {
 		namespace media {
 			namespace sound {
-
-$FieldInfo _DLSSoundbank$DLSID_FieldInfo_[] = {
-	{"i1", "J", nullptr, 0, $field(DLSSoundbank$DLSID, i1)},
-	{"s1", "I", nullptr, 0, $field(DLSSoundbank$DLSID, s1)},
-	{"s2", "I", nullptr, 0, $field(DLSSoundbank$DLSID, s2)},
-	{"x1", "I", nullptr, 0, $field(DLSSoundbank$DLSID, x1)},
-	{"x2", "I", nullptr, 0, $field(DLSSoundbank$DLSID, x2)},
-	{"x3", "I", nullptr, 0, $field(DLSSoundbank$DLSID, x3)},
-	{"x4", "I", nullptr, 0, $field(DLSSoundbank$DLSID, x4)},
-	{"x5", "I", nullptr, 0, $field(DLSSoundbank$DLSID, x5)},
-	{"x6", "I", nullptr, 0, $field(DLSSoundbank$DLSID, x6)},
-	{"x7", "I", nullptr, 0, $field(DLSSoundbank$DLSID, x7)},
-	{"x8", "I", nullptr, 0, $field(DLSSoundbank$DLSID, x8)},
-	{}
-};
-
-$MethodInfo _DLSSoundbank$DLSID_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(DLSSoundbank$DLSID, init$, void)},
-	{"<init>", "(JIIIIIIIIII)V", nullptr, 0, $method(DLSSoundbank$DLSID, init$, void, int64_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(DLSSoundbank$DLSID, equals, bool, Object$*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(DLSSoundbank$DLSID, hashCode, int32_t)},
-	{"read", "(Lcom/sun/media/sound/RIFFReader;)Lcom/sun/media/sound/DLSSoundbank$DLSID;", nullptr, $PUBLIC | $STATIC, $staticMethod(DLSSoundbank$DLSID, read, DLSSoundbank$DLSID*, $RIFFReader*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _DLSSoundbank$DLSID_InnerClassesInfo_[] = {
-	{"com.sun.media.sound.DLSSoundbank$DLSID", "com.sun.media.sound.DLSSoundbank", "DLSID", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _DLSSoundbank$DLSID_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.media.sound.DLSSoundbank$DLSID",
-	"java.lang.Object",
-	nullptr,
-	_DLSSoundbank$DLSID_FieldInfo_,
-	_DLSSoundbank$DLSID_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DLSSoundbank$DLSID_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.media.sound.DLSSoundbank"
-};
-
-$Object* allocate$DLSSoundbank$DLSID($Class* clazz) {
-	return $of($alloc(DLSSoundbank$DLSID));
-}
 
 void DLSSoundbank$DLSID::init$() {
 }
@@ -113,7 +63,50 @@ DLSSoundbank$DLSID::DLSSoundbank$DLSID() {
 }
 
 $Class* DLSSoundbank$DLSID::load$($String* name, bool initialize) {
-	$loadClass(DLSSoundbank$DLSID, name, initialize, &_DLSSoundbank$DLSID_ClassInfo_, allocate$DLSSoundbank$DLSID);
+	$FieldInfo fieldInfos$$[] = {
+		{"i1", "J", nullptr, 0, $field(DLSSoundbank$DLSID, i1)},
+		{"s1", "I", nullptr, 0, $field(DLSSoundbank$DLSID, s1)},
+		{"s2", "I", nullptr, 0, $field(DLSSoundbank$DLSID, s2)},
+		{"x1", "I", nullptr, 0, $field(DLSSoundbank$DLSID, x1)},
+		{"x2", "I", nullptr, 0, $field(DLSSoundbank$DLSID, x2)},
+		{"x3", "I", nullptr, 0, $field(DLSSoundbank$DLSID, x3)},
+		{"x4", "I", nullptr, 0, $field(DLSSoundbank$DLSID, x4)},
+		{"x5", "I", nullptr, 0, $field(DLSSoundbank$DLSID, x5)},
+		{"x6", "I", nullptr, 0, $field(DLSSoundbank$DLSID, x6)},
+		{"x7", "I", nullptr, 0, $field(DLSSoundbank$DLSID, x7)},
+		{"x8", "I", nullptr, 0, $field(DLSSoundbank$DLSID, x8)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(DLSSoundbank$DLSID, init$, void)},
+		{"<init>", "(JIIIIIIIIII)V", nullptr, 0, $method(DLSSoundbank$DLSID, init$, void, int64_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(DLSSoundbank$DLSID, equals, bool, Object$*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(DLSSoundbank$DLSID, hashCode, int32_t)},
+		{"read", "(Lcom/sun/media/sound/RIFFReader;)Lcom/sun/media/sound/DLSSoundbank$DLSID;", nullptr, $PUBLIC | $STATIC, $staticMethod(DLSSoundbank$DLSID, read, DLSSoundbank$DLSID*, $RIFFReader*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.media.sound.DLSSoundbank$DLSID", "com.sun.media.sound.DLSSoundbank", "DLSID", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.media.sound.DLSSoundbank$DLSID",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.media.sound.DLSSoundbank"
+	};
+	$loadClass(DLSSoundbank$DLSID, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DLSSoundbank$DLSID);
+	});
 	return class$;
 }
 

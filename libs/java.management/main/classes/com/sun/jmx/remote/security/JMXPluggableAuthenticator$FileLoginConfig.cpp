@@ -1,5 +1,4 @@
 #include <com/sun/jmx/remote/security/JMXPluggableAuthenticator$FileLoginConfig.h>
-
 #include <com/sun/jmx/remote/security/FileLoginModule.h>
 #include <com/sun/jmx/remote/security/JMXPluggableAuthenticator.h>
 #include <java/util/Collections.h>
@@ -34,52 +33,12 @@ namespace com {
 			namespace remote {
 				namespace security {
 
-$FieldInfo _JMXPluggableAuthenticator$FileLoginConfig_FieldInfo_[] = {
-	{"entries", "[Ljavax/security/auth/login/AppConfigurationEntry;", nullptr, $PRIVATE, $field(JMXPluggableAuthenticator$FileLoginConfig, entries)},
-	{"FILE_LOGIN_MODULE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JMXPluggableAuthenticator$FileLoginConfig, FILE_LOGIN_MODULE)},
-	{"PASSWORD_FILE_OPTION", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JMXPluggableAuthenticator$FileLoginConfig, PASSWORD_FILE_OPTION)},
-	{"HASH_PASSWORDS", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JMXPluggableAuthenticator$FileLoginConfig, HASH_PASSWORDS)},
-	{}
-};
-
-$MethodInfo _JMXPluggableAuthenticator$FileLoginConfig_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(JMXPluggableAuthenticator$FileLoginConfig, init$, void, $String*, $String*)},
-	{"getAppConfigurationEntry", "(Ljava/lang/String;)[Ljavax/security/auth/login/AppConfigurationEntry;", nullptr, $PUBLIC, $virtualMethod(JMXPluggableAuthenticator$FileLoginConfig, getAppConfigurationEntry, $AppConfigurationEntryArray*, $String*)},
-	{"refresh", "()V", nullptr, $PUBLIC, $virtualMethod(JMXPluggableAuthenticator$FileLoginConfig, refresh, void)},
-	{}
-};
-
-$InnerClassInfo _JMXPluggableAuthenticator$FileLoginConfig_InnerClassesInfo_[] = {
-	{"com.sun.jmx.remote.security.JMXPluggableAuthenticator$FileLoginConfig", "com.sun.jmx.remote.security.JMXPluggableAuthenticator", "FileLoginConfig", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _JMXPluggableAuthenticator$FileLoginConfig_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.jmx.remote.security.JMXPluggableAuthenticator$FileLoginConfig",
-	"javax.security.auth.login.Configuration",
-	nullptr,
-	_JMXPluggableAuthenticator$FileLoginConfig_FieldInfo_,
-	_JMXPluggableAuthenticator$FileLoginConfig_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JMXPluggableAuthenticator$FileLoginConfig_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.jmx.remote.security.JMXPluggableAuthenticator"
-};
-
-$Object* allocate$JMXPluggableAuthenticator$FileLoginConfig($Class* clazz) {
-	return $of($alloc(JMXPluggableAuthenticator$FileLoginConfig));
-}
-
 $String* JMXPluggableAuthenticator$FileLoginConfig::FILE_LOGIN_MODULE = nullptr;
 $String* JMXPluggableAuthenticator$FileLoginConfig::PASSWORD_FILE_OPTION = nullptr;
 $String* JMXPluggableAuthenticator$FileLoginConfig::HASH_PASSWORDS = nullptr;
 
 void JMXPluggableAuthenticator$FileLoginConfig::init$($String* passwordFile, $String* hashPasswords) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Configuration::init$();
 	$var($Map, options, nullptr);
 	if (passwordFile != nullptr) {
@@ -100,7 +59,7 @@ $AppConfigurationEntryArray* JMXPluggableAuthenticator$FileLoginConfig::getAppCo
 void JMXPluggableAuthenticator$FileLoginConfig::refresh() {
 }
 
-void clinit$JMXPluggableAuthenticator$FileLoginConfig($Class* class$) {
+void JMXPluggableAuthenticator$FileLoginConfig::clinit$($Class* clazz) {
 	$assignStatic(JMXPluggableAuthenticator$FileLoginConfig::PASSWORD_FILE_OPTION, "passwordFile"_s);
 	$assignStatic(JMXPluggableAuthenticator$FileLoginConfig::HASH_PASSWORDS, "hashPasswords"_s);
 	$load($FileLoginModule);
@@ -111,7 +70,41 @@ JMXPluggableAuthenticator$FileLoginConfig::JMXPluggableAuthenticator$FileLoginCo
 }
 
 $Class* JMXPluggableAuthenticator$FileLoginConfig::load$($String* name, bool initialize) {
-	$loadClass(JMXPluggableAuthenticator$FileLoginConfig, name, initialize, &_JMXPluggableAuthenticator$FileLoginConfig_ClassInfo_, clinit$JMXPluggableAuthenticator$FileLoginConfig, allocate$JMXPluggableAuthenticator$FileLoginConfig);
+	$FieldInfo fieldInfos$$[] = {
+		{"entries", "[Ljavax/security/auth/login/AppConfigurationEntry;", nullptr, $PRIVATE, $field(JMXPluggableAuthenticator$FileLoginConfig, entries)},
+		{"FILE_LOGIN_MODULE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JMXPluggableAuthenticator$FileLoginConfig, FILE_LOGIN_MODULE)},
+		{"PASSWORD_FILE_OPTION", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JMXPluggableAuthenticator$FileLoginConfig, PASSWORD_FILE_OPTION)},
+		{"HASH_PASSWORDS", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JMXPluggableAuthenticator$FileLoginConfig, HASH_PASSWORDS)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(JMXPluggableAuthenticator$FileLoginConfig, init$, void, $String*, $String*)},
+		{"getAppConfigurationEntry", "(Ljava/lang/String;)[Ljavax/security/auth/login/AppConfigurationEntry;", nullptr, $PUBLIC, $virtualMethod(JMXPluggableAuthenticator$FileLoginConfig, getAppConfigurationEntry, $AppConfigurationEntryArray*, $String*)},
+		{"refresh", "()V", nullptr, $PUBLIC, $virtualMethod(JMXPluggableAuthenticator$FileLoginConfig, refresh, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.jmx.remote.security.JMXPluggableAuthenticator$FileLoginConfig", "com.sun.jmx.remote.security.JMXPluggableAuthenticator", "FileLoginConfig", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.jmx.remote.security.JMXPluggableAuthenticator$FileLoginConfig",
+		"javax.security.auth.login.Configuration",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.jmx.remote.security.JMXPluggableAuthenticator"
+	};
+	$loadClass(JMXPluggableAuthenticator$FileLoginConfig, name, initialize, &classInfo$$, JMXPluggableAuthenticator$FileLoginConfig::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(JMXPluggableAuthenticator$FileLoginConfig);
+	});
 	return class$;
 }
 

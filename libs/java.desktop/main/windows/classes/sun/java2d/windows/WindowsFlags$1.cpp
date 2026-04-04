@@ -1,10 +1,8 @@
 #include <sun/java2d/windows/WindowsFlags$1.h>
-
 #include <sun/java2d/opengl/WGLGraphicsConfig.h>
 #include <sun/java2d/windows/WindowsFlags.h>
 #include <jcpp.h>
 
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -16,48 +14,11 @@ namespace sun {
 	namespace java2d {
 		namespace windows {
 
-$MethodInfo _WindowsFlags$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(WindowsFlags$1, init$, void)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(WindowsFlags$1, run, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _WindowsFlags$1_EnclosingMethodInfo_ = {
-	"sun.java2d.windows.WindowsFlags",
-	"initJavaFlags",
-	"()V"
-};
-
-$InnerClassInfo _WindowsFlags$1_InnerClassesInfo_[] = {
-	{"sun.java2d.windows.WindowsFlags$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _WindowsFlags$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.java2d.windows.WindowsFlags$1",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	nullptr,
-	_WindowsFlags$1_MethodInfo_,
-	"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/Object;>;",
-	&_WindowsFlags$1_EnclosingMethodInfo_,
-	_WindowsFlags$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.java2d.windows.WindowsFlags"
-};
-
-$Object* allocate$WindowsFlags$1($Class* clazz) {
-	return $of($alloc(WindowsFlags$1));
-}
-
 void WindowsFlags$1::init$() {
 }
 
 $Object* WindowsFlags$1::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($WindowsFlags);
 	$WindowsFlags::magPresent = $WindowsFlags::getBooleanProp("javax.accessibility.screen_magnifier_present"_s, false);
 	bool ddEnabled = !$WindowsFlags::getBooleanProp("sun.java2d.noddraw"_s, $WindowsFlags::magPresent);
@@ -89,14 +50,45 @@ $Object* WindowsFlags$1::run() {
 		$var($String, sunLauncherProperty, $System::getProperty("sun.java.launcher"_s, "unknown"_s));
 		$WindowsFlags::setHighDPIAware = $nc(sunLauncherProperty)->equalsIgnoreCase("SUN_STANDARD"_s);
 	}
-	return $of(nullptr);
+	return nullptr;
 }
 
 WindowsFlags$1::WindowsFlags$1() {
 }
 
 $Class* WindowsFlags$1::load$($String* name, bool initialize) {
-	$loadClass(WindowsFlags$1, name, initialize, &_WindowsFlags$1_ClassInfo_, allocate$WindowsFlags$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(WindowsFlags$1, init$, void)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(WindowsFlags$1, run, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.java2d.windows.WindowsFlags",
+		"initJavaFlags",
+		"()V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.java2d.windows.WindowsFlags$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.java2d.windows.WindowsFlags$1",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		nullptr,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/Object;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.java2d.windows.WindowsFlags"
+	};
+	$loadClass(WindowsFlags$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WindowsFlags$1);
+	});
 	return class$;
 }
 

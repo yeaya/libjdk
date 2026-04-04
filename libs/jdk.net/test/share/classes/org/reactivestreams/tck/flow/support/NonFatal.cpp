@@ -1,5 +1,4 @@
 #include <org/reactivestreams/tck/flow/support/NonFatal.h>
-
 #include <java/lang/InterruptedException.h>
 #include <java/lang/LinkageError.h>
 #include <java/lang/StackOverflowError.h>
@@ -21,25 +20,6 @@ namespace org {
 			namespace flow {
 				namespace support {
 
-$MethodInfo _NonFatal_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(NonFatal, init$, void)},
-	{"isNonFatal", "(Ljava/lang/Throwable;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(NonFatal, isNonFatal, bool, $Throwable*)},
-	{}
-};
-
-$ClassInfo _NonFatal_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"org.reactivestreams.tck.flow.support.NonFatal",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_NonFatal_MethodInfo_
-};
-
-$Object* allocate$NonFatal($Class* clazz) {
-	return $of($alloc(NonFatal));
-}
-
 void NonFatal::init$() {
 }
 
@@ -57,7 +37,22 @@ NonFatal::NonFatal() {
 }
 
 $Class* NonFatal::load$($String* name, bool initialize) {
-	$loadClass(NonFatal, name, initialize, &_NonFatal_ClassInfo_, allocate$NonFatal);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(NonFatal, init$, void)},
+		{"isNonFatal", "(Ljava/lang/Throwable;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(NonFatal, isNonFatal, bool, $Throwable*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"org.reactivestreams.tck.flow.support.NonFatal",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(NonFatal, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(NonFatal);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <java/awt/dnd/DropTargetContext$1.h>
-
 #include <java/awt/dnd/DropTargetContext.h>
 #include <java/awt/dnd/peer/DropTargetContextPeer.h>
 #include <jcpp.h>
@@ -14,45 +13,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace java {
 	namespace awt {
 		namespace dnd {
-
-$MethodInfo _DropTargetContext$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(DropTargetContext$1, init$, void)},
-	{"reset", "(Ljava/awt/dnd/DropTargetContext;)V", nullptr, $PUBLIC, $virtualMethod(DropTargetContext$1, reset, void, $DropTargetContext*)},
-	{"setDropTargetContextPeer", "(Ljava/awt/dnd/DropTargetContext;Ljava/awt/dnd/peer/DropTargetContextPeer;)V", nullptr, $PUBLIC, $virtualMethod(DropTargetContext$1, setDropTargetContextPeer, void, $DropTargetContext*, $DropTargetContextPeer*)},
-	{}
-};
-
-$EnclosingMethodInfo _DropTargetContext$1_EnclosingMethodInfo_ = {
-	"java.awt.dnd.DropTargetContext",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _DropTargetContext$1_InnerClassesInfo_[] = {
-	{"java.awt.dnd.DropTargetContext$1", nullptr, nullptr, 0},
-	{"sun.awt.AWTAccessor$DropTargetContextAccessor", "sun.awt.AWTAccessor", "DropTargetContextAccessor", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _DropTargetContext$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.awt.dnd.DropTargetContext$1",
-	"java.lang.Object",
-	"sun.awt.AWTAccessor$DropTargetContextAccessor",
-	nullptr,
-	_DropTargetContext$1_MethodInfo_,
-	nullptr,
-	&_DropTargetContext$1_EnclosingMethodInfo_,
-	_DropTargetContext$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.awt.dnd.DropTargetContext"
-};
-
-$Object* allocate$DropTargetContext$1($Class* clazz) {
-	return $of($alloc(DropTargetContext$1));
-}
 
 void DropTargetContext$1::init$() {
 }
@@ -69,7 +29,40 @@ DropTargetContext$1::DropTargetContext$1() {
 }
 
 $Class* DropTargetContext$1::load$($String* name, bool initialize) {
-	$loadClass(DropTargetContext$1, name, initialize, &_DropTargetContext$1_ClassInfo_, allocate$DropTargetContext$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(DropTargetContext$1, init$, void)},
+		{"reset", "(Ljava/awt/dnd/DropTargetContext;)V", nullptr, $PUBLIC, $virtualMethod(DropTargetContext$1, reset, void, $DropTargetContext*)},
+		{"setDropTargetContextPeer", "(Ljava/awt/dnd/DropTargetContext;Ljava/awt/dnd/peer/DropTargetContextPeer;)V", nullptr, $PUBLIC, $virtualMethod(DropTargetContext$1, setDropTargetContextPeer, void, $DropTargetContext*, $DropTargetContextPeer*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.awt.dnd.DropTargetContext",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.awt.dnd.DropTargetContext$1", nullptr, nullptr, 0},
+		{"sun.awt.AWTAccessor$DropTargetContextAccessor", "sun.awt.AWTAccessor", "DropTargetContextAccessor", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.awt.dnd.DropTargetContext$1",
+		"java.lang.Object",
+		"sun.awt.AWTAccessor$DropTargetContextAccessor",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.awt.dnd.DropTargetContext"
+	};
+	$loadClass(DropTargetContext$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DropTargetContext$1);
+	});
 	return class$;
 }
 

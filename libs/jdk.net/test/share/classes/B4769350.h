@@ -26,6 +26,7 @@ class $export B4769350 : public ::java::lang::Object {
 	$class(B4769350, 0, ::java::lang::Object)
 public:
 	B4769350();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $String* authority(int32_t port);
 	static void doProxyTests($String* authority, ::B4769350$Server* server);

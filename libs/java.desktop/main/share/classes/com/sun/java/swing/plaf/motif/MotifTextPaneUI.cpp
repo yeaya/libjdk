@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/motif/MotifTextPaneUI.h>
-
 #include <com/sun/java/swing/plaf/motif/MotifTextUI.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/plaf/ComponentUI.h>
@@ -22,26 +21,6 @@ namespace com {
 				namespace plaf {
 					namespace motif {
 
-$MethodInfo _MotifTextPaneUI_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MotifTextPaneUI, init$, void)},
-	{"createCaret", "()Ljavax/swing/text/Caret;", nullptr, $PROTECTED, $virtualMethod(MotifTextPaneUI, createCaret, $Caret*)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(MotifTextPaneUI, createUI, $ComponentUI*, $JComponent*)},
-	{}
-};
-
-$ClassInfo _MotifTextPaneUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.java.swing.plaf.motif.MotifTextPaneUI",
-	"javax.swing.plaf.basic.BasicTextPaneUI",
-	nullptr,
-	nullptr,
-	_MotifTextPaneUI_MethodInfo_
-};
-
-$Object* allocate$MotifTextPaneUI($Class* clazz) {
-	return $of($alloc(MotifTextPaneUI));
-}
-
 void MotifTextPaneUI::init$() {
 	$BasicTextPaneUI::init$();
 }
@@ -59,7 +38,23 @@ MotifTextPaneUI::MotifTextPaneUI() {
 }
 
 $Class* MotifTextPaneUI::load$($String* name, bool initialize) {
-	$loadClass(MotifTextPaneUI, name, initialize, &_MotifTextPaneUI_ClassInfo_, allocate$MotifTextPaneUI);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MotifTextPaneUI, init$, void)},
+		{"createCaret", "()Ljavax/swing/text/Caret;", nullptr, $PROTECTED, $virtualMethod(MotifTextPaneUI, createCaret, $Caret*)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(MotifTextPaneUI, createUI, $ComponentUI*, $JComponent*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.java.swing.plaf.motif.MotifTextPaneUI",
+		"javax.swing.plaf.basic.BasicTextPaneUI",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(MotifTextPaneUI, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MotifTextPaneUI));
+	});
 	return class$;
 }
 

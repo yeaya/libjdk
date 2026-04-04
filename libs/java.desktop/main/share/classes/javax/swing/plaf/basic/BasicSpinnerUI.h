@@ -54,6 +54,7 @@ class $export BasicSpinnerUI : public ::javax::swing::plaf::SpinnerUI {
 	$class(BasicSpinnerUI, 0, ::javax::swing::plaf::SpinnerUI)
 public:
 	BasicSpinnerUI();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	::java::awt::Component* createArrowButton(int32_t direction);
 	virtual ::javax::swing::JComponent* createEditor();

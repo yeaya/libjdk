@@ -1,6 +1,4 @@
 #include <sun/print/ServiceDialog$AppearancePanel.h>
-
-#include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <java/awt/GridBagConstraints.h>
 #include <java/awt/GridBagLayout.h>
@@ -18,11 +16,8 @@
 #undef RELATIVE
 #undef REMAINDER
 
-using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $GridBagConstraints = ::java::awt::GridBagConstraints;
 using $GridBagLayout = ::java::awt::GridBagLayout;
-using $LayoutManager = ::java::awt::LayoutManager;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Double = ::java::lang::Double;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -38,48 +33,8 @@ using $ServiceDialog$SidesPanel = ::sun::print::ServiceDialog$SidesPanel;
 namespace sun {
 	namespace print {
 
-$FieldInfo _ServiceDialog$AppearancePanel_FieldInfo_[] = {
-	{"this$0", "Lsun/print/ServiceDialog;", nullptr, $FINAL | $SYNTHETIC, $field(ServiceDialog$AppearancePanel, this$0)},
-	{"pnlChromaticity", "Lsun/print/ServiceDialog$ChromaticityPanel;", nullptr, $PRIVATE, $field(ServiceDialog$AppearancePanel, pnlChromaticity)},
-	{"pnlQuality", "Lsun/print/ServiceDialog$QualityPanel;", nullptr, $PRIVATE, $field(ServiceDialog$AppearancePanel, pnlQuality)},
-	{"pnlJobAttributes", "Lsun/print/ServiceDialog$JobAttributesPanel;", nullptr, $PRIVATE, $field(ServiceDialog$AppearancePanel, pnlJobAttributes)},
-	{"pnlSides", "Lsun/print/ServiceDialog$SidesPanel;", nullptr, $PRIVATE, $field(ServiceDialog$AppearancePanel, pnlSides)},
-	{}
-};
-
-$MethodInfo _ServiceDialog$AppearancePanel_MethodInfo_[] = {
-	{"<init>", "(Lsun/print/ServiceDialog;)V", nullptr, $PUBLIC, $method(ServiceDialog$AppearancePanel, init$, void, $ServiceDialog*)},
-	{"updateInfo", "()V", nullptr, $PUBLIC, $virtualMethod(ServiceDialog$AppearancePanel, updateInfo, void)},
-	{}
-};
-
-$InnerClassInfo _ServiceDialog$AppearancePanel_InnerClassesInfo_[] = {
-	{"sun.print.ServiceDialog$AppearancePanel", "sun.print.ServiceDialog", "AppearancePanel", $PRIVATE},
-	{}
-};
-
-$ClassInfo _ServiceDialog$AppearancePanel_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.print.ServiceDialog$AppearancePanel",
-	"javax.swing.JPanel",
-	nullptr,
-	_ServiceDialog$AppearancePanel_FieldInfo_,
-	_ServiceDialog$AppearancePanel_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ServiceDialog$AppearancePanel_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.print.ServiceDialog"
-};
-
-$Object* allocate$ServiceDialog$AppearancePanel($Class* clazz) {
-	return $of($alloc(ServiceDialog$AppearancePanel));
-}
-
 void ServiceDialog$AppearancePanel::init$($ServiceDialog* this$0) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, this$0, this$0);
 	$JPanel::init$();
 	$var($GridBagLayout, gridbag, $new($GridBagLayout));
@@ -115,7 +70,41 @@ ServiceDialog$AppearancePanel::ServiceDialog$AppearancePanel() {
 }
 
 $Class* ServiceDialog$AppearancePanel::load$($String* name, bool initialize) {
-	$loadClass(ServiceDialog$AppearancePanel, name, initialize, &_ServiceDialog$AppearancePanel_ClassInfo_, allocate$ServiceDialog$AppearancePanel);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/print/ServiceDialog;", nullptr, $FINAL | $SYNTHETIC, $field(ServiceDialog$AppearancePanel, this$0)},
+		{"pnlChromaticity", "Lsun/print/ServiceDialog$ChromaticityPanel;", nullptr, $PRIVATE, $field(ServiceDialog$AppearancePanel, pnlChromaticity)},
+		{"pnlQuality", "Lsun/print/ServiceDialog$QualityPanel;", nullptr, $PRIVATE, $field(ServiceDialog$AppearancePanel, pnlQuality)},
+		{"pnlJobAttributes", "Lsun/print/ServiceDialog$JobAttributesPanel;", nullptr, $PRIVATE, $field(ServiceDialog$AppearancePanel, pnlJobAttributes)},
+		{"pnlSides", "Lsun/print/ServiceDialog$SidesPanel;", nullptr, $PRIVATE, $field(ServiceDialog$AppearancePanel, pnlSides)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/print/ServiceDialog;)V", nullptr, $PUBLIC, $method(ServiceDialog$AppearancePanel, init$, void, $ServiceDialog*)},
+		{"updateInfo", "()V", nullptr, $PUBLIC, $virtualMethod(ServiceDialog$AppearancePanel, updateInfo, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.print.ServiceDialog$AppearancePanel", "sun.print.ServiceDialog", "AppearancePanel", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.print.ServiceDialog$AppearancePanel",
+		"javax.swing.JPanel",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.print.ServiceDialog"
+	};
+	$loadClass(ServiceDialog$AppearancePanel, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ServiceDialog$AppearancePanel));
+	});
 	return class$;
 }
 

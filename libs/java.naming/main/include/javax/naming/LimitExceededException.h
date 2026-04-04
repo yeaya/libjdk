@@ -14,10 +14,13 @@ public:
 	LimitExceededException();
 	void init$();
 	void init$($String* explanation);
-	static const int64_t serialVersionUID = (int64_t)0xF537E6B69FB59310;
+	static const int64_t serialVersionUID = (int64_t)0xf537e6b69fb59310;
 	LimitExceededException(const LimitExceededException& e);
 	virtual void throw$() override;
-	inline LimitExceededException* operator ->() {
+	inline LimitExceededException* operator ->() const {
+		return (LimitExceededException*)throwing$;
+	}
+	inline operator LimitExceededException*() const {
 		return (LimitExceededException*)throwing$;
 	}
 };

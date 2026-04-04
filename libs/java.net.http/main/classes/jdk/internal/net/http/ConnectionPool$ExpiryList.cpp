@@ -1,8 +1,6 @@
 #include <jdk/internal/net/http/ConnectionPool$ExpiryList.h>
-
 #include <java/time/Instant.h>
 #include <java/time/temporal/ChronoUnit.h>
-#include <java/time/temporal/TemporalUnit.h>
 #include <java/util/AbstractCollection.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Collections.h>
@@ -26,7 +24,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Instant = ::java::time::Instant;
 using $ChronoUnit = ::java::time::temporal::ChronoUnit;
-using $TemporalUnit = ::java::time::temporal::TemporalUnit;
 using $ArrayList = ::java::util::ArrayList;
 using $Collections = ::java::util::Collections;
 using $Iterator = ::java::util::Iterator;
@@ -44,58 +41,12 @@ namespace jdk {
 		namespace net {
 			namespace http {
 
-$FieldInfo _ConnectionPool$ExpiryList_FieldInfo_[] = {
-	{"list", "Ljava/util/LinkedList;", "Ljava/util/LinkedList<Ljdk/internal/net/http/ConnectionPool$ExpiryEntry;>;", $PRIVATE | $FINAL, $field(ConnectionPool$ExpiryList, list)},
-	{"mayContainEntries", "Z", nullptr, $PRIVATE | $VOLATILE, $field(ConnectionPool$ExpiryList, mayContainEntries)},
-	{}
-};
-
-$MethodInfo _ConnectionPool$ExpiryList_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(ConnectionPool$ExpiryList, init$, void)},
-	{"add", "(Ljdk/internal/net/http/HttpConnection;)V", nullptr, 0, $method(ConnectionPool$ExpiryList, add, void, $HttpConnection*)},
-	{"add", "(Ljdk/internal/net/http/HttpConnection;Ljava/time/Instant;J)V", nullptr, 0, $method(ConnectionPool$ExpiryList, add, void, $HttpConnection*, $Instant*, int64_t)},
-	{"clear", "()V", nullptr, 0, $method(ConnectionPool$ExpiryList, clear, void)},
-	{"nextExpiryDeadline", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/time/Instant;>;", 0, $method(ConnectionPool$ExpiryList, nextExpiryDeadline, $Optional*)},
-	{"purgeMaybeRequired", "()Z", nullptr, 0, $method(ConnectionPool$ExpiryList, purgeMaybeRequired, bool)},
-	{"purgeUntil", "(Ljava/time/Instant;)Ljava/util/List;", "(Ljava/time/Instant;)Ljava/util/List<Ljdk/internal/net/http/HttpConnection;>;", 0, $method(ConnectionPool$ExpiryList, purgeUntil, $List*, $Instant*)},
-	{"remove", "(Ljdk/internal/net/http/HttpConnection;)V", nullptr, 0, $method(ConnectionPool$ExpiryList, remove, void, $HttpConnection*)},
-	{"removeOldest", "()Ljdk/internal/net/http/HttpConnection;", nullptr, 0, $method(ConnectionPool$ExpiryList, removeOldest, $HttpConnection*)},
-	{"size", "()I", nullptr, 0, $method(ConnectionPool$ExpiryList, size, int32_t)},
-	{"stream", "()Ljava/util/stream/Stream;", "()Ljava/util/stream/Stream<Ljdk/internal/net/http/ConnectionPool$ExpiryEntry;>;", 0, $method(ConnectionPool$ExpiryList, stream, $Stream*)},
-	{}
-};
-
-$InnerClassInfo _ConnectionPool$ExpiryList_InnerClassesInfo_[] = {
-	{"jdk.internal.net.http.ConnectionPool$ExpiryList", "jdk.internal.net.http.ConnectionPool", "ExpiryList", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _ConnectionPool$ExpiryList_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"jdk.internal.net.http.ConnectionPool$ExpiryList",
-	"java.lang.Object",
-	nullptr,
-	_ConnectionPool$ExpiryList_FieldInfo_,
-	_ConnectionPool$ExpiryList_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ConnectionPool$ExpiryList_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.net.http.ConnectionPool"
-};
-
-$Object* allocate$ConnectionPool$ExpiryList($Class* clazz) {
-	return $of($alloc(ConnectionPool$ExpiryList));
-}
-
 void ConnectionPool$ExpiryList::init$() {
 	$set(this, list, $new($LinkedList));
 }
 
 int32_t ConnectionPool$ExpiryList::size() {
-	return $nc(this->list)->size();
+	return this->list->size();
 }
 
 bool ConnectionPool$ExpiryList::purgeMaybeRequired() {
@@ -103,16 +54,16 @@ bool ConnectionPool$ExpiryList::purgeMaybeRequired() {
 }
 
 $Optional* ConnectionPool$ExpiryList::nextExpiryDeadline() {
-	if ($nc(this->list)->isEmpty()) {
+	if (this->list->isEmpty()) {
 		return $Optional::empty();
 	} else {
-		return $Optional::of($nc(($cast($ConnectionPool$ExpiryEntry, $($nc(this->list)->getLast()))))->expiry);
+		return $Optional::of($nc(($$cast($ConnectionPool$ExpiryEntry, this->list->getLast())))->expiry);
 	}
 }
 
 $HttpConnection* ConnectionPool$ExpiryList::removeOldest() {
-	$var($ConnectionPool$ExpiryEntry, entry, $cast($ConnectionPool$ExpiryEntry, $nc(this->list)->pollLast()));
-	return entry == nullptr ? ($HttpConnection*)nullptr : $nc(entry)->connection;
+	$var($ConnectionPool$ExpiryEntry, entry, $cast($ConnectionPool$ExpiryEntry, this->list->pollLast()));
+	return entry == nullptr ? ($HttpConnection*)nullptr : entry->connection;
 }
 
 void ConnectionPool$ExpiryList::add($HttpConnection* conn) {
@@ -121,10 +72,10 @@ void ConnectionPool$ExpiryList::add($HttpConnection* conn) {
 }
 
 void ConnectionPool$ExpiryList::add($HttpConnection* conn, $Instant* now, int64_t keepAlive) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($ChronoUnit);
-	$var($Instant, then, $nc($($nc(now)->truncatedTo($ChronoUnit::SECONDS)))->plus(keepAlive, static_cast<$TemporalUnit*>($ChronoUnit::SECONDS)));
-	$var($ListIterator, li, $nc(this->list)->listIterator());
+	$var($Instant, then, $$nc($nc(now)->truncatedTo($ChronoUnit::SECONDS))->plus(keepAlive, $ChronoUnit::SECONDS));
+	$var($ListIterator, li, this->list->listIterator());
 	while ($nc(li)->hasNext()) {
 		$var($ConnectionPool$ExpiryEntry, entry, $cast($ConnectionPool$ExpiryEntry, li->next()));
 		if ($nc(then)->isAfter($nc(entry)->expiry)) {
@@ -134,33 +85,33 @@ void ConnectionPool$ExpiryList::add($HttpConnection* conn, $Instant* now, int64_
 			return;
 		}
 	}
-	$nc(this->list)->add($$new($ConnectionPool$ExpiryEntry, conn, then));
+	this->list->add($$new($ConnectionPool$ExpiryEntry, conn, then));
 	this->mayContainEntries = true;
 }
 
 void ConnectionPool$ExpiryList::remove($HttpConnection* c) {
-	$useLocalCurrentObjectStackCache();
-	if (c == nullptr || $nc(this->list)->isEmpty()) {
+	$useLocalObjectStack();
+	if (c == nullptr || this->list->isEmpty()) {
 		return;
 	}
-	$var($ListIterator, li, $nc(this->list)->listIterator());
+	$var($ListIterator, li, this->list->listIterator());
 	while ($nc(li)->hasNext()) {
 		$var($ConnectionPool$ExpiryEntry, e, $cast($ConnectionPool$ExpiryEntry, li->next()));
-		if ($nc($of($nc(e)->connection))->equals(c)) {
+		if ($nc($nc(e)->connection)->equals(c)) {
 			li->remove();
-			this->mayContainEntries = !$nc(this->list)->isEmpty();
+			this->mayContainEntries = !this->list->isEmpty();
 			return;
 		}
 	}
 }
 
 $List* ConnectionPool$ExpiryList::purgeUntil($Instant* now) {
-	$useLocalCurrentObjectStackCache();
-	if ($nc(this->list)->isEmpty()) {
+	$useLocalObjectStack();
+	if (this->list->isEmpty()) {
 		return $Collections::emptyList();
 	}
 	$var($List, closelist, $new($ArrayList));
-	$var($Iterator, li, $nc(this->list)->descendingIterator());
+	$var($Iterator, li, this->list->descendingIterator());
 	while ($nc(li)->hasNext()) {
 		$var($ConnectionPool$ExpiryEntry, entry, $cast($ConnectionPool$ExpiryEntry, li->next()));
 		if (!$nc($nc(entry)->expiry)->isAfter(now)) {
@@ -171,16 +122,16 @@ $List* ConnectionPool$ExpiryList::purgeUntil($Instant* now) {
 			break;
 		}
 	}
-	this->mayContainEntries = !$nc(this->list)->isEmpty();
+	this->mayContainEntries = !this->list->isEmpty();
 	return closelist;
 }
 
 $Stream* ConnectionPool$ExpiryList::stream() {
-	return $nc(this->list)->stream();
+	return this->list->stream();
 }
 
 void ConnectionPool$ExpiryList::clear() {
-	$nc(this->list)->clear();
+	this->list->clear();
 	this->mayContainEntries = false;
 }
 
@@ -188,7 +139,47 @@ ConnectionPool$ExpiryList::ConnectionPool$ExpiryList() {
 }
 
 $Class* ConnectionPool$ExpiryList::load$($String* name, bool initialize) {
-	$loadClass(ConnectionPool$ExpiryList, name, initialize, &_ConnectionPool$ExpiryList_ClassInfo_, allocate$ConnectionPool$ExpiryList);
+	$FieldInfo fieldInfos$$[] = {
+		{"list", "Ljava/util/LinkedList;", "Ljava/util/LinkedList<Ljdk/internal/net/http/ConnectionPool$ExpiryEntry;>;", $PRIVATE | $FINAL, $field(ConnectionPool$ExpiryList, list)},
+		{"mayContainEntries", "Z", nullptr, $PRIVATE | $VOLATILE, $field(ConnectionPool$ExpiryList, mayContainEntries)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(ConnectionPool$ExpiryList, init$, void)},
+		{"add", "(Ljdk/internal/net/http/HttpConnection;)V", nullptr, 0, $method(ConnectionPool$ExpiryList, add, void, $HttpConnection*)},
+		{"add", "(Ljdk/internal/net/http/HttpConnection;Ljava/time/Instant;J)V", nullptr, 0, $method(ConnectionPool$ExpiryList, add, void, $HttpConnection*, $Instant*, int64_t)},
+		{"clear", "()V", nullptr, 0, $method(ConnectionPool$ExpiryList, clear, void)},
+		{"nextExpiryDeadline", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/time/Instant;>;", 0, $method(ConnectionPool$ExpiryList, nextExpiryDeadline, $Optional*)},
+		{"purgeMaybeRequired", "()Z", nullptr, 0, $method(ConnectionPool$ExpiryList, purgeMaybeRequired, bool)},
+		{"purgeUntil", "(Ljava/time/Instant;)Ljava/util/List;", "(Ljava/time/Instant;)Ljava/util/List<Ljdk/internal/net/http/HttpConnection;>;", 0, $method(ConnectionPool$ExpiryList, purgeUntil, $List*, $Instant*)},
+		{"remove", "(Ljdk/internal/net/http/HttpConnection;)V", nullptr, 0, $method(ConnectionPool$ExpiryList, remove, void, $HttpConnection*)},
+		{"removeOldest", "()Ljdk/internal/net/http/HttpConnection;", nullptr, 0, $method(ConnectionPool$ExpiryList, removeOldest, $HttpConnection*)},
+		{"size", "()I", nullptr, 0, $method(ConnectionPool$ExpiryList, size, int32_t)},
+		{"stream", "()Ljava/util/stream/Stream;", "()Ljava/util/stream/Stream<Ljdk/internal/net/http/ConnectionPool$ExpiryEntry;>;", 0, $method(ConnectionPool$ExpiryList, stream, $Stream*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.net.http.ConnectionPool$ExpiryList", "jdk.internal.net.http.ConnectionPool", "ExpiryList", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"jdk.internal.net.http.ConnectionPool$ExpiryList",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.net.http.ConnectionPool"
+	};
+	$loadClass(ConnectionPool$ExpiryList, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ConnectionPool$ExpiryList);
+	});
 	return class$;
 }
 

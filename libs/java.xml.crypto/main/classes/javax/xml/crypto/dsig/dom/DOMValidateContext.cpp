@@ -1,5 +1,4 @@
 #include <javax/xml/crypto/dsig/dom/DOMValidateContext.h>
-
 #include <java/security/Key.h>
 #include <javax/xml/crypto/KeySelector.h>
 #include <javax/xml/crypto/URIDereferencer.h>
@@ -25,52 +24,6 @@ namespace javax {
 		namespace crypto {
 			namespace dsig {
 				namespace dom {
-
-$FieldInfo _DOMValidateContext_FieldInfo_[] = {
-	{"node", "Lorg/w3c/dom/Node;", nullptr, $PRIVATE, $field(DOMValidateContext, node)},
-	{}
-};
-
-$MethodInfo _DOMValidateContext_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*get", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*getBaseURI", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*getDefaultNamespacePrefix", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*getKeySelector", "()Ljavax/xml/crypto/KeySelector;", nullptr, $PUBLIC},
-	{"*getNamespacePrefix", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*getProperty", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*getURIDereferencer", "()Ljavax/xml/crypto/URIDereferencer;", nullptr, $PUBLIC},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljavax/xml/crypto/KeySelector;Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC, $method(DOMValidateContext, init$, void, $KeySelector*, $Node*)},
-	{"<init>", "(Ljava/security/Key;Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC, $method(DOMValidateContext, init$, void, $Key*, $Node*)},
-	{"getNode", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(DOMValidateContext, getNode, $Node*)},
-	{"init", "(Lorg/w3c/dom/Node;Ljavax/xml/crypto/KeySelector;)V", nullptr, $PRIVATE, $method(DOMValidateContext, init, void, $Node*, $KeySelector*)},
-	{"*put", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*putNamespacePrefix", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*setBaseURI", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"*setDefaultNamespacePrefix", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"*setKeySelector", "(Ljavax/xml/crypto/KeySelector;)V", nullptr, $PUBLIC},
-	{"setNode", "(Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC, $virtualMethod(DOMValidateContext, setNode, void, $Node*)},
-	{"*setURIDereferencer", "(Ljavax/xml/crypto/URIDereferencer;)V", nullptr, $PUBLIC},
-	{"*setProperty", "(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _DOMValidateContext_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.xml.crypto.dsig.dom.DOMValidateContext",
-	"javax.xml.crypto.dom.DOMCryptoContext",
-	"javax.xml.crypto.dsig.XMLValidateContext",
-	_DOMValidateContext_FieldInfo_,
-	_DOMValidateContext_MethodInfo_
-};
-
-$Object* allocate$DOMValidateContext($Class* clazz) {
-	return $of($alloc(DOMValidateContext));
-}
 
 $String* DOMValidateContext::getNamespacePrefix($String* namespaceURI, $String* defaultPrefix) {
 	 return this->$DOMCryptoContext::getNamespacePrefix(namespaceURI, defaultPrefix);
@@ -170,7 +123,6 @@ void DOMValidateContext::init($Node* node, $KeySelector* ks) {
 	}
 	$set(this, node, node);
 	$DOMCryptoContext::setKeySelector(ks);
-	$init($Boolean);
 	$DOMCryptoContext::setProperty("org.jcp.xml.dsig.secureValidation"_s, $Boolean::TRUE);
 }
 
@@ -189,7 +141,48 @@ DOMValidateContext::DOMValidateContext() {
 }
 
 $Class* DOMValidateContext::load$($String* name, bool initialize) {
-	$loadClass(DOMValidateContext, name, initialize, &_DOMValidateContext_ClassInfo_, allocate$DOMValidateContext);
+	$FieldInfo fieldInfos$$[] = {
+		{"node", "Lorg/w3c/dom/Node;", nullptr, $PRIVATE, $field(DOMValidateContext, node)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*get", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*getBaseURI", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*getDefaultNamespacePrefix", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*getKeySelector", "()Ljavax/xml/crypto/KeySelector;", nullptr, $PUBLIC},
+		{"*getNamespacePrefix", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*getProperty", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*getURIDereferencer", "()Ljavax/xml/crypto/URIDereferencer;", nullptr, $PUBLIC},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljavax/xml/crypto/KeySelector;Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC, $method(DOMValidateContext, init$, void, $KeySelector*, $Node*)},
+		{"<init>", "(Ljava/security/Key;Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC, $method(DOMValidateContext, init$, void, $Key*, $Node*)},
+		{"getNode", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(DOMValidateContext, getNode, $Node*)},
+		{"init", "(Lorg/w3c/dom/Node;Ljavax/xml/crypto/KeySelector;)V", nullptr, $PRIVATE, $method(DOMValidateContext, init, void, $Node*, $KeySelector*)},
+		{"*put", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*putNamespacePrefix", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*setBaseURI", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
+		{"*setDefaultNamespacePrefix", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
+		{"*setKeySelector", "(Ljavax/xml/crypto/KeySelector;)V", nullptr, $PUBLIC},
+		{"setNode", "(Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC, $virtualMethod(DOMValidateContext, setNode, void, $Node*)},
+		{"*setURIDereferencer", "(Ljavax/xml/crypto/URIDereferencer;)V", nullptr, $PUBLIC},
+		{"*setProperty", "(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.xml.crypto.dsig.dom.DOMValidateContext",
+		"javax.xml.crypto.dom.DOMCryptoContext",
+		"javax.xml.crypto.dsig.XMLValidateContext",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DOMValidateContext, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DOMValidateContext));
+	});
 	return class$;
 }
 

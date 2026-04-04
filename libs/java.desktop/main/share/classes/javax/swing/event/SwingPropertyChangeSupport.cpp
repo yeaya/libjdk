@@ -1,8 +1,6 @@
 #include <javax/swing/event/SwingPropertyChangeSupport.h>
-
 #include <java/beans/PropertyChangeEvent.h>
 #include <java/beans/PropertyChangeSupport.h>
-#include <java/lang/Runnable.h>
 #include <javax/swing/SwingUtilities.h>
 #include <javax/swing/event/SwingPropertyChangeSupport$1.h>
 #include <jcpp.h>
@@ -14,51 +12,12 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;
-using $Runnable = ::java::lang::Runnable;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $SwingPropertyChangeSupport$1 = ::javax::swing::event::SwingPropertyChangeSupport$1;
 
 namespace javax {
 	namespace swing {
 		namespace event {
-
-$FieldInfo _SwingPropertyChangeSupport_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SwingPropertyChangeSupport, serialVersionUID)},
-	{"notifyOnEDT", "Z", nullptr, $PRIVATE | $FINAL, $field(SwingPropertyChangeSupport, notifyOnEDT)},
-	{}
-};
-
-$MethodInfo _SwingPropertyChangeSupport_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(SwingPropertyChangeSupport, init$, void, Object$*)},
-	{"<init>", "(Ljava/lang/Object;Z)V", nullptr, $PUBLIC, $method(SwingPropertyChangeSupport, init$, void, Object$*, bool)},
-	{"firePropertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(SwingPropertyChangeSupport, firePropertyChange, void, $PropertyChangeEvent*)},
-	{"isNotifyOnEDT", "()Z", nullptr, $PUBLIC, $method(SwingPropertyChangeSupport, isNotifyOnEDT, bool)},
-	{}
-};
-
-$InnerClassInfo _SwingPropertyChangeSupport_InnerClassesInfo_[] = {
-	{"javax.swing.event.SwingPropertyChangeSupport$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _SwingPropertyChangeSupport_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"javax.swing.event.SwingPropertyChangeSupport",
-	"java.beans.PropertyChangeSupport",
-	nullptr,
-	_SwingPropertyChangeSupport_FieldInfo_,
-	_SwingPropertyChangeSupport_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SwingPropertyChangeSupport_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.swing.event.SwingPropertyChangeSupport$1"
-};
-
-$Object* allocate$SwingPropertyChangeSupport($Class* clazz) {
-	return $of($alloc(SwingPropertyChangeSupport));
-}
 
 void SwingPropertyChangeSupport::init$(Object$* sourceBean) {
 	SwingPropertyChangeSupport::init$(sourceBean, false);
@@ -89,7 +48,39 @@ SwingPropertyChangeSupport::SwingPropertyChangeSupport() {
 }
 
 $Class* SwingPropertyChangeSupport::load$($String* name, bool initialize) {
-	$loadClass(SwingPropertyChangeSupport, name, initialize, &_SwingPropertyChangeSupport_ClassInfo_, allocate$SwingPropertyChangeSupport);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SwingPropertyChangeSupport, serialVersionUID)},
+		{"notifyOnEDT", "Z", nullptr, $PRIVATE | $FINAL, $field(SwingPropertyChangeSupport, notifyOnEDT)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(SwingPropertyChangeSupport, init$, void, Object$*)},
+		{"<init>", "(Ljava/lang/Object;Z)V", nullptr, $PUBLIC, $method(SwingPropertyChangeSupport, init$, void, Object$*, bool)},
+		{"firePropertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(SwingPropertyChangeSupport, firePropertyChange, void, $PropertyChangeEvent*)},
+		{"isNotifyOnEDT", "()Z", nullptr, $PUBLIC, $method(SwingPropertyChangeSupport, isNotifyOnEDT, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.event.SwingPropertyChangeSupport$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"javax.swing.event.SwingPropertyChangeSupport",
+		"java.beans.PropertyChangeSupport",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.swing.event.SwingPropertyChangeSupport$1"
+	};
+	$loadClass(SwingPropertyChangeSupport, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SwingPropertyChangeSupport);
+	});
 	return class$;
 }
 

@@ -13,6 +13,7 @@ class GroupEntry$1 : public ::java::lang::Object {
 	$class(GroupEntry$1, 0, ::java::lang::Object)
 public:
 	GroupEntry$1();
+	static void clinit$(::java::lang::Class* clazz);
 	static $ints* $SwitchMap$javax$xml$catalog$BaseEntry$CatalogEntryType;
 };
 

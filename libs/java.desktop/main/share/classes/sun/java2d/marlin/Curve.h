@@ -13,6 +13,7 @@ class Curve : public ::java::lang::Object {
 	$class(Curve, 0, ::java::lang::Object)
 public:
 	Curve();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	double ROCsq(double t);
 	int32_t dxRoots($doubles* roots, int32_t off);

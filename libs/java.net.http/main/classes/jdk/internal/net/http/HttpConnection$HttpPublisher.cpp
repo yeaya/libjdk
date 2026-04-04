@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/HttpConnection$HttpPublisher.h>
-
 #include <java/util/List.h>
 #include <jdk/internal/net/http/HttpConnection.h>
 #include <jcpp.h>
@@ -14,41 +13,36 @@ namespace jdk {
 		namespace net {
 			namespace http {
 
-$MethodInfo _HttpConnection$HttpPublisher_MethodInfo_[] = {
-	{"enqueue", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/nio/ByteBuffer;>;)V", $PUBLIC | $ABSTRACT, $virtualMethod(HttpConnection$HttpPublisher, enqueue, void, $List*), "java.io.IOException"},
-	{"enqueueUnordered", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/nio/ByteBuffer;>;)V", $PUBLIC | $ABSTRACT, $virtualMethod(HttpConnection$HttpPublisher, enqueueUnordered, void, $List*), "java.io.IOException"},
-	{"signalEnqueued", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(HttpConnection$HttpPublisher, signalEnqueued, void), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _HttpConnection$HttpPublisher_InnerClassesInfo_[] = {
-	{"jdk.internal.net.http.HttpConnection$HttpPublisher", "jdk.internal.net.http.HttpConnection", "HttpPublisher", $STATIC | $INTERFACE | $ABSTRACT},
-	{"jdk.internal.net.http.common.FlowTube$TubePublisher", "jdk.internal.net.http.common.FlowTube", "TubePublisher", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _HttpConnection$HttpPublisher_ClassInfo_ = {
-	$INTERFACE | $ABSTRACT,
-	"jdk.internal.net.http.HttpConnection$HttpPublisher",
-	nullptr,
-	"jdk.internal.net.http.common.FlowTube$TubePublisher",
-	nullptr,
-	_HttpConnection$HttpPublisher_MethodInfo_,
-	nullptr,
-	nullptr,
-	_HttpConnection$HttpPublisher_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.net.http.HttpConnection"
-};
-
-$Object* allocate$HttpConnection$HttpPublisher($Class* clazz) {
-	return $of($alloc(HttpConnection$HttpPublisher));
-}
-
 $Class* HttpConnection$HttpPublisher::load$($String* name, bool initialize) {
-	$loadClass(HttpConnection$HttpPublisher, name, initialize, &_HttpConnection$HttpPublisher_ClassInfo_, allocate$HttpConnection$HttpPublisher);
+	$MethodInfo methodInfos$$[] = {
+		{"enqueue", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/nio/ByteBuffer;>;)V", $PUBLIC | $ABSTRACT, $virtualMethod(HttpConnection$HttpPublisher, enqueue, void, $List*), "java.io.IOException"},
+		{"enqueueUnordered", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/nio/ByteBuffer;>;)V", $PUBLIC | $ABSTRACT, $virtualMethod(HttpConnection$HttpPublisher, enqueueUnordered, void, $List*), "java.io.IOException"},
+		{"signalEnqueued", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(HttpConnection$HttpPublisher, signalEnqueued, void), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.net.http.HttpConnection$HttpPublisher", "jdk.internal.net.http.HttpConnection", "HttpPublisher", $STATIC | $INTERFACE | $ABSTRACT},
+		{"jdk.internal.net.http.common.FlowTube$TubePublisher", "jdk.internal.net.http.common.FlowTube", "TubePublisher", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$INTERFACE | $ABSTRACT,
+		"jdk.internal.net.http.HttpConnection$HttpPublisher",
+		nullptr,
+		"jdk.internal.net.http.common.FlowTube$TubePublisher",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.net.http.HttpConnection"
+	};
+	$loadClass(HttpConnection$HttpPublisher, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HttpConnection$HttpPublisher);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/windows/WindowsGraphicsUtils.h>
-
 #include <com/sun/java/swing/plaf/windows/TMSchema$Part.h>
 #include <com/sun/java/swing/plaf/windows/TMSchema$Prop.h>
 #include <com/sun/java/swing/plaf/windows/TMSchema$State.h>
@@ -20,7 +19,6 @@
 #include <javax/swing/ButtonModel.h>
 #include <javax/swing/JButton.h>
 #include <javax/swing/JCheckBox.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JLabel.h>
 #include <javax/swing/JMenu.h>
 #include <javax/swing/JMenuItem.h>
@@ -52,7 +50,6 @@ using $WindowsLookAndFeel = ::com::sun::java::swing::plaf::windows::WindowsLookA
 using $XPStyle = ::com::sun::java::swing::plaf::windows::XPStyle;
 using $Color = ::java::awt::Color;
 using $Component = ::java::awt::Component;
-using $ComponentOrientation = ::java::awt::ComponentOrientation;
 using $Container = ::java::awt::Container;
 using $FontMetrics = ::java::awt::FontMetrics;
 using $Graphics = ::java::awt::Graphics;
@@ -65,7 +62,6 @@ using $AbstractButton = ::javax::swing::AbstractButton;
 using $ButtonModel = ::javax::swing::ButtonModel;
 using $JButton = ::javax::swing::JButton;
 using $JCheckBox = ::javax::swing::JCheckBox;
-using $JComponent = ::javax::swing::JComponent;
 using $JLabel = ::javax::swing::JLabel;
 using $JMenu = ::javax::swing::JMenu;
 using $JMenuItem = ::javax::swing::JMenuItem;
@@ -82,52 +78,26 @@ namespace com {
 				namespace plaf {
 					namespace windows {
 
-$MethodInfo _WindowsGraphicsUtils_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(WindowsGraphicsUtils, init$, void)},
-	{"getDisabledTextColor", "(Ljavax/swing/AbstractButton;)Ljava/awt/Color;", nullptr, $PRIVATE | $STATIC, $staticMethod(WindowsGraphicsUtils, getDisabledTextColor, $Color*, $AbstractButton*)},
-	{"isLeftToRight", "(Ljava/awt/Component;)Z", nullptr, $STATIC, $staticMethod(WindowsGraphicsUtils, isLeftToRight, bool, $Component*)},
-	{"paintClassicText", "(Ljavax/swing/AbstractButton;Ljava/awt/Graphics;IILjava/lang/String;I)V", nullptr, $STATIC, $staticMethod(WindowsGraphicsUtils, paintClassicText, void, $AbstractButton*, $Graphics*, int32_t, int32_t, $String*, int32_t)},
-	{"paintText", "(Ljava/awt/Graphics;Ljavax/swing/AbstractButton;Ljava/awt/Rectangle;Ljava/lang/String;I)V", nullptr, $PUBLIC | $STATIC, $staticMethod(WindowsGraphicsUtils, paintText, void, $Graphics*, $AbstractButton*, $Rectangle*, $String*, int32_t)},
-	{"paintXPText", "(Ljavax/swing/AbstractButton;Ljava/awt/Graphics;IILjava/lang/String;I)V", nullptr, $STATIC, $staticMethod(WindowsGraphicsUtils, paintXPText, void, $AbstractButton*, $Graphics*, int32_t, int32_t, $String*, int32_t)},
-	{"paintXPText", "(Ljavax/swing/AbstractButton;Lcom/sun/java/swing/plaf/windows/TMSchema$Part;Lcom/sun/java/swing/plaf/windows/TMSchema$State;Ljava/awt/Graphics;IILjava/lang/String;I)V", nullptr, $STATIC, $staticMethod(WindowsGraphicsUtils, paintXPText, void, $AbstractButton*, $TMSchema$Part*, $TMSchema$State*, $Graphics*, int32_t, int32_t, $String*, int32_t)},
-	{"repaintMnemonicsInContainer", "(Ljava/awt/Container;)V", nullptr, $STATIC, $staticMethod(WindowsGraphicsUtils, repaintMnemonicsInContainer, void, $Container*)},
-	{"repaintMnemonicsInWindow", "(Ljava/awt/Window;)V", nullptr, $STATIC, $staticMethod(WindowsGraphicsUtils, repaintMnemonicsInWindow, void, $Window*)},
-	{}
-};
-
-$ClassInfo _WindowsGraphicsUtils_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.java.swing.plaf.windows.WindowsGraphicsUtils",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_WindowsGraphicsUtils_MethodInfo_
-};
-
-$Object* allocate$WindowsGraphicsUtils($Class* clazz) {
-	return $of($alloc(WindowsGraphicsUtils));
-}
-
 void WindowsGraphicsUtils::init$() {
 }
 
 void WindowsGraphicsUtils::paintText($Graphics* g, $AbstractButton* b, $Rectangle* textRect, $String* text, int32_t textShiftOffset) {
-	$useLocalCurrentObjectStackCache();
-	$var($FontMetrics, fm, $SwingUtilities2::getFontMetrics(static_cast<$JComponent*>(b), g));
+	$useLocalObjectStack();
+	$var($FontMetrics, fm, $SwingUtilities2::getFontMetrics(b, g));
 	int32_t mnemIndex = $nc(b)->getDisplayedMnemonicIndex();
 	if ($WindowsLookAndFeel::isMnemonicHidden() == true) {
 		mnemIndex = -1;
 	}
 	$var($XPStyle, xp, $XPStyle::getXP());
 	if (xp != nullptr && !($instanceOf($JMenuItem, b))) {
-		paintXPText(b, g, $nc(textRect)->x + textShiftOffset, textRect->y + $nc(fm)->getAscent() + textShiftOffset, text, mnemIndex);
+		paintXPText(b, g, $nc(textRect)->x + textShiftOffset, $nc(textRect)->y + $nc(fm)->getAscent() + textShiftOffset, text, mnemIndex);
 	} else {
-		paintClassicText(b, g, $nc(textRect)->x + textShiftOffset, textRect->y + $nc(fm)->getAscent() + textShiftOffset, text, mnemIndex);
+		paintClassicText(b, g, $nc(textRect)->x + textShiftOffset, $nc(textRect)->y + $nc(fm)->getAscent() + textShiftOffset, text, mnemIndex);
 	}
 }
 
 void WindowsGraphicsUtils::paintClassicText($AbstractButton* b, $Graphics* g, int32_t x, int32_t y, $String* text, int32_t mnemIndex) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ButtonModel, model, $nc(b)->getModel());
 	$var($Color, color, b->getForeground());
 	if ($nc(model)->isEnabled()) {
@@ -136,7 +106,7 @@ void WindowsGraphicsUtils::paintClassicText($AbstractButton* b, $Graphics* g, in
 			bool var$1 = $instanceOf($JMenu, b);
 			if (var$1) {
 				bool var$2 = model->isSelected();
-				var$1 = (var$2 || model->isRollover());
+				var$1 = var$2 || model->isRollover();
 			}
 			var$0 = !(var$1);
 		}
@@ -154,13 +124,13 @@ void WindowsGraphicsUtils::paintClassicText($AbstractButton* b, $Graphics* g, in
 			$assign(color, $UIManager::getColor("Button.disabledForeground"_s));
 		} else {
 			if (shadow == nullptr) {
-				$assign(shadow, $nc($(b->getBackground()))->darker());
+				$assign(shadow, $$nc(b->getBackground())->darker());
 			}
 			$nc(g)->setColor(shadow);
 			$SwingUtilities2::drawStringUnderlineCharAt(b, g, text, mnemIndex, x + 1, y + 1);
 		}
 		if (color == nullptr) {
-			$assign(color, $nc($(b->getBackground()))->brighter());
+			$assign(color, $$nc(b->getBackground())->brighter());
 		}
 		$nc(g)->setColor(color);
 		$SwingUtilities2::drawStringUnderlineCharAt(b, g, text, mnemIndex, x, y);
@@ -187,7 +157,7 @@ void WindowsGraphicsUtils::paintXPText($AbstractButton* b, $Graphics* g, int32_t
 }
 
 void WindowsGraphicsUtils::paintXPText($AbstractButton* b, $TMSchema$Part* part, $TMSchema$State* state, $Graphics* g, int32_t x, int32_t y, $String* text, int32_t mnemIndex) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($XPStyle, xp, $XPStyle::getXP());
 	if (xp == nullptr) {
 		return;
@@ -200,11 +170,11 @@ void WindowsGraphicsUtils::paintXPText($AbstractButton* b, $TMSchema$Part* part,
 	}
 	if (textColor == nullptr || $instanceOf($UIResource, textColor)) {
 		$init($TMSchema$Prop);
-		$assign(textColor, $nc(xp)->getColor(b, part, state, $TMSchema$Prop::TEXTCOLOR, $($nc(b)->getForeground())));
+		$assign(textColor, $nc(xp)->getColor(b, part, state, $TMSchema$Prop::TEXTCOLOR, $(b->getForeground())));
 		$init($TMSchema$Part);
 		$init($TMSchema$State);
 		if (part == $TMSchema$Part::TP_BUTTON && state == $TMSchema$State::DISABLED) {
-			$var($Color, enabledColor, xp->getColor(b, part, $TMSchema$State::NORMAL, $TMSchema$Prop::TEXTCOLOR, $($nc(b)->getForeground())));
+			$var($Color, enabledColor, xp->getColor(b, part, $TMSchema$State::NORMAL, $TMSchema$Prop::TEXTCOLOR, $(b->getForeground())));
 			if ($nc(textColor)->equals(enabledColor)) {
 				$assign(textColor, xp->getColor(b, $TMSchema$Part::BP_PUSHBUTTON, state, $TMSchema$Prop::TEXTCOLOR, textColor));
 			}
@@ -226,11 +196,11 @@ void WindowsGraphicsUtils::paintXPText($AbstractButton* b, $TMSchema$Part* part,
 }
 
 bool WindowsGraphicsUtils::isLeftToRight($Component* c) {
-	return $nc($($nc(c)->getComponentOrientation()))->isLeftToRight();
+	return $$nc($nc(c)->getComponentOrientation())->isLeftToRight();
 }
 
 void WindowsGraphicsUtils::repaintMnemonicsInWindow($Window* w) {
-	if (w == nullptr || !$nc(w)->isShowing()) {
+	if (w == nullptr || !w->isShowing()) {
 		return;
 	}
 	$var($WindowArray, ownedWindows, $nc(w)->getOwnedWindows());
@@ -244,14 +214,14 @@ void WindowsGraphicsUtils::repaintMnemonicsInContainer($Container* cont) {
 	$var($Component, c, nullptr);
 	for (int32_t i = 0; i < $nc(cont)->getComponentCount(); ++i) {
 		$assign(c, cont->getComponent(i));
-		if (c == nullptr || !$nc(c)->isVisible()) {
+		if (c == nullptr || !c->isVisible()) {
 			continue;
 		}
-		if ($instanceOf($AbstractButton, c) && $nc(($cast($AbstractButton, c)))->getMnemonic() != u'\0') {
-			$nc(c)->repaint();
+		if ($instanceOf($AbstractButton, c) && $cast($AbstractButton, c)->getMnemonic() != u'\0') {
+			c->repaint();
 			continue;
-		} else if ($instanceOf($JLabel, c) && $nc(($cast($JLabel, c)))->getDisplayedMnemonic() != u'\0') {
-			$nc(c)->repaint();
+		} else if ($instanceOf($JLabel, c) && $cast($JLabel, c)->getDisplayedMnemonic() != u'\0') {
+			c->repaint();
 			continue;
 		}
 		if ($instanceOf($Container, c)) {
@@ -264,7 +234,29 @@ WindowsGraphicsUtils::WindowsGraphicsUtils() {
 }
 
 $Class* WindowsGraphicsUtils::load$($String* name, bool initialize) {
-	$loadClass(WindowsGraphicsUtils, name, initialize, &_WindowsGraphicsUtils_ClassInfo_, allocate$WindowsGraphicsUtils);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(WindowsGraphicsUtils, init$, void)},
+		{"getDisabledTextColor", "(Ljavax/swing/AbstractButton;)Ljava/awt/Color;", nullptr, $PRIVATE | $STATIC, $staticMethod(WindowsGraphicsUtils, getDisabledTextColor, $Color*, $AbstractButton*)},
+		{"isLeftToRight", "(Ljava/awt/Component;)Z", nullptr, $STATIC, $staticMethod(WindowsGraphicsUtils, isLeftToRight, bool, $Component*)},
+		{"paintClassicText", "(Ljavax/swing/AbstractButton;Ljava/awt/Graphics;IILjava/lang/String;I)V", nullptr, $STATIC, $staticMethod(WindowsGraphicsUtils, paintClassicText, void, $AbstractButton*, $Graphics*, int32_t, int32_t, $String*, int32_t)},
+		{"paintText", "(Ljava/awt/Graphics;Ljavax/swing/AbstractButton;Ljava/awt/Rectangle;Ljava/lang/String;I)V", nullptr, $PUBLIC | $STATIC, $staticMethod(WindowsGraphicsUtils, paintText, void, $Graphics*, $AbstractButton*, $Rectangle*, $String*, int32_t)},
+		{"paintXPText", "(Ljavax/swing/AbstractButton;Ljava/awt/Graphics;IILjava/lang/String;I)V", nullptr, $STATIC, $staticMethod(WindowsGraphicsUtils, paintXPText, void, $AbstractButton*, $Graphics*, int32_t, int32_t, $String*, int32_t)},
+		{"paintXPText", "(Ljavax/swing/AbstractButton;Lcom/sun/java/swing/plaf/windows/TMSchema$Part;Lcom/sun/java/swing/plaf/windows/TMSchema$State;Ljava/awt/Graphics;IILjava/lang/String;I)V", nullptr, $STATIC, $staticMethod(WindowsGraphicsUtils, paintXPText, void, $AbstractButton*, $TMSchema$Part*, $TMSchema$State*, $Graphics*, int32_t, int32_t, $String*, int32_t)},
+		{"repaintMnemonicsInContainer", "(Ljava/awt/Container;)V", nullptr, $STATIC, $staticMethod(WindowsGraphicsUtils, repaintMnemonicsInContainer, void, $Container*)},
+		{"repaintMnemonicsInWindow", "(Ljava/awt/Window;)V", nullptr, $STATIC, $staticMethod(WindowsGraphicsUtils, repaintMnemonicsInWindow, void, $Window*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.java.swing.plaf.windows.WindowsGraphicsUtils",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(WindowsGraphicsUtils, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WindowsGraphicsUtils);
+	});
 	return class$;
 }
 

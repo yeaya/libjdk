@@ -34,6 +34,7 @@ class CollatorFactoryBase : public ::com::sun::org::apache::xalan::internal::xsl
 	$class(CollatorFactoryBase, 0, ::com::sun::org::apache::xalan::internal::xsltc::CollatorFactory)
 public:
 	CollatorFactoryBase();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual ::java::text::Collator* getCollator($String* lang, $String* country) override;
 	virtual ::java::text::Collator* getCollator(::java::util::Locale* locale) override;

@@ -1,5 +1,4 @@
 #include <sun/nio/cs/ext/ISO2022_CN$Decoder.h>
-
 #include <java/nio/ByteBuffer.h>
 #include <java/nio/CharBuffer.h>
 #include <java/nio/charset/Charset.h>
@@ -35,88 +34,45 @@ namespace sun {
 		namespace cs {
 			namespace ext {
 
-$FieldInfo _ISO2022_CN$Decoder_FieldInfo_[] = {
-	{"shiftOut", "Z", nullptr, $PRIVATE, $field(ISO2022_CN$Decoder, shiftOut)},
-	{"currentSODesig", "B", nullptr, $PRIVATE, $field(ISO2022_CN$Decoder, currentSODesig)},
-	{"GB2312", "Lsun/nio/cs/DoubleByte$Decoder;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ISO2022_CN$Decoder, GB2312)},
-	{}
-};
-
-$MethodInfo _ISO2022_CN$Decoder_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/charset/Charset;)V", nullptr, 0, $method(ISO2022_CN$Decoder, init$, void, $Charset*)},
-	{"SODecode", "(BBB)C", nullptr, $PRIVATE, $method(ISO2022_CN$Decoder, SODecode, char16_t, int8_t, int8_t, int8_t)},
-	{"cnsDecode", "(BBB)C", nullptr, $PRIVATE, $method(ISO2022_CN$Decoder, cnsDecode, char16_t, int8_t, int8_t, int8_t)},
-	{"decodeArrayLoop", "(Ljava/nio/ByteBuffer;Ljava/nio/CharBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PRIVATE, $method(ISO2022_CN$Decoder, decodeArrayLoop, $CoderResult*, $ByteBuffer*, $CharBuffer*)},
-	{"decodeBufferLoop", "(Ljava/nio/ByteBuffer;Ljava/nio/CharBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PRIVATE, $method(ISO2022_CN$Decoder, decodeBufferLoop, $CoderResult*, $ByteBuffer*, $CharBuffer*)},
-	{"decodeLoop", "(Ljava/nio/ByteBuffer;Ljava/nio/CharBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PROTECTED, $virtualMethod(ISO2022_CN$Decoder, decodeLoop, $CoderResult*, $ByteBuffer*, $CharBuffer*)},
-	{"implReset", "()V", nullptr, $PROTECTED, $virtualMethod(ISO2022_CN$Decoder, implReset, void)},
-	{}
-};
-
-$InnerClassInfo _ISO2022_CN$Decoder_InnerClassesInfo_[] = {
-	{"sun.nio.cs.ext.ISO2022_CN$Decoder", "sun.nio.cs.ext.ISO2022_CN", "Decoder", $STATIC},
-	{}
-};
-
-$ClassInfo _ISO2022_CN$Decoder_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.nio.cs.ext.ISO2022_CN$Decoder",
-	"java.nio.charset.CharsetDecoder",
-	nullptr,
-	_ISO2022_CN$Decoder_FieldInfo_,
-	_ISO2022_CN$Decoder_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ISO2022_CN$Decoder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.nio.cs.ext.ISO2022_CN"
-};
-
-$Object* allocate$ISO2022_CN$Decoder($Class* clazz) {
-	return $of($alloc(ISO2022_CN$Decoder));
-}
-
 $DoubleByte$Decoder* ISO2022_CN$Decoder::GB2312 = nullptr;
 
 void ISO2022_CN$Decoder::init$($Charset* cs) {
 	$CharsetDecoder::init$(cs, 1.0f, 1.0f);
 	this->shiftOut = false;
-	this->currentSODesig = (int8_t)0;
+	this->currentSODesig = 0;
 }
 
 void ISO2022_CN$Decoder::implReset() {
 	this->shiftOut = false;
-	this->currentSODesig = (int8_t)0;
+	this->currentSODesig = 0;
 }
 
 char16_t ISO2022_CN$Decoder::cnsDecode(int8_t byte1, int8_t byte2, int8_t SS) {
-	byte1 |= (int8_t)-128;
-	byte2 |= (int8_t)-128;
+	byte1 |= -128;
+	byte2 |= -128;
 	int32_t p = 0;
-	if (SS == (int8_t)78) {
+	if (SS == 78) {
 		p = 1;
-	} else if (SS == (int8_t)79) {
+	} else if (SS == 79) {
 		p = 2;
 	} else {
-		return (char16_t)0xFFFD;
+		return (char16_t)0xfffd;
 	}
-	return $EUC_TW$Decoder::decodeSingleOrReplace((int32_t)(byte1 & (uint32_t)255), (int32_t)(byte2 & (uint32_t)255), p, (char16_t)0xFFFD);
+	return $EUC_TW$Decoder::decodeSingleOrReplace(byte1 & 0xff, byte2 & 0xff, p, (char16_t)0xfffd);
 }
 
 char16_t ISO2022_CN$Decoder::SODecode(int8_t byte1, int8_t byte2, int8_t SOD) {
-	byte1 |= (int8_t)-128;
-	byte2 |= (int8_t)-128;
-	if (SOD == (int8_t)0) {
-		return $nc(ISO2022_CN$Decoder::GB2312)->decodeDouble((int32_t)(byte1 & (uint32_t)255), (int32_t)(byte2 & (uint32_t)255));
+	byte1 |= -128;
+	byte2 |= -128;
+	if (SOD == 0) {
+		return $nc(ISO2022_CN$Decoder::GB2312)->decodeDouble(byte1 & 0xff, byte2 & 0xff);
 	} else {
-		return $EUC_TW$Decoder::decodeSingleOrReplace((int32_t)(byte1 & (uint32_t)255), (int32_t)(byte2 & (uint32_t)255), 0, (char16_t)0xFFFD);
+		return $EUC_TW$Decoder::decodeSingleOrReplace(byte1 & 0xff, byte2 & 0xff, 0, (char16_t)0xfffd);
 	}
 }
 
 $CoderResult* ISO2022_CN$Decoder::decodeBufferLoop($ByteBuffer* src, $CharBuffer* dst) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t mark = $nc(src)->position();
 	int8_t b1 = 0;
 	int8_t b2 = 0;
@@ -124,150 +80,16 @@ $CoderResult* ISO2022_CN$Decoder::decodeBufferLoop($ByteBuffer* src, $CharBuffer
 	int8_t b4 = 0;
 	int32_t inputSize = 0;
 	char16_t c = 0;
-	{
-		$var($Throwable, var$0, nullptr);
-		$var($CoderResult, var$2, nullptr);
-		bool return$1 = false;
-		try {
-			while (src->hasRemaining()) {
-				b1 = src->get();
-				inputSize = 1;
-				while (b1 == (int8_t)27 || b1 == (int8_t)14 || b1 == (int8_t)15) {
-					if (b1 == (int8_t)27) {
-						this->currentSODesig = (int8_t)0;
-						if (src->remaining() < 1) {
-							$init($CoderResult);
-							$assign(var$2, $CoderResult::UNDERFLOW);
-							return$1 = true;
-							goto $finally;
-						}
-						b2 = src->get();
-						++inputSize;
-						if (((int32_t)(b2 & (uint32_t)(int32_t)(int8_t)128)) != 0) {
-							$assign(var$2, $CoderResult::malformedForLength(inputSize));
-							return$1 = true;
-							goto $finally;
-						}
-						if (b2 == (int8_t)36) {
-							if (src->remaining() < 1) {
-								$init($CoderResult);
-								$assign(var$2, $CoderResult::UNDERFLOW);
-								return$1 = true;
-								goto $finally;
-							}
-							b3 = src->get();
-							++inputSize;
-							if (((int32_t)(b3 & (uint32_t)(int32_t)(int8_t)128)) != 0) {
-								$assign(var$2, $CoderResult::malformedForLength(inputSize));
-								return$1 = true;
-								goto $finally;
-							}
-							if (b3 == u'A') {
-								this->currentSODesig = (int8_t)0;
-							} else if (b3 == u')') {
-								if (src->remaining() < 1) {
-									$init($CoderResult);
-									$assign(var$2, $CoderResult::UNDERFLOW);
-									return$1 = true;
-									goto $finally;
-								}
-								b4 = src->get();
-								++inputSize;
-								if (b4 == u'A') {
-									this->currentSODesig = (int8_t)0;
-								} else if (b4 == u'G') {
-									this->currentSODesig = (int8_t)1;
-								} else {
-									$assign(var$2, $CoderResult::malformedForLength(inputSize));
-									return$1 = true;
-									goto $finally;
-								}
-							} else if (b3 == u'*') {
-								if (src->remaining() < 1) {
-									$init($CoderResult);
-									$assign(var$2, $CoderResult::UNDERFLOW);
-									return$1 = true;
-									goto $finally;
-								}
-								b4 = src->get();
-								++inputSize;
-								if (b4 != u'H') {
-									$assign(var$2, $CoderResult::malformedForLength(inputSize));
-									return$1 = true;
-									goto $finally;
-								}
-							} else if (b3 == u'+') {
-								if (src->remaining() < 1) {
-									$init($CoderResult);
-									$assign(var$2, $CoderResult::UNDERFLOW);
-									return$1 = true;
-									goto $finally;
-								}
-								b4 = src->get();
-								++inputSize;
-								if (b4 != u'I') {
-									$assign(var$2, $CoderResult::malformedForLength(inputSize));
-									return$1 = true;
-									goto $finally;
-								}
-							} else {
-								$assign(var$2, $CoderResult::malformedForLength(inputSize));
-								return$1 = true;
-								goto $finally;
-							}
-						} else if (b2 == (int8_t)78 || b2 == (int8_t)79) {
-							if (src->remaining() < 2) {
-								$init($CoderResult);
-								$assign(var$2, $CoderResult::UNDERFLOW);
-								return$1 = true;
-								goto $finally;
-							}
-							b3 = src->get();
-							b4 = src->get();
-							inputSize += 2;
-							if ($nc(dst)->remaining() < 1) {
-								$init($CoderResult);
-								$assign(var$2, $CoderResult::OVERFLOW);
-								return$1 = true;
-								goto $finally;
-							}
-							c = cnsDecode(b3, b4, b2);
-							if (c == (char16_t)0xFFFD) {
-								$assign(var$2, $CoderResult::unmappableForLength(inputSize));
-								return$1 = true;
-								goto $finally;
-							}
-							$nc(dst)->put(c);
-						} else {
-							$assign(var$2, $CoderResult::malformedForLength(inputSize));
-							return$1 = true;
-							goto $finally;
-						}
-					} else if (b1 == (int8_t)14) {
-						this->shiftOut = true;
-					} else if (b1 == (int8_t)15) {
-						this->shiftOut = false;
-					}
-					mark += inputSize;
-					if (src->remaining() < 1) {
-						$init($CoderResult);
-						$assign(var$2, $CoderResult::UNDERFLOW);
-						return$1 = true;
-						goto $finally;
-					}
-					b1 = src->get();
-					inputSize = 1;
-				}
-				if ($nc(dst)->remaining() < 1) {
-					$init($CoderResult);
-					$assign(var$2, $CoderResult::OVERFLOW);
-					return$1 = true;
-					goto $finally;
-				}
-				if (!this->shiftOut) {
-					$nc(dst)->put((char16_t)((int32_t)(b1 & (uint32_t)255)));
-					mark += inputSize;
-				} else {
+	$var($Throwable, var$0, nullptr);
+	$var($CoderResult, var$2, nullptr);
+	bool return$1 = false;
+	try {
+		while (src->hasRemaining()) {
+			b1 = src->get();
+			inputSize = 1;
+			while (b1 == 27 || b1 == 14 || b1 == 15) {
+				if (b1 == 27) {
+					this->currentSODesig = 0;
 					if (src->remaining() < 1) {
 						$init($CoderResult);
 						$assign(var$2, $CoderResult::UNDERFLOW);
@@ -276,37 +98,169 @@ $CoderResult* ISO2022_CN$Decoder::decodeBufferLoop($ByteBuffer* src, $CharBuffer
 					}
 					b2 = src->get();
 					++inputSize;
-					c = SODecode(b1, b2, this->currentSODesig);
-					if (c == (char16_t)0xFFFD) {
-						$assign(var$2, $CoderResult::unmappableForLength(inputSize));
+					if ((b2 & (int8_t)128) != 0) {
+						$assign(var$2, $CoderResult::malformedForLength(inputSize));
 						return$1 = true;
 						goto $finally;
 					}
-					$nc(dst)->put(c);
-					mark += inputSize;
+					if (b2 == (int8_t)36) {
+						if (src->remaining() < 1) {
+							$init($CoderResult);
+							$assign(var$2, $CoderResult::UNDERFLOW);
+							return$1 = true;
+							goto $finally;
+						}
+						b3 = src->get();
+						++inputSize;
+						if ((b3 & (int8_t)128) != 0) {
+							$assign(var$2, $CoderResult::malformedForLength(inputSize));
+							return$1 = true;
+							goto $finally;
+						}
+						if (b3 == u'A') {
+							this->currentSODesig = 0;
+						} else if (b3 == u')') {
+							if (src->remaining() < 1) {
+								$init($CoderResult);
+								$assign(var$2, $CoderResult::UNDERFLOW);
+								return$1 = true;
+								goto $finally;
+							}
+							b4 = src->get();
+							++inputSize;
+							if (b4 == u'A') {
+								this->currentSODesig = 0;
+							} else if (b4 == u'G') {
+								this->currentSODesig = 1;
+							} else {
+								$assign(var$2, $CoderResult::malformedForLength(inputSize));
+								return$1 = true;
+								goto $finally;
+							}
+						} else if (b3 == u'*') {
+							if (src->remaining() < 1) {
+								$init($CoderResult);
+								$assign(var$2, $CoderResult::UNDERFLOW);
+								return$1 = true;
+								goto $finally;
+							}
+							b4 = src->get();
+							++inputSize;
+							if (b4 != u'H') {
+								$assign(var$2, $CoderResult::malformedForLength(inputSize));
+								return$1 = true;
+								goto $finally;
+							}
+						} else if (b3 == u'+') {
+							if (src->remaining() < 1) {
+								$init($CoderResult);
+								$assign(var$2, $CoderResult::UNDERFLOW);
+								return$1 = true;
+								goto $finally;
+							}
+							b4 = src->get();
+							++inputSize;
+							if (b4 != u'I') {
+								$assign(var$2, $CoderResult::malformedForLength(inputSize));
+								return$1 = true;
+								goto $finally;
+							}
+						} else {
+							$assign(var$2, $CoderResult::malformedForLength(inputSize));
+							return$1 = true;
+							goto $finally;
+						}
+					} else if (b2 == 78 || b2 == 79) {
+						if (src->remaining() < 2) {
+							$init($CoderResult);
+							$assign(var$2, $CoderResult::UNDERFLOW);
+							return$1 = true;
+							goto $finally;
+						}
+						b3 = src->get();
+						b4 = src->get();
+						inputSize += 2;
+						if ($nc(dst)->remaining() < 1) {
+							$init($CoderResult);
+							$assign(var$2, $CoderResult::OVERFLOW);
+							return$1 = true;
+							goto $finally;
+						}
+						c = cnsDecode(b3, b4, b2);
+						if (c == (char16_t)0xfffd) {
+							$assign(var$2, $CoderResult::unmappableForLength(inputSize));
+							return$1 = true;
+							goto $finally;
+						}
+						dst->put(c);
+					} else {
+						$assign(var$2, $CoderResult::malformedForLength(inputSize));
+						return$1 = true;
+						goto $finally;
+					}
+				} else if (b1 == 14) {
+					this->shiftOut = true;
+				} else if (b1 == 15) {
+					this->shiftOut = false;
 				}
+				mark += inputSize;
+				if (src->remaining() < 1) {
+					$init($CoderResult);
+					$assign(var$2, $CoderResult::UNDERFLOW);
+					return$1 = true;
+					goto $finally;
+				}
+				b1 = src->get();
+				inputSize = 1;
 			}
-			$init($CoderResult);
-			$assign(var$2, $CoderResult::UNDERFLOW);
-			return$1 = true;
-			goto $finally;
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			src->position(mark);
+			if ($nc(dst)->remaining() < 1) {
+				$init($CoderResult);
+				$assign(var$2, $CoderResult::OVERFLOW);
+				return$1 = true;
+				goto $finally;
+			}
+			if (!this->shiftOut) {
+				dst->put((char16_t)(b1 & 0xff));
+				mark += inputSize;
+			} else {
+				if (src->remaining() < 1) {
+					$init($CoderResult);
+					$assign(var$2, $CoderResult::UNDERFLOW);
+					return$1 = true;
+					goto $finally;
+				}
+				b2 = src->get();
+				++inputSize;
+				c = SODecode(b1, b2, this->currentSODesig);
+				if (c == (char16_t)0xfffd) {
+					$assign(var$2, $CoderResult::unmappableForLength(inputSize));
+					return$1 = true;
+					goto $finally;
+				}
+				dst->put(c);
+				mark += inputSize;
+			}
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+		$init($CoderResult);
+		$assign(var$2, $CoderResult::UNDERFLOW);
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		src->position(mark);
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
 
 $CoderResult* ISO2022_CN$Decoder::decodeArrayLoop($ByteBuffer* src, $CharBuffer* dst) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t inputSize = 0;
 	int8_t b1 = 0;
 	int8_t b2 = 0;
@@ -323,149 +277,16 @@ $CoderResult* ISO2022_CN$Decoder::decodeArrayLoop($ByteBuffer* src, $CharBuffer*
 	int32_t dp = var$2 + dst->position();
 	int32_t var$3 = dst->arrayOffset();
 	int32_t dl = var$3 + dst->limit();
-	{
-		$var($Throwable, var$4, nullptr);
-		$var($CoderResult, var$6, nullptr);
-		bool return$5 = false;
-		try {
-			while (sp < sl) {
-				b1 = $nc(sa)->get(sp);
-				inputSize = 1;
-				while (b1 == (int8_t)27 || b1 == (int8_t)14 || b1 == (int8_t)15) {
-					if (b1 == (int8_t)27) {
-						this->currentSODesig = (int8_t)0;
-						if (sp + 2 > sl) {
-							$init($CoderResult);
-							$assign(var$6, $CoderResult::UNDERFLOW);
-							return$5 = true;
-							goto $finally;
-						}
-						b2 = sa->get(sp + 1);
-						++inputSize;
-						if (((int32_t)(b2 & (uint32_t)(int32_t)(int8_t)128)) != 0) {
-							$assign(var$6, $CoderResult::malformedForLength(inputSize));
-							return$5 = true;
-							goto $finally;
-						}
-						if (b2 == (int8_t)36) {
-							if (sp + 3 > sl) {
-								$init($CoderResult);
-								$assign(var$6, $CoderResult::UNDERFLOW);
-								return$5 = true;
-								goto $finally;
-							}
-							b3 = sa->get(sp + 2);
-							++inputSize;
-							if (((int32_t)(b3 & (uint32_t)(int32_t)(int8_t)128)) != 0) {
-								$assign(var$6, $CoderResult::malformedForLength(inputSize));
-								return$5 = true;
-								goto $finally;
-							}
-							if (b3 == u'A') {
-								this->currentSODesig = (int8_t)0;
-							} else if (b3 == u')') {
-								if (sp + 4 > sl) {
-									$init($CoderResult);
-									$assign(var$6, $CoderResult::UNDERFLOW);
-									return$5 = true;
-									goto $finally;
-								}
-								b4 = sa->get(sp + 3);
-								++inputSize;
-								if (b4 == u'A') {
-									this->currentSODesig = (int8_t)0;
-								} else if (b4 == u'G') {
-									this->currentSODesig = (int8_t)1;
-								} else {
-									$assign(var$6, $CoderResult::malformedForLength(inputSize));
-									return$5 = true;
-									goto $finally;
-								}
-							} else if (b3 == u'*') {
-								if (sp + 4 > sl) {
-									$init($CoderResult);
-									$assign(var$6, $CoderResult::UNDERFLOW);
-									return$5 = true;
-									goto $finally;
-								}
-								b4 = sa->get(sp + 3);
-								++inputSize;
-								if (b4 != u'H') {
-									$assign(var$6, $CoderResult::malformedForLength(inputSize));
-									return$5 = true;
-									goto $finally;
-								}
-							} else if (b3 == u'+') {
-								if (sp + 4 > sl) {
-									$init($CoderResult);
-									$assign(var$6, $CoderResult::UNDERFLOW);
-									return$5 = true;
-									goto $finally;
-								}
-								b4 = sa->get(sp + 3);
-								++inputSize;
-								if (b4 != u'I') {
-									$assign(var$6, $CoderResult::malformedForLength(inputSize));
-									return$5 = true;
-									goto $finally;
-								}
-							} else {
-								$assign(var$6, $CoderResult::malformedForLength(inputSize));
-								return$5 = true;
-								goto $finally;
-							}
-						} else if (b2 == (int8_t)78 || b2 == (int8_t)79) {
-							if (sp + 4 > sl) {
-								$init($CoderResult);
-								$assign(var$6, $CoderResult::UNDERFLOW);
-								return$5 = true;
-								goto $finally;
-							}
-							b3 = sa->get(sp + 2);
-							b4 = sa->get(sp + 3);
-							if (dl - dp < 1) {
-								$init($CoderResult);
-								$assign(var$6, $CoderResult::OVERFLOW);
-								return$5 = true;
-								goto $finally;
-							}
-							inputSize += 2;
-							c = cnsDecode(b3, b4, b2);
-							if (c == (char16_t)0xFFFD) {
-								$assign(var$6, $CoderResult::unmappableForLength(inputSize));
-								return$5 = true;
-								goto $finally;
-							}
-							$nc(da)->set(dp++, c);
-						} else {
-							$assign(var$6, $CoderResult::malformedForLength(inputSize));
-							return$5 = true;
-							goto $finally;
-						}
-					} else if (b1 == (int8_t)14) {
-						this->shiftOut = true;
-					} else if (b1 == (int8_t)15) {
-						this->shiftOut = false;
-					}
-					sp += inputSize;
-					if (sp + 1 > sl) {
-						$init($CoderResult);
-						$assign(var$6, $CoderResult::UNDERFLOW);
-						return$5 = true;
-						goto $finally;
-					}
-					b1 = sa->get(sp);
-					inputSize = 1;
-				}
-				if (dl - dp < 1) {
-					$init($CoderResult);
-					$assign(var$6, $CoderResult::OVERFLOW);
-					return$5 = true;
-					goto $finally;
-				}
-				if (!this->shiftOut) {
-					$nc(da)->set(dp++, (char16_t)((int32_t)(b1 & (uint32_t)255)));
-				} else {
+	$var($Throwable, var$4, nullptr);
+	$var($CoderResult, var$6, nullptr);
+	bool return$5 = false;
+	try {
+		while (sp < sl) {
+			b1 = $nc(sa)->get(sp);
+			inputSize = 1;
+			while (b1 == 27 || b1 == 14 || b1 == 15) {
+				if (b1 == 27) {
+					this->currentSODesig = 0;
 					if (sp + 2 > sl) {
 						$init($CoderResult);
 						$assign(var$6, $CoderResult::UNDERFLOW);
@@ -474,32 +295,163 @@ $CoderResult* ISO2022_CN$Decoder::decodeArrayLoop($ByteBuffer* src, $CharBuffer*
 					}
 					b2 = sa->get(sp + 1);
 					++inputSize;
-					c = SODecode(b1, b2, this->currentSODesig);
-					if (c == (char16_t)0xFFFD) {
-						$assign(var$6, $CoderResult::unmappableForLength(inputSize));
+					if ((b2 & (int8_t)128) != 0) {
+						$assign(var$6, $CoderResult::malformedForLength(inputSize));
 						return$5 = true;
 						goto $finally;
 					}
-					$nc(da)->set(dp++, c);
+					if (b2 == (int8_t)36) {
+						if (sp + 3 > sl) {
+							$init($CoderResult);
+							$assign(var$6, $CoderResult::UNDERFLOW);
+							return$5 = true;
+							goto $finally;
+						}
+						b3 = sa->get(sp + 2);
+						++inputSize;
+						if ((b3 & (int8_t)128) != 0) {
+							$assign(var$6, $CoderResult::malformedForLength(inputSize));
+							return$5 = true;
+							goto $finally;
+						}
+						if (b3 == u'A') {
+							this->currentSODesig = 0;
+						} else if (b3 == u')') {
+							if (sp + 4 > sl) {
+								$init($CoderResult);
+								$assign(var$6, $CoderResult::UNDERFLOW);
+								return$5 = true;
+								goto $finally;
+							}
+							b4 = sa->get(sp + 3);
+							++inputSize;
+							if (b4 == u'A') {
+								this->currentSODesig = 0;
+							} else if (b4 == u'G') {
+								this->currentSODesig = 1;
+							} else {
+								$assign(var$6, $CoderResult::malformedForLength(inputSize));
+								return$5 = true;
+								goto $finally;
+							}
+						} else if (b3 == u'*') {
+							if (sp + 4 > sl) {
+								$init($CoderResult);
+								$assign(var$6, $CoderResult::UNDERFLOW);
+								return$5 = true;
+								goto $finally;
+							}
+							b4 = sa->get(sp + 3);
+							++inputSize;
+							if (b4 != u'H') {
+								$assign(var$6, $CoderResult::malformedForLength(inputSize));
+								return$5 = true;
+								goto $finally;
+							}
+						} else if (b3 == u'+') {
+							if (sp + 4 > sl) {
+								$init($CoderResult);
+								$assign(var$6, $CoderResult::UNDERFLOW);
+								return$5 = true;
+								goto $finally;
+							}
+							b4 = sa->get(sp + 3);
+							++inputSize;
+							if (b4 != u'I') {
+								$assign(var$6, $CoderResult::malformedForLength(inputSize));
+								return$5 = true;
+								goto $finally;
+							}
+						} else {
+							$assign(var$6, $CoderResult::malformedForLength(inputSize));
+							return$5 = true;
+							goto $finally;
+						}
+					} else if (b2 == 78 || b2 == 79) {
+						if (sp + 4 > sl) {
+							$init($CoderResult);
+							$assign(var$6, $CoderResult::UNDERFLOW);
+							return$5 = true;
+							goto $finally;
+						}
+						b3 = sa->get(sp + 2);
+						b4 = sa->get(sp + 3);
+						if (dl - dp < 1) {
+							$init($CoderResult);
+							$assign(var$6, $CoderResult::OVERFLOW);
+							return$5 = true;
+							goto $finally;
+						}
+						inputSize += 2;
+						c = cnsDecode(b3, b4, b2);
+						if (c == (char16_t)0xfffd) {
+							$assign(var$6, $CoderResult::unmappableForLength(inputSize));
+							return$5 = true;
+							goto $finally;
+						}
+						$nc(da)->set(dp++, c);
+					} else {
+						$assign(var$6, $CoderResult::malformedForLength(inputSize));
+						return$5 = true;
+						goto $finally;
+					}
+				} else if (b1 == 14) {
+					this->shiftOut = true;
+				} else if (b1 == 15) {
+					this->shiftOut = false;
 				}
 				sp += inputSize;
+				if (sp + 1 > sl) {
+					$init($CoderResult);
+					$assign(var$6, $CoderResult::UNDERFLOW);
+					return$5 = true;
+					goto $finally;
+				}
+				b1 = sa->get(sp);
+				inputSize = 1;
 			}
-			$init($CoderResult);
-			$assign(var$6, $CoderResult::UNDERFLOW);
-			return$5 = true;
-			goto $finally;
-		} catch ($Throwable& var$7) {
-			$assign(var$4, var$7);
-		} $finally: {
-			src->position(sp - src->arrayOffset());
-			dst->position(dp - dst->arrayOffset());
+			if (dl - dp < 1) {
+				$init($CoderResult);
+				$assign(var$6, $CoderResult::OVERFLOW);
+				return$5 = true;
+				goto $finally;
+			}
+			if (!this->shiftOut) {
+				$nc(da)->set(dp++, (char16_t)(b1 & 0xff));
+			} else {
+				if (sp + 2 > sl) {
+					$init($CoderResult);
+					$assign(var$6, $CoderResult::UNDERFLOW);
+					return$5 = true;
+					goto $finally;
+				}
+				b2 = sa->get(sp + 1);
+				++inputSize;
+				c = SODecode(b1, b2, this->currentSODesig);
+				if (c == (char16_t)0xfffd) {
+					$assign(var$6, $CoderResult::unmappableForLength(inputSize));
+					return$5 = true;
+					goto $finally;
+				}
+				$nc(da)->set(dp++, c);
+			}
+			sp += inputSize;
 		}
-		if (var$4 != nullptr) {
-			$throw(var$4);
-		}
-		if (return$5) {
-			return var$6;
-		}
+		$init($CoderResult);
+		$assign(var$6, $CoderResult::UNDERFLOW);
+		return$5 = true;
+		goto $finally;
+	} catch ($Throwable& var$7) {
+		$assign(var$4, var$7);
+	} $finally: {
+		src->position(sp - src->arrayOffset());
+		dst->position(dp - dst->arrayOffset());
+	}
+	if (var$4 != nullptr) {
+		$throw(var$4);
+	}
+	if (return$5) {
+		return var$6;
 	}
 	$shouldNotReachHere();
 }
@@ -513,7 +465,7 @@ $CoderResult* ISO2022_CN$Decoder::decodeLoop($ByteBuffer* src, $CharBuffer* dst)
 	}
 }
 
-void clinit$ISO2022_CN$Decoder($Class* class$) {
+void ISO2022_CN$Decoder::clinit$($Class* clazz) {
 	$assignStatic(ISO2022_CN$Decoder::GB2312, $cast($DoubleByte$Decoder, $$new($EUC_CN)->newDecoder()));
 }
 
@@ -521,7 +473,44 @@ ISO2022_CN$Decoder::ISO2022_CN$Decoder() {
 }
 
 $Class* ISO2022_CN$Decoder::load$($String* name, bool initialize) {
-	$loadClass(ISO2022_CN$Decoder, name, initialize, &_ISO2022_CN$Decoder_ClassInfo_, clinit$ISO2022_CN$Decoder, allocate$ISO2022_CN$Decoder);
+	$FieldInfo fieldInfos$$[] = {
+		{"shiftOut", "Z", nullptr, $PRIVATE, $field(ISO2022_CN$Decoder, shiftOut)},
+		{"currentSODesig", "B", nullptr, $PRIVATE, $field(ISO2022_CN$Decoder, currentSODesig)},
+		{"GB2312", "Lsun/nio/cs/DoubleByte$Decoder;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ISO2022_CN$Decoder, GB2312)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/nio/charset/Charset;)V", nullptr, 0, $method(ISO2022_CN$Decoder, init$, void, $Charset*)},
+		{"SODecode", "(BBB)C", nullptr, $PRIVATE, $method(ISO2022_CN$Decoder, SODecode, char16_t, int8_t, int8_t, int8_t)},
+		{"cnsDecode", "(BBB)C", nullptr, $PRIVATE, $method(ISO2022_CN$Decoder, cnsDecode, char16_t, int8_t, int8_t, int8_t)},
+		{"decodeArrayLoop", "(Ljava/nio/ByteBuffer;Ljava/nio/CharBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PRIVATE, $method(ISO2022_CN$Decoder, decodeArrayLoop, $CoderResult*, $ByteBuffer*, $CharBuffer*)},
+		{"decodeBufferLoop", "(Ljava/nio/ByteBuffer;Ljava/nio/CharBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PRIVATE, $method(ISO2022_CN$Decoder, decodeBufferLoop, $CoderResult*, $ByteBuffer*, $CharBuffer*)},
+		{"decodeLoop", "(Ljava/nio/ByteBuffer;Ljava/nio/CharBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PROTECTED, $virtualMethod(ISO2022_CN$Decoder, decodeLoop, $CoderResult*, $ByteBuffer*, $CharBuffer*)},
+		{"implReset", "()V", nullptr, $PROTECTED, $virtualMethod(ISO2022_CN$Decoder, implReset, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.cs.ext.ISO2022_CN$Decoder", "sun.nio.cs.ext.ISO2022_CN", "Decoder", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.nio.cs.ext.ISO2022_CN$Decoder",
+		"java.nio.charset.CharsetDecoder",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.nio.cs.ext.ISO2022_CN"
+	};
+	$loadClass(ISO2022_CN$Decoder, name, initialize, &classInfo$$, ISO2022_CN$Decoder::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ISO2022_CN$Decoder);
+	});
 	return class$;
 }
 

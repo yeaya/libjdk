@@ -1,9 +1,6 @@
 #include <org/xml/sax/helpers/XMLReaderAdapter.h>
-
 #include <java/util/Locale.h>
-#include <org/xml/sax/AttributeList.h>
 #include <org/xml/sax/Attributes.h>
-#include <org/xml/sax/ContentHandler.h>
 #include <org/xml/sax/DTDHandler.h>
 #include <org/xml/sax/DocumentHandler.h>
 #include <org/xml/sax/EntityResolver.h>
@@ -24,9 +21,7 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;
 using $Locale = ::java::util::Locale;
-using $AttributeList = ::org::xml::sax::AttributeList;
 using $Attributes = ::org::xml::sax::Attributes;
-using $ContentHandler = ::org::xml::sax::ContentHandler;
 using $DTDHandler = ::org::xml::sax::DTDHandler;
 using $DocumentHandler = ::org::xml::sax::DocumentHandler;
 using $EntityResolver = ::org::xml::sax::EntityResolver;
@@ -44,68 +39,6 @@ namespace org {
 	namespace xml {
 		namespace sax {
 			namespace helpers {
-
-$FieldInfo _XMLReaderAdapter_FieldInfo_[] = {
-	{"xmlReader", "Lorg/xml/sax/XMLReader;", nullptr, 0, $field(XMLReaderAdapter, xmlReader)},
-	{"documentHandler", "Lorg/xml/sax/DocumentHandler;", nullptr, 0, $field(XMLReaderAdapter, documentHandler)},
-	{"qAtts", "Lorg/xml/sax/helpers/XMLReaderAdapter$AttributesAdapter;", nullptr, 0, $field(XMLReaderAdapter, qAtts)},
-	{}
-};
-
-$MethodInfo _XMLReaderAdapter_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(XMLReaderAdapter, init$, void), "org.xml.sax.SAXException"},
-	{"<init>", "(Lorg/xml/sax/XMLReader;)V", nullptr, $PUBLIC, $method(XMLReaderAdapter, init$, void, $XMLReader*)},
-	{"characters", "([CII)V", nullptr, $PUBLIC, $virtualMethod(XMLReaderAdapter, characters, void, $chars*, int32_t, int32_t), "org.xml.sax.SAXException"},
-	{"endDocument", "()V", nullptr, $PUBLIC, $virtualMethod(XMLReaderAdapter, endDocument, void), "org.xml.sax.SAXException"},
-	{"endElement", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(XMLReaderAdapter, endElement, void, $String*, $String*, $String*), "org.xml.sax.SAXException"},
-	{"endPrefixMapping", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(XMLReaderAdapter, endPrefixMapping, void, $String*)},
-	{"ignorableWhitespace", "([CII)V", nullptr, $PUBLIC, $virtualMethod(XMLReaderAdapter, ignorableWhitespace, void, $chars*, int32_t, int32_t), "org.xml.sax.SAXException"},
-	{"parse", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(XMLReaderAdapter, parse, void, $String*), "java.io.IOException,org.xml.sax.SAXException"},
-	{"parse", "(Lorg/xml/sax/InputSource;)V", nullptr, $PUBLIC, $virtualMethod(XMLReaderAdapter, parse, void, $InputSource*), "java.io.IOException,org.xml.sax.SAXException"},
-	{"processingInstruction", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(XMLReaderAdapter, processingInstruction, void, $String*, $String*), "org.xml.sax.SAXException"},
-	{"setDTDHandler", "(Lorg/xml/sax/DTDHandler;)V", nullptr, $PUBLIC, $virtualMethod(XMLReaderAdapter, setDTDHandler, void, $DTDHandler*)},
-	{"setDocumentHandler", "(Lorg/xml/sax/DocumentHandler;)V", nullptr, $PUBLIC, $virtualMethod(XMLReaderAdapter, setDocumentHandler, void, $DocumentHandler*)},
-	{"setDocumentLocator", "(Lorg/xml/sax/Locator;)V", nullptr, $PUBLIC, $virtualMethod(XMLReaderAdapter, setDocumentLocator, void, $Locator*)},
-	{"setEntityResolver", "(Lorg/xml/sax/EntityResolver;)V", nullptr, $PUBLIC, $virtualMethod(XMLReaderAdapter, setEntityResolver, void, $EntityResolver*)},
-	{"setErrorHandler", "(Lorg/xml/sax/ErrorHandler;)V", nullptr, $PUBLIC, $virtualMethod(XMLReaderAdapter, setErrorHandler, void, $ErrorHandler*)},
-	{"setLocale", "(Ljava/util/Locale;)V", nullptr, $PUBLIC, $virtualMethod(XMLReaderAdapter, setLocale, void, $Locale*), "org.xml.sax.SAXException"},
-	{"setup", "(Lorg/xml/sax/XMLReader;)V", nullptr, $PRIVATE, $method(XMLReaderAdapter, setup, void, $XMLReader*)},
-	{"setupXMLReader", "()V", nullptr, $PRIVATE, $method(XMLReaderAdapter, setupXMLReader, void), "org.xml.sax.SAXException"},
-	{"skippedEntity", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(XMLReaderAdapter, skippedEntity, void, $String*), "org.xml.sax.SAXException"},
-	{"startDocument", "()V", nullptr, $PUBLIC, $virtualMethod(XMLReaderAdapter, startDocument, void), "org.xml.sax.SAXException"},
-	{"startElement", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lorg/xml/sax/Attributes;)V", nullptr, $PUBLIC, $virtualMethod(XMLReaderAdapter, startElement, void, $String*, $String*, $String*, $Attributes*), "org.xml.sax.SAXException"},
-	{"startPrefixMapping", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(XMLReaderAdapter, startPrefixMapping, void, $String*, $String*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _XMLReaderAdapter_InnerClassesInfo_[] = {
-	{"org.xml.sax.helpers.XMLReaderAdapter$AttributesAdapter", "org.xml.sax.helpers.XMLReaderAdapter", "AttributesAdapter", $FINAL},
-	{}
-};
-
-$ClassInfo _XMLReaderAdapter_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"org.xml.sax.helpers.XMLReaderAdapter",
-	"java.lang.Object",
-	"org.xml.sax.Parser,org.xml.sax.ContentHandler",
-	_XMLReaderAdapter_FieldInfo_,
-	_XMLReaderAdapter_MethodInfo_,
-	nullptr,
-	nullptr,
-	_XMLReaderAdapter_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"org.xml.sax.helpers.XMLReaderAdapter$AttributesAdapter"
-};
-
-$Object* allocate$XMLReaderAdapter($Class* clazz) {
-	return $of($alloc(XMLReaderAdapter));
-}
 
 int32_t XMLReaderAdapter::hashCode() {
 	 return this->$Parser::hashCode();
@@ -183,19 +116,19 @@ void XMLReaderAdapter::setupXMLReader() {
 
 void XMLReaderAdapter::setDocumentLocator($Locator* locator) {
 	if (this->documentHandler != nullptr) {
-		$nc(this->documentHandler)->setDocumentLocator(locator);
+		this->documentHandler->setDocumentLocator(locator);
 	}
 }
 
 void XMLReaderAdapter::startDocument() {
 	if (this->documentHandler != nullptr) {
-		$nc(this->documentHandler)->startDocument();
+		this->documentHandler->startDocument();
 	}
 }
 
 void XMLReaderAdapter::endDocument() {
 	if (this->documentHandler != nullptr) {
-		$nc(this->documentHandler)->endDocument();
+		this->documentHandler->endDocument();
 	}
 }
 
@@ -214,25 +147,25 @@ void XMLReaderAdapter::startElement($String* uri, $String* localName, $String* q
 
 void XMLReaderAdapter::endElement($String* uri, $String* localName, $String* qName) {
 	if (this->documentHandler != nullptr) {
-		$nc(this->documentHandler)->endElement(qName);
+		this->documentHandler->endElement(qName);
 	}
 }
 
 void XMLReaderAdapter::characters($chars* ch, int32_t start, int32_t length) {
 	if (this->documentHandler != nullptr) {
-		$nc(this->documentHandler)->characters(ch, start, length);
+		this->documentHandler->characters(ch, start, length);
 	}
 }
 
 void XMLReaderAdapter::ignorableWhitespace($chars* ch, int32_t start, int32_t length) {
 	if (this->documentHandler != nullptr) {
-		$nc(this->documentHandler)->ignorableWhitespace(ch, start, length);
+		this->documentHandler->ignorableWhitespace(ch, start, length);
 	}
 }
 
 void XMLReaderAdapter::processingInstruction($String* target, $String* data) {
 	if (this->documentHandler != nullptr) {
-		$nc(this->documentHandler)->processingInstruction(target, data);
+		this->documentHandler->processingInstruction(target, data);
 	}
 }
 
@@ -243,7 +176,63 @@ XMLReaderAdapter::XMLReaderAdapter() {
 }
 
 $Class* XMLReaderAdapter::load$($String* name, bool initialize) {
-	$loadClass(XMLReaderAdapter, name, initialize, &_XMLReaderAdapter_ClassInfo_, allocate$XMLReaderAdapter);
+	$FieldInfo fieldInfos$$[] = {
+		{"xmlReader", "Lorg/xml/sax/XMLReader;", nullptr, 0, $field(XMLReaderAdapter, xmlReader)},
+		{"documentHandler", "Lorg/xml/sax/DocumentHandler;", nullptr, 0, $field(XMLReaderAdapter, documentHandler)},
+		{"qAtts", "Lorg/xml/sax/helpers/XMLReaderAdapter$AttributesAdapter;", nullptr, 0, $field(XMLReaderAdapter, qAtts)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(XMLReaderAdapter, init$, void), "org.xml.sax.SAXException"},
+		{"<init>", "(Lorg/xml/sax/XMLReader;)V", nullptr, $PUBLIC, $method(XMLReaderAdapter, init$, void, $XMLReader*)},
+		{"characters", "([CII)V", nullptr, $PUBLIC, $virtualMethod(XMLReaderAdapter, characters, void, $chars*, int32_t, int32_t), "org.xml.sax.SAXException"},
+		{"endDocument", "()V", nullptr, $PUBLIC, $virtualMethod(XMLReaderAdapter, endDocument, void), "org.xml.sax.SAXException"},
+		{"endElement", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(XMLReaderAdapter, endElement, void, $String*, $String*, $String*), "org.xml.sax.SAXException"},
+		{"endPrefixMapping", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(XMLReaderAdapter, endPrefixMapping, void, $String*)},
+		{"ignorableWhitespace", "([CII)V", nullptr, $PUBLIC, $virtualMethod(XMLReaderAdapter, ignorableWhitespace, void, $chars*, int32_t, int32_t), "org.xml.sax.SAXException"},
+		{"parse", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(XMLReaderAdapter, parse, void, $String*), "java.io.IOException,org.xml.sax.SAXException"},
+		{"parse", "(Lorg/xml/sax/InputSource;)V", nullptr, $PUBLIC, $virtualMethod(XMLReaderAdapter, parse, void, $InputSource*), "java.io.IOException,org.xml.sax.SAXException"},
+		{"processingInstruction", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(XMLReaderAdapter, processingInstruction, void, $String*, $String*), "org.xml.sax.SAXException"},
+		{"setDTDHandler", "(Lorg/xml/sax/DTDHandler;)V", nullptr, $PUBLIC, $virtualMethod(XMLReaderAdapter, setDTDHandler, void, $DTDHandler*)},
+		{"setDocumentHandler", "(Lorg/xml/sax/DocumentHandler;)V", nullptr, $PUBLIC, $virtualMethod(XMLReaderAdapter, setDocumentHandler, void, $DocumentHandler*)},
+		{"setDocumentLocator", "(Lorg/xml/sax/Locator;)V", nullptr, $PUBLIC, $virtualMethod(XMLReaderAdapter, setDocumentLocator, void, $Locator*)},
+		{"setEntityResolver", "(Lorg/xml/sax/EntityResolver;)V", nullptr, $PUBLIC, $virtualMethod(XMLReaderAdapter, setEntityResolver, void, $EntityResolver*)},
+		{"setErrorHandler", "(Lorg/xml/sax/ErrorHandler;)V", nullptr, $PUBLIC, $virtualMethod(XMLReaderAdapter, setErrorHandler, void, $ErrorHandler*)},
+		{"setLocale", "(Ljava/util/Locale;)V", nullptr, $PUBLIC, $virtualMethod(XMLReaderAdapter, setLocale, void, $Locale*), "org.xml.sax.SAXException"},
+		{"setup", "(Lorg/xml/sax/XMLReader;)V", nullptr, $PRIVATE, $method(XMLReaderAdapter, setup, void, $XMLReader*)},
+		{"setupXMLReader", "()V", nullptr, $PRIVATE, $method(XMLReaderAdapter, setupXMLReader, void), "org.xml.sax.SAXException"},
+		{"skippedEntity", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(XMLReaderAdapter, skippedEntity, void, $String*), "org.xml.sax.SAXException"},
+		{"startDocument", "()V", nullptr, $PUBLIC, $virtualMethod(XMLReaderAdapter, startDocument, void), "org.xml.sax.SAXException"},
+		{"startElement", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lorg/xml/sax/Attributes;)V", nullptr, $PUBLIC, $virtualMethod(XMLReaderAdapter, startElement, void, $String*, $String*, $String*, $Attributes*), "org.xml.sax.SAXException"},
+		{"startPrefixMapping", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(XMLReaderAdapter, startPrefixMapping, void, $String*, $String*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"org.xml.sax.helpers.XMLReaderAdapter$AttributesAdapter", "org.xml.sax.helpers.XMLReaderAdapter", "AttributesAdapter", $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"org.xml.sax.helpers.XMLReaderAdapter",
+		"java.lang.Object",
+		"org.xml.sax.Parser,org.xml.sax.ContentHandler",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"org.xml.sax.helpers.XMLReaderAdapter$AttributesAdapter"
+	};
+	$loadClass(XMLReaderAdapter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(XMLReaderAdapter));
+	});
 	return class$;
 }
 

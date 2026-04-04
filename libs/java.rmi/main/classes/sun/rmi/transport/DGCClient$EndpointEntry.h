@@ -57,6 +57,7 @@ class DGCClient$EndpointEntry : public ::java::lang::Object {
 	$class(DGCClient$EndpointEntry, 0, ::java::lang::Object)
 public:
 	DGCClient$EndpointEntry();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::rmi::transport::Endpoint* endpoint);
 	static $Array<::java::rmi::server::ObjID>* createObjIDArray(::java::util::Set* refEntries);
 	static ::sun::rmi::transport::DGCClient$EndpointEntry* lookup(::sun::rmi::transport::Endpoint* ep);

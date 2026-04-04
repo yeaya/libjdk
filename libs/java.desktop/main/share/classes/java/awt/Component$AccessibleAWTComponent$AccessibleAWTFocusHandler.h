@@ -36,7 +36,7 @@ public:
 	virtual void focusLost(::java::awt::event::FocusEvent* event) override;
 	virtual $String* toString() override;
 	::java::awt::Component$AccessibleAWTComponent* this$1 = nullptr;
-	static const int64_t serialVersionUID = (int64_t)0x2BBA465DA7494219;
+	static const int64_t serialVersionUID = (int64_t)0x2bba465da7494219;
 };
 
 	} // awt

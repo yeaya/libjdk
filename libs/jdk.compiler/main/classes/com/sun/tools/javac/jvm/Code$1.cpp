@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/jvm/Code$1.h>
-
 #include <com/sun/tools/javac/code/TypeTag.h>
 #include <com/sun/tools/javac/jvm/Code$StackMapFormat.h>
 #include <com/sun/tools/javac/jvm/Code.h>
@@ -38,123 +37,86 @@ namespace com {
 			namespace javac {
 				namespace jvm {
 
-$FieldInfo _Code$1_FieldInfo_[] = {
-	{"$SwitchMap$com$sun$tools$javac$code$TypeTag", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(Code$1, $SwitchMap$com$sun$tools$javac$code$TypeTag)},
-	{"$SwitchMap$com$sun$tools$javac$jvm$Code$StackMapFormat", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(Code$1, $SwitchMap$com$sun$tools$javac$jvm$Code$StackMapFormat)},
-	{}
-};
-
-$EnclosingMethodInfo _Code$1_EnclosingMethodInfo_ = {
-	"com.sun.tools.javac.jvm.Code",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _Code$1_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.jvm.Code$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{}
-};
-
-$ClassInfo _Code$1_ClassInfo_ = {
-	$ACC_SUPER | $SYNTHETIC,
-	"com.sun.tools.javac.jvm.Code$1",
-	"java.lang.Object",
-	nullptr,
-	_Code$1_FieldInfo_,
-	nullptr,
-	nullptr,
-	&_Code$1_EnclosingMethodInfo_,
-	_Code$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.jvm.Code"
-};
-
-$Object* allocate$Code$1($Class* clazz) {
-	return $of($alloc(Code$1));
-}
-
 $ints* Code$1::$SwitchMap$com$sun$tools$javac$code$TypeTag = nullptr;
 $ints* Code$1::$SwitchMap$com$sun$tools$javac$jvm$Code$StackMapFormat = nullptr;
 
-void clinit$Code$1($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void Code$1::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(Code$1::$SwitchMap$com$sun$tools$javac$code$TypeTag, $new($ints, $($TypeTag::values())->length));
 	{
 		try {
-			$nc(Code$1::$SwitchMap$com$sun$tools$javac$code$TypeTag)->set($TypeTag::BYTE->ordinal(), 1);
+			Code$1::$SwitchMap$com$sun$tools$javac$code$TypeTag->set($TypeTag::BYTE->ordinal(), 1);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Code$1::$SwitchMap$com$sun$tools$javac$code$TypeTag)->set($TypeTag::SHORT->ordinal(), 2);
+			Code$1::$SwitchMap$com$sun$tools$javac$code$TypeTag->set($TypeTag::SHORT->ordinal(), 2);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Code$1::$SwitchMap$com$sun$tools$javac$code$TypeTag)->set($TypeTag::CHAR->ordinal(), 3);
+			Code$1::$SwitchMap$com$sun$tools$javac$code$TypeTag->set($TypeTag::CHAR->ordinal(), 3);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Code$1::$SwitchMap$com$sun$tools$javac$code$TypeTag)->set($TypeTag::INT->ordinal(), 4);
+			Code$1::$SwitchMap$com$sun$tools$javac$code$TypeTag->set($TypeTag::INT->ordinal(), 4);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Code$1::$SwitchMap$com$sun$tools$javac$code$TypeTag)->set($TypeTag::LONG->ordinal(), 5);
+			Code$1::$SwitchMap$com$sun$tools$javac$code$TypeTag->set($TypeTag::LONG->ordinal(), 5);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Code$1::$SwitchMap$com$sun$tools$javac$code$TypeTag)->set($TypeTag::FLOAT->ordinal(), 6);
+			Code$1::$SwitchMap$com$sun$tools$javac$code$TypeTag->set($TypeTag::FLOAT->ordinal(), 6);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Code$1::$SwitchMap$com$sun$tools$javac$code$TypeTag)->set($TypeTag::DOUBLE->ordinal(), 7);
+			Code$1::$SwitchMap$com$sun$tools$javac$code$TypeTag->set($TypeTag::DOUBLE->ordinal(), 7);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Code$1::$SwitchMap$com$sun$tools$javac$code$TypeTag)->set($TypeTag::BOOLEAN->ordinal(), 8);
+			Code$1::$SwitchMap$com$sun$tools$javac$code$TypeTag->set($TypeTag::BOOLEAN->ordinal(), 8);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Code$1::$SwitchMap$com$sun$tools$javac$code$TypeTag)->set($TypeTag::VOID->ordinal(), 9);
+			Code$1::$SwitchMap$com$sun$tools$javac$code$TypeTag->set($TypeTag::VOID->ordinal(), 9);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Code$1::$SwitchMap$com$sun$tools$javac$code$TypeTag)->set($TypeTag::CLASS->ordinal(), 10);
+			Code$1::$SwitchMap$com$sun$tools$javac$code$TypeTag->set($TypeTag::CLASS->ordinal(), 10);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Code$1::$SwitchMap$com$sun$tools$javac$code$TypeTag)->set($TypeTag::ARRAY->ordinal(), 11);
+			Code$1::$SwitchMap$com$sun$tools$javac$code$TypeTag->set($TypeTag::ARRAY->ordinal(), 11);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Code$1::$SwitchMap$com$sun$tools$javac$code$TypeTag)->set($TypeTag::METHOD->ordinal(), 12);
+			Code$1::$SwitchMap$com$sun$tools$javac$code$TypeTag->set($TypeTag::METHOD->ordinal(), 12);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Code$1::$SwitchMap$com$sun$tools$javac$code$TypeTag)->set($TypeTag::BOT->ordinal(), 13);
+			Code$1::$SwitchMap$com$sun$tools$javac$code$TypeTag->set($TypeTag::BOT->ordinal(), 13);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Code$1::$SwitchMap$com$sun$tools$javac$code$TypeTag)->set($TypeTag::TYPEVAR->ordinal(), 14);
+			Code$1::$SwitchMap$com$sun$tools$javac$code$TypeTag->set($TypeTag::TYPEVAR->ordinal(), 14);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Code$1::$SwitchMap$com$sun$tools$javac$code$TypeTag)->set($TypeTag::UNINITIALIZED_THIS->ordinal(), 15);
+			Code$1::$SwitchMap$com$sun$tools$javac$code$TypeTag->set($TypeTag::UNINITIALIZED_THIS->ordinal(), 15);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Code$1::$SwitchMap$com$sun$tools$javac$code$TypeTag)->set($TypeTag::UNINITIALIZED_OBJECT->ordinal(), 16);
+			Code$1::$SwitchMap$com$sun$tools$javac$code$TypeTag->set($TypeTag::UNINITIALIZED_OBJECT->ordinal(), 16);
 		} catch ($NoSuchFieldError& ex) {
 		}
 	}
 	$assignStatic(Code$1::$SwitchMap$com$sun$tools$javac$jvm$Code$StackMapFormat, $new($ints, $($Code$StackMapFormat::values())->length));
 	{
 		try {
-			$nc(Code$1::$SwitchMap$com$sun$tools$javac$jvm$Code$StackMapFormat)->set($Code$StackMapFormat::CLDC->ordinal(), 1);
+			Code$1::$SwitchMap$com$sun$tools$javac$jvm$Code$StackMapFormat->set($Code$StackMapFormat::CLDC->ordinal(), 1);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Code$1::$SwitchMap$com$sun$tools$javac$jvm$Code$StackMapFormat)->set($Code$StackMapFormat::JSR202->ordinal(), 2);
+			Code$1::$SwitchMap$com$sun$tools$javac$jvm$Code$StackMapFormat->set($Code$StackMapFormat::JSR202->ordinal(), 2);
 		} catch ($NoSuchFieldError& ex) {
 		}
 	}
@@ -164,7 +126,38 @@ Code$1::Code$1() {
 }
 
 $Class* Code$1::load$($String* name, bool initialize) {
-	$loadClass(Code$1, name, initialize, &_Code$1_ClassInfo_, clinit$Code$1, allocate$Code$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"$SwitchMap$com$sun$tools$javac$code$TypeTag", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(Code$1, $SwitchMap$com$sun$tools$javac$code$TypeTag)},
+		{"$SwitchMap$com$sun$tools$javac$jvm$Code$StackMapFormat", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(Code$1, $SwitchMap$com$sun$tools$javac$jvm$Code$StackMapFormat)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.tools.javac.jvm.Code",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.jvm.Code$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $SYNTHETIC,
+		"com.sun.tools.javac.jvm.Code$1",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		nullptr,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.jvm.Code"
+	};
+	$loadClass(Code$1, name, initialize, &classInfo$$, Code$1::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Code$1);
+	});
 	return class$;
 }
 

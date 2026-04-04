@@ -35,6 +35,7 @@ class MaskFill : public ::sun::java2d::loops::GraphicsPrimitive {
 	$class(MaskFill, 0, ::sun::java2d::loops::GraphicsPrimitive)
 public:
 	MaskFill();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* alternateSignature, ::sun::java2d::loops::SurfaceType* srctype, ::sun::java2d::loops::CompositeType* comptype, ::sun::java2d::loops::SurfaceType* dsttype);
 	void init$(::sun::java2d::loops::SurfaceType* srctype, ::sun::java2d::loops::CompositeType* comptype, ::sun::java2d::loops::SurfaceType* dsttype);
 	void init$(int64_t pNativePrim, ::sun::java2d::loops::SurfaceType* srctype, ::sun::java2d::loops::CompositeType* comptype, ::sun::java2d::loops::SurfaceType* dsttype);

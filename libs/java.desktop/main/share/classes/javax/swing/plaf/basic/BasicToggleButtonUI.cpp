@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/basic/BasicToggleButtonUI.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/Dimension.h>
@@ -23,14 +22,12 @@
 
 #undef BASIC_TOGGLE_BUTTON_UI_KEY
 
-using $Component = ::java::awt::Component;
 using $Dimension = ::java::awt::Dimension;
 using $Font = ::java::awt::Font;
 using $FontMetrics = ::java::awt::FontMetrics;
 using $Graphics = ::java::awt::Graphics;
 using $Insets = ::java::awt::Insets;
 using $Rectangle = ::java::awt::Rectangle;
-using $Shape = ::java::awt::Shape;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -50,35 +47,6 @@ namespace javax {
 		namespace plaf {
 			namespace basic {
 
-$FieldInfo _BasicToggleButtonUI_FieldInfo_[] = {
-	{"BASIC_TOGGLE_BUTTON_UI_KEY", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicToggleButtonUI, BASIC_TOGGLE_BUTTON_UI_KEY)},
-	{"propertyPrefix", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicToggleButtonUI, propertyPrefix)},
-	{}
-};
-
-$MethodInfo _BasicToggleButtonUI_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(BasicToggleButtonUI, init$, void)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(BasicToggleButtonUI, createUI, $ComponentUI*, $JComponent*)},
-	{"getPropertyPrefix", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(BasicToggleButtonUI, getPropertyPrefix, $String*)},
-	{"getTextShiftOffset", "()I", nullptr, $PROTECTED, $virtualMethod(BasicToggleButtonUI, getTextShiftOffset, int32_t)},
-	{"paint", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(BasicToggleButtonUI, paint, void, $Graphics*, $JComponent*)},
-	{"paintIcon", "(Ljava/awt/Graphics;Ljavax/swing/AbstractButton;Ljava/awt/Rectangle;)V", nullptr, $PROTECTED, $virtualMethod(BasicToggleButtonUI, paintIcon, void, $Graphics*, $AbstractButton*, $Rectangle*)},
-	{}
-};
-
-$ClassInfo _BasicToggleButtonUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.basic.BasicToggleButtonUI",
-	"javax.swing.plaf.basic.BasicButtonUI",
-	nullptr,
-	_BasicToggleButtonUI_FieldInfo_,
-	_BasicToggleButtonUI_MethodInfo_
-};
-
-$Object* allocate$BasicToggleButtonUI($Class* clazz) {
-	return $of($alloc(BasicToggleButtonUI));
-}
-
 $Object* BasicToggleButtonUI::BASIC_TOGGLE_BUTTON_UI_KEY = nullptr;
 $String* BasicToggleButtonUI::propertyPrefix = nullptr;
 
@@ -88,7 +56,7 @@ void BasicToggleButtonUI::init$() {
 
 $ComponentUI* BasicToggleButtonUI::createUI($JComponent* b) {
 	$init(BasicToggleButtonUI);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AppContext, appContext, $AppContext::getAppContext());
 	$var(BasicToggleButtonUI, toggleButtonUI, $cast(BasicToggleButtonUI, $nc(appContext)->get(BasicToggleButtonUI::BASIC_TOGGLE_BUTTON_UI_KEY)));
 	if (toggleButtonUI == nullptr) {
@@ -103,7 +71,7 @@ $String* BasicToggleButtonUI::getPropertyPrefix() {
 }
 
 void BasicToggleButtonUI::paint($Graphics* g, $JComponent* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AbstractButton, b, $cast($AbstractButton, c));
 	$var($ButtonModel, model, $nc(b)->getModel());
 	$var($Dimension, size, b->getSize());
@@ -118,22 +86,17 @@ void BasicToggleButtonUI::paint($Graphics* g, $JComponent* c) {
 	$var($Rectangle, textRect, $new($Rectangle));
 	$var($Font, f, c->getFont());
 	g->setFont(f);
-	$var($JComponent, var$0, c);
-	$var($FontMetrics, var$1, fm);
-	$var($String, var$2, b->getText());
-	$var($Icon, var$3, b->getIcon());
-	int32_t var$4 = b->getVerticalAlignment();
-	int32_t var$5 = b->getHorizontalAlignment();
-	int32_t var$6 = b->getVerticalTextPosition();
-	int32_t var$7 = b->getHorizontalTextPosition();
-	$var($Rectangle, var$8, viewRect);
-	$var($Rectangle, var$9, iconRect);
-	$var($Rectangle, var$10, textRect);
-	$var($String, text, $SwingUtilities::layoutCompoundLabel(var$0, var$1, var$2, var$3, var$4, var$5, var$6, var$7, var$8, var$9, var$10, b->getText() == nullptr ? 0 : b->getIconTextGap()));
+	$var($String, var$0, b->getText());
+	$var($Icon, var$1, b->getIcon());
+	int32_t var$2 = b->getVerticalAlignment();
+	int32_t var$3 = b->getHorizontalAlignment();
+	int32_t var$4 = b->getVerticalTextPosition();
+	int32_t var$5 = b->getHorizontalTextPosition();
+	$var($String, text, $SwingUtilities::layoutCompoundLabel(c, fm, var$0, var$1, var$2, var$3, var$4, var$5, viewRect, iconRect, textRect, b->getText() == nullptr ? 0 : b->getIconTextGap()));
 	g->setColor($(b->getBackground()));
-	bool var$12 = $nc(model)->isArmed();
-	bool var$11 = var$12 && model->isPressed();
-	if (var$11 || $nc(model)->isSelected()) {
+	bool var$7 = $nc(model)->isArmed();
+	bool var$6 = var$7 && model->isPressed();
+	if (var$6 || model->isSelected()) {
 		paintButtonPressed(g, b);
 	}
 	if (b->getIcon() != nullptr) {
@@ -148,14 +111,14 @@ void BasicToggleButtonUI::paint($Graphics* g, $JComponent* c) {
 			paintText(g, b, textRect, text);
 		}
 	}
-	bool var$13 = b->isFocusPainted();
-	if (var$13 && b->hasFocus()) {
+	bool var$8 = b->isFocusPainted();
+	if (var$8 && b->hasFocus()) {
 		paintFocus(g, b, viewRect, textRect, iconRect);
 	}
 }
 
 void BasicToggleButtonUI::paintIcon($Graphics* g, $AbstractButton* b, $Rectangle* iconRect) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ButtonModel, model, $nc(b)->getModel());
 	$var($Icon, icon, nullptr);
 	if (!$nc(model)->isEnabled()) {
@@ -165,15 +128,15 @@ void BasicToggleButtonUI::paintIcon($Graphics* g, $AbstractButton* b, $Rectangle
 			$assign(icon, b->getDisabledIcon());
 		}
 	} else {
-		bool var$1 = model->isPressed();
-		if (var$1 && model->isArmed()) {
+		bool var$0 = model->isPressed();
+		if (var$0 && model->isArmed()) {
 			$assign(icon, b->getPressedIcon());
 			if (icon == nullptr) {
 				$assign(icon, b->getSelectedIcon());
 			}
 		} else if (model->isSelected()) {
-			bool var$2 = b->isRolloverEnabled();
-			if (var$2 && model->isRollover()) {
+			bool var$1 = b->isRolloverEnabled();
+			if (var$1 && model->isRollover()) {
 				$assign(icon, b->getRolloverSelectedIcon());
 				if (icon == nullptr) {
 					$assign(icon, b->getSelectedIcon());
@@ -182,8 +145,8 @@ void BasicToggleButtonUI::paintIcon($Graphics* g, $AbstractButton* b, $Rectangle
 				$assign(icon, b->getSelectedIcon());
 			}
 		} else {
-			bool var$4 = b->isRolloverEnabled();
-			if (var$4 && model->isRollover()) {
+			bool var$2 = b->isRolloverEnabled();
+			if (var$2 && model->isRollover()) {
 				$assign(icon, b->getRolloverIcon());
 			}
 		}
@@ -191,14 +154,14 @@ void BasicToggleButtonUI::paintIcon($Graphics* g, $AbstractButton* b, $Rectangle
 	if (icon == nullptr) {
 		$assign(icon, b->getIcon());
 	}
-	$nc(icon)->paintIcon(b, g, $nc(iconRect)->x, iconRect->y);
+	$nc(icon)->paintIcon(b, g, $nc(iconRect)->x, $nc(iconRect)->y);
 }
 
 int32_t BasicToggleButtonUI::getTextShiftOffset() {
 	return 0;
 }
 
-void clinit$BasicToggleButtonUI($Class* class$) {
+void BasicToggleButtonUI::clinit$($Class* clazz) {
 	$assignStatic(BasicToggleButtonUI::propertyPrefix, "ToggleButton."_s);
 	$assignStatic(BasicToggleButtonUI::BASIC_TOGGLE_BUTTON_UI_KEY, $new($Object));
 }
@@ -207,7 +170,31 @@ BasicToggleButtonUI::BasicToggleButtonUI() {
 }
 
 $Class* BasicToggleButtonUI::load$($String* name, bool initialize) {
-	$loadClass(BasicToggleButtonUI, name, initialize, &_BasicToggleButtonUI_ClassInfo_, clinit$BasicToggleButtonUI, allocate$BasicToggleButtonUI);
+	$FieldInfo fieldInfos$$[] = {
+		{"BASIC_TOGGLE_BUTTON_UI_KEY", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicToggleButtonUI, BASIC_TOGGLE_BUTTON_UI_KEY)},
+		{"propertyPrefix", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicToggleButtonUI, propertyPrefix)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(BasicToggleButtonUI, init$, void)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(BasicToggleButtonUI, createUI, $ComponentUI*, $JComponent*)},
+		{"getPropertyPrefix", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(BasicToggleButtonUI, getPropertyPrefix, $String*)},
+		{"getTextShiftOffset", "()I", nullptr, $PROTECTED, $virtualMethod(BasicToggleButtonUI, getTextShiftOffset, int32_t)},
+		{"paint", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(BasicToggleButtonUI, paint, void, $Graphics*, $JComponent*)},
+		{"paintIcon", "(Ljava/awt/Graphics;Ljavax/swing/AbstractButton;Ljava/awt/Rectangle;)V", nullptr, $PROTECTED, $virtualMethod(BasicToggleButtonUI, paintIcon, void, $Graphics*, $AbstractButton*, $Rectangle*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.basic.BasicToggleButtonUI",
+		"javax.swing.plaf.basic.BasicButtonUI",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(BasicToggleButtonUI, name, initialize, &classInfo$$, BasicToggleButtonUI::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(BasicToggleButtonUI);
+	});
 	return class$;
 }
 

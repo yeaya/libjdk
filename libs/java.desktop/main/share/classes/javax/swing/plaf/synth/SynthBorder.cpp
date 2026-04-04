@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/synth/SynthBorder.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Graphics.h>
 #include <java/awt/Insets.h>
@@ -57,40 +56,6 @@ namespace javax {
 		namespace plaf {
 			namespace synth {
 
-$FieldInfo _SynthBorder_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(SynthBorder, $assertionsDisabled)},
-	{"ui", "Ljavax/swing/plaf/synth/SynthUI;", nullptr, $PRIVATE, $field(SynthBorder, ui)},
-	{"insets", "Ljava/awt/Insets;", nullptr, $PRIVATE, $field(SynthBorder, insets)},
-	{}
-};
-
-$MethodInfo _SynthBorder_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljavax/swing/plaf/synth/SynthUI;Ljava/awt/Insets;)V", nullptr, 0, $method(SynthBorder, init$, void, $SynthUI*, $Insets*)},
-	{"<init>", "(Ljavax/swing/plaf/synth/SynthUI;)V", nullptr, 0, $method(SynthBorder, init$, void, $SynthUI*)},
-	{"getBorderInsets", "(Ljava/awt/Component;Ljava/awt/Insets;)Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(SynthBorder, getBorderInsets, $Insets*, $Component*, $Insets*)},
-	{"isBorderOpaque", "()Z", nullptr, $PUBLIC, $virtualMethod(SynthBorder, isBorderOpaque, bool)},
-	{"paintBorder", "(Ljava/awt/Component;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(SynthBorder, paintBorder, void, $Component*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _SynthBorder_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.synth.SynthBorder",
-	"javax.swing.border.AbstractBorder",
-	"javax.swing.plaf.UIResource",
-	_SynthBorder_FieldInfo_,
-	_SynthBorder_MethodInfo_
-};
-
-$Object* allocate$SynthBorder($Class* clazz) {
-	return $of($alloc(SynthBorder));
-}
-
 int32_t SynthBorder::hashCode() {
 	 return this->$AbstractBorder::hashCode();
 }
@@ -124,7 +89,7 @@ void SynthBorder::init$($SynthUI* ui) {
 }
 
 void SynthBorder::paintBorder($Component* c, $Graphics* g, int32_t x, int32_t y, int32_t width, int32_t height) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JComponent, jc, $cast($JComponent, c));
 	$var($SynthContext, context, $nc(this->ui)->getContext(jc));
 	$var($SynthStyle, style, $nc(context)->getStyle());
@@ -138,39 +103,33 @@ void SynthBorder::paintBorder($Component* c, $Graphics* g, int32_t x, int32_t y,
 }
 
 $Insets* SynthBorder::getBorderInsets($Component* c, $Insets* insets$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Insets, insets, insets$renamed);
 	if (this->insets != nullptr) {
 		if (insets == nullptr) {
-			$assign(insets, $new($Insets, $nc(this->insets)->top, $nc(this->insets)->left, $nc(this->insets)->bottom, $nc(this->insets)->right));
+			$assign(insets, $new($Insets, this->insets->top, this->insets->left, this->insets->bottom, this->insets->right));
 		} else {
-			$nc(insets)->top = $nc(this->insets)->top;
-			insets->bottom = $nc(this->insets)->bottom;
-			insets->left = $nc(this->insets)->left;
-			insets->right = $nc(this->insets)->right;
+			insets->top = this->insets->top;
+			insets->bottom = this->insets->bottom;
+			insets->left = this->insets->left;
+			insets->right = this->insets->right;
 		}
 	} else if (insets == nullptr) {
 		$assign(insets, $new($Insets, 0, 0, 0, 0));
 	} else {
-		$nc(insets)->top = (insets->bottom = (insets->left = (insets->right = 0)));
+		insets->top = (insets->bottom = (insets->left = (insets->right = 0)));
 	}
 	if ($instanceOf($JComponent, c)) {
 		$var($Region, region, $Region::getRegion($cast($JComponent, c)));
 		$var($Insets, margin, nullptr);
 		if ((region == $Region::ARROW_BUTTON || region == $Region::BUTTON || region == $Region::CHECK_BOX || region == $Region::CHECK_BOX_MENU_ITEM || region == $Region::MENU || region == $Region::MENU_ITEM || region == $Region::RADIO_BUTTON || region == $Region::RADIO_BUTTON_MENU_ITEM || region == $Region::TOGGLE_BUTTON) && ($instanceOf($AbstractButton, c))) {
-			$assign(margin, $nc(($cast($AbstractButton, c)))->getMargin());
-		} else {
-			if ((region == $Region::EDITOR_PANE || region == $Region::FORMATTED_TEXT_FIELD || region == $Region::PASSWORD_FIELD || region == $Region::TEXT_AREA || region == $Region::TEXT_FIELD || region == $Region::TEXT_PANE) && ($instanceOf($JTextComponent, c))) {
-				$assign(margin, $nc(($cast($JTextComponent, c)))->getMargin());
-			} else {
-				if (region == $Region::TOOL_BAR && ($instanceOf($JToolBar, c))) {
-					$assign(margin, $nc(($cast($JToolBar, c)))->getMargin());
-				} else {
-					if (region == $Region::MENU_BAR && ($instanceOf($JMenuBar, c))) {
-						$assign(margin, $nc(($cast($JMenuBar, c)))->getMargin());
-					}
-				}
-			}
+			$assign(margin, $cast($AbstractButton, c)->getMargin());
+		} else if ((region == $Region::EDITOR_PANE || region == $Region::FORMATTED_TEXT_FIELD || region == $Region::PASSWORD_FIELD || region == $Region::TEXT_AREA || region == $Region::TEXT_FIELD || region == $Region::TEXT_PANE) && ($instanceOf($JTextComponent, c))) {
+			$assign(margin, $cast($JTextComponent, c)->getMargin());
+		} else if (region == $Region::TOOL_BAR && ($instanceOf($JToolBar, c))) {
+			$assign(margin, $cast($JToolBar, c)->getMargin());
+		} else if (region == $Region::MENU_BAR && ($instanceOf($JMenuBar, c))) {
+			$assign(margin, $cast($JMenuBar, c)->getMargin());
 		}
 		if (margin != nullptr) {
 			$nc(insets)->top += margin->top;
@@ -186,7 +145,7 @@ bool SynthBorder::isBorderOpaque() {
 	return false;
 }
 
-void clinit$SynthBorder($Class* class$) {
+void SynthBorder::clinit$($Class* clazz) {
 	SynthBorder::$assertionsDisabled = !SynthBorder::class$->desiredAssertionStatus();
 }
 
@@ -194,7 +153,36 @@ SynthBorder::SynthBorder() {
 }
 
 $Class* SynthBorder::load$($String* name, bool initialize) {
-	$loadClass(SynthBorder, name, initialize, &_SynthBorder_ClassInfo_, clinit$SynthBorder, allocate$SynthBorder);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(SynthBorder, $assertionsDisabled)},
+		{"ui", "Ljavax/swing/plaf/synth/SynthUI;", nullptr, $PRIVATE, $field(SynthBorder, ui)},
+		{"insets", "Ljava/awt/Insets;", nullptr, $PRIVATE, $field(SynthBorder, insets)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljavax/swing/plaf/synth/SynthUI;Ljava/awt/Insets;)V", nullptr, 0, $method(SynthBorder, init$, void, $SynthUI*, $Insets*)},
+		{"<init>", "(Ljavax/swing/plaf/synth/SynthUI;)V", nullptr, 0, $method(SynthBorder, init$, void, $SynthUI*)},
+		{"getBorderInsets", "(Ljava/awt/Component;Ljava/awt/Insets;)Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(SynthBorder, getBorderInsets, $Insets*, $Component*, $Insets*)},
+		{"isBorderOpaque", "()Z", nullptr, $PUBLIC, $virtualMethod(SynthBorder, isBorderOpaque, bool)},
+		{"paintBorder", "(Ljava/awt/Component;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(SynthBorder, paintBorder, void, $Component*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.synth.SynthBorder",
+		"javax.swing.border.AbstractBorder",
+		"javax.swing.plaf.UIResource",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SynthBorder, name, initialize, &classInfo$$, SynthBorder::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SynthBorder));
+	});
 	return class$;
 }
 

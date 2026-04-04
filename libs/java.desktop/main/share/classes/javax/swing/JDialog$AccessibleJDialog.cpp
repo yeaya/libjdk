@@ -1,9 +1,7 @@
 #include <javax/swing/JDialog$AccessibleJDialog.h>
-
 #include <java/awt/Component$AccessibleAWTComponent.h>
 #include <java/awt/Component.h>
 #include <java/awt/Dialog$AccessibleAWTDialog.h>
-#include <java/awt/Dialog.h>
 #include <javax/accessibility/AccessibleContext.h>
 #include <javax/accessibility/AccessibleState.h>
 #include <javax/accessibility/AccessibleStateSet.h>
@@ -14,7 +12,6 @@
 #undef MODAL
 #undef RESIZABLE
 
-using $Dialog = ::java::awt::Dialog;
 using $Dialog$AccessibleAWTDialog = ::java::awt::Dialog$AccessibleAWTDialog;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -26,44 +23,6 @@ using $JDialog = ::javax::swing::JDialog;
 
 namespace javax {
 	namespace swing {
-
-$FieldInfo _JDialog$AccessibleJDialog_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/JDialog;", nullptr, $FINAL | $SYNTHETIC, $field(JDialog$AccessibleJDialog, this$0)},
-	{}
-};
-
-$MethodInfo _JDialog$AccessibleJDialog_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/JDialog;)V", nullptr, $PROTECTED, $method(JDialog$AccessibleJDialog, init$, void, $JDialog*)},
-	{"getAccessibleName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JDialog$AccessibleJDialog, getAccessibleName, $String*)},
-	{"getAccessibleStateSet", "()Ljavax/accessibility/AccessibleStateSet;", nullptr, $PUBLIC, $virtualMethod(JDialog$AccessibleJDialog, getAccessibleStateSet, $AccessibleStateSet*)},
-	{}
-};
-
-$InnerClassInfo _JDialog$AccessibleJDialog_InnerClassesInfo_[] = {
-	{"javax.swing.JDialog$AccessibleJDialog", "javax.swing.JDialog", "AccessibleJDialog", $PROTECTED},
-	{"java.awt.Dialog$AccessibleAWTDialog", "java.awt.Dialog", "AccessibleAWTDialog", $PROTECTED},
-	{}
-};
-
-$ClassInfo _JDialog$AccessibleJDialog_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.JDialog$AccessibleJDialog",
-	"java.awt.Dialog$AccessibleAWTDialog",
-	nullptr,
-	_JDialog$AccessibleJDialog_FieldInfo_,
-	_JDialog$AccessibleJDialog_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JDialog$AccessibleJDialog_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.JDialog"
-};
-
-$Object* allocate$JDialog$AccessibleJDialog($Class* clazz) {
-	return $of($alloc(JDialog$AccessibleJDialog));
-}
 
 void JDialog$AccessibleJDialog::init$($JDialog* this$0) {
 	$set(this, this$0, this$0);
@@ -101,7 +60,39 @@ JDialog$AccessibleJDialog::JDialog$AccessibleJDialog() {
 }
 
 $Class* JDialog$AccessibleJDialog::load$($String* name, bool initialize) {
-	$loadClass(JDialog$AccessibleJDialog, name, initialize, &_JDialog$AccessibleJDialog_ClassInfo_, allocate$JDialog$AccessibleJDialog);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/JDialog;", nullptr, $FINAL | $SYNTHETIC, $field(JDialog$AccessibleJDialog, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/JDialog;)V", nullptr, $PROTECTED, $method(JDialog$AccessibleJDialog, init$, void, $JDialog*)},
+		{"getAccessibleName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JDialog$AccessibleJDialog, getAccessibleName, $String*)},
+		{"getAccessibleStateSet", "()Ljavax/accessibility/AccessibleStateSet;", nullptr, $PUBLIC, $virtualMethod(JDialog$AccessibleJDialog, getAccessibleStateSet, $AccessibleStateSet*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.JDialog$AccessibleJDialog", "javax.swing.JDialog", "AccessibleJDialog", $PROTECTED},
+		{"java.awt.Dialog$AccessibleAWTDialog", "java.awt.Dialog", "AccessibleAWTDialog", $PROTECTED},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.JDialog$AccessibleJDialog",
+		"java.awt.Dialog$AccessibleAWTDialog",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.JDialog"
+	};
+	$loadClass(JDialog$AccessibleJDialog, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JDialog$AccessibleJDialog));
+	});
 	return class$;
 }
 

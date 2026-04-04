@@ -39,6 +39,7 @@ class X11KSC5601$Decoder : public ::java::nio::charset::CharsetDecoder {
 	$class(X11KSC5601$Decoder, 0, ::java::nio::charset::CharsetDecoder)
 public:
 	X11KSC5601$Decoder();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::font::X11KSC5601* this$0, ::java::nio::charset::Charset* cs);
 	virtual char16_t decodeDouble(int32_t b1, int32_t b2);
 	virtual ::java::nio::charset::CoderResult* decodeLoop(::java::nio::ByteBuffer* src, ::java::nio::CharBuffer* dst) override;

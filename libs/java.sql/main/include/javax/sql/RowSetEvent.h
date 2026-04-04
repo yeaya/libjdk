@@ -19,7 +19,7 @@ class $import RowSetEvent : public ::java::util::EventObject {
 public:
 	RowSetEvent();
 	void init$(::javax::sql::RowSet* source);
-	static const int64_t serialVersionUID = (int64_t)0xE5F90F5D45C2CA9B;
+	static const int64_t serialVersionUID = (int64_t)0xe5f90f5d45c2ca9b;
 };
 
 	} // sql

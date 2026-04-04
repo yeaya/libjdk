@@ -1,5 +1,4 @@
 #include <com/sun/media/sound/RIFFWriter$RandomAccessFileWriter.h>
-
 #include <com/sun/media/sound/RIFFWriter.h>
 #include <java/io/File.h>
 #include <java/io/RandomAccessFile.h>
@@ -16,51 +15,6 @@ namespace com {
 	namespace sun {
 		namespace media {
 			namespace sound {
-
-$FieldInfo _RIFFWriter$RandomAccessFileWriter_FieldInfo_[] = {
-	{"raf", "Ljava/io/RandomAccessFile;", nullptr, 0, $field(RIFFWriter$RandomAccessFileWriter, raf)},
-	{}
-};
-
-$MethodInfo _RIFFWriter$RandomAccessFileWriter_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/File;)V", nullptr, 0, $method(RIFFWriter$RandomAccessFileWriter, init$, void, $File*), "java.io.FileNotFoundException"},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(RIFFWriter$RandomAccessFileWriter, init$, void, $String*), "java.io.FileNotFoundException"},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(RIFFWriter$RandomAccessFileWriter, close, void), "java.io.IOException"},
-	{"getPointer", "()J", nullptr, $PUBLIC, $virtualMethod(RIFFWriter$RandomAccessFileWriter, getPointer, int64_t), "java.io.IOException"},
-	{"length", "()J", nullptr, $PUBLIC, $virtualMethod(RIFFWriter$RandomAccessFileWriter, length, int64_t), "java.io.IOException"},
-	{"seek", "(J)V", nullptr, $PUBLIC, $virtualMethod(RIFFWriter$RandomAccessFileWriter, seek, void, int64_t), "java.io.IOException"},
-	{"setLength", "(J)V", nullptr, $PUBLIC, $virtualMethod(RIFFWriter$RandomAccessFileWriter, setLength, void, int64_t), "java.io.IOException"},
-	{"write", "(I)V", nullptr, $PUBLIC, $virtualMethod(RIFFWriter$RandomAccessFileWriter, write, void, int32_t), "java.io.IOException"},
-	{"write", "([BII)V", nullptr, $PUBLIC, $virtualMethod(RIFFWriter$RandomAccessFileWriter, write, void, $bytes*, int32_t, int32_t), "java.io.IOException"},
-	{"write", "([B)V", nullptr, $PUBLIC, $virtualMethod(RIFFWriter$RandomAccessFileWriter, write, void, $bytes*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _RIFFWriter$RandomAccessFileWriter_InnerClassesInfo_[] = {
-	{"com.sun.media.sound.RIFFWriter$RandomAccessFileWriter", "com.sun.media.sound.RIFFWriter", "RandomAccessFileWriter", $PRIVATE | $STATIC},
-	{"com.sun.media.sound.RIFFWriter$RandomAccessWriter", "com.sun.media.sound.RIFFWriter", "RandomAccessWriter", $PRIVATE | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _RIFFWriter$RandomAccessFileWriter_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.media.sound.RIFFWriter$RandomAccessFileWriter",
-	"java.lang.Object",
-	"com.sun.media.sound.RIFFWriter$RandomAccessWriter",
-	_RIFFWriter$RandomAccessFileWriter_FieldInfo_,
-	_RIFFWriter$RandomAccessFileWriter_MethodInfo_,
-	nullptr,
-	nullptr,
-	_RIFFWriter$RandomAccessFileWriter_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.media.sound.RIFFWriter"
-};
-
-$Object* allocate$RIFFWriter$RandomAccessFileWriter($Class* clazz) {
-	return $of($alloc(RIFFWriter$RandomAccessFileWriter));
-}
 
 void RIFFWriter$RandomAccessFileWriter::init$($File* file) {
 	$set(this, raf, $new($RandomAccessFile, file, "rw"_s));
@@ -106,7 +60,46 @@ RIFFWriter$RandomAccessFileWriter::RIFFWriter$RandomAccessFileWriter() {
 }
 
 $Class* RIFFWriter$RandomAccessFileWriter::load$($String* name, bool initialize) {
-	$loadClass(RIFFWriter$RandomAccessFileWriter, name, initialize, &_RIFFWriter$RandomAccessFileWriter_ClassInfo_, allocate$RIFFWriter$RandomAccessFileWriter);
+	$FieldInfo fieldInfos$$[] = {
+		{"raf", "Ljava/io/RandomAccessFile;", nullptr, 0, $field(RIFFWriter$RandomAccessFileWriter, raf)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/io/File;)V", nullptr, 0, $method(RIFFWriter$RandomAccessFileWriter, init$, void, $File*), "java.io.FileNotFoundException"},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(RIFFWriter$RandomAccessFileWriter, init$, void, $String*), "java.io.FileNotFoundException"},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(RIFFWriter$RandomAccessFileWriter, close, void), "java.io.IOException"},
+		{"getPointer", "()J", nullptr, $PUBLIC, $virtualMethod(RIFFWriter$RandomAccessFileWriter, getPointer, int64_t), "java.io.IOException"},
+		{"length", "()J", nullptr, $PUBLIC, $virtualMethod(RIFFWriter$RandomAccessFileWriter, length, int64_t), "java.io.IOException"},
+		{"seek", "(J)V", nullptr, $PUBLIC, $virtualMethod(RIFFWriter$RandomAccessFileWriter, seek, void, int64_t), "java.io.IOException"},
+		{"setLength", "(J)V", nullptr, $PUBLIC, $virtualMethod(RIFFWriter$RandomAccessFileWriter, setLength, void, int64_t), "java.io.IOException"},
+		{"write", "(I)V", nullptr, $PUBLIC, $virtualMethod(RIFFWriter$RandomAccessFileWriter, write, void, int32_t), "java.io.IOException"},
+		{"write", "([BII)V", nullptr, $PUBLIC, $virtualMethod(RIFFWriter$RandomAccessFileWriter, write, void, $bytes*, int32_t, int32_t), "java.io.IOException"},
+		{"write", "([B)V", nullptr, $PUBLIC, $virtualMethod(RIFFWriter$RandomAccessFileWriter, write, void, $bytes*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.media.sound.RIFFWriter$RandomAccessFileWriter", "com.sun.media.sound.RIFFWriter", "RandomAccessFileWriter", $PRIVATE | $STATIC},
+		{"com.sun.media.sound.RIFFWriter$RandomAccessWriter", "com.sun.media.sound.RIFFWriter", "RandomAccessWriter", $PRIVATE | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.media.sound.RIFFWriter$RandomAccessFileWriter",
+		"java.lang.Object",
+		"com.sun.media.sound.RIFFWriter$RandomAccessWriter",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.media.sound.RIFFWriter"
+	};
+	$loadClass(RIFFWriter$RandomAccessFileWriter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RIFFWriter$RandomAccessFileWriter);
+	});
 	return class$;
 }
 

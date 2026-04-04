@@ -1,5 +1,4 @@
 #include <sun/print/SunPrinterJobService.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -8,26 +7,22 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace sun {
 	namespace print {
 
-$MethodInfo _SunPrinterJobService_MethodInfo_[] = {
-	{"usesClass", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;)Z", $PUBLIC | $ABSTRACT, $virtualMethod(SunPrinterJobService, usesClass, bool, $Class*)},
-	{}
-};
-
-$ClassInfo _SunPrinterJobService_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"sun.print.SunPrinterJobService",
-	nullptr,
-	nullptr,
-	nullptr,
-	_SunPrinterJobService_MethodInfo_
-};
-
-$Object* allocate$SunPrinterJobService($Class* clazz) {
-	return $of($alloc(SunPrinterJobService));
-}
-
 $Class* SunPrinterJobService::load$($String* name, bool initialize) {
-	$loadClass(SunPrinterJobService, name, initialize, &_SunPrinterJobService_ClassInfo_, allocate$SunPrinterJobService);
+	$MethodInfo methodInfos$$[] = {
+		{"usesClass", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;)Z", $PUBLIC | $ABSTRACT, $virtualMethod(SunPrinterJobService, usesClass, bool, $Class*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"sun.print.SunPrinterJobService",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(SunPrinterJobService, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SunPrinterJobService);
+	});
 	return class$;
 }
 

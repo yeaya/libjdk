@@ -59,7 +59,7 @@ public:
 	virtual bool setCurrentAccessibleValue(::java::lang::Number* n) override;
 	virtual $String* toString() override;
 	::java::awt::Checkbox* this$0 = nullptr;
-	static const int64_t serialVersionUID = (int64_t)0x6D60FE8DDCB04FBB;
+	static const int64_t serialVersionUID = (int64_t)0x6d60fe8ddcb04fbb;
 };
 
 	} // awt

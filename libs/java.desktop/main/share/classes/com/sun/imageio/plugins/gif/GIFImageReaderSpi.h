@@ -28,6 +28,7 @@ class GIFImageReaderSpi : public ::javax::imageio::spi::ImageReaderSpi {
 public:
 	GIFImageReaderSpi();
 	using ::javax::imageio::spi::ImageReaderSpi::createReaderInstance;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual bool canDecodeInput(Object$* input) override;
 	virtual ::javax::imageio::ImageReader* createReaderInstance(Object$* extension) override;

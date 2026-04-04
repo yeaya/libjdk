@@ -1,5 +1,4 @@
 #include <sun/font/GlyphList.h>
-
 #include <java/awt/font/GlyphVector.h>
 #include <java/lang/InternalError.h>
 #include <java/lang/Math.h>
@@ -30,11 +29,7 @@ using $InternalError = ::java::lang::InternalError;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AtomicBoolean = ::java::util::concurrent::atomic::AtomicBoolean;
-using $Unsafe = ::jdk::internal::misc::Unsafe;
-using $CharToGlyphMapper = ::sun::font::CharToGlyphMapper;
 using $ColorGlyphSurfaceData = ::sun::font::ColorGlyphSurfaceData;
-using $Font2D = ::sun::font::Font2D;
-using $FontStrike = ::sun::font::FontStrike;
 using $FontUtilities = ::sun::font::FontUtilities;
 using $StandardGlyphVector = ::sun::font::StandardGlyphVector;
 using $StrikeCache = ::sun::font::StrikeCache;
@@ -43,77 +38,6 @@ using $FontInfo = ::sun::java2d::loops::FontInfo;
 
 namespace sun {
 	namespace font {
-
-$FieldInfo _GlyphList_FieldInfo_[] = {
-	{"MINGRAYLENGTH", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(GlyphList, MINGRAYLENGTH)},
-	{"MAXGRAYLENGTH", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(GlyphList, MAXGRAYLENGTH)},
-	{"DEFAULT_LENGTH", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(GlyphList, DEFAULT_LENGTH)},
-	{"glyphindex", "I", nullptr, 0, $field(GlyphList, glyphindex)},
-	{"metrics", "[I", nullptr, 0, $field(GlyphList, metrics)},
-	{"graybits", "[B", nullptr, 0, $field(GlyphList, graybits)},
-	{"strikelist", "Ljava/lang/Object;", nullptr, 0, $field(GlyphList, strikelist)},
-	{"len", "I", nullptr, 0, $field(GlyphList, len)},
-	{"maxLen", "I", nullptr, 0, $field(GlyphList, maxLen)},
-	{"maxPosLen", "I", nullptr, 0, $field(GlyphList, maxPosLen)},
-	{"glyphData", "[I", nullptr, 0, $field(GlyphList, glyphData)},
-	{"chData", "[C", nullptr, 0, $field(GlyphList, chData)},
-	{"images", "[J", nullptr, 0, $field(GlyphList, images)},
-	{"positions", "[F", nullptr, 0, $field(GlyphList, positions)},
-	{"x", "F", nullptr, 0, $field(GlyphList, x)},
-	{"y", "F", nullptr, 0, $field(GlyphList, y)},
-	{"gposx", "F", nullptr, 0, $field(GlyphList, gposx)},
-	{"gposy", "F", nullptr, 0, $field(GlyphList, gposy)},
-	{"usePositions", "Z", nullptr, 0, $field(GlyphList, usePositions$)},
-	{"lcdRGBOrder", "Z", nullptr, 0, $field(GlyphList, lcdRGBOrder)},
-	{"lcdSubPixPos", "Z", nullptr, 0, $field(GlyphList, lcdSubPixPos)},
-	{"reusableGL", "Lsun/font/GlyphList;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(GlyphList, reusableGL)},
-	{"inUse", "Ljava/util/concurrent/atomic/AtomicBoolean;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(GlyphList, inUse)},
-	{"glyphSurfaceData", "Lsun/font/ColorGlyphSurfaceData;", nullptr, $PRIVATE, $field(GlyphList, glyphSurfaceData)},
-	{}
-};
-
-$MethodInfo _GlyphList_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(GlyphList, init$, void)},
-	{"canContainColorGlyphs", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(GlyphList, canContainColorGlyphs, bool)},
-	{"dispose", "()V", nullptr, $PUBLIC, $method(GlyphList, dispose, void)},
-	{"ensureCapacity", "(I)V", nullptr, 0, $method(GlyphList, ensureCapacity, void, int32_t)},
-	{"fillBounds", "([II)V", nullptr, $PRIVATE, $method(GlyphList, fillBounds, void, $ints*, int32_t)},
-	{"getBounds", "(I)[I", nullptr, $PUBLIC, $method(GlyphList, getBounds, $ints*, int32_t)},
-	{"getColorGlyphData", "()Lsun/java2d/SurfaceData;", nullptr, $PUBLIC, $method(GlyphList, getColorGlyphData, $SurfaceData*)},
-	{"getGrayBits", "()[B", nullptr, $PUBLIC, $method(GlyphList, getGrayBits, $bytes*)},
-	{"getImages", "()[J", nullptr, $PUBLIC, $method(GlyphList, getImages, $longs*)},
-	{"getInstance", "()Lsun/font/GlyphList;", nullptr, $PUBLIC | $STATIC, $staticMethod(GlyphList, getInstance, GlyphList*)},
-	{"getMetrics", "()[I", nullptr, $PUBLIC, $method(GlyphList, getMetrics, $ints*)},
-	{"getNumGlyphs", "()I", nullptr, $PUBLIC, $method(GlyphList, getNumGlyphs, int32_t)},
-	{"getPositions", "()[F", nullptr, $PUBLIC, $method(GlyphList, getPositions, $floats*)},
-	{"getStrike", "()Ljava/lang/Object;", nullptr, $PUBLIC, $method(GlyphList, getStrike, $Object*)},
-	{"getX", "()F", nullptr, $PUBLIC, $method(GlyphList, getX, float)},
-	{"getY", "()F", nullptr, $PUBLIC, $method(GlyphList, getY, float)},
-	{"isColorGlyph", "(I)Z", nullptr, $PUBLIC, $method(GlyphList, isColorGlyph, bool, int32_t)},
-	{"isRGBOrder", "()Z", nullptr, $PUBLIC, $method(GlyphList, isRGBOrder, bool)},
-	{"isSubPixPos", "()Z", nullptr, $PUBLIC, $method(GlyphList, isSubPixPos, bool)},
-	{"mapChars", "(Lsun/java2d/loops/FontInfo;I)Z", nullptr, $PRIVATE, $method(GlyphList, mapChars, bool, $FontInfo*, int32_t)},
-	{"setFromChars", "(Lsun/java2d/loops/FontInfo;[CIIFF)Z", nullptr, $PUBLIC, $method(GlyphList, setFromChars, bool, $FontInfo*, $chars*, int32_t, int32_t, float, float)},
-	{"setFromGlyphVector", "(Lsun/java2d/loops/FontInfo;Ljava/awt/font/GlyphVector;FF)V", nullptr, $PUBLIC, $method(GlyphList, setFromGlyphVector, void, $FontInfo*, $GlyphVector*, float, float)},
-	{"setFromString", "(Lsun/java2d/loops/FontInfo;Ljava/lang/String;FF)Z", nullptr, $PUBLIC, $method(GlyphList, setFromString, bool, $FontInfo*, $String*, float, float)},
-	{"setGlyphIndex", "(I)V", nullptr, $PUBLIC, $method(GlyphList, setGlyphIndex, void, int32_t)},
-	{"startGlyphIteration", "()V", nullptr, $PUBLIC, $method(GlyphList, startGlyphIteration, void)},
-	{"usePositions", "()Z", nullptr, $PUBLIC, $method(GlyphList, usePositions, bool)},
-	{}
-};
-
-$ClassInfo _GlyphList_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.font.GlyphList",
-	"java.lang.Object",
-	nullptr,
-	_GlyphList_FieldInfo_,
-	_GlyphList_MethodInfo_
-};
-
-$Object* allocate$GlyphList($Class* clazz) {
-	return $of($alloc(GlyphList));
-}
 
 GlyphList* GlyphList::reusableGL = nullptr;
 $AtomicBoolean* GlyphList::inUse = nullptr;
@@ -142,7 +66,7 @@ void GlyphList::init$() {
 
 GlyphList* GlyphList::getInstance() {
 	$init(GlyphList);
-	if ($nc(GlyphList::inUse)->compareAndSet(false, true)) {
+	if (GlyphList::inUse->compareAndSet(false, true)) {
 		return GlyphList::reusableGL;
 	} else {
 		return $new(GlyphList);
@@ -179,10 +103,10 @@ bool GlyphList::setFromChars($FontInfo* info, $chars* chars, int32_t off, int32_
 }
 
 bool GlyphList::mapChars($FontInfo* info, int32_t len) {
-	if ($nc($($nc($nc(info)->font2D)->getMapper()))->charsToGlyphsNS(len, this->chData, this->glyphData)) {
+	if ($$nc($nc($nc(info)->font2D)->getMapper())->charsToGlyphsNS(len, this->chData, this->glyphData)) {
 		return false;
 	}
-	$nc($nc(info)->fontStrike)->getGlyphImagePtrs(this->glyphData, this->images, len);
+	$nc(info->fontStrike)->getGlyphImagePtrs(this->glyphData, this->images, len);
 	this->glyphindex = -1;
 	return true;
 }
@@ -218,29 +142,29 @@ $ints* GlyphList::getBounds(int32_t endGlyphIndex) {
 
 void GlyphList::setGlyphIndex(int32_t i) {
 	this->glyphindex = i;
-	if ($nc(this->images)->get(i) == (int64_t)0) {
+	if ($nc(this->images)->get(i) == 0) {
 		$nc(this->metrics)->set(0, $cast(int32_t, this->gposx));
-		$nc(this->metrics)->set(1, $cast(int32_t, this->gposy));
-		$nc(this->metrics)->set(2, 0);
-		$nc(this->metrics)->set(3, 0);
-		$nc(this->metrics)->set(4, 0);
+		this->metrics->set(1, $cast(int32_t, this->gposy));
+		this->metrics->set(2, 0);
+		this->metrics->set(3, 0);
+		this->metrics->set(4, 0);
 		return;
 	}
 	$init($StrikeCache);
-	float gx = $nc($StrikeCache::unsafe)->getFloat($nc(this->images)->get(i) + $StrikeCache::topLeftXOffset);
-	float gy = $nc($StrikeCache::unsafe)->getFloat($nc(this->images)->get(i) + $StrikeCache::topLeftYOffset);
+	float gx = $nc($StrikeCache::unsafe)->getFloat(this->images->get(i) + $StrikeCache::topLeftXOffset);
+	float gy = $StrikeCache::unsafe->getFloat(this->images->get(i) + $StrikeCache::topLeftYOffset);
 	if (this->usePositions$) {
 		$nc(this->metrics)->set(0, $cast(int32_t, $Math::floor($nc(this->positions)->get(i << 1) + this->gposx + gx)));
-		$nc(this->metrics)->set(1, $cast(int32_t, $Math::floor($nc(this->positions)->get((i << 1) + 1) + this->gposy + gy)));
+		this->metrics->set(1, $cast(int32_t, $Math::floor(this->positions->get((i << 1) + 1) + this->gposy + gy)));
 	} else {
 		$nc(this->metrics)->set(0, $cast(int32_t, $Math::floor(this->gposx + gx)));
-		$nc(this->metrics)->set(1, $cast(int32_t, $Math::floor(this->gposy + gy)));
-		this->gposx += $nc($StrikeCache::unsafe)->getFloat($nc(this->images)->get(i) + $StrikeCache::xAdvanceOffset);
-		this->gposy += $nc($StrikeCache::unsafe)->getFloat($nc(this->images)->get(i) + $StrikeCache::yAdvanceOffset);
+		this->metrics->set(1, $cast(int32_t, $Math::floor(this->gposy + gy)));
+		this->gposx += $StrikeCache::unsafe->getFloat(this->images->get(i) + $StrikeCache::xAdvanceOffset);
+		this->gposy += $StrikeCache::unsafe->getFloat(this->images->get(i) + $StrikeCache::yAdvanceOffset);
 	}
-	$nc(this->metrics)->set(2, $nc($StrikeCache::unsafe)->getChar($nc(this->images)->get(i) + $StrikeCache::widthOffset));
-	$nc(this->metrics)->set(3, $nc($StrikeCache::unsafe)->getChar($nc(this->images)->get(i) + $StrikeCache::heightOffset));
-	$nc(this->metrics)->set(4, $nc($StrikeCache::unsafe)->getChar($nc(this->images)->get(i) + $StrikeCache::rowBytesOffset));
+	$nc(this->metrics)->set(2, $StrikeCache::unsafe->getChar(this->images->get(i) + $StrikeCache::widthOffset));
+	this->metrics->set(3, $StrikeCache::unsafe->getChar(this->images->get(i) + $StrikeCache::heightOffset));
+	this->metrics->set(4, $StrikeCache::unsafe->getChar(this->images->get(i) + $StrikeCache::rowBytesOffset));
 }
 
 $ints* GlyphList::getMetrics() {
@@ -251,19 +175,19 @@ $bytes* GlyphList::getGrayBits() {
 	int32_t len = $nc(this->metrics)->get(4) * $nc(this->metrics)->get(3);
 	if (this->graybits == nullptr) {
 		$set(this, graybits, $new($bytes, $Math::max(len, GlyphList::MINGRAYLENGTH)));
-	} else if (len > $nc(this->graybits)->length) {
+	} else if (len > this->graybits->length) {
 		$set(this, graybits, $new($bytes, len));
 	}
-	if ($nc(this->images)->get(this->glyphindex) == (int64_t)0) {
+	if ($nc(this->images)->get(this->glyphindex) == 0) {
 		return this->graybits;
 	}
 	$init($StrikeCache);
-	int64_t pixelDataAddress = $nc($StrikeCache::unsafe)->getAddress($nc(this->images)->get(this->glyphindex) + $StrikeCache::pixelDataOffset);
-	if (pixelDataAddress == (int64_t)0) {
+	int64_t pixelDataAddress = $nc($StrikeCache::unsafe)->getAddress(this->images->get(this->glyphindex) + $StrikeCache::pixelDataOffset);
+	if (pixelDataAddress == 0) {
 		return this->graybits;
 	}
 	for (int32_t i = 0; i < len; ++i) {
-		$nc(this->graybits)->set(i, $nc($StrikeCache::unsafe)->getByte(pixelDataAddress + i));
+		$nc(this->graybits)->set(i, $StrikeCache::unsafe->getByte(pixelDataAddress + i));
 	}
 	return this->graybits;
 }
@@ -289,7 +213,7 @@ float GlyphList::getY() {
 }
 
 $Object* GlyphList::getStrike() {
-	return $of(this->strikelist);
+	return this->strikelist;
 }
 
 bool GlyphList::isSubPixPos() {
@@ -302,12 +226,12 @@ bool GlyphList::isRGBOrder() {
 
 void GlyphList::dispose() {
 	if (this == GlyphList::reusableGL) {
-		if (this->graybits != nullptr && $nc(this->graybits)->length > GlyphList::MAXGRAYLENGTH) {
+		if (this->graybits != nullptr && this->graybits->length > GlyphList::MAXGRAYLENGTH) {
 			$set(this, graybits, nullptr);
 		}
 		this->usePositions$ = false;
 		$set(this, strikelist, nullptr);
-		$nc(GlyphList::inUse)->set(false);
+		GlyphList::inUse->set(false);
 	}
 }
 
@@ -325,14 +249,13 @@ void GlyphList::fillBounds($ints* bounds, int32_t endGlyphIndex) {
 	int32_t yAdvOffset = $StrikeCache::yAdvanceOffset;
 	int32_t startGlyphIndex = this->glyphindex + 1;
 	if (startGlyphIndex >= endGlyphIndex) {
-		$nc(bounds)->set(0, bounds->set(1, bounds->set(2, bounds->set(3, 0))));
+		$nc(bounds)->set(0, $nc(bounds)->set(1, $nc(bounds)->set(2, $nc(bounds)->set(3, 0))));
 		return;
 	}
 	float bx0 = 0.0;
 	float by0 = 0.0;
 	float bx1 = 0.0;
 	float by1 = 0.0;
-	$init($Float);
 	bx0 = (by0 = $Float::POSITIVE_INFINITY);
 	bx1 = (by1 = $Float::NEGATIVE_INFINITY);
 	int32_t posIndex = startGlyphIndex << 1;
@@ -347,21 +270,21 @@ void GlyphList::fillBounds($ints* bounds, int32_t endGlyphIndex) {
 	float gx1 = 0.0;
 	float gy1 = 0.0;
 	for (int32_t i = startGlyphIndex; i < endGlyphIndex; ++i) {
-		if ($nc(this->images)->get(i) == (int64_t)0) {
+		if ($nc(this->images)->get(i) == 0) {
 			continue;
 		}
-		gx = $nc($StrikeCache::unsafe)->getFloat($nc(this->images)->get(i) + xOffset);
-		gy = $nc($StrikeCache::unsafe)->getFloat($nc(this->images)->get(i) + yOffset);
-		gw = $nc($StrikeCache::unsafe)->getChar($nc(this->images)->get(i) + wOffset);
-		gh = $nc($StrikeCache::unsafe)->getChar($nc(this->images)->get(i) + hOffset);
+		gx = $nc($StrikeCache::unsafe)->getFloat(this->images->get(i) + xOffset);
+		gy = $StrikeCache::unsafe->getFloat(this->images->get(i) + yOffset);
+		gw = $StrikeCache::unsafe->getChar(this->images->get(i) + wOffset);
+		gh = $StrikeCache::unsafe->getChar(this->images->get(i) + hOffset);
 		if (this->usePositions$) {
 			gx0 = $nc(this->positions)->get(posIndex++) + gx + glx;
-			gy0 = $nc(this->positions)->get(posIndex++) + gy + gly;
+			gy0 = this->positions->get(posIndex++) + gy + gly;
 		} else {
 			gx0 = glx + gx;
 			gy0 = gly + gy;
-			glx += $nc($StrikeCache::unsafe)->getFloat($nc(this->images)->get(i) + xAdvOffset);
-			gly += $nc($StrikeCache::unsafe)->getFloat($nc(this->images)->get(i) + yAdvOffset);
+			glx += $StrikeCache::unsafe->getFloat(this->images->get(i) + xAdvOffset);
+			gly += $StrikeCache::unsafe->getFloat(this->images->get(i) + yAdvOffset);
 		}
 		gx1 = gx0 + gw;
 		gy1 = gy0 + gh;
@@ -393,7 +316,7 @@ bool GlyphList::canContainColorGlyphs() {
 bool GlyphList::isColorGlyph(int32_t glyphIndex) {
 	$init($StrikeCache);
 	int32_t width = $nc($StrikeCache::unsafe)->getChar($nc(this->images)->get(glyphIndex) + $StrikeCache::widthOffset);
-	int32_t rowBytes = $nc($StrikeCache::unsafe)->getChar($nc(this->images)->get(glyphIndex) + $StrikeCache::rowBytesOffset);
+	int32_t rowBytes = $StrikeCache::unsafe->getChar(this->images->get(glyphIndex) + $StrikeCache::rowBytesOffset);
 	return rowBytes == width * 4;
 }
 
@@ -405,7 +328,7 @@ $SurfaceData* GlyphList::getColorGlyphData() {
 	return this->glyphSurfaceData;
 }
 
-void clinit$GlyphList($Class* class$) {
+void GlyphList::clinit$($Class* clazz) {
 	$assignStatic(GlyphList::reusableGL, $new(GlyphList));
 	$assignStatic(GlyphList::inUse, $new($AtomicBoolean));
 }
@@ -414,7 +337,73 @@ GlyphList::GlyphList() {
 }
 
 $Class* GlyphList::load$($String* name, bool initialize) {
-	$loadClass(GlyphList, name, initialize, &_GlyphList_ClassInfo_, clinit$GlyphList, allocate$GlyphList);
+	$FieldInfo fieldInfos$$[] = {
+		{"MINGRAYLENGTH", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(GlyphList, MINGRAYLENGTH)},
+		{"MAXGRAYLENGTH", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(GlyphList, MAXGRAYLENGTH)},
+		{"DEFAULT_LENGTH", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(GlyphList, DEFAULT_LENGTH)},
+		{"glyphindex", "I", nullptr, 0, $field(GlyphList, glyphindex)},
+		{"metrics", "[I", nullptr, 0, $field(GlyphList, metrics)},
+		{"graybits", "[B", nullptr, 0, $field(GlyphList, graybits)},
+		{"strikelist", "Ljava/lang/Object;", nullptr, 0, $field(GlyphList, strikelist)},
+		{"len", "I", nullptr, 0, $field(GlyphList, len)},
+		{"maxLen", "I", nullptr, 0, $field(GlyphList, maxLen)},
+		{"maxPosLen", "I", nullptr, 0, $field(GlyphList, maxPosLen)},
+		{"glyphData", "[I", nullptr, 0, $field(GlyphList, glyphData)},
+		{"chData", "[C", nullptr, 0, $field(GlyphList, chData)},
+		{"images", "[J", nullptr, 0, $field(GlyphList, images)},
+		{"positions", "[F", nullptr, 0, $field(GlyphList, positions)},
+		{"x", "F", nullptr, 0, $field(GlyphList, x)},
+		{"y", "F", nullptr, 0, $field(GlyphList, y)},
+		{"gposx", "F", nullptr, 0, $field(GlyphList, gposx)},
+		{"gposy", "F", nullptr, 0, $field(GlyphList, gposy)},
+		{"usePositions", "Z", nullptr, 0, $field(GlyphList, usePositions$)},
+		{"lcdRGBOrder", "Z", nullptr, 0, $field(GlyphList, lcdRGBOrder)},
+		{"lcdSubPixPos", "Z", nullptr, 0, $field(GlyphList, lcdSubPixPos)},
+		{"reusableGL", "Lsun/font/GlyphList;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(GlyphList, reusableGL)},
+		{"inUse", "Ljava/util/concurrent/atomic/AtomicBoolean;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(GlyphList, inUse)},
+		{"glyphSurfaceData", "Lsun/font/ColorGlyphSurfaceData;", nullptr, $PRIVATE, $field(GlyphList, glyphSurfaceData)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(GlyphList, init$, void)},
+		{"canContainColorGlyphs", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(GlyphList, canContainColorGlyphs, bool)},
+		{"dispose", "()V", nullptr, $PUBLIC, $method(GlyphList, dispose, void)},
+		{"ensureCapacity", "(I)V", nullptr, 0, $method(GlyphList, ensureCapacity, void, int32_t)},
+		{"fillBounds", "([II)V", nullptr, $PRIVATE, $method(GlyphList, fillBounds, void, $ints*, int32_t)},
+		{"getBounds", "(I)[I", nullptr, $PUBLIC, $method(GlyphList, getBounds, $ints*, int32_t)},
+		{"getColorGlyphData", "()Lsun/java2d/SurfaceData;", nullptr, $PUBLIC, $method(GlyphList, getColorGlyphData, $SurfaceData*)},
+		{"getGrayBits", "()[B", nullptr, $PUBLIC, $method(GlyphList, getGrayBits, $bytes*)},
+		{"getImages", "()[J", nullptr, $PUBLIC, $method(GlyphList, getImages, $longs*)},
+		{"getInstance", "()Lsun/font/GlyphList;", nullptr, $PUBLIC | $STATIC, $staticMethod(GlyphList, getInstance, GlyphList*)},
+		{"getMetrics", "()[I", nullptr, $PUBLIC, $method(GlyphList, getMetrics, $ints*)},
+		{"getNumGlyphs", "()I", nullptr, $PUBLIC, $method(GlyphList, getNumGlyphs, int32_t)},
+		{"getPositions", "()[F", nullptr, $PUBLIC, $method(GlyphList, getPositions, $floats*)},
+		{"getStrike", "()Ljava/lang/Object;", nullptr, $PUBLIC, $method(GlyphList, getStrike, $Object*)},
+		{"getX", "()F", nullptr, $PUBLIC, $method(GlyphList, getX, float)},
+		{"getY", "()F", nullptr, $PUBLIC, $method(GlyphList, getY, float)},
+		{"isColorGlyph", "(I)Z", nullptr, $PUBLIC, $method(GlyphList, isColorGlyph, bool, int32_t)},
+		{"isRGBOrder", "()Z", nullptr, $PUBLIC, $method(GlyphList, isRGBOrder, bool)},
+		{"isSubPixPos", "()Z", nullptr, $PUBLIC, $method(GlyphList, isSubPixPos, bool)},
+		{"mapChars", "(Lsun/java2d/loops/FontInfo;I)Z", nullptr, $PRIVATE, $method(GlyphList, mapChars, bool, $FontInfo*, int32_t)},
+		{"setFromChars", "(Lsun/java2d/loops/FontInfo;[CIIFF)Z", nullptr, $PUBLIC, $method(GlyphList, setFromChars, bool, $FontInfo*, $chars*, int32_t, int32_t, float, float)},
+		{"setFromGlyphVector", "(Lsun/java2d/loops/FontInfo;Ljava/awt/font/GlyphVector;FF)V", nullptr, $PUBLIC, $method(GlyphList, setFromGlyphVector, void, $FontInfo*, $GlyphVector*, float, float)},
+		{"setFromString", "(Lsun/java2d/loops/FontInfo;Ljava/lang/String;FF)Z", nullptr, $PUBLIC, $method(GlyphList, setFromString, bool, $FontInfo*, $String*, float, float)},
+		{"setGlyphIndex", "(I)V", nullptr, $PUBLIC, $method(GlyphList, setGlyphIndex, void, int32_t)},
+		{"startGlyphIteration", "()V", nullptr, $PUBLIC, $method(GlyphList, startGlyphIteration, void)},
+		{"usePositions", "()Z", nullptr, $PUBLIC, $method(GlyphList, usePositions, bool)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.font.GlyphList",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(GlyphList, name, initialize, &classInfo$$, GlyphList::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(GlyphList);
+	});
 	return class$;
 }
 

@@ -45,6 +45,7 @@ class $export Http1Exchange$Http1Publisher : public ::jdk::internal::net::http::
 	$class(Http1Exchange$Http1Publisher, 0, ::jdk::internal::net::http::common::FlowTube$TubePublisher)
 public:
 	Http1Exchange$Http1Publisher();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::jdk::internal::net::http::Http1Exchange* this$0);
 	bool checkRequestCancelled();
 	$String* dbgString();

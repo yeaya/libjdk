@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/nimbus/ProgressBarFinishedState.h>
-
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JProgressBar.h>
 #include <javax/swing/plaf/nimbus/State.h>
@@ -17,39 +16,35 @@ namespace javax {
 		namespace plaf {
 			namespace nimbus {
 
-$MethodInfo _ProgressBarFinishedState_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(ProgressBarFinishedState, init$, void)},
-	{"isInState", "(Ljavax/swing/JComponent;)Z", nullptr, $PROTECTED, $virtualMethod(ProgressBarFinishedState, isInState, bool, $JComponent*)},
-	{}
-};
-
-$ClassInfo _ProgressBarFinishedState_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.nimbus.ProgressBarFinishedState",
-	"javax.swing.plaf.nimbus.State",
-	nullptr,
-	nullptr,
-	_ProgressBarFinishedState_MethodInfo_,
-	"Ljavax/swing/plaf/nimbus/State<Ljavax/swing/JComponent;>;"
-};
-
-$Object* allocate$ProgressBarFinishedState($Class* clazz) {
-	return $of($alloc(ProgressBarFinishedState));
-}
-
 void ProgressBarFinishedState::init$() {
 	$State::init$("Finished"_s);
 }
 
 bool ProgressBarFinishedState::isInState($JComponent* c) {
-	return $instanceOf($JProgressBar, c) && $nc(($cast($JProgressBar, c)))->getPercentComplete() == 1.0;
+	return $instanceOf($JProgressBar, c) && $cast($JProgressBar, c)->getPercentComplete() == 1.0;
 }
 
 ProgressBarFinishedState::ProgressBarFinishedState() {
 }
 
 $Class* ProgressBarFinishedState::load$($String* name, bool initialize) {
-	$loadClass(ProgressBarFinishedState, name, initialize, &_ProgressBarFinishedState_ClassInfo_, allocate$ProgressBarFinishedState);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(ProgressBarFinishedState, init$, void)},
+		{"isInState", "(Ljavax/swing/JComponent;)Z", nullptr, $PROTECTED, $virtualMethod(ProgressBarFinishedState, isInState, bool, $JComponent*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.nimbus.ProgressBarFinishedState",
+		"javax.swing.plaf.nimbus.State",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		"Ljavax/swing/plaf/nimbus/State<Ljavax/swing/JComponent;>;"
+	};
+	$loadClass(ProgressBarFinishedState, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ProgressBarFinishedState);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <org/w3c/dom/events/DocumentEvent.h>
-
 #include <org/w3c/dom/events/Event.h>
 #include <jcpp.h>
 
@@ -12,26 +11,22 @@ namespace org {
 		namespace dom {
 			namespace events {
 
-$MethodInfo _DocumentEvent_MethodInfo_[] = {
-	{"createEvent", "(Ljava/lang/String;)Lorg/w3c/dom/events/Event;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DocumentEvent, createEvent, $Event*, $String*), "org.w3c.dom.DOMException"},
-	{}
-};
-
-$ClassInfo _DocumentEvent_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"org.w3c.dom.events.DocumentEvent",
-	nullptr,
-	nullptr,
-	nullptr,
-	_DocumentEvent_MethodInfo_
-};
-
-$Object* allocate$DocumentEvent($Class* clazz) {
-	return $of($alloc(DocumentEvent));
-}
-
 $Class* DocumentEvent::load$($String* name, bool initialize) {
-	$loadClass(DocumentEvent, name, initialize, &_DocumentEvent_ClassInfo_, allocate$DocumentEvent);
+	$MethodInfo methodInfos$$[] = {
+		{"createEvent", "(Ljava/lang/String;)Lorg/w3c/dom/events/Event;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DocumentEvent, createEvent, $Event*, $String*), "org.w3c.dom.DOMException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"org.w3c.dom.events.DocumentEvent",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(DocumentEvent, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DocumentEvent);
+	});
 	return class$;
 }
 

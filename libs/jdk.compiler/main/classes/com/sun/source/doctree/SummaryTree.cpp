@@ -1,5 +1,4 @@
 #include <com/sun/source/doctree/SummaryTree.h>
-
 #include <java/util/List.h>
 #include <jcpp.h>
 
@@ -12,26 +11,22 @@ namespace com {
 		namespace source {
 			namespace doctree {
 
-$MethodInfo _SummaryTree_MethodInfo_[] = {
-	{"getSummary", "()Ljava/util/List;", "()Ljava/util/List<+Lcom/sun/source/doctree/DocTree;>;", $PUBLIC | $ABSTRACT, $virtualMethod(SummaryTree, getSummary, $List*)},
-	{}
-};
-
-$ClassInfo _SummaryTree_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.source.doctree.SummaryTree",
-	nullptr,
-	"com.sun.source.doctree.InlineTagTree",
-	nullptr,
-	_SummaryTree_MethodInfo_
-};
-
-$Object* allocate$SummaryTree($Class* clazz) {
-	return $of($alloc(SummaryTree));
-}
-
 $Class* SummaryTree::load$($String* name, bool initialize) {
-	$loadClass(SummaryTree, name, initialize, &_SummaryTree_ClassInfo_, allocate$SummaryTree);
+	$MethodInfo methodInfos$$[] = {
+		{"getSummary", "()Ljava/util/List;", "()Ljava/util/List<+Lcom/sun/source/doctree/DocTree;>;", $PUBLIC | $ABSTRACT, $virtualMethod(SummaryTree, getSummary, $List*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.source.doctree.SummaryTree",
+		nullptr,
+		"com.sun.source.doctree.InlineTagTree",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(SummaryTree, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SummaryTree);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/awt/image/BufferedImageGraphicsConfig.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Graphics.h>
 #include <java/awt/Graphics2D.h>
@@ -33,7 +32,6 @@ using $AffineTransform = ::java::awt::geom::AffineTransform;
 using $BufferedImage = ::java::awt::image::BufferedImage;
 using $ColorModel = ::java::awt::image::ColorModel;
 using $DirectColorModel = ::java::awt::image::DirectColorModel;
-using $Raster = ::java::awt::image::Raster;
 using $WritableRaster = ::java::awt::image::WritableRaster;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -46,56 +44,17 @@ namespace sun {
 	namespace awt {
 		namespace image {
 
-$FieldInfo _BufferedImageGraphicsConfig_FieldInfo_[] = {
-	{"numconfigs", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BufferedImageGraphicsConfig, numconfigs)},
-	{"standardConfigs", "[Lsun/awt/image/BufferedImageGraphicsConfig;", nullptr, $PRIVATE | $STATIC, $staticField(BufferedImageGraphicsConfig, standardConfigs)},
-	{"scaledConfigs", "[Lsun/awt/image/BufferedImageGraphicsConfig;", nullptr, $PRIVATE | $STATIC, $staticField(BufferedImageGraphicsConfig, scaledConfigs)},
-	{"device", "Ljava/awt/GraphicsDevice;", nullptr, $PRIVATE | $FINAL, $field(BufferedImageGraphicsConfig, device)},
-	{"model", "Ljava/awt/image/ColorModel;", nullptr, $PRIVATE | $FINAL, $field(BufferedImageGraphicsConfig, model)},
-	{"raster", "Ljava/awt/image/Raster;", nullptr, $PRIVATE | $FINAL, $field(BufferedImageGraphicsConfig, raster)},
-	{"scaleX", "D", nullptr, $PRIVATE | $FINAL, $field(BufferedImageGraphicsConfig, scaleX)},
-	{"scaleY", "D", nullptr, $PRIVATE | $FINAL, $field(BufferedImageGraphicsConfig, scaleY)},
-	{}
-};
-
-$MethodInfo _BufferedImageGraphicsConfig_MethodInfo_[] = {
-	{"<init>", "(Ljava/awt/image/BufferedImage;Ljava/awt/Component;DD)V", nullptr, $PUBLIC, $method(BufferedImageGraphicsConfig, init$, void, $BufferedImage*, $Component*, double, double)},
-	{"createCompatibleImage", "(II)Ljava/awt/image/BufferedImage;", nullptr, $PUBLIC, $virtualMethod(BufferedImageGraphicsConfig, createCompatibleImage, $BufferedImage*, int32_t, int32_t)},
-	{"getBounds", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(BufferedImageGraphicsConfig, getBounds, $Rectangle*)},
-	{"getColorModel", "()Ljava/awt/image/ColorModel;", nullptr, $PUBLIC, $virtualMethod(BufferedImageGraphicsConfig, getColorModel, $ColorModel*)},
-	{"getColorModel", "(I)Ljava/awt/image/ColorModel;", nullptr, $PUBLIC, $virtualMethod(BufferedImageGraphicsConfig, getColorModel, $ColorModel*, int32_t)},
-	{"getConfig", "(Ljava/awt/image/BufferedImage;)Lsun/awt/image/BufferedImageGraphicsConfig;", nullptr, $PUBLIC | $STATIC, $staticMethod(BufferedImageGraphicsConfig, getConfig, BufferedImageGraphicsConfig*, $BufferedImage*)},
-	{"getConfig", "(Ljava/awt/image/BufferedImage;DD)Lsun/awt/image/BufferedImageGraphicsConfig;", nullptr, $PUBLIC | $STATIC, $staticMethod(BufferedImageGraphicsConfig, getConfig, BufferedImageGraphicsConfig*, $BufferedImage*, double, double)},
-	{"getDefaultTransform", "()Ljava/awt/geom/AffineTransform;", nullptr, $PUBLIC, $virtualMethod(BufferedImageGraphicsConfig, getDefaultTransform, $AffineTransform*)},
-	{"getDevice", "()Ljava/awt/GraphicsDevice;", nullptr, $PUBLIC, $virtualMethod(BufferedImageGraphicsConfig, getDevice, $GraphicsDevice*)},
-	{"getNormalizingTransform", "()Ljava/awt/geom/AffineTransform;", nullptr, $PUBLIC, $virtualMethod(BufferedImageGraphicsConfig, getNormalizingTransform, $AffineTransform*)},
-	{}
-};
-
-$ClassInfo _BufferedImageGraphicsConfig_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.awt.image.BufferedImageGraphicsConfig",
-	"java.awt.GraphicsConfiguration",
-	nullptr,
-	_BufferedImageGraphicsConfig_FieldInfo_,
-	_BufferedImageGraphicsConfig_MethodInfo_
-};
-
-$Object* allocate$BufferedImageGraphicsConfig($Class* clazz) {
-	return $of($alloc(BufferedImageGraphicsConfig));
-}
-
 $BufferedImageGraphicsConfigArray* BufferedImageGraphicsConfig::standardConfigs = nullptr;
 $BufferedImageGraphicsConfigArray* BufferedImageGraphicsConfig::scaledConfigs = nullptr;
 
 BufferedImageGraphicsConfig* BufferedImageGraphicsConfig::getConfig($BufferedImage* bImg) {
 	$init(BufferedImageGraphicsConfig);
-	return getConfig(bImg, (double)1, (double)1);
+	return getConfig(bImg, 1, 1);
 }
 
 BufferedImageGraphicsConfig* BufferedImageGraphicsConfig::getConfig($BufferedImage* bImg, double scaleX, double scaleY) {
 	$init(BufferedImageGraphicsConfig);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(BufferedImageGraphicsConfig, ret, nullptr);
 	int32_t type = $nc(bImg)->getType();
 	$var($BufferedImageGraphicsConfigArray, configs, (scaleX == 1 && scaleY == 1) ? BufferedImageGraphicsConfig::standardConfigs : BufferedImageGraphicsConfig::scaledConfigs);
@@ -113,16 +72,16 @@ BufferedImageGraphicsConfig* BufferedImageGraphicsConfig::getConfig($BufferedIma
 }
 
 void BufferedImageGraphicsConfig::init$($BufferedImage* bufImg, $Component* comp, double scaleX, double scaleY) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$GraphicsConfiguration::init$();
 	if (comp == nullptr) {
 		$set(this, device, $new($BufferedImageDevice, this));
 	} else {
-		$var($Graphics2D, g2d, $cast($Graphics2D, $nc(comp)->getGraphics()));
-		$set(this, device, $nc($($nc(g2d)->getDeviceConfiguration()))->getDevice());
+		$var($Graphics2D, g2d, $cast($Graphics2D, comp->getGraphics()));
+		$set(this, device, $$nc($nc(g2d)->getDeviceConfiguration())->getDevice());
 	}
 	$set(this, model, $nc(bufImg)->getColorModel());
-	$set(this, raster, $nc($(bufImg->getRaster()))->createCompatibleWritableRaster(1, 1));
+	$set(this, raster, $$nc(bufImg->getRaster())->createCompatibleWritableRaster(1, 1));
 	this->scaleX = scaleX;
 	this->scaleY = scaleY;
 }
@@ -133,7 +92,7 @@ $GraphicsDevice* BufferedImageGraphicsConfig::getDevice() {
 
 $BufferedImage* BufferedImageGraphicsConfig::createCompatibleImage(int32_t width, int32_t height) {
 	$var($WritableRaster, wr, $nc(this->raster)->createCompatibleWritableRaster(width, height));
-	return $new($BufferedImage, this->model, wr, $nc(this->model)->isAlphaPremultiplied(), ($Hashtable*)nullptr);
+	return $new($BufferedImage, this->model, wr, $nc(this->model)->isAlphaPremultiplied(), nullptr);
 }
 
 $ColorModel* BufferedImageGraphicsConfig::getColorModel() {
@@ -146,21 +105,13 @@ $ColorModel* BufferedImageGraphicsConfig::getColorModel(int32_t transparency) {
 	}
 	switch (transparency) {
 	case $Transparency::OPAQUE:
-		{
-			return $new($DirectColorModel, 24, 0x00FF0000, 0x0000FF00, 255);
-		}
+		return $new($DirectColorModel, 24, 0x00ff0000, 0x0000ff00, 255);
 	case $Transparency::BITMASK:
-		{
-			return $new($DirectColorModel, 25, 0x00FF0000, 0x0000FF00, 255, 0x01000000);
-		}
+		return $new($DirectColorModel, 25, 0x00ff0000, 0x0000ff00, 255, 0x01000000);
 	case $Transparency::TRANSLUCENT:
-		{
-			return $ColorModel::getRGBdefault();
-		}
+		return $ColorModel::getRGBdefault();
 	default:
-		{
-			return nullptr;
-		}
+		return nullptr;
 	}
 }
 
@@ -176,7 +127,7 @@ $Rectangle* BufferedImageGraphicsConfig::getBounds() {
 	return $new($Rectangle, 0, 0, $Integer::MAX_VALUE, $Integer::MAX_VALUE);
 }
 
-void clinit$BufferedImageGraphicsConfig($Class* class$) {
+void BufferedImageGraphicsConfig::clinit$($Class* clazz) {
 	$assignStatic(BufferedImageGraphicsConfig::standardConfigs, $new($BufferedImageGraphicsConfigArray, BufferedImageGraphicsConfig::numconfigs));
 	$assignStatic(BufferedImageGraphicsConfig::scaledConfigs, $new($BufferedImageGraphicsConfigArray, BufferedImageGraphicsConfig::numconfigs));
 }
@@ -185,7 +136,41 @@ BufferedImageGraphicsConfig::BufferedImageGraphicsConfig() {
 }
 
 $Class* BufferedImageGraphicsConfig::load$($String* name, bool initialize) {
-	$loadClass(BufferedImageGraphicsConfig, name, initialize, &_BufferedImageGraphicsConfig_ClassInfo_, clinit$BufferedImageGraphicsConfig, allocate$BufferedImageGraphicsConfig);
+	$FieldInfo fieldInfos$$[] = {
+		{"numconfigs", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BufferedImageGraphicsConfig, numconfigs)},
+		{"standardConfigs", "[Lsun/awt/image/BufferedImageGraphicsConfig;", nullptr, $PRIVATE | $STATIC, $staticField(BufferedImageGraphicsConfig, standardConfigs)},
+		{"scaledConfigs", "[Lsun/awt/image/BufferedImageGraphicsConfig;", nullptr, $PRIVATE | $STATIC, $staticField(BufferedImageGraphicsConfig, scaledConfigs)},
+		{"device", "Ljava/awt/GraphicsDevice;", nullptr, $PRIVATE | $FINAL, $field(BufferedImageGraphicsConfig, device)},
+		{"model", "Ljava/awt/image/ColorModel;", nullptr, $PRIVATE | $FINAL, $field(BufferedImageGraphicsConfig, model)},
+		{"raster", "Ljava/awt/image/Raster;", nullptr, $PRIVATE | $FINAL, $field(BufferedImageGraphicsConfig, raster)},
+		{"scaleX", "D", nullptr, $PRIVATE | $FINAL, $field(BufferedImageGraphicsConfig, scaleX)},
+		{"scaleY", "D", nullptr, $PRIVATE | $FINAL, $field(BufferedImageGraphicsConfig, scaleY)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/image/BufferedImage;Ljava/awt/Component;DD)V", nullptr, $PUBLIC, $method(BufferedImageGraphicsConfig, init$, void, $BufferedImage*, $Component*, double, double)},
+		{"createCompatibleImage", "(II)Ljava/awt/image/BufferedImage;", nullptr, $PUBLIC, $virtualMethod(BufferedImageGraphicsConfig, createCompatibleImage, $BufferedImage*, int32_t, int32_t)},
+		{"getBounds", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(BufferedImageGraphicsConfig, getBounds, $Rectangle*)},
+		{"getColorModel", "()Ljava/awt/image/ColorModel;", nullptr, $PUBLIC, $virtualMethod(BufferedImageGraphicsConfig, getColorModel, $ColorModel*)},
+		{"getColorModel", "(I)Ljava/awt/image/ColorModel;", nullptr, $PUBLIC, $virtualMethod(BufferedImageGraphicsConfig, getColorModel, $ColorModel*, int32_t)},
+		{"getConfig", "(Ljava/awt/image/BufferedImage;)Lsun/awt/image/BufferedImageGraphicsConfig;", nullptr, $PUBLIC | $STATIC, $staticMethod(BufferedImageGraphicsConfig, getConfig, BufferedImageGraphicsConfig*, $BufferedImage*)},
+		{"getConfig", "(Ljava/awt/image/BufferedImage;DD)Lsun/awt/image/BufferedImageGraphicsConfig;", nullptr, $PUBLIC | $STATIC, $staticMethod(BufferedImageGraphicsConfig, getConfig, BufferedImageGraphicsConfig*, $BufferedImage*, double, double)},
+		{"getDefaultTransform", "()Ljava/awt/geom/AffineTransform;", nullptr, $PUBLIC, $virtualMethod(BufferedImageGraphicsConfig, getDefaultTransform, $AffineTransform*)},
+		{"getDevice", "()Ljava/awt/GraphicsDevice;", nullptr, $PUBLIC, $virtualMethod(BufferedImageGraphicsConfig, getDevice, $GraphicsDevice*)},
+		{"getNormalizingTransform", "()Ljava/awt/geom/AffineTransform;", nullptr, $PUBLIC, $virtualMethod(BufferedImageGraphicsConfig, getNormalizingTransform, $AffineTransform*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.awt.image.BufferedImageGraphicsConfig",
+		"java.awt.GraphicsConfiguration",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(BufferedImageGraphicsConfig, name, initialize, &classInfo$$, BufferedImageGraphicsConfig::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(BufferedImageGraphicsConfig);
+	});
 	return class$;
 }
 

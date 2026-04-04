@@ -44,6 +44,7 @@ class AbstractLine : public ::javax::sound::sampled::Line {
 public:
 	AbstractLine();
 	virtual void close() override {}
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::javax::sound::sampled::Line$Info* info, ::com::sun::media::sound::AbstractMixer* mixer, $Array<::javax::sound::sampled::Control>* controls);
 	virtual void addLineListener(::javax::sound::sampled::LineListener* listener) override;
 	virtual ::javax::sound::sampled::Control* getControl(::javax::sound::sampled::Control$Type* controlType) override;

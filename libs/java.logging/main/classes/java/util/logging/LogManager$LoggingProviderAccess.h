@@ -36,6 +36,7 @@ public:
 	virtual bool equals(Object$* arg0) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual ::java::util::logging::Logger* demandLoggerFor(::java::util::logging::LogManager* manager, $String* name, ::java::lang::Module* module) override;
 	virtual $Object* run() override;

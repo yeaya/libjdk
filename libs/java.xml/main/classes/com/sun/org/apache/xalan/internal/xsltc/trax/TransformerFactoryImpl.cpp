@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/trax/TransformerFactoryImpl.h>
-
 #include <com/sun/org/apache/xalan/internal/utils/FeaturePropertyBase$State.h>
 #include <com/sun/org/apache/xalan/internal/utils/ObjectFactory.h>
 #include <com/sun/org/apache/xalan/internal/utils/XMLSecurityManager.h>
@@ -7,7 +6,6 @@
 #include <com/sun/org/apache/xalan/internal/utils/XMLSecurityPropertyManager.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/Constants.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/Parser.h>
-#include <com/sun/org/apache/xalan/internal/xsltc/compiler/SourceLoader.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/XSLTC.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/util/ErrorMsg.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/dom/XSLTCDTMManager.h>
@@ -25,12 +23,10 @@
 #include <java/io/File.h>
 #include <java/io/FileInputStream.h>
 #include <java/io/FileNotFoundException.h>
-#include <java/io/FilenameFilter.h>
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
 #include <java/lang/ClassLoader.h>
 #include <java/lang/ClassNotFoundException.h>
-#include <java/lang/Enum.h>
 #include <java/lang/NumberFormatException.h>
 #include <java/lang/SecurityManager.h>
 #include <java/net/MalformedURLException.h>
@@ -78,7 +74,6 @@
 #include <jdk/xml/internal/SecuritySupport.h>
 #include <jdk/xml/internal/TransformErrorListener.h>
 #include <org/w3c/dom/Node.h>
-#include <org/xml/sax/ContentHandler.h>
 #include <org/xml/sax/InputSource.h>
 #include <org/xml/sax/SAXException.h>
 #include <org/xml/sax/XMLFilter.h>
@@ -156,8 +151,6 @@ using $XMLSecurityManager = ::com::sun::org::apache::xalan::internal::utils::XML
 using $XMLSecurityPropertyManager = ::com::sun::org::apache::xalan::internal::utils::XMLSecurityPropertyManager;
 using $XMLSecurityPropertyManager$Property = ::com::sun::org::apache::xalan::internal::utils::XMLSecurityPropertyManager$Property;
 using $Constants = ::com::sun::org::apache::xalan::internal::xsltc::compiler::Constants;
-using $Parser = ::com::sun::org::apache::xalan::internal::xsltc::compiler::Parser;
-using $SourceLoader = ::com::sun::org::apache::xalan::internal::xsltc::compiler::SourceLoader;
 using $XSLTC = ::com::sun::org::apache::xalan::internal::xsltc::compiler::XSLTC;
 using $ErrorMsg = ::com::sun::org::apache::xalan::internal::xsltc::compiler::util::ErrorMsg;
 using $XSLTCDTMManager = ::com::sun::org::apache::xalan::internal::xsltc::dom::XSLTCDTMManager;
@@ -175,15 +168,12 @@ using $StylesheetPIHandler = ::com::sun::org::apache::xml::internal::utils::Styl
 using $File = ::java::io::File;
 using $FileInputStream = ::java::io::FileInputStream;
 using $FileNotFoundException = ::java::io::FileNotFoundException;
-using $FilenameFilter = ::java::io::FilenameFilter;
 using $IOException = ::java::io::IOException;
 using $InputStream = ::java::io::InputStream;
-using $PrintStream = ::java::io::PrintStream;
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $ClassLoader = ::java::lang::ClassLoader;
 using $ClassNotFoundException = ::java::lang::ClassNotFoundException;
-using $Enum = ::java::lang::Enum;
 using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
@@ -204,10 +194,8 @@ using $ZipFile = ::java::util::zip::ZipFile;
 using $XMLConstants = ::javax::xml::XMLConstants;
 using $CatalogException = ::javax::xml::catalog::CatalogException;
 using $CatalogFeatures = ::javax::xml::catalog::CatalogFeatures;
-using $CatalogFeatures$Builder = ::javax::xml::catalog::CatalogFeatures$Builder;
 using $CatalogFeatures$Feature = ::javax::xml::catalog::CatalogFeatures$Feature;
 using $CatalogManager = ::javax::xml::catalog::CatalogManager;
-using $CatalogResolver = ::javax::xml::catalog::CatalogResolver;
 using $ErrorListener = ::javax::xml::transform::ErrorListener;
 using $Source = ::javax::xml::transform::Source;
 using $Templates = ::javax::xml::transform::Templates;
@@ -236,7 +224,6 @@ using $JdkXmlUtils = ::jdk::xml::internal::JdkXmlUtils;
 using $SecuritySupport = ::jdk::xml::internal::SecuritySupport;
 using $TransformErrorListener = ::jdk::xml::internal::TransformErrorListener;
 using $Node = ::org::w3c::dom::Node;
-using $ContentHandler = ::org::xml::sax::ContentHandler;
 using $InputSource = ::org::xml::sax::InputSource;
 using $SAXException = ::org::xml::sax::SAXException;
 using $XMLFilter = ::org::xml::sax::XMLFilter;
@@ -250,123 +237,6 @@ namespace com {
 					namespace internal {
 						namespace xsltc {
 							namespace trax {
-
-$FieldInfo _TransformerFactoryImpl_FieldInfo_[] = {
-	{"TRANSLET_NAME", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TransformerFactoryImpl, TRANSLET_NAME)},
-	{"DESTINATION_DIRECTORY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TransformerFactoryImpl, DESTINATION_DIRECTORY)},
-	{"PACKAGE_NAME", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TransformerFactoryImpl, PACKAGE_NAME)},
-	{"JAR_NAME", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TransformerFactoryImpl, JAR_NAME)},
-	{"GENERATE_TRANSLET", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TransformerFactoryImpl, GENERATE_TRANSLET)},
-	{"AUTO_TRANSLET", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TransformerFactoryImpl, AUTO_TRANSLET)},
-	{"USE_CLASSPATH", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TransformerFactoryImpl, USE_CLASSPATH)},
-	{"DEBUG", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TransformerFactoryImpl, DEBUG)},
-	{"ENABLE_INLINING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TransformerFactoryImpl, ENABLE_INLINING)},
-	{"INDENT_NUMBER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TransformerFactoryImpl, INDENT_NUMBER)},
-	{"_defaultListener", "Ljavax/xml/transform/ErrorListener;", nullptr, $PRIVATE | $FINAL, $field(TransformerFactoryImpl, _defaultListener)},
-	{"_errorListener", "Ljavax/xml/transform/ErrorListener;", nullptr, $PRIVATE, $field(TransformerFactoryImpl, _errorListener)},
-	{"_hasUserErrListener", "Z", nullptr, $PRIVATE, $field(TransformerFactoryImpl, _hasUserErrListener)},
-	{"_uriResolver", "Ljavax/xml/transform/URIResolver;", nullptr, $PRIVATE, $field(TransformerFactoryImpl, _uriResolver)},
-	{"DEFAULT_TRANSLET_NAME", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(TransformerFactoryImpl, DEFAULT_TRANSLET_NAME)},
-	{"_transletName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(TransformerFactoryImpl, _transletName)},
-	{"_destinationDirectory", "Ljava/lang/String;", nullptr, $PRIVATE, $field(TransformerFactoryImpl, _destinationDirectory)},
-	{"DEFAULT_TRANSLATE_PACKAGE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(TransformerFactoryImpl, DEFAULT_TRANSLATE_PACKAGE)},
-	{"_packageName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(TransformerFactoryImpl, _packageName)},
-	{"_jarFileName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(TransformerFactoryImpl, _jarFileName)},
-	{"_piParams", "Ljava/util/Map;", "Ljava/util/Map<Ljavax/xml/transform/Source;Lcom/sun/org/apache/xalan/internal/xsltc/trax/TransformerFactoryImpl$PIParamWrapper;>;", $PRIVATE, $field(TransformerFactoryImpl, _piParams)},
-	{"_debug", "Z", nullptr, $PRIVATE, $field(TransformerFactoryImpl, _debug)},
-	{"_enableInlining", "Z", nullptr, $PRIVATE, $field(TransformerFactoryImpl, _enableInlining)},
-	{"_generateTranslet", "Z", nullptr, $PRIVATE, $field(TransformerFactoryImpl, _generateTranslet)},
-	{"_autoTranslet", "Z", nullptr, $PRIVATE, $field(TransformerFactoryImpl, _autoTranslet)},
-	{"_useClasspath", "Z", nullptr, $PRIVATE, $field(TransformerFactoryImpl, _useClasspath)},
-	{"_indentNumber", "I", nullptr, $PRIVATE, $field(TransformerFactoryImpl, _indentNumber)},
-	{"_isNotSecureProcessing", "Z", nullptr, $PRIVATE, $field(TransformerFactoryImpl, _isNotSecureProcessing)},
-	{"_isSecureMode", "Z", nullptr, $PRIVATE, $field(TransformerFactoryImpl, _isSecureMode)},
-	{"_overrideDefaultParser", "Z", nullptr, $PRIVATE, $field(TransformerFactoryImpl, _overrideDefaultParser)},
-	{"_accessExternalStylesheet", "Ljava/lang/String;", nullptr, $PRIVATE, $field(TransformerFactoryImpl, _accessExternalStylesheet)},
-	{"_accessExternalDTD", "Ljava/lang/String;", nullptr, $PRIVATE, $field(TransformerFactoryImpl, _accessExternalDTD)},
-	{"_xmlSecurityPropertyMgr", "Lcom/sun/org/apache/xalan/internal/utils/XMLSecurityPropertyManager;", nullptr, $PRIVATE, $field(TransformerFactoryImpl, _xmlSecurityPropertyMgr)},
-	{"_xmlSecurityManager", "Lcom/sun/org/apache/xalan/internal/utils/XMLSecurityManager;", nullptr, $PRIVATE, $field(TransformerFactoryImpl, _xmlSecurityManager)},
-	{"_xmlFeatures", "Ljdk/xml/internal/JdkXmlFeatures;", nullptr, $PRIVATE | $FINAL, $field(TransformerFactoryImpl, _xmlFeatures)},
-	{"_extensionClassLoader", "Ljdk/xml/internal/JdkProperty;", "Ljdk/xml/internal/JdkProperty<Ljava/lang/ClassLoader;>;", $PRIVATE, $field(TransformerFactoryImpl, _extensionClassLoader)},
-	{"_xsltcExtensionFunctions", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/Class<*>;>;", $PRIVATE, $field(TransformerFactoryImpl, _xsltcExtensionFunctions)},
-	{"_catalogUriResolver", "Ljavax/xml/catalog/CatalogResolver;", nullptr, 0, $field(TransformerFactoryImpl, _catalogUriResolver)},
-	{"_catalogFeatures", "Ljavax/xml/catalog/CatalogFeatures;", nullptr, 0, $field(TransformerFactoryImpl, _catalogFeatures)},
-	{"cfBuilder", "Ljavax/xml/catalog/CatalogFeatures$Builder;", nullptr, 0, $field(TransformerFactoryImpl, cfBuilder)},
-	{"_catalogFiles", "Ljava/lang/String;", nullptr, 0, $field(TransformerFactoryImpl, _catalogFiles)},
-	{"_catalogDefer", "Ljava/lang/String;", nullptr, 0, $field(TransformerFactoryImpl, _catalogDefer)},
-	{"_catalogPrefer", "Ljava/lang/String;", nullptr, 0, $field(TransformerFactoryImpl, _catalogPrefer)},
-	{"_catalogResolve", "Ljava/lang/String;", nullptr, 0, $field(TransformerFactoryImpl, _catalogResolve)},
-	{"_cdataChunkSize", "I", nullptr, 0, $field(TransformerFactoryImpl, _cdataChunkSize)},
-	{}
-};
-
-$MethodInfo _TransformerFactoryImpl_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TransformerFactoryImpl, init$, void)},
-	{"buildCatalogFeatures", "()Ljavax/xml/catalog/CatalogFeatures;", nullptr, $PRIVATE, $method(TransformerFactoryImpl, buildCatalogFeatures, $CatalogFeatures*)},
-	{"createNewDTMManagerInstance", "()Lcom/sun/org/apache/xalan/internal/xsltc/dom/XSLTCDTMManager;", nullptr, $PROTECTED | $FINAL, $method(TransformerFactoryImpl, createNewDTMManagerInstance, $XSLTCDTMManager*)},
-	{"getAssociatedStylesheet", "(Ljavax/xml/transform/Source;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljavax/xml/transform/Source;", nullptr, $PUBLIC, $virtualMethod(TransformerFactoryImpl, getAssociatedStylesheet, $Source*, $Source*, $String*, $String*, $String*), "javax.xml.transform.TransformerConfigurationException"},
-	{"getAttribute", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(TransformerFactoryImpl, getAttribute, $Object*, $String*), "java.lang.IllegalArgumentException"},
-	{"getBytecodesFromClasses", "(Ljavax/xml/transform/Source;Ljava/lang/String;)[[B", nullptr, $PRIVATE, $method(TransformerFactoryImpl, getBytecodesFromClasses, $byteArray2*, $Source*, $String*)},
-	{"getBytecodesFromJar", "(Ljavax/xml/transform/Source;Ljava/lang/String;)[[B", nullptr, $PRIVATE, $method(TransformerFactoryImpl, getBytecodesFromJar, $byteArray2*, $Source*, $String*)},
-	{"getErrorListener", "()Ljavax/xml/transform/ErrorListener;", nullptr, $PUBLIC, $virtualMethod(TransformerFactoryImpl, getErrorListener, $ErrorListener*)},
-	{"getExternalExtensionsMap", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/lang/Class<*>;>;", $PUBLIC, $virtualMethod(TransformerFactoryImpl, getExternalExtensionsMap, $Map*)},
-	{"getFeature", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(TransformerFactoryImpl, getFeature, bool, $String*)},
-	{"getJdkXmlFeatures", "()Ljdk/xml/internal/JdkXmlFeatures;", nullptr, $PUBLIC, $virtualMethod(TransformerFactoryImpl, getJdkXmlFeatures, $JdkXmlFeatures*)},
-	{"getPackageName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(TransformerFactoryImpl, getPackageName, $String*)},
-	{"getStylesheetFileName", "(Ljavax/xml/transform/Source;)Ljava/lang/String;", nullptr, $PRIVATE, $method(TransformerFactoryImpl, getStylesheetFileName, $String*, $Source*)},
-	{"getTransletBaseName", "(Ljavax/xml/transform/Source;)Ljava/lang/String;", nullptr, $PRIVATE, $method(TransformerFactoryImpl, getTransletBaseName, $String*, $Source*)},
-	{"getURIResolver", "()Ljavax/xml/transform/URIResolver;", nullptr, $PUBLIC, $virtualMethod(TransformerFactoryImpl, getURIResolver, $URIResolver*)},
-	{"loadSource", "(Ljava/lang/String;Ljava/lang/String;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/XSLTC;)Lorg/xml/sax/InputSource;", nullptr, $PUBLIC, $virtualMethod(TransformerFactoryImpl, loadSource, $InputSource*, $String*, $String*, $XSLTC*)},
-	{"newTemplates", "(Ljavax/xml/transform/Source;)Ljavax/xml/transform/Templates;", nullptr, $PUBLIC, $virtualMethod(TransformerFactoryImpl, newTemplates, $Templates*, $Source*), "javax.xml.transform.TransformerConfigurationException"},
-	{"newTemplatesHandler", "()Ljavax/xml/transform/sax/TemplatesHandler;", nullptr, $PUBLIC, $virtualMethod(TransformerFactoryImpl, newTemplatesHandler, $TemplatesHandler*), "javax.xml.transform.TransformerConfigurationException"},
-	{"newTransformer", "()Ljavax/xml/transform/Transformer;", nullptr, $PUBLIC, $virtualMethod(TransformerFactoryImpl, newTransformer, $Transformer*), "javax.xml.transform.TransformerConfigurationException"},
-	{"newTransformer", "(Ljavax/xml/transform/Source;)Ljavax/xml/transform/Transformer;", nullptr, $PUBLIC, $virtualMethod(TransformerFactoryImpl, newTransformer, $Transformer*, $Source*), "javax.xml.transform.TransformerConfigurationException"},
-	{"newTransformerHandler", "()Ljavax/xml/transform/sax/TransformerHandler;", nullptr, $PUBLIC, $virtualMethod(TransformerFactoryImpl, newTransformerHandler, $TransformerHandler*), "javax.xml.transform.TransformerConfigurationException"},
-	{"newTransformerHandler", "(Ljavax/xml/transform/Source;)Ljavax/xml/transform/sax/TransformerHandler;", nullptr, $PUBLIC, $virtualMethod(TransformerFactoryImpl, newTransformerHandler, $TransformerHandler*, $Source*), "javax.xml.transform.TransformerConfigurationException"},
-	{"newTransformerHandler", "(Ljavax/xml/transform/Templates;)Ljavax/xml/transform/sax/TransformerHandler;", nullptr, $PUBLIC, $virtualMethod(TransformerFactoryImpl, newTransformerHandler, $TransformerHandler*, $Templates*), "javax.xml.transform.TransformerConfigurationException"},
-	{"newXMLFilter", "(Ljavax/xml/transform/Source;)Lorg/xml/sax/XMLFilter;", nullptr, $PUBLIC, $virtualMethod(TransformerFactoryImpl, newXMLFilter, $XMLFilter*, $Source*), "javax.xml.transform.TransformerConfigurationException"},
-	{"newXMLFilter", "(Ljavax/xml/transform/Templates;)Lorg/xml/sax/XMLFilter;", nullptr, $PUBLIC, $virtualMethod(TransformerFactoryImpl, newXMLFilter, $XMLFilter*, $Templates*), "javax.xml.transform.TransformerConfigurationException"},
-	{"overrideDefaultParser", "()Z", nullptr, $PUBLIC, $virtualMethod(TransformerFactoryImpl, overrideDefaultParser, bool)},
-	{"passErrorsToListener", "(Ljava/util/List;)V", "(Ljava/util/List<Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ErrorMsg;>;)V", $PRIVATE, $method(TransformerFactoryImpl, passErrorsToListener, void, $List*)},
-	{"passWarningsToListener", "(Ljava/util/List;)V", "(Ljava/util/List<Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ErrorMsg;>;)V", $PRIVATE, $method(TransformerFactoryImpl, passWarningsToListener, void, $List*), "javax.xml.transform.TransformerException"},
-	{"readFromInputStream", "([BLjava/io/InputStream;I)V", nullptr, $PRIVATE, $method(TransformerFactoryImpl, readFromInputStream, void, $bytes*, $InputStream*, int32_t), "java.io.IOException"},
-	{"resetTransientAttributes", "()V", nullptr, $PRIVATE, $method(TransformerFactoryImpl, resetTransientAttributes, void)},
-	{"setAttribute", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(TransformerFactoryImpl, setAttribute, void, $String*, Object$*), "java.lang.IllegalArgumentException"},
-	{"setErrorListener", "(Ljavax/xml/transform/ErrorListener;)V", nullptr, $PUBLIC, $virtualMethod(TransformerFactoryImpl, setErrorListener, void, $ErrorListener*), "java.lang.IllegalArgumentException"},
-	{"setFeature", "(Ljava/lang/String;Z)V", nullptr, $PUBLIC, $virtualMethod(TransformerFactoryImpl, setFeature, void, $String*, bool), "javax.xml.transform.TransformerConfigurationException"},
-	{"setURIResolver", "(Ljavax/xml/transform/URIResolver;)V", nullptr, $PUBLIC, $virtualMethod(TransformerFactoryImpl, setURIResolver, void, $URIResolver*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _TransformerFactoryImpl_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xalan.internal.xsltc.trax.TransformerFactoryImpl$PIParamWrapper", "com.sun.org.apache.xalan.internal.xsltc.trax.TransformerFactoryImpl", "PIParamWrapper", $PRIVATE | $STATIC},
-	{"com.sun.org.apache.xalan.internal.xsltc.trax.TransformerFactoryImpl$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _TransformerFactoryImpl_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xalan.internal.xsltc.trax.TransformerFactoryImpl",
-	"javax.xml.transform.sax.SAXTransformerFactory",
-	"com.sun.org.apache.xalan.internal.xsltc.compiler.SourceLoader",
-	_TransformerFactoryImpl_FieldInfo_,
-	_TransformerFactoryImpl_MethodInfo_,
-	nullptr,
-	nullptr,
-	_TransformerFactoryImpl_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xalan.internal.xsltc.trax.TransformerFactoryImpl$PIParamWrapper,com.sun.org.apache.xalan.internal.xsltc.trax.TransformerFactoryImpl$1"
-};
-
-$Object* allocate$TransformerFactoryImpl($Class* clazz) {
-	return $of($alloc(TransformerFactoryImpl));
-}
 
 int32_t TransformerFactoryImpl::hashCode() {
 	 return this->$SAXTransformerFactory::hashCode();
@@ -435,11 +305,11 @@ void TransformerFactoryImpl::init$() {
 	}
 	$set(this, _xmlFeatures, $new($JdkXmlFeatures, !this->_isNotSecureProcessing));
 	$init($JdkXmlFeatures$XmlFeature);
-	this->_overrideDefaultParser = $nc(this->_xmlFeatures)->getFeature($JdkXmlFeatures$XmlFeature::JDK_OVERRIDE_PARSER);
+	this->_overrideDefaultParser = this->_xmlFeatures->getFeature($JdkXmlFeatures$XmlFeature::JDK_OVERRIDE_PARSER);
 	$set(this, _xmlSecurityPropertyMgr, $new($XMLSecurityPropertyManager));
 	$init($XMLSecurityPropertyManager$Property);
-	$set(this, _accessExternalDTD, $nc(this->_xmlSecurityPropertyMgr)->getValue(static_cast<$Enum*>($XMLSecurityPropertyManager$Property::ACCESS_EXTERNAL_DTD)));
-	$set(this, _accessExternalStylesheet, $nc(this->_xmlSecurityPropertyMgr)->getValue(static_cast<$Enum*>($XMLSecurityPropertyManager$Property::ACCESS_EXTERNAL_STYLESHEET)));
+	$set(this, _accessExternalDTD, this->_xmlSecurityPropertyMgr->getValue($XMLSecurityPropertyManager$Property::ACCESS_EXTERNAL_DTD));
+	$set(this, _accessExternalStylesheet, $nc(this->_xmlSecurityPropertyMgr)->getValue($XMLSecurityPropertyManager$Property::ACCESS_EXTERNAL_STYLESHEET));
 	$set(this, _xmlSecurityManager, $new($XMLSecurityManager, true));
 	$set(this, _xsltcExtensionFunctions, nullptr);
 	$init($JdkProperty$ImplPropMap);
@@ -452,10 +322,10 @@ $Map* TransformerFactoryImpl::getExternalExtensionsMap() {
 }
 
 void TransformerFactoryImpl::setErrorListener($ErrorListener* listener) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (listener == nullptr) {
 		$init($ErrorMsg);
-		$var($ErrorMsg, err, $new($ErrorMsg, $ErrorMsg::ERROR_LISTENER_NULL_ERR, $of("TransformerFactory"_s)));
+		$var($ErrorMsg, err, $new($ErrorMsg, $ErrorMsg::ERROR_LISTENER_NULL_ERR, "TransformerFactory"_s));
 		$throwNew($IllegalArgumentException, $(err->toString()));
 	}
 	this->_hasUserErrListener = true;
@@ -471,7 +341,7 @@ $String* TransformerFactoryImpl::getPackageName() {
 }
 
 $Object* TransformerFactoryImpl::getAttribute($String* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(name)->equals(TransformerFactoryImpl::TRANSLET_NAME)) {
 		return $of(this->_transletName);
 	} else if (name->equals(TransformerFactoryImpl::GENERATE_TRANSLET)) {
@@ -480,65 +350,55 @@ $Object* TransformerFactoryImpl::getAttribute($String* name) {
 		return $of($Boolean::valueOf(this->_autoTranslet));
 	} else if (name->equals(TransformerFactoryImpl::ENABLE_INLINING)) {
 		if (this->_enableInlining) {
-			$init($Boolean);
 			return $of($Boolean::TRUE);
 		} else {
-			$init($Boolean);
 			return $of($Boolean::FALSE);
 		}
 	} else {
 		$init($JdkConstants);
 		if (name->equals($JdkConstants::SECURITY_MANAGER)) {
-			return $of(this->_xmlSecurityManager);
+			return this->_xmlSecurityManager;
 		} else {
 			$init($JdkProperty$ImplPropMap);
 			if ($JdkProperty$ImplPropMap::EXTCLSLOADER->is(name)) {
-				return $of((this->_extensionClassLoader == nullptr) ? ($Object*)nullptr : $nc(this->_extensionClassLoader)->getValue());
+				return (this->_extensionClassLoader == nullptr) ? ($Object*)nullptr : this->_extensionClassLoader->getValue();
 			} else {
 				$init($JdkXmlUtils);
 				if ($nc($JdkXmlUtils::CATALOG_FILES)->equals(name)) {
 					return $of(this->_catalogFiles);
+				} else if ($nc($JdkXmlUtils::CATALOG_DEFER)->equals(name)) {
+					return $of(this->_catalogDefer);
+				} else if ($nc($JdkXmlUtils::CATALOG_PREFER)->equals(name)) {
+					return $of(this->_catalogPrefer);
+				} else if ($nc($JdkXmlUtils::CATALOG_RESOLVE)->equals(name)) {
+					return $of(this->_catalogResolve);
 				} else {
-					if ($nc($JdkXmlUtils::CATALOG_DEFER)->equals(name)) {
-						return $of(this->_catalogDefer);
-					} else {
-						if ($nc($JdkXmlUtils::CATALOG_PREFER)->equals(name)) {
-							return $of(this->_catalogPrefer);
-						} else {
-							if ($nc($JdkXmlUtils::CATALOG_RESOLVE)->equals(name)) {
-								return $of(this->_catalogResolve);
-							} else {
-								$init($JdkXmlFeatures);
-								if ($nc($JdkXmlFeatures::CATALOG_FEATURES)->equals(name)) {
-									return $of(buildCatalogFeatures());
-								} else {
-									if ($JdkProperty$ImplPropMap::CDATACHUNKSIZE->is(name)) {
-										return $of($Integer::valueOf(this->_cdataChunkSize));
-									}
-								}
-							}
-						}
+					$init($JdkXmlFeatures);
+					if ($nc($JdkXmlFeatures::CATALOG_FEATURES)->equals(name)) {
+						return buildCatalogFeatures();
+					} else if ($JdkProperty$ImplPropMap::CDATACHUNKSIZE->is(name)) {
+						return $of($Integer::valueOf(this->_cdataChunkSize));
 					}
 				}
 			}
 		}
 	}
-	$var($String, propertyValue, (this->_xmlSecurityManager != nullptr) ? $nc(this->_xmlSecurityManager)->getLimitAsString(name) : ($String*)nullptr);
+	$var($String, propertyValue, (this->_xmlSecurityManager != nullptr) ? this->_xmlSecurityManager->getLimitAsString(name) : ($String*)nullptr);
 	if (propertyValue != nullptr) {
 		return $of(propertyValue);
 	} else {
-		$assign(propertyValue, (this->_xmlSecurityPropertyMgr != nullptr) ? $nc(this->_xmlSecurityPropertyMgr)->getValue(name) : ($String*)nullptr);
+		$assign(propertyValue, (this->_xmlSecurityPropertyMgr != nullptr) ? this->_xmlSecurityPropertyMgr->getValue(name) : ($String*)nullptr);
 		if (propertyValue != nullptr) {
 			return $of(propertyValue);
 		}
 	}
 	$init($ErrorMsg);
-	$var($ErrorMsg, err, $new($ErrorMsg, $ErrorMsg::JAXP_INVALID_ATTR_ERR, $of(name)));
+	$var($ErrorMsg, err, $new($ErrorMsg, $ErrorMsg::JAXP_INVALID_ATTR_ERR, name));
 	$throwNew($IllegalArgumentException, $(err->toString()));
 }
 
 void TransformerFactoryImpl::setAttribute($String* name, Object$* value) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(name)->equals(TransformerFactoryImpl::TRANSLET_NAME) && $instanceOf($String, value)) {
 		$set(this, _transletName, $cast($String, value));
 		return;
@@ -553,42 +413,42 @@ void TransformerFactoryImpl::setAttribute($String* name, Object$* value) {
 		return;
 	} else if (name->equals(TransformerFactoryImpl::GENERATE_TRANSLET)) {
 		if ($instanceOf($Boolean, value)) {
-			this->_generateTranslet = $nc(($cast($Boolean, value)))->booleanValue();
+			this->_generateTranslet = $cast($Boolean, value)->booleanValue();
 			return;
 		} else if ($instanceOf($String, value)) {
-			this->_generateTranslet = $nc(($cast($String, value)))->equalsIgnoreCase("true"_s);
+			this->_generateTranslet = $cast($String, value)->equalsIgnoreCase("true"_s);
 			return;
 		}
 	} else if (name->equals(TransformerFactoryImpl::AUTO_TRANSLET)) {
 		if ($instanceOf($Boolean, value)) {
-			this->_autoTranslet = $nc(($cast($Boolean, value)))->booleanValue();
+			this->_autoTranslet = $cast($Boolean, value)->booleanValue();
 			return;
 		} else if ($instanceOf($String, value)) {
-			this->_autoTranslet = $nc(($cast($String, value)))->equalsIgnoreCase("true"_s);
+			this->_autoTranslet = $cast($String, value)->equalsIgnoreCase("true"_s);
 			return;
 		}
 	} else if (name->equals(TransformerFactoryImpl::USE_CLASSPATH)) {
 		if ($instanceOf($Boolean, value)) {
-			this->_useClasspath = $nc(($cast($Boolean, value)))->booleanValue();
+			this->_useClasspath = $cast($Boolean, value)->booleanValue();
 			return;
 		} else if ($instanceOf($String, value)) {
-			this->_useClasspath = $nc(($cast($String, value)))->equalsIgnoreCase("true"_s);
+			this->_useClasspath = $cast($String, value)->equalsIgnoreCase("true"_s);
 			return;
 		}
 	} else if (name->equals(TransformerFactoryImpl::DEBUG)) {
 		if ($instanceOf($Boolean, value)) {
-			this->_debug = $nc(($cast($Boolean, value)))->booleanValue();
+			this->_debug = $cast($Boolean, value)->booleanValue();
 			return;
 		} else if ($instanceOf($String, value)) {
-			this->_debug = $nc(($cast($String, value)))->equalsIgnoreCase("true"_s);
+			this->_debug = $cast($String, value)->equalsIgnoreCase("true"_s);
 			return;
 		}
 	} else if (name->equals(TransformerFactoryImpl::ENABLE_INLINING)) {
 		if ($instanceOf($Boolean, value)) {
-			this->_enableInlining = $nc(($cast($Boolean, value)))->booleanValue();
+			this->_enableInlining = $cast($Boolean, value)->booleanValue();
 			return;
 		} else if ($instanceOf($String, value)) {
-			this->_enableInlining = $nc(($cast($String, value)))->equalsIgnoreCase("true"_s);
+			this->_enableInlining = $cast($String, value)->equalsIgnoreCase("true"_s);
 			return;
 		}
 	} else if (name->equals(TransformerFactoryImpl::INDENT_NUMBER)) {
@@ -599,7 +459,7 @@ void TransformerFactoryImpl::setAttribute($String* name, Object$* value) {
 			} catch ($NumberFormatException& e) {
 			}
 		} else if ($instanceOf($Integer, value)) {
-			this->_indentNumber = $nc(($cast($Integer, value)))->intValue();
+			this->_indentNumber = $cast($Integer, value)->intValue();
 			return;
 		}
 	} else {
@@ -611,7 +471,7 @@ void TransformerFactoryImpl::setAttribute($String* name, Object$* value) {
 				return;
 			} else {
 				$init($ErrorMsg);
-				$var($ErrorMsg, err, $new($ErrorMsg, $ErrorMsg::JAXP_INVALID_ATTR_VALUE_ERR, $of("Extension Functions ClassLoader"_s)));
+				$var($ErrorMsg, err, $new($ErrorMsg, $ErrorMsg::JAXP_INVALID_ATTR_VALUE_ERR, "Extension Functions ClassLoader"_s));
 				$throwNew($IllegalArgumentException, $(err->toString()));
 			}
 		} else {
@@ -619,62 +479,54 @@ void TransformerFactoryImpl::setAttribute($String* name, Object$* value) {
 			if ($nc($JdkXmlUtils::CATALOG_FILES)->equals(name)) {
 				$set(this, _catalogFiles, $cast($String, value));
 				$init($CatalogFeatures$Feature);
-				$set(this, cfBuilder, $nc($($CatalogFeatures::builder()))->with($CatalogFeatures$Feature::FILES, this->_catalogFiles));
+				$set(this, cfBuilder, $$nc($CatalogFeatures::builder())->with($CatalogFeatures$Feature::FILES, this->_catalogFiles));
 				return;
-			} else {
-				if ($nc($JdkXmlUtils::CATALOG_DEFER)->equals(name)) {
-					$set(this, _catalogDefer, $cast($String, value));
-					$init($CatalogFeatures$Feature);
-					$set(this, cfBuilder, $nc($($CatalogFeatures::builder()))->with($CatalogFeatures$Feature::DEFER, this->_catalogDefer));
-					return;
-				} else {
-					if ($nc($JdkXmlUtils::CATALOG_PREFER)->equals(name)) {
-						$set(this, _catalogPrefer, $cast($String, value));
-						$init($CatalogFeatures$Feature);
-						$set(this, cfBuilder, $nc($($CatalogFeatures::builder()))->with($CatalogFeatures$Feature::PREFER, this->_catalogPrefer));
-						return;
-					} else {
-						if ($nc($JdkXmlUtils::CATALOG_RESOLVE)->equals(name)) {
-							$set(this, _catalogResolve, $cast($String, value));
-							$init($CatalogFeatures$Feature);
-							$set(this, cfBuilder, $nc($($CatalogFeatures::builder()))->with($CatalogFeatures$Feature::RESOLVE, this->_catalogResolve));
-							return;
-						} else {
-							if ($JdkProperty$ImplPropMap::CDATACHUNKSIZE->is(name)) {
-								this->_cdataChunkSize = $JdkXmlUtils::getValue(value, this->_cdataChunkSize);
-								return;
-							}
-						}
-					}
-				}
+			} else if ($nc($JdkXmlUtils::CATALOG_DEFER)->equals(name)) {
+				$set(this, _catalogDefer, $cast($String, value));
+				$init($CatalogFeatures$Feature);
+				$set(this, cfBuilder, $$nc($CatalogFeatures::builder())->with($CatalogFeatures$Feature::DEFER, this->_catalogDefer));
+				return;
+			} else if ($nc($JdkXmlUtils::CATALOG_PREFER)->equals(name)) {
+				$set(this, _catalogPrefer, $cast($String, value));
+				$init($CatalogFeatures$Feature);
+				$set(this, cfBuilder, $$nc($CatalogFeatures::builder())->with($CatalogFeatures$Feature::PREFER, this->_catalogPrefer));
+				return;
+			} else if ($nc($JdkXmlUtils::CATALOG_RESOLVE)->equals(name)) {
+				$set(this, _catalogResolve, $cast($String, value));
+				$init($CatalogFeatures$Feature);
+				$set(this, cfBuilder, $$nc($CatalogFeatures::builder())->with($CatalogFeatures$Feature::RESOLVE, this->_catalogResolve));
+				return;
+			} else if ($JdkProperty$ImplPropMap::CDATACHUNKSIZE->is(name)) {
+				this->_cdataChunkSize = $JdkXmlUtils::getValue(value, this->_cdataChunkSize);
+				return;
 			}
 		}
 	}
 	$init($JdkProperty$State);
-	if (this->_xmlSecurityManager != nullptr && $nc(this->_xmlSecurityManager)->setLimit(name, $JdkProperty$State::APIPROPERTY, value)) {
+	if (this->_xmlSecurityManager != nullptr && this->_xmlSecurityManager->setLimit(name, $JdkProperty$State::APIPROPERTY, value)) {
 		return;
 	}
 	$init($FeaturePropertyBase$State);
-	if (this->_xmlSecurityPropertyMgr != nullptr && $nc(this->_xmlSecurityPropertyMgr)->setValue(name, $FeaturePropertyBase$State::APIPROPERTY, value)) {
+	if (this->_xmlSecurityPropertyMgr != nullptr && this->_xmlSecurityPropertyMgr->setValue(name, $FeaturePropertyBase$State::APIPROPERTY, value)) {
 		$init($XMLSecurityPropertyManager$Property);
-		$set(this, _accessExternalDTD, $nc(this->_xmlSecurityPropertyMgr)->getValue(static_cast<$Enum*>($XMLSecurityPropertyManager$Property::ACCESS_EXTERNAL_DTD)));
-		$set(this, _accessExternalStylesheet, $nc(this->_xmlSecurityPropertyMgr)->getValue(static_cast<$Enum*>($XMLSecurityPropertyManager$Property::ACCESS_EXTERNAL_STYLESHEET)));
+		$set(this, _accessExternalDTD, this->_xmlSecurityPropertyMgr->getValue($XMLSecurityPropertyManager$Property::ACCESS_EXTERNAL_DTD));
+		$set(this, _accessExternalStylesheet, $nc(this->_xmlSecurityPropertyMgr)->getValue($XMLSecurityPropertyManager$Property::ACCESS_EXTERNAL_STYLESHEET));
 		return;
 	}
 	$init($ErrorMsg);
-	$var($ErrorMsg, err, $new($ErrorMsg, $ErrorMsg::JAXP_INVALID_ATTR_ERR, $of(name)));
+	$var($ErrorMsg, err, $new($ErrorMsg, $ErrorMsg::JAXP_INVALID_ATTR_ERR, name));
 	$throwNew($IllegalArgumentException, $(err->toString()));
 }
 
 void TransformerFactoryImpl::setFeature($String* name, bool value) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (name == nullptr) {
 		$init($ErrorMsg);
 		$var($ErrorMsg, err, $new($ErrorMsg, $ErrorMsg::JAXP_SET_FEATURE_NULL_NAME));
 		$throwNew($NullPointerException, $(err->toString()));
 	} else {
 		$init($XMLConstants);
-		if ($nc(name)->equals($XMLConstants::FEATURE_SECURE_PROCESSING)) {
+		if (name->equals($XMLConstants::FEATURE_SECURE_PROCESSING)) {
 			if ((this->_isSecureMode) && (!value)) {
 				$init($ErrorMsg);
 				$var($ErrorMsg, err, $new($ErrorMsg, $ErrorMsg::JAXP_SECUREPROCESSING_FEATURE));
@@ -686,15 +538,15 @@ void TransformerFactoryImpl::setFeature($String* name, bool value) {
 				$init($XMLSecurityPropertyManager$Property);
 				$init($FeaturePropertyBase$State);
 				$init($JdkConstants);
-				$nc(this->_xmlSecurityPropertyMgr)->setValue(static_cast<$Enum*>($XMLSecurityPropertyManager$Property::ACCESS_EXTERNAL_DTD), $FeaturePropertyBase$State::FSP, $JdkConstants::EXTERNAL_ACCESS_DEFAULT_FSP);
-				$nc(this->_xmlSecurityPropertyMgr)->setValue(static_cast<$Enum*>($XMLSecurityPropertyManager$Property::ACCESS_EXTERNAL_STYLESHEET), $FeaturePropertyBase$State::FSP, $JdkConstants::EXTERNAL_ACCESS_DEFAULT_FSP);
-				$set(this, _accessExternalDTD, $nc(this->_xmlSecurityPropertyMgr)->getValue(static_cast<$Enum*>($XMLSecurityPropertyManager$Property::ACCESS_EXTERNAL_DTD)));
-				$set(this, _accessExternalStylesheet, $nc(this->_xmlSecurityPropertyMgr)->getValue(static_cast<$Enum*>($XMLSecurityPropertyManager$Property::ACCESS_EXTERNAL_STYLESHEET)));
+				$nc(this->_xmlSecurityPropertyMgr)->setValue($XMLSecurityPropertyManager$Property::ACCESS_EXTERNAL_DTD, $FeaturePropertyBase$State::FSP, $JdkConstants::EXTERNAL_ACCESS_DEFAULT_FSP);
+				$nc(this->_xmlSecurityPropertyMgr)->setValue($XMLSecurityPropertyManager$Property::ACCESS_EXTERNAL_STYLESHEET, $FeaturePropertyBase$State::FSP, $JdkConstants::EXTERNAL_ACCESS_DEFAULT_FSP);
+				$set(this, _accessExternalDTD, $nc(this->_xmlSecurityPropertyMgr)->getValue($XMLSecurityPropertyManager$Property::ACCESS_EXTERNAL_DTD));
+				$set(this, _accessExternalStylesheet, $nc(this->_xmlSecurityPropertyMgr)->getValue($XMLSecurityPropertyManager$Property::ACCESS_EXTERNAL_STYLESHEET));
 			}
 			if (value && this->_xmlFeatures != nullptr) {
 				$init($JdkXmlFeatures$XmlFeature);
 				$init($JdkProperty$State);
-				$nc(this->_xmlFeatures)->setFeature($JdkXmlFeatures$XmlFeature::ENABLE_EXTENSION_FUNCTION, $JdkProperty$State::FSP, false);
+				this->_xmlFeatures->setFeature($JdkXmlFeatures$XmlFeature::ENABLE_EXTENSION_FUNCTION, $JdkProperty$State::FSP, false);
 			}
 		} else {
 			$init($JdkConstants);
@@ -704,23 +556,23 @@ void TransformerFactoryImpl::setFeature($String* name, bool value) {
 				}
 			}
 			$init($JdkProperty$State);
-			if (this->_xmlFeatures != nullptr && $nc(this->_xmlFeatures)->setFeature(name, $JdkProperty$State::APIPROPERTY, $($of($Boolean::valueOf(value))))) {
+			if (this->_xmlFeatures != nullptr && this->_xmlFeatures->setFeature(name, $JdkProperty$State::APIPROPERTY, $($Boolean::valueOf(value)))) {
 				$init($JdkProperty$ImplPropMap);
 				if ($JdkProperty$ImplPropMap::OVERRIDEPARSER->is(name)) {
 					$init($JdkXmlFeatures$XmlFeature);
-					this->_overrideDefaultParser = $nc(this->_xmlFeatures)->getFeature($JdkXmlFeatures$XmlFeature::JDK_OVERRIDE_PARSER);
+					this->_overrideDefaultParser = this->_xmlFeatures->getFeature($JdkXmlFeatures$XmlFeature::JDK_OVERRIDE_PARSER);
 				}
 				return;
 			}
 			$init($ErrorMsg);
-			$var($ErrorMsg, err, $new($ErrorMsg, $ErrorMsg::JAXP_UNSUPPORTED_FEATURE, $of(name)));
+			$var($ErrorMsg, err, $new($ErrorMsg, $ErrorMsg::JAXP_UNSUPPORTED_FEATURE, name));
 			$throwNew($TransformerConfigurationException, $(err->toString()));
 		}
 	}
 }
 
 bool TransformerFactoryImpl::getFeature($String* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($DOMSource);
 	$init($DOMResult);
 	$init($SAXSource);
@@ -758,9 +610,9 @@ bool TransformerFactoryImpl::getFeature($String* name) {
 	if ($nc(name)->equals($XMLConstants::FEATURE_SECURE_PROCESSING)) {
 		return !this->_isNotSecureProcessing;
 	}
-	int32_t index = $nc(this->_xmlFeatures)->getIndex(name);
+	int32_t index = this->_xmlFeatures->getIndex(name);
 	if (index > -1) {
-		return $nc(this->_xmlFeatures)->getFeature(index);
+		return this->_xmlFeatures->getFeature(index);
 	}
 	return false;
 }
@@ -782,7 +634,7 @@ void TransformerFactoryImpl::setURIResolver($URIResolver* resolver) {
 }
 
 $Source* TransformerFactoryImpl::getAssociatedStylesheet($Source* source, $String* media, $String* title, $String* charset) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, baseId, nullptr);
 	$var($XMLReader, reader, nullptr);
 	$var($InputSource, isource, nullptr);
@@ -790,7 +642,7 @@ $Source* TransformerFactoryImpl::getAssociatedStylesheet($Source* source, $Strin
 	try {
 		if ($instanceOf($DOMSource, source)) {
 			$var($DOMSource, domsrc, $cast($DOMSource, source));
-			$assign(baseId, $nc(domsrc)->getSystemId());
+			$assign(baseId, domsrc->getSystemId());
 			$var($Node, node, domsrc->getNode());
 			$var($DOM2SAX, dom2sax, $new($DOM2SAX, node));
 			_stylesheetPIHandler->setBaseId(baseId);
@@ -798,7 +650,7 @@ $Source* TransformerFactoryImpl::getAssociatedStylesheet($Source* source, $Strin
 			dom2sax->parse();
 		} else {
 			if ($instanceOf($SAXSource, source)) {
-				$assign(reader, $nc(($cast($SAXSource, source)))->getXMLReader());
+				$assign(reader, $cast($SAXSource, source)->getXMLReader());
 			}
 			$assign(isource, $SAXSource::sourceToInputSource(source));
 			$assign(baseId, $nc(isource)->getSystemId());
@@ -814,15 +666,15 @@ $Source* TransformerFactoryImpl::getAssociatedStylesheet($Source* source, $Strin
 		}
 	} catch ($StopParseException& e) {
 	} catch ($SAXException& e) {
-		$throwNew($TransformerConfigurationException, "getAssociatedStylesheets failed"_s, static_cast<$Throwable*>(e));
+		$throwNew($TransformerConfigurationException, "getAssociatedStylesheets failed"_s, e);
 	} catch ($IOException& e) {
-		$throwNew($TransformerConfigurationException, "getAssociatedStylesheets failed"_s, static_cast<$Throwable*>(e));
+		$throwNew($TransformerConfigurationException, "getAssociatedStylesheets failed"_s, e);
 	}
 	return _stylesheetPIHandler->getAssociatedStylesheet();
 }
 
 $Transformer* TransformerFactoryImpl::newTransformer() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	buildCatalogFeatures();
 	$var($TransformerImpl, result, $new($TransformerImpl, $$new($Properties), this->_indentNumber, this));
 	if (this->_uriResolver != nullptr) {
@@ -835,7 +687,7 @@ $Transformer* TransformerFactoryImpl::newTransformer() {
 }
 
 $Transformer* TransformerFactoryImpl::newTransformer($Source* source) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Templates, templates, newTemplates(source));
 	$var($Transformer, transformer, $nc(templates)->newTransformer());
 	if (this->_uriResolver != nullptr) {
@@ -845,7 +697,7 @@ $Transformer* TransformerFactoryImpl::newTransformer($Source* source) {
 }
 
 void TransformerFactoryImpl::passWarningsToListener($List* messages) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->_errorListener == nullptr || messages == nullptr) {
 		return;
 	}
@@ -861,14 +713,14 @@ void TransformerFactoryImpl::passWarningsToListener($List* messages) {
 }
 
 void TransformerFactoryImpl::passErrorsToListener($List* messages) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		if (this->_errorListener == nullptr || messages == nullptr) {
 			return;
 		}
 		int32_t count = $nc(messages)->size();
 		for (int32_t pos = 0; pos < count; ++pos) {
-			$var($String, message, $nc(($cast($ErrorMsg, $(messages->get(pos)))))->toString());
+			$var($String, message, $$sure($ErrorMsg, messages->get(pos))->toString());
 			$nc(this->_errorListener)->error($$new($TransformerException, message));
 		}
 	} catch ($TransformerException& e) {
@@ -876,7 +728,7 @@ void TransformerFactoryImpl::passErrorsToListener($List* messages) {
 }
 
 $Templates* TransformerFactoryImpl::newTemplates($Source* source) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($TemplatesImpl, templates, nullptr);
 	if (this->_useClasspath) {
 		$var($String, transletName, getTransletBaseName(source));
@@ -886,19 +738,21 @@ $Templates* TransformerFactoryImpl::newTemplates($Source* source) {
 		try {
 			$Class* clazz = $ObjectFactory::findProviderClass(transletName, true);
 			resetTransientAttributes();
-			$assign(templates, $new($TemplatesImpl, $$new($ClassArray, {clazz}), transletName, ($Properties*)nullptr, this->_indentNumber, this));
+			$assign(templates, $new($TemplatesImpl, $$new($ClassArray, {clazz}), transletName, nullptr, this->_indentNumber, this));
 			if (this->_uriResolver != nullptr) {
 				templates->setURIResolver(this->_uriResolver);
 			}
 			return templates;
 		} catch ($ClassNotFoundException& cnfe) {
 			$init($ErrorMsg);
-			$var($ErrorMsg, err, $new($ErrorMsg, $ErrorMsg::CLASS_NOT_FOUND_ERR, $of(transletName)));
+			$var($ErrorMsg, err, $new($ErrorMsg, $ErrorMsg::CLASS_NOT_FOUND_ERR, transletName));
 			$throwNew($TransformerConfigurationException, $(err->toString()));
 		} catch ($Exception& e) {
+			$var($StringBuilder, var$0, $new($StringBuilder));
 			$init($ErrorMsg);
-			$var($String, var$0, $str($new($ErrorMsg, $ErrorMsg::RUNTIME_ERROR_KEY)));
-			$var($ErrorMsg, err, $new($ErrorMsg, $$concat(var$0, $(e->getMessage()))));
+			var$0->append($$new($ErrorMsg, $ErrorMsg::RUNTIME_ERROR_KEY));
+			var$0->append($(e->getMessage()));
+			$var($ErrorMsg, err, $new($ErrorMsg, $$str(var$0)));
 			$throwNew($TransformerConfigurationException, $(err->toString()));
 		}
 	}
@@ -917,14 +771,14 @@ $Templates* TransformerFactoryImpl::newTemplates($Source* source) {
 			if (this->_debug) {
 				if (this->_jarFileName != nullptr) {
 					$init($ErrorMsg);
-					$nc($System::err)->println($of($$new($ErrorMsg, $ErrorMsg::TRANSFORM_WITH_JAR_STR, $of(transletClassName), $of(this->_jarFileName))));
+					$nc($System::err)->println($$new($ErrorMsg, $ErrorMsg::TRANSFORM_WITH_JAR_STR, transletClassName, this->_jarFileName));
 				} else {
 					$init($ErrorMsg);
-					$nc($System::err)->println($of($$new($ErrorMsg, $ErrorMsg::TRANSFORM_WITH_TRANSLET_STR, $of(transletClassName))));
+					$nc($System::err)->println($$new($ErrorMsg, $ErrorMsg::TRANSFORM_WITH_TRANSLET_STR, transletClassName));
 				}
 			}
 			resetTransientAttributes();
-			$assign(templates, $new($TemplatesImpl, bytecodes, transletClassName, ($Properties*)nullptr, this->_indentNumber, this));
+			$assign(templates, $new($TemplatesImpl, bytecodes, transletClassName, nullptr, this->_indentNumber, this));
 			if (this->_uriResolver != nullptr) {
 				templates->setURIResolver(this->_uriResolver);
 			}
@@ -948,7 +802,7 @@ $Templates* TransformerFactoryImpl::newTemplates($Source* source) {
 	xsltc->setProperty($XMLConstants::ACCESS_EXTERNAL_DTD, this->_accessExternalDTD);
 	$init($JdkConstants);
 	xsltc->setProperty($JdkConstants::SECURITY_MANAGER, this->_xmlSecurityManager);
-	xsltc->setProperty($JdkConstants::JDK_EXT_CLASSLOADER, (this->_extensionClassLoader == nullptr) ? ($Object*)nullptr : $($nc(this->_extensionClassLoader)->getValue()));
+	xsltc->setProperty($JdkConstants::JDK_EXT_CLASSLOADER, (this->_extensionClassLoader == nullptr) ? ($Object*)nullptr : $(this->_extensionClassLoader->getValue()));
 	buildCatalogFeatures();
 	$init($JdkXmlFeatures);
 	xsltc->setProperty($JdkXmlFeatures::CATALOG_FEATURES, this->_catalogFeatures);
@@ -957,11 +811,11 @@ $Templates* TransformerFactoryImpl::newTemplates($Source* source) {
 		$set(this, _xsltcExtensionFunctions, xsltc->getExternalExtensionFunctions());
 	}
 	$init($JdkXmlFeatures$XmlFeature);
-	if (this->_uriResolver != nullptr || (this->_catalogFiles != nullptr && $nc(this->_xmlFeatures)->getFeature($JdkXmlFeatures$XmlFeature::USE_CATALOG))) {
+	if (this->_uriResolver != nullptr || (this->_catalogFiles != nullptr && this->_xmlFeatures->getFeature($JdkXmlFeatures$XmlFeature::USE_CATALOG))) {
 		xsltc->setSourceLoader(this);
 	}
-	if ((this->_piParams != nullptr) && ($nc(this->_piParams)->get(source) != nullptr)) {
-		$var($TransformerFactoryImpl$PIParamWrapper, p, $cast($TransformerFactoryImpl$PIParamWrapper, $nc(this->_piParams)->get(source)));
+	if ((this->_piParams != nullptr) && (this->_piParams->get(source) != nullptr)) {
+		$var($TransformerFactoryImpl$PIParamWrapper, p, $cast($TransformerFactoryImpl$PIParamWrapper, this->_piParams->get(source)));
 		if (p != nullptr) {
 			xsltc->setPIParameters(p->_media, p->_title, p->_charset);
 		}
@@ -1005,7 +859,7 @@ $Templates* TransformerFactoryImpl::newTemplates($Source* source) {
 		try {
 			passWarningsToListener($(xsltc->getWarnings()));
 		} catch ($TransformerException& e) {
-			$throwNew($TransformerConfigurationException, static_cast<$Throwable*>(e));
+			$throwNew($TransformerConfigurationException, e);
 		}
 	} else {
 		xsltc->printWarnings();
@@ -1070,7 +924,7 @@ $TransformerHandler* TransformerFactoryImpl::newTransformerHandler($Source* src)
 }
 
 $TransformerHandler* TransformerFactoryImpl::newTransformerHandler($Templates* templates) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Transformer, transformer, $nc(templates)->newTransformer());
 	$var($TransformerImpl, internal, $cast($TransformerImpl, transformer));
 	return $new($TransformerHandlerImpl, internal);
@@ -1090,10 +944,10 @@ $XMLFilter* TransformerFactoryImpl::newXMLFilter($Templates* templates) {
 	} catch ($TransformerConfigurationException& e1) {
 		if (this->_errorListener != nullptr) {
 			try {
-				$nc(this->_errorListener)->fatalError(e1);
+				this->_errorListener->fatalError(e1);
 				return nullptr;
 			} catch ($TransformerException& e2) {
-				$throwNew($TransformerConfigurationException, static_cast<$Throwable*>(e2));
+				$throwNew($TransformerConfigurationException, e2);
 			}
 		}
 		$throw(e1);
@@ -1102,14 +956,14 @@ $XMLFilter* TransformerFactoryImpl::newXMLFilter($Templates* templates) {
 }
 
 $InputSource* TransformerFactoryImpl::loadSource($String* href, $String* context, $XSLTC* xsltc) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$var($Source, source, nullptr);
 		if (this->_uriResolver != nullptr) {
-			$assign(source, $nc(this->_uriResolver)->resolve(href, context));
+			$assign(source, this->_uriResolver->resolve(href, context));
 		}
 		$init($JdkXmlFeatures$XmlFeature);
-		if (source == nullptr && this->_catalogFiles != nullptr && $nc(this->_xmlFeatures)->getFeature($JdkXmlFeatures$XmlFeature::USE_CATALOG)) {
+		if (source == nullptr && this->_catalogFiles != nullptr && this->_xmlFeatures->getFeature($JdkXmlFeatures$XmlFeature::USE_CATALOG)) {
 			if (this->_catalogUriResolver == nullptr) {
 				$set(this, _catalogUriResolver, $CatalogManager::catalogResolver(this->_catalogFeatures, $$new($URIArray, 0)));
 			}
@@ -1120,12 +974,12 @@ $InputSource* TransformerFactoryImpl::loadSource($String* href, $String* context
 		}
 	} catch ($TransformerException& e) {
 		$init($ErrorMsg);
-		$var($ErrorMsg, msg, $new($ErrorMsg, $ErrorMsg::INVALID_URI_ERR, $of($$str({href, "\n"_s, $(e->getMessage())})), $of(this)));
-		$nc($($nc(xsltc)->getParser()))->reportError($Constants::FATAL, msg);
+		$var($ErrorMsg, msg, $new($ErrorMsg, $ErrorMsg::INVALID_URI_ERR, $$str({href, "\n"_s, $(e->getMessage())}), this));
+		$$nc($nc(xsltc)->getParser())->reportError($Constants::FATAL, msg);
 	} catch ($CatalogException& e) {
 		$init($ErrorMsg);
-		$var($ErrorMsg, msg, $new($ErrorMsg, $ErrorMsg::CATALOG_EXCEPTION, $of($$str({href, "\n"_s, $(e->getMessage())})), $of(this)));
-		$nc($($nc(xsltc)->getParser()))->reportError($Constants::FATAL, msg);
+		$var($ErrorMsg, msg, $new($ErrorMsg, $ErrorMsg::CATALOG_EXCEPTION, $$str({href, "\n"_s, $(e->getMessage())}), this));
+		$$nc($nc(xsltc)->getParser())->reportError($Constants::FATAL, msg);
 	}
 	return nullptr;
 }
@@ -1150,7 +1004,7 @@ void TransformerFactoryImpl::resetTransientAttributes() {
 }
 
 $byteArray2* TransformerFactoryImpl::getBytecodesFromClasses($Source* source, $String* fullClassName) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (fullClassName == nullptr) {
 		return nullptr;
 	}
@@ -1160,7 +1014,7 @@ $byteArray2* TransformerFactoryImpl::getBytecodesFromClasses($Source* source, $S
 		$assign(xslFile, $new($File, xslFileName));
 	}
 	$var($String, transletName, nullptr);
-	int32_t lastDotIndex = $nc(fullClassName)->lastIndexOf((int32_t)u'.');
+	int32_t lastDotIndex = $nc(fullClassName)->lastIndexOf(u'.');
 	if (lastDotIndex > 0) {
 		$assign(transletName, fullClassName->substring(lastDotIndex + 1));
 	} else {
@@ -1211,7 +1065,7 @@ $byteArray2* TransformerFactoryImpl::getBytecodesFromClasses($Source* source, $S
 	}
 	$var($File, transletParentFile, $new($File, transletParentDir));
 	$var($String, transletAuxPrefix, $str({transletName, "$"_s}));
-	$var($FileArray, auxfiles, transletParentFile->listFiles(static_cast<$FilenameFilter*>($$new($TransformerFactoryImpl$1, this, transletAuxPrefix))));
+	$var($FileArray, auxfiles, transletParentFile->listFiles($$new($TransformerFactoryImpl$1, this, transletAuxPrefix)));
 	for (int32_t i = 0; i < $nc(auxfiles)->length; ++i) {
 		$var($File, auxfile, auxfiles->get(i));
 		int32_t auxlength = (int32_t)$nc(auxfile)->length();
@@ -1236,7 +1090,7 @@ $byteArray2* TransformerFactoryImpl::getBytecodesFromClasses($Source* source, $S
 	if (count > 0) {
 		$var($byteArray2, result, $new($byteArray2, count, 1));
 		for (int32_t i = 0; i < count; ++i) {
-			result->set(i, $cast($bytes, $(bytecodes->get(i))));
+			result->set(i, $$cast($bytes, bytecodes->get(i)));
 		}
 		return result;
 	} else {
@@ -1245,7 +1099,7 @@ $byteArray2* TransformerFactoryImpl::getBytecodesFromClasses($Source* source, $S
 }
 
 $byteArray2* TransformerFactoryImpl::getBytecodesFromJar($Source* source, $String* fullClassName) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, xslFileName, getStylesheetFileName(source));
 	$var($File, xslFile, nullptr);
 	if (xslFileName != nullptr) {
@@ -1288,10 +1142,10 @@ $byteArray2* TransformerFactoryImpl::getBytecodesFromJar($Source* source, $Strin
 		if (var$0) {
 			bool var$1 = $nc(entryName)->equals(transletFullName);
 			if (!var$1) {
-				bool var$2 = $nc(entryName)->endsWith(".class"_s);
-				var$1 = (var$2 && entryName->startsWith(transletAuxPrefix));
+				bool var$2 = entryName->endsWith(".class"_s);
+				var$1 = var$2 && entryName->startsWith(transletAuxPrefix);
 			}
-			var$0 = (var$1);
+			var$0 = var$1;
 		}
 		if (var$0) {
 			try {
@@ -1310,7 +1164,7 @@ $byteArray2* TransformerFactoryImpl::getBytecodesFromJar($Source* source, $Strin
 	if (count > 0) {
 		$var($byteArray2, result, $new($byteArray2, count, 1));
 		for (int32_t i = 0; i < count; ++i) {
-			result->set(i, $cast($bytes, $(bytecodes->get(i))));
+			result->set(i, $$cast($bytes, bytecodes->get(i)));
 		}
 		return result;
 	} else {
@@ -1329,7 +1183,7 @@ void TransformerFactoryImpl::readFromInputStream($bytes* bytes, $InputStream* in
 }
 
 $String* TransformerFactoryImpl::getTransletBaseName($Source* source) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, transletBaseName, nullptr);
 	if (!$nc(this->_transletName)->equals(TransformerFactoryImpl::DEFAULT_TRANSLET_NAME)) {
 		return this->_transletName;
@@ -1347,7 +1201,7 @@ $String* TransformerFactoryImpl::getTransletBaseName($Source* source) {
 }
 
 $String* TransformerFactoryImpl::getStylesheetFileName($Source* source) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, systemId, $nc(source)->getSystemId());
 	if (systemId != nullptr) {
 		$var($File, file, $new($File, systemId));
@@ -1361,7 +1215,7 @@ $String* TransformerFactoryImpl::getStylesheetFileName($Source* source) {
 				return nullptr;
 			}
 			if ("file"_s->equals($($nc(url)->getProtocol()))) {
-				return $nc(url)->getFile();
+				return url->getFile();
 			} else {
 				return nullptr;
 			}
@@ -1378,7 +1232,7 @@ $XSLTCDTMManager* TransformerFactoryImpl::createNewDTMManagerInstance() {
 TransformerFactoryImpl::TransformerFactoryImpl() {
 }
 
-void clinit$TransformerFactoryImpl($Class* class$) {
+void TransformerFactoryImpl::clinit$($Class* clazz) {
 	$assignStatic(TransformerFactoryImpl::TRANSLET_NAME, "translet-name"_s);
 	$assignStatic(TransformerFactoryImpl::DESTINATION_DIRECTORY, "destination-directory"_s);
 	$assignStatic(TransformerFactoryImpl::PACKAGE_NAME, "package-name"_s);
@@ -1394,7 +1248,118 @@ void clinit$TransformerFactoryImpl($Class* class$) {
 }
 
 $Class* TransformerFactoryImpl::load$($String* name, bool initialize) {
-	$loadClass(TransformerFactoryImpl, name, initialize, &_TransformerFactoryImpl_ClassInfo_, clinit$TransformerFactoryImpl, allocate$TransformerFactoryImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"TRANSLET_NAME", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TransformerFactoryImpl, TRANSLET_NAME)},
+		{"DESTINATION_DIRECTORY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TransformerFactoryImpl, DESTINATION_DIRECTORY)},
+		{"PACKAGE_NAME", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TransformerFactoryImpl, PACKAGE_NAME)},
+		{"JAR_NAME", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TransformerFactoryImpl, JAR_NAME)},
+		{"GENERATE_TRANSLET", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TransformerFactoryImpl, GENERATE_TRANSLET)},
+		{"AUTO_TRANSLET", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TransformerFactoryImpl, AUTO_TRANSLET)},
+		{"USE_CLASSPATH", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TransformerFactoryImpl, USE_CLASSPATH)},
+		{"DEBUG", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TransformerFactoryImpl, DEBUG)},
+		{"ENABLE_INLINING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TransformerFactoryImpl, ENABLE_INLINING)},
+		{"INDENT_NUMBER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TransformerFactoryImpl, INDENT_NUMBER)},
+		{"_defaultListener", "Ljavax/xml/transform/ErrorListener;", nullptr, $PRIVATE | $FINAL, $field(TransformerFactoryImpl, _defaultListener)},
+		{"_errorListener", "Ljavax/xml/transform/ErrorListener;", nullptr, $PRIVATE, $field(TransformerFactoryImpl, _errorListener)},
+		{"_hasUserErrListener", "Z", nullptr, $PRIVATE, $field(TransformerFactoryImpl, _hasUserErrListener)},
+		{"_uriResolver", "Ljavax/xml/transform/URIResolver;", nullptr, $PRIVATE, $field(TransformerFactoryImpl, _uriResolver)},
+		{"DEFAULT_TRANSLET_NAME", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(TransformerFactoryImpl, DEFAULT_TRANSLET_NAME)},
+		{"_transletName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(TransformerFactoryImpl, _transletName)},
+		{"_destinationDirectory", "Ljava/lang/String;", nullptr, $PRIVATE, $field(TransformerFactoryImpl, _destinationDirectory)},
+		{"DEFAULT_TRANSLATE_PACKAGE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(TransformerFactoryImpl, DEFAULT_TRANSLATE_PACKAGE)},
+		{"_packageName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(TransformerFactoryImpl, _packageName)},
+		{"_jarFileName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(TransformerFactoryImpl, _jarFileName)},
+		{"_piParams", "Ljava/util/Map;", "Ljava/util/Map<Ljavax/xml/transform/Source;Lcom/sun/org/apache/xalan/internal/xsltc/trax/TransformerFactoryImpl$PIParamWrapper;>;", $PRIVATE, $field(TransformerFactoryImpl, _piParams)},
+		{"_debug", "Z", nullptr, $PRIVATE, $field(TransformerFactoryImpl, _debug)},
+		{"_enableInlining", "Z", nullptr, $PRIVATE, $field(TransformerFactoryImpl, _enableInlining)},
+		{"_generateTranslet", "Z", nullptr, $PRIVATE, $field(TransformerFactoryImpl, _generateTranslet)},
+		{"_autoTranslet", "Z", nullptr, $PRIVATE, $field(TransformerFactoryImpl, _autoTranslet)},
+		{"_useClasspath", "Z", nullptr, $PRIVATE, $field(TransformerFactoryImpl, _useClasspath)},
+		{"_indentNumber", "I", nullptr, $PRIVATE, $field(TransformerFactoryImpl, _indentNumber)},
+		{"_isNotSecureProcessing", "Z", nullptr, $PRIVATE, $field(TransformerFactoryImpl, _isNotSecureProcessing)},
+		{"_isSecureMode", "Z", nullptr, $PRIVATE, $field(TransformerFactoryImpl, _isSecureMode)},
+		{"_overrideDefaultParser", "Z", nullptr, $PRIVATE, $field(TransformerFactoryImpl, _overrideDefaultParser)},
+		{"_accessExternalStylesheet", "Ljava/lang/String;", nullptr, $PRIVATE, $field(TransformerFactoryImpl, _accessExternalStylesheet)},
+		{"_accessExternalDTD", "Ljava/lang/String;", nullptr, $PRIVATE, $field(TransformerFactoryImpl, _accessExternalDTD)},
+		{"_xmlSecurityPropertyMgr", "Lcom/sun/org/apache/xalan/internal/utils/XMLSecurityPropertyManager;", nullptr, $PRIVATE, $field(TransformerFactoryImpl, _xmlSecurityPropertyMgr)},
+		{"_xmlSecurityManager", "Lcom/sun/org/apache/xalan/internal/utils/XMLSecurityManager;", nullptr, $PRIVATE, $field(TransformerFactoryImpl, _xmlSecurityManager)},
+		{"_xmlFeatures", "Ljdk/xml/internal/JdkXmlFeatures;", nullptr, $PRIVATE | $FINAL, $field(TransformerFactoryImpl, _xmlFeatures)},
+		{"_extensionClassLoader", "Ljdk/xml/internal/JdkProperty;", "Ljdk/xml/internal/JdkProperty<Ljava/lang/ClassLoader;>;", $PRIVATE, $field(TransformerFactoryImpl, _extensionClassLoader)},
+		{"_xsltcExtensionFunctions", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/Class<*>;>;", $PRIVATE, $field(TransformerFactoryImpl, _xsltcExtensionFunctions)},
+		{"_catalogUriResolver", "Ljavax/xml/catalog/CatalogResolver;", nullptr, 0, $field(TransformerFactoryImpl, _catalogUriResolver)},
+		{"_catalogFeatures", "Ljavax/xml/catalog/CatalogFeatures;", nullptr, 0, $field(TransformerFactoryImpl, _catalogFeatures)},
+		{"cfBuilder", "Ljavax/xml/catalog/CatalogFeatures$Builder;", nullptr, 0, $field(TransformerFactoryImpl, cfBuilder)},
+		{"_catalogFiles", "Ljava/lang/String;", nullptr, 0, $field(TransformerFactoryImpl, _catalogFiles)},
+		{"_catalogDefer", "Ljava/lang/String;", nullptr, 0, $field(TransformerFactoryImpl, _catalogDefer)},
+		{"_catalogPrefer", "Ljava/lang/String;", nullptr, 0, $field(TransformerFactoryImpl, _catalogPrefer)},
+		{"_catalogResolve", "Ljava/lang/String;", nullptr, 0, $field(TransformerFactoryImpl, _catalogResolve)},
+		{"_cdataChunkSize", "I", nullptr, 0, $field(TransformerFactoryImpl, _cdataChunkSize)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TransformerFactoryImpl, init$, void)},
+		{"buildCatalogFeatures", "()Ljavax/xml/catalog/CatalogFeatures;", nullptr, $PRIVATE, $method(TransformerFactoryImpl, buildCatalogFeatures, $CatalogFeatures*)},
+		{"createNewDTMManagerInstance", "()Lcom/sun/org/apache/xalan/internal/xsltc/dom/XSLTCDTMManager;", nullptr, $PROTECTED | $FINAL, $method(TransformerFactoryImpl, createNewDTMManagerInstance, $XSLTCDTMManager*)},
+		{"getAssociatedStylesheet", "(Ljavax/xml/transform/Source;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljavax/xml/transform/Source;", nullptr, $PUBLIC, $virtualMethod(TransformerFactoryImpl, getAssociatedStylesheet, $Source*, $Source*, $String*, $String*, $String*), "javax.xml.transform.TransformerConfigurationException"},
+		{"getAttribute", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(TransformerFactoryImpl, getAttribute, $Object*, $String*), "java.lang.IllegalArgumentException"},
+		{"getBytecodesFromClasses", "(Ljavax/xml/transform/Source;Ljava/lang/String;)[[B", nullptr, $PRIVATE, $method(TransformerFactoryImpl, getBytecodesFromClasses, $byteArray2*, $Source*, $String*)},
+		{"getBytecodesFromJar", "(Ljavax/xml/transform/Source;Ljava/lang/String;)[[B", nullptr, $PRIVATE, $method(TransformerFactoryImpl, getBytecodesFromJar, $byteArray2*, $Source*, $String*)},
+		{"getErrorListener", "()Ljavax/xml/transform/ErrorListener;", nullptr, $PUBLIC, $virtualMethod(TransformerFactoryImpl, getErrorListener, $ErrorListener*)},
+		{"getExternalExtensionsMap", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/lang/Class<*>;>;", $PUBLIC, $virtualMethod(TransformerFactoryImpl, getExternalExtensionsMap, $Map*)},
+		{"getFeature", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(TransformerFactoryImpl, getFeature, bool, $String*)},
+		{"getJdkXmlFeatures", "()Ljdk/xml/internal/JdkXmlFeatures;", nullptr, $PUBLIC, $virtualMethod(TransformerFactoryImpl, getJdkXmlFeatures, $JdkXmlFeatures*)},
+		{"getPackageName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(TransformerFactoryImpl, getPackageName, $String*)},
+		{"getStylesheetFileName", "(Ljavax/xml/transform/Source;)Ljava/lang/String;", nullptr, $PRIVATE, $method(TransformerFactoryImpl, getStylesheetFileName, $String*, $Source*)},
+		{"getTransletBaseName", "(Ljavax/xml/transform/Source;)Ljava/lang/String;", nullptr, $PRIVATE, $method(TransformerFactoryImpl, getTransletBaseName, $String*, $Source*)},
+		{"getURIResolver", "()Ljavax/xml/transform/URIResolver;", nullptr, $PUBLIC, $virtualMethod(TransformerFactoryImpl, getURIResolver, $URIResolver*)},
+		{"loadSource", "(Ljava/lang/String;Ljava/lang/String;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/XSLTC;)Lorg/xml/sax/InputSource;", nullptr, $PUBLIC, $virtualMethod(TransformerFactoryImpl, loadSource, $InputSource*, $String*, $String*, $XSLTC*)},
+		{"newTemplates", "(Ljavax/xml/transform/Source;)Ljavax/xml/transform/Templates;", nullptr, $PUBLIC, $virtualMethod(TransformerFactoryImpl, newTemplates, $Templates*, $Source*), "javax.xml.transform.TransformerConfigurationException"},
+		{"newTemplatesHandler", "()Ljavax/xml/transform/sax/TemplatesHandler;", nullptr, $PUBLIC, $virtualMethod(TransformerFactoryImpl, newTemplatesHandler, $TemplatesHandler*), "javax.xml.transform.TransformerConfigurationException"},
+		{"newTransformer", "()Ljavax/xml/transform/Transformer;", nullptr, $PUBLIC, $virtualMethod(TransformerFactoryImpl, newTransformer, $Transformer*), "javax.xml.transform.TransformerConfigurationException"},
+		{"newTransformer", "(Ljavax/xml/transform/Source;)Ljavax/xml/transform/Transformer;", nullptr, $PUBLIC, $virtualMethod(TransformerFactoryImpl, newTransformer, $Transformer*, $Source*), "javax.xml.transform.TransformerConfigurationException"},
+		{"newTransformerHandler", "()Ljavax/xml/transform/sax/TransformerHandler;", nullptr, $PUBLIC, $virtualMethod(TransformerFactoryImpl, newTransformerHandler, $TransformerHandler*), "javax.xml.transform.TransformerConfigurationException"},
+		{"newTransformerHandler", "(Ljavax/xml/transform/Source;)Ljavax/xml/transform/sax/TransformerHandler;", nullptr, $PUBLIC, $virtualMethod(TransformerFactoryImpl, newTransformerHandler, $TransformerHandler*, $Source*), "javax.xml.transform.TransformerConfigurationException"},
+		{"newTransformerHandler", "(Ljavax/xml/transform/Templates;)Ljavax/xml/transform/sax/TransformerHandler;", nullptr, $PUBLIC, $virtualMethod(TransformerFactoryImpl, newTransformerHandler, $TransformerHandler*, $Templates*), "javax.xml.transform.TransformerConfigurationException"},
+		{"newXMLFilter", "(Ljavax/xml/transform/Source;)Lorg/xml/sax/XMLFilter;", nullptr, $PUBLIC, $virtualMethod(TransformerFactoryImpl, newXMLFilter, $XMLFilter*, $Source*), "javax.xml.transform.TransformerConfigurationException"},
+		{"newXMLFilter", "(Ljavax/xml/transform/Templates;)Lorg/xml/sax/XMLFilter;", nullptr, $PUBLIC, $virtualMethod(TransformerFactoryImpl, newXMLFilter, $XMLFilter*, $Templates*), "javax.xml.transform.TransformerConfigurationException"},
+		{"overrideDefaultParser", "()Z", nullptr, $PUBLIC, $virtualMethod(TransformerFactoryImpl, overrideDefaultParser, bool)},
+		{"passErrorsToListener", "(Ljava/util/List;)V", "(Ljava/util/List<Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ErrorMsg;>;)V", $PRIVATE, $method(TransformerFactoryImpl, passErrorsToListener, void, $List*)},
+		{"passWarningsToListener", "(Ljava/util/List;)V", "(Ljava/util/List<Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ErrorMsg;>;)V", $PRIVATE, $method(TransformerFactoryImpl, passWarningsToListener, void, $List*), "javax.xml.transform.TransformerException"},
+		{"readFromInputStream", "([BLjava/io/InputStream;I)V", nullptr, $PRIVATE, $method(TransformerFactoryImpl, readFromInputStream, void, $bytes*, $InputStream*, int32_t), "java.io.IOException"},
+		{"resetTransientAttributes", "()V", nullptr, $PRIVATE, $method(TransformerFactoryImpl, resetTransientAttributes, void)},
+		{"setAttribute", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(TransformerFactoryImpl, setAttribute, void, $String*, Object$*), "java.lang.IllegalArgumentException"},
+		{"setErrorListener", "(Ljavax/xml/transform/ErrorListener;)V", nullptr, $PUBLIC, $virtualMethod(TransformerFactoryImpl, setErrorListener, void, $ErrorListener*), "java.lang.IllegalArgumentException"},
+		{"setFeature", "(Ljava/lang/String;Z)V", nullptr, $PUBLIC, $virtualMethod(TransformerFactoryImpl, setFeature, void, $String*, bool), "javax.xml.transform.TransformerConfigurationException"},
+		{"setURIResolver", "(Ljavax/xml/transform/URIResolver;)V", nullptr, $PUBLIC, $virtualMethod(TransformerFactoryImpl, setURIResolver, void, $URIResolver*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xalan.internal.xsltc.trax.TransformerFactoryImpl$PIParamWrapper", "com.sun.org.apache.xalan.internal.xsltc.trax.TransformerFactoryImpl", "PIParamWrapper", $PRIVATE | $STATIC},
+		{"com.sun.org.apache.xalan.internal.xsltc.trax.TransformerFactoryImpl$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xalan.internal.xsltc.trax.TransformerFactoryImpl",
+		"javax.xml.transform.sax.SAXTransformerFactory",
+		"com.sun.org.apache.xalan.internal.xsltc.compiler.SourceLoader",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xalan.internal.xsltc.trax.TransformerFactoryImpl$PIParamWrapper,com.sun.org.apache.xalan.internal.xsltc.trax.TransformerFactoryImpl$1"
+	};
+	$loadClass(TransformerFactoryImpl, name, initialize, &classInfo$$, TransformerFactoryImpl::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(TransformerFactoryImpl));
+	});
 	return class$;
 }
 

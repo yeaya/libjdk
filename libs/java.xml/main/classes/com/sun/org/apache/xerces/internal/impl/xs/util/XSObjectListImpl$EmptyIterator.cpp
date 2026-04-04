@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/impl/xs/util/XSObjectListImpl$EmptyIterator.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/xs/util/XSObjectListImpl.h>
 #include <com/sun/org/apache/xerces/internal/xs/XSObject.h>
 #include <java/lang/UnsupportedOperationException.h>
@@ -22,47 +21,6 @@ namespace com {
 						namespace impl {
 							namespace xs {
 								namespace util {
-
-$MethodInfo _XSObjectListImpl$EmptyIterator_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(XSObjectListImpl$EmptyIterator, init$, void)},
-	{"add", "(Lcom/sun/org/apache/xerces/internal/xs/XSObject;)V", nullptr, $PUBLIC, $virtualMethod(XSObjectListImpl$EmptyIterator, add, void, $XSObject*)},
-	{"add", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XSObjectListImpl$EmptyIterator, add, void, Object$*)},
-	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(XSObjectListImpl$EmptyIterator, hasNext, bool)},
-	{"hasPrevious", "()Z", nullptr, $PUBLIC, $virtualMethod(XSObjectListImpl$EmptyIterator, hasPrevious, bool)},
-	{"next", "()Lcom/sun/org/apache/xerces/internal/xs/XSObject;", nullptr, $PUBLIC, $virtualMethod(XSObjectListImpl$EmptyIterator, next, $Object*)},
-	{"nextIndex", "()I", nullptr, $PUBLIC, $virtualMethod(XSObjectListImpl$EmptyIterator, nextIndex, int32_t)},
-	{"previous", "()Lcom/sun/org/apache/xerces/internal/xs/XSObject;", nullptr, $PUBLIC, $virtualMethod(XSObjectListImpl$EmptyIterator, previous, $Object*)},
-	{"previousIndex", "()I", nullptr, $PUBLIC, $virtualMethod(XSObjectListImpl$EmptyIterator, previousIndex, int32_t)},
-	{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(XSObjectListImpl$EmptyIterator, remove, void)},
-	{"set", "(Lcom/sun/org/apache/xerces/internal/xs/XSObject;)V", nullptr, $PUBLIC, $virtualMethod(XSObjectListImpl$EmptyIterator, set, void, $XSObject*)},
-	{"set", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XSObjectListImpl$EmptyIterator, set, void, Object$*)},
-	{}
-};
-
-$InnerClassInfo _XSObjectListImpl$EmptyIterator_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xerces.internal.impl.xs.util.XSObjectListImpl$EmptyIterator", "com.sun.org.apache.xerces.internal.impl.xs.util.XSObjectListImpl", "EmptyIterator", $STATIC},
-	{}
-};
-
-$ClassInfo _XSObjectListImpl$EmptyIterator_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.impl.xs.util.XSObjectListImpl$EmptyIterator",
-	"java.lang.Object",
-	"java.util.ListIterator",
-	nullptr,
-	_XSObjectListImpl$EmptyIterator_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/ListIterator<Lcom/sun/org/apache/xerces/internal/xs/XSObject;>;",
-	nullptr,
-	_XSObjectListImpl$EmptyIterator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xerces.internal.impl.xs.util.XSObjectListImpl"
-};
-
-$Object* allocate$XSObjectListImpl$EmptyIterator($Class* clazz) {
-	return $of($alloc(XSObjectListImpl$EmptyIterator));
-}
 
 void XSObjectListImpl$EmptyIterator::init$() {
 }
@@ -117,7 +75,43 @@ XSObjectListImpl$EmptyIterator::XSObjectListImpl$EmptyIterator() {
 }
 
 $Class* XSObjectListImpl$EmptyIterator::load$($String* name, bool initialize) {
-	$loadClass(XSObjectListImpl$EmptyIterator, name, initialize, &_XSObjectListImpl$EmptyIterator_ClassInfo_, allocate$XSObjectListImpl$EmptyIterator);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(XSObjectListImpl$EmptyIterator, init$, void)},
+		{"add", "(Lcom/sun/org/apache/xerces/internal/xs/XSObject;)V", nullptr, $PUBLIC, $virtualMethod(XSObjectListImpl$EmptyIterator, add, void, $XSObject*)},
+		{"add", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XSObjectListImpl$EmptyIterator, add, void, Object$*)},
+		{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(XSObjectListImpl$EmptyIterator, hasNext, bool)},
+		{"hasPrevious", "()Z", nullptr, $PUBLIC, $virtualMethod(XSObjectListImpl$EmptyIterator, hasPrevious, bool)},
+		{"next", "()Lcom/sun/org/apache/xerces/internal/xs/XSObject;", nullptr, $PUBLIC, $virtualMethod(XSObjectListImpl$EmptyIterator, next, $Object*)},
+		{"nextIndex", "()I", nullptr, $PUBLIC, $virtualMethod(XSObjectListImpl$EmptyIterator, nextIndex, int32_t)},
+		{"previous", "()Lcom/sun/org/apache/xerces/internal/xs/XSObject;", nullptr, $PUBLIC, $virtualMethod(XSObjectListImpl$EmptyIterator, previous, $Object*)},
+		{"previousIndex", "()I", nullptr, $PUBLIC, $virtualMethod(XSObjectListImpl$EmptyIterator, previousIndex, int32_t)},
+		{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(XSObjectListImpl$EmptyIterator, remove, void)},
+		{"set", "(Lcom/sun/org/apache/xerces/internal/xs/XSObject;)V", nullptr, $PUBLIC, $virtualMethod(XSObjectListImpl$EmptyIterator, set, void, $XSObject*)},
+		{"set", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XSObjectListImpl$EmptyIterator, set, void, Object$*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xerces.internal.impl.xs.util.XSObjectListImpl$EmptyIterator", "com.sun.org.apache.xerces.internal.impl.xs.util.XSObjectListImpl", "EmptyIterator", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.impl.xs.util.XSObjectListImpl$EmptyIterator",
+		"java.lang.Object",
+		"java.util.ListIterator",
+		nullptr,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/ListIterator<Lcom/sun/org/apache/xerces/internal/xs/XSObject;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xerces.internal.impl.xs.util.XSObjectListImpl"
+	};
+	$loadClass(XSObjectListImpl$EmptyIterator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XSObjectListImpl$EmptyIterator);
+	});
 	return class$;
 }
 

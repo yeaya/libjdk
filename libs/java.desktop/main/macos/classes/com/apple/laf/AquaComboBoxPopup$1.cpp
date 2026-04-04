@@ -1,5 +1,4 @@
 #include <com/apple/laf/AquaComboBoxPopup$1.h>
-
 #include <com/apple/laf/AquaComboBoxPopup.h>
 #include <java/awt/AWTEvent.h>
 #include <java/awt/Component.h>
@@ -30,55 +29,13 @@ namespace com {
 	namespace apple {
 		namespace laf {
 
-$FieldInfo _AquaComboBoxPopup$1_FieldInfo_[] = {
-	{"this$0", "Lcom/apple/laf/AquaComboBoxPopup;", nullptr, $FINAL | $SYNTHETIC, $field(AquaComboBoxPopup$1, this$0)},
-	{}
-};
-
-$MethodInfo _AquaComboBoxPopup$1_MethodInfo_[] = {
-	{"<init>", "(Lcom/apple/laf/AquaComboBoxPopup;Ljavax/swing/ListModel;)V", nullptr, 0, $method(AquaComboBoxPopup$1, init$, void, $AquaComboBoxPopup*, $ListModel*)},
-	{"processMouseEvent", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaComboBoxPopup$1, processMouseEvent, void, $MouseEvent*)},
-	{}
-};
-
-$EnclosingMethodInfo _AquaComboBoxPopup$1_EnclosingMethodInfo_ = {
-	"com.apple.laf.AquaComboBoxPopup",
-	"createList",
-	"()Ljavax/swing/JList;"
-};
-
-$InnerClassInfo _AquaComboBoxPopup$1_InnerClassesInfo_[] = {
-	{"com.apple.laf.AquaComboBoxPopup$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _AquaComboBoxPopup$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.apple.laf.AquaComboBoxPopup$1",
-	"javax.swing.JList",
-	nullptr,
-	_AquaComboBoxPopup$1_FieldInfo_,
-	_AquaComboBoxPopup$1_MethodInfo_,
-	"Ljavax/swing/JList<Ljava/lang/Object;>;",
-	&_AquaComboBoxPopup$1_EnclosingMethodInfo_,
-	_AquaComboBoxPopup$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.apple.laf.AquaComboBoxPopup"
-};
-
-$Object* allocate$AquaComboBoxPopup$1($Class* clazz) {
-	return $of($alloc(AquaComboBoxPopup$1));
-}
-
 void AquaComboBoxPopup$1::init$($AquaComboBoxPopup* this$0, $ListModel* dataModel) {
 	$set(this, this$0, this$0);
 	$JList::init$(dataModel);
 }
 
 void AquaComboBoxPopup$1::processMouseEvent($MouseEvent* e$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($MouseEvent, e, e$renamed);
 	if ($nc(e)->isMetaDown()) {
 		$var($Component, var$0, $cast($Component, e->getSource()));
@@ -99,7 +56,42 @@ AquaComboBoxPopup$1::AquaComboBoxPopup$1() {
 }
 
 $Class* AquaComboBoxPopup$1::load$($String* name, bool initialize) {
-	$loadClass(AquaComboBoxPopup$1, name, initialize, &_AquaComboBoxPopup$1_ClassInfo_, allocate$AquaComboBoxPopup$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/apple/laf/AquaComboBoxPopup;", nullptr, $FINAL | $SYNTHETIC, $field(AquaComboBoxPopup$1, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/apple/laf/AquaComboBoxPopup;Ljavax/swing/ListModel;)V", nullptr, 0, $method(AquaComboBoxPopup$1, init$, void, $AquaComboBoxPopup*, $ListModel*)},
+		{"processMouseEvent", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaComboBoxPopup$1, processMouseEvent, void, $MouseEvent*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.apple.laf.AquaComboBoxPopup",
+		"createList",
+		"()Ljavax/swing/JList;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.laf.AquaComboBoxPopup$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.apple.laf.AquaComboBoxPopup$1",
+		"javax.swing.JList",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljavax/swing/JList<Ljava/lang/Object;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.apple.laf.AquaComboBoxPopup"
+	};
+	$loadClass(AquaComboBoxPopup$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AquaComboBoxPopup$1));
+	});
 	return class$;
 }
 

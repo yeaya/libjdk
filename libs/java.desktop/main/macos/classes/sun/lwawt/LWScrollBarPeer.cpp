@@ -1,5 +1,4 @@
 #include <sun/lwawt/LWScrollBarPeer.h>
-
 #include <java/awt/AWTEvent.h>
 #include <java/awt/Adjustable.h>
 #include <java/awt/BufferCapabilities$FlipContents.h>
@@ -15,7 +14,6 @@
 #include <java/awt/Point.h>
 #include <java/awt/Scrollbar.h>
 #include <java/awt/event/AdjustmentEvent.h>
-#include <java/awt/event/AdjustmentListener.h>
 #include <java/awt/event/FocusEvent$Cause.h>
 #include <java/awt/event/PaintEvent.h>
 #include <java/awt/image/ColorModel.h>
@@ -47,7 +45,6 @@ using $Image = ::java::awt::Image;
 using $Point = ::java::awt::Point;
 using $Scrollbar = ::java::awt::Scrollbar;
 using $AdjustmentEvent = ::java::awt::event::AdjustmentEvent;
-using $AdjustmentListener = ::java::awt::event::AdjustmentListener;
 using $FocusEvent$Cause = ::java::awt::event::FocusEvent$Cause;
 using $PaintEvent = ::java::awt::event::PaintEvent;
 using $ColorModel = ::java::awt::image::ColorModel;
@@ -65,77 +62,6 @@ using $PlatformComponent = ::sun::lwawt::PlatformComponent;
 
 namespace sun {
 	namespace lwawt {
-
-$FieldInfo _LWScrollBarPeer_FieldInfo_[] = {
-	{"currentValue", "I", nullptr, $PRIVATE, $field(LWScrollBarPeer, currentValue)},
-	{}
-};
-
-$MethodInfo _LWScrollBarPeer_MethodInfo_[] = {
-	{"*applyShape", "(Lsun/java2d/pipe/Region;)V", nullptr, $PUBLIC | $FINAL},
-	{"*canDetermineObscurity", "()Z", nullptr, $PUBLIC},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*coalescePaintEvent", "(Ljava/awt/event/PaintEvent;)V", nullptr, $PUBLIC},
-	{"*createBuffers", "(ILjava/awt/BufferCapabilities;)V", nullptr, $PUBLIC | $FINAL},
-	{"*createImage", "(II)Ljava/awt/Image;", nullptr, $PUBLIC | $FINAL},
-	{"*createVolatileImage", "(II)Ljava/awt/image/VolatileImage;", nullptr, $PUBLIC | $FINAL},
-	{"*destroyBuffers", "()V", nullptr, $PUBLIC | $FINAL},
-	{"*dispose", "()V", nullptr, $PUBLIC | $FINAL},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*flip", "(IIIILjava/awt/BufferCapabilities$FlipContents;)V", nullptr, $PUBLIC | $FINAL},
-	{"*getBackBuffer", "()Ljava/awt/Image;", nullptr, $PUBLIC | $FINAL},
-	{"*getColorModel", "()Ljava/awt/image/ColorModel;", nullptr, $PUBLIC},
-	{"*getFontMetrics", "(Ljava/awt/Font;)Ljava/awt/FontMetrics;", nullptr, $PUBLIC},
-	{"*getGraphics", "()Ljava/awt/Graphics;", nullptr, $PUBLIC},
-	{"*getGraphicsConfiguration", "()Ljava/awt/GraphicsConfiguration;", nullptr, $PUBLIC},
-	{"*getLocationOnScreen", "()Ljava/awt/Point;", nullptr, $PUBLIC},
-	{"*getMinimumSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC},
-	{"*getPreferredSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC},
-	{"*handleEvent", "(Ljava/awt/AWTEvent;)V", nullptr, $PUBLIC},
-	{"*handlesWheelScrolling", "()Z", nullptr, $PUBLIC},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/awt/Scrollbar;Lsun/lwawt/PlatformComponent;)V", nullptr, 0, $method(LWScrollBarPeer, init$, void, $Scrollbar*, $PlatformComponent*)},
-	{"adjustmentValueChanged", "(Ljava/awt/event/AdjustmentEvent;)V", nullptr, $PUBLIC, $virtualMethod(LWScrollBarPeer, adjustmentValueChanged, void, $AdjustmentEvent*)},
-	{"createDelegate", "()Ljavax/swing/JScrollBar;", nullptr, 0, $virtualMethod(LWScrollBarPeer, createDelegate, $JComponent*)},
-	{"initializeImpl", "()V", nullptr, 0, $virtualMethod(LWScrollBarPeer, initializeImpl, void)},
-	{"*isFocusable", "()Z", nullptr, $PUBLIC},
-	{"*isObscured", "()Z", nullptr, $PUBLIC},
-	{"*isReparentSupported", "()Z", nullptr, $PUBLIC},
-	{"*layout", "()V", nullptr, $PUBLIC},
-	{"*paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC},
-	{"*print", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC},
-	{"*reparent", "(Ljava/awt/peer/ContainerPeer;)V", nullptr, $PUBLIC},
-	{"*requestFocus", "(Ljava/awt/Component;ZZJLjava/awt/event/FocusEvent$Cause;)Z", nullptr, $PUBLIC},
-	{"*setBackground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC},
-	{"*setBounds", "(IIIII)V", nullptr, $PUBLIC},
-	{"*setEnabled", "(Z)V", nullptr, $PUBLIC},
-	{"*setFont", "(Ljava/awt/Font;)V", nullptr, $PUBLIC},
-	{"*setForeground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC},
-	{"setLineIncrement", "(I)V", nullptr, $PUBLIC, $virtualMethod(LWScrollBarPeer, setLineIncrement, void, int32_t)},
-	{"setPageIncrement", "(I)V", nullptr, $PUBLIC, $virtualMethod(LWScrollBarPeer, setPageIncrement, void, int32_t)},
-	{"setValues", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(LWScrollBarPeer, setValues, void, int32_t, int32_t, int32_t, int32_t)},
-	{"*updateGraphicsData", "(Ljava/awt/GraphicsConfiguration;)Z", nullptr, $PUBLIC},
-	{"*setVisible", "(Z)V", nullptr, $PUBLIC},
-	{"*setZOrder", "(Ljava/awt/peer/ComponentPeer;)V", nullptr, $PUBLIC},
-	{"*updateCursorImmediately", "()V", nullptr, $PUBLIC},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _LWScrollBarPeer_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.lwawt.LWScrollBarPeer",
-	"sun.lwawt.LWComponentPeer",
-	"java.awt.peer.ScrollbarPeer,java.awt.event.AdjustmentListener",
-	_LWScrollBarPeer_FieldInfo_,
-	_LWScrollBarPeer_MethodInfo_,
-	"Lsun/lwawt/LWComponentPeer<Ljava/awt/Scrollbar;Ljavax/swing/JScrollBar;>;Ljava/awt/peer/ScrollbarPeer;Ljava/awt/event/AdjustmentListener;"
-};
-
-$Object* allocate$LWScrollBarPeer($Class* clazz) {
-	return $of($alloc(LWScrollBarPeer));
-}
 
 void LWScrollBarPeer::dispose() {
 	this->$LWComponentPeer::dispose();
@@ -310,16 +236,16 @@ $JComponent* LWScrollBarPeer::createDelegate() {
 }
 
 void LWScrollBarPeer::initializeImpl() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$LWComponentPeer::initializeImpl();
 	$var($Scrollbar, target, $cast($Scrollbar, getTarget()));
 	setLineIncrement($nc(target)->getUnitIncrement());
-	setPageIncrement($nc(target)->getBlockIncrement());
-	int32_t var$0 = $nc(target)->getValue();
+	setPageIncrement(target->getBlockIncrement());
+	int32_t var$0 = target->getValue();
 	int32_t var$1 = target->getVisibleAmount();
 	int32_t var$2 = target->getMinimum();
 	setValues(var$0, var$1, var$2, target->getMaximum());
-	int32_t orientation = $nc(target)->getOrientation();
+	int32_t orientation = target->getOrientation();
 	$var($JScrollBar, delegate, $cast($JScrollBar, getDelegate()));
 	$synchronized(getDelegateLock()) {
 		$nc(delegate)->setOrientation(orientation == $Scrollbar::HORIZONTAL ? $Adjustable::HORIZONTAL : $Adjustable::VERTICAL);
@@ -330,24 +256,24 @@ void LWScrollBarPeer::initializeImpl() {
 void LWScrollBarPeer::setValues(int32_t value, int32_t visible, int32_t minimum, int32_t maximum) {
 	$synchronized(getDelegateLock()) {
 		this->currentValue = value;
-		$nc(($cast($JScrollBar, $(getDelegate()))))->setValues(value, visible, minimum, maximum);
+		$$sure($JScrollBar, getDelegate())->setValues(value, visible, minimum, maximum);
 	}
 }
 
 void LWScrollBarPeer::setLineIncrement(int32_t l) {
 	$synchronized(getDelegateLock()) {
-		$nc(($cast($JScrollBar, $(getDelegate()))))->setUnitIncrement(l);
+		$$sure($JScrollBar, getDelegate())->setUnitIncrement(l);
 	}
 }
 
 void LWScrollBarPeer::setPageIncrement(int32_t l) {
 	$synchronized(getDelegateLock()) {
-		$nc(($cast($JScrollBar, $(getDelegate()))))->setBlockIncrement(l);
+		$$sure($JScrollBar, getDelegate())->setBlockIncrement(l);
 	}
 }
 
 void LWScrollBarPeer::adjustmentValueChanged($AdjustmentEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t value = $nc(e)->getValue();
 	$synchronized(getDelegateLock()) {
 		if (this->currentValue == value) {
@@ -355,20 +281,85 @@ void LWScrollBarPeer::adjustmentValueChanged($AdjustmentEvent* e) {
 		}
 		this->currentValue = value;
 	}
-	$nc(($cast($Scrollbar, $(getTarget()))))->setValueIsAdjusting(e->getValueIsAdjusting());
-	$nc(($cast($Scrollbar, $(getTarget()))))->setValue(value);
+	$$sure($Scrollbar, getTarget())->setValueIsAdjusting(e->getValueIsAdjusting());
+	$$sure($Scrollbar, getTarget())->setValue(value);
 	$var($Adjustable, var$0, $cast($Adjustable, getTarget()));
 	int32_t var$1 = e->getID();
 	int32_t var$2 = e->getAdjustmentType();
-	int32_t var$3 = value;
-	postEvent($$new($AdjustmentEvent, var$0, var$1, var$2, var$3, e->getValueIsAdjusting()));
+	postEvent($$new($AdjustmentEvent, var$0, var$1, var$2, value, e->getValueIsAdjusting()));
 }
 
 LWScrollBarPeer::LWScrollBarPeer() {
 }
 
 $Class* LWScrollBarPeer::load$($String* name, bool initialize) {
-	$loadClass(LWScrollBarPeer, name, initialize, &_LWScrollBarPeer_ClassInfo_, allocate$LWScrollBarPeer);
+	$FieldInfo fieldInfos$$[] = {
+		{"currentValue", "I", nullptr, $PRIVATE, $field(LWScrollBarPeer, currentValue)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*applyShape", "(Lsun/java2d/pipe/Region;)V", nullptr, $PUBLIC | $FINAL},
+		{"*canDetermineObscurity", "()Z", nullptr, $PUBLIC},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*coalescePaintEvent", "(Ljava/awt/event/PaintEvent;)V", nullptr, $PUBLIC},
+		{"*createBuffers", "(ILjava/awt/BufferCapabilities;)V", nullptr, $PUBLIC | $FINAL},
+		{"*createImage", "(II)Ljava/awt/Image;", nullptr, $PUBLIC | $FINAL},
+		{"*createVolatileImage", "(II)Ljava/awt/image/VolatileImage;", nullptr, $PUBLIC | $FINAL},
+		{"*destroyBuffers", "()V", nullptr, $PUBLIC | $FINAL},
+		{"*dispose", "()V", nullptr, $PUBLIC | $FINAL},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*flip", "(IIIILjava/awt/BufferCapabilities$FlipContents;)V", nullptr, $PUBLIC | $FINAL},
+		{"*getBackBuffer", "()Ljava/awt/Image;", nullptr, $PUBLIC | $FINAL},
+		{"*getColorModel", "()Ljava/awt/image/ColorModel;", nullptr, $PUBLIC},
+		{"*getFontMetrics", "(Ljava/awt/Font;)Ljava/awt/FontMetrics;", nullptr, $PUBLIC},
+		{"*getGraphics", "()Ljava/awt/Graphics;", nullptr, $PUBLIC},
+		{"*getGraphicsConfiguration", "()Ljava/awt/GraphicsConfiguration;", nullptr, $PUBLIC},
+		{"*getLocationOnScreen", "()Ljava/awt/Point;", nullptr, $PUBLIC},
+		{"*getMinimumSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC},
+		{"*getPreferredSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC},
+		{"*handleEvent", "(Ljava/awt/AWTEvent;)V", nullptr, $PUBLIC},
+		{"*handlesWheelScrolling", "()Z", nullptr, $PUBLIC},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/awt/Scrollbar;Lsun/lwawt/PlatformComponent;)V", nullptr, 0, $method(LWScrollBarPeer, init$, void, $Scrollbar*, $PlatformComponent*)},
+		{"adjustmentValueChanged", "(Ljava/awt/event/AdjustmentEvent;)V", nullptr, $PUBLIC, $virtualMethod(LWScrollBarPeer, adjustmentValueChanged, void, $AdjustmentEvent*)},
+		{"createDelegate", "()Ljavax/swing/JScrollBar;", nullptr, 0, $virtualMethod(LWScrollBarPeer, createDelegate, $JComponent*)},
+		{"initializeImpl", "()V", nullptr, 0, $virtualMethod(LWScrollBarPeer, initializeImpl, void)},
+		{"*isFocusable", "()Z", nullptr, $PUBLIC},
+		{"*isObscured", "()Z", nullptr, $PUBLIC},
+		{"*isReparentSupported", "()Z", nullptr, $PUBLIC},
+		{"*layout", "()V", nullptr, $PUBLIC},
+		{"*paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC},
+		{"*print", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC},
+		{"*reparent", "(Ljava/awt/peer/ContainerPeer;)V", nullptr, $PUBLIC},
+		{"*requestFocus", "(Ljava/awt/Component;ZZJLjava/awt/event/FocusEvent$Cause;)Z", nullptr, $PUBLIC},
+		{"*setBackground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC},
+		{"*setBounds", "(IIIII)V", nullptr, $PUBLIC},
+		{"*setEnabled", "(Z)V", nullptr, $PUBLIC},
+		{"*setFont", "(Ljava/awt/Font;)V", nullptr, $PUBLIC},
+		{"*setForeground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC},
+		{"setLineIncrement", "(I)V", nullptr, $PUBLIC, $virtualMethod(LWScrollBarPeer, setLineIncrement, void, int32_t)},
+		{"setPageIncrement", "(I)V", nullptr, $PUBLIC, $virtualMethod(LWScrollBarPeer, setPageIncrement, void, int32_t)},
+		{"setValues", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(LWScrollBarPeer, setValues, void, int32_t, int32_t, int32_t, int32_t)},
+		{"*updateGraphicsData", "(Ljava/awt/GraphicsConfiguration;)Z", nullptr, $PUBLIC},
+		{"*setVisible", "(Z)V", nullptr, $PUBLIC},
+		{"*setZOrder", "(Ljava/awt/peer/ComponentPeer;)V", nullptr, $PUBLIC},
+		{"*updateCursorImmediately", "()V", nullptr, $PUBLIC},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.lwawt.LWScrollBarPeer",
+		"sun.lwawt.LWComponentPeer",
+		"java.awt.peer.ScrollbarPeer,java.awt.event.AdjustmentListener",
+		fieldInfos$$,
+		methodInfos$$,
+		"Lsun/lwawt/LWComponentPeer<Ljava/awt/Scrollbar;Ljavax/swing/JScrollBar;>;Ljava/awt/peer/ScrollbarPeer;Ljava/awt/event/AdjustmentListener;"
+	};
+	$loadClass(LWScrollBarPeer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(LWScrollBarPeer));
+	});
 	return class$;
 }
 

@@ -41,6 +41,7 @@ class $import StartTlsRequest : public ::javax::naming::ldap::ExtendedRequest {
 	$class(StartTlsRequest, 0, ::javax::naming::ldap::ExtendedRequest)
 public:
 	StartTlsRequest();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual ::javax::naming::ldap::ExtendedResponse* createExtendedResponse($String* id, $bytes* berValue, int32_t offset, int32_t length) override;
 	::java::lang::ClassLoader* getContextClassLoader();
@@ -49,7 +50,7 @@ public:
 	static bool privilegedHasNext(::java::util::Iterator* iter);
 	::javax::naming::ConfigurationException* wrapException(::java::lang::Exception* e);
 	static $String* OID;
-	static const int64_t serialVersionUID = (int64_t)0x3DA4040AAB1718F5;
+	static const int64_t serialVersionUID = (int64_t)0x3da4040aab1718f5;
 };
 
 		} // ldap

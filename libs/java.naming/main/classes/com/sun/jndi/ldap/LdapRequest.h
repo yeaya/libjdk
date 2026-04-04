@@ -38,6 +38,7 @@ class LdapRequest : public ::java::lang::Object {
 	$class(LdapRequest, 0, ::java::lang::Object)
 public:
 	LdapRequest();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int32_t msgId, bool pause, int32_t replyQueueCapacity);
 	bool addReplyBer(::com::sun::jndi::ldap::BerDecoder* ber);
 	void cancel();

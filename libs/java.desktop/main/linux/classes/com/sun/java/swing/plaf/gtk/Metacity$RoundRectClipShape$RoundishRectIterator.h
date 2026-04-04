@@ -38,6 +38,7 @@ class Metacity$RoundRectClipShape$RoundishRectIterator : public ::java::awt::geo
 	$class(Metacity$RoundRectClipShape$RoundishRectIterator, 0, ::java::awt::geom::PathIterator)
 public:
 	Metacity$RoundRectClipShape$RoundishRectIterator();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::com::sun::java::swing::plaf::gtk::Metacity$RoundRectClipShape* rr, ::java::awt::geom::AffineTransform* at);
 	virtual int32_t currentSegment($floats* coords) override;
 	virtual int32_t currentSegment($doubles* coords) override;

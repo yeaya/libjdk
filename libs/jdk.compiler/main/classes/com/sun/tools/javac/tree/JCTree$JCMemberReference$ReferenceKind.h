@@ -42,6 +42,7 @@ class $export JCTree$JCMemberReference$ReferenceKind : public ::java::lang::Enum
 public:
 	JCTree$JCMemberReference$ReferenceKind();
 	static $Array<::com::sun::tools::javac::tree::JCTree$JCMemberReference$ReferenceKind>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal, ::com::sun::source::tree::MemberReferenceTree$ReferenceMode* mode, bool unbound);
 	virtual bool isUnbound();
 	static ::com::sun::tools::javac::tree::JCTree$JCMemberReference$ReferenceKind* valueOf($String* name);

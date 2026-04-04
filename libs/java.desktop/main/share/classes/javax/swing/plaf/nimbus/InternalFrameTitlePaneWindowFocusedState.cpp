@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/nimbus/InternalFrameTitlePaneWindowFocusedState.h>
-
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JInternalFrame.h>
 #include <javax/swing/plaf/nimbus/State.h>
@@ -16,39 +15,35 @@ namespace javax {
 		namespace plaf {
 			namespace nimbus {
 
-$MethodInfo _InternalFrameTitlePaneWindowFocusedState_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(InternalFrameTitlePaneWindowFocusedState, init$, void)},
-	{"isInState", "(Ljavax/swing/JComponent;)Z", nullptr, $PROTECTED, $virtualMethod(InternalFrameTitlePaneWindowFocusedState, isInState, bool, $JComponent*)},
-	{}
-};
-
-$ClassInfo _InternalFrameTitlePaneWindowFocusedState_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.nimbus.InternalFrameTitlePaneWindowFocusedState",
-	"javax.swing.plaf.nimbus.State",
-	nullptr,
-	nullptr,
-	_InternalFrameTitlePaneWindowFocusedState_MethodInfo_,
-	"Ljavax/swing/plaf/nimbus/State<Ljavax/swing/JComponent;>;"
-};
-
-$Object* allocate$InternalFrameTitlePaneWindowFocusedState($Class* clazz) {
-	return $of($alloc(InternalFrameTitlePaneWindowFocusedState));
-}
-
 void InternalFrameTitlePaneWindowFocusedState::init$() {
 	$State::init$("WindowFocused"_s);
 }
 
 bool InternalFrameTitlePaneWindowFocusedState::isInState($JComponent* c) {
-	return $instanceOf($JInternalFrame, c) && $nc(($cast($JInternalFrame, c)))->isSelected();
+	return $instanceOf($JInternalFrame, c) && $cast($JInternalFrame, c)->isSelected();
 }
 
 InternalFrameTitlePaneWindowFocusedState::InternalFrameTitlePaneWindowFocusedState() {
 }
 
 $Class* InternalFrameTitlePaneWindowFocusedState::load$($String* name, bool initialize) {
-	$loadClass(InternalFrameTitlePaneWindowFocusedState, name, initialize, &_InternalFrameTitlePaneWindowFocusedState_ClassInfo_, allocate$InternalFrameTitlePaneWindowFocusedState);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(InternalFrameTitlePaneWindowFocusedState, init$, void)},
+		{"isInState", "(Ljavax/swing/JComponent;)Z", nullptr, $PROTECTED, $virtualMethod(InternalFrameTitlePaneWindowFocusedState, isInState, bool, $JComponent*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.nimbus.InternalFrameTitlePaneWindowFocusedState",
+		"javax.swing.plaf.nimbus.State",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		"Ljavax/swing/plaf/nimbus/State<Ljavax/swing/JComponent;>;"
+	};
+	$loadClass(InternalFrameTitlePaneWindowFocusedState, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(InternalFrameTitlePaneWindowFocusedState);
+	});
 	return class$;
 }
 

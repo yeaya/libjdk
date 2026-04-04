@@ -22,6 +22,7 @@ class $export NimbusGlueTest : public ::java::lang::Object {
 	$class(NimbusGlueTest, 0, ::java::lang::Object)
 public:
 	NimbusGlueTest();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::javax::swing::JButton* createButton(int32_t id);
 	static void createUI();

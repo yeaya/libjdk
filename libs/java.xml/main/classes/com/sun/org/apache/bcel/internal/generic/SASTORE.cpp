@@ -1,10 +1,8 @@
 #include <com/sun/org/apache/bcel/internal/generic/SASTORE.h>
-
 #include <com/sun/org/apache/bcel/internal/Const.h>
 #include <com/sun/org/apache/bcel/internal/generic/ArrayInstruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/ConstantPoolGen.h>
 #include <com/sun/org/apache/bcel/internal/generic/ExceptionThrower.h>
-#include <com/sun/org/apache/bcel/internal/generic/StackConsumer.h>
 #include <com/sun/org/apache/bcel/internal/generic/TypedInstruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/Visitor.h>
 #include <jcpp.h>
@@ -14,9 +12,6 @@
 using $Const = ::com::sun::org::apache::bcel::internal::Const;
 using $ArrayInstruction = ::com::sun::org::apache::bcel::internal::generic::ArrayInstruction;
 using $ConstantPoolGen = ::com::sun::org::apache::bcel::internal::generic::ConstantPoolGen;
-using $ExceptionThrower = ::com::sun::org::apache::bcel::internal::generic::ExceptionThrower;
-using $StackConsumer = ::com::sun::org::apache::bcel::internal::generic::StackConsumer;
-using $TypedInstruction = ::com::sun::org::apache::bcel::internal::generic::TypedInstruction;
 using $Visitor = ::com::sun::org::apache::bcel::internal::generic::Visitor;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -28,31 +23,6 @@ namespace com {
 				namespace bcel {
 					namespace internal {
 						namespace generic {
-
-$MethodInfo _SASTORE_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*consumeStack", "(Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;)I", nullptr, $PUBLIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SASTORE, init$, void)},
-	{"accept", "(Lcom/sun/org/apache/bcel/internal/generic/Visitor;)V", nullptr, $PUBLIC, $virtualMethod(SASTORE, accept, void, $Visitor*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _SASTORE_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.bcel.internal.generic.SASTORE",
-	"com.sun.org.apache.bcel.internal.generic.ArrayInstruction",
-	"com.sun.org.apache.bcel.internal.generic.StackConsumer",
-	nullptr,
-	_SASTORE_MethodInfo_
-};
-
-$Object* allocate$SASTORE($Class* clazz) {
-	return $of($alloc(SASTORE));
-}
 
 $String* SASTORE::toString() {
 	 return this->$ArrayInstruction::toString();
@@ -94,7 +64,28 @@ SASTORE::SASTORE() {
 }
 
 $Class* SASTORE::load$($String* name, bool initialize) {
-	$loadClass(SASTORE, name, initialize, &_SASTORE_ClassInfo_, allocate$SASTORE);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*consumeStack", "(Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;)I", nullptr, $PUBLIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SASTORE, init$, void)},
+		{"accept", "(Lcom/sun/org/apache/bcel/internal/generic/Visitor;)V", nullptr, $PUBLIC, $virtualMethod(SASTORE, accept, void, $Visitor*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.bcel.internal.generic.SASTORE",
+		"com.sun.org.apache.bcel.internal.generic.ArrayInstruction",
+		"com.sun.org.apache.bcel.internal.generic.StackConsumer",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(SASTORE, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SASTORE));
+	});
 	return class$;
 }
 

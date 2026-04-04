@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/windows/WindowsScrollPaneUI.h>
-
 #include <javax/swing/plaf/basic/BasicScrollPaneUI.h>
 #include <jcpp.h>
 
@@ -14,24 +13,6 @@ namespace com {
 				namespace plaf {
 					namespace windows {
 
-$MethodInfo _WindowsScrollPaneUI_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(WindowsScrollPaneUI, init$, void)},
-	{}
-};
-
-$ClassInfo _WindowsScrollPaneUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.java.swing.plaf.windows.WindowsScrollPaneUI",
-	"javax.swing.plaf.basic.BasicScrollPaneUI",
-	nullptr,
-	nullptr,
-	_WindowsScrollPaneUI_MethodInfo_
-};
-
-$Object* allocate$WindowsScrollPaneUI($Class* clazz) {
-	return $of($alloc(WindowsScrollPaneUI));
-}
-
 void WindowsScrollPaneUI::init$() {
 	$BasicScrollPaneUI::init$();
 }
@@ -40,7 +21,21 @@ WindowsScrollPaneUI::WindowsScrollPaneUI() {
 }
 
 $Class* WindowsScrollPaneUI::load$($String* name, bool initialize) {
-	$loadClass(WindowsScrollPaneUI, name, initialize, &_WindowsScrollPaneUI_ClassInfo_, allocate$WindowsScrollPaneUI);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(WindowsScrollPaneUI, init$, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.java.swing.plaf.windows.WindowsScrollPaneUI",
+		"javax.swing.plaf.basic.BasicScrollPaneUI",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(WindowsScrollPaneUI, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(WindowsScrollPaneUI));
+	});
 	return class$;
 }
 

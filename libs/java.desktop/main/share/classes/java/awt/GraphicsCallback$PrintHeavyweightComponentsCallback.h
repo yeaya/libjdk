@@ -19,6 +19,7 @@ class GraphicsCallback$PrintHeavyweightComponentsCallback : public ::java::awt::
 	$class(GraphicsCallback$PrintHeavyweightComponentsCallback, 0, ::java::awt::GraphicsCallback)
 public:
 	GraphicsCallback$PrintHeavyweightComponentsCallback();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::awt::GraphicsCallback$PrintHeavyweightComponentsCallback* getInstance();
 	virtual void run(::java::awt::Component* comp, ::java::awt::Graphics* cg) override;

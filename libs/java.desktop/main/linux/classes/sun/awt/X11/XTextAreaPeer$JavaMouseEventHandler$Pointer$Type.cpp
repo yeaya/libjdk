@@ -1,5 +1,4 @@
 #include <sun/awt/X11/XTextAreaPeer$JavaMouseEventHandler$Pointer$Type.h>
-
 #include <java/lang/Enum.h>
 #include <sun/awt/X11/XTextAreaPeer$JavaMouseEventHandler$Pointer.h>
 #include <sun/awt/X11/XTextAreaPeer$JavaMouseEventHandler.h>
@@ -21,50 +20,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace sun {
 	namespace awt {
 		namespace X11 {
-
-$FieldInfo _XTextAreaPeer$JavaMouseEventHandler$Pointer$Type_FieldInfo_[] = {
-	{"NONE", "Lsun/awt/X11/XTextAreaPeer$JavaMouseEventHandler$Pointer$Type;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(XTextAreaPeer$JavaMouseEventHandler$Pointer$Type, NONE)},
-	{"TEXT", "Lsun/awt/X11/XTextAreaPeer$JavaMouseEventHandler$Pointer$Type;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(XTextAreaPeer$JavaMouseEventHandler$Pointer$Type, TEXT)},
-	{"BAR", "Lsun/awt/X11/XTextAreaPeer$JavaMouseEventHandler$Pointer$Type;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(XTextAreaPeer$JavaMouseEventHandler$Pointer$Type, BAR)},
-	{"BUTTON", "Lsun/awt/X11/XTextAreaPeer$JavaMouseEventHandler$Pointer$Type;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(XTextAreaPeer$JavaMouseEventHandler$Pointer$Type, BUTTON)},
-	{"$VALUES", "[Lsun/awt/X11/XTextAreaPeer$JavaMouseEventHandler$Pointer$Type;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(XTextAreaPeer$JavaMouseEventHandler$Pointer$Type, $VALUES)},
-	{}
-};
-
-$MethodInfo _XTextAreaPeer$JavaMouseEventHandler$Pointer$Type_MethodInfo_[] = {
-	{"$values", "()[Lsun/awt/X11/XTextAreaPeer$JavaMouseEventHandler$Pointer$Type;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(XTextAreaPeer$JavaMouseEventHandler$Pointer$Type, $values, $XTextAreaPeer$JavaMouseEventHandler$Pointer$TypeArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(XTextAreaPeer$JavaMouseEventHandler$Pointer$Type, init$, void, $String*, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)Lsun/awt/X11/XTextAreaPeer$JavaMouseEventHandler$Pointer$Type;", nullptr, $PUBLIC | $STATIC, $staticMethod(XTextAreaPeer$JavaMouseEventHandler$Pointer$Type, valueOf, XTextAreaPeer$JavaMouseEventHandler$Pointer$Type*, $String*)},
-	{"values", "()[Lsun/awt/X11/XTextAreaPeer$JavaMouseEventHandler$Pointer$Type;", nullptr, $PUBLIC | $STATIC, $staticMethod(XTextAreaPeer$JavaMouseEventHandler$Pointer$Type, values, $XTextAreaPeer$JavaMouseEventHandler$Pointer$TypeArray*)},
-	{}
-};
-
-$InnerClassInfo _XTextAreaPeer$JavaMouseEventHandler$Pointer$Type_InnerClassesInfo_[] = {
-	{"sun.awt.X11.XTextAreaPeer$JavaMouseEventHandler", "sun.awt.X11.XTextAreaPeer", "JavaMouseEventHandler", $PRIVATE | $STATIC | $FINAL},
-	{"sun.awt.X11.XTextAreaPeer$JavaMouseEventHandler$Pointer", "sun.awt.X11.XTextAreaPeer$JavaMouseEventHandler", "Pointer", $PRIVATE | $STATIC | $FINAL},
-	{"sun.awt.X11.XTextAreaPeer$JavaMouseEventHandler$Pointer$Type", "sun.awt.X11.XTextAreaPeer$JavaMouseEventHandler$Pointer", "Type", $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _XTextAreaPeer$JavaMouseEventHandler$Pointer$Type_ClassInfo_ = {
-	$FINAL | $ACC_SUPER | $ENUM,
-	"sun.awt.X11.XTextAreaPeer$JavaMouseEventHandler$Pointer$Type",
-	"java.lang.Enum",
-	nullptr,
-	_XTextAreaPeer$JavaMouseEventHandler$Pointer$Type_FieldInfo_,
-	_XTextAreaPeer$JavaMouseEventHandler$Pointer$Type_MethodInfo_,
-	"Ljava/lang/Enum<Lsun/awt/X11/XTextAreaPeer$JavaMouseEventHandler$Pointer$Type;>;",
-	nullptr,
-	_XTextAreaPeer$JavaMouseEventHandler$Pointer$Type_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.awt.X11.XTextAreaPeer"
-};
-
-$Object* allocate$XTextAreaPeer$JavaMouseEventHandler$Pointer$Type($Class* clazz) {
-	return $of($alloc(XTextAreaPeer$JavaMouseEventHandler$Pointer$Type));
-}
 
 XTextAreaPeer$JavaMouseEventHandler$Pointer$Type* XTextAreaPeer$JavaMouseEventHandler$Pointer$Type::NONE = nullptr;
 XTextAreaPeer$JavaMouseEventHandler$Pointer$Type* XTextAreaPeer$JavaMouseEventHandler$Pointer$Type::TEXT = nullptr;
@@ -96,7 +51,7 @@ void XTextAreaPeer$JavaMouseEventHandler$Pointer$Type::init$($String* $enum$name
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$XTextAreaPeer$JavaMouseEventHandler$Pointer$Type($Class* class$) {
+void XTextAreaPeer$JavaMouseEventHandler$Pointer$Type::clinit$($Class* clazz) {
 	$assignStatic(XTextAreaPeer$JavaMouseEventHandler$Pointer$Type::NONE, $new(XTextAreaPeer$JavaMouseEventHandler$Pointer$Type, "NONE"_s, 0));
 	$assignStatic(XTextAreaPeer$JavaMouseEventHandler$Pointer$Type::TEXT, $new(XTextAreaPeer$JavaMouseEventHandler$Pointer$Type, "TEXT"_s, 1));
 	$assignStatic(XTextAreaPeer$JavaMouseEventHandler$Pointer$Type::BAR, $new(XTextAreaPeer$JavaMouseEventHandler$Pointer$Type, "BAR"_s, 2));
@@ -108,7 +63,45 @@ XTextAreaPeer$JavaMouseEventHandler$Pointer$Type::XTextAreaPeer$JavaMouseEventHa
 }
 
 $Class* XTextAreaPeer$JavaMouseEventHandler$Pointer$Type::load$($String* name, bool initialize) {
-	$loadClass(XTextAreaPeer$JavaMouseEventHandler$Pointer$Type, name, initialize, &_XTextAreaPeer$JavaMouseEventHandler$Pointer$Type_ClassInfo_, clinit$XTextAreaPeer$JavaMouseEventHandler$Pointer$Type, allocate$XTextAreaPeer$JavaMouseEventHandler$Pointer$Type);
+	$FieldInfo fieldInfos$$[] = {
+		{"NONE", "Lsun/awt/X11/XTextAreaPeer$JavaMouseEventHandler$Pointer$Type;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(XTextAreaPeer$JavaMouseEventHandler$Pointer$Type, NONE)},
+		{"TEXT", "Lsun/awt/X11/XTextAreaPeer$JavaMouseEventHandler$Pointer$Type;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(XTextAreaPeer$JavaMouseEventHandler$Pointer$Type, TEXT)},
+		{"BAR", "Lsun/awt/X11/XTextAreaPeer$JavaMouseEventHandler$Pointer$Type;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(XTextAreaPeer$JavaMouseEventHandler$Pointer$Type, BAR)},
+		{"BUTTON", "Lsun/awt/X11/XTextAreaPeer$JavaMouseEventHandler$Pointer$Type;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(XTextAreaPeer$JavaMouseEventHandler$Pointer$Type, BUTTON)},
+		{"$VALUES", "[Lsun/awt/X11/XTextAreaPeer$JavaMouseEventHandler$Pointer$Type;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(XTextAreaPeer$JavaMouseEventHandler$Pointer$Type, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lsun/awt/X11/XTextAreaPeer$JavaMouseEventHandler$Pointer$Type;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(XTextAreaPeer$JavaMouseEventHandler$Pointer$Type, $values, $XTextAreaPeer$JavaMouseEventHandler$Pointer$TypeArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(XTextAreaPeer$JavaMouseEventHandler$Pointer$Type, init$, void, $String*, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)Lsun/awt/X11/XTextAreaPeer$JavaMouseEventHandler$Pointer$Type;", nullptr, $PUBLIC | $STATIC, $staticMethod(XTextAreaPeer$JavaMouseEventHandler$Pointer$Type, valueOf, XTextAreaPeer$JavaMouseEventHandler$Pointer$Type*, $String*)},
+		{"values", "()[Lsun/awt/X11/XTextAreaPeer$JavaMouseEventHandler$Pointer$Type;", nullptr, $PUBLIC | $STATIC, $staticMethod(XTextAreaPeer$JavaMouseEventHandler$Pointer$Type, values, $XTextAreaPeer$JavaMouseEventHandler$Pointer$TypeArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.X11.XTextAreaPeer$JavaMouseEventHandler", "sun.awt.X11.XTextAreaPeer", "JavaMouseEventHandler", $PRIVATE | $STATIC | $FINAL},
+		{"sun.awt.X11.XTextAreaPeer$JavaMouseEventHandler$Pointer", "sun.awt.X11.XTextAreaPeer$JavaMouseEventHandler", "Pointer", $PRIVATE | $STATIC | $FINAL},
+		{"sun.awt.X11.XTextAreaPeer$JavaMouseEventHandler$Pointer$Type", "sun.awt.X11.XTextAreaPeer$JavaMouseEventHandler$Pointer", "Type", $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER | $ENUM,
+		"sun.awt.X11.XTextAreaPeer$JavaMouseEventHandler$Pointer$Type",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lsun/awt/X11/XTextAreaPeer$JavaMouseEventHandler$Pointer$Type;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.awt.X11.XTextAreaPeer"
+	};
+	$loadClass(XTextAreaPeer$JavaMouseEventHandler$Pointer$Type, name, initialize, &classInfo$$, XTextAreaPeer$JavaMouseEventHandler$Pointer$Type::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(XTextAreaPeer$JavaMouseEventHandler$Pointer$Type));
+	});
 	return class$;
 }
 

@@ -1,25 +1,20 @@
 #include <javax/swing/plaf/synth/SynthScrollPaneUI$ViewportViewFocusHandler.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/event/ContainerEvent.h>
 #include <java/awt/event/ContainerListener.h>
 #include <java/awt/event/FocusEvent.h>
-#include <java/awt/event/FocusListener.h>
 #include <javax/swing/JScrollPane.h>
 #include <javax/swing/plaf/synth/SynthScrollPaneUI.h>
 #include <javax/swing/text/JTextComponent.h>
 #include <jcpp.h>
 
-using $Component = ::java::awt::Component;
 using $ContainerEvent = ::java::awt::event::ContainerEvent;
 using $ContainerListener = ::java::awt::event::ContainerListener;
 using $FocusEvent = ::java::awt::event::FocusEvent;
-using $FocusListener = ::java::awt::event::FocusListener;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $JScrollPane = ::javax::swing::JScrollPane;
 using $SynthScrollPaneUI = ::javax::swing::plaf::synth::SynthScrollPaneUI;
 using $JTextComponent = ::javax::swing::text::JTextComponent;
 
@@ -27,50 +22,6 @@ namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace synth {
-
-$FieldInfo _SynthScrollPaneUI$ViewportViewFocusHandler_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/plaf/synth/SynthScrollPaneUI;", nullptr, $FINAL | $SYNTHETIC, $field(SynthScrollPaneUI$ViewportViewFocusHandler, this$0)},
-	{}
-};
-
-$MethodInfo _SynthScrollPaneUI$ViewportViewFocusHandler_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljavax/swing/plaf/synth/SynthScrollPaneUI;)V", nullptr, $PRIVATE, $method(SynthScrollPaneUI$ViewportViewFocusHandler, init$, void, $SynthScrollPaneUI*)},
-	{"componentAdded", "(Ljava/awt/event/ContainerEvent;)V", nullptr, $PUBLIC, $virtualMethod(SynthScrollPaneUI$ViewportViewFocusHandler, componentAdded, void, $ContainerEvent*)},
-	{"componentRemoved", "(Ljava/awt/event/ContainerEvent;)V", nullptr, $PUBLIC, $virtualMethod(SynthScrollPaneUI$ViewportViewFocusHandler, componentRemoved, void, $ContainerEvent*)},
-	{"focusGained", "(Ljava/awt/event/FocusEvent;)V", nullptr, $PUBLIC, $virtualMethod(SynthScrollPaneUI$ViewportViewFocusHandler, focusGained, void, $FocusEvent*)},
-	{"focusLost", "(Ljava/awt/event/FocusEvent;)V", nullptr, $PUBLIC, $virtualMethod(SynthScrollPaneUI$ViewportViewFocusHandler, focusLost, void, $FocusEvent*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _SynthScrollPaneUI$ViewportViewFocusHandler_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.synth.SynthScrollPaneUI$ViewportViewFocusHandler", "javax.swing.plaf.synth.SynthScrollPaneUI", "ViewportViewFocusHandler", $PRIVATE},
-	{}
-};
-
-$ClassInfo _SynthScrollPaneUI$ViewportViewFocusHandler_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.synth.SynthScrollPaneUI$ViewportViewFocusHandler",
-	"java.lang.Object",
-	"java.awt.event.ContainerListener,java.awt.event.FocusListener",
-	_SynthScrollPaneUI$ViewportViewFocusHandler_FieldInfo_,
-	_SynthScrollPaneUI$ViewportViewFocusHandler_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SynthScrollPaneUI$ViewportViewFocusHandler_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.synth.SynthScrollPaneUI"
-};
-
-$Object* allocate$SynthScrollPaneUI$ViewportViewFocusHandler($Class* clazz) {
-	return $of($alloc(SynthScrollPaneUI$ViewportViewFocusHandler));
-}
 
 int32_t SynthScrollPaneUI$ViewportViewFocusHandler::hashCode() {
 	 return this->$ContainerListener::hashCode();
@@ -97,36 +48,74 @@ void SynthScrollPaneUI$ViewportViewFocusHandler::init$($SynthScrollPaneUI* this$
 }
 
 void SynthScrollPaneUI$ViewportViewFocusHandler::componentAdded($ContainerEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($instanceOf($JTextComponent, $($nc(e)->getChild()))) {
-		$nc($(e->getChild()))->addFocusListener(this);
-		this->this$0->viewportViewHasFocus = $nc($(e->getChild()))->isFocusOwner();
-		$nc($($SynthScrollPaneUI::access$000(this->this$0)))->repaint();
+		$$nc(e->getChild())->addFocusListener(this);
+		this->this$0->viewportViewHasFocus = $$nc(e->getChild())->isFocusOwner();
+		$$nc($SynthScrollPaneUI::access$000(this->this$0))->repaint();
 	}
 }
 
 void SynthScrollPaneUI$ViewportViewFocusHandler::componentRemoved($ContainerEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($instanceOf($JTextComponent, $($nc(e)->getChild()))) {
-		$nc($(e->getChild()))->removeFocusListener(this);
+		$$nc(e->getChild())->removeFocusListener(this);
 	}
 }
 
 void SynthScrollPaneUI$ViewportViewFocusHandler::focusGained($FocusEvent* e) {
 	this->this$0->viewportViewHasFocus = true;
-	$nc($($SynthScrollPaneUI::access$100(this->this$0)))->repaint();
+	$$nc($SynthScrollPaneUI::access$100(this->this$0))->repaint();
 }
 
 void SynthScrollPaneUI$ViewportViewFocusHandler::focusLost($FocusEvent* e) {
 	this->this$0->viewportViewHasFocus = false;
-	$nc($($SynthScrollPaneUI::access$200(this->this$0)))->repaint();
+	$$nc($SynthScrollPaneUI::access$200(this->this$0))->repaint();
 }
 
 SynthScrollPaneUI$ViewportViewFocusHandler::SynthScrollPaneUI$ViewportViewFocusHandler() {
 }
 
 $Class* SynthScrollPaneUI$ViewportViewFocusHandler::load$($String* name, bool initialize) {
-	$loadClass(SynthScrollPaneUI$ViewportViewFocusHandler, name, initialize, &_SynthScrollPaneUI$ViewportViewFocusHandler_ClassInfo_, allocate$SynthScrollPaneUI$ViewportViewFocusHandler);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/plaf/synth/SynthScrollPaneUI;", nullptr, $FINAL | $SYNTHETIC, $field(SynthScrollPaneUI$ViewportViewFocusHandler, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljavax/swing/plaf/synth/SynthScrollPaneUI;)V", nullptr, $PRIVATE, $method(SynthScrollPaneUI$ViewportViewFocusHandler, init$, void, $SynthScrollPaneUI*)},
+		{"componentAdded", "(Ljava/awt/event/ContainerEvent;)V", nullptr, $PUBLIC, $virtualMethod(SynthScrollPaneUI$ViewportViewFocusHandler, componentAdded, void, $ContainerEvent*)},
+		{"componentRemoved", "(Ljava/awt/event/ContainerEvent;)V", nullptr, $PUBLIC, $virtualMethod(SynthScrollPaneUI$ViewportViewFocusHandler, componentRemoved, void, $ContainerEvent*)},
+		{"focusGained", "(Ljava/awt/event/FocusEvent;)V", nullptr, $PUBLIC, $virtualMethod(SynthScrollPaneUI$ViewportViewFocusHandler, focusGained, void, $FocusEvent*)},
+		{"focusLost", "(Ljava/awt/event/FocusEvent;)V", nullptr, $PUBLIC, $virtualMethod(SynthScrollPaneUI$ViewportViewFocusHandler, focusLost, void, $FocusEvent*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.synth.SynthScrollPaneUI$ViewportViewFocusHandler", "javax.swing.plaf.synth.SynthScrollPaneUI", "ViewportViewFocusHandler", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.synth.SynthScrollPaneUI$ViewportViewFocusHandler",
+		"java.lang.Object",
+		"java.awt.event.ContainerListener,java.awt.event.FocusListener",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.synth.SynthScrollPaneUI"
+	};
+	$loadClass(SynthScrollPaneUI$ViewportViewFocusHandler, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SynthScrollPaneUI$ViewportViewFocusHandler));
+	});
 	return class$;
 }
 

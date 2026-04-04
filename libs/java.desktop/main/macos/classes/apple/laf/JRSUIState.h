@@ -20,6 +20,7 @@ class JRSUIState : public ::java::lang::Object {
 	$class(JRSUIState, 0, ::java::lang::Object)
 public:
 	JRSUIState();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::apple::laf::JRSUIConstants$Widget* widget);
 	void init$(int64_t encodedState);
 	virtual void apply(::apple::laf::JRSUIControl* control);

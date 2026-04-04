@@ -49,6 +49,7 @@ class BasicSliderUI$Actions : public ::sun::swing::UIAction {
 	$class(BasicSliderUI$Actions, 0, ::sun::swing::UIAction)
 public:
 	BasicSliderUI$Actions();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$($String* name);
 	virtual void actionPerformed(::java::awt::event::ActionEvent* evt) override;

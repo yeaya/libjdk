@@ -26,6 +26,7 @@ class $export JavacParser$LambdaParameterKind : public ::java::lang::Enum {
 public:
 	JavacParser$LambdaParameterKind();
 	static $Array<::com::sun::tools::javac::parser::JavacParser$LambdaParameterKind>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal, int32_t index);
 	static ::com::sun::tools::javac::parser::JavacParser$LambdaParameterKind* valueOf($String* name);
 	static $Array<::com::sun::tools::javac::parser::JavacParser$LambdaParameterKind>* values();

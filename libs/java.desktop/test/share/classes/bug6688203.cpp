@@ -1,5 +1,4 @@
 #include <bug6688203.h>
-
 #include <java/beans/PropertyChangeListener.h>
 #include <java/io/File.h>
 #include <java/lang/reflect/Field.h>
@@ -11,43 +10,22 @@
 
 using $UIManager$LookAndFeelInfoArray = $Array<::javax::swing::UIManager$LookAndFeelInfo>;
 using $File = ::java::io::File;
-using $PrintStream = ::java::io::PrintStream;
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $Field = ::java::lang::reflect::Field;
-using $UIDefaults = ::javax::swing::UIDefaults;
 using $UIManager = ::javax::swing::UIManager;
 using $UIManager$LookAndFeelInfo = ::javax::swing::UIManager$LookAndFeelInfo;
 using $FileSystemView = ::javax::swing::filechooser::FileSystemView;
-
-$MethodInfo _bug6688203_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(bug6688203, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(bug6688203, main, void, $StringArray*)},
-	{}
-};
-
-$ClassInfo _bug6688203_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"bug6688203",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_bug6688203_MethodInfo_
-};
-
-$Object* allocate$bug6688203($Class* clazz) {
-	return $of($alloc(bug6688203));
-}
 
 void bug6688203::init$() {
 }
 
 void bug6688203::main($StringArray* args) {
+	$useLocalObjectStack();
 	$load(bug6688203);
-	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$FileSystemView::getFileSystemView();
 	int32_t startCount = $nc($($UIManager::getPropertyChangeListeners()))->length;
@@ -61,9 +39,7 @@ void bug6688203::main($StringArray* args) {
 	$var($File, file, $new($File, "Some file"_s));
 	{
 		$var($UIManager$LookAndFeelInfoArray, arr$, $UIManager::getInstalledLookAndFeels());
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($UIManager$LookAndFeelInfo, lafInfo, arr$->get(i$));
 			{
 				try {
@@ -77,8 +53,8 @@ void bug6688203::main($StringArray* args) {
 					$var($Field, field, $FileSystemView::class$->getDeclaredField("useSystemExtensionHiding"_s));
 					$nc(field)->setAccessible(true);
 					$var($Boolean, value, $Boolean::valueOf(field->getBoolean(fileSystemView)));
-					bool var$0 = $nc(value)->booleanValue();
-					if (var$0 != $nc($($UIManager::getDefaults()))->getBoolean("FileChooser.useSystemExtensionHiding"_s)) {
+					bool var$0 = value->booleanValue();
+					if (var$0 != $$nc($UIManager::getDefaults())->getBoolean("FileChooser.useSystemExtensionHiding"_s)) {
 						$throwNew($RuntimeException, "Invalid cached value of the FileSystemView.useSystemExtensionHiding field"_s);
 					}
 				} catch ($Exception& e) {
@@ -93,7 +69,22 @@ bug6688203::bug6688203() {
 }
 
 $Class* bug6688203::load$($String* name, bool initialize) {
-	$loadClass(bug6688203, name, initialize, &_bug6688203_ClassInfo_, allocate$bug6688203);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(bug6688203, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(bug6688203, main, void, $StringArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"bug6688203",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(bug6688203, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(bug6688203);
+	});
 	return class$;
 }
 

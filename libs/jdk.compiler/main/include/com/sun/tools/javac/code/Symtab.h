@@ -71,6 +71,7 @@ class $import Symtab : public ::java::lang::Object {
 	$class(Symtab, 0, ::java::lang::Object)
 public:
 	Symtab();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::com::sun::tools::javac::util::Context* context);
 	void addRootPackageFor(::com::sun::tools::javac::code::Symbol$ModuleSymbol* module);
 	virtual ::com::sun::tools::javac::code::Symbol$ClassSymbol* defineClass(::com::sun::tools::javac::util::Name* name, ::com::sun::tools::javac::code::Symbol* owner);

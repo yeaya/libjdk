@@ -1,5 +1,4 @@
 #include <java.desktop.h>
-
 #include <java.prefs.h>
 #include <java.datatransfer.h>
 #include <java.xml.h>
@@ -9,8 +8,6 @@
 #include <java/lang/ModuleInfo.h>
 #include <java/lang/ResourceEntry.h>
 #include <jcpp.h>
-#include <module-info>
-
 #include <com/sun/accessibility/internal/resources/accessibility.h>
 #include <com/sun/accessibility/internal/resources/accessibility_de.h>
 #include <com/sun/accessibility/internal/resources/accessibility_en.h>
@@ -11553,6 +11550,7 @@ void java$desktop::init() {
 	::java$datatransfer::init();
 	::java$xml::init();
 	::java$base::init();
+	#include <module-info.h>
 	::java::lang::Library lib = {
 		"java.desktop", "17.35", "",
 		&_java$desktop_ModuleInfo_,

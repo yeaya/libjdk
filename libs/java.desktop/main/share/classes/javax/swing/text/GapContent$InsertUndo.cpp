@@ -1,5 +1,4 @@
 #include <javax/swing/text/GapContent$InsertUndo.h>
-
 #include <java/util/Vector.h>
 #include <javax/swing/text/BadLocationException.h>
 #include <javax/swing/text/GapContent.h>
@@ -23,47 +22,6 @@ using $CannotUndoException = ::javax::swing::undo::CannotUndoException;
 namespace javax {
 	namespace swing {
 		namespace text {
-
-$FieldInfo _GapContent$InsertUndo_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/text/GapContent;", nullptr, $FINAL | $SYNTHETIC, $field(GapContent$InsertUndo, this$0)},
-	{"offset", "I", nullptr, $PROTECTED, $field(GapContent$InsertUndo, offset)},
-	{"length", "I", nullptr, $PROTECTED, $field(GapContent$InsertUndo, length)},
-	{"string", "Ljava/lang/String;", nullptr, $PROTECTED, $field(GapContent$InsertUndo, string)},
-	{"posRefs", "Ljava/util/Vector;", nullptr, $PROTECTED, $field(GapContent$InsertUndo, posRefs)},
-	{}
-};
-
-$MethodInfo _GapContent$InsertUndo_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/text/GapContent;II)V", nullptr, $PROTECTED, $method(GapContent$InsertUndo, init$, void, $GapContent*, int32_t, int32_t)},
-	{"redo", "()V", nullptr, $PUBLIC, $virtualMethod(GapContent$InsertUndo, redo, void), "javax.swing.undo.CannotRedoException"},
-	{"undo", "()V", nullptr, $PUBLIC, $virtualMethod(GapContent$InsertUndo, undo, void), "javax.swing.undo.CannotUndoException"},
-	{}
-};
-
-$InnerClassInfo _GapContent$InsertUndo_InnerClassesInfo_[] = {
-	{"javax.swing.text.GapContent$InsertUndo", "javax.swing.text.GapContent", "InsertUndo", 0},
-	{}
-};
-
-$ClassInfo _GapContent$InsertUndo_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.text.GapContent$InsertUndo",
-	"javax.swing.undo.AbstractUndoableEdit",
-	nullptr,
-	_GapContent$InsertUndo_FieldInfo_,
-	_GapContent$InsertUndo_MethodInfo_,
-	nullptr,
-	nullptr,
-	_GapContent$InsertUndo_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.GapContent"
-};
-
-$Object* allocate$GapContent$InsertUndo($Class* clazz) {
-	return $of($alloc(GapContent$InsertUndo));
-}
 
 void GapContent$InsertUndo::init$($GapContent* this$0, int32_t offset, int32_t length) {
 	$set(this, this$0, this$0);
@@ -101,7 +59,42 @@ GapContent$InsertUndo::GapContent$InsertUndo() {
 }
 
 $Class* GapContent$InsertUndo::load$($String* name, bool initialize) {
-	$loadClass(GapContent$InsertUndo, name, initialize, &_GapContent$InsertUndo_ClassInfo_, allocate$GapContent$InsertUndo);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/text/GapContent;", nullptr, $FINAL | $SYNTHETIC, $field(GapContent$InsertUndo, this$0)},
+		{"offset", "I", nullptr, $PROTECTED, $field(GapContent$InsertUndo, offset)},
+		{"length", "I", nullptr, $PROTECTED, $field(GapContent$InsertUndo, length)},
+		{"string", "Ljava/lang/String;", nullptr, $PROTECTED, $field(GapContent$InsertUndo, string)},
+		{"posRefs", "Ljava/util/Vector;", nullptr, $PROTECTED, $field(GapContent$InsertUndo, posRefs)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/text/GapContent;II)V", nullptr, $PROTECTED, $method(GapContent$InsertUndo, init$, void, $GapContent*, int32_t, int32_t)},
+		{"redo", "()V", nullptr, $PUBLIC, $virtualMethod(GapContent$InsertUndo, redo, void), "javax.swing.undo.CannotRedoException"},
+		{"undo", "()V", nullptr, $PUBLIC, $virtualMethod(GapContent$InsertUndo, undo, void), "javax.swing.undo.CannotUndoException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.GapContent$InsertUndo", "javax.swing.text.GapContent", "InsertUndo", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.text.GapContent$InsertUndo",
+		"javax.swing.undo.AbstractUndoableEdit",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.GapContent"
+	};
+	$loadClass(GapContent$InsertUndo, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(GapContent$InsertUndo));
+	});
 	return class$;
 }
 

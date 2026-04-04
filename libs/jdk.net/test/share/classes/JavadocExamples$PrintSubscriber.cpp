@@ -1,5 +1,4 @@
 #include <JavadocExamples$PrintSubscriber.h>
-
 #include <JavadocExamples.h>
 #include <java/util/concurrent/Flow$Subscription.h>
 #include <jcpp.h>
@@ -13,47 +12,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Long = ::java::lang::Long;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Flow$Subscription = ::java::util::concurrent::Flow$Subscription;
-
-$FieldInfo _JavadocExamples$PrintSubscriber_FieldInfo_[] = {
-	{"out", "Ljava/io/PrintStream;", nullptr, $FINAL, $field(JavadocExamples$PrintSubscriber, out)},
-	{}
-};
-
-$MethodInfo _JavadocExamples$PrintSubscriber_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/PrintStream;)V", nullptr, 0, $method(JavadocExamples$PrintSubscriber, init$, void, $PrintStream*)},
-	{"onComplete", "()V", nullptr, $PUBLIC, $virtualMethod(JavadocExamples$PrintSubscriber, onComplete, void)},
-	{"onError", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $virtualMethod(JavadocExamples$PrintSubscriber, onError, void, $Throwable*)},
-	{"onNext", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(JavadocExamples$PrintSubscriber, onNext, void, $String*)},
-	{"onNext", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JavadocExamples$PrintSubscriber, onNext, void, Object$*)},
-	{"onSubscribe", "(Ljava/util/concurrent/Flow$Subscription;)V", nullptr, $PUBLIC, $virtualMethod(JavadocExamples$PrintSubscriber, onSubscribe, void, $Flow$Subscription*)},
-	{}
-};
-
-$InnerClassInfo _JavadocExamples$PrintSubscriber_InnerClassesInfo_[] = {
-	{"JavadocExamples$PrintSubscriber", "JavadocExamples", "PrintSubscriber", $STATIC | $FINAL},
-	{"java.util.concurrent.Flow$Subscriber", "java.util.concurrent.Flow", "Subscriber", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _JavadocExamples$PrintSubscriber_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"JavadocExamples$PrintSubscriber",
-	"java.lang.Object",
-	"java.util.concurrent.Flow$Subscriber",
-	_JavadocExamples$PrintSubscriber_FieldInfo_,
-	_JavadocExamples$PrintSubscriber_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/concurrent/Flow$Subscriber<Ljava/lang/String;>;",
-	nullptr,
-	_JavadocExamples$PrintSubscriber_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"JavadocExamples"
-};
-
-$Object* allocate$JavadocExamples$PrintSubscriber($Class* clazz) {
-	return $of($alloc(JavadocExamples$PrintSubscriber));
-}
 
 void JavadocExamples$PrintSubscriber::init$($PrintStream* out) {
 	$set(this, out, out);
@@ -82,7 +40,42 @@ JavadocExamples$PrintSubscriber::JavadocExamples$PrintSubscriber() {
 }
 
 $Class* JavadocExamples$PrintSubscriber::load$($String* name, bool initialize) {
-	$loadClass(JavadocExamples$PrintSubscriber, name, initialize, &_JavadocExamples$PrintSubscriber_ClassInfo_, allocate$JavadocExamples$PrintSubscriber);
+	$FieldInfo fieldInfos$$[] = {
+		{"out", "Ljava/io/PrintStream;", nullptr, $FINAL, $field(JavadocExamples$PrintSubscriber, out)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/io/PrintStream;)V", nullptr, 0, $method(JavadocExamples$PrintSubscriber, init$, void, $PrintStream*)},
+		{"onComplete", "()V", nullptr, $PUBLIC, $virtualMethod(JavadocExamples$PrintSubscriber, onComplete, void)},
+		{"onError", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $virtualMethod(JavadocExamples$PrintSubscriber, onError, void, $Throwable*)},
+		{"onNext", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(JavadocExamples$PrintSubscriber, onNext, void, $String*)},
+		{"onNext", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JavadocExamples$PrintSubscriber, onNext, void, Object$*)},
+		{"onSubscribe", "(Ljava/util/concurrent/Flow$Subscription;)V", nullptr, $PUBLIC, $virtualMethod(JavadocExamples$PrintSubscriber, onSubscribe, void, $Flow$Subscription*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"JavadocExamples$PrintSubscriber", "JavadocExamples", "PrintSubscriber", $STATIC | $FINAL},
+		{"java.util.concurrent.Flow$Subscriber", "java.util.concurrent.Flow", "Subscriber", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"JavadocExamples$PrintSubscriber",
+		"java.lang.Object",
+		"java.util.concurrent.Flow$Subscriber",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/concurrent/Flow$Subscriber<Ljava/lang/String;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"JavadocExamples"
+	};
+	$loadClass(JavadocExamples$PrintSubscriber, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JavadocExamples$PrintSubscriber);
+	});
 	return class$;
 }
 

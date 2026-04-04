@@ -55,6 +55,7 @@ public:
 	virtual bool isObscured() override;
 	virtual bool isReparentSupported() override;
 	virtual void layout() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::awt::Component* target);
 	virtual ::java::awt::Insets* getInsets() override;
 	static void initIDs();

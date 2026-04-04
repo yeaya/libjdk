@@ -1,5 +1,4 @@
 #include <HeadersTest2.h>
-
 #include <HeadersTest2$CompareTest.h>
 #include <java/net/URI.h>
 #include <java/util/List.h>
@@ -14,43 +13,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $URI = ::java::net::URI;
 using $List = ::java::util::List;
 
-$FieldInfo _HeadersTest2_FieldInfo_[] = {
-	{"uri", "Ljava/net/URI;", nullptr, $STATIC, $staticField(HeadersTest2, uri)},
-	{"compareTests", "[LHeadersTest2$CompareTest;", nullptr, $STATIC, $staticField(HeadersTest2, compareTests)},
-	{}
-};
-
-$MethodInfo _HeadersTest2_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(HeadersTest2, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(HeadersTest2, main, void, $StringArray*)},
-	{"test", "(ZLjava/util/List;Ljava/util/List;)LHeadersTest2$CompareTest;", "(ZLjava/util/List<Ljava/lang/String;>;Ljava/util/List<Ljava/lang/String;>;)LHeadersTest2$CompareTest;", $STATIC, $staticMethod(HeadersTest2, test, $HeadersTest2$CompareTest*, bool, $List*, $List*)},
-	{}
-};
-
-$InnerClassInfo _HeadersTest2_InnerClassesInfo_[] = {
-	{"HeadersTest2$CompareTest", "HeadersTest2", "CompareTest", $STATIC},
-	{}
-};
-
-$ClassInfo _HeadersTest2_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"HeadersTest2",
-	"java.lang.Object",
-	nullptr,
-	_HeadersTest2_FieldInfo_,
-	_HeadersTest2_MethodInfo_,
-	nullptr,
-	nullptr,
-	_HeadersTest2_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"HeadersTest2$CompareTest"
-};
-
-$Object* allocate$HeadersTest2($Class* clazz) {
-	return $of($alloc(HeadersTest2));
-}
-
 $URI* HeadersTest2::uri = nullptr;
 $HeadersTest2$CompareTestArray* HeadersTest2::compareTests = nullptr;
 
@@ -64,22 +26,18 @@ $HeadersTest2$CompareTest* HeadersTest2::test(bool s, $List* l1, $List* l2) {
 
 void HeadersTest2::main($StringArray* args) {
 	$init(HeadersTest2);
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($HeadersTest2$CompareTestArray, arr$, HeadersTest2::compareTests);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
-			$var($HeadersTest2$CompareTest, test, arr$->get(i$));
-			{
-				$nc(test)->run();
-			}
+	$useLocalObjectStack();
+	$var($HeadersTest2$CompareTestArray, arr$, HeadersTest2::compareTests);
+	for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
+		$var($HeadersTest2$CompareTest, test, arr$->get(i$));
+		{
+			$nc(test)->run();
 		}
 	}
 }
 
-void clinit$HeadersTest2($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void HeadersTest2::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(HeadersTest2::uri, $URI::create("http://www.foo.com/"_s));
 	$var($List, var$0, $List::of("Dontent-length"_s, "99"_s));
 	$var($List, var$1, $List::of("Dontent-length"_s, "99"_s));
@@ -97,7 +55,38 @@ HeadersTest2::HeadersTest2() {
 }
 
 $Class* HeadersTest2::load$($String* name, bool initialize) {
-	$loadClass(HeadersTest2, name, initialize, &_HeadersTest2_ClassInfo_, clinit$HeadersTest2, allocate$HeadersTest2);
+	$FieldInfo fieldInfos$$[] = {
+		{"uri", "Ljava/net/URI;", nullptr, $STATIC, $staticField(HeadersTest2, uri)},
+		{"compareTests", "[LHeadersTest2$CompareTest;", nullptr, $STATIC, $staticField(HeadersTest2, compareTests)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(HeadersTest2, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(HeadersTest2, main, void, $StringArray*)},
+		{"test", "(ZLjava/util/List;Ljava/util/List;)LHeadersTest2$CompareTest;", "(ZLjava/util/List<Ljava/lang/String;>;Ljava/util/List<Ljava/lang/String;>;)LHeadersTest2$CompareTest;", $STATIC, $staticMethod(HeadersTest2, test, $HeadersTest2$CompareTest*, bool, $List*, $List*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"HeadersTest2$CompareTest", "HeadersTest2", "CompareTest", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"HeadersTest2",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"HeadersTest2$CompareTest"
+	};
+	$loadClass(HeadersTest2, name, initialize, &classInfo$$, HeadersTest2::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(HeadersTest2);
+	});
 	return class$;
 }
 

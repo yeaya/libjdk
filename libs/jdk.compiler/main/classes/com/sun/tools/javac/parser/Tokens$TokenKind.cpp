@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/parser/Tokens$TokenKind.h>
-
 #include <com/sun/tools/javac/api/Messages.h>
 #include <com/sun/tools/javac/parser/Tokens$1.h>
 #include <com/sun/tools/javac/parser/Tokens$Token$Tag.h>
@@ -142,172 +141,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace parser {
-
-$FieldInfo _Tokens$TokenKind_FieldInfo_[] = {
-	{"EOF", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, EOF)},
-	{"ERROR", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, ERROR)},
-	{"IDENTIFIER", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, IDENTIFIER)},
-	{"ABSTRACT", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, ABSTRACT)},
-	{"ASSERT", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, ASSERT)},
-	{"BOOLEAN", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, BOOLEAN)},
-	{"BREAK", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, BREAK)},
-	{"BYTE", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, BYTE)},
-	{"CASE", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, CASE)},
-	{"CATCH", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, CATCH)},
-	{"CHAR", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, CHAR)},
-	{"CLASS", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, CLASS)},
-	{"CONST", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, CONST)},
-	{"CONTINUE", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, CONTINUE)},
-	{"DEFAULT", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, DEFAULT)},
-	{"DO", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, DO)},
-	{"DOUBLE", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, DOUBLE)},
-	{"ELSE", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, ELSE)},
-	{"ENUM", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, ENUM)},
-	{"EXTENDS", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, EXTENDS)},
-	{"FINAL", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, FINAL)},
-	{"FINALLY", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, FINALLY)},
-	{"FLOAT", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, FLOAT)},
-	{"FOR", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, FOR)},
-	{"GOTO", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, GOTO)},
-	{"IF", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, IF)},
-	{"IMPLEMENTS", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, IMPLEMENTS)},
-	{"IMPORT", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, IMPORT)},
-	{"INSTANCEOF", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, INSTANCEOF)},
-	{"INT", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, INT)},
-	{"INTERFACE", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, INTERFACE)},
-	{"LONG", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, LONG)},
-	{"NATIVE", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, NATIVE)},
-	{"NEW", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, NEW)},
-	{"PACKAGE", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, PACKAGE)},
-	{"PRIVATE", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, PRIVATE)},
-	{"PROTECTED", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, PROTECTED)},
-	{"PUBLIC", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, PUBLIC)},
-	{"RETURN", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, RETURN)},
-	{"SHORT", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, SHORT)},
-	{"STATIC", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, STATIC)},
-	{"STRICTFP", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, STRICTFP)},
-	{"SUPER", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, SUPER)},
-	{"SWITCH", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, SWITCH)},
-	{"SYNCHRONIZED", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, SYNCHRONIZED)},
-	{"THIS", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, THIS)},
-	{"THROW", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, THROW)},
-	{"THROWS", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, THROWS)},
-	{"TRANSIENT", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, TRANSIENT)},
-	{"TRY", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, TRY)},
-	{"VOID", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, VOID)},
-	{"VOLATILE", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, VOLATILE)},
-	{"WHILE", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, WHILE)},
-	{"INTLITERAL", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, INTLITERAL)},
-	{"LONGLITERAL", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, LONGLITERAL)},
-	{"FLOATLITERAL", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, FLOATLITERAL)},
-	{"DOUBLELITERAL", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, DOUBLELITERAL)},
-	{"CHARLITERAL", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, CHARLITERAL)},
-	{"STRINGLITERAL", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, STRINGLITERAL)},
-	{"TRUE", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, TRUE)},
-	{"FALSE", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, FALSE)},
-	{"NULL", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, NULL)},
-	{"UNDERSCORE", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, UNDERSCORE)},
-	{"ARROW", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, ARROW)},
-	{"COLCOL", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, COLCOL)},
-	{"LPAREN", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, LPAREN)},
-	{"RPAREN", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, RPAREN)},
-	{"LBRACE", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, LBRACE)},
-	{"RBRACE", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, RBRACE)},
-	{"LBRACKET", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, LBRACKET)},
-	{"RBRACKET", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, RBRACKET)},
-	{"SEMI", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, SEMI)},
-	{"COMMA", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, COMMA)},
-	{"DOT", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, DOT)},
-	{"ELLIPSIS", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, ELLIPSIS)},
-	{"EQ", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, EQ)},
-	{"GT", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, GT)},
-	{"LT", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, LT)},
-	{"BANG", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, BANG)},
-	{"TILDE", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, TILDE)},
-	{"QUES", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, QUES)},
-	{"COLON", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, COLON)},
-	{"EQEQ", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, EQEQ)},
-	{"LTEQ", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, LTEQ)},
-	{"GTEQ", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, GTEQ)},
-	{"BANGEQ", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, BANGEQ)},
-	{"AMPAMP", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, AMPAMP)},
-	{"BARBAR", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, BARBAR)},
-	{"PLUSPLUS", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, PLUSPLUS)},
-	{"SUBSUB", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, SUBSUB)},
-	{"PLUS", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, PLUS)},
-	{"SUB", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, SUB)},
-	{"STAR", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, STAR)},
-	{"SLASH", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, SLASH)},
-	{"AMP", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, AMP)},
-	{"BAR", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, BAR)},
-	{"CARET", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, CARET)},
-	{"PERCENT", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, PERCENT)},
-	{"LTLT", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, LTLT)},
-	{"GTGT", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, GTGT)},
-	{"GTGTGT", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, GTGTGT)},
-	{"PLUSEQ", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, PLUSEQ)},
-	{"SUBEQ", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, SUBEQ)},
-	{"STAREQ", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, STAREQ)},
-	{"SLASHEQ", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, SLASHEQ)},
-	{"AMPEQ", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, AMPEQ)},
-	{"BAREQ", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, BAREQ)},
-	{"CARETEQ", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, CARETEQ)},
-	{"PERCENTEQ", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, PERCENTEQ)},
-	{"LTLTEQ", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, LTLTEQ)},
-	{"GTGTEQ", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, GTGTEQ)},
-	{"GTGTGTEQ", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, GTGTGTEQ)},
-	{"MONKEYS_AT", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, MONKEYS_AT)},
-	{"CUSTOM", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, CUSTOM)},
-	{"$VALUES", "[Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(Tokens$TokenKind, $VALUES)},
-	{"name", "Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $field(Tokens$TokenKind, name$)},
-	{"tag", "Lcom/sun/tools/javac/parser/Tokens$Token$Tag;", nullptr, $PUBLIC | $FINAL, $field(Tokens$TokenKind, tag)},
-	{}
-};
-
-$MethodInfo _Tokens$TokenKind_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Tokens$TokenKind, $values, $Tokens$TokenKindArray*)},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
-	{"*finalize", "()V", nullptr, $PROTECTED | $FINAL},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $FINAL},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(Tokens$TokenKind, init$, void, $String*, int32_t)},
-	{"<init>", "(Ljava/lang/String;ILjava/lang/String;)V", "(Ljava/lang/String;)V", $PRIVATE, $method(Tokens$TokenKind, init$, void, $String*, int32_t, $String*)},
-	{"<init>", "(Ljava/lang/String;ILcom/sun/tools/javac/parser/Tokens$Token$Tag;)V", "(Lcom/sun/tools/javac/parser/Tokens$Token$Tag;)V", $PRIVATE, $method(Tokens$TokenKind, init$, void, $String*, int32_t, $Tokens$Token$Tag*)},
-	{"<init>", "(Ljava/lang/String;ILjava/lang/String;Lcom/sun/tools/javac/parser/Tokens$Token$Tag;)V", "(Ljava/lang/String;Lcom/sun/tools/javac/parser/Tokens$Token$Tag;)V", $PRIVATE, $method(Tokens$TokenKind, init$, void, $String*, int32_t, $String*, $Tokens$Token$Tag*)},
-	{"getKind", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Tokens$TokenKind, getKind, $String*)},
-	{"test", "(Lcom/sun/tools/javac/parser/Tokens$TokenKind;)Z", nullptr, $PUBLIC, $method(Tokens$TokenKind, test, bool, Tokens$TokenKind*)},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Tokens$TokenKind, test, bool, Object$*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Tokens$TokenKind, toString, $String*)},
-	{"toString", "(Ljava/util/Locale;Lcom/sun/tools/javac/api/Messages;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Tokens$TokenKind, toString, $String*, $Locale*, $Messages*)},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(Tokens$TokenKind, valueOf, Tokens$TokenKind*, $String*)},
-	{"values", "()[Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(Tokens$TokenKind, values, $Tokens$TokenKindArray*)},
-	{}
-};
-
-$InnerClassInfo _Tokens$TokenKind_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.parser.Tokens$TokenKind", "com.sun.tools.javac.parser.Tokens", "TokenKind", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _Tokens$TokenKind_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"com.sun.tools.javac.parser.Tokens$TokenKind",
-	"java.lang.Enum",
-	"com.sun.tools.javac.api.Formattable,java.util.function.Predicate",
-	_Tokens$TokenKind_FieldInfo_,
-	_Tokens$TokenKind_MethodInfo_,
-	"Ljava/lang/Enum<Lcom/sun/tools/javac/parser/Tokens$TokenKind;>;Lcom/sun/tools/javac/api/Formattable;Ljava/util/function/Predicate<Lcom/sun/tools/javac/parser/Tokens$TokenKind;>;",
-	nullptr,
-	_Tokens$TokenKind_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.parser.Tokens"
-};
-
-$Object* allocate$Tokens$TokenKind($Class* clazz) {
-	return $of($alloc(Tokens$TokenKind));
-}
 
 bool Tokens$TokenKind::equals(Object$* arg0) {
 	 return this->$Enum::equals(arg0);
@@ -595,65 +428,35 @@ $String* Tokens$TokenKind::toString() {
 	$init($Tokens$1);
 	switch ($nc($Tokens$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind)->get((this)->ordinal())) {
 	case 1:
-		{
-			return "token.identifier"_s;
-		}
+		return "token.identifier"_s;
 	case 2:
-		{
-			return "token.character"_s;
-		}
+		return "token.character"_s;
 	case 3:
-		{
-			return "token.string"_s;
-		}
+		return "token.string"_s;
 	case 4:
-		{
-			return "token.integer"_s;
-		}
+		return "token.integer"_s;
 	case 5:
-		{
-			return "token.long-integer"_s;
-		}
+		return "token.long-integer"_s;
 	case 6:
-		{
-			return "token.float"_s;
-		}
+		return "token.float"_s;
 	case 7:
-		{
-			return "token.double"_s;
-		}
+		return "token.double"_s;
 	case 8:
-		{
-			return "token.bad-symbol"_s;
-		}
+		return "token.bad-symbol"_s;
 	case 9:
-		{
-			return "token.end-of-input"_s;
-		}
+		return "token.end-of-input"_s;
 	case 10:
-		{}
 	case 11:
-		{}
 	case 12:
-		{}
 	case 13:
-		{}
 	case 14:
-		{}
 	case 15:
-		{}
 	case 16:
-		{}
 	case 17:
-		{}
 	case 18:
-		{
-			return $str({"\'"_s, this->name$, "\'"_s});
-		}
+		return $str({"\'"_s, this->name$, "\'"_s});
 	default:
-		{
-			return this->name$;
-		}
+		return this->name$;
 	}
 }
 
@@ -662,7 +465,7 @@ $String* Tokens$TokenKind::getKind() {
 }
 
 $String* Tokens$TokenKind::toString($Locale* locale, $Messages* messages) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return this->name$ != nullptr ? toString() : $nc(messages)->getLocalizedString(locale, $$str({"compiler.misc."_s, $(toString())}), $$new($ObjectArray, 0));
 }
 
@@ -674,7 +477,7 @@ bool Tokens$TokenKind::test(Object$* that) {
 	return this->test($cast(Tokens$TokenKind, that));
 }
 
-void clinit$Tokens$TokenKind($Class* class$) {
+void Tokens$TokenKind::clinit$($Class* clazz) {
 	$assignStatic(Tokens$TokenKind::EOF, $new(Tokens$TokenKind, "EOF"_s, 0));
 	$assignStatic(Tokens$TokenKind::ERROR, $new(Tokens$TokenKind, "ERROR"_s, 1));
 	$init($Tokens$Token$Tag);
@@ -797,7 +600,167 @@ Tokens$TokenKind::Tokens$TokenKind() {
 }
 
 $Class* Tokens$TokenKind::load$($String* name, bool initialize) {
-	$loadClass(Tokens$TokenKind, name, initialize, &_Tokens$TokenKind_ClassInfo_, clinit$Tokens$TokenKind, allocate$Tokens$TokenKind);
+	$FieldInfo fieldInfos$$[] = {
+		{"EOF", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, EOF)},
+		{"ERROR", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, ERROR)},
+		{"IDENTIFIER", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, IDENTIFIER)},
+		{"ABSTRACT", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, ABSTRACT)},
+		{"ASSERT", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, ASSERT)},
+		{"BOOLEAN", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, BOOLEAN)},
+		{"BREAK", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, BREAK)},
+		{"BYTE", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, BYTE)},
+		{"CASE", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, CASE)},
+		{"CATCH", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, CATCH)},
+		{"CHAR", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, CHAR)},
+		{"CLASS", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, CLASS)},
+		{"CONST", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, CONST)},
+		{"CONTINUE", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, CONTINUE)},
+		{"DEFAULT", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, DEFAULT)},
+		{"DO", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, DO)},
+		{"DOUBLE", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, DOUBLE)},
+		{"ELSE", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, ELSE)},
+		{"ENUM", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, ENUM)},
+		{"EXTENDS", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, EXTENDS)},
+		{"FINAL", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, FINAL)},
+		{"FINALLY", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, FINALLY)},
+		{"FLOAT", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, FLOAT)},
+		{"FOR", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, FOR)},
+		{"GOTO", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, GOTO)},
+		{"IF", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, IF)},
+		{"IMPLEMENTS", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, IMPLEMENTS)},
+		{"IMPORT", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, IMPORT)},
+		{"INSTANCEOF", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, INSTANCEOF)},
+		{"INT", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, INT)},
+		{"INTERFACE", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, INTERFACE)},
+		{"LONG", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, LONG)},
+		{"NATIVE", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, NATIVE)},
+		{"NEW", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, NEW)},
+		{"PACKAGE", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, PACKAGE)},
+		{"PRIVATE", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, PRIVATE)},
+		{"PROTECTED", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, PROTECTED)},
+		{"PUBLIC", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, PUBLIC)},
+		{"RETURN", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, RETURN)},
+		{"SHORT", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, SHORT)},
+		{"STATIC", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, STATIC)},
+		{"STRICTFP", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, STRICTFP)},
+		{"SUPER", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, SUPER)},
+		{"SWITCH", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, SWITCH)},
+		{"SYNCHRONIZED", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, SYNCHRONIZED)},
+		{"THIS", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, THIS)},
+		{"THROW", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, THROW)},
+		{"THROWS", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, THROWS)},
+		{"TRANSIENT", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, TRANSIENT)},
+		{"TRY", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, TRY)},
+		{"VOID", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, VOID)},
+		{"VOLATILE", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, VOLATILE)},
+		{"WHILE", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, WHILE)},
+		{"INTLITERAL", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, INTLITERAL)},
+		{"LONGLITERAL", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, LONGLITERAL)},
+		{"FLOATLITERAL", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, FLOATLITERAL)},
+		{"DOUBLELITERAL", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, DOUBLELITERAL)},
+		{"CHARLITERAL", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, CHARLITERAL)},
+		{"STRINGLITERAL", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, STRINGLITERAL)},
+		{"TRUE", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, TRUE)},
+		{"FALSE", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, FALSE)},
+		{"NULL", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, NULL)},
+		{"UNDERSCORE", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, UNDERSCORE)},
+		{"ARROW", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, ARROW)},
+		{"COLCOL", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, COLCOL)},
+		{"LPAREN", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, LPAREN)},
+		{"RPAREN", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, RPAREN)},
+		{"LBRACE", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, LBRACE)},
+		{"RBRACE", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, RBRACE)},
+		{"LBRACKET", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, LBRACKET)},
+		{"RBRACKET", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, RBRACKET)},
+		{"SEMI", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, SEMI)},
+		{"COMMA", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, COMMA)},
+		{"DOT", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, DOT)},
+		{"ELLIPSIS", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, ELLIPSIS)},
+		{"EQ", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, EQ)},
+		{"GT", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, GT)},
+		{"LT", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, LT)},
+		{"BANG", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, BANG)},
+		{"TILDE", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, TILDE)},
+		{"QUES", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, QUES)},
+		{"COLON", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, COLON)},
+		{"EQEQ", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, EQEQ)},
+		{"LTEQ", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, LTEQ)},
+		{"GTEQ", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, GTEQ)},
+		{"BANGEQ", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, BANGEQ)},
+		{"AMPAMP", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, AMPAMP)},
+		{"BARBAR", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, BARBAR)},
+		{"PLUSPLUS", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, PLUSPLUS)},
+		{"SUBSUB", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, SUBSUB)},
+		{"PLUS", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, PLUS)},
+		{"SUB", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, SUB)},
+		{"STAR", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, STAR)},
+		{"SLASH", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, SLASH)},
+		{"AMP", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, AMP)},
+		{"BAR", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, BAR)},
+		{"CARET", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, CARET)},
+		{"PERCENT", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, PERCENT)},
+		{"LTLT", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, LTLT)},
+		{"GTGT", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, GTGT)},
+		{"GTGTGT", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, GTGTGT)},
+		{"PLUSEQ", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, PLUSEQ)},
+		{"SUBEQ", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, SUBEQ)},
+		{"STAREQ", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, STAREQ)},
+		{"SLASHEQ", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, SLASHEQ)},
+		{"AMPEQ", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, AMPEQ)},
+		{"BAREQ", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, BAREQ)},
+		{"CARETEQ", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, CARETEQ)},
+		{"PERCENTEQ", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, PERCENTEQ)},
+		{"LTLTEQ", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, LTLTEQ)},
+		{"GTGTEQ", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, GTGTEQ)},
+		{"GTGTGTEQ", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, GTGTGTEQ)},
+		{"MONKEYS_AT", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, MONKEYS_AT)},
+		{"CUSTOM", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$TokenKind, CUSTOM)},
+		{"$VALUES", "[Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(Tokens$TokenKind, $VALUES)},
+		{"name", "Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $field(Tokens$TokenKind, name$)},
+		{"tag", "Lcom/sun/tools/javac/parser/Tokens$Token$Tag;", nullptr, $PUBLIC | $FINAL, $field(Tokens$TokenKind, tag)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Tokens$TokenKind, $values, $Tokens$TokenKindArray*)},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
+		{"*finalize", "()V", nullptr, $PROTECTED | $FINAL},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $FINAL},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(Tokens$TokenKind, init$, void, $String*, int32_t)},
+		{"<init>", "(Ljava/lang/String;ILjava/lang/String;)V", "(Ljava/lang/String;)V", $PRIVATE, $method(Tokens$TokenKind, init$, void, $String*, int32_t, $String*)},
+		{"<init>", "(Ljava/lang/String;ILcom/sun/tools/javac/parser/Tokens$Token$Tag;)V", "(Lcom/sun/tools/javac/parser/Tokens$Token$Tag;)V", $PRIVATE, $method(Tokens$TokenKind, init$, void, $String*, int32_t, $Tokens$Token$Tag*)},
+		{"<init>", "(Ljava/lang/String;ILjava/lang/String;Lcom/sun/tools/javac/parser/Tokens$Token$Tag;)V", "(Ljava/lang/String;Lcom/sun/tools/javac/parser/Tokens$Token$Tag;)V", $PRIVATE, $method(Tokens$TokenKind, init$, void, $String*, int32_t, $String*, $Tokens$Token$Tag*)},
+		{"getKind", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Tokens$TokenKind, getKind, $String*)},
+		{"test", "(Lcom/sun/tools/javac/parser/Tokens$TokenKind;)Z", nullptr, $PUBLIC, $method(Tokens$TokenKind, test, bool, Tokens$TokenKind*)},
+		{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Tokens$TokenKind, test, bool, Object$*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Tokens$TokenKind, toString, $String*)},
+		{"toString", "(Ljava/util/Locale;Lcom/sun/tools/javac/api/Messages;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Tokens$TokenKind, toString, $String*, $Locale*, $Messages*)},
+		{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(Tokens$TokenKind, valueOf, Tokens$TokenKind*, $String*)},
+		{"values", "()[Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(Tokens$TokenKind, values, $Tokens$TokenKindArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.parser.Tokens$TokenKind", "com.sun.tools.javac.parser.Tokens", "TokenKind", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"com.sun.tools.javac.parser.Tokens$TokenKind",
+		"java.lang.Enum",
+		"com.sun.tools.javac.api.Formattable,java.util.function.Predicate",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lcom/sun/tools/javac/parser/Tokens$TokenKind;>;Lcom/sun/tools/javac/api/Formattable;Ljava/util/function/Predicate<Lcom/sun/tools/javac/parser/Tokens$TokenKind;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.parser.Tokens"
+	};
+	$loadClass(Tokens$TokenKind, name, initialize, &classInfo$$, Tokens$TokenKind::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Tokens$TokenKind));
+	});
 	return class$;
 }
 

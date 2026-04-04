@@ -1,5 +1,4 @@
 #include <bug6263446JTree$3.h>
-
 #include <bug6263446JTree.h>
 #include <java/lang/IllegalAccessException.h>
 #include <java/lang/NoSuchFieldException.h>
@@ -21,57 +20,14 @@ using $NoSuchFieldException = ::java::lang::NoSuchFieldException;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $Field = ::java::lang::reflect::Field;
 using $DefaultCellEditor = ::javax::swing::DefaultCellEditor;
-using $JTree = ::javax::swing::JTree;
 using $DefaultTreeCellEditor = ::javax::swing::tree::DefaultTreeCellEditor;
-
-$FieldInfo _bug6263446JTree$3_FieldInfo_[] = {
-	{"val$clicks", "I", nullptr, $FINAL | $SYNTHETIC, $field(bug6263446JTree$3, val$clicks)},
-	{}
-};
-
-$MethodInfo _bug6263446JTree$3_MethodInfo_[] = {
-	{"<init>", "(I)V", "()V", 0, $method(bug6263446JTree$3, init$, void, int32_t)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug6263446JTree$3, run, void)},
-	{}
-};
-
-$EnclosingMethodInfo _bug6263446JTree$3_EnclosingMethodInfo_ = {
-	"bug6263446JTree",
-	"setClickCountToStart",
-	"(I)V"
-};
-
-$InnerClassInfo _bug6263446JTree$3_InnerClassesInfo_[] = {
-	{"bug6263446JTree$3", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _bug6263446JTree$3_ClassInfo_ = {
-	$ACC_SUPER,
-	"bug6263446JTree$3",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	_bug6263446JTree$3_FieldInfo_,
-	_bug6263446JTree$3_MethodInfo_,
-	nullptr,
-	&_bug6263446JTree$3_EnclosingMethodInfo_,
-	_bug6263446JTree$3_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"bug6263446JTree"
-};
-
-$Object* allocate$bug6263446JTree$3($Class* clazz) {
-	return $of($alloc(bug6263446JTree$3));
-}
 
 void bug6263446JTree$3::init$(int32_t val$clicks) {
 	this->val$clicks = val$clicks;
 }
 
 void bug6263446JTree$3::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	try {
 		$init($bug6263446JTree);
@@ -82,9 +38,9 @@ void bug6263446JTree$3::run() {
 		$var($DefaultCellEditor, ce, $cast($DefaultCellEditor, field->get(editor)));
 		$nc(ce)->setClickCountToStart(this->val$clicks);
 	} catch ($IllegalAccessException& e) {
-		$throwNew($RuntimeException, static_cast<$Throwable*>(e));
+		$throwNew($RuntimeException, e);
 	} catch ($NoSuchFieldException& e) {
-		$throwNew($RuntimeException, static_cast<$Throwable*>(e));
+		$throwNew($RuntimeException, e);
 	}
 }
 
@@ -92,7 +48,42 @@ bug6263446JTree$3::bug6263446JTree$3() {
 }
 
 $Class* bug6263446JTree$3::load$($String* name, bool initialize) {
-	$loadClass(bug6263446JTree$3, name, initialize, &_bug6263446JTree$3_ClassInfo_, allocate$bug6263446JTree$3);
+	$FieldInfo fieldInfos$$[] = {
+		{"val$clicks", "I", nullptr, $FINAL | $SYNTHETIC, $field(bug6263446JTree$3, val$clicks)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I)V", "()V", 0, $method(bug6263446JTree$3, init$, void, int32_t)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug6263446JTree$3, run, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"bug6263446JTree",
+		"setClickCountToStart",
+		"(I)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"bug6263446JTree$3", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"bug6263446JTree$3",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"bug6263446JTree"
+	};
+	$loadClass(bug6263446JTree$3, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(bug6263446JTree$3);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/api/Messages.h>
-
 #include <java/util/Locale.h>
 #include <jcpp.h>
 
@@ -13,27 +12,23 @@ namespace com {
 			namespace javac {
 				namespace api {
 
-$MethodInfo _Messages_MethodInfo_[] = {
-	{"add", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Messages, add, void, $String*), "java.util.MissingResourceException"},
-	{"getLocalizedString", "(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PUBLIC | $TRANSIENT | $ABSTRACT, $virtualMethod(Messages, getLocalizedString, $String*, $Locale*, $String*, $ObjectArray*)},
-	{}
-};
-
-$ClassInfo _Messages_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.tools.javac.api.Messages",
-	nullptr,
-	nullptr,
-	nullptr,
-	_Messages_MethodInfo_
-};
-
-$Object* allocate$Messages($Class* clazz) {
-	return $of($alloc(Messages));
-}
-
 $Class* Messages::load$($String* name, bool initialize) {
-	$loadClass(Messages, name, initialize, &_Messages_ClassInfo_, allocate$Messages);
+	$MethodInfo methodInfos$$[] = {
+		{"add", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Messages, add, void, $String*), "java.util.MissingResourceException"},
+		{"getLocalizedString", "(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PUBLIC | $TRANSIENT | $ABSTRACT, $virtualMethod(Messages, getLocalizedString, $String*, $Locale*, $String*, $ObjectArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.tools.javac.api.Messages",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Messages, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Messages);
+	});
 	return class$;
 }
 

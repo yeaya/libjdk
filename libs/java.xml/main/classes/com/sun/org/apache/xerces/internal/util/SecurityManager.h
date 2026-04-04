@@ -32,7 +32,7 @@ public:
 	void setElementAttrLimit(int32_t limit);
 	void setEntityExpansionLimit(int32_t limit);
 	void setMaxOccurNodeLimit(int32_t limit);
-	static const int32_t DEFAULT_ENTITY_EXPANSION_LIMIT = 0x0000FA00;
+	static const int32_t DEFAULT_ENTITY_EXPANSION_LIMIT = 0x0000fa00;
 	static const int32_t DEFAULT_MAX_OCCUR_NODE_LIMIT = 5000;
 	static const int32_t DEFAULT_ELEMENT_ATTRIBUTE_LIMIT = 10000;
 	int32_t entityExpansionLimit = 0;

@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/parsers/IntegratedParserConfiguration.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/XMLDocumentScannerImpl.h>
 #include <com/sun/org/apache/xerces/internal/impl/XMLErrorReporter.h>
 #include <com/sun/org/apache/xerces/internal/impl/XMLNSDocumentScannerImpl.h>
@@ -20,7 +19,6 @@
 #include <com/sun/org/apache/xerces/internal/xni/grammars/XMLGrammarPool.h>
 #include <com/sun/org/apache/xerces/internal/xni/parser/XMLComponent.h>
 #include <com/sun/org/apache/xerces/internal/xni/parser/XMLComponentManager.h>
-#include <com/sun/org/apache/xerces/internal/xni/parser/XMLDocumentFilter.h>
 #include <com/sun/org/apache/xerces/internal/xni/parser/XMLDocumentScanner.h>
 #include <com/sun/org/apache/xerces/internal/xni/parser/XMLDocumentSource.h>
 #include <java/util/Map.h>
@@ -37,7 +35,6 @@
 #undef XMLSCHEMA_VALIDATION
 
 using $XMLDocumentScannerImpl = ::com::sun::org::apache::xerces::internal::impl::XMLDocumentScannerImpl;
-using $XMLErrorReporter = ::com::sun::org::apache::xerces::internal::impl::XMLErrorReporter;
 using $XMLNSDocumentScannerImpl = ::com::sun::org::apache::xerces::internal::impl::XMLNSDocumentScannerImpl;
 using $XMLDTDValidator = ::com::sun::org::apache::xerces::internal::impl::dtd::XMLDTDValidator;
 using $XMLDTDValidatorFilter = ::com::sun::org::apache::xerces::internal::impl::dtd::XMLDTDValidatorFilter;
@@ -47,20 +44,15 @@ using $XSMessageFormatter = ::com::sun::org::apache::xerces::internal::impl::xs:
 using $BasicParserConfiguration = ::com::sun::org::apache::xerces::internal::parsers::BasicParserConfiguration;
 using $DTDConfiguration = ::com::sun::org::apache::xerces::internal::parsers::DTDConfiguration;
 using $StandardParserConfiguration = ::com::sun::org::apache::xerces::internal::parsers::StandardParserConfiguration;
-using $MessageFormatter = ::com::sun::org::apache::xerces::internal::util::MessageFormatter;
 using $SymbolTable = ::com::sun::org::apache::xerces::internal::util::SymbolTable;
-using $XMLDocumentHandler = ::com::sun::org::apache::xerces::internal::xni::XMLDocumentHandler;
 using $XMLGrammarPool = ::com::sun::org::apache::xerces::internal::xni::grammars::XMLGrammarPool;
 using $XMLComponent = ::com::sun::org::apache::xerces::internal::xni::parser::XMLComponent;
 using $XMLComponentManager = ::com::sun::org::apache::xerces::internal::xni::parser::XMLComponentManager;
-using $XMLDocumentFilter = ::com::sun::org::apache::xerces::internal::xni::parser::XMLDocumentFilter;
 using $XMLDocumentScanner = ::com::sun::org::apache::xerces::internal::xni::parser::XMLDocumentScanner;
-using $XMLDocumentSource = ::com::sun::org::apache::xerces::internal::xni::parser::XMLDocumentSource;
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Map = ::java::util::Map;
 
 namespace com {
 	namespace sun {
@@ -69,37 +61,6 @@ namespace com {
 				namespace xerces {
 					namespace internal {
 						namespace parsers {
-
-$FieldInfo _IntegratedParserConfiguration_FieldInfo_[] = {
-	{"fNamespaceScanner", "Lcom/sun/org/apache/xerces/internal/impl/XMLNSDocumentScannerImpl;", nullptr, $PROTECTED, $field(IntegratedParserConfiguration, fNamespaceScanner)},
-	{"fNonNSScanner", "Lcom/sun/org/apache/xerces/internal/impl/XMLDocumentScannerImpl;", nullptr, $PROTECTED, $field(IntegratedParserConfiguration, fNonNSScanner)},
-	{"fNonNSDTDValidator", "Lcom/sun/org/apache/xerces/internal/impl/dtd/XMLDTDValidator;", nullptr, $PROTECTED, $field(IntegratedParserConfiguration, fNonNSDTDValidator)},
-	{}
-};
-
-$MethodInfo _IntegratedParserConfiguration_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(IntegratedParserConfiguration, init$, void)},
-	{"<init>", "(Lcom/sun/org/apache/xerces/internal/util/SymbolTable;)V", nullptr, $PUBLIC, $method(IntegratedParserConfiguration, init$, void, $SymbolTable*)},
-	{"<init>", "(Lcom/sun/org/apache/xerces/internal/util/SymbolTable;Lcom/sun/org/apache/xerces/internal/xni/grammars/XMLGrammarPool;)V", nullptr, $PUBLIC, $method(IntegratedParserConfiguration, init$, void, $SymbolTable*, $XMLGrammarPool*)},
-	{"<init>", "(Lcom/sun/org/apache/xerces/internal/util/SymbolTable;Lcom/sun/org/apache/xerces/internal/xni/grammars/XMLGrammarPool;Lcom/sun/org/apache/xerces/internal/xni/parser/XMLComponentManager;)V", nullptr, $PUBLIC, $method(IntegratedParserConfiguration, init$, void, $SymbolTable*, $XMLGrammarPool*, $XMLComponentManager*)},
-	{"configurePipeline", "()V", nullptr, $PROTECTED, $virtualMethod(IntegratedParserConfiguration, configurePipeline, void)},
-	{"createDTDValidator", "()Lcom/sun/org/apache/xerces/internal/impl/dtd/XMLDTDValidator;", nullptr, $PROTECTED, $virtualMethod(IntegratedParserConfiguration, createDTDValidator, $XMLDTDValidator*)},
-	{"createDocumentScanner", "()Lcom/sun/org/apache/xerces/internal/xni/parser/XMLDocumentScanner;", nullptr, $PROTECTED, $virtualMethod(IntegratedParserConfiguration, createDocumentScanner, $XMLDocumentScanner*)},
-	{}
-};
-
-$ClassInfo _IntegratedParserConfiguration_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.parsers.IntegratedParserConfiguration",
-	"com.sun.org.apache.xerces.internal.parsers.StandardParserConfiguration",
-	nullptr,
-	_IntegratedParserConfiguration_FieldInfo_,
-	_IntegratedParserConfiguration_MethodInfo_
-};
-
-$Object* allocate$IntegratedParserConfiguration($Class* clazz) {
-	return $of($alloc(IntegratedParserConfiguration));
-}
 
 void IntegratedParserConfiguration::init$() {
 	IntegratedParserConfiguration::init$(nullptr, nullptr, nullptr);
@@ -117,8 +78,8 @@ void IntegratedParserConfiguration::init$($SymbolTable* symbolTable, $XMLGrammar
 	$StandardParserConfiguration::init$(symbolTable, grammarPool, parentSettings);
 	$set(this, fNonNSScanner, $new($XMLDocumentScannerImpl));
 	$set(this, fNonNSDTDValidator, $new($XMLDTDValidator));
-	addComponent(static_cast<$XMLComponent*>(this->fNonNSScanner));
-	addComponent(static_cast<$XMLComponent*>(this->fNonNSDTDValidator));
+	addComponent($cast($XMLComponent, this->fNonNSScanner));
+	addComponent($cast($XMLComponent, this->fNonNSDTDValidator));
 }
 
 void IntegratedParserConfiguration::configurePipeline() {
@@ -126,26 +87,25 @@ void IntegratedParserConfiguration::configurePipeline() {
 	setProperty($DTDConfiguration::DATATYPE_VALIDATOR_FACTORY, this->fDatatypeValidatorFactory);
 	configureDTDPipeline();
 	$init($BasicParserConfiguration);
-	$init($Boolean);
 	if ($equals($nc(this->fFeatures)->get($BasicParserConfiguration::NAMESPACES), $Boolean::TRUE)) {
 		$nc(this->fProperties)->put($DTDConfiguration::NAMESPACE_BINDER, this->fNamespaceBinder);
 		$set(this, fScanner, this->fNamespaceScanner);
-		$nc(this->fProperties)->put($DTDConfiguration::DOCUMENT_SCANNER, this->fNamespaceScanner);
+		this->fProperties->put($DTDConfiguration::DOCUMENT_SCANNER, this->fNamespaceScanner);
 		if (this->fDTDValidator != nullptr) {
-			$nc(this->fProperties)->put($DTDConfiguration::DTD_VALIDATOR, this->fDTDValidator);
+			this->fProperties->put($DTDConfiguration::DTD_VALIDATOR, this->fDTDValidator);
 			$nc(this->fNamespaceScanner)->setDTDValidator(this->fDTDValidator);
-			$nc(this->fNamespaceScanner)->setDocumentHandler(static_cast<$XMLDocumentHandler*>(static_cast<$XMLDocumentFilter*>(static_cast<$XMLDTDValidatorFilter*>(this->fDTDValidator))));
+			$nc(this->fNamespaceScanner)->setDocumentHandler($cast($XMLDTDValidatorFilter, this->fDTDValidator));
 			$nc(this->fDTDValidator)->setDocumentSource(this->fNamespaceScanner);
 			$nc(this->fDTDValidator)->setDocumentHandler(this->fDocumentHandler);
 			if (this->fDocumentHandler != nullptr) {
-				$nc(this->fDocumentHandler)->setDocumentSource(static_cast<$XMLDocumentSource*>(static_cast<$XMLDocumentFilter*>(static_cast<$XMLDTDValidatorFilter*>(this->fDTDValidator))));
+				this->fDocumentHandler->setDocumentSource($cast($XMLDTDValidatorFilter, this->fDTDValidator));
 			}
-			$set(this, fLastComponent, static_cast<$XMLDocumentSource*>(static_cast<$XMLDocumentFilter*>(static_cast<$XMLDTDValidatorFilter*>(this->fDTDValidator))));
+			$set(this, fLastComponent, $cast($XMLDTDValidatorFilter, this->fDTDValidator));
 		} else {
 			$nc(this->fNamespaceScanner)->setDocumentHandler(this->fDocumentHandler);
 			$nc(this->fNamespaceScanner)->setDTDValidator(nullptr);
 			if (this->fDocumentHandler != nullptr) {
-				$nc(this->fDocumentHandler)->setDocumentSource(this->fNamespaceScanner);
+				this->fDocumentHandler->setDocumentSource(this->fNamespaceScanner);
 			}
 			$set(this, fLastComponent, this->fNamespaceScanner);
 		}
@@ -153,18 +113,18 @@ void IntegratedParserConfiguration::configurePipeline() {
 		$set(this, fScanner, this->fNonNSScanner);
 		$nc(this->fProperties)->put($DTDConfiguration::DOCUMENT_SCANNER, this->fNonNSScanner);
 		if (this->fNonNSDTDValidator != nullptr) {
-			$nc(this->fProperties)->put($DTDConfiguration::DTD_VALIDATOR, this->fNonNSDTDValidator);
-			$nc(this->fNonNSScanner)->setDocumentHandler(static_cast<$XMLDocumentHandler*>(static_cast<$XMLDocumentFilter*>(static_cast<$XMLDTDValidatorFilter*>(this->fNonNSDTDValidator))));
+			this->fProperties->put($DTDConfiguration::DTD_VALIDATOR, this->fNonNSDTDValidator);
+			$nc(this->fNonNSScanner)->setDocumentHandler($cast($XMLDTDValidatorFilter, this->fNonNSDTDValidator));
 			$nc(this->fNonNSDTDValidator)->setDocumentSource(this->fNonNSScanner);
 			$nc(this->fNonNSDTDValidator)->setDocumentHandler(this->fDocumentHandler);
 			if (this->fDocumentHandler != nullptr) {
-				$nc(this->fDocumentHandler)->setDocumentSource(static_cast<$XMLDocumentSource*>(static_cast<$XMLDocumentFilter*>(static_cast<$XMLDTDValidatorFilter*>(this->fNonNSDTDValidator))));
+				this->fDocumentHandler->setDocumentSource($cast($XMLDTDValidatorFilter, this->fNonNSDTDValidator));
 			}
-			$set(this, fLastComponent, static_cast<$XMLDocumentSource*>(static_cast<$XMLDocumentFilter*>(static_cast<$XMLDTDValidatorFilter*>(this->fNonNSDTDValidator))));
+			$set(this, fLastComponent, $cast($XMLDTDValidatorFilter, this->fNonNSDTDValidator));
 		} else {
 			$nc(this->fScanner)->setDocumentHandler(this->fDocumentHandler);
 			if (this->fDocumentHandler != nullptr) {
-				$nc(this->fDocumentHandler)->setDocumentSource(this->fScanner);
+				this->fDocumentHandler->setDocumentSource(this->fScanner);
 			}
 			$set(this, fLastComponent, this->fScanner);
 		}
@@ -185,7 +145,7 @@ void IntegratedParserConfiguration::configurePipeline() {
 		$nc(this->fSchemaValidator)->setDocumentSource(this->fLastComponent);
 		$nc(this->fSchemaValidator)->setDocumentHandler(this->fDocumentHandler);
 		if (this->fDocumentHandler != nullptr) {
-			$nc(this->fDocumentHandler)->setDocumentSource(this->fSchemaValidator);
+			this->fDocumentHandler->setDocumentSource(this->fSchemaValidator);
 		}
 		$set(this, fLastComponent, this->fSchemaValidator);
 	}
@@ -204,7 +164,33 @@ IntegratedParserConfiguration::IntegratedParserConfiguration() {
 }
 
 $Class* IntegratedParserConfiguration::load$($String* name, bool initialize) {
-	$loadClass(IntegratedParserConfiguration, name, initialize, &_IntegratedParserConfiguration_ClassInfo_, allocate$IntegratedParserConfiguration);
+	$FieldInfo fieldInfos$$[] = {
+		{"fNamespaceScanner", "Lcom/sun/org/apache/xerces/internal/impl/XMLNSDocumentScannerImpl;", nullptr, $PROTECTED, $field(IntegratedParserConfiguration, fNamespaceScanner)},
+		{"fNonNSScanner", "Lcom/sun/org/apache/xerces/internal/impl/XMLDocumentScannerImpl;", nullptr, $PROTECTED, $field(IntegratedParserConfiguration, fNonNSScanner)},
+		{"fNonNSDTDValidator", "Lcom/sun/org/apache/xerces/internal/impl/dtd/XMLDTDValidator;", nullptr, $PROTECTED, $field(IntegratedParserConfiguration, fNonNSDTDValidator)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(IntegratedParserConfiguration, init$, void)},
+		{"<init>", "(Lcom/sun/org/apache/xerces/internal/util/SymbolTable;)V", nullptr, $PUBLIC, $method(IntegratedParserConfiguration, init$, void, $SymbolTable*)},
+		{"<init>", "(Lcom/sun/org/apache/xerces/internal/util/SymbolTable;Lcom/sun/org/apache/xerces/internal/xni/grammars/XMLGrammarPool;)V", nullptr, $PUBLIC, $method(IntegratedParserConfiguration, init$, void, $SymbolTable*, $XMLGrammarPool*)},
+		{"<init>", "(Lcom/sun/org/apache/xerces/internal/util/SymbolTable;Lcom/sun/org/apache/xerces/internal/xni/grammars/XMLGrammarPool;Lcom/sun/org/apache/xerces/internal/xni/parser/XMLComponentManager;)V", nullptr, $PUBLIC, $method(IntegratedParserConfiguration, init$, void, $SymbolTable*, $XMLGrammarPool*, $XMLComponentManager*)},
+		{"configurePipeline", "()V", nullptr, $PROTECTED, $virtualMethod(IntegratedParserConfiguration, configurePipeline, void)},
+		{"createDTDValidator", "()Lcom/sun/org/apache/xerces/internal/impl/dtd/XMLDTDValidator;", nullptr, $PROTECTED, $virtualMethod(IntegratedParserConfiguration, createDTDValidator, $XMLDTDValidator*)},
+		{"createDocumentScanner", "()Lcom/sun/org/apache/xerces/internal/xni/parser/XMLDocumentScanner;", nullptr, $PROTECTED, $virtualMethod(IntegratedParserConfiguration, createDocumentScanner, $XMLDocumentScanner*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.parsers.IntegratedParserConfiguration",
+		"com.sun.org.apache.xerces.internal.parsers.StandardParserConfiguration",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(IntegratedParserConfiguration, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(IntegratedParserConfiguration));
+	});
 	return class$;
 }
 

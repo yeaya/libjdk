@@ -1,5 +1,4 @@
 #include <TestSelectedTextBackgroundColor.h>
-
 #include <TestSelectedTextBackgroundColor$1.h>
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
@@ -8,7 +7,6 @@
 #include <java/awt/Robot.h>
 #include <java/awt/Window.h>
 #include <java/io/Serializable.h>
-#include <java/lang/CharSequence.h>
 #include <java/lang/IllegalStateException.h>
 #include <java/lang/InterruptedException.h>
 #include <java/lang/Math.h>
@@ -40,9 +38,7 @@ using $Point = ::java::awt::Point;
 using $Rectangle = ::java::awt::Rectangle;
 using $Robot = ::java::awt::Robot;
 using $Window = ::java::awt::Window;
-using $PrintStream = ::java::io::PrintStream;
 using $Serializable = ::java::io::Serializable;
-using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalStateException = ::java::lang::IllegalStateException;
@@ -71,27 +67,24 @@ public:
 	virtual void run() override {
 		TestSelectedTextBackgroundColor::lambda$main$0();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<TestSelectedTextBackgroundColor$$Lambda$lambda$main$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo TestSelectedTextBackgroundColor$$Lambda$lambda$main$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TestSelectedTextBackgroundColor$$Lambda$lambda$main$0, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestSelectedTextBackgroundColor$$Lambda$lambda$main$0, run, void)},
-	{}
-};
-$ClassInfo TestSelectedTextBackgroundColor$$Lambda$lambda$main$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"TestSelectedTextBackgroundColor$$Lambda$lambda$main$0",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* TestSelectedTextBackgroundColor$$Lambda$lambda$main$0::load$($String* name, bool initialize) {
-	$loadClass(TestSelectedTextBackgroundColor$$Lambda$lambda$main$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TestSelectedTextBackgroundColor$$Lambda$lambda$main$0, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestSelectedTextBackgroundColor$$Lambda$lambda$main$0, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"TestSelectedTextBackgroundColor$$Lambda$lambda$main$0",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(TestSelectedTextBackgroundColor$$Lambda$lambda$main$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TestSelectedTextBackgroundColor$$Lambda$lambda$main$0);
+	});
 	return class$;
 }
 $Class* TestSelectedTextBackgroundColor$$Lambda$lambda$main$0::class$ = nullptr;
@@ -105,81 +98,32 @@ public:
 	virtual void run() override {
 		$nc(inst$)->dispose();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<TestSelectedTextBackgroundColor$$Lambda$dispose$1>());
-	}
 	$Window* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo TestSelectedTextBackgroundColor$$Lambda$dispose$1::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(TestSelectedTextBackgroundColor$$Lambda$dispose$1, inst$)},
-	{}
-};
-$MethodInfo TestSelectedTextBackgroundColor$$Lambda$dispose$1::methodInfos[3] = {
-	{"<init>", "(Ljava/awt/Window;)V", nullptr, $PUBLIC, $method(TestSelectedTextBackgroundColor$$Lambda$dispose$1, init$, void, $Window*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestSelectedTextBackgroundColor$$Lambda$dispose$1, run, void)},
-	{}
-};
-$ClassInfo TestSelectedTextBackgroundColor$$Lambda$dispose$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"TestSelectedTextBackgroundColor$$Lambda$dispose$1",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	fieldInfos,
-	methodInfos
 };
 $Class* TestSelectedTextBackgroundColor$$Lambda$dispose$1::load$($String* name, bool initialize) {
-	$loadClass(TestSelectedTextBackgroundColor$$Lambda$dispose$1, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(TestSelectedTextBackgroundColor$$Lambda$dispose$1, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/Window;)V", nullptr, $PUBLIC, $method(TestSelectedTextBackgroundColor$$Lambda$dispose$1, init$, void, $Window*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestSelectedTextBackgroundColor$$Lambda$dispose$1, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"TestSelectedTextBackgroundColor$$Lambda$dispose$1",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TestSelectedTextBackgroundColor$$Lambda$dispose$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TestSelectedTextBackgroundColor$$Lambda$dispose$1);
+	});
 	return class$;
 }
 $Class* TestSelectedTextBackgroundColor$$Lambda$dispose$1::class$ = nullptr;
-
-$FieldInfo _TestSelectedTextBackgroundColor_FieldInfo_[] = {
-	{"frame", "Ljavax/swing/JFrame;", nullptr, $PRIVATE | $STATIC, $staticField(TestSelectedTextBackgroundColor, frame)},
-	{"listModelSpinner", "Ljavax/swing/JSpinner;", nullptr, $PRIVATE | $STATIC, $staticField(TestSelectedTextBackgroundColor, listModelSpinner)},
-	{"point", "Ljava/awt/Point;", nullptr, $PRIVATE | $STATIC, $staticField(TestSelectedTextBackgroundColor, point)},
-	{"rect", "Ljava/awt/Rectangle;", nullptr, $PRIVATE | $STATIC, $staticField(TestSelectedTextBackgroundColor, rect)},
-	{"robot", "Ljava/awt/Robot;", nullptr, $PRIVATE | $STATIC, $staticField(TestSelectedTextBackgroundColor, robot)},
-	{"GTK_LAF_CLASS", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(TestSelectedTextBackgroundColor, GTK_LAF_CLASS)},
-	{"minColorDifference", "I", nullptr, $PRIVATE | $STATIC, $staticField(TestSelectedTextBackgroundColor, minColorDifference)},
-	{}
-};
-
-$MethodInfo _TestSelectedTextBackgroundColor_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TestSelectedTextBackgroundColor, init$, void)},
-	{"blockTillDisplayed", "(Ljava/awt/Component;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(TestSelectedTextBackgroundColor, blockTillDisplayed, void, $Component*)},
-	{"getMaxColorDiff", "(Ljava/awt/Color;Ljava/awt/Color;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(TestSelectedTextBackgroundColor, getMaxColorDiff, int32_t, $Color*, $Color*)},
-	{"getTextField", "(Ljavax/swing/JSpinner;)Ljavax/swing/JFormattedTextField;", nullptr, $PRIVATE | $STATIC, $staticMethod(TestSelectedTextBackgroundColor, getTextField, $JFormattedTextField*, $JSpinner*)},
-	{"lambda$main$0", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TestSelectedTextBackgroundColor, lambda$main$0, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TestSelectedTextBackgroundColor, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$InnerClassInfo _TestSelectedTextBackgroundColor_InnerClassesInfo_[] = {
-	{"TestSelectedTextBackgroundColor$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _TestSelectedTextBackgroundColor_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"TestSelectedTextBackgroundColor",
-	"java.lang.Object",
-	nullptr,
-	_TestSelectedTextBackgroundColor_FieldInfo_,
-	_TestSelectedTextBackgroundColor_MethodInfo_,
-	nullptr,
-	nullptr,
-	_TestSelectedTextBackgroundColor_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"TestSelectedTextBackgroundColor$1"
-};
-
-$Object* allocate$TestSelectedTextBackgroundColor($Class* clazz) {
-	return $of($alloc(TestSelectedTextBackgroundColor));
-}
 
 $JFrame* TestSelectedTextBackgroundColor::frame = nullptr;
 $JSpinner* TestSelectedTextBackgroundColor::listModelSpinner = nullptr;
@@ -209,12 +153,12 @@ void TestSelectedTextBackgroundColor::blockTillDisplayed($Component* comp) {
 
 $JFormattedTextField* TestSelectedTextBackgroundColor::getTextField($JSpinner* spinner) {
 	$init(TestSelectedTextBackgroundColor);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JComponent, editor, $nc(spinner)->getEditor());
 	if ($instanceOf($JSpinner$DefaultEditor, editor)) {
-		return $nc(($cast($JSpinner$DefaultEditor, editor)))->getTextField();
+		return $cast($JSpinner$DefaultEditor, editor)->getTextField();
 	} else {
-		$nc($System::err)->println($$str({"Unexpected editor type: "_s, $nc($of($(spinner->getEditor())))->getClass(), " isn\'t a descendant of DefaultEditor"_s}));
+		$nc($System::err)->println($$str({"Unexpected editor type: "_s, $$of($nc(spinner->getEditor()))->getClass(), " isn\'t a descendant of DefaultEditor"_s}));
 		return nullptr;
 	}
 }
@@ -223,73 +167,67 @@ int32_t TestSelectedTextBackgroundColor::getMaxColorDiff($Color* c1, $Color* c2)
 	$init(TestSelectedTextBackgroundColor);
 	int32_t var$1 = $nc(c1)->getRed();
 	int32_t var$0 = $Math::abs(var$1 - $nc(c2)->getRed());
-	int32_t var$3 = $nc(c1)->getGreen();
-	int32_t var$2 = $Math::abs(var$3 - $nc(c2)->getGreen());
-	int32_t var$4 = $nc(c1)->getBlue();
-	return $Math::max(var$0, $Math::max(var$2, $Math::abs(var$4 - $nc(c2)->getBlue())));
+	int32_t var$3 = c1->getGreen();
+	int32_t var$2 = $Math::abs(var$3 - c2->getGreen());
+	int32_t var$4 = c1->getBlue();
+	return $Math::max(var$0, $Math::max(var$2, $Math::abs(var$4 - c2->getBlue())));
 }
 
 void TestSelectedTextBackgroundColor::main($StringArray* args) {
 	$init(TestSelectedTextBackgroundColor);
-	$useLocalCurrentObjectStackCache();
-	if (!$nc($($System::getProperty("os.name"_s)))->startsWith("Linux"_s)) {
+	$useLocalObjectStack();
+	if (!$$nc($System::getProperty("os.name"_s))->startsWith("Linux"_s)) {
 		$nc($System::out)->println("This test is meant for Linux platform only"_s);
 		return;
 	}
 	{
 		$var($UIManager$LookAndFeelInfoArray, arr$, $UIManager::getInstalledLookAndFeels());
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($UIManager$LookAndFeelInfo, lookAndFeelInfo, arr$->get(i$));
-			{
-				if ($nc($($nc(lookAndFeelInfo)->getClassName()))->contains(TestSelectedTextBackgroundColor::GTK_LAF_CLASS)) {
-					try {
-						$UIManager::setLookAndFeel($(lookAndFeelInfo->getClassName()));
-					} catch ($UnsupportedLookAndFeelException& ignored) {
-						$nc($System::out)->println("GTK L&F could not be set, so this test can not be run in this scenario "_s);
-						return;
-					}
+			if ($$nc($nc(lookAndFeelInfo)->getClassName())->contains(TestSelectedTextBackgroundColor::GTK_LAF_CLASS)) {
+				try {
+					$UIManager::setLookAndFeel($(lookAndFeelInfo->getClassName()));
+				} catch ($UnsupportedLookAndFeelException& ignored) {
+					$nc($System::out)->println("GTK L&F could not be set, so this test can not be run in this scenario "_s);
+					return;
 				}
 			}
 		}
 	}
 	$assignStatic(TestSelectedTextBackgroundColor::robot, $new($Robot));
-	$nc(TestSelectedTextBackgroundColor::robot)->setAutoDelay(100);
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$SwingUtilities::invokeAndWait($$new($TestSelectedTextBackgroundColor$1));
-			$nc(TestSelectedTextBackgroundColor::robot)->waitForIdle();
-			$nc(TestSelectedTextBackgroundColor::robot)->delay(500);
-			blockTillDisplayed(TestSelectedTextBackgroundColor::listModelSpinner);
-			$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(TestSelectedTextBackgroundColor$$Lambda$lambda$main$0)));
-			$nc(TestSelectedTextBackgroundColor::robot)->waitForIdle();
-			$nc(TestSelectedTextBackgroundColor::robot)->delay(500);
-			$var($Color, backgroundColor, $nc(TestSelectedTextBackgroundColor::robot)->getPixelColor($nc(TestSelectedTextBackgroundColor::point)->x + $nc(TestSelectedTextBackgroundColor::rect)->width / 2, $nc(TestSelectedTextBackgroundColor::point)->y + $nc(TestSelectedTextBackgroundColor::rect)->height / 2));
-			$nc(TestSelectedTextBackgroundColor::robot)->waitForIdle();
-			$nc(TestSelectedTextBackgroundColor::robot)->delay(500);
-			$var($JFormattedTextField, formattedTextField, getTextField(TestSelectedTextBackgroundColor::listModelSpinner));
-			$nc(formattedTextField)->selectAll();
-			$nc(TestSelectedTextBackgroundColor::robot)->waitForIdle();
-			$nc(TestSelectedTextBackgroundColor::robot)->delay(500);
-			$var($Color, highlightColor, $nc(TestSelectedTextBackgroundColor::robot)->getPixelColor($nc(TestSelectedTextBackgroundColor::point)->x + $nc(TestSelectedTextBackgroundColor::rect)->width / 2, $nc(TestSelectedTextBackgroundColor::point)->y + $nc(TestSelectedTextBackgroundColor::rect)->height / 2));
-			$nc(TestSelectedTextBackgroundColor::robot)->waitForIdle();
-			$nc(TestSelectedTextBackgroundColor::robot)->delay(500);
-			int32_t actualColorDifference = getMaxColorDiff(backgroundColor, highlightColor);
-			if (actualColorDifference < TestSelectedTextBackgroundColor::minColorDifference) {
-				$throwNew($RuntimeException, "The expected background color for Selected Text was not found"_s);
-			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			if (TestSelectedTextBackgroundColor::frame != nullptr) {
-				$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(TestSelectedTextBackgroundColor$$Lambda$dispose$1, static_cast<$JFrame*>($nc(TestSelectedTextBackgroundColor::frame)))));
-			}
+	TestSelectedTextBackgroundColor::robot->setAutoDelay(100);
+	$var($Throwable, var$0, nullptr);
+	try {
+		$SwingUtilities::invokeAndWait($$new($TestSelectedTextBackgroundColor$1));
+		$nc(TestSelectedTextBackgroundColor::robot)->waitForIdle();
+		$nc(TestSelectedTextBackgroundColor::robot)->delay(500);
+		blockTillDisplayed(TestSelectedTextBackgroundColor::listModelSpinner);
+		$SwingUtilities::invokeAndWait($$new(TestSelectedTextBackgroundColor$$Lambda$lambda$main$0));
+		$nc(TestSelectedTextBackgroundColor::robot)->waitForIdle();
+		$nc(TestSelectedTextBackgroundColor::robot)->delay(500);
+		$var($Color, backgroundColor, $nc(TestSelectedTextBackgroundColor::robot)->getPixelColor($nc(TestSelectedTextBackgroundColor::point)->x + $nc(TestSelectedTextBackgroundColor::rect)->width / 2, $nc(TestSelectedTextBackgroundColor::point)->y + $nc(TestSelectedTextBackgroundColor::rect)->height / 2));
+		$nc(TestSelectedTextBackgroundColor::robot)->waitForIdle();
+		$nc(TestSelectedTextBackgroundColor::robot)->delay(500);
+		$var($JFormattedTextField, formattedTextField, getTextField(TestSelectedTextBackgroundColor::listModelSpinner));
+		$nc(formattedTextField)->selectAll();
+		$nc(TestSelectedTextBackgroundColor::robot)->waitForIdle();
+		$nc(TestSelectedTextBackgroundColor::robot)->delay(500);
+		$var($Color, highlightColor, $nc(TestSelectedTextBackgroundColor::robot)->getPixelColor($nc(TestSelectedTextBackgroundColor::point)->x + $nc(TestSelectedTextBackgroundColor::rect)->width / 2, $nc(TestSelectedTextBackgroundColor::point)->y + $nc(TestSelectedTextBackgroundColor::rect)->height / 2));
+		$nc(TestSelectedTextBackgroundColor::robot)->waitForIdle();
+		$nc(TestSelectedTextBackgroundColor::robot)->delay(500);
+		int32_t actualColorDifference = getMaxColorDiff(backgroundColor, highlightColor);
+		if (actualColorDifference < TestSelectedTextBackgroundColor::minColorDifference) {
+			$throwNew($RuntimeException, "The expected background color for Selected Text was not found"_s);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		if (TestSelectedTextBackgroundColor::frame != nullptr) {
+			$SwingUtilities::invokeAndWait($$new(TestSelectedTextBackgroundColor$$Lambda$dispose$1, TestSelectedTextBackgroundColor::frame));
 		}
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
@@ -299,7 +237,7 @@ void TestSelectedTextBackgroundColor::lambda$main$0() {
 	$assignStatic(TestSelectedTextBackgroundColor::rect, $nc(TestSelectedTextBackgroundColor::listModelSpinner)->getBounds());
 }
 
-void clinit$TestSelectedTextBackgroundColor($Class* class$) {
+void TestSelectedTextBackgroundColor::clinit$($Class* clazz) {
 	$assignStatic(TestSelectedTextBackgroundColor::GTK_LAF_CLASS, "GTKLookAndFeel"_s);
 	TestSelectedTextBackgroundColor::minColorDifference = 100;
 }
@@ -309,14 +247,53 @@ TestSelectedTextBackgroundColor::TestSelectedTextBackgroundColor() {
 
 $Class* TestSelectedTextBackgroundColor::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(TestSelectedTextBackgroundColor$$Lambda$lambda$main$0::classInfo$.name)) {
+		if (name->equals("TestSelectedTextBackgroundColor$$Lambda$lambda$main$0")) {
 			return TestSelectedTextBackgroundColor$$Lambda$lambda$main$0::load$(name, initialize);
 		}
-		if (name->equals(TestSelectedTextBackgroundColor$$Lambda$dispose$1::classInfo$.name)) {
+		if (name->equals("TestSelectedTextBackgroundColor$$Lambda$dispose$1")) {
 			return TestSelectedTextBackgroundColor$$Lambda$dispose$1::load$(name, initialize);
 		}
 	}
-	$loadClass(TestSelectedTextBackgroundColor, name, initialize, &_TestSelectedTextBackgroundColor_ClassInfo_, clinit$TestSelectedTextBackgroundColor, allocate$TestSelectedTextBackgroundColor);
+	$FieldInfo fieldInfos$$[] = {
+		{"frame", "Ljavax/swing/JFrame;", nullptr, $PRIVATE | $STATIC, $staticField(TestSelectedTextBackgroundColor, frame)},
+		{"listModelSpinner", "Ljavax/swing/JSpinner;", nullptr, $PRIVATE | $STATIC, $staticField(TestSelectedTextBackgroundColor, listModelSpinner)},
+		{"point", "Ljava/awt/Point;", nullptr, $PRIVATE | $STATIC, $staticField(TestSelectedTextBackgroundColor, point)},
+		{"rect", "Ljava/awt/Rectangle;", nullptr, $PRIVATE | $STATIC, $staticField(TestSelectedTextBackgroundColor, rect)},
+		{"robot", "Ljava/awt/Robot;", nullptr, $PRIVATE | $STATIC, $staticField(TestSelectedTextBackgroundColor, robot)},
+		{"GTK_LAF_CLASS", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(TestSelectedTextBackgroundColor, GTK_LAF_CLASS)},
+		{"minColorDifference", "I", nullptr, $PRIVATE | $STATIC, $staticField(TestSelectedTextBackgroundColor, minColorDifference)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TestSelectedTextBackgroundColor, init$, void)},
+		{"blockTillDisplayed", "(Ljava/awt/Component;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(TestSelectedTextBackgroundColor, blockTillDisplayed, void, $Component*)},
+		{"getMaxColorDiff", "(Ljava/awt/Color;Ljava/awt/Color;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(TestSelectedTextBackgroundColor, getMaxColorDiff, int32_t, $Color*, $Color*)},
+		{"getTextField", "(Ljavax/swing/JSpinner;)Ljavax/swing/JFormattedTextField;", nullptr, $PRIVATE | $STATIC, $staticMethod(TestSelectedTextBackgroundColor, getTextField, $JFormattedTextField*, $JSpinner*)},
+		{"lambda$main$0", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TestSelectedTextBackgroundColor, lambda$main$0, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TestSelectedTextBackgroundColor, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"TestSelectedTextBackgroundColor$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"TestSelectedTextBackgroundColor",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"TestSelectedTextBackgroundColor$1"
+	};
+	$loadClass(TestSelectedTextBackgroundColor, name, initialize, &classInfo$$, TestSelectedTextBackgroundColor::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(TestSelectedTextBackgroundColor);
+	});
 	return class$;
 }
 

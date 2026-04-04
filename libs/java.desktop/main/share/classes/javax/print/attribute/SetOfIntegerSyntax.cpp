@@ -1,5 +1,4 @@
 #include <javax/print/attribute/SetOfIntegerSyntax.h>
-
 #include <java/io/Serializable.h>
 #include <java/lang/Math.h>
 #include <java/util/Vector.h>
@@ -21,46 +20,6 @@ namespace javax {
 	namespace print {
 		namespace attribute {
 
-$FieldInfo _SetOfIntegerSyntax_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SetOfIntegerSyntax, serialVersionUID)},
-	{"members", "[[I", nullptr, $PRIVATE, $field(SetOfIntegerSyntax, members)},
-	{}
-};
-
-$MethodInfo _SetOfIntegerSyntax_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $method(SetOfIntegerSyntax, init$, void, $String*)},
-	{"<init>", "([[I)V", nullptr, $PROTECTED, $method(SetOfIntegerSyntax, init$, void, $intArray2*)},
-	{"<init>", "(I)V", nullptr, $PROTECTED, $method(SetOfIntegerSyntax, init$, void, int32_t)},
-	{"<init>", "(II)V", nullptr, $PROTECTED, $method(SetOfIntegerSyntax, init$, void, int32_t, int32_t)},
-	{"accumulate", "(Ljava/util/Vector;II)V", "(Ljava/util/Vector<[I>;II)V", $PRIVATE | $STATIC, $staticMethod(SetOfIntegerSyntax, accumulate, void, $Vector*, int32_t, int32_t)},
-	{"canonicalArrayForm", "(Ljava/util/Vector;)[[I", "(Ljava/util/Vector<[I>;)[[I", $PRIVATE | $STATIC, $staticMethod(SetOfIntegerSyntax, canonicalArrayForm, $intArray2*, $Vector*)},
-	{"contains", "(I)Z", nullptr, $PUBLIC, $virtualMethod(SetOfIntegerSyntax, contains, bool, int32_t)},
-	{"contains", "(Ljavax/print/attribute/IntegerSyntax;)Z", nullptr, $PUBLIC, $virtualMethod(SetOfIntegerSyntax, contains, bool, $IntegerSyntax*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(SetOfIntegerSyntax, equals, bool, Object$*)},
-	{"getMembers", "()[[I", nullptr, $PUBLIC, $virtualMethod(SetOfIntegerSyntax, getMembers, $intArray2*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(SetOfIntegerSyntax, hashCode, int32_t)},
-	{"next", "(I)I", nullptr, $PUBLIC, $virtualMethod(SetOfIntegerSyntax, next, int32_t, int32_t)},
-	{"parse", "(Ljava/lang/String;)[[I", nullptr, $PRIVATE | $STATIC, $staticMethod(SetOfIntegerSyntax, parse, $intArray2*, $String*)},
-	{"parse", "([[I)[[I", nullptr, $PRIVATE | $STATIC, $staticMethod(SetOfIntegerSyntax, parse, $intArray2*, $intArray2*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SetOfIntegerSyntax, toString, $String*)},
-	{}
-};
-
-$ClassInfo _SetOfIntegerSyntax_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"javax.print.attribute.SetOfIntegerSyntax",
-	"java.lang.Object",
-	"java.io.Serializable,java.lang.Cloneable",
-	_SetOfIntegerSyntax_FieldInfo_,
-	_SetOfIntegerSyntax_MethodInfo_
-};
-
-$Object* allocate$SetOfIntegerSyntax($Class* clazz) {
-	return $of($alloc(SetOfIntegerSyntax));
-}
-
 $Object* SetOfIntegerSyntax::clone() {
 	 return this->$Serializable::clone();
 }
@@ -76,7 +35,7 @@ void SetOfIntegerSyntax::init$($String* members) {
 $intArray2* SetOfIntegerSyntax::parse($String* members) {
 	$init(SetOfIntegerSyntax);
 	$var($Vector, theRanges, $new($Vector));
-	int32_t n = (members == nullptr ? 0 : $nc(members)->length());
+	int32_t n = (members == nullptr ? 0 : members->length());
 	int32_t i = 0;
 	int32_t state = 0;
 	int32_t lb = 0;
@@ -84,136 +43,111 @@ $intArray2* SetOfIntegerSyntax::parse($String* members) {
 	char16_t c = 0;
 	int32_t digit = 0;
 	while (i < n) {
-		c = members->charAt(i++);
+		c = $nc(members)->charAt(i++);
 		switch (state) {
 		case 0:
-			{
-				if ($Character::isWhitespace(c)) {
-					state = 0;
-				} else if ((digit = $Character::digit(c, 10)) != -1) {
-					lb = digit;
-					state = 1;
-				} else {
-					$throwNew($IllegalArgumentException);
-				}
-				break;
+			if ($Character::isWhitespace(c)) {
+				state = 0;
+			} else if ((digit = $Character::digit(c, 10)) != -1) {
+				lb = digit;
+				state = 1;
+			} else {
+				$throwNew($IllegalArgumentException);
 			}
+			break;
 		case 1:
-			{
-				if ($Character::isWhitespace(c)) {
-					state = 2;
-				} else if ((digit = $Character::digit(c, 10)) != -1) {
-					lb = 10 * lb + digit;
-					state = 1;
-				} else if (c == u'-' || c == u':') {
-					state = 3;
-				} else if (c == u',') {
-					accumulate(theRanges, lb, lb);
-					state = 6;
-				} else {
-					$throwNew($IllegalArgumentException);
-				}
-				break;
+			if ($Character::isWhitespace(c)) {
+				state = 2;
+			} else if ((digit = $Character::digit(c, 10)) != -1) {
+				lb = 10 * lb + digit;
+				state = 1;
+			} else if (c == u'-' || c == u':') {
+				state = 3;
+			} else if (c == u',') {
+				accumulate(theRanges, lb, lb);
+				state = 6;
+			} else {
+				$throwNew($IllegalArgumentException);
 			}
+			break;
 		case 2:
-			{
-				if ($Character::isWhitespace(c)) {
-					state = 2;
-				} else if (c == u'-' || c == u':') {
-					state = 3;
-				} else if (c == u',') {
-					accumulate(theRanges, lb, lb);
-					state = 6;
-				} else {
-					$throwNew($IllegalArgumentException);
-				}
-				break;
+			if ($Character::isWhitespace(c)) {
+				state = 2;
+			} else if (c == u'-' || c == u':') {
+				state = 3;
+			} else if (c == u',') {
+				accumulate(theRanges, lb, lb);
+				state = 6;
+			} else {
+				$throwNew($IllegalArgumentException);
 			}
+			break;
 		case 3:
-			{
-				if ($Character::isWhitespace(c)) {
-					state = 3;
-				} else if ((digit = $Character::digit(c, 10)) != -1) {
-					ub = digit;
-					state = 4;
-				} else {
-					$throwNew($IllegalArgumentException);
-				}
-				break;
+			if ($Character::isWhitespace(c)) {
+				state = 3;
+			} else if ((digit = $Character::digit(c, 10)) != -1) {
+				ub = digit;
+				state = 4;
+			} else {
+				$throwNew($IllegalArgumentException);
 			}
+			break;
 		case 4:
-			{
-				if ($Character::isWhitespace(c)) {
-					state = 5;
-				} else if ((digit = $Character::digit(c, 10)) != -1) {
-					ub = 10 * ub + digit;
-					state = 4;
-				} else if (c == u',') {
-					accumulate(theRanges, lb, ub);
-					state = 6;
-				} else {
-					$throwNew($IllegalArgumentException);
-				}
-				break;
+			if ($Character::isWhitespace(c)) {
+				state = 5;
+			} else if ((digit = $Character::digit(c, 10)) != -1) {
+				ub = 10 * ub + digit;
+				state = 4;
+			} else if (c == u',') {
+				accumulate(theRanges, lb, ub);
+				state = 6;
+			} else {
+				$throwNew($IllegalArgumentException);
 			}
+			break;
 		case 5:
-			{
-				if ($Character::isWhitespace(c)) {
-					state = 5;
-				} else if (c == u',') {
-					accumulate(theRanges, lb, ub);
-					state = 6;
-				} else {
-					$throwNew($IllegalArgumentException);
-				}
-				break;
+			if ($Character::isWhitespace(c)) {
+				state = 5;
+			} else if (c == u',') {
+				accumulate(theRanges, lb, ub);
+				state = 6;
+			} else {
+				$throwNew($IllegalArgumentException);
 			}
+			break;
 		case 6:
-			{
-				if ($Character::isWhitespace(c)) {
-					state = 6;
-				} else if ((digit = $Character::digit(c, 10)) != -1) {
-					lb = digit;
-					state = 1;
-				} else {
-					$throwNew($IllegalArgumentException);
-				}
-				break;
+			if ($Character::isWhitespace(c)) {
+				state = 6;
+			} else if ((digit = $Character::digit(c, 10)) != -1) {
+				lb = digit;
+				state = 1;
+			} else {
+				$throwNew($IllegalArgumentException);
 			}
+			break;
 		}
 	}
 	switch (state) {
 	case 0:
-		{
-			break;
-		}
+		break;
 	case 1:
-		{}
 	case 2:
-		{
-			accumulate(theRanges, lb, lb);
-			break;
-		}
+		accumulate(theRanges, lb, lb);
+		break;
 	case 4:
-		{}
 	case 5:
-		{
-			accumulate(theRanges, lb, ub);
-			break;
-		}
+		accumulate(theRanges, lb, ub);
+		break;
 	case 3:
-		{}
 	case 6:
-		{
-			$throwNew($IllegalArgumentException);
-		}
+		$throwNew($IllegalArgumentException);
 	}
 	return canonicalArrayForm(theRanges);
 }
 
 void SetOfIntegerSyntax::accumulate($Vector* ranges, int32_t lb, int32_t ub) {
 	$init(SetOfIntegerSyntax);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (lb <= ub) {
 		$nc(ranges)->add($$new($ints, {
 			lb,
@@ -245,7 +179,7 @@ void SetOfIntegerSyntax::accumulate($Vector* ranges, int32_t lb, int32_t ub) {
 
 $intArray2* SetOfIntegerSyntax::canonicalArrayForm($Vector* ranges) {
 	$init(SetOfIntegerSyntax);
-	return $fcast($intArray2, $nc(ranges)->toArray(static_cast<$ObjectArray*>(static_cast<$Object*>(static_cast<$intArray2*>($$new($intArray2, ranges->size()))))));
+	return $cast($intArray2, $nc(ranges)->toArray($$new($intArray2, $nc(ranges)->size())));
 }
 
 void SetOfIntegerSyntax::init$($intArray2* members) {
@@ -255,11 +189,11 @@ void SetOfIntegerSyntax::init$($intArray2* members) {
 $intArray2* SetOfIntegerSyntax::parse($intArray2* members) {
 	$init(SetOfIntegerSyntax);
 	$var($Vector, ranges, $new($Vector));
-	int32_t n = (members == nullptr ? 0 : $nc(members)->length);
+	int32_t n = (members == nullptr ? 0 : members->length);
 	for (int32_t i = 0; i < n; ++i) {
 		int32_t lb = 0;
 		int32_t ub = 0;
-		if ($nc(members->get(i))->length == 1) {
+		if ($nc($nc(members)->get(i))->length == 1) {
 			lb = (ub = $nc(members->get(i))->get(0));
 		} else if ($nc(members->get(i))->length == 2) {
 			lb = $nc(members->get(i))->get(0);
@@ -296,13 +230,13 @@ void SetOfIntegerSyntax::init$(int32_t lowerBound, int32_t upperBound) {
 }
 
 $intArray2* SetOfIntegerSyntax::getMembers() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t n = $nc(this->members)->length;
 	$var($intArray2, result, $new($intArray2, n));
 	for (int32_t i = 0; i < n; ++i) {
 		result->set(i, $$new($ints, {
-			$nc($nc(this->members)->get(i))->get(0),
-			$nc($nc(this->members)->get(i))->get(1)
+			$nc(this->members->get(i))->get(0),
+			$nc(this->members->get(i))->get(1)
 		}));
 	}
 	return result;
@@ -311,9 +245,9 @@ $intArray2* SetOfIntegerSyntax::getMembers() {
 bool SetOfIntegerSyntax::contains(int32_t x) {
 	int32_t n = $nc(this->members)->length;
 	for (int32_t i = 0; i < n; ++i) {
-		if (x < $nc($nc(this->members)->get(i))->get(0)) {
+		if (x < $nc(this->members->get(i))->get(0)) {
 			return false;
-		} else if (x <= $nc($nc(this->members)->get(i))->get(1)) {
+		} else if (x <= $nc(this->members->get(i))->get(1)) {
 			return true;
 		}
 	}
@@ -327,9 +261,9 @@ bool SetOfIntegerSyntax::contains($IntegerSyntax* attribute) {
 int32_t SetOfIntegerSyntax::next(int32_t x) {
 	int32_t n = $nc(this->members)->length;
 	for (int32_t i = 0; i < n; ++i) {
-		if (x < $nc($nc(this->members)->get(i))->get(0)) {
-			return $nc($nc(this->members)->get(i))->get(0);
-		} else if (x < $nc($nc(this->members)->get(i))->get(1)) {
+		if (x < $nc(this->members->get(i))->get(0)) {
+			return $nc(this->members->get(i))->get(0);
+		} else if (x < $nc(this->members->get(i))->get(1)) {
 			return x + 1;
 		}
 	}
@@ -337,10 +271,10 @@ int32_t SetOfIntegerSyntax::next(int32_t x) {
 }
 
 bool SetOfIntegerSyntax::equals(Object$* object) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (object != nullptr && $instanceOf(SetOfIntegerSyntax, object)) {
 		$var($intArray2, myMembers, this->members);
-		$var($intArray2, otherMembers, $nc(($cast(SetOfIntegerSyntax, object)))->members);
+		$var($intArray2, otherMembers, $cast(SetOfIntegerSyntax, object)->members);
 		int32_t m = $nc(myMembers)->length;
 		int32_t n = $nc(otherMembers)->length;
 		if (m == n) {
@@ -362,7 +296,7 @@ int32_t SetOfIntegerSyntax::hashCode() {
 	int32_t result = 0;
 	int32_t n = $nc(this->members)->length;
 	for (int32_t i = 0; i < n; ++i) {
-		result += $nc($nc(this->members)->get(i))->get(0) + $nc($nc(this->members)->get(i))->get(1);
+		result += $nc(this->members->get(i))->get(0) + $nc(this->members->get(i))->get(1);
 	}
 	return result;
 }
@@ -374,10 +308,10 @@ $String* SetOfIntegerSyntax::toString() {
 		if (i > 0) {
 			result->append(u',');
 		}
-		result->append($nc($nc(this->members)->get(i))->get(0));
-		if ($nc($nc(this->members)->get(i))->get(0) != $nc($nc(this->members)->get(i))->get(1)) {
+		result->append($nc(this->members->get(i))->get(0));
+		if ($nc(this->members->get(i))->get(0) != $nc(this->members->get(i))->get(1)) {
 			result->append(u'-');
-			result->append($nc($nc(this->members)->get(i))->get(1));
+			result->append($nc(this->members->get(i))->get(1));
 		}
 	}
 	return result->toString();
@@ -387,7 +321,42 @@ SetOfIntegerSyntax::SetOfIntegerSyntax() {
 }
 
 $Class* SetOfIntegerSyntax::load$($String* name, bool initialize) {
-	$loadClass(SetOfIntegerSyntax, name, initialize, &_SetOfIntegerSyntax_ClassInfo_, allocate$SetOfIntegerSyntax);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SetOfIntegerSyntax, serialVersionUID)},
+		{"members", "[[I", nullptr, $PRIVATE, $field(SetOfIntegerSyntax, members)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $method(SetOfIntegerSyntax, init$, void, $String*)},
+		{"<init>", "([[I)V", nullptr, $PROTECTED, $method(SetOfIntegerSyntax, init$, void, $intArray2*)},
+		{"<init>", "(I)V", nullptr, $PROTECTED, $method(SetOfIntegerSyntax, init$, void, int32_t)},
+		{"<init>", "(II)V", nullptr, $PROTECTED, $method(SetOfIntegerSyntax, init$, void, int32_t, int32_t)},
+		{"accumulate", "(Ljava/util/Vector;II)V", "(Ljava/util/Vector<[I>;II)V", $PRIVATE | $STATIC, $staticMethod(SetOfIntegerSyntax, accumulate, void, $Vector*, int32_t, int32_t)},
+		{"canonicalArrayForm", "(Ljava/util/Vector;)[[I", "(Ljava/util/Vector<[I>;)[[I", $PRIVATE | $STATIC, $staticMethod(SetOfIntegerSyntax, canonicalArrayForm, $intArray2*, $Vector*)},
+		{"contains", "(I)Z", nullptr, $PUBLIC, $virtualMethod(SetOfIntegerSyntax, contains, bool, int32_t)},
+		{"contains", "(Ljavax/print/attribute/IntegerSyntax;)Z", nullptr, $PUBLIC, $virtualMethod(SetOfIntegerSyntax, contains, bool, $IntegerSyntax*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(SetOfIntegerSyntax, equals, bool, Object$*)},
+		{"getMembers", "()[[I", nullptr, $PUBLIC, $virtualMethod(SetOfIntegerSyntax, getMembers, $intArray2*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(SetOfIntegerSyntax, hashCode, int32_t)},
+		{"next", "(I)I", nullptr, $PUBLIC, $virtualMethod(SetOfIntegerSyntax, next, int32_t, int32_t)},
+		{"parse", "(Ljava/lang/String;)[[I", nullptr, $PRIVATE | $STATIC, $staticMethod(SetOfIntegerSyntax, parse, $intArray2*, $String*)},
+		{"parse", "([[I)[[I", nullptr, $PRIVATE | $STATIC, $staticMethod(SetOfIntegerSyntax, parse, $intArray2*, $intArray2*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SetOfIntegerSyntax, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"javax.print.attribute.SetOfIntegerSyntax",
+		"java.lang.Object",
+		"java.io.Serializable,java.lang.Cloneable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SetOfIntegerSyntax, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SetOfIntegerSyntax));
+	});
 	return class$;
 }
 

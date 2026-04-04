@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/AttrRecover$RecoveryErrorType.h>
-
 #include <com/sun/tools/javac/code/Symbol$TypeSymbol.h>
 #include <com/sun/tools/javac/code/Symbol.h>
 #include <com/sun/tools/javac/code/Type$ErrorType.h>
@@ -20,44 +19,8 @@ namespace com {
 			namespace javac {
 				namespace comp {
 
-$FieldInfo _AttrRecover$RecoveryErrorType_FieldInfo_[] = {
-	{"candidateSymbol", "Lcom/sun/tools/javac/code/Symbol;", nullptr, $PUBLIC | $FINAL, $field(AttrRecover$RecoveryErrorType, candidateSymbol)},
-	{}
-};
-
-$MethodInfo _AttrRecover$RecoveryErrorType_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Type$ErrorType;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, $method(AttrRecover$RecoveryErrorType, init$, void, $Type$ErrorType*, $Symbol*)},
-	{}
-};
-
-$InnerClassInfo _AttrRecover$RecoveryErrorType_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.AttrRecover$RecoveryErrorType", "com.sun.tools.javac.comp.AttrRecover", "RecoveryErrorType", $PRIVATE | $STATIC},
-	{"com.sun.tools.javac.code.Type$ErrorType", "com.sun.tools.javac.code.Type", "ErrorType", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _AttrRecover$RecoveryErrorType_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.comp.AttrRecover$RecoveryErrorType",
-	"com.sun.tools.javac.code.Type$ErrorType",
-	nullptr,
-	_AttrRecover$RecoveryErrorType_FieldInfo_,
-	_AttrRecover$RecoveryErrorType_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AttrRecover$RecoveryErrorType_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.AttrRecover"
-};
-
-$Object* allocate$AttrRecover$RecoveryErrorType($Class* clazz) {
-	return $of($alloc(AttrRecover$RecoveryErrorType));
-}
-
 void AttrRecover$RecoveryErrorType::init$($Type$ErrorType* original, $Symbol* candidateSymbol) {
-	$Type$ErrorType::init$($($nc(original)->getOriginalType()), original->tsym);
+	$Type$ErrorType::init$($($nc(original)->getOriginalType()), $nc(original)->tsym);
 	$set(this, candidateSymbol, candidateSymbol);
 }
 
@@ -65,7 +28,37 @@ AttrRecover$RecoveryErrorType::AttrRecover$RecoveryErrorType() {
 }
 
 $Class* AttrRecover$RecoveryErrorType::load$($String* name, bool initialize) {
-	$loadClass(AttrRecover$RecoveryErrorType, name, initialize, &_AttrRecover$RecoveryErrorType_ClassInfo_, allocate$AttrRecover$RecoveryErrorType);
+	$FieldInfo fieldInfos$$[] = {
+		{"candidateSymbol", "Lcom/sun/tools/javac/code/Symbol;", nullptr, $PUBLIC | $FINAL, $field(AttrRecover$RecoveryErrorType, candidateSymbol)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/code/Type$ErrorType;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, $method(AttrRecover$RecoveryErrorType, init$, void, $Type$ErrorType*, $Symbol*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.AttrRecover$RecoveryErrorType", "com.sun.tools.javac.comp.AttrRecover", "RecoveryErrorType", $PRIVATE | $STATIC},
+		{"com.sun.tools.javac.code.Type$ErrorType", "com.sun.tools.javac.code.Type", "ErrorType", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.comp.AttrRecover$RecoveryErrorType",
+		"com.sun.tools.javac.code.Type$ErrorType",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.AttrRecover"
+	};
+	$loadClass(AttrRecover$RecoveryErrorType, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AttrRecover$RecoveryErrorType));
+	});
 	return class$;
 }
 

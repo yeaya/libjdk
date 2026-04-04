@@ -1,5 +1,4 @@
 #include <com/apple/laf/AquaTabbedPaneCopyFromBasicUI$ScrollableTabSupport.h>
-
 #include <com/apple/laf/AquaTabbedPaneCopyFromBasicUI$CroppedEdge.h>
 #include <com/apple/laf/AquaTabbedPaneCopyFromBasicUI$ScrollableTabPanel.h>
 #include <com/apple/laf/AquaTabbedPaneCopyFromBasicUI$ScrollableTabViewport.h>
@@ -17,7 +16,6 @@
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JTabbedPane.h>
 #include <javax/swing/event/ChangeEvent.h>
-#include <javax/swing/event/ChangeListener.h>
 #include <jcpp.h>
 
 #undef ACTION_PERFORMED
@@ -26,7 +24,6 @@ using $AquaTabbedPaneCopyFromBasicUI = ::com::apple::laf::AquaTabbedPaneCopyFrom
 using $AquaTabbedPaneCopyFromBasicUI$CroppedEdge = ::com::apple::laf::AquaTabbedPaneCopyFromBasicUI$CroppedEdge;
 using $AquaTabbedPaneCopyFromBasicUI$ScrollableTabPanel = ::com::apple::laf::AquaTabbedPaneCopyFromBasicUI$ScrollableTabPanel;
 using $AquaTabbedPaneCopyFromBasicUI$ScrollableTabViewport = ::com::apple::laf::AquaTabbedPaneCopyFromBasicUI$ScrollableTabViewport;
-using $Component = ::java::awt::Component;
 using $Dimension = ::java::awt::Dimension;
 using $Insets = ::java::awt::Insets;
 using $Point = ::java::awt::Point;
@@ -39,68 +36,11 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Action = ::javax::swing::Action;
 using $ActionMap = ::javax::swing::ActionMap;
-using $JButton = ::javax::swing::JButton;
-using $JTabbedPane = ::javax::swing::JTabbedPane;
 using $ChangeEvent = ::javax::swing::event::ChangeEvent;
-using $ChangeListener = ::javax::swing::event::ChangeListener;
 
 namespace com {
 	namespace apple {
 		namespace laf {
-
-$FieldInfo _AquaTabbedPaneCopyFromBasicUI$ScrollableTabSupport_FieldInfo_[] = {
-	{"this$0", "Lcom/apple/laf/AquaTabbedPaneCopyFromBasicUI;", nullptr, $FINAL | $SYNTHETIC, $field(AquaTabbedPaneCopyFromBasicUI$ScrollableTabSupport, this$0)},
-	{"viewport", "Lcom/apple/laf/AquaTabbedPaneCopyFromBasicUI$ScrollableTabViewport;", nullptr, $PUBLIC, $field(AquaTabbedPaneCopyFromBasicUI$ScrollableTabSupport, viewport)},
-	{"tabPanel", "Lcom/apple/laf/AquaTabbedPaneCopyFromBasicUI$ScrollableTabPanel;", nullptr, $PUBLIC, $field(AquaTabbedPaneCopyFromBasicUI$ScrollableTabSupport, tabPanel)},
-	{"scrollForwardButton", "Ljavax/swing/JButton;", nullptr, $PUBLIC, $field(AquaTabbedPaneCopyFromBasicUI$ScrollableTabSupport, scrollForwardButton)},
-	{"scrollBackwardButton", "Ljavax/swing/JButton;", nullptr, $PUBLIC, $field(AquaTabbedPaneCopyFromBasicUI$ScrollableTabSupport, scrollBackwardButton)},
-	{"croppedEdge", "Lcom/apple/laf/AquaTabbedPaneCopyFromBasicUI$CroppedEdge;", nullptr, $PUBLIC, $field(AquaTabbedPaneCopyFromBasicUI$ScrollableTabSupport, croppedEdge)},
-	{"leadingTabIndex", "I", nullptr, $PUBLIC, $field(AquaTabbedPaneCopyFromBasicUI$ScrollableTabSupport, leadingTabIndex)},
-	{"tabViewPosition", "Ljava/awt/Point;", nullptr, $PRIVATE | $FINAL, $field(AquaTabbedPaneCopyFromBasicUI$ScrollableTabSupport, tabViewPosition)},
-	{}
-};
-
-$MethodInfo _AquaTabbedPaneCopyFromBasicUI$ScrollableTabSupport_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lcom/apple/laf/AquaTabbedPaneCopyFromBasicUI;I)V", nullptr, 0, $method(AquaTabbedPaneCopyFromBasicUI$ScrollableTabSupport, init$, void, $AquaTabbedPaneCopyFromBasicUI*, int32_t)},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaTabbedPaneCopyFromBasicUI$ScrollableTabSupport, actionPerformed, void, $ActionEvent*)},
-	{"createButtons", "()V", nullptr, 0, $virtualMethod(AquaTabbedPaneCopyFromBasicUI$ScrollableTabSupport, createButtons, void)},
-	{"scrollBackward", "(I)V", nullptr, $PUBLIC, $virtualMethod(AquaTabbedPaneCopyFromBasicUI$ScrollableTabSupport, scrollBackward, void, int32_t)},
-	{"scrollForward", "(I)V", nullptr, $PUBLIC, $virtualMethod(AquaTabbedPaneCopyFromBasicUI$ScrollableTabSupport, scrollForward, void, int32_t)},
-	{"setLeadingTabIndex", "(II)V", nullptr, $PUBLIC, $virtualMethod(AquaTabbedPaneCopyFromBasicUI$ScrollableTabSupport, setLeadingTabIndex, void, int32_t, int32_t)},
-	{"stateChanged", "(Ljavax/swing/event/ChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaTabbedPaneCopyFromBasicUI$ScrollableTabSupport, stateChanged, void, $ChangeEvent*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AquaTabbedPaneCopyFromBasicUI$ScrollableTabSupport, toString, $String*)},
-	{"updateView", "()V", nullptr, $PRIVATE, $method(AquaTabbedPaneCopyFromBasicUI$ScrollableTabSupport, updateView, void)},
-	{}
-};
-
-$InnerClassInfo _AquaTabbedPaneCopyFromBasicUI$ScrollableTabSupport_InnerClassesInfo_[] = {
-	{"com.apple.laf.AquaTabbedPaneCopyFromBasicUI$ScrollableTabSupport", "com.apple.laf.AquaTabbedPaneCopyFromBasicUI", "ScrollableTabSupport", $PRIVATE},
-	{}
-};
-
-$ClassInfo _AquaTabbedPaneCopyFromBasicUI$ScrollableTabSupport_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.apple.laf.AquaTabbedPaneCopyFromBasicUI$ScrollableTabSupport",
-	"java.lang.Object",
-	"java.awt.event.ActionListener,javax.swing.event.ChangeListener",
-	_AquaTabbedPaneCopyFromBasicUI$ScrollableTabSupport_FieldInfo_,
-	_AquaTabbedPaneCopyFromBasicUI$ScrollableTabSupport_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AquaTabbedPaneCopyFromBasicUI$ScrollableTabSupport_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.apple.laf.AquaTabbedPaneCopyFromBasicUI"
-};
-
-$Object* allocate$AquaTabbedPaneCopyFromBasicUI$ScrollableTabSupport($Class* clazz) {
-	return $of($alloc(AquaTabbedPaneCopyFromBasicUI$ScrollableTabSupport));
-}
 
 int32_t AquaTabbedPaneCopyFromBasicUI$ScrollableTabSupport::hashCode() {
 	 return this->$ActionListener::hashCode();
@@ -123,7 +63,7 @@ void AquaTabbedPaneCopyFromBasicUI$ScrollableTabSupport::init$($AquaTabbedPaneCo
 	$set(this, tabViewPosition, $new($Point, 0, 0));
 	$set(this, viewport, $new($AquaTabbedPaneCopyFromBasicUI$ScrollableTabViewport, this$0));
 	$set(this, tabPanel, $new($AquaTabbedPaneCopyFromBasicUI$ScrollableTabPanel, this$0));
-	$nc(this->viewport)->setView(this->tabPanel);
+	this->viewport->setView(this->tabPanel);
 	$nc(this->viewport)->addChangeListener(this);
 	$set(this, croppedEdge, $new($AquaTabbedPaneCopyFromBasicUI$CroppedEdge, this$0));
 	createButtons();
@@ -131,9 +71,9 @@ void AquaTabbedPaneCopyFromBasicUI$ScrollableTabSupport::init$($AquaTabbedPaneCo
 
 void AquaTabbedPaneCopyFromBasicUI$ScrollableTabSupport::createButtons() {
 	if (this->scrollForwardButton != nullptr) {
-		$nc(this->this$0->tabPane)->remove(static_cast<$Component*>(this->scrollForwardButton));
+		$nc(this->this$0->tabPane)->remove(this->scrollForwardButton);
 		$nc(this->scrollForwardButton)->removeActionListener(this);
-		$nc(this->this$0->tabPane)->remove(static_cast<$Component*>(this->scrollBackwardButton));
+		$nc(this->this$0->tabPane)->remove(this->scrollBackwardButton);
 		$nc(this->scrollBackwardButton)->removeActionListener(this);
 	}
 	int32_t tabPlacement = $nc(this->this$0->tabPane)->getTabPlacement();
@@ -146,19 +86,19 @@ void AquaTabbedPaneCopyFromBasicUI$ScrollableTabSupport::createButtons() {
 	}
 	$nc(this->scrollForwardButton)->addActionListener(this);
 	$nc(this->scrollBackwardButton)->addActionListener(this);
-	$nc(this->this$0->tabPane)->add(static_cast<$Component*>(this->scrollForwardButton));
-	$nc(this->this$0->tabPane)->add(static_cast<$Component*>(this->scrollBackwardButton));
+	$nc(this->this$0->tabPane)->add(this->scrollForwardButton);
+	$nc(this->this$0->tabPane)->add(this->scrollBackwardButton);
 }
 
 void AquaTabbedPaneCopyFromBasicUI$ScrollableTabSupport::scrollForward(int32_t tabPlacement) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Dimension, viewSize, $nc(this->viewport)->getViewSize());
 	$var($Rectangle, viewRect, $nc(this->viewport)->getViewRect());
 	if (tabPlacement == 1 || tabPlacement == 3) {
-		if ($nc(viewRect)->width >= $nc(viewSize)->width - viewRect->x) {
+		if ($nc(viewRect)->width >= $nc(viewSize)->width - $nc(viewRect)->x) {
 			return;
 		}
-	} else if ($nc(viewRect)->height >= $nc(viewSize)->height - viewRect->y) {
+	} else if ($nc(viewRect)->height >= $nc(viewSize)->height - $nc(viewRect)->y) {
 		return;
 	}
 	setLeadingTabIndex(tabPlacement, this->leadingTabIndex + 1);
@@ -172,31 +112,25 @@ void AquaTabbedPaneCopyFromBasicUI$ScrollableTabSupport::scrollBackward(int32_t 
 }
 
 void AquaTabbedPaneCopyFromBasicUI$ScrollableTabSupport::setLeadingTabIndex(int32_t tabPlacement, int32_t index) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->leadingTabIndex = index;
 	$var($Dimension, viewSize, $nc(this->viewport)->getViewSize());
 	$var($Rectangle, viewRect, $nc(this->viewport)->getViewRect());
 	switch (tabPlacement) {
 	case 1:
-		{}
 	case 3:
-		{
-			$nc(this->tabViewPosition)->x = this->leadingTabIndex == 0 ? 0 : $nc($nc(this->this$0->rects)->get(this->leadingTabIndex))->x;
-			if (($nc(viewSize)->width - $nc(this->tabViewPosition)->x) < $nc(viewRect)->width) {
-				$var($Dimension, extentSize, $new($Dimension, viewSize->width - $nc(this->tabViewPosition)->x, viewRect->height));
-				$nc(this->viewport)->setExtentSize(extentSize);
-			}
-			break;
+		this->tabViewPosition->x = this->leadingTabIndex == 0 ? 0 : $nc($nc(this->this$0->rects)->get(this->leadingTabIndex))->x;
+		if (($nc(viewSize)->width - this->tabViewPosition->x) < $nc(viewRect)->width) {
+			$var($Dimension, extentSize, $new($Dimension, viewSize->width - this->tabViewPosition->x, viewRect->height));
+			$nc(this->viewport)->setExtentSize(extentSize);
 		}
+		break;
 	case 2:
-		{}
 	case 4:
-		{
-			$nc(this->tabViewPosition)->y = this->leadingTabIndex == 0 ? 0 : $nc($nc(this->this$0->rects)->get(this->leadingTabIndex))->y;
-			if (($nc(viewSize)->height - $nc(this->tabViewPosition)->y) < $nc(viewRect)->height) {
-				$var($Dimension, extentSize, $new($Dimension, viewRect->width, viewSize->height - $nc(this->tabViewPosition)->y));
-				$nc(this->viewport)->setExtentSize(extentSize);
-			}
+		this->tabViewPosition->y = this->leadingTabIndex == 0 ? 0 : $nc($nc(this->this$0->rects)->get(this->leadingTabIndex))->y;
+		if (($nc(viewSize)->height - this->tabViewPosition->y) < $nc(viewRect)->height) {
+			$var($Dimension, extentSize, $new($Dimension, viewRect->width, viewSize->height - this->tabViewPosition->y));
+			$nc(this->viewport)->setExtentSize(extentSize);
 		}
 	}
 	$nc(this->viewport)->setViewPosition(this->tabViewPosition);
@@ -207,71 +141,56 @@ void AquaTabbedPaneCopyFromBasicUI$ScrollableTabSupport::stateChanged($ChangeEve
 }
 
 void AquaTabbedPaneCopyFromBasicUI$ScrollableTabSupport::updateView() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t tabPlacement = $nc(this->this$0->tabPane)->getTabPlacement();
 	int32_t tabCount = $nc(this->this$0->tabPane)->getTabCount();
 	$var($Rectangle, vpRect, $nc(this->viewport)->getBounds());
 	$var($Dimension, viewSize, $nc(this->viewport)->getViewSize());
 	$var($Rectangle, viewRect, $nc(this->viewport)->getViewRect());
-	this->leadingTabIndex = this->this$0->getClosestTab($nc(viewRect)->x, viewRect->y);
+	this->leadingTabIndex = this->this$0->getClosestTab($nc(viewRect)->x, $nc(viewRect)->y);
 	if (this->leadingTabIndex + 1 < tabCount) {
 		switch (tabPlacement) {
 		case 1:
-			{}
 		case 3:
-			{
-				if ($nc($nc(this->this$0->rects)->get(this->leadingTabIndex))->x < $nc(viewRect)->x) {
-					++this->leadingTabIndex;
-				}
-				break;
+			if ($nc($nc(this->this$0->rects)->get(this->leadingTabIndex))->x < viewRect->x) {
+				++this->leadingTabIndex;
 			}
+			break;
 		case 2:
-			{}
 		case 4:
-			{
-				if ($nc($nc(this->this$0->rects)->get(this->leadingTabIndex))->y < $nc(viewRect)->y) {
-					++this->leadingTabIndex;
-				}
-				break;
+			if ($nc($nc(this->this$0->rects)->get(this->leadingTabIndex))->y < viewRect->y) {
+				++this->leadingTabIndex;
 			}
+			break;
 		}
 	}
 	$var($Insets, contentInsets, this->this$0->getContentBorderInsets(tabPlacement));
 	switch (tabPlacement) {
 	case 2:
-		{
-			$nc(this->this$0->tabPane)->repaint($nc(vpRect)->x + vpRect->width, vpRect->y, $nc(contentInsets)->left, vpRect->height);
-			$nc(this->scrollBackwardButton)->setEnabled($nc(viewRect)->y > 0 && this->leadingTabIndex > 0);
-			$nc(this->scrollForwardButton)->setEnabled(this->leadingTabIndex < tabCount - 1 && $nc(viewSize)->height - $nc(viewRect)->y > viewRect->height);
-			break;
-		}
+		$nc(this->this$0->tabPane)->repaint($nc(vpRect)->x + $nc(vpRect)->width, $nc(vpRect)->y, $nc(contentInsets)->left, $nc(vpRect)->height);
+		$nc(this->scrollBackwardButton)->setEnabled(viewRect->y > 0 && this->leadingTabIndex > 0);
+		$nc(this->scrollForwardButton)->setEnabled(this->leadingTabIndex < tabCount - 1 && $nc(viewSize)->height - viewRect->y > viewRect->height);
+		break;
 	case 4:
-		{
-			$nc(this->this$0->tabPane)->repaint($nc(vpRect)->x - $nc(contentInsets)->right, vpRect->y, contentInsets->right, vpRect->height);
-			$nc(this->scrollBackwardButton)->setEnabled($nc(viewRect)->y > 0 && this->leadingTabIndex > 0);
-			$nc(this->scrollForwardButton)->setEnabled(this->leadingTabIndex < tabCount - 1 && $nc(viewSize)->height - $nc(viewRect)->y > viewRect->height);
-			break;
-		}
+		$nc(this->this$0->tabPane)->repaint($nc(vpRect)->x - $nc(contentInsets)->right, $nc(vpRect)->y, $nc(contentInsets)->right, $nc(vpRect)->height);
+		$nc(this->scrollBackwardButton)->setEnabled(viewRect->y > 0 && this->leadingTabIndex > 0);
+		$nc(this->scrollForwardButton)->setEnabled(this->leadingTabIndex < tabCount - 1 && $nc(viewSize)->height - viewRect->y > viewRect->height);
+		break;
 	case 3:
-		{
-			$nc(this->this$0->tabPane)->repaint($nc(vpRect)->x, vpRect->y - $nc(contentInsets)->bottom, vpRect->width, contentInsets->bottom);
-			$nc(this->scrollBackwardButton)->setEnabled($nc(viewRect)->x > 0 && this->leadingTabIndex > 0);
-			$nc(this->scrollForwardButton)->setEnabled(this->leadingTabIndex < tabCount - 1 && $nc(viewSize)->width - $nc(viewRect)->x > viewRect->width);
-			break;
-		}
+		$nc(this->this$0->tabPane)->repaint($nc(vpRect)->x, $nc(vpRect)->y - $nc(contentInsets)->bottom, $nc(vpRect)->width, $nc(contentInsets)->bottom);
+		$nc(this->scrollBackwardButton)->setEnabled(viewRect->x > 0 && this->leadingTabIndex > 0);
+		$nc(this->scrollForwardButton)->setEnabled(this->leadingTabIndex < tabCount - 1 && $nc(viewSize)->width - viewRect->x > viewRect->width);
+		break;
 	case 1:
-		{}
 	default:
-		{
-			$nc(this->this$0->tabPane)->repaint($nc(vpRect)->x, vpRect->y + vpRect->height, vpRect->width, $nc(contentInsets)->top);
-			$nc(this->scrollBackwardButton)->setEnabled($nc(viewRect)->x > 0 && this->leadingTabIndex > 0);
-			$nc(this->scrollForwardButton)->setEnabled(this->leadingTabIndex < tabCount - 1 && $nc(viewSize)->width - $nc(viewRect)->x > viewRect->width);
-		}
+		$nc(this->this$0->tabPane)->repaint($nc(vpRect)->x, $nc(vpRect)->y + $nc(vpRect)->height, $nc(vpRect)->width, $nc(contentInsets)->top);
+		$nc(this->scrollBackwardButton)->setEnabled(viewRect->x > 0 && this->leadingTabIndex > 0);
+		$nc(this->scrollForwardButton)->setEnabled(this->leadingTabIndex < tabCount - 1 && $nc(viewSize)->width - viewRect->x > viewRect->width);
 	}
 }
 
 void AquaTabbedPaneCopyFromBasicUI$ScrollableTabSupport::actionPerformed($ActionEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ActionMap, map, $nc(this->this$0->tabPane)->getActionMap());
 	if (map != nullptr) {
 		$var($String, actionKey, nullptr);
@@ -282,28 +201,80 @@ void AquaTabbedPaneCopyFromBasicUI$ScrollableTabSupport::actionPerformed($Action
 		}
 		$var($Action, action, map->get(actionKey));
 		if (action != nullptr && action->isEnabled()) {
-			$var($Object, var$0, $of(this->this$0->tabPane));
-			int64_t var$1 = $nc(e)->getWhen();
+			$var($Object, var$0, this->this$0->tabPane);
+			int64_t var$1 = e->getWhen();
 			action->actionPerformed($$new($ActionEvent, var$0, $ActionEvent::ACTION_PERFORMED, nullptr, var$1, e->getModifiers()));
 		}
 	}
 }
 
 $String* AquaTabbedPaneCopyFromBasicUI$ScrollableTabSupport::toString() {
-	$useLocalCurrentObjectStackCache();
-	$var($String, var$4, $$str({"viewport.viewSize="_s, $($nc(this->viewport)->getViewSize()), "\nviewport.viewRectangle="_s}));
-	$var($String, var$3, $$concat(var$4, $($nc(this->viewport)->getViewRect())));
-	$var($String, var$2, $$concat(var$3, "\nleadingTabIndex="_s));
-	$var($String, var$1, $$concat(var$2, $$str(this->leadingTabIndex)));
-	$var($String, var$0, $$concat(var$1, "\ntabViewPosition="_s));
-	return $new($String, $$concat(var$0, this->tabViewPosition));
+	$useLocalObjectStack();
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append("viewport.viewSize="_s);
+	var$0->append($($nc(this->viewport)->getViewSize()));
+	var$0->append("\nviewport.viewRectangle="_s);
+	var$0->append($(this->viewport->getViewRect()));
+	var$0->append("\nleadingTabIndex="_s);
+	var$0->append(this->leadingTabIndex);
+	var$0->append("\ntabViewPosition="_s);
+	var$0->append(this->tabViewPosition);
+	return $new($String, $$str(var$0));
 }
 
 AquaTabbedPaneCopyFromBasicUI$ScrollableTabSupport::AquaTabbedPaneCopyFromBasicUI$ScrollableTabSupport() {
 }
 
 $Class* AquaTabbedPaneCopyFromBasicUI$ScrollableTabSupport::load$($String* name, bool initialize) {
-	$loadClass(AquaTabbedPaneCopyFromBasicUI$ScrollableTabSupport, name, initialize, &_AquaTabbedPaneCopyFromBasicUI$ScrollableTabSupport_ClassInfo_, allocate$AquaTabbedPaneCopyFromBasicUI$ScrollableTabSupport);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/apple/laf/AquaTabbedPaneCopyFromBasicUI;", nullptr, $FINAL | $SYNTHETIC, $field(AquaTabbedPaneCopyFromBasicUI$ScrollableTabSupport, this$0)},
+		{"viewport", "Lcom/apple/laf/AquaTabbedPaneCopyFromBasicUI$ScrollableTabViewport;", nullptr, $PUBLIC, $field(AquaTabbedPaneCopyFromBasicUI$ScrollableTabSupport, viewport)},
+		{"tabPanel", "Lcom/apple/laf/AquaTabbedPaneCopyFromBasicUI$ScrollableTabPanel;", nullptr, $PUBLIC, $field(AquaTabbedPaneCopyFromBasicUI$ScrollableTabSupport, tabPanel)},
+		{"scrollForwardButton", "Ljavax/swing/JButton;", nullptr, $PUBLIC, $field(AquaTabbedPaneCopyFromBasicUI$ScrollableTabSupport, scrollForwardButton)},
+		{"scrollBackwardButton", "Ljavax/swing/JButton;", nullptr, $PUBLIC, $field(AquaTabbedPaneCopyFromBasicUI$ScrollableTabSupport, scrollBackwardButton)},
+		{"croppedEdge", "Lcom/apple/laf/AquaTabbedPaneCopyFromBasicUI$CroppedEdge;", nullptr, $PUBLIC, $field(AquaTabbedPaneCopyFromBasicUI$ScrollableTabSupport, croppedEdge)},
+		{"leadingTabIndex", "I", nullptr, $PUBLIC, $field(AquaTabbedPaneCopyFromBasicUI$ScrollableTabSupport, leadingTabIndex)},
+		{"tabViewPosition", "Ljava/awt/Point;", nullptr, $PRIVATE | $FINAL, $field(AquaTabbedPaneCopyFromBasicUI$ScrollableTabSupport, tabViewPosition)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lcom/apple/laf/AquaTabbedPaneCopyFromBasicUI;I)V", nullptr, 0, $method(AquaTabbedPaneCopyFromBasicUI$ScrollableTabSupport, init$, void, $AquaTabbedPaneCopyFromBasicUI*, int32_t)},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaTabbedPaneCopyFromBasicUI$ScrollableTabSupport, actionPerformed, void, $ActionEvent*)},
+		{"createButtons", "()V", nullptr, 0, $virtualMethod(AquaTabbedPaneCopyFromBasicUI$ScrollableTabSupport, createButtons, void)},
+		{"scrollBackward", "(I)V", nullptr, $PUBLIC, $virtualMethod(AquaTabbedPaneCopyFromBasicUI$ScrollableTabSupport, scrollBackward, void, int32_t)},
+		{"scrollForward", "(I)V", nullptr, $PUBLIC, $virtualMethod(AquaTabbedPaneCopyFromBasicUI$ScrollableTabSupport, scrollForward, void, int32_t)},
+		{"setLeadingTabIndex", "(II)V", nullptr, $PUBLIC, $virtualMethod(AquaTabbedPaneCopyFromBasicUI$ScrollableTabSupport, setLeadingTabIndex, void, int32_t, int32_t)},
+		{"stateChanged", "(Ljavax/swing/event/ChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaTabbedPaneCopyFromBasicUI$ScrollableTabSupport, stateChanged, void, $ChangeEvent*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AquaTabbedPaneCopyFromBasicUI$ScrollableTabSupport, toString, $String*)},
+		{"updateView", "()V", nullptr, $PRIVATE, $method(AquaTabbedPaneCopyFromBasicUI$ScrollableTabSupport, updateView, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.laf.AquaTabbedPaneCopyFromBasicUI$ScrollableTabSupport", "com.apple.laf.AquaTabbedPaneCopyFromBasicUI", "ScrollableTabSupport", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.apple.laf.AquaTabbedPaneCopyFromBasicUI$ScrollableTabSupport",
+		"java.lang.Object",
+		"java.awt.event.ActionListener,javax.swing.event.ChangeListener",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.apple.laf.AquaTabbedPaneCopyFromBasicUI"
+	};
+	$loadClass(AquaTabbedPaneCopyFromBasicUI$ScrollableTabSupport, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AquaTabbedPaneCopyFromBasicUI$ScrollableTabSupport));
+	});
 	return class$;
 }
 

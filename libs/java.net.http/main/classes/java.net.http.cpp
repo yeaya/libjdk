@@ -1,13 +1,10 @@
 #include <java.net.http.h>
-
 #include <java.base.h>
 #include <java/lang/ClassEntry.h>
 #include <java/lang/Library.h>
 #include <java/lang/ModuleInfo.h>
 #include <java/lang/ResourceEntry.h>
 #include <jcpp.h>
-#include <module-info>
-
 #include <java/net/http/HttpClient.h>
 #include <java/net/http/HttpClient$Builder.h>
 #include <java/net/http/HttpClient$Redirect.h>
@@ -785,6 +782,7 @@ $bytes* java$net$http$GetResource($String* name) {
 
 void java$net$http::init() {
 	::java$base::init();
+	#include <module-info.h>
 	::java::lang::Library lib = {
 		"java.net.http", "17.35", "",
 		&_java$net$http_ModuleInfo_,

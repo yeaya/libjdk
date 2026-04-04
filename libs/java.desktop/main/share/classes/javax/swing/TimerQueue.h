@@ -43,6 +43,7 @@ class TimerQueue : public ::java::lang::Runnable {
 	$class(TimerQueue, 0, ::java::lang::Runnable)
 public:
 	TimerQueue();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void addTimer(::javax::swing::Timer* timer, int64_t delayMillis);
 	void addTimer(::javax::swing::TimerQueue$DelayedTimer* delayedTimer);

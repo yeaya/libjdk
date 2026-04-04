@@ -1,5 +1,4 @@
 #include <sun/util/resources/cldr/ext/LocaleNames_te.h>
-
 #include <sun/util/resources/OpenListResourceBundle.h>
 #include <jcpp.h>
 
@@ -14,31 +13,12 @@ namespace sun {
 			namespace cldr {
 				namespace ext {
 
-$MethodInfo _LocaleNames_te_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(LocaleNames_te, init$, void)},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(LocaleNames_te, getContents, $ObjectArray2*)},
-	{}
-};
-
-$ClassInfo _LocaleNames_te_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.util.resources.cldr.ext.LocaleNames_te",
-	"sun.util.resources.OpenListResourceBundle",
-	nullptr,
-	nullptr,
-	_LocaleNames_te_MethodInfo_
-};
-
-$Object* allocate$LocaleNames_te($Class* clazz) {
-	return $of($alloc(LocaleNames_te));
-}
-
 void LocaleNames_te::init$() {
 	$OpenListResourceBundle::init$();
 }
 
 $ObjectArray2* LocaleNames_te::getContents() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, metaValue_NR, u"నౌరు"_s);
 	$var($String, metaValue_TK, u"టోకెలావ్"_s);
 	$var($String, metaValue_TV, u"టువాలు"_s);
@@ -71,4224 +51,4224 @@ $ObjectArray2* LocaleNames_te::getContents() {
 	$var($String, metaValue_type_ca_islamic, u"ఇస్లామిక్ క్యాలెండర్"_s);
 	$var($ObjectArray2, data, $new($ObjectArray2, {
 		$$new($ObjectArray, {
-			$of("ksh"_s),
-			$of(u"కొలోనియన్"_s)
+			"ksh"_s,
+			u"కొలోనియన్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Ogam"_s),
-			$of(u"ఒఘమ్"_s)
+			"Ogam"_s,
+			u"ఒఘమ్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mwl"_s),
-			$of(u"మిరాండిస్"_s)
+			"mwl"_s,
+			u"మిరాండిస్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Zsym"_s),
-			$of(u"చిహ్నాలు"_s)
+			"Zsym"_s,
+			u"చిహ్నాలు"_s
 		}),
 		$$new($ObjectArray, {
-			$of("cch"_s),
-			$of(u"అట్సామ్"_s)
+			"cch"_s,
+			u"అట్సామ్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mwr"_s),
-			$of(u"మార్వాడి"_s)
+			"mwr"_s,
+			u"మార్వాడి"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Tagb"_s),
-			$of(u"టాగ్బానవా"_s)
+			"Tagb"_s,
+			u"టాగ్బానవా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Zsye"_s),
-			$of(u"ఎమోజి"_s)
+			"Zsye"_s,
+			u"ఎమోజి"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ccp"_s),
-			$of(metaValue_ccp)
+			"ccp"_s,
+			metaValue_ccp
 		}),
 		$$new($ObjectArray, {
-			$of("egy"_s),
-			$of(u"ప్రాచీన ఈజిప్షియన్"_s)
+			"egy"_s,
+			u"ప్రాచీన ఈజిప్షియన్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("raj"_s),
-			$of(u"రాజస్తానీ"_s)
+			"raj"_s,
+			u"రాజస్తానీ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Phag"_s),
-			$of(u"ఫాగ్స్-పా"_s)
+			"Phag"_s,
+			u"ఫాగ్స్-పా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tem"_s),
-			$of(u"టిమ్నే"_s)
+			"tem"_s,
+			u"టిమ్నే"_s
 		}),
 		$$new($ObjectArray, {
-			$of("teo"_s),
-			$of(u"టెసో"_s)
+			"teo"_s,
+			u"టెసో"_s
 		}),
 		$$new($ObjectArray, {
-			$of("rap"_s),
-			$of(u"రాపన్యుయి"_s)
+			"rap"_s,
+			u"రాపన్యుయి"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ter"_s),
-			$of(u"టెరెనో"_s)
+			"ter"_s,
+			u"టెరెనో"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AC"_s),
-			$of(u"అసెన్షన్ దీవి"_s)
+			"AC"_s,
+			u"అసెన్షన్ దీవి"_s
 		}),
 		$$new($ObjectArray, {
-			$of("rar"_s),
-			$of(u"రారోటొంగాన్"_s)
+			"rar"_s,
+			u"రారోటొంగాన్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tet"_s),
-			$of(u"టేటం"_s)
+			"tet"_s,
+			u"టేటం"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AD"_s),
-			$of(u"ఆండోరా"_s)
+			"AD"_s,
+			u"ఆండోరా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AE"_s),
-			$of(u"యునైటెడ్ అరబ్ ఎమిరేట్స్"_s)
+			"AE"_s,
+			u"యునైటెడ్ అరబ్ ఎమిరేట్స్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nl_BE"_s),
-			$of(u"ఫ్లెమిష్"_s)
+			"nl_BE"_s,
+			u"ఫ్లెమిష్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AF"_s),
-			$of(u"ఆఫ్ఘనిస్తాన్"_s)
+			"AF"_s,
+			u"ఆఫ్ఘనిస్తాన్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AG"_s),
-			$of(u"ఆంటిగ్వా మరియు బార్బుడా"_s)
+			"AG"_s,
+			u"ఆంటిగ్వా మరియు బార్బుడా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.ca.ethiopic"_s),
-			$of(u"ఎథియోపిక్ క్యాలెండర్"_s)
+			"type.ca.ethiopic"_s,
+			u"ఎథియోపిక్ క్యాలెండర్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AI"_s),
-			$of(u"ఆంగ్విల్లా"_s)
+			"AI"_s,
+			u"ఆంగ్విల్లా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("key.tz"_s),
-			$of(u"సమయ మండలి"_s)
+			"key.tz"_s,
+			u"సమయ మండలి"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AL"_s),
-			$of(u"అల్బేనియా"_s)
+			"AL"_s,
+			u"అల్బేనియా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AM"_s),
-			$of(u"ఆర్మేనియా"_s)
+			"AM"_s,
+			u"ఆర్మేనియా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Teng"_s),
-			$of(u"టేంగ్వార్"_s)
+			"Teng"_s,
+			u"టేంగ్వార్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AO"_s),
-			$of(u"అంగోలా"_s)
+			"AO"_s,
+			u"అంగోలా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AQ"_s),
-			$of(u"అంటార్కిటికా"_s)
+			"AQ"_s,
+			u"అంటార్కిటికా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AR"_s),
-			$of(u"అర్జెంటీనా"_s)
+			"AR"_s,
+			u"అర్జెంటీనా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Prti"_s),
-			$of(u"ఇంస్క్రిప్షనాల్ పార్థియన్"_s)
+			"Prti"_s,
+			u"ఇంస్క్రిప్షనాల్ పార్థియన్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AS"_s),
-			$of(u"అమెరికన్ సమోవా"_s)
+			"AS"_s,
+			u"అమెరికన్ సమోవా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AT"_s),
-			$of(u"ఆస్ట్రియా"_s)
+			"AT"_s,
+			u"ఆస్ట్రియా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AU"_s),
-			$of(u"ఆస్ట్రేలియా"_s)
+			"AU"_s,
+			u"ఆస్ట్రేలియా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AW"_s),
-			$of(u"అరుబా"_s)
+			"AW"_s,
+			u"అరుబా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("en_US"_s),
-			$of(u"అమెరికన్ ఇంగ్లీష్"_s)
+			"en_US"_s,
+			u"అమెరికన్ ఇంగ్లీష్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AX"_s),
-			$of(u"ఆలాండ్ దీవులు"_s)
+			"AX"_s,
+			u"ఆలాండ్ దీవులు"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AZ"_s),
-			$of(u"అజర్బైజాన్"_s)
+			"AZ"_s,
+			u"అజర్బైజాన్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BA"_s),
-			$of(u"బోస్నియా మరియు హెర్జిగోవినా"_s)
+			"BA"_s,
+			u"బోస్నియా మరియు హెర్జిగోవినా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BB"_s),
-			$of(u"బార్బడోస్"_s)
+			"BB"_s,
+			u"బార్బడోస్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ceb"_s),
-			$of(u"సెబువానో"_s)
+			"ceb"_s,
+			u"సెబువానో"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BD"_s),
-			$of(u"బంగ్లాదేశ్"_s)
+			"BD"_s,
+			u"బంగ్లాదేశ్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kum"_s),
-			$of(u"కుమ్యిక్"_s)
+			"kum"_s,
+			u"కుమ్యిక్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BE"_s),
-			$of(u"బెల్జియం"_s)
+			"BE"_s,
+			u"బెల్జియం"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gmh"_s),
-			$of(u"మధ్యమ హై జర్మన్"_s)
+			"gmh"_s,
+			u"మధ్యమ హై జర్మన్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BF"_s),
-			$of(u"బుర్కినా ఫాసో"_s)
+			"BF"_s,
+			u"బుర్కినా ఫాసో"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BG"_s),
-			$of(u"బల్గేరియా"_s)
+			"BG"_s,
+			u"బల్గేరియా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BH"_s),
-			$of(u"బహ్రెయిన్"_s)
+			"BH"_s,
+			u"బహ్రెయిన్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BI"_s),
-			$of(u"బురుండి"_s)
+			"BI"_s,
+			u"బురుండి"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BJ"_s),
-			$of(u"బెనిన్"_s)
+			"BJ"_s,
+			u"బెనిన్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BL"_s),
-			$of(u"సెయింట్ బర్థెలిమి"_s)
+			"BL"_s,
+			u"సెయింట్ బర్థెలిమి"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BM"_s),
-			$of(u"బెర్ముడా"_s)
+			"BM"_s,
+			u"బెర్ముడా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kut"_s),
-			$of(u"కుటేనై"_s)
+			"kut"_s,
+			u"కుటేనై"_s
 		}),
 		$$new($ObjectArray, {
-			$of("myv"_s),
-			$of(u"ఎర్జియా"_s)
+			"myv"_s,
+			u"ఎర్జియా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BN"_s),
-			$of(u"బ్రూనే"_s)
+			"BN"_s,
+			u"బ్రూనే"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BO"_s),
-			$of(u"బొలీవియా"_s)
+			"BO"_s,
+			u"బొలీవియా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BQ"_s),
-			$of(u"కరీబియన్ నెదర్లాండ్స్"_s)
+			"BQ"_s,
+			u"కరీబియన్ నెదర్లాండ్స్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BR"_s),
-			$of(u"బ్రెజిల్"_s)
+			"BR"_s,
+			u"బ్రెజిల్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BS"_s),
-			$of(u"బహామాస్"_s)
+			"BS"_s,
+			u"బహామాస్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("xog"_s),
-			$of(u"సొగా"_s)
+			"xog"_s,
+			u"సొగా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BT"_s),
-			$of(u"భూటాన్"_s)
+			"BT"_s,
+			u"భూటాన్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BV"_s),
-			$of(u"బువై దీవి"_s)
+			"BV"_s,
+			u"బువై దీవి"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BW"_s),
-			$of(u"బోట్స్వానా"_s)
+			"BW"_s,
+			u"బోట్స్వానా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BY"_s),
-			$of(u"బెలారస్"_s)
+			"BY"_s,
+			u"బెలారస్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BZ"_s),
-			$of(u"బెలిజ్"_s)
+			"BZ"_s,
+			u"బెలిజ్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Visp"_s),
-			$of(u"కనిపించే భాష"_s)
+			"Visp"_s,
+			u"కనిపించే భాష"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.ca.persian"_s),
-			$of(u"పర్షియన్ క్యాలెండర్"_s)
+			"type.ca.persian"_s,
+			u"పర్షియన్ క్యాలెండర్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.hebr"_s),
-			$of(u"హిబ్రూ సంఖ్యలు"_s)
+			"type.nu.hebr"_s,
+			u"హిబ్రూ సంఖ్యలు"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CA"_s),
-			$of(u"కెనడా"_s)
+			"CA"_s,
+			u"కెనడా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CC"_s),
-			$of(u"కోకోస్ (కీలింగ్) దీవులు"_s)
+			"CC"_s,
+			u"కోకోస్ (కీలింగ్) దీవులు"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mzn"_s),
-			$of(u"మాసన్\u200cదెరాని"_s)
+			"mzn"_s,
+			u"మాసన్\u200cదెరాని"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CD"_s),
-			$of(u"కాంగో- కిన్షాసా"_s)
+			"CD"_s,
+			u"కాంగో- కిన్షాసా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CF"_s),
-			$of(u"సెంట్రల్ ఆఫ్రికన్ రిపబ్లిక్"_s)
+			"CF"_s,
+			u"సెంట్రల్ ఆఫ్రికన్ రిపబ్లిక్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CG"_s),
-			$of(u"కాంగో- బ్రాజావిల్లి"_s)
+			"CG"_s,
+			u"కాంగో- బ్రాజావిల్లి"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CH"_s),
-			$of(u"స్విట్జర్లాండ్"_s)
+			"CH"_s,
+			u"స్విట్జర్లాండ్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CI"_s),
-			$of(u"కోట్ డి ఐవోర్"_s)
+			"CI"_s,
+			u"కోట్ డి ఐవోర్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CK"_s),
-			$of(u"కుక్ దీవులు"_s)
+			"CK"_s,
+			u"కుక్ దీవులు"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CL"_s),
-			$of(u"చిలీ"_s)
+			"CL"_s,
+			u"చిలీ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Kthi"_s),
-			$of(u"కైథి"_s)
+			"Kthi"_s,
+			u"కైథి"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CM"_s),
-			$of(u"కామెరూన్"_s)
+			"CM"_s,
+			u"కామెరూన్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CN"_s),
-			$of(u"చైనా"_s)
+			"CN"_s,
+			u"చైనా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CO"_s),
-			$of(u"కొలంబియా"_s)
+			"CO"_s,
+			u"కొలంబియా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CP"_s),
-			$of(u"క్లిప్పర్టన్ దీవి"_s)
+			"CP"_s,
+			u"క్లిప్పర్టన్ దీవి"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CR"_s),
-			$of(u"కోస్టా రికా"_s)
+			"CR"_s,
+			u"కోస్టా రికా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CU"_s),
-			$of(u"క్యూబా"_s)
+			"CU"_s,
+			u"క్యూబా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CV"_s),
-			$of(u"కేప్ వెర్డె"_s)
+			"CV"_s,
+			u"కేప్ వెర్డె"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CW"_s),
-			$of(u"క్యూరసో"_s)
+			"CW"_s,
+			u"క్యూరసో"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CX"_s),
-			$of(u"క్రిస్మస్ దీవి"_s)
+			"CX"_s,
+			u"క్రిస్మస్ దీవి"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CY"_s),
-			$of(u"సైప్రస్"_s)
+			"CY"_s,
+			u"సైప్రస్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CZ"_s),
-			$of(u"చెకియా"_s)
+			"CZ"_s,
+			u"చెకియా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("eka"_s),
-			$of(u"ఏకాజక్"_s)
+			"eka"_s,
+			u"ఏకాజక్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("DE"_s),
-			$of(u"జర్మనీ"_s)
+			"DE"_s,
+			u"జర్మనీ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("goh"_s),
-			$of(u"ప్రాచీన హై జర్మన్"_s)
+			"goh"_s,
+			u"ప్రాచీన హై జర్మన్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ace"_s),
-			$of(u"ఆఖినీస్"_s)
+			"ace"_s,
+			u"ఆఖినీస్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("cgg"_s),
-			$of(u"చిగా"_s)
+			"cgg"_s,
+			u"చిగా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("DG"_s),
-			$of(u"డియాగో గార్సియా"_s)
+			"DG"_s,
+			u"డియాగో గార్సియా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.deva"_s),
-			$of(u"దేవనాగరి అంకెలు"_s)
+			"type.nu.deva"_s,
+			u"దేవనాగరి అంకెలు"_s
 		}),
 		$$new($ObjectArray, {
-			$of("DJ"_s),
-			$of(u"జిబౌటి"_s)
+			"DJ"_s,
+			u"జిబౌటి"_s
 		}),
 		$$new($ObjectArray, {
-			$of("DK"_s),
-			$of(u"డెన్మార్క్"_s)
+			"DK"_s,
+			u"డెన్మార్క్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ach"_s),
-			$of(u"అకోలి"_s)
+			"ach"_s,
+			u"అకోలి"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gon"_s),
-			$of(u"గోండి"_s)
+			"gon"_s,
+			u"గోండి"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Brai"_s),
-			$of(u"బ్రెయిల్"_s)
+			"Brai"_s,
+			u"బ్రెయిల్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Brah"_s),
-			$of(u"బ్రాహ్మి"_s)
+			"Brah"_s,
+			u"బ్రాహ్మి"_s
 		}),
 		$$new($ObjectArray, {
-			$of("DM"_s),
-			$of(u"డొమినికా"_s)
+			"DM"_s,
+			u"డొమినికా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.armnlow"_s),
-			$of(u"ఆర్మేనియన్ చిన్నబడి సంఖ్యలు"_s)
+			"type.nu.armnlow"_s,
+			u"ఆర్మేనియన్ చిన్నబడి సంఖ్యలు"_s
 		}),
 		$$new($ObjectArray, {
-			$of("DO"_s),
-			$of(u"డొమినికన్ రిపబ్లిక్"_s)
+			"DO"_s,
+			u"డొమినికన్ రిపబ్లిక్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gor"_s),
-			$of(u"గోరోంటలా"_s)
+			"gor"_s,
+			u"గోరోంటలా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("got"_s),
-			$of(u"గోథిక్"_s)
+			"got"_s,
+			u"గోథిక్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Mtei"_s),
-			$of(u"మీటి మయెక్"_s)
+			"Mtei"_s,
+			u"మీటి మయెక్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("zun"_s),
-			$of(u"జుని"_s)
+			"zun"_s,
+			u"జుని"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tig"_s),
-			$of(u"టీగ్రె"_s)
+			"tig"_s,
+			u"టీగ్రె"_s
 		}),
 		$$new($ObjectArray, {
-			$of("DZ"_s),
-			$of(u"అల్జీరియా"_s)
+			"DZ"_s,
+			u"అల్జీరియా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("pag"_s),
-			$of(u"పంగాసినాన్"_s)
+			"pag"_s,
+			u"పంగాసినాన్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.d0.hwidth"_s),
-			$of(u"సగం వెడల్పు"_s)
+			"type.d0.hwidth"_s,
+			u"సగం వెడల్పు"_s
 		}),
 		$$new($ObjectArray, {
-			$of("pal"_s),
-			$of(u"పహ్లావి"_s)
+			"pal"_s,
+			u"పహ్లావి"_s
 		}),
 		$$new($ObjectArray, {
-			$of("EA"_s),
-			$of(u"స్యూటా & మెలిల్లా"_s)
+			"EA"_s,
+			u"స్యూటా & మెలిల్లా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("chb"_s),
-			$of(u"చిబ్చా"_s)
+			"chb"_s,
+			u"చిబ్చా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("pam"_s),
-			$of(u"పంపన్గా"_s)
+			"pam"_s,
+			u"పంపన్గా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("EC"_s),
-			$of(u"ఈక్వడార్"_s)
+			"EC"_s,
+			u"ఈక్వడార్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("pap"_s),
-			$of(u"పపియమేంటో"_s)
+			"pap"_s,
+			u"పపియమేంటో"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ada"_s),
-			$of(u"అడాంగ్మే"_s)
+			"ada"_s,
+			u"అడాంగ్మే"_s
 		}),
 		$$new($ObjectArray, {
-			$of("EE"_s),
-			$of(u"ఎస్టోనియా"_s)
+			"EE"_s,
+			u"ఎస్టోనియా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tiv"_s),
-			$of(u"టివ్"_s)
+			"tiv"_s,
+			u"టివ్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("EG"_s),
-			$of(u"ఈజిప్ట్"_s)
+			"EG"_s,
+			u"ఈజిప్ట్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("EH"_s),
-			$of(u"పడమటి సహారా"_s)
+			"EH"_s,
+			u"పడమటి సహారా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("chg"_s),
-			$of(u"చాగటై"_s)
+			"chg"_s,
+			u"చాగటై"_s
 		}),
 		$$new($ObjectArray, {
-			$of("pau"_s),
-			$of(u"పలావెన్"_s)
+			"pau"_s,
+			u"పలావెన్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("chk"_s),
-			$of(u"చూకీస్"_s)
+			"chk"_s,
+			u"చూకీస్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("chn"_s),
-			$of(u"చినూక్ జార్గన్"_s)
+			"chn"_s,
+			u"చినూక్ జార్గన్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("chm"_s),
-			$of(u"మారి"_s)
+			"chm"_s,
+			u"మారి"_s
 		}),
 		$$new($ObjectArray, {
-			$of("chp"_s),
-			$of(u"చిపెవ్యాన్"_s)
+			"chp"_s,
+			u"చిపెవ్యాన్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("cho"_s),
-			$of(u"చక్టా"_s)
+			"cho"_s,
+			u"చక్టా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("chr"_s),
-			$of(u"చెరోకీ"_s)
+			"chr"_s,
+			u"చెరోకీ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ER"_s),
-			$of(u"ఎరిట్రియా"_s)
+			"ER"_s,
+			u"ఎరిట్రియా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ES"_s),
-			$of(u"స్పెయిన్"_s)
+			"ES"_s,
+			u"స్పెయిన్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ET"_s),
-			$of(u"ఇథియోపియా"_s)
+			"ET"_s,
+			u"ఇథియోపియా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("EU"_s),
-			$of(u"యూరోపియన్ యూనియన్"_s)
+			"EU"_s,
+			u"యూరోపియన్ యూనియన్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("elx"_s),
-			$of(u"ఎలామైట్"_s)
+			"elx"_s,
+			u"ఎలామైట్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.ca.gregorian"_s),
-			$of(u"గ్రేగోరియన్ క్యాలెండర్"_s)
+			"type.ca.gregorian"_s,
+			u"గ్రేగోరియన్ క్యాలెండర్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("EZ"_s),
-			$of(u"యూరోజోన్"_s)
+			"EZ"_s,
+			u"యూరోజోన్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("chy"_s),
-			$of(u"చేయేన్"_s)
+			"chy"_s,
+			u"చేయేన్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.gujr"_s),
-			$of(u"గుజరాతీ అంకెలు"_s)
+			"type.nu.gujr"_s,
+			u"గుజరాతీ అంకెలు"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Inds"_s),
-			$of(u"సింధు"_s)
+			"Inds"_s,
+			u"సింధు"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ady"_s),
-			$of(u"అడిగాబ్జే"_s)
+			"ady"_s,
+			u"అడిగాబ్జే"_s
 		}),
 		$$new($ObjectArray, {
-			$of("aeb"_s),
-			$of(u"టునీషియా అరబిక్"_s)
+			"aeb"_s,
+			u"టునీషియా అరబిక్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FI"_s),
-			$of(u"ఫిన్లాండ్"_s)
+			"FI"_s,
+			u"ఫిన్లాండ్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FJ"_s),
-			$of(u"ఫిజీ"_s)
+			"FJ"_s,
+			u"ఫిజీ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FK"_s),
-			$of(u"ఫాక్\u200cల్యాండ్ దీవులు"_s)
+			"FK"_s,
+			u"ఫాక్\u200cల్యాండ్ దీవులు"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FM"_s),
-			$of(u"మైక్రోనేషియా"_s)
+			"FM"_s,
+			u"మైక్రోనేషియా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("key.va"_s),
-			$of(u"లొకేల్ రూపాంతరం"_s)
+			"key.va"_s,
+			u"లొకేల్ రూపాంతరం"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FO"_s),
-			$of(u"ఫారో దీవులు"_s)
+			"FO"_s,
+			u"ఫారో దీవులు"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Taml"_s),
-			$of(metaValue_ta)
+			"Taml"_s,
+			metaValue_ta
 		}),
 		$$new($ObjectArray, {
-			$of("FR"_s),
-			$of(u"ఫ్రాన్స్\u200c"_s)
+			"FR"_s,
+			u"ఫ్రాన్స్\u200c"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tkl"_s),
-			$of(metaValue_TK)
+			"tkl"_s,
+			metaValue_TK
 		}),
 		$$new($ObjectArray, {
-			$of("grb"_s),
-			$of(u"గ్రేబో"_s)
+			"grb"_s,
+			u"గ్రేబో"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.ca.indian"_s),
-			$of(u"భారతీయ జాతీయ క్యాలెండర్"_s)
+			"type.ca.indian"_s,
+			u"భారతీయ జాతీయ క్యాలెండర్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("grc"_s),
-			$of(u"ప్రాచీన గ్రీక్"_s)
+			"grc"_s,
+			u"ప్రాచీన గ్రీక్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GA"_s),
-			$of(u"గేబన్"_s)
+			"GA"_s,
+			u"గేబన్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("vot"_s),
-			$of(u"వోటిక్"_s)
+			"vot"_s,
+			u"వోటిక్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GB"_s),
-			$of(u"యునైటెడ్ కింగ్\u200cడమ్"_s)
+			"GB"_s,
+			u"యునైటెడ్ కింగ్\u200cడమ్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("pcm"_s),
-			$of(u"నైజీరియా పిడ్గిన్"_s)
+			"pcm"_s,
+			u"నైజీరియా పిడ్గిన్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GD"_s),
-			$of(u"గ్రెనడా"_s)
+			"GD"_s,
+			u"గ్రెనడా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GE"_s),
-			$of(u"జార్జియా"_s)
+			"GE"_s,
+			u"జార్జియా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GF"_s),
-			$of(u"ఫ్రెంచ్ గియానా"_s)
+			"GF"_s,
+			u"ఫ్రెంచ్ గియానా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GG"_s),
-			$of(u"గర్న్\u200cసీ"_s)
+			"GG"_s,
+			u"గర్న్\u200cసీ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GH"_s),
-			$of(u"ఘనా"_s)
+			"GH"_s,
+			u"ఘనా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Tale"_s),
-			$of(u"తై లీ"_s)
+			"Tale"_s,
+			u"తై లీ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GI"_s),
-			$of(u"జిబ్రాల్టర్"_s)
+			"GI"_s,
+			u"జిబ్రాల్టర్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("afh"_s),
-			$of(u"అఫ్రిహిలి"_s)
+			"afh"_s,
+			u"అఫ్రిహిలి"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GL"_s),
-			$of(u"గ్రీన్\u200cల్యాండ్"_s)
+			"GL"_s,
+			u"గ్రీన్\u200cల్యాండ్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("enm"_s),
-			$of(u"మధ్యమ ఆంగ్లం"_s)
+			"enm"_s,
+			u"మధ్యమ ఆంగ్లం"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GM"_s),
-			$of(u"గాంబియా"_s)
+			"GM"_s,
+			u"గాంబియా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GN"_s),
-			$of(u"గినియా"_s)
+			"GN"_s,
+			u"గినియా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GP"_s),
-			$of(u"గ్వాడెలోప్"_s)
+			"GP"_s,
+			u"గ్వాడెలోప్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GQ"_s),
-			$of(u"ఈక్వటోరియల్ గినియా"_s)
+			"GQ"_s,
+			u"ఈక్వటోరియల్ గినియా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GR"_s),
-			$of(u"గ్రీస్"_s)
+			"GR"_s,
+			u"గ్రీస్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GS"_s),
-			$of(u"దక్షిణ జార్జియా మరియు దక్షిణ శాండ్విచ్ దీవులు"_s)
+			"GS"_s,
+			u"దక్షిణ జార్జియా మరియు దక్షిణ శాండ్విచ్ దీవులు"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GT"_s),
-			$of(u"గ్వాటిమాలా"_s)
+			"GT"_s,
+			u"గ్వాటిమాలా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GU"_s),
-			$of(u"గ్వామ్"_s)
+			"GU"_s,
+			u"గ్వామ్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GW"_s),
-			$of(u"గినియా-బిస్సావ్"_s)
+			"GW"_s,
+			u"గినియా-బిస్సావ్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tli"_s),
-			$of(u"ట్లింగిట్"_s)
+			"tli"_s,
+			u"ట్లింగిట్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tlh"_s),
-			$of(u"క్లింగాన్"_s)
+			"tlh"_s,
+			u"క్లింగాన్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Talu"_s),
-			$of(u"క్రొత్త టై లుఇ"_s)
+			"Talu"_s,
+			u"క్రొత్త టై లుఇ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GY"_s),
-			$of(u"గయానా"_s)
+			"GY"_s,
+			u"గయానా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ckb"_s),
-			$of(u"సెంట్రల్ కర్డిష్"_s)
+			"ckb"_s,
+			u"సెంట్రల్ కర్డిష్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("zxx"_s),
-			$of(u"లిపి లేదు"_s)
+			"zxx"_s,
+			u"లిపి లేదు"_s
 		}),
 		$$new($ObjectArray, {
-			$of("de_AT"_s),
-			$of(u"ఆస్ట్రియన్ జర్మన్"_s)
+			"de_AT"_s,
+			u"ఆస్ట్రియన్ జర్మన్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Vaii"_s),
-			$of(metaValue_vai)
+			"Vaii"_s,
+			metaValue_vai
 		}),
 		$$new($ObjectArray, {
-			$of("HK"_s),
-			$of(u"హాంకాంగ్ ఎస్ఏఆర్ చైనా"_s)
+			"HK"_s,
+			u"హాంకాంగ్ ఎస్ఏఆర్ చైనా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("HM"_s),
-			$of(u"హెర్డ్ దీవి మరియు మెక్\u200cడొనాల్డ్ దీవులు"_s)
+			"HM"_s,
+			u"హెర్డ్ దీవి మరియు మెక్\u200cడొనాల్డ్ దీవులు"_s
 		}),
 		$$new($ObjectArray, {
-			$of("HN"_s),
-			$of(u"హోండురాస్"_s)
+			"HN"_s,
+			u"హోండురాస్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("HR"_s),
-			$of(u"క్రొయేషియా"_s)
+			"HR"_s,
+			u"క్రొయేషియా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("agq"_s),
-			$of(u"అగేమ్"_s)
+			"agq"_s,
+			u"అగేమ్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gsw"_s),
-			$of(u"స్విస్ జర్మన్"_s)
+			"gsw"_s,
+			u"స్విస్ జర్మన్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.ca.islamic-umalqura"_s),
-			$of(u"ఇస్లామిక్ క్యాలెండర్ (ఉమ్ అల్-ఖురా)"_s)
+			"type.ca.islamic-umalqura"_s,
+			u"ఇస్లామిక్ క్యాలెండర్ (ఉమ్ అల్-ఖురా)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("HT"_s),
-			$of(u"హైటి"_s)
+			"HT"_s,
+			u"హైటి"_s
 		}),
 		$$new($ObjectArray, {
-			$of("HU"_s),
-			$of(u"హంగేరీ"_s)
+			"HU"_s,
+			u"హంగేరీ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tmh"_s),
-			$of(u"టామషేక్"_s)
+			"tmh"_s,
+			u"టామషేక్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("IC"_s),
-			$of(u"కేనరీ దీవులు"_s)
+			"IC"_s,
+			u"కేనరీ దీవులు"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nan"_s),
-			$of(u"మిన్ నాన్ చైనీస్"_s)
+			"nan"_s,
+			u"మిన్ నాన్ చైనీస్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("peo"_s),
-			$of(metaValue_peo)
+			"peo"_s,
+			metaValue_peo
 		}),
 		$$new($ObjectArray, {
-			$of("ID"_s),
-			$of(u"ఇండోనేషియా"_s)
+			"ID"_s,
+			u"ఇండోనేషియా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("IE"_s),
-			$of(u"ఐర్లాండ్"_s)
+			"IE"_s,
+			u"ఐర్లాండ్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nap"_s),
-			$of(u"నియాపోలిటన్"_s)
+			"nap"_s,
+			u"నియాపోలిటన్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("naq"_s),
-			$of(u"నమ"_s)
+			"naq"_s,
+			u"నమ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("zza"_s),
-			$of(u"జాజా"_s)
+			"zza"_s,
+			u"జాజా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("IL"_s),
-			$of(u"ఇజ్రాయెల్"_s)
+			"IL"_s,
+			u"ఇజ్రాయెల్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("IM"_s),
-			$of(u"ఐల్ ఆఫ్ మాన్"_s)
+			"IM"_s,
+			u"ఐల్ ఆఫ్ మాన్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("IN"_s),
-			$of(u"భారతదేశం"_s)
+			"IN"_s,
+			u"భారతదేశం"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.co.eor"_s),
-			$of(u"యురోపియన్ క్రమబద్ధీకరణ నిబంధనలు"_s)
+			"type.co.eor"_s,
+			u"యురోపియన్ క్రమబద్ధీకరణ నిబంధనలు"_s
 		}),
 		$$new($ObjectArray, {
-			$of("IO"_s),
-			$of(u"బ్రిటిష్ హిందూ మహాసముద్ర ప్రాంతం"_s)
+			"IO"_s,
+			u"బ్రిటిష్ హిందూ మహాసముద్ర ప్రాంతం"_s
 		}),
 		$$new($ObjectArray, {
-			$of("IQ"_s),
-			$of(u"ఇరాక్"_s)
+			"IQ"_s,
+			u"ఇరాక్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("IR"_s),
-			$of(u"ఇరాన్"_s)
+			"IR"_s,
+			u"ఇరాన్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("IS"_s),
-			$of(u"ఐస్లాండ్"_s)
+			"IS"_s,
+			u"ఐస్లాండ్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("IT"_s),
-			$of(u"ఇటలీ"_s)
+			"IT"_s,
+			u"ఇటలీ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Zmth"_s),
-			$of(u"గణిత సంకేతలిపి"_s)
+			"Zmth"_s,
+			u"గణిత సంకేతలిపి"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.thai"_s),
-			$of(u"థాయ్ అంకెలు"_s)
+			"type.nu.thai"_s,
+			u"థాయ్ అంకెలు"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.beng"_s),
-			$of(u"బెంగాలీ అంకెలు"_s)
+			"type.nu.beng"_s,
+			u"బెంగాలీ అంకెలు"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.ca.islamic"_s),
-			$of(metaValue_type_ca_islamic)
+			"type.ca.islamic"_s,
+			metaValue_type_ca_islamic
 		}),
 		$$new($ObjectArray, {
-			$of("JE"_s),
-			$of(u"జెర్సీ"_s)
+			"JE"_s,
+			u"జెర్సీ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("JM"_s),
-			$of(u"జమైకా"_s)
+			"JM"_s,
+			u"జమైకా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Beng"_s),
-			$of(u"బాంగ్లా"_s)
+			"Beng"_s,
+			u"బాంగ్లా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("JO"_s),
-			$of(u"జోర్డాన్"_s)
+			"JO"_s,
+			u"జోర్డాన్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("JP"_s),
-			$of(u"జపాన్"_s)
+			"JP"_s,
+			u"జపాన్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ain"_s),
-			$of(u"ఐను"_s)
+			"ain"_s,
+			u"ఐను"_s
 		}),
 		$$new($ObjectArray, {
-			$of("guz"_s),
-			$of(u"గుస్సీ"_s)
+			"guz"_s,
+			u"గుస్సీ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tog"_s),
-			$of(u"న్యాసా టోన్గా"_s)
+			"tog"_s,
+			u"న్యాసా టోన్గా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.knda"_s),
-			$of(u"కన్నడ అంకెలు"_s)
+			"type.nu.knda"_s,
+			u"కన్నడ అంకెలు"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Kali"_s),
-			$of(u"కాయాహ్ లి"_s)
+			"Kali"_s,
+			u"కాయాహ్ లి"_s
 		}),
 		$$new($ObjectArray, {
-			$of("de_CH"_s),
-			$of(u"స్విస్ హై జర్మన్"_s)
+			"de_CH"_s,
+			u"స్విస్ హై జర్మన్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.co.phonetic"_s),
-			$of(u"ధ్వని ఉచ్ఛారిత క్రమబద్ధీకరణ క్రమం"_s)
+			"type.co.phonetic"_s,
+			u"ధ్వని ఉచ్ఛారిత క్రమబద్ధీకరణ క్రమం"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.ca.buddhist"_s),
-			$of(u"బుద్ధుల క్యాలెండర్\u200c"_s)
+			"type.ca.buddhist"_s,
+			u"బుద్ధుల క్యాలెండర్\u200c"_s
 		}),
 		$$new($ObjectArray, {
-			$of("KE"_s),
-			$of(u"కెన్యా"_s)
+			"KE"_s,
+			u"కెన్యా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("419"_s),
-			$of(u"లాటిన్ అమెరికా"_s)
+			"419"_s,
+			u"లాటిన్ అమెరికా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("KG"_s),
-			$of(u"కిర్గిజిస్తాన్"_s)
+			"KG"_s,
+			u"కిర్గిజిస్తాన్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("KH"_s),
-			$of(u"కంబోడియా"_s)
+			"KH"_s,
+			u"కంబోడియా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("KI"_s),
-			$of(u"కిరిబాటి"_s)
+			"KI"_s,
+			u"కిరిబాటి"_s
 		}),
 		$$new($ObjectArray, {
-			$of("KM"_s),
-			$of(u"కొమొరోస్"_s)
+			"KM"_s,
+			u"కొమొరోస్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Knda"_s),
-			$of(metaValue_kn)
+			"Knda"_s,
+			metaValue_kn
 		}),
 		$$new($ObjectArray, {
-			$of("KN"_s),
-			$of(u"సెయింట్ కిట్స్ మరియు నెవిస్"_s)
+			"KN"_s,
+			u"సెయింట్ కిట్స్ మరియు నెవిస్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Zinh"_s),
-			$of(u"వారసత్వం"_s)
+			"Zinh"_s,
+			u"వారసత్వం"_s
 		}),
 		$$new($ObjectArray, {
-			$of("fr_CA"_s),
-			$of(u"కెనడియెన్ ఫ్రెంచ్"_s)
+			"fr_CA"_s,
+			u"కెనడియెన్ ఫ్రెంచ్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("KP"_s),
-			$of(u"ఉత్తర కొరియా"_s)
+			"KP"_s,
+			u"ఉత్తర కొరియా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("KR"_s),
-			$of(u"దక్షిణ కొరియా"_s)
+			"KR"_s,
+			u"దక్షిణ కొరియా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Plrd"_s),
-			$of(u"పోల్లర్డ్ ఫోనెటిక్"_s)
+			"Plrd"_s,
+			u"పోల్లర్డ్ ఫోనెటిక్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("fr_CH"_s),
-			$of(u"స్విస్ ఫ్రెంచ్"_s)
+			"fr_CH"_s,
+			u"స్విస్ ఫ్రెంచ్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("KW"_s),
-			$of(u"కువైట్"_s)
+			"KW"_s,
+			u"కువైట్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tpi"_s),
-			$of(u"టోక్ పిసిన్"_s)
+			"tpi"_s,
+			u"టోక్ పిసిన్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("KY"_s),
-			$of(u"కేమాన్ దీవులు"_s)
+			"KY"_s,
+			u"కేమాన్ దీవులు"_s
 		}),
 		$$new($ObjectArray, {
-			$of("KZ"_s),
-			$of(u"కజకిస్తాన్"_s)
+			"KZ"_s,
+			u"కజకిస్తాన్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Cyrl"_s),
-			$of(u"సిరిలిక్"_s)
+			"Cyrl"_s,
+			u"సిరిలిక్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("LA"_s),
-			$of(u"లావోస్"_s)
+			"LA"_s,
+			u"లావోస్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("LB"_s),
-			$of(u"లెబనాన్"_s)
+			"LB"_s,
+			u"లెబనాన్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("LC"_s),
-			$of(u"సెయింట్ లూసియా"_s)
+			"LC"_s,
+			u"సెయింట్ లూసియా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("phn"_s),
-			$of(u"ఫోనికన్"_s)
+			"phn"_s,
+			u"ఫోనికన్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Cyrs"_s),
-			$of(u"ప్రాచీన చర్చ స్లావోనిక్ సిరిలిక్"_s)
+			"Cyrs"_s,
+			u"ప్రాచీన చర్చ స్లావోనిక్ సిరిలిక్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gwi"_s),
-			$of(u"గ్విచిన్"_s)
+			"gwi"_s,
+			u"గ్విచిన్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nds"_s),
-			$of(u"లో జర్మన్"_s)
+			"nds"_s,
+			u"లో జర్మన్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("LI"_s),
-			$of(u"లిక్టెన్\u200cస్టెయిన్"_s)
+			"LI"_s,
+			u"లిక్టెన్\u200cస్టెయిన్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("LK"_s),
-			$of(u"శ్రీలంక"_s)
+			"LK"_s,
+			u"శ్రీలంక"_s
 		}),
 		$$new($ObjectArray, {
-			$of("akk"_s),
-			$of(u"అక్కాడియాన్"_s)
+			"akk"_s,
+			u"అక్కాడియాన్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("cop"_s),
-			$of(metaValue_cop)
+			"cop"_s,
+			metaValue_cop
 		}),
 		$$new($ObjectArray, {
-			$of("LR"_s),
-			$of(u"లైబీరియా"_s)
+			"LR"_s,
+			u"లైబీరియా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("LS"_s),
-			$of(u"లెసోతో"_s)
+			"LS"_s,
+			u"లెసోతో"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Phlv"_s),
-			$of(u"పుస్తక పహ్లావి"_s)
+			"Phlv"_s,
+			u"పుస్తక పహ్లావి"_s
 		}),
 		$$new($ObjectArray, {
-			$of("LT"_s),
-			$of(u"లిథువేనియా"_s)
+			"LT"_s,
+			u"లిథువేనియా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("LU"_s),
-			$of(u"లక్సెంబర్గ్"_s)
+			"LU"_s,
+			u"లక్సెంబర్గ్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("LV"_s),
-			$of(u"లాత్వియా"_s)
+			"LV"_s,
+			u"లాత్వియా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Kana"_s),
-			$of(u"కాటాకాన"_s)
+			"Kana"_s,
+			u"కాటాకాన"_s
 		}),
 		$$new($ObjectArray, {
-			$of("LY"_s),
-			$of(u"లిబియా"_s)
+			"LY"_s,
+			u"లిబియా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lad"_s),
-			$of(u"లాడినో"_s)
+			"lad"_s,
+			u"లాడినో"_s
 		}),
 		$$new($ObjectArray, {
-			$of("vun"_s),
-			$of(u"వుంజొ"_s)
+			"vun"_s,
+			u"వుంజొ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lah"_s),
-			$of(u"లాహండా"_s)
+			"lah"_s,
+			u"లాహండా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lag"_s),
-			$of(u"లాంగీ"_s)
+			"lag"_s,
+			u"లాంగీ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Thaa"_s),
-			$of(u"థానా"_s)
+			"Thaa"_s,
+			u"థానా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MA"_s),
-			$of(u"మొరాకో"_s)
+			"MA"_s,
+			u"మొరాకో"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MC"_s),
-			$of(u"మొనాకో"_s)
+			"MC"_s,
+			u"మొనాకో"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MD"_s),
-			$of(u"మోల్డోవా"_s)
+			"MD"_s,
+			u"మోల్డోవా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ME"_s),
-			$of(u"మాంటెనెగ్రో"_s)
+			"ME"_s,
+			u"మాంటెనెగ్రో"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MF"_s),
-			$of(u"సెయింట్ మార్టిన్"_s)
+			"MF"_s,
+			u"సెయింట్ మార్టిన్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lam"_s),
-			$of(u"లాంబా"_s)
+			"lam"_s,
+			u"లాంబా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MG"_s),
-			$of(u"మడగాస్కర్"_s)
+			"MG"_s,
+			u"మడగాస్కర్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Thai"_s),
-			$of(metaValue_th)
+			"Thai"_s,
+			metaValue_th
 		}),
 		$$new($ObjectArray, {
-			$of("MH"_s),
-			$of(u"మార్షల్ దీవులు"_s)
+			"MH"_s,
+			u"మార్షల్ దీవులు"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ale"_s),
-			$of(u"అలియుట్"_s)
+			"ale"_s,
+			u"అలియుట్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.vaii"_s),
-			$of(u"వాయ్ అంకెలు"_s)
+			"type.nu.vaii"_s,
+			u"వాయ్ అంకెలు"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MK"_s),
-			$of(u"ఉత్తర మాసిడోనియా"_s)
+			"MK"_s,
+			u"ఉత్తర మాసిడోనియా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ML"_s),
-			$of(u"మాలి"_s)
+			"ML"_s,
+			u"మాలి"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MM"_s),
-			$of(u"మయన్మార్"_s)
+			"MM"_s,
+			u"మయన్మార్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MN"_s),
-			$of(u"మంగోలియా"_s)
+			"MN"_s,
+			u"మంగోలియా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("new"_s),
-			$of(u"నెవారి"_s)
+			"new"_s,
+			u"నెవారి"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MO"_s),
-			$of(u"మకావ్ ఎస్ఏఆర్ చైనా"_s)
+			"MO"_s,
+			u"మకావ్ ఎస్ఏఆర్ చైనా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MP"_s),
-			$of(u"ఉత్తర మరియానా దీవులు"_s)
+			"MP"_s,
+			u"ఉత్తర మరియానా దీవులు"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MQ"_s),
-			$of(u"మార్టినీక్"_s)
+			"MQ"_s,
+			u"మార్టినీక్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MR"_s),
-			$of(u"మౌరిటేనియా"_s)
+			"MR"_s,
+			u"మౌరిటేనియా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MS"_s),
-			$of(u"మాంట్సెరాట్"_s)
+			"MS"_s,
+			u"మాంట్సెరాట్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MT"_s),
-			$of(u"మాల్టా"_s)
+			"MT"_s,
+			u"మాల్టా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.m0.ungegn"_s),
-			$of(u"UN GEGN ట్రాన్స్\u200cలిట్రేషన్"_s)
+			"type.m0.ungegn"_s,
+			u"UN GEGN ట్రాన్స్\u200cలిట్రేషన్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MU"_s),
-			$of(u"మారిషస్"_s)
+			"MU"_s,
+			u"మారిషస్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("alt"_s),
-			$of(u"దక్షిణ ఆల్టై"_s)
+			"alt"_s,
+			u"దక్షిణ ఆల్టై"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MV"_s),
-			$of(u"మాల్దీవులు"_s)
+			"MV"_s,
+			u"మాల్దీవులు"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MW"_s),
-			$of(u"మలావీ"_s)
+			"MW"_s,
+			u"మలావీ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MX"_s),
-			$of(u"మెక్సికో"_s)
+			"MX"_s,
+			u"మెక్సికో"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.ca.japanese"_s),
-			$of(u"జపానీయుల క్యాలెండర్"_s)
+			"type.ca.japanese"_s,
+			u"జపానీయుల క్యాలెండర్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MY"_s),
-			$of(u"మలేషియా"_s)
+			"MY"_s,
+			u"మలేషియా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MZ"_s),
-			$of(u"మొజాంబిక్"_s)
+			"MZ"_s,
+			u"మొజాంబిక్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Phli"_s),
-			$of(u"ఇంస్క్రిప్షనాల్ పహ్లావి"_s)
+			"Phli"_s,
+			u"ఇంస్క్రిప్షనాల్ పహ్లావి"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NA"_s),
-			$of(u"నమీబియా"_s)
+			"NA"_s,
+			u"నమీబియా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("202"_s),
-			$of(u"ఉప సెహరన్ ఆఫ్రికా"_s)
+			"202"_s,
+			u"ఉప సెహరన్ ఆఫ్రికా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.ca.hebrew"_s),
-			$of(u"హిబ్రూ క్యాలెండర్"_s)
+			"type.ca.hebrew"_s,
+			u"హిబ్రూ క్యాలెండర్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.co.dictionary"_s),
-			$of(u"నిఘంటువు క్రమబద్ధీకరణ క్రమం"_s)
+			"type.co.dictionary"_s,
+			u"నిఘంటువు క్రమబద్ధీకరణ క్రమం"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NC"_s),
-			$of(u"క్రొత్త కాలెడోనియా"_s)
+			"NC"_s,
+			u"క్రొత్త కాలెడోనియా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("%%WADEGILE"_s),
-			$of(u"వేడ్-గైల్స్ రోమనైజేషన్"_s)
+			"%%WADEGILE"_s,
+			u"వేడ్-గైల్స్ రోమనైజేషన్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NE"_s),
-			$of(u"నైజర్"_s)
+			"NE"_s,
+			u"నైజర్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NF"_s),
-			$of(u"నార్ఫోక్ దీవి"_s)
+			"NF"_s,
+			u"నార్ఫోక్ దీవి"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NG"_s),
-			$of(u"నైజీరియా"_s)
+			"NG"_s,
+			u"నైజీరియా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("trv"_s),
-			$of(u"తరోకో"_s)
+			"trv"_s,
+			u"తరోకో"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Phlp"_s),
-			$of(u"సల్టార్ పహ్లావి"_s)
+			"Phlp"_s,
+			u"సల్టార్ పహ్లావి"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NI"_s),
-			$of(u"నికరాగువా"_s)
+			"NI"_s,
+			u"నికరాగువా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Hmng"_s),
-			$of(u"పాహవా హ్మోంగ్"_s)
+			"Hmng"_s,
+			u"పాహవా హ్మోంగ్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NL"_s),
-			$of(u"నెదర్లాండ్స్"_s)
+			"NL"_s,
+			u"నెదర్లాండ్స్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NO"_s),
-			$of(u"నార్వే"_s)
+			"NO"_s,
+			u"నార్వే"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NP"_s),
-			$of(u"నేపాల్"_s)
+			"NP"_s,
+			u"నేపాల్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NR"_s),
-			$of(metaValue_NR)
+			"NR"_s,
+			metaValue_NR
 		}),
 		$$new($ObjectArray, {
-			$of("NU"_s),
-			$of(u"నియూ"_s)
+			"NU"_s,
+			u"నియూ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Phnx"_s),
-			$of(u"ఫోనిశియన్"_s)
+			"Phnx"_s,
+			u"ఫోనిశియన్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("rof"_s),
-			$of(u"రోంబో"_s)
+			"rof"_s,
+			u"రోంబో"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tsi"_s),
-			$of(u"శింషీయన్"_s)
+			"tsi"_s,
+			u"శింషీయన్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NZ"_s),
-			$of(u"న్యూజిలాండ్"_s)
+			"NZ"_s,
+			u"న్యూజిలాండ్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("rom"_s),
-			$of(u"రోమానీ"_s)
+			"rom"_s,
+			u"రోమానీ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Mero"_s),
-			$of(u"మెరోఇటిక్"_s)
+			"Mero"_s,
+			u"మెరోఇటిక్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("crh"_s),
-			$of(u"క్రిమియన్ టర్కిష్"_s)
+			"crh"_s,
+			u"క్రిమియన్ టర్కిష్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ang"_s),
-			$of(u"ప్రాచీన ఆంగ్లం"_s)
+			"ang"_s,
+			u"ప్రాచీన ఆంగ్లం"_s
 		}),
 		$$new($ObjectArray, {
-			$of("OM"_s),
-			$of(u"ఓమన్"_s)
+			"OM"_s,
+			u"ఓమన్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("anp"_s),
-			$of(u"ఆంగిక"_s)
+			"anp"_s,
+			u"ఆంగిక"_s
 		}),
 		$$new($ObjectArray, {
-			$of("crs"_s),
-			$of(u"సెసేల్వా క్రియోల్ ఫ్రెంచ్"_s)
+			"crs"_s,
+			u"సెసేల్వా క్రియోల్ ఫ్రెంచ్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Xpeo"_s),
-			$of(metaValue_peo)
+			"Xpeo"_s,
+			metaValue_peo
 		}),
 		$$new($ObjectArray, {
-			$of("PA"_s),
-			$of(u"పనామా"_s)
+			"PA"_s,
+			u"పనామా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.ca.islamic-civil"_s),
-			$of(u"ఇస్లామిక్-సివిల్ క్యాలెండర్"_s)
+			"type.ca.islamic-civil"_s,
+			u"ఇస్లామిక్-సివిల్ క్యాలెండర్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("csb"_s),
-			$of(u"కషుబియన్"_s)
+			"csb"_s,
+			u"కషుబియన్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("en_GB"_s),
-			$of(u"బ్రిటిష్ ఇంగ్లీష్"_s)
+			"en_GB"_s,
+			u"బ్రిటిష్ ఇంగ్లీష్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PE"_s),
-			$of(u"పెరూ"_s)
+			"PE"_s,
+			u"పెరూ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PF"_s),
-			$of(u"ఫ్రెంచ్ పోలినీషియా"_s)
+			"PF"_s,
+			u"ఫ్రెంచ్ పోలినీషియా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PG"_s),
-			$of(u"పాపువా న్యూ గినియా"_s)
+			"PG"_s,
+			u"పాపువా న్యూ గినియా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PH"_s),
-			$of(u"ఫిలిప్పైన్స్"_s)
+			"PH"_s,
+			u"ఫిలిప్పైన్స్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PK"_s),
-			$of(u"పాకిస్తాన్"_s)
+			"PK"_s,
+			u"పాకిస్తాన్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PL"_s),
-			$of(u"పోలాండ్"_s)
+			"PL"_s,
+			u"పోలాండ్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ewo"_s),
-			$of(u"ఎవోండొ"_s)
+			"ewo"_s,
+			u"ఎవోండొ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PM"_s),
-			$of(u"సెయింట్ పియెర్ మరియు మికెలాన్"_s)
+			"PM"_s,
+			u"సెయింట్ పియెర్ మరియు మికెలాన్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PN"_s),
-			$of(u"పిట్\u200cకెయిర్న్ దీవులు"_s)
+			"PN"_s,
+			u"పిట్\u200cకెయిర్న్ దీవులు"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PR"_s),
-			$of(u"ప్యూర్టో రికో"_s)
+			"PR"_s,
+			u"ప్యూర్టో రికో"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Bali"_s),
-			$of(metaValue_ban)
+			"Bali"_s,
+			metaValue_ban
 		}),
 		$$new($ObjectArray, {
-			$of("PS"_s),
-			$of(u"పాలస్తీనియన్ ప్రాంతాలు"_s)
+			"PS"_s,
+			u"పాలస్తీనియన్ ప్రాంతాలు"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PT"_s),
-			$of(u"పోర్చుగల్"_s)
+			"PT"_s,
+			u"పోర్చుగల్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PW"_s),
-			$of(u"పాలావ్"_s)
+			"PW"_s,
+			u"పాలావ్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nia"_s),
-			$of(u"నియాస్"_s)
+			"nia"_s,
+			u"నియాస్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.greklow"_s),
-			$of(u"గ్రీక్ చిన్నబడి సంఖ్యలు"_s)
+			"type.nu.greklow"_s,
+			u"గ్రీక్ చిన్నబడి సంఖ్యలు"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PY"_s),
-			$of(u"పరాగ్వే"_s)
+			"PY"_s,
+			u"పరాగ్వే"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tum"_s),
-			$of(u"టుంబుకా"_s)
+			"tum"_s,
+			u"టుంబుకా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Hebr"_s),
-			$of(u"హీబ్రు"_s)
+			"Hebr"_s,
+			u"హీబ్రు"_s
 		}),
 		$$new($ObjectArray, {
-			$of("QA"_s),
-			$of(u"ఖతార్"_s)
+			"QA"_s,
+			u"ఖతార్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("niu"_s),
-			$of(u"నియాన్"_s)
+			"niu"_s,
+			u"నియాన్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("QO"_s),
-			$of(u"ఒషీనియా బయటున్నవి"_s)
+			"QO"_s,
+			u"ఒషీనియా బయటున్నవి"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lez"_s),
-			$of(u"లేజ్ఘియన్"_s)
+			"lez"_s,
+			u"లేజ్ఘియన్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tvl"_s),
-			$of(metaValue_TV)
+			"tvl"_s,
+			metaValue_TV
 		}),
 		$$new($ObjectArray, {
-			$of("Tavt"_s),
-			$of(u"టై వియట్"_s)
+			"Tavt"_s,
+			u"టై వియట్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("001"_s),
-			$of(u"ప్రపంచం"_s)
+			"001"_s,
+			u"ప్రపంచం"_s
 		}),
 		$$new($ObjectArray, {
-			$of("002"_s),
-			$of(u"ఆఫ్రికా"_s)
+			"002"_s,
+			u"ఆఫ్రికా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("003"_s),
-			$of(u"ఉత్తర అమెరికా"_s)
+			"003"_s,
+			u"ఉత్తర అమెరికా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("RE"_s),
-			$of(u"రీయూనియన్"_s)
+			"RE"_s,
+			u"రీయూనియన్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("005"_s),
-			$of(u"దక్షిణ అమెరికా"_s)
+			"005"_s,
+			u"దక్షిణ అమెరికా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("jbo"_s),
-			$of(u"లోజ్బాన్"_s)
+			"jbo"_s,
+			u"లోజ్బాన్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Rjng"_s),
-			$of(u"రేజాంగ్"_s)
+			"Rjng"_s,
+			u"రేజాంగ్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("009"_s),
-			$of(u"ఓషినియా"_s)
+			"009"_s,
+			u"ఓషినియా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("RO"_s),
-			$of(u"రోమేనియా"_s)
+			"RO"_s,
+			u"రోమేనియా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("RS"_s),
-			$of(u"సెర్బియా"_s)
+			"RS"_s,
+			u"సెర్బియా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("RU"_s),
-			$of(u"రష్యా"_s)
+			"RU"_s,
+			u"రష్యా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("RW"_s),
-			$of(u"రువాండా"_s)
+			"RW"_s,
+			u"రువాండా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Mani"_s),
-			$of(u"మానిచేన్"_s)
+			"Mani"_s,
+			u"మానిచేన్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Ugar"_s),
-			$of(u"యుగారిటిక్"_s)
+			"Ugar"_s,
+			u"యుగారిటిక్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Khar"_s),
-			$of(u"ఖరోషథి"_s)
+			"Khar"_s,
+			u"ఖరోషథి"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SA"_s),
-			$of(u"సౌదీ అరేబియా"_s)
+			"SA"_s,
+			u"సౌదీ అరేబియా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("pon"_s),
-			$of(u"పోహ్న్పెయన్"_s)
+			"pon"_s,
+			u"పోహ్న్పెయన్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Mand"_s),
-			$of(u"మాన్డియన్"_s)
+			"Mand"_s,
+			u"మాన్డియన్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SB"_s),
-			$of(u"సోలమన్ దీవులు"_s)
+			"SB"_s,
+			u"సోలమన్ దీవులు"_s
 		}),
 		$$new($ObjectArray, {
-			$of("twq"_s),
-			$of(u"టసావాఖ్"_s)
+			"twq"_s,
+			u"టసావాఖ్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("011"_s),
-			$of(u"పశ్చిమ ఆఫ్రికా భూభాగం"_s)
+			"011"_s,
+			u"పశ్చిమ ఆఫ్రికా భూభాగం"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SC"_s),
-			$of(u"సీషెల్స్"_s)
+			"SC"_s,
+			u"సీషెల్స్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SD"_s),
-			$of(u"సూడాన్"_s)
+			"SD"_s,
+			u"సూడాన్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("013"_s),
-			$of(u"మధ్యమ అమెరికా"_s)
+			"013"_s,
+			u"మధ్యమ అమెరికా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SE"_s),
-			$of(u"స్వీడన్"_s)
+			"SE"_s,
+			u"స్వీడన్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("014"_s),
-			$of(u"తూర్పు ఆఫ్రికా"_s)
+			"014"_s,
+			u"తూర్పు ఆఫ్రికా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("arc"_s),
-			$of(u"అరామైక్"_s)
+			"arc"_s,
+			u"అరామైక్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("015"_s),
-			$of(u"ఉత్తర ఆఫ్రికా"_s)
+			"015"_s,
+			u"ఉత్తర ఆఫ్రికా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SG"_s),
-			$of(u"సింగపూర్"_s)
+			"SG"_s,
+			u"సింగపూర్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SH"_s),
-			$of(u"సెయింట్ హెలెనా"_s)
+			"SH"_s,
+			u"సెయింట్ హెలెనా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.lb.strict"_s),
-			$of(u"క్రమ లైన్ బ్రేక్ శైలి"_s)
+			"type.lb.strict"_s,
+			u"క్రమ లైన్ బ్రేక్ శైలి"_s
 		}),
 		$$new($ObjectArray, {
-			$of("017"_s),
-			$of(u"మధ్యమ ఆఫ్రికా"_s)
+			"017"_s,
+			u"మధ్యమ ఆఫ్రికా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SI"_s),
-			$of(u"స్లోవేనియా"_s)
+			"SI"_s,
+			u"స్లోవేనియా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("018"_s),
-			$of(u"దక్షిణ ఆఫ్రికా భూభాగం"_s)
+			"018"_s,
+			u"దక్షిణ ఆఫ్రికా భూభాగం"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SJ"_s),
-			$of(u"స్వాల్\u200cబార్డ్ మరియు జాన్ మాయెన్"_s)
+			"SJ"_s,
+			u"స్వాల్\u200cబార్డ్ మరియు జాన్ మాయెన్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("019"_s),
-			$of(u"అమెరికాస్"_s)
+			"019"_s,
+			u"అమెరికాస్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SK"_s),
-			$of(u"స్లొవేకియా"_s)
+			"SK"_s,
+			u"స్లొవేకియా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SL"_s),
-			$of(u"సియెర్రా లియాన్"_s)
+			"SL"_s,
+			u"సియెర్రా లియాన్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SM"_s),
-			$of(u"శాన్ మారినో"_s)
+			"SM"_s,
+			u"శాన్ మారినో"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SN"_s),
-			$of(u"సెనెగల్"_s)
+			"SN"_s,
+			u"సెనెగల్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SO"_s),
-			$of(u"సోమాలియా"_s)
+			"SO"_s,
+			u"సోమాలియా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("arn"_s),
-			$of(u"మపుచే"_s)
+			"arn"_s,
+			u"మపుచే"_s
 		}),
 		$$new($ObjectArray, {
-			$of("arp"_s),
-			$of(u"అరాపాహో"_s)
+			"arp"_s,
+			u"అరాపాహో"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.taml"_s),
-			$of(u"సాంప్రదాయ తమిళ సంఖ్యలు"_s)
+			"type.nu.taml"_s,
+			u"సాంప్రదాయ తమిళ సంఖ్యలు"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SR"_s),
-			$of(u"సూరినామ్"_s)
+			"SR"_s,
+			u"సూరినామ్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SS"_s),
-			$of(u"దక్షిణ సూడాన్"_s)
+			"SS"_s,
+			u"దక్షిణ సూడాన్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ST"_s),
-			$of(u"సావో టోమ్ మరియు ప్రిన్సిపి"_s)
+			"ST"_s,
+			u"సావో టోమ్ మరియు ప్రిన్సిపి"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SV"_s),
-			$of(u"ఎల్ సాల్వడోర్"_s)
+			"SV"_s,
+			u"ఎల్ సాల్వడోర్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SX"_s),
-			$of(u"సింట్ మార్టెన్"_s)
+			"SX"_s,
+			u"సింట్ మార్టెన్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SY"_s),
-			$of(u"సిరియా"_s)
+			"SY"_s,
+			u"సిరియా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("yao"_s),
-			$of(u"యాయే"_s)
+			"yao"_s,
+			u"యాయే"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SZ"_s),
-			$of(u"ఈస్వాటిని"_s)
+			"SZ"_s,
+			u"ఈస్వాటిని"_s
 		}),
 		$$new($ObjectArray, {
-			$of("arw"_s),
-			$of(u"అరావాక్"_s)
+			"arw"_s,
+			u"అరావాక్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("arz"_s),
-			$of(u"ఈజిప్షియన్ అరబిక్"_s)
+			"arz"_s,
+			u"ఈజిప్షియన్ అరబిక్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("yap"_s),
-			$of(u"యాపిస్"_s)
+			"yap"_s,
+			u"యాపిస్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TA"_s),
-			$of(u"ట్రిస్టన్ డ కన్హా"_s)
+			"TA"_s,
+			u"ట్రిస్టన్ డ కన్హా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("asa"_s),
-			$of(u"అసు"_s)
+			"asa"_s,
+			u"అసు"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.ms.ussystem"_s),
-			$of(u"యు.ఎస్. కొలమాన పద్ధతి"_s)
+			"type.ms.ussystem"_s,
+			u"యు.ఎస్. కొలమాన పద్ధతి"_s
 		}),
 		$$new($ObjectArray, {
-			$of("021"_s),
-			$of(u"ఉత్తర అమెరికా భూభాగం"_s)
+			"021"_s,
+			u"ఉత్తర అమెరికా భూభాగం"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TC"_s),
-			$of(u"టర్క్స్ మరియు కైకోస్ దీవులు"_s)
+			"TC"_s,
+			u"టర్క్స్ మరియు కైకోస్ దీవులు"_s
 		}),
 		$$new($ObjectArray, {
-			$of("yav"_s),
-			$of(u"యాంగ్\u200cబెన్"_s)
+			"yav"_s,
+			u"యాంగ్\u200cబెన్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TD"_s),
-			$of(u"చాద్"_s)
+			"TD"_s,
+			u"చాద్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TF"_s),
-			$of(u"ఫ్రెంచ్ దక్షిణ ప్రాంతాలు"_s)
+			"TF"_s,
+			u"ఫ్రెంచ్ దక్షిణ ప్రాంతాలు"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TG"_s),
-			$of(u"టోగో"_s)
+			"TG"_s,
+			u"టోగో"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TH"_s),
-			$of(u"థాయిలాండ్"_s)
+			"TH"_s,
+			u"థాయిలాండ్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TJ"_s),
-			$of(u"తజికిస్తాన్"_s)
+			"TJ"_s,
+			u"తజికిస్తాన్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TK"_s),
-			$of(metaValue_TK)
+			"TK"_s,
+			metaValue_TK
 		}),
 		$$new($ObjectArray, {
-			$of("029"_s),
-			$of(u"కరిబ్బియన్"_s)
+			"029"_s,
+			u"కరిబ్బియన్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TL"_s),
-			$of(u"టిమోర్-లెస్టె"_s)
+			"TL"_s,
+			u"టిమోర్-లెస్టె"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ybb"_s),
-			$of(u"యెంబా"_s)
+			"ybb"_s,
+			u"యెంబా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.co.searchjl"_s),
-			$of(u"హాంగుల్ ప్రారంభ హల్లు ద్వారా శోధించు"_s)
+			"type.co.searchjl"_s,
+			u"హాంగుల్ ప్రారంభ హల్లు ద్వారా శోధించు"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TM"_s),
-			$of(u"టర్క్\u200cమెనిస్తాన్"_s)
+			"TM"_s,
+			u"టర్క్\u200cమెనిస్తాన్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TN"_s),
-			$of(u"ట్యునీషియా"_s)
+			"TN"_s,
+			u"ట్యునీషియా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TO"_s),
-			$of(u"టోంగా"_s)
+			"TO"_s,
+			u"టోంగా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TR"_s),
-			$of(u"టర్కీ"_s)
+			"TR"_s,
+			u"టర్కీ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TT"_s),
-			$of(u"ట్రినిడాడ్ మరియు టొబాగో"_s)
+			"TT"_s,
+			u"ట్రినిడాడ్ మరియు టొబాగో"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TV"_s),
-			$of(metaValue_TV)
+			"TV"_s,
+			metaValue_TV
 		}),
 		$$new($ObjectArray, {
-			$of("TW"_s),
-			$of(u"తైవాన్"_s)
+			"TW"_s,
+			u"తైవాన్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ast"_s),
-			$of(u"ఆస్టూరియన్"_s)
+			"ast"_s,
+			u"ఆస్టూరియన్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Orkh"_s),
-			$of(u"ఓర్ఖోన్"_s)
+			"Orkh"_s,
+			u"ఓర్ఖోన్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TZ"_s),
-			$of(u"టాంజానియా"_s)
+			"TZ"_s,
+			u"టాంజానియా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nmg"_s),
-			$of(u"క్వాసియె"_s)
+			"nmg"_s,
+			u"క్వాసియె"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Zzzz"_s),
-			$of(u"తెలియని లిపి"_s)
+			"Zzzz"_s,
+			u"తెలియని లిపి"_s
 		}),
 		$$new($ObjectArray, {
-			$of("UA"_s),
-			$of(u"ఉక్రెయిన్"_s)
+			"UA"_s,
+			u"ఉక్రెయిన్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("rup"_s),
-			$of(u"ఆరోమేనియన్"_s)
+			"rup"_s,
+			u"ఆరోమేనియన్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("030"_s),
-			$of(u"తూర్పు ఆసియా"_s)
+			"030"_s,
+			u"తూర్పు ఆసియా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tyv"_s),
-			$of(u"టువినియన్"_s)
+			"tyv"_s,
+			u"టువినియన్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sw_CD"_s),
-			$of(u"కాంగో స్వాహిలి"_s)
+			"sw_CD"_s,
+			u"కాంగో స్వాహిలి"_s
 		}),
 		$$new($ObjectArray, {
-			$of("034"_s),
-			$of(u"దక్షిణ ఆసియా"_s)
+			"034"_s,
+			u"దక్షిణ ఆసియా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("hai"_s),
-			$of(u"హైడా"_s)
+			"hai"_s,
+			u"హైడా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("035"_s),
-			$of(u"ఆగ్నేయ ఆసియా"_s)
+			"035"_s,
+			u"ఆగ్నేయ ఆసియా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("UG"_s),
-			$of(u"ఉగాండా"_s)
+			"UG"_s,
+			u"ఉగాండా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("hak"_s),
-			$of(u"హక్కా చైనీస్"_s)
+			"hak"_s,
+			u"హక్కా చైనీస్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.co.pinyin"_s),
-			$of(u"పిన్\u200cయిన్ క్రమబద్ధీకరణ క్రమం"_s)
+			"type.co.pinyin"_s,
+			u"పిన్\u200cయిన్ క్రమబద్ధీకరణ క్రమం"_s
 		}),
 		$$new($ObjectArray, {
-			$of("039"_s),
-			$of(u"దక్షిణ యూరోప్"_s)
+			"039"_s,
+			u"దక్షిణ యూరోప్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Sinh"_s),
-			$of(metaValue_si)
+			"Sinh"_s,
+			metaValue_si
 		}),
 		$$new($ObjectArray, {
-			$of("UM"_s),
-			$of(u"సంయుక్త రాజ్య అమెరికా బయట ఉన్న దీవులు"_s)
+			"UM"_s,
+			u"సంయుక్త రాజ్య అమెరికా బయట ఉన్న దీవులు"_s
 		}),
 		$$new($ObjectArray, {
-			$of("UN"_s),
-			$of(u"యునైటెడ్ నేషన్స్"_s)
+			"UN"_s,
+			u"యునైటెడ్ నేషన్స్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("US"_s),
-			$of(u"యునైటెడ్ స్టేట్స్"_s)
+			"US"_s,
+			u"యునైటెడ్ స్టేట్స్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("haw"_s),
-			$of(u"హవాయియన్"_s)
+			"haw"_s,
+			u"హవాయియన్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.co.gb2312han"_s),
-			$of(u"సరళీకృత చైనీస్ క్రమబద్ధీకరణ క్రమం - GB2312"_s)
+			"type.co.gb2312han"_s,
+			u"సరళీకృత చైనీస్ క్రమబద్ధీకరణ క్రమం - GB2312"_s
 		}),
 		$$new($ObjectArray, {
-			$of("UY"_s),
-			$of(u"ఉరుగ్వే"_s)
+			"UY"_s,
+			u"ఉరుగ్వే"_s
 		}),
 		$$new($ObjectArray, {
-			$of("prg"_s),
-			$of(u"ప్రష్యన్"_s)
+			"prg"_s,
+			u"ప్రష్యన్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("UZ"_s),
-			$of(u"ఉజ్బెకిస్తాన్"_s)
+			"UZ"_s,
+			u"ఉజ్బెకిస్తాన్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tzm"_s),
-			$of(u"సెంట్రల్ అట్లాస్ టామాజైట్"_s)
+			"tzm"_s,
+			u"సెంట్రల్ అట్లాస్ టామాజైట్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.co.stroke"_s),
-			$of(u"స్ట్రోక్ క్రమబద్ధీకరణ క్రమం"_s)
+			"type.co.stroke"_s,
+			u"స్ట్రోక్ క్రమబద్ధీకరణ క్రమం"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nnh"_s),
-			$of(u"గింబూన్"_s)
+			"nnh"_s,
+			u"గింబూన్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("VA"_s),
-			$of(u"వాటికన్ నగరం"_s)
+			"VA"_s,
+			u"వాటికన్ నగరం"_s
 		}),
 		$$new($ObjectArray, {
-			$of("pro"_s),
-			$of(u"ప్రాచీన ప్రోవెంసాల్"_s)
+			"pro"_s,
+			u"ప్రాచీన ప్రోవెంసాల్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("VC"_s),
-			$of(u"సెయింట్ విన్సెంట్ మరియు గ్రెనడీన్స్"_s)
+			"VC"_s,
+			u"సెయింట్ విన్సెంట్ మరియు గ్రెనడీన్స్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("VE"_s),
-			$of(u"వెనిజులా"_s)
+			"VE"_s,
+			u"వెనిజులా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("VG"_s),
-			$of(u"బ్రిటిష్ వర్జిన్ దీవులు"_s)
+			"VG"_s,
+			u"బ్రిటిష్ వర్జిన్ దీవులు"_s
 		}),
 		$$new($ObjectArray, {
-			$of("VI"_s),
-			$of(u"యు.ఎస్. వర్జిన్ దీవులు"_s)
+			"VI"_s,
+			u"యు.ఎస్. వర్జిన్ దీవులు"_s
 		}),
 		$$new($ObjectArray, {
-			$of("VN"_s),
-			$of(u"వియత్నాం"_s)
+			"VN"_s,
+			u"వియత్నాం"_s
 		}),
 		$$new($ObjectArray, {
-			$of("VU"_s),
-			$of(u"వనాటు"_s)
+			"VU"_s,
+			u"వనాటు"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nog"_s),
-			$of(u"నోగై"_s)
+			"nog"_s,
+			u"నోగై"_s
 		}),
 		$$new($ObjectArray, {
-			$of("rwk"_s),
-			$of(u"ర్వా"_s)
+			"rwk"_s,
+			u"ర్వా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("non"_s),
-			$of(u"ప్రాచిన నోర్స్"_s)
+			"non"_s,
+			u"ప్రాచిన నోర్స్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("053"_s),
-			$of(u"ఆస్ట్రేలేసియా"_s)
+			"053"_s,
+			u"ఆస్ట్రేలేసియా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("054"_s),
-			$of(u"మెలనేశియ"_s)
+			"054"_s,
+			u"మెలనేశియ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("WF"_s),
-			$of(u"వాల్లిస్ మరియు ఫుటునా"_s)
+			"WF"_s,
+			u"వాల్లిస్ మరియు ఫుటునా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.co.traditional"_s),
-			$of(u"సాంప్రదాయ క్రమబద్ధీకరణ క్రమం"_s)
+			"type.co.traditional"_s,
+			u"సాంప్రదాయ క్రమబద్ధీకరణ క్రమం"_s
 		}),
 		$$new($ObjectArray, {
-			$of("057"_s),
-			$of(u"మైక్రోనేశియ ప్రాంతం"_s)
+			"057"_s,
+			u"మైక్రోనేశియ ప్రాంతం"_s
 		}),
 		$$new($ObjectArray, {
-			$of("jgo"_s),
-			$of(u"గోంబా"_s)
+			"jgo"_s,
+			u"గోంబా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lkt"_s),
-			$of(u"లకొటా"_s)
+			"lkt"_s,
+			u"లకొటా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.finance"_s),
-			$of(u"ఆర్థిక సంఖ్యలు"_s)
+			"type.nu.finance"_s,
+			u"ఆర్థిక సంఖ్యలు"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.co.compat"_s),
-			$of(u"మునుపటి క్రమబద్ధీకరణ క్రమం, అనుకూలం"_s)
+			"type.co.compat"_s,
+			u"మునుపటి క్రమబద్ధీకరణ క్రమం, అనుకూలం"_s
 		}),
 		$$new($ObjectArray, {
-			$of("wae"_s),
-			$of(u"వాల్సర్"_s)
+			"wae"_s,
+			u"వాల్సర్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("WS"_s),
-			$of(u"సమోవా"_s)
+			"WS"_s,
+			u"సమోవా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("wal"_s),
-			$of(u"వాలేట్టా"_s)
+			"wal"_s,
+			u"వాలేట్టా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("was"_s),
-			$of(u"వాషో"_s)
+			"was"_s,
+			u"వాషో"_s
 		}),
 		$$new($ObjectArray, {
-			$of("XA"_s),
-			$of(u"సూడో యాక్సెంట్స్"_s)
+			"XA"_s,
+			u"సూడో యాక్సెంట్స్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("war"_s),
-			$of(u"వారే"_s)
+			"war"_s,
+			u"వారే"_s
 		}),
 		$$new($ObjectArray, {
-			$of("XB"_s),
-			$of(u"సూడో-బిడి"_s)
+			"XB"_s,
+			u"సూడో-బిడి"_s
 		}),
 		$$new($ObjectArray, {
-			$of("awa"_s),
-			$of(u"అవధి"_s)
+			"awa"_s,
+			u"అవధి"_s
 		}),
 		$$new($ObjectArray, {
-			$of("061"_s),
-			$of(u"పాలినేషియా"_s)
+			"061"_s,
+			u"పాలినేషియా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("XK"_s),
-			$of(u"కొసోవో"_s)
+			"XK"_s,
+			u"కొసోవో"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Gujr"_s),
-			$of(u"గుజరాతీ"_s)
+			"Gujr"_s,
+			u"గుజరాతీ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Zxxx"_s),
-			$of(u"లిపి లేని"_s)
+			"Zxxx"_s,
+			u"లిపి లేని"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Olck"_s),
-			$of(u"ఓల్ చికి"_s)
+			"Olck"_s,
+			u"ఓల్ చికి"_s
 		}),
 		$$new($ObjectArray, {
-			$of("wbp"_s),
-			$of(u"వార్లపిరి"_s)
+			"wbp"_s,
+			u"వార్లపిరి"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Batk"_s),
-			$of(u"బాటక్"_s)
+			"Batk"_s,
+			u"బాటక్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Blis"_s),
-			$of(u"బ్లిస్సింబల్స్"_s)
+			"Blis"_s,
+			u"బ్లిస్సింబల్స్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("YE"_s),
-			$of(u"యెమెన్"_s)
+			"YE"_s,
+			u"యెమెన్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nqo"_s),
-			$of(metaValue_nqo)
+			"nqo"_s,
+			metaValue_nqo
 		}),
 		$$new($ObjectArray, {
-			$of("type.co.standard"_s),
-			$of(u"ప్రామాణిక క్రమబద్ధీకరణ క్రమం"_s)
+			"type.co.standard"_s,
+			u"ప్రామాణిక క్రమబద్ధీకరణ క్రమం"_s
 		}),
 		$$new($ObjectArray, {
-			$of("fan"_s),
-			$of(u"ఫాంగ్"_s)
+			"fan"_s,
+			u"ఫాంగ్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("fat"_s),
-			$of(u"ఫాంటి"_s)
+			"fat"_s,
+			u"ఫాంటి"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Sgnw"_s),
-			$of(u"సంజ్ఞ లిపి"_s)
+			"Sgnw"_s,
+			u"సంజ్ఞ లిపి"_s
 		}),
 		$$new($ObjectArray, {
-			$of("YT"_s),
-			$of(u"మాయొట్"_s)
+			"YT"_s,
+			u"మాయొట్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ZA"_s),
-			$of(u"దక్షిణ ఆఫ్రికా"_s)
+			"ZA"_s,
+			u"దక్షిణ ఆఫ్రికా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.lb.loose"_s),
-			$of(u"అపక్రమ లైన్ బ్రేక్ శైలి"_s)
+			"type.lb.loose"_s,
+			u"అపక్రమ లైన్ బ్రేక్ శైలి"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Deva"_s),
-			$of(u"దేవనాగరి"_s)
+			"Deva"_s,
+			u"దేవనాగరి"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.geor"_s),
-			$of(u"జార్జియన్ సంఖ్యలు"_s)
+			"type.nu.geor"_s,
+			u"జార్జియన్ సంఖ్యలు"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Hira"_s),
-			$of(u"హిరాగాన"_s)
+			"Hira"_s,
+			u"హిరాగాన"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ZM"_s),
-			$of(u"జాంబియా"_s)
+			"ZM"_s,
+			u"జాంబియా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("%%PINYIN"_s),
-			$of(u"పిన్\u200cయిన్ రోమనైజేషన్"_s)
+			"%%PINYIN"_s,
+			u"పిన్\u200cయిన్ రోమనైజేషన్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ZW"_s),
-			$of(u"జింబాబ్వే"_s)
+			"ZW"_s,
+			u"జింబాబ్వే"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ZZ"_s),
-			$of(u"తెలియని ప్రాంతం"_s)
+			"ZZ"_s,
+			u"తెలియని ప్రాంతం"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Runr"_s),
-			$of(u"రూనిక్"_s)
+			"Runr"_s,
+			u"రూనిక్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.ms.metric"_s),
-			$of(u"మెట్రిక్ పద్ధతి"_s)
+			"type.ms.metric"_s,
+			u"మెట్రిక్ పద్ధతి"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.ca.iso8601"_s),
-			$of(u"ISO-8601 క్యాలెండర్"_s)
+			"type.ca.iso8601"_s,
+			u"ISO-8601 క్యాలెండర్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lol"_s),
-			$of(u"మొంగో"_s)
+			"lol"_s,
+			u"మొంగో"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nso"_s),
-			$of(u"ఉత్తర సోతో"_s)
+			"nso"_s,
+			u"ఉత్తర సోతో"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.telu"_s),
-			$of(u"తెలుగు అంకెలు"_s)
+			"type.nu.telu"_s,
+			u"తెలుగు అంకెలు"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lou"_s),
-			$of(u"లూసియానా క్రియోల్"_s)
+			"lou"_s,
+			u"లూసియానా క్రియోల్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("loz"_s),
-			$of(u"లోజి"_s)
+			"loz"_s,
+			u"లోజి"_s
 		}),
 		$$new($ObjectArray, {
-			$of("jmc"_s),
-			$of(u"మకొమ్"_s)
+			"jmc"_s,
+			u"మకొమ్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.hansfin"_s),
-			$of(u"సరళీకృత చైనీయుల ఆర్థిక సంఖ్యలు"_s)
+			"type.nu.hansfin"_s,
+			u"సరళీకృత చైనీయుల ఆర్థిక సంఖ్యలు"_s
 		}),
 		$$new($ObjectArray, {
-			$of("hil"_s),
-			$of(u"హిలిగెనాన్"_s)
+			"hil"_s,
+			u"హిలిగెనాన్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.arabext"_s),
-			$of(u"పొడిగించబడిన అరబిక్-ఇండిక్ అంకెలు"_s)
+			"type.nu.arabext"_s,
+			u"పొడిగించబడిన అరబిక్-ఇండిక్ అంకెలు"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nus"_s),
-			$of(u"న్యుర్"_s)
+			"nus"_s,
+			u"న్యుర్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("dak"_s),
-			$of(u"డకోటా"_s)
+			"dak"_s,
+			u"డకోటా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.fullwide"_s),
-			$of(u"పూర్తి వెడల్పు అంకెలు"_s)
+			"type.nu.fullwide"_s,
+			u"పూర్తి వెడల్పు అంకెలు"_s
 		}),
 		$$new($ObjectArray, {
-			$of("hit"_s),
-			$of(u"హిట్టిటే"_s)
+			"hit"_s,
+			u"హిట్టిటే"_s
 		}),
 		$$new($ObjectArray, {
-			$of("dar"_s),
-			$of(u"డార్గ్వా"_s)
+			"dar"_s,
+			u"డార్గ్వా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("dav"_s),
-			$of(u"టైటా"_s)
+			"dav"_s,
+			u"టైటా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Maya"_s),
-			$of(u"మాయన్ హైరోగ్లైఫ్స్"_s)
+			"Maya"_s,
+			u"మాయన్ హైరోగ్లైఫ్స్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lrc"_s),
-			$of(u"ఉత్తర లూరీ"_s)
+			"lrc"_s,
+			u"ఉత్తర లూరీ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Copt"_s),
-			$of(metaValue_cop)
+			"Copt"_s,
+			metaValue_cop
 		}),
 		$$new($ObjectArray, {
-			$of("nwc"_s),
-			$of(u"సాంప్రదాయ న్యూయారీ"_s)
+			"nwc"_s,
+			u"సాంప్రదాయ న్యూయారీ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("udm"_s),
-			$of(u"ఉడ్ముర్ట్"_s)
+			"udm"_s,
+			u"ఉడ్ముర్ట్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Khmr"_s),
-			$of(metaValue_km)
+			"Khmr"_s,
+			metaValue_km
 		}),
 		$$new($ObjectArray, {
-			$of("type.ca.islamic-rgsa"_s),
-			$of(u"ఇస్లామిక్ క్యాలెండర్ (సౌదీ అరేబియా)"_s)
+			"type.ca.islamic-rgsa"_s,
+			u"ఇస్లామిక్ క్యాలెండర్ (సౌదీ అరేబియా)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Limb"_s),
-			$of(u"లింబు"_s)
+			"Limb"_s,
+			u"లింబు"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sad"_s),
-			$of(u"సండావి"_s)
+			"sad"_s,
+			u"సండావి"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.roman"_s),
-			$of(u"రోమన్ సంఖ్యలు"_s)
+			"type.nu.roman"_s,
+			u"రోమన్ సంఖ్యలు"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sah"_s),
-			$of(u"సాఖా"_s)
+			"sah"_s,
+			u"సాఖా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sam"_s),
-			$of(u"సమారిటన్ అరామైక్"_s)
+			"sam"_s,
+			u"సమారిటన్ అరామైక్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("saq"_s),
-			$of(u"సంబురు"_s)
+			"saq"_s,
+			u"సంబురు"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sas"_s),
-			$of(u"ససక్"_s)
+			"sas"_s,
+			u"ససక్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sat"_s),
-			$of(u"సంతాలి"_s)
+			"sat"_s,
+			u"సంతాలి"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Tfng"_s),
-			$of(u"టిఫీనాఘ్"_s)
+			"Tfng"_s,
+			u"టిఫీనాఘ్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("jpr"_s),
-			$of(u"జ్యుడియో-పర్షియన్"_s)
+			"jpr"_s,
+			u"జ్యుడియో-పర్షియన్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.d0.npinyin"_s),
-			$of(u"సంఖ్య"_s)
+			"type.d0.npinyin"_s,
+			u"సంఖ్య"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.native"_s),
-			$of(u"స్థానిక అంకెలు"_s)
+			"type.nu.native"_s,
+			u"స్థానిక అంకెలు"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sba"_s),
-			$of(u"గాంబే"_s)
+			"sba"_s,
+			u"గాంబే"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Guru"_s),
-			$of(u"గుర్ముఖి"_s)
+			"Guru"_s,
+			u"గుర్ముఖి"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lua"_s),
-			$of(u"లుబా-లులువ"_s)
+			"lua"_s,
+			u"లుబా-లులువ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.d0.fwidth"_s),
-			$of(u"పూర్తి వెడల్పు"_s)
+			"type.d0.fwidth"_s,
+			u"పూర్తి వెడల్పు"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sbp"_s),
-			$of(u"సాంగు"_s)
+			"sbp"_s,
+			u"సాంగు"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lui"_s),
-			$of(u"లుయిసెనో"_s)
+			"lui"_s,
+			u"లుయిసెనో"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nyn"_s),
-			$of(u"న్యాన్కోలె"_s)
+			"nyn"_s,
+			u"న్యాన్కోలె"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nym"_s),
-			$of(u"న్యంవేజి"_s)
+			"nym"_s,
+			u"న్యంవేజి"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lun"_s),
-			$of(u"లుండా"_s)
+			"lun"_s,
+			u"లుండా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nyo"_s),
-			$of(u"నేయోరో"_s)
+			"nyo"_s,
+			u"నేయోరో"_s
 		}),
 		$$new($ObjectArray, {
-			$of("luo"_s),
-			$of(u"లువో"_s)
+			"luo"_s,
+			u"లువో"_s
 		}),
 		$$new($ObjectArray, {
-			$of("fil"_s),
-			$of(u"ఫిలిపినో"_s)
+			"fil"_s,
+			u"ఫిలిపినో"_s
 		}),
 		$$new($ObjectArray, {
-			$of("hmn"_s),
-			$of(u"మోంగ్"_s)
+			"hmn"_s,
+			u"మోంగ్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("del"_s),
-			$of(u"డెలావేర్"_s)
+			"del"_s,
+			u"డెలావేర్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lus"_s),
-			$of(u"మిజో"_s)
+			"lus"_s,
+			u"మిజో"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bal"_s),
-			$of(u"బాలుచి"_s)
+			"bal"_s,
+			u"బాలుచి"_s
 		}),
 		$$new($ObjectArray, {
-			$of("den"_s),
-			$of(u"స్లేవ్"_s)
+			"den"_s,
+			u"స్లేవ్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ban"_s),
-			$of(metaValue_ban)
+			"ban"_s,
+			metaValue_ban
 		}),
 		$$new($ObjectArray, {
-			$of("uga"_s),
-			$of(u"ఉగారిటిక్"_s)
+			"uga"_s,
+			u"ఉగారిటిక్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("luy"_s),
-			$of(u"లుయియ"_s)
+			"luy"_s,
+			u"లుయియ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bas"_s),
-			$of(u"బసా"_s)
+			"bas"_s,
+			u"బసా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("jrb"_s),
-			$of(u"జ్యుడియో-అరబిక్"_s)
+			"jrb"_s,
+			u"జ్యుడియో-అరబిక్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("es_ES"_s),
-			$of(u"యూరోపియన్ స్పానిష్"_s)
+			"es_ES"_s,
+			u"యూరోపియన్ స్పానిష్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nzi"_s),
-			$of(u"జీమా"_s)
+			"nzi"_s,
+			u"జీమా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sco"_s),
-			$of(u"స్కాట్స్"_s)
+			"sco"_s,
+			u"స్కాట్స్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("scn"_s),
-			$of(u"సిసిలియన్"_s)
+			"scn"_s,
+			u"సిసిలియన్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("aa"_s),
-			$of(u"అఫార్"_s)
+			"aa"_s,
+			u"అఫార్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ab"_s),
-			$of(u"అబ్ఖాజియన్"_s)
+			"ab"_s,
+			u"అబ్ఖాజియన్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ae"_s),
-			$of(metaValue_ae)
+			"ae"_s,
+			metaValue_ae
 		}),
 		$$new($ObjectArray, {
-			$of("af"_s),
-			$of(u"ఆఫ్రికాన్స్"_s)
+			"af"_s,
+			u"ఆఫ్రికాన్స్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ak"_s),
-			$of(u"అకాన్"_s)
+			"ak"_s,
+			u"అకాన్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("am"_s),
-			$of(u"అమ్హారిక్"_s)
+			"am"_s,
+			u"అమ్హారిక్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Arab"_s),
-			$of(metaValue_ar)
+			"Arab"_s,
+			metaValue_ar
 		}),
 		$$new($ObjectArray, {
-			$of("an"_s),
-			$of(u"అరగోనిస్"_s)
+			"an"_s,
+			u"అరగోనిస్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Jpan"_s),
-			$of(u"జాపనీస్"_s)
+			"Jpan"_s,
+			u"జాపనీస్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ar"_s),
-			$of(metaValue_ar)
+			"ar"_s,
+			metaValue_ar
 		}),
 		$$new($ObjectArray, {
-			$of("Hrkt"_s),
-			$of(u"జపనీస్ సిలబెరీస్"_s)
+			"Hrkt"_s,
+			u"జపనీస్ సిలబెరీస్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("as"_s),
-			$of(u"అస్సామీస్"_s)
+			"as"_s,
+			u"అస్సామీస్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Lina"_s),
-			$of(u"లినియర్ ఎ"_s)
+			"Lina"_s,
+			u"లినియర్ ఎ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("av"_s),
-			$of(u"అవారిక్"_s)
+			"av"_s,
+			u"అవారిక్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Linb"_s),
-			$of(u"లినియర్ బి"_s)
+			"Linb"_s,
+			u"లినియర్ బి"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sdh"_s),
-			$of(u"దక్షిణ కుర్డిష్"_s)
+			"sdh"_s,
+			u"దక్షిణ కుర్డిష్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ay"_s),
-			$of(u"ఐమారా"_s)
+			"ay"_s,
+			u"ఐమారా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("az"_s),
-			$of(u"అజర్బైజాని"_s)
+			"az"_s,
+			u"అజర్బైజాని"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ba"_s),
-			$of(u"బాష్కిర్"_s)
+			"ba"_s,
+			u"బాష్కిర్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.co.unihan"_s),
-			$of(u"రాడికల్-స్ట్రోక్ క్రమబద్ధీకరణ క్రమం"_s)
+			"type.co.unihan"_s,
+			u"రాడికల్-స్ట్రోక్ క్రమబద్ధీకరణ క్రమం"_s
 		}),
 		$$new($ObjectArray, {
-			$of("be"_s),
-			$of(u"బెలారుషియన్"_s)
+			"be"_s,
+			u"బెలారుషియన్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bg"_s),
-			$of(u"బల్గేరియన్"_s)
+			"bg"_s,
+			u"బల్గేరియన్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bi"_s),
-			$of(u"బిస్లామా"_s)
+			"bi"_s,
+			u"బిస్లామా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bm"_s),
-			$of(u"బంబారా"_s)
+			"bm"_s,
+			u"బంబారా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bn"_s),
-			$of(u"బంగ్లా"_s)
+			"bn"_s,
+			u"బంగ్లా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bo"_s),
-			$of(metaValue_bo)
+			"bo"_s,
+			metaValue_bo
 		}),
 		$$new($ObjectArray, {
-			$of("dgr"_s),
-			$of(u"డోగ్రిబ్"_s)
+			"dgr"_s,
+			u"డోగ్రిబ్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("br"_s),
-			$of(u"బ్రెటన్"_s)
+			"br"_s,
+			u"బ్రెటన్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bs"_s),
-			$of(u"బోస్నియన్"_s)
+			"bs"_s,
+			u"బోస్నియన్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Mymr"_s),
-			$of(u"మయాన్మార్"_s)
+			"Mymr"_s,
+			u"మయాన్మార్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.laoo"_s),
-			$of(u"లావో అంకెలు"_s)
+			"type.nu.laoo"_s,
+			u"లావో అంకెలు"_s
 		}),
 		$$new($ObjectArray, {
-			$of("seh"_s),
-			$of(u"సెనా"_s)
+			"seh"_s,
+			u"సెనా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Nkoo"_s),
-			$of(metaValue_nqo)
+			"Nkoo"_s,
+			metaValue_nqo
 		}),
 		$$new($ObjectArray, {
-			$of("sel"_s),
-			$of(u"సేల్కప్"_s)
+			"sel"_s,
+			u"సేల్కప్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ca"_s),
-			$of(u"కాటలాన్"_s)
+			"ca"_s,
+			u"కాటలాన్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ses"_s),
-			$of(u"కోయోరాబోరో సెన్నీ"_s)
+			"ses"_s,
+			u"కోయోరాబోరో సెన్నీ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ce"_s),
-			$of(u"చెచెన్"_s)
+			"ce"_s,
+			u"చెచెన్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ch"_s),
-			$of(u"చమర్రో"_s)
+			"ch"_s,
+			u"చమర్రో"_s
 		}),
 		$$new($ObjectArray, {
-			$of("%%REVISED"_s),
-			$of(u"సవరించబడిన వర్ణక్రమం"_s)
+			"%%REVISED"_s,
+			u"సవరించబడిన వర్ణక్రమం"_s
 		}),
 		$$new($ObjectArray, {
-			$of("co"_s),
-			$of(u"కోర్సికన్"_s)
+			"co"_s,
+			u"కోర్సికన్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Orya"_s),
-			$of(metaValue_or)
+			"Orya"_s,
+			metaValue_or
 		}),
 		$$new($ObjectArray, {
-			$of("cr"_s),
-			$of(u"క్రి"_s)
+			"cr"_s,
+			u"క్రి"_s
 		}),
 		$$new($ObjectArray, {
-			$of("cs"_s),
-			$of(u"చెక్"_s)
+			"cs"_s,
+			u"చెక్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("cu"_s),
-			$of(u"చర్చ్ స్లావిక్"_s)
+			"cu"_s,
+			u"చర్చ్ స్లావిక్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("cv"_s),
-			$of(u"చువాష్"_s)
+			"cv"_s,
+			u"చువాష్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("cy"_s),
-			$of(u"వెల్ష్"_s)
+			"cy"_s,
+			u"వెల్ష్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.ethi"_s),
-			$of(u"ఎథియోపిక్ సంఖ్యలు"_s)
+			"type.nu.ethi"_s,
+			u"ఎథియోపిక్ సంఖ్యలు"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Yiii"_s),
-			$of(u"యి"_s)
+			"Yiii"_s,
+			u"యి"_s
 		}),
 		$$new($ObjectArray, {
-			$of("da"_s),
-			$of(u"డానిష్"_s)
+			"da"_s,
+			u"డానిష్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("pt_PT"_s),
-			$of(u"యూరోపియన్ పోర్చుగీస్"_s)
+			"pt_PT"_s,
+			u"యూరోపియన్ పోర్చుగీస్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("de"_s),
-			$of(u"జర్మన్"_s)
+			"de"_s,
+			u"జర్మన్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.cf.standard"_s),
-			$of(u"ప్రామాణిక కరెన్సీ ఫార్మాట్"_s)
+			"type.cf.standard"_s,
+			u"ప్రామాణిక కరెన్సీ ఫార్మాట్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bej"_s),
-			$of(u"బేజా"_s)
+			"bej"_s,
+			u"బేజా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("din"_s),
-			$of(u"డింకా"_s)
+			"din"_s,
+			u"డింకా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Bugi"_s),
-			$of(u"బ్యుగినీస్"_s)
+			"Bugi"_s,
+			u"బ్యుగినీస్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bem"_s),
-			$of(u"బెంబా"_s)
+			"bem"_s,
+			u"బెంబా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sga"_s),
-			$of(u"ప్రాచీన ఐరిష్"_s)
+			"sga"_s,
+			u"ప్రాచీన ఐరిష్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.mong"_s),
-			$of(u"మంగోలియన్ అంకెలు"_s)
+			"type.nu.mong"_s,
+			u"మంగోలియన్ అంకెలు"_s
 		}),
 		$$new($ObjectArray, {
-			$of("dv"_s),
-			$of(u"దివేహి"_s)
+			"dv"_s,
+			u"దివేహి"_s
 		}),
 		$$new($ObjectArray, {
-			$of("es_419"_s),
-			$of(u"లాటిన్ అమెరికన్ స్పానిష్"_s)
+			"es_419"_s,
+			u"లాటిన్ అమెరికన్ స్పానిష్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("dz"_s),
-			$of(u"జోంఖా"_s)
+			"dz"_s,
+			u"జోంఖా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bez"_s),
-			$of(u"బెనా"_s)
+			"bez"_s,
+			u"బెనా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.ca.chinese"_s),
-			$of(u"చైనీస్ క్యాలెండర్"_s)
+			"type.ca.chinese"_s,
+			u"చైనీస్ క్యాలెండర్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("dje"_s),
-			$of(u"జార్మా"_s)
+			"dje"_s,
+			u"జార్మా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.grek"_s),
-			$of(u"గ్రీక్ సంఖ్యలు"_s)
+			"type.nu.grek"_s,
+			u"గ్రీక్ సంఖ్యలు"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ee"_s),
-			$of(u"యూ"_s)
+			"ee"_s,
+			u"యూ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.lb.normal"_s),
-			$of(u"సాధారణ లైన్ బ్రేక్ శైలి"_s)
+			"type.lb.normal"_s,
+			u"సాధారణ లైన్ బ్రేక్ శైలి"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ro_MD"_s),
-			$of(u"మొల్డావియన్"_s)
+			"ro_MD"_s,
+			u"మొల్డావియన్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("el"_s),
-			$of(metaValue_el)
+			"el"_s,
+			metaValue_el
 		}),
 		$$new($ObjectArray, {
-			$of("en"_s),
-			$of(u"ఇంగ్లీష్"_s)
+			"en"_s,
+			u"ఇంగ్లీష్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("eo"_s),
-			$of(u"ఎస్పెరాంటో"_s)
+			"eo"_s,
+			u"ఎస్పెరాంటో"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.co.big5han"_s),
-			$of(u"సాంప్రదాయ చైనీస్ క్రమబద్ధీకరణ క్రమం - Big5"_s)
+			"type.co.big5han"_s,
+			u"సాంప్రదాయ చైనీస్ క్రమబద్ధీకరణ క్రమం - Big5"_s
 		}),
 		$$new($ObjectArray, {
-			$of("es"_s),
-			$of(u"స్పానిష్"_s)
+			"es"_s,
+			u"స్పానిష్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("et"_s),
-			$of(u"ఎస్టోనియన్"_s)
+			"et"_s,
+			u"ఎస్టోనియన్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Hanb"_s),
-			$of(u"హాన్బ్"_s)
+			"Hanb"_s,
+			u"హాన్బ్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("eu"_s),
-			$of(u"బాస్క్యూ"_s)
+			"eu"_s,
+			u"బాస్క్యూ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Buhd"_s),
-			$of(u"బుహిడ్"_s)
+			"Buhd"_s,
+			u"బుహిడ్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Hang"_s),
-			$of(u"హంగుల్"_s)
+			"Hang"_s,
+			u"హంగుల్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Samr"_s),
-			$of(u"సమారిటన్"_s)
+			"Samr"_s,
+			u"సమారిటన్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("shi"_s),
-			$of(u"టాచెల్\u200cహిట్"_s)
+			"shi"_s,
+			u"టాచెల్\u200cహిట్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("hsb"_s),
-			$of(u"అప్పర్ సోర్బియన్"_s)
+			"hsb"_s,
+			u"అప్పర్ సోర్బియన్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Hani"_s),
-			$of(u"హాన్"_s)
+			"Hani"_s,
+			u"హాన్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("shn"_s),
-			$of(u"షాన్"_s)
+			"shn"_s,
+			u"షాన్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Hano"_s),
-			$of(u"హనునూ"_s)
+			"Hano"_s,
+			u"హనునూ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("fa"_s),
-			$of(u"పర్షియన్"_s)
+			"fa"_s,
+			u"పర్షియన్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Hans"_s),
-			$of(u"సరళీకృతం"_s)
+			"Hans"_s,
+			u"సరళీకృతం"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.latn"_s),
-			$of(u"పశ్చిమ అంకెలు"_s)
+			"type.nu.latn"_s,
+			u"పశ్చిమ అంకెలు"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Hant"_s),
-			$of(u"సాంప్రదాయక"_s)
+			"Hant"_s,
+			u"సాంప్రదాయక"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ff"_s),
-			$of(u"ఫ్యుల"_s)
+			"ff"_s,
+			u"ఫ్యుల"_s
 		}),
 		$$new($ObjectArray, {
-			$of("hsn"_s),
-			$of(u"జియాంగ్ చైనీస్"_s)
+			"hsn"_s,
+			u"జియాంగ్ చైనీస్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("fi"_s),
-			$of(u"ఫిన్నిష్"_s)
+			"fi"_s,
+			u"ఫిన్నిష్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("fj"_s),
-			$of(u"ఫిజియన్"_s)
+			"fj"_s,
+			u"ఫిజియన్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("fon"_s),
-			$of(u"ఫాన్"_s)
+			"fon"_s,
+			u"ఫాన్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bgn"_s),
-			$of(u"పశ్చిమ బలూచీ"_s)
+			"bgn"_s,
+			u"పశ్చిమ బలూచీ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("yue"_s),
-			$of(u"కాంటనీస్"_s)
+			"yue"_s,
+			u"కాంటనీస్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("fo"_s),
-			$of(u"ఫారోస్"_s)
+			"fo"_s,
+			u"ఫారోస్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.m0.bgn"_s),
-			$of(u"US BGN ట్రాన్స్\u200cలిట్రేషన్"_s)
+			"type.m0.bgn"_s,
+			u"US BGN ట్రాన్స్\u200cలిట్రేషన్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("umb"_s),
-			$of(u"ఉమ్బుండు"_s)
+			"umb"_s,
+			u"ఉమ్బుండు"_s
 		}),
 		$$new($ObjectArray, {
-			$of("fr"_s),
-			$of(u"ఫ్రెంచ్"_s)
+			"fr"_s,
+			u"ఫ్రెంచ్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sid"_s),
-			$of(u"సిడామో"_s)
+			"sid"_s,
+			u"సిడామో"_s
 		}),
 		$$new($ObjectArray, {
-			$of("fy"_s),
-			$of(u"పశ్చిమ ఫ్రిసియన్"_s)
+			"fy"_s,
+			u"పశ్చిమ ఫ్రిసియన్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ga"_s),
-			$of(u"ఐరిష్"_s)
+			"ga"_s,
+			u"ఐరిష్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gd"_s),
-			$of(u"స్కాటిష్ గేలిక్"_s)
+			"gd"_s,
+			u"స్కాటిష్ గేలిక్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gl"_s),
-			$of(u"గాలిషియన్"_s)
+			"gl"_s,
+			u"గాలిషియన్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gn"_s),
-			$of(u"గ్వారనీ"_s)
+			"gn"_s,
+			u"గ్వారనీ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bho"_s),
-			$of(u"భోజ్\u200cపురి"_s)
+			"bho"_s,
+			u"భోజ్\u200cపురి"_s
 		}),
 		$$new($ObjectArray, {
-			$of("und"_s),
-			$of(u"తెలియని భాష"_s)
+			"und"_s,
+			u"తెలియని భాష"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.ca.ethiopic-amete-alem"_s),
-			$of(u"ఎథోపిక్ అమేటే అలెమ్ క్యాలెండర్"_s)
+			"type.ca.ethiopic-amete-alem"_s,
+			u"ఎథోపిక్ అమేటే అలెమ్ క్యాలెండర్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.ca.islamic-tbla"_s),
-			$of(metaValue_type_ca_islamic)
+			"type.ca.islamic-tbla"_s,
+			metaValue_type_ca_islamic
 		}),
 		$$new($ObjectArray, {
-			$of("gu"_s),
-			$of(u"గుజరాతి"_s)
+			"gu"_s,
+			u"గుజరాతి"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gv"_s),
-			$of(u"మాంక్స్"_s)
+			"gv"_s,
+			u"మాంక్స్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ha"_s),
-			$of(u"హౌసా"_s)
+			"ha"_s,
+			u"హౌసా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("he"_s),
-			$of(u"హిబ్రూ"_s)
+			"he"_s,
+			u"హిబ్రూ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("hi"_s),
-			$of(u"హిందీ"_s)
+			"hi"_s,
+			u"హిందీ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("hup"_s),
-			$of(u"హుపా"_s)
+			"hup"_s,
+			u"హుపా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bik"_s),
-			$of(u"బికోల్"_s)
+			"bik"_s,
+			u"బికోల్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bin"_s),
-			$of(u"బిని"_s)
+			"bin"_s,
+			u"బిని"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ho"_s),
-			$of(u"హిరి మోటు"_s)
+			"ho"_s,
+			u"హిరి మోటు"_s
 		}),
 		$$new($ObjectArray, {
-			$of("hr"_s),
-			$of(u"క్రొయేషియన్"_s)
+			"hr"_s,
+			u"క్రొయేషియన్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ht"_s),
-			$of(u"హైటియన్ క్రియోల్"_s)
+			"ht"_s,
+			u"హైటియన్ క్రియోల్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("hu"_s),
-			$of(u"హంగేరియన్"_s)
+			"hu"_s,
+			u"హంగేరియన్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("hy"_s),
-			$of(u"ఆర్మేనియన్"_s)
+			"hy"_s,
+			u"ఆర్మేనియన్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("hz"_s),
-			$of(u"హెరెరో"_s)
+			"hz"_s,
+			u"హెరెరో"_s
 		}),
 		$$new($ObjectArray, {
-			$of("frc"_s),
-			$of(u"కాజున్ ఫ్రెంచ్"_s)
+			"frc"_s,
+			u"కాజున్ ఫ్రెంచ్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ia"_s),
-			$of(u"ఇంటర్లింగ్వా"_s)
+			"ia"_s,
+			u"ఇంటర్లింగ్వా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Jamo"_s),
-			$of(u"జమో"_s)
+			"Jamo"_s,
+			u"జమో"_s
 		}),
 		$$new($ObjectArray, {
-			$of("id"_s),
-			$of(u"ఇండోనేషియన్"_s)
+			"id"_s,
+			u"ఇండోనేషియన్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.tibt"_s),
-			$of(u"టిబిటన్ అంకెలు"_s)
+			"type.nu.tibt"_s,
+			u"టిబిటన్ అంకెలు"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ie"_s),
-			$of(u"ఇంటర్లింగ్"_s)
+			"ie"_s,
+			u"ఇంటర్లింగ్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ig"_s),
-			$of(u"ఇగ్బో"_s)
+			"ig"_s,
+			u"ఇగ్బో"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ii"_s),
-			$of(u"శిషువన్ ఈ"_s)
+			"ii"_s,
+			u"శిషువన్ ఈ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("frm"_s),
-			$of(u"మధ్యమ ప్రెంచ్"_s)
+			"frm"_s,
+			u"మధ్యమ ప్రెంచ్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ik"_s),
-			$of(u"ఇనుపైయాక్"_s)
+			"ik"_s,
+			u"ఇనుపైయాక్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("fro"_s),
-			$of(u"ప్రాచీన ఫ్రెంచ్"_s)
+			"fro"_s,
+			u"ప్రాచీన ఫ్రెంచ్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("io"_s),
-			$of(u"ఈడో"_s)
+			"io"_s,
+			u"ఈడో"_s
 		}),
 		$$new($ObjectArray, {
-			$of("frs"_s),
-			$of(u"తూర్పు ఫ్రిసియన్"_s)
+			"frs"_s,
+			u"తూర్పు ఫ్రిసియన్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("frr"_s),
-			$of(u"ఉత్తర ఫ్రిసియన్"_s)
+			"frr"_s,
+			u"ఉత్తర ఫ్రిసియన్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("is"_s),
-			$of(u"ఐస్లాండిక్"_s)
+			"is"_s,
+			u"ఐస్లాండిక్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("it"_s),
-			$of(u"ఇటాలియన్"_s)
+			"it"_s,
+			u"ఇటాలియన్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("iu"_s),
-			$of(u"ఇనుక్టిటుట్"_s)
+			"iu"_s,
+			u"ఇనుక్టిటుట్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Mlym"_s),
-			$of(metaValue_ml)
+			"Mlym"_s,
+			metaValue_ml
 		}),
 		$$new($ObjectArray, {
-			$of("ja"_s),
-			$of(u"జపనీస్"_s)
+			"ja"_s,
+			u"జపనీస్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Sara"_s),
-			$of(u"సరాటి"_s)
+			"Sara"_s,
+			u"సరాటి"_s
 		}),
 		$$new($ObjectArray, {
-			$of("doi"_s),
-			$of(u"డోగ్రి"_s)
+			"doi"_s,
+			u"డోగ్రి"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sma"_s),
-			$of(u"దక్షిణ సామి"_s)
+			"sma"_s,
+			u"దక్షిణ సామి"_s
 		}),
 		$$new($ObjectArray, {
-			$of("jv"_s),
-			$of(metaValue_jv)
+			"jv"_s,
+			metaValue_jv
 		}),
 		$$new($ObjectArray, {
-			$of("Shaw"_s),
-			$of(u"షవియాన్"_s)
+			"Shaw"_s,
+			u"షవియాన్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mad"_s),
-			$of(u"మాదురీస్"_s)
+			"mad"_s,
+			u"మాదురీస్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("smj"_s),
-			$of(u"లులే సామి"_s)
+			"smj"_s,
+			u"లులే సామి"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mag"_s),
-			$of(u"మగాహి"_s)
+			"mag"_s,
+			u"మగాహి"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mai"_s),
-			$of(u"మైథిలి"_s)
+			"mai"_s,
+			u"మైథిలి"_s
 		}),
 		$$new($ObjectArray, {
-			$of("smn"_s),
-			$of(u"ఇనారి సామి"_s)
+			"smn"_s,
+			u"ఇనారి సామి"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ka"_s),
-			$of(metaValue_ka)
+			"ka"_s,
+			metaValue_ka
 		}),
 		$$new($ObjectArray, {
-			$of("bla"_s),
-			$of(u"సిక్సికా"_s)
+			"bla"_s,
+			u"సిక్సికా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mak"_s),
-			$of(u"మకాసార్"_s)
+			"mak"_s,
+			u"మకాసార్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("wuu"_s),
-			$of(u"వు చైనీస్"_s)
+			"wuu"_s,
+			u"వు చైనీస్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sms"_s),
-			$of(u"స్కోల్ట్ సామి"_s)
+			"sms"_s,
+			u"స్కోల్ట్ సామి"_s
 		}),
 		$$new($ObjectArray, {
-			$of("man"_s),
-			$of(u"మండింగో"_s)
+			"man"_s,
+			u"మండింగో"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kg"_s),
-			$of(u"కోంగో"_s)
+			"kg"_s,
+			u"కోంగో"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Goth"_s),
-			$of(u"గోతిక్"_s)
+			"Goth"_s,
+			u"గోతిక్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ki"_s),
-			$of(u"కికుయు"_s)
+			"ki"_s,
+			u"కికుయు"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mas"_s),
-			$of(u"మాసై"_s)
+			"mas"_s,
+			u"మాసై"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kj"_s),
-			$of(u"క్వాన్యామ"_s)
+			"kj"_s,
+			u"క్వాన్యామ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kk"_s),
-			$of(u"కజఖ్"_s)
+			"kk"_s,
+			u"కజఖ్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kl"_s),
-			$of(u"కలాల్లిసూట్"_s)
+			"kl"_s,
+			u"కలాల్లిసూట్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("km"_s),
-			$of(metaValue_km)
+			"km"_s,
+			metaValue_km
 		}),
 		$$new($ObjectArray, {
-			$of("kn"_s),
-			$of(metaValue_kn)
+			"kn"_s,
+			metaValue_kn
 		}),
 		$$new($ObjectArray, {
-			$of("ko"_s),
-			$of(metaValue_ko)
+			"ko"_s,
+			metaValue_ko
 		}),
 		$$new($ObjectArray, {
-			$of("kr"_s),
-			$of(u"కానురి"_s)
+			"kr"_s,
+			u"కానురి"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ks"_s),
-			$of(u"కాశ్మీరి"_s)
+			"ks"_s,
+			u"కాశ్మీరి"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Cirt"_s),
-			$of(u"సిర్థ్"_s)
+			"Cirt"_s,
+			u"సిర్థ్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Lepc"_s),
-			$of(u"లేప్చా"_s)
+			"Lepc"_s,
+			u"లేప్చా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Avst"_s),
-			$of(metaValue_ae)
+			"Avst"_s,
+			metaValue_ae
 		}),
 		$$new($ObjectArray, {
-			$of("ku"_s),
-			$of(u"కుర్దిష్"_s)
+			"ku"_s,
+			u"కుర్దిష్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kv"_s),
-			$of(u"కోమి"_s)
+			"kv"_s,
+			u"కోమి"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kw"_s),
-			$of(u"కోర్నిష్"_s)
+			"kw"_s,
+			u"కోర్నిష్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ky"_s),
-			$of(u"కిర్గిజ్"_s)
+			"ky"_s,
+			u"కిర్గిజ్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("snk"_s),
-			$of(u"సోనింకి"_s)
+			"snk"_s,
+			u"సోనింకి"_s
 		}),
 		$$new($ObjectArray, {
-			$of("la"_s),
-			$of(metaValue_la)
+			"la"_s,
+			metaValue_la
 		}),
 		$$new($ObjectArray, {
-			$of("lb"_s),
-			$of(u"లక్సెంబర్గిష్"_s)
+			"lb"_s,
+			u"లక్సెంబర్గిష్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.mlym"_s),
-			$of(u"మలయాళం అంకెలు"_s)
+			"type.nu.mlym"_s,
+			u"మలయాళం అంకెలు"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lg"_s),
-			$of(u"గాండా"_s)
+			"lg"_s,
+			u"గాండా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Roro"_s),
-			$of(u"రోంగో రోంగో"_s)
+			"Roro"_s,
+			u"రోంగో రోంగో"_s
 		}),
 		$$new($ObjectArray, {
-			$of("li"_s),
-			$of(u"లిమ్బర్గిష్"_s)
+			"li"_s,
+			u"లిమ్బర్గిష్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Tibt"_s),
-			$of(metaValue_bo)
+			"Tibt"_s,
+			metaValue_bo
 		}),
 		$$new($ObjectArray, {
-			$of("ln"_s),
-			$of(u"లింగాల"_s)
+			"ln"_s,
+			u"లింగాల"_s
 		}),
 		$$new($ObjectArray, {
-			$of("fur"_s),
-			$of(u"ఫ్రియులియన్"_s)
+			"fur"_s,
+			u"ఫ్రియులియన్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lo"_s),
-			$of(metaValue_lo)
+			"lo"_s,
+			metaValue_lo
 		}),
 		$$new($ObjectArray, {
-			$of("type.ms.uksystem"_s),
-			$of(u"ఇంపీరియల్ కొలమాన పద్ధతి"_s)
+			"type.ms.uksystem"_s,
+			u"ఇంపీరియల్ కొలమాన పద్ధతి"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lt"_s),
-			$of(u"లిథువేనియన్"_s)
+			"lt"_s,
+			u"లిథువేనియన్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lu"_s),
-			$of(u"లూబ-కటాంగ"_s)
+			"lu"_s,
+			u"లూబ-కటాంగ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lv"_s),
-			$of(u"లాట్వియన్"_s)
+			"lv"_s,
+			u"లాట్వియన్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sog"_s),
-			$of(u"సోగ్డియన్"_s)
+			"sog"_s,
+			u"సోగ్డియన్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mg"_s),
-			$of(u"మలగాసి"_s)
+			"mg"_s,
+			u"మలగాసి"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mh"_s),
-			$of(u"మార్షలీస్"_s)
+			"mh"_s,
+			u"మార్షలీస్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.co.ducet"_s),
-			$of(u"డిఫాల్ట్ యూనీకోడ్ క్రమబద్ధీకరణ క్రమం"_s)
+			"type.co.ducet"_s,
+			u"డిఫాల్ట్ యూనీకోడ్ క్రమబద్ధీకరణ క్రమం"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mi"_s),
-			$of(u"మావొరీ"_s)
+			"mi"_s,
+			u"మావొరీ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mk"_s),
-			$of(u"మాసిడోనియన్"_s)
+			"mk"_s,
+			u"మాసిడోనియన్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ml"_s),
-			$of(metaValue_ml)
+			"ml"_s,
+			metaValue_ml
 		}),
 		$$new($ObjectArray, {
-			$of("mn"_s),
-			$of(metaValue_mn)
+			"mn"_s,
+			metaValue_mn
 		}),
 		$$new($ObjectArray, {
-			$of("mr"_s),
-			$of(u"మరాఠీ"_s)
+			"mr"_s,
+			u"మరాఠీ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ms"_s),
-			$of(u"మలయ్"_s)
+			"ms"_s,
+			u"మలయ్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mt"_s),
-			$of(u"మాల్టీస్"_s)
+			"mt"_s,
+			u"మాల్టీస్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("my"_s),
-			$of(u"బర్మీస్"_s)
+			"my"_s,
+			u"బర్మీస్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Saur"_s),
-			$of(u"సౌరాష్ట్ర"_s)
+			"Saur"_s,
+			u"సౌరాష్ట్ర"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Armn"_s),
-			$of(u"అర్మేనియన్"_s)
+			"Armn"_s,
+			u"అర్మేనియన్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mdf"_s),
-			$of(u"మోక్ష"_s)
+			"mdf"_s,
+			u"మోక్ష"_s
 		}),
 		$$new($ObjectArray, {
-			$of("dsb"_s),
-			$of(u"లోయర్ సోర్బియన్"_s)
+			"dsb"_s,
+			u"లోయర్ సోర్బియన్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Armi"_s),
-			$of(u"ఇంపీరియల్ అరామాక్"_s)
+			"Armi"_s,
+			u"ఇంపీరియల్ అరామాక్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("na"_s),
-			$of(metaValue_NR)
+			"na"_s,
+			metaValue_NR
 		}),
 		$$new($ObjectArray, {
-			$of("type.co.search"_s),
-			$of(u"సాధారణ-ప్రయోజన శోధన"_s)
+			"type.co.search"_s,
+			u"సాధారణ-ప్రయోజన శోధన"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nb"_s),
-			$of(u"నార్వేజియన్ బొక్మాల్"_s)
+			"nb"_s,
+			u"నార్వేజియన్ బొక్మాల్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nd"_s),
-			$of(u"ఉత్తర దెబెలె"_s)
+			"nd"_s,
+			u"ఉత్తర దెబెలె"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ne"_s),
-			$of(u"నేపాలి"_s)
+			"ne"_s,
+			u"నేపాలి"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ng"_s),
-			$of(u"డోంగా"_s)
+			"ng"_s,
+			u"డోంగా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mdr"_s),
-			$of(u"మండార్"_s)
+			"mdr"_s,
+			u"మండార్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nl"_s),
-			$of(u"డచ్"_s)
+			"nl"_s,
+			u"డచ్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nn"_s),
-			$of(u"నార్వేజియాన్ న్యోర్స్క్"_s)
+			"nn"_s,
+			u"నార్వేజియాన్ న్యోర్స్క్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("no"_s),
-			$of(u"నార్వేజియన్"_s)
+			"no"_s,
+			u"నార్వేజియన్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nr"_s),
-			$of(u"దక్షిణ దెబెలె"_s)
+			"nr"_s,
+			u"దక్షిణ దెబెలె"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nv"_s),
-			$of(u"నవాజొ"_s)
+			"nv"_s,
+			u"నవాజొ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kaa"_s),
-			$of(u"కారా-కల్పాక్"_s)
+			"kaa"_s,
+			u"కారా-కల్పాక్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ny"_s),
-			$of(u"న్యాన్జా"_s)
+			"ny"_s,
+			u"న్యాన్జా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kac"_s),
-			$of(u"కాచిన్"_s)
+			"kac"_s,
+			u"కాచిన్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kab"_s),
-			$of(u"కాబిల్"_s)
+			"kab"_s,
+			u"కాబిల్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("oc"_s),
-			$of(u"ఆక్సిటన్"_s)
+			"oc"_s,
+			u"ఆక్సిటన్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kaj"_s),
-			$of(u"జ్యూ"_s)
+			"kaj"_s,
+			u"జ్యూ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kam"_s),
-			$of(u"కంబా"_s)
+			"kam"_s,
+			u"కంబా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("men"_s),
-			$of(u"మెండే"_s)
+			"men"_s,
+			u"మెండే"_s
 		}),
 		$$new($ObjectArray, {
-			$of("oj"_s),
-			$of(u"చేవా"_s)
+			"oj"_s,
+			u"చేవా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mer"_s),
-			$of(u"మెరు"_s)
+			"mer"_s,
+			u"మెరు"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.armn"_s),
-			$of(u"ఆర్మేనియన్ సంఖ్యలు"_s)
+			"type.nu.armn"_s,
+			u"ఆర్మేనియన్ సంఖ్యలు"_s
 		}),
 		$$new($ObjectArray, {
-			$of("om"_s),
-			$of(u"ఒరోమో"_s)
+			"om"_s,
+			u"ఒరోమో"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kaw"_s),
-			$of(u"కావి"_s)
+			"kaw"_s,
+			u"కావి"_s
 		}),
 		$$new($ObjectArray, {
-			$of("or"_s),
-			$of(metaValue_or)
+			"or"_s,
+			metaValue_or
 		}),
 		$$new($ObjectArray, {
-			$of("os"_s),
-			$of(u"ఒసేటిక్"_s)
+			"os"_s,
+			u"ఒసేటిక్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bpy"_s),
-			$of(u"బిష్ణుప్రియ"_s)
+			"bpy"_s,
+			u"బిష్ణుప్రియ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kbd"_s),
-			$of(u"కబార్డియన్"_s)
+			"kbd"_s,
+			u"కబార్డియన్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mfe"_s),
-			$of(u"మొరిస్యేన్"_s)
+			"mfe"_s,
+			u"మొరిస్యేన్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("srn"_s),
-			$of(u"స్రానన్ టోంగో"_s)
+			"srn"_s,
+			u"స్రానన్ టోంగో"_s
 		}),
 		$$new($ObjectArray, {
-			$of("pa"_s),
-			$of(u"పంజాబీ"_s)
+			"pa"_s,
+			u"పంజాబీ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("dua"_s),
-			$of(u"డ్యూలా"_s)
+			"dua"_s,
+			u"డ్యూలా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("srr"_s),
-			$of(u"సెరేర్"_s)
+			"srr"_s,
+			u"సెరేర్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("pi"_s),
-			$of(u"పాలీ"_s)
+			"pi"_s,
+			u"పాలీ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("pl"_s),
-			$of(u"పోలిష్"_s)
+			"pl"_s,
+			u"పోలిష్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("dum"_s),
-			$of(u"మధ్యమ డచ్"_s)
+			"dum"_s,
+			u"మధ్యమ డచ్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.ca.dangi"_s),
-			$of(u"దాంగీ క్యాలెండర్"_s)
+			"type.ca.dangi"_s,
+			u"దాంగీ క్యాలెండర్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ps"_s),
-			$of(u"పాష్టో"_s)
+			"ps"_s,
+			u"పాష్టో"_s
 		}),
 		$$new($ObjectArray, {
-			$of("pt"_s),
-			$of(u"పోర్చుగీస్"_s)
+			"pt"_s,
+			u"పోర్చుగీస్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mga"_s),
-			$of(u"మధ్యమ ఐరిష్"_s)
+			"mga"_s,
+			u"మధ్యమ ఐరిష్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("key.co"_s),
-			$of(u"క్రమబద్ధీకరణ క్రమం"_s)
+			"key.co"_s,
+			u"క్రమబద్ధీకరణ క్రమం"_s
 		}),
 		$$new($ObjectArray, {
-			$of("pt_BR"_s),
-			$of(u"బ్రెజీలియన్ పోర్చుగీస్"_s)
+			"pt_BR"_s,
+			u"బ్రెజీలియన్ పోర్చుగీస్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kcg"_s),
-			$of(u"ట్యాప్"_s)
+			"kcg"_s,
+			u"ట్యాప్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mgh"_s),
-			$of(u"మక్వా-మిట్టో"_s)
+			"mgh"_s,
+			u"మక్వా-మిట్టో"_s
 		}),
 		$$new($ObjectArray, {
-			$of("key.cf"_s),
-			$of(u"కరెన్సీ ఫార్మాట్"_s)
+			"key.cf"_s,
+			u"కరెన్సీ ఫార్మాట్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bra"_s),
-			$of(u"బ్రాజ్"_s)
+			"bra"_s,
+			u"బ్రాజ్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("key.ca"_s),
-			$of(u"క్యాలెండర్"_s)
+			"key.ca"_s,
+			u"క్యాలెండర్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Laoo"_s),
-			$of(metaValue_lo)
+			"Laoo"_s,
+			metaValue_lo
 		}),
 		$$new($ObjectArray, {
-			$of("mgo"_s),
-			$of(u"మెటా"_s)
+			"mgo"_s,
+			u"మెటా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.hc.h23"_s),
-			$of(u"24 గంటల పద్ధతి (0–23)"_s)
+			"type.hc.h23"_s,
+			u"24 గంటల పద్ధతి (0–23)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.hc.h24"_s),
-			$of(u"24 గంటల పద్ధతి (1–24)"_s)
+			"type.hc.h24"_s,
+			u"24 గంటల పద్ధతి (1–24)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ssy"_s),
-			$of(u"సాహో"_s)
+			"ssy"_s,
+			u"సాహో"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.mymr"_s),
-			$of(u"మయన్మార్ అంకెలు"_s)
+			"type.nu.mymr"_s,
+			u"మయన్మార్ అంకెలు"_s
 		}),
 		$$new($ObjectArray, {
-			$of("qu"_s),
-			$of(u"కెచువా"_s)
+			"qu"_s,
+			u"కెచువా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("zap"_s),
-			$of(u"జపోటెక్"_s)
+			"zap"_s,
+			u"జపోటెక్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("brx"_s),
-			$of(u"బోడో"_s)
+			"brx"_s,
+			u"బోడో"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Lana"_s),
-			$of(u"లన్నా"_s)
+			"Lana"_s,
+			u"లన్నా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kde"_s),
-			$of(u"మకొండే"_s)
+			"kde"_s,
+			u"మకొండే"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Ethi"_s),
-			$of(u"ఇథియోపిక్"_s)
+			"Ethi"_s,
+			u"ఇథియోపిక్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.hc.h12"_s),
-			$of(u"12 గంటల పద్ధతి (1–12)"_s)
+			"type.hc.h12"_s,
+			u"12 గంటల పద్ధతి (1–12)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.hc.h11"_s),
-			$of(u"12 గంటల పద్ధతి (0–11)"_s)
+			"type.hc.h11"_s,
+			u"12 గంటల పద్ధతి (0–11)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("rm"_s),
-			$of(u"రోమన్ష్"_s)
+			"rm"_s,
+			u"రోమన్ష్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("rn"_s),
-			$of(u"రుండి"_s)
+			"rn"_s,
+			u"రుండి"_s
 		}),
 		$$new($ObjectArray, {
-			$of("key.cu"_s),
-			$of(u"కరెన్సీ"_s)
+			"key.cu"_s,
+			u"కరెన్సీ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ro"_s),
-			$of(u"రోమేనియన్"_s)
+			"ro"_s,
+			u"రోమేనియన్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.orya"_s),
-			$of(u"ఒరియా అంకెలు"_s)
+			"type.nu.orya"_s,
+			u"ఒరియా అంకెలు"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.hanidec"_s),
-			$of(u"చైనీయుల దశాంశ సంఖ్యలు"_s)
+			"type.nu.hanidec"_s,
+			u"చైనీయుల దశాంశ సంఖ్యలు"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ru"_s),
-			$of(u"రష్యన్"_s)
+			"ru"_s,
+			u"రష్యన్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("rw"_s),
-			$of(u"కిన్యర్వాండా"_s)
+			"rw"_s,
+			u"కిన్యర్వాండా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("zbl"_s),
-			$of(u"బ్లిసింబల్స్"_s)
+			"zbl"_s,
+			u"బ్లిసింబల్స్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kea"_s),
-			$of(u"కాబువేర్దియను"_s)
+			"kea"_s,
+			u"కాబువేర్దియను"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mic"_s),
-			$of(u"మికమాక్"_s)
+			"mic"_s,
+			u"మికమాక్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("suk"_s),
-			$of(u"సుకుమా"_s)
+			"suk"_s,
+			u"సుకుమా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("en_AU"_s),
-			$of(u"ఆస్ట్రేలియన్ ఇంగ్లీష్"_s)
+			"en_AU"_s,
+			u"ఆస్ట్రేలియన్ ఇంగ్లీష్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sa"_s),
-			$of(u"సంస్కృతం"_s)
+			"sa"_s,
+			u"సంస్కృతం"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sc"_s),
-			$of(u"సార్డీనియన్"_s)
+			"sc"_s,
+			u"సార్డీనియన్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sus"_s),
-			$of(u"సుసు"_s)
+			"sus"_s,
+			u"సుసు"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sd"_s),
-			$of(u"సింధీ"_s)
+			"sd"_s,
+			u"సింధీ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("se"_s),
-			$of(u"ఉత్తర సామి"_s)
+			"se"_s,
+			u"ఉత్తర సామి"_s
 		}),
 		$$new($ObjectArray, {
-			$of("min"_s),
-			$of(u"మినాంగ్\u200cకాబో"_s)
+			"min"_s,
+			u"మినాంగ్\u200cకాబో"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sg"_s),
-			$of(u"సాంగో"_s)
+			"sg"_s,
+			u"సాంగో"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sh"_s),
-			$of(u"సేర్బో-క్రొయేషియన్"_s)
+			"sh"_s,
+			u"సేర్బో-క్రొయేషియన్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("si"_s),
-			$of(metaValue_si)
+			"si"_s,
+			metaValue_si
 		}),
 		$$new($ObjectArray, {
-			$of("sux"_s),
-			$of(u"సుమేరియాన్"_s)
+			"sux"_s,
+			u"సుమేరియాన్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sk"_s),
-			$of(u"స్లోవక్"_s)
+			"sk"_s,
+			u"స్లోవక్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sl"_s),
-			$of(u"స్లోవేనియన్"_s)
+			"sl"_s,
+			u"స్లోవేనియన్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sm"_s),
-			$of(u"సమోవన్"_s)
+			"sm"_s,
+			u"సమోవన్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sn"_s),
-			$of(u"షోన"_s)
+			"sn"_s,
+			u"షోన"_s
 		}),
 		$$new($ObjectArray, {
-			$of("so"_s),
-			$of(u"సోమాలి"_s)
+			"so"_s,
+			u"సోమాలి"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.arab"_s),
-			$of(u"అరబిక్-ఇండిక్ అంకెలు"_s)
+			"type.nu.arab"_s,
+			u"అరబిక్-ఇండిక్ అంకెలు"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sq"_s),
-			$of(u"అల్బేనియన్"_s)
+			"sq"_s,
+			u"అల్బేనియన్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sr"_s),
-			$of(u"సెర్బియన్"_s)
+			"sr"_s,
+			u"సెర్బియన్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ss"_s),
-			$of(u"స్వాతి"_s)
+			"ss"_s,
+			u"స్వాతి"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.cf.account"_s),
-			$of(u"అకౌంటింగ్ కరెన్సీ ఫార్మాట్"_s)
+			"type.cf.account"_s,
+			u"అకౌంటింగ్ కరెన్సీ ఫార్మాట్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Java"_s),
-			$of(metaValue_jv)
+			"Java"_s,
+			metaValue_jv
 		}),
 		$$new($ObjectArray, {
-			$of("st"_s),
-			$of(u"దక్షిణ సోతో"_s)
+			"st"_s,
+			u"దక్షిణ సోతో"_s
 		}),
 		$$new($ObjectArray, {
-			$of("su"_s),
-			$of(u"సండానీస్"_s)
+			"su"_s,
+			u"సండానీస్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sv"_s),
-			$of(u"స్వీడిష్"_s)
+			"sv"_s,
+			u"స్వీడిష్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sw"_s),
-			$of(u"స్వాహిలి"_s)
+			"sw"_s,
+			u"స్వాహిలి"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.hantfin"_s),
-			$of(u"సాంప్రదాయ చైనీయుల ఆర్థిక సంఖ్యలు"_s)
+			"type.nu.hantfin"_s,
+			u"సాంప్రదాయ చైనీయుల ఆర్థిక సంఖ్యలు"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ibb"_s),
-			$of(u"ఇబిబియో"_s)
+			"ibb"_s,
+			u"ఇబిబియో"_s
 		}),
 		$$new($ObjectArray, {
-			$of("iba"_s),
-			$of(u"ఐబాన్"_s)
+			"iba"_s,
+			u"ఐబాన్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ta"_s),
-			$of(metaValue_ta)
+			"ta"_s,
+			metaValue_ta
 		}),
 		$$new($ObjectArray, {
-			$of("142"_s),
-			$of(u"ఆసియా"_s)
+			"142"_s,
+			u"ఆసియా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bua"_s),
-			$of(u"బురియట్"_s)
+			"bua"_s,
+			u"బురియట్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("143"_s),
-			$of(u"మధ్య ఆసియా"_s)
+			"143"_s,
+			u"మధ్య ఆసియా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("te"_s),
-			$of(metaValue_te)
+			"te"_s,
+			metaValue_te
 		}),
 		$$new($ObjectArray, {
-			$of("145"_s),
-			$of(u"పశ్చిమ ఆసియా"_s)
+			"145"_s,
+			u"పశ్చిమ ఆసియా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tg"_s),
-			$of(u"తజిక్"_s)
+			"tg"_s,
+			u"తజిక్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("th"_s),
-			$of(metaValue_th)
+			"th"_s,
+			metaValue_th
 		}),
 		$$new($ObjectArray, {
-			$of("ti"_s),
-			$of(u"టిగ్రిన్యా"_s)
+			"ti"_s,
+			u"టిగ్రిన్యా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bug"_s),
-			$of(u"బుగినీస్"_s)
+			"bug"_s,
+			u"బుగినీస్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kfo"_s),
-			$of(u"కోరో"_s)
+			"kfo"_s,
+			u"కోరో"_s
 		}),
 		$$new($ObjectArray, {
-			$of("en_CA"_s),
-			$of(u"కెనడియన్ ఇంగ్లీష్"_s)
+			"en_CA"_s,
+			u"కెనడియన్ ఇంగ్లీష్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tk"_s),
-			$of(u"తుర్క్\u200cమెన్"_s)
+			"tk"_s,
+			u"తుర్క్\u200cమెన్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tl"_s),
-			$of(metaValue_tl)
+			"tl"_s,
+			metaValue_tl
 		}),
 		$$new($ObjectArray, {
-			$of("tn"_s),
-			$of(u"స్వానా"_s)
+			"tn"_s,
+			u"స్వానా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("to"_s),
-			$of(u"టాంగాన్"_s)
+			"to"_s,
+			u"టాంగాన్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("dyo"_s),
-			$of(u"జోలా-ఫోనయి"_s)
+			"dyo"_s,
+			u"జోలా-ఫోనయి"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.jpan"_s),
-			$of(u"జపానీయుల సంఖ్యలు"_s)
+			"type.nu.jpan"_s,
+			u"జపానీయుల సంఖ్యలు"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tr"_s),
-			$of(u"టర్కిష్"_s)
+			"tr"_s,
+			u"టర్కిష్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Cakm"_s),
-			$of(metaValue_ccp)
+			"Cakm"_s,
+			metaValue_ccp
 		}),
 		$$new($ObjectArray, {
-			$of("ts"_s),
-			$of(u"సోంగా"_s)
+			"ts"_s,
+			u"సోంగా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("swb"_s),
-			$of(u"కొమొరియన్"_s)
+			"swb"_s,
+			u"కొమొరియన్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tt"_s),
-			$of(u"టాటర్"_s)
+			"tt"_s,
+			u"టాటర్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("dyu"_s),
-			$of(u"డ్యులా"_s)
+			"dyu"_s,
+			u"డ్యులా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tw"_s),
-			$of(u"ట్వి"_s)
+			"tw"_s,
+			u"ట్వి"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ty"_s),
-			$of(u"తహితియన్"_s)
+			"ty"_s,
+			u"తహితియన్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("150"_s),
-			$of(u"యూరోప్"_s)
+			"150"_s,
+			u"యూరోప్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("151"_s),
-			$of(u"తూర్పు యూరోప్"_s)
+			"151"_s,
+			u"తూర్పు యూరోప్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("154"_s),
-			$of(u"ఉత్తర యూరోప్"_s)
+			"154"_s,
+			u"ఉత్తర యూరోప్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("dzg"_s),
-			$of(u"డాజాగా"_s)
+			"dzg"_s,
+			u"డాజాగా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("155"_s),
-			$of(u"పశ్చిమ యూరోప్"_s)
+			"155"_s,
+			u"పశ్చిమ యూరోప్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ug"_s),
-			$of(u"ఉయ్\u200cఘర్"_s)
+			"ug"_s,
+			u"ఉయ్\u200cఘర్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Kore"_s),
-			$of(metaValue_ko)
+			"Kore"_s,
+			metaValue_ko
 		}),
 		$$new($ObjectArray, {
-			$of("Ital"_s),
-			$of(u"ప్రాచిన ఐటాలిక్"_s)
+			"Ital"_s,
+			u"ప్రాచిన ఐటాలిక్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Zyyy"_s),
-			$of(u"సామాన్య"_s)
+			"Zyyy"_s,
+			u"సామాన్య"_s
 		}),
 		$$new($ObjectArray, {
-			$of("uk"_s),
-			$of(u"ఉక్రెయినియన్"_s)
+			"uk"_s,
+			u"ఉక్రెయినియన్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.ca.coptic"_s),
-			$of(u"కాప్టిక్ క్యాలెండర్"_s)
+			"type.ca.coptic"_s,
+			u"కాప్టిక్ క్యాలెండర్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ur"_s),
-			$of(u"ఉర్దూ"_s)
+			"ur"_s,
+			u"ఉర్దూ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("xal"_s),
-			$of(u"కల్మిక్"_s)
+			"xal"_s,
+			u"కల్మిక్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("zen"_s),
-			$of(u"జెనాగా"_s)
+			"zen"_s,
+			u"జెనాగా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("uz"_s),
-			$of(u"ఉజ్బెక్"_s)
+			"uz"_s,
+			u"ఉజ్బెక్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kha"_s),
-			$of(u"ఖాసి"_s)
+			"kha"_s,
+			u"ఖాసి"_s
 		}),
 		$$new($ObjectArray, {
-			$of("%%1996"_s),
-			$of(u"1996 ఙర్మన వర్ణక్రమం"_s)
+			"%%1996"_s,
+			u"1996 ఙర్మన వర్ణక్రమం"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nds_NL"_s),
-			$of(u"లో సాక్సన్"_s)
+			"nds_NL"_s,
+			u"లో సాక్సన్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Sylo"_s),
-			$of(u"స్లోటి నాగ్రి"_s)
+			"Sylo"_s,
+			u"స్లోటి నాగ్రి"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ve"_s),
-			$of(u"వెండా"_s)
+			"ve"_s,
+			u"వెండా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.ca.roc"_s),
-			$of(u"మింగ్యూ క్యాలెండర్"_s)
+			"type.ca.roc"_s,
+			u"మింగ్యూ క్యాలెండర్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("vi"_s),
-			$of(u"వియత్నామీస్"_s)
+			"vi"_s,
+			u"వియత్నామీస్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kho"_s),
-			$of(u"ఖోటనీస్"_s)
+			"kho"_s,
+			u"ఖోటనీస్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("khq"_s),
-			$of(u"కొయరా చీన్నీ"_s)
+			"khq"_s,
+			u"కొయరా చీన్నీ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("key.hc"_s),
-			$of(u"గంటల పద్ధతి (12 వర్సెస్ 24)"_s)
+			"key.hc"_s,
+			u"గంటల పద్ధతి (12 వర్సెస్ 24)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("vo"_s),
-			$of(u"వోలాపుక్"_s)
+			"vo"_s,
+			u"వోలాపుక్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("syc"_s),
-			$of(u"సాంప్రదాయ సిరియాక్"_s)
+			"syc"_s,
+			u"సాంప్రదాయ సిరియాక్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Osma"_s),
-			$of(u"ఓసమాన్య"_s)
+			"Osma"_s,
+			u"ఓసమాన్య"_s
 		}),
 		$$new($ObjectArray, {
-			$of("quc"_s),
-			$of(u"కిచే"_s)
+			"quc"_s,
+			u"కిచే"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gaa"_s),
-			$of(u"గా"_s)
+			"gaa"_s,
+			u"గా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("wa"_s),
-			$of(u"వాలూన్"_s)
+			"wa"_s,
+			u"వాలూన్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gag"_s),
-			$of(u"గాగౌజ్"_s)
+			"gag"_s,
+			u"గాగౌజ్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("syr"_s),
-			$of(metaValue_syr)
+			"syr"_s,
+			metaValue_syr
 		}),
 		$$new($ObjectArray, {
-			$of("Grek"_s),
-			$of(metaValue_el)
+			"Grek"_s,
+			metaValue_el
 		}),
 		$$new($ObjectArray, {
-			$of("gan"_s),
-			$of(u"గాన్ చైనీస్"_s)
+			"gan"_s,
+			u"గాన్ చైనీస్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Lydi"_s),
-			$of(u"లిడియన్"_s)
+			"Lydi"_s,
+			u"లిడియన్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Xsux"_s),
-			$of(u"సుమేరో- అక్కడియన్ క్యునిఫార్మ్"_s)
+			"Xsux"_s,
+			u"సుమేరో- అక్కడియన్ క్యునిఫార్మ్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("wo"_s),
-			$of(u"ఉలూఫ్"_s)
+			"wo"_s,
+			u"ఉలూఫ్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("zgh"_s),
-			$of(u"ప్రామాణిక మొరొకన్ టామజైట్"_s)
+			"zgh"_s,
+			u"ప్రామాణిక మొరొకన్ టామజైట్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ar_001"_s),
-			$of(u"ఆధునిక ప్రామాణిక అరబిక్"_s)
+			"ar_001"_s,
+			u"ఆధునిక ప్రామాణిక అరబిక్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Cans"_s),
-			$of(u"యునిఫైడ్ కెనెడియన్ అబొరిజినల్ సిలబిక్స్"_s)
+			"Cans"_s,
+			u"యునిఫైడ్ కెనెడియన్ అబొరిజినల్ సిలబిక్స్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gay"_s),
-			$of(u"గాయో"_s)
+			"gay"_s,
+			u"గాయో"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Mong"_s),
-			$of(metaValue_mn)
+			"Mong"_s,
+			metaValue_mn
 		}),
 		$$new($ObjectArray, {
-			$of("mnc"_s),
-			$of(u"మంచు"_s)
+			"mnc"_s,
+			u"మంచు"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Latf"_s),
-			$of(u"ఫ్రాక్టూర్ లాటిన్"_s)
+			"Latf"_s,
+			u"ఫ్రాక్టూర్ లాటిన్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gba"_s),
-			$of(u"గ్బాయా"_s)
+			"gba"_s,
+			u"గ్బాయా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mni"_s),
-			$of(u"మణిపురి"_s)
+			"mni"_s,
+			u"మణిపురి"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Latn"_s),
-			$of(metaValue_la)
+			"Latn"_s,
+			metaValue_la
 		}),
 		$$new($ObjectArray, {
-			$of("Latg"_s),
-			$of(u"గేలిక్ లాటిన్"_s)
+			"Latg"_s,
+			u"గేలిక్ లాటిన్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.hans"_s),
-			$of(u"సరళీకృత చైనీయుల సంఖ్యలు"_s)
+			"type.nu.hans"_s,
+			u"సరళీకృత చైనీయుల సంఖ్యలు"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.hant"_s),
-			$of(u"సాంప్రదాయ చైనీయుల సంఖ్యలు"_s)
+			"type.nu.hant"_s,
+			u"సాంప్రదాయ చైనీయుల సంఖ్యలు"_s
 		}),
 		$$new($ObjectArray, {
-			$of("xh"_s),
-			$of(u"షోసా"_s)
+			"xh"_s,
+			u"షోసా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.romanlow"_s),
-			$of(u"రోమన్ చిన్నబడి సంఖ్యలు"_s)
+			"type.nu.romanlow"_s,
+			u"రోమన్ చిన్నబడి సంఖ్యలు"_s
 		}),
 		$$new($ObjectArray, {
-			$of("byn"_s),
-			$of(u"బ్లిన్"_s)
+			"byn"_s,
+			u"బ్లిన్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Lyci"_s),
-			$of(u"లిసియన్"_s)
+			"Lyci"_s,
+			u"లిసియన్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("osa"_s),
-			$of(u"ఒసాజ్"_s)
+			"osa"_s,
+			u"ఒసాజ్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Moon"_s),
-			$of(u"మూన్"_s)
+			"Moon"_s,
+			u"మూన్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("moh"_s),
-			$of(u"మోహాక్"_s)
+			"moh"_s,
+			u"మోహాక్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kkj"_s),
-			$of(u"కాకో"_s)
+			"kkj"_s,
+			u"కాకో"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Syrc"_s),
-			$of(metaValue_syr)
+			"Syrc"_s,
+			metaValue_syr
 		}),
 		$$new($ObjectArray, {
-			$of("yi"_s),
-			$of(u"ఇడ్డిష్"_s)
+			"yi"_s,
+			u"ఇడ్డిష్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mos"_s),
-			$of(u"మోస్సి"_s)
+			"mos"_s,
+			u"మోస్సి"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Dsrt"_s),
-			$of(u"డేసెరెట్"_s)
+			"Dsrt"_s,
+			u"డేసెరెట్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("yo"_s),
-			$of(u"యోరుబా"_s)
+			"yo"_s,
+			u"యోరుబా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.traditional"_s),
-			$of(u"సాంప్రదాయ సంఖ్యలు"_s)
+			"type.nu.traditional"_s,
+			u"సాంప్రదాయ సంఖ్యలు"_s
 		}),
 		$$new($ObjectArray, {
-			$of("es_MX"_s),
-			$of(u"మెక్సికన్ స్పానిష్"_s)
+			"es_MX"_s,
+			u"మెక్సికన్ స్పానిష్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Syrj"_s),
-			$of(u"పశ్చిమ సిరియాక్"_s)
+			"Syrj"_s,
+			u"పశ్చిమ సిరియాక్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ota"_s),
-			$of(u"ఒట్టోమన్ టర్కిష్"_s)
+			"ota"_s,
+			u"ఒట్టోమన్ టర్కిష్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Syre"_s),
-			$of(u"ఎస్ట్రానజీలో సిరియాక్"_s)
+			"Syre"_s,
+			u"ఎస్ట్రానజీలో సిరియాక్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("vai"_s),
-			$of(metaValue_vai)
+			"vai"_s,
+			metaValue_vai
 		}),
 		$$new($ObjectArray, {
-			$of("za"_s),
-			$of(u"జువాన్"_s)
+			"za"_s,
+			u"జువాన్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Cari"_s),
-			$of(u"కారియన్"_s)
+			"Cari"_s,
+			u"కారియన్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kln"_s),
-			$of(u"కలెంజిన్"_s)
+			"kln"_s,
+			u"కలెంజిన్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("zh"_s),
-			$of(u"చైనీస్"_s)
+			"zh"_s,
+			u"చైనీస్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Bopo"_s),
-			$of(u"బోపోమోఫో"_s)
+			"Bopo"_s,
+			u"బోపోమోఫో"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Perm"_s),
-			$of(u"ప్రాచీన పెర్మిక్"_s)
+			"Perm"_s,
+			u"ప్రాచీన పెర్మిక్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("key.lb"_s),
-			$of(u"లైన్ బ్రేక్ శైలి"_s)
+			"key.lb"_s,
+			u"లైన్ బ్రేక్ శైలి"_s
 		}),
 		$$new($ObjectArray, {
-			$of("zu"_s),
-			$of(u"జూలూ"_s)
+			"zu"_s,
+			u"జూలూ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.co.phonebook"_s),
-			$of(u"ఫోన్\u200cబుక్ క్రమబద్ధీకరణ క్రమం"_s)
+			"type.co.phonebook"_s,
+			u"ఫోన్\u200cబుక్ క్రమబద్ధీకరణ క్రమం"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Geor"_s),
-			$of(metaValue_ka)
+			"Geor"_s,
+			metaValue_ka
 		}),
 		$$new($ObjectArray, {
-			$of("kmb"_s),
-			$of(u"కిమ్బుండు"_s)
+			"kmb"_s,
+			u"కిమ్బుండు"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.jpanfin"_s),
-			$of(u"జపానీయలు ఆర్థిక సంఖ్యలు"_s)
+			"type.nu.jpanfin"_s,
+			u"జపానీయలు ఆర్థిక సంఖ్యలు"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Cham"_s),
-			$of(u"చామ్"_s)
+			"Cham"_s,
+			u"చామ్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gez"_s),
-			$of(u"జీజ్"_s)
+			"gez"_s,
+			u"జీజ్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Syrn"_s),
-			$of(u"తూర్పు సిరియాక్"_s)
+			"Syrn"_s,
+			u"తూర్పు సిరియాక్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.co.reformed"_s),
-			$of(u"మళ్ళీ ఆకృతీకరించబడిన క్రమబద్ధీకరణ క్రమం"_s)
+			"type.co.reformed"_s,
+			u"మళ్ళీ ఆకృతీకరించబడిన క్రమబద్ధీకరణ క్రమం"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Tglg"_s),
-			$of(metaValue_tl)
+			"Tglg"_s,
+			metaValue_tl
 		}),
 		$$new($ObjectArray, {
-			$of("Egyd"_s),
-			$of(u"ఇజిప్షియన్ డెమోటిక్"_s)
+			"Egyd"_s,
+			u"ఇజిప్షియన్ డెమోటిక్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Egyh"_s),
-			$of(u"ఇజిప్షియన్ హైరాటిక్"_s)
+			"Egyh"_s,
+			u"ఇజిప్షియన్ హైరాటిక్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ebu"_s),
-			$of(u"ఇంబు"_s)
+			"ebu"_s,
+			u"ఇంబు"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Egyp"_s),
-			$of(u"ఇజిప్షియన్ హైరోగ్లైఫ్స్"_s)
+			"Egyp"_s,
+			u"ఇజిప్షియన్ హైరోగ్లైఫ్స్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Geok"_s),
-			$of(u"జార్జియన్ ఖట్సూరి"_s)
+			"Geok"_s,
+			u"జార్జియన్ ఖట్సూరి"_s
 		}),
 		$$new($ObjectArray, {
-			$of("zh_Hans"_s),
-			$of(u"సరళీకృత చైనీస్"_s)
+			"zh_Hans"_s,
+			u"సరళీకృత చైనీస్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("koi"_s),
-			$of(u"కోమి-పర్మాక్"_s)
+			"koi"_s,
+			u"కోమి-పర్మాక్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Hung"_s),
-			$of(u"ప్రాచీన హంగేరియన్"_s)
+			"Hung"_s,
+			u"ప్రాచీన హంగేరియన్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kok"_s),
-			$of(u"కొంకణి"_s)
+			"kok"_s,
+			u"కొంకణి"_s
 		}),
 		$$new($ObjectArray, {
-			$of("%%1901"_s),
-			$of(u"ప్రాచీన ఙర్మన వర్ణక్రమం"_s)
+			"%%1901"_s,
+			u"ప్రాచీన ఙర్మన వర్ణక్రమం"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kos"_s),
-			$of(u"కోస్రేయన్"_s)
+			"kos"_s,
+			u"కోస్రేయన్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("zh_Hant"_s),
-			$of(u"సాంప్రదాయక చైనీస్"_s)
+			"zh_Hant"_s,
+			u"సాంప్రదాయక చైనీస్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Sund"_s),
-			$of(u"సుడానీస్"_s)
+			"Sund"_s,
+			u"సుడానీస్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kpe"_s),
-			$of(u"పెల్లే"_s)
+			"kpe"_s,
+			u"పెల్లే"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.khmr"_s),
-			$of(u"ఖ్మేర్ అంకెలు"_s)
+			"type.nu.khmr"_s,
+			u"ఖ్మేర్ అంకెలు"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ilo"_s),
-			$of(u"ఐలోకో"_s)
+			"ilo"_s,
+			u"ఐలోకో"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Cprt"_s),
-			$of(u"సైప్రోట్"_s)
+			"Cprt"_s,
+			u"సైప్రోట్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mua"_s),
-			$of(u"మండాంగ్"_s)
+			"mua"_s,
+			u"మండాంగ్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.guru"_s),
-			$of(u"గుర్ముఖీ అంకెలు"_s)
+			"type.nu.guru"_s,
+			u"గుర్ముఖీ అంకెలు"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mul"_s),
-			$of(u"బహుళ భాషలు"_s)
+			"mul"_s,
+			u"బహుళ భాషలు"_s
 		}),
 		$$new($ObjectArray, {
-			$of("cad"_s),
-			$of(u"కేడ్డో"_s)
+			"cad"_s,
+			u"కేడ్డో"_s
 		}),
 		$$new($ObjectArray, {
-			$of("key.ms"_s),
-			$of(u"కొలమాన పద్ధతి"_s)
+			"key.ms"_s,
+			u"కొలమాన పద్ధతి"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mus"_s),
-			$of(u"క్రీక్"_s)
+			"mus"_s,
+			u"క్రీక్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Glag"_s),
-			$of(u"గ్లాగో లిటిక్"_s)
+			"Glag"_s,
+			u"గ్లాగో లిటిక్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gil"_s),
-			$of(u"గిల్బర్టీస్"_s)
+			"gil"_s,
+			u"గిల్బర్టీస్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Cher"_s),
-			$of(u"చిరోకి"_s)
+			"Cher"_s,
+			u"చిరోకి"_s
 		}),
 		$$new($ObjectArray, {
-			$of("car"_s),
-			$of(u"కేరిబ్"_s)
+			"car"_s,
+			u"కేరిబ్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.tamldec"_s),
-			$of(u"తమిళ అంకెలు"_s)
+			"type.nu.tamldec"_s,
+			u"తమిళ అంకెలు"_s
 		}),
 		$$new($ObjectArray, {
-			$of("krc"_s),
-			$of(u"కరచే-బల్కార్"_s)
+			"krc"_s,
+			u"కరచే-బల్కార్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("inh"_s),
-			$of(u"ఇంగుష్"_s)
+			"inh"_s,
+			u"ఇంగుష్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("fa_AF"_s),
-			$of(u"డారి"_s)
+			"fa_AF"_s,
+			u"డారి"_s
 		}),
 		$$new($ObjectArray, {
-			$of("krl"_s),
-			$of(u"కరేలియన్"_s)
+			"krl"_s,
+			u"కరేలియన్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("efi"_s),
-			$of(u"ఎఫిక్"_s)
+			"efi"_s,
+			u"ఎఫిక్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tcy"_s),
-			$of(u"తుళు"_s)
+			"tcy"_s,
+			u"తుళు"_s
 		}),
 		$$new($ObjectArray, {
-			$of("key.nu"_s),
-			$of(u"సంఖ్యలు"_s)
+			"key.nu"_s,
+			u"సంఖ్యలు"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kru"_s),
-			$of(u"కూరుఖ్"_s)
+			"kru"_s,
+			u"కూరుఖ్"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ksb"_s),
-			$of(u"శంబాలా"_s)
+			"ksb"_s,
+			u"శంబాలా"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Telu"_s),
-			$of(metaValue_te)
+			"Telu"_s,
+			metaValue_te
 		}),
 		$$new($ObjectArray, {
-			$of("ksf"_s),
-			$of(u"బాఫియ"_s)
+			"ksf"_s,
+			u"బాఫియ"_s
 		})
 	}));
 	return data;
@@ -4298,7 +4278,22 @@ LocaleNames_te::LocaleNames_te() {
 }
 
 $Class* LocaleNames_te::load$($String* name, bool initialize) {
-	$loadClass(LocaleNames_te, name, initialize, &_LocaleNames_te_ClassInfo_, allocate$LocaleNames_te);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(LocaleNames_te, init$, void)},
+		{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(LocaleNames_te, getContents, $ObjectArray2*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.util.resources.cldr.ext.LocaleNames_te",
+		"sun.util.resources.OpenListResourceBundle",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(LocaleNames_te, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LocaleNames_te);
+	});
 	return class$;
 }
 

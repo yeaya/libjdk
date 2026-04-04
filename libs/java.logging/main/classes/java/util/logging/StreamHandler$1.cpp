@@ -1,5 +1,4 @@
 #include <java/util/logging/StreamHandler$1.h>
-
 #include <java/io/OutputStream.h>
 #include <java/util/logging/StreamHandler.h>
 #include <jcpp.h>
@@ -16,49 +15,6 @@ namespace java {
 	namespace util {
 		namespace logging {
 
-$FieldInfo _StreamHandler$1_FieldInfo_[] = {
-	{"this$0", "Ljava/util/logging/StreamHandler;", nullptr, $FINAL | $SYNTHETIC, $field(StreamHandler$1, this$0)},
-	{"val$out", "Ljava/io/OutputStream;", nullptr, $FINAL | $SYNTHETIC, $field(StreamHandler$1, val$out)},
-	{}
-};
-
-$MethodInfo _StreamHandler$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/logging/StreamHandler;Ljava/io/OutputStream;)V", "()V", 0, $method(StreamHandler$1, init$, void, $StreamHandler*, $OutputStream*)},
-	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(StreamHandler$1, run, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _StreamHandler$1_EnclosingMethodInfo_ = {
-	"java.util.logging.StreamHandler",
-	"setOutputStreamPrivileged",
-	"(Ljava/io/OutputStream;)V"
-};
-
-$InnerClassInfo _StreamHandler$1_InnerClassesInfo_[] = {
-	{"java.util.logging.StreamHandler$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _StreamHandler$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.logging.StreamHandler$1",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	_StreamHandler$1_FieldInfo_,
-	_StreamHandler$1_MethodInfo_,
-	"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/Void;>;",
-	&_StreamHandler$1_EnclosingMethodInfo_,
-	_StreamHandler$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.logging.StreamHandler"
-};
-
-$Object* allocate$StreamHandler$1($Class* clazz) {
-	return $of($alloc(StreamHandler$1));
-}
-
 void StreamHandler$1::init$($StreamHandler* this$0, $OutputStream* val$out) {
 	$set(this, this$0, this$0);
 	$set(this, val$out, val$out);
@@ -66,14 +22,50 @@ void StreamHandler$1::init$($StreamHandler* this$0, $OutputStream* val$out) {
 
 $Object* StreamHandler$1::run() {
 	this->this$0->setOutputStream(this->val$out);
-	return $of(nullptr);
+	return nullptr;
 }
 
 StreamHandler$1::StreamHandler$1() {
 }
 
 $Class* StreamHandler$1::load$($String* name, bool initialize) {
-	$loadClass(StreamHandler$1, name, initialize, &_StreamHandler$1_ClassInfo_, allocate$StreamHandler$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljava/util/logging/StreamHandler;", nullptr, $FINAL | $SYNTHETIC, $field(StreamHandler$1, this$0)},
+		{"val$out", "Ljava/io/OutputStream;", nullptr, $FINAL | $SYNTHETIC, $field(StreamHandler$1, val$out)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/logging/StreamHandler;Ljava/io/OutputStream;)V", "()V", 0, $method(StreamHandler$1, init$, void, $StreamHandler*, $OutputStream*)},
+		{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(StreamHandler$1, run, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.util.logging.StreamHandler",
+		"setOutputStreamPrivileged",
+		"(Ljava/io/OutputStream;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.logging.StreamHandler$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.logging.StreamHandler$1",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/Void;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.logging.StreamHandler"
+	};
+	$loadClass(StreamHandler$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(StreamHandler$1);
+	});
 	return class$;
 }
 

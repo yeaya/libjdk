@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/impl/io/Latin1Reader.h>
-
 #include <java/io/InputStream.h>
 #include <java/io/Reader.h>
 #include <jcpp.h>
@@ -21,41 +20,6 @@ namespace com {
 						namespace impl {
 							namespace io {
 
-$FieldInfo _Latin1Reader_FieldInfo_[] = {
-	{"DEFAULT_BUFFER_SIZE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Latin1Reader, DEFAULT_BUFFER_SIZE)},
-	{"fInputStream", "Ljava/io/InputStream;", nullptr, $PROTECTED | $FINAL, $field(Latin1Reader, fInputStream)},
-	{"fBuffer", "[B", nullptr, $PROTECTED | $FINAL, $field(Latin1Reader, fBuffer)},
-	{}
-};
-
-$MethodInfo _Latin1Reader_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC, $method(Latin1Reader, init$, void, $InputStream*)},
-	{"<init>", "(Ljava/io/InputStream;I)V", nullptr, $PUBLIC, $method(Latin1Reader, init$, void, $InputStream*, int32_t)},
-	{"<init>", "(Ljava/io/InputStream;[B)V", nullptr, $PUBLIC, $method(Latin1Reader, init$, void, $InputStream*, $bytes*)},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(Latin1Reader, close, void), "java.io.IOException"},
-	{"mark", "(I)V", nullptr, $PUBLIC, $virtualMethod(Latin1Reader, mark, void, int32_t), "java.io.IOException"},
-	{"markSupported", "()Z", nullptr, $PUBLIC, $virtualMethod(Latin1Reader, markSupported, bool)},
-	{"read", "()I", nullptr, $PUBLIC, $virtualMethod(Latin1Reader, read, int32_t), "java.io.IOException"},
-	{"read", "([CII)I", nullptr, $PUBLIC, $virtualMethod(Latin1Reader, read, int32_t, $chars*, int32_t, int32_t), "java.io.IOException"},
-	{"ready", "()Z", nullptr, $PUBLIC, $virtualMethod(Latin1Reader, ready, bool), "java.io.IOException"},
-	{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(Latin1Reader, reset, void), "java.io.IOException"},
-	{"skip", "(J)J", nullptr, $PUBLIC, $virtualMethod(Latin1Reader, skip, int64_t, int64_t), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _Latin1Reader_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.impl.io.Latin1Reader",
-	"java.io.Reader",
-	nullptr,
-	_Latin1Reader_FieldInfo_,
-	_Latin1Reader_MethodInfo_
-};
-
-$Object* allocate$Latin1Reader($Class* clazz) {
-	return $of($alloc(Latin1Reader));
-}
-
 void Latin1Reader::init$($InputStream* inputStream) {
 	Latin1Reader::init$(inputStream, Latin1Reader::DEFAULT_BUFFER_SIZE);
 }
@@ -76,11 +40,11 @@ int32_t Latin1Reader::read() {
 
 int32_t Latin1Reader::read($chars* ch, int32_t offset, int32_t length) {
 	if (length > $nc(this->fBuffer)->length) {
-		length = $nc(this->fBuffer)->length;
+		length = this->fBuffer->length;
 	}
 	int32_t count = $nc(this->fInputStream)->read(this->fBuffer, 0, length);
 	for (int32_t i = 0; i < count; ++i) {
-		$nc(ch)->set(offset + i, (char16_t)((int32_t)($nc(this->fBuffer)->get(i) & (uint32_t)255)));
+		$nc(ch)->set(offset + i, (char16_t)(this->fBuffer->get(i) & 0xff));
 	}
 	return count;
 }
@@ -113,7 +77,37 @@ Latin1Reader::Latin1Reader() {
 }
 
 $Class* Latin1Reader::load$($String* name, bool initialize) {
-	$loadClass(Latin1Reader, name, initialize, &_Latin1Reader_ClassInfo_, allocate$Latin1Reader);
+	$FieldInfo fieldInfos$$[] = {
+		{"DEFAULT_BUFFER_SIZE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Latin1Reader, DEFAULT_BUFFER_SIZE)},
+		{"fInputStream", "Ljava/io/InputStream;", nullptr, $PROTECTED | $FINAL, $field(Latin1Reader, fInputStream)},
+		{"fBuffer", "[B", nullptr, $PROTECTED | $FINAL, $field(Latin1Reader, fBuffer)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC, $method(Latin1Reader, init$, void, $InputStream*)},
+		{"<init>", "(Ljava/io/InputStream;I)V", nullptr, $PUBLIC, $method(Latin1Reader, init$, void, $InputStream*, int32_t)},
+		{"<init>", "(Ljava/io/InputStream;[B)V", nullptr, $PUBLIC, $method(Latin1Reader, init$, void, $InputStream*, $bytes*)},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(Latin1Reader, close, void), "java.io.IOException"},
+		{"mark", "(I)V", nullptr, $PUBLIC, $virtualMethod(Latin1Reader, mark, void, int32_t), "java.io.IOException"},
+		{"markSupported", "()Z", nullptr, $PUBLIC, $virtualMethod(Latin1Reader, markSupported, bool)},
+		{"read", "()I", nullptr, $PUBLIC, $virtualMethod(Latin1Reader, read, int32_t), "java.io.IOException"},
+		{"read", "([CII)I", nullptr, $PUBLIC, $virtualMethod(Latin1Reader, read, int32_t, $chars*, int32_t, int32_t), "java.io.IOException"},
+		{"ready", "()Z", nullptr, $PUBLIC, $virtualMethod(Latin1Reader, ready, bool), "java.io.IOException"},
+		{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(Latin1Reader, reset, void), "java.io.IOException"},
+		{"skip", "(J)J", nullptr, $PUBLIC, $virtualMethod(Latin1Reader, skip, int64_t, int64_t), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.impl.io.Latin1Reader",
+		"java.io.Reader",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Latin1Reader, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Latin1Reader));
+	});
 	return class$;
 }
 

@@ -38,6 +38,7 @@ class Token$UnionToken : public ::com::sun::org::apache::xerces::internal::impl:
 	$class(Token$UnionToken, 0, ::com::sun::org::apache::xerces::internal::impl::xpath::regex::Token)
 public:
 	Token$UnionToken();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int32_t type);
 	virtual void addChild(::com::sun::org::apache::xerces::internal::impl::xpath::regex::Token* tok) override;
 	virtual ::com::sun::org::apache::xerces::internal::impl::xpath::regex::Token* getChild(int32_t index) override;
@@ -47,7 +48,7 @@ public:
 	using ::com::sun::org::apache::xerces::internal::impl::xpath::regex::Token::toString;
 	virtual $String* toString(int32_t options) override;
 	void writeObject(::java::io::ObjectOutputStream* out);
-	static const int64_t serialVersionUID = (int64_t)0xDC59A20A9BE23B3B;
+	static const int64_t serialVersionUID = (int64_t)0xdc59a20a9be23b3b;
 	::java::util::List* children = nullptr;
 	static $Array<::java::io::ObjectStreamField>* serialPersistentFields;
 };

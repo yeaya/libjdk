@@ -1,5 +1,4 @@
 #include <javax/print/attribute/AttributeSetUtilities$UnmodifiablePrintServiceAttributeSet.h>
-
 #include <javax/print/attribute/Attribute.h>
 #include <javax/print/attribute/AttributeSet.h>
 #include <javax/print/attribute/AttributeSetUtilities$UnmodifiableAttributeSet.h>
@@ -20,58 +19,6 @@ using $PrintServiceAttributeSet = ::javax::print::attribute::PrintServiceAttribu
 namespace javax {
 	namespace print {
 		namespace attribute {
-
-$FieldInfo _AttributeSetUtilities$UnmodifiablePrintServiceAttributeSet_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AttributeSetUtilities$UnmodifiablePrintServiceAttributeSet, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _AttributeSetUtilities$UnmodifiablePrintServiceAttributeSet_MethodInfo_[] = {
-	{"*add", "(Ljavax/print/attribute/Attribute;)Z", nullptr, $PUBLIC},
-	{"*addAll", "(Ljavax/print/attribute/AttributeSet;)Z", nullptr, $PUBLIC},
-	{"*clear", "()V", nullptr, $PUBLIC},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*containsKey", "(Ljava/lang/Class;)Z", nullptr, $PUBLIC},
-	{"*containsValue", "(Ljavax/print/attribute/Attribute;)Z", nullptr, $PUBLIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*get", "(Ljava/lang/Class;)Ljavax/print/attribute/Attribute;", nullptr, $PUBLIC},
-	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "(Ljavax/print/attribute/PrintServiceAttributeSet;)V", nullptr, $PUBLIC, $method(AttributeSetUtilities$UnmodifiablePrintServiceAttributeSet, init$, void, $PrintServiceAttributeSet*)},
-	{"*remove", "(Ljava/lang/Class;)Z", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"*remove", "(Ljavax/print/attribute/Attribute;)Z", nullptr, $PUBLIC},
-	{"*size", "()I", nullptr, $PUBLIC},
-	{"*toArray", "()[Ljavax/print/attribute/Attribute;", nullptr, $PUBLIC},
-	{"*isEmpty", "()Z", nullptr, $PUBLIC},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _AttributeSetUtilities$UnmodifiablePrintServiceAttributeSet_InnerClassesInfo_[] = {
-	{"javax.print.attribute.AttributeSetUtilities$UnmodifiablePrintServiceAttributeSet", "javax.print.attribute.AttributeSetUtilities", "UnmodifiablePrintServiceAttributeSet", $PRIVATE | $STATIC},
-	{"javax.print.attribute.AttributeSetUtilities$UnmodifiableAttributeSet", "javax.print.attribute.AttributeSetUtilities", "UnmodifiableAttributeSet", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _AttributeSetUtilities$UnmodifiablePrintServiceAttributeSet_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.print.attribute.AttributeSetUtilities$UnmodifiablePrintServiceAttributeSet",
-	"javax.print.attribute.AttributeSetUtilities$UnmodifiableAttributeSet",
-	"javax.print.attribute.PrintServiceAttributeSet",
-	_AttributeSetUtilities$UnmodifiablePrintServiceAttributeSet_FieldInfo_,
-	_AttributeSetUtilities$UnmodifiablePrintServiceAttributeSet_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AttributeSetUtilities$UnmodifiablePrintServiceAttributeSet_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.print.attribute.AttributeSetUtilities"
-};
-
-$Object* allocate$AttributeSetUtilities$UnmodifiablePrintServiceAttributeSet($Class* clazz) {
-	return $of($alloc(AttributeSetUtilities$UnmodifiablePrintServiceAttributeSet));
-}
 
 $Attribute* AttributeSetUtilities$UnmodifiablePrintServiceAttributeSet::get($Class* key) {
 	 return this->$AttributeSetUtilities$UnmodifiableAttributeSet::get(key);
@@ -145,7 +92,53 @@ AttributeSetUtilities$UnmodifiablePrintServiceAttributeSet::AttributeSetUtilitie
 }
 
 $Class* AttributeSetUtilities$UnmodifiablePrintServiceAttributeSet::load$($String* name, bool initialize) {
-	$loadClass(AttributeSetUtilities$UnmodifiablePrintServiceAttributeSet, name, initialize, &_AttributeSetUtilities$UnmodifiablePrintServiceAttributeSet_ClassInfo_, allocate$AttributeSetUtilities$UnmodifiablePrintServiceAttributeSet);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AttributeSetUtilities$UnmodifiablePrintServiceAttributeSet, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*add", "(Ljavax/print/attribute/Attribute;)Z", nullptr, $PUBLIC},
+		{"*addAll", "(Ljavax/print/attribute/AttributeSet;)Z", nullptr, $PUBLIC},
+		{"*clear", "()V", nullptr, $PUBLIC},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*containsKey", "(Ljava/lang/Class;)Z", nullptr, $PUBLIC},
+		{"*containsValue", "(Ljavax/print/attribute/Attribute;)Z", nullptr, $PUBLIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*get", "(Ljava/lang/Class;)Ljavax/print/attribute/Attribute;", nullptr, $PUBLIC},
+		{"*hashCode", "()I", nullptr, $PUBLIC},
+		{"<init>", "(Ljavax/print/attribute/PrintServiceAttributeSet;)V", nullptr, $PUBLIC, $method(AttributeSetUtilities$UnmodifiablePrintServiceAttributeSet, init$, void, $PrintServiceAttributeSet*)},
+		{"*remove", "(Ljava/lang/Class;)Z", nullptr, $PUBLIC | $SYNCHRONIZED},
+		{"*remove", "(Ljavax/print/attribute/Attribute;)Z", nullptr, $PUBLIC},
+		{"*size", "()I", nullptr, $PUBLIC},
+		{"*toArray", "()[Ljavax/print/attribute/Attribute;", nullptr, $PUBLIC},
+		{"*isEmpty", "()Z", nullptr, $PUBLIC},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.print.attribute.AttributeSetUtilities$UnmodifiablePrintServiceAttributeSet", "javax.print.attribute.AttributeSetUtilities", "UnmodifiablePrintServiceAttributeSet", $PRIVATE | $STATIC},
+		{"javax.print.attribute.AttributeSetUtilities$UnmodifiableAttributeSet", "javax.print.attribute.AttributeSetUtilities", "UnmodifiableAttributeSet", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.print.attribute.AttributeSetUtilities$UnmodifiablePrintServiceAttributeSet",
+		"javax.print.attribute.AttributeSetUtilities$UnmodifiableAttributeSet",
+		"javax.print.attribute.PrintServiceAttributeSet",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.print.attribute.AttributeSetUtilities"
+	};
+	$loadClass(AttributeSetUtilities$UnmodifiablePrintServiceAttributeSet, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AttributeSetUtilities$UnmodifiablePrintServiceAttributeSet));
+	});
 	return class$;
 }
 

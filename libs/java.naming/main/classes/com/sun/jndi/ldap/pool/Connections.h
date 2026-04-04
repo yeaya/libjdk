@@ -43,6 +43,7 @@ class Connections : public ::com::sun::jndi::ldap::pool::PoolCallback {
 	$class(Connections, 0, ::com::sun::jndi::ldap::pool::PoolCallback)
 public:
 	Connections();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(Object$* id, int32_t initSize, int32_t prefSize, int32_t maxSize, ::com::sun::jndi::ldap::pool::PooledConnectionFactory* factory);
 	void close();
 	void d($String* msg, Object$* o1);

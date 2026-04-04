@@ -1,5 +1,4 @@
 #include <javax/swing/JTable$AccessibleJTable$AccessibleTableHeader.h>
-
 #include <java/awt/Component.h>
 #include <javax/accessibility/Accessible.h>
 #include <javax/accessibility/AccessibleTable.h>
@@ -25,70 +24,9 @@ using $JTable$AccessibleJTable$AccessibleJTableHeaderCell = ::javax::swing::JTab
 using $JTableHeader = ::javax::swing::table::JTableHeader;
 using $TableCellRenderer = ::javax::swing::table::TableCellRenderer;
 using $TableColumn = ::javax::swing::table::TableColumn;
-using $TableColumnModel = ::javax::swing::table::TableColumnModel;
 
 namespace javax {
 	namespace swing {
-
-$FieldInfo _JTable$AccessibleJTable$AccessibleTableHeader_FieldInfo_[] = {
-	{"this$1", "Ljavax/swing/JTable$AccessibleJTable;", nullptr, $FINAL | $SYNTHETIC, $field(JTable$AccessibleJTable$AccessibleTableHeader, this$1)},
-	{"header", "Ljavax/swing/table/JTableHeader;", nullptr, $PRIVATE, $field(JTable$AccessibleJTable$AccessibleTableHeader, header)},
-	{"headerModel", "Ljavax/swing/table/TableColumnModel;", nullptr, $PRIVATE, $field(JTable$AccessibleJTable$AccessibleTableHeader, headerModel)},
-	{}
-};
-
-$MethodInfo _JTable$AccessibleJTable$AccessibleTableHeader_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/JTable$AccessibleJTable;Ljavax/swing/table/JTableHeader;)V", nullptr, 0, $method(JTable$AccessibleJTable$AccessibleTableHeader, init$, void, $JTable$AccessibleJTable*, $JTableHeader*)},
-	{"getAccessibleAt", "(II)Ljavax/accessibility/Accessible;", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable$AccessibleTableHeader, getAccessibleAt, $Accessible*, int32_t, int32_t)},
-	{"getAccessibleCaption", "()Ljavax/accessibility/Accessible;", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable$AccessibleTableHeader, getAccessibleCaption, $Accessible*)},
-	{"getAccessibleColumnCount", "()I", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable$AccessibleTableHeader, getAccessibleColumnCount, int32_t)},
-	{"getAccessibleColumnDescription", "(I)Ljavax/accessibility/Accessible;", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable$AccessibleTableHeader, getAccessibleColumnDescription, $Accessible*, int32_t)},
-	{"getAccessibleColumnExtentAt", "(II)I", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable$AccessibleTableHeader, getAccessibleColumnExtentAt, int32_t, int32_t, int32_t)},
-	{"getAccessibleColumnHeader", "()Ljavax/accessibility/AccessibleTable;", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable$AccessibleTableHeader, getAccessibleColumnHeader, $AccessibleTable*)},
-	{"getAccessibleRowCount", "()I", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable$AccessibleTableHeader, getAccessibleRowCount, int32_t)},
-	{"getAccessibleRowDescription", "(I)Ljavax/accessibility/Accessible;", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable$AccessibleTableHeader, getAccessibleRowDescription, $Accessible*, int32_t)},
-	{"getAccessibleRowExtentAt", "(II)I", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable$AccessibleTableHeader, getAccessibleRowExtentAt, int32_t, int32_t, int32_t)},
-	{"getAccessibleRowHeader", "()Ljavax/accessibility/AccessibleTable;", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable$AccessibleTableHeader, getAccessibleRowHeader, $AccessibleTable*)},
-	{"getAccessibleSummary", "()Ljavax/accessibility/Accessible;", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable$AccessibleTableHeader, getAccessibleSummary, $Accessible*)},
-	{"getSelectedAccessibleColumns", "()[I", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable$AccessibleTableHeader, getSelectedAccessibleColumns, $ints*)},
-	{"getSelectedAccessibleRows", "()[I", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable$AccessibleTableHeader, getSelectedAccessibleRows, $ints*)},
-	{"isAccessibleColumnSelected", "(I)Z", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable$AccessibleTableHeader, isAccessibleColumnSelected, bool, int32_t)},
-	{"isAccessibleRowSelected", "(I)Z", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable$AccessibleTableHeader, isAccessibleRowSelected, bool, int32_t)},
-	{"isAccessibleSelected", "(II)Z", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable$AccessibleTableHeader, isAccessibleSelected, bool, int32_t, int32_t)},
-	{"setAccessibleCaption", "(Ljavax/accessibility/Accessible;)V", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable$AccessibleTableHeader, setAccessibleCaption, void, $Accessible*)},
-	{"setAccessibleColumnDescription", "(ILjavax/accessibility/Accessible;)V", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable$AccessibleTableHeader, setAccessibleColumnDescription, void, int32_t, $Accessible*)},
-	{"setAccessibleColumnHeader", "(Ljavax/accessibility/AccessibleTable;)V", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable$AccessibleTableHeader, setAccessibleColumnHeader, void, $AccessibleTable*)},
-	{"setAccessibleRowDescription", "(ILjavax/accessibility/Accessible;)V", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable$AccessibleTableHeader, setAccessibleRowDescription, void, int32_t, $Accessible*)},
-	{"setAccessibleRowHeader", "(Ljavax/accessibility/AccessibleTable;)V", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable$AccessibleTableHeader, setAccessibleRowHeader, void, $AccessibleTable*)},
-	{"setAccessibleSummary", "(Ljavax/accessibility/Accessible;)V", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable$AccessibleTableHeader, setAccessibleSummary, void, $Accessible*)},
-	{}
-};
-
-$InnerClassInfo _JTable$AccessibleJTable$AccessibleTableHeader_InnerClassesInfo_[] = {
-	{"javax.swing.JTable$AccessibleJTable", "javax.swing.JTable", "AccessibleJTable", $PROTECTED},
-	{"javax.swing.JTable$AccessibleJTable$AccessibleTableHeader", "javax.swing.JTable$AccessibleJTable", "AccessibleTableHeader", $PRIVATE},
-	{}
-};
-
-$ClassInfo _JTable$AccessibleJTable$AccessibleTableHeader_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.JTable$AccessibleJTable$AccessibleTableHeader",
-	"java.lang.Object",
-	"javax.accessibility.AccessibleTable",
-	_JTable$AccessibleJTable$AccessibleTableHeader_FieldInfo_,
-	_JTable$AccessibleJTable$AccessibleTableHeader_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JTable$AccessibleJTable$AccessibleTableHeader_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.JTable"
-};
-
-$Object* allocate$JTable$AccessibleJTable$AccessibleTableHeader($Class* clazz) {
-	return $of($alloc(JTable$AccessibleJTable$AccessibleTableHeader));
-}
 
 void JTable$AccessibleJTable$AccessibleTableHeader::init$($JTable$AccessibleJTable* this$1, $JTableHeader* header) {
 	$set(this, this$1, this$1);
@@ -119,7 +57,7 @@ int32_t JTable$AccessibleJTable$AccessibleTableHeader::getAccessibleColumnCount(
 }
 
 $Accessible* JTable$AccessibleJTable$AccessibleTableHeader::getAccessibleAt(int32_t row, int32_t column) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($TableColumn, aColumn, $nc(this->headerModel)->getColumn(column));
 	$var($TableCellRenderer, renderer, $nc(aColumn)->getHeaderRenderer());
 	if (renderer == nullptr) {
@@ -190,7 +128,61 @@ JTable$AccessibleJTable$AccessibleTableHeader::JTable$AccessibleJTable$Accessibl
 }
 
 $Class* JTable$AccessibleJTable$AccessibleTableHeader::load$($String* name, bool initialize) {
-	$loadClass(JTable$AccessibleJTable$AccessibleTableHeader, name, initialize, &_JTable$AccessibleJTable$AccessibleTableHeader_ClassInfo_, allocate$JTable$AccessibleJTable$AccessibleTableHeader);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$1", "Ljavax/swing/JTable$AccessibleJTable;", nullptr, $FINAL | $SYNTHETIC, $field(JTable$AccessibleJTable$AccessibleTableHeader, this$1)},
+		{"header", "Ljavax/swing/table/JTableHeader;", nullptr, $PRIVATE, $field(JTable$AccessibleJTable$AccessibleTableHeader, header)},
+		{"headerModel", "Ljavax/swing/table/TableColumnModel;", nullptr, $PRIVATE, $field(JTable$AccessibleJTable$AccessibleTableHeader, headerModel)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/JTable$AccessibleJTable;Ljavax/swing/table/JTableHeader;)V", nullptr, 0, $method(JTable$AccessibleJTable$AccessibleTableHeader, init$, void, $JTable$AccessibleJTable*, $JTableHeader*)},
+		{"getAccessibleAt", "(II)Ljavax/accessibility/Accessible;", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable$AccessibleTableHeader, getAccessibleAt, $Accessible*, int32_t, int32_t)},
+		{"getAccessibleCaption", "()Ljavax/accessibility/Accessible;", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable$AccessibleTableHeader, getAccessibleCaption, $Accessible*)},
+		{"getAccessibleColumnCount", "()I", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable$AccessibleTableHeader, getAccessibleColumnCount, int32_t)},
+		{"getAccessibleColumnDescription", "(I)Ljavax/accessibility/Accessible;", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable$AccessibleTableHeader, getAccessibleColumnDescription, $Accessible*, int32_t)},
+		{"getAccessibleColumnExtentAt", "(II)I", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable$AccessibleTableHeader, getAccessibleColumnExtentAt, int32_t, int32_t, int32_t)},
+		{"getAccessibleColumnHeader", "()Ljavax/accessibility/AccessibleTable;", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable$AccessibleTableHeader, getAccessibleColumnHeader, $AccessibleTable*)},
+		{"getAccessibleRowCount", "()I", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable$AccessibleTableHeader, getAccessibleRowCount, int32_t)},
+		{"getAccessibleRowDescription", "(I)Ljavax/accessibility/Accessible;", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable$AccessibleTableHeader, getAccessibleRowDescription, $Accessible*, int32_t)},
+		{"getAccessibleRowExtentAt", "(II)I", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable$AccessibleTableHeader, getAccessibleRowExtentAt, int32_t, int32_t, int32_t)},
+		{"getAccessibleRowHeader", "()Ljavax/accessibility/AccessibleTable;", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable$AccessibleTableHeader, getAccessibleRowHeader, $AccessibleTable*)},
+		{"getAccessibleSummary", "()Ljavax/accessibility/Accessible;", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable$AccessibleTableHeader, getAccessibleSummary, $Accessible*)},
+		{"getSelectedAccessibleColumns", "()[I", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable$AccessibleTableHeader, getSelectedAccessibleColumns, $ints*)},
+		{"getSelectedAccessibleRows", "()[I", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable$AccessibleTableHeader, getSelectedAccessibleRows, $ints*)},
+		{"isAccessibleColumnSelected", "(I)Z", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable$AccessibleTableHeader, isAccessibleColumnSelected, bool, int32_t)},
+		{"isAccessibleRowSelected", "(I)Z", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable$AccessibleTableHeader, isAccessibleRowSelected, bool, int32_t)},
+		{"isAccessibleSelected", "(II)Z", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable$AccessibleTableHeader, isAccessibleSelected, bool, int32_t, int32_t)},
+		{"setAccessibleCaption", "(Ljavax/accessibility/Accessible;)V", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable$AccessibleTableHeader, setAccessibleCaption, void, $Accessible*)},
+		{"setAccessibleColumnDescription", "(ILjavax/accessibility/Accessible;)V", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable$AccessibleTableHeader, setAccessibleColumnDescription, void, int32_t, $Accessible*)},
+		{"setAccessibleColumnHeader", "(Ljavax/accessibility/AccessibleTable;)V", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable$AccessibleTableHeader, setAccessibleColumnHeader, void, $AccessibleTable*)},
+		{"setAccessibleRowDescription", "(ILjavax/accessibility/Accessible;)V", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable$AccessibleTableHeader, setAccessibleRowDescription, void, int32_t, $Accessible*)},
+		{"setAccessibleRowHeader", "(Ljavax/accessibility/AccessibleTable;)V", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable$AccessibleTableHeader, setAccessibleRowHeader, void, $AccessibleTable*)},
+		{"setAccessibleSummary", "(Ljavax/accessibility/Accessible;)V", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable$AccessibleTableHeader, setAccessibleSummary, void, $Accessible*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.JTable$AccessibleJTable", "javax.swing.JTable", "AccessibleJTable", $PROTECTED},
+		{"javax.swing.JTable$AccessibleJTable$AccessibleTableHeader", "javax.swing.JTable$AccessibleJTable", "AccessibleTableHeader", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.JTable$AccessibleJTable$AccessibleTableHeader",
+		"java.lang.Object",
+		"javax.accessibility.AccessibleTable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.JTable"
+	};
+	$loadClass(JTable$AccessibleJTable$AccessibleTableHeader, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JTable$AccessibleJTable$AccessibleTableHeader);
+	});
 	return class$;
 }
 

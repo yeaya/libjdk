@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/impl/dtd/XML11DTDProcessor.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/Constants.h>
 #include <com/sun/org/apache/xerces/internal/impl/XML11DTDScannerImpl.h>
 #include <com/sun/org/apache/xerces/internal/impl/XMLDTDScannerImpl.h>
@@ -35,31 +34,6 @@ namespace com {
 					namespace internal {
 						namespace impl {
 							namespace dtd {
-
-$MethodInfo _XML11DTDProcessor_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(XML11DTDProcessor, init$, void)},
-	{"<init>", "(Lcom/sun/org/apache/xerces/internal/util/SymbolTable;)V", nullptr, $PUBLIC, $method(XML11DTDProcessor, init$, void, $SymbolTable*)},
-	{"<init>", "(Lcom/sun/org/apache/xerces/internal/util/SymbolTable;Lcom/sun/org/apache/xerces/internal/xni/grammars/XMLGrammarPool;)V", nullptr, $PUBLIC, $method(XML11DTDProcessor, init$, void, $SymbolTable*, $XMLGrammarPool*)},
-	{"<init>", "(Lcom/sun/org/apache/xerces/internal/util/SymbolTable;Lcom/sun/org/apache/xerces/internal/xni/grammars/XMLGrammarPool;Lcom/sun/org/apache/xerces/internal/impl/XMLErrorReporter;Lcom/sun/org/apache/xerces/internal/xni/parser/XMLEntityResolver;)V", nullptr, 0, $method(XML11DTDProcessor, init$, void, $SymbolTable*, $XMLGrammarPool*, $XMLErrorReporter*, $XMLEntityResolver*)},
-	{"createDTDScanner", "(Lcom/sun/org/apache/xerces/internal/util/SymbolTable;Lcom/sun/org/apache/xerces/internal/impl/XMLErrorReporter;Lcom/sun/org/apache/xerces/internal/impl/XMLEntityManager;)Lcom/sun/org/apache/xerces/internal/impl/XMLDTDScannerImpl;", nullptr, $PROTECTED, $virtualMethod(XML11DTDProcessor, createDTDScanner, $XMLDTDScannerImpl*, $SymbolTable*, $XMLErrorReporter*, $XMLEntityManager*)},
-	{"getScannerVersion", "()S", nullptr, $PROTECTED, $virtualMethod(XML11DTDProcessor, getScannerVersion, int16_t)},
-	{"isValidName", "(Ljava/lang/String;)Z", nullptr, $PROTECTED, $virtualMethod(XML11DTDProcessor, isValidName, bool, $String*)},
-	{"isValidNmtoken", "(Ljava/lang/String;)Z", nullptr, $PROTECTED, $virtualMethod(XML11DTDProcessor, isValidNmtoken, bool, $String*)},
-	{}
-};
-
-$ClassInfo _XML11DTDProcessor_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.impl.dtd.XML11DTDProcessor",
-	"com.sun.org.apache.xerces.internal.impl.dtd.XMLDTDLoader",
-	nullptr,
-	nullptr,
-	_XML11DTDProcessor_MethodInfo_
-};
-
-$Object* allocate$XML11DTDProcessor($Class* clazz) {
-	return $of($alloc(XML11DTDProcessor));
-}
 
 void XML11DTDProcessor::init$() {
 	$XMLDTDLoader::init$();
@@ -97,7 +71,28 @@ XML11DTDProcessor::XML11DTDProcessor() {
 }
 
 $Class* XML11DTDProcessor::load$($String* name, bool initialize) {
-	$loadClass(XML11DTDProcessor, name, initialize, &_XML11DTDProcessor_ClassInfo_, allocate$XML11DTDProcessor);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(XML11DTDProcessor, init$, void)},
+		{"<init>", "(Lcom/sun/org/apache/xerces/internal/util/SymbolTable;)V", nullptr, $PUBLIC, $method(XML11DTDProcessor, init$, void, $SymbolTable*)},
+		{"<init>", "(Lcom/sun/org/apache/xerces/internal/util/SymbolTable;Lcom/sun/org/apache/xerces/internal/xni/grammars/XMLGrammarPool;)V", nullptr, $PUBLIC, $method(XML11DTDProcessor, init$, void, $SymbolTable*, $XMLGrammarPool*)},
+		{"<init>", "(Lcom/sun/org/apache/xerces/internal/util/SymbolTable;Lcom/sun/org/apache/xerces/internal/xni/grammars/XMLGrammarPool;Lcom/sun/org/apache/xerces/internal/impl/XMLErrorReporter;Lcom/sun/org/apache/xerces/internal/xni/parser/XMLEntityResolver;)V", nullptr, 0, $method(XML11DTDProcessor, init$, void, $SymbolTable*, $XMLGrammarPool*, $XMLErrorReporter*, $XMLEntityResolver*)},
+		{"createDTDScanner", "(Lcom/sun/org/apache/xerces/internal/util/SymbolTable;Lcom/sun/org/apache/xerces/internal/impl/XMLErrorReporter;Lcom/sun/org/apache/xerces/internal/impl/XMLEntityManager;)Lcom/sun/org/apache/xerces/internal/impl/XMLDTDScannerImpl;", nullptr, $PROTECTED, $virtualMethod(XML11DTDProcessor, createDTDScanner, $XMLDTDScannerImpl*, $SymbolTable*, $XMLErrorReporter*, $XMLEntityManager*)},
+		{"getScannerVersion", "()S", nullptr, $PROTECTED, $virtualMethod(XML11DTDProcessor, getScannerVersion, int16_t)},
+		{"isValidName", "(Ljava/lang/String;)Z", nullptr, $PROTECTED, $virtualMethod(XML11DTDProcessor, isValidName, bool, $String*)},
+		{"isValidNmtoken", "(Ljava/lang/String;)Z", nullptr, $PROTECTED, $virtualMethod(XML11DTDProcessor, isValidNmtoken, bool, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.impl.dtd.XML11DTDProcessor",
+		"com.sun.org.apache.xerces.internal.impl.dtd.XMLDTDLoader",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(XML11DTDProcessor, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(XML11DTDProcessor));
+	});
 	return class$;
 }
 

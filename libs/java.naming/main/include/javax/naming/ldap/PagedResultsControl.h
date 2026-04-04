@@ -19,12 +19,13 @@ class $import PagedResultsControl : public ::javax::naming::ldap::BasicControl {
 	$class(PagedResultsControl, 0, ::javax::naming::ldap::BasicControl)
 public:
 	PagedResultsControl();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int32_t pageSize, bool criticality);
 	void init$(int32_t pageSize, $bytes* cookie, bool criticality);
 	$bytes* setEncodedValue(int32_t pageSize, $bytes* cookie);
 	static $String* OID;
 	static $bytes* EMPTY_COOKIE;
-	static const int64_t serialVersionUID = (int64_t)0x5CC5344357803C0A;
+	static const int64_t serialVersionUID = (int64_t)0x5cc5344357803c0a;
 };
 
 		} // ldap

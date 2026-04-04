@@ -47,7 +47,7 @@ public:
 	virtual ::org::w3c::dom::NamedNodeMap* getAttributes() override;
 	virtual $String* getNodeName() override;
 	virtual int16_t getNodeType() override;
-	static const int64_t serialVersionUID = (int64_t)0x8BC9F6CCCB8BE3C6;
+	static const int64_t serialVersionUID = (int64_t)0x8bc9f6cccb8be3c6;
 	$String* name = nullptr;
 	::com::sun::org::apache::xerces::internal::dom::NamedNodeMapImpl* attributes = nullptr;
 };

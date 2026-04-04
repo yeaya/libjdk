@@ -1,5 +1,4 @@
 #include <com/sun/security/sasl/Provider$ProviderService.h>
-
 #include <com/sun/security/sasl/ClientFactoryImpl.h>
 #include <com/sun/security/sasl/Provider.h>
 #include <com/sun/security/sasl/ServerFactoryImpl.h>
@@ -35,44 +34,12 @@ namespace com {
 		namespace security {
 			namespace sasl {
 
-$MethodInfo _Provider$ProviderService_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/Provider;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, 0, $method(Provider$ProviderService, init$, void, $Provider*, $String*, $String*, $String*)},
-	{"newInstance", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Provider$ProviderService, newInstance, $Object*, Object$*), "java.security.NoSuchAlgorithmException"},
-	{}
-};
-
-$InnerClassInfo _Provider$ProviderService_InnerClassesInfo_[] = {
-	{"com.sun.security.sasl.Provider$ProviderService", "com.sun.security.sasl.Provider", "ProviderService", $PRIVATE | $STATIC | $FINAL},
-	{"java.security.Provider$Service", "java.security.Provider", "Service", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _Provider$ProviderService_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.security.sasl.Provider$ProviderService",
-	"java.security.Provider$Service",
-	nullptr,
-	nullptr,
-	_Provider$ProviderService_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Provider$ProviderService_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.security.sasl.Provider"
-};
-
-$Object* allocate$Provider$ProviderService($Class* clazz) {
-	return $of($alloc(Provider$ProviderService));
-}
-
 void Provider$ProviderService::init$($Provider* p, $String* type, $String* algo, $String* cn) {
 	$Provider$Service::init$(p, type, algo, cn, nullptr, nullptr);
 }
 
 $Object* Provider$ProviderService::newInstance(Object$* ctrParamObj) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, type, getType());
 	if (ctrParamObj != nullptr) {
 		$throwNew($InvalidParameterException, $$str({"constructorParameter not used with "_s, type, " engines"_s}));
@@ -82,18 +49,18 @@ $Object* Provider$ProviderService::newInstance(Object$* ctrParamObj) {
 		if ($nc(algo)->equals("DIGEST-MD5"_s)) {
 			return $of($new($FactoryImpl));
 		}
-		if ($nc(algo)->equals("NTLM"_s)) {
+		if (algo->equals("NTLM"_s)) {
 			return $of($new($1FactoryImpl));
 		}
 		if ($nc(type)->equals("SaslClientFactory"_s)) {
-			bool var$1 = $nc(algo)->equals("EXTERNAL"_s);
-			bool var$0 = var$1 || $nc(algo)->equals("PLAIN"_s);
-			if (var$0 || $nc(algo)->equals("CRAM-MD5"_s)) {
-				return $of($new($ClientFactoryImpl));
+			bool var$1 = algo->equals("EXTERNAL"_s);
+			bool var$0 = var$1 || algo->equals("PLAIN"_s);
+			if (var$0 || algo->equals("CRAM-MD5"_s)) {
+				return $new($ClientFactoryImpl);
 			}
 		} else if (type->equals("SaslServerFactory"_s)) {
-			if ($nc(algo)->equals("CRAM-MD5"_s)) {
-				return $of($new($ServerFactoryImpl));
+			if (algo->equals("CRAM-MD5"_s)) {
+				return $new($ServerFactoryImpl);
 			}
 		}
 	} catch ($Exception& ex) {
@@ -107,7 +74,34 @@ Provider$ProviderService::Provider$ProviderService() {
 }
 
 $Class* Provider$ProviderService::load$($String* name, bool initialize) {
-	$loadClass(Provider$ProviderService, name, initialize, &_Provider$ProviderService_ClassInfo_, allocate$Provider$ProviderService);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/security/Provider;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, 0, $method(Provider$ProviderService, init$, void, $Provider*, $String*, $String*, $String*)},
+		{"newInstance", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Provider$ProviderService, newInstance, $Object*, Object$*), "java.security.NoSuchAlgorithmException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.security.sasl.Provider$ProviderService", "com.sun.security.sasl.Provider", "ProviderService", $PRIVATE | $STATIC | $FINAL},
+		{"java.security.Provider$Service", "java.security.Provider", "Service", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.security.sasl.Provider$ProviderService",
+		"java.security.Provider$Service",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.security.sasl.Provider"
+	};
+	$loadClass(Provider$ProviderService, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Provider$ProviderService);
+	});
 	return class$;
 }
 

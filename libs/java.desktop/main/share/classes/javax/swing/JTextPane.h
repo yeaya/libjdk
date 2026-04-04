@@ -41,6 +41,7 @@ class $export JTextPane : public ::javax::swing::JEditorPane {
 	$class(JTextPane, 0, ::javax::swing::JEditorPane)
 public:
 	JTextPane();
+	static void clinit$(::java::lang::Class* clazz);
 	using ::javax::swing::JEditorPane::getText;
 	using ::javax::swing::JEditorPane::getToolTipText;
 	using ::javax::swing::JEditorPane::contains;

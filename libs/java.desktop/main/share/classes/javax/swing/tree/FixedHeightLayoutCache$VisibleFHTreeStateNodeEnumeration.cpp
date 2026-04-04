@@ -1,5 +1,4 @@
 #include <javax/swing/tree/FixedHeightLayoutCache$VisibleFHTreeStateNodeEnumeration.h>
-
 #include <java/util/NoSuchElementException.h>
 #include <javax/swing/tree/FixedHeightLayoutCache$FHTreeStateNode.h>
 #include <javax/swing/tree/FixedHeightLayoutCache.h>
@@ -15,56 +14,11 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $NoSuchElementException = ::java::util::NoSuchElementException;
 using $FixedHeightLayoutCache = ::javax::swing::tree::FixedHeightLayoutCache;
 using $FixedHeightLayoutCache$FHTreeStateNode = ::javax::swing::tree::FixedHeightLayoutCache$FHTreeStateNode;
-using $TreeModel = ::javax::swing::tree::TreeModel;
 using $TreePath = ::javax::swing::tree::TreePath;
 
 namespace javax {
 	namespace swing {
 		namespace tree {
-
-$FieldInfo _FixedHeightLayoutCache$VisibleFHTreeStateNodeEnumeration_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/tree/FixedHeightLayoutCache;", nullptr, $FINAL | $SYNTHETIC, $field(FixedHeightLayoutCache$VisibleFHTreeStateNodeEnumeration, this$0)},
-	{"parent", "Ljavax/swing/tree/FixedHeightLayoutCache$FHTreeStateNode;", nullptr, $PROTECTED, $field(FixedHeightLayoutCache$VisibleFHTreeStateNodeEnumeration, parent)},
-	{"nextIndex", "I", nullptr, $PROTECTED, $field(FixedHeightLayoutCache$VisibleFHTreeStateNodeEnumeration, nextIndex)},
-	{"childCount", "I", nullptr, $PROTECTED, $field(FixedHeightLayoutCache$VisibleFHTreeStateNodeEnumeration, childCount)},
-	{}
-};
-
-$MethodInfo _FixedHeightLayoutCache$VisibleFHTreeStateNodeEnumeration_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/tree/FixedHeightLayoutCache;Ljavax/swing/tree/FixedHeightLayoutCache$FHTreeStateNode;)V", nullptr, $PROTECTED, $method(FixedHeightLayoutCache$VisibleFHTreeStateNodeEnumeration, init$, void, $FixedHeightLayoutCache*, $FixedHeightLayoutCache$FHTreeStateNode*)},
-	{"<init>", "(Ljavax/swing/tree/FixedHeightLayoutCache;Ljavax/swing/tree/FixedHeightLayoutCache$FHTreeStateNode;I)V", nullptr, $PROTECTED, $method(FixedHeightLayoutCache$VisibleFHTreeStateNodeEnumeration, init$, void, $FixedHeightLayoutCache*, $FixedHeightLayoutCache$FHTreeStateNode*, int32_t)},
-	{"findNextValidParent", "()Z", nullptr, $PROTECTED, $virtualMethod(FixedHeightLayoutCache$VisibleFHTreeStateNodeEnumeration, findNextValidParent, bool)},
-	{"hasMoreElements", "()Z", nullptr, $PUBLIC, $virtualMethod(FixedHeightLayoutCache$VisibleFHTreeStateNodeEnumeration, hasMoreElements, bool)},
-	{"nextElement", "()Ljavax/swing/tree/TreePath;", nullptr, $PUBLIC, $virtualMethod(FixedHeightLayoutCache$VisibleFHTreeStateNodeEnumeration, nextElement, $Object*)},
-	{"updateNextIndex", "()Z", nullptr, $PROTECTED, $virtualMethod(FixedHeightLayoutCache$VisibleFHTreeStateNodeEnumeration, updateNextIndex, bool)},
-	{"updateNextObject", "()V", nullptr, $PROTECTED, $virtualMethod(FixedHeightLayoutCache$VisibleFHTreeStateNodeEnumeration, updateNextObject, void)},
-	{}
-};
-
-$InnerClassInfo _FixedHeightLayoutCache$VisibleFHTreeStateNodeEnumeration_InnerClassesInfo_[] = {
-	{"javax.swing.tree.FixedHeightLayoutCache$VisibleFHTreeStateNodeEnumeration", "javax.swing.tree.FixedHeightLayoutCache", "VisibleFHTreeStateNodeEnumeration", $PRIVATE},
-	{}
-};
-
-$ClassInfo _FixedHeightLayoutCache$VisibleFHTreeStateNodeEnumeration_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.tree.FixedHeightLayoutCache$VisibleFHTreeStateNodeEnumeration",
-	"java.lang.Object",
-	"java.util.Enumeration",
-	_FixedHeightLayoutCache$VisibleFHTreeStateNodeEnumeration_FieldInfo_,
-	_FixedHeightLayoutCache$VisibleFHTreeStateNodeEnumeration_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/Enumeration<Ljavax/swing/tree/TreePath;>;",
-	nullptr,
-	_FixedHeightLayoutCache$VisibleFHTreeStateNodeEnumeration_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.tree.FixedHeightLayoutCache"
-};
-
-$Object* allocate$FixedHeightLayoutCache$VisibleFHTreeStateNodeEnumeration($Class* clazz) {
-	return $of($alloc(FixedHeightLayoutCache$VisibleFHTreeStateNodeEnumeration));
-}
 
 void FixedHeightLayoutCache$VisibleFHTreeStateNodeEnumeration::init$($FixedHeightLayoutCache* this$0, $FixedHeightLayoutCache$FHTreeStateNode* node) {
 	FixedHeightLayoutCache$VisibleFHTreeStateNodeEnumeration::init$(this$0, node, -1);
@@ -82,7 +36,7 @@ bool FixedHeightLayoutCache$VisibleFHTreeStateNodeEnumeration::hasMoreElements()
 }
 
 $Object* FixedHeightLayoutCache$VisibleFHTreeStateNodeEnumeration::nextElement() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!hasMoreElements()) {
 		$throwNew($NoSuchElementException, "No more visible paths"_s);
 	}
@@ -92,13 +46,13 @@ $Object* FixedHeightLayoutCache$VisibleFHTreeStateNodeEnumeration::nextElement()
 	} else {
 		$var($FixedHeightLayoutCache$FHTreeStateNode, node, $nc(this->parent)->getChildAtModelIndex(this->nextIndex));
 		if (node == nullptr) {
-			$assign(retObject, $nc($($nc(this->parent)->getTreePath()))->pathByAddingChild($($nc(this->this$0->treeModel)->getChild($($nc(this->parent)->getUserObject()), this->nextIndex))));
+			$assign(retObject, $$nc($nc(this->parent)->getTreePath())->pathByAddingChild($($nc(this->this$0->treeModel)->getChild($($nc(this->parent)->getUserObject()), this->nextIndex))));
 		} else {
-			$assign(retObject, $nc(node)->getTreePath());
+			$assign(retObject, node->getTreePath());
 		}
 	}
 	updateNextObject();
-	return $of(retObject);
+	return retObject;
 }
 
 void FixedHeightLayoutCache$VisibleFHTreeStateNodeEnumeration::updateNextObject() {
@@ -108,17 +62,17 @@ void FixedHeightLayoutCache$VisibleFHTreeStateNodeEnumeration::updateNextObject(
 }
 
 bool FixedHeightLayoutCache$VisibleFHTreeStateNodeEnumeration::findNextValidParent() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->parent == this->this$0->root) {
 		$set(this, parent, nullptr);
 		return false;
 	}
 	while (this->parent != nullptr) {
-		$var($FixedHeightLayoutCache$FHTreeStateNode, newParent, $cast($FixedHeightLayoutCache$FHTreeStateNode, $nc(this->parent)->getParent()));
+		$var($FixedHeightLayoutCache$FHTreeStateNode, newParent, $cast($FixedHeightLayoutCache$FHTreeStateNode, this->parent->getParent()));
 		if (newParent != nullptr) {
 			this->nextIndex = $nc(this->parent)->childIndex;
 			$set(this, parent, newParent);
-			this->childCount = $nc(this->this$0->treeModel)->getChildCount($($nc(this->parent)->getUserObject()));
+			this->childCount = $nc(this->this$0->treeModel)->getChildCount($(this->parent->getUserObject()));
 			if (updateNextIndex()) {
 				return true;
 			}
@@ -130,7 +84,7 @@ bool FixedHeightLayoutCache$VisibleFHTreeStateNodeEnumeration::findNextValidPare
 }
 
 bool FixedHeightLayoutCache$VisibleFHTreeStateNodeEnumeration::updateNextIndex() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->nextIndex == -1 && !$nc(this->parent)->isExpanded()) {
 		return false;
 	}
@@ -152,7 +106,45 @@ FixedHeightLayoutCache$VisibleFHTreeStateNodeEnumeration::FixedHeightLayoutCache
 }
 
 $Class* FixedHeightLayoutCache$VisibleFHTreeStateNodeEnumeration::load$($String* name, bool initialize) {
-	$loadClass(FixedHeightLayoutCache$VisibleFHTreeStateNodeEnumeration, name, initialize, &_FixedHeightLayoutCache$VisibleFHTreeStateNodeEnumeration_ClassInfo_, allocate$FixedHeightLayoutCache$VisibleFHTreeStateNodeEnumeration);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/tree/FixedHeightLayoutCache;", nullptr, $FINAL | $SYNTHETIC, $field(FixedHeightLayoutCache$VisibleFHTreeStateNodeEnumeration, this$0)},
+		{"parent", "Ljavax/swing/tree/FixedHeightLayoutCache$FHTreeStateNode;", nullptr, $PROTECTED, $field(FixedHeightLayoutCache$VisibleFHTreeStateNodeEnumeration, parent)},
+		{"nextIndex", "I", nullptr, $PROTECTED, $field(FixedHeightLayoutCache$VisibleFHTreeStateNodeEnumeration, nextIndex)},
+		{"childCount", "I", nullptr, $PROTECTED, $field(FixedHeightLayoutCache$VisibleFHTreeStateNodeEnumeration, childCount)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/tree/FixedHeightLayoutCache;Ljavax/swing/tree/FixedHeightLayoutCache$FHTreeStateNode;)V", nullptr, $PROTECTED, $method(FixedHeightLayoutCache$VisibleFHTreeStateNodeEnumeration, init$, void, $FixedHeightLayoutCache*, $FixedHeightLayoutCache$FHTreeStateNode*)},
+		{"<init>", "(Ljavax/swing/tree/FixedHeightLayoutCache;Ljavax/swing/tree/FixedHeightLayoutCache$FHTreeStateNode;I)V", nullptr, $PROTECTED, $method(FixedHeightLayoutCache$VisibleFHTreeStateNodeEnumeration, init$, void, $FixedHeightLayoutCache*, $FixedHeightLayoutCache$FHTreeStateNode*, int32_t)},
+		{"findNextValidParent", "()Z", nullptr, $PROTECTED, $virtualMethod(FixedHeightLayoutCache$VisibleFHTreeStateNodeEnumeration, findNextValidParent, bool)},
+		{"hasMoreElements", "()Z", nullptr, $PUBLIC, $virtualMethod(FixedHeightLayoutCache$VisibleFHTreeStateNodeEnumeration, hasMoreElements, bool)},
+		{"nextElement", "()Ljavax/swing/tree/TreePath;", nullptr, $PUBLIC, $virtualMethod(FixedHeightLayoutCache$VisibleFHTreeStateNodeEnumeration, nextElement, $Object*)},
+		{"updateNextIndex", "()Z", nullptr, $PROTECTED, $virtualMethod(FixedHeightLayoutCache$VisibleFHTreeStateNodeEnumeration, updateNextIndex, bool)},
+		{"updateNextObject", "()V", nullptr, $PROTECTED, $virtualMethod(FixedHeightLayoutCache$VisibleFHTreeStateNodeEnumeration, updateNextObject, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.tree.FixedHeightLayoutCache$VisibleFHTreeStateNodeEnumeration", "javax.swing.tree.FixedHeightLayoutCache", "VisibleFHTreeStateNodeEnumeration", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.tree.FixedHeightLayoutCache$VisibleFHTreeStateNodeEnumeration",
+		"java.lang.Object",
+		"java.util.Enumeration",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/Enumeration<Ljavax/swing/tree/TreePath;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.tree.FixedHeightLayoutCache"
+	};
+	$loadClass(FixedHeightLayoutCache$VisibleFHTreeStateNodeEnumeration, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FixedHeightLayoutCache$VisibleFHTreeStateNodeEnumeration);
+	});
 	return class$;
 }
 

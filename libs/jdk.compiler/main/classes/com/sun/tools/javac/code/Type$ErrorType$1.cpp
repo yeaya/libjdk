@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/code/Type$ErrorType$1.h>
-
 #include <com/sun/tools/javac/code/Symbol$TypeSymbol.h>
 #include <com/sun/tools/javac/code/Type$ErrorType.h>
 #include <com/sun/tools/javac/code/Type.h>
@@ -23,52 +22,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace code {
-
-$FieldInfo _Type$ErrorType$1_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/code/Type$ErrorType;", nullptr, $FINAL | $SYNTHETIC, $field(Type$ErrorType$1, this$0)},
-	{}
-};
-
-$MethodInfo _Type$ErrorType$1_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Type$ErrorType;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/code/TypeMetadata;)V", nullptr, 0, $method(Type$ErrorType$1, init$, void, $Type$ErrorType*, $Type*, $Symbol$TypeSymbol*, $TypeMetadata*)},
-	{"baseType", "()Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(Type$ErrorType$1, baseType, $Type*)},
-	{"cloneWithMetadata", "(Lcom/sun/tools/javac/code/TypeMetadata;)Lcom/sun/tools/javac/code/Type$ClassType;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Type$ErrorType$1, cloneWithMetadata, $Type$ErrorType*, $TypeMetadata*)},
-	{"getEnclosingType", "()Ljavax/lang/model/type/TypeMirror;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Type$ErrorType$1, getEnclosingType, $Type*)},
-	{"getTypeArguments", "()Ljava/util/List;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Type$ErrorType$1, getTypeArguments, $List*)},
-	{}
-};
-
-$EnclosingMethodInfo _Type$ErrorType$1_EnclosingMethodInfo_ = {
-	"com.sun.tools.javac.code.Type$ErrorType",
-	"cloneWithMetadata",
-	"(Lcom/sun/tools/javac/code/TypeMetadata;)Lcom/sun/tools/javac/code/Type$ErrorType;"
-};
-
-$InnerClassInfo _Type$ErrorType$1_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.code.Type$ErrorType", "com.sun.tools.javac.code.Type", "ErrorType", $PUBLIC | $STATIC},
-	{"com.sun.tools.javac.code.Type$ErrorType$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Type$ErrorType$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.code.Type$ErrorType$1",
-	"com.sun.tools.javac.code.Type$ErrorType",
-	nullptr,
-	_Type$ErrorType$1_FieldInfo_,
-	_Type$ErrorType$1_MethodInfo_,
-	nullptr,
-	&_Type$ErrorType$1_EnclosingMethodInfo_,
-	_Type$ErrorType$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.code.Type"
-};
-
-$Object* allocate$Type$ErrorType$1($Class* clazz) {
-	return $of($alloc(Type$ErrorType$1));
-}
 
 void Type$ErrorType$1::init$($Type$ErrorType* this$0, $Type* originalType, $Symbol$TypeSymbol* tsym, $TypeMetadata* metadata) {
 	$set(this, this$0, this$0);
@@ -95,7 +48,46 @@ Type$ErrorType$1::Type$ErrorType$1() {
 }
 
 $Class* Type$ErrorType$1::load$($String* name, bool initialize) {
-	$loadClass(Type$ErrorType$1, name, initialize, &_Type$ErrorType$1_ClassInfo_, allocate$Type$ErrorType$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/code/Type$ErrorType;", nullptr, $FINAL | $SYNTHETIC, $field(Type$ErrorType$1, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/code/Type$ErrorType;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/code/TypeMetadata;)V", nullptr, 0, $method(Type$ErrorType$1, init$, void, $Type$ErrorType*, $Type*, $Symbol$TypeSymbol*, $TypeMetadata*)},
+		{"baseType", "()Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(Type$ErrorType$1, baseType, $Type*)},
+		{"cloneWithMetadata", "(Lcom/sun/tools/javac/code/TypeMetadata;)Lcom/sun/tools/javac/code/Type$ClassType;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Type$ErrorType$1, cloneWithMetadata, $Type$ErrorType*, $TypeMetadata*)},
+		{"getEnclosingType", "()Ljavax/lang/model/type/TypeMirror;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Type$ErrorType$1, getEnclosingType, $Type*)},
+		{"getTypeArguments", "()Ljava/util/List;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Type$ErrorType$1, getTypeArguments, $List*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.tools.javac.code.Type$ErrorType",
+		"cloneWithMetadata",
+		"(Lcom/sun/tools/javac/code/TypeMetadata;)Lcom/sun/tools/javac/code/Type$ErrorType;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.code.Type$ErrorType", "com.sun.tools.javac.code.Type", "ErrorType", $PUBLIC | $STATIC},
+		{"com.sun.tools.javac.code.Type$ErrorType$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.code.Type$ErrorType$1",
+		"com.sun.tools.javac.code.Type$ErrorType",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.code.Type"
+	};
+	$loadClass(Type$ErrorType$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Type$ErrorType$1));
+	});
 	return class$;
 }
 

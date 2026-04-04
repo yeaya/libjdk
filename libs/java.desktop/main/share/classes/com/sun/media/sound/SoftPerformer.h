@@ -35,6 +35,7 @@ class SoftPerformer : public ::java::lang::Object {
 	$class(SoftPerformer, 0, ::java::lang::Object)
 public:
 	SoftPerformer();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::com::sun::media::sound::ModelPerformer* performer);
 	$String* extractKeys(::com::sun::media::sound::ModelConnectionBlock* conn);
 	static bool isUnnecessaryTransform(::com::sun::media::sound::ModelTransform* transform);

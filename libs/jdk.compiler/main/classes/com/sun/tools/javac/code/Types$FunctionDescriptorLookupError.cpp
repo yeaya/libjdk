@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/code/Types$FunctionDescriptorLookupError.h>
-
 #include <com/sun/tools/javac/code/Types.h>
 #include <com/sun/tools/javac/util/JCDiagnostic.h>
 #include <jcpp.h>
@@ -16,44 +15,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace code {
-
-$FieldInfo _Types$FunctionDescriptorLookupError_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Types$FunctionDescriptorLookupError, serialVersionUID)},
-	{"diagnostic", "Lcom/sun/tools/javac/util/JCDiagnostic;", nullptr, $TRANSIENT, $field(Types$FunctionDescriptorLookupError, diagnostic)},
-	{}
-};
-
-$MethodInfo _Types$FunctionDescriptorLookupError_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(Types$FunctionDescriptorLookupError, init$, void)},
-	{"getDiagnostic", "()Lcom/sun/tools/javac/util/JCDiagnostic;", nullptr, $PUBLIC, $virtualMethod(Types$FunctionDescriptorLookupError, getDiagnostic, $JCDiagnostic*)},
-	{"setMessage", "(Lcom/sun/tools/javac/util/JCDiagnostic;)Lcom/sun/tools/javac/code/Types$FunctionDescriptorLookupError;", nullptr, 0, $virtualMethod(Types$FunctionDescriptorLookupError, setMessage, Types$FunctionDescriptorLookupError*, $JCDiagnostic*)},
-	{}
-};
-
-$InnerClassInfo _Types$FunctionDescriptorLookupError_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.code.Types$FunctionDescriptorLookupError", "com.sun.tools.javac.code.Types", "FunctionDescriptorLookupError", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _Types$FunctionDescriptorLookupError_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.code.Types$FunctionDescriptorLookupError",
-	"java.lang.RuntimeException",
-	nullptr,
-	_Types$FunctionDescriptorLookupError_FieldInfo_,
-	_Types$FunctionDescriptorLookupError_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Types$FunctionDescriptorLookupError_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.code.Types"
-};
-
-$Object* allocate$Types$FunctionDescriptorLookupError($Class* clazz) {
-	return $of($alloc(Types$FunctionDescriptorLookupError));
-}
 
 void Types$FunctionDescriptorLookupError::init$() {
 	$RuntimeException::init$();
@@ -80,7 +41,39 @@ void Types$FunctionDescriptorLookupError::throw$() {
 }
 
 $Class* Types$FunctionDescriptorLookupError::load$($String* name, bool initialize) {
-	$loadClass(Types$FunctionDescriptorLookupError, name, initialize, &_Types$FunctionDescriptorLookupError_ClassInfo_, allocate$Types$FunctionDescriptorLookupError);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Types$FunctionDescriptorLookupError, serialVersionUID)},
+		{"diagnostic", "Lcom/sun/tools/javac/util/JCDiagnostic;", nullptr, $TRANSIENT, $field(Types$FunctionDescriptorLookupError, diagnostic)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(Types$FunctionDescriptorLookupError, init$, void)},
+		{"getDiagnostic", "()Lcom/sun/tools/javac/util/JCDiagnostic;", nullptr, $PUBLIC, $virtualMethod(Types$FunctionDescriptorLookupError, getDiagnostic, $JCDiagnostic*)},
+		{"setMessage", "(Lcom/sun/tools/javac/util/JCDiagnostic;)Lcom/sun/tools/javac/code/Types$FunctionDescriptorLookupError;", nullptr, 0, $virtualMethod(Types$FunctionDescriptorLookupError, setMessage, Types$FunctionDescriptorLookupError*, $JCDiagnostic*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.code.Types$FunctionDescriptorLookupError", "com.sun.tools.javac.code.Types", "FunctionDescriptorLookupError", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.code.Types$FunctionDescriptorLookupError",
+		"java.lang.RuntimeException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.code.Types"
+	};
+	$loadClass(Types$FunctionDescriptorLookupError, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Types$FunctionDescriptorLookupError);
+	});
 	return class$;
 }
 

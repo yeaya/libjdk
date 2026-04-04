@@ -1,5 +1,4 @@
 #include <sun/swing/plaf/synth/SynthFileChooserUI$UIBorder.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Graphics.h>
 #include <java/awt/Insets.h>
@@ -21,7 +20,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $JComponent = ::javax::swing::JComponent;
 using $AbstractBorder = ::javax::swing::border::AbstractBorder;
 using $SynthContext = ::javax::swing::plaf::synth::SynthContext;
-using $SynthPainter = ::javax::swing::plaf::synth::SynthPainter;
 using $SynthStyle = ::javax::swing::plaf::synth::SynthStyle;
 using $SynthFileChooserUI = ::sun::swing::plaf::synth::SynthFileChooserUI;
 
@@ -29,50 +27,6 @@ namespace sun {
 	namespace swing {
 		namespace plaf {
 			namespace synth {
-
-$FieldInfo _SynthFileChooserUI$UIBorder_FieldInfo_[] = {
-	{"this$0", "Lsun/swing/plaf/synth/SynthFileChooserUI;", nullptr, $FINAL | $SYNTHETIC, $field(SynthFileChooserUI$UIBorder, this$0)},
-	{"_insets", "Ljava/awt/Insets;", nullptr, $PRIVATE, $field(SynthFileChooserUI$UIBorder, _insets)},
-	{}
-};
-
-$MethodInfo _SynthFileChooserUI$UIBorder_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lsun/swing/plaf/synth/SynthFileChooserUI;Ljava/awt/Insets;)V", nullptr, 0, $method(SynthFileChooserUI$UIBorder, init$, void, $SynthFileChooserUI*, $Insets*)},
-	{"getBorderInsets", "(Ljava/awt/Component;Ljava/awt/Insets;)Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(SynthFileChooserUI$UIBorder, getBorderInsets, $Insets*, $Component*, $Insets*)},
-	{"isBorderOpaque", "()Z", nullptr, $PUBLIC, $virtualMethod(SynthFileChooserUI$UIBorder, isBorderOpaque, bool)},
-	{"paintBorder", "(Ljava/awt/Component;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(SynthFileChooserUI$UIBorder, paintBorder, void, $Component*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _SynthFileChooserUI$UIBorder_InnerClassesInfo_[] = {
-	{"sun.swing.plaf.synth.SynthFileChooserUI$UIBorder", "sun.swing.plaf.synth.SynthFileChooserUI", "UIBorder", $PRIVATE},
-	{}
-};
-
-$ClassInfo _SynthFileChooserUI$UIBorder_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.swing.plaf.synth.SynthFileChooserUI$UIBorder",
-	"javax.swing.border.AbstractBorder",
-	"javax.swing.plaf.UIResource",
-	_SynthFileChooserUI$UIBorder_FieldInfo_,
-	_SynthFileChooserUI$UIBorder_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SynthFileChooserUI$UIBorder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.swing.plaf.synth.SynthFileChooserUI"
-};
-
-$Object* allocate$SynthFileChooserUI$UIBorder($Class* clazz) {
-	return $of($alloc(SynthFileChooserUI$UIBorder));
-}
 
 int32_t SynthFileChooserUI$UIBorder::hashCode() {
 	 return this->$AbstractBorder::hashCode();
@@ -105,7 +59,7 @@ void SynthFileChooserUI$UIBorder::init$($SynthFileChooserUI* this$0, $Insets* in
 }
 
 void SynthFileChooserUI$UIBorder::paintBorder($Component* c, $Graphics* g, int32_t x, int32_t y, int32_t width, int32_t height) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!($instanceOf($JComponent, c))) {
 		return;
 	}
@@ -113,7 +67,7 @@ void SynthFileChooserUI$UIBorder::paintBorder($Component* c, $Graphics* g, int32
 	$var($SynthContext, context, this->this$0->getContext(jc));
 	$var($SynthStyle, style, $nc(context)->getStyle());
 	if (style != nullptr) {
-		$nc($(style->getPainter(context)))->paintFileChooserBorder(context, g, x, y, width, height);
+		$$nc(style->getPainter(context))->paintFileChooserBorder(context, g, x, y, width, height);
 	}
 }
 
@@ -123,12 +77,12 @@ $Insets* SynthFileChooserUI$UIBorder::getBorderInsets($Component* c, $Insets* in
 		$assign(insets, $new($Insets, 0, 0, 0, 0));
 	}
 	if (this->_insets != nullptr) {
-		$nc(insets)->top = $nc(this->_insets)->top;
-		insets->bottom = $nc(this->_insets)->bottom;
-		insets->left = $nc(this->_insets)->left;
-		insets->right = $nc(this->_insets)->right;
+		$nc(insets)->top = this->_insets->top;
+		insets->bottom = this->_insets->bottom;
+		insets->left = this->_insets->left;
+		insets->right = this->_insets->right;
 	} else {
-		$nc(insets)->top = (insets->bottom = (insets->right = (insets->left = 0)));
+		$nc(insets)->top = ($nc(insets)->bottom = ($nc(insets)->right = ($nc(insets)->left = 0)));
 	}
 	return insets;
 }
@@ -141,7 +95,45 @@ SynthFileChooserUI$UIBorder::SynthFileChooserUI$UIBorder() {
 }
 
 $Class* SynthFileChooserUI$UIBorder::load$($String* name, bool initialize) {
-	$loadClass(SynthFileChooserUI$UIBorder, name, initialize, &_SynthFileChooserUI$UIBorder_ClassInfo_, allocate$SynthFileChooserUI$UIBorder);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/swing/plaf/synth/SynthFileChooserUI;", nullptr, $FINAL | $SYNTHETIC, $field(SynthFileChooserUI$UIBorder, this$0)},
+		{"_insets", "Ljava/awt/Insets;", nullptr, $PRIVATE, $field(SynthFileChooserUI$UIBorder, _insets)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lsun/swing/plaf/synth/SynthFileChooserUI;Ljava/awt/Insets;)V", nullptr, 0, $method(SynthFileChooserUI$UIBorder, init$, void, $SynthFileChooserUI*, $Insets*)},
+		{"getBorderInsets", "(Ljava/awt/Component;Ljava/awt/Insets;)Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(SynthFileChooserUI$UIBorder, getBorderInsets, $Insets*, $Component*, $Insets*)},
+		{"isBorderOpaque", "()Z", nullptr, $PUBLIC, $virtualMethod(SynthFileChooserUI$UIBorder, isBorderOpaque, bool)},
+		{"paintBorder", "(Ljava/awt/Component;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(SynthFileChooserUI$UIBorder, paintBorder, void, $Component*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.swing.plaf.synth.SynthFileChooserUI$UIBorder", "sun.swing.plaf.synth.SynthFileChooserUI", "UIBorder", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.swing.plaf.synth.SynthFileChooserUI$UIBorder",
+		"javax.swing.border.AbstractBorder",
+		"javax.swing.plaf.UIResource",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.swing.plaf.synth.SynthFileChooserUI"
+	};
+	$loadClass(SynthFileChooserUI$UIBorder, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SynthFileChooserUI$UIBorder));
+	});
 	return class$;
 }
 

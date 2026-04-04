@@ -1,5 +1,4 @@
 #include <javax/swing/text/SegmentCache$CachedSegment.h>
-
 #include <javax/swing/text/Segment.h>
 #include <javax/swing/text/SegmentCache.h>
 #include <jcpp.h>
@@ -13,36 +12,6 @@ namespace javax {
 	namespace swing {
 		namespace text {
 
-$MethodInfo _SegmentCache$CachedSegment_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(SegmentCache$CachedSegment, init$, void)},
-	{}
-};
-
-$InnerClassInfo _SegmentCache$CachedSegment_InnerClassesInfo_[] = {
-	{"javax.swing.text.SegmentCache$CachedSegment", "javax.swing.text.SegmentCache", "CachedSegment", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _SegmentCache$CachedSegment_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.text.SegmentCache$CachedSegment",
-	"javax.swing.text.Segment",
-	nullptr,
-	nullptr,
-	_SegmentCache$CachedSegment_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SegmentCache$CachedSegment_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.SegmentCache"
-};
-
-$Object* allocate$SegmentCache$CachedSegment($Class* clazz) {
-	return $of($alloc(SegmentCache$CachedSegment));
-}
-
 void SegmentCache$CachedSegment::init$() {
 	$Segment::init$();
 }
@@ -51,7 +20,32 @@ SegmentCache$CachedSegment::SegmentCache$CachedSegment() {
 }
 
 $Class* SegmentCache$CachedSegment::load$($String* name, bool initialize) {
-	$loadClass(SegmentCache$CachedSegment, name, initialize, &_SegmentCache$CachedSegment_ClassInfo_, allocate$SegmentCache$CachedSegment);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(SegmentCache$CachedSegment, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.SegmentCache$CachedSegment", "javax.swing.text.SegmentCache", "CachedSegment", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.text.SegmentCache$CachedSegment",
+		"javax.swing.text.Segment",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.SegmentCache"
+	};
+	$loadClass(SegmentCache$CachedSegment, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SegmentCache$CachedSegment));
+	});
 	return class$;
 }
 

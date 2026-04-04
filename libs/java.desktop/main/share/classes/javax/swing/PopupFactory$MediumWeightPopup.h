@@ -29,6 +29,7 @@ class PopupFactory$MediumWeightPopup : public ::javax::swing::PopupFactory$Conta
 	$class(PopupFactory$MediumWeightPopup, 0, ::javax::swing::PopupFactory$ContainerPopup)
 public:
 	PopupFactory$MediumWeightPopup();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual ::java::awt::Component* createComponent(::java::awt::Component* owner) override;
 	static ::javax::swing::Popup* getMediumWeightPopup(::java::awt::Component* owner, ::java::awt::Component* contents, int32_t ownerX, int32_t ownerY);

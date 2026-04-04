@@ -41,7 +41,7 @@ public:
 	static const int32_t COMPONENT_RESIZED = 101; // 1 + COMPONENT_FIRST
 	static const int32_t COMPONENT_SHOWN = 102; // 2 + COMPONENT_FIRST
 	static const int32_t COMPONENT_HIDDEN = 103; // 3 + COMPONENT_FIRST
-	static const int64_t serialVersionUID = (int64_t)0x706DFA954FA9DA45;
+	static const int64_t serialVersionUID = (int64_t)0x706dfa954fa9da45;
 };
 
 		} // event

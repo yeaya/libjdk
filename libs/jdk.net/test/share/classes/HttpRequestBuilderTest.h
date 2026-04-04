@@ -40,6 +40,7 @@ class $export HttpRequestBuilderTest : public ::java::lang::Object {
 	$class(HttpRequestBuilderTest, 0, ::java::lang::Object)
 public:
 	HttpRequestBuilderTest();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $String* expectedNames($ClassArray* exceptions);
 	static bool isExpected(::java::lang::Exception* x, $ClassArray* expected);

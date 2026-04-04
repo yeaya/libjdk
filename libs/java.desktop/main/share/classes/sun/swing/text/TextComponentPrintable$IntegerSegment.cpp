@@ -1,5 +1,4 @@
 #include <sun/swing/text/TextComponentPrintable$IntegerSegment.h>
-
 #include <sun/swing/text/TextComponentPrintable.h>
 #include <jcpp.h>
 
@@ -11,47 +10,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace sun {
 	namespace swing {
 		namespace text {
-
-$FieldInfo _TextComponentPrintable$IntegerSegment_FieldInfo_[] = {
-	{"start", "I", nullptr, $FINAL, $field(TextComponentPrintable$IntegerSegment, start)},
-	{"end", "I", nullptr, $FINAL, $field(TextComponentPrintable$IntegerSegment, end)},
-	{}
-};
-
-$MethodInfo _TextComponentPrintable$IntegerSegment_MethodInfo_[] = {
-	{"<init>", "(II)V", nullptr, 0, $method(TextComponentPrintable$IntegerSegment, init$, void, int32_t, int32_t)},
-	{"compareTo", "(Lsun/swing/text/TextComponentPrintable$IntegerSegment;)I", nullptr, $PUBLIC, $virtualMethod(TextComponentPrintable$IntegerSegment, compareTo, int32_t, TextComponentPrintable$IntegerSegment*)},
-	{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(TextComponentPrintable$IntegerSegment, compareTo, int32_t, Object$*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(TextComponentPrintable$IntegerSegment, equals, bool, Object$*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(TextComponentPrintable$IntegerSegment, hashCode, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TextComponentPrintable$IntegerSegment, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _TextComponentPrintable$IntegerSegment_InnerClassesInfo_[] = {
-	{"sun.swing.text.TextComponentPrintable$IntegerSegment", "sun.swing.text.TextComponentPrintable", "IntegerSegment", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _TextComponentPrintable$IntegerSegment_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.swing.text.TextComponentPrintable$IntegerSegment",
-	"java.lang.Object",
-	"java.lang.Comparable",
-	_TextComponentPrintable$IntegerSegment_FieldInfo_,
-	_TextComponentPrintable$IntegerSegment_MethodInfo_,
-	"Ljava/lang/Object;Ljava/lang/Comparable<Lsun/swing/text/TextComponentPrintable$IntegerSegment;>;",
-	nullptr,
-	_TextComponentPrintable$IntegerSegment_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.swing.text.TextComponentPrintable"
-};
-
-$Object* allocate$TextComponentPrintable$IntegerSegment($Class* clazz) {
-	return $of($alloc(TextComponentPrintable$IntegerSegment));
-}
 
 void TextComponentPrintable$IntegerSegment::init$(int32_t start, int32_t end) {
 	this->start = start;
@@ -79,7 +37,7 @@ int32_t TextComponentPrintable$IntegerSegment::hashCode() {
 }
 
 $String* TextComponentPrintable$IntegerSegment::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $str({"IntegerSegment ["_s, $$str(this->start), ", "_s, $$str(this->end), "]"_s});
 }
 
@@ -91,7 +49,42 @@ TextComponentPrintable$IntegerSegment::TextComponentPrintable$IntegerSegment() {
 }
 
 $Class* TextComponentPrintable$IntegerSegment::load$($String* name, bool initialize) {
-	$loadClass(TextComponentPrintable$IntegerSegment, name, initialize, &_TextComponentPrintable$IntegerSegment_ClassInfo_, allocate$TextComponentPrintable$IntegerSegment);
+	$FieldInfo fieldInfos$$[] = {
+		{"start", "I", nullptr, $FINAL, $field(TextComponentPrintable$IntegerSegment, start)},
+		{"end", "I", nullptr, $FINAL, $field(TextComponentPrintable$IntegerSegment, end)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(II)V", nullptr, 0, $method(TextComponentPrintable$IntegerSegment, init$, void, int32_t, int32_t)},
+		{"compareTo", "(Lsun/swing/text/TextComponentPrintable$IntegerSegment;)I", nullptr, $PUBLIC, $virtualMethod(TextComponentPrintable$IntegerSegment, compareTo, int32_t, TextComponentPrintable$IntegerSegment*)},
+		{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(TextComponentPrintable$IntegerSegment, compareTo, int32_t, Object$*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(TextComponentPrintable$IntegerSegment, equals, bool, Object$*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(TextComponentPrintable$IntegerSegment, hashCode, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TextComponentPrintable$IntegerSegment, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.swing.text.TextComponentPrintable$IntegerSegment", "sun.swing.text.TextComponentPrintable", "IntegerSegment", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.swing.text.TextComponentPrintable$IntegerSegment",
+		"java.lang.Object",
+		"java.lang.Comparable",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/lang/Comparable<Lsun/swing/text/TextComponentPrintable$IntegerSegment;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.swing.text.TextComponentPrintable"
+	};
+	$loadClass(TextComponentPrintable$IntegerSegment, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TextComponentPrintable$IntegerSegment);
+	});
 	return class$;
 }
 

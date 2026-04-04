@@ -30,6 +30,7 @@ class $export SunDisplayChanger : public ::java::lang::Object {
 	$class(SunDisplayChanger, 0, ::java::lang::Object)
 public:
 	SunDisplayChanger();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void add(::sun::awt::DisplayChangedListener* theListener);
 	virtual void notifyListeners();

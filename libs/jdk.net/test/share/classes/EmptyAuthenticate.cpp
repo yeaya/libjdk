@@ -1,5 +1,4 @@
 #include <EmptyAuthenticate.h>
-
 #include <com/sun/net/httpserver/Headers.h>
 #include <com/sun/net/httpserver/HttpContext.h>
 #include <com/sun/net/httpserver/HttpExchange.h>
@@ -25,7 +24,6 @@
 #include <java/util/Optional.h>
 #include <jcpp.h>
 
-using $Headers = ::com::sun::net::httpserver::Headers;
 using $HttpExchange = ::com::sun::net::httpserver::HttpExchange;
 using $HttpHandler = ::com::sun::net::httpserver::HttpHandler;
 using $HttpServer = ::com::sun::net::httpserver::HttpServer;
@@ -39,12 +37,9 @@ using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $InetSocketAddress = ::java::net::InetSocketAddress;
 using $URI = ::java::net::URI;
 using $HttpClient = ::java::net::http::HttpClient;
-using $HttpHeaders = ::java::net::http::HttpHeaders;
 using $HttpRequest = ::java::net::http::HttpRequest;
-using $HttpRequest$Builder = ::java::net::http::HttpRequest$Builder;
 using $HttpResponse = ::java::net::http::HttpResponse;
 using $HttpResponse$BodyHandlers = ::java::net::http::HttpResponse$BodyHandlers;
-using $Optional = ::java::util::Optional;
 
 class EmptyAuthenticate$$Lambda$lambda$main$0 : public $HttpHandler {
 	$class(EmptyAuthenticate$$Lambda$lambda$main$0, $NO_CLASS_INIT, $HttpHandler)
@@ -54,92 +49,67 @@ public:
 	virtual void handle($HttpExchange* exchange) override {
 		EmptyAuthenticate::lambda$main$0(exchange);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<EmptyAuthenticate$$Lambda$lambda$main$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo EmptyAuthenticate$$Lambda$lambda$main$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(EmptyAuthenticate$$Lambda$lambda$main$0, init$, void)},
-	{"handle", "(Lcom/sun/net/httpserver/HttpExchange;)V", nullptr, $PUBLIC, $virtualMethod(EmptyAuthenticate$$Lambda$lambda$main$0, handle, void, $HttpExchange*)},
-	{}
-};
-$ClassInfo EmptyAuthenticate$$Lambda$lambda$main$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"EmptyAuthenticate$$Lambda$lambda$main$0",
-	"java.lang.Object",
-	"com.sun.net.httpserver.HttpHandler",
-	nullptr,
-	methodInfos
 };
 $Class* EmptyAuthenticate$$Lambda$lambda$main$0::load$($String* name, bool initialize) {
-	$loadClass(EmptyAuthenticate$$Lambda$lambda$main$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(EmptyAuthenticate$$Lambda$lambda$main$0, init$, void)},
+		{"handle", "(Lcom/sun/net/httpserver/HttpExchange;)V", nullptr, $PUBLIC, $virtualMethod(EmptyAuthenticate$$Lambda$lambda$main$0, handle, void, $HttpExchange*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"EmptyAuthenticate$$Lambda$lambda$main$0",
+		"java.lang.Object",
+		"com.sun.net.httpserver.HttpHandler",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(EmptyAuthenticate$$Lambda$lambda$main$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(EmptyAuthenticate$$Lambda$lambda$main$0);
+	});
 	return class$;
 }
 $Class* EmptyAuthenticate$$Lambda$lambda$main$0::class$ = nullptr;
-
-$MethodInfo _EmptyAuthenticate_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(EmptyAuthenticate, init$, void)},
-	{"lambda$main$0", "(Lcom/sun/net/httpserver/HttpExchange;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(EmptyAuthenticate, lambda$main$0, void, $HttpExchange*), "java.io.IOException"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(EmptyAuthenticate, main, void, $StringArray*), "java.io.IOException,java.net.URISyntaxException,java.lang.InterruptedException"},
-	{}
-};
-
-$ClassInfo _EmptyAuthenticate_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"EmptyAuthenticate",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_EmptyAuthenticate_MethodInfo_
-};
-
-$Object* allocate$EmptyAuthenticate($Class* clazz) {
-	return $of($alloc(EmptyAuthenticate));
-}
 
 void EmptyAuthenticate::init$() {
 }
 
 void EmptyAuthenticate::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t port = 0;
 	$var($HttpServer, server, $HttpServer::create($$new($InetSocketAddress, port), 0));
-	port = $nc($($nc(server)->getAddress()))->getPort();
-	server->createContext("/"_s, static_cast<$HttpHandler*>($$new(EmptyAuthenticate$$Lambda$lambda$main$0)));
+	port = $$nc($nc(server)->getAddress())->getPort();
+	server->createContext("/"_s, $$new(EmptyAuthenticate$$Lambda$lambda$main$0));
 	server->start();
 	$var($HttpResponse, response, nullptr);
-	{
-		$var($Throwable, var$0, nullptr);
+	$var($Throwable, var$0, nullptr);
+	try {
 		try {
-			try {
-				$var($HttpClient, httpClient, $HttpClient::newHttpClient());
-				$var($HttpRequest, request, $nc($($nc($($HttpRequest::newBuilder($$new($URI, $$str({"http://localhost:"_s, $$str(port), "/"_s})))))->GET()))->build());
-				$assign(response, $nc(httpClient)->send(request, $($HttpResponse$BodyHandlers::ofString())));
-				bool ok = !$nc($($nc($($nc(response)->headers()))->firstValue("WWW-Authenticate"_s)))->isEmpty();
-				if (!ok) {
-					$throwNew($RuntimeException, "WWW-Authenicate missing"_s);
-				}
-			} catch ($IOException& e) {
-				e->printStackTrace();
-				$throwNew($RuntimeException, "Test failed"_s);
+			$var($HttpClient, httpClient, $HttpClient::newHttpClient());
+			$var($HttpRequest, request, $$nc($$nc($HttpRequest::newBuilder($$new($URI, $$str({"http://localhost:"_s, $$str(port), "/"_s}))))->GET())->build());
+			$assign(response, $nc(httpClient)->send(request, $($HttpResponse$BodyHandlers::ofString())));
+			bool ok = !$$nc($$nc($nc(response)->headers())->firstValue("WWW-Authenticate"_s))->isEmpty();
+			if (!ok) {
+				$throwNew($RuntimeException, "WWW-Authenicate missing"_s);
 			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			server->stop(0);
+		} catch ($IOException& e) {
+			e->printStackTrace();
+			$throwNew($RuntimeException, "Test failed"_s);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		server->stop(0);
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 void EmptyAuthenticate::lambda$main$0($HttpExchange* exchange) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, response, "test body"_s);
-	$nc($($nc(exchange)->getResponseHeaders()))->add("www-authenticate"_s, ""_s);
+	$$nc($nc(exchange)->getResponseHeaders())->add("www-authenticate"_s, ""_s);
 	exchange->sendResponseHeaders(401, response->length());
 	$var($OutputStream, os, exchange->getResponseBody());
 	$nc(os)->write($(response->getBytes()));
@@ -151,11 +121,27 @@ EmptyAuthenticate::EmptyAuthenticate() {
 
 $Class* EmptyAuthenticate::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(EmptyAuthenticate$$Lambda$lambda$main$0::classInfo$.name)) {
+		if (name->equals("EmptyAuthenticate$$Lambda$lambda$main$0")) {
 			return EmptyAuthenticate$$Lambda$lambda$main$0::load$(name, initialize);
 		}
 	}
-	$loadClass(EmptyAuthenticate, name, initialize, &_EmptyAuthenticate_ClassInfo_, allocate$EmptyAuthenticate);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(EmptyAuthenticate, init$, void)},
+		{"lambda$main$0", "(Lcom/sun/net/httpserver/HttpExchange;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(EmptyAuthenticate, lambda$main$0, void, $HttpExchange*), "java.io.IOException"},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(EmptyAuthenticate, main, void, $StringArray*), "java.io.IOException,java.net.URISyntaxException,java.lang.InterruptedException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"EmptyAuthenticate",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(EmptyAuthenticate, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(EmptyAuthenticate);
+	});
 	return class$;
 }
 

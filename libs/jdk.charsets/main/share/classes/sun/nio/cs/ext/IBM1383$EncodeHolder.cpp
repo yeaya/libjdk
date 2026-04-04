@@ -1,5 +1,4 @@
 #include <sun/nio/cs/ext/IBM1383$EncodeHolder.h>
-
 #include <sun/nio/cs/DoubleByte$Encoder.h>
 #include <sun/nio/cs/ext/IBM1383$DecodeHolder.h>
 #include <sun/nio/cs/ext/IBM1383.h>
@@ -17,50 +16,14 @@ namespace sun {
 		namespace cs {
 			namespace ext {
 
-$FieldInfo _IBM1383$EncodeHolder_FieldInfo_[] = {
-	{"c2b", "[C", nullptr, $STATIC | $FINAL, $staticField(IBM1383$EncodeHolder, c2b)},
-	{"c2bIndex", "[C", nullptr, $STATIC | $FINAL, $staticField(IBM1383$EncodeHolder, c2bIndex)},
-	{}
-};
-
-$MethodInfo _IBM1383$EncodeHolder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(IBM1383$EncodeHolder, init$, void)},
-	{}
-};
-
-$InnerClassInfo _IBM1383$EncodeHolder_InnerClassesInfo_[] = {
-	{"sun.nio.cs.ext.IBM1383$EncodeHolder", "sun.nio.cs.ext.IBM1383", "EncodeHolder", $STATIC},
-	{}
-};
-
-$ClassInfo _IBM1383$EncodeHolder_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.nio.cs.ext.IBM1383$EncodeHolder",
-	"java.lang.Object",
-	nullptr,
-	_IBM1383$EncodeHolder_FieldInfo_,
-	_IBM1383$EncodeHolder_MethodInfo_,
-	nullptr,
-	nullptr,
-	_IBM1383$EncodeHolder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.nio.cs.ext.IBM1383"
-};
-
-$Object* allocate$IBM1383$EncodeHolder($Class* clazz) {
-	return $of($alloc(IBM1383$EncodeHolder));
-}
-
 $chars* IBM1383$EncodeHolder::c2b = nullptr;
 $chars* IBM1383$EncodeHolder::c2bIndex = nullptr;
 
 void IBM1383$EncodeHolder::init$() {
 }
 
-void clinit$IBM1383$EncodeHolder($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void IBM1383$EncodeHolder::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(IBM1383$EncodeHolder::c2b, $new($chars, 26880));
 	$assignStatic(IBM1383$EncodeHolder::c2bIndex, $new($chars, 256));
 	{
@@ -75,7 +38,37 @@ IBM1383$EncodeHolder::IBM1383$EncodeHolder() {
 }
 
 $Class* IBM1383$EncodeHolder::load$($String* name, bool initialize) {
-	$loadClass(IBM1383$EncodeHolder, name, initialize, &_IBM1383$EncodeHolder_ClassInfo_, clinit$IBM1383$EncodeHolder, allocate$IBM1383$EncodeHolder);
+	$FieldInfo fieldInfos$$[] = {
+		{"c2b", "[C", nullptr, $STATIC | $FINAL, $staticField(IBM1383$EncodeHolder, c2b)},
+		{"c2bIndex", "[C", nullptr, $STATIC | $FINAL, $staticField(IBM1383$EncodeHolder, c2bIndex)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(IBM1383$EncodeHolder, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.cs.ext.IBM1383$EncodeHolder", "sun.nio.cs.ext.IBM1383", "EncodeHolder", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.nio.cs.ext.IBM1383$EncodeHolder",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.nio.cs.ext.IBM1383"
+	};
+	$loadClass(IBM1383$EncodeHolder, name, initialize, &classInfo$$, IBM1383$EncodeHolder::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(IBM1383$EncodeHolder);
+	});
 	return class$;
 }
 

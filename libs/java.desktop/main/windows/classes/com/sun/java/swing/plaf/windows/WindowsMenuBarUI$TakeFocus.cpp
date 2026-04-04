@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/windows/WindowsMenuBarUI$TakeFocus.h>
-
 #include <com/sun/java/swing/plaf/windows/WindowsLookAndFeel.h>
 #include <com/sun/java/swing/plaf/windows/WindowsMenuBarUI.h>
 #include <java/awt/Component.h>
@@ -14,7 +13,6 @@
 
 using $MenuElementArray = $Array<::javax::swing::MenuElement>;
 using $WindowsLookAndFeel = ::com::sun::java::swing::plaf::windows::WindowsLookAndFeel;
-using $Component = ::java::awt::Component;
 using $ActionEvent = ::java::awt::event::ActionEvent;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -32,50 +30,19 @@ namespace com {
 				namespace plaf {
 					namespace windows {
 
-$MethodInfo _WindowsMenuBarUI$TakeFocus_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(WindowsMenuBarUI$TakeFocus, init$, void)},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(WindowsMenuBarUI$TakeFocus, actionPerformed, void, $ActionEvent*)},
-	{}
-};
-
-$InnerClassInfo _WindowsMenuBarUI$TakeFocus_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.windows.WindowsMenuBarUI$TakeFocus", "com.sun.java.swing.plaf.windows.WindowsMenuBarUI", "TakeFocus", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _WindowsMenuBarUI$TakeFocus_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.java.swing.plaf.windows.WindowsMenuBarUI$TakeFocus",
-	"javax.swing.AbstractAction",
-	nullptr,
-	nullptr,
-	_WindowsMenuBarUI$TakeFocus_MethodInfo_,
-	nullptr,
-	nullptr,
-	_WindowsMenuBarUI$TakeFocus_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.windows.WindowsMenuBarUI"
-};
-
-$Object* allocate$WindowsMenuBarUI$TakeFocus($Class* clazz) {
-	return $of($alloc(WindowsMenuBarUI$TakeFocus));
-}
-
 void WindowsMenuBarUI$TakeFocus::init$() {
 	$AbstractAction::init$();
 }
 
 void WindowsMenuBarUI$TakeFocus::actionPerformed($ActionEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JMenuBar, menuBar, $cast($JMenuBar, $nc(e)->getSource()));
 	$var($JMenu, menu, $nc(menuBar)->getMenu(0));
 	if (menu != nullptr) {
 		$var($MenuSelectionManager, msm, $MenuSelectionManager::defaultManager());
 		$var($MenuElementArray, path, $new($MenuElementArray, 2));
-		path->set(0, static_cast<$MenuElement*>(menuBar));
-		path->set(1, static_cast<$MenuElement*>(menu));
+		path->set(0, $cast($MenuElement, menuBar));
+		path->set(1, $cast($MenuElement, menu));
 		$nc(msm)->setSelectedPath(path);
 		$WindowsLookAndFeel::setMnemonicHidden(false);
 		$WindowsLookAndFeel::repaintRootPane(menuBar);
@@ -86,7 +53,33 @@ WindowsMenuBarUI$TakeFocus::WindowsMenuBarUI$TakeFocus() {
 }
 
 $Class* WindowsMenuBarUI$TakeFocus::load$($String* name, bool initialize) {
-	$loadClass(WindowsMenuBarUI$TakeFocus, name, initialize, &_WindowsMenuBarUI$TakeFocus_ClassInfo_, allocate$WindowsMenuBarUI$TakeFocus);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(WindowsMenuBarUI$TakeFocus, init$, void)},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(WindowsMenuBarUI$TakeFocus, actionPerformed, void, $ActionEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.windows.WindowsMenuBarUI$TakeFocus", "com.sun.java.swing.plaf.windows.WindowsMenuBarUI", "TakeFocus", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.java.swing.plaf.windows.WindowsMenuBarUI$TakeFocus",
+		"javax.swing.AbstractAction",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.windows.WindowsMenuBarUI"
+	};
+	$loadClass(WindowsMenuBarUI$TakeFocus, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(WindowsMenuBarUI$TakeFocus));
+	});
 	return class$;
 }
 

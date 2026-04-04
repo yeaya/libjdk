@@ -1,5 +1,4 @@
 #include <ProxyServer$Connection.h>
-
 #include <ProxyServer$Credentials.h>
 #include <ProxyServer.h>
 #include <java/io/BufferedInputStream.h>
@@ -17,7 +16,6 @@
 #include <java/lang/invoke/MethodType.h>
 #include <java/net/InetSocketAddress.h>
 #include <java/net/Socket.h>
-#include <java/net/SocketAddress.h>
 #include <java/net/SocketOption.h>
 #include <java/net/StandardSocketOptions.h>
 #include <java/net/URI.h>
@@ -57,7 +55,6 @@ using $BufferedInputStream = ::java::io::BufferedInputStream;
 using $IOException = ::java::io::IOException;
 using $InputStream = ::java::io::InputStream;
 using $OutputStream = ::java::io::OutputStream;
-using $PrintStream = ::java::io::PrintStream;
 using $Serializable = ::java::io::Serializable;
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -71,8 +68,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $InetSocketAddress = ::java::net::InetSocketAddress;
-using $Socket = ::java::net::Socket;
-using $SocketAddress = ::java::net::SocketAddress;
 using $StandardSocketOptions = ::java::net::StandardSocketOptions;
 using $URI = ::java::net::URI;
 using $URISyntaxException = ::java::net::URISyntaxException;
@@ -81,15 +76,12 @@ using $SocketChannel = ::java::nio::channels::SocketChannel;
 using $StandardCharsets = ::java::nio::charset::StandardCharsets;
 using $Arrays = ::java::util::Arrays;
 using $Base64 = ::java::util::Base64;
-using $Base64$Decoder = ::java::util::Base64$Decoder;
 using $IllegalFormatException = ::java::util::IllegalFormatException;
 using $List = ::java::util::List;
 using $Locale = ::java::util::Locale;
-using $Optional = ::java::util::Optional;
 using $Function = ::java::util::function::Function;
 using $Predicate = ::java::util::function::Predicate;
 using $Collectors = ::java::util::stream::Collectors;
-using $Stream = ::java::util::stream::Stream;
 
 class ProxyServer$Connection$$Lambda$lambda$authorized$0 : public $Predicate {
 	$class(ProxyServer$Connection$$Lambda$lambda$authorized$0, $NO_CLASS_INIT, $Predicate)
@@ -99,27 +91,24 @@ public:
 	virtual bool test(Object$* n) override {
 		 return ProxyServer$Connection::lambda$authorized$0($cast($String, n));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<ProxyServer$Connection$$Lambda$lambda$authorized$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo ProxyServer$Connection$$Lambda$lambda$authorized$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ProxyServer$Connection$$Lambda$lambda$authorized$0, init$, void)},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ProxyServer$Connection$$Lambda$lambda$authorized$0, test, bool, Object$*)},
-	{}
-};
-$ClassInfo ProxyServer$Connection$$Lambda$lambda$authorized$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"ProxyServer$Connection$$Lambda$lambda$authorized$0",
-	"java.lang.Object",
-	"java.util.function.Predicate",
-	nullptr,
-	methodInfos
 };
 $Class* ProxyServer$Connection$$Lambda$lambda$authorized$0::load$($String* name, bool initialize) {
-	$loadClass(ProxyServer$Connection$$Lambda$lambda$authorized$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ProxyServer$Connection$$Lambda$lambda$authorized$0, init$, void)},
+		{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ProxyServer$Connection$$Lambda$lambda$authorized$0, test, bool, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"ProxyServer$Connection$$Lambda$lambda$authorized$0",
+		"java.lang.Object",
+		"java.util.function.Predicate",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ProxyServer$Connection$$Lambda$lambda$authorized$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ProxyServer$Connection$$Lambda$lambda$authorized$0);
+	});
 	return class$;
 }
 $Class* ProxyServer$Connection$$Lambda$lambda$authorized$0::class$ = nullptr;
@@ -133,33 +122,29 @@ public:
 	virtual bool test(Object$* s) override {
 		 return ProxyServer$Connection::lambda$findFirst$1(h, $cast($String, s));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<ProxyServer$Connection$$Lambda$lambda$findFirst$1$1>());
-	}
 	$String* h = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo ProxyServer$Connection$$Lambda$lambda$findFirst$1$1::fieldInfos[2] = {
-	{"h", "Ljava/lang/String;", nullptr, $PUBLIC, $field(ProxyServer$Connection$$Lambda$lambda$findFirst$1$1, h)},
-	{}
-};
-$MethodInfo ProxyServer$Connection$$Lambda$lambda$findFirst$1$1::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ProxyServer$Connection$$Lambda$lambda$findFirst$1$1, init$, void, $String*)},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ProxyServer$Connection$$Lambda$lambda$findFirst$1$1, test, bool, Object$*)},
-	{}
-};
-$ClassInfo ProxyServer$Connection$$Lambda$lambda$findFirst$1$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"ProxyServer$Connection$$Lambda$lambda$findFirst$1$1",
-	"java.lang.Object",
-	"java.util.function.Predicate",
-	fieldInfos,
-	methodInfos
 };
 $Class* ProxyServer$Connection$$Lambda$lambda$findFirst$1$1::load$($String* name, bool initialize) {
-	$loadClass(ProxyServer$Connection$$Lambda$lambda$findFirst$1$1, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"h", "Ljava/lang/String;", nullptr, $PUBLIC, $field(ProxyServer$Connection$$Lambda$lambda$findFirst$1$1, h)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ProxyServer$Connection$$Lambda$lambda$findFirst$1$1, init$, void, $String*)},
+		{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ProxyServer$Connection$$Lambda$lambda$findFirst$1$1, test, bool, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"ProxyServer$Connection$$Lambda$lambda$findFirst$1$1",
+		"java.lang.Object",
+		"java.util.function.Predicate",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ProxyServer$Connection$$Lambda$lambda$findFirst$1$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ProxyServer$Connection$$Lambda$lambda$findFirst$1$1);
+	});
 	return class$;
 }
 $Class* ProxyServer$Connection$$Lambda$lambda$findFirst$1$1::class$ = nullptr;
@@ -173,33 +158,29 @@ public:
 	virtual $Object* apply(Object$* s) override {
 		 return $of(ProxyServer$Connection::lambda$findFirst$2(h, $cast($String, s)));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<ProxyServer$Connection$$Lambda$lambda$findFirst$2$2>());
-	}
 	$String* h = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo ProxyServer$Connection$$Lambda$lambda$findFirst$2$2::fieldInfos[2] = {
-	{"h", "Ljava/lang/String;", nullptr, $PUBLIC, $field(ProxyServer$Connection$$Lambda$lambda$findFirst$2$2, h)},
-	{}
-};
-$MethodInfo ProxyServer$Connection$$Lambda$lambda$findFirst$2$2::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ProxyServer$Connection$$Lambda$lambda$findFirst$2$2, init$, void, $String*)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ProxyServer$Connection$$Lambda$lambda$findFirst$2$2, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo ProxyServer$Connection$$Lambda$lambda$findFirst$2$2::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"ProxyServer$Connection$$Lambda$lambda$findFirst$2$2",
-	"java.lang.Object",
-	"java.util.function.Function",
-	fieldInfos,
-	methodInfos
 };
 $Class* ProxyServer$Connection$$Lambda$lambda$findFirst$2$2::load$($String* name, bool initialize) {
-	$loadClass(ProxyServer$Connection$$Lambda$lambda$findFirst$2$2, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"h", "Ljava/lang/String;", nullptr, $PUBLIC, $field(ProxyServer$Connection$$Lambda$lambda$findFirst$2$2, h)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ProxyServer$Connection$$Lambda$lambda$findFirst$2$2, init$, void, $String*)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ProxyServer$Connection$$Lambda$lambda$findFirst$2$2, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"ProxyServer$Connection$$Lambda$lambda$findFirst$2$2",
+		"java.lang.Object",
+		"java.util.function.Function",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ProxyServer$Connection$$Lambda$lambda$findFirst$2$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ProxyServer$Connection$$Lambda$lambda$findFirst$2$2);
+	});
 	return class$;
 }
 $Class* ProxyServer$Connection$$Lambda$lambda$findFirst$2$2::class$ = nullptr;
@@ -212,27 +193,24 @@ public:
 	virtual $Object* apply(Object$* inst$) override {
 		 return $of($sure($String, inst$)->trim());
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<ProxyServer$Connection$$Lambda$trim$3>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo ProxyServer$Connection$$Lambda$trim$3::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ProxyServer$Connection$$Lambda$trim$3, init$, void)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ProxyServer$Connection$$Lambda$trim$3, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo ProxyServer$Connection$$Lambda$trim$3::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"ProxyServer$Connection$$Lambda$trim$3",
-	"java.lang.Object",
-	"java.util.function.Function",
-	nullptr,
-	methodInfos
 };
 $Class* ProxyServer$Connection$$Lambda$trim$3::load$($String* name, bool initialize) {
-	$loadClass(ProxyServer$Connection$$Lambda$trim$3, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ProxyServer$Connection$$Lambda$trim$3, init$, void)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ProxyServer$Connection$$Lambda$trim$3, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"ProxyServer$Connection$$Lambda$trim$3",
+		"java.lang.Object",
+		"java.util.function.Function",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ProxyServer$Connection$$Lambda$trim$3, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ProxyServer$Connection$$Lambda$trim$3);
+	});
 	return class$;
 }
 $Class* ProxyServer$Connection$$Lambda$trim$3::class$ = nullptr;
@@ -247,35 +225,31 @@ public:
 	virtual void run() override {
 		$nc(inst$)->lambda$proxyCommon$3(log);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<ProxyServer$Connection$$Lambda$lambda$proxyCommon$3$4>());
-	}
 	ProxyServer$Connection* inst$ = nullptr;
 	bool log = false;
-	static $FieldInfo fieldInfos[3];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo ProxyServer$Connection$$Lambda$lambda$proxyCommon$3$4::fieldInfos[3] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(ProxyServer$Connection$$Lambda$lambda$proxyCommon$3$4, inst$)},
-	{"log", "Z", nullptr, $PUBLIC, $field(ProxyServer$Connection$$Lambda$lambda$proxyCommon$3$4, log)},
-	{}
-};
-$MethodInfo ProxyServer$Connection$$Lambda$lambda$proxyCommon$3$4::methodInfos[3] = {
-	{"<init>", "(LProxyServer$Connection;Z)V", nullptr, $PUBLIC, $method(ProxyServer$Connection$$Lambda$lambda$proxyCommon$3$4, init$, void, ProxyServer$Connection*, bool)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(ProxyServer$Connection$$Lambda$lambda$proxyCommon$3$4, run, void)},
-	{}
-};
-$ClassInfo ProxyServer$Connection$$Lambda$lambda$proxyCommon$3$4::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"ProxyServer$Connection$$Lambda$lambda$proxyCommon$3$4",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	fieldInfos,
-	methodInfos
 };
 $Class* ProxyServer$Connection$$Lambda$lambda$proxyCommon$3$4::load$($String* name, bool initialize) {
-	$loadClass(ProxyServer$Connection$$Lambda$lambda$proxyCommon$3$4, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(ProxyServer$Connection$$Lambda$lambda$proxyCommon$3$4, inst$)},
+		{"log", "Z", nullptr, $PUBLIC, $field(ProxyServer$Connection$$Lambda$lambda$proxyCommon$3$4, log)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(LProxyServer$Connection;Z)V", nullptr, $PUBLIC, $method(ProxyServer$Connection$$Lambda$lambda$proxyCommon$3$4, init$, void, ProxyServer$Connection*, bool)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(ProxyServer$Connection$$Lambda$lambda$proxyCommon$3$4, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"ProxyServer$Connection$$Lambda$lambda$proxyCommon$3$4",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ProxyServer$Connection$$Lambda$lambda$proxyCommon$3$4, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ProxyServer$Connection$$Lambda$lambda$proxyCommon$3$4);
+	});
 	return class$;
 }
 $Class* ProxyServer$Connection$$Lambda$lambda$proxyCommon$3$4::class$ = nullptr;
@@ -290,118 +264,46 @@ public:
 	virtual void run() override {
 		$nc(inst$)->lambda$proxyCommon$4(log);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<ProxyServer$Connection$$Lambda$lambda$proxyCommon$4$5>());
-	}
 	ProxyServer$Connection* inst$ = nullptr;
 	bool log = false;
-	static $FieldInfo fieldInfos[3];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo ProxyServer$Connection$$Lambda$lambda$proxyCommon$4$5::fieldInfos[3] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(ProxyServer$Connection$$Lambda$lambda$proxyCommon$4$5, inst$)},
-	{"log", "Z", nullptr, $PUBLIC, $field(ProxyServer$Connection$$Lambda$lambda$proxyCommon$4$5, log)},
-	{}
-};
-$MethodInfo ProxyServer$Connection$$Lambda$lambda$proxyCommon$4$5::methodInfos[3] = {
-	{"<init>", "(LProxyServer$Connection;Z)V", nullptr, $PUBLIC, $method(ProxyServer$Connection$$Lambda$lambda$proxyCommon$4$5, init$, void, ProxyServer$Connection*, bool)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(ProxyServer$Connection$$Lambda$lambda$proxyCommon$4$5, run, void)},
-	{}
-};
-$ClassInfo ProxyServer$Connection$$Lambda$lambda$proxyCommon$4$5::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"ProxyServer$Connection$$Lambda$lambda$proxyCommon$4$5",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	fieldInfos,
-	methodInfos
 };
 $Class* ProxyServer$Connection$$Lambda$lambda$proxyCommon$4$5::load$($String* name, bool initialize) {
-	$loadClass(ProxyServer$Connection$$Lambda$lambda$proxyCommon$4$5, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(ProxyServer$Connection$$Lambda$lambda$proxyCommon$4$5, inst$)},
+		{"log", "Z", nullptr, $PUBLIC, $field(ProxyServer$Connection$$Lambda$lambda$proxyCommon$4$5, log)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(LProxyServer$Connection;Z)V", nullptr, $PUBLIC, $method(ProxyServer$Connection$$Lambda$lambda$proxyCommon$4$5, init$, void, ProxyServer$Connection*, bool)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(ProxyServer$Connection$$Lambda$lambda$proxyCommon$4$5, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"ProxyServer$Connection$$Lambda$lambda$proxyCommon$4$5",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ProxyServer$Connection$$Lambda$lambda$proxyCommon$4$5, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ProxyServer$Connection$$Lambda$lambda$proxyCommon$4$5);
+	});
 	return class$;
 }
 $Class* ProxyServer$Connection$$Lambda$lambda$proxyCommon$4$5::class$ = nullptr;
 
-$FieldInfo _ProxyServer$Connection_FieldInfo_[] = {
-	{"this$0", "LProxyServer;", nullptr, $FINAL | $SYNTHETIC, $field(ProxyServer$Connection, this$0)},
-	{"id", "I", nullptr, $PRIVATE | $FINAL, $field(ProxyServer$Connection, id)},
-	{"clientSocket", "Ljava/nio/channels/SocketChannel;", nullptr, 0, $field(ProxyServer$Connection, clientSocket)},
-	{"serverSocket", "Ljava/nio/channels/SocketChannel;", nullptr, 0, $field(ProxyServer$Connection, serverSocket)},
-	{"out", "Ljava/lang/Thread;", nullptr, 0, $field(ProxyServer$Connection, out)},
-	{"in", "Ljava/lang/Thread;", nullptr, 0, $field(ProxyServer$Connection, in)},
-	{"clientIn", "Ljava/io/InputStream;", nullptr, $VOLATILE, $field(ProxyServer$Connection, clientIn)},
-	{"serverIn", "Ljava/io/InputStream;", nullptr, $VOLATILE, $field(ProxyServer$Connection, serverIn)},
-	{"clientOut", "Ljava/io/OutputStream;", nullptr, $VOLATILE, $field(ProxyServer$Connection, clientOut)},
-	{"serverOut", "Ljava/io/OutputStream;", nullptr, $VOLATILE, $field(ProxyServer$Connection, serverOut)},
-	{"CR", "I", nullptr, $STATIC | $FINAL, $constField(ProxyServer$Connection, CR)},
-	{"LF", "I", nullptr, $STATIC | $FINAL, $constField(ProxyServer$Connection, LF)},
-	{"closing", "Z", nullptr, $PRIVATE | $VOLATILE, $field(ProxyServer$Connection, closing)},
-	{}
-};
-
-$MethodInfo _ProxyServer$Connection_MethodInfo_[] = {
-	{"<init>", "(LProxyServer;Ljava/nio/channels/SocketChannel;I)V", nullptr, 0, $method(ProxyServer$Connection, init$, void, $ProxyServer*, $SocketChannel*, int32_t), "java.io.IOException"},
-	{"authorized", "(LProxyServer$Credentials;Ljava/util/List;)Z", "(LProxyServer$Credentials;Ljava/util/List<Ljava/lang/String;>;)Z", $PRIVATE, $method(ProxyServer$Connection, authorized, bool, $ProxyServer$Credentials*, $List*)},
-	{"awaitCompletion", "()V", nullptr, $PUBLIC, $virtualMethod(ProxyServer$Connection, awaitCompletion, void)},
-	{"close", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ProxyServer$Connection, close, void), "java.io.IOException"},
-	{"closeConnection", "()V", nullptr, 0, $virtualMethod(ProxyServer$Connection, closeConnection, void), "java.io.IOException"},
-	{"commonInit", "(Ljava/lang/String;I)V", nullptr, $SYNCHRONIZED, $virtualMethod(ProxyServer$Connection, commonInit, void, $String*, int32_t), "java.io.IOException"},
-	{"doProxy", "(Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Ljava/lang/String;Z)V", "(Ljava/lang/String;Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;Ljava/lang/String;Z)V", 0, $virtualMethod(ProxyServer$Connection, doProxy, void, $String*, $String*, $List*, $String*, bool), "java.io.IOException"},
-	{"doTunnel", "(Ljava/lang/String;)V", nullptr, 0, $virtualMethod(ProxyServer$Connection, doTunnel, void, $String*), "java.io.IOException"},
-	{"drain", "(Ljava/nio/channels/SocketChannel;)J", nullptr, $PRIVATE, $method(ProxyServer$Connection, drain, int64_t, $SocketChannel*), "java.io.IOException"},
-	{"findCRLF", "([B)I", nullptr, 0, $virtualMethod(ProxyServer$Connection, findCRLF, int32_t, $bytes*)},
-	{"findFirst", "(Ljava/util/List;Ljava/lang/String;)Ljava/lang/String;", "(Ljava/util/List<Ljava/lang/String;>;Ljava/lang/String;)Ljava/lang/String;", 0, $virtualMethod(ProxyServer$Connection, findFirst, $String*, $List*, $String*)},
-	{"init", "()V", nullptr, $PUBLIC, $virtualMethod(ProxyServer$Connection, init, void)},
-	{"lambda$authorized$0", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ProxyServer$Connection, lambda$authorized$0, bool, $String*)},
-	{"lambda$findFirst$1", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ProxyServer$Connection, lambda$findFirst$1, bool, $String*, $String*)},
-	{"lambda$findFirst$2", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ProxyServer$Connection, lambda$findFirst$2, $String*, $String*, $String*)},
-	{"lambda$proxyCommon$3", "(Z)V", nullptr, $PRIVATE | $SYNTHETIC, $method(ProxyServer$Connection, lambda$proxyCommon$3, void, bool)},
-	{"lambda$proxyCommon$4", "(Z)V", nullptr, $PRIVATE | $SYNTHETIC, $method(ProxyServer$Connection, lambda$proxyCommon$4, void, bool)},
-	{"proxyCommon", "(Z)V", nullptr, $SYNCHRONIZED, $virtualMethod(ProxyServer$Connection, proxyCommon, void, bool), "java.io.IOException"},
-	{"readHeaders", "(Ljava/io/InputStream;)[B", nullptr, 0, $virtualMethod(ProxyServer$Connection, readHeaders, $bytes*, $InputStream*), "java.io.IOException"},
-	{"running", "()Z", nullptr, 0, $virtualMethod(ProxyServer$Connection, running, bool)},
-	{"shouldCloseAfter407", "(Ljava/util/List;)Z", "(Ljava/util/List<Ljava/lang/String;>;)Z", $PRIVATE, $method(ProxyServer$Connection, shouldCloseAfter407, bool, $List*), "java.io.IOException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ProxyServer$Connection, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _ProxyServer$Connection_InnerClassesInfo_[] = {
-	{"ProxyServer$Connection", "ProxyServer", "Connection", 0},
-	{}
-};
-
-$ClassInfo _ProxyServer$Connection_ClassInfo_ = {
-	$ACC_SUPER,
-	"ProxyServer$Connection",
-	"java.lang.Object",
-	nullptr,
-	_ProxyServer$Connection_FieldInfo_,
-	_ProxyServer$Connection_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ProxyServer$Connection_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"ProxyServer"
-};
-
-$Object* allocate$ProxyServer$Connection($Class* clazz) {
-	return $of($alloc(ProxyServer$Connection));
-}
-
 void ProxyServer$Connection::init$($ProxyServer* this$0, $SocketChannel* s, int32_t id) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, this$0, this$0);
 	this->id = id;
 	$set(this, clientSocket, s);
-	$set(this, clientIn, $new($BufferedInputStream, $($nc($($nc(s)->socket()))->getInputStream())));
-	$set(this, clientOut, $nc($($nc(s)->socket()))->getOutputStream());
+	$set(this, clientIn, $new($BufferedInputStream, $($$nc($nc(s)->socket())->getInputStream())));
+	$set(this, clientOut, $$nc(s->socket())->getOutputStream());
 }
 
 $bytes* ProxyServer$Connection::readHeaders($InputStream* is) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, outbuffer, $new($bytes, 8000));
 	int32_t crlfcount = 0;
 	int32_t bytecount = 0;
@@ -414,33 +316,25 @@ $bytes* ProxyServer$Connection::readHeaders($InputStream* is) {
 		if (c == ProxyServer$Connection::CR || c == ProxyServer$Connection::LF) {
 			switch (crlfcount) {
 			case 0:
-				{
-					if (c == ProxyServer$Connection::CR) {
-						++crlfcount;
-					}
-					break;
+				if (c == ProxyServer$Connection::CR) {
+					++crlfcount;
 				}
+				break;
 			case 1:
-				{
-					if (c == ProxyServer$Connection::LF) {
-						++crlfcount;
-					}
-					break;
+				if (c == ProxyServer$Connection::LF) {
+					++crlfcount;
 				}
+				break;
 			case 2:
-				{
-					if (c == ProxyServer$Connection::CR) {
-						++crlfcount;
-					}
-					break;
+				if (c == ProxyServer$Connection::CR) {
+					++crlfcount;
 				}
+				break;
 			case 3:
-				{
-					if (c == ProxyServer$Connection::LF) {
-						++crlfcount;
-					}
-					break;
+				if (c == ProxyServer$Connection::LF) {
+					++crlfcount;
 				}
+				break;
 			}
 		} else {
 			crlfcount = 0;
@@ -466,10 +360,10 @@ void ProxyServer$Connection::close() {
 			$nc($System::out)->println($$str({"Proxy: closing connection {"_s, this, "}"_s}));
 		}
 		if (this->serverSocket != nullptr) {
-			$nc(this->serverSocket)->close();
+			this->serverSocket->close();
 		}
 		if (this->clientSocket != nullptr) {
-			$nc(this->clientSocket)->close();
+			this->clientSocket->close();
 		}
 	}
 }
@@ -477,10 +371,10 @@ void ProxyServer$Connection::close() {
 void ProxyServer$Connection::awaitCompletion() {
 	try {
 		if (this->in != nullptr) {
-			$nc(this->in)->join();
+			this->in->join();
 		}
 		if (this->out != nullptr) {
-			$nc(this->out)->join();
+			this->out->join();
 		}
 	} catch ($InterruptedException& e) {
 	}
@@ -496,15 +390,15 @@ int32_t ProxyServer$Connection::findCRLF($bytes* b) {
 }
 
 bool ProxyServer$Connection::authorized($ProxyServer$Credentials* credentials, $List* requestHeaders) {
-	$useLocalCurrentObjectStackCache();
-	$var($List, authorization, $cast($List, $nc($($nc($($nc(requestHeaders)->stream()))->filter(static_cast<$Predicate*>($$new(ProxyServer$Connection$$Lambda$lambda$authorized$0)))))->collect($($Collectors::toList()))));
+	$useLocalObjectStack();
+	$var($List, authorization, $cast($List, $$nc($$nc($nc(requestHeaders)->stream())->filter($$new(ProxyServer$Connection$$Lambda$lambda$authorized$0)))->collect($($Collectors::toList()))));
 	if ($nc(authorization)->isEmpty()) {
 		return false;
 	}
-	if ($nc(authorization)->size() != 1) {
+	if (authorization->size() != 1) {
 		$throwNew($IllegalStateException, $$str({"Authorization unexpected count:"_s, authorization}));
 	}
-	$var($String, value, $($nc(($cast($String, $($nc(authorization)->get(0)))))->substring("proxy-authorization"_s->length()))->trim());
+	$var($String, value, $($$sure($String, authorization->get(0))->substring("proxy-authorization"_s->length()))->trim());
 	if (!value->startsWith(":"_s)) {
 		$throwNew($IllegalStateException, $$str({"Authorization malformed: "_s, value}));
 	}
@@ -514,22 +408,22 @@ bool ProxyServer$Connection::authorized($ProxyServer$Credentials* credentials, $
 	}
 	$assign(value, value->substring("Basic "_s->length()));
 	$init($StandardCharsets);
-	$var($String, values, $new($String, $($nc($($Base64::getDecoder()))->decode(value)), $StandardCharsets::UTF_8));
-	int32_t sep = values->indexOf((int32_t)u':');
+	$var($String, values, $new($String, $($$nc($Base64::getDecoder())->decode(value)), $StandardCharsets::UTF_8));
+	int32_t sep = values->indexOf(u':');
 	if (sep < 1) {
 		$throwNew($IllegalStateException, $$str({"Authorization no colon: "_s, values}));
 	}
 	$var($String, name, values->substring(0, sep));
 	$var($String, password, values->substring(sep + 1));
 	bool var$0 = name->equals($($nc(credentials)->name()));
-	if (var$0 && password->equals($($nc(credentials)->password()))) {
+	if (var$0 && password->equals($(credentials->password()))) {
 		return true;
 	}
 	return false;
 }
 
 void ProxyServer$Connection::init() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$var($bytes, buf, nullptr);
 		$var($String, host, nullptr);
@@ -553,18 +447,18 @@ void ProxyServer$Connection::init() {
 					$var($String, resp, "HTTP/1.1 407 Proxy Authentication Required\r\nContent-Length: 0\r\nProxy-Authenticate: Basic realm=\"proxy realm\"\r\n\r\n"_s);
 					$init($StandardSocketOptions);
 					$nc(this->clientSocket)->setOption($StandardSocketOptions::TCP_NODELAY, $($Boolean::valueOf(true)));
-					$nc(this->clientSocket)->setOption($StandardSocketOptions::SO_LINGER, $($Integer::valueOf(2)));
+					this->clientSocket->setOption($StandardSocketOptions::SO_LINGER, $($Integer::valueOf(2)));
 					$var($ByteBuffer, buffer, $ByteBuffer::wrap($(resp->getBytes($StandardCharsets::ISO_8859_1))));
 					$nc(this->clientSocket)->write(buffer);
 					if (this->this$0->debug) {
-						$var($Integer, linger, $cast($Integer, $nc(this->clientSocket)->getOption($StandardSocketOptions::SO_LINGER)));
-						$var($Boolean, nodelay, $cast($Boolean, $nc(this->clientSocket)->getOption($StandardSocketOptions::TCP_NODELAY)));
+						$var($Integer, linger, $cast($Integer, this->clientSocket->getOption($StandardSocketOptions::SO_LINGER)));
+						$var($Boolean, nodelay, $cast($Boolean, this->clientSocket->getOption($StandardSocketOptions::TCP_NODELAY)));
 						int32_t var$0 = $nc(buffer)->position();
 						$nc($System::out)->printf("Proxy: unauthorized; 407 sent (%s/%s), linger: %s, nodelay: %s%n"_s, $$new($ObjectArray, {
-							$($of($Integer::valueOf($nc(buffer)->position()))),
-							$($of($Integer::valueOf(var$0 + buffer->remaining()))),
-							$of(linger),
-							$of(nodelay)
+							$($Integer::valueOf($nc(buffer)->position())),
+							$($Integer::valueOf(var$0 + buffer->remaining())),
+							linger,
+							nodelay
 						}));
 					}
 					if (shouldCloseAfter407(headers)) {
@@ -601,66 +495,64 @@ void ProxyServer$Connection::init() {
 }
 
 $String* ProxyServer$Connection::findFirst($List* headers, $String* key) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Locale);
 	$var($String, h, $str({$($nc(key)->toLowerCase($Locale::ROOT)), ": "_s}));
-	return $cast($String, $nc($($nc($($nc($($nc($($nc($($nc(headers)->stream()))->filter(static_cast<$Predicate*>($$new(ProxyServer$Connection$$Lambda$lambda$findFirst$1$1, h)))))->findFirst()))->map(static_cast<$Function*>($$new(ProxyServer$Connection$$Lambda$lambda$findFirst$2$2, h)))))->map(static_cast<$Function*>($$new(ProxyServer$Connection$$Lambda$trim$3)))))->orElse(nullptr));
+	return $cast($String, $$nc($$nc($$nc($$nc($$nc($nc(headers)->stream())->filter($$new(ProxyServer$Connection$$Lambda$lambda$findFirst$1$1, h)))->findFirst())->map($$new(ProxyServer$Connection$$Lambda$lambda$findFirst$2$2, h)))->map($$new(ProxyServer$Connection$$Lambda$trim$3)))->orElse(nullptr));
 }
 
 int64_t ProxyServer$Connection::drain($SocketChannel* socket) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool isBlocking = $nc(socket)->isBlocking();
 	if (isBlocking) {
 		socket->configureBlocking(false);
 	}
-	{
-		$var($Throwable, var$0, nullptr);
-		int64_t var$2 = 0;
-		bool return$1 = false;
-		try {
-			$var($ByteBuffer, buffer, $ByteBuffer::allocate(1024));
-			int32_t read = 0;
-			int64_t drained = 0;
-			while ((read = socket->read(buffer)) > 0) {
-				drained += read;
-				$nc(buffer)->position(0);
-				buffer->limit(buffer->capacity());
-			}
-			var$2 = drained;
-			return$1 = true;
-			goto $finally;
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			if (isBlocking) {
-				socket->configureBlocking(true);
-			}
+	$var($Throwable, var$0, nullptr);
+	int64_t var$2 = 0;
+	bool return$1 = false;
+	try {
+		$var($ByteBuffer, buffer, $ByteBuffer::allocate(1024));
+		int32_t read = 0;
+		int64_t drained = 0;
+		while ((read = socket->read(buffer)) > 0) {
+			drained += read;
+			$nc(buffer)->position(0);
+			buffer->limit(buffer->capacity());
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+		var$2 = drained;
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		if (isBlocking) {
+			socket->configureBlocking(true);
 		}
-		if (return$1) {
-			return var$2;
-		}
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
 
 void ProxyServer$Connection::closeConnection() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->this$0->debug) {
 		$init($StandardSocketOptions);
 		$var($Integer, linger, $cast($Integer, $nc(this->clientSocket)->getOption($StandardSocketOptions::SO_LINGER)));
-		$var($Boolean, nodelay, $cast($Boolean, $nc(this->clientSocket)->getOption($StandardSocketOptions::TCP_NODELAY)));
+		$var($Boolean, nodelay, $cast($Boolean, this->clientSocket->getOption($StandardSocketOptions::TCP_NODELAY)));
 		$nc($System::out)->printf("Proxy: closing connection id=%s, linger: %s, nodelay: %s%n"_s, $$new($ObjectArray, {
-			$($of($Integer::valueOf(this->id))),
-			$of(linger),
-			$of(nodelay)
+			$($Integer::valueOf(this->id)),
+			linger,
+			nodelay
 		}));
 	}
 	int64_t drained = drain(this->clientSocket);
 	if (this->this$0->debug) {
-		$nc($System::out)->printf("Proxy: drained: %s%n"_s, $$new($ObjectArray, {$($of($Long::valueOf(drained)))}));
+		$nc($System::out)->printf("Proxy: drained: %s%n"_s, $$new($ObjectArray, {$($Long::valueOf(drained))}));
 	}
 	$nc(this->clientSocket)->shutdownOutput();
 	try {
@@ -674,7 +566,7 @@ void ProxyServer$Connection::closeConnection() {
 }
 
 bool ProxyServer$Connection::shouldCloseAfter407($List* headers) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, te, findFirst(headers, "transfer-encoding"_s));
 	if (te != nullptr) {
 		if (this->this$0->debug) {
@@ -687,7 +579,7 @@ bool ProxyServer$Connection::shouldCloseAfter407($List* headers) {
 	try {
 		n = $Integer::parseInt(cl);
 		if (this->this$0->debug) {
-			$nc($System::out)->printf("Proxy: content-length: %d%n"_s, $$new($ObjectArray, {$of(cl)}));
+			$nc($System::out)->printf("Proxy: content-length: %d%n"_s, $$new($ObjectArray, {cl}));
 		}
 	} catch ($IllegalFormatException& x) {
 		if (this->this$0->debug) {
@@ -702,7 +594,7 @@ bool ProxyServer$Connection::shouldCloseAfter407($List* headers) {
 		return true;
 	}
 	$var($String, cmdline, $cast($String, $nc(headers)->get(0)));
-	int32_t m = $nc(cmdline)->indexOf((int32_t)u' ');
+	int32_t m = $nc(cmdline)->indexOf(u' ');
 	$var($String, method, (m > 0) ? cmdline->substring(0, m) : ($String*)nullptr);
 	$var($List, nobody, $List::of("GET"_s, "HEAD"_s));
 	if (n == 0 || $nc(nobody)->contains($($Integer::valueOf(m)))) {
@@ -710,7 +602,7 @@ bool ProxyServer$Connection::shouldCloseAfter407($List* headers) {
 		int64_t drained = drain(this->clientSocket);
 		if (drained > 0 || available > 0) {
 			if (this->this$0->debug) {
-				$nc($System::out)->printf("Proxy: unexpected bytes (%d) with 407, closing connection%n"_s, $$new($ObjectArray, {$($of($Long::valueOf(drained + available)))}));
+				$nc($System::out)->printf("Proxy: unexpected bytes (%d) with 407, closing connection%n"_s, $$new($ObjectArray, {$($Long::valueOf(drained + available))}));
 			}
 			return true;
 		}
@@ -724,7 +616,7 @@ bool ProxyServer$Connection::shouldCloseAfter407($List* headers) {
 }
 
 void ProxyServer$Connection::doProxy($String* dest$renamed, $String* cmdLine$renamed, $List* headers, $String* host, bool authorized) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, cmdLine, cmdLine$renamed);
 	$var($String, dest, dest$renamed);
 	try {
@@ -737,10 +629,10 @@ void ProxyServer$Connection::doProxy($String* dest$renamed, $String* cmdLine$ren
 			}
 		}
 		if (this->this$0->debug) {
-			$nc($System::out)->printf("Proxy: uri=%s%n"_s, $$new($ObjectArray, {$of(uri)}));
+			$nc($System::out)->printf("Proxy: uri=%s%n"_s, $$new($ObjectArray, {uri}));
 		}
 		$assign(dest, uri->getAuthority());
-		int32_t sp = $nc(cmdLine)->indexOf((int32_t)u' ');
+		int32_t sp = $nc(cmdLine)->indexOf(u' ');
 		$var($String, method, cmdLine->substring(0, sp));
 		$assign(cmdLine, $str({method, " "_s, $(uri->getPath()), " HTTP/1.1"_s}));
 		commonInit(dest, 80);
@@ -759,19 +651,19 @@ void ProxyServer$Connection::doProxy($String* dest$renamed, $String* cmdLine$ren
 		$nc(sout)->write($(cmdLine->getBytes($StandardCharsets::ISO_8859_1)));
 		sout->write(CRLF);
 		if (this->this$0->debug) {
-			$nc($System::out)->printf("Proxy Forwarding: %s%n"_s, $$new($ObjectArray, {$of(cmdLine)}));
+			$nc($System::out)->printf("Proxy Forwarding: %s%n"_s, $$new($ObjectArray, {cmdLine}));
 		}
 		for (int32_t l = 1; l < $nc(headers)->size(); ++l) {
 			$var($String, s, $cast($String, headers->get(l)));
 			$init($Locale);
 			if (!authorized || !$($nc(s)->toLowerCase($Locale::ROOT))->startsWith("proxy-authorization"_s)) {
-				sout->write($(s->getBytes($StandardCharsets::ISO_8859_1)));
+				sout->write($($nc(s)->getBytes($StandardCharsets::ISO_8859_1)));
 				sout->write(CRLF);
 				if (this->this$0->debug) {
-					$nc($System::out)->printf("Proxy Forwarding: %s%n"_s, $$new($ObjectArray, {$of(s)}));
+					$nc($System::out)->printf("Proxy Forwarding: %s%n"_s, $$new($ObjectArray, {s}));
 				}
 			} else if (this->this$0->debug) {
-				$nc($System::out)->printf("Proxy Skipping: %s%n"_s, $$new($ObjectArray, {$of(s)}));
+				$nc($System::out)->printf("Proxy Skipping: %s%n"_s, $$new($ObjectArray, {s}));
 			}
 		}
 		sout->write(CRLF);
@@ -780,13 +672,13 @@ void ProxyServer$Connection::doProxy($String* dest$renamed, $String* cmdLine$ren
 		}
 		proxyCommon(this->this$0->debug);
 	} catch ($URISyntaxException& e) {
-		$throwNew($IOException, static_cast<$Throwable*>(e));
+		$throwNew($IOException, e);
 	}
 }
 
 void ProxyServer$Connection::commonInit($String* dest, int32_t defaultPort) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		if (this->closing) {
 			return;
 		}
@@ -799,31 +691,31 @@ void ProxyServer$Connection::commonInit($String* dest, int32_t defaultPort) {
 		}
 		if (this->this$0->debug) {
 			$nc($System::out)->printf("Proxy: connecting to (%s/%d)\n"_s, $$new($ObjectArray, {
-				$of(hostport->get(0)),
-				$($of($Integer::valueOf(port)))
+				hostport->get(0),
+				$($Integer::valueOf(port))
 			}));
 		}
 		$set(this, serverSocket, $SocketChannel::open());
 		$nc(this->serverSocket)->connect($$new($InetSocketAddress, hostport->get(0), port));
-		$set(this, serverOut, $nc($($nc(this->serverSocket)->socket()))->getOutputStream());
-		$set(this, serverIn, $new($BufferedInputStream, $($nc($($nc(this->serverSocket)->socket()))->getInputStream())));
+		$set(this, serverOut, $$nc(this->serverSocket->socket())->getOutputStream());
+		$set(this, serverIn, $new($BufferedInputStream, $($$nc(this->serverSocket->socket())->getInputStream())));
 	}
 }
 
 void ProxyServer$Connection::proxyCommon(bool log) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		if (this->closing) {
 			return;
 		}
-		$set(this, out, $new($Thread, static_cast<$Runnable*>($$new(ProxyServer$Connection$$Lambda$lambda$proxyCommon$3$4, this, log))));
-		$set(this, in, $new($Thread, static_cast<$Runnable*>($$new(ProxyServer$Connection$$Lambda$lambda$proxyCommon$4$5, this, log))));
-		$nc(this->out)->setName("Proxy-outbound"_s);
-		$nc(this->out)->setDaemon(true);
-		$nc(this->in)->setDaemon(true);
-		$nc(this->in)->setName("Proxy-inbound"_s);
-		$nc(this->out)->start();
-		$nc(this->in)->start();
+		$set(this, out, $new($Thread, $$new(ProxyServer$Connection$$Lambda$lambda$proxyCommon$3$4, this, log)));
+		$set(this, in, $new($Thread, $$new(ProxyServer$Connection$$Lambda$lambda$proxyCommon$4$5, this, log)));
+		this->out->setName("Proxy-outbound"_s);
+		this->out->setDaemon(true);
+		this->in->setDaemon(true);
+		this->in->setName("Proxy-inbound"_s);
+		this->out->start();
+		this->in->start();
 	}
 }
 
@@ -841,7 +733,7 @@ $String* ProxyServer$Connection::toString() {
 }
 
 void ProxyServer$Connection::lambda$proxyCommon$4(bool log) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$var($bytes, bb, $new($bytes, 8000));
 		int32_t n = 0;
@@ -851,10 +743,10 @@ void ProxyServer$Connection::lambda$proxyCommon$4(bool log) {
 			resp += n;
 			if (log) {
 				$init($StandardCharsets);
-				$nc($System::out)->printf("Proxy Forwarding [response]: %s%n"_s, $$new($ObjectArray, {$of($$new($String, bb, 0, n, $StandardCharsets::UTF_8))}));
+				$nc($System::out)->printf("Proxy Forwarding [response]: %s%n"_s, $$new($ObjectArray, {$$new($String, bb, 0, n, $StandardCharsets::UTF_8)}));
 			}
 			if (log) {
-				$nc($System::out)->printf("Proxy Forwarding [response]: total %d%n"_s, $$new($ObjectArray, {$($of($Integer::valueOf(resp)))}));
+				$nc($System::out)->printf("Proxy Forwarding [response]: total %d%n"_s, $$new($ObjectArray, {$($Integer::valueOf(resp))}));
 			}
 		}
 		this->closing = true;
@@ -869,7 +761,7 @@ void ProxyServer$Connection::lambda$proxyCommon$4(bool log) {
 }
 
 void ProxyServer$Connection::lambda$proxyCommon$3(bool log) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$var($bytes, bb, $new($bytes, 8000));
 		int32_t n = 0;
@@ -878,7 +770,7 @@ void ProxyServer$Connection::lambda$proxyCommon$3(bool log) {
 			$nc(this->serverOut)->write(bb, 0, n);
 			body += n;
 			if (log) {
-				$nc($System::out)->printf("Proxy Forwarding [request body]: total %d%n"_s, $$new($ObjectArray, {$($of($Integer::valueOf(body)))}));
+				$nc($System::out)->printf("Proxy Forwarding [request body]: total %d%n"_s, $$new($ObjectArray, {$($Integer::valueOf(body))}));
 			}
 		}
 		this->closing = true;
@@ -911,26 +803,88 @@ ProxyServer$Connection::ProxyServer$Connection() {
 
 $Class* ProxyServer$Connection::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(ProxyServer$Connection$$Lambda$lambda$authorized$0::classInfo$.name)) {
+		if (name->equals("ProxyServer$Connection$$Lambda$lambda$authorized$0")) {
 			return ProxyServer$Connection$$Lambda$lambda$authorized$0::load$(name, initialize);
 		}
-		if (name->equals(ProxyServer$Connection$$Lambda$lambda$findFirst$1$1::classInfo$.name)) {
+		if (name->equals("ProxyServer$Connection$$Lambda$lambda$findFirst$1$1")) {
 			return ProxyServer$Connection$$Lambda$lambda$findFirst$1$1::load$(name, initialize);
 		}
-		if (name->equals(ProxyServer$Connection$$Lambda$lambda$findFirst$2$2::classInfo$.name)) {
+		if (name->equals("ProxyServer$Connection$$Lambda$lambda$findFirst$2$2")) {
 			return ProxyServer$Connection$$Lambda$lambda$findFirst$2$2::load$(name, initialize);
 		}
-		if (name->equals(ProxyServer$Connection$$Lambda$trim$3::classInfo$.name)) {
+		if (name->equals("ProxyServer$Connection$$Lambda$trim$3")) {
 			return ProxyServer$Connection$$Lambda$trim$3::load$(name, initialize);
 		}
-		if (name->equals(ProxyServer$Connection$$Lambda$lambda$proxyCommon$3$4::classInfo$.name)) {
+		if (name->equals("ProxyServer$Connection$$Lambda$lambda$proxyCommon$3$4")) {
 			return ProxyServer$Connection$$Lambda$lambda$proxyCommon$3$4::load$(name, initialize);
 		}
-		if (name->equals(ProxyServer$Connection$$Lambda$lambda$proxyCommon$4$5::classInfo$.name)) {
+		if (name->equals("ProxyServer$Connection$$Lambda$lambda$proxyCommon$4$5")) {
 			return ProxyServer$Connection$$Lambda$lambda$proxyCommon$4$5::load$(name, initialize);
 		}
 	}
-	$loadClass(ProxyServer$Connection, name, initialize, &_ProxyServer$Connection_ClassInfo_, allocate$ProxyServer$Connection);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "LProxyServer;", nullptr, $FINAL | $SYNTHETIC, $field(ProxyServer$Connection, this$0)},
+		{"id", "I", nullptr, $PRIVATE | $FINAL, $field(ProxyServer$Connection, id)},
+		{"clientSocket", "Ljava/nio/channels/SocketChannel;", nullptr, 0, $field(ProxyServer$Connection, clientSocket)},
+		{"serverSocket", "Ljava/nio/channels/SocketChannel;", nullptr, 0, $field(ProxyServer$Connection, serverSocket)},
+		{"out", "Ljava/lang/Thread;", nullptr, 0, $field(ProxyServer$Connection, out)},
+		{"in", "Ljava/lang/Thread;", nullptr, 0, $field(ProxyServer$Connection, in)},
+		{"clientIn", "Ljava/io/InputStream;", nullptr, $VOLATILE, $field(ProxyServer$Connection, clientIn)},
+		{"serverIn", "Ljava/io/InputStream;", nullptr, $VOLATILE, $field(ProxyServer$Connection, serverIn)},
+		{"clientOut", "Ljava/io/OutputStream;", nullptr, $VOLATILE, $field(ProxyServer$Connection, clientOut)},
+		{"serverOut", "Ljava/io/OutputStream;", nullptr, $VOLATILE, $field(ProxyServer$Connection, serverOut)},
+		{"CR", "I", nullptr, $STATIC | $FINAL, $constField(ProxyServer$Connection, CR)},
+		{"LF", "I", nullptr, $STATIC | $FINAL, $constField(ProxyServer$Connection, LF)},
+		{"closing", "Z", nullptr, $PRIVATE | $VOLATILE, $field(ProxyServer$Connection, closing)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(LProxyServer;Ljava/nio/channels/SocketChannel;I)V", nullptr, 0, $method(ProxyServer$Connection, init$, void, $ProxyServer*, $SocketChannel*, int32_t), "java.io.IOException"},
+		{"authorized", "(LProxyServer$Credentials;Ljava/util/List;)Z", "(LProxyServer$Credentials;Ljava/util/List<Ljava/lang/String;>;)Z", $PRIVATE, $method(ProxyServer$Connection, authorized, bool, $ProxyServer$Credentials*, $List*)},
+		{"awaitCompletion", "()V", nullptr, $PUBLIC, $virtualMethod(ProxyServer$Connection, awaitCompletion, void)},
+		{"close", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ProxyServer$Connection, close, void), "java.io.IOException"},
+		{"closeConnection", "()V", nullptr, 0, $virtualMethod(ProxyServer$Connection, closeConnection, void), "java.io.IOException"},
+		{"commonInit", "(Ljava/lang/String;I)V", nullptr, $SYNCHRONIZED, $virtualMethod(ProxyServer$Connection, commonInit, void, $String*, int32_t), "java.io.IOException"},
+		{"doProxy", "(Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Ljava/lang/String;Z)V", "(Ljava/lang/String;Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;Ljava/lang/String;Z)V", 0, $virtualMethod(ProxyServer$Connection, doProxy, void, $String*, $String*, $List*, $String*, bool), "java.io.IOException"},
+		{"doTunnel", "(Ljava/lang/String;)V", nullptr, 0, $virtualMethod(ProxyServer$Connection, doTunnel, void, $String*), "java.io.IOException"},
+		{"drain", "(Ljava/nio/channels/SocketChannel;)J", nullptr, $PRIVATE, $method(ProxyServer$Connection, drain, int64_t, $SocketChannel*), "java.io.IOException"},
+		{"findCRLF", "([B)I", nullptr, 0, $virtualMethod(ProxyServer$Connection, findCRLF, int32_t, $bytes*)},
+		{"findFirst", "(Ljava/util/List;Ljava/lang/String;)Ljava/lang/String;", "(Ljava/util/List<Ljava/lang/String;>;Ljava/lang/String;)Ljava/lang/String;", 0, $virtualMethod(ProxyServer$Connection, findFirst, $String*, $List*, $String*)},
+		{"init", "()V", nullptr, $PUBLIC, $virtualMethod(ProxyServer$Connection, init, void)},
+		{"lambda$authorized$0", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ProxyServer$Connection, lambda$authorized$0, bool, $String*)},
+		{"lambda$findFirst$1", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ProxyServer$Connection, lambda$findFirst$1, bool, $String*, $String*)},
+		{"lambda$findFirst$2", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ProxyServer$Connection, lambda$findFirst$2, $String*, $String*, $String*)},
+		{"lambda$proxyCommon$3", "(Z)V", nullptr, $PRIVATE | $SYNTHETIC, $method(ProxyServer$Connection, lambda$proxyCommon$3, void, bool)},
+		{"lambda$proxyCommon$4", "(Z)V", nullptr, $PRIVATE | $SYNTHETIC, $method(ProxyServer$Connection, lambda$proxyCommon$4, void, bool)},
+		{"proxyCommon", "(Z)V", nullptr, $SYNCHRONIZED, $virtualMethod(ProxyServer$Connection, proxyCommon, void, bool), "java.io.IOException"},
+		{"readHeaders", "(Ljava/io/InputStream;)[B", nullptr, 0, $virtualMethod(ProxyServer$Connection, readHeaders, $bytes*, $InputStream*), "java.io.IOException"},
+		{"running", "()Z", nullptr, 0, $virtualMethod(ProxyServer$Connection, running, bool)},
+		{"shouldCloseAfter407", "(Ljava/util/List;)Z", "(Ljava/util/List<Ljava/lang/String;>;)Z", $PRIVATE, $method(ProxyServer$Connection, shouldCloseAfter407, bool, $List*), "java.io.IOException"},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ProxyServer$Connection, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"ProxyServer$Connection", "ProxyServer", "Connection", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"ProxyServer$Connection",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"ProxyServer"
+	};
+	$loadClass(ProxyServer$Connection, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ProxyServer$Connection);
+	});
 	return class$;
 }
 

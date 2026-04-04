@@ -1,5 +1,4 @@
 #include <bug4666224$ChangeLayoutAction.h>
-
 #include <bug4666224.h>
 #include <java/awt/event/ActionEvent.h>
 #include <javax/swing/AbstractAction.h>
@@ -17,43 +16,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AbstractAction = ::javax::swing::AbstractAction;
 using $JTabbedPane = ::javax::swing::JTabbedPane;
-
-$FieldInfo _bug4666224$ChangeLayoutAction_FieldInfo_[] = {
-	{"this$0", "Lbug4666224;", nullptr, $FINAL | $SYNTHETIC, $field(bug4666224$ChangeLayoutAction, this$0)},
-	{"a", "Z", nullptr, $PRIVATE, $field(bug4666224$ChangeLayoutAction, a)},
-	{}
-};
-
-$MethodInfo _bug4666224$ChangeLayoutAction_MethodInfo_[] = {
-	{"<init>", "(Lbug4666224;)V", nullptr, $PRIVATE, $method(bug4666224$ChangeLayoutAction, init$, void, $bug4666224*)},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(bug4666224$ChangeLayoutAction, actionPerformed, void, $ActionEvent*)},
-	{}
-};
-
-$InnerClassInfo _bug4666224$ChangeLayoutAction_InnerClassesInfo_[] = {
-	{"bug4666224$ChangeLayoutAction", "bug4666224", "ChangeLayoutAction", $PRIVATE},
-	{}
-};
-
-$ClassInfo _bug4666224$ChangeLayoutAction_ClassInfo_ = {
-	$ACC_SUPER,
-	"bug4666224$ChangeLayoutAction",
-	"javax.swing.AbstractAction",
-	nullptr,
-	_bug4666224$ChangeLayoutAction_FieldInfo_,
-	_bug4666224$ChangeLayoutAction_MethodInfo_,
-	nullptr,
-	nullptr,
-	_bug4666224$ChangeLayoutAction_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"bug4666224"
-};
-
-$Object* allocate$bug4666224$ChangeLayoutAction($Class* clazz) {
-	return $of($alloc(bug4666224$ChangeLayoutAction));
-}
 
 void bug4666224$ChangeLayoutAction::init$($bug4666224* this$0) {
 	$set(this, this$0, this$0);
@@ -75,7 +37,38 @@ bug4666224$ChangeLayoutAction::bug4666224$ChangeLayoutAction() {
 }
 
 $Class* bug4666224$ChangeLayoutAction::load$($String* name, bool initialize) {
-	$loadClass(bug4666224$ChangeLayoutAction, name, initialize, &_bug4666224$ChangeLayoutAction_ClassInfo_, allocate$bug4666224$ChangeLayoutAction);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lbug4666224;", nullptr, $FINAL | $SYNTHETIC, $field(bug4666224$ChangeLayoutAction, this$0)},
+		{"a", "Z", nullptr, $PRIVATE, $field(bug4666224$ChangeLayoutAction, a)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lbug4666224;)V", nullptr, $PRIVATE, $method(bug4666224$ChangeLayoutAction, init$, void, $bug4666224*)},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(bug4666224$ChangeLayoutAction, actionPerformed, void, $ActionEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"bug4666224$ChangeLayoutAction", "bug4666224", "ChangeLayoutAction", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"bug4666224$ChangeLayoutAction",
+		"javax.swing.AbstractAction",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"bug4666224"
+	};
+	$loadClass(bug4666224$ChangeLayoutAction, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(bug4666224$ChangeLayoutAction));
+	});
 	return class$;
 }
 

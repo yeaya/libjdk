@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/code/TargetType.h>
-
 #include <com/sun/tools/javac/util/Assert.h>
 #include <java/lang/Enum.h>
 #include <jcpp.h>
@@ -42,65 +41,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace code {
-
-$FieldInfo _TargetType_FieldInfo_[] = {
-	{"CLASS_TYPE_PARAMETER", "Lcom/sun/tools/javac/code/TargetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TargetType, CLASS_TYPE_PARAMETER)},
-	{"METHOD_TYPE_PARAMETER", "Lcom/sun/tools/javac/code/TargetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TargetType, METHOD_TYPE_PARAMETER)},
-	{"CLASS_EXTENDS", "Lcom/sun/tools/javac/code/TargetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TargetType, CLASS_EXTENDS)},
-	{"CLASS_TYPE_PARAMETER_BOUND", "Lcom/sun/tools/javac/code/TargetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TargetType, CLASS_TYPE_PARAMETER_BOUND)},
-	{"METHOD_TYPE_PARAMETER_BOUND", "Lcom/sun/tools/javac/code/TargetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TargetType, METHOD_TYPE_PARAMETER_BOUND)},
-	{"FIELD", "Lcom/sun/tools/javac/code/TargetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TargetType, FIELD)},
-	{"METHOD_RETURN", "Lcom/sun/tools/javac/code/TargetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TargetType, METHOD_RETURN)},
-	{"METHOD_RECEIVER", "Lcom/sun/tools/javac/code/TargetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TargetType, METHOD_RECEIVER)},
-	{"METHOD_FORMAL_PARAMETER", "Lcom/sun/tools/javac/code/TargetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TargetType, METHOD_FORMAL_PARAMETER)},
-	{"THROWS", "Lcom/sun/tools/javac/code/TargetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TargetType, THROWS)},
-	{"LOCAL_VARIABLE", "Lcom/sun/tools/javac/code/TargetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TargetType, LOCAL_VARIABLE)},
-	{"RESOURCE_VARIABLE", "Lcom/sun/tools/javac/code/TargetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TargetType, RESOURCE_VARIABLE)},
-	{"EXCEPTION_PARAMETER", "Lcom/sun/tools/javac/code/TargetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TargetType, EXCEPTION_PARAMETER)},
-	{"INSTANCEOF", "Lcom/sun/tools/javac/code/TargetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TargetType, INSTANCEOF)},
-	{"NEW", "Lcom/sun/tools/javac/code/TargetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TargetType, NEW)},
-	{"CONSTRUCTOR_REFERENCE", "Lcom/sun/tools/javac/code/TargetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TargetType, CONSTRUCTOR_REFERENCE)},
-	{"METHOD_REFERENCE", "Lcom/sun/tools/javac/code/TargetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TargetType, METHOD_REFERENCE)},
-	{"CAST", "Lcom/sun/tools/javac/code/TargetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TargetType, CAST)},
-	{"CONSTRUCTOR_INVOCATION_TYPE_ARGUMENT", "Lcom/sun/tools/javac/code/TargetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TargetType, CONSTRUCTOR_INVOCATION_TYPE_ARGUMENT)},
-	{"METHOD_INVOCATION_TYPE_ARGUMENT", "Lcom/sun/tools/javac/code/TargetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TargetType, METHOD_INVOCATION_TYPE_ARGUMENT)},
-	{"CONSTRUCTOR_REFERENCE_TYPE_ARGUMENT", "Lcom/sun/tools/javac/code/TargetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TargetType, CONSTRUCTOR_REFERENCE_TYPE_ARGUMENT)},
-	{"METHOD_REFERENCE_TYPE_ARGUMENT", "Lcom/sun/tools/javac/code/TargetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TargetType, METHOD_REFERENCE_TYPE_ARGUMENT)},
-	{"UNKNOWN", "Lcom/sun/tools/javac/code/TargetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TargetType, UNKNOWN)},
-	{"$VALUES", "[Lcom/sun/tools/javac/code/TargetType;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(TargetType, $VALUES)},
-	{"MAXIMUM_TARGET_TYPE_VALUE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(TargetType, MAXIMUM_TARGET_TYPE_VALUE)},
-	{"targetTypeValue", "I", nullptr, $PRIVATE | $FINAL, $field(TargetType, targetTypeValue$)},
-	{"isLocal", "Z", nullptr, $PRIVATE | $FINAL, $field(TargetType, isLocal$)},
-	{"targets", "[Lcom/sun/tools/javac/code/TargetType;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(TargetType, targets)},
-	{}
-};
-
-$MethodInfo _TargetType_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/javac/code/TargetType;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TargetType, $values, $TargetTypeArray*)},
-	{"<init>", "(Ljava/lang/String;II)V", "(I)V", $PRIVATE, $method(TargetType, init$, void, $String*, int32_t, int32_t)},
-	{"<init>", "(Ljava/lang/String;IIZ)V", "(IZ)V", $PRIVATE, $method(TargetType, init$, void, $String*, int32_t, int32_t, bool)},
-	{"fromTargetTypeValue", "(I)Lcom/sun/tools/javac/code/TargetType;", nullptr, $PUBLIC | $STATIC, $staticMethod(TargetType, fromTargetTypeValue, TargetType*, int32_t)},
-	{"isLocal", "()Z", nullptr, $PUBLIC, $method(TargetType, isLocal, bool)},
-	{"isValidTargetTypeValue", "(I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(TargetType, isValidTargetTypeValue, bool, int32_t)},
-	{"targetTypeValue", "()I", nullptr, $PUBLIC, $method(TargetType, targetTypeValue, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/code/TargetType;", nullptr, $PUBLIC | $STATIC, $staticMethod(TargetType, valueOf, TargetType*, $String*)},
-	{"values", "()[Lcom/sun/tools/javac/code/TargetType;", nullptr, $PUBLIC | $STATIC, $staticMethod(TargetType, values, $TargetTypeArray*)},
-	{}
-};
-
-$ClassInfo _TargetType_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"com.sun.tools.javac.code.TargetType",
-	"java.lang.Enum",
-	nullptr,
-	_TargetType_FieldInfo_,
-	_TargetType_MethodInfo_,
-	"Ljava/lang/Enum<Lcom/sun/tools/javac/code/TargetType;>;"
-};
-
-$Object* allocate$TargetType($Class* clazz) {
-	return $of($alloc(TargetType));
-}
 
 TargetType* TargetType::CLASS_TYPE_PARAMETER = nullptr;
 TargetType* TargetType::METHOD_TYPE_PARAMETER = nullptr;
@@ -172,10 +112,10 @@ void TargetType::init$($String* $enum$name, int32_t $enum$ordinal, int32_t targe
 }
 
 void TargetType::init$($String* $enum$name, int32_t $enum$ordinal, int32_t targetTypeValue, bool isLocal) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Enum::init$($enum$name, $enum$ordinal);
 	if (targetTypeValue < 0 || targetTypeValue > 255) {
-		$Assert::error($$str({"Attribute type value needs to be an unsigned byte: "_s, $($String::format("0x%02X"_s, $$new($ObjectArray, {$($of($Integer::valueOf(targetTypeValue)))})))}));
+		$Assert::error($$str({"Attribute type value needs to be an unsigned byte: "_s, $($String::format("0x%02X"_s, $$new($ObjectArray, {$($Integer::valueOf(targetTypeValue))})))}));
 	}
 	this->targetTypeValue$ = targetTypeValue;
 	this->isLocal$ = isLocal;
@@ -199,7 +139,7 @@ bool TargetType::isValidTargetTypeValue(int32_t tag) {
 
 TargetType* TargetType::fromTargetTypeValue(int32_t tag) {
 	$init(TargetType);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (tag == TargetType::UNKNOWN->targetTypeValue$) {
 		return TargetType::UNKNOWN;
 	}
@@ -209,8 +149,8 @@ TargetType* TargetType::fromTargetTypeValue(int32_t tag) {
 	return $nc(TargetType::targets)->get(tag);
 }
 
-void clinit$TargetType($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void TargetType::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(TargetType::CLASS_TYPE_PARAMETER, $new(TargetType, "CLASS_TYPE_PARAMETER"_s, 0, 0));
 	$assignStatic(TargetType::METHOD_TYPE_PARAMETER, $new(TargetType, "METHOD_TYPE_PARAMETER"_s, 1, 1));
 	$assignStatic(TargetType::CLASS_EXTENDS, $new(TargetType, "CLASS_EXTENDS"_s, 2, 16));
@@ -240,20 +180,16 @@ void clinit$TargetType($Class* class$) {
 		$var($TargetTypeArray, alltargets, TargetType::values());
 		{
 			$var($TargetTypeArray, arr$, alltargets);
-			int32_t len$ = $nc(arr$)->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
+			for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 				TargetType* target = arr$->get(i$);
-				{
-					if ($nc(target)->targetTypeValue$ != TargetType::UNKNOWN->targetTypeValue$) {
-						$nc(TargetType::targets)->set(target->targetTypeValue$, target);
-					}
+				if ($nc(target)->targetTypeValue$ != TargetType::UNKNOWN->targetTypeValue$) {
+					TargetType::targets->set(target->targetTypeValue$, target);
 				}
 			}
 		}
 		for (int32_t i = 0; i <= TargetType::MAXIMUM_TARGET_TYPE_VALUE; ++i) {
-			if ($nc(TargetType::targets)->get(i) == nullptr) {
-				$nc(TargetType::targets)->set(i, TargetType::UNKNOWN);
+			if (TargetType::targets->get(i) == nullptr) {
+				TargetType::targets->set(i, TargetType::UNKNOWN);
 			}
 		}
 	}
@@ -263,7 +199,61 @@ TargetType::TargetType() {
 }
 
 $Class* TargetType::load$($String* name, bool initialize) {
-	$loadClass(TargetType, name, initialize, &_TargetType_ClassInfo_, clinit$TargetType, allocate$TargetType);
+	$FieldInfo fieldInfos$$[] = {
+		{"CLASS_TYPE_PARAMETER", "Lcom/sun/tools/javac/code/TargetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TargetType, CLASS_TYPE_PARAMETER)},
+		{"METHOD_TYPE_PARAMETER", "Lcom/sun/tools/javac/code/TargetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TargetType, METHOD_TYPE_PARAMETER)},
+		{"CLASS_EXTENDS", "Lcom/sun/tools/javac/code/TargetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TargetType, CLASS_EXTENDS)},
+		{"CLASS_TYPE_PARAMETER_BOUND", "Lcom/sun/tools/javac/code/TargetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TargetType, CLASS_TYPE_PARAMETER_BOUND)},
+		{"METHOD_TYPE_PARAMETER_BOUND", "Lcom/sun/tools/javac/code/TargetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TargetType, METHOD_TYPE_PARAMETER_BOUND)},
+		{"FIELD", "Lcom/sun/tools/javac/code/TargetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TargetType, FIELD)},
+		{"METHOD_RETURN", "Lcom/sun/tools/javac/code/TargetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TargetType, METHOD_RETURN)},
+		{"METHOD_RECEIVER", "Lcom/sun/tools/javac/code/TargetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TargetType, METHOD_RECEIVER)},
+		{"METHOD_FORMAL_PARAMETER", "Lcom/sun/tools/javac/code/TargetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TargetType, METHOD_FORMAL_PARAMETER)},
+		{"THROWS", "Lcom/sun/tools/javac/code/TargetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TargetType, THROWS)},
+		{"LOCAL_VARIABLE", "Lcom/sun/tools/javac/code/TargetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TargetType, LOCAL_VARIABLE)},
+		{"RESOURCE_VARIABLE", "Lcom/sun/tools/javac/code/TargetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TargetType, RESOURCE_VARIABLE)},
+		{"EXCEPTION_PARAMETER", "Lcom/sun/tools/javac/code/TargetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TargetType, EXCEPTION_PARAMETER)},
+		{"INSTANCEOF", "Lcom/sun/tools/javac/code/TargetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TargetType, INSTANCEOF)},
+		{"NEW", "Lcom/sun/tools/javac/code/TargetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TargetType, NEW)},
+		{"CONSTRUCTOR_REFERENCE", "Lcom/sun/tools/javac/code/TargetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TargetType, CONSTRUCTOR_REFERENCE)},
+		{"METHOD_REFERENCE", "Lcom/sun/tools/javac/code/TargetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TargetType, METHOD_REFERENCE)},
+		{"CAST", "Lcom/sun/tools/javac/code/TargetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TargetType, CAST)},
+		{"CONSTRUCTOR_INVOCATION_TYPE_ARGUMENT", "Lcom/sun/tools/javac/code/TargetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TargetType, CONSTRUCTOR_INVOCATION_TYPE_ARGUMENT)},
+		{"METHOD_INVOCATION_TYPE_ARGUMENT", "Lcom/sun/tools/javac/code/TargetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TargetType, METHOD_INVOCATION_TYPE_ARGUMENT)},
+		{"CONSTRUCTOR_REFERENCE_TYPE_ARGUMENT", "Lcom/sun/tools/javac/code/TargetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TargetType, CONSTRUCTOR_REFERENCE_TYPE_ARGUMENT)},
+		{"METHOD_REFERENCE_TYPE_ARGUMENT", "Lcom/sun/tools/javac/code/TargetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TargetType, METHOD_REFERENCE_TYPE_ARGUMENT)},
+		{"UNKNOWN", "Lcom/sun/tools/javac/code/TargetType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TargetType, UNKNOWN)},
+		{"$VALUES", "[Lcom/sun/tools/javac/code/TargetType;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(TargetType, $VALUES)},
+		{"MAXIMUM_TARGET_TYPE_VALUE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(TargetType, MAXIMUM_TARGET_TYPE_VALUE)},
+		{"targetTypeValue", "I", nullptr, $PRIVATE | $FINAL, $field(TargetType, targetTypeValue$)},
+		{"isLocal", "Z", nullptr, $PRIVATE | $FINAL, $field(TargetType, isLocal$)},
+		{"targets", "[Lcom/sun/tools/javac/code/TargetType;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(TargetType, targets)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lcom/sun/tools/javac/code/TargetType;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TargetType, $values, $TargetTypeArray*)},
+		{"<init>", "(Ljava/lang/String;II)V", "(I)V", $PRIVATE, $method(TargetType, init$, void, $String*, int32_t, int32_t)},
+		{"<init>", "(Ljava/lang/String;IIZ)V", "(IZ)V", $PRIVATE, $method(TargetType, init$, void, $String*, int32_t, int32_t, bool)},
+		{"fromTargetTypeValue", "(I)Lcom/sun/tools/javac/code/TargetType;", nullptr, $PUBLIC | $STATIC, $staticMethod(TargetType, fromTargetTypeValue, TargetType*, int32_t)},
+		{"isLocal", "()Z", nullptr, $PUBLIC, $method(TargetType, isLocal, bool)},
+		{"isValidTargetTypeValue", "(I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(TargetType, isValidTargetTypeValue, bool, int32_t)},
+		{"targetTypeValue", "()I", nullptr, $PUBLIC, $method(TargetType, targetTypeValue, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/code/TargetType;", nullptr, $PUBLIC | $STATIC, $staticMethod(TargetType, valueOf, TargetType*, $String*)},
+		{"values", "()[Lcom/sun/tools/javac/code/TargetType;", nullptr, $PUBLIC | $STATIC, $staticMethod(TargetType, values, $TargetTypeArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"com.sun.tools.javac.code.TargetType",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lcom/sun/tools/javac/code/TargetType;>;"
+	};
+	$loadClass(TargetType, name, initialize, &classInfo$$, TargetType::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(TargetType));
+	});
 	return class$;
 }
 

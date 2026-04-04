@@ -27,6 +27,7 @@ class GTKConstants$ExpanderStyle : public ::java::lang::Enum {
 public:
 	GTKConstants$ExpanderStyle();
 	static $Array<::com::sun::java::swing::plaf::gtk::GTKConstants$ExpanderStyle>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::com::sun::java::swing::plaf::gtk::GTKConstants$ExpanderStyle* valueOf($String* name);
 	static $Array<::com::sun::java::swing::plaf::gtk::GTKConstants$ExpanderStyle>* values();

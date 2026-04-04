@@ -1,5 +1,4 @@
 #include <sun/security/jgss/TokenTracker.h>
-
 #include <java/util/LinkedList.h>
 #include <org/ietf/jgss/MessageProp.h>
 #include <sun/security/jgss/TokenTracker$Entry.h>
@@ -19,49 +18,6 @@ namespace sun {
 	namespace security {
 		namespace jgss {
 
-$FieldInfo _TokenTracker_FieldInfo_[] = {
-	{"MAX_INTERVALS", "I", nullptr, $STATIC | $FINAL, $constField(TokenTracker, MAX_INTERVALS)},
-	{"initNumber", "I", nullptr, $PRIVATE, $field(TokenTracker, initNumber)},
-	{"windowStart", "I", nullptr, $PRIVATE, $field(TokenTracker, windowStart)},
-	{"expectedNumber", "I", nullptr, $PRIVATE, $field(TokenTracker, expectedNumber)},
-	{"windowStartIndex", "I", nullptr, $PRIVATE, $field(TokenTracker, windowStartIndex)},
-	{"list", "Ljava/util/LinkedList;", "Ljava/util/LinkedList<Lsun/security/jgss/TokenTracker$Entry;>;", $PRIVATE, $field(TokenTracker, list)},
-	{}
-};
-
-$MethodInfo _TokenTracker_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(TokenTracker, init$, void, int32_t)},
-	{"add", "(II)V", nullptr, $PRIVATE, $method(TokenTracker, add, void, int32_t, int32_t)},
-	{"getIntervalIndex", "(I)I", nullptr, $PRIVATE, $method(TokenTracker, getIntervalIndex, int32_t, int32_t)},
-	{"getProps", "(ILorg/ietf/jgss/MessageProp;)V", nullptr, $PUBLIC | $FINAL | $SYNCHRONIZED, $method(TokenTracker, getProps, void, int32_t, $MessageProp*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TokenTracker, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _TokenTracker_InnerClassesInfo_[] = {
-	{"sun.security.jgss.TokenTracker$Entry", "sun.security.jgss.TokenTracker", "Entry", 0},
-	{}
-};
-
-$ClassInfo _TokenTracker_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.jgss.TokenTracker",
-	"java.lang.Object",
-	nullptr,
-	_TokenTracker_FieldInfo_,
-	_TokenTracker_MethodInfo_,
-	nullptr,
-	nullptr,
-	_TokenTracker_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.security.jgss.TokenTracker$Entry"
-};
-
-$Object* allocate$TokenTracker($Class* clazz) {
-	return $of($alloc(TokenTracker));
-}
-
 void TokenTracker::init$(int32_t initNumber) {
 	this->windowStartIndex = 0;
 	$set(this, list, $new($LinkedList));
@@ -69,7 +25,7 @@ void TokenTracker::init$(int32_t initNumber) {
 	this->windowStart = initNumber;
 	this->expectedNumber = initNumber;
 	$var($TokenTracker$Entry, entry, $new($TokenTracker$Entry, this, initNumber - 1));
-	$nc(this->list)->add(entry);
+	this->list->add(entry);
 }
 
 int32_t TokenTracker::getIntervalIndex(int32_t number) {
@@ -139,7 +95,7 @@ void TokenTracker::getProps(int32_t number, $MessageProp* prop) {
 }
 
 void TokenTracker::add(int32_t number, int32_t prevEntryPos) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($TokenTracker$Entry, entry, nullptr);
 	$var($TokenTracker$Entry, entryBefore, nullptr);
 	$var($TokenTracker$Entry, entryAfter, nullptr);
@@ -154,7 +110,7 @@ void TokenTracker::add(int32_t number, int32_t prevEntryPos) {
 	}
 	int32_t nextEntryPos = prevEntryPos + 1;
 	if ((nextEntryPos) < $nc(this->list)->size()) {
-		$assign(entryAfter, $cast($TokenTracker$Entry, $nc(this->list)->get(nextEntryPos)));
+		$assign(entryAfter, $cast($TokenTracker$Entry, this->list->get(nextEntryPos)));
 		if (number == ($nc(entryAfter)->getStart() - 1)) {
 			if (!appended) {
 				entryAfter->setStart(number);
@@ -178,11 +134,11 @@ void TokenTracker::add(int32_t number, int32_t prevEntryPos) {
 		}
 	} else {
 		int32_t oldWindowStartIndex = this->windowStartIndex;
-		if (this->windowStartIndex == ($nc(this->list)->size() - 1)) {
+		if (this->windowStartIndex == (this->list->size() - 1)) {
 			this->windowStartIndex = 0;
 		}
-		$assign(entry, $cast($TokenTracker$Entry, $nc(this->list)->remove(oldWindowStartIndex)));
-		this->windowStart = $nc(($cast($TokenTracker$Entry, $($nc(this->list)->get(this->windowStartIndex)))))->getStart();
+		$assign(entry, $cast($TokenTracker$Entry, this->list->remove(oldWindowStartIndex)));
+		this->windowStart = $$sure($TokenTracker$Entry, this->list->get(this->windowStartIndex))->getStart();
 		$nc(entry)->setStart(number);
 		entry->setEnd(number);
 		if (prevEntryPos >= oldWindowStartIndex) {
@@ -199,7 +155,7 @@ void TokenTracker::add(int32_t number, int32_t prevEntryPos) {
 }
 
 $String* TokenTracker::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, sb, $new($StringBuilder, "TokenTracker: "_s));
 	sb->append(" initNumber="_s)->append(this->initNumber);
 	sb->append(" windowStart="_s)->append(this->windowStart);
@@ -210,7 +166,7 @@ $String* TokenTracker::toString() {
 		if (i != 0) {
 			sb->append(", "_s);
 		}
-		sb->append($($nc(($cast($TokenTracker$Entry, $($nc(this->list)->get(i)))))->toString()));
+		sb->append($($$sure($TokenTracker$Entry, this->list->get(i))->toString()));
 	}
 	sb->append(u'}');
 	return sb->toString();
@@ -220,7 +176,44 @@ TokenTracker::TokenTracker() {
 }
 
 $Class* TokenTracker::load$($String* name, bool initialize) {
-	$loadClass(TokenTracker, name, initialize, &_TokenTracker_ClassInfo_, allocate$TokenTracker);
+	$FieldInfo fieldInfos$$[] = {
+		{"MAX_INTERVALS", "I", nullptr, $STATIC | $FINAL, $constField(TokenTracker, MAX_INTERVALS)},
+		{"initNumber", "I", nullptr, $PRIVATE, $field(TokenTracker, initNumber)},
+		{"windowStart", "I", nullptr, $PRIVATE, $field(TokenTracker, windowStart)},
+		{"expectedNumber", "I", nullptr, $PRIVATE, $field(TokenTracker, expectedNumber)},
+		{"windowStartIndex", "I", nullptr, $PRIVATE, $field(TokenTracker, windowStartIndex)},
+		{"list", "Ljava/util/LinkedList;", "Ljava/util/LinkedList<Lsun/security/jgss/TokenTracker$Entry;>;", $PRIVATE, $field(TokenTracker, list)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(TokenTracker, init$, void, int32_t)},
+		{"add", "(II)V", nullptr, $PRIVATE, $method(TokenTracker, add, void, int32_t, int32_t)},
+		{"getIntervalIndex", "(I)I", nullptr, $PRIVATE, $method(TokenTracker, getIntervalIndex, int32_t, int32_t)},
+		{"getProps", "(ILorg/ietf/jgss/MessageProp;)V", nullptr, $PUBLIC | $FINAL | $SYNCHRONIZED, $method(TokenTracker, getProps, void, int32_t, $MessageProp*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TokenTracker, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.jgss.TokenTracker$Entry", "sun.security.jgss.TokenTracker", "Entry", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.jgss.TokenTracker",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.security.jgss.TokenTracker$Entry"
+	};
+	$loadClass(TokenTracker, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TokenTracker);
+	});
 	return class$;
 }
 

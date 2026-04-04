@@ -1,5 +1,4 @@
 #include <com/sun/imageio/stream/StreamCloser$CloseAction.h>
-
 #include <com/sun/imageio/stream/StreamCloser.h>
 #include <javax/imageio/stream/ImageInputStream.h>
 #include <jcpp.h>
@@ -15,49 +14,13 @@ namespace com {
 		namespace imageio {
 			namespace stream {
 
-$FieldInfo _StreamCloser$CloseAction_FieldInfo_[] = {
-	{"iis", "Ljavax/imageio/stream/ImageInputStream;", nullptr, $PRIVATE, $field(StreamCloser$CloseAction, iis)},
-	{}
-};
-
-$MethodInfo _StreamCloser$CloseAction_MethodInfo_[] = {
-	{"<init>", "(Ljavax/imageio/stream/ImageInputStream;)V", nullptr, $PRIVATE, $method(StreamCloser$CloseAction, init$, void, $ImageInputStream*)},
-	{"performAction", "()V", nullptr, $PUBLIC, $method(StreamCloser$CloseAction, performAction, void), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _StreamCloser$CloseAction_InnerClassesInfo_[] = {
-	{"com.sun.imageio.stream.StreamCloser$CloseAction", "com.sun.imageio.stream.StreamCloser", "CloseAction", $PUBLIC | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _StreamCloser$CloseAction_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.imageio.stream.StreamCloser$CloseAction",
-	"java.lang.Object",
-	nullptr,
-	_StreamCloser$CloseAction_FieldInfo_,
-	_StreamCloser$CloseAction_MethodInfo_,
-	nullptr,
-	nullptr,
-	_StreamCloser$CloseAction_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.imageio.stream.StreamCloser"
-};
-
-$Object* allocate$StreamCloser$CloseAction($Class* clazz) {
-	return $of($alloc(StreamCloser$CloseAction));
-}
-
 void StreamCloser$CloseAction::init$($ImageInputStream* iis) {
 	$set(this, iis, iis);
 }
 
 void StreamCloser$CloseAction::performAction() {
 	if (this->iis != nullptr) {
-		$nc(this->iis)->close();
+		this->iis->close();
 	}
 }
 
@@ -65,7 +28,37 @@ StreamCloser$CloseAction::StreamCloser$CloseAction() {
 }
 
 $Class* StreamCloser$CloseAction::load$($String* name, bool initialize) {
-	$loadClass(StreamCloser$CloseAction, name, initialize, &_StreamCloser$CloseAction_ClassInfo_, allocate$StreamCloser$CloseAction);
+	$FieldInfo fieldInfos$$[] = {
+		{"iis", "Ljavax/imageio/stream/ImageInputStream;", nullptr, $PRIVATE, $field(StreamCloser$CloseAction, iis)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/imageio/stream/ImageInputStream;)V", nullptr, $PRIVATE, $method(StreamCloser$CloseAction, init$, void, $ImageInputStream*)},
+		{"performAction", "()V", nullptr, $PUBLIC, $method(StreamCloser$CloseAction, performAction, void), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.imageio.stream.StreamCloser$CloseAction", "com.sun.imageio.stream.StreamCloser", "CloseAction", $PUBLIC | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.imageio.stream.StreamCloser$CloseAction",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.imageio.stream.StreamCloser"
+	};
+	$loadClass(StreamCloser$CloseAction, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(StreamCloser$CloseAction);
+	});
 	return class$;
 }
 

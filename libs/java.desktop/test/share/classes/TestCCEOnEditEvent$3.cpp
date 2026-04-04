@@ -1,5 +1,4 @@
 #include <TestCCEOnEditEvent$3.h>
-
 #include <TestCCEOnEditEvent$3$1.h>
 #include <TestCCEOnEditEvent.h>
 #include <javax/swing/JTextArea.h>
@@ -16,49 +15,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $JTextArea = ::javax::swing::JTextArea;
 using $Document = ::javax::swing::text::Document;
 
-$FieldInfo _TestCCEOnEditEvent$3_FieldInfo_[] = {
-	{"this$0", "LTestCCEOnEditEvent;", nullptr, $FINAL | $SYNTHETIC, $field(TestCCEOnEditEvent$3, this$0)},
-	{}
-};
-
-$MethodInfo _TestCCEOnEditEvent$3_MethodInfo_[] = {
-	{"<init>", "(LTestCCEOnEditEvent;Ljava/lang/String;)V", nullptr, 0, $method(TestCCEOnEditEvent$3, init$, void, $TestCCEOnEditEvent*, $String*)},
-	{"createDefaultModel", "()Ljavax/swing/text/Document;", nullptr, $PROTECTED, $virtualMethod(TestCCEOnEditEvent$3, createDefaultModel, $Document*)},
-	{}
-};
-
-$EnclosingMethodInfo _TestCCEOnEditEvent$3_EnclosingMethodInfo_ = {
-	"TestCCEOnEditEvent",
-	"createTextArea",
-	"()V"
-};
-
-$InnerClassInfo _TestCCEOnEditEvent$3_InnerClassesInfo_[] = {
-	{"TestCCEOnEditEvent$3", nullptr, nullptr, 0},
-	{"TestCCEOnEditEvent$3$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _TestCCEOnEditEvent$3_ClassInfo_ = {
-	$ACC_SUPER,
-	"TestCCEOnEditEvent$3",
-	"javax.swing.JTextArea",
-	nullptr,
-	_TestCCEOnEditEvent$3_FieldInfo_,
-	_TestCCEOnEditEvent$3_MethodInfo_,
-	nullptr,
-	&_TestCCEOnEditEvent$3_EnclosingMethodInfo_,
-	_TestCCEOnEditEvent$3_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"TestCCEOnEditEvent"
-};
-
-$Object* allocate$TestCCEOnEditEvent$3($Class* clazz) {
-	return $of($alloc(TestCCEOnEditEvent$3));
-}
-
 void TestCCEOnEditEvent$3::init$($TestCCEOnEditEvent* this$0, $String* arg0) {
 	$set(this, this$0, this$0);
 	$JTextArea::init$(arg0);
@@ -72,7 +28,43 @@ TestCCEOnEditEvent$3::TestCCEOnEditEvent$3() {
 }
 
 $Class* TestCCEOnEditEvent$3::load$($String* name, bool initialize) {
-	$loadClass(TestCCEOnEditEvent$3, name, initialize, &_TestCCEOnEditEvent$3_ClassInfo_, allocate$TestCCEOnEditEvent$3);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "LTestCCEOnEditEvent;", nullptr, $FINAL | $SYNTHETIC, $field(TestCCEOnEditEvent$3, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(LTestCCEOnEditEvent;Ljava/lang/String;)V", nullptr, 0, $method(TestCCEOnEditEvent$3, init$, void, $TestCCEOnEditEvent*, $String*)},
+		{"createDefaultModel", "()Ljavax/swing/text/Document;", nullptr, $PROTECTED, $virtualMethod(TestCCEOnEditEvent$3, createDefaultModel, $Document*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"TestCCEOnEditEvent",
+		"createTextArea",
+		"()V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"TestCCEOnEditEvent$3", nullptr, nullptr, 0},
+		{"TestCCEOnEditEvent$3$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"TestCCEOnEditEvent$3",
+		"javax.swing.JTextArea",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"TestCCEOnEditEvent"
+	};
+	$loadClass(TestCCEOnEditEvent$3, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(TestCCEOnEditEvent$3));
+	});
 	return class$;
 }
 

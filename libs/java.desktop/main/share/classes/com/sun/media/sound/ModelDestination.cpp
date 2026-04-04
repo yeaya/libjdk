@@ -1,5 +1,4 @@
 #include <com/sun/media/sound/ModelDestination.h>
-
 #include <com/sun/media/sound/ModelIdentifier.h>
 #include <com/sun/media/sound/ModelStandardTransform.h>
 #include <com/sun/media/sound/ModelTransform.h>
@@ -45,63 +44,6 @@ namespace com {
 	namespace sun {
 		namespace media {
 			namespace sound {
-
-$FieldInfo _ModelDestination_FieldInfo_[] = {
-	{"DESTINATION_NONE", "Lcom/sun/media/sound/ModelIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ModelDestination, DESTINATION_NONE)},
-	{"DESTINATION_KEYNUMBER", "Lcom/sun/media/sound/ModelIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ModelDestination, DESTINATION_KEYNUMBER)},
-	{"DESTINATION_VELOCITY", "Lcom/sun/media/sound/ModelIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ModelDestination, DESTINATION_VELOCITY)},
-	{"DESTINATION_PITCH", "Lcom/sun/media/sound/ModelIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ModelDestination, DESTINATION_PITCH)},
-	{"DESTINATION_GAIN", "Lcom/sun/media/sound/ModelIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ModelDestination, DESTINATION_GAIN)},
-	{"DESTINATION_PAN", "Lcom/sun/media/sound/ModelIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ModelDestination, DESTINATION_PAN)},
-	{"DESTINATION_REVERB", "Lcom/sun/media/sound/ModelIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ModelDestination, DESTINATION_REVERB)},
-	{"DESTINATION_CHORUS", "Lcom/sun/media/sound/ModelIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ModelDestination, DESTINATION_CHORUS)},
-	{"DESTINATION_LFO1_DELAY", "Lcom/sun/media/sound/ModelIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ModelDestination, DESTINATION_LFO1_DELAY)},
-	{"DESTINATION_LFO1_FREQ", "Lcom/sun/media/sound/ModelIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ModelDestination, DESTINATION_LFO1_FREQ)},
-	{"DESTINATION_LFO2_DELAY", "Lcom/sun/media/sound/ModelIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ModelDestination, DESTINATION_LFO2_DELAY)},
-	{"DESTINATION_LFO2_FREQ", "Lcom/sun/media/sound/ModelIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ModelDestination, DESTINATION_LFO2_FREQ)},
-	{"DESTINATION_EG1_DELAY", "Lcom/sun/media/sound/ModelIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ModelDestination, DESTINATION_EG1_DELAY)},
-	{"DESTINATION_EG1_ATTACK", "Lcom/sun/media/sound/ModelIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ModelDestination, DESTINATION_EG1_ATTACK)},
-	{"DESTINATION_EG1_HOLD", "Lcom/sun/media/sound/ModelIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ModelDestination, DESTINATION_EG1_HOLD)},
-	{"DESTINATION_EG1_DECAY", "Lcom/sun/media/sound/ModelIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ModelDestination, DESTINATION_EG1_DECAY)},
-	{"DESTINATION_EG1_SUSTAIN", "Lcom/sun/media/sound/ModelIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ModelDestination, DESTINATION_EG1_SUSTAIN)},
-	{"DESTINATION_EG1_RELEASE", "Lcom/sun/media/sound/ModelIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ModelDestination, DESTINATION_EG1_RELEASE)},
-	{"DESTINATION_EG1_SHUTDOWN", "Lcom/sun/media/sound/ModelIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ModelDestination, DESTINATION_EG1_SHUTDOWN)},
-	{"DESTINATION_EG2_DELAY", "Lcom/sun/media/sound/ModelIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ModelDestination, DESTINATION_EG2_DELAY)},
-	{"DESTINATION_EG2_ATTACK", "Lcom/sun/media/sound/ModelIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ModelDestination, DESTINATION_EG2_ATTACK)},
-	{"DESTINATION_EG2_HOLD", "Lcom/sun/media/sound/ModelIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ModelDestination, DESTINATION_EG2_HOLD)},
-	{"DESTINATION_EG2_DECAY", "Lcom/sun/media/sound/ModelIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ModelDestination, DESTINATION_EG2_DECAY)},
-	{"DESTINATION_EG2_SUSTAIN", "Lcom/sun/media/sound/ModelIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ModelDestination, DESTINATION_EG2_SUSTAIN)},
-	{"DESTINATION_EG2_RELEASE", "Lcom/sun/media/sound/ModelIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ModelDestination, DESTINATION_EG2_RELEASE)},
-	{"DESTINATION_EG2_SHUTDOWN", "Lcom/sun/media/sound/ModelIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ModelDestination, DESTINATION_EG2_SHUTDOWN)},
-	{"DESTINATION_FILTER_FREQ", "Lcom/sun/media/sound/ModelIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ModelDestination, DESTINATION_FILTER_FREQ)},
-	{"DESTINATION_FILTER_Q", "Lcom/sun/media/sound/ModelIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ModelDestination, DESTINATION_FILTER_Q)},
-	{"destination", "Lcom/sun/media/sound/ModelIdentifier;", nullptr, $PRIVATE, $field(ModelDestination, destination)},
-	{"transform", "Lcom/sun/media/sound/ModelTransform;", nullptr, $PRIVATE, $field(ModelDestination, transform)},
-	{}
-};
-
-$MethodInfo _ModelDestination_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ModelDestination, init$, void)},
-	{"<init>", "(Lcom/sun/media/sound/ModelIdentifier;)V", nullptr, $PUBLIC, $method(ModelDestination, init$, void, $ModelIdentifier*)},
-	{"getIdentifier", "()Lcom/sun/media/sound/ModelIdentifier;", nullptr, $PUBLIC, $method(ModelDestination, getIdentifier, $ModelIdentifier*)},
-	{"getTransform", "()Lcom/sun/media/sound/ModelTransform;", nullptr, $PUBLIC, $method(ModelDestination, getTransform, $ModelTransform*)},
-	{"setIdentifier", "(Lcom/sun/media/sound/ModelIdentifier;)V", nullptr, $PUBLIC, $method(ModelDestination, setIdentifier, void, $ModelIdentifier*)},
-	{"setTransform", "(Lcom/sun/media/sound/ModelTransform;)V", nullptr, $PUBLIC, $method(ModelDestination, setTransform, void, $ModelTransform*)},
-	{}
-};
-
-$ClassInfo _ModelDestination_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.media.sound.ModelDestination",
-	"java.lang.Object",
-	nullptr,
-	_ModelDestination_FieldInfo_,
-	_ModelDestination_MethodInfo_
-};
-
-$Object* allocate$ModelDestination($Class* clazz) {
-	return $of($alloc(ModelDestination));
-}
 
 $ModelIdentifier* ModelDestination::DESTINATION_NONE = nullptr;
 $ModelIdentifier* ModelDestination::DESTINATION_KEYNUMBER = nullptr;
@@ -159,7 +101,7 @@ void ModelDestination::setTransform($ModelTransform* transform) {
 	$set(this, transform, transform);
 }
 
-void clinit$ModelDestination($Class* class$) {
+void ModelDestination::clinit$($Class* clazz) {
 	$assignStatic(ModelDestination::DESTINATION_NONE, nullptr);
 	$assignStatic(ModelDestination::DESTINATION_KEYNUMBER, $new($ModelIdentifier, "noteon"_s, "keynumber"_s));
 	$assignStatic(ModelDestination::DESTINATION_VELOCITY, $new($ModelIdentifier, "noteon"_s, "velocity"_s));
@@ -194,7 +136,59 @@ ModelDestination::ModelDestination() {
 }
 
 $Class* ModelDestination::load$($String* name, bool initialize) {
-	$loadClass(ModelDestination, name, initialize, &_ModelDestination_ClassInfo_, clinit$ModelDestination, allocate$ModelDestination);
+	$FieldInfo fieldInfos$$[] = {
+		{"DESTINATION_NONE", "Lcom/sun/media/sound/ModelIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ModelDestination, DESTINATION_NONE)},
+		{"DESTINATION_KEYNUMBER", "Lcom/sun/media/sound/ModelIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ModelDestination, DESTINATION_KEYNUMBER)},
+		{"DESTINATION_VELOCITY", "Lcom/sun/media/sound/ModelIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ModelDestination, DESTINATION_VELOCITY)},
+		{"DESTINATION_PITCH", "Lcom/sun/media/sound/ModelIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ModelDestination, DESTINATION_PITCH)},
+		{"DESTINATION_GAIN", "Lcom/sun/media/sound/ModelIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ModelDestination, DESTINATION_GAIN)},
+		{"DESTINATION_PAN", "Lcom/sun/media/sound/ModelIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ModelDestination, DESTINATION_PAN)},
+		{"DESTINATION_REVERB", "Lcom/sun/media/sound/ModelIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ModelDestination, DESTINATION_REVERB)},
+		{"DESTINATION_CHORUS", "Lcom/sun/media/sound/ModelIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ModelDestination, DESTINATION_CHORUS)},
+		{"DESTINATION_LFO1_DELAY", "Lcom/sun/media/sound/ModelIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ModelDestination, DESTINATION_LFO1_DELAY)},
+		{"DESTINATION_LFO1_FREQ", "Lcom/sun/media/sound/ModelIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ModelDestination, DESTINATION_LFO1_FREQ)},
+		{"DESTINATION_LFO2_DELAY", "Lcom/sun/media/sound/ModelIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ModelDestination, DESTINATION_LFO2_DELAY)},
+		{"DESTINATION_LFO2_FREQ", "Lcom/sun/media/sound/ModelIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ModelDestination, DESTINATION_LFO2_FREQ)},
+		{"DESTINATION_EG1_DELAY", "Lcom/sun/media/sound/ModelIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ModelDestination, DESTINATION_EG1_DELAY)},
+		{"DESTINATION_EG1_ATTACK", "Lcom/sun/media/sound/ModelIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ModelDestination, DESTINATION_EG1_ATTACK)},
+		{"DESTINATION_EG1_HOLD", "Lcom/sun/media/sound/ModelIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ModelDestination, DESTINATION_EG1_HOLD)},
+		{"DESTINATION_EG1_DECAY", "Lcom/sun/media/sound/ModelIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ModelDestination, DESTINATION_EG1_DECAY)},
+		{"DESTINATION_EG1_SUSTAIN", "Lcom/sun/media/sound/ModelIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ModelDestination, DESTINATION_EG1_SUSTAIN)},
+		{"DESTINATION_EG1_RELEASE", "Lcom/sun/media/sound/ModelIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ModelDestination, DESTINATION_EG1_RELEASE)},
+		{"DESTINATION_EG1_SHUTDOWN", "Lcom/sun/media/sound/ModelIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ModelDestination, DESTINATION_EG1_SHUTDOWN)},
+		{"DESTINATION_EG2_DELAY", "Lcom/sun/media/sound/ModelIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ModelDestination, DESTINATION_EG2_DELAY)},
+		{"DESTINATION_EG2_ATTACK", "Lcom/sun/media/sound/ModelIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ModelDestination, DESTINATION_EG2_ATTACK)},
+		{"DESTINATION_EG2_HOLD", "Lcom/sun/media/sound/ModelIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ModelDestination, DESTINATION_EG2_HOLD)},
+		{"DESTINATION_EG2_DECAY", "Lcom/sun/media/sound/ModelIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ModelDestination, DESTINATION_EG2_DECAY)},
+		{"DESTINATION_EG2_SUSTAIN", "Lcom/sun/media/sound/ModelIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ModelDestination, DESTINATION_EG2_SUSTAIN)},
+		{"DESTINATION_EG2_RELEASE", "Lcom/sun/media/sound/ModelIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ModelDestination, DESTINATION_EG2_RELEASE)},
+		{"DESTINATION_EG2_SHUTDOWN", "Lcom/sun/media/sound/ModelIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ModelDestination, DESTINATION_EG2_SHUTDOWN)},
+		{"DESTINATION_FILTER_FREQ", "Lcom/sun/media/sound/ModelIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ModelDestination, DESTINATION_FILTER_FREQ)},
+		{"DESTINATION_FILTER_Q", "Lcom/sun/media/sound/ModelIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ModelDestination, DESTINATION_FILTER_Q)},
+		{"destination", "Lcom/sun/media/sound/ModelIdentifier;", nullptr, $PRIVATE, $field(ModelDestination, destination)},
+		{"transform", "Lcom/sun/media/sound/ModelTransform;", nullptr, $PRIVATE, $field(ModelDestination, transform)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ModelDestination, init$, void)},
+		{"<init>", "(Lcom/sun/media/sound/ModelIdentifier;)V", nullptr, $PUBLIC, $method(ModelDestination, init$, void, $ModelIdentifier*)},
+		{"getIdentifier", "()Lcom/sun/media/sound/ModelIdentifier;", nullptr, $PUBLIC, $method(ModelDestination, getIdentifier, $ModelIdentifier*)},
+		{"getTransform", "()Lcom/sun/media/sound/ModelTransform;", nullptr, $PUBLIC, $method(ModelDestination, getTransform, $ModelTransform*)},
+		{"setIdentifier", "(Lcom/sun/media/sound/ModelIdentifier;)V", nullptr, $PUBLIC, $method(ModelDestination, setIdentifier, void, $ModelIdentifier*)},
+		{"setTransform", "(Lcom/sun/media/sound/ModelTransform;)V", nullptr, $PUBLIC, $method(ModelDestination, setTransform, void, $ModelTransform*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.media.sound.ModelDestination",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ModelDestination, name, initialize, &classInfo$$, ModelDestination::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ModelDestination);
+	});
 	return class$;
 }
 

@@ -57,6 +57,7 @@ class CompileProperties : public ::com::sun::tools::sjavac::Transformer {
 	$class(CompileProperties, 0, ::com::sun::tools::sjavac::Transformer)
 public:
 	CompileProperties();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual bool compile($String* pkgName, $String* pkgNameF, ::java::io::File* src, ::java::io::File* destRoot, int32_t debugLevel, ::java::util::Map* packageArtifacts);
 	static $String* escape($String* theString);

@@ -42,7 +42,7 @@ public:
 	float y = 0.0;
 	float width = 0.0;
 	float height = 0.0;
-	static const int64_t serialVersionUID = (int64_t)0x34B7C0D33B2C0501;
+	static const int64_t serialVersionUID = (int64_t)0x34b7c0d33b2c0501;
 };
 
 		} // geom

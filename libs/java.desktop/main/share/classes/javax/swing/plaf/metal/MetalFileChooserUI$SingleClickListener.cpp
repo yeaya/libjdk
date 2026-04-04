@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/metal/MetalFileChooserUI$SingleClickListener.h>
-
 #include <java/awt/event/MouseAdapter.h>
 #include <javax/swing/JList.h>
 #include <javax/swing/plaf/metal/MetalFileChooserUI.h>
@@ -20,51 +19,6 @@ namespace javax {
 		namespace plaf {
 			namespace metal {
 
-$NamedAttribute MetalFileChooserUI$SingleClickListener_Attribute_var$0[] = {
-	{"since", 's', "9"},
-	{}
-};
-
-$CompoundAttribute _MetalFileChooserUI$SingleClickListener_Annotations_[] = {
-	{"Ljava/lang/Deprecated;", MetalFileChooserUI$SingleClickListener_Attribute_var$0},
-	{}
-};
-
-$FieldInfo _MetalFileChooserUI$SingleClickListener_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/plaf/metal/MetalFileChooserUI;", nullptr, $FINAL | $SYNTHETIC, $field(MetalFileChooserUI$SingleClickListener, this$0)},
-	{}
-};
-
-$MethodInfo _MetalFileChooserUI$SingleClickListener_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/plaf/metal/MetalFileChooserUI;Ljavax/swing/JList;)V", "(Ljavax/swing/JList<*>;)V", $PUBLIC, $method(MetalFileChooserUI$SingleClickListener, init$, void, $MetalFileChooserUI*, $JList*)},
-	{}
-};
-
-$InnerClassInfo _MetalFileChooserUI$SingleClickListener_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.metal.MetalFileChooserUI$SingleClickListener", "javax.swing.plaf.metal.MetalFileChooserUI", "SingleClickListener", $PROTECTED},
-	{}
-};
-
-$ClassInfo _MetalFileChooserUI$SingleClickListener_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.metal.MetalFileChooserUI$SingleClickListener",
-	"java.awt.event.MouseAdapter",
-	nullptr,
-	_MetalFileChooserUI$SingleClickListener_FieldInfo_,
-	_MetalFileChooserUI$SingleClickListener_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MetalFileChooserUI$SingleClickListener_InnerClassesInfo_,
-	_MetalFileChooserUI$SingleClickListener_Annotations_,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.metal.MetalFileChooserUI"
-};
-
-$Object* allocate$MetalFileChooserUI$SingleClickListener($Class* clazz) {
-	return $of($alloc(MetalFileChooserUI$SingleClickListener));
-}
-
 void MetalFileChooserUI$SingleClickListener::init$($MetalFileChooserUI* this$0, $JList* list) {
 	$set(this, this$0, this$0);
 	$MouseAdapter::init$();
@@ -74,7 +28,44 @@ MetalFileChooserUI$SingleClickListener::MetalFileChooserUI$SingleClickListener()
 }
 
 $Class* MetalFileChooserUI$SingleClickListener::load$($String* name, bool initialize) {
-	$loadClass(MetalFileChooserUI$SingleClickListener, name, initialize, &_MetalFileChooserUI$SingleClickListener_ClassInfo_, allocate$MetalFileChooserUI$SingleClickListener);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/plaf/metal/MetalFileChooserUI;", nullptr, $FINAL | $SYNTHETIC, $field(MetalFileChooserUI$SingleClickListener, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/plaf/metal/MetalFileChooserUI;Ljavax/swing/JList;)V", "(Ljavax/swing/JList<*>;)V", $PUBLIC, $method(MetalFileChooserUI$SingleClickListener, init$, void, $MetalFileChooserUI*, $JList*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.metal.MetalFileChooserUI$SingleClickListener", "javax.swing.plaf.metal.MetalFileChooserUI", "SingleClickListener", $PROTECTED},
+		{}
+	};
+	$NamedAttribute annotations$$$namedAttribute[] = {
+		{"since", 's', "9"},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/lang/Deprecated;", annotations$$$namedAttribute},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.metal.MetalFileChooserUI$SingleClickListener",
+		"java.awt.event.MouseAdapter",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		annotations$$,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.metal.MetalFileChooserUI"
+	};
+	$loadClass(MetalFileChooserUI$SingleClickListener, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MetalFileChooserUI$SingleClickListener));
+	});
 	return class$;
 }
 

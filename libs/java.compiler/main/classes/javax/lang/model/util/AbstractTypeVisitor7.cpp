@@ -1,5 +1,4 @@
 #include <javax/lang/model/util/AbstractTypeVisitor7.h>
-
 #include <javax/lang/model/type/UnionType.h>
 #include <javax/lang/model/util/AbstractTypeVisitor6.h>
 #include <jcpp.h>
@@ -16,49 +15,6 @@ namespace javax {
 		namespace model {
 			namespace util {
 
-$NamedAttribute AbstractTypeVisitor7_Attribute_var$0[] = {
-	{"value", 'e', "Ljavax/lang/model/SourceVersion; RELEASE_7"},
-	{}
-};
-
-$CompoundAttribute _AbstractTypeVisitor7_Annotations_[] = {
-	{"Ljavax/annotation/processing/SupportedSourceVersion;", AbstractTypeVisitor7_Attribute_var$0},
-	{}
-};
-
-$NamedAttribute AbstractTypeVisitor7_Attribute_var$1[] = {
-	{"since", 's', "12"},
-	{}
-};
-
-$CompoundAttribute _AbstractTypeVisitor7_MethodAnnotations_init$0[] = {
-	{"Ljava/lang/Deprecated;", AbstractTypeVisitor7_Attribute_var$1},
-	{}
-};
-
-$MethodInfo _AbstractTypeVisitor7_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED | $DEPRECATED, $method(AbstractTypeVisitor7, init$, void), nullptr, nullptr, _AbstractTypeVisitor7_MethodAnnotations_init$0},
-	{"visitUnion", "(Ljavax/lang/model/type/UnionType;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _AbstractTypeVisitor7_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"javax.lang.model.util.AbstractTypeVisitor7",
-	"javax.lang.model.util.AbstractTypeVisitor6",
-	nullptr,
-	nullptr,
-	_AbstractTypeVisitor7_MethodInfo_,
-	"<R:Ljava/lang/Object;P:Ljava/lang/Object;>Ljavax/lang/model/util/AbstractTypeVisitor6<TR;TP;>;",
-	nullptr,
-	nullptr,
-	_AbstractTypeVisitor7_Annotations_
-};
-
-$Object* allocate$AbstractTypeVisitor7($Class* clazz) {
-	return $of($alloc(AbstractTypeVisitor7));
-}
-
 $Object* AbstractTypeVisitor7::visitUnion($UnionType* t, Object$* p) {
 	 return this->$AbstractTypeVisitor6::visitUnion(t, p);
 }
@@ -71,7 +27,42 @@ AbstractTypeVisitor7::AbstractTypeVisitor7() {
 }
 
 $Class* AbstractTypeVisitor7::load$($String* name, bool initialize) {
-	$loadClass(AbstractTypeVisitor7, name, initialize, &_AbstractTypeVisitor7_ClassInfo_, allocate$AbstractTypeVisitor7);
+	$NamedAttribute init$methodAnnotations$$$namedAttribute[] = {
+		{"since", 's', "12"},
+		{}
+	};
+	$CompoundAttribute init$methodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", init$methodAnnotations$$$namedAttribute},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PROTECTED | $DEPRECATED, $method(AbstractTypeVisitor7, init$, void), nullptr, nullptr, init$methodAnnotations$$},
+		{"visitUnion", "(Ljavax/lang/model/type/UnionType;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
+		{}
+	};
+	$NamedAttribute annotations$$$namedAttribute[] = {
+		{"value", 'e', "Ljavax/lang/model/SourceVersion; RELEASE_7"},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljavax/annotation/processing/SupportedSourceVersion;", annotations$$$namedAttribute},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"javax.lang.model.util.AbstractTypeVisitor7",
+		"javax.lang.model.util.AbstractTypeVisitor6",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		"<R:Ljava/lang/Object;P:Ljava/lang/Object;>Ljavax/lang/model/util/AbstractTypeVisitor6<TR;TP;>;",
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(AbstractTypeVisitor7, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AbstractTypeVisitor7);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/imageio/plugins/jpeg/JFIFMarkerSegment$IllegalThumbException.h>
-
 #include <com/sun/imageio/plugins/jpeg/JFIFMarkerSegment.h>
 #include <jcpp.h>
 
@@ -15,41 +14,6 @@ namespace com {
 		namespace imageio {
 			namespace plugins {
 				namespace jpeg {
-
-$FieldInfo _JFIFMarkerSegment$IllegalThumbException_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/imageio/plugins/jpeg/JFIFMarkerSegment;", nullptr, $FINAL | $SYNTHETIC, $field(JFIFMarkerSegment$IllegalThumbException, this$0)},
-	{}
-};
-
-$MethodInfo _JFIFMarkerSegment$IllegalThumbException_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/imageio/plugins/jpeg/JFIFMarkerSegment;)V", nullptr, $PRIVATE, $method(JFIFMarkerSegment$IllegalThumbException, init$, void, $JFIFMarkerSegment*)},
-	{}
-};
-
-$InnerClassInfo _JFIFMarkerSegment$IllegalThumbException_InnerClassesInfo_[] = {
-	{"com.sun.imageio.plugins.jpeg.JFIFMarkerSegment$IllegalThumbException", "com.sun.imageio.plugins.jpeg.JFIFMarkerSegment", "IllegalThumbException", $PRIVATE},
-	{}
-};
-
-$ClassInfo _JFIFMarkerSegment$IllegalThumbException_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.imageio.plugins.jpeg.JFIFMarkerSegment$IllegalThumbException",
-	"java.lang.Exception",
-	nullptr,
-	_JFIFMarkerSegment$IllegalThumbException_FieldInfo_,
-	_JFIFMarkerSegment$IllegalThumbException_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JFIFMarkerSegment$IllegalThumbException_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.imageio.plugins.jpeg.JFIFMarkerSegment"
-};
-
-$Object* allocate$JFIFMarkerSegment$IllegalThumbException($Class* clazz) {
-	return $of($alloc(JFIFMarkerSegment$IllegalThumbException));
-}
 
 void JFIFMarkerSegment$IllegalThumbException::init$($JFIFMarkerSegment* this$0) {
 	$set(this, this$0, this$0);
@@ -67,7 +31,36 @@ void JFIFMarkerSegment$IllegalThumbException::throw$() {
 }
 
 $Class* JFIFMarkerSegment$IllegalThumbException::load$($String* name, bool initialize) {
-	$loadClass(JFIFMarkerSegment$IllegalThumbException, name, initialize, &_JFIFMarkerSegment$IllegalThumbException_ClassInfo_, allocate$JFIFMarkerSegment$IllegalThumbException);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/imageio/plugins/jpeg/JFIFMarkerSegment;", nullptr, $FINAL | $SYNTHETIC, $field(JFIFMarkerSegment$IllegalThumbException, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/imageio/plugins/jpeg/JFIFMarkerSegment;)V", nullptr, $PRIVATE, $method(JFIFMarkerSegment$IllegalThumbException, init$, void, $JFIFMarkerSegment*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.imageio.plugins.jpeg.JFIFMarkerSegment$IllegalThumbException", "com.sun.imageio.plugins.jpeg.JFIFMarkerSegment", "IllegalThumbException", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.imageio.plugins.jpeg.JFIFMarkerSegment$IllegalThumbException",
+		"java.lang.Exception",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.imageio.plugins.jpeg.JFIFMarkerSegment"
+	};
+	$loadClass(JFIFMarkerSegment$IllegalThumbException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JFIFMarkerSegment$IllegalThumbException);
+	});
 	return class$;
 }
 

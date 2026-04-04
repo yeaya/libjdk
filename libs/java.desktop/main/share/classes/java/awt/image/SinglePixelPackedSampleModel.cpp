@@ -1,5 +1,4 @@
 #include <java/awt/image/SinglePixelPackedSampleModel.h>
-
 #include <java/awt/image/ColorModel.h>
 #include <java/awt/image/DataBuffer.h>
 #include <java/awt/image/DataBufferByte.h>
@@ -33,69 +32,15 @@ namespace java {
 	namespace awt {
 		namespace image {
 
-$FieldInfo _SinglePixelPackedSampleModel_FieldInfo_[] = {
-	{"bitMasks", "[I", nullptr, $PRIVATE, $field(SinglePixelPackedSampleModel, bitMasks)},
-	{"bitOffsets", "[I", nullptr, $PRIVATE, $field(SinglePixelPackedSampleModel, bitOffsets)},
-	{"bitSizes", "[I", nullptr, $PRIVATE, $field(SinglePixelPackedSampleModel, bitSizes)},
-	{"maxBitSize", "I", nullptr, $PRIVATE, $field(SinglePixelPackedSampleModel, maxBitSize)},
-	{"scanlineStride", "I", nullptr, $PRIVATE, $field(SinglePixelPackedSampleModel, scanlineStride)},
-	{}
-};
-
-$MethodInfo _SinglePixelPackedSampleModel_MethodInfo_[] = {
-	{"<init>", "(III[I)V", nullptr, $PUBLIC, $method(SinglePixelPackedSampleModel, init$, void, int32_t, int32_t, int32_t, $ints*)},
-	{"<init>", "(IIII[I)V", nullptr, $PUBLIC, $method(SinglePixelPackedSampleModel, init$, void, int32_t, int32_t, int32_t, int32_t, $ints*)},
-	{"createCompatibleSampleModel", "(II)Ljava/awt/image/SampleModel;", nullptr, $PUBLIC, $virtualMethod(SinglePixelPackedSampleModel, createCompatibleSampleModel, $SampleModel*, int32_t, int32_t)},
-	{"createDataBuffer", "()Ljava/awt/image/DataBuffer;", nullptr, $PUBLIC, $virtualMethod(SinglePixelPackedSampleModel, createDataBuffer, $DataBuffer*)},
-	{"createSubsetSampleModel", "([I)Ljava/awt/image/SampleModel;", nullptr, $PUBLIC, $virtualMethod(SinglePixelPackedSampleModel, createSubsetSampleModel, $SampleModel*, $ints*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(SinglePixelPackedSampleModel, equals, bool, Object$*)},
-	{"getBitMasks", "()[I", nullptr, $PUBLIC, $virtualMethod(SinglePixelPackedSampleModel, getBitMasks, $ints*)},
-	{"getBitOffsets", "()[I", nullptr, $PUBLIC, $virtualMethod(SinglePixelPackedSampleModel, getBitOffsets, $ints*)},
-	{"getBufferSize", "()J", nullptr, $PRIVATE, $method(SinglePixelPackedSampleModel, getBufferSize, int64_t)},
-	{"getDataElements", "(IILjava/lang/Object;Ljava/awt/image/DataBuffer;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SinglePixelPackedSampleModel, getDataElements, $Object*, int32_t, int32_t, Object$*, $DataBuffer*)},
-	{"getNumDataElements", "()I", nullptr, $PUBLIC, $virtualMethod(SinglePixelPackedSampleModel, getNumDataElements, int32_t)},
-	{"getOffset", "(II)I", nullptr, $PUBLIC, $virtualMethod(SinglePixelPackedSampleModel, getOffset, int32_t, int32_t, int32_t)},
-	{"getPixel", "(II[ILjava/awt/image/DataBuffer;)[I", nullptr, $PUBLIC, $virtualMethod(SinglePixelPackedSampleModel, getPixel, $ints*, int32_t, int32_t, $ints*, $DataBuffer*)},
-	{"getPixels", "(IIII[ILjava/awt/image/DataBuffer;)[I", nullptr, $PUBLIC, $virtualMethod(SinglePixelPackedSampleModel, getPixels, $ints*, int32_t, int32_t, int32_t, int32_t, $ints*, $DataBuffer*)},
-	{"getSample", "(IIILjava/awt/image/DataBuffer;)I", nullptr, $PUBLIC, $virtualMethod(SinglePixelPackedSampleModel, getSample, int32_t, int32_t, int32_t, int32_t, $DataBuffer*)},
-	{"getSampleSize", "()[I", nullptr, $PUBLIC, $virtualMethod(SinglePixelPackedSampleModel, getSampleSize, $ints*)},
-	{"getSampleSize", "(I)I", nullptr, $PUBLIC, $virtualMethod(SinglePixelPackedSampleModel, getSampleSize, int32_t, int32_t)},
-	{"getSamples", "(IIIII[ILjava/awt/image/DataBuffer;)[I", nullptr, $PUBLIC, $virtualMethod(SinglePixelPackedSampleModel, getSamples, $ints*, int32_t, int32_t, int32_t, int32_t, int32_t, $ints*, $DataBuffer*)},
-	{"getScanlineStride", "()I", nullptr, $PUBLIC, $virtualMethod(SinglePixelPackedSampleModel, getScanlineStride, int32_t)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(SinglePixelPackedSampleModel, hashCode, int32_t)},
-	{"initIDs", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(SinglePixelPackedSampleModel, initIDs, void)},
-	{"setDataElements", "(IILjava/lang/Object;Ljava/awt/image/DataBuffer;)V", nullptr, $PUBLIC, $virtualMethod(SinglePixelPackedSampleModel, setDataElements, void, int32_t, int32_t, Object$*, $DataBuffer*)},
-	{"setPixel", "(II[ILjava/awt/image/DataBuffer;)V", nullptr, $PUBLIC, $virtualMethod(SinglePixelPackedSampleModel, setPixel, void, int32_t, int32_t, $ints*, $DataBuffer*)},
-	{"setPixels", "(IIII[ILjava/awt/image/DataBuffer;)V", nullptr, $PUBLIC, $virtualMethod(SinglePixelPackedSampleModel, setPixels, void, int32_t, int32_t, int32_t, int32_t, $ints*, $DataBuffer*)},
-	{"setSample", "(IIIILjava/awt/image/DataBuffer;)V", nullptr, $PUBLIC, $virtualMethod(SinglePixelPackedSampleModel, setSample, void, int32_t, int32_t, int32_t, int32_t, $DataBuffer*)},
-	{"setSamples", "(IIIII[ILjava/awt/image/DataBuffer;)V", nullptr, $PUBLIC, $virtualMethod(SinglePixelPackedSampleModel, setSamples, void, int32_t, int32_t, int32_t, int32_t, int32_t, $ints*, $DataBuffer*)},
-	{}
-};
-
-#define _METHOD_INDEX_initIDs 20
-
-$ClassInfo _SinglePixelPackedSampleModel_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.awt.image.SinglePixelPackedSampleModel",
-	"java.awt.image.SampleModel",
-	nullptr,
-	_SinglePixelPackedSampleModel_FieldInfo_,
-	_SinglePixelPackedSampleModel_MethodInfo_
-};
-
-$Object* allocate$SinglePixelPackedSampleModel($Class* clazz) {
-	return $of($alloc(SinglePixelPackedSampleModel));
-}
-
 void SinglePixelPackedSampleModel::initIDs() {
 	$init(SinglePixelPackedSampleModel);
-	$prepareNativeStatic(SinglePixelPackedSampleModel, initIDs, void);
+	$prepareNativeStatic(initIDs, void);
 	$invokeNativeStatic();
 	$finishNativeStatic();
 }
 
 void SinglePixelPackedSampleModel::init$(int32_t dataType, int32_t w, int32_t h, $ints* bitMasks) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	SinglePixelPackedSampleModel::init$(dataType, w, h, w, bitMasks);
 	if (dataType != $DataBuffer::TYPE_BYTE && dataType != $DataBuffer::TYPE_USHORT && dataType != $DataBuffer::TYPE_INT) {
 		$throwNew($IllegalArgumentException, $$str({"Unsupported data type "_s, $$str(dataType)}));
@@ -103,13 +48,13 @@ void SinglePixelPackedSampleModel::init$(int32_t dataType, int32_t w, int32_t h,
 }
 
 void SinglePixelPackedSampleModel::init$(int32_t dataType, int32_t w, int32_t h, int32_t scanlineStride, $ints* bitMasks) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$SampleModel::init$(dataType, w, h, $nc(bitMasks)->length);
 	if (dataType != $DataBuffer::TYPE_BYTE && dataType != $DataBuffer::TYPE_USHORT && dataType != $DataBuffer::TYPE_INT) {
 		$throwNew($IllegalArgumentException, $$str({"Unsupported data type "_s, $$str(dataType)}));
 	}
 	this->dataType = dataType;
-	$set(this, bitMasks, $cast($ints, $nc(bitMasks)->clone()));
+	$set(this, bitMasks, $cast($ints, bitMasks->clone()));
 	this->scanlineStride = scanlineStride;
 	$set(this, bitOffsets, $new($ints, this->numBands));
 	$set(this, bitSizes, $new($ints, this->numBands));
@@ -120,13 +65,13 @@ void SinglePixelPackedSampleModel::init$(int32_t dataType, int32_t w, int32_t h,
 		int32_t bitSize = 0;
 		int32_t mask = 0;
 		(*$nc(this->bitMasks))[i] &= (uint32_t)maxMask;
-		mask = $nc(this->bitMasks)->get(i);
+		mask = this->bitMasks->get(i);
 		if (mask != 0) {
-			while (((int32_t)(mask & (uint32_t)1)) == 0) {
+			while ((mask & 1) == 0) {
 				mask = (int32_t)((uint32_t)mask >> 1);
 				++bitOffset;
 			}
-			while (((int32_t)(mask & (uint32_t)1)) == 1) {
+			while ((mask & 1) == 1) {
 				mask = (int32_t)((uint32_t)mask >> 1);
 				++bitSize;
 			}
@@ -161,20 +106,14 @@ $DataBuffer* SinglePixelPackedSampleModel::createDataBuffer() {
 	int32_t size = (int32_t)getBufferSize();
 	switch (this->dataType) {
 	case $DataBuffer::TYPE_BYTE:
-		{
-			$assign(dataBuffer, $new($DataBufferByte, size));
-			break;
-		}
+		$assign(dataBuffer, $new($DataBufferByte, size));
+		break;
 	case $DataBuffer::TYPE_USHORT:
-		{
-			$assign(dataBuffer, $new($DataBufferUShort, size));
-			break;
-		}
+		$assign(dataBuffer, $new($DataBufferUShort, size));
+		break;
 	case $DataBuffer::TYPE_INT:
-		{
-			$assign(dataBuffer, $new($DataBufferInt, size));
-			break;
-		}
+		$assign(dataBuffer, $new($DataBufferInt, size));
+		break;
 	}
 	return dataBuffer;
 }
@@ -205,11 +144,11 @@ int32_t SinglePixelPackedSampleModel::getScanlineStride() {
 }
 
 $SampleModel* SinglePixelPackedSampleModel::createSubsetSampleModel($ints* bands) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(bands)->length > this->numBands) {
 		$throwNew($RasterFormatException, $$str({"There are only "_s, $$str(this->numBands), " bands"_s}));
 	}
-	$var($ints, newBitMasks, $new($ints, $nc(bands)->length));
+	$var($ints, newBitMasks, $new($ints, bands->length));
 	for (int32_t i = 0; i < bands->length; ++i) {
 		newBitMasks->set(i, $nc(this->bitMasks)->get(bands->get(i)));
 	}
@@ -217,50 +156,44 @@ $SampleModel* SinglePixelPackedSampleModel::createSubsetSampleModel($ints* bands
 }
 
 $Object* SinglePixelPackedSampleModel::getDataElements(int32_t x, int32_t y, Object$* obj$renamed, $DataBuffer* data) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, obj, obj$renamed);
 	if ((x < 0) || (y < 0) || (x >= this->width) || (y >= this->height)) {
 		$throwNew($ArrayIndexOutOfBoundsException, "Coordinate out of bounds!"_s);
 	}
 	int32_t type = getTransferType();
 	{
-		$var($bytes, bdata, nullptr)
-		$var($shorts, sdata, nullptr)
-		$var($ints, idata, nullptr)
+		$var($bytes, bdata, nullptr);
+		$var($shorts, sdata, nullptr);
+		$var($ints, idata, nullptr);
 		switch (type) {
 		case $DataBuffer::TYPE_BYTE:
-			{
-				if (obj == nullptr) {
-					$assign(bdata, $new($bytes, 1));
-				} else {
-					$assign(bdata, $cast($bytes, obj));
-				}
-				$nc(bdata)->set(0, (int8_t)$nc(data)->getElem(y * this->scanlineStride + x));
-				$assign(obj, $of(bdata));
-				break;
+			if (obj == nullptr) {
+				$assign(bdata, $new($bytes, 1));
+			} else {
+				$assign(bdata, $cast($bytes, obj));
 			}
+			$nc(bdata)->set(0, (int8_t)$nc(data)->getElem(y * this->scanlineStride + x));
+			$assign(obj, $of(bdata));
+			break;
 		case $DataBuffer::TYPE_USHORT:
-			{
-				if (obj == nullptr) {
-					$assign(sdata, $new($shorts, 1));
-				} else {
-					$assign(sdata, $cast($shorts, obj));
-				}
-				$nc(sdata)->set(0, (int16_t)$nc(data)->getElem(y * this->scanlineStride + x));
-				$assign(obj, $of(sdata));
-				break;
+			if (obj == nullptr) {
+				$assign(sdata, $new($shorts, 1));
+			} else {
+				$assign(sdata, $cast($shorts, obj));
 			}
+			$nc(sdata)->set(0, (int16_t)$nc(data)->getElem(y * this->scanlineStride + x));
+			$assign(obj, $of(sdata));
+			break;
 		case $DataBuffer::TYPE_INT:
-			{
-				if (obj == nullptr) {
-					$assign(idata, $new($ints, 1));
-				} else {
-					$assign(idata, $cast($ints, obj));
-				}
-				$nc(idata)->set(0, $nc(data)->getElem(y * this->scanlineStride + x));
-				$assign(obj, $of(idata));
-				break;
+			if (obj == nullptr) {
+				$assign(idata, $new($ints, 1));
+			} else {
+				$assign(idata, $cast($ints, obj));
 			}
+			$nc(idata)->set(0, $nc(data)->getElem(y * this->scanlineStride + x));
+			$assign(obj, $of(idata));
+			break;
 		}
 	}
 	return $of(obj);
@@ -278,7 +211,7 @@ $ints* SinglePixelPackedSampleModel::getPixel(int32_t x, int32_t y, $ints* iArra
 	}
 	int32_t value = $nc(data)->getElem(y * this->scanlineStride + x);
 	for (int32_t i = 0; i < this->numBands; ++i) {
-		$nc(pixels)->set(i, $usr((int32_t)(value & (uint32_t)$nc(this->bitMasks)->get(i)), $nc(this->bitOffsets)->get(i)));
+		$nc(pixels)->set(i, $usr(value & $nc(this->bitMasks)->get(i), $nc(this->bitOffsets)->get(i)));
 	}
 	return pixels;
 }
@@ -301,7 +234,7 @@ $ints* SinglePixelPackedSampleModel::getPixels(int32_t x, int32_t y, int32_t w, 
 		for (int32_t j = 0; j < w; ++j) {
 			int32_t value = $nc(data)->getElem(lineOffset + j);
 			for (int32_t k = 0; k < this->numBands; ++k) {
-				$nc(pixels)->set(dstOffset++, ($usr((int32_t)(value & (uint32_t)$nc(this->bitMasks)->get(k)), $nc(this->bitOffsets)->get(k))));
+				$nc(pixels)->set(dstOffset++, ($usr(value & $nc(this->bitMasks)->get(k), $nc(this->bitOffsets)->get(k))));
 			}
 		}
 		lineOffset += this->scanlineStride;
@@ -314,7 +247,7 @@ int32_t SinglePixelPackedSampleModel::getSample(int32_t x, int32_t y, int32_t b,
 		$throwNew($ArrayIndexOutOfBoundsException, "Coordinate out of bounds!"_s);
 	}
 	int32_t sample = $nc(data)->getElem(y * this->scanlineStride + x);
-	return ($usr((int32_t)(sample & (uint32_t)$nc(this->bitMasks)->get(b)), $nc(this->bitOffsets)->get(b)));
+	return ($usr(sample & $nc(this->bitMasks)->get(b), $nc(this->bitOffsets)->get(b)));
 }
 
 $ints* SinglePixelPackedSampleModel::getSamples(int32_t x, int32_t y, int32_t w, int32_t h, int32_t b, $ints* iArray, $DataBuffer* data) {
@@ -332,7 +265,7 @@ $ints* SinglePixelPackedSampleModel::getSamples(int32_t x, int32_t y, int32_t w,
 	for (int32_t i = 0; i < h; ++i) {
 		for (int32_t j = 0; j < w; ++j) {
 			int32_t value = $nc(data)->getElem(lineOffset + j);
-			$nc(samples)->set(dstOffset++, ($usr((int32_t)(value & (uint32_t)$nc(this->bitMasks)->get(b)), $nc(this->bitOffsets)->get(b))));
+			$nc(samples)->set(dstOffset++, ($usr(value & $nc(this->bitMasks)->get(b), $nc(this->bitOffsets)->get(b))));
 		}
 		lineOffset += this->scanlineStride;
 	}
@@ -340,34 +273,28 @@ $ints* SinglePixelPackedSampleModel::getSamples(int32_t x, int32_t y, int32_t w,
 }
 
 void SinglePixelPackedSampleModel::setDataElements(int32_t x, int32_t y, Object$* obj, $DataBuffer* data) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ((x < 0) || (y < 0) || (x >= this->width) || (y >= this->height)) {
 		$throwNew($ArrayIndexOutOfBoundsException, "Coordinate out of bounds!"_s);
 	}
 	int32_t type = getTransferType();
 	{
-		$var($bytes, barray, nullptr)
-		$var($shorts, sarray, nullptr)
-		$var($ints, iarray, nullptr)
+		$var($bytes, barray, nullptr);
+		$var($shorts, sarray, nullptr);
+		$var($ints, iarray, nullptr);
 		switch (type) {
 		case $DataBuffer::TYPE_BYTE:
-			{
-				$assign(barray, $cast($bytes, obj));
-				$nc(data)->setElem(y * this->scanlineStride + x, (int32_t)(((int32_t)$nc(barray)->get(0)) & (uint32_t)255));
-				break;
-			}
+			$assign(barray, $cast($bytes, obj));
+			$nc(data)->setElem(y * this->scanlineStride + x, ((int32_t)$nc(barray)->get(0)) & 0xff);
+			break;
 		case $DataBuffer::TYPE_USHORT:
-			{
-				$assign(sarray, $cast($shorts, obj));
-				$nc(data)->setElem(y * this->scanlineStride + x, (int32_t)(((int32_t)$nc(sarray)->get(0)) & (uint32_t)0x0000FFFF));
-				break;
-			}
+			$assign(sarray, $cast($shorts, obj));
+			$nc(data)->setElem(y * this->scanlineStride + x, ((int32_t)$nc(sarray)->get(0)) & 0xffff);
+			break;
 		case $DataBuffer::TYPE_INT:
-			{
-				$assign(iarray, $cast($ints, obj));
-				$nc(data)->setElem(y * this->scanlineStride + x, $nc(iarray)->get(0));
-				break;
-			}
+			$assign(iarray, $cast($ints, obj));
+			$nc(data)->setElem(y * this->scanlineStride + x, $nc(iarray)->get(0));
+			break;
 		}
 	}
 }
@@ -380,7 +307,7 @@ void SinglePixelPackedSampleModel::setPixel(int32_t x, int32_t y, $ints* iArray,
 	int32_t value = $nc(data)->getElem(lineOffset);
 	for (int32_t i = 0; i < this->numBands; ++i) {
 		value &= (uint32_t)~$nc(this->bitMasks)->get(i);
-		value |= ((int32_t)(($sl($nc(iArray)->get(i), $nc(this->bitOffsets)->get(i))) & (uint32_t)$nc(this->bitMasks)->get(i)));
+		value |= (($sl($nc(iArray)->get(i), $nc(this->bitOffsets)->get(i))) & this->bitMasks->get(i));
 	}
 	data->setElem(lineOffset, value);
 }
@@ -399,7 +326,7 @@ void SinglePixelPackedSampleModel::setPixels(int32_t x, int32_t y, int32_t w, in
 			for (int32_t k = 0; k < this->numBands; ++k) {
 				value &= (uint32_t)~$nc(this->bitMasks)->get(k);
 				int32_t srcValue = $nc(iArray)->get(srcOffset++);
-				value |= ((int32_t)(($sl(srcValue, $nc(this->bitOffsets)->get(k))) & (uint32_t)$nc(this->bitMasks)->get(k)));
+				value |= (($sl(srcValue, $nc(this->bitOffsets)->get(k))) & this->bitMasks->get(k));
 			}
 			data->setElem(lineOffset + j, value);
 		}
@@ -413,7 +340,7 @@ void SinglePixelPackedSampleModel::setSample(int32_t x, int32_t y, int32_t b, in
 	}
 	int32_t value = $nc(data)->getElem(y * this->scanlineStride + x);
 	value &= (uint32_t)~$nc(this->bitMasks)->get(b);
-	value |= (int32_t)(($sl(s, $nc(this->bitOffsets)->get(b))) & (uint32_t)$nc(this->bitMasks)->get(b));
+	value |= ($sl(s, $nc(this->bitOffsets)->get(b))) & this->bitMasks->get(b);
 	data->setElem(y * this->scanlineStride + x, value);
 }
 
@@ -428,7 +355,7 @@ void SinglePixelPackedSampleModel::setSamples(int32_t x, int32_t y, int32_t w, i
 			int32_t value = $nc(data)->getElem(lineOffset + j);
 			value &= (uint32_t)~$nc(this->bitMasks)->get(b);
 			int32_t sample = $nc(iArray)->get(srcOffset++);
-			value |= (int32_t)(($sl(sample, $nc(this->bitOffsets)->get(b))) & (uint32_t)$nc(this->bitMasks)->get(b));
+			value |= ($sl(sample, $nc(this->bitOffsets)->get(b))) & this->bitMasks->get(b);
 			data->setElem(lineOffset + j, value);
 		}
 		lineOffset += this->scanlineStride;
@@ -456,15 +383,15 @@ int32_t SinglePixelPackedSampleModel::hashCode() {
 	hash ^= this->dataType;
 	hash <<= 8;
 	for (int32_t i = 0; i < $nc(this->bitMasks)->length; ++i) {
-		hash ^= $nc(this->bitMasks)->get(i);
+		hash ^= this->bitMasks->get(i);
 		hash <<= 8;
 	}
 	for (int32_t i = 0; i < $nc(this->bitOffsets)->length; ++i) {
-		hash ^= $nc(this->bitOffsets)->get(i);
+		hash ^= this->bitOffsets->get(i);
 		hash <<= 8;
 	}
 	for (int32_t i = 0; i < $nc(this->bitSizes)->length; ++i) {
-		hash ^= $nc(this->bitSizes)->get(i);
+		hash ^= this->bitSizes->get(i);
 		hash <<= 8;
 	}
 	hash ^= this->maxBitSize;
@@ -473,7 +400,7 @@ int32_t SinglePixelPackedSampleModel::hashCode() {
 	return hash;
 }
 
-void clinit$SinglePixelPackedSampleModel($Class* class$) {
+void SinglePixelPackedSampleModel::clinit$($Class* clazz) {
 	{
 		$ColorModel::loadLibraries();
 		SinglePixelPackedSampleModel::initIDs();
@@ -484,7 +411,54 @@ SinglePixelPackedSampleModel::SinglePixelPackedSampleModel() {
 }
 
 $Class* SinglePixelPackedSampleModel::load$($String* name, bool initialize) {
-	$loadClass(SinglePixelPackedSampleModel, name, initialize, &_SinglePixelPackedSampleModel_ClassInfo_, clinit$SinglePixelPackedSampleModel, allocate$SinglePixelPackedSampleModel);
+	$FieldInfo fieldInfos$$[] = {
+		{"bitMasks", "[I", nullptr, $PRIVATE, $field(SinglePixelPackedSampleModel, bitMasks)},
+		{"bitOffsets", "[I", nullptr, $PRIVATE, $field(SinglePixelPackedSampleModel, bitOffsets)},
+		{"bitSizes", "[I", nullptr, $PRIVATE, $field(SinglePixelPackedSampleModel, bitSizes)},
+		{"maxBitSize", "I", nullptr, $PRIVATE, $field(SinglePixelPackedSampleModel, maxBitSize)},
+		{"scanlineStride", "I", nullptr, $PRIVATE, $field(SinglePixelPackedSampleModel, scanlineStride)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(III[I)V", nullptr, $PUBLIC, $method(SinglePixelPackedSampleModel, init$, void, int32_t, int32_t, int32_t, $ints*)},
+		{"<init>", "(IIII[I)V", nullptr, $PUBLIC, $method(SinglePixelPackedSampleModel, init$, void, int32_t, int32_t, int32_t, int32_t, $ints*)},
+		{"createCompatibleSampleModel", "(II)Ljava/awt/image/SampleModel;", nullptr, $PUBLIC, $virtualMethod(SinglePixelPackedSampleModel, createCompatibleSampleModel, $SampleModel*, int32_t, int32_t)},
+		{"createDataBuffer", "()Ljava/awt/image/DataBuffer;", nullptr, $PUBLIC, $virtualMethod(SinglePixelPackedSampleModel, createDataBuffer, $DataBuffer*)},
+		{"createSubsetSampleModel", "([I)Ljava/awt/image/SampleModel;", nullptr, $PUBLIC, $virtualMethod(SinglePixelPackedSampleModel, createSubsetSampleModel, $SampleModel*, $ints*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(SinglePixelPackedSampleModel, equals, bool, Object$*)},
+		{"getBitMasks", "()[I", nullptr, $PUBLIC, $virtualMethod(SinglePixelPackedSampleModel, getBitMasks, $ints*)},
+		{"getBitOffsets", "()[I", nullptr, $PUBLIC, $virtualMethod(SinglePixelPackedSampleModel, getBitOffsets, $ints*)},
+		{"getBufferSize", "()J", nullptr, $PRIVATE, $method(SinglePixelPackedSampleModel, getBufferSize, int64_t)},
+		{"getDataElements", "(IILjava/lang/Object;Ljava/awt/image/DataBuffer;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SinglePixelPackedSampleModel, getDataElements, $Object*, int32_t, int32_t, Object$*, $DataBuffer*)},
+		{"getNumDataElements", "()I", nullptr, $PUBLIC, $virtualMethod(SinglePixelPackedSampleModel, getNumDataElements, int32_t)},
+		{"getOffset", "(II)I", nullptr, $PUBLIC, $virtualMethod(SinglePixelPackedSampleModel, getOffset, int32_t, int32_t, int32_t)},
+		{"getPixel", "(II[ILjava/awt/image/DataBuffer;)[I", nullptr, $PUBLIC, $virtualMethod(SinglePixelPackedSampleModel, getPixel, $ints*, int32_t, int32_t, $ints*, $DataBuffer*)},
+		{"getPixels", "(IIII[ILjava/awt/image/DataBuffer;)[I", nullptr, $PUBLIC, $virtualMethod(SinglePixelPackedSampleModel, getPixels, $ints*, int32_t, int32_t, int32_t, int32_t, $ints*, $DataBuffer*)},
+		{"getSample", "(IIILjava/awt/image/DataBuffer;)I", nullptr, $PUBLIC, $virtualMethod(SinglePixelPackedSampleModel, getSample, int32_t, int32_t, int32_t, int32_t, $DataBuffer*)},
+		{"getSampleSize", "()[I", nullptr, $PUBLIC, $virtualMethod(SinglePixelPackedSampleModel, getSampleSize, $ints*)},
+		{"getSampleSize", "(I)I", nullptr, $PUBLIC, $virtualMethod(SinglePixelPackedSampleModel, getSampleSize, int32_t, int32_t)},
+		{"getSamples", "(IIIII[ILjava/awt/image/DataBuffer;)[I", nullptr, $PUBLIC, $virtualMethod(SinglePixelPackedSampleModel, getSamples, $ints*, int32_t, int32_t, int32_t, int32_t, int32_t, $ints*, $DataBuffer*)},
+		{"getScanlineStride", "()I", nullptr, $PUBLIC, $virtualMethod(SinglePixelPackedSampleModel, getScanlineStride, int32_t)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(SinglePixelPackedSampleModel, hashCode, int32_t)},
+		{"initIDs", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(SinglePixelPackedSampleModel, initIDs, void)},
+		{"setDataElements", "(IILjava/lang/Object;Ljava/awt/image/DataBuffer;)V", nullptr, $PUBLIC, $virtualMethod(SinglePixelPackedSampleModel, setDataElements, void, int32_t, int32_t, Object$*, $DataBuffer*)},
+		{"setPixel", "(II[ILjava/awt/image/DataBuffer;)V", nullptr, $PUBLIC, $virtualMethod(SinglePixelPackedSampleModel, setPixel, void, int32_t, int32_t, $ints*, $DataBuffer*)},
+		{"setPixels", "(IIII[ILjava/awt/image/DataBuffer;)V", nullptr, $PUBLIC, $virtualMethod(SinglePixelPackedSampleModel, setPixels, void, int32_t, int32_t, int32_t, int32_t, $ints*, $DataBuffer*)},
+		{"setSample", "(IIIILjava/awt/image/DataBuffer;)V", nullptr, $PUBLIC, $virtualMethod(SinglePixelPackedSampleModel, setSample, void, int32_t, int32_t, int32_t, int32_t, $DataBuffer*)},
+		{"setSamples", "(IIIII[ILjava/awt/image/DataBuffer;)V", nullptr, $PUBLIC, $virtualMethod(SinglePixelPackedSampleModel, setSamples, void, int32_t, int32_t, int32_t, int32_t, int32_t, $ints*, $DataBuffer*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.awt.image.SinglePixelPackedSampleModel",
+		"java.awt.image.SampleModel",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SinglePixelPackedSampleModel, name, initialize, &classInfo$$, SinglePixelPackedSampleModel::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(SinglePixelPackedSampleModel);
+	});
 	return class$;
 }
 

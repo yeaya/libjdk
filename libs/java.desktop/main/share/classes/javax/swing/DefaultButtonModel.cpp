@@ -1,5 +1,4 @@
 #include <javax/swing/DefaultButtonModel.h>
-
 #include <java/awt/AWTEvent.h>
 #include <java/awt/EventQueue.h>
 #include <java/awt/ItemSelectable.h>
@@ -32,7 +31,6 @@ using $EventListenerArray = $Array<::java::util::EventListener>;
 using $ChangeListenerArray = $Array<::javax::swing::event::ChangeListener>;
 using $AWTEvent = ::java::awt::AWTEvent;
 using $EventQueue = ::java::awt::EventQueue;
-using $ItemSelectable = ::java::awt::ItemSelectable;
 using $ActionEvent = ::java::awt::event::ActionEvent;
 using $ActionListener = ::java::awt::event::ActionListener;
 using $InputEvent = ::java::awt::event::InputEvent;
@@ -41,7 +39,6 @@ using $ItemListener = ::java::awt::event::ItemListener;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $EventListener = ::java::util::EventListener;
 using $ButtonGroup = ::javax::swing::ButtonGroup;
 using $ButtonModel = ::javax::swing::ButtonModel;
 using $UIManager = ::javax::swing::UIManager;
@@ -51,77 +48,6 @@ using $EventListenerList = ::javax::swing::event::EventListenerList;
 
 namespace javax {
 	namespace swing {
-
-$FieldInfo _DefaultButtonModel_FieldInfo_[] = {
-	{"stateMask", "I", nullptr, $PROTECTED, $field(DefaultButtonModel, stateMask)},
-	{"actionCommand", "Ljava/lang/String;", nullptr, $PROTECTED, $field(DefaultButtonModel, actionCommand)},
-	{"group", "Ljavax/swing/ButtonGroup;", nullptr, $PROTECTED, $field(DefaultButtonModel, group)},
-	{"mnemonic", "I", nullptr, $PROTECTED, $field(DefaultButtonModel, mnemonic)},
-	{"changeEvent", "Ljavax/swing/event/ChangeEvent;", nullptr, $PROTECTED | $TRANSIENT, $field(DefaultButtonModel, changeEvent)},
-	{"listenerList", "Ljavax/swing/event/EventListenerList;", nullptr, $PROTECTED, $field(DefaultButtonModel, listenerList)},
-	{"menuItem", "Z", nullptr, $PRIVATE, $field(DefaultButtonModel, menuItem)},
-	{"ARMED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DefaultButtonModel, ARMED)},
-	{"SELECTED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DefaultButtonModel, SELECTED)},
-	{"PRESSED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DefaultButtonModel, PRESSED)},
-	{"ENABLED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DefaultButtonModel, ENABLED)},
-	{"ROLLOVER", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DefaultButtonModel, ROLLOVER)},
-	{}
-};
-
-$MethodInfo _DefaultButtonModel_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(DefaultButtonModel, init$, void)},
-	{"addActionListener", "(Ljava/awt/event/ActionListener;)V", nullptr, $PUBLIC, $virtualMethod(DefaultButtonModel, addActionListener, void, $ActionListener*)},
-	{"addChangeListener", "(Ljavax/swing/event/ChangeListener;)V", nullptr, $PUBLIC, $virtualMethod(DefaultButtonModel, addChangeListener, void, $ChangeListener*)},
-	{"addItemListener", "(Ljava/awt/event/ItemListener;)V", nullptr, $PUBLIC, $virtualMethod(DefaultButtonModel, addItemListener, void, $ItemListener*)},
-	{"fireActionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PROTECTED, $virtualMethod(DefaultButtonModel, fireActionPerformed, void, $ActionEvent*)},
-	{"fireItemStateChanged", "(Ljava/awt/event/ItemEvent;)V", nullptr, $PROTECTED, $virtualMethod(DefaultButtonModel, fireItemStateChanged, void, $ItemEvent*)},
-	{"fireStateChanged", "()V", nullptr, $PROTECTED, $virtualMethod(DefaultButtonModel, fireStateChanged, void)},
-	{"getActionCommand", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DefaultButtonModel, getActionCommand, $String*)},
-	{"getActionListeners", "()[Ljava/awt/event/ActionListener;", nullptr, $PUBLIC, $virtualMethod(DefaultButtonModel, getActionListeners, $ActionListenerArray*)},
-	{"getChangeListeners", "()[Ljavax/swing/event/ChangeListener;", nullptr, $PUBLIC, $virtualMethod(DefaultButtonModel, getChangeListeners, $ChangeListenerArray*)},
-	{"getGroup", "()Ljavax/swing/ButtonGroup;", nullptr, $PUBLIC, $virtualMethod(DefaultButtonModel, getGroup, $ButtonGroup*)},
-	{"getItemListeners", "()[Ljava/awt/event/ItemListener;", nullptr, $PUBLIC, $virtualMethod(DefaultButtonModel, getItemListeners, $ItemListenerArray*)},
-	{"getListeners", "(Ljava/lang/Class;)[Ljava/util/EventListener;", "<T::Ljava/util/EventListener;>(Ljava/lang/Class<TT;>;)[TT;", $PUBLIC, $virtualMethod(DefaultButtonModel, getListeners, $EventListenerArray*, $Class*)},
-	{"getMnemonic", "()I", nullptr, $PUBLIC, $virtualMethod(DefaultButtonModel, getMnemonic, int32_t)},
-	{"getSelectedObjects", "()[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DefaultButtonModel, getSelectedObjects, $ObjectArray*)},
-	{"isArmed", "()Z", nullptr, $PUBLIC, $virtualMethod(DefaultButtonModel, isArmed, bool)},
-	{"isEnabled", "()Z", nullptr, $PUBLIC, $virtualMethod(DefaultButtonModel, isEnabled, bool)},
-	{"isMenuItem", "()Z", nullptr, 0, $virtualMethod(DefaultButtonModel, isMenuItem, bool)},
-	{"isPressed", "()Z", nullptr, $PUBLIC, $virtualMethod(DefaultButtonModel, isPressed, bool)},
-	{"isRollover", "()Z", nullptr, $PUBLIC, $virtualMethod(DefaultButtonModel, isRollover, bool)},
-	{"isSelected", "()Z", nullptr, $PUBLIC, $virtualMethod(DefaultButtonModel, isSelected, bool)},
-	{"removeActionListener", "(Ljava/awt/event/ActionListener;)V", nullptr, $PUBLIC, $virtualMethod(DefaultButtonModel, removeActionListener, void, $ActionListener*)},
-	{"removeChangeListener", "(Ljavax/swing/event/ChangeListener;)V", nullptr, $PUBLIC, $virtualMethod(DefaultButtonModel, removeChangeListener, void, $ChangeListener*)},
-	{"removeItemListener", "(Ljava/awt/event/ItemListener;)V", nullptr, $PUBLIC, $virtualMethod(DefaultButtonModel, removeItemListener, void, $ItemListener*)},
-	{"setActionCommand", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(DefaultButtonModel, setActionCommand, void, $String*)},
-	{"setArmed", "(Z)V", nullptr, $PUBLIC, $virtualMethod(DefaultButtonModel, setArmed, void, bool)},
-	{"setEnabled", "(Z)V", nullptr, $PUBLIC, $virtualMethod(DefaultButtonModel, setEnabled, void, bool)},
-	{"setGroup", "(Ljavax/swing/ButtonGroup;)V", nullptr, $PUBLIC, $virtualMethod(DefaultButtonModel, setGroup, void, $ButtonGroup*)},
-	{"setMenuItem", "(Z)V", nullptr, 0, $virtualMethod(DefaultButtonModel, setMenuItem, void, bool)},
-	{"setMnemonic", "(I)V", nullptr, $PUBLIC, $virtualMethod(DefaultButtonModel, setMnemonic, void, int32_t)},
-	{"setPressed", "(Z)V", nullptr, $PUBLIC, $virtualMethod(DefaultButtonModel, setPressed, void, bool)},
-	{"setRollover", "(Z)V", nullptr, $PUBLIC, $virtualMethod(DefaultButtonModel, setRollover, void, bool)},
-	{"setSelected", "(Z)V", nullptr, $PUBLIC, $virtualMethod(DefaultButtonModel, setSelected, void, bool)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _DefaultButtonModel_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.DefaultButtonModel",
-	"java.lang.Object",
-	"javax.swing.ButtonModel,java.io.Serializable",
-	_DefaultButtonModel_FieldInfo_,
-	_DefaultButtonModel_MethodInfo_
-};
-
-$Object* allocate$DefaultButtonModel($Class* clazz) {
-	return $of($alloc(DefaultButtonModel));
-}
 
 int32_t DefaultButtonModel::hashCode() {
 	 return this->$ButtonModel::hashCode();
@@ -164,23 +90,23 @@ $String* DefaultButtonModel::getActionCommand() {
 }
 
 bool DefaultButtonModel::isArmed() {
-	return ((int32_t)(this->stateMask & (uint32_t)DefaultButtonModel::ARMED)) != 0;
+	return (this->stateMask & DefaultButtonModel::ARMED) != 0;
 }
 
 bool DefaultButtonModel::isSelected() {
-	return ((int32_t)(this->stateMask & (uint32_t)DefaultButtonModel::SELECTED)) != 0;
+	return (this->stateMask & DefaultButtonModel::SELECTED) != 0;
 }
 
 bool DefaultButtonModel::isEnabled() {
-	return ((int32_t)(this->stateMask & (uint32_t)DefaultButtonModel::ENABLED)) != 0;
+	return (this->stateMask & DefaultButtonModel::ENABLED) != 0;
 }
 
 bool DefaultButtonModel::isPressed() {
-	return ((int32_t)(this->stateMask & (uint32_t)DefaultButtonModel::PRESSED)) != 0;
+	return (this->stateMask & DefaultButtonModel::PRESSED) != 0;
 }
 
 bool DefaultButtonModel::isRollover() {
-	return ((int32_t)(this->stateMask & (uint32_t)DefaultButtonModel::ROLLOVER)) != 0;
+	return (this->stateMask & DefaultButtonModel::ROLLOVER) != 0;
 }
 
 void DefaultButtonModel::setArmed(bool b) {
@@ -190,8 +116,8 @@ void DefaultButtonModel::setArmed(bool b) {
 			return;
 		}
 	} else {
-		bool var$2 = (isArmed() == b);
-		if (var$2 || !isEnabled()) {
+		bool var$1 = isArmed() == b;
+		if (var$1 || !isEnabled()) {
 			return;
 		}
 	}
@@ -231,8 +157,8 @@ void DefaultButtonModel::setSelected(bool b) {
 }
 
 void DefaultButtonModel::setPressed(bool b) {
-	$useLocalCurrentObjectStackCache();
-	bool var$0 = (isPressed() == b);
+	$useLocalObjectStack();
+	bool var$0 = isPressed() == b;
 	if (var$0 || !isEnabled()) {
 		return;
 	}
@@ -246,9 +172,9 @@ void DefaultButtonModel::setPressed(bool b) {
 		int32_t modifiers = 0;
 		$var($AWTEvent, currentEvent, $EventQueue::getCurrentEvent());
 		if ($instanceOf($InputEvent, currentEvent)) {
-			modifiers = $nc(($cast($InputEvent, currentEvent)))->getModifiers();
+			modifiers = $cast($InputEvent, currentEvent)->getModifiers();
 		} else if ($instanceOf($ActionEvent, currentEvent)) {
-			modifiers = $nc(($cast($ActionEvent, currentEvent)))->getModifiers();
+			modifiers = $cast($ActionEvent, currentEvent)->getModifiers();
 		}
 		$var($String, var$2, getActionCommand());
 		fireActionPerformed($$new($ActionEvent, this, $ActionEvent::ACTION_PERFORMED, var$2, $EventQueue::getMostRecentEventTime(), modifiers));
@@ -257,7 +183,7 @@ void DefaultButtonModel::setPressed(bool b) {
 }
 
 void DefaultButtonModel::setRollover(bool b) {
-	bool var$0 = (isRollover() == b);
+	bool var$0 = isRollover() == b;
 	if (var$0 || !isEnabled()) {
 		return;
 	}
@@ -290,7 +216,7 @@ void DefaultButtonModel::removeChangeListener($ChangeListener* l) {
 
 $ChangeListenerArray* DefaultButtonModel::getChangeListeners() {
 	$load($ChangeListener);
-	return $fcast($ChangeListenerArray, $nc(this->listenerList)->getListeners($ChangeListener::class$));
+	return $cast($ChangeListenerArray, $nc(this->listenerList)->getListeners($ChangeListener::class$));
 }
 
 void DefaultButtonModel::fireStateChanged() {
@@ -301,7 +227,7 @@ void DefaultButtonModel::fireStateChanged() {
 			if (this->changeEvent == nullptr) {
 				$set(this, changeEvent, $new($ChangeEvent, this));
 			}
-			$nc(($cast($ChangeListener, listeners->get(i + 1))))->stateChanged(this->changeEvent);
+			$nc($cast($ChangeListener, listeners->get(i + 1)))->stateChanged(this->changeEvent);
 		}
 	}
 }
@@ -318,7 +244,7 @@ void DefaultButtonModel::removeActionListener($ActionListener* l) {
 
 $ActionListenerArray* DefaultButtonModel::getActionListeners() {
 	$load($ActionListener);
-	return $fcast($ActionListenerArray, $nc(this->listenerList)->getListeners($ActionListener::class$));
+	return $cast($ActionListenerArray, $nc(this->listenerList)->getListeners($ActionListener::class$));
 }
 
 void DefaultButtonModel::fireActionPerformed($ActionEvent* e) {
@@ -326,7 +252,7 @@ void DefaultButtonModel::fireActionPerformed($ActionEvent* e) {
 	for (int32_t i = $nc(listeners)->length - 2; i >= 0; i -= 2) {
 		$load($ActionListener);
 		if ($equals(listeners->get(i), $ActionListener::class$)) {
-			$nc(($cast($ActionListener, listeners->get(i + 1))))->actionPerformed(e);
+			$nc($cast($ActionListener, listeners->get(i + 1)))->actionPerformed(e);
 		}
 	}
 }
@@ -343,7 +269,7 @@ void DefaultButtonModel::removeItemListener($ItemListener* l) {
 
 $ItemListenerArray* DefaultButtonModel::getItemListeners() {
 	$load($ItemListener);
-	return $fcast($ItemListenerArray, $nc(this->listenerList)->getListeners($ItemListener::class$));
+	return $cast($ItemListenerArray, $nc(this->listenerList)->getListeners($ItemListener::class$));
 }
 
 void DefaultButtonModel::fireItemStateChanged($ItemEvent* e) {
@@ -351,7 +277,7 @@ void DefaultButtonModel::fireItemStateChanged($ItemEvent* e) {
 	for (int32_t i = $nc(listeners)->length - 2; i >= 0; i -= 2) {
 		$load($ItemListener);
 		if ($equals(listeners->get(i), $ItemListener::class$)) {
-			$nc(($cast($ItemListener, listeners->get(i + 1))))->itemStateChanged(e);
+			$nc($cast($ItemListener, listeners->get(i + 1)))->itemStateChanged(e);
 		}
 	}
 }
@@ -384,7 +310,73 @@ DefaultButtonModel::DefaultButtonModel() {
 }
 
 $Class* DefaultButtonModel::load$($String* name, bool initialize) {
-	$loadClass(DefaultButtonModel, name, initialize, &_DefaultButtonModel_ClassInfo_, allocate$DefaultButtonModel);
+	$FieldInfo fieldInfos$$[] = {
+		{"stateMask", "I", nullptr, $PROTECTED, $field(DefaultButtonModel, stateMask)},
+		{"actionCommand", "Ljava/lang/String;", nullptr, $PROTECTED, $field(DefaultButtonModel, actionCommand)},
+		{"group", "Ljavax/swing/ButtonGroup;", nullptr, $PROTECTED, $field(DefaultButtonModel, group)},
+		{"mnemonic", "I", nullptr, $PROTECTED, $field(DefaultButtonModel, mnemonic)},
+		{"changeEvent", "Ljavax/swing/event/ChangeEvent;", nullptr, $PROTECTED | $TRANSIENT, $field(DefaultButtonModel, changeEvent)},
+		{"listenerList", "Ljavax/swing/event/EventListenerList;", nullptr, $PROTECTED, $field(DefaultButtonModel, listenerList)},
+		{"menuItem", "Z", nullptr, $PRIVATE, $field(DefaultButtonModel, menuItem)},
+		{"ARMED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DefaultButtonModel, ARMED)},
+		{"SELECTED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DefaultButtonModel, SELECTED)},
+		{"PRESSED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DefaultButtonModel, PRESSED)},
+		{"ENABLED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DefaultButtonModel, ENABLED)},
+		{"ROLLOVER", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DefaultButtonModel, ROLLOVER)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(DefaultButtonModel, init$, void)},
+		{"addActionListener", "(Ljava/awt/event/ActionListener;)V", nullptr, $PUBLIC, $virtualMethod(DefaultButtonModel, addActionListener, void, $ActionListener*)},
+		{"addChangeListener", "(Ljavax/swing/event/ChangeListener;)V", nullptr, $PUBLIC, $virtualMethod(DefaultButtonModel, addChangeListener, void, $ChangeListener*)},
+		{"addItemListener", "(Ljava/awt/event/ItemListener;)V", nullptr, $PUBLIC, $virtualMethod(DefaultButtonModel, addItemListener, void, $ItemListener*)},
+		{"fireActionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PROTECTED, $virtualMethod(DefaultButtonModel, fireActionPerformed, void, $ActionEvent*)},
+		{"fireItemStateChanged", "(Ljava/awt/event/ItemEvent;)V", nullptr, $PROTECTED, $virtualMethod(DefaultButtonModel, fireItemStateChanged, void, $ItemEvent*)},
+		{"fireStateChanged", "()V", nullptr, $PROTECTED, $virtualMethod(DefaultButtonModel, fireStateChanged, void)},
+		{"getActionCommand", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DefaultButtonModel, getActionCommand, $String*)},
+		{"getActionListeners", "()[Ljava/awt/event/ActionListener;", nullptr, $PUBLIC, $virtualMethod(DefaultButtonModel, getActionListeners, $ActionListenerArray*)},
+		{"getChangeListeners", "()[Ljavax/swing/event/ChangeListener;", nullptr, $PUBLIC, $virtualMethod(DefaultButtonModel, getChangeListeners, $ChangeListenerArray*)},
+		{"getGroup", "()Ljavax/swing/ButtonGroup;", nullptr, $PUBLIC, $virtualMethod(DefaultButtonModel, getGroup, $ButtonGroup*)},
+		{"getItemListeners", "()[Ljava/awt/event/ItemListener;", nullptr, $PUBLIC, $virtualMethod(DefaultButtonModel, getItemListeners, $ItemListenerArray*)},
+		{"getListeners", "(Ljava/lang/Class;)[Ljava/util/EventListener;", "<T::Ljava/util/EventListener;>(Ljava/lang/Class<TT;>;)[TT;", $PUBLIC, $virtualMethod(DefaultButtonModel, getListeners, $EventListenerArray*, $Class*)},
+		{"getMnemonic", "()I", nullptr, $PUBLIC, $virtualMethod(DefaultButtonModel, getMnemonic, int32_t)},
+		{"getSelectedObjects", "()[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DefaultButtonModel, getSelectedObjects, $ObjectArray*)},
+		{"isArmed", "()Z", nullptr, $PUBLIC, $virtualMethod(DefaultButtonModel, isArmed, bool)},
+		{"isEnabled", "()Z", nullptr, $PUBLIC, $virtualMethod(DefaultButtonModel, isEnabled, bool)},
+		{"isMenuItem", "()Z", nullptr, 0, $virtualMethod(DefaultButtonModel, isMenuItem, bool)},
+		{"isPressed", "()Z", nullptr, $PUBLIC, $virtualMethod(DefaultButtonModel, isPressed, bool)},
+		{"isRollover", "()Z", nullptr, $PUBLIC, $virtualMethod(DefaultButtonModel, isRollover, bool)},
+		{"isSelected", "()Z", nullptr, $PUBLIC, $virtualMethod(DefaultButtonModel, isSelected, bool)},
+		{"removeActionListener", "(Ljava/awt/event/ActionListener;)V", nullptr, $PUBLIC, $virtualMethod(DefaultButtonModel, removeActionListener, void, $ActionListener*)},
+		{"removeChangeListener", "(Ljavax/swing/event/ChangeListener;)V", nullptr, $PUBLIC, $virtualMethod(DefaultButtonModel, removeChangeListener, void, $ChangeListener*)},
+		{"removeItemListener", "(Ljava/awt/event/ItemListener;)V", nullptr, $PUBLIC, $virtualMethod(DefaultButtonModel, removeItemListener, void, $ItemListener*)},
+		{"setActionCommand", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(DefaultButtonModel, setActionCommand, void, $String*)},
+		{"setArmed", "(Z)V", nullptr, $PUBLIC, $virtualMethod(DefaultButtonModel, setArmed, void, bool)},
+		{"setEnabled", "(Z)V", nullptr, $PUBLIC, $virtualMethod(DefaultButtonModel, setEnabled, void, bool)},
+		{"setGroup", "(Ljavax/swing/ButtonGroup;)V", nullptr, $PUBLIC, $virtualMethod(DefaultButtonModel, setGroup, void, $ButtonGroup*)},
+		{"setMenuItem", "(Z)V", nullptr, 0, $virtualMethod(DefaultButtonModel, setMenuItem, void, bool)},
+		{"setMnemonic", "(I)V", nullptr, $PUBLIC, $virtualMethod(DefaultButtonModel, setMnemonic, void, int32_t)},
+		{"setPressed", "(Z)V", nullptr, $PUBLIC, $virtualMethod(DefaultButtonModel, setPressed, void, bool)},
+		{"setRollover", "(Z)V", nullptr, $PUBLIC, $virtualMethod(DefaultButtonModel, setRollover, void, bool)},
+		{"setSelected", "(Z)V", nullptr, $PUBLIC, $virtualMethod(DefaultButtonModel, setSelected, void, bool)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.DefaultButtonModel",
+		"java.lang.Object",
+		"javax.swing.ButtonModel,java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DefaultButtonModel, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DefaultButtonModel));
+	});
 	return class$;
 }
 

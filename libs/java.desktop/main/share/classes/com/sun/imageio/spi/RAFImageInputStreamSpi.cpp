@@ -1,5 +1,4 @@
 #include <com/sun/imageio/spi/RAFImageInputStreamSpi.h>
-
 #include <java/io/File.h>
 #include <java/io/RandomAccessFile.h>
 #include <java/util/Locale.h>
@@ -24,33 +23,6 @@ namespace com {
 	namespace sun {
 		namespace imageio {
 			namespace spi {
-
-$FieldInfo _RAFImageInputStreamSpi_FieldInfo_[] = {
-	{"vendorName", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(RAFImageInputStreamSpi, vendorName)},
-	{"version", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(RAFImageInputStreamSpi, version)},
-	{"inputClass", "Ljava/lang/Class;", "Ljava/lang/Class<*>;", $PRIVATE | $STATIC | $FINAL, $staticField(RAFImageInputStreamSpi, inputClass)},
-	{}
-};
-
-$MethodInfo _RAFImageInputStreamSpi_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(RAFImageInputStreamSpi, init$, void)},
-	{"createInputStreamInstance", "(Ljava/lang/Object;ZLjava/io/File;)Ljavax/imageio/stream/ImageInputStream;", nullptr, $PUBLIC, $virtualMethod(RAFImageInputStreamSpi, createInputStreamInstance, $ImageInputStream*, Object$*, bool, $File*)},
-	{"getDescription", "(Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RAFImageInputStreamSpi, getDescription, $String*, $Locale*)},
-	{}
-};
-
-$ClassInfo _RAFImageInputStreamSpi_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.imageio.spi.RAFImageInputStreamSpi",
-	"javax.imageio.spi.ImageInputStreamSpi",
-	nullptr,
-	_RAFImageInputStreamSpi_FieldInfo_,
-	_RAFImageInputStreamSpi_MethodInfo_
-};
-
-$Object* allocate$RAFImageInputStreamSpi($Class* clazz) {
-	return $of($alloc(RAFImageInputStreamSpi));
-}
 
 $String* RAFImageInputStreamSpi::vendorName = nullptr;
 $String* RAFImageInputStreamSpi::version = nullptr;
@@ -77,7 +49,7 @@ $ImageInputStream* RAFImageInputStreamSpi::createInputStreamInstance(Object$* in
 	$shouldNotReachHere();
 }
 
-void clinit$RAFImageInputStreamSpi($Class* class$) {
+void RAFImageInputStreamSpi::clinit$($Class* clazz) {
 	$assignStatic(RAFImageInputStreamSpi::vendorName, "Oracle Corporation"_s);
 	$assignStatic(RAFImageInputStreamSpi::version, "1.0"_s);
 	$load($RandomAccessFile);
@@ -88,7 +60,29 @@ RAFImageInputStreamSpi::RAFImageInputStreamSpi() {
 }
 
 $Class* RAFImageInputStreamSpi::load$($String* name, bool initialize) {
-	$loadClass(RAFImageInputStreamSpi, name, initialize, &_RAFImageInputStreamSpi_ClassInfo_, clinit$RAFImageInputStreamSpi, allocate$RAFImageInputStreamSpi);
+	$FieldInfo fieldInfos$$[] = {
+		{"vendorName", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(RAFImageInputStreamSpi, vendorName)},
+		{"version", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(RAFImageInputStreamSpi, version)},
+		{"inputClass", "Ljava/lang/Class;", "Ljava/lang/Class<*>;", $PRIVATE | $STATIC | $FINAL, $staticField(RAFImageInputStreamSpi, inputClass)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(RAFImageInputStreamSpi, init$, void)},
+		{"createInputStreamInstance", "(Ljava/lang/Object;ZLjava/io/File;)Ljavax/imageio/stream/ImageInputStream;", nullptr, $PUBLIC, $virtualMethod(RAFImageInputStreamSpi, createInputStreamInstance, $ImageInputStream*, Object$*, bool, $File*)},
+		{"getDescription", "(Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RAFImageInputStreamSpi, getDescription, $String*, $Locale*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.imageio.spi.RAFImageInputStreamSpi",
+		"javax.imageio.spi.ImageInputStreamSpi",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(RAFImageInputStreamSpi, name, initialize, &classInfo$$, RAFImageInputStreamSpi::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(RAFImageInputStreamSpi);
+	});
 	return class$;
 }
 

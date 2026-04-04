@@ -68,6 +68,7 @@ class TextComponentPrintable : public ::sun::swing::text::CountingPrintable {
 	$class(TextComponentPrintable, 0, ::sun::swing::text::CountingPrintable)
 public:
 	TextComponentPrintable();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::javax::swing::text::JTextComponent* textComponent, ::java::text::MessageFormat* headerFormat, ::java::text::MessageFormat* footerFormat);
 	void acquireReadLock();
 	void calculateRowsMetrics();

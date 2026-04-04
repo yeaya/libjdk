@@ -39,6 +39,7 @@ class AquaPopupMenuSeparatorUI : public ::javax::swing::plaf::basic::BasicSepara
 	$class(AquaPopupMenuSeparatorUI, 0, ::javax::swing::plaf::basic::BasicSeparatorUI)
 public:
 	AquaPopupMenuSeparatorUI();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::javax::swing::plaf::ComponentUI* createUI(::javax::swing::JComponent* c);
 	virtual ::java::awt::Dimension* getPreferredSize(::javax::swing::JComponent* c) override;

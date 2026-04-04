@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/metal/MetalIconFactory.h>
-
 #include <java/awt/Dimension.h>
 #include <javax/swing/Icon.h>
 #include <javax/swing/plaf/metal/MetalIconFactory$CheckBoxIcon.h>
@@ -72,122 +71,6 @@ namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace metal {
-
-$FieldInfo _MetalIconFactory_FieldInfo_[] = {
-	{"fileChooserDetailViewIcon", "Ljavax/swing/Icon;", nullptr, $PRIVATE | $STATIC, $staticField(MetalIconFactory, fileChooserDetailViewIcon)},
-	{"fileChooserHomeFolderIcon", "Ljavax/swing/Icon;", nullptr, $PRIVATE | $STATIC, $staticField(MetalIconFactory, fileChooserHomeFolderIcon)},
-	{"fileChooserListViewIcon", "Ljavax/swing/Icon;", nullptr, $PRIVATE | $STATIC, $staticField(MetalIconFactory, fileChooserListViewIcon)},
-	{"fileChooserNewFolderIcon", "Ljavax/swing/Icon;", nullptr, $PRIVATE | $STATIC, $staticField(MetalIconFactory, fileChooserNewFolderIcon)},
-	{"fileChooserUpFolderIcon", "Ljavax/swing/Icon;", nullptr, $PRIVATE | $STATIC, $staticField(MetalIconFactory, fileChooserUpFolderIcon)},
-	{"internalFrameAltMaximizeIcon", "Ljavax/swing/Icon;", nullptr, $PRIVATE | $STATIC, $staticField(MetalIconFactory, internalFrameAltMaximizeIcon)},
-	{"internalFrameCloseIcon", "Ljavax/swing/Icon;", nullptr, $PRIVATE | $STATIC, $staticField(MetalIconFactory, internalFrameCloseIcon)},
-	{"internalFrameDefaultMenuIcon", "Ljavax/swing/Icon;", nullptr, $PRIVATE | $STATIC, $staticField(MetalIconFactory, internalFrameDefaultMenuIcon)},
-	{"internalFrameMaximizeIcon", "Ljavax/swing/Icon;", nullptr, $PRIVATE | $STATIC, $staticField(MetalIconFactory, internalFrameMaximizeIcon)},
-	{"internalFrameMinimizeIcon", "Ljavax/swing/Icon;", nullptr, $PRIVATE | $STATIC, $staticField(MetalIconFactory, internalFrameMinimizeIcon)},
-	{"radioButtonIcon", "Ljavax/swing/Icon;", nullptr, $PRIVATE | $STATIC, $staticField(MetalIconFactory, radioButtonIcon)},
-	{"treeComputerIcon", "Ljavax/swing/Icon;", nullptr, $PRIVATE | $STATIC, $staticField(MetalIconFactory, treeComputerIcon)},
-	{"treeFloppyDriveIcon", "Ljavax/swing/Icon;", nullptr, $PRIVATE | $STATIC, $staticField(MetalIconFactory, treeFloppyDriveIcon)},
-	{"treeHardDriveIcon", "Ljavax/swing/Icon;", nullptr, $PRIVATE | $STATIC, $staticField(MetalIconFactory, treeHardDriveIcon)},
-	{"menuArrowIcon", "Ljavax/swing/Icon;", nullptr, $PRIVATE | $STATIC, $staticField(MetalIconFactory, menuArrowIcon)},
-	{"menuItemArrowIcon", "Ljavax/swing/Icon;", nullptr, $PRIVATE | $STATIC, $staticField(MetalIconFactory, menuItemArrowIcon)},
-	{"checkBoxMenuItemIcon", "Ljavax/swing/Icon;", nullptr, $PRIVATE | $STATIC, $staticField(MetalIconFactory, checkBoxMenuItemIcon)},
-	{"radioButtonMenuItemIcon", "Ljavax/swing/Icon;", nullptr, $PRIVATE | $STATIC, $staticField(MetalIconFactory, radioButtonMenuItemIcon)},
-	{"checkBoxIcon", "Ljavax/swing/Icon;", nullptr, $PRIVATE | $STATIC, $staticField(MetalIconFactory, checkBoxIcon)},
-	{"oceanHorizontalSliderThumb", "Ljavax/swing/Icon;", nullptr, $PRIVATE | $STATIC, $staticField(MetalIconFactory, oceanHorizontalSliderThumb)},
-	{"oceanVerticalSliderThumb", "Ljavax/swing/Icon;", nullptr, $PRIVATE | $STATIC, $staticField(MetalIconFactory, oceanVerticalSliderThumb)},
-	{"DARK", "Z", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(MetalIconFactory, DARK)},
-	{"LIGHT", "Z", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(MetalIconFactory, LIGHT)},
-	{"folderIcon16Size", "Ljava/awt/Dimension;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MetalIconFactory, folderIcon16Size)},
-	{"fileIcon16Size", "Ljava/awt/Dimension;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MetalIconFactory, fileIcon16Size)},
-	{"treeControlSize", "Ljava/awt/Dimension;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MetalIconFactory, treeControlSize)},
-	{"menuArrowIconSize", "Ljava/awt/Dimension;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MetalIconFactory, menuArrowIconSize)},
-	{"menuCheckIconSize", "Ljava/awt/Dimension;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MetalIconFactory, menuCheckIconSize)},
-	{"xOff", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MetalIconFactory, xOff)},
-	{}
-};
-
-$MethodInfo _MetalIconFactory_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MetalIconFactory, init$, void)},
-	{"getCheckBoxIcon", "()Ljavax/swing/Icon;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalIconFactory, getCheckBoxIcon, $Icon*)},
-	{"getCheckBoxMenuItemIcon", "()Ljavax/swing/Icon;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalIconFactory, getCheckBoxMenuItemIcon, $Icon*)},
-	{"getFileChooserDetailViewIcon", "()Ljavax/swing/Icon;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalIconFactory, getFileChooserDetailViewIcon, $Icon*)},
-	{"getFileChooserHomeFolderIcon", "()Ljavax/swing/Icon;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalIconFactory, getFileChooserHomeFolderIcon, $Icon*)},
-	{"getFileChooserListViewIcon", "()Ljavax/swing/Icon;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalIconFactory, getFileChooserListViewIcon, $Icon*)},
-	{"getFileChooserNewFolderIcon", "()Ljavax/swing/Icon;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalIconFactory, getFileChooserNewFolderIcon, $Icon*)},
-	{"getFileChooserUpFolderIcon", "()Ljavax/swing/Icon;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalIconFactory, getFileChooserUpFolderIcon, $Icon*)},
-	{"getHorizontalSliderThumbIcon", "()Ljavax/swing/Icon;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalIconFactory, getHorizontalSliderThumbIcon, $Icon*)},
-	{"getInternalFrameAltMaximizeIcon", "(I)Ljavax/swing/Icon;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalIconFactory, getInternalFrameAltMaximizeIcon, $Icon*, int32_t)},
-	{"getInternalFrameCloseIcon", "(I)Ljavax/swing/Icon;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalIconFactory, getInternalFrameCloseIcon, $Icon*, int32_t)},
-	{"getInternalFrameDefaultMenuIcon", "()Ljavax/swing/Icon;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalIconFactory, getInternalFrameDefaultMenuIcon, $Icon*)},
-	{"getInternalFrameMaximizeIcon", "(I)Ljavax/swing/Icon;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalIconFactory, getInternalFrameMaximizeIcon, $Icon*, int32_t)},
-	{"getInternalFrameMinimizeIcon", "(I)Ljavax/swing/Icon;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalIconFactory, getInternalFrameMinimizeIcon, $Icon*, int32_t)},
-	{"getMenuArrowIcon", "()Ljavax/swing/Icon;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalIconFactory, getMenuArrowIcon, $Icon*)},
-	{"getMenuItemArrowIcon", "()Ljavax/swing/Icon;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalIconFactory, getMenuItemArrowIcon, $Icon*)},
-	{"getMenuItemCheckIcon", "()Ljavax/swing/Icon;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalIconFactory, getMenuItemCheckIcon, $Icon*)},
-	{"getRadioButtonIcon", "()Ljavax/swing/Icon;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalIconFactory, getRadioButtonIcon, $Icon*)},
-	{"getRadioButtonMenuItemIcon", "()Ljavax/swing/Icon;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalIconFactory, getRadioButtonMenuItemIcon, $Icon*)},
-	{"getTreeComputerIcon", "()Ljavax/swing/Icon;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalIconFactory, getTreeComputerIcon, $Icon*)},
-	{"getTreeControlIcon", "(Z)Ljavax/swing/Icon;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalIconFactory, getTreeControlIcon, $Icon*, bool)},
-	{"getTreeFloppyDriveIcon", "()Ljavax/swing/Icon;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalIconFactory, getTreeFloppyDriveIcon, $Icon*)},
-	{"getTreeFolderIcon", "()Ljavax/swing/Icon;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalIconFactory, getTreeFolderIcon, $Icon*)},
-	{"getTreeHardDriveIcon", "()Ljavax/swing/Icon;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalIconFactory, getTreeHardDriveIcon, $Icon*)},
-	{"getTreeLeafIcon", "()Ljavax/swing/Icon;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalIconFactory, getTreeLeafIcon, $Icon*)},
-	{"getVerticalSliderThumbIcon", "()Ljavax/swing/Icon;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalIconFactory, getVerticalSliderThumbIcon, $Icon*)},
-	{}
-};
-
-$InnerClassInfo _MetalIconFactory_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.metal.MetalIconFactory$OceanHorizontalSliderThumbIcon", "javax.swing.plaf.metal.MetalIconFactory", "OceanHorizontalSliderThumbIcon", $PRIVATE | $STATIC},
-	{"javax.swing.plaf.metal.MetalIconFactory$OceanVerticalSliderThumbIcon", "javax.swing.plaf.metal.MetalIconFactory", "OceanVerticalSliderThumbIcon", $PRIVATE | $STATIC},
-	{"javax.swing.plaf.metal.MetalIconFactory$HorizontalSliderThumbIcon", "javax.swing.plaf.metal.MetalIconFactory", "HorizontalSliderThumbIcon", $PRIVATE | $STATIC},
-	{"javax.swing.plaf.metal.MetalIconFactory$VerticalSliderThumbIcon", "javax.swing.plaf.metal.MetalIconFactory", "VerticalSliderThumbIcon", $PRIVATE | $STATIC},
-	{"javax.swing.plaf.metal.MetalIconFactory$RadioButtonMenuItemIcon", "javax.swing.plaf.metal.MetalIconFactory", "RadioButtonMenuItemIcon", $PRIVATE | $STATIC},
-	{"javax.swing.plaf.metal.MetalIconFactory$CheckBoxMenuItemIcon", "javax.swing.plaf.metal.MetalIconFactory", "CheckBoxMenuItemIcon", $PRIVATE | $STATIC},
-	{"javax.swing.plaf.metal.MetalIconFactory$MenuItemArrowIcon", "javax.swing.plaf.metal.MetalIconFactory", "MenuItemArrowIcon", $PRIVATE | $STATIC},
-	{"javax.swing.plaf.metal.MetalIconFactory$MenuArrowIcon", "javax.swing.plaf.metal.MetalIconFactory", "MenuArrowIcon", $PRIVATE | $STATIC},
-	{"javax.swing.plaf.metal.MetalIconFactory$TreeControlIcon", "javax.swing.plaf.metal.MetalIconFactory", "TreeControlIcon", $PUBLIC | $STATIC},
-	{"javax.swing.plaf.metal.MetalIconFactory$TreeLeafIcon", "javax.swing.plaf.metal.MetalIconFactory", "TreeLeafIcon", $PUBLIC | $STATIC},
-	{"javax.swing.plaf.metal.MetalIconFactory$FileIcon16", "javax.swing.plaf.metal.MetalIconFactory", "FileIcon16", $PUBLIC | $STATIC},
-	{"javax.swing.plaf.metal.MetalIconFactory$TreeFolderIcon", "javax.swing.plaf.metal.MetalIconFactory", "TreeFolderIcon", $PUBLIC | $STATIC},
-	{"javax.swing.plaf.metal.MetalIconFactory$FolderIcon16", "javax.swing.plaf.metal.MetalIconFactory", "FolderIcon16", $PUBLIC | $STATIC},
-	{"javax.swing.plaf.metal.MetalIconFactory$ImageCacher", "javax.swing.plaf.metal.MetalIconFactory", "ImageCacher", $STATIC},
-	{"javax.swing.plaf.metal.MetalIconFactory$TreeFloppyDriveIcon", "javax.swing.plaf.metal.MetalIconFactory", "TreeFloppyDriveIcon", $PRIVATE | $STATIC},
-	{"javax.swing.plaf.metal.MetalIconFactory$TreeHardDriveIcon", "javax.swing.plaf.metal.MetalIconFactory", "TreeHardDriveIcon", $PRIVATE | $STATIC},
-	{"javax.swing.plaf.metal.MetalIconFactory$TreeComputerIcon", "javax.swing.plaf.metal.MetalIconFactory", "TreeComputerIcon", $PRIVATE | $STATIC},
-	{"javax.swing.plaf.metal.MetalIconFactory$RadioButtonIcon", "javax.swing.plaf.metal.MetalIconFactory", "RadioButtonIcon", $PRIVATE | $STATIC},
-	{"javax.swing.plaf.metal.MetalIconFactory$CheckBoxIcon", "javax.swing.plaf.metal.MetalIconFactory", "CheckBoxIcon", $PRIVATE | $STATIC},
-	{"javax.swing.plaf.metal.MetalIconFactory$InternalFrameMinimizeIcon", "javax.swing.plaf.metal.MetalIconFactory", "InternalFrameMinimizeIcon", $PRIVATE | $STATIC},
-	{"javax.swing.plaf.metal.MetalIconFactory$InternalFrameMaximizeIcon", "javax.swing.plaf.metal.MetalIconFactory", "InternalFrameMaximizeIcon", $PRIVATE | $STATIC},
-	{"javax.swing.plaf.metal.MetalIconFactory$InternalFrameDefaultMenuIcon", "javax.swing.plaf.metal.MetalIconFactory", "InternalFrameDefaultMenuIcon", $PRIVATE | $STATIC},
-	{"javax.swing.plaf.metal.MetalIconFactory$InternalFrameAltMaximizeIcon", "javax.swing.plaf.metal.MetalIconFactory", "InternalFrameAltMaximizeIcon", $PRIVATE | $STATIC},
-	{"javax.swing.plaf.metal.MetalIconFactory$InternalFrameCloseIcon", "javax.swing.plaf.metal.MetalIconFactory", "InternalFrameCloseIcon", $PRIVATE | $STATIC},
-	{"javax.swing.plaf.metal.MetalIconFactory$PaletteCloseIcon", "javax.swing.plaf.metal.MetalIconFactory", "PaletteCloseIcon", $PUBLIC | $STATIC},
-	{"javax.swing.plaf.metal.MetalIconFactory$FileChooserUpFolderIcon", "javax.swing.plaf.metal.MetalIconFactory", "FileChooserUpFolderIcon", $PRIVATE | $STATIC},
-	{"javax.swing.plaf.metal.MetalIconFactory$FileChooserNewFolderIcon", "javax.swing.plaf.metal.MetalIconFactory", "FileChooserNewFolderIcon", $PRIVATE | $STATIC},
-	{"javax.swing.plaf.metal.MetalIconFactory$FileChooserListViewIcon", "javax.swing.plaf.metal.MetalIconFactory", "FileChooserListViewIcon", $PRIVATE | $STATIC},
-	{"javax.swing.plaf.metal.MetalIconFactory$FileChooserHomeFolderIcon", "javax.swing.plaf.metal.MetalIconFactory", "FileChooserHomeFolderIcon", $PRIVATE | $STATIC},
-	{"javax.swing.plaf.metal.MetalIconFactory$FileChooserDetailViewIcon", "javax.swing.plaf.metal.MetalIconFactory", "FileChooserDetailViewIcon", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _MetalIconFactory_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.metal.MetalIconFactory",
-	"java.lang.Object",
-	"java.io.Serializable",
-	_MetalIconFactory_FieldInfo_,
-	_MetalIconFactory_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MetalIconFactory_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.metal.MetalIconFactory$OceanHorizontalSliderThumbIcon,javax.swing.plaf.metal.MetalIconFactory$OceanVerticalSliderThumbIcon,javax.swing.plaf.metal.MetalIconFactory$HorizontalSliderThumbIcon,javax.swing.plaf.metal.MetalIconFactory$VerticalSliderThumbIcon,javax.swing.plaf.metal.MetalIconFactory$RadioButtonMenuItemIcon,javax.swing.plaf.metal.MetalIconFactory$CheckBoxMenuItemIcon,javax.swing.plaf.metal.MetalIconFactory$MenuItemArrowIcon,javax.swing.plaf.metal.MetalIconFactory$MenuArrowIcon,javax.swing.plaf.metal.MetalIconFactory$TreeControlIcon,javax.swing.plaf.metal.MetalIconFactory$TreeLeafIcon,javax.swing.plaf.metal.MetalIconFactory$FileIcon16,javax.swing.plaf.metal.MetalIconFactory$TreeFolderIcon,javax.swing.plaf.metal.MetalIconFactory$FolderIcon16,javax.swing.plaf.metal.MetalIconFactory$ImageCacher,javax.swing.plaf.metal.MetalIconFactory$ImageCacher$ImageGcPair,javax.swing.plaf.metal.MetalIconFactory$TreeFloppyDriveIcon,javax.swing.plaf.metal.MetalIconFactory$TreeHardDriveIcon,javax.swing.plaf.metal.MetalIconFactory$TreeComputerIcon,javax.swing.plaf.metal.MetalIconFactory$RadioButtonIcon,javax.swing.plaf.metal.MetalIconFactory$CheckBoxIcon,javax.swing.plaf.metal.MetalIconFactory$InternalFrameMinimizeIcon,javax.swing.plaf.metal.MetalIconFactory$InternalFrameMaximizeIcon,javax.swing.plaf.metal.MetalIconFactory$InternalFrameDefaultMenuIcon,javax.swing.plaf.metal.MetalIconFactory$InternalFrameAltMaximizeIcon,javax.swing.plaf.metal.MetalIconFactory$InternalFrameCloseIcon,javax.swing.plaf.metal.MetalIconFactory$PaletteCloseIcon,javax.swing.plaf.metal.MetalIconFactory$FileChooserUpFolderIcon,javax.swing.plaf.metal.MetalIconFactory$FileChooserNewFolderIcon,javax.swing.plaf.metal.MetalIconFactory$FileChooserListViewIcon,javax.swing.plaf.metal.MetalIconFactory$FileChooserHomeFolderIcon,javax.swing.plaf.metal.MetalIconFactory$FileChooserDetailViewIcon"
-};
-
-$Object* allocate$MetalIconFactory($Class* clazz) {
-	return $of($alloc(MetalIconFactory));
-}
 
 $Icon* MetalIconFactory::fileChooserDetailViewIcon = nullptr;
 $Icon* MetalIconFactory::fileChooserHomeFolderIcon = nullptr;
@@ -401,7 +284,7 @@ $Icon* MetalIconFactory::getVerticalSliderThumbIcon() {
 	return $new($MetalIconFactory$VerticalSliderThumbIcon);
 }
 
-void clinit$MetalIconFactory($Class* class$) {
+void MetalIconFactory::clinit$($Class* clazz) {
 	$assignStatic(MetalIconFactory::folderIcon16Size, $new($Dimension, 16, 16));
 	$assignStatic(MetalIconFactory::fileIcon16Size, $new($Dimension, 16, 16));
 	$assignStatic(MetalIconFactory::treeControlSize, $new($Dimension, 18, 18));
@@ -413,7 +296,117 @@ MetalIconFactory::MetalIconFactory() {
 }
 
 $Class* MetalIconFactory::load$($String* name, bool initialize) {
-	$loadClass(MetalIconFactory, name, initialize, &_MetalIconFactory_ClassInfo_, clinit$MetalIconFactory, allocate$MetalIconFactory);
+	$FieldInfo fieldInfos$$[] = {
+		{"fileChooserDetailViewIcon", "Ljavax/swing/Icon;", nullptr, $PRIVATE | $STATIC, $staticField(MetalIconFactory, fileChooserDetailViewIcon)},
+		{"fileChooserHomeFolderIcon", "Ljavax/swing/Icon;", nullptr, $PRIVATE | $STATIC, $staticField(MetalIconFactory, fileChooserHomeFolderIcon)},
+		{"fileChooserListViewIcon", "Ljavax/swing/Icon;", nullptr, $PRIVATE | $STATIC, $staticField(MetalIconFactory, fileChooserListViewIcon)},
+		{"fileChooserNewFolderIcon", "Ljavax/swing/Icon;", nullptr, $PRIVATE | $STATIC, $staticField(MetalIconFactory, fileChooserNewFolderIcon)},
+		{"fileChooserUpFolderIcon", "Ljavax/swing/Icon;", nullptr, $PRIVATE | $STATIC, $staticField(MetalIconFactory, fileChooserUpFolderIcon)},
+		{"internalFrameAltMaximizeIcon", "Ljavax/swing/Icon;", nullptr, $PRIVATE | $STATIC, $staticField(MetalIconFactory, internalFrameAltMaximizeIcon)},
+		{"internalFrameCloseIcon", "Ljavax/swing/Icon;", nullptr, $PRIVATE | $STATIC, $staticField(MetalIconFactory, internalFrameCloseIcon)},
+		{"internalFrameDefaultMenuIcon", "Ljavax/swing/Icon;", nullptr, $PRIVATE | $STATIC, $staticField(MetalIconFactory, internalFrameDefaultMenuIcon)},
+		{"internalFrameMaximizeIcon", "Ljavax/swing/Icon;", nullptr, $PRIVATE | $STATIC, $staticField(MetalIconFactory, internalFrameMaximizeIcon)},
+		{"internalFrameMinimizeIcon", "Ljavax/swing/Icon;", nullptr, $PRIVATE | $STATIC, $staticField(MetalIconFactory, internalFrameMinimizeIcon)},
+		{"radioButtonIcon", "Ljavax/swing/Icon;", nullptr, $PRIVATE | $STATIC, $staticField(MetalIconFactory, radioButtonIcon)},
+		{"treeComputerIcon", "Ljavax/swing/Icon;", nullptr, $PRIVATE | $STATIC, $staticField(MetalIconFactory, treeComputerIcon)},
+		{"treeFloppyDriveIcon", "Ljavax/swing/Icon;", nullptr, $PRIVATE | $STATIC, $staticField(MetalIconFactory, treeFloppyDriveIcon)},
+		{"treeHardDriveIcon", "Ljavax/swing/Icon;", nullptr, $PRIVATE | $STATIC, $staticField(MetalIconFactory, treeHardDriveIcon)},
+		{"menuArrowIcon", "Ljavax/swing/Icon;", nullptr, $PRIVATE | $STATIC, $staticField(MetalIconFactory, menuArrowIcon)},
+		{"menuItemArrowIcon", "Ljavax/swing/Icon;", nullptr, $PRIVATE | $STATIC, $staticField(MetalIconFactory, menuItemArrowIcon)},
+		{"checkBoxMenuItemIcon", "Ljavax/swing/Icon;", nullptr, $PRIVATE | $STATIC, $staticField(MetalIconFactory, checkBoxMenuItemIcon)},
+		{"radioButtonMenuItemIcon", "Ljavax/swing/Icon;", nullptr, $PRIVATE | $STATIC, $staticField(MetalIconFactory, radioButtonMenuItemIcon)},
+		{"checkBoxIcon", "Ljavax/swing/Icon;", nullptr, $PRIVATE | $STATIC, $staticField(MetalIconFactory, checkBoxIcon)},
+		{"oceanHorizontalSliderThumb", "Ljavax/swing/Icon;", nullptr, $PRIVATE | $STATIC, $staticField(MetalIconFactory, oceanHorizontalSliderThumb)},
+		{"oceanVerticalSliderThumb", "Ljavax/swing/Icon;", nullptr, $PRIVATE | $STATIC, $staticField(MetalIconFactory, oceanVerticalSliderThumb)},
+		{"DARK", "Z", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(MetalIconFactory, DARK)},
+		{"LIGHT", "Z", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(MetalIconFactory, LIGHT)},
+		{"folderIcon16Size", "Ljava/awt/Dimension;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MetalIconFactory, folderIcon16Size)},
+		{"fileIcon16Size", "Ljava/awt/Dimension;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MetalIconFactory, fileIcon16Size)},
+		{"treeControlSize", "Ljava/awt/Dimension;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MetalIconFactory, treeControlSize)},
+		{"menuArrowIconSize", "Ljava/awt/Dimension;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MetalIconFactory, menuArrowIconSize)},
+		{"menuCheckIconSize", "Ljava/awt/Dimension;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MetalIconFactory, menuCheckIconSize)},
+		{"xOff", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MetalIconFactory, xOff)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MetalIconFactory, init$, void)},
+		{"getCheckBoxIcon", "()Ljavax/swing/Icon;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalIconFactory, getCheckBoxIcon, $Icon*)},
+		{"getCheckBoxMenuItemIcon", "()Ljavax/swing/Icon;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalIconFactory, getCheckBoxMenuItemIcon, $Icon*)},
+		{"getFileChooserDetailViewIcon", "()Ljavax/swing/Icon;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalIconFactory, getFileChooserDetailViewIcon, $Icon*)},
+		{"getFileChooserHomeFolderIcon", "()Ljavax/swing/Icon;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalIconFactory, getFileChooserHomeFolderIcon, $Icon*)},
+		{"getFileChooserListViewIcon", "()Ljavax/swing/Icon;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalIconFactory, getFileChooserListViewIcon, $Icon*)},
+		{"getFileChooserNewFolderIcon", "()Ljavax/swing/Icon;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalIconFactory, getFileChooserNewFolderIcon, $Icon*)},
+		{"getFileChooserUpFolderIcon", "()Ljavax/swing/Icon;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalIconFactory, getFileChooserUpFolderIcon, $Icon*)},
+		{"getHorizontalSliderThumbIcon", "()Ljavax/swing/Icon;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalIconFactory, getHorizontalSliderThumbIcon, $Icon*)},
+		{"getInternalFrameAltMaximizeIcon", "(I)Ljavax/swing/Icon;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalIconFactory, getInternalFrameAltMaximizeIcon, $Icon*, int32_t)},
+		{"getInternalFrameCloseIcon", "(I)Ljavax/swing/Icon;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalIconFactory, getInternalFrameCloseIcon, $Icon*, int32_t)},
+		{"getInternalFrameDefaultMenuIcon", "()Ljavax/swing/Icon;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalIconFactory, getInternalFrameDefaultMenuIcon, $Icon*)},
+		{"getInternalFrameMaximizeIcon", "(I)Ljavax/swing/Icon;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalIconFactory, getInternalFrameMaximizeIcon, $Icon*, int32_t)},
+		{"getInternalFrameMinimizeIcon", "(I)Ljavax/swing/Icon;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalIconFactory, getInternalFrameMinimizeIcon, $Icon*, int32_t)},
+		{"getMenuArrowIcon", "()Ljavax/swing/Icon;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalIconFactory, getMenuArrowIcon, $Icon*)},
+		{"getMenuItemArrowIcon", "()Ljavax/swing/Icon;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalIconFactory, getMenuItemArrowIcon, $Icon*)},
+		{"getMenuItemCheckIcon", "()Ljavax/swing/Icon;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalIconFactory, getMenuItemCheckIcon, $Icon*)},
+		{"getRadioButtonIcon", "()Ljavax/swing/Icon;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalIconFactory, getRadioButtonIcon, $Icon*)},
+		{"getRadioButtonMenuItemIcon", "()Ljavax/swing/Icon;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalIconFactory, getRadioButtonMenuItemIcon, $Icon*)},
+		{"getTreeComputerIcon", "()Ljavax/swing/Icon;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalIconFactory, getTreeComputerIcon, $Icon*)},
+		{"getTreeControlIcon", "(Z)Ljavax/swing/Icon;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalIconFactory, getTreeControlIcon, $Icon*, bool)},
+		{"getTreeFloppyDriveIcon", "()Ljavax/swing/Icon;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalIconFactory, getTreeFloppyDriveIcon, $Icon*)},
+		{"getTreeFolderIcon", "()Ljavax/swing/Icon;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalIconFactory, getTreeFolderIcon, $Icon*)},
+		{"getTreeHardDriveIcon", "()Ljavax/swing/Icon;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalIconFactory, getTreeHardDriveIcon, $Icon*)},
+		{"getTreeLeafIcon", "()Ljavax/swing/Icon;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalIconFactory, getTreeLeafIcon, $Icon*)},
+		{"getVerticalSliderThumbIcon", "()Ljavax/swing/Icon;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalIconFactory, getVerticalSliderThumbIcon, $Icon*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.metal.MetalIconFactory$OceanHorizontalSliderThumbIcon", "javax.swing.plaf.metal.MetalIconFactory", "OceanHorizontalSliderThumbIcon", $PRIVATE | $STATIC},
+		{"javax.swing.plaf.metal.MetalIconFactory$OceanVerticalSliderThumbIcon", "javax.swing.plaf.metal.MetalIconFactory", "OceanVerticalSliderThumbIcon", $PRIVATE | $STATIC},
+		{"javax.swing.plaf.metal.MetalIconFactory$HorizontalSliderThumbIcon", "javax.swing.plaf.metal.MetalIconFactory", "HorizontalSliderThumbIcon", $PRIVATE | $STATIC},
+		{"javax.swing.plaf.metal.MetalIconFactory$VerticalSliderThumbIcon", "javax.swing.plaf.metal.MetalIconFactory", "VerticalSliderThumbIcon", $PRIVATE | $STATIC},
+		{"javax.swing.plaf.metal.MetalIconFactory$RadioButtonMenuItemIcon", "javax.swing.plaf.metal.MetalIconFactory", "RadioButtonMenuItemIcon", $PRIVATE | $STATIC},
+		{"javax.swing.plaf.metal.MetalIconFactory$CheckBoxMenuItemIcon", "javax.swing.plaf.metal.MetalIconFactory", "CheckBoxMenuItemIcon", $PRIVATE | $STATIC},
+		{"javax.swing.plaf.metal.MetalIconFactory$MenuItemArrowIcon", "javax.swing.plaf.metal.MetalIconFactory", "MenuItemArrowIcon", $PRIVATE | $STATIC},
+		{"javax.swing.plaf.metal.MetalIconFactory$MenuArrowIcon", "javax.swing.plaf.metal.MetalIconFactory", "MenuArrowIcon", $PRIVATE | $STATIC},
+		{"javax.swing.plaf.metal.MetalIconFactory$TreeControlIcon", "javax.swing.plaf.metal.MetalIconFactory", "TreeControlIcon", $PUBLIC | $STATIC},
+		{"javax.swing.plaf.metal.MetalIconFactory$TreeLeafIcon", "javax.swing.plaf.metal.MetalIconFactory", "TreeLeafIcon", $PUBLIC | $STATIC},
+		{"javax.swing.plaf.metal.MetalIconFactory$FileIcon16", "javax.swing.plaf.metal.MetalIconFactory", "FileIcon16", $PUBLIC | $STATIC},
+		{"javax.swing.plaf.metal.MetalIconFactory$TreeFolderIcon", "javax.swing.plaf.metal.MetalIconFactory", "TreeFolderIcon", $PUBLIC | $STATIC},
+		{"javax.swing.plaf.metal.MetalIconFactory$FolderIcon16", "javax.swing.plaf.metal.MetalIconFactory", "FolderIcon16", $PUBLIC | $STATIC},
+		{"javax.swing.plaf.metal.MetalIconFactory$ImageCacher", "javax.swing.plaf.metal.MetalIconFactory", "ImageCacher", $STATIC},
+		{"javax.swing.plaf.metal.MetalIconFactory$TreeFloppyDriveIcon", "javax.swing.plaf.metal.MetalIconFactory", "TreeFloppyDriveIcon", $PRIVATE | $STATIC},
+		{"javax.swing.plaf.metal.MetalIconFactory$TreeHardDriveIcon", "javax.swing.plaf.metal.MetalIconFactory", "TreeHardDriveIcon", $PRIVATE | $STATIC},
+		{"javax.swing.plaf.metal.MetalIconFactory$TreeComputerIcon", "javax.swing.plaf.metal.MetalIconFactory", "TreeComputerIcon", $PRIVATE | $STATIC},
+		{"javax.swing.plaf.metal.MetalIconFactory$RadioButtonIcon", "javax.swing.plaf.metal.MetalIconFactory", "RadioButtonIcon", $PRIVATE | $STATIC},
+		{"javax.swing.plaf.metal.MetalIconFactory$CheckBoxIcon", "javax.swing.plaf.metal.MetalIconFactory", "CheckBoxIcon", $PRIVATE | $STATIC},
+		{"javax.swing.plaf.metal.MetalIconFactory$InternalFrameMinimizeIcon", "javax.swing.plaf.metal.MetalIconFactory", "InternalFrameMinimizeIcon", $PRIVATE | $STATIC},
+		{"javax.swing.plaf.metal.MetalIconFactory$InternalFrameMaximizeIcon", "javax.swing.plaf.metal.MetalIconFactory", "InternalFrameMaximizeIcon", $PRIVATE | $STATIC},
+		{"javax.swing.plaf.metal.MetalIconFactory$InternalFrameDefaultMenuIcon", "javax.swing.plaf.metal.MetalIconFactory", "InternalFrameDefaultMenuIcon", $PRIVATE | $STATIC},
+		{"javax.swing.plaf.metal.MetalIconFactory$InternalFrameAltMaximizeIcon", "javax.swing.plaf.metal.MetalIconFactory", "InternalFrameAltMaximizeIcon", $PRIVATE | $STATIC},
+		{"javax.swing.plaf.metal.MetalIconFactory$InternalFrameCloseIcon", "javax.swing.plaf.metal.MetalIconFactory", "InternalFrameCloseIcon", $PRIVATE | $STATIC},
+		{"javax.swing.plaf.metal.MetalIconFactory$PaletteCloseIcon", "javax.swing.plaf.metal.MetalIconFactory", "PaletteCloseIcon", $PUBLIC | $STATIC},
+		{"javax.swing.plaf.metal.MetalIconFactory$FileChooserUpFolderIcon", "javax.swing.plaf.metal.MetalIconFactory", "FileChooserUpFolderIcon", $PRIVATE | $STATIC},
+		{"javax.swing.plaf.metal.MetalIconFactory$FileChooserNewFolderIcon", "javax.swing.plaf.metal.MetalIconFactory", "FileChooserNewFolderIcon", $PRIVATE | $STATIC},
+		{"javax.swing.plaf.metal.MetalIconFactory$FileChooserListViewIcon", "javax.swing.plaf.metal.MetalIconFactory", "FileChooserListViewIcon", $PRIVATE | $STATIC},
+		{"javax.swing.plaf.metal.MetalIconFactory$FileChooserHomeFolderIcon", "javax.swing.plaf.metal.MetalIconFactory", "FileChooserHomeFolderIcon", $PRIVATE | $STATIC},
+		{"javax.swing.plaf.metal.MetalIconFactory$FileChooserDetailViewIcon", "javax.swing.plaf.metal.MetalIconFactory", "FileChooserDetailViewIcon", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.metal.MetalIconFactory",
+		"java.lang.Object",
+		"java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.metal.MetalIconFactory$OceanHorizontalSliderThumbIcon,javax.swing.plaf.metal.MetalIconFactory$OceanVerticalSliderThumbIcon,javax.swing.plaf.metal.MetalIconFactory$HorizontalSliderThumbIcon,javax.swing.plaf.metal.MetalIconFactory$VerticalSliderThumbIcon,javax.swing.plaf.metal.MetalIconFactory$RadioButtonMenuItemIcon,javax.swing.plaf.metal.MetalIconFactory$CheckBoxMenuItemIcon,javax.swing.plaf.metal.MetalIconFactory$MenuItemArrowIcon,javax.swing.plaf.metal.MetalIconFactory$MenuArrowIcon,javax.swing.plaf.metal.MetalIconFactory$TreeControlIcon,javax.swing.plaf.metal.MetalIconFactory$TreeLeafIcon,javax.swing.plaf.metal.MetalIconFactory$FileIcon16,javax.swing.plaf.metal.MetalIconFactory$TreeFolderIcon,javax.swing.plaf.metal.MetalIconFactory$FolderIcon16,javax.swing.plaf.metal.MetalIconFactory$ImageCacher,javax.swing.plaf.metal.MetalIconFactory$ImageCacher$ImageGcPair,javax.swing.plaf.metal.MetalIconFactory$TreeFloppyDriveIcon,javax.swing.plaf.metal.MetalIconFactory$TreeHardDriveIcon,javax.swing.plaf.metal.MetalIconFactory$TreeComputerIcon,javax.swing.plaf.metal.MetalIconFactory$RadioButtonIcon,javax.swing.plaf.metal.MetalIconFactory$CheckBoxIcon,javax.swing.plaf.metal.MetalIconFactory$InternalFrameMinimizeIcon,javax.swing.plaf.metal.MetalIconFactory$InternalFrameMaximizeIcon,javax.swing.plaf.metal.MetalIconFactory$InternalFrameDefaultMenuIcon,javax.swing.plaf.metal.MetalIconFactory$InternalFrameAltMaximizeIcon,javax.swing.plaf.metal.MetalIconFactory$InternalFrameCloseIcon,javax.swing.plaf.metal.MetalIconFactory$PaletteCloseIcon,javax.swing.plaf.metal.MetalIconFactory$FileChooserUpFolderIcon,javax.swing.plaf.metal.MetalIconFactory$FileChooserNewFolderIcon,javax.swing.plaf.metal.MetalIconFactory$FileChooserListViewIcon,javax.swing.plaf.metal.MetalIconFactory$FileChooserHomeFolderIcon,javax.swing.plaf.metal.MetalIconFactory$FileChooserDetailViewIcon"
+	};
+	$loadClass(MetalIconFactory, name, initialize, &classInfo$$, MetalIconFactory::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(MetalIconFactory);
+	});
 	return class$;
 }
 

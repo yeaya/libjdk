@@ -1,5 +1,4 @@
 #include <sun/lwawt/LWTextAreaPeer$ScrollableJTextArea.h>
-
 #include <java/awt/Component.h>
 #include <javax/swing/JScrollPane.h>
 #include <javax/swing/JTextArea.h>
@@ -8,72 +7,32 @@
 #include <sun/lwawt/LWTextAreaPeer.h>
 #include <jcpp.h>
 
-using $Component = ::java::awt::Component;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $JScrollPane = ::javax::swing::JScrollPane;
 using $JTextArea = ::javax::swing::JTextArea;
-using $JViewport = ::javax::swing::JViewport;
 using $LWTextAreaPeer = ::sun::lwawt::LWTextAreaPeer;
 using $LWTextAreaPeer$ScrollableJTextArea$JTextAreaDelegate = ::sun::lwawt::LWTextAreaPeer$ScrollableJTextArea$JTextAreaDelegate;
 
 namespace sun {
 	namespace lwawt {
 
-$FieldInfo _LWTextAreaPeer$ScrollableJTextArea_FieldInfo_[] = {
-	{"this$0", "Lsun/lwawt/LWTextAreaPeer;", nullptr, $FINAL | $SYNTHETIC, $field(LWTextAreaPeer$ScrollableJTextArea, this$0)},
-	{}
-};
-
-$MethodInfo _LWTextAreaPeer$ScrollableJTextArea_MethodInfo_[] = {
-	{"<init>", "(Lsun/lwawt/LWTextAreaPeer;)V", nullptr, 0, $method(LWTextAreaPeer$ScrollableJTextArea, init$, void, $LWTextAreaPeer*)},
-	{"getView", "()Ljavax/swing/JTextArea;", nullptr, $PUBLIC, $method(LWTextAreaPeer$ScrollableJTextArea, getView, $JTextArea*)},
-	{"setEnabled", "(Z)V", nullptr, $PUBLIC, $virtualMethod(LWTextAreaPeer$ScrollableJTextArea, setEnabled, void, bool)},
-	{}
-};
-
-$InnerClassInfo _LWTextAreaPeer$ScrollableJTextArea_InnerClassesInfo_[] = {
-	{"sun.lwawt.LWTextAreaPeer$ScrollableJTextArea", "sun.lwawt.LWTextAreaPeer", "ScrollableJTextArea", $FINAL},
-	{"sun.lwawt.LWTextAreaPeer$ScrollableJTextArea$JTextAreaDelegate", "sun.lwawt.LWTextAreaPeer$ScrollableJTextArea", "JTextAreaDelegate", $PRIVATE | $FINAL},
-	{}
-};
-
-$ClassInfo _LWTextAreaPeer$ScrollableJTextArea_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.lwawt.LWTextAreaPeer$ScrollableJTextArea",
-	"javax.swing.JScrollPane",
-	nullptr,
-	_LWTextAreaPeer$ScrollableJTextArea_FieldInfo_,
-	_LWTextAreaPeer$ScrollableJTextArea_MethodInfo_,
-	nullptr,
-	nullptr,
-	_LWTextAreaPeer$ScrollableJTextArea_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.lwawt.LWTextAreaPeer"
-};
-
-$Object* allocate$LWTextAreaPeer$ScrollableJTextArea($Class* clazz) {
-	return $of($alloc(LWTextAreaPeer$ScrollableJTextArea));
-}
-
 void LWTextAreaPeer$ScrollableJTextArea::init$($LWTextAreaPeer* this$0) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, this$0, this$0);
 	$JScrollPane::init$();
-	$nc($(getViewport()))->setView($$new($LWTextAreaPeer$ScrollableJTextArea$JTextAreaDelegate, this));
+	$$nc(getViewport())->setView($$new($LWTextAreaPeer$ScrollableJTextArea$JTextAreaDelegate, this));
 }
 
 $JTextArea* LWTextAreaPeer$ScrollableJTextArea::getView() {
-	return $cast($JTextArea, $nc($(getViewport()))->getView());
+	return $cast($JTextArea, $$nc(getViewport())->getView());
 }
 
 void LWTextAreaPeer$ScrollableJTextArea::setEnabled(bool enabled) {
-	$useLocalCurrentObjectStackCache();
-	$nc($($nc($(getViewport()))->getView()))->setEnabled(enabled);
+	$useLocalObjectStack();
+	$$nc($$nc(getViewport())->getView())->setEnabled(enabled);
 	$JScrollPane::setEnabled(enabled);
 }
 
@@ -81,7 +40,39 @@ LWTextAreaPeer$ScrollableJTextArea::LWTextAreaPeer$ScrollableJTextArea() {
 }
 
 $Class* LWTextAreaPeer$ScrollableJTextArea::load$($String* name, bool initialize) {
-	$loadClass(LWTextAreaPeer$ScrollableJTextArea, name, initialize, &_LWTextAreaPeer$ScrollableJTextArea_ClassInfo_, allocate$LWTextAreaPeer$ScrollableJTextArea);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/lwawt/LWTextAreaPeer;", nullptr, $FINAL | $SYNTHETIC, $field(LWTextAreaPeer$ScrollableJTextArea, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/lwawt/LWTextAreaPeer;)V", nullptr, 0, $method(LWTextAreaPeer$ScrollableJTextArea, init$, void, $LWTextAreaPeer*)},
+		{"getView", "()Ljavax/swing/JTextArea;", nullptr, $PUBLIC, $method(LWTextAreaPeer$ScrollableJTextArea, getView, $JTextArea*)},
+		{"setEnabled", "(Z)V", nullptr, $PUBLIC, $virtualMethod(LWTextAreaPeer$ScrollableJTextArea, setEnabled, void, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.lwawt.LWTextAreaPeer$ScrollableJTextArea", "sun.lwawt.LWTextAreaPeer", "ScrollableJTextArea", $FINAL},
+		{"sun.lwawt.LWTextAreaPeer$ScrollableJTextArea$JTextAreaDelegate", "sun.lwawt.LWTextAreaPeer$ScrollableJTextArea", "JTextAreaDelegate", $PRIVATE | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.lwawt.LWTextAreaPeer$ScrollableJTextArea",
+		"javax.swing.JScrollPane",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.lwawt.LWTextAreaPeer"
+	};
+	$loadClass(LWTextAreaPeer$ScrollableJTextArea, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(LWTextAreaPeer$ScrollableJTextArea));
+	});
 	return class$;
 }
 

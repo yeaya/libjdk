@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/file/Locations$SearchPath.h>
-
 #include <com/sun/tools/javac/code/Lint$LintCategory.h>
 #include <com/sun/tools/javac/file/FSInfo.h>
 #include <com/sun/tools/javac/file/JavacFileManager.h>
@@ -40,12 +39,10 @@
 
 using $LinkOptionArray = $Array<::java::nio::file::LinkOption>;
 using $Lint$LintCategory = ::com::sun::tools::javac::code::Lint$LintCategory;
-using $FSInfo = ::com::sun::tools::javac::file::FSInfo;
 using $JavacFileManager = ::com::sun::tools::javac::file::JavacFileManager;
 using $Locations = ::com::sun::tools::javac::file::Locations;
 using $CompilerProperties$Errors = ::com::sun::tools::javac::resources::CompilerProperties$Errors;
 using $CompilerProperties$Warnings = ::com::sun::tools::javac::resources::CompilerProperties$Warnings;
-using $Log = ::com::sun::tools::javac::util::Log;
 using $IOException = ::java::io::IOException;
 using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -55,7 +52,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Iterable = ::java::lang::Iterable;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $FileSystem = ::java::nio::file::FileSystem;
 using $FileSystems = ::java::nio::file::FileSystems;
 using $Files = ::java::nio::file::Files;
 using $Path = ::java::nio::file::Path;
@@ -63,8 +59,6 @@ using $ProviderNotFoundException = ::java::nio::file::ProviderNotFoundException;
 using $HashSet = ::java::util::HashSet;
 using $Iterator = ::java::util::Iterator;
 using $LinkedHashSet = ::java::util::LinkedHashSet;
-using $List = ::java::util::List;
-using $Set = ::java::util::Set;
 using $Consumer = ::java::util::function::Consumer;
 using $Predicate = ::java::util::function::Predicate;
 using $Stream = ::java::util::stream::Stream;
@@ -84,33 +78,29 @@ public:
 	virtual bool test(Object$* file) override {
 		 return $nc(inst$)->isArchive($cast($Path, file));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Locations$SearchPath$$Lambda$isArchive>());
-	}
 	$Locations* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Locations$SearchPath$$Lambda$isArchive::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Locations$SearchPath$$Lambda$isArchive, inst$)},
-	{}
-};
-$MethodInfo Locations$SearchPath$$Lambda$isArchive::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/file/Locations;)V", nullptr, $PUBLIC, $method(Locations$SearchPath$$Lambda$isArchive, init$, void, $Locations*)},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Locations$SearchPath$$Lambda$isArchive, test, bool, Object$*)},
-	{}
-};
-$ClassInfo Locations$SearchPath$$Lambda$isArchive::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.file.Locations$SearchPath$$Lambda$isArchive",
-	"java.lang.Object",
-	"java.util.function.Predicate",
-	fieldInfos,
-	methodInfos
 };
 $Class* Locations$SearchPath$$Lambda$isArchive::load$($String* name, bool initialize) {
-	$loadClass(Locations$SearchPath$$Lambda$isArchive, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Locations$SearchPath$$Lambda$isArchive, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/file/Locations;)V", nullptr, $PUBLIC, $method(Locations$SearchPath$$Lambda$isArchive, init$, void, $Locations*)},
+		{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Locations$SearchPath$$Lambda$isArchive, test, bool, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.file.Locations$SearchPath$$Lambda$isArchive",
+		"java.lang.Object",
+		"java.util.function.Predicate",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Locations$SearchPath$$Lambda$isArchive, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Locations$SearchPath$$Lambda$isArchive);
+	});
 	return class$;
 }
 $Class* Locations$SearchPath$$Lambda$isArchive::class$ = nullptr;
@@ -125,89 +115,34 @@ public:
 	virtual void accept(Object$* dirEntry) override {
 		$nc(inst$)->lambda$addDirectory$0(warn, $cast($Path, dirEntry));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Locations$SearchPath$$Lambda$lambda$addDirectory$0$1>());
-	}
 	Locations$SearchPath* inst$ = nullptr;
 	bool warn = false;
-	static $FieldInfo fieldInfos[3];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Locations$SearchPath$$Lambda$lambda$addDirectory$0$1::fieldInfos[3] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Locations$SearchPath$$Lambda$lambda$addDirectory$0$1, inst$)},
-	{"warn", "Z", nullptr, $PUBLIC, $field(Locations$SearchPath$$Lambda$lambda$addDirectory$0$1, warn)},
-	{}
-};
-$MethodInfo Locations$SearchPath$$Lambda$lambda$addDirectory$0$1::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/file/Locations$SearchPath;Z)V", nullptr, $PUBLIC, $method(Locations$SearchPath$$Lambda$lambda$addDirectory$0$1, init$, void, Locations$SearchPath*, bool)},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Locations$SearchPath$$Lambda$lambda$addDirectory$0$1, accept, void, Object$*)},
-	{}
-};
-$ClassInfo Locations$SearchPath$$Lambda$lambda$addDirectory$0$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.file.Locations$SearchPath$$Lambda$lambda$addDirectory$0$1",
-	"java.lang.Object",
-	"java.util.function.Consumer",
-	fieldInfos,
-	methodInfos
 };
 $Class* Locations$SearchPath$$Lambda$lambda$addDirectory$0$1::load$($String* name, bool initialize) {
-	$loadClass(Locations$SearchPath$$Lambda$lambda$addDirectory$0$1, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Locations$SearchPath$$Lambda$lambda$addDirectory$0$1, inst$)},
+		{"warn", "Z", nullptr, $PUBLIC, $field(Locations$SearchPath$$Lambda$lambda$addDirectory$0$1, warn)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/file/Locations$SearchPath;Z)V", nullptr, $PUBLIC, $method(Locations$SearchPath$$Lambda$lambda$addDirectory$0$1, init$, void, Locations$SearchPath*, bool)},
+		{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Locations$SearchPath$$Lambda$lambda$addDirectory$0$1, accept, void, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.file.Locations$SearchPath$$Lambda$lambda$addDirectory$0$1",
+		"java.lang.Object",
+		"java.util.function.Consumer",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Locations$SearchPath$$Lambda$lambda$addDirectory$0$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Locations$SearchPath$$Lambda$lambda$addDirectory$0$1);
+	});
 	return class$;
 }
 $Class* Locations$SearchPath$$Lambda$lambda$addDirectory$0$1::class$ = nullptr;
-
-$FieldInfo _Locations$SearchPath_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/file/Locations;", nullptr, $FINAL | $SYNTHETIC, $field(Locations$SearchPath, this$0)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Locations$SearchPath, serialVersionUID)},
-	{"expandJarClassPaths", "Z", nullptr, $PRIVATE, $field(Locations$SearchPath, expandJarClassPaths$)},
-	{"canonicalValues", "Ljava/util/Set;", "Ljava/util/Set<Ljava/nio/file/Path;>;", $PRIVATE | $FINAL | $TRANSIENT, $field(Locations$SearchPath, canonicalValues)},
-	{"emptyPathDefault", "Ljava/nio/file/Path;", nullptr, $PRIVATE | $TRANSIENT, $field(Locations$SearchPath, emptyPathDefault$)},
-	{}
-};
-
-$MethodInfo _Locations$SearchPath_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/file/Locations;)V", nullptr, $PRIVATE, $method(Locations$SearchPath, init$, void, $Locations*)},
-	{"addDirectories", "(Ljava/lang/String;Z)Lcom/sun/tools/javac/file/Locations$SearchPath;", nullptr, $PUBLIC, $virtualMethod(Locations$SearchPath, addDirectories, Locations$SearchPath*, $String*, bool)},
-	{"addDirectories", "(Ljava/lang/String;)Lcom/sun/tools/javac/file/Locations$SearchPath;", nullptr, $PUBLIC, $virtualMethod(Locations$SearchPath, addDirectories, Locations$SearchPath*, $String*)},
-	{"addDirectory", "(Ljava/nio/file/Path;Z)V", nullptr, $PRIVATE, $method(Locations$SearchPath, addDirectory, void, $Path*, bool)},
-	{"addFile", "(Ljava/nio/file/Path;Z)V", nullptr, $PUBLIC, $virtualMethod(Locations$SearchPath, addFile, void, $Path*, bool)},
-	{"addFiles", "(Ljava/lang/String;Z)Lcom/sun/tools/javac/file/Locations$SearchPath;", nullptr, $PUBLIC, $virtualMethod(Locations$SearchPath, addFiles, Locations$SearchPath*, $String*, bool)},
-	{"addFiles", "(Ljava/lang/String;)Lcom/sun/tools/javac/file/Locations$SearchPath;", nullptr, $PUBLIC, $virtualMethod(Locations$SearchPath, addFiles, Locations$SearchPath*, $String*)},
-	{"addFiles", "(Ljava/lang/Iterable;Z)Lcom/sun/tools/javac/file/Locations$SearchPath;", "(Ljava/lang/Iterable<+Ljava/nio/file/Path;>;Z)Lcom/sun/tools/javac/file/Locations$SearchPath;", $PUBLIC, $virtualMethod(Locations$SearchPath, addFiles, Locations$SearchPath*, $Iterable*, bool)},
-	{"addFiles", "(Ljava/lang/Iterable;)Lcom/sun/tools/javac/file/Locations$SearchPath;", "(Ljava/lang/Iterable<+Ljava/nio/file/Path;>;)Lcom/sun/tools/javac/file/Locations$SearchPath;", $PUBLIC, $virtualMethod(Locations$SearchPath, addFiles, Locations$SearchPath*, $Iterable*)},
-	{"addJarClassPath", "(Ljava/nio/file/Path;Z)V", nullptr, $PRIVATE, $method(Locations$SearchPath, addJarClassPath, void, $Path*, bool)},
-	{"emptyPathDefault", "(Ljava/nio/file/Path;)Lcom/sun/tools/javac/file/Locations$SearchPath;", nullptr, $PUBLIC, $virtualMethod(Locations$SearchPath, emptyPathDefault, Locations$SearchPath*, $Path*)},
-	{"expandJarClassPaths", "(Z)Lcom/sun/tools/javac/file/Locations$SearchPath;", nullptr, $PUBLIC, $virtualMethod(Locations$SearchPath, expandJarClassPaths, Locations$SearchPath*, bool)},
-	{"lambda$addDirectory$0", "(ZLjava/nio/file/Path;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(Locations$SearchPath, lambda$addDirectory$0, void, bool, $Path*)},
-	{}
-};
-
-$InnerClassInfo _Locations$SearchPath_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.file.Locations$SearchPath", "com.sun.tools.javac.file.Locations", "SearchPath", $PRIVATE},
-	{}
-};
-
-$ClassInfo _Locations$SearchPath_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.file.Locations$SearchPath",
-	"java.util.LinkedHashSet",
-	nullptr,
-	_Locations$SearchPath_FieldInfo_,
-	_Locations$SearchPath_MethodInfo_,
-	"Ljava/util/LinkedHashSet<Ljava/nio/file/Path;>;",
-	nullptr,
-	_Locations$SearchPath_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.file.Locations"
-};
-
-$Object* allocate$Locations$SearchPath($Class* clazz) {
-	return $of($alloc(Locations$SearchPath));
-}
 
 void Locations$SearchPath::init$($Locations* this$0) {
 	$set(this, this$0, this$0);
@@ -228,39 +163,35 @@ Locations$SearchPath* Locations$SearchPath::emptyPathDefault($Path* x) {
 }
 
 Locations$SearchPath* Locations$SearchPath::addDirectories($String* dirs, bool warn) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool prev = this->expandJarClassPaths$;
 	this->expandJarClassPaths$ = true;
-	{
-		$var($Throwable, var$0, nullptr);
-		$var(Locations$SearchPath, var$2, nullptr);
-		bool return$1 = false;
-		try {
-			if (dirs != nullptr) {
+	$var($Throwable, var$0, nullptr);
+	$var(Locations$SearchPath, var$2, nullptr);
+	bool return$1 = false;
+	try {
+		if (dirs != nullptr) {
+			$var($Iterator, i$, $$nc(this->this$0->getPathEntries(dirs))->iterator());
+			for (; $nc(i$)->hasNext();) {
+				$var($Path, dir, $cast($Path, i$->next()));
 				{
-					$var($Iterator, i$, $nc($(this->this$0->getPathEntries(dirs)))->iterator());
-					for (; $nc(i$)->hasNext();) {
-						$var($Path, dir, $cast($Path, i$->next()));
-						{
-							addDirectory(dir, warn);
-						}
-					}
+					addDirectory(dir, warn);
 				}
 			}
-			$assign(var$2, this);
-			return$1 = true;
-			goto $finally;
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			this->expandJarClassPaths$ = prev;
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+		$assign(var$2, this);
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		this->expandJarClassPaths$ = prev;
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
@@ -270,7 +201,7 @@ Locations$SearchPath* Locations$SearchPath::addDirectories($String* dirs) {
 }
 
 void Locations$SearchPath::addDirectory($Path* dir, bool warn) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!$Files::isDirectory(dir, $$new($LinkOptionArray, 0))) {
 		if (warn) {
 			$init($Lint$LintCategory);
@@ -280,31 +211,29 @@ void Locations$SearchPath::addDirectory($Path* dir, bool warn) {
 	}
 	try {
 		$var($Stream, s, $Files::list(dir));
-		{
-			$var($Throwable, var$0, nullptr);
+		$var($Throwable, var$0, nullptr);
+		try {
 			try {
-				try {
-					$nc($($nc(s)->filter(static_cast<$Predicate*>($$new(Locations$SearchPath$$Lambda$isArchive, this->this$0)))))->forEach(static_cast<$Consumer*>($$new(Locations$SearchPath$$Lambda$lambda$addDirectory$0$1, this, warn)));
-				} catch ($Throwable& t$) {
-					if (s != nullptr) {
-						try {
-							s->close();
-						} catch ($Throwable& x2) {
-							t$->addSuppressed(x2);
-						}
-					}
-					$throw(t$);
-				}
-			} catch ($Throwable& var$1) {
-				$assign(var$0, var$1);
-			} /*finally*/ {
+				$$nc($nc(s)->filter($$new(Locations$SearchPath$$Lambda$isArchive, this->this$0)))->forEach($$new(Locations$SearchPath$$Lambda$lambda$addDirectory$0$1, this, warn));
+			} catch ($Throwable& t$) {
 				if (s != nullptr) {
-					s->close();
+					try {
+						s->close();
+					} catch ($Throwable& x2) {
+						t$->addSuppressed(x2);
+					}
 				}
+				$throw(t$);
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
+		} /*finally*/ {
+			if (s != nullptr) {
+				s->close();
 			}
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	} catch ($IOException& ignore) {
 	}
@@ -322,15 +251,13 @@ Locations$SearchPath* Locations$SearchPath::addFiles($String* files) {
 }
 
 Locations$SearchPath* Locations$SearchPath::addFiles($Iterable* files, bool warn) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (files != nullptr) {
-		{
-			$var($Iterator, i$, files->iterator());
-			for (; $nc(i$)->hasNext();) {
-				$var($Path, file, $cast($Path, i$->next()));
-				{
-					addFile(file, warn);
-				}
+		$var($Iterator, i$, files->iterator());
+		for (; $nc(i$)->hasNext();) {
+			$var($Path, file, $cast($Path, i$->next()));
+			{
+				addFile(file, warn);
 			}
 		}
 	}
@@ -342,7 +269,7 @@ Locations$SearchPath* Locations$SearchPath::addFiles($Iterable* files) {
 }
 
 void Locations$SearchPath::addFile($Path* file, bool warn) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (contains(file)) {
 		return;
 	}
@@ -355,15 +282,15 @@ void Locations$SearchPath::addFile($Path* file, bool warn) {
 		return;
 	}
 	$var($Path, canonFile, $nc(this->this$0->fsInfo)->getCanonicalFile(file));
-	if ($nc(this->canonicalValues)->contains(canonFile)) {
+	if (this->canonicalValues->contains(canonFile)) {
 		return;
 	}
 	if ($nc(this->this$0->fsInfo)->isFile(file)) {
-		bool var$0 = !$nc($($nc($($nc(file)->getFileName()))->toString()))->endsWith(".jmod"_s);
+		bool var$0 = !$$nc($$nc($nc(file)->getFileName())->toString())->endsWith(".jmod"_s);
 		if (var$0 && !file->endsWith("modules"_s)) {
 			if (!this->this$0->isArchive(file)) {
 				try {
-					$nc($($FileSystems::newFileSystem(file, ($ClassLoader*)nullptr)))->close();
+					$$nc($FileSystems::newFileSystem(file, ($ClassLoader*)nullptr))->close();
 					if (warn) {
 						$init($Lint$LintCategory);
 						$nc(this->this$0->log)->warning($Lint$LintCategory::PATH, $($CompilerProperties$Warnings::UnexpectedArchiveFile(file)));
@@ -388,7 +315,7 @@ void Locations$SearchPath::addFile($Path* file, bool warn) {
 		}
 	}
 	$LinkedHashSet::add(file);
-	$nc(this->canonicalValues)->add(canonFile);
+	this->canonicalValues->add(canonFile);
 	bool var$1 = this->expandJarClassPaths$ && $nc(this->this$0->fsInfo)->isFile(file);
 	if (var$1 && !$nc(file)->endsWith("modules"_s)) {
 		addJarClassPath(file, warn);
@@ -396,15 +323,13 @@ void Locations$SearchPath::addFile($Path* file, bool warn) {
 }
 
 void Locations$SearchPath::addJarClassPath($Path* jarFile, bool warn) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
-		{
-			$var($Iterator, i$, $nc($($nc(this->this$0->fsInfo)->getJarClassPath(jarFile)))->iterator());
-			for (; $nc(i$)->hasNext();) {
-				$var($Path, f, $cast($Path, i$->next()));
-				{
-					addFile(f, warn);
-				}
+		$var($Iterator, i$, $$nc($nc(this->this$0->fsInfo)->getJarClassPath(jarFile))->iterator());
+		for (; $nc(i$)->hasNext();) {
+			$var($Path, f, $cast($Path, i$->next()));
+			{
+				addFile(f, warn);
 			}
 		}
 	} catch ($IOException& e) {
@@ -421,14 +346,59 @@ Locations$SearchPath::Locations$SearchPath() {
 
 $Class* Locations$SearchPath::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(Locations$SearchPath$$Lambda$isArchive::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.file.Locations$SearchPath$$Lambda$isArchive")) {
 			return Locations$SearchPath$$Lambda$isArchive::load$(name, initialize);
 		}
-		if (name->equals(Locations$SearchPath$$Lambda$lambda$addDirectory$0$1::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.file.Locations$SearchPath$$Lambda$lambda$addDirectory$0$1")) {
 			return Locations$SearchPath$$Lambda$lambda$addDirectory$0$1::load$(name, initialize);
 		}
 	}
-	$loadClass(Locations$SearchPath, name, initialize, &_Locations$SearchPath_ClassInfo_, allocate$Locations$SearchPath);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/file/Locations;", nullptr, $FINAL | $SYNTHETIC, $field(Locations$SearchPath, this$0)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Locations$SearchPath, serialVersionUID)},
+		{"expandJarClassPaths", "Z", nullptr, $PRIVATE, $field(Locations$SearchPath, expandJarClassPaths$)},
+		{"canonicalValues", "Ljava/util/Set;", "Ljava/util/Set<Ljava/nio/file/Path;>;", $PRIVATE | $FINAL | $TRANSIENT, $field(Locations$SearchPath, canonicalValues)},
+		{"emptyPathDefault", "Ljava/nio/file/Path;", nullptr, $PRIVATE | $TRANSIENT, $field(Locations$SearchPath, emptyPathDefault$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/file/Locations;)V", nullptr, $PRIVATE, $method(Locations$SearchPath, init$, void, $Locations*)},
+		{"addDirectories", "(Ljava/lang/String;Z)Lcom/sun/tools/javac/file/Locations$SearchPath;", nullptr, $PUBLIC, $virtualMethod(Locations$SearchPath, addDirectories, Locations$SearchPath*, $String*, bool)},
+		{"addDirectories", "(Ljava/lang/String;)Lcom/sun/tools/javac/file/Locations$SearchPath;", nullptr, $PUBLIC, $virtualMethod(Locations$SearchPath, addDirectories, Locations$SearchPath*, $String*)},
+		{"addDirectory", "(Ljava/nio/file/Path;Z)V", nullptr, $PRIVATE, $method(Locations$SearchPath, addDirectory, void, $Path*, bool)},
+		{"addFile", "(Ljava/nio/file/Path;Z)V", nullptr, $PUBLIC, $virtualMethod(Locations$SearchPath, addFile, void, $Path*, bool)},
+		{"addFiles", "(Ljava/lang/String;Z)Lcom/sun/tools/javac/file/Locations$SearchPath;", nullptr, $PUBLIC, $virtualMethod(Locations$SearchPath, addFiles, Locations$SearchPath*, $String*, bool)},
+		{"addFiles", "(Ljava/lang/String;)Lcom/sun/tools/javac/file/Locations$SearchPath;", nullptr, $PUBLIC, $virtualMethod(Locations$SearchPath, addFiles, Locations$SearchPath*, $String*)},
+		{"addFiles", "(Ljava/lang/Iterable;Z)Lcom/sun/tools/javac/file/Locations$SearchPath;", "(Ljava/lang/Iterable<+Ljava/nio/file/Path;>;Z)Lcom/sun/tools/javac/file/Locations$SearchPath;", $PUBLIC, $virtualMethod(Locations$SearchPath, addFiles, Locations$SearchPath*, $Iterable*, bool)},
+		{"addFiles", "(Ljava/lang/Iterable;)Lcom/sun/tools/javac/file/Locations$SearchPath;", "(Ljava/lang/Iterable<+Ljava/nio/file/Path;>;)Lcom/sun/tools/javac/file/Locations$SearchPath;", $PUBLIC, $virtualMethod(Locations$SearchPath, addFiles, Locations$SearchPath*, $Iterable*)},
+		{"addJarClassPath", "(Ljava/nio/file/Path;Z)V", nullptr, $PRIVATE, $method(Locations$SearchPath, addJarClassPath, void, $Path*, bool)},
+		{"emptyPathDefault", "(Ljava/nio/file/Path;)Lcom/sun/tools/javac/file/Locations$SearchPath;", nullptr, $PUBLIC, $virtualMethod(Locations$SearchPath, emptyPathDefault, Locations$SearchPath*, $Path*)},
+		{"expandJarClassPaths", "(Z)Lcom/sun/tools/javac/file/Locations$SearchPath;", nullptr, $PUBLIC, $virtualMethod(Locations$SearchPath, expandJarClassPaths, Locations$SearchPath*, bool)},
+		{"lambda$addDirectory$0", "(ZLjava/nio/file/Path;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(Locations$SearchPath, lambda$addDirectory$0, void, bool, $Path*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.file.Locations$SearchPath", "com.sun.tools.javac.file.Locations", "SearchPath", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.file.Locations$SearchPath",
+		"java.util.LinkedHashSet",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/util/LinkedHashSet<Ljava/nio/file/Path;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.file.Locations"
+	};
+	$loadClass(Locations$SearchPath, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Locations$SearchPath));
+	});
 	return class$;
 }
 

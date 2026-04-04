@@ -1,5 +1,4 @@
 #include <javax/swing/JLabel.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Image.h>
 #include <java/awt/event/KeyEvent.h>
@@ -44,7 +43,6 @@ using $AccessibleContext = ::javax::accessibility::AccessibleContext;
 using $Icon = ::javax::swing::Icon;
 using $JComponent = ::javax::swing::JComponent;
 using $JLabel$AccessibleJLabel = ::javax::swing::JLabel$AccessibleJLabel;
-using $LookAndFeel = ::javax::swing::LookAndFeel;
 using $SwingConstants = ::javax::swing::SwingConstants;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $UIManager = ::javax::swing::UIManager;
@@ -53,313 +51,6 @@ using $LabelUI = ::javax::swing::plaf::LabelUI;
 
 namespace javax {
 	namespace swing {
-
-$NamedAttribute JLabel_Attribute_var$0[] = {
-	{"defaultProperty", 's', "UI"},
-	{"description", 's', "A component that displays a short string and an icon."},
-	{}
-};
-
-$NamedAttribute JLabel_Attribute_var$1[] = {
-	{"value", 'Z', "false"},
-	{}
-};
-
-$CompoundAttribute _JLabel_Annotations_[] = {
-	{"Ljava/beans/JavaBean;", JLabel_Attribute_var$0},
-	{"Ljavax/swing/SwingContainer;", JLabel_Attribute_var$1},
-	{}
-};
-
-$NamedAttribute JLabel_Attribute_var$2[] = {
-	{"bound", 'Z', "false"},
-	{"expert", 'Z', "true"},
-	{"description", 's', "The AccessibleContext associated with this Label."},
-	{}
-};
-
-$CompoundAttribute _JLabel_MethodAnnotations_getAccessibleContext9[] = {
-	{"Ljava/beans/BeanProperty;", JLabel_Attribute_var$2},
-	{}
-};
-
-$CompoundAttribute _JLabel_MethodAnnotations_getDisabledIcon10[] = {
-	{"Ljava/beans/Transient;", nullptr},
-	{}
-};
-
-$NamedAttribute JLabel_Attribute_var$3[] = {
-	{"bound", 'Z', "false"},
-	{}
-};
-
-$CompoundAttribute _JLabel_MethodAnnotations_getUIClassID20[] = {
-	{"Ljava/beans/BeanProperty;", JLabel_Attribute_var$3},
-	{}
-};
-
-$NamedAttribute JLabel_Attribute_var$4[] = {
-	{"visualUpdate", 'Z', "true"},
-	{"description", 's', "The icon to display if the label is disabled."},
-	{}
-};
-
-$CompoundAttribute _JLabel_MethodAnnotations_setDisabledIcon25[] = {
-	{"Ljava/beans/BeanProperty;", JLabel_Attribute_var$4},
-	{}
-};
-
-$NamedAttribute JLabel_Attribute_var$5[] = {
-	{"visualUpdate", 'Z', "true"},
-	{"description", 's', "The mnemonic keycode."},
-	{}
-};
-
-$CompoundAttribute _JLabel_MethodAnnotations_setDisplayedMnemonic26[] = {
-	{"Ljava/beans/BeanProperty;", JLabel_Attribute_var$5},
-	{}
-};
-
-$NamedAttribute JLabel_Attribute_var$6[] = {
-	{"visualUpdate", 'Z', "true"},
-	{"description", 's', "the index into the String to draw the keyboard character mnemonic at"},
-	{}
-};
-
-$CompoundAttribute _JLabel_MethodAnnotations_setDisplayedMnemonicIndex28[] = {
-	{"Ljava/beans/BeanProperty;", JLabel_Attribute_var$6},
-	{}
-};
-
-$Attribute JLabel_Attribute_var$8[] = {
-	{'s', "SwingConstants.LEFT"},
-	{'s', "SwingConstants.CENTER"},
-	{'s', "SwingConstants.RIGHT"},
-	{'s', "SwingConstants.LEADING"},
-	{'s', "SwingConstants.TRAILING"},
-	{'-'}
-};
-
-$NamedAttribute JLabel_Attribute_var$7[] = {
-	{"visualUpdate", 'Z', "true"},
-	{"enumerationValues", '[', JLabel_Attribute_var$8},
-	{"description", 's', "The alignment of the label\'s content along the X axis."},
-	{}
-};
-
-$CompoundAttribute _JLabel_MethodAnnotations_setHorizontalAlignment29[] = {
-	{"Ljava/beans/BeanProperty;", JLabel_Attribute_var$7},
-	{}
-};
-
-$Attribute JLabel_Attribute_var$10[] = {
-	{'s', "SwingConstants.LEFT"},
-	{'s', "SwingConstants.CENTER"},
-	{'s', "SwingConstants.RIGHT"},
-	{'s', "SwingConstants.LEADING"},
-	{'s', "SwingConstants.TRAILING"},
-	{'-'}
-};
-
-$NamedAttribute JLabel_Attribute_var$9[] = {
-	{"expert", 'Z', "true"},
-	{"visualUpdate", 'Z', "true"},
-	{"enumerationValues", '[', JLabel_Attribute_var$10},
-	{"description", 's', "The horizontal position of the label\'s text, relative to its image."},
-	{}
-};
-
-$CompoundAttribute _JLabel_MethodAnnotations_setHorizontalTextPosition30[] = {
-	{"Ljava/beans/BeanProperty;", JLabel_Attribute_var$9},
-	{}
-};
-
-$NamedAttribute JLabel_Attribute_var$11[] = {
-	{"preferred", 'Z', "true"},
-	{"visualUpdate", 'Z', "true"},
-	{"description", 's', "The icon this component will display."},
-	{}
-};
-
-$CompoundAttribute _JLabel_MethodAnnotations_setIcon31[] = {
-	{"Ljava/beans/BeanProperty;", JLabel_Attribute_var$11},
-	{}
-};
-
-$NamedAttribute JLabel_Attribute_var$12[] = {
-	{"visualUpdate", 'Z', "true"},
-	{"description", 's', "If both the icon and text properties are set, this property defines the space between them."},
-	{}
-};
-
-$CompoundAttribute _JLabel_MethodAnnotations_setIconTextGap32[] = {
-	{"Ljava/beans/BeanProperty;", JLabel_Attribute_var$12},
-	{}
-};
-
-$NamedAttribute JLabel_Attribute_var$13[] = {
-	{"description", 's', "The component this is labelling."},
-	{}
-};
-
-$CompoundAttribute _JLabel_MethodAnnotations_setLabelFor33[] = {
-	{"Ljava/beans/BeanProperty;", JLabel_Attribute_var$13},
-	{}
-};
-
-$NamedAttribute JLabel_Attribute_var$14[] = {
-	{"preferred", 'Z', "true"},
-	{"visualUpdate", 'Z', "true"},
-	{"description", 's', "Defines the single line of text this component will display."},
-	{}
-};
-
-$CompoundAttribute _JLabel_MethodAnnotations_setText34[] = {
-	{"Ljava/beans/BeanProperty;", JLabel_Attribute_var$14},
-	{}
-};
-
-$NamedAttribute JLabel_Attribute_var$15[] = {
-	{"hidden", 'Z', "true"},
-	{"visualUpdate", 'Z', "true"},
-	{"description", 's', "The UI object that implements the Component\'s LookAndFeel."},
-	{}
-};
-
-$CompoundAttribute _JLabel_MethodAnnotations_setUI35[] = {
-	{"Ljava/beans/BeanProperty;", JLabel_Attribute_var$15},
-	{}
-};
-
-$Attribute JLabel_Attribute_var$17[] = {
-	{'s', "SwingConstants.TOP"},
-	{'s', "SwingConstants.CENTER"},
-	{'s', "SwingConstants.BOTTOM"},
-	{'-'}
-};
-
-$NamedAttribute JLabel_Attribute_var$16[] = {
-	{"visualUpdate", 'Z', "true"},
-	{"enumerationValues", '[', JLabel_Attribute_var$17},
-	{"description", 's', "The alignment of the label\'s contents along the Y axis."},
-	{}
-};
-
-$CompoundAttribute _JLabel_MethodAnnotations_setVerticalAlignment36[] = {
-	{"Ljava/beans/BeanProperty;", JLabel_Attribute_var$16},
-	{}
-};
-
-$Attribute JLabel_Attribute_var$19[] = {
-	{'s', "SwingConstants.TOP"},
-	{'s', "SwingConstants.CENTER"},
-	{'s', "SwingConstants.BOTTOM"},
-	{'-'}
-};
-
-$NamedAttribute JLabel_Attribute_var$18[] = {
-	{"expert", 'Z', "true"},
-	{"visualUpdate", 'Z', "true"},
-	{"enumerationValues", '[', JLabel_Attribute_var$19},
-	{"description", 's', "The vertical position of the text relative to it\'s image."},
-	{}
-};
-
-$CompoundAttribute _JLabel_MethodAnnotations_setVerticalTextPosition37[] = {
-	{"Ljava/beans/BeanProperty;", JLabel_Attribute_var$18},
-	{}
-};
-
-$FieldInfo _JLabel_FieldInfo_[] = {
-	{"uiClassID", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JLabel, uiClassID)},
-	{"mnemonic", "I", nullptr, $PRIVATE, $field(JLabel, mnemonic)},
-	{"mnemonicIndex", "I", nullptr, $PRIVATE, $field(JLabel, mnemonicIndex)},
-	{"text", "Ljava/lang/String;", nullptr, $PRIVATE, $field(JLabel, text)},
-	{"defaultIcon", "Ljavax/swing/Icon;", nullptr, $PRIVATE, $field(JLabel, defaultIcon)},
-	{"disabledIcon", "Ljavax/swing/Icon;", nullptr, $PRIVATE, $field(JLabel, disabledIcon)},
-	{"disabledIconSet", "Z", nullptr, $PRIVATE, $field(JLabel, disabledIconSet)},
-	{"verticalAlignment", "I", nullptr, $PRIVATE, $field(JLabel, verticalAlignment)},
-	{"horizontalAlignment", "I", nullptr, $PRIVATE, $field(JLabel, horizontalAlignment)},
-	{"verticalTextPosition", "I", nullptr, $PRIVATE, $field(JLabel, verticalTextPosition)},
-	{"horizontalTextPosition", "I", nullptr, $PRIVATE, $field(JLabel, horizontalTextPosition)},
-	{"iconTextGap", "I", nullptr, $PRIVATE, $field(JLabel, iconTextGap)},
-	{"labelFor", "Ljava/awt/Component;", nullptr, $PROTECTED, $field(JLabel, labelFor)},
-	{"LABELED_BY_PROPERTY", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(JLabel, LABELED_BY_PROPERTY)},
-	{}
-};
-
-$MethodInfo _JLabel_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/lang/String;Ljavax/swing/Icon;I)V", nullptr, $PUBLIC, $method(JLabel, init$, void, $String*, $Icon*, int32_t)},
-	{"<init>", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(JLabel, init$, void, $String*, int32_t)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(JLabel, init$, void, $String*)},
-	{"<init>", "(Ljavax/swing/Icon;I)V", nullptr, $PUBLIC, $method(JLabel, init$, void, $Icon*, int32_t)},
-	{"<init>", "(Ljavax/swing/Icon;)V", nullptr, $PUBLIC, $method(JLabel, init$, void, $Icon*)},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(JLabel, init$, void)},
-	{"access$000", "(Ljavax/swing/JLabel;)Ljavax/accessibility/AccessibleContext;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(JLabel, access$000, $AccessibleContext*, JLabel*)},
-	{"checkHorizontalKey", "(ILjava/lang/String;)I", nullptr, $PROTECTED, $virtualMethod(JLabel, checkHorizontalKey, int32_t, int32_t, $String*)},
-	{"checkVerticalKey", "(ILjava/lang/String;)I", nullptr, $PROTECTED, $virtualMethod(JLabel, checkVerticalKey, int32_t, int32_t, $String*)},
-	{"getAccessibleContext", "()Ljavax/accessibility/AccessibleContext;", nullptr, $PUBLIC, $virtualMethod(JLabel, getAccessibleContext, $AccessibleContext*), nullptr, nullptr, _JLabel_MethodAnnotations_getAccessibleContext9},
-	{"getDisabledIcon", "()Ljavax/swing/Icon;", nullptr, $PUBLIC, $virtualMethod(JLabel, getDisabledIcon, $Icon*), nullptr, nullptr, _JLabel_MethodAnnotations_getDisabledIcon10},
-	{"getDisplayedMnemonic", "()I", nullptr, $PUBLIC, $virtualMethod(JLabel, getDisplayedMnemonic, int32_t)},
-	{"getDisplayedMnemonicIndex", "()I", nullptr, $PUBLIC, $virtualMethod(JLabel, getDisplayedMnemonicIndex, int32_t)},
-	{"getHorizontalAlignment", "()I", nullptr, $PUBLIC, $virtualMethod(JLabel, getHorizontalAlignment, int32_t)},
-	{"getHorizontalTextPosition", "()I", nullptr, $PUBLIC, $virtualMethod(JLabel, getHorizontalTextPosition, int32_t)},
-	{"getIcon", "()Ljavax/swing/Icon;", nullptr, $PUBLIC, $virtualMethod(JLabel, getIcon, $Icon*)},
-	{"getIconTextGap", "()I", nullptr, $PUBLIC, $virtualMethod(JLabel, getIconTextGap, int32_t)},
-	{"getLabelFor", "()Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(JLabel, getLabelFor, $Component*)},
-	{"getText", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JLabel, getText, $String*)},
-	{"getUI", "()Ljavax/swing/plaf/LabelUI;", nullptr, $PUBLIC, $virtualMethod(JLabel, getUI, $ComponentUI*)},
-	{"getUIClassID", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JLabel, getUIClassID, $String*), nullptr, nullptr, _JLabel_MethodAnnotations_getUIClassID20},
-	{"getVerticalAlignment", "()I", nullptr, $PUBLIC, $virtualMethod(JLabel, getVerticalAlignment, int32_t)},
-	{"getVerticalTextPosition", "()I", nullptr, $PUBLIC, $virtualMethod(JLabel, getVerticalTextPosition, int32_t)},
-	{"imageUpdate", "(Ljava/awt/Image;IIIII)Z", nullptr, $PUBLIC, $virtualMethod(JLabel, imageUpdate, bool, $Image*, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"paramString", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(JLabel, paramString, $String*)},
-	{"setDisabledIcon", "(Ljavax/swing/Icon;)V", nullptr, $PUBLIC, $virtualMethod(JLabel, setDisabledIcon, void, $Icon*), nullptr, nullptr, _JLabel_MethodAnnotations_setDisabledIcon25},
-	{"setDisplayedMnemonic", "(I)V", nullptr, $PUBLIC, $virtualMethod(JLabel, setDisplayedMnemonic, void, int32_t), nullptr, nullptr, _JLabel_MethodAnnotations_setDisplayedMnemonic26},
-	{"setDisplayedMnemonic", "(C)V", nullptr, $PUBLIC, $virtualMethod(JLabel, setDisplayedMnemonic, void, char16_t)},
-	{"setDisplayedMnemonicIndex", "(I)V", nullptr, $PUBLIC, $virtualMethod(JLabel, setDisplayedMnemonicIndex, void, int32_t), "java.lang.IllegalArgumentException", nullptr, _JLabel_MethodAnnotations_setDisplayedMnemonicIndex28},
-	{"setHorizontalAlignment", "(I)V", nullptr, $PUBLIC, $virtualMethod(JLabel, setHorizontalAlignment, void, int32_t), nullptr, nullptr, _JLabel_MethodAnnotations_setHorizontalAlignment29},
-	{"setHorizontalTextPosition", "(I)V", nullptr, $PUBLIC, $virtualMethod(JLabel, setHorizontalTextPosition, void, int32_t), nullptr, nullptr, _JLabel_MethodAnnotations_setHorizontalTextPosition30},
-	{"setIcon", "(Ljavax/swing/Icon;)V", nullptr, $PUBLIC, $virtualMethod(JLabel, setIcon, void, $Icon*), nullptr, nullptr, _JLabel_MethodAnnotations_setIcon31},
-	{"setIconTextGap", "(I)V", nullptr, $PUBLIC, $virtualMethod(JLabel, setIconTextGap, void, int32_t), nullptr, nullptr, _JLabel_MethodAnnotations_setIconTextGap32},
-	{"setLabelFor", "(Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(JLabel, setLabelFor, void, $Component*), nullptr, nullptr, _JLabel_MethodAnnotations_setLabelFor33},
-	{"setText", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(JLabel, setText, void, $String*), nullptr, nullptr, _JLabel_MethodAnnotations_setText34},
-	{"setUI", "(Ljavax/swing/plaf/LabelUI;)V", nullptr, $PUBLIC, $virtualMethod(JLabel, setUI, void, $LabelUI*), nullptr, nullptr, _JLabel_MethodAnnotations_setUI35},
-	{"setVerticalAlignment", "(I)V", nullptr, $PUBLIC, $virtualMethod(JLabel, setVerticalAlignment, void, int32_t), nullptr, nullptr, _JLabel_MethodAnnotations_setVerticalAlignment36},
-	{"setVerticalTextPosition", "(I)V", nullptr, $PUBLIC, $virtualMethod(JLabel, setVerticalTextPosition, void, int32_t), nullptr, nullptr, _JLabel_MethodAnnotations_setVerticalTextPosition37},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"updateUI", "()V", nullptr, $PUBLIC, $virtualMethod(JLabel, updateUI, void)},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(JLabel, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _JLabel_InnerClassesInfo_[] = {
-	{"javax.swing.JLabel$AccessibleJLabel", "javax.swing.JLabel", "AccessibleJLabel", $PROTECTED},
-	{}
-};
-
-$ClassInfo _JLabel_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.JLabel",
-	"javax.swing.JComponent",
-	"javax.swing.SwingConstants,javax.accessibility.Accessible",
-	_JLabel_FieldInfo_,
-	_JLabel_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JLabel_InnerClassesInfo_,
-	_JLabel_Annotations_,
-	nullptr,
-	"javax.swing.JLabel$AccessibleJLabel,javax.swing.JLabel$AccessibleJLabel$LabelKeyBinding"
-};
-
-$Object* allocate$JLabel($Class* clazz) {
-	return $of($alloc(JLabel));
-}
 
 $String* JLabel::toString() {
 	 return this->$JComponent::toString();
@@ -443,7 +134,7 @@ void JLabel::setUI($LabelUI* ui) {
 }
 
 void JLabel::updateUI() {
-	setUI($cast($LabelUI, $($UIManager::getUI(this))));
+	setUI($$cast($LabelUI, $UIManager::getUI(this)));
 }
 
 $String* JLabel::getUIClassID() {
@@ -455,20 +146,19 @@ $String* JLabel::getText() {
 }
 
 void JLabel::setText($String* text) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, oldAccessibleName, nullptr);
 	if (this->accessibleContext != nullptr) {
-		$assign(oldAccessibleName, $nc(this->accessibleContext)->getAccessibleName());
+		$assign(oldAccessibleName, this->accessibleContext->getAccessibleName());
 	}
 	$var($String, oldValue, this->text);
 	$set(this, text, text);
-	firePropertyChange("text"_s, $of(oldValue), $of(text));
+	firePropertyChange("text"_s, oldValue, text);
 	setDisplayedMnemonicIndex($SwingUtilities::findDisplayedMnemonicIndex(text, getDisplayedMnemonic()));
-	if ((this->accessibleContext != nullptr) && ($nc(this->accessibleContext)->getAccessibleName() != oldAccessibleName)) {
-		$init($AccessibleContext);
-		$nc(this->accessibleContext)->firePropertyChange($AccessibleContext::ACCESSIBLE_VISIBLE_DATA_PROPERTY, oldAccessibleName, $($nc(this->accessibleContext)->getAccessibleName()));
+	if ((this->accessibleContext != nullptr) && (this->accessibleContext->getAccessibleName() != oldAccessibleName)) {
+		this->accessibleContext->firePropertyChange($AccessibleContext::ACCESSIBLE_VISIBLE_DATA_PROPERTY, oldAccessibleName, $(this->accessibleContext->getAccessibleName()));
 	}
-	if (text == nullptr || oldValue == nullptr || !$nc(text)->equals(oldValue)) {
+	if (text == nullptr || oldValue == nullptr || !text->equals(oldValue)) {
 		revalidate();
 		repaint();
 	}
@@ -484,21 +174,21 @@ void JLabel::setIcon($Icon* icon) {
 	if ((this->defaultIcon != oldValue) && !this->disabledIconSet) {
 		$set(this, disabledIcon, nullptr);
 	}
-	firePropertyChange("icon"_s, $of(oldValue), $of(this->defaultIcon));
+	firePropertyChange("icon"_s, oldValue, this->defaultIcon);
 	if ((this->accessibleContext != nullptr) && (oldValue != this->defaultIcon)) {
 		$init($AccessibleContext);
-		$nc(this->accessibleContext)->firePropertyChange($AccessibleContext::ACCESSIBLE_VISIBLE_DATA_PROPERTY, oldValue, this->defaultIcon);
+		this->accessibleContext->firePropertyChange($AccessibleContext::ACCESSIBLE_VISIBLE_DATA_PROPERTY, oldValue, this->defaultIcon);
 	}
 	if (this->defaultIcon != oldValue) {
 		bool var$1 = (this->defaultIcon == nullptr) || (oldValue == nullptr);
 		if (!var$1) {
-			int32_t var$2 = $nc(this->defaultIcon)->getIconWidth();
-			var$1 = (var$2 != $nc(oldValue)->getIconWidth());
+			int32_t var$2 = this->defaultIcon->getIconWidth();
+			var$1 = var$2 != oldValue->getIconWidth();
 		}
 		bool var$0 = var$1;
 		if (!var$0) {
 			int32_t var$3 = $nc(this->defaultIcon)->getIconHeight();
-			var$0 = (var$3 != $nc(oldValue)->getIconHeight());
+			var$0 = var$3 != $nc(oldValue)->getIconHeight();
 		}
 		if (var$0) {
 			revalidate();
@@ -509,9 +199,9 @@ void JLabel::setIcon($Icon* icon) {
 
 $Icon* JLabel::getDisabledIcon() {
 	if (!this->disabledIconSet && this->disabledIcon == nullptr && this->defaultIcon != nullptr) {
-		$set(this, disabledIcon, $nc($($UIManager::getLookAndFeel()))->getDisabledIcon(this, this->defaultIcon));
+		$set(this, disabledIcon, $$nc($UIManager::getLookAndFeel())->getDisabledIcon(this, this->defaultIcon));
 		if (this->disabledIcon != nullptr) {
-			firePropertyChange("disabledIcon"_s, ($Object*)nullptr, $of(this->disabledIcon));
+			firePropertyChange("disabledIcon"_s, nullptr, this->disabledIcon);
 		}
 	}
 	return this->disabledIcon;
@@ -521,16 +211,16 @@ void JLabel::setDisabledIcon($Icon* disabledIcon) {
 	$var($Icon, oldValue, this->disabledIcon);
 	$set(this, disabledIcon, disabledIcon);
 	this->disabledIconSet = (disabledIcon != nullptr);
-	firePropertyChange("disabledIcon"_s, $of(oldValue), $of(disabledIcon));
+	firePropertyChange("disabledIcon"_s, oldValue, disabledIcon);
 	if (disabledIcon != oldValue) {
 		bool var$1 = disabledIcon == nullptr || oldValue == nullptr;
 		if (!var$1) {
 			int32_t var$2 = disabledIcon->getIconWidth();
-			var$1 = var$2 != $nc(oldValue)->getIconWidth();
+			var$1 = var$2 != oldValue->getIconWidth();
 		}
 		bool var$0 = var$1;
 		if (!var$0) {
-			int32_t var$3 = disabledIcon->getIconHeight();
+			int32_t var$3 = $nc(disabledIcon)->getIconHeight();
 			var$0 = var$3 != $nc(oldValue)->getIconHeight();
 		}
 		if (var$0) {
@@ -565,13 +255,13 @@ int32_t JLabel::getDisplayedMnemonic() {
 }
 
 void JLabel::setDisplayedMnemonicIndex(int32_t index) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t oldValue = this->mnemonicIndex;
 	if (index == -1) {
 		this->mnemonicIndex = -1;
 	} else {
 		$var($String, text, getText());
-		int32_t textLength = (text == nullptr) ? 0 : $nc(text)->length();
+		int32_t textLength = (text == nullptr) ? 0 : text->length();
 		if (index < -1 || index >= textLength) {
 			$throwNew($IllegalArgumentException, $$str({"index == "_s, $$str(index)}));
 		}
@@ -687,21 +377,21 @@ bool JLabel::imageUpdate($Image* img, int32_t infoflags, int32_t x, int32_t y, i
 
 void JLabel::writeObject($ObjectOutputStream* s) {
 	$nc(s)->defaultWriteObject();
-	if ($nc($(getUIClassID()))->equals(JLabel::uiClassID)) {
+	if ($$nc(getUIClassID())->equals(JLabel::uiClassID)) {
 		int8_t count = $JComponent::getWriteObjCounter(this);
 		$JComponent::setWriteObjCounter(this, --count);
 		if (count == 0 && this->ui != nullptr) {
-			$nc(this->ui)->installUI(this);
+			this->ui->installUI(this);
 		}
 	}
 }
 
 $String* JLabel::paramString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, textString, this->text != nullptr ? this->text : ""_s);
-	$var($String, defaultIconString, (this->defaultIcon != nullptr) && (!$equals(this->defaultIcon, this)) ? $nc($of(this->defaultIcon))->toString() : ""_s);
-	$var($String, disabledIconString, (this->disabledIcon != nullptr) && (!$equals(this->disabledIcon, this)) ? $nc($of(this->disabledIcon))->toString() : ""_s);
-	$var($String, labelForString, this->labelFor != nullptr ? $nc(this->labelFor)->toString() : ""_s);
+	$var($String, defaultIconString, (this->defaultIcon != nullptr) && (!$equals(this->defaultIcon, this)) ? this->defaultIcon->toString() : ""_s);
+	$var($String, disabledIconString, (this->disabledIcon != nullptr) && (!$equals(this->disabledIcon, this)) ? this->disabledIcon->toString() : ""_s);
+	$var($String, labelForString, this->labelFor != nullptr ? this->labelFor->toString() : ""_s);
 	$var($String, verticalAlignmentString, nullptr);
 	if (this->verticalAlignment == $SwingConstants::TOP) {
 		$assign(verticalAlignmentString, "TOP"_s);
@@ -761,12 +451,12 @@ $Component* JLabel::getLabelFor() {
 void JLabel::setLabelFor($Component* c) {
 	$var($Component, oldC, this->labelFor);
 	$set(this, labelFor, c);
-	firePropertyChange("labelFor"_s, $of(oldC), $of(c));
+	firePropertyChange("labelFor"_s, oldC, c);
 	if ($instanceOf($JComponent, oldC)) {
-		$nc(($cast($JComponent, oldC)))->putClientProperty(JLabel::LABELED_BY_PROPERTY, nullptr);
+		$cast($JComponent, oldC)->putClientProperty(JLabel::LABELED_BY_PROPERTY, nullptr);
 	}
 	if ($instanceOf($JComponent, c)) {
-		$nc(($cast($JComponent, c)))->putClientProperty(JLabel::LABELED_BY_PROPERTY, this);
+		$cast($JComponent, c)->putClientProperty(JLabel::LABELED_BY_PROPERTY, this);
 	}
 }
 
@@ -780,13 +470,278 @@ $AccessibleContext* JLabel::getAccessibleContext() {
 JLabel::JLabel() {
 }
 
-void clinit$JLabel($Class* class$) {
+void JLabel::clinit$($Class* clazz) {
 	$assignStatic(JLabel::uiClassID, "LabelUI"_s);
 	$assignStatic(JLabel::LABELED_BY_PROPERTY, "labeledBy"_s);
 }
 
 $Class* JLabel::load$($String* name, bool initialize) {
-	$loadClass(JLabel, name, initialize, &_JLabel_ClassInfo_, clinit$JLabel, allocate$JLabel);
+	$FieldInfo fieldInfos$$[] = {
+		{"uiClassID", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JLabel, uiClassID)},
+		{"mnemonic", "I", nullptr, $PRIVATE, $field(JLabel, mnemonic)},
+		{"mnemonicIndex", "I", nullptr, $PRIVATE, $field(JLabel, mnemonicIndex)},
+		{"text", "Ljava/lang/String;", nullptr, $PRIVATE, $field(JLabel, text)},
+		{"defaultIcon", "Ljavax/swing/Icon;", nullptr, $PRIVATE, $field(JLabel, defaultIcon)},
+		{"disabledIcon", "Ljavax/swing/Icon;", nullptr, $PRIVATE, $field(JLabel, disabledIcon)},
+		{"disabledIconSet", "Z", nullptr, $PRIVATE, $field(JLabel, disabledIconSet)},
+		{"verticalAlignment", "I", nullptr, $PRIVATE, $field(JLabel, verticalAlignment)},
+		{"horizontalAlignment", "I", nullptr, $PRIVATE, $field(JLabel, horizontalAlignment)},
+		{"verticalTextPosition", "I", nullptr, $PRIVATE, $field(JLabel, verticalTextPosition)},
+		{"horizontalTextPosition", "I", nullptr, $PRIVATE, $field(JLabel, horizontalTextPosition)},
+		{"iconTextGap", "I", nullptr, $PRIVATE, $field(JLabel, iconTextGap)},
+		{"labelFor", "Ljava/awt/Component;", nullptr, $PROTECTED, $field(JLabel, labelFor)},
+		{"LABELED_BY_PROPERTY", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(JLabel, LABELED_BY_PROPERTY)},
+		{}
+	};
+	$NamedAttribute getAccessibleContextmethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{"expert", 'Z', "true"},
+		{"description", 's', "The AccessibleContext associated with this Label."},
+		{}
+	};
+	$CompoundAttribute getAccessibleContextmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", getAccessibleContextmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$CompoundAttribute getDisabledIconmethodAnnotations$$[] = {
+		{"Ljava/beans/Transient;", nullptr},
+		{}
+	};
+	$NamedAttribute getUIClassIDmethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{}
+	};
+	$CompoundAttribute getUIClassIDmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", getUIClassIDmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setDisabledIconmethodAnnotations$$$namedAttribute[] = {
+		{"visualUpdate", 'Z', "true"},
+		{"description", 's', "The icon to display if the label is disabled."},
+		{}
+	};
+	$CompoundAttribute setDisabledIconmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setDisabledIconmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setDisplayedMnemonicmethodAnnotations$$$namedAttribute[] = {
+		{"visualUpdate", 'Z', "true"},
+		{"description", 's', "The mnemonic keycode."},
+		{}
+	};
+	$CompoundAttribute setDisplayedMnemonicmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setDisplayedMnemonicmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setDisplayedMnemonicIndexmethodAnnotations$$$namedAttribute[] = {
+		{"visualUpdate", 'Z', "true"},
+		{"description", 's', "the index into the String to draw the keyboard character mnemonic at"},
+		{}
+	};
+	$CompoundAttribute setDisplayedMnemonicIndexmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setDisplayedMnemonicIndexmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$Attribute $attribute[] = {
+		{'s', "SwingConstants.LEFT"},
+		{'s', "SwingConstants.CENTER"},
+		{'s', "SwingConstants.RIGHT"},
+		{'s', "SwingConstants.LEADING"},
+		{'s', "SwingConstants.TRAILING"},
+		{'-'}
+	};
+	$NamedAttribute setHorizontalAlignmentmethodAnnotations$$$namedAttribute[] = {
+		{"visualUpdate", 'Z', "true"},
+		{"enumerationValues", '[', $attribute},
+		{"description", 's', "The alignment of the label\'s content along the X axis."},
+		{}
+	};
+	$CompoundAttribute setHorizontalAlignmentmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setHorizontalAlignmentmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$Attribute $attribute$1[] = {
+		{'s', "SwingConstants.LEFT"},
+		{'s', "SwingConstants.CENTER"},
+		{'s', "SwingConstants.RIGHT"},
+		{'s', "SwingConstants.LEADING"},
+		{'s', "SwingConstants.TRAILING"},
+		{'-'}
+	};
+	$NamedAttribute setHorizontalTextPositionmethodAnnotations$$$namedAttribute[] = {
+		{"expert", 'Z', "true"},
+		{"visualUpdate", 'Z', "true"},
+		{"enumerationValues", '[', $attribute$1},
+		{"description", 's', "The horizontal position of the label\'s text, relative to its image."},
+		{}
+	};
+	$CompoundAttribute setHorizontalTextPositionmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setHorizontalTextPositionmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setIconmethodAnnotations$$$namedAttribute[] = {
+		{"preferred", 'Z', "true"},
+		{"visualUpdate", 'Z', "true"},
+		{"description", 's', "The icon this component will display."},
+		{}
+	};
+	$CompoundAttribute setIconmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setIconmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setIconTextGapmethodAnnotations$$$namedAttribute[] = {
+		{"visualUpdate", 'Z', "true"},
+		{"description", 's', "If both the icon and text properties are set, this property defines the space between them."},
+		{}
+	};
+	$CompoundAttribute setIconTextGapmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setIconTextGapmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setLabelFormethodAnnotations$$$namedAttribute[] = {
+		{"description", 's', "The component this is labelling."},
+		{}
+	};
+	$CompoundAttribute setLabelFormethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setLabelFormethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setTextmethodAnnotations$$$namedAttribute[] = {
+		{"preferred", 'Z', "true"},
+		{"visualUpdate", 'Z', "true"},
+		{"description", 's', "Defines the single line of text this component will display."},
+		{}
+	};
+	$CompoundAttribute setTextmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setTextmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setUImethodAnnotations$$$namedAttribute[] = {
+		{"hidden", 'Z', "true"},
+		{"visualUpdate", 'Z', "true"},
+		{"description", 's', "The UI object that implements the Component\'s LookAndFeel."},
+		{}
+	};
+	$CompoundAttribute setUImethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setUImethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$Attribute $attribute$2[] = {
+		{'s', "SwingConstants.TOP"},
+		{'s', "SwingConstants.CENTER"},
+		{'s', "SwingConstants.BOTTOM"},
+		{'-'}
+	};
+	$NamedAttribute setVerticalAlignmentmethodAnnotations$$$namedAttribute[] = {
+		{"visualUpdate", 'Z', "true"},
+		{"enumerationValues", '[', $attribute$2},
+		{"description", 's', "The alignment of the label\'s contents along the Y axis."},
+		{}
+	};
+	$CompoundAttribute setVerticalAlignmentmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setVerticalAlignmentmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$Attribute $attribute$3[] = {
+		{'s', "SwingConstants.TOP"},
+		{'s', "SwingConstants.CENTER"},
+		{'s', "SwingConstants.BOTTOM"},
+		{'-'}
+	};
+	$NamedAttribute setVerticalTextPositionmethodAnnotations$$$namedAttribute[] = {
+		{"expert", 'Z', "true"},
+		{"visualUpdate", 'Z', "true"},
+		{"enumerationValues", '[', $attribute$3},
+		{"description", 's', "The vertical position of the text relative to it\'s image."},
+		{}
+	};
+	$CompoundAttribute setVerticalTextPositionmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setVerticalTextPositionmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/lang/String;Ljavax/swing/Icon;I)V", nullptr, $PUBLIC, $method(JLabel, init$, void, $String*, $Icon*, int32_t)},
+		{"<init>", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(JLabel, init$, void, $String*, int32_t)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(JLabel, init$, void, $String*)},
+		{"<init>", "(Ljavax/swing/Icon;I)V", nullptr, $PUBLIC, $method(JLabel, init$, void, $Icon*, int32_t)},
+		{"<init>", "(Ljavax/swing/Icon;)V", nullptr, $PUBLIC, $method(JLabel, init$, void, $Icon*)},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(JLabel, init$, void)},
+		{"access$000", "(Ljavax/swing/JLabel;)Ljavax/accessibility/AccessibleContext;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(JLabel, access$000, $AccessibleContext*, JLabel*)},
+		{"checkHorizontalKey", "(ILjava/lang/String;)I", nullptr, $PROTECTED, $virtualMethod(JLabel, checkHorizontalKey, int32_t, int32_t, $String*)},
+		{"checkVerticalKey", "(ILjava/lang/String;)I", nullptr, $PROTECTED, $virtualMethod(JLabel, checkVerticalKey, int32_t, int32_t, $String*)},
+		{"getAccessibleContext", "()Ljavax/accessibility/AccessibleContext;", nullptr, $PUBLIC, $virtualMethod(JLabel, getAccessibleContext, $AccessibleContext*), nullptr, nullptr, getAccessibleContextmethodAnnotations$$},
+		{"getDisabledIcon", "()Ljavax/swing/Icon;", nullptr, $PUBLIC, $virtualMethod(JLabel, getDisabledIcon, $Icon*), nullptr, nullptr, getDisabledIconmethodAnnotations$$},
+		{"getDisplayedMnemonic", "()I", nullptr, $PUBLIC, $virtualMethod(JLabel, getDisplayedMnemonic, int32_t)},
+		{"getDisplayedMnemonicIndex", "()I", nullptr, $PUBLIC, $virtualMethod(JLabel, getDisplayedMnemonicIndex, int32_t)},
+		{"getHorizontalAlignment", "()I", nullptr, $PUBLIC, $virtualMethod(JLabel, getHorizontalAlignment, int32_t)},
+		{"getHorizontalTextPosition", "()I", nullptr, $PUBLIC, $virtualMethod(JLabel, getHorizontalTextPosition, int32_t)},
+		{"getIcon", "()Ljavax/swing/Icon;", nullptr, $PUBLIC, $virtualMethod(JLabel, getIcon, $Icon*)},
+		{"getIconTextGap", "()I", nullptr, $PUBLIC, $virtualMethod(JLabel, getIconTextGap, int32_t)},
+		{"getLabelFor", "()Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(JLabel, getLabelFor, $Component*)},
+		{"getText", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JLabel, getText, $String*)},
+		{"getUI", "()Ljavax/swing/plaf/LabelUI;", nullptr, $PUBLIC, $virtualMethod(JLabel, getUI, $ComponentUI*)},
+		{"getUIClassID", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JLabel, getUIClassID, $String*), nullptr, nullptr, getUIClassIDmethodAnnotations$$},
+		{"getVerticalAlignment", "()I", nullptr, $PUBLIC, $virtualMethod(JLabel, getVerticalAlignment, int32_t)},
+		{"getVerticalTextPosition", "()I", nullptr, $PUBLIC, $virtualMethod(JLabel, getVerticalTextPosition, int32_t)},
+		{"imageUpdate", "(Ljava/awt/Image;IIIII)Z", nullptr, $PUBLIC, $virtualMethod(JLabel, imageUpdate, bool, $Image*, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"paramString", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(JLabel, paramString, $String*)},
+		{"setDisabledIcon", "(Ljavax/swing/Icon;)V", nullptr, $PUBLIC, $virtualMethod(JLabel, setDisabledIcon, void, $Icon*), nullptr, nullptr, setDisabledIconmethodAnnotations$$},
+		{"setDisplayedMnemonic", "(I)V", nullptr, $PUBLIC, $virtualMethod(JLabel, setDisplayedMnemonic, void, int32_t), nullptr, nullptr, setDisplayedMnemonicmethodAnnotations$$},
+		{"setDisplayedMnemonic", "(C)V", nullptr, $PUBLIC, $virtualMethod(JLabel, setDisplayedMnemonic, void, char16_t)},
+		{"setDisplayedMnemonicIndex", "(I)V", nullptr, $PUBLIC, $virtualMethod(JLabel, setDisplayedMnemonicIndex, void, int32_t), "java.lang.IllegalArgumentException", nullptr, setDisplayedMnemonicIndexmethodAnnotations$$},
+		{"setHorizontalAlignment", "(I)V", nullptr, $PUBLIC, $virtualMethod(JLabel, setHorizontalAlignment, void, int32_t), nullptr, nullptr, setHorizontalAlignmentmethodAnnotations$$},
+		{"setHorizontalTextPosition", "(I)V", nullptr, $PUBLIC, $virtualMethod(JLabel, setHorizontalTextPosition, void, int32_t), nullptr, nullptr, setHorizontalTextPositionmethodAnnotations$$},
+		{"setIcon", "(Ljavax/swing/Icon;)V", nullptr, $PUBLIC, $virtualMethod(JLabel, setIcon, void, $Icon*), nullptr, nullptr, setIconmethodAnnotations$$},
+		{"setIconTextGap", "(I)V", nullptr, $PUBLIC, $virtualMethod(JLabel, setIconTextGap, void, int32_t), nullptr, nullptr, setIconTextGapmethodAnnotations$$},
+		{"setLabelFor", "(Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(JLabel, setLabelFor, void, $Component*), nullptr, nullptr, setLabelFormethodAnnotations$$},
+		{"setText", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(JLabel, setText, void, $String*), nullptr, nullptr, setTextmethodAnnotations$$},
+		{"setUI", "(Ljavax/swing/plaf/LabelUI;)V", nullptr, $PUBLIC, $virtualMethod(JLabel, setUI, void, $LabelUI*), nullptr, nullptr, setUImethodAnnotations$$},
+		{"setVerticalAlignment", "(I)V", nullptr, $PUBLIC, $virtualMethod(JLabel, setVerticalAlignment, void, int32_t), nullptr, nullptr, setVerticalAlignmentmethodAnnotations$$},
+		{"setVerticalTextPosition", "(I)V", nullptr, $PUBLIC, $virtualMethod(JLabel, setVerticalTextPosition, void, int32_t), nullptr, nullptr, setVerticalTextPositionmethodAnnotations$$},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"updateUI", "()V", nullptr, $PUBLIC, $virtualMethod(JLabel, updateUI, void)},
+		{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(JLabel, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.JLabel$AccessibleJLabel", "javax.swing.JLabel", "AccessibleJLabel", $PROTECTED},
+		{}
+	};
+	$NamedAttribute annotations$$$namedAttribute[] = {
+		{"defaultProperty", 's', "UI"},
+		{"description", 's', "A component that displays a short string and an icon."},
+		{}
+	};
+	$NamedAttribute annotations$$$namedAttribute$1[] = {
+		{"value", 'Z', "false"},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/beans/JavaBean;", annotations$$$namedAttribute},
+		{"Ljavax/swing/SwingContainer;", annotations$$$namedAttribute$1},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.JLabel",
+		"javax.swing.JComponent",
+		"javax.swing.SwingConstants,javax.accessibility.Accessible",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		annotations$$,
+		nullptr,
+		"javax.swing.JLabel$AccessibleJLabel,javax.swing.JLabel$AccessibleJLabel$LabelKeyBinding"
+	};
+	$loadClass(JLabel, name, initialize, &classInfo$$, JLabel::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JLabel));
+	});
 	return class$;
 }
 

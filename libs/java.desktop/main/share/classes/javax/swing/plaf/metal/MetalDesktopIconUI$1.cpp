@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/metal/MetalDesktopIconUI$1.h>
-
 #include <java/awt/event/ActionEvent.h>
 #include <javax/swing/plaf/metal/MetalDesktopIconUI.h>
 #include <jcpp.h>
@@ -17,48 +16,6 @@ namespace javax {
 		namespace plaf {
 			namespace metal {
 
-$FieldInfo _MetalDesktopIconUI$1_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/plaf/metal/MetalDesktopIconUI;", nullptr, $FINAL | $SYNTHETIC, $field(MetalDesktopIconUI$1, this$0)},
-	{}
-};
-
-$MethodInfo _MetalDesktopIconUI$1_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/plaf/metal/MetalDesktopIconUI;)V", nullptr, 0, $method(MetalDesktopIconUI$1, init$, void, $MetalDesktopIconUI*)},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(MetalDesktopIconUI$1, actionPerformed, void, $ActionEvent*)},
-	{}
-};
-
-$EnclosingMethodInfo _MetalDesktopIconUI$1_EnclosingMethodInfo_ = {
-	"javax.swing.plaf.metal.MetalDesktopIconUI",
-	"installComponents",
-	"()V"
-};
-
-$InnerClassInfo _MetalDesktopIconUI$1_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.metal.MetalDesktopIconUI$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _MetalDesktopIconUI$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.metal.MetalDesktopIconUI$1",
-	"java.lang.Object",
-	"java.awt.event.ActionListener",
-	_MetalDesktopIconUI$1_FieldInfo_,
-	_MetalDesktopIconUI$1_MethodInfo_,
-	nullptr,
-	&_MetalDesktopIconUI$1_EnclosingMethodInfo_,
-	_MetalDesktopIconUI$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.metal.MetalDesktopIconUI"
-};
-
-$Object* allocate$MetalDesktopIconUI$1($Class* clazz) {
-	return $of($alloc(MetalDesktopIconUI$1));
-}
-
 void MetalDesktopIconUI$1::init$($MetalDesktopIconUI* this$0) {
 	$set(this, this$0, this$0);
 }
@@ -71,7 +28,42 @@ MetalDesktopIconUI$1::MetalDesktopIconUI$1() {
 }
 
 $Class* MetalDesktopIconUI$1::load$($String* name, bool initialize) {
-	$loadClass(MetalDesktopIconUI$1, name, initialize, &_MetalDesktopIconUI$1_ClassInfo_, allocate$MetalDesktopIconUI$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/plaf/metal/MetalDesktopIconUI;", nullptr, $FINAL | $SYNTHETIC, $field(MetalDesktopIconUI$1, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/plaf/metal/MetalDesktopIconUI;)V", nullptr, 0, $method(MetalDesktopIconUI$1, init$, void, $MetalDesktopIconUI*)},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(MetalDesktopIconUI$1, actionPerformed, void, $ActionEvent*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"javax.swing.plaf.metal.MetalDesktopIconUI",
+		"installComponents",
+		"()V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.metal.MetalDesktopIconUI$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.metal.MetalDesktopIconUI$1",
+		"java.lang.Object",
+		"java.awt.event.ActionListener",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.metal.MetalDesktopIconUI"
+	};
+	$loadClass(MetalDesktopIconUI$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MetalDesktopIconUI$1);
+	});
 	return class$;
 }
 

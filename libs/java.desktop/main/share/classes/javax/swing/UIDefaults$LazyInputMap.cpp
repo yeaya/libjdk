@@ -1,5 +1,4 @@
 #include <javax/swing/UIDefaults$LazyInputMap.h>
-
 #include <javax/swing/InputMap.h>
 #include <javax/swing/LookAndFeel.h>
 #include <javax/swing/UIDefaults.h>
@@ -16,43 +15,6 @@ using $UIDefaults = ::javax::swing::UIDefaults;
 namespace javax {
 	namespace swing {
 
-$FieldInfo _UIDefaults$LazyInputMap_FieldInfo_[] = {
-	{"bindings", "[Ljava/lang/Object;", nullptr, $PRIVATE, $field(UIDefaults$LazyInputMap, bindings)},
-	{}
-};
-
-$MethodInfo _UIDefaults$LazyInputMap_MethodInfo_[] = {
-	{"<init>", "([Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(UIDefaults$LazyInputMap, init$, void, $ObjectArray*)},
-	{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(UIDefaults$LazyInputMap, createValue, $Object*, $UIDefaults*)},
-	{}
-};
-
-$InnerClassInfo _UIDefaults$LazyInputMap_InnerClassesInfo_[] = {
-	{"javax.swing.UIDefaults$LazyInputMap", "javax.swing.UIDefaults", "LazyInputMap", $PUBLIC | $STATIC},
-	{"javax.swing.UIDefaults$LazyValue", "javax.swing.UIDefaults", "LazyValue", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _UIDefaults$LazyInputMap_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.UIDefaults$LazyInputMap",
-	"java.lang.Object",
-	"javax.swing.UIDefaults$LazyValue",
-	_UIDefaults$LazyInputMap_FieldInfo_,
-	_UIDefaults$LazyInputMap_MethodInfo_,
-	nullptr,
-	nullptr,
-	_UIDefaults$LazyInputMap_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.UIDefaults"
-};
-
-$Object* allocate$UIDefaults$LazyInputMap($Class* clazz) {
-	return $of($alloc(UIDefaults$LazyInputMap));
-}
-
 void UIDefaults$LazyInputMap::init$($ObjectArray* bindings) {
 	$set(this, bindings, bindings);
 }
@@ -60,16 +22,47 @@ void UIDefaults$LazyInputMap::init$($ObjectArray* bindings) {
 $Object* UIDefaults$LazyInputMap::createValue($UIDefaults* table) {
 	if (this->bindings != nullptr) {
 		$var($InputMap, km, $LookAndFeel::makeInputMap(this->bindings));
-		return $of(km);
+		return km;
 	}
-	return $of(nullptr);
+	return nullptr;
 }
 
 UIDefaults$LazyInputMap::UIDefaults$LazyInputMap() {
 }
 
 $Class* UIDefaults$LazyInputMap::load$($String* name, bool initialize) {
-	$loadClass(UIDefaults$LazyInputMap, name, initialize, &_UIDefaults$LazyInputMap_ClassInfo_, allocate$UIDefaults$LazyInputMap);
+	$FieldInfo fieldInfos$$[] = {
+		{"bindings", "[Ljava/lang/Object;", nullptr, $PRIVATE, $field(UIDefaults$LazyInputMap, bindings)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "([Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(UIDefaults$LazyInputMap, init$, void, $ObjectArray*)},
+		{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(UIDefaults$LazyInputMap, createValue, $Object*, $UIDefaults*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.UIDefaults$LazyInputMap", "javax.swing.UIDefaults", "LazyInputMap", $PUBLIC | $STATIC},
+		{"javax.swing.UIDefaults$LazyValue", "javax.swing.UIDefaults", "LazyValue", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.UIDefaults$LazyInputMap",
+		"java.lang.Object",
+		"javax.swing.UIDefaults$LazyValue",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.UIDefaults"
+	};
+	$loadClass(UIDefaults$LazyInputMap, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(UIDefaults$LazyInputMap);
+	});
 	return class$;
 }
 

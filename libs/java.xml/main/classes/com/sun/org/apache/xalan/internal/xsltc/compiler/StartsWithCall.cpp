@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/StartsWithCall.h>
-
 #include <com/sun/org/apache/bcel/internal/generic/ConstantPoolGen.h>
 #include <com/sun/org/apache/bcel/internal/generic/INVOKEVIRTUAL.h>
 #include <com/sun/org/apache/bcel/internal/generic/Instruction.h>
@@ -11,7 +10,6 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/FunctionCall.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/QName.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/SymbolTable.h>
-#include <com/sun/org/apache/xalan/internal/xsltc/compiler/SyntaxTreeNode.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/util/ErrorMsg.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator.h>
@@ -26,15 +24,12 @@
 
 using $ConstantPoolGen = ::com::sun::org::apache::bcel::internal::generic::ConstantPoolGen;
 using $INVOKEVIRTUAL = ::com::sun::org::apache::bcel::internal::generic::INVOKEVIRTUAL;
-using $Instruction = ::com::sun::org::apache::bcel::internal::generic::Instruction;
 using $InstructionList = ::com::sun::org::apache::bcel::internal::generic::InstructionList;
 using $CastExpr = ::com::sun::org::apache::xalan::internal::xsltc::compiler::CastExpr;
 using $Constants = ::com::sun::org::apache::xalan::internal::xsltc::compiler::Constants;
-using $Expression = ::com::sun::org::apache::xalan::internal::xsltc::compiler::Expression;
 using $FunctionCall = ::com::sun::org::apache::xalan::internal::xsltc::compiler::FunctionCall;
 using $QName = ::com::sun::org::apache::xalan::internal::xsltc::compiler::QName;
 using $SymbolTable = ::com::sun::org::apache::xalan::internal::xsltc::compiler::SymbolTable;
-using $SyntaxTreeNode = ::com::sun::org::apache::xalan::internal::xsltc::compiler::SyntaxTreeNode;
 using $ClassGenerator = ::com::sun::org::apache::xalan::internal::xsltc::compiler::util::ClassGenerator;
 using $ErrorMsg = ::com::sun::org::apache::xalan::internal::xsltc::compiler::util::ErrorMsg;
 using $MethodGenerator = ::com::sun::org::apache::xalan::internal::xsltc::compiler::util::MethodGenerator;
@@ -54,32 +49,6 @@ namespace com {
 						namespace xsltc {
 							namespace compiler {
 
-$FieldInfo _StartsWithCall_FieldInfo_[] = {
-	{"_base", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Expression;", nullptr, $PRIVATE, $field(StartsWithCall, _base)},
-	{"_token", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Expression;", nullptr, $PRIVATE, $field(StartsWithCall, _token)},
-	{}
-};
-
-$MethodInfo _StartsWithCall_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;Ljava/util/List;)V", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;Ljava/util/List<Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Expression;>;)V", $PUBLIC, $method(StartsWithCall, init$, void, $QName*, $List*)},
-	{"translate", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;)V", nullptr, $PUBLIC, $virtualMethod(StartsWithCall, translate, void, $ClassGenerator*, $MethodGenerator*)},
-	{"typeCheck", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SymbolTable;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/Type;", nullptr, $PUBLIC, $virtualMethod(StartsWithCall, typeCheck, $Type*, $SymbolTable*), "com.sun.org.apache.xalan.internal.xsltc.compiler.util.TypeCheckError"},
-	{}
-};
-
-$ClassInfo _StartsWithCall_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xalan.internal.xsltc.compiler.StartsWithCall",
-	"com.sun.org.apache.xalan.internal.xsltc.compiler.FunctionCall",
-	nullptr,
-	_StartsWithCall_FieldInfo_,
-	_StartsWithCall_MethodInfo_
-};
-
-$Object* allocate$StartsWithCall($Class* clazz) {
-	return $of($alloc(StartsWithCall));
-}
-
 void StartsWithCall::init$($QName* fname, $List* arguments) {
 	$FunctionCall::init$(fname, arguments);
 	$set(this, _base, nullptr);
@@ -87,10 +56,10 @@ void StartsWithCall::init$($QName* fname, $List* arguments) {
 }
 
 $Type* StartsWithCall::typeCheck($SymbolTable* stable) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (argumentCount() != 2) {
 		$init($ErrorMsg);
-		$var($ErrorMsg, err, $new($ErrorMsg, $ErrorMsg::ILLEGAL_ARG_ERR, $($of(getName())), static_cast<$SyntaxTreeNode*>(this)));
+		$var($ErrorMsg, err, $new($ErrorMsg, $ErrorMsg::ILLEGAL_ARG_ERR, $(getName()), this));
 		$throwNew($TypeCheckError, err);
 	}
 	$set(this, _base, argument(0));
@@ -108,20 +77,41 @@ $Type* StartsWithCall::typeCheck($SymbolTable* stable) {
 }
 
 void StartsWithCall::translate($ClassGenerator* classGen, $MethodGenerator* methodGen) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ConstantPoolGen, cpg, $nc(classGen)->getConstantPool());
 	$var($InstructionList, il, $nc(methodGen)->getInstructionList());
 	$nc(this->_base)->translate(classGen, methodGen);
 	$nc(this->_token)->translate(classGen, methodGen);
 	$init($Constants);
-	$nc(il)->append(static_cast<$Instruction*>($$new($INVOKEVIRTUAL, $nc(cpg)->addMethodref($Constants::STRING_CLASS, "startsWith"_s, $$str({"("_s, $Constants::STRING_SIG, ")Z"_s})))));
+	$nc(il)->append($$new($INVOKEVIRTUAL, $nc(cpg)->addMethodref($Constants::STRING_CLASS, "startsWith"_s, $$str({"("_s, $Constants::STRING_SIG, ")Z"_s}))));
 }
 
 StartsWithCall::StartsWithCall() {
 }
 
 $Class* StartsWithCall::load$($String* name, bool initialize) {
-	$loadClass(StartsWithCall, name, initialize, &_StartsWithCall_ClassInfo_, allocate$StartsWithCall);
+	$FieldInfo fieldInfos$$[] = {
+		{"_base", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Expression;", nullptr, $PRIVATE, $field(StartsWithCall, _base)},
+		{"_token", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Expression;", nullptr, $PRIVATE, $field(StartsWithCall, _token)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;Ljava/util/List;)V", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;Ljava/util/List<Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Expression;>;)V", $PUBLIC, $method(StartsWithCall, init$, void, $QName*, $List*)},
+		{"translate", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;)V", nullptr, $PUBLIC, $virtualMethod(StartsWithCall, translate, void, $ClassGenerator*, $MethodGenerator*)},
+		{"typeCheck", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SymbolTable;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/Type;", nullptr, $PUBLIC, $virtualMethod(StartsWithCall, typeCheck, $Type*, $SymbolTable*), "com.sun.org.apache.xalan.internal.xsltc.compiler.util.TypeCheckError"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xalan.internal.xsltc.compiler.StartsWithCall",
+		"com.sun.org.apache.xalan.internal.xsltc.compiler.FunctionCall",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(StartsWithCall, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(StartsWithCall);
+	});
 	return class$;
 }
 

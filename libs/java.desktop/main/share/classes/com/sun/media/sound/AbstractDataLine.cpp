@@ -1,5 +1,4 @@
 #include <com/sun/media/sound/AbstractDataLine.h>
-
 #include <com/sun/media/sound/AbstractLine.h>
 #include <com/sun/media/sound/AbstractMixer.h>
 #include <com/sun/media/sound/Platform.h>
@@ -37,7 +36,6 @@ using $AudioSystem = ::javax::sound::sampled::AudioSystem;
 using $Control = ::javax::sound::sampled::Control;
 using $Control$Type = ::javax::sound::sampled::Control$Type;
 using $DataLine$Info = ::javax::sound::sampled::DataLine$Info;
-using $Line = ::javax::sound::sampled::Line;
 using $Line$Info = ::javax::sound::sampled::Line$Info;
 using $LineEvent = ::javax::sound::sampled::LineEvent;
 using $LineEvent$Type = ::javax::sound::sampled::LineEvent$Type;
@@ -48,75 +46,6 @@ namespace com {
 	namespace sun {
 		namespace media {
 			namespace sound {
-
-$FieldInfo _AbstractDataLine_FieldInfo_[] = {
-	{"defaultFormat", "Ljavax/sound/sampled/AudioFormat;", nullptr, $PRIVATE | $FINAL, $field(AbstractDataLine, defaultFormat)},
-	{"defaultBufferSize", "I", nullptr, $PRIVATE | $FINAL, $field(AbstractDataLine, defaultBufferSize)},
-	{"lock", "Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $field(AbstractDataLine, lock)},
-	{"format", "Ljavax/sound/sampled/AudioFormat;", nullptr, $PROTECTED, $field(AbstractDataLine, format)},
-	{"bufferSize", "I", nullptr, $PROTECTED, $field(AbstractDataLine, bufferSize)},
-	{"running", "Z", nullptr, $PRIVATE | $VOLATILE, $field(AbstractDataLine, running)},
-	{"started", "Z", nullptr, $PRIVATE | $VOLATILE, $field(AbstractDataLine, started)},
-	{"active", "Z", nullptr, $PRIVATE | $VOLATILE, $field(AbstractDataLine, active)},
-	{}
-};
-
-$MethodInfo _AbstractDataLine_MethodInfo_[] = {
-	{"*addLineListener", "(Ljavax/sound/sampled/LineListener;)V", nullptr, $PUBLIC | $FINAL},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*getControl", "(Ljavax/sound/sampled/Control$Type;)Ljavax/sound/sampled/Control;", nullptr, $PUBLIC | $FINAL},
-	{"*getControls", "()[Ljavax/sound/sampled/Control;", nullptr, $PUBLIC | $FINAL},
-	{"*getFramePosition", "()I", nullptr, $PUBLIC | $FINAL},
-	{"*getLineInfo", "()Ljavax/sound/sampled/Line$Info;", nullptr, $PUBLIC | $FINAL},
-	{"*getLongFramePosition", "()J", nullptr, $PUBLIC},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljavax/sound/sampled/DataLine$Info;Lcom/sun/media/sound/AbstractMixer;[Ljavax/sound/sampled/Control;)V", nullptr, $PROTECTED, $method(AbstractDataLine, init$, void, $DataLine$Info*, $AbstractMixer*, $ControlArray*)},
-	{"<init>", "(Ljavax/sound/sampled/DataLine$Info;Lcom/sun/media/sound/AbstractMixer;[Ljavax/sound/sampled/Control;Ljavax/sound/sampled/AudioFormat;I)V", nullptr, $PROTECTED, $method(AbstractDataLine, init$, void, $DataLine$Info*, $AbstractMixer*, $ControlArray*, $AudioFormat*, int32_t)},
-	{"available", "()I", nullptr, $PUBLIC, $virtualMethod(AbstractDataLine, available, int32_t)},
-	{"close", "()V", nullptr, $PUBLIC | $FINAL, $virtualMethod(AbstractDataLine, close, void)},
-	{"drain", "()V", nullptr, $PUBLIC, $virtualMethod(AbstractDataLine, drain, void)},
-	{"flush", "()V", nullptr, $PUBLIC, $virtualMethod(AbstractDataLine, flush, void)},
-	{"getBufferSize", "()I", nullptr, $PUBLIC | $FINAL, $virtualMethod(AbstractDataLine, getBufferSize, int32_t)},
-	{"getFormat", "()Ljavax/sound/sampled/AudioFormat;", nullptr, $PUBLIC | $FINAL, $virtualMethod(AbstractDataLine, getFormat, $AudioFormat*)},
-	{"getLevel", "()F", nullptr, $PUBLIC | $FINAL, $virtualMethod(AbstractDataLine, getLevel, float)},
-	{"getMicrosecondPosition", "()J", nullptr, $PUBLIC | $FINAL, $virtualMethod(AbstractDataLine, getMicrosecondPosition, int64_t)},
-	{"implClose", "()V", nullptr, $ABSTRACT, $virtualMethod(AbstractDataLine, implClose, void)},
-	{"implOpen", "(Ljavax/sound/sampled/AudioFormat;I)V", nullptr, $ABSTRACT, $virtualMethod(AbstractDataLine, implOpen, void, $AudioFormat*, int32_t), "javax.sound.sampled.LineUnavailableException"},
-	{"implStart", "()V", nullptr, $ABSTRACT, $virtualMethod(AbstractDataLine, implStart, void)},
-	{"implStop", "()V", nullptr, $ABSTRACT, $virtualMethod(AbstractDataLine, implStop, void)},
-	{"isActive", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(AbstractDataLine, isActive, bool)},
-	{"*isControlSupported", "(Ljavax/sound/sampled/Control$Type;)Z", nullptr, $PUBLIC | $FINAL},
-	{"*isOpen", "()Z", nullptr, $PUBLIC | $FINAL},
-	{"isRunning", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(AbstractDataLine, isRunning, bool)},
-	{"isStartedRunning", "()Z", nullptr, $FINAL, $method(AbstractDataLine, isStartedRunning, bool)},
-	{"open", "(Ljavax/sound/sampled/AudioFormat;I)V", nullptr, $PUBLIC | $FINAL, $method(AbstractDataLine, open, void, $AudioFormat*, int32_t), "javax.sound.sampled.LineUnavailableException"},
-	{"open", "(Ljavax/sound/sampled/AudioFormat;)V", nullptr, $PUBLIC | $FINAL, $method(AbstractDataLine, open, void, $AudioFormat*), "javax.sound.sampled.LineUnavailableException"},
-	{"open", "()V", nullptr, $PUBLIC | $FINAL, $virtualMethod(AbstractDataLine, open, void), "javax.sound.sampled.LineUnavailableException"},
-	{"*removeLineListener", "(Ljavax/sound/sampled/LineListener;)V", nullptr, $PUBLIC | $FINAL},
-	{"setActive", "(Z)V", nullptr, $FINAL, $method(AbstractDataLine, setActive, void, bool)},
-	{"setBufferSize", "(I)I", nullptr, $PUBLIC | $FINAL, $method(AbstractDataLine, setBufferSize, int32_t, int32_t)},
-	{"setEOM", "()V", nullptr, $FINAL, $method(AbstractDataLine, setEOM, void)},
-	{"setStarted", "(Z)V", nullptr, $FINAL, $method(AbstractDataLine, setStarted, void, bool)},
-	{"start", "()V", nullptr, $PUBLIC | $FINAL, $virtualMethod(AbstractDataLine, start, void)},
-	{"stop", "()V", nullptr, $PUBLIC | $FINAL, $virtualMethod(AbstractDataLine, stop, void)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _AbstractDataLine_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"com.sun.media.sound.AbstractDataLine",
-	"com.sun.media.sound.AbstractLine",
-	"javax.sound.sampled.DataLine",
-	_AbstractDataLine_FieldInfo_,
-	_AbstractDataLine_MethodInfo_
-};
-
-$Object* allocate$AbstractDataLine($Class* clazz) {
-	return $of($alloc(AbstractDataLine));
-}
 
 $Line$Info* AbstractDataLine::getLineInfo() {
 	 return this->$AbstractLine::getLineInfo();
@@ -189,30 +118,34 @@ void AbstractDataLine::init$($DataLine$Info* info, $AbstractMixer* mixer, $Contr
 	if (bufferSize > 0) {
 		this->defaultBufferSize = bufferSize;
 	} else {
-		int32_t var$0 = ($cast(int32_t, ($nc(this->defaultFormat)->getFrameRate() / 2)));
-		this->defaultBufferSize = var$0 * $nc(this->defaultFormat)->getFrameSize();
+		int32_t var$0 = $cast(int32_t, ($nc(this->defaultFormat)->getFrameRate() / 2));
+		this->defaultBufferSize = var$0 * this->defaultFormat->getFrameSize();
 	}
 	$set(this, format, this->defaultFormat);
 	this->bufferSize = this->defaultBufferSize;
 }
 
 void AbstractDataLine::open($AudioFormat* format, int32_t bufferSize) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized(this->mixer) {
 		if (!isOpen()) {
 			$Toolkit::isFullySpecifiedAudioFormat(format);
-			$nc(this->mixer)->open(static_cast<$Line*>(static_cast<$AbstractLine*>(this)));
+			$nc(this->mixer)->open($cast($AbstractLine, this));
 			try {
 				implOpen(format, bufferSize);
 				setOpen(true);
 			} catch ($LineUnavailableException& e) {
-				$nc(this->mixer)->close(static_cast<$Line*>(static_cast<$AbstractLine*>(this)));
+				$nc(this->mixer)->close($cast($AbstractLine, this));
 				$throw(e);
 			}
 		} else {
 			if (!$nc(format)->matches($(getFormat()))) {
-				$var($String, var$0, $$str({"Line is already open with format "_s, $(getFormat()), " and bufferSize "_s}));
-				$throwNew($IllegalStateException, $$concat(var$0, $$str(getBufferSize())));
+				$var($StringBuilder, var$0, $new($StringBuilder));
+				var$0->append("Line is already open with format "_s);
+				var$0->append($(getFormat()));
+				var$0->append(" and bufferSize "_s);
+				var$0->append(getBufferSize());
+				$throwNew($IllegalStateException, $$str(var$0));
 			}
 			if (bufferSize > 0) {
 				setBufferSize(bufferSize);
@@ -239,14 +172,14 @@ void AbstractDataLine::start() {
 	$synchronized(this->mixer) {
 		if (isOpen()) {
 			if (!isStartedRunning()) {
-				$nc(this->mixer)->start(static_cast<$Line*>(static_cast<$AbstractLine*>(this)));
+				$nc(this->mixer)->start($cast($AbstractLine, this));
 				implStart();
 				this->running = true;
 			}
 		}
 	}
 	$synchronized(this->lock) {
-		$nc($of(this->lock))->notifyAll();
+		this->lock->notifyAll();
 	}
 }
 
@@ -255,7 +188,7 @@ void AbstractDataLine::stop() {
 		if (isOpen()) {
 			if (isStartedRunning()) {
 				implStop();
-				$nc(this->mixer)->stop(static_cast<$Line*>(static_cast<$AbstractLine*>(this)));
+				$nc(this->mixer)->stop($cast($AbstractLine, this));
 				this->running = false;
 				if (this->started && (!isActive())) {
 					setStarted(false);
@@ -264,7 +197,7 @@ void AbstractDataLine::stop() {
 		}
 	}
 	$synchronized(this->lock) {
-		$nc($of(this->lock))->notifyAll();
+		this->lock->notifyAll();
 	}
 }
 
@@ -309,7 +242,7 @@ void AbstractDataLine::setActive(bool active) {
 }
 
 void AbstractDataLine::setStarted(bool started) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool sendEvents = false;
 	int64_t position = getLongFramePosition();
 	if (this->started != started) {
@@ -319,10 +252,10 @@ void AbstractDataLine::setStarted(bool started) {
 	if (sendEvents) {
 		if (started) {
 			$init($LineEvent$Type);
-			this->sendEvents($$new($LineEvent, static_cast<$Line*>(static_cast<$AbstractLine*>(this)), $LineEvent$Type::START, position));
+			this->sendEvents($$new($LineEvent, $cast($AbstractLine, this), $LineEvent$Type::START, position));
 		} else {
 			$init($LineEvent$Type);
-			this->sendEvents($$new($LineEvent, static_cast<$Line*>(static_cast<$AbstractLine*>(this)), $LineEvent$Type::STOP, position));
+			this->sendEvents($$new($LineEvent, $cast($AbstractLine, this), $LineEvent$Type::STOP, position));
 		}
 	}
 }
@@ -341,7 +274,7 @@ void AbstractDataLine::close() {
 			stop();
 			setOpen(false);
 			implClose();
-			$nc(this->mixer)->close(static_cast<$Line*>(static_cast<$AbstractLine*>(this)));
+			$nc(this->mixer)->close($cast($AbstractLine, this));
 			$set(this, format, this->defaultFormat);
 			this->bufferSize = this->defaultBufferSize;
 		}
@@ -352,7 +285,71 @@ AbstractDataLine::AbstractDataLine() {
 }
 
 $Class* AbstractDataLine::load$($String* name, bool initialize) {
-	$loadClass(AbstractDataLine, name, initialize, &_AbstractDataLine_ClassInfo_, allocate$AbstractDataLine);
+	$FieldInfo fieldInfos$$[] = {
+		{"defaultFormat", "Ljavax/sound/sampled/AudioFormat;", nullptr, $PRIVATE | $FINAL, $field(AbstractDataLine, defaultFormat)},
+		{"defaultBufferSize", "I", nullptr, $PRIVATE | $FINAL, $field(AbstractDataLine, defaultBufferSize)},
+		{"lock", "Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $field(AbstractDataLine, lock)},
+		{"format", "Ljavax/sound/sampled/AudioFormat;", nullptr, $PROTECTED, $field(AbstractDataLine, format)},
+		{"bufferSize", "I", nullptr, $PROTECTED, $field(AbstractDataLine, bufferSize)},
+		{"running", "Z", nullptr, $PRIVATE | $VOLATILE, $field(AbstractDataLine, running)},
+		{"started", "Z", nullptr, $PRIVATE | $VOLATILE, $field(AbstractDataLine, started)},
+		{"active", "Z", nullptr, $PRIVATE | $VOLATILE, $field(AbstractDataLine, active)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*addLineListener", "(Ljavax/sound/sampled/LineListener;)V", nullptr, $PUBLIC | $FINAL},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*getControl", "(Ljavax/sound/sampled/Control$Type;)Ljavax/sound/sampled/Control;", nullptr, $PUBLIC | $FINAL},
+		{"*getControls", "()[Ljavax/sound/sampled/Control;", nullptr, $PUBLIC | $FINAL},
+		{"*getFramePosition", "()I", nullptr, $PUBLIC | $FINAL},
+		{"*getLineInfo", "()Ljavax/sound/sampled/Line$Info;", nullptr, $PUBLIC | $FINAL},
+		{"*getLongFramePosition", "()J", nullptr, $PUBLIC},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljavax/sound/sampled/DataLine$Info;Lcom/sun/media/sound/AbstractMixer;[Ljavax/sound/sampled/Control;)V", nullptr, $PROTECTED, $method(AbstractDataLine, init$, void, $DataLine$Info*, $AbstractMixer*, $ControlArray*)},
+		{"<init>", "(Ljavax/sound/sampled/DataLine$Info;Lcom/sun/media/sound/AbstractMixer;[Ljavax/sound/sampled/Control;Ljavax/sound/sampled/AudioFormat;I)V", nullptr, $PROTECTED, $method(AbstractDataLine, init$, void, $DataLine$Info*, $AbstractMixer*, $ControlArray*, $AudioFormat*, int32_t)},
+		{"available", "()I", nullptr, $PUBLIC, $virtualMethod(AbstractDataLine, available, int32_t)},
+		{"close", "()V", nullptr, $PUBLIC | $FINAL, $virtualMethod(AbstractDataLine, close, void)},
+		{"drain", "()V", nullptr, $PUBLIC, $virtualMethod(AbstractDataLine, drain, void)},
+		{"flush", "()V", nullptr, $PUBLIC, $virtualMethod(AbstractDataLine, flush, void)},
+		{"getBufferSize", "()I", nullptr, $PUBLIC | $FINAL, $virtualMethod(AbstractDataLine, getBufferSize, int32_t)},
+		{"getFormat", "()Ljavax/sound/sampled/AudioFormat;", nullptr, $PUBLIC | $FINAL, $virtualMethod(AbstractDataLine, getFormat, $AudioFormat*)},
+		{"getLevel", "()F", nullptr, $PUBLIC | $FINAL, $virtualMethod(AbstractDataLine, getLevel, float)},
+		{"getMicrosecondPosition", "()J", nullptr, $PUBLIC | $FINAL, $virtualMethod(AbstractDataLine, getMicrosecondPosition, int64_t)},
+		{"implClose", "()V", nullptr, $ABSTRACT, $virtualMethod(AbstractDataLine, implClose, void)},
+		{"implOpen", "(Ljavax/sound/sampled/AudioFormat;I)V", nullptr, $ABSTRACT, $virtualMethod(AbstractDataLine, implOpen, void, $AudioFormat*, int32_t), "javax.sound.sampled.LineUnavailableException"},
+		{"implStart", "()V", nullptr, $ABSTRACT, $virtualMethod(AbstractDataLine, implStart, void)},
+		{"implStop", "()V", nullptr, $ABSTRACT, $virtualMethod(AbstractDataLine, implStop, void)},
+		{"isActive", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(AbstractDataLine, isActive, bool)},
+		{"*isControlSupported", "(Ljavax/sound/sampled/Control$Type;)Z", nullptr, $PUBLIC | $FINAL},
+		{"*isOpen", "()Z", nullptr, $PUBLIC | $FINAL},
+		{"isRunning", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(AbstractDataLine, isRunning, bool)},
+		{"isStartedRunning", "()Z", nullptr, $FINAL, $method(AbstractDataLine, isStartedRunning, bool)},
+		{"open", "(Ljavax/sound/sampled/AudioFormat;I)V", nullptr, $PUBLIC | $FINAL, $method(AbstractDataLine, open, void, $AudioFormat*, int32_t), "javax.sound.sampled.LineUnavailableException"},
+		{"open", "(Ljavax/sound/sampled/AudioFormat;)V", nullptr, $PUBLIC | $FINAL, $method(AbstractDataLine, open, void, $AudioFormat*), "javax.sound.sampled.LineUnavailableException"},
+		{"open", "()V", nullptr, $PUBLIC | $FINAL, $virtualMethod(AbstractDataLine, open, void), "javax.sound.sampled.LineUnavailableException"},
+		{"*removeLineListener", "(Ljavax/sound/sampled/LineListener;)V", nullptr, $PUBLIC | $FINAL},
+		{"setActive", "(Z)V", nullptr, $FINAL, $method(AbstractDataLine, setActive, void, bool)},
+		{"setBufferSize", "(I)I", nullptr, $PUBLIC | $FINAL, $method(AbstractDataLine, setBufferSize, int32_t, int32_t)},
+		{"setEOM", "()V", nullptr, $FINAL, $method(AbstractDataLine, setEOM, void)},
+		{"setStarted", "(Z)V", nullptr, $FINAL, $method(AbstractDataLine, setStarted, void, bool)},
+		{"start", "()V", nullptr, $PUBLIC | $FINAL, $virtualMethod(AbstractDataLine, start, void)},
+		{"stop", "()V", nullptr, $PUBLIC | $FINAL, $virtualMethod(AbstractDataLine, stop, void)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"com.sun.media.sound.AbstractDataLine",
+		"com.sun.media.sound.AbstractLine",
+		"javax.sound.sampled.DataLine",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(AbstractDataLine, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AbstractDataLine));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/apple/laf/AquaButtonBorder$Dynamic$1.h>
-
 #include <com/apple/laf/AquaButtonBorder$Dynamic.h>
 #include <com/apple/laf/AquaUtilControlSize$SizeDescriptor.h>
 #include <com/apple/laf/AquaUtilControlSize$SizeVariant.h>
@@ -16,65 +15,59 @@ namespace com {
 	namespace apple {
 		namespace laf {
 
-$MethodInfo _AquaButtonBorder$Dynamic$1_MethodInfo_[] = {
-	{"<init>", "(Lcom/apple/laf/AquaUtilControlSize$SizeVariant;)V", nullptr, 0, $method(AquaButtonBorder$Dynamic$1, init$, void, $AquaUtilControlSize$SizeVariant*)},
-	{"deriveMini", "(Lcom/apple/laf/AquaUtilControlSize$SizeVariant;)Lcom/apple/laf/AquaUtilControlSize$SizeVariant;", nullptr, $PUBLIC, $virtualMethod(AquaButtonBorder$Dynamic$1, deriveMini, $AquaUtilControlSize$SizeVariant*, $AquaUtilControlSize$SizeVariant*)},
-	{"deriveSmall", "(Lcom/apple/laf/AquaUtilControlSize$SizeVariant;)Lcom/apple/laf/AquaUtilControlSize$SizeVariant;", nullptr, $PUBLIC, $virtualMethod(AquaButtonBorder$Dynamic$1, deriveSmall, $AquaUtilControlSize$SizeVariant*, $AquaUtilControlSize$SizeVariant*)},
-	{}
-};
-
-$EnclosingMethodInfo _AquaButtonBorder$Dynamic$1_EnclosingMethodInfo_ = {
-	"com.apple.laf.AquaButtonBorder$Dynamic",
-	"<init>",
-	"()V"
-};
-
-$InnerClassInfo _AquaButtonBorder$Dynamic$1_InnerClassesInfo_[] = {
-	{"com.apple.laf.AquaButtonBorder$Dynamic", "com.apple.laf.AquaButtonBorder", "Dynamic", $PUBLIC | $STATIC},
-	{"com.apple.laf.AquaButtonBorder$Dynamic$1", nullptr, nullptr, 0},
-	{"com.apple.laf.AquaUtilControlSize$SizeDescriptor", "com.apple.laf.AquaUtilControlSize", "SizeDescriptor", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _AquaButtonBorder$Dynamic$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.apple.laf.AquaButtonBorder$Dynamic$1",
-	"com.apple.laf.AquaUtilControlSize$SizeDescriptor",
-	nullptr,
-	nullptr,
-	_AquaButtonBorder$Dynamic$1_MethodInfo_,
-	nullptr,
-	&_AquaButtonBorder$Dynamic$1_EnclosingMethodInfo_,
-	_AquaButtonBorder$Dynamic$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.apple.laf.AquaButtonBorder"
-};
-
-$Object* allocate$AquaButtonBorder$Dynamic$1($Class* clazz) {
-	return $of($alloc(AquaButtonBorder$Dynamic$1));
-}
-
 void AquaButtonBorder$Dynamic$1::init$($AquaUtilControlSize$SizeVariant* variant) {
 	$AquaUtilControlSize$SizeDescriptor::init$(variant);
 }
 
 $AquaUtilControlSize$SizeVariant* AquaButtonBorder$Dynamic$1::deriveSmall($AquaUtilControlSize$SizeVariant* v) {
-	$useLocalCurrentObjectStackCache();
-	return $AquaUtilControlSize$SizeDescriptor::deriveSmall($($nc($($nc($($nc(v)->alterMinSize(0, -2)))->alterMargins(0, -3, 0, -3)))->alterInsets(-3, -3, -4, -3)));
+	$useLocalObjectStack();
+	return $AquaUtilControlSize$SizeDescriptor::deriveSmall($($$nc($$nc($nc(v)->alterMinSize(0, -2))->alterMargins(0, -3, 0, -3))->alterInsets(-3, -3, -4, -3)));
 }
 
 $AquaUtilControlSize$SizeVariant* AquaButtonBorder$Dynamic$1::deriveMini($AquaUtilControlSize$SizeVariant* v) {
-	$useLocalCurrentObjectStackCache();
-	return $AquaUtilControlSize$SizeDescriptor::deriveMini($($nc($($nc($($nc(v)->alterMinSize(0, -2)))->alterMargins(0, -3, 0, -3)))->alterInsets(-3, -3, -1, -3)));
+	$useLocalObjectStack();
+	return $AquaUtilControlSize$SizeDescriptor::deriveMini($($$nc($$nc($nc(v)->alterMinSize(0, -2))->alterMargins(0, -3, 0, -3))->alterInsets(-3, -3, -1, -3)));
 }
 
 AquaButtonBorder$Dynamic$1::AquaButtonBorder$Dynamic$1() {
 }
 
 $Class* AquaButtonBorder$Dynamic$1::load$($String* name, bool initialize) {
-	$loadClass(AquaButtonBorder$Dynamic$1, name, initialize, &_AquaButtonBorder$Dynamic$1_ClassInfo_, allocate$AquaButtonBorder$Dynamic$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/apple/laf/AquaUtilControlSize$SizeVariant;)V", nullptr, 0, $method(AquaButtonBorder$Dynamic$1, init$, void, $AquaUtilControlSize$SizeVariant*)},
+		{"deriveMini", "(Lcom/apple/laf/AquaUtilControlSize$SizeVariant;)Lcom/apple/laf/AquaUtilControlSize$SizeVariant;", nullptr, $PUBLIC, $virtualMethod(AquaButtonBorder$Dynamic$1, deriveMini, $AquaUtilControlSize$SizeVariant*, $AquaUtilControlSize$SizeVariant*)},
+		{"deriveSmall", "(Lcom/apple/laf/AquaUtilControlSize$SizeVariant;)Lcom/apple/laf/AquaUtilControlSize$SizeVariant;", nullptr, $PUBLIC, $virtualMethod(AquaButtonBorder$Dynamic$1, deriveSmall, $AquaUtilControlSize$SizeVariant*, $AquaUtilControlSize$SizeVariant*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.apple.laf.AquaButtonBorder$Dynamic",
+		"<init>",
+		"()V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.laf.AquaButtonBorder$Dynamic", "com.apple.laf.AquaButtonBorder", "Dynamic", $PUBLIC | $STATIC},
+		{"com.apple.laf.AquaButtonBorder$Dynamic$1", nullptr, nullptr, 0},
+		{"com.apple.laf.AquaUtilControlSize$SizeDescriptor", "com.apple.laf.AquaUtilControlSize", "SizeDescriptor", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.apple.laf.AquaButtonBorder$Dynamic$1",
+		"com.apple.laf.AquaUtilControlSize$SizeDescriptor",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.apple.laf.AquaButtonBorder"
+	};
+	$loadClass(AquaButtonBorder$Dynamic$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AquaButtonBorder$Dynamic$1);
+	});
 	return class$;
 }
 

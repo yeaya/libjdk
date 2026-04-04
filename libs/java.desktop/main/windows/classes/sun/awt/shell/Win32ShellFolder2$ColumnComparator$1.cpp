@@ -1,5 +1,4 @@
 #include <sun/awt/shell/Win32ShellFolder2$ColumnComparator$1.h>
-
 #include <java/io/File.h>
 #include <sun/awt/shell/Win32ShellFolder2$ColumnComparator.h>
 #include <sun/awt/shell/Win32ShellFolder2.h>
@@ -19,51 +18,6 @@ namespace sun {
 	namespace awt {
 		namespace shell {
 
-$FieldInfo _Win32ShellFolder2$ColumnComparator$1_FieldInfo_[] = {
-	{"this$0", "Lsun/awt/shell/Win32ShellFolder2$ColumnComparator;", nullptr, $FINAL | $SYNTHETIC, $field(Win32ShellFolder2$ColumnComparator$1, this$0)},
-	{"val$o1", "Ljava/io/File;", nullptr, $FINAL | $SYNTHETIC, $field(Win32ShellFolder2$ColumnComparator$1, val$o1)},
-	{"val$o", "Ljava/io/File;", nullptr, $FINAL | $SYNTHETIC, $field(Win32ShellFolder2$ColumnComparator$1, val$o)},
-	{}
-};
-
-$MethodInfo _Win32ShellFolder2$ColumnComparator$1_MethodInfo_[] = {
-	{"<init>", "(Lsun/awt/shell/Win32ShellFolder2$ColumnComparator;Ljava/io/File;Ljava/io/File;)V", "()V", 0, $method(Win32ShellFolder2$ColumnComparator$1, init$, void, $Win32ShellFolder2$ColumnComparator*, $File*, $File*)},
-	{"call", "()Ljava/lang/Integer;", nullptr, $PUBLIC, $virtualMethod(Win32ShellFolder2$ColumnComparator$1, call, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _Win32ShellFolder2$ColumnComparator$1_EnclosingMethodInfo_ = {
-	"sun.awt.shell.Win32ShellFolder2$ColumnComparator",
-	"compare",
-	"(Ljava/io/File;Ljava/io/File;)I"
-};
-
-$InnerClassInfo _Win32ShellFolder2$ColumnComparator$1_InnerClassesInfo_[] = {
-	{"sun.awt.shell.Win32ShellFolder2$ColumnComparator", "sun.awt.shell.Win32ShellFolder2", "ColumnComparator", $PRIVATE | $STATIC},
-	{"sun.awt.shell.Win32ShellFolder2$ColumnComparator$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Win32ShellFolder2$ColumnComparator$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.awt.shell.Win32ShellFolder2$ColumnComparator$1",
-	"java.lang.Object",
-	"java.util.concurrent.Callable",
-	_Win32ShellFolder2$ColumnComparator$1_FieldInfo_,
-	_Win32ShellFolder2$ColumnComparator$1_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/concurrent/Callable<Ljava/lang/Integer;>;",
-	&_Win32ShellFolder2$ColumnComparator$1_EnclosingMethodInfo_,
-	_Win32ShellFolder2$ColumnComparator$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.awt.shell.Win32ShellFolder2"
-};
-
-$Object* allocate$Win32ShellFolder2$ColumnComparator$1($Class* clazz) {
-	return $of($alloc(Win32ShellFolder2$ColumnComparator$1));
-}
-
 void Win32ShellFolder2$ColumnComparator$1::init$($Win32ShellFolder2$ColumnComparator* this$0, $File* val$o, $File* val$o1) {
 	$set(this, this$0, this$0);
 	$set(this, val$o, val$o);
@@ -73,8 +27,8 @@ void Win32ShellFolder2$ColumnComparator$1::init$($Win32ShellFolder2$ColumnCompar
 $Object* Win32ShellFolder2$ColumnComparator$1::call() {
 	if ($instanceOf($Win32ShellFolder2, this->val$o) && $instanceOf($Win32ShellFolder2, this->val$o1)) {
 		int64_t var$0 = $nc(this->this$0->shellFolder)->getIShellFolder();
-		int64_t var$1 = $nc(($cast($Win32ShellFolder2, this->val$o)))->getRelativePIDL();
-		return $of($Integer::valueOf($Win32ShellFolder2::compareIDsByColumn(var$0, var$1, $nc(($cast($Win32ShellFolder2, this->val$o1)))->getRelativePIDL(), this->this$0->columnIdx)));
+		int64_t var$1 = $cast($Win32ShellFolder2, this->val$o)->getRelativePIDL();
+		return $of($Integer::valueOf($Win32ShellFolder2::compareIDsByColumn(var$0, var$1, $cast($Win32ShellFolder2, this->val$o1)->getRelativePIDL(), this->this$0->columnIdx)));
 	}
 	return $of($Integer::valueOf(0));
 }
@@ -83,7 +37,45 @@ Win32ShellFolder2$ColumnComparator$1::Win32ShellFolder2$ColumnComparator$1() {
 }
 
 $Class* Win32ShellFolder2$ColumnComparator$1::load$($String* name, bool initialize) {
-	$loadClass(Win32ShellFolder2$ColumnComparator$1, name, initialize, &_Win32ShellFolder2$ColumnComparator$1_ClassInfo_, allocate$Win32ShellFolder2$ColumnComparator$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/awt/shell/Win32ShellFolder2$ColumnComparator;", nullptr, $FINAL | $SYNTHETIC, $field(Win32ShellFolder2$ColumnComparator$1, this$0)},
+		{"val$o1", "Ljava/io/File;", nullptr, $FINAL | $SYNTHETIC, $field(Win32ShellFolder2$ColumnComparator$1, val$o1)},
+		{"val$o", "Ljava/io/File;", nullptr, $FINAL | $SYNTHETIC, $field(Win32ShellFolder2$ColumnComparator$1, val$o)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/awt/shell/Win32ShellFolder2$ColumnComparator;Ljava/io/File;Ljava/io/File;)V", "()V", 0, $method(Win32ShellFolder2$ColumnComparator$1, init$, void, $Win32ShellFolder2$ColumnComparator*, $File*, $File*)},
+		{"call", "()Ljava/lang/Integer;", nullptr, $PUBLIC, $virtualMethod(Win32ShellFolder2$ColumnComparator$1, call, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.awt.shell.Win32ShellFolder2$ColumnComparator",
+		"compare",
+		"(Ljava/io/File;Ljava/io/File;)I"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.shell.Win32ShellFolder2$ColumnComparator", "sun.awt.shell.Win32ShellFolder2", "ColumnComparator", $PRIVATE | $STATIC},
+		{"sun.awt.shell.Win32ShellFolder2$ColumnComparator$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.awt.shell.Win32ShellFolder2$ColumnComparator$1",
+		"java.lang.Object",
+		"java.util.concurrent.Callable",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/concurrent/Callable<Ljava/lang/Integer;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.awt.shell.Win32ShellFolder2"
+	};
+	$loadClass(Win32ShellFolder2$ColumnComparator$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Win32ShellFolder2$ColumnComparator$1);
+	});
 	return class$;
 }
 

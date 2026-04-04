@@ -1,5 +1,4 @@
 #include <sun/awt/X11/XTextAreaPeer$AWTTextPane.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
@@ -8,7 +7,6 @@
 #include <java/awt/SystemColor.h>
 #include <java/awt/Window.h>
 #include <java/awt/event/FocusEvent.h>
-#include <java/awt/event/FocusListener.h>
 #include <javax/swing/JScrollBar.h>
 #include <javax/swing/JScrollPane.h>
 #include <javax/swing/JTextArea.h>
@@ -26,15 +24,12 @@
 #undef HORIZONTAL
 #undef VERTICAL
 
-using $Color = ::java::awt::Color;
-using $Component = ::java::awt::Component;
 using $Container = ::java::awt::Container;
 using $Graphics = ::java::awt::Graphics;
 using $Rectangle = ::java::awt::Rectangle;
 using $SystemColor = ::java::awt::SystemColor;
 using $Window = ::java::awt::Window;
 using $FocusEvent = ::java::awt::event::FocusEvent;
-using $FocusListener = ::java::awt::event::FocusListener;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -42,10 +37,8 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $JScrollBar = ::javax::swing::JScrollBar;
 using $JScrollPane = ::javax::swing::JScrollPane;
 using $JTextArea = ::javax::swing::JTextArea;
-using $Border = ::javax::swing::border::Border;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
 using $AWTAccessor = ::sun::awt::AWTAccessor;
-using $AWTAccessor$ComponentAccessor = ::sun::awt::AWTAccessor$ComponentAccessor;
 using $XTextAreaPeer = ::sun::awt::X11::XTextAreaPeer;
 using $XTextAreaPeer$AWTTextPane$XAWTScrollBar = ::sun::awt::X11::XTextAreaPeer$AWTTextPane$XAWTScrollBar;
 using $XTextAreaPeer$BevelBorder = ::sun::awt::X11::XTextAreaPeer$BevelBorder;
@@ -55,60 +48,6 @@ using $XWindow = ::sun::awt::X11::XWindow;
 namespace sun {
 	namespace awt {
 		namespace X11 {
-
-$FieldInfo _XTextAreaPeer$AWTTextPane_FieldInfo_[] = {
-	{"this$0", "Lsun/awt/X11/XTextAreaPeer;", nullptr, $FINAL | $SYNTHETIC, $field(XTextAreaPeer$AWTTextPane, this$0)},
-	{"jtext", "Ljavax/swing/JTextArea;", nullptr, $PRIVATE | $FINAL, $field(XTextAreaPeer$AWTTextPane, jtext)},
-	{"xwin", "Lsun/awt/X11/XWindow;", nullptr, $PRIVATE | $FINAL, $field(XTextAreaPeer$AWTTextPane, xwin)},
-	{"control", "Ljava/awt/Color;", nullptr, $PRIVATE | $FINAL, $field(XTextAreaPeer$AWTTextPane, control)},
-	{"focus", "Ljava/awt/Color;", nullptr, $PRIVATE | $FINAL, $field(XTextAreaPeer$AWTTextPane, focus)},
-	{}
-};
-
-$MethodInfo _XTextAreaPeer$AWTTextPane_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lsun/awt/X11/XTextAreaPeer;Ljavax/swing/JTextArea;Lsun/awt/X11/XWindow;Ljava/awt/Container;)V", nullptr, 0, $method(XTextAreaPeer$AWTTextPane, init$, void, $XTextAreaPeer*, $JTextArea*, $XWindow*, $Container*)},
-	{"createHorizontalScrollBar", "()Ljavax/swing/JScrollBar;", nullptr, $PUBLIC, $virtualMethod(XTextAreaPeer$AWTTextPane, createHorizontalScrollBar, $JScrollBar*)},
-	{"createVerticalScrollBar", "()Ljavax/swing/JScrollBar;", nullptr, $PUBLIC, $virtualMethod(XTextAreaPeer$AWTTextPane, createVerticalScrollBar, $JScrollBar*)},
-	{"focusGained", "(Ljava/awt/event/FocusEvent;)V", nullptr, $PUBLIC, $virtualMethod(XTextAreaPeer$AWTTextPane, focusGained, void, $FocusEvent*)},
-	{"focusLost", "(Ljava/awt/event/FocusEvent;)V", nullptr, $PUBLIC, $virtualMethod(XTextAreaPeer$AWTTextPane, focusLost, void, $FocusEvent*)},
-	{"getGraphics", "()Ljava/awt/Graphics;", nullptr, $PUBLIC, $virtualMethod(XTextAreaPeer$AWTTextPane, getGraphics, $Graphics*)},
-	{"getRealParent", "()Ljava/awt/Window;", nullptr, $PUBLIC, $virtualMethod(XTextAreaPeer$AWTTextPane, getRealParent, $Window*)},
-	{"getTextArea", "()Ljavax/swing/JTextArea;", nullptr, $PUBLIC, $virtualMethod(XTextAreaPeer$AWTTextPane, getTextArea, $JTextArea*)},
-	{"invalidate", "()V", nullptr, $PUBLIC, $virtualMethod(XTextAreaPeer$AWTTextPane, invalidate, void)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"updateUI", "()V", nullptr, $PUBLIC, $virtualMethod(XTextAreaPeer$AWTTextPane, updateUI, void)},
-	{}
-};
-
-$InnerClassInfo _XTextAreaPeer$AWTTextPane_InnerClassesInfo_[] = {
-	{"sun.awt.X11.XTextAreaPeer$AWTTextPane", "sun.awt.X11.XTextAreaPeer", "AWTTextPane", $PRIVATE},
-	{"sun.awt.X11.XTextAreaPeer$AWTTextPane$XAWTScrollBar", "sun.awt.X11.XTextAreaPeer$AWTTextPane", "XAWTScrollBar", $FINAL},
-	{}
-};
-
-$ClassInfo _XTextAreaPeer$AWTTextPane_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.awt.X11.XTextAreaPeer$AWTTextPane",
-	"javax.swing.JScrollPane",
-	"java.awt.event.FocusListener",
-	_XTextAreaPeer$AWTTextPane_FieldInfo_,
-	_XTextAreaPeer$AWTTextPane_MethodInfo_,
-	nullptr,
-	nullptr,
-	_XTextAreaPeer$AWTTextPane_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.awt.X11.XTextAreaPeer"
-};
-
-$Object* allocate$XTextAreaPeer$AWTTextPane($Class* clazz) {
-	return $of($alloc(XTextAreaPeer$AWTTextPane));
-}
 
 $String* XTextAreaPeer$AWTTextPane::toString() {
 	 return this->$JScrollPane::toString();
@@ -131,7 +70,7 @@ void XTextAreaPeer$AWTTextPane::finalize() {
 }
 
 void XTextAreaPeer$AWTTextPane::init$($XTextAreaPeer* this$0, $JTextArea* jt, $XWindow* xwin, $Container* parent) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, this$0, this$0);
 	$JScrollPane::init$(jt);
 	$init($SystemColor);
@@ -140,7 +79,7 @@ void XTextAreaPeer$AWTTextPane::init$($XTextAreaPeer* this$0, $JTextArea* jt, $X
 	$set(this, xwin, xwin);
 	setDoubleBuffered(true);
 	$nc(jt)->addFocusListener(this);
-	$nc($($AWTAccessor::getComponentAccessor()))->setParent(this, parent);
+	$$nc($AWTAccessor::getComponentAccessor())->setParent(this, parent);
 	setViewportBorder($$new($XTextAreaPeer$BevelBorder, false, $SystemColor::controlDkShadow, $SystemColor::controlLtHighlight));
 	$set(this, jtext, jt);
 	setFocusable(false);
@@ -148,41 +87,39 @@ void XTextAreaPeer$AWTTextPane::init$($XTextAreaPeer* this$0, $JTextArea* jt, $X
 }
 
 void XTextAreaPeer$AWTTextPane::invalidate() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized(getTreeLock()) {
 		$var($Container, parent, getParent());
-		$nc($($AWTAccessor::getComponentAccessor()))->setParent(this, nullptr);
-		{
-			$var($Throwable, var$0, nullptr);
-			try {
-				$JScrollPane::invalidate();
-			} catch ($Throwable& var$1) {
-				$assign(var$0, var$1);
-			} /*finally*/ {
-				$nc($($AWTAccessor::getComponentAccessor()))->setParent(this, parent);
-			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
+		$$nc($AWTAccessor::getComponentAccessor())->setParent(this, nullptr);
+		$var($Throwable, var$0, nullptr);
+		try {
+			$JScrollPane::invalidate();
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
+		} /*finally*/ {
+			$$nc($AWTAccessor::getComponentAccessor())->setParent(this, parent);
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	}
 }
 
 void XTextAreaPeer$AWTTextPane::focusGained($FocusEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Graphics, g, getGraphics());
 	$var($Rectangle, r, getViewportBorderBounds());
 	$nc(g)->setColor(this->focus);
-	g->drawRect($nc(r)->x, r->y, r->width, r->height);
+	g->drawRect($nc(r)->x, $nc(r)->y, $nc(r)->width, $nc(r)->height);
 	g->dispose();
 }
 
 void XTextAreaPeer$AWTTextPane::focusLost($FocusEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Graphics, g, getGraphics());
 	$var($Rectangle, r, getViewportBorderBounds());
 	$nc(g)->setColor(this->control);
-	g->drawRect($nc(r)->x, r->y, r->width, r->height);
+	g->drawRect($nc(r)->x, $nc(r)->y, $nc(r)->width, $nc(r)->height);
 	g->dispose();
 }
 
@@ -215,7 +152,55 @@ XTextAreaPeer$AWTTextPane::XTextAreaPeer$AWTTextPane() {
 }
 
 $Class* XTextAreaPeer$AWTTextPane::load$($String* name, bool initialize) {
-	$loadClass(XTextAreaPeer$AWTTextPane, name, initialize, &_XTextAreaPeer$AWTTextPane_ClassInfo_, allocate$XTextAreaPeer$AWTTextPane);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/awt/X11/XTextAreaPeer;", nullptr, $FINAL | $SYNTHETIC, $field(XTextAreaPeer$AWTTextPane, this$0)},
+		{"jtext", "Ljavax/swing/JTextArea;", nullptr, $PRIVATE | $FINAL, $field(XTextAreaPeer$AWTTextPane, jtext)},
+		{"xwin", "Lsun/awt/X11/XWindow;", nullptr, $PRIVATE | $FINAL, $field(XTextAreaPeer$AWTTextPane, xwin)},
+		{"control", "Ljava/awt/Color;", nullptr, $PRIVATE | $FINAL, $field(XTextAreaPeer$AWTTextPane, control)},
+		{"focus", "Ljava/awt/Color;", nullptr, $PRIVATE | $FINAL, $field(XTextAreaPeer$AWTTextPane, focus)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lsun/awt/X11/XTextAreaPeer;Ljavax/swing/JTextArea;Lsun/awt/X11/XWindow;Ljava/awt/Container;)V", nullptr, 0, $method(XTextAreaPeer$AWTTextPane, init$, void, $XTextAreaPeer*, $JTextArea*, $XWindow*, $Container*)},
+		{"createHorizontalScrollBar", "()Ljavax/swing/JScrollBar;", nullptr, $PUBLIC, $virtualMethod(XTextAreaPeer$AWTTextPane, createHorizontalScrollBar, $JScrollBar*)},
+		{"createVerticalScrollBar", "()Ljavax/swing/JScrollBar;", nullptr, $PUBLIC, $virtualMethod(XTextAreaPeer$AWTTextPane, createVerticalScrollBar, $JScrollBar*)},
+		{"focusGained", "(Ljava/awt/event/FocusEvent;)V", nullptr, $PUBLIC, $virtualMethod(XTextAreaPeer$AWTTextPane, focusGained, void, $FocusEvent*)},
+		{"focusLost", "(Ljava/awt/event/FocusEvent;)V", nullptr, $PUBLIC, $virtualMethod(XTextAreaPeer$AWTTextPane, focusLost, void, $FocusEvent*)},
+		{"getGraphics", "()Ljava/awt/Graphics;", nullptr, $PUBLIC, $virtualMethod(XTextAreaPeer$AWTTextPane, getGraphics, $Graphics*)},
+		{"getRealParent", "()Ljava/awt/Window;", nullptr, $PUBLIC, $virtualMethod(XTextAreaPeer$AWTTextPane, getRealParent, $Window*)},
+		{"getTextArea", "()Ljavax/swing/JTextArea;", nullptr, $PUBLIC, $virtualMethod(XTextAreaPeer$AWTTextPane, getTextArea, $JTextArea*)},
+		{"invalidate", "()V", nullptr, $PUBLIC, $virtualMethod(XTextAreaPeer$AWTTextPane, invalidate, void)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"updateUI", "()V", nullptr, $PUBLIC, $virtualMethod(XTextAreaPeer$AWTTextPane, updateUI, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.X11.XTextAreaPeer$AWTTextPane", "sun.awt.X11.XTextAreaPeer", "AWTTextPane", $PRIVATE},
+		{"sun.awt.X11.XTextAreaPeer$AWTTextPane$XAWTScrollBar", "sun.awt.X11.XTextAreaPeer$AWTTextPane", "XAWTScrollBar", $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.awt.X11.XTextAreaPeer$AWTTextPane",
+		"javax.swing.JScrollPane",
+		"java.awt.event.FocusListener",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.awt.X11.XTextAreaPeer"
+	};
+	$loadClass(XTextAreaPeer$AWTTextPane, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(XTextAreaPeer$AWTTextPane));
+	});
 	return class$;
 }
 

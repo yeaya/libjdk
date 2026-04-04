@@ -1,5 +1,4 @@
 #include <sun/java2d/opengl/CGLGraphicsConfig.h>
-
 #include <java/awt/AWTException.h>
 #include <java/awt/BufferCapabilities$FlipContents.h>
 #include <java/awt/BufferCapabilities.h>
@@ -35,7 +34,6 @@
 #include <sun/awt/image/OffScreenImage.h>
 #include <sun/awt/image/SunVolatileImage.h>
 #include <sun/java2d/Disposer.h>
-#include <sun/java2d/DisposerRecord.h>
 #include <sun/java2d/Surface.h>
 #include <sun/java2d/SurfaceData.h>
 #include <sun/java2d/opengl/CGLGraphicsConfig$CGLBufferCaps.h>
@@ -50,7 +48,6 @@
 #include <sun/java2d/opengl/OGLRenderQueue.h>
 #include <sun/java2d/opengl/OGLSurfaceData.h>
 #include <sun/java2d/pipe/BufferedContext.h>
-#include <sun/java2d/pipe/RenderQueue.h>
 #include <sun/java2d/pipe/hw/AccelSurface.h>
 #include <sun/java2d/pipe/hw/AccelTypedVolatileImage.h>
 #include <sun/java2d/pipe/hw/ContextCapabilities.h>
@@ -72,7 +69,6 @@ using $BufferCapabilities$FlipContents = ::java::awt::BufferCapabilities$FlipCon
 using $Component = ::java::awt::Component;
 using $Graphics = ::java::awt::Graphics;
 using $Graphics2D = ::java::awt::Graphics2D;
-using $GraphicsConfiguration = ::java::awt::GraphicsConfiguration;
 using $Image = ::java::awt::Image;
 using $ImageCapabilities = ::java::awt::ImageCapabilities;
 using $Rectangle = ::java::awt::Rectangle;
@@ -99,7 +95,6 @@ using $CGraphicsDevice = ::sun::awt::CGraphicsDevice;
 using $OffScreenImage = ::sun::awt::image::OffScreenImage;
 using $SunVolatileImage = ::sun::awt::image::SunVolatileImage;
 using $Disposer = ::sun::java2d::Disposer;
-using $DisposerRecord = ::sun::java2d::DisposerRecord;
 using $Surface = ::sun::java2d::Surface;
 using $SurfaceData = ::sun::java2d::SurfaceData;
 using $CGLGraphicsConfig$CGLBufferCaps = ::sun::java2d::opengl::CGLGraphicsConfig$CGLBufferCaps;
@@ -112,7 +107,6 @@ using $OGLContext$OGLContextCaps = ::sun::java2d::opengl::OGLContext$OGLContextC
 using $OGLRenderQueue = ::sun::java2d::opengl::OGLRenderQueue;
 using $OGLSurfaceData = ::sun::java2d::opengl::OGLSurfaceData;
 using $BufferedContext = ::sun::java2d::pipe::BufferedContext;
-using $RenderQueue = ::sun::java2d::pipe::RenderQueue;
 using $AccelSurface = ::sun::java2d::pipe::hw::AccelSurface;
 using $AccelTypedVolatileImage = ::sun::java2d::pipe::hw::AccelTypedVolatileImage;
 using $ContextCapabilities = ::sun::java2d::pipe::hw::ContextCapabilities;
@@ -132,117 +126,32 @@ public:
 	virtual void run() override {
 		CGLGraphicsConfig::lambda$getConfig$0(ids);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<CGLGraphicsConfig$$Lambda$lambda$getConfig$0>());
-	}
 	$StringArray* ids = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo CGLGraphicsConfig$$Lambda$lambda$getConfig$0::fieldInfos[2] = {
-	{"ids", "[Ljava/lang/String;", nullptr, $PUBLIC, $field(CGLGraphicsConfig$$Lambda$lambda$getConfig$0, ids)},
-	{}
-};
-$MethodInfo CGLGraphicsConfig$$Lambda$lambda$getConfig$0::methodInfos[3] = {
-	{"<init>", "([Ljava/lang/String;)V", nullptr, $PUBLIC, $method(CGLGraphicsConfig$$Lambda$lambda$getConfig$0, init$, void, $StringArray*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(CGLGraphicsConfig$$Lambda$lambda$getConfig$0, run, void)},
-	{}
-};
-$ClassInfo CGLGraphicsConfig$$Lambda$lambda$getConfig$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.java2d.opengl.CGLGraphicsConfig$$Lambda$lambda$getConfig$0",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	fieldInfos,
-	methodInfos
 };
 $Class* CGLGraphicsConfig$$Lambda$lambda$getConfig$0::load$($String* name, bool initialize) {
-	$loadClass(CGLGraphicsConfig$$Lambda$lambda$getConfig$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"ids", "[Ljava/lang/String;", nullptr, $PUBLIC, $field(CGLGraphicsConfig$$Lambda$lambda$getConfig$0, ids)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "([Ljava/lang/String;)V", nullptr, $PUBLIC, $method(CGLGraphicsConfig$$Lambda$lambda$getConfig$0, init$, void, $StringArray*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(CGLGraphicsConfig$$Lambda$lambda$getConfig$0, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.java2d.opengl.CGLGraphicsConfig$$Lambda$lambda$getConfig$0",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CGLGraphicsConfig$$Lambda$lambda$getConfig$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CGLGraphicsConfig$$Lambda$lambda$getConfig$0);
+	});
 	return class$;
 }
 $Class* CGLGraphicsConfig$$Lambda$lambda$getConfig$0::class$ = nullptr;
-
-$FieldInfo _CGLGraphicsConfig_FieldInfo_[] = {
-	{"cglAvailable", "Z", nullptr, $PRIVATE | $STATIC, $staticField(CGLGraphicsConfig, cglAvailable)},
-	{"imageCaps", "Ljava/awt/ImageCapabilities;", nullptr, $PRIVATE | $STATIC, $staticField(CGLGraphicsConfig, imageCaps)},
-	{"bufferCaps", "Ljava/awt/BufferCapabilities;", nullptr, $PRIVATE, $field(CGLGraphicsConfig, bufferCaps)},
-	{"pConfigInfo", "J", nullptr, $PRIVATE, $field(CGLGraphicsConfig, pConfigInfo)},
-	{"oglCaps", "Lsun/java2d/pipe/hw/ContextCapabilities;", nullptr, $PRIVATE, $field(CGLGraphicsConfig, oglCaps)},
-	{"context", "Lsun/java2d/opengl/OGLContext;", nullptr, $PRIVATE | $FINAL, $field(CGLGraphicsConfig, context)},
-	{"disposerReferent", "Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $field(CGLGraphicsConfig, disposerReferent)},
-	{"maxTextureSize", "I", nullptr, $PRIVATE | $FINAL, $field(CGLGraphicsConfig, maxTextureSize)},
-	{}
-};
-
-$MethodInfo _CGLGraphicsConfig_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lsun/awt/CGraphicsDevice;JILsun/java2d/pipe/hw/ContextCapabilities;)V", nullptr, $PRIVATE, $method(CGLGraphicsConfig, init$, void, $CGraphicsDevice*, int64_t, int32_t, $ContextCapabilities*)},
-	{"assertOperationSupported", "(ILjava/awt/BufferCapabilities;)V", nullptr, $PUBLIC, $virtualMethod(CGLGraphicsConfig, assertOperationSupported, void, int32_t, $BufferCapabilities*), "java.awt.AWTException"},
-	{"createAcceleratedImage", "(Ljava/awt/Component;II)Ljava/awt/Image;", nullptr, $PUBLIC, $virtualMethod(CGLGraphicsConfig, createAcceleratedImage, $Image*, $Component*, int32_t, int32_t)},
-	{"createBackBuffer", "(Lsun/lwawt/LWComponentPeer;)Ljava/awt/Image;", "(Lsun/lwawt/LWComponentPeer<**>;)Ljava/awt/Image;", $PUBLIC, $virtualMethod(CGLGraphicsConfig, createBackBuffer, $Image*, $LWComponentPeer*)},
-	{"createCompatibleImage", "(II)Ljava/awt/image/BufferedImage;", nullptr, $PUBLIC, $virtualMethod(CGLGraphicsConfig, createCompatibleImage, $BufferedImage*, int32_t, int32_t)},
-	{"createCompatibleVolatileImage", "(IIII)Ljava/awt/image/VolatileImage;", nullptr, $PUBLIC, $virtualMethod(CGLGraphicsConfig, createCompatibleVolatileImage, $VolatileImage*, int32_t, int32_t, int32_t, int32_t)},
-	{"createManagedSurface", "(III)Lsun/java2d/SurfaceData;", nullptr, $PUBLIC, $virtualMethod(CGLGraphicsConfig, createManagedSurface, $SurfaceData*, int32_t, int32_t, int32_t)},
-	{"createSurfaceData", "(Lsun/lwawt/macosx/CFRetainedResource;)Lsun/java2d/SurfaceData;", nullptr, $PUBLIC, $virtualMethod(CGLGraphicsConfig, createSurfaceData, $SurfaceData*, $CFRetainedResource*)},
-	{"destroyBackBuffer", "(Ljava/awt/Image;)V", nullptr, $PUBLIC, $virtualMethod(CGLGraphicsConfig, destroyBackBuffer, void, $Image*)},
-	{"displayChanged", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $method(CGLGraphicsConfig, displayChanged, void)},
-	{"flip", "(Lsun/lwawt/LWComponentPeer;Ljava/awt/Image;IIIILjava/awt/BufferCapabilities$FlipContents;)V", "(Lsun/lwawt/LWComponentPeer<**>;Ljava/awt/Image;IIIILjava/awt/BufferCapabilities$FlipContents;)V", $PUBLIC, $virtualMethod(CGLGraphicsConfig, flip, void, $LWComponentPeer*, $Image*, int32_t, int32_t, int32_t, int32_t, $BufferCapabilities$FlipContents*)},
-	{"getBufferCapabilities", "()Ljava/awt/BufferCapabilities;", nullptr, $PUBLIC, $virtualMethod(CGLGraphicsConfig, getBufferCapabilities, $BufferCapabilities*)},
-	{"getCGLConfigInfo", "()J", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(CGLGraphicsConfig, getCGLConfigInfo, int64_t)},
-	{"getColorModel", "(I)Ljava/awt/image/ColorModel;", nullptr, $PUBLIC, $virtualMethod(CGLGraphicsConfig, getColorModel, $ColorModel*, int32_t)},
-	{"getConfig", "(Lsun/awt/CGraphicsDevice;)Lsun/java2d/opengl/CGLGraphicsConfig;", nullptr, $PUBLIC | $STATIC, $staticMethod(CGLGraphicsConfig, getConfig, CGLGraphicsConfig*, $CGraphicsDevice*)},
-	{"getContext", "()Lsun/java2d/opengl/OGLContext;", nullptr, $PUBLIC, $virtualMethod(CGLGraphicsConfig, getContext, $BufferedContext*)},
-	{"getContextCapabilities", "()Lsun/java2d/pipe/hw/ContextCapabilities;", nullptr, $PUBLIC, $virtualMethod(CGLGraphicsConfig, getContextCapabilities, $ContextCapabilities*)},
-	{"getImageCapabilities", "()Ljava/awt/ImageCapabilities;", nullptr, $PUBLIC, $virtualMethod(CGLGraphicsConfig, getImageCapabilities, $ImageCapabilities*)},
-	{"getMaxTextureHeight", "()I", nullptr, $PUBLIC, $virtualMethod(CGLGraphicsConfig, getMaxTextureHeight, int32_t)},
-	{"getMaxTextureWidth", "()I", nullptr, $PUBLIC, $virtualMethod(CGLGraphicsConfig, getMaxTextureWidth, int32_t)},
-	{"getNativeConfigInfo", "()J", nullptr, $PUBLIC, $virtualMethod(CGLGraphicsConfig, getNativeConfigInfo, int64_t)},
-	{"getOGLCapabilities", "(J)I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(CGLGraphicsConfig, getOGLCapabilities, int32_t, int64_t)},
-	{"getProxyKey", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(CGLGraphicsConfig, getProxyKey, $Object*)},
-	{"initCGL", "()Z", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(CGLGraphicsConfig, initCGL, bool)},
-	{"isCGLAvailable", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(CGLGraphicsConfig, isCGLAvailable, bool)},
-	{"isCapPresent", "(I)Z", nullptr, $PUBLIC, $virtualMethod(CGLGraphicsConfig, isCapPresent, bool, int32_t)},
-	{"isDoubleBuffered", "()Z", nullptr, $PUBLIC, $method(CGLGraphicsConfig, isDoubleBuffered, bool)},
-	{"lambda$getConfig$0", "([Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(CGLGraphicsConfig, lambda$getConfig$0, void, $StringArray*)},
-	{"nativeGetMaxTextureSize", "()I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(CGLGraphicsConfig, nativeGetMaxTextureSize, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CGLGraphicsConfig, toString, $String*)},
-	{}
-};
-
-#define _METHOD_INDEX_getCGLConfigInfo 16
-#define _METHOD_INDEX_getOGLCapabilities 25
-#define _METHOD_INDEX_initCGL 27
-#define _METHOD_INDEX_nativeGetMaxTextureSize 32
-
-$InnerClassInfo _CGLGraphicsConfig_InnerClassesInfo_[] = {
-	{"sun.java2d.opengl.CGLGraphicsConfig$CGLImageCaps", "sun.java2d.opengl.CGLGraphicsConfig", "CGLImageCaps", $PRIVATE | $STATIC},
-	{"sun.java2d.opengl.CGLGraphicsConfig$CGLBufferCaps", "sun.java2d.opengl.CGLGraphicsConfig", "CGLBufferCaps", $PRIVATE | $STATIC},
-	{"sun.java2d.opengl.CGLGraphicsConfig$CGLGCDisposerRecord", "sun.java2d.opengl.CGLGraphicsConfig", "CGLGCDisposerRecord", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _CGLGraphicsConfig_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.java2d.opengl.CGLGraphicsConfig",
-	"sun.awt.CGraphicsConfig",
-	"sun.java2d.opengl.OGLGraphicsConfig",
-	_CGLGraphicsConfig_FieldInfo_,
-	_CGLGraphicsConfig_MethodInfo_,
-	nullptr,
-	nullptr,
-	_CGLGraphicsConfig_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.java2d.opengl.CGLGraphicsConfig$CGLImageCaps,sun.java2d.opengl.CGLGraphicsConfig$CGLBufferCaps,sun.java2d.opengl.CGLGraphicsConfig$CGLGCDisposerRecord"
-};
-
-$Object* allocate$CGLGraphicsConfig($Class* clazz) {
-	return $of($alloc(CGLGraphicsConfig));
-}
 
 int32_t CGLGraphicsConfig::hashCode() {
 	 return this->$CGraphicsConfig::hashCode();
@@ -265,42 +174,38 @@ $ImageCapabilities* CGLGraphicsConfig::imageCaps = nullptr;
 
 bool CGLGraphicsConfig::initCGL() {
 	$init(CGLGraphicsConfig);
-	bool $ret = false;
-	$prepareNativeStatic(CGLGraphicsConfig, initCGL, bool);
-	$ret = $invokeNativeStatic();
+	$prepareNativeStatic(initCGL, bool);
+	bool $ret = $invokeNativeStatic();
 	$finishNativeStatic();
 	return $ret;
 }
 
 int64_t CGLGraphicsConfig::getCGLConfigInfo() {
 	$init(CGLGraphicsConfig);
-	int64_t $ret = 0;
-	$prepareNativeStatic(CGLGraphicsConfig, getCGLConfigInfo, int64_t);
-	$ret = $invokeNativeStatic();
+	$prepareNativeStatic(getCGLConfigInfo, int64_t);
+	int64_t $ret = $invokeNativeStatic();
 	$finishNativeStatic();
 	return $ret;
 }
 
 int32_t CGLGraphicsConfig::getOGLCapabilities(int64_t configInfo) {
 	$init(CGLGraphicsConfig);
-	int32_t $ret = 0;
-	$prepareNativeStatic(CGLGraphicsConfig, getOGLCapabilities, int32_t, int64_t configInfo);
-	$ret = $invokeNativeStatic(configInfo);
+	$prepareNativeStatic(getOGLCapabilities, int32_t, int64_t configInfo);
+	int32_t $ret = $invokeNativeStatic(configInfo);
 	$finishNativeStatic();
 	return $ret;
 }
 
 int32_t CGLGraphicsConfig::nativeGetMaxTextureSize() {
 	$init(CGLGraphicsConfig);
-	int32_t $ret = 0;
-	$prepareNativeStatic(CGLGraphicsConfig, nativeGetMaxTextureSize, int32_t);
-	$ret = $invokeNativeStatic();
+	$prepareNativeStatic(nativeGetMaxTextureSize, int32_t);
+	int32_t $ret = $invokeNativeStatic();
 	$finishNativeStatic();
 	return $ret;
 }
 
 void CGLGraphicsConfig::init$($CGraphicsDevice* device, int64_t configInfo, int32_t maxTextureSize, $ContextCapabilities* oglCaps) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$CGraphicsConfig::init$(device);
 	$set(this, disposerReferent, $new($Object));
 	this->pConfigInfo = configInfo;
@@ -320,7 +225,7 @@ $SurfaceData* CGLGraphicsConfig::createManagedSurface(int32_t w, int32_t h, int3
 
 CGLGraphicsConfig* CGLGraphicsConfig::getConfig($CGraphicsDevice* device) {
 	$init(CGLGraphicsConfig);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!CGLGraphicsConfig::cglAvailable) {
 		return nullptr;
 	}
@@ -329,25 +234,23 @@ CGLGraphicsConfig* CGLGraphicsConfig::getConfig($CGraphicsDevice* device) {
 	$var($StringArray, ids, $new($StringArray, 1));
 	$var($OGLRenderQueue, rq, $OGLRenderQueue::getInstance());
 	$nc(rq)->lock();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$OGLContext::invalidateCurrentContext();
-			cfginfo = getCGLConfigInfo();
-			if (cfginfo != (int64_t)0) {
-				textureSize = nativeGetMaxTextureSize();
-				textureSize = textureSize <= 16384 ? textureSize / 2 : 8192;
-				$OGLContext::setScratchSurface(cfginfo);
-				rq->flushAndInvokeNow(static_cast<$Runnable*>($$new(CGLGraphicsConfig$$Lambda$lambda$getConfig$0, ids)));
-			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			rq->unlock();
+	$var($Throwable, var$0, nullptr);
+	try {
+		$OGLContext::invalidateCurrentContext();
+		cfginfo = getCGLConfigInfo();
+		if (cfginfo != 0) {
+			textureSize = nativeGetMaxTextureSize();
+			textureSize = textureSize <= 16384 ? textureSize / 2 : 8192;
+			$OGLContext::setScratchSurface(cfginfo);
+			rq->flushAndInvokeNow($$new(CGLGraphicsConfig$$Lambda$lambda$getConfig$0, ids));
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		rq->unlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 	if (cfginfo == 0) {
 		return nullptr;
@@ -363,7 +266,7 @@ bool CGLGraphicsConfig::isCGLAvailable() {
 }
 
 bool CGLGraphicsConfig::isCapPresent(int32_t cap) {
-	return (((int32_t)($nc(this->oglCaps)->getCaps() & (uint32_t)cap)) != 0);
+	return (($nc(this->oglCaps)->getCaps() & cap) != 0);
 }
 
 int64_t CGLGraphicsConfig::getNativeConfigInfo() {
@@ -375,34 +278,24 @@ $BufferedContext* CGLGraphicsConfig::getContext() {
 }
 
 $BufferedImage* CGLGraphicsConfig::createCompatibleImage(int32_t width, int32_t height) {
-	$useLocalCurrentObjectStackCache();
-	$var($ColorModel, model, $new($DirectColorModel, 24, 0x00FF0000, 0x0000FF00, 255));
+	$useLocalObjectStack();
+	$var($ColorModel, model, $new($DirectColorModel, 24, 0x00ff0000, 0x0000ff00, 255));
 	$var($WritableRaster, raster, model->createCompatibleWritableRaster(width, height));
-	return $new($BufferedImage, model, raster, model->isAlphaPremultiplied(), ($Hashtable*)nullptr);
+	return $new($BufferedImage, model, raster, model->isAlphaPremultiplied(), nullptr);
 }
 
 $ColorModel* CGLGraphicsConfig::getColorModel(int32_t transparency) {
-	{
-		$var($ColorSpace, cs, nullptr)
-		switch (transparency) {
-		case $Transparency::OPAQUE:
-			{
-				return $new($DirectColorModel, 24, 0x00FF0000, 0x0000FF00, 255);
-			}
-		case $Transparency::BITMASK:
-			{
-				return $new($DirectColorModel, 25, 0x00FF0000, 0x0000FF00, 255, 0x01000000);
-			}
-		case $Transparency::TRANSLUCENT:
-			{
-				$assign(cs, $ColorSpace::getInstance($ColorSpace::CS_sRGB));
-				return $new($DirectColorModel, cs, 32, 0x00FF0000, 0x0000FF00, 255, (int32_t)0xFF000000, true, $DataBuffer::TYPE_INT);
-			}
-		default:
-			{
-				return nullptr;
-			}
-		}
+	$var($ColorSpace, cs, nullptr);
+	switch (transparency) {
+	case $Transparency::OPAQUE:
+		return $new($DirectColorModel, 24, 0x00ff0000, 0x0000ff00, 255);
+	case $Transparency::BITMASK:
+		return $new($DirectColorModel, 25, 0x00ff0000, 0x0000ff00, 255, 0x01000000);
+	case $Transparency::TRANSLUCENT:
+		$assign(cs, $ColorSpace::getInstance($ColorSpace::CS_sRGB));
+		return $new($DirectColorModel, cs, 32, 0x00ff0000, 0x0000ff00, 255, (int32_t)0xff000000, true, $DataBuffer::TYPE_INT);
+	default:
+		return nullptr;
 	}
 }
 
@@ -412,28 +305,26 @@ bool CGLGraphicsConfig::isDoubleBuffered() {
 
 void CGLGraphicsConfig::displayChanged() {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$var($OGLRenderQueue, rq, $OGLRenderQueue::getInstance());
 		$nc(rq)->lock();
-		{
-			$var($Throwable, var$0, nullptr);
-			try {
-				$OGLContext::invalidateCurrentContext();
-			} catch ($Throwable& var$1) {
-				$assign(var$0, var$1);
-			} /*finally*/ {
-				rq->unlock();
-			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
+		$var($Throwable, var$0, nullptr);
+		try {
+			$OGLContext::invalidateCurrentContext();
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
+		} /*finally*/ {
+			rq->unlock();
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	}
 }
 
 $String* CGLGraphicsConfig::toString() {
-	$useLocalCurrentObjectStackCache();
-	return ($str({"CGLGraphicsConfig["_s, $($nc($($cast($CGraphicsDevice, getDevice())))->getIDstring()), "]"_s}));
+	$useLocalObjectStack();
+	return ($str({"CGLGraphicsConfig["_s, $($$sure($CGraphicsDevice, getDevice())->getIDstring()), "]"_s}));
 }
 
 $SurfaceData* CGLGraphicsConfig::createSurfaceData($CFRetainedResource* layer) {
@@ -441,7 +332,7 @@ $SurfaceData* CGLGraphicsConfig::createSurfaceData($CFRetainedResource* layer) {
 }
 
 $Image* CGLGraphicsConfig::createAcceleratedImage($Component* target, int32_t width, int32_t height) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ColorModel, model, getColorModel($Transparency::OPAQUE));
 	$var($WritableRaster, wr, $nc(model)->createCompatibleWritableRaster(width, height));
 	return $new($OffScreenImage, target, model, wr, model->isAlphaPremultiplied());
@@ -464,7 +355,7 @@ void CGLGraphicsConfig::assertOperationSupported(int32_t numBuffers, $BufferCapa
 $Image* CGLGraphicsConfig::createBackBuffer($LWComponentPeer* peer) {
 	$var($Rectangle, r, $nc(peer)->getBounds());
 	int32_t w = $Math::max(1, $nc(r)->width);
-	int32_t h = $Math::max(1, $nc(r)->height);
+	int32_t h = $Math::max(1, r->height);
 	int32_t transparency = peer->isTranslucent() ? $Transparency::TRANSLUCENT : $Transparency::OPAQUE;
 	return $new($SunVolatileImage, this, w, h, transparency, nullptr);
 }
@@ -476,38 +367,34 @@ void CGLGraphicsConfig::destroyBackBuffer($Image* backBuffer) {
 }
 
 void CGLGraphicsConfig::flip($LWComponentPeer* peer, $Image* backBuffer, int32_t x1, int32_t y1, int32_t x2, int32_t y2, $BufferCapabilities$FlipContents* flipAction) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Graphics, g, $nc(peer)->getGraphics());
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$nc(g)->drawImage(backBuffer, x1, y1, x2, y2, x1, y1, x2, y2, nullptr);
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$nc(g)->dispose();
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	$var($Throwable, var$0, nullptr);
+	try {
+		$nc(g)->drawImage(backBuffer, x1, y1, x2, y2, x1, y1, x2, y2, nullptr);
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$nc(g)->dispose();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 	$init($BufferCapabilities$FlipContents);
 	if (flipAction == $BufferCapabilities$FlipContents::BACKGROUND) {
 		$var($Graphics2D, bg, $cast($Graphics2D, $nc(backBuffer)->getGraphics()));
-		{
-			$var($Throwable, var$2, nullptr);
-			try {
-				$nc(bg)->setBackground($(peer->getBackground()));
-				int32_t var$3 = backBuffer->getWidth(nullptr);
-				bg->clearRect(0, 0, var$3, backBuffer->getHeight(nullptr));
-			} catch ($Throwable& var$4) {
-				$assign(var$2, var$4);
-			} /*finally*/ {
-				$nc(bg)->dispose();
-			}
-			if (var$2 != nullptr) {
-				$throw(var$2);
-			}
+		$var($Throwable, var$2, nullptr);
+		try {
+			$nc(bg)->setBackground($(peer->getBackground()));
+			int32_t var$3 = backBuffer->getWidth(nullptr);
+			bg->clearRect(0, 0, var$3, backBuffer->getHeight(nullptr));
+		} catch ($Throwable& var$4) {
+			$assign(var$2, var$4);
+		} /*finally*/ {
+			$nc(bg)->dispose();
+		}
+		if (var$2 != nullptr) {
+			$throw(var$2);
 		}
 	}
 }
@@ -524,13 +411,13 @@ $ImageCapabilities* CGLGraphicsConfig::getImageCapabilities() {
 }
 
 $VolatileImage* CGLGraphicsConfig::createCompatibleVolatileImage(int32_t width, int32_t height, int32_t transparency, int32_t type) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ((type != 5 && type != 3) || transparency == $Transparency::BITMASK || type == 5 && !isCapPresent(12)) {
 		return nullptr;
 	}
 	$var($SunVolatileImage, vi, $new($AccelTypedVolatileImage, this, width, height, transparency, type));
 	$var($Surface, sd, vi->getDestSurface());
-	if (!($instanceOf($AccelSurface, sd)) || $nc(($cast($AccelSurface, sd)))->getType() != type) {
+	if (!($instanceOf($AccelSurface, sd)) || $cast($AccelSurface, sd)->getType() != type) {
 		vi->flush();
 		$assign(vi, nullptr);
 	}
@@ -542,14 +429,14 @@ $ContextCapabilities* CGLGraphicsConfig::getContextCapabilities() {
 }
 
 int32_t CGLGraphicsConfig::getMaxTextureWidth() {
-	$useLocalCurrentObjectStackCache();
-	int32_t var$0 = $div(this->maxTextureSize, $nc($($cast($CGraphicsDevice, getDevice())))->getScaleFactor());
+	$useLocalObjectStack();
+	int32_t var$0 = $div(this->maxTextureSize, $$sure($CGraphicsDevice, getDevice())->getScaleFactor());
 	return $Math::max(var$0, $nc($(getBounds()))->width);
 }
 
 int32_t CGLGraphicsConfig::getMaxTextureHeight() {
-	$useLocalCurrentObjectStackCache();
-	int32_t var$0 = $div(this->maxTextureSize, $nc($($cast($CGraphicsDevice, getDevice())))->getScaleFactor());
+	$useLocalObjectStack();
+	int32_t var$0 = $div(this->maxTextureSize, $$sure($CGraphicsDevice, getDevice())->getScaleFactor());
 	return $Math::max(var$0, $nc($(getBounds()))->height);
 }
 
@@ -558,7 +445,7 @@ void CGLGraphicsConfig::lambda$getConfig$0($StringArray* ids) {
 	$nc(ids)->set(0, $($OGLContext::getOGLIdString()));
 }
 
-void clinit$CGLGraphicsConfig($Class* class$) {
+void CGLGraphicsConfig::clinit$($Class* clazz) {
 	$assignStatic(CGLGraphicsConfig::imageCaps, $new($CGLGraphicsConfig$CGLImageCaps));
 	{
 		CGLGraphicsConfig::cglAvailable = CGLGraphicsConfig::initCGL();
@@ -570,11 +457,81 @@ CGLGraphicsConfig::CGLGraphicsConfig() {
 
 $Class* CGLGraphicsConfig::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(CGLGraphicsConfig$$Lambda$lambda$getConfig$0::classInfo$.name)) {
+		if (name->equals("sun.java2d.opengl.CGLGraphicsConfig$$Lambda$lambda$getConfig$0")) {
 			return CGLGraphicsConfig$$Lambda$lambda$getConfig$0::load$(name, initialize);
 		}
 	}
-	$loadClass(CGLGraphicsConfig, name, initialize, &_CGLGraphicsConfig_ClassInfo_, clinit$CGLGraphicsConfig, allocate$CGLGraphicsConfig);
+	$FieldInfo fieldInfos$$[] = {
+		{"cglAvailable", "Z", nullptr, $PRIVATE | $STATIC, $staticField(CGLGraphicsConfig, cglAvailable)},
+		{"imageCaps", "Ljava/awt/ImageCapabilities;", nullptr, $PRIVATE | $STATIC, $staticField(CGLGraphicsConfig, imageCaps)},
+		{"bufferCaps", "Ljava/awt/BufferCapabilities;", nullptr, $PRIVATE, $field(CGLGraphicsConfig, bufferCaps)},
+		{"pConfigInfo", "J", nullptr, $PRIVATE, $field(CGLGraphicsConfig, pConfigInfo)},
+		{"oglCaps", "Lsun/java2d/pipe/hw/ContextCapabilities;", nullptr, $PRIVATE, $field(CGLGraphicsConfig, oglCaps)},
+		{"context", "Lsun/java2d/opengl/OGLContext;", nullptr, $PRIVATE | $FINAL, $field(CGLGraphicsConfig, context)},
+		{"disposerReferent", "Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $field(CGLGraphicsConfig, disposerReferent)},
+		{"maxTextureSize", "I", nullptr, $PRIVATE | $FINAL, $field(CGLGraphicsConfig, maxTextureSize)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lsun/awt/CGraphicsDevice;JILsun/java2d/pipe/hw/ContextCapabilities;)V", nullptr, $PRIVATE, $method(CGLGraphicsConfig, init$, void, $CGraphicsDevice*, int64_t, int32_t, $ContextCapabilities*)},
+		{"assertOperationSupported", "(ILjava/awt/BufferCapabilities;)V", nullptr, $PUBLIC, $virtualMethod(CGLGraphicsConfig, assertOperationSupported, void, int32_t, $BufferCapabilities*), "java.awt.AWTException"},
+		{"createAcceleratedImage", "(Ljava/awt/Component;II)Ljava/awt/Image;", nullptr, $PUBLIC, $virtualMethod(CGLGraphicsConfig, createAcceleratedImage, $Image*, $Component*, int32_t, int32_t)},
+		{"createBackBuffer", "(Lsun/lwawt/LWComponentPeer;)Ljava/awt/Image;", "(Lsun/lwawt/LWComponentPeer<**>;)Ljava/awt/Image;", $PUBLIC, $virtualMethod(CGLGraphicsConfig, createBackBuffer, $Image*, $LWComponentPeer*)},
+		{"createCompatibleImage", "(II)Ljava/awt/image/BufferedImage;", nullptr, $PUBLIC, $virtualMethod(CGLGraphicsConfig, createCompatibleImage, $BufferedImage*, int32_t, int32_t)},
+		{"createCompatibleVolatileImage", "(IIII)Ljava/awt/image/VolatileImage;", nullptr, $PUBLIC, $virtualMethod(CGLGraphicsConfig, createCompatibleVolatileImage, $VolatileImage*, int32_t, int32_t, int32_t, int32_t)},
+		{"createManagedSurface", "(III)Lsun/java2d/SurfaceData;", nullptr, $PUBLIC, $virtualMethod(CGLGraphicsConfig, createManagedSurface, $SurfaceData*, int32_t, int32_t, int32_t)},
+		{"createSurfaceData", "(Lsun/lwawt/macosx/CFRetainedResource;)Lsun/java2d/SurfaceData;", nullptr, $PUBLIC, $virtualMethod(CGLGraphicsConfig, createSurfaceData, $SurfaceData*, $CFRetainedResource*)},
+		{"destroyBackBuffer", "(Ljava/awt/Image;)V", nullptr, $PUBLIC, $virtualMethod(CGLGraphicsConfig, destroyBackBuffer, void, $Image*)},
+		{"displayChanged", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $method(CGLGraphicsConfig, displayChanged, void)},
+		{"flip", "(Lsun/lwawt/LWComponentPeer;Ljava/awt/Image;IIIILjava/awt/BufferCapabilities$FlipContents;)V", "(Lsun/lwawt/LWComponentPeer<**>;Ljava/awt/Image;IIIILjava/awt/BufferCapabilities$FlipContents;)V", $PUBLIC, $virtualMethod(CGLGraphicsConfig, flip, void, $LWComponentPeer*, $Image*, int32_t, int32_t, int32_t, int32_t, $BufferCapabilities$FlipContents*)},
+		{"getBufferCapabilities", "()Ljava/awt/BufferCapabilities;", nullptr, $PUBLIC, $virtualMethod(CGLGraphicsConfig, getBufferCapabilities, $BufferCapabilities*)},
+		{"getCGLConfigInfo", "()J", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(CGLGraphicsConfig, getCGLConfigInfo, int64_t)},
+		{"getColorModel", "(I)Ljava/awt/image/ColorModel;", nullptr, $PUBLIC, $virtualMethod(CGLGraphicsConfig, getColorModel, $ColorModel*, int32_t)},
+		{"getConfig", "(Lsun/awt/CGraphicsDevice;)Lsun/java2d/opengl/CGLGraphicsConfig;", nullptr, $PUBLIC | $STATIC, $staticMethod(CGLGraphicsConfig, getConfig, CGLGraphicsConfig*, $CGraphicsDevice*)},
+		{"getContext", "()Lsun/java2d/opengl/OGLContext;", nullptr, $PUBLIC, $virtualMethod(CGLGraphicsConfig, getContext, $BufferedContext*)},
+		{"getContextCapabilities", "()Lsun/java2d/pipe/hw/ContextCapabilities;", nullptr, $PUBLIC, $virtualMethod(CGLGraphicsConfig, getContextCapabilities, $ContextCapabilities*)},
+		{"getImageCapabilities", "()Ljava/awt/ImageCapabilities;", nullptr, $PUBLIC, $virtualMethod(CGLGraphicsConfig, getImageCapabilities, $ImageCapabilities*)},
+		{"getMaxTextureHeight", "()I", nullptr, $PUBLIC, $virtualMethod(CGLGraphicsConfig, getMaxTextureHeight, int32_t)},
+		{"getMaxTextureWidth", "()I", nullptr, $PUBLIC, $virtualMethod(CGLGraphicsConfig, getMaxTextureWidth, int32_t)},
+		{"getNativeConfigInfo", "()J", nullptr, $PUBLIC, $virtualMethod(CGLGraphicsConfig, getNativeConfigInfo, int64_t)},
+		{"getOGLCapabilities", "(J)I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(CGLGraphicsConfig, getOGLCapabilities, int32_t, int64_t)},
+		{"getProxyKey", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(CGLGraphicsConfig, getProxyKey, $Object*)},
+		{"initCGL", "()Z", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(CGLGraphicsConfig, initCGL, bool)},
+		{"isCGLAvailable", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(CGLGraphicsConfig, isCGLAvailable, bool)},
+		{"isCapPresent", "(I)Z", nullptr, $PUBLIC, $virtualMethod(CGLGraphicsConfig, isCapPresent, bool, int32_t)},
+		{"isDoubleBuffered", "()Z", nullptr, $PUBLIC, $method(CGLGraphicsConfig, isDoubleBuffered, bool)},
+		{"lambda$getConfig$0", "([Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(CGLGraphicsConfig, lambda$getConfig$0, void, $StringArray*)},
+		{"nativeGetMaxTextureSize", "()I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(CGLGraphicsConfig, nativeGetMaxTextureSize, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CGLGraphicsConfig, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.java2d.opengl.CGLGraphicsConfig$CGLImageCaps", "sun.java2d.opengl.CGLGraphicsConfig", "CGLImageCaps", $PRIVATE | $STATIC},
+		{"sun.java2d.opengl.CGLGraphicsConfig$CGLBufferCaps", "sun.java2d.opengl.CGLGraphicsConfig", "CGLBufferCaps", $PRIVATE | $STATIC},
+		{"sun.java2d.opengl.CGLGraphicsConfig$CGLGCDisposerRecord", "sun.java2d.opengl.CGLGraphicsConfig", "CGLGCDisposerRecord", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.java2d.opengl.CGLGraphicsConfig",
+		"sun.awt.CGraphicsConfig",
+		"sun.java2d.opengl.OGLGraphicsConfig",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.java2d.opengl.CGLGraphicsConfig$CGLImageCaps,sun.java2d.opengl.CGLGraphicsConfig$CGLBufferCaps,sun.java2d.opengl.CGLGraphicsConfig$CGLGCDisposerRecord"
+	};
+	$loadClass(CGLGraphicsConfig, name, initialize, &classInfo$$, CGLGraphicsConfig::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(CGLGraphicsConfig));
+	});
 	return class$;
 }
 

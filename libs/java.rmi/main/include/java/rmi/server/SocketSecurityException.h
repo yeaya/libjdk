@@ -21,10 +21,13 @@ public:
 	SocketSecurityException();
 	void init$($String* s);
 	void init$($String* s, ::java::lang::Exception* ex);
-	static const int64_t serialVersionUID = (int64_t)0x9638F4FD9233F7A5;
+	static const int64_t serialVersionUID = (int64_t)0x9638f4fd9233f7a5;
 	SocketSecurityException(const SocketSecurityException& e);
 	virtual void throw$() override;
-	inline SocketSecurityException* operator ->() {
+	inline SocketSecurityException* operator ->() const {
+		return (SocketSecurityException*)throwing$;
+	}
+	inline operator SocketSecurityException*() const {
 		return (SocketSecurityException*)throwing$;
 	}
 };

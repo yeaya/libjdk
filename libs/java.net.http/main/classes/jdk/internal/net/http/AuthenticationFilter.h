@@ -54,6 +54,7 @@ class $export AuthenticationFilter : public ::jdk::internal::net::http::HeaderFi
 	$class(AuthenticationFilter, 0, ::jdk::internal::net::http::HeaderFilter)
 public:
 	AuthenticationFilter();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void addBasicCredentials(::jdk::internal::net::http::HttpRequestImpl* r, bool proxy, ::java::net::PasswordAuthentication* pw, bool isUTF8);
 	static ::jdk::internal::net::http::AuthenticationFilter$Cache* getCache(::jdk::internal::net::http::MultiExchange* exchange);

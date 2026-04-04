@@ -1,5 +1,4 @@
 #include <sun/java2d/SurfaceDataProxy$1.h>
-
 #include <java/awt/Color.h>
 #include <java/lang/InternalError.h>
 #include <sun/java2d/SurfaceData.h>
@@ -19,46 +18,6 @@ using $CompositeType = ::sun::java2d::loops::CompositeType;
 
 namespace sun {
 	namespace java2d {
-
-$MethodInfo _SurfaceDataProxy$1_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, 0, $method(SurfaceDataProxy$1, init$, void, int32_t)},
-	{"isAccelerated", "()Z", nullptr, $PUBLIC, $virtualMethod(SurfaceDataProxy$1, isAccelerated, bool)},
-	{"isSupportedOperation", "(Lsun/java2d/SurfaceData;ILsun/java2d/loops/CompositeType;Ljava/awt/Color;)Z", nullptr, $PUBLIC, $virtualMethod(SurfaceDataProxy$1, isSupportedOperation, bool, $SurfaceData*, int32_t, $CompositeType*, $Color*)},
-	{"replaceData", "(Lsun/java2d/SurfaceData;ILsun/java2d/loops/CompositeType;Ljava/awt/Color;)Lsun/java2d/SurfaceData;", nullptr, $PUBLIC, $virtualMethod(SurfaceDataProxy$1, replaceData, $SurfaceData*, $SurfaceData*, int32_t, $CompositeType*, $Color*)},
-	{"validateSurfaceData", "(Lsun/java2d/SurfaceData;Lsun/java2d/SurfaceData;II)Lsun/java2d/SurfaceData;", nullptr, $PUBLIC, $virtualMethod(SurfaceDataProxy$1, validateSurfaceData, $SurfaceData*, $SurfaceData*, $SurfaceData*, int32_t, int32_t)},
-	{}
-};
-
-$EnclosingMethodInfo _SurfaceDataProxy$1_EnclosingMethodInfo_ = {
-	"sun.java2d.SurfaceDataProxy",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _SurfaceDataProxy$1_InnerClassesInfo_[] = {
-	{"sun.java2d.SurfaceDataProxy$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _SurfaceDataProxy$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.java2d.SurfaceDataProxy$1",
-	"sun.java2d.SurfaceDataProxy",
-	nullptr,
-	nullptr,
-	_SurfaceDataProxy$1_MethodInfo_,
-	nullptr,
-	&_SurfaceDataProxy$1_EnclosingMethodInfo_,
-	_SurfaceDataProxy$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.java2d.SurfaceDataProxy"
-};
-
-$Object* allocate$SurfaceDataProxy$1($Class* clazz) {
-	return $of($alloc(SurfaceDataProxy$1));
-}
 
 void SurfaceDataProxy$1::init$(int32_t threshold) {
 	$SurfaceDataProxy::init$(threshold);
@@ -85,7 +44,41 @@ SurfaceDataProxy$1::SurfaceDataProxy$1() {
 }
 
 $Class* SurfaceDataProxy$1::load$($String* name, bool initialize) {
-	$loadClass(SurfaceDataProxy$1, name, initialize, &_SurfaceDataProxy$1_ClassInfo_, allocate$SurfaceDataProxy$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I)V", nullptr, 0, $method(SurfaceDataProxy$1, init$, void, int32_t)},
+		{"isAccelerated", "()Z", nullptr, $PUBLIC, $virtualMethod(SurfaceDataProxy$1, isAccelerated, bool)},
+		{"isSupportedOperation", "(Lsun/java2d/SurfaceData;ILsun/java2d/loops/CompositeType;Ljava/awt/Color;)Z", nullptr, $PUBLIC, $virtualMethod(SurfaceDataProxy$1, isSupportedOperation, bool, $SurfaceData*, int32_t, $CompositeType*, $Color*)},
+		{"replaceData", "(Lsun/java2d/SurfaceData;ILsun/java2d/loops/CompositeType;Ljava/awt/Color;)Lsun/java2d/SurfaceData;", nullptr, $PUBLIC, $virtualMethod(SurfaceDataProxy$1, replaceData, $SurfaceData*, $SurfaceData*, int32_t, $CompositeType*, $Color*)},
+		{"validateSurfaceData", "(Lsun/java2d/SurfaceData;Lsun/java2d/SurfaceData;II)Lsun/java2d/SurfaceData;", nullptr, $PUBLIC, $virtualMethod(SurfaceDataProxy$1, validateSurfaceData, $SurfaceData*, $SurfaceData*, $SurfaceData*, int32_t, int32_t)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.java2d.SurfaceDataProxy",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.java2d.SurfaceDataProxy$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.java2d.SurfaceDataProxy$1",
+		"sun.java2d.SurfaceDataProxy",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.java2d.SurfaceDataProxy"
+	};
+	$loadClass(SurfaceDataProxy$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SurfaceDataProxy$1));
+	});
 	return class$;
 }
 

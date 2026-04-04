@@ -173,6 +173,7 @@ class XAtom : public ::java::lang::Object {
 	$class(XAtom, 0, ::java::lang::Object)
 public:
 	XAtom();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int64_t display, $String* name);
 	void init$($String* name, bool autoIntern);
 	void init$(int64_t display, int64_t atom);

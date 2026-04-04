@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/windows/XPStyle.h>
-
 #include <com/sun/java/swing/plaf/windows/TMSchema$Part.h>
 #include <com/sun/java/swing/plaf/windows/TMSchema$Prop.h>
 #include <com/sun/java/swing/plaf/windows/TMSchema$State.h>
@@ -19,7 +18,6 @@
 #include <java/awt/Toolkit.h>
 #include <java/lang/AssertionError.h>
 #include <java/security/AccessController.h>
-#include <java/security/PrivilegedAction.h>
 #include <java/util/HashMap.h>
 #include <javax/swing/LookAndFeel.h>
 #include <javax/swing/UIManager.h>
@@ -66,7 +64,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AccessController = ::java::security::AccessController;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $HashMap = ::java::util::HashMap;
 using $UIManager = ::javax::swing::UIManager;
 using $Border = ::javax::swing::border::Border;
@@ -82,80 +79,14 @@ namespace com {
 				namespace plaf {
 					namespace windows {
 
-$FieldInfo _XPStyle_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(XPStyle, $assertionsDisabled)},
-	{"xp", "Lcom/sun/java/swing/plaf/windows/XPStyle;", nullptr, $PRIVATE | $STATIC, $staticField(XPStyle, xp)},
-	{"skinPainter", "Lcom/sun/java/swing/plaf/windows/XPStyle$SkinPainter;", nullptr, $PRIVATE | $STATIC, $staticField(XPStyle, skinPainter)},
-	{"themeActive", "Ljava/lang/Boolean;", nullptr, $PRIVATE | $STATIC, $staticField(XPStyle, themeActive)},
-	{"borderMap", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/lang/String;Ljavax/swing/border/Border;>;", $PRIVATE, $field(XPStyle, borderMap)},
-	{"colorMap", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/lang/String;Ljava/awt/Color;>;", $PRIVATE, $field(XPStyle, colorMap)},
-	{"flatMenus", "Z", nullptr, $PRIVATE, $field(XPStyle, flatMenus)},
-	{}
-};
-
-$MethodInfo _XPStyle_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(XPStyle, init$, void)},
-	{"getBoolean", "(Ljava/awt/Component;Lcom/sun/java/swing/plaf/windows/TMSchema$Part;Lcom/sun/java/swing/plaf/windows/TMSchema$State;Lcom/sun/java/swing/plaf/windows/TMSchema$Prop;)Z", nullptr, $PRIVATE, $method(XPStyle, getBoolean, bool, $Component*, $TMSchema$Part*, $TMSchema$State*, $TMSchema$Prop*)},
-	{"getBorder", "(Ljava/awt/Component;Lcom/sun/java/swing/plaf/windows/TMSchema$Part;)Ljavax/swing/border/Border;", nullptr, $SYNCHRONIZED, $virtualMethod(XPStyle, getBorder, $Border*, $Component*, $TMSchema$Part*)},
-	{"getColor", "(Lcom/sun/java/swing/plaf/windows/XPStyle$Skin;Lcom/sun/java/swing/plaf/windows/TMSchema$Prop;Ljava/awt/Color;)Ljava/awt/Color;", nullptr, $SYNCHRONIZED, $virtualMethod(XPStyle, getColor, $Color*, $XPStyle$Skin*, $TMSchema$Prop*, $Color*)},
-	{"getColor", "(Ljava/awt/Component;Lcom/sun/java/swing/plaf/windows/TMSchema$Part;Lcom/sun/java/swing/plaf/windows/TMSchema$State;Lcom/sun/java/swing/plaf/windows/TMSchema$Prop;Ljava/awt/Color;)Ljava/awt/Color;", nullptr, 0, $virtualMethod(XPStyle, getColor, $Color*, $Component*, $TMSchema$Part*, $TMSchema$State*, $TMSchema$Prop*, $Color*)},
-	{"getDimension", "(Ljava/awt/Component;Lcom/sun/java/swing/plaf/windows/TMSchema$Part;Lcom/sun/java/swing/plaf/windows/TMSchema$State;Lcom/sun/java/swing/plaf/windows/TMSchema$Prop;)Ljava/awt/Dimension;", nullptr, 0, $virtualMethod(XPStyle, getDimension, $Dimension*, $Component*, $TMSchema$Part*, $TMSchema$State*, $TMSchema$Prop*)},
-	{"getInt", "(Ljava/awt/Component;Lcom/sun/java/swing/plaf/windows/TMSchema$Part;Lcom/sun/java/swing/plaf/windows/TMSchema$State;Lcom/sun/java/swing/plaf/windows/TMSchema$Prop;I)I", nullptr, 0, $virtualMethod(XPStyle, getInt, int32_t, $Component*, $TMSchema$Part*, $TMSchema$State*, $TMSchema$Prop*, int32_t)},
-	{"getMargin", "(Ljava/awt/Component;Lcom/sun/java/swing/plaf/windows/TMSchema$Part;Lcom/sun/java/swing/plaf/windows/TMSchema$State;Lcom/sun/java/swing/plaf/windows/TMSchema$Prop;)Ljava/awt/Insets;", nullptr, 0, $virtualMethod(XPStyle, getMargin, $Insets*, $Component*, $TMSchema$Part*, $TMSchema$State*, $TMSchema$Prop*)},
-	{"getPartSize", "(Lcom/sun/java/swing/plaf/windows/TMSchema$Part;Lcom/sun/java/swing/plaf/windows/TMSchema$State;)Ljava/awt/Dimension;", nullptr, $STATIC, $staticMethod(XPStyle, getPartSize, $Dimension*, $TMSchema$Part*, $TMSchema$State*)},
-	{"getPoint", "(Ljava/awt/Component;Lcom/sun/java/swing/plaf/windows/TMSchema$Part;Lcom/sun/java/swing/plaf/windows/TMSchema$State;Lcom/sun/java/swing/plaf/windows/TMSchema$Prop;)Ljava/awt/Point;", nullptr, 0, $virtualMethod(XPStyle, getPoint, $Point*, $Component*, $TMSchema$Part*, $TMSchema$State*, $TMSchema$Prop*)},
-	{"getSkin", "(Ljava/awt/Component;Lcom/sun/java/swing/plaf/windows/TMSchema$Part;)Lcom/sun/java/swing/plaf/windows/XPStyle$Skin;", nullptr, $SYNCHRONIZED, $virtualMethod(XPStyle, getSkin, $XPStyle$Skin*, $Component*, $TMSchema$Part*)},
-	{"getString", "(Ljava/awt/Component;Lcom/sun/java/swing/plaf/windows/TMSchema$Part;Lcom/sun/java/swing/plaf/windows/TMSchema$State;Lcom/sun/java/swing/plaf/windows/TMSchema$Prop;)Ljava/lang/String;", nullptr, 0, $virtualMethod(XPStyle, getString, $String*, $Component*, $TMSchema$Part*, $TMSchema$State*, $TMSchema$Prop*)},
-	{"getSysBoolean", "(Lcom/sun/java/swing/plaf/windows/TMSchema$Prop;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(XPStyle, getSysBoolean, bool, $TMSchema$Prop*)},
-	{"getThemeTransitionDuration", "(Ljava/awt/Component;Lcom/sun/java/swing/plaf/windows/TMSchema$Part;Lcom/sun/java/swing/plaf/windows/TMSchema$State;Lcom/sun/java/swing/plaf/windows/TMSchema$State;Lcom/sun/java/swing/plaf/windows/TMSchema$Prop;)J", nullptr, 0, $virtualMethod(XPStyle, getThemeTransitionDuration, int64_t, $Component*, $TMSchema$Part*, $TMSchema$State*, $TMSchema$State*, $TMSchema$Prop*)},
-	{"getTypeEnum", "(Ljava/awt/Component;Lcom/sun/java/swing/plaf/windows/TMSchema$Part;Lcom/sun/java/swing/plaf/windows/TMSchema$State;Lcom/sun/java/swing/plaf/windows/TMSchema$Prop;)Lcom/sun/java/swing/plaf/windows/TMSchema$TypeEnum;", nullptr, 0, $virtualMethod(XPStyle, getTypeEnum, $TMSchema$TypeEnum*, $Component*, $TMSchema$Part*, $TMSchema$State*, $TMSchema$Prop*)},
-	{"getTypeEnumName", "(Ljava/awt/Component;Lcom/sun/java/swing/plaf/windows/TMSchema$Part;Lcom/sun/java/swing/plaf/windows/TMSchema$State;Lcom/sun/java/swing/plaf/windows/TMSchema$Prop;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(XPStyle, getTypeEnumName, $String*, $Component*, $TMSchema$Part*, $TMSchema$State*, $TMSchema$Prop*)},
-	{"getXP", "()Lcom/sun/java/swing/plaf/windows/XPStyle;", nullptr, $STATIC | $SYNCHRONIZED, $staticMethod(XPStyle, getXP, XPStyle*)},
-	{"invalidateStyle", "()V", nullptr, $STATIC | $SYNCHRONIZED, $staticMethod(XPStyle, invalidateStyle, void)},
-	{"isSkinDefined", "(Ljava/awt/Component;Lcom/sun/java/swing/plaf/windows/TMSchema$Part;)Z", nullptr, 0, $virtualMethod(XPStyle, isSkinDefined, bool, $Component*, $TMSchema$Part*)},
-	{"isVista", "()Z", nullptr, $STATIC, $staticMethod(XPStyle, isVista, bool)},
-	{}
-};
-
-$InnerClassInfo _XPStyle_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.windows.XPStyle$GlyphButton", "com.sun.java.swing.plaf.windows.XPStyle", "GlyphButton", $STATIC},
-	{"com.sun.java.swing.plaf.windows.XPStyle$SkinPainter", "com.sun.java.swing.plaf.windows.XPStyle", "SkinPainter", $PRIVATE | $STATIC},
-	{"com.sun.java.swing.plaf.windows.XPStyle$Skin", "com.sun.java.swing.plaf.windows.XPStyle", "Skin", $STATIC},
-	{"com.sun.java.swing.plaf.windows.XPStyle$XPEmptyBorder", "com.sun.java.swing.plaf.windows.XPStyle", "XPEmptyBorder", $PRIVATE},
-	{"com.sun.java.swing.plaf.windows.XPStyle$XPImageBorder", "com.sun.java.swing.plaf.windows.XPStyle", "XPImageBorder", $PRIVATE},
-	{"com.sun.java.swing.plaf.windows.XPStyle$XPStatefulFillBorder", "com.sun.java.swing.plaf.windows.XPStyle", "XPStatefulFillBorder", $PRIVATE},
-	{"com.sun.java.swing.plaf.windows.XPStyle$XPFillBorder", "com.sun.java.swing.plaf.windows.XPStyle", "XPFillBorder", $PRIVATE},
-	{}
-};
-
-$ClassInfo _XPStyle_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.java.swing.plaf.windows.XPStyle",
-	"java.lang.Object",
-	nullptr,
-	_XPStyle_FieldInfo_,
-	_XPStyle_MethodInfo_,
-	nullptr,
-	nullptr,
-	_XPStyle_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.windows.XPStyle$GlyphButton,com.sun.java.swing.plaf.windows.XPStyle$SkinPainter,com.sun.java.swing.plaf.windows.XPStyle$Skin,com.sun.java.swing.plaf.windows.XPStyle$XPEmptyBorder,com.sun.java.swing.plaf.windows.XPStyle$XPImageBorder,com.sun.java.swing.plaf.windows.XPStyle$XPStatefulFillBorder,com.sun.java.swing.plaf.windows.XPStyle$XPFillBorder"
-};
-
-$Object* allocate$XPStyle($Class* clazz) {
-	return $of($alloc(XPStyle));
-}
-
 bool XPStyle::$assertionsDisabled = false;
 XPStyle* XPStyle::xp = nullptr;
 $XPStyle$SkinPainter* XPStyle::skinPainter = nullptr;
 $Boolean* XPStyle::themeActive = nullptr;
 
 void XPStyle::invalidateStyle() {
-	$load(XPStyle);
+	$init(XPStyle);
 	$synchronized(class$) {
-		$init(XPStyle);
 		$assignStatic(XPStyle::xp, nullptr);
 		$assignStatic(XPStyle::themeActive, nullptr);
 		$nc(XPStyle::skinPainter)->flush();
@@ -163,21 +94,19 @@ void XPStyle::invalidateStyle() {
 }
 
 XPStyle* XPStyle::getXP() {
-	$load(XPStyle);
+	$init(XPStyle);
 	$synchronized(class$) {
-		$init(XPStyle);
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$beforeCallerSensitive();
 		if (XPStyle::themeActive == nullptr) {
 			$var($Toolkit, toolkit, $Toolkit::getDefaultToolkit());
 			$assignStatic(XPStyle::themeActive, $cast($Boolean, $nc(toolkit)->getDesktopProperty("win.xpstyle.themeActive"_s)));
 			if (XPStyle::themeActive == nullptr) {
-				$init($Boolean);
 				$assignStatic(XPStyle::themeActive, $Boolean::FALSE);
 			}
 			if ($nc(XPStyle::themeActive)->booleanValue()) {
 				$var($GetPropertyAction, propertyAction, $new($GetPropertyAction, "swing.noxp"_s));
-				bool var$1 = $AccessController::doPrivileged(static_cast<$PrivilegedAction*>(propertyAction)) == nullptr;
+				bool var$1 = $AccessController::doPrivileged(propertyAction) == nullptr;
 				bool var$0 = var$1 && $ThemeReader::isThemed();
 				if (var$0 && !($instanceOf($WindowsClassicLookAndFeel, $($UIManager::getLookAndFeel())))) {
 					$assignStatic(XPStyle::xp, $new(XPStyle));
@@ -209,7 +138,7 @@ $TMSchema$TypeEnum* XPStyle::getTypeEnum($Component* c, $TMSchema$Part* part, $T
 
 $String* XPStyle::getTypeEnumName($Component* c, $TMSchema$Part* part, $TMSchema$State* state, $TMSchema$Prop* prop) {
 	$init(XPStyle);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, var$0, $nc(part)->getControlName(c));
 	int32_t var$1 = part->getValue();
 	int32_t var$2 = $TMSchema$State::getValue(part, state);
@@ -217,7 +146,7 @@ $String* XPStyle::getTypeEnumName($Component* c, $TMSchema$Part* part, $TMSchema
 	if (enumValue == -1) {
 		return nullptr;
 	}
-	return $nc($($TMSchema$TypeEnum::getTypeEnum(prop, enumValue)))->getName();
+	return $$nc($TMSchema$TypeEnum::getTypeEnum(prop, enumValue))->getName();
 }
 
 int32_t XPStyle::getInt($Component* c, $TMSchema$Part* part, $TMSchema$State* state, $TMSchema$Prop* prop, int32_t fallback) {
@@ -228,7 +157,7 @@ int32_t XPStyle::getInt($Component* c, $TMSchema$Part* part, $TMSchema$State* st
 }
 
 $Dimension* XPStyle::getDimension($Component* c, $TMSchema$Part* part, $TMSchema$State* state, $TMSchema$Prop* prop) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, var$0, $nc(part)->getControlName(c));
 	int32_t var$1 = part->getValue();
 	int32_t var$2 = $TMSchema$State::getValue(part, state);
@@ -237,16 +166,16 @@ $Dimension* XPStyle::getDimension($Component* c, $TMSchema$Part* part, $TMSchema
 }
 
 $Point* XPStyle::getPoint($Component* c, $TMSchema$Part* part, $TMSchema$State* state, $TMSchema$Prop* prop) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, var$0, $nc(part)->getControlName(c));
 	int32_t var$1 = part->getValue();
 	int32_t var$2 = $TMSchema$State::getValue(part, state);
 	$var($Dimension, d, $ThemeReader::getPosition(var$0, var$1, var$2, $nc(prop)->getValue()));
-	return (d != nullptr) ? $new($Point, $nc(d)->width, d->height) : $new($Point);
+	return (d != nullptr) ? $new($Point, d->width, d->height) : $new($Point);
 }
 
 $Insets* XPStyle::getMargin($Component* c, $TMSchema$Part* part, $TMSchema$State* state, $TMSchema$Prop* prop) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, var$0, $nc(part)->getControlName(c));
 	int32_t var$1 = part->getValue();
 	int32_t var$2 = $TMSchema$State::getValue(part, state);
@@ -256,16 +185,19 @@ $Insets* XPStyle::getMargin($Component* c, $TMSchema$Part* part, $TMSchema$State
 
 $Color* XPStyle::getColor($XPStyle$Skin* skin, $TMSchema$Prop* prop, $Color* fallback) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
-		$var($String, var$0, $$str({$($nc(skin)->toString()), "."_s}));
-		$var($String, key, $concat(var$0, $($nc(prop)->name())));
-		$TMSchema$Part* part = skin->part;
+		$useLocalObjectStack();
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append($($nc(skin)->toString()));
+		var$0->append("."_s);
+		var$0->append($($nc(prop)->name()));
+		$var($String, key, $str(var$0));
+		$TMSchema$Part* part = $nc(skin)->part;
 		$var($Color, color, $cast($Color, $nc(this->colorMap)->get(key)));
 		if (color == nullptr) {
 			$var($String, var$1, $nc(part)->getControlName(nullptr));
 			int32_t var$2 = part->getValue();
 			int32_t var$3 = $TMSchema$State::getValue(part, skin->state);
-			$assign(color, $ThemeReader::getColor(var$1, var$2, var$3, prop->getValue()));
+			$assign(color, $ThemeReader::getColor(var$1, var$2, var$3, $nc(prop)->getValue()));
 			if (color != nullptr) {
 				$assign(color, $new($ColorUIResource, color));
 				$nc(this->colorMap)->put(key, color);
@@ -281,7 +213,7 @@ $Color* XPStyle::getColor($Component* c, $TMSchema$Part* part, $TMSchema$State* 
 
 $Border* XPStyle::getBorder($Component* c, $TMSchema$Part* part) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$init($TMSchema$Part);
 		if (part == $TMSchema$Part::MENU) {
 			if (this->flatMenus) {
@@ -308,16 +240,12 @@ $Border* XPStyle::getBorder($Component* c, $TMSchema$Part* part) {
 				if (m != nullptr) {
 					if (getBoolean(c, part, nullptr, $TMSchema$Prop::BORDERONLY)) {
 						$assign(border, $new($XPStyle$XPImageBorder, this, c, part));
+					} else if (part == $TMSchema$Part::CP_COMBOBOX) {
+						$assign(border, $new($EmptyBorder, 1, 1, 1, 1));
+					} else if (part == $TMSchema$Part::TP_BUTTON) {
+						$assign(border, $new($XPStyle$XPEmptyBorder, this, $$new($Insets, 3, 3, 3, 3)));
 					} else {
-						if (part == $TMSchema$Part::CP_COMBOBOX) {
-							$assign(border, $new($EmptyBorder, 1, 1, 1, 1));
-						} else {
-							if (part == $TMSchema$Part::TP_BUTTON) {
-								$assign(border, $new($XPStyle$XPEmptyBorder, this, $$new($Insets, 3, 3, 3, 3)));
-							} else {
-								$assign(border, $new($XPStyle$XPEmptyBorder, this, m));
-							}
-						}
+						$assign(border, $new($XPStyle$XPEmptyBorder, this, m));
 					}
 				}
 			}
@@ -330,9 +258,9 @@ $Border* XPStyle::getBorder($Component* c, $TMSchema$Part* part) {
 }
 
 bool XPStyle::isSkinDefined($Component* c, $TMSchema$Part* part) {
-	bool var$0 = ($nc(part)->getValue() == 0);
+	bool var$0 = $nc(part)->getValue() == 0;
 	if (!var$0) {
-		$var($String, var$1, $nc(part)->getControlName(c));
+		$var($String, var$1, part->getControlName(c));
 		var$0 = $ThemeReader::isThemePartDefined(var$1, part->getValue(), 0);
 	}
 	return var$0;
@@ -341,7 +269,7 @@ bool XPStyle::isSkinDefined($Component* c, $TMSchema$Part* part) {
 $XPStyle$Skin* XPStyle::getSkin($Component* c, $TMSchema$Part* part) {
 	$synchronized(this) {
 		if (!XPStyle::$assertionsDisabled && !isSkinDefined(c, part)) {
-			$throwNew($AssertionError, $of($$str({"part "_s, part, " is not defined"_s})));
+			$throwNew($AssertionError, $$of($str({"part "_s, part, " is not defined"_s})));
 		}
 		return $new($XPStyle$Skin, c, part, nullptr);
 	}
@@ -352,7 +280,7 @@ int64_t XPStyle::getThemeTransitionDuration($Component* c, $TMSchema$Part* part,
 	int32_t var$1 = part->getValue();
 	int32_t var$2 = $TMSchema$State::getValue(part, stateFrom);
 	int32_t var$3 = $TMSchema$State::getValue(part, stateTo);
-	return $ThemeReader::getThemeTransitionDuration(var$0, var$1, var$2, var$3, (prop != nullptr) ? $nc(prop)->getValue() : 0);
+	return $ThemeReader::getThemeTransitionDuration(var$0, var$1, var$2, var$3, (prop != nullptr) ? prop->getValue() : 0);
 }
 
 void XPStyle::init$() {
@@ -381,7 +309,7 @@ bool XPStyle::getSysBoolean($TMSchema$Prop* prop) {
 	return $ThemeReader::getSysBoolean("window"_s, $nc(prop)->getValue());
 }
 
-void clinit$XPStyle($Class* class$) {
+void XPStyle::clinit$($Class* clazz) {
 	XPStyle::$assertionsDisabled = !XPStyle::class$->desiredAssertionStatus();
 	$assignStatic(XPStyle::skinPainter, $new($XPStyle$SkinPainter));
 	$assignStatic(XPStyle::themeActive, nullptr);
@@ -394,7 +322,66 @@ XPStyle::XPStyle() {
 }
 
 $Class* XPStyle::load$($String* name, bool initialize) {
-	$loadClass(XPStyle, name, initialize, &_XPStyle_ClassInfo_, clinit$XPStyle, allocate$XPStyle);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(XPStyle, $assertionsDisabled)},
+		{"xp", "Lcom/sun/java/swing/plaf/windows/XPStyle;", nullptr, $PRIVATE | $STATIC, $staticField(XPStyle, xp)},
+		{"skinPainter", "Lcom/sun/java/swing/plaf/windows/XPStyle$SkinPainter;", nullptr, $PRIVATE | $STATIC, $staticField(XPStyle, skinPainter)},
+		{"themeActive", "Ljava/lang/Boolean;", nullptr, $PRIVATE | $STATIC, $staticField(XPStyle, themeActive)},
+		{"borderMap", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/lang/String;Ljavax/swing/border/Border;>;", $PRIVATE, $field(XPStyle, borderMap)},
+		{"colorMap", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/lang/String;Ljava/awt/Color;>;", $PRIVATE, $field(XPStyle, colorMap)},
+		{"flatMenus", "Z", nullptr, $PRIVATE, $field(XPStyle, flatMenus)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(XPStyle, init$, void)},
+		{"getBoolean", "(Ljava/awt/Component;Lcom/sun/java/swing/plaf/windows/TMSchema$Part;Lcom/sun/java/swing/plaf/windows/TMSchema$State;Lcom/sun/java/swing/plaf/windows/TMSchema$Prop;)Z", nullptr, $PRIVATE, $method(XPStyle, getBoolean, bool, $Component*, $TMSchema$Part*, $TMSchema$State*, $TMSchema$Prop*)},
+		{"getBorder", "(Ljava/awt/Component;Lcom/sun/java/swing/plaf/windows/TMSchema$Part;)Ljavax/swing/border/Border;", nullptr, $SYNCHRONIZED, $virtualMethod(XPStyle, getBorder, $Border*, $Component*, $TMSchema$Part*)},
+		{"getColor", "(Lcom/sun/java/swing/plaf/windows/XPStyle$Skin;Lcom/sun/java/swing/plaf/windows/TMSchema$Prop;Ljava/awt/Color;)Ljava/awt/Color;", nullptr, $SYNCHRONIZED, $virtualMethod(XPStyle, getColor, $Color*, $XPStyle$Skin*, $TMSchema$Prop*, $Color*)},
+		{"getColor", "(Ljava/awt/Component;Lcom/sun/java/swing/plaf/windows/TMSchema$Part;Lcom/sun/java/swing/plaf/windows/TMSchema$State;Lcom/sun/java/swing/plaf/windows/TMSchema$Prop;Ljava/awt/Color;)Ljava/awt/Color;", nullptr, 0, $virtualMethod(XPStyle, getColor, $Color*, $Component*, $TMSchema$Part*, $TMSchema$State*, $TMSchema$Prop*, $Color*)},
+		{"getDimension", "(Ljava/awt/Component;Lcom/sun/java/swing/plaf/windows/TMSchema$Part;Lcom/sun/java/swing/plaf/windows/TMSchema$State;Lcom/sun/java/swing/plaf/windows/TMSchema$Prop;)Ljava/awt/Dimension;", nullptr, 0, $virtualMethod(XPStyle, getDimension, $Dimension*, $Component*, $TMSchema$Part*, $TMSchema$State*, $TMSchema$Prop*)},
+		{"getInt", "(Ljava/awt/Component;Lcom/sun/java/swing/plaf/windows/TMSchema$Part;Lcom/sun/java/swing/plaf/windows/TMSchema$State;Lcom/sun/java/swing/plaf/windows/TMSchema$Prop;I)I", nullptr, 0, $virtualMethod(XPStyle, getInt, int32_t, $Component*, $TMSchema$Part*, $TMSchema$State*, $TMSchema$Prop*, int32_t)},
+		{"getMargin", "(Ljava/awt/Component;Lcom/sun/java/swing/plaf/windows/TMSchema$Part;Lcom/sun/java/swing/plaf/windows/TMSchema$State;Lcom/sun/java/swing/plaf/windows/TMSchema$Prop;)Ljava/awt/Insets;", nullptr, 0, $virtualMethod(XPStyle, getMargin, $Insets*, $Component*, $TMSchema$Part*, $TMSchema$State*, $TMSchema$Prop*)},
+		{"getPartSize", "(Lcom/sun/java/swing/plaf/windows/TMSchema$Part;Lcom/sun/java/swing/plaf/windows/TMSchema$State;)Ljava/awt/Dimension;", nullptr, $STATIC, $staticMethod(XPStyle, getPartSize, $Dimension*, $TMSchema$Part*, $TMSchema$State*)},
+		{"getPoint", "(Ljava/awt/Component;Lcom/sun/java/swing/plaf/windows/TMSchema$Part;Lcom/sun/java/swing/plaf/windows/TMSchema$State;Lcom/sun/java/swing/plaf/windows/TMSchema$Prop;)Ljava/awt/Point;", nullptr, 0, $virtualMethod(XPStyle, getPoint, $Point*, $Component*, $TMSchema$Part*, $TMSchema$State*, $TMSchema$Prop*)},
+		{"getSkin", "(Ljava/awt/Component;Lcom/sun/java/swing/plaf/windows/TMSchema$Part;)Lcom/sun/java/swing/plaf/windows/XPStyle$Skin;", nullptr, $SYNCHRONIZED, $virtualMethod(XPStyle, getSkin, $XPStyle$Skin*, $Component*, $TMSchema$Part*)},
+		{"getString", "(Ljava/awt/Component;Lcom/sun/java/swing/plaf/windows/TMSchema$Part;Lcom/sun/java/swing/plaf/windows/TMSchema$State;Lcom/sun/java/swing/plaf/windows/TMSchema$Prop;)Ljava/lang/String;", nullptr, 0, $virtualMethod(XPStyle, getString, $String*, $Component*, $TMSchema$Part*, $TMSchema$State*, $TMSchema$Prop*)},
+		{"getSysBoolean", "(Lcom/sun/java/swing/plaf/windows/TMSchema$Prop;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(XPStyle, getSysBoolean, bool, $TMSchema$Prop*)},
+		{"getThemeTransitionDuration", "(Ljava/awt/Component;Lcom/sun/java/swing/plaf/windows/TMSchema$Part;Lcom/sun/java/swing/plaf/windows/TMSchema$State;Lcom/sun/java/swing/plaf/windows/TMSchema$State;Lcom/sun/java/swing/plaf/windows/TMSchema$Prop;)J", nullptr, 0, $virtualMethod(XPStyle, getThemeTransitionDuration, int64_t, $Component*, $TMSchema$Part*, $TMSchema$State*, $TMSchema$State*, $TMSchema$Prop*)},
+		{"getTypeEnum", "(Ljava/awt/Component;Lcom/sun/java/swing/plaf/windows/TMSchema$Part;Lcom/sun/java/swing/plaf/windows/TMSchema$State;Lcom/sun/java/swing/plaf/windows/TMSchema$Prop;)Lcom/sun/java/swing/plaf/windows/TMSchema$TypeEnum;", nullptr, 0, $virtualMethod(XPStyle, getTypeEnum, $TMSchema$TypeEnum*, $Component*, $TMSchema$Part*, $TMSchema$State*, $TMSchema$Prop*)},
+		{"getTypeEnumName", "(Ljava/awt/Component;Lcom/sun/java/swing/plaf/windows/TMSchema$Part;Lcom/sun/java/swing/plaf/windows/TMSchema$State;Lcom/sun/java/swing/plaf/windows/TMSchema$Prop;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(XPStyle, getTypeEnumName, $String*, $Component*, $TMSchema$Part*, $TMSchema$State*, $TMSchema$Prop*)},
+		{"getXP", "()Lcom/sun/java/swing/plaf/windows/XPStyle;", nullptr, $STATIC | $SYNCHRONIZED, $staticMethod(XPStyle, getXP, XPStyle*)},
+		{"invalidateStyle", "()V", nullptr, $STATIC | $SYNCHRONIZED, $staticMethod(XPStyle, invalidateStyle, void)},
+		{"isSkinDefined", "(Ljava/awt/Component;Lcom/sun/java/swing/plaf/windows/TMSchema$Part;)Z", nullptr, 0, $virtualMethod(XPStyle, isSkinDefined, bool, $Component*, $TMSchema$Part*)},
+		{"isVista", "()Z", nullptr, $STATIC, $staticMethod(XPStyle, isVista, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.windows.XPStyle$GlyphButton", "com.sun.java.swing.plaf.windows.XPStyle", "GlyphButton", $STATIC},
+		{"com.sun.java.swing.plaf.windows.XPStyle$SkinPainter", "com.sun.java.swing.plaf.windows.XPStyle", "SkinPainter", $PRIVATE | $STATIC},
+		{"com.sun.java.swing.plaf.windows.XPStyle$Skin", "com.sun.java.swing.plaf.windows.XPStyle", "Skin", $STATIC},
+		{"com.sun.java.swing.plaf.windows.XPStyle$XPEmptyBorder", "com.sun.java.swing.plaf.windows.XPStyle", "XPEmptyBorder", $PRIVATE},
+		{"com.sun.java.swing.plaf.windows.XPStyle$XPImageBorder", "com.sun.java.swing.plaf.windows.XPStyle", "XPImageBorder", $PRIVATE},
+		{"com.sun.java.swing.plaf.windows.XPStyle$XPStatefulFillBorder", "com.sun.java.swing.plaf.windows.XPStyle", "XPStatefulFillBorder", $PRIVATE},
+		{"com.sun.java.swing.plaf.windows.XPStyle$XPFillBorder", "com.sun.java.swing.plaf.windows.XPStyle", "XPFillBorder", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.java.swing.plaf.windows.XPStyle",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.windows.XPStyle$GlyphButton,com.sun.java.swing.plaf.windows.XPStyle$SkinPainter,com.sun.java.swing.plaf.windows.XPStyle$Skin,com.sun.java.swing.plaf.windows.XPStyle$XPEmptyBorder,com.sun.java.swing.plaf.windows.XPStyle$XPImageBorder,com.sun.java.swing.plaf.windows.XPStyle$XPStatefulFillBorder,com.sun.java.swing.plaf.windows.XPStyle$XPFillBorder"
+	};
+	$loadClass(XPStyle, name, initialize, &classInfo$$, XPStyle::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(XPStyle);
+	});
 	return class$;
 }
 

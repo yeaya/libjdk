@@ -43,7 +43,7 @@ public:
 	virtual bool isVector() override;
 	virtual $String* toString() override;
 	$bytes* value = nullptr;
-	static const int64_t serialVersionUID = (int64_t)0x140CEFFF337A4E43;
+	static const int64_t serialVersionUID = (int64_t)0x140cefff337a4e43;
 };
 
 			} // perf

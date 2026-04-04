@@ -1,5 +1,4 @@
 #include <TestJInternalFrameIconify$1.h>
-
 #include <TestJInternalFrameIconify.h>
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
@@ -14,7 +13,6 @@
 
 using $TestJInternalFrameIconify = ::TestJInternalFrameIconify;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $PropertyVetoException = ::java::beans::PropertyVetoException;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
@@ -25,58 +23,16 @@ using $JDesktopPane = ::javax::swing::JDesktopPane;
 using $JFrame = ::javax::swing::JFrame;
 using $JInternalFrame = ::javax::swing::JInternalFrame;
 
-$FieldInfo _TestJInternalFrameIconify$1_FieldInfo_[] = {
-	{"val$lookAndFeelString", "Ljava/lang/String;", nullptr, $FINAL | $SYNTHETIC, $field(TestJInternalFrameIconify$1, val$lookAndFeelString)},
-	{}
-};
-
-$MethodInfo _TestJInternalFrameIconify$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", "()V", 0, $method(TestJInternalFrameIconify$1, init$, void, $String*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestJInternalFrameIconify$1, run, void)},
-	{}
-};
-
-$EnclosingMethodInfo _TestJInternalFrameIconify$1_EnclosingMethodInfo_ = {
-	"TestJInternalFrameIconify",
-	"createUI",
-	"(Ljava/lang/String;)V"
-};
-
-$InnerClassInfo _TestJInternalFrameIconify$1_InnerClassesInfo_[] = {
-	{"TestJInternalFrameIconify$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _TestJInternalFrameIconify$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"TestJInternalFrameIconify$1",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	_TestJInternalFrameIconify$1_FieldInfo_,
-	_TestJInternalFrameIconify$1_MethodInfo_,
-	nullptr,
-	&_TestJInternalFrameIconify$1_EnclosingMethodInfo_,
-	_TestJInternalFrameIconify$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"TestJInternalFrameIconify"
-};
-
-$Object* allocate$TestJInternalFrameIconify$1($Class* clazz) {
-	return $of($alloc(TestJInternalFrameIconify$1));
-}
-
 void TestJInternalFrameIconify$1::init$($String* val$lookAndFeelString) {
 	$set(this, val$lookAndFeelString, val$lookAndFeelString);
 }
 
 void TestJInternalFrameIconify$1::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($TestJInternalFrameIconify);
 	$assignStatic($TestJInternalFrameIconify::frame, $new($JFrame, this->val$lookAndFeelString));
 	$assignStatic($TestJInternalFrameIconify::desktopPane, $new($JDesktopPane));
-	$nc($($nc($TestJInternalFrameIconify::frame)->getContentPane()))->add(static_cast<$Component*>($TestJInternalFrameIconify::desktopPane));
+	$$nc($TestJInternalFrameIconify::frame->getContentPane())->add($TestJInternalFrameIconify::desktopPane);
 	$nc($TestJInternalFrameIconify::frame)->setDefaultCloseOperation($JFrame::EXIT_ON_CLOSE);
 	$var($JInternalFrame, f, $new($JInternalFrame, "Child "_s, true, true, true, true));
 	f->setSize(200, 300);
@@ -86,7 +42,7 @@ void TestJInternalFrameIconify$1::run() {
 	} catch ($PropertyVetoException& ex) {
 		$plusAssignStatic($TestJInternalFrameIconify::errorMessage, $$str({$(ex->getMessage()), "\n"_s}));
 	}
-	$nc($TestJInternalFrameIconify::desktopPane)->add(static_cast<$Component*>(f));
+	$nc($TestJInternalFrameIconify::desktopPane)->add(f);
 	f->setVisible(true);
 	$nc($TestJInternalFrameIconify::frame)->setSize(500, 500);
 	$nc($TestJInternalFrameIconify::frame)->setLocationRelativeTo(nullptr);
@@ -97,7 +53,42 @@ TestJInternalFrameIconify$1::TestJInternalFrameIconify$1() {
 }
 
 $Class* TestJInternalFrameIconify$1::load$($String* name, bool initialize) {
-	$loadClass(TestJInternalFrameIconify$1, name, initialize, &_TestJInternalFrameIconify$1_ClassInfo_, allocate$TestJInternalFrameIconify$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"val$lookAndFeelString", "Ljava/lang/String;", nullptr, $FINAL | $SYNTHETIC, $field(TestJInternalFrameIconify$1, val$lookAndFeelString)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", "()V", 0, $method(TestJInternalFrameIconify$1, init$, void, $String*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestJInternalFrameIconify$1, run, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"TestJInternalFrameIconify",
+		"createUI",
+		"(Ljava/lang/String;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"TestJInternalFrameIconify$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"TestJInternalFrameIconify$1",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"TestJInternalFrameIconify"
+	};
+	$loadClass(TestJInternalFrameIconify$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TestJInternalFrameIconify$1);
+	});
 	return class$;
 }
 

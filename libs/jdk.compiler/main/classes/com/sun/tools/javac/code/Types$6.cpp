@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/code/Types$6.h>
-
 #include <com/sun/tools/javac/code/Type$ErrorType.h>
 #include <com/sun/tools/javac/code/Type$UndetVar.h>
 #include <com/sun/tools/javac/code/Type$WildcardType.h>
@@ -31,56 +30,6 @@ namespace com {
 			namespace javac {
 				namespace code {
 
-$FieldInfo _Types$6_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/code/Types;", nullptr, $FINAL | $SYNTHETIC, $field(Types$6, this$0)},
-	{}
-};
-
-$MethodInfo _Types$6_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Types;)V", nullptr, 0, $method(Types$6, init$, void, $Types*)},
-	{"visitErrorType", "(Lcom/sun/tools/javac/code/Type$ErrorType;Lcom/sun/tools/javac/code/Type;)Ljava/lang/Boolean;", nullptr, $PUBLIC, $virtualMethod(Types$6, visitErrorType, $Boolean*, $Type$ErrorType*, $Type*)},
-	{"visitErrorType", "(Lcom/sun/tools/javac/code/Type$ErrorType;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Types$6, visitErrorType, $Object*, $Type$ErrorType*, Object$*)},
-	{"visitType", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;)Ljava/lang/Boolean;", nullptr, $PUBLIC, $virtualMethod(Types$6, visitType, $Boolean*, $Type*, $Type*)},
-	{"visitType", "(Lcom/sun/tools/javac/code/Type;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Types$6, visitType, $Object*, $Type*, Object$*)},
-	{"visitUndetVar", "(Lcom/sun/tools/javac/code/Type$UndetVar;Lcom/sun/tools/javac/code/Type;)Ljava/lang/Boolean;", nullptr, $PUBLIC, $virtualMethod(Types$6, visitUndetVar, $Boolean*, $Type$UndetVar*, $Type*)},
-	{"visitUndetVar", "(Lcom/sun/tools/javac/code/Type$UndetVar;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Types$6, visitUndetVar, $Object*, $Type$UndetVar*, Object$*)},
-	{"visitWildcardType", "(Lcom/sun/tools/javac/code/Type$WildcardType;Lcom/sun/tools/javac/code/Type;)Ljava/lang/Boolean;", nullptr, $PUBLIC, $virtualMethod(Types$6, visitWildcardType, $Boolean*, $Type$WildcardType*, $Type*)},
-	{"visitWildcardType", "(Lcom/sun/tools/javac/code/Type$WildcardType;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Types$6, visitWildcardType, $Object*, $Type$WildcardType*, Object$*)},
-	{}
-};
-
-$EnclosingMethodInfo _Types$6_EnclosingMethodInfo_ = {
-	"com.sun.tools.javac.code.Types",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _Types$6_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.code.Types$6", nullptr, nullptr, 0},
-	{"com.sun.tools.javac.code.Types$TypeRelation", "com.sun.tools.javac.code.Types", "TypeRelation", $PUBLIC | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Types$6_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.code.Types$6",
-	"com.sun.tools.javac.code.Types$TypeRelation",
-	nullptr,
-	_Types$6_FieldInfo_,
-	_Types$6_MethodInfo_,
-	nullptr,
-	&_Types$6_EnclosingMethodInfo_,
-	_Types$6_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.code.Types"
-};
-
-$Object* allocate$Types$6($Class* clazz) {
-	return $of($alloc(Types$6));
-}
-
 void Types$6::init$($Types* this$0) {
 	$set(this, this$0, this$0);
 	$Types$TypeRelation::init$();
@@ -95,7 +44,7 @@ $Boolean* Types$6::visitType($Type* t, $Type* s) {
 }
 
 $Boolean* Types$6::visitWildcardType($Type$WildcardType* t, $Type* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(s)->isPartial()) {
 		return $Boolean::valueOf(this->this$0->containedBy(s, t));
 	} else {
@@ -107,16 +56,16 @@ $Boolean* Types$6::visitWildcardType($Type$WildcardType* t, $Type* s) {
 				$var($Type, var$4, this->this$0->wildLowerBound(t));
 				var$3 = this->this$0->isSubtypeNoCapture(var$4, $(this->this$0->wildLowerBound(s)));
 			}
-			bool var$2 = (var$3);
+			bool var$2 = var$3;
 			if (var$2) {
-				bool var$5 = $nc(t)->isSuperBound();
+				bool var$5 = t->isSuperBound();
 				if (!var$5) {
 					$var($Type, var$6, this->this$0->wildUpperBound(s));
 					var$5 = this->this$0->isSubtypeNoCapture(var$6, $(this->this$0->wildUpperBound(t)));
 				}
-				var$2 = (var$5);
+				var$2 = var$5;
 			}
-			var$0 = (var$2);
+			var$0 = var$2;
 		}
 		return $Boolean::valueOf(var$0);
 	}
@@ -155,7 +104,50 @@ Types$6::Types$6() {
 }
 
 $Class* Types$6::load$($String* name, bool initialize) {
-	$loadClass(Types$6, name, initialize, &_Types$6_ClassInfo_, allocate$Types$6);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/code/Types;", nullptr, $FINAL | $SYNTHETIC, $field(Types$6, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/code/Types;)V", nullptr, 0, $method(Types$6, init$, void, $Types*)},
+		{"visitErrorType", "(Lcom/sun/tools/javac/code/Type$ErrorType;Lcom/sun/tools/javac/code/Type;)Ljava/lang/Boolean;", nullptr, $PUBLIC, $virtualMethod(Types$6, visitErrorType, $Boolean*, $Type$ErrorType*, $Type*)},
+		{"visitErrorType", "(Lcom/sun/tools/javac/code/Type$ErrorType;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Types$6, visitErrorType, $Object*, $Type$ErrorType*, Object$*)},
+		{"visitType", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;)Ljava/lang/Boolean;", nullptr, $PUBLIC, $virtualMethod(Types$6, visitType, $Boolean*, $Type*, $Type*)},
+		{"visitType", "(Lcom/sun/tools/javac/code/Type;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Types$6, visitType, $Object*, $Type*, Object$*)},
+		{"visitUndetVar", "(Lcom/sun/tools/javac/code/Type$UndetVar;Lcom/sun/tools/javac/code/Type;)Ljava/lang/Boolean;", nullptr, $PUBLIC, $virtualMethod(Types$6, visitUndetVar, $Boolean*, $Type$UndetVar*, $Type*)},
+		{"visitUndetVar", "(Lcom/sun/tools/javac/code/Type$UndetVar;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Types$6, visitUndetVar, $Object*, $Type$UndetVar*, Object$*)},
+		{"visitWildcardType", "(Lcom/sun/tools/javac/code/Type$WildcardType;Lcom/sun/tools/javac/code/Type;)Ljava/lang/Boolean;", nullptr, $PUBLIC, $virtualMethod(Types$6, visitWildcardType, $Boolean*, $Type$WildcardType*, $Type*)},
+		{"visitWildcardType", "(Lcom/sun/tools/javac/code/Type$WildcardType;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Types$6, visitWildcardType, $Object*, $Type$WildcardType*, Object$*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.tools.javac.code.Types",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.code.Types$6", nullptr, nullptr, 0},
+		{"com.sun.tools.javac.code.Types$TypeRelation", "com.sun.tools.javac.code.Types", "TypeRelation", $PUBLIC | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.code.Types$6",
+		"com.sun.tools.javac.code.Types$TypeRelation",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.code.Types"
+	};
+	$loadClass(Types$6, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Types$6);
+	});
 	return class$;
 }
 

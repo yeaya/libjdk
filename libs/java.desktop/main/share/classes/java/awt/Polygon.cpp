@@ -1,5 +1,4 @@
 #include <java/awt/Polygon.h>
-
 #include <java/awt/Point.h>
 #include <java/awt/Polygon$PolygonPathIterator.h>
 #include <java/awt/Rectangle.h>
@@ -43,82 +42,6 @@ using $Crossings$EvenOdd = ::sun::awt::geom::Crossings$EvenOdd;
 
 namespace java {
 	namespace awt {
-
-$CompoundAttribute _Polygon_MethodAnnotations_getBoundingBox10[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Polygon_MethodAnnotations_inside16[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$FieldInfo _Polygon_FieldInfo_[] = {
-	{"npoints", "I", nullptr, $PUBLIC, $field(Polygon, npoints)},
-	{"xpoints", "[I", nullptr, $PUBLIC, $field(Polygon, xpoints)},
-	{"ypoints", "[I", nullptr, $PUBLIC, $field(Polygon, ypoints)},
-	{"bounds", "Ljava/awt/Rectangle;", nullptr, $PROTECTED, $field(Polygon, bounds)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Polygon, serialVersionUID)},
-	{"MIN_LENGTH", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Polygon, MIN_LENGTH)},
-	{}
-};
-
-$MethodInfo _Polygon_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Polygon, init$, void)},
-	{"<init>", "([I[II)V", nullptr, $PUBLIC, $method(Polygon, init$, void, $ints*, $ints*, int32_t)},
-	{"addPoint", "(II)V", nullptr, $PUBLIC, $virtualMethod(Polygon, addPoint, void, int32_t, int32_t)},
-	{"calculateBounds", "([I[II)V", nullptr, 0, $virtualMethod(Polygon, calculateBounds, void, $ints*, $ints*, int32_t)},
-	{"contains", "(Ljava/awt/Point;)Z", nullptr, $PUBLIC, $virtualMethod(Polygon, contains, bool, $Point*)},
-	{"contains", "(II)Z", nullptr, $PUBLIC, $virtualMethod(Polygon, contains, bool, int32_t, int32_t)},
-	{"contains", "(DD)Z", nullptr, $PUBLIC, $virtualMethod(Polygon, contains, bool, double, double)},
-	{"contains", "(Ljava/awt/geom/Point2D;)Z", nullptr, $PUBLIC, $virtualMethod(Polygon, contains, bool, $Point2D*)},
-	{"contains", "(DDDD)Z", nullptr, $PUBLIC, $virtualMethod(Polygon, contains, bool, double, double, double, double)},
-	{"contains", "(Ljava/awt/geom/Rectangle2D;)Z", nullptr, $PUBLIC, $virtualMethod(Polygon, contains, bool, $Rectangle2D*)},
-	{"getBoundingBox", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(Polygon, getBoundingBox, $Rectangle*), nullptr, nullptr, _Polygon_MethodAnnotations_getBoundingBox10},
-	{"getBounds", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(Polygon, getBounds, $Rectangle*)},
-	{"getBounds2D", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC, $virtualMethod(Polygon, getBounds2D, $Rectangle2D*)},
-	{"getCrossings", "(DDDD)Lsun/awt/geom/Crossings;", nullptr, $PRIVATE, $method(Polygon, getCrossings, $Crossings*, double, double, double, double)},
-	{"getPathIterator", "(Ljava/awt/geom/AffineTransform;)Ljava/awt/geom/PathIterator;", nullptr, $PUBLIC, $virtualMethod(Polygon, getPathIterator, $PathIterator*, $AffineTransform*)},
-	{"getPathIterator", "(Ljava/awt/geom/AffineTransform;D)Ljava/awt/geom/PathIterator;", nullptr, $PUBLIC, $virtualMethod(Polygon, getPathIterator, $PathIterator*, $AffineTransform*, double)},
-	{"inside", "(II)Z", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(Polygon, inside, bool, int32_t, int32_t), nullptr, nullptr, _Polygon_MethodAnnotations_inside16},
-	{"intersects", "(DDDD)Z", nullptr, $PUBLIC, $virtualMethod(Polygon, intersects, bool, double, double, double, double)},
-	{"intersects", "(Ljava/awt/geom/Rectangle2D;)Z", nullptr, $PUBLIC, $virtualMethod(Polygon, intersects, bool, $Rectangle2D*)},
-	{"invalidate", "()V", nullptr, $PUBLIC, $virtualMethod(Polygon, invalidate, void)},
-	{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(Polygon, reset, void)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"translate", "(II)V", nullptr, $PUBLIC, $virtualMethod(Polygon, translate, void, int32_t, int32_t)},
-	{"updateBounds", "(II)V", nullptr, 0, $virtualMethod(Polygon, updateBounds, void, int32_t, int32_t)},
-	{}
-};
-
-$InnerClassInfo _Polygon_InnerClassesInfo_[] = {
-	{"java.awt.Polygon$PolygonPathIterator", "java.awt.Polygon", "PolygonPathIterator", 0},
-	{}
-};
-
-$ClassInfo _Polygon_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.awt.Polygon",
-	"java.lang.Object",
-	"java.awt.Shape,java.io.Serializable",
-	_Polygon_FieldInfo_,
-	_Polygon_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Polygon_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.awt.Polygon$PolygonPathIterator"
-};
-
-$Object* allocate$Polygon($Class* clazz) {
-	return $of($alloc(Polygon));
-}
 
 int32_t Polygon::hashCode() {
 	 return this->$Shape::hashCode();
@@ -172,7 +95,7 @@ void Polygon::translate(int32_t deltaX, int32_t deltaY) {
 		(*$nc(this->ypoints))[i] += deltaY;
 	}
 	if (this->bounds != nullptr) {
-		$nc(this->bounds)->translate(deltaX, deltaY);
+		this->bounds->translate(deltaX, deltaY);
 	}
 }
 
@@ -194,16 +117,16 @@ void Polygon::calculateBounds($ints* xpoints, $ints* ypoints, int32_t npoints) {
 
 void Polygon::updateBounds(int32_t x, int32_t y) {
 	if (x < $nc(this->bounds)->x) {
-		$nc(this->bounds)->width = $nc(this->bounds)->width + ($nc(this->bounds)->x - x);
-		$nc(this->bounds)->x = x;
+		this->bounds->width = this->bounds->width + (this->bounds->x - x);
+		this->bounds->x = x;
 	} else {
-		$nc(this->bounds)->width = $Math::max($nc(this->bounds)->width, x - $nc(this->bounds)->x);
+		this->bounds->width = $Math::max(this->bounds->width, x - this->bounds->x);
 	}
-	if (y < $nc(this->bounds)->y) {
-		$nc(this->bounds)->height = $nc(this->bounds)->height + ($nc(this->bounds)->y - y);
-		$nc(this->bounds)->y = y;
+	if (y < this->bounds->y) {
+		this->bounds->height = this->bounds->height + (this->bounds->y - y);
+		this->bounds->y = y;
 	} else {
-		$nc(this->bounds)->height = $Math::max($nc(this->bounds)->height, y - $nc(this->bounds)->y);
+		this->bounds->height = $Math::max(this->bounds->height, y - this->bounds->y);
 	}
 }
 
@@ -212,13 +135,13 @@ void Polygon::addPoint(int32_t x, int32_t y) {
 		int32_t newLength = this->npoints * 2;
 		if (newLength < Polygon::MIN_LENGTH) {
 			newLength = Polygon::MIN_LENGTH;
-		} else if (((int32_t)(newLength & (uint32_t)(newLength - 1))) != 0) {
+		} else if ((newLength & (newLength - 1)) != 0) {
 			newLength = $Integer::highestOneBit(newLength);
 		}
 		$set(this, xpoints, $Arrays::copyOf(this->xpoints, newLength));
 		$set(this, ypoints, $Arrays::copyOf(this->ypoints, newLength));
 	}
-	$nc(this->xpoints)->set(this->npoints, x);
+	this->xpoints->set(this->npoints, x);
 	$nc(this->ypoints)->set(this->npoints, y);
 	++this->npoints;
 	if (this->bounds != nullptr) {
@@ -241,7 +164,7 @@ $Rectangle* Polygon::getBoundingBox() {
 }
 
 bool Polygon::contains($Point* p) {
-	return contains($nc(p)->x, p->y);
+	return contains($nc(p)->x, $nc(p)->y);
 }
 
 bool Polygon::contains(int32_t x, int32_t y) {
@@ -257,7 +180,7 @@ $Rectangle2D* Polygon::getBounds2D() {
 }
 
 bool Polygon::contains(double x, double y) {
-	if (this->npoints <= 2 || !$nc($(getBoundingBox()))->contains(x, y)) {
+	if (this->npoints <= 2 || !$$nc(getBoundingBox())->contains(x, y)) {
 		return false;
 	}
 	int32_t hits = 0;
@@ -266,8 +189,8 @@ bool Polygon::contains(double x, double y) {
 	int32_t curx = 0;
 	int32_t cury = 0;
 	for (int32_t i = 0; i < this->npoints; lastx = curx, lasty = cury, ++i) {
-		curx = $nc(this->xpoints)->get(i);
-		cury = $nc(this->ypoints)->get(i);
+		curx = this->xpoints->get(i);
+		cury = this->ypoints->get(i);
 		if (cury == lasty) {
 			continue;
 		}
@@ -310,7 +233,7 @@ bool Polygon::contains(double x, double y) {
 			++hits;
 		}
 	}
-	return (((int32_t)(hits & (uint32_t)1)) != 0);
+	return ((hits & 1) != 0);
 }
 
 $Crossings* Polygon::getCrossings(double xlo, double ylo, double xhi, double yhi) {
@@ -337,12 +260,12 @@ bool Polygon::contains($Point2D* p) {
 }
 
 bool Polygon::intersects(double x, double y, double w, double h) {
-	$useLocalCurrentObjectStackCache();
-	if (this->npoints <= 0 || !$nc($(getBoundingBox()))->intersects(x, y, w, h)) {
+	$useLocalObjectStack();
+	if (this->npoints <= 0 || !$$nc(getBoundingBox())->intersects(x, y, w, h)) {
 		return false;
 	}
 	$var($Crossings, cross, getCrossings(x, y, x + w, y + h));
-	return (cross == nullptr || !$nc(cross)->isEmpty());
+	return (cross == nullptr || !cross->isEmpty());
 }
 
 bool Polygon::intersects($Rectangle2D* r) {
@@ -353,8 +276,8 @@ bool Polygon::intersects($Rectangle2D* r) {
 }
 
 bool Polygon::contains(double x, double y, double w, double h) {
-	$useLocalCurrentObjectStackCache();
-	if (this->npoints <= 0 || !$nc($(getBoundingBox()))->intersects(x, y, w, h)) {
+	$useLocalObjectStack();
+	if (this->npoints <= 0 || !$$nc(getBoundingBox())->intersects(x, y, w, h)) {
 		return false;
 	}
 	$var($Crossings, cross, getCrossings(x, y, x + w, y + h));
@@ -380,7 +303,75 @@ Polygon::Polygon() {
 }
 
 $Class* Polygon::load$($String* name, bool initialize) {
-	$loadClass(Polygon, name, initialize, &_Polygon_ClassInfo_, allocate$Polygon);
+	$FieldInfo fieldInfos$$[] = {
+		{"npoints", "I", nullptr, $PUBLIC, $field(Polygon, npoints)},
+		{"xpoints", "[I", nullptr, $PUBLIC, $field(Polygon, xpoints)},
+		{"ypoints", "[I", nullptr, $PUBLIC, $field(Polygon, ypoints)},
+		{"bounds", "Ljava/awt/Rectangle;", nullptr, $PROTECTED, $field(Polygon, bounds)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Polygon, serialVersionUID)},
+		{"MIN_LENGTH", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Polygon, MIN_LENGTH)},
+		{}
+	};
+	$CompoundAttribute getBoundingBoxmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute insidemethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Polygon, init$, void)},
+		{"<init>", "([I[II)V", nullptr, $PUBLIC, $method(Polygon, init$, void, $ints*, $ints*, int32_t)},
+		{"addPoint", "(II)V", nullptr, $PUBLIC, $virtualMethod(Polygon, addPoint, void, int32_t, int32_t)},
+		{"calculateBounds", "([I[II)V", nullptr, 0, $virtualMethod(Polygon, calculateBounds, void, $ints*, $ints*, int32_t)},
+		{"contains", "(Ljava/awt/Point;)Z", nullptr, $PUBLIC, $virtualMethod(Polygon, contains, bool, $Point*)},
+		{"contains", "(II)Z", nullptr, $PUBLIC, $virtualMethod(Polygon, contains, bool, int32_t, int32_t)},
+		{"contains", "(DD)Z", nullptr, $PUBLIC, $virtualMethod(Polygon, contains, bool, double, double)},
+		{"contains", "(Ljava/awt/geom/Point2D;)Z", nullptr, $PUBLIC, $virtualMethod(Polygon, contains, bool, $Point2D*)},
+		{"contains", "(DDDD)Z", nullptr, $PUBLIC, $virtualMethod(Polygon, contains, bool, double, double, double, double)},
+		{"contains", "(Ljava/awt/geom/Rectangle2D;)Z", nullptr, $PUBLIC, $virtualMethod(Polygon, contains, bool, $Rectangle2D*)},
+		{"getBoundingBox", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(Polygon, getBoundingBox, $Rectangle*), nullptr, nullptr, getBoundingBoxmethodAnnotations$$},
+		{"getBounds", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(Polygon, getBounds, $Rectangle*)},
+		{"getBounds2D", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC, $virtualMethod(Polygon, getBounds2D, $Rectangle2D*)},
+		{"getCrossings", "(DDDD)Lsun/awt/geom/Crossings;", nullptr, $PRIVATE, $method(Polygon, getCrossings, $Crossings*, double, double, double, double)},
+		{"getPathIterator", "(Ljava/awt/geom/AffineTransform;)Ljava/awt/geom/PathIterator;", nullptr, $PUBLIC, $virtualMethod(Polygon, getPathIterator, $PathIterator*, $AffineTransform*)},
+		{"getPathIterator", "(Ljava/awt/geom/AffineTransform;D)Ljava/awt/geom/PathIterator;", nullptr, $PUBLIC, $virtualMethod(Polygon, getPathIterator, $PathIterator*, $AffineTransform*, double)},
+		{"inside", "(II)Z", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(Polygon, inside, bool, int32_t, int32_t), nullptr, nullptr, insidemethodAnnotations$$},
+		{"intersects", "(DDDD)Z", nullptr, $PUBLIC, $virtualMethod(Polygon, intersects, bool, double, double, double, double)},
+		{"intersects", "(Ljava/awt/geom/Rectangle2D;)Z", nullptr, $PUBLIC, $virtualMethod(Polygon, intersects, bool, $Rectangle2D*)},
+		{"invalidate", "()V", nullptr, $PUBLIC, $virtualMethod(Polygon, invalidate, void)},
+		{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(Polygon, reset, void)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"translate", "(II)V", nullptr, $PUBLIC, $virtualMethod(Polygon, translate, void, int32_t, int32_t)},
+		{"updateBounds", "(II)V", nullptr, 0, $virtualMethod(Polygon, updateBounds, void, int32_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.awt.Polygon$PolygonPathIterator", "java.awt.Polygon", "PolygonPathIterator", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.awt.Polygon",
+		"java.lang.Object",
+		"java.awt.Shape,java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.awt.Polygon$PolygonPathIterator"
+	};
+	$loadClass(Polygon, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Polygon));
+	});
 	return class$;
 }
 

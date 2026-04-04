@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/jaxp/validation/StAXValidatorHelper.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/Constants.h>
 #include <com/sun/org/apache/xerces/internal/jaxp/validation/JAXPValidationMessageFormatter.h>
 #include <com/sun/org/apache/xerces/internal/jaxp/validation/ValidatorHandlerImpl.h>
@@ -35,20 +34,17 @@ using $XMLSchemaValidatorComponentManager = ::com::sun::org::apache::xerces::int
 using $XMLSecurityManager = ::com::sun::org::apache::xerces::internal::utils::XMLSecurityManager;
 using $XMLSecurityManager$Limit = ::com::sun::org::apache::xerces::internal::utils::XMLSecurityManager$Limit;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Locale = ::java::util::Locale;
 using $Result = ::javax::xml::transform::Result;
 using $Source = ::javax::xml::transform::Source;
-using $Transformer = ::javax::xml::transform::Transformer;
 using $TransformerConfigurationException = ::javax::xml::transform::TransformerConfigurationException;
 using $TransformerException = ::javax::xml::transform::TransformerException;
 using $TransformerFactoryConfigurationError = ::javax::xml::transform::TransformerFactoryConfigurationError;
 using $SAXResult = ::javax::xml::transform::sax::SAXResult;
 using $SAXTransformerFactory = ::javax::xml::transform::sax::SAXTransformerFactory;
-using $TransformerHandler = ::javax::xml::transform::sax::TransformerHandler;
 using $StAXResult = ::javax::xml::transform::stax::StAXResult;
 using $JdkConstants = ::jdk::xml::internal::JdkConstants;
 using $JdkXmlUtils = ::jdk::xml::internal::JdkXmlUtils;
@@ -64,33 +60,6 @@ namespace com {
 						namespace jaxp {
 							namespace validation {
 
-$FieldInfo _StAXValidatorHelper_FieldInfo_[] = {
-	{"fComponentManager", "Lcom/sun/org/apache/xerces/internal/jaxp/validation/XMLSchemaValidatorComponentManager;", nullptr, $PRIVATE, $field(StAXValidatorHelper, fComponentManager)},
-	{"identityTransformer1", "Ljavax/xml/transform/Transformer;", nullptr, $PRIVATE, $field(StAXValidatorHelper, identityTransformer1)},
-	{"identityTransformer2", "Ljavax/xml/transform/sax/TransformerHandler;", nullptr, $PRIVATE, $field(StAXValidatorHelper, identityTransformer2)},
-	{"handler", "Lcom/sun/org/apache/xerces/internal/jaxp/validation/ValidatorHandlerImpl;", nullptr, $PRIVATE, $field(StAXValidatorHelper, handler)},
-	{}
-};
-
-$MethodInfo _StAXValidatorHelper_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/org/apache/xerces/internal/jaxp/validation/XMLSchemaValidatorComponentManager;)V", nullptr, $PUBLIC, $method(StAXValidatorHelper, init$, void, $XMLSchemaValidatorComponentManager*)},
-	{"validate", "(Ljavax/xml/transform/Source;Ljavax/xml/transform/Result;)V", nullptr, $PUBLIC, $virtualMethod(StAXValidatorHelper, validate, void, $Source*, $Result*), "org.xml.sax.SAXException,java.io.IOException"},
-	{}
-};
-
-$ClassInfo _StAXValidatorHelper_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.jaxp.validation.StAXValidatorHelper",
-	"java.lang.Object",
-	"com.sun.org.apache.xerces.internal.jaxp.validation.ValidatorHelper",
-	_StAXValidatorHelper_FieldInfo_,
-	_StAXValidatorHelper_MethodInfo_
-};
-
-$Object* allocate$StAXValidatorHelper($Class* clazz) {
-	return $of($alloc(StAXValidatorHelper));
-}
-
 void StAXValidatorHelper::init$($XMLSchemaValidatorComponentManager* componentManager) {
 	$set(this, identityTransformer1, nullptr);
 	$set(this, identityTransformer2, nullptr);
@@ -99,7 +68,7 @@ void StAXValidatorHelper::init$($XMLSchemaValidatorComponentManager* componentMa
 }
 
 void StAXValidatorHelper::validate($Source* source, $Result* result) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (result == nullptr || $instanceOf($StAXResult, result)) {
 		if (this->identityTransformer1 == nullptr) {
 			try {
@@ -110,15 +79,11 @@ void StAXValidatorHelper::validate($Source* source, $Result* result) {
 				if (securityManager != nullptr) {
 					{
 						$var($XMLSecurityManager$LimitArray, arr$, $XMLSecurityManager$Limit::values());
-						int32_t len$ = $nc(arr$)->length;
-						int32_t i$ = 0;
-						for (; i$ < len$; ++i$) {
+						for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 							$XMLSecurityManager$Limit* limit = arr$->get(i$);
-							{
-								if (securityManager->isSet($nc(limit)->ordinal())) {
-									$var($String, var$0, $nc(limit)->apiProperty());
-									$nc(tf)->setAttribute(var$0, $(securityManager->getLimitValueAsString(limit)));
-								}
+							if (securityManager->isSet($nc(limit)->ordinal())) {
+								$var($String, var$0, limit->apiProperty());
+								$nc(tf)->setAttribute(var$0, $(securityManager->getLimitValueAsString(limit)));
 							}
 						}
 					}
@@ -129,41 +94,39 @@ void StAXValidatorHelper::validate($Source* source, $Result* result) {
 				$set(this, identityTransformer1, $nc(tf)->newTransformer());
 				$set(this, identityTransformer2, tf->newTransformerHandler());
 			} catch ($TransformerConfigurationException& e) {
-				$throwNew($TransformerFactoryConfigurationError, static_cast<$Exception*>(e));
+				$throwNew($TransformerFactoryConfigurationError, e);
 			}
 		}
 		$set(this, handler, $new($ValidatorHandlerImpl, this->fComponentManager));
 		if (result != nullptr) {
-			$nc(this->handler)->setContentHandler(this->identityTransformer2);
+			this->handler->setContentHandler(this->identityTransformer2);
 			$nc(this->identityTransformer2)->setResult(result);
 		}
-		{
-			$var($Throwable, var$1, nullptr);
+		$var($Throwable, var$1, nullptr);
+		try {
 			try {
-				try {
-					$nc(this->identityTransformer1)->transform(source, $$new($SAXResult, this->handler));
-				} catch ($TransformerException& e) {
-					if ($instanceOf($SAXException, $(e->getException()))) {
-						$throw($cast($SAXException, $(e->getException())));
-					}
-					$throwNew($SAXException, static_cast<$Exception*>(e));
+				$nc(this->identityTransformer1)->transform(source, $$new($SAXResult, this->handler));
+			} catch ($TransformerException& e) {
+				if ($instanceOf($SAXException, $(e->getException()))) {
+					$throw($$cast($SAXException, e->getException()));
 				}
-			} catch ($Throwable& var$2) {
-				$assign(var$1, var$2);
-			} /*finally*/ {
-				$nc(this->handler)->setContentHandler(nullptr);
+				$throwNew($SAXException, e);
 			}
-			if (var$1 != nullptr) {
-				$throw(var$1);
-			}
+		} catch ($Throwable& var$2) {
+			$assign(var$1, var$2);
+		} /*finally*/ {
+			$nc(this->handler)->setContentHandler(nullptr);
+		}
+		if (var$1 != nullptr) {
+			$throw(var$1);
 		}
 		return;
 	}
 	$var($Locale, var$3, $nc(this->fComponentManager)->getLocale());
 	$var($String, var$4, "SourceResultMismatch"_s);
 	$throwNew($IllegalArgumentException, $($JAXPValidationMessageFormatter::formatMessage(var$3, var$4, $$new($ObjectArray, {
-		$($of($nc($of(source))->getClass()->getName())),
-		$($of($nc($of(result))->getClass()->getName()))
+		$($nc($of(source))->getClass()->getName()),
+		$($nc($of(result))->getClass()->getName())
 	}))));
 }
 
@@ -171,7 +134,29 @@ StAXValidatorHelper::StAXValidatorHelper() {
 }
 
 $Class* StAXValidatorHelper::load$($String* name, bool initialize) {
-	$loadClass(StAXValidatorHelper, name, initialize, &_StAXValidatorHelper_ClassInfo_, allocate$StAXValidatorHelper);
+	$FieldInfo fieldInfos$$[] = {
+		{"fComponentManager", "Lcom/sun/org/apache/xerces/internal/jaxp/validation/XMLSchemaValidatorComponentManager;", nullptr, $PRIVATE, $field(StAXValidatorHelper, fComponentManager)},
+		{"identityTransformer1", "Ljavax/xml/transform/Transformer;", nullptr, $PRIVATE, $field(StAXValidatorHelper, identityTransformer1)},
+		{"identityTransformer2", "Ljavax/xml/transform/sax/TransformerHandler;", nullptr, $PRIVATE, $field(StAXValidatorHelper, identityTransformer2)},
+		{"handler", "Lcom/sun/org/apache/xerces/internal/jaxp/validation/ValidatorHandlerImpl;", nullptr, $PRIVATE, $field(StAXValidatorHelper, handler)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/org/apache/xerces/internal/jaxp/validation/XMLSchemaValidatorComponentManager;)V", nullptr, $PUBLIC, $method(StAXValidatorHelper, init$, void, $XMLSchemaValidatorComponentManager*)},
+		{"validate", "(Ljavax/xml/transform/Source;Ljavax/xml/transform/Result;)V", nullptr, $PUBLIC, $virtualMethod(StAXValidatorHelper, validate, void, $Source*, $Result*), "org.xml.sax.SAXException,java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.jaxp.validation.StAXValidatorHelper",
+		"java.lang.Object",
+		"com.sun.org.apache.xerces.internal.jaxp.validation.ValidatorHelper",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(StAXValidatorHelper, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(StAXValidatorHelper);
+	});
 	return class$;
 }
 

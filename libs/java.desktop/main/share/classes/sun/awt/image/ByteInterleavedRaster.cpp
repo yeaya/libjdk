@@ -1,5 +1,4 @@
 #include <sun/awt/image/ByteInterleavedRaster.h>
-
 #include <java/awt/Point.h>
 #include <java/awt/Rectangle.h>
 #include <java/awt/image/ComponentSampleModel.h>
@@ -36,74 +35,13 @@ namespace sun {
 	namespace awt {
 		namespace image {
 
-$FieldInfo _ByteInterleavedRaster_FieldInfo_[] = {
-	{"inOrder", "Z", nullptr, 0, $field(ByteInterleavedRaster, inOrder)},
-	{"dbOffset", "I", nullptr, 0, $field(ByteInterleavedRaster, dbOffset)},
-	{"dbOffsetPacked", "I", nullptr, 0, $field(ByteInterleavedRaster, dbOffsetPacked)},
-	{"packed", "Z", nullptr, 0, $field(ByteInterleavedRaster, packed)},
-	{"bitMasks", "[I", nullptr, 0, $field(ByteInterleavedRaster, bitMasks)},
-	{"bitOffsets", "[I", nullptr, 0, $field(ByteInterleavedRaster, bitOffsets)},
-	{"maxX", "I", nullptr, $PRIVATE, $field(ByteInterleavedRaster, maxX)},
-	{"maxY", "I", nullptr, $PRIVATE, $field(ByteInterleavedRaster, maxY)},
-	{}
-};
-
-$MethodInfo _ByteInterleavedRaster_MethodInfo_[] = {
-	{"<init>", "(Ljava/awt/image/SampleModel;Ljava/awt/Point;)V", nullptr, $PUBLIC, $method(ByteInterleavedRaster, init$, void, $SampleModel*, $Point*)},
-	{"<init>", "(Ljava/awt/image/SampleModel;Ljava/awt/image/DataBufferByte;Ljava/awt/Point;)V", nullptr, $PUBLIC, $method(ByteInterleavedRaster, init$, void, $SampleModel*, $DataBufferByte*, $Point*)},
-	{"<init>", "(Ljava/awt/image/SampleModel;Ljava/awt/image/DataBufferByte;Ljava/awt/Rectangle;Ljava/awt/Point;Lsun/awt/image/ByteInterleavedRaster;)V", nullptr, $PUBLIC, $method(ByteInterleavedRaster, init$, void, $SampleModel*, $DataBufferByte*, $Rectangle*, $Point*, ByteInterleavedRaster*)},
-	{"createChild", "(IIIIII[I)Ljava/awt/image/Raster;", nullptr, $PUBLIC, $virtualMethod(ByteInterleavedRaster, createChild, $Raster*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, $ints*)},
-	{"createCompatibleWritableRaster", "(II)Ljava/awt/image/WritableRaster;", nullptr, $PUBLIC, $virtualMethod(ByteInterleavedRaster, createCompatibleWritableRaster, $WritableRaster*, int32_t, int32_t)},
-	{"createCompatibleWritableRaster", "()Ljava/awt/image/WritableRaster;", nullptr, $PUBLIC, $virtualMethod(ByteInterleavedRaster, createCompatibleWritableRaster, $WritableRaster*)},
-	{"createWritableChild", "(IIIIII[I)Ljava/awt/image/WritableRaster;", nullptr, $PUBLIC, $virtualMethod(ByteInterleavedRaster, createWritableChild, $WritableRaster*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, $ints*)},
-	{"getByteData", "(IIIII[B)[B", nullptr, $PUBLIC, $virtualMethod(ByteInterleavedRaster, getByteData, $bytes*, int32_t, int32_t, int32_t, int32_t, int32_t, $bytes*)},
-	{"getByteData", "(IIII[B)[B", nullptr, $PUBLIC, $virtualMethod(ByteInterleavedRaster, getByteData, $bytes*, int32_t, int32_t, int32_t, int32_t, $bytes*)},
-	{"getDataElements", "(IILjava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ByteInterleavedRaster, getDataElements, $Object*, int32_t, int32_t, Object$*)},
-	{"getDataElements", "(IIIILjava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ByteInterleavedRaster, getDataElements, $Object*, int32_t, int32_t, int32_t, int32_t, Object$*)},
-	{"getDataOffset", "(I)I", nullptr, $PUBLIC, $virtualMethod(ByteInterleavedRaster, getDataOffset, int32_t, int32_t)},
-	{"getDataOffsets", "()[I", nullptr, $PUBLIC, $virtualMethod(ByteInterleavedRaster, getDataOffsets, $ints*)},
-	{"getDataStorage", "()[B", nullptr, $PUBLIC, $virtualMethod(ByteInterleavedRaster, getDataStorage, $bytes*)},
-	{"getPixelStride", "()I", nullptr, $PUBLIC, $virtualMethod(ByteInterleavedRaster, getPixelStride, int32_t)},
-	{"getPixels", "(IIII[I)[I", nullptr, $PUBLIC, $virtualMethod(ByteInterleavedRaster, getPixels, $ints*, int32_t, int32_t, int32_t, int32_t, $ints*)},
-	{"getSample", "(III)I", nullptr, $PUBLIC, $virtualMethod(ByteInterleavedRaster, getSample, int32_t, int32_t, int32_t, int32_t)},
-	{"getSamples", "(IIIII[I)[I", nullptr, $PUBLIC, $virtualMethod(ByteInterleavedRaster, getSamples, $ints*, int32_t, int32_t, int32_t, int32_t, int32_t, $ints*)},
-	{"getScanlineStride", "()I", nullptr, $PUBLIC, $virtualMethod(ByteInterleavedRaster, getScanlineStride, int32_t)},
-	{"isInterleaved", "(Ljava/awt/image/ComponentSampleModel;)Z", nullptr, $PRIVATE, $method(ByteInterleavedRaster, isInterleaved, bool, $ComponentSampleModel*)},
-	{"putByteData", "(IIIII[B)V", nullptr, $PUBLIC, $virtualMethod(ByteInterleavedRaster, putByteData, void, int32_t, int32_t, int32_t, int32_t, int32_t, $bytes*)},
-	{"putByteData", "(IIII[B)V", nullptr, $PUBLIC, $virtualMethod(ByteInterleavedRaster, putByteData, void, int32_t, int32_t, int32_t, int32_t, $bytes*)},
-	{"setDataElements", "(IILjava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(ByteInterleavedRaster, setDataElements, void, int32_t, int32_t, Object$*)},
-	{"setDataElements", "(IILjava/awt/image/Raster;)V", nullptr, $PUBLIC, $virtualMethod(ByteInterleavedRaster, setDataElements, void, int32_t, int32_t, $Raster*)},
-	{"setDataElements", "(IIIIIILjava/awt/image/Raster;)V", nullptr, $PRIVATE, $method(ByteInterleavedRaster, setDataElements, void, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, $Raster*)},
-	{"setDataElements", "(IIIILjava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(ByteInterleavedRaster, setDataElements, void, int32_t, int32_t, int32_t, int32_t, Object$*)},
-	{"setPixels", "(IIII[I)V", nullptr, $PUBLIC, $virtualMethod(ByteInterleavedRaster, setPixels, void, int32_t, int32_t, int32_t, int32_t, $ints*)},
-	{"setRect", "(IILjava/awt/image/Raster;)V", nullptr, $PUBLIC, $virtualMethod(ByteInterleavedRaster, setRect, void, int32_t, int32_t, $Raster*)},
-	{"setSample", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(ByteInterleavedRaster, setSample, void, int32_t, int32_t, int32_t, int32_t)},
-	{"setSamples", "(IIIII[I)V", nullptr, $PUBLIC, $virtualMethod(ByteInterleavedRaster, setSamples, void, int32_t, int32_t, int32_t, int32_t, int32_t, $ints*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ByteInterleavedRaster, toString, $String*)},
-	{}
-};
-
-$ClassInfo _ByteInterleavedRaster_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.awt.image.ByteInterleavedRaster",
-	"sun.awt.image.ByteComponentRaster",
-	nullptr,
-	_ByteInterleavedRaster_FieldInfo_,
-	_ByteInterleavedRaster_MethodInfo_
-};
-
-$Object* allocate$ByteInterleavedRaster($Class* clazz) {
-	return $of($alloc(ByteInterleavedRaster));
-}
-
 void ByteInterleavedRaster::init$($SampleModel* sampleModel, $Point* origin) {
-	$useLocalCurrentObjectStackCache();
-	$var($SampleModel, var$0, sampleModel);
-	$var($DataBufferByte, var$1, $cast($DataBufferByte, $nc(sampleModel)->createDataBuffer()));
-	int32_t var$2 = $nc(origin)->x;
-	int32_t var$3 = origin->y;
-	int32_t var$4 = sampleModel->getWidth();
-	ByteInterleavedRaster::init$(var$0, var$1, $$new($Rectangle, var$2, var$3, var$4, sampleModel->getHeight()), origin, nullptr);
+	$useLocalObjectStack();
+	$var($DataBufferByte, var$0, $cast($DataBufferByte, $nc(sampleModel)->createDataBuffer()));
+	int32_t var$1 = $nc(origin)->x;
+	int32_t var$2 = origin->y;
+	int32_t var$3 = sampleModel->getWidth();
+	ByteInterleavedRaster::init$(sampleModel, var$0, $$new($Rectangle, var$1, var$2, var$3, sampleModel->getHeight()), origin, nullptr);
 }
 
 void ByteInterleavedRaster::init$($SampleModel* sampleModel, $DataBufferByte* dataBuffer, $Point* origin) {
@@ -114,7 +52,7 @@ void ByteInterleavedRaster::init$($SampleModel* sampleModel, $DataBufferByte* da
 }
 
 bool ByteInterleavedRaster::isInterleaved($ComponentSampleModel* sm) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t numBands = $nc(this->sampleModel)->getNumBands();
 	if (numBands == 1) {
 		return true;
@@ -144,7 +82,7 @@ bool ByteInterleavedRaster::isInterleaved($ComponentSampleModel* sm) {
 }
 
 void ByteInterleavedRaster::init$($SampleModel* sampleModel, $DataBufferByte* dataBuffer, $Rectangle* aRegion, $Point* origin, ByteInterleavedRaster* parent) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$ByteComponentRaster::init$(sampleModel, dataBuffer, aRegion, origin, parent);
 	this->packed = false;
 	this->maxX = this->minX + this->width;
@@ -163,12 +101,12 @@ void ByteInterleavedRaster::init$($SampleModel* sampleModel, $DataBufferByte* da
 	} else if ($instanceOf($SinglePixelPackedSampleModel, sampleModel)) {
 		$var($SinglePixelPackedSampleModel, sppsm, $cast($SinglePixelPackedSampleModel, sampleModel));
 		this->packed = true;
-		$set(this, bitMasks, $nc(sppsm)->getBitMasks());
+		$set(this, bitMasks, sppsm->getBitMasks());
 		$set(this, bitOffsets, sppsm->getBitOffsets());
 		this->scanlineStride = sppsm->getScanlineStride();
 		this->pixelStride = 1;
 		$set(this, dataOffsets, $new($ints, 1));
-		$nc(this->dataOffsets)->set(0, $nc(dataBuffer)->getOffset());
+		this->dataOffsets->set(0, $nc(dataBuffer)->getOffset());
 		(*$nc(this->dataOffsets))[0] += xOffset * this->pixelStride + yOffset * this->scanlineStride;
 	} else {
 		$throwNew($RasterFormatException, $$str({"ByteInterleavedRasters must have PixelInterleavedSampleModel, SinglePixelPackedSampleModel or interleaved ComponentSampleModel.  Sample model is "_s, sampleModel}));
@@ -223,11 +161,11 @@ $Object* ByteInterleavedRaster::getDataElements(int32_t x, int32_t y, Object$* o
 	for (int32_t band = 0; band < this->numDataElements; ++band) {
 		$nc(outData)->set(band, $nc(this->data)->get($nc(this->dataOffsets)->get(band) + off));
 	}
-	return $of(outData);
+	return outData;
 }
 
 $Object* ByteInterleavedRaster::getDataElements(int32_t x, int32_t y, int32_t w, int32_t h, Object$* obj) {
-	return $of(getByteData(x, y, w, h, $cast($bytes, obj)));
+	return getByteData(x, y, w, h, $cast($bytes, obj));
 }
 
 $bytes* ByteInterleavedRaster::getByteData(int32_t x, int32_t y, int32_t w, int32_t h, int32_t band, $bytes* outData$renamed) {
@@ -297,38 +235,38 @@ $bytes* ByteInterleavedRaster::getByteData(int32_t x, int32_t y, int32_t w, int3
 		}
 	} else if (this->numDataElements == 2) {
 		yoff += $nc(this->dataOffsets)->get(0);
-		int32_t d1 = $nc(this->dataOffsets)->get(1) - $nc(this->dataOffsets)->get(0);
+		int32_t d1 = this->dataOffsets->get(1) - this->dataOffsets->get(0);
 		for (ystart = 0; ystart < h; ++ystart, yoff += this->scanlineStride) {
 			xoff = yoff;
 			for (xstart = 0; xstart < w; ++xstart, xoff += this->pixelStride) {
 				$nc(outData)->set(off++, $nc(this->data)->get(xoff));
-				outData->set(off++, $nc(this->data)->get(xoff + d1));
+				outData->set(off++, this->data->get(xoff + d1));
 			}
 		}
 	} else if (this->numDataElements == 3) {
 		yoff += $nc(this->dataOffsets)->get(0);
-		int32_t d1 = $nc(this->dataOffsets)->get(1) - $nc(this->dataOffsets)->get(0);
-		int32_t d2 = $nc(this->dataOffsets)->get(2) - $nc(this->dataOffsets)->get(0);
+		int32_t d1 = this->dataOffsets->get(1) - this->dataOffsets->get(0);
+		int32_t d2 = this->dataOffsets->get(2) - this->dataOffsets->get(0);
 		for (ystart = 0; ystart < h; ++ystart, yoff += this->scanlineStride) {
 			xoff = yoff;
 			for (xstart = 0; xstart < w; ++xstart, xoff += this->pixelStride) {
 				$nc(outData)->set(off++, $nc(this->data)->get(xoff));
-				outData->set(off++, $nc(this->data)->get(xoff + d1));
-				outData->set(off++, $nc(this->data)->get(xoff + d2));
+				outData->set(off++, this->data->get(xoff + d1));
+				outData->set(off++, this->data->get(xoff + d2));
 			}
 		}
 	} else if (this->numDataElements == 4) {
 		yoff += $nc(this->dataOffsets)->get(0);
-		int32_t d1 = $nc(this->dataOffsets)->get(1) - $nc(this->dataOffsets)->get(0);
-		int32_t d2 = $nc(this->dataOffsets)->get(2) - $nc(this->dataOffsets)->get(0);
-		int32_t d3 = $nc(this->dataOffsets)->get(3) - $nc(this->dataOffsets)->get(0);
+		int32_t d1 = this->dataOffsets->get(1) - this->dataOffsets->get(0);
+		int32_t d2 = this->dataOffsets->get(2) - this->dataOffsets->get(0);
+		int32_t d3 = this->dataOffsets->get(3) - this->dataOffsets->get(0);
 		for (ystart = 0; ystart < h; ++ystart, yoff += this->scanlineStride) {
 			xoff = yoff;
 			for (xstart = 0; xstart < w; ++xstart, xoff += this->pixelStride) {
 				$nc(outData)->set(off++, $nc(this->data)->get(xoff));
-				outData->set(off++, $nc(this->data)->get(xoff + d1));
-				outData->set(off++, $nc(this->data)->get(xoff + d2));
-				outData->set(off++, $nc(this->data)->get(xoff + d3));
+				outData->set(off++, this->data->get(xoff + d1));
+				outData->set(off++, this->data->get(xoff + d2));
+				outData->set(off++, this->data->get(xoff + d3));
 			}
 		}
 	} else {
@@ -370,7 +308,7 @@ void ByteInterleavedRaster::setDataElements(int32_t x, int32_t y, $Raster* inRas
 }
 
 void ByteInterleavedRaster::setDataElements(int32_t dstX, int32_t dstY, int32_t srcX, int32_t srcY, int32_t width, int32_t height, $Raster* inRaster) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (width <= 0 || height <= 0) {
 		return;
 	}
@@ -465,38 +403,38 @@ void ByteInterleavedRaster::putByteData(int32_t x, int32_t y, int32_t w, int32_t
 		}
 	} else if (this->numDataElements == 2) {
 		yoff += $nc(this->dataOffsets)->get(0);
-		int32_t d1 = $nc(this->dataOffsets)->get(1) - $nc(this->dataOffsets)->get(0);
+		int32_t d1 = this->dataOffsets->get(1) - this->dataOffsets->get(0);
 		for (ystart = 0; ystart < h; ++ystart, yoff += this->scanlineStride) {
 			xoff = yoff;
 			for (xstart = 0; xstart < w; ++xstart, xoff += this->pixelStride) {
 				$nc(this->data)->set(xoff, $nc(inData)->get(off++));
-				$nc(this->data)->set(xoff + d1, inData->get(off++));
+				this->data->set(xoff + d1, inData->get(off++));
 			}
 		}
 	} else if (this->numDataElements == 3) {
 		yoff += $nc(this->dataOffsets)->get(0);
-		int32_t d1 = $nc(this->dataOffsets)->get(1) - $nc(this->dataOffsets)->get(0);
-		int32_t d2 = $nc(this->dataOffsets)->get(2) - $nc(this->dataOffsets)->get(0);
+		int32_t d1 = this->dataOffsets->get(1) - this->dataOffsets->get(0);
+		int32_t d2 = this->dataOffsets->get(2) - this->dataOffsets->get(0);
 		for (ystart = 0; ystart < h; ++ystart, yoff += this->scanlineStride) {
 			xoff = yoff;
 			for (xstart = 0; xstart < w; ++xstart, xoff += this->pixelStride) {
 				$nc(this->data)->set(xoff, $nc(inData)->get(off++));
-				$nc(this->data)->set(xoff + d1, inData->get(off++));
-				$nc(this->data)->set(xoff + d2, inData->get(off++));
+				this->data->set(xoff + d1, inData->get(off++));
+				this->data->set(xoff + d2, inData->get(off++));
 			}
 		}
 	} else if (this->numDataElements == 4) {
 		yoff += $nc(this->dataOffsets)->get(0);
-		int32_t d1 = $nc(this->dataOffsets)->get(1) - $nc(this->dataOffsets)->get(0);
-		int32_t d2 = $nc(this->dataOffsets)->get(2) - $nc(this->dataOffsets)->get(0);
-		int32_t d3 = $nc(this->dataOffsets)->get(3) - $nc(this->dataOffsets)->get(0);
+		int32_t d1 = this->dataOffsets->get(1) - this->dataOffsets->get(0);
+		int32_t d2 = this->dataOffsets->get(2) - this->dataOffsets->get(0);
+		int32_t d3 = this->dataOffsets->get(3) - this->dataOffsets->get(0);
 		for (ystart = 0; ystart < h; ++ystart, yoff += this->scanlineStride) {
 			xoff = yoff;
 			for (xstart = 0; xstart < w; ++xstart, xoff += this->pixelStride) {
 				$nc(this->data)->set(xoff, $nc(inData)->get(off++));
-				$nc(this->data)->set(xoff + d1, inData->get(off++));
-				$nc(this->data)->set(xoff + d2, inData->get(off++));
-				$nc(this->data)->set(xoff + d3, inData->get(off++));
+				this->data->set(xoff + d1, inData->get(off++));
+				this->data->set(xoff + d2, inData->get(off++));
+				this->data->set(xoff + d3, inData->get(off++));
 			}
 		}
 	} else {
@@ -519,10 +457,10 @@ int32_t ByteInterleavedRaster::getSample(int32_t x, int32_t y, int32_t b) {
 	if (this->packed) {
 		int32_t offset = y * this->scanlineStride + x + this->dbOffsetPacked;
 		int8_t sample = $nc(this->data)->get(offset);
-		return $usr((int32_t)(sample & (uint32_t)$nc(this->bitMasks)->get(b)), $nc(this->bitOffsets)->get(b));
+		return $usr(sample & $nc(this->bitMasks)->get(b), $nc(this->bitOffsets)->get(b));
 	} else {
 		int32_t offset = y * this->scanlineStride + x * this->pixelStride + this->dbOffset;
-		return (int32_t)($nc(this->data)->get(offset + $nc(this->dataOffsets)->get(b)) & (uint32_t)255);
+		return $nc(this->data)->get(offset + $nc(this->dataOffsets)->get(b)) & 0xff;
 	}
 }
 
@@ -535,8 +473,8 @@ void ByteInterleavedRaster::setSample(int32_t x, int32_t y, int32_t b, int32_t s
 		int32_t bitMask = $nc(this->bitMasks)->get(b);
 		int8_t value = $nc(this->data)->get(offset);
 		value &= (uint8_t)~bitMask;
-		value |= (int32_t)(($sl(s, $nc(this->bitOffsets)->get(b))) & (uint32_t)bitMask);
-		$nc(this->data)->set(offset, value);
+		value |= ($sl(s, $nc(this->bitOffsets)->get(b))) & bitMask;
+		this->data->set(offset, value);
 	} else {
 		int32_t offset = y * this->scanlineStride + x * this->pixelStride + this->dbOffset;
 		$nc(this->data)->set(offset + $nc(this->dataOffsets)->get(b), (int8_t)s);
@@ -564,7 +502,7 @@ $ints* ByteInterleavedRaster::getSamples(int32_t x, int32_t y, int32_t w, int32_
 			int32_t sampleOffset = lineOffset;
 			for (int32_t i = 0; i < w; ++i) {
 				int32_t value = $nc(this->data)->get(sampleOffset++);
-				$nc(samples)->set(dstOffset++, ($usr((int32_t)(value & (uint32_t)bitMask), bitOffset)));
+				$nc(samples)->set(dstOffset++, ($usr(value & bitMask, bitOffset)));
 			}
 			lineOffset += this->scanlineStride;
 		}
@@ -573,7 +511,7 @@ $ints* ByteInterleavedRaster::getSamples(int32_t x, int32_t y, int32_t w, int32_
 		for (int32_t j = 0; j < h; ++j) {
 			int32_t sampleOffset = lineOffset;
 			for (int32_t i = 0; i < w; ++i) {
-				$nc(samples)->set(dstOffset++, (int32_t)($nc(this->data)->get(sampleOffset) & (uint32_t)255));
+				$nc(samples)->set(dstOffset++, $nc(this->data)->get(sampleOffset) & 0xff);
 				sampleOffset += this->pixelStride;
 			}
 			lineOffset += this->scanlineStride;
@@ -597,8 +535,8 @@ void ByteInterleavedRaster::setSamples(int32_t x, int32_t y, int32_t w, int32_t 
 				int8_t value = $nc(this->data)->get(sampleOffset);
 				value &= (uint8_t)~bitMask;
 				int32_t sample = $nc(iArray)->get(srcOffset++);
-				value |= (int32_t)(($sl(sample, $nc(this->bitOffsets)->get(b))) & (uint32_t)bitMask);
-				$nc(this->data)->set(sampleOffset++, value);
+				value |= ($sl(sample, $nc(this->bitOffsets)->get(b))) & bitMask;
+				this->data->set(sampleOffset++, value);
 			}
 			lineOffset += this->scanlineStride;
 		}
@@ -634,7 +572,7 @@ $ints* ByteInterleavedRaster::getPixels(int32_t x, int32_t y, int32_t w, int32_t
 			for (int32_t i = 0; i < w; ++i) {
 				int32_t value = $nc(this->data)->get(lineOffset + i);
 				for (int32_t k = 0; k < this->numBands; ++k) {
-					$nc(pixels)->set(dstOffset++, $usr((int32_t)(value & (uint32_t)$nc(this->bitMasks)->get(k)), $nc(this->bitOffsets)->get(k)));
+					$nc(pixels)->set(dstOffset++, $usr(value & $nc(this->bitMasks)->get(k), $nc(this->bitOffsets)->get(k)));
 				}
 			}
 			lineOffset += this->scanlineStride;
@@ -646,46 +584,46 @@ $ints* ByteInterleavedRaster::getPixels(int32_t x, int32_t y, int32_t w, int32_t
 			for (int32_t j = 0; j < h; ++j) {
 				int32_t pixelOffset = lineOffset + d0;
 				for (int32_t i = 0; i < w; ++i) {
-					$nc(pixels)->set(dstOffset++, (int32_t)($nc(this->data)->get(pixelOffset) & (uint32_t)255));
+					$nc(pixels)->set(dstOffset++, $nc(this->data)->get(pixelOffset) & 0xff);
 					pixelOffset += this->pixelStride;
 				}
 				lineOffset += this->scanlineStride;
 			}
 		} else if (this->numBands == 2) {
-			int32_t d1 = $nc(this->dataOffsets)->get(1) - d0;
+			int32_t d1 = this->dataOffsets->get(1) - d0;
 			for (int32_t j = 0; j < h; ++j) {
 				int32_t pixelOffset = lineOffset + d0;
 				for (int32_t i = 0; i < w; ++i) {
-					$nc(pixels)->set(dstOffset++, (int32_t)($nc(this->data)->get(pixelOffset) & (uint32_t)255));
-					pixels->set(dstOffset++, (int32_t)($nc(this->data)->get(pixelOffset + d1) & (uint32_t)255));
+					$nc(pixels)->set(dstOffset++, $nc(this->data)->get(pixelOffset) & 0xff);
+					pixels->set(dstOffset++, this->data->get(pixelOffset + d1) & 0xff);
 					pixelOffset += this->pixelStride;
 				}
 				lineOffset += this->scanlineStride;
 			}
 		} else if (this->numBands == 3) {
-			int32_t d1 = $nc(this->dataOffsets)->get(1) - d0;
-			int32_t d2 = $nc(this->dataOffsets)->get(2) - d0;
+			int32_t d1 = this->dataOffsets->get(1) - d0;
+			int32_t d2 = this->dataOffsets->get(2) - d0;
 			for (int32_t j = 0; j < h; ++j) {
 				int32_t pixelOffset = lineOffset + d0;
 				for (int32_t i = 0; i < w; ++i) {
-					$nc(pixels)->set(dstOffset++, (int32_t)($nc(this->data)->get(pixelOffset) & (uint32_t)255));
-					pixels->set(dstOffset++, (int32_t)($nc(this->data)->get(pixelOffset + d1) & (uint32_t)255));
-					pixels->set(dstOffset++, (int32_t)($nc(this->data)->get(pixelOffset + d2) & (uint32_t)255));
+					$nc(pixels)->set(dstOffset++, $nc(this->data)->get(pixelOffset) & 0xff);
+					pixels->set(dstOffset++, this->data->get(pixelOffset + d1) & 0xff);
+					pixels->set(dstOffset++, this->data->get(pixelOffset + d2) & 0xff);
 					pixelOffset += this->pixelStride;
 				}
 				lineOffset += this->scanlineStride;
 			}
 		} else if (this->numBands == 4) {
-			int32_t d1 = $nc(this->dataOffsets)->get(1) - d0;
-			int32_t d2 = $nc(this->dataOffsets)->get(2) - d0;
-			int32_t d3 = $nc(this->dataOffsets)->get(3) - d0;
+			int32_t d1 = this->dataOffsets->get(1) - d0;
+			int32_t d2 = this->dataOffsets->get(2) - d0;
+			int32_t d3 = this->dataOffsets->get(3) - d0;
 			for (int32_t j = 0; j < h; ++j) {
 				int32_t pixelOffset = lineOffset + d0;
 				for (int32_t i = 0; i < w; ++i) {
-					$nc(pixels)->set(dstOffset++, (int32_t)($nc(this->data)->get(pixelOffset) & (uint32_t)255));
-					pixels->set(dstOffset++, (int32_t)($nc(this->data)->get(pixelOffset + d1) & (uint32_t)255));
-					pixels->set(dstOffset++, (int32_t)($nc(this->data)->get(pixelOffset + d2) & (uint32_t)255));
-					pixels->set(dstOffset++, (int32_t)($nc(this->data)->get(pixelOffset + d3) & (uint32_t)255));
+					$nc(pixels)->set(dstOffset++, $nc(this->data)->get(pixelOffset) & 0xff);
+					pixels->set(dstOffset++, this->data->get(pixelOffset + d1) & 0xff);
+					pixels->set(dstOffset++, this->data->get(pixelOffset + d2) & 0xff);
+					pixels->set(dstOffset++, this->data->get(pixelOffset + d3) & 0xff);
 					pixelOffset += this->pixelStride;
 				}
 				lineOffset += this->scanlineStride;
@@ -695,7 +633,7 @@ $ints* ByteInterleavedRaster::getPixels(int32_t x, int32_t y, int32_t w, int32_t
 				int32_t pixelOffset = lineOffset;
 				for (int32_t i = 0; i < w; ++i) {
 					for (int32_t k = 0; k < this->numBands; ++k) {
-						$nc(pixels)->set(dstOffset++, (int32_t)($nc(this->data)->get(pixelOffset + $nc(this->dataOffsets)->get(k)) & (uint32_t)255));
+						$nc(pixels)->set(dstOffset++, $nc(this->data)->get(pixelOffset + this->dataOffsets->get(k)) & 0xff);
 					}
 					pixelOffset += this->pixelStride;
 				}
@@ -719,7 +657,7 @@ void ByteInterleavedRaster::setPixels(int32_t x, int32_t y, int32_t w, int32_t h
 				int32_t value = 0;
 				for (int32_t k = 0; k < this->numBands; ++k) {
 					int32_t srcValue = $nc(iArray)->get(srcOffset++);
-					value |= ((int32_t)(($sl(srcValue, $nc(this->bitOffsets)->get(k))) & (uint32_t)$nc(this->bitMasks)->get(k)));
+					value |= (($sl(srcValue, $nc(this->bitOffsets)->get(k))) & $nc(this->bitMasks)->get(k));
 				}
 				$nc(this->data)->set(lineOffset + i, (int8_t)value);
 			}
@@ -738,40 +676,40 @@ void ByteInterleavedRaster::setPixels(int32_t x, int32_t y, int32_t w, int32_t h
 				lineOffset += this->scanlineStride;
 			}
 		} else if (this->numBands == 2) {
-			int32_t d1 = $nc(this->dataOffsets)->get(1) - d0;
+			int32_t d1 = this->dataOffsets->get(1) - d0;
 			for (int32_t j = 0; j < h; ++j) {
 				int32_t pixelOffset = lineOffset + d0;
 				for (int32_t i = 0; i < w; ++i) {
 					$nc(this->data)->set(pixelOffset, (int8_t)$nc(iArray)->get(srcOffset++));
-					$nc(this->data)->set(pixelOffset + d1, (int8_t)iArray->get(srcOffset++));
+					this->data->set(pixelOffset + d1, (int8_t)iArray->get(srcOffset++));
 					pixelOffset += this->pixelStride;
 				}
 				lineOffset += this->scanlineStride;
 			}
 		} else if (this->numBands == 3) {
-			int32_t d1 = $nc(this->dataOffsets)->get(1) - d0;
-			int32_t d2 = $nc(this->dataOffsets)->get(2) - d0;
+			int32_t d1 = this->dataOffsets->get(1) - d0;
+			int32_t d2 = this->dataOffsets->get(2) - d0;
 			for (int32_t j = 0; j < h; ++j) {
 				int32_t pixelOffset = lineOffset + d0;
 				for (int32_t i = 0; i < w; ++i) {
 					$nc(this->data)->set(pixelOffset, (int8_t)$nc(iArray)->get(srcOffset++));
-					$nc(this->data)->set(pixelOffset + d1, (int8_t)iArray->get(srcOffset++));
-					$nc(this->data)->set(pixelOffset + d2, (int8_t)iArray->get(srcOffset++));
+					this->data->set(pixelOffset + d1, (int8_t)iArray->get(srcOffset++));
+					this->data->set(pixelOffset + d2, (int8_t)iArray->get(srcOffset++));
 					pixelOffset += this->pixelStride;
 				}
 				lineOffset += this->scanlineStride;
 			}
 		} else if (this->numBands == 4) {
-			int32_t d1 = $nc(this->dataOffsets)->get(1) - d0;
-			int32_t d2 = $nc(this->dataOffsets)->get(2) - d0;
-			int32_t d3 = $nc(this->dataOffsets)->get(3) - d0;
+			int32_t d1 = this->dataOffsets->get(1) - d0;
+			int32_t d2 = this->dataOffsets->get(2) - d0;
+			int32_t d3 = this->dataOffsets->get(3) - d0;
 			for (int32_t j = 0; j < h; ++j) {
 				int32_t pixelOffset = lineOffset + d0;
 				for (int32_t i = 0; i < w; ++i) {
 					$nc(this->data)->set(pixelOffset, (int8_t)$nc(iArray)->get(srcOffset++));
-					$nc(this->data)->set(pixelOffset + d1, (int8_t)iArray->get(srcOffset++));
-					$nc(this->data)->set(pixelOffset + d2, (int8_t)iArray->get(srcOffset++));
-					$nc(this->data)->set(pixelOffset + d3, (int8_t)iArray->get(srcOffset++));
+					this->data->set(pixelOffset + d1, (int8_t)iArray->get(srcOffset++));
+					this->data->set(pixelOffset + d2, (int8_t)iArray->get(srcOffset++));
+					this->data->set(pixelOffset + d3, (int8_t)iArray->get(srcOffset++));
 					pixelOffset += this->pixelStride;
 				}
 				lineOffset += this->scanlineStride;
@@ -781,7 +719,7 @@ void ByteInterleavedRaster::setPixels(int32_t x, int32_t y, int32_t w, int32_t h
 				int32_t pixelOffset = lineOffset;
 				for (int32_t i = 0; i < w; ++i) {
 					for (int32_t k = 0; k < this->numBands; ++k) {
-						$nc(this->data)->set(pixelOffset + $nc(this->dataOffsets)->get(k), (int8_t)$nc(iArray)->get(srcOffset++));
+						$nc(this->data)->set(pixelOffset + this->dataOffsets->get(k), (int8_t)$nc(iArray)->get(srcOffset++));
 					}
 					pixelOffset += this->pixelStride;
 				}
@@ -826,11 +764,11 @@ void ByteInterleavedRaster::setRect(int32_t dx, int32_t dy, $Raster* srcRaster) 
 
 $Raster* ByteInterleavedRaster::createChild(int32_t x, int32_t y, int32_t width, int32_t height, int32_t x0, int32_t y0, $ints* bandList) {
 	$var($WritableRaster, newRaster, createWritableChild(x, y, width, height, x0, y0, bandList));
-	return static_cast<$Raster*>(newRaster);
+	return $cast($Raster, newRaster);
 }
 
 $WritableRaster* ByteInterleavedRaster::createWritableChild(int32_t x, int32_t y, int32_t width, int32_t height, int32_t x0, int32_t y0, $ints* bandList) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (x < this->minX) {
 		$throwNew($RasterFormatException, "x lies outside the raster"_s);
 	}
@@ -851,14 +789,13 @@ $WritableRaster* ByteInterleavedRaster::createWritableChild(int32_t x, int32_t y
 	}
 	int32_t deltaX = x0 - x;
 	int32_t deltaY = y0 - y;
-	$var($SampleModel, var$0, sm);
-	$var($DataBufferByte, var$1, $cast($DataBufferByte, this->dataBuffer));
-	$var($Rectangle, var$2, $new($Rectangle, x0, y0, width, height));
-	return $new(ByteInterleavedRaster, var$0, var$1, var$2, $$new($Point, this->sampleModelTranslateX + deltaX, this->sampleModelTranslateY + deltaY), this);
+	$var($DataBufferByte, var$0, $cast($DataBufferByte, this->dataBuffer));
+	$var($Rectangle, var$1, $new($Rectangle, x0, y0, width, height));
+	return $new(ByteInterleavedRaster, sm, var$0, var$1, $$new($Point, this->sampleModelTranslateX + deltaX, this->sampleModelTranslateY + deltaY), this);
 }
 
 $WritableRaster* ByteInterleavedRaster::createCompatibleWritableRaster(int32_t w, int32_t h) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (w <= 0 || h <= 0) {
 		$throwNew($RasterFormatException, $$str({"negative "_s, ((w <= 0) ? "width"_s : "height"_s)}));
 	}
@@ -871,7 +808,7 @@ $WritableRaster* ByteInterleavedRaster::createCompatibleWritableRaster() {
 }
 
 $String* ByteInterleavedRaster::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $new($String, $$str({"ByteInterleavedRaster: width = "_s, $$str(this->width), " height = "_s, $$str(this->height), " #numDataElements "_s, $$str(this->numDataElements), " dataOff[0] = "_s, $$str($nc(this->dataOffsets)->get(0))}));
 }
 
@@ -879,7 +816,62 @@ ByteInterleavedRaster::ByteInterleavedRaster() {
 }
 
 $Class* ByteInterleavedRaster::load$($String* name, bool initialize) {
-	$loadClass(ByteInterleavedRaster, name, initialize, &_ByteInterleavedRaster_ClassInfo_, allocate$ByteInterleavedRaster);
+	$FieldInfo fieldInfos$$[] = {
+		{"inOrder", "Z", nullptr, 0, $field(ByteInterleavedRaster, inOrder)},
+		{"dbOffset", "I", nullptr, 0, $field(ByteInterleavedRaster, dbOffset)},
+		{"dbOffsetPacked", "I", nullptr, 0, $field(ByteInterleavedRaster, dbOffsetPacked)},
+		{"packed", "Z", nullptr, 0, $field(ByteInterleavedRaster, packed)},
+		{"bitMasks", "[I", nullptr, 0, $field(ByteInterleavedRaster, bitMasks)},
+		{"bitOffsets", "[I", nullptr, 0, $field(ByteInterleavedRaster, bitOffsets)},
+		{"maxX", "I", nullptr, $PRIVATE, $field(ByteInterleavedRaster, maxX)},
+		{"maxY", "I", nullptr, $PRIVATE, $field(ByteInterleavedRaster, maxY)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/image/SampleModel;Ljava/awt/Point;)V", nullptr, $PUBLIC, $method(ByteInterleavedRaster, init$, void, $SampleModel*, $Point*)},
+		{"<init>", "(Ljava/awt/image/SampleModel;Ljava/awt/image/DataBufferByte;Ljava/awt/Point;)V", nullptr, $PUBLIC, $method(ByteInterleavedRaster, init$, void, $SampleModel*, $DataBufferByte*, $Point*)},
+		{"<init>", "(Ljava/awt/image/SampleModel;Ljava/awt/image/DataBufferByte;Ljava/awt/Rectangle;Ljava/awt/Point;Lsun/awt/image/ByteInterleavedRaster;)V", nullptr, $PUBLIC, $method(ByteInterleavedRaster, init$, void, $SampleModel*, $DataBufferByte*, $Rectangle*, $Point*, ByteInterleavedRaster*)},
+		{"createChild", "(IIIIII[I)Ljava/awt/image/Raster;", nullptr, $PUBLIC, $virtualMethod(ByteInterleavedRaster, createChild, $Raster*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, $ints*)},
+		{"createCompatibleWritableRaster", "(II)Ljava/awt/image/WritableRaster;", nullptr, $PUBLIC, $virtualMethod(ByteInterleavedRaster, createCompatibleWritableRaster, $WritableRaster*, int32_t, int32_t)},
+		{"createCompatibleWritableRaster", "()Ljava/awt/image/WritableRaster;", nullptr, $PUBLIC, $virtualMethod(ByteInterleavedRaster, createCompatibleWritableRaster, $WritableRaster*)},
+		{"createWritableChild", "(IIIIII[I)Ljava/awt/image/WritableRaster;", nullptr, $PUBLIC, $virtualMethod(ByteInterleavedRaster, createWritableChild, $WritableRaster*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, $ints*)},
+		{"getByteData", "(IIIII[B)[B", nullptr, $PUBLIC, $virtualMethod(ByteInterleavedRaster, getByteData, $bytes*, int32_t, int32_t, int32_t, int32_t, int32_t, $bytes*)},
+		{"getByteData", "(IIII[B)[B", nullptr, $PUBLIC, $virtualMethod(ByteInterleavedRaster, getByteData, $bytes*, int32_t, int32_t, int32_t, int32_t, $bytes*)},
+		{"getDataElements", "(IILjava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ByteInterleavedRaster, getDataElements, $Object*, int32_t, int32_t, Object$*)},
+		{"getDataElements", "(IIIILjava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ByteInterleavedRaster, getDataElements, $Object*, int32_t, int32_t, int32_t, int32_t, Object$*)},
+		{"getDataOffset", "(I)I", nullptr, $PUBLIC, $virtualMethod(ByteInterleavedRaster, getDataOffset, int32_t, int32_t)},
+		{"getDataOffsets", "()[I", nullptr, $PUBLIC, $virtualMethod(ByteInterleavedRaster, getDataOffsets, $ints*)},
+		{"getDataStorage", "()[B", nullptr, $PUBLIC, $virtualMethod(ByteInterleavedRaster, getDataStorage, $bytes*)},
+		{"getPixelStride", "()I", nullptr, $PUBLIC, $virtualMethod(ByteInterleavedRaster, getPixelStride, int32_t)},
+		{"getPixels", "(IIII[I)[I", nullptr, $PUBLIC, $virtualMethod(ByteInterleavedRaster, getPixels, $ints*, int32_t, int32_t, int32_t, int32_t, $ints*)},
+		{"getSample", "(III)I", nullptr, $PUBLIC, $virtualMethod(ByteInterleavedRaster, getSample, int32_t, int32_t, int32_t, int32_t)},
+		{"getSamples", "(IIIII[I)[I", nullptr, $PUBLIC, $virtualMethod(ByteInterleavedRaster, getSamples, $ints*, int32_t, int32_t, int32_t, int32_t, int32_t, $ints*)},
+		{"getScanlineStride", "()I", nullptr, $PUBLIC, $virtualMethod(ByteInterleavedRaster, getScanlineStride, int32_t)},
+		{"isInterleaved", "(Ljava/awt/image/ComponentSampleModel;)Z", nullptr, $PRIVATE, $method(ByteInterleavedRaster, isInterleaved, bool, $ComponentSampleModel*)},
+		{"putByteData", "(IIIII[B)V", nullptr, $PUBLIC, $virtualMethod(ByteInterleavedRaster, putByteData, void, int32_t, int32_t, int32_t, int32_t, int32_t, $bytes*)},
+		{"putByteData", "(IIII[B)V", nullptr, $PUBLIC, $virtualMethod(ByteInterleavedRaster, putByteData, void, int32_t, int32_t, int32_t, int32_t, $bytes*)},
+		{"setDataElements", "(IILjava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(ByteInterleavedRaster, setDataElements, void, int32_t, int32_t, Object$*)},
+		{"setDataElements", "(IILjava/awt/image/Raster;)V", nullptr, $PUBLIC, $virtualMethod(ByteInterleavedRaster, setDataElements, void, int32_t, int32_t, $Raster*)},
+		{"setDataElements", "(IIIIIILjava/awt/image/Raster;)V", nullptr, $PRIVATE, $method(ByteInterleavedRaster, setDataElements, void, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, $Raster*)},
+		{"setDataElements", "(IIIILjava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(ByteInterleavedRaster, setDataElements, void, int32_t, int32_t, int32_t, int32_t, Object$*)},
+		{"setPixels", "(IIII[I)V", nullptr, $PUBLIC, $virtualMethod(ByteInterleavedRaster, setPixels, void, int32_t, int32_t, int32_t, int32_t, $ints*)},
+		{"setRect", "(IILjava/awt/image/Raster;)V", nullptr, $PUBLIC, $virtualMethod(ByteInterleavedRaster, setRect, void, int32_t, int32_t, $Raster*)},
+		{"setSample", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(ByteInterleavedRaster, setSample, void, int32_t, int32_t, int32_t, int32_t)},
+		{"setSamples", "(IIIII[I)V", nullptr, $PUBLIC, $virtualMethod(ByteInterleavedRaster, setSamples, void, int32_t, int32_t, int32_t, int32_t, int32_t, $ints*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ByteInterleavedRaster, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.awt.image.ByteInterleavedRaster",
+		"sun.awt.image.ByteComponentRaster",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ByteInterleavedRaster, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ByteInterleavedRaster);
+	});
 	return class$;
 }
 

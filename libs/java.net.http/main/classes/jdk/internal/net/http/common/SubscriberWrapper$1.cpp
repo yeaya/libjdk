@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/common/SubscriberWrapper$1.h>
-
 #include <java/lang/NoSuchFieldError.h>
 #include <jdk/internal/net/http/common/SubscriberWrapper$SchedulingAction.h>
 #include <jdk/internal/net/http/common/SubscriberWrapper.h>
@@ -22,57 +21,21 @@ namespace jdk {
 			namespace http {
 				namespace common {
 
-$FieldInfo _SubscriberWrapper$1_FieldInfo_[] = {
-	{"$SwitchMap$jdk$internal$net$http$common$SubscriberWrapper$SchedulingAction", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(SubscriberWrapper$1, $SwitchMap$jdk$internal$net$http$common$SubscriberWrapper$SchedulingAction)},
-	{}
-};
-
-$EnclosingMethodInfo _SubscriberWrapper$1_EnclosingMethodInfo_ = {
-	"jdk.internal.net.http.common.SubscriberWrapper",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _SubscriberWrapper$1_InnerClassesInfo_[] = {
-	{"jdk.internal.net.http.common.SubscriberWrapper$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{}
-};
-
-$ClassInfo _SubscriberWrapper$1_ClassInfo_ = {
-	$ACC_SUPER | $SYNTHETIC,
-	"jdk.internal.net.http.common.SubscriberWrapper$1",
-	"java.lang.Object",
-	nullptr,
-	_SubscriberWrapper$1_FieldInfo_,
-	nullptr,
-	nullptr,
-	&_SubscriberWrapper$1_EnclosingMethodInfo_,
-	_SubscriberWrapper$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.net.http.common.SubscriberWrapper"
-};
-
-$Object* allocate$SubscriberWrapper$1($Class* clazz) {
-	return $of($alloc(SubscriberWrapper$1));
-}
-
 $ints* SubscriberWrapper$1::$SwitchMap$jdk$internal$net$http$common$SubscriberWrapper$SchedulingAction = nullptr;
 
-void clinit$SubscriberWrapper$1($Class* class$) {
+void SubscriberWrapper$1::clinit$($Class* clazz) {
 	$assignStatic(SubscriberWrapper$1::$SwitchMap$jdk$internal$net$http$common$SubscriberWrapper$SchedulingAction, $new($ints, $($SubscriberWrapper$SchedulingAction::values())->length));
 	{
 		try {
-			$nc(SubscriberWrapper$1::$SwitchMap$jdk$internal$net$http$common$SubscriberWrapper$SchedulingAction)->set($SubscriberWrapper$SchedulingAction::CONTINUE->ordinal(), 1);
+			SubscriberWrapper$1::$SwitchMap$jdk$internal$net$http$common$SubscriberWrapper$SchedulingAction->set($SubscriberWrapper$SchedulingAction::CONTINUE->ordinal(), 1);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(SubscriberWrapper$1::$SwitchMap$jdk$internal$net$http$common$SubscriberWrapper$SchedulingAction)->set($SubscriberWrapper$SchedulingAction::RESCHEDULE->ordinal(), 2);
+			SubscriberWrapper$1::$SwitchMap$jdk$internal$net$http$common$SubscriberWrapper$SchedulingAction->set($SubscriberWrapper$SchedulingAction::RESCHEDULE->ordinal(), 2);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(SubscriberWrapper$1::$SwitchMap$jdk$internal$net$http$common$SubscriberWrapper$SchedulingAction)->set($SubscriberWrapper$SchedulingAction::RETURN->ordinal(), 3);
+			SubscriberWrapper$1::$SwitchMap$jdk$internal$net$http$common$SubscriberWrapper$SchedulingAction->set($SubscriberWrapper$SchedulingAction::RETURN->ordinal(), 3);
 		} catch ($NoSuchFieldError& ex) {
 		}
 	}
@@ -82,7 +45,37 @@ SubscriberWrapper$1::SubscriberWrapper$1() {
 }
 
 $Class* SubscriberWrapper$1::load$($String* name, bool initialize) {
-	$loadClass(SubscriberWrapper$1, name, initialize, &_SubscriberWrapper$1_ClassInfo_, clinit$SubscriberWrapper$1, allocate$SubscriberWrapper$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"$SwitchMap$jdk$internal$net$http$common$SubscriberWrapper$SchedulingAction", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(SubscriberWrapper$1, $SwitchMap$jdk$internal$net$http$common$SubscriberWrapper$SchedulingAction)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"jdk.internal.net.http.common.SubscriberWrapper",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.net.http.common.SubscriberWrapper$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $SYNTHETIC,
+		"jdk.internal.net.http.common.SubscriberWrapper$1",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		nullptr,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.net.http.common.SubscriberWrapper"
+	};
+	$loadClass(SubscriberWrapper$1, name, initialize, &classInfo$$, SubscriberWrapper$1::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(SubscriberWrapper$1);
+	});
 	return class$;
 }
 

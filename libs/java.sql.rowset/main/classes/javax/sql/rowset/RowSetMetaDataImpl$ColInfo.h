@@ -41,7 +41,7 @@ public:
 	$String* colTypeName = nullptr;
 	bool readOnly = false;
 	bool writable = false;
-	static const int64_t serialVersionUID = (int64_t)0x4C335D2CDA6D5DB3;
+	static const int64_t serialVersionUID = (int64_t)0x4c335d2cda6d5db3;
 };
 
 		} // rowset

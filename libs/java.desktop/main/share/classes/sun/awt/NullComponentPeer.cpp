@@ -1,5 +1,4 @@
 #include <sun/awt/NullComponentPeer.h>
-
 #include <java/awt/AWTEvent.h>
 #include <java/awt/AWTException.h>
 #include <java/awt/BufferCapabilities$FlipContents.h>
@@ -61,84 +60,6 @@ using $Region = ::sun::java2d::pipe::Region;
 
 namespace sun {
 	namespace awt {
-
-$MethodInfo _NullComponentPeer_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(NullComponentPeer, init$, void)},
-	{"applyShape", "(Lsun/java2d/pipe/Region;)V", nullptr, $PUBLIC, $virtualMethod(NullComponentPeer, applyShape, void, $Region*)},
-	{"beginLayout", "()V", nullptr, $PUBLIC, $virtualMethod(NullComponentPeer, beginLayout, void)},
-	{"beginValidate", "()V", nullptr, $PUBLIC, $virtualMethod(NullComponentPeer, beginValidate, void)},
-	{"canDetermineObscurity", "()Z", nullptr, $PUBLIC, $virtualMethod(NullComponentPeer, canDetermineObscurity, bool)},
-	{"coalescePaintEvent", "(Ljava/awt/event/PaintEvent;)V", nullptr, $PUBLIC, $virtualMethod(NullComponentPeer, coalescePaintEvent, void, $PaintEvent*)},
-	{"createBuffers", "(ILjava/awt/BufferCapabilities;)V", nullptr, $PUBLIC, $virtualMethod(NullComponentPeer, createBuffers, void, int32_t, $BufferCapabilities*), "java.awt.AWTException"},
-	{"createImage", "(II)Ljava/awt/Image;", nullptr, $PUBLIC, $virtualMethod(NullComponentPeer, createImage, $Image*, int32_t, int32_t)},
-	{"createVolatileImage", "(II)Ljava/awt/image/VolatileImage;", nullptr, $PUBLIC, $virtualMethod(NullComponentPeer, createVolatileImage, $VolatileImage*, int32_t, int32_t)},
-	{"destroyBuffers", "()V", nullptr, $PUBLIC, $virtualMethod(NullComponentPeer, destroyBuffers, void)},
-	{"disable", "()V", nullptr, $PUBLIC, $virtualMethod(NullComponentPeer, disable, void)},
-	{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(NullComponentPeer, dispose, void)},
-	{"enable", "()V", nullptr, $PUBLIC, $virtualMethod(NullComponentPeer, enable, void)},
-	{"endLayout", "()V", nullptr, $PUBLIC, $virtualMethod(NullComponentPeer, endLayout, void)},
-	{"endValidate", "()V", nullptr, $PUBLIC, $virtualMethod(NullComponentPeer, endValidate, void)},
-	{"flip", "(IIIILjava/awt/BufferCapabilities$FlipContents;)V", nullptr, $PUBLIC, $virtualMethod(NullComponentPeer, flip, void, int32_t, int32_t, int32_t, int32_t, $BufferCapabilities$FlipContents*)},
-	{"getAppropriateGraphicsConfiguration", "(Ljava/awt/GraphicsConfiguration;)Ljava/awt/GraphicsConfiguration;", nullptr, $PUBLIC, $virtualMethod(NullComponentPeer, getAppropriateGraphicsConfiguration, $GraphicsConfiguration*, $GraphicsConfiguration*)},
-	{"getBackBuffer", "()Ljava/awt/Image;", nullptr, $PUBLIC, $virtualMethod(NullComponentPeer, getBackBuffer, $Image*)},
-	{"getBounds", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(NullComponentPeer, getBounds, $Rectangle*)},
-	{"getColorModel", "()Ljava/awt/image/ColorModel;", nullptr, $PUBLIC, $virtualMethod(NullComponentPeer, getColorModel, $ColorModel*)},
-	{"getFontMetrics", "(Ljava/awt/Font;)Ljava/awt/FontMetrics;", nullptr, $PUBLIC, $virtualMethod(NullComponentPeer, getFontMetrics, $FontMetrics*, $Font*)},
-	{"getGraphics", "()Ljava/awt/Graphics;", nullptr, $PUBLIC, $virtualMethod(NullComponentPeer, getGraphics, $Graphics*)},
-	{"getGraphicsConfiguration", "()Ljava/awt/GraphicsConfiguration;", nullptr, $PUBLIC, $virtualMethod(NullComponentPeer, getGraphicsConfiguration, $GraphicsConfiguration*)},
-	{"getInsets", "()Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(NullComponentPeer, getInsets, $Insets*)},
-	{"getLocationOnScreen", "()Ljava/awt/Point;", nullptr, $PUBLIC, $virtualMethod(NullComponentPeer, getLocationOnScreen, $Point*)},
-	{"getMinimumSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(NullComponentPeer, getMinimumSize, $Dimension*)},
-	{"getPreferredSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(NullComponentPeer, getPreferredSize, $Dimension*)},
-	{"handleEvent", "(Ljava/awt/Event;)Z", nullptr, $PUBLIC, $virtualMethod(NullComponentPeer, handleEvent, bool, $Event*)},
-	{"handleEvent", "(Ljava/awt/AWTEvent;)V", nullptr, $PUBLIC, $virtualMethod(NullComponentPeer, handleEvent, void, $AWTEvent*)},
-	{"handlesWheelScrolling", "()Z", nullptr, $PUBLIC, $virtualMethod(NullComponentPeer, handlesWheelScrolling, bool)},
-	{"hide", "()V", nullptr, $PUBLIC, $virtualMethod(NullComponentPeer, hide, void)},
-	{"insets", "()Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(NullComponentPeer, insets, $Insets*)},
-	{"isFocusable", "()Z", nullptr, $PUBLIC, $virtualMethod(NullComponentPeer, isFocusable, bool)},
-	{"isObscured", "()Z", nullptr, $PUBLIC, $virtualMethod(NullComponentPeer, isObscured, bool)},
-	{"isPaintPending", "()Z", nullptr, $PUBLIC, $virtualMethod(NullComponentPeer, isPaintPending, bool)},
-	{"isReparentSupported", "()Z", nullptr, $PUBLIC, $virtualMethod(NullComponentPeer, isReparentSupported, bool)},
-	{"layout", "()V", nullptr, $PUBLIC, $virtualMethod(NullComponentPeer, layout, void)},
-	{"minimumSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(NullComponentPeer, minimumSize, $Dimension*)},
-	{"paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(NullComponentPeer, paint, void, $Graphics*)},
-	{"preferredSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(NullComponentPeer, preferredSize, $Dimension*)},
-	{"print", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(NullComponentPeer, print, void, $Graphics*)},
-	{"repaint", "(JIIII)V", nullptr, $PUBLIC, $virtualMethod(NullComponentPeer, repaint, void, int64_t, int32_t, int32_t, int32_t, int32_t)},
-	{"reparent", "(Ljava/awt/peer/ContainerPeer;)V", nullptr, $PUBLIC, $virtualMethod(NullComponentPeer, reparent, void, $ContainerPeer*)},
-	{"requestFocus", "(Ljava/awt/Component;ZZJLjava/awt/event/FocusEvent$Cause;)Z", nullptr, $PUBLIC, $virtualMethod(NullComponentPeer, requestFocus, bool, $Component*, bool, bool, int64_t, $FocusEvent$Cause*)},
-	{"reshape", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(NullComponentPeer, reshape, void, int32_t, int32_t, int32_t, int32_t)},
-	{"setBackground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC, $virtualMethod(NullComponentPeer, setBackground, void, $Color*)},
-	{"setBounds", "(IIIII)V", nullptr, $PUBLIC, $virtualMethod(NullComponentPeer, setBounds, void, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"setCursor", "(Ljava/awt/Cursor;)V", nullptr, $PUBLIC, $virtualMethod(NullComponentPeer, setCursor, void, $Cursor*)},
-	{"setEnabled", "(Z)V", nullptr, $PUBLIC, $virtualMethod(NullComponentPeer, setEnabled, void, bool)},
-	{"setFont", "(Ljava/awt/Font;)V", nullptr, $PUBLIC, $virtualMethod(NullComponentPeer, setFont, void, $Font*)},
-	{"setForeground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC, $virtualMethod(NullComponentPeer, setForeground, void, $Color*)},
-	{"setVisible", "(Z)V", nullptr, $PUBLIC, $virtualMethod(NullComponentPeer, setVisible, void, bool)},
-	{"setZOrder", "(Ljava/awt/peer/ComponentPeer;)V", nullptr, $PUBLIC, $virtualMethod(NullComponentPeer, setZOrder, void, $ComponentPeer*)},
-	{"show", "()V", nullptr, $PUBLIC, $virtualMethod(NullComponentPeer, show, void)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"updateCursorImmediately", "()V", nullptr, $PUBLIC, $virtualMethod(NullComponentPeer, updateCursorImmediately, void)},
-	{"updateGraphicsData", "(Ljava/awt/GraphicsConfiguration;)Z", nullptr, $PUBLIC, $virtualMethod(NullComponentPeer, updateGraphicsData, bool, $GraphicsConfiguration*)},
-	{}
-};
-
-$ClassInfo _NullComponentPeer_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.awt.NullComponentPeer",
-	"java.lang.Object",
-	"java.awt.peer.LightweightPeer,java.awt.peer.CanvasPeer,java.awt.peer.PanelPeer",
-	nullptr,
-	_NullComponentPeer_MethodInfo_
-};
-
-$Object* allocate$NullComponentPeer($Class* clazz) {
-	return $of($alloc(NullComponentPeer));
-}
 
 int32_t NullComponentPeer::hashCode() {
 	 return this->$LightweightPeer::hashCode();
@@ -361,7 +282,81 @@ NullComponentPeer::NullComponentPeer() {
 }
 
 $Class* NullComponentPeer::load$($String* name, bool initialize) {
-	$loadClass(NullComponentPeer, name, initialize, &_NullComponentPeer_ClassInfo_, allocate$NullComponentPeer);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(NullComponentPeer, init$, void)},
+		{"applyShape", "(Lsun/java2d/pipe/Region;)V", nullptr, $PUBLIC, $virtualMethod(NullComponentPeer, applyShape, void, $Region*)},
+		{"beginLayout", "()V", nullptr, $PUBLIC, $virtualMethod(NullComponentPeer, beginLayout, void)},
+		{"beginValidate", "()V", nullptr, $PUBLIC, $virtualMethod(NullComponentPeer, beginValidate, void)},
+		{"canDetermineObscurity", "()Z", nullptr, $PUBLIC, $virtualMethod(NullComponentPeer, canDetermineObscurity, bool)},
+		{"coalescePaintEvent", "(Ljava/awt/event/PaintEvent;)V", nullptr, $PUBLIC, $virtualMethod(NullComponentPeer, coalescePaintEvent, void, $PaintEvent*)},
+		{"createBuffers", "(ILjava/awt/BufferCapabilities;)V", nullptr, $PUBLIC, $virtualMethod(NullComponentPeer, createBuffers, void, int32_t, $BufferCapabilities*), "java.awt.AWTException"},
+		{"createImage", "(II)Ljava/awt/Image;", nullptr, $PUBLIC, $virtualMethod(NullComponentPeer, createImage, $Image*, int32_t, int32_t)},
+		{"createVolatileImage", "(II)Ljava/awt/image/VolatileImage;", nullptr, $PUBLIC, $virtualMethod(NullComponentPeer, createVolatileImage, $VolatileImage*, int32_t, int32_t)},
+		{"destroyBuffers", "()V", nullptr, $PUBLIC, $virtualMethod(NullComponentPeer, destroyBuffers, void)},
+		{"disable", "()V", nullptr, $PUBLIC, $virtualMethod(NullComponentPeer, disable, void)},
+		{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(NullComponentPeer, dispose, void)},
+		{"enable", "()V", nullptr, $PUBLIC, $virtualMethod(NullComponentPeer, enable, void)},
+		{"endLayout", "()V", nullptr, $PUBLIC, $virtualMethod(NullComponentPeer, endLayout, void)},
+		{"endValidate", "()V", nullptr, $PUBLIC, $virtualMethod(NullComponentPeer, endValidate, void)},
+		{"flip", "(IIIILjava/awt/BufferCapabilities$FlipContents;)V", nullptr, $PUBLIC, $virtualMethod(NullComponentPeer, flip, void, int32_t, int32_t, int32_t, int32_t, $BufferCapabilities$FlipContents*)},
+		{"getAppropriateGraphicsConfiguration", "(Ljava/awt/GraphicsConfiguration;)Ljava/awt/GraphicsConfiguration;", nullptr, $PUBLIC, $virtualMethod(NullComponentPeer, getAppropriateGraphicsConfiguration, $GraphicsConfiguration*, $GraphicsConfiguration*)},
+		{"getBackBuffer", "()Ljava/awt/Image;", nullptr, $PUBLIC, $virtualMethod(NullComponentPeer, getBackBuffer, $Image*)},
+		{"getBounds", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(NullComponentPeer, getBounds, $Rectangle*)},
+		{"getColorModel", "()Ljava/awt/image/ColorModel;", nullptr, $PUBLIC, $virtualMethod(NullComponentPeer, getColorModel, $ColorModel*)},
+		{"getFontMetrics", "(Ljava/awt/Font;)Ljava/awt/FontMetrics;", nullptr, $PUBLIC, $virtualMethod(NullComponentPeer, getFontMetrics, $FontMetrics*, $Font*)},
+		{"getGraphics", "()Ljava/awt/Graphics;", nullptr, $PUBLIC, $virtualMethod(NullComponentPeer, getGraphics, $Graphics*)},
+		{"getGraphicsConfiguration", "()Ljava/awt/GraphicsConfiguration;", nullptr, $PUBLIC, $virtualMethod(NullComponentPeer, getGraphicsConfiguration, $GraphicsConfiguration*)},
+		{"getInsets", "()Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(NullComponentPeer, getInsets, $Insets*)},
+		{"getLocationOnScreen", "()Ljava/awt/Point;", nullptr, $PUBLIC, $virtualMethod(NullComponentPeer, getLocationOnScreen, $Point*)},
+		{"getMinimumSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(NullComponentPeer, getMinimumSize, $Dimension*)},
+		{"getPreferredSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(NullComponentPeer, getPreferredSize, $Dimension*)},
+		{"handleEvent", "(Ljava/awt/Event;)Z", nullptr, $PUBLIC, $virtualMethod(NullComponentPeer, handleEvent, bool, $Event*)},
+		{"handleEvent", "(Ljava/awt/AWTEvent;)V", nullptr, $PUBLIC, $virtualMethod(NullComponentPeer, handleEvent, void, $AWTEvent*)},
+		{"handlesWheelScrolling", "()Z", nullptr, $PUBLIC, $virtualMethod(NullComponentPeer, handlesWheelScrolling, bool)},
+		{"hide", "()V", nullptr, $PUBLIC, $virtualMethod(NullComponentPeer, hide, void)},
+		{"insets", "()Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(NullComponentPeer, insets, $Insets*)},
+		{"isFocusable", "()Z", nullptr, $PUBLIC, $virtualMethod(NullComponentPeer, isFocusable, bool)},
+		{"isObscured", "()Z", nullptr, $PUBLIC, $virtualMethod(NullComponentPeer, isObscured, bool)},
+		{"isPaintPending", "()Z", nullptr, $PUBLIC, $virtualMethod(NullComponentPeer, isPaintPending, bool)},
+		{"isReparentSupported", "()Z", nullptr, $PUBLIC, $virtualMethod(NullComponentPeer, isReparentSupported, bool)},
+		{"layout", "()V", nullptr, $PUBLIC, $virtualMethod(NullComponentPeer, layout, void)},
+		{"minimumSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(NullComponentPeer, minimumSize, $Dimension*)},
+		{"paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(NullComponentPeer, paint, void, $Graphics*)},
+		{"preferredSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(NullComponentPeer, preferredSize, $Dimension*)},
+		{"print", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(NullComponentPeer, print, void, $Graphics*)},
+		{"repaint", "(JIIII)V", nullptr, $PUBLIC, $virtualMethod(NullComponentPeer, repaint, void, int64_t, int32_t, int32_t, int32_t, int32_t)},
+		{"reparent", "(Ljava/awt/peer/ContainerPeer;)V", nullptr, $PUBLIC, $virtualMethod(NullComponentPeer, reparent, void, $ContainerPeer*)},
+		{"requestFocus", "(Ljava/awt/Component;ZZJLjava/awt/event/FocusEvent$Cause;)Z", nullptr, $PUBLIC, $virtualMethod(NullComponentPeer, requestFocus, bool, $Component*, bool, bool, int64_t, $FocusEvent$Cause*)},
+		{"reshape", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(NullComponentPeer, reshape, void, int32_t, int32_t, int32_t, int32_t)},
+		{"setBackground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC, $virtualMethod(NullComponentPeer, setBackground, void, $Color*)},
+		{"setBounds", "(IIIII)V", nullptr, $PUBLIC, $virtualMethod(NullComponentPeer, setBounds, void, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"setCursor", "(Ljava/awt/Cursor;)V", nullptr, $PUBLIC, $virtualMethod(NullComponentPeer, setCursor, void, $Cursor*)},
+		{"setEnabled", "(Z)V", nullptr, $PUBLIC, $virtualMethod(NullComponentPeer, setEnabled, void, bool)},
+		{"setFont", "(Ljava/awt/Font;)V", nullptr, $PUBLIC, $virtualMethod(NullComponentPeer, setFont, void, $Font*)},
+		{"setForeground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC, $virtualMethod(NullComponentPeer, setForeground, void, $Color*)},
+		{"setVisible", "(Z)V", nullptr, $PUBLIC, $virtualMethod(NullComponentPeer, setVisible, void, bool)},
+		{"setZOrder", "(Ljava/awt/peer/ComponentPeer;)V", nullptr, $PUBLIC, $virtualMethod(NullComponentPeer, setZOrder, void, $ComponentPeer*)},
+		{"show", "()V", nullptr, $PUBLIC, $virtualMethod(NullComponentPeer, show, void)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"updateCursorImmediately", "()V", nullptr, $PUBLIC, $virtualMethod(NullComponentPeer, updateCursorImmediately, void)},
+		{"updateGraphicsData", "(Ljava/awt/GraphicsConfiguration;)Z", nullptr, $PUBLIC, $virtualMethod(NullComponentPeer, updateGraphicsData, bool, $GraphicsConfiguration*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.awt.NullComponentPeer",
+		"java.lang.Object",
+		"java.awt.peer.LightweightPeer,java.awt.peer.CanvasPeer,java.awt.peer.PanelPeer",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(NullComponentPeer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(NullComponentPeer));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/apple/laf/AquaButtonCheckBoxUI.h>
-
 #include <com/apple/laf/AquaButtonBorder.h>
 #include <com/apple/laf/AquaButtonCheckBoxUI$1.h>
 #include <com/apple/laf/AquaButtonCheckBoxUI$CheckBoxButtonBorder.h>
@@ -29,46 +28,6 @@ namespace com {
 	namespace apple {
 		namespace laf {
 
-$FieldInfo _AquaButtonCheckBoxUI_FieldInfo_[] = {
-	{"instance", "Lcom/apple/laf/AquaUtils$RecyclableSingleton;", "Lcom/apple/laf/AquaUtils$RecyclableSingleton<Lcom/apple/laf/AquaButtonCheckBoxUI;>;", $PRIVATE | $STATIC | $FINAL, $staticField(AquaButtonCheckBoxUI, instance)},
-	{"sizingIcon", "Lcom/apple/laf/AquaUtils$RecyclableSingleton;", "Lcom/apple/laf/AquaUtils$RecyclableSingleton<Ljavax/swing/ImageIcon;>;", $PRIVATE | $STATIC | $FINAL, $staticField(AquaButtonCheckBoxUI, sizingIcon)},
-	{}
-};
-
-$MethodInfo _AquaButtonCheckBoxUI_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AquaButtonCheckBoxUI, init$, void)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(AquaButtonCheckBoxUI, createUI, $ComponentUI*, $JComponent*)},
-	{"getPainter", "()Lcom/apple/laf/AquaButtonBorder;", nullptr, $PROTECTED, $virtualMethod(AquaButtonCheckBoxUI, getPainter, $AquaButtonBorder*)},
-	{"getPropertyPrefix", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AquaButtonCheckBoxUI, getPropertyPrefix, $String*)},
-	{"getSizingCheckBoxIcon", "()Ljavax/swing/Icon;", nullptr, $PUBLIC | $STATIC, $staticMethod(AquaButtonCheckBoxUI, getSizingCheckBoxIcon, $Icon*)},
-	{}
-};
-
-$InnerClassInfo _AquaButtonCheckBoxUI_InnerClassesInfo_[] = {
-	{"com.apple.laf.AquaButtonCheckBoxUI$CheckBoxButtonBorder", "com.apple.laf.AquaButtonCheckBoxUI", "CheckBoxButtonBorder", $PUBLIC | $STATIC},
-	{"com.apple.laf.AquaButtonCheckBoxUI$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _AquaButtonCheckBoxUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.apple.laf.AquaButtonCheckBoxUI",
-	"com.apple.laf.AquaButtonLabeledUI",
-	nullptr,
-	_AquaButtonCheckBoxUI_FieldInfo_,
-	_AquaButtonCheckBoxUI_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AquaButtonCheckBoxUI_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.apple.laf.AquaButtonCheckBoxUI$CheckBoxButtonBorder,com.apple.laf.AquaButtonCheckBoxUI$1"
-};
-
-$Object* allocate$AquaButtonCheckBoxUI($Class* clazz) {
-	return $of($alloc(AquaButtonCheckBoxUI));
-}
-
 $AquaUtils$RecyclableSingleton* AquaButtonCheckBoxUI::instance = nullptr;
 $AquaUtils$RecyclableSingleton* AquaButtonCheckBoxUI::sizingIcon = nullptr;
 
@@ -78,12 +37,12 @@ void AquaButtonCheckBoxUI::init$() {
 
 $ComponentUI* AquaButtonCheckBoxUI::createUI($JComponent* b) {
 	$init(AquaButtonCheckBoxUI);
-	return $cast($ComponentUI, $nc(AquaButtonCheckBoxUI::instance)->get());
+	return $cast($ComponentUI, AquaButtonCheckBoxUI::instance->get());
 }
 
 $Icon* AquaButtonCheckBoxUI::getSizingCheckBoxIcon() {
 	$init(AquaButtonCheckBoxUI);
-	return $cast($Icon, $nc(AquaButtonCheckBoxUI::sizingIcon)->get());
+	return $cast($Icon, AquaButtonCheckBoxUI::sizingIcon->get());
 }
 
 $String* AquaButtonCheckBoxUI::getPropertyPrefix() {
@@ -94,7 +53,7 @@ $AquaButtonBorder* AquaButtonCheckBoxUI::getPainter() {
 	return $new($AquaButtonCheckBoxUI$CheckBoxButtonBorder);
 }
 
-void clinit$AquaButtonCheckBoxUI($Class* class$) {
+void AquaButtonCheckBoxUI::clinit$($Class* clazz) {
 	$assignStatic(AquaButtonCheckBoxUI::instance, $new($AquaUtils$RecyclableSingletonFromDefaultConstructor, AquaButtonCheckBoxUI::class$));
 	$assignStatic(AquaButtonCheckBoxUI::sizingIcon, $new($AquaButtonCheckBoxUI$1));
 }
@@ -103,7 +62,41 @@ AquaButtonCheckBoxUI::AquaButtonCheckBoxUI() {
 }
 
 $Class* AquaButtonCheckBoxUI::load$($String* name, bool initialize) {
-	$loadClass(AquaButtonCheckBoxUI, name, initialize, &_AquaButtonCheckBoxUI_ClassInfo_, clinit$AquaButtonCheckBoxUI, allocate$AquaButtonCheckBoxUI);
+	$FieldInfo fieldInfos$$[] = {
+		{"instance", "Lcom/apple/laf/AquaUtils$RecyclableSingleton;", "Lcom/apple/laf/AquaUtils$RecyclableSingleton<Lcom/apple/laf/AquaButtonCheckBoxUI;>;", $PRIVATE | $STATIC | $FINAL, $staticField(AquaButtonCheckBoxUI, instance)},
+		{"sizingIcon", "Lcom/apple/laf/AquaUtils$RecyclableSingleton;", "Lcom/apple/laf/AquaUtils$RecyclableSingleton<Ljavax/swing/ImageIcon;>;", $PRIVATE | $STATIC | $FINAL, $staticField(AquaButtonCheckBoxUI, sizingIcon)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AquaButtonCheckBoxUI, init$, void)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(AquaButtonCheckBoxUI, createUI, $ComponentUI*, $JComponent*)},
+		{"getPainter", "()Lcom/apple/laf/AquaButtonBorder;", nullptr, $PROTECTED, $virtualMethod(AquaButtonCheckBoxUI, getPainter, $AquaButtonBorder*)},
+		{"getPropertyPrefix", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AquaButtonCheckBoxUI, getPropertyPrefix, $String*)},
+		{"getSizingCheckBoxIcon", "()Ljavax/swing/Icon;", nullptr, $PUBLIC | $STATIC, $staticMethod(AquaButtonCheckBoxUI, getSizingCheckBoxIcon, $Icon*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.laf.AquaButtonCheckBoxUI$CheckBoxButtonBorder", "com.apple.laf.AquaButtonCheckBoxUI", "CheckBoxButtonBorder", $PUBLIC | $STATIC},
+		{"com.apple.laf.AquaButtonCheckBoxUI$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.apple.laf.AquaButtonCheckBoxUI",
+		"com.apple.laf.AquaButtonLabeledUI",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.apple.laf.AquaButtonCheckBoxUI$CheckBoxButtonBorder,com.apple.laf.AquaButtonCheckBoxUI$1"
+	};
+	$loadClass(AquaButtonCheckBoxUI, name, initialize, &classInfo$$, AquaButtonCheckBoxUI::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AquaButtonCheckBoxUI));
+	});
 	return class$;
 }
 

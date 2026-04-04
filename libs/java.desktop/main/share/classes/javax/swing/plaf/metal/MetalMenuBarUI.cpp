@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/metal/MetalMenuBarUI.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/Graphics.h>
@@ -14,7 +13,6 @@
 #include <javax/swing/plaf/metal/MetalUtils.h>
 #include <jcpp.h>
 
-using $Component = ::java::awt::Component;
 using $Graphics = ::java::awt::Graphics;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -33,28 +31,6 @@ namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace metal {
-
-$MethodInfo _MetalMenuBarUI_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MetalMenuBarUI, init$, void)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalMenuBarUI, createUI, $ComponentUI*, $JComponent*)},
-	{"installUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(MetalMenuBarUI, installUI, void, $JComponent*)},
-	{"uninstallUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(MetalMenuBarUI, uninstallUI, void, $JComponent*)},
-	{"update", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(MetalMenuBarUI, update, void, $Graphics*, $JComponent*)},
-	{}
-};
-
-$ClassInfo _MetalMenuBarUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.metal.MetalMenuBarUI",
-	"javax.swing.plaf.basic.BasicMenuBarUI",
-	nullptr,
-	nullptr,
-	_MetalMenuBarUI_MethodInfo_
-};
-
-$Object* allocate$MetalMenuBarUI($Class* clazz) {
-	return $of($alloc(MetalMenuBarUI));
-}
 
 void MetalMenuBarUI::init$() {
 	$BasicMenuBarUI::init$();
@@ -79,7 +55,7 @@ void MetalMenuBarUI::uninstallUI($JComponent* c) {
 }
 
 void MetalMenuBarUI::update($Graphics* g, $JComponent* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool isOpaque = $nc(c)->isOpaque();
 	if (g == nullptr) {
 		$throwNew($NullPointerException, "Graphics must be non-null"_s);
@@ -91,21 +67,17 @@ void MetalMenuBarUI::update($Graphics* g, $JComponent* c) {
 			$var($JToolBar, tb, $cast($JToolBar, $MetalToolBarUI::findRegisteredComponentOfType(c, $JToolBar::class$)));
 			bool var$1 = $nc(tb)->isOpaque();
 			if (var$1 && $instanceOf($UIResource, $(tb->getBackground()))) {
-				$var($Component, var$2, static_cast<$Component*>(c));
-				$var($Graphics, var$3, g);
-				$var($String, var$4, "MenuBar.gradient"_s);
-				int32_t var$5 = c->getWidth();
-				int32_t var$6 = c->getHeight();
-				$MetalUtils::drawGradient(var$2, var$3, var$4, 0, 0, var$5, var$6 + tb->getHeight(), true);
+				$var($String, var$2, "MenuBar.gradient"_s);
+				int32_t var$3 = c->getWidth();
+				int32_t var$4 = c->getHeight();
+				$MetalUtils::drawGradient(c, g, var$2, 0, 0, var$3, var$4 + tb->getHeight(), true);
 				paint(g, c);
 				return;
 			}
 		}
-		$var($Component, var$7, static_cast<$Component*>(c));
-		$var($Graphics, var$8, g);
-		$var($String, var$9, "MenuBar.gradient"_s);
-		int32_t var$10 = c->getWidth();
-		$MetalUtils::drawGradient(var$7, var$8, var$9, 0, 0, var$10, c->getHeight(), true);
+		$var($String, var$5, "MenuBar.gradient"_s);
+		int32_t var$6 = c->getWidth();
+		$MetalUtils::drawGradient(c, g, var$5, 0, 0, var$6, c->getHeight(), true);
 		paint(g, c);
 	} else {
 		$BasicMenuBarUI::update(g, c);
@@ -116,7 +88,25 @@ MetalMenuBarUI::MetalMenuBarUI() {
 }
 
 $Class* MetalMenuBarUI::load$($String* name, bool initialize) {
-	$loadClass(MetalMenuBarUI, name, initialize, &_MetalMenuBarUI_ClassInfo_, allocate$MetalMenuBarUI);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MetalMenuBarUI, init$, void)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalMenuBarUI, createUI, $ComponentUI*, $JComponent*)},
+		{"installUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(MetalMenuBarUI, installUI, void, $JComponent*)},
+		{"uninstallUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(MetalMenuBarUI, uninstallUI, void, $JComponent*)},
+		{"update", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(MetalMenuBarUI, update, void, $Graphics*, $JComponent*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.metal.MetalMenuBarUI",
+		"javax.swing.plaf.basic.BasicMenuBarUI",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(MetalMenuBarUI, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MetalMenuBarUI);
+	});
 	return class$;
 }
 

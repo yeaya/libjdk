@@ -1,5 +1,4 @@
 #include <sun/security/jgss/wrapper/SunNativeProvider$1.h>
-
 #include <java/lang/CharSequence.h>
 #include <java/lang/ClassNotFoundException.h>
 #include <java/lang/Error.h>
@@ -29,48 +28,11 @@ namespace sun {
 		namespace jgss {
 			namespace wrapper {
 
-$MethodInfo _SunNativeProvider$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(SunNativeProvider$1, init$, void)},
-	{"run", "()Ljava/util/HashMap;", "()Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/String;>;", $PUBLIC, $virtualMethod(SunNativeProvider$1, run, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _SunNativeProvider$1_EnclosingMethodInfo_ = {
-	"sun.security.jgss.wrapper.SunNativeProvider",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _SunNativeProvider$1_InnerClassesInfo_[] = {
-	{"sun.security.jgss.wrapper.SunNativeProvider$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _SunNativeProvider$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.security.jgss.wrapper.SunNativeProvider$1",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	nullptr,
-	_SunNativeProvider$1_MethodInfo_,
-	"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/String;>;>;",
-	&_SunNativeProvider$1_EnclosingMethodInfo_,
-	_SunNativeProvider$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.jgss.wrapper.SunNativeProvider"
-};
-
-$Object* allocate$SunNativeProvider$1($Class* clazz) {
-	return $of($alloc(SunNativeProvider$1));
-}
-
 void SunNativeProvider$1::init$() {
 }
 
 $Object* SunNativeProvider$1::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$init($SunNativeProvider);
 	$SunNativeProvider::DEBUG = $Boolean::parseBoolean($($System::getProperty("sun.security.nativegss.debug"_s)));
@@ -82,17 +44,17 @@ $Object* SunNativeProvider$1::run() {
 		if ($SunNativeProvider::DEBUG) {
 			err->printStackTrace();
 		}
-		return $of(nullptr);
+		return nullptr;
 	} catch ($Error& err) {
 		$SunNativeProvider::debug("No j2gss library found!"_s);
 		if ($SunNativeProvider::DEBUG) {
 			err->printStackTrace();
 		}
-		return $of(nullptr);
+		return nullptr;
 	}
 	$var($StringArray, gssLibs, nullptr);
 	$var($String, defaultLib, $System::getProperty("sun.security.jgss.lib"_s));
-	if (defaultLib == nullptr || $($nc(defaultLib)->trim())->equals(""_s)) {
+	if (defaultLib == nullptr || $(defaultLib->trim())->equals(""_s)) {
 		$var($String, osname, $System::getProperty("os.name"_s));
 		if ($nc(osname)->startsWith("Linux"_s)) {
 			$assign(gssLibs, $new($StringArray, {
@@ -115,32 +77,59 @@ $Object* SunNativeProvider$1::run() {
 	}
 	{
 		$var($StringArray, arr$, gssLibs);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($String, libName, arr$->get(i$));
-			{
-				if ($GSSLibStub::init(libName, $SunNativeProvider::DEBUG)) {
-					$SunNativeProvider::debug($$str({"Loaded GSS library: "_s, libName}));
-					$var($OidArray, mechs, $GSSLibStub::indicateMechs());
-					$var($HashMap, map, $new($HashMap));
-					for (int32_t i = 0; i < $nc(mechs)->length; ++i) {
-						$SunNativeProvider::debug($$str({"Native MF for "_s, mechs->get(i)}));
-						map->put($$str({"GssApiMechanism."_s, mechs->get(i)}), "sun.security.jgss.wrapper.NativeGSSFactory"_s);
-					}
-					return $of(map);
+			if ($GSSLibStub::init(libName, $SunNativeProvider::DEBUG)) {
+				$SunNativeProvider::debug($$str({"Loaded GSS library: "_s, libName}));
+				$var($OidArray, mechs, $GSSLibStub::indicateMechs());
+				$var($HashMap, map, $new($HashMap));
+				for (int32_t i = 0; i < $nc(mechs)->length; ++i) {
+					$SunNativeProvider::debug($$str({"Native MF for "_s, mechs->get(i)}));
+					map->put($$str({"GssApiMechanism."_s, mechs->get(i)}), "sun.security.jgss.wrapper.NativeGSSFactory"_s);
 				}
+				return $of(map);
 			}
 		}
 	}
-	return $of(nullptr);
+	return nullptr;
 }
 
 SunNativeProvider$1::SunNativeProvider$1() {
 }
 
 $Class* SunNativeProvider$1::load$($String* name, bool initialize) {
-	$loadClass(SunNativeProvider$1, name, initialize, &_SunNativeProvider$1_ClassInfo_, allocate$SunNativeProvider$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(SunNativeProvider$1, init$, void)},
+		{"run", "()Ljava/util/HashMap;", "()Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/String;>;", $PUBLIC, $virtualMethod(SunNativeProvider$1, run, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.security.jgss.wrapper.SunNativeProvider",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.jgss.wrapper.SunNativeProvider$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.security.jgss.wrapper.SunNativeProvider$1",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		nullptr,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/String;>;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.jgss.wrapper.SunNativeProvider"
+	};
+	$loadClass(SunNativeProvider$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SunNativeProvider$1);
+	});
 	return class$;
 }
 

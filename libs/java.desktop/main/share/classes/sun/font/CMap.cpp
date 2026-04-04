@@ -1,5 +1,4 @@
 #include <sun/font/CMap.h>
-
 #include <java/nio/ByteBuffer.h>
 #include <java/nio/CharBuffer.h>
 #include <java/nio/charset/Charset.h>
@@ -35,7 +34,6 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $CharBuffer = ::java::nio::CharBuffer;
 using $Charset = ::java::nio::charset::Charset;
-using $CharsetDecoder = ::java::nio::charset::CharsetDecoder;
 using $CodingErrorAction = ::java::nio::charset::CodingErrorAction;
 using $CMap$CMapFormat0 = ::sun::font::CMap$CMapFormat0;
 using $CMap$CMapFormat10 = ::sun::font::CMap$CMapFormat10;
@@ -53,69 +51,6 @@ using $TrueTypeFont = ::sun::font::TrueTypeFont;
 namespace sun {
 	namespace font {
 
-$FieldInfo _CMap_FieldInfo_[] = {
-	{"ShiftJISEncoding", "S", nullptr, $STATIC | $FINAL, $constField(CMap, ShiftJISEncoding)},
-	{"GBKEncoding", "S", nullptr, $STATIC | $FINAL, $constField(CMap, GBKEncoding)},
-	{"Big5Encoding", "S", nullptr, $STATIC | $FINAL, $constField(CMap, Big5Encoding)},
-	{"WansungEncoding", "S", nullptr, $STATIC | $FINAL, $constField(CMap, WansungEncoding)},
-	{"JohabEncoding", "S", nullptr, $STATIC | $FINAL, $constField(CMap, JohabEncoding)},
-	{"MSUnicodeSurrogateEncoding", "S", nullptr, $STATIC | $FINAL, $constField(CMap, MSUnicodeSurrogateEncoding)},
-	{"noSuchChar", "C", nullptr, $STATIC | $FINAL, $constField(CMap, noSuchChar)},
-	{"SHORTMASK", "I", nullptr, $STATIC | $FINAL, $constField(CMap, SHORTMASK)},
-	{"INTMASK", "I", nullptr, $STATIC | $FINAL, $constField(CMap, INTMASK)},
-	{"converterMaps", "[[C", nullptr, $STATIC | $FINAL, $staticField(CMap, converterMaps)},
-	{"xlat", "[C", nullptr, 0, $field(CMap, xlat)},
-	{"uvs", "Lsun/font/CMap$UVS;", nullptr, 0, $field(CMap, uvs)},
-	{"theNullCmap", "Lsun/font/CMap$NullCMapClass;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CMap, theNullCmap)},
-	{}
-};
-
-$MethodInfo _CMap_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(CMap, init$, void)},
-	{"createCMap", "(Ljava/nio/ByteBuffer;I[C)Lsun/font/CMap;", nullptr, $STATIC, $staticMethod(CMap, createCMap, CMap*, $ByteBuffer*, int32_t, $chars*)},
-	{"createUVS", "(Ljava/nio/ByteBuffer;I)V", nullptr, $PRIVATE, $method(CMap, createUVS, void, $ByteBuffer*, int32_t)},
-	{"getControlCodeGlyph", "(IZ)I", nullptr, $FINAL, $method(CMap, getControlCodeGlyph, int32_t, int32_t, bool)},
-	{"getConverter", "(S)[C", nullptr, $STATIC, $staticMethod(CMap, getConverter, $chars*, int16_t)},
-	{"getConverterMap", "(S)[C", nullptr, $STATIC, $staticMethod(CMap, getConverterMap, $chars*, int16_t)},
-	{"getFormatCharGlyph", "(I)C", nullptr, $FINAL, $method(CMap, getFormatCharGlyph, char16_t, int32_t)},
-	{"getGlyph", "(I)C", nullptr, $ABSTRACT, $virtualMethod(CMap, getGlyph, char16_t, int32_t)},
-	{"getVariationGlyph", "(II)C", nullptr, 0, $virtualMethod(CMap, getVariationGlyph, char16_t, int32_t, int32_t)},
-	{"initialize", "(Lsun/font/TrueTypeFont;)Lsun/font/CMap;", nullptr, $STATIC, $staticMethod(CMap, initialize, CMap*, $TrueTypeFont*)},
-	{}
-};
-
-$InnerClassInfo _CMap_InnerClassesInfo_[] = {
-	{"sun.font.CMap$UVS", "sun.font.CMap", "UVS", $STATIC},
-	{"sun.font.CMap$NullCMapClass", "sun.font.CMap", "NullCMapClass", $STATIC},
-	{"sun.font.CMap$CMapFormat12", "sun.font.CMap", "CMapFormat12", $STATIC},
-	{"sun.font.CMap$CMapFormat10", "sun.font.CMap", "CMapFormat10", $STATIC},
-	{"sun.font.CMap$CMapFormat8", "sun.font.CMap", "CMapFormat8", $STATIC},
-	{"sun.font.CMap$CMapFormat6", "sun.font.CMap", "CMapFormat6", $STATIC},
-	{"sun.font.CMap$CMapFormat2", "sun.font.CMap", "CMapFormat2", $STATIC},
-	{"sun.font.CMap$CMapFormat0", "sun.font.CMap", "CMapFormat0", $STATIC},
-	{"sun.font.CMap$CMapFormat4", "sun.font.CMap", "CMapFormat4", $STATIC},
-	{}
-};
-
-$ClassInfo _CMap_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"sun.font.CMap",
-	"java.lang.Object",
-	nullptr,
-	_CMap_FieldInfo_,
-	_CMap_MethodInfo_,
-	nullptr,
-	nullptr,
-	_CMap_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.font.CMap$UVS,sun.font.CMap$NullCMapClass,sun.font.CMap$CMapFormat12,sun.font.CMap$CMapFormat10,sun.font.CMap$CMapFormat8,sun.font.CMap$CMapFormat6,sun.font.CMap$CMapFormat2,sun.font.CMap$CMapFormat0,sun.font.CMap$CMapFormat4"
-};
-
-$Object* allocate$CMap($Class* clazz) {
-	return $of($alloc(CMap));
-}
-
 $charArray2* CMap::converterMaps = nullptr;
 $CMap$NullCMapClass* CMap::theNullCmap = nullptr;
 
@@ -125,7 +60,7 @@ void CMap::init$() {
 
 CMap* CMap::initialize($TrueTypeFont* font) {
 	$init(CMap);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(CMap, cmap, nullptr);
 	int32_t offset = 0;
 	int32_t platformID = 0;
@@ -152,45 +87,29 @@ CMap* CMap::initialize($TrueTypeFont* font) {
 			offset = cmapBuffer->getInt();
 			switch (encodingID) {
 			case 0:
-				{
-					three0 = offset;
-					break;
-				}
+				three0 = offset;
+				break;
 			case 1:
-				{
-					three1 = offset;
-					break;
-				}
+				three1 = offset;
+				break;
 			case 2:
-				{
-					three2 = offset;
-					break;
-				}
+				three2 = offset;
+				break;
 			case 3:
-				{
-					three3 = offset;
-					break;
-				}
+				three3 = offset;
+				break;
 			case 4:
-				{
-					three4 = offset;
-					break;
-				}
+				three4 = offset;
+				break;
 			case 5:
-				{
-					three5 = offset;
-					break;
-				}
+				three5 = offset;
+				break;
 			case 6:
-				{
-					three6 = offset;
-					break;
-				}
+				three6 = offset;
+				break;
 			case 10:
-				{
-					three10 = offset;
-					break;
-				}
+				three10 = offset;
+				break;
 			}
 		} else if (platformID == 0) {
 			encodingID = cmapBuffer->getShort();
@@ -229,50 +148,38 @@ CMap* CMap::initialize($TrueTypeFont* font) {
 
 $chars* CMap::getConverter(int16_t encodingID) {
 	$init(CMap);
-	$useLocalCurrentObjectStackCache();
-	int32_t dBegin = 32768;
-	int32_t dEnd = 0x0000FFFF;
+	$useLocalObjectStack();
+	int32_t dBegin = 0x00008000;
+	int32_t dEnd = 0x0000ffff;
 	$var($String, encoding, nullptr);
 	switch (encodingID) {
 	case CMap::ShiftJISEncoding:
-		{
-			dBegin = 0x00008140;
-			dEnd = 0x0000FCFC;
-			$assign(encoding, "SJIS"_s);
-			break;
-		}
+		dBegin = 0x00008140;
+		dEnd = 0x0000fcfc;
+		$assign(encoding, "SJIS"_s);
+		break;
 	case CMap::GBKEncoding:
-		{
-			dBegin = 0x00008140;
-			dEnd = 0x0000FEA0;
-			$assign(encoding, "GBK"_s);
-			break;
-		}
+		dBegin = 0x00008140;
+		dEnd = 0x0000fea0;
+		$assign(encoding, "GBK"_s);
+		break;
 	case CMap::Big5Encoding:
-		{
-			dBegin = 0x0000A140;
-			dEnd = 0x0000FEFE;
-			$assign(encoding, "Big5"_s);
-			break;
-		}
+		dBegin = 0x0000a140;
+		dEnd = 0x0000fefe;
+		$assign(encoding, "Big5"_s);
+		break;
 	case CMap::WansungEncoding:
-		{
-			dBegin = 0x0000A1A1;
-			dEnd = 0x0000FEDE;
-			$assign(encoding, "EUC_KR"_s);
-			break;
-		}
+		dBegin = 0x0000a1a1;
+		dEnd = 0x0000fede;
+		$assign(encoding, "EUC_KR"_s);
+		break;
 	case CMap::JohabEncoding:
-		{
-			dBegin = 0x00008141;
-			dEnd = 0x0000FDFE;
-			$assign(encoding, "Johab"_s);
-			break;
-		}
+		dBegin = 0x00008141;
+		dEnd = 0x0000fdfe;
+		$assign(encoding, "Johab"_s);
+		break;
 	default:
-		{
-			return nullptr;
-		}
+		return nullptr;
 	}
 	try {
 		$var($chars, convertedChars, $new($chars, 0x00010000));
@@ -285,30 +192,30 @@ $chars* CMap::getConverter(int16_t encodingID) {
 		int32_t firstByte = 0;
 		if (encodingID == CMap::ShiftJISEncoding) {
 			for (int32_t i = dBegin; i <= dEnd; ++i) {
-				firstByte = ((int32_t)((i >> 8) & (uint32_t)255));
+				firstByte = ((i >> 8) & 0xff);
 				if (firstByte >= 161 && firstByte <= 223) {
 					inputBytes->set(j++, (int8_t)255);
 					inputBytes->set(j++, (int8_t)255);
 				} else {
 					inputBytes->set(j++, (int8_t)firstByte);
-					inputBytes->set(j++, (int8_t)((int32_t)(i & (uint32_t)255)));
+					inputBytes->set(j++, (int8_t)(i & 0xff));
 				}
 			}
 		} else {
 			for (int32_t i = dBegin; i <= dEnd; ++i) {
-				inputBytes->set(j++, (int8_t)((int32_t)((i >> 8) & (uint32_t)255)));
-				inputBytes->set(j++, (int8_t)((int32_t)(i & (uint32_t)255)));
+				inputBytes->set(j++, (int8_t)((i >> 8) & 0xff));
+				inputBytes->set(j++, (int8_t)(i & 0xff));
 			}
 		}
 		$init($CodingErrorAction);
 		$var($ByteBuffer, var$0, $ByteBuffer::wrap(inputBytes, 0, inputBytes->length));
-		$nc($($nc($($nc($($nc($($nc($($Charset::forName(encoding)))->newDecoder()))->onMalformedInput($CodingErrorAction::REPLACE)))->onUnmappableCharacter($CodingErrorAction::REPLACE)))->replaceWith($cstr({'\0'}))))->decode(var$0, $($CharBuffer::wrap(outputChars, 0, outputChars->length)), true);
+		$$nc($$nc($$nc($$nc($$nc($Charset::forName(encoding))->newDecoder())->onMalformedInput($CodingErrorAction::REPLACE))->onUnmappableCharacter($CodingErrorAction::REPLACE))->replaceWith($cstr({'\0'})))->decode(var$0, $($CharBuffer::wrap(outputChars, 0, outputChars->length)), true);
 		for (int32_t i = 32; i <= 126; ++i) {
 			convertedChars->set(i, (char16_t)i);
 		}
 		if (encodingID == CMap::ShiftJISEncoding) {
 			for (int32_t i = 161; i <= 223; ++i) {
-				convertedChars->set(i, (char16_t)(i - 161 + 0x0000FF61));
+				convertedChars->set(i, (char16_t)(i - 161 + 0x0000ff61));
 			}
 		}
 		$System::arraycopy(outputChars, 0, convertedChars, dBegin, outputChars->length);
@@ -327,21 +234,21 @@ $chars* CMap::getConverter(int16_t encodingID) {
 
 $chars* CMap::getConverterMap(int16_t encodingID) {
 	$init(CMap);
-	if ($nc(CMap::converterMaps)->get(encodingID) == nullptr) {
-		$nc(CMap::converterMaps)->set(encodingID, $(getConverter(encodingID)));
+	if (CMap::converterMaps->get(encodingID) == nullptr) {
+		CMap::converterMaps->set(encodingID, $(getConverter(encodingID)));
 	}
-	return $nc(CMap::converterMaps)->get(encodingID);
+	return CMap::converterMaps->get(encodingID);
 }
 
 CMap* CMap::createCMap($ByteBuffer* buffer, int32_t offset, $chars* xlat) {
 	$init(CMap);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t subtableFormat = $nc(buffer)->getChar(offset);
 	int64_t subtableLength = 0;
 	if (subtableFormat < 8) {
 		subtableLength = buffer->getChar(offset + 2);
 	} else {
-		subtableLength = (int32_t)(buffer->getInt(offset + 4) & (uint32_t)CMap::INTMASK);
+		subtableLength = buffer->getInt(offset + 4) & CMap::INTMASK;
 	}
 	bool var$0 = $FontUtilities::isLogging();
 	if (var$0 && offset + subtableLength > buffer->capacity()) {
@@ -349,44 +256,28 @@ CMap* CMap::createCMap($ByteBuffer* buffer, int32_t offset, $chars* xlat) {
 	}
 	switch (subtableFormat) {
 	case 0:
-		{
-			return $new($CMap$CMapFormat0, buffer, offset);
-		}
+		return $new($CMap$CMapFormat0, buffer, offset);
 	case 2:
-		{
-			return $new($CMap$CMapFormat2, buffer, offset, xlat);
-		}
+		return $new($CMap$CMapFormat2, buffer, offset, xlat);
 	case 4:
-		{
-			return $new($CMap$CMapFormat4, buffer, offset, xlat);
-		}
+		return $new($CMap$CMapFormat4, buffer, offset, xlat);
 	case 6:
-		{
-			return $new($CMap$CMapFormat6, buffer, offset, xlat);
-		}
+		return $new($CMap$CMapFormat6, buffer, offset, xlat);
 	case 8:
-		{
-			return $new($CMap$CMapFormat8, buffer, offset, xlat);
-		}
+		return $new($CMap$CMapFormat8, buffer, offset, xlat);
 	case 10:
-		{
-			return $new($CMap$CMapFormat10, buffer, offset, xlat);
-		}
+		return $new($CMap$CMapFormat10, buffer, offset, xlat);
 	case 12:
-		{
-			return $new($CMap$CMapFormat12, buffer, offset, xlat);
-		}
+		return $new($CMap$CMapFormat12, buffer, offset, xlat);
 	default:
-		{
-			$throwNew($RuntimeException, $$str({"Cmap format unimplemented: "_s, $$str((int32_t)buffer->getChar(offset))}));
-		}
+		$throwNew($RuntimeException, $$str({"Cmap format unimplemented: "_s, $$str((int32_t)buffer->getChar(offset))}));
 	}
 }
 
 void CMap::createUVS($ByteBuffer* buffer, int32_t offset) {
 	int32_t subtableFormat = $nc(buffer)->getChar(offset);
 	if (subtableFormat == 14) {
-		int64_t subtableLength = (int32_t)(buffer->getInt(offset + 2) & (uint32_t)CMap::INTMASK);
+		int64_t subtableLength = buffer->getInt(offset + 2) & CMap::INTMASK;
 		bool var$0 = $FontUtilities::isLogging();
 		if (var$0 && offset + subtableLength > buffer->capacity()) {
 			$FontUtilities::logWarning("Cmap UVS subtable overflows buffer."_s);
@@ -403,15 +294,11 @@ int32_t CMap::getControlCodeGlyph(int32_t charCode, bool noSurrogates) {
 	if (charCode < 16) {
 		switch (charCode) {
 		case 9:
-			{}
 		case 10:
-			{}
 		case 13:
-			{
-				return $CharToGlyphMapper::INVISIBLE_GLYPH_ID;
-			}
+			return $CharToGlyphMapper::INVISIBLE_GLYPH_ID;
 		}
-	} else if (noSurrogates && charCode >= 0x0000FFFF) {
+	} else if (noSurrogates && charCode >= 0x0000ffff) {
 		return 0;
 	}
 	return -1;
@@ -423,17 +310,17 @@ char16_t CMap::getFormatCharGlyph(int32_t charCode) {
 			return (char16_t)$CharToGlyphMapper::INVISIBLE_GLYPH_ID;
 		}
 	}
-	return (char16_t)0;
+	return 0;
 }
 
 char16_t CMap::getVariationGlyph(int32_t charCode, int32_t variationSelector) {
-	char16_t glyph = (char16_t)0;
+	char16_t glyph = 0;
 	if (this->uvs == nullptr) {
 		glyph = getGlyph(charCode);
 	} else {
-		int32_t result = $nc(this->uvs)->getGlyph(charCode, variationSelector);
+		int32_t result = this->uvs->getGlyph(charCode, variationSelector);
 		if (result > 0) {
-			glyph = (char16_t)((int32_t)(result & (uint32_t)0x0000FFFF));
+			glyph = (char16_t)(result & 0xffff);
 		} else {
 			glyph = getGlyph(charCode);
 		}
@@ -441,7 +328,7 @@ char16_t CMap::getVariationGlyph(int32_t charCode, int32_t variationSelector) {
 	return glyph;
 }
 
-void clinit$CMap($Class* class$) {
+void CMap::clinit$($Class* clazz) {
 	$assignStatic(CMap::converterMaps, $new($charArray2, 7));
 	$assignStatic(CMap::theNullCmap, $new($CMap$NullCMapClass));
 }
@@ -450,7 +337,64 @@ CMap::CMap() {
 }
 
 $Class* CMap::load$($String* name, bool initialize) {
-	$loadClass(CMap, name, initialize, &_CMap_ClassInfo_, clinit$CMap, allocate$CMap);
+	$FieldInfo fieldInfos$$[] = {
+		{"ShiftJISEncoding", "S", nullptr, $STATIC | $FINAL, $constField(CMap, ShiftJISEncoding)},
+		{"GBKEncoding", "S", nullptr, $STATIC | $FINAL, $constField(CMap, GBKEncoding)},
+		{"Big5Encoding", "S", nullptr, $STATIC | $FINAL, $constField(CMap, Big5Encoding)},
+		{"WansungEncoding", "S", nullptr, $STATIC | $FINAL, $constField(CMap, WansungEncoding)},
+		{"JohabEncoding", "S", nullptr, $STATIC | $FINAL, $constField(CMap, JohabEncoding)},
+		{"MSUnicodeSurrogateEncoding", "S", nullptr, $STATIC | $FINAL, $constField(CMap, MSUnicodeSurrogateEncoding)},
+		{"noSuchChar", "C", nullptr, $STATIC | $FINAL, $constField(CMap, noSuchChar)},
+		{"SHORTMASK", "I", nullptr, $STATIC | $FINAL, $constField(CMap, SHORTMASK)},
+		{"INTMASK", "I", nullptr, $STATIC | $FINAL, $constField(CMap, INTMASK)},
+		{"converterMaps", "[[C", nullptr, $STATIC | $FINAL, $staticField(CMap, converterMaps)},
+		{"xlat", "[C", nullptr, 0, $field(CMap, xlat)},
+		{"uvs", "Lsun/font/CMap$UVS;", nullptr, 0, $field(CMap, uvs)},
+		{"theNullCmap", "Lsun/font/CMap$NullCMapClass;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CMap, theNullCmap)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(CMap, init$, void)},
+		{"createCMap", "(Ljava/nio/ByteBuffer;I[C)Lsun/font/CMap;", nullptr, $STATIC, $staticMethod(CMap, createCMap, CMap*, $ByteBuffer*, int32_t, $chars*)},
+		{"createUVS", "(Ljava/nio/ByteBuffer;I)V", nullptr, $PRIVATE, $method(CMap, createUVS, void, $ByteBuffer*, int32_t)},
+		{"getControlCodeGlyph", "(IZ)I", nullptr, $FINAL, $method(CMap, getControlCodeGlyph, int32_t, int32_t, bool)},
+		{"getConverter", "(S)[C", nullptr, $STATIC, $staticMethod(CMap, getConverter, $chars*, int16_t)},
+		{"getConverterMap", "(S)[C", nullptr, $STATIC, $staticMethod(CMap, getConverterMap, $chars*, int16_t)},
+		{"getFormatCharGlyph", "(I)C", nullptr, $FINAL, $method(CMap, getFormatCharGlyph, char16_t, int32_t)},
+		{"getGlyph", "(I)C", nullptr, $ABSTRACT, $virtualMethod(CMap, getGlyph, char16_t, int32_t)},
+		{"getVariationGlyph", "(II)C", nullptr, 0, $virtualMethod(CMap, getVariationGlyph, char16_t, int32_t, int32_t)},
+		{"initialize", "(Lsun/font/TrueTypeFont;)Lsun/font/CMap;", nullptr, $STATIC, $staticMethod(CMap, initialize, CMap*, $TrueTypeFont*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.font.CMap$UVS", "sun.font.CMap", "UVS", $STATIC},
+		{"sun.font.CMap$NullCMapClass", "sun.font.CMap", "NullCMapClass", $STATIC},
+		{"sun.font.CMap$CMapFormat12", "sun.font.CMap", "CMapFormat12", $STATIC},
+		{"sun.font.CMap$CMapFormat10", "sun.font.CMap", "CMapFormat10", $STATIC},
+		{"sun.font.CMap$CMapFormat8", "sun.font.CMap", "CMapFormat8", $STATIC},
+		{"sun.font.CMap$CMapFormat6", "sun.font.CMap", "CMapFormat6", $STATIC},
+		{"sun.font.CMap$CMapFormat2", "sun.font.CMap", "CMapFormat2", $STATIC},
+		{"sun.font.CMap$CMapFormat0", "sun.font.CMap", "CMapFormat0", $STATIC},
+		{"sun.font.CMap$CMapFormat4", "sun.font.CMap", "CMapFormat4", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"sun.font.CMap",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.font.CMap$UVS,sun.font.CMap$NullCMapClass,sun.font.CMap$CMapFormat12,sun.font.CMap$CMapFormat10,sun.font.CMap$CMapFormat8,sun.font.CMap$CMapFormat6,sun.font.CMap$CMapFormat2,sun.font.CMap$CMapFormat0,sun.font.CMap$CMapFormat4"
+	};
+	$loadClass(CMap, name, initialize, &classInfo$$, CMap::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(CMap);
+	});
 	return class$;
 }
 

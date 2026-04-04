@@ -1,5 +1,4 @@
 #include <javax/transaction/xa/Xid.h>
-
 #include <jcpp.h>
 
 #undef MAXBQUALSIZE
@@ -13,34 +12,29 @@ namespace javax {
 	namespace transaction {
 		namespace xa {
 
-$FieldInfo _Xid_FieldInfo_[] = {
-	{"MAXGTRIDSIZE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Xid, MAXGTRIDSIZE)},
-	{"MAXBQUALSIZE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Xid, MAXBQUALSIZE)},
-	{}
-};
-
-$MethodInfo _Xid_MethodInfo_[] = {
-	{"getBranchQualifier", "()[B", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Xid, getBranchQualifier, $bytes*)},
-	{"getFormatId", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Xid, getFormatId, int32_t)},
-	{"getGlobalTransactionId", "()[B", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Xid, getGlobalTransactionId, $bytes*)},
-	{}
-};
-
-$ClassInfo _Xid_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"javax.transaction.xa.Xid",
-	nullptr,
-	nullptr,
-	_Xid_FieldInfo_,
-	_Xid_MethodInfo_
-};
-
-$Object* allocate$Xid($Class* clazz) {
-	return $of($alloc(Xid));
-}
-
 $Class* Xid::load$($String* name, bool initialize) {
-	$loadClass(Xid, name, initialize, &_Xid_ClassInfo_, allocate$Xid);
+	$FieldInfo fieldInfos$$[] = {
+		{"MAXGTRIDSIZE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Xid, MAXGTRIDSIZE)},
+		{"MAXBQUALSIZE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Xid, MAXBQUALSIZE)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"getBranchQualifier", "()[B", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Xid, getBranchQualifier, $bytes*)},
+		{"getFormatId", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Xid, getFormatId, int32_t)},
+		{"getGlobalTransactionId", "()[B", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Xid, getGlobalTransactionId, $bytes*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"javax.transaction.xa.Xid",
+		nullptr,
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Xid, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Xid);
+	});
 	return class$;
 }
 

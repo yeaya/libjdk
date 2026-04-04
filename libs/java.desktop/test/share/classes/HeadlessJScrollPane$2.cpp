@@ -1,5 +1,4 @@
 #include <HeadlessJScrollPane$2.h>
-
 #include <HeadlessJScrollPane.h>
 #include <java/awt/Component.h>
 #include <jcpp.h>
@@ -10,42 +9,6 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
-$MethodInfo _HeadlessJScrollPane$2_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(HeadlessJScrollPane$2, init$, void)},
-	{}
-};
-
-$EnclosingMethodInfo _HeadlessJScrollPane$2_EnclosingMethodInfo_ = {
-	"HeadlessJScrollPane",
-	"main",
-	"([Ljava/lang/String;)V"
-};
-
-$InnerClassInfo _HeadlessJScrollPane$2_InnerClassesInfo_[] = {
-	{"HeadlessJScrollPane$2", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _HeadlessJScrollPane$2_ClassInfo_ = {
-	$ACC_SUPER,
-	"HeadlessJScrollPane$2",
-	"java.awt.Component",
-	nullptr,
-	nullptr,
-	_HeadlessJScrollPane$2_MethodInfo_,
-	nullptr,
-	&_HeadlessJScrollPane$2_EnclosingMethodInfo_,
-	_HeadlessJScrollPane$2_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"HeadlessJScrollPane"
-};
-
-$Object* allocate$HeadlessJScrollPane$2($Class* clazz) {
-	return $of($alloc(HeadlessJScrollPane$2));
-}
-
 void HeadlessJScrollPane$2::init$() {
 	$Component::init$();
 }
@@ -54,7 +17,37 @@ HeadlessJScrollPane$2::HeadlessJScrollPane$2() {
 }
 
 $Class* HeadlessJScrollPane$2::load$($String* name, bool initialize) {
-	$loadClass(HeadlessJScrollPane$2, name, initialize, &_HeadlessJScrollPane$2_ClassInfo_, allocate$HeadlessJScrollPane$2);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(HeadlessJScrollPane$2, init$, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"HeadlessJScrollPane",
+		"main",
+		"([Ljava/lang/String;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"HeadlessJScrollPane$2", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"HeadlessJScrollPane$2",
+		"java.awt.Component",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"HeadlessJScrollPane"
+	};
+	$loadClass(HeadlessJScrollPane$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(HeadlessJScrollPane$2));
+	});
 	return class$;
 }
 

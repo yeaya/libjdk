@@ -23,6 +23,7 @@ class $export Elements$Origin : public ::java::lang::Enum {
 public:
 	Elements$Origin();
 	static $Array<::javax::lang::model::util::Elements$Origin>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	virtual bool isDeclared();
 	static ::javax::lang::model::util::Elements$Origin* valueOf($String* name);

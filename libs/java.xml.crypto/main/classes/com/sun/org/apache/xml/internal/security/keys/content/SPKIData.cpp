@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/security/keys/content/SPKIData.h>
-
 #include <com/sun/org/apache/xml/internal/security/utils/Constants.h>
 #include <com/sun/org/apache/xml/internal/security/utils/SignatureElementProxy.h>
 #include <org/w3c/dom/Element.h>
@@ -22,30 +21,6 @@ namespace com {
 						namespace security {
 							namespace keys {
 								namespace content {
-
-$MethodInfo _SPKIData_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lorg/w3c/dom/Element;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SPKIData, init$, void, $Element*, $String*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
-	{"getBaseLocalName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SPKIData, getBaseLocalName, $String*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _SPKIData_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.security.keys.content.SPKIData",
-	"com.sun.org.apache.xml.internal.security.utils.SignatureElementProxy",
-	"com.sun.org.apache.xml.internal.security.keys.content.KeyInfoContent",
-	nullptr,
-	_SPKIData_MethodInfo_
-};
-
-$Object* allocate$SPKIData($Class* clazz) {
-	return $of($alloc(SPKIData));
-}
 
 int32_t SPKIData::hashCode() {
 	 return this->$SignatureElementProxy::hashCode();
@@ -80,7 +55,27 @@ SPKIData::SPKIData() {
 }
 
 $Class* SPKIData::load$($String* name, bool initialize) {
-	$loadClass(SPKIData, name, initialize, &_SPKIData_ClassInfo_, allocate$SPKIData);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lorg/w3c/dom/Element;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SPKIData, init$, void, $Element*, $String*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
+		{"getBaseLocalName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SPKIData, getBaseLocalName, $String*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.security.keys.content.SPKIData",
+		"com.sun.org.apache.xml.internal.security.utils.SignatureElementProxy",
+		"com.sun.org.apache.xml.internal.security.keys.content.KeyInfoContent",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(SPKIData, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SPKIData));
+	});
 	return class$;
 }
 

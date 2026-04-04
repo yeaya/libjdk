@@ -1,5 +1,4 @@
 #include <com/sun/tools/sjavac/pubapi/PubMethod.h>
-
 #include <com/sun/tools/sjavac/pubapi/PubApiTypeParam.h>
 #include <com/sun/tools/sjavac/pubapi/TypeDesc.h>
 #include <java/io/Serializable.h>
@@ -29,7 +28,6 @@ using $List = ::java::util::List;
 using $Set = ::java::util::Set;
 using $Function = ::java::util::function::Function;
 using $Collectors = ::java::util::stream::Collectors;
-using $Stream = ::java::util::stream::Stream;
 
 namespace com {
 	namespace sun {
@@ -45,27 +43,24 @@ public:
 	virtual $Object* apply(Object$* inst$) override {
 		 return $of($sure($PubApiTypeParam, inst$)->asString());
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<PubMethod$$Lambda$asString>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo PubMethod$$Lambda$asString::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(PubMethod$$Lambda$asString, init$, void)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(PubMethod$$Lambda$asString, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo PubMethod$$Lambda$asString::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.sjavac.pubapi.PubMethod$$Lambda$asString",
-	"java.lang.Object",
-	"java.util.function.Function",
-	nullptr,
-	methodInfos
 };
 $Class* PubMethod$$Lambda$asString::load$($String* name, bool initialize) {
-	$loadClass(PubMethod$$Lambda$asString, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(PubMethod$$Lambda$asString, init$, void)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(PubMethod$$Lambda$asString, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.sjavac.pubapi.PubMethod$$Lambda$asString",
+		"java.lang.Object",
+		"java.util.function.Function",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(PubMethod$$Lambda$asString, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PubMethod$$Lambda$asString);
+	});
 	return class$;
 }
 $Class* PubMethod$$Lambda$asString::class$ = nullptr;
@@ -78,63 +73,27 @@ public:
 	virtual $Object* apply(Object$* td) override {
 		 return $of($TypeDesc::encodeAsString($cast($TypeDesc, td)));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<PubMethod$$Lambda$encodeAsString$1>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo PubMethod$$Lambda$encodeAsString$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(PubMethod$$Lambda$encodeAsString$1, init$, void)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(PubMethod$$Lambda$encodeAsString$1, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo PubMethod$$Lambda$encodeAsString$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.sjavac.pubapi.PubMethod$$Lambda$encodeAsString$1",
-	"java.lang.Object",
-	"java.util.function.Function",
-	nullptr,
-	methodInfos
 };
 $Class* PubMethod$$Lambda$encodeAsString$1::load$($String* name, bool initialize) {
-	$loadClass(PubMethod$$Lambda$encodeAsString$1, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(PubMethod$$Lambda$encodeAsString$1, init$, void)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(PubMethod$$Lambda$encodeAsString$1, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.sjavac.pubapi.PubMethod$$Lambda$encodeAsString$1",
+		"java.lang.Object",
+		"java.util.function.Function",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(PubMethod$$Lambda$encodeAsString$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PubMethod$$Lambda$encodeAsString$1);
+	});
 	return class$;
 }
 $Class* PubMethod$$Lambda$encodeAsString$1::class$ = nullptr;
-
-$FieldInfo _PubMethod_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PubMethod, serialVersionUID)},
-	{"modifiers", "Ljava/util/Set;", "Ljava/util/Set<Ljavax/lang/model/element/Modifier;>;", 0, $field(PubMethod, modifiers)},
-	{"typeParams", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/tools/sjavac/pubapi/PubApiTypeParam;>;", 0, $field(PubMethod, typeParams)},
-	{"returnType", "Lcom/sun/tools/sjavac/pubapi/TypeDesc;", nullptr, 0, $field(PubMethod, returnType)},
-	{"identifier", "Ljava/lang/String;", nullptr, 0, $field(PubMethod, identifier)},
-	{"paramTypes", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/tools/sjavac/pubapi/TypeDesc;>;", 0, $field(PubMethod, paramTypes)},
-	{"throwDecls", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/tools/sjavac/pubapi/TypeDesc;>;", 0, $field(PubMethod, throwDecls)},
-	{}
-};
-
-$MethodInfo _PubMethod_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/Set;Ljava/util/List;Lcom/sun/tools/sjavac/pubapi/TypeDesc;Ljava/lang/String;Ljava/util/List;Ljava/util/List;)V", "(Ljava/util/Set<Ljavax/lang/model/element/Modifier;>;Ljava/util/List<Lcom/sun/tools/sjavac/pubapi/PubApiTypeParam;>;Lcom/sun/tools/sjavac/pubapi/TypeDesc;Ljava/lang/String;Ljava/util/List<Lcom/sun/tools/sjavac/pubapi/TypeDesc;>;Ljava/util/List<Lcom/sun/tools/sjavac/pubapi/TypeDesc;>;)V", $PUBLIC, $method(PubMethod, init$, void, $Set*, $List*, $TypeDesc*, $String*, $List*, $List*)},
-	{"asSignatureString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PubMethod, asSignatureString, $String*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(PubMethod, equals, bool, Object$*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(PubMethod, hashCode, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PubMethod, toString, $String*)},
-	{}
-};
-
-$ClassInfo _PubMethod_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.sjavac.pubapi.PubMethod",
-	"java.lang.Object",
-	"java.io.Serializable",
-	_PubMethod_FieldInfo_,
-	_PubMethod_MethodInfo_
-};
-
-$Object* allocate$PubMethod($Class* clazz) {
-	return $of($alloc(PubMethod));
-}
 
 void PubMethod::init$($Set* modifiers, $List* typeParams, $TypeDesc* returnType, $String* identifier, $List* paramTypes, $List* throwDecls) {
 	$set(this, modifiers, modifiers);
@@ -146,16 +105,16 @@ void PubMethod::init$($Set* modifiers, $List* typeParams, $TypeDesc* returnType,
 }
 
 $String* PubMethod::asSignatureString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, sb, $new($StringBuilder));
 	if ($nc(this->typeParams)->size() > 0) {
-		sb->append($cast($String, $($nc($($nc($($nc(this->typeParams)->stream()))->map(static_cast<$Function*>($$new(PubMethod$$Lambda$asString)))))->collect($($Collectors::joining(","_s, "<"_s, "> "_s))))));
+		sb->append($$cast($String, $$nc($$nc(this->typeParams->stream())->map($$new(PubMethod$$Lambda$asString)))->collect($($Collectors::joining(","_s, "<"_s, "> "_s)))));
 	}
 	sb->append($($TypeDesc::encodeAsString(this->returnType)));
 	sb->append(" "_s);
 	sb->append(this->identifier);
 	sb->append("("_s);
-	sb->append($cast($String, $($nc($($nc($($nc(this->paramTypes)->stream()))->map(static_cast<$Function*>($$new(PubMethod$$Lambda$encodeAsString$1)))))->collect($($Collectors::joining(","_s))))));
+	sb->append($$cast($String, $$nc($$nc($nc(this->paramTypes)->stream())->map($$new(PubMethod$$Lambda$encodeAsString$1)))->collect($($Collectors::joining(","_s)))));
 	sb->append(")"_s);
 	return sb->toString();
 }
@@ -165,12 +124,12 @@ bool PubMethod::equals(Object$* obj) {
 		return false;
 	}
 	$var(PubMethod, other, $cast(PubMethod, obj));
-	bool var$4 = $nc(this->modifiers)->equals($nc(other)->modifiers);
-	bool var$3 = var$4 && $nc(this->typeParams)->equals($nc(other)->typeParams);
-	bool var$2 = var$3 && $nc(this->returnType)->equals($nc(other)->returnType);
-	bool var$1 = var$2 && $nc(this->identifier)->equals($nc(other)->identifier);
-	bool var$0 = var$1 && $nc(this->paramTypes)->equals($nc(other)->paramTypes);
-	return var$0 && $nc(this->throwDecls)->equals($nc(other)->throwDecls);
+	bool var$4 = $nc(this->modifiers)->equals(other->modifiers);
+	bool var$3 = var$4 && $nc(this->typeParams)->equals(other->typeParams);
+	bool var$2 = var$3 && $nc(this->returnType)->equals(other->returnType);
+	bool var$1 = var$2 && $nc(this->identifier)->equals(other->identifier);
+	bool var$0 = var$1 && $nc(this->paramTypes)->equals(other->paramTypes);
+	return var$0 && $nc(this->throwDecls)->equals(other->throwDecls);
 }
 
 int32_t PubMethod::hashCode() {
@@ -183,15 +142,15 @@ int32_t PubMethod::hashCode() {
 }
 
 $String* PubMethod::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $String::format("%s[modifiers: %s, typeParams: %s, retType: %s, identifier: %s, params: %s, throws: %s]"_s, $$new($ObjectArray, {
-		$($of($of(this)->getClass()->getSimpleName())),
-		$of(this->modifiers),
-		$of(this->typeParams),
-		$of(this->returnType),
-		$of(this->identifier),
-		$of(this->paramTypes),
-		$of(this->throwDecls)
+		$($of(this)->getClass()->getSimpleName()),
+		this->modifiers,
+		this->typeParams,
+		this->returnType,
+		this->identifier,
+		this->paramTypes,
+		this->throwDecls
 	}));
 }
 
@@ -200,14 +159,42 @@ PubMethod::PubMethod() {
 
 $Class* PubMethod::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(PubMethod$$Lambda$asString::classInfo$.name)) {
+		if (name->equals("com.sun.tools.sjavac.pubapi.PubMethod$$Lambda$asString")) {
 			return PubMethod$$Lambda$asString::load$(name, initialize);
 		}
-		if (name->equals(PubMethod$$Lambda$encodeAsString$1::classInfo$.name)) {
+		if (name->equals("com.sun.tools.sjavac.pubapi.PubMethod$$Lambda$encodeAsString$1")) {
 			return PubMethod$$Lambda$encodeAsString$1::load$(name, initialize);
 		}
 	}
-	$loadClass(PubMethod, name, initialize, &_PubMethod_ClassInfo_, allocate$PubMethod);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PubMethod, serialVersionUID)},
+		{"modifiers", "Ljava/util/Set;", "Ljava/util/Set<Ljavax/lang/model/element/Modifier;>;", 0, $field(PubMethod, modifiers)},
+		{"typeParams", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/tools/sjavac/pubapi/PubApiTypeParam;>;", 0, $field(PubMethod, typeParams)},
+		{"returnType", "Lcom/sun/tools/sjavac/pubapi/TypeDesc;", nullptr, 0, $field(PubMethod, returnType)},
+		{"identifier", "Ljava/lang/String;", nullptr, 0, $field(PubMethod, identifier)},
+		{"paramTypes", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/tools/sjavac/pubapi/TypeDesc;>;", 0, $field(PubMethod, paramTypes)},
+		{"throwDecls", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/tools/sjavac/pubapi/TypeDesc;>;", 0, $field(PubMethod, throwDecls)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/Set;Ljava/util/List;Lcom/sun/tools/sjavac/pubapi/TypeDesc;Ljava/lang/String;Ljava/util/List;Ljava/util/List;)V", "(Ljava/util/Set<Ljavax/lang/model/element/Modifier;>;Ljava/util/List<Lcom/sun/tools/sjavac/pubapi/PubApiTypeParam;>;Lcom/sun/tools/sjavac/pubapi/TypeDesc;Ljava/lang/String;Ljava/util/List<Lcom/sun/tools/sjavac/pubapi/TypeDesc;>;Ljava/util/List<Lcom/sun/tools/sjavac/pubapi/TypeDesc;>;)V", $PUBLIC, $method(PubMethod, init$, void, $Set*, $List*, $TypeDesc*, $String*, $List*, $List*)},
+		{"asSignatureString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PubMethod, asSignatureString, $String*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(PubMethod, equals, bool, Object$*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(PubMethod, hashCode, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PubMethod, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.sjavac.pubapi.PubMethod",
+		"java.lang.Object",
+		"java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(PubMethod, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PubMethod);
+	});
 	return class$;
 }
 

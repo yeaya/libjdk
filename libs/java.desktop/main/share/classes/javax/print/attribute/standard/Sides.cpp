@@ -1,5 +1,4 @@
 #include <javax/print/attribute/standard/Sides.h>
-
 #include <javax/print/attribute/EnumSyntax.h>
 #include <jcpp.h>
 
@@ -20,45 +19,6 @@ namespace javax {
 	namespace print {
 		namespace attribute {
 			namespace standard {
-
-$FieldInfo _Sides_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Sides, serialVersionUID)},
-	{"ONE_SIDED", "Ljavax/print/attribute/standard/Sides;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Sides, ONE_SIDED)},
-	{"TWO_SIDED_LONG_EDGE", "Ljavax/print/attribute/standard/Sides;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Sides, TWO_SIDED_LONG_EDGE)},
-	{"TWO_SIDED_SHORT_EDGE", "Ljavax/print/attribute/standard/Sides;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Sides, TWO_SIDED_SHORT_EDGE)},
-	{"DUPLEX", "Ljavax/print/attribute/standard/Sides;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Sides, DUPLEX)},
-	{"TUMBLE", "Ljavax/print/attribute/standard/Sides;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Sides, TUMBLE)},
-	{"myStringTable", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Sides, myStringTable)},
-	{"myEnumValueTable", "[Ljavax/print/attribute/standard/Sides;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Sides, myEnumValueTable)},
-	{}
-};
-
-$MethodInfo _Sides_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "(I)V", nullptr, $PROTECTED, $method(Sides, init$, void, int32_t)},
-	{"getCategory", "()Ljava/lang/Class;", "()Ljava/lang/Class<+Ljavax/print/attribute/Attribute;>;", $PUBLIC | $FINAL, $virtualMethod(Sides, getCategory, $Class*)},
-	{"getEnumValueTable", "()[Ljavax/print/attribute/EnumSyntax;", nullptr, $PROTECTED, $virtualMethod(Sides, getEnumValueTable, $EnumSyntaxArray*)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(Sides, getName, $String*)},
-	{"getStringTable", "()[Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(Sides, getStringTable, $StringArray*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _Sides_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"javax.print.attribute.standard.Sides",
-	"javax.print.attribute.EnumSyntax",
-	"javax.print.attribute.DocAttribute,javax.print.attribute.PrintRequestAttribute,javax.print.attribute.PrintJobAttribute",
-	_Sides_FieldInfo_,
-	_Sides_MethodInfo_
-};
-
-$Object* allocate$Sides($Class* clazz) {
-	return $of($alloc(Sides));
-}
 
 $Object* Sides::clone() {
 	 return this->$EnumSyntax::clone();
@@ -97,7 +57,7 @@ $StringArray* Sides::getStringTable() {
 }
 
 $EnumSyntaxArray* Sides::getEnumValueTable() {
-	return $fcast($EnumSyntaxArray, Sides::myEnumValueTable);
+	return $cast($EnumSyntaxArray, Sides::myEnumValueTable);
 }
 
 $Class* Sides::getCategory() {
@@ -108,7 +68,7 @@ $String* Sides::getName() {
 	return "sides"_s;
 }
 
-void clinit$Sides($Class* class$) {
+void Sides::clinit$($Class* clazz) {
 	$assignStatic(Sides::ONE_SIDED, $new(Sides, 0));
 	$assignStatic(Sides::TWO_SIDED_LONG_EDGE, $new(Sides, 1));
 	$assignStatic(Sides::TWO_SIDED_SHORT_EDGE, $new(Sides, 2));
@@ -130,7 +90,41 @@ Sides::Sides() {
 }
 
 $Class* Sides::load$($String* name, bool initialize) {
-	$loadClass(Sides, name, initialize, &_Sides_ClassInfo_, clinit$Sides, allocate$Sides);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Sides, serialVersionUID)},
+		{"ONE_SIDED", "Ljavax/print/attribute/standard/Sides;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Sides, ONE_SIDED)},
+		{"TWO_SIDED_LONG_EDGE", "Ljavax/print/attribute/standard/Sides;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Sides, TWO_SIDED_LONG_EDGE)},
+		{"TWO_SIDED_SHORT_EDGE", "Ljavax/print/attribute/standard/Sides;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Sides, TWO_SIDED_SHORT_EDGE)},
+		{"DUPLEX", "Ljavax/print/attribute/standard/Sides;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Sides, DUPLEX)},
+		{"TUMBLE", "Ljavax/print/attribute/standard/Sides;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Sides, TUMBLE)},
+		{"myStringTable", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Sides, myStringTable)},
+		{"myEnumValueTable", "[Ljavax/print/attribute/standard/Sides;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Sides, myEnumValueTable)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC},
+		{"<init>", "(I)V", nullptr, $PROTECTED, $method(Sides, init$, void, int32_t)},
+		{"getCategory", "()Ljava/lang/Class;", "()Ljava/lang/Class<+Ljavax/print/attribute/Attribute;>;", $PUBLIC | $FINAL, $virtualMethod(Sides, getCategory, $Class*)},
+		{"getEnumValueTable", "()[Ljavax/print/attribute/EnumSyntax;", nullptr, $PROTECTED, $virtualMethod(Sides, getEnumValueTable, $EnumSyntaxArray*)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(Sides, getName, $String*)},
+		{"getStringTable", "()[Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(Sides, getStringTable, $StringArray*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"javax.print.attribute.standard.Sides",
+		"javax.print.attribute.EnumSyntax",
+		"javax.print.attribute.DocAttribute,javax.print.attribute.PrintRequestAttribute,javax.print.attribute.PrintJobAttribute",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Sides, name, initialize, &classInfo$$, Sides::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Sides));
+	});
 	return class$;
 }
 

@@ -127,6 +127,7 @@ class $export Pretty : public ::com::sun::tools::javac::tree::JCTree$Visitor {
 	$class(Pretty, 0, ::com::sun::tools::javac::tree::JCTree$Visitor)
 public:
 	Pretty();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::io::Writer* out, bool sourceOutput);
 	virtual void align();
 	virtual void close(int32_t contextPrec, int32_t ownPrec);

@@ -24,7 +24,7 @@ public:
 	virtual bool match(int32_t ch) override;
 	using ::com::sun::org::apache::xerces::internal::impl::xpath::regex::Token::toString;
 	virtual $String* toString(int32_t options) override;
-	static const int64_t serialVersionUID = (int64_t)0xC3046827CB8156E3;
+	static const int64_t serialVersionUID = (int64_t)0xc3046827cb8156e3;
 	int32_t chardata = 0;
 };
 

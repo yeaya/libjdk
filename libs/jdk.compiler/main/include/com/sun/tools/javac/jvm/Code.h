@@ -78,6 +78,7 @@ class $import Code : public ::java::lang::Object {
 	$class(Code, 0, ::java::lang::Object)
 public:
 	Code();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::com::sun::tools::javac::code::Symbol$MethodSymbol* meth, bool fatcode, ::com::sun::tools::javac::util::Position$LineMap* lineMap, bool varDebugInfo, ::com::sun::tools::javac::jvm::Code$StackMapFormat* stackMap, bool debugCode, ::com::sun::tools::javac::jvm::CRTable* crt, ::com::sun::tools::javac::code::Symtab* syms, ::com::sun::tools::javac::code::Types* types, ::com::sun::tools::javac::jvm::PoolWriter* poolWriter);
 	virtual void addCatch(char16_t startPc, char16_t endPc, char16_t handlerPc, char16_t catchType);
 	virtual void addLineNumber(char16_t startPc, char16_t lineNumber);

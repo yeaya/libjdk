@@ -48,6 +48,7 @@ class XSelection : public ::java::lang::Object {
 	$class(XSelection, 0, ::java::lang::Object)
 public:
 	XSelection();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::awt::X11::XAtom* atom);
 	bool convertAndStore(int64_t requestor, int64_t format, int64_t property);
 	void fireOwnershipChanges(bool isOwner);
@@ -71,7 +72,7 @@ public:
 	static ::java::util::Hashtable* table;
 	static $Object* lock;
 	static ::sun::awt::X11::XAtom* selectionPropertyAtom;
-	static const int64_t MAX_LENGTH = 0x000F4240;
+	static const int64_t MAX_LENGTH = 0x000f4240;
 	static int32_t MAX_PROPERTY_SIZE;
 	static ::sun::awt::X11::XEventDispatcher* incrementalTransferHandler;
 	static ::sun::awt::X11::WindowPropertyGetter* propertyGetter;

@@ -50,6 +50,7 @@ class $export SynthStyle : public ::java::lang::Object {
 	$class(SynthStyle, 0, ::java::lang::Object)
 public:
 	SynthStyle();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual $Object* get(::javax::swing::plaf::synth::SynthContext* context, Object$* key);
 	virtual bool getBoolean(::javax::swing::plaf::synth::SynthContext* context, Object$* key, bool defaultValue);

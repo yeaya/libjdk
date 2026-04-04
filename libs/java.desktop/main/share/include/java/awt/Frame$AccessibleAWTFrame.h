@@ -28,7 +28,7 @@ public:
 	virtual ::javax::accessibility::AccessibleRole* getAccessibleRole() override;
 	virtual ::javax::accessibility::AccessibleStateSet* getAccessibleStateSet() override;
 	::java::awt::Frame* this$0 = nullptr;
-	static const int64_t serialVersionUID = (int64_t)0xAA553CE6A3A0C2D6;
+	static const int64_t serialVersionUID = (int64_t)0xaa553ce6a3a0c2d6;
 };
 
 	} // awt

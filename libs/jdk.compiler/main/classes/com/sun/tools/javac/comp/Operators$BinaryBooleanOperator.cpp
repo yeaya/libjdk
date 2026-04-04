@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/Operators$BinaryBooleanOperator.h>
-
 #include <com/sun/tools/javac/code/Symbol$OperatorSymbol.h>
 #include <com/sun/tools/javac/code/Symtab.h>
 #include <com/sun/tools/javac/code/Type$JCPrimitiveType.h>
@@ -16,7 +15,6 @@
 using $Symbol$OperatorSymbol = ::com::sun::tools::javac::code::Symbol$OperatorSymbol;
 using $Type = ::com::sun::tools::javac::code::Type;
 using $TypeTag = ::com::sun::tools::javac::code::TypeTag;
-using $Types = ::com::sun::tools::javac::code::Types;
 using $Operators = ::com::sun::tools::javac::comp::Operators;
 using $Operators$BinaryOperatorHelper = ::com::sun::tools::javac::comp::Operators$BinaryOperatorHelper;
 using $JCTree$Tag = ::com::sun::tools::javac::tree::JCTree$Tag;
@@ -31,45 +29,6 @@ namespace com {
 			namespace javac {
 				namespace comp {
 
-$FieldInfo _Operators$BinaryBooleanOperator_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/comp/Operators;", nullptr, $FINAL | $SYNTHETIC, $field(Operators$BinaryBooleanOperator, this$0)},
-	{}
-};
-
-$MethodInfo _Operators$BinaryBooleanOperator_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Operators;Lcom/sun/tools/javac/tree/JCTree$Tag;)V", nullptr, 0, $method(Operators$BinaryBooleanOperator, init$, void, $Operators*, $JCTree$Tag*)},
-	{"resolve", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Symbol$OperatorSymbol;", nullptr, $PUBLIC, $virtualMethod(Operators$BinaryBooleanOperator, resolve, $Symbol$OperatorSymbol*, $Type*, $Type*)},
-	{"test", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;)Z", nullptr, $PUBLIC, $virtualMethod(Operators$BinaryBooleanOperator, test, bool, $Type*, $Type*)},
-	{"test", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Operators$BinaryBooleanOperator, test, bool, Object$*, Object$*)},
-	{}
-};
-
-$InnerClassInfo _Operators$BinaryBooleanOperator_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.Operators$BinaryBooleanOperator", "com.sun.tools.javac.comp.Operators", "BinaryBooleanOperator", 0},
-	{"com.sun.tools.javac.comp.Operators$BinaryOperatorHelper", "com.sun.tools.javac.comp.Operators", "BinaryOperatorHelper", $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Operators$BinaryBooleanOperator_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.comp.Operators$BinaryBooleanOperator",
-	"com.sun.tools.javac.comp.Operators$BinaryOperatorHelper",
-	nullptr,
-	_Operators$BinaryBooleanOperator_FieldInfo_,
-	_Operators$BinaryBooleanOperator_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Operators$BinaryBooleanOperator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.Operators"
-};
-
-$Object* allocate$Operators$BinaryBooleanOperator($Class* clazz) {
-	return $of($alloc(Operators$BinaryBooleanOperator));
-}
-
 void Operators$BinaryBooleanOperator::init$($Operators* this$0, $JCTree$Tag* tag) {
 	$set(this, this$0, this$0);
 	$Operators$BinaryOperatorHelper::init$(this$0, tag);
@@ -80,10 +39,10 @@ $Symbol$OperatorSymbol* Operators$BinaryBooleanOperator::resolve($Type* arg1, $T
 }
 
 bool Operators$BinaryBooleanOperator::test($Type* arg1, $Type* arg2) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($TypeTag);
-	bool var$0 = $nc($($nc(this->this$0->types)->unboxedTypeOrType(arg1)))->hasTag($TypeTag::BOOLEAN);
-	return var$0 && $nc($($nc(this->this$0->types)->unboxedTypeOrType(arg2)))->hasTag($TypeTag::BOOLEAN);
+	bool var$0 = $$nc($nc(this->this$0->types)->unboxedTypeOrType(arg1))->hasTag($TypeTag::BOOLEAN);
+	return var$0 && $$nc(this->this$0->types->unboxedTypeOrType(arg2))->hasTag($TypeTag::BOOLEAN);
 }
 
 bool Operators$BinaryBooleanOperator::test(Object$* arg1, Object$* arg2) {
@@ -94,7 +53,40 @@ Operators$BinaryBooleanOperator::Operators$BinaryBooleanOperator() {
 }
 
 $Class* Operators$BinaryBooleanOperator::load$($String* name, bool initialize) {
-	$loadClass(Operators$BinaryBooleanOperator, name, initialize, &_Operators$BinaryBooleanOperator_ClassInfo_, allocate$Operators$BinaryBooleanOperator);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/comp/Operators;", nullptr, $FINAL | $SYNTHETIC, $field(Operators$BinaryBooleanOperator, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/comp/Operators;Lcom/sun/tools/javac/tree/JCTree$Tag;)V", nullptr, 0, $method(Operators$BinaryBooleanOperator, init$, void, $Operators*, $JCTree$Tag*)},
+		{"resolve", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Symbol$OperatorSymbol;", nullptr, $PUBLIC, $virtualMethod(Operators$BinaryBooleanOperator, resolve, $Symbol$OperatorSymbol*, $Type*, $Type*)},
+		{"test", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;)Z", nullptr, $PUBLIC, $virtualMethod(Operators$BinaryBooleanOperator, test, bool, $Type*, $Type*)},
+		{"test", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Operators$BinaryBooleanOperator, test, bool, Object$*, Object$*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.Operators$BinaryBooleanOperator", "com.sun.tools.javac.comp.Operators", "BinaryBooleanOperator", 0},
+		{"com.sun.tools.javac.comp.Operators$BinaryOperatorHelper", "com.sun.tools.javac.comp.Operators", "BinaryOperatorHelper", $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.comp.Operators$BinaryBooleanOperator",
+		"com.sun.tools.javac.comp.Operators$BinaryOperatorHelper",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.Operators"
+	};
+	$loadClass(Operators$BinaryBooleanOperator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Operators$BinaryBooleanOperator));
+	});
 	return class$;
 }
 

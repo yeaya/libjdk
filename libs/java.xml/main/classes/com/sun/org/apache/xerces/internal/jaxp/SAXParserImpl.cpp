@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/jaxp/SAXParserImpl.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/Constants.h>
 #include <com/sun/org/apache/xerces/internal/impl/validation/ValidationManager.h>
 #include <com/sun/org/apache/xerces/internal/impl/xs/XMLSchemaValidator.h>
@@ -19,7 +18,6 @@
 #include <com/sun/org/apache/xerces/internal/xni/XMLDTDHandler.h>
 #include <com/sun/org/apache/xerces/internal/xni/XMLDocumentHandler.h>
 #include <com/sun/org/apache/xerces/internal/xni/parser/XMLComponent.h>
-#include <com/sun/org/apache/xerces/internal/xni/parser/XMLComponentManager.h>
 #include <com/sun/org/apache/xerces/internal/xni/parser/XMLDTDSource.h>
 #include <com/sun/org/apache/xerces/internal/xni/parser/XMLDocumentSource.h>
 #include <com/sun/org/apache/xerces/internal/xni/parser/XMLParserConfiguration.h>
@@ -82,11 +80,8 @@ using $XMLSecurityManager = ::com::sun::org::apache::xerces::internal::utils::XM
 using $XMLSecurityPropertyManager = ::com::sun::org::apache::xerces::internal::utils::XMLSecurityPropertyManager;
 using $XMLSecurityPropertyManager$Property = ::com::sun::org::apache::xerces::internal::utils::XMLSecurityPropertyManager$Property;
 using $XMLSecurityPropertyManager$State = ::com::sun::org::apache::xerces::internal::utils::XMLSecurityPropertyManager$State;
-using $XMLDTDHandler = ::com::sun::org::apache::xerces::internal::xni::XMLDTDHandler;
 using $XMLDocumentHandler = ::com::sun::org::apache::xerces::internal::xni::XMLDocumentHandler;
 using $XMLComponent = ::com::sun::org::apache::xerces::internal::xni::parser::XMLComponent;
-using $XMLComponentManager = ::com::sun::org::apache::xerces::internal::xni::parser::XMLComponentManager;
-using $XMLDTDSource = ::com::sun::org::apache::xerces::internal::xni::parser::XMLDTDSource;
 using $XMLDocumentSource = ::com::sun::org::apache::xerces::internal::xni::parser::XMLDocumentSource;
 using $XMLParserConfiguration = ::com::sun::org::apache::xerces::internal::xni::parser::XMLParserConfiguration;
 using $AttributePSVI = ::com::sun::org::apache::xerces::internal::xs::AttributePSVI;
@@ -102,7 +97,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Iterator = ::java::util::Iterator;
 using $Map = ::java::util::Map;
 using $Map$Entry = ::java::util::Map$Entry;
-using $Set = ::java::util::Set;
 using $XMLConstants = ::javax::xml::XMLConstants;
 using $SAXParser = ::javax::xml::parsers::SAXParser;
 using $Schema = ::javax::xml::validation::Schema;
@@ -110,8 +104,6 @@ using $JdkConstants = ::jdk::xml::internal::JdkConstants;
 using $ContentHandler = ::org::xml::sax::ContentHandler;
 using $DTDHandler = ::org::xml::sax::DTDHandler;
 using $DocumentHandler = ::org::xml::sax::DocumentHandler;
-using $EntityResolver = ::org::xml::sax::EntityResolver;
-using $ErrorHandler = ::org::xml::sax::ErrorHandler;
 using $HandlerBase = ::org::xml::sax::HandlerBase;
 using $InputSource = ::org::xml::sax::InputSource;
 using $Parser = ::org::xml::sax::Parser;
@@ -126,78 +118,6 @@ namespace com {
 				namespace xerces {
 					namespace internal {
 						namespace jaxp {
-
-$FieldInfo _SAXParserImpl_FieldInfo_[] = {
-	{"NAMESPACES_FEATURE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SAXParserImpl, NAMESPACES_FEATURE)},
-	{"NAMESPACE_PREFIXES_FEATURE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SAXParserImpl, NAMESPACE_PREFIXES_FEATURE)},
-	{"VALIDATION_FEATURE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SAXParserImpl, VALIDATION_FEATURE)},
-	{"XMLSCHEMA_VALIDATION_FEATURE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SAXParserImpl, XMLSCHEMA_VALIDATION_FEATURE)},
-	{"XINCLUDE_FEATURE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SAXParserImpl, XINCLUDE_FEATURE)},
-	{"SECURITY_MANAGER", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SAXParserImpl, SECURITY_MANAGER)},
-	{"XML_SECURITY_PROPERTY_MANAGER", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SAXParserImpl, XML_SECURITY_PROPERTY_MANAGER)},
-	{"xmlReader", "Lcom/sun/org/apache/xerces/internal/jaxp/SAXParserImpl$JAXPSAXParser;", nullptr, $PRIVATE | $FINAL, $field(SAXParserImpl, xmlReader)},
-	{"schemaLanguage", "Ljava/lang/String;", nullptr, $PRIVATE, $field(SAXParserImpl, schemaLanguage)},
-	{"grammar", "Ljavax/xml/validation/Schema;", nullptr, $PRIVATE | $FINAL, $field(SAXParserImpl, grammar)},
-	{"fSchemaValidator", "Lcom/sun/org/apache/xerces/internal/xni/parser/XMLComponent;", nullptr, $PRIVATE | $FINAL, $field(SAXParserImpl, fSchemaValidator)},
-	{"fSchemaValidatorComponentManager", "Lcom/sun/org/apache/xerces/internal/xni/parser/XMLComponentManager;", nullptr, $PRIVATE | $FINAL, $field(SAXParserImpl, fSchemaValidatorComponentManager)},
-	{"fSchemaValidationManager", "Lcom/sun/org/apache/xerces/internal/impl/validation/ValidationManager;", nullptr, $PRIVATE | $FINAL, $field(SAXParserImpl, fSchemaValidationManager)},
-	{"fUnparsedEntityHandler", "Lcom/sun/org/apache/xerces/internal/jaxp/UnparsedEntityHandler;", nullptr, $PRIVATE | $FINAL, $field(SAXParserImpl, fUnparsedEntityHandler)},
-	{"fInitErrorHandler", "Lorg/xml/sax/ErrorHandler;", nullptr, $PRIVATE | $FINAL, $field(SAXParserImpl, fInitErrorHandler)},
-	{"fInitEntityResolver", "Lorg/xml/sax/EntityResolver;", nullptr, $PRIVATE | $FINAL, $field(SAXParserImpl, fInitEntityResolver)},
-	{"fSecurityManager", "Lcom/sun/org/apache/xerces/internal/utils/XMLSecurityManager;", nullptr, $PRIVATE | $FINAL, $field(SAXParserImpl, fSecurityManager)},
-	{"fSecurityPropertyMgr", "Lcom/sun/org/apache/xerces/internal/utils/XMLSecurityPropertyManager;", nullptr, $PRIVATE | $FINAL, $field(SAXParserImpl, fSecurityPropertyMgr)},
-	{}
-};
-
-$MethodInfo _SAXParserImpl_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lcom/sun/org/apache/xerces/internal/jaxp/SAXParserFactoryImpl;Ljava/util/Map;)V", "(Lcom/sun/org/apache/xerces/internal/jaxp/SAXParserFactoryImpl;Ljava/util/Map<Ljava/lang/String;Ljava/lang/Boolean;>;)V", 0, $method(SAXParserImpl, init$, void, $SAXParserFactoryImpl*, $Map*), "org.xml.sax.SAXException"},
-	{"<init>", "(Lcom/sun/org/apache/xerces/internal/jaxp/SAXParserFactoryImpl;Ljava/util/Map;Z)V", "(Lcom/sun/org/apache/xerces/internal/jaxp/SAXParserFactoryImpl;Ljava/util/Map<Ljava/lang/String;Ljava/lang/Boolean;>;Z)V", 0, $method(SAXParserImpl, init$, void, $SAXParserFactoryImpl*, $Map*, bool), "org.xml.sax.SAXException"},
-	{"getAttributePSVI", "(I)Lcom/sun/org/apache/xerces/internal/xs/AttributePSVI;", nullptr, $PUBLIC, $virtualMethod(SAXParserImpl, getAttributePSVI, $AttributePSVI*, int32_t)},
-	{"getAttributePSVIByName", "(Ljava/lang/String;Ljava/lang/String;)Lcom/sun/org/apache/xerces/internal/xs/AttributePSVI;", nullptr, $PUBLIC, $virtualMethod(SAXParserImpl, getAttributePSVIByName, $AttributePSVI*, $String*, $String*)},
-	{"getElementPSVI", "()Lcom/sun/org/apache/xerces/internal/xs/ElementPSVI;", nullptr, $PUBLIC, $virtualMethod(SAXParserImpl, getElementPSVI, $ElementPSVI*)},
-	{"getParser", "()Lorg/xml/sax/Parser;", nullptr, $PUBLIC, $virtualMethod(SAXParserImpl, getParser, $Parser*), "org.xml.sax.SAXException"},
-	{"getProperty", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SAXParserImpl, getProperty, $Object*, $String*), "org.xml.sax.SAXNotRecognizedException,org.xml.sax.SAXNotSupportedException"},
-	{"getSchema", "()Ljavax/xml/validation/Schema;", nullptr, $PUBLIC, $virtualMethod(SAXParserImpl, getSchema, $Schema*)},
-	{"getXMLReader", "()Lorg/xml/sax/XMLReader;", nullptr, $PUBLIC, $virtualMethod(SAXParserImpl, getXMLReader, $XMLReader*)},
-	{"isNamespaceAware", "()Z", nullptr, $PUBLIC, $virtualMethod(SAXParserImpl, isNamespaceAware, bool)},
-	{"isValidating", "()Z", nullptr, $PUBLIC, $virtualMethod(SAXParserImpl, isValidating, bool)},
-	{"isXIncludeAware", "()Z", nullptr, $PUBLIC, $virtualMethod(SAXParserImpl, isXIncludeAware, bool)},
-	{"parse", "(Lorg/xml/sax/InputSource;Lorg/xml/sax/helpers/DefaultHandler;)V", nullptr, $PUBLIC, $virtualMethod(SAXParserImpl, parse, void, $InputSource*, $DefaultHandler*), "org.xml.sax.SAXException,java.io.IOException"},
-	{"parse", "(Lorg/xml/sax/InputSource;Lorg/xml/sax/HandlerBase;)V", nullptr, $PUBLIC, $virtualMethod(SAXParserImpl, parse, void, $InputSource*, $HandlerBase*), "org.xml.sax.SAXException,java.io.IOException"},
-	{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(SAXParserImpl, reset, void)},
-	{"setFeatures", "(Ljava/util/Map;)V", "(Ljava/util/Map<Ljava/lang/String;Ljava/lang/Boolean;>;)V", $PRIVATE, $method(SAXParserImpl, setFeatures, void, $Map*), "org.xml.sax.SAXNotSupportedException,org.xml.sax.SAXNotRecognizedException"},
-	{"setProperty", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(SAXParserImpl, setProperty, void, $String*, Object$*), "org.xml.sax.SAXNotRecognizedException,org.xml.sax.SAXNotSupportedException"},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _SAXParserImpl_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl$JAXPSAXParser", "com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl", "JAXPSAXParser", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _SAXParserImpl_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl",
-	"javax.xml.parsers.SAXParser",
-	"com.sun.org.apache.xerces.internal.jaxp.JAXPConstants,com.sun.org.apache.xerces.internal.xs.PSVIProvider",
-	_SAXParserImpl_FieldInfo_,
-	_SAXParserImpl_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SAXParserImpl_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl$JAXPSAXParser"
-};
-
-$Object* allocate$SAXParserImpl($Class* clazz) {
-	return $of($alloc(SAXParserImpl));
-}
 
 int32_t SAXParserImpl::hashCode() {
 	 return this->$SAXParser::hashCode();
@@ -232,19 +152,19 @@ void SAXParserImpl::init$($SAXParserFactoryImpl* spf, $Map* features) {
 }
 
 void SAXParserImpl::init$($SAXParserFactoryImpl* spf, $Map* features, bool secureProcessing) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$SAXParser::init$();
 	$set(this, schemaLanguage, nullptr);
 	$set(this, fSecurityManager, $new($XMLSecurityManager, secureProcessing));
 	$set(this, fSecurityPropertyMgr, $new($XMLSecurityPropertyManager));
 	$set(this, xmlReader, $new($SAXParserImpl$JAXPSAXParser, this, this->fSecurityPropertyMgr, this->fSecurityManager));
-	$nc(this->xmlReader)->setFeature0(SAXParserImpl::NAMESPACES_FEATURE, $nc(spf)->isNamespaceAware());
-	$nc(this->xmlReader)->setFeature0(SAXParserImpl::NAMESPACE_PREFIXES_FEATURE, !$nc(spf)->isNamespaceAware());
-	if ($nc(spf)->isXIncludeAware()) {
-		$nc(this->xmlReader)->setFeature0(SAXParserImpl::XINCLUDE_FEATURE, true);
+	this->xmlReader->setFeature0(SAXParserImpl::NAMESPACES_FEATURE, $nc(spf)->isNamespaceAware());
+	this->xmlReader->setFeature0(SAXParserImpl::NAMESPACE_PREFIXES_FEATURE, !spf->isNamespaceAware());
+	if (spf->isXIncludeAware()) {
+		this->xmlReader->setFeature0(SAXParserImpl::XINCLUDE_FEATURE, true);
 	}
-	$nc(this->xmlReader)->setProperty0(SAXParserImpl::XML_SECURITY_PROPERTY_MANAGER, this->fSecurityPropertyMgr);
-	$nc(this->xmlReader)->setProperty0(SAXParserImpl::SECURITY_MANAGER, this->fSecurityManager);
+	this->xmlReader->setProperty0(SAXParserImpl::XML_SECURITY_PROPERTY_MANAGER, this->fSecurityPropertyMgr);
+	this->xmlReader->setProperty0(SAXParserImpl::SECURITY_MANAGER, this->fSecurityManager);
 	if (secureProcessing) {
 		if (features != nullptr) {
 			$init($XMLConstants);
@@ -253,42 +173,42 @@ void SAXParserImpl::init$($SAXParserFactoryImpl* spf, $Map* features, bool secur
 				$init($XMLSecurityPropertyManager$Property);
 				$init($XMLSecurityPropertyManager$State);
 				$init($JdkConstants);
-				$nc(this->fSecurityPropertyMgr)->setValue($XMLSecurityPropertyManager$Property::ACCESS_EXTERNAL_DTD, $XMLSecurityPropertyManager$State::FSP, $JdkConstants::EXTERNAL_ACCESS_DEFAULT_FSP);
-				$nc(this->fSecurityPropertyMgr)->setValue($XMLSecurityPropertyManager$Property::ACCESS_EXTERNAL_SCHEMA, $XMLSecurityPropertyManager$State::FSP, $JdkConstants::EXTERNAL_ACCESS_DEFAULT_FSP);
+				this->fSecurityPropertyMgr->setValue($XMLSecurityPropertyManager$Property::ACCESS_EXTERNAL_DTD, $XMLSecurityPropertyManager$State::FSP, $JdkConstants::EXTERNAL_ACCESS_DEFAULT_FSP);
+				this->fSecurityPropertyMgr->setValue($XMLSecurityPropertyManager$Property::ACCESS_EXTERNAL_SCHEMA, $XMLSecurityPropertyManager$State::FSP, $JdkConstants::EXTERNAL_ACCESS_DEFAULT_FSP);
 			}
 		}
 	}
 	setFeatures(features);
-	if ($nc(spf)->isValidating()) {
-		$set(this, fInitErrorHandler, $new($DefaultValidationErrorHandler, $($nc(this->xmlReader)->getLocale())));
-		$nc(this->xmlReader)->setErrorHandler(this->fInitErrorHandler);
+	if (spf->isValidating()) {
+		$set(this, fInitErrorHandler, $new($DefaultValidationErrorHandler, $(this->xmlReader->getLocale())));
+		this->xmlReader->setErrorHandler(this->fInitErrorHandler);
 	} else {
-		$set(this, fInitErrorHandler, $nc(this->xmlReader)->getErrorHandler());
+		$set(this, fInitErrorHandler, this->xmlReader->getErrorHandler());
 	}
-	$nc(this->xmlReader)->setFeature0(SAXParserImpl::VALIDATION_FEATURE, $nc(spf)->isValidating());
-	$set(this, grammar, $nc(spf)->getSchema());
+	this->xmlReader->setFeature0(SAXParserImpl::VALIDATION_FEATURE, spf->isValidating());
+	$set(this, grammar, spf->getSchema());
 	if (this->grammar != nullptr) {
-		$var($XMLParserConfiguration, config, $nc(this->xmlReader)->getXMLParserConfiguration());
+		$var($XMLParserConfiguration, config, this->xmlReader->getXMLParserConfiguration());
 		$var($XMLComponent, validatorComponent, nullptr);
 		if ($instanceOf($XSGrammarPoolContainer, this->grammar)) {
 			$assign(validatorComponent, $new($XMLSchemaValidator));
 			$set(this, fSchemaValidationManager, $new($ValidationManager));
 			$set(this, fUnparsedEntityHandler, $new($UnparsedEntityHandler, this->fSchemaValidationManager));
 			$nc(config)->setDTDHandler(this->fUnparsedEntityHandler);
-			$nc(this->fUnparsedEntityHandler)->setDTDHandler(this->xmlReader);
-			$nc(this->xmlReader)->setDTDSource(this->fUnparsedEntityHandler);
+			this->fUnparsedEntityHandler->setDTDHandler(this->xmlReader);
+			this->xmlReader->setDTDSource(this->fUnparsedEntityHandler);
 			$set(this, fSchemaValidatorComponentManager, $new($SchemaValidatorConfiguration, config, $cast($XSGrammarPoolContainer, this->grammar), this->fSchemaValidationManager));
 		} else {
-			$assign(validatorComponent, $new($JAXPValidatorComponent, $($nc(this->grammar)->newValidatorHandler())));
+			$assign(validatorComponent, $new($JAXPValidatorComponent, $(this->grammar->newValidatorHandler())));
 			$set(this, fSchemaValidationManager, nullptr);
 			$set(this, fUnparsedEntityHandler, nullptr);
 			$set(this, fSchemaValidatorComponentManager, config);
 		}
 		$nc(config)->addRecognizedFeatures($($nc(validatorComponent)->getRecognizedFeatures()));
-		config->addRecognizedProperties($($nc(validatorComponent)->getRecognizedProperties()));
+		config->addRecognizedProperties($(validatorComponent->getRecognizedProperties()));
 		config->setDocumentHandler($cast($XMLDocumentHandler, validatorComponent));
-		$nc(($cast($XMLDocumentSource, validatorComponent)))->setDocumentHandler(this->xmlReader);
-		$nc(this->xmlReader)->setDocumentSource($cast($XMLDocumentSource, validatorComponent));
+		$cast($XMLDocumentSource, validatorComponent)->setDocumentHandler(this->xmlReader);
+		this->xmlReader->setDocumentSource($cast($XMLDocumentSource, validatorComponent));
 		$set(this, fSchemaValidator, validatorComponent);
 	} else {
 		$set(this, fSchemaValidationManager, nullptr);
@@ -296,27 +216,25 @@ void SAXParserImpl::init$($SAXParserFactoryImpl* spf, $Map* features, bool secur
 		$set(this, fSchemaValidatorComponentManager, nullptr);
 		$set(this, fSchemaValidator, nullptr);
 	}
-	$set(this, fInitEntityResolver, $nc(this->xmlReader)->getEntityResolver());
+	$set(this, fInitEntityResolver, this->xmlReader->getEntityResolver());
 }
 
 void SAXParserImpl::setFeatures($Map* features) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (features != nullptr) {
-		{
-			$var($Iterator, i$, $nc($(features->entrySet()))->iterator());
-			for (; $nc(i$)->hasNext();) {
-				$var($Map$Entry, entry, $cast($Map$Entry, i$->next()));
-				{
-					$var($String, var$0, $cast($String, $nc(entry)->getKey()));
-					$nc(this->xmlReader)->setFeature0(var$0, $nc(($cast($Boolean, $(entry->getValue()))))->booleanValue());
-				}
+		$var($Iterator, i$, $$nc(features->entrySet())->iterator());
+		for (; $nc(i$)->hasNext();) {
+			$var($Map$Entry, entry, $cast($Map$Entry, i$->next()));
+			{
+				$var($String, var$0, $cast($String, $nc(entry)->getKey()));
+				$nc(this->xmlReader)->setFeature0(var$0, $$sure($Boolean, entry->getValue())->booleanValue());
 			}
 		}
 	}
 }
 
 $Parser* SAXParserImpl::getParser() {
-	return static_cast<$Parser*>(this->xmlReader);
+	return $cast($Parser, this->xmlReader);
 }
 
 $XMLReader* SAXParserImpl::getXMLReader() {
@@ -355,7 +273,7 @@ void SAXParserImpl::setProperty($String* name, Object$* value) {
 }
 
 $Object* SAXParserImpl::getProperty($String* name) {
-	return $of($nc(this->xmlReader)->getProperty(name));
+	return $nc(this->xmlReader)->getProperty(name);
 }
 
 void SAXParserImpl::parse($InputSource* is, $DefaultHandler* dh) {
@@ -364,10 +282,10 @@ void SAXParserImpl::parse($InputSource* is, $DefaultHandler* dh) {
 	}
 	if (dh != nullptr) {
 		$nc(this->xmlReader)->setContentHandler(dh);
-		$nc(this->xmlReader)->setEntityResolver(dh);
-		$nc(this->xmlReader)->setErrorHandler(dh);
-		$nc(this->xmlReader)->setDTDHandler(dh);
-		$nc(this->xmlReader)->setDocumentHandler(nullptr);
+		this->xmlReader->setEntityResolver(dh);
+		this->xmlReader->setErrorHandler(dh);
+		this->xmlReader->setDTDHandler(dh);
+		this->xmlReader->setDocumentHandler(nullptr);
 	}
 	$nc(this->xmlReader)->parse(is);
 }
@@ -378,10 +296,10 @@ void SAXParserImpl::parse($InputSource* is, $HandlerBase* hb) {
 	}
 	if (hb != nullptr) {
 		$nc(this->xmlReader)->setDocumentHandler(hb);
-		$nc(this->xmlReader)->setEntityResolver(hb);
-		$nc(this->xmlReader)->setErrorHandler(hb);
-		$nc(this->xmlReader)->setDTDHandler(hb);
-		$nc(this->xmlReader)->setContentHandler(nullptr);
+		this->xmlReader->setEntityResolver(hb);
+		this->xmlReader->setErrorHandler(hb);
+		this->xmlReader->setDTDHandler(hb);
+		this->xmlReader->setContentHandler(nullptr);
 	}
 	$nc(this->xmlReader)->parse(is);
 }
@@ -396,31 +314,31 @@ void SAXParserImpl::reset() {
 	} catch ($SAXException& exc) {
 	}
 	$nc(this->xmlReader)->setContentHandler(nullptr);
-	$nc(this->xmlReader)->setDTDHandler(nullptr);
-	if ($nc(this->xmlReader)->getErrorHandler() != this->fInitErrorHandler) {
-		$nc(this->xmlReader)->setErrorHandler(this->fInitErrorHandler);
+	this->xmlReader->setDTDHandler(nullptr);
+	if (this->xmlReader->getErrorHandler() != this->fInitErrorHandler) {
+		this->xmlReader->setErrorHandler(this->fInitErrorHandler);
 	}
-	if ($nc(this->xmlReader)->getEntityResolver() != this->fInitEntityResolver) {
-		$nc(this->xmlReader)->setEntityResolver(this->fInitEntityResolver);
+	if (this->xmlReader->getEntityResolver() != this->fInitEntityResolver) {
+		this->xmlReader->setEntityResolver(this->fInitEntityResolver);
 	}
 }
 
 $ElementPSVI* SAXParserImpl::getElementPSVI() {
-	return $nc((static_cast<$PSVIProvider*>(this->xmlReader)))->getElementPSVI();
+	return $nc($cast($PSVIProvider, this->xmlReader))->getElementPSVI();
 }
 
 $AttributePSVI* SAXParserImpl::getAttributePSVI(int32_t index) {
-	return $nc((static_cast<$PSVIProvider*>(this->xmlReader)))->getAttributePSVI(index);
+	return $nc($cast($PSVIProvider, this->xmlReader))->getAttributePSVI(index);
 }
 
 $AttributePSVI* SAXParserImpl::getAttributePSVIByName($String* uri, $String* localname) {
-	return $nc((static_cast<$PSVIProvider*>(this->xmlReader)))->getAttributePSVIByName(uri, localname);
+	return $nc($cast($PSVIProvider, this->xmlReader))->getAttributePSVIByName(uri, localname);
 }
 
 SAXParserImpl::SAXParserImpl() {
 }
 
-void clinit$SAXParserImpl($Class* class$) {
+void SAXParserImpl::clinit$($Class* clazz) {
 	$init($Constants);
 	$assignStatic(SAXParserImpl::NAMESPACES_FEATURE, $str({$Constants::SAX_FEATURE_PREFIX, $Constants::NAMESPACES_FEATURE}));
 	$assignStatic(SAXParserImpl::NAMESPACE_PREFIXES_FEATURE, $str({$Constants::SAX_FEATURE_PREFIX, $Constants::NAMESPACE_PREFIXES_FEATURE}));
@@ -433,7 +351,73 @@ void clinit$SAXParserImpl($Class* class$) {
 }
 
 $Class* SAXParserImpl::load$($String* name, bool initialize) {
-	$loadClass(SAXParserImpl, name, initialize, &_SAXParserImpl_ClassInfo_, clinit$SAXParserImpl, allocate$SAXParserImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"NAMESPACES_FEATURE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SAXParserImpl, NAMESPACES_FEATURE)},
+		{"NAMESPACE_PREFIXES_FEATURE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SAXParserImpl, NAMESPACE_PREFIXES_FEATURE)},
+		{"VALIDATION_FEATURE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SAXParserImpl, VALIDATION_FEATURE)},
+		{"XMLSCHEMA_VALIDATION_FEATURE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SAXParserImpl, XMLSCHEMA_VALIDATION_FEATURE)},
+		{"XINCLUDE_FEATURE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SAXParserImpl, XINCLUDE_FEATURE)},
+		{"SECURITY_MANAGER", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SAXParserImpl, SECURITY_MANAGER)},
+		{"XML_SECURITY_PROPERTY_MANAGER", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SAXParserImpl, XML_SECURITY_PROPERTY_MANAGER)},
+		{"xmlReader", "Lcom/sun/org/apache/xerces/internal/jaxp/SAXParserImpl$JAXPSAXParser;", nullptr, $PRIVATE | $FINAL, $field(SAXParserImpl, xmlReader)},
+		{"schemaLanguage", "Ljava/lang/String;", nullptr, $PRIVATE, $field(SAXParserImpl, schemaLanguage)},
+		{"grammar", "Ljavax/xml/validation/Schema;", nullptr, $PRIVATE | $FINAL, $field(SAXParserImpl, grammar)},
+		{"fSchemaValidator", "Lcom/sun/org/apache/xerces/internal/xni/parser/XMLComponent;", nullptr, $PRIVATE | $FINAL, $field(SAXParserImpl, fSchemaValidator)},
+		{"fSchemaValidatorComponentManager", "Lcom/sun/org/apache/xerces/internal/xni/parser/XMLComponentManager;", nullptr, $PRIVATE | $FINAL, $field(SAXParserImpl, fSchemaValidatorComponentManager)},
+		{"fSchemaValidationManager", "Lcom/sun/org/apache/xerces/internal/impl/validation/ValidationManager;", nullptr, $PRIVATE | $FINAL, $field(SAXParserImpl, fSchemaValidationManager)},
+		{"fUnparsedEntityHandler", "Lcom/sun/org/apache/xerces/internal/jaxp/UnparsedEntityHandler;", nullptr, $PRIVATE | $FINAL, $field(SAXParserImpl, fUnparsedEntityHandler)},
+		{"fInitErrorHandler", "Lorg/xml/sax/ErrorHandler;", nullptr, $PRIVATE | $FINAL, $field(SAXParserImpl, fInitErrorHandler)},
+		{"fInitEntityResolver", "Lorg/xml/sax/EntityResolver;", nullptr, $PRIVATE | $FINAL, $field(SAXParserImpl, fInitEntityResolver)},
+		{"fSecurityManager", "Lcom/sun/org/apache/xerces/internal/utils/XMLSecurityManager;", nullptr, $PRIVATE | $FINAL, $field(SAXParserImpl, fSecurityManager)},
+		{"fSecurityPropertyMgr", "Lcom/sun/org/apache/xerces/internal/utils/XMLSecurityPropertyManager;", nullptr, $PRIVATE | $FINAL, $field(SAXParserImpl, fSecurityPropertyMgr)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lcom/sun/org/apache/xerces/internal/jaxp/SAXParserFactoryImpl;Ljava/util/Map;)V", "(Lcom/sun/org/apache/xerces/internal/jaxp/SAXParserFactoryImpl;Ljava/util/Map<Ljava/lang/String;Ljava/lang/Boolean;>;)V", 0, $method(SAXParserImpl, init$, void, $SAXParserFactoryImpl*, $Map*), "org.xml.sax.SAXException"},
+		{"<init>", "(Lcom/sun/org/apache/xerces/internal/jaxp/SAXParserFactoryImpl;Ljava/util/Map;Z)V", "(Lcom/sun/org/apache/xerces/internal/jaxp/SAXParserFactoryImpl;Ljava/util/Map<Ljava/lang/String;Ljava/lang/Boolean;>;Z)V", 0, $method(SAXParserImpl, init$, void, $SAXParserFactoryImpl*, $Map*, bool), "org.xml.sax.SAXException"},
+		{"getAttributePSVI", "(I)Lcom/sun/org/apache/xerces/internal/xs/AttributePSVI;", nullptr, $PUBLIC, $virtualMethod(SAXParserImpl, getAttributePSVI, $AttributePSVI*, int32_t)},
+		{"getAttributePSVIByName", "(Ljava/lang/String;Ljava/lang/String;)Lcom/sun/org/apache/xerces/internal/xs/AttributePSVI;", nullptr, $PUBLIC, $virtualMethod(SAXParserImpl, getAttributePSVIByName, $AttributePSVI*, $String*, $String*)},
+		{"getElementPSVI", "()Lcom/sun/org/apache/xerces/internal/xs/ElementPSVI;", nullptr, $PUBLIC, $virtualMethod(SAXParserImpl, getElementPSVI, $ElementPSVI*)},
+		{"getParser", "()Lorg/xml/sax/Parser;", nullptr, $PUBLIC, $virtualMethod(SAXParserImpl, getParser, $Parser*), "org.xml.sax.SAXException"},
+		{"getProperty", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SAXParserImpl, getProperty, $Object*, $String*), "org.xml.sax.SAXNotRecognizedException,org.xml.sax.SAXNotSupportedException"},
+		{"getSchema", "()Ljavax/xml/validation/Schema;", nullptr, $PUBLIC, $virtualMethod(SAXParserImpl, getSchema, $Schema*)},
+		{"getXMLReader", "()Lorg/xml/sax/XMLReader;", nullptr, $PUBLIC, $virtualMethod(SAXParserImpl, getXMLReader, $XMLReader*)},
+		{"isNamespaceAware", "()Z", nullptr, $PUBLIC, $virtualMethod(SAXParserImpl, isNamespaceAware, bool)},
+		{"isValidating", "()Z", nullptr, $PUBLIC, $virtualMethod(SAXParserImpl, isValidating, bool)},
+		{"isXIncludeAware", "()Z", nullptr, $PUBLIC, $virtualMethod(SAXParserImpl, isXIncludeAware, bool)},
+		{"parse", "(Lorg/xml/sax/InputSource;Lorg/xml/sax/helpers/DefaultHandler;)V", nullptr, $PUBLIC, $virtualMethod(SAXParserImpl, parse, void, $InputSource*, $DefaultHandler*), "org.xml.sax.SAXException,java.io.IOException"},
+		{"parse", "(Lorg/xml/sax/InputSource;Lorg/xml/sax/HandlerBase;)V", nullptr, $PUBLIC, $virtualMethod(SAXParserImpl, parse, void, $InputSource*, $HandlerBase*), "org.xml.sax.SAXException,java.io.IOException"},
+		{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(SAXParserImpl, reset, void)},
+		{"setFeatures", "(Ljava/util/Map;)V", "(Ljava/util/Map<Ljava/lang/String;Ljava/lang/Boolean;>;)V", $PRIVATE, $method(SAXParserImpl, setFeatures, void, $Map*), "org.xml.sax.SAXNotSupportedException,org.xml.sax.SAXNotRecognizedException"},
+		{"setProperty", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(SAXParserImpl, setProperty, void, $String*, Object$*), "org.xml.sax.SAXNotRecognizedException,org.xml.sax.SAXNotSupportedException"},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl$JAXPSAXParser", "com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl", "JAXPSAXParser", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl",
+		"javax.xml.parsers.SAXParser",
+		"com.sun.org.apache.xerces.internal.jaxp.JAXPConstants,com.sun.org.apache.xerces.internal.xs.PSVIProvider",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl$JAXPSAXParser"
+	};
+	$loadClass(SAXParserImpl, name, initialize, &classInfo$$, SAXParserImpl::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SAXParserImpl));
+	});
 	return class$;
 }
 

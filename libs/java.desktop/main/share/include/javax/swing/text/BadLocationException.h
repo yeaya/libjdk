@@ -18,7 +18,10 @@ public:
 	int32_t offs = 0;
 	BadLocationException(const BadLocationException& e);
 	virtual void throw$() override;
-	inline BadLocationException* operator ->() {
+	inline BadLocationException* operator ->() const {
+		return (BadLocationException*)throwing$;
+	}
+	inline operator BadLocationException*() const {
 		return (BadLocationException*)throwing$;
 	}
 };

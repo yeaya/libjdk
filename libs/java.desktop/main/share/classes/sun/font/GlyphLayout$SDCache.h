@@ -48,6 +48,7 @@ class GlyphLayout$SDCache : public ::java::lang::Object {
 	$class(GlyphLayout$SDCache, 0, ::java::lang::Object)
 public:
 	GlyphLayout$SDCache();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::awt::Font* font, ::java::awt::font::FontRenderContext* frc);
 	static ::sun::font::GlyphLayout$SDCache* get(::java::awt::Font* font, ::java::awt::font::FontRenderContext* frc);
 	::java::awt::Font* key_font = nullptr;

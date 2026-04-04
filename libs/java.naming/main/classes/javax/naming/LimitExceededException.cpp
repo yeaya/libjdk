@@ -1,5 +1,4 @@
 #include <javax/naming/LimitExceededException.h>
-
 #include <javax/naming/NamingException.h>
 #include <jcpp.h>
 
@@ -10,30 +9,6 @@ using $NamingException = ::javax::naming::NamingException;
 
 namespace javax {
 	namespace naming {
-
-$FieldInfo _LimitExceededException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LimitExceededException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _LimitExceededException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(LimitExceededException, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(LimitExceededException, init$, void, $String*)},
-	{}
-};
-
-$ClassInfo _LimitExceededException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.naming.LimitExceededException",
-	"javax.naming.NamingException",
-	nullptr,
-	_LimitExceededException_FieldInfo_,
-	_LimitExceededException_MethodInfo_
-};
-
-$Object* allocate$LimitExceededException($Class* clazz) {
-	return $of($alloc(LimitExceededException));
-}
 
 void LimitExceededException::init$() {
 	$NamingException::init$();
@@ -54,7 +29,26 @@ void LimitExceededException::throw$() {
 }
 
 $Class* LimitExceededException::load$($String* name, bool initialize) {
-	$loadClass(LimitExceededException, name, initialize, &_LimitExceededException_ClassInfo_, allocate$LimitExceededException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LimitExceededException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(LimitExceededException, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(LimitExceededException, init$, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.naming.LimitExceededException",
+		"javax.naming.NamingException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(LimitExceededException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LimitExceededException);
+	});
 	return class$;
 }
 

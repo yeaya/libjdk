@@ -70,6 +70,7 @@ class AttributeValueTemplate : public ::com::sun::org::apache::xalan::internal::
 	$class(AttributeValueTemplate, 0, ::com::sun::org::apache::xalan::internal::xsltc::compiler::AttributeValue)
 public:
 	AttributeValueTemplate();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* value, ::com::sun::org::apache::xalan::internal::xsltc::compiler::Parser* parser, ::com::sun::org::apache::xalan::internal::xsltc::compiler::SyntaxTreeNode* parent);
 	void parseAVTemplate($String* text, ::com::sun::org::apache::xalan::internal::xsltc::compiler::Parser* parser);
 	virtual $String* toString() override;

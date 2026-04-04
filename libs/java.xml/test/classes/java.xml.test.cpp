@@ -1,5 +1,4 @@
 #include <java.xml.test.h>
-
 #include <java.xml.h>
 #include <java.base.h>
 #include <java/lang/ClassEntry.h>

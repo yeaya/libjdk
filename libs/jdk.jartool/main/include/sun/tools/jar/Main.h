@@ -137,6 +137,7 @@ class $import Main : public ::java::lang::Object {
 	$class(Main, 0, ::java::lang::Object)
 public:
 	Main();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::io::PrintStream* out, ::java::io::PrintStream* err, $String* program);
 	void init$(::java::io::PrintWriter* out, ::java::io::PrintWriter* err, $String* program);
 	void addCreatedBy(::java::util::jar::Manifest* m);

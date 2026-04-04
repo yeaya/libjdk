@@ -1,5 +1,4 @@
 #include <java/awt/Choice.h>
-
 #include <java/awt/AWTEvent.h>
 #include <java/awt/AWTEventMulticaster.h>
 #include <java/awt/Choice$AccessibleAWTChoice.h>
@@ -33,7 +32,6 @@ using $Toolkit = ::java::awt::Toolkit;
 using $ItemEvent = ::java::awt::event::ItemEvent;
 using $ItemListener = ::java::awt::event::ItemListener;
 using $ChoicePeer = ::java::awt::peer::ChoicePeer;
-using $ComponentPeer = ::java::awt::peer::ComponentPeer;
 using $ObjectInputStream = ::java::io::ObjectInputStream;
 using $ObjectOutputStream = ::java::io::ObjectOutputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -47,93 +45,9 @@ using $NullPointerException = ::java::lang::NullPointerException;
 using $EventListener = ::java::util::EventListener;
 using $Vector = ::java::util::Vector;
 using $AccessibleContext = ::javax::accessibility::AccessibleContext;
-using $ComponentFactory = ::sun::awt::ComponentFactory;
 
 namespace java {
 	namespace awt {
-
-$CompoundAttribute _Choice_MethodAnnotations_countItems6[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$FieldInfo _Choice_FieldInfo_[] = {
-	{"pItems", "Ljava/util/Vector;", "Ljava/util/Vector<Ljava/lang/String;>;", 0, $field(Choice, pItems)},
-	{"selectedIndex", "I", nullptr, 0, $field(Choice, selectedIndex)},
-	{"itemListener", "Ljava/awt/event/ItemListener;", nullptr, $TRANSIENT, $field(Choice, itemListener)},
-	{"base", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Choice, base)},
-	{"nameCounter", "I", nullptr, $PRIVATE | $STATIC, $staticField(Choice, nameCounter)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Choice, serialVersionUID)},
-	{"choiceSerializedDataVersion", "I", nullptr, $PRIVATE, $field(Choice, choiceSerializedDataVersion)},
-	{}
-};
-
-$MethodInfo _Choice_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Choice, init$, void), "java.awt.HeadlessException"},
-	{"add", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Choice, add, void, $String*)},
-	{"addItem", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Choice, addItem, void, $String*)},
-	{"addItemListener", "(Ljava/awt/event/ItemListener;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Choice, addItemListener, void, $ItemListener*)},
-	{"addNotify", "()V", nullptr, $PUBLIC, $virtualMethod(Choice, addNotify, void)},
-	{"constructComponentName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(Choice, constructComponentName, $String*)},
-	{"countItems", "()I", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(Choice, countItems, int32_t), nullptr, nullptr, _Choice_MethodAnnotations_countItems6},
-	{"eventEnabled", "(Ljava/awt/AWTEvent;)Z", nullptr, 0, $virtualMethod(Choice, eventEnabled, bool, $AWTEvent*)},
-	{"getAccessibleContext", "()Ljavax/accessibility/AccessibleContext;", nullptr, $PUBLIC, $virtualMethod(Choice, getAccessibleContext, $AccessibleContext*)},
-	{"getItem", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Choice, getItem, $String*, int32_t)},
-	{"getItemCount", "()I", nullptr, $PUBLIC, $virtualMethod(Choice, getItemCount, int32_t)},
-	{"getItemImpl", "(I)Ljava/lang/String;", nullptr, $FINAL, $method(Choice, getItemImpl, $String*, int32_t)},
-	{"getItemListeners", "()[Ljava/awt/event/ItemListener;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Choice, getItemListeners, $ItemListenerArray*)},
-	{"getListeners", "(Ljava/lang/Class;)[Ljava/util/EventListener;", "<T::Ljava/util/EventListener;>(Ljava/lang/Class<TT;>;)[TT;", $PUBLIC, $virtualMethod(Choice, getListeners, $EventListenerArray*, $Class*)},
-	{"getSelectedIndex", "()I", nullptr, $PUBLIC, $virtualMethod(Choice, getSelectedIndex, int32_t)},
-	{"getSelectedItem", "()Ljava/lang/String;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Choice, getSelectedItem, $String*)},
-	{"getSelectedObjects", "()[Ljava/lang/Object;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Choice, getSelectedObjects, $ObjectArray*)},
-	{"initIDs", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(Choice, initIDs, void)},
-	{"insert", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $virtualMethod(Choice, insert, void, $String*, int32_t)},
-	{"insertNoInvalidate", "(Ljava/lang/String;I)V", nullptr, $PRIVATE, $method(Choice, insertNoInvalidate, void, $String*, int32_t)},
-	{"paramString", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(Choice, paramString, $String*)},
-	{"processEvent", "(Ljava/awt/AWTEvent;)V", nullptr, $PROTECTED, $virtualMethod(Choice, processEvent, void, $AWTEvent*)},
-	{"processItemEvent", "(Ljava/awt/event/ItemEvent;)V", nullptr, $PROTECTED, $virtualMethod(Choice, processItemEvent, void, $ItemEvent*)},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(Choice, readObject, void, $ObjectInputStream*), "java.lang.ClassNotFoundException,java.io.IOException,java.awt.HeadlessException"},
-	{"remove", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Choice, remove, void, $String*)},
-	{"remove", "(I)V", nullptr, $PUBLIC, $virtualMethod(Choice, remove, void, int32_t)},
-	{"removeAll", "()V", nullptr, $PUBLIC, $virtualMethod(Choice, removeAll, void)},
-	{"removeItemListener", "(Ljava/awt/event/ItemListener;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Choice, removeItemListener, void, $ItemListener*)},
-	{"removeNoInvalidate", "(I)V", nullptr, $PRIVATE, $method(Choice, removeNoInvalidate, void, int32_t)},
-	{"select", "(I)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Choice, select, void, int32_t)},
-	{"select", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Choice, select, void, $String*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(Choice, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
-	{}
-};
-
-#define _METHOD_INDEX_initIDs 21
-
-$InnerClassInfo _Choice_InnerClassesInfo_[] = {
-	{"java.awt.Choice$AccessibleAWTChoice", "java.awt.Choice", "AccessibleAWTChoice", $PROTECTED},
-	{}
-};
-
-$ClassInfo _Choice_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.awt.Choice",
-	"java.awt.Component",
-	"java.awt.ItemSelectable,javax.accessibility.Accessible",
-	_Choice_FieldInfo_,
-	_Choice_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Choice_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.awt.Choice$AccessibleAWTChoice"
-};
-
-$Object* allocate$Choice($Class* clazz) {
-	return $of($alloc(Choice));
-}
 
 $String* Choice::toString() {
 	 return this->$Component::toString();
@@ -167,17 +81,18 @@ void Choice::init$() {
 }
 
 $String* Choice::constructComponentName() {
-	$useLocalCurrentObjectStackCache();
 	$synchronized(Choice::class$) {
-		$var($String, var$0, Choice::base);
-		return $concat(var$0, $$str(Choice::nameCounter++));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append(Choice::base);
+		var$0->append(Choice::nameCounter++);
+		return $str(var$0);
 	}
 }
 
 void Choice::addNotify() {
 	$synchronized(getTreeLock()) {
 		if (this->peer == nullptr) {
-			$set(this, peer, $nc($(getComponentFactory()))->createChoice(this));
+			$set(this, peer, $$nc(getComponentFactory())->createChoice(this));
 		}
 		$Component::addNotify();
 	}
@@ -272,7 +187,7 @@ void Choice::removeNoInvalidate(int32_t position) {
 void Choice::removeAll() {
 	$synchronized(this) {
 		if (this->peer != nullptr) {
-			$nc(($cast($ChoicePeer, this->peer)))->removeAll();
+			$nc($cast($ChoicePeer, this->peer))->removeAll();
 		}
 		$nc(this->pItems)->removeAllElements();
 		this->selectedIndex = -1;
@@ -288,7 +203,7 @@ $String* Choice::getSelectedItem() {
 
 $ObjectArray* Choice::getSelectedObjects() {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		if (this->selectedIndex >= 0) {
 			$var($ObjectArray, items, $new($ObjectArray, 1));
 			items->set(0, $(getItem(this->selectedIndex)));
@@ -304,11 +219,11 @@ int32_t Choice::getSelectedIndex() {
 
 void Choice::select(int32_t pos) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		if ((pos >= $nc(this->pItems)->size()) || (pos < 0)) {
 			$throwNew($IllegalArgumentException, $$str({"illegal Choice item position: "_s, $$str(pos)}));
 		}
-		if ($nc(this->pItems)->size() > 0) {
+		if (this->pItems->size() > 0) {
 			this->selectedIndex = pos;
 			$var($ChoicePeer, peer, $cast($ChoicePeer, this->peer));
 			if (peer != nullptr) {
@@ -349,7 +264,7 @@ void Choice::removeItemListener($ItemListener* l) {
 $ItemListenerArray* Choice::getItemListeners() {
 	$synchronized(this) {
 		$load($ItemListener);
-		return $fcast($ItemListenerArray, getListeners($ItemListener::class$));
+		return $cast($ItemListenerArray, getListeners($ItemListener::class$));
 	}
 }
 
@@ -366,7 +281,7 @@ $EventListenerArray* Choice::getListeners($Class* listenerType) {
 
 bool Choice::eventEnabled($AWTEvent* e) {
 	if ($nc(e)->id == $ItemEvent::ITEM_STATE_CHANGED) {
-		if (((int64_t)(this->eventMask & (uint64_t)$AWTEvent::ITEM_EVENT_MASK)) != 0 || this->itemListener != nullptr) {
+		if ((this->eventMask & $AWTEvent::ITEM_EVENT_MASK) != 0 || this->itemListener != nullptr) {
 			return true;
 		}
 		return false;
@@ -390,9 +305,12 @@ void Choice::processItemEvent($ItemEvent* e) {
 }
 
 $String* Choice::paramString() {
-	$useLocalCurrentObjectStackCache();
-	$var($String, var$0, $$str({$($Component::paramString()), ",current="_s}));
-	return $concat(var$0, $(getSelectedItem()));
+	$useLocalObjectStack();
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append($($Component::paramString()));
+	var$0->append(",current="_s);
+	var$0->append($(getSelectedItem()));
+	return $str(var$0);
 }
 
 void Choice::writeObject($ObjectOutputStream* s) {
@@ -403,15 +321,15 @@ void Choice::writeObject($ObjectOutputStream* s) {
 }
 
 void Choice::readObject($ObjectInputStream* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$GraphicsEnvironment::checkHeadless();
 	$nc(s)->defaultReadObject();
 	$var($Object, keyOrNull, nullptr);
 	while (nullptr != ($assign(keyOrNull, s->readObject()))) {
-		$var($String, key, $nc(($cast($String, keyOrNull)))->intern());
+		$var($String, key, $nc($cast($String, keyOrNull))->intern());
 		$init($Component);
 		if ($Component::itemListenerK == key) {
-			addItemListener(($cast($ItemListener, $(s->readObject()))));
+			addItemListener($$cast($ItemListener, s->readObject()));
 		} else {
 			s->readObject();
 		}
@@ -420,7 +338,7 @@ void Choice::readObject($ObjectInputStream* s) {
 
 void Choice::initIDs() {
 	$init(Choice);
-	$prepareNativeStatic(Choice, initIDs, void);
+	$prepareNativeStatic(initIDs, void);
 	$invokeNativeStatic();
 	$finishNativeStatic();
 }
@@ -432,7 +350,7 @@ $AccessibleContext* Choice::getAccessibleContext() {
 	return this->accessibleContext;
 }
 
-void clinit$Choice($Class* class$) {
+void Choice::clinit$($Class* clazz) {
 	$assignStatic(Choice::base, "choice"_s);
 	Choice::nameCounter = 0;
 	{
@@ -447,7 +365,81 @@ Choice::Choice() {
 }
 
 $Class* Choice::load$($String* name, bool initialize) {
-	$loadClass(Choice, name, initialize, &_Choice_ClassInfo_, clinit$Choice, allocate$Choice);
+	$FieldInfo fieldInfos$$[] = {
+		{"pItems", "Ljava/util/Vector;", "Ljava/util/Vector<Ljava/lang/String;>;", 0, $field(Choice, pItems)},
+		{"selectedIndex", "I", nullptr, 0, $field(Choice, selectedIndex)},
+		{"itemListener", "Ljava/awt/event/ItemListener;", nullptr, $TRANSIENT, $field(Choice, itemListener)},
+		{"base", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Choice, base)},
+		{"nameCounter", "I", nullptr, $PRIVATE | $STATIC, $staticField(Choice, nameCounter)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Choice, serialVersionUID)},
+		{"choiceSerializedDataVersion", "I", nullptr, $PRIVATE, $field(Choice, choiceSerializedDataVersion)},
+		{}
+	};
+	$CompoundAttribute countItemsmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Choice, init$, void), "java.awt.HeadlessException"},
+		{"add", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Choice, add, void, $String*)},
+		{"addItem", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Choice, addItem, void, $String*)},
+		{"addItemListener", "(Ljava/awt/event/ItemListener;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Choice, addItemListener, void, $ItemListener*)},
+		{"addNotify", "()V", nullptr, $PUBLIC, $virtualMethod(Choice, addNotify, void)},
+		{"constructComponentName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(Choice, constructComponentName, $String*)},
+		{"countItems", "()I", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(Choice, countItems, int32_t), nullptr, nullptr, countItemsmethodAnnotations$$},
+		{"eventEnabled", "(Ljava/awt/AWTEvent;)Z", nullptr, 0, $virtualMethod(Choice, eventEnabled, bool, $AWTEvent*)},
+		{"getAccessibleContext", "()Ljavax/accessibility/AccessibleContext;", nullptr, $PUBLIC, $virtualMethod(Choice, getAccessibleContext, $AccessibleContext*)},
+		{"getItem", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Choice, getItem, $String*, int32_t)},
+		{"getItemCount", "()I", nullptr, $PUBLIC, $virtualMethod(Choice, getItemCount, int32_t)},
+		{"getItemImpl", "(I)Ljava/lang/String;", nullptr, $FINAL, $method(Choice, getItemImpl, $String*, int32_t)},
+		{"getItemListeners", "()[Ljava/awt/event/ItemListener;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Choice, getItemListeners, $ItemListenerArray*)},
+		{"getListeners", "(Ljava/lang/Class;)[Ljava/util/EventListener;", "<T::Ljava/util/EventListener;>(Ljava/lang/Class<TT;>;)[TT;", $PUBLIC, $virtualMethod(Choice, getListeners, $EventListenerArray*, $Class*)},
+		{"getSelectedIndex", "()I", nullptr, $PUBLIC, $virtualMethod(Choice, getSelectedIndex, int32_t)},
+		{"getSelectedItem", "()Ljava/lang/String;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Choice, getSelectedItem, $String*)},
+		{"getSelectedObjects", "()[Ljava/lang/Object;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Choice, getSelectedObjects, $ObjectArray*)},
+		{"initIDs", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(Choice, initIDs, void)},
+		{"insert", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $virtualMethod(Choice, insert, void, $String*, int32_t)},
+		{"insertNoInvalidate", "(Ljava/lang/String;I)V", nullptr, $PRIVATE, $method(Choice, insertNoInvalidate, void, $String*, int32_t)},
+		{"paramString", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(Choice, paramString, $String*)},
+		{"processEvent", "(Ljava/awt/AWTEvent;)V", nullptr, $PROTECTED, $virtualMethod(Choice, processEvent, void, $AWTEvent*)},
+		{"processItemEvent", "(Ljava/awt/event/ItemEvent;)V", nullptr, $PROTECTED, $virtualMethod(Choice, processItemEvent, void, $ItemEvent*)},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(Choice, readObject, void, $ObjectInputStream*), "java.lang.ClassNotFoundException,java.io.IOException,java.awt.HeadlessException"},
+		{"remove", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Choice, remove, void, $String*)},
+		{"remove", "(I)V", nullptr, $PUBLIC, $virtualMethod(Choice, remove, void, int32_t)},
+		{"removeAll", "()V", nullptr, $PUBLIC, $virtualMethod(Choice, removeAll, void)},
+		{"removeItemListener", "(Ljava/awt/event/ItemListener;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Choice, removeItemListener, void, $ItemListener*)},
+		{"removeNoInvalidate", "(I)V", nullptr, $PRIVATE, $method(Choice, removeNoInvalidate, void, int32_t)},
+		{"select", "(I)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Choice, select, void, int32_t)},
+		{"select", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Choice, select, void, $String*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(Choice, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.awt.Choice$AccessibleAWTChoice", "java.awt.Choice", "AccessibleAWTChoice", $PROTECTED},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.awt.Choice",
+		"java.awt.Component",
+		"java.awt.ItemSelectable,javax.accessibility.Accessible",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.awt.Choice$AccessibleAWTChoice"
+	};
+	$loadClass(Choice, name, initialize, &classInfo$$, Choice::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Choice));
+	});
 	return class$;
 }
 

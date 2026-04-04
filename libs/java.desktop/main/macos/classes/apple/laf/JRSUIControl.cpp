@@ -1,5 +1,4 @@
 #include <apple/laf/JRSUIControl.h>
-
 #include <apple/laf/JRSUIConstants$DoubleValue.h>
 #include <apple/laf/JRSUIConstants$Hit.h>
 #include <apple/laf/JRSUIConstants$Key.h>
@@ -11,7 +10,6 @@
 #include <java/nio/BufferOverflowException.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/util/Arrays.h>
-#include <java/util/Collection.h>
 #include <java/util/HashMap.h>
 #include <java/util/HashSet.h>
 #include <java/util/Iterator.h>
@@ -36,7 +34,6 @@ using $JRSUIConstants$Key = ::apple::laf::JRSUIConstants$Key;
 using $JRSUIControl$BufferState = ::apple::laf::JRSUIControl$BufferState;
 using $JRSUIControl$ThreadLocalByteBuffer = ::apple::laf::JRSUIControl$ThreadLocalByteBuffer;
 using $JRSUIState = ::apple::laf::JRSUIState;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
@@ -48,220 +45,113 @@ using $ThreadLocal = ::java::lang::ThreadLocal;
 using $BufferOverflowException = ::java::nio::BufferOverflowException;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $Arrays = ::java::util::Arrays;
-using $Collection = ::java::util::Collection;
 using $HashMap = ::java::util::HashMap;
 using $HashSet = ::java::util::HashSet;
 using $Iterator = ::java::util::Iterator;
-using $Map = ::java::util::Map;
-using $Set = ::java::util::Set;
 
 namespace apple {
 	namespace laf {
-
-$FieldInfo _JRSUIControl_FieldInfo_[] = {
-	{"INCOHERENT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JRSUIControl, INCOHERENT)},
-	{"NOT_INIT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JRSUIControl, NOT_INIT)},
-	{"SUCCESS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JRSUIControl, SUCCESS)},
-	{"NULL_PTR", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JRSUIControl, NULL_PTR)},
-	{"NULL_CG_REF", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JRSUIControl, NULL_CG_REF)},
-	{"nativeJRSInitialized", "I", nullptr, $PRIVATE | $STATIC, $staticField(JRSUIControl, nativeJRSInitialized)},
-	{"NIO_BUFFER_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JRSUIControl, NIO_BUFFER_SIZE)},
-	{"threadLocal", "Ljava/lang/ThreadLocal;", "Ljava/lang/ThreadLocal<Lapple/laf/JRSUIControl$ThreadLocalByteBuffer;>;", $PRIVATE | $STATIC | $FINAL, $staticField(JRSUIControl, threadLocal)},
-	{"nativeMap", "Ljava/util/HashMap;", "Ljava/util/HashMap<Lapple/laf/JRSUIConstants$Key;Lapple/laf/JRSUIConstants$DoubleValue;>;", $PRIVATE | $FINAL, $field(JRSUIControl, nativeMap)},
-	{"changes", "Ljava/util/HashMap;", "Ljava/util/HashMap<Lapple/laf/JRSUIConstants$Key;Lapple/laf/JRSUIConstants$DoubleValue;>;", $PRIVATE | $FINAL, $field(JRSUIControl, changes)},
-	{"cfDictionaryPtr", "J", nullptr, $PRIVATE, $field(JRSUIControl, cfDictionaryPtr)},
-	{"priorEncodedProperties", "J", nullptr, $PRIVATE, $field(JRSUIControl, priorEncodedProperties)},
-	{"currentEncodedProperties", "J", nullptr, $PRIVATE, $field(JRSUIControl, currentEncodedProperties)},
-	{"flipped", "Z", nullptr, $PRIVATE | $FINAL, $field(JRSUIControl, flipped)},
-	{}
-};
-
-$MethodInfo _JRSUIControl_MethodInfo_[] = {
-	{"<init>", "(Z)V", nullptr, $PUBLIC, $method(JRSUIControl, init$, void, bool)},
-	{"<init>", "(Lapple/laf/JRSUIControl;)V", nullptr, 0, $method(JRSUIControl, init$, void, JRSUIControl*)},
-	{"disposeCFDictionary", "(J)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(JRSUIControl, disposeCFDictionary, void, int64_t)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(JRSUIControl, equals, bool, Object$*)},
-	{"finalize", "()V", nullptr, $PROTECTED | $SYNCHRONIZED, $virtualMethod(JRSUIControl, finalize, void), "java.lang.Throwable"},
-	{"getCFDictionary", "(Z)J", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(JRSUIControl, getCFDictionary, int64_t, bool)},
-	{"getHitForPoint", "(IIIIII)Lapple/laf/JRSUIConstants$Hit;", nullptr, 0, $method(JRSUIControl, getHitForPoint, $JRSUIConstants$Hit*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"getNativeHitPart", "(JJJDDDDDD)I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(JRSUIControl, getNativeHitPart, int32_t, int64_t, int64_t, int64_t, double, double, double, double, double, double)},
-	{"getNativePartBounds", "([DJJJDDDDI)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(JRSUIControl, getNativePartBounds, void, $doubles*, int64_t, int64_t, int64_t, double, double, double, double, int32_t)},
-	{"getNativeScrollBarOffsetChange", "(JJJDDDDIII)D", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(JRSUIControl, getNativeScrollBarOffsetChange, double, int64_t, int64_t, int64_t, double, double, double, double, int32_t, int32_t, int32_t)},
-	{"getPartBounds", "([DIIIII)V", nullptr, 0, $method(JRSUIControl, getPartBounds, void, $doubles*, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"getPtrOfBuffer", "(Ljava/nio/ByteBuffer;)J", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(JRSUIControl, getPtrOfBuffer, int64_t, $ByteBuffer*)},
-	{"getScrollBarOffsetChange", "(IIIIIII)D", nullptr, 0, $method(JRSUIControl, getScrollBarOffsetChange, double, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"getThreadLocalBuffer", "()Lapple/laf/JRSUIControl$ThreadLocalByteBuffer;", nullptr, $PRIVATE | $STATIC, $staticMethod(JRSUIControl, getThreadLocalBuffer, $JRSUIControl$ThreadLocalByteBuffer*)},
-	{"handleBufferOverflow", "(Ljava/nio/ByteBuffer;I)Lapple/laf/JRSUIControl$BufferState;", nullptr, $PRIVATE, $method(JRSUIControl, handleBufferOverflow, $JRSUIControl$BufferState*, $ByteBuffer*, int32_t)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(JRSUIControl, hashCode, int32_t)},
-	{"initJRSUI", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(JRSUIControl, initJRSUI, void)},
-	{"initNativeJRSUI", "()I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(JRSUIControl, initNativeJRSUI, int32_t)},
-	{"loadBufferWithChanges", "(Lapple/laf/JRSUIControl$ThreadLocalByteBuffer;)Lapple/laf/JRSUIControl$BufferState;", nullptr, $PRIVATE, $method(JRSUIControl, loadBufferWithChanges, $JRSUIControl$BufferState*, $JRSUIControl$ThreadLocalByteBuffer*)},
-	{"paint", "([IIIDDDD)V", nullptr, $PUBLIC, $method(JRSUIControl, paint, void, $ints*, int32_t, int32_t, double, double, double, double)},
-	{"paint", "(JDDDD)V", nullptr, $PUBLIC, $method(JRSUIControl, paint, void, int64_t, double, double, double, double)},
-	{"paintChangesImage", "([IIIJJJDDDDJ)I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(JRSUIControl, paintChangesImage, int32_t, $ints*, int32_t, int32_t, int64_t, int64_t, int64_t, double, double, double, double, int64_t)},
-	{"paintChangesToCGContext", "(JJJJDDDDJ)I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(JRSUIControl, paintChangesToCGContext, int32_t, int64_t, int64_t, int64_t, int64_t, double, double, double, double, int64_t)},
-	{"paintImage", "([IIIJJJDDDD)I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(JRSUIControl, paintImage, int32_t, $ints*, int32_t, int32_t, int64_t, int64_t, int64_t, double, double, double, double)},
-	{"paintImage", "([IIIDDDD)I", nullptr, $PRIVATE | $SYNCHRONIZED, $method(JRSUIControl, paintImage, int32_t, $ints*, int32_t, int32_t, double, double, double, double)},
-	{"paintToCGContext", "(JJJJDDDD)I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(JRSUIControl, paintToCGContext, int32_t, int64_t, int64_t, int64_t, int64_t, double, double, double, double)},
-	{"paintToCGContext", "(JDDDD)I", nullptr, $PRIVATE | $SYNCHRONIZED, $method(JRSUIControl, paintToCGContext, int32_t, int64_t, double, double, double, double)},
-	{"set", "(Lapple/laf/JRSUIConstants$Key;Lapple/laf/JRSUIConstants$DoubleValue;)V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(JRSUIControl, set, void, $JRSUIConstants$Key*, $JRSUIConstants$DoubleValue*)},
-	{"set", "(Lapple/laf/JRSUIState;)V", nullptr, $PUBLIC, $method(JRSUIControl, set, void, $JRSUIState*)},
-	{"set", "(Lapple/laf/JRSUIConstants$Key;D)V", nullptr, 0, $method(JRSUIControl, set, void, $JRSUIConstants$Key*, double)},
-	{"setEncodedState", "(J)V", nullptr, 0, $method(JRSUIControl, setEncodedState, void, int64_t)},
-	{"sync", "()V", nullptr, $PRIVATE, $method(JRSUIControl, sync, void)},
-	{"syncChanges", "(JJ)I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(JRSUIControl, syncChanges, int32_t, int64_t, int64_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JRSUIControl, toString, $String*)},
-	{}
-};
-
-#define _METHOD_INDEX_disposeCFDictionary 2
-#define _METHOD_INDEX_getCFDictionary 5
-#define _METHOD_INDEX_getNativeHitPart 7
-#define _METHOD_INDEX_getNativePartBounds 8
-#define _METHOD_INDEX_getNativeScrollBarOffsetChange 9
-#define _METHOD_INDEX_getPtrOfBuffer 11
-#define _METHOD_INDEX_initNativeJRSUI 17
-#define _METHOD_INDEX_paintChangesImage 21
-#define _METHOD_INDEX_paintChangesToCGContext 22
-#define _METHOD_INDEX_paintImage 23
-#define _METHOD_INDEX_paintToCGContext 25
-#define _METHOD_INDEX_syncChanges 32
-
-$InnerClassInfo _JRSUIControl_InnerClassesInfo_[] = {
-	{"apple.laf.JRSUIControl$BufferState", "apple.laf.JRSUIControl", "BufferState", $STATIC | $FINAL | $ENUM},
-	{"apple.laf.JRSUIControl$ThreadLocalByteBuffer", "apple.laf.JRSUIControl", "ThreadLocalByteBuffer", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _JRSUIControl_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"apple.laf.JRSUIControl",
-	"java.lang.Object",
-	nullptr,
-	_JRSUIControl_FieldInfo_,
-	_JRSUIControl_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JRSUIControl_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"apple.laf.JRSUIControl$BufferState,apple.laf.JRSUIControl$ThreadLocalByteBuffer"
-};
-
-$Object* allocate$JRSUIControl($Class* clazz) {
-	return $of($alloc(JRSUIControl));
-}
 
 int32_t JRSUIControl::nativeJRSInitialized = 0;
 $ThreadLocal* JRSUIControl::threadLocal = nullptr;
 
 int32_t JRSUIControl::initNativeJRSUI() {
 	$init(JRSUIControl);
-	int32_t $ret = 0;
-	$prepareNativeStatic(JRSUIControl, initNativeJRSUI, int32_t);
-	$ret = $invokeNativeStatic();
+	$prepareNativeStatic(initNativeJRSUI, int32_t);
+	int32_t $ret = $invokeNativeStatic();
 	$finishNativeStatic();
 	return $ret;
 }
 
 int64_t JRSUIControl::getPtrOfBuffer($ByteBuffer* byteBuffer) {
 	$init(JRSUIControl);
-	int64_t $ret = 0;
-	$prepareNativeStatic(JRSUIControl, getPtrOfBuffer, int64_t, $ByteBuffer* byteBuffer);
-	$ret = $invokeNativeStatic(byteBuffer);
+	$prepareNativeStatic(getPtrOfBuffer, int64_t, $ByteBuffer* byteBuffer);
+	int64_t $ret = $invokeNativeStatic(byteBuffer);
 	$finishNativeStatic();
 	return $ret;
 }
 
 int64_t JRSUIControl::getCFDictionary(bool flipped) {
 	$init(JRSUIControl);
-	int64_t $ret = 0;
-	$prepareNativeStatic(JRSUIControl, getCFDictionary, int64_t, bool flipped);
-	$ret = $invokeNativeStatic(flipped);
+	$prepareNativeStatic(getCFDictionary, int64_t, bool flipped);
+	int64_t $ret = $invokeNativeStatic(flipped);
 	$finishNativeStatic();
 	return $ret;
 }
 
 void JRSUIControl::disposeCFDictionary(int64_t cfDictionaryPtr) {
 	$init(JRSUIControl);
-	$prepareNativeStatic(JRSUIControl, disposeCFDictionary, void, int64_t cfDictionaryPtr);
+	$prepareNativeStatic(disposeCFDictionary, void, int64_t cfDictionaryPtr);
 	$invokeNativeStatic(cfDictionaryPtr);
 	$finishNativeStatic();
 }
 
 int32_t JRSUIControl::syncChanges(int64_t cfDictionaryPtr, int64_t byteBufferPtr) {
 	$init(JRSUIControl);
-	int32_t $ret = 0;
-	$prepareNativeStatic(JRSUIControl, syncChanges, int32_t, int64_t cfDictionaryPtr, int64_t byteBufferPtr);
-	$ret = $invokeNativeStatic(cfDictionaryPtr, byteBufferPtr);
+	$prepareNativeStatic(syncChanges, int32_t, int64_t cfDictionaryPtr, int64_t byteBufferPtr);
+	int32_t $ret = $invokeNativeStatic(cfDictionaryPtr, byteBufferPtr);
 	$finishNativeStatic();
 	return $ret;
 }
 
 int32_t JRSUIControl::paintToCGContext(int64_t cgContext, int64_t cfDictionaryPtr, int64_t oldProperties, int64_t newProperties, double x, double y, double w, double h) {
 	$init(JRSUIControl);
-	int32_t $ret = 0;
-	$prepareNativeStatic(JRSUIControl, paintToCGContext, int32_t, int64_t cgContext, int64_t cfDictionaryPtr, int64_t oldProperties, int64_t newProperties, double x, double y, double w, double h);
-	$ret = $invokeNativeStatic(cgContext, cfDictionaryPtr, oldProperties, newProperties, x, y, w, h);
+	$prepareNativeStatic(paintToCGContext, int32_t, int64_t cgContext, int64_t cfDictionaryPtr, int64_t oldProperties, int64_t newProperties, double x, double y, double w, double h);
+	int32_t $ret = $invokeNativeStatic(cgContext, cfDictionaryPtr, oldProperties, newProperties, x, y, w, h);
 	$finishNativeStatic();
 	return $ret;
 }
 
 int32_t JRSUIControl::paintChangesToCGContext(int64_t cgContext, int64_t cfDictionaryPtr, int64_t oldProperties, int64_t newProperties, double x, double y, double w, double h, int64_t byteBufferPtr) {
 	$init(JRSUIControl);
-	int32_t $ret = 0;
-	$prepareNativeStatic(JRSUIControl, paintChangesToCGContext, int32_t, int64_t cgContext, int64_t cfDictionaryPtr, int64_t oldProperties, int64_t newProperties, double x, double y, double w, double h, int64_t byteBufferPtr);
-	$ret = $invokeNativeStatic(cgContext, cfDictionaryPtr, oldProperties, newProperties, x, y, w, h, byteBufferPtr);
+	$prepareNativeStatic(paintChangesToCGContext, int32_t, int64_t cgContext, int64_t cfDictionaryPtr, int64_t oldProperties, int64_t newProperties, double x, double y, double w, double h, int64_t byteBufferPtr);
+	int32_t $ret = $invokeNativeStatic(cgContext, cfDictionaryPtr, oldProperties, newProperties, x, y, w, h, byteBufferPtr);
 	$finishNativeStatic();
 	return $ret;
 }
 
 int32_t JRSUIControl::paintImage($ints* data, int32_t imgW, int32_t imgH, int64_t cfDictionaryPtr, int64_t oldProperties, int64_t newProperties, double x, double y, double w, double h) {
 	$init(JRSUIControl);
-	int32_t $ret = 0;
-	$prepareNativeStatic(JRSUIControl, paintImage, int32_t, $ints* data, int32_t imgW, int32_t imgH, int64_t cfDictionaryPtr, int64_t oldProperties, int64_t newProperties, double x, double y, double w, double h);
-	$ret = $invokeNativeStatic(data, imgW, imgH, cfDictionaryPtr, oldProperties, newProperties, x, y, w, h);
+	$prepareNativeStatic(paintImage, int32_t, $ints* data, int32_t imgW, int32_t imgH, int64_t cfDictionaryPtr, int64_t oldProperties, int64_t newProperties, double x, double y, double w, double h);
+	int32_t $ret = $invokeNativeStatic(data, imgW, imgH, cfDictionaryPtr, oldProperties, newProperties, x, y, w, h);
 	$finishNativeStatic();
 	return $ret;
 }
 
 int32_t JRSUIControl::paintChangesImage($ints* data, int32_t imgW, int32_t imgH, int64_t cfDictionaryPtr, int64_t oldProperties, int64_t newProperties, double x, double y, double w, double h, int64_t byteBufferPtr) {
 	$init(JRSUIControl);
-	int32_t $ret = 0;
-	$prepareNativeStatic(JRSUIControl, paintChangesImage, int32_t, $ints* data, int32_t imgW, int32_t imgH, int64_t cfDictionaryPtr, int64_t oldProperties, int64_t newProperties, double x, double y, double w, double h, int64_t byteBufferPtr);
-	$ret = $invokeNativeStatic(data, imgW, imgH, cfDictionaryPtr, oldProperties, newProperties, x, y, w, h, byteBufferPtr);
+	$prepareNativeStatic(paintChangesImage, int32_t, $ints* data, int32_t imgW, int32_t imgH, int64_t cfDictionaryPtr, int64_t oldProperties, int64_t newProperties, double x, double y, double w, double h, int64_t byteBufferPtr);
+	int32_t $ret = $invokeNativeStatic(data, imgW, imgH, cfDictionaryPtr, oldProperties, newProperties, x, y, w, h, byteBufferPtr);
 	$finishNativeStatic();
 	return $ret;
 }
 
 int32_t JRSUIControl::getNativeHitPart(int64_t cfDictionaryPtr, int64_t oldProperties, int64_t newProperties, double x, double y, double w, double h, double hitX, double hitY) {
 	$init(JRSUIControl);
-	int32_t $ret = 0;
-	$prepareNativeStatic(JRSUIControl, getNativeHitPart, int32_t, int64_t cfDictionaryPtr, int64_t oldProperties, int64_t newProperties, double x, double y, double w, double h, double hitX, double hitY);
-	$ret = $invokeNativeStatic(cfDictionaryPtr, oldProperties, newProperties, x, y, w, h, hitX, hitY);
+	$prepareNativeStatic(getNativeHitPart, int32_t, int64_t cfDictionaryPtr, int64_t oldProperties, int64_t newProperties, double x, double y, double w, double h, double hitX, double hitY);
+	int32_t $ret = $invokeNativeStatic(cfDictionaryPtr, oldProperties, newProperties, x, y, w, h, hitX, hitY);
 	$finishNativeStatic();
 	return $ret;
 }
 
 void JRSUIControl::getNativePartBounds($doubles* rect, int64_t cfDictionaryPtr, int64_t oldProperties, int64_t newProperties, double x, double y, double w, double h, int32_t part) {
 	$init(JRSUIControl);
-	$prepareNativeStatic(JRSUIControl, getNativePartBounds, void, $doubles* rect, int64_t cfDictionaryPtr, int64_t oldProperties, int64_t newProperties, double x, double y, double w, double h, int32_t part);
+	$prepareNativeStatic(getNativePartBounds, void, $doubles* rect, int64_t cfDictionaryPtr, int64_t oldProperties, int64_t newProperties, double x, double y, double w, double h, int32_t part);
 	$invokeNativeStatic(rect, cfDictionaryPtr, oldProperties, newProperties, x, y, w, h, part);
 	$finishNativeStatic();
 }
 
 double JRSUIControl::getNativeScrollBarOffsetChange(int64_t cfDictionaryPtr, int64_t oldProperties, int64_t newProperties, double x, double y, double w, double h, int32_t offset, int32_t visibleAmount, int32_t extent) {
 	$init(JRSUIControl);
-	double $ret = 0.0;
-	$prepareNativeStatic(JRSUIControl, getNativeScrollBarOffsetChange, double, int64_t cfDictionaryPtr, int64_t oldProperties, int64_t newProperties, double x, double y, double w, double h, int32_t offset, int32_t visibleAmount, int32_t extent);
-	$ret = $invokeNativeStatic(cfDictionaryPtr, oldProperties, newProperties, x, y, w, h, offset, visibleAmount, extent);
+	$prepareNativeStatic(getNativeScrollBarOffsetChange, double, int64_t cfDictionaryPtr, int64_t oldProperties, int64_t newProperties, double x, double y, double w, double h, int32_t offset, int32_t visibleAmount, int32_t extent);
+	double $ret = $invokeNativeStatic(cfDictionaryPtr, oldProperties, newProperties, x, y, w, h, offset, visibleAmount, extent);
 	$finishNativeStatic();
 	return $ret;
 }
 
 void JRSUIControl::initJRSUI() {
 	$init(JRSUIControl);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (JRSUIControl::nativeJRSInitialized == JRSUIControl::SUCCESS) {
 		return;
 	}
@@ -273,12 +163,12 @@ void JRSUIControl::initJRSUI() {
 
 $JRSUIControl$ThreadLocalByteBuffer* JRSUIControl::getThreadLocalBuffer() {
 	$init(JRSUIControl);
-	$var($JRSUIControl$ThreadLocalByteBuffer, byteBuffer, $cast($JRSUIControl$ThreadLocalByteBuffer, $nc(JRSUIControl::threadLocal)->get()));
+	$var($JRSUIControl$ThreadLocalByteBuffer, byteBuffer, $cast($JRSUIControl$ThreadLocalByteBuffer, JRSUIControl::threadLocal->get()));
 	if (byteBuffer != nullptr) {
 		return byteBuffer;
 	}
 	$assign(byteBuffer, $new($JRSUIControl$ThreadLocalByteBuffer));
-	$nc(JRSUIControl::threadLocal)->set(byteBuffer);
+	JRSUIControl::threadLocal->set(byteBuffer);
 	return byteBuffer;
 }
 
@@ -299,8 +189,8 @@ void JRSUIControl::init$(JRSUIControl* other) {
 		$throwNew($RuntimeException, "Unable to create native representation"_s);
 	}
 	$set(this, nativeMap, $new($HashMap));
-	$set(this, changes, $new($HashMap, static_cast<$Map*>(other->nativeMap)));
-	$nc(this->changes)->putAll(other->changes);
+	$set(this, changes, $new($HashMap, other->nativeMap));
+	this->changes->putAll(other->changes);
 }
 
 void JRSUIControl::finalize() {
@@ -314,30 +204,30 @@ void JRSUIControl::finalize() {
 }
 
 $JRSUIControl$BufferState* JRSUIControl::loadBufferWithChanges($JRSUIControl$ThreadLocalByteBuffer* localByteBuffer) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ByteBuffer, buffer, $nc(localByteBuffer)->buffer);
 	$nc(buffer)->rewind();
 	{
-		$var($Iterator, i$, $$new($HashSet, $(static_cast<$Collection*>($nc(this->changes)->keySet())))->iterator());
+		$var($Iterator, i$, $$new($HashSet, $($nc(this->changes)->keySet()))->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($JRSUIConstants$Key, key, $cast($JRSUIConstants$Key, i$->next()));
 			{
 				int32_t changeIndex = buffer->position();
-				$var($JRSUIConstants$DoubleValue, value, $cast($JRSUIConstants$DoubleValue, $nc(this->changes)->get(key)));
+				$var($JRSUIConstants$DoubleValue, value, $cast($JRSUIConstants$DoubleValue, this->changes->get(key)));
 				try {
 					buffer->putLong($nc(key)->getConstantPtr());
 					buffer->put($nc(value)->getTypeCode());
-					$nc(value)->putValueInBuffer(buffer);
+					value->putValueInBuffer(buffer);
 				} catch ($BufferOverflowException& e) {
 					return handleBufferOverflow(buffer, changeIndex);
 				} catch ($RuntimeException& e) {
-					$nc($System::err)->println($of(this));
+					$nc($System::err)->println(this);
 					$throw(e);
 				}
 				if (buffer->position() >= JRSUIControl::NIO_BUFFER_SIZE - 8) {
 					return handleBufferOverflow(buffer, changeIndex);
 				}
-				$nc(this->changes)->remove(key);
+				this->changes->remove(key);
 				$nc(this->nativeMap)->put(key, value);
 			}
 		}
@@ -388,7 +278,7 @@ void JRSUIControl::paint($ints* data, int32_t imgW, int32_t imgH, double x, doub
 
 int32_t JRSUIControl::paintImage($ints* data, int32_t imgW, int32_t imgH, double x, double y, double w, double h) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		if ($nc(this->changes)->isEmpty()) {
 			return paintImage(data, imgW, imgH, this->cfDictionaryPtr, this->priorEncodedProperties, this->currentEncodedProperties, x, y, w, h);
 		}
@@ -419,7 +309,7 @@ void JRSUIControl::paint(int64_t cgContext, double x, double y, double w, double
 
 int32_t JRSUIControl::paintToCGContext(int64_t cgContext, double x, double y, double w, double h) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		if ($nc(this->changes)->isEmpty()) {
 			return paintToCGContext(cgContext, this->cfDictionaryPtr, this->priorEncodedProperties, this->currentEncodedProperties, x, y, w, h);
 		}
@@ -470,7 +360,7 @@ double JRSUIControl::getScrollBarOffsetChange(int32_t x, int32_t y, int32_t w, i
 }
 
 void JRSUIControl::sync() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(this->changes)->isEmpty()) {
 		return;
 	}
@@ -511,26 +401,26 @@ bool JRSUIControl::equals(Object$* obj) {
 	if (this->currentEncodedProperties != $nc(other)->currentEncodedProperties) {
 		return false;
 	}
-	if (!$nc(this->nativeMap)->equals($nc(other)->nativeMap)) {
+	if (!$nc(this->nativeMap)->equals(other->nativeMap)) {
 		return false;
 	}
-	if (!$nc(this->changes)->equals($nc(other)->changes)) {
+	if (!$nc(this->changes)->equals(other->changes)) {
 		return false;
 	}
 	return true;
 }
 
 $String* JRSUIControl::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, builder, $new($StringBuilder, "JRSUIControl[inNative:"_s));
-	builder->append($($Arrays::toString($($nc($($nc(this->nativeMap)->entrySet()))->toArray()))));
+	builder->append($($Arrays::toString($($$nc($nc(this->nativeMap)->entrySet())->toArray()))));
 	builder->append(", changes:"_s);
-	builder->append($($Arrays::toString($($nc($($nc(this->changes)->entrySet()))->toArray()))));
+	builder->append($($Arrays::toString($($$nc($nc(this->changes)->entrySet())->toArray()))));
 	builder->append("]"_s);
 	return builder->toString();
 }
 
-void clinit$JRSUIControl($Class* class$) {
+void JRSUIControl::clinit$($Class* clazz) {
 	JRSUIControl::nativeJRSInitialized = JRSUIControl::NOT_INIT;
 	$assignStatic(JRSUIControl::threadLocal, $new($ThreadLocal));
 }
@@ -539,7 +429,82 @@ JRSUIControl::JRSUIControl() {
 }
 
 $Class* JRSUIControl::load$($String* name, bool initialize) {
-	$loadClass(JRSUIControl, name, initialize, &_JRSUIControl_ClassInfo_, clinit$JRSUIControl, allocate$JRSUIControl);
+	$FieldInfo fieldInfos$$[] = {
+		{"INCOHERENT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JRSUIControl, INCOHERENT)},
+		{"NOT_INIT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JRSUIControl, NOT_INIT)},
+		{"SUCCESS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JRSUIControl, SUCCESS)},
+		{"NULL_PTR", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JRSUIControl, NULL_PTR)},
+		{"NULL_CG_REF", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JRSUIControl, NULL_CG_REF)},
+		{"nativeJRSInitialized", "I", nullptr, $PRIVATE | $STATIC, $staticField(JRSUIControl, nativeJRSInitialized)},
+		{"NIO_BUFFER_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JRSUIControl, NIO_BUFFER_SIZE)},
+		{"threadLocal", "Ljava/lang/ThreadLocal;", "Ljava/lang/ThreadLocal<Lapple/laf/JRSUIControl$ThreadLocalByteBuffer;>;", $PRIVATE | $STATIC | $FINAL, $staticField(JRSUIControl, threadLocal)},
+		{"nativeMap", "Ljava/util/HashMap;", "Ljava/util/HashMap<Lapple/laf/JRSUIConstants$Key;Lapple/laf/JRSUIConstants$DoubleValue;>;", $PRIVATE | $FINAL, $field(JRSUIControl, nativeMap)},
+		{"changes", "Ljava/util/HashMap;", "Ljava/util/HashMap<Lapple/laf/JRSUIConstants$Key;Lapple/laf/JRSUIConstants$DoubleValue;>;", $PRIVATE | $FINAL, $field(JRSUIControl, changes)},
+		{"cfDictionaryPtr", "J", nullptr, $PRIVATE, $field(JRSUIControl, cfDictionaryPtr)},
+		{"priorEncodedProperties", "J", nullptr, $PRIVATE, $field(JRSUIControl, priorEncodedProperties)},
+		{"currentEncodedProperties", "J", nullptr, $PRIVATE, $field(JRSUIControl, currentEncodedProperties)},
+		{"flipped", "Z", nullptr, $PRIVATE | $FINAL, $field(JRSUIControl, flipped)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Z)V", nullptr, $PUBLIC, $method(JRSUIControl, init$, void, bool)},
+		{"<init>", "(Lapple/laf/JRSUIControl;)V", nullptr, 0, $method(JRSUIControl, init$, void, JRSUIControl*)},
+		{"disposeCFDictionary", "(J)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(JRSUIControl, disposeCFDictionary, void, int64_t)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(JRSUIControl, equals, bool, Object$*)},
+		{"finalize", "()V", nullptr, $PROTECTED | $SYNCHRONIZED, $virtualMethod(JRSUIControl, finalize, void), "java.lang.Throwable"},
+		{"getCFDictionary", "(Z)J", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(JRSUIControl, getCFDictionary, int64_t, bool)},
+		{"getHitForPoint", "(IIIIII)Lapple/laf/JRSUIConstants$Hit;", nullptr, 0, $method(JRSUIControl, getHitForPoint, $JRSUIConstants$Hit*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"getNativeHitPart", "(JJJDDDDDD)I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(JRSUIControl, getNativeHitPart, int32_t, int64_t, int64_t, int64_t, double, double, double, double, double, double)},
+		{"getNativePartBounds", "([DJJJDDDDI)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(JRSUIControl, getNativePartBounds, void, $doubles*, int64_t, int64_t, int64_t, double, double, double, double, int32_t)},
+		{"getNativeScrollBarOffsetChange", "(JJJDDDDIII)D", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(JRSUIControl, getNativeScrollBarOffsetChange, double, int64_t, int64_t, int64_t, double, double, double, double, int32_t, int32_t, int32_t)},
+		{"getPartBounds", "([DIIIII)V", nullptr, 0, $method(JRSUIControl, getPartBounds, void, $doubles*, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"getPtrOfBuffer", "(Ljava/nio/ByteBuffer;)J", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(JRSUIControl, getPtrOfBuffer, int64_t, $ByteBuffer*)},
+		{"getScrollBarOffsetChange", "(IIIIIII)D", nullptr, 0, $method(JRSUIControl, getScrollBarOffsetChange, double, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"getThreadLocalBuffer", "()Lapple/laf/JRSUIControl$ThreadLocalByteBuffer;", nullptr, $PRIVATE | $STATIC, $staticMethod(JRSUIControl, getThreadLocalBuffer, $JRSUIControl$ThreadLocalByteBuffer*)},
+		{"handleBufferOverflow", "(Ljava/nio/ByteBuffer;I)Lapple/laf/JRSUIControl$BufferState;", nullptr, $PRIVATE, $method(JRSUIControl, handleBufferOverflow, $JRSUIControl$BufferState*, $ByteBuffer*, int32_t)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(JRSUIControl, hashCode, int32_t)},
+		{"initJRSUI", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(JRSUIControl, initJRSUI, void)},
+		{"initNativeJRSUI", "()I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(JRSUIControl, initNativeJRSUI, int32_t)},
+		{"loadBufferWithChanges", "(Lapple/laf/JRSUIControl$ThreadLocalByteBuffer;)Lapple/laf/JRSUIControl$BufferState;", nullptr, $PRIVATE, $method(JRSUIControl, loadBufferWithChanges, $JRSUIControl$BufferState*, $JRSUIControl$ThreadLocalByteBuffer*)},
+		{"paint", "([IIIDDDD)V", nullptr, $PUBLIC, $method(JRSUIControl, paint, void, $ints*, int32_t, int32_t, double, double, double, double)},
+		{"paint", "(JDDDD)V", nullptr, $PUBLIC, $method(JRSUIControl, paint, void, int64_t, double, double, double, double)},
+		{"paintChangesImage", "([IIIJJJDDDDJ)I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(JRSUIControl, paintChangesImage, int32_t, $ints*, int32_t, int32_t, int64_t, int64_t, int64_t, double, double, double, double, int64_t)},
+		{"paintChangesToCGContext", "(JJJJDDDDJ)I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(JRSUIControl, paintChangesToCGContext, int32_t, int64_t, int64_t, int64_t, int64_t, double, double, double, double, int64_t)},
+		{"paintImage", "([IIIJJJDDDD)I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(JRSUIControl, paintImage, int32_t, $ints*, int32_t, int32_t, int64_t, int64_t, int64_t, double, double, double, double)},
+		{"paintImage", "([IIIDDDD)I", nullptr, $PRIVATE | $SYNCHRONIZED, $method(JRSUIControl, paintImage, int32_t, $ints*, int32_t, int32_t, double, double, double, double)},
+		{"paintToCGContext", "(JJJJDDDD)I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(JRSUIControl, paintToCGContext, int32_t, int64_t, int64_t, int64_t, int64_t, double, double, double, double)},
+		{"paintToCGContext", "(JDDDD)I", nullptr, $PRIVATE | $SYNCHRONIZED, $method(JRSUIControl, paintToCGContext, int32_t, int64_t, double, double, double, double)},
+		{"set", "(Lapple/laf/JRSUIConstants$Key;Lapple/laf/JRSUIConstants$DoubleValue;)V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(JRSUIControl, set, void, $JRSUIConstants$Key*, $JRSUIConstants$DoubleValue*)},
+		{"set", "(Lapple/laf/JRSUIState;)V", nullptr, $PUBLIC, $method(JRSUIControl, set, void, $JRSUIState*)},
+		{"set", "(Lapple/laf/JRSUIConstants$Key;D)V", nullptr, 0, $method(JRSUIControl, set, void, $JRSUIConstants$Key*, double)},
+		{"setEncodedState", "(J)V", nullptr, 0, $method(JRSUIControl, setEncodedState, void, int64_t)},
+		{"sync", "()V", nullptr, $PRIVATE, $method(JRSUIControl, sync, void)},
+		{"syncChanges", "(JJ)I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(JRSUIControl, syncChanges, int32_t, int64_t, int64_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JRSUIControl, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"apple.laf.JRSUIControl$BufferState", "apple.laf.JRSUIControl", "BufferState", $STATIC | $FINAL | $ENUM},
+		{"apple.laf.JRSUIControl$ThreadLocalByteBuffer", "apple.laf.JRSUIControl", "ThreadLocalByteBuffer", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"apple.laf.JRSUIControl",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"apple.laf.JRSUIControl$BufferState,apple.laf.JRSUIControl$ThreadLocalByteBuffer"
+	};
+	$loadClass(JRSUIControl, name, initialize, &classInfo$$, JRSUIControl::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(JRSUIControl);
+	});
 	return class$;
 }
 

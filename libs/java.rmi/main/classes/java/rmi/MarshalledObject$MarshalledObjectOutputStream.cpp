@@ -1,5 +1,4 @@
 #include <java/rmi/MarshalledObject$MarshalledObjectOutputStream.h>
-
 #include <java/io/ObjectOutputStream.h>
 #include <java/io/ObjectStreamConstants.h>
 #include <java/io/OutputStream.h>
@@ -20,45 +19,6 @@ using $MarshalOutputStream = ::sun::rmi::server::MarshalOutputStream;
 
 namespace java {
 	namespace rmi {
-
-$FieldInfo _MarshalledObject$MarshalledObjectOutputStream_FieldInfo_[] = {
-	{"locOut", "Ljava/io/ObjectOutputStream;", nullptr, $PRIVATE, $field(MarshalledObject$MarshalledObjectOutputStream, locOut)},
-	{"hadAnnotations", "Z", nullptr, $PRIVATE, $field(MarshalledObject$MarshalledObjectOutputStream, hadAnnotations$)},
-	{}
-};
-
-$MethodInfo _MarshalledObject$MarshalledObjectOutputStream_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/OutputStream;Ljava/io/OutputStream;)V", nullptr, 0, $method(MarshalledObject$MarshalledObjectOutputStream, init$, void, $OutputStream*, $OutputStream*), "java.io.IOException"},
-	{"flush", "()V", nullptr, $PUBLIC, $virtualMethod(MarshalledObject$MarshalledObjectOutputStream, flush, void), "java.io.IOException"},
-	{"hadAnnotations", "()Z", nullptr, 0, $virtualMethod(MarshalledObject$MarshalledObjectOutputStream, hadAnnotations, bool)},
-	{"writeLocation", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(MarshalledObject$MarshalledObjectOutputStream, writeLocation, void, $String*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _MarshalledObject$MarshalledObjectOutputStream_InnerClassesInfo_[] = {
-	{"java.rmi.MarshalledObject$MarshalledObjectOutputStream", "java.rmi.MarshalledObject", "MarshalledObjectOutputStream", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _MarshalledObject$MarshalledObjectOutputStream_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.rmi.MarshalledObject$MarshalledObjectOutputStream",
-	"sun.rmi.server.MarshalOutputStream",
-	nullptr,
-	_MarshalledObject$MarshalledObjectOutputStream_FieldInfo_,
-	_MarshalledObject$MarshalledObjectOutputStream_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MarshalledObject$MarshalledObjectOutputStream_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.rmi.MarshalledObject"
-};
-
-$Object* allocate$MarshalledObject$MarshalledObjectOutputStream($Class* clazz) {
-	return $of($alloc(MarshalledObject$MarshalledObjectOutputStream));
-}
 
 void MarshalledObject$MarshalledObjectOutputStream::init$($OutputStream* objOut, $OutputStream* locOut) {
 	$MarshalOutputStream::init$(objOut);
@@ -85,7 +45,40 @@ MarshalledObject$MarshalledObjectOutputStream::MarshalledObject$MarshalledObject
 }
 
 $Class* MarshalledObject$MarshalledObjectOutputStream::load$($String* name, bool initialize) {
-	$loadClass(MarshalledObject$MarshalledObjectOutputStream, name, initialize, &_MarshalledObject$MarshalledObjectOutputStream_ClassInfo_, allocate$MarshalledObject$MarshalledObjectOutputStream);
+	$FieldInfo fieldInfos$$[] = {
+		{"locOut", "Ljava/io/ObjectOutputStream;", nullptr, $PRIVATE, $field(MarshalledObject$MarshalledObjectOutputStream, locOut)},
+		{"hadAnnotations", "Z", nullptr, $PRIVATE, $field(MarshalledObject$MarshalledObjectOutputStream, hadAnnotations$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/io/OutputStream;Ljava/io/OutputStream;)V", nullptr, 0, $method(MarshalledObject$MarshalledObjectOutputStream, init$, void, $OutputStream*, $OutputStream*), "java.io.IOException"},
+		{"flush", "()V", nullptr, $PUBLIC, $virtualMethod(MarshalledObject$MarshalledObjectOutputStream, flush, void), "java.io.IOException"},
+		{"hadAnnotations", "()Z", nullptr, 0, $virtualMethod(MarshalledObject$MarshalledObjectOutputStream, hadAnnotations, bool)},
+		{"writeLocation", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(MarshalledObject$MarshalledObjectOutputStream, writeLocation, void, $String*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.rmi.MarshalledObject$MarshalledObjectOutputStream", "java.rmi.MarshalledObject", "MarshalledObjectOutputStream", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.rmi.MarshalledObject$MarshalledObjectOutputStream",
+		"sun.rmi.server.MarshalOutputStream",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.rmi.MarshalledObject"
+	};
+	$loadClass(MarshalledObject$MarshalledObjectOutputStream, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MarshalledObject$MarshalledObjectOutputStream));
+	});
 	return class$;
 }
 

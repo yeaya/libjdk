@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/SocketTube$SSLDirectBufferSource.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/util/List.h>
@@ -26,48 +25,6 @@ namespace jdk {
 		namespace net {
 			namespace http {
 
-$FieldInfo _SocketTube$SSLDirectBufferSource_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(SocketTube$SSLDirectBufferSource, $assertionsDisabled)},
-	{"factory", "Ljdk/internal/net/http/common/BufferSupplier;", nullptr, $PRIVATE | $FINAL, $field(SocketTube$SSLDirectBufferSource, factory)},
-	{"client", "Ljdk/internal/net/http/HttpClientImpl;", nullptr, $PRIVATE | $FINAL, $field(SocketTube$SSLDirectBufferSource, client)},
-	{"current", "Ljava/nio/ByteBuffer;", nullptr, $PRIVATE, $field(SocketTube$SSLDirectBufferSource, current)},
-	{}
-};
-
-$MethodInfo _SocketTube$SSLDirectBufferSource_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/net/http/HttpClientImpl;)V", nullptr, $PUBLIC, $method(SocketTube$SSLDirectBufferSource, init$, void, $HttpClientImpl*)},
-	{"append", "(Ljava/util/List;Ljava/nio/ByteBuffer;I)Ljava/util/List;", "(Ljava/util/List<Ljava/nio/ByteBuffer;>;Ljava/nio/ByteBuffer;I)Ljava/util/List<Ljava/nio/ByteBuffer;>;", $PUBLIC | $FINAL, $virtualMethod(SocketTube$SSLDirectBufferSource, append, $List*, $List*, $ByteBuffer*, int32_t)},
-	{"getBuffer", "()Ljava/nio/ByteBuffer;", nullptr, $PUBLIC | $FINAL, $virtualMethod(SocketTube$SSLDirectBufferSource, getBuffer, $ByteBuffer*)},
-	{"returnUnused", "(Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC, $virtualMethod(SocketTube$SSLDirectBufferSource, returnUnused, void, $ByteBuffer*)},
-	{}
-};
-
-$InnerClassInfo _SocketTube$SSLDirectBufferSource_InnerClassesInfo_[] = {
-	{"jdk.internal.net.http.SocketTube$SSLDirectBufferSource", "jdk.internal.net.http.SocketTube", "SSLDirectBufferSource", $PRIVATE | $STATIC | $FINAL},
-	{"jdk.internal.net.http.SocketTube$BufferSource", "jdk.internal.net.http.SocketTube", "BufferSource", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _SocketTube$SSLDirectBufferSource_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"jdk.internal.net.http.SocketTube$SSLDirectBufferSource",
-	"java.lang.Object",
-	"jdk.internal.net.http.SocketTube$BufferSource",
-	_SocketTube$SSLDirectBufferSource_FieldInfo_,
-	_SocketTube$SSLDirectBufferSource_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SocketTube$SSLDirectBufferSource_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.net.http.SocketTube"
-};
-
-$Object* allocate$SocketTube$SSLDirectBufferSource($Class* clazz) {
-	return $of($alloc(SocketTube$SSLDirectBufferSource));
-}
-
 bool SocketTube$SSLDirectBufferSource::$assertionsDisabled = false;
 
 void SocketTube$SSLDirectBufferSource::init$($HttpClientImpl* client) {
@@ -81,7 +38,7 @@ $ByteBuffer* SocketTube$SSLDirectBufferSource::getBuffer() {
 	}
 	$var($ByteBuffer, buf, this->current);
 	if (buf == nullptr) {
-		$assign(buf, ($set(this, current, $cast($ByteBuffer, $nc(this->factory)->get()))));
+		$assign(buf, $set(this, current, $cast($ByteBuffer, $nc(this->factory)->get())));
 	}
 	if (!SocketTube$SSLDirectBufferSource::$assertionsDisabled && !$nc(buf)->hasRemaining()) {
 		$throwNew($AssertionError);
@@ -106,7 +63,7 @@ $List* SocketTube$SSLDirectBufferSource::append($List* list, $ByteBuffer* buf, i
 		$throwNew($AssertionError);
 	}
 	$set(this, current, nullptr);
-	$nc(buf)->limit(buf->position());
+	$nc(buf)->limit($nc(buf)->position());
 	buf->position(start);
 	return $SocketTube::listOf(list, buf);
 }
@@ -126,7 +83,7 @@ void SocketTube$SSLDirectBufferSource::returnUnused($ByteBuffer* buffer) {
 	}
 }
 
-void clinit$SocketTube$SSLDirectBufferSource($Class* class$) {
+void SocketTube$SSLDirectBufferSource::clinit$($Class* clazz) {
 	$load($SocketTube);
 	SocketTube$SSLDirectBufferSource::$assertionsDisabled = !$SocketTube::class$->desiredAssertionStatus();
 }
@@ -135,7 +92,43 @@ SocketTube$SSLDirectBufferSource::SocketTube$SSLDirectBufferSource() {
 }
 
 $Class* SocketTube$SSLDirectBufferSource::load$($String* name, bool initialize) {
-	$loadClass(SocketTube$SSLDirectBufferSource, name, initialize, &_SocketTube$SSLDirectBufferSource_ClassInfo_, clinit$SocketTube$SSLDirectBufferSource, allocate$SocketTube$SSLDirectBufferSource);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(SocketTube$SSLDirectBufferSource, $assertionsDisabled)},
+		{"factory", "Ljdk/internal/net/http/common/BufferSupplier;", nullptr, $PRIVATE | $FINAL, $field(SocketTube$SSLDirectBufferSource, factory)},
+		{"client", "Ljdk/internal/net/http/HttpClientImpl;", nullptr, $PRIVATE | $FINAL, $field(SocketTube$SSLDirectBufferSource, client)},
+		{"current", "Ljava/nio/ByteBuffer;", nullptr, $PRIVATE, $field(SocketTube$SSLDirectBufferSource, current)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/internal/net/http/HttpClientImpl;)V", nullptr, $PUBLIC, $method(SocketTube$SSLDirectBufferSource, init$, void, $HttpClientImpl*)},
+		{"append", "(Ljava/util/List;Ljava/nio/ByteBuffer;I)Ljava/util/List;", "(Ljava/util/List<Ljava/nio/ByteBuffer;>;Ljava/nio/ByteBuffer;I)Ljava/util/List<Ljava/nio/ByteBuffer;>;", $PUBLIC | $FINAL, $virtualMethod(SocketTube$SSLDirectBufferSource, append, $List*, $List*, $ByteBuffer*, int32_t)},
+		{"getBuffer", "()Ljava/nio/ByteBuffer;", nullptr, $PUBLIC | $FINAL, $virtualMethod(SocketTube$SSLDirectBufferSource, getBuffer, $ByteBuffer*)},
+		{"returnUnused", "(Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC, $virtualMethod(SocketTube$SSLDirectBufferSource, returnUnused, void, $ByteBuffer*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.net.http.SocketTube$SSLDirectBufferSource", "jdk.internal.net.http.SocketTube", "SSLDirectBufferSource", $PRIVATE | $STATIC | $FINAL},
+		{"jdk.internal.net.http.SocketTube$BufferSource", "jdk.internal.net.http.SocketTube", "BufferSource", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"jdk.internal.net.http.SocketTube$SSLDirectBufferSource",
+		"java.lang.Object",
+		"jdk.internal.net.http.SocketTube$BufferSource",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.net.http.SocketTube"
+	};
+	$loadClass(SocketTube$SSLDirectBufferSource, name, initialize, &classInfo$$, SocketTube$SSLDirectBufferSource::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(SocketTube$SSLDirectBufferSource);
+	});
 	return class$;
 }
 

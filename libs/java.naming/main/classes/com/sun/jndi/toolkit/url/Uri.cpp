@@ -1,5 +1,4 @@
 #include <com/sun/jndi/toolkit/url/Uri.h>
-
 #include <java/net/MalformedURLException.h>
 #include <jcpp.h>
 
@@ -14,44 +13,6 @@ namespace com {
 		namespace jndi {
 			namespace toolkit {
 				namespace url {
-
-$FieldInfo _Uri_FieldInfo_[] = {
-	{"uri", "Ljava/lang/String;", nullptr, $PROTECTED, $field(Uri, uri)},
-	{"scheme", "Ljava/lang/String;", nullptr, $PROTECTED, $field(Uri, scheme)},
-	{"host", "Ljava/lang/String;", nullptr, $PROTECTED, $field(Uri, host)},
-	{"port", "I", nullptr, $PROTECTED, $field(Uri, port)},
-	{"hasAuthority", "Z", nullptr, $PROTECTED, $field(Uri, hasAuthority)},
-	{"path", "Ljava/lang/String;", nullptr, $PROTECTED, $field(Uri, path)},
-	{"query", "Ljava/lang/String;", nullptr, $PROTECTED, $field(Uri, query)},
-	{}
-};
-
-$MethodInfo _Uri_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Uri, init$, void, $String*), "java.net.MalformedURLException"},
-	{"<init>", "()V", nullptr, $PROTECTED, $method(Uri, init$, void)},
-	{"getHost", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Uri, getHost, $String*)},
-	{"getPath", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Uri, getPath, $String*)},
-	{"getPort", "()I", nullptr, $PUBLIC, $virtualMethod(Uri, getPort, int32_t)},
-	{"getQuery", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Uri, getQuery, $String*)},
-	{"getScheme", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Uri, getScheme, $String*)},
-	{"init", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(Uri, init, void, $String*), "java.net.MalformedURLException"},
-	{"parse", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(Uri, parse, void, $String*), "java.net.MalformedURLException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Uri, toString, $String*)},
-	{}
-};
-
-$ClassInfo _Uri_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.jndi.toolkit.url.Uri",
-	"java.lang.Object",
-	nullptr,
-	_Uri_FieldInfo_,
-	_Uri_MethodInfo_
-};
-
-$Object* allocate$Uri($Class* clazz) {
-	return $of($alloc(Uri));
-}
 
 void Uri::init$($String* uri) {
 	$set(this, host, nullptr);
@@ -96,9 +57,9 @@ $String* Uri::toString() {
 }
 
 void Uri::parse($String* uri) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t i = 0;
-	i = $nc(uri)->indexOf((int32_t)u':');
+	i = $nc(uri)->indexOf(u':');
 	if (i < 0) {
 		$throwNew($MalformedURLException, $$str({"Invalid URI: "_s, uri}));
 	}
@@ -107,19 +68,19 @@ void Uri::parse($String* uri) {
 	this->hasAuthority = uri->startsWith("//"_s, i);
 	if (this->hasAuthority) {
 		i += 2;
-		int32_t slash = uri->indexOf((int32_t)u'/', i);
+		int32_t slash = uri->indexOf(u'/', i);
 		if (slash < 0) {
 			slash = uri->length();
 		}
 		if (uri->startsWith("["_s, i)) {
-			int32_t brac = uri->indexOf((int32_t)u']', i + 1);
+			int32_t brac = uri->indexOf(u']', i + 1);
 			if (brac < 0 || brac > slash) {
 				$throwNew($MalformedURLException, $$str({"Invalid URI: "_s, uri}));
 			}
 			$set(this, host, uri->substring(i, brac + 1));
 			i = brac + 1;
 		} else {
-			int32_t colon = uri->indexOf((int32_t)u':', i);
+			int32_t colon = uri->indexOf(u':', i);
 			int32_t hostEnd = (colon < 0 || colon > slash) ? slash : colon;
 			if (i < hostEnd) {
 				$set(this, host, uri->substring(i, hostEnd));
@@ -132,7 +93,7 @@ void Uri::parse($String* uri) {
 		}
 		i = slash;
 	}
-	int32_t qmark = uri->indexOf((int32_t)u'?', i);
+	int32_t qmark = uri->indexOf(u'?', i);
 	if (qmark < 0) {
 		$set(this, path, uri->substring(i));
 	} else {
@@ -145,7 +106,40 @@ Uri::Uri() {
 }
 
 $Class* Uri::load$($String* name, bool initialize) {
-	$loadClass(Uri, name, initialize, &_Uri_ClassInfo_, allocate$Uri);
+	$FieldInfo fieldInfos$$[] = {
+		{"uri", "Ljava/lang/String;", nullptr, $PROTECTED, $field(Uri, uri)},
+		{"scheme", "Ljava/lang/String;", nullptr, $PROTECTED, $field(Uri, scheme)},
+		{"host", "Ljava/lang/String;", nullptr, $PROTECTED, $field(Uri, host)},
+		{"port", "I", nullptr, $PROTECTED, $field(Uri, port)},
+		{"hasAuthority", "Z", nullptr, $PROTECTED, $field(Uri, hasAuthority)},
+		{"path", "Ljava/lang/String;", nullptr, $PROTECTED, $field(Uri, path)},
+		{"query", "Ljava/lang/String;", nullptr, $PROTECTED, $field(Uri, query)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Uri, init$, void, $String*), "java.net.MalformedURLException"},
+		{"<init>", "()V", nullptr, $PROTECTED, $method(Uri, init$, void)},
+		{"getHost", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Uri, getHost, $String*)},
+		{"getPath", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Uri, getPath, $String*)},
+		{"getPort", "()I", nullptr, $PUBLIC, $virtualMethod(Uri, getPort, int32_t)},
+		{"getQuery", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Uri, getQuery, $String*)},
+		{"getScheme", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Uri, getScheme, $String*)},
+		{"init", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(Uri, init, void, $String*), "java.net.MalformedURLException"},
+		{"parse", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(Uri, parse, void, $String*), "java.net.MalformedURLException"},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Uri, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.jndi.toolkit.url.Uri",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Uri, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Uri);
+	});
 	return class$;
 }
 

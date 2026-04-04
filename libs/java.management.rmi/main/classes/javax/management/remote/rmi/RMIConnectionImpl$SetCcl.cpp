@@ -1,5 +1,4 @@
 #include <javax/management/remote/rmi/RMIConnectionImpl$SetCcl.h>
-
 #include <java/lang/ClassLoader.h>
 #include <javax/management/remote/rmi/RMIConnectionImpl.h>
 #include <jcpp.h>
@@ -15,60 +14,54 @@ namespace javax {
 		namespace remote {
 			namespace rmi {
 
-$FieldInfo _RMIConnectionImpl$SetCcl_FieldInfo_[] = {
-	{"classLoader", "Ljava/lang/ClassLoader;", nullptr, $PRIVATE | $FINAL, $field(RMIConnectionImpl$SetCcl, classLoader)},
-	{}
-};
-
-$MethodInfo _RMIConnectionImpl$SetCcl_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/ClassLoader;)V", nullptr, 0, $method(RMIConnectionImpl$SetCcl, init$, void, $ClassLoader*)},
-	{"run", "()Ljava/lang/ClassLoader;", nullptr, $PUBLIC, $virtualMethod(RMIConnectionImpl$SetCcl, run, $Object*)},
-	{}
-};
-
-$InnerClassInfo _RMIConnectionImpl$SetCcl_InnerClassesInfo_[] = {
-	{"javax.management.remote.rmi.RMIConnectionImpl$SetCcl", "javax.management.remote.rmi.RMIConnectionImpl", "SetCcl", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _RMIConnectionImpl$SetCcl_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.management.remote.rmi.RMIConnectionImpl$SetCcl",
-	"java.lang.Object",
-	"java.security.PrivilegedExceptionAction",
-	_RMIConnectionImpl$SetCcl_FieldInfo_,
-	_RMIConnectionImpl$SetCcl_MethodInfo_,
-	"Ljava/lang/Object;Ljava/security/PrivilegedExceptionAction<Ljava/lang/ClassLoader;>;",
-	nullptr,
-	_RMIConnectionImpl$SetCcl_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.management.remote.rmi.RMIConnectionImpl"
-};
-
-$Object* allocate$RMIConnectionImpl$SetCcl($Class* clazz) {
-	return $of($alloc(RMIConnectionImpl$SetCcl));
-}
-
 void RMIConnectionImpl$SetCcl::init$($ClassLoader* classLoader) {
 	$set(this, classLoader, classLoader);
 }
 
 $Object* RMIConnectionImpl$SetCcl::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$var($Thread, currentThread, $Thread::currentThread());
 	$var($ClassLoader, old, currentThread->getContextClassLoader());
 	currentThread->setContextClassLoader(this->classLoader);
-	return $of(old);
+	return old;
 }
 
 RMIConnectionImpl$SetCcl::RMIConnectionImpl$SetCcl() {
 }
 
 $Class* RMIConnectionImpl$SetCcl::load$($String* name, bool initialize) {
-	$loadClass(RMIConnectionImpl$SetCcl, name, initialize, &_RMIConnectionImpl$SetCcl_ClassInfo_, allocate$RMIConnectionImpl$SetCcl);
+	$FieldInfo fieldInfos$$[] = {
+		{"classLoader", "Ljava/lang/ClassLoader;", nullptr, $PRIVATE | $FINAL, $field(RMIConnectionImpl$SetCcl, classLoader)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/ClassLoader;)V", nullptr, 0, $method(RMIConnectionImpl$SetCcl, init$, void, $ClassLoader*)},
+		{"run", "()Ljava/lang/ClassLoader;", nullptr, $PUBLIC, $virtualMethod(RMIConnectionImpl$SetCcl, run, $Object*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.management.remote.rmi.RMIConnectionImpl$SetCcl", "javax.management.remote.rmi.RMIConnectionImpl", "SetCcl", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.management.remote.rmi.RMIConnectionImpl$SetCcl",
+		"java.lang.Object",
+		"java.security.PrivilegedExceptionAction",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/security/PrivilegedExceptionAction<Ljava/lang/ClassLoader;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.management.remote.rmi.RMIConnectionImpl"
+	};
+	$loadClass(RMIConnectionImpl$SetCcl, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RMIConnectionImpl$SetCcl);
+	});
 	return class$;
 }
 

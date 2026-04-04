@@ -25,6 +25,7 @@ class $export HttpClientImpl$SingleFacadeFactory : public ::java::lang::Object {
 	$class(HttpClientImpl$SingleFacadeFactory, 0, ::java::lang::Object)
 public:
 	HttpClientImpl$SingleFacadeFactory();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	::jdk::internal::net::http::HttpClientFacade* createFacade(::jdk::internal::net::http::HttpClientImpl* impl);
 	static bool $assertionsDisabled;

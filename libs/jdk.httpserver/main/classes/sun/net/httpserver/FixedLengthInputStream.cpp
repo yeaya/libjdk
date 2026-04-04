@@ -1,5 +1,4 @@
 #include <sun/net/httpserver/FixedLengthInputStream.h>
-
 #include <java/io/FilterInputStream.h>
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
@@ -16,39 +15,10 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ExchangeImpl = ::sun::net::httpserver::ExchangeImpl;
 using $LeftOverInputStream = ::sun::net::httpserver::LeftOverInputStream;
-using $ServerImpl = ::sun::net::httpserver::ServerImpl;
 
 namespace sun {
 	namespace net {
 		namespace httpserver {
-
-$FieldInfo _FixedLengthInputStream_FieldInfo_[] = {
-	{"remaining", "J", nullptr, $PRIVATE, $field(FixedLengthInputStream, remaining)},
-	{}
-};
-
-$MethodInfo _FixedLengthInputStream_MethodInfo_[] = {
-	{"<init>", "(Lsun/net/httpserver/ExchangeImpl;Ljava/io/InputStream;J)V", nullptr, 0, $method(FixedLengthInputStream, init$, void, $ExchangeImpl*, $InputStream*, int64_t)},
-	{"available", "()I", nullptr, $PUBLIC, $virtualMethod(FixedLengthInputStream, available, int32_t), "java.io.IOException"},
-	{"mark", "(I)V", nullptr, $PUBLIC, $virtualMethod(FixedLengthInputStream, mark, void, int32_t)},
-	{"markSupported", "()Z", nullptr, $PUBLIC, $virtualMethod(FixedLengthInputStream, markSupported, bool)},
-	{"readImpl", "([BII)I", nullptr, $PROTECTED, $virtualMethod(FixedLengthInputStream, readImpl, int32_t, $bytes*, int32_t, int32_t), "java.io.IOException"},
-	{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(FixedLengthInputStream, reset, void), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _FixedLengthInputStream_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.net.httpserver.FixedLengthInputStream",
-	"sun.net.httpserver.LeftOverInputStream",
-	nullptr,
-	_FixedLengthInputStream_FieldInfo_,
-	_FixedLengthInputStream_MethodInfo_
-};
-
-$Object* allocate$FixedLengthInputStream($Class* clazz) {
-	return $of($alloc(FixedLengthInputStream));
-}
 
 void FixedLengthInputStream::init$($ExchangeImpl* t, $InputStream* src, int64_t len) {
 	$LeftOverInputStream::init$(t, src);
@@ -56,8 +26,8 @@ void FixedLengthInputStream::init$($ExchangeImpl* t, $InputStream* src, int64_t 
 }
 
 int32_t FixedLengthInputStream::readImpl($bytes* b, int32_t off, int32_t len) {
-	$useLocalCurrentObjectStackCache();
-	this->eof = (this->remaining == (int64_t)0);
+	$useLocalObjectStack();
+	this->eof = (this->remaining == 0);
 	if (this->eof) {
 		return -1;
 	}
@@ -68,7 +38,7 @@ int32_t FixedLengthInputStream::readImpl($bytes* b, int32_t off, int32_t len) {
 	if (n > -1) {
 		this->remaining -= n;
 		if (this->remaining == 0) {
-			$nc($($nc(this->t)->getServerImpl()))->requestCompleted($($nc(this->t)->getConnection()));
+			$$nc($nc(this->t)->getServerImpl())->requestCompleted($($nc(this->t)->getConnection()));
 		}
 	}
 	if (n < 0 && !this->eof) {
@@ -100,7 +70,30 @@ FixedLengthInputStream::FixedLengthInputStream() {
 }
 
 $Class* FixedLengthInputStream::load$($String* name, bool initialize) {
-	$loadClass(FixedLengthInputStream, name, initialize, &_FixedLengthInputStream_ClassInfo_, allocate$FixedLengthInputStream);
+	$FieldInfo fieldInfos$$[] = {
+		{"remaining", "J", nullptr, $PRIVATE, $field(FixedLengthInputStream, remaining)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/net/httpserver/ExchangeImpl;Ljava/io/InputStream;J)V", nullptr, 0, $method(FixedLengthInputStream, init$, void, $ExchangeImpl*, $InputStream*, int64_t)},
+		{"available", "()I", nullptr, $PUBLIC, $virtualMethod(FixedLengthInputStream, available, int32_t), "java.io.IOException"},
+		{"mark", "(I)V", nullptr, $PUBLIC, $virtualMethod(FixedLengthInputStream, mark, void, int32_t)},
+		{"markSupported", "()Z", nullptr, $PUBLIC, $virtualMethod(FixedLengthInputStream, markSupported, bool)},
+		{"readImpl", "([BII)I", nullptr, $PROTECTED, $virtualMethod(FixedLengthInputStream, readImpl, int32_t, $bytes*, int32_t, int32_t), "java.io.IOException"},
+		{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(FixedLengthInputStream, reset, void), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.net.httpserver.FixedLengthInputStream",
+		"sun.net.httpserver.LeftOverInputStream",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(FixedLengthInputStream, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FixedLengthInputStream);
+	});
 	return class$;
 }
 

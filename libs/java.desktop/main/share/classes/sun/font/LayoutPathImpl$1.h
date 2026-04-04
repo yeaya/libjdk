@@ -12,6 +12,7 @@ class LayoutPathImpl$1 : public ::java::lang::Object {
 	$class(LayoutPathImpl$1, 0, ::java::lang::Object)
 public:
 	LayoutPathImpl$1();
+	static void clinit$(::java::lang::Class* clazz);
 	static $ints* $SwitchMap$sun$font$LayoutPathImpl$EndType;
 };
 

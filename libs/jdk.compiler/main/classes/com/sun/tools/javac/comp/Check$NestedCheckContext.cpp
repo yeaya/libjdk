@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/Check$NestedCheckContext.h>
-
 #include <com/sun/tools/javac/code/Type.h>
 #include <com/sun/tools/javac/comp/Check$CheckContext.h>
 #include <com/sun/tools/javac/comp/Check.h>
@@ -27,47 +26,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace comp {
-
-$FieldInfo _Check$NestedCheckContext_FieldInfo_[] = {
-	{"enclosingContext", "Lcom/sun/tools/javac/comp/Check$CheckContext;", nullptr, 0, $field(Check$NestedCheckContext, enclosingContext)},
-	{}
-};
-
-$MethodInfo _Check$NestedCheckContext_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Check$CheckContext;)V", nullptr, 0, $method(Check$NestedCheckContext, init$, void, $Check$CheckContext*)},
-	{"checkWarner", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/util/Warner;", nullptr, $PUBLIC, $virtualMethod(Check$NestedCheckContext, checkWarner, $Warner*, $JCDiagnostic$DiagnosticPosition*, $Type*, $Type*)},
-	{"compatible", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/Warner;)Z", nullptr, $PUBLIC, $virtualMethod(Check$NestedCheckContext, compatible, bool, $Type*, $Type*, $Warner*)},
-	{"deferredAttrContext", "()Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext;", nullptr, $PUBLIC, $virtualMethod(Check$NestedCheckContext, deferredAttrContext, $DeferredAttr$DeferredAttrContext*)},
-	{"inferenceContext", "()Lcom/sun/tools/javac/comp/InferenceContext;", nullptr, $PUBLIC, $virtualMethod(Check$NestedCheckContext, inferenceContext, $InferenceContext*)},
-	{"report", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/util/JCDiagnostic;)V", nullptr, $PUBLIC, $virtualMethod(Check$NestedCheckContext, report, void, $JCDiagnostic$DiagnosticPosition*, $JCDiagnostic*)},
-	{}
-};
-
-$InnerClassInfo _Check$NestedCheckContext_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.Check$NestedCheckContext", "com.sun.tools.javac.comp.Check", "NestedCheckContext", $STATIC},
-	{"com.sun.tools.javac.comp.Check$CheckContext", "com.sun.tools.javac.comp.Check", "CheckContext", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Check$NestedCheckContext_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.comp.Check$NestedCheckContext",
-	"java.lang.Object",
-	"com.sun.tools.javac.comp.Check$CheckContext",
-	_Check$NestedCheckContext_FieldInfo_,
-	_Check$NestedCheckContext_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Check$NestedCheckContext_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.Check"
-};
-
-$Object* allocate$Check$NestedCheckContext($Class* clazz) {
-	return $of($alloc(Check$NestedCheckContext));
-}
 
 void Check$NestedCheckContext::init$($Check$CheckContext* enclosingContext) {
 	$set(this, enclosingContext, enclosingContext);
@@ -97,7 +55,42 @@ Check$NestedCheckContext::Check$NestedCheckContext() {
 }
 
 $Class* Check$NestedCheckContext::load$($String* name, bool initialize) {
-	$loadClass(Check$NestedCheckContext, name, initialize, &_Check$NestedCheckContext_ClassInfo_, allocate$Check$NestedCheckContext);
+	$FieldInfo fieldInfos$$[] = {
+		{"enclosingContext", "Lcom/sun/tools/javac/comp/Check$CheckContext;", nullptr, 0, $field(Check$NestedCheckContext, enclosingContext)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/comp/Check$CheckContext;)V", nullptr, 0, $method(Check$NestedCheckContext, init$, void, $Check$CheckContext*)},
+		{"checkWarner", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/util/Warner;", nullptr, $PUBLIC, $virtualMethod(Check$NestedCheckContext, checkWarner, $Warner*, $JCDiagnostic$DiagnosticPosition*, $Type*, $Type*)},
+		{"compatible", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/Warner;)Z", nullptr, $PUBLIC, $virtualMethod(Check$NestedCheckContext, compatible, bool, $Type*, $Type*, $Warner*)},
+		{"deferredAttrContext", "()Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext;", nullptr, $PUBLIC, $virtualMethod(Check$NestedCheckContext, deferredAttrContext, $DeferredAttr$DeferredAttrContext*)},
+		{"inferenceContext", "()Lcom/sun/tools/javac/comp/InferenceContext;", nullptr, $PUBLIC, $virtualMethod(Check$NestedCheckContext, inferenceContext, $InferenceContext*)},
+		{"report", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/util/JCDiagnostic;)V", nullptr, $PUBLIC, $virtualMethod(Check$NestedCheckContext, report, void, $JCDiagnostic$DiagnosticPosition*, $JCDiagnostic*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.Check$NestedCheckContext", "com.sun.tools.javac.comp.Check", "NestedCheckContext", $STATIC},
+		{"com.sun.tools.javac.comp.Check$CheckContext", "com.sun.tools.javac.comp.Check", "CheckContext", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.comp.Check$NestedCheckContext",
+		"java.lang.Object",
+		"com.sun.tools.javac.comp.Check$CheckContext",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.Check"
+	};
+	$loadClass(Check$NestedCheckContext, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Check$NestedCheckContext);
+	});
 	return class$;
 }
 

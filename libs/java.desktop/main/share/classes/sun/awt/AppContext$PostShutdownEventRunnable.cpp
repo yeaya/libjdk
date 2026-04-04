@@ -1,5 +1,4 @@
 #include <sun/awt/AppContext$PostShutdownEventRunnable.h>
-
 #include <java/awt/AWTEvent.h>
 #include <java/awt/EventQueue.h>
 #include <sun/awt/AWTAutoShutdown.h>
@@ -19,48 +18,12 @@ using $AppContext = ::sun::awt::AppContext;
 namespace sun {
 	namespace awt {
 
-$FieldInfo _AppContext$PostShutdownEventRunnable_FieldInfo_[] = {
-	{"appContext", "Lsun/awt/AppContext;", nullptr, $PRIVATE | $FINAL, $field(AppContext$PostShutdownEventRunnable, appContext)},
-	{}
-};
-
-$MethodInfo _AppContext$PostShutdownEventRunnable_MethodInfo_[] = {
-	{"<init>", "(Lsun/awt/AppContext;)V", nullptr, 0, $method(AppContext$PostShutdownEventRunnable, init$, void, $AppContext*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(AppContext$PostShutdownEventRunnable, run, void)},
-	{}
-};
-
-$InnerClassInfo _AppContext$PostShutdownEventRunnable_InnerClassesInfo_[] = {
-	{"sun.awt.AppContext$PostShutdownEventRunnable", "sun.awt.AppContext", "PostShutdownEventRunnable", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _AppContext$PostShutdownEventRunnable_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.awt.AppContext$PostShutdownEventRunnable",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	_AppContext$PostShutdownEventRunnable_FieldInfo_,
-	_AppContext$PostShutdownEventRunnable_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AppContext$PostShutdownEventRunnable_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.awt.AppContext"
-};
-
-$Object* allocate$AppContext$PostShutdownEventRunnable($Class* clazz) {
-	return $of($alloc(AppContext$PostShutdownEventRunnable));
-}
-
 void AppContext$PostShutdownEventRunnable::init$($AppContext* ac) {
 	$set(this, appContext, ac);
 }
 
 void AppContext$PostShutdownEventRunnable::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($AppContext);
 	$var($EventQueue, eq, $cast($EventQueue, $nc(this->appContext)->get($AppContext::EVENT_QUEUE_KEY)));
 	if (eq != nullptr) {
@@ -72,7 +35,37 @@ AppContext$PostShutdownEventRunnable::AppContext$PostShutdownEventRunnable() {
 }
 
 $Class* AppContext$PostShutdownEventRunnable::load$($String* name, bool initialize) {
-	$loadClass(AppContext$PostShutdownEventRunnable, name, initialize, &_AppContext$PostShutdownEventRunnable_ClassInfo_, allocate$AppContext$PostShutdownEventRunnable);
+	$FieldInfo fieldInfos$$[] = {
+		{"appContext", "Lsun/awt/AppContext;", nullptr, $PRIVATE | $FINAL, $field(AppContext$PostShutdownEventRunnable, appContext)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/awt/AppContext;)V", nullptr, 0, $method(AppContext$PostShutdownEventRunnable, init$, void, $AppContext*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(AppContext$PostShutdownEventRunnable, run, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.AppContext$PostShutdownEventRunnable", "sun.awt.AppContext", "PostShutdownEventRunnable", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.awt.AppContext$PostShutdownEventRunnable",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.awt.AppContext"
+	};
+	$loadClass(AppContext$PostShutdownEventRunnable, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AppContext$PostShutdownEventRunnable);
+	});
 	return class$;
 }
 

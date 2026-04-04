@@ -1,5 +1,4 @@
 #include <java/awt/dnd/DragSourceListener.h>
-
 #include <java/awt/dnd/DragSourceDragEvent.h>
 #include <java/awt/dnd/DragSourceDropEvent.h>
 #include <java/awt/dnd/DragSourceEvent.h>
@@ -15,30 +14,26 @@ namespace java {
 	namespace awt {
 		namespace dnd {
 
-$MethodInfo _DragSourceListener_MethodInfo_[] = {
-	{"dragDropEnd", "(Ljava/awt/dnd/DragSourceDropEvent;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DragSourceListener, dragDropEnd, void, $DragSourceDropEvent*)},
-	{"dragEnter", "(Ljava/awt/dnd/DragSourceDragEvent;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DragSourceListener, dragEnter, void, $DragSourceDragEvent*)},
-	{"dragExit", "(Ljava/awt/dnd/DragSourceEvent;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DragSourceListener, dragExit, void, $DragSourceEvent*)},
-	{"dragOver", "(Ljava/awt/dnd/DragSourceDragEvent;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DragSourceListener, dragOver, void, $DragSourceDragEvent*)},
-	{"dropActionChanged", "(Ljava/awt/dnd/DragSourceDragEvent;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DragSourceListener, dropActionChanged, void, $DragSourceDragEvent*)},
-	{}
-};
-
-$ClassInfo _DragSourceListener_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.awt.dnd.DragSourceListener",
-	nullptr,
-	"java.util.EventListener",
-	nullptr,
-	_DragSourceListener_MethodInfo_
-};
-
-$Object* allocate$DragSourceListener($Class* clazz) {
-	return $of($alloc(DragSourceListener));
-}
-
 $Class* DragSourceListener::load$($String* name, bool initialize) {
-	$loadClass(DragSourceListener, name, initialize, &_DragSourceListener_ClassInfo_, allocate$DragSourceListener);
+	$MethodInfo methodInfos$$[] = {
+		{"dragDropEnd", "(Ljava/awt/dnd/DragSourceDropEvent;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DragSourceListener, dragDropEnd, void, $DragSourceDropEvent*)},
+		{"dragEnter", "(Ljava/awt/dnd/DragSourceDragEvent;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DragSourceListener, dragEnter, void, $DragSourceDragEvent*)},
+		{"dragExit", "(Ljava/awt/dnd/DragSourceEvent;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DragSourceListener, dragExit, void, $DragSourceEvent*)},
+		{"dragOver", "(Ljava/awt/dnd/DragSourceDragEvent;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DragSourceListener, dragOver, void, $DragSourceDragEvent*)},
+		{"dropActionChanged", "(Ljava/awt/dnd/DragSourceDragEvent;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DragSourceListener, dropActionChanged, void, $DragSourceDragEvent*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.awt.dnd.DragSourceListener",
+		nullptr,
+		"java.util.EventListener",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(DragSourceListener, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DragSourceListener);
+	});
 	return class$;
 }
 

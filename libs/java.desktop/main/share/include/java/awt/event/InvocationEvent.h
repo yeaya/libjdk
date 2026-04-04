@@ -34,6 +34,7 @@ public:
 	virtual bool equals(Object$* arg0) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(Object$* source, ::java::lang::Runnable* runnable);
 	void init$(Object$* source, ::java::lang::Runnable* runnable, Object$* notifier, bool catchThrowables);
 	void init$(Object$* source, ::java::lang::Runnable* runnable, ::java::lang::Runnable* listener, bool catchThrowables);
@@ -58,7 +59,7 @@ public:
 	::java::lang::Exception* exception = nullptr;
 	$Throwable* throwable = nullptr;
 	int64_t when = 0;
-	static const int64_t serialVersionUID = (int64_t)0x060D2EEF74622FFA;
+	static const int64_t serialVersionUID = (int64_t)0x060d2eef74622ffa;
 };
 
 		} // event

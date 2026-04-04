@@ -32,6 +32,7 @@ class GroupLayout$ComponentInfo : public ::java::lang::Object {
 	$class(GroupLayout$ComponentInfo, 0, ::java::lang::Object)
 public:
 	GroupLayout$ComponentInfo();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::javax::swing::GroupLayout* this$0, ::java::awt::Component* component);
 	virtual void clearCachedSize();
 	virtual void dispose();

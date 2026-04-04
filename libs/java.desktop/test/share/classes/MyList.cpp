@@ -1,5 +1,4 @@
 #include <MyList.h>
-
 #include <java/awt/Point.h>
 #include <java/awt/Rectangle.h>
 #include <javax/swing/JList.h>
@@ -10,25 +9,6 @@ using $Rectangle = ::java::awt::Rectangle;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $JList = ::javax::swing::JList;
-
-$MethodInfo _MyList_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(MyList, init$, void)},
-	{"locationToIndex", "(Ljava/awt/Point;)I", nullptr, $PUBLIC, $virtualMethod(MyList, locationToIndex, int32_t, $Point*)},
-	{}
-};
-
-$ClassInfo _MyList_ClassInfo_ = {
-	$ACC_SUPER,
-	"MyList",
-	"javax.swing.JList",
-	nullptr,
-	nullptr,
-	_MyList_MethodInfo_
-};
-
-$Object* allocate$MyList($Class* clazz) {
-	return $of($alloc(MyList));
-}
 
 void MyList::init$() {
 	$JList::init$();
@@ -44,7 +24,22 @@ MyList::MyList() {
 }
 
 $Class* MyList::load$($String* name, bool initialize) {
-	$loadClass(MyList, name, initialize, &_MyList_ClassInfo_, allocate$MyList);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(MyList, init$, void)},
+		{"locationToIndex", "(Ljava/awt/Point;)I", nullptr, $PUBLIC, $virtualMethod(MyList, locationToIndex, int32_t, $Point*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"MyList",
+		"javax.swing.JList",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(MyList, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MyList));
+	});
 	return class$;
 }
 

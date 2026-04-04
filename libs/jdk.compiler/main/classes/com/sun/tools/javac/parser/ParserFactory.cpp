@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/parser/ParserFactory.h>
-
 #include <com/sun/tools/javac/code/Preview.h>
 #include <com/sun/tools/javac/code/Source.h>
 #include <com/sun/tools/javac/parser/JavacParser.h>
@@ -45,42 +44,6 @@ namespace com {
 			namespace javac {
 				namespace parser {
 
-$FieldInfo _ParserFactory_FieldInfo_[] = {
-	{"parserFactoryKey", "Lcom/sun/tools/javac/util/Context$Key;", "Lcom/sun/tools/javac/util/Context$Key<Lcom/sun/tools/javac/parser/ParserFactory;>;", $PROTECTED | $STATIC | $FINAL, $staticField(ParserFactory, parserFactoryKey)},
-	{"F", "Lcom/sun/tools/javac/tree/TreeMaker;", nullptr, $FINAL, $field(ParserFactory, F)},
-	{"docTreeMaker", "Lcom/sun/tools/javac/tree/DocTreeMaker;", nullptr, $FINAL, $field(ParserFactory, docTreeMaker)},
-	{"log", "Lcom/sun/tools/javac/util/Log;", nullptr, $FINAL, $field(ParserFactory, log)},
-	{"tokens", "Lcom/sun/tools/javac/parser/Tokens;", nullptr, $FINAL, $field(ParserFactory, tokens)},
-	{"source", "Lcom/sun/tools/javac/code/Source;", nullptr, $FINAL, $field(ParserFactory, source)},
-	{"preview", "Lcom/sun/tools/javac/code/Preview;", nullptr, $FINAL, $field(ParserFactory, preview)},
-	{"names", "Lcom/sun/tools/javac/util/Names;", nullptr, $FINAL, $field(ParserFactory, names)},
-	{"options", "Lcom/sun/tools/javac/util/Options;", nullptr, $FINAL, $field(ParserFactory, options)},
-	{"scannerFactory", "Lcom/sun/tools/javac/parser/ScannerFactory;", nullptr, $FINAL, $field(ParserFactory, scannerFactory)},
-	{"locale", "Ljava/util/Locale;", nullptr, $FINAL, $field(ParserFactory, locale)},
-	{}
-};
-
-$MethodInfo _ParserFactory_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/util/Context;)V", nullptr, $PROTECTED, $method(ParserFactory, init$, void, $Context*)},
-	{"instance", "(Lcom/sun/tools/javac/util/Context;)Lcom/sun/tools/javac/parser/ParserFactory;", nullptr, $PUBLIC | $STATIC, $staticMethod(ParserFactory, instance, ParserFactory*, $Context*)},
-	{"newParser", "(Ljava/lang/CharSequence;ZZZ)Lcom/sun/tools/javac/parser/JavacParser;", nullptr, $PUBLIC, $virtualMethod(ParserFactory, newParser, $JavacParser*, $CharSequence*, bool, bool, bool)},
-	{"newParser", "(Ljava/lang/CharSequence;ZZZZ)Lcom/sun/tools/javac/parser/JavacParser;", nullptr, $PUBLIC, $virtualMethod(ParserFactory, newParser, $JavacParser*, $CharSequence*, bool, bool, bool, bool)},
-	{}
-};
-
-$ClassInfo _ParserFactory_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.parser.ParserFactory",
-	"java.lang.Object",
-	nullptr,
-	_ParserFactory_FieldInfo_,
-	_ParserFactory_MethodInfo_
-};
-
-$Object* allocate$ParserFactory($Class* clazz) {
-	return $of($alloc(ParserFactory));
-}
-
 $Context$Key* ParserFactory::parserFactoryKey = nullptr;
 
 ParserFactory* ParserFactory::instance($Context* context) {
@@ -93,7 +56,7 @@ ParserFactory* ParserFactory::instance($Context* context) {
 }
 
 void ParserFactory::init$($Context* context) {
-	$nc(context)->put(ParserFactory::parserFactoryKey, $of(this));
+	$nc(context)->put(ParserFactory::parserFactoryKey, this);
 	$set(this, F, $TreeMaker::instance(context));
 	$set(this, docTreeMaker, $DocTreeMaker::instance(context));
 	$set(this, log, $Log::instance(context));
@@ -116,7 +79,7 @@ $JavacParser* ParserFactory::newParser($CharSequence* input, bool keepDocComment
 	return $new($JavacParser, this, lexer, keepDocComments, keepLineMap, keepEndPos, parseModuleInfo);
 }
 
-void clinit$ParserFactory($Class* class$) {
+void ParserFactory::clinit$($Class* clazz) {
 	$assignStatic(ParserFactory::parserFactoryKey, $new($Context$Key));
 }
 
@@ -124,7 +87,38 @@ ParserFactory::ParserFactory() {
 }
 
 $Class* ParserFactory::load$($String* name, bool initialize) {
-	$loadClass(ParserFactory, name, initialize, &_ParserFactory_ClassInfo_, clinit$ParserFactory, allocate$ParserFactory);
+	$FieldInfo fieldInfos$$[] = {
+		{"parserFactoryKey", "Lcom/sun/tools/javac/util/Context$Key;", "Lcom/sun/tools/javac/util/Context$Key<Lcom/sun/tools/javac/parser/ParserFactory;>;", $PROTECTED | $STATIC | $FINAL, $staticField(ParserFactory, parserFactoryKey)},
+		{"F", "Lcom/sun/tools/javac/tree/TreeMaker;", nullptr, $FINAL, $field(ParserFactory, F)},
+		{"docTreeMaker", "Lcom/sun/tools/javac/tree/DocTreeMaker;", nullptr, $FINAL, $field(ParserFactory, docTreeMaker)},
+		{"log", "Lcom/sun/tools/javac/util/Log;", nullptr, $FINAL, $field(ParserFactory, log)},
+		{"tokens", "Lcom/sun/tools/javac/parser/Tokens;", nullptr, $FINAL, $field(ParserFactory, tokens)},
+		{"source", "Lcom/sun/tools/javac/code/Source;", nullptr, $FINAL, $field(ParserFactory, source)},
+		{"preview", "Lcom/sun/tools/javac/code/Preview;", nullptr, $FINAL, $field(ParserFactory, preview)},
+		{"names", "Lcom/sun/tools/javac/util/Names;", nullptr, $FINAL, $field(ParserFactory, names)},
+		{"options", "Lcom/sun/tools/javac/util/Options;", nullptr, $FINAL, $field(ParserFactory, options)},
+		{"scannerFactory", "Lcom/sun/tools/javac/parser/ScannerFactory;", nullptr, $FINAL, $field(ParserFactory, scannerFactory)},
+		{"locale", "Ljava/util/Locale;", nullptr, $FINAL, $field(ParserFactory, locale)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/util/Context;)V", nullptr, $PROTECTED, $method(ParserFactory, init$, void, $Context*)},
+		{"instance", "(Lcom/sun/tools/javac/util/Context;)Lcom/sun/tools/javac/parser/ParserFactory;", nullptr, $PUBLIC | $STATIC, $staticMethod(ParserFactory, instance, ParserFactory*, $Context*)},
+		{"newParser", "(Ljava/lang/CharSequence;ZZZ)Lcom/sun/tools/javac/parser/JavacParser;", nullptr, $PUBLIC, $virtualMethod(ParserFactory, newParser, $JavacParser*, $CharSequence*, bool, bool, bool)},
+		{"newParser", "(Ljava/lang/CharSequence;ZZZZ)Lcom/sun/tools/javac/parser/JavacParser;", nullptr, $PUBLIC, $virtualMethod(ParserFactory, newParser, $JavacParser*, $CharSequence*, bool, bool, bool, bool)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.parser.ParserFactory",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ParserFactory, name, initialize, &classInfo$$, ParserFactory::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ParserFactory);
+	});
 	return class$;
 }
 

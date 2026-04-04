@@ -30,7 +30,7 @@ public:
 	virtual void freeInstance(Object$* obj);
 	virtual $Object* getInstance();
 	virtual $Object* getInstanceIfFree();
-	static const int64_t serialVersionUID = (int64_t)0x89C6622EDFDC5A3D;
+	static const int64_t serialVersionUID = (int64_t)0x89c6622edfdc5a3d;
 	$Class* objectType = nullptr;
 	::java::util::List* freeStack = nullptr;
 };

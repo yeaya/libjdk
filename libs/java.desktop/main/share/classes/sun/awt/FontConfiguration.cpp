@@ -1,5 +1,4 @@
 #include <sun/awt/FontConfiguration.h>
-
 #include <java/awt/Font.h>
 #include <java/io/DataInputStream.h>
 #include <java/io/DataOutputStream.h>
@@ -16,7 +15,6 @@
 #include <java/nio/charset/Charset.h>
 #include <java/nio/charset/CharsetEncoder.h>
 #include <java/security/AccessController.h>
-#include <java/security/PrivilegedAction.h>
 #include <java/util/Arrays.h>
 #include <java/util/HashMap.h>
 #include <java/util/HashSet.h>
@@ -73,7 +71,6 @@ using $FileInputStream = ::java::io::FileInputStream;
 using $IOException = ::java::io::IOException;
 using $InputStream = ::java::io::InputStream;
 using $OutputStream = ::java::io::OutputStream;
-using $PrintStream = ::java::io::PrintStream;
 using $AssertionError = ::java::lang::AssertionError;
 using $Boolean = ::java::lang::Boolean;
 using $CharSequence = ::java::lang::CharSequence;
@@ -85,11 +82,9 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Short = ::java::lang::Short;
-using $Constructor = ::java::lang::reflect::Constructor;
 using $Charset = ::java::nio::charset::Charset;
 using $CharsetEncoder = ::java::nio::charset::CharsetEncoder;
 using $AccessController = ::java::security::AccessController;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $Arrays = ::java::util::Arrays;
 using $HashMap = ::java::util::HashMap;
 using $HashSet = ::java::util::HashSet;
@@ -97,7 +92,6 @@ using $Hashtable = ::java::util::Hashtable;
 using $Iterator = ::java::util::Iterator;
 using $Locale = ::java::util::Locale;
 using $Map$Entry = ::java::util::Map$Entry;
-using $Set = ::java::util::Set;
 using $Vector = ::java::util::Vector;
 using $FontConfiguration$1 = ::sun::awt::FontConfiguration$1;
 using $FontConfiguration$2 = ::sun::awt::FontConfiguration$2;
@@ -112,208 +106,6 @@ using $PlatformLogger = ::sun::util::logging::PlatformLogger;
 
 namespace sun {
 	namespace awt {
-
-$FieldInfo _FontConfiguration_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(FontConfiguration, $assertionsDisabled)},
-	{"osVersion", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC, $staticField(FontConfiguration, osVersion)},
-	{"osName", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC, $staticField(FontConfiguration, osName)},
-	{"encoding", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC, $staticField(FontConfiguration, encoding)},
-	{"startupLocale", "Ljava/util/Locale;", nullptr, $PROTECTED | $STATIC, $staticField(FontConfiguration, startupLocale)},
-	{"localeMap", "Ljava/util/Hashtable;", "Ljava/util/Hashtable<Ljava/lang/String;Ljava/lang/String;>;", $PROTECTED | $STATIC, $staticField(FontConfiguration, localeMap)},
-	{"fontConfig", "Lsun/awt/FontConfiguration;", nullptr, $PRIVATE | $STATIC, $staticField(FontConfiguration, fontConfig)},
-	{"logger", "Lsun/util/logging/PlatformLogger;", nullptr, $PRIVATE | $STATIC, $staticField(FontConfiguration, logger)},
-	{"isProperties", "Z", nullptr, $PROTECTED | $STATIC, $staticField(FontConfiguration, isProperties)},
-	{"fontManager", "Lsun/font/SunFontManager;", nullptr, $PROTECTED, $field(FontConfiguration, fontManager)},
-	{"preferLocaleFonts", "Z", nullptr, $PROTECTED, $field(FontConfiguration, preferLocaleFonts)},
-	{"preferPropFonts", "Z", nullptr, $PROTECTED, $field(FontConfiguration, preferPropFonts)},
-	{"fontConfigFile", "Ljava/io/File;", nullptr, $PRIVATE, $field(FontConfiguration, fontConfigFile)},
-	{"foundOsSpecificFile", "Z", nullptr, $PRIVATE, $field(FontConfiguration, foundOsSpecificFile$)},
-	{"inited", "Z", nullptr, $PRIVATE, $field(FontConfiguration, inited)},
-	{"javaLib", "Ljava/lang/String;", nullptr, $PRIVATE, $field(FontConfiguration, javaLib)},
-	{"stringIDNum", "S", nullptr, $PRIVATE | $STATIC, $staticField(FontConfiguration, stringIDNum)},
-	{"stringIDs", "[S", nullptr, $PRIVATE | $STATIC, $staticField(FontConfiguration, stringIDs)},
-	{"stringTable", "Ljava/lang/StringBuilder;", nullptr, $PRIVATE | $STATIC, $staticField(FontConfiguration, stringTable)},
-	{"verbose", "Z", nullptr, $PUBLIC | $STATIC, $staticField(FontConfiguration, verbose)},
-	{"initELC", "S", nullptr, $PRIVATE, $field(FontConfiguration, initELC)},
-	{"initLocale", "Ljava/util/Locale;", nullptr, $PRIVATE, $field(FontConfiguration, initLocale)},
-	{"initEncoding", "Ljava/lang/String;", nullptr, $PRIVATE, $field(FontConfiguration, initEncoding)},
-	{"alphabeticSuffix", "Ljava/lang/String;", nullptr, $PRIVATE, $field(FontConfiguration, alphabeticSuffix)},
-	{"compFontNameIDs", "[[[S", nullptr, $PRIVATE, $field(FontConfiguration, compFontNameIDs)},
-	{"compExclusions", "[[[I", nullptr, $PRIVATE, $field(FontConfiguration, compExclusions)},
-	{"compCoreNum", "[I", nullptr, $PRIVATE, $field(FontConfiguration, compCoreNum)},
-	{"coreFontNameIDs", "Ljava/util/Set;", "Ljava/util/Set<Ljava/lang/Short;>;", $PRIVATE, $field(FontConfiguration, coreFontNameIDs)},
-	{"fallbackFontNameIDs", "Ljava/util/Set;", "Ljava/util/Set<Ljava/lang/Short;>;", $PRIVATE, $field(FontConfiguration, fallbackFontNameIDs)},
-	{"NUM_FONTS", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(FontConfiguration, NUM_FONTS)},
-	{"NUM_STYLES", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(FontConfiguration, NUM_STYLES)},
-	{"fontNames", "[Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(FontConfiguration, fontNames)},
-	{"publicFontNames", "[Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(FontConfiguration, publicFontNames)},
-	{"styleNames", "[Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(FontConfiguration, styleNames)},
-	{"installedFallbackFontFiles", "[Ljava/lang/String;", nullptr, $PROTECTED | $STATIC, $staticField(FontConfiguration, installedFallbackFontFiles)},
-	{"reorderMap", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/Object;>;", $PROTECTED, $field(FontConfiguration, reorderMap)},
-	{"charsetRegistry", "Ljava/util/Hashtable;", "Ljava/util/Hashtable<Ljava/lang/String;Ljava/nio/charset/Charset;>;", $PRIVATE, $field(FontConfiguration, charsetRegistry)},
-	{"fontDescriptors", "[[[Lsun/awt/FontDescriptor;", nullptr, $PRIVATE, $field(FontConfiguration, fontDescriptors)},
-	{"existsMap", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/Boolean;>;", 0, $field(FontConfiguration, existsMap)},
-	{"numCoreFonts", "I", nullptr, $PRIVATE, $field(FontConfiguration, numCoreFonts)},
-	{"componentFonts", "[Ljava/lang/String;", nullptr, $PRIVATE, $field(FontConfiguration, componentFonts)},
-	{"filenamesMap", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/String;>;", 0, $field(FontConfiguration, filenamesMap)},
-	{"coreFontFileNames", "Ljava/util/HashSet;", "Ljava/util/HashSet<Ljava/lang/String;>;", 0, $field(FontConfiguration, coreFontFileNames)},
-	{"HEAD_LENGTH", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(FontConfiguration, HEAD_LENGTH)},
-	{"INDEX_scriptIDs", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(FontConfiguration, INDEX_scriptIDs)},
-	{"INDEX_scriptFonts", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(FontConfiguration, INDEX_scriptFonts)},
-	{"INDEX_elcIDs", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(FontConfiguration, INDEX_elcIDs)},
-	{"INDEX_sequences", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(FontConfiguration, INDEX_sequences)},
-	{"INDEX_fontfileNameIDs", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(FontConfiguration, INDEX_fontfileNameIDs)},
-	{"INDEX_componentFontNameIDs", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(FontConfiguration, INDEX_componentFontNameIDs)},
-	{"INDEX_filenames", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(FontConfiguration, INDEX_filenames)},
-	{"INDEX_awtfontpaths", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(FontConfiguration, INDEX_awtfontpaths)},
-	{"INDEX_exclusions", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(FontConfiguration, INDEX_exclusions)},
-	{"INDEX_proportionals", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(FontConfiguration, INDEX_proportionals)},
-	{"INDEX_scriptFontsMotif", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(FontConfiguration, INDEX_scriptFontsMotif)},
-	{"INDEX_alphabeticSuffix", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(FontConfiguration, INDEX_alphabeticSuffix)},
-	{"INDEX_stringIDs", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(FontConfiguration, INDEX_stringIDs)},
-	{"INDEX_stringTable", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(FontConfiguration, INDEX_stringTable)},
-	{"INDEX_TABLEEND", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(FontConfiguration, INDEX_TABLEEND)},
-	{"INDEX_fallbackScripts", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(FontConfiguration, INDEX_fallbackScripts)},
-	{"INDEX_appendedfontpath", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(FontConfiguration, INDEX_appendedfontpath)},
-	{"INDEX_version", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(FontConfiguration, INDEX_version)},
-	{"head", "[S", nullptr, $PRIVATE | $STATIC, $staticField(FontConfiguration, head)},
-	{"table_scriptIDs", "[S", nullptr, $PRIVATE | $STATIC, $staticField(FontConfiguration, table_scriptIDs)},
-	{"table_scriptFonts", "[S", nullptr, $PRIVATE | $STATIC, $staticField(FontConfiguration, table_scriptFonts)},
-	{"table_elcIDs", "[S", nullptr, $PRIVATE | $STATIC, $staticField(FontConfiguration, table_elcIDs)},
-	{"table_sequences", "[S", nullptr, $PRIVATE | $STATIC, $staticField(FontConfiguration, table_sequences)},
-	{"table_fontfileNameIDs", "[S", nullptr, $PRIVATE | $STATIC, $staticField(FontConfiguration, table_fontfileNameIDs)},
-	{"table_componentFontNameIDs", "[S", nullptr, $PRIVATE | $STATIC, $staticField(FontConfiguration, table_componentFontNameIDs)},
-	{"table_filenames", "[S", nullptr, $PRIVATE | $STATIC, $staticField(FontConfiguration, table_filenames)},
-	{"table_awtfontpaths", "[S", nullptr, $PROTECTED | $STATIC, $staticField(FontConfiguration, table_awtfontpaths)},
-	{"table_exclusions", "[S", nullptr, $PRIVATE | $STATIC, $staticField(FontConfiguration, table_exclusions)},
-	{"table_proportionals", "[S", nullptr, $PRIVATE | $STATIC, $staticField(FontConfiguration, table_proportionals)},
-	{"table_scriptFontsMotif", "[S", nullptr, $PRIVATE | $STATIC, $staticField(FontConfiguration, table_scriptFontsMotif)},
-	{"table_alphabeticSuffix", "[S", nullptr, $PRIVATE | $STATIC, $staticField(FontConfiguration, table_alphabeticSuffix)},
-	{"table_stringIDs", "[S", nullptr, $PRIVATE | $STATIC, $staticField(FontConfiguration, table_stringIDs)},
-	{"table_stringTable", "[C", nullptr, $PRIVATE | $STATIC, $staticField(FontConfiguration, table_stringTable)},
-	{"reorderScripts", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/Short;>;", $PRIVATE, $field(FontConfiguration, reorderScripts)},
-	{"stringCache", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(FontConfiguration, stringCache)},
-	{"EMPTY_INT_ARRAY", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(FontConfiguration, EMPTY_INT_ARRAY)},
-	{"EMPTY_STRING_ARRAY", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(FontConfiguration, EMPTY_STRING_ARRAY)},
-	{"EMPTY_SHORT_ARRAY", "[S", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(FontConfiguration, EMPTY_SHORT_ARRAY)},
-	{"UNDEFINED_COMPONENT_FONT", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(FontConfiguration, UNDEFINED_COMPONENT_FONT)},
-	{}
-};
-
-$MethodInfo _FontConfiguration_MethodInfo_[] = {
-	{"<init>", "(Lsun/font/SunFontManager;)V", nullptr, $PUBLIC, $method(FontConfiguration, init$, void, $SunFontManager*)},
-	{"<init>", "(Lsun/font/SunFontManager;ZZ)V", nullptr, $PUBLIC, $method(FontConfiguration, init$, void, $SunFontManager*, bool, bool)},
-	{"buildFontDescriptors", "(II)[Lsun/awt/FontDescriptor;", nullptr, $PROTECTED, $virtualMethod(FontConfiguration, buildFontDescriptors, $FontDescriptorArray*, int32_t, int32_t)},
-	{"contains", "([SSI)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(FontConfiguration, contains, bool, $shorts*, int16_t, int32_t)},
-	{"dump", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(FontConfiguration, dump, void)},
-	{"findFontConfigFile", "()V", nullptr, $PRIVATE, $method(FontConfiguration, findFontConfigFile, void)},
-	{"findFontConfigFile", "(Ljava/lang/String;)Ljava/io/File;", nullptr, $PRIVATE, $method(FontConfiguration, findFontConfigFile, $File*, $String*)},
-	{"findImpl", "(Ljava/lang/String;)Ljava/io/File;", nullptr, $PRIVATE, $method(FontConfiguration, findImpl, $File*, $String*)},
-	{"fontFilesArePresent", "()Z", nullptr, $PUBLIC, $virtualMethod(FontConfiguration, fontFilesArePresent, bool)},
-	{"foundOsSpecificFile", "()Z", nullptr, $PUBLIC, $virtualMethod(FontConfiguration, foundOsSpecificFile, bool)},
-	{"get2DCompositeFontInfo", "()[Lsun/font/CompositeFontDescriptor;", nullptr, $PUBLIC, $virtualMethod(FontConfiguration, get2DCompositeFontInfo, $CompositeFontDescriptorArray*)},
-	{"getAWTFontPathSet", "()Ljava/util/HashSet;", "()Ljava/util/HashSet<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(FontConfiguration, getAWTFontPathSet, $HashSet*)},
-	{"getArrayIndex", "([Ljava/lang/String;Ljava/lang/String;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(FontConfiguration, getArrayIndex, int32_t, $StringArray*, $String*)},
-	{"getCompatibilityFamilyName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(FontConfiguration, getCompatibilityFamilyName, $String*, $String*)},
-	{"getComponentFileID", "(S)S", nullptr, $PRIVATE | $STATIC, $staticMethod(FontConfiguration, getComponentFileID, int16_t, int16_t)},
-	{"getComponentFileName", "(S)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(FontConfiguration, getComponentFileName, $String*, int16_t)},
-	{"getComponentFontID", "(SII)S", nullptr, $PROTECTED | $STATIC, $staticMethod(FontConfiguration, getComponentFontID, int16_t, int16_t, int32_t, int32_t)},
-	{"getComponentFontIDMotif", "(SII)S", nullptr, $PROTECTED | $STATIC, $staticMethod(FontConfiguration, getComponentFontIDMotif, int16_t, int16_t, int32_t, int32_t)},
-	{"getComponentFontName", "(S)Ljava/lang/String;", nullptr, $PROTECTED | $STATIC, $staticMethod(FontConfiguration, getComponentFontName, $String*, int16_t)},
-	{"getCoreScripts", "(I)[S", nullptr, $PROTECTED, $virtualMethod(FontConfiguration, getCoreScripts, $shorts*, int32_t)},
-	{"getDefaultFontCharset", "(Ljava/lang/String;)Ljava/nio/charset/Charset;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(FontConfiguration, getDefaultFontCharset, $Charset*, $String*)},
-	{"getEncoding", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(FontConfiguration, getEncoding, $String*, $String*, $String*)},
-	{"getExclusionRanges", "(S)[I", nullptr, $PRIVATE | $STATIC, $staticMethod(FontConfiguration, getExclusionRanges, $ints*, int16_t)},
-	{"getExtraFontPath", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(FontConfiguration, getExtraFontPath, $String*)},
-	{"getFaceNameFromComponentFontName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(FontConfiguration, getFaceNameFromComponentFontName, $String*, $String*)},
-	{"getFallbackFamilyName", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(FontConfiguration, getFallbackFamilyName, $String*, $String*, $String*)},
-	{"getFallbackScripts", "()[S", nullptr, $PRIVATE | $STATIC, $staticMethod(FontConfiguration, getFallbackScripts, $shorts*)},
-	{"getFileNameFromComponentFontName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(FontConfiguration, getFileNameFromComponentFontName, $String*, $String*)},
-	{"getFileNameFromPlatformName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(FontConfiguration, getFileNameFromPlatformName, $String*, $String*)},
-	{"getFontCharsetEncoder", "(Ljava/lang/String;Ljava/lang/String;)Ljava/nio/charset/CharsetEncoder;", nullptr, $PRIVATE, $method(FontConfiguration, getFontCharsetEncoder, $CharsetEncoder*, $String*, $String*)},
-	{"getFontConfiguration", "()Lsun/awt/FontConfiguration;", nullptr, $PROTECTED | $STATIC, $staticMethod(FontConfiguration, getFontConfiguration, FontConfiguration*)},
-	{"getFontDescriptors", "(Ljava/lang/String;I)[Lsun/awt/FontDescriptor;", nullptr, $PUBLIC, $virtualMethod(FontConfiguration, getFontDescriptors, $FontDescriptorArray*, $String*, int32_t)},
-	{"getFontDescriptors", "(II)[Lsun/awt/FontDescriptor;", nullptr, $PRIVATE, $method(FontConfiguration, getFontDescriptors, $FontDescriptorArray*, int32_t, int32_t)},
-	{"getFontIndex", "(Ljava/lang/String;)I", nullptr, $PROTECTED | $STATIC, $staticMethod(FontConfiguration, getFontIndex, int32_t, $String*)},
-	{"getFontName", "(I)Ljava/lang/String;", nullptr, $PROTECTED | $STATIC, $staticMethod(FontConfiguration, getFontName, $String*, int32_t)},
-	{"getInitELC", "()S", nullptr, $PRIVATE, $method(FontConfiguration, getInitELC, int16_t)},
-	{"getInstalledFallbackFonts", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(FontConfiguration, getInstalledFallbackFonts, void, $String*)},
-	{"getLogicalFontFaceName", "(Ljava/lang/String;I)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(FontConfiguration, getLogicalFontFaceName, $String*, $String*, int32_t)},
-	{"getNumberCoreFonts", "()I", nullptr, $PUBLIC, $virtualMethod(FontConfiguration, getNumberCoreFonts, int32_t)},
-	{"getPlatformFontNames", "()[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(FontConfiguration, getPlatformFontNames, $StringArray*)},
-	{"getReorderSequence", "()Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC, $staticMethod(FontConfiguration, getReorderSequence, $Object*)},
-	{"getScriptName", "(S)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(FontConfiguration, getScriptName, $String*, int16_t)},
-	{"getShortArray", "(S)[S", nullptr, $PRIVATE | $STATIC, $staticMethod(FontConfiguration, getShortArray, $shorts*, int16_t)},
-	{"getShortArrayID", "([S)S", nullptr, $PRIVATE | $STATIC, $staticMethod(FontConfiguration, getShortArrayID, int16_t, $shorts*)},
-	{"getString", "(S)Ljava/lang/String;", nullptr, $PROTECTED | $STATIC, $staticMethod(FontConfiguration, getString, $String*, int16_t)},
-	{"getStringID", "(Ljava/lang/String;)S", nullptr, $PRIVATE | $STATIC, $staticMethod(FontConfiguration, getStringID, int16_t, $String*)},
-	{"getStyleIndex", "(Ljava/lang/String;)I", nullptr, $PROTECTED | $STATIC, $staticMethod(FontConfiguration, getStyleIndex, int32_t, $String*)},
-	{"getStyleIndex", "(I)I", nullptr, $PROTECTED | $STATIC, $staticMethod(FontConfiguration, getStyleIndex, int32_t, int32_t)},
-	{"getStyleName", "(I)Ljava/lang/String;", nullptr, $PROTECTED | $STATIC, $staticMethod(FontConfiguration, getStyleName, $String*, int32_t)},
-	{"getStyleString", "(I)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(FontConfiguration, getStyleString, $String*, int32_t)},
-	{"getVersion", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(FontConfiguration, getVersion, $String*)},
-	{"hasMonoToPropMap", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(FontConfiguration, hasMonoToPropMap, bool)},
-	{"init", "()Z", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(FontConfiguration, init, bool)},
-	{"initAllComponentFonts", "()V", nullptr, $PRIVATE, $method(FontConfiguration, initAllComponentFonts, void)},
-	{"initFontConfig", "()V", nullptr, $PRIVATE, $method(FontConfiguration, initFontConfig, void)},
-	{"initReorderMap", "()V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(FontConfiguration, initReorderMap, void)},
-	{"isEmpty", "([S)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(FontConfiguration, isEmpty, bool, $shorts*)},
-	{"isLogicalFontFaceName", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(FontConfiguration, isLogicalFontFaceName, bool, $String*)},
-	{"isLogicalFontFaceNameLC", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(FontConfiguration, isLogicalFontFaceNameLC, bool, $String*)},
-	{"isLogicalFontFamilyName", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(FontConfiguration, isLogicalFontFamilyName, bool, $String*)},
-	{"isLogicalFontFamilyNameLC", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(FontConfiguration, isLogicalFontFamilyNameLC, bool, $String*)},
-	{"isLogicalFontStyleName", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(FontConfiguration, isLogicalFontStyleName, bool, $String*)},
-	{"loadBinary", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(FontConfiguration, loadBinary, void, $InputStream*), "java.io.IOException"},
-	{"loadProperties", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(FontConfiguration, loadProperties, void, $InputStream*), "java.io.IOException"},
-	{"makeAWTFontName", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(FontConfiguration, makeAWTFontName, $String*, $String*, $String*)},
-	{"mapFileName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(FontConfiguration, mapFileName, $String*, $String*)},
-	{"needToSearchForFile", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(FontConfiguration, needToSearchForFile, bool, $String*)},
-	{"printTable", "([SI)V", nullptr, $PRIVATE | $STATIC, $staticMethod(FontConfiguration, printTable, void, $shorts*, int32_t)},
-	{"readFontConfigFile", "(Ljava/io/File;)V", nullptr, $PRIVATE, $method(FontConfiguration, readFontConfigFile, void, $File*)},
-	{"readShortTable", "(Ljava/io/DataInputStream;I)[S", nullptr, $PRIVATE | $STATIC, $staticMethod(FontConfiguration, readShortTable, $shorts*, $DataInputStream*, int32_t), "java.io.IOException"},
-	{"remapLocaleMap", "(IISS)S", nullptr, $PRIVATE, $method(FontConfiguration, remapLocaleMap, int16_t, int32_t, int32_t, int16_t, int16_t)},
-	{"remapProportional", "(IS)S", nullptr, $PRIVATE, $method(FontConfiguration, remapProportional, int16_t, int32_t, int16_t)},
-	{"reorderSequenceForLocale", "([Ljava/lang/String;)V", nullptr, $PRIVATE, $method(FontConfiguration, reorderSequenceForLocale, void, $StringArray*)},
-	{"sanityCheck", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(FontConfiguration, sanityCheck, void)},
-	{"saveBinary", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(FontConfiguration, saveBinary, void, $OutputStream*), "java.io.IOException"},
-	{"setEncoding", "()V", nullptr, $PRIVATE, $method(FontConfiguration, setEncoding, void)},
-	{"setFontConfiguration", "()V", nullptr, $PROTECTED, $virtualMethod(FontConfiguration, setFontConfiguration, void)},
-	{"setOsNameAndVersion", "()V", nullptr, $PROTECTED, $virtualMethod(FontConfiguration, setOsNameAndVersion, void)},
-	{"shuffle", "([Ljava/lang/String;II)V", nullptr, $PRIVATE, $method(FontConfiguration, shuffle, void, $StringArray*, int32_t, int32_t)},
-	{"split", "(Ljava/lang/String;)[Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(FontConfiguration, split, $StringArray*, $String*)},
-	{"splitSequence", "(Ljava/lang/String;)Ljava/util/Vector;", "(Ljava/lang/String;)Ljava/util/Vector<Ljava/lang/String;>;", $PRIVATE | $STATIC, $staticMethod(FontConfiguration, splitSequence, $Vector*, $String*)},
-	{"toList", "(Ljava/util/HashMap;)[S", "(Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/Short;>;)[S", $PRIVATE | $STATIC, $staticMethod(FontConfiguration, toList, $shorts*, $HashMap*)},
-	{"willReorderForStartupLocale", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(FontConfiguration, willReorderForStartupLocale, bool)},
-	{"writeShortTable", "(Ljava/io/DataOutputStream;[S)V", nullptr, $PRIVATE | $STATIC, $staticMethod(FontConfiguration, writeShortTable, void, $DataOutputStream*, $shorts*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _FontConfiguration_InnerClassesInfo_[] = {
-	{"sun.awt.FontConfiguration$PropertiesHandler", "sun.awt.FontConfiguration", "PropertiesHandler", $STATIC},
-	{"sun.awt.FontConfiguration$3", nullptr, nullptr, 0},
-	{"sun.awt.FontConfiguration$2", nullptr, nullptr, 0},
-	{"sun.awt.FontConfiguration$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _FontConfiguration_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"sun.awt.FontConfiguration",
-	"java.lang.Object",
-	nullptr,
-	_FontConfiguration_FieldInfo_,
-	_FontConfiguration_MethodInfo_,
-	nullptr,
-	nullptr,
-	_FontConfiguration_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.awt.FontConfiguration$PropertiesHandler,sun.awt.FontConfiguration$PropertiesHandler$FontProperties,sun.awt.FontConfiguration$3,sun.awt.FontConfiguration$2,sun.awt.FontConfiguration$1"
-};
-
-$Object* allocate$FontConfiguration($Class* clazz) {
-	return $of($alloc(FontConfiguration));
-}
 
 bool FontConfiguration::$assertionsDisabled = false;
 $String* FontConfiguration::osVersion = nullptr;
@@ -354,7 +146,7 @@ $shorts* FontConfiguration::EMPTY_SHORT_ARRAY = nullptr;
 $String* FontConfiguration::UNDEFINED_COMPONENT_FONT = nullptr;
 
 void FontConfiguration::init$($SunFontManager* fm) {
-	this->initELC = (int16_t)-1;
+	this->initELC = -1;
 	$set(this, compFontNameIDs, $new($shortArray3, FontConfiguration::NUM_FONTS, FontConfiguration::NUM_STYLES));
 	$set(this, compExclusions, $new($intArray3, FontConfiguration::NUM_FONTS));
 	$set(this, compCoreNum, $new($ints, FontConfiguration::NUM_FONTS));
@@ -394,7 +186,7 @@ bool FontConfiguration::init() {
 }
 
 void FontConfiguration::init$($SunFontManager* fm, bool preferLocaleFonts, bool preferPropFonts) {
-	this->initELC = (int16_t)-1;
+	this->initELC = -1;
 	$set(this, compFontNameIDs, $new($shortArray3, FontConfiguration::NUM_FONTS, FontConfiguration::NUM_STYLES));
 	$set(this, compExclusions, $new($intArray3, FontConfiguration::NUM_FONTS));
 	$set(this, compCoreNum, $new($ints, FontConfiguration::NUM_FONTS));
@@ -422,7 +214,7 @@ void FontConfiguration::setOsNameAndVersion() {
 }
 
 void FontConfiguration::setEncoding() {
-	$assignStatic(FontConfiguration::encoding, $nc($($Charset::defaultCharset()))->name());
+	$assignStatic(FontConfiguration::encoding, $$nc($Charset::defaultCharset())->name());
 	$assignStatic(FontConfiguration::startupLocale, $SunToolkit::getStartupLocale());
 }
 
@@ -431,18 +223,18 @@ bool FontConfiguration::foundOsSpecificFile() {
 }
 
 bool FontConfiguration::fontFilesArePresent() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	init();
 	int16_t fontNameID = $nc($nc($nc(this->compFontNameIDs)->get(0))->get(0))->get(0);
 	int16_t fileNameID = getComponentFileID(fontNameID);
 	$var($String, fileName, mapFileName($(getComponentFileName(fileNameID))));
-	$var($Boolean, exists, $cast($Boolean, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($FontConfiguration$1, this, fileName)))));
+	$var($Boolean, exists, $cast($Boolean, $AccessController::doPrivileged($$new($FontConfiguration$1, this, fileName))));
 	return $nc(exists)->booleanValue();
 }
 
 void FontConfiguration::findFontConfigFile() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->foundOsSpecificFile$ = true;
 	$var($String, javaHome, $System::getProperty("java.home"_s));
 	if (javaHome == nullptr) {
@@ -463,7 +255,7 @@ void FontConfiguration::findFontConfigFile() {
 }
 
 void FontConfiguration::readFontConfigFile($File* f) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (f == nullptr) {
 		$var($InputStream, in, $ref(FontConfiguration::class$->getResourceAsStream("/fontconfig.bfc"_s)));
 		try {
@@ -500,7 +292,7 @@ void FontConfiguration::readFontConfigFile($File* f) {
 }
 
 void FontConfiguration::getInstalledFallbackFonts($String* javaLib) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($File);
 	$var($String, fallbackDirName, $str({javaLib, $File::separator, "fonts"_s, $File::separator, "fallback"_s}));
 	$var($File, fallbackDir, $new($File, fallbackDirName));
@@ -508,25 +300,25 @@ void FontConfiguration::getInstalledFallbackFonts($String* javaLib) {
 	if (var$0 && fallbackDir->isDirectory()) {
 		$var($StringArray, ttfs, fallbackDir->list($($nc(this->fontManager)->getTrueTypeFilter())));
 		$var($StringArray, t1s, fallbackDir->list($($nc(this->fontManager)->getType1Filter())));
-		int32_t numTTFs = (ttfs == nullptr) ? 0 : $nc(ttfs)->length;
-		int32_t numT1s = (t1s == nullptr) ? 0 : $nc(t1s)->length;
+		int32_t numTTFs = (ttfs == nullptr) ? 0 : ttfs->length;
+		int32_t numT1s = (t1s == nullptr) ? 0 : t1s->length;
 		int32_t len = numTTFs + numT1s;
 		if (numTTFs + numT1s == 0) {
 			return;
 		}
 		$assignStatic(FontConfiguration::installedFallbackFontFiles, $new($StringArray, len));
 		for (int32_t i = 0; i < numTTFs; ++i) {
-			$nc(FontConfiguration::installedFallbackFontFiles)->set(i, $$str({fallbackDir, $File::separator, ttfs->get(i)}));
+			FontConfiguration::installedFallbackFontFiles->set(i, $$str({fallbackDir, $File::separator, $nc(ttfs)->get(i)}));
 		}
 		for (int32_t i = 0; i < numT1s; ++i) {
-			$nc(FontConfiguration::installedFallbackFontFiles)->set(i + numTTFs, $$str({fallbackDir, $File::separator, t1s->get(i)}));
+			FontConfiguration::installedFallbackFontFiles->set(i + numTTFs, $$str({fallbackDir, $File::separator, $nc(t1s)->get(i)}));
 		}
 		$nc(this->fontManager)->registerFontsInDir(fallbackDirName);
 	}
 }
 
 $File* FontConfiguration::findImpl($String* fname) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($File, f, $new($File, $$str({fname, ".properties"_s})));
 	if ($FontUtilities::debugFonts()) {
 		$nc(FontConfiguration::logger)->info($$str({"Looking for text fontconfig file : "_s, f}));
@@ -553,7 +345,7 @@ $File* FontConfiguration::findImpl($String* fname) {
 }
 
 $File* FontConfiguration::findFontConfigFile($String* dir) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!($$new($File, dir))->exists()) {
 		return nullptr;
 	}
@@ -565,9 +357,9 @@ $File* FontConfiguration::findFontConfigFile($String* dir) {
 		if (configFile != nullptr) {
 			return configFile;
 		}
-		int32_t decimalPointIndex = $nc(FontConfiguration::osVersion)->indexOf((int32_t)u'.');
+		int32_t decimalPointIndex = $nc(FontConfiguration::osVersion)->indexOf(u'.');
 		if (decimalPointIndex != -1) {
-			$assign(osMajorVersion, $nc(FontConfiguration::osVersion)->substring(0, $nc(FontConfiguration::osVersion)->indexOf((int32_t)u'.')));
+			$assign(osMajorVersion, FontConfiguration::osVersion->substring(0, FontConfiguration::osVersion->indexOf(u'.')));
 			$assign(configFile, findImpl($$str({baseName, "."_s, FontConfiguration::osName, "."_s, osMajorVersion})));
 			if (configFile != nullptr) {
 				return configFile;
@@ -605,7 +397,7 @@ $File* FontConfiguration::findFontConfigFile($String* dir) {
 
 void FontConfiguration::loadBinary($InputStream* inStream) {
 	$init(FontConfiguration);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DataInputStream, in, $new($DataInputStream, inStream));
 	$assignStatic(FontConfiguration::head, readShortTable(in, FontConfiguration::HEAD_LENGTH));
 	$var($ints, tableSizes, $new($ints, FontConfiguration::INDEX_TABLEEND));
@@ -634,7 +426,7 @@ void FontConfiguration::loadBinary($InputStream* inStream) {
 	int32_t j = 0;
 	while (i < len) {
 		int32_t var$0 = bb->get(j++) << 8;
-		$nc(FontConfiguration::table_stringTable)->set(i++, (char16_t)(var$0 | ((int32_t)(bb->get(j++) & (uint32_t)255))));
+		FontConfiguration::table_stringTable->set(i++, (char16_t)(var$0 | (bb->get(j++) & 0xff)));
 	}
 	if (FontConfiguration::verbose) {
 		dump();
@@ -643,7 +435,7 @@ void FontConfiguration::loadBinary($InputStream* inStream) {
 
 void FontConfiguration::saveBinary($OutputStream* out) {
 	$init(FontConfiguration);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	sanityCheck();
 	$var($DataOutputStream, dataOut, $new($DataOutputStream, out));
 	writeShortTable(dataOut, FontConfiguration::head);
@@ -669,7 +461,7 @@ void FontConfiguration::saveBinary($OutputStream* out) {
 
 void FontConfiguration::loadProperties($InputStream* in) {
 	$init(FontConfiguration);
-	FontConfiguration::stringIDNum = (int16_t)1;
+	FontConfiguration::stringIDNum = 1;
 	$assignStatic(FontConfiguration::stringIDs, $new($shorts, 1000));
 	$assignStatic(FontConfiguration::stringTable, $new($StringBuilder, 4096));
 	if (FontConfiguration::verbose && FontConfiguration::logger == nullptr) {
@@ -691,29 +483,29 @@ void FontConfiguration::initFontConfig() {
 }
 
 int16_t FontConfiguration::getInitELC() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->initELC != -1) {
 		return this->initELC;
 	}
 	$var($HashMap, elcIDs, $new($HashMap));
 	for (int32_t i = 0; i < $nc(FontConfiguration::table_elcIDs)->length; ++i) {
-		$var($Object, var$0, $of(getString($nc(FontConfiguration::table_elcIDs)->get(i))));
+		$var($Object, var$0, getString(FontConfiguration::table_elcIDs->get(i)));
 		elcIDs->put(var$0, $($Integer::valueOf(i)));
 	}
 	$var($String, language, $nc(this->initLocale)->getLanguage());
-	$var($String, country, $nc(this->initLocale)->getCountry());
+	$var($String, country, this->initLocale->getCountry());
 	$var($String, elc, nullptr);
 	bool var$2 = elcIDs->containsKey($assign(elc, $str({this->initEncoding, "."_s, language, "."_s, country})));
 	bool var$1 = var$2 || elcIDs->containsKey($assign(elc, $str({this->initEncoding, "."_s, language})));
 	if (var$1 || elcIDs->containsKey($assign(elc, this->initEncoding))) {
-		this->initELC = $nc(($cast($Integer, $(elcIDs->get(elc)))))->shortValue();
+		this->initELC = $$sure($Integer, elcIDs->get(elc))->shortValue();
 	} else {
-		this->initELC = $nc(($cast($Integer, $(elcIDs->get("NULL.NULL.NULL"_s)))))->shortValue();
+		this->initELC = $$sure($Integer, elcIDs->get("NULL.NULL.NULL"_s))->shortValue();
 	}
 	int32_t i = 0;
 	while (i < $nc(FontConfiguration::table_alphabeticSuffix)->length) {
-		if (this->initELC == $nc(FontConfiguration::table_alphabeticSuffix)->get(i)) {
-			$set(this, alphabeticSuffix, getString($nc(FontConfiguration::table_alphabeticSuffix)->get(i + 1)));
+		if (this->initELC == FontConfiguration::table_alphabeticSuffix->get(i)) {
+			$set(this, alphabeticSuffix, getString(FontConfiguration::table_alphabeticSuffix->get(i + 1)));
 			return this->initELC;
 		}
 		i += 2;
@@ -722,7 +514,7 @@ int16_t FontConfiguration::getInitELC() {
 }
 
 void FontConfiguration::initAllComponentFonts() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($shorts, fallbackScripts, getFallbackScripts());
 	for (int32_t fontIndex = 0; fontIndex < FontConfiguration::NUM_FONTS; ++fontIndex) {
 		$var($shorts, coreScripts, getCoreScripts(fontIndex));
@@ -770,19 +562,19 @@ void FontConfiguration::initAllComponentFonts() {
 }
 
 int16_t FontConfiguration::remapLocaleMap(int32_t fontIndex, int32_t styleIndex, int16_t scriptID, int16_t fontID) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, scriptName, getString($nc(FontConfiguration::table_scriptIDs)->get(scriptID)));
 	$var($String, value, $cast($String, $nc(FontConfiguration::localeMap)->get(scriptName)));
 	if (value == nullptr) {
-		$var($String, fontName, $nc(FontConfiguration::fontNames)->get(fontIndex));
-		$var($String, styleName, $nc(FontConfiguration::styleNames)->get(styleIndex));
-		$assign(value, $cast($String, $nc(FontConfiguration::localeMap)->get($$str({fontName, "."_s, styleName, "."_s, scriptName}))));
+		$var($String, fontName, FontConfiguration::fontNames->get(fontIndex));
+		$var($String, styleName, FontConfiguration::styleNames->get(styleIndex));
+		$assign(value, $cast($String, FontConfiguration::localeMap->get($$str({fontName, "."_s, styleName, "."_s, scriptName}))));
 	}
 	if (value == nullptr) {
 		return fontID;
 	}
 	for (int32_t i = 0; i < $nc(FontConfiguration::table_componentFontNameIDs)->length; ++i) {
-		$var($String, name, getString($nc(FontConfiguration::table_componentFontNameIDs)->get(i)));
+		$var($String, name, getString(FontConfiguration::table_componentFontNameIDs->get(i)));
 		if ($nc(value)->equalsIgnoreCase(name)) {
 			fontID = (int16_t)i;
 			break;
@@ -793,15 +585,15 @@ int16_t FontConfiguration::remapLocaleMap(int32_t fontIndex, int32_t styleIndex,
 
 bool FontConfiguration::hasMonoToPropMap() {
 	$init(FontConfiguration);
-	return FontConfiguration::table_proportionals != nullptr && $nc(FontConfiguration::table_proportionals)->length != 0;
+	return FontConfiguration::table_proportionals != nullptr && FontConfiguration::table_proportionals->length != 0;
 }
 
 int16_t FontConfiguration::remapProportional(int32_t fontIndex, int16_t id) {
 	if (this->preferPropFonts && $nc(FontConfiguration::table_proportionals)->length != 0 && fontIndex != 2 && fontIndex != 4) {
 		int32_t i = 0;
-		while (i < $nc(FontConfiguration::table_proportionals)->length) {
-			if ($nc(FontConfiguration::table_proportionals)->get(i) == id) {
-				return $nc(FontConfiguration::table_proportionals)->get(i + 1);
+		while (i < FontConfiguration::table_proportionals->length) {
+			if (FontConfiguration::table_proportionals->get(i) == id) {
+				return FontConfiguration::table_proportionals->get(i + 1);
 			}
 			i += 2;
 		}
@@ -817,8 +609,8 @@ bool FontConfiguration::isLogicalFontFamilyName($String* fontName) {
 
 bool FontConfiguration::isLogicalFontFamilyNameLC($String* fontName) {
 	$init(FontConfiguration);
-	for (int32_t i = 0; i < $nc(FontConfiguration::fontNames)->length; ++i) {
-		if ($nc(fontName)->equals($nc(FontConfiguration::fontNames)->get(i))) {
+	for (int32_t i = 0; i < FontConfiguration::fontNames->length; ++i) {
+		if ($nc(fontName)->equals(FontConfiguration::fontNames->get(i))) {
 			return true;
 		}
 	}
@@ -827,8 +619,8 @@ bool FontConfiguration::isLogicalFontFamilyNameLC($String* fontName) {
 
 bool FontConfiguration::isLogicalFontStyleName($String* styleName) {
 	$init(FontConfiguration);
-	for (int32_t i = 0; i < $nc(FontConfiguration::styleNames)->length; ++i) {
-		if ($nc(styleName)->equals($nc(FontConfiguration::styleNames)->get(i))) {
+	for (int32_t i = 0; i < FontConfiguration::styleNames->length; ++i) {
+		if ($nc(styleName)->equals(FontConfiguration::styleNames->get(i))) {
 			return true;
 		}
 	}
@@ -843,8 +635,8 @@ bool FontConfiguration::isLogicalFontFaceName($String* fontName) {
 
 bool FontConfiguration::isLogicalFontFaceNameLC($String* fontName) {
 	$init(FontConfiguration);
-	$useLocalCurrentObjectStackCache();
-	int32_t period = $nc(fontName)->indexOf((int32_t)u'.');
+	$useLocalObjectStack();
+	int32_t period = $nc(fontName)->indexOf(u'.');
 	if (period >= 0) {
 		$var($String, familyName, fontName->substring(0, period));
 		$var($String, styleName, fontName->substring(period + 1));
@@ -896,51 +688,44 @@ int32_t FontConfiguration::getStyleIndex(int32_t style) {
 		goto case$4;
 case$0:
 		// Font.PLAIN
-		{
-			return 0;
-		}
+		return 0;
 case$1:
 		// Font.BOLD
-		{
-			return 1;
-		}
+		return 1;
 case$2:
 		// Font.ITALIC
-		{
-			return 2;
-		}
+		return 2;
 case$3:
 		// Font.BOLD | Font.ITALIC
-		{
-			return 3;
-		}
+		return 3;
 case$4:
 		// default
-		{
-			return 0;
-		}
+		return 0;
 	} while (false);
 }
 
 $String* FontConfiguration::getFontName(int32_t fontIndex) {
 	$init(FontConfiguration);
-	return $nc(FontConfiguration::fontNames)->get(fontIndex);
+	return FontConfiguration::fontNames->get(fontIndex);
 }
 
 $String* FontConfiguration::getStyleName(int32_t styleIndex) {
 	$init(FontConfiguration);
-	return $nc(FontConfiguration::styleNames)->get(styleIndex);
+	return FontConfiguration::styleNames->get(styleIndex);
 }
 
 $String* FontConfiguration::getLogicalFontFaceName($String* familyName, int32_t style) {
 	$init(FontConfiguration);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!FontConfiguration::$assertionsDisabled && !isLogicalFontFamilyName(familyName)) {
 		$throwNew($AssertionError);
 	}
+	$var($StringBuilder, var$0, $new($StringBuilder));
 	$init($Locale);
-	$var($String, var$0, $$str({$($nc(familyName)->toLowerCase($Locale::ENGLISH)), "."_s}));
-	return $concat(var$0, $(getStyleString(style)));
+	var$0->append($($nc(familyName)->toLowerCase($Locale::ENGLISH)));
+	var$0->append("."_s);
+	var$0->append($(getStyleString(style)));
+	return $str(var$0);
 }
 
 $String* FontConfiguration::getStyleString(int32_t style) {
@@ -984,13 +769,13 @@ bool FontConfiguration::willReorderForStartupLocale() {
 
 $Object* FontConfiguration::getReorderSequence() {
 	$init(FontConfiguration);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(FontConfiguration::fontConfig)->reorderMap == nullptr) {
-		$nc(FontConfiguration::fontConfig)->initReorderMap();
+		FontConfiguration::fontConfig->initReorderMap();
 	}
 	$var($HashMap, reorderMap, $nc(FontConfiguration::fontConfig)->reorderMap);
 	$var($String, language, $nc(FontConfiguration::startupLocale)->getLanguage());
-	$var($String, country, $nc(FontConfiguration::startupLocale)->getCountry());
+	$var($String, country, FontConfiguration::startupLocale->getCountry());
 	$var($Object, val, $nc(reorderMap)->get($$str({FontConfiguration::encoding, "."_s, language, "."_s, country})));
 	if (val == nullptr) {
 		$assign(val, reorderMap->get($$str({FontConfiguration::encoding, "."_s, language})));
@@ -998,11 +783,11 @@ $Object* FontConfiguration::getReorderSequence() {
 	if (val == nullptr) {
 		$assign(val, reorderMap->get(FontConfiguration::encoding));
 	}
-	return $of(val);
+	return val;
 }
 
 void FontConfiguration::reorderSequenceForLocale($StringArray* seq) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, val, getReorderSequence());
 	if ($instanceOf($String, val)) {
 		for (int32_t i = 0; i < $nc(seq)->length; ++i) {
@@ -1013,7 +798,7 @@ void FontConfiguration::reorderSequenceForLocale($StringArray* seq) {
 		}
 	} else if ($instanceOf($StringArray, val)) {
 		$var($StringArray, fontLangs, $cast($StringArray, val));
-		for (int32_t l = 0; l < $nc(fontLangs)->length; ++l) {
+		for (int32_t l = 0; l < fontLangs->length; ++l) {
 			for (int32_t i = 0; i < $nc(seq)->length; ++i) {
 				if ($nc(seq->get(i))->equals(fontLangs->get(l))) {
 					shuffle(seq, i, l);
@@ -1025,24 +810,24 @@ void FontConfiguration::reorderSequenceForLocale($StringArray* seq) {
 
 $Vector* FontConfiguration::splitSequence($String* sequence) {
 	$init(FontConfiguration);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Vector, parts, $new($Vector));
 	int32_t start = 0;
 	int32_t end = 0;
-	while ((end = $nc(sequence)->indexOf((int32_t)u',', start)) >= 0) {
+	while ((end = $nc(sequence)->indexOf(u',', start)) >= 0) {
 		parts->add($(sequence->substring(start, end)));
 		start = end + 1;
 	}
-	if ($nc(sequence)->length() > start) {
+	if (sequence->length() > start) {
 		parts->add($(sequence->substring(start, sequence->length())));
 	}
 	return parts;
 }
 
 $StringArray* FontConfiguration::split($String* sequence) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Vector, v, splitSequence(sequence));
-	return $fcast($StringArray, $nc(v)->toArray($$new($StringArray, 0)));
+	return $cast($StringArray, $nc(v)->toArray($$new($StringArray, 0)));
 }
 
 $FontDescriptorArray* FontConfiguration::getFontDescriptors($String* fontName$renamed, int32_t style) {
@@ -1067,9 +852,9 @@ $FontDescriptorArray* FontConfiguration::getFontDescriptors(int32_t fontIndex, i
 }
 
 $FontDescriptorArray* FontConfiguration::buildFontDescriptors(int32_t fontIndex, int32_t styleIndex) {
-	$useLocalCurrentObjectStackCache();
-	$var($String, fontName, $nc(FontConfiguration::fontNames)->get(fontIndex));
-	$var($String, styleName, $nc(FontConfiguration::styleNames)->get(styleIndex));
+	$useLocalObjectStack();
+	$var($String, fontName, FontConfiguration::fontNames->get(fontIndex));
+	$var($String, styleName, FontConfiguration::styleNames->get(styleIndex));
 	$var($shorts, scriptIDs, getCoreScripts(fontIndex));
 	$var($shorts, nameIDs, $nc($nc(this->compFontNameIDs)->get(fontIndex))->get(styleIndex));
 	$var($StringArray, sequence, $new($StringArray, $nc(scriptIDs)->length));
@@ -1103,7 +888,7 @@ $String* FontConfiguration::makeAWTFontName($String* platformFontName, $String* 
 }
 
 $CharsetEncoder* FontConfiguration::getFontCharsetEncoder($String* charsetName, $String* fontName) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$var($Charset, fc, nullptr);
 	if ($nc(charsetName)->equals("default"_s)) {
@@ -1114,14 +899,14 @@ $CharsetEncoder* FontConfiguration::getFontCharsetEncoder($String* charsetName, 
 	if (fc != nullptr) {
 		return fc->newEncoder();
 	}
-	bool var$0 = !$nc(charsetName)->startsWith("sun.awt."_s);
+	bool var$0 = !charsetName->startsWith("sun.awt."_s);
 	if (var$0 && !charsetName->equals("default"_s)) {
 		$assign(fc, $Charset::forName(charsetName));
 	} else {
-		$Class* fcc = $cast($Class, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($FontConfiguration$2, this, charsetName))));
+		$Class* fcc = $cast($Class, $AccessController::doPrivileged($$new($FontConfiguration$2, this, charsetName)));
 		if (fcc != nullptr) {
 			try {
-				$assign(fc, $cast($Charset, $nc($(fcc->getDeclaredConstructor($$new($ClassArray, 0))))->newInstance($$new($ObjectArray, 0))));
+				$assign(fc, $cast($Charset, $$nc(fcc->getDeclaredConstructor($$new($ClassArray, 0)))->newInstance($$new($ObjectArray, 0))));
 			} catch ($Exception& e) {
 			}
 		}
@@ -1129,7 +914,7 @@ $CharsetEncoder* FontConfiguration::getFontCharsetEncoder($String* charsetName, 
 	if (fc == nullptr) {
 		$assign(fc, getDefaultFontCharset(fontName));
 	}
-	if ($nc(charsetName)->equals("default"_s)) {
+	if (charsetName->equals("default"_s)) {
 		$nc(this->charsetRegistry)->put(fontName, fc);
 	} else {
 		$nc(this->charsetRegistry)->put(charsetName, fc);
@@ -1142,19 +927,19 @@ $HashSet* FontConfiguration::getAWTFontPathSet() {
 }
 
 $CompositeFontDescriptorArray* FontConfiguration::get2DCompositeFontInfo() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($CompositeFontDescriptorArray, result, $new($CompositeFontDescriptorArray, FontConfiguration::NUM_FONTS * FontConfiguration::NUM_STYLES));
 	$var($String, defaultFontFile, $nc(this->fontManager)->getDefaultFontFile());
 	$var($String, defaultFontFaceName, $nc(this->fontManager)->getDefaultFontFaceName());
 	for (int32_t fontIndex = 0; fontIndex < FontConfiguration::NUM_FONTS; ++fontIndex) {
-		$var($String, fontName, $nc(FontConfiguration::publicFontNames)->get(fontIndex));
+		$var($String, fontName, FontConfiguration::publicFontNames->get(fontIndex));
 		$var($intArray2, exclusions, $nc(this->compExclusions)->get(fontIndex));
 		int32_t numExclusionRanges = 0;
 		for (int32_t i = 0; i < $nc(exclusions)->length; ++i) {
 			numExclusionRanges += $nc(exclusions->get(i))->length;
 		}
 		$var($ints, exclusionRanges, $new($ints, numExclusionRanges));
-		$var($ints, exclusionRangeLimits, $new($ints, $nc(exclusions)->length));
+		$var($ints, exclusionRangeLimits, $new($ints, exclusions->length));
 		int32_t exclusionRangeIndex = 0;
 		int32_t exclusionRangeLimitIndex = 0;
 		for (int32_t i = 0; i < exclusions->length; ++i) {
@@ -1169,14 +954,14 @@ $CompositeFontDescriptorArray* FontConfiguration::get2DCompositeFontInfo() {
 		for (int32_t styleIndex = 0; styleIndex < FontConfiguration::NUM_STYLES; ++styleIndex) {
 			int32_t maxComponentFontCount = $nc($nc($nc(this->compFontNameIDs)->get(fontIndex))->get(styleIndex))->length;
 			if (FontConfiguration::installedFallbackFontFiles != nullptr) {
-				maxComponentFontCount += $nc(FontConfiguration::installedFallbackFontFiles)->length;
+				maxComponentFontCount += FontConfiguration::installedFallbackFontFiles->length;
 			}
-			$var($String, faceName, $str({fontName, "."_s, $nc(FontConfiguration::styleNames)->get(styleIndex)}));
+			$var($String, faceName, $str({fontName, "."_s, FontConfiguration::styleNames->get(styleIndex)}));
 			$var($StringArray, componentFaceNames, $new($StringArray, maxComponentFontCount));
 			$var($StringArray, componentFileNames, $new($StringArray, maxComponentFontCount));
 			int32_t index = 0;
 			for (index = 0; index < $nc($nc($nc(this->compFontNameIDs)->get(fontIndex))->get(styleIndex))->length; ++index) {
-				int16_t fontNameID = $nc($nc($nc(this->compFontNameIDs)->get(fontIndex))->get(styleIndex))->get(index);
+				int16_t fontNameID = $nc($nc(this->compFontNameIDs->get(fontIndex))->get(styleIndex))->get(index);
 				int16_t fileNameID = getComponentFileID(fontNameID);
 				componentFaceNames->set(index, $(getFaceNameFromComponentFontName($(getComponentFontName(fontNameID)))));
 				componentFileNames->set(index, $(mapFileName($(getComponentFileName(fileNameID)))));
@@ -1185,9 +970,9 @@ $CompositeFontDescriptorArray* FontConfiguration::get2DCompositeFontInfo() {
 				}
 			}
 			if (FontConfiguration::installedFallbackFontFiles != nullptr) {
-				for (int32_t ifb = 0; ifb < $nc(FontConfiguration::installedFallbackFontFiles)->length; ++ifb) {
+				for (int32_t ifb = 0; ifb < FontConfiguration::installedFallbackFontFiles->length; ++ifb) {
 					componentFaceNames->set(index, nullptr);
-					componentFileNames->set(index, $nc(FontConfiguration::installedFallbackFontFiles)->get(ifb));
+					componentFileNames->set(index, FontConfiguration::installedFallbackFontFiles->get(ifb));
 					++index;
 				}
 			}
@@ -1215,7 +1000,7 @@ $CompositeFontDescriptorArray* FontConfiguration::get2DCompositeFontInfo() {
 }
 
 bool FontConfiguration::needToSearchForFile($String* fileName) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($FontUtilities);
 	if (!$FontUtilities::isLinux) {
 		return false;
@@ -1226,7 +1011,6 @@ bool FontConfiguration::needToSearchForFile($String* fileName) {
 	if (exists == nullptr) {
 		getNumberCoreFonts();
 		if (!$nc(this->coreFontFileNames)->contains(fileName)) {
-			$init($Boolean);
 			$assign(exists, $Boolean::TRUE);
 		} else {
 			$assign(exists, $Boolean::valueOf(($$new($File, fileName))->exists()));
@@ -1236,21 +1020,20 @@ bool FontConfiguration::needToSearchForFile($String* fileName) {
 			}
 		}
 	}
-	$init($Boolean);
 	return exists == $Boolean::FALSE;
 }
 
 int32_t FontConfiguration::getNumberCoreFonts() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->numCoreFonts == -1) {
 		this->numCoreFonts = $nc(this->coreFontNameIDs)->size();
 		$var($ShortArray, emptyShortArray, $new($ShortArray, 0));
-		$var($ShortArray, core, $fcast($ShortArray, $nc(this->coreFontNameIDs)->toArray(emptyShortArray)));
-		$var($ShortArray, fallback, $fcast($ShortArray, $nc(this->fallbackFontNameIDs)->toArray(emptyShortArray)));
+		$var($ShortArray, core, $cast($ShortArray, this->coreFontNameIDs->toArray(emptyShortArray)));
+		$var($ShortArray, fallback, $cast($ShortArray, $nc(this->fallbackFontNameIDs)->toArray(emptyShortArray)));
 		int32_t numFallbackFonts = 0;
 		int32_t i = 0;
 		for (i = 0; i < $nc(fallback)->length; ++i) {
-			if ($nc(this->coreFontNameIDs)->contains(fallback->get(i))) {
+			if (this->coreFontNameIDs->contains(fallback->get(i))) {
 				fallback->set(i, nullptr);
 				continue;
 			}
@@ -1268,7 +1051,7 @@ int32_t FontConfiguration::getNumberCoreFonts() {
 			}
 			$nc(this->filenamesMap)->put($nc(this->componentFonts)->get(i), $(mapFileName(compFileName)));
 		}
-		for (int32_t j = 0; j < $nc(fallback)->length; ++j) {
+		for (int32_t j = 0; j < fallback->length; ++j) {
 			if (fallback->get(j) != nullptr) {
 				int16_t fontid = $nc(fallback->get(j))->shortValue();
 				int16_t fileid = getComponentFileID(fontid);
@@ -1311,26 +1094,24 @@ void FontConfiguration::setFontConfiguration() {
 
 void FontConfiguration::sanityCheck() {
 	$init(FontConfiguration);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	int32_t errors = 0;
-	$var($String, osName, $cast($String, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($FontConfiguration$3)))));
+	$var($String, osName, $cast($String, $AccessController::doPrivileged($$new($FontConfiguration$3))));
 	for (int32_t ii = 1; ii < $nc(FontConfiguration::table_filenames)->length; ++ii) {
-		if ($nc(FontConfiguration::table_filenames)->get(ii) == -1) {
+		if (FontConfiguration::table_filenames->get(ii) == -1) {
 			if ($nc(osName)->contains("Windows"_s)) {
 				$nc($System::err)->println($$str({"\n Error: <filename."_s, $(getString($nc(FontConfiguration::table_componentFontNameIDs)->get(ii))), "> entry is missing!!!"_s}));
 				++errors;
-			} else {
-				if (FontConfiguration::verbose && !isEmpty(FontConfiguration::table_filenames)) {
-					$nc($System::err)->println($$str({"\n Note: \'filename\' entry is undefined for \""_s, $(getString($nc(FontConfiguration::table_componentFontNameIDs)->get(ii))), "\""_s}));
-				}
+			} else if (FontConfiguration::verbose && !isEmpty(FontConfiguration::table_filenames)) {
+				$nc($System::err)->println($$str({"\n Note: \'filename\' entry is undefined for \""_s, $(getString($nc(FontConfiguration::table_componentFontNameIDs)->get(ii))), "\""_s}));
 			}
 		}
 	}
 	for (int32_t ii = 0; ii < $nc(FontConfiguration::table_scriptIDs)->length; ++ii) {
 		int16_t fid = $nc(FontConfiguration::table_scriptFonts)->get(ii);
 		if (fid == 0) {
-			$nc($System::out)->println($$str({"\n Error: <allfonts."_s, $(getString($nc(FontConfiguration::table_scriptIDs)->get(ii))), "> entry is missing!!!"_s}));
+			$nc($System::out)->println($$str({"\n Error: <allfonts."_s, $(getString(FontConfiguration::table_scriptIDs->get(ii))), "> entry is missing!!!"_s}));
 			++errors;
 			continue;
 		} else if (fid < 0) {
@@ -1340,11 +1121,15 @@ void FontConfiguration::sanityCheck() {
 					int32_t jj = iii * FontConfiguration::NUM_STYLES + iij;
 					int16_t ffid = $nc(FontConfiguration::table_scriptFonts)->get(fid + jj);
 					if (ffid == 0) {
-						$var($String, var$3, $$str({"\n Error: <"_s, $(getFontName(iii)), "."_s}));
-						$var($String, var$2, $$concat(var$3, $(getStyleName(iij))));
-						$var($String, var$1, $$concat(var$2, "."_s));
-						$var($String, var$0, $$concat(var$1, $(getString($nc(FontConfiguration::table_scriptIDs)->get(ii)))));
-						$nc($System::err)->println($$concat(var$0, "> entry is missing!!!"_s));
+						$var($StringBuilder, var$0, $new($StringBuilder));
+						var$0->append("\n Error: <"_s);
+						var$0->append($(getFontName(iii)));
+						var$0->append("."_s);
+						var$0->append($(getStyleName(iij)));
+						var$0->append("."_s);
+						var$0->append($(getString($nc(FontConfiguration::table_scriptIDs)->get(ii))));
+						var$0->append("> entry is missing!!!"_s);
+						$nc($System::err)->println($$str(var$0));
 						++errors;
 					}
 				}
@@ -1359,17 +1144,11 @@ void FontConfiguration::sanityCheck() {
 
 bool FontConfiguration::isEmpty($shorts* a) {
 	$init(FontConfiguration);
-	{
-		$var($shorts, arr$, a);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
-			int16_t s = arr$->get(i$);
-			{
-				if (s != -1) {
-					return false;
-				}
-			}
+	$var($shorts, arr$, a);
+	for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
+		int16_t s = arr$->get(i$);
+		if (s != -1) {
+			return false;
 		}
 	}
 	return true;
@@ -1377,19 +1156,23 @@ bool FontConfiguration::isEmpty($shorts* a) {
 
 void FontConfiguration::dump() {
 	$init(FontConfiguration);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc($System::out)->println("\n----Head Table------------"_s);
 	for (int32_t ii = 0; ii < FontConfiguration::HEAD_LENGTH; ++ii) {
-		$nc($System::out)->println($$str({"  "_s, $$str(ii), " : "_s, $$str($nc(FontConfiguration::head)->get(ii))}));
+		$System::out->println($$str({"  "_s, $$str(ii), " : "_s, $$str($nc(FontConfiguration::head)->get(ii))}));
 	}
-	$nc($System::out)->println("\n----scriptIDs-------------"_s);
+	$System::out->println("\n----scriptIDs-------------"_s);
 	printTable(FontConfiguration::table_scriptIDs, 0);
-	$nc($System::out)->println("\n----scriptFonts----------------"_s);
+	$System::out->println("\n----scriptFonts----------------"_s);
 	for (int32_t ii = 0; ii < $nc(FontConfiguration::table_scriptIDs)->length; ++ii) {
 		int16_t fid = $nc(FontConfiguration::table_scriptFonts)->get(ii);
 		if (fid >= 0) {
-			$var($String, var$0, $$str({"  allfonts."_s, $(getString($nc(FontConfiguration::table_scriptIDs)->get(ii))), "="_s}));
-			$nc($System::out)->println($$concat(var$0, $(getString($nc(FontConfiguration::table_componentFontNameIDs)->get(fid)))));
+			$var($StringBuilder, var$0, $new($StringBuilder));
+			var$0->append("  allfonts."_s);
+			var$0->append($(getString(FontConfiguration::table_scriptIDs->get(ii))));
+			var$0->append("="_s);
+			var$0->append($(getString($nc(FontConfiguration::table_componentFontNameIDs)->get(fid))));
+			$System::out->println($$str(var$0));
 		}
 	}
 	for (int32_t ii = 0; ii < $nc(FontConfiguration::table_scriptIDs)->length; ++ii) {
@@ -1400,66 +1183,82 @@ void FontConfiguration::dump() {
 				for (int32_t iij = 0; iij < FontConfiguration::NUM_STYLES; ++iij) {
 					int32_t jj = iii * FontConfiguration::NUM_STYLES + iij;
 					int16_t ffid = $nc(FontConfiguration::table_scriptFonts)->get(fid + jj);
-					$var($String, var$5, $$str({"  "_s, $(getFontName(iii)), "."_s}));
-					$var($String, var$4, $$concat(var$5, $(getStyleName(iij))));
-					$var($String, var$3, $$concat(var$4, "."_s));
-					$var($String, var$2, $$concat(var$3, $(getString($nc(FontConfiguration::table_scriptIDs)->get(ii)))));
-					$var($String, var$1, $$concat(var$2, "="_s));
-					$nc($System::out)->println($$concat(var$1, $(getString($nc(FontConfiguration::table_componentFontNameIDs)->get(ffid)))));
+					$var($StringBuilder, var$1, $new($StringBuilder));
+					var$1->append("  "_s);
+					var$1->append($(getFontName(iii)));
+					var$1->append("."_s);
+					var$1->append($(getStyleName(iij)));
+					var$1->append("."_s);
+					var$1->append($(getString($nc(FontConfiguration::table_scriptIDs)->get(ii))));
+					var$1->append("="_s);
+					var$1->append($(getString($nc(FontConfiguration::table_componentFontNameIDs)->get(ffid))));
+					$System::out->println($$str(var$1));
 				}
 			}
 		}
 	}
-	$nc($System::out)->println("\n----elcIDs----------------"_s);
+	$System::out->println("\n----elcIDs----------------"_s);
 	printTable(FontConfiguration::table_elcIDs, 0);
-	$nc($System::out)->println("\n----sequences-------------"_s);
+	$System::out->println("\n----sequences-------------"_s);
 	for (int32_t ii = 0; ii < $nc(FontConfiguration::table_elcIDs)->length; ++ii) {
-		$nc($System::out)->println($$str({"  "_s, $$str(ii), "/"_s, $(getString($nc(FontConfiguration::table_elcIDs)->get(ii)))}));
+		$System::out->println($$str({"  "_s, $$str(ii), "/"_s, $(getString(FontConfiguration::table_elcIDs->get(ii)))}));
 		$var($shorts, ss, getShortArray($nc(FontConfiguration::table_sequences)->get(ii * FontConfiguration::NUM_FONTS + 0)));
 		for (int32_t jj = 0; jj < $nc(ss)->length; ++jj) {
-			$nc($System::out)->println($$str({"     "_s, $(getString($nc(FontConfiguration::table_scriptIDs)->get(ss->get(jj))))}));
+			$System::out->println($$str({"     "_s, $(getString($nc(FontConfiguration::table_scriptIDs)->get(ss->get(jj))))}));
 		}
 	}
-	$nc($System::out)->println("\n----fontfileNameIDs-------"_s);
+	$System::out->println("\n----fontfileNameIDs-------"_s);
 	printTable(FontConfiguration::table_fontfileNameIDs, 0);
-	$nc($System::out)->println("\n----componentFontNameIDs--"_s);
+	$System::out->println("\n----componentFontNameIDs--"_s);
 	printTable(FontConfiguration::table_componentFontNameIDs, 1);
-	$nc($System::out)->println("\n----filenames-------------"_s);
+	$System::out->println("\n----filenames-------------"_s);
 	for (int32_t ii = 0; ii < $nc(FontConfiguration::table_filenames)->length; ++ii) {
-		if ($nc(FontConfiguration::table_filenames)->get(ii) == -1) {
-			$nc($System::out)->println($$str({"  "_s, $$str(ii), " : null"_s}));
+		if (FontConfiguration::table_filenames->get(ii) == -1) {
+			$System::out->println($$str({"  "_s, $$str(ii), " : null"_s}));
 		} else {
-			$nc($System::out)->println($$str({"  "_s, $$str(ii), " : "_s, $(getString($nc(FontConfiguration::table_fontfileNameIDs)->get($nc(FontConfiguration::table_filenames)->get(ii))))}));
+			$System::out->println($$str({"  "_s, $$str(ii), " : "_s, $(getString($nc(FontConfiguration::table_fontfileNameIDs)->get(FontConfiguration::table_filenames->get(ii))))}));
 		}
 	}
-	$nc($System::out)->println("\n----awtfontpaths---------"_s);
+	$System::out->println("\n----awtfontpaths---------"_s);
 	for (int32_t ii = 0; ii < $nc(FontConfiguration::table_awtfontpaths)->length; ++ii) {
-		$var($String, var$6, $$str({"  "_s, $(getString($nc(FontConfiguration::table_scriptIDs)->get(ii))), " : "_s}));
-		$nc($System::out)->println($$concat(var$6, $(getString($nc(FontConfiguration::table_awtfontpaths)->get(ii)))));
+		$var($StringBuilder, var$2, $new($StringBuilder));
+		var$2->append("  "_s);
+		var$2->append($(getString($nc(FontConfiguration::table_scriptIDs)->get(ii))));
+		var$2->append(" : "_s);
+		var$2->append($(getString(FontConfiguration::table_awtfontpaths->get(ii))));
+		$System::out->println($$str(var$2));
 	}
-	$nc($System::out)->println("\n----proportionals--------"_s);
+	$System::out->println("\n----proportionals--------"_s);
 	for (int32_t ii = 0; ii < $nc(FontConfiguration::table_proportionals)->length; ++ii) {
-		$var($String, var$7, $$str({"  "_s, $(getString($nc(FontConfiguration::table_componentFontNameIDs)->get($nc(FontConfiguration::table_proportionals)->get(ii++)))), " -> "_s}));
-		$nc($System::out)->println($$concat(var$7, $(getString($nc(FontConfiguration::table_componentFontNameIDs)->get($nc(FontConfiguration::table_proportionals)->get(ii))))));
+		$var($StringBuilder, var$3, $new($StringBuilder));
+		var$3->append("  "_s);
+		var$3->append($(getString($nc(FontConfiguration::table_componentFontNameIDs)->get(FontConfiguration::table_proportionals->get(ii++)))));
+		var$3->append(" -> "_s);
+		var$3->append($(getString(FontConfiguration::table_componentFontNameIDs->get(FontConfiguration::table_proportionals->get(ii)))));
+		$System::out->println($$str(var$3));
 	}
 	int32_t i = 0;
-	$nc($System::out)->println("\n----alphabeticSuffix----"_s);
+	$System::out->println("\n----alphabeticSuffix----"_s);
 	while (i < $nc(FontConfiguration::table_alphabeticSuffix)->length) {
-		$var($String, var$8, $$str({"    "_s, $(getString($nc(FontConfiguration::table_elcIDs)->get($nc(FontConfiguration::table_alphabeticSuffix)->get(i++)))), " -> "_s}));
-		$nc($System::out)->println($$concat(var$8, $(getString($nc(FontConfiguration::table_alphabeticSuffix)->get(i++)))));
+		$var($StringBuilder, var$4, $new($StringBuilder));
+		var$4->append("    "_s);
+		var$4->append($(getString($nc(FontConfiguration::table_elcIDs)->get(FontConfiguration::table_alphabeticSuffix->get(i++)))));
+		var$4->append(" -> "_s);
+		var$4->append($(getString(FontConfiguration::table_alphabeticSuffix->get(i++))));
+		$System::out->println($$str(var$4));
 	}
-	$nc($System::out)->println("\n----String Table---------"_s);
-	$nc($System::out)->println($$str({"    stringID:    Num ="_s, $$str($nc(FontConfiguration::table_stringIDs)->length)}));
-	$nc($System::out)->println($$str({"    stringTable: Size="_s, $$str($nc(FontConfiguration::table_stringTable)->length * 2)}));
-	$nc($System::out)->println("\n----fallbackScriptIDs---"_s);
+	$System::out->println("\n----String Table---------"_s);
+	$System::out->println($$str({"    stringID:    Num ="_s, $$str($nc(FontConfiguration::table_stringIDs)->length)}));
+	$System::out->println($$str({"    stringTable: Size="_s, $$str($nc(FontConfiguration::table_stringTable)->length * 2)}));
+	$System::out->println("\n----fallbackScriptIDs---"_s);
 	$var($shorts, fbsIDs, getShortArray($nc(FontConfiguration::head)->get(FontConfiguration::INDEX_fallbackScripts)));
 	for (int32_t ii = 0; ii < $nc(fbsIDs)->length; ++ii) {
-		$nc($System::out)->println($$str({"  "_s, $(getString($nc(FontConfiguration::table_scriptIDs)->get(fbsIDs->get(ii))))}));
+		$System::out->println($$str({"  "_s, $(getString($nc(FontConfiguration::table_scriptIDs)->get(fbsIDs->get(ii))))}));
 	}
-	$nc($System::out)->println("\n----appendedfontpath-----"_s);
-	$nc($System::out)->println($$str({"  "_s, $(getString($nc(FontConfiguration::head)->get(FontConfiguration::INDEX_appendedfontpath)))}));
-	$nc($System::out)->println("\n----Version--------------"_s);
-	$nc($System::out)->println($$str({"  "_s, $(getString($nc(FontConfiguration::head)->get(FontConfiguration::INDEX_version)))}));
+	$System::out->println("\n----appendedfontpath-----"_s);
+	$System::out->println($$str({"  "_s, $(getString($nc(FontConfiguration::head)->get(FontConfiguration::INDEX_appendedfontpath)))}));
+	$System::out->println("\n----Version--------------"_s);
+	$System::out->println($$str({"  "_s, $(getString($nc(FontConfiguration::head)->get(FontConfiguration::INDEX_version)))}));
 }
 
 int16_t FontConfiguration::getComponentFontID(int16_t scriptID, int32_t fontIndex, int32_t styleIndex) {
@@ -1468,36 +1267,36 @@ int16_t FontConfiguration::getComponentFontID(int16_t scriptID, int32_t fontInde
 	if (fid >= 0) {
 		return fid;
 	} else {
-		return $nc(FontConfiguration::table_scriptFonts)->get(-fid + fontIndex * FontConfiguration::NUM_STYLES + styleIndex);
+		return FontConfiguration::table_scriptFonts->get(-fid + fontIndex * FontConfiguration::NUM_STYLES + styleIndex);
 	}
 }
 
 int16_t FontConfiguration::getComponentFontIDMotif(int16_t scriptID, int32_t fontIndex, int32_t styleIndex) {
 	$init(FontConfiguration);
 	if ($nc(FontConfiguration::table_scriptFontsMotif)->length == 0) {
-		return (int16_t)0;
+		return 0;
 	}
-	int16_t fid = $nc(FontConfiguration::table_scriptFontsMotif)->get(scriptID);
+	int16_t fid = FontConfiguration::table_scriptFontsMotif->get(scriptID);
 	if (fid >= 0) {
 		return fid;
 	} else {
-		return $nc(FontConfiguration::table_scriptFontsMotif)->get(-fid + fontIndex * FontConfiguration::NUM_STYLES + styleIndex);
+		return FontConfiguration::table_scriptFontsMotif->get(-fid + fontIndex * FontConfiguration::NUM_STYLES + styleIndex);
 	}
 }
 
 $ints* FontConfiguration::getExclusionRanges(int16_t scriptID) {
 	$init(FontConfiguration);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int16_t exID = $nc(FontConfiguration::table_exclusions)->get(scriptID);
 	if (exID == 0) {
 		return FontConfiguration::EMPTY_INT_ARRAY;
 	} else {
-		$var($chars, exChar, $nc($(getString(exID)))->toCharArray());
+		$var($chars, exChar, $$nc(getString(exID))->toCharArray());
 		$var($ints, exInt, $new($ints, exChar->length / 2));
 		int32_t i = 0;
 		for (int32_t j = 0; j < exInt->length; ++j) {
-			int32_t var$0 = (exChar->get(i++) << 16);
-			exInt->set(j, var$0 + ((int32_t)(exChar->get(i++) & (uint32_t)0x0000FFFF)));
+			int32_t var$0 = exChar->get(i++) << 16;
+			exInt->set(j, var$0 + (exChar->get(i++) & 0xffff));
 		}
 		return exInt;
 	}
@@ -1540,7 +1339,7 @@ $String* FontConfiguration::getScriptName(int16_t scriptID) {
 }
 
 $shorts* FontConfiguration::getCoreScripts(int32_t fontIndex) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int16_t elc = getInitELC();
 	$var($shorts, scripts, getShortArray($nc(FontConfiguration::table_sequences)->get(elc * FontConfiguration::NUM_FONTS + fontIndex)));
 	if (this->preferLocaleFonts) {
@@ -1554,7 +1353,7 @@ $shorts* FontConfiguration::getCoreScripts(int32_t fontIndex) {
 		}
 		reorderSequenceForLocale(ss);
 		for (int32_t i = 0; i < ss->length; ++i) {
-			scripts->set(i, $nc(($cast($Short, $($nc(this->reorderScripts)->get(ss->get(i))))))->shortValue());
+			scripts->set(i, $$sure($Short, $nc(this->reorderScripts)->get(ss->get(i)))->shortValue());
 		}
 	}
 	return scripts;
@@ -1567,7 +1366,7 @@ $shorts* FontConfiguration::getFallbackScripts() {
 
 void FontConfiguration::printTable($shorts* list, int32_t start) {
 	$init(FontConfiguration);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (int32_t i = start; i < $nc(list)->length; ++i) {
 		$nc($System::out)->println($$str({"  "_s, $$str(i), " : "_s, $(getString(list->get(i)))}));
 	}
@@ -1575,7 +1374,7 @@ void FontConfiguration::printTable($shorts* list, int32_t start) {
 
 $shorts* FontConfiguration::readShortTable($DataInputStream* in, int32_t len) {
 	$init(FontConfiguration);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (len == 0) {
 		return FontConfiguration::EMPTY_SHORT_ARRAY;
 	}
@@ -1586,38 +1385,34 @@ $shorts* FontConfiguration::readShortTable($DataInputStream* in, int32_t len) {
 	int32_t j = 0;
 	while (i < len) {
 		int32_t var$0 = bb->get(j++) << 8;
-		data->set(i++, (int16_t)(var$0 | ((int32_t)(bb->get(j++) & (uint32_t)255))));
+		data->set(i++, (int16_t)(var$0 | (bb->get(j++) & 0xff)));
 	}
 	return data;
 }
 
 void FontConfiguration::writeShortTable($DataOutputStream* out, $shorts* data) {
 	$init(FontConfiguration);
-	{
-		$var($shorts, arr$, data);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
-			int16_t val = arr$->get(i$);
-			{
-				$nc(out)->writeShort(val);
-			}
+	$var($shorts, arr$, data);
+	for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
+		int16_t val = arr$->get(i$);
+		{
+			$nc(out)->writeShort(val);
 		}
 	}
 }
 
 $shorts* FontConfiguration::toList($HashMap* map) {
 	$init(FontConfiguration);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($shorts, list, $new($shorts, $nc(map)->size()));
 	$Arrays::fill(list, (int16_t)-1);
 	{
-		$var($Iterator, i$, $nc($(map->entrySet()))->iterator());
+		$var($Iterator, i$, $$nc(map->entrySet())->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Map$Entry, entry, $cast($Map$Entry, i$->next()));
 			{
-				int16_t var$0 = $nc(($cast($Short, $($nc(entry)->getValue()))))->shortValue();
-				list->set(var$0, getStringID($cast($String, $(entry->getKey()))));
+				int16_t var$0 = $$sure($Short, $nc(entry)->getValue())->shortValue();
+				list->set(var$0, getStringID($$cast($String, entry->getKey())));
 			}
 		}
 	}
@@ -1630,19 +1425,19 @@ $String* FontConfiguration::getString(int16_t stringID) {
 		return nullptr;
 	}
 	if ($nc(FontConfiguration::stringCache)->get(stringID) == nullptr) {
-		$nc(FontConfiguration::stringCache)->set(stringID, $$new($String, FontConfiguration::table_stringTable, (int32_t)$nc(FontConfiguration::table_stringIDs)->get(stringID), $nc(FontConfiguration::table_stringIDs)->get(stringID + 1) - $nc(FontConfiguration::table_stringIDs)->get(stringID)));
+		FontConfiguration::stringCache->set(stringID, $$new($String, FontConfiguration::table_stringTable, $nc(FontConfiguration::table_stringIDs)->get(stringID), $nc(FontConfiguration::table_stringIDs)->get(stringID + 1) - $nc(FontConfiguration::table_stringIDs)->get(stringID)));
 	}
-	return $nc(FontConfiguration::stringCache)->get(stringID);
+	return FontConfiguration::stringCache->get(stringID);
 }
 
 $shorts* FontConfiguration::getShortArray(int16_t shortArrayID) {
 	$init(FontConfiguration);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, s, getString(shortArrayID));
 	$var($chars, cc, $nc(s)->toCharArray());
 	$var($shorts, ss, $new($shorts, cc->length));
 	for (int32_t i = 0; i < cc->length; ++i) {
-		ss->set(i, (int16_t)((int32_t)(cc->get(i) & (uint32_t)0x0000FFFF)));
+		ss->set(i, (int16_t)(cc->get(i) & 0xffff));
 	}
 	return ss;
 }
@@ -1653,12 +1448,12 @@ int16_t FontConfiguration::getStringID($String* s) {
 		return (int16_t)0;
 	}
 	int16_t pos0 = (int16_t)$nc(FontConfiguration::stringTable)->length();
-	$nc(FontConfiguration::stringTable)->append(s);
-	int16_t pos1 = (int16_t)$nc(FontConfiguration::stringTable)->length();
+	FontConfiguration::stringTable->append(s);
+	int16_t pos1 = (int16_t)FontConfiguration::stringTable->length();
 	$nc(FontConfiguration::stringIDs)->set(FontConfiguration::stringIDNum, pos0);
-	$nc(FontConfiguration::stringIDs)->set(FontConfiguration::stringIDNum + 1, pos1);
+	FontConfiguration::stringIDs->set(FontConfiguration::stringIDNum + 1, pos1);
 	++FontConfiguration::stringIDNum;
-	if (FontConfiguration::stringIDNum + 1 >= $nc(FontConfiguration::stringIDs)->length) {
+	if (FontConfiguration::stringIDNum + 1 >= FontConfiguration::stringIDs->length) {
 		$var($shorts, tmp, $new($shorts, FontConfiguration::stringIDNum + 1000));
 		$System::arraycopy(FontConfiguration::stringIDs, 0, tmp, 0, FontConfiguration::stringIDNum);
 		$assignStatic(FontConfiguration::stringIDs, tmp);
@@ -1668,7 +1463,7 @@ int16_t FontConfiguration::getStringID($String* s) {
 
 int16_t FontConfiguration::getShortArrayID($shorts* sa) {
 	$init(FontConfiguration);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($chars, cc, $new($chars, $nc(sa)->length));
 	for (int32_t i = 0; i < sa->length; ++i) {
 		cc->set(i, (char16_t)sa->get(i));
@@ -1677,7 +1472,7 @@ int16_t FontConfiguration::getShortArrayID($shorts* sa) {
 	return getStringID(s);
 }
 
-void clinit$FontConfiguration($Class* class$) {
+void FontConfiguration::clinit$($Class* clazz) {
 	$assignStatic(FontConfiguration::UNDEFINED_COMPONENT_FONT, "unknown"_s);
 	FontConfiguration::$assertionsDisabled = !FontConfiguration::class$->desiredAssertionStatus();
 	$assignStatic(FontConfiguration::startupLocale, nullptr);
@@ -1714,7 +1509,203 @@ FontConfiguration::FontConfiguration() {
 }
 
 $Class* FontConfiguration::load$($String* name, bool initialize) {
-	$loadClass(FontConfiguration, name, initialize, &_FontConfiguration_ClassInfo_, clinit$FontConfiguration, allocate$FontConfiguration);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(FontConfiguration, $assertionsDisabled)},
+		{"osVersion", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC, $staticField(FontConfiguration, osVersion)},
+		{"osName", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC, $staticField(FontConfiguration, osName)},
+		{"encoding", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC, $staticField(FontConfiguration, encoding)},
+		{"startupLocale", "Ljava/util/Locale;", nullptr, $PROTECTED | $STATIC, $staticField(FontConfiguration, startupLocale)},
+		{"localeMap", "Ljava/util/Hashtable;", "Ljava/util/Hashtable<Ljava/lang/String;Ljava/lang/String;>;", $PROTECTED | $STATIC, $staticField(FontConfiguration, localeMap)},
+		{"fontConfig", "Lsun/awt/FontConfiguration;", nullptr, $PRIVATE | $STATIC, $staticField(FontConfiguration, fontConfig)},
+		{"logger", "Lsun/util/logging/PlatformLogger;", nullptr, $PRIVATE | $STATIC, $staticField(FontConfiguration, logger)},
+		{"isProperties", "Z", nullptr, $PROTECTED | $STATIC, $staticField(FontConfiguration, isProperties)},
+		{"fontManager", "Lsun/font/SunFontManager;", nullptr, $PROTECTED, $field(FontConfiguration, fontManager)},
+		{"preferLocaleFonts", "Z", nullptr, $PROTECTED, $field(FontConfiguration, preferLocaleFonts)},
+		{"preferPropFonts", "Z", nullptr, $PROTECTED, $field(FontConfiguration, preferPropFonts)},
+		{"fontConfigFile", "Ljava/io/File;", nullptr, $PRIVATE, $field(FontConfiguration, fontConfigFile)},
+		{"foundOsSpecificFile", "Z", nullptr, $PRIVATE, $field(FontConfiguration, foundOsSpecificFile$)},
+		{"inited", "Z", nullptr, $PRIVATE, $field(FontConfiguration, inited)},
+		{"javaLib", "Ljava/lang/String;", nullptr, $PRIVATE, $field(FontConfiguration, javaLib)},
+		{"stringIDNum", "S", nullptr, $PRIVATE | $STATIC, $staticField(FontConfiguration, stringIDNum)},
+		{"stringIDs", "[S", nullptr, $PRIVATE | $STATIC, $staticField(FontConfiguration, stringIDs)},
+		{"stringTable", "Ljava/lang/StringBuilder;", nullptr, $PRIVATE | $STATIC, $staticField(FontConfiguration, stringTable)},
+		{"verbose", "Z", nullptr, $PUBLIC | $STATIC, $staticField(FontConfiguration, verbose)},
+		{"initELC", "S", nullptr, $PRIVATE, $field(FontConfiguration, initELC)},
+		{"initLocale", "Ljava/util/Locale;", nullptr, $PRIVATE, $field(FontConfiguration, initLocale)},
+		{"initEncoding", "Ljava/lang/String;", nullptr, $PRIVATE, $field(FontConfiguration, initEncoding)},
+		{"alphabeticSuffix", "Ljava/lang/String;", nullptr, $PRIVATE, $field(FontConfiguration, alphabeticSuffix)},
+		{"compFontNameIDs", "[[[S", nullptr, $PRIVATE, $field(FontConfiguration, compFontNameIDs)},
+		{"compExclusions", "[[[I", nullptr, $PRIVATE, $field(FontConfiguration, compExclusions)},
+		{"compCoreNum", "[I", nullptr, $PRIVATE, $field(FontConfiguration, compCoreNum)},
+		{"coreFontNameIDs", "Ljava/util/Set;", "Ljava/util/Set<Ljava/lang/Short;>;", $PRIVATE, $field(FontConfiguration, coreFontNameIDs)},
+		{"fallbackFontNameIDs", "Ljava/util/Set;", "Ljava/util/Set<Ljava/lang/Short;>;", $PRIVATE, $field(FontConfiguration, fallbackFontNameIDs)},
+		{"NUM_FONTS", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(FontConfiguration, NUM_FONTS)},
+		{"NUM_STYLES", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(FontConfiguration, NUM_STYLES)},
+		{"fontNames", "[Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(FontConfiguration, fontNames)},
+		{"publicFontNames", "[Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(FontConfiguration, publicFontNames)},
+		{"styleNames", "[Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(FontConfiguration, styleNames)},
+		{"installedFallbackFontFiles", "[Ljava/lang/String;", nullptr, $PROTECTED | $STATIC, $staticField(FontConfiguration, installedFallbackFontFiles)},
+		{"reorderMap", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/Object;>;", $PROTECTED, $field(FontConfiguration, reorderMap)},
+		{"charsetRegistry", "Ljava/util/Hashtable;", "Ljava/util/Hashtable<Ljava/lang/String;Ljava/nio/charset/Charset;>;", $PRIVATE, $field(FontConfiguration, charsetRegistry)},
+		{"fontDescriptors", "[[[Lsun/awt/FontDescriptor;", nullptr, $PRIVATE, $field(FontConfiguration, fontDescriptors)},
+		{"existsMap", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/Boolean;>;", 0, $field(FontConfiguration, existsMap)},
+		{"numCoreFonts", "I", nullptr, $PRIVATE, $field(FontConfiguration, numCoreFonts)},
+		{"componentFonts", "[Ljava/lang/String;", nullptr, $PRIVATE, $field(FontConfiguration, componentFonts)},
+		{"filenamesMap", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/String;>;", 0, $field(FontConfiguration, filenamesMap)},
+		{"coreFontFileNames", "Ljava/util/HashSet;", "Ljava/util/HashSet<Ljava/lang/String;>;", 0, $field(FontConfiguration, coreFontFileNames)},
+		{"HEAD_LENGTH", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(FontConfiguration, HEAD_LENGTH)},
+		{"INDEX_scriptIDs", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(FontConfiguration, INDEX_scriptIDs)},
+		{"INDEX_scriptFonts", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(FontConfiguration, INDEX_scriptFonts)},
+		{"INDEX_elcIDs", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(FontConfiguration, INDEX_elcIDs)},
+		{"INDEX_sequences", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(FontConfiguration, INDEX_sequences)},
+		{"INDEX_fontfileNameIDs", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(FontConfiguration, INDEX_fontfileNameIDs)},
+		{"INDEX_componentFontNameIDs", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(FontConfiguration, INDEX_componentFontNameIDs)},
+		{"INDEX_filenames", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(FontConfiguration, INDEX_filenames)},
+		{"INDEX_awtfontpaths", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(FontConfiguration, INDEX_awtfontpaths)},
+		{"INDEX_exclusions", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(FontConfiguration, INDEX_exclusions)},
+		{"INDEX_proportionals", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(FontConfiguration, INDEX_proportionals)},
+		{"INDEX_scriptFontsMotif", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(FontConfiguration, INDEX_scriptFontsMotif)},
+		{"INDEX_alphabeticSuffix", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(FontConfiguration, INDEX_alphabeticSuffix)},
+		{"INDEX_stringIDs", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(FontConfiguration, INDEX_stringIDs)},
+		{"INDEX_stringTable", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(FontConfiguration, INDEX_stringTable)},
+		{"INDEX_TABLEEND", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(FontConfiguration, INDEX_TABLEEND)},
+		{"INDEX_fallbackScripts", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(FontConfiguration, INDEX_fallbackScripts)},
+		{"INDEX_appendedfontpath", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(FontConfiguration, INDEX_appendedfontpath)},
+		{"INDEX_version", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(FontConfiguration, INDEX_version)},
+		{"head", "[S", nullptr, $PRIVATE | $STATIC, $staticField(FontConfiguration, head)},
+		{"table_scriptIDs", "[S", nullptr, $PRIVATE | $STATIC, $staticField(FontConfiguration, table_scriptIDs)},
+		{"table_scriptFonts", "[S", nullptr, $PRIVATE | $STATIC, $staticField(FontConfiguration, table_scriptFonts)},
+		{"table_elcIDs", "[S", nullptr, $PRIVATE | $STATIC, $staticField(FontConfiguration, table_elcIDs)},
+		{"table_sequences", "[S", nullptr, $PRIVATE | $STATIC, $staticField(FontConfiguration, table_sequences)},
+		{"table_fontfileNameIDs", "[S", nullptr, $PRIVATE | $STATIC, $staticField(FontConfiguration, table_fontfileNameIDs)},
+		{"table_componentFontNameIDs", "[S", nullptr, $PRIVATE | $STATIC, $staticField(FontConfiguration, table_componentFontNameIDs)},
+		{"table_filenames", "[S", nullptr, $PRIVATE | $STATIC, $staticField(FontConfiguration, table_filenames)},
+		{"table_awtfontpaths", "[S", nullptr, $PROTECTED | $STATIC, $staticField(FontConfiguration, table_awtfontpaths)},
+		{"table_exclusions", "[S", nullptr, $PRIVATE | $STATIC, $staticField(FontConfiguration, table_exclusions)},
+		{"table_proportionals", "[S", nullptr, $PRIVATE | $STATIC, $staticField(FontConfiguration, table_proportionals)},
+		{"table_scriptFontsMotif", "[S", nullptr, $PRIVATE | $STATIC, $staticField(FontConfiguration, table_scriptFontsMotif)},
+		{"table_alphabeticSuffix", "[S", nullptr, $PRIVATE | $STATIC, $staticField(FontConfiguration, table_alphabeticSuffix)},
+		{"table_stringIDs", "[S", nullptr, $PRIVATE | $STATIC, $staticField(FontConfiguration, table_stringIDs)},
+		{"table_stringTable", "[C", nullptr, $PRIVATE | $STATIC, $staticField(FontConfiguration, table_stringTable)},
+		{"reorderScripts", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/Short;>;", $PRIVATE, $field(FontConfiguration, reorderScripts)},
+		{"stringCache", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(FontConfiguration, stringCache)},
+		{"EMPTY_INT_ARRAY", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(FontConfiguration, EMPTY_INT_ARRAY)},
+		{"EMPTY_STRING_ARRAY", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(FontConfiguration, EMPTY_STRING_ARRAY)},
+		{"EMPTY_SHORT_ARRAY", "[S", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(FontConfiguration, EMPTY_SHORT_ARRAY)},
+		{"UNDEFINED_COMPONENT_FONT", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(FontConfiguration, UNDEFINED_COMPONENT_FONT)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/font/SunFontManager;)V", nullptr, $PUBLIC, $method(FontConfiguration, init$, void, $SunFontManager*)},
+		{"<init>", "(Lsun/font/SunFontManager;ZZ)V", nullptr, $PUBLIC, $method(FontConfiguration, init$, void, $SunFontManager*, bool, bool)},
+		{"buildFontDescriptors", "(II)[Lsun/awt/FontDescriptor;", nullptr, $PROTECTED, $virtualMethod(FontConfiguration, buildFontDescriptors, $FontDescriptorArray*, int32_t, int32_t)},
+		{"contains", "([SSI)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(FontConfiguration, contains, bool, $shorts*, int16_t, int32_t)},
+		{"dump", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(FontConfiguration, dump, void)},
+		{"findFontConfigFile", "()V", nullptr, $PRIVATE, $method(FontConfiguration, findFontConfigFile, void)},
+		{"findFontConfigFile", "(Ljava/lang/String;)Ljava/io/File;", nullptr, $PRIVATE, $method(FontConfiguration, findFontConfigFile, $File*, $String*)},
+		{"findImpl", "(Ljava/lang/String;)Ljava/io/File;", nullptr, $PRIVATE, $method(FontConfiguration, findImpl, $File*, $String*)},
+		{"fontFilesArePresent", "()Z", nullptr, $PUBLIC, $virtualMethod(FontConfiguration, fontFilesArePresent, bool)},
+		{"foundOsSpecificFile", "()Z", nullptr, $PUBLIC, $virtualMethod(FontConfiguration, foundOsSpecificFile, bool)},
+		{"get2DCompositeFontInfo", "()[Lsun/font/CompositeFontDescriptor;", nullptr, $PUBLIC, $virtualMethod(FontConfiguration, get2DCompositeFontInfo, $CompositeFontDescriptorArray*)},
+		{"getAWTFontPathSet", "()Ljava/util/HashSet;", "()Ljava/util/HashSet<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(FontConfiguration, getAWTFontPathSet, $HashSet*)},
+		{"getArrayIndex", "([Ljava/lang/String;Ljava/lang/String;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(FontConfiguration, getArrayIndex, int32_t, $StringArray*, $String*)},
+		{"getCompatibilityFamilyName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(FontConfiguration, getCompatibilityFamilyName, $String*, $String*)},
+		{"getComponentFileID", "(S)S", nullptr, $PRIVATE | $STATIC, $staticMethod(FontConfiguration, getComponentFileID, int16_t, int16_t)},
+		{"getComponentFileName", "(S)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(FontConfiguration, getComponentFileName, $String*, int16_t)},
+		{"getComponentFontID", "(SII)S", nullptr, $PROTECTED | $STATIC, $staticMethod(FontConfiguration, getComponentFontID, int16_t, int16_t, int32_t, int32_t)},
+		{"getComponentFontIDMotif", "(SII)S", nullptr, $PROTECTED | $STATIC, $staticMethod(FontConfiguration, getComponentFontIDMotif, int16_t, int16_t, int32_t, int32_t)},
+		{"getComponentFontName", "(S)Ljava/lang/String;", nullptr, $PROTECTED | $STATIC, $staticMethod(FontConfiguration, getComponentFontName, $String*, int16_t)},
+		{"getCoreScripts", "(I)[S", nullptr, $PROTECTED, $virtualMethod(FontConfiguration, getCoreScripts, $shorts*, int32_t)},
+		{"getDefaultFontCharset", "(Ljava/lang/String;)Ljava/nio/charset/Charset;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(FontConfiguration, getDefaultFontCharset, $Charset*, $String*)},
+		{"getEncoding", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(FontConfiguration, getEncoding, $String*, $String*, $String*)},
+		{"getExclusionRanges", "(S)[I", nullptr, $PRIVATE | $STATIC, $staticMethod(FontConfiguration, getExclusionRanges, $ints*, int16_t)},
+		{"getExtraFontPath", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(FontConfiguration, getExtraFontPath, $String*)},
+		{"getFaceNameFromComponentFontName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(FontConfiguration, getFaceNameFromComponentFontName, $String*, $String*)},
+		{"getFallbackFamilyName", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(FontConfiguration, getFallbackFamilyName, $String*, $String*, $String*)},
+		{"getFallbackScripts", "()[S", nullptr, $PRIVATE | $STATIC, $staticMethod(FontConfiguration, getFallbackScripts, $shorts*)},
+		{"getFileNameFromComponentFontName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(FontConfiguration, getFileNameFromComponentFontName, $String*, $String*)},
+		{"getFileNameFromPlatformName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(FontConfiguration, getFileNameFromPlatformName, $String*, $String*)},
+		{"getFontCharsetEncoder", "(Ljava/lang/String;Ljava/lang/String;)Ljava/nio/charset/CharsetEncoder;", nullptr, $PRIVATE, $method(FontConfiguration, getFontCharsetEncoder, $CharsetEncoder*, $String*, $String*)},
+		{"getFontConfiguration", "()Lsun/awt/FontConfiguration;", nullptr, $PROTECTED | $STATIC, $staticMethod(FontConfiguration, getFontConfiguration, FontConfiguration*)},
+		{"getFontDescriptors", "(Ljava/lang/String;I)[Lsun/awt/FontDescriptor;", nullptr, $PUBLIC, $virtualMethod(FontConfiguration, getFontDescriptors, $FontDescriptorArray*, $String*, int32_t)},
+		{"getFontDescriptors", "(II)[Lsun/awt/FontDescriptor;", nullptr, $PRIVATE, $method(FontConfiguration, getFontDescriptors, $FontDescriptorArray*, int32_t, int32_t)},
+		{"getFontIndex", "(Ljava/lang/String;)I", nullptr, $PROTECTED | $STATIC, $staticMethod(FontConfiguration, getFontIndex, int32_t, $String*)},
+		{"getFontName", "(I)Ljava/lang/String;", nullptr, $PROTECTED | $STATIC, $staticMethod(FontConfiguration, getFontName, $String*, int32_t)},
+		{"getInitELC", "()S", nullptr, $PRIVATE, $method(FontConfiguration, getInitELC, int16_t)},
+		{"getInstalledFallbackFonts", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(FontConfiguration, getInstalledFallbackFonts, void, $String*)},
+		{"getLogicalFontFaceName", "(Ljava/lang/String;I)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(FontConfiguration, getLogicalFontFaceName, $String*, $String*, int32_t)},
+		{"getNumberCoreFonts", "()I", nullptr, $PUBLIC, $virtualMethod(FontConfiguration, getNumberCoreFonts, int32_t)},
+		{"getPlatformFontNames", "()[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(FontConfiguration, getPlatformFontNames, $StringArray*)},
+		{"getReorderSequence", "()Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC, $staticMethod(FontConfiguration, getReorderSequence, $Object*)},
+		{"getScriptName", "(S)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(FontConfiguration, getScriptName, $String*, int16_t)},
+		{"getShortArray", "(S)[S", nullptr, $PRIVATE | $STATIC, $staticMethod(FontConfiguration, getShortArray, $shorts*, int16_t)},
+		{"getShortArrayID", "([S)S", nullptr, $PRIVATE | $STATIC, $staticMethod(FontConfiguration, getShortArrayID, int16_t, $shorts*)},
+		{"getString", "(S)Ljava/lang/String;", nullptr, $PROTECTED | $STATIC, $staticMethod(FontConfiguration, getString, $String*, int16_t)},
+		{"getStringID", "(Ljava/lang/String;)S", nullptr, $PRIVATE | $STATIC, $staticMethod(FontConfiguration, getStringID, int16_t, $String*)},
+		{"getStyleIndex", "(Ljava/lang/String;)I", nullptr, $PROTECTED | $STATIC, $staticMethod(FontConfiguration, getStyleIndex, int32_t, $String*)},
+		{"getStyleIndex", "(I)I", nullptr, $PROTECTED | $STATIC, $staticMethod(FontConfiguration, getStyleIndex, int32_t, int32_t)},
+		{"getStyleName", "(I)Ljava/lang/String;", nullptr, $PROTECTED | $STATIC, $staticMethod(FontConfiguration, getStyleName, $String*, int32_t)},
+		{"getStyleString", "(I)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(FontConfiguration, getStyleString, $String*, int32_t)},
+		{"getVersion", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(FontConfiguration, getVersion, $String*)},
+		{"hasMonoToPropMap", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(FontConfiguration, hasMonoToPropMap, bool)},
+		{"init", "()Z", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(FontConfiguration, init, bool)},
+		{"initAllComponentFonts", "()V", nullptr, $PRIVATE, $method(FontConfiguration, initAllComponentFonts, void)},
+		{"initFontConfig", "()V", nullptr, $PRIVATE, $method(FontConfiguration, initFontConfig, void)},
+		{"initReorderMap", "()V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(FontConfiguration, initReorderMap, void)},
+		{"isEmpty", "([S)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(FontConfiguration, isEmpty, bool, $shorts*)},
+		{"isLogicalFontFaceName", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(FontConfiguration, isLogicalFontFaceName, bool, $String*)},
+		{"isLogicalFontFaceNameLC", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(FontConfiguration, isLogicalFontFaceNameLC, bool, $String*)},
+		{"isLogicalFontFamilyName", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(FontConfiguration, isLogicalFontFamilyName, bool, $String*)},
+		{"isLogicalFontFamilyNameLC", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(FontConfiguration, isLogicalFontFamilyNameLC, bool, $String*)},
+		{"isLogicalFontStyleName", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(FontConfiguration, isLogicalFontStyleName, bool, $String*)},
+		{"loadBinary", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(FontConfiguration, loadBinary, void, $InputStream*), "java.io.IOException"},
+		{"loadProperties", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(FontConfiguration, loadProperties, void, $InputStream*), "java.io.IOException"},
+		{"makeAWTFontName", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(FontConfiguration, makeAWTFontName, $String*, $String*, $String*)},
+		{"mapFileName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(FontConfiguration, mapFileName, $String*, $String*)},
+		{"needToSearchForFile", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(FontConfiguration, needToSearchForFile, bool, $String*)},
+		{"printTable", "([SI)V", nullptr, $PRIVATE | $STATIC, $staticMethod(FontConfiguration, printTable, void, $shorts*, int32_t)},
+		{"readFontConfigFile", "(Ljava/io/File;)V", nullptr, $PRIVATE, $method(FontConfiguration, readFontConfigFile, void, $File*)},
+		{"readShortTable", "(Ljava/io/DataInputStream;I)[S", nullptr, $PRIVATE | $STATIC, $staticMethod(FontConfiguration, readShortTable, $shorts*, $DataInputStream*, int32_t), "java.io.IOException"},
+		{"remapLocaleMap", "(IISS)S", nullptr, $PRIVATE, $method(FontConfiguration, remapLocaleMap, int16_t, int32_t, int32_t, int16_t, int16_t)},
+		{"remapProportional", "(IS)S", nullptr, $PRIVATE, $method(FontConfiguration, remapProportional, int16_t, int32_t, int16_t)},
+		{"reorderSequenceForLocale", "([Ljava/lang/String;)V", nullptr, $PRIVATE, $method(FontConfiguration, reorderSequenceForLocale, void, $StringArray*)},
+		{"sanityCheck", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(FontConfiguration, sanityCheck, void)},
+		{"saveBinary", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(FontConfiguration, saveBinary, void, $OutputStream*), "java.io.IOException"},
+		{"setEncoding", "()V", nullptr, $PRIVATE, $method(FontConfiguration, setEncoding, void)},
+		{"setFontConfiguration", "()V", nullptr, $PROTECTED, $virtualMethod(FontConfiguration, setFontConfiguration, void)},
+		{"setOsNameAndVersion", "()V", nullptr, $PROTECTED, $virtualMethod(FontConfiguration, setOsNameAndVersion, void)},
+		{"shuffle", "([Ljava/lang/String;II)V", nullptr, $PRIVATE, $method(FontConfiguration, shuffle, void, $StringArray*, int32_t, int32_t)},
+		{"split", "(Ljava/lang/String;)[Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(FontConfiguration, split, $StringArray*, $String*)},
+		{"splitSequence", "(Ljava/lang/String;)Ljava/util/Vector;", "(Ljava/lang/String;)Ljava/util/Vector<Ljava/lang/String;>;", $PRIVATE | $STATIC, $staticMethod(FontConfiguration, splitSequence, $Vector*, $String*)},
+		{"toList", "(Ljava/util/HashMap;)[S", "(Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/Short;>;)[S", $PRIVATE | $STATIC, $staticMethod(FontConfiguration, toList, $shorts*, $HashMap*)},
+		{"willReorderForStartupLocale", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(FontConfiguration, willReorderForStartupLocale, bool)},
+		{"writeShortTable", "(Ljava/io/DataOutputStream;[S)V", nullptr, $PRIVATE | $STATIC, $staticMethod(FontConfiguration, writeShortTable, void, $DataOutputStream*, $shorts*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.FontConfiguration$PropertiesHandler", "sun.awt.FontConfiguration", "PropertiesHandler", $STATIC},
+		{"sun.awt.FontConfiguration$3", nullptr, nullptr, 0},
+		{"sun.awt.FontConfiguration$2", nullptr, nullptr, 0},
+		{"sun.awt.FontConfiguration$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"sun.awt.FontConfiguration",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.awt.FontConfiguration$PropertiesHandler,sun.awt.FontConfiguration$PropertiesHandler$FontProperties,sun.awt.FontConfiguration$3,sun.awt.FontConfiguration$2,sun.awt.FontConfiguration$1"
+	};
+	$loadClass(FontConfiguration, name, initialize, &classInfo$$, FontConfiguration::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(FontConfiguration);
+	});
 	return class$;
 }
 

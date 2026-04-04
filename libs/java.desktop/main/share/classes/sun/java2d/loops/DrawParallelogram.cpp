@@ -1,5 +1,4 @@
 #include <sun/java2d/loops/DrawParallelogram.h>
-
 #include <sun/java2d/SunGraphics2D.h>
 #include <sun/java2d/SurfaceData.h>
 #include <sun/java2d/loops/CompositeType.h>
@@ -25,47 +24,6 @@ namespace sun {
 	namespace java2d {
 		namespace loops {
 
-$FieldInfo _DrawParallelogram_FieldInfo_[] = {
-	{"methodSignature", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DrawParallelogram, methodSignature)},
-	{"primTypeID", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DrawParallelogram, primTypeID)},
-	{}
-};
-
-$MethodInfo _DrawParallelogram_MethodInfo_[] = {
-	{"<init>", "(Lsun/java2d/loops/SurfaceType;Lsun/java2d/loops/CompositeType;Lsun/java2d/loops/SurfaceType;)V", nullptr, $PROTECTED, $method(DrawParallelogram, init$, void, $SurfaceType*, $CompositeType*, $SurfaceType*)},
-	{"<init>", "(JLsun/java2d/loops/SurfaceType;Lsun/java2d/loops/CompositeType;Lsun/java2d/loops/SurfaceType;)V", nullptr, $PUBLIC, $method(DrawParallelogram, init$, void, int64_t, $SurfaceType*, $CompositeType*, $SurfaceType*)},
-	{"DrawParallelogram", "(Lsun/java2d/SunGraphics2D;Lsun/java2d/SurfaceData;DDDDDDDD)V", nullptr, $PUBLIC | $NATIVE, $virtualMethod(DrawParallelogram, DrawParallelogram$, void, $SunGraphics2D*, $SurfaceData*, double, double, double, double, double, double, double, double)},
-	{"locate", "(Lsun/java2d/loops/SurfaceType;Lsun/java2d/loops/CompositeType;Lsun/java2d/loops/SurfaceType;)Lsun/java2d/loops/DrawParallelogram;", nullptr, $PUBLIC | $STATIC, $staticMethod(DrawParallelogram, locate, DrawParallelogram*, $SurfaceType*, $CompositeType*, $SurfaceType*)},
-	{"traceWrap", "()Lsun/java2d/loops/GraphicsPrimitive;", nullptr, $PUBLIC, $virtualMethod(DrawParallelogram, traceWrap, $GraphicsPrimitive*)},
-	{}
-};
-
-#define _METHOD_INDEX_DrawParallelogram$ 2
-
-$InnerClassInfo _DrawParallelogram_InnerClassesInfo_[] = {
-	{"sun.java2d.loops.DrawParallelogram$TraceDrawParallelogram", "sun.java2d.loops.DrawParallelogram", "TraceDrawParallelogram", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _DrawParallelogram_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.java2d.loops.DrawParallelogram",
-	"sun.java2d.loops.GraphicsPrimitive",
-	nullptr,
-	_DrawParallelogram_FieldInfo_,
-	_DrawParallelogram_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DrawParallelogram_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.java2d.loops.DrawParallelogram$TraceDrawParallelogram"
-};
-
-$Object* allocate$DrawParallelogram($Class* clazz) {
-	return $of($alloc(DrawParallelogram));
-}
-
 $String* DrawParallelogram::methodSignature = nullptr;
 int32_t DrawParallelogram::primTypeID = 0;
 
@@ -83,7 +41,7 @@ void DrawParallelogram::init$(int64_t pNativePrim, $SurfaceType* srctype, $Compo
 }
 
 void DrawParallelogram::DrawParallelogram$($SunGraphics2D* sg, $SurfaceData* dest, double x, double y, double dx1, double dy1, double dx2, double dy2, double lw1, double lw2) {
-	$prepareNative(DrawParallelogram, DrawParallelogram$, void, $SunGraphics2D* sg, $SurfaceData* dest, double x, double y, double dx1, double dy1, double dx2, double dy2, double lw1, double lw2);
+	$prepareNative(DrawParallelogram, void, $SunGraphics2D* sg, $SurfaceData* dest, double x, double y, double dx1, double dy1, double dx2, double dy2, double lw1, double lw2);
 	$invokeNative(sg, dest, x, y, dx1, dy1, dx2, dy2, lw1, lw2);
 	$finishNative();
 }
@@ -92,7 +50,7 @@ $GraphicsPrimitive* DrawParallelogram::traceWrap() {
 	return $new($DrawParallelogram$TraceDrawParallelogram, this);
 }
 
-void clinit$DrawParallelogram($Class* class$) {
+void DrawParallelogram::clinit$($Class* clazz) {
 	$assignStatic(DrawParallelogram::methodSignature, "DrawParallelogram(...)"_s->toString());
 	DrawParallelogram::primTypeID = $GraphicsPrimitive::makePrimTypeID();
 }
@@ -101,7 +59,40 @@ DrawParallelogram::DrawParallelogram() {
 }
 
 $Class* DrawParallelogram::load$($String* name, bool initialize) {
-	$loadClass(DrawParallelogram, name, initialize, &_DrawParallelogram_ClassInfo_, clinit$DrawParallelogram, allocate$DrawParallelogram);
+	$FieldInfo fieldInfos$$[] = {
+		{"methodSignature", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DrawParallelogram, methodSignature)},
+		{"primTypeID", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DrawParallelogram, primTypeID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/java2d/loops/SurfaceType;Lsun/java2d/loops/CompositeType;Lsun/java2d/loops/SurfaceType;)V", nullptr, $PROTECTED, $method(DrawParallelogram, init$, void, $SurfaceType*, $CompositeType*, $SurfaceType*)},
+		{"<init>", "(JLsun/java2d/loops/SurfaceType;Lsun/java2d/loops/CompositeType;Lsun/java2d/loops/SurfaceType;)V", nullptr, $PUBLIC, $method(DrawParallelogram, init$, void, int64_t, $SurfaceType*, $CompositeType*, $SurfaceType*)},
+		{"DrawParallelogram", "(Lsun/java2d/SunGraphics2D;Lsun/java2d/SurfaceData;DDDDDDDD)V", nullptr, $PUBLIC | $NATIVE, $virtualMethod(DrawParallelogram, DrawParallelogram$, void, $SunGraphics2D*, $SurfaceData*, double, double, double, double, double, double, double, double)},
+		{"locate", "(Lsun/java2d/loops/SurfaceType;Lsun/java2d/loops/CompositeType;Lsun/java2d/loops/SurfaceType;)Lsun/java2d/loops/DrawParallelogram;", nullptr, $PUBLIC | $STATIC, $staticMethod(DrawParallelogram, locate, DrawParallelogram*, $SurfaceType*, $CompositeType*, $SurfaceType*)},
+		{"traceWrap", "()Lsun/java2d/loops/GraphicsPrimitive;", nullptr, $PUBLIC, $virtualMethod(DrawParallelogram, traceWrap, $GraphicsPrimitive*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.java2d.loops.DrawParallelogram$TraceDrawParallelogram", "sun.java2d.loops.DrawParallelogram", "TraceDrawParallelogram", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.java2d.loops.DrawParallelogram",
+		"sun.java2d.loops.GraphicsPrimitive",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.java2d.loops.DrawParallelogram$TraceDrawParallelogram"
+	};
+	$loadClass(DrawParallelogram, name, initialize, &classInfo$$, DrawParallelogram::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(DrawParallelogram);
+	});
 	return class$;
 }
 

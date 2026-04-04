@@ -1,5 +1,4 @@
 #include <sun/java2d/cmm/ProfileDataVerifier.h>
-
 #include <jcpp.h>
 
 #undef HEADER_SIZE
@@ -19,37 +18,6 @@ namespace sun {
 	namespace java2d {
 		namespace cmm {
 
-$FieldInfo _ProfileDataVerifier_FieldInfo_[] = {
-	{"MAX_TAG_COUNT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ProfileDataVerifier, MAX_TAG_COUNT)},
-	{"HEADER_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ProfileDataVerifier, HEADER_SIZE)},
-	{"TOC_OFFSET", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ProfileDataVerifier, TOC_OFFSET)},
-	{"TOC_RECORD_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ProfileDataVerifier, TOC_RECORD_SIZE)},
-	{"PROFILE_FILE_SIGNATURE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ProfileDataVerifier, PROFILE_FILE_SIGNATURE)},
-	{}
-};
-
-$MethodInfo _ProfileDataVerifier_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ProfileDataVerifier, init$, void)},
-	{"getTagOffset", "(I[B)I", nullptr, $PRIVATE | $STATIC, $staticMethod(ProfileDataVerifier, getTagOffset, int32_t, int32_t, $bytes*)},
-	{"getTagSize", "(I[B)I", nullptr, $PRIVATE | $STATIC, $staticMethod(ProfileDataVerifier, getTagSize, int32_t, int32_t, $bytes*)},
-	{"readInt32", "([BI)I", nullptr, $PRIVATE | $STATIC, $staticMethod(ProfileDataVerifier, readInt32, int32_t, $bytes*, int32_t)},
-	{"verify", "([B)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ProfileDataVerifier, verify, void, $bytes*)},
-	{}
-};
-
-$ClassInfo _ProfileDataVerifier_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.java2d.cmm.ProfileDataVerifier",
-	"java.lang.Object",
-	nullptr,
-	_ProfileDataVerifier_FieldInfo_,
-	_ProfileDataVerifier_MethodInfo_
-};
-
-$Object* allocate$ProfileDataVerifier($Class* clazz) {
-	return $of($alloc(ProfileDataVerifier));
-}
-
 void ProfileDataVerifier::init$() {
 }
 
@@ -65,7 +33,7 @@ void ProfileDataVerifier::verify($bytes* data) {
 	if (tagCount < 0 || tagCount > ProfileDataVerifier::MAX_TAG_COUNT) {
 		$throwNew($IllegalArgumentException, "Invalid ICC Profile Data"_s);
 	}
-	if (size < (ProfileDataVerifier::TOC_OFFSET + (tagCount * ProfileDataVerifier::TOC_RECORD_SIZE)) || size > $nc(data)->length) {
+	if (size < (ProfileDataVerifier::TOC_OFFSET + (tagCount * ProfileDataVerifier::TOC_RECORD_SIZE)) || size > data->length) {
 		$throwNew($IllegalArgumentException, "Invalid ICC Profile Data"_s);
 	}
 	int32_t sig = readInt32(data, 36);
@@ -98,7 +66,7 @@ int32_t ProfileDataVerifier::readInt32($bytes* data, int32_t off) {
 	int32_t res = 0;
 	for (int32_t i = 0; i < 4; ++i) {
 		res = res << 8;
-		res |= ((int32_t)(255 & (uint32_t)(int32_t)$nc(data)->get(off++)));
+		res |= (0xff & $nc(data)->get(off++));
 	}
 	return res;
 }
@@ -107,7 +75,33 @@ ProfileDataVerifier::ProfileDataVerifier() {
 }
 
 $Class* ProfileDataVerifier::load$($String* name, bool initialize) {
-	$loadClass(ProfileDataVerifier, name, initialize, &_ProfileDataVerifier_ClassInfo_, allocate$ProfileDataVerifier);
+	$FieldInfo fieldInfos$$[] = {
+		{"MAX_TAG_COUNT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ProfileDataVerifier, MAX_TAG_COUNT)},
+		{"HEADER_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ProfileDataVerifier, HEADER_SIZE)},
+		{"TOC_OFFSET", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ProfileDataVerifier, TOC_OFFSET)},
+		{"TOC_RECORD_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ProfileDataVerifier, TOC_RECORD_SIZE)},
+		{"PROFILE_FILE_SIGNATURE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ProfileDataVerifier, PROFILE_FILE_SIGNATURE)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ProfileDataVerifier, init$, void)},
+		{"getTagOffset", "(I[B)I", nullptr, $PRIVATE | $STATIC, $staticMethod(ProfileDataVerifier, getTagOffset, int32_t, int32_t, $bytes*)},
+		{"getTagSize", "(I[B)I", nullptr, $PRIVATE | $STATIC, $staticMethod(ProfileDataVerifier, getTagSize, int32_t, int32_t, $bytes*)},
+		{"readInt32", "([BI)I", nullptr, $PRIVATE | $STATIC, $staticMethod(ProfileDataVerifier, readInt32, int32_t, $bytes*, int32_t)},
+		{"verify", "([B)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ProfileDataVerifier, verify, void, $bytes*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.java2d.cmm.ProfileDataVerifier",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ProfileDataVerifier, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ProfileDataVerifier);
+	});
 	return class$;
 }
 

@@ -16,6 +16,7 @@ class TIFFStreamMetadataFormatResources : public ::java::util::ListResourceBundl
 	$class(TIFFStreamMetadataFormatResources, 0, ::java::util::ListResourceBundle)
 public:
 	TIFFStreamMetadataFormatResources();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual $Array<::java::lang::Object, 2>* getContents() override;
 	static $Array<::java::lang::Object, 2>* contents;

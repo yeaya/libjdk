@@ -1,6 +1,4 @@
 #include <sun/lwawt/LWListPeer$ScrollableJList$JListDelegate.h>
-
-#include <java/awt/AWTEvent.h>
 #include <java/awt/Component.h>
 #include <java/awt/List.h>
 #include <java/awt/Point.h>
@@ -21,7 +19,6 @@
 #undef MOUSE_CLICKED
 #undef VK_ENTER
 
-using $AWTEvent = ::java::awt::AWTEvent;
 using $List = ::java::awt::List;
 using $Point = ::java::awt::Point;
 using $ActionEvent = ::java::awt::event::ActionEvent;
@@ -32,71 +29,29 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $JList = ::javax::swing::JList;
-using $ListModel = ::javax::swing::ListModel;
-using $LWListPeer = ::sun::lwawt::LWListPeer;
 using $LWListPeer$ScrollableJList = ::sun::lwawt::LWListPeer$ScrollableJList;
 
 namespace sun {
 	namespace lwawt {
 
-$FieldInfo _LWListPeer$ScrollableJList$JListDelegate_FieldInfo_[] = {
-	{"this$1", "Lsun/lwawt/LWListPeer$ScrollableJList;", nullptr, $FINAL | $SYNTHETIC, $field(LWListPeer$ScrollableJList$JListDelegate, this$1)},
-	{}
-};
-
-$MethodInfo _LWListPeer$ScrollableJList$JListDelegate_MethodInfo_[] = {
-	{"<init>", "(Lsun/lwawt/LWListPeer$ScrollableJList;)V", nullptr, 0, $method(LWListPeer$ScrollableJList$JListDelegate, init$, void, $LWListPeer$ScrollableJList*)},
-	{"getLocationOnScreen", "()Ljava/awt/Point;", nullptr, $PUBLIC, $virtualMethod(LWListPeer$ScrollableJList$JListDelegate, getLocationOnScreen, $Point*)},
-	{"hasFocus", "()Z", nullptr, $PUBLIC, $virtualMethod(LWListPeer$ScrollableJList$JListDelegate, hasFocus, bool)},
-	{"processKeyEvent", "(Ljava/awt/event/KeyEvent;)V", nullptr, $PROTECTED, $virtualMethod(LWListPeer$ScrollableJList$JListDelegate, processKeyEvent, void, $KeyEvent*)},
-	{"processMouseEvent", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PROTECTED, $virtualMethod(LWListPeer$ScrollableJList$JListDelegate, processMouseEvent, void, $MouseEvent*)},
-	{}
-};
-
-$InnerClassInfo _LWListPeer$ScrollableJList$JListDelegate_InnerClassesInfo_[] = {
-	{"sun.lwawt.LWListPeer$ScrollableJList", "sun.lwawt.LWListPeer", "ScrollableJList", $FINAL},
-	{"sun.lwawt.LWListPeer$ScrollableJList$JListDelegate", "sun.lwawt.LWListPeer$ScrollableJList", "JListDelegate", $PRIVATE | $FINAL},
-	{}
-};
-
-$ClassInfo _LWListPeer$ScrollableJList$JListDelegate_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.lwawt.LWListPeer$ScrollableJList$JListDelegate",
-	"javax.swing.JList",
-	nullptr,
-	_LWListPeer$ScrollableJList$JListDelegate_FieldInfo_,
-	_LWListPeer$ScrollableJList$JListDelegate_MethodInfo_,
-	"Ljavax/swing/JList<Ljava/lang/String;>;",
-	nullptr,
-	_LWListPeer$ScrollableJList$JListDelegate_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.lwawt.LWListPeer"
-};
-
-$Object* allocate$LWListPeer$ScrollableJList$JListDelegate($Class* clazz) {
-	return $of($alloc(LWListPeer$ScrollableJList$JListDelegate));
-}
-
 void LWListPeer$ScrollableJList$JListDelegate::init$($LWListPeer$ScrollableJList* this$1) {
 	$set(this, this$1, this$1);
-	$JList::init$(static_cast<$ListModel*>(this$1->model));
+	$JList::init$(this$1->model);
 }
 
 bool LWListPeer$ScrollableJList$JListDelegate::hasFocus() {
-	return $nc(($cast($List, $($nc(this->this$1->this$0)->getTarget()))))->hasFocus();
+	return $$sure($List, $nc(this->this$1->this$0)->getTarget())->hasFocus();
 }
 
 void LWListPeer$ScrollableJList$JListDelegate::processMouseEvent($MouseEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$JList::processMouseEvent(e);
 	bool var$0 = $nc(e)->getID() == $MouseEvent::MOUSE_CLICKED;
 	if (var$0 && e->getClickCount() == 2) {
 		int32_t index = locationToIndex($(e->getPoint()));
-		if (0 <= index && index < $nc($(getModel()))->getSize()) {
-			$var($Object, var$1, $of($nc(this->this$1->this$0)->getTarget()));
-			$var($String, var$2, $cast($String, $nc($(getModel()))->getElementAt(index)));
+		if (0 <= index && index < $$nc(getModel())->getSize()) {
+			$var($Object, var$1, $nc(this->this$1->this$0)->getTarget());
+			$var($String, var$2, $cast($String, $$nc(getModel())->getElementAt(index)));
 			int64_t var$3 = e->getWhen();
 			$nc(this->this$1->this$0)->postEvent($$new($ActionEvent, var$1, $ActionEvent::ACTION_PERFORMED, var$2, var$3, e->getModifiers()));
 		}
@@ -104,16 +59,15 @@ void LWListPeer$ScrollableJList$JListDelegate::processMouseEvent($MouseEvent* e)
 }
 
 void LWListPeer$ScrollableJList$JListDelegate::processKeyEvent($KeyEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$JList::processKeyEvent(e);
 	bool var$0 = $nc(e)->getID() == $KeyEvent::KEY_PRESSED;
 	if (var$0 && e->getKeyCode() == $KeyEvent::VK_ENTER) {
 		$var($String, selectedValue, $cast($String, getSelectedValue()));
 		if (selectedValue != nullptr) {
-			$var($Object, var$1, $of($nc(this->this$1->this$0)->getTarget()));
-			$var($String, var$2, selectedValue);
-			int64_t var$3 = e->getWhen();
-			$nc(this->this$1->this$0)->postEvent($$new($ActionEvent, var$1, $ActionEvent::ACTION_PERFORMED, var$2, var$3, e->getModifiers()));
+			$var($Object, var$1, $nc(this->this$1->this$0)->getTarget());
+			int64_t var$2 = e->getWhen();
+			$nc(this->this$1->this$0)->postEvent($$new($ActionEvent, var$1, $ActionEvent::ACTION_PERFORMED, selectedValue, var$2, e->getModifiers()));
 		}
 	}
 }
@@ -126,7 +80,41 @@ LWListPeer$ScrollableJList$JListDelegate::LWListPeer$ScrollableJList$JListDelega
 }
 
 $Class* LWListPeer$ScrollableJList$JListDelegate::load$($String* name, bool initialize) {
-	$loadClass(LWListPeer$ScrollableJList$JListDelegate, name, initialize, &_LWListPeer$ScrollableJList$JListDelegate_ClassInfo_, allocate$LWListPeer$ScrollableJList$JListDelegate);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$1", "Lsun/lwawt/LWListPeer$ScrollableJList;", nullptr, $FINAL | $SYNTHETIC, $field(LWListPeer$ScrollableJList$JListDelegate, this$1)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/lwawt/LWListPeer$ScrollableJList;)V", nullptr, 0, $method(LWListPeer$ScrollableJList$JListDelegate, init$, void, $LWListPeer$ScrollableJList*)},
+		{"getLocationOnScreen", "()Ljava/awt/Point;", nullptr, $PUBLIC, $virtualMethod(LWListPeer$ScrollableJList$JListDelegate, getLocationOnScreen, $Point*)},
+		{"hasFocus", "()Z", nullptr, $PUBLIC, $virtualMethod(LWListPeer$ScrollableJList$JListDelegate, hasFocus, bool)},
+		{"processKeyEvent", "(Ljava/awt/event/KeyEvent;)V", nullptr, $PROTECTED, $virtualMethod(LWListPeer$ScrollableJList$JListDelegate, processKeyEvent, void, $KeyEvent*)},
+		{"processMouseEvent", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PROTECTED, $virtualMethod(LWListPeer$ScrollableJList$JListDelegate, processMouseEvent, void, $MouseEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.lwawt.LWListPeer$ScrollableJList", "sun.lwawt.LWListPeer", "ScrollableJList", $FINAL},
+		{"sun.lwawt.LWListPeer$ScrollableJList$JListDelegate", "sun.lwawt.LWListPeer$ScrollableJList", "JListDelegate", $PRIVATE | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.lwawt.LWListPeer$ScrollableJList$JListDelegate",
+		"javax.swing.JList",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljavax/swing/JList<Ljava/lang/String;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.lwawt.LWListPeer"
+	};
+	$loadClass(LWListPeer$ScrollableJList$JListDelegate, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(LWListPeer$ScrollableJList$JListDelegate));
+	});
 	return class$;
 }
 

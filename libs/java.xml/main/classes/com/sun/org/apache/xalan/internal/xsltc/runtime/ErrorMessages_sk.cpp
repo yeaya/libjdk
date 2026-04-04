@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/runtime/ErrorMessages_sk.h>
-
 #include <com/sun/org/apache/xalan/internal/xsltc/runtime/BasisLibrary.h>
 #include <java/util/ListResourceBundle.h>
 #include <jcpp.h>
@@ -37,100 +36,81 @@ namespace com {
 						namespace xsltc {
 							namespace runtime {
 
-$MethodInfo _ErrorMessages_sk_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ErrorMessages_sk, init$, void)},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ErrorMessages_sk, getContents, $ObjectArray2*)},
-	{}
-};
-
-$ClassInfo _ErrorMessages_sk_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xalan.internal.xsltc.runtime.ErrorMessages_sk",
-	"java.util.ListResourceBundle",
-	nullptr,
-	nullptr,
-	_ErrorMessages_sk_MethodInfo_
-};
-
-$Object* allocate$ErrorMessages_sk($Class* clazz) {
-	return $of($alloc(ErrorMessages_sk));
-}
-
 void ErrorMessages_sk::init$() {
 	$ListResourceBundle::init$();
 }
 
 $ObjectArray2* ErrorMessages_sk::getContents() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($BasisLibrary);
 	return $new($ObjectArray2, {
 		$$new($ObjectArray, {
-			$of($BasisLibrary::RUN_TIME_INTERNAL_ERR),
-			$of(u"Interná chyba času spustenia v \'\'{0}\'\'"_s)
+			$BasisLibrary::RUN_TIME_INTERNAL_ERR,
+			u"Interná chyba času spustenia v \'\'{0}\'\'"_s
 		}),
 		$$new($ObjectArray, {
-			$of($BasisLibrary::RUN_TIME_COPY_ERR),
-			$of(u"Chyba času spustenia pri spúšťaní <xsl:copy>."_s)
+			$BasisLibrary::RUN_TIME_COPY_ERR,
+			u"Chyba času spustenia pri spúšťaní <xsl:copy>."_s
 		}),
 		$$new($ObjectArray, {
-			$of($BasisLibrary::DATA_CONVERSION_ERR),
-			$of(u"Neplatná konverzia z \'\'{0}\'\' na \'\'{1}\'\'."_s)
+			$BasisLibrary::DATA_CONVERSION_ERR,
+			u"Neplatná konverzia z \'\'{0}\'\' na \'\'{1}\'\'."_s
 		}),
 		$$new($ObjectArray, {
-			$of($BasisLibrary::EXTERNAL_FUNC_ERR),
-			$of(u"XSLTC nepodporuje externú funkciu \'\'{0}\'\'."_s)
+			$BasisLibrary::EXTERNAL_FUNC_ERR,
+			u"XSLTC nepodporuje externú funkciu \'\'{0}\'\'."_s
 		}),
 		$$new($ObjectArray, {
-			$of($BasisLibrary::EQUALITY_EXPR_ERR),
-			$of(u"Neznámy typ argumentu je výrazom rovnosti."_s)
+			$BasisLibrary::EQUALITY_EXPR_ERR,
+			u"Neznámy typ argumentu je výrazom rovnosti."_s
 		}),
 		$$new($ObjectArray, {
-			$of($BasisLibrary::INVALID_ARGUMENT_ERR),
-			$of(u"Neplatný typ argumentu \'\'{0}\'\' vo volaní do \'\'{1}\'\'"_s)
+			$BasisLibrary::INVALID_ARGUMENT_ERR,
+			u"Neplatný typ argumentu \'\'{0}\'\' vo volaní do \'\'{1}\'\'"_s
 		}),
 		$$new($ObjectArray, {
-			$of($BasisLibrary::FORMAT_NUMBER_ERR),
-			$of(u"Pokus o formátovanie čísla \'\'{0}\'\' pomocou vzoru \'\'{1}\'\'."_s)
+			$BasisLibrary::FORMAT_NUMBER_ERR,
+			u"Pokus o formátovanie čísla \'\'{0}\'\' pomocou vzoru \'\'{1}\'\'."_s
 		}),
 		$$new($ObjectArray, {
-			$of($BasisLibrary::ITERATOR_CLONE_ERR),
-			$of(u"Nie je možné klonovať iterátor \'\'{0}\'\'."_s)
+			$BasisLibrary::ITERATOR_CLONE_ERR,
+			u"Nie je možné klonovať iterátor \'\'{0}\'\'."_s
 		}),
 		$$new($ObjectArray, {
-			$of($BasisLibrary::AXIS_SUPPORT_ERR),
-			$of(u"Iterátor pre os \'\'{0}\'\' nie je podporovaný."_s)
+			$BasisLibrary::AXIS_SUPPORT_ERR,
+			u"Iterátor pre os \'\'{0}\'\' nie je podporovaný."_s
 		}),
 		$$new($ObjectArray, {
-			$of($BasisLibrary::TYPED_AXIS_SUPPORT_ERR),
-			$of(u"Iterátor pre napísanú os \'\'{0}\'\' nie je podporovaný."_s)
+			$BasisLibrary::TYPED_AXIS_SUPPORT_ERR,
+			u"Iterátor pre napísanú os \'\'{0}\'\' nie je podporovaný."_s
 		}),
 		$$new($ObjectArray, {
-			$of($BasisLibrary::STRAY_ATTRIBUTE_ERR),
-			$of(u"Atribút \'\'{0}\'\' je mimo elementu."_s)
+			$BasisLibrary::STRAY_ATTRIBUTE_ERR,
+			u"Atribút \'\'{0}\'\' je mimo elementu."_s
 		}),
 		$$new($ObjectArray, {
-			$of($BasisLibrary::STRAY_NAMESPACE_ERR),
-			$of(u"Deklarácia názvového priestoru \'\'{0}\'\'=\'\'{1}\'\' je mimo elementu."_s)
+			$BasisLibrary::STRAY_NAMESPACE_ERR,
+			u"Deklarácia názvového priestoru \'\'{0}\'\'=\'\'{1}\'\' je mimo elementu."_s
 		}),
 		$$new($ObjectArray, {
-			$of($BasisLibrary::NAMESPACE_PREFIX_ERR),
-			$of(u"Názvový priestor pre predponu \'\'{0}\'\' nebol deklarovaný."_s)
+			$BasisLibrary::NAMESPACE_PREFIX_ERR,
+			u"Názvový priestor pre predponu \'\'{0}\'\' nebol deklarovaný."_s
 		}),
 		$$new($ObjectArray, {
-			$of($BasisLibrary::DOM_ADAPTER_INIT_ERR),
-			$of(u"DOMAdapter bol vytvorený pomocou nesprávneho typu zdrojového DOM."_s)
+			$BasisLibrary::DOM_ADAPTER_INIT_ERR,
+			u"DOMAdapter bol vytvorený pomocou nesprávneho typu zdrojového DOM."_s
 		}),
 		$$new($ObjectArray, {
-			$of($BasisLibrary::PARSER_DTD_SUPPORT_ERR),
-			$of(u"Analyzátor SAX, ktorý používate, nespracúva udalosti deklarácie DTD."_s)
+			$BasisLibrary::PARSER_DTD_SUPPORT_ERR,
+			u"Analyzátor SAX, ktorý používate, nespracúva udalosti deklarácie DTD."_s
 		}),
 		$$new($ObjectArray, {
-			$of($BasisLibrary::NAMESPACES_SUPPORT_ERR),
-			$of(u"Analyzátor SAX, ktorý používate, nemá podporu pre názvové priestory XML."_s)
+			$BasisLibrary::NAMESPACES_SUPPORT_ERR,
+			u"Analyzátor SAX, ktorý používate, nemá podporu pre názvové priestory XML."_s
 		}),
 		$$new($ObjectArray, {
-			$of($BasisLibrary::CANT_RESOLVE_RELATIVE_URI_ERR),
-			$of(u"Nebolo možné rozlíšiť referenciu URI \'\'{0}\'\'."_s)
+			$BasisLibrary::CANT_RESOLVE_RELATIVE_URI_ERR,
+			u"Nebolo možné rozlíšiť referenciu URI \'\'{0}\'\'."_s
 		})
 	});
 }
@@ -139,7 +119,22 @@ ErrorMessages_sk::ErrorMessages_sk() {
 }
 
 $Class* ErrorMessages_sk::load$($String* name, bool initialize) {
-	$loadClass(ErrorMessages_sk, name, initialize, &_ErrorMessages_sk_ClassInfo_, allocate$ErrorMessages_sk);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ErrorMessages_sk, init$, void)},
+		{"getContents", "()[[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ErrorMessages_sk, getContents, $ObjectArray2*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xalan.internal.xsltc.runtime.ErrorMessages_sk",
+		"java.util.ListResourceBundle",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ErrorMessages_sk, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ErrorMessages_sk);
+	});
 	return class$;
 }
 

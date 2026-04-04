@@ -1,5 +1,4 @@
 #include <sun/java2d/marlin/DMarlinRenderingEngine$NormalizingPathIterator.h>
-
 #include <java/awt/geom/PathIterator.h>
 #include <java/lang/InternalError.h>
 #include <sun/java2d/marlin/DMarlinRenderingEngine.h>
@@ -23,56 +22,6 @@ namespace sun {
 	namespace java2d {
 		namespace marlin {
 
-$FieldInfo _DMarlinRenderingEngine$NormalizingPathIterator_FieldInfo_[] = {
-	{"src", "Ljava/awt/geom/PathIterator;", nullptr, $PRIVATE, $field(DMarlinRenderingEngine$NormalizingPathIterator, src)},
-	{"curx_adjust", "D", nullptr, $PRIVATE, $field(DMarlinRenderingEngine$NormalizingPathIterator, curx_adjust)},
-	{"cury_adjust", "D", nullptr, $PRIVATE, $field(DMarlinRenderingEngine$NormalizingPathIterator, cury_adjust)},
-	{"movx_adjust", "D", nullptr, $PRIVATE, $field(DMarlinRenderingEngine$NormalizingPathIterator, movx_adjust)},
-	{"movy_adjust", "D", nullptr, $PRIVATE, $field(DMarlinRenderingEngine$NormalizingPathIterator, movy_adjust)},
-	{"tmp", "[D", nullptr, $PRIVATE | $FINAL, $field(DMarlinRenderingEngine$NormalizingPathIterator, tmp)},
-	{}
-};
-
-$MethodInfo _DMarlinRenderingEngine$NormalizingPathIterator_MethodInfo_[] = {
-	{"<init>", "([D)V", nullptr, 0, $method(DMarlinRenderingEngine$NormalizingPathIterator, init$, void, $doubles*)},
-	{"currentSegment", "([D)I", nullptr, $PUBLIC | $FINAL, $virtualMethod(DMarlinRenderingEngine$NormalizingPathIterator, currentSegment, int32_t, $doubles*)},
-	{"currentSegment", "([F)I", nullptr, $PUBLIC | $FINAL, $virtualMethod(DMarlinRenderingEngine$NormalizingPathIterator, currentSegment, int32_t, $floats*)},
-	{"dispose", "()V", nullptr, $FINAL, $method(DMarlinRenderingEngine$NormalizingPathIterator, dispose, void)},
-	{"getWindingRule", "()I", nullptr, $PUBLIC | $FINAL, $virtualMethod(DMarlinRenderingEngine$NormalizingPathIterator, getWindingRule, int32_t)},
-	{"init", "(Ljava/awt/geom/PathIterator;)Lsun/java2d/marlin/DMarlinRenderingEngine$NormalizingPathIterator;", nullptr, $FINAL, $method(DMarlinRenderingEngine$NormalizingPathIterator, init, DMarlinRenderingEngine$NormalizingPathIterator*, $PathIterator*)},
-	{"isDone", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(DMarlinRenderingEngine$NormalizingPathIterator, isDone, bool)},
-	{"next", "()V", nullptr, $PUBLIC | $FINAL, $virtualMethod(DMarlinRenderingEngine$NormalizingPathIterator, next, void)},
-	{"normCoord", "(D)D", nullptr, $ABSTRACT, $virtualMethod(DMarlinRenderingEngine$NormalizingPathIterator, normCoord, double, double)},
-	{}
-};
-
-$InnerClassInfo _DMarlinRenderingEngine$NormalizingPathIterator_InnerClassesInfo_[] = {
-	{"sun.java2d.marlin.DMarlinRenderingEngine$NormalizingPathIterator", "sun.java2d.marlin.DMarlinRenderingEngine", "NormalizingPathIterator", $STATIC | $ABSTRACT},
-	{"sun.java2d.marlin.DMarlinRenderingEngine$NormalizingPathIterator$NearestPixelQuarter", "sun.java2d.marlin.DMarlinRenderingEngine$NormalizingPathIterator", "NearestPixelQuarter", $STATIC | $FINAL},
-	{"sun.java2d.marlin.DMarlinRenderingEngine$NormalizingPathIterator$NearestPixelCenter", "sun.java2d.marlin.DMarlinRenderingEngine$NormalizingPathIterator", "NearestPixelCenter", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _DMarlinRenderingEngine$NormalizingPathIterator_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"sun.java2d.marlin.DMarlinRenderingEngine$NormalizingPathIterator",
-	"java.lang.Object",
-	"java.awt.geom.PathIterator",
-	_DMarlinRenderingEngine$NormalizingPathIterator_FieldInfo_,
-	_DMarlinRenderingEngine$NormalizingPathIterator_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DMarlinRenderingEngine$NormalizingPathIterator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.java2d.marlin.DMarlinRenderingEngine"
-};
-
-$Object* allocate$DMarlinRenderingEngine$NormalizingPathIterator($Class* clazz) {
-	return $of($alloc(DMarlinRenderingEngine$NormalizingPathIterator));
-}
-
 void DMarlinRenderingEngine$NormalizingPathIterator::init$($doubles* tmp) {
 	$set(this, tmp, tmp);
 }
@@ -91,32 +40,21 @@ int32_t DMarlinRenderingEngine$NormalizingPathIterator::currentSegment($doubles*
 	int32_t type = $nc(this->src)->currentSegment(coords);
 	switch (type) {
 	case $PathIterator::SEG_MOVETO:
-		{}
 	case $PathIterator::SEG_LINETO:
-		{
-			lastCoord = 0;
-			break;
-		}
+		lastCoord = 0;
+		break;
 	case $PathIterator::SEG_QUADTO:
-		{
-			lastCoord = 2;
-			break;
-		}
+		lastCoord = 2;
+		break;
 	case $PathIterator::SEG_CUBICTO:
-		{
-			lastCoord = 4;
-			break;
-		}
+		lastCoord = 4;
+		break;
 	case $PathIterator::SEG_CLOSE:
-		{
-			this->curx_adjust = this->movx_adjust;
-			this->cury_adjust = this->movy_adjust;
-			return type;
-		}
+		this->curx_adjust = this->movx_adjust;
+		this->cury_adjust = this->movy_adjust;
+		return type;
 	default:
-		{
-			$throwNew($InternalError, "Unrecognized curve type"_s);
-		}
+		$throwNew($InternalError, "Unrecognized curve type"_s);
 	}
 	double coord = 0.0;
 	double x_adjust = 0.0;
@@ -131,33 +69,24 @@ int32_t DMarlinRenderingEngine$NormalizingPathIterator::currentSegment($doubles*
 	y_adjust -= coord;
 	switch (type) {
 	case $PathIterator::SEG_MOVETO:
-		{
-			this->movx_adjust = x_adjust;
-			this->movy_adjust = y_adjust;
-			break;
-		}
+		this->movx_adjust = x_adjust;
+		this->movy_adjust = y_adjust;
+		break;
 	case $PathIterator::SEG_LINETO:
-		{
-			break;
-		}
+		break;
 	case $PathIterator::SEG_QUADTO:
-		{
-			(*coords)[0] += (this->curx_adjust + x_adjust) / 2.0;
-			(*coords)[1] += (this->cury_adjust + y_adjust) / 2.0;
-			break;
-		}
+		(*coords)[0] += (this->curx_adjust + x_adjust) / 2.0;
+		(*coords)[1] += (this->cury_adjust + y_adjust) / 2.0;
+		break;
 	case $PathIterator::SEG_CUBICTO:
-		{
-			(*coords)[0] += this->curx_adjust;
-			(*coords)[1] += this->cury_adjust;
-			(*coords)[2] += x_adjust;
-			(*coords)[3] += y_adjust;
-			break;
-		}
+		(*coords)[0] += this->curx_adjust;
+		(*coords)[1] += this->cury_adjust;
+		(*coords)[2] += x_adjust;
+		(*coords)[3] += y_adjust;
+		break;
 	case $PathIterator::SEG_CLOSE:
-		{}
 	default:
-		{}
+		break;
 	}
 	this->curx_adjust = x_adjust;
 	this->cury_adjust = y_adjust;
@@ -193,7 +122,51 @@ DMarlinRenderingEngine$NormalizingPathIterator::DMarlinRenderingEngine$Normalizi
 }
 
 $Class* DMarlinRenderingEngine$NormalizingPathIterator::load$($String* name, bool initialize) {
-	$loadClass(DMarlinRenderingEngine$NormalizingPathIterator, name, initialize, &_DMarlinRenderingEngine$NormalizingPathIterator_ClassInfo_, allocate$DMarlinRenderingEngine$NormalizingPathIterator);
+	$FieldInfo fieldInfos$$[] = {
+		{"src", "Ljava/awt/geom/PathIterator;", nullptr, $PRIVATE, $field(DMarlinRenderingEngine$NormalizingPathIterator, src)},
+		{"curx_adjust", "D", nullptr, $PRIVATE, $field(DMarlinRenderingEngine$NormalizingPathIterator, curx_adjust)},
+		{"cury_adjust", "D", nullptr, $PRIVATE, $field(DMarlinRenderingEngine$NormalizingPathIterator, cury_adjust)},
+		{"movx_adjust", "D", nullptr, $PRIVATE, $field(DMarlinRenderingEngine$NormalizingPathIterator, movx_adjust)},
+		{"movy_adjust", "D", nullptr, $PRIVATE, $field(DMarlinRenderingEngine$NormalizingPathIterator, movy_adjust)},
+		{"tmp", "[D", nullptr, $PRIVATE | $FINAL, $field(DMarlinRenderingEngine$NormalizingPathIterator, tmp)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "([D)V", nullptr, 0, $method(DMarlinRenderingEngine$NormalizingPathIterator, init$, void, $doubles*)},
+		{"currentSegment", "([D)I", nullptr, $PUBLIC | $FINAL, $virtualMethod(DMarlinRenderingEngine$NormalizingPathIterator, currentSegment, int32_t, $doubles*)},
+		{"currentSegment", "([F)I", nullptr, $PUBLIC | $FINAL, $virtualMethod(DMarlinRenderingEngine$NormalizingPathIterator, currentSegment, int32_t, $floats*)},
+		{"dispose", "()V", nullptr, $FINAL, $method(DMarlinRenderingEngine$NormalizingPathIterator, dispose, void)},
+		{"getWindingRule", "()I", nullptr, $PUBLIC | $FINAL, $virtualMethod(DMarlinRenderingEngine$NormalizingPathIterator, getWindingRule, int32_t)},
+		{"init", "(Ljava/awt/geom/PathIterator;)Lsun/java2d/marlin/DMarlinRenderingEngine$NormalizingPathIterator;", nullptr, $FINAL, $method(DMarlinRenderingEngine$NormalizingPathIterator, init, DMarlinRenderingEngine$NormalizingPathIterator*, $PathIterator*)},
+		{"isDone", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(DMarlinRenderingEngine$NormalizingPathIterator, isDone, bool)},
+		{"next", "()V", nullptr, $PUBLIC | $FINAL, $virtualMethod(DMarlinRenderingEngine$NormalizingPathIterator, next, void)},
+		{"normCoord", "(D)D", nullptr, $ABSTRACT, $virtualMethod(DMarlinRenderingEngine$NormalizingPathIterator, normCoord, double, double)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.java2d.marlin.DMarlinRenderingEngine$NormalizingPathIterator", "sun.java2d.marlin.DMarlinRenderingEngine", "NormalizingPathIterator", $STATIC | $ABSTRACT},
+		{"sun.java2d.marlin.DMarlinRenderingEngine$NormalizingPathIterator$NearestPixelQuarter", "sun.java2d.marlin.DMarlinRenderingEngine$NormalizingPathIterator", "NearestPixelQuarter", $STATIC | $FINAL},
+		{"sun.java2d.marlin.DMarlinRenderingEngine$NormalizingPathIterator$NearestPixelCenter", "sun.java2d.marlin.DMarlinRenderingEngine$NormalizingPathIterator", "NearestPixelCenter", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"sun.java2d.marlin.DMarlinRenderingEngine$NormalizingPathIterator",
+		"java.lang.Object",
+		"java.awt.geom.PathIterator",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.java2d.marlin.DMarlinRenderingEngine"
+	};
+	$loadClass(DMarlinRenderingEngine$NormalizingPathIterator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DMarlinRenderingEngine$NormalizingPathIterator);
+	});
 	return class$;
 }
 

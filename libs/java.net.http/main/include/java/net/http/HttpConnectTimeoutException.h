@@ -17,7 +17,10 @@ public:
 	static const int64_t serialVersionUID = 332; // 321L + 11L
 	HttpConnectTimeoutException(const HttpConnectTimeoutException& e);
 	virtual void throw$() override;
-	inline HttpConnectTimeoutException* operator ->() {
+	inline HttpConnectTimeoutException* operator ->() const {
+		return (HttpConnectTimeoutException*)throwing$;
+	}
+	inline operator HttpConnectTimeoutException*() const {
 		return (HttpConnectTimeoutException*)throwing$;
 	}
 };

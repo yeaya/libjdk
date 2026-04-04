@@ -1,5 +1,4 @@
 #include <bug6848475$4.h>
-
 #include <bug6848475.h>
 #include <java/awt/Rectangle.h>
 #include <java/awt/Window.h>
@@ -13,44 +12,6 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
-using $JFrame = ::javax::swing::JFrame;
-
-$MethodInfo _bug6848475$4_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(bug6848475$4, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug6848475$4, run, void)},
-	{}
-};
-
-$EnclosingMethodInfo _bug6848475$4_EnclosingMethodInfo_ = {
-	"bug6848475",
-	"main",
-	"([Ljava/lang/String;)V"
-};
-
-$InnerClassInfo _bug6848475$4_InnerClassesInfo_[] = {
-	{"bug6848475$4", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _bug6848475$4_ClassInfo_ = {
-	$ACC_SUPER,
-	"bug6848475$4",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	_bug6848475$4_MethodInfo_,
-	nullptr,
-	&_bug6848475$4_EnclosingMethodInfo_,
-	_bug6848475$4_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"bug6848475"
-};
-
-$Object* allocate$bug6848475$4($Class* clazz) {
-	return $of($alloc(bug6848475$4));
-}
 
 void bug6848475$4::init$() {
 }
@@ -67,7 +28,38 @@ bug6848475$4::bug6848475$4() {
 }
 
 $Class* bug6848475$4::load$($String* name, bool initialize) {
-	$loadClass(bug6848475$4, name, initialize, &_bug6848475$4_ClassInfo_, allocate$bug6848475$4);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(bug6848475$4, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug6848475$4, run, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"bug6848475",
+		"main",
+		"([Ljava/lang/String;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"bug6848475$4", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"bug6848475$4",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"bug6848475"
+	};
+	$loadClass(bug6848475$4, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(bug6848475$4);
+	});
 	return class$;
 }
 

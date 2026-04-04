@@ -1,5 +1,4 @@
 #include <com/apple/laf/AquaTextPasswordFieldUI$CapsLockSymbolPainter.h>
-
 #include <com/apple/laf/AquaTextPasswordFieldUI.h>
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
@@ -47,53 +46,6 @@ namespace com {
 	namespace apple {
 		namespace laf {
 
-$FieldInfo _AquaTextPasswordFieldUI$CapsLockSymbolPainter_FieldInfo_[] = {
-	{"capsLockShape", "Ljava/awt/Shape;", nullptr, $PROTECTED, $field(AquaTextPasswordFieldUI$CapsLockSymbolPainter, capsLockShape)},
-	{}
-};
-
-$MethodInfo _AquaTextPasswordFieldUI$CapsLockSymbolPainter_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, 0, $method(AquaTextPasswordFieldUI$CapsLockSymbolPainter, init$, void)},
-	{"getBorderInsets", "(Ljava/awt/Component;)Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(AquaTextPasswordFieldUI$CapsLockSymbolPainter, getBorderInsets, $Insets*, $Component*)},
-	{"getCapsLockShape", "()Ljava/awt/Shape;", nullptr, $PROTECTED, $virtualMethod(AquaTextPasswordFieldUI$CapsLockSymbolPainter, getCapsLockShape, $Shape*)},
-	{"isBorderOpaque", "()Z", nullptr, $PUBLIC, $virtualMethod(AquaTextPasswordFieldUI$CapsLockSymbolPainter, isBorderOpaque, bool)},
-	{"keyPressed", "(Ljava/awt/event/KeyEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaTextPasswordFieldUI$CapsLockSymbolPainter, keyPressed, void, $KeyEvent*)},
-	{"keyReleased", "(Ljava/awt/event/KeyEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaTextPasswordFieldUI$CapsLockSymbolPainter, keyReleased, void, $KeyEvent*)},
-	{"paintBorder", "(Ljava/awt/Component;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(AquaTextPasswordFieldUI$CapsLockSymbolPainter, paintBorder, void, $Component*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"update", "(Ljava/awt/event/KeyEvent;)V", nullptr, 0, $virtualMethod(AquaTextPasswordFieldUI$CapsLockSymbolPainter, update, void, $KeyEvent*)},
-	{}
-};
-
-$InnerClassInfo _AquaTextPasswordFieldUI$CapsLockSymbolPainter_InnerClassesInfo_[] = {
-	{"com.apple.laf.AquaTextPasswordFieldUI$CapsLockSymbolPainter", "com.apple.laf.AquaTextPasswordFieldUI", "CapsLockSymbolPainter", $STATIC},
-	{}
-};
-
-$ClassInfo _AquaTextPasswordFieldUI$CapsLockSymbolPainter_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.apple.laf.AquaTextPasswordFieldUI$CapsLockSymbolPainter",
-	"java.awt.event.KeyAdapter",
-	"javax.swing.border.Border,javax.swing.plaf.UIResource",
-	_AquaTextPasswordFieldUI$CapsLockSymbolPainter_FieldInfo_,
-	_AquaTextPasswordFieldUI$CapsLockSymbolPainter_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AquaTextPasswordFieldUI$CapsLockSymbolPainter_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.apple.laf.AquaTextPasswordFieldUI"
-};
-
-$Object* allocate$AquaTextPasswordFieldUI$CapsLockSymbolPainter($Class* clazz) {
-	return $of($alloc(AquaTextPasswordFieldUI$CapsLockSymbolPainter));
-}
-
 int32_t AquaTextPasswordFieldUI$CapsLockSymbolPainter::hashCode() {
 	 return this->$KeyAdapter::hashCode();
 }
@@ -119,12 +71,12 @@ void AquaTextPasswordFieldUI$CapsLockSymbolPainter::init$() {
 }
 
 $Shape* AquaTextPasswordFieldUI$CapsLockSymbolPainter::getCapsLockShape() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->capsLockShape != nullptr) {
 		return this->capsLockShape;
 	}
-	$var($RoundRectangle2D, rect, $new($RoundRectangle2D$Double, 0.5, 0.5, (double)16, (double)16, (double)8, (double)8));
-	$var($GeneralPath, shape, $new($GeneralPath, static_cast<$Shape*>(rect)));
+	$var($RoundRectangle2D, rect, $new($RoundRectangle2D$Double, 0.5, 0.5, 16, 16, 8, 8));
+	$var($GeneralPath, shape, $new($GeneralPath, rect));
 	shape->setWindingRule($Path2D::WIND_EVEN_ODD);
 	shape->moveTo(8.5, 2.0);
 	shape->lineTo(4.0, 7.0);
@@ -151,13 +103,13 @@ bool AquaTextPasswordFieldUI$CapsLockSymbolPainter::isBorderOpaque() {
 }
 
 void AquaTextPasswordFieldUI$CapsLockSymbolPainter::paintBorder($Component* c, $Graphics* g$renamed, int32_t x, int32_t y, int32_t width, int32_t height) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Graphics, g, g$renamed);
 	$assign(g, $nc(g)->create(width - 23, height / 2 - 8, 18, 18));
-	g->setColor($($UIManager::getColor("PasswordField.capsLockIconColor"_s)));
+	$nc(g)->setColor($($UIManager::getColor("PasswordField.capsLockIconColor"_s)));
 	$init($RenderingHints);
-	$nc(($cast($Graphics2D, g)))->setRenderingHint($RenderingHints::KEY_ANTIALIASING, $RenderingHints::VALUE_ANTIALIAS_ON);
-	($cast($Graphics2D, g))->fill($(getCapsLockShape()));
+	$cast($Graphics2D, g)->setRenderingHint($RenderingHints::KEY_ANTIALIASING, $RenderingHints::VALUE_ANTIALIAS_ON);
+	$cast($Graphics2D, g)->fill($(getCapsLockShape()));
 	g->dispose();
 }
 
@@ -173,14 +125,55 @@ void AquaTextPasswordFieldUI$CapsLockSymbolPainter::update($KeyEvent* e) {
 	if ($KeyEvent::VK_CAPS_LOCK != $nc(e)->getKeyCode()) {
 		return;
 	}
-	$nc($($nc(e)->getComponent()))->repaint();
+	$$nc(e->getComponent())->repaint();
 }
 
 AquaTextPasswordFieldUI$CapsLockSymbolPainter::AquaTextPasswordFieldUI$CapsLockSymbolPainter() {
 }
 
 $Class* AquaTextPasswordFieldUI$CapsLockSymbolPainter::load$($String* name, bool initialize) {
-	$loadClass(AquaTextPasswordFieldUI$CapsLockSymbolPainter, name, initialize, &_AquaTextPasswordFieldUI$CapsLockSymbolPainter_ClassInfo_, allocate$AquaTextPasswordFieldUI$CapsLockSymbolPainter);
+	$FieldInfo fieldInfos$$[] = {
+		{"capsLockShape", "Ljava/awt/Shape;", nullptr, $PROTECTED, $field(AquaTextPasswordFieldUI$CapsLockSymbolPainter, capsLockShape)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, 0, $method(AquaTextPasswordFieldUI$CapsLockSymbolPainter, init$, void)},
+		{"getBorderInsets", "(Ljava/awt/Component;)Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(AquaTextPasswordFieldUI$CapsLockSymbolPainter, getBorderInsets, $Insets*, $Component*)},
+		{"getCapsLockShape", "()Ljava/awt/Shape;", nullptr, $PROTECTED, $virtualMethod(AquaTextPasswordFieldUI$CapsLockSymbolPainter, getCapsLockShape, $Shape*)},
+		{"isBorderOpaque", "()Z", nullptr, $PUBLIC, $virtualMethod(AquaTextPasswordFieldUI$CapsLockSymbolPainter, isBorderOpaque, bool)},
+		{"keyPressed", "(Ljava/awt/event/KeyEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaTextPasswordFieldUI$CapsLockSymbolPainter, keyPressed, void, $KeyEvent*)},
+		{"keyReleased", "(Ljava/awt/event/KeyEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaTextPasswordFieldUI$CapsLockSymbolPainter, keyReleased, void, $KeyEvent*)},
+		{"paintBorder", "(Ljava/awt/Component;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(AquaTextPasswordFieldUI$CapsLockSymbolPainter, paintBorder, void, $Component*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"update", "(Ljava/awt/event/KeyEvent;)V", nullptr, 0, $virtualMethod(AquaTextPasswordFieldUI$CapsLockSymbolPainter, update, void, $KeyEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.laf.AquaTextPasswordFieldUI$CapsLockSymbolPainter", "com.apple.laf.AquaTextPasswordFieldUI", "CapsLockSymbolPainter", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.apple.laf.AquaTextPasswordFieldUI$CapsLockSymbolPainter",
+		"java.awt.event.KeyAdapter",
+		"javax.swing.border.Border,javax.swing.plaf.UIResource",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.apple.laf.AquaTextPasswordFieldUI"
+	};
+	$loadClass(AquaTextPasswordFieldUI$CapsLockSymbolPainter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AquaTextPasswordFieldUI$CapsLockSymbolPainter));
+	});
 	return class$;
 }
 

@@ -45,7 +45,7 @@ public:
 	virtual $String* getName() override;
 	using ::java::util::HashSet::toArray;
 	virtual $String* toString() override;
-	static const int64_t serialVersionUID = (int64_t)0x7ACE46E39EBD5424;
+	static const int64_t serialVersionUID = (int64_t)0x7ace46e39ebd5424;
 };
 
 			} // standard

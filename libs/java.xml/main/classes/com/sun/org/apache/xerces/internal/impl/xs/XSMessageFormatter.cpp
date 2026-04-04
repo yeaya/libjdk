@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/impl/xs/XSMessageFormatter.h>
-
 #include <java/text/MessageFormat.h>
 #include <java/util/Locale.h>
 #include <java/util/MissingResourceException.h>
@@ -16,7 +15,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $MessageFormat = ::java::text::MessageFormat;
 using $Locale = ::java::util::Locale;
 using $MissingResourceException = ::java::util::MissingResourceException;
-using $ResourceBundle = ::java::util::ResourceBundle;
 using $SecuritySupport = ::jdk::xml::internal::SecuritySupport;
 
 namespace com {
@@ -28,32 +26,6 @@ namespace com {
 						namespace impl {
 							namespace xs {
 
-$FieldInfo _XSMessageFormatter_FieldInfo_[] = {
-	{"SCHEMA_DOMAIN", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSMessageFormatter, SCHEMA_DOMAIN)},
-	{"fLocale", "Ljava/util/Locale;", nullptr, $PRIVATE, $field(XSMessageFormatter, fLocale)},
-	{"fResourceBundle", "Ljava/util/ResourceBundle;", nullptr, $PRIVATE, $field(XSMessageFormatter, fResourceBundle)},
-	{}
-};
-
-$MethodInfo _XSMessageFormatter_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(XSMessageFormatter, init$, void)},
-	{"formatMessage", "(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XSMessageFormatter, formatMessage, $String*, $Locale*, $String*, $ObjectArray*), "java.util.MissingResourceException"},
-	{}
-};
-
-$ClassInfo _XSMessageFormatter_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.impl.xs.XSMessageFormatter",
-	"java.lang.Object",
-	"com.sun.org.apache.xerces.internal.util.MessageFormatter",
-	_XSMessageFormatter_FieldInfo_,
-	_XSMessageFormatter_MethodInfo_
-};
-
-$Object* allocate$XSMessageFormatter($Class* clazz) {
-	return $of($alloc(XSMessageFormatter));
-}
-
 $String* XSMessageFormatter::SCHEMA_DOMAIN = nullptr;
 
 void XSMessageFormatter::init$() {
@@ -62,7 +34,7 @@ void XSMessageFormatter::init$() {
 }
 
 $String* XSMessageFormatter::formatMessage($Locale* locale, $String* key, $ObjectArray* arguments) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->fResourceBundle == nullptr || locale != this->fLocale) {
 		if (locale != nullptr) {
 			$set(this, fResourceBundle, $SecuritySupport::getResourceBundle("com.sun.org.apache.xerces.internal.impl.msg.XMLSchemaMessages"_s, locale));
@@ -77,12 +49,12 @@ $String* XSMessageFormatter::formatMessage($Locale* locale, $String* key, $Objec
 		try {
 			$assign(msg, $MessageFormat::format(msg, arguments));
 		} catch ($Exception& e) {
-			$assign(msg, $nc(this->fResourceBundle)->getString("FormatFailed"_s));
-			$plusAssign(msg, $$str({" "_s, $($nc(this->fResourceBundle)->getString(key))}));
+			$assign(msg, this->fResourceBundle->getString("FormatFailed"_s));
+			$plusAssign(msg, $$str({" "_s, $(this->fResourceBundle->getString(key))}));
 		}
 	}
 	if (msg == nullptr) {
-		$assign(msg, $nc(this->fResourceBundle)->getString("BadMessageKey"_s));
+		$assign(msg, this->fResourceBundle->getString("BadMessageKey"_s));
 		$throwNew($MissingResourceException, msg, "com.sun.org.apache.xerces.internal.impl.msg.SchemaMessages"_s, key);
 	}
 	return msg;
@@ -91,12 +63,33 @@ $String* XSMessageFormatter::formatMessage($Locale* locale, $String* key, $Objec
 XSMessageFormatter::XSMessageFormatter() {
 }
 
-void clinit$XSMessageFormatter($Class* class$) {
+void XSMessageFormatter::clinit$($Class* clazz) {
 	$assignStatic(XSMessageFormatter::SCHEMA_DOMAIN, "http://www.w3.org/TR/xml-schema-1"_s);
 }
 
 $Class* XSMessageFormatter::load$($String* name, bool initialize) {
-	$loadClass(XSMessageFormatter, name, initialize, &_XSMessageFormatter_ClassInfo_, clinit$XSMessageFormatter, allocate$XSMessageFormatter);
+	$FieldInfo fieldInfos$$[] = {
+		{"SCHEMA_DOMAIN", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSMessageFormatter, SCHEMA_DOMAIN)},
+		{"fLocale", "Ljava/util/Locale;", nullptr, $PRIVATE, $field(XSMessageFormatter, fLocale)},
+		{"fResourceBundle", "Ljava/util/ResourceBundle;", nullptr, $PRIVATE, $field(XSMessageFormatter, fResourceBundle)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(XSMessageFormatter, init$, void)},
+		{"formatMessage", "(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XSMessageFormatter, formatMessage, $String*, $Locale*, $String*, $ObjectArray*), "java.util.MissingResourceException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.impl.xs.XSMessageFormatter",
+		"java.lang.Object",
+		"com.sun.org.apache.xerces.internal.util.MessageFormatter",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XSMessageFormatter, name, initialize, &classInfo$$, XSMessageFormatter::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(XSMessageFormatter);
+	});
 	return class$;
 }
 

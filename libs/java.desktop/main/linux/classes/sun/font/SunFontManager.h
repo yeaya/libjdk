@@ -99,6 +99,7 @@ public:
 	virtual bool equals(Object$* arg0) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void addCompositeToFontList(::sun::font::CompositeFont* f, int32_t rank);
 	void addDirFonts($String* dirName, ::java::io::File* dirFile, ::java::io::FilenameFilter* filter, int32_t fontFormat, bool useJavaRasterizer, int32_t fontRank, bool defer, bool resolveSymLinks);

@@ -86,6 +86,7 @@ class ValidatorImpl : public ::javax::xml::validation::Validator, public ::com::
 	$class(ValidatorImpl, 0, ::javax::xml::validation::Validator, ::com::sun::org::apache::xerces::internal::xs::PSVIProvider)
 public:
 	ValidatorImpl();
+	static void clinit$(::java::lang::Class* clazz);
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* arg0) override;
 	virtual void finalize() override;

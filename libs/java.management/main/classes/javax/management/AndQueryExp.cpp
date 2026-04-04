@@ -1,5 +1,4 @@
 #include <javax/management/AndQueryExp.h>
-
 #include <javax/management/MBeanServer.h>
 #include <javax/management/ObjectName.h>
 #include <javax/management/QueryEval.h>
@@ -16,41 +15,6 @@ using $QueryExp = ::javax::management::QueryExp;
 
 namespace javax {
 	namespace management {
-
-$FieldInfo _AndQueryExp_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AndQueryExp, serialVersionUID)},
-	{"exp1", "Ljavax/management/QueryExp;", nullptr, $PRIVATE, $field(AndQueryExp, exp1)},
-	{"exp2", "Ljavax/management/QueryExp;", nullptr, $PRIVATE, $field(AndQueryExp, exp2)},
-	{}
-};
-
-$MethodInfo _AndQueryExp_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AndQueryExp, init$, void)},
-	{"<init>", "(Ljavax/management/QueryExp;Ljavax/management/QueryExp;)V", nullptr, $PUBLIC, $method(AndQueryExp, init$, void, $QueryExp*, $QueryExp*)},
-	{"apply", "(Ljavax/management/ObjectName;)Z", nullptr, $PUBLIC, $virtualMethod(AndQueryExp, apply, bool, $ObjectName*), "javax.management.BadStringOperationException,javax.management.BadBinaryOpValueExpException,javax.management.BadAttributeValueExpException,javax.management.InvalidApplicationException"},
-	{"getLeftExp", "()Ljavax/management/QueryExp;", nullptr, $PUBLIC, $virtualMethod(AndQueryExp, getLeftExp, $QueryExp*)},
-	{"getRightExp", "()Ljavax/management/QueryExp;", nullptr, $PUBLIC, $virtualMethod(AndQueryExp, getRightExp, $QueryExp*)},
-	{"*setMBeanServer", "(Ljavax/management/MBeanServer;)V", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AndQueryExp, toString, $String*)},
-	{}
-};
-
-$ClassInfo _AndQueryExp_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.management.AndQueryExp",
-	"javax.management.QueryEval",
-	"javax.management.QueryExp",
-	_AndQueryExp_FieldInfo_,
-	_AndQueryExp_MethodInfo_
-};
-
-$Object* allocate$AndQueryExp($Class* clazz) {
-	return $of($alloc(AndQueryExp));
-}
 
 void AndQueryExp::setMBeanServer($MBeanServer* s) {
 	this->$QueryEval::setMBeanServer(s);
@@ -103,7 +67,37 @@ AndQueryExp::AndQueryExp() {
 }
 
 $Class* AndQueryExp::load$($String* name, bool initialize) {
-	$loadClass(AndQueryExp, name, initialize, &_AndQueryExp_ClassInfo_, allocate$AndQueryExp);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AndQueryExp, serialVersionUID)},
+		{"exp1", "Ljavax/management/QueryExp;", nullptr, $PRIVATE, $field(AndQueryExp, exp1)},
+		{"exp2", "Ljavax/management/QueryExp;", nullptr, $PRIVATE, $field(AndQueryExp, exp2)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AndQueryExp, init$, void)},
+		{"<init>", "(Ljavax/management/QueryExp;Ljavax/management/QueryExp;)V", nullptr, $PUBLIC, $method(AndQueryExp, init$, void, $QueryExp*, $QueryExp*)},
+		{"apply", "(Ljavax/management/ObjectName;)Z", nullptr, $PUBLIC, $virtualMethod(AndQueryExp, apply, bool, $ObjectName*), "javax.management.BadStringOperationException,javax.management.BadBinaryOpValueExpException,javax.management.BadAttributeValueExpException,javax.management.InvalidApplicationException"},
+		{"getLeftExp", "()Ljavax/management/QueryExp;", nullptr, $PUBLIC, $virtualMethod(AndQueryExp, getLeftExp, $QueryExp*)},
+		{"getRightExp", "()Ljavax/management/QueryExp;", nullptr, $PUBLIC, $virtualMethod(AndQueryExp, getRightExp, $QueryExp*)},
+		{"*setMBeanServer", "(Ljavax/management/MBeanServer;)V", nullptr, $PUBLIC},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AndQueryExp, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.management.AndQueryExp",
+		"javax.management.QueryEval",
+		"javax.management.QueryExp",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(AndQueryExp, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AndQueryExp));
+	});
 	return class$;
 }
 

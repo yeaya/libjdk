@@ -65,6 +65,7 @@ class PrintingProcessor$PrintingElementVisitor : public ::javax::lang::model::ut
 	$class(PrintingProcessor$PrintingElementVisitor, 0, ::javax::lang::model::util::SimpleElementVisitor14)
 public:
 	PrintingProcessor$PrintingElementVisitor();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::io::Writer* w, ::javax::lang::model::util::Elements* elementUtils);
 	$String* annotationsToString(::javax::lang::model::element::Element* e);
 	virtual ::com::sun::tools::javac::processing::PrintingProcessor$PrintingElementVisitor* defaultAction(::javax::lang::model::element::Element* e, ::java::lang::Boolean* newLine);

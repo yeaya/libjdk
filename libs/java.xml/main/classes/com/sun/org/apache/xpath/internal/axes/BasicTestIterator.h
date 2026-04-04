@@ -71,7 +71,7 @@ public:
 	virtual ::com::sun::org::apache::xml::internal::dtm::DTMIterator* cloneWithReset() override;
 	virtual int32_t getNextNode() {return 0;}
 	virtual int32_t nextNode() override;
-	static const int64_t serialVersionUID = (int64_t)0x30A59ACA78C5C1EF;
+	static const int64_t serialVersionUID = (int64_t)0x30a59aca78c5c1ef;
 };
 
 						} // axes

@@ -1,5 +1,4 @@
 #include <sun/print/SunAlternateMedia.h>
-
 #include <javax/print/attribute/standard/Media.h>
 #include <jcpp.h>
 
@@ -10,35 +9,6 @@ using $Media = ::javax::print::attribute::standard::Media;
 
 namespace sun {
 	namespace print {
-
-$FieldInfo _SunAlternateMedia_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SunAlternateMedia, serialVersionUID)},
-	{"media", "Ljavax/print/attribute/standard/Media;", nullptr, $PRIVATE, $field(SunAlternateMedia, media)},
-	{}
-};
-
-$MethodInfo _SunAlternateMedia_MethodInfo_[] = {
-	{"<init>", "(Ljavax/print/attribute/standard/Media;)V", nullptr, $PUBLIC, $method(SunAlternateMedia, init$, void, $Media*)},
-	{"getCategory", "()Ljava/lang/Class;", "()Ljava/lang/Class<+Ljavax/print/attribute/Attribute;>;", $PUBLIC | $FINAL, $virtualMethod(SunAlternateMedia, getCategory, $Class*)},
-	{"getMedia", "()Ljavax/print/attribute/standard/Media;", nullptr, $PUBLIC, $virtualMethod(SunAlternateMedia, getMedia, $Media*)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(SunAlternateMedia, getName, $String*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(SunAlternateMedia, hashCode, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SunAlternateMedia, toString, $String*)},
-	{}
-};
-
-$ClassInfo _SunAlternateMedia_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.print.SunAlternateMedia",
-	"java.lang.Object",
-	"javax.print.attribute.PrintRequestAttribute",
-	_SunAlternateMedia_FieldInfo_,
-	_SunAlternateMedia_MethodInfo_
-};
-
-$Object* allocate$SunAlternateMedia($Class* clazz) {
-	return $of($alloc(SunAlternateMedia));
-}
 
 void SunAlternateMedia::init$($Media* altMedia) {
 	$set(this, media, altMedia);
@@ -68,7 +38,31 @@ SunAlternateMedia::SunAlternateMedia() {
 }
 
 $Class* SunAlternateMedia::load$($String* name, bool initialize) {
-	$loadClass(SunAlternateMedia, name, initialize, &_SunAlternateMedia_ClassInfo_, allocate$SunAlternateMedia);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SunAlternateMedia, serialVersionUID)},
+		{"media", "Ljavax/print/attribute/standard/Media;", nullptr, $PRIVATE, $field(SunAlternateMedia, media)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/print/attribute/standard/Media;)V", nullptr, $PUBLIC, $method(SunAlternateMedia, init$, void, $Media*)},
+		{"getCategory", "()Ljava/lang/Class;", "()Ljava/lang/Class<+Ljavax/print/attribute/Attribute;>;", $PUBLIC | $FINAL, $virtualMethod(SunAlternateMedia, getCategory, $Class*)},
+		{"getMedia", "()Ljavax/print/attribute/standard/Media;", nullptr, $PUBLIC, $virtualMethod(SunAlternateMedia, getMedia, $Media*)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(SunAlternateMedia, getName, $String*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(SunAlternateMedia, hashCode, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SunAlternateMedia, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.print.SunAlternateMedia",
+		"java.lang.Object",
+		"javax.print.attribute.PrintRequestAttribute",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SunAlternateMedia, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SunAlternateMedia);
+	});
 	return class$;
 }
 

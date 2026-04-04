@@ -1,5 +1,4 @@
 #include <javax/management/NotificationBroadcasterSupport$SendNotifJob.h>
-
 #include <com/sun/jmx/remote/util/ClassLogger.h>
 #include <javax/management/Notification.h>
 #include <javax/management/NotificationBroadcasterSupport$ListenerInfo.h>
@@ -7,7 +6,6 @@
 #include <javax/management/NotificationListener.h>
 #include <jcpp.h>
 
-using $ClassLogger = ::com::sun::jmx::remote::util::ClassLogger;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -19,44 +17,6 @@ using $NotificationBroadcasterSupport$ListenerInfo = ::javax::management::Notifi
 
 namespace javax {
 	namespace management {
-
-$FieldInfo _NotificationBroadcasterSupport$SendNotifJob_FieldInfo_[] = {
-	{"this$0", "Ljavax/management/NotificationBroadcasterSupport;", nullptr, $FINAL | $SYNTHETIC, $field(NotificationBroadcasterSupport$SendNotifJob, this$0)},
-	{"notif", "Ljavax/management/Notification;", nullptr, $PRIVATE | $FINAL, $field(NotificationBroadcasterSupport$SendNotifJob, notif)},
-	{"listenerInfo", "Ljavax/management/NotificationBroadcasterSupport$ListenerInfo;", nullptr, $PRIVATE | $FINAL, $field(NotificationBroadcasterSupport$SendNotifJob, listenerInfo)},
-	{}
-};
-
-$MethodInfo _NotificationBroadcasterSupport$SendNotifJob_MethodInfo_[] = {
-	{"<init>", "(Ljavax/management/NotificationBroadcasterSupport;Ljavax/management/Notification;Ljavax/management/NotificationBroadcasterSupport$ListenerInfo;)V", nullptr, $PUBLIC, $method(NotificationBroadcasterSupport$SendNotifJob, init$, void, $NotificationBroadcasterSupport*, $Notification*, $NotificationBroadcasterSupport$ListenerInfo*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(NotificationBroadcasterSupport$SendNotifJob, run, void)},
-	{}
-};
-
-$InnerClassInfo _NotificationBroadcasterSupport$SendNotifJob_InnerClassesInfo_[] = {
-	{"javax.management.NotificationBroadcasterSupport$SendNotifJob", "javax.management.NotificationBroadcasterSupport", "SendNotifJob", $PRIVATE},
-	{}
-};
-
-$ClassInfo _NotificationBroadcasterSupport$SendNotifJob_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.management.NotificationBroadcasterSupport$SendNotifJob",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	_NotificationBroadcasterSupport$SendNotifJob_FieldInfo_,
-	_NotificationBroadcasterSupport$SendNotifJob_MethodInfo_,
-	nullptr,
-	nullptr,
-	_NotificationBroadcasterSupport$SendNotifJob_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.management.NotificationBroadcasterSupport"
-};
-
-$Object* allocate$NotificationBroadcasterSupport$SendNotifJob($Class* clazz) {
-	return $of($alloc(NotificationBroadcasterSupport$SendNotifJob));
-}
 
 void NotificationBroadcasterSupport$SendNotifJob::init$($NotificationBroadcasterSupport* this$0, $Notification* notif, $NotificationBroadcasterSupport$ListenerInfo* listenerInfo) {
 	$set(this, this$0, this$0);
@@ -70,7 +30,7 @@ void NotificationBroadcasterSupport$SendNotifJob::run() {
 	} catch ($Exception& e) {
 		$init($NotificationBroadcasterSupport);
 		if ($nc($NotificationBroadcasterSupport::logger)->debugOn()) {
-			$nc($NotificationBroadcasterSupport::logger)->debug("SendNotifJob-run"_s, static_cast<$Throwable*>(e));
+			$NotificationBroadcasterSupport::logger->debug("SendNotifJob-run"_s, e);
 		}
 	}
 }
@@ -79,7 +39,39 @@ NotificationBroadcasterSupport$SendNotifJob::NotificationBroadcasterSupport$Send
 }
 
 $Class* NotificationBroadcasterSupport$SendNotifJob::load$($String* name, bool initialize) {
-	$loadClass(NotificationBroadcasterSupport$SendNotifJob, name, initialize, &_NotificationBroadcasterSupport$SendNotifJob_ClassInfo_, allocate$NotificationBroadcasterSupport$SendNotifJob);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/management/NotificationBroadcasterSupport;", nullptr, $FINAL | $SYNTHETIC, $field(NotificationBroadcasterSupport$SendNotifJob, this$0)},
+		{"notif", "Ljavax/management/Notification;", nullptr, $PRIVATE | $FINAL, $field(NotificationBroadcasterSupport$SendNotifJob, notif)},
+		{"listenerInfo", "Ljavax/management/NotificationBroadcasterSupport$ListenerInfo;", nullptr, $PRIVATE | $FINAL, $field(NotificationBroadcasterSupport$SendNotifJob, listenerInfo)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/management/NotificationBroadcasterSupport;Ljavax/management/Notification;Ljavax/management/NotificationBroadcasterSupport$ListenerInfo;)V", nullptr, $PUBLIC, $method(NotificationBroadcasterSupport$SendNotifJob, init$, void, $NotificationBroadcasterSupport*, $Notification*, $NotificationBroadcasterSupport$ListenerInfo*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(NotificationBroadcasterSupport$SendNotifJob, run, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.management.NotificationBroadcasterSupport$SendNotifJob", "javax.management.NotificationBroadcasterSupport", "SendNotifJob", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.management.NotificationBroadcasterSupport$SendNotifJob",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.management.NotificationBroadcasterSupport"
+	};
+	$loadClass(NotificationBroadcasterSupport$SendNotifJob, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(NotificationBroadcasterSupport$SendNotifJob);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/util/resources/cldr/ext/CurrencyNames_tg.h>
-
 #include <sun/util/resources/OpenListResourceBundle.h>
 #include <jcpp.h>
 
@@ -14,83 +13,64 @@ namespace sun {
 			namespace cldr {
 				namespace ext {
 
-$MethodInfo _CurrencyNames_tg_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(CurrencyNames_tg, init$, void)},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(CurrencyNames_tg, getContents, $ObjectArray2*)},
-	{}
-};
-
-$ClassInfo _CurrencyNames_tg_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.util.resources.cldr.ext.CurrencyNames_tg",
-	"sun.util.resources.OpenListResourceBundle",
-	nullptr,
-	nullptr,
-	_CurrencyNames_tg_MethodInfo_
-};
-
-$Object* allocate$CurrencyNames_tg($Class* clazz) {
-	return $of($alloc(CurrencyNames_tg));
-}
-
 void CurrencyNames_tg::init$() {
 	$OpenListResourceBundle::init$();
 }
 
 $ObjectArray2* CurrencyNames_tg::getContents() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectArray2, data, $new($ObjectArray2, {
 		$$new($ObjectArray, {
-			$of("RUB"_s),
-			$of("RUB"_s)
+			"RUB"_s,
+			"RUB"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TJS"_s),
-			$of(u"сом."_s)
+			"TJS"_s,
+			u"сом."_s
 		}),
 		$$new($ObjectArray, {
-			$of("USD"_s),
-			$of("$"_s)
+			"USD"_s,
+			"$"_s
 		}),
 		$$new($ObjectArray, {
-			$of("brl"_s),
-			$of(u"Реали бразилиягӣ"_s)
+			"brl"_s,
+			u"Реали бразилиягӣ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("cny"_s),
-			$of(u"Иенаи хитоӣ"_s)
+			"cny"_s,
+			u"Иенаи хитоӣ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("eur"_s),
-			$of(u"Евро"_s)
+			"eur"_s,
+			u"Евро"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gbp"_s),
-			$of(u"Фунт стерлинги британӣ"_s)
+			"gbp"_s,
+			u"Фунт стерлинги британӣ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("inr"_s),
-			$of(u"Рупияи ҳиндустонӣ"_s)
+			"inr"_s,
+			u"Рупияи ҳиндустонӣ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("jpy"_s),
-			$of(u"Иенаи японӣ"_s)
+			"jpy"_s,
+			u"Иенаи японӣ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("rub"_s),
-			$of(u"Рубли русӣ"_s)
+			"rub"_s,
+			u"Рубли русӣ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tjs"_s),
-			$of(u"Сомонӣ"_s)
+			"tjs"_s,
+			u"Сомонӣ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("usd"_s),
-			$of(u"Доллари ИМА"_s)
+			"usd"_s,
+			u"Доллари ИМА"_s
 		}),
 		$$new($ObjectArray, {
-			$of("xxx"_s),
-			$of(u"Асъори номаълум"_s)
+			"xxx"_s,
+			u"Асъори номаълум"_s
 		})
 	}));
 	return data;
@@ -100,7 +80,22 @@ CurrencyNames_tg::CurrencyNames_tg() {
 }
 
 $Class* CurrencyNames_tg::load$($String* name, bool initialize) {
-	$loadClass(CurrencyNames_tg, name, initialize, &_CurrencyNames_tg_ClassInfo_, allocate$CurrencyNames_tg);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(CurrencyNames_tg, init$, void)},
+		{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(CurrencyNames_tg, getContents, $ObjectArray2*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.util.resources.cldr.ext.CurrencyNames_tg",
+		"sun.util.resources.OpenListResourceBundle",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(CurrencyNames_tg, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CurrencyNames_tg);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <javax/swing/text/ParagraphView$Row.h>
-
 #include <java/awt/Rectangle.h>
 #include <java/awt/Shape.h>
 #include <java/awt/geom/Rectangle2D.h>
@@ -46,12 +45,10 @@ using $Integer = ::java::lang::Integer;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Arrays = ::java::util::Arrays;
-using $BitSet = ::java::util::BitSet;
 using $SizeRequirements = ::javax::swing::SizeRequirements;
 using $AbstractDocument = ::javax::swing::text::AbstractDocument;
 using $AttributeSet = ::javax::swing::text::AttributeSet;
 using $BoxView = ::javax::swing::text::BoxView;
-using $Document = ::javax::swing::text::Document;
 using $Element = ::javax::swing::text::Element;
 using $GlyphView = ::javax::swing::text::GlyphView;
 using $GlyphView$JustificationInfo = ::javax::swing::text::GlyphView$JustificationInfo;
@@ -65,64 +62,6 @@ namespace javax {
 	namespace swing {
 		namespace text {
 
-$FieldInfo _ParagraphView$Row_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/text/ParagraphView;", nullptr, $FINAL | $SYNTHETIC, $field(ParagraphView$Row, this$0)},
-	{"SPACE_ADDON", "I", nullptr, $STATIC | $FINAL, $constField(ParagraphView$Row, SPACE_ADDON)},
-	{"SPACE_ADDON_LEFTOVER_END", "I", nullptr, $STATIC | $FINAL, $constField(ParagraphView$Row, SPACE_ADDON_LEFTOVER_END)},
-	{"START_JUSTIFIABLE", "I", nullptr, $STATIC | $FINAL, $constField(ParagraphView$Row, START_JUSTIFIABLE)},
-	{"END_JUSTIFIABLE", "I", nullptr, $STATIC | $FINAL, $constField(ParagraphView$Row, END_JUSTIFIABLE)},
-	{"justificationData", "[I", nullptr, 0, $field(ParagraphView$Row, justificationData)},
-	{}
-};
-
-$MethodInfo _ParagraphView$Row_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/text/ParagraphView;Ljavax/swing/text/Element;)V", nullptr, 0, $method(ParagraphView$Row, init$, void, $ParagraphView*, $Element*)},
-	{"calculateMajorAxisRequirements", "(ILjavax/swing/SizeRequirements;)Ljavax/swing/SizeRequirements;", nullptr, $PROTECTED, $virtualMethod(ParagraphView$Row, calculateMajorAxisRequirements, $SizeRequirements*, int32_t, $SizeRequirements*)},
-	{"calculateMinorAxisRequirements", "(ILjavax/swing/SizeRequirements;)Ljavax/swing/SizeRequirements;", nullptr, $PROTECTED, $virtualMethod(ParagraphView$Row, calculateMinorAxisRequirements, $SizeRequirements*, int32_t, $SizeRequirements*)},
-	{"getAlignment", "(I)F", nullptr, $PUBLIC, $virtualMethod(ParagraphView$Row, getAlignment, float, int32_t)},
-	{"getAttributes", "()Ljavax/swing/text/AttributeSet;", nullptr, $PUBLIC, $virtualMethod(ParagraphView$Row, getAttributes, $AttributeSet*)},
-	{"getBottomInset", "()S", nullptr, $PROTECTED, $virtualMethod(ParagraphView$Row, getBottomInset, int16_t)},
-	{"getEndOffset", "()I", nullptr, $PUBLIC, $virtualMethod(ParagraphView$Row, getEndOffset, int32_t)},
-	{"getLeftInset", "()S", nullptr, $PROTECTED, $virtualMethod(ParagraphView$Row, getLeftInset, int16_t)},
-	{"getMaximumSpan", "(I)F", nullptr, $PUBLIC, $virtualMethod(ParagraphView$Row, getMaximumSpan, float, int32_t)},
-	{"getStartOffset", "()I", nullptr, $PUBLIC, $virtualMethod(ParagraphView$Row, getStartOffset, int32_t)},
-	{"getViewIndexAtPosition", "(I)I", nullptr, $PROTECTED, $virtualMethod(ParagraphView$Row, getViewIndexAtPosition, int32_t, int32_t)},
-	{"isBrokenRow", "()Z", nullptr, $PRIVATE, $method(ParagraphView$Row, isBrokenRow, bool)},
-	{"isJustifiableDocument", "()Z", nullptr, $PRIVATE, $method(ParagraphView$Row, isJustifiableDocument, bool)},
-	{"isJustifyEnabled", "()Z", nullptr, $PRIVATE, $method(ParagraphView$Row, isJustifyEnabled, bool)},
-	{"isLastRow", "()Z", nullptr, $PRIVATE, $method(ParagraphView$Row, isLastRow, bool)},
-	{"layoutMajorAxis", "(II[I[I)V", nullptr, $PROTECTED, $virtualMethod(ParagraphView$Row, layoutMajorAxis, void, int32_t, int32_t, $ints*, $ints*)},
-	{"layoutMinorAxis", "(II[I[I)V", nullptr, $PROTECTED, $virtualMethod(ParagraphView$Row, layoutMinorAxis, void, int32_t, int32_t, $ints*, $ints*)},
-	{"loadChildren", "(Ljavax/swing/text/ViewFactory;)V", nullptr, $PROTECTED, $virtualMethod(ParagraphView$Row, loadChildren, void, $ViewFactory*)},
-	{"modelToView", "(ILjava/awt/Shape;Ljavax/swing/text/Position$Bias;)Ljava/awt/Shape;", nullptr, $PUBLIC, $virtualMethod(ParagraphView$Row, modelToView, $Shape*, int32_t, $Shape*, $Position$Bias*), "javax.swing.text.BadLocationException"},
-	{}
-};
-
-$InnerClassInfo _ParagraphView$Row_InnerClassesInfo_[] = {
-	{"javax.swing.text.ParagraphView$Row", "javax.swing.text.ParagraphView", "Row", 0},
-	{}
-};
-
-$ClassInfo _ParagraphView$Row_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.text.ParagraphView$Row",
-	"javax.swing.text.BoxView",
-	nullptr,
-	_ParagraphView$Row_FieldInfo_,
-	_ParagraphView$Row_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ParagraphView$Row_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.ParagraphView"
-};
-
-$Object* allocate$ParagraphView$Row($Class* clazz) {
-	return $of($alloc(ParagraphView$Row));
-}
-
 void ParagraphView$Row::init$($ParagraphView* this$0, $Element* elem) {
 	$set(this, this$0, this$0);
 	$BoxView::init$(elem, $View::X_AXIS);
@@ -134,45 +73,35 @@ void ParagraphView$Row::loadChildren($ViewFactory* f) {
 
 $AttributeSet* ParagraphView$Row::getAttributes() {
 	$var($View, p, getParent());
-	return (p != nullptr) ? $nc(p)->getAttributes() : ($AttributeSet*)nullptr;
+	return (p != nullptr) ? p->getAttributes() : ($AttributeSet*)nullptr;
 }
 
 float ParagraphView$Row::getAlignment(int32_t axis) {
 	if (axis == $View::X_AXIS) {
-		{
-			float rv = 0;
-			switch (this->this$0->justification) {
-			case $StyleConstants::ALIGN_LEFT:
-				{
-					return (float)0;
-				}
-			case $StyleConstants::ALIGN_RIGHT:
-				{
-					return (float)1;
-				}
-			case $StyleConstants::ALIGN_CENTER:
-				{
-					return 0.5f;
-				}
-			case $StyleConstants::ALIGN_JUSTIFIED:
-				{
-					rv = 0.5f;
-					if (isJustifiableDocument()) {
-						rv = 0.0f;
-					}
-					return rv;
-				}
+		float rv = 0;
+		switch (this->this$0->justification) {
+		case $StyleConstants::ALIGN_LEFT:
+			return 0;
+		case $StyleConstants::ALIGN_RIGHT:
+			return 1;
+		case $StyleConstants::ALIGN_CENTER:
+			return 0.5f;
+		case $StyleConstants::ALIGN_JUSTIFIED:
+			rv = 0.5f;
+			if (isJustifiableDocument()) {
+				rv = 0.0f;
 			}
+			return rv;
 		}
 	}
 	return $BoxView::getAlignment(axis);
 }
 
 $Shape* ParagraphView$Row::modelToView(int32_t pos, $Shape* a, $Position$Bias* b) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle, r, $nc(a)->getBounds());
 	$var($View, v, getViewAtPosition(pos, r));
-	if ((v != nullptr) && (!$nc($(v->getElement()))->isLeaf())) {
+	if ((v != nullptr) && (!$$nc(v->getElement())->isLeaf())) {
 		return $BoxView::modelToView(pos, a, b);
 	}
 	$assign(r, a->getBounds());
@@ -180,14 +109,13 @@ $Shape* ParagraphView$Row::modelToView(int32_t pos, $Shape* a, $Position$Bias* b
 	int32_t y = r->y;
 	$var($Shape, loc, $BoxView::modelToView(pos, a, b));
 	$var($Rectangle2D, bounds, $nc(loc)->getBounds2D());
-	double var$0 = bounds->getX();
-	double var$1 = (double)y;
-	$nc(bounds)->setRect(var$0, var$1, bounds->getWidth(), (double)height);
+	double var$0 = $nc(bounds)->getX();
+	$nc(bounds)->setRect(var$0, (double)y, bounds->getWidth(), (double)height);
 	return bounds;
 }
 
 int32_t ParagraphView$Row::getStartOffset() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t offs = $Integer::MAX_VALUE;
 	int32_t n = getViewCount();
 	for (int32_t i = 0; i < n; ++i) {
@@ -198,7 +126,7 @@ int32_t ParagraphView$Row::getStartOffset() {
 }
 
 int32_t ParagraphView$Row::getEndOffset() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t offs = 0;
 	int32_t n = getViewCount();
 	for (int32_t i = 0; i < n; ++i) {
@@ -219,7 +147,7 @@ $SizeRequirements* ParagraphView$Row::calculateMinorAxisRequirements(int32_t axi
 bool ParagraphView$Row::isLastRow() {
 	$var($View, parent, nullptr);
 	bool var$0 = ($assign(parent, getParent())) == nullptr;
-	return (var$0 || $equals(this, $nc(parent)->getView(parent->getViewCount() - 1)));
+	return (var$0 || $equals(this, $nc(parent)->getView($nc(parent)->getViewCount() - 1)));
 }
 
 bool ParagraphView$Row::isBrokenRow() {
@@ -227,7 +155,7 @@ bool ParagraphView$Row::isBrokenRow() {
 	int32_t viewsCount = getViewCount();
 	if (viewsCount > 0) {
 		$var($View, lastView, getView(viewsCount - 1));
-		if ($nc(lastView)->getBreakWeight($View::X_AXIS, (float)0, (float)0) >= $View::ForcedBreakWeight) {
+		if ($nc(lastView)->getBreakWeight($View::X_AXIS, 0, 0) >= $View::ForcedBreakWeight) {
 			rv = true;
 		}
 	}
@@ -235,10 +163,9 @@ bool ParagraphView$Row::isBrokenRow() {
 }
 
 bool ParagraphView$Row::isJustifiableDocument() {
-	$useLocalCurrentObjectStackCache();
-	$init($Boolean);
+	$useLocalObjectStack();
 	$init($AbstractDocument);
-	return (!$nc($Boolean::TRUE)->equals($($nc($(getDocument()))->getProperty($AbstractDocument::I18NProperty))));
+	return (!$nc($Boolean::TRUE)->equals($($$nc(getDocument())->getProperty($AbstractDocument::I18NProperty))));
 }
 
 bool ParagraphView$Row::isJustifyEnabled() {
@@ -250,7 +177,7 @@ bool ParagraphView$Row::isJustifyEnabled() {
 }
 
 $SizeRequirements* ParagraphView$Row::calculateMajorAxisRequirements(int32_t axis, $SizeRequirements* r) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ints, oldJustficationData, this->justificationData);
 	$set(this, justificationData, nullptr);
 	$var($SizeRequirements, ret, $BoxView::calculateMajorAxisRequirements(axis, r));
@@ -261,7 +188,7 @@ $SizeRequirements* ParagraphView$Row::calculateMajorAxisRequirements(int32_t axi
 }
 
 void ParagraphView$Row::layoutMajorAxis(int32_t targetSpan, int32_t axis, $ints* offsets, $ints* spans) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ints, oldJustficationData, this->justificationData);
 	$set(this, justificationData, nullptr);
 	$BoxView::layoutMajorAxis(targetSpan, axis, offsets, spans);
@@ -271,9 +198,7 @@ void ParagraphView$Row::layoutMajorAxis(int32_t targetSpan, int32_t axis, $ints*
 	int32_t currentSpan = 0;
 	{
 		$var($ints, arr$, spans);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			int32_t span = arr$->get(i$);
 			{
 				currentSpan += span;
@@ -294,29 +219,29 @@ void ParagraphView$Row::layoutMajorAxis(int32_t targetSpan, int32_t axis, $ints*
 	for (int32_t i = getViewCount() - 1; i >= 0; --i) {
 		$var($View, view, getView(i));
 		if ($instanceOf($GlyphView, view)) {
-			$var($GlyphView$JustificationInfo, justificationInfo, $nc(($cast($GlyphView, view)))->getJustificationInfo(rowStartOffset));
-			int32_t viewStartOffset = $nc(view)->getStartOffset();
+			$var($GlyphView$JustificationInfo, justificationInfo, $cast($GlyphView, view)->getJustificationInfo(rowStartOffset));
+			int32_t viewStartOffset = view->getStartOffset();
 			int32_t offset = viewStartOffset - rowStartOffset;
 			for (int32_t j = 0; j < $nc($nc(justificationInfo)->spaceMap)->length(); ++j) {
-				if ($nc(justificationInfo->spaceMap)->get(j)) {
+				if (justificationInfo->spaceMap->get(j)) {
 					spaceMap->set(j + offset, 1);
 				}
 			}
 			if (startJustifiableContent > 0) {
-				if ($nc(justificationInfo)->end >= 0) {
+				if (justificationInfo->end >= 0) {
 					extendableSpaces += justificationInfo->trailingSpaces;
 				} else {
 					lastLeadingSpaces += justificationInfo->trailingSpaces;
 				}
 			}
-			if ($nc(justificationInfo)->start >= 0) {
+			if (justificationInfo->start >= 0) {
 				startJustifiableContent = justificationInfo->start + viewStartOffset;
 				extendableSpaces += lastLeadingSpaces;
 			}
-			if ($nc(justificationInfo)->end >= 0 && endJustifiableContent < 0) {
+			if (justificationInfo->end >= 0 && endJustifiableContent < 0) {
 				endJustifiableContent = justificationInfo->end + viewStartOffset;
 			}
-			extendableSpaces += $nc(justificationInfo)->contentSpaces;
+			extendableSpaces += justificationInfo->contentSpaces;
 			lastLeadingSpaces = justificationInfo->leadingSpaces;
 			if (justificationInfo->hasTab) {
 				break;
@@ -329,19 +254,15 @@ void ParagraphView$Row::layoutMajorAxis(int32_t targetSpan, int32_t axis, $ints*
 	int32_t adjustment = (targetSpan - currentSpan);
 	int32_t spaceAddon = (extendableSpaces > 0) ? $div(adjustment, extendableSpaces) : 0;
 	int32_t spaceAddonLeftoverEnd = -1;
-	{
-		int32_t i = startJustifiableContent - rowStartOffset;
-		int32_t leftover = adjustment - spaceAddon * extendableSpaces;
-		for (; leftover > 0; leftover -= spaceMap->get(i), ++i) {
-			spaceAddonLeftoverEnd = i;
-		}
+	for (int32_t i = startJustifiableContent - rowStartOffset, leftover = adjustment - spaceAddon * extendableSpaces; leftover > 0; leftover -= spaceMap->get(i), ++i) {
+		spaceAddonLeftoverEnd = i;
 	}
 	if (spaceAddon > 0 || spaceAddonLeftoverEnd >= 0) {
 		$set(this, justificationData, (oldJustficationData != nullptr) ? oldJustficationData : $new($ints, ParagraphView$Row::END_JUSTIFIABLE + 1));
 		$nc(this->justificationData)->set(ParagraphView$Row::SPACE_ADDON, spaceAddon);
-		$nc(this->justificationData)->set(ParagraphView$Row::SPACE_ADDON_LEFTOVER_END, spaceAddonLeftoverEnd);
-		$nc(this->justificationData)->set(ParagraphView$Row::START_JUSTIFIABLE, startJustifiableContent - rowStartOffset);
-		$nc(this->justificationData)->set(ParagraphView$Row::END_JUSTIFIABLE, endJustifiableContent - rowStartOffset);
+		this->justificationData->set(ParagraphView$Row::SPACE_ADDON_LEFTOVER_END, spaceAddonLeftoverEnd);
+		this->justificationData->set(ParagraphView$Row::START_JUSTIFIABLE, startJustifiableContent - rowStartOffset);
+		this->justificationData->set(ParagraphView$Row::END_JUSTIFIABLE, endJustifiableContent - rowStartOffset);
 		$BoxView::layoutMajorAxis(targetSpan, axis, offsets, spans);
 	}
 }
@@ -349,7 +270,6 @@ void ParagraphView$Row::layoutMajorAxis(int32_t targetSpan, int32_t axis, $ints*
 float ParagraphView$Row::getMaximumSpan(int32_t axis) {
 	float ret = 0.0;
 	if ($View::X_AXIS == axis && isJustifyEnabled()) {
-		$init($Float);
 		ret = $Float::MAX_VALUE;
 	} else {
 		ret = $BoxView::getMaximumSpan(axis);
@@ -358,7 +278,7 @@ float ParagraphView$Row::getMaximumSpan(int32_t axis) {
 }
 
 int32_t ParagraphView$Row::getViewIndexAtPosition(int32_t pos) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool var$0 = pos < getStartOffset();
 	if (var$0 || pos >= getEndOffset()) {
 		return -1;
@@ -385,14 +305,66 @@ int16_t ParagraphView$Row::getLeftInset() {
 }
 
 int16_t ParagraphView$Row::getBottomInset() {
-	return $cast(int16_t, ($BoxView::getBottomInset() + ((this->minorRequest != nullptr) ? $nc(this->minorRequest)->preferred : 0) * this->this$0->lineSpacing));
+	return $cast(int16_t, ($BoxView::getBottomInset() + ((this->minorRequest != nullptr) ? this->minorRequest->preferred : 0) * this->this$0->lineSpacing));
 }
 
 ParagraphView$Row::ParagraphView$Row() {
 }
 
 $Class* ParagraphView$Row::load$($String* name, bool initialize) {
-	$loadClass(ParagraphView$Row, name, initialize, &_ParagraphView$Row_ClassInfo_, allocate$ParagraphView$Row);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/text/ParagraphView;", nullptr, $FINAL | $SYNTHETIC, $field(ParagraphView$Row, this$0)},
+		{"SPACE_ADDON", "I", nullptr, $STATIC | $FINAL, $constField(ParagraphView$Row, SPACE_ADDON)},
+		{"SPACE_ADDON_LEFTOVER_END", "I", nullptr, $STATIC | $FINAL, $constField(ParagraphView$Row, SPACE_ADDON_LEFTOVER_END)},
+		{"START_JUSTIFIABLE", "I", nullptr, $STATIC | $FINAL, $constField(ParagraphView$Row, START_JUSTIFIABLE)},
+		{"END_JUSTIFIABLE", "I", nullptr, $STATIC | $FINAL, $constField(ParagraphView$Row, END_JUSTIFIABLE)},
+		{"justificationData", "[I", nullptr, 0, $field(ParagraphView$Row, justificationData)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/text/ParagraphView;Ljavax/swing/text/Element;)V", nullptr, 0, $method(ParagraphView$Row, init$, void, $ParagraphView*, $Element*)},
+		{"calculateMajorAxisRequirements", "(ILjavax/swing/SizeRequirements;)Ljavax/swing/SizeRequirements;", nullptr, $PROTECTED, $virtualMethod(ParagraphView$Row, calculateMajorAxisRequirements, $SizeRequirements*, int32_t, $SizeRequirements*)},
+		{"calculateMinorAxisRequirements", "(ILjavax/swing/SizeRequirements;)Ljavax/swing/SizeRequirements;", nullptr, $PROTECTED, $virtualMethod(ParagraphView$Row, calculateMinorAxisRequirements, $SizeRequirements*, int32_t, $SizeRequirements*)},
+		{"getAlignment", "(I)F", nullptr, $PUBLIC, $virtualMethod(ParagraphView$Row, getAlignment, float, int32_t)},
+		{"getAttributes", "()Ljavax/swing/text/AttributeSet;", nullptr, $PUBLIC, $virtualMethod(ParagraphView$Row, getAttributes, $AttributeSet*)},
+		{"getBottomInset", "()S", nullptr, $PROTECTED, $virtualMethod(ParagraphView$Row, getBottomInset, int16_t)},
+		{"getEndOffset", "()I", nullptr, $PUBLIC, $virtualMethod(ParagraphView$Row, getEndOffset, int32_t)},
+		{"getLeftInset", "()S", nullptr, $PROTECTED, $virtualMethod(ParagraphView$Row, getLeftInset, int16_t)},
+		{"getMaximumSpan", "(I)F", nullptr, $PUBLIC, $virtualMethod(ParagraphView$Row, getMaximumSpan, float, int32_t)},
+		{"getStartOffset", "()I", nullptr, $PUBLIC, $virtualMethod(ParagraphView$Row, getStartOffset, int32_t)},
+		{"getViewIndexAtPosition", "(I)I", nullptr, $PROTECTED, $virtualMethod(ParagraphView$Row, getViewIndexAtPosition, int32_t, int32_t)},
+		{"isBrokenRow", "()Z", nullptr, $PRIVATE, $method(ParagraphView$Row, isBrokenRow, bool)},
+		{"isJustifiableDocument", "()Z", nullptr, $PRIVATE, $method(ParagraphView$Row, isJustifiableDocument, bool)},
+		{"isJustifyEnabled", "()Z", nullptr, $PRIVATE, $method(ParagraphView$Row, isJustifyEnabled, bool)},
+		{"isLastRow", "()Z", nullptr, $PRIVATE, $method(ParagraphView$Row, isLastRow, bool)},
+		{"layoutMajorAxis", "(II[I[I)V", nullptr, $PROTECTED, $virtualMethod(ParagraphView$Row, layoutMajorAxis, void, int32_t, int32_t, $ints*, $ints*)},
+		{"layoutMinorAxis", "(II[I[I)V", nullptr, $PROTECTED, $virtualMethod(ParagraphView$Row, layoutMinorAxis, void, int32_t, int32_t, $ints*, $ints*)},
+		{"loadChildren", "(Ljavax/swing/text/ViewFactory;)V", nullptr, $PROTECTED, $virtualMethod(ParagraphView$Row, loadChildren, void, $ViewFactory*)},
+		{"modelToView", "(ILjava/awt/Shape;Ljavax/swing/text/Position$Bias;)Ljava/awt/Shape;", nullptr, $PUBLIC, $virtualMethod(ParagraphView$Row, modelToView, $Shape*, int32_t, $Shape*, $Position$Bias*), "javax.swing.text.BadLocationException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.ParagraphView$Row", "javax.swing.text.ParagraphView", "Row", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.text.ParagraphView$Row",
+		"javax.swing.text.BoxView",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.ParagraphView"
+	};
+	$loadClass(ParagraphView$Row, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ParagraphView$Row);
+	});
 	return class$;
 }
 

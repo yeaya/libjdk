@@ -1,6 +1,4 @@
 #include <com/apple/laf/AquaInternalFrameUI$AquaInternalFrameButtonIcon.h>
-
-#include <apple/laf/JRSUIConstants$Property.h>
 #include <apple/laf/JRSUIConstants$State.h>
 #include <apple/laf/JRSUIConstants$Widget.h>
 #include <apple/laf/JRSUIState.h>
@@ -13,10 +11,8 @@
 
 #undef ROLLOVER
 
-using $JRSUIConstants$Property = ::apple::laf::JRSUIConstants$Property;
 using $JRSUIConstants$State = ::apple::laf::JRSUIConstants$State;
 using $JRSUIConstants$Widget = ::apple::laf::JRSUIConstants$Widget;
-using $JRSUIState = ::apple::laf::JRSUIState;
 using $AquaIcon$JRSUIIcon = ::com::apple::laf::AquaIcon$JRSUIIcon;
 using $Component = ::java::awt::Component;
 using $Graphics = ::java::awt::Graphics;
@@ -27,41 +23,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace com {
 	namespace apple {
 		namespace laf {
-
-$MethodInfo _AquaInternalFrameUI$AquaInternalFrameButtonIcon_MethodInfo_[] = {
-	{"<init>", "(Lapple/laf/JRSUIConstants$Widget;)V", nullptr, $PUBLIC, $method(AquaInternalFrameUI$AquaInternalFrameButtonIcon, init$, void, $JRSUIConstants$Widget*)},
-	{"getIconHeight", "()I", nullptr, $PUBLIC, $virtualMethod(AquaInternalFrameUI$AquaInternalFrameButtonIcon, getIconHeight, int32_t)},
-	{"getIconWidth", "()I", nullptr, $PUBLIC, $virtualMethod(AquaInternalFrameUI$AquaInternalFrameButtonIcon, getIconWidth, int32_t)},
-	{"getStateFor", "(Ljava/awt/Component;)Lapple/laf/JRSUIConstants$State;", nullptr, 0, $virtualMethod(AquaInternalFrameUI$AquaInternalFrameButtonIcon, getStateFor, $JRSUIConstants$State*, $Component*)},
-	{"paintIcon", "(Ljava/awt/Component;Ljava/awt/Graphics;II)V", nullptr, $PUBLIC, $virtualMethod(AquaInternalFrameUI$AquaInternalFrameButtonIcon, paintIcon, void, $Component*, $Graphics*, int32_t, int32_t)},
-	{}
-};
-
-$InnerClassInfo _AquaInternalFrameUI$AquaInternalFrameButtonIcon_InnerClassesInfo_[] = {
-	{"com.apple.laf.AquaInternalFrameUI$AquaInternalFrameButtonIcon", "com.apple.laf.AquaInternalFrameUI", "AquaInternalFrameButtonIcon", $STATIC},
-	{"com.apple.laf.AquaIcon$JRSUIIcon", "com.apple.laf.AquaIcon", "JRSUIIcon", $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _AquaInternalFrameUI$AquaInternalFrameButtonIcon_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.apple.laf.AquaInternalFrameUI$AquaInternalFrameButtonIcon",
-	"com.apple.laf.AquaIcon$JRSUIIcon",
-	nullptr,
-	nullptr,
-	_AquaInternalFrameUI$AquaInternalFrameButtonIcon_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AquaInternalFrameUI$AquaInternalFrameButtonIcon_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.apple.laf.AquaInternalFrameUI"
-};
-
-$Object* allocate$AquaInternalFrameUI$AquaInternalFrameButtonIcon($Class* clazz) {
-	return $of($alloc(AquaInternalFrameUI$AquaInternalFrameButtonIcon));
-}
 
 void AquaInternalFrameUI$AquaInternalFrameButtonIcon::init$($JRSUIConstants$Widget* widget) {
 	$AquaIcon$JRSUIIcon::init$();
@@ -90,7 +51,37 @@ AquaInternalFrameUI$AquaInternalFrameButtonIcon::AquaInternalFrameUI$AquaInterna
 }
 
 $Class* AquaInternalFrameUI$AquaInternalFrameButtonIcon::load$($String* name, bool initialize) {
-	$loadClass(AquaInternalFrameUI$AquaInternalFrameButtonIcon, name, initialize, &_AquaInternalFrameUI$AquaInternalFrameButtonIcon_ClassInfo_, allocate$AquaInternalFrameUI$AquaInternalFrameButtonIcon);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lapple/laf/JRSUIConstants$Widget;)V", nullptr, $PUBLIC, $method(AquaInternalFrameUI$AquaInternalFrameButtonIcon, init$, void, $JRSUIConstants$Widget*)},
+		{"getIconHeight", "()I", nullptr, $PUBLIC, $virtualMethod(AquaInternalFrameUI$AquaInternalFrameButtonIcon, getIconHeight, int32_t)},
+		{"getIconWidth", "()I", nullptr, $PUBLIC, $virtualMethod(AquaInternalFrameUI$AquaInternalFrameButtonIcon, getIconWidth, int32_t)},
+		{"getStateFor", "(Ljava/awt/Component;)Lapple/laf/JRSUIConstants$State;", nullptr, 0, $virtualMethod(AquaInternalFrameUI$AquaInternalFrameButtonIcon, getStateFor, $JRSUIConstants$State*, $Component*)},
+		{"paintIcon", "(Ljava/awt/Component;Ljava/awt/Graphics;II)V", nullptr, $PUBLIC, $virtualMethod(AquaInternalFrameUI$AquaInternalFrameButtonIcon, paintIcon, void, $Component*, $Graphics*, int32_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.laf.AquaInternalFrameUI$AquaInternalFrameButtonIcon", "com.apple.laf.AquaInternalFrameUI", "AquaInternalFrameButtonIcon", $STATIC},
+		{"com.apple.laf.AquaIcon$JRSUIIcon", "com.apple.laf.AquaIcon", "JRSUIIcon", $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.apple.laf.AquaInternalFrameUI$AquaInternalFrameButtonIcon",
+		"com.apple.laf.AquaIcon$JRSUIIcon",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.apple.laf.AquaInternalFrameUI"
+	};
+	$loadClass(AquaInternalFrameUI$AquaInternalFrameButtonIcon, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AquaInternalFrameUI$AquaInternalFrameButtonIcon));
+	});
 	return class$;
 }
 

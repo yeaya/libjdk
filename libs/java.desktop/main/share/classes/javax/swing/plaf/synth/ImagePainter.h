@@ -53,6 +53,7 @@ class ImagePainter : public ::javax::swing::plaf::synth::SynthPainter {
 	$class(ImagePainter, 0, ::javax::swing::plaf::synth::SynthPainter)
 public:
 	ImagePainter();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(bool tiles, bool paintCenter, ::java::awt::Insets* sourceInsets, ::java::awt::Insets* destinationInsets, ::java::net::URL* path, bool center);
 	virtual bool getCenter();
 	virtual ::java::awt::Image* getImage();

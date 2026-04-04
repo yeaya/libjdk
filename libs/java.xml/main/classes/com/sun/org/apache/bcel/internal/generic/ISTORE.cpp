@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/bcel/internal/generic/ISTORE.h>
-
 #include <com/sun/org/apache/bcel/internal/Const.h>
 #include <com/sun/org/apache/bcel/internal/generic/StoreInstruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/Visitor.h>
@@ -22,26 +21,6 @@ namespace com {
 					namespace internal {
 						namespace generic {
 
-$MethodInfo _ISTORE_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(ISTORE, init$, void)},
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(ISTORE, init$, void, int32_t)},
-	{"accept", "(Lcom/sun/org/apache/bcel/internal/generic/Visitor;)V", nullptr, $PUBLIC, $virtualMethod(ISTORE, accept, void, $Visitor*)},
-	{}
-};
-
-$ClassInfo _ISTORE_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.bcel.internal.generic.ISTORE",
-	"com.sun.org.apache.bcel.internal.generic.StoreInstruction",
-	nullptr,
-	nullptr,
-	_ISTORE_MethodInfo_
-};
-
-$Object* allocate$ISTORE($Class* clazz) {
-	return $of($alloc(ISTORE));
-}
-
 void ISTORE::init$() {
 	$StoreInstruction::init$($Const::ISTORE, $Const::ISTORE_0);
 }
@@ -59,7 +38,23 @@ ISTORE::ISTORE() {
 }
 
 $Class* ISTORE::load$($String* name, bool initialize) {
-	$loadClass(ISTORE, name, initialize, &_ISTORE_ClassInfo_, allocate$ISTORE);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(ISTORE, init$, void)},
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(ISTORE, init$, void, int32_t)},
+		{"accept", "(Lcom/sun/org/apache/bcel/internal/generic/Visitor;)V", nullptr, $PUBLIC, $virtualMethod(ISTORE, accept, void, $Visitor*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.bcel.internal.generic.ISTORE",
+		"com.sun.org.apache.bcel.internal.generic.StoreInstruction",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ISTORE, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ISTORE));
+	});
 	return class$;
 }
 

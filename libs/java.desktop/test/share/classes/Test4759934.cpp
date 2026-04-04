@@ -1,12 +1,9 @@
 #include <Test4759934.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/Font.h>
-#include <java/awt/Frame.h>
 #include <java/awt/Window.h>
 #include <java/awt/event/ActionEvent.h>
-#include <java/awt/event/ActionListener.h>
 #include <java/util/EventObject.h>
 #include <javax/swing/JApplet.h>
 #include <javax/swing/JButton.h>
@@ -21,11 +18,8 @@
 
 using $Color = ::java::awt::Color;
 using $Component = ::java::awt::Component;
-using $Font = ::java::awt::Font;
-using $Frame = ::java::awt::Frame;
 using $Window = ::java::awt::Window;
 using $ActionEvent = ::java::awt::event::ActionEvent;
-using $ActionListener = ::java::awt::event::ActionListener;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $Float = ::java::lang::Float;
@@ -35,39 +29,6 @@ using $JButton = ::javax::swing::JButton;
 using $JColorChooser = ::javax::swing::JColorChooser;
 using $JDialog = ::javax::swing::JDialog;
 using $JFrame = ::javax::swing::JFrame;
-
-$FieldInfo _Test4759934_FieldInfo_[] = {
-	{"CMD_DIALOG", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Test4759934, CMD_DIALOG)},
-	{"CMD_CHOOSER", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Test4759934, CMD_CHOOSER)},
-	{"frame", "Ljavax/swing/JFrame;", nullptr, $PRIVATE | $FINAL, $field(Test4759934, frame)},
-	{}
-};
-
-$MethodInfo _Test4759934_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Test4759934, init$, void)},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(Test4759934, actionPerformed, void, $ActionEvent*)},
-	{"init", "()V", nullptr, $PUBLIC, $virtualMethod(Test4759934, init, void)},
-	{"show", "(Ljava/awt/Window;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(Test4759934, show, void, $Window*, $String*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _Test4759934_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"Test4759934",
-	"javax.swing.JApplet",
-	"java.awt.event.ActionListener",
-	_Test4759934_FieldInfo_,
-	_Test4759934_MethodInfo_
-};
-
-$Object* allocate$Test4759934($Class* clazz) {
-	return $of($alloc(Test4759934));
-}
 
 $String* Test4759934::toString() {
 	 return this->$JApplet::toString();
@@ -102,13 +63,13 @@ void Test4759934::init() {
 }
 
 void Test4759934::actionPerformed($ActionEvent* event) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, command, $nc(event)->getActionCommand());
-	if ($nc(Test4759934::CMD_DIALOG)->equals(command)) {
-		$var($JDialog, dialog, $new($JDialog, static_cast<$Frame*>(this->frame), "Dialog"_s));
+	if (Test4759934::CMD_DIALOG->equals(command)) {
+		$var($JDialog, dialog, $new($JDialog, this->frame, "Dialog"_s));
 		dialog->setLocation(200, 0);
 		show(dialog, Test4759934::CMD_CHOOSER);
-	} else if ($nc(Test4759934::CMD_CHOOSER)->equals(command)) {
+	} else if (Test4759934::CMD_CHOOSER->equals(command)) {
 		$var($Object, source, event->getSource());
 		$var($Component, component, ($instanceOf($Component, source)) ? $cast($Component, source) : ($Component*)nullptr);
 		$init($Color);
@@ -117,12 +78,12 @@ void Test4759934::actionPerformed($ActionEvent* event) {
 }
 
 void Test4759934::show($Window* window, $String* command) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JButton, button, $new($JButton, command));
 	button->setActionCommand(command);
 	button->addActionListener(this);
-	button->setFont($($nc($(button->getFont()))->deriveFont(64.0f)));
-	$nc(window)->add(static_cast<$Component*>(button));
+	button->setFont($($$nc(button->getFont())->deriveFont(64.0f)));
+	$nc(window)->add(button);
 	window->pack();
 	window->setVisible(true);
 }
@@ -130,13 +91,41 @@ void Test4759934::show($Window* window, $String* command) {
 Test4759934::Test4759934() {
 }
 
-void clinit$Test4759934($Class* class$) {
+void Test4759934::clinit$($Class* clazz) {
 	$assignStatic(Test4759934::CMD_DIALOG, "Show Dialog"_s);
 	$assignStatic(Test4759934::CMD_CHOOSER, "Show ColorChooser"_s);
 }
 
 $Class* Test4759934::load$($String* name, bool initialize) {
-	$loadClass(Test4759934, name, initialize, &_Test4759934_ClassInfo_, clinit$Test4759934, allocate$Test4759934);
+	$FieldInfo fieldInfos$$[] = {
+		{"CMD_DIALOG", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Test4759934, CMD_DIALOG)},
+		{"CMD_CHOOSER", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Test4759934, CMD_CHOOSER)},
+		{"frame", "Ljavax/swing/JFrame;", nullptr, $PRIVATE | $FINAL, $field(Test4759934, frame)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Test4759934, init$, void)},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(Test4759934, actionPerformed, void, $ActionEvent*)},
+		{"init", "()V", nullptr, $PUBLIC, $virtualMethod(Test4759934, init, void)},
+		{"show", "(Ljava/awt/Window;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(Test4759934, show, void, $Window*, $String*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"Test4759934",
+		"javax.swing.JApplet",
+		"java.awt.event.ActionListener",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Test4759934, name, initialize, &classInfo$$, Test4759934::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Test4759934));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/xs/LSInputList.h>
-
 #include <org/w3c/dom/ls/LSInput.h>
 #include <jcpp.h>
 
@@ -15,28 +14,24 @@ namespace com {
 					namespace internal {
 						namespace xs {
 
-$MethodInfo _LSInputList_MethodInfo_[] = {
-	{"getLength", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LSInputList, getLength, int32_t)},
-	{"item", "(I)Lorg/w3c/dom/ls/LSInput;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LSInputList, item, $LSInput*, int32_t)},
-	{}
-};
-
-$ClassInfo _LSInputList_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.org.apache.xerces.internal.xs.LSInputList",
-	nullptr,
-	"java.util.List",
-	nullptr,
-	_LSInputList_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/List<Lorg/w3c/dom/ls/LSInput;>;"
-};
-
-$Object* allocate$LSInputList($Class* clazz) {
-	return $of($alloc(LSInputList));
-}
-
 $Class* LSInputList::load$($String* name, bool initialize) {
-	$loadClass(LSInputList, name, initialize, &_LSInputList_ClassInfo_, allocate$LSInputList);
+	$MethodInfo methodInfos$$[] = {
+		{"getLength", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LSInputList, getLength, int32_t)},
+		{"item", "(I)Lorg/w3c/dom/ls/LSInput;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LSInputList, item, $LSInput*, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.org.apache.xerces.internal.xs.LSInputList",
+		nullptr,
+		"java.util.List",
+		nullptr,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/List<Lorg/w3c/dom/ls/LSInput;>;"
+	};
+	$loadClass(LSInputList, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LSInputList);
+	});
 	return class$;
 }
 

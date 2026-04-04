@@ -1,5 +1,4 @@
 #include <com/sun/media/sound/RealTimeSequencer$PlayThread.h>
-
 #include <com/sun/media/sound/JSSecurityManager.h>
 #include <com/sun/media/sound/MidiUtils$TempoCache.h>
 #include <com/sun/media/sound/MidiUtils.h>
@@ -7,10 +6,8 @@
 #include <com/sun/media/sound/RealTimeSequencer$DataPump.h>
 #include <com/sun/media/sound/RealTimeSequencer.h>
 #include <java/lang/InterruptedException.h>
-#include <java/lang/Runnable.h>
 #include <javax/sound/midi/InvalidMidiDataException.h>
 #include <javax/sound/midi/MetaMessage.h>
-#include <javax/sound/midi/MidiMessage.h>
 #include <javax/sound/midi/Sequence.h>
 #include <jcpp.h>
 
@@ -21,7 +18,6 @@
 
 using $JSSecurityManager = ::com::sun::media::sound::JSSecurityManager;
 using $MidiUtils = ::com::sun::media::sound::MidiUtils;
-using $MidiUtils$TempoCache = ::com::sun::media::sound::MidiUtils$TempoCache;
 using $Printer = ::com::sun::media::sound::Printer;
 using $RealTimeSequencer = ::com::sun::media::sound::RealTimeSequencer;
 using $RealTimeSequencer$DataPump = ::com::sun::media::sound::RealTimeSequencer$DataPump;
@@ -31,63 +27,14 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $InterruptedException = ::java::lang::InterruptedException;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
 using $InvalidMidiDataException = ::javax::sound::midi::InvalidMidiDataException;
 using $MetaMessage = ::javax::sound::midi::MetaMessage;
-using $MidiMessage = ::javax::sound::midi::MidiMessage;
 using $Sequence = ::javax::sound::midi::Sequence;
 
 namespace com {
 	namespace sun {
 		namespace media {
 			namespace sound {
-
-$FieldInfo _RealTimeSequencer$PlayThread_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/media/sound/RealTimeSequencer;", nullptr, $FINAL | $SYNTHETIC, $field(RealTimeSequencer$PlayThread, this$0)},
-	{"thread", "Ljava/lang/Thread;", nullptr, $PRIVATE, $field(RealTimeSequencer$PlayThread, thread)},
-	{"lock", "Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $field(RealTimeSequencer$PlayThread, lock)},
-	{"interrupted", "Z", nullptr, 0, $field(RealTimeSequencer$PlayThread, interrupted)},
-	{"isPumping", "Z", nullptr, 0, $field(RealTimeSequencer$PlayThread, isPumping)},
-	{"dataPump", "Lcom/sun/media/sound/RealTimeSequencer$DataPump;", nullptr, $PRIVATE | $FINAL, $field(RealTimeSequencer$PlayThread, dataPump)},
-	{}
-};
-
-$MethodInfo _RealTimeSequencer$PlayThread_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/media/sound/RealTimeSequencer;)V", nullptr, 0, $method(RealTimeSequencer$PlayThread, init$, void, $RealTimeSequencer*)},
-	{"close", "()V", nullptr, 0, $method(RealTimeSequencer$PlayThread, close, void)},
-	{"getDataPump", "()Lcom/sun/media/sound/RealTimeSequencer$DataPump;", nullptr, 0, $method(RealTimeSequencer$PlayThread, getDataPump, $RealTimeSequencer$DataPump*)},
-	{"playThreadImplStop", "()V", nullptr, 0, $method(RealTimeSequencer$PlayThread, playThreadImplStop, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(RealTimeSequencer$PlayThread, run, void)},
-	{"setSequence", "(Ljavax/sound/midi/Sequence;)V", nullptr, $SYNCHRONIZED, $method(RealTimeSequencer$PlayThread, setSequence, void, $Sequence*)},
-	{"start", "()V", nullptr, $SYNCHRONIZED, $method(RealTimeSequencer$PlayThread, start, void)},
-	{"stop", "()V", nullptr, $SYNCHRONIZED, $method(RealTimeSequencer$PlayThread, stop, void)},
-	{}
-};
-
-$InnerClassInfo _RealTimeSequencer$PlayThread_InnerClassesInfo_[] = {
-	{"com.sun.media.sound.RealTimeSequencer$PlayThread", "com.sun.media.sound.RealTimeSequencer", "PlayThread", $FINAL},
-	{}
-};
-
-$ClassInfo _RealTimeSequencer$PlayThread_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.media.sound.RealTimeSequencer$PlayThread",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	_RealTimeSequencer$PlayThread_FieldInfo_,
-	_RealTimeSequencer$PlayThread_MethodInfo_,
-	nullptr,
-	nullptr,
-	_RealTimeSequencer$PlayThread_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.media.sound.RealTimeSequencer"
-};
-
-$Object* allocate$RealTimeSequencer$PlayThread($Class* clazz) {
-	return $of($alloc(RealTimeSequencer$PlayThread));
-}
 
 void RealTimeSequencer$PlayThread::init$($RealTimeSequencer* this$0) {
 	$set(this, this$0, this$0);
@@ -105,23 +52,23 @@ $RealTimeSequencer$DataPump* RealTimeSequencer$PlayThread::getDataPump() {
 
 void RealTimeSequencer$PlayThread::setSequence($Sequence* seq) {
 	$synchronized(this) {
-		$nc(this->dataPump)->setSequence(seq);
+		this->dataPump->setSequence(seq);
 	}
 }
 
 void RealTimeSequencer$PlayThread::start() {
 	$synchronized(this) {
 		this->this$0->running = true;
-		if (!$nc(this->dataPump)->hasCachedTempo()) {
+		if (!this->dataPump->hasCachedTempo()) {
 			int64_t tickPos = this->this$0->getTickPosition();
-			$nc(this->dataPump)->setTempoMPQ($nc(this->this$0->tempoCache)->getTempoMPQAt(tickPos));
+			this->dataPump->setTempoMPQ($nc(this->this$0->tempoCache)->getTempoMPQAt(tickPos));
 		}
-		$nc(this->dataPump)->checkPointMillis = 0;
-		$nc(this->dataPump)->clearNoteOnCache();
-		$nc(this->dataPump)->needReindex = true;
-		$nc(this->dataPump)->resetLoopCount();
+		this->dataPump->checkPointMillis = 0;
+		this->dataPump->clearNoteOnCache();
+		this->dataPump->needReindex = true;
+		this->dataPump->resetLoopCount();
 		$synchronized(this->lock) {
-			$nc($of(this->lock))->notifyAll();
+			this->lock->notifyAll();
 		}
 	}
 }
@@ -133,7 +80,7 @@ void RealTimeSequencer$PlayThread::stop() {
 		while (this->isPumping) {
 			$synchronized(this->lock) {
 				try {
-					$nc($of(this->lock))->wait(2000);
+					this->lock->wait(2000);
 				} catch ($InterruptedException& ie) {
 				}
 			}
@@ -150,7 +97,7 @@ void RealTimeSequencer$PlayThread::stop() {
 void RealTimeSequencer$PlayThread::playThreadImplStop() {
 	this->this$0->running = false;
 	$synchronized(this->lock) {
-		$nc($of(this->lock))->notifyAll();
+		this->lock->notifyAll();
 	}
 }
 
@@ -163,7 +110,7 @@ void RealTimeSequencer$PlayThread::close() {
 	}
 	if (oldThread != nullptr) {
 		$synchronized(this->lock) {
-			$nc($of(this->lock))->notifyAll();
+			this->lock->notifyAll();
 		}
 	}
 	if (oldThread != nullptr) {
@@ -175,13 +122,13 @@ void RealTimeSequencer$PlayThread::close() {
 }
 
 void RealTimeSequencer$PlayThread::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	while (!this->interrupted) {
 		bool EOM = false;
 		bool wasRunning = this->this$0->running;
 		this->isPumping = !this->interrupted && this->this$0->running;
 		while (!EOM && !this->interrupted && this->this$0->running) {
-			EOM = $nc(this->dataPump)->pump();
+			EOM = this->dataPump->pump();
 			try {
 				$Thread::sleep(1);
 			} catch ($InterruptedException& ie) {
@@ -189,10 +136,10 @@ void RealTimeSequencer$PlayThread::run() {
 		}
 		playThreadImplStop();
 		if (wasRunning) {
-			$nc(this->dataPump)->notesOff(true);
+			this->dataPump->notesOff(true);
 		}
 		if (EOM) {
-			$nc(this->dataPump)->setTickPos($nc(this->this$0->sequence)->getTickLength());
+			this->dataPump->setTickPos($nc(this->this$0->sequence)->getTickLength());
 			$var($MetaMessage, message, $new($MetaMessage));
 			try {
 				message->setMessage($MidiUtils::META_END_OF_TRACK_TYPE, $$new($bytes, 0), 0);
@@ -202,10 +149,10 @@ void RealTimeSequencer$PlayThread::run() {
 		}
 		$synchronized(this->lock) {
 			this->isPumping = false;
-			$nc($of(this->lock))->notifyAll();
+			this->lock->notifyAll();
 			while (!this->this$0->running && !this->interrupted) {
 				try {
-					$nc($of(this->lock))->wait();
+					this->lock->wait();
 				} catch ($Exception& ex) {
 				}
 			}
@@ -217,7 +164,48 @@ RealTimeSequencer$PlayThread::RealTimeSequencer$PlayThread() {
 }
 
 $Class* RealTimeSequencer$PlayThread::load$($String* name, bool initialize) {
-	$loadClass(RealTimeSequencer$PlayThread, name, initialize, &_RealTimeSequencer$PlayThread_ClassInfo_, allocate$RealTimeSequencer$PlayThread);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/media/sound/RealTimeSequencer;", nullptr, $FINAL | $SYNTHETIC, $field(RealTimeSequencer$PlayThread, this$0)},
+		{"thread", "Ljava/lang/Thread;", nullptr, $PRIVATE, $field(RealTimeSequencer$PlayThread, thread)},
+		{"lock", "Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $field(RealTimeSequencer$PlayThread, lock)},
+		{"interrupted", "Z", nullptr, 0, $field(RealTimeSequencer$PlayThread, interrupted)},
+		{"isPumping", "Z", nullptr, 0, $field(RealTimeSequencer$PlayThread, isPumping)},
+		{"dataPump", "Lcom/sun/media/sound/RealTimeSequencer$DataPump;", nullptr, $PRIVATE | $FINAL, $field(RealTimeSequencer$PlayThread, dataPump)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/media/sound/RealTimeSequencer;)V", nullptr, 0, $method(RealTimeSequencer$PlayThread, init$, void, $RealTimeSequencer*)},
+		{"close", "()V", nullptr, 0, $method(RealTimeSequencer$PlayThread, close, void)},
+		{"getDataPump", "()Lcom/sun/media/sound/RealTimeSequencer$DataPump;", nullptr, 0, $method(RealTimeSequencer$PlayThread, getDataPump, $RealTimeSequencer$DataPump*)},
+		{"playThreadImplStop", "()V", nullptr, 0, $method(RealTimeSequencer$PlayThread, playThreadImplStop, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(RealTimeSequencer$PlayThread, run, void)},
+		{"setSequence", "(Ljavax/sound/midi/Sequence;)V", nullptr, $SYNCHRONIZED, $method(RealTimeSequencer$PlayThread, setSequence, void, $Sequence*)},
+		{"start", "()V", nullptr, $SYNCHRONIZED, $method(RealTimeSequencer$PlayThread, start, void)},
+		{"stop", "()V", nullptr, $SYNCHRONIZED, $method(RealTimeSequencer$PlayThread, stop, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.media.sound.RealTimeSequencer$PlayThread", "com.sun.media.sound.RealTimeSequencer", "PlayThread", $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.media.sound.RealTimeSequencer$PlayThread",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.media.sound.RealTimeSequencer"
+	};
+	$loadClass(RealTimeSequencer$PlayThread, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RealTimeSequencer$PlayThread);
+	});
 	return class$;
 }
 

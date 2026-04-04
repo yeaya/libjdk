@@ -45,6 +45,7 @@ class $export JavadocTokenizer$JavadocComment : public ::com::sun::tools::javac:
 	$class(JavadocTokenizer$JavadocComment, 0, ::com::sun::tools::javac::parser::JavaTokenizer$BasicComment)
 public:
 	JavadocTokenizer$JavadocComment();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::com::sun::tools::javac::parser::Tokens$Comment$CommentStyle* cs, ::com::sun::tools::javac::parser::ScannerFactory* sf, $chars* array, int32_t offset);
 	virtual int32_t getSourcePos(int32_t pos) override;
 	virtual $String* getText() override;

@@ -56,6 +56,7 @@ class RTFReader : public ::javax::swing::text::rtf::RTFParser {
 public:
 	RTFReader();
 	using ::javax::swing::text::rtf::RTFParser::handleText;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::javax::swing::text::StyledDocument* destination);
 	virtual void begingroup() override;
 	virtual void close() override;

@@ -24,6 +24,7 @@ class Level$RbAccess : public ::java::lang::Object {
 	$class(Level$RbAccess, 0, ::java::lang::Object)
 public:
 	Level$RbAccess();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::jdk::internal::access::JavaUtilResourceBundleAccess* RB_ACCESS;
 };

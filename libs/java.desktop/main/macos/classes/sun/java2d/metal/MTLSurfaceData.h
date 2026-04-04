@@ -106,6 +106,7 @@ public:
 	virtual int32_t hashCode() override;
 	virtual bool isSurfaceLost() override;
 	virtual bool isValid() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::java2d::metal::MTLLayer* layer, ::sun::java2d::metal::MTLGraphicsConfig* gc, ::java::awt::image::ColorModel* cm, int32_t type, int32_t width, int32_t height);
 	bool canHandleComposite(::java::awt::Composite* c);
 	virtual bool canRenderLCDText(::sun::java2d::SunGraphics2D* sg2d) override;

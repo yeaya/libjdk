@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/basic/BasicToolBarUI$1.h>
-
 #include <java/awt/GraphicsConfiguration.h>
 #include <javax/swing/JFrame.h>
 #include <javax/swing/JRootPane.h>
@@ -23,49 +22,6 @@ namespace javax {
 		namespace plaf {
 			namespace basic {
 
-$FieldInfo _BasicToolBarUI$1_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/plaf/basic/BasicToolBarUI;", nullptr, $FINAL | $SYNTHETIC, $field(BasicToolBarUI$1, this$0)},
-	{}
-};
-
-$MethodInfo _BasicToolBarUI$1_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/plaf/basic/BasicToolBarUI;Ljava/lang/String;Ljava/awt/GraphicsConfiguration;)V", nullptr, 0, $method(BasicToolBarUI$1, init$, void, $BasicToolBarUI*, $String*, $GraphicsConfiguration*)},
-	{"createRootPane", "()Ljavax/swing/JRootPane;", nullptr, $PROTECTED, $virtualMethod(BasicToolBarUI$1, createRootPane, $JRootPane*)},
-	{}
-};
-
-$EnclosingMethodInfo _BasicToolBarUI$1_EnclosingMethodInfo_ = {
-	"javax.swing.plaf.basic.BasicToolBarUI",
-	"createFloatingFrame",
-	"(Ljavax/swing/JToolBar;)Ljavax/swing/JFrame;"
-};
-
-$InnerClassInfo _BasicToolBarUI$1_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.basic.BasicToolBarUI$1", nullptr, nullptr, 0},
-	{"javax.swing.plaf.basic.BasicToolBarUI$1$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _BasicToolBarUI$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.basic.BasicToolBarUI$1",
-	"javax.swing.JFrame",
-	nullptr,
-	_BasicToolBarUI$1_FieldInfo_,
-	_BasicToolBarUI$1_MethodInfo_,
-	nullptr,
-	&_BasicToolBarUI$1_EnclosingMethodInfo_,
-	_BasicToolBarUI$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.basic.BasicToolBarUI"
-};
-
-$Object* allocate$BasicToolBarUI$1($Class* clazz) {
-	return $of($alloc(BasicToolBarUI$1));
-}
-
 void BasicToolBarUI$1::init$($BasicToolBarUI* this$0, $String* title, $GraphicsConfiguration* gc) {
 	$set(this, this$0, this$0);
 	$JFrame::init$(title, gc);
@@ -81,7 +37,43 @@ BasicToolBarUI$1::BasicToolBarUI$1() {
 }
 
 $Class* BasicToolBarUI$1::load$($String* name, bool initialize) {
-	$loadClass(BasicToolBarUI$1, name, initialize, &_BasicToolBarUI$1_ClassInfo_, allocate$BasicToolBarUI$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/plaf/basic/BasicToolBarUI;", nullptr, $FINAL | $SYNTHETIC, $field(BasicToolBarUI$1, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/plaf/basic/BasicToolBarUI;Ljava/lang/String;Ljava/awt/GraphicsConfiguration;)V", nullptr, 0, $method(BasicToolBarUI$1, init$, void, $BasicToolBarUI*, $String*, $GraphicsConfiguration*)},
+		{"createRootPane", "()Ljavax/swing/JRootPane;", nullptr, $PROTECTED, $virtualMethod(BasicToolBarUI$1, createRootPane, $JRootPane*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"javax.swing.plaf.basic.BasicToolBarUI",
+		"createFloatingFrame",
+		"(Ljavax/swing/JToolBar;)Ljavax/swing/JFrame;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.basic.BasicToolBarUI$1", nullptr, nullptr, 0},
+		{"javax.swing.plaf.basic.BasicToolBarUI$1$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.basic.BasicToolBarUI$1",
+		"javax.swing.JFrame",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.basic.BasicToolBarUI"
+	};
+	$loadClass(BasicToolBarUI$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(BasicToolBarUI$1));
+	});
 	return class$;
 }
 

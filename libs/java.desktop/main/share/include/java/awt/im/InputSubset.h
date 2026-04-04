@@ -32,6 +32,7 @@ class $import InputSubset : public ::java::lang::Character$Subset {
 	$class(InputSubset, 0, ::java::lang::Character$Subset)
 public:
 	InputSubset();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* name);
 	static ::java::awt::im::InputSubset* LATIN;
 	static ::java::awt::im::InputSubset* LATIN_DIGITS;

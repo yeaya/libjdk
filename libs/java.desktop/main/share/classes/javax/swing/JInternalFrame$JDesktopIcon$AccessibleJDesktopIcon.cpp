@@ -1,11 +1,9 @@
 #include <javax/swing/JInternalFrame$JDesktopIcon$AccessibleJDesktopIcon.h>
-
 #include <java/lang/Number.h>
 #include <javax/accessibility/AccessibleContext.h>
 #include <javax/accessibility/AccessibleRole.h>
 #include <javax/accessibility/AccessibleValue.h>
 #include <javax/swing/JComponent$AccessibleJComponent.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JInternalFrame$JDesktopIcon.h>
 #include <javax/swing/JInternalFrame.h>
 #include <jcpp.h>
@@ -20,61 +18,11 @@ using $Number = ::java::lang::Number;
 using $AccessibleContext = ::javax::accessibility::AccessibleContext;
 using $AccessibleRole = ::javax::accessibility::AccessibleRole;
 using $AccessibleValue = ::javax::accessibility::AccessibleValue;
-using $JComponent = ::javax::swing::JComponent;
 using $JComponent$AccessibleJComponent = ::javax::swing::JComponent$AccessibleJComponent;
-using $JInternalFrame = ::javax::swing::JInternalFrame;
 using $JInternalFrame$JDesktopIcon = ::javax::swing::JInternalFrame$JDesktopIcon;
 
 namespace javax {
 	namespace swing {
-
-$FieldInfo _JInternalFrame$JDesktopIcon$AccessibleJDesktopIcon_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/JInternalFrame$JDesktopIcon;", nullptr, $FINAL | $SYNTHETIC, $field(JInternalFrame$JDesktopIcon$AccessibleJDesktopIcon, this$0)},
-	{}
-};
-
-$MethodInfo _JInternalFrame$JDesktopIcon$AccessibleJDesktopIcon_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljavax/swing/JInternalFrame$JDesktopIcon;)V", nullptr, $PROTECTED, $method(JInternalFrame$JDesktopIcon$AccessibleJDesktopIcon, init$, void, $JInternalFrame$JDesktopIcon*)},
-	{"getAccessibleRole", "()Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC, $virtualMethod(JInternalFrame$JDesktopIcon$AccessibleJDesktopIcon, getAccessibleRole, $AccessibleRole*)},
-	{"getAccessibleValue", "()Ljavax/accessibility/AccessibleValue;", nullptr, $PUBLIC, $virtualMethod(JInternalFrame$JDesktopIcon$AccessibleJDesktopIcon, getAccessibleValue, $AccessibleValue*)},
-	{"getCurrentAccessibleValue", "()Ljava/lang/Number;", nullptr, $PUBLIC, $virtualMethod(JInternalFrame$JDesktopIcon$AccessibleJDesktopIcon, getCurrentAccessibleValue, $Number*)},
-	{"getMaximumAccessibleValue", "()Ljava/lang/Number;", nullptr, $PUBLIC, $virtualMethod(JInternalFrame$JDesktopIcon$AccessibleJDesktopIcon, getMaximumAccessibleValue, $Number*)},
-	{"getMinimumAccessibleValue", "()Ljava/lang/Number;", nullptr, $PUBLIC, $virtualMethod(JInternalFrame$JDesktopIcon$AccessibleJDesktopIcon, getMinimumAccessibleValue, $Number*)},
-	{"setCurrentAccessibleValue", "(Ljava/lang/Number;)Z", nullptr, $PUBLIC, $virtualMethod(JInternalFrame$JDesktopIcon$AccessibleJDesktopIcon, setCurrentAccessibleValue, bool, $Number*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _JInternalFrame$JDesktopIcon$AccessibleJDesktopIcon_InnerClassesInfo_[] = {
-	{"javax.swing.JInternalFrame$JDesktopIcon", "javax.swing.JInternalFrame", "JDesktopIcon", $PUBLIC | $STATIC},
-	{"javax.swing.JInternalFrame$JDesktopIcon$AccessibleJDesktopIcon", "javax.swing.JInternalFrame$JDesktopIcon", "AccessibleJDesktopIcon", $PROTECTED},
-	{"javax.swing.JComponent$AccessibleJComponent", "javax.swing.JComponent", "AccessibleJComponent", $PUBLIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _JInternalFrame$JDesktopIcon$AccessibleJDesktopIcon_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.JInternalFrame$JDesktopIcon$AccessibleJDesktopIcon",
-	"javax.swing.JComponent$AccessibleJComponent",
-	"javax.accessibility.AccessibleValue",
-	_JInternalFrame$JDesktopIcon$AccessibleJDesktopIcon_FieldInfo_,
-	_JInternalFrame$JDesktopIcon$AccessibleJDesktopIcon_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JInternalFrame$JDesktopIcon$AccessibleJDesktopIcon_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.JInternalFrame"
-};
-
-$Object* allocate$JInternalFrame$JDesktopIcon$AccessibleJDesktopIcon($Class* clazz) {
-	return $of($alloc(JInternalFrame$JDesktopIcon$AccessibleJDesktopIcon));
-}
 
 int32_t JInternalFrame$JDesktopIcon$AccessibleJDesktopIcon::hashCode() {
 	 return this->$JComponent$AccessibleJComponent::hashCode();
@@ -111,8 +59,8 @@ $AccessibleValue* JInternalFrame$JDesktopIcon$AccessibleJDesktopIcon::getAccessi
 }
 
 $Number* JInternalFrame$JDesktopIcon$AccessibleJDesktopIcon::getCurrentAccessibleValue() {
-	$useLocalCurrentObjectStackCache();
-	$var($AccessibleContext, a, $nc($(this->this$0->getInternalFrame()))->getAccessibleContext());
+	$useLocalObjectStack();
+	$var($AccessibleContext, a, $$nc(this->this$0->getInternalFrame())->getAccessibleContext());
 	$var($AccessibleValue, v, $nc(a)->getAccessibleValue());
 	if (v != nullptr) {
 		return v->getCurrentAccessibleValue();
@@ -122,11 +70,11 @@ $Number* JInternalFrame$JDesktopIcon$AccessibleJDesktopIcon::getCurrentAccessibl
 }
 
 bool JInternalFrame$JDesktopIcon$AccessibleJDesktopIcon::setCurrentAccessibleValue($Number* n) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (n == nullptr) {
 		return false;
 	}
-	$var($AccessibleContext, a, $nc($(this->this$0->getInternalFrame()))->getAccessibleContext());
+	$var($AccessibleContext, a, $$nc(this->this$0->getInternalFrame())->getAccessibleContext());
 	$var($AccessibleValue, v, $nc(a)->getAccessibleValue());
 	if (v != nullptr) {
 		return v->setCurrentAccessibleValue(n);
@@ -136,20 +84,20 @@ bool JInternalFrame$JDesktopIcon$AccessibleJDesktopIcon::setCurrentAccessibleVal
 }
 
 $Number* JInternalFrame$JDesktopIcon$AccessibleJDesktopIcon::getMinimumAccessibleValue() {
-	$useLocalCurrentObjectStackCache();
-	$var($AccessibleContext, a, $nc($(this->this$0->getInternalFrame()))->getAccessibleContext());
+	$useLocalObjectStack();
+	$var($AccessibleContext, a, $$nc(this->this$0->getInternalFrame())->getAccessibleContext());
 	if ($instanceOf($AccessibleValue, a)) {
-		return $nc(($cast($AccessibleValue, a)))->getMinimumAccessibleValue();
+		return $cast($AccessibleValue, a)->getMinimumAccessibleValue();
 	} else {
 		return nullptr;
 	}
 }
 
 $Number* JInternalFrame$JDesktopIcon$AccessibleJDesktopIcon::getMaximumAccessibleValue() {
-	$useLocalCurrentObjectStackCache();
-	$var($AccessibleContext, a, $nc($(this->this$0->getInternalFrame()))->getAccessibleContext());
+	$useLocalObjectStack();
+	$var($AccessibleContext, a, $$nc(this->this$0->getInternalFrame())->getAccessibleContext());
 	if ($instanceOf($AccessibleValue, a)) {
-		return $nc(($cast($AccessibleValue, a)))->getMaximumAccessibleValue();
+		return $cast($AccessibleValue, a)->getMaximumAccessibleValue();
 	} else {
 		return nullptr;
 	}
@@ -159,7 +107,49 @@ JInternalFrame$JDesktopIcon$AccessibleJDesktopIcon::JInternalFrame$JDesktopIcon$
 }
 
 $Class* JInternalFrame$JDesktopIcon$AccessibleJDesktopIcon::load$($String* name, bool initialize) {
-	$loadClass(JInternalFrame$JDesktopIcon$AccessibleJDesktopIcon, name, initialize, &_JInternalFrame$JDesktopIcon$AccessibleJDesktopIcon_ClassInfo_, allocate$JInternalFrame$JDesktopIcon$AccessibleJDesktopIcon);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/JInternalFrame$JDesktopIcon;", nullptr, $FINAL | $SYNTHETIC, $field(JInternalFrame$JDesktopIcon$AccessibleJDesktopIcon, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljavax/swing/JInternalFrame$JDesktopIcon;)V", nullptr, $PROTECTED, $method(JInternalFrame$JDesktopIcon$AccessibleJDesktopIcon, init$, void, $JInternalFrame$JDesktopIcon*)},
+		{"getAccessibleRole", "()Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC, $virtualMethod(JInternalFrame$JDesktopIcon$AccessibleJDesktopIcon, getAccessibleRole, $AccessibleRole*)},
+		{"getAccessibleValue", "()Ljavax/accessibility/AccessibleValue;", nullptr, $PUBLIC, $virtualMethod(JInternalFrame$JDesktopIcon$AccessibleJDesktopIcon, getAccessibleValue, $AccessibleValue*)},
+		{"getCurrentAccessibleValue", "()Ljava/lang/Number;", nullptr, $PUBLIC, $virtualMethod(JInternalFrame$JDesktopIcon$AccessibleJDesktopIcon, getCurrentAccessibleValue, $Number*)},
+		{"getMaximumAccessibleValue", "()Ljava/lang/Number;", nullptr, $PUBLIC, $virtualMethod(JInternalFrame$JDesktopIcon$AccessibleJDesktopIcon, getMaximumAccessibleValue, $Number*)},
+		{"getMinimumAccessibleValue", "()Ljava/lang/Number;", nullptr, $PUBLIC, $virtualMethod(JInternalFrame$JDesktopIcon$AccessibleJDesktopIcon, getMinimumAccessibleValue, $Number*)},
+		{"setCurrentAccessibleValue", "(Ljava/lang/Number;)Z", nullptr, $PUBLIC, $virtualMethod(JInternalFrame$JDesktopIcon$AccessibleJDesktopIcon, setCurrentAccessibleValue, bool, $Number*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.JInternalFrame$JDesktopIcon", "javax.swing.JInternalFrame", "JDesktopIcon", $PUBLIC | $STATIC},
+		{"javax.swing.JInternalFrame$JDesktopIcon$AccessibleJDesktopIcon", "javax.swing.JInternalFrame$JDesktopIcon", "AccessibleJDesktopIcon", $PROTECTED},
+		{"javax.swing.JComponent$AccessibleJComponent", "javax.swing.JComponent", "AccessibleJComponent", $PUBLIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.JInternalFrame$JDesktopIcon$AccessibleJDesktopIcon",
+		"javax.swing.JComponent$AccessibleJComponent",
+		"javax.accessibility.AccessibleValue",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.JInternalFrame"
+	};
+	$loadClass(JInternalFrame$JDesktopIcon$AccessibleJDesktopIcon, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JInternalFrame$JDesktopIcon$AccessibleJDesktopIcon));
+	});
 	return class$;
 }
 

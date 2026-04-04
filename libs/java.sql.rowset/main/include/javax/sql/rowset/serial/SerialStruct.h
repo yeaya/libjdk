@@ -50,7 +50,7 @@ public:
 	void writeObject(::java::io::ObjectOutputStream* s);
 	$String* SQLTypeName = nullptr;
 	$ObjectArray* attribs = nullptr;
-	static const int64_t serialVersionUID = (int64_t)0x8C80BBE885E52314;
+	static const int64_t serialVersionUID = (int64_t)0x8c80bbe885e52314;
 };
 
 			} // serial

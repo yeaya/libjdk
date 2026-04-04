@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/security/algorithms/implementations/SignatureDSA.h>
-
 #include <com/sun/org/apache/xml/internal/security/algorithms/JCEMapper.h>
 #include <com/sun/org/apache/xml/internal/security/algorithms/SignatureAlgorithmSpi.h>
 #include <com/sun/org/apache/xml/internal/security/signature/XMLSignature.h>
@@ -40,12 +39,9 @@ using $Logger = ::com::sun::org::slf4j::internal::Logger;
 using $LoggerFactory = ::com::sun::org::slf4j::internal::LoggerFactory;
 using $IOException = ::java::io::IOException;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $BigInteger = ::java::math::BigInteger;
-using $GeneralSecurityException = ::java::security::GeneralSecurityException;
 using $InvalidAlgorithmParameterException = ::java::security::InvalidAlgorithmParameterException;
 using $Key = ::java::security::Key;
 using $NoSuchAlgorithmException = ::java::security::NoSuchAlgorithmException;
@@ -55,7 +51,6 @@ using $SecureRandom = ::java::security::SecureRandom;
 using $Signature = ::java::security::Signature;
 using $SignatureException = ::java::security::SignatureException;
 using $DSAKey = ::java::security::interfaces::DSAKey;
-using $DSAParams = ::java::security::interfaces::DSAParams;
 using $AlgorithmParameterSpec = ::java::security::spec::AlgorithmParameterSpec;
 
 namespace com {
@@ -67,58 +62,6 @@ namespace com {
 						namespace security {
 							namespace algorithms {
 								namespace implementations {
-
-$FieldInfo _SignatureDSA_FieldInfo_[] = {
-	{"URI", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SignatureDSA, URI)},
-	{"LOG", "Lcom/sun/org/slf4j/internal/Logger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SignatureDSA, LOG)},
-	{"signatureAlgorithm", "Ljava/security/Signature;", nullptr, $PRIVATE | $FINAL, $field(SignatureDSA, signatureAlgorithm)},
-	{"size", "I", nullptr, $PRIVATE, $field(SignatureDSA, size)},
-	{}
-};
-
-$MethodInfo _SignatureDSA_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SignatureDSA, init$, void), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
-	{"<init>", "(Ljava/security/Provider;)V", nullptr, $PUBLIC, $method(SignatureDSA, init$, void, $Provider*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
-	{"engineGetJCEAlgorithmString", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(SignatureDSA, engineGetJCEAlgorithmString, $String*)},
-	{"engineGetJCEProviderName", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(SignatureDSA, engineGetJCEProviderName, $String*)},
-	{"engineGetURI", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(SignatureDSA, engineGetURI, $String*)},
-	{"engineInitSign", "(Ljava/security/Key;Ljava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(SignatureDSA, engineInitSign, void, $Key*, $SecureRandom*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
-	{"engineInitSign", "(Ljava/security/Key;)V", nullptr, $PROTECTED, $virtualMethod(SignatureDSA, engineInitSign, void, $Key*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
-	{"engineInitSign", "(Ljava/security/Key;Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, $PROTECTED, $virtualMethod(SignatureDSA, engineInitSign, void, $Key*, $AlgorithmParameterSpec*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
-	{"engineInitVerify", "(Ljava/security/Key;)V", nullptr, $PROTECTED, $virtualMethod(SignatureDSA, engineInitVerify, void, $Key*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
-	{"engineSetHMACOutputLength", "(I)V", nullptr, $PROTECTED, $virtualMethod(SignatureDSA, engineSetHMACOutputLength, void, int32_t), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
-	{"engineSetParameter", "(Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, $PROTECTED, $virtualMethod(SignatureDSA, engineSetParameter, void, $AlgorithmParameterSpec*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
-	{"engineSign", "()[B", nullptr, $PROTECTED, $virtualMethod(SignatureDSA, engineSign, $bytes*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
-	{"engineUpdate", "([B)V", nullptr, $PROTECTED, $virtualMethod(SignatureDSA, engineUpdate, void, $bytes*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
-	{"engineUpdate", "(B)V", nullptr, $PROTECTED, $virtualMethod(SignatureDSA, engineUpdate, void, int8_t), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
-	{"engineUpdate", "([BII)V", nullptr, $PROTECTED, $virtualMethod(SignatureDSA, engineUpdate, void, $bytes*, int32_t, int32_t), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
-	{"engineVerify", "([B)Z", nullptr, $PROTECTED, $virtualMethod(SignatureDSA, engineVerify, bool, $bytes*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
-	{}
-};
-
-$InnerClassInfo _SignatureDSA_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureDSA$SHA256", "com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureDSA", "SHA256", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _SignatureDSA_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureDSA",
-	"com.sun.org.apache.xml.internal.security.algorithms.SignatureAlgorithmSpi",
-	nullptr,
-	_SignatureDSA_FieldInfo_,
-	_SignatureDSA_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SignatureDSA_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureDSA$SHA256"
-};
-
-$Object* allocate$SignatureDSA($Class* clazz) {
-	return $of($alloc(SignatureDSA));
-}
 
 $String* SignatureDSA::URI = nullptr;
 $Logger* SignatureDSA::LOG = nullptr;
@@ -133,10 +76,10 @@ void SignatureDSA::init$() {
 }
 
 void SignatureDSA::init$($Provider* provider) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$SignatureAlgorithmSpi::init$();
 	$var($String, algorithmID, $JCEMapper::translateURItoJCEID($(engineGetURI())));
-	$nc(SignatureDSA::LOG)->debug("Created SignatureDSA using {}"_s, $$new($ObjectArray, {$of(algorithmID)}));
+	$nc(SignatureDSA::LOG)->debug("Created SignatureDSA using {}"_s, $$new($ObjectArray, {algorithmID}));
 	try {
 		if (provider == nullptr) {
 			$var($String, providerId, $JCEMapper::getProviderId());
@@ -150,14 +93,14 @@ void SignatureDSA::init$($Provider* provider) {
 		}
 	} catch ($NoSuchAlgorithmException& ex) {
 		$var($ObjectArray, exArgs, $new($ObjectArray, {
-			$of(algorithmID),
-			$($of(ex->getLocalizedMessage()))
+			algorithmID,
+			$(ex->getLocalizedMessage())
 		}));
 		$throwNew($XMLSignatureException, "algorithms.NoSuchAlgorithm"_s, exArgs);
 	} catch ($NoSuchProviderException& ex) {
 		$var($ObjectArray, exArgs, $new($ObjectArray, {
-			$of(algorithmID),
-			$($of(ex->getLocalizedMessage()))
+			algorithmID,
+			$(ex->getLocalizedMessage())
 		}));
 		$throwNew($XMLSignatureException, "algorithms.NoSuchAlgorithm"_s, exArgs);
 	}
@@ -167,30 +110,30 @@ void SignatureDSA::engineSetParameter($AlgorithmParameterSpec* params) {
 	try {
 		$nc(this->signatureAlgorithm)->setParameter(params);
 	} catch ($InvalidAlgorithmParameterException& ex) {
-		$throwNew($XMLSignatureException, static_cast<$Exception*>(ex));
+		$throwNew($XMLSignatureException, ex);
 	}
 }
 
 bool SignatureDSA::engineVerify($bytes* signature) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		if ($nc(SignatureDSA::LOG)->isDebugEnabled()) {
-			$nc(SignatureDSA::LOG)->debug($$str({"Called DSA.verify() on "_s, $($XMLUtils::encodeToString(signature))}));
+			SignatureDSA::LOG->debug($$str({"Called DSA.verify() on "_s, $($XMLUtils::encodeToString(signature))}));
 		}
 		$var($bytes, jcebytes, $JavaUtils::convertDsaXMLDSIGtoASN1(signature, this->size / 8));
 		return $nc(this->signatureAlgorithm)->verify(jcebytes);
 	} catch ($SignatureException& ex) {
-		$throwNew($XMLSignatureException, $cast($Exception, ex));
+		$throwNew($XMLSignatureException, ex);
 	} catch ($IOException& ex) {
-		$throwNew($XMLSignatureException, $cast($Exception, ex));
+		$throwNew($XMLSignatureException, ex);
 	}
 	$shouldNotReachHere();
 }
 
 void SignatureDSA::engineInitVerify($Key* publicKey) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$SignatureAlgorithmSpi::engineInitVerify(publicKey, this->signatureAlgorithm);
-	this->size = $nc($($nc($($nc(($cast($DSAKey, publicKey)))->getParams()))->getQ()))->bitLength();
+	this->size = $$nc($$nc($nc($cast($DSAKey, publicKey))->getParams())->getQ())->bitLength();
 }
 
 $bytes* SignatureDSA::engineSign() {
@@ -198,17 +141,17 @@ $bytes* SignatureDSA::engineSign() {
 		$var($bytes, jcebytes, $nc(this->signatureAlgorithm)->sign());
 		return $JavaUtils::convertDsaASN1toXMLDSIG(jcebytes, this->size / 8);
 	} catch ($IOException& ex) {
-		$throwNew($XMLSignatureException, $cast($Exception, ex));
+		$throwNew($XMLSignatureException, ex);
 	} catch ($SignatureException& ex) {
-		$throwNew($XMLSignatureException, $cast($Exception, ex));
+		$throwNew($XMLSignatureException, ex);
 	}
 	$shouldNotReachHere();
 }
 
 void SignatureDSA::engineInitSign($Key* privateKey, $SecureRandom* secureRandom) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$SignatureAlgorithmSpi::engineInitSign(privateKey, secureRandom, this->signatureAlgorithm);
-	this->size = $nc($($nc($($nc(($cast($DSAKey, privateKey)))->getParams()))->getQ()))->bitLength();
+	this->size = $$nc($$nc($nc($cast($DSAKey, privateKey))->getParams())->getQ())->bitLength();
 }
 
 void SignatureDSA::engineInitSign($Key* privateKey) {
@@ -219,7 +162,7 @@ void SignatureDSA::engineUpdate($bytes* input) {
 	try {
 		$nc(this->signatureAlgorithm)->update(input);
 	} catch ($SignatureException& ex) {
-		$throwNew($XMLSignatureException, static_cast<$Exception*>(ex));
+		$throwNew($XMLSignatureException, ex);
 	}
 }
 
@@ -227,7 +170,7 @@ void SignatureDSA::engineUpdate(int8_t input) {
 	try {
 		$nc(this->signatureAlgorithm)->update(input);
 	} catch ($SignatureException& ex) {
-		$throwNew($XMLSignatureException, static_cast<$Exception*>(ex));
+		$throwNew($XMLSignatureException, ex);
 	}
 }
 
@@ -235,7 +178,7 @@ void SignatureDSA::engineUpdate($bytes* buf, int32_t offset, int32_t len) {
 	try {
 		$nc(this->signatureAlgorithm)->update(buf, offset, len);
 	} catch ($SignatureException& ex) {
-		$throwNew($XMLSignatureException, static_cast<$Exception*>(ex));
+		$throwNew($XMLSignatureException, ex);
 	}
 }
 
@@ -244,7 +187,7 @@ $String* SignatureDSA::engineGetJCEAlgorithmString() {
 }
 
 $String* SignatureDSA::engineGetJCEProviderName() {
-	return $nc($($nc(this->signatureAlgorithm)->getProvider()))->getName();
+	return $$nc($nc(this->signatureAlgorithm)->getProvider())->getName();
 }
 
 void SignatureDSA::engineSetHMACOutputLength(int32_t HMACOutputLength) {
@@ -255,7 +198,7 @@ void SignatureDSA::engineInitSign($Key* signingKey, $AlgorithmParameterSpec* alg
 	$throwNew($XMLSignatureException, "algorithms.CannotUseAlgorithmParameterSpecOnDSA"_s);
 }
 
-void clinit$SignatureDSA($Class* class$) {
+void SignatureDSA::clinit$($Class* clazz) {
 	$init($Constants);
 	$assignStatic(SignatureDSA::URI, $str({$Constants::SignatureSpecNS, "dsa-sha1"_s}));
 	$assignStatic(SignatureDSA::LOG, $LoggerFactory::getLogger(SignatureDSA::class$));
@@ -265,7 +208,53 @@ SignatureDSA::SignatureDSA() {
 }
 
 $Class* SignatureDSA::load$($String* name, bool initialize) {
-	$loadClass(SignatureDSA, name, initialize, &_SignatureDSA_ClassInfo_, clinit$SignatureDSA, allocate$SignatureDSA);
+	$FieldInfo fieldInfos$$[] = {
+		{"URI", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SignatureDSA, URI)},
+		{"LOG", "Lcom/sun/org/slf4j/internal/Logger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SignatureDSA, LOG)},
+		{"signatureAlgorithm", "Ljava/security/Signature;", nullptr, $PRIVATE | $FINAL, $field(SignatureDSA, signatureAlgorithm)},
+		{"size", "I", nullptr, $PRIVATE, $field(SignatureDSA, size)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SignatureDSA, init$, void), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
+		{"<init>", "(Ljava/security/Provider;)V", nullptr, $PUBLIC, $method(SignatureDSA, init$, void, $Provider*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
+		{"engineGetJCEAlgorithmString", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(SignatureDSA, engineGetJCEAlgorithmString, $String*)},
+		{"engineGetJCEProviderName", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(SignatureDSA, engineGetJCEProviderName, $String*)},
+		{"engineGetURI", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(SignatureDSA, engineGetURI, $String*)},
+		{"engineInitSign", "(Ljava/security/Key;Ljava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(SignatureDSA, engineInitSign, void, $Key*, $SecureRandom*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
+		{"engineInitSign", "(Ljava/security/Key;)V", nullptr, $PROTECTED, $virtualMethod(SignatureDSA, engineInitSign, void, $Key*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
+		{"engineInitSign", "(Ljava/security/Key;Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, $PROTECTED, $virtualMethod(SignatureDSA, engineInitSign, void, $Key*, $AlgorithmParameterSpec*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
+		{"engineInitVerify", "(Ljava/security/Key;)V", nullptr, $PROTECTED, $virtualMethod(SignatureDSA, engineInitVerify, void, $Key*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
+		{"engineSetHMACOutputLength", "(I)V", nullptr, $PROTECTED, $virtualMethod(SignatureDSA, engineSetHMACOutputLength, void, int32_t), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
+		{"engineSetParameter", "(Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, $PROTECTED, $virtualMethod(SignatureDSA, engineSetParameter, void, $AlgorithmParameterSpec*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
+		{"engineSign", "()[B", nullptr, $PROTECTED, $virtualMethod(SignatureDSA, engineSign, $bytes*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
+		{"engineUpdate", "([B)V", nullptr, $PROTECTED, $virtualMethod(SignatureDSA, engineUpdate, void, $bytes*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
+		{"engineUpdate", "(B)V", nullptr, $PROTECTED, $virtualMethod(SignatureDSA, engineUpdate, void, int8_t), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
+		{"engineUpdate", "([BII)V", nullptr, $PROTECTED, $virtualMethod(SignatureDSA, engineUpdate, void, $bytes*, int32_t, int32_t), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
+		{"engineVerify", "([B)Z", nullptr, $PROTECTED, $virtualMethod(SignatureDSA, engineVerify, bool, $bytes*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureDSA$SHA256", "com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureDSA", "SHA256", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureDSA",
+		"com.sun.org.apache.xml.internal.security.algorithms.SignatureAlgorithmSpi",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureDSA$SHA256"
+	};
+	$loadClass(SignatureDSA, name, initialize, &classInfo$$, SignatureDSA::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(SignatureDSA);
+	});
 	return class$;
 }
 

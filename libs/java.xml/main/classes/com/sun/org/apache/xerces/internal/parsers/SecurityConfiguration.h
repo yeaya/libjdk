@@ -70,6 +70,7 @@ class SecurityConfiguration : public ::com::sun::org::apache::xerces::internal::
 	$class(SecurityConfiguration, 0, ::com::sun::org::apache::xerces::internal::parsers::XIncludeAwareParserConfiguration)
 public:
 	SecurityConfiguration();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(::com::sun::org::apache::xerces::internal::util::SymbolTable* symbolTable);
 	void init$(::com::sun::org::apache::xerces::internal::util::SymbolTable* symbolTable, ::com::sun::org::apache::xerces::internal::xni::grammars::XMLGrammarPool* grammarPool);

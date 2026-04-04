@@ -14,6 +14,7 @@ class RealTimeSequencer$RealTimeSequencerInfo : public ::javax::sound::midi::Mid
 	$class(RealTimeSequencer$RealTimeSequencerInfo, 0, ::javax::sound::midi::MidiDevice$Info)
 public:
 	RealTimeSequencer$RealTimeSequencerInfo();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $String* name;
 	static $String* vendor;

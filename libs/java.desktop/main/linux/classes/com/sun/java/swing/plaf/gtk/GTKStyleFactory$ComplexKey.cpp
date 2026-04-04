@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/gtk/GTKStyleFactory$ComplexKey.h>
-
 #include <com/sun/java/swing/plaf/gtk/GTKEngine$WidgetType.h>
 #include <com/sun/java/swing/plaf/gtk/GTKStyleFactory.h>
 #include <jcpp.h>
@@ -17,63 +16,20 @@ namespace com {
 				namespace plaf {
 					namespace gtk {
 
-$FieldInfo _GTKStyleFactory$ComplexKey_FieldInfo_[] = {
-	{"wt", "Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;", nullptr, $PRIVATE | $FINAL, $field(GTKStyleFactory$ComplexKey, wt)},
-	{"args", "[Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $field(GTKStyleFactory$ComplexKey, args)},
-	{}
-};
-
-$MethodInfo _GTKStyleFactory$ComplexKey_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;[Ljava/lang/Object;)V", nullptr, $TRANSIENT, $method(GTKStyleFactory$ComplexKey, init$, void, $GTKEngine$WidgetType*, $ObjectArray*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(GTKStyleFactory$ComplexKey, equals, bool, Object$*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(GTKStyleFactory$ComplexKey, hashCode, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(GTKStyleFactory$ComplexKey, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _GTKStyleFactory$ComplexKey_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.gtk.GTKStyleFactory$ComplexKey", "com.sun.java.swing.plaf.gtk.GTKStyleFactory", "ComplexKey", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _GTKStyleFactory$ComplexKey_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.java.swing.plaf.gtk.GTKStyleFactory$ComplexKey",
-	"java.lang.Object",
-	nullptr,
-	_GTKStyleFactory$ComplexKey_FieldInfo_,
-	_GTKStyleFactory$ComplexKey_MethodInfo_,
-	nullptr,
-	nullptr,
-	_GTKStyleFactory$ComplexKey_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.gtk.GTKStyleFactory"
-};
-
-$Object* allocate$GTKStyleFactory$ComplexKey($Class* clazz) {
-	return $of($alloc(GTKStyleFactory$ComplexKey));
-}
-
 void GTKStyleFactory$ComplexKey::init$($GTKEngine$WidgetType* wt, $ObjectArray* args) {
 	$set(this, wt, wt);
 	$set(this, args, args);
 }
 
 int32_t GTKStyleFactory$ComplexKey::hashCode() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t hash = this->wt->hashCode();
 	if (this->args != nullptr) {
-		{
-			$var($ObjectArray, arr$, this->args);
-			int32_t len$ = $nc(arr$)->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
-				$var($Object0, arg, arr$->get(i$));
-				{
-					hash = hash * 29 + (arg == nullptr ? 0 : $nc($of(arg))->hashCode());
-				}
+		$var($ObjectArray, arr$, this->args);
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
+			$var($Object0, arg, arr$->get(i$));
+			{
+				hash = hash * 29 + (arg == nullptr ? 0 : arg->hashCode());
 			}
 		}
 	}
@@ -81,7 +37,7 @@ int32_t GTKStyleFactory$ComplexKey::hashCode() {
 }
 
 bool GTKStyleFactory$ComplexKey::equals(Object$* o) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!($instanceOf(GTKStyleFactory$ComplexKey, o))) {
 		return false;
 	}
@@ -90,11 +46,11 @@ bool GTKStyleFactory$ComplexKey::equals(Object$* o) {
 		if (this->args == nullptr && that->args == nullptr) {
 			return true;
 		}
-		if (this->args != nullptr && that->args != nullptr && $nc(this->args)->length == $nc(that->args)->length) {
-			for (int32_t i = 0; i < $nc(this->args)->length; ++i) {
-				$var($Object0, a1, $nc(this->args)->get(i));
-				$var($Object0, a2, $nc(that->args)->get(i));
-				if (!(a1 == nullptr ? a2 == nullptr : $nc($of(a1))->equals(a2))) {
+		if (this->args != nullptr && that->args != nullptr && this->args->length == that->args->length) {
+			for (int32_t i = 0; i < this->args->length; ++i) {
+				$var($Object0, a1, this->args->get(i));
+				$var($Object0, a2, that->args->get(i));
+				if (!(a1 == nullptr ? a2 == nullptr : a1->equals(a2))) {
 					return false;
 				}
 			}
@@ -108,9 +64,9 @@ $String* GTKStyleFactory$ComplexKey::toString() {
 	$var($String, str, $str({"ComplexKey[wt="_s, this->wt}));
 	if (this->args != nullptr) {
 		$plusAssign(str, ",args=["_s);
-		for (int32_t i = 0; i < $nc(this->args)->length; ++i) {
-			$plusAssign(str, $nc(this->args)->get(i));
-			if (i < $nc(this->args)->length - 1) {
+		for (int32_t i = 0; i < this->args->length; ++i) {
+			$plusAssign(str, this->args->get(i));
+			if (i < this->args->length - 1) {
 				$plusAssign(str, ","_s);
 			}
 		}
@@ -124,7 +80,40 @@ GTKStyleFactory$ComplexKey::GTKStyleFactory$ComplexKey() {
 }
 
 $Class* GTKStyleFactory$ComplexKey::load$($String* name, bool initialize) {
-	$loadClass(GTKStyleFactory$ComplexKey, name, initialize, &_GTKStyleFactory$ComplexKey_ClassInfo_, allocate$GTKStyleFactory$ComplexKey);
+	$FieldInfo fieldInfos$$[] = {
+		{"wt", "Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;", nullptr, $PRIVATE | $FINAL, $field(GTKStyleFactory$ComplexKey, wt)},
+		{"args", "[Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $field(GTKStyleFactory$ComplexKey, args)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/java/swing/plaf/gtk/GTKEngine$WidgetType;[Ljava/lang/Object;)V", nullptr, $TRANSIENT, $method(GTKStyleFactory$ComplexKey, init$, void, $GTKEngine$WidgetType*, $ObjectArray*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(GTKStyleFactory$ComplexKey, equals, bool, Object$*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(GTKStyleFactory$ComplexKey, hashCode, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(GTKStyleFactory$ComplexKey, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.gtk.GTKStyleFactory$ComplexKey", "com.sun.java.swing.plaf.gtk.GTKStyleFactory", "ComplexKey", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.java.swing.plaf.gtk.GTKStyleFactory$ComplexKey",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.gtk.GTKStyleFactory"
+	};
+	$loadClass(GTKStyleFactory$ComplexKey, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(GTKStyleFactory$ComplexKey);
+	});
 	return class$;
 }
 

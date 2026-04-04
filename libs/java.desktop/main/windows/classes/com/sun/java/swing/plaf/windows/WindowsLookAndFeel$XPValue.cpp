@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/windows/WindowsLookAndFeel$XPValue.h>
-
 #include <com/sun/java/swing/plaf/windows/WindowsLookAndFeel.h>
 #include <com/sun/java/swing/plaf/windows/XPStyle.h>
 #include <javax/swing/UIDefaults$ActiveValue.h>
@@ -25,48 +24,6 @@ namespace com {
 				namespace plaf {
 					namespace windows {
 
-$FieldInfo _WindowsLookAndFeel$XPValue_FieldInfo_[] = {
-	{"classicValue", "Ljava/lang/Object;", nullptr, $PROTECTED, $field(WindowsLookAndFeel$XPValue, classicValue)},
-	{"xpValue", "Ljava/lang/Object;", nullptr, $PROTECTED, $field(WindowsLookAndFeel$XPValue, xpValue)},
-	{"NULL_VALUE", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(WindowsLookAndFeel$XPValue, NULL_VALUE)},
-	{}
-};
-
-$MethodInfo _WindowsLookAndFeel$XPValue_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, 0, $method(WindowsLookAndFeel$XPValue, init$, void, Object$*, Object$*)},
-	{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(WindowsLookAndFeel$XPValue, createValue, $Object*, $UIDefaults*)},
-	{"getClassicValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(WindowsLookAndFeel$XPValue, getClassicValue, $Object*, $UIDefaults*)},
-	{"getXPValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(WindowsLookAndFeel$XPValue, getXPValue, $Object*, $UIDefaults*)},
-	{"recursiveCreateValue", "(Ljava/lang/Object;Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE, $method(WindowsLookAndFeel$XPValue, recursiveCreateValue, $Object*, Object$*, $UIDefaults*)},
-	{}
-};
-
-$InnerClassInfo _WindowsLookAndFeel$XPValue_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$XPValue", "com.sun.java.swing.plaf.windows.WindowsLookAndFeel", "XPValue", $PRIVATE | $STATIC},
-	{"javax.swing.UIDefaults$ActiveValue", "javax.swing.UIDefaults", "ActiveValue", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _WindowsLookAndFeel$XPValue_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$XPValue",
-	"java.lang.Object",
-	"javax.swing.UIDefaults$ActiveValue",
-	_WindowsLookAndFeel$XPValue_FieldInfo_,
-	_WindowsLookAndFeel$XPValue_MethodInfo_,
-	nullptr,
-	nullptr,
-	_WindowsLookAndFeel$XPValue_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.windows.WindowsLookAndFeel"
-};
-
-$Object* allocate$WindowsLookAndFeel$XPValue($Class* clazz) {
-	return $of($alloc(WindowsLookAndFeel$XPValue));
-}
-
 $Object* WindowsLookAndFeel$XPValue::NULL_VALUE = nullptr;
 
 void WindowsLookAndFeel$XPValue::init$(Object$* xpValue, Object$* classicValue) {
@@ -84,30 +41,30 @@ $Object* WindowsLookAndFeel$XPValue::createValue($UIDefaults* table) {
 	} else if ($equals(value, WindowsLookAndFeel$XPValue::NULL_VALUE)) {
 		$assign(value, nullptr);
 	}
-	return $of(value);
+	return value;
 }
 
 $Object* WindowsLookAndFeel$XPValue::getXPValue($UIDefaults* table) {
-	return $of(recursiveCreateValue(this->xpValue, table));
+	return recursiveCreateValue(this->xpValue, table);
 }
 
 $Object* WindowsLookAndFeel$XPValue::getClassicValue($UIDefaults* table) {
-	return $of(recursiveCreateValue(this->classicValue, table));
+	return recursiveCreateValue(this->classicValue, table);
 }
 
 $Object* WindowsLookAndFeel$XPValue::recursiveCreateValue(Object$* value$renamed, $UIDefaults* table) {
 	$var($Object, value, value$renamed);
 	if ($instanceOf($UIDefaults$LazyValue, value)) {
-		$assign(value, $nc(($cast($UIDefaults$LazyValue, value)))->createValue(table));
+		$assign(value, $cast($UIDefaults$LazyValue, value)->createValue(table));
 	}
 	if ($instanceOf($UIDefaults$ActiveValue, value)) {
-		return $of($nc(($cast($UIDefaults$ActiveValue, value)))->createValue(table));
+		return $cast($UIDefaults$ActiveValue, value)->createValue(table);
 	} else {
 		return $of(value);
 	}
 }
 
-void clinit$WindowsLookAndFeel$XPValue($Class* class$) {
+void WindowsLookAndFeel$XPValue::clinit$($Class* clazz) {
 	$assignStatic(WindowsLookAndFeel$XPValue::NULL_VALUE, $new($Object));
 }
 
@@ -115,7 +72,43 @@ WindowsLookAndFeel$XPValue::WindowsLookAndFeel$XPValue() {
 }
 
 $Class* WindowsLookAndFeel$XPValue::load$($String* name, bool initialize) {
-	$loadClass(WindowsLookAndFeel$XPValue, name, initialize, &_WindowsLookAndFeel$XPValue_ClassInfo_, clinit$WindowsLookAndFeel$XPValue, allocate$WindowsLookAndFeel$XPValue);
+	$FieldInfo fieldInfos$$[] = {
+		{"classicValue", "Ljava/lang/Object;", nullptr, $PROTECTED, $field(WindowsLookAndFeel$XPValue, classicValue)},
+		{"xpValue", "Ljava/lang/Object;", nullptr, $PROTECTED, $field(WindowsLookAndFeel$XPValue, xpValue)},
+		{"NULL_VALUE", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(WindowsLookAndFeel$XPValue, NULL_VALUE)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, 0, $method(WindowsLookAndFeel$XPValue, init$, void, Object$*, Object$*)},
+		{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(WindowsLookAndFeel$XPValue, createValue, $Object*, $UIDefaults*)},
+		{"getClassicValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(WindowsLookAndFeel$XPValue, getClassicValue, $Object*, $UIDefaults*)},
+		{"getXPValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(WindowsLookAndFeel$XPValue, getXPValue, $Object*, $UIDefaults*)},
+		{"recursiveCreateValue", "(Ljava/lang/Object;Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE, $method(WindowsLookAndFeel$XPValue, recursiveCreateValue, $Object*, Object$*, $UIDefaults*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$XPValue", "com.sun.java.swing.plaf.windows.WindowsLookAndFeel", "XPValue", $PRIVATE | $STATIC},
+		{"javax.swing.UIDefaults$ActiveValue", "javax.swing.UIDefaults", "ActiveValue", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$XPValue",
+		"java.lang.Object",
+		"javax.swing.UIDefaults$ActiveValue",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.windows.WindowsLookAndFeel"
+	};
+	$loadClass(WindowsLookAndFeel$XPValue, name, initialize, &classInfo$$, WindowsLookAndFeel$XPValue::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(WindowsLookAndFeel$XPValue);
+	});
 	return class$;
 }
 

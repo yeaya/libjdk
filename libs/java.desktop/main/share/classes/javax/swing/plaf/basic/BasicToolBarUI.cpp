@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/basic/BasicToolBarUI.h>
-
 #include <java/awt/BorderLayout.h>
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
@@ -15,8 +14,6 @@
 #include <java/awt/Window.h>
 #include <java/awt/event/ContainerListener.h>
 #include <java/awt/event/FocusListener.h>
-#include <java/awt/event/MouseListener.h>
-#include <java/awt/event/MouseMotionListener.h>
 #include <java/awt/event/WindowListener.h>
 #include <java/beans/PropertyChangeListener.h>
 #include <java/util/HashMap.h>
@@ -92,8 +89,6 @@ using $Point = ::java::awt::Point;
 using $Window = ::java::awt::Window;
 using $ContainerListener = ::java::awt::event::ContainerListener;
 using $FocusListener = ::java::awt::event::FocusListener;
-using $MouseListener = ::java::awt::event::MouseListener;
-using $MouseMotionListener = ::java::awt::event::MouseMotionListener;
 using $WindowListener = ::java::awt::event::WindowListener;
 using $PropertyChangeListener = ::java::beans::PropertyChangeListener;
 using $Boolean = ::java::lang::Boolean;
@@ -107,13 +102,11 @@ using $NamedAttribute = ::java::lang::NamedAttribute;
 using $HashMap = ::java::util::HashMap;
 using $Hashtable = ::java::util::Hashtable;
 using $AbstractButton = ::javax::swing::AbstractButton;
-using $Action = ::javax::swing::Action;
 using $ActionMap = ::javax::swing::ActionMap;
 using $InputMap = ::javax::swing::InputMap;
 using $JComponent = ::javax::swing::JComponent;
 using $JDialog = ::javax::swing::JDialog;
 using $JFrame = ::javax::swing::JFrame;
-using $JRootPane = ::javax::swing::JRootPane;
 using $JToggleButton = ::javax::swing::JToggleButton;
 using $JToolBar = ::javax::swing::JToolBar;
 using $LookAndFeel = ::javax::swing::LookAndFeel;
@@ -146,168 +139,6 @@ namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace basic {
-
-$CompoundAttribute _BasicToolBarUI_FieldAnnotations_upKey[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _BasicToolBarUI_FieldAnnotations_downKey[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _BasicToolBarUI_FieldAnnotations_leftKey[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _BasicToolBarUI_FieldAnnotations_rightKey[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$NamedAttribute BasicToolBarUI_Attribute_var$0[] = {
-	{"since", 's', "17"},
-	{}
-};
-
-$CompoundAttribute _BasicToolBarUI_MethodAnnotations_createFloatingFrame5[] = {
-	{"Ljava/lang/Deprecated;", BasicToolBarUI_Attribute_var$0},
-	{}
-};
-
-$FieldInfo _BasicToolBarUI_FieldInfo_[] = {
-	{"toolBar", "Ljavax/swing/JToolBar;", nullptr, $PROTECTED, $field(BasicToolBarUI, toolBar)},
-	{"floating", "Z", nullptr, $PRIVATE, $field(BasicToolBarUI, floating)},
-	{"floatingX", "I", nullptr, $PRIVATE, $field(BasicToolBarUI, floatingX)},
-	{"floatingY", "I", nullptr, $PRIVATE, $field(BasicToolBarUI, floatingY)},
-	{"floatingFrame", "Ljavax/swing/JFrame;", nullptr, $PRIVATE, $field(BasicToolBarUI, floatingFrame)},
-	{"floatingToolBar", "Ljavax/swing/RootPaneContainer;", nullptr, $PRIVATE, $field(BasicToolBarUI, floatingToolBar)},
-	{"dragWindow", "Ljavax/swing/plaf/basic/BasicToolBarUI$DragWindow;", nullptr, $PROTECTED, $field(BasicToolBarUI, dragWindow)},
-	{"dockingSource", "Ljava/awt/Container;", nullptr, $PRIVATE, $field(BasicToolBarUI, dockingSource)},
-	{"dockingSensitivity", "I", nullptr, $PRIVATE, $field(BasicToolBarUI, dockingSensitivity)},
-	{"focusedCompIndex", "I", nullptr, $PROTECTED, $field(BasicToolBarUI, focusedCompIndex)},
-	{"dockingColor", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(BasicToolBarUI, dockingColor)},
-	{"floatingColor", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(BasicToolBarUI, floatingColor)},
-	{"dockingBorderColor", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(BasicToolBarUI, dockingBorderColor)},
-	{"floatingBorderColor", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(BasicToolBarUI, floatingBorderColor)},
-	{"dockingListener", "Ljavax/swing/event/MouseInputListener;", nullptr, $PROTECTED, $field(BasicToolBarUI, dockingListener)},
-	{"propertyListener", "Ljava/beans/PropertyChangeListener;", nullptr, $PROTECTED, $field(BasicToolBarUI, propertyListener)},
-	{"toolBarContListener", "Ljava/awt/event/ContainerListener;", nullptr, $PROTECTED, $field(BasicToolBarUI, toolBarContListener)},
-	{"toolBarFocusListener", "Ljava/awt/event/FocusListener;", nullptr, $PROTECTED, $field(BasicToolBarUI, toolBarFocusListener)},
-	{"handler", "Ljavax/swing/plaf/basic/BasicToolBarUI$Handler;", nullptr, $PRIVATE, $field(BasicToolBarUI, handler)},
-	{"constraintBeforeFloating", "Ljava/lang/String;", nullptr, $PROTECTED, $field(BasicToolBarUI, constraintBeforeFloating)},
-	{"IS_ROLLOVER", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(BasicToolBarUI, IS_ROLLOVER)},
-	{"rolloverBorder", "Ljavax/swing/border/Border;", nullptr, $PRIVATE | $STATIC, $staticField(BasicToolBarUI, rolloverBorder)},
-	{"nonRolloverBorder", "Ljavax/swing/border/Border;", nullptr, $PRIVATE | $STATIC, $staticField(BasicToolBarUI, nonRolloverBorder)},
-	{"nonRolloverToggleBorder", "Ljavax/swing/border/Border;", nullptr, $PRIVATE | $STATIC, $staticField(BasicToolBarUI, nonRolloverToggleBorder)},
-	{"rolloverBorders", "Z", nullptr, $PRIVATE, $field(BasicToolBarUI, rolloverBorders)},
-	{"borderTable", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljavax/swing/AbstractButton;Ljavax/swing/border/Border;>;", $PRIVATE, $field(BasicToolBarUI, borderTable)},
-	{"rolloverTable", "Ljava/util/Hashtable;", "Ljava/util/Hashtable<Ljavax/swing/AbstractButton;Ljava/lang/Boolean;>;", $PRIVATE, $field(BasicToolBarUI, rolloverTable)},
-	{"upKey", "Ljavax/swing/KeyStroke;", nullptr, $PROTECTED | $DEPRECATED, $field(BasicToolBarUI, upKey), _BasicToolBarUI_FieldAnnotations_upKey},
-	{"downKey", "Ljavax/swing/KeyStroke;", nullptr, $PROTECTED | $DEPRECATED, $field(BasicToolBarUI, downKey), _BasicToolBarUI_FieldAnnotations_downKey},
-	{"leftKey", "Ljavax/swing/KeyStroke;", nullptr, $PROTECTED | $DEPRECATED, $field(BasicToolBarUI, leftKey), _BasicToolBarUI_FieldAnnotations_leftKey},
-	{"rightKey", "Ljavax/swing/KeyStroke;", nullptr, $PROTECTED | $DEPRECATED, $field(BasicToolBarUI, rightKey), _BasicToolBarUI_FieldAnnotations_rightKey},
-	{"FOCUSED_COMP_INDEX", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(BasicToolBarUI, FOCUSED_COMP_INDEX)},
-	{}
-};
-
-$MethodInfo _BasicToolBarUI_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(BasicToolBarUI, init$, void)},
-	{"calculateConstraint", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(BasicToolBarUI, calculateConstraint, $String*)},
-	{"canDock", "(Ljava/awt/Component;Ljava/awt/Point;)Z", nullptr, $PUBLIC, $virtualMethod(BasicToolBarUI, canDock, bool, $Component*, $Point*)},
-	{"createDockingListener", "()Ljavax/swing/event/MouseInputListener;", nullptr, $PROTECTED, $virtualMethod(BasicToolBarUI, createDockingListener, $MouseInputListener*)},
-	{"createDragWindow", "(Ljavax/swing/JToolBar;)Ljavax/swing/plaf/basic/BasicToolBarUI$DragWindow;", nullptr, $PROTECTED, $virtualMethod(BasicToolBarUI, createDragWindow, $BasicToolBarUI$DragWindow*, $JToolBar*)},
-	{"createFloatingFrame", "(Ljavax/swing/JToolBar;)Ljavax/swing/JFrame;", nullptr, $PROTECTED | $DEPRECATED, $virtualMethod(BasicToolBarUI, createFloatingFrame, $JFrame*, $JToolBar*), nullptr, nullptr, _BasicToolBarUI_MethodAnnotations_createFloatingFrame5},
-	{"createFloatingWindow", "(Ljavax/swing/JToolBar;)Ljavax/swing/RootPaneContainer;", nullptr, $PROTECTED, $virtualMethod(BasicToolBarUI, createFloatingWindow, $RootPaneContainer*, $JToolBar*)},
-	{"createFrameListener", "()Ljava/awt/event/WindowListener;", nullptr, $PROTECTED, $virtualMethod(BasicToolBarUI, createFrameListener, $WindowListener*)},
-	{"createNonRolloverBorder", "()Ljavax/swing/border/Border;", nullptr, $PROTECTED, $virtualMethod(BasicToolBarUI, createNonRolloverBorder, $Border*)},
-	{"createNonRolloverToggleBorder", "()Ljavax/swing/border/Border;", nullptr, $PRIVATE, $method(BasicToolBarUI, createNonRolloverToggleBorder, $Border*)},
-	{"createPropertyListener", "()Ljava/beans/PropertyChangeListener;", nullptr, $PROTECTED, $virtualMethod(BasicToolBarUI, createPropertyListener, $PropertyChangeListener*)},
-	{"createRolloverBorder", "()Ljavax/swing/border/Border;", nullptr, $PROTECTED, $virtualMethod(BasicToolBarUI, createRolloverBorder, $Border*)},
-	{"createToolBarContListener", "()Ljava/awt/event/ContainerListener;", nullptr, $PROTECTED, $virtualMethod(BasicToolBarUI, createToolBarContListener, $ContainerListener*)},
-	{"createToolBarFocusListener", "()Ljava/awt/event/FocusListener;", nullptr, $PROTECTED, $virtualMethod(BasicToolBarUI, createToolBarFocusListener, $FocusListener*)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(BasicToolBarUI, createUI, $ComponentUI*, $JComponent*)},
-	{"dragTo", "(Ljava/awt/Point;Ljava/awt/Point;)V", nullptr, $PROTECTED, $virtualMethod(BasicToolBarUI, dragTo, void, $Point*, $Point*)},
-	{"floatAt", "(Ljava/awt/Point;Ljava/awt/Point;)V", nullptr, $PROTECTED, $virtualMethod(BasicToolBarUI, floatAt, void, $Point*, $Point*)},
-	{"getDockingColor", "()Ljava/awt/Color;", nullptr, $PUBLIC, $virtualMethod(BasicToolBarUI, getDockingColor, $Color*)},
-	{"getDockingConstraint", "(Ljava/awt/Component;Ljava/awt/Point;)Ljava/lang/String;", nullptr, $PRIVATE, $method(BasicToolBarUI, getDockingConstraint, $String*, $Component*, $Point*)},
-	{"getFloatingColor", "()Ljava/awt/Color;", nullptr, $PUBLIC, $virtualMethod(BasicToolBarUI, getFloatingColor, $Color*)},
-	{"getHandler", "()Ljavax/swing/plaf/basic/BasicToolBarUI$Handler;", nullptr, $PRIVATE, $method(BasicToolBarUI, getHandler, $BasicToolBarUI$Handler*)},
-	{"getInputMap", "(I)Ljavax/swing/InputMap;", nullptr, 0, $virtualMethod(BasicToolBarUI, getInputMap, $InputMap*, int32_t)},
-	{"getNonRolloverBorder", "(Ljavax/swing/AbstractButton;)Ljavax/swing/border/Border;", nullptr, $PROTECTED, $virtualMethod(BasicToolBarUI, getNonRolloverBorder, $Border*, $AbstractButton*)},
-	{"getRolloverBorder", "(Ljavax/swing/AbstractButton;)Ljavax/swing/border/Border;", nullptr, $PROTECTED, $virtualMethod(BasicToolBarUI, getRolloverBorder, $Border*, $AbstractButton*)},
-	{"installComponents", "()V", nullptr, $PROTECTED, $virtualMethod(BasicToolBarUI, installComponents, void)},
-	{"installDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(BasicToolBarUI, installDefaults, void)},
-	{"installKeyboardActions", "()V", nullptr, $PROTECTED, $virtualMethod(BasicToolBarUI, installKeyboardActions, void)},
-	{"installListeners", "()V", nullptr, $PROTECTED, $virtualMethod(BasicToolBarUI, installListeners, void)},
-	{"installNonRolloverBorders", "(Ljavax/swing/JComponent;)V", nullptr, $PROTECTED, $virtualMethod(BasicToolBarUI, installNonRolloverBorders, void, $JComponent*)},
-	{"installNormalBorders", "(Ljavax/swing/JComponent;)V", nullptr, $PROTECTED, $virtualMethod(BasicToolBarUI, installNormalBorders, void, $JComponent*)},
-	{"installRolloverBorders", "(Ljavax/swing/JComponent;)V", nullptr, $PROTECTED, $virtualMethod(BasicToolBarUI, installRolloverBorders, void, $JComponent*)},
-	{"installUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(BasicToolBarUI, installUI, void, $JComponent*)},
-	{"isBlocked", "(Ljava/awt/Component;Ljava/lang/Object;)Z", nullptr, $PRIVATE, $method(BasicToolBarUI, isBlocked, bool, $Component*, Object$*)},
-	{"isFloating", "()Z", nullptr, $PUBLIC, $virtualMethod(BasicToolBarUI, isFloating, bool)},
-	{"isRolloverBorders", "()Z", nullptr, $PUBLIC, $virtualMethod(BasicToolBarUI, isRolloverBorders, bool)},
-	{"loadActionMap", "(Ljavax/swing/plaf/basic/LazyActionMap;)V", nullptr, $STATIC, $staticMethod(BasicToolBarUI, loadActionMap, void, $LazyActionMap*)},
-	{"mapConstraintToOrientation", "(Ljava/lang/String;)I", nullptr, $PRIVATE, $method(BasicToolBarUI, mapConstraintToOrientation, int32_t, $String*)},
-	{"navigateFocusedComp", "(I)V", nullptr, $PROTECTED, $virtualMethod(BasicToolBarUI, navigateFocusedComp, void, int32_t)},
-	{"paintDragWindow", "(Ljava/awt/Graphics;)V", nullptr, $PROTECTED, $virtualMethod(BasicToolBarUI, paintDragWindow, void, $Graphics*)},
-	{"setBorderToNonRollover", "(Ljava/awt/Component;)V", nullptr, $PROTECTED, $virtualMethod(BasicToolBarUI, setBorderToNonRollover, void, $Component*)},
-	{"setBorderToNormal", "(Ljava/awt/Component;)V", nullptr, $PROTECTED, $virtualMethod(BasicToolBarUI, setBorderToNormal, void, $Component*)},
-	{"setBorderToRollover", "(Ljava/awt/Component;)V", nullptr, $PROTECTED, $virtualMethod(BasicToolBarUI, setBorderToRollover, void, $Component*)},
-	{"setDockingColor", "(Ljava/awt/Color;)V", nullptr, $PUBLIC, $virtualMethod(BasicToolBarUI, setDockingColor, void, $Color*)},
-	{"setFloating", "(ZLjava/awt/Point;)V", nullptr, $PUBLIC, $virtualMethod(BasicToolBarUI, setFloating, void, bool, $Point*)},
-	{"setFloatingColor", "(Ljava/awt/Color;)V", nullptr, $PUBLIC, $virtualMethod(BasicToolBarUI, setFloatingColor, void, $Color*)},
-	{"setFloatingLocation", "(II)V", nullptr, $PUBLIC, $virtualMethod(BasicToolBarUI, setFloatingLocation, void, int32_t, int32_t)},
-	{"setOrientation", "(I)V", nullptr, $PUBLIC, $virtualMethod(BasicToolBarUI, setOrientation, void, int32_t)},
-	{"setRolloverBorders", "(Z)V", nullptr, $PUBLIC, $virtualMethod(BasicToolBarUI, setRolloverBorders, void, bool)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"uninstallComponents", "()V", nullptr, $PROTECTED, $virtualMethod(BasicToolBarUI, uninstallComponents, void)},
-	{"uninstallDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(BasicToolBarUI, uninstallDefaults, void)},
-	{"uninstallKeyboardActions", "()V", nullptr, $PROTECTED, $virtualMethod(BasicToolBarUI, uninstallKeyboardActions, void)},
-	{"uninstallListeners", "()V", nullptr, $PROTECTED, $virtualMethod(BasicToolBarUI, uninstallListeners, void)},
-	{"uninstallUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(BasicToolBarUI, uninstallUI, void, $JComponent*)},
-	{}
-};
-
-$InnerClassInfo _BasicToolBarUI_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.basic.BasicToolBarUI$DragWindow", "javax.swing.plaf.basic.BasicToolBarUI", "DragWindow", $PROTECTED},
-	{"javax.swing.plaf.basic.BasicToolBarUI$DockingListener", "javax.swing.plaf.basic.BasicToolBarUI", "DockingListener", $PUBLIC},
-	{"javax.swing.plaf.basic.BasicToolBarUI$PropertyListener", "javax.swing.plaf.basic.BasicToolBarUI", "PropertyListener", $PROTECTED},
-	{"javax.swing.plaf.basic.BasicToolBarUI$ToolBarFocusListener", "javax.swing.plaf.basic.BasicToolBarUI", "ToolBarFocusListener", $PROTECTED},
-	{"javax.swing.plaf.basic.BasicToolBarUI$ToolBarContListener", "javax.swing.plaf.basic.BasicToolBarUI", "ToolBarContListener", $PROTECTED},
-	{"javax.swing.plaf.basic.BasicToolBarUI$FrameListener", "javax.swing.plaf.basic.BasicToolBarUI", "FrameListener", $PROTECTED},
-	{"javax.swing.plaf.basic.BasicToolBarUI$Handler", "javax.swing.plaf.basic.BasicToolBarUI", "Handler", $PRIVATE},
-	{"javax.swing.plaf.basic.BasicToolBarUI$Actions", "javax.swing.plaf.basic.BasicToolBarUI", "Actions", $PRIVATE | $STATIC},
-	{"javax.swing.plaf.basic.BasicToolBarUI$2", nullptr, nullptr, 0},
-	{"javax.swing.plaf.basic.BasicToolBarUI$1ToolBarDialog", nullptr, "ToolBarDialog", 0},
-	{"javax.swing.plaf.basic.BasicToolBarUI$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _BasicToolBarUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.basic.BasicToolBarUI",
-	"javax.swing.plaf.ToolBarUI",
-	"javax.swing.SwingConstants",
-	_BasicToolBarUI_FieldInfo_,
-	_BasicToolBarUI_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BasicToolBarUI_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.basic.BasicToolBarUI$DragWindow,javax.swing.plaf.basic.BasicToolBarUI$DockingListener,javax.swing.plaf.basic.BasicToolBarUI$PropertyListener,javax.swing.plaf.basic.BasicToolBarUI$ToolBarFocusListener,javax.swing.plaf.basic.BasicToolBarUI$ToolBarContListener,javax.swing.plaf.basic.BasicToolBarUI$FrameListener,javax.swing.plaf.basic.BasicToolBarUI$Handler,javax.swing.plaf.basic.BasicToolBarUI$Actions,javax.swing.plaf.basic.BasicToolBarUI$2,javax.swing.plaf.basic.BasicToolBarUI$1ToolBarDialog,javax.swing.plaf.basic.BasicToolBarUI$1ToolBarDialog$1,javax.swing.plaf.basic.BasicToolBarUI$1,javax.swing.plaf.basic.BasicToolBarUI$1$1"
-};
-
-$Object* allocate$BasicToolBarUI($Class* clazz) {
-	return $of($alloc(BasicToolBarUI));
-}
 
 int32_t BasicToolBarUI::hashCode() {
 	 return this->$ToolBarUI::hashCode();
@@ -366,10 +197,9 @@ void BasicToolBarUI::installUI($JComponent* c) {
 	this->floatingX = (this->floatingY = 0);
 	$set(this, floatingToolBar, nullptr);
 	setOrientation($nc(this->toolBar)->getOrientation());
-	$init($Boolean);
 	$LookAndFeel::installProperty(c, "opaque"_s, $Boolean::TRUE);
 	if ($nc(c)->getClientProperty(BasicToolBarUI::FOCUSED_COMP_INDEX) != nullptr) {
-		this->focusedCompIndex = $nc((($cast($Integer, $(c->getClientProperty(BasicToolBarUI::FOCUSED_COMP_INDEX))))))->intValue();
+		this->focusedCompIndex = $$cast($Integer, c->getClientProperty(BasicToolBarUI::FOCUSED_COMP_INDEX))->intValue();
 	}
 }
 
@@ -407,7 +237,7 @@ void BasicToolBarUI::installDefaults() {
 		$assign(rolloverProp, $UIManager::get("ToolBar.isRollover"_s));
 	}
 	if (rolloverProp != nullptr) {
-		this->rolloverBorders = $nc(($cast($Boolean, rolloverProp)))->booleanValue();
+		this->rolloverBorders = $cast($Boolean, rolloverProp)->booleanValue();
 	}
 	if (BasicToolBarUI::rolloverBorder == nullptr) {
 		$assignStatic(BasicToolBarUI::rolloverBorder, createRolloverBorder());
@@ -440,7 +270,7 @@ void BasicToolBarUI::uninstallComponents() {
 }
 
 void BasicToolBarUI::installListeners() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, dockingListener, createDockingListener());
 	if (this->dockingListener != nullptr) {
 		$nc(this->toolBar)->addMouseMotionListener(this->dockingListener);
@@ -459,9 +289,7 @@ void BasicToolBarUI::installListeners() {
 		$var($ComponentArray, components, $nc(this->toolBar)->getComponents());
 		{
 			$var($ComponentArray, arr$, components);
-			int32_t len$ = $nc(arr$)->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
+			for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 				$var($Component, component, arr$->get(i$));
 				{
 					$nc(component)->addFocusListener(this->toolBarFocusListener);
@@ -472,7 +300,7 @@ void BasicToolBarUI::installListeners() {
 }
 
 void BasicToolBarUI::uninstallListeners() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->dockingListener != nullptr) {
 		$nc(this->toolBar)->removeMouseMotionListener(this->dockingListener);
 		$nc(this->toolBar)->removeMouseListener(this->dockingListener);
@@ -490,9 +318,7 @@ void BasicToolBarUI::uninstallListeners() {
 		$var($ComponentArray, components, $nc(this->toolBar)->getComponents());
 		{
 			$var($ComponentArray, arr$, components);
-			int32_t len$ = $nc(arr$)->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
+			for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 				$var($Component, component, arr$->get(i$));
 				{
 					$nc(component)->removeFocusListener(this->toolBarFocusListener);
@@ -519,7 +345,7 @@ $InputMap* BasicToolBarUI::getInputMap(int32_t condition) {
 
 void BasicToolBarUI::loadActionMap($LazyActionMap* map) {
 	$init(BasicToolBarUI);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($BasicToolBarUI$Actions);
 	$nc(map)->put($$new($BasicToolBarUI$Actions, $BasicToolBarUI$Actions::NAVIGATE_RIGHT));
 	map->put($$new($BasicToolBarUI$Actions, $BasicToolBarUI$Actions::NAVIGATE_LEFT));
@@ -533,61 +359,53 @@ void BasicToolBarUI::uninstallKeyboardActions() {
 }
 
 void BasicToolBarUI::navigateFocusedComp(int32_t direction) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t nComp = $nc(this->toolBar)->getComponentCount();
 	int32_t j = 0;
 	switch (direction) {
 	case $SwingConstants::EAST:
-		{}
 	case $SwingConstants::SOUTH:
-		{
-			if (this->focusedCompIndex < 0 || this->focusedCompIndex >= nComp) {
-				break;
-			}
-			j = this->focusedCompIndex + 1;
-			while (j != this->focusedCompIndex) {
-				if (j >= nComp) {
-					j = 0;
-				}
-				$var($Component, comp, $nc(this->toolBar)->getComponentAtIndex(j++));
-				bool var$0 = comp != nullptr && comp->isFocusTraversable();
-				if (var$0 && comp->isEnabled()) {
-					comp->requestFocus();
-					break;
-				}
-			}
+		if (this->focusedCompIndex < 0 || this->focusedCompIndex >= nComp) {
 			break;
 		}
+		j = this->focusedCompIndex + 1;
+		while (j != this->focusedCompIndex) {
+			if (j >= nComp) {
+				j = 0;
+			}
+			$var($Component, comp, $nc(this->toolBar)->getComponentAtIndex(j++));
+			bool var$0 = comp != nullptr && comp->isFocusTraversable();
+			if (var$0 && comp->isEnabled()) {
+				comp->requestFocus();
+				break;
+			}
+		}
+		break;
 	case $SwingConstants::WEST:
-		{}
 	case $SwingConstants::NORTH:
-		{
-			if (this->focusedCompIndex < 0 || this->focusedCompIndex >= nComp) {
+		if (this->focusedCompIndex < 0 || this->focusedCompIndex >= nComp) {
+			break;
+		}
+		j = this->focusedCompIndex - 1;
+		while (j != this->focusedCompIndex) {
+			if (j < 0) {
+				j = nComp - 1;
+			}
+			$var($Component, comp, $nc(this->toolBar)->getComponentAtIndex(j--));
+			bool var$1 = comp != nullptr && comp->isFocusTraversable();
+			if (var$1 && comp->isEnabled()) {
+				comp->requestFocus();
 				break;
 			}
-			j = this->focusedCompIndex - 1;
-			while (j != this->focusedCompIndex) {
-				if (j < 0) {
-					j = nComp - 1;
-				}
-				$var($Component, comp, $nc(this->toolBar)->getComponentAtIndex(j--));
-				bool var$1 = comp != nullptr && comp->isFocusTraversable();
-				if (var$1 && comp->isEnabled()) {
-					comp->requestFocus();
-					break;
-				}
-			}
-			break;
 		}
+		break;
 	default:
-		{
-			break;
-		}
+		break;
 	}
 }
 
 $Border* BasicToolBarUI::createRolloverBorder() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, border, $UIManager::get("ToolBar.rolloverBorder"_s));
 	if (border != nullptr) {
 		return $cast($Border, border);
@@ -596,12 +414,12 @@ $Border* BasicToolBarUI::createRolloverBorder() {
 	$var($Color, var$1, $nc(table)->getColor("controlShadow"_s));
 	$var($Color, var$2, table->getColor("controlDkShadow"_s));
 	$var($Color, var$3, table->getColor("controlHighlight"_s));
-	$var($Border, var$0, static_cast<$Border*>($new($BasicBorders$RolloverButtonBorder, var$1, var$2, var$3, $(table->getColor("controlLtHighlight"_s)))));
+	$var($Border, var$0, $new($BasicBorders$RolloverButtonBorder, var$1, var$2, var$3, $(table->getColor("controlLtHighlight"_s))));
 	return $new($CompoundBorder, var$0, $$new($BasicBorders$RolloverMarginBorder));
 }
 
 $Border* BasicToolBarUI::createNonRolloverBorder() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, border, $UIManager::get("ToolBar.nonrolloverBorder"_s));
 	if (border != nullptr) {
 		return $cast($Border, border);
@@ -610,26 +428,26 @@ $Border* BasicToolBarUI::createNonRolloverBorder() {
 	$var($Color, var$1, $nc(table)->getColor("Button.shadow"_s));
 	$var($Color, var$2, table->getColor("Button.darkShadow"_s));
 	$var($Color, var$3, table->getColor("Button.light"_s));
-	$var($Border, var$0, static_cast<$Border*>($new($BasicBorders$ButtonBorder, var$1, var$2, var$3, $(table->getColor("Button.highlight"_s)))));
+	$var($Border, var$0, $new($BasicBorders$ButtonBorder, var$1, var$2, var$3, $(table->getColor("Button.highlight"_s))));
 	return $new($CompoundBorder, var$0, $$new($BasicBorders$RolloverMarginBorder));
 }
 
 $Border* BasicToolBarUI::createNonRolloverToggleBorder() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($UIDefaults, table, $UIManager::getLookAndFeelDefaults());
 	$var($Color, var$1, $nc(table)->getColor("ToggleButton.shadow"_s));
 	$var($Color, var$2, table->getColor("ToggleButton.darkShadow"_s));
 	$var($Color, var$3, table->getColor("ToggleButton.light"_s));
-	$var($Border, var$0, static_cast<$Border*>($new($BasicBorders$RadioButtonBorder, var$1, var$2, var$3, $(table->getColor("ToggleButton.highlight"_s)))));
+	$var($Border, var$0, $new($BasicBorders$RadioButtonBorder, var$1, var$2, var$3, $(table->getColor("ToggleButton.highlight"_s))));
 	return $new($CompoundBorder, var$0, $$new($BasicBorders$RolloverMarginBorder));
 }
 
 $JFrame* BasicToolBarUI::createFloatingFrame($JToolBar* toolbar) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Window, window, $SwingUtilities::getWindowAncestor(toolbar));
 	$var($String, var$0, $nc(toolbar)->getName());
-	$var($JFrame, frame, $new($BasicToolBarUI$1, this, var$0, (window != nullptr) ? $($nc(window)->getGraphicsConfiguration()) : ($GraphicsConfiguration*)nullptr));
-	$nc($(frame->getRootPane()))->setName("ToolBar.FloatingFrame"_s);
+	$var($JFrame, frame, $new($BasicToolBarUI$1, this, var$0, (window != nullptr) ? $(window->getGraphicsConfiguration()) : ($GraphicsConfiguration*)nullptr));
+	$$nc(frame->getRootPane())->setName("ToolBar.FloatingFrame"_s);
 	frame->setResizable(false);
 	$var($WindowListener, wl, createFrameListener());
 	frame->addWindowListener(wl);
@@ -637,7 +455,7 @@ $JFrame* BasicToolBarUI::createFloatingFrame($JToolBar* toolbar) {
 }
 
 $RootPaneContainer* BasicToolBarUI::createFloatingWindow($JToolBar* toolbar) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	{
 	}
 	$var($JDialog, dialog, nullptr);
@@ -649,7 +467,7 @@ $RootPaneContainer* BasicToolBarUI::createFloatingWindow($JToolBar* toolbar) {
 	} else {
 		$assign(dialog, $new($BasicToolBarUI$1ToolBarDialog, this, ($Frame*)nullptr, $($nc(toolbar)->getName()), false));
 	}
-	$nc($($nc(dialog)->getRootPane()))->setName("ToolBar.FloatingWindow"_s);
+	$$nc($nc(dialog)->getRootPane())->setName("ToolBar.FloatingWindow"_s);
 	dialog->setTitle($($nc(toolbar)->getName()));
 	dialog->setResizable(false);
 	$var($WindowListener, wl, createFrameListener());
@@ -658,11 +476,12 @@ $RootPaneContainer* BasicToolBarUI::createFloatingWindow($JToolBar* toolbar) {
 }
 
 $BasicToolBarUI$DragWindow* BasicToolBarUI::createDragWindow($JToolBar* toolbar) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Window, frame, nullptr);
 	if (this->toolBar != nullptr) {
 		$var($Container, p, nullptr);
-		for ($assign(p, $nc(this->toolBar)->getParent()); p != nullptr && !($instanceOf($Window, p)); $assign(p, $nc(p)->getParent())) {
+		for ($assign(p, this->toolBar->getParent()); p != nullptr && !($instanceOf($Window, p)); $assign(p, p->getParent())) {
+			;
 		}
 		if (p != nullptr && $instanceOf($Window, p)) {
 			$assign(frame, $cast($Window, p));
@@ -692,51 +511,41 @@ void BasicToolBarUI::setRolloverBorders(bool rollover) {
 }
 
 void BasicToolBarUI::installRolloverBorders($JComponent* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ComponentArray, components, $nc(c)->getComponents());
 	{
 		$var($ComponentArray, arr$, components);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($Component, component, arr$->get(i$));
-			{
-				if ($instanceOf($JComponent, component)) {
-					$nc(($cast($JComponent, component)))->updateUI();
-					setBorderToRollover(component);
-				}
+			if ($instanceOf($JComponent, component)) {
+				$cast($JComponent, component)->updateUI();
+				setBorderToRollover(component);
 			}
 		}
 	}
 }
 
 void BasicToolBarUI::installNonRolloverBorders($JComponent* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ComponentArray, components, $nc(c)->getComponents());
 	{
 		$var($ComponentArray, arr$, components);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($Component, component, arr$->get(i$));
-			{
-				if ($instanceOf($JComponent, component)) {
-					$nc(($cast($JComponent, component)))->updateUI();
-					setBorderToNonRollover(component);
-				}
+			if ($instanceOf($JComponent, component)) {
+				$cast($JComponent, component)->updateUI();
+				setBorderToNonRollover(component);
 			}
 		}
 	}
 }
 
 void BasicToolBarUI::installNormalBorders($JComponent* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ComponentArray, components, $nc(c)->getComponents());
 	{
 		$var($ComponentArray, arr$, components);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($Component, component, arr$->get(i$));
 			{
 				setBorderToNormal(component);
@@ -746,19 +555,18 @@ void BasicToolBarUI::installNormalBorders($JComponent* c) {
 }
 
 void BasicToolBarUI::setBorderToRollover($Component* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($instanceOf($AbstractButton, c)) {
 		$var($AbstractButton, b, $cast($AbstractButton, c));
 		$var($Border, border, $cast($Border, $nc(this->borderTable)->get(b)));
 		if (border == nullptr || $instanceOf($UIResource, border)) {
-			$nc(this->borderTable)->put(b, $($nc(b)->getBorder()));
+			this->borderTable->put(b, $(b->getBorder()));
 		}
-		if ($instanceOf($UIResource, $($nc(b)->getBorder()))) {
+		if ($instanceOf($UIResource, $(b->getBorder()))) {
 			b->setBorder($(getRolloverBorder(b)));
 		}
-		$init($Boolean);
-		$nc(this->rolloverTable)->put(b, $nc(b)->isRolloverEnabled() ? $Boolean::TRUE : $Boolean::FALSE);
-		$nc(b)->setRolloverEnabled(true);
+		$nc(this->rolloverTable)->put(b, b->isRolloverEnabled() ? $Boolean::TRUE : $Boolean::FALSE);
+		b->setRolloverEnabled(true);
 	}
 }
 
@@ -767,19 +575,18 @@ $Border* BasicToolBarUI::getRolloverBorder($AbstractButton* b) {
 }
 
 void BasicToolBarUI::setBorderToNonRollover($Component* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($instanceOf($AbstractButton, c)) {
 		$var($AbstractButton, b, $cast($AbstractButton, c));
 		$var($Border, border, $cast($Border, $nc(this->borderTable)->get(b)));
 		if (border == nullptr || $instanceOf($UIResource, border)) {
-			$nc(this->borderTable)->put(b, $($nc(b)->getBorder()));
+			this->borderTable->put(b, $(b->getBorder()));
 		}
-		if ($instanceOf($UIResource, $($nc(b)->getBorder()))) {
+		if ($instanceOf($UIResource, $(b->getBorder()))) {
 			b->setBorder($(getNonRolloverBorder(b)));
 		}
-		$init($Boolean);
-		$nc(this->rolloverTable)->put(b, $nc(b)->isRolloverEnabled() ? $Boolean::TRUE : $Boolean::FALSE);
-		$nc(b)->setRolloverEnabled(false);
+		$nc(this->rolloverTable)->put(b, b->isRolloverEnabled() ? $Boolean::TRUE : $Boolean::FALSE);
+		b->setRolloverEnabled(false);
 	}
 }
 
@@ -792,11 +599,11 @@ $Border* BasicToolBarUI::getNonRolloverBorder($AbstractButton* b) {
 }
 
 void BasicToolBarUI::setBorderToNormal($Component* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($instanceOf($AbstractButton, c)) {
 		$var($AbstractButton, b, $cast($AbstractButton, c));
 		$var($Border, border, $cast($Border, $nc(this->borderTable)->remove(b)));
-		$nc(b)->setBorder(border);
+		b->setBorder(border);
 		$var($Boolean, value, $cast($Boolean, $nc(this->rolloverTable)->remove(b)));
 		if (value != nullptr) {
 			b->setRolloverEnabled(value->booleanValue());
@@ -814,7 +621,7 @@ bool BasicToolBarUI::isFloating() {
 }
 
 void BasicToolBarUI::setFloating(bool b, $Point* p) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(this->toolBar)->isFloatable()) {
 		bool visible = false;
 		$var($Window, ancestor, $SwingUtilities::getWindowAncestor(this->toolBar));
@@ -822,7 +629,7 @@ void BasicToolBarUI::setFloating(bool b, $Point* p) {
 			visible = ancestor->isVisible();
 		}
 		if (this->dragWindow != nullptr) {
-			$nc(this->dragWindow)->setVisible(false);
+			this->dragWindow->setVisible(false);
 		}
 		this->floating = b;
 		if (this->floatingToolBar == nullptr) {
@@ -831,19 +638,19 @@ void BasicToolBarUI::setFloating(bool b, $Point* p) {
 		if (b == true) {
 			if (this->dockingSource == nullptr) {
 				$set(this, dockingSource, $nc(this->toolBar)->getParent());
-				$nc(this->dockingSource)->remove(static_cast<$Component*>(this->toolBar));
+				$nc(this->dockingSource)->remove(this->toolBar);
 			}
 			$set(this, constraintBeforeFloating, calculateConstraint());
 			if (this->propertyListener != nullptr) {
 				$UIManager::addPropertyChangeListener(this->propertyListener);
 			}
 			$init($BorderLayout);
-			$nc($($nc(this->floatingToolBar)->getContentPane()))->add(static_cast<$Component*>(this->toolBar), $of($BorderLayout::CENTER));
+			$$nc($nc(this->floatingToolBar)->getContentPane())->add(this->toolBar, $BorderLayout::CENTER);
 			if ($instanceOf($Window, this->floatingToolBar)) {
-				$nc(($cast($Window, this->floatingToolBar)))->pack();
-				$nc(($cast($Window, this->floatingToolBar)))->setLocation(this->floatingX, this->floatingY);
+				$cast($Window, this->floatingToolBar)->pack();
+				$nc($cast($Window, this->floatingToolBar))->setLocation(this->floatingX, this->floatingY);
 				if (visible) {
-					$nc(($cast($Window, this->floatingToolBar)))->show();
+					$nc($cast($Window, this->floatingToolBar))->show();
 				} else {
 					$nc(ancestor)->addWindowListener($$new($BasicToolBarUI$2, this));
 				}
@@ -853,9 +660,9 @@ void BasicToolBarUI::setFloating(bool b, $Point* p) {
 				$set(this, floatingToolBar, createFloatingWindow(this->toolBar));
 			}
 			if ($instanceOf($Window, this->floatingToolBar)) {
-				$nc(($cast($Window, this->floatingToolBar)))->setVisible(false);
+				$cast($Window, this->floatingToolBar)->setVisible(false);
 			}
-			$nc($($nc(this->floatingToolBar)->getContentPane()))->remove(static_cast<$Component*>(this->toolBar));
+			$$nc($nc(this->floatingToolBar)->getContentPane())->remove(this->toolBar);
 			$var($String, constraint, getDockingConstraint(this->dockingSource, p));
 			if (constraint == nullptr) {
 				$init($BorderLayout);
@@ -869,7 +676,7 @@ void BasicToolBarUI::setFloating(bool b, $Point* p) {
 			if (this->propertyListener != nullptr) {
 				$UIManager::removePropertyChangeListener(this->propertyListener);
 			}
-			$nc(this->dockingSource)->add(constraint, static_cast<$Component*>(this->toolBar));
+			$nc(this->dockingSource)->add(constraint, this->toolBar);
 		}
 		$nc(this->dockingSource)->invalidate();
 		$var($Container, dockingSourceParent, $nc(this->dockingSource)->getParent());
@@ -888,8 +695,8 @@ int32_t BasicToolBarUI::mapConstraintToOrientation($String* constraint) {
 		if (var$0 || constraint->equals($BorderLayout::WEST)) {
 			orientation = $JToolBar::VERTICAL;
 		} else {
-			bool var$2 = constraint->equals($BorderLayout::NORTH);
-			if (var$2 || constraint->equals($BorderLayout::SOUTH)) {
+			bool var$1 = constraint->equals($BorderLayout::NORTH);
+			if (var$1 || constraint->equals($BorderLayout::SOUTH)) {
 				orientation = $JToolBar::HORIZONTAL;
 			}
 		}
@@ -900,7 +707,7 @@ int32_t BasicToolBarUI::mapConstraintToOrientation($String* constraint) {
 void BasicToolBarUI::setOrientation(int32_t orientation) {
 	$nc(this->toolBar)->setOrientation(orientation);
 	if (this->dragWindow != nullptr) {
-		$nc(this->dragWindow)->setOrientation(orientation);
+		this->dragWindow->setOrientation(orientation);
 	}
 }
 
@@ -921,13 +728,13 @@ void BasicToolBarUI::setFloatingColor($Color* c) {
 }
 
 bool BasicToolBarUI::isBlocked($Component* comp, Object$* constraint) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($instanceOf($Container, comp)) {
 		$var($Container, cont, $cast($Container, comp));
-		$var($LayoutManager, lm, $nc(cont)->getLayout());
+		$var($LayoutManager, lm, cont->getLayout());
 		if ($instanceOf($BorderLayout, lm)) {
 			$var($BorderLayout, blm, $cast($BorderLayout, lm));
-			$var($Component, c, $nc(blm)->getLayoutComponent(cont, constraint));
+			$var($Component, c, blm->getLayoutComponent(cont, constraint));
 			return (c != nullptr && !$equals(c, this->toolBar));
 		}
 	}
@@ -939,34 +746,34 @@ bool BasicToolBarUI::canDock($Component* c, $Point* p) {
 }
 
 $String* BasicToolBarUI::calculateConstraint() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, constraint, nullptr);
 	$var($LayoutManager, lm, $nc(this->dockingSource)->getLayout());
 	if ($instanceOf($BorderLayout, lm)) {
-		$assign(constraint, $cast($String, $nc(($cast($BorderLayout, lm)))->getConstraints(this->toolBar)));
+		$assign(constraint, $cast($String, $cast($BorderLayout, lm)->getConstraints(this->toolBar)));
 	}
 	return (constraint != nullptr) ? constraint : this->constraintBeforeFloating;
 }
 
 $String* BasicToolBarUI::getDockingConstraint($Component* c, $Point* p) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (p == nullptr) {
 		return this->constraintBeforeFloating;
 	}
 	if ($nc(c)->contains(p)) {
-		this->dockingSensitivity = ($nc(this->toolBar)->getOrientation() == $JToolBar::HORIZONTAL) ? $nc($($nc(this->toolBar)->getSize()))->height : $nc($($nc(this->toolBar)->getSize()))->width;
+		this->dockingSensitivity = ($nc(this->toolBar)->getOrientation() == $JToolBar::HORIZONTAL) ? $nc($(this->toolBar->getSize()))->height : $nc($(this->toolBar->getSize()))->width;
 		$init($BorderLayout);
 		if ($nc(p)->y < this->dockingSensitivity && !isBlocked(c, $BorderLayout::NORTH)) {
 			return $BorderLayout::NORTH;
 		}
-		bool var$0 = $nc(p)->x >= c->getWidth() - this->dockingSensitivity;
+		bool var$0 = p->x >= c->getWidth() - this->dockingSensitivity;
 		if (var$0 && !isBlocked(c, $BorderLayout::EAST)) {
 			return $BorderLayout::EAST;
 		}
-		if ($nc(p)->x < this->dockingSensitivity && !isBlocked(c, $BorderLayout::WEST)) {
+		if (p->x < this->dockingSensitivity && !isBlocked(c, $BorderLayout::WEST)) {
 			return $BorderLayout::WEST;
 		}
-		bool var$1 = $nc(p)->y >= c->getHeight() - this->dockingSensitivity;
+		bool var$1 = p->y >= c->getHeight() - this->dockingSensitivity;
 		if (var$1 && !isBlocked(c, $BorderLayout::SOUTH)) {
 			return $BorderLayout::SOUTH;
 		}
@@ -975,7 +782,7 @@ $String* BasicToolBarUI::getDockingConstraint($Component* c, $Point* p) {
 }
 
 void BasicToolBarUI::dragTo($Point* position, $Point* origin) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(this->toolBar)->isFloatable()) {
 		try {
 			if (this->dragWindow == nullptr) {
@@ -984,17 +791,17 @@ void BasicToolBarUI::dragTo($Point* position, $Point* origin) {
 			$var($Point, offset, $nc(this->dragWindow)->getOffset());
 			if (offset == nullptr) {
 				$var($Dimension, size, $nc(this->toolBar)->getPreferredSize());
-				$assign(offset, $new($Point, $nc(size)->width / 2, size->height / 2));
+				$assign(offset, $new($Point, $nc(size)->width / 2, $nc(size)->height / 2));
 				$nc(this->dragWindow)->setOffset(offset);
 			}
-			$var($Point, global, $new($Point, $nc(origin)->x + $nc(position)->x, origin->y + position->y));
-			$var($Point, dragPoint, $new($Point, global->x - $nc(offset)->x, global->y - offset->y));
+			$var($Point, global, $new($Point, $nc(origin)->x + $nc(position)->x, $nc(origin)->y + $nc(position)->y));
+			$var($Point, dragPoint, $new($Point, global->x - $nc(offset)->x, global->y - $nc(offset)->y));
 			if (this->dockingSource == nullptr) {
 				$set(this, dockingSource, $nc(this->toolBar)->getParent());
 			}
 			$set(this, constraintBeforeFloating, calculateConstraint());
 			$var($Point, dockingPosition, $nc(this->dockingSource)->getLocationOnScreen());
-			$var($Point, comparisonPoint, $new($Point, global->x - $nc(dockingPosition)->x, global->y - dockingPosition->y));
+			$var($Point, comparisonPoint, $new($Point, global->x - $nc(dockingPosition)->x, global->y - $nc(dockingPosition)->y));
 			if (canDock(this->dockingSource, comparisonPoint)) {
 				$nc(this->dragWindow)->setBackground($(getDockingColor()));
 				$var($String, constraint, getDockingConstraint(this->dockingSource, comparisonPoint));
@@ -1009,7 +816,7 @@ void BasicToolBarUI::dragTo($Point* position, $Point* origin) {
 			$nc(this->dragWindow)->setLocation(dragPoint->x, dragPoint->y);
 			if ($nc(this->dragWindow)->isVisible() == false) {
 				$var($Dimension, size, $nc(this->toolBar)->getPreferredSize());
-				$nc(this->dragWindow)->setSize($nc(size)->width, size->height);
+				$nc(this->dragWindow)->setSize($nc(size)->width, $nc(size)->height);
 				$nc(this->dragWindow)->show();
 			}
 		} catch ($IllegalComponentStateException& e) {
@@ -1018,7 +825,7 @@ void BasicToolBarUI::dragTo($Point* position, $Point* origin) {
 }
 
 void BasicToolBarUI::floatAt($Point* position, $Point* origin) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(this->toolBar)->isFloatable()) {
 		try {
 			$var($Point, offset, $nc(this->dragWindow)->getOffset());
@@ -1026,11 +833,11 @@ void BasicToolBarUI::floatAt($Point* position, $Point* origin) {
 				$assign(offset, position);
 				$nc(this->dragWindow)->setOffset(offset);
 			}
-			$var($Point, global, $new($Point, $nc(origin)->x + $nc(position)->x, origin->y + position->y));
-			setFloatingLocation(global->x - $nc(offset)->x, global->y - offset->y);
+			$var($Point, global, $new($Point, $nc(origin)->x + $nc(position)->x, $nc(origin)->y + $nc(position)->y));
+			setFloatingLocation(global->x - $nc(offset)->x, global->y - $nc(offset)->y);
 			if (this->dockingSource != nullptr) {
-				$var($Point, dockingPosition, $nc(this->dockingSource)->getLocationOnScreen());
-				$var($Point, comparisonPoint, $new($Point, global->x - $nc(dockingPosition)->x, global->y - dockingPosition->y));
+				$var($Point, dockingPosition, this->dockingSource->getLocationOnScreen());
+				$var($Point, comparisonPoint, $new($Point, global->x - $nc(dockingPosition)->x, global->y - $nc(dockingPosition)->y));
 				if (canDock(this->dockingSource, comparisonPoint)) {
 					setFloating(false, comparisonPoint);
 				} else {
@@ -1074,7 +881,7 @@ $WindowListener* BasicToolBarUI::createFrameListener() {
 }
 
 void BasicToolBarUI::paintDragWindow($Graphics* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(g)->setColor($($nc(this->dragWindow)->getBackground()));
 	int32_t w = $nc(this->dragWindow)->getWidth();
 	int32_t h = $nc(this->dragWindow)->getHeight();
@@ -1083,7 +890,7 @@ void BasicToolBarUI::paintDragWindow($Graphics* g) {
 	g->drawRect(0, 0, w - 1, h - 1);
 }
 
-void clinit$BasicToolBarUI($Class* class$) {
+void BasicToolBarUI::clinit$($Class* clazz) {
 	$assignStatic(BasicToolBarUI::IS_ROLLOVER, "JToolBar.isRollover"_s);
 	$assignStatic(BasicToolBarUI::FOCUSED_COMP_INDEX, "JToolBar.focusedCompIndex"_s);
 }
@@ -1092,7 +899,157 @@ BasicToolBarUI::BasicToolBarUI() {
 }
 
 $Class* BasicToolBarUI::load$($String* name, bool initialize) {
-	$loadClass(BasicToolBarUI, name, initialize, &_BasicToolBarUI_ClassInfo_, clinit$BasicToolBarUI, allocate$BasicToolBarUI);
+	$CompoundAttribute upKeyfieldAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute downKeyfieldAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute leftKeyfieldAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute rightKeyfieldAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$FieldInfo fieldInfos$$[] = {
+		{"toolBar", "Ljavax/swing/JToolBar;", nullptr, $PROTECTED, $field(BasicToolBarUI, toolBar)},
+		{"floating", "Z", nullptr, $PRIVATE, $field(BasicToolBarUI, floating)},
+		{"floatingX", "I", nullptr, $PRIVATE, $field(BasicToolBarUI, floatingX)},
+		{"floatingY", "I", nullptr, $PRIVATE, $field(BasicToolBarUI, floatingY)},
+		{"floatingFrame", "Ljavax/swing/JFrame;", nullptr, $PRIVATE, $field(BasicToolBarUI, floatingFrame)},
+		{"floatingToolBar", "Ljavax/swing/RootPaneContainer;", nullptr, $PRIVATE, $field(BasicToolBarUI, floatingToolBar)},
+		{"dragWindow", "Ljavax/swing/plaf/basic/BasicToolBarUI$DragWindow;", nullptr, $PROTECTED, $field(BasicToolBarUI, dragWindow)},
+		{"dockingSource", "Ljava/awt/Container;", nullptr, $PRIVATE, $field(BasicToolBarUI, dockingSource)},
+		{"dockingSensitivity", "I", nullptr, $PRIVATE, $field(BasicToolBarUI, dockingSensitivity)},
+		{"focusedCompIndex", "I", nullptr, $PROTECTED, $field(BasicToolBarUI, focusedCompIndex)},
+		{"dockingColor", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(BasicToolBarUI, dockingColor)},
+		{"floatingColor", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(BasicToolBarUI, floatingColor)},
+		{"dockingBorderColor", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(BasicToolBarUI, dockingBorderColor)},
+		{"floatingBorderColor", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(BasicToolBarUI, floatingBorderColor)},
+		{"dockingListener", "Ljavax/swing/event/MouseInputListener;", nullptr, $PROTECTED, $field(BasicToolBarUI, dockingListener)},
+		{"propertyListener", "Ljava/beans/PropertyChangeListener;", nullptr, $PROTECTED, $field(BasicToolBarUI, propertyListener)},
+		{"toolBarContListener", "Ljava/awt/event/ContainerListener;", nullptr, $PROTECTED, $field(BasicToolBarUI, toolBarContListener)},
+		{"toolBarFocusListener", "Ljava/awt/event/FocusListener;", nullptr, $PROTECTED, $field(BasicToolBarUI, toolBarFocusListener)},
+		{"handler", "Ljavax/swing/plaf/basic/BasicToolBarUI$Handler;", nullptr, $PRIVATE, $field(BasicToolBarUI, handler)},
+		{"constraintBeforeFloating", "Ljava/lang/String;", nullptr, $PROTECTED, $field(BasicToolBarUI, constraintBeforeFloating)},
+		{"IS_ROLLOVER", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(BasicToolBarUI, IS_ROLLOVER)},
+		{"rolloverBorder", "Ljavax/swing/border/Border;", nullptr, $PRIVATE | $STATIC, $staticField(BasicToolBarUI, rolloverBorder)},
+		{"nonRolloverBorder", "Ljavax/swing/border/Border;", nullptr, $PRIVATE | $STATIC, $staticField(BasicToolBarUI, nonRolloverBorder)},
+		{"nonRolloverToggleBorder", "Ljavax/swing/border/Border;", nullptr, $PRIVATE | $STATIC, $staticField(BasicToolBarUI, nonRolloverToggleBorder)},
+		{"rolloverBorders", "Z", nullptr, $PRIVATE, $field(BasicToolBarUI, rolloverBorders)},
+		{"borderTable", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljavax/swing/AbstractButton;Ljavax/swing/border/Border;>;", $PRIVATE, $field(BasicToolBarUI, borderTable)},
+		{"rolloverTable", "Ljava/util/Hashtable;", "Ljava/util/Hashtable<Ljavax/swing/AbstractButton;Ljava/lang/Boolean;>;", $PRIVATE, $field(BasicToolBarUI, rolloverTable)},
+		{"upKey", "Ljavax/swing/KeyStroke;", nullptr, $PROTECTED | $DEPRECATED, $field(BasicToolBarUI, upKey), upKeyfieldAnnotations$$},
+		{"downKey", "Ljavax/swing/KeyStroke;", nullptr, $PROTECTED | $DEPRECATED, $field(BasicToolBarUI, downKey), downKeyfieldAnnotations$$},
+		{"leftKey", "Ljavax/swing/KeyStroke;", nullptr, $PROTECTED | $DEPRECATED, $field(BasicToolBarUI, leftKey), leftKeyfieldAnnotations$$},
+		{"rightKey", "Ljavax/swing/KeyStroke;", nullptr, $PROTECTED | $DEPRECATED, $field(BasicToolBarUI, rightKey), rightKeyfieldAnnotations$$},
+		{"FOCUSED_COMP_INDEX", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(BasicToolBarUI, FOCUSED_COMP_INDEX)},
+		{}
+	};
+	$NamedAttribute createFloatingFramemethodAnnotations$$$namedAttribute[] = {
+		{"since", 's', "17"},
+		{}
+	};
+	$CompoundAttribute createFloatingFramemethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", createFloatingFramemethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(BasicToolBarUI, init$, void)},
+		{"calculateConstraint", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(BasicToolBarUI, calculateConstraint, $String*)},
+		{"canDock", "(Ljava/awt/Component;Ljava/awt/Point;)Z", nullptr, $PUBLIC, $virtualMethod(BasicToolBarUI, canDock, bool, $Component*, $Point*)},
+		{"createDockingListener", "()Ljavax/swing/event/MouseInputListener;", nullptr, $PROTECTED, $virtualMethod(BasicToolBarUI, createDockingListener, $MouseInputListener*)},
+		{"createDragWindow", "(Ljavax/swing/JToolBar;)Ljavax/swing/plaf/basic/BasicToolBarUI$DragWindow;", nullptr, $PROTECTED, $virtualMethod(BasicToolBarUI, createDragWindow, $BasicToolBarUI$DragWindow*, $JToolBar*)},
+		{"createFloatingFrame", "(Ljavax/swing/JToolBar;)Ljavax/swing/JFrame;", nullptr, $PROTECTED | $DEPRECATED, $virtualMethod(BasicToolBarUI, createFloatingFrame, $JFrame*, $JToolBar*), nullptr, nullptr, createFloatingFramemethodAnnotations$$},
+		{"createFloatingWindow", "(Ljavax/swing/JToolBar;)Ljavax/swing/RootPaneContainer;", nullptr, $PROTECTED, $virtualMethod(BasicToolBarUI, createFloatingWindow, $RootPaneContainer*, $JToolBar*)},
+		{"createFrameListener", "()Ljava/awt/event/WindowListener;", nullptr, $PROTECTED, $virtualMethod(BasicToolBarUI, createFrameListener, $WindowListener*)},
+		{"createNonRolloverBorder", "()Ljavax/swing/border/Border;", nullptr, $PROTECTED, $virtualMethod(BasicToolBarUI, createNonRolloverBorder, $Border*)},
+		{"createNonRolloverToggleBorder", "()Ljavax/swing/border/Border;", nullptr, $PRIVATE, $method(BasicToolBarUI, createNonRolloverToggleBorder, $Border*)},
+		{"createPropertyListener", "()Ljava/beans/PropertyChangeListener;", nullptr, $PROTECTED, $virtualMethod(BasicToolBarUI, createPropertyListener, $PropertyChangeListener*)},
+		{"createRolloverBorder", "()Ljavax/swing/border/Border;", nullptr, $PROTECTED, $virtualMethod(BasicToolBarUI, createRolloverBorder, $Border*)},
+		{"createToolBarContListener", "()Ljava/awt/event/ContainerListener;", nullptr, $PROTECTED, $virtualMethod(BasicToolBarUI, createToolBarContListener, $ContainerListener*)},
+		{"createToolBarFocusListener", "()Ljava/awt/event/FocusListener;", nullptr, $PROTECTED, $virtualMethod(BasicToolBarUI, createToolBarFocusListener, $FocusListener*)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(BasicToolBarUI, createUI, $ComponentUI*, $JComponent*)},
+		{"dragTo", "(Ljava/awt/Point;Ljava/awt/Point;)V", nullptr, $PROTECTED, $virtualMethod(BasicToolBarUI, dragTo, void, $Point*, $Point*)},
+		{"floatAt", "(Ljava/awt/Point;Ljava/awt/Point;)V", nullptr, $PROTECTED, $virtualMethod(BasicToolBarUI, floatAt, void, $Point*, $Point*)},
+		{"getDockingColor", "()Ljava/awt/Color;", nullptr, $PUBLIC, $virtualMethod(BasicToolBarUI, getDockingColor, $Color*)},
+		{"getDockingConstraint", "(Ljava/awt/Component;Ljava/awt/Point;)Ljava/lang/String;", nullptr, $PRIVATE, $method(BasicToolBarUI, getDockingConstraint, $String*, $Component*, $Point*)},
+		{"getFloatingColor", "()Ljava/awt/Color;", nullptr, $PUBLIC, $virtualMethod(BasicToolBarUI, getFloatingColor, $Color*)},
+		{"getHandler", "()Ljavax/swing/plaf/basic/BasicToolBarUI$Handler;", nullptr, $PRIVATE, $method(BasicToolBarUI, getHandler, $BasicToolBarUI$Handler*)},
+		{"getInputMap", "(I)Ljavax/swing/InputMap;", nullptr, 0, $virtualMethod(BasicToolBarUI, getInputMap, $InputMap*, int32_t)},
+		{"getNonRolloverBorder", "(Ljavax/swing/AbstractButton;)Ljavax/swing/border/Border;", nullptr, $PROTECTED, $virtualMethod(BasicToolBarUI, getNonRolloverBorder, $Border*, $AbstractButton*)},
+		{"getRolloverBorder", "(Ljavax/swing/AbstractButton;)Ljavax/swing/border/Border;", nullptr, $PROTECTED, $virtualMethod(BasicToolBarUI, getRolloverBorder, $Border*, $AbstractButton*)},
+		{"installComponents", "()V", nullptr, $PROTECTED, $virtualMethod(BasicToolBarUI, installComponents, void)},
+		{"installDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(BasicToolBarUI, installDefaults, void)},
+		{"installKeyboardActions", "()V", nullptr, $PROTECTED, $virtualMethod(BasicToolBarUI, installKeyboardActions, void)},
+		{"installListeners", "()V", nullptr, $PROTECTED, $virtualMethod(BasicToolBarUI, installListeners, void)},
+		{"installNonRolloverBorders", "(Ljavax/swing/JComponent;)V", nullptr, $PROTECTED, $virtualMethod(BasicToolBarUI, installNonRolloverBorders, void, $JComponent*)},
+		{"installNormalBorders", "(Ljavax/swing/JComponent;)V", nullptr, $PROTECTED, $virtualMethod(BasicToolBarUI, installNormalBorders, void, $JComponent*)},
+		{"installRolloverBorders", "(Ljavax/swing/JComponent;)V", nullptr, $PROTECTED, $virtualMethod(BasicToolBarUI, installRolloverBorders, void, $JComponent*)},
+		{"installUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(BasicToolBarUI, installUI, void, $JComponent*)},
+		{"isBlocked", "(Ljava/awt/Component;Ljava/lang/Object;)Z", nullptr, $PRIVATE, $method(BasicToolBarUI, isBlocked, bool, $Component*, Object$*)},
+		{"isFloating", "()Z", nullptr, $PUBLIC, $virtualMethod(BasicToolBarUI, isFloating, bool)},
+		{"isRolloverBorders", "()Z", nullptr, $PUBLIC, $virtualMethod(BasicToolBarUI, isRolloverBorders, bool)},
+		{"loadActionMap", "(Ljavax/swing/plaf/basic/LazyActionMap;)V", nullptr, $STATIC, $staticMethod(BasicToolBarUI, loadActionMap, void, $LazyActionMap*)},
+		{"mapConstraintToOrientation", "(Ljava/lang/String;)I", nullptr, $PRIVATE, $method(BasicToolBarUI, mapConstraintToOrientation, int32_t, $String*)},
+		{"navigateFocusedComp", "(I)V", nullptr, $PROTECTED, $virtualMethod(BasicToolBarUI, navigateFocusedComp, void, int32_t)},
+		{"paintDragWindow", "(Ljava/awt/Graphics;)V", nullptr, $PROTECTED, $virtualMethod(BasicToolBarUI, paintDragWindow, void, $Graphics*)},
+		{"setBorderToNonRollover", "(Ljava/awt/Component;)V", nullptr, $PROTECTED, $virtualMethod(BasicToolBarUI, setBorderToNonRollover, void, $Component*)},
+		{"setBorderToNormal", "(Ljava/awt/Component;)V", nullptr, $PROTECTED, $virtualMethod(BasicToolBarUI, setBorderToNormal, void, $Component*)},
+		{"setBorderToRollover", "(Ljava/awt/Component;)V", nullptr, $PROTECTED, $virtualMethod(BasicToolBarUI, setBorderToRollover, void, $Component*)},
+		{"setDockingColor", "(Ljava/awt/Color;)V", nullptr, $PUBLIC, $virtualMethod(BasicToolBarUI, setDockingColor, void, $Color*)},
+		{"setFloating", "(ZLjava/awt/Point;)V", nullptr, $PUBLIC, $virtualMethod(BasicToolBarUI, setFloating, void, bool, $Point*)},
+		{"setFloatingColor", "(Ljava/awt/Color;)V", nullptr, $PUBLIC, $virtualMethod(BasicToolBarUI, setFloatingColor, void, $Color*)},
+		{"setFloatingLocation", "(II)V", nullptr, $PUBLIC, $virtualMethod(BasicToolBarUI, setFloatingLocation, void, int32_t, int32_t)},
+		{"setOrientation", "(I)V", nullptr, $PUBLIC, $virtualMethod(BasicToolBarUI, setOrientation, void, int32_t)},
+		{"setRolloverBorders", "(Z)V", nullptr, $PUBLIC, $virtualMethod(BasicToolBarUI, setRolloverBorders, void, bool)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"uninstallComponents", "()V", nullptr, $PROTECTED, $virtualMethod(BasicToolBarUI, uninstallComponents, void)},
+		{"uninstallDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(BasicToolBarUI, uninstallDefaults, void)},
+		{"uninstallKeyboardActions", "()V", nullptr, $PROTECTED, $virtualMethod(BasicToolBarUI, uninstallKeyboardActions, void)},
+		{"uninstallListeners", "()V", nullptr, $PROTECTED, $virtualMethod(BasicToolBarUI, uninstallListeners, void)},
+		{"uninstallUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(BasicToolBarUI, uninstallUI, void, $JComponent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.basic.BasicToolBarUI$DragWindow", "javax.swing.plaf.basic.BasicToolBarUI", "DragWindow", $PROTECTED},
+		{"javax.swing.plaf.basic.BasicToolBarUI$DockingListener", "javax.swing.plaf.basic.BasicToolBarUI", "DockingListener", $PUBLIC},
+		{"javax.swing.plaf.basic.BasicToolBarUI$PropertyListener", "javax.swing.plaf.basic.BasicToolBarUI", "PropertyListener", $PROTECTED},
+		{"javax.swing.plaf.basic.BasicToolBarUI$ToolBarFocusListener", "javax.swing.plaf.basic.BasicToolBarUI", "ToolBarFocusListener", $PROTECTED},
+		{"javax.swing.plaf.basic.BasicToolBarUI$ToolBarContListener", "javax.swing.plaf.basic.BasicToolBarUI", "ToolBarContListener", $PROTECTED},
+		{"javax.swing.plaf.basic.BasicToolBarUI$FrameListener", "javax.swing.plaf.basic.BasicToolBarUI", "FrameListener", $PROTECTED},
+		{"javax.swing.plaf.basic.BasicToolBarUI$Handler", "javax.swing.plaf.basic.BasicToolBarUI", "Handler", $PRIVATE},
+		{"javax.swing.plaf.basic.BasicToolBarUI$Actions", "javax.swing.plaf.basic.BasicToolBarUI", "Actions", $PRIVATE | $STATIC},
+		{"javax.swing.plaf.basic.BasicToolBarUI$2", nullptr, nullptr, 0},
+		{"javax.swing.plaf.basic.BasicToolBarUI$1ToolBarDialog", nullptr, "ToolBarDialog", 0},
+		{"javax.swing.plaf.basic.BasicToolBarUI$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.basic.BasicToolBarUI",
+		"javax.swing.plaf.ToolBarUI",
+		"javax.swing.SwingConstants",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.basic.BasicToolBarUI$DragWindow,javax.swing.plaf.basic.BasicToolBarUI$DockingListener,javax.swing.plaf.basic.BasicToolBarUI$PropertyListener,javax.swing.plaf.basic.BasicToolBarUI$ToolBarFocusListener,javax.swing.plaf.basic.BasicToolBarUI$ToolBarContListener,javax.swing.plaf.basic.BasicToolBarUI$FrameListener,javax.swing.plaf.basic.BasicToolBarUI$Handler,javax.swing.plaf.basic.BasicToolBarUI$Actions,javax.swing.plaf.basic.BasicToolBarUI$2,javax.swing.plaf.basic.BasicToolBarUI$1ToolBarDialog,javax.swing.plaf.basic.BasicToolBarUI$1ToolBarDialog$1,javax.swing.plaf.basic.BasicToolBarUI$1,javax.swing.plaf.basic.BasicToolBarUI$1$1"
+	};
+	$loadClass(BasicToolBarUI, name, initialize, &classInfo$$, BasicToolBarUI::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(BasicToolBarUI));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <javax/imageio/metadata/IIOMetadataFormatImpl.h>
-
 #include <com/sun/imageio/plugins/common/StandardMetadataFormat.h>
 #include <java/lang/Comparable.h>
 #include <java/lang/Module.h>
@@ -46,7 +45,6 @@ using $HashMap = ::java::util::HashMap;
 using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
 using $Locale = ::java::util::Locale;
-using $Map = ::java::util::Map;
 using $MissingResourceException = ::java::util::MissingResourceException;
 using $ResourceBundle = ::java::util::ResourceBundle;
 using $IIOMetadataFormat = ::javax::imageio::metadata::IIOMetadataFormat;
@@ -58,103 +56,12 @@ namespace javax {
 	namespace imageio {
 		namespace metadata {
 
-$FieldInfo _IIOMetadataFormatImpl_FieldInfo_[] = {
-	{"standardMetadataFormatName", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(IIOMetadataFormatImpl, standardMetadataFormatName)},
-	{"standardFormat", "Ljavax/imageio/metadata/IIOMetadataFormat;", nullptr, $PRIVATE | $STATIC, $staticField(IIOMetadataFormatImpl, standardFormat)},
-	{"resourceBaseName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(IIOMetadataFormatImpl, resourceBaseName)},
-	{"rootName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(IIOMetadataFormatImpl, rootName)},
-	{"elementMap", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/lang/String;Ljavax/imageio/metadata/IIOMetadataFormatImpl$Element;>;", $PRIVATE, $field(IIOMetadataFormatImpl, elementMap)},
-	{}
-};
-
-$MethodInfo _IIOMetadataFormatImpl_MethodInfo_[] = {
-	{"canNodeAppear", "(Ljava/lang/String;Ljavax/imageio/ImageTypeSpecifier;)Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"<init>", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(IIOMetadataFormatImpl, init$, void, $String*, int32_t)},
-	{"<init>", "(Ljava/lang/String;II)V", nullptr, $PUBLIC, $method(IIOMetadataFormatImpl, init$, void, $String*, int32_t, int32_t)},
-	{"addAttribute", "(Ljava/lang/String;Ljava/lang/String;IZLjava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(IIOMetadataFormatImpl, addAttribute, void, $String*, $String*, int32_t, bool, $String*)},
-	{"addAttribute", "(Ljava/lang/String;Ljava/lang/String;IZLjava/lang/String;Ljava/util/List;)V", "(Ljava/lang/String;Ljava/lang/String;IZLjava/lang/String;Ljava/util/List<Ljava/lang/String;>;)V", $PROTECTED, $virtualMethod(IIOMetadataFormatImpl, addAttribute, void, $String*, $String*, int32_t, bool, $String*, $List*)},
-	{"addAttribute", "(Ljava/lang/String;Ljava/lang/String;IZLjava/lang/String;Ljava/lang/String;Ljava/lang/String;ZZ)V", nullptr, $PROTECTED, $virtualMethod(IIOMetadataFormatImpl, addAttribute, void, $String*, $String*, int32_t, bool, $String*, $String*, $String*, bool, bool)},
-	{"addAttribute", "(Ljava/lang/String;Ljava/lang/String;IZII)V", nullptr, $PROTECTED, $virtualMethod(IIOMetadataFormatImpl, addAttribute, void, $String*, $String*, int32_t, bool, int32_t, int32_t)},
-	{"addBooleanAttribute", "(Ljava/lang/String;Ljava/lang/String;ZZ)V", nullptr, $PROTECTED, $virtualMethod(IIOMetadataFormatImpl, addBooleanAttribute, void, $String*, $String*, bool, bool)},
-	{"addChildElement", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(IIOMetadataFormatImpl, addChildElement, void, $String*, $String*)},
-	{"addElement", "(Ljava/lang/String;Ljava/lang/String;I)V", nullptr, $PROTECTED, $virtualMethod(IIOMetadataFormatImpl, addElement, void, $String*, $String*, int32_t)},
-	{"addElement", "(Ljava/lang/String;Ljava/lang/String;II)V", nullptr, $PROTECTED, $virtualMethod(IIOMetadataFormatImpl, addElement, void, $String*, $String*, int32_t, int32_t)},
-	{"addObjectValue", "(Ljava/lang/String;Ljava/lang/Class;ZLjava/lang/Object;)V", "<T:Ljava/lang/Object;>(Ljava/lang/String;Ljava/lang/Class<TT;>;ZTT;)V", $PROTECTED, $virtualMethod(IIOMetadataFormatImpl, addObjectValue, void, $String*, $Class*, bool, Object$*)},
-	{"addObjectValue", "(Ljava/lang/String;Ljava/lang/Class;ZLjava/lang/Object;Ljava/util/List;)V", "<T:Ljava/lang/Object;>(Ljava/lang/String;Ljava/lang/Class<TT;>;ZTT;Ljava/util/List<+TT;>;)V", $PROTECTED, $virtualMethod(IIOMetadataFormatImpl, addObjectValue, void, $String*, $Class*, bool, Object$*, $List*)},
-	{"addObjectValue", "(Ljava/lang/String;Ljava/lang/Class;Ljava/lang/Object;Ljava/lang/Comparable;Ljava/lang/Comparable;ZZ)V", "<T:Ljava/lang/Object;:Ljava/lang/Comparable<-TT;>;>(Ljava/lang/String;Ljava/lang/Class<TT;>;TT;Ljava/lang/Comparable<-TT;>;Ljava/lang/Comparable<-TT;>;ZZ)V", $PROTECTED, $virtualMethod(IIOMetadataFormatImpl, addObjectValue, void, $String*, $Class*, Object$*, $Comparable*, $Comparable*, bool, bool)},
-	{"addObjectValue", "(Ljava/lang/String;Ljava/lang/Class;II)V", "(Ljava/lang/String;Ljava/lang/Class<*>;II)V", $PROTECTED, $virtualMethod(IIOMetadataFormatImpl, addObjectValue, void, $String*, $Class*, int32_t, int32_t)},
-	{"createStandardFormat", "()V", nullptr, $PRIVATE | $STATIC | $SYNCHRONIZED, $staticMethod(IIOMetadataFormatImpl, createStandardFormat, void)},
-	{"getAttribute", "(Ljava/lang/String;Ljava/lang/String;)Ljavax/imageio/metadata/IIOMetadataFormatImpl$Attribute;", nullptr, $PRIVATE, $method(IIOMetadataFormatImpl, getAttribute, $IIOMetadataFormatImpl$Attribute*, $String*, $String*)},
-	{"getAttributeDataType", "(Ljava/lang/String;Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(IIOMetadataFormatImpl, getAttributeDataType, int32_t, $String*, $String*)},
-	{"getAttributeDefaultValue", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(IIOMetadataFormatImpl, getAttributeDefaultValue, $String*, $String*, $String*)},
-	{"getAttributeDescription", "(Ljava/lang/String;Ljava/lang/String;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(IIOMetadataFormatImpl, getAttributeDescription, $String*, $String*, $String*, $Locale*)},
-	{"getAttributeEnumerations", "(Ljava/lang/String;Ljava/lang/String;)[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(IIOMetadataFormatImpl, getAttributeEnumerations, $StringArray*, $String*, $String*)},
-	{"getAttributeListMaxLength", "(Ljava/lang/String;Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(IIOMetadataFormatImpl, getAttributeListMaxLength, int32_t, $String*, $String*)},
-	{"getAttributeListMinLength", "(Ljava/lang/String;Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(IIOMetadataFormatImpl, getAttributeListMinLength, int32_t, $String*, $String*)},
-	{"getAttributeMaxValue", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(IIOMetadataFormatImpl, getAttributeMaxValue, $String*, $String*, $String*)},
-	{"getAttributeMinValue", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(IIOMetadataFormatImpl, getAttributeMinValue, $String*, $String*, $String*)},
-	{"getAttributeNames", "(Ljava/lang/String;)[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(IIOMetadataFormatImpl, getAttributeNames, $StringArray*, $String*)},
-	{"getAttributeValueType", "(Ljava/lang/String;Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(IIOMetadataFormatImpl, getAttributeValueType, int32_t, $String*, $String*)},
-	{"getChildNames", "(Ljava/lang/String;)[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(IIOMetadataFormatImpl, getChildNames, $StringArray*, $String*)},
-	{"getChildPolicy", "(Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(IIOMetadataFormatImpl, getChildPolicy, int32_t, $String*)},
-	{"getElement", "(Ljava/lang/String;Z)Ljavax/imageio/metadata/IIOMetadataFormatImpl$Element;", nullptr, $PRIVATE, $method(IIOMetadataFormatImpl, getElement, $IIOMetadataFormatImpl$Element*, $String*, bool)},
-	{"getElement", "(Ljava/lang/String;)Ljavax/imageio/metadata/IIOMetadataFormatImpl$Element;", nullptr, $PRIVATE, $method(IIOMetadataFormatImpl, getElement, $IIOMetadataFormatImpl$Element*, $String*)},
-	{"getElementDescription", "(Ljava/lang/String;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(IIOMetadataFormatImpl, getElementDescription, $String*, $String*, $Locale*)},
-	{"getElementMaxChildren", "(Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(IIOMetadataFormatImpl, getElementMaxChildren, int32_t, $String*)},
-	{"getElementMinChildren", "(Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(IIOMetadataFormatImpl, getElementMinChildren, int32_t, $String*)},
-	{"getObjectArrayMaxLength", "(Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(IIOMetadataFormatImpl, getObjectArrayMaxLength, int32_t, $String*)},
-	{"getObjectArrayMinLength", "(Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(IIOMetadataFormatImpl, getObjectArrayMinLength, int32_t, $String*)},
-	{"getObjectClass", "(Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/String;)Ljava/lang/Class<*>;", $PUBLIC, $virtualMethod(IIOMetadataFormatImpl, getObjectClass, $Class*, $String*)},
-	{"getObjectDefaultValue", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(IIOMetadataFormatImpl, getObjectDefaultValue, $Object*, $String*)},
-	{"getObjectEnumerations", "(Ljava/lang/String;)[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(IIOMetadataFormatImpl, getObjectEnumerations, $ObjectArray*, $String*)},
-	{"getObjectMaxValue", "(Ljava/lang/String;)Ljava/lang/Comparable;", "(Ljava/lang/String;)Ljava/lang/Comparable<*>;", $PUBLIC, $virtualMethod(IIOMetadataFormatImpl, getObjectMaxValue, $Comparable*, $String*)},
-	{"getObjectMinValue", "(Ljava/lang/String;)Ljava/lang/Comparable;", "(Ljava/lang/String;)Ljava/lang/Comparable<*>;", $PUBLIC, $virtualMethod(IIOMetadataFormatImpl, getObjectMinValue, $Comparable*, $String*)},
-	{"getObjectValue", "(Ljava/lang/String;)Ljavax/imageio/metadata/IIOMetadataFormatImpl$ObjectValue;", "(Ljava/lang/String;)Ljavax/imageio/metadata/IIOMetadataFormatImpl$ObjectValue<*>;", $PRIVATE, $method(IIOMetadataFormatImpl, getObjectValue, $IIOMetadataFormatImpl$ObjectValue*, $String*)},
-	{"getObjectValueType", "(Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(IIOMetadataFormatImpl, getObjectValueType, int32_t, $String*)},
-	{"getResource", "(Ljava/lang/String;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PRIVATE, $method(IIOMetadataFormatImpl, getResource, $String*, $String*, $Locale*)},
-	{"getResourceBaseName", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(IIOMetadataFormatImpl, getResourceBaseName, $String*)},
-	{"getRootName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(IIOMetadataFormatImpl, getRootName, $String*)},
-	{"getStandardFormatInstance", "()Ljavax/imageio/metadata/IIOMetadataFormat;", nullptr, $PUBLIC | $STATIC, $staticMethod(IIOMetadataFormatImpl, getStandardFormatInstance, $IIOMetadataFormat*)},
-	{"isAttributeRequired", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(IIOMetadataFormatImpl, isAttributeRequired, bool, $String*, $String*)},
-	{"removeAttribute", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(IIOMetadataFormatImpl, removeAttribute, void, $String*, $String*)},
-	{"removeElement", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(IIOMetadataFormatImpl, removeElement, void, $String*)},
-	{"removeObjectValue", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(IIOMetadataFormatImpl, removeObjectValue, void, $String*)},
-	{"setResourceBaseName", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(IIOMetadataFormatImpl, setResourceBaseName, void, $String*)},
-	{}
-};
-
-$InnerClassInfo _IIOMetadataFormatImpl_InnerClassesInfo_[] = {
-	{"javax.imageio.metadata.IIOMetadataFormatImpl$ObjectValue", "javax.imageio.metadata.IIOMetadataFormatImpl", "ObjectValue", 0},
-	{"javax.imageio.metadata.IIOMetadataFormatImpl$Attribute", "javax.imageio.metadata.IIOMetadataFormatImpl", "Attribute", 0},
-	{"javax.imageio.metadata.IIOMetadataFormatImpl$Element", "javax.imageio.metadata.IIOMetadataFormatImpl", "Element", 0},
-	{}
-};
-
-$ClassInfo _IIOMetadataFormatImpl_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"javax.imageio.metadata.IIOMetadataFormatImpl",
-	"java.lang.Object",
-	"javax.imageio.metadata.IIOMetadataFormat",
-	_IIOMetadataFormatImpl_FieldInfo_,
-	_IIOMetadataFormatImpl_MethodInfo_,
-	nullptr,
-	nullptr,
-	_IIOMetadataFormatImpl_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.imageio.metadata.IIOMetadataFormatImpl$ObjectValue,javax.imageio.metadata.IIOMetadataFormatImpl$Attribute,javax.imageio.metadata.IIOMetadataFormatImpl$Element"
-};
-
-$Object* allocate$IIOMetadataFormatImpl($Class* clazz) {
-	return $of($alloc(IIOMetadataFormatImpl));
-}
-
 $String* IIOMetadataFormatImpl::standardMetadataFormatName = nullptr;
 $IIOMetadataFormat* IIOMetadataFormatImpl::standardFormat = nullptr;
 
 void IIOMetadataFormatImpl::init$($String* rootName, int32_t childPolicy) {
-	$useLocalCurrentObjectStackCache();
-	$set(this, resourceBaseName, $str({$($of(this)->getClass()->getName()), "Resources"_s}));
+	$useLocalObjectStack();
+	$set(this, resourceBaseName, $str({$(this->getClass()->getName()), "Resources"_s}));
 	$set(this, elementMap, $new($HashMap));
 	if (rootName == nullptr) {
 		$throwNew($IllegalArgumentException, "rootName == null!"_s);
@@ -166,12 +73,12 @@ void IIOMetadataFormatImpl::init$($String* rootName, int32_t childPolicy) {
 	$var($IIOMetadataFormatImpl$Element, root, $new($IIOMetadataFormatImpl$Element, this));
 	$set(root, elementName, rootName);
 	root->childPolicy = childPolicy;
-	$nc(this->elementMap)->put(rootName, root);
+	this->elementMap->put(rootName, root);
 }
 
 void IIOMetadataFormatImpl::init$($String* rootName, int32_t minChildren, int32_t maxChildren) {
-	$useLocalCurrentObjectStackCache();
-	$set(this, resourceBaseName, $str({$($of(this)->getClass()->getName()), "Resources"_s}));
+	$useLocalObjectStack();
+	$set(this, resourceBaseName, $str({$(this->getClass()->getName()), "Resources"_s}));
 	$set(this, elementMap, $new($HashMap));
 	if (rootName == nullptr) {
 		$throwNew($IllegalArgumentException, "rootName == null!"_s);
@@ -188,7 +95,7 @@ void IIOMetadataFormatImpl::init$($String* rootName, int32_t minChildren, int32_
 	root->minChildren = minChildren;
 	root->maxChildren = maxChildren;
 	$set(this, rootName, rootName);
-	$nc(this->elementMap)->put(rootName, root);
+	this->elementMap->put(rootName, root);
 }
 
 void IIOMetadataFormatImpl::setResourceBaseName($String* resourceBaseName) {
@@ -203,7 +110,7 @@ $String* IIOMetadataFormatImpl::getResourceBaseName() {
 }
 
 $IIOMetadataFormatImpl$Element* IIOMetadataFormatImpl::getElement($String* elementName, bool mustAppear) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (mustAppear && (elementName == nullptr)) {
 		$throwNew($IllegalArgumentException, "element name is null!"_s);
 	}
@@ -219,7 +126,7 @@ $IIOMetadataFormatImpl$Element* IIOMetadataFormatImpl::getElement($String* eleme
 }
 
 $IIOMetadataFormatImpl$Attribute* IIOMetadataFormatImpl::getAttribute($String* elementName, $String* attrName) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($IIOMetadataFormatImpl$Element, element, getElement(elementName));
 	$var($IIOMetadataFormatImpl$Attribute, attr, $cast($IIOMetadataFormatImpl$Attribute, $nc($nc(element)->attrMap)->get(attrName)));
 	if (attr == nullptr) {
@@ -229,7 +136,7 @@ $IIOMetadataFormatImpl$Attribute* IIOMetadataFormatImpl::getAttribute($String* e
 }
 
 void IIOMetadataFormatImpl::addElement($String* elementName, $String* parentName, int32_t childPolicy) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($IIOMetadataFormatImpl$Element, parent, getElement(parentName));
 	if (childPolicy < $IIOMetadataFormat::CHILD_POLICY_EMPTY || childPolicy > $IIOMetadataFormat::CHILD_POLICY_MAX || childPolicy == $IIOMetadataFormat::CHILD_POLICY_REPEAT) {
 		$throwNew($IllegalArgumentException, "Invalid value for childPolicy!"_s);
@@ -243,7 +150,7 @@ void IIOMetadataFormatImpl::addElement($String* elementName, $String* parentName
 }
 
 void IIOMetadataFormatImpl::addElement($String* elementName, $String* parentName, int32_t minChildren, int32_t maxChildren) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($IIOMetadataFormatImpl$Element, parent, getElement(parentName));
 	if (minChildren < 0) {
 		$throwNew($IllegalArgumentException, "minChildren < 0!"_s);
@@ -262,7 +169,7 @@ void IIOMetadataFormatImpl::addElement($String* elementName, $String* parentName
 }
 
 void IIOMetadataFormatImpl::addChildElement($String* elementName, $String* parentName) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($IIOMetadataFormatImpl$Element, parent, getElement(parentName));
 	$var($IIOMetadataFormatImpl$Element, element, getElement(elementName));
 	$nc($nc(parent)->childList)->add(elementName);
@@ -270,7 +177,7 @@ void IIOMetadataFormatImpl::addChildElement($String* elementName, $String* paren
 }
 
 void IIOMetadataFormatImpl::removeElement($String* elementName) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($IIOMetadataFormatImpl$Element, element, getElement(elementName, false));
 	if (element != nullptr) {
 		{
@@ -280,7 +187,7 @@ void IIOMetadataFormatImpl::removeElement($String* elementName) {
 				{
 					$var($IIOMetadataFormatImpl$Element, parent, getElement(parentName, false));
 					if (parent != nullptr) {
-						$nc(parent->childList)->remove($of(elementName));
+						$nc(parent->childList)->remove(elementName);
 					}
 				}
 			}
@@ -290,7 +197,7 @@ void IIOMetadataFormatImpl::removeElement($String* elementName) {
 }
 
 void IIOMetadataFormatImpl::addAttribute($String* elementName, $String* attrName, int32_t dataType, bool required, $String* defaultValue) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($IIOMetadataFormatImpl$Element, element, getElement(elementName));
 	if (attrName == nullptr) {
 		$throwNew($IllegalArgumentException, "attrName == null!"_s);
@@ -309,7 +216,7 @@ void IIOMetadataFormatImpl::addAttribute($String* elementName, $String* attrName
 }
 
 void IIOMetadataFormatImpl::addAttribute($String* elementName, $String* attrName, int32_t dataType, bool required, $String* defaultValue, $List* enumeratedValues) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($IIOMetadataFormatImpl$Element, element, getElement(elementName));
 	if (attrName == nullptr) {
 		$throwNew($IllegalArgumentException, "attrName == null!"_s);
@@ -324,7 +231,7 @@ void IIOMetadataFormatImpl::addAttribute($String* elementName, $String* attrName
 		$throwNew($IllegalArgumentException, "enumeratedValues is empty!"_s);
 	}
 	{
-		$var($Iterator, i$, $nc(enumeratedValues)->iterator());
+		$var($Iterator, i$, enumeratedValues->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Object, o, i$->next());
 			{
@@ -349,7 +256,7 @@ void IIOMetadataFormatImpl::addAttribute($String* elementName, $String* attrName
 }
 
 void IIOMetadataFormatImpl::addAttribute($String* elementName, $String* attrName, int32_t dataType, bool required, $String* defaultValue, $String* minValue, $String* maxValue, bool minInclusive, bool maxInclusive) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($IIOMetadataFormatImpl$Element, element, getElement(elementName));
 	if (attrName == nullptr) {
 		$throwNew($IllegalArgumentException, "attrName == null!"_s);
@@ -376,7 +283,7 @@ void IIOMetadataFormatImpl::addAttribute($String* elementName, $String* attrName
 }
 
 void IIOMetadataFormatImpl::addAttribute($String* elementName, $String* attrName, int32_t dataType, bool required, int32_t listMinLength, int32_t listMaxLength) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($IIOMetadataFormatImpl$Element, element, getElement(elementName));
 	if (attrName == nullptr) {
 		$throwNew($IllegalArgumentException, "attrName == null!"_s);
@@ -399,7 +306,7 @@ void IIOMetadataFormatImpl::addAttribute($String* elementName, $String* attrName
 }
 
 void IIOMetadataFormatImpl::addBooleanAttribute($String* elementName, $String* attrName, bool hasDefaultValue, bool defaultValue) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, values, $new($ArrayList));
 	values->add("TRUE"_s);
 	values->add("FALSE"_s);
@@ -412,12 +319,12 @@ void IIOMetadataFormatImpl::addBooleanAttribute($String* elementName, $String* a
 
 void IIOMetadataFormatImpl::removeAttribute($String* elementName, $String* attrName) {
 	$var($IIOMetadataFormatImpl$Element, element, getElement(elementName));
-	$nc($nc(element)->attrList)->remove($of(attrName));
+	$nc($nc(element)->attrList)->remove(attrName);
 	$nc(element->attrMap)->remove(attrName);
 }
 
 void IIOMetadataFormatImpl::addObjectValue($String* elementName, $Class* classType, bool required, Object$* defaultValue) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($IIOMetadataFormatImpl$Element, element, getElement(elementName));
 	$var($IIOMetadataFormatImpl$ObjectValue, obj, $new($IIOMetadataFormatImpl$ObjectValue, this));
 	obj->valueType = $IIOMetadataFormat::VALUE_ARBITRARY;
@@ -427,7 +334,7 @@ void IIOMetadataFormatImpl::addObjectValue($String* elementName, $Class* classTy
 }
 
 void IIOMetadataFormatImpl::addObjectValue($String* elementName, $Class* classType, bool required, Object$* defaultValue, $List* enumeratedValues) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($IIOMetadataFormatImpl$Element, element, getElement(elementName));
 	if (enumeratedValues == nullptr) {
 		$throwNew($IllegalArgumentException, "enumeratedValues == null!"_s);
@@ -436,7 +343,7 @@ void IIOMetadataFormatImpl::addObjectValue($String* elementName, $Class* classTy
 		$throwNew($IllegalArgumentException, "enumeratedValues is empty!"_s);
 	}
 	{
-		$var($Iterator, i$, $nc(enumeratedValues)->iterator());
+		$var($Iterator, i$, enumeratedValues->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Object, o, i$->next());
 			{
@@ -458,7 +365,7 @@ void IIOMetadataFormatImpl::addObjectValue($String* elementName, $Class* classTy
 }
 
 void IIOMetadataFormatImpl::addObjectValue($String* elementName, $Class* classType, Object$* defaultValue, $Comparable* minValue, $Comparable* maxValue, bool minInclusive, bool maxInclusive) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($IIOMetadataFormatImpl$Element, element, getElement(elementName));
 	$var($IIOMetadataFormatImpl$ObjectValue, obj, $new($IIOMetadataFormatImpl$ObjectValue, this));
 	obj->valueType = $IIOMetadataFormat::VALUE_RANGE;
@@ -476,7 +383,7 @@ void IIOMetadataFormatImpl::addObjectValue($String* elementName, $Class* classTy
 }
 
 void IIOMetadataFormatImpl::addObjectValue($String* elementName, $Class* classType, int32_t arrayMinLength, int32_t arrayMaxLength) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($IIOMetadataFormatImpl$Element, element, getElement(elementName));
 	$var($IIOMetadataFormatImpl$ObjectValue, obj, $new($IIOMetadataFormatImpl$ObjectValue, this));
 	obj->valueType = $IIOMetadataFormat::VALUE_LIST;
@@ -500,7 +407,7 @@ int32_t IIOMetadataFormatImpl::getElementMinChildren($String* elementName) {
 	if ($nc(element)->childPolicy != $IIOMetadataFormat::CHILD_POLICY_REPEAT) {
 		$throwNew($IllegalArgumentException, "Child policy not CHILD_POLICY_REPEAT!"_s);
 	}
-	return $nc(element)->minChildren;
+	return element->minChildren;
 }
 
 int32_t IIOMetadataFormatImpl::getElementMaxChildren($String* elementName) {
@@ -508,18 +415,18 @@ int32_t IIOMetadataFormatImpl::getElementMaxChildren($String* elementName) {
 	if ($nc(element)->childPolicy != $IIOMetadataFormat::CHILD_POLICY_REPEAT) {
 		$throwNew($IllegalArgumentException, "Child policy not CHILD_POLICY_REPEAT!"_s);
 	}
-	return $nc(element)->maxChildren;
+	return element->maxChildren;
 }
 
 $String* IIOMetadataFormatImpl::getResource($String* key, $Locale* locale$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Locale, locale, locale$renamed);
 	$beforeCallerSensitive();
 	if (locale == nullptr) {
 		$assign(locale, $Locale::getDefault());
 	}
 	try {
-		$var($ResourceBundle, bundle, $ResourceBundle::getBundle(this->resourceBaseName, locale, $($of(this)->getClass()->getModule())));
+		$var($ResourceBundle, bundle, $ResourceBundle::getBundle(this->resourceBaseName, locale, $(this->getClass()->getModule())));
 		return $nc(bundle)->getString(key);
 	} catch ($MissingResourceException& e) {
 		return nullptr;
@@ -538,20 +445,20 @@ int32_t IIOMetadataFormatImpl::getChildPolicy($String* elementName) {
 }
 
 $StringArray* IIOMetadataFormatImpl::getChildNames($String* elementName) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($IIOMetadataFormatImpl$Element, element, getElement(elementName));
 	if ($nc(element)->childPolicy == $IIOMetadataFormat::CHILD_POLICY_EMPTY) {
 		return nullptr;
 	}
-	return $fcast($StringArray, $nc($nc(element)->childList)->toArray($$new($StringArray, 0)));
+	return $cast($StringArray, $nc(element->childList)->toArray($$new($StringArray, 0)));
 }
 
 $StringArray* IIOMetadataFormatImpl::getAttributeNames($String* elementName) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($IIOMetadataFormatImpl$Element, element, getElement(elementName));
 	$var($List, names, $nc(element)->attrList);
 	$var($StringArray, result, $new($StringArray, $nc(names)->size()));
-	return $fcast($StringArray, names->toArray(result));
+	return $cast($StringArray, names->toArray(result));
 }
 
 int32_t IIOMetadataFormatImpl::getAttributeValueType($String* elementName, $String* attrName) {
@@ -575,14 +482,14 @@ $String* IIOMetadataFormatImpl::getAttributeDefaultValue($String* elementName, $
 }
 
 $StringArray* IIOMetadataFormatImpl::getAttributeEnumerations($String* elementName, $String* attrName) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($IIOMetadataFormatImpl$Attribute, attr, getAttribute(elementName, attrName));
 	if ($nc(attr)->valueType != $IIOMetadataFormat::VALUE_ENUMERATION) {
 		$throwNew($IllegalArgumentException, "Attribute not an enumeration!"_s);
 	}
-	$var($List, values, $nc(attr)->enumeratedValues);
+	$var($List, values, attr->enumeratedValues);
 	$var($StringArray, result, $new($StringArray, $nc(values)->size()));
-	return $fcast($StringArray, values->toArray(result));
+	return $cast($StringArray, values->toArray(result));
 }
 
 $String* IIOMetadataFormatImpl::getAttributeMinValue($String* elementName, $String* attrName) {
@@ -590,7 +497,7 @@ $String* IIOMetadataFormatImpl::getAttributeMinValue($String* elementName, $Stri
 	if ($nc(attr)->valueType != $IIOMetadataFormat::VALUE_RANGE && attr->valueType != $IIOMetadataFormat::VALUE_RANGE_MIN_INCLUSIVE && attr->valueType != $IIOMetadataFormat::VALUE_RANGE_MAX_INCLUSIVE && attr->valueType != $IIOMetadataFormat::VALUE_RANGE_MIN_MAX_INCLUSIVE) {
 		$throwNew($IllegalArgumentException, "Attribute not a range!"_s);
 	}
-	return $nc(attr)->minValue;
+	return attr->minValue;
 }
 
 $String* IIOMetadataFormatImpl::getAttributeMaxValue($String* elementName, $String* attrName) {
@@ -598,7 +505,7 @@ $String* IIOMetadataFormatImpl::getAttributeMaxValue($String* elementName, $Stri
 	if ($nc(attr)->valueType != $IIOMetadataFormat::VALUE_RANGE && attr->valueType != $IIOMetadataFormat::VALUE_RANGE_MIN_INCLUSIVE && attr->valueType != $IIOMetadataFormat::VALUE_RANGE_MAX_INCLUSIVE && attr->valueType != $IIOMetadataFormat::VALUE_RANGE_MIN_MAX_INCLUSIVE) {
 		$throwNew($IllegalArgumentException, "Attribute not a range!"_s);
 	}
-	return $nc(attr)->maxValue;
+	return attr->maxValue;
 }
 
 int32_t IIOMetadataFormatImpl::getAttributeListMinLength($String* elementName, $String* attrName) {
@@ -606,7 +513,7 @@ int32_t IIOMetadataFormatImpl::getAttributeListMinLength($String* elementName, $
 	if ($nc(attr)->valueType != $IIOMetadataFormat::VALUE_LIST) {
 		$throwNew($IllegalArgumentException, "Attribute not a list!"_s);
 	}
-	return $nc(attr)->listMinLength;
+	return attr->listMinLength;
 }
 
 int32_t IIOMetadataFormatImpl::getAttributeListMaxLength($String* elementName, $String* attrName) {
@@ -614,11 +521,11 @@ int32_t IIOMetadataFormatImpl::getAttributeListMaxLength($String* elementName, $
 	if ($nc(attr)->valueType != $IIOMetadataFormat::VALUE_LIST) {
 		$throwNew($IllegalArgumentException, "Attribute not a list!"_s);
 	}
-	return $nc(attr)->listMaxLength;
+	return attr->listMaxLength;
 }
 
 $String* IIOMetadataFormatImpl::getAttributeDescription($String* elementName, $String* attrName, $Locale* locale) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($IIOMetadataFormatImpl$Element, element, getElement(elementName));
 	if (attrName == nullptr) {
 		$throwNew($IllegalArgumentException, "attrName == null!"_s);
@@ -632,7 +539,7 @@ $String* IIOMetadataFormatImpl::getAttributeDescription($String* elementName, $S
 }
 
 $IIOMetadataFormatImpl$ObjectValue* IIOMetadataFormatImpl::getObjectValue($String* elementName) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($IIOMetadataFormatImpl$Element, element, getElement(elementName));
 	$var($IIOMetadataFormatImpl$ObjectValue, objv, $nc(element)->objectValue);
 	if (objv == nullptr) {
@@ -642,7 +549,7 @@ $IIOMetadataFormatImpl$ObjectValue* IIOMetadataFormatImpl::getObjectValue($Strin
 }
 
 int32_t IIOMetadataFormatImpl::getObjectValueType($String* elementName) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($IIOMetadataFormatImpl$Element, element, getElement(elementName));
 	$var($IIOMetadataFormatImpl$ObjectValue, objv, $nc(element)->objectValue);
 	if (objv == nullptr) {
@@ -658,34 +565,34 @@ $Class* IIOMetadataFormatImpl::getObjectClass($String* elementName) {
 
 $Object* IIOMetadataFormatImpl::getObjectDefaultValue($String* elementName) {
 	$var($IIOMetadataFormatImpl$ObjectValue, objv, getObjectValue(elementName));
-	return $of($nc(objv)->defaultValue);
+	return $nc(objv)->defaultValue;
 }
 
 $ObjectArray* IIOMetadataFormatImpl::getObjectEnumerations($String* elementName) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($IIOMetadataFormatImpl$ObjectValue, objv, getObjectValue(elementName));
 	if ($nc(objv)->valueType != $IIOMetadataFormat::VALUE_ENUMERATION) {
 		$throwNew($IllegalArgumentException, "Not an enumeration!"_s);
 	}
-	$var($List, vlist, $nc(objv)->enumeratedValues);
+	$var($List, vlist, objv->enumeratedValues);
 	$var($ObjectArray, values, $new($ObjectArray, $nc(vlist)->size()));
 	return vlist->toArray(values);
 }
 
 $Comparable* IIOMetadataFormatImpl::getObjectMinValue($String* elementName) {
 	$var($IIOMetadataFormatImpl$ObjectValue, objv, getObjectValue(elementName));
-	if (((int32_t)($nc(objv)->valueType & (uint32_t)$IIOMetadataFormat::VALUE_RANGE)) != $IIOMetadataFormat::VALUE_RANGE) {
+	if (($nc(objv)->valueType & $IIOMetadataFormat::VALUE_RANGE) != $IIOMetadataFormat::VALUE_RANGE) {
 		$throwNew($IllegalArgumentException, "Not a range!"_s);
 	}
-	return $nc(objv)->minValue;
+	return objv->minValue;
 }
 
 $Comparable* IIOMetadataFormatImpl::getObjectMaxValue($String* elementName) {
 	$var($IIOMetadataFormatImpl$ObjectValue, objv, getObjectValue(elementName));
-	if (((int32_t)($nc(objv)->valueType & (uint32_t)$IIOMetadataFormat::VALUE_RANGE)) != $IIOMetadataFormat::VALUE_RANGE) {
+	if (($nc(objv)->valueType & $IIOMetadataFormat::VALUE_RANGE) != $IIOMetadataFormat::VALUE_RANGE) {
 		$throwNew($IllegalArgumentException, "Not a range!"_s);
 	}
-	return $nc(objv)->maxValue;
+	return objv->maxValue;
 }
 
 int32_t IIOMetadataFormatImpl::getObjectArrayMinLength($String* elementName) {
@@ -693,7 +600,7 @@ int32_t IIOMetadataFormatImpl::getObjectArrayMinLength($String* elementName) {
 	if ($nc(objv)->valueType != $IIOMetadataFormat::VALUE_LIST) {
 		$throwNew($IllegalArgumentException, "Not a list!"_s);
 	}
-	return $nc(objv)->arrayMinLength;
+	return objv->arrayMinLength;
 }
 
 int32_t IIOMetadataFormatImpl::getObjectArrayMaxLength($String* elementName) {
@@ -701,13 +608,12 @@ int32_t IIOMetadataFormatImpl::getObjectArrayMaxLength($String* elementName) {
 	if ($nc(objv)->valueType != $IIOMetadataFormat::VALUE_LIST) {
 		$throwNew($IllegalArgumentException, "Not a list!"_s);
 	}
-	return $nc(objv)->arrayMaxLength;
+	return objv->arrayMaxLength;
 }
 
 void IIOMetadataFormatImpl::createStandardFormat() {
-	$load(IIOMetadataFormatImpl);
+	$init(IIOMetadataFormatImpl);
 	$synchronized(class$) {
-		$init(IIOMetadataFormatImpl);
 		if (IIOMetadataFormatImpl::standardFormat == nullptr) {
 			$assignStatic(IIOMetadataFormatImpl::standardFormat, $new($StandardMetadataFormat));
 		}
@@ -720,7 +626,7 @@ $IIOMetadataFormat* IIOMetadataFormatImpl::getStandardFormatInstance() {
 	return IIOMetadataFormatImpl::standardFormat;
 }
 
-void clinit$IIOMetadataFormatImpl($Class* class$) {
+void IIOMetadataFormatImpl::clinit$($Class* clazz) {
 	$assignStatic(IIOMetadataFormatImpl::standardMetadataFormatName, "javax_imageio_1.0"_s);
 	$assignStatic(IIOMetadataFormatImpl::standardFormat, nullptr);
 }
@@ -729,7 +635,92 @@ IIOMetadataFormatImpl::IIOMetadataFormatImpl() {
 }
 
 $Class* IIOMetadataFormatImpl::load$($String* name, bool initialize) {
-	$loadClass(IIOMetadataFormatImpl, name, initialize, &_IIOMetadataFormatImpl_ClassInfo_, clinit$IIOMetadataFormatImpl, allocate$IIOMetadataFormatImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"standardMetadataFormatName", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(IIOMetadataFormatImpl, standardMetadataFormatName)},
+		{"standardFormat", "Ljavax/imageio/metadata/IIOMetadataFormat;", nullptr, $PRIVATE | $STATIC, $staticField(IIOMetadataFormatImpl, standardFormat)},
+		{"resourceBaseName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(IIOMetadataFormatImpl, resourceBaseName)},
+		{"rootName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(IIOMetadataFormatImpl, rootName)},
+		{"elementMap", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/lang/String;Ljavax/imageio/metadata/IIOMetadataFormatImpl$Element;>;", $PRIVATE, $field(IIOMetadataFormatImpl, elementMap)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"canNodeAppear", "(Ljava/lang/String;Ljavax/imageio/ImageTypeSpecifier;)Z", nullptr, $PUBLIC | $ABSTRACT},
+		{"<init>", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(IIOMetadataFormatImpl, init$, void, $String*, int32_t)},
+		{"<init>", "(Ljava/lang/String;II)V", nullptr, $PUBLIC, $method(IIOMetadataFormatImpl, init$, void, $String*, int32_t, int32_t)},
+		{"addAttribute", "(Ljava/lang/String;Ljava/lang/String;IZLjava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(IIOMetadataFormatImpl, addAttribute, void, $String*, $String*, int32_t, bool, $String*)},
+		{"addAttribute", "(Ljava/lang/String;Ljava/lang/String;IZLjava/lang/String;Ljava/util/List;)V", "(Ljava/lang/String;Ljava/lang/String;IZLjava/lang/String;Ljava/util/List<Ljava/lang/String;>;)V", $PROTECTED, $virtualMethod(IIOMetadataFormatImpl, addAttribute, void, $String*, $String*, int32_t, bool, $String*, $List*)},
+		{"addAttribute", "(Ljava/lang/String;Ljava/lang/String;IZLjava/lang/String;Ljava/lang/String;Ljava/lang/String;ZZ)V", nullptr, $PROTECTED, $virtualMethod(IIOMetadataFormatImpl, addAttribute, void, $String*, $String*, int32_t, bool, $String*, $String*, $String*, bool, bool)},
+		{"addAttribute", "(Ljava/lang/String;Ljava/lang/String;IZII)V", nullptr, $PROTECTED, $virtualMethod(IIOMetadataFormatImpl, addAttribute, void, $String*, $String*, int32_t, bool, int32_t, int32_t)},
+		{"addBooleanAttribute", "(Ljava/lang/String;Ljava/lang/String;ZZ)V", nullptr, $PROTECTED, $virtualMethod(IIOMetadataFormatImpl, addBooleanAttribute, void, $String*, $String*, bool, bool)},
+		{"addChildElement", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(IIOMetadataFormatImpl, addChildElement, void, $String*, $String*)},
+		{"addElement", "(Ljava/lang/String;Ljava/lang/String;I)V", nullptr, $PROTECTED, $virtualMethod(IIOMetadataFormatImpl, addElement, void, $String*, $String*, int32_t)},
+		{"addElement", "(Ljava/lang/String;Ljava/lang/String;II)V", nullptr, $PROTECTED, $virtualMethod(IIOMetadataFormatImpl, addElement, void, $String*, $String*, int32_t, int32_t)},
+		{"addObjectValue", "(Ljava/lang/String;Ljava/lang/Class;ZLjava/lang/Object;)V", "<T:Ljava/lang/Object;>(Ljava/lang/String;Ljava/lang/Class<TT;>;ZTT;)V", $PROTECTED, $virtualMethod(IIOMetadataFormatImpl, addObjectValue, void, $String*, $Class*, bool, Object$*)},
+		{"addObjectValue", "(Ljava/lang/String;Ljava/lang/Class;ZLjava/lang/Object;Ljava/util/List;)V", "<T:Ljava/lang/Object;>(Ljava/lang/String;Ljava/lang/Class<TT;>;ZTT;Ljava/util/List<+TT;>;)V", $PROTECTED, $virtualMethod(IIOMetadataFormatImpl, addObjectValue, void, $String*, $Class*, bool, Object$*, $List*)},
+		{"addObjectValue", "(Ljava/lang/String;Ljava/lang/Class;Ljava/lang/Object;Ljava/lang/Comparable;Ljava/lang/Comparable;ZZ)V", "<T:Ljava/lang/Object;:Ljava/lang/Comparable<-TT;>;>(Ljava/lang/String;Ljava/lang/Class<TT;>;TT;Ljava/lang/Comparable<-TT;>;Ljava/lang/Comparable<-TT;>;ZZ)V", $PROTECTED, $virtualMethod(IIOMetadataFormatImpl, addObjectValue, void, $String*, $Class*, Object$*, $Comparable*, $Comparable*, bool, bool)},
+		{"addObjectValue", "(Ljava/lang/String;Ljava/lang/Class;II)V", "(Ljava/lang/String;Ljava/lang/Class<*>;II)V", $PROTECTED, $virtualMethod(IIOMetadataFormatImpl, addObjectValue, void, $String*, $Class*, int32_t, int32_t)},
+		{"createStandardFormat", "()V", nullptr, $PRIVATE | $STATIC | $SYNCHRONIZED, $staticMethod(IIOMetadataFormatImpl, createStandardFormat, void)},
+		{"getAttribute", "(Ljava/lang/String;Ljava/lang/String;)Ljavax/imageio/metadata/IIOMetadataFormatImpl$Attribute;", nullptr, $PRIVATE, $method(IIOMetadataFormatImpl, getAttribute, $IIOMetadataFormatImpl$Attribute*, $String*, $String*)},
+		{"getAttributeDataType", "(Ljava/lang/String;Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(IIOMetadataFormatImpl, getAttributeDataType, int32_t, $String*, $String*)},
+		{"getAttributeDefaultValue", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(IIOMetadataFormatImpl, getAttributeDefaultValue, $String*, $String*, $String*)},
+		{"getAttributeDescription", "(Ljava/lang/String;Ljava/lang/String;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(IIOMetadataFormatImpl, getAttributeDescription, $String*, $String*, $String*, $Locale*)},
+		{"getAttributeEnumerations", "(Ljava/lang/String;Ljava/lang/String;)[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(IIOMetadataFormatImpl, getAttributeEnumerations, $StringArray*, $String*, $String*)},
+		{"getAttributeListMaxLength", "(Ljava/lang/String;Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(IIOMetadataFormatImpl, getAttributeListMaxLength, int32_t, $String*, $String*)},
+		{"getAttributeListMinLength", "(Ljava/lang/String;Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(IIOMetadataFormatImpl, getAttributeListMinLength, int32_t, $String*, $String*)},
+		{"getAttributeMaxValue", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(IIOMetadataFormatImpl, getAttributeMaxValue, $String*, $String*, $String*)},
+		{"getAttributeMinValue", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(IIOMetadataFormatImpl, getAttributeMinValue, $String*, $String*, $String*)},
+		{"getAttributeNames", "(Ljava/lang/String;)[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(IIOMetadataFormatImpl, getAttributeNames, $StringArray*, $String*)},
+		{"getAttributeValueType", "(Ljava/lang/String;Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(IIOMetadataFormatImpl, getAttributeValueType, int32_t, $String*, $String*)},
+		{"getChildNames", "(Ljava/lang/String;)[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(IIOMetadataFormatImpl, getChildNames, $StringArray*, $String*)},
+		{"getChildPolicy", "(Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(IIOMetadataFormatImpl, getChildPolicy, int32_t, $String*)},
+		{"getElement", "(Ljava/lang/String;Z)Ljavax/imageio/metadata/IIOMetadataFormatImpl$Element;", nullptr, $PRIVATE, $method(IIOMetadataFormatImpl, getElement, $IIOMetadataFormatImpl$Element*, $String*, bool)},
+		{"getElement", "(Ljava/lang/String;)Ljavax/imageio/metadata/IIOMetadataFormatImpl$Element;", nullptr, $PRIVATE, $method(IIOMetadataFormatImpl, getElement, $IIOMetadataFormatImpl$Element*, $String*)},
+		{"getElementDescription", "(Ljava/lang/String;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(IIOMetadataFormatImpl, getElementDescription, $String*, $String*, $Locale*)},
+		{"getElementMaxChildren", "(Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(IIOMetadataFormatImpl, getElementMaxChildren, int32_t, $String*)},
+		{"getElementMinChildren", "(Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(IIOMetadataFormatImpl, getElementMinChildren, int32_t, $String*)},
+		{"getObjectArrayMaxLength", "(Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(IIOMetadataFormatImpl, getObjectArrayMaxLength, int32_t, $String*)},
+		{"getObjectArrayMinLength", "(Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(IIOMetadataFormatImpl, getObjectArrayMinLength, int32_t, $String*)},
+		{"getObjectClass", "(Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/String;)Ljava/lang/Class<*>;", $PUBLIC, $virtualMethod(IIOMetadataFormatImpl, getObjectClass, $Class*, $String*)},
+		{"getObjectDefaultValue", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(IIOMetadataFormatImpl, getObjectDefaultValue, $Object*, $String*)},
+		{"getObjectEnumerations", "(Ljava/lang/String;)[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(IIOMetadataFormatImpl, getObjectEnumerations, $ObjectArray*, $String*)},
+		{"getObjectMaxValue", "(Ljava/lang/String;)Ljava/lang/Comparable;", "(Ljava/lang/String;)Ljava/lang/Comparable<*>;", $PUBLIC, $virtualMethod(IIOMetadataFormatImpl, getObjectMaxValue, $Comparable*, $String*)},
+		{"getObjectMinValue", "(Ljava/lang/String;)Ljava/lang/Comparable;", "(Ljava/lang/String;)Ljava/lang/Comparable<*>;", $PUBLIC, $virtualMethod(IIOMetadataFormatImpl, getObjectMinValue, $Comparable*, $String*)},
+		{"getObjectValue", "(Ljava/lang/String;)Ljavax/imageio/metadata/IIOMetadataFormatImpl$ObjectValue;", "(Ljava/lang/String;)Ljavax/imageio/metadata/IIOMetadataFormatImpl$ObjectValue<*>;", $PRIVATE, $method(IIOMetadataFormatImpl, getObjectValue, $IIOMetadataFormatImpl$ObjectValue*, $String*)},
+		{"getObjectValueType", "(Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(IIOMetadataFormatImpl, getObjectValueType, int32_t, $String*)},
+		{"getResource", "(Ljava/lang/String;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PRIVATE, $method(IIOMetadataFormatImpl, getResource, $String*, $String*, $Locale*)},
+		{"getResourceBaseName", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(IIOMetadataFormatImpl, getResourceBaseName, $String*)},
+		{"getRootName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(IIOMetadataFormatImpl, getRootName, $String*)},
+		{"getStandardFormatInstance", "()Ljavax/imageio/metadata/IIOMetadataFormat;", nullptr, $PUBLIC | $STATIC, $staticMethod(IIOMetadataFormatImpl, getStandardFormatInstance, $IIOMetadataFormat*)},
+		{"isAttributeRequired", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(IIOMetadataFormatImpl, isAttributeRequired, bool, $String*, $String*)},
+		{"removeAttribute", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(IIOMetadataFormatImpl, removeAttribute, void, $String*, $String*)},
+		{"removeElement", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(IIOMetadataFormatImpl, removeElement, void, $String*)},
+		{"removeObjectValue", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(IIOMetadataFormatImpl, removeObjectValue, void, $String*)},
+		{"setResourceBaseName", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(IIOMetadataFormatImpl, setResourceBaseName, void, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.imageio.metadata.IIOMetadataFormatImpl$ObjectValue", "javax.imageio.metadata.IIOMetadataFormatImpl", "ObjectValue", 0},
+		{"javax.imageio.metadata.IIOMetadataFormatImpl$Attribute", "javax.imageio.metadata.IIOMetadataFormatImpl", "Attribute", 0},
+		{"javax.imageio.metadata.IIOMetadataFormatImpl$Element", "javax.imageio.metadata.IIOMetadataFormatImpl", "Element", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"javax.imageio.metadata.IIOMetadataFormatImpl",
+		"java.lang.Object",
+		"javax.imageio.metadata.IIOMetadataFormat",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.imageio.metadata.IIOMetadataFormatImpl$ObjectValue,javax.imageio.metadata.IIOMetadataFormatImpl$Attribute,javax.imageio.metadata.IIOMetadataFormatImpl$Element"
+	};
+	$loadClass(IIOMetadataFormatImpl, name, initialize, &classInfo$$, IIOMetadataFormatImpl::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(IIOMetadataFormatImpl);
+	});
 	return class$;
 }
 

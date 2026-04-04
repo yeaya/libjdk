@@ -1,5 +1,4 @@
 #include <java/awt/AWTError.h>
-
 #include <java/lang/Error.h>
 #include <jcpp.h>
 
@@ -10,29 +9,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace java {
 	namespace awt {
-
-$FieldInfo _AWTError_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AWTError, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _AWTError_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(AWTError, init$, void, $String*)},
-	{}
-};
-
-$ClassInfo _AWTError_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.awt.AWTError",
-	"java.lang.Error",
-	nullptr,
-	_AWTError_FieldInfo_,
-	_AWTError_MethodInfo_
-};
-
-$Object* allocate$AWTError($Class* clazz) {
-	return $of($alloc(AWTError));
-}
 
 void AWTError::init$($String* msg) {
 	$Error::init$(msg);
@@ -49,7 +25,25 @@ void AWTError::throw$() {
 }
 
 $Class* AWTError::load$($String* name, bool initialize) {
-	$loadClass(AWTError, name, initialize, &_AWTError_ClassInfo_, allocate$AWTError);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AWTError, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(AWTError, init$, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.awt.AWTError",
+		"java.lang.Error",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(AWTError, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AWTError);
+	});
 	return class$;
 }
 

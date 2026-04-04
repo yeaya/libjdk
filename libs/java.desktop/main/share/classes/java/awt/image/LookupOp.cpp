@@ -1,5 +1,4 @@
 #include <java/awt/image/LookupOp.h>
-
 #include <java/awt/Rectangle.h>
 #include <java/awt/RenderingHints.h>
 #include <java/awt/Transparency.h>
@@ -17,7 +16,6 @@
 #include <java/awt/image/IndexColorModel.h>
 #include <java/awt/image/LookupTable.h>
 #include <java/awt/image/Raster.h>
-#include <java/awt/image/RasterOp.h>
 #include <java/awt/image/ShortLookupTable.h>
 #include <java/awt/image/WritableRaster.h>
 #include <java/util/Hashtable.h>
@@ -32,7 +30,6 @@ using $byteArray2 = $Array<int8_t, 2>;
 using $shortArray2 = $Array<int16_t, 2>;
 using $RenderingHints = ::java::awt::RenderingHints;
 using $Transparency = ::java::awt::Transparency;
-using $ColorSpace = ::java::awt::color::ColorSpace;
 using $Point2D = ::java::awt::geom::Point2D;
 using $Point2D$Float = ::java::awt::geom::Point2D$Float;
 using $Rectangle2D = ::java::awt::geom::Rectangle2D;
@@ -46,7 +43,6 @@ using $DataBuffer = ::java::awt::image::DataBuffer;
 using $IndexColorModel = ::java::awt::image::IndexColorModel;
 using $LookupTable = ::java::awt::image::LookupTable;
 using $Raster = ::java::awt::image::Raster;
-using $RasterOp = ::java::awt::image::RasterOp;
 using $ShortLookupTable = ::java::awt::image::ShortLookupTable;
 using $WritableRaster = ::java::awt::image::WritableRaster;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -59,47 +55,6 @@ using $ImagingLib = ::sun::awt::image::ImagingLib;
 namespace java {
 	namespace awt {
 		namespace image {
-
-$FieldInfo _LookupOp_FieldInfo_[] = {
-	{"ltable", "Ljava/awt/image/LookupTable;", nullptr, $PRIVATE, $field(LookupOp, ltable)},
-	{"numComponents", "I", nullptr, $PRIVATE, $field(LookupOp, numComponents)},
-	{"hints", "Ljava/awt/RenderingHints;", nullptr, 0, $field(LookupOp, hints)},
-	{}
-};
-
-$MethodInfo _LookupOp_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/awt/image/LookupTable;Ljava/awt/RenderingHints;)V", nullptr, $PUBLIC, $method(LookupOp, init$, void, $LookupTable*, $RenderingHints*)},
-	{"byteFilter", "(Ljava/awt/image/ByteLookupTable;Ljava/awt/image/Raster;Ljava/awt/image/WritableRaster;III)V", nullptr, $PRIVATE, $method(LookupOp, byteFilter, void, $ByteLookupTable*, $Raster*, $WritableRaster*, int32_t, int32_t, int32_t)},
-	{"createCompatibleDestImage", "(Ljava/awt/image/BufferedImage;Ljava/awt/image/ColorModel;)Ljava/awt/image/BufferedImage;", nullptr, $PUBLIC, $virtualMethod(LookupOp, createCompatibleDestImage, $BufferedImage*, $BufferedImage*, $ColorModel*)},
-	{"createCompatibleDestRaster", "(Ljava/awt/image/Raster;)Ljava/awt/image/WritableRaster;", nullptr, $PUBLIC, $virtualMethod(LookupOp, createCompatibleDestRaster, $WritableRaster*, $Raster*)},
-	{"filter", "(Ljava/awt/image/BufferedImage;Ljava/awt/image/BufferedImage;)Ljava/awt/image/BufferedImage;", nullptr, $PUBLIC | $FINAL, $virtualMethod(LookupOp, filter, $BufferedImage*, $BufferedImage*, $BufferedImage*)},
-	{"filter", "(Ljava/awt/image/Raster;Ljava/awt/image/WritableRaster;)Ljava/awt/image/WritableRaster;", nullptr, $PUBLIC | $FINAL, $virtualMethod(LookupOp, filter, $WritableRaster*, $Raster*, $WritableRaster*)},
-	{"getBounds2D", "(Ljava/awt/image/BufferedImage;)Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC | $FINAL, $virtualMethod(LookupOp, getBounds2D, $Rectangle2D*, $BufferedImage*)},
-	{"getBounds2D", "(Ljava/awt/image/Raster;)Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC | $FINAL, $virtualMethod(LookupOp, getBounds2D, $Rectangle2D*, $Raster*)},
-	{"getPoint2D", "(Ljava/awt/geom/Point2D;Ljava/awt/geom/Point2D;)Ljava/awt/geom/Point2D;", nullptr, $PUBLIC | $FINAL, $virtualMethod(LookupOp, getPoint2D, $Point2D*, $Point2D*, $Point2D*)},
-	{"getRenderingHints", "()Ljava/awt/RenderingHints;", nullptr, $PUBLIC | $FINAL, $virtualMethod(LookupOp, getRenderingHints, $RenderingHints*)},
-	{"getTable", "()Ljava/awt/image/LookupTable;", nullptr, $PUBLIC | $FINAL, $method(LookupOp, getTable, $LookupTable*)},
-	{"shortFilter", "(Ljava/awt/image/ShortLookupTable;Ljava/awt/image/Raster;Ljava/awt/image/WritableRaster;III)V", nullptr, $PRIVATE, $method(LookupOp, shortFilter, void, $ShortLookupTable*, $Raster*, $WritableRaster*, int32_t, int32_t, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _LookupOp_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.awt.image.LookupOp",
-	"java.lang.Object",
-	"java.awt.image.BufferedImageOp,java.awt.image.RasterOp",
-	_LookupOp_FieldInfo_,
-	_LookupOp_MethodInfo_
-};
-
-$Object* allocate$LookupOp($Class* clazz) {
-	return $of($alloc(LookupOp));
-}
 
 int32_t LookupOp::hashCode() {
 	 return this->$BufferedImageOp::hashCode();
@@ -132,7 +87,7 @@ $LookupTable* LookupOp::getTable() {
 }
 
 $BufferedImage* LookupOp::filter($BufferedImage* src, $BufferedImage* dst$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($BufferedImage, dst, dst$renamed);
 	$var($ColorModel, srcCM, $nc(src)->getColorModel());
 	int32_t numBands = $nc(srcCM)->getNumColorComponents();
@@ -152,21 +107,21 @@ $BufferedImage* LookupOp::filter($BufferedImage* src, $BufferedImage* dst$rename
 		$assign(dst, createCompatibleDestImage(src, nullptr));
 		$assign(dstCM, srcCM);
 	} else {
-		if (width != $nc(dst)->getWidth()) {
+		if (width != dst->getWidth()) {
 			$throwNew($IllegalArgumentException, $$str({"Src width ("_s, $$str(width), ") not equal to dst width ("_s, $$str(dst->getWidth()), ")"_s}));
 		}
-		if (height != $nc(dst)->getHeight()) {
+		if (height != dst->getHeight()) {
 			$throwNew($IllegalArgumentException, $$str({"Src height ("_s, $$str(height), ") not equal to dst height ("_s, $$str(dst->getHeight()), ")"_s}));
 		}
-		$assign(dstCM, $nc(dst)->getColorModel());
-		int32_t var$1 = $nc($(srcCM->getColorSpace()))->getType();
-		if (var$1 != $nc($($nc(dstCM)->getColorSpace()))->getType()) {
+		$assign(dstCM, dst->getColorModel());
+		int32_t var$1 = $$nc(srcCM->getColorSpace())->getType();
+		if (var$1 != $$nc($nc(dstCM)->getColorSpace())->getType()) {
 			needToConvert = true;
 			$assign(dst, createCompatibleDestImage(src, nullptr));
 		}
 	}
 	$var($BufferedImage, origDst, dst);
-	if ($ImagingLib::filter(static_cast<$BufferedImageOp*>(this), src, dst) == nullptr) {
+	if ($ImagingLib::filter(this, src, dst) == nullptr) {
 		$var($WritableRaster, srcRaster, src->getRaster());
 		$var($WritableRaster, dstRaster, $nc(dst)->getRaster());
 		if (srcCM->hasAlpha()) {
@@ -177,10 +132,8 @@ $BufferedImage* LookupOp::filter($BufferedImage* src, $BufferedImage* dst$rename
 				for (int32_t i = 0; i < numBands - 1; ++i) {
 					bands->set(i, i);
 				}
-				int32_t var$2 = minx;
-				int32_t var$3 = miny;
-				int32_t var$4 = srcRaster->getWidth();
-				$assign(srcRaster, srcRaster->createWritableChild(var$2, var$3, var$4, srcRaster->getHeight(), minx, miny, bands));
+				int32_t var$2 = srcRaster->getWidth();
+				$assign(srcRaster, srcRaster->createWritableChild(minx, miny, var$2, srcRaster->getHeight(), minx, miny, bands));
 			}
 		}
 		if ($nc(dstCM)->hasAlpha()) {
@@ -192,13 +145,11 @@ $BufferedImage* LookupOp::filter($BufferedImage* src, $BufferedImage* dst$rename
 				for (int32_t i = 0; i < numBands - 1; ++i) {
 					bands->set(i, i);
 				}
-				int32_t var$5 = minx;
-				int32_t var$6 = miny;
-				int32_t var$7 = dstRaster->getWidth();
-				$assign(dstRaster, dstRaster->createWritableChild(var$5, var$6, var$7, dstRaster->getHeight(), minx, miny, bands));
+				int32_t var$3 = dstRaster->getWidth();
+				$assign(dstRaster, dstRaster->createWritableChild(minx, miny, var$3, dstRaster->getHeight(), minx, miny, bands));
 			}
 		}
-		filter(static_cast<$Raster*>(srcRaster), dstRaster);
+		filter(srcRaster, dstRaster);
 	}
 	if (needToConvert) {
 		$var($ColorConvertOp, ccop, $new($ColorConvertOp, this->hints));
@@ -208,7 +159,7 @@ $BufferedImage* LookupOp::filter($BufferedImage* src, $BufferedImage* dst$rename
 }
 
 $WritableRaster* LookupOp::filter($Raster* src, $WritableRaster* dst$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($WritableRaster, dst, dst$renamed);
 	int32_t numBands = $nc(src)->getNumBands();
 	int32_t height = src->getHeight();
@@ -217,8 +168,8 @@ $WritableRaster* LookupOp::filter($Raster* src, $WritableRaster* dst$renamed) {
 	if (dst == nullptr) {
 		$assign(dst, createCompatibleDestRaster(src));
 	} else {
-		bool var$1 = height != $nc(dst)->getHeight();
-		if (var$1 || width != $nc(dst)->getWidth()) {
+		bool var$0 = height != dst->getHeight();
+		if (var$0 || width != dst->getWidth()) {
 			$throwNew($IllegalArgumentException, "Width or height of Rasters do not match"_s);
 		}
 	}
@@ -230,7 +181,7 @@ $WritableRaster* LookupOp::filter($Raster* src, $WritableRaster* dst$renamed) {
 	if (numComponents != 1 && numComponents != src->getNumBands()) {
 		$throwNew($IllegalArgumentException, $$str({"Number of arrays in the  lookup table ("_s, $$str(numComponents), " is not compatible with the  src Raster: "_s, src}));
 	}
-	if ($ImagingLib::filter(static_cast<$RasterOp*>(this), src, dst) != nullptr) {
+	if ($ImagingLib::filter(this, src, dst) != nullptr) {
 		return dst;
 	}
 	if ($instanceOf($ByteLookupTable, this->ltable)) {
@@ -256,7 +207,7 @@ $WritableRaster* LookupOp::filter($Raster* src, $WritableRaster* dst$renamed) {
 }
 
 $Rectangle2D* LookupOp::getBounds2D($BufferedImage* src) {
-	return getBounds2D($(static_cast<$Raster*>($nc(src)->getRaster())));
+	return getBounds2D($($nc(src)->getRaster()));
 }
 
 $Rectangle2D* LookupOp::getBounds2D($Raster* src) {
@@ -264,7 +215,7 @@ $Rectangle2D* LookupOp::getBounds2D($Raster* src) {
 }
 
 $BufferedImage* LookupOp::createCompatibleDestImage($BufferedImage* src, $ColorModel* destCM) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($BufferedImage, image, nullptr);
 	int32_t w = $nc(src)->getWidth();
 	int32_t h = src->getHeight();
@@ -274,7 +225,7 @@ $BufferedImage* LookupOp::createCompatibleDestImage($BufferedImage* src, $ColorM
 		$var($Raster, raster, src->getRaster());
 		if ($instanceOf($ComponentColorModel, cm)) {
 			$var($DataBuffer, db, $nc(raster)->getDataBuffer());
-			bool hasAlpha = $nc(cm)->hasAlpha();
+			bool hasAlpha = cm->hasAlpha();
 			bool isPre = cm->isAlphaPremultiplied();
 			int32_t trans = cm->getTransparency();
 			$var($ints, nbits, nullptr);
@@ -312,13 +263,11 @@ $BufferedImage* LookupOp::createCompatibleDestImage($BufferedImage* src, $ColorM
 				$assign(cm, $new($ComponentColorModel, $(cm->getColorSpace()), nbits, hasAlpha, isPre, trans, transferType));
 			}
 		}
-		$var($ColorModel, var$0, cm);
-		$var($WritableRaster, var$1, $nc(cm)->createCompatibleWritableRaster(w, h));
-		$assign(image, $new($BufferedImage, var$0, var$1, cm->isAlphaPremultiplied(), ($Hashtable*)nullptr));
+		$var($WritableRaster, var$0, $nc(cm)->createCompatibleWritableRaster(w, h));
+		$assign(image, $new($BufferedImage, cm, var$0, cm->isAlphaPremultiplied(), nullptr));
 	} else {
-		$var($ColorModel, var$2, destCM);
-		$var($WritableRaster, var$3, $nc(destCM)->createCompatibleWritableRaster(w, h));
-		$assign(image, $new($BufferedImage, var$2, var$3, destCM->isAlphaPremultiplied(), ($Hashtable*)nullptr));
+		$var($WritableRaster, var$1, destCM->createCompatibleWritableRaster(w, h));
+		$assign(image, $new($BufferedImage, destCM, var$1, destCM->isAlphaPremultiplied(), nullptr));
 	}
 	return image;
 }
@@ -342,7 +291,7 @@ $RenderingHints* LookupOp::getRenderingHints() {
 }
 
 void LookupOp::byteFilter($ByteLookupTable* lookup, $Raster* src, $WritableRaster* dst, int32_t width, int32_t height, int32_t numBands) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ints, srcPix, nullptr);
 	$var($byteArray2, table, $nc(lookup)->getTable());
 	int32_t offset = lookup->getOffset();
@@ -354,7 +303,7 @@ void LookupOp::byteFilter($ByteLookupTable* lookup, $Raster* src, $WritableRaste
 	int32_t x = 0;
 	int32_t y = 0;
 	int32_t band = 0;
-	int32_t len = $nc($nc(table)->get(0))->length;
+	int32_t len = $nc(table->get(0))->length;
 	for (y = 0; y < height; ++y) {
 		tidx = 0;
 		for (band = 0; band < numBands; ++band, tidx += step) {
@@ -372,7 +321,7 @@ void LookupOp::byteFilter($ByteLookupTable* lookup, $Raster* src, $WritableRaste
 }
 
 void LookupOp::shortFilter($ShortLookupTable* lookup, $Raster* src, $WritableRaster* dst, int32_t width, int32_t height, int32_t numBands) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t band = 0;
 	$var($ints, srcPix, nullptr);
 	$var($shortArray2, table, $nc(lookup)->getTable());
@@ -395,7 +344,7 @@ void LookupOp::shortFilter($ShortLookupTable* lookup, $Raster* src, $WritableRas
 				if (index < 0 || index > maxShort) {
 					$throwNew($IllegalArgumentException, $$str({"index out of range "_s, $$str(index), " x is "_s, $$str(x), "srcPix[x]="_s, $$str(srcPix->get(x)), " offset="_s, $$str(offset)}));
 				}
-				srcPix->set(x, $nc($nc(table)->get(tidx))->get(index));
+				srcPix->set(x, $nc(table->get(tidx))->get(index));
 			}
 			$nc(dst)->setSamples(0, y, width, 1, band, srcPix);
 		}
@@ -406,7 +355,43 @@ LookupOp::LookupOp() {
 }
 
 $Class* LookupOp::load$($String* name, bool initialize) {
-	$loadClass(LookupOp, name, initialize, &_LookupOp_ClassInfo_, allocate$LookupOp);
+	$FieldInfo fieldInfos$$[] = {
+		{"ltable", "Ljava/awt/image/LookupTable;", nullptr, $PRIVATE, $field(LookupOp, ltable)},
+		{"numComponents", "I", nullptr, $PRIVATE, $field(LookupOp, numComponents)},
+		{"hints", "Ljava/awt/RenderingHints;", nullptr, 0, $field(LookupOp, hints)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/awt/image/LookupTable;Ljava/awt/RenderingHints;)V", nullptr, $PUBLIC, $method(LookupOp, init$, void, $LookupTable*, $RenderingHints*)},
+		{"byteFilter", "(Ljava/awt/image/ByteLookupTable;Ljava/awt/image/Raster;Ljava/awt/image/WritableRaster;III)V", nullptr, $PRIVATE, $method(LookupOp, byteFilter, void, $ByteLookupTable*, $Raster*, $WritableRaster*, int32_t, int32_t, int32_t)},
+		{"createCompatibleDestImage", "(Ljava/awt/image/BufferedImage;Ljava/awt/image/ColorModel;)Ljava/awt/image/BufferedImage;", nullptr, $PUBLIC, $virtualMethod(LookupOp, createCompatibleDestImage, $BufferedImage*, $BufferedImage*, $ColorModel*)},
+		{"createCompatibleDestRaster", "(Ljava/awt/image/Raster;)Ljava/awt/image/WritableRaster;", nullptr, $PUBLIC, $virtualMethod(LookupOp, createCompatibleDestRaster, $WritableRaster*, $Raster*)},
+		{"filter", "(Ljava/awt/image/BufferedImage;Ljava/awt/image/BufferedImage;)Ljava/awt/image/BufferedImage;", nullptr, $PUBLIC | $FINAL, $virtualMethod(LookupOp, filter, $BufferedImage*, $BufferedImage*, $BufferedImage*)},
+		{"filter", "(Ljava/awt/image/Raster;Ljava/awt/image/WritableRaster;)Ljava/awt/image/WritableRaster;", nullptr, $PUBLIC | $FINAL, $virtualMethod(LookupOp, filter, $WritableRaster*, $Raster*, $WritableRaster*)},
+		{"getBounds2D", "(Ljava/awt/image/BufferedImage;)Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC | $FINAL, $virtualMethod(LookupOp, getBounds2D, $Rectangle2D*, $BufferedImage*)},
+		{"getBounds2D", "(Ljava/awt/image/Raster;)Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC | $FINAL, $virtualMethod(LookupOp, getBounds2D, $Rectangle2D*, $Raster*)},
+		{"getPoint2D", "(Ljava/awt/geom/Point2D;Ljava/awt/geom/Point2D;)Ljava/awt/geom/Point2D;", nullptr, $PUBLIC | $FINAL, $virtualMethod(LookupOp, getPoint2D, $Point2D*, $Point2D*, $Point2D*)},
+		{"getRenderingHints", "()Ljava/awt/RenderingHints;", nullptr, $PUBLIC | $FINAL, $virtualMethod(LookupOp, getRenderingHints, $RenderingHints*)},
+		{"getTable", "()Ljava/awt/image/LookupTable;", nullptr, $PUBLIC | $FINAL, $method(LookupOp, getTable, $LookupTable*)},
+		{"shortFilter", "(Ljava/awt/image/ShortLookupTable;Ljava/awt/image/Raster;Ljava/awt/image/WritableRaster;III)V", nullptr, $PRIVATE, $method(LookupOp, shortFilter, void, $ShortLookupTable*, $Raster*, $WritableRaster*, int32_t, int32_t, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.awt.image.LookupOp",
+		"java.lang.Object",
+		"java.awt.image.BufferedImageOp,java.awt.image.RasterOp",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(LookupOp, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(LookupOp));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <java/awt/font/ImageGraphicAttribute.h>
-
 #include <java/awt/Graphics2D.h>
 #include <java/awt/Image.h>
 #include <java/awt/font/GraphicAttribute.h>
@@ -26,44 +25,8 @@ namespace java {
 	namespace awt {
 		namespace font {
 
-$FieldInfo _ImageGraphicAttribute_FieldInfo_[] = {
-	{"fImage", "Ljava/awt/Image;", nullptr, $PRIVATE, $field(ImageGraphicAttribute, fImage)},
-	{"fImageWidth", "F", nullptr, $PRIVATE, $field(ImageGraphicAttribute, fImageWidth)},
-	{"fImageHeight", "F", nullptr, $PRIVATE, $field(ImageGraphicAttribute, fImageHeight)},
-	{"fOriginX", "F", nullptr, $PRIVATE, $field(ImageGraphicAttribute, fOriginX)},
-	{"fOriginY", "F", nullptr, $PRIVATE, $field(ImageGraphicAttribute, fOriginY)},
-	{}
-};
-
-$MethodInfo _ImageGraphicAttribute_MethodInfo_[] = {
-	{"<init>", "(Ljava/awt/Image;I)V", nullptr, $PUBLIC, $method(ImageGraphicAttribute, init$, void, $Image*, int32_t)},
-	{"<init>", "(Ljava/awt/Image;IFF)V", nullptr, $PUBLIC, $method(ImageGraphicAttribute, init$, void, $Image*, int32_t, float, float)},
-	{"draw", "(Ljava/awt/Graphics2D;FF)V", nullptr, $PUBLIC, $virtualMethod(ImageGraphicAttribute, draw, void, $Graphics2D*, float, float)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ImageGraphicAttribute, equals, bool, Object$*)},
-	{"equals", "(Ljava/awt/font/ImageGraphicAttribute;)Z", nullptr, $PUBLIC, $method(ImageGraphicAttribute, equals, bool, ImageGraphicAttribute*)},
-	{"getAdvance", "()F", nullptr, $PUBLIC, $virtualMethod(ImageGraphicAttribute, getAdvance, float)},
-	{"getAscent", "()F", nullptr, $PUBLIC, $virtualMethod(ImageGraphicAttribute, getAscent, float)},
-	{"getBounds", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC, $virtualMethod(ImageGraphicAttribute, getBounds, $Rectangle2D*)},
-	{"getDescent", "()F", nullptr, $PUBLIC, $virtualMethod(ImageGraphicAttribute, getDescent, float)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(ImageGraphicAttribute, hashCode, int32_t)},
-	{}
-};
-
-$ClassInfo _ImageGraphicAttribute_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"java.awt.font.ImageGraphicAttribute",
-	"java.awt.font.GraphicAttribute",
-	nullptr,
-	_ImageGraphicAttribute_FieldInfo_,
-	_ImageGraphicAttribute_MethodInfo_
-};
-
-$Object* allocate$ImageGraphicAttribute($Class* clazz) {
-	return $of($alloc(ImageGraphicAttribute));
-}
-
 void ImageGraphicAttribute::init$($Image* image, int32_t alignment) {
-	ImageGraphicAttribute::init$(image, alignment, (float)0, (float)0);
+	ImageGraphicAttribute::init$(image, alignment, 0, 0);
 }
 
 void ImageGraphicAttribute::init$($Image* image, int32_t alignment, float originX, float originY) {
@@ -96,7 +59,7 @@ void ImageGraphicAttribute::draw($Graphics2D* graphics, float x, float y) {
 }
 
 int32_t ImageGraphicAttribute::hashCode() {
-	return $nc($of(this->fImage))->hashCode();
+	return $nc(this->fImage)->hashCode();
 }
 
 bool ImageGraphicAttribute::equals(Object$* rhs) {
@@ -115,14 +78,14 @@ bool ImageGraphicAttribute::equals(ImageGraphicAttribute* rhs) {
 	if (this == rhs) {
 		return true;
 	}
-	if (this->fOriginX != $nc(rhs)->fOriginX || this->fOriginY != $nc(rhs)->fOriginY) {
+	if (this->fOriginX != $nc(rhs)->fOriginX || this->fOriginY != rhs->fOriginY) {
 		return false;
 	}
 	int32_t var$0 = getAlignment();
-	if (var$0 != $nc(rhs)->getAlignment()) {
+	if (var$0 != rhs->getAlignment()) {
 		return false;
 	}
-	if (!$nc($of(this->fImage))->equals($nc(rhs)->fImage)) {
+	if (!$nc(this->fImage)->equals(rhs->fImage)) {
 		return false;
 	}
 	return true;
@@ -132,7 +95,38 @@ ImageGraphicAttribute::ImageGraphicAttribute() {
 }
 
 $Class* ImageGraphicAttribute::load$($String* name, bool initialize) {
-	$loadClass(ImageGraphicAttribute, name, initialize, &_ImageGraphicAttribute_ClassInfo_, allocate$ImageGraphicAttribute);
+	$FieldInfo fieldInfos$$[] = {
+		{"fImage", "Ljava/awt/Image;", nullptr, $PRIVATE, $field(ImageGraphicAttribute, fImage)},
+		{"fImageWidth", "F", nullptr, $PRIVATE, $field(ImageGraphicAttribute, fImageWidth)},
+		{"fImageHeight", "F", nullptr, $PRIVATE, $field(ImageGraphicAttribute, fImageHeight)},
+		{"fOriginX", "F", nullptr, $PRIVATE, $field(ImageGraphicAttribute, fOriginX)},
+		{"fOriginY", "F", nullptr, $PRIVATE, $field(ImageGraphicAttribute, fOriginY)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/Image;I)V", nullptr, $PUBLIC, $method(ImageGraphicAttribute, init$, void, $Image*, int32_t)},
+		{"<init>", "(Ljava/awt/Image;IFF)V", nullptr, $PUBLIC, $method(ImageGraphicAttribute, init$, void, $Image*, int32_t, float, float)},
+		{"draw", "(Ljava/awt/Graphics2D;FF)V", nullptr, $PUBLIC, $virtualMethod(ImageGraphicAttribute, draw, void, $Graphics2D*, float, float)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ImageGraphicAttribute, equals, bool, Object$*)},
+		{"equals", "(Ljava/awt/font/ImageGraphicAttribute;)Z", nullptr, $PUBLIC, $method(ImageGraphicAttribute, equals, bool, ImageGraphicAttribute*)},
+		{"getAdvance", "()F", nullptr, $PUBLIC, $virtualMethod(ImageGraphicAttribute, getAdvance, float)},
+		{"getAscent", "()F", nullptr, $PUBLIC, $virtualMethod(ImageGraphicAttribute, getAscent, float)},
+		{"getBounds", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC, $virtualMethod(ImageGraphicAttribute, getBounds, $Rectangle2D*)},
+		{"getDescent", "()F", nullptr, $PUBLIC, $virtualMethod(ImageGraphicAttribute, getDescent, float)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(ImageGraphicAttribute, hashCode, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"java.awt.font.ImageGraphicAttribute",
+		"java.awt.font.GraphicAttribute",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ImageGraphicAttribute, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ImageGraphicAttribute);
+	});
 	return class$;
 }
 

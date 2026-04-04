@@ -51,6 +51,7 @@ class $export OceanTheme : public ::javax::swing::plaf::metal::DefaultMetalTheme
 	$class(OceanTheme, 0, ::javax::swing::plaf::metal::DefaultMetalTheme)
 public:
 	OceanTheme();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void addCustomEntriesToTable(::javax::swing::UIDefaults* table) override;
 	virtual ::javax::swing::plaf::ColorUIResource* getBlack() override;

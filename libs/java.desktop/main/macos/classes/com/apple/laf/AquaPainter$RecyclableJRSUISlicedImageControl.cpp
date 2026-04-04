@@ -1,5 +1,4 @@
 #include <com/apple/laf/AquaPainter$RecyclableJRSUISlicedImageControl.h>
-
 #include <apple/laf/JRSUIControl.h>
 #include <apple/laf/JRSUIState.h>
 #include <com/apple/laf/AquaImageFactory$NineSliceMetrics.h>
@@ -21,7 +20,6 @@ using $AquaImageFactory$NineSliceMetrics = ::com::apple::laf::AquaImageFactory$N
 using $AquaImageFactory$RecyclableSlicedImageControl = ::com::apple::laf::AquaImageFactory$RecyclableSlicedImageControl;
 using $Image = ::java::awt::Image;
 using $BufferedImage = ::java::awt::image::BufferedImage;
-using $DataBuffer = ::java::awt::image::DataBuffer;
 using $DataBufferInt = ::java::awt::image::DataBufferInt;
 using $WritableRaster = ::java::awt::image::WritableRaster;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -34,44 +32,6 @@ namespace com {
 	namespace apple {
 		namespace laf {
 
-$FieldInfo _AquaPainter$RecyclableJRSUISlicedImageControl_FieldInfo_[] = {
-	{"control", "Lapple/laf/JRSUIControl;", nullptr, $PRIVATE | $FINAL, $field(AquaPainter$RecyclableJRSUISlicedImageControl, control)},
-	{"state", "Lapple/laf/JRSUIState;", nullptr, $PRIVATE | $FINAL, $field(AquaPainter$RecyclableJRSUISlicedImageControl, state)},
-	{}
-};
-
-$MethodInfo _AquaPainter$RecyclableJRSUISlicedImageControl_MethodInfo_[] = {
-	{"<init>", "(Lapple/laf/JRSUIControl;Lapple/laf/JRSUIState;Lcom/apple/laf/AquaImageFactory$NineSliceMetrics;)V", nullptr, 0, $method(AquaPainter$RecyclableJRSUISlicedImageControl, init$, void, $JRSUIControl*, $JRSUIState*, $AquaImageFactory$NineSliceMetrics*)},
-	{"createTemplateImage", "(II)Ljava/awt/Image;", nullptr, $PROTECTED, $virtualMethod(AquaPainter$RecyclableJRSUISlicedImageControl, createTemplateImage, $Image*, int32_t, int32_t)},
-	{}
-};
-
-$InnerClassInfo _AquaPainter$RecyclableJRSUISlicedImageControl_InnerClassesInfo_[] = {
-	{"com.apple.laf.AquaPainter$RecyclableJRSUISlicedImageControl", "com.apple.laf.AquaPainter", "RecyclableJRSUISlicedImageControl", $PRIVATE | $STATIC},
-	{"com.apple.laf.AquaImageFactory$RecyclableSlicedImageControl", "com.apple.laf.AquaImageFactory", "RecyclableSlicedImageControl", $PUBLIC | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _AquaPainter$RecyclableJRSUISlicedImageControl_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.apple.laf.AquaPainter$RecyclableJRSUISlicedImageControl",
-	"com.apple.laf.AquaImageFactory$RecyclableSlicedImageControl",
-	nullptr,
-	_AquaPainter$RecyclableJRSUISlicedImageControl_FieldInfo_,
-	_AquaPainter$RecyclableJRSUISlicedImageControl_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AquaPainter$RecyclableJRSUISlicedImageControl_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.apple.laf.AquaPainter"
-};
-
-$Object* allocate$AquaPainter$RecyclableJRSUISlicedImageControl($Class* clazz) {
-	return $of($alloc(AquaPainter$RecyclableJRSUISlicedImageControl));
-}
-
 void AquaPainter$RecyclableJRSUISlicedImageControl::init$($JRSUIControl* control, $JRSUIState* state, $AquaImageFactory$NineSliceMetrics* metrics) {
 	$AquaImageFactory$RecyclableSlicedImageControl::init$(metrics);
 	$set(this, control, control);
@@ -79,13 +39,13 @@ void AquaPainter$RecyclableJRSUISlicedImageControl::init$($JRSUIControl* control
 }
 
 $Image* AquaPainter$RecyclableJRSUISlicedImageControl::createTemplateImage(int32_t width, int32_t height) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($BufferedImage, image, $new($BufferedImage, $nc(this->metrics)->minW, $nc(this->metrics)->minH, $BufferedImage::TYPE_INT_ARGB_PRE));
 	$var($WritableRaster, raster, image->getRaster());
 	$var($DataBufferInt, buffer, $cast($DataBufferInt, $nc(raster)->getDataBuffer()));
 	$nc(this->control)->set(this->state);
-	$nc(this->control)->paint($($SunWritableRaster::stealData(buffer, 0)), $nc(this->metrics)->minW, $nc(this->metrics)->minH, (double)0, (double)0, (double)$nc(this->metrics)->minW, (double)$nc(this->metrics)->minH);
-	$SunWritableRaster::markDirty(static_cast<$DataBuffer*>(buffer));
+	this->control->paint($($SunWritableRaster::stealData(buffer, 0)), this->metrics->minW, this->metrics->minH, 0, 0, (double)this->metrics->minW, (double)this->metrics->minH);
+	$SunWritableRaster::markDirty(buffer);
 	return image;
 }
 
@@ -93,7 +53,39 @@ AquaPainter$RecyclableJRSUISlicedImageControl::AquaPainter$RecyclableJRSUISliced
 }
 
 $Class* AquaPainter$RecyclableJRSUISlicedImageControl::load$($String* name, bool initialize) {
-	$loadClass(AquaPainter$RecyclableJRSUISlicedImageControl, name, initialize, &_AquaPainter$RecyclableJRSUISlicedImageControl_ClassInfo_, allocate$AquaPainter$RecyclableJRSUISlicedImageControl);
+	$FieldInfo fieldInfos$$[] = {
+		{"control", "Lapple/laf/JRSUIControl;", nullptr, $PRIVATE | $FINAL, $field(AquaPainter$RecyclableJRSUISlicedImageControl, control)},
+		{"state", "Lapple/laf/JRSUIState;", nullptr, $PRIVATE | $FINAL, $field(AquaPainter$RecyclableJRSUISlicedImageControl, state)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lapple/laf/JRSUIControl;Lapple/laf/JRSUIState;Lcom/apple/laf/AquaImageFactory$NineSliceMetrics;)V", nullptr, 0, $method(AquaPainter$RecyclableJRSUISlicedImageControl, init$, void, $JRSUIControl*, $JRSUIState*, $AquaImageFactory$NineSliceMetrics*)},
+		{"createTemplateImage", "(II)Ljava/awt/Image;", nullptr, $PROTECTED, $virtualMethod(AquaPainter$RecyclableJRSUISlicedImageControl, createTemplateImage, $Image*, int32_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.laf.AquaPainter$RecyclableJRSUISlicedImageControl", "com.apple.laf.AquaPainter", "RecyclableJRSUISlicedImageControl", $PRIVATE | $STATIC},
+		{"com.apple.laf.AquaImageFactory$RecyclableSlicedImageControl", "com.apple.laf.AquaImageFactory", "RecyclableSlicedImageControl", $PUBLIC | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.apple.laf.AquaPainter$RecyclableJRSUISlicedImageControl",
+		"com.apple.laf.AquaImageFactory$RecyclableSlicedImageControl",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.apple.laf.AquaPainter"
+	};
+	$loadClass(AquaPainter$RecyclableJRSUISlicedImageControl, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AquaPainter$RecyclableJRSUISlicedImageControl);
+	});
 	return class$;
 }
 

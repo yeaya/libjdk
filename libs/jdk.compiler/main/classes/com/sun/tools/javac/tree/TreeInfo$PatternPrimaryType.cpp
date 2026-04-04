@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/tree/TreeInfo$PatternPrimaryType.h>
-
 #include <com/sun/tools/javac/code/Type.h>
 #include <com/sun/tools/javac/tree/TreeInfo.h>
 #include <java/lang/Record.h>
@@ -21,47 +20,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace tree {
-
-$FieldInfo _TreeInfo$PatternPrimaryType_FieldInfo_[] = {
-	{"type", "Lcom/sun/tools/javac/code/Type;", nullptr, $PRIVATE | $FINAL, $field(TreeInfo$PatternPrimaryType, type$)},
-	{"unconditional", "Z", nullptr, $PRIVATE | $FINAL, $field(TreeInfo$PatternPrimaryType, unconditional$)},
-	{}
-};
-
-$MethodInfo _TreeInfo$PatternPrimaryType_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Type;Z)V", nullptr, $PUBLIC, $method(TreeInfo$PatternPrimaryType, init$, void, $Type*, bool)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(TreeInfo$PatternPrimaryType, equals, bool, Object$*)},
-	{"hashCode", "()I", nullptr, $PUBLIC | $FINAL, $virtualMethod(TreeInfo$PatternPrimaryType, hashCode, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(TreeInfo$PatternPrimaryType, toString, $String*)},
-	{"type", "()Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $method(TreeInfo$PatternPrimaryType, type, $Type*)},
-	{"unconditional", "()Z", nullptr, $PUBLIC, $method(TreeInfo$PatternPrimaryType, unconditional, bool)},
-	{}
-};
-
-$InnerClassInfo _TreeInfo$PatternPrimaryType_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.tree.TreeInfo$PatternPrimaryType", "com.sun.tools.javac.tree.TreeInfo", "PatternPrimaryType", $PUBLIC | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _TreeInfo$PatternPrimaryType_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.tools.javac.tree.TreeInfo$PatternPrimaryType",
-	"java.lang.Record",
-	nullptr,
-	_TreeInfo$PatternPrimaryType_FieldInfo_,
-	_TreeInfo$PatternPrimaryType_MethodInfo_,
-	nullptr,
-	nullptr,
-	_TreeInfo$PatternPrimaryType_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.tree.TreeInfo"
-};
-
-$Object* allocate$TreeInfo$PatternPrimaryType($Class* clazz) {
-	return $of($alloc(TreeInfo$PatternPrimaryType));
-}
 
 void TreeInfo$PatternPrimaryType::init$($Type* type, bool unconditional) {
 	$Record::init$();
@@ -93,7 +51,42 @@ TreeInfo$PatternPrimaryType::TreeInfo$PatternPrimaryType() {
 }
 
 $Class* TreeInfo$PatternPrimaryType::load$($String* name, bool initialize) {
-	$loadClass(TreeInfo$PatternPrimaryType, name, initialize, &_TreeInfo$PatternPrimaryType_ClassInfo_, allocate$TreeInfo$PatternPrimaryType);
+	$FieldInfo fieldInfos$$[] = {
+		{"type", "Lcom/sun/tools/javac/code/Type;", nullptr, $PRIVATE | $FINAL, $field(TreeInfo$PatternPrimaryType, type$)},
+		{"unconditional", "Z", nullptr, $PRIVATE | $FINAL, $field(TreeInfo$PatternPrimaryType, unconditional$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/code/Type;Z)V", nullptr, $PUBLIC, $method(TreeInfo$PatternPrimaryType, init$, void, $Type*, bool)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(TreeInfo$PatternPrimaryType, equals, bool, Object$*)},
+		{"hashCode", "()I", nullptr, $PUBLIC | $FINAL, $virtualMethod(TreeInfo$PatternPrimaryType, hashCode, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(TreeInfo$PatternPrimaryType, toString, $String*)},
+		{"type", "()Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $method(TreeInfo$PatternPrimaryType, type, $Type*)},
+		{"unconditional", "()Z", nullptr, $PUBLIC, $method(TreeInfo$PatternPrimaryType, unconditional, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.tree.TreeInfo$PatternPrimaryType", "com.sun.tools.javac.tree.TreeInfo", "PatternPrimaryType", $PUBLIC | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.tools.javac.tree.TreeInfo$PatternPrimaryType",
+		"java.lang.Record",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.tree.TreeInfo"
+	};
+	$loadClass(TreeInfo$PatternPrimaryType, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TreeInfo$PatternPrimaryType);
+	});
 	return class$;
 }
 

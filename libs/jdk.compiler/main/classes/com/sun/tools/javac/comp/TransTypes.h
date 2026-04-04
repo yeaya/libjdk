@@ -122,6 +122,7 @@ class $export TransTypes : public ::com::sun::tools::javac::tree::TreeTranslator
 	$class(TransTypes, 0, ::com::sun::tools::javac::tree::TreeTranslator)
 public:
 	TransTypes();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::com::sun::tools::javac::util::Context* context);
 	virtual void addBridge(::com::sun::tools::javac::util::JCDiagnostic$DiagnosticPosition* pos, ::com::sun::tools::javac::code::Symbol$MethodSymbol* meth, ::com::sun::tools::javac::code::Symbol$MethodSymbol* impl, ::com::sun::tools::javac::code::Symbol$ClassSymbol* origin, ::com::sun::tools::javac::util::ListBuffer* bridges);
 	virtual void addBridgeIfNeeded(::com::sun::tools::javac::util::JCDiagnostic$DiagnosticPosition* pos, ::com::sun::tools::javac::code::Symbol* sym, ::com::sun::tools::javac::code::Symbol$ClassSymbol* origin, ::com::sun::tools::javac::util::ListBuffer* bridges);

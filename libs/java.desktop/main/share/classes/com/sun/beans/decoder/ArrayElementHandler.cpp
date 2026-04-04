@@ -1,5 +1,4 @@
 #include <com/sun/beans/decoder/ArrayElementHandler.h>
-
 #include <com/sun/beans/decoder/NewElementHandler.h>
 #include <com/sun/beans/decoder/ValueObject.h>
 #include <com/sun/beans/decoder/ValueObjectImpl.h>
@@ -19,33 +18,6 @@ namespace com {
 	namespace sun {
 		namespace beans {
 			namespace decoder {
-
-$FieldInfo _ArrayElementHandler_FieldInfo_[] = {
-	{"length", "Ljava/lang/Integer;", nullptr, $PRIVATE, $field(ArrayElementHandler, length)},
-	{}
-};
-
-$MethodInfo _ArrayElementHandler_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(ArrayElementHandler, init$, void)},
-	{"addAttribute", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ArrayElementHandler, addAttribute, void, $String*, $String*)},
-	{"getValueObject", "(Ljava/lang/Class;[Ljava/lang/Object;)Lcom/sun/beans/decoder/ValueObject;", "(Ljava/lang/Class<*>;[Ljava/lang/Object;)Lcom/sun/beans/decoder/ValueObject;", $PROTECTED, $virtualMethod(ArrayElementHandler, getValueObject, $ValueObject*, $Class*, $ObjectArray*)},
-	{"isArgument", "()Z", nullptr, $PROTECTED, $virtualMethod(ArrayElementHandler, isArgument, bool)},
-	{"startElement", "()V", nullptr, $PUBLIC, $virtualMethod(ArrayElementHandler, startElement, void)},
-	{}
-};
-
-$ClassInfo _ArrayElementHandler_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.beans.decoder.ArrayElementHandler",
-	"com.sun.beans.decoder.NewElementHandler",
-	nullptr,
-	_ArrayElementHandler_FieldInfo_,
-	_ArrayElementHandler_MethodInfo_
-};
-
-$Object* allocate$ArrayElementHandler($Class* clazz) {
-	return $of($alloc(ArrayElementHandler));
-}
 
 void ArrayElementHandler::init$() {
 	$NewElementHandler::init$();
@@ -70,15 +42,15 @@ bool ArrayElementHandler::isArgument() {
 }
 
 $ValueObject* ArrayElementHandler::getValueObject($Class* type, $ObjectArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (type == nullptr) {
 		type = $Object::class$;
 	}
 	if (this->length != nullptr) {
-		return $ValueObjectImpl::create($($1Array::newInstance(type, $nc(this->length)->intValue())));
+		return $ValueObjectImpl::create($($1Array::newInstance(type, this->length->intValue())));
 	}
 	$var($Object, array, $1Array::newInstance(type, $nc(args)->length));
-	for (int32_t i = 0; i < $nc(args)->length; ++i) {
+	for (int32_t i = 0; i < args->length; ++i) {
 		$1Array::set(array, i, args->get(i));
 	}
 	return $ValueObjectImpl::create(array);
@@ -88,7 +60,29 @@ ArrayElementHandler::ArrayElementHandler() {
 }
 
 $Class* ArrayElementHandler::load$($String* name, bool initialize) {
-	$loadClass(ArrayElementHandler, name, initialize, &_ArrayElementHandler_ClassInfo_, allocate$ArrayElementHandler);
+	$FieldInfo fieldInfos$$[] = {
+		{"length", "Ljava/lang/Integer;", nullptr, $PRIVATE, $field(ArrayElementHandler, length)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(ArrayElementHandler, init$, void)},
+		{"addAttribute", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ArrayElementHandler, addAttribute, void, $String*, $String*)},
+		{"getValueObject", "(Ljava/lang/Class;[Ljava/lang/Object;)Lcom/sun/beans/decoder/ValueObject;", "(Ljava/lang/Class<*>;[Ljava/lang/Object;)Lcom/sun/beans/decoder/ValueObject;", $PROTECTED, $virtualMethod(ArrayElementHandler, getValueObject, $ValueObject*, $Class*, $ObjectArray*)},
+		{"isArgument", "()Z", nullptr, $PROTECTED, $virtualMethod(ArrayElementHandler, isArgument, bool)},
+		{"startElement", "()V", nullptr, $PUBLIC, $virtualMethod(ArrayElementHandler, startElement, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.beans.decoder.ArrayElementHandler",
+		"com.sun.beans.decoder.NewElementHandler",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ArrayElementHandler, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ArrayElementHandler);
+	});
 	return class$;
 }
 

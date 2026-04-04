@@ -1,5 +1,4 @@
 #include <sun/awt/X11/XErrorEvent.h>
-
 #include <jdk/internal/misc/Unsafe.h>
 #include <sun/awt/X11/Native.h>
 #include <sun/awt/X11/XEvent.h>
@@ -11,64 +10,13 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Unsafe = ::jdk::internal::misc::Unsafe;
 using $Native = ::sun::awt::X11::Native;
 using $XWrapperBase = ::sun::awt::X11::XWrapperBase;
 using $XlibWrapper = ::sun::awt::X11::XlibWrapper;
-using $PlatformLogger = ::sun::util::logging::PlatformLogger;
 
 namespace sun {
 	namespace awt {
 		namespace X11 {
-
-$FieldInfo _XErrorEvent_FieldInfo_[] = {
-	{"unsafe", "Ljdk/internal/misc/Unsafe;", nullptr, $PRIVATE, $field(XErrorEvent, unsafe)},
-	{"should_free_memory", "Z", nullptr, $PRIVATE | $FINAL, $field(XErrorEvent, should_free_memory)},
-	{"pData", "J", nullptr, 0, $field(XErrorEvent, pData)},
-	{}
-};
-
-$MethodInfo _XErrorEvent_MethodInfo_[] = {
-	{"<init>", "(J)V", nullptr, $PUBLIC, $method(XErrorEvent, init$, void, int64_t)},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(XErrorEvent, init$, void)},
-	{"clone", "()Lsun/awt/X11/XEvent;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XErrorEvent, clone, $Object*)},
-	{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(XErrorEvent, dispose, void)},
-	{"getDataSize", "()I", nullptr, $PUBLIC, $virtualMethod(XErrorEvent, getDataSize, int32_t)},
-	{"getFieldsAsString", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(XErrorEvent, getFieldsAsString, $String*)},
-	{"getName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(XErrorEvent, getName, $String*)},
-	{"getPData", "()J", nullptr, $PUBLIC, $virtualMethod(XErrorEvent, getPData, int64_t)},
-	{"getSize", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(XErrorEvent, getSize, int32_t)},
-	{"get_display", "()J", nullptr, $PUBLIC, $virtualMethod(XErrorEvent, get_display, int64_t)},
-	{"get_error_code", "()B", nullptr, $PUBLIC, $virtualMethod(XErrorEvent, get_error_code, int8_t)},
-	{"get_minor_code", "()B", nullptr, $PUBLIC, $virtualMethod(XErrorEvent, get_minor_code, int8_t)},
-	{"get_request_code", "()B", nullptr, $PUBLIC, $virtualMethod(XErrorEvent, get_request_code, int8_t)},
-	{"get_resourceid", "()J", nullptr, $PUBLIC, $virtualMethod(XErrorEvent, get_resourceid, int64_t)},
-	{"get_serial", "()J", nullptr, $PUBLIC, $virtualMethod(XErrorEvent, get_serial, int64_t)},
-	{"get_type", "()I", nullptr, $PUBLIC, $virtualMethod(XErrorEvent, get_type, int32_t)},
-	{"set_display", "(J)V", nullptr, $PUBLIC, $virtualMethod(XErrorEvent, set_display, void, int64_t)},
-	{"set_error_code", "(B)V", nullptr, $PUBLIC, $virtualMethod(XErrorEvent, set_error_code, void, int8_t)},
-	{"set_minor_code", "(B)V", nullptr, $PUBLIC, $virtualMethod(XErrorEvent, set_minor_code, void, int8_t)},
-	{"set_request_code", "(B)V", nullptr, $PUBLIC, $virtualMethod(XErrorEvent, set_request_code, void, int8_t)},
-	{"set_resourceid", "(J)V", nullptr, $PUBLIC, $virtualMethod(XErrorEvent, set_resourceid, void, int64_t)},
-	{"set_serial", "(J)V", nullptr, $PUBLIC, $virtualMethod(XErrorEvent, set_serial, void, int64_t)},
-	{"set_type", "(I)V", nullptr, $PUBLIC, $virtualMethod(XErrorEvent, set_type, void, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XErrorEvent, toString, $String*)},
-	{"zero", "()V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XErrorEvent, zero, void)},
-	{}
-};
-
-$ClassInfo _XErrorEvent_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.awt.X11.XErrorEvent",
-	"sun.awt.X11.XWrapperBase",
-	nullptr,
-	_XErrorEvent_FieldInfo_,
-	_XErrorEvent_MethodInfo_
-};
-
-$Object* allocate$XErrorEvent($Class* clazz) {
-	return $of($alloc(XErrorEvent));
-}
 
 int32_t XErrorEvent::getSize() {
 	$init(XErrorEvent);
@@ -107,7 +55,7 @@ void XErrorEvent::dispose() {
 	$init($XWrapperBase);
 	$nc($XWrapperBase::log)->finest("Disposing"_s);
 	if (this->should_free_memory) {
-		$nc($XWrapperBase::log)->finest("freeing memory"_s);
+		$XWrapperBase::log->finest("freeing memory"_s);
 		$nc(this->unsafe)->freeMemory(this->pData);
 	}
 }
@@ -214,7 +162,7 @@ $String* XErrorEvent::getFieldsAsString() {
 }
 
 $Object* XErrorEvent::clone() {
-	return $of($XWrapperBase::clone());
+	return $XWrapperBase::clone();
 }
 
 void XErrorEvent::zero() {
@@ -229,7 +177,51 @@ XErrorEvent::XErrorEvent() {
 }
 
 $Class* XErrorEvent::load$($String* name, bool initialize) {
-	$loadClass(XErrorEvent, name, initialize, &_XErrorEvent_ClassInfo_, allocate$XErrorEvent);
+	$FieldInfo fieldInfos$$[] = {
+		{"unsafe", "Ljdk/internal/misc/Unsafe;", nullptr, $PRIVATE, $field(XErrorEvent, unsafe)},
+		{"should_free_memory", "Z", nullptr, $PRIVATE | $FINAL, $field(XErrorEvent, should_free_memory)},
+		{"pData", "J", nullptr, 0, $field(XErrorEvent, pData)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(J)V", nullptr, $PUBLIC, $method(XErrorEvent, init$, void, int64_t)},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(XErrorEvent, init$, void)},
+		{"clone", "()Lsun/awt/X11/XEvent;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XErrorEvent, clone, $Object*)},
+		{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(XErrorEvent, dispose, void)},
+		{"getDataSize", "()I", nullptr, $PUBLIC, $virtualMethod(XErrorEvent, getDataSize, int32_t)},
+		{"getFieldsAsString", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(XErrorEvent, getFieldsAsString, $String*)},
+		{"getName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(XErrorEvent, getName, $String*)},
+		{"getPData", "()J", nullptr, $PUBLIC, $virtualMethod(XErrorEvent, getPData, int64_t)},
+		{"getSize", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(XErrorEvent, getSize, int32_t)},
+		{"get_display", "()J", nullptr, $PUBLIC, $virtualMethod(XErrorEvent, get_display, int64_t)},
+		{"get_error_code", "()B", nullptr, $PUBLIC, $virtualMethod(XErrorEvent, get_error_code, int8_t)},
+		{"get_minor_code", "()B", nullptr, $PUBLIC, $virtualMethod(XErrorEvent, get_minor_code, int8_t)},
+		{"get_request_code", "()B", nullptr, $PUBLIC, $virtualMethod(XErrorEvent, get_request_code, int8_t)},
+		{"get_resourceid", "()J", nullptr, $PUBLIC, $virtualMethod(XErrorEvent, get_resourceid, int64_t)},
+		{"get_serial", "()J", nullptr, $PUBLIC, $virtualMethod(XErrorEvent, get_serial, int64_t)},
+		{"get_type", "()I", nullptr, $PUBLIC, $virtualMethod(XErrorEvent, get_type, int32_t)},
+		{"set_display", "(J)V", nullptr, $PUBLIC, $virtualMethod(XErrorEvent, set_display, void, int64_t)},
+		{"set_error_code", "(B)V", nullptr, $PUBLIC, $virtualMethod(XErrorEvent, set_error_code, void, int8_t)},
+		{"set_minor_code", "(B)V", nullptr, $PUBLIC, $virtualMethod(XErrorEvent, set_minor_code, void, int8_t)},
+		{"set_request_code", "(B)V", nullptr, $PUBLIC, $virtualMethod(XErrorEvent, set_request_code, void, int8_t)},
+		{"set_resourceid", "(J)V", nullptr, $PUBLIC, $virtualMethod(XErrorEvent, set_resourceid, void, int64_t)},
+		{"set_serial", "(J)V", nullptr, $PUBLIC, $virtualMethod(XErrorEvent, set_serial, void, int64_t)},
+		{"set_type", "(I)V", nullptr, $PUBLIC, $virtualMethod(XErrorEvent, set_type, void, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XErrorEvent, toString, $String*)},
+		{"zero", "()V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XErrorEvent, zero, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.awt.X11.XErrorEvent",
+		"sun.awt.X11.XWrapperBase",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XErrorEvent, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XErrorEvent);
+	});
 	return class$;
 }
 

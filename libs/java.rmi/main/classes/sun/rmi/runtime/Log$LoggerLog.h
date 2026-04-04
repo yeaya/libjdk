@@ -42,6 +42,7 @@ class Log$LoggerLog : public ::sun::rmi::runtime::Log {
 	$class(Log$LoggerLog, 0, ::sun::rmi::runtime::Log)
 public:
 	Log$LoggerLog();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::util::logging::Logger* logger, ::java::util::logging::Level* level);
 	virtual ::java::io::PrintStream* getPrintStream() override;
 	virtual bool isLoggable(::java::util::logging::Level* level) override;

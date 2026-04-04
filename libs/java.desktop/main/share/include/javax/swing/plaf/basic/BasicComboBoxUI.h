@@ -97,6 +97,7 @@ class $import BasicComboBoxUI : public ::javax::swing::plaf::ComboBoxUI {
 	$class(BasicComboBoxUI, 0, ::javax::swing::plaf::ComboBoxUI)
 public:
 	BasicComboBoxUI();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void addEditor();
 	virtual void configureArrowButton();

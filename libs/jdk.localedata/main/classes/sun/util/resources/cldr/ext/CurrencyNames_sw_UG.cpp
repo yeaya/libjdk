@@ -1,5 +1,4 @@
 #include <sun/util/resources/cldr/ext/CurrencyNames_sw_UG.h>
-
 #include <sun/util/resources/OpenListResourceBundle.h>
 #include <jcpp.h>
 
@@ -14,34 +13,15 @@ namespace sun {
 			namespace cldr {
 				namespace ext {
 
-$MethodInfo _CurrencyNames_sw_UG_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(CurrencyNames_sw_UG, init$, void)},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(CurrencyNames_sw_UG, getContents, $ObjectArray2*)},
-	{}
-};
-
-$ClassInfo _CurrencyNames_sw_UG_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.util.resources.cldr.ext.CurrencyNames_sw_UG",
-	"sun.util.resources.OpenListResourceBundle",
-	nullptr,
-	nullptr,
-	_CurrencyNames_sw_UG_MethodInfo_
-};
-
-$Object* allocate$CurrencyNames_sw_UG($Class* clazz) {
-	return $of($alloc(CurrencyNames_sw_UG));
-}
-
 void CurrencyNames_sw_UG::init$() {
 	$OpenListResourceBundle::init$();
 }
 
 $ObjectArray2* CurrencyNames_sw_UG::getContents() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectArray2, data, $new($ObjectArray2, {$$new($ObjectArray, {
-		$of("UGX"_s),
-		$of("USh"_s)
+		"UGX"_s,
+		"USh"_s
 	})}));
 	return data;
 }
@@ -50,7 +30,22 @@ CurrencyNames_sw_UG::CurrencyNames_sw_UG() {
 }
 
 $Class* CurrencyNames_sw_UG::load$($String* name, bool initialize) {
-	$loadClass(CurrencyNames_sw_UG, name, initialize, &_CurrencyNames_sw_UG_ClassInfo_, allocate$CurrencyNames_sw_UG);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(CurrencyNames_sw_UG, init$, void)},
+		{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(CurrencyNames_sw_UG, getContents, $ObjectArray2*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.util.resources.cldr.ext.CurrencyNames_sw_UG",
+		"sun.util.resources.OpenListResourceBundle",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(CurrencyNames_sw_UG, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CurrencyNames_sw_UG);
+	});
 	return class$;
 }
 

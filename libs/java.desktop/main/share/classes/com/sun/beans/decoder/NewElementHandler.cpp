@@ -1,5 +1,4 @@
 #include <com/sun/beans/decoder/NewElementHandler.h>
-
 #include <com/sun/beans/decoder/DocumentHandler.h>
 #include <com/sun/beans/decoder/ElementHandler.h>
 #include <com/sun/beans/decoder/ValueObject.h>
@@ -14,7 +13,6 @@
 
 #undef VOID
 
-using $DocumentHandler = ::com::sun::beans::decoder::DocumentHandler;
 using $ElementHandler = ::com::sun::beans::decoder::ElementHandler;
 using $ValueObject = ::com::sun::beans::decoder::ValueObject;
 using $ValueObjectImpl = ::com::sun::beans::decoder::ValueObjectImpl;
@@ -28,44 +26,11 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $1Array = ::java::lang::reflect::Array;
 using $Constructor = ::java::lang::reflect::Constructor;
 using $ArrayList = ::java::util::ArrayList;
-using $List = ::java::util::List;
 
 namespace com {
 	namespace sun {
 		namespace beans {
 			namespace decoder {
-
-$FieldInfo _NewElementHandler_FieldInfo_[] = {
-	{"arguments", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/Object;>;", $PRIVATE, $field(NewElementHandler, arguments)},
-	{"value", "Lcom/sun/beans/decoder/ValueObject;", nullptr, $PRIVATE, $field(NewElementHandler, value)},
-	{"type", "Ljava/lang/Class;", "Ljava/lang/Class<*>;", $PRIVATE, $field(NewElementHandler, type)},
-	{}
-};
-
-$MethodInfo _NewElementHandler_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(NewElementHandler, init$, void)},
-	{"addArgument", "(Ljava/lang/Object;)V", nullptr, $PROTECTED | $FINAL, $virtualMethod(NewElementHandler, addArgument, void, Object$*)},
-	{"addAttribute", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(NewElementHandler, addAttribute, void, $String*, $String*)},
-	{"getArgumentTypes", "([Ljava/lang/Object;)[Ljava/lang/Class;", "([Ljava/lang/Object;)[Ljava/lang/Class<*>;", $STATIC, $staticMethod(NewElementHandler, getArgumentTypes, $ClassArray*, $ObjectArray*)},
-	{"getArguments", "([Ljava/lang/Object;[Ljava/lang/Class;)[Ljava/lang/Object;", "([Ljava/lang/Object;[Ljava/lang/Class<*>;)[Ljava/lang/Object;", $STATIC, $staticMethod(NewElementHandler, getArguments, $ObjectArray*, $ObjectArray*, $ClassArray*)},
-	{"getContextBean", "()Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(NewElementHandler, getContextBean, $Object*)},
-	{"getValueObject", "()Lcom/sun/beans/decoder/ValueObject;", nullptr, $PROTECTED | $FINAL, $virtualMethod(NewElementHandler, getValueObject, $ValueObject*)},
-	{"getValueObject", "(Ljava/lang/Class;[Ljava/lang/Object;)Lcom/sun/beans/decoder/ValueObject;", "(Ljava/lang/Class<*>;[Ljava/lang/Object;)Lcom/sun/beans/decoder/ValueObject;", 0, $virtualMethod(NewElementHandler, getValueObject, $ValueObject*, $Class*, $ObjectArray*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _NewElementHandler_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.beans.decoder.NewElementHandler",
-	"com.sun.beans.decoder.ElementHandler",
-	nullptr,
-	_NewElementHandler_FieldInfo_,
-	_NewElementHandler_MethodInfo_
-};
-
-$Object* allocate$NewElementHandler($Class* clazz) {
-	return $of($alloc(NewElementHandler));
-}
 
 void NewElementHandler::init$() {
 	$ElementHandler::init$();
@@ -76,7 +41,7 @@ void NewElementHandler::init$() {
 
 void NewElementHandler::addAttribute($String* name, $String* value) {
 	if ($nc(name)->equals("class"_s)) {
-		$set(this, type, $nc($(getOwner()))->findClass(value));
+		$set(this, type, $$nc(getOwner())->findClass(value));
 	} else {
 		$ElementHandler::addAttribute(name, value);
 	}
@@ -90,35 +55,33 @@ void NewElementHandler::addArgument(Object$* argument) {
 }
 
 $Object* NewElementHandler::getContextBean() {
-	return $of((this->type != nullptr) ? $of(this->type) : $ElementHandler::getContextBean());
+	return (this->type != nullptr) ? $of(this->type) : $ElementHandler::getContextBean();
 }
 
 $ValueObject* NewElementHandler::getValueObject() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->arguments != nullptr) {
-		{
-			$var($Throwable, var$0, nullptr);
+		$var($Throwable, var$0, nullptr);
+		try {
 			try {
-				try {
-					$set(this, value, getValueObject(this->type, $($nc(this->arguments)->toArray())));
-				} catch ($Exception& exception) {
-					$nc($(getOwner()))->handleException(exception);
-				}
-			} catch ($Throwable& var$1) {
-				$assign(var$0, var$1);
-			} /*finally*/ {
-				$set(this, arguments, nullptr);
+				$set(this, value, getValueObject(this->type, $(this->arguments->toArray())));
+			} catch ($Exception& exception) {
+				$$nc(getOwner())->handleException(exception);
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
+		} /*finally*/ {
+			$set(this, arguments, nullptr);
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	}
 	return this->value;
 }
 
 $ValueObject* NewElementHandler::getValueObject($Class* type, $ObjectArray* args$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectArray, args, args$renamed);
 	$beforeCallerSensitive();
 	if (type == nullptr) {
@@ -129,7 +92,7 @@ $ValueObject* NewElementHandler::getValueObject($Class* type, $ObjectArray* args
 	if ($nc(constructor)->isVarArgs()) {
 		$assign(args, getArguments(args, $(constructor->getParameterTypes())));
 	}
-	return $ValueObjectImpl::create($($nc(constructor)->newInstance(args)));
+	return $ValueObjectImpl::create($(constructor->newInstance(args)));
 }
 
 $ClassArray* NewElementHandler::getArgumentTypes($ObjectArray* arguments) {
@@ -137,7 +100,7 @@ $ClassArray* NewElementHandler::getArgumentTypes($ObjectArray* arguments) {
 	$var($ClassArray, types, $new($ClassArray, $nc(arguments)->length));
 	for (int32_t i = 0; i < arguments->length; ++i) {
 		if (arguments->get(i) != nullptr) {
-			types->set(i, $nc($of(arguments->get(i)))->getClass());
+			types->set(i, $nc(arguments->get(i))->getClass());
 		}
 	}
 	return types;
@@ -145,7 +108,7 @@ $ClassArray* NewElementHandler::getArgumentTypes($ObjectArray* arguments) {
 
 $ObjectArray* NewElementHandler::getArguments($ObjectArray* arguments, $ClassArray* types) {
 	$init(NewElementHandler);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t index = $nc(types)->length - 1;
 	if (types->length == $nc(arguments)->length) {
 		$var($Object0, argument, arguments->get(index));
@@ -153,11 +116,11 @@ $ObjectArray* NewElementHandler::getArguments($ObjectArray* arguments, $ClassArr
 			return arguments;
 		}
 		$Class* type = types->get(index);
-		if ($nc(type)->isAssignableFrom($nc($of(argument))->getClass())) {
+		if ($nc(type)->isAssignableFrom($nc(argument)->getClass())) {
 			return arguments;
 		}
 	}
-	int32_t length = $nc(arguments)->length - index;
+	int32_t length = arguments->length - index;
 	$Class* type = $nc(types->get(index))->getComponentType();
 	$var($Object, array, $1Array::newInstance(type, length));
 	$System::arraycopy(arguments, index, array, 0, length);
@@ -171,7 +134,34 @@ NewElementHandler::NewElementHandler() {
 }
 
 $Class* NewElementHandler::load$($String* name, bool initialize) {
-	$loadClass(NewElementHandler, name, initialize, &_NewElementHandler_ClassInfo_, allocate$NewElementHandler);
+	$FieldInfo fieldInfos$$[] = {
+		{"arguments", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/Object;>;", $PRIVATE, $field(NewElementHandler, arguments)},
+		{"value", "Lcom/sun/beans/decoder/ValueObject;", nullptr, $PRIVATE, $field(NewElementHandler, value)},
+		{"type", "Ljava/lang/Class;", "Ljava/lang/Class<*>;", $PRIVATE, $field(NewElementHandler, type)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(NewElementHandler, init$, void)},
+		{"addArgument", "(Ljava/lang/Object;)V", nullptr, $PROTECTED | $FINAL, $virtualMethod(NewElementHandler, addArgument, void, Object$*)},
+		{"addAttribute", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(NewElementHandler, addAttribute, void, $String*, $String*)},
+		{"getArgumentTypes", "([Ljava/lang/Object;)[Ljava/lang/Class;", "([Ljava/lang/Object;)[Ljava/lang/Class<*>;", $STATIC, $staticMethod(NewElementHandler, getArgumentTypes, $ClassArray*, $ObjectArray*)},
+		{"getArguments", "([Ljava/lang/Object;[Ljava/lang/Class;)[Ljava/lang/Object;", "([Ljava/lang/Object;[Ljava/lang/Class<*>;)[Ljava/lang/Object;", $STATIC, $staticMethod(NewElementHandler, getArguments, $ObjectArray*, $ObjectArray*, $ClassArray*)},
+		{"getContextBean", "()Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(NewElementHandler, getContextBean, $Object*)},
+		{"getValueObject", "()Lcom/sun/beans/decoder/ValueObject;", nullptr, $PROTECTED | $FINAL, $virtualMethod(NewElementHandler, getValueObject, $ValueObject*)},
+		{"getValueObject", "(Ljava/lang/Class;[Ljava/lang/Object;)Lcom/sun/beans/decoder/ValueObject;", "(Ljava/lang/Class<*>;[Ljava/lang/Object;)Lcom/sun/beans/decoder/ValueObject;", 0, $virtualMethod(NewElementHandler, getValueObject, $ValueObject*, $Class*, $ObjectArray*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.beans.decoder.NewElementHandler",
+		"com.sun.beans.decoder.ElementHandler",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(NewElementHandler, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(NewElementHandler);
+	});
 	return class$;
 }
 

@@ -1,8 +1,6 @@
 #include <java/awt/image/DataBuffer.h>
-
 #include <java/awt/image/DataBuffer$1.h>
 #include <java/lang/ArrayIndexOutOfBoundsException.h>
-#include <sun/awt/image/SunWritableRaster$DataStealer.h>
 #include <sun/awt/image/SunWritableRaster.h>
 #include <sun/java2d/StateTrackable$State.h>
 #include <sun/java2d/StateTrackableDelegate.h>
@@ -25,7 +23,6 @@ using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $SunWritableRaster = ::sun::awt::image::SunWritableRaster;
-using $SunWritableRaster$DataStealer = ::sun::awt::image::SunWritableRaster$DataStealer;
 using $StateTrackable$State = ::sun::java2d::StateTrackable$State;
 using $StateTrackableDelegate = ::sun::java2d::StateTrackableDelegate;
 
@@ -33,88 +30,15 @@ namespace java {
 	namespace awt {
 		namespace image {
 
-$FieldInfo _DataBuffer_FieldInfo_[] = {
-	{"TYPE_BYTE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DataBuffer, TYPE_BYTE)},
-	{"TYPE_USHORT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DataBuffer, TYPE_USHORT)},
-	{"TYPE_SHORT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DataBuffer, TYPE_SHORT)},
-	{"TYPE_INT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DataBuffer, TYPE_INT)},
-	{"TYPE_FLOAT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DataBuffer, TYPE_FLOAT)},
-	{"TYPE_DOUBLE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DataBuffer, TYPE_DOUBLE)},
-	{"TYPE_UNDEFINED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DataBuffer, TYPE_UNDEFINED)},
-	{"dataType", "I", nullptr, $PROTECTED, $field(DataBuffer, dataType)},
-	{"banks", "I", nullptr, $PROTECTED, $field(DataBuffer, banks)},
-	{"offset", "I", nullptr, $PROTECTED, $field(DataBuffer, offset)},
-	{"size", "I", nullptr, $PROTECTED, $field(DataBuffer, size)},
-	{"offsets", "[I", nullptr, $PROTECTED, $field(DataBuffer, offsets)},
-	{"theTrackable", "Lsun/java2d/StateTrackableDelegate;", nullptr, 0, $field(DataBuffer, theTrackable)},
-	{"dataTypeSize", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DataBuffer, dataTypeSize)},
-	{}
-};
-
-$MethodInfo _DataBuffer_MethodInfo_[] = {
-	{"<init>", "(II)V", nullptr, $PROTECTED, $method(DataBuffer, init$, void, int32_t, int32_t)},
-	{"<init>", "(Lsun/java2d/StateTrackable$State;II)V", nullptr, 0, $method(DataBuffer, init$, void, $StateTrackable$State*, int32_t, int32_t)},
-	{"<init>", "(III)V", nullptr, $PROTECTED, $method(DataBuffer, init$, void, int32_t, int32_t, int32_t)},
-	{"<init>", "(Lsun/java2d/StateTrackable$State;III)V", nullptr, 0, $method(DataBuffer, init$, void, $StateTrackable$State*, int32_t, int32_t, int32_t)},
-	{"<init>", "(IIII)V", nullptr, $PROTECTED, $method(DataBuffer, init$, void, int32_t, int32_t, int32_t, int32_t)},
-	{"<init>", "(Lsun/java2d/StateTrackable$State;IIII)V", nullptr, 0, $method(DataBuffer, init$, void, $StateTrackable$State*, int32_t, int32_t, int32_t, int32_t)},
-	{"<init>", "(III[I)V", nullptr, $PROTECTED, $method(DataBuffer, init$, void, int32_t, int32_t, int32_t, $ints*)},
-	{"<init>", "(Lsun/java2d/StateTrackable$State;III[I)V", nullptr, 0, $method(DataBuffer, init$, void, $StateTrackable$State*, int32_t, int32_t, int32_t, $ints*)},
-	{"getDataType", "()I", nullptr, $PUBLIC, $virtualMethod(DataBuffer, getDataType, int32_t)},
-	{"getDataTypeSize", "(I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(DataBuffer, getDataTypeSize, int32_t, int32_t)},
-	{"getElem", "(I)I", nullptr, $PUBLIC, $virtualMethod(DataBuffer, getElem, int32_t, int32_t)},
-	{"getElem", "(II)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DataBuffer, getElem, int32_t, int32_t, int32_t)},
-	{"getElemDouble", "(I)D", nullptr, $PUBLIC, $virtualMethod(DataBuffer, getElemDouble, double, int32_t)},
-	{"getElemDouble", "(II)D", nullptr, $PUBLIC, $virtualMethod(DataBuffer, getElemDouble, double, int32_t, int32_t)},
-	{"getElemFloat", "(I)F", nullptr, $PUBLIC, $virtualMethod(DataBuffer, getElemFloat, float, int32_t)},
-	{"getElemFloat", "(II)F", nullptr, $PUBLIC, $virtualMethod(DataBuffer, getElemFloat, float, int32_t, int32_t)},
-	{"getNumBanks", "()I", nullptr, $PUBLIC, $virtualMethod(DataBuffer, getNumBanks, int32_t)},
-	{"getOffset", "()I", nullptr, $PUBLIC, $virtualMethod(DataBuffer, getOffset, int32_t)},
-	{"getOffsets", "()[I", nullptr, $PUBLIC, $virtualMethod(DataBuffer, getOffsets, $ints*)},
-	{"getSize", "()I", nullptr, $PUBLIC, $virtualMethod(DataBuffer, getSize, int32_t)},
-	{"setElem", "(II)V", nullptr, $PUBLIC, $virtualMethod(DataBuffer, setElem, void, int32_t, int32_t)},
-	{"setElem", "(III)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DataBuffer, setElem, void, int32_t, int32_t, int32_t)},
-	{"setElemDouble", "(ID)V", nullptr, $PUBLIC, $virtualMethod(DataBuffer, setElemDouble, void, int32_t, double)},
-	{"setElemDouble", "(IID)V", nullptr, $PUBLIC, $virtualMethod(DataBuffer, setElemDouble, void, int32_t, int32_t, double)},
-	{"setElemFloat", "(IF)V", nullptr, $PUBLIC, $virtualMethod(DataBuffer, setElemFloat, void, int32_t, float)},
-	{"setElemFloat", "(IIF)V", nullptr, $PUBLIC, $virtualMethod(DataBuffer, setElemFloat, void, int32_t, int32_t, float)},
-	{"toIntArray", "(Ljava/lang/Object;)[I", nullptr, $STATIC, $staticMethod(DataBuffer, toIntArray, $ints*, Object$*)},
-	{}
-};
-
-$InnerClassInfo _DataBuffer_InnerClassesInfo_[] = {
-	{"java.awt.image.DataBuffer$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _DataBuffer_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"java.awt.image.DataBuffer",
-	"java.lang.Object",
-	nullptr,
-	_DataBuffer_FieldInfo_,
-	_DataBuffer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DataBuffer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.awt.image.DataBuffer$1"
-};
-
-$Object* allocate$DataBuffer($Class* clazz) {
-	return $of($alloc(DataBuffer));
-}
-
 $ints* DataBuffer::dataTypeSize = nullptr;
 
 int32_t DataBuffer::getDataTypeSize(int32_t type) {
 	$init(DataBuffer);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (type < DataBuffer::TYPE_BYTE || type > DataBuffer::TYPE_DOUBLE) {
 		$throwNew($IllegalArgumentException, $$str({"Unknown data type "_s, $$str(type)}));
 	}
-	return $nc(DataBuffer::dataTypeSize)->get(type);
+	return DataBuffer::dataTypeSize->get(type);
 }
 
 void DataBuffer::init$(int32_t dataType, int32_t size) {
@@ -158,7 +82,7 @@ void DataBuffer::init$($StateTrackable$State* initialState, int32_t dataType, in
 	this->offset = offset;
 	$set(this, offsets, $new($ints, numBanks));
 	for (int32_t i = 0; i < numBanks; ++i) {
-		$nc(this->offsets)->set(i, offset);
+		this->offsets->set(i, offset);
 	}
 }
 
@@ -175,7 +99,7 @@ void DataBuffer::init$($StateTrackable$State* initialState, int32_t dataType, in
 	this->dataType = dataType;
 	this->banks = numBanks;
 	this->size = size;
-	this->offset = $nc(offsets)->get(0);
+	this->offset = offsets->get(0);
 	$set(this, offsets, $cast($ints, offsets->clone()));
 }
 
@@ -241,30 +165,30 @@ void DataBuffer::setElemDouble(int32_t bank, int32_t i, double val) {
 
 $ints* DataBuffer::toIntArray(Object$* obj) {
 	$init(DataBuffer);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($instanceOf($ints, obj)) {
 		return $cast($ints, obj);
 	} else if (obj == nullptr) {
 		return nullptr;
 	} else if ($instanceOf($shorts, obj)) {
 		$var($shorts, sdata, $cast($shorts, obj));
-		$var($ints, idata, $new($ints, $nc(sdata)->length));
+		$var($ints, idata, $new($ints, sdata->length));
 		for (int32_t i = 0; i < sdata->length; ++i) {
-			idata->set(i, (int32_t)((int32_t)sdata->get(i) & (uint32_t)0x0000FFFF));
+			idata->set(i, (int32_t)sdata->get(i) & 0xffff);
 		}
 		return idata;
 	} else if ($instanceOf($bytes, obj)) {
 		$var($bytes, bdata, $cast($bytes, obj));
-		$var($ints, idata, $new($ints, $nc(bdata)->length));
+		$var($ints, idata, $new($ints, bdata->length));
 		for (int32_t i = 0; i < bdata->length; ++i) {
-			idata->set(i, (int32_t)(255 & (uint32_t)(int32_t)bdata->get(i)));
+			idata->set(i, 0xff & (int32_t)bdata->get(i));
 		}
 		return idata;
 	}
 	return nullptr;
 }
 
-void clinit$DataBuffer($Class* class$) {
+void DataBuffer::clinit$($Class* clazz) {
 	$assignStatic(DataBuffer::dataTypeSize, $new($ints, {
 		8,
 		16,
@@ -282,7 +206,74 @@ DataBuffer::DataBuffer() {
 }
 
 $Class* DataBuffer::load$($String* name, bool initialize) {
-	$loadClass(DataBuffer, name, initialize, &_DataBuffer_ClassInfo_, clinit$DataBuffer, allocate$DataBuffer);
+	$FieldInfo fieldInfos$$[] = {
+		{"TYPE_BYTE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DataBuffer, TYPE_BYTE)},
+		{"TYPE_USHORT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DataBuffer, TYPE_USHORT)},
+		{"TYPE_SHORT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DataBuffer, TYPE_SHORT)},
+		{"TYPE_INT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DataBuffer, TYPE_INT)},
+		{"TYPE_FLOAT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DataBuffer, TYPE_FLOAT)},
+		{"TYPE_DOUBLE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DataBuffer, TYPE_DOUBLE)},
+		{"TYPE_UNDEFINED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DataBuffer, TYPE_UNDEFINED)},
+		{"dataType", "I", nullptr, $PROTECTED, $field(DataBuffer, dataType)},
+		{"banks", "I", nullptr, $PROTECTED, $field(DataBuffer, banks)},
+		{"offset", "I", nullptr, $PROTECTED, $field(DataBuffer, offset)},
+		{"size", "I", nullptr, $PROTECTED, $field(DataBuffer, size)},
+		{"offsets", "[I", nullptr, $PROTECTED, $field(DataBuffer, offsets)},
+		{"theTrackable", "Lsun/java2d/StateTrackableDelegate;", nullptr, 0, $field(DataBuffer, theTrackable)},
+		{"dataTypeSize", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DataBuffer, dataTypeSize)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(II)V", nullptr, $PROTECTED, $method(DataBuffer, init$, void, int32_t, int32_t)},
+		{"<init>", "(Lsun/java2d/StateTrackable$State;II)V", nullptr, 0, $method(DataBuffer, init$, void, $StateTrackable$State*, int32_t, int32_t)},
+		{"<init>", "(III)V", nullptr, $PROTECTED, $method(DataBuffer, init$, void, int32_t, int32_t, int32_t)},
+		{"<init>", "(Lsun/java2d/StateTrackable$State;III)V", nullptr, 0, $method(DataBuffer, init$, void, $StateTrackable$State*, int32_t, int32_t, int32_t)},
+		{"<init>", "(IIII)V", nullptr, $PROTECTED, $method(DataBuffer, init$, void, int32_t, int32_t, int32_t, int32_t)},
+		{"<init>", "(Lsun/java2d/StateTrackable$State;IIII)V", nullptr, 0, $method(DataBuffer, init$, void, $StateTrackable$State*, int32_t, int32_t, int32_t, int32_t)},
+		{"<init>", "(III[I)V", nullptr, $PROTECTED, $method(DataBuffer, init$, void, int32_t, int32_t, int32_t, $ints*)},
+		{"<init>", "(Lsun/java2d/StateTrackable$State;III[I)V", nullptr, 0, $method(DataBuffer, init$, void, $StateTrackable$State*, int32_t, int32_t, int32_t, $ints*)},
+		{"getDataType", "()I", nullptr, $PUBLIC, $virtualMethod(DataBuffer, getDataType, int32_t)},
+		{"getDataTypeSize", "(I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(DataBuffer, getDataTypeSize, int32_t, int32_t)},
+		{"getElem", "(I)I", nullptr, $PUBLIC, $virtualMethod(DataBuffer, getElem, int32_t, int32_t)},
+		{"getElem", "(II)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DataBuffer, getElem, int32_t, int32_t, int32_t)},
+		{"getElemDouble", "(I)D", nullptr, $PUBLIC, $virtualMethod(DataBuffer, getElemDouble, double, int32_t)},
+		{"getElemDouble", "(II)D", nullptr, $PUBLIC, $virtualMethod(DataBuffer, getElemDouble, double, int32_t, int32_t)},
+		{"getElemFloat", "(I)F", nullptr, $PUBLIC, $virtualMethod(DataBuffer, getElemFloat, float, int32_t)},
+		{"getElemFloat", "(II)F", nullptr, $PUBLIC, $virtualMethod(DataBuffer, getElemFloat, float, int32_t, int32_t)},
+		{"getNumBanks", "()I", nullptr, $PUBLIC, $virtualMethod(DataBuffer, getNumBanks, int32_t)},
+		{"getOffset", "()I", nullptr, $PUBLIC, $virtualMethod(DataBuffer, getOffset, int32_t)},
+		{"getOffsets", "()[I", nullptr, $PUBLIC, $virtualMethod(DataBuffer, getOffsets, $ints*)},
+		{"getSize", "()I", nullptr, $PUBLIC, $virtualMethod(DataBuffer, getSize, int32_t)},
+		{"setElem", "(II)V", nullptr, $PUBLIC, $virtualMethod(DataBuffer, setElem, void, int32_t, int32_t)},
+		{"setElem", "(III)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DataBuffer, setElem, void, int32_t, int32_t, int32_t)},
+		{"setElemDouble", "(ID)V", nullptr, $PUBLIC, $virtualMethod(DataBuffer, setElemDouble, void, int32_t, double)},
+		{"setElemDouble", "(IID)V", nullptr, $PUBLIC, $virtualMethod(DataBuffer, setElemDouble, void, int32_t, int32_t, double)},
+		{"setElemFloat", "(IF)V", nullptr, $PUBLIC, $virtualMethod(DataBuffer, setElemFloat, void, int32_t, float)},
+		{"setElemFloat", "(IIF)V", nullptr, $PUBLIC, $virtualMethod(DataBuffer, setElemFloat, void, int32_t, int32_t, float)},
+		{"toIntArray", "(Ljava/lang/Object;)[I", nullptr, $STATIC, $staticMethod(DataBuffer, toIntArray, $ints*, Object$*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.awt.image.DataBuffer$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"java.awt.image.DataBuffer",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.awt.image.DataBuffer$1"
+	};
+	$loadClass(DataBuffer, name, initialize, &classInfo$$, DataBuffer::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(DataBuffer);
+	});
 	return class$;
 }
 

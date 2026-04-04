@@ -71,6 +71,7 @@ class $import CompilerProperties$Fragments : public ::java::lang::Object {
 	$class(CompilerProperties$Fragments, 0, ::java::lang::Object)
 public:
 	CompilerProperties$Fragments();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::com::sun::tools::javac::util::JCDiagnostic$Fragment* AccessorReturnTypeDoesntMatch(::com::sun::tools::javac::code::Symbol* arg0, ::com::sun::tools::javac::code::Symbol* arg1);
 	static ::com::sun::tools::javac::util::JCDiagnostic$Fragment* AnachronisticModuleInfo($String* arg0, $String* arg1);

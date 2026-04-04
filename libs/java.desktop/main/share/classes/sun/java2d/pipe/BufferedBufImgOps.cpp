@@ -1,5 +1,4 @@
 #include <sun/java2d/pipe/BufferedBufImgOps.h>
-
 #include <java/awt/color/ColorSpace.h>
 #include <java/awt/image/BufferedImage.h>
 #include <java/awt/image/BufferedImageOp.h>
@@ -49,35 +48,6 @@ namespace sun {
 	namespace java2d {
 		namespace pipe {
 
-$MethodInfo _BufferedBufImgOps_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(BufferedBufImgOps, init$, void)},
-	{"disableBufImgOp", "(Lsun/java2d/pipe/RenderQueue;Ljava/awt/image/BufferedImageOp;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(BufferedBufImgOps, disableBufImgOp, void, $RenderQueue*, $BufferedImageOp*)},
-	{"disableConvolveOp", "(Lsun/java2d/pipe/RenderQueue;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(BufferedBufImgOps, disableConvolveOp, void, $RenderQueue*)},
-	{"disableLookupOp", "(Lsun/java2d/pipe/RenderQueue;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(BufferedBufImgOps, disableLookupOp, void, $RenderQueue*)},
-	{"disableRescaleOp", "(Lsun/java2d/pipe/RenderQueue;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(BufferedBufImgOps, disableRescaleOp, void, $RenderQueue*)},
-	{"enableBufImgOp", "(Lsun/java2d/pipe/RenderQueue;Lsun/java2d/SurfaceData;Ljava/awt/image/BufferedImage;Ljava/awt/image/BufferedImageOp;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(BufferedBufImgOps, enableBufImgOp, void, $RenderQueue*, $SurfaceData*, $BufferedImage*, $BufferedImageOp*)},
-	{"enableConvolveOp", "(Lsun/java2d/pipe/RenderQueue;Lsun/java2d/SurfaceData;Ljava/awt/image/ConvolveOp;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(BufferedBufImgOps, enableConvolveOp, void, $RenderQueue*, $SurfaceData*, $ConvolveOp*)},
-	{"enableLookupOp", "(Lsun/java2d/pipe/RenderQueue;Lsun/java2d/SurfaceData;Ljava/awt/image/BufferedImage;Ljava/awt/image/LookupOp;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(BufferedBufImgOps, enableLookupOp, void, $RenderQueue*, $SurfaceData*, $BufferedImage*, $LookupOp*)},
-	{"enableRescaleOp", "(Lsun/java2d/pipe/RenderQueue;Lsun/java2d/SurfaceData;Ljava/awt/image/BufferedImage;Ljava/awt/image/RescaleOp;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(BufferedBufImgOps, enableRescaleOp, void, $RenderQueue*, $SurfaceData*, $BufferedImage*, $RescaleOp*)},
-	{"isConvolveOpValid", "(Ljava/awt/image/ConvolveOp;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(BufferedBufImgOps, isConvolveOpValid, bool, $ConvolveOp*)},
-	{"isLookupOpValid", "(Ljava/awt/image/LookupOp;Ljava/awt/image/BufferedImage;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(BufferedBufImgOps, isLookupOpValid, bool, $LookupOp*, $BufferedImage*)},
-	{"isRescaleOpValid", "(Ljava/awt/image/RescaleOp;Ljava/awt/image/BufferedImage;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(BufferedBufImgOps, isRescaleOpValid, bool, $RescaleOp*, $BufferedImage*)},
-	{}
-};
-
-$ClassInfo _BufferedBufImgOps_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.java2d.pipe.BufferedBufImgOps",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_BufferedBufImgOps_MethodInfo_
-};
-
-$Object* allocate$BufferedBufImgOps($Class* clazz) {
-	return $of($alloc(BufferedBufImgOps));
-}
-
 void BufferedBufImgOps::init$() {
 }
 
@@ -116,7 +86,7 @@ bool BufferedBufImgOps::isConvolveOpValid($ConvolveOp* cop) {
 }
 
 void BufferedBufImgOps::enableConvolveOp($RenderQueue* rq, $SurfaceData* srcData, $ConvolveOp* cop) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool edgeZero = $nc(cop)->getEdgeCondition() == $ConvolveOp::EDGE_ZERO_FILL;
 	$var($Kernel, kernel, cop->getKernel());
 	int32_t kernelWidth = $nc(kernel)->getWidth();
@@ -141,7 +111,7 @@ void BufferedBufImgOps::disableConvolveOp($RenderQueue* rq) {
 }
 
 bool BufferedBufImgOps::isRescaleOpValid($RescaleOp* rop, $BufferedImage* srcImg) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t numFactors = $nc(rop)->getNumFactors();
 	$var($ColorModel, srcCM, $nc(srcImg)->getColorModel());
 	if ($instanceOf($IndexColorModel, srcCM)) {
@@ -151,7 +121,7 @@ bool BufferedBufImgOps::isRescaleOpValid($RescaleOp* rop, $BufferedImage* srcImg
 	if (var$0 && numFactors != srcCM->getNumComponents()) {
 		$throwNew($IllegalArgumentException, "Number of scaling constants does not equal the number of color or color/alpha components"_s);
 	}
-	int32_t csType = $nc($($nc(srcCM)->getColorSpace()))->getType();
+	int32_t csType = $$nc($nc(srcCM)->getColorSpace())->getType();
 	if (csType != $ColorSpace::TYPE_RGB && csType != $ColorSpace::TYPE_GRAY) {
 		return false;
 	}
@@ -162,7 +132,7 @@ bool BufferedBufImgOps::isRescaleOpValid($RescaleOp* rop, $BufferedImage* srcImg
 }
 
 void BufferedBufImgOps::enableRescaleOp($RenderQueue* rq, $SurfaceData* srcData, $BufferedImage* srcImg, $RescaleOp* rop) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ColorModel, srcCM, $nc(srcImg)->getColorModel());
 	bool var$0 = $nc(srcCM)->hasAlpha();
 	bool nonPremult = var$0 && srcCM->isAlphaPremultiplied();
@@ -224,7 +194,7 @@ void BufferedBufImgOps::disableRescaleOp($RenderQueue* rq) {
 }
 
 bool BufferedBufImgOps::isLookupOpValid($LookupOp* lop, $BufferedImage* srcImg) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($LookupTable, table, $nc(lop)->getTable());
 	int32_t numComps = $nc(table)->getNumComponents();
 	$var($ColorModel, srcCM, $nc(srcImg)->getColorModel());
@@ -235,7 +205,7 @@ bool BufferedBufImgOps::isLookupOpValid($LookupOp* lop, $BufferedImage* srcImg) 
 	if (var$0 && numComps != srcCM->getNumColorComponents()) {
 		$throwNew($IllegalArgumentException, $$str({"Number of arrays in the  lookup table ("_s, $$str(numComps), ") is not compatible with the src image: "_s, srcImg}));
 	}
-	int32_t csType = $nc($($nc(srcCM)->getColorSpace()))->getType();
+	int32_t csType = $$nc($nc(srcCM)->getColorSpace())->getType();
 	if (csType != $ColorSpace::TYPE_RGB && csType != $ColorSpace::TYPE_GRAY) {
 		return false;
 	}
@@ -243,14 +213,14 @@ bool BufferedBufImgOps::isLookupOpValid($LookupOp* lop, $BufferedImage* srcImg) 
 		return false;
 	}
 	if ($instanceOf($ByteLookupTable, table)) {
-		$var($byteArray2, data, $nc(($cast($ByteLookupTable, table)))->getTable());
+		$var($byteArray2, data, $cast($ByteLookupTable, table)->getTable());
 		for (int32_t i = 1; i < $nc(data)->length; ++i) {
 			if ($nc(data->get(i))->length > 256 || $nc(data->get(i))->length != $nc(data->get(i - 1))->length) {
 				return false;
 			}
 		}
 	} else if ($instanceOf($ShortLookupTable, table)) {
-		$var($shortArray2, data, $nc(($cast($ShortLookupTable, table)))->getTable());
+		$var($shortArray2, data, $cast($ShortLookupTable, table)->getTable());
 		for (int32_t i = 1; i < $nc(data)->length; ++i) {
 			if ($nc(data->get(i))->length > 256 || $nc(data->get(i))->length != $nc(data->get(i - 1))->length) {
 				return false;
@@ -263,8 +233,8 @@ bool BufferedBufImgOps::isLookupOpValid($LookupOp* lop, $BufferedImage* srcImg) 
 }
 
 void BufferedBufImgOps::enableLookupOp($RenderQueue* rq, $SurfaceData* srcData, $BufferedImage* srcImg, $LookupOp* lop) {
-	$useLocalCurrentObjectStackCache();
-	bool var$0 = $nc($($nc(srcImg)->getColorModel()))->hasAlpha();
+	$useLocalObjectStack();
+	bool var$0 = $$nc($nc(srcImg)->getColorModel())->hasAlpha();
 	bool nonPremult = var$0 && srcImg->isAlphaPremultiplied();
 	$var($LookupTable, table, $nc(lop)->getTable());
 	int32_t numBands = $nc(table)->getNumComponents();
@@ -273,18 +243,18 @@ void BufferedBufImgOps::enableLookupOp($RenderQueue* rq, $SurfaceData* srcData, 
 	int32_t bytesPerElem = 0;
 	bool shortData = false;
 	if ($instanceOf($ShortLookupTable, table)) {
-		$var($shortArray2, data, $nc(($cast($ShortLookupTable, table)))->getTable());
+		$var($shortArray2, data, $cast($ShortLookupTable, table)->getTable());
 		bandLength = $nc($nc(data)->get(0))->length;
 		bytesPerElem = 2;
 		shortData = true;
 	} else {
-		$var($byteArray2, data, $nc(($cast($ByteLookupTable, table)))->getTable());
+		$var($byteArray2, data, $cast($ByteLookupTable, table)->getTable());
 		bandLength = $nc($nc(data)->get(0))->length;
 		bytesPerElem = 1;
 		shortData = false;
 	}
 	int32_t totalLutBytes = numBands * bandLength * bytesPerElem;
-	int32_t paddedLutBytes = (int32_t)((totalLutBytes + 3) & (uint32_t)(~3));
+	int32_t paddedLutBytes = (totalLutBytes + 3) & (~3);
 	int32_t padding = paddedLutBytes - totalLutBytes;
 	int32_t totalBytesRequired = 4 + 8 + 20 + paddedLutBytes;
 	$var($RenderBuffer, buf, $nc(rq)->getBuffer());
@@ -297,12 +267,12 @@ void BufferedBufImgOps::enableLookupOp($RenderQueue* rq, $SurfaceData* srcData, 
 	buf->putInt(bandLength);
 	buf->putInt(offset);
 	if (shortData) {
-		$var($shortArray2, data, $nc(($cast($ShortLookupTable, table)))->getTable());
+		$var($shortArray2, data, $cast($ShortLookupTable, table)->getTable());
 		for (int32_t i = 0; i < numBands; ++i) {
 			buf->put($nc(data)->get(i));
 		}
 	} else {
-		$var($byteArray2, data, $nc(($cast($ByteLookupTable, table)))->getTable());
+		$var($byteArray2, data, $cast($ByteLookupTable, table)->getTable());
 		for (int32_t i = 0; i < numBands; ++i) {
 			buf->put($nc(data)->get(i));
 		}
@@ -322,7 +292,32 @@ BufferedBufImgOps::BufferedBufImgOps() {
 }
 
 $Class* BufferedBufImgOps::load$($String* name, bool initialize) {
-	$loadClass(BufferedBufImgOps, name, initialize, &_BufferedBufImgOps_ClassInfo_, allocate$BufferedBufImgOps);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(BufferedBufImgOps, init$, void)},
+		{"disableBufImgOp", "(Lsun/java2d/pipe/RenderQueue;Ljava/awt/image/BufferedImageOp;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(BufferedBufImgOps, disableBufImgOp, void, $RenderQueue*, $BufferedImageOp*)},
+		{"disableConvolveOp", "(Lsun/java2d/pipe/RenderQueue;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(BufferedBufImgOps, disableConvolveOp, void, $RenderQueue*)},
+		{"disableLookupOp", "(Lsun/java2d/pipe/RenderQueue;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(BufferedBufImgOps, disableLookupOp, void, $RenderQueue*)},
+		{"disableRescaleOp", "(Lsun/java2d/pipe/RenderQueue;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(BufferedBufImgOps, disableRescaleOp, void, $RenderQueue*)},
+		{"enableBufImgOp", "(Lsun/java2d/pipe/RenderQueue;Lsun/java2d/SurfaceData;Ljava/awt/image/BufferedImage;Ljava/awt/image/BufferedImageOp;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(BufferedBufImgOps, enableBufImgOp, void, $RenderQueue*, $SurfaceData*, $BufferedImage*, $BufferedImageOp*)},
+		{"enableConvolveOp", "(Lsun/java2d/pipe/RenderQueue;Lsun/java2d/SurfaceData;Ljava/awt/image/ConvolveOp;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(BufferedBufImgOps, enableConvolveOp, void, $RenderQueue*, $SurfaceData*, $ConvolveOp*)},
+		{"enableLookupOp", "(Lsun/java2d/pipe/RenderQueue;Lsun/java2d/SurfaceData;Ljava/awt/image/BufferedImage;Ljava/awt/image/LookupOp;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(BufferedBufImgOps, enableLookupOp, void, $RenderQueue*, $SurfaceData*, $BufferedImage*, $LookupOp*)},
+		{"enableRescaleOp", "(Lsun/java2d/pipe/RenderQueue;Lsun/java2d/SurfaceData;Ljava/awt/image/BufferedImage;Ljava/awt/image/RescaleOp;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(BufferedBufImgOps, enableRescaleOp, void, $RenderQueue*, $SurfaceData*, $BufferedImage*, $RescaleOp*)},
+		{"isConvolveOpValid", "(Ljava/awt/image/ConvolveOp;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(BufferedBufImgOps, isConvolveOpValid, bool, $ConvolveOp*)},
+		{"isLookupOpValid", "(Ljava/awt/image/LookupOp;Ljava/awt/image/BufferedImage;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(BufferedBufImgOps, isLookupOpValid, bool, $LookupOp*, $BufferedImage*)},
+		{"isRescaleOpValid", "(Ljava/awt/image/RescaleOp;Ljava/awt/image/BufferedImage;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(BufferedBufImgOps, isRescaleOpValid, bool, $RescaleOp*, $BufferedImage*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.java2d.pipe.BufferedBufImgOps",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(BufferedBufImgOps, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BufferedBufImgOps);
+	});
 	return class$;
 }
 

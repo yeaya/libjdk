@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/code/Types$TypeProjection$TypeArgumentProjection.h>
-
 #include <com/sun/tools/javac/code/BoundKind.h>
 #include <com/sun/tools/javac/code/Symbol$ClassSymbol.h>
 #include <com/sun/tools/javac/code/Symbol$TypeSymbol.h>
@@ -24,11 +23,9 @@
 #undef UPWARDS
 
 using $BoundKind = ::com::sun::tools::javac::code::BoundKind;
-using $Symbol$TypeSymbol = ::com::sun::tools::javac::code::Symbol$TypeSymbol;
 using $Type = ::com::sun::tools::javac::code::Type;
 using $Type$WildcardType = ::com::sun::tools::javac::code::Type$WildcardType;
 using $TypeTag = ::com::sun::tools::javac::code::TypeTag;
-using $Types = ::com::sun::tools::javac::code::Types;
 using $Types$25 = ::com::sun::tools::javac::code::Types$25;
 using $Types$ProjectionKind = ::com::sun::tools::javac::code::Types$ProjectionKind;
 using $Types$TypeMapping = ::com::sun::tools::javac::code::Types$TypeMapping;
@@ -46,52 +43,6 @@ namespace com {
 			namespace javac {
 				namespace code {
 
-$FieldInfo _Types$TypeProjection$TypeArgumentProjection_FieldInfo_[] = {
-	{"this$1", "Lcom/sun/tools/javac/code/Types$TypeProjection;", nullptr, $FINAL | $SYNTHETIC, $field(Types$TypeProjection$TypeArgumentProjection, this$1)},
-	{"site", "Lcom/sun/tools/javac/code/Type;", nullptr, 0, $field(Types$TypeProjection$TypeArgumentProjection, site)},
-	{"declaredBound", "Lcom/sun/tools/javac/code/Type;", nullptr, 0, $field(Types$TypeProjection$TypeArgumentProjection, declaredBound)},
-	{}
-};
-
-$MethodInfo _Types$TypeProjection$TypeArgumentProjection_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Types$TypeProjection;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;)V", nullptr, 0, $method(Types$TypeProjection$TypeArgumentProjection, init$, void, $Types$TypeProjection*, $Type*, $Type*)},
-	{"makeWildcard", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/BoundKind;)Lcom/sun/tools/javac/code/Type;", nullptr, $PRIVATE, $method(Types$TypeProjection$TypeArgumentProjection, makeWildcard, $Type*, $Type*, $BoundKind*)},
-	{"visitType", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Types$ProjectionKind;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(Types$TypeProjection$TypeArgumentProjection, visitType, $Type*, $Type*, $Types$ProjectionKind*)},
-	{"visitType", "(Lcom/sun/tools/javac/code/Type;Ljava/lang/Object;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Types$TypeProjection$TypeArgumentProjection, visitType, $Object*, $Type*, Object$*)},
-	{"visitWildcardType", "(Lcom/sun/tools/javac/code/Type$WildcardType;Lcom/sun/tools/javac/code/Types$ProjectionKind;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(Types$TypeProjection$TypeArgumentProjection, visitWildcardType, $Type*, $Type$WildcardType*, $Types$ProjectionKind*)},
-	{"visitWildcardType", "(Lcom/sun/tools/javac/code/Type$WildcardType;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Types$TypeProjection$TypeArgumentProjection, visitWildcardType, $Object*, $Type$WildcardType*, Object$*)},
-	{}
-};
-
-$InnerClassInfo _Types$TypeProjection$TypeArgumentProjection_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.code.Types$TypeProjection", "com.sun.tools.javac.code.Types", "TypeProjection", 0},
-	{"com.sun.tools.javac.code.Types$TypeProjection$TypeArgumentProjection", "com.sun.tools.javac.code.Types$TypeProjection", "TypeArgumentProjection", 0},
-	{"com.sun.tools.javac.code.Types$TypeMapping", "com.sun.tools.javac.code.Types", "TypeMapping", $PUBLIC | $STATIC},
-	{"com.sun.tools.javac.code.Types$TypeProjection$TypeArgumentProjection$1", nullptr, nullptr, 0},
-	{"com.sun.tools.javac.code.Types$ProjectionKind", "com.sun.tools.javac.code.Types", "ProjectionKind", $STATIC | $ABSTRACT | $ENUM},
-	{}
-};
-
-$ClassInfo _Types$TypeProjection$TypeArgumentProjection_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.code.Types$TypeProjection$TypeArgumentProjection",
-	"com.sun.tools.javac.code.Types$TypeMapping",
-	nullptr,
-	_Types$TypeProjection$TypeArgumentProjection_FieldInfo_,
-	_Types$TypeProjection$TypeArgumentProjection_MethodInfo_,
-	"Lcom/sun/tools/javac/code/Types$TypeMapping<Lcom/sun/tools/javac/code/Types$ProjectionKind;>;",
-	nullptr,
-	_Types$TypeProjection$TypeArgumentProjection_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.code.Types"
-};
-
-$Object* allocate$Types$TypeProjection$TypeArgumentProjection($Class* clazz) {
-	return $of($alloc(Types$TypeProjection$TypeArgumentProjection));
-}
-
 void Types$TypeProjection$TypeArgumentProjection::init$($Types$TypeProjection* this$1, $Type* site, $Type* declaredBound) {
 	$set(this, this$1, this$1);
 	$Types$TypeMapping::init$();
@@ -100,7 +51,7 @@ void Types$TypeProjection$TypeArgumentProjection::init$($Types$TypeProjection* t
 }
 
 $Type* Types$TypeProjection$TypeArgumentProjection::visitType($Type* t, $Types$ProjectionKind* pkind) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Types$ProjectionKind);
 	if (pkind == $Types$ProjectionKind::DOWNWARDS) {
 		return $nc($nc(this->this$1->this$0)->syms)->botType;
@@ -113,7 +64,7 @@ $Type* Types$TypeProjection$TypeArgumentProjection::visitType($Type* t, $Types$P
 	bool var$0 = !$nc(this->this$1->this$0)->isSameType(upper, $nc($nc(this->this$1->this$0)->syms)->objectType);
 	if (var$0) {
 		bool var$1 = $nc(this->declaredBound)->containsAny(formals);
-		var$0 = (var$1 || !$nc(this->this$1->this$0)->isSubtype(this->declaredBound, upper));
+		var$0 = var$1 || !this->this$1->this$0->isSubtype(this->declaredBound, upper);
 	}
 	if (var$0) {
 		$assign(bound, upper);
@@ -126,7 +77,7 @@ $Type* Types$TypeProjection$TypeArgumentProjection::visitType($Type* t, $Types$P
 			$init($BoundKind);
 			bk = $BoundKind::SUPER;
 		} else {
-			$assign(bound, $nc($nc(this->this$1->this$0)->syms)->objectType);
+			$assign(bound, this->this$1->this$0->syms->objectType);
 			$init($BoundKind);
 			bk = $BoundKind::UNBOUND;
 		}
@@ -135,31 +86,26 @@ $Type* Types$TypeProjection$TypeArgumentProjection::visitType($Type* t, $Types$P
 }
 
 $Type* Types$TypeProjection$TypeArgumentProjection::visitWildcardType($Type$WildcardType* wt, $Types$ProjectionKind* pkind) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Type, bound, $nc($nc(this->this$1->this$0)->syms)->botType);
 	$BoundKind* bk = $nc(wt)->kind;
 	$init($Types$25);
 	switch ($nc($Types$25::$SwitchMap$com$sun$tools$javac$code$BoundKind)->get($nc((wt->kind))->ordinal())) {
 	case 1:
-		{
-			$assign(bound, $nc(wt->type)->map(this->this$1, pkind));
-			$init($TypeTag);
-			if ($nc(bound)->hasTag($TypeTag::BOT)) {
-				return $nc($nc(this->this$1->this$0)->syms)->botType;
-			}
-			break;
+		$assign(bound, $nc(wt->type)->map(this->this$1, pkind));
+		$init($TypeTag);
+		if ($nc(bound)->hasTag($TypeTag::BOT)) {
+			return this->this$1->this$0->syms->botType;
 		}
+		break;
 	case 2:
-		{
-			$assign(bound, $nc(wt->type)->map(this->this$1, $($nc(pkind)->complement())));
-			$init($TypeTag);
-			if ($nc(bound)->hasTag($TypeTag::BOT)) {
-				$assign(bound, $nc($nc(this->this$1->this$0)->syms)->objectType);
-				$init($BoundKind);
-				bk = $BoundKind::UNBOUND;
-			}
-			break;
+		$assign(bound, $nc(wt->type)->map(this->this$1, $($nc(pkind)->complement())));
+		$init($TypeTag);
+		if ($nc(bound)->hasTag($TypeTag::BOT)) {
+			$assign(bound, this->this$1->this$0->syms->objectType);
+			bk = $BoundKind::UNBOUND;
 		}
+		break;
 	}
 	return makeWildcard(bound, bk);
 }
@@ -180,7 +126,47 @@ Types$TypeProjection$TypeArgumentProjection::Types$TypeProjection$TypeArgumentPr
 }
 
 $Class* Types$TypeProjection$TypeArgumentProjection::load$($String* name, bool initialize) {
-	$loadClass(Types$TypeProjection$TypeArgumentProjection, name, initialize, &_Types$TypeProjection$TypeArgumentProjection_ClassInfo_, allocate$Types$TypeProjection$TypeArgumentProjection);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$1", "Lcom/sun/tools/javac/code/Types$TypeProjection;", nullptr, $FINAL | $SYNTHETIC, $field(Types$TypeProjection$TypeArgumentProjection, this$1)},
+		{"site", "Lcom/sun/tools/javac/code/Type;", nullptr, 0, $field(Types$TypeProjection$TypeArgumentProjection, site)},
+		{"declaredBound", "Lcom/sun/tools/javac/code/Type;", nullptr, 0, $field(Types$TypeProjection$TypeArgumentProjection, declaredBound)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/code/Types$TypeProjection;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;)V", nullptr, 0, $method(Types$TypeProjection$TypeArgumentProjection, init$, void, $Types$TypeProjection*, $Type*, $Type*)},
+		{"makeWildcard", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/BoundKind;)Lcom/sun/tools/javac/code/Type;", nullptr, $PRIVATE, $method(Types$TypeProjection$TypeArgumentProjection, makeWildcard, $Type*, $Type*, $BoundKind*)},
+		{"visitType", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Types$ProjectionKind;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(Types$TypeProjection$TypeArgumentProjection, visitType, $Type*, $Type*, $Types$ProjectionKind*)},
+		{"visitType", "(Lcom/sun/tools/javac/code/Type;Ljava/lang/Object;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Types$TypeProjection$TypeArgumentProjection, visitType, $Object*, $Type*, Object$*)},
+		{"visitWildcardType", "(Lcom/sun/tools/javac/code/Type$WildcardType;Lcom/sun/tools/javac/code/Types$ProjectionKind;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(Types$TypeProjection$TypeArgumentProjection, visitWildcardType, $Type*, $Type$WildcardType*, $Types$ProjectionKind*)},
+		{"visitWildcardType", "(Lcom/sun/tools/javac/code/Type$WildcardType;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Types$TypeProjection$TypeArgumentProjection, visitWildcardType, $Object*, $Type$WildcardType*, Object$*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.code.Types$TypeProjection", "com.sun.tools.javac.code.Types", "TypeProjection", 0},
+		{"com.sun.tools.javac.code.Types$TypeProjection$TypeArgumentProjection", "com.sun.tools.javac.code.Types$TypeProjection", "TypeArgumentProjection", 0},
+		{"com.sun.tools.javac.code.Types$TypeMapping", "com.sun.tools.javac.code.Types", "TypeMapping", $PUBLIC | $STATIC},
+		{"com.sun.tools.javac.code.Types$TypeProjection$TypeArgumentProjection$1", nullptr, nullptr, 0},
+		{"com.sun.tools.javac.code.Types$ProjectionKind", "com.sun.tools.javac.code.Types", "ProjectionKind", $STATIC | $ABSTRACT | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.code.Types$TypeProjection$TypeArgumentProjection",
+		"com.sun.tools.javac.code.Types$TypeMapping",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Lcom/sun/tools/javac/code/Types$TypeMapping<Lcom/sun/tools/javac/code/Types$ProjectionKind;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.code.Types"
+	};
+	$loadClass(Types$TypeProjection$TypeArgumentProjection, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Types$TypeProjection$TypeArgumentProjection));
+	});
 	return class$;
 }
 

@@ -53,6 +53,7 @@ class AquaSplitPaneUI : public ::javax::swing::plaf::basic::BasicSplitPaneUI, pu
 	$class(AquaSplitPaneUI, 0, ::javax::swing::plaf::basic::BasicSplitPaneUI, ::java::awt::event::MouseListener, ::java::beans::PropertyChangeListener)
 public:
 	AquaSplitPaneUI();
+	static void clinit$(::java::lang::Class* clazz);
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* arg0) override;
 	virtual void finalize() override;

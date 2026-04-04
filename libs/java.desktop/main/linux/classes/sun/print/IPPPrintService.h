@@ -109,6 +109,7 @@ public:
 	IPPPrintService();
 	virtual $Object* clone() override;
 	virtual void finalize() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* name, ::java::net::URL* url);
 	void init$($String* name, $String* uriStr, bool isCups);
 	virtual void addPrintServiceAttributeListener(::javax::print::event::PrintServiceAttributeListener* listener) override;

@@ -1,5 +1,4 @@
 #include <IconCoord$1.h>
-
 #include <IconCoord.h>
 #include <jcpp.h>
 
@@ -8,43 +7,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-
-$MethodInfo _IconCoord$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(IconCoord$1, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(IconCoord$1, run, void)},
-	{}
-};
-
-$EnclosingMethodInfo _IconCoord$1_EnclosingMethodInfo_ = {
-	"IconCoord",
-	"main",
-	"([Ljava/lang/String;)V"
-};
-
-$InnerClassInfo _IconCoord$1_InnerClassesInfo_[] = {
-	{"IconCoord$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _IconCoord$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"IconCoord$1",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	_IconCoord$1_MethodInfo_,
-	nullptr,
-	&_IconCoord$1_EnclosingMethodInfo_,
-	_IconCoord$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"IconCoord"
-};
-
-$Object* allocate$IconCoord$1($Class* clazz) {
-	return $of($alloc(IconCoord$1));
-}
 
 void IconCoord$1::init$() {
 }
@@ -57,7 +19,38 @@ IconCoord$1::IconCoord$1() {
 }
 
 $Class* IconCoord$1::load$($String* name, bool initialize) {
-	$loadClass(IconCoord$1, name, initialize, &_IconCoord$1_ClassInfo_, allocate$IconCoord$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(IconCoord$1, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(IconCoord$1, run, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"IconCoord",
+		"main",
+		"([Ljava/lang/String;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"IconCoord$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"IconCoord$1",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"IconCoord"
+	};
+	$loadClass(IconCoord$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(IconCoord$1);
+	});
 	return class$;
 }
 

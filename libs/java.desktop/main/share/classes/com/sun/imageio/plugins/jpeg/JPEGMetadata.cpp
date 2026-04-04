@@ -1,5 +1,4 @@
 #include <com/sun/imageio/plugins/jpeg/JPEGMetadata.h>
-
 #include <com/sun/imageio/plugins/common/ImageUtil.h>
 #include <com/sun/imageio/plugins/jpeg/AdobeMarkerSegment.h>
 #include <com/sun/imageio/plugins/jpeg/COMMarkerSegment.h>
@@ -147,88 +146,6 @@ namespace com {
 			namespace plugins {
 				namespace jpeg {
 
-$FieldInfo _JPEGMetadata_FieldInfo_[] = {
-	{"debug", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JPEGMetadata, debug)},
-	{"resetSequence", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/imageio/plugins/jpeg/MarkerSegment;>;", $PRIVATE, $field(JPEGMetadata, resetSequence)},
-	{"inThumb", "Z", nullptr, $PRIVATE, $field(JPEGMetadata, inThumb)},
-	{"hasAlpha", "Z", nullptr, $PRIVATE, $field(JPEGMetadata, hasAlpha)},
-	{"markerSequence", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/imageio/plugins/jpeg/MarkerSegment;>;", 0, $field(JPEGMetadata, markerSequence)},
-	{"isStream", "Z", nullptr, $FINAL, $field(JPEGMetadata, isStream)},
-	{"transparencyDone", "Z", nullptr, $PRIVATE, $field(JPEGMetadata, transparencyDone)},
-	{}
-};
-
-$MethodInfo _JPEGMetadata_MethodInfo_[] = {
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(ZZ)V", nullptr, 0, $method(JPEGMetadata, init$, void, bool, bool)},
-	{"<init>", "(ZZLjavax/imageio/stream/ImageInputStream;Lcom/sun/imageio/plugins/jpeg/JPEGImageReader;)V", nullptr, 0, $method(JPEGMetadata, init$, void, bool, bool, $ImageInputStream*, $JPEGImageReader*), "java.io.IOException"},
-	{"<init>", "(Ljavax/imageio/ImageWriteParam;Lcom/sun/imageio/plugins/jpeg/JPEGImageWriter;)V", nullptr, 0, $method(JPEGMetadata, init$, void, $ImageWriteParam*, $JPEGImageWriter*)},
-	{"<init>", "(Ljavax/imageio/ImageTypeSpecifier;Ljavax/imageio/ImageWriteParam;Lcom/sun/imageio/plugins/jpeg/JPEGImageWriter;)V", nullptr, 0, $method(JPEGMetadata, init$, void, $ImageTypeSpecifier*, $ImageWriteParam*, $JPEGImageWriter*)},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(JPEGMetadata, clone, $Object*)},
-	{"cloneSequence", "()Ljava/util/List;", "()Ljava/util/List<Lcom/sun/imageio/plugins/jpeg/MarkerSegment;>;", $PRIVATE, $method(JPEGMetadata, cloneSequence, $List*)},
-	{"countScanBands", "()I", nullptr, $PRIVATE, $method(JPEGMetadata, countScanBands, int32_t)},
-	{"findIntegerRatio", "(F)Ljava/awt/Point;", nullptr, $PRIVATE | $STATIC, $staticMethod(JPEGMetadata, findIntegerRatio, $Point*, float)},
-	{"findLastUnknownMarkerSegmentPosition", "()I", nullptr, $PRIVATE, $method(JPEGMetadata, findLastUnknownMarkerSegmentPosition, int32_t)},
-	{"findMarkerSegment", "(I)Lcom/sun/imageio/plugins/jpeg/MarkerSegment;", nullptr, 0, $virtualMethod(JPEGMetadata, findMarkerSegment, $MarkerSegment*, int32_t)},
-	{"findMarkerSegment", "(Ljava/lang/Class;Z)Lcom/sun/imageio/plugins/jpeg/MarkerSegment;", "(Ljava/lang/Class<+Lcom/sun/imageio/plugins/jpeg/MarkerSegment;>;Z)Lcom/sun/imageio/plugins/jpeg/MarkerSegment;", 0, $virtualMethod(JPEGMetadata, findMarkerSegment, $MarkerSegment*, $Class*, bool)},
-	{"findMarkerSegmentPosition", "(Ljava/lang/Class;Z)I", "(Ljava/lang/Class<+Lcom/sun/imageio/plugins/jpeg/MarkerSegment;>;Z)I", $PRIVATE, $method(JPEGMetadata, findMarkerSegmentPosition, int32_t, $Class*, bool)},
-	{"getAsTree", "(Ljava/lang/String;)Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(JPEGMetadata, getAsTree, $Node*, $String*)},
-	{"getNativeTree", "()Ljavax/imageio/metadata/IIOMetadataNode;", nullptr, 0, $virtualMethod(JPEGMetadata, getNativeTree, $IIOMetadataNode*)},
-	{"getStandardChromaNode", "()Ljavax/imageio/metadata/IIOMetadataNode;", nullptr, $PROTECTED, $virtualMethod(JPEGMetadata, getStandardChromaNode, $IIOMetadataNode*)},
-	{"getStandardCompressionNode", "()Ljavax/imageio/metadata/IIOMetadataNode;", nullptr, $PROTECTED, $virtualMethod(JPEGMetadata, getStandardCompressionNode, $IIOMetadataNode*)},
-	{"getStandardDimensionNode", "()Ljavax/imageio/metadata/IIOMetadataNode;", nullptr, $PROTECTED, $virtualMethod(JPEGMetadata, getStandardDimensionNode, $IIOMetadataNode*)},
-	{"getStandardTextNode", "()Ljavax/imageio/metadata/IIOMetadataNode;", nullptr, $PROTECTED, $virtualMethod(JPEGMetadata, getStandardTextNode, $IIOMetadataNode*)},
-	{"getStandardTransparencyNode", "()Ljavax/imageio/metadata/IIOMetadataNode;", nullptr, $PROTECTED, $virtualMethod(JPEGMetadata, getStandardTransparencyNode, $IIOMetadataNode*)},
-	{"insertAdobeMarkerSegment", "(Lcom/sun/imageio/plugins/jpeg/AdobeMarkerSegment;)V", nullptr, $PRIVATE, $method(JPEGMetadata, insertAdobeMarkerSegment, void, $AdobeMarkerSegment*)},
-	{"insertCOMMarkerSegment", "(Lcom/sun/imageio/plugins/jpeg/COMMarkerSegment;)V", nullptr, $PRIVATE, $method(JPEGMetadata, insertCOMMarkerSegment, void, $COMMarkerSegment*)},
-	{"isConsistent", "()Z", nullptr, $PRIVATE, $method(JPEGMetadata, isConsistent, bool)},
-	{"isReadOnly", "()Z", nullptr, $PUBLIC, $virtualMethod(JPEGMetadata, isReadOnly, bool)},
-	{"mergeAdobeNode", "(Lorg/w3c/dom/Node;)V", nullptr, $PRIVATE, $method(JPEGMetadata, mergeAdobeNode, void, $Node*), "javax.imageio.metadata.IIOInvalidTreeException"},
-	{"mergeCOMNode", "(Lorg/w3c/dom/Node;)V", nullptr, $PRIVATE, $method(JPEGMetadata, mergeCOMNode, void, $Node*), "javax.imageio.metadata.IIOInvalidTreeException"},
-	{"mergeDHTNode", "(Lorg/w3c/dom/Node;)V", nullptr, $PRIVATE, $method(JPEGMetadata, mergeDHTNode, void, $Node*), "javax.imageio.metadata.IIOInvalidTreeException"},
-	{"mergeDQTNode", "(Lorg/w3c/dom/Node;)V", nullptr, $PRIVATE, $method(JPEGMetadata, mergeDQTNode, void, $Node*), "javax.imageio.metadata.IIOInvalidTreeException"},
-	{"mergeDRINode", "(Lorg/w3c/dom/Node;)V", nullptr, $PRIVATE, $method(JPEGMetadata, mergeDRINode, void, $Node*), "javax.imageio.metadata.IIOInvalidTreeException"},
-	{"mergeJFIFsubtree", "(Lorg/w3c/dom/Node;)V", nullptr, $PRIVATE, $method(JPEGMetadata, mergeJFIFsubtree, void, $Node*), "javax.imageio.metadata.IIOInvalidTreeException"},
-	{"mergeNativeTree", "(Lorg/w3c/dom/Node;)V", nullptr, $PRIVATE, $method(JPEGMetadata, mergeNativeTree, void, $Node*), "javax.imageio.metadata.IIOInvalidTreeException"},
-	{"mergeSOFNode", "(Lorg/w3c/dom/Node;)V", nullptr, $PRIVATE, $method(JPEGMetadata, mergeSOFNode, void, $Node*), "javax.imageio.metadata.IIOInvalidTreeException"},
-	{"mergeSOSNode", "(Lorg/w3c/dom/Node;)V", nullptr, $PRIVATE, $method(JPEGMetadata, mergeSOSNode, void, $Node*), "javax.imageio.metadata.IIOInvalidTreeException"},
-	{"mergeSequenceSubtree", "(Lorg/w3c/dom/Node;)V", nullptr, $PRIVATE, $method(JPEGMetadata, mergeSequenceSubtree, void, $Node*), "javax.imageio.metadata.IIOInvalidTreeException"},
-	{"mergeStandardChromaNode", "(Lorg/w3c/dom/Node;Lorg/w3c/dom/NodeList;)V", nullptr, $PRIVATE, $method(JPEGMetadata, mergeStandardChromaNode, void, $Node*, $NodeList*), "javax.imageio.metadata.IIOInvalidTreeException"},
-	{"mergeStandardCompressionNode", "(Lorg/w3c/dom/Node;)V", nullptr, $PRIVATE, $method(JPEGMetadata, mergeStandardCompressionNode, void, $Node*), "javax.imageio.metadata.IIOInvalidTreeException"},
-	{"mergeStandardDataNode", "(Lorg/w3c/dom/Node;)V", nullptr, $PRIVATE, $method(JPEGMetadata, mergeStandardDataNode, void, $Node*), "javax.imageio.metadata.IIOInvalidTreeException"},
-	{"mergeStandardDimensionNode", "(Lorg/w3c/dom/Node;)V", nullptr, $PRIVATE, $method(JPEGMetadata, mergeStandardDimensionNode, void, $Node*), "javax.imageio.metadata.IIOInvalidTreeException"},
-	{"mergeStandardDocumentNode", "(Lorg/w3c/dom/Node;)V", nullptr, $PRIVATE, $method(JPEGMetadata, mergeStandardDocumentNode, void, $Node*), "javax.imageio.metadata.IIOInvalidTreeException"},
-	{"mergeStandardTextNode", "(Lorg/w3c/dom/Node;)V", nullptr, $PRIVATE, $method(JPEGMetadata, mergeStandardTextNode, void, $Node*), "javax.imageio.metadata.IIOInvalidTreeException"},
-	{"mergeStandardTransparencyNode", "(Lorg/w3c/dom/Node;)V", nullptr, $PRIVATE, $method(JPEGMetadata, mergeStandardTransparencyNode, void, $Node*), "javax.imageio.metadata.IIOInvalidTreeException"},
-	{"mergeStandardTree", "(Lorg/w3c/dom/Node;)V", nullptr, $PRIVATE, $method(JPEGMetadata, mergeStandardTree, void, $Node*), "javax.imageio.metadata.IIOInvalidTreeException"},
-	{"mergeTree", "(Ljava/lang/String;Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC, $virtualMethod(JPEGMetadata, mergeTree, void, $String*, $Node*), "javax.imageio.metadata.IIOInvalidTreeException"},
-	{"mergeUnknownNode", "(Lorg/w3c/dom/Node;)V", nullptr, $PRIVATE, $method(JPEGMetadata, mergeUnknownNode, void, $Node*), "javax.imageio.metadata.IIOInvalidTreeException"},
-	{"print", "()V", nullptr, $PUBLIC, $virtualMethod(JPEGMetadata, print, void)},
-	{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(JPEGMetadata, reset, void)},
-	{"setFromMarkerSequenceNode", "(Lorg/w3c/dom/Node;)V", nullptr, 0, $virtualMethod(JPEGMetadata, setFromMarkerSequenceNode, void, $Node*), "javax.imageio.metadata.IIOInvalidTreeException"},
-	{"setFromNativeTree", "(Lorg/w3c/dom/Node;)V", nullptr, $PRIVATE, $method(JPEGMetadata, setFromNativeTree, void, $Node*), "javax.imageio.metadata.IIOInvalidTreeException"},
-	{"setFromTree", "(Ljava/lang/String;Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC, $virtualMethod(JPEGMetadata, setFromTree, void, $String*, $Node*), "javax.imageio.metadata.IIOInvalidTreeException"},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"wantAlpha", "(Lorg/w3c/dom/Node;)Z", nullptr, $PRIVATE, $method(JPEGMetadata, wantAlpha, bool, $Node*)},
-	{"writeToStream", "(Ljavax/imageio/stream/ImageOutputStream;ZZLjava/util/List;Ljava/awt/color/ICC_Profile;ZILcom/sun/imageio/plugins/jpeg/JPEGImageWriter;)V", "(Ljavax/imageio/stream/ImageOutputStream;ZZLjava/util/List<+Ljava/awt/image/BufferedImage;>;Ljava/awt/color/ICC_Profile;ZILcom/sun/imageio/plugins/jpeg/JPEGImageWriter;)V", 0, $virtualMethod(JPEGMetadata, writeToStream, void, $ImageOutputStream*, bool, bool, $List*, $ICC_Profile*, bool, int32_t, $JPEGImageWriter*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _JPEGMetadata_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.imageio.plugins.jpeg.JPEGMetadata",
-	"javax.imageio.metadata.IIOMetadata",
-	"java.lang.Cloneable",
-	_JPEGMetadata_FieldInfo_,
-	_JPEGMetadata_MethodInfo_
-};
-
-$Object* allocate$JPEGMetadata($Class* clazz) {
-	return $of($alloc(JPEGMetadata));
-}
-
 int32_t JPEGMetadata::hashCode() {
 	 return this->$IIOMetadata::hashCode();
 }
@@ -260,11 +177,11 @@ void JPEGMetadata::init$(bool isStream, bool inThumb) {
 }
 
 void JPEGMetadata::init$(bool isStream, bool isThumb, $ImageInputStream* iis, $JPEGImageReader* reader) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	JPEGMetadata::init$(isStream, isThumb);
 	$var($JPEGBuffer, buffer, $new($JPEGBuffer, iis));
 	buffer->loadBuf(0);
-	if ((((int32_t)($nc(buffer->buf)->get(0) & (uint32_t)255)) != 255) || (((int32_t)($nc(buffer->buf)->get(1) & (uint32_t)255)) != $JPEG::SOI) || (((int32_t)($nc(buffer->buf)->get(2) & (uint32_t)255)) != 255)) {
+	if ((($nc(buffer->buf)->get(0) & 0xff) != 0xff) || ((buffer->buf->get(1) & 0xff) != $JPEG::SOI) || ((buffer->buf->get(2) & 0xff) != 0xff)) {
 		$throwNew($IIOException, "Image format error"_s);
 	}
 	bool done = false;
@@ -275,161 +192,130 @@ void JPEGMetadata::init$(bool isStream, bool isThumb, $ImageInputStream* iis, $J
 		$var($bytes, buf, nullptr);
 		int32_t ptr = 0;
 		buffer->loadBuf(1);
+		;
 		buffer->scanForFF(reader);
-		switch ((int32_t)($nc(buffer->buf)->get(buffer->bufPtr) & (uint32_t)255)) {
+		switch ($nc(buffer->buf)->get(buffer->bufPtr) & 0xff) {
 		case 0:
-			{
-				--buffer->bufAvail;
-				++buffer->bufPtr;
-				break;
-			}
+			;
+			--buffer->bufAvail;
+			++buffer->bufPtr;
+			break;
 		case $JPEG::SOF0:
-			{}
 		case $JPEG::SOF1:
-			{}
 		case $JPEG::SOF2:
-			{
-				if (isStream) {
-					$throwNew($IIOException, "SOF not permitted in stream metadata"_s);
-				}
-				$assign(newGuy, $new($SOFMarkerSegment, buffer));
-				break;
+			if (isStream) {
+				$throwNew($IIOException, "SOF not permitted in stream metadata"_s);
 			}
+			$assign(newGuy, $new($SOFMarkerSegment, buffer));
+			break;
 		case $JPEG::DQT:
-			{
-				$assign(newGuy, $new($DQTMarkerSegment, buffer));
-				break;
-			}
+			$assign(newGuy, $new($DQTMarkerSegment, buffer));
+			break;
 		case $JPEG::DHT:
-			{
-				$assign(newGuy, $new($DHTMarkerSegment, buffer));
-				break;
-			}
+			$assign(newGuy, $new($DHTMarkerSegment, buffer));
+			break;
 		case $JPEG::DRI:
-			{
-				$assign(newGuy, $new($DRIMarkerSegment, buffer));
-				break;
-			}
+			$assign(newGuy, $new($DRIMarkerSegment, buffer));
+			break;
 		case $JPEG::APP0:
-			{
-				buffer->loadBuf(8);
-				$assign(buf, buffer->buf);
-				ptr = buffer->bufPtr;
-				if (($nc(buf)->get(ptr + 3) == u'J') && (buf->get(ptr + 4) == u'F') && (buf->get(ptr + 5) == u'I') && (buf->get(ptr + 6) == u'F') && (buf->get(ptr + 7) == 0)) {
-					if (this->inThumb) {
-						$nc(reader)->warningOccurred($JPEGImageReader::WARNING_NO_JFIF_IN_THUMB);
-						$var($JFIFMarkerSegment, dummy, $new($JFIFMarkerSegment, buffer));
-					} else if (isStream) {
-						$throwNew($IIOException, "JFIF not permitted in stream metadata"_s);
-					} else if ($nc(this->markerSequence)->isEmpty() == false) {
-						$throwNew($IIOException, "JFIF APP0 must be first marker after SOI"_s);
-					} else {
-						$assign(newGuy, $new($JFIFMarkerSegment, buffer));
-					}
-				} else if ((buf->get(ptr + 3) == u'J') && (buf->get(ptr + 4) == u'F') && (buf->get(ptr + 5) == u'X') && (buf->get(ptr + 6) == u'X') && (buf->get(ptr + 7) == 0)) {
-					if (isStream) {
-						$throwNew($IIOException, "JFXX not permitted in stream metadata"_s);
-					}
-					if (this->inThumb) {
-						$throwNew($IIOException, "JFXX markers not allowed in JFIF JPEG thumbnail"_s);
-					}
-					$load($JFIFMarkerSegment);
-					$var($JFIFMarkerSegment, jfif, $cast($JFIFMarkerSegment, findMarkerSegment($JFIFMarkerSegment::class$, true)));
-					if (jfif == nullptr) {
-						$throwNew($IIOException, "JFXX encountered without prior JFIF!"_s);
-					}
-					$nc(jfif)->addJFXX(buffer, reader);
+			buffer->loadBuf(8);
+			$assign(buf, buffer->buf);
+			ptr = buffer->bufPtr;
+			if (($nc(buf)->get(ptr + 3) == u'J') && (buf->get(ptr + 4) == u'F') && (buf->get(ptr + 5) == u'I') && (buf->get(ptr + 6) == u'F') && (buf->get(ptr + 7) == 0)) {
+				if (this->inThumb) {
+					$nc(reader)->warningOccurred($JPEGImageReader::WARNING_NO_JFIF_IN_THUMB);
+					$var($JFIFMarkerSegment, dummy, $new($JFIFMarkerSegment, buffer));
+				} else if (isStream) {
+					$throwNew($IIOException, "JFIF not permitted in stream metadata"_s);
+				} else if ($nc(this->markerSequence)->isEmpty() == false) {
+					$throwNew($IIOException, "JFIF APP0 must be first marker after SOI"_s);
 				} else {
-					$assign(newGuy, $new($MarkerSegment, buffer));
-					newGuy->loadData(buffer);
+					$assign(newGuy, $new($JFIFMarkerSegment, buffer));
 				}
-				break;
-			}
-		case $JPEG::APP2:
-			{
-				buffer->loadBuf(15);
-				if (($nc(buffer->buf)->get(buffer->bufPtr + 3) == u'I') && ($nc(buffer->buf)->get(buffer->bufPtr + 4) == u'C') && ($nc(buffer->buf)->get(buffer->bufPtr + 5) == u'C') && ($nc(buffer->buf)->get(buffer->bufPtr + 6) == u'_') && ($nc(buffer->buf)->get(buffer->bufPtr + 7) == u'P') && ($nc(buffer->buf)->get(buffer->bufPtr + 8) == u'R') && ($nc(buffer->buf)->get(buffer->bufPtr + 9) == u'O') && ($nc(buffer->buf)->get(buffer->bufPtr + 10) == u'F') && ($nc(buffer->buf)->get(buffer->bufPtr + 11) == u'I') && ($nc(buffer->buf)->get(buffer->bufPtr + 12) == u'L') && ($nc(buffer->buf)->get(buffer->bufPtr + 13) == u'E') && ($nc(buffer->buf)->get(buffer->bufPtr + 14) == 0)) {
-					if (isStream) {
-						$throwNew($IIOException, "ICC profiles not permitted in stream metadata"_s);
-					}
-					$load($JFIFMarkerSegment);
-					$var($JFIFMarkerSegment, jfif, $cast($JFIFMarkerSegment, findMarkerSegment($JFIFMarkerSegment::class$, true)));
-					if (jfif == nullptr) {
-						$assign(newGuy, $new($MarkerSegment, buffer));
-						newGuy->loadData(buffer);
-					} else {
-						$nc(jfif)->addICC(buffer);
-					}
-				} else {
-					$assign(newGuy, $new($MarkerSegment, buffer));
-					newGuy->loadData(buffer);
-				}
-				break;
-			}
-		case $JPEG::APP14:
-			{
-				buffer->loadBuf(8);
-				if (($nc(buffer->buf)->get(buffer->bufPtr + 3) == u'A') && ($nc(buffer->buf)->get(buffer->bufPtr + 4) == u'd') && ($nc(buffer->buf)->get(buffer->bufPtr + 5) == u'o') && ($nc(buffer->buf)->get(buffer->bufPtr + 6) == u'b') && ($nc(buffer->buf)->get(buffer->bufPtr + 7) == u'e')) {
-					if (isStream) {
-						$throwNew($IIOException, "Adobe APP14 markers not permitted in stream metadata"_s);
-					}
-					$assign(newGuy, $new($AdobeMarkerSegment, buffer));
-				} else {
-					$assign(newGuy, $new($MarkerSegment, buffer));
-					newGuy->loadData(buffer);
-				}
-				break;
-			}
-		case $JPEG::COM:
-			{
-				$assign(newGuy, $new($COMMarkerSegment, buffer));
-				break;
-			}
-		case $JPEG::SOS:
-			{
+			} else if ((buf->get(ptr + 3) == u'J') && (buf->get(ptr + 4) == u'F') && (buf->get(ptr + 5) == u'X') && (buf->get(ptr + 6) == u'X') && (buf->get(ptr + 7) == 0)) {
 				if (isStream) {
-					$throwNew($IIOException, "SOS not permitted in stream metadata"_s);
+					$throwNew($IIOException, "JFXX not permitted in stream metadata"_s);
 				}
-				$assign(newGuy, $new($SOSMarkerSegment, buffer));
-				break;
-			}
-		case $JPEG::RST0:
-			{}
-		case $JPEG::RST1:
-			{}
-		case $JPEG::RST2:
-			{}
-		case $JPEG::RST3:
-			{}
-		case $JPEG::RST4:
-			{}
-		case $JPEG::RST5:
-			{}
-		case $JPEG::RST6:
-			{}
-		case $JPEG::RST7:
-			{
-				++buffer->bufPtr;
-				--buffer->bufAvail;
-				break;
-			}
-		case $JPEG::EOI:
-			{
-				done = true;
-				++buffer->bufPtr;
-				--buffer->bufAvail;
-				break;
-			}
-		default:
-			{
+				if (this->inThumb) {
+					$throwNew($IIOException, "JFXX markers not allowed in JFIF JPEG thumbnail"_s);
+				}
+				$load($JFIFMarkerSegment);
+				$var($JFIFMarkerSegment, jfif, $cast($JFIFMarkerSegment, findMarkerSegment($JFIFMarkerSegment::class$, true)));
+				if (jfif == nullptr) {
+					$throwNew($IIOException, "JFXX encountered without prior JFIF!"_s);
+				}
+				$nc(jfif)->addJFXX(buffer, reader);
+			} else {
 				$assign(newGuy, $new($MarkerSegment, buffer));
-				$nc(newGuy)->loadData(buffer);
-				$nc(newGuy)->unknown = true;
-				break;
+				newGuy->loadData(buffer);
 			}
+			break;
+		case $JPEG::APP2:
+			buffer->loadBuf(15);
+			if (($nc(buffer->buf)->get(buffer->bufPtr + 3) == u'I') && (buffer->buf->get(buffer->bufPtr + 4) == u'C') && (buffer->buf->get(buffer->bufPtr + 5) == u'C') && (buffer->buf->get(buffer->bufPtr + 6) == u'_') && (buffer->buf->get(buffer->bufPtr + 7) == u'P') && (buffer->buf->get(buffer->bufPtr + 8) == u'R') && (buffer->buf->get(buffer->bufPtr + 9) == u'O') && (buffer->buf->get(buffer->bufPtr + 10) == u'F') && (buffer->buf->get(buffer->bufPtr + 11) == u'I') && (buffer->buf->get(buffer->bufPtr + 12) == u'L') && (buffer->buf->get(buffer->bufPtr + 13) == u'E') && (buffer->buf->get(buffer->bufPtr + 14) == 0)) {
+				if (isStream) {
+					$throwNew($IIOException, "ICC profiles not permitted in stream metadata"_s);
+				}
+				$load($JFIFMarkerSegment);
+				$var($JFIFMarkerSegment, jfif, $cast($JFIFMarkerSegment, findMarkerSegment($JFIFMarkerSegment::class$, true)));
+				if (jfif == nullptr) {
+					$assign(newGuy, $new($MarkerSegment, buffer));
+					newGuy->loadData(buffer);
+				} else {
+					jfif->addICC(buffer);
+				}
+			} else {
+				$assign(newGuy, $new($MarkerSegment, buffer));
+				newGuy->loadData(buffer);
+			}
+			break;
+		case $JPEG::APP14:
+			buffer->loadBuf(8);
+			if (($nc(buffer->buf)->get(buffer->bufPtr + 3) == u'A') && (buffer->buf->get(buffer->bufPtr + 4) == u'd') && (buffer->buf->get(buffer->bufPtr + 5) == u'o') && (buffer->buf->get(buffer->bufPtr + 6) == u'b') && (buffer->buf->get(buffer->bufPtr + 7) == u'e')) {
+				if (isStream) {
+					$throwNew($IIOException, "Adobe APP14 markers not permitted in stream metadata"_s);
+				}
+				$assign(newGuy, $new($AdobeMarkerSegment, buffer));
+			} else {
+				$assign(newGuy, $new($MarkerSegment, buffer));
+				newGuy->loadData(buffer);
+			}
+			break;
+		case $JPEG::COM:
+			$assign(newGuy, $new($COMMarkerSegment, buffer));
+			break;
+		case $JPEG::SOS:
+			if (isStream) {
+				$throwNew($IIOException, "SOS not permitted in stream metadata"_s);
+			}
+			$assign(newGuy, $new($SOSMarkerSegment, buffer));
+			break;
+		case $JPEG::RST0:
+		case $JPEG::RST1:
+		case $JPEG::RST2:
+		case $JPEG::RST3:
+		case $JPEG::RST4:
+		case $JPEG::RST5:
+		case $JPEG::RST6:
+		case $JPEG::RST7:
+			;
+			++buffer->bufPtr;
+			--buffer->bufAvail;
+			break;
+		case $JPEG::EOI:
+			done = true;
+			++buffer->bufPtr;
+			--buffer->bufAvail;
+			break;
+		default:
+			$assign(newGuy, $new($MarkerSegment, buffer));
+			newGuy->loadData(buffer);
+			newGuy->unknown = true;
+			break;
 		}
 		if (newGuy != nullptr) {
 			$nc(this->markerSequence)->add(newGuy);
+			;
 			$assign(newGuy, nullptr);
 		}
 	}
@@ -440,7 +326,7 @@ void JPEGMetadata::init$(bool isStream, bool isThumb, $ImageInputStream* iis, $J
 }
 
 void JPEGMetadata::init$($ImageWriteParam* param, $JPEGImageWriter* writer) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	JPEGMetadata::init$(true, false);
 	$var($JPEGImageWriteParam, jparam, nullptr);
 	if ((param != nullptr) && ($instanceOf($JPEGImageWriteParam, param))) {
@@ -464,7 +350,7 @@ void JPEGMetadata::init$($ImageWriteParam* param, $JPEGImageWriter* writer) {
 }
 
 void JPEGMetadata::init$($ImageTypeSpecifier* imageType, $ImageWriteParam* param, $JPEGImageWriter* writer) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	JPEGMetadata::init$(false, false);
 	bool wantJFIF = true;
 	bool wantAdobe = false;
@@ -479,10 +365,10 @@ void JPEGMetadata::init$($ImageTypeSpecifier* imageType, $ImageWriteParam* param
 	$init($JPEG);
 	float quality = $JPEG::DEFAULT_QUALITY;
 	$var($bytes, componentIDs, $new($bytes, {
-		(int8_t)1,
-		(int8_t)2,
-		(int8_t)3,
-		(int8_t)4
+		1,
+		2,
+		3,
+		4
 	}));
 	int32_t numComponents = 0;
 	$var($ImageTypeSpecifier, destType, nullptr);
@@ -506,7 +392,7 @@ void JPEGMetadata::init$($ImageTypeSpecifier* imageType, $ImageWriteParam* param
 			if (jparam->areTablesSet()) {
 				wantQTables = false;
 				wantHTables = false;
-				bool var$0 = ($nc($(jparam->getDCHuffmanTables()))->length > 2);
+				bool var$0 = $nc($(jparam->getDCHuffmanTables()))->length > 2;
 				if (var$0 || ($nc($(jparam->getACHuffmanTables()))->length > 2)) {
 					wantExtended = true;
 				}
@@ -534,42 +420,34 @@ void JPEGMetadata::init$($ImageTypeSpecifier* imageType, $ImageWriteParam* param
 		int32_t type = $nc(cs)->getType();
 		switch (type) {
 		case $ColorSpace::TYPE_GRAY:
-			{
-				willSubsample = false;
-				if (hasExtraComponents) {
-					wantJFIF = false;
-				}
-				break;
+			willSubsample = false;
+			if (hasExtraComponents) {
+				wantJFIF = false;
 			}
+			break;
 		case $ColorSpace::TYPE_YCbCr:
-			{
-				if (hasExtraComponents) {
-					wantJFIF = false;
-					if (!hasAlpha) {
-						wantAdobe = true;
-						transform = $JPEG::ADOBE_YCCK;
-					}
+			if (hasExtraComponents) {
+				wantJFIF = false;
+				if (!hasAlpha) {
+					wantAdobe = true;
+					transform = $JPEG::ADOBE_YCCK;
 				}
-				break;
 			}
+			break;
 		case $ColorSpace::TYPE_RGB:
-			{
-				wantJFIF = false;
-				wantAdobe = true;
-				willSubsample = false;
-				componentIDs->set(0, (int8_t)u'R');
-				componentIDs->set(1, (int8_t)u'G');
-				componentIDs->set(2, (int8_t)u'B');
-				if (hasAlpha) {
-					componentIDs->set(3, (int8_t)u'A');
-				}
-				break;
+			wantJFIF = false;
+			wantAdobe = true;
+			willSubsample = false;
+			componentIDs->set(0, (int8_t)u'R');
+			componentIDs->set(1, (int8_t)u'G');
+			componentIDs->set(2, (int8_t)u'B');
+			if (hasAlpha) {
+				componentIDs->set(3, (int8_t)u'A');
 			}
+			break;
 		default:
-			{
-				wantJFIF = false;
-				willSubsample = false;
-			}
+			wantJFIF = false;
+			willSubsample = false;
 		}
 	} else if (imageType != nullptr) {
 		$var($ColorModel, cm, imageType->getColorModel());
@@ -580,59 +458,47 @@ void JPEGMetadata::init$($ImageTypeSpecifier* imageType, $ImageWriteParam* param
 		int32_t type = $nc(cs)->getType();
 		switch (type) {
 		case $ColorSpace::TYPE_GRAY:
-			{
-				willSubsample = false;
-				if (hasExtraComponents) {
-					wantJFIF = false;
-				}
-				break;
+			willSubsample = false;
+			if (hasExtraComponents) {
+				wantJFIF = false;
 			}
+			break;
 		case $ColorSpace::TYPE_RGB:
-			{
-				if (hasAlpha) {
-					wantJFIF = false;
-				}
-				break;
+			if (hasAlpha) {
+				wantJFIF = false;
 			}
+			break;
 		case $ColorSpace::TYPE_3CLR:
-			{
-				wantJFIF = false;
-				willSubsample = false;
-				if ($of(cs)->equals($($ColorSpace::getInstance($ColorSpace::CS_PYCC)))) {
-					willSubsample = true;
-					wantAdobe = true;
-					componentIDs->set(0, (int8_t)u'Y');
-					componentIDs->set(1, (int8_t)u'C');
-					componentIDs->set(2, (int8_t)u'c');
-					if (hasAlpha) {
-						componentIDs->set(3, (int8_t)u'A');
-					}
-				}
-				break;
-			}
-		case $ColorSpace::TYPE_YCbCr:
-			{
-				if (hasExtraComponents) {
-					wantJFIF = false;
-					if (!hasAlpha) {
-						wantAdobe = true;
-						transform = $JPEG::ADOBE_YCCK;
-					}
-				}
-				break;
-			}
-		case $ColorSpace::TYPE_CMYK:
-			{
-				wantJFIF = false;
+			wantJFIF = false;
+			willSubsample = false;
+			if (cs->equals($($ColorSpace::getInstance($ColorSpace::CS_PYCC)))) {
+				willSubsample = true;
 				wantAdobe = true;
-				transform = $JPEG::ADOBE_YCCK;
-				break;
+				componentIDs->set(0, (int8_t)u'Y');
+				componentIDs->set(1, (int8_t)u'C');
+				componentIDs->set(2, (int8_t)u'c');
+				if (hasAlpha) {
+					componentIDs->set(3, (int8_t)u'A');
+				}
 			}
-		default:
-			{
+			break;
+		case $ColorSpace::TYPE_YCbCr:
+			if (hasExtraComponents) {
 				wantJFIF = false;
-				willSubsample = false;
+				if (!hasAlpha) {
+					wantAdobe = true;
+					transform = $JPEG::ADOBE_YCCK;
+				}
 			}
+			break;
+		case $ColorSpace::TYPE_CMYK:
+			wantJFIF = false;
+			wantAdobe = true;
+			transform = $JPEG::ADOBE_YCCK;
+			break;
+		default:
+			wantJFIF = false;
+			willSubsample = false;
 		}
 	}
 	if (wantJFIF && $ImageUtil::isNonStandardICCColorSpace(cs)) {
@@ -659,7 +525,7 @@ void JPEGMetadata::init$($ImageTypeSpecifier* imageType, $ImageWriteParam* param
 	}
 	$nc(this->markerSequence)->add($$new($SOFMarkerSegment, wantProg, wantExtended, willSubsample, componentIDs, numComponents));
 	if (!wantProg) {
-		$nc(this->markerSequence)->add($$new($SOSMarkerSegment, willSubsample, componentIDs, numComponents));
+		this->markerSequence->add($$new($SOSMarkerSegment, willSubsample, componentIDs, numComponents));
 	}
 	if (!isConsistent()) {
 		$throwNew($InternalError, "Default image metadata is inconsistent"_s);
@@ -667,33 +533,25 @@ void JPEGMetadata::init$($ImageTypeSpecifier* imageType, $ImageWriteParam* param
 }
 
 $MarkerSegment* JPEGMetadata::findMarkerSegment(int32_t tag) {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Iterator, i$, $nc(this->markerSequence)->iterator());
-		for (; $nc(i$)->hasNext();) {
-			$var($MarkerSegment, seg, $cast($MarkerSegment, i$->next()));
-			{
-				if ($nc(seg)->tag == tag) {
-					return seg;
-				}
-			}
+	$useLocalObjectStack();
+	$var($Iterator, i$, $nc(this->markerSequence)->iterator());
+	for (; $nc(i$)->hasNext();) {
+		$var($MarkerSegment, seg, $cast($MarkerSegment, i$->next()));
+		if ($nc(seg)->tag == tag) {
+			return seg;
 		}
 	}
 	return nullptr;
 }
 
 $MarkerSegment* JPEGMetadata::findMarkerSegment($Class* cls, bool first) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (first) {
-		{
-			$var($Iterator, i$, $nc(this->markerSequence)->iterator());
-			for (; $nc(i$)->hasNext();) {
-				$var($MarkerSegment, seg, $cast($MarkerSegment, i$->next()));
-				{
-					if ($nc(cls)->isInstance(seg)) {
-						return seg;
-					}
-				}
+		$var($Iterator, i$, $nc(this->markerSequence)->iterator());
+		for (; $nc(i$)->hasNext();) {
+			$var($MarkerSegment, seg, $cast($MarkerSegment, i$->next()));
+			if ($nc(cls)->isInstance(seg)) {
+				return seg;
 			}
 		}
 	} else {
@@ -709,7 +567,7 @@ $MarkerSegment* JPEGMetadata::findMarkerSegment($Class* cls, bool first) {
 }
 
 int32_t JPEGMetadata::findMarkerSegmentPosition($Class* cls, bool first) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (first) {
 		$var($ListIterator, iter, $nc(this->markerSequence)->listIterator());
 		for (int32_t i = 0; $nc(iter)->hasNext(); ++i) {
@@ -720,7 +578,7 @@ int32_t JPEGMetadata::findMarkerSegmentPosition($Class* cls, bool first) {
 		}
 	} else {
 		$var($ListIterator, iter, $nc(this->markerSequence)->listIterator($nc(this->markerSequence)->size()));
-		for (int32_t i = $nc(this->markerSequence)->size() - 1; $nc(iter)->hasPrevious(); --i) {
+		for (int32_t i = this->markerSequence->size() - 1; $nc(iter)->hasPrevious(); --i) {
 			$var($MarkerSegment, seg, $cast($MarkerSegment, iter->previous()));
 			if ($nc(cls)->isInstance(seg)) {
 				return i;
@@ -731,9 +589,9 @@ int32_t JPEGMetadata::findMarkerSegmentPosition($Class* cls, bool first) {
 }
 
 int32_t JPEGMetadata::findLastUnknownMarkerSegmentPosition() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ListIterator, iter, $nc(this->markerSequence)->listIterator($nc(this->markerSequence)->size()));
-	for (int32_t i = $nc(this->markerSequence)->size() - 1; $nc(iter)->hasPrevious(); --i) {
+	for (int32_t i = this->markerSequence->size() - 1; $nc(iter)->hasPrevious(); --i) {
 		$var($MarkerSegment, seg, $cast($MarkerSegment, iter->previous()));
 		if ($nc(seg)->unknown == true) {
 			return i;
@@ -756,17 +614,17 @@ $Object* JPEGMetadata::clone() {
 }
 
 $List* JPEGMetadata::cloneSequence() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->markerSequence == nullptr) {
 		return nullptr;
 	}
 	$var($List, retval, $new($ArrayList, $nc(this->markerSequence)->size()));
 	{
-		$var($Iterator, i$, $nc(this->markerSequence)->iterator());
+		$var($Iterator, i$, this->markerSequence->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($MarkerSegment, seg, $cast($MarkerSegment, i$->next()));
 			{
-				retval->add($cast($MarkerSegment, $($nc(seg)->clone())));
+				retval->add($$cast($MarkerSegment, $nc(seg)->clone()));
 			}
 		}
 	}
@@ -788,7 +646,7 @@ $Node* JPEGMetadata::getAsTree($String* formatName) {
 			return getNativeTree();
 		}
 		$init($IIOMetadataFormatImpl);
-		if ($nc(formatName)->equals($IIOMetadataFormatImpl::standardMetadataFormatName)) {
+		if (formatName->equals($IIOMetadataFormatImpl::standardMetadataFormatName)) {
 			return getStandardTree();
 		}
 	}
@@ -796,7 +654,7 @@ $Node* JPEGMetadata::getAsTree($String* formatName) {
 }
 
 $IIOMetadataNode* JPEGMetadata::getNativeTree() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($IIOMetadataNode, root, nullptr);
 	$var($IIOMetadataNode, top, nullptr);
 	$var($Iterator, iter, $nc(this->markerSequence)->iterator());
@@ -831,7 +689,7 @@ $IIOMetadataNode* JPEGMetadata::getNativeTree() {
 }
 
 $IIOMetadataNode* JPEGMetadata::getStandardChromaNode() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->hasAlpha = false;
 	$load($SOFMarkerSegment);
 	$var($SOFMarkerSegment, sof, $cast($SOFMarkerSegment, findMarkerSegment($SOFMarkerSegment::class$, true)));
@@ -859,24 +717,18 @@ $IIOMetadataNode* JPEGMetadata::getStandardChromaNode() {
 	if (adobe != nullptr) {
 		switch (adobe->transform) {
 		case $JPEG::ADOBE_YCCK:
-			{
-				csType->setAttribute("name"_s, "YCCK"_s);
-				break;
-			}
+			csType->setAttribute("name"_s, "YCCK"_s);
+			break;
 		case $JPEG::ADOBE_YCC:
-			{
-				csType->setAttribute("name"_s, "YCbCr"_s);
-				break;
-			}
+			csType->setAttribute("name"_s, "YCbCr"_s);
+			break;
 		case $JPEG::ADOBE_UNKNOWN:
-			{
-				if (numChannels == 3) {
-					csType->setAttribute("name"_s, "RGB"_s);
-				} else if (numChannels == 4) {
-					csType->setAttribute("name"_s, "CMYK"_s);
-				}
-				break;
+			if (numChannels == 3) {
+				csType->setAttribute("name"_s, "RGB"_s);
+			} else if (numChannels == 4) {
+				csType->setAttribute("name"_s, "CMYK"_s);
 			}
+			break;
 		}
 		return chroma;
 	}
@@ -889,8 +741,8 @@ $IIOMetadataNode* JPEGMetadata::getStandardChromaNode() {
 	}
 	bool idsAreJFIF = false;
 	int32_t cid0 = $nc($nc(sof->componentSpecs)->get(0))->componentId;
-	int32_t cid1 = $nc($nc(sof->componentSpecs)->get(1))->componentId;
-	int32_t cid2 = $nc($nc(sof->componentSpecs)->get(2))->componentId;
+	int32_t cid1 = $nc(sof->componentSpecs->get(1))->componentId;
+	int32_t cid2 = $nc(sof->componentSpecs->get(2))->componentId;
 	if ((cid0 == 1) && (cid1 == 2) && (cid2 == 3)) {
 		idsAreJFIF = true;
 	}
@@ -901,14 +753,14 @@ $IIOMetadataNode* JPEGMetadata::getStandardChromaNode() {
 		}
 		return chroma;
 	}
-	if (($nc($nc(sof->componentSpecs)->get(0))->componentId == u'R') && ($nc($nc(sof->componentSpecs)->get(1))->componentId == u'G') && ($nc($nc(sof->componentSpecs)->get(2))->componentId == u'B')) {
+	if (($nc($nc(sof->componentSpecs)->get(0))->componentId == u'R') && ($nc(sof->componentSpecs->get(1))->componentId == u'G') && ($nc(sof->componentSpecs->get(2))->componentId == u'B')) {
 		csType->setAttribute("name"_s, "RGB"_s);
 		if ((numChannels == 4) && ($nc($nc(sof->componentSpecs)->get(3))->componentId == u'A')) {
 			this->hasAlpha = true;
 		}
 		return chroma;
 	}
-	if (($nc($nc(sof->componentSpecs)->get(0))->componentId == u'Y') && ($nc($nc(sof->componentSpecs)->get(1))->componentId == u'C') && ($nc($nc(sof->componentSpecs)->get(2))->componentId == u'c')) {
+	if (($nc($nc(sof->componentSpecs)->get(0))->componentId == u'Y') && ($nc(sof->componentSpecs->get(1))->componentId == u'C') && ($nc(sof->componentSpecs->get(2))->componentId == u'c')) {
 		csType->setAttribute("name"_s, "PhotoYCC"_s);
 		if ((numChannels == 4) && ($nc($nc(sof->componentSpecs)->get(3))->componentId == u'A')) {
 			this->hasAlpha = true;
@@ -917,9 +769,9 @@ $IIOMetadataNode* JPEGMetadata::getStandardChromaNode() {
 	}
 	bool subsampled = false;
 	int32_t hfactor = $nc($nc(sof->componentSpecs)->get(0))->HsamplingFactor;
-	int32_t vfactor = $nc($nc(sof->componentSpecs)->get(0))->VsamplingFactor;
-	for (int32_t i = 1; i < $nc(sof->componentSpecs)->length; ++i) {
-		if (($nc($nc(sof->componentSpecs)->get(i))->HsamplingFactor != hfactor) || ($nc($nc(sof->componentSpecs)->get(i))->VsamplingFactor != vfactor)) {
+	int32_t vfactor = $nc(sof->componentSpecs->get(0))->VsamplingFactor;
+	for (int32_t i = 1; i < sof->componentSpecs->length; ++i) {
+		if (($nc(sof->componentSpecs->get(i))->HsamplingFactor != hfactor) || ($nc(sof->componentSpecs->get(i))->VsamplingFactor != vfactor)) {
 			subsampled = true;
 			break;
 		}
@@ -940,7 +792,7 @@ $IIOMetadataNode* JPEGMetadata::getStandardChromaNode() {
 }
 
 $IIOMetadataNode* JPEGMetadata::getStandardCompressionNode() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($IIOMetadataNode, compression, $new($IIOMetadataNode, "Compression"_s));
 	$var($IIOMetadataNode, name, $new($IIOMetadataNode, "CompressionTypeName"_s));
 	name->setAttribute("value"_s, "JPEG"_s);
@@ -953,10 +805,8 @@ $IIOMetadataNode* JPEGMetadata::getStandardCompressionNode() {
 		$var($Iterator, i$, $nc(this->markerSequence)->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($MarkerSegment, ms, $cast($MarkerSegment, i$->next()));
-			{
-				if ($nc(ms)->tag == $JPEG::SOS) {
-					++sosCount;
-				}
+			if ($nc(ms)->tag == $JPEG::SOS) {
+				++sosCount;
 			}
 		}
 	}
@@ -969,7 +819,7 @@ $IIOMetadataNode* JPEGMetadata::getStandardCompressionNode() {
 }
 
 $IIOMetadataNode* JPEGMetadata::getStandardDimensionNode() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($IIOMetadataNode, dim, $new($IIOMetadataNode, "Dimension"_s));
 	$var($IIOMetadataNode, orient, $new($IIOMetadataNode, "ImageOrientation"_s));
 	orient->setAttribute("value"_s, "normal"_s);
@@ -1000,7 +850,7 @@ $IIOMetadataNode* JPEGMetadata::getStandardDimensionNode() {
 }
 
 $IIOMetadataNode* JPEGMetadata::getStandardTextNode() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($IIOMetadataNode, text, nullptr);
 	if (findMarkerSegment($JPEG::COM) != nullptr) {
 		$assign(text, $new($IIOMetadataNode, "Text"_s));
@@ -1008,14 +858,12 @@ $IIOMetadataNode* JPEGMetadata::getStandardTextNode() {
 			$var($Iterator, i$, $nc(this->markerSequence)->iterator());
 			for (; $nc(i$)->hasNext();) {
 				$var($MarkerSegment, seg, $cast($MarkerSegment, i$->next()));
-				{
-					if ($nc(seg)->tag == $JPEG::COM) {
-						$var($COMMarkerSegment, com, $cast($COMMarkerSegment, seg));
-						$var($IIOMetadataNode, entry, $new($IIOMetadataNode, "TextEntry"_s));
-						entry->setAttribute("keyword"_s, "comment"_s);
-						entry->setAttribute("value"_s, $(com->getComment()));
-						text->appendChild(entry);
-					}
+				if ($nc(seg)->tag == $JPEG::COM) {
+					$var($COMMarkerSegment, com, $cast($COMMarkerSegment, seg));
+					$var($IIOMetadataNode, entry, $new($IIOMetadataNode, "TextEntry"_s));
+					entry->setAttribute("keyword"_s, "comment"_s);
+					entry->setAttribute("value"_s, $(com->getComment()));
+					text->appendChild(entry);
 				}
 			}
 		}
@@ -1024,7 +872,7 @@ $IIOMetadataNode* JPEGMetadata::getStandardTextNode() {
 }
 
 $IIOMetadataNode* JPEGMetadata::getStandardTransparencyNode() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($IIOMetadataNode, trans, nullptr);
 	if (this->hasAlpha == true) {
 		$assign(trans, $new($IIOMetadataNode, "Transparency"_s));
@@ -1040,7 +888,7 @@ bool JPEGMetadata::isReadOnly() {
 }
 
 void JPEGMetadata::mergeTree($String* formatName, $Node* root) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (formatName == nullptr) {
 		$throwNew($IllegalArgumentException, "null formatName!"_s);
 	}
@@ -1057,16 +905,14 @@ void JPEGMetadata::mergeTree($String* formatName, $Node* root) {
 	$init($JPEG);
 	if (this->isStream && ($nc(formatName)->equals($JPEG::nativeStreamMetadataFormatName))) {
 		mergeNativeTree(root);
+	} else if (!this->isStream && ($nc(formatName)->equals($JPEG::nativeImageMetadataFormatName))) {
+		mergeNativeTree(root);
 	} else {
-		if (!this->isStream && (formatName->equals($JPEG::nativeImageMetadataFormatName))) {
-			mergeNativeTree(root);
+		$init($IIOMetadataFormatImpl);
+		if (!this->isStream && ($nc(formatName)->equals($IIOMetadataFormatImpl::standardMetadataFormatName))) {
+			mergeStandardTree(root);
 		} else {
-			$init($IIOMetadataFormatImpl);
-			if (!this->isStream && (formatName->equals($IIOMetadataFormatImpl::standardMetadataFormatName))) {
-				mergeStandardTree(root);
-			} else {
-				$throwNew($IllegalArgumentException, $$str({"Unsupported format name: "_s, formatName}));
-			}
+			$throwNew($IllegalArgumentException, $$str({"Unsupported format name: "_s, formatName}));
 		}
 	}
 	if (!isConsistent()) {
@@ -1076,13 +922,13 @@ void JPEGMetadata::mergeTree($String* formatName, $Node* root) {
 }
 
 void JPEGMetadata::mergeNativeTree($Node* root) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, name, $nc(root)->getNodeName());
 	$init($JPEG);
 	if (name != ((this->isStream) ? $JPEG::nativeStreamMetadataFormatName : $JPEG::nativeImageMetadataFormatName)) {
 		$throwNew($IIOInvalidTreeException, $$str({"Invalid root node name: "_s, name}), root);
 	}
-	if ($nc($(root->getChildNodes()))->getLength() != 2) {
+	if ($$nc(root->getChildNodes())->getLength() != 2) {
 		$throwNew($IIOInvalidTreeException, "JPEGvariety and markerSequence nodes must be present"_s, root);
 	}
 	mergeJFIFsubtree($(root->getFirstChild()));
@@ -1090,8 +936,8 @@ void JPEGMetadata::mergeNativeTree($Node* root) {
 }
 
 void JPEGMetadata::mergeJFIFsubtree($Node* JPEGvariety) {
-	$useLocalCurrentObjectStackCache();
-	if ($nc($($nc(JPEGvariety)->getChildNodes()))->getLength() != 0) {
+	$useLocalObjectStack();
+	if ($$nc($nc(JPEGvariety)->getChildNodes())->getLength() != 0) {
 		$var($Node, jfifNode, JPEGvariety->getFirstChild());
 		$load($JFIFMarkerSegment);
 		$var($JFIFMarkerSegment, jfifSeg, $cast($JFIFMarkerSegment, findMarkerSegment($JFIFMarkerSegment::class$, true)));
@@ -1104,7 +950,7 @@ void JPEGMetadata::mergeJFIFsubtree($Node* JPEGvariety) {
 }
 
 void JPEGMetadata::mergeSequenceSubtree($Node* sequenceTree) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($NodeList, children, $nc(sequenceTree)->getChildNodes());
 	for (int32_t i = 0; i < $nc(children)->getLength(); ++i) {
 		$var($Node, node, children->item(i));
@@ -1132,16 +978,14 @@ void JPEGMetadata::mergeSequenceSubtree($Node* sequenceTree) {
 }
 
 void JPEGMetadata::mergeDQTNode($Node* node) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ArrayList, oldDQTs, $new($ArrayList));
 	{
 		$var($Iterator, i$, $nc(this->markerSequence)->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($MarkerSegment, seg, $cast($MarkerSegment, i$->next()));
-			{
-				if ($instanceOf($DQTMarkerSegment, seg)) {
-					oldDQTs->add($cast($DQTMarkerSegment, seg));
-				}
+			if ($instanceOf($DQTMarkerSegment, seg)) {
+				oldDQTs->add($cast($DQTMarkerSegment, seg));
 			}
 		}
 	}
@@ -1155,7 +999,7 @@ void JPEGMetadata::mergeDQTNode($Node* node) {
 			for (int32_t j = 0; j < oldDQTs->size(); ++j) {
 				$var($DQTMarkerSegment, testDQT, $cast($DQTMarkerSegment, oldDQTs->get(j)));
 				for (int32_t k = 0; k < $nc($nc(testDQT)->tables)->size(); ++k) {
-					$var($DQTMarkerSegment$Qtable, testTable, $cast($DQTMarkerSegment$Qtable, $nc(testDQT->tables)->get(k)));
+					$var($DQTMarkerSegment$Qtable, testTable, $cast($DQTMarkerSegment$Qtable, testDQT->tables->get(k)));
 					if (childID == $nc(testTable)->tableID) {
 						$assign(dqt, testDQT);
 						tableIndex = k;
@@ -1170,7 +1014,7 @@ void JPEGMetadata::mergeDQTNode($Node* node) {
 				$nc(dqt->tables)->set(tableIndex, $(dqt->getQtableFromNode(child)));
 			} else {
 				$assign(dqt, $cast($DQTMarkerSegment, oldDQTs->get(oldDQTs->size() - 1)));
-				$nc($nc(dqt)->tables)->add($(dqt->getQtableFromNode(child)));
+				$nc($nc(dqt)->tables)->add($($nc(dqt)->getQtableFromNode(child)));
 			}
 		}
 	} else {
@@ -1194,16 +1038,14 @@ void JPEGMetadata::mergeDQTNode($Node* node) {
 }
 
 void JPEGMetadata::mergeDHTNode($Node* node) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ArrayList, oldDHTs, $new($ArrayList));
 	{
 		$var($Iterator, i$, $nc(this->markerSequence)->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($MarkerSegment, seg, $cast($MarkerSegment, i$->next()));
-			{
-				if ($instanceOf($DHTMarkerSegment, seg)) {
-					oldDHTs->add($cast($DHTMarkerSegment, seg));
-				}
+			if ($instanceOf($DHTMarkerSegment, seg)) {
+				oldDHTs->add($cast($DHTMarkerSegment, seg));
 			}
 		}
 	}
@@ -1219,7 +1061,7 @@ void JPEGMetadata::mergeDHTNode($Node* node) {
 			for (int32_t j = 0; j < oldDHTs->size(); ++j) {
 				$var($DHTMarkerSegment, testDHT, $cast($DHTMarkerSegment, oldDHTs->get(j)));
 				for (int32_t k = 0; k < $nc($nc(testDHT)->tables)->size(); ++k) {
-					$var($DHTMarkerSegment$Htable, testTable, $cast($DHTMarkerSegment$Htable, $nc(testDHT->tables)->get(k)));
+					$var($DHTMarkerSegment$Htable, testTable, $cast($DHTMarkerSegment$Htable, testDHT->tables->get(k)));
 					if ((childID == $nc(testTable)->tableID) && (childClass == testTable->tableClass)) {
 						$assign(dht, testDHT);
 						tableIndex = k;
@@ -1234,7 +1076,7 @@ void JPEGMetadata::mergeDHTNode($Node* node) {
 				$nc(dht->tables)->set(tableIndex, $(dht->getHtableFromNode(child)));
 			} else {
 				$assign(dht, $cast($DHTMarkerSegment, oldDHTs->get(oldDHTs->size() - 1)));
-				$nc($nc(dht)->tables)->add($(dht->getHtableFromNode(child)));
+				$nc($nc(dht)->tables)->add($($nc(dht)->getHtableFromNode(child)));
 			}
 		}
 	} else {
@@ -1258,7 +1100,7 @@ void JPEGMetadata::mergeDHTNode($Node* node) {
 }
 
 void JPEGMetadata::mergeDRINode($Node* node) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$load($DRIMarkerSegment);
 	$var($DRIMarkerSegment, dri, $cast($DRIMarkerSegment, findMarkerSegment($DRIMarkerSegment::class$, true)));
 	if (dri != nullptr) {
@@ -1303,7 +1145,7 @@ void JPEGMetadata::insertCOMMarkerSegment($COMMarkerSegment* newGuy) {
 }
 
 void JPEGMetadata::mergeAdobeNode($Node* node) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$load($AdobeMarkerSegment);
 	$var($AdobeMarkerSegment, adobe, $cast($AdobeMarkerSegment, findMarkerSegment($AdobeMarkerSegment::class$, true)));
 	if (adobe != nullptr) {
@@ -1347,7 +1189,7 @@ void JPEGMetadata::mergeUnknownNode($Node* node) {
 }
 
 void JPEGMetadata::mergeSOFNode($Node* node) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$load($SOFMarkerSegment);
 	$var($SOFMarkerSegment, sof, $cast($SOFMarkerSegment, findMarkerSegment($SOFMarkerSegment::class$, true)));
 	if (sof != nullptr) {
@@ -1365,7 +1207,7 @@ void JPEGMetadata::mergeSOFNode($Node* node) {
 }
 
 void JPEGMetadata::mergeSOSNode($Node* node) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$load($SOSMarkerSegment);
 	$var($SOSMarkerSegment, firstSOS, $cast($SOSMarkerSegment, findMarkerSegment($SOSMarkerSegment::class$, true)));
 	$var($SOSMarkerSegment, lastSOS, $cast($SOSMarkerSegment, findMarkerSegment($SOSMarkerSegment::class$, false)));
@@ -1380,7 +1222,7 @@ void JPEGMetadata::mergeSOSNode($Node* node) {
 }
 
 void JPEGMetadata::mergeStandardTree($Node* root) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->transparencyDone = false;
 	$var($NodeList, children, $nc(root)->getChildNodes());
 	for (int32_t i = 0; i < $nc(children)->getLength(); ++i) {
@@ -1407,25 +1249,25 @@ void JPEGMetadata::mergeStandardTree($Node* root) {
 }
 
 void JPEGMetadata::mergeStandardChromaNode($Node* node, $NodeList* siblings) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->transparencyDone) {
 		$throwNew($IIOInvalidTreeException, "Transparency node must follow Chroma node"_s, node);
 	}
 	$var($Node, csType, $nc(node)->getFirstChild());
-	if ((csType == nullptr) || !$nc($($nc(csType)->getNodeName()))->equals("ColorSpaceType"_s)) {
+	if ((csType == nullptr) || !$$nc(csType->getNodeName())->equals("ColorSpaceType"_s)) {
 		return;
 	}
-	$var($String, csName, $nc($($nc($($nc(csType)->getAttributes()))->getNamedItem("name"_s)))->getNodeValue());
+	$var($String, csName, $$nc($$nc($nc(csType)->getAttributes())->getNamedItem("name"_s))->getNodeValue());
 	int32_t numChannels = 0;
 	bool wantJFIF = false;
 	bool wantAdobe = false;
 	int32_t transform = 0;
 	bool willSubsample = false;
 	$var($bytes, ids, $new($bytes, {
-		(int8_t)1,
-		(int8_t)2,
-		(int8_t)3,
-		(int8_t)4
+		1,
+		2,
+		3,
+		4
 	}));
 	if ($nc(csName)->equals("GRAY"_s)) {
 		numChannels = 1;
@@ -1449,14 +1291,14 @@ void JPEGMetadata::mergeStandardChromaNode($Node* node, $NodeList* siblings) {
 		ids->set(1, (int8_t)u'G');
 		ids->set(2, (int8_t)u'B');
 	} else {
-		bool var$13 = (csName->equals("XYZ"_s));
-		bool var$12 = var$13 || (csName->equals("Lab"_s));
-		bool var$11 = var$12 || (csName->equals("Luv"_s));
-		bool var$10 = var$11 || (csName->equals("YxY"_s));
-		bool var$9 = var$10 || (csName->equals("HSV"_s));
-		bool var$8 = var$9 || (csName->equals("HLS"_s));
-		bool var$7 = var$8 || (csName->equals("CMY"_s));
-		if (var$7 || (csName->equals("3CLR"_s))) {
+		bool var$6 = csName->equals("XYZ"_s);
+		bool var$5 = var$6 || (csName->equals("Lab"_s));
+		bool var$4 = var$5 || (csName->equals("Luv"_s));
+		bool var$3 = var$4 || (csName->equals("YxY"_s));
+		bool var$2 = var$3 || (csName->equals("HSV"_s));
+		bool var$1 = var$2 || (csName->equals("HLS"_s));
+		bool var$0 = var$1 || (csName->equals("CMY"_s));
+		if (var$0 || (csName->equals("3CLR"_s))) {
 			numChannels = 3;
 		} else if (csName->equals("YCCK"_s)) {
 			numChannels = 4;
@@ -1476,7 +1318,7 @@ void JPEGMetadata::mergeStandardChromaNode($Node* node, $NodeList* siblings) {
 	bool wantAlpha = false;
 	for (int32_t i = 0; i < $nc(siblings)->getLength(); ++i) {
 		$var($Node, trans, siblings->item(i));
-		if ($nc($($nc(trans)->getNodeName()))->equals("Transparency"_s)) {
+		if ($$nc($nc(trans)->getNodeName())->equals("Transparency"_s)) {
 			wantAlpha = this->wantAlpha(trans);
 			break;
 		}
@@ -1503,7 +1345,7 @@ void JPEGMetadata::mergeStandardChromaNode($Node* node, $NodeList* siblings) {
 		}
 	}
 	if (!wantJFIF && (jfif != nullptr)) {
-		$nc(this->markerSequence)->remove($of(jfif));
+		$nc(this->markerSequence)->remove(jfif);
 	}
 	if (wantJFIF && !this->isStream) {
 		$nc(this->markerSequence)->add(0, $$new($JFIFMarkerSegment));
@@ -1516,7 +1358,7 @@ void JPEGMetadata::mergeStandardChromaNode($Node* node, $NodeList* siblings) {
 			$nc(adobe)->transform = transform;
 		}
 	} else if (adobe != nullptr) {
-		$nc(this->markerSequence)->remove($of(adobe));
+		$nc(this->markerSequence)->remove(adobe);
 	}
 	bool updateQtables = false;
 	bool updateHtables = false;
@@ -1538,8 +1380,8 @@ void JPEGMetadata::mergeStandardChromaNode($Node* node, $NodeList* siblings) {
 	if (sof != nullptr) {
 		$assign(oldCompSpecs, sof->componentSpecs);
 		progressive = (sof->tag == $JPEG::SOF2);
-		int32_t var$14 = $nc(this->markerSequence)->indexOf(sof);
-		$nc(this->markerSequence)->set(var$14, $$new($SOFMarkerSegment, progressive, false, willSubsample, ids, numChannels));
+		int32_t var$7 = $nc(this->markerSequence)->indexOf(sof);
+		$nc(this->markerSequence)->set(var$7, $$new($SOFMarkerSegment, progressive, false, willSubsample, ids, numChannels));
 		for (int32_t i = 0; i < $nc(oldCompSpecs)->length; ++i) {
 			if ($nc(oldCompSpecs->get(i))->QtableSelector != $nc(newTableSelectors)->get(i)) {
 				updateQtables = true;
@@ -1547,24 +1389,22 @@ void JPEGMetadata::mergeStandardChromaNode($Node* node, $NodeList* siblings) {
 		}
 		if (progressive) {
 			bool idsDiffer = false;
-			for (int32_t i = 0; i < $nc(oldCompSpecs)->length; ++i) {
+			for (int32_t i = 0; i < oldCompSpecs->length; ++i) {
 				if (ids->get(i) != $nc(oldCompSpecs->get(i))->componentId) {
 					idsDiffer = true;
 				}
 			}
 			if (idsDiffer) {
-				{
-					$var($Iterator, iter, $nc(this->markerSequence)->iterator());
-					for (; $nc(iter)->hasNext();) {
-						$var($MarkerSegment, seg, $cast($MarkerSegment, iter->next()));
-						if ($instanceOf($SOSMarkerSegment, seg)) {
-							$var($SOSMarkerSegment, target, $cast($SOSMarkerSegment, seg));
-							for (int32_t i = 0; i < $nc($nc(target)->componentSpecs)->length; ++i) {
-								int32_t oldSelector = $nc($nc(target->componentSpecs)->get(i))->componentSelector;
-								for (int32_t j = 0; j < $nc(oldCompSpecs)->length; ++j) {
-									if ($nc(oldCompSpecs->get(j))->componentId == oldSelector) {
-										$nc($nc(target->componentSpecs)->get(i))->componentSelector = ids->get(j);
-									}
+				$var($Iterator, iter, this->markerSequence->iterator());
+				for (; $nc(iter)->hasNext();) {
+					$var($MarkerSegment, seg, $cast($MarkerSegment, iter->next()));
+					if ($instanceOf($SOSMarkerSegment, seg)) {
+						$var($SOSMarkerSegment, target, $cast($SOSMarkerSegment, seg));
+						for (int32_t i = 0; i < $nc(target->componentSpecs)->length; ++i) {
+							int32_t oldSelector = $nc(target->componentSpecs->get(i))->componentSelector;
+							for (int32_t j = 0; j < oldCompSpecs->length; ++j) {
+								if ($nc(oldCompSpecs->get(j))->componentId == oldSelector) {
+									$nc(target->componentSpecs->get(i))->componentSelector = ids->get(j);
 								}
 							}
 						}
@@ -1573,12 +1413,12 @@ void JPEGMetadata::mergeStandardChromaNode($Node* node, $NodeList* siblings) {
 			}
 		} else if (sos != nullptr) {
 			for (int32_t i = 0; i < $nc(sos->componentSpecs)->length; ++i) {
-				if (($nc($nc(sos->componentSpecs)->get(i))->dcHuffTable != $nc(newTableSelectors)->get(i)) || ($nc($nc(sos->componentSpecs)->get(i))->acHuffTable != $nc(newTableSelectors)->get(i))) {
+				if (($nc(sos->componentSpecs->get(i))->dcHuffTable != $nc(newTableSelectors)->get(i)) || ($nc(sos->componentSpecs->get(i))->acHuffTable != newTableSelectors->get(i))) {
 					updateHtables = true;
 				}
 			}
-			int32_t var$15 = $nc(this->markerSequence)->indexOf(sos);
-			$nc(this->markerSequence)->set(var$15, $$new($SOSMarkerSegment, willSubsample, ids, numChannels));
+			int32_t var$8 = this->markerSequence->indexOf(sos);
+			this->markerSequence->set(var$8, $$new($SOSMarkerSegment, willSubsample, ids, numChannels));
 		}
 	} else if (this->isStream) {
 		updateQtables = true;
@@ -1630,7 +1470,7 @@ void JPEGMetadata::mergeStandardChromaNode($Node* node, $NodeList* siblings) {
 					}
 				}
 				$var($DQTMarkerSegment, dqt, $cast($DQTMarkerSegment, tableSegments->get(tableSegments->size() - 1)));
-				$nc($nc(dqt)->tables)->add($(dqt->getChromaForLuma(table0)));
+				$nc($nc(dqt)->tables)->add($($nc(dqt)->getChromaForLuma(table0)));
 			}
 		}
 	}
@@ -1673,12 +1513,12 @@ void JPEGMetadata::mergeStandardChromaNode($Node* node, $NodeList* siblings) {
 }
 
 bool JPEGMetadata::wantAlpha($Node* transparency) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool returnValue = false;
 	$var($Node, alpha, $nc(transparency)->getFirstChild());
-	if ($nc($($nc(alpha)->getNodeName()))->equals("Alpha"_s)) {
+	if ($$nc($nc(alpha)->getNodeName())->equals("Alpha"_s)) {
 		if (alpha->hasAttributes()) {
-			$var($String, value, $nc($($nc($(alpha->getAttributes()))->getNamedItem("value"_s)))->getNodeValue());
+			$var($String, value, $$nc($$nc(alpha->getAttributes())->getNamedItem("value"_s))->getNodeValue());
 			if (!$nc(value)->equals("none"_s)) {
 				returnValue = true;
 			}
@@ -1695,7 +1535,7 @@ void JPEGMetadata::mergeStandardDataNode($Node* node) {
 }
 
 void JPEGMetadata::mergeStandardDimensionNode($Node* node) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$load($JFIFMarkerSegment);
 	$var($JFIFMarkerSegment, jfif, $cast($JFIFMarkerSegment, findMarkerSegment($JFIFMarkerSegment::class$, true)));
 	if (jfif == nullptr) {
@@ -1706,8 +1546,8 @@ void JPEGMetadata::mergeStandardDimensionNode($Node* node) {
 			int32_t numChannels = $nc(sof->componentSpecs)->length;
 			if ((numChannels == 1) || (numChannels == 3)) {
 				canHaveJFIF = true;
-				for (int32_t i = 0; i < $nc(sof->componentSpecs)->length; ++i) {
-					if ($nc($nc(sof->componentSpecs)->get(i))->componentId != i + 1) {
+				for (int32_t i = 0; i < sof->componentSpecs->length; ++i) {
+					if ($nc(sof->componentSpecs->get(i))->componentId != i + 1) {
 						canHaveJFIF = false;
 					}
 				}
@@ -1732,20 +1572,20 @@ void JPEGMetadata::mergeStandardDimensionNode($Node* node) {
 			$var($NamedNodeMap, attrs, $nc(child)->getAttributes());
 			$var($String, name, child->getNodeName());
 			if ($nc(name)->equals("PixelAspectRatio"_s)) {
-				$var($String, valueString, $nc($($nc(attrs)->getNamedItem("value"_s)))->getNodeValue());
+				$var($String, valueString, $$nc($nc(attrs)->getNamedItem("value"_s))->getNodeValue());
 				float value = $Float::parseFloat(valueString);
 				$var($Point, p, findIntegerRatio(value));
 				jfif->resUnits = $JPEG::DENSITY_UNIT_ASPECT_RATIO;
 				jfif->Xdensity = $nc(p)->x;
 				jfif->Xdensity = p->y;
 			} else if (name->equals("HorizontalPixelSize"_s)) {
-				$var($String, valueString, $nc($($nc(attrs)->getNamedItem("value"_s)))->getNodeValue());
+				$var($String, valueString, $$nc($nc(attrs)->getNamedItem("value"_s))->getNodeValue());
 				float value = $Float::parseFloat(valueString);
 				int32_t dpcm = (int32_t)$Math::round(1.0 / (value * 10.0));
 				jfif->resUnits = $JPEG::DENSITY_UNIT_DOTS_CM;
 				jfif->Xdensity = dpcm;
 			} else if (name->equals("VerticalPixelSize"_s)) {
-				$var($String, valueString, $nc($($nc(attrs)->getNamedItem("value"_s)))->getNodeValue());
+				$var($String, valueString, $$nc($nc(attrs)->getNamedItem("value"_s))->getNodeValue());
 				float value = $Float::parseFloat(valueString);
 				int32_t dpcm = (int32_t)$Math::round(1.0 / (value * 10.0));
 				jfif->resUnits = $JPEG::DENSITY_UNIT_DOTS_CM;
@@ -1787,7 +1627,7 @@ void JPEGMetadata::mergeStandardDocumentNode($Node* node) {
 }
 
 void JPEGMetadata::mergeStandardTextNode($Node* node) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($NodeList, children, $nc(node)->getChildNodes());
 	for (int32_t i = 0; i < $nc(children)->getLength(); ++i) {
 		$var($Node, child, children->item(i));
@@ -1801,7 +1641,7 @@ void JPEGMetadata::mergeStandardTextNode($Node* node) {
 			}
 		}
 		if (copyIt) {
-			$var($String, value, $nc($(attrs->getNamedItem("value"_s)))->getNodeValue());
+			$var($String, value, $$nc(attrs->getNamedItem("value"_s))->getNodeValue());
 			$var($COMMarkerSegment, com, $new($COMMarkerSegment, value));
 			insertCOMMarkerSegment(com);
 		}
@@ -1809,7 +1649,7 @@ void JPEGMetadata::mergeStandardTextNode($Node* node) {
 }
 
 void JPEGMetadata::mergeStandardTransparencyNode($Node* node) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!this->transparencyDone && !this->isStream) {
 		bool wantAlpha = this->wantAlpha(node);
 		$load($JFIFMarkerSegment);
@@ -1830,24 +1670,24 @@ void JPEGMetadata::mergeStandardTransparencyNode($Node* node) {
 				if (wantAlpha) {
 					++numChannels;
 					if (jfif != nullptr) {
-						$nc(this->markerSequence)->remove($of(jfif));
+						$nc(this->markerSequence)->remove(jfif);
 					}
 					if (adobe != nullptr) {
 						adobe->transform = $JPEG::ADOBE_UNKNOWN;
 					}
 					$var($SOFMarkerSegment$ComponentSpecArray, newSpecs, $new($SOFMarkerSegment$ComponentSpecArray, numChannels));
-					for (int32_t i = 0; i < $nc(sof->componentSpecs)->length; ++i) {
-						newSpecs->set(i, $nc(sof->componentSpecs)->get(i));
+					for (int32_t i = 0; i < sof->componentSpecs->length; ++i) {
+						newSpecs->set(i, sof->componentSpecs->get(i));
 					}
-					int8_t oldFirstID = (int8_t)$nc($nc(sof->componentSpecs)->get(0))->componentId;
-					int8_t newID = (int8_t)((oldFirstID > 1) ? u'A' : (char16_t)4);
-					newSpecs->set(numChannels - 1, $(sof->getComponentSpec(newID, $nc($nc(sof->componentSpecs)->get(0))->HsamplingFactor, $nc($nc(sof->componentSpecs)->get(0))->QtableSelector)));
+					int8_t oldFirstID = (int8_t)$nc(sof->componentSpecs->get(0))->componentId;
+					int8_t newID = (int8_t)((oldFirstID > 1) ? u'A' : 4);
+					newSpecs->set(numChannels - 1, $(sof->getComponentSpec(newID, $nc(sof->componentSpecs->get(0))->HsamplingFactor, $nc(sof->componentSpecs->get(0))->QtableSelector)));
 					$set(sof, componentSpecs, newSpecs);
 					$var($SOSMarkerSegment$ScanComponentSpecArray, newScanSpecs, $new($SOSMarkerSegment$ScanComponentSpecArray, numChannels));
 					for (int32_t i = 0; i < $nc($nc(sos)->componentSpecs)->length; ++i) {
-						newScanSpecs->set(i, $nc(sos->componentSpecs)->get(i));
+						newScanSpecs->set(i, sos->componentSpecs->get(i));
 					}
-					newScanSpecs->set(numChannels - 1, $($nc(sos)->getScanComponentSpec(newID, 0)));
+					newScanSpecs->set(numChannels - 1, $(sos->getScanComponentSpec(newID, 0)));
 					$set(sos, componentSpecs, newScanSpecs);
 				} else {
 					--numChannels;
@@ -1877,22 +1717,20 @@ void JPEGMetadata::setFromTree($String* formatName, $Node* root) {
 	$init($JPEG);
 	if (this->isStream && ($nc(formatName)->equals($JPEG::nativeStreamMetadataFormatName))) {
 		setFromNativeTree(root);
+	} else if (!this->isStream && ($nc(formatName)->equals($JPEG::nativeImageMetadataFormatName))) {
+		setFromNativeTree(root);
 	} else {
-		if (!this->isStream && (formatName->equals($JPEG::nativeImageMetadataFormatName))) {
-			setFromNativeTree(root);
+		$init($IIOMetadataFormatImpl);
+		if (!this->isStream && ($nc(formatName)->equals($IIOMetadataFormatImpl::standardMetadataFormatName))) {
+			$IIOMetadata::setFromTree(formatName, root);
 		} else {
-			$init($IIOMetadataFormatImpl);
-			if (!this->isStream && (formatName->equals($IIOMetadataFormatImpl::standardMetadataFormatName))) {
-				$IIOMetadata::setFromTree(formatName, root);
-			} else {
-				$throwNew($IllegalArgumentException, $$str({"Unsupported format name: "_s, formatName}));
-			}
+			$throwNew($IllegalArgumentException, $$str({"Unsupported format name: "_s, formatName}));
 		}
 	}
 }
 
 void JPEGMetadata::setFromNativeTree($Node* root) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->resetSequence == nullptr) {
 		$set(this, resetSequence, this->markerSequence);
 	}
@@ -1903,11 +1741,11 @@ void JPEGMetadata::setFromNativeTree($Node* root) {
 		$throwNew($IIOInvalidTreeException, $$str({"Invalid root node name: "_s, name}), root);
 	}
 	if (!this->isStream) {
-		if ($nc($(root->getChildNodes()))->getLength() != 2) {
+		if ($$nc(root->getChildNodes())->getLength() != 2) {
 			$throwNew($IIOInvalidTreeException, "JPEGvariety and markerSequence nodes must be present"_s, root);
 		}
 		$var($Node, JPEGvariety, root->getFirstChild());
-		if ($nc($($nc(JPEGvariety)->getChildNodes()))->getLength() != 0) {
+		if ($$nc($nc(JPEGvariety)->getChildNodes())->getLength() != 0) {
 			$nc(this->markerSequence)->add($$new($JFIFMarkerSegment, $(JPEGvariety->getFirstChild())));
 		}
 	}
@@ -1916,7 +1754,7 @@ void JPEGMetadata::setFromNativeTree($Node* root) {
 }
 
 void JPEGMetadata::setFromMarkerSequenceNode($Node* markerSequenceNode) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($NodeList, children, $nc(markerSequenceNode)->getChildNodes());
 	for (int32_t i = 0; i < $nc(children)->getLength(); ++i) {
 		$var($Node, node, children->item(i));
@@ -1944,7 +1782,7 @@ void JPEGMetadata::setFromMarkerSequenceNode($Node* markerSequenceNode) {
 }
 
 bool JPEGMetadata::isConsistent() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$load($SOFMarkerSegment);
 	$var($SOFMarkerSegment, sof, $cast($SOFMarkerSegment, findMarkerSegment($SOFMarkerSegment::class$, true)));
 	$load($JFIFMarkerSegment);
@@ -1970,7 +1808,7 @@ bool JPEGMetadata::isConsistent() {
 						retval = false;
 					}
 				}
-				if ((adobe != nullptr) && (((numSOFBands == 1) && (adobe->transform != $JPEG::ADOBE_UNKNOWN)) || ((numSOFBands == 3) && ($nc(adobe)->transform != $JPEG::ADOBE_YCC)))) {
+				if ((adobe != nullptr) && (((numSOFBands == 1) && (adobe->transform != $JPEG::ADOBE_UNKNOWN)) || ((numSOFBands == 3) && (adobe->transform != $JPEG::ADOBE_YCC)))) {
 					retval = false;
 				}
 			}
@@ -1986,21 +1824,19 @@ bool JPEGMetadata::isConsistent() {
 }
 
 int32_t JPEGMetadata::countScanBands() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, ids, $new($ArrayList));
 	{
 		$var($Iterator, i$, $nc(this->markerSequence)->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($MarkerSegment, seg, $cast($MarkerSegment, i$->next()));
-			{
-				if ($instanceOf($SOSMarkerSegment, seg)) {
-					$var($SOSMarkerSegment, sos, $cast($SOSMarkerSegment, seg));
-					$var($SOSMarkerSegment$ScanComponentSpecArray, specs, $nc(sos)->componentSpecs);
-					for (int32_t i = 0; i < $nc(specs)->length; ++i) {
-						$var($Integer, id, $Integer::valueOf($nc(specs->get(i))->componentSelector));
-						if (!ids->contains(id)) {
-							ids->add(id);
-						}
+			if ($instanceOf($SOSMarkerSegment, seg)) {
+				$var($SOSMarkerSegment, sos, $cast($SOSMarkerSegment, seg));
+				$var($SOSMarkerSegment$ScanComponentSpecArray, specs, sos->componentSpecs);
+				for (int32_t i = 0; i < $nc(specs)->length; ++i) {
+					$var($Integer, id, $Integer::valueOf($nc(specs->get(i))->componentSelector));
+					if (!ids->contains(id)) {
+						ids->add(id);
 					}
 				}
 			}
@@ -2010,7 +1846,7 @@ int32_t JPEGMetadata::countScanBands() {
 }
 
 void JPEGMetadata::writeToStream($ImageOutputStream* ios, bool ignoreJFIF, bool forceJFIF, $List* thumbnails, $ICC_Profile* iccProfile, bool ignoreAdobe, int32_t newAdobeTransform, $JPEGImageWriter* writer) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (forceJFIF) {
 		$JFIFMarkerSegment::writeDefaultJFIF(ios, thumbnails, iccProfile, writer);
 		if ((ignoreAdobe == false) && (newAdobeTransform != $JPEG::ADOBE_IMPOSSIBLE)) {
@@ -2024,35 +1860,33 @@ void JPEGMetadata::writeToStream($ImageOutputStream* ios, bool ignoreJFIF, bool 
 		$var($Iterator, i$, $nc(this->markerSequence)->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($MarkerSegment, seg, $cast($MarkerSegment, i$->next()));
-			{
-				if ($instanceOf($JFIFMarkerSegment, seg)) {
-					if (ignoreJFIF == false) {
-						$var($JFIFMarkerSegment, jfif, $cast($JFIFMarkerSegment, seg));
-						$nc(jfif)->writeWithThumbs(ios, thumbnails, writer);
-						if (iccProfile != nullptr) {
-							$JFIFMarkerSegment::writeICC(iccProfile, ios);
-						}
+			if ($instanceOf($JFIFMarkerSegment, seg)) {
+				if (ignoreJFIF == false) {
+					$var($JFIFMarkerSegment, jfif, $cast($JFIFMarkerSegment, seg));
+					jfif->writeWithThumbs(ios, thumbnails, writer);
+					if (iccProfile != nullptr) {
+						$JFIFMarkerSegment::writeICC(iccProfile, ios);
 					}
-				} else if ($instanceOf($AdobeMarkerSegment, seg)) {
-					if (ignoreAdobe == false) {
-						if (newAdobeTransform != $JPEG::ADOBE_IMPOSSIBLE) {
-							$var($AdobeMarkerSegment, newAdobe, $cast($AdobeMarkerSegment, $nc(seg)->clone()));
-							$nc(newAdobe)->transform = newAdobeTransform;
-							newAdobe->write(ios);
-						} else if (forceJFIF) {
-							$var($AdobeMarkerSegment, adobe, $cast($AdobeMarkerSegment, seg));
-							if (($nc(adobe)->transform == $JPEG::ADOBE_UNKNOWN) || ($nc(adobe)->transform == $JPEG::ADOBE_YCC)) {
-								adobe->write(ios);
-							} else {
-								$nc(writer)->warningOccurred($JPEGImageWriter::WARNING_METADATA_ADJUSTED_FOR_THUMB);
-							}
-						} else {
-							$nc(seg)->write(ios);
-						}
-					}
-				} else {
-					$nc(seg)->write(ios);
 				}
+			} else if ($instanceOf($AdobeMarkerSegment, seg)) {
+				if (ignoreAdobe == false) {
+					if (newAdobeTransform != $JPEG::ADOBE_IMPOSSIBLE) {
+						$var($AdobeMarkerSegment, newAdobe, $cast($AdobeMarkerSegment, seg->clone()));
+						$nc(newAdobe)->transform = newAdobeTransform;
+						newAdobe->write(ios);
+					} else if (forceJFIF) {
+						$var($AdobeMarkerSegment, adobe, $cast($AdobeMarkerSegment, seg));
+						if ((adobe->transform == $JPEG::ADOBE_UNKNOWN) || (adobe->transform == $JPEG::ADOBE_YCC)) {
+							adobe->write(ios);
+						} else {
+							$nc(writer)->warningOccurred($JPEGImageWriter::WARNING_METADATA_ADJUSTED_FOR_THUMB);
+						}
+					} else {
+						seg->write(ios);
+					}
+				}
+			} else {
+				$nc(seg)->write(ios);
 			}
 		}
 	}
@@ -2066,9 +1900,9 @@ void JPEGMetadata::reset() {
 }
 
 void JPEGMetadata::print() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (int32_t i = 0; i < $nc(this->markerSequence)->size(); ++i) {
-		$var($MarkerSegment, seg, $cast($MarkerSegment, $nc(this->markerSequence)->get(i)));
+		$var($MarkerSegment, seg, $cast($MarkerSegment, this->markerSequence->get(i)));
 		$nc(seg)->print();
 	}
 }
@@ -2077,7 +1911,84 @@ JPEGMetadata::JPEGMetadata() {
 }
 
 $Class* JPEGMetadata::load$($String* name, bool initialize) {
-	$loadClass(JPEGMetadata, name, initialize, &_JPEGMetadata_ClassInfo_, allocate$JPEGMetadata);
+	$FieldInfo fieldInfos$$[] = {
+		{"debug", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JPEGMetadata, debug)},
+		{"resetSequence", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/imageio/plugins/jpeg/MarkerSegment;>;", $PRIVATE, $field(JPEGMetadata, resetSequence)},
+		{"inThumb", "Z", nullptr, $PRIVATE, $field(JPEGMetadata, inThumb)},
+		{"hasAlpha", "Z", nullptr, $PRIVATE, $field(JPEGMetadata, hasAlpha)},
+		{"markerSequence", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/imageio/plugins/jpeg/MarkerSegment;>;", 0, $field(JPEGMetadata, markerSequence)},
+		{"isStream", "Z", nullptr, $FINAL, $field(JPEGMetadata, isStream)},
+		{"transparencyDone", "Z", nullptr, $PRIVATE, $field(JPEGMetadata, transparencyDone)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(ZZ)V", nullptr, 0, $method(JPEGMetadata, init$, void, bool, bool)},
+		{"<init>", "(ZZLjavax/imageio/stream/ImageInputStream;Lcom/sun/imageio/plugins/jpeg/JPEGImageReader;)V", nullptr, 0, $method(JPEGMetadata, init$, void, bool, bool, $ImageInputStream*, $JPEGImageReader*), "java.io.IOException"},
+		{"<init>", "(Ljavax/imageio/ImageWriteParam;Lcom/sun/imageio/plugins/jpeg/JPEGImageWriter;)V", nullptr, 0, $method(JPEGMetadata, init$, void, $ImageWriteParam*, $JPEGImageWriter*)},
+		{"<init>", "(Ljavax/imageio/ImageTypeSpecifier;Ljavax/imageio/ImageWriteParam;Lcom/sun/imageio/plugins/jpeg/JPEGImageWriter;)V", nullptr, 0, $method(JPEGMetadata, init$, void, $ImageTypeSpecifier*, $ImageWriteParam*, $JPEGImageWriter*)},
+		{"clone", "()Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(JPEGMetadata, clone, $Object*)},
+		{"cloneSequence", "()Ljava/util/List;", "()Ljava/util/List<Lcom/sun/imageio/plugins/jpeg/MarkerSegment;>;", $PRIVATE, $method(JPEGMetadata, cloneSequence, $List*)},
+		{"countScanBands", "()I", nullptr, $PRIVATE, $method(JPEGMetadata, countScanBands, int32_t)},
+		{"findIntegerRatio", "(F)Ljava/awt/Point;", nullptr, $PRIVATE | $STATIC, $staticMethod(JPEGMetadata, findIntegerRatio, $Point*, float)},
+		{"findLastUnknownMarkerSegmentPosition", "()I", nullptr, $PRIVATE, $method(JPEGMetadata, findLastUnknownMarkerSegmentPosition, int32_t)},
+		{"findMarkerSegment", "(I)Lcom/sun/imageio/plugins/jpeg/MarkerSegment;", nullptr, 0, $virtualMethod(JPEGMetadata, findMarkerSegment, $MarkerSegment*, int32_t)},
+		{"findMarkerSegment", "(Ljava/lang/Class;Z)Lcom/sun/imageio/plugins/jpeg/MarkerSegment;", "(Ljava/lang/Class<+Lcom/sun/imageio/plugins/jpeg/MarkerSegment;>;Z)Lcom/sun/imageio/plugins/jpeg/MarkerSegment;", 0, $virtualMethod(JPEGMetadata, findMarkerSegment, $MarkerSegment*, $Class*, bool)},
+		{"findMarkerSegmentPosition", "(Ljava/lang/Class;Z)I", "(Ljava/lang/Class<+Lcom/sun/imageio/plugins/jpeg/MarkerSegment;>;Z)I", $PRIVATE, $method(JPEGMetadata, findMarkerSegmentPosition, int32_t, $Class*, bool)},
+		{"getAsTree", "(Ljava/lang/String;)Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(JPEGMetadata, getAsTree, $Node*, $String*)},
+		{"getNativeTree", "()Ljavax/imageio/metadata/IIOMetadataNode;", nullptr, 0, $virtualMethod(JPEGMetadata, getNativeTree, $IIOMetadataNode*)},
+		{"getStandardChromaNode", "()Ljavax/imageio/metadata/IIOMetadataNode;", nullptr, $PROTECTED, $virtualMethod(JPEGMetadata, getStandardChromaNode, $IIOMetadataNode*)},
+		{"getStandardCompressionNode", "()Ljavax/imageio/metadata/IIOMetadataNode;", nullptr, $PROTECTED, $virtualMethod(JPEGMetadata, getStandardCompressionNode, $IIOMetadataNode*)},
+		{"getStandardDimensionNode", "()Ljavax/imageio/metadata/IIOMetadataNode;", nullptr, $PROTECTED, $virtualMethod(JPEGMetadata, getStandardDimensionNode, $IIOMetadataNode*)},
+		{"getStandardTextNode", "()Ljavax/imageio/metadata/IIOMetadataNode;", nullptr, $PROTECTED, $virtualMethod(JPEGMetadata, getStandardTextNode, $IIOMetadataNode*)},
+		{"getStandardTransparencyNode", "()Ljavax/imageio/metadata/IIOMetadataNode;", nullptr, $PROTECTED, $virtualMethod(JPEGMetadata, getStandardTransparencyNode, $IIOMetadataNode*)},
+		{"insertAdobeMarkerSegment", "(Lcom/sun/imageio/plugins/jpeg/AdobeMarkerSegment;)V", nullptr, $PRIVATE, $method(JPEGMetadata, insertAdobeMarkerSegment, void, $AdobeMarkerSegment*)},
+		{"insertCOMMarkerSegment", "(Lcom/sun/imageio/plugins/jpeg/COMMarkerSegment;)V", nullptr, $PRIVATE, $method(JPEGMetadata, insertCOMMarkerSegment, void, $COMMarkerSegment*)},
+		{"isConsistent", "()Z", nullptr, $PRIVATE, $method(JPEGMetadata, isConsistent, bool)},
+		{"isReadOnly", "()Z", nullptr, $PUBLIC, $virtualMethod(JPEGMetadata, isReadOnly, bool)},
+		{"mergeAdobeNode", "(Lorg/w3c/dom/Node;)V", nullptr, $PRIVATE, $method(JPEGMetadata, mergeAdobeNode, void, $Node*), "javax.imageio.metadata.IIOInvalidTreeException"},
+		{"mergeCOMNode", "(Lorg/w3c/dom/Node;)V", nullptr, $PRIVATE, $method(JPEGMetadata, mergeCOMNode, void, $Node*), "javax.imageio.metadata.IIOInvalidTreeException"},
+		{"mergeDHTNode", "(Lorg/w3c/dom/Node;)V", nullptr, $PRIVATE, $method(JPEGMetadata, mergeDHTNode, void, $Node*), "javax.imageio.metadata.IIOInvalidTreeException"},
+		{"mergeDQTNode", "(Lorg/w3c/dom/Node;)V", nullptr, $PRIVATE, $method(JPEGMetadata, mergeDQTNode, void, $Node*), "javax.imageio.metadata.IIOInvalidTreeException"},
+		{"mergeDRINode", "(Lorg/w3c/dom/Node;)V", nullptr, $PRIVATE, $method(JPEGMetadata, mergeDRINode, void, $Node*), "javax.imageio.metadata.IIOInvalidTreeException"},
+		{"mergeJFIFsubtree", "(Lorg/w3c/dom/Node;)V", nullptr, $PRIVATE, $method(JPEGMetadata, mergeJFIFsubtree, void, $Node*), "javax.imageio.metadata.IIOInvalidTreeException"},
+		{"mergeNativeTree", "(Lorg/w3c/dom/Node;)V", nullptr, $PRIVATE, $method(JPEGMetadata, mergeNativeTree, void, $Node*), "javax.imageio.metadata.IIOInvalidTreeException"},
+		{"mergeSOFNode", "(Lorg/w3c/dom/Node;)V", nullptr, $PRIVATE, $method(JPEGMetadata, mergeSOFNode, void, $Node*), "javax.imageio.metadata.IIOInvalidTreeException"},
+		{"mergeSOSNode", "(Lorg/w3c/dom/Node;)V", nullptr, $PRIVATE, $method(JPEGMetadata, mergeSOSNode, void, $Node*), "javax.imageio.metadata.IIOInvalidTreeException"},
+		{"mergeSequenceSubtree", "(Lorg/w3c/dom/Node;)V", nullptr, $PRIVATE, $method(JPEGMetadata, mergeSequenceSubtree, void, $Node*), "javax.imageio.metadata.IIOInvalidTreeException"},
+		{"mergeStandardChromaNode", "(Lorg/w3c/dom/Node;Lorg/w3c/dom/NodeList;)V", nullptr, $PRIVATE, $method(JPEGMetadata, mergeStandardChromaNode, void, $Node*, $NodeList*), "javax.imageio.metadata.IIOInvalidTreeException"},
+		{"mergeStandardCompressionNode", "(Lorg/w3c/dom/Node;)V", nullptr, $PRIVATE, $method(JPEGMetadata, mergeStandardCompressionNode, void, $Node*), "javax.imageio.metadata.IIOInvalidTreeException"},
+		{"mergeStandardDataNode", "(Lorg/w3c/dom/Node;)V", nullptr, $PRIVATE, $method(JPEGMetadata, mergeStandardDataNode, void, $Node*), "javax.imageio.metadata.IIOInvalidTreeException"},
+		{"mergeStandardDimensionNode", "(Lorg/w3c/dom/Node;)V", nullptr, $PRIVATE, $method(JPEGMetadata, mergeStandardDimensionNode, void, $Node*), "javax.imageio.metadata.IIOInvalidTreeException"},
+		{"mergeStandardDocumentNode", "(Lorg/w3c/dom/Node;)V", nullptr, $PRIVATE, $method(JPEGMetadata, mergeStandardDocumentNode, void, $Node*), "javax.imageio.metadata.IIOInvalidTreeException"},
+		{"mergeStandardTextNode", "(Lorg/w3c/dom/Node;)V", nullptr, $PRIVATE, $method(JPEGMetadata, mergeStandardTextNode, void, $Node*), "javax.imageio.metadata.IIOInvalidTreeException"},
+		{"mergeStandardTransparencyNode", "(Lorg/w3c/dom/Node;)V", nullptr, $PRIVATE, $method(JPEGMetadata, mergeStandardTransparencyNode, void, $Node*), "javax.imageio.metadata.IIOInvalidTreeException"},
+		{"mergeStandardTree", "(Lorg/w3c/dom/Node;)V", nullptr, $PRIVATE, $method(JPEGMetadata, mergeStandardTree, void, $Node*), "javax.imageio.metadata.IIOInvalidTreeException"},
+		{"mergeTree", "(Ljava/lang/String;Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC, $virtualMethod(JPEGMetadata, mergeTree, void, $String*, $Node*), "javax.imageio.metadata.IIOInvalidTreeException"},
+		{"mergeUnknownNode", "(Lorg/w3c/dom/Node;)V", nullptr, $PRIVATE, $method(JPEGMetadata, mergeUnknownNode, void, $Node*), "javax.imageio.metadata.IIOInvalidTreeException"},
+		{"print", "()V", nullptr, $PUBLIC, $virtualMethod(JPEGMetadata, print, void)},
+		{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(JPEGMetadata, reset, void)},
+		{"setFromMarkerSequenceNode", "(Lorg/w3c/dom/Node;)V", nullptr, 0, $virtualMethod(JPEGMetadata, setFromMarkerSequenceNode, void, $Node*), "javax.imageio.metadata.IIOInvalidTreeException"},
+		{"setFromNativeTree", "(Lorg/w3c/dom/Node;)V", nullptr, $PRIVATE, $method(JPEGMetadata, setFromNativeTree, void, $Node*), "javax.imageio.metadata.IIOInvalidTreeException"},
+		{"setFromTree", "(Ljava/lang/String;Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC, $virtualMethod(JPEGMetadata, setFromTree, void, $String*, $Node*), "javax.imageio.metadata.IIOInvalidTreeException"},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"wantAlpha", "(Lorg/w3c/dom/Node;)Z", nullptr, $PRIVATE, $method(JPEGMetadata, wantAlpha, bool, $Node*)},
+		{"writeToStream", "(Ljavax/imageio/stream/ImageOutputStream;ZZLjava/util/List;Ljava/awt/color/ICC_Profile;ZILcom/sun/imageio/plugins/jpeg/JPEGImageWriter;)V", "(Ljavax/imageio/stream/ImageOutputStream;ZZLjava/util/List<+Ljava/awt/image/BufferedImage;>;Ljava/awt/color/ICC_Profile;ZILcom/sun/imageio/plugins/jpeg/JPEGImageWriter;)V", 0, $virtualMethod(JPEGMetadata, writeToStream, void, $ImageOutputStream*, bool, bool, $List*, $ICC_Profile*, bool, int32_t, $JPEGImageWriter*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.imageio.plugins.jpeg.JPEGMetadata",
+		"javax.imageio.metadata.IIOMetadata",
+		"java.lang.Cloneable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(JPEGMetadata, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JPEGMetadata));
+	});
 	return class$;
 }
 

@@ -71,6 +71,7 @@ public:
 	virtual bool equals(Object$* arg0) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::awt::dnd::DragGestureEvent* trigger, ::java::awt::Cursor* dragCursor, ::java::awt::Image* dragImage, ::java::awt::Point* offset, ::java::awt::datatransfer::Transferable* t, ::java::awt::dnd::DragSourceListener* dsl);
 	virtual void addDragSourceListener(::java::awt::dnd::DragSourceListener* dsl);
 	virtual void dragDropEnd(::java::awt::dnd::DragSourceDropEvent* dsde) override;
@@ -94,7 +95,7 @@ public:
 	virtual void transferablesFlavorsChanged();
 	virtual void updateCurrentCursor(int32_t sourceAct, int32_t targetAct, int32_t status);
 	void writeObject(::java::io::ObjectOutputStream* s);
-	static const int64_t serialVersionUID = (int64_t)0xFE65FD20AA2D6E61;
+	static const int64_t serialVersionUID = (int64_t)0xfe65fd20aa2d6e61;
 	static const int32_t DEFAULT = 0;
 	static const int32_t ENTER = 1;
 	static const int32_t OVER = 2;

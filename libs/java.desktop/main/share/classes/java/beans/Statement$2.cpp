@@ -1,5 +1,4 @@
 #include <java/beans/Statement$2.h>
-
 #include <java/beans/Statement.h>
 #include <jcpp.h>
 
@@ -13,61 +12,54 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace java {
 	namespace beans {
 
-$FieldInfo _Statement$2_FieldInfo_[] = {
-	{"this$0", "Ljava/beans/Statement;", nullptr, $FINAL | $SYNTHETIC, $field(Statement$2, this$0)},
-	{}
-};
-
-$MethodInfo _Statement$2_MethodInfo_[] = {
-	{"<init>", "(Ljava/beans/Statement;)V", nullptr, 0, $method(Statement$2, init$, void, $Statement*)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Statement$2, run, $Object*), "java.lang.Exception"},
-	{}
-};
-
-$EnclosingMethodInfo _Statement$2_EnclosingMethodInfo_ = {
-	"java.beans.Statement",
-	"invoke",
-	"()Ljava/lang/Object;"
-};
-
-$InnerClassInfo _Statement$2_InnerClassesInfo_[] = {
-	{"java.beans.Statement$2", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Statement$2_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.beans.Statement$2",
-	"java.lang.Object",
-	"java.security.PrivilegedExceptionAction",
-	_Statement$2_FieldInfo_,
-	_Statement$2_MethodInfo_,
-	"Ljava/lang/Object;Ljava/security/PrivilegedExceptionAction<Ljava/lang/Object;>;",
-	&_Statement$2_EnclosingMethodInfo_,
-	_Statement$2_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.beans.Statement"
-};
-
-$Object* allocate$Statement$2($Class* clazz) {
-	return $of($alloc(Statement$2));
-}
-
 void Statement$2::init$($Statement* this$0) {
 	$set(this, this$0, this$0);
 }
 
 $Object* Statement$2::run() {
-	return $of(this->this$0->invokeInternal());
+	return this->this$0->invokeInternal();
 }
 
 Statement$2::Statement$2() {
 }
 
 $Class* Statement$2::load$($String* name, bool initialize) {
-	$loadClass(Statement$2, name, initialize, &_Statement$2_ClassInfo_, allocate$Statement$2);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljava/beans/Statement;", nullptr, $FINAL | $SYNTHETIC, $field(Statement$2, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/beans/Statement;)V", nullptr, 0, $method(Statement$2, init$, void, $Statement*)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Statement$2, run, $Object*), "java.lang.Exception"},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.beans.Statement",
+		"invoke",
+		"()Ljava/lang/Object;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.beans.Statement$2", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.beans.Statement$2",
+		"java.lang.Object",
+		"java.security.PrivilegedExceptionAction",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/security/PrivilegedExceptionAction<Ljava/lang/Object;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.beans.Statement"
+	};
+	$loadClass(Statement$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Statement$2);
+	});
 	return class$;
 }
 

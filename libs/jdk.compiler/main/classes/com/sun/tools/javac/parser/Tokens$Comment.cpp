@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/parser/Tokens$Comment.h>
-
 #include <com/sun/tools/javac/parser/Tokens$Comment$CommentStyle.h>
 #include <com/sun/tools/javac/parser/Tokens.h>
 #include <jcpp.h>
@@ -15,42 +14,37 @@ namespace com {
 			namespace javac {
 				namespace parser {
 
-$MethodInfo _Tokens$Comment_MethodInfo_[] = {
-	{"getSourcePos", "(I)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Tokens$Comment, getSourcePos, int32_t, int32_t)},
-	{"getStyle", "()Lcom/sun/tools/javac/parser/Tokens$Comment$CommentStyle;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Tokens$Comment, getStyle, $Tokens$Comment$CommentStyle*)},
-	{"getText", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Tokens$Comment, getText, $String*)},
-	{"isDeprecated", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Tokens$Comment, isDeprecated, bool)},
-	{}
-};
-
-$InnerClassInfo _Tokens$Comment_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.parser.Tokens$Comment", "com.sun.tools.javac.parser.Tokens", "Comment", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"com.sun.tools.javac.parser.Tokens$Comment$CommentStyle", "com.sun.tools.javac.parser.Tokens$Comment", "CommentStyle", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _Tokens$Comment_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.tools.javac.parser.Tokens$Comment",
-	nullptr,
-	nullptr,
-	nullptr,
-	_Tokens$Comment_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Tokens$Comment_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.parser.Tokens"
-};
-
-$Object* allocate$Tokens$Comment($Class* clazz) {
-	return $of($alloc(Tokens$Comment));
-}
-
 $Class* Tokens$Comment::load$($String* name, bool initialize) {
-	$loadClass(Tokens$Comment, name, initialize, &_Tokens$Comment_ClassInfo_, allocate$Tokens$Comment);
+	$MethodInfo methodInfos$$[] = {
+		{"getSourcePos", "(I)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Tokens$Comment, getSourcePos, int32_t, int32_t)},
+		{"getStyle", "()Lcom/sun/tools/javac/parser/Tokens$Comment$CommentStyle;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Tokens$Comment, getStyle, $Tokens$Comment$CommentStyle*)},
+		{"getText", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Tokens$Comment, getText, $String*)},
+		{"isDeprecated", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Tokens$Comment, isDeprecated, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.parser.Tokens$Comment", "com.sun.tools.javac.parser.Tokens", "Comment", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"com.sun.tools.javac.parser.Tokens$Comment$CommentStyle", "com.sun.tools.javac.parser.Tokens$Comment", "CommentStyle", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.tools.javac.parser.Tokens$Comment",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.parser.Tokens"
+	};
+	$loadClass(Tokens$Comment, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Tokens$Comment);
+	});
 	return class$;
 }
 

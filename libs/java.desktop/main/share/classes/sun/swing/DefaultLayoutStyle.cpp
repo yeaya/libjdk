@@ -1,5 +1,4 @@
 #include <sun/swing/DefaultLayoutStyle.h>
-
 #include <java/awt/ComponentOrientation.h>
 #include <java/awt/Container.h>
 #include <java/awt/Insets.h>
@@ -31,7 +30,6 @@
 #undef UNRELATED
 #undef WEST
 
-using $ComponentOrientation = ::java::awt::ComponentOrientation;
 using $Container = ::java::awt::Container;
 using $Insets = ::java::awt::Insets;
 using $AssertionError = ::java::lang::AssertionError;
@@ -56,45 +54,6 @@ using $UIResource = ::javax::swing::plaf::UIResource;
 
 namespace sun {
 	namespace swing {
-
-$FieldInfo _DefaultLayoutStyle_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(DefaultLayoutStyle, $assertionsDisabled)},
-	{"INSTANCE", "Lsun/swing/DefaultLayoutStyle;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DefaultLayoutStyle, INSTANCE)},
-	{}
-};
-
-$MethodInfo _DefaultLayoutStyle_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(DefaultLayoutStyle, init$, void)},
-	{"checkPosition", "(I)V", nullptr, $PRIVATE, $method(DefaultLayoutStyle, checkPosition, void, int32_t)},
-	{"flipDirection", "(I)I", nullptr, $PROTECTED, $virtualMethod(DefaultLayoutStyle, flipDirection, int32_t, int32_t)},
-	{"getButtonGap", "(Ljavax/swing/JComponent;Ljavax/swing/JComponent;II)I", nullptr, $PROTECTED, $virtualMethod(DefaultLayoutStyle, getButtonGap, int32_t, $JComponent*, $JComponent*, int32_t, int32_t)},
-	{"getButtonGap", "(Ljavax/swing/JComponent;II)I", nullptr, $PROTECTED, $virtualMethod(DefaultLayoutStyle, getButtonGap, int32_t, $JComponent*, int32_t, int32_t)},
-	{"getButtonGap", "(Ljavax/swing/JComponent;I)I", nullptr, $PUBLIC, $virtualMethod(DefaultLayoutStyle, getButtonGap, int32_t, $JComponent*, int32_t)},
-	{"getContainerGap", "(Ljavax/swing/JComponent;ILjava/awt/Container;)I", nullptr, $PUBLIC, $virtualMethod(DefaultLayoutStyle, getContainerGap, int32_t, $JComponent*, int32_t, $Container*)},
-	{"getIcon", "(Ljavax/swing/AbstractButton;)Ljavax/swing/Icon;", nullptr, $PRIVATE, $method(DefaultLayoutStyle, getIcon, $Icon*, $AbstractButton*)},
-	{"getIndent", "(Ljavax/swing/JComponent;I)I", nullptr, $PROTECTED, $virtualMethod(DefaultLayoutStyle, getIndent, int32_t, $JComponent*, int32_t)},
-	{"getInset", "(Ljavax/swing/JComponent;I)I", nullptr, $PRIVATE, $method(DefaultLayoutStyle, getInset, int32_t, $JComponent*, int32_t)},
-	{"getInset", "(Ljava/awt/Insets;I)I", nullptr, $PRIVATE, $method(DefaultLayoutStyle, getInset, int32_t, $Insets*, int32_t)},
-	{"getInstance", "()Ljavax/swing/LayoutStyle;", nullptr, $PUBLIC | $STATIC, $staticMethod(DefaultLayoutStyle, getInstance, $LayoutStyle*)},
-	{"getPreferredGap", "(Ljavax/swing/JComponent;Ljavax/swing/JComponent;Ljavax/swing/LayoutStyle$ComponentPlacement;ILjava/awt/Container;)I", nullptr, $PUBLIC, $virtualMethod(DefaultLayoutStyle, getPreferredGap, int32_t, $JComponent*, $JComponent*, $LayoutStyle$ComponentPlacement*, int32_t, $Container*)},
-	{"isLabelAndNonlabel", "(Ljavax/swing/JComponent;Ljavax/swing/JComponent;I)Z", nullptr, $PROTECTED, $virtualMethod(DefaultLayoutStyle, isLabelAndNonlabel, bool, $JComponent*, $JComponent*, int32_t)},
-	{"isLeftAligned", "(Ljavax/swing/AbstractButton;I)Z", nullptr, $PRIVATE, $method(DefaultLayoutStyle, isLeftAligned, bool, $AbstractButton*, int32_t)},
-	{"isRightAligned", "(Ljavax/swing/AbstractButton;I)Z", nullptr, $PRIVATE, $method(DefaultLayoutStyle, isRightAligned, bool, $AbstractButton*, int32_t)},
-	{}
-};
-
-$ClassInfo _DefaultLayoutStyle_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.swing.DefaultLayoutStyle",
-	"javax.swing.LayoutStyle",
-	nullptr,
-	_DefaultLayoutStyle_FieldInfo_,
-	_DefaultLayoutStyle_MethodInfo_
-};
-
-$Object* allocate$DefaultLayoutStyle($Class* clazz) {
-	return $of($alloc(DefaultLayoutStyle));
-}
 
 bool DefaultLayoutStyle::$assertionsDisabled = false;
 DefaultLayoutStyle* DefaultLayoutStyle::INSTANCE = nullptr;
@@ -157,9 +116,9 @@ int32_t DefaultLayoutStyle::getButtonGap($JComponent* source, int32_t position, 
 }
 
 int32_t DefaultLayoutStyle::getButtonGap($JComponent* c, int32_t position) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, classID, $nc(c)->getUIClassID());
-	if ((classID == "CheckBoxUI"_s || classID == "RadioButtonUI"_s) && !$nc(($cast($AbstractButton, c)))->isBorderPainted()) {
+	if ((classID == "CheckBoxUI"_s || classID == "RadioButtonUI"_s) && !$cast($AbstractButton, c)->isBorderPainted()) {
 		$var($Border, border, c->getBorder());
 		if ($instanceOf($UIResource, border)) {
 			return getInset(c, position);
@@ -177,21 +136,13 @@ void DefaultLayoutStyle::checkPosition(int32_t position) {
 int32_t DefaultLayoutStyle::flipDirection(int32_t position) {
 	switch (position) {
 	case $SwingConstants::NORTH:
-		{
-			return $SwingConstants::SOUTH;
-		}
+		return $SwingConstants::SOUTH;
 	case $SwingConstants::SOUTH:
-		{
-			return $SwingConstants::NORTH;
-		}
+		return $SwingConstants::NORTH;
 	case $SwingConstants::EAST:
-		{
-			return $SwingConstants::WEST;
-		}
+		return $SwingConstants::WEST;
 	case $SwingConstants::WEST:
-		{
-			return $SwingConstants::EAST;
-		}
+		return $SwingConstants::EAST;
 	}
 	if (!DefaultLayoutStyle::$assertionsDisabled) {
 		$throwNew($AssertionError);
@@ -200,7 +151,7 @@ int32_t DefaultLayoutStyle::flipDirection(int32_t position) {
 }
 
 int32_t DefaultLayoutStyle::getIndent($JComponent* c, int32_t position) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, classID, $nc(c)->getUIClassID());
 	if (classID == "CheckBoxUI"_s || classID == "RadioButtonUI"_s) {
 		$var($AbstractButton, button, $cast($AbstractButton, c));
@@ -217,7 +168,7 @@ int32_t DefaultLayoutStyle::getIndent($JComponent* c, int32_t position) {
 }
 
 $Icon* DefaultLayoutStyle::getIcon($AbstractButton* button) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Icon, icon, $nc(button)->getIcon());
 	if (icon != nullptr) {
 		return icon;
@@ -239,7 +190,7 @@ $Icon* DefaultLayoutStyle::getIcon($AbstractButton* button) {
 
 bool DefaultLayoutStyle::isLeftAligned($AbstractButton* button, int32_t position) {
 	if (position == $SwingConstants::WEST) {
-		bool ltr = $nc($($nc(button)->getComponentOrientation()))->isLeftToRight();
+		bool ltr = $$nc($nc(button)->getComponentOrientation())->isLeftToRight();
 		int32_t hAlign = button->getHorizontalAlignment();
 		return ((ltr && (hAlign == $SwingConstants::LEFT || hAlign == $SwingConstants::LEADING)) || (!ltr && (hAlign == $SwingConstants::TRAILING)));
 	}
@@ -248,7 +199,7 @@ bool DefaultLayoutStyle::isLeftAligned($AbstractButton* button, int32_t position
 
 bool DefaultLayoutStyle::isRightAligned($AbstractButton* button, int32_t position) {
 	if (position == $SwingConstants::EAST) {
-		bool ltr = $nc($($nc(button)->getComponentOrientation()))->isLeftToRight();
+		bool ltr = $$nc($nc(button)->getComponentOrientation())->isLeftToRight();
 		int32_t hAlign = button->getHorizontalAlignment();
 		return ((ltr && (hAlign == $SwingConstants::RIGHT || hAlign == $SwingConstants::TRAILING)) || (!ltr && (hAlign == $SwingConstants::LEADING)));
 	}
@@ -265,21 +216,13 @@ int32_t DefaultLayoutStyle::getInset($Insets* insets, int32_t position) {
 	}
 	switch (position) {
 	case $SwingConstants::NORTH:
-		{
-			return $nc(insets)->top;
-		}
+		return $nc(insets)->top;
 	case $SwingConstants::SOUTH:
-		{
-			return $nc(insets)->bottom;
-		}
+		return $nc(insets)->bottom;
 	case $SwingConstants::EAST:
-		{
-			return $nc(insets)->right;
-		}
+		return $nc(insets)->right;
 	case $SwingConstants::WEST:
-		{
-			return $nc(insets)->left;
-		}
+		return $nc(insets)->left;
 	}
 	if (!DefaultLayoutStyle::$assertionsDisabled) {
 		$throwNew($AssertionError);
@@ -287,7 +230,7 @@ int32_t DefaultLayoutStyle::getInset($Insets* insets, int32_t position) {
 	return 0;
 }
 
-void clinit$DefaultLayoutStyle($Class* class$) {
+void DefaultLayoutStyle::clinit$($Class* clazz) {
 	DefaultLayoutStyle::$assertionsDisabled = !DefaultLayoutStyle::class$->desiredAssertionStatus();
 	$assignStatic(DefaultLayoutStyle::INSTANCE, $new(DefaultLayoutStyle));
 }
@@ -296,7 +239,41 @@ DefaultLayoutStyle::DefaultLayoutStyle() {
 }
 
 $Class* DefaultLayoutStyle::load$($String* name, bool initialize) {
-	$loadClass(DefaultLayoutStyle, name, initialize, &_DefaultLayoutStyle_ClassInfo_, clinit$DefaultLayoutStyle, allocate$DefaultLayoutStyle);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(DefaultLayoutStyle, $assertionsDisabled)},
+		{"INSTANCE", "Lsun/swing/DefaultLayoutStyle;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DefaultLayoutStyle, INSTANCE)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(DefaultLayoutStyle, init$, void)},
+		{"checkPosition", "(I)V", nullptr, $PRIVATE, $method(DefaultLayoutStyle, checkPosition, void, int32_t)},
+		{"flipDirection", "(I)I", nullptr, $PROTECTED, $virtualMethod(DefaultLayoutStyle, flipDirection, int32_t, int32_t)},
+		{"getButtonGap", "(Ljavax/swing/JComponent;Ljavax/swing/JComponent;II)I", nullptr, $PROTECTED, $virtualMethod(DefaultLayoutStyle, getButtonGap, int32_t, $JComponent*, $JComponent*, int32_t, int32_t)},
+		{"getButtonGap", "(Ljavax/swing/JComponent;II)I", nullptr, $PROTECTED, $virtualMethod(DefaultLayoutStyle, getButtonGap, int32_t, $JComponent*, int32_t, int32_t)},
+		{"getButtonGap", "(Ljavax/swing/JComponent;I)I", nullptr, $PUBLIC, $virtualMethod(DefaultLayoutStyle, getButtonGap, int32_t, $JComponent*, int32_t)},
+		{"getContainerGap", "(Ljavax/swing/JComponent;ILjava/awt/Container;)I", nullptr, $PUBLIC, $virtualMethod(DefaultLayoutStyle, getContainerGap, int32_t, $JComponent*, int32_t, $Container*)},
+		{"getIcon", "(Ljavax/swing/AbstractButton;)Ljavax/swing/Icon;", nullptr, $PRIVATE, $method(DefaultLayoutStyle, getIcon, $Icon*, $AbstractButton*)},
+		{"getIndent", "(Ljavax/swing/JComponent;I)I", nullptr, $PROTECTED, $virtualMethod(DefaultLayoutStyle, getIndent, int32_t, $JComponent*, int32_t)},
+		{"getInset", "(Ljavax/swing/JComponent;I)I", nullptr, $PRIVATE, $method(DefaultLayoutStyle, getInset, int32_t, $JComponent*, int32_t)},
+		{"getInset", "(Ljava/awt/Insets;I)I", nullptr, $PRIVATE, $method(DefaultLayoutStyle, getInset, int32_t, $Insets*, int32_t)},
+		{"getInstance", "()Ljavax/swing/LayoutStyle;", nullptr, $PUBLIC | $STATIC, $staticMethod(DefaultLayoutStyle, getInstance, $LayoutStyle*)},
+		{"getPreferredGap", "(Ljavax/swing/JComponent;Ljavax/swing/JComponent;Ljavax/swing/LayoutStyle$ComponentPlacement;ILjava/awt/Container;)I", nullptr, $PUBLIC, $virtualMethod(DefaultLayoutStyle, getPreferredGap, int32_t, $JComponent*, $JComponent*, $LayoutStyle$ComponentPlacement*, int32_t, $Container*)},
+		{"isLabelAndNonlabel", "(Ljavax/swing/JComponent;Ljavax/swing/JComponent;I)Z", nullptr, $PROTECTED, $virtualMethod(DefaultLayoutStyle, isLabelAndNonlabel, bool, $JComponent*, $JComponent*, int32_t)},
+		{"isLeftAligned", "(Ljavax/swing/AbstractButton;I)Z", nullptr, $PRIVATE, $method(DefaultLayoutStyle, isLeftAligned, bool, $AbstractButton*, int32_t)},
+		{"isRightAligned", "(Ljavax/swing/AbstractButton;I)Z", nullptr, $PRIVATE, $method(DefaultLayoutStyle, isRightAligned, bool, $AbstractButton*, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.swing.DefaultLayoutStyle",
+		"javax.swing.LayoutStyle",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DefaultLayoutStyle, name, initialize, &classInfo$$, DefaultLayoutStyle::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(DefaultLayoutStyle);
+	});
 	return class$;
 }
 

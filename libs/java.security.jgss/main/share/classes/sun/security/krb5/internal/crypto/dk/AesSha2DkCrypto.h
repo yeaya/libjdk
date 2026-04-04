@@ -36,6 +36,7 @@ class AesSha2DkCrypto : public ::sun::security::krb5::internal::crypto::dk::DkCr
 	$class(AesSha2DkCrypto, 0, ::sun::security::krb5::internal::crypto::dk::DkCrypto)
 public:
 	AesSha2DkCrypto();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int32_t length);
 	static $bytes* PBKDF2($chars* secret, $bytes* salt, int32_t count, int32_t keyLength);
 	virtual $bytes* calculateChecksum($bytes* baseKey, int32_t usage, $bytes* input, int32_t start, int32_t len) override;

@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xpath/internal/objects/XStringForFSB.h>
-
 #include <com/sun/org/apache/xalan/internal/res/XSLMessages.h>
 #include <com/sun/org/apache/xml/internal/utils/FastStringBuffer.h>
 #include <com/sun/org/apache/xml/internal/utils/XMLCharacterRecognizer.h>
@@ -52,65 +51,8 @@ namespace com {
 					namespace internal {
 						namespace objects {
 
-$FieldInfo _XStringForFSB_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(XStringForFSB, serialVersionUID)},
-	{"m_start", "I", nullptr, 0, $field(XStringForFSB, m_start)},
-	{"m_length", "I", nullptr, 0, $field(XStringForFSB, m_length)},
-	{"m_strCache", "Ljava/lang/String;", nullptr, $PROTECTED, $field(XStringForFSB, m_strCache)},
-	{"m_hash", "I", nullptr, $PROTECTED, $field(XStringForFSB, m_hash)},
-	{}
-};
-
-$MethodInfo _XStringForFSB_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/org/apache/xml/internal/utils/FastStringBuffer;II)V", nullptr, $PUBLIC, $method(XStringForFSB, init$, void, $FastStringBuffer*, int32_t, int32_t)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(XStringForFSB, init$, void, $String*)},
-	{"appendToFsb", "(Lcom/sun/org/apache/xml/internal/utils/FastStringBuffer;)V", nullptr, $PUBLIC, $virtualMethod(XStringForFSB, appendToFsb, void, $FastStringBuffer*)},
-	{"charAt", "(I)C", nullptr, $PUBLIC, $virtualMethod(XStringForFSB, charAt, char16_t, int32_t)},
-	{"compareTo", "(Lcom/sun/org/apache/xml/internal/utils/XMLString;)I", nullptr, $PUBLIC, $virtualMethod(XStringForFSB, compareTo, int32_t, $XMLString*)},
-	{"compareToIgnoreCase", "(Lcom/sun/org/apache/xml/internal/utils/XMLString;)I", nullptr, $PUBLIC, $virtualMethod(XStringForFSB, compareToIgnoreCase, int32_t, $XMLString*)},
-	{"concat", "(Ljava/lang/String;)Lcom/sun/org/apache/xml/internal/utils/XMLString;", nullptr, $PUBLIC, $virtualMethod(XStringForFSB, concat, $XMLString*, $String*)},
-	{"dispatchAsComment", "(Lorg/xml/sax/ext/LexicalHandler;)V", nullptr, $PUBLIC, $virtualMethod(XStringForFSB, dispatchAsComment, void, $LexicalHandler*), "org.xml.sax.SAXException"},
-	{"dispatchCharactersEvents", "(Lorg/xml/sax/ContentHandler;)V", nullptr, $PUBLIC, $virtualMethod(XStringForFSB, dispatchCharactersEvents, void, $ContentHandler*), "org.xml.sax.SAXException"},
-	{"equals", "(Lcom/sun/org/apache/xml/internal/utils/XMLString;)Z", nullptr, $PUBLIC, $virtualMethod(XStringForFSB, equals, bool, $XMLString*)},
-	{"equals", "(Lcom/sun/org/apache/xpath/internal/objects/XObject;)Z", nullptr, $PUBLIC, $virtualMethod(XStringForFSB, equals, bool, $XObject*)},
-	{"equals", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(XStringForFSB, equals, bool, $String*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(XStringForFSB, equals, bool, Object$*)},
-	{"equalsIgnoreCase", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(XStringForFSB, equalsIgnoreCase, bool, $String*)},
-	{"fixWhiteSpace", "(ZZZ)Lcom/sun/org/apache/xml/internal/utils/XMLString;", nullptr, $PUBLIC, $virtualMethod(XStringForFSB, fixWhiteSpace, $XMLString*, bool, bool, bool)},
-	{"fsb", "()Lcom/sun/org/apache/xml/internal/utils/FastStringBuffer;", nullptr, $PUBLIC, $virtualMethod(XStringForFSB, fsb, $FastStringBuffer*)},
-	{"getChars", "(II[CI)V", nullptr, $PUBLIC, $virtualMethod(XStringForFSB, getChars, void, int32_t, int32_t, $chars*, int32_t)},
-	{"hasString", "()Z", nullptr, $PUBLIC, $virtualMethod(XStringForFSB, hasString, bool)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(XStringForFSB, hashCode, int32_t)},
-	{"indexOf", "(I)I", nullptr, $PUBLIC, $virtualMethod(XStringForFSB, indexOf, int32_t, int32_t)},
-	{"indexOf", "(II)I", nullptr, $PUBLIC, $virtualMethod(XStringForFSB, indexOf, int32_t, int32_t, int32_t)},
-	{"isSpace", "(C)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(XStringForFSB, isSpace, bool, char16_t)},
-	{"length", "()I", nullptr, $PUBLIC, $virtualMethod(XStringForFSB, length, int32_t)},
-	{"object", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(XStringForFSB, object, $Object*)},
-	{"startsWith", "(Lcom/sun/org/apache/xml/internal/utils/XMLString;I)Z", nullptr, $PUBLIC, $virtualMethod(XStringForFSB, startsWith, bool, $XMLString*, int32_t)},
-	{"startsWith", "(Lcom/sun/org/apache/xml/internal/utils/XMLString;)Z", nullptr, $PUBLIC, $virtualMethod(XStringForFSB, startsWith, bool, $XMLString*)},
-	{"str", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XStringForFSB, str, $String*)},
-	{"substring", "(I)Lcom/sun/org/apache/xml/internal/utils/XMLString;", nullptr, $PUBLIC, $virtualMethod(XStringForFSB, substring, $XMLString*, int32_t)},
-	{"substring", "(II)Lcom/sun/org/apache/xml/internal/utils/XMLString;", nullptr, $PUBLIC, $virtualMethod(XStringForFSB, substring, $XMLString*, int32_t, int32_t)},
-	{"toDouble", "()D", nullptr, $PUBLIC, $virtualMethod(XStringForFSB, toDouble, double)},
-	{"trim", "()Lcom/sun/org/apache/xml/internal/utils/XMLString;", nullptr, $PUBLIC, $virtualMethod(XStringForFSB, trim, $XMLString*)},
-	{}
-};
-
-$ClassInfo _XStringForFSB_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xpath.internal.objects.XStringForFSB",
-	"com.sun.org.apache.xpath.internal.objects.XString",
-	nullptr,
-	_XStringForFSB_FieldInfo_,
-	_XStringForFSB_MethodInfo_
-};
-
-$Object* allocate$XStringForFSB($Class* clazz) {
-	return $of($alloc(XStringForFSB));
-}
-
 void XStringForFSB::init$($FastStringBuffer* val, int32_t start, int32_t length) {
-	$XString::init$($of(val));
+	$XString::init$(val);
 	$set(this, m_strCache, nullptr);
 	this->m_hash = 0;
 	this->m_start = start;
@@ -130,7 +72,7 @@ void XStringForFSB::init$($String* val) {
 }
 
 $FastStringBuffer* XStringForFSB::fsb() {
-	return ($cast($FastStringBuffer, this->m_obj));
+	return $cast($FastStringBuffer, this->m_obj);
 }
 
 void XStringForFSB::appendToFsb($FastStringBuffer* fsb) {
@@ -147,17 +89,17 @@ $Object* XStringForFSB::object() {
 
 $String* XStringForFSB::str() {
 	if (nullptr == this->m_strCache) {
-		$set(this, m_strCache, $nc($(fsb()))->getString(this->m_start, this->m_length));
+		$set(this, m_strCache, $$nc(fsb())->getString(this->m_start, this->m_length));
 	}
 	return this->m_strCache;
 }
 
 void XStringForFSB::dispatchCharactersEvents($ContentHandler* ch) {
-	$nc($(fsb()))->sendSAXcharacters(ch, this->m_start, this->m_length);
+	$$nc(fsb())->sendSAXcharacters(ch, this->m_start, this->m_length);
 }
 
 void XStringForFSB::dispatchAsComment($LexicalHandler* lh) {
-	$nc($(fsb()))->sendSAXComment(lh, this->m_start, this->m_length);
+	$$nc(fsb())->sendSAXComment(lh, this->m_start, this->m_length);
 }
 
 int32_t XStringForFSB::length() {
@@ -165,7 +107,7 @@ int32_t XStringForFSB::length() {
 }
 
 char16_t XStringForFSB::charAt(int32_t index) {
-	return $nc($(fsb()))->charAt(this->m_start + index);
+	return $$nc(fsb())->charAt(this->m_start + index);
 }
 
 void XStringForFSB::getChars(int32_t srcBegin, int32_t srcEnd, $chars* dst, int32_t dstBegin) {
@@ -180,7 +122,7 @@ void XStringForFSB::getChars(int32_t srcBegin, int32_t srcEnd, $chars* dst, int3
 	int32_t d = dstBegin;
 	$var($FastStringBuffer, fsb, this->fsb());
 	for (int32_t i = srcBegin + this->m_start; i < end; ++i) {
-		$nc(dst)->set(d++, $nc(fsb)->charAt(i));
+		dst->set(d++, $nc(fsb)->charAt(i));
 	}
 }
 
@@ -207,14 +149,14 @@ bool XStringForFSB::equals($XMLString* obj2) {
 }
 
 bool XStringForFSB::equals($XObject* obj2) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($equals(this, obj2)) {
 		return true;
 	}
 	if ($nc(obj2)->getType() == $XObject::CLASS_NUMBER) {
-		return obj2->equals(static_cast<$XObject*>(this));
+		return obj2->equals(this);
 	}
-	$var($String, str, $nc(obj2)->str());
+	$var($String, str, obj2->str());
 	int32_t n = this->m_length;
 	if (n == $nc(str)->length()) {
 		$var($FastStringBuffer, fsb, this->fsb());
@@ -257,9 +199,9 @@ bool XStringForFSB::equals(Object$* obj2) {
 		return false;
 	}
 	if ($instanceOf($XNumber, obj2)) {
-		return $nc($of(obj2))->equals(this);
+		return $of(obj2)->equals(this);
 	} else if ($instanceOf($XNodeSet, obj2)) {
-		return $nc($of(obj2))->equals(this);
+		return $of(obj2)->equals(this);
 	} else if ($instanceOf(XStringForFSB, obj2)) {
 		return equals($cast($XMLString, obj2));
 	} else {
@@ -268,7 +210,7 @@ bool XStringForFSB::equals(Object$* obj2) {
 }
 
 bool XStringForFSB::equalsIgnoreCase($String* anotherString) {
-	return (this->m_length == $nc(anotherString)->length()) ? $nc($(str()))->equalsIgnoreCase(anotherString) : false;
+	return (this->m_length == $nc(anotherString)->length()) ? $$nc(str())->equalsIgnoreCase(anotherString) : false;
 }
 
 int32_t XStringForFSB::compareTo($XMLString* xstr) {
@@ -383,8 +325,8 @@ $XMLString* XStringForFSB::substring(int32_t beginIndex, int32_t endIndex) {
 }
 
 $XMLString* XStringForFSB::concat($String* str) {
-	$useLocalCurrentObjectStackCache();
-	return $new($XString, $($nc($(this->str()))->concat(str)));
+	$useLocalObjectStack();
+	return $new($XString, $($$nc(this->str())->concat(str)));
 }
 
 $XMLString* XStringForFSB::trim() {
@@ -397,7 +339,7 @@ bool XStringForFSB::isSpace(char16_t ch) {
 }
 
 $XMLString* XStringForFSB::fixWhiteSpace(bool trimHead, bool trimTail, bool doublePunctuationSpaces) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t end = this->m_length + this->m_start;
 	$var($chars, buf, $new($chars, this->m_length));
 	$var($FastStringBuffer, fsb, this->fsb());
@@ -439,49 +381,45 @@ $XMLString* XStringForFSB::fixWhiteSpace(bool trimHead, bool trimTail, bool doub
 		++start;
 	}
 	$var($XMLStringFactory, xsf, $XMLStringFactoryImpl::getFactory());
-	return edit ? $nc(xsf)->newstr(buf, start, d - start) : static_cast<$XMLString*>(this);
+	return edit ? $nc(xsf)->newstr(buf, start, d - start) : $cast($XMLString, this);
 }
 
 double XStringForFSB::toDouble() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->m_length == 0) {
-		$init($Double);
 		return $Double::NaN;
 	}
 	int32_t i = 0;
 	char16_t c = 0;
-	$var($String, valueString, $nc($(fsb()))->getString(this->m_start, this->m_length));
+	$var($String, valueString, $$nc(fsb())->getString(this->m_start, this->m_length));
 	for (i = 0; i < this->m_length; ++i) {
 		if (!$XMLCharacterRecognizer::isWhiteSpace($nc(valueString)->charAt(i))) {
 			break;
 		}
 	}
 	if (i == this->m_length) {
-		$init($Double);
 		return $Double::NaN;
 	}
 	if ($nc(valueString)->charAt(i) == u'-') {
 		++i;
 	}
 	for (; i < this->m_length; ++i) {
-		c = $nc(valueString)->charAt(i);
+		c = valueString->charAt(i);
 		if (c != u'.' && (c < u'0' || c > u'9')) {
 			break;
 		}
 	}
 	for (; i < this->m_length; ++i) {
-		if (!$XMLCharacterRecognizer::isWhiteSpace($nc(valueString)->charAt(i))) {
+		if (!$XMLCharacterRecognizer::isWhiteSpace(valueString->charAt(i))) {
 			break;
 		}
 	}
 	if (i != this->m_length) {
-		$init($Double);
 		return $Double::NaN;
 	}
 	try {
 		return $Double::parseDouble(valueString);
 	} catch ($NumberFormatException& nfe) {
-		$init($Double);
 		return $Double::NaN;
 	}
 	$shouldNotReachHere();
@@ -491,7 +429,59 @@ XStringForFSB::XStringForFSB() {
 }
 
 $Class* XStringForFSB::load$($String* name, bool initialize) {
-	$loadClass(XStringForFSB, name, initialize, &_XStringForFSB_ClassInfo_, allocate$XStringForFSB);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(XStringForFSB, serialVersionUID)},
+		{"m_start", "I", nullptr, 0, $field(XStringForFSB, m_start)},
+		{"m_length", "I", nullptr, 0, $field(XStringForFSB, m_length)},
+		{"m_strCache", "Ljava/lang/String;", nullptr, $PROTECTED, $field(XStringForFSB, m_strCache)},
+		{"m_hash", "I", nullptr, $PROTECTED, $field(XStringForFSB, m_hash)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/org/apache/xml/internal/utils/FastStringBuffer;II)V", nullptr, $PUBLIC, $method(XStringForFSB, init$, void, $FastStringBuffer*, int32_t, int32_t)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(XStringForFSB, init$, void, $String*)},
+		{"appendToFsb", "(Lcom/sun/org/apache/xml/internal/utils/FastStringBuffer;)V", nullptr, $PUBLIC, $virtualMethod(XStringForFSB, appendToFsb, void, $FastStringBuffer*)},
+		{"charAt", "(I)C", nullptr, $PUBLIC, $virtualMethod(XStringForFSB, charAt, char16_t, int32_t)},
+		{"compareTo", "(Lcom/sun/org/apache/xml/internal/utils/XMLString;)I", nullptr, $PUBLIC, $virtualMethod(XStringForFSB, compareTo, int32_t, $XMLString*)},
+		{"compareToIgnoreCase", "(Lcom/sun/org/apache/xml/internal/utils/XMLString;)I", nullptr, $PUBLIC, $virtualMethod(XStringForFSB, compareToIgnoreCase, int32_t, $XMLString*)},
+		{"concat", "(Ljava/lang/String;)Lcom/sun/org/apache/xml/internal/utils/XMLString;", nullptr, $PUBLIC, $virtualMethod(XStringForFSB, concat, $XMLString*, $String*)},
+		{"dispatchAsComment", "(Lorg/xml/sax/ext/LexicalHandler;)V", nullptr, $PUBLIC, $virtualMethod(XStringForFSB, dispatchAsComment, void, $LexicalHandler*), "org.xml.sax.SAXException"},
+		{"dispatchCharactersEvents", "(Lorg/xml/sax/ContentHandler;)V", nullptr, $PUBLIC, $virtualMethod(XStringForFSB, dispatchCharactersEvents, void, $ContentHandler*), "org.xml.sax.SAXException"},
+		{"equals", "(Lcom/sun/org/apache/xml/internal/utils/XMLString;)Z", nullptr, $PUBLIC, $virtualMethod(XStringForFSB, equals, bool, $XMLString*)},
+		{"equals", "(Lcom/sun/org/apache/xpath/internal/objects/XObject;)Z", nullptr, $PUBLIC, $virtualMethod(XStringForFSB, equals, bool, $XObject*)},
+		{"equals", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(XStringForFSB, equals, bool, $String*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(XStringForFSB, equals, bool, Object$*)},
+		{"equalsIgnoreCase", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(XStringForFSB, equalsIgnoreCase, bool, $String*)},
+		{"fixWhiteSpace", "(ZZZ)Lcom/sun/org/apache/xml/internal/utils/XMLString;", nullptr, $PUBLIC, $virtualMethod(XStringForFSB, fixWhiteSpace, $XMLString*, bool, bool, bool)},
+		{"fsb", "()Lcom/sun/org/apache/xml/internal/utils/FastStringBuffer;", nullptr, $PUBLIC, $virtualMethod(XStringForFSB, fsb, $FastStringBuffer*)},
+		{"getChars", "(II[CI)V", nullptr, $PUBLIC, $virtualMethod(XStringForFSB, getChars, void, int32_t, int32_t, $chars*, int32_t)},
+		{"hasString", "()Z", nullptr, $PUBLIC, $virtualMethod(XStringForFSB, hasString, bool)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(XStringForFSB, hashCode, int32_t)},
+		{"indexOf", "(I)I", nullptr, $PUBLIC, $virtualMethod(XStringForFSB, indexOf, int32_t, int32_t)},
+		{"indexOf", "(II)I", nullptr, $PUBLIC, $virtualMethod(XStringForFSB, indexOf, int32_t, int32_t, int32_t)},
+		{"isSpace", "(C)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(XStringForFSB, isSpace, bool, char16_t)},
+		{"length", "()I", nullptr, $PUBLIC, $virtualMethod(XStringForFSB, length, int32_t)},
+		{"object", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(XStringForFSB, object, $Object*)},
+		{"startsWith", "(Lcom/sun/org/apache/xml/internal/utils/XMLString;I)Z", nullptr, $PUBLIC, $virtualMethod(XStringForFSB, startsWith, bool, $XMLString*, int32_t)},
+		{"startsWith", "(Lcom/sun/org/apache/xml/internal/utils/XMLString;)Z", nullptr, $PUBLIC, $virtualMethod(XStringForFSB, startsWith, bool, $XMLString*)},
+		{"str", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XStringForFSB, str, $String*)},
+		{"substring", "(I)Lcom/sun/org/apache/xml/internal/utils/XMLString;", nullptr, $PUBLIC, $virtualMethod(XStringForFSB, substring, $XMLString*, int32_t)},
+		{"substring", "(II)Lcom/sun/org/apache/xml/internal/utils/XMLString;", nullptr, $PUBLIC, $virtualMethod(XStringForFSB, substring, $XMLString*, int32_t, int32_t)},
+		{"toDouble", "()D", nullptr, $PUBLIC, $virtualMethod(XStringForFSB, toDouble, double)},
+		{"trim", "()Lcom/sun/org/apache/xml/internal/utils/XMLString;", nullptr, $PUBLIC, $virtualMethod(XStringForFSB, trim, $XMLString*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xpath.internal.objects.XStringForFSB",
+		"com.sun.org.apache.xpath.internal.objects.XString",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XStringForFSB, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(XStringForFSB));
+	});
 	return class$;
 }
 

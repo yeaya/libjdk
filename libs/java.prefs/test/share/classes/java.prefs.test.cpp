@@ -1,5 +1,4 @@
 #include <java.prefs.test.h>
-
 #include <java.prefs.h>
 #include <java.base.h>
 #include <java.xml.h>

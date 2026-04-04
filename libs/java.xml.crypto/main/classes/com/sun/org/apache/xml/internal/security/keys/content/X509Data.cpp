@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/security/keys/content/X509Data.h>
-
 #include <com/sun/org/apache/xml/internal/security/exceptions/XMLSecurityException.h>
 #include <com/sun/org/apache/xml/internal/security/keys/content/x509/XMLX509CRL.h>
 #include <com/sun/org/apache/xml/internal/security/keys/content/x509/XMLX509Certificate.h>
@@ -38,7 +37,6 @@ using $XMLX509IssuerSerial = ::com::sun::org::apache::xml::internal::security::k
 using $XMLX509SKI = ::com::sun::org::apache::xml::internal::security::keys::content::x509::XMLX509SKI;
 using $XMLX509SubjectName = ::com::sun::org::apache::xml::internal::security::keys::content::x509::XMLX509SubjectName;
 using $Constants = ::com::sun::org::apache::xml::internal::security::utils::Constants;
-using $ElementProxy = ::com::sun::org::apache::xml::internal::security::utils::ElementProxy;
 using $SignatureElementProxy = ::com::sun::org::apache::xml::internal::security::utils::SignatureElementProxy;
 using $XMLUtils = ::com::sun::org::apache::xml::internal::security::utils::XMLUtils;
 using $Logger = ::com::sun::org::slf4j::internal::Logger;
@@ -62,76 +60,6 @@ namespace com {
 						namespace security {
 							namespace keys {
 								namespace content {
-
-$FieldInfo _X509Data_FieldInfo_[] = {
-	{"LOG", "Lcom/sun/org/slf4j/internal/Logger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(X509Data, LOG)},
-	{}
-};
-
-$MethodInfo _X509Data_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lorg/w3c/dom/Document;)V", nullptr, $PUBLIC, $method(X509Data, init$, void, $Document*)},
-	{"<init>", "(Lorg/w3c/dom/Element;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(X509Data, init$, void, $Element*, $String*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
-	{"add", "(Lcom/sun/org/apache/xml/internal/security/keys/content/x509/XMLX509IssuerSerial;)V", nullptr, $PUBLIC, $virtualMethod(X509Data, add, void, $XMLX509IssuerSerial*)},
-	{"add", "(Lcom/sun/org/apache/xml/internal/security/keys/content/x509/XMLX509SKI;)V", nullptr, $PUBLIC, $virtualMethod(X509Data, add, void, $XMLX509SKI*)},
-	{"add", "(Lcom/sun/org/apache/xml/internal/security/keys/content/x509/XMLX509SubjectName;)V", nullptr, $PUBLIC, $virtualMethod(X509Data, add, void, $XMLX509SubjectName*)},
-	{"add", "(Lcom/sun/org/apache/xml/internal/security/keys/content/x509/XMLX509Certificate;)V", nullptr, $PUBLIC, $virtualMethod(X509Data, add, void, $XMLX509Certificate*)},
-	{"add", "(Lcom/sun/org/apache/xml/internal/security/keys/content/x509/XMLX509CRL;)V", nullptr, $PUBLIC, $virtualMethod(X509Data, add, void, $XMLX509CRL*)},
-	{"add", "(Lcom/sun/org/apache/xml/internal/security/keys/content/x509/XMLX509Digest;)V", nullptr, $PUBLIC, $virtualMethod(X509Data, add, void, $XMLX509Digest*)},
-	{"addCRL", "([B)V", nullptr, $PUBLIC, $virtualMethod(X509Data, addCRL, void, $bytes*)},
-	{"addCertificate", "(Ljava/security/cert/X509Certificate;)V", nullptr, $PUBLIC, $virtualMethod(X509Data, addCertificate, void, $X509Certificate*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
-	{"addCertificate", "([B)V", nullptr, $PUBLIC, $virtualMethod(X509Data, addCertificate, void, $bytes*)},
-	{"addDigest", "(Ljava/security/cert/X509Certificate;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(X509Data, addDigest, void, $X509Certificate*, $String*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
-	{"addDigest", "([BLjava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(X509Data, addDigest, void, $bytes*, $String*)},
-	{"addIssuerSerial", "(Ljava/lang/String;Ljava/math/BigInteger;)V", nullptr, $PUBLIC, $virtualMethod(X509Data, addIssuerSerial, void, $String*, $BigInteger*)},
-	{"addIssuerSerial", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(X509Data, addIssuerSerial, void, $String*, $String*)},
-	{"addIssuerSerial", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $virtualMethod(X509Data, addIssuerSerial, void, $String*, int32_t)},
-	{"addSKI", "([B)V", nullptr, $PUBLIC, $virtualMethod(X509Data, addSKI, void, $bytes*)},
-	{"addSKI", "(Ljava/security/cert/X509Certificate;)V", nullptr, $PUBLIC, $virtualMethod(X509Data, addSKI, void, $X509Certificate*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
-	{"addSubjectName", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(X509Data, addSubjectName, void, $String*)},
-	{"addSubjectName", "(Ljava/security/cert/X509Certificate;)V", nullptr, $PUBLIC, $virtualMethod(X509Data, addSubjectName, void, $X509Certificate*)},
-	{"addUnknownElement", "(Lorg/w3c/dom/Element;)V", nullptr, $PUBLIC, $virtualMethod(X509Data, addUnknownElement, void, $Element*)},
-	{"containsCRL", "()Z", nullptr, $PUBLIC, $virtualMethod(X509Data, containsCRL, bool)},
-	{"containsCertificate", "()Z", nullptr, $PUBLIC, $virtualMethod(X509Data, containsCertificate, bool)},
-	{"containsDigest", "()Z", nullptr, $PUBLIC, $virtualMethod(X509Data, containsDigest, bool)},
-	{"containsIssuerSerial", "()Z", nullptr, $PUBLIC, $virtualMethod(X509Data, containsIssuerSerial, bool)},
-	{"containsSKI", "()Z", nullptr, $PUBLIC, $virtualMethod(X509Data, containsSKI, bool)},
-	{"containsSubjectName", "()Z", nullptr, $PUBLIC, $virtualMethod(X509Data, containsSubjectName, bool)},
-	{"containsUnknownElement", "()Z", nullptr, $PUBLIC, $virtualMethod(X509Data, containsUnknownElement, bool)},
-	{"getBaseLocalName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(X509Data, getBaseLocalName, $String*)},
-	{"itemCRL", "(I)Lcom/sun/org/apache/xml/internal/security/keys/content/x509/XMLX509CRL;", nullptr, $PUBLIC, $virtualMethod(X509Data, itemCRL, $XMLX509CRL*, int32_t), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
-	{"itemCertificate", "(I)Lcom/sun/org/apache/xml/internal/security/keys/content/x509/XMLX509Certificate;", nullptr, $PUBLIC, $virtualMethod(X509Data, itemCertificate, $XMLX509Certificate*, int32_t), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
-	{"itemDigest", "(I)Lcom/sun/org/apache/xml/internal/security/keys/content/x509/XMLX509Digest;", nullptr, $PUBLIC, $virtualMethod(X509Data, itemDigest, $XMLX509Digest*, int32_t), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
-	{"itemIssuerSerial", "(I)Lcom/sun/org/apache/xml/internal/security/keys/content/x509/XMLX509IssuerSerial;", nullptr, $PUBLIC, $virtualMethod(X509Data, itemIssuerSerial, $XMLX509IssuerSerial*, int32_t), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
-	{"itemSKI", "(I)Lcom/sun/org/apache/xml/internal/security/keys/content/x509/XMLX509SKI;", nullptr, $PUBLIC, $virtualMethod(X509Data, itemSKI, $XMLX509SKI*, int32_t), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
-	{"itemSubjectName", "(I)Lcom/sun/org/apache/xml/internal/security/keys/content/x509/XMLX509SubjectName;", nullptr, $PUBLIC, $virtualMethod(X509Data, itemSubjectName, $XMLX509SubjectName*, int32_t), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
-	{"itemUnknownElement", "(I)Lorg/w3c/dom/Element;", nullptr, $PUBLIC, $virtualMethod(X509Data, itemUnknownElement, $Element*, int32_t)},
-	{"lengthCRL", "()I", nullptr, $PUBLIC, $virtualMethod(X509Data, lengthCRL, int32_t)},
-	{"lengthCertificate", "()I", nullptr, $PUBLIC, $virtualMethod(X509Data, lengthCertificate, int32_t)},
-	{"lengthDigest", "()I", nullptr, $PUBLIC, $virtualMethod(X509Data, lengthDigest, int32_t)},
-	{"lengthIssuerSerial", "()I", nullptr, $PUBLIC, $virtualMethod(X509Data, lengthIssuerSerial, int32_t)},
-	{"lengthSKI", "()I", nullptr, $PUBLIC, $virtualMethod(X509Data, lengthSKI, int32_t)},
-	{"lengthSubjectName", "()I", nullptr, $PUBLIC, $virtualMethod(X509Data, lengthSubjectName, int32_t)},
-	{"lengthUnknownElement", "()I", nullptr, $PUBLIC, $virtualMethod(X509Data, lengthUnknownElement, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _X509Data_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.security.keys.content.X509Data",
-	"com.sun.org.apache.xml.internal.security.utils.SignatureElementProxy",
-	"com.sun.org.apache.xml.internal.security.keys.content.KeyInfoContent",
-	_X509Data_FieldInfo_,
-	_X509Data_MethodInfo_
-};
-
-$Object* allocate$X509Data($Class* clazz) {
-	return $of($alloc(X509Data));
-}
 
 int32_t X509Data::hashCode() {
 	 return this->$SignatureElementProxy::hashCode();
@@ -161,114 +89,114 @@ void X509Data::init$($Document* doc) {
 }
 
 void X509Data::init$($Element* element, $String* baseURI) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$SignatureElementProxy::init$(element, baseURI);
 	$var($Node, sibling, getFirstChild());
 	while (sibling != nullptr && sibling->getNodeType() != $Node::ELEMENT_NODE) {
 		$assign(sibling, sibling->getNextSibling());
 	}
-	if (sibling == nullptr || $nc(sibling)->getNodeType() != $Node::ELEMENT_NODE) {
+	if (sibling == nullptr || sibling->getNodeType() != $Node::ELEMENT_NODE) {
 		$init($Constants);
 		$var($ObjectArray, exArgs, $new($ObjectArray, {
-			$of("Elements"_s),
-			$of($Constants::_TAG_X509DATA)
+			"Elements"_s,
+			$Constants::_TAG_X509DATA
 		}));
 		$throwNew($XMLSecurityException, "xml.WrongContent"_s, exArgs);
 	}
 }
 
 void X509Data::addIssuerSerial($String* X509IssuerName, $BigInteger* X509SerialNumber) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->add($$new($XMLX509IssuerSerial, $(getDocument()), X509IssuerName, X509SerialNumber));
 }
 
 void X509Data::addIssuerSerial($String* X509IssuerName, $String* X509SerialNumber) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->add($$new($XMLX509IssuerSerial, $(getDocument()), X509IssuerName, X509SerialNumber));
 }
 
 void X509Data::addIssuerSerial($String* X509IssuerName, int32_t X509SerialNumber) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->add($$new($XMLX509IssuerSerial, $(getDocument()), X509IssuerName, X509SerialNumber));
 }
 
 void X509Data::add($XMLX509IssuerSerial* xmlX509IssuerSerial) {
-	appendSelf(static_cast<$ElementProxy*>(xmlX509IssuerSerial));
+	appendSelf(xmlX509IssuerSerial);
 	addReturnToSelf();
 }
 
 void X509Data::addSKI($bytes* skiBytes) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->add($$new($XMLX509SKI, $(getDocument()), skiBytes));
 }
 
 void X509Data::addSKI($X509Certificate* x509certificate) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->add($$new($XMLX509SKI, $(getDocument()), x509certificate));
 }
 
 void X509Data::add($XMLX509SKI* xmlX509SKI) {
-	appendSelf(static_cast<$ElementProxy*>(xmlX509SKI));
+	appendSelf(xmlX509SKI);
 	addReturnToSelf();
 }
 
 void X509Data::addSubjectName($String* subjectName) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->add($$new($XMLX509SubjectName, $(getDocument()), subjectName));
 }
 
 void X509Data::addSubjectName($X509Certificate* x509certificate) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->add($$new($XMLX509SubjectName, $(getDocument()), x509certificate));
 }
 
 void X509Data::add($XMLX509SubjectName* xmlX509SubjectName) {
-	appendSelf(static_cast<$ElementProxy*>(xmlX509SubjectName));
+	appendSelf(xmlX509SubjectName);
 	addReturnToSelf();
 }
 
 void X509Data::addCertificate($X509Certificate* x509certificate) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->add($$new($XMLX509Certificate, $(getDocument()), x509certificate));
 }
 
 void X509Data::addCertificate($bytes* x509certificateBytes) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->add($$new($XMLX509Certificate, $(getDocument()), x509certificateBytes));
 }
 
 void X509Data::add($XMLX509Certificate* xmlX509Certificate) {
-	appendSelf(static_cast<$ElementProxy*>(xmlX509Certificate));
+	appendSelf(xmlX509Certificate);
 	addReturnToSelf();
 }
 
 void X509Data::addCRL($bytes* crlBytes) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->add($$new($XMLX509CRL, $(getDocument()), crlBytes));
 }
 
 void X509Data::add($XMLX509CRL* xmlX509CRL) {
-	appendSelf(static_cast<$ElementProxy*>(xmlX509CRL));
+	appendSelf(xmlX509CRL);
 	addReturnToSelf();
 }
 
 void X509Data::addDigest($X509Certificate* x509certificate, $String* algorithmURI) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->add($$new($XMLX509Digest, $(getDocument()), x509certificate, algorithmURI));
 }
 
 void X509Data::addDigest($bytes* x509CertificateDigestBytes, $String* algorithmURI) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->add($$new($XMLX509Digest, $(getDocument()), x509CertificateDigestBytes, algorithmURI));
 }
 
 void X509Data::add($XMLX509Digest* xmlX509Digest) {
-	appendSelf(static_cast<$ElementProxy*>(xmlX509Digest));
+	appendSelf(xmlX509Digest);
 	addReturnToSelf();
 }
 
 void X509Data::addUnknownElement($Element* element) {
-	appendSelf(static_cast<$Node*>(element));
+	appendSelf(element);
 	addReturnToSelf();
 }
 
@@ -303,13 +231,13 @@ int32_t X509Data::lengthDigest() {
 }
 
 int32_t X509Data::lengthUnknownElement() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t result = 0;
 	$var($Node, n, getFirstChild());
 	while (n != nullptr) {
 		bool var$0 = n->getNodeType() == $Node::ELEMENT_NODE;
 		$init($Constants);
-		if (var$0 && !$nc($(n->getNamespaceURI()))->equals($Constants::SignatureSpecNS)) {
+		if (var$0 && !$$nc(n->getNamespaceURI())->equals($Constants::SignatureSpecNS)) {
 			++result;
 		}
 		$assign(n, n->getNextSibling());
@@ -318,7 +246,7 @@ int32_t X509Data::lengthUnknownElement() {
 }
 
 $XMLX509IssuerSerial* X509Data::itemIssuerSerial(int32_t i) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Constants);
 	$var($Element, e, $XMLUtils::selectDsNode($(getFirstChild()), $Constants::_TAG_X509ISSUERSERIAL, i));
 	if (e != nullptr) {
@@ -328,7 +256,7 @@ $XMLX509IssuerSerial* X509Data::itemIssuerSerial(int32_t i) {
 }
 
 $XMLX509SKI* X509Data::itemSKI(int32_t i) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Constants);
 	$var($Element, e, $XMLUtils::selectDsNode($(getFirstChild()), $Constants::_TAG_X509SKI, i));
 	if (e != nullptr) {
@@ -338,7 +266,7 @@ $XMLX509SKI* X509Data::itemSKI(int32_t i) {
 }
 
 $XMLX509SubjectName* X509Data::itemSubjectName(int32_t i) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Constants);
 	$var($Element, e, $XMLUtils::selectDsNode($(getFirstChild()), $Constants::_TAG_X509SUBJECTNAME, i));
 	if (e != nullptr) {
@@ -348,7 +276,7 @@ $XMLX509SubjectName* X509Data::itemSubjectName(int32_t i) {
 }
 
 $XMLX509Certificate* X509Data::itemCertificate(int32_t i) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Constants);
 	$var($Element, e, $XMLUtils::selectDsNode($(getFirstChild()), $Constants::_TAG_X509CERTIFICATE, i));
 	if (e != nullptr) {
@@ -358,7 +286,7 @@ $XMLX509Certificate* X509Data::itemCertificate(int32_t i) {
 }
 
 $XMLX509CRL* X509Data::itemCRL(int32_t i) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Constants);
 	$var($Element, e, $XMLUtils::selectDsNode($(getFirstChild()), $Constants::_TAG_X509CRL, i));
 	if (e != nullptr) {
@@ -368,7 +296,7 @@ $XMLX509CRL* X509Data::itemCRL(int32_t i) {
 }
 
 $XMLX509Digest* X509Data::itemDigest(int32_t i) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Constants);
 	$var($Element, e, $XMLUtils::selectDs11Node($(getFirstChild()), $Constants::_TAG_X509DIGEST, i));
 	if (e != nullptr) {
@@ -378,8 +306,8 @@ $XMLX509Digest* X509Data::itemDigest(int32_t i) {
 }
 
 $Element* X509Data::itemUnknownElement(int32_t i) {
-	$useLocalCurrentObjectStackCache();
-	$nc(X509Data::LOG)->debug("itemUnknownElement not implemented: {}"_s, $$new($ObjectArray, {$($of($Integer::valueOf(i)))}));
+	$useLocalObjectStack();
+	$nc(X509Data::LOG)->debug("itemUnknownElement not implemented: {}"_s, $$new($ObjectArray, {$($Integer::valueOf(i))}));
 	return nullptr;
 }
 
@@ -416,7 +344,7 @@ $String* X509Data::getBaseLocalName() {
 	return $Constants::_TAG_X509DATA;
 }
 
-void clinit$X509Data($Class* class$) {
+void X509Data::clinit$($Class* clazz) {
 	$assignStatic(X509Data::LOG, $LoggerFactory::getLogger(X509Data::class$));
 }
 
@@ -424,7 +352,72 @@ X509Data::X509Data() {
 }
 
 $Class* X509Data::load$($String* name, bool initialize) {
-	$loadClass(X509Data, name, initialize, &_X509Data_ClassInfo_, clinit$X509Data, allocate$X509Data);
+	$FieldInfo fieldInfos$$[] = {
+		{"LOG", "Lcom/sun/org/slf4j/internal/Logger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(X509Data, LOG)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lorg/w3c/dom/Document;)V", nullptr, $PUBLIC, $method(X509Data, init$, void, $Document*)},
+		{"<init>", "(Lorg/w3c/dom/Element;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(X509Data, init$, void, $Element*, $String*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
+		{"add", "(Lcom/sun/org/apache/xml/internal/security/keys/content/x509/XMLX509IssuerSerial;)V", nullptr, $PUBLIC, $virtualMethod(X509Data, add, void, $XMLX509IssuerSerial*)},
+		{"add", "(Lcom/sun/org/apache/xml/internal/security/keys/content/x509/XMLX509SKI;)V", nullptr, $PUBLIC, $virtualMethod(X509Data, add, void, $XMLX509SKI*)},
+		{"add", "(Lcom/sun/org/apache/xml/internal/security/keys/content/x509/XMLX509SubjectName;)V", nullptr, $PUBLIC, $virtualMethod(X509Data, add, void, $XMLX509SubjectName*)},
+		{"add", "(Lcom/sun/org/apache/xml/internal/security/keys/content/x509/XMLX509Certificate;)V", nullptr, $PUBLIC, $virtualMethod(X509Data, add, void, $XMLX509Certificate*)},
+		{"add", "(Lcom/sun/org/apache/xml/internal/security/keys/content/x509/XMLX509CRL;)V", nullptr, $PUBLIC, $virtualMethod(X509Data, add, void, $XMLX509CRL*)},
+		{"add", "(Lcom/sun/org/apache/xml/internal/security/keys/content/x509/XMLX509Digest;)V", nullptr, $PUBLIC, $virtualMethod(X509Data, add, void, $XMLX509Digest*)},
+		{"addCRL", "([B)V", nullptr, $PUBLIC, $virtualMethod(X509Data, addCRL, void, $bytes*)},
+		{"addCertificate", "(Ljava/security/cert/X509Certificate;)V", nullptr, $PUBLIC, $virtualMethod(X509Data, addCertificate, void, $X509Certificate*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
+		{"addCertificate", "([B)V", nullptr, $PUBLIC, $virtualMethod(X509Data, addCertificate, void, $bytes*)},
+		{"addDigest", "(Ljava/security/cert/X509Certificate;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(X509Data, addDigest, void, $X509Certificate*, $String*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
+		{"addDigest", "([BLjava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(X509Data, addDigest, void, $bytes*, $String*)},
+		{"addIssuerSerial", "(Ljava/lang/String;Ljava/math/BigInteger;)V", nullptr, $PUBLIC, $virtualMethod(X509Data, addIssuerSerial, void, $String*, $BigInteger*)},
+		{"addIssuerSerial", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(X509Data, addIssuerSerial, void, $String*, $String*)},
+		{"addIssuerSerial", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $virtualMethod(X509Data, addIssuerSerial, void, $String*, int32_t)},
+		{"addSKI", "([B)V", nullptr, $PUBLIC, $virtualMethod(X509Data, addSKI, void, $bytes*)},
+		{"addSKI", "(Ljava/security/cert/X509Certificate;)V", nullptr, $PUBLIC, $virtualMethod(X509Data, addSKI, void, $X509Certificate*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
+		{"addSubjectName", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(X509Data, addSubjectName, void, $String*)},
+		{"addSubjectName", "(Ljava/security/cert/X509Certificate;)V", nullptr, $PUBLIC, $virtualMethod(X509Data, addSubjectName, void, $X509Certificate*)},
+		{"addUnknownElement", "(Lorg/w3c/dom/Element;)V", nullptr, $PUBLIC, $virtualMethod(X509Data, addUnknownElement, void, $Element*)},
+		{"containsCRL", "()Z", nullptr, $PUBLIC, $virtualMethod(X509Data, containsCRL, bool)},
+		{"containsCertificate", "()Z", nullptr, $PUBLIC, $virtualMethod(X509Data, containsCertificate, bool)},
+		{"containsDigest", "()Z", nullptr, $PUBLIC, $virtualMethod(X509Data, containsDigest, bool)},
+		{"containsIssuerSerial", "()Z", nullptr, $PUBLIC, $virtualMethod(X509Data, containsIssuerSerial, bool)},
+		{"containsSKI", "()Z", nullptr, $PUBLIC, $virtualMethod(X509Data, containsSKI, bool)},
+		{"containsSubjectName", "()Z", nullptr, $PUBLIC, $virtualMethod(X509Data, containsSubjectName, bool)},
+		{"containsUnknownElement", "()Z", nullptr, $PUBLIC, $virtualMethod(X509Data, containsUnknownElement, bool)},
+		{"getBaseLocalName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(X509Data, getBaseLocalName, $String*)},
+		{"itemCRL", "(I)Lcom/sun/org/apache/xml/internal/security/keys/content/x509/XMLX509CRL;", nullptr, $PUBLIC, $virtualMethod(X509Data, itemCRL, $XMLX509CRL*, int32_t), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
+		{"itemCertificate", "(I)Lcom/sun/org/apache/xml/internal/security/keys/content/x509/XMLX509Certificate;", nullptr, $PUBLIC, $virtualMethod(X509Data, itemCertificate, $XMLX509Certificate*, int32_t), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
+		{"itemDigest", "(I)Lcom/sun/org/apache/xml/internal/security/keys/content/x509/XMLX509Digest;", nullptr, $PUBLIC, $virtualMethod(X509Data, itemDigest, $XMLX509Digest*, int32_t), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
+		{"itemIssuerSerial", "(I)Lcom/sun/org/apache/xml/internal/security/keys/content/x509/XMLX509IssuerSerial;", nullptr, $PUBLIC, $virtualMethod(X509Data, itemIssuerSerial, $XMLX509IssuerSerial*, int32_t), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
+		{"itemSKI", "(I)Lcom/sun/org/apache/xml/internal/security/keys/content/x509/XMLX509SKI;", nullptr, $PUBLIC, $virtualMethod(X509Data, itemSKI, $XMLX509SKI*, int32_t), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
+		{"itemSubjectName", "(I)Lcom/sun/org/apache/xml/internal/security/keys/content/x509/XMLX509SubjectName;", nullptr, $PUBLIC, $virtualMethod(X509Data, itemSubjectName, $XMLX509SubjectName*, int32_t), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
+		{"itemUnknownElement", "(I)Lorg/w3c/dom/Element;", nullptr, $PUBLIC, $virtualMethod(X509Data, itemUnknownElement, $Element*, int32_t)},
+		{"lengthCRL", "()I", nullptr, $PUBLIC, $virtualMethod(X509Data, lengthCRL, int32_t)},
+		{"lengthCertificate", "()I", nullptr, $PUBLIC, $virtualMethod(X509Data, lengthCertificate, int32_t)},
+		{"lengthDigest", "()I", nullptr, $PUBLIC, $virtualMethod(X509Data, lengthDigest, int32_t)},
+		{"lengthIssuerSerial", "()I", nullptr, $PUBLIC, $virtualMethod(X509Data, lengthIssuerSerial, int32_t)},
+		{"lengthSKI", "()I", nullptr, $PUBLIC, $virtualMethod(X509Data, lengthSKI, int32_t)},
+		{"lengthSubjectName", "()I", nullptr, $PUBLIC, $virtualMethod(X509Data, lengthSubjectName, int32_t)},
+		{"lengthUnknownElement", "()I", nullptr, $PUBLIC, $virtualMethod(X509Data, lengthUnknownElement, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.security.keys.content.X509Data",
+		"com.sun.org.apache.xml.internal.security.utils.SignatureElementProxy",
+		"com.sun.org.apache.xml.internal.security.keys.content.KeyInfoContent",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(X509Data, name, initialize, &classInfo$$, X509Data::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(X509Data));
+	});
 	return class$;
 }
 

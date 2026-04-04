@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/impl/dv/xs/MonthDayDV.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/dv/InvalidDatatypeValueException.h>
 #include <com/sun/org/apache/xerces/internal/impl/dv/ValidationContext.h>
 #include <com/sun/org/apache/xerces/internal/impl/dv/xs/AbstractDateTimeDV$DateTimeData.h>
@@ -26,7 +25,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $StringBuffer = ::java::lang::StringBuffer;
 using $DatatypeConstants = ::javax::xml::datatype::DatatypeConstants;
-using $DatatypeFactory = ::javax::xml::datatype::DatatypeFactory;
 using $XMLGregorianCalendar = ::javax::xml::datatype::XMLGregorianCalendar;
 
 namespace com {
@@ -39,51 +37,24 @@ namespace com {
 							namespace dv {
 								namespace xs {
 
-$FieldInfo _MonthDayDV_FieldInfo_[] = {
-	{"MONTHDAY_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MonthDayDV, MONTHDAY_SIZE)},
-	{}
-};
-
-$MethodInfo _MonthDayDV_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MonthDayDV, init$, void)},
-	{"dateToString", "(Lcom/sun/org/apache/xerces/internal/impl/dv/xs/AbstractDateTimeDV$DateTimeData;)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(MonthDayDV, dateToString, $String*, $AbstractDateTimeDV$DateTimeData*)},
-	{"getActualValue", "(Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/impl/dv/ValidationContext;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MonthDayDV, getActualValue, $Object*, $String*, $ValidationContext*), "com.sun.org.apache.xerces.internal.impl.dv.InvalidDatatypeValueException"},
-	{"getXMLGregorianCalendar", "(Lcom/sun/org/apache/xerces/internal/impl/dv/xs/AbstractDateTimeDV$DateTimeData;)Ljavax/xml/datatype/XMLGregorianCalendar;", nullptr, $PROTECTED, $virtualMethod(MonthDayDV, getXMLGregorianCalendar, $XMLGregorianCalendar*, $AbstractDateTimeDV$DateTimeData*)},
-	{"parse", "(Ljava/lang/String;)Lcom/sun/org/apache/xerces/internal/impl/dv/xs/AbstractDateTimeDV$DateTimeData;", nullptr, $PROTECTED, $virtualMethod(MonthDayDV, parse, $AbstractDateTimeDV$DateTimeData*, $String*), "com.sun.org.apache.xerces.internal.impl.dv.xs.SchemaDateTimeException"},
-	{}
-};
-
-$ClassInfo _MonthDayDV_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.impl.dv.xs.MonthDayDV",
-	"com.sun.org.apache.xerces.internal.impl.dv.xs.AbstractDateTimeDV",
-	nullptr,
-	_MonthDayDV_FieldInfo_,
-	_MonthDayDV_MethodInfo_
-};
-
-$Object* allocate$MonthDayDV($Class* clazz) {
-	return $of($alloc(MonthDayDV));
-}
-
 void MonthDayDV::init$() {
 	$AbstractDateTimeDV::init$();
 }
 
 $Object* MonthDayDV::getActualValue($String* content, $ValidationContext* context) {
 	try {
-		return $of(parse(content));
+		return parse(content);
 	} catch ($Exception& ex) {
 		$throwNew($InvalidDatatypeValueException, "cvc-datatype-valid.1.2.1"_s, $$new($ObjectArray, {
-			$of(content),
-			$of("gMonthDay"_s)
+			content,
+			"gMonthDay"_s
 		}));
 	}
 	$shouldNotReachHere();
 }
 
 $AbstractDateTimeDV$DateTimeData* MonthDayDV::parse($String* str) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AbstractDateTimeDV$DateTimeData, date, $new($AbstractDateTimeDV$DateTimeData, str, this));
 	int32_t len = $nc(str)->length();
 	date->year = $AbstractDateTimeDV::YEAR;
@@ -119,21 +90,43 @@ $String* MonthDayDV::dateToString($AbstractDateTimeDV$DateTimeData* date) {
 	message->append(u'-');
 	append(message, $nc(date)->month, 2);
 	message->append(u'-');
-	append(message, $nc(date)->day, 2);
-	append(message, (char16_t)$nc(date)->utc, 0);
+	append(message, date->day, 2);
+	append(message, (char16_t)date->utc, 0);
 	return message->toString();
 }
 
 $XMLGregorianCalendar* MonthDayDV::getXMLGregorianCalendar($AbstractDateTimeDV$DateTimeData* date) {
 	$init($AbstractDateTimeDV);
-	return $nc($AbstractDateTimeDV::datatypeFactory)->newXMLGregorianCalendar($DatatypeConstants::FIELD_UNDEFINED, $nc(date)->unNormMonth, date->unNormDay, $DatatypeConstants::FIELD_UNDEFINED, $DatatypeConstants::FIELD_UNDEFINED, $DatatypeConstants::FIELD_UNDEFINED, $DatatypeConstants::FIELD_UNDEFINED, date->hasTimeZone() ? date->timezoneHr * 60 + date->timezoneMin : $DatatypeConstants::FIELD_UNDEFINED);
+	return $nc($AbstractDateTimeDV::datatypeFactory)->newXMLGregorianCalendar($DatatypeConstants::FIELD_UNDEFINED, $nc(date)->unNormMonth, $nc(date)->unNormDay, $DatatypeConstants::FIELD_UNDEFINED, $DatatypeConstants::FIELD_UNDEFINED, $DatatypeConstants::FIELD_UNDEFINED, $DatatypeConstants::FIELD_UNDEFINED, $nc(date)->hasTimeZone() ? date->timezoneHr * 60 + date->timezoneMin : $DatatypeConstants::FIELD_UNDEFINED);
 }
 
 MonthDayDV::MonthDayDV() {
 }
 
 $Class* MonthDayDV::load$($String* name, bool initialize) {
-	$loadClass(MonthDayDV, name, initialize, &_MonthDayDV_ClassInfo_, allocate$MonthDayDV);
+	$FieldInfo fieldInfos$$[] = {
+		{"MONTHDAY_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MonthDayDV, MONTHDAY_SIZE)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MonthDayDV, init$, void)},
+		{"dateToString", "(Lcom/sun/org/apache/xerces/internal/impl/dv/xs/AbstractDateTimeDV$DateTimeData;)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(MonthDayDV, dateToString, $String*, $AbstractDateTimeDV$DateTimeData*)},
+		{"getActualValue", "(Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/impl/dv/ValidationContext;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MonthDayDV, getActualValue, $Object*, $String*, $ValidationContext*), "com.sun.org.apache.xerces.internal.impl.dv.InvalidDatatypeValueException"},
+		{"getXMLGregorianCalendar", "(Lcom/sun/org/apache/xerces/internal/impl/dv/xs/AbstractDateTimeDV$DateTimeData;)Ljavax/xml/datatype/XMLGregorianCalendar;", nullptr, $PROTECTED, $virtualMethod(MonthDayDV, getXMLGregorianCalendar, $XMLGregorianCalendar*, $AbstractDateTimeDV$DateTimeData*)},
+		{"parse", "(Ljava/lang/String;)Lcom/sun/org/apache/xerces/internal/impl/dv/xs/AbstractDateTimeDV$DateTimeData;", nullptr, $PROTECTED, $virtualMethod(MonthDayDV, parse, $AbstractDateTimeDV$DateTimeData*, $String*), "com.sun.org.apache.xerces.internal.impl.dv.xs.SchemaDateTimeException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.impl.dv.xs.MonthDayDV",
+		"com.sun.org.apache.xerces.internal.impl.dv.xs.AbstractDateTimeDV",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(MonthDayDV, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MonthDayDV);
+	});
 	return class$;
 }
 

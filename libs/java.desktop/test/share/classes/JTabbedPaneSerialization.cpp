@@ -1,54 +1,28 @@
 #include <JTabbedPaneSerialization.h>
-
 #include <java/awt/Component.h>
 #include <java/io/ByteArrayInputStream.h>
 #include <java/io/ByteArrayOutputStream.h>
-#include <java/io/InputStream.h>
 #include <java/io/ObjectInputStream.h>
 #include <java/io/ObjectOutputStream.h>
-#include <java/io/OutputStream.h>
 #include <javax/swing/JLabel.h>
 #include <javax/swing/JTabbedPane.h>
 #include <jcpp.h>
 
-using $Component = ::java::awt::Component;
 using $ByteArrayInputStream = ::java::io::ByteArrayInputStream;
 using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;
-using $InputStream = ::java::io::InputStream;
 using $ObjectInputStream = ::java::io::ObjectInputStream;
 using $ObjectOutputStream = ::java::io::ObjectOutputStream;
-using $OutputStream = ::java::io::OutputStream;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $JLabel = ::javax::swing::JLabel;
 using $JTabbedPane = ::javax::swing::JTabbedPane;
 
-$MethodInfo _JTabbedPaneSerialization_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(JTabbedPaneSerialization, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(JTabbedPaneSerialization, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _JTabbedPaneSerialization_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"JTabbedPaneSerialization",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_JTabbedPaneSerialization_MethodInfo_
-};
-
-$Object* allocate$JTabbedPaneSerialization($Class* clazz) {
-	return $of($alloc(JTabbedPaneSerialization));
-}
-
 void JTabbedPaneSerialization::init$() {
 }
 
 void JTabbedPaneSerialization::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JTabbedPane, tabbedPane, $new($JTabbedPane));
 	tabbedPane->addTab("Tab1"_s, $$new($JLabel, "Label1"_s));
 	tabbedPane->addTab("Tab2"_s, $$new($JLabel, "Label2"_s));
@@ -64,9 +38,9 @@ void JTabbedPaneSerialization::main($StringArray* args) {
 	$nc($System::out)->println($$str({"readPane: "_s, $($nc(readPane)->toString())}));
 	oin->close();
 	int32_t var$0 = tabbedPane->getTabCount();
-	if (var$0 != $nc(readPane)->getTabCount()) {
-		$nc($System::out)->println($$str({"tabbedPane.tabCount "_s, $$str(tabbedPane->getTabCount())}));
-		$nc($System::out)->println($$str({"readPane.tabCount "_s, $$str(readPane->getTabCount())}));
+	if (var$0 != readPane->getTabCount()) {
+		$System::out->println($$str({"tabbedPane.tabCount "_s, $$str(tabbedPane->getTabCount())}));
+		$System::out->println($$str({"readPane.tabCount "_s, $$str(readPane->getTabCount())}));
 		$throwNew($RuntimeException, "Number of pages/tab of JTabbedPane is not deserialized"_s);
 	}
 }
@@ -75,7 +49,22 @@ JTabbedPaneSerialization::JTabbedPaneSerialization() {
 }
 
 $Class* JTabbedPaneSerialization::load$($String* name, bool initialize) {
-	$loadClass(JTabbedPaneSerialization, name, initialize, &_JTabbedPaneSerialization_ClassInfo_, allocate$JTabbedPaneSerialization);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(JTabbedPaneSerialization, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(JTabbedPaneSerialization, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"JTabbedPaneSerialization",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(JTabbedPaneSerialization, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JTabbedPaneSerialization);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/print/BackgroundLookupListener.h>
-
 #include <javax/print/PrintService.h>
 #include <jcpp.h>
 
@@ -10,26 +9,22 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace sun {
 	namespace print {
 
-$MethodInfo _BackgroundLookupListener_MethodInfo_[] = {
-	{"notifyServices", "([Ljavax/print/PrintService;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(BackgroundLookupListener, notifyServices, void, $PrintServiceArray*)},
-	{}
-};
-
-$ClassInfo _BackgroundLookupListener_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"sun.print.BackgroundLookupListener",
-	nullptr,
-	nullptr,
-	nullptr,
-	_BackgroundLookupListener_MethodInfo_
-};
-
-$Object* allocate$BackgroundLookupListener($Class* clazz) {
-	return $of($alloc(BackgroundLookupListener));
-}
-
 $Class* BackgroundLookupListener::load$($String* name, bool initialize) {
-	$loadClass(BackgroundLookupListener, name, initialize, &_BackgroundLookupListener_ClassInfo_, allocate$BackgroundLookupListener);
+	$MethodInfo methodInfos$$[] = {
+		{"notifyServices", "([Ljavax/print/PrintService;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(BackgroundLookupListener, notifyServices, void, $PrintServiceArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"sun.print.BackgroundLookupListener",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(BackgroundLookupListener, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BackgroundLookupListener);
+	});
 	return class$;
 }
 

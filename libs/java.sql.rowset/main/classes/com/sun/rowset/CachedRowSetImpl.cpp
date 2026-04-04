@@ -1,5 +1,4 @@
 #include <com/sun/rowset/CachedRowSetImpl.h>
-
 #include <com/sun/rowset/CachedRowSetImpl$1.h>
 #include <com/sun/rowset/JdbcRowSetResourceBundle.h>
 #include <com/sun/rowset/internal/BaseRow.h>
@@ -16,7 +15,6 @@
 #include <java/io/ObjectInputStream.h>
 #include <java/io/ObjectOutputStream.h>
 #include <java/io/OptionalDataException.h>
-#include <java/io/OutputStream.h>
 #include <java/io/Reader.h>
 #include <java/io/StreamCorruptedException.h>
 #include <java/io/StringBufferInputStream.h>
@@ -49,7 +47,6 @@
 #include <java/sql/SQLData.h>
 #include <java/sql/SQLException.h>
 #include <java/sql/SQLFeatureNotSupportedException.h>
-#include <java/sql/SQLInput.h>
 #include <java/sql/SQLWarning.h>
 #include <java/sql/SQLXML.h>
 #include <java/sql/Savepoint.h>
@@ -62,7 +59,6 @@
 #include <java/text/MessageFormat.h>
 #include <java/text/ParseException.h>
 #include <java/util/AbstractCollection.h>
-#include <java/util/AbstractList.h>
 #include <java/util/Arrays.h>
 #include <java/util/Calendar.h>
 #include <java/util/Collection.h>
@@ -156,8 +152,6 @@ using $InputStreamReader = ::java::io::InputStreamReader;
 using $ObjectInputStream = ::java::io::ObjectInputStream;
 using $ObjectOutputStream = ::java::io::ObjectOutputStream;
 using $OptionalDataException = ::java::io::OptionalDataException;
-using $OutputStream = ::java::io::OutputStream;
-using $PrintStream = ::java::io::PrintStream;
 using $Reader = ::java::io::Reader;
 using $StreamCorruptedException = ::java::io::StreamCorruptedException;
 using $StringBufferInputStream = ::java::io::StringBufferInputStream;
@@ -186,14 +180,12 @@ using $URL = ::java::net::URL;
 using $StandardCharsets = ::java::nio::charset::StandardCharsets;
 using $AccessControlContext = ::java::security::AccessControlContext;
 using $AccessController = ::java::security::AccessController;
-using $Permission = ::java::security::Permission;
 using $PrivilegedActionException = ::java::security::PrivilegedActionException;
 using $PrivilegedExceptionAction = ::java::security::PrivilegedExceptionAction;
 using $1Array = ::java::sql::Array;
 using $Blob = ::java::sql::Blob;
 using $Clob = ::java::sql::Clob;
 using $Connection = ::java::sql::Connection;
-using $DatabaseMetaData = ::java::sql::DatabaseMetaData;
 using $Date = ::java::sql::Date;
 using $NClob = ::java::sql::NClob;
 using $Ref = ::java::sql::Ref;
@@ -203,7 +195,6 @@ using $RowId = ::java::sql::RowId;
 using $SQLData = ::java::sql::SQLData;
 using $SQLException = ::java::sql::SQLException;
 using $SQLFeatureNotSupportedException = ::java::sql::SQLFeatureNotSupportedException;
-using $SQLInput = ::java::sql::SQLInput;
 using $SQLWarning = ::java::sql::SQLWarning;
 using $SQLXML = ::java::sql::SQLXML;
 using $Savepoint = ::java::sql::Savepoint;
@@ -216,7 +207,6 @@ using $DateFormat = ::java::text::DateFormat;
 using $MessageFormat = ::java::text::MessageFormat;
 using $ParseException = ::java::text::ParseException;
 using $AbstractCollection = ::java::util::AbstractCollection;
-using $AbstractList = ::java::util::AbstractList;
 using $Arrays = ::java::util::Arrays;
 using $Calendar = ::java::util::Calendar;
 using $Collection = ::java::util::Collection;
@@ -231,8 +221,6 @@ using $RowSetEvent = ::javax::sql::RowSetEvent;
 using $RowSetInternal = ::javax::sql::RowSetInternal;
 using $RowSetListener = ::javax::sql::RowSetListener;
 using $RowSetMetaData = ::javax::sql::RowSetMetaData;
-using $RowSetReader = ::javax::sql::RowSetReader;
-using $RowSetWriter = ::javax::sql::RowSetWriter;
 using $BaseRowSet = ::javax::sql::rowset::BaseRowSet;
 using $CachedRowSet = ::javax::sql::rowset::CachedRowSet;
 using $RowSetMetaDataImpl = ::javax::sql::rowset::RowSetMetaDataImpl;
@@ -253,497 +241,6 @@ using $ReflectUtil = ::sun::reflect::misc::ReflectUtil;
 namespace com {
 	namespace sun {
 		namespace rowset {
-
-$CompoundAttribute _CachedRowSetImpl_MethodAnnotations_getBigDecimal35[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _CachedRowSetImpl_MethodAnnotations_getBigDecimal36[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _CachedRowSetImpl_MethodAnnotations_getUnicodeStream114[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _CachedRowSetImpl_MethodAnnotations_getUnicodeStream115[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$FieldInfo _CachedRowSetImpl_FieldInfo_[] = {
-	{"provider", "Ljavax/sql/rowset/spi/SyncProvider;", nullptr, $PRIVATE, $field(CachedRowSetImpl, provider)},
-	{"rowSetReader", "Ljavax/sql/RowSetReader;", nullptr, $PRIVATE, $field(CachedRowSetImpl, rowSetReader)},
-	{"rowSetWriter", "Ljavax/sql/RowSetWriter;", nullptr, $PRIVATE, $field(CachedRowSetImpl, rowSetWriter)},
-	{"conn", "Ljava/sql/Connection;", nullptr, $PRIVATE | $TRANSIENT, $field(CachedRowSetImpl, conn)},
-	{"RSMD", "Ljava/sql/ResultSetMetaData;", nullptr, $PRIVATE | $TRANSIENT, $field(CachedRowSetImpl, RSMD)},
-	{"RowSetMD", "Ljavax/sql/rowset/RowSetMetaDataImpl;", nullptr, $PRIVATE, $field(CachedRowSetImpl, RowSetMD)},
-	{"keyCols", "[I", nullptr, $PRIVATE, $field(CachedRowSetImpl, keyCols)},
-	{"tableName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(CachedRowSetImpl, tableName)},
-	{"rvh", "Ljava/util/Vector;", "Ljava/util/Vector<Ljava/lang/Object;>;", $PRIVATE, $field(CachedRowSetImpl, rvh)},
-	{"cursorPos", "I", nullptr, $PRIVATE, $field(CachedRowSetImpl, cursorPos)},
-	{"absolutePos", "I", nullptr, $PRIVATE, $field(CachedRowSetImpl, absolutePos)},
-	{"numDeleted", "I", nullptr, $PRIVATE, $field(CachedRowSetImpl, numDeleted)},
-	{"numRows", "I", nullptr, $PRIVATE, $field(CachedRowSetImpl, numRows)},
-	{"insertRow", "Lcom/sun/rowset/internal/InsertRow;", nullptr, $PRIVATE, $field(CachedRowSetImpl, insertRow$)},
-	{"onInsertRow", "Z", nullptr, $PRIVATE, $field(CachedRowSetImpl, onInsertRow)},
-	{"currentRow", "I", nullptr, $PRIVATE, $field(CachedRowSetImpl, currentRow)},
-	{"lastValueNull", "Z", nullptr, $PRIVATE, $field(CachedRowSetImpl, lastValueNull)},
-	{"sqlwarn", "Ljava/sql/SQLWarning;", nullptr, $PRIVATE, $field(CachedRowSetImpl, sqlwarn)},
-	{"strMatchColumn", "Ljava/lang/String;", nullptr, $PRIVATE, $field(CachedRowSetImpl, strMatchColumn)},
-	{"iMatchColumn", "I", nullptr, $PRIVATE, $field(CachedRowSetImpl, iMatchColumn)},
-	{"rowsetWarning", "Ljavax/sql/rowset/RowSetWarning;", nullptr, $PRIVATE, $field(CachedRowSetImpl, rowsetWarning)},
-	{"DEFAULT_SYNC_PROVIDER", "Ljava/lang/String;", nullptr, $PRIVATE, $field(CachedRowSetImpl, DEFAULT_SYNC_PROVIDER)},
-	{"dbmslocatorsUpdateCopy", "Z", nullptr, $PRIVATE, $field(CachedRowSetImpl, dbmslocatorsUpdateCopy)},
-	{"resultSet", "Ljava/sql/ResultSet;", nullptr, $PRIVATE | $TRANSIENT, $field(CachedRowSetImpl, resultSet)},
-	{"endPos", "I", nullptr, $PRIVATE, $field(CachedRowSetImpl, endPos)},
-	{"prevEndPos", "I", nullptr, $PRIVATE, $field(CachedRowSetImpl, prevEndPos)},
-	{"startPos", "I", nullptr, $PRIVATE, $field(CachedRowSetImpl, startPos)},
-	{"startPrev", "I", nullptr, $PRIVATE, $field(CachedRowSetImpl, startPrev)},
-	{"pageSize", "I", nullptr, $PRIVATE, $field(CachedRowSetImpl, pageSize)},
-	{"maxRowsreached", "I", nullptr, $PRIVATE, $field(CachedRowSetImpl, maxRowsreached)},
-	{"pagenotend", "Z", nullptr, $PRIVATE, $field(CachedRowSetImpl, pagenotend)},
-	{"onFirstPage", "Z", nullptr, $PRIVATE, $field(CachedRowSetImpl, onFirstPage)},
-	{"onLastPage", "Z", nullptr, $PRIVATE, $field(CachedRowSetImpl, onLastPage)},
-	{"populatecallcount", "I", nullptr, $PRIVATE, $field(CachedRowSetImpl, populatecallcount)},
-	{"totalRows", "I", nullptr, $PRIVATE, $field(CachedRowSetImpl, totalRows)},
-	{"callWithCon", "Z", nullptr, $PRIVATE, $field(CachedRowSetImpl, callWithCon)},
-	{"crsReader", "Lcom/sun/rowset/internal/CachedRowSetReader;", nullptr, $PRIVATE, $field(CachedRowSetImpl, crsReader)},
-	{"iMatchColumns", "Ljava/util/Vector;", "Ljava/util/Vector<Ljava/lang/Integer;>;", $PRIVATE, $field(CachedRowSetImpl, iMatchColumns)},
-	{"strMatchColumns", "Ljava/util/Vector;", "Ljava/util/Vector<Ljava/lang/String;>;", $PRIVATE, $field(CachedRowSetImpl, strMatchColumns)},
-	{"tXWriter", "Z", nullptr, $PRIVATE, $field(CachedRowSetImpl, tXWriter)},
-	{"tWriter", "Ljavax/sql/rowset/spi/TransactionalWriter;", nullptr, $PRIVATE, $field(CachedRowSetImpl, tWriter)},
-	{"resBundle", "Lcom/sun/rowset/JdbcRowSetResourceBundle;", nullptr, $PROTECTED | $TRANSIENT, $field(CachedRowSetImpl, resBundle)},
-	{"updateOnInsert", "Z", nullptr, $PRIVATE, $field(CachedRowSetImpl, updateOnInsert)},
-	{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(CachedRowSetImpl, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _CachedRowSetImpl_MethodInfo_[] = {
-	{"*addRowSetListener", "(Ljavax/sql/RowSetListener;)V", nullptr, $PUBLIC},
-	{"*clearParameters", "()V", nullptr, $PUBLIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*getCommand", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*getConcurrency", "()I", nullptr, $PUBLIC},
-	{"*getDataSourceName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*getEscapeProcessing", "()Z", nullptr, $PUBLIC},
-	{"*getFetchDirection", "()I", nullptr, $PUBLIC},
-	{"*getFetchSize", "()I", nullptr, $PUBLIC},
-	{"*getMaxFieldSize", "()I", nullptr, $PUBLIC},
-	{"*getMaxRows", "()I", nullptr, $PUBLIC},
-	{"*getParams", "()[Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*getPassword", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*getQueryTimeout", "()I", nullptr, $PUBLIC},
-	{"*getShowDeleted", "()Z", nullptr, $PUBLIC},
-	{"*getTransactionIsolation", "()I", nullptr, $PUBLIC},
-	{"*getType", "()I", nullptr, $PUBLIC},
-	{"*getTypeMap", "()Ljava/util/Map;", nullptr, $PUBLIC},
-	{"*getUrl", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*getUsername", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(CachedRowSetImpl, init$, void), "java.sql.SQLException"},
-	{"<init>", "(Ljava/util/Hashtable;)V", nullptr, $PUBLIC, $method(CachedRowSetImpl, init$, void, $Hashtable*), "java.sql.SQLException"},
-	{"absolute", "(I)Z", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, absolute, bool, int32_t), "java.sql.SQLException"},
-	{"acceptChanges", "()V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, acceptChanges, void), "javax.sql.rowset.spi.SyncProviderException"},
-	{"acceptChanges", "(Ljava/sql/Connection;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, acceptChanges, void, $Connection*), "javax.sql.rowset.spi.SyncProviderException"},
-	{"afterLast", "()V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, afterLast, void), "java.sql.SQLException"},
-	{"beforeFirst", "()V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, beforeFirst, void), "java.sql.SQLException"},
-	{"buildTableName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(CachedRowSetImpl, buildTableName, $String*, $String*), "java.sql.SQLException"},
-	{"cancelRowUpdates", "()V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, cancelRowUpdates, void), "java.sql.SQLException"},
-	{"checkCursor", "()V", nullptr, $PRIVATE, $method(CachedRowSetImpl, checkCursor, void), "java.sql.SQLException"},
-	{"checkIndex", "(I)V", nullptr, $PRIVATE, $method(CachedRowSetImpl, checkIndex, void, int32_t), "java.sql.SQLException"},
-	{"checkTransactionalWriter", "()V", nullptr, $PRIVATE, $method(CachedRowSetImpl, checkTransactionalWriter, void)},
-	{"clearWarnings", "()V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, clearWarnings, void)},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(CachedRowSetImpl, clone, $Object*), "java.lang.CloneNotSupportedException"},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, close, void), "java.sql.SQLException"},
-	{"columnUpdated", "(I)Z", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, columnUpdated, bool, int32_t), "java.sql.SQLException"},
-	{"columnUpdated", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, columnUpdated, bool, $String*), "java.sql.SQLException"},
-	{"commit", "()V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, commit, void), "java.sql.SQLException"},
-	{"convertBoolean", "(Ljava/lang/Object;II)Ljava/lang/Object;", nullptr, $PRIVATE, $method(CachedRowSetImpl, convertBoolean, $Object*, Object$*, int32_t, int32_t), "java.sql.SQLException"},
-	{"convertNumeric", "(Ljava/lang/Object;II)Ljava/lang/Object;", nullptr, $PRIVATE, $method(CachedRowSetImpl, convertNumeric, $Object*, Object$*, int32_t, int32_t), "java.sql.SQLException"},
-	{"convertTemporal", "(Ljava/lang/Object;II)Ljava/lang/Object;", nullptr, $PRIVATE, $method(CachedRowSetImpl, convertTemporal, $Object*, Object$*, int32_t, int32_t), "java.sql.SQLException"},
-	{"createCopy", "()Ljavax/sql/rowset/CachedRowSet;", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, createCopy, $CachedRowSet*), "java.sql.SQLException"},
-	{"createCopyNoConstraints", "()Ljavax/sql/rowset/CachedRowSet;", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, createCopyNoConstraints, $CachedRowSet*), "java.sql.SQLException"},
-	{"createCopySchema", "()Ljavax/sql/rowset/CachedRowSet;", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, createCopySchema, $CachedRowSet*), "java.sql.SQLException"},
-	{"createShared", "()Ljavax/sql/RowSet;", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, createShared, $RowSet*), "java.sql.SQLException"},
-	{"deleteRow", "()V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, deleteRow, void), "java.sql.SQLException"},
-	{"establishTransactionalWriter", "()V", nullptr, $PRIVATE, $method(CachedRowSetImpl, establishTransactionalWriter, void)},
-	{"execute", "(Ljava/sql/Connection;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, execute, void, $Connection*), "java.sql.SQLException"},
-	{"execute", "()V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, execute, void), "java.sql.SQLException"},
-	{"findColumn", "(Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, findColumn, int32_t, $String*), "java.sql.SQLException"},
-	{"first", "()Z", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, first, bool), "java.sql.SQLException"},
-	{"getArray", "(I)Ljava/sql/Array;", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, getArray, $1Array*, int32_t), "java.sql.SQLException"},
-	{"getArray", "(Ljava/lang/String;)Ljava/sql/Array;", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, getArray, $1Array*, $String*), "java.sql.SQLException"},
-	{"getAsciiStream", "(I)Ljava/io/InputStream;", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, getAsciiStream, $InputStream*, int32_t), "java.sql.SQLException"},
-	{"getAsciiStream", "(Ljava/lang/String;)Ljava/io/InputStream;", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, getAsciiStream, $InputStream*, $String*), "java.sql.SQLException"},
-	{"getBigDecimal", "(II)Ljava/math/BigDecimal;", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(CachedRowSetImpl, getBigDecimal, $BigDecimal*, int32_t, int32_t), "java.sql.SQLException", nullptr, _CachedRowSetImpl_MethodAnnotations_getBigDecimal35},
-	{"getBigDecimal", "(Ljava/lang/String;I)Ljava/math/BigDecimal;", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(CachedRowSetImpl, getBigDecimal, $BigDecimal*, $String*, int32_t), "java.sql.SQLException", nullptr, _CachedRowSetImpl_MethodAnnotations_getBigDecimal36},
-	{"getBigDecimal", "(I)Ljava/math/BigDecimal;", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, getBigDecimal, $BigDecimal*, int32_t), "java.sql.SQLException"},
-	{"getBigDecimal", "(Ljava/lang/String;)Ljava/math/BigDecimal;", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, getBigDecimal, $BigDecimal*, $String*), "java.sql.SQLException"},
-	{"getBinaryStream", "(I)Ljava/io/InputStream;", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, getBinaryStream, $InputStream*, int32_t), "java.sql.SQLException"},
-	{"getBinaryStream", "(Ljava/lang/String;)Ljava/io/InputStream;", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, getBinaryStream, $InputStream*, $String*), "java.sql.SQLException"},
-	{"getBlob", "(I)Ljava/sql/Blob;", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, getBlob, $Blob*, int32_t), "java.sql.SQLException"},
-	{"getBlob", "(Ljava/lang/String;)Ljava/sql/Blob;", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, getBlob, $Blob*, $String*), "java.sql.SQLException"},
-	{"getBoolean", "(I)Z", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, getBoolean, bool, int32_t), "java.sql.SQLException"},
-	{"getBoolean", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, getBoolean, bool, $String*), "java.sql.SQLException"},
-	{"getByte", "(I)B", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, getByte, int8_t, int32_t), "java.sql.SQLException"},
-	{"getByte", "(Ljava/lang/String;)B", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, getByte, int8_t, $String*), "java.sql.SQLException"},
-	{"getBytes", "(I)[B", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, getBytes, $bytes*, int32_t), "java.sql.SQLException"},
-	{"getBytes", "(Ljava/lang/String;)[B", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, getBytes, $bytes*, $String*), "java.sql.SQLException"},
-	{"getCharacterStream", "(I)Ljava/io/Reader;", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, getCharacterStream, $Reader*, int32_t), "java.sql.SQLException"},
-	{"getCharacterStream", "(Ljava/lang/String;)Ljava/io/Reader;", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, getCharacterStream, $Reader*, $String*), "java.sql.SQLException"},
-	{"getClob", "(I)Ljava/sql/Clob;", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, getClob, $Clob*, int32_t), "java.sql.SQLException"},
-	{"getClob", "(Ljava/lang/String;)Ljava/sql/Clob;", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, getClob, $Clob*, $String*), "java.sql.SQLException"},
-	{"getColIdxByName", "(Ljava/lang/String;)I", nullptr, $PRIVATE, $method(CachedRowSetImpl, getColIdxByName, int32_t, $String*), "java.sql.SQLException"},
-	{"getConnection", "()Ljava/sql/Connection;", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, getConnection, $Connection*), "java.sql.SQLException"},
-	{"getCurrentRow", "()Lcom/sun/rowset/internal/BaseRow;", nullptr, $PROTECTED, $virtualMethod(CachedRowSetImpl, getCurrentRow, $BaseRow*)},
-	{"getCursorName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, getCursorName, $String*), "java.sql.SQLException"},
-	{"getDate", "(I)Ljava/sql/Date;", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, getDate, $Date*, int32_t), "java.sql.SQLException"},
-	{"getDate", "(Ljava/lang/String;)Ljava/sql/Date;", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, getDate, $Date*, $String*), "java.sql.SQLException"},
-	{"getDate", "(ILjava/util/Calendar;)Ljava/sql/Date;", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, getDate, $Date*, int32_t, $Calendar*), "java.sql.SQLException"},
-	{"getDate", "(Ljava/lang/String;Ljava/util/Calendar;)Ljava/sql/Date;", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, getDate, $Date*, $String*, $Calendar*), "java.sql.SQLException"},
-	{"getDouble", "(I)D", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, getDouble, double, int32_t), "java.sql.SQLException"},
-	{"getDouble", "(Ljava/lang/String;)D", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, getDouble, double, $String*), "java.sql.SQLException"},
-	{"getFloat", "(I)F", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, getFloat, float, int32_t), "java.sql.SQLException"},
-	{"getFloat", "(Ljava/lang/String;)F", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, getFloat, float, $String*), "java.sql.SQLException"},
-	{"getHoldability", "()I", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, getHoldability, int32_t), "java.sql.SQLException"},
-	{"getInt", "(I)I", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, getInt, int32_t, int32_t), "java.sql.SQLException"},
-	{"getInt", "(Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, getInt, int32_t, $String*), "java.sql.SQLException"},
-	{"getKeyColumns", "()[I", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, getKeyColumns, $ints*), "java.sql.SQLException"},
-	{"getLong", "(I)J", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, getLong, int64_t, int32_t), "java.sql.SQLException"},
-	{"getLong", "(Ljava/lang/String;)J", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, getLong, int64_t, $String*), "java.sql.SQLException"},
-	{"getMatchColumnIndexes", "()[I", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, getMatchColumnIndexes, $ints*), "java.sql.SQLException"},
-	{"getMatchColumnNames", "()[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, getMatchColumnNames, $StringArray*), "java.sql.SQLException"},
-	{"getMetaData", "()Ljava/sql/ResultSetMetaData;", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, getMetaData, $ResultSetMetaData*), "java.sql.SQLException"},
-	{"getNCharacterStream", "(I)Ljava/io/Reader;", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, getNCharacterStream, $Reader*, int32_t), "java.sql.SQLException"},
-	{"getNCharacterStream", "(Ljava/lang/String;)Ljava/io/Reader;", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, getNCharacterStream, $Reader*, $String*), "java.sql.SQLException"},
-	{"getNClob", "(I)Ljava/sql/NClob;", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, getNClob, $NClob*, int32_t), "java.sql.SQLException"},
-	{"getNClob", "(Ljava/lang/String;)Ljava/sql/NClob;", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, getNClob, $NClob*, $String*), "java.sql.SQLException"},
-	{"getNString", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, getNString, $String*, int32_t), "java.sql.SQLException"},
-	{"getNString", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, getNString, $String*, $String*), "java.sql.SQLException"},
-	{"getObject", "(I)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, getObject, $Object*, int32_t), "java.sql.SQLException"},
-	{"getObject", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, getObject, $Object*, $String*), "java.sql.SQLException"},
-	{"getObject", "(ILjava/util/Map;)Ljava/lang/Object;", "(ILjava/util/Map<Ljava/lang/String;Ljava/lang/Class<*>;>;)Ljava/lang/Object;", $PUBLIC, $virtualMethod(CachedRowSetImpl, getObject, $Object*, int32_t, $Map*), "java.sql.SQLException"},
-	{"getObject", "(Ljava/lang/String;Ljava/util/Map;)Ljava/lang/Object;", "(Ljava/lang/String;Ljava/util/Map<Ljava/lang/String;Ljava/lang/Class<*>;>;)Ljava/lang/Object;", $PUBLIC, $virtualMethod(CachedRowSetImpl, getObject, $Object*, $String*, $Map*), "java.sql.SQLException"},
-	{"getObject", "(ILjava/lang/Class;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(ILjava/lang/Class<TT;>;)TT;", $PUBLIC, $virtualMethod(CachedRowSetImpl, getObject, $Object*, int32_t, $Class*), "java.sql.SQLException"},
-	{"getObject", "(Ljava/lang/String;Ljava/lang/Class;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljava/lang/String;Ljava/lang/Class<TT;>;)TT;", $PUBLIC, $virtualMethod(CachedRowSetImpl, getObject, $Object*, $String*, $Class*), "java.sql.SQLException"},
-	{"getOriginal", "()Ljava/sql/ResultSet;", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, getOriginal, $ResultSet*), "java.sql.SQLException"},
-	{"getOriginalRow", "()Ljava/sql/ResultSet;", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, getOriginalRow, $ResultSet*), "java.sql.SQLException"},
-	{"getPageSize", "()I", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, getPageSize, int32_t)},
-	{"getRef", "(I)Ljava/sql/Ref;", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, getRef, $Ref*, int32_t), "java.sql.SQLException"},
-	{"getRef", "(Ljava/lang/String;)Ljava/sql/Ref;", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, getRef, $Ref*, $String*), "java.sql.SQLException"},
-	{"getRow", "()I", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, getRow, int32_t), "java.sql.SQLException"},
-	{"getRowId", "(I)Ljava/sql/RowId;", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, getRowId, $RowId*, int32_t), "java.sql.SQLException"},
-	{"getRowId", "(Ljava/lang/String;)Ljava/sql/RowId;", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, getRowId, $RowId*, $String*), "java.sql.SQLException"},
-	{"getRowSetWarnings", "()Ljavax/sql/rowset/RowSetWarning;", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, getRowSetWarnings, $RowSetWarning*)},
-	{"getSQLXML", "(I)Ljava/sql/SQLXML;", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, getSQLXML, $SQLXML*, int32_t), "java.sql.SQLException"},
-	{"getSQLXML", "(Ljava/lang/String;)Ljava/sql/SQLXML;", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, getSQLXML, $SQLXML*, $String*), "java.sql.SQLException"},
-	{"getShort", "(I)S", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, getShort, int16_t, int32_t), "java.sql.SQLException"},
-	{"getShort", "(Ljava/lang/String;)S", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, getShort, int16_t, $String*), "java.sql.SQLException"},
-	{"getStatement", "()Ljava/sql/Statement;", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, getStatement, $Statement*), "java.sql.SQLException"},
-	{"getString", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, getString, $String*, int32_t), "java.sql.SQLException"},
-	{"getString", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, getString, $String*, $String*), "java.sql.SQLException"},
-	{"getSyncProvider", "()Ljavax/sql/rowset/spi/SyncProvider;", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, getSyncProvider, $SyncProvider*), "java.sql.SQLException"},
-	{"getTableName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, getTableName, $String*), "java.sql.SQLException"},
-	{"getTime", "(I)Ljava/sql/Time;", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, getTime, $Time*, int32_t), "java.sql.SQLException"},
-	{"getTime", "(Ljava/lang/String;)Ljava/sql/Time;", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, getTime, $Time*, $String*), "java.sql.SQLException"},
-	{"getTime", "(ILjava/util/Calendar;)Ljava/sql/Time;", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, getTime, $Time*, int32_t, $Calendar*), "java.sql.SQLException"},
-	{"getTime", "(Ljava/lang/String;Ljava/util/Calendar;)Ljava/sql/Time;", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, getTime, $Time*, $String*, $Calendar*), "java.sql.SQLException"},
-	{"getTimestamp", "(I)Ljava/sql/Timestamp;", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, getTimestamp, $Timestamp*, int32_t), "java.sql.SQLException"},
-	{"getTimestamp", "(Ljava/lang/String;)Ljava/sql/Timestamp;", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, getTimestamp, $Timestamp*, $String*), "java.sql.SQLException"},
-	{"getTimestamp", "(ILjava/util/Calendar;)Ljava/sql/Timestamp;", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, getTimestamp, $Timestamp*, int32_t, $Calendar*), "java.sql.SQLException"},
-	{"getTimestamp", "(Ljava/lang/String;Ljava/util/Calendar;)Ljava/sql/Timestamp;", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, getTimestamp, $Timestamp*, $String*, $Calendar*), "java.sql.SQLException"},
-	{"getURL", "(I)Ljava/net/URL;", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, getURL, $URL*, int32_t), "java.sql.SQLException"},
-	{"getURL", "(Ljava/lang/String;)Ljava/net/URL;", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, getURL, $URL*, $String*), "java.sql.SQLException"},
-	{"getUnicodeStream", "(I)Ljava/io/InputStream;", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(CachedRowSetImpl, getUnicodeStream, $InputStream*, int32_t), "java.sql.SQLException", nullptr, _CachedRowSetImpl_MethodAnnotations_getUnicodeStream114},
-	{"getUnicodeStream", "(Ljava/lang/String;)Ljava/io/InputStream;", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(CachedRowSetImpl, getUnicodeStream, $InputStream*, $String*), "java.sql.SQLException", nullptr, _CachedRowSetImpl_MethodAnnotations_getUnicodeStream115},
-	{"getWarnings", "()Ljava/sql/SQLWarning;", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, getWarnings, $SQLWarning*)},
-	{"initContainer", "()V", nullptr, $PRIVATE, $method(CachedRowSetImpl, initContainer, void)},
-	{"initMetaData", "(Ljavax/sql/rowset/RowSetMetaDataImpl;Ljava/sql/ResultSetMetaData;)V", nullptr, $PRIVATE, $method(CachedRowSetImpl, initMetaData, void, $RowSetMetaDataImpl*, $ResultSetMetaData*), "java.sql.SQLException"},
-	{"initProperties", "()V", nullptr, $PRIVATE, $method(CachedRowSetImpl, initProperties, void), "java.sql.SQLException"},
-	{"insertRow", "()V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, insertRow, void), "java.sql.SQLException"},
-	{"internalFirst", "()Z", nullptr, $PROTECTED, $virtualMethod(CachedRowSetImpl, internalFirst, bool), "java.sql.SQLException"},
-	{"internalLast", "()Z", nullptr, $PROTECTED, $virtualMethod(CachedRowSetImpl, internalLast, bool), "java.sql.SQLException"},
-	{"internalNext", "()Z", nullptr, $PROTECTED, $virtualMethod(CachedRowSetImpl, internalNext, bool), "java.sql.SQLException"},
-	{"internalPrevious", "()Z", nullptr, $PROTECTED, $virtualMethod(CachedRowSetImpl, internalPrevious, bool), "java.sql.SQLException"},
-	{"isAfterLast", "()Z", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, isAfterLast, bool), "java.sql.SQLException"},
-	{"isBeforeFirst", "()Z", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, isBeforeFirst, bool), "java.sql.SQLException"},
-	{"isBinary", "(I)Z", nullptr, $PRIVATE, $method(CachedRowSetImpl, isBinary, bool, int32_t)},
-	{"isBoolean", "(I)Z", nullptr, $PRIVATE, $method(CachedRowSetImpl, isBoolean, bool, int32_t)},
-	{"isClosed", "()Z", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, isClosed, bool), "java.sql.SQLException"},
-	{"isFirst", "()Z", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, isFirst, bool), "java.sql.SQLException"},
-	{"isLast", "()Z", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, isLast, bool), "java.sql.SQLException"},
-	{"isNumeric", "(I)Z", nullptr, $PRIVATE, $method(CachedRowSetImpl, isNumeric, bool, int32_t)},
-	{"*isReadOnly", "()Z", nullptr, $PUBLIC},
-	{"isString", "(I)Z", nullptr, $PRIVATE, $method(CachedRowSetImpl, isString, bool, int32_t)},
-	{"isTemporal", "(I)Z", nullptr, $PRIVATE, $method(CachedRowSetImpl, isTemporal, bool, int32_t)},
-	{"isWrapperFor", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;)Z", $PUBLIC, $virtualMethod(CachedRowSetImpl, isWrapperFor, bool, $Class*), "java.sql.SQLException"},
-	{"last", "()Z", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, last, bool), "java.sql.SQLException"},
-	{"makeRowOriginal", "(Lcom/sun/rowset/internal/Row;)V", nullptr, $PRIVATE, $method(CachedRowSetImpl, makeRowOriginal, void, $Row*)},
-	{"moveToCurrentRow", "()V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, moveToCurrentRow, void), "java.sql.SQLException"},
-	{"moveToInsertRow", "()V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, moveToInsertRow, void), "java.sql.SQLException"},
-	{"next", "()Z", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, next, bool), "java.sql.SQLException"},
-	{"nextPage", "()Z", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, nextPage, bool), "java.sql.SQLException"},
-	{"populate", "(Ljava/sql/ResultSet;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, populate, void, $ResultSet*), "java.sql.SQLException"},
-	{"populate", "(Ljava/sql/ResultSet;I)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, populate, void, $ResultSet*, int32_t), "java.sql.SQLException"},
-	{"previous", "()Z", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, previous, bool), "java.sql.SQLException"},
-	{"previousPage", "()Z", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, previousPage, bool), "java.sql.SQLException"},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(CachedRowSetImpl, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"refreshRow", "()V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, refreshRow, void), "java.sql.SQLException"},
-	{"relative", "(I)Z", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, relative, bool, int32_t), "java.sql.SQLException"},
-	{"release", "()V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, release, void), "java.sql.SQLException"},
-	{"removeCurrentRow", "()V", nullptr, $PROTECTED, $virtualMethod(CachedRowSetImpl, removeCurrentRow, void)},
-	{"*removeRowSetListener", "(Ljavax/sql/RowSetListener;)V", nullptr, $PUBLIC},
-	{"restoreOriginal", "()V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, restoreOriginal, void), "java.sql.SQLException"},
-	{"rollback", "()V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, rollback, void), "java.sql.SQLException"},
-	{"rollback", "(Ljava/sql/Savepoint;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, rollback, void, $Savepoint*), "java.sql.SQLException"},
-	{"rowDeleted", "()Z", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, rowDeleted, bool), "java.sql.SQLException"},
-	{"rowInserted", "()Z", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, rowInserted, bool), "java.sql.SQLException"},
-	{"rowSetPopulated", "(Ljavax/sql/RowSetEvent;I)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, rowSetPopulated, void, $RowSetEvent*, int32_t), "java.sql.SQLException"},
-	{"rowUpdated", "()Z", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, rowUpdated, bool), "java.sql.SQLException"},
-	{"*setArray", "(ILjava/sql/Array;)V", nullptr, $PUBLIC},
-	{"*setAsciiStream", "(ILjava/io/InputStream;I)V", nullptr, $PUBLIC},
-	{"*setAsciiStream", "(ILjava/io/InputStream;)V", nullptr, $PUBLIC},
-	{"setAsciiStream", "(Ljava/lang/String;Ljava/io/InputStream;I)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, setAsciiStream, void, $String*, $InputStream*, int32_t), "java.sql.SQLException"},
-	{"setAsciiStream", "(Ljava/lang/String;Ljava/io/InputStream;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, setAsciiStream, void, $String*, $InputStream*), "java.sql.SQLException"},
-	{"*setBigDecimal", "(ILjava/math/BigDecimal;)V", nullptr, $PUBLIC},
-	{"setBigDecimal", "(Ljava/lang/String;Ljava/math/BigDecimal;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, setBigDecimal, void, $String*, $BigDecimal*), "java.sql.SQLException"},
-	{"*setBinaryStream", "(ILjava/io/InputStream;I)V", nullptr, $PUBLIC},
-	{"*setBinaryStream", "(ILjava/io/InputStream;)V", nullptr, $PUBLIC},
-	{"setBinaryStream", "(Ljava/lang/String;Ljava/io/InputStream;I)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, setBinaryStream, void, $String*, $InputStream*, int32_t), "java.sql.SQLException"},
-	{"setBinaryStream", "(Ljava/lang/String;Ljava/io/InputStream;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, setBinaryStream, void, $String*, $InputStream*), "java.sql.SQLException"},
-	{"*setBlob", "(ILjava/sql/Blob;)V", nullptr, $PUBLIC},
-	{"setBlob", "(ILjava/io/InputStream;J)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, setBlob, void, int32_t, $InputStream*, int64_t), "java.sql.SQLException"},
-	{"setBlob", "(ILjava/io/InputStream;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, setBlob, void, int32_t, $InputStream*), "java.sql.SQLException"},
-	{"setBlob", "(Ljava/lang/String;Ljava/io/InputStream;J)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, setBlob, void, $String*, $InputStream*, int64_t), "java.sql.SQLException"},
-	{"setBlob", "(Ljava/lang/String;Ljava/sql/Blob;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, setBlob, void, $String*, $Blob*), "java.sql.SQLException"},
-	{"setBlob", "(Ljava/lang/String;Ljava/io/InputStream;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, setBlob, void, $String*, $InputStream*), "java.sql.SQLException"},
-	{"*setBoolean", "(IZ)V", nullptr, $PUBLIC},
-	{"setBoolean", "(Ljava/lang/String;Z)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, setBoolean, void, $String*, bool), "java.sql.SQLException"},
-	{"*setByte", "(IB)V", nullptr, $PUBLIC},
-	{"setByte", "(Ljava/lang/String;B)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, setByte, void, $String*, int8_t), "java.sql.SQLException"},
-	{"*setBytes", "(I[B)V", nullptr, $PUBLIC},
-	{"setBytes", "(Ljava/lang/String;[B)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, setBytes, void, $String*, $bytes*), "java.sql.SQLException"},
-	{"*setCharacterStream", "(ILjava/io/Reader;I)V", nullptr, $PUBLIC},
-	{"*setCharacterStream", "(ILjava/io/Reader;)V", nullptr, $PUBLIC},
-	{"setCharacterStream", "(Ljava/lang/String;Ljava/io/Reader;I)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, setCharacterStream, void, $String*, $Reader*, int32_t), "java.sql.SQLException"},
-	{"setCharacterStream", "(Ljava/lang/String;Ljava/io/Reader;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, setCharacterStream, void, $String*, $Reader*), "java.sql.SQLException"},
-	{"*setClob", "(ILjava/sql/Clob;)V", nullptr, $PUBLIC},
-	{"setClob", "(Ljava/lang/String;Ljava/io/Reader;J)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, setClob, void, $String*, $Reader*, int64_t), "java.sql.SQLException"},
-	{"setClob", "(Ljava/lang/String;Ljava/sql/Clob;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, setClob, void, $String*, $Clob*), "java.sql.SQLException"},
-	{"setClob", "(Ljava/lang/String;Ljava/io/Reader;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, setClob, void, $String*, $Reader*), "java.sql.SQLException"},
-	{"setClob", "(ILjava/io/Reader;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, setClob, void, int32_t, $Reader*), "java.sql.SQLException"},
-	{"setClob", "(ILjava/io/Reader;J)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, setClob, void, int32_t, $Reader*, int64_t), "java.sql.SQLException"},
-	{"setCommand", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, setCommand, void, $String*), "java.sql.SQLException"},
-	{"*setConcurrency", "(I)V", nullptr, $PUBLIC},
-	{"setConnection", "(Ljava/sql/Connection;)V", nullptr, $PRIVATE, $method(CachedRowSetImpl, setConnection, void, $Connection*)},
-	{"*setDataSourceName", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"*setDate", "(ILjava/sql/Date;)V", nullptr, $PUBLIC},
-	{"*setDate", "(ILjava/sql/Date;Ljava/util/Calendar;)V", nullptr, $PUBLIC},
-	{"setDate", "(Ljava/lang/String;Ljava/sql/Date;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, setDate, void, $String*, $Date*), "java.sql.SQLException"},
-	{"setDate", "(Ljava/lang/String;Ljava/sql/Date;Ljava/util/Calendar;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, setDate, void, $String*, $Date*, $Calendar*), "java.sql.SQLException"},
-	{"*setDouble", "(ID)V", nullptr, $PUBLIC},
-	{"setDouble", "(Ljava/lang/String;D)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, setDouble, void, $String*, double), "java.sql.SQLException"},
-	{"*setEscapeProcessing", "(Z)V", nullptr, $PUBLIC},
-	{"*setFetchDirection", "(I)V", nullptr, $PUBLIC},
-	{"*setFetchSize", "(I)V", nullptr, $PUBLIC},
-	{"*setFloat", "(IF)V", nullptr, $PUBLIC},
-	{"setFloat", "(Ljava/lang/String;F)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, setFloat, void, $String*, float), "java.sql.SQLException"},
-	{"*setInt", "(II)V", nullptr, $PUBLIC},
-	{"setInt", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, setInt, void, $String*, int32_t), "java.sql.SQLException"},
-	{"setKeyColumns", "([I)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, setKeyColumns, void, $ints*), "java.sql.SQLException"},
-	{"setLastValueNull", "(Z)V", nullptr, $PRIVATE, $method(CachedRowSetImpl, setLastValueNull, void, bool)},
-	{"*setLong", "(IJ)V", nullptr, $PUBLIC},
-	{"setLong", "(Ljava/lang/String;J)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, setLong, void, $String*, int64_t), "java.sql.SQLException"},
-	{"setMatchColumn", "([I)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, setMatchColumn, void, $ints*), "java.sql.SQLException"},
-	{"setMatchColumn", "([Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, setMatchColumn, void, $StringArray*), "java.sql.SQLException"},
-	{"setMatchColumn", "(I)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, setMatchColumn, void, int32_t), "java.sql.SQLException"},
-	{"setMatchColumn", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, setMatchColumn, void, $String*), "java.sql.SQLException"},
-	{"*setMaxFieldSize", "(I)V", nullptr, $PUBLIC},
-	{"*setMaxRows", "(I)V", nullptr, $PUBLIC},
-	{"setMetaData", "(Ljavax/sql/RowSetMetaData;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, setMetaData, void, $RowSetMetaData*), "java.sql.SQLException"},
-	{"setNCharacterStream", "(ILjava/io/Reader;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, setNCharacterStream, void, int32_t, $Reader*), "java.sql.SQLException"},
-	{"setNCharacterStream", "(ILjava/io/Reader;J)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, setNCharacterStream, void, int32_t, $Reader*, int64_t), "java.sql.SQLException"},
-	{"setNCharacterStream", "(Ljava/lang/String;Ljava/io/Reader;J)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, setNCharacterStream, void, $String*, $Reader*, int64_t), "java.sql.SQLException"},
-	{"setNCharacterStream", "(Ljava/lang/String;Ljava/io/Reader;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, setNCharacterStream, void, $String*, $Reader*), "java.sql.SQLException"},
-	{"setNClob", "(Ljava/lang/String;Ljava/sql/NClob;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, setNClob, void, $String*, $NClob*), "java.sql.SQLException"},
-	{"setNClob", "(ILjava/io/Reader;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, setNClob, void, int32_t, $Reader*), "java.sql.SQLException"},
-	{"setNClob", "(Ljava/lang/String;Ljava/io/Reader;J)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, setNClob, void, $String*, $Reader*, int64_t), "java.sql.SQLException"},
-	{"setNClob", "(Ljava/lang/String;Ljava/io/Reader;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, setNClob, void, $String*, $Reader*), "java.sql.SQLException"},
-	{"setNClob", "(ILjava/io/Reader;J)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, setNClob, void, int32_t, $Reader*, int64_t), "java.sql.SQLException"},
-	{"setNClob", "(ILjava/sql/NClob;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, setNClob, void, int32_t, $NClob*), "java.sql.SQLException"},
-	{"setNString", "(ILjava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, setNString, void, int32_t, $String*), "java.sql.SQLException"},
-	{"setNString", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, setNString, void, $String*, $String*), "java.sql.SQLException"},
-	{"*setNull", "(II)V", nullptr, $PUBLIC},
-	{"*setNull", "(IILjava/lang/String;)V", nullptr, $PUBLIC},
-	{"setNull", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, setNull, void, $String*, int32_t), "java.sql.SQLException"},
-	{"setNull", "(Ljava/lang/String;ILjava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, setNull, void, $String*, int32_t, $String*), "java.sql.SQLException"},
-	{"*setObject", "(ILjava/lang/Object;II)V", nullptr, $PUBLIC},
-	{"*setObject", "(ILjava/lang/Object;I)V", nullptr, $PUBLIC},
-	{"*setObject", "(ILjava/lang/Object;)V", nullptr, $PUBLIC},
-	{"setObject", "(Ljava/lang/String;Ljava/lang/Object;II)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, setObject, void, $String*, Object$*, int32_t, int32_t), "java.sql.SQLException"},
-	{"setObject", "(Ljava/lang/String;Ljava/lang/Object;I)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, setObject, void, $String*, Object$*, int32_t), "java.sql.SQLException"},
-	{"setObject", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, setObject, void, $String*, Object$*), "java.sql.SQLException"},
-	{"setOriginal", "()V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, setOriginal, void), "java.sql.SQLException"},
-	{"setOriginalRow", "()V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, setOriginalRow, void), "java.sql.SQLException"},
-	{"setPageSize", "(I)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, setPageSize, void, int32_t), "java.sql.SQLException"},
-	{"*setPassword", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"*setQueryTimeout", "(I)V", nullptr, $PUBLIC},
-	{"*setReadOnly", "(Z)V", nullptr, $PUBLIC},
-	{"*setRef", "(ILjava/sql/Ref;)V", nullptr, $PUBLIC},
-	{"setRowId", "(ILjava/sql/RowId;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, setRowId, void, int32_t, $RowId*), "java.sql.SQLException"},
-	{"setRowId", "(Ljava/lang/String;Ljava/sql/RowId;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, setRowId, void, $String*, $RowId*), "java.sql.SQLException"},
-	{"setRowInserted", "(Z)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, setRowInserted, void, bool), "java.sql.SQLException"},
-	{"setSQLXML", "(ILjava/sql/SQLXML;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, setSQLXML, void, int32_t, $SQLXML*), "java.sql.SQLException"},
-	{"setSQLXML", "(Ljava/lang/String;Ljava/sql/SQLXML;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, setSQLXML, void, $String*, $SQLXML*), "java.sql.SQLException"},
-	{"*setShort", "(IS)V", nullptr, $PUBLIC},
-	{"setShort", "(Ljava/lang/String;S)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, setShort, void, $String*, int16_t), "java.sql.SQLException"},
-	{"*setShowDeleted", "(Z)V", nullptr, $PUBLIC},
-	{"*setString", "(ILjava/lang/String;)V", nullptr, $PUBLIC},
-	{"setString", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, setString, void, $String*, $String*), "java.sql.SQLException"},
-	{"setSyncProvider", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, setSyncProvider, void, $String*), "java.sql.SQLException"},
-	{"setTableName", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, setTableName, void, $String*), "java.sql.SQLException"},
-	{"*setTime", "(ILjava/sql/Time;)V", nullptr, $PUBLIC},
-	{"*setTime", "(ILjava/sql/Time;Ljava/util/Calendar;)V", nullptr, $PUBLIC},
-	{"setTime", "(Ljava/lang/String;Ljava/sql/Time;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, setTime, void, $String*, $Time*), "java.sql.SQLException"},
-	{"setTime", "(Ljava/lang/String;Ljava/sql/Time;Ljava/util/Calendar;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, setTime, void, $String*, $Time*, $Calendar*), "java.sql.SQLException"},
-	{"*setTimestamp", "(ILjava/sql/Timestamp;)V", nullptr, $PUBLIC},
-	{"*setTimestamp", "(ILjava/sql/Timestamp;Ljava/util/Calendar;)V", nullptr, $PUBLIC},
-	{"setTimestamp", "(Ljava/lang/String;Ljava/sql/Timestamp;Ljava/util/Calendar;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, setTimestamp, void, $String*, $Timestamp*, $Calendar*), "java.sql.SQLException"},
-	{"setTimestamp", "(Ljava/lang/String;Ljava/sql/Timestamp;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, setTimestamp, void, $String*, $Timestamp*), "java.sql.SQLException"},
-	{"*setTransactionIsolation", "(I)V", nullptr, $PUBLIC},
-	{"*setType", "(I)V", nullptr, $PUBLIC},
-	{"*setTypeMap", "(Ljava/util/Map;)V", nullptr, $PUBLIC},
-	{"setURL", "(ILjava/net/URL;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, setURL, void, int32_t, $URL*), "java.sql.SQLException"},
-	{"*setUrl", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"*setUsername", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"size", "()I", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, size, int32_t)},
-	{"toCollection", "()Ljava/util/Collection;", "()Ljava/util/Collection<*>;", $PUBLIC, $virtualMethod(CachedRowSetImpl, toCollection, $Collection*), "java.sql.SQLException"},
-	{"toCollection", "(I)Ljava/util/Collection;", "(I)Ljava/util/Collection<*>;", $PUBLIC, $virtualMethod(CachedRowSetImpl, toCollection, $Collection*, int32_t), "java.sql.SQLException"},
-	{"toCollection", "(Ljava/lang/String;)Ljava/util/Collection;", "(Ljava/lang/String;)Ljava/util/Collection<*>;", $PUBLIC, $virtualMethod(CachedRowSetImpl, toCollection, $Collection*, $String*), "java.sql.SQLException"},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"undoDelete", "()V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, undoDelete, void), "java.sql.SQLException"},
-	{"undoInsert", "()V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, undoInsert, void), "java.sql.SQLException"},
-	{"undoUpdate", "()V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, undoUpdate, void), "java.sql.SQLException"},
-	{"unsetMatchColumn", "([I)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, unsetMatchColumn, void, $ints*), "java.sql.SQLException"},
-	{"unsetMatchColumn", "([Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, unsetMatchColumn, void, $StringArray*), "java.sql.SQLException"},
-	{"unsetMatchColumn", "(I)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, unsetMatchColumn, void, int32_t), "java.sql.SQLException"},
-	{"unsetMatchColumn", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, unsetMatchColumn, void, $String*), "java.sql.SQLException"},
-	{"unwrap", "(Ljava/lang/Class;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljava/lang/Class<TT;>;)TT;", $PUBLIC, $virtualMethod(CachedRowSetImpl, unwrap, $Object*, $Class*), "java.sql.SQLException"},
-	{"updateArray", "(ILjava/sql/Array;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, updateArray, void, int32_t, $1Array*), "java.sql.SQLException"},
-	{"updateArray", "(Ljava/lang/String;Ljava/sql/Array;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, updateArray, void, $String*, $1Array*), "java.sql.SQLException"},
-	{"updateAsciiStream", "(ILjava/io/InputStream;I)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, updateAsciiStream, void, int32_t, $InputStream*, int32_t), "java.sql.SQLException"},
-	{"updateAsciiStream", "(Ljava/lang/String;Ljava/io/InputStream;I)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, updateAsciiStream, void, $String*, $InputStream*, int32_t), "java.sql.SQLException"},
-	{"updateAsciiStream", "(ILjava/io/InputStream;J)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, updateAsciiStream, void, int32_t, $InputStream*, int64_t), "java.sql.SQLException"},
-	{"updateAsciiStream", "(Ljava/lang/String;Ljava/io/InputStream;J)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, updateAsciiStream, void, $String*, $InputStream*, int64_t), "java.sql.SQLException"},
-	{"updateAsciiStream", "(ILjava/io/InputStream;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, updateAsciiStream, void, int32_t, $InputStream*), "java.sql.SQLException"},
-	{"updateAsciiStream", "(Ljava/lang/String;Ljava/io/InputStream;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, updateAsciiStream, void, $String*, $InputStream*), "java.sql.SQLException"},
-	{"updateBigDecimal", "(ILjava/math/BigDecimal;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, updateBigDecimal, void, int32_t, $BigDecimal*), "java.sql.SQLException"},
-	{"updateBigDecimal", "(Ljava/lang/String;Ljava/math/BigDecimal;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, updateBigDecimal, void, $String*, $BigDecimal*), "java.sql.SQLException"},
-	{"updateBinaryStream", "(ILjava/io/InputStream;I)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, updateBinaryStream, void, int32_t, $InputStream*, int32_t), "java.sql.SQLException"},
-	{"updateBinaryStream", "(Ljava/lang/String;Ljava/io/InputStream;I)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, updateBinaryStream, void, $String*, $InputStream*, int32_t), "java.sql.SQLException"},
-	{"updateBinaryStream", "(ILjava/io/InputStream;J)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, updateBinaryStream, void, int32_t, $InputStream*, int64_t), "java.sql.SQLException"},
-	{"updateBinaryStream", "(Ljava/lang/String;Ljava/io/InputStream;J)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, updateBinaryStream, void, $String*, $InputStream*, int64_t), "java.sql.SQLException"},
-	{"updateBinaryStream", "(ILjava/io/InputStream;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, updateBinaryStream, void, int32_t, $InputStream*), "java.sql.SQLException"},
-	{"updateBinaryStream", "(Ljava/lang/String;Ljava/io/InputStream;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, updateBinaryStream, void, $String*, $InputStream*), "java.sql.SQLException"},
-	{"updateBlob", "(ILjava/sql/Blob;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, updateBlob, void, int32_t, $Blob*), "java.sql.SQLException"},
-	{"updateBlob", "(Ljava/lang/String;Ljava/sql/Blob;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, updateBlob, void, $String*, $Blob*), "java.sql.SQLException"},
-	{"updateBlob", "(ILjava/io/InputStream;J)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, updateBlob, void, int32_t, $InputStream*, int64_t), "java.sql.SQLException"},
-	{"updateBlob", "(Ljava/lang/String;Ljava/io/InputStream;J)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, updateBlob, void, $String*, $InputStream*, int64_t), "java.sql.SQLException"},
-	{"updateBlob", "(ILjava/io/InputStream;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, updateBlob, void, int32_t, $InputStream*), "java.sql.SQLException"},
-	{"updateBlob", "(Ljava/lang/String;Ljava/io/InputStream;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, updateBlob, void, $String*, $InputStream*), "java.sql.SQLException"},
-	{"updateBoolean", "(IZ)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, updateBoolean, void, int32_t, bool), "java.sql.SQLException"},
-	{"updateBoolean", "(Ljava/lang/String;Z)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, updateBoolean, void, $String*, bool), "java.sql.SQLException"},
-	{"updateByte", "(IB)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, updateByte, void, int32_t, int8_t), "java.sql.SQLException"},
-	{"updateByte", "(Ljava/lang/String;B)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, updateByte, void, $String*, int8_t), "java.sql.SQLException"},
-	{"updateBytes", "(I[B)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, updateBytes, void, int32_t, $bytes*), "java.sql.SQLException"},
-	{"updateBytes", "(Ljava/lang/String;[B)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, updateBytes, void, $String*, $bytes*), "java.sql.SQLException"},
-	{"updateCharacterStream", "(ILjava/io/Reader;I)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, updateCharacterStream, void, int32_t, $Reader*, int32_t), "java.sql.SQLException"},
-	{"updateCharacterStream", "(Ljava/lang/String;Ljava/io/Reader;I)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, updateCharacterStream, void, $String*, $Reader*, int32_t), "java.sql.SQLException"},
-	{"updateCharacterStream", "(ILjava/io/Reader;J)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, updateCharacterStream, void, int32_t, $Reader*, int64_t), "java.sql.SQLException"},
-	{"updateCharacterStream", "(Ljava/lang/String;Ljava/io/Reader;J)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, updateCharacterStream, void, $String*, $Reader*, int64_t), "java.sql.SQLException"},
-	{"updateCharacterStream", "(ILjava/io/Reader;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, updateCharacterStream, void, int32_t, $Reader*), "java.sql.SQLException"},
-	{"updateCharacterStream", "(Ljava/lang/String;Ljava/io/Reader;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, updateCharacterStream, void, $String*, $Reader*), "java.sql.SQLException"},
-	{"updateClob", "(ILjava/sql/Clob;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, updateClob, void, int32_t, $Clob*), "java.sql.SQLException"},
-	{"updateClob", "(Ljava/lang/String;Ljava/sql/Clob;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, updateClob, void, $String*, $Clob*), "java.sql.SQLException"},
-	{"updateClob", "(ILjava/io/Reader;J)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, updateClob, void, int32_t, $Reader*, int64_t), "java.sql.SQLException"},
-	{"updateClob", "(Ljava/lang/String;Ljava/io/Reader;J)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, updateClob, void, $String*, $Reader*, int64_t), "java.sql.SQLException"},
-	{"updateClob", "(ILjava/io/Reader;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, updateClob, void, int32_t, $Reader*), "java.sql.SQLException"},
-	{"updateClob", "(Ljava/lang/String;Ljava/io/Reader;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, updateClob, void, $String*, $Reader*), "java.sql.SQLException"},
-	{"updateDate", "(ILjava/sql/Date;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, updateDate, void, int32_t, $Date*), "java.sql.SQLException"},
-	{"updateDate", "(Ljava/lang/String;Ljava/sql/Date;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, updateDate, void, $String*, $Date*), "java.sql.SQLException"},
-	{"updateDouble", "(ID)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, updateDouble, void, int32_t, double), "java.sql.SQLException"},
-	{"updateDouble", "(Ljava/lang/String;D)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, updateDouble, void, $String*, double), "java.sql.SQLException"},
-	{"updateFloat", "(IF)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, updateFloat, void, int32_t, float), "java.sql.SQLException"},
-	{"updateFloat", "(Ljava/lang/String;F)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, updateFloat, void, $String*, float), "java.sql.SQLException"},
-	{"updateInt", "(II)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, updateInt, void, int32_t, int32_t), "java.sql.SQLException"},
-	{"updateInt", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, updateInt, void, $String*, int32_t), "java.sql.SQLException"},
-	{"updateLong", "(IJ)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, updateLong, void, int32_t, int64_t), "java.sql.SQLException"},
-	{"updateLong", "(Ljava/lang/String;J)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, updateLong, void, $String*, int64_t), "java.sql.SQLException"},
-	{"updateNCharacterStream", "(ILjava/io/Reader;J)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, updateNCharacterStream, void, int32_t, $Reader*, int64_t), "java.sql.SQLException"},
-	{"updateNCharacterStream", "(Ljava/lang/String;Ljava/io/Reader;J)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, updateNCharacterStream, void, $String*, $Reader*, int64_t), "java.sql.SQLException"},
-	{"updateNCharacterStream", "(ILjava/io/Reader;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, updateNCharacterStream, void, int32_t, $Reader*), "java.sql.SQLException"},
-	{"updateNCharacterStream", "(Ljava/lang/String;Ljava/io/Reader;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, updateNCharacterStream, void, $String*, $Reader*), "java.sql.SQLException"},
-	{"updateNClob", "(ILjava/sql/NClob;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, updateNClob, void, int32_t, $NClob*), "java.sql.SQLException"},
-	{"updateNClob", "(Ljava/lang/String;Ljava/sql/NClob;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, updateNClob, void, $String*, $NClob*), "java.sql.SQLException"},
-	{"updateNClob", "(ILjava/io/Reader;J)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, updateNClob, void, int32_t, $Reader*, int64_t), "java.sql.SQLException"},
-	{"updateNClob", "(Ljava/lang/String;Ljava/io/Reader;J)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, updateNClob, void, $String*, $Reader*, int64_t), "java.sql.SQLException"},
-	{"updateNClob", "(ILjava/io/Reader;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, updateNClob, void, int32_t, $Reader*), "java.sql.SQLException"},
-	{"updateNClob", "(Ljava/lang/String;Ljava/io/Reader;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, updateNClob, void, $String*, $Reader*), "java.sql.SQLException"},
-	{"updateNString", "(ILjava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, updateNString, void, int32_t, $String*), "java.sql.SQLException"},
-	{"updateNString", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, updateNString, void, $String*, $String*), "java.sql.SQLException"},
-	{"updateNull", "(I)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, updateNull, void, int32_t), "java.sql.SQLException"},
-	{"updateNull", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, updateNull, void, $String*), "java.sql.SQLException"},
-	{"updateObject", "(ILjava/lang/Object;I)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, updateObject, void, int32_t, Object$*, int32_t), "java.sql.SQLException"},
-	{"updateObject", "(ILjava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, updateObject, void, int32_t, Object$*), "java.sql.SQLException"},
-	{"updateObject", "(Ljava/lang/String;Ljava/lang/Object;I)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, updateObject, void, $String*, Object$*, int32_t), "java.sql.SQLException"},
-	{"updateObject", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, updateObject, void, $String*, Object$*), "java.sql.SQLException"},
-	{"updateRef", "(ILjava/sql/Ref;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, updateRef, void, int32_t, $Ref*), "java.sql.SQLException"},
-	{"updateRef", "(Ljava/lang/String;Ljava/sql/Ref;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, updateRef, void, $String*, $Ref*), "java.sql.SQLException"},
-	{"updateRow", "()V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, updateRow, void), "java.sql.SQLException"},
-	{"updateRowId", "(ILjava/sql/RowId;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, updateRowId, void, int32_t, $RowId*), "java.sql.SQLException"},
-	{"updateRowId", "(Ljava/lang/String;Ljava/sql/RowId;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, updateRowId, void, $String*, $RowId*), "java.sql.SQLException"},
-	{"updateSQLXML", "(ILjava/sql/SQLXML;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, updateSQLXML, void, int32_t, $SQLXML*), "java.sql.SQLException"},
-	{"updateSQLXML", "(Ljava/lang/String;Ljava/sql/SQLXML;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, updateSQLXML, void, $String*, $SQLXML*), "java.sql.SQLException"},
-	{"updateShort", "(IS)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, updateShort, void, int32_t, int16_t), "java.sql.SQLException"},
-	{"updateShort", "(Ljava/lang/String;S)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, updateShort, void, $String*, int16_t), "java.sql.SQLException"},
-	{"updateString", "(ILjava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, updateString, void, int32_t, $String*), "java.sql.SQLException"},
-	{"updateString", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, updateString, void, $String*, $String*), "java.sql.SQLException"},
-	{"updateTime", "(ILjava/sql/Time;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, updateTime, void, int32_t, $Time*), "java.sql.SQLException"},
-	{"updateTime", "(Ljava/lang/String;Ljava/sql/Time;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, updateTime, void, $String*, $Time*), "java.sql.SQLException"},
-	{"updateTimestamp", "(ILjava/sql/Timestamp;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, updateTimestamp, void, int32_t, $Timestamp*), "java.sql.SQLException"},
-	{"updateTimestamp", "(Ljava/lang/String;Ljava/sql/Timestamp;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, updateTimestamp, void, $String*, $Timestamp*), "java.sql.SQLException"},
-	{"wasNull", "()Z", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, wasNull, bool), "java.sql.SQLException"},
-	{}
-};
-
-$InnerClassInfo _CachedRowSetImpl_InnerClassesInfo_[] = {
-	{"com.sun.rowset.CachedRowSetImpl$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _CachedRowSetImpl_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.rowset.CachedRowSetImpl",
-	"javax.sql.rowset.BaseRowSet",
-	"javax.sql.RowSetInternal,javax.sql.rowset.CachedRowSet",
-	_CachedRowSetImpl_FieldInfo_,
-	_CachedRowSetImpl_MethodInfo_,
-	nullptr,
-	nullptr,
-	_CachedRowSetImpl_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.rowset.CachedRowSetImpl$1"
-};
-
-$Object* allocate$CachedRowSetImpl($Class* clazz) {
-	return $of($alloc(CachedRowSetImpl));
-}
 
 void CachedRowSetImpl::addRowSetListener($RowSetListener* listener) {
 	this->$BaseRowSet::addRowSetListener(listener);
@@ -1034,7 +531,7 @@ void CachedRowSetImpl::finalize() {
 }
 
 void CachedRowSetImpl::init$() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$BaseRowSet::init$();
 	$set(this, strMatchColumn, ""_s);
@@ -1046,16 +543,16 @@ void CachedRowSetImpl::init$() {
 	try {
 		$set(this, resBundle, $JdbcRowSetResourceBundle::getJdbcRowSetResourceBundle());
 	} catch ($IOException& ioe) {
-		$throwNew($RuntimeException, static_cast<$Throwable*>(ioe));
+		$throwNew($RuntimeException, ioe);
 	}
 	try {
-		$var($PrivilegedExceptionAction, var$0, static_cast<$PrivilegedExceptionAction*>($new($CachedRowSetImpl$1, this)));
-		$set(this, provider, $cast($SyncProvider, $AccessController::doPrivileged(var$0, ($AccessControlContext*)nullptr, $$new($PermissionArray, {static_cast<$Permission*>($$new($RuntimePermission, "accessClassInPackage.com.sun.rowset.providers"_s))}))));
+		$var($PrivilegedExceptionAction, var$0, $new($CachedRowSetImpl$1, this));
+		$set(this, provider, $cast($SyncProvider, $AccessController::doPrivileged(var$0, nullptr, $$new($PermissionArray, {$$new($RuntimePermission, "accessClassInPackage.com.sun.rowset.providers"_s)}))));
 	} catch ($PrivilegedActionException& pae) {
-		$throw($cast($SyncFactoryException, $(pae->getException())));
+		$throw($$cast($SyncFactoryException, pae->getException()));
 	}
 	if (!($instanceOf($RIOptimisticProvider, this->provider))) {
-		$throwNew($SQLException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.invalidp"_s))))->toString()));
+		$throwNew($SQLException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.invalidp"_s))->toString()));
 	}
 	$set(this, rowSetReader, $cast($CachedRowSetReader, $nc(this->provider)->getRowSetReader()));
 	$set(this, rowSetWriter, $cast($CachedRowSetWriter, $nc(this->provider)->getRowSetWriter()));
@@ -1069,7 +566,7 @@ void CachedRowSetImpl::init$() {
 }
 
 void CachedRowSetImpl::init$($Hashtable* env) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$BaseRowSet::init$();
 	$set(this, strMatchColumn, ""_s);
 	this->iMatchColumn = -1;
@@ -1080,10 +577,10 @@ void CachedRowSetImpl::init$($Hashtable* env) {
 	try {
 		$set(this, resBundle, $JdbcRowSetResourceBundle::getJdbcRowSetResourceBundle());
 	} catch ($IOException& ioe) {
-		$throwNew($RuntimeException, static_cast<$Throwable*>(ioe));
+		$throwNew($RuntimeException, ioe);
 	}
 	if (env == nullptr) {
-		$throwNew($SQLException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.nullhash"_s))))->toString()));
+		$throwNew($SQLException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.nullhash"_s))->toString()));
 	}
 	$init($SyncFactory);
 	$var($String, providerName, $cast($String, $nc(env)->get($SyncFactory::ROWSET_SYNC_PROVIDER)));
@@ -1104,12 +601,12 @@ void CachedRowSetImpl::initContainer() {
 }
 
 void CachedRowSetImpl::initProperties() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->resBundle == nullptr) {
 		try {
 			$set(this, resBundle, $JdbcRowSetResourceBundle::getJdbcRowSetResourceBundle());
 		} catch ($IOException& ioe) {
-			$throwNew($RuntimeException, static_cast<$Throwable*>(ioe));
+			$throwNew($RuntimeException, ioe);
 		}
 	}
 	setShowDeleted(false);
@@ -1118,7 +615,7 @@ void CachedRowSetImpl::initProperties() {
 	setMaxFieldSize(0);
 	setType($ResultSet::TYPE_SCROLL_INSENSITIVE);
 	setConcurrency($ResultSet::CONCUR_UPDATABLE);
-	bool var$0 = ($nc(this->rvh)->size() > 0);
+	bool var$0 = $nc(this->rvh)->size() > 0;
 	if (var$0 && (isReadOnly() == false)) {
 		setReadOnly(false);
 	} else {
@@ -1129,22 +626,22 @@ void CachedRowSetImpl::initProperties() {
 	checkTransactionalWriter();
 	$set(this, iMatchColumns, $new($Vector, 10));
 	for (int32_t i = 0; i < 10; ++i) {
-		$nc(this->iMatchColumns)->add(i, $($Integer::valueOf(-1)));
+		this->iMatchColumns->add(i, $($Integer::valueOf(-1)));
 	}
 	$set(this, strMatchColumns, $new($Vector, 10));
 	for (int32_t j = 0; j < 10; ++j) {
-		$nc(this->strMatchColumns)->add(j, nullptr);
+		this->strMatchColumns->add(j, nullptr);
 	}
 }
 
 void CachedRowSetImpl::checkTransactionalWriter() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->rowSetWriter != nullptr) {
-		$Class* c = $nc($of(this->rowSetWriter))->getClass();
+		$Class* c = this->rowSetWriter->getClass();
 		if (c != nullptr) {
 			$var($ClassArray, theInterfaces, c->getInterfaces());
 			for (int32_t i = 0; i < theInterfaces->length; ++i) {
-				if ($nc(($($nc(theInterfaces->get(i))->getName())))->indexOf("TransactionalWriter"_s) > 0) {
+				if (($$nc($nc(theInterfaces->get(i))->getName()))->indexOf("TransactionalWriter"_s) > 0) {
 					this->tXWriter = true;
 					establishTransactionalWriter();
 				}
@@ -1158,15 +655,15 @@ void CachedRowSetImpl::establishTransactionalWriter() {
 }
 
 void CachedRowSetImpl::setCommand($String* cmd) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$BaseRowSet::setCommand(cmd);
-	if (!$nc($(buildTableName(cmd)))->isEmpty()) {
+	if (!$$nc(buildTableName(cmd))->isEmpty()) {
 		this->setTableName($(buildTableName(cmd)));
 	}
 }
 
 void CachedRowSetImpl::populate($ResultSet* data) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t rowsFetched = 0;
 	$var($Row, currentRow, nullptr);
 	int32_t numCols = 0;
@@ -1175,7 +672,7 @@ void CachedRowSetImpl::populate($ResultSet* data) {
 	$var($Object, obj, nullptr);
 	int32_t mRows = 0;
 	if (data == nullptr) {
-		$throwNew($SQLException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.populate"_s))))->toString()));
+		$throwNew($SQLException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.populate"_s))->toString()));
 	}
 	$set(this, resultSet, data);
 	$set(this, RSMD, $nc(data)->getMetaData());
@@ -1192,7 +689,7 @@ void CachedRowSetImpl::populate($ResultSet* data) {
 			$nc(this->rowsetWarning)->setNextWarning($$new($RowSetWarning, "Populating rows setting has exceeded max row setting"_s));
 		}
 		for (i = 1; i <= numCols; ++i) {
-			if (map == nullptr || $nc(map)->isEmpty()) {
+			if (map == nullptr || map->isEmpty()) {
 				$assign(obj, data->getObject(i));
 			} else {
 				$assign(obj, data->getObject(i, map));
@@ -1222,7 +719,7 @@ void CachedRowSetImpl::populate($ResultSet* data) {
 }
 
 void CachedRowSetImpl::initMetaData($RowSetMetaDataImpl* md, $ResultSetMetaData* rsmd) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t numCols = $nc(rsmd)->getColumnCount();
 	$nc(md)->setColumnCount(numCols);
 	for (int32_t col = 1; col <= numCols; ++col) {
@@ -1259,7 +756,7 @@ void CachedRowSetImpl::initMetaData($RowSetMetaDataImpl* md, $ResultSetMetaData*
 		md->setColumnTypeName(col, $(rsmd->getColumnTypeName(col)));
 	}
 	if (this->conn != nullptr) {
-		this->dbmslocatorsUpdateCopy = $nc($($nc(this->conn)->getMetaData()))->locatorsUpdateCopy();
+		this->dbmslocatorsUpdateCopy = $$nc(this->conn->getMetaData())->locatorsUpdateCopy();
 	}
 }
 
@@ -1269,13 +766,13 @@ void CachedRowSetImpl::execute($Connection* conn) {
 		$set(this, crsReader, $cast($CachedRowSetReader, $nc(this->provider)->getRowSetReader()));
 		$nc(this->crsReader)->setStartPosition(1);
 		this->callWithCon = true;
-		$nc(this->crsReader)->readData(static_cast<$RowSetInternal*>(this));
+		$nc(this->crsReader)->readData($cast($RowSetInternal, this));
 	} else {
-		$nc(this->rowSetReader)->readData(static_cast<$RowSetInternal*>(this));
+		$nc(this->rowSetReader)->readData($cast($RowSetInternal, this));
 	}
 	$set(this, RowSetMD, $cast($RowSetMetaDataImpl, this->getMetaData()));
 	if (conn != nullptr) {
-		this->dbmslocatorsUpdateCopy = $nc($(conn->getMetaData()))->locatorsUpdateCopy();
+		this->dbmslocatorsUpdateCopy = $$nc(conn->getMetaData())->locatorsUpdateCopy();
 	}
 }
 
@@ -1284,9 +781,9 @@ void CachedRowSetImpl::setConnection($Connection* connection) {
 }
 
 void CachedRowSetImpl::acceptChanges() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->onInsertRow == true) {
-		$throwNew($SyncProviderException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.invalidop"_s))))->toString()));
+		$throwNew($SyncProviderException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.invalidop"_s))->toString()));
 	}
 	int32_t saveCursorPos = this->cursorPos;
 	bool success = false;
@@ -1294,7 +791,7 @@ void CachedRowSetImpl::acceptChanges() {
 	try {
 		if (this->rowSetWriter != nullptr) {
 			saveCursorPos = this->cursorPos;
-			conflict = $nc(this->rowSetWriter)->writeData(static_cast<$RowSetInternal*>(this));
+			conflict = this->rowSetWriter->writeData($cast($RowSetInternal, this));
 			this->cursorPos = saveCursorPos;
 		}
 		if (this->tXWriter) {
@@ -1305,7 +802,7 @@ void CachedRowSetImpl::acceptChanges() {
 			} else {
 				$set(this, tWriter, $cast($TransactionalWriter, this->rowSetWriter));
 				if ($instanceOf($CachedRowSetWriter, this->tWriter)) {
-					$nc(($cast($CachedRowSetWriter, this->tWriter)))->commit(this, this->updateOnInsert);
+					$cast($CachedRowSetWriter, this->tWriter)->commit(this, this->updateOnInsert);
 				} else {
 					$nc(this->tWriter)->commit();
 				}
@@ -1315,7 +812,7 @@ void CachedRowSetImpl::acceptChanges() {
 		if (success == true) {
 			setOriginal();
 		} else if (!(success)) {
-			$throwNew($SyncProviderException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.accfailed"_s))))->toString()));
+			$throwNew($SyncProviderException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.accfailed"_s))->toString()));
 		}
 	} catch ($SyncProviderException& spe) {
 		$throw(spe);
@@ -1333,7 +830,7 @@ void CachedRowSetImpl::acceptChanges($Connection* con) {
 }
 
 void CachedRowSetImpl::restoreOriginal() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Row, currentRow, nullptr);
 	{
 		$var($Iterator, i, $nc(this->rvh)->iterator());
@@ -1362,13 +859,13 @@ void CachedRowSetImpl::release() {
 }
 
 void CachedRowSetImpl::undoDelete() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (getShowDeleted() == false) {
 		return;
 	}
 	checkCursor();
 	if (this->onInsertRow == true) {
-		$throwNew($SQLException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.invalidcp"_s))))->toString()));
+		$throwNew($SQLException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.invalidcp"_s))->toString()));
 	}
 	$var($Row, currentRow, $cast($Row, getCurrentRow()));
 	if ($nc(currentRow)->getDeleted() == true) {
@@ -1379,10 +876,10 @@ void CachedRowSetImpl::undoDelete() {
 }
 
 void CachedRowSetImpl::undoInsert() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	checkCursor();
 	if (this->onInsertRow == true) {
-		$throwNew($SQLException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.invalidcp"_s))))->toString()));
+		$throwNew($SQLException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.invalidcp"_s))->toString()));
 	}
 	$var($Row, currentRow, $cast($Row, getCurrentRow()));
 	if ($nc(currentRow)->getInserted() == true) {
@@ -1390,7 +887,7 @@ void CachedRowSetImpl::undoInsert() {
 		--this->numRows;
 		notifyRowChanged();
 	} else {
-		$throwNew($SQLException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.illegalop"_s))))->toString()));
+		$throwNew($SQLException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.illegalop"_s))->toString()));
 	}
 }
 
@@ -1401,7 +898,7 @@ void CachedRowSetImpl::undoUpdate() {
 }
 
 $RowSet* CachedRowSetImpl::createShared() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($RowSet, clone, nullptr);
 	try {
 		$assign(clone, $cast($RowSet, this->clone()));
@@ -1412,44 +909,44 @@ $RowSet* CachedRowSetImpl::createShared() {
 }
 
 $Object* CachedRowSetImpl::clone() {
-	return $of(($BaseRowSet::clone()));
+	return ($BaseRowSet::clone());
 }
 
 $CachedRowSet* CachedRowSetImpl::createCopy() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectOutputStream, out, nullptr);
 	$var($ByteArrayOutputStream, bOut, $new($ByteArrayOutputStream));
 	try {
 		$assign(out, $new($ObjectOutputStream, bOut));
 		out->writeObject(this);
 	} catch ($IOException& ex) {
-		$var($String, var$0, $nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.clonefail"_s))))->toString());
-		$throwNew($SQLException, $($MessageFormat::format(var$0, $$new($ObjectArray, {$($of(ex->getMessage()))}))));
+		$var($String, var$0, $$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.clonefail"_s))->toString());
+		$throwNew($SQLException, $($MessageFormat::format(var$0, $$new($ObjectArray, {$(ex->getMessage())}))));
 	}
 	$var($ObjectInputStream, in, nullptr);
 	try {
 		$var($ByteArrayInputStream, bIn, $new($ByteArrayInputStream, $(bOut->toByteArray())));
 		$assign(in, $new($ObjectInputStream, bIn));
 	} catch ($StreamCorruptedException& ex) {
-		$var($String, var$1, $nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.clonefail"_s))))->toString());
-		$throwNew($SQLException, $($MessageFormat::format(var$1, $$new($ObjectArray, {$($of(ex->getMessage()))}))));
+		$var($String, var$1, $$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.clonefail"_s))->toString());
+		$throwNew($SQLException, $($MessageFormat::format(var$1, $$new($ObjectArray, {$(ex->getMessage())}))));
 	} catch ($IOException& ex) {
-		$var($String, var$2, $nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.clonefail"_s))))->toString());
-		$throwNew($SQLException, $($MessageFormat::format(var$2, $$new($ObjectArray, {$($of(ex->getMessage()))}))));
+		$var($String, var$2, $$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.clonefail"_s))->toString());
+		$throwNew($SQLException, $($MessageFormat::format(var$2, $$new($ObjectArray, {$(ex->getMessage())}))));
 	}
 	try {
 		$var(CachedRowSetImpl, crsTemp, $cast(CachedRowSetImpl, $nc(in)->readObject()));
 		$set($nc(crsTemp), resBundle, this->resBundle);
-		return (static_cast<$CachedRowSet*>(crsTemp));
+		return $cast($CachedRowSet, crsTemp);
 	} catch ($ClassNotFoundException& ex) {
-		$var($String, var$3, $nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.clonefail"_s))))->toString());
-		$throwNew($SQLException, $($MessageFormat::format(var$3, $$new($ObjectArray, {$($of(ex->getMessage()))}))));
+		$var($String, var$3, $$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.clonefail"_s))->toString());
+		$throwNew($SQLException, $($MessageFormat::format(var$3, $$new($ObjectArray, {$(ex->getMessage())}))));
 	} catch ($OptionalDataException& ex) {
-		$var($String, var$4, $nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.clonefail"_s))))->toString());
-		$throwNew($SQLException, $($MessageFormat::format(var$4, $$new($ObjectArray, {$($of(ex->getMessage()))}))));
+		$var($String, var$4, $$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.clonefail"_s))->toString());
+		$throwNew($SQLException, $($MessageFormat::format(var$4, $$new($ObjectArray, {$(ex->getMessage())}))));
 	} catch ($IOException& ex) {
-		$var($String, var$5, $nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.clonefail"_s))))->toString());
-		$throwNew($SQLException, $($MessageFormat::format(var$5, $$new($ObjectArray, {$($of(ex->getMessage()))}))));
+		$var($String, var$5, $$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.clonefail"_s))->toString());
+		$throwNew($SQLException, $($MessageFormat::format(var$5, $$new($ObjectArray, {$(ex->getMessage())}))));
 	}
 	$shouldNotReachHere();
 }
@@ -1463,7 +960,7 @@ $CachedRowSet* CachedRowSetImpl::createCopySchema() {
 }
 
 $CachedRowSet* CachedRowSetImpl::createCopyNoConstraints() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(CachedRowSetImpl, crs, nullptr);
 	$assign(crs, $cast(CachedRowSetImpl, this->createCopy()));
 	$nc(crs)->initProperties();
@@ -1479,17 +976,17 @@ $CachedRowSet* CachedRowSetImpl::createCopyNoConstraints() {
 }
 
 $Collection* CachedRowSetImpl::toCollection() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($TreeMap, tMap, $new($TreeMap));
 	for (int32_t i = 0; i < this->numRows; ++i) {
-		$var($Object, var$0, $of($Integer::valueOf(i)));
+		$var($Object, var$0, $Integer::valueOf(i));
 		tMap->put(var$0, $($nc(this->rvh)->get(i)));
 	}
 	return (tMap->values());
 }
 
 $Collection* CachedRowSetImpl::toCollection(int32_t column) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t nRows = this->numRows;
 	$var($Vector, vec, $new($Vector, nRows));
 	$var(CachedRowSetImpl, crsTemp, nullptr);
@@ -1499,7 +996,7 @@ $Collection* CachedRowSetImpl::toCollection(int32_t column) {
 		vec->add($(crsTemp->getObject(column)));
 		--nRows;
 	}
-	return static_cast<$Collection*>(static_cast<$AbstractCollection*>(static_cast<$AbstractList*>(vec)));
+	return $cast($Collection, $cast($AbstractCollection, vec));
 }
 
 $Collection* CachedRowSetImpl::toCollection($String* column) {
@@ -1521,9 +1018,9 @@ void CachedRowSetImpl::execute() {
 }
 
 bool CachedRowSetImpl::next() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->cursorPos < 0 || this->cursorPos >= this->numRows + 1) {
-		$throwNew($SQLException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.invalidcp"_s))))->toString()));
+		$throwNew($SQLException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.invalidcp"_s))->toString()));
 	}
 	bool ret = this->internalNext();
 	notifyCursorMoved();
@@ -1542,7 +1039,7 @@ bool CachedRowSetImpl::internalNext() {
 			ret = false;
 			break;
 		}
-		var$0 = (getShowDeleted() == false);
+		var$0 = getShowDeleted() == false;
 	} while (var$0 && (rowDeleted() == true));
 	if (ret == true) {
 		++this->absolutePos;
@@ -1570,22 +1067,22 @@ void CachedRowSetImpl::setLastValueNull(bool value) {
 }
 
 void CachedRowSetImpl::checkIndex(int32_t idx) {
-	$useLocalCurrentObjectStackCache();
-	if (idx < 1 || this->RowSetMD == nullptr || idx > $nc(this->RowSetMD)->getColumnCount()) {
-		$throwNew($SQLException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.invalidcol"_s))))->toString()));
+	$useLocalObjectStack();
+	if (idx < 1 || this->RowSetMD == nullptr || idx > this->RowSetMD->getColumnCount()) {
+		$throwNew($SQLException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.invalidcol"_s))->toString()));
 	}
 }
 
 void CachedRowSetImpl::checkCursor() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool var$0 = isAfterLast() == true;
 	if (var$0 || isBeforeFirst() == true) {
-		$throwNew($SQLException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.invalidcp"_s))))->toString()));
+		$throwNew($SQLException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.invalidcp"_s))->toString()));
 	}
 }
 
 int32_t CachedRowSetImpl::getColIdxByName($String* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, RowSetMD, $cast($RowSetMetaDataImpl, this->getMetaData()));
 	int32_t cols = $nc(this->RowSetMD)->getColumnCount();
 	if (this->RowSetMD != nullptr) {
@@ -1600,210 +1097,210 @@ int32_t CachedRowSetImpl::getColIdxByName($String* name) {
 			}
 		}
 	}
-	$throwNew($SQLException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.invalcolnm"_s))))->toString()));
+	$throwNew($SQLException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.invalcolnm"_s))->toString()));
 }
 
 $BaseRow* CachedRowSetImpl::getCurrentRow() {
 	if (this->onInsertRow == true) {
-		return static_cast<$BaseRow*>(this->insertRow$);
+		return $cast($BaseRow, this->insertRow$);
 	} else {
-		return ($cast($BaseRow, $nc(this->rvh)->get(this->cursorPos - 1)));
+		return $cast($BaseRow, $nc(this->rvh)->get(this->cursorPos - 1));
 	}
 }
 
 void CachedRowSetImpl::removeCurrentRow() {
-	$nc(($cast($Row, $(getCurrentRow()))))->setDeleted();
+	$$sure($Row, getCurrentRow())->setDeleted();
 	$nc(this->rvh)->remove(this->cursorPos - 1);
 	--this->numRows;
 }
 
 $String* CachedRowSetImpl::getString(int32_t columnIndex) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, value, nullptr);
 	checkIndex(columnIndex);
 	checkCursor();
 	setLastValueNull(false);
-	$assign(value, $nc($(getCurrentRow()))->getColumnObject(columnIndex));
+	$assign(value, $$nc(getCurrentRow())->getColumnObject(columnIndex));
 	if (value == nullptr) {
 		setLastValueNull(true);
 		return nullptr;
 	}
-	return $nc($of(value))->toString();
+	return $nc(value)->toString();
 }
 
 bool CachedRowSetImpl::getBoolean(int32_t columnIndex) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, value, nullptr);
 	checkIndex(columnIndex);
 	checkCursor();
 	setLastValueNull(false);
-	$assign(value, $nc($(getCurrentRow()))->getColumnObject(columnIndex));
+	$assign(value, $$nc(getCurrentRow())->getColumnObject(columnIndex));
 	if (value == nullptr) {
 		setLastValueNull(true);
 		return false;
 	}
 	if ($instanceOf($Boolean, value)) {
-		return $nc(($cast($Boolean, value)))->booleanValue();
+		return $cast($Boolean, value)->booleanValue();
 	}
 	try {
-		return $Double::compare($Double::parseDouble($($nc($of(value))->toString())), (double)0) != 0;
+		return $Double::compare($Double::parseDouble($($nc(value)->toString())), 0) != 0;
 	} catch ($NumberFormatException& ex) {
-		$var($String, var$0, $nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.boolfail"_s))))->toString());
+		$var($String, var$0, $$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.boolfail"_s))->toString());
 		$throwNew($SQLException, $($MessageFormat::format(var$0, $$new($ObjectArray, {
-			$($of($nc($($nc($of(value))->toString()))->trim())),
-			$($of($Integer::valueOf(columnIndex)))
+			$($$nc($nc(value)->toString())->trim()),
+			$($Integer::valueOf(columnIndex))
 		}))));
 	}
 	$shouldNotReachHere();
 }
 
 int8_t CachedRowSetImpl::getByte(int32_t columnIndex) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, value, nullptr);
 	checkIndex(columnIndex);
 	checkCursor();
 	setLastValueNull(false);
-	$assign(value, $nc($(getCurrentRow()))->getColumnObject(columnIndex));
+	$assign(value, $$nc(getCurrentRow())->getColumnObject(columnIndex));
 	if (value == nullptr) {
 		setLastValueNull(true);
 		return (int8_t)0;
 	}
 	try {
-		return ($nc(($($Byte::valueOf($($nc($of(value))->toString())))))->byteValue());
+		return (($($Byte::valueOf($($nc(value)->toString()))))->byteValue());
 	} catch ($NumberFormatException& ex) {
-		$var($String, var$0, $nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.bytefail"_s))))->toString());
+		$var($String, var$0, $$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.bytefail"_s))->toString());
 		$throwNew($SQLException, $($MessageFormat::format(var$0, $$new($ObjectArray, {
-			$($of($nc($($nc($of(value))->toString()))->trim())),
-			$($of($Integer::valueOf(columnIndex)))
+			$($$nc($nc(value)->toString())->trim()),
+			$($Integer::valueOf(columnIndex))
 		}))));
 	}
 	$shouldNotReachHere();
 }
 
 int16_t CachedRowSetImpl::getShort(int32_t columnIndex) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, value, nullptr);
 	checkIndex(columnIndex);
 	checkCursor();
 	setLastValueNull(false);
-	$assign(value, $nc($(getCurrentRow()))->getColumnObject(columnIndex));
+	$assign(value, $$nc(getCurrentRow())->getColumnObject(columnIndex));
 	if (value == nullptr) {
 		setLastValueNull(true);
 		return (int16_t)0;
 	}
 	try {
-		return ($nc(($($Short::valueOf($($nc($($nc($of(value))->toString()))->trim())))))->shortValue());
+		return (($($Short::valueOf($($$nc($nc(value)->toString())->trim()))))->shortValue());
 	} catch ($NumberFormatException& ex) {
-		$var($String, var$0, $nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.shortfail"_s))))->toString());
+		$var($String, var$0, $$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.shortfail"_s))->toString());
 		$throwNew($SQLException, $($MessageFormat::format(var$0, $$new($ObjectArray, {
-			$($of($nc($($nc($of(value))->toString()))->trim())),
-			$($of($Integer::valueOf(columnIndex)))
+			$($$nc($nc(value)->toString())->trim()),
+			$($Integer::valueOf(columnIndex))
 		}))));
 	}
 	$shouldNotReachHere();
 }
 
 int32_t CachedRowSetImpl::getInt(int32_t columnIndex) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, value, nullptr);
 	checkIndex(columnIndex);
 	checkCursor();
 	setLastValueNull(false);
-	$assign(value, $nc($(getCurrentRow()))->getColumnObject(columnIndex));
+	$assign(value, $$nc(getCurrentRow())->getColumnObject(columnIndex));
 	if (value == nullptr) {
 		setLastValueNull(true);
 		return 0;
 	}
 	try {
-		return ($nc(($($Integer::valueOf($($nc($($nc($of(value))->toString()))->trim())))))->intValue());
+		return (($($Integer::valueOf($($$nc($nc(value)->toString())->trim()))))->intValue());
 	} catch ($NumberFormatException& ex) {
-		$var($String, var$0, $nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.intfail"_s))))->toString());
+		$var($String, var$0, $$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.intfail"_s))->toString());
 		$throwNew($SQLException, $($MessageFormat::format(var$0, $$new($ObjectArray, {
-			$($of($nc($($nc($of(value))->toString()))->trim())),
-			$($of($Integer::valueOf(columnIndex)))
+			$($$nc($nc(value)->toString())->trim()),
+			$($Integer::valueOf(columnIndex))
 		}))));
 	}
 	$shouldNotReachHere();
 }
 
 int64_t CachedRowSetImpl::getLong(int32_t columnIndex) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, value, nullptr);
 	checkIndex(columnIndex);
 	checkCursor();
 	setLastValueNull(false);
-	$assign(value, $nc($(getCurrentRow()))->getColumnObject(columnIndex));
+	$assign(value, $$nc(getCurrentRow())->getColumnObject(columnIndex));
 	if (value == nullptr) {
 		setLastValueNull(true);
 		return (int64_t)0;
 	}
 	try {
-		return ($nc(($($Long::valueOf($($nc($($nc($of(value))->toString()))->trim())))))->longValue());
+		return (($($Long::valueOf($($$nc($nc(value)->toString())->trim()))))->longValue());
 	} catch ($NumberFormatException& ex) {
-		$var($String, var$0, $nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.longfail"_s))))->toString());
+		$var($String, var$0, $$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.longfail"_s))->toString());
 		$throwNew($SQLException, $($MessageFormat::format(var$0, $$new($ObjectArray, {
-			$($of($nc($($nc($of(value))->toString()))->trim())),
-			$($of($Integer::valueOf(columnIndex)))
+			$($$nc($nc(value)->toString())->trim()),
+			$($Integer::valueOf(columnIndex))
 		}))));
 	}
 	$shouldNotReachHere();
 }
 
 float CachedRowSetImpl::getFloat(int32_t columnIndex) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, value, nullptr);
 	checkIndex(columnIndex);
 	checkCursor();
 	setLastValueNull(false);
-	$assign(value, $nc($(getCurrentRow()))->getColumnObject(columnIndex));
+	$assign(value, $$nc(getCurrentRow())->getColumnObject(columnIndex));
 	if (value == nullptr) {
 		setLastValueNull(true);
 		return (float)0;
 	}
 	try {
-		return $Float::parseFloat($($nc($of(value))->toString()));
+		return $Float::parseFloat($($nc(value)->toString()));
 	} catch ($NumberFormatException& ex) {
-		$var($String, var$0, $nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.floatfail"_s))))->toString());
+		$var($String, var$0, $$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.floatfail"_s))->toString());
 		$throwNew($SQLException, $($MessageFormat::format(var$0, $$new($ObjectArray, {
-			$($of($nc($($nc($of(value))->toString()))->trim())),
-			$($of($Integer::valueOf(columnIndex)))
+			$($$nc($nc(value)->toString())->trim()),
+			$($Integer::valueOf(columnIndex))
 		}))));
 	}
 	$shouldNotReachHere();
 }
 
 double CachedRowSetImpl::getDouble(int32_t columnIndex) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, value, nullptr);
 	checkIndex(columnIndex);
 	checkCursor();
 	setLastValueNull(false);
-	$assign(value, $nc($(getCurrentRow()))->getColumnObject(columnIndex));
+	$assign(value, $$nc(getCurrentRow())->getColumnObject(columnIndex));
 	if (value == nullptr) {
 		setLastValueNull(true);
 		return (double)0;
 	}
 	try {
-		return $Double::parseDouble($($nc($($nc($of(value))->toString()))->trim()));
+		return $Double::parseDouble($($$nc($nc(value)->toString())->trim()));
 	} catch ($NumberFormatException& ex) {
-		$var($String, var$0, $nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.doublefail"_s))))->toString());
+		$var($String, var$0, $$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.doublefail"_s))->toString());
 		$throwNew($SQLException, $($MessageFormat::format(var$0, $$new($ObjectArray, {
-			$($of($nc($($nc($of(value))->toString()))->trim())),
-			$($of($Integer::valueOf(columnIndex)))
+			$($$nc($nc(value)->toString())->trim()),
+			$($Integer::valueOf(columnIndex))
 		}))));
 	}
 	$shouldNotReachHere();
 }
 
 $BigDecimal* CachedRowSetImpl::getBigDecimal(int32_t columnIndex, int32_t scale) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, value, nullptr);
 	$var($BigDecimal, bDecimal, nullptr);
 	$var($BigDecimal, retVal, nullptr);
 	checkIndex(columnIndex);
 	checkCursor();
 	setLastValueNull(false);
-	$assign(value, $nc($(getCurrentRow()))->getColumnObject(columnIndex));
+	$assign(value, $$nc(getCurrentRow())->getColumnObject(columnIndex));
 	if (value == nullptr) {
 		setLastValueNull(true);
 		return ($new($BigDecimal, 0));
@@ -1814,22 +1311,22 @@ $BigDecimal* CachedRowSetImpl::getBigDecimal(int32_t columnIndex, int32_t scale)
 }
 
 $bytes* CachedRowSetImpl::getBytes(int32_t columnIndex) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	checkIndex(columnIndex);
 	checkCursor();
 	if (isBinary($nc(this->RowSetMD)->getColumnType(columnIndex)) == false) {
-		$throwNew($SQLException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.dtypemismt"_s))))->toString()));
+		$throwNew($SQLException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.dtypemismt"_s))->toString()));
 	}
-	return ($cast($bytes, $nc($(getCurrentRow()))->getColumnObject(columnIndex)));
+	return $cast($bytes, $$nc(getCurrentRow())->getColumnObject(columnIndex));
 }
 
 $Date* CachedRowSetImpl::getDate(int32_t columnIndex) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, value, nullptr);
 	checkIndex(columnIndex);
 	checkCursor();
 	setLastValueNull(false);
-	$assign(value, $nc($(getCurrentRow()))->getColumnObject(columnIndex));
+	$assign(value, $$nc(getCurrentRow())->getColumnObject(columnIndex));
 	if (value == nullptr) {
 		setLastValueNull(true);
 		return nullptr;
@@ -1837,58 +1334,48 @@ $Date* CachedRowSetImpl::getDate(int32_t columnIndex) {
 	switch ($nc(this->RowSetMD)->getColumnType(columnIndex)) {
 	case $Types::DATE:
 		{
-			{
-				int64_t sec = $nc(($cast($Date, value)))->getTime();
-				return $new($Date, sec);
-			}
+			int64_t sec = $nc($cast($Date, value))->getTime();
+			return $new($Date, sec);
 		}
 	case $Types::TIMESTAMP:
 		{
-			{
-				int64_t sec = $nc(($cast($Timestamp, value)))->getTime();
-				return $new($Date, sec);
-			}
+			int64_t sec = $nc($cast($Timestamp, value))->getTime();
+			return $new($Date, sec);
 		}
 	case $Types::CHAR:
-		{}
 	case $Types::VARCHAR:
-		{}
 	case $Types::LONGVARCHAR:
 		{
-			{
-				try {
-					$var($DateFormat, df, $DateFormat::getDateInstance());
-					return (($cast($Date, $nc(df)->parse($($nc($of(value))->toString())))));
-				} catch ($ParseException& ex) {
-					$var($String, var$0, $nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.datefail"_s))))->toString());
-					$throwNew($SQLException, $($MessageFormat::format(var$0, $$new($ObjectArray, {
-						$($of($nc($($nc($of(value))->toString()))->trim())),
-						$($of($Integer::valueOf(columnIndex)))
-					}))));
-				}
+			try {
+				$var($DateFormat, df, $DateFormat::getDateInstance());
+				return $cast($Date, $nc(df)->parse($($nc(value)->toString())));
+			} catch ($ParseException& ex) {
+				$var($String, var$0, $$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.datefail"_s))->toString());
+				$throwNew($SQLException, $($MessageFormat::format(var$0, $$new($ObjectArray, {
+					$($$nc($nc(value)->toString())->trim()),
+					$($Integer::valueOf(columnIndex))
+				}))));
 			}
 		}
 	default:
 		{
-			{
-				$var($String, var$1, $nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.datefail"_s))))->toString());
-				$throwNew($SQLException, $($MessageFormat::format(var$1, $$new($ObjectArray, {
-					$($of($nc($($nc($of(value))->toString()))->trim())),
-					$($of($Integer::valueOf(columnIndex)))
-				}))));
-			}
+			$var($String, var$1, $$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.datefail"_s))->toString());
+			$throwNew($SQLException, $($MessageFormat::format(var$1, $$new($ObjectArray, {
+				$($$nc($nc(value)->toString())->trim()),
+				$($Integer::valueOf(columnIndex))
+			}))));
 		}
 	}
 	$shouldNotReachHere();
 }
 
 $Time* CachedRowSetImpl::getTime(int32_t columnIndex) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, value, nullptr);
 	checkIndex(columnIndex);
 	checkCursor();
 	setLastValueNull(false);
-	$assign(value, $nc($(getCurrentRow()))->getColumnObject(columnIndex));
+	$assign(value, $$nc(getCurrentRow())->getColumnObject(columnIndex));
 	if (value == nullptr) {
 		setLastValueNull(true);
 		return nullptr;
@@ -1896,57 +1383,47 @@ $Time* CachedRowSetImpl::getTime(int32_t columnIndex) {
 	switch ($nc(this->RowSetMD)->getColumnType(columnIndex)) {
 	case $Types::TIME:
 		{
-			{
-				return $cast($Time, value);
-			}
+			return $cast($Time, value);
 		}
 	case $Types::TIMESTAMP:
 		{
-			{
-				int64_t sec = $nc(($cast($Timestamp, value)))->getTime();
-				return $new($Time, sec);
-			}
+			int64_t sec = $nc($cast($Timestamp, value))->getTime();
+			return $new($Time, sec);
 		}
 	case $Types::CHAR:
-		{}
 	case $Types::VARCHAR:
-		{}
 	case $Types::LONGVARCHAR:
 		{
-			{
-				try {
-					$var($DateFormat, tf, $DateFormat::getTimeInstance());
-					return (($cast($Time, $nc(tf)->parse($($nc($of(value))->toString())))));
-				} catch ($ParseException& ex) {
-					$var($String, var$0, $nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.timefail"_s))))->toString());
-					$throwNew($SQLException, $($MessageFormat::format(var$0, $$new($ObjectArray, {
-						$($of($nc($($nc($of(value))->toString()))->trim())),
-						$($of($Integer::valueOf(columnIndex)))
-					}))));
-				}
+			try {
+				$var($DateFormat, tf, $DateFormat::getTimeInstance());
+				return $cast($Time, $nc(tf)->parse($($nc(value)->toString())));
+			} catch ($ParseException& ex) {
+				$var($String, var$0, $$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.timefail"_s))->toString());
+				$throwNew($SQLException, $($MessageFormat::format(var$0, $$new($ObjectArray, {
+					$($$nc($nc(value)->toString())->trim()),
+					$($Integer::valueOf(columnIndex))
+				}))));
 			}
 		}
 	default:
 		{
-			{
-				$var($String, var$1, $nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.timefail"_s))))->toString());
-				$throwNew($SQLException, $($MessageFormat::format(var$1, $$new($ObjectArray, {
-					$($of($nc($($nc($of(value))->toString()))->trim())),
-					$($of($Integer::valueOf(columnIndex)))
-				}))));
-			}
+			$var($String, var$1, $$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.timefail"_s))->toString());
+			$throwNew($SQLException, $($MessageFormat::format(var$1, $$new($ObjectArray, {
+				$($$nc($nc(value)->toString())->trim()),
+				$($Integer::valueOf(columnIndex))
+			}))));
 		}
 	}
 	$shouldNotReachHere();
 }
 
 $Timestamp* CachedRowSetImpl::getTimestamp(int32_t columnIndex) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, value, nullptr);
 	checkIndex(columnIndex);
 	checkCursor();
 	setLastValueNull(false);
-	$assign(value, $nc($(getCurrentRow()))->getColumnObject(columnIndex));
+	$assign(value, $$nc(getCurrentRow())->getColumnObject(columnIndex));
 	if (value == nullptr) {
 		setLastValueNull(true);
 		return nullptr;
@@ -1954,104 +1431,92 @@ $Timestamp* CachedRowSetImpl::getTimestamp(int32_t columnIndex) {
 	switch ($nc(this->RowSetMD)->getColumnType(columnIndex)) {
 	case $Types::TIMESTAMP:
 		{
-			{
-				return $cast($Timestamp, value);
-			}
+			return $cast($Timestamp, value);
 		}
 	case $Types::TIME:
 		{
-			{
-				int64_t sec = $nc(($cast($Time, value)))->getTime();
-				return $new($Timestamp, sec);
-			}
+			int64_t sec = $nc($cast($Time, value))->getTime();
+			return $new($Timestamp, sec);
 		}
 	case $Types::DATE:
 		{
-			{
-				int64_t sec = $nc(($cast($Date, value)))->getTime();
-				return $new($Timestamp, sec);
-			}
+			int64_t sec = $nc($cast($Date, value))->getTime();
+			return $new($Timestamp, sec);
 		}
 	case $Types::CHAR:
-		{}
 	case $Types::VARCHAR:
-		{}
 	case $Types::LONGVARCHAR:
 		{
-			{
-				try {
-					$var($DateFormat, tf, $DateFormat::getTimeInstance());
-					return (($cast($Timestamp, $nc(tf)->parse($($nc($of(value))->toString())))));
-				} catch ($ParseException& ex) {
-					$var($String, var$0, $nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.timefail"_s))))->toString());
-					$throwNew($SQLException, $($MessageFormat::format(var$0, $$new($ObjectArray, {
-						$($of($nc($($nc($of(value))->toString()))->trim())),
-						$($of($Integer::valueOf(columnIndex)))
-					}))));
-				}
+			try {
+				$var($DateFormat, tf, $DateFormat::getTimeInstance());
+				return $cast($Timestamp, $nc(tf)->parse($($nc(value)->toString())));
+			} catch ($ParseException& ex) {
+				$var($String, var$0, $$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.timefail"_s))->toString());
+				$throwNew($SQLException, $($MessageFormat::format(var$0, $$new($ObjectArray, {
+					$($$nc($nc(value)->toString())->trim()),
+					$($Integer::valueOf(columnIndex))
+				}))));
 			}
 		}
 	default:
 		{
-			{
-				$var($String, var$1, $nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.timefail"_s))))->toString());
-				$throwNew($SQLException, $($MessageFormat::format(var$1, $$new($ObjectArray, {
-					$($of($nc($($nc($of(value))->toString()))->trim())),
-					$($of($Integer::valueOf(columnIndex)))
-				}))));
-			}
+			$var($String, var$1, $$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.timefail"_s))->toString());
+			$throwNew($SQLException, $($MessageFormat::format(var$1, $$new($ObjectArray, {
+				$($$nc($nc(value)->toString())->trim()),
+				$($Integer::valueOf(columnIndex))
+			}))));
 		}
 	}
 	$shouldNotReachHere();
 }
 
 $InputStream* CachedRowSetImpl::getAsciiStream(int32_t columnIndex) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, value, nullptr);
 	$set(this, asciiStream, nullptr);
 	checkIndex(columnIndex);
 	checkCursor();
-	$assign(value, $nc($(getCurrentRow()))->getColumnObject(columnIndex));
+	$assign(value, $$nc(getCurrentRow())->getColumnObject(columnIndex));
 	if (value == nullptr) {
 		this->lastValueNull = true;
 		return nullptr;
 	}
 	if (isString($nc(this->RowSetMD)->getColumnType(columnIndex))) {
 		$init($StandardCharsets);
-		$set(this, asciiStream, $new($ByteArrayInputStream, $($nc(($cast($String, value)))->getBytes($StandardCharsets::US_ASCII))));
+		$set(this, asciiStream, $new($ByteArrayInputStream, $($nc($cast($String, value))->getBytes($StandardCharsets::US_ASCII))));
 	} else {
-		$throwNew($SQLException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.dtypemismt"_s))))->toString()));
+		$throwNew($SQLException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.dtypemismt"_s))->toString()));
 	}
 	return this->asciiStream;
 }
 
 $InputStream* CachedRowSetImpl::getUnicodeStream(int32_t columnIndex) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, unicodeStream, nullptr);
 	checkIndex(columnIndex);
 	checkCursor();
 	bool var$0 = isBinary($nc(this->RowSetMD)->getColumnType(columnIndex)) == false;
-	if (var$0 && isString($nc(this->RowSetMD)->getColumnType(columnIndex)) == false) {
-		$throwNew($SQLException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.dtypemismt"_s))))->toString()));
+	if (var$0 && isString(this->RowSetMD->getColumnType(columnIndex)) == false) {
+		$throwNew($SQLException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.dtypemismt"_s))->toString()));
 	}
-	$var($Object, value, $nc($(getCurrentRow()))->getColumnObject(columnIndex));
+	$var($Object, value, $$nc(getCurrentRow())->getColumnObject(columnIndex));
 	if (value == nullptr) {
 		this->lastValueNull = true;
 		return nullptr;
 	}
-	$set(this, unicodeStream, $new($StringBufferInputStream, $($nc($of(value))->toString())));
+	$set(this, unicodeStream, $new($StringBufferInputStream, $($nc(value)->toString())));
 	return this->unicodeStream;
 }
 
 $InputStream* CachedRowSetImpl::getBinaryStream(int32_t columnIndex) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, binaryStream, nullptr);
 	checkIndex(columnIndex);
 	checkCursor();
 	if (isBinary($nc(this->RowSetMD)->getColumnType(columnIndex)) == false) {
-		$throwNew($SQLException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.dtypemismt"_s))))->toString()));
+		$throwNew($SQLException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.dtypemismt"_s))->toString()));
 	}
-	$var($Object, value, $nc($(getCurrentRow()))->getColumnObject(columnIndex));
+	$var($Object, value, $$nc(getCurrentRow())->getColumnObject(columnIndex));
 	if (value == nullptr) {
 		this->lastValueNull = true;
 		return nullptr;
@@ -2133,32 +1598,32 @@ void CachedRowSetImpl::clearWarnings() {
 }
 
 $String* CachedRowSetImpl::getCursorName() {
-	$useLocalCurrentObjectStackCache();
-	$throwNew($SQLException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.posupdate"_s))))->toString()));
+	$useLocalObjectStack();
+	$throwNew($SQLException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.posupdate"_s))->toString()));
 	$shouldNotReachHere();
 }
 
 $ResultSetMetaData* CachedRowSetImpl::getMetaData() {
-	return static_cast<$ResultSetMetaData*>(this->RowSetMD);
+	return $cast($ResultSetMetaData, this->RowSetMD);
 }
 
 $Object* CachedRowSetImpl::getObject(int32_t columnIndex) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$var($Object, value, nullptr);
 	$var($Map, map, nullptr);
 	checkIndex(columnIndex);
 	checkCursor();
 	setLastValueNull(false);
-	$assign(value, $nc($(getCurrentRow()))->getColumnObject(columnIndex));
+	$assign(value, $$nc(getCurrentRow())->getColumnObject(columnIndex));
 	if (value == nullptr) {
 		setLastValueNull(true);
-		return $of(nullptr);
+		return nullptr;
 	}
 	if ($instanceOf($Struct, value)) {
 		$var($Struct, s, $cast($Struct, value));
 		$assign(map, getTypeMap());
-		$Class* c = $cast($Class, $nc(map)->get($($nc(s)->getSQLTypeName())));
+		$Class* c = $cast($Class, $nc(map)->get($(s->getSQLTypeName())));
 		if (c != nullptr) {
 			$var($SQLData, obj, nullptr);
 			try {
@@ -2166,19 +1631,19 @@ $Object* CachedRowSetImpl::getObject(int32_t columnIndex) {
 				$var($Object, tmp, c->newInstance());
 				$assign(obj, $cast($SQLData, tmp));
 			} catch ($Exception& ex) {
-				$throwNew($SQLException, "Unable to Instantiate: "_s, static_cast<$Throwable*>(ex));
+				$throwNew($SQLException, "Unable to Instantiate: "_s, ex);
 			}
-			$var($ObjectArray, attribs, $nc(s)->getAttributes(map));
+			$var($ObjectArray, attribs, s->getAttributes(map));
 			$var($SQLInputImpl, sqlInput, $new($SQLInputImpl, attribs, map));
 			$nc(obj)->readSQL(sqlInput, $(s->getSQLTypeName()));
-			return $of($of(obj));
+			return $of(obj);
 		}
 	}
-	return $of(value);
+	return value;
 }
 
 $Object* CachedRowSetImpl::getObject($String* columnName) {
-	return $of(getObject(getColIdxByName(columnName)));
+	return getObject(getColIdxByName(columnName));
 }
 
 int32_t CachedRowSetImpl::findColumn($String* columnName) {
@@ -2186,25 +1651,25 @@ int32_t CachedRowSetImpl::findColumn($String* columnName) {
 }
 
 $Reader* CachedRowSetImpl::getCharacterStream(int32_t columnIndex) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	checkIndex(columnIndex);
 	checkCursor();
 	if (isBinary($nc(this->RowSetMD)->getColumnType(columnIndex))) {
-		$var($Object, value, $nc($(getCurrentRow()))->getColumnObject(columnIndex));
+		$var($Object, value, $$nc(getCurrentRow())->getColumnObject(columnIndex));
 		if (value == nullptr) {
 			this->lastValueNull = true;
 			return nullptr;
 		}
 		$set(this, charStream, $new($InputStreamReader, $$new($ByteArrayInputStream, $cast($bytes, value))));
 	} else if (isString($nc(this->RowSetMD)->getColumnType(columnIndex))) {
-		$var($Object, value, $nc($(getCurrentRow()))->getColumnObject(columnIndex));
+		$var($Object, value, $$nc(getCurrentRow())->getColumnObject(columnIndex));
 		if (value == nullptr) {
 			this->lastValueNull = true;
 			return nullptr;
 		}
-		$set(this, charStream, $new($StringReader, $($nc($of(value))->toString())));
+		$set(this, charStream, $new($StringReader, $($nc(value)->toString())));
 	} else {
-		$throwNew($SQLException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.dtypemismt"_s))))->toString()));
+		$throwNew($SQLException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.dtypemismt"_s))->toString()));
 	}
 	return this->charStream;
 }
@@ -2214,23 +1679,23 @@ $Reader* CachedRowSetImpl::getCharacterStream($String* columnName) {
 }
 
 $BigDecimal* CachedRowSetImpl::getBigDecimal(int32_t columnIndex) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, value, nullptr);
 	checkIndex(columnIndex);
 	checkCursor();
 	setLastValueNull(false);
-	$assign(value, $nc($(getCurrentRow()))->getColumnObject(columnIndex));
+	$assign(value, $$nc(getCurrentRow())->getColumnObject(columnIndex));
 	if (value == nullptr) {
 		setLastValueNull(true);
 		return nullptr;
 	}
 	try {
-		return ($new($BigDecimal, $($nc($($nc($of(value))->toString()))->trim())));
+		return ($new($BigDecimal, $($$nc($nc(value)->toString())->trim())));
 	} catch ($NumberFormatException& ex) {
-		$var($String, var$0, $nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.doublefail"_s))))->toString());
+		$var($String, var$0, $$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.doublefail"_s))->toString());
 		$throwNew($SQLException, $($MessageFormat::format(var$0, $$new($ObjectArray, {
-			$($of($nc($($nc($of(value))->toString()))->trim())),
-			$($of($Integer::valueOf(columnIndex)))
+			$($$nc($nc(value)->toString())->trim()),
+			$($Integer::valueOf(columnIndex))
 		}))));
 	}
 	$shouldNotReachHere();
@@ -2291,9 +1756,9 @@ bool CachedRowSetImpl::isLast() {
 }
 
 void CachedRowSetImpl::beforeFirst() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (getType() == $ResultSet::TYPE_FORWARD_ONLY) {
-		$throwNew($SQLException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.beforefirst"_s))))->toString()));
+		$throwNew($SQLException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.beforefirst"_s))->toString()));
 	}
 	this->cursorPos = 0;
 	this->absolutePos = 0;
@@ -2309,9 +1774,9 @@ void CachedRowSetImpl::afterLast() {
 }
 
 bool CachedRowSetImpl::first() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (getType() == $ResultSet::TYPE_FORWARD_ONLY) {
-		$throwNew($SQLException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.first"_s))))->toString()));
+		$throwNew($SQLException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.first"_s))->toString()));
 	}
 	bool ret = this->internalFirst();
 	notifyCursorMoved();
@@ -2322,7 +1787,7 @@ bool CachedRowSetImpl::internalFirst() {
 	bool ret = false;
 	if (this->numRows > 0) {
 		this->cursorPos = 1;
-		bool var$0 = (getShowDeleted() == false);
+		bool var$0 = getShowDeleted() == false;
 		if (var$0 && (rowDeleted() == true)) {
 			ret = internalNext();
 		} else {
@@ -2338,9 +1803,9 @@ bool CachedRowSetImpl::internalFirst() {
 }
 
 bool CachedRowSetImpl::last() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (getType() == $ResultSet::TYPE_FORWARD_ONLY) {
-		$throwNew($SQLException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.last"_s))))->toString()));
+		$throwNew($SQLException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.last"_s))->toString()));
 	}
 	bool ret = this->internalLast();
 	notifyCursorMoved();
@@ -2351,7 +1816,7 @@ bool CachedRowSetImpl::internalLast() {
 	bool ret = false;
 	if (this->numRows > 0) {
 		this->cursorPos = this->numRows;
-		bool var$0 = (getShowDeleted() == false);
+		bool var$0 = getShowDeleted() == false;
 		if (var$0 && (rowDeleted() == true)) {
 			ret = internalPrevious();
 		} else {
@@ -2370,7 +1835,7 @@ int32_t CachedRowSetImpl::getRow() {
 	bool var$0 = this->numRows > 0 && this->cursorPos > 0 && this->cursorPos < (this->numRows + 1);
 	if (var$0) {
 		bool var$1 = getShowDeleted() == false;
-		var$0 = (var$1 && rowDeleted() == false);
+		var$0 = var$1 && rowDeleted() == false;
 	}
 	if (var$0) {
 		return this->absolutePos;
@@ -2382,9 +1847,9 @@ int32_t CachedRowSetImpl::getRow() {
 }
 
 bool CachedRowSetImpl::absolute(int32_t row) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (row == 0 || getType() == $ResultSet::TYPE_FORWARD_ONLY) {
-		$throwNew($SQLException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.absolute"_s))))->toString()));
+		$throwNew($SQLException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.absolute"_s))->toString()));
 	}
 	if (row > 0) {
 		if (row > this->numRows) {
@@ -2418,11 +1883,11 @@ bool CachedRowSetImpl::absolute(int32_t row) {
 }
 
 bool CachedRowSetImpl::relative(int32_t rows) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool var$1 = this->numRows == 0 || isBeforeFirst();
 	bool var$0 = var$1 || isAfterLast();
 	if (var$0 || getType() == $ResultSet::TYPE_FORWARD_ONLY) {
-		$throwNew($SQLException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.relative"_s))))->toString()));
+		$throwNew($SQLException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.relative"_s))->toString()));
 	}
 	if (rows == 0) {
 		return true;
@@ -2456,12 +1921,12 @@ bool CachedRowSetImpl::relative(int32_t rows) {
 }
 
 bool CachedRowSetImpl::previous() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (getType() == $ResultSet::TYPE_FORWARD_ONLY) {
-		$throwNew($SQLException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.last"_s))))->toString()));
+		$throwNew($SQLException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.last"_s))->toString()));
 	}
 	if (this->cursorPos < 0 || this->cursorPos > this->numRows + 1) {
-		$throwNew($SQLException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.invalidcp"_s))))->toString()));
+		$throwNew($SQLException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.invalidcp"_s))->toString()));
 	}
 	bool ret = this->internalPrevious();
 	notifyCursorMoved();
@@ -2480,7 +1945,7 @@ bool CachedRowSetImpl::internalPrevious() {
 			ret = false;
 			break;
 		}
-		var$0 = (getShowDeleted() == false);
+		var$0 = getShowDeleted() == false;
 	} while (var$0 && (rowDeleted() == true));
 	if (ret == true) {
 		--this->absolutePos;
@@ -2491,21 +1956,21 @@ bool CachedRowSetImpl::internalPrevious() {
 }
 
 bool CachedRowSetImpl::rowUpdated() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	checkCursor();
 	if (this->onInsertRow == true) {
-		$throwNew($SQLException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.invalidop"_s))))->toString()));
+		$throwNew($SQLException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.invalidop"_s))->toString()));
 	}
-	return ($nc(($cast($Row, $(getCurrentRow()))))->getUpdated());
+	return ($$sure($Row, getCurrentRow())->getUpdated());
 }
 
 bool CachedRowSetImpl::columnUpdated(int32_t idx) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	checkCursor();
 	if (this->onInsertRow == true) {
-		$throwNew($SQLException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.invalidop"_s))))->toString()));
+		$throwNew($SQLException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.invalidop"_s))->toString()));
 	}
-	return ($nc(($cast($Row, $(getCurrentRow()))))->getColUpdated(idx - 1));
+	return ($$sure($Row, getCurrentRow())->getColUpdated(idx - 1));
 }
 
 bool CachedRowSetImpl::columnUpdated($String* columnName) {
@@ -2513,282 +1978,200 @@ bool CachedRowSetImpl::columnUpdated($String* columnName) {
 }
 
 bool CachedRowSetImpl::rowInserted() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	checkCursor();
 	if (this->onInsertRow == true) {
-		$throwNew($SQLException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.invalidop"_s))))->toString()));
+		$throwNew($SQLException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.invalidop"_s))->toString()));
 	}
-	return ($nc(($cast($Row, $(getCurrentRow()))))->getInserted());
+	return ($$sure($Row, getCurrentRow())->getInserted());
 }
 
 bool CachedRowSetImpl::rowDeleted() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool var$0 = isAfterLast() == true;
 	if (var$0 || isBeforeFirst() == true || this->onInsertRow == true) {
-		$throwNew($SQLException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.invalidcp"_s))))->toString()));
+		$throwNew($SQLException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.invalidcp"_s))->toString()));
 	}
-	return ($nc(($cast($Row, $(getCurrentRow()))))->getDeleted());
+	return ($$sure($Row, getCurrentRow())->getDeleted());
 }
 
 bool CachedRowSetImpl::isNumeric(int32_t type) {
 	switch (type) {
 	case $Types::NUMERIC:
-		{}
 	case $Types::DECIMAL:
-		{}
 	case $Types::BIT:
-		{}
 	case $Types::TINYINT:
-		{}
 	case $Types::SMALLINT:
-		{}
 	case $Types::INTEGER:
-		{}
 	case $Types::BIGINT:
-		{}
 	case $Types::REAL:
-		{}
 	case $Types::DOUBLE:
-		{}
 	case $Types::FLOAT:
-		{
-			return true;
-		}
+		return true;
 	default:
-		{
-			return false;
-		}
+		return false;
 	}
 }
 
 bool CachedRowSetImpl::isString(int32_t type) {
 	switch (type) {
 	case $Types::CHAR:
-		{}
 	case $Types::VARCHAR:
-		{}
 	case $Types::LONGVARCHAR:
-		{
-			return true;
-		}
+		return true;
 	default:
-		{
-			return false;
-		}
+		return false;
 	}
 }
 
 bool CachedRowSetImpl::isBinary(int32_t type) {
 	switch (type) {
 	case $Types::BINARY:
-		{}
 	case $Types::VARBINARY:
-		{}
 	case $Types::LONGVARBINARY:
-		{
-			return true;
-		}
+		return true;
 	default:
-		{
-			return false;
-		}
+		return false;
 	}
 }
 
 bool CachedRowSetImpl::isTemporal(int32_t type) {
 	switch (type) {
 	case $Types::DATE:
-		{}
 	case $Types::TIME:
-		{}
 	case $Types::TIMESTAMP:
-		{
-			return true;
-		}
+		return true;
 	default:
-		{
-			return false;
-		}
+		return false;
 	}
 }
 
 bool CachedRowSetImpl::isBoolean(int32_t type) {
 	switch (type) {
 	case $Types::BIT:
-		{}
 	case $Types::BOOLEAN:
-		{
-			return true;
-		}
+		return true;
 	default:
-		{
-			return false;
-		}
+		return false;
 	}
 }
 
 $Object* CachedRowSetImpl::convertNumeric(Object$* srcObj, int32_t srcType, int32_t trgType) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (srcType == trgType) {
 		return $of(srcObj);
 	}
 	bool var$0 = isNumeric(trgType) == false;
 	if (var$0 && isString(trgType) == false) {
-		$throwNew($SQLException, $$str({$($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.dtypemismt"_s))))->toString()), $$str(trgType)}));
+		$throwNew($SQLException, $$str({$($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.dtypemismt"_s))->toString()), $$str(trgType)}));
 	}
 	try {
-		{
-			$var($Integer, i, nullptr)
-			switch (trgType) {
-			case $Types::BIT:
-				{
-					$assign(i, $Integer::valueOf($($nc($($nc($of(srcObj))->toString()))->trim())));
-					return $of($nc(i)->equals($($Integer::valueOf(0))) ? $Boolean::valueOf(false) : $Boolean::valueOf(true));
-				}
-			case $Types::TINYINT:
-				{
-					return $of($Byte::valueOf($($nc($($nc($of(srcObj))->toString()))->trim())));
-				}
-			case $Types::SMALLINT:
-				{
-					return $of($Short::valueOf($($nc($($nc($of(srcObj))->toString()))->trim())));
-				}
-			case $Types::INTEGER:
-				{
-					return $of($Integer::valueOf($($nc($($nc($of(srcObj))->toString()))->trim())));
-				}
-			case $Types::BIGINT:
-				{
-					return $of($Long::valueOf($($nc($($nc($of(srcObj))->toString()))->trim())));
-				}
-			case $Types::NUMERIC:
-				{}
-			case $Types::DECIMAL:
-				{
-					return $of($new($BigDecimal, $($nc($($nc($of(srcObj))->toString()))->trim())));
-				}
-			case $Types::REAL:
-				{}
-			case $Types::FLOAT:
-				{
-					return $of($Float::valueOf($($nc($($nc($of(srcObj))->toString()))->trim())));
-				}
-			case $Types::DOUBLE:
-				{
-					return $of($Double::valueOf($($nc($($nc($of(srcObj))->toString()))->trim())));
-				}
-			case $Types::CHAR:
-				{}
-			case $Types::VARCHAR:
-				{}
-			case $Types::LONGVARCHAR:
-				{
-					return $of($nc($of(srcObj))->toString());
-				}
-			default:
-				{
-					$throwNew($SQLException, $$str({$($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.dtypemismt"_s))))->toString()), $$str(trgType)}));
-				}
-			}
+		$var($Integer, i, nullptr);
+		switch (trgType) {
+		case $Types::BIT:
+			$assign(i, $Integer::valueOf($($$nc($nc($of(srcObj))->toString())->trim())));
+			return $of($nc(i)->equals($($Integer::valueOf(0))) ? $Boolean::valueOf(false) : $Boolean::valueOf(true));
+		case $Types::TINYINT:
+			return $of($Byte::valueOf($($$nc($nc($of(srcObj))->toString())->trim())));
+		case $Types::SMALLINT:
+			return $of($Short::valueOf($($$nc($nc($of(srcObj))->toString())->trim())));
+		case $Types::INTEGER:
+			return $of($Integer::valueOf($($$nc($nc($of(srcObj))->toString())->trim())));
+		case $Types::BIGINT:
+			return $of($Long::valueOf($($$nc($nc($of(srcObj))->toString())->trim())));
+		case $Types::NUMERIC:
+		case $Types::DECIMAL:
+			return $of($new($BigDecimal, $($$nc($nc($of(srcObj))->toString())->trim())));
+		case $Types::REAL:
+		case $Types::FLOAT:
+			return $of($Float::valueOf($($$nc($nc($of(srcObj))->toString())->trim())));
+		case $Types::DOUBLE:
+			return $of($Double::valueOf($($$nc($nc($of(srcObj))->toString())->trim())));
+		case $Types::CHAR:
+		case $Types::VARCHAR:
+		case $Types::LONGVARCHAR:
+			return $of($nc($of(srcObj))->toString());
+		default:
+			$throwNew($SQLException, $$str({$($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.dtypemismt"_s))->toString()), $$str(trgType)}));
 		}
 	} catch ($NumberFormatException& ex) {
-		$throwNew($SQLException, $$str({$($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.dtypemismt"_s))))->toString()), $$str(trgType)}));
+		$throwNew($SQLException, $$str({$($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.dtypemismt"_s))->toString()), $$str(trgType)}));
 	}
 	$shouldNotReachHere();
 }
 
 $Object* CachedRowSetImpl::convertTemporal(Object$* srcObj, int32_t srcType, int32_t trgType) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (srcType == trgType) {
 		return $of(srcObj);
 	}
 	bool var$0 = isNumeric(trgType) == true;
 	if (!var$0) {
 		bool var$1 = isString(trgType) == false;
-		var$0 = (var$1 && isTemporal(trgType) == false);
+		var$0 = var$1 && isTemporal(trgType) == false;
 	}
 	if (var$0) {
-		$throwNew($SQLException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.dtypemismt"_s))))->toString()));
+		$throwNew($SQLException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.dtypemismt"_s))->toString()));
 	}
 	try {
 		switch (trgType) {
 		case $Types::DATE:
-			{
-				if (srcType == $Types::TIMESTAMP) {
-					return $of($new($Date, $nc(($cast($Timestamp, srcObj)))->getTime()));
-				} else {
-					$throwNew($SQLException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.dtypemismt"_s))))->toString()));
-				}
+			if (srcType == $Types::TIMESTAMP) {
+				return $of($new($Date, $nc($cast($Timestamp, srcObj))->getTime()));
+			} else {
+				$throwNew($SQLException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.dtypemismt"_s))->toString()));
 			}
 		case $Types::TIMESTAMP:
-			{
-				if (srcType == $Types::TIME) {
-					return $of($new($Timestamp, $nc(($cast($Time, srcObj)))->getTime()));
-				} else {
-					return $of($new($Timestamp, $nc(($cast($Date, srcObj)))->getTime()));
-				}
+			if (srcType == $Types::TIME) {
+				return $of($new($Timestamp, $nc($cast($Time, srcObj))->getTime()));
+			} else {
+				return $of($new($Timestamp, $nc($cast($Date, srcObj))->getTime()));
 			}
 		case $Types::TIME:
-			{
-				if (srcType == $Types::TIMESTAMP) {
-					return $of($new($Time, $nc(($cast($Timestamp, srcObj)))->getTime()));
-				} else {
-					$throwNew($SQLException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.dtypemismt"_s))))->toString()));
-				}
+			if (srcType == $Types::TIMESTAMP) {
+				return $of($new($Time, $nc($cast($Timestamp, srcObj))->getTime()));
+			} else {
+				$throwNew($SQLException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.dtypemismt"_s))->toString()));
 			}
 		case $Types::CHAR:
-			{}
 		case $Types::VARCHAR:
-			{}
 		case $Types::LONGVARCHAR:
-			{
-				return $of($nc($of(srcObj))->toString());
-			}
+			return $of($nc($of(srcObj))->toString());
 		default:
-			{
-				$throwNew($SQLException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.dtypemismt"_s))))->toString()));
-			}
+			$throwNew($SQLException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.dtypemismt"_s))->toString()));
 		}
 	} catch ($NumberFormatException& ex) {
-		$throwNew($SQLException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.dtypemismt"_s))))->toString()));
+		$throwNew($SQLException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.dtypemismt"_s))->toString()));
 	}
 	$shouldNotReachHere();
 }
 
 $Object* CachedRowSetImpl::convertBoolean(Object$* srcObj, int32_t srcType, int32_t trgType) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (srcType == trgType) {
 		return $of(srcObj);
 	}
 	bool var$0 = isNumeric(trgType) == true;
 	if (!var$0) {
 		bool var$1 = isString(trgType) == false;
-		var$0 = (var$1 && isBoolean(trgType) == false);
+		var$0 = var$1 && isBoolean(trgType) == false;
 	}
 	if (var$0) {
-		$throwNew($SQLException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.dtypemismt"_s))))->toString()));
+		$throwNew($SQLException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.dtypemismt"_s))->toString()));
 	}
 	try {
-		{
-			$var($Integer, i, nullptr)
-			switch (trgType) {
-			case $Types::BIT:
-				{
-					$assign(i, $Integer::valueOf($($nc($($nc($of(srcObj))->toString()))->trim())));
-					return $of($nc(i)->equals($($Integer::valueOf(0))) ? $Boolean::valueOf(false) : $Boolean::valueOf(true));
-				}
-			case $Types::BOOLEAN:
-				{
-					return $of($Boolean::valueOf($($nc($($nc($of(srcObj))->toString()))->trim())));
-				}
-			default:
-				{
-					$throwNew($SQLException, $$str({$($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.dtypemismt"_s))))->toString()), $$str(trgType)}));
-				}
-			}
+		$var($Integer, i, nullptr);
+		switch (trgType) {
+		case $Types::BIT:
+			$assign(i, $Integer::valueOf($($$nc($nc($of(srcObj))->toString())->trim())));
+			return $of($nc(i)->equals($($Integer::valueOf(0))) ? $Boolean::valueOf(false) : $Boolean::valueOf(true));
+		case $Types::BOOLEAN:
+			return $of($Boolean::valueOf($($$nc($nc($of(srcObj))->toString())->trim())));
+		default:
+			$throwNew($SQLException, $$str({$($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.dtypemismt"_s))->toString()), $$str(trgType)}));
 		}
 	} catch ($NumberFormatException& ex) {
-		$throwNew($SQLException, $$str({$($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.dtypemismt"_s))))->toString()), $$str(trgType)}));
+		$throwNew($SQLException, $$str({$($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.dtypemismt"_s))->toString()), $$str(trgType)}));
 	}
 	$shouldNotReachHere();
 }
@@ -2801,123 +2184,123 @@ void CachedRowSetImpl::updateNull(int32_t columnIndex) {
 }
 
 void CachedRowSetImpl::updateBoolean(int32_t columnIndex, bool x) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	checkIndex(columnIndex);
 	checkCursor();
-	$var($Object, var$0, $of($Boolean::valueOf(x)));
+	$var($Object, var$0, $Boolean::valueOf(x));
 	$var($Object, obj, convertBoolean(var$0, $Types::BIT, $nc(this->RowSetMD)->getColumnType(columnIndex)));
-	$nc($(getCurrentRow()))->setColumnObject(columnIndex, obj);
+	$$nc(getCurrentRow())->setColumnObject(columnIndex, obj);
 }
 
 void CachedRowSetImpl::updateByte(int32_t columnIndex, int8_t x) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	checkIndex(columnIndex);
 	checkCursor();
-	$var($Object, var$0, $of($Byte::valueOf(x)));
+	$var($Object, var$0, $Byte::valueOf(x));
 	$var($Object, obj, convertNumeric(var$0, $Types::TINYINT, $nc(this->RowSetMD)->getColumnType(columnIndex)));
-	$nc($(getCurrentRow()))->setColumnObject(columnIndex, obj);
+	$$nc(getCurrentRow())->setColumnObject(columnIndex, obj);
 }
 
 void CachedRowSetImpl::updateShort(int32_t columnIndex, int16_t x) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	checkIndex(columnIndex);
 	checkCursor();
-	$var($Object, var$0, $of($Short::valueOf(x)));
+	$var($Object, var$0, $Short::valueOf(x));
 	$var($Object, obj, convertNumeric(var$0, $Types::SMALLINT, $nc(this->RowSetMD)->getColumnType(columnIndex)));
-	$nc($(getCurrentRow()))->setColumnObject(columnIndex, obj);
+	$$nc(getCurrentRow())->setColumnObject(columnIndex, obj);
 }
 
 void CachedRowSetImpl::updateInt(int32_t columnIndex, int32_t x) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	checkIndex(columnIndex);
 	checkCursor();
-	$var($Object, var$0, $of($Integer::valueOf(x)));
+	$var($Object, var$0, $Integer::valueOf(x));
 	$var($Object, obj, convertNumeric(var$0, $Types::INTEGER, $nc(this->RowSetMD)->getColumnType(columnIndex)));
-	$nc($(getCurrentRow()))->setColumnObject(columnIndex, obj);
+	$$nc(getCurrentRow())->setColumnObject(columnIndex, obj);
 }
 
 void CachedRowSetImpl::updateLong(int32_t columnIndex, int64_t x) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	checkIndex(columnIndex);
 	checkCursor();
-	$var($Object, var$0, $of($Long::valueOf(x)));
+	$var($Object, var$0, $Long::valueOf(x));
 	$var($Object, obj, convertNumeric(var$0, $Types::BIGINT, $nc(this->RowSetMD)->getColumnType(columnIndex)));
-	$nc($(getCurrentRow()))->setColumnObject(columnIndex, obj);
+	$$nc(getCurrentRow())->setColumnObject(columnIndex, obj);
 }
 
 void CachedRowSetImpl::updateFloat(int32_t columnIndex, float x) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	checkIndex(columnIndex);
 	checkCursor();
-	$var($Object, var$0, $of($Float::valueOf(x)));
+	$var($Object, var$0, $Float::valueOf(x));
 	$var($Object, obj, convertNumeric(var$0, $Types::REAL, $nc(this->RowSetMD)->getColumnType(columnIndex)));
-	$nc($(getCurrentRow()))->setColumnObject(columnIndex, obj);
+	$$nc(getCurrentRow())->setColumnObject(columnIndex, obj);
 }
 
 void CachedRowSetImpl::updateDouble(int32_t columnIndex, double x) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	checkIndex(columnIndex);
 	checkCursor();
-	$var($Object, var$0, $of($Double::valueOf(x)));
+	$var($Object, var$0, $Double::valueOf(x));
 	$var($Object, obj, convertNumeric(var$0, $Types::DOUBLE, $nc(this->RowSetMD)->getColumnType(columnIndex)));
-	$nc($(getCurrentRow()))->setColumnObject(columnIndex, obj);
+	$$nc(getCurrentRow())->setColumnObject(columnIndex, obj);
 }
 
 void CachedRowSetImpl::updateBigDecimal(int32_t columnIndex, $BigDecimal* x) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	checkIndex(columnIndex);
 	checkCursor();
 	$var($Object, obj, convertNumeric(x, $Types::NUMERIC, $nc(this->RowSetMD)->getColumnType(columnIndex)));
-	$nc($(getCurrentRow()))->setColumnObject(columnIndex, obj);
+	$$nc(getCurrentRow())->setColumnObject(columnIndex, obj);
 }
 
 void CachedRowSetImpl::updateString(int32_t columnIndex, $String* x) {
 	checkIndex(columnIndex);
 	checkCursor();
-	$nc($(getCurrentRow()))->setColumnObject(columnIndex, x);
+	$$nc(getCurrentRow())->setColumnObject(columnIndex, x);
 }
 
 void CachedRowSetImpl::updateBytes(int32_t columnIndex, $bytes* x) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	checkIndex(columnIndex);
 	checkCursor();
 	if (isBinary($nc(this->RowSetMD)->getColumnType(columnIndex)) == false) {
-		$throwNew($SQLException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.dtypemismt"_s))))->toString()));
+		$throwNew($SQLException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.dtypemismt"_s))->toString()));
 	}
-	$nc($(getCurrentRow()))->setColumnObject(columnIndex, x);
+	$$nc(getCurrentRow())->setColumnObject(columnIndex, x);
 }
 
 void CachedRowSetImpl::updateDate(int32_t columnIndex, $Date* x) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	checkIndex(columnIndex);
 	checkCursor();
 	$var($Object, obj, convertTemporal(x, $Types::DATE, $nc(this->RowSetMD)->getColumnType(columnIndex)));
-	$nc($(getCurrentRow()))->setColumnObject(columnIndex, obj);
+	$$nc(getCurrentRow())->setColumnObject(columnIndex, obj);
 }
 
 void CachedRowSetImpl::updateTime(int32_t columnIndex, $Time* x) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	checkIndex(columnIndex);
 	checkCursor();
 	$var($Object, obj, convertTemporal(x, $Types::TIME, $nc(this->RowSetMD)->getColumnType(columnIndex)));
-	$nc($(getCurrentRow()))->setColumnObject(columnIndex, obj);
+	$$nc(getCurrentRow())->setColumnObject(columnIndex, obj);
 }
 
 void CachedRowSetImpl::updateTimestamp(int32_t columnIndex, $Timestamp* x) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	checkIndex(columnIndex);
 	checkCursor();
 	$var($Object, obj, convertTemporal(x, $Types::TIMESTAMP, $nc(this->RowSetMD)->getColumnType(columnIndex)));
-	$nc($(getCurrentRow()))->setColumnObject(columnIndex, obj);
+	$$nc(getCurrentRow())->setColumnObject(columnIndex, obj);
 }
 
 void CachedRowSetImpl::updateAsciiStream(int32_t columnIndex, $InputStream* x, int32_t length) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	checkIndex(columnIndex);
 	checkCursor();
 	bool var$0 = isString($nc(this->RowSetMD)->getColumnType(columnIndex)) == false;
-	if (var$0 && isBinary($nc(this->RowSetMD)->getColumnType(columnIndex)) == false) {
-		$throwNew($SQLException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.dtypemismt"_s))))->toString()));
+	if (var$0 && isBinary(this->RowSetMD->getColumnType(columnIndex)) == false) {
+		$throwNew($SQLException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.dtypemismt"_s))->toString()));
 	}
 	$var($bytes, buf, $new($bytes, length));
 	try {
@@ -2926,18 +2309,18 @@ void CachedRowSetImpl::updateAsciiStream(int32_t columnIndex, $InputStream* x, i
 			charsRead += $nc(x)->read(buf, charsRead, length - charsRead);
 		} while (charsRead != length);
 	} catch ($IOException& ex) {
-		$throwNew($SQLException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.asciistream"_s))))->toString()));
+		$throwNew($SQLException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.asciistream"_s))->toString()));
 	}
 	$var($String, str, $new($String, buf));
-	$nc($(getCurrentRow()))->setColumnObject(columnIndex, str);
+	$$nc(getCurrentRow())->setColumnObject(columnIndex, str);
 }
 
 void CachedRowSetImpl::updateBinaryStream(int32_t columnIndex, $InputStream* x, int32_t length) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	checkIndex(columnIndex);
 	checkCursor();
 	if (isBinary($nc(this->RowSetMD)->getColumnType(columnIndex)) == false) {
-		$throwNew($SQLException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.dtypemismt"_s))))->toString()));
+		$throwNew($SQLException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.dtypemismt"_s))->toString()));
 	}
 	$var($bytes, buf, $new($bytes, length));
 	try {
@@ -2946,18 +2329,18 @@ void CachedRowSetImpl::updateBinaryStream(int32_t columnIndex, $InputStream* x, 
 			bytesRead += $nc(x)->read(buf, bytesRead, length - bytesRead);
 		} while (bytesRead != -1);
 	} catch ($IOException& ex) {
-		$throwNew($SQLException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.binstream"_s))))->toString()));
+		$throwNew($SQLException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.binstream"_s))->toString()));
 	}
-	$nc($(getCurrentRow()))->setColumnObject(columnIndex, buf);
+	$$nc(getCurrentRow())->setColumnObject(columnIndex, buf);
 }
 
 void CachedRowSetImpl::updateCharacterStream(int32_t columnIndex, $Reader* x, int32_t length) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	checkIndex(columnIndex);
 	checkCursor();
 	bool var$0 = isString($nc(this->RowSetMD)->getColumnType(columnIndex)) == false;
-	if (var$0 && isBinary($nc(this->RowSetMD)->getColumnType(columnIndex)) == false) {
-		$throwNew($SQLException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.dtypemismt"_s))))->toString()));
+	if (var$0 && isBinary(this->RowSetMD->getColumnType(columnIndex)) == false) {
+		$throwNew($SQLException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.dtypemismt"_s))->toString()));
 	}
 	$var($chars, buf, $new($chars, length));
 	try {
@@ -2966,10 +2349,10 @@ void CachedRowSetImpl::updateCharacterStream(int32_t columnIndex, $Reader* x, in
 			charsRead += $nc(x)->read(buf, charsRead, length - charsRead);
 		} while (charsRead != length);
 	} catch ($IOException& ex) {
-		$throwNew($SQLException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.binstream"_s))))->toString()));
+		$throwNew($SQLException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.binstream"_s))->toString()));
 	}
 	$var($String, str, $new($String, buf));
-	$nc($(getCurrentRow()))->setColumnObject(columnIndex, str);
+	$$nc(getCurrentRow())->setColumnObject(columnIndex, str);
 }
 
 void CachedRowSetImpl::updateObject(int32_t columnIndex, Object$* x, int32_t scale) {
@@ -2977,15 +2360,15 @@ void CachedRowSetImpl::updateObject(int32_t columnIndex, Object$* x, int32_t sca
 	checkCursor();
 	int32_t type = $nc(this->RowSetMD)->getColumnType(columnIndex);
 	if (type == $Types::DECIMAL || type == $Types::NUMERIC) {
-		$nc(($cast($BigDecimal, x)))->setScale(scale);
+		$nc($cast($BigDecimal, x))->setScale(scale);
 	}
-	$nc($(getCurrentRow()))->setColumnObject(columnIndex, x);
+	$$nc(getCurrentRow())->setColumnObject(columnIndex, x);
 }
 
 void CachedRowSetImpl::updateObject(int32_t columnIndex, Object$* x) {
 	checkIndex(columnIndex);
 	checkCursor();
-	$nc($(getCurrentRow()))->setColumnObject(columnIndex, x);
+	$$nc(getCurrentRow())->setColumnObject(columnIndex, x);
 }
 
 void CachedRowSetImpl::updateNull($String* columnName) {
@@ -3065,10 +2448,10 @@ void CachedRowSetImpl::updateObject($String* columnName, Object$* x) {
 }
 
 void CachedRowSetImpl::insertRow() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t pos = 0;
 	if (this->onInsertRow == false || $nc(this->insertRow$)->isCompleteRow(this->RowSetMD) == false) {
-		$throwNew($SQLException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.failedins"_s))))->toString()));
+		$throwNew($SQLException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.failedins"_s))->toString()));
 	}
 	$var($ObjectArray, toInsert, getParams());
 	for (int32_t i = 0; i < $nc(toInsert)->length; ++i) {
@@ -3088,36 +2471,36 @@ void CachedRowSetImpl::insertRow() {
 }
 
 void CachedRowSetImpl::updateRow() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->onInsertRow == true) {
-		$throwNew($SQLException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.updateins"_s))))->toString()));
+		$throwNew($SQLException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.updateins"_s))->toString()));
 	}
-	$nc(($cast($Row, $(getCurrentRow()))))->setUpdated();
+	$$sure($Row, getCurrentRow())->setUpdated();
 	notifyRowChanged();
 }
 
 void CachedRowSetImpl::deleteRow() {
 	checkCursor();
-	$nc(($cast($Row, $(getCurrentRow()))))->setDeleted();
+	$$sure($Row, getCurrentRow())->setDeleted();
 	++this->numDeleted;
 	notifyRowChanged();
 }
 
 void CachedRowSetImpl::refreshRow() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	checkCursor();
 	if (this->onInsertRow == true) {
-		$throwNew($SQLException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.invalidcp"_s))))->toString()));
+		$throwNew($SQLException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.invalidcp"_s))->toString()));
 	}
 	$var($Row, currentRow, $cast($Row, getCurrentRow()));
 	$nc(currentRow)->clearUpdated();
 }
 
 void CachedRowSetImpl::cancelRowUpdates() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	checkCursor();
 	if (this->onInsertRow == true) {
-		$throwNew($SQLException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.invalidcp"_s))))->toString()));
+		$throwNew($SQLException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.invalidcp"_s))->toString()));
 	}
 	$var($Row, currentRow, $cast($Row, getCurrentRow()));
 	if ($nc(currentRow)->getUpdated() == true) {
@@ -3127,19 +2510,19 @@ void CachedRowSetImpl::cancelRowUpdates() {
 }
 
 void CachedRowSetImpl::moveToInsertRow() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (getConcurrency() == $ResultSet::CONCUR_READ_ONLY) {
-		$throwNew($SQLException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.movetoins"_s))))->toString()));
+		$throwNew($SQLException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.movetoins"_s))->toString()));
 	}
 	if (this->insertRow$ == nullptr) {
 		if (this->RowSetMD == nullptr) {
-			$throwNew($SQLException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.movetoins1"_s))))->toString()));
+			$throwNew($SQLException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.movetoins1"_s))->toString()));
 		}
 		int32_t numCols = $nc(this->RowSetMD)->getColumnCount();
 		if (numCols > 0) {
 			$set(this, insertRow$, $new($InsertRow, numCols));
 		} else {
-			$throwNew($SQLException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.movetoins2"_s))))->toString()));
+			$throwNew($SQLException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.movetoins2"_s))->toString()));
 		}
 	}
 	this->onInsertRow = true;
@@ -3162,20 +2545,20 @@ $Statement* CachedRowSetImpl::getStatement() {
 }
 
 $Object* CachedRowSetImpl::getObject(int32_t columnIndex, $Map* map) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$var($Object, value, nullptr);
 	checkIndex(columnIndex);
 	checkCursor();
 	setLastValueNull(false);
-	$assign(value, $nc($(getCurrentRow()))->getColumnObject(columnIndex));
+	$assign(value, $$nc(getCurrentRow())->getColumnObject(columnIndex));
 	if (value == nullptr) {
 		setLastValueNull(true);
-		return $of(nullptr);
+		return nullptr;
 	}
 	if ($instanceOf($Struct, value)) {
 		$var($Struct, s, $cast($Struct, value));
-		$Class* c = $cast($Class, $nc(map)->get($($nc(s)->getSQLTypeName())));
+		$Class* c = $cast($Class, $nc(map)->get($(s->getSQLTypeName())));
 		if (c != nullptr) {
 			$var($SQLData, obj, nullptr);
 			try {
@@ -3183,27 +2566,27 @@ $Object* CachedRowSetImpl::getObject(int32_t columnIndex, $Map* map) {
 				$var($Object, tmp, c->newInstance());
 				$assign(obj, $cast($SQLData, tmp));
 			} catch ($Exception& ex) {
-				$throwNew($SQLException, "Unable to Instantiate: "_s, static_cast<$Throwable*>(ex));
+				$throwNew($SQLException, "Unable to Instantiate: "_s, ex);
 			}
-			$var($ObjectArray, attribs, $nc(s)->getAttributes(map));
+			$var($ObjectArray, attribs, s->getAttributes(map));
 			$var($SQLInputImpl, sqlInput, $new($SQLInputImpl, attribs, map));
 			$nc(obj)->readSQL(sqlInput, $(s->getSQLTypeName()));
-			return $of($of(obj));
+			return $of(obj);
 		}
 	}
-	return $of(value);
+	return value;
 }
 
 $Ref* CachedRowSetImpl::getRef(int32_t columnIndex) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Ref, value, nullptr);
 	checkIndex(columnIndex);
 	checkCursor();
 	if ($nc(this->RowSetMD)->getColumnType(columnIndex) != $Types::REF) {
-		$throwNew($SQLException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.dtypemismt"_s))))->toString()));
+		$throwNew($SQLException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.dtypemismt"_s))->toString()));
 	}
 	setLastValueNull(false);
-	$assign(value, ($cast($Ref, $nc($(getCurrentRow()))->getColumnObject(columnIndex))));
+	$assign(value, $cast($Ref, $$nc(getCurrentRow())->getColumnObject(columnIndex)));
 	if (value == nullptr) {
 		setLastValueNull(true);
 		return nullptr;
@@ -3212,17 +2595,17 @@ $Ref* CachedRowSetImpl::getRef(int32_t columnIndex) {
 }
 
 $Blob* CachedRowSetImpl::getBlob(int32_t columnIndex) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Blob, value, nullptr);
 	checkIndex(columnIndex);
 	checkCursor();
 	if ($nc(this->RowSetMD)->getColumnType(columnIndex) != $Types::BLOB) {
-		$var($String, var$0, $nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.type"_s))))->toString());
-		$nc($System::out)->println($($MessageFormat::format(var$0, $$new($ObjectArray, {$($of($Integer::valueOf($nc(this->RowSetMD)->getColumnType(columnIndex))))}))));
-		$throwNew($SQLException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.dtypemismt"_s))))->toString()));
+		$var($String, var$0, $$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.type"_s))->toString());
+		$nc($System::out)->println($($MessageFormat::format(var$0, $$new($ObjectArray, {$($Integer::valueOf($nc(this->RowSetMD)->getColumnType(columnIndex)))}))));
+		$throwNew($SQLException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.dtypemismt"_s))->toString()));
 	}
 	setLastValueNull(false);
-	$assign(value, ($cast($Blob, $nc($(getCurrentRow()))->getColumnObject(columnIndex))));
+	$assign(value, $cast($Blob, $$nc(getCurrentRow())->getColumnObject(columnIndex)));
 	if (value == nullptr) {
 		setLastValueNull(true);
 		return nullptr;
@@ -3231,17 +2614,17 @@ $Blob* CachedRowSetImpl::getBlob(int32_t columnIndex) {
 }
 
 $Clob* CachedRowSetImpl::getClob(int32_t columnIndex) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Clob, value, nullptr);
 	checkIndex(columnIndex);
 	checkCursor();
 	if ($nc(this->RowSetMD)->getColumnType(columnIndex) != $Types::CLOB) {
-		$var($String, var$0, $nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.type"_s))))->toString());
-		$nc($System::out)->println($($MessageFormat::format(var$0, $$new($ObjectArray, {$($of($Integer::valueOf($nc(this->RowSetMD)->getColumnType(columnIndex))))}))));
-		$throwNew($SQLException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.dtypemismt"_s))))->toString()));
+		$var($String, var$0, $$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.type"_s))->toString());
+		$nc($System::out)->println($($MessageFormat::format(var$0, $$new($ObjectArray, {$($Integer::valueOf($nc(this->RowSetMD)->getColumnType(columnIndex)))}))));
+		$throwNew($SQLException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.dtypemismt"_s))->toString()));
 	}
 	setLastValueNull(false);
-	$assign(value, ($cast($Clob, $nc($(getCurrentRow()))->getColumnObject(columnIndex))));
+	$assign(value, $cast($Clob, $$nc(getCurrentRow())->getColumnObject(columnIndex)));
 	if (value == nullptr) {
 		setLastValueNull(true);
 		return nullptr;
@@ -3250,15 +2633,15 @@ $Clob* CachedRowSetImpl::getClob(int32_t columnIndex) {
 }
 
 $1Array* CachedRowSetImpl::getArray(int32_t columnIndex) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($1Array, value, nullptr);
 	checkIndex(columnIndex);
 	checkCursor();
 	if ($nc(this->RowSetMD)->getColumnType(columnIndex) != $Types::ARRAY) {
-		$throwNew($SQLException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.dtypemismt"_s))))->toString()));
+		$throwNew($SQLException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.dtypemismt"_s))->toString()));
 	}
 	setLastValueNull(false);
-	$assign(value, ($cast($1Array, $nc($(getCurrentRow()))->getColumnObject(columnIndex))));
+	$assign(value, $cast($1Array, $$nc(getCurrentRow())->getColumnObject(columnIndex)));
 	if (value == nullptr) {
 		setLastValueNull(true);
 		return nullptr;
@@ -3267,7 +2650,7 @@ $1Array* CachedRowSetImpl::getArray(int32_t columnIndex) {
 }
 
 $Object* CachedRowSetImpl::getObject($String* columnName, $Map* map) {
-	return $of(getObject(getColIdxByName(columnName), map));
+	return getObject(getColIdxByName(columnName), map);
 }
 
 $Ref* CachedRowSetImpl::getRef($String* colName) {
@@ -3287,12 +2670,12 @@ $1Array* CachedRowSetImpl::getArray($String* colName) {
 }
 
 $Date* CachedRowSetImpl::getDate(int32_t columnIndex, $Calendar* cal) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, value, nullptr);
 	checkIndex(columnIndex);
 	checkCursor();
 	setLastValueNull(false);
-	$assign(value, $nc($(getCurrentRow()))->getColumnObject(columnIndex));
+	$assign(value, $$nc(getCurrentRow())->getColumnObject(columnIndex));
 	if (value == nullptr) {
 		setLastValueNull(true);
 		return nullptr;
@@ -3303,7 +2686,7 @@ $Date* CachedRowSetImpl::getDate(int32_t columnIndex, $Calendar* cal) {
 	$nc(cal)->set($Calendar::YEAR, defaultCal->get($Calendar::YEAR));
 	cal->set($Calendar::MONTH, defaultCal->get($Calendar::MONTH));
 	cal->set($Calendar::DAY_OF_MONTH, defaultCal->get($Calendar::DAY_OF_MONTH));
-	return $new($Date, $nc($(cal->getTime()))->getTime());
+	return $new($Date, $$nc(cal->getTime())->getTime());
 }
 
 $Date* CachedRowSetImpl::getDate($String* columnName, $Calendar* cal) {
@@ -3311,12 +2694,12 @@ $Date* CachedRowSetImpl::getDate($String* columnName, $Calendar* cal) {
 }
 
 $Time* CachedRowSetImpl::getTime(int32_t columnIndex, $Calendar* cal) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, value, nullptr);
 	checkIndex(columnIndex);
 	checkCursor();
 	setLastValueNull(false);
-	$assign(value, $nc($(getCurrentRow()))->getColumnObject(columnIndex));
+	$assign(value, $$nc(getCurrentRow())->getColumnObject(columnIndex));
 	if (value == nullptr) {
 		setLastValueNull(true);
 		return nullptr;
@@ -3327,7 +2710,7 @@ $Time* CachedRowSetImpl::getTime(int32_t columnIndex, $Calendar* cal) {
 	$nc(cal)->set($Calendar::HOUR_OF_DAY, defaultCal->get($Calendar::HOUR_OF_DAY));
 	cal->set($Calendar::MINUTE, defaultCal->get($Calendar::MINUTE));
 	cal->set($Calendar::SECOND, defaultCal->get($Calendar::SECOND));
-	return $new($Time, $nc($(cal->getTime()))->getTime());
+	return $new($Time, $$nc(cal->getTime())->getTime());
 }
 
 $Time* CachedRowSetImpl::getTime($String* columnName, $Calendar* cal) {
@@ -3335,12 +2718,12 @@ $Time* CachedRowSetImpl::getTime($String* columnName, $Calendar* cal) {
 }
 
 $Timestamp* CachedRowSetImpl::getTimestamp(int32_t columnIndex, $Calendar* cal) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, value, nullptr);
 	checkIndex(columnIndex);
 	checkCursor();
 	setLastValueNull(false);
-	$assign(value, $nc($(getCurrentRow()))->getColumnObject(columnIndex));
+	$assign(value, $$nc(getCurrentRow())->getColumnObject(columnIndex));
 	if (value == nullptr) {
 		setLastValueNull(true);
 		return nullptr;
@@ -3354,7 +2737,7 @@ $Timestamp* CachedRowSetImpl::getTimestamp(int32_t columnIndex, $Calendar* cal) 
 	cal->set($Calendar::HOUR_OF_DAY, defaultCal->get($Calendar::HOUR_OF_DAY));
 	cal->set($Calendar::MINUTE, defaultCal->get($Calendar::MINUTE));
 	cal->set($Calendar::SECOND, defaultCal->get($Calendar::SECOND));
-	return $new($Timestamp, $nc($(cal->getTime()))->getTime());
+	return $new($Timestamp, $$nc(cal->getTime())->getTime());
 }
 
 $Timestamp* CachedRowSetImpl::getTimestamp($String* columnName, $Calendar* cal) {
@@ -3370,7 +2753,7 @@ void CachedRowSetImpl::setMetaData($RowSetMetaData* md) {
 }
 
 $ResultSet* CachedRowSetImpl::getOriginal() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(CachedRowSetImpl, crs, $new(CachedRowSetImpl));
 	$set(crs, RowSetMD, this->RowSetMD);
 	crs->numRows = this->numRows;
@@ -3380,30 +2763,30 @@ $ResultSet* CachedRowSetImpl::getOriginal() {
 	{
 		$var($Iterator, i, $nc(this->rvh)->iterator());
 		for (; $nc(i)->hasNext();) {
-			$assign(orig, $new($Row, colCount, $($nc(($cast($Row, $(i->next()))))->getOrigRow())));
+			$assign(orig, $new($Row, colCount, $($$sure($Row, i->next())->getOrigRow())));
 			$nc(crs->rvh)->add(orig);
 		}
 	}
-	return static_cast<$ResultSet*>(crs);
+	return $cast($ResultSet, crs);
 }
 
 $ResultSet* CachedRowSetImpl::getOriginalRow() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(CachedRowSetImpl, crs, $new(CachedRowSetImpl));
 	$set(crs, RowSetMD, this->RowSetMD);
 	crs->numRows = 1;
 	crs->cursorPos = 0;
 	crs->setTypeMap($(this->getTypeMap()));
 	int32_t var$0 = $nc(this->RowSetMD)->getColumnCount();
-	$var($Row, orig, $new($Row, var$0, $($nc($(getCurrentRow()))->getOrigRow())));
+	$var($Row, orig, $new($Row, var$0, $($$nc(getCurrentRow())->getOrigRow())));
 	$nc(crs->rvh)->add(orig);
-	return static_cast<$ResultSet*>(crs);
+	return $cast($ResultSet, crs);
 }
 
 void CachedRowSetImpl::setOriginalRow() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->onInsertRow == true) {
-		$throwNew($SQLException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.invalidop"_s))))->toString()));
+		$throwNew($SQLException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.invalidop"_s))->toString()));
 	}
 	$var($Row, row, $cast($Row, getCurrentRow()));
 	makeRowOriginal(row);
@@ -3416,13 +2799,13 @@ void CachedRowSetImpl::makeRowOriginal($Row* row) {
 	if ($nc(row)->getInserted() == true) {
 		row->clearInserted();
 	}
-	if ($nc(row)->getUpdated() == true) {
+	if (row->getUpdated() == true) {
 		row->moveCurrentToOrig();
 	}
 }
 
 void CachedRowSetImpl::setOriginal() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	{
 		$var($Iterator, i, $nc(this->rvh)->iterator());
 		for (; $nc(i)->hasNext();) {
@@ -3443,9 +2826,9 @@ $String* CachedRowSetImpl::getTableName() {
 }
 
 void CachedRowSetImpl::setTableName($String* tabName) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (tabName == nullptr) {
-		$throwNew($SQLException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.tablename"_s))))->toString()));
+		$throwNew($SQLException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.tablename"_s))->toString()));
 	} else {
 		$set(this, tableName, tabName);
 	}
@@ -3453,32 +2836,32 @@ void CachedRowSetImpl::setTableName($String* tabName) {
 
 $ints* CachedRowSetImpl::getKeyColumns() {
 	$var($ints, keyColumns, this->keyCols);
-	return (keyColumns == nullptr) ? ($ints*)nullptr : $Arrays::copyOf(keyColumns, $nc(keyColumns)->length);
+	return (keyColumns == nullptr) ? ($ints*)nullptr : $Arrays::copyOf(keyColumns, keyColumns->length);
 }
 
 void CachedRowSetImpl::setKeyColumns($ints* keys) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t numCols = 0;
 	if (this->RowSetMD != nullptr) {
-		numCols = $nc(this->RowSetMD)->getColumnCount();
+		numCols = this->RowSetMD->getColumnCount();
 		if ($nc(keys)->length > numCols) {
-			$throwNew($SQLException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.keycols"_s))))->toString()));
+			$throwNew($SQLException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.keycols"_s))->toString()));
 		}
 	}
 	$set(this, keyCols, $new($ints, $nc(keys)->length));
 	for (int32_t i = 0; i < keys->length; ++i) {
 		if (this->RowSetMD != nullptr && (keys->get(i) <= 0 || keys->get(i) > numCols)) {
-			$throwNew($SQLException, $$str({$($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.invalidcol"_s))))->toString()), $$str(keys->get(i))}));
+			$throwNew($SQLException, $$str({$($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.invalidcol"_s))->toString()), $$str(keys->get(i))}));
 		}
 		$nc(this->keyCols)->set(i, keys->get(i));
 	}
 }
 
 void CachedRowSetImpl::updateRef(int32_t columnIndex, $Ref* ref) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	checkIndex(columnIndex);
 	checkCursor();
-	$nc($(getCurrentRow()))->setColumnObject(columnIndex, $$new($SerialRef, ref));
+	$$nc(getCurrentRow())->setColumnObject(columnIndex, $$new($SerialRef, ref));
 }
 
 void CachedRowSetImpl::updateRef($String* columnName, $Ref* ref) {
@@ -3486,13 +2869,13 @@ void CachedRowSetImpl::updateRef($String* columnName, $Ref* ref) {
 }
 
 void CachedRowSetImpl::updateClob(int32_t columnIndex, $Clob* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	checkIndex(columnIndex);
 	checkCursor();
 	if (this->dbmslocatorsUpdateCopy) {
-		$nc($(getCurrentRow()))->setColumnObject(columnIndex, $$new($SerialClob, c));
+		$$nc(getCurrentRow())->setColumnObject(columnIndex, $$new($SerialClob, c));
 	} else {
-		$throwNew($SQLException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.opnotsupp"_s))))->toString()));
+		$throwNew($SQLException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.opnotsupp"_s))->toString()));
 	}
 }
 
@@ -3501,13 +2884,13 @@ void CachedRowSetImpl::updateClob($String* columnName, $Clob* c) {
 }
 
 void CachedRowSetImpl::updateBlob(int32_t columnIndex, $Blob* b) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	checkIndex(columnIndex);
 	checkCursor();
 	if (this->dbmslocatorsUpdateCopy) {
-		$nc($(getCurrentRow()))->setColumnObject(columnIndex, $$new($SerialBlob, b));
+		$$nc(getCurrentRow())->setColumnObject(columnIndex, $$new($SerialBlob, b));
 	} else {
-		$throwNew($SQLException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.opnotsupp"_s))))->toString()));
+		$throwNew($SQLException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.opnotsupp"_s))->toString()));
 	}
 }
 
@@ -3516,10 +2899,10 @@ void CachedRowSetImpl::updateBlob($String* columnName, $Blob* b) {
 }
 
 void CachedRowSetImpl::updateArray(int32_t columnIndex, $1Array* a) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	checkIndex(columnIndex);
 	checkCursor();
-	$nc($(getCurrentRow()))->setColumnObject(columnIndex, $$new($SerialArray, a));
+	$$nc(getCurrentRow())->setColumnObject(columnIndex, $$new($SerialArray, a));
 }
 
 void CachedRowSetImpl::updateArray($String* columnName, $1Array* a) {
@@ -3527,15 +2910,15 @@ void CachedRowSetImpl::updateArray($String* columnName, $1Array* a) {
 }
 
 $URL* CachedRowSetImpl::getURL(int32_t columnIndex) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($URL, value, nullptr);
 	checkIndex(columnIndex);
 	checkCursor();
 	if ($nc(this->RowSetMD)->getColumnType(columnIndex) != $Types::DATALINK) {
-		$throwNew($SQLException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.dtypemismt"_s))))->toString()));
+		$throwNew($SQLException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.dtypemismt"_s))->toString()));
 	}
 	setLastValueNull(false);
-	$assign(value, ($cast($URL, $nc($(getCurrentRow()))->getColumnObject(columnIndex))));
+	$assign(value, $cast($URL, $$nc(getCurrentRow())->getColumnObject(columnIndex)));
 	if (value == nullptr) {
 		setLastValueNull(true);
 		return nullptr;
@@ -3556,7 +2939,7 @@ $RowSetWarning* CachedRowSetImpl::getRowSetWarnings() {
 }
 
 $String* CachedRowSetImpl::buildTableName($String* command$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, command, command$renamed);
 	int32_t indexFrom = 0;
 	int32_t indexComma = 0;
@@ -3564,7 +2947,7 @@ $String* CachedRowSetImpl::buildTableName($String* command$renamed) {
 	$assign(command, $nc(command)->trim());
 	if ($(command->toLowerCase())->startsWith("select"_s)) {
 		indexFrom = $(command->toLowerCase())->indexOf("from"_s);
-		indexComma = command->indexOf((int32_t)u',', indexFrom);
+		indexComma = command->indexOf(u',', indexFrom);
 		if (indexComma == -1) {
 			int32_t var$0 = indexFrom + "from"_s->length();
 			$assign(strTablename, ($(command->substring(var$0, command->length())))->trim());
@@ -3595,51 +2978,51 @@ void CachedRowSetImpl::rollback($Savepoint* s) {
 }
 
 void CachedRowSetImpl::unsetMatchColumn($ints* columnIdxes) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t i_val = 0;
 	for (int32_t j = 0; j < $nc(columnIdxes)->length; ++j) {
-		i_val = ($Integer::parseInt($($nc(($cast($Integer, $($nc(this->iMatchColumns)->get(j)))))->toString())));
+		i_val = ($Integer::parseInt($($$sure($Integer, $nc(this->iMatchColumns)->get(j))->toString())));
 		if (columnIdxes->get(j) != i_val) {
-			$throwNew($SQLException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.matchcols"_s))))->toString()));
+			$throwNew($SQLException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.matchcols"_s))->toString()));
 		}
 	}
-	for (int32_t i = 0; i < $nc(columnIdxes)->length; ++i) {
+	for (int32_t i = 0; i < columnIdxes->length; ++i) {
 		$nc(this->iMatchColumns)->set(i, $($Integer::valueOf(-1)));
 	}
 }
 
 void CachedRowSetImpl::unsetMatchColumn($StringArray* columnIdxes) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (int32_t j = 0; j < $nc(columnIdxes)->length; ++j) {
 		if (!$nc(columnIdxes->get(j))->equals($($nc(this->strMatchColumns)->get(j)))) {
-			$throwNew($SQLException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.matchcols"_s))))->toString()));
+			$throwNew($SQLException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.matchcols"_s))->toString()));
 		}
 	}
-	for (int32_t i = 0; i < $nc(columnIdxes)->length; ++i) {
+	for (int32_t i = 0; i < columnIdxes->length; ++i) {
 		$nc(this->strMatchColumns)->set(i, nullptr);
 	}
 }
 
 $StringArray* CachedRowSetImpl::getMatchColumnNames() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringArray, str_temp, $new($StringArray, $nc(this->strMatchColumns)->size()));
-	if ($nc(this->strMatchColumns)->get(0) == nullptr) {
-		$throwNew($SQLException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.setmatchcols"_s))))->toString()));
+	if (this->strMatchColumns->get(0) == nullptr) {
+		$throwNew($SQLException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.setmatchcols"_s))->toString()));
 	}
-	$nc(this->strMatchColumns)->copyInto(str_temp);
+	this->strMatchColumns->copyInto(str_temp);
 	return str_temp;
 }
 
 $ints* CachedRowSetImpl::getMatchColumnIndexes() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($IntegerArray, int_temp, $new($IntegerArray, $nc(this->iMatchColumns)->size()));
-	$var($ints, i_temp, $new($ints, $nc(this->iMatchColumns)->size()));
+	$var($ints, i_temp, $new($ints, this->iMatchColumns->size()));
 	int32_t i_val = 0;
-	i_val = $nc(($cast($Integer, $($nc(this->iMatchColumns)->get(0)))))->intValue();
+	i_val = $$sure($Integer, this->iMatchColumns->get(0))->intValue();
 	if (i_val == -1) {
-		$throwNew($SQLException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.setmatchcols"_s))))->toString()));
+		$throwNew($SQLException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.setmatchcols"_s))->toString()));
 	}
-	$nc(this->iMatchColumns)->copyInto(int_temp);
+	this->iMatchColumns->copyInto(int_temp);
 	for (int32_t i = 0; i < int_temp->length; ++i) {
 		i_temp->set(i, $nc((int_temp->get(i)))->intValue());
 	}
@@ -3647,77 +3030,77 @@ $ints* CachedRowSetImpl::getMatchColumnIndexes() {
 }
 
 void CachedRowSetImpl::setMatchColumn($ints* columnIdxes) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (int32_t j = 0; j < $nc(columnIdxes)->length; ++j) {
 		if (columnIdxes->get(j) < 0) {
-			$throwNew($SQLException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.matchcols1"_s))))->toString()));
+			$throwNew($SQLException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.matchcols1"_s))->toString()));
 		}
 	}
-	for (int32_t i = 0; i < $nc(columnIdxes)->length; ++i) {
+	for (int32_t i = 0; i < columnIdxes->length; ++i) {
 		$nc(this->iMatchColumns)->add(i, $($Integer::valueOf(columnIdxes->get(i))));
 	}
 }
 
 void CachedRowSetImpl::setMatchColumn($StringArray* columnNames) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (int32_t j = 0; j < $nc(columnNames)->length; ++j) {
 		if (columnNames->get(j) == nullptr || $nc(columnNames->get(j))->isEmpty()) {
-			$throwNew($SQLException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.matchcols2"_s))))->toString()));
+			$throwNew($SQLException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.matchcols2"_s))->toString()));
 		}
 	}
-	for (int32_t i = 0; i < $nc(columnNames)->length; ++i) {
+	for (int32_t i = 0; i < columnNames->length; ++i) {
 		$nc(this->strMatchColumns)->add(i, columnNames->get(i));
 	}
 }
 
 void CachedRowSetImpl::setMatchColumn(int32_t columnIdx) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (columnIdx < 0) {
-		$throwNew($SQLException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.matchcols1"_s))))->toString()));
+		$throwNew($SQLException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.matchcols1"_s))->toString()));
 	} else {
 		$nc(this->iMatchColumns)->set(0, $($Integer::valueOf(columnIdx)));
 	}
 }
 
 void CachedRowSetImpl::setMatchColumn($String* columnName$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, columnName, columnName$renamed);
-	if (columnName == nullptr || $nc(($assign(columnName, $nc(columnName)->trim())))->isEmpty()) {
-		$throwNew($SQLException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.matchcols2"_s))))->toString()));
+	if (columnName == nullptr || $nc(($assign(columnName, columnName->trim())))->isEmpty()) {
+		$throwNew($SQLException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.matchcols2"_s))->toString()));
 	} else {
 		$nc(this->strMatchColumns)->set(0, columnName);
 	}
 }
 
 void CachedRowSetImpl::unsetMatchColumn(int32_t columnIdx) {
-	$useLocalCurrentObjectStackCache();
-	if (!$nc(($cast($Integer, $($nc(this->iMatchColumns)->get(0)))))->equals($($Integer::valueOf(columnIdx)))) {
-		$throwNew($SQLException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.unsetmatch"_s))))->toString()));
+	$useLocalObjectStack();
+	if (!$$sure($Integer, $nc(this->iMatchColumns)->get(0))->equals($($Integer::valueOf(columnIdx)))) {
+		$throwNew($SQLException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.unsetmatch"_s))->toString()));
 	} else if ($nc(this->strMatchColumns)->get(0) != nullptr) {
-		$throwNew($SQLException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.unsetmatch1"_s))))->toString()));
+		$throwNew($SQLException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.unsetmatch1"_s))->toString()));
 	} else {
-		$nc(this->iMatchColumns)->set(0, $($Integer::valueOf(-1)));
+		this->iMatchColumns->set(0, $($Integer::valueOf(-1)));
 	}
 }
 
 void CachedRowSetImpl::unsetMatchColumn($String* columnName$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, columnName, columnName$renamed);
 	$assign(columnName, $nc(columnName)->trim());
-	if (!($nc(($cast($String, $($nc(this->strMatchColumns)->get(0)))))->equals(columnName))) {
-		$throwNew($SQLException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.unsetmatch"_s))))->toString()));
-	} else if ($nc(($cast($Integer, $($nc(this->iMatchColumns)->get(0)))))->intValue() > 0) {
-		$throwNew($SQLException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.unsetmatch2"_s))))->toString()));
+	if (!($$sure($String, $nc(this->strMatchColumns)->get(0))->equals(columnName))) {
+		$throwNew($SQLException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.unsetmatch"_s))->toString()));
+	} else if ($$sure($Integer, $nc(this->iMatchColumns)->get(0))->intValue() > 0) {
+		$throwNew($SQLException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.unsetmatch2"_s))->toString()));
 	} else {
-		$nc(this->strMatchColumns)->set(0, nullptr);
+		this->strMatchColumns->set(0, nullptr);
 	}
 }
 
 void CachedRowSetImpl::rowSetPopulated($RowSetEvent* event$renamed, int32_t numRows) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($RowSetEvent, event, event$renamed);
 	if (numRows < 0 || numRows < getFetchSize()) {
-		$throwNew($SQLException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.numrows"_s))))->toString()));
+		$throwNew($SQLException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.numrows"_s))->toString()));
 	}
 	if ($mod(size(), numRows) == 0) {
 		$var($RowSetEvent, event_temp, $new($RowSetEvent, this));
@@ -3727,7 +3110,7 @@ void CachedRowSetImpl::rowSetPopulated($RowSetEvent* event$renamed, int32_t numR
 }
 
 void CachedRowSetImpl::populate($ResultSet* data, int32_t start) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t rowsFetched = 0;
 	$var($Row, currentRow, nullptr);
 	int32_t numCols = 0;
@@ -3738,7 +3121,7 @@ void CachedRowSetImpl::populate($ResultSet* data, int32_t start) {
 	this->cursorPos = 0;
 	if (this->populatecallcount == 0) {
 		if (start < 0) {
-			$throwNew($SQLException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.startpos"_s))))->toString()));
+			$throwNew($SQLException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.startpos"_s))->toString()));
 		}
 		if (getMaxRows() == 0) {
 			$nc(data)->absolute(start);
@@ -3778,7 +3161,7 @@ void CachedRowSetImpl::populate($ResultSet* data, int32_t start) {
 		$set(this, rvh, $new($Vector, getPageSize()));
 	}
 	if (data == nullptr) {
-		$throwNew($SQLException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.populate"_s))))->toString()));
+		$throwNew($SQLException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.populate"_s))->toString()));
 	}
 	$set(this, RSMD, $nc(data)->getMetaData());
 	$set(this, RowSetMD, $new($RowSetMetaDataImpl));
@@ -3833,14 +3216,14 @@ void CachedRowSetImpl::populate($ResultSet* data, int32_t start) {
 }
 
 bool CachedRowSetImpl::nextPage() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->populatecallcount == 0) {
-		$throwNew($SQLException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.nextpage"_s))))->toString()));
+		$throwNew($SQLException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.nextpage"_s))->toString()));
 	}
 	this->onFirstPage = false;
 	if (this->callWithCon) {
 		$nc(this->crsReader)->setStartPosition(this->endPos);
-		$nc(this->crsReader)->readData(static_cast<$RowSetInternal*>(this));
+		$nc(this->crsReader)->readData($cast($RowSetInternal, this));
 		$set(this, resultSet, nullptr);
 	} else {
 		populate(this->resultSet, this->endPos);
@@ -3849,13 +3232,13 @@ bool CachedRowSetImpl::nextPage() {
 }
 
 void CachedRowSetImpl::setPageSize(int32_t size) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (size < 0) {
-		$throwNew($SQLException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.pagesize"_s))))->toString()));
+		$throwNew($SQLException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.pagesize"_s))->toString()));
 	}
 	bool var$0 = size > getMaxRows();
 	if (var$0 && getMaxRows() != 0) {
-		$throwNew($SQLException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.pagesize1"_s))))->toString()));
+		$throwNew($SQLException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.pagesize1"_s))->toString()));
 	}
 	this->pageSize = size;
 }
@@ -3865,18 +3248,18 @@ int32_t CachedRowSetImpl::getPageSize() {
 }
 
 bool CachedRowSetImpl::previousPage() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t pS = 0;
 	int32_t mR = 0;
 	int32_t rem = 0;
 	pS = getPageSize();
 	mR = this->maxRowsreached;
 	if (this->populatecallcount == 0) {
-		$throwNew($SQLException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.nextpage"_s))))->toString()));
+		$throwNew($SQLException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.nextpage"_s))->toString()));
 	}
 	if (!this->callWithCon) {
 		if ($nc(this->resultSet)->getType() == $ResultSet::TYPE_FORWARD_ONLY) {
-			$throwNew($SQLException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.fwdonly"_s))))->toString()));
+			$throwNew($SQLException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.fwdonly"_s))->toString()));
 		}
 	}
 	this->pagenotend = true;
@@ -3892,7 +3275,7 @@ bool CachedRowSetImpl::previousPage() {
 		this->maxRowsreached -= (2 * pS);
 		if (this->callWithCon) {
 			$nc(this->crsReader)->setStartPosition(this->startPrev);
-			$nc(this->crsReader)->readData(static_cast<$RowSetInternal*>(this));
+			$nc(this->crsReader)->readData($cast($RowSetInternal, this));
 			$set(this, resultSet, nullptr);
 		} else {
 			populate(this->resultSet, this->startPrev);
@@ -3902,7 +3285,7 @@ bool CachedRowSetImpl::previousPage() {
 		this->maxRowsreached -= (pS + rem);
 		if (this->callWithCon) {
 			$nc(this->crsReader)->setStartPosition(this->startPrev);
-			$nc(this->crsReader)->readData(static_cast<$RowSetInternal*>(this));
+			$nc(this->crsReader)->readData($cast($RowSetInternal, this));
 			$set(this, resultSet, nullptr);
 		} else {
 			populate(this->resultSet, this->startPrev);
@@ -3912,98 +3295,98 @@ bool CachedRowSetImpl::previousPage() {
 }
 
 void CachedRowSetImpl::setRowInserted(bool insertFlag) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	checkCursor();
 	if (this->onInsertRow == true) {
-		$throwNew($SQLException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.invalidop"_s))))->toString()));
+		$throwNew($SQLException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.invalidop"_s))->toString()));
 	}
 	if (insertFlag) {
-		$nc(($cast($Row, $(getCurrentRow()))))->setInserted();
+		$$sure($Row, getCurrentRow())->setInserted();
 	} else {
-		$nc(($cast($Row, $(getCurrentRow()))))->clearInserted();
+		$$sure($Row, getCurrentRow())->clearInserted();
 	}
 }
 
 $SQLXML* CachedRowSetImpl::getSQLXML(int32_t columnIndex) {
-	$useLocalCurrentObjectStackCache();
-	$throwNew($SQLFeatureNotSupportedException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.opnotysupp"_s))))->toString()));
+	$useLocalObjectStack();
+	$throwNew($SQLFeatureNotSupportedException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.opnotysupp"_s))->toString()));
 	$shouldNotReachHere();
 }
 
 $SQLXML* CachedRowSetImpl::getSQLXML($String* colName) {
-	$useLocalCurrentObjectStackCache();
-	$throwNew($SQLFeatureNotSupportedException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.opnotysupp"_s))))->toString()));
+	$useLocalObjectStack();
+	$throwNew($SQLFeatureNotSupportedException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.opnotysupp"_s))->toString()));
 	$shouldNotReachHere();
 }
 
 $RowId* CachedRowSetImpl::getRowId(int32_t columnIndex) {
-	$useLocalCurrentObjectStackCache();
-	$throwNew($SQLFeatureNotSupportedException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.opnotysupp"_s))))->toString()));
+	$useLocalObjectStack();
+	$throwNew($SQLFeatureNotSupportedException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.opnotysupp"_s))->toString()));
 	$shouldNotReachHere();
 }
 
 $RowId* CachedRowSetImpl::getRowId($String* columnName) {
-	$useLocalCurrentObjectStackCache();
-	$throwNew($SQLFeatureNotSupportedException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.opnotysupp"_s))))->toString()));
+	$useLocalObjectStack();
+	$throwNew($SQLFeatureNotSupportedException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.opnotysupp"_s))->toString()));
 	$shouldNotReachHere();
 }
 
 void CachedRowSetImpl::updateRowId(int32_t columnIndex, $RowId* x) {
-	$useLocalCurrentObjectStackCache();
-	$throwNew($SQLFeatureNotSupportedException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.opnotysupp"_s))))->toString()));
+	$useLocalObjectStack();
+	$throwNew($SQLFeatureNotSupportedException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.opnotysupp"_s))->toString()));
 }
 
 void CachedRowSetImpl::updateRowId($String* columnName, $RowId* x) {
-	$useLocalCurrentObjectStackCache();
-	$throwNew($SQLFeatureNotSupportedException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.opnotysupp"_s))))->toString()));
+	$useLocalObjectStack();
+	$throwNew($SQLFeatureNotSupportedException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.opnotysupp"_s))->toString()));
 }
 
 int32_t CachedRowSetImpl::getHoldability() {
-	$useLocalCurrentObjectStackCache();
-	$throwNew($SQLFeatureNotSupportedException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.opnotysupp"_s))))->toString()));
+	$useLocalObjectStack();
+	$throwNew($SQLFeatureNotSupportedException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.opnotysupp"_s))->toString()));
 	$shouldNotReachHere();
 }
 
 bool CachedRowSetImpl::isClosed() {
-	$useLocalCurrentObjectStackCache();
-	$throwNew($SQLFeatureNotSupportedException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.opnotysupp"_s))))->toString()));
+	$useLocalObjectStack();
+	$throwNew($SQLFeatureNotSupportedException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.opnotysupp"_s))->toString()));
 	$shouldNotReachHere();
 }
 
 void CachedRowSetImpl::updateNString(int32_t columnIndex, $String* nString) {
-	$useLocalCurrentObjectStackCache();
-	$throwNew($SQLFeatureNotSupportedException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.opnotysupp"_s))))->toString()));
+	$useLocalObjectStack();
+	$throwNew($SQLFeatureNotSupportedException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.opnotysupp"_s))->toString()));
 }
 
 void CachedRowSetImpl::updateNString($String* columnName, $String* nString) {
-	$useLocalCurrentObjectStackCache();
-	$throwNew($SQLFeatureNotSupportedException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.opnotysupp"_s))))->toString()));
+	$useLocalObjectStack();
+	$throwNew($SQLFeatureNotSupportedException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.opnotysupp"_s))->toString()));
 }
 
 void CachedRowSetImpl::updateNClob(int32_t columnIndex, $NClob* nClob) {
-	$useLocalCurrentObjectStackCache();
-	$throwNew($SQLFeatureNotSupportedException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.opnotysupp"_s))))->toString()));
+	$useLocalObjectStack();
+	$throwNew($SQLFeatureNotSupportedException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.opnotysupp"_s))->toString()));
 }
 
 void CachedRowSetImpl::updateNClob($String* columnName, $NClob* nClob) {
-	$useLocalCurrentObjectStackCache();
-	$throwNew($SQLFeatureNotSupportedException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.opnotysupp"_s))))->toString()));
+	$useLocalObjectStack();
+	$throwNew($SQLFeatureNotSupportedException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.opnotysupp"_s))->toString()));
 }
 
 $NClob* CachedRowSetImpl::getNClob(int32_t i) {
-	$useLocalCurrentObjectStackCache();
-	$throwNew($SQLFeatureNotSupportedException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.opnotysupp"_s))))->toString()));
+	$useLocalObjectStack();
+	$throwNew($SQLFeatureNotSupportedException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.opnotysupp"_s))->toString()));
 	$shouldNotReachHere();
 }
 
 $NClob* CachedRowSetImpl::getNClob($String* colName) {
-	$useLocalCurrentObjectStackCache();
-	$throwNew($SQLFeatureNotSupportedException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.opnotysupp"_s))))->toString()));
+	$useLocalObjectStack();
+	$throwNew($SQLFeatureNotSupportedException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.opnotysupp"_s))->toString()));
 	$shouldNotReachHere();
 }
 
 $Object* CachedRowSetImpl::unwrap($Class* iface) {
-	return $of(nullptr);
+	return nullptr;
 }
 
 bool CachedRowSetImpl::isWrapperFor($Class* interfaces) {
@@ -4011,147 +3394,147 @@ bool CachedRowSetImpl::isWrapperFor($Class* interfaces) {
 }
 
 void CachedRowSetImpl::setSQLXML(int32_t parameterIndex, $SQLXML* xmlObject) {
-	$useLocalCurrentObjectStackCache();
-	$throwNew($SQLFeatureNotSupportedException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.opnotysupp"_s))))->toString()));
+	$useLocalObjectStack();
+	$throwNew($SQLFeatureNotSupportedException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.opnotysupp"_s))->toString()));
 }
 
 void CachedRowSetImpl::setSQLXML($String* parameterName, $SQLXML* xmlObject) {
-	$useLocalCurrentObjectStackCache();
-	$throwNew($SQLFeatureNotSupportedException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.opnotysupp"_s))))->toString()));
+	$useLocalObjectStack();
+	$throwNew($SQLFeatureNotSupportedException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.opnotysupp"_s))->toString()));
 }
 
 void CachedRowSetImpl::setRowId(int32_t parameterIndex, $RowId* x) {
-	$useLocalCurrentObjectStackCache();
-	$throwNew($SQLFeatureNotSupportedException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.opnotysupp"_s))))->toString()));
+	$useLocalObjectStack();
+	$throwNew($SQLFeatureNotSupportedException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.opnotysupp"_s))->toString()));
 }
 
 void CachedRowSetImpl::setRowId($String* parameterName, $RowId* x) {
-	$useLocalCurrentObjectStackCache();
-	$throwNew($SQLFeatureNotSupportedException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.opnotysupp"_s))))->toString()));
+	$useLocalObjectStack();
+	$throwNew($SQLFeatureNotSupportedException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.opnotysupp"_s))->toString()));
 }
 
 void CachedRowSetImpl::setNCharacterStream(int32_t parameterIndex, $Reader* value) {
-	$useLocalCurrentObjectStackCache();
-	$throwNew($SQLFeatureNotSupportedException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.featnotsupp"_s))))->toString()));
+	$useLocalObjectStack();
+	$throwNew($SQLFeatureNotSupportedException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.featnotsupp"_s))->toString()));
 }
 
 void CachedRowSetImpl::setNClob($String* parameterName, $NClob* value) {
-	$useLocalCurrentObjectStackCache();
-	$throwNew($SQLFeatureNotSupportedException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.opnotysupp"_s))))->toString()));
+	$useLocalObjectStack();
+	$throwNew($SQLFeatureNotSupportedException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.opnotysupp"_s))->toString()));
 }
 
 $Reader* CachedRowSetImpl::getNCharacterStream(int32_t columnIndex) {
-	$useLocalCurrentObjectStackCache();
-	$throwNew($SQLFeatureNotSupportedException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.opnotysupp"_s))))->toString()));
+	$useLocalObjectStack();
+	$throwNew($SQLFeatureNotSupportedException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.opnotysupp"_s))->toString()));
 	$shouldNotReachHere();
 }
 
 $Reader* CachedRowSetImpl::getNCharacterStream($String* columnName) {
-	$useLocalCurrentObjectStackCache();
-	$throwNew($SQLFeatureNotSupportedException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.opnotysupp"_s))))->toString()));
+	$useLocalObjectStack();
+	$throwNew($SQLFeatureNotSupportedException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.opnotysupp"_s))->toString()));
 	$shouldNotReachHere();
 }
 
 void CachedRowSetImpl::updateSQLXML(int32_t columnIndex, $SQLXML* xmlObject) {
-	$useLocalCurrentObjectStackCache();
-	$throwNew($SQLFeatureNotSupportedException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.opnotysupp"_s))))->toString()));
+	$useLocalObjectStack();
+	$throwNew($SQLFeatureNotSupportedException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.opnotysupp"_s))->toString()));
 }
 
 void CachedRowSetImpl::updateSQLXML($String* columnName, $SQLXML* xmlObject) {
-	$useLocalCurrentObjectStackCache();
-	$throwNew($SQLFeatureNotSupportedException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.opnotysupp"_s))))->toString()));
+	$useLocalObjectStack();
+	$throwNew($SQLFeatureNotSupportedException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.opnotysupp"_s))->toString()));
 }
 
 $String* CachedRowSetImpl::getNString(int32_t columnIndex) {
-	$useLocalCurrentObjectStackCache();
-	$throwNew($SQLFeatureNotSupportedException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.opnotysupp"_s))))->toString()));
+	$useLocalObjectStack();
+	$throwNew($SQLFeatureNotSupportedException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.opnotysupp"_s))->toString()));
 	$shouldNotReachHere();
 }
 
 $String* CachedRowSetImpl::getNString($String* columnName) {
-	$useLocalCurrentObjectStackCache();
-	$throwNew($SQLFeatureNotSupportedException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.opnotysupp"_s))))->toString()));
+	$useLocalObjectStack();
+	$throwNew($SQLFeatureNotSupportedException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.opnotysupp"_s))->toString()));
 	$shouldNotReachHere();
 }
 
 void CachedRowSetImpl::updateNCharacterStream(int32_t columnIndex, $Reader* x, int64_t length) {
-	$useLocalCurrentObjectStackCache();
-	$throwNew($SQLFeatureNotSupportedException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.opnotysupp"_s))))->toString()));
+	$useLocalObjectStack();
+	$throwNew($SQLFeatureNotSupportedException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.opnotysupp"_s))->toString()));
 }
 
 void CachedRowSetImpl::updateNCharacterStream($String* columnName, $Reader* x, int64_t length) {
-	$useLocalCurrentObjectStackCache();
-	$throwNew($SQLFeatureNotSupportedException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.opnotysupp"_s))))->toString()));
+	$useLocalObjectStack();
+	$throwNew($SQLFeatureNotSupportedException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.opnotysupp"_s))->toString()));
 }
 
 void CachedRowSetImpl::updateNCharacterStream(int32_t columnIndex, $Reader* x) {
-	$useLocalCurrentObjectStackCache();
-	$throwNew($SQLFeatureNotSupportedException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.featnotsupp"_s))))->toString()));
+	$useLocalObjectStack();
+	$throwNew($SQLFeatureNotSupportedException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.featnotsupp"_s))->toString()));
 }
 
 void CachedRowSetImpl::updateNCharacterStream($String* columnLabel, $Reader* reader) {
-	$useLocalCurrentObjectStackCache();
-	$throwNew($SQLFeatureNotSupportedException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.featnotsupp"_s))))->toString()));
+	$useLocalObjectStack();
+	$throwNew($SQLFeatureNotSupportedException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.featnotsupp"_s))->toString()));
 }
 
 void CachedRowSetImpl::updateBlob(int32_t columnIndex, $InputStream* inputStream, int64_t length) {
-	$useLocalCurrentObjectStackCache();
-	$throwNew($SQLFeatureNotSupportedException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.featnotsupp"_s))))->toString()));
+	$useLocalObjectStack();
+	$throwNew($SQLFeatureNotSupportedException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.featnotsupp"_s))->toString()));
 }
 
 void CachedRowSetImpl::updateBlob($String* columnLabel, $InputStream* inputStream, int64_t length) {
-	$useLocalCurrentObjectStackCache();
-	$throwNew($SQLFeatureNotSupportedException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.featnotsupp"_s))))->toString()));
+	$useLocalObjectStack();
+	$throwNew($SQLFeatureNotSupportedException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.featnotsupp"_s))->toString()));
 }
 
 void CachedRowSetImpl::updateBlob(int32_t columnIndex, $InputStream* inputStream) {
-	$useLocalCurrentObjectStackCache();
-	$throwNew($SQLFeatureNotSupportedException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.featnotsupp"_s))))->toString()));
+	$useLocalObjectStack();
+	$throwNew($SQLFeatureNotSupportedException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.featnotsupp"_s))->toString()));
 }
 
 void CachedRowSetImpl::updateBlob($String* columnLabel, $InputStream* inputStream) {
-	$useLocalCurrentObjectStackCache();
-	$throwNew($SQLFeatureNotSupportedException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.featnotsupp"_s))))->toString()));
+	$useLocalObjectStack();
+	$throwNew($SQLFeatureNotSupportedException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.featnotsupp"_s))->toString()));
 }
 
 void CachedRowSetImpl::updateClob(int32_t columnIndex, $Reader* reader, int64_t length) {
-	$useLocalCurrentObjectStackCache();
-	$throwNew($SQLFeatureNotSupportedException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.featnotsupp"_s))))->toString()));
+	$useLocalObjectStack();
+	$throwNew($SQLFeatureNotSupportedException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.featnotsupp"_s))->toString()));
 }
 
 void CachedRowSetImpl::updateClob($String* columnLabel, $Reader* reader, int64_t length) {
-	$useLocalCurrentObjectStackCache();
-	$throwNew($SQLFeatureNotSupportedException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.featnotsupp"_s))))->toString()));
+	$useLocalObjectStack();
+	$throwNew($SQLFeatureNotSupportedException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.featnotsupp"_s))->toString()));
 }
 
 void CachedRowSetImpl::updateClob(int32_t columnIndex, $Reader* reader) {
-	$useLocalCurrentObjectStackCache();
-	$throwNew($SQLFeatureNotSupportedException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.featnotsupp"_s))))->toString()));
+	$useLocalObjectStack();
+	$throwNew($SQLFeatureNotSupportedException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.featnotsupp"_s))->toString()));
 }
 
 void CachedRowSetImpl::updateClob($String* columnLabel, $Reader* reader) {
-	$useLocalCurrentObjectStackCache();
-	$throwNew($SQLFeatureNotSupportedException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.featnotsupp"_s))))->toString()));
+	$useLocalObjectStack();
+	$throwNew($SQLFeatureNotSupportedException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.featnotsupp"_s))->toString()));
 }
 
 void CachedRowSetImpl::updateNClob(int32_t columnIndex, $Reader* reader, int64_t length) {
-	$useLocalCurrentObjectStackCache();
-	$throwNew($SQLFeatureNotSupportedException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.featnotsupp"_s))))->toString()));
+	$useLocalObjectStack();
+	$throwNew($SQLFeatureNotSupportedException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.featnotsupp"_s))->toString()));
 }
 
 void CachedRowSetImpl::updateNClob($String* columnLabel, $Reader* reader, int64_t length) {
-	$useLocalCurrentObjectStackCache();
-	$throwNew($SQLFeatureNotSupportedException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.featnotsupp"_s))))->toString()));
+	$useLocalObjectStack();
+	$throwNew($SQLFeatureNotSupportedException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.featnotsupp"_s))->toString()));
 }
 
 void CachedRowSetImpl::updateNClob(int32_t columnIndex, $Reader* reader) {
-	$useLocalCurrentObjectStackCache();
-	$throwNew($SQLFeatureNotSupportedException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.featnotsupp"_s))))->toString()));
+	$useLocalObjectStack();
+	$throwNew($SQLFeatureNotSupportedException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.featnotsupp"_s))->toString()));
 }
 
 void CachedRowSetImpl::updateNClob($String* columnLabel, $Reader* reader) {
-	$useLocalCurrentObjectStackCache();
-	$throwNew($SQLFeatureNotSupportedException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.featnotsupp"_s))))->toString()));
+	$useLocalObjectStack();
+	$throwNew($SQLFeatureNotSupportedException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.featnotsupp"_s))->toString()));
 }
 
 void CachedRowSetImpl::updateAsciiStream(int32_t columnIndex, $InputStream* x, int64_t length) {
@@ -4161,13 +3544,13 @@ void CachedRowSetImpl::updateBinaryStream(int32_t columnIndex, $InputStream* x, 
 }
 
 void CachedRowSetImpl::updateCharacterStream(int32_t columnIndex, $Reader* x, int64_t length) {
-	$useLocalCurrentObjectStackCache();
-	$throwNew($SQLFeatureNotSupportedException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.featnotsupp"_s))))->toString()));
+	$useLocalObjectStack();
+	$throwNew($SQLFeatureNotSupportedException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.featnotsupp"_s))->toString()));
 }
 
 void CachedRowSetImpl::updateCharacterStream($String* columnLabel, $Reader* reader, int64_t length) {
-	$useLocalCurrentObjectStackCache();
-	$throwNew($SQLFeatureNotSupportedException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.featnotsupp"_s))))->toString()));
+	$useLocalObjectStack();
+	$throwNew($SQLFeatureNotSupportedException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.featnotsupp"_s))->toString()));
 }
 
 void CachedRowSetImpl::updateAsciiStream($String* columnLabel, $InputStream* x, int64_t length) {
@@ -4177,271 +3560,271 @@ void CachedRowSetImpl::updateBinaryStream($String* columnLabel, $InputStream* x,
 }
 
 void CachedRowSetImpl::updateBinaryStream(int32_t columnIndex, $InputStream* x) {
-	$useLocalCurrentObjectStackCache();
-	$throwNew($SQLFeatureNotSupportedException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.featnotsupp"_s))))->toString()));
+	$useLocalObjectStack();
+	$throwNew($SQLFeatureNotSupportedException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.featnotsupp"_s))->toString()));
 }
 
 void CachedRowSetImpl::updateBinaryStream($String* columnLabel, $InputStream* x) {
-	$useLocalCurrentObjectStackCache();
-	$throwNew($SQLFeatureNotSupportedException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.featnotsupp"_s))))->toString()));
+	$useLocalObjectStack();
+	$throwNew($SQLFeatureNotSupportedException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.featnotsupp"_s))->toString()));
 }
 
 void CachedRowSetImpl::updateCharacterStream(int32_t columnIndex, $Reader* x) {
-	$useLocalCurrentObjectStackCache();
-	$throwNew($SQLFeatureNotSupportedException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.featnotsupp"_s))))->toString()));
+	$useLocalObjectStack();
+	$throwNew($SQLFeatureNotSupportedException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.featnotsupp"_s))->toString()));
 }
 
 void CachedRowSetImpl::updateCharacterStream($String* columnLabel, $Reader* reader) {
-	$useLocalCurrentObjectStackCache();
-	$throwNew($SQLFeatureNotSupportedException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.featnotsupp"_s))))->toString()));
+	$useLocalObjectStack();
+	$throwNew($SQLFeatureNotSupportedException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.featnotsupp"_s))->toString()));
 }
 
 void CachedRowSetImpl::updateAsciiStream(int32_t columnIndex, $InputStream* x) {
-	$useLocalCurrentObjectStackCache();
-	$throwNew($SQLFeatureNotSupportedException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.featnotsupp"_s))))->toString()));
+	$useLocalObjectStack();
+	$throwNew($SQLFeatureNotSupportedException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.featnotsupp"_s))->toString()));
 }
 
 void CachedRowSetImpl::updateAsciiStream($String* columnLabel, $InputStream* x) {
 }
 
 void CachedRowSetImpl::setURL(int32_t parameterIndex, $URL* x) {
-	$useLocalCurrentObjectStackCache();
-	$throwNew($SQLFeatureNotSupportedException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.featnotsupp"_s))))->toString()));
+	$useLocalObjectStack();
+	$throwNew($SQLFeatureNotSupportedException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.featnotsupp"_s))->toString()));
 }
 
 void CachedRowSetImpl::setNClob(int32_t parameterIndex, $Reader* reader) {
-	$useLocalCurrentObjectStackCache();
-	$throwNew($SQLFeatureNotSupportedException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.featnotsupp"_s))))->toString()));
+	$useLocalObjectStack();
+	$throwNew($SQLFeatureNotSupportedException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.featnotsupp"_s))->toString()));
 }
 
 void CachedRowSetImpl::setNClob($String* parameterName, $Reader* reader, int64_t length) {
-	$useLocalCurrentObjectStackCache();
-	$throwNew($SQLFeatureNotSupportedException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.featnotsupp"_s))))->toString()));
+	$useLocalObjectStack();
+	$throwNew($SQLFeatureNotSupportedException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.featnotsupp"_s))->toString()));
 }
 
 void CachedRowSetImpl::setNClob($String* parameterName, $Reader* reader) {
-	$useLocalCurrentObjectStackCache();
-	$throwNew($SQLFeatureNotSupportedException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.featnotsupp"_s))))->toString()));
+	$useLocalObjectStack();
+	$throwNew($SQLFeatureNotSupportedException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.featnotsupp"_s))->toString()));
 }
 
 void CachedRowSetImpl::setNClob(int32_t parameterIndex, $Reader* reader, int64_t length) {
-	$useLocalCurrentObjectStackCache();
-	$throwNew($SQLFeatureNotSupportedException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.featnotsupp"_s))))->toString()));
+	$useLocalObjectStack();
+	$throwNew($SQLFeatureNotSupportedException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.featnotsupp"_s))->toString()));
 }
 
 void CachedRowSetImpl::setNClob(int32_t parameterIndex, $NClob* value) {
-	$useLocalCurrentObjectStackCache();
-	$throwNew($SQLFeatureNotSupportedException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.featnotsupp"_s))))->toString()));
+	$useLocalObjectStack();
+	$throwNew($SQLFeatureNotSupportedException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.featnotsupp"_s))->toString()));
 }
 
 void CachedRowSetImpl::setNString(int32_t parameterIndex, $String* value) {
-	$useLocalCurrentObjectStackCache();
-	$throwNew($SQLFeatureNotSupportedException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.featnotsupp"_s))))->toString()));
+	$useLocalObjectStack();
+	$throwNew($SQLFeatureNotSupportedException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.featnotsupp"_s))->toString()));
 }
 
 void CachedRowSetImpl::setNString($String* parameterName, $String* value) {
-	$useLocalCurrentObjectStackCache();
-	$throwNew($SQLFeatureNotSupportedException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.featnotsupp"_s))))->toString()));
+	$useLocalObjectStack();
+	$throwNew($SQLFeatureNotSupportedException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.featnotsupp"_s))->toString()));
 }
 
 void CachedRowSetImpl::setNCharacterStream(int32_t parameterIndex, $Reader* value, int64_t length) {
-	$useLocalCurrentObjectStackCache();
-	$throwNew($SQLFeatureNotSupportedException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.featnotsupp"_s))))->toString()));
+	$useLocalObjectStack();
+	$throwNew($SQLFeatureNotSupportedException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.featnotsupp"_s))->toString()));
 }
 
 void CachedRowSetImpl::setNCharacterStream($String* parameterName, $Reader* value, int64_t length) {
-	$useLocalCurrentObjectStackCache();
-	$throwNew($SQLFeatureNotSupportedException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.featnotsupp"_s))))->toString()));
+	$useLocalObjectStack();
+	$throwNew($SQLFeatureNotSupportedException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.featnotsupp"_s))->toString()));
 }
 
 void CachedRowSetImpl::setNCharacterStream($String* parameterName, $Reader* value) {
-	$useLocalCurrentObjectStackCache();
-	$throwNew($SQLFeatureNotSupportedException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.featnotsupp"_s))))->toString()));
+	$useLocalObjectStack();
+	$throwNew($SQLFeatureNotSupportedException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.featnotsupp"_s))->toString()));
 }
 
 void CachedRowSetImpl::setTimestamp($String* parameterName, $Timestamp* x, $Calendar* cal) {
-	$useLocalCurrentObjectStackCache();
-	$throwNew($SQLFeatureNotSupportedException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.featnotsupp"_s))))->toString()));
+	$useLocalObjectStack();
+	$throwNew($SQLFeatureNotSupportedException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.featnotsupp"_s))->toString()));
 }
 
 void CachedRowSetImpl::setClob($String* parameterName, $Reader* reader, int64_t length) {
-	$useLocalCurrentObjectStackCache();
-	$throwNew($SQLFeatureNotSupportedException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.featnotsupp"_s))))->toString()));
+	$useLocalObjectStack();
+	$throwNew($SQLFeatureNotSupportedException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.featnotsupp"_s))->toString()));
 }
 
 void CachedRowSetImpl::setClob($String* parameterName, $Clob* x) {
-	$useLocalCurrentObjectStackCache();
-	$throwNew($SQLFeatureNotSupportedException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.featnotsupp"_s))))->toString()));
+	$useLocalObjectStack();
+	$throwNew($SQLFeatureNotSupportedException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.featnotsupp"_s))->toString()));
 }
 
 void CachedRowSetImpl::setClob($String* parameterName, $Reader* reader) {
-	$useLocalCurrentObjectStackCache();
-	$throwNew($SQLFeatureNotSupportedException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.featnotsupp"_s))))->toString()));
+	$useLocalObjectStack();
+	$throwNew($SQLFeatureNotSupportedException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.featnotsupp"_s))->toString()));
 }
 
 void CachedRowSetImpl::setDate($String* parameterName, $Date* x) {
-	$useLocalCurrentObjectStackCache();
-	$throwNew($SQLFeatureNotSupportedException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.featnotsupp"_s))))->toString()));
+	$useLocalObjectStack();
+	$throwNew($SQLFeatureNotSupportedException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.featnotsupp"_s))->toString()));
 }
 
 void CachedRowSetImpl::setDate($String* parameterName, $Date* x, $Calendar* cal) {
-	$useLocalCurrentObjectStackCache();
-	$throwNew($SQLFeatureNotSupportedException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.featnotsupp"_s))))->toString()));
+	$useLocalObjectStack();
+	$throwNew($SQLFeatureNotSupportedException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.featnotsupp"_s))->toString()));
 }
 
 void CachedRowSetImpl::setTime($String* parameterName, $Time* x) {
-	$useLocalCurrentObjectStackCache();
-	$throwNew($SQLFeatureNotSupportedException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.featnotsupp"_s))))->toString()));
+	$useLocalObjectStack();
+	$throwNew($SQLFeatureNotSupportedException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.featnotsupp"_s))->toString()));
 }
 
 void CachedRowSetImpl::setTime($String* parameterName, $Time* x, $Calendar* cal) {
-	$useLocalCurrentObjectStackCache();
-	$throwNew($SQLFeatureNotSupportedException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.featnotsupp"_s))))->toString()));
+	$useLocalObjectStack();
+	$throwNew($SQLFeatureNotSupportedException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.featnotsupp"_s))->toString()));
 }
 
 void CachedRowSetImpl::setClob(int32_t parameterIndex, $Reader* reader) {
-	$useLocalCurrentObjectStackCache();
-	$throwNew($SQLFeatureNotSupportedException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.featnotsupp"_s))))->toString()));
+	$useLocalObjectStack();
+	$throwNew($SQLFeatureNotSupportedException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.featnotsupp"_s))->toString()));
 }
 
 void CachedRowSetImpl::setClob(int32_t parameterIndex, $Reader* reader, int64_t length) {
-	$useLocalCurrentObjectStackCache();
-	$throwNew($SQLFeatureNotSupportedException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.featnotsupp"_s))))->toString()));
+	$useLocalObjectStack();
+	$throwNew($SQLFeatureNotSupportedException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.featnotsupp"_s))->toString()));
 }
 
 void CachedRowSetImpl::setBlob(int32_t parameterIndex, $InputStream* inputStream, int64_t length) {
-	$useLocalCurrentObjectStackCache();
-	$throwNew($SQLFeatureNotSupportedException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.featnotsupp"_s))))->toString()));
+	$useLocalObjectStack();
+	$throwNew($SQLFeatureNotSupportedException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.featnotsupp"_s))->toString()));
 }
 
 void CachedRowSetImpl::setBlob(int32_t parameterIndex, $InputStream* inputStream) {
-	$useLocalCurrentObjectStackCache();
-	$throwNew($SQLFeatureNotSupportedException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.featnotsupp"_s))))->toString()));
+	$useLocalObjectStack();
+	$throwNew($SQLFeatureNotSupportedException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.featnotsupp"_s))->toString()));
 }
 
 void CachedRowSetImpl::setBlob($String* parameterName, $InputStream* inputStream, int64_t length) {
-	$useLocalCurrentObjectStackCache();
-	$throwNew($SQLFeatureNotSupportedException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.featnotsupp"_s))))->toString()));
+	$useLocalObjectStack();
+	$throwNew($SQLFeatureNotSupportedException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.featnotsupp"_s))->toString()));
 }
 
 void CachedRowSetImpl::setBlob($String* parameterName, $Blob* x) {
-	$useLocalCurrentObjectStackCache();
-	$throwNew($SQLFeatureNotSupportedException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.featnotsupp"_s))))->toString()));
+	$useLocalObjectStack();
+	$throwNew($SQLFeatureNotSupportedException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.featnotsupp"_s))->toString()));
 }
 
 void CachedRowSetImpl::setBlob($String* parameterName, $InputStream* inputStream) {
-	$useLocalCurrentObjectStackCache();
-	$throwNew($SQLFeatureNotSupportedException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.featnotsupp"_s))))->toString()));
+	$useLocalObjectStack();
+	$throwNew($SQLFeatureNotSupportedException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.featnotsupp"_s))->toString()));
 }
 
 void CachedRowSetImpl::setObject($String* parameterName, Object$* x, int32_t targetSqlType, int32_t scale) {
-	$useLocalCurrentObjectStackCache();
-	$throwNew($SQLFeatureNotSupportedException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.featnotsupp"_s))))->toString()));
+	$useLocalObjectStack();
+	$throwNew($SQLFeatureNotSupportedException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.featnotsupp"_s))->toString()));
 }
 
 void CachedRowSetImpl::setObject($String* parameterName, Object$* x, int32_t targetSqlType) {
-	$useLocalCurrentObjectStackCache();
-	$throwNew($SQLFeatureNotSupportedException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.featnotsupp"_s))))->toString()));
+	$useLocalObjectStack();
+	$throwNew($SQLFeatureNotSupportedException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.featnotsupp"_s))->toString()));
 }
 
 void CachedRowSetImpl::setObject($String* parameterName, Object$* x) {
-	$useLocalCurrentObjectStackCache();
-	$throwNew($SQLFeatureNotSupportedException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.featnotsupp"_s))))->toString()));
+	$useLocalObjectStack();
+	$throwNew($SQLFeatureNotSupportedException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.featnotsupp"_s))->toString()));
 }
 
 void CachedRowSetImpl::setAsciiStream($String* parameterName, $InputStream* x, int32_t length) {
-	$useLocalCurrentObjectStackCache();
-	$throwNew($SQLFeatureNotSupportedException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.featnotsupp"_s))))->toString()));
+	$useLocalObjectStack();
+	$throwNew($SQLFeatureNotSupportedException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.featnotsupp"_s))->toString()));
 }
 
 void CachedRowSetImpl::setBinaryStream($String* parameterName, $InputStream* x, int32_t length) {
-	$useLocalCurrentObjectStackCache();
-	$throwNew($SQLFeatureNotSupportedException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.featnotsupp"_s))))->toString()));
+	$useLocalObjectStack();
+	$throwNew($SQLFeatureNotSupportedException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.featnotsupp"_s))->toString()));
 }
 
 void CachedRowSetImpl::setCharacterStream($String* parameterName, $Reader* reader, int32_t length) {
-	$useLocalCurrentObjectStackCache();
-	$throwNew($SQLFeatureNotSupportedException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.featnotsupp"_s))))->toString()));
+	$useLocalObjectStack();
+	$throwNew($SQLFeatureNotSupportedException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.featnotsupp"_s))->toString()));
 }
 
 void CachedRowSetImpl::setAsciiStream($String* parameterName, $InputStream* x) {
-	$useLocalCurrentObjectStackCache();
-	$throwNew($SQLFeatureNotSupportedException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.featnotsupp"_s))))->toString()));
+	$useLocalObjectStack();
+	$throwNew($SQLFeatureNotSupportedException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.featnotsupp"_s))->toString()));
 }
 
 void CachedRowSetImpl::setBinaryStream($String* parameterName, $InputStream* x) {
-	$useLocalCurrentObjectStackCache();
-	$throwNew($SQLFeatureNotSupportedException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.featnotsupp"_s))))->toString()));
+	$useLocalObjectStack();
+	$throwNew($SQLFeatureNotSupportedException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.featnotsupp"_s))->toString()));
 }
 
 void CachedRowSetImpl::setCharacterStream($String* parameterName, $Reader* reader) {
-	$useLocalCurrentObjectStackCache();
-	$throwNew($SQLFeatureNotSupportedException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.featnotsupp"_s))))->toString()));
+	$useLocalObjectStack();
+	$throwNew($SQLFeatureNotSupportedException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.featnotsupp"_s))->toString()));
 }
 
 void CachedRowSetImpl::setBigDecimal($String* parameterName, $BigDecimal* x) {
-	$useLocalCurrentObjectStackCache();
-	$throwNew($SQLFeatureNotSupportedException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.featnotsupp"_s))))->toString()));
+	$useLocalObjectStack();
+	$throwNew($SQLFeatureNotSupportedException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.featnotsupp"_s))->toString()));
 }
 
 void CachedRowSetImpl::setString($String* parameterName, $String* x) {
-	$useLocalCurrentObjectStackCache();
-	$throwNew($SQLFeatureNotSupportedException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.featnotsupp"_s))))->toString()));
+	$useLocalObjectStack();
+	$throwNew($SQLFeatureNotSupportedException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.featnotsupp"_s))->toString()));
 }
 
 void CachedRowSetImpl::setBytes($String* parameterName, $bytes* x) {
-	$useLocalCurrentObjectStackCache();
-	$throwNew($SQLFeatureNotSupportedException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.featnotsupp"_s))))->toString()));
+	$useLocalObjectStack();
+	$throwNew($SQLFeatureNotSupportedException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.featnotsupp"_s))->toString()));
 }
 
 void CachedRowSetImpl::setTimestamp($String* parameterName, $Timestamp* x) {
-	$useLocalCurrentObjectStackCache();
-	$throwNew($SQLFeatureNotSupportedException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.featnotsupp"_s))))->toString()));
+	$useLocalObjectStack();
+	$throwNew($SQLFeatureNotSupportedException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.featnotsupp"_s))->toString()));
 }
 
 void CachedRowSetImpl::setNull($String* parameterName, int32_t sqlType) {
-	$useLocalCurrentObjectStackCache();
-	$throwNew($SQLFeatureNotSupportedException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.featnotsupp"_s))))->toString()));
+	$useLocalObjectStack();
+	$throwNew($SQLFeatureNotSupportedException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.featnotsupp"_s))->toString()));
 }
 
 void CachedRowSetImpl::setNull($String* parameterName, int32_t sqlType, $String* typeName) {
-	$useLocalCurrentObjectStackCache();
-	$throwNew($SQLFeatureNotSupportedException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.featnotsupp"_s))))->toString()));
+	$useLocalObjectStack();
+	$throwNew($SQLFeatureNotSupportedException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.featnotsupp"_s))->toString()));
 }
 
 void CachedRowSetImpl::setBoolean($String* parameterName, bool x) {
-	$useLocalCurrentObjectStackCache();
-	$throwNew($SQLFeatureNotSupportedException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.featnotsupp"_s))))->toString()));
+	$useLocalObjectStack();
+	$throwNew($SQLFeatureNotSupportedException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.featnotsupp"_s))->toString()));
 }
 
 void CachedRowSetImpl::setByte($String* parameterName, int8_t x) {
-	$useLocalCurrentObjectStackCache();
-	$throwNew($SQLFeatureNotSupportedException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.featnotsupp"_s))))->toString()));
+	$useLocalObjectStack();
+	$throwNew($SQLFeatureNotSupportedException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.featnotsupp"_s))->toString()));
 }
 
 void CachedRowSetImpl::setShort($String* parameterName, int16_t x) {
-	$useLocalCurrentObjectStackCache();
-	$throwNew($SQLFeatureNotSupportedException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.featnotsupp"_s))))->toString()));
+	$useLocalObjectStack();
+	$throwNew($SQLFeatureNotSupportedException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.featnotsupp"_s))->toString()));
 }
 
 void CachedRowSetImpl::setInt($String* parameterName, int32_t x) {
-	$useLocalCurrentObjectStackCache();
-	$throwNew($SQLFeatureNotSupportedException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.featnotsupp"_s))))->toString()));
+	$useLocalObjectStack();
+	$throwNew($SQLFeatureNotSupportedException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.featnotsupp"_s))->toString()));
 }
 
 void CachedRowSetImpl::setLong($String* parameterName, int64_t x) {
-	$useLocalCurrentObjectStackCache();
-	$throwNew($SQLFeatureNotSupportedException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.featnotsupp"_s))))->toString()));
+	$useLocalObjectStack();
+	$throwNew($SQLFeatureNotSupportedException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.featnotsupp"_s))->toString()));
 }
 
 void CachedRowSetImpl::setFloat($String* parameterName, float x) {
-	$useLocalCurrentObjectStackCache();
-	$throwNew($SQLFeatureNotSupportedException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.featnotsupp"_s))))->toString()));
+	$useLocalObjectStack();
+	$throwNew($SQLFeatureNotSupportedException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.featnotsupp"_s))->toString()));
 }
 
 void CachedRowSetImpl::setDouble($String* parameterName, double x) {
-	$useLocalCurrentObjectStackCache();
-	$throwNew($SQLFeatureNotSupportedException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.featnotsupp"_s))))->toString()));
+	$useLocalObjectStack();
+	$throwNew($SQLFeatureNotSupportedException, $($$nc($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.featnotsupp"_s))->toString()));
 }
 
 void CachedRowSetImpl::readObject($ObjectInputStream* ois) {
@@ -4449,7 +3832,7 @@ void CachedRowSetImpl::readObject($ObjectInputStream* ois) {
 	try {
 		$set(this, resBundle, $JdbcRowSetResourceBundle::getJdbcRowSetResourceBundle());
 	} catch ($IOException& ioe) {
-		$throwNew($RuntimeException, static_cast<$Throwable*>(ioe));
+		$throwNew($RuntimeException, ioe);
 	}
 }
 
@@ -4467,7 +3850,488 @@ CachedRowSetImpl::CachedRowSetImpl() {
 }
 
 $Class* CachedRowSetImpl::load$($String* name, bool initialize) {
-	$loadClass(CachedRowSetImpl, name, initialize, &_CachedRowSetImpl_ClassInfo_, allocate$CachedRowSetImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"provider", "Ljavax/sql/rowset/spi/SyncProvider;", nullptr, $PRIVATE, $field(CachedRowSetImpl, provider)},
+		{"rowSetReader", "Ljavax/sql/RowSetReader;", nullptr, $PRIVATE, $field(CachedRowSetImpl, rowSetReader)},
+		{"rowSetWriter", "Ljavax/sql/RowSetWriter;", nullptr, $PRIVATE, $field(CachedRowSetImpl, rowSetWriter)},
+		{"conn", "Ljava/sql/Connection;", nullptr, $PRIVATE | $TRANSIENT, $field(CachedRowSetImpl, conn)},
+		{"RSMD", "Ljava/sql/ResultSetMetaData;", nullptr, $PRIVATE | $TRANSIENT, $field(CachedRowSetImpl, RSMD)},
+		{"RowSetMD", "Ljavax/sql/rowset/RowSetMetaDataImpl;", nullptr, $PRIVATE, $field(CachedRowSetImpl, RowSetMD)},
+		{"keyCols", "[I", nullptr, $PRIVATE, $field(CachedRowSetImpl, keyCols)},
+		{"tableName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(CachedRowSetImpl, tableName)},
+		{"rvh", "Ljava/util/Vector;", "Ljava/util/Vector<Ljava/lang/Object;>;", $PRIVATE, $field(CachedRowSetImpl, rvh)},
+		{"cursorPos", "I", nullptr, $PRIVATE, $field(CachedRowSetImpl, cursorPos)},
+		{"absolutePos", "I", nullptr, $PRIVATE, $field(CachedRowSetImpl, absolutePos)},
+		{"numDeleted", "I", nullptr, $PRIVATE, $field(CachedRowSetImpl, numDeleted)},
+		{"numRows", "I", nullptr, $PRIVATE, $field(CachedRowSetImpl, numRows)},
+		{"insertRow", "Lcom/sun/rowset/internal/InsertRow;", nullptr, $PRIVATE, $field(CachedRowSetImpl, insertRow$)},
+		{"onInsertRow", "Z", nullptr, $PRIVATE, $field(CachedRowSetImpl, onInsertRow)},
+		{"currentRow", "I", nullptr, $PRIVATE, $field(CachedRowSetImpl, currentRow)},
+		{"lastValueNull", "Z", nullptr, $PRIVATE, $field(CachedRowSetImpl, lastValueNull)},
+		{"sqlwarn", "Ljava/sql/SQLWarning;", nullptr, $PRIVATE, $field(CachedRowSetImpl, sqlwarn)},
+		{"strMatchColumn", "Ljava/lang/String;", nullptr, $PRIVATE, $field(CachedRowSetImpl, strMatchColumn)},
+		{"iMatchColumn", "I", nullptr, $PRIVATE, $field(CachedRowSetImpl, iMatchColumn)},
+		{"rowsetWarning", "Ljavax/sql/rowset/RowSetWarning;", nullptr, $PRIVATE, $field(CachedRowSetImpl, rowsetWarning)},
+		{"DEFAULT_SYNC_PROVIDER", "Ljava/lang/String;", nullptr, $PRIVATE, $field(CachedRowSetImpl, DEFAULT_SYNC_PROVIDER)},
+		{"dbmslocatorsUpdateCopy", "Z", nullptr, $PRIVATE, $field(CachedRowSetImpl, dbmslocatorsUpdateCopy)},
+		{"resultSet", "Ljava/sql/ResultSet;", nullptr, $PRIVATE | $TRANSIENT, $field(CachedRowSetImpl, resultSet)},
+		{"endPos", "I", nullptr, $PRIVATE, $field(CachedRowSetImpl, endPos)},
+		{"prevEndPos", "I", nullptr, $PRIVATE, $field(CachedRowSetImpl, prevEndPos)},
+		{"startPos", "I", nullptr, $PRIVATE, $field(CachedRowSetImpl, startPos)},
+		{"startPrev", "I", nullptr, $PRIVATE, $field(CachedRowSetImpl, startPrev)},
+		{"pageSize", "I", nullptr, $PRIVATE, $field(CachedRowSetImpl, pageSize)},
+		{"maxRowsreached", "I", nullptr, $PRIVATE, $field(CachedRowSetImpl, maxRowsreached)},
+		{"pagenotend", "Z", nullptr, $PRIVATE, $field(CachedRowSetImpl, pagenotend)},
+		{"onFirstPage", "Z", nullptr, $PRIVATE, $field(CachedRowSetImpl, onFirstPage)},
+		{"onLastPage", "Z", nullptr, $PRIVATE, $field(CachedRowSetImpl, onLastPage)},
+		{"populatecallcount", "I", nullptr, $PRIVATE, $field(CachedRowSetImpl, populatecallcount)},
+		{"totalRows", "I", nullptr, $PRIVATE, $field(CachedRowSetImpl, totalRows)},
+		{"callWithCon", "Z", nullptr, $PRIVATE, $field(CachedRowSetImpl, callWithCon)},
+		{"crsReader", "Lcom/sun/rowset/internal/CachedRowSetReader;", nullptr, $PRIVATE, $field(CachedRowSetImpl, crsReader)},
+		{"iMatchColumns", "Ljava/util/Vector;", "Ljava/util/Vector<Ljava/lang/Integer;>;", $PRIVATE, $field(CachedRowSetImpl, iMatchColumns)},
+		{"strMatchColumns", "Ljava/util/Vector;", "Ljava/util/Vector<Ljava/lang/String;>;", $PRIVATE, $field(CachedRowSetImpl, strMatchColumns)},
+		{"tXWriter", "Z", nullptr, $PRIVATE, $field(CachedRowSetImpl, tXWriter)},
+		{"tWriter", "Ljavax/sql/rowset/spi/TransactionalWriter;", nullptr, $PRIVATE, $field(CachedRowSetImpl, tWriter)},
+		{"resBundle", "Lcom/sun/rowset/JdbcRowSetResourceBundle;", nullptr, $PROTECTED | $TRANSIENT, $field(CachedRowSetImpl, resBundle)},
+		{"updateOnInsert", "Z", nullptr, $PRIVATE, $field(CachedRowSetImpl, updateOnInsert)},
+		{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(CachedRowSetImpl, serialVersionUID)},
+		{}
+	};
+	$CompoundAttribute getBigDecimalmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute getBigDecimalmethodAnnotations$$$1[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute getUnicodeStreammethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute getUnicodeStreammethodAnnotations$$$1[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*addRowSetListener", "(Ljavax/sql/RowSetListener;)V", nullptr, $PUBLIC},
+		{"*clearParameters", "()V", nullptr, $PUBLIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*getCommand", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*getConcurrency", "()I", nullptr, $PUBLIC},
+		{"*getDataSourceName", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*getEscapeProcessing", "()Z", nullptr, $PUBLIC},
+		{"*getFetchDirection", "()I", nullptr, $PUBLIC},
+		{"*getFetchSize", "()I", nullptr, $PUBLIC},
+		{"*getMaxFieldSize", "()I", nullptr, $PUBLIC},
+		{"*getMaxRows", "()I", nullptr, $PUBLIC},
+		{"*getParams", "()[Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*getPassword", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*getQueryTimeout", "()I", nullptr, $PUBLIC},
+		{"*getShowDeleted", "()Z", nullptr, $PUBLIC},
+		{"*getTransactionIsolation", "()I", nullptr, $PUBLIC},
+		{"*getType", "()I", nullptr, $PUBLIC},
+		{"*getTypeMap", "()Ljava/util/Map;", nullptr, $PUBLIC},
+		{"*getUrl", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*getUsername", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(CachedRowSetImpl, init$, void), "java.sql.SQLException"},
+		{"<init>", "(Ljava/util/Hashtable;)V", nullptr, $PUBLIC, $method(CachedRowSetImpl, init$, void, $Hashtable*), "java.sql.SQLException"},
+		{"absolute", "(I)Z", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, absolute, bool, int32_t), "java.sql.SQLException"},
+		{"acceptChanges", "()V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, acceptChanges, void), "javax.sql.rowset.spi.SyncProviderException"},
+		{"acceptChanges", "(Ljava/sql/Connection;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, acceptChanges, void, $Connection*), "javax.sql.rowset.spi.SyncProviderException"},
+		{"afterLast", "()V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, afterLast, void), "java.sql.SQLException"},
+		{"beforeFirst", "()V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, beforeFirst, void), "java.sql.SQLException"},
+		{"buildTableName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(CachedRowSetImpl, buildTableName, $String*, $String*), "java.sql.SQLException"},
+		{"cancelRowUpdates", "()V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, cancelRowUpdates, void), "java.sql.SQLException"},
+		{"checkCursor", "()V", nullptr, $PRIVATE, $method(CachedRowSetImpl, checkCursor, void), "java.sql.SQLException"},
+		{"checkIndex", "(I)V", nullptr, $PRIVATE, $method(CachedRowSetImpl, checkIndex, void, int32_t), "java.sql.SQLException"},
+		{"checkTransactionalWriter", "()V", nullptr, $PRIVATE, $method(CachedRowSetImpl, checkTransactionalWriter, void)},
+		{"clearWarnings", "()V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, clearWarnings, void)},
+		{"clone", "()Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(CachedRowSetImpl, clone, $Object*), "java.lang.CloneNotSupportedException"},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, close, void), "java.sql.SQLException"},
+		{"columnUpdated", "(I)Z", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, columnUpdated, bool, int32_t), "java.sql.SQLException"},
+		{"columnUpdated", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, columnUpdated, bool, $String*), "java.sql.SQLException"},
+		{"commit", "()V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, commit, void), "java.sql.SQLException"},
+		{"convertBoolean", "(Ljava/lang/Object;II)Ljava/lang/Object;", nullptr, $PRIVATE, $method(CachedRowSetImpl, convertBoolean, $Object*, Object$*, int32_t, int32_t), "java.sql.SQLException"},
+		{"convertNumeric", "(Ljava/lang/Object;II)Ljava/lang/Object;", nullptr, $PRIVATE, $method(CachedRowSetImpl, convertNumeric, $Object*, Object$*, int32_t, int32_t), "java.sql.SQLException"},
+		{"convertTemporal", "(Ljava/lang/Object;II)Ljava/lang/Object;", nullptr, $PRIVATE, $method(CachedRowSetImpl, convertTemporal, $Object*, Object$*, int32_t, int32_t), "java.sql.SQLException"},
+		{"createCopy", "()Ljavax/sql/rowset/CachedRowSet;", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, createCopy, $CachedRowSet*), "java.sql.SQLException"},
+		{"createCopyNoConstraints", "()Ljavax/sql/rowset/CachedRowSet;", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, createCopyNoConstraints, $CachedRowSet*), "java.sql.SQLException"},
+		{"createCopySchema", "()Ljavax/sql/rowset/CachedRowSet;", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, createCopySchema, $CachedRowSet*), "java.sql.SQLException"},
+		{"createShared", "()Ljavax/sql/RowSet;", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, createShared, $RowSet*), "java.sql.SQLException"},
+		{"deleteRow", "()V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, deleteRow, void), "java.sql.SQLException"},
+		{"establishTransactionalWriter", "()V", nullptr, $PRIVATE, $method(CachedRowSetImpl, establishTransactionalWriter, void)},
+		{"execute", "(Ljava/sql/Connection;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, execute, void, $Connection*), "java.sql.SQLException"},
+		{"execute", "()V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, execute, void), "java.sql.SQLException"},
+		{"findColumn", "(Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, findColumn, int32_t, $String*), "java.sql.SQLException"},
+		{"first", "()Z", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, first, bool), "java.sql.SQLException"},
+		{"getArray", "(I)Ljava/sql/Array;", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, getArray, $1Array*, int32_t), "java.sql.SQLException"},
+		{"getArray", "(Ljava/lang/String;)Ljava/sql/Array;", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, getArray, $1Array*, $String*), "java.sql.SQLException"},
+		{"getAsciiStream", "(I)Ljava/io/InputStream;", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, getAsciiStream, $InputStream*, int32_t), "java.sql.SQLException"},
+		{"getAsciiStream", "(Ljava/lang/String;)Ljava/io/InputStream;", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, getAsciiStream, $InputStream*, $String*), "java.sql.SQLException"},
+		{"getBigDecimal", "(II)Ljava/math/BigDecimal;", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(CachedRowSetImpl, getBigDecimal, $BigDecimal*, int32_t, int32_t), "java.sql.SQLException", nullptr, getBigDecimalmethodAnnotations$$},
+		{"getBigDecimal", "(Ljava/lang/String;I)Ljava/math/BigDecimal;", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(CachedRowSetImpl, getBigDecimal, $BigDecimal*, $String*, int32_t), "java.sql.SQLException", nullptr, getBigDecimalmethodAnnotations$$$1},
+		{"getBigDecimal", "(I)Ljava/math/BigDecimal;", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, getBigDecimal, $BigDecimal*, int32_t), "java.sql.SQLException"},
+		{"getBigDecimal", "(Ljava/lang/String;)Ljava/math/BigDecimal;", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, getBigDecimal, $BigDecimal*, $String*), "java.sql.SQLException"},
+		{"getBinaryStream", "(I)Ljava/io/InputStream;", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, getBinaryStream, $InputStream*, int32_t), "java.sql.SQLException"},
+		{"getBinaryStream", "(Ljava/lang/String;)Ljava/io/InputStream;", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, getBinaryStream, $InputStream*, $String*), "java.sql.SQLException"},
+		{"getBlob", "(I)Ljava/sql/Blob;", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, getBlob, $Blob*, int32_t), "java.sql.SQLException"},
+		{"getBlob", "(Ljava/lang/String;)Ljava/sql/Blob;", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, getBlob, $Blob*, $String*), "java.sql.SQLException"},
+		{"getBoolean", "(I)Z", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, getBoolean, bool, int32_t), "java.sql.SQLException"},
+		{"getBoolean", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, getBoolean, bool, $String*), "java.sql.SQLException"},
+		{"getByte", "(I)B", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, getByte, int8_t, int32_t), "java.sql.SQLException"},
+		{"getByte", "(Ljava/lang/String;)B", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, getByte, int8_t, $String*), "java.sql.SQLException"},
+		{"getBytes", "(I)[B", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, getBytes, $bytes*, int32_t), "java.sql.SQLException"},
+		{"getBytes", "(Ljava/lang/String;)[B", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, getBytes, $bytes*, $String*), "java.sql.SQLException"},
+		{"getCharacterStream", "(I)Ljava/io/Reader;", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, getCharacterStream, $Reader*, int32_t), "java.sql.SQLException"},
+		{"getCharacterStream", "(Ljava/lang/String;)Ljava/io/Reader;", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, getCharacterStream, $Reader*, $String*), "java.sql.SQLException"},
+		{"getClob", "(I)Ljava/sql/Clob;", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, getClob, $Clob*, int32_t), "java.sql.SQLException"},
+		{"getClob", "(Ljava/lang/String;)Ljava/sql/Clob;", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, getClob, $Clob*, $String*), "java.sql.SQLException"},
+		{"getColIdxByName", "(Ljava/lang/String;)I", nullptr, $PRIVATE, $method(CachedRowSetImpl, getColIdxByName, int32_t, $String*), "java.sql.SQLException"},
+		{"getConnection", "()Ljava/sql/Connection;", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, getConnection, $Connection*), "java.sql.SQLException"},
+		{"getCurrentRow", "()Lcom/sun/rowset/internal/BaseRow;", nullptr, $PROTECTED, $virtualMethod(CachedRowSetImpl, getCurrentRow, $BaseRow*)},
+		{"getCursorName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, getCursorName, $String*), "java.sql.SQLException"},
+		{"getDate", "(I)Ljava/sql/Date;", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, getDate, $Date*, int32_t), "java.sql.SQLException"},
+		{"getDate", "(Ljava/lang/String;)Ljava/sql/Date;", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, getDate, $Date*, $String*), "java.sql.SQLException"},
+		{"getDate", "(ILjava/util/Calendar;)Ljava/sql/Date;", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, getDate, $Date*, int32_t, $Calendar*), "java.sql.SQLException"},
+		{"getDate", "(Ljava/lang/String;Ljava/util/Calendar;)Ljava/sql/Date;", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, getDate, $Date*, $String*, $Calendar*), "java.sql.SQLException"},
+		{"getDouble", "(I)D", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, getDouble, double, int32_t), "java.sql.SQLException"},
+		{"getDouble", "(Ljava/lang/String;)D", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, getDouble, double, $String*), "java.sql.SQLException"},
+		{"getFloat", "(I)F", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, getFloat, float, int32_t), "java.sql.SQLException"},
+		{"getFloat", "(Ljava/lang/String;)F", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, getFloat, float, $String*), "java.sql.SQLException"},
+		{"getHoldability", "()I", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, getHoldability, int32_t), "java.sql.SQLException"},
+		{"getInt", "(I)I", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, getInt, int32_t, int32_t), "java.sql.SQLException"},
+		{"getInt", "(Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, getInt, int32_t, $String*), "java.sql.SQLException"},
+		{"getKeyColumns", "()[I", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, getKeyColumns, $ints*), "java.sql.SQLException"},
+		{"getLong", "(I)J", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, getLong, int64_t, int32_t), "java.sql.SQLException"},
+		{"getLong", "(Ljava/lang/String;)J", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, getLong, int64_t, $String*), "java.sql.SQLException"},
+		{"getMatchColumnIndexes", "()[I", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, getMatchColumnIndexes, $ints*), "java.sql.SQLException"},
+		{"getMatchColumnNames", "()[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, getMatchColumnNames, $StringArray*), "java.sql.SQLException"},
+		{"getMetaData", "()Ljava/sql/ResultSetMetaData;", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, getMetaData, $ResultSetMetaData*), "java.sql.SQLException"},
+		{"getNCharacterStream", "(I)Ljava/io/Reader;", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, getNCharacterStream, $Reader*, int32_t), "java.sql.SQLException"},
+		{"getNCharacterStream", "(Ljava/lang/String;)Ljava/io/Reader;", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, getNCharacterStream, $Reader*, $String*), "java.sql.SQLException"},
+		{"getNClob", "(I)Ljava/sql/NClob;", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, getNClob, $NClob*, int32_t), "java.sql.SQLException"},
+		{"getNClob", "(Ljava/lang/String;)Ljava/sql/NClob;", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, getNClob, $NClob*, $String*), "java.sql.SQLException"},
+		{"getNString", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, getNString, $String*, int32_t), "java.sql.SQLException"},
+		{"getNString", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, getNString, $String*, $String*), "java.sql.SQLException"},
+		{"getObject", "(I)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, getObject, $Object*, int32_t), "java.sql.SQLException"},
+		{"getObject", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, getObject, $Object*, $String*), "java.sql.SQLException"},
+		{"getObject", "(ILjava/util/Map;)Ljava/lang/Object;", "(ILjava/util/Map<Ljava/lang/String;Ljava/lang/Class<*>;>;)Ljava/lang/Object;", $PUBLIC, $virtualMethod(CachedRowSetImpl, getObject, $Object*, int32_t, $Map*), "java.sql.SQLException"},
+		{"getObject", "(Ljava/lang/String;Ljava/util/Map;)Ljava/lang/Object;", "(Ljava/lang/String;Ljava/util/Map<Ljava/lang/String;Ljava/lang/Class<*>;>;)Ljava/lang/Object;", $PUBLIC, $virtualMethod(CachedRowSetImpl, getObject, $Object*, $String*, $Map*), "java.sql.SQLException"},
+		{"getObject", "(ILjava/lang/Class;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(ILjava/lang/Class<TT;>;)TT;", $PUBLIC, $virtualMethod(CachedRowSetImpl, getObject, $Object*, int32_t, $Class*), "java.sql.SQLException"},
+		{"getObject", "(Ljava/lang/String;Ljava/lang/Class;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljava/lang/String;Ljava/lang/Class<TT;>;)TT;", $PUBLIC, $virtualMethod(CachedRowSetImpl, getObject, $Object*, $String*, $Class*), "java.sql.SQLException"},
+		{"getOriginal", "()Ljava/sql/ResultSet;", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, getOriginal, $ResultSet*), "java.sql.SQLException"},
+		{"getOriginalRow", "()Ljava/sql/ResultSet;", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, getOriginalRow, $ResultSet*), "java.sql.SQLException"},
+		{"getPageSize", "()I", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, getPageSize, int32_t)},
+		{"getRef", "(I)Ljava/sql/Ref;", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, getRef, $Ref*, int32_t), "java.sql.SQLException"},
+		{"getRef", "(Ljava/lang/String;)Ljava/sql/Ref;", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, getRef, $Ref*, $String*), "java.sql.SQLException"},
+		{"getRow", "()I", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, getRow, int32_t), "java.sql.SQLException"},
+		{"getRowId", "(I)Ljava/sql/RowId;", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, getRowId, $RowId*, int32_t), "java.sql.SQLException"},
+		{"getRowId", "(Ljava/lang/String;)Ljava/sql/RowId;", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, getRowId, $RowId*, $String*), "java.sql.SQLException"},
+		{"getRowSetWarnings", "()Ljavax/sql/rowset/RowSetWarning;", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, getRowSetWarnings, $RowSetWarning*)},
+		{"getSQLXML", "(I)Ljava/sql/SQLXML;", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, getSQLXML, $SQLXML*, int32_t), "java.sql.SQLException"},
+		{"getSQLXML", "(Ljava/lang/String;)Ljava/sql/SQLXML;", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, getSQLXML, $SQLXML*, $String*), "java.sql.SQLException"},
+		{"getShort", "(I)S", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, getShort, int16_t, int32_t), "java.sql.SQLException"},
+		{"getShort", "(Ljava/lang/String;)S", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, getShort, int16_t, $String*), "java.sql.SQLException"},
+		{"getStatement", "()Ljava/sql/Statement;", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, getStatement, $Statement*), "java.sql.SQLException"},
+		{"getString", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, getString, $String*, int32_t), "java.sql.SQLException"},
+		{"getString", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, getString, $String*, $String*), "java.sql.SQLException"},
+		{"getSyncProvider", "()Ljavax/sql/rowset/spi/SyncProvider;", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, getSyncProvider, $SyncProvider*), "java.sql.SQLException"},
+		{"getTableName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, getTableName, $String*), "java.sql.SQLException"},
+		{"getTime", "(I)Ljava/sql/Time;", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, getTime, $Time*, int32_t), "java.sql.SQLException"},
+		{"getTime", "(Ljava/lang/String;)Ljava/sql/Time;", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, getTime, $Time*, $String*), "java.sql.SQLException"},
+		{"getTime", "(ILjava/util/Calendar;)Ljava/sql/Time;", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, getTime, $Time*, int32_t, $Calendar*), "java.sql.SQLException"},
+		{"getTime", "(Ljava/lang/String;Ljava/util/Calendar;)Ljava/sql/Time;", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, getTime, $Time*, $String*, $Calendar*), "java.sql.SQLException"},
+		{"getTimestamp", "(I)Ljava/sql/Timestamp;", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, getTimestamp, $Timestamp*, int32_t), "java.sql.SQLException"},
+		{"getTimestamp", "(Ljava/lang/String;)Ljava/sql/Timestamp;", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, getTimestamp, $Timestamp*, $String*), "java.sql.SQLException"},
+		{"getTimestamp", "(ILjava/util/Calendar;)Ljava/sql/Timestamp;", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, getTimestamp, $Timestamp*, int32_t, $Calendar*), "java.sql.SQLException"},
+		{"getTimestamp", "(Ljava/lang/String;Ljava/util/Calendar;)Ljava/sql/Timestamp;", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, getTimestamp, $Timestamp*, $String*, $Calendar*), "java.sql.SQLException"},
+		{"getURL", "(I)Ljava/net/URL;", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, getURL, $URL*, int32_t), "java.sql.SQLException"},
+		{"getURL", "(Ljava/lang/String;)Ljava/net/URL;", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, getURL, $URL*, $String*), "java.sql.SQLException"},
+		{"getUnicodeStream", "(I)Ljava/io/InputStream;", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(CachedRowSetImpl, getUnicodeStream, $InputStream*, int32_t), "java.sql.SQLException", nullptr, getUnicodeStreammethodAnnotations$$},
+		{"getUnicodeStream", "(Ljava/lang/String;)Ljava/io/InputStream;", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(CachedRowSetImpl, getUnicodeStream, $InputStream*, $String*), "java.sql.SQLException", nullptr, getUnicodeStreammethodAnnotations$$$1},
+		{"getWarnings", "()Ljava/sql/SQLWarning;", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, getWarnings, $SQLWarning*)},
+		{"initContainer", "()V", nullptr, $PRIVATE, $method(CachedRowSetImpl, initContainer, void)},
+		{"initMetaData", "(Ljavax/sql/rowset/RowSetMetaDataImpl;Ljava/sql/ResultSetMetaData;)V", nullptr, $PRIVATE, $method(CachedRowSetImpl, initMetaData, void, $RowSetMetaDataImpl*, $ResultSetMetaData*), "java.sql.SQLException"},
+		{"initProperties", "()V", nullptr, $PRIVATE, $method(CachedRowSetImpl, initProperties, void), "java.sql.SQLException"},
+		{"insertRow", "()V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, insertRow, void), "java.sql.SQLException"},
+		{"internalFirst", "()Z", nullptr, $PROTECTED, $virtualMethod(CachedRowSetImpl, internalFirst, bool), "java.sql.SQLException"},
+		{"internalLast", "()Z", nullptr, $PROTECTED, $virtualMethod(CachedRowSetImpl, internalLast, bool), "java.sql.SQLException"},
+		{"internalNext", "()Z", nullptr, $PROTECTED, $virtualMethod(CachedRowSetImpl, internalNext, bool), "java.sql.SQLException"},
+		{"internalPrevious", "()Z", nullptr, $PROTECTED, $virtualMethod(CachedRowSetImpl, internalPrevious, bool), "java.sql.SQLException"},
+		{"isAfterLast", "()Z", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, isAfterLast, bool), "java.sql.SQLException"},
+		{"isBeforeFirst", "()Z", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, isBeforeFirst, bool), "java.sql.SQLException"},
+		{"isBinary", "(I)Z", nullptr, $PRIVATE, $method(CachedRowSetImpl, isBinary, bool, int32_t)},
+		{"isBoolean", "(I)Z", nullptr, $PRIVATE, $method(CachedRowSetImpl, isBoolean, bool, int32_t)},
+		{"isClosed", "()Z", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, isClosed, bool), "java.sql.SQLException"},
+		{"isFirst", "()Z", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, isFirst, bool), "java.sql.SQLException"},
+		{"isLast", "()Z", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, isLast, bool), "java.sql.SQLException"},
+		{"isNumeric", "(I)Z", nullptr, $PRIVATE, $method(CachedRowSetImpl, isNumeric, bool, int32_t)},
+		{"*isReadOnly", "()Z", nullptr, $PUBLIC},
+		{"isString", "(I)Z", nullptr, $PRIVATE, $method(CachedRowSetImpl, isString, bool, int32_t)},
+		{"isTemporal", "(I)Z", nullptr, $PRIVATE, $method(CachedRowSetImpl, isTemporal, bool, int32_t)},
+		{"isWrapperFor", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;)Z", $PUBLIC, $virtualMethod(CachedRowSetImpl, isWrapperFor, bool, $Class*), "java.sql.SQLException"},
+		{"last", "()Z", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, last, bool), "java.sql.SQLException"},
+		{"makeRowOriginal", "(Lcom/sun/rowset/internal/Row;)V", nullptr, $PRIVATE, $method(CachedRowSetImpl, makeRowOriginal, void, $Row*)},
+		{"moveToCurrentRow", "()V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, moveToCurrentRow, void), "java.sql.SQLException"},
+		{"moveToInsertRow", "()V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, moveToInsertRow, void), "java.sql.SQLException"},
+		{"next", "()Z", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, next, bool), "java.sql.SQLException"},
+		{"nextPage", "()Z", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, nextPage, bool), "java.sql.SQLException"},
+		{"populate", "(Ljava/sql/ResultSet;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, populate, void, $ResultSet*), "java.sql.SQLException"},
+		{"populate", "(Ljava/sql/ResultSet;I)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, populate, void, $ResultSet*, int32_t), "java.sql.SQLException"},
+		{"previous", "()Z", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, previous, bool), "java.sql.SQLException"},
+		{"previousPage", "()Z", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, previousPage, bool), "java.sql.SQLException"},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(CachedRowSetImpl, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+		{"refreshRow", "()V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, refreshRow, void), "java.sql.SQLException"},
+		{"relative", "(I)Z", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, relative, bool, int32_t), "java.sql.SQLException"},
+		{"release", "()V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, release, void), "java.sql.SQLException"},
+		{"removeCurrentRow", "()V", nullptr, $PROTECTED, $virtualMethod(CachedRowSetImpl, removeCurrentRow, void)},
+		{"*removeRowSetListener", "(Ljavax/sql/RowSetListener;)V", nullptr, $PUBLIC},
+		{"restoreOriginal", "()V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, restoreOriginal, void), "java.sql.SQLException"},
+		{"rollback", "()V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, rollback, void), "java.sql.SQLException"},
+		{"rollback", "(Ljava/sql/Savepoint;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, rollback, void, $Savepoint*), "java.sql.SQLException"},
+		{"rowDeleted", "()Z", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, rowDeleted, bool), "java.sql.SQLException"},
+		{"rowInserted", "()Z", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, rowInserted, bool), "java.sql.SQLException"},
+		{"rowSetPopulated", "(Ljavax/sql/RowSetEvent;I)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, rowSetPopulated, void, $RowSetEvent*, int32_t), "java.sql.SQLException"},
+		{"rowUpdated", "()Z", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, rowUpdated, bool), "java.sql.SQLException"},
+		{"*setArray", "(ILjava/sql/Array;)V", nullptr, $PUBLIC},
+		{"*setAsciiStream", "(ILjava/io/InputStream;I)V", nullptr, $PUBLIC},
+		{"*setAsciiStream", "(ILjava/io/InputStream;)V", nullptr, $PUBLIC},
+		{"setAsciiStream", "(Ljava/lang/String;Ljava/io/InputStream;I)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, setAsciiStream, void, $String*, $InputStream*, int32_t), "java.sql.SQLException"},
+		{"setAsciiStream", "(Ljava/lang/String;Ljava/io/InputStream;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, setAsciiStream, void, $String*, $InputStream*), "java.sql.SQLException"},
+		{"*setBigDecimal", "(ILjava/math/BigDecimal;)V", nullptr, $PUBLIC},
+		{"setBigDecimal", "(Ljava/lang/String;Ljava/math/BigDecimal;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, setBigDecimal, void, $String*, $BigDecimal*), "java.sql.SQLException"},
+		{"*setBinaryStream", "(ILjava/io/InputStream;I)V", nullptr, $PUBLIC},
+		{"*setBinaryStream", "(ILjava/io/InputStream;)V", nullptr, $PUBLIC},
+		{"setBinaryStream", "(Ljava/lang/String;Ljava/io/InputStream;I)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, setBinaryStream, void, $String*, $InputStream*, int32_t), "java.sql.SQLException"},
+		{"setBinaryStream", "(Ljava/lang/String;Ljava/io/InputStream;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, setBinaryStream, void, $String*, $InputStream*), "java.sql.SQLException"},
+		{"*setBlob", "(ILjava/sql/Blob;)V", nullptr, $PUBLIC},
+		{"setBlob", "(ILjava/io/InputStream;J)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, setBlob, void, int32_t, $InputStream*, int64_t), "java.sql.SQLException"},
+		{"setBlob", "(ILjava/io/InputStream;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, setBlob, void, int32_t, $InputStream*), "java.sql.SQLException"},
+		{"setBlob", "(Ljava/lang/String;Ljava/io/InputStream;J)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, setBlob, void, $String*, $InputStream*, int64_t), "java.sql.SQLException"},
+		{"setBlob", "(Ljava/lang/String;Ljava/sql/Blob;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, setBlob, void, $String*, $Blob*), "java.sql.SQLException"},
+		{"setBlob", "(Ljava/lang/String;Ljava/io/InputStream;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, setBlob, void, $String*, $InputStream*), "java.sql.SQLException"},
+		{"*setBoolean", "(IZ)V", nullptr, $PUBLIC},
+		{"setBoolean", "(Ljava/lang/String;Z)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, setBoolean, void, $String*, bool), "java.sql.SQLException"},
+		{"*setByte", "(IB)V", nullptr, $PUBLIC},
+		{"setByte", "(Ljava/lang/String;B)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, setByte, void, $String*, int8_t), "java.sql.SQLException"},
+		{"*setBytes", "(I[B)V", nullptr, $PUBLIC},
+		{"setBytes", "(Ljava/lang/String;[B)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, setBytes, void, $String*, $bytes*), "java.sql.SQLException"},
+		{"*setCharacterStream", "(ILjava/io/Reader;I)V", nullptr, $PUBLIC},
+		{"*setCharacterStream", "(ILjava/io/Reader;)V", nullptr, $PUBLIC},
+		{"setCharacterStream", "(Ljava/lang/String;Ljava/io/Reader;I)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, setCharacterStream, void, $String*, $Reader*, int32_t), "java.sql.SQLException"},
+		{"setCharacterStream", "(Ljava/lang/String;Ljava/io/Reader;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, setCharacterStream, void, $String*, $Reader*), "java.sql.SQLException"},
+		{"*setClob", "(ILjava/sql/Clob;)V", nullptr, $PUBLIC},
+		{"setClob", "(Ljava/lang/String;Ljava/io/Reader;J)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, setClob, void, $String*, $Reader*, int64_t), "java.sql.SQLException"},
+		{"setClob", "(Ljava/lang/String;Ljava/sql/Clob;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, setClob, void, $String*, $Clob*), "java.sql.SQLException"},
+		{"setClob", "(Ljava/lang/String;Ljava/io/Reader;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, setClob, void, $String*, $Reader*), "java.sql.SQLException"},
+		{"setClob", "(ILjava/io/Reader;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, setClob, void, int32_t, $Reader*), "java.sql.SQLException"},
+		{"setClob", "(ILjava/io/Reader;J)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, setClob, void, int32_t, $Reader*, int64_t), "java.sql.SQLException"},
+		{"setCommand", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, setCommand, void, $String*), "java.sql.SQLException"},
+		{"*setConcurrency", "(I)V", nullptr, $PUBLIC},
+		{"setConnection", "(Ljava/sql/Connection;)V", nullptr, $PRIVATE, $method(CachedRowSetImpl, setConnection, void, $Connection*)},
+		{"*setDataSourceName", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
+		{"*setDate", "(ILjava/sql/Date;)V", nullptr, $PUBLIC},
+		{"*setDate", "(ILjava/sql/Date;Ljava/util/Calendar;)V", nullptr, $PUBLIC},
+		{"setDate", "(Ljava/lang/String;Ljava/sql/Date;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, setDate, void, $String*, $Date*), "java.sql.SQLException"},
+		{"setDate", "(Ljava/lang/String;Ljava/sql/Date;Ljava/util/Calendar;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, setDate, void, $String*, $Date*, $Calendar*), "java.sql.SQLException"},
+		{"*setDouble", "(ID)V", nullptr, $PUBLIC},
+		{"setDouble", "(Ljava/lang/String;D)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, setDouble, void, $String*, double), "java.sql.SQLException"},
+		{"*setEscapeProcessing", "(Z)V", nullptr, $PUBLIC},
+		{"*setFetchDirection", "(I)V", nullptr, $PUBLIC},
+		{"*setFetchSize", "(I)V", nullptr, $PUBLIC},
+		{"*setFloat", "(IF)V", nullptr, $PUBLIC},
+		{"setFloat", "(Ljava/lang/String;F)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, setFloat, void, $String*, float), "java.sql.SQLException"},
+		{"*setInt", "(II)V", nullptr, $PUBLIC},
+		{"setInt", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, setInt, void, $String*, int32_t), "java.sql.SQLException"},
+		{"setKeyColumns", "([I)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, setKeyColumns, void, $ints*), "java.sql.SQLException"},
+		{"setLastValueNull", "(Z)V", nullptr, $PRIVATE, $method(CachedRowSetImpl, setLastValueNull, void, bool)},
+		{"*setLong", "(IJ)V", nullptr, $PUBLIC},
+		{"setLong", "(Ljava/lang/String;J)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, setLong, void, $String*, int64_t), "java.sql.SQLException"},
+		{"setMatchColumn", "([I)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, setMatchColumn, void, $ints*), "java.sql.SQLException"},
+		{"setMatchColumn", "([Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, setMatchColumn, void, $StringArray*), "java.sql.SQLException"},
+		{"setMatchColumn", "(I)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, setMatchColumn, void, int32_t), "java.sql.SQLException"},
+		{"setMatchColumn", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, setMatchColumn, void, $String*), "java.sql.SQLException"},
+		{"*setMaxFieldSize", "(I)V", nullptr, $PUBLIC},
+		{"*setMaxRows", "(I)V", nullptr, $PUBLIC},
+		{"setMetaData", "(Ljavax/sql/RowSetMetaData;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, setMetaData, void, $RowSetMetaData*), "java.sql.SQLException"},
+		{"setNCharacterStream", "(ILjava/io/Reader;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, setNCharacterStream, void, int32_t, $Reader*), "java.sql.SQLException"},
+		{"setNCharacterStream", "(ILjava/io/Reader;J)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, setNCharacterStream, void, int32_t, $Reader*, int64_t), "java.sql.SQLException"},
+		{"setNCharacterStream", "(Ljava/lang/String;Ljava/io/Reader;J)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, setNCharacterStream, void, $String*, $Reader*, int64_t), "java.sql.SQLException"},
+		{"setNCharacterStream", "(Ljava/lang/String;Ljava/io/Reader;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, setNCharacterStream, void, $String*, $Reader*), "java.sql.SQLException"},
+		{"setNClob", "(Ljava/lang/String;Ljava/sql/NClob;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, setNClob, void, $String*, $NClob*), "java.sql.SQLException"},
+		{"setNClob", "(ILjava/io/Reader;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, setNClob, void, int32_t, $Reader*), "java.sql.SQLException"},
+		{"setNClob", "(Ljava/lang/String;Ljava/io/Reader;J)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, setNClob, void, $String*, $Reader*, int64_t), "java.sql.SQLException"},
+		{"setNClob", "(Ljava/lang/String;Ljava/io/Reader;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, setNClob, void, $String*, $Reader*), "java.sql.SQLException"},
+		{"setNClob", "(ILjava/io/Reader;J)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, setNClob, void, int32_t, $Reader*, int64_t), "java.sql.SQLException"},
+		{"setNClob", "(ILjava/sql/NClob;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, setNClob, void, int32_t, $NClob*), "java.sql.SQLException"},
+		{"setNString", "(ILjava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, setNString, void, int32_t, $String*), "java.sql.SQLException"},
+		{"setNString", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, setNString, void, $String*, $String*), "java.sql.SQLException"},
+		{"*setNull", "(II)V", nullptr, $PUBLIC},
+		{"*setNull", "(IILjava/lang/String;)V", nullptr, $PUBLIC},
+		{"setNull", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, setNull, void, $String*, int32_t), "java.sql.SQLException"},
+		{"setNull", "(Ljava/lang/String;ILjava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, setNull, void, $String*, int32_t, $String*), "java.sql.SQLException"},
+		{"*setObject", "(ILjava/lang/Object;II)V", nullptr, $PUBLIC},
+		{"*setObject", "(ILjava/lang/Object;I)V", nullptr, $PUBLIC},
+		{"*setObject", "(ILjava/lang/Object;)V", nullptr, $PUBLIC},
+		{"setObject", "(Ljava/lang/String;Ljava/lang/Object;II)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, setObject, void, $String*, Object$*, int32_t, int32_t), "java.sql.SQLException"},
+		{"setObject", "(Ljava/lang/String;Ljava/lang/Object;I)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, setObject, void, $String*, Object$*, int32_t), "java.sql.SQLException"},
+		{"setObject", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, setObject, void, $String*, Object$*), "java.sql.SQLException"},
+		{"setOriginal", "()V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, setOriginal, void), "java.sql.SQLException"},
+		{"setOriginalRow", "()V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, setOriginalRow, void), "java.sql.SQLException"},
+		{"setPageSize", "(I)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, setPageSize, void, int32_t), "java.sql.SQLException"},
+		{"*setPassword", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
+		{"*setQueryTimeout", "(I)V", nullptr, $PUBLIC},
+		{"*setReadOnly", "(Z)V", nullptr, $PUBLIC},
+		{"*setRef", "(ILjava/sql/Ref;)V", nullptr, $PUBLIC},
+		{"setRowId", "(ILjava/sql/RowId;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, setRowId, void, int32_t, $RowId*), "java.sql.SQLException"},
+		{"setRowId", "(Ljava/lang/String;Ljava/sql/RowId;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, setRowId, void, $String*, $RowId*), "java.sql.SQLException"},
+		{"setRowInserted", "(Z)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, setRowInserted, void, bool), "java.sql.SQLException"},
+		{"setSQLXML", "(ILjava/sql/SQLXML;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, setSQLXML, void, int32_t, $SQLXML*), "java.sql.SQLException"},
+		{"setSQLXML", "(Ljava/lang/String;Ljava/sql/SQLXML;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, setSQLXML, void, $String*, $SQLXML*), "java.sql.SQLException"},
+		{"*setShort", "(IS)V", nullptr, $PUBLIC},
+		{"setShort", "(Ljava/lang/String;S)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, setShort, void, $String*, int16_t), "java.sql.SQLException"},
+		{"*setShowDeleted", "(Z)V", nullptr, $PUBLIC},
+		{"*setString", "(ILjava/lang/String;)V", nullptr, $PUBLIC},
+		{"setString", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, setString, void, $String*, $String*), "java.sql.SQLException"},
+		{"setSyncProvider", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, setSyncProvider, void, $String*), "java.sql.SQLException"},
+		{"setTableName", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, setTableName, void, $String*), "java.sql.SQLException"},
+		{"*setTime", "(ILjava/sql/Time;)V", nullptr, $PUBLIC},
+		{"*setTime", "(ILjava/sql/Time;Ljava/util/Calendar;)V", nullptr, $PUBLIC},
+		{"setTime", "(Ljava/lang/String;Ljava/sql/Time;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, setTime, void, $String*, $Time*), "java.sql.SQLException"},
+		{"setTime", "(Ljava/lang/String;Ljava/sql/Time;Ljava/util/Calendar;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, setTime, void, $String*, $Time*, $Calendar*), "java.sql.SQLException"},
+		{"*setTimestamp", "(ILjava/sql/Timestamp;)V", nullptr, $PUBLIC},
+		{"*setTimestamp", "(ILjava/sql/Timestamp;Ljava/util/Calendar;)V", nullptr, $PUBLIC},
+		{"setTimestamp", "(Ljava/lang/String;Ljava/sql/Timestamp;Ljava/util/Calendar;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, setTimestamp, void, $String*, $Timestamp*, $Calendar*), "java.sql.SQLException"},
+		{"setTimestamp", "(Ljava/lang/String;Ljava/sql/Timestamp;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, setTimestamp, void, $String*, $Timestamp*), "java.sql.SQLException"},
+		{"*setTransactionIsolation", "(I)V", nullptr, $PUBLIC},
+		{"*setType", "(I)V", nullptr, $PUBLIC},
+		{"*setTypeMap", "(Ljava/util/Map;)V", nullptr, $PUBLIC},
+		{"setURL", "(ILjava/net/URL;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, setURL, void, int32_t, $URL*), "java.sql.SQLException"},
+		{"*setUrl", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
+		{"*setUsername", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
+		{"size", "()I", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, size, int32_t)},
+		{"toCollection", "()Ljava/util/Collection;", "()Ljava/util/Collection<*>;", $PUBLIC, $virtualMethod(CachedRowSetImpl, toCollection, $Collection*), "java.sql.SQLException"},
+		{"toCollection", "(I)Ljava/util/Collection;", "(I)Ljava/util/Collection<*>;", $PUBLIC, $virtualMethod(CachedRowSetImpl, toCollection, $Collection*, int32_t), "java.sql.SQLException"},
+		{"toCollection", "(Ljava/lang/String;)Ljava/util/Collection;", "(Ljava/lang/String;)Ljava/util/Collection<*>;", $PUBLIC, $virtualMethod(CachedRowSetImpl, toCollection, $Collection*, $String*), "java.sql.SQLException"},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"undoDelete", "()V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, undoDelete, void), "java.sql.SQLException"},
+		{"undoInsert", "()V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, undoInsert, void), "java.sql.SQLException"},
+		{"undoUpdate", "()V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, undoUpdate, void), "java.sql.SQLException"},
+		{"unsetMatchColumn", "([I)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, unsetMatchColumn, void, $ints*), "java.sql.SQLException"},
+		{"unsetMatchColumn", "([Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, unsetMatchColumn, void, $StringArray*), "java.sql.SQLException"},
+		{"unsetMatchColumn", "(I)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, unsetMatchColumn, void, int32_t), "java.sql.SQLException"},
+		{"unsetMatchColumn", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, unsetMatchColumn, void, $String*), "java.sql.SQLException"},
+		{"unwrap", "(Ljava/lang/Class;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljava/lang/Class<TT;>;)TT;", $PUBLIC, $virtualMethod(CachedRowSetImpl, unwrap, $Object*, $Class*), "java.sql.SQLException"},
+		{"updateArray", "(ILjava/sql/Array;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, updateArray, void, int32_t, $1Array*), "java.sql.SQLException"},
+		{"updateArray", "(Ljava/lang/String;Ljava/sql/Array;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, updateArray, void, $String*, $1Array*), "java.sql.SQLException"},
+		{"updateAsciiStream", "(ILjava/io/InputStream;I)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, updateAsciiStream, void, int32_t, $InputStream*, int32_t), "java.sql.SQLException"},
+		{"updateAsciiStream", "(Ljava/lang/String;Ljava/io/InputStream;I)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, updateAsciiStream, void, $String*, $InputStream*, int32_t), "java.sql.SQLException"},
+		{"updateAsciiStream", "(ILjava/io/InputStream;J)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, updateAsciiStream, void, int32_t, $InputStream*, int64_t), "java.sql.SQLException"},
+		{"updateAsciiStream", "(Ljava/lang/String;Ljava/io/InputStream;J)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, updateAsciiStream, void, $String*, $InputStream*, int64_t), "java.sql.SQLException"},
+		{"updateAsciiStream", "(ILjava/io/InputStream;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, updateAsciiStream, void, int32_t, $InputStream*), "java.sql.SQLException"},
+		{"updateAsciiStream", "(Ljava/lang/String;Ljava/io/InputStream;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, updateAsciiStream, void, $String*, $InputStream*), "java.sql.SQLException"},
+		{"updateBigDecimal", "(ILjava/math/BigDecimal;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, updateBigDecimal, void, int32_t, $BigDecimal*), "java.sql.SQLException"},
+		{"updateBigDecimal", "(Ljava/lang/String;Ljava/math/BigDecimal;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, updateBigDecimal, void, $String*, $BigDecimal*), "java.sql.SQLException"},
+		{"updateBinaryStream", "(ILjava/io/InputStream;I)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, updateBinaryStream, void, int32_t, $InputStream*, int32_t), "java.sql.SQLException"},
+		{"updateBinaryStream", "(Ljava/lang/String;Ljava/io/InputStream;I)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, updateBinaryStream, void, $String*, $InputStream*, int32_t), "java.sql.SQLException"},
+		{"updateBinaryStream", "(ILjava/io/InputStream;J)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, updateBinaryStream, void, int32_t, $InputStream*, int64_t), "java.sql.SQLException"},
+		{"updateBinaryStream", "(Ljava/lang/String;Ljava/io/InputStream;J)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, updateBinaryStream, void, $String*, $InputStream*, int64_t), "java.sql.SQLException"},
+		{"updateBinaryStream", "(ILjava/io/InputStream;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, updateBinaryStream, void, int32_t, $InputStream*), "java.sql.SQLException"},
+		{"updateBinaryStream", "(Ljava/lang/String;Ljava/io/InputStream;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, updateBinaryStream, void, $String*, $InputStream*), "java.sql.SQLException"},
+		{"updateBlob", "(ILjava/sql/Blob;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, updateBlob, void, int32_t, $Blob*), "java.sql.SQLException"},
+		{"updateBlob", "(Ljava/lang/String;Ljava/sql/Blob;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, updateBlob, void, $String*, $Blob*), "java.sql.SQLException"},
+		{"updateBlob", "(ILjava/io/InputStream;J)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, updateBlob, void, int32_t, $InputStream*, int64_t), "java.sql.SQLException"},
+		{"updateBlob", "(Ljava/lang/String;Ljava/io/InputStream;J)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, updateBlob, void, $String*, $InputStream*, int64_t), "java.sql.SQLException"},
+		{"updateBlob", "(ILjava/io/InputStream;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, updateBlob, void, int32_t, $InputStream*), "java.sql.SQLException"},
+		{"updateBlob", "(Ljava/lang/String;Ljava/io/InputStream;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, updateBlob, void, $String*, $InputStream*), "java.sql.SQLException"},
+		{"updateBoolean", "(IZ)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, updateBoolean, void, int32_t, bool), "java.sql.SQLException"},
+		{"updateBoolean", "(Ljava/lang/String;Z)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, updateBoolean, void, $String*, bool), "java.sql.SQLException"},
+		{"updateByte", "(IB)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, updateByte, void, int32_t, int8_t), "java.sql.SQLException"},
+		{"updateByte", "(Ljava/lang/String;B)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, updateByte, void, $String*, int8_t), "java.sql.SQLException"},
+		{"updateBytes", "(I[B)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, updateBytes, void, int32_t, $bytes*), "java.sql.SQLException"},
+		{"updateBytes", "(Ljava/lang/String;[B)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, updateBytes, void, $String*, $bytes*), "java.sql.SQLException"},
+		{"updateCharacterStream", "(ILjava/io/Reader;I)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, updateCharacterStream, void, int32_t, $Reader*, int32_t), "java.sql.SQLException"},
+		{"updateCharacterStream", "(Ljava/lang/String;Ljava/io/Reader;I)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, updateCharacterStream, void, $String*, $Reader*, int32_t), "java.sql.SQLException"},
+		{"updateCharacterStream", "(ILjava/io/Reader;J)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, updateCharacterStream, void, int32_t, $Reader*, int64_t), "java.sql.SQLException"},
+		{"updateCharacterStream", "(Ljava/lang/String;Ljava/io/Reader;J)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, updateCharacterStream, void, $String*, $Reader*, int64_t), "java.sql.SQLException"},
+		{"updateCharacterStream", "(ILjava/io/Reader;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, updateCharacterStream, void, int32_t, $Reader*), "java.sql.SQLException"},
+		{"updateCharacterStream", "(Ljava/lang/String;Ljava/io/Reader;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, updateCharacterStream, void, $String*, $Reader*), "java.sql.SQLException"},
+		{"updateClob", "(ILjava/sql/Clob;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, updateClob, void, int32_t, $Clob*), "java.sql.SQLException"},
+		{"updateClob", "(Ljava/lang/String;Ljava/sql/Clob;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, updateClob, void, $String*, $Clob*), "java.sql.SQLException"},
+		{"updateClob", "(ILjava/io/Reader;J)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, updateClob, void, int32_t, $Reader*, int64_t), "java.sql.SQLException"},
+		{"updateClob", "(Ljava/lang/String;Ljava/io/Reader;J)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, updateClob, void, $String*, $Reader*, int64_t), "java.sql.SQLException"},
+		{"updateClob", "(ILjava/io/Reader;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, updateClob, void, int32_t, $Reader*), "java.sql.SQLException"},
+		{"updateClob", "(Ljava/lang/String;Ljava/io/Reader;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, updateClob, void, $String*, $Reader*), "java.sql.SQLException"},
+		{"updateDate", "(ILjava/sql/Date;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, updateDate, void, int32_t, $Date*), "java.sql.SQLException"},
+		{"updateDate", "(Ljava/lang/String;Ljava/sql/Date;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, updateDate, void, $String*, $Date*), "java.sql.SQLException"},
+		{"updateDouble", "(ID)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, updateDouble, void, int32_t, double), "java.sql.SQLException"},
+		{"updateDouble", "(Ljava/lang/String;D)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, updateDouble, void, $String*, double), "java.sql.SQLException"},
+		{"updateFloat", "(IF)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, updateFloat, void, int32_t, float), "java.sql.SQLException"},
+		{"updateFloat", "(Ljava/lang/String;F)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, updateFloat, void, $String*, float), "java.sql.SQLException"},
+		{"updateInt", "(II)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, updateInt, void, int32_t, int32_t), "java.sql.SQLException"},
+		{"updateInt", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, updateInt, void, $String*, int32_t), "java.sql.SQLException"},
+		{"updateLong", "(IJ)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, updateLong, void, int32_t, int64_t), "java.sql.SQLException"},
+		{"updateLong", "(Ljava/lang/String;J)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, updateLong, void, $String*, int64_t), "java.sql.SQLException"},
+		{"updateNCharacterStream", "(ILjava/io/Reader;J)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, updateNCharacterStream, void, int32_t, $Reader*, int64_t), "java.sql.SQLException"},
+		{"updateNCharacterStream", "(Ljava/lang/String;Ljava/io/Reader;J)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, updateNCharacterStream, void, $String*, $Reader*, int64_t), "java.sql.SQLException"},
+		{"updateNCharacterStream", "(ILjava/io/Reader;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, updateNCharacterStream, void, int32_t, $Reader*), "java.sql.SQLException"},
+		{"updateNCharacterStream", "(Ljava/lang/String;Ljava/io/Reader;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, updateNCharacterStream, void, $String*, $Reader*), "java.sql.SQLException"},
+		{"updateNClob", "(ILjava/sql/NClob;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, updateNClob, void, int32_t, $NClob*), "java.sql.SQLException"},
+		{"updateNClob", "(Ljava/lang/String;Ljava/sql/NClob;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, updateNClob, void, $String*, $NClob*), "java.sql.SQLException"},
+		{"updateNClob", "(ILjava/io/Reader;J)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, updateNClob, void, int32_t, $Reader*, int64_t), "java.sql.SQLException"},
+		{"updateNClob", "(Ljava/lang/String;Ljava/io/Reader;J)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, updateNClob, void, $String*, $Reader*, int64_t), "java.sql.SQLException"},
+		{"updateNClob", "(ILjava/io/Reader;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, updateNClob, void, int32_t, $Reader*), "java.sql.SQLException"},
+		{"updateNClob", "(Ljava/lang/String;Ljava/io/Reader;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, updateNClob, void, $String*, $Reader*), "java.sql.SQLException"},
+		{"updateNString", "(ILjava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, updateNString, void, int32_t, $String*), "java.sql.SQLException"},
+		{"updateNString", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, updateNString, void, $String*, $String*), "java.sql.SQLException"},
+		{"updateNull", "(I)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, updateNull, void, int32_t), "java.sql.SQLException"},
+		{"updateNull", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, updateNull, void, $String*), "java.sql.SQLException"},
+		{"updateObject", "(ILjava/lang/Object;I)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, updateObject, void, int32_t, Object$*, int32_t), "java.sql.SQLException"},
+		{"updateObject", "(ILjava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, updateObject, void, int32_t, Object$*), "java.sql.SQLException"},
+		{"updateObject", "(Ljava/lang/String;Ljava/lang/Object;I)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, updateObject, void, $String*, Object$*, int32_t), "java.sql.SQLException"},
+		{"updateObject", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, updateObject, void, $String*, Object$*), "java.sql.SQLException"},
+		{"updateRef", "(ILjava/sql/Ref;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, updateRef, void, int32_t, $Ref*), "java.sql.SQLException"},
+		{"updateRef", "(Ljava/lang/String;Ljava/sql/Ref;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, updateRef, void, $String*, $Ref*), "java.sql.SQLException"},
+		{"updateRow", "()V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, updateRow, void), "java.sql.SQLException"},
+		{"updateRowId", "(ILjava/sql/RowId;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, updateRowId, void, int32_t, $RowId*), "java.sql.SQLException"},
+		{"updateRowId", "(Ljava/lang/String;Ljava/sql/RowId;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, updateRowId, void, $String*, $RowId*), "java.sql.SQLException"},
+		{"updateSQLXML", "(ILjava/sql/SQLXML;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, updateSQLXML, void, int32_t, $SQLXML*), "java.sql.SQLException"},
+		{"updateSQLXML", "(Ljava/lang/String;Ljava/sql/SQLXML;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, updateSQLXML, void, $String*, $SQLXML*), "java.sql.SQLException"},
+		{"updateShort", "(IS)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, updateShort, void, int32_t, int16_t), "java.sql.SQLException"},
+		{"updateShort", "(Ljava/lang/String;S)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, updateShort, void, $String*, int16_t), "java.sql.SQLException"},
+		{"updateString", "(ILjava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, updateString, void, int32_t, $String*), "java.sql.SQLException"},
+		{"updateString", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, updateString, void, $String*, $String*), "java.sql.SQLException"},
+		{"updateTime", "(ILjava/sql/Time;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, updateTime, void, int32_t, $Time*), "java.sql.SQLException"},
+		{"updateTime", "(Ljava/lang/String;Ljava/sql/Time;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, updateTime, void, $String*, $Time*), "java.sql.SQLException"},
+		{"updateTimestamp", "(ILjava/sql/Timestamp;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, updateTimestamp, void, int32_t, $Timestamp*), "java.sql.SQLException"},
+		{"updateTimestamp", "(Ljava/lang/String;Ljava/sql/Timestamp;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, updateTimestamp, void, $String*, $Timestamp*), "java.sql.SQLException"},
+		{"wasNull", "()Z", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl, wasNull, bool), "java.sql.SQLException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.rowset.CachedRowSetImpl$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.rowset.CachedRowSetImpl",
+		"javax.sql.rowset.BaseRowSet",
+		"javax.sql.RowSetInternal,javax.sql.rowset.CachedRowSet",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.rowset.CachedRowSetImpl$1"
+	};
+	$loadClass(CachedRowSetImpl, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(CachedRowSetImpl));
+	});
 	return class$;
 }
 

@@ -34,6 +34,7 @@ class $export HeadersTest : public ::java::lang::Object {
 	$class(HeadersTest, 0, ::java::lang::Object)
 public:
 	HeadersTest();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void bad($String* name);
 	static void badTimeout();

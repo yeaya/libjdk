@@ -92,6 +92,7 @@ class $import SynthLookAndFeel : public ::javax::swing::plaf::basic::BasicLookAn
 	$class(SynthLookAndFeel, 0, ::javax::swing::plaf::basic::BasicLookAndFeel)
 public:
 	SynthLookAndFeel();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::javax::swing::plaf::ComponentUI* createUI(::javax::swing::JComponent* c);
 	static void flushUnreferenced();

@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/basic/BasicInternalFrameTitlePane$Handler.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <java/awt/Dimension.h>
@@ -12,7 +11,6 @@
 #include <javax/swing/AbstractButton.h>
 #include <javax/swing/Icon.h>
 #include <javax/swing/JButton.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JInternalFrame.h>
 #include <javax/swing/JMenuBar.h>
 #include <javax/swing/border/Border.h>
@@ -40,11 +38,7 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Icon = ::javax::swing::Icon;
-using $JButton = ::javax::swing::JButton;
-using $JComponent = ::javax::swing::JComponent;
 using $JInternalFrame = ::javax::swing::JInternalFrame;
-using $JMenuBar = ::javax::swing::JMenuBar;
-using $Border = ::javax::swing::border::Border;
 using $BasicGraphicsUtils = ::javax::swing::plaf::basic::BasicGraphicsUtils;
 using $BasicInternalFrameTitlePane = ::javax::swing::plaf::basic::BasicInternalFrameTitlePane;
 using $SwingUtilities2 = ::sun::swing::SwingUtilities2;
@@ -53,52 +47,6 @@ namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace basic {
-
-$FieldInfo _BasicInternalFrameTitlePane$Handler_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/plaf/basic/BasicInternalFrameTitlePane;", nullptr, $FINAL | $SYNTHETIC, $field(BasicInternalFrameTitlePane$Handler, this$0)},
-	{}
-};
-
-$MethodInfo _BasicInternalFrameTitlePane$Handler_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljavax/swing/plaf/basic/BasicInternalFrameTitlePane;)V", nullptr, $PRIVATE, $method(BasicInternalFrameTitlePane$Handler, init$, void, $BasicInternalFrameTitlePane*)},
-	{"addLayoutComponent", "(Ljava/lang/String;Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(BasicInternalFrameTitlePane$Handler, addLayoutComponent, void, $String*, $Component*)},
-	{"layoutContainer", "(Ljava/awt/Container;)V", nullptr, $PUBLIC, $virtualMethod(BasicInternalFrameTitlePane$Handler, layoutContainer, void, $Container*)},
-	{"minimumLayoutSize", "(Ljava/awt/Container;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BasicInternalFrameTitlePane$Handler, minimumLayoutSize, $Dimension*, $Container*)},
-	{"preferredLayoutSize", "(Ljava/awt/Container;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BasicInternalFrameTitlePane$Handler, preferredLayoutSize, $Dimension*, $Container*)},
-	{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicInternalFrameTitlePane$Handler, propertyChange, void, $PropertyChangeEvent*)},
-	{"removeLayoutComponent", "(Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(BasicInternalFrameTitlePane$Handler, removeLayoutComponent, void, $Component*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _BasicInternalFrameTitlePane$Handler_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.basic.BasicInternalFrameTitlePane$Handler", "javax.swing.plaf.basic.BasicInternalFrameTitlePane", "Handler", $PRIVATE},
-	{}
-};
-
-$ClassInfo _BasicInternalFrameTitlePane$Handler_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.basic.BasicInternalFrameTitlePane$Handler",
-	"java.lang.Object",
-	"java.awt.LayoutManager,java.beans.PropertyChangeListener",
-	_BasicInternalFrameTitlePane$Handler_FieldInfo_,
-	_BasicInternalFrameTitlePane$Handler_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BasicInternalFrameTitlePane$Handler_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.basic.BasicInternalFrameTitlePane"
-};
-
-$Object* allocate$BasicInternalFrameTitlePane$Handler($Class* clazz) {
-	return $of($alloc(BasicInternalFrameTitlePane$Handler));
-}
 
 int32_t BasicInternalFrameTitlePane$Handler::hashCode() {
 	 return this->$LayoutManager::hashCode();
@@ -137,25 +85,22 @@ void BasicInternalFrameTitlePane$Handler::propertyChange($PropertyChangeEvent* e
 		return;
 	}
 	if ("closable"_s == prop) {
-		$init($Boolean);
 		if ($equals(evt->getNewValue(), $Boolean::TRUE)) {
-			this->this$0->add(static_cast<$Component*>(this->this$0->closeButton));
+			this->this$0->add(this->this$0->closeButton);
 		} else {
-			this->this$0->remove(static_cast<$Component*>(this->this$0->closeButton));
+			this->this$0->remove(this->this$0->closeButton);
 		}
 	} else if ("maximizable"_s == prop) {
-		$init($Boolean);
 		if ($equals(evt->getNewValue(), $Boolean::TRUE)) {
-			this->this$0->add(static_cast<$Component*>(this->this$0->maxButton));
+			this->this$0->add(this->this$0->maxButton);
 		} else {
-			this->this$0->remove(static_cast<$Component*>(this->this$0->maxButton));
+			this->this$0->remove(this->this$0->maxButton);
 		}
 	} else if ("iconable"_s == prop) {
-		$init($Boolean);
 		if ($equals(evt->getNewValue(), $Boolean::TRUE)) {
-			this->this$0->add(static_cast<$Component*>(this->this$0->iconButton));
+			this->this$0->add(this->this$0->iconButton);
 		} else {
-			this->this$0->remove(static_cast<$Component*>(this->this$0->iconButton));
+			this->this$0->remove(this->this$0->iconButton);
 		}
 	}
 	this->this$0->enableActions();
@@ -174,7 +119,7 @@ $Dimension* BasicInternalFrameTitlePane$Handler::preferredLayoutSize($Container*
 }
 
 $Dimension* BasicInternalFrameTitlePane$Handler::minimumLayoutSize($Container* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t width = 22;
 	if ($nc(this->this$0->frame)->isClosable()) {
 		width += 19;
@@ -188,9 +133,9 @@ $Dimension* BasicInternalFrameTitlePane$Handler::minimumLayoutSize($Container* c
 	$var($FontMetrics, fm, $nc(this->this$0->frame)->getFontMetrics($(this->this$0->getFont())));
 	$var($String, frameTitle, $nc(this->this$0->frame)->getTitle());
 	int32_t title_w = frameTitle != nullptr ? $SwingUtilities2::stringWidth(this->this$0->frame, fm, frameTitle) : 0;
-	int32_t title_length = frameTitle != nullptr ? $nc(frameTitle)->length() : 0;
+	int32_t title_length = frameTitle != nullptr ? frameTitle->length() : 0;
 	if (title_length > 3) {
-		int32_t subtitle_w = $SwingUtilities2::stringWidth(this->this$0->frame, fm, $$str({$(frameTitle->substring(0, 3)), "..."_s}));
+		int32_t subtitle_w = $SwingUtilities2::stringWidth(this->this$0->frame, fm, $$str({$($nc(frameTitle)->substring(0, 3)), "..."_s}));
 		width += (title_w < subtitle_w) ? title_w : subtitle_w;
 	} else {
 		width += title_w;
@@ -206,20 +151,20 @@ $Dimension* BasicInternalFrameTitlePane$Handler::minimumLayoutSize($Container* c
 	int32_t height = $Math::max(fontHeight, iconHeight);
 	$var($Dimension, dim, $new($Dimension, width, height));
 	if (this->this$0->getBorder() != nullptr) {
-		$var($Insets, insets, $nc($(this->this$0->getBorder()))->getBorderInsets(c));
-		dim->height += $nc(insets)->top + insets->bottom;
+		$var($Insets, insets, $$nc(this->this$0->getBorder())->getBorderInsets(c));
+		dim->height += $nc(insets)->top + $nc(insets)->bottom;
 		dim->width += insets->left + insets->right;
 	}
 	return dim;
 }
 
 void BasicInternalFrameTitlePane$Handler::layoutContainer($Container* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool leftToRight = $BasicGraphicsUtils::isLeftToRight(this->this$0->frame);
 	int32_t w = this->this$0->getWidth();
 	int32_t h = this->this$0->getHeight();
 	int32_t x = 0;
-	int32_t buttonHeight = $nc($($nc(this->this$0->closeButton)->getIcon()))->getIconHeight();
+	int32_t buttonHeight = $$nc($nc(this->this$0->closeButton)->getIcon())->getIconHeight();
 	$var($Icon, icon, $nc(this->this$0->frame)->getFrameIcon());
 	int32_t iconHeight = 0;
 	if (icon != nullptr) {
@@ -245,7 +190,47 @@ BasicInternalFrameTitlePane$Handler::BasicInternalFrameTitlePane$Handler() {
 }
 
 $Class* BasicInternalFrameTitlePane$Handler::load$($String* name, bool initialize) {
-	$loadClass(BasicInternalFrameTitlePane$Handler, name, initialize, &_BasicInternalFrameTitlePane$Handler_ClassInfo_, allocate$BasicInternalFrameTitlePane$Handler);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/plaf/basic/BasicInternalFrameTitlePane;", nullptr, $FINAL | $SYNTHETIC, $field(BasicInternalFrameTitlePane$Handler, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljavax/swing/plaf/basic/BasicInternalFrameTitlePane;)V", nullptr, $PRIVATE, $method(BasicInternalFrameTitlePane$Handler, init$, void, $BasicInternalFrameTitlePane*)},
+		{"addLayoutComponent", "(Ljava/lang/String;Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(BasicInternalFrameTitlePane$Handler, addLayoutComponent, void, $String*, $Component*)},
+		{"layoutContainer", "(Ljava/awt/Container;)V", nullptr, $PUBLIC, $virtualMethod(BasicInternalFrameTitlePane$Handler, layoutContainer, void, $Container*)},
+		{"minimumLayoutSize", "(Ljava/awt/Container;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BasicInternalFrameTitlePane$Handler, minimumLayoutSize, $Dimension*, $Container*)},
+		{"preferredLayoutSize", "(Ljava/awt/Container;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BasicInternalFrameTitlePane$Handler, preferredLayoutSize, $Dimension*, $Container*)},
+		{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicInternalFrameTitlePane$Handler, propertyChange, void, $PropertyChangeEvent*)},
+		{"removeLayoutComponent", "(Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(BasicInternalFrameTitlePane$Handler, removeLayoutComponent, void, $Component*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.basic.BasicInternalFrameTitlePane$Handler", "javax.swing.plaf.basic.BasicInternalFrameTitlePane", "Handler", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.basic.BasicInternalFrameTitlePane$Handler",
+		"java.lang.Object",
+		"java.awt.LayoutManager,java.beans.PropertyChangeListener",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.basic.BasicInternalFrameTitlePane"
+	};
+	$loadClass(BasicInternalFrameTitlePane$Handler, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(BasicInternalFrameTitlePane$Handler));
+	});
 	return class$;
 }
 

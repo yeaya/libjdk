@@ -100,6 +100,7 @@ class DOMResultBuilder : public ::com::sun::org::apache::xerces::internal::jaxp:
 	$class(DOMResultBuilder, 0, ::com::sun::org::apache::xerces::internal::jaxp::validation::DOMDocumentHandler)
 public:
 	DOMResultBuilder();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void append(::org::w3c::dom::Node* node);
 	virtual void cdata(::org::w3c::dom::CDATASection* node) override;

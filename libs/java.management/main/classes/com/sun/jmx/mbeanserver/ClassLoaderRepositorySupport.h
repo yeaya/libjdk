@@ -43,6 +43,7 @@ class ClassLoaderRepositorySupport : public ::com::sun::jmx::mbeanserver::Modifi
 	$class(ClassLoaderRepositorySupport, 0, ::com::sun::jmx::mbeanserver::ModifiableClassLoaderRepository)
 public:
 	ClassLoaderRepositorySupport();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	bool add(::javax::management::ObjectName* name, ::java::lang::ClassLoader* cl);
 	virtual void addClassLoader(::java::lang::ClassLoader* loader) override;

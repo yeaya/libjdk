@@ -1,5 +1,4 @@
 #include <sun/text/resources/cldr/ext/FormatData_zh_Hans_MO.h>
-
 #include <java/util/ListResourceBundle.h>
 #include <jcpp.h>
 
@@ -14,31 +13,12 @@ namespace sun {
 			namespace cldr {
 				namespace ext {
 
-$MethodInfo _FormatData_zh_Hans_MO_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(FormatData_zh_Hans_MO, init$, void)},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(FormatData_zh_Hans_MO, getContents, $ObjectArray2*)},
-	{}
-};
-
-$ClassInfo _FormatData_zh_Hans_MO_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.text.resources.cldr.ext.FormatData_zh_Hans_MO",
-	"java.util.ListResourceBundle",
-	nullptr,
-	nullptr,
-	_FormatData_zh_Hans_MO_MethodInfo_
-};
-
-$Object* allocate$FormatData_zh_Hans_MO($Class* clazz) {
-	return $of($alloc(FormatData_zh_Hans_MO));
-}
-
 void FormatData_zh_Hans_MO::init$() {
 	$ListResourceBundle::init$();
 }
 
 $ObjectArray2* FormatData_zh_Hans_MO::getContents() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringArray, metaValue_java_time_buddhist_DatePatterns, $new($StringArray, {
 		u"Gy年M月d日EEEE"_s,
 		u"Gy年M月d日"_s,
@@ -65,8 +45,8 @@ $ObjectArray2* FormatData_zh_Hans_MO::getContents() {
 	}));
 	$var($ObjectArray2, data, $new($ObjectArray2, {
 		$$new($ObjectArray, {
-			$of("latn.NumberElements"_s),
-			$of($$new($StringArray, {
+			"latn.NumberElements"_s,
+			$$new($StringArray, {
 				"."_s,
 				","_s,
 				";"_s,
@@ -80,57 +60,57 @@ $ObjectArray2* FormatData_zh_Hans_MO::getContents() {
 				"NaN"_s,
 				""_s,
 				""_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("japanese.DatePatterns"_s),
-			$of(metaValue_buddhist_DatePatterns)
+			"japanese.DatePatterns"_s,
+			metaValue_buddhist_DatePatterns
 		}),
 		$$new($ObjectArray, {
-			$of("buddhist.DatePatterns"_s),
-			$of(metaValue_buddhist_DatePatterns)
+			"buddhist.DatePatterns"_s,
+			metaValue_buddhist_DatePatterns
 		}),
 		$$new($ObjectArray, {
-			$of("java.time.buddhist.DatePatterns"_s),
-			$of(metaValue_java_time_buddhist_DatePatterns)
+			"java.time.buddhist.DatePatterns"_s,
+			metaValue_java_time_buddhist_DatePatterns
 		}),
 		$$new($ObjectArray, {
-			$of("java.time.roc.DatePatterns"_s),
-			$of(metaValue_java_time_roc_DatePatterns)
+			"java.time.roc.DatePatterns"_s,
+			metaValue_java_time_roc_DatePatterns
 		}),
 		$$new($ObjectArray, {
-			$of("java.time.japanese.DatePatterns"_s),
-			$of(metaValue_java_time_buddhist_DatePatterns)
+			"java.time.japanese.DatePatterns"_s,
+			metaValue_java_time_buddhist_DatePatterns
 		}),
 		$$new($ObjectArray, {
-			$of("latn.NumberPatterns"_s),
-			$of($$new($StringArray, {
+			"latn.NumberPatterns"_s,
+			$$new($StringArray, {
 				"#,##0.###"_s,
 				u"¤#,##0.00"_s,
 				"#,##0%"_s,
 				u"¤#,##0.00;(¤#,##0.00)"_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("java.time.islamic.DatePatterns"_s),
-			$of(metaValue_java_time_roc_DatePatterns)
+			"java.time.islamic.DatePatterns"_s,
+			metaValue_java_time_roc_DatePatterns
 		}),
 		$$new($ObjectArray, {
-			$of("islamic.DatePatterns"_s),
-			$of(metaValue_roc_DatePatterns)
+			"islamic.DatePatterns"_s,
+			metaValue_roc_DatePatterns
 		}),
 		$$new($ObjectArray, {
-			$of("roc.DatePatterns"_s),
-			$of(metaValue_roc_DatePatterns)
+			"roc.DatePatterns"_s,
+			metaValue_roc_DatePatterns
 		}),
 		$$new($ObjectArray, {
-			$of("DatePatterns"_s),
-			$of($$new($StringArray, {
+			"DatePatterns"_s,
+			$$new($StringArray, {
 				u"y年M月d日EEEE"_s,
 				u"y年M月d日"_s,
 				u"y年M月d日"_s,
 				"d/M/yy"_s
-			}))
+			})
 		})
 	}));
 	return data;
@@ -140,7 +120,22 @@ FormatData_zh_Hans_MO::FormatData_zh_Hans_MO() {
 }
 
 $Class* FormatData_zh_Hans_MO::load$($String* name, bool initialize) {
-	$loadClass(FormatData_zh_Hans_MO, name, initialize, &_FormatData_zh_Hans_MO_ClassInfo_, allocate$FormatData_zh_Hans_MO);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(FormatData_zh_Hans_MO, init$, void)},
+		{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(FormatData_zh_Hans_MO, getContents, $ObjectArray2*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.text.resources.cldr.ext.FormatData_zh_Hans_MO",
+		"java.util.ListResourceBundle",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(FormatData_zh_Hans_MO, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FormatData_zh_Hans_MO);
+	});
 	return class$;
 }
 

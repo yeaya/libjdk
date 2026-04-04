@@ -78,6 +78,7 @@ class $export Unsafe : public ::java::lang::Object {
 	$class(Unsafe, 0, ::java::lang::Object)
 public:
 	Unsafe();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	int32_t addressSize();
 	$Object* allocateInstance($Class* cls);

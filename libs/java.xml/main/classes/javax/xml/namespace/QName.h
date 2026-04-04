@@ -23,7 +23,7 @@ public:
 	virtual int32_t hashCode() override;
 	virtual $String* toString() override;
 	static ::javax::xml::namespace$::QName* valueOf($String* qNameAsString);
-	static const int64_t serialVersionUID = (int64_t)0x816DA82DFC3BDD6C;
+	static const int64_t serialVersionUID = (int64_t)0x816da82dfc3bdd6c;
 	$String* namespaceURI = nullptr;
 	$String* localPart = nullptr;
 	$String* prefix = nullptr;

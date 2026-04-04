@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/Http1Request$FixedContentSubscriber.h>
-
 #include <java/io/IOException.h>
 #include <java/lang/IllegalStateException.h>
 #include <java/nio/ByteBuffer.h>
@@ -27,59 +26,13 @@ using $ByteBuffer = ::java::nio::ByteBuffer;
 using $List = ::java::util::List;
 using $Objects = ::java::util::Objects;
 using $Flow$Subscription = ::java::util::concurrent::Flow$Subscription;
-using $Http1Exchange = ::jdk::internal::net::http::Http1Exchange;
 using $Http1Exchange$Http1BodySubscriber = ::jdk::internal::net::http::Http1Exchange$Http1BodySubscriber;
 using $Http1Request = ::jdk::internal::net::http::Http1Request;
-using $HttpConnection = ::jdk::internal::net::http::HttpConnection;
-using $Logger = ::jdk::internal::net::http::common::Logger;
 
 namespace jdk {
 	namespace internal {
 		namespace net {
 			namespace http {
-
-$FieldInfo _Http1Request$FixedContentSubscriber_FieldInfo_[] = {
-	{"this$0", "Ljdk/internal/net/http/Http1Request;", nullptr, $FINAL | $SYNTHETIC, $field(Http1Request$FixedContentSubscriber, this$0)},
-	{"contentWritten", "J", nullptr, $PRIVATE | $VOLATILE, $field(Http1Request$FixedContentSubscriber, contentWritten)},
-	{}
-};
-
-$MethodInfo _Http1Request$FixedContentSubscriber_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/net/http/Http1Request;)V", nullptr, 0, $method(Http1Request$FixedContentSubscriber, init$, void, $Http1Request*)},
-	{"currentStateMessage", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Http1Request$FixedContentSubscriber, currentStateMessage, $String*)},
-	{"onComplete", "()V", nullptr, $PUBLIC, $virtualMethod(Http1Request$FixedContentSubscriber, onComplete, void)},
-	{"onError", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $virtualMethod(Http1Request$FixedContentSubscriber, onError, void, $Throwable*)},
-	{"onNext", "(Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC, $method(Http1Request$FixedContentSubscriber, onNext, void, $ByteBuffer*)},
-	{"onNext", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Http1Request$FixedContentSubscriber, onNext, void, Object$*)},
-	{"onSubscribe", "(Ljava/util/concurrent/Flow$Subscription;)V", nullptr, $PUBLIC, $virtualMethod(Http1Request$FixedContentSubscriber, onSubscribe, void, $Flow$Subscription*)},
-	{}
-};
-
-$InnerClassInfo _Http1Request$FixedContentSubscriber_InnerClassesInfo_[] = {
-	{"jdk.internal.net.http.Http1Request$FixedContentSubscriber", "jdk.internal.net.http.Http1Request", "FixedContentSubscriber", $FINAL},
-	{"jdk.internal.net.http.Http1Exchange$Http1BodySubscriber", "jdk.internal.net.http.Http1Exchange", "Http1BodySubscriber", $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Http1Request$FixedContentSubscriber_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"jdk.internal.net.http.Http1Request$FixedContentSubscriber",
-	"jdk.internal.net.http.Http1Exchange$Http1BodySubscriber",
-	nullptr,
-	_Http1Request$FixedContentSubscriber_FieldInfo_,
-	_Http1Request$FixedContentSubscriber_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Http1Request$FixedContentSubscriber_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.net.http.Http1Request"
-};
-
-$Object* allocate$Http1Request$FixedContentSubscriber($Class* clazz) {
-	return $of($alloc(Http1Request$FixedContentSubscriber));
-}
 
 void Http1Request$FixedContentSubscriber::init$($Http1Request* this$0) {
 	$set(this, this$0, this$0);
@@ -96,9 +49,9 @@ void Http1Request$FixedContentSubscriber::onSubscribe($Flow$Subscription* subscr
 }
 
 void Http1Request$FixedContentSubscriber::onNext($ByteBuffer* item) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(this->this$0->debug)->on()) {
-		$nc(this->this$0->debug)->log("onNext"_s);
+		this->this$0->debug->log("onNext"_s);
 	}
 	$Objects::requireNonNull(item);
 	if (this->complete) {
@@ -109,30 +62,33 @@ void Http1Request$FixedContentSubscriber::onNext($ByteBuffer* item) {
 		int64_t written = (this->contentWritten += writing);
 		if (written > this->this$0->contentLength) {
 			cancelSubscription();
-			$var($String, var$4, $$str({$($nc(this->this$0->connection)->getConnectionFlow()), " ["_s}));
-			$var($String, var$3, $$concat(var$4, $($($Thread::currentThread())->getName())));
-			$var($String, var$2, $$concat(var$3, "] Too many bytes in request body. Expected: "_s));
-			$var($String, var$1, $$concat(var$2, $$str(this->this$0->contentLength)));
-			$var($String, var$0, $$concat(var$1, ", got: "_s));
-			$var($String, msg, $concat(var$0, $$str(written)));
-			$nc(this->this$0->http1Exchange)->appendToOutgoing(static_cast<$Throwable*>($$new($IOException, msg)));
+			$var($StringBuilder, var$0, $new($StringBuilder));
+			var$0->append($($nc(this->this$0->connection)->getConnectionFlow()));
+			var$0->append(" ["_s);
+			var$0->append($($($Thread::currentThread())->getName()));
+			var$0->append("] Too many bytes in request body. Expected: "_s);
+			var$0->append(this->this$0->contentLength);
+			var$0->append(", got: "_s);
+			var$0->append(written);
+			$var($String, msg, $str(var$0));
+			$nc(this->this$0->http1Exchange)->appendToOutgoing($$new($IOException, msg));
 		} else {
-			$nc(this->this$0->http1Exchange)->appendToOutgoing($($List::of($of(item))));
+			$nc(this->this$0->http1Exchange)->appendToOutgoing($($List::of(item)));
 		}
 	}
 }
 
 $String* Http1Request$FixedContentSubscriber::currentStateMessage() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $String::format("fixed content-length: %d, bytes sent: %d"_s, $$new($ObjectArray, {
-		$($of($Long::valueOf(this->this$0->contentLength))),
-		$($of($Long::valueOf(this->contentWritten)))
+		$($Long::valueOf(this->this$0->contentLength)),
+		$($Long::valueOf(this->contentWritten))
 	}));
 }
 
 void Http1Request$FixedContentSubscriber::onError($Throwable* throwable) {
 	if ($nc(this->this$0->debug)->on()) {
-		$nc(this->this$0->debug)->log("onError"_s);
+		this->this$0->debug->log("onError"_s);
 	}
 	if (this->complete) {
 		return;
@@ -142,9 +98,9 @@ void Http1Request$FixedContentSubscriber::onError($Throwable* throwable) {
 }
 
 void Http1Request$FixedContentSubscriber::onComplete() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(this->this$0->debug)->on()) {
-		$nc(this->this$0->debug)->log("onComplete"_s);
+		this->this$0->debug->log("onComplete"_s);
 	}
 	if (this->complete) {
 		$var($Throwable, t, $new($IllegalStateException, "subscription already completed"_s));
@@ -154,13 +110,16 @@ void Http1Request$FixedContentSubscriber::onComplete() {
 		int64_t written = this->contentWritten;
 		if (this->this$0->contentLength > written) {
 			cancelSubscription();
-			$var($String, var$5, $$str({$($nc(this->this$0->connection)->getConnectionFlow()), " ["_s}));
-			$var($String, var$4, $$concat(var$5, $($($Thread::currentThread())->getName())));
-			$var($String, var$3, $$concat(var$4, "] Too few bytes returned by the publisher ("_s));
-			$var($String, var$2, $$concat(var$3, $$str(written)));
-			$var($String, var$1, $$concat(var$2, "/"_s));
-			$var($String, var$0, $$concat(var$1, $$str(this->this$0->contentLength)));
-			$var($Throwable, t, $new($IOException, $$concat(var$0, ")"_s)));
+			$var($StringBuilder, var$0, $new($StringBuilder));
+			var$0->append($($nc(this->this$0->connection)->getConnectionFlow()));
+			var$0->append(" ["_s);
+			var$0->append($($($Thread::currentThread())->getName()));
+			var$0->append("] Too few bytes returned by the publisher ("_s);
+			var$0->append(written);
+			var$0->append("/"_s);
+			var$0->append(this->this$0->contentLength);
+			var$0->append(")"_s);
+			$var($Throwable, t, $new($IOException, $$str(var$0)));
 			$nc(this->this$0->http1Exchange)->appendToOutgoing(t);
 		} else {
 			$init($Http1Exchange$Http1BodySubscriber);
@@ -177,7 +136,44 @@ Http1Request$FixedContentSubscriber::Http1Request$FixedContentSubscriber() {
 }
 
 $Class* Http1Request$FixedContentSubscriber::load$($String* name, bool initialize) {
-	$loadClass(Http1Request$FixedContentSubscriber, name, initialize, &_Http1Request$FixedContentSubscriber_ClassInfo_, allocate$Http1Request$FixedContentSubscriber);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljdk/internal/net/http/Http1Request;", nullptr, $FINAL | $SYNTHETIC, $field(Http1Request$FixedContentSubscriber, this$0)},
+		{"contentWritten", "J", nullptr, $PRIVATE | $VOLATILE, $field(Http1Request$FixedContentSubscriber, contentWritten)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/internal/net/http/Http1Request;)V", nullptr, 0, $method(Http1Request$FixedContentSubscriber, init$, void, $Http1Request*)},
+		{"currentStateMessage", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Http1Request$FixedContentSubscriber, currentStateMessage, $String*)},
+		{"onComplete", "()V", nullptr, $PUBLIC, $virtualMethod(Http1Request$FixedContentSubscriber, onComplete, void)},
+		{"onError", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $virtualMethod(Http1Request$FixedContentSubscriber, onError, void, $Throwable*)},
+		{"onNext", "(Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC, $method(Http1Request$FixedContentSubscriber, onNext, void, $ByteBuffer*)},
+		{"onNext", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Http1Request$FixedContentSubscriber, onNext, void, Object$*)},
+		{"onSubscribe", "(Ljava/util/concurrent/Flow$Subscription;)V", nullptr, $PUBLIC, $virtualMethod(Http1Request$FixedContentSubscriber, onSubscribe, void, $Flow$Subscription*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.net.http.Http1Request$FixedContentSubscriber", "jdk.internal.net.http.Http1Request", "FixedContentSubscriber", $FINAL},
+		{"jdk.internal.net.http.Http1Exchange$Http1BodySubscriber", "jdk.internal.net.http.Http1Exchange", "Http1BodySubscriber", $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"jdk.internal.net.http.Http1Request$FixedContentSubscriber",
+		"jdk.internal.net.http.Http1Exchange$Http1BodySubscriber",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.net.http.Http1Request"
+	};
+	$loadClass(Http1Request$FixedContentSubscriber, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Http1Request$FixedContentSubscriber);
+	});
 	return class$;
 }
 

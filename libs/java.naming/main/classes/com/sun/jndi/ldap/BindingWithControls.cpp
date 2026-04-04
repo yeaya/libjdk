@@ -1,5 +1,4 @@
 #include <com/sun/jndi/ldap/BindingWithControls.h>
-
 #include <javax/naming/Binding.h>
 #include <javax/naming/ldap/Control.h>
 #include <jcpp.h>
@@ -14,36 +13,6 @@ namespace com {
 	namespace sun {
 		namespace jndi {
 			namespace ldap {
-
-$FieldInfo _BindingWithControls_FieldInfo_[] = {
-	{"controls", "[Ljavax/naming/ldap/Control;", nullptr, $PRIVATE, $field(BindingWithControls, controls)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BindingWithControls, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _BindingWithControls_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Object;[Ljavax/naming/ldap/Control;)V", nullptr, $PUBLIC, $method(BindingWithControls, init$, void, $String*, Object$*, $ControlArray*)},
-	{"getControls", "()[Ljavax/naming/ldap/Control;", nullptr, $PUBLIC, $virtualMethod(BindingWithControls, getControls, $ControlArray*), "javax.naming.NamingException"},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _BindingWithControls_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.jndi.ldap.BindingWithControls",
-	"javax.naming.Binding",
-	"javax.naming.ldap.HasControls",
-	_BindingWithControls_FieldInfo_,
-	_BindingWithControls_MethodInfo_
-};
-
-$Object* allocate$BindingWithControls($Class* clazz) {
-	return $of($alloc(BindingWithControls));
-}
 
 $String* BindingWithControls::toString() {
 	 return this->$Binding::toString();
@@ -78,7 +47,32 @@ BindingWithControls::BindingWithControls() {
 }
 
 $Class* BindingWithControls::load$($String* name, bool initialize) {
-	$loadClass(BindingWithControls, name, initialize, &_BindingWithControls_ClassInfo_, allocate$BindingWithControls);
+	$FieldInfo fieldInfos$$[] = {
+		{"controls", "[Ljavax/naming/ldap/Control;", nullptr, $PRIVATE, $field(BindingWithControls, controls)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BindingWithControls, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/Object;[Ljavax/naming/ldap/Control;)V", nullptr, $PUBLIC, $method(BindingWithControls, init$, void, $String*, Object$*, $ControlArray*)},
+		{"getControls", "()[Ljavax/naming/ldap/Control;", nullptr, $PUBLIC, $virtualMethod(BindingWithControls, getControls, $ControlArray*), "javax.naming.NamingException"},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.jndi.ldap.BindingWithControls",
+		"javax.naming.Binding",
+		"javax.naming.ldap.HasControls",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(BindingWithControls, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(BindingWithControls));
+	});
 	return class$;
 }
 

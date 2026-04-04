@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/security/keys/keyresolver/implementations/ECKeyValueResolver.h>
-
 #include <com/sun/org/apache/xml/internal/security/exceptions/XMLSecurityException.h>
 #include <com/sun/org/apache/xml/internal/security/keys/content/keyvalues/ECKeyValue.h>
 #include <com/sun/org/apache/xml/internal/security/keys/keyresolver/KeyResolverSpi.h>
@@ -48,34 +47,6 @@ namespace com {
 								namespace keyresolver {
 									namespace implementations {
 
-$FieldInfo _ECKeyValueResolver_FieldInfo_[] = {
-	{"LOG", "Lcom/sun/org/slf4j/internal/Logger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ECKeyValueResolver, LOG)},
-	{}
-};
-
-$MethodInfo _ECKeyValueResolver_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ECKeyValueResolver, init$, void)},
-	{"engineCanResolve", "(Lorg/w3c/dom/Element;Ljava/lang/String;Lcom/sun/org/apache/xml/internal/security/keys/storage/StorageResolver;)Z", nullptr, $PROTECTED, $virtualMethod(ECKeyValueResolver, engineCanResolve, bool, $Element*, $String*, $StorageResolver*)},
-	{"engineResolvePrivateKey", "(Lorg/w3c/dom/Element;Ljava/lang/String;Lcom/sun/org/apache/xml/internal/security/keys/storage/StorageResolver;Z)Ljava/security/PrivateKey;", nullptr, $PROTECTED, $virtualMethod(ECKeyValueResolver, engineResolvePrivateKey, $PrivateKey*, $Element*, $String*, $StorageResolver*, bool)},
-	{"engineResolvePublicKey", "(Lorg/w3c/dom/Element;Ljava/lang/String;Lcom/sun/org/apache/xml/internal/security/keys/storage/StorageResolver;Z)Ljava/security/PublicKey;", nullptr, $PROTECTED, $virtualMethod(ECKeyValueResolver, engineResolvePublicKey, $PublicKey*, $Element*, $String*, $StorageResolver*, bool)},
-	{"engineResolveSecretKey", "(Lorg/w3c/dom/Element;Ljava/lang/String;Lcom/sun/org/apache/xml/internal/security/keys/storage/StorageResolver;Z)Ljavax/crypto/SecretKey;", nullptr, $PROTECTED, $virtualMethod(ECKeyValueResolver, engineResolveSecretKey, $SecretKey*, $Element*, $String*, $StorageResolver*, bool)},
-	{"engineResolveX509Certificate", "(Lorg/w3c/dom/Element;Ljava/lang/String;Lcom/sun/org/apache/xml/internal/security/keys/storage/StorageResolver;Z)Ljava/security/cert/X509Certificate;", nullptr, $PROTECTED, $virtualMethod(ECKeyValueResolver, engineResolveX509Certificate, $X509Certificate*, $Element*, $String*, $StorageResolver*, bool)},
-	{}
-};
-
-$ClassInfo _ECKeyValueResolver_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.security.keys.keyresolver.implementations.ECKeyValueResolver",
-	"com.sun.org.apache.xml.internal.security.keys.keyresolver.KeyResolverSpi",
-	nullptr,
-	_ECKeyValueResolver_FieldInfo_,
-	_ECKeyValueResolver_MethodInfo_
-};
-
-$Object* allocate$ECKeyValueResolver($Class* clazz) {
-	return $of($alloc(ECKeyValueResolver));
-}
-
 $Logger* ECKeyValueResolver::LOG = nullptr;
 
 void ECKeyValueResolver::init$() {
@@ -89,7 +60,7 @@ bool ECKeyValueResolver::engineCanResolve($Element* element, $String* baseURI, $
 }
 
 $PublicKey* ECKeyValueResolver::engineResolvePublicKey($Element* element, $String* baseURI, $StorageResolver* storage, bool secureValidation) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (element == nullptr) {
 		return nullptr;
 	}
@@ -98,10 +69,8 @@ $PublicKey* ECKeyValueResolver::engineResolvePublicKey($Element* element, $Strin
 	bool isKeyValue = $XMLUtils::elementIsInSignatureSpace(element, $Constants::_TAG_KEYVALUE);
 	if (isKeyValue) {
 		$assign(ecKeyElement, $XMLUtils::selectDs11Node($($nc(element)->getFirstChild()), $Constants::_TAG_ECKEYVALUE, 0));
-	} else {
-		if ($XMLUtils::elementIsInSignature11Space(element, $Constants::_TAG_ECKEYVALUE)) {
-			$assign(ecKeyElement, element);
-		}
+	} else if ($XMLUtils::elementIsInSignature11Space(element, $Constants::_TAG_ECKEYVALUE)) {
+		$assign(ecKeyElement, element);
 	}
 	if (ecKeyElement == nullptr) {
 		return nullptr;
@@ -110,7 +79,7 @@ $PublicKey* ECKeyValueResolver::engineResolvePublicKey($Element* element, $Strin
 		$var($ECKeyValue, ecKeyValue, $new($ECKeyValue, ecKeyElement, baseURI));
 		return ecKeyValue->getPublicKey();
 	} catch ($XMLSecurityException& ex) {
-		$nc(ECKeyValueResolver::LOG)->debug($(ex->getMessage()), static_cast<$Throwable*>(ex));
+		$nc(ECKeyValueResolver::LOG)->debug($(ex->getMessage()), ex);
 	}
 	return nullptr;
 }
@@ -127,7 +96,7 @@ $PrivateKey* ECKeyValueResolver::engineResolvePrivateKey($Element* element, $Str
 	return nullptr;
 }
 
-void clinit$ECKeyValueResolver($Class* class$) {
+void ECKeyValueResolver::clinit$($Class* clazz) {
 	$assignStatic(ECKeyValueResolver::LOG, $LoggerFactory::getLogger(ECKeyValueResolver::class$));
 }
 
@@ -135,7 +104,30 @@ ECKeyValueResolver::ECKeyValueResolver() {
 }
 
 $Class* ECKeyValueResolver::load$($String* name, bool initialize) {
-	$loadClass(ECKeyValueResolver, name, initialize, &_ECKeyValueResolver_ClassInfo_, clinit$ECKeyValueResolver, allocate$ECKeyValueResolver);
+	$FieldInfo fieldInfos$$[] = {
+		{"LOG", "Lcom/sun/org/slf4j/internal/Logger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ECKeyValueResolver, LOG)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ECKeyValueResolver, init$, void)},
+		{"engineCanResolve", "(Lorg/w3c/dom/Element;Ljava/lang/String;Lcom/sun/org/apache/xml/internal/security/keys/storage/StorageResolver;)Z", nullptr, $PROTECTED, $virtualMethod(ECKeyValueResolver, engineCanResolve, bool, $Element*, $String*, $StorageResolver*)},
+		{"engineResolvePrivateKey", "(Lorg/w3c/dom/Element;Ljava/lang/String;Lcom/sun/org/apache/xml/internal/security/keys/storage/StorageResolver;Z)Ljava/security/PrivateKey;", nullptr, $PROTECTED, $virtualMethod(ECKeyValueResolver, engineResolvePrivateKey, $PrivateKey*, $Element*, $String*, $StorageResolver*, bool)},
+		{"engineResolvePublicKey", "(Lorg/w3c/dom/Element;Ljava/lang/String;Lcom/sun/org/apache/xml/internal/security/keys/storage/StorageResolver;Z)Ljava/security/PublicKey;", nullptr, $PROTECTED, $virtualMethod(ECKeyValueResolver, engineResolvePublicKey, $PublicKey*, $Element*, $String*, $StorageResolver*, bool)},
+		{"engineResolveSecretKey", "(Lorg/w3c/dom/Element;Ljava/lang/String;Lcom/sun/org/apache/xml/internal/security/keys/storage/StorageResolver;Z)Ljavax/crypto/SecretKey;", nullptr, $PROTECTED, $virtualMethod(ECKeyValueResolver, engineResolveSecretKey, $SecretKey*, $Element*, $String*, $StorageResolver*, bool)},
+		{"engineResolveX509Certificate", "(Lorg/w3c/dom/Element;Ljava/lang/String;Lcom/sun/org/apache/xml/internal/security/keys/storage/StorageResolver;Z)Ljava/security/cert/X509Certificate;", nullptr, $PROTECTED, $virtualMethod(ECKeyValueResolver, engineResolveX509Certificate, $X509Certificate*, $Element*, $String*, $StorageResolver*, bool)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.security.keys.keyresolver.implementations.ECKeyValueResolver",
+		"com.sun.org.apache.xml.internal.security.keys.keyresolver.KeyResolverSpi",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ECKeyValueResolver, name, initialize, &classInfo$$, ECKeyValueResolver::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ECKeyValueResolver);
+	});
 	return class$;
 }
 

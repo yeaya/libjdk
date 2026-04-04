@@ -1,11 +1,9 @@
 #include <javax/swing/JInternalFrame$AccessibleJInternalFrame.h>
-
 #include <java/lang/Number.h>
 #include <javax/accessibility/AccessibleContext.h>
 #include <javax/accessibility/AccessibleRole.h>
 #include <javax/accessibility/AccessibleValue.h>
 #include <javax/swing/JComponent$AccessibleJComponent.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JInternalFrame.h>
 #include <jcpp.h>
 
@@ -23,60 +21,11 @@ using $Number = ::java::lang::Number;
 using $AccessibleContext = ::javax::accessibility::AccessibleContext;
 using $AccessibleRole = ::javax::accessibility::AccessibleRole;
 using $AccessibleValue = ::javax::accessibility::AccessibleValue;
-using $JComponent = ::javax::swing::JComponent;
 using $JComponent$AccessibleJComponent = ::javax::swing::JComponent$AccessibleJComponent;
 using $JInternalFrame = ::javax::swing::JInternalFrame;
 
 namespace javax {
 	namespace swing {
-
-$FieldInfo _JInternalFrame$AccessibleJInternalFrame_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/JInternalFrame;", nullptr, $FINAL | $SYNTHETIC, $field(JInternalFrame$AccessibleJInternalFrame, this$0)},
-	{}
-};
-
-$MethodInfo _JInternalFrame$AccessibleJInternalFrame_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljavax/swing/JInternalFrame;)V", nullptr, $PROTECTED, $method(JInternalFrame$AccessibleJInternalFrame, init$, void, $JInternalFrame*)},
-	{"getAccessibleName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JInternalFrame$AccessibleJInternalFrame, getAccessibleName, $String*)},
-	{"getAccessibleRole", "()Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC, $virtualMethod(JInternalFrame$AccessibleJInternalFrame, getAccessibleRole, $AccessibleRole*)},
-	{"getAccessibleValue", "()Ljavax/accessibility/AccessibleValue;", nullptr, $PUBLIC, $virtualMethod(JInternalFrame$AccessibleJInternalFrame, getAccessibleValue, $AccessibleValue*)},
-	{"getCurrentAccessibleValue", "()Ljava/lang/Number;", nullptr, $PUBLIC, $virtualMethod(JInternalFrame$AccessibleJInternalFrame, getCurrentAccessibleValue, $Number*)},
-	{"getMaximumAccessibleValue", "()Ljava/lang/Number;", nullptr, $PUBLIC, $virtualMethod(JInternalFrame$AccessibleJInternalFrame, getMaximumAccessibleValue, $Number*)},
-	{"getMinimumAccessibleValue", "()Ljava/lang/Number;", nullptr, $PUBLIC, $virtualMethod(JInternalFrame$AccessibleJInternalFrame, getMinimumAccessibleValue, $Number*)},
-	{"setCurrentAccessibleValue", "(Ljava/lang/Number;)Z", nullptr, $PUBLIC, $virtualMethod(JInternalFrame$AccessibleJInternalFrame, setCurrentAccessibleValue, bool, $Number*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _JInternalFrame$AccessibleJInternalFrame_InnerClassesInfo_[] = {
-	{"javax.swing.JInternalFrame$AccessibleJInternalFrame", "javax.swing.JInternalFrame", "AccessibleJInternalFrame", $PROTECTED},
-	{"javax.swing.JComponent$AccessibleJComponent", "javax.swing.JComponent", "AccessibleJComponent", $PUBLIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _JInternalFrame$AccessibleJInternalFrame_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.JInternalFrame$AccessibleJInternalFrame",
-	"javax.swing.JComponent$AccessibleJComponent",
-	"javax.accessibility.AccessibleValue",
-	_JInternalFrame$AccessibleJInternalFrame_FieldInfo_,
-	_JInternalFrame$AccessibleJInternalFrame_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JInternalFrame$AccessibleJInternalFrame_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.JInternalFrame"
-};
-
-$Object* allocate$JInternalFrame$AccessibleJInternalFrame($Class* clazz) {
-	return $of($alloc(JInternalFrame$AccessibleJInternalFrame));
-}
 
 int32_t JInternalFrame$AccessibleJInternalFrame::hashCode() {
 	 return this->$JComponent$AccessibleJComponent::hashCode();
@@ -148,7 +97,49 @@ JInternalFrame$AccessibleJInternalFrame::JInternalFrame$AccessibleJInternalFrame
 }
 
 $Class* JInternalFrame$AccessibleJInternalFrame::load$($String* name, bool initialize) {
-	$loadClass(JInternalFrame$AccessibleJInternalFrame, name, initialize, &_JInternalFrame$AccessibleJInternalFrame_ClassInfo_, allocate$JInternalFrame$AccessibleJInternalFrame);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/JInternalFrame;", nullptr, $FINAL | $SYNTHETIC, $field(JInternalFrame$AccessibleJInternalFrame, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljavax/swing/JInternalFrame;)V", nullptr, $PROTECTED, $method(JInternalFrame$AccessibleJInternalFrame, init$, void, $JInternalFrame*)},
+		{"getAccessibleName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JInternalFrame$AccessibleJInternalFrame, getAccessibleName, $String*)},
+		{"getAccessibleRole", "()Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC, $virtualMethod(JInternalFrame$AccessibleJInternalFrame, getAccessibleRole, $AccessibleRole*)},
+		{"getAccessibleValue", "()Ljavax/accessibility/AccessibleValue;", nullptr, $PUBLIC, $virtualMethod(JInternalFrame$AccessibleJInternalFrame, getAccessibleValue, $AccessibleValue*)},
+		{"getCurrentAccessibleValue", "()Ljava/lang/Number;", nullptr, $PUBLIC, $virtualMethod(JInternalFrame$AccessibleJInternalFrame, getCurrentAccessibleValue, $Number*)},
+		{"getMaximumAccessibleValue", "()Ljava/lang/Number;", nullptr, $PUBLIC, $virtualMethod(JInternalFrame$AccessibleJInternalFrame, getMaximumAccessibleValue, $Number*)},
+		{"getMinimumAccessibleValue", "()Ljava/lang/Number;", nullptr, $PUBLIC, $virtualMethod(JInternalFrame$AccessibleJInternalFrame, getMinimumAccessibleValue, $Number*)},
+		{"setCurrentAccessibleValue", "(Ljava/lang/Number;)Z", nullptr, $PUBLIC, $virtualMethod(JInternalFrame$AccessibleJInternalFrame, setCurrentAccessibleValue, bool, $Number*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.JInternalFrame$AccessibleJInternalFrame", "javax.swing.JInternalFrame", "AccessibleJInternalFrame", $PROTECTED},
+		{"javax.swing.JComponent$AccessibleJComponent", "javax.swing.JComponent", "AccessibleJComponent", $PUBLIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.JInternalFrame$AccessibleJInternalFrame",
+		"javax.swing.JComponent$AccessibleJComponent",
+		"javax.accessibility.AccessibleValue",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.JInternalFrame"
+	};
+	$loadClass(JInternalFrame$AccessibleJInternalFrame, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JInternalFrame$AccessibleJInternalFrame));
+	});
 	return class$;
 }
 

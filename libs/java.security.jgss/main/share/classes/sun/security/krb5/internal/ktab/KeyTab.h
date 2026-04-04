@@ -51,6 +51,7 @@ class $export KeyTab : public ::sun::security::krb5::internal::ktab::KeyTabConst
 	$class(KeyTab, 0, ::sun::security::krb5::internal::ktab::KeyTabConstants)
 public:
 	KeyTab();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* filename);
 	virtual void addEntry(::sun::security::krb5::PrincipalName* service, $chars* psswd, int32_t kvno, bool append);
 	virtual void addEntry(::sun::security::krb5::PrincipalName* service, $String* salt, $chars* psswd, int32_t kvno, bool append);

@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/hpack/NaiveHuffman$Node.h>
-
 #include <java/lang/IllegalStateException.h>
 #include <jdk/internal/net/http/hpack/NaiveHuffman.h>
 #include <jcpp.h>
@@ -18,62 +17,17 @@ namespace jdk {
 			namespace http {
 				namespace hpack {
 
-$FieldInfo _NaiveHuffman$Node_FieldInfo_[] = {
-	{"left", "Ljdk/internal/net/http/hpack/NaiveHuffman$Node;", nullptr, 0, $field(NaiveHuffman$Node, left)},
-	{"right", "Ljdk/internal/net/http/hpack/NaiveHuffman$Node;", nullptr, 0, $field(NaiveHuffman$Node, right)},
-	{"isEOSPath", "Z", nullptr, 0, $field(NaiveHuffman$Node, isEOSPath)},
-	{"charIsSet", "Z", nullptr, 0, $field(NaiveHuffman$Node, charIsSet)},
-	{"c", "C", nullptr, 0, $field(NaiveHuffman$Node, c)},
-	{}
-};
-
-$MethodInfo _NaiveHuffman$Node_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(NaiveHuffman$Node, init$, void)},
-	{"addChildIfAbsent", "(I)Ljdk/internal/net/http/hpack/NaiveHuffman$Node;", nullptr, 0, $virtualMethod(NaiveHuffman$Node, addChildIfAbsent, NaiveHuffman$Node*, int32_t)},
-	{"getChar", "()C", nullptr, 0, $virtualMethod(NaiveHuffman$Node, getChar, char16_t)},
-	{"getChild", "(I)Ljdk/internal/net/http/hpack/NaiveHuffman$Node;", nullptr, 0, $virtualMethod(NaiveHuffman$Node, getChild, NaiveHuffman$Node*, int32_t)},
-	{"isLeaf", "()Z", nullptr, 0, $virtualMethod(NaiveHuffman$Node, isLeaf, bool)},
-	{"setChar", "(C)V", nullptr, 0, $virtualMethod(NaiveHuffman$Node, setChar, void, char16_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(NaiveHuffman$Node, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _NaiveHuffman$Node_InnerClassesInfo_[] = {
-	{"jdk.internal.net.http.hpack.NaiveHuffman$Node", "jdk.internal.net.http.hpack.NaiveHuffman", "Node", $STATIC},
-	{}
-};
-
-$ClassInfo _NaiveHuffman$Node_ClassInfo_ = {
-	$ACC_SUPER,
-	"jdk.internal.net.http.hpack.NaiveHuffman$Node",
-	"java.lang.Object",
-	nullptr,
-	_NaiveHuffman$Node_FieldInfo_,
-	_NaiveHuffman$Node_MethodInfo_,
-	nullptr,
-	nullptr,
-	_NaiveHuffman$Node_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.net.http.hpack.NaiveHuffman"
-};
-
-$Object* allocate$NaiveHuffman$Node($Class* clazz) {
-	return $of($alloc(NaiveHuffman$Node));
-}
-
 void NaiveHuffman$Node::init$() {
 }
 
 NaiveHuffman$Node* NaiveHuffman$Node::getChild(int32_t selector) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (isLeaf()) {
 		$throwNew($IllegalStateException, "This is a leaf node"_s);
 	}
 	$var(NaiveHuffman$Node, result, selector == 0 ? this->left : this->right);
 	if (result == nullptr) {
-		$throwNew($IllegalStateException, $($String::format("Node doesn\'t have a child (selector=%s)"_s, $$new($ObjectArray, {$($of($Integer::valueOf(selector)))}))));
+		$throwNew($IllegalStateException, $($String::format("Node doesn\'t have a child (selector=%s)"_s, $$new($ObjectArray, {$($Integer::valueOf(selector))}))));
 	}
 	return result;
 }
@@ -107,23 +61,23 @@ NaiveHuffman$Node* NaiveHuffman$Node::addChildIfAbsent(int32_t i) {
 	$var(NaiveHuffman$Node, child, nullptr);
 	if (i == 0) {
 		if (($assign(child, this->left)) == nullptr) {
-			$assign(child, ($set(this, left, $new(NaiveHuffman$Node))));
+			$assign(child, $set(this, left, $new(NaiveHuffman$Node)));
 		}
 	} else if (($assign(child, this->right)) == nullptr) {
-		$assign(child, ($set(this, right, $new(NaiveHuffman$Node))));
+		$assign(child, $set(this, right, $new(NaiveHuffman$Node)));
 	}
 	return child;
 }
 
 $String* NaiveHuffman$Node::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (isLeaf()) {
 		if (this->isEOSPath) {
 			return "EOS"_s;
 		} else {
 			return $String::format("char: (%3s) \'%s\'"_s, $$new($ObjectArray, {
-				$($of($Integer::valueOf((int32_t)this->c))),
-				$($of($Character::valueOf(this->c)))
+				$($Integer::valueOf((int32_t)this->c)),
+				$($Character::valueOf(this->c))
 			}));
 		}
 	}
@@ -134,7 +88,46 @@ NaiveHuffman$Node::NaiveHuffman$Node() {
 }
 
 $Class* NaiveHuffman$Node::load$($String* name, bool initialize) {
-	$loadClass(NaiveHuffman$Node, name, initialize, &_NaiveHuffman$Node_ClassInfo_, allocate$NaiveHuffman$Node);
+	$FieldInfo fieldInfos$$[] = {
+		{"left", "Ljdk/internal/net/http/hpack/NaiveHuffman$Node;", nullptr, 0, $field(NaiveHuffman$Node, left)},
+		{"right", "Ljdk/internal/net/http/hpack/NaiveHuffman$Node;", nullptr, 0, $field(NaiveHuffman$Node, right)},
+		{"isEOSPath", "Z", nullptr, 0, $field(NaiveHuffman$Node, isEOSPath)},
+		{"charIsSet", "Z", nullptr, 0, $field(NaiveHuffman$Node, charIsSet)},
+		{"c", "C", nullptr, 0, $field(NaiveHuffman$Node, c)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(NaiveHuffman$Node, init$, void)},
+		{"addChildIfAbsent", "(I)Ljdk/internal/net/http/hpack/NaiveHuffman$Node;", nullptr, 0, $virtualMethod(NaiveHuffman$Node, addChildIfAbsent, NaiveHuffman$Node*, int32_t)},
+		{"getChar", "()C", nullptr, 0, $virtualMethod(NaiveHuffman$Node, getChar, char16_t)},
+		{"getChild", "(I)Ljdk/internal/net/http/hpack/NaiveHuffman$Node;", nullptr, 0, $virtualMethod(NaiveHuffman$Node, getChild, NaiveHuffman$Node*, int32_t)},
+		{"isLeaf", "()Z", nullptr, 0, $virtualMethod(NaiveHuffman$Node, isLeaf, bool)},
+		{"setChar", "(C)V", nullptr, 0, $virtualMethod(NaiveHuffman$Node, setChar, void, char16_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(NaiveHuffman$Node, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.net.http.hpack.NaiveHuffman$Node", "jdk.internal.net.http.hpack.NaiveHuffman", "Node", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"jdk.internal.net.http.hpack.NaiveHuffman$Node",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.net.http.hpack.NaiveHuffman"
+	};
+	$loadClass(NaiveHuffman$Node, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(NaiveHuffman$Node);
+	});
 	return class$;
 }
 

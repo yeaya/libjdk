@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/Infer$2.h>
-
 #include <com/sun/tools/javac/code/Type$UndetVar$InferenceBound.h>
 #include <com/sun/tools/javac/code/Type$UndetVar.h>
 #include <com/sun/tools/javac/code/Type.h>
@@ -33,56 +32,13 @@ namespace com {
 			namespace javac {
 				namespace comp {
 
-$FieldInfo _Infer$2_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/comp/Infer;", nullptr, $FINAL | $SYNTHETIC, $field(Infer$2, this$0)},
-	{}
-};
-
-$MethodInfo _Infer$2_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Infer;)V", nullptr, 0, $method(Infer$2, init$, void, $Infer*)},
-	{"getIncorporationActions", "(Lcom/sun/tools/javac/code/Type$UndetVar;Lcom/sun/tools/javac/code/Type$UndetVar$InferenceBound;Lcom/sun/tools/javac/code/Type;Z)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/code/Type$UndetVar;Lcom/sun/tools/javac/code/Type$UndetVar$InferenceBound;Lcom/sun/tools/javac/code/Type;Z)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/comp/Infer$IncorporationAction;>;", 0, $virtualMethod(Infer$2, getIncorporationActions, $List*, $Type$UndetVar*, $Type$UndetVar$InferenceBound*, $Type*, bool)},
-	{}
-};
-
-$EnclosingMethodInfo _Infer$2_EnclosingMethodInfo_ = {
-	"com.sun.tools.javac.comp.Infer",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _Infer$2_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.Infer$2", nullptr, nullptr, 0},
-	{"com.sun.tools.javac.comp.Infer$AbstractIncorporationEngine", "com.sun.tools.javac.comp.Infer", "AbstractIncorporationEngine", $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Infer$2_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.comp.Infer$2",
-	"com.sun.tools.javac.comp.Infer$AbstractIncorporationEngine",
-	nullptr,
-	_Infer$2_FieldInfo_,
-	_Infer$2_MethodInfo_,
-	nullptr,
-	&_Infer$2_EnclosingMethodInfo_,
-	_Infer$2_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.Infer"
-};
-
-$Object* allocate$Infer$2($Class* clazz) {
-	return $of($alloc(Infer$2));
-}
-
 void Infer$2::init$($Infer* this$0) {
 	$set(this, this$0, this$0);
 	$Infer$AbstractIncorporationEngine::init$(this$0);
 }
 
 $List* Infer$2::getIncorporationActions($Type$UndetVar* uv, $Type$UndetVar$InferenceBound* ib, $Type* t, bool update) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ListBuffer, actions, $new($ListBuffer));
 	$var($Type, inst, $nc(uv)->getInst());
 	if (inst != nullptr) {
@@ -96,7 +52,43 @@ Infer$2::Infer$2() {
 }
 
 $Class* Infer$2::load$($String* name, bool initialize) {
-	$loadClass(Infer$2, name, initialize, &_Infer$2_ClassInfo_, allocate$Infer$2);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/comp/Infer;", nullptr, $FINAL | $SYNTHETIC, $field(Infer$2, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/comp/Infer;)V", nullptr, 0, $method(Infer$2, init$, void, $Infer*)},
+		{"getIncorporationActions", "(Lcom/sun/tools/javac/code/Type$UndetVar;Lcom/sun/tools/javac/code/Type$UndetVar$InferenceBound;Lcom/sun/tools/javac/code/Type;Z)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/code/Type$UndetVar;Lcom/sun/tools/javac/code/Type$UndetVar$InferenceBound;Lcom/sun/tools/javac/code/Type;Z)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/comp/Infer$IncorporationAction;>;", 0, $virtualMethod(Infer$2, getIncorporationActions, $List*, $Type$UndetVar*, $Type$UndetVar$InferenceBound*, $Type*, bool)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.tools.javac.comp.Infer",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.Infer$2", nullptr, nullptr, 0},
+		{"com.sun.tools.javac.comp.Infer$AbstractIncorporationEngine", "com.sun.tools.javac.comp.Infer", "AbstractIncorporationEngine", $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.comp.Infer$2",
+		"com.sun.tools.javac.comp.Infer$AbstractIncorporationEngine",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.Infer"
+	};
+	$loadClass(Infer$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Infer$2);
+	});
 	return class$;
 }
 

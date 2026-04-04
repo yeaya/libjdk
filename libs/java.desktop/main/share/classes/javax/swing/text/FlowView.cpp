@@ -1,5 +1,4 @@
 #include <javax/swing/text/FlowView.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <java/awt/Rectangle.h>
@@ -42,55 +41,6 @@ namespace javax {
 	namespace swing {
 		namespace text {
 
-$FieldInfo _FlowView_FieldInfo_[] = {
-	{"layoutSpan", "I", nullptr, $PROTECTED, $field(FlowView, layoutSpan)},
-	{"layoutPool", "Ljavax/swing/text/View;", nullptr, $PROTECTED, $field(FlowView, layoutPool)},
-	{"strategy", "Ljavax/swing/text/FlowView$FlowStrategy;", nullptr, $PROTECTED, $field(FlowView, strategy)},
-	{}
-};
-
-$MethodInfo _FlowView_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/text/Element;I)V", nullptr, $PUBLIC, $method(FlowView, init$, void, $Element*, int32_t)},
-	{"calculateMinorAxisRequirements", "(ILjavax/swing/SizeRequirements;)Ljavax/swing/SizeRequirements;", nullptr, $PROTECTED, $virtualMethod(FlowView, calculateMinorAxisRequirements, $SizeRequirements*, int32_t, $SizeRequirements*)},
-	{"changedUpdate", "(Ljavax/swing/event/DocumentEvent;Ljava/awt/Shape;Ljavax/swing/text/ViewFactory;)V", nullptr, $PUBLIC, $virtualMethod(FlowView, changedUpdate, void, $DocumentEvent*, $Shape*, $ViewFactory*)},
-	{"createRow", "()Ljavax/swing/text/View;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(FlowView, createRow, $View*)},
-	{"getFlowAxis", "()I", nullptr, $PUBLIC, $virtualMethod(FlowView, getFlowAxis, int32_t)},
-	{"getFlowSpan", "(I)I", nullptr, $PUBLIC, $virtualMethod(FlowView, getFlowSpan, int32_t, int32_t)},
-	{"getFlowStart", "(I)I", nullptr, $PUBLIC, $virtualMethod(FlowView, getFlowStart, int32_t, int32_t)},
-	{"getViewIndexAtPosition", "(I)I", nullptr, $PROTECTED, $virtualMethod(FlowView, getViewIndexAtPosition, int32_t, int32_t)},
-	{"insertUpdate", "(Ljavax/swing/event/DocumentEvent;Ljava/awt/Shape;Ljavax/swing/text/ViewFactory;)V", nullptr, $PUBLIC, $virtualMethod(FlowView, insertUpdate, void, $DocumentEvent*, $Shape*, $ViewFactory*)},
-	{"layout", "(II)V", nullptr, $PROTECTED, $virtualMethod(FlowView, layout, void, int32_t, int32_t)},
-	{"loadChildren", "(Ljavax/swing/text/ViewFactory;)V", nullptr, $PROTECTED, $virtualMethod(FlowView, loadChildren, void, $ViewFactory*)},
-	{"removeUpdate", "(Ljavax/swing/event/DocumentEvent;Ljava/awt/Shape;Ljavax/swing/text/ViewFactory;)V", nullptr, $PUBLIC, $virtualMethod(FlowView, removeUpdate, void, $DocumentEvent*, $Shape*, $ViewFactory*)},
-	{"setParent", "(Ljavax/swing/text/View;)V", nullptr, $PUBLIC, $virtualMethod(FlowView, setParent, void, $View*)},
-	{}
-};
-
-$InnerClassInfo _FlowView_InnerClassesInfo_[] = {
-	{"javax.swing.text.FlowView$LogicalView", "javax.swing.text.FlowView", "LogicalView", $STATIC},
-	{"javax.swing.text.FlowView$FlowStrategy", "javax.swing.text.FlowView", "FlowStrategy", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _FlowView_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"javax.swing.text.FlowView",
-	"javax.swing.text.BoxView",
-	nullptr,
-	_FlowView_FieldInfo_,
-	_FlowView_MethodInfo_,
-	nullptr,
-	nullptr,
-	_FlowView_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.swing.text.FlowView$LogicalView,javax.swing.text.FlowView$FlowStrategy"
-};
-
-$Object* allocate$FlowView($Class* clazz) {
-	return $of($alloc(FlowView));
-}
-
 void FlowView::init$($Element* elem, int32_t axis) {
 	$BoxView::init$(elem, axis);
 	this->layoutSpan = $Integer::MAX_VALUE;
@@ -121,7 +71,7 @@ void FlowView::loadChildren($ViewFactory* f) {
 }
 
 int32_t FlowView::getViewIndexAtPosition(int32_t pos) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool var$0 = pos >= getStartOffset();
 	if (var$0 && (pos < getEndOffset())) {
 		for (int32_t counter = 0; counter < getViewCount(); ++counter) {
@@ -136,7 +86,7 @@ int32_t FlowView::getViewIndexAtPosition(int32_t pos) {
 }
 
 void FlowView::layout(int32_t width, int32_t height) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t faxis = getFlowAxis();
 	int32_t newSpan = 0;
 	if (faxis == $View::X_AXIS) {
@@ -200,7 +150,7 @@ void FlowView::changedUpdate($DocumentEvent* changes, $Shape* a, $ViewFactory* f
 void FlowView::setParent($View* parent) {
 	$BoxView::setParent(parent);
 	if (parent == nullptr && this->layoutPool != nullptr) {
-		$nc(this->layoutPool)->setParent(nullptr);
+		this->layoutPool->setParent(nullptr);
 	}
 }
 
@@ -208,7 +158,50 @@ FlowView::FlowView() {
 }
 
 $Class* FlowView::load$($String* name, bool initialize) {
-	$loadClass(FlowView, name, initialize, &_FlowView_ClassInfo_, allocate$FlowView);
+	$FieldInfo fieldInfos$$[] = {
+		{"layoutSpan", "I", nullptr, $PROTECTED, $field(FlowView, layoutSpan)},
+		{"layoutPool", "Ljavax/swing/text/View;", nullptr, $PROTECTED, $field(FlowView, layoutPool)},
+		{"strategy", "Ljavax/swing/text/FlowView$FlowStrategy;", nullptr, $PROTECTED, $field(FlowView, strategy)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/text/Element;I)V", nullptr, $PUBLIC, $method(FlowView, init$, void, $Element*, int32_t)},
+		{"calculateMinorAxisRequirements", "(ILjavax/swing/SizeRequirements;)Ljavax/swing/SizeRequirements;", nullptr, $PROTECTED, $virtualMethod(FlowView, calculateMinorAxisRequirements, $SizeRequirements*, int32_t, $SizeRequirements*)},
+		{"changedUpdate", "(Ljavax/swing/event/DocumentEvent;Ljava/awt/Shape;Ljavax/swing/text/ViewFactory;)V", nullptr, $PUBLIC, $virtualMethod(FlowView, changedUpdate, void, $DocumentEvent*, $Shape*, $ViewFactory*)},
+		{"createRow", "()Ljavax/swing/text/View;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(FlowView, createRow, $View*)},
+		{"getFlowAxis", "()I", nullptr, $PUBLIC, $virtualMethod(FlowView, getFlowAxis, int32_t)},
+		{"getFlowSpan", "(I)I", nullptr, $PUBLIC, $virtualMethod(FlowView, getFlowSpan, int32_t, int32_t)},
+		{"getFlowStart", "(I)I", nullptr, $PUBLIC, $virtualMethod(FlowView, getFlowStart, int32_t, int32_t)},
+		{"getViewIndexAtPosition", "(I)I", nullptr, $PROTECTED, $virtualMethod(FlowView, getViewIndexAtPosition, int32_t, int32_t)},
+		{"insertUpdate", "(Ljavax/swing/event/DocumentEvent;Ljava/awt/Shape;Ljavax/swing/text/ViewFactory;)V", nullptr, $PUBLIC, $virtualMethod(FlowView, insertUpdate, void, $DocumentEvent*, $Shape*, $ViewFactory*)},
+		{"layout", "(II)V", nullptr, $PROTECTED, $virtualMethod(FlowView, layout, void, int32_t, int32_t)},
+		{"loadChildren", "(Ljavax/swing/text/ViewFactory;)V", nullptr, $PROTECTED, $virtualMethod(FlowView, loadChildren, void, $ViewFactory*)},
+		{"removeUpdate", "(Ljavax/swing/event/DocumentEvent;Ljava/awt/Shape;Ljavax/swing/text/ViewFactory;)V", nullptr, $PUBLIC, $virtualMethod(FlowView, removeUpdate, void, $DocumentEvent*, $Shape*, $ViewFactory*)},
+		{"setParent", "(Ljavax/swing/text/View;)V", nullptr, $PUBLIC, $virtualMethod(FlowView, setParent, void, $View*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.FlowView$LogicalView", "javax.swing.text.FlowView", "LogicalView", $STATIC},
+		{"javax.swing.text.FlowView$FlowStrategy", "javax.swing.text.FlowView", "FlowStrategy", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"javax.swing.text.FlowView",
+		"javax.swing.text.BoxView",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.swing.text.FlowView$LogicalView,javax.swing.text.FlowView$FlowStrategy"
+	};
+	$loadClass(FlowView, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FlowView);
+	});
 	return class$;
 }
 

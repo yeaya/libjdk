@@ -1,5 +1,4 @@
 #include <java/awt/datatransfer/Transferable.h>
-
 #include <java/awt/datatransfer/DataFlavor.h>
 #include <jcpp.h>
 
@@ -12,28 +11,24 @@ namespace java {
 	namespace awt {
 		namespace datatransfer {
 
-$MethodInfo _Transferable_MethodInfo_[] = {
-	{"getTransferData", "(Ljava/awt/datatransfer/DataFlavor;)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Transferable, getTransferData, $Object*, $DataFlavor*), "java.awt.datatransfer.UnsupportedFlavorException,java.io.IOException"},
-	{"getTransferDataFlavors", "()[Ljava/awt/datatransfer/DataFlavor;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Transferable, getTransferDataFlavors, $DataFlavorArray*)},
-	{"isDataFlavorSupported", "(Ljava/awt/datatransfer/DataFlavor;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Transferable, isDataFlavorSupported, bool, $DataFlavor*)},
-	{}
-};
-
-$ClassInfo _Transferable_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.awt.datatransfer.Transferable",
-	nullptr,
-	nullptr,
-	nullptr,
-	_Transferable_MethodInfo_
-};
-
-$Object* allocate$Transferable($Class* clazz) {
-	return $of($alloc(Transferable));
-}
-
 $Class* Transferable::load$($String* name, bool initialize) {
-	$loadClass(Transferable, name, initialize, &_Transferable_ClassInfo_, allocate$Transferable);
+	$MethodInfo methodInfos$$[] = {
+		{"getTransferData", "(Ljava/awt/datatransfer/DataFlavor;)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Transferable, getTransferData, $Object*, $DataFlavor*), "java.awt.datatransfer.UnsupportedFlavorException,java.io.IOException"},
+		{"getTransferDataFlavors", "()[Ljava/awt/datatransfer/DataFlavor;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Transferable, getTransferDataFlavors, $DataFlavorArray*)},
+		{"isDataFlavorSupported", "(Ljava/awt/datatransfer/DataFlavor;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Transferable, isDataFlavorSupported, bool, $DataFlavor*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.awt.datatransfer.Transferable",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Transferable, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Transferable);
+	});
 	return class$;
 }
 

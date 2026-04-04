@@ -41,6 +41,7 @@ class $import WindowsRadioButtonUI : public ::javax::swing::plaf::basic::BasicRa
 	$class(WindowsRadioButtonUI, 0, ::javax::swing::plaf::basic::BasicRadioButtonUI)
 public:
 	WindowsRadioButtonUI();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::javax::swing::plaf::ComponentUI* createUI(::javax::swing::JComponent* c);
 	virtual ::java::awt::Color* getFocusColor();

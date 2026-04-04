@@ -1,12 +1,10 @@
 #include <sun/font/ExtendedTextSourceLabel.h>
-
 #include <java/awt/Font.h>
 #include <java/awt/Graphics2D.h>
 #include <java/awt/Rectangle.h>
 #include <java/awt/Shape.h>
 #include <java/awt/font/FontRenderContext.h>
 #include <java/awt/font/GlyphJustificationInfo.h>
-#include <java/awt/font/GlyphVector.h>
 #include <java/awt/font/LineMetrics.h>
 #include <java/awt/geom/AffineTransform.h>
 #include <java/awt/geom/Rectangle2D$Float.h>
@@ -15,7 +13,6 @@
 #include <java/util/Map.h>
 #include <sun/font/AttributeValues.h>
 #include <sun/font/CoreMetrics.h>
-#include <sun/font/Decoration$Label.h>
 #include <sun/font/Decoration.h>
 #include <sun/font/ExtendedTextLabel.h>
 #include <sun/font/FontUtilities.h>
@@ -33,18 +30,15 @@
 #undef WITHOUT_CONTEXT
 
 using $GlyphJustificationInfoArray = $Array<::java::awt::font::GlyphJustificationInfo>;
-using $Font = ::java::awt::Font;
 using $Graphics2D = ::java::awt::Graphics2D;
 using $Rectangle = ::java::awt::Rectangle;
 using $Shape = ::java::awt::Shape;
 using $FontRenderContext = ::java::awt::font::FontRenderContext;
 using $GlyphJustificationInfo = ::java::awt::font::GlyphJustificationInfo;
-using $GlyphVector = ::java::awt::font::GlyphVector;
 using $LineMetrics = ::java::awt::font::LineMetrics;
 using $AffineTransform = ::java::awt::geom::AffineTransform;
 using $Rectangle2D = ::java::awt::geom::Rectangle2D;
 using $Rectangle2D$Float = ::java::awt::geom::Rectangle2D$Float;
-using $PrintStream = ::java::io::PrintStream;
 using $Character = ::java::lang::Character;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
@@ -59,7 +53,6 @@ using $Map = ::java::util::Map;
 using $AttributeValues = ::sun::font::AttributeValues;
 using $CoreMetrics = ::sun::font::CoreMetrics;
 using $Decoration = ::sun::font::Decoration;
-using $Decoration$Label = ::sun::font::Decoration$Label;
 using $ExtendedTextLabel = ::sun::font::ExtendedTextLabel;
 using $FontUtilities = ::sun::font::FontUtilities;
 using $GlyphLayout = ::sun::font::GlyphLayout;
@@ -70,104 +63,6 @@ using $TextSource = ::sun::font::TextSource;
 
 namespace sun {
 	namespace font {
-
-$FieldInfo _ExtendedTextSourceLabel_FieldInfo_[] = {
-	{"source", "Lsun/font/TextSource;", nullptr, 0, $field(ExtendedTextSourceLabel, source)},
-	{"decorator", "Lsun/font/Decoration;", nullptr, $PRIVATE, $field(ExtendedTextSourceLabel, decorator)},
-	{"font", "Ljava/awt/Font;", nullptr, $PRIVATE, $field(ExtendedTextSourceLabel, font)},
-	{"baseTX", "Ljava/awt/geom/AffineTransform;", nullptr, $PRIVATE, $field(ExtendedTextSourceLabel, baseTX)},
-	{"cm", "Lsun/font/CoreMetrics;", nullptr, $PRIVATE, $field(ExtendedTextSourceLabel, cm)},
-	{"lb", "Ljava/awt/geom/Rectangle2D;", nullptr, 0, $field(ExtendedTextSourceLabel, lb)},
-	{"ab", "Ljava/awt/geom/Rectangle2D;", nullptr, 0, $field(ExtendedTextSourceLabel, ab)},
-	{"vb", "Ljava/awt/geom/Rectangle2D;", nullptr, 0, $field(ExtendedTextSourceLabel, vb)},
-	{"ib", "Ljava/awt/geom/Rectangle2D;", nullptr, 0, $field(ExtendedTextSourceLabel, ib)},
-	{"gv", "Lsun/font/StandardGlyphVector;", nullptr, 0, $field(ExtendedTextSourceLabel, gv)},
-	{"charinfo", "[F", nullptr, 0, $field(ExtendedTextSourceLabel, charinfo)},
-	{"posx", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ExtendedTextSourceLabel, posx)},
-	{"posy", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ExtendedTextSourceLabel, posy)},
-	{"advx", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ExtendedTextSourceLabel, advx)},
-	{"advy", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ExtendedTextSourceLabel, advy)},
-	{"visx", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ExtendedTextSourceLabel, visx)},
-	{"visy", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ExtendedTextSourceLabel, visy)},
-	{"visw", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ExtendedTextSourceLabel, visw)},
-	{"vish", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ExtendedTextSourceLabel, vish)},
-	{"numvals", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ExtendedTextSourceLabel, numvals)},
-	{"DEBUG", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ExtendedTextSourceLabel, DEBUG)},
-	{}
-};
-
-$MethodInfo _ExtendedTextSourceLabel_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lsun/font/TextSource;Lsun/font/Decoration;)V", nullptr, $PUBLIC, $method(ExtendedTextSourceLabel, init$, void, $TextSource*, $Decoration*)},
-	{"<init>", "(Lsun/font/TextSource;Lsun/font/ExtendedTextSourceLabel;I)V", nullptr, $PUBLIC, $method(ExtendedTextSourceLabel, init$, void, $TextSource*, ExtendedTextSourceLabel*, int32_t)},
-	{"applyJustificationDeltas", "([FI[Z)Lsun/font/TextLineComponent;", nullptr, $PUBLIC, $virtualMethod(ExtendedTextSourceLabel, applyJustificationDeltas, $TextLineComponent*, $floats*, int32_t, $booleans*)},
-	{"caretAtOffsetIsValid", "(I)Z", nullptr, $PUBLIC, $virtualMethod(ExtendedTextSourceLabel, caretAtOffsetIsValid, bool, int32_t)},
-	{"createAlignBounds", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PROTECTED, $virtualMethod(ExtendedTextSourceLabel, createAlignBounds, $Rectangle2D*)},
-	{"createCharinfo", "()[F", nullptr, $PROTECTED, $virtualMethod(ExtendedTextSourceLabel, createCharinfo, $floats*)},
-	{"createGV", "()Lsun/font/StandardGlyphVector;", nullptr, $PROTECTED, $virtualMethod(ExtendedTextSourceLabel, createGV, $StandardGlyphVector*)},
-	{"createItalicBounds", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC, $virtualMethod(ExtendedTextSourceLabel, createItalicBounds, $Rectangle2D*)},
-	{"createLogicalBounds", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PROTECTED, $virtualMethod(ExtendedTextSourceLabel, createLogicalBounds, $Rectangle2D*)},
-	{"draw", "(Ljava/awt/Graphics2D;FF)V", nullptr, $PUBLIC, $virtualMethod(ExtendedTextSourceLabel, draw, void, $Graphics2D*, float, float)},
-	{"finishInit", "()V", nullptr, $PRIVATE, $method(ExtendedTextSourceLabel, finishInit, void)},
-	{"getAdvance", "()F", nullptr, $PUBLIC, $virtualMethod(ExtendedTextSourceLabel, getAdvance, float)},
-	{"getAdvanceBetween", "(II)F", nullptr, $PUBLIC, $virtualMethod(ExtendedTextSourceLabel, getAdvanceBetween, float, int32_t, int32_t)},
-	{"getAlignBounds", "(FF)Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC, $virtualMethod(ExtendedTextSourceLabel, getAlignBounds, $Rectangle2D*, float, float)},
-	{"getBaselineTransform", "()Ljava/awt/geom/AffineTransform;", nullptr, $PUBLIC, $virtualMethod(ExtendedTextSourceLabel, getBaselineTransform, $AffineTransform*)},
-	{"getCharAdvance", "(I)F", nullptr, $PUBLIC, $virtualMethod(ExtendedTextSourceLabel, getCharAdvance, float, int32_t)},
-	{"getCharVisualBounds", "(IFF)Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC, $virtualMethod(ExtendedTextSourceLabel, getCharVisualBounds, $Rectangle2D*, int32_t, float, float)},
-	{"getCharX", "(I)F", nullptr, $PUBLIC, $virtualMethod(ExtendedTextSourceLabel, getCharX, float, int32_t)},
-	{"getCharY", "(I)F", nullptr, $PUBLIC, $virtualMethod(ExtendedTextSourceLabel, getCharY, float, int32_t)},
-	{"getCharinfo", "()[F", nullptr, $PRIVATE, $method(ExtendedTextSourceLabel, getCharinfo, $floats*)},
-	{"getCoreMetrics", "()Lsun/font/CoreMetrics;", nullptr, $PUBLIC, $virtualMethod(ExtendedTextSourceLabel, getCoreMetrics, $CoreMetrics*)},
-	{"getGV", "()Lsun/font/StandardGlyphVector;", nullptr, $PRIVATE, $method(ExtendedTextSourceLabel, getGV, $StandardGlyphVector*)},
-	{"getItalicBounds", "(FF)Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC, $virtualMethod(ExtendedTextSourceLabel, getItalicBounds, $Rectangle2D*, float, float)},
-	{"getJustificationInfos", "([Ljava/awt/font/GlyphJustificationInfo;III)V", nullptr, $PUBLIC, $virtualMethod(ExtendedTextSourceLabel, getJustificationInfos, void, $GlyphJustificationInfoArray*, int32_t, int32_t, int32_t)},
-	{"getLineBreakIndex", "(IF)I", nullptr, $PUBLIC, $virtualMethod(ExtendedTextSourceLabel, getLineBreakIndex, int32_t, int32_t, float)},
-	{"getLogicalBounds", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC, $virtualMethod(ExtendedTextSourceLabel, getLogicalBounds, $Rectangle2D*)},
-	{"getLogicalBounds", "(FF)Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC, $virtualMethod(ExtendedTextSourceLabel, getLogicalBounds, $Rectangle2D*, float, float)},
-	{"getNumCharacters", "()I", nullptr, $PUBLIC, $virtualMethod(ExtendedTextSourceLabel, getNumCharacters, int32_t)},
-	{"getNumJustificationInfos", "()I", nullptr, $PUBLIC, $virtualMethod(ExtendedTextSourceLabel, getNumJustificationInfos, int32_t)},
-	{"getOutline", "(FF)Ljava/awt/Shape;", nullptr, $PUBLIC, $virtualMethod(ExtendedTextSourceLabel, getOutline, $Shape*, float, float)},
-	{"getPixelBounds", "(Ljava/awt/font/FontRenderContext;FF)Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(ExtendedTextSourceLabel, getPixelBounds, $Rectangle*, $FontRenderContext*, float, float)},
-	{"getSubset", "(III)Lsun/font/TextLineComponent;", nullptr, $PUBLIC, $virtualMethod(ExtendedTextSourceLabel, getSubset, $TextLineComponent*, int32_t, int32_t, int32_t)},
-	{"getVisualBounds", "(FF)Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC, $virtualMethod(ExtendedTextSourceLabel, getVisualBounds, $Rectangle2D*, float, float)},
-	{"handleDraw", "(Ljava/awt/Graphics2D;FF)V", nullptr, $PUBLIC, $virtualMethod(ExtendedTextSourceLabel, handleDraw, void, $Graphics2D*, float, float)},
-	{"handleGetCharVisualBounds", "(I)Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC, $virtualMethod(ExtendedTextSourceLabel, handleGetCharVisualBounds, $Rectangle2D*, int32_t)},
-	{"handleGetOutline", "(FF)Ljava/awt/Shape;", nullptr, $PUBLIC, $virtualMethod(ExtendedTextSourceLabel, handleGetOutline, $Shape*, float, float)},
-	{"handleGetVisualBounds", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC, $virtualMethod(ExtendedTextSourceLabel, handleGetVisualBounds, $Rectangle2D*)},
-	{"isSimple", "()Z", nullptr, $PUBLIC, $virtualMethod(ExtendedTextSourceLabel, isSimple, bool)},
-	{"l2v", "(I)I", nullptr, $PROTECTED, $virtualMethod(ExtendedTextSourceLabel, l2v, int32_t, int32_t)},
-	{"logicalToVisual", "(I)I", nullptr, $PUBLIC, $virtualMethod(ExtendedTextSourceLabel, logicalToVisual, int32_t, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ExtendedTextSourceLabel, toString, $String*)},
-	{"v2l", "(I)I", nullptr, $PROTECTED, $virtualMethod(ExtendedTextSourceLabel, v2l, int32_t, int32_t)},
-	{"validate", "(I)V", nullptr, $PRIVATE, $method(ExtendedTextSourceLabel, validate, void, int32_t)},
-	{"visualToLogical", "(I)I", nullptr, $PUBLIC, $virtualMethod(ExtendedTextSourceLabel, visualToLogical, int32_t, int32_t)},
-	{}
-};
-
-$InnerClassInfo _ExtendedTextSourceLabel_InnerClassesInfo_[] = {
-	{"sun.font.Decoration$Label", "sun.font.Decoration", "Label", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _ExtendedTextSourceLabel_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.font.ExtendedTextSourceLabel",
-	"sun.font.ExtendedTextLabel",
-	"sun.font.Decoration$Label",
-	_ExtendedTextSourceLabel_FieldInfo_,
-	_ExtendedTextSourceLabel_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ExtendedTextSourceLabel_InnerClassesInfo_
-};
-
-$Object* allocate$ExtendedTextSourceLabel($Class* clazz) {
-	return $of($alloc(ExtendedTextSourceLabel));
-}
 
 int32_t ExtendedTextSourceLabel::hashCode() {
 	 return this->$ExtendedTextLabel::hashCode();
@@ -202,7 +97,7 @@ void ExtendedTextSourceLabel::init$($TextSource* source, ExtendedTextSourceLabel
 }
 
 void ExtendedTextSourceLabel::finishInit() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, font, $nc(this->source)->getFont());
 	$var($Map, atts, $nc(this->font)->getAttributes());
 	$set(this, baseTX, $AttributeValues::getBaselineTransform(atts));
@@ -215,16 +110,16 @@ void ExtendedTextSourceLabel::finishInit() {
 		}
 		$set(this, font, $nc(this->font)->deriveFont(charTX));
 		$var($chars, var$0, $nc(this->source)->getChars());
-		int32_t var$1 = $nc(this->source)->getStart();
-		int32_t var$3 = $nc(this->source)->getStart();
-		int32_t var$2 = var$3 + $nc(this->source)->getLength();
-		$var($LineMetrics, lm, $nc(this->font)->getLineMetrics(var$0, var$1, var$2, $($nc(this->source)->getFRC())));
+		int32_t var$1 = this->source->getStart();
+		int32_t var$3 = this->source->getStart();
+		int32_t var$2 = var$3 + this->source->getLength();
+		$var($LineMetrics, lm, $nc(this->font)->getLineMetrics(var$0, var$1, var$2, $(this->source->getFRC())));
 		$set(this, cm, $CoreMetrics::get(lm));
 	}
 }
 
 $Rectangle2D* ExtendedTextSourceLabel::getLogicalBounds() {
-	return getLogicalBounds((float)0, (float)0);
+	return getLogicalBounds(0, 0);
 }
 
 $Rectangle2D* ExtendedTextSourceLabel::getLogicalBounds(float x, float y) {
@@ -232,9 +127,9 @@ $Rectangle2D* ExtendedTextSourceLabel::getLogicalBounds(float x, float y) {
 		$set(this, lb, createLogicalBounds());
 	}
 	float var$0 = (float)($nc(this->lb)->getX() + x);
-	float var$1 = (float)($nc(this->lb)->getY() + y);
-	float var$2 = (float)$nc(this->lb)->getWidth();
-	return $new($Rectangle2D$Float, var$0, var$1, var$2, (float)$nc(this->lb)->getHeight());
+	float var$1 = (float)(this->lb->getY() + y);
+	float var$2 = (float)this->lb->getWidth();
+	return $new($Rectangle2D$Float, var$0, var$1, var$2, (float)this->lb->getHeight());
 }
 
 float ExtendedTextSourceLabel::getAdvance() {
@@ -249,9 +144,9 @@ $Rectangle2D* ExtendedTextSourceLabel::getVisualBounds(float x, float y) {
 		$set(this, vb, $nc(this->decorator)->getVisualBounds(this));
 	}
 	float var$0 = (float)($nc(this->vb)->getX() + x);
-	float var$1 = (float)($nc(this->vb)->getY() + y);
-	float var$2 = (float)$nc(this->vb)->getWidth();
-	return $new($Rectangle2D$Float, var$0, var$1, var$2, (float)$nc(this->vb)->getHeight());
+	float var$1 = (float)(this->vb->getY() + y);
+	float var$2 = (float)this->vb->getWidth();
+	return $new($Rectangle2D$Float, var$0, var$1, var$2, (float)this->vb->getHeight());
 }
 
 $Rectangle2D* ExtendedTextSourceLabel::getAlignBounds(float x, float y) {
@@ -259,9 +154,9 @@ $Rectangle2D* ExtendedTextSourceLabel::getAlignBounds(float x, float y) {
 		$set(this, ab, createAlignBounds());
 	}
 	float var$0 = (float)($nc(this->ab)->getX() + x);
-	float var$1 = (float)($nc(this->ab)->getY() + y);
-	float var$2 = (float)$nc(this->ab)->getWidth();
-	return $new($Rectangle2D$Float, var$0, var$1, var$2, (float)$nc(this->ab)->getHeight());
+	float var$1 = (float)(this->ab->getY() + y);
+	float var$2 = (float)this->ab->getWidth();
+	return $new($Rectangle2D$Float, var$0, var$1, var$2, (float)this->ab->getHeight());
 }
 
 $Rectangle2D* ExtendedTextSourceLabel::getItalicBounds(float x, float y) {
@@ -269,13 +164,13 @@ $Rectangle2D* ExtendedTextSourceLabel::getItalicBounds(float x, float y) {
 		$set(this, ib, createItalicBounds());
 	}
 	float var$0 = (float)($nc(this->ib)->getX() + x);
-	float var$1 = (float)($nc(this->ib)->getY() + y);
-	float var$2 = (float)$nc(this->ib)->getWidth();
-	return $new($Rectangle2D$Float, var$0, var$1, var$2, (float)$nc(this->ib)->getHeight());
+	float var$1 = (float)(this->ib->getY() + y);
+	float var$2 = (float)this->ib->getWidth();
+	return $new($Rectangle2D$Float, var$0, var$1, var$2, (float)this->ib->getHeight());
 }
 
 $Rectangle* ExtendedTextSourceLabel::getPixelBounds($FontRenderContext* frc, float x, float y) {
-	return $nc($(getGV()))->getPixelBounds(frc, x, y);
+	return $$nc(getGV())->getPixelBounds(frc, x, y);
 }
 
 bool ExtendedTextSourceLabel::isSimple() {
@@ -287,7 +182,7 @@ $AffineTransform* ExtendedTextSourceLabel::getBaselineTransform() {
 }
 
 $Shape* ExtendedTextSourceLabel::handleGetOutline(float x, float y) {
-	return $nc($(getGV()))->getOutline(x, y);
+	return $$nc(getGV())->getOutline(x, y);
 }
 
 $Shape* ExtendedTextSourceLabel::getOutline(float x, float y) {
@@ -303,11 +198,11 @@ void ExtendedTextSourceLabel::draw($Graphics2D* g, float x, float y) {
 }
 
 $Rectangle2D* ExtendedTextSourceLabel::createLogicalBounds() {
-	return $nc($(getGV()))->getLogicalBounds();
+	return $$nc(getGV())->getLogicalBounds();
 }
 
 $Rectangle2D* ExtendedTextSourceLabel::handleGetVisualBounds() {
-	return $nc($(getGV()))->getVisualBounds();
+	return $$nc(getGV())->getVisualBounds();
 }
 
 $Rectangle2D* ExtendedTextSourceLabel::createAlignBounds() {
@@ -315,11 +210,11 @@ $Rectangle2D* ExtendedTextSourceLabel::createAlignBounds() {
 	float al = 0.0f;
 	float at = -$nc(this->cm)->ascent;
 	float aw = 0.0f;
-	float ah = $nc(this->cm)->ascent + $nc(this->cm)->descent;
-	if (this->charinfo == nullptr || $nc(this->charinfo)->length == 0) {
+	float ah = this->cm->ascent + this->cm->descent;
+	if (this->charinfo == nullptr || this->charinfo->length == 0) {
 		return $new($Rectangle2D$Float, al, at, aw, ah);
 	}
-	bool lineIsLTR = ((int32_t)($nc(this->source)->getLayoutFlags() & (uint32_t)8)) == 0;
+	bool lineIsLTR = ($nc(this->source)->getLayoutFlags() & 8) == 0;
 	int32_t rn = $nc(info)->length - ExtendedTextSourceLabel::numvals;
 	if (lineIsLTR) {
 		while (rn > 0 && info->get(rn + ExtendedTextSourceLabel::visw) == 0) {
@@ -346,11 +241,11 @@ $Rectangle2D* ExtendedTextSourceLabel::createItalicBounds() {
 	float b = $nc(this->cm)->descent;
 	if (ia != 0) {
 		if (ia > 0) {
-			l -= ia * (b - $nc(this->cm)->ssOffset);
-			r -= ia * (t - $nc(this->cm)->ssOffset);
+			l -= ia * (b - this->cm->ssOffset);
+			r -= ia * (t - this->cm->ssOffset);
 		} else {
-			l -= ia * (t - $nc(this->cm)->ssOffset);
-			r -= ia * (b - $nc(this->cm)->ssOffset);
+			l -= ia * (t - this->cm->ssOffset);
+			r -= ia * (b - this->cm->ssOffset);
 		}
 	}
 	return $new($Rectangle2D$Float, l, t, r - l, b - t);
@@ -364,7 +259,7 @@ $StandardGlyphVector* ExtendedTextSourceLabel::getGV() {
 }
 
 $StandardGlyphVector* ExtendedTextSourceLabel::createGV() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($FontRenderContext, frc, $nc(this->source)->getFRC());
 	int32_t flags = $nc(this->source)->getLayoutFlags();
 	$var($chars, context, $nc(this->source)->getChars());
@@ -388,7 +283,7 @@ float ExtendedTextSourceLabel::getCharX(int32_t index) {
 	validate(index);
 	$var($floats, charinfo, getCharinfo());
 	int32_t idx = l2v(index) * ExtendedTextSourceLabel::numvals + ExtendedTextSourceLabel::posx;
-	if (charinfo == nullptr || idx >= $nc(charinfo)->length) {
+	if (charinfo == nullptr || idx >= charinfo->length) {
 		return 0.0f;
 	} else {
 		return charinfo->get(idx);
@@ -399,7 +294,7 @@ float ExtendedTextSourceLabel::getCharY(int32_t index) {
 	validate(index);
 	$var($floats, charinfo, getCharinfo());
 	int32_t idx = l2v(index) * ExtendedTextSourceLabel::numvals + ExtendedTextSourceLabel::posy;
-	if (charinfo == nullptr || idx >= $nc(charinfo)->length) {
+	if (charinfo == nullptr || idx >= charinfo->length) {
 		return 0.0f;
 	} else {
 		return charinfo->get(idx);
@@ -410,7 +305,7 @@ float ExtendedTextSourceLabel::getCharAdvance(int32_t index) {
 	validate(index);
 	$var($floats, charinfo, getCharinfo());
 	int32_t idx = l2v(index) * ExtendedTextSourceLabel::numvals + ExtendedTextSourceLabel::advx;
-	if (charinfo == nullptr || idx >= $nc(charinfo)->length) {
+	if (charinfo == nullptr || idx >= charinfo->length) {
 		return 0.0f;
 	} else {
 		return charinfo->get(idx);
@@ -421,16 +316,16 @@ $Rectangle2D* ExtendedTextSourceLabel::handleGetCharVisualBounds(int32_t index) 
 	validate(index);
 	$var($floats, charinfo, getCharinfo());
 	index = l2v(index) * ExtendedTextSourceLabel::numvals;
-	if (charinfo == nullptr || (index + ExtendedTextSourceLabel::vish) >= $nc(charinfo)->length) {
+	if (charinfo == nullptr || (index + ExtendedTextSourceLabel::vish) >= charinfo->length) {
 		return $new($Rectangle2D$Float);
 	}
-	return $new($Rectangle2D$Float, $nc(charinfo)->get(index + ExtendedTextSourceLabel::visx), charinfo->get(index + ExtendedTextSourceLabel::visy), charinfo->get(index + ExtendedTextSourceLabel::visw), charinfo->get(index + ExtendedTextSourceLabel::vish));
+	return $new($Rectangle2D$Float, $nc(charinfo)->get(index + ExtendedTextSourceLabel::visx), $nc(charinfo)->get(index + ExtendedTextSourceLabel::visy), $nc(charinfo)->get(index + ExtendedTextSourceLabel::visw), $nc(charinfo)->get(index + ExtendedTextSourceLabel::vish));
 }
 
 $Rectangle2D* ExtendedTextSourceLabel::getCharVisualBounds(int32_t index, float x, float y) {
 	$var($Rectangle2D, bounds, $nc(this->decorator)->getCharVisualBounds(this, index));
 	if (x != 0 || y != 0) {
-		double var$0 = bounds->getX() + x;
+		double var$0 = $nc(bounds)->getX() + x;
 		double var$1 = bounds->getY() + y;
 		double var$2 = bounds->getWidth();
 		$nc(bounds)->setRect(var$0, var$1, var$2, bounds->getHeight());
@@ -439,7 +334,7 @@ $Rectangle2D* ExtendedTextSourceLabel::getCharVisualBounds(int32_t index, float 
 }
 
 void ExtendedTextSourceLabel::validate(int32_t index) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (index < 0) {
 		$throwNew($IllegalArgumentException, $$str({"index "_s, $$str(index), " < 0"_s}));
 	} else if (index >= $nc(this->source)->getLength()) {
@@ -466,7 +361,7 @@ int32_t ExtendedTextSourceLabel::getLineBreakIndex(int32_t start, float width) {
 		if (cidx >= $nc(charinfo)->length) {
 			break;
 		}
-		float adv = $nc(charinfo)->get(cidx);
+		float adv = charinfo->get(cidx);
 		width -= adv;
 	}
 	return start;
@@ -481,13 +376,13 @@ float ExtendedTextSourceLabel::getAdvanceBetween(int32_t start, int32_t limit) {
 		if (cidx >= $nc(charinfo)->length) {
 			break;
 		}
-		a += $nc(charinfo)->get(cidx);
+		a += charinfo->get(cidx);
 	}
 	return a;
 }
 
 bool ExtendedTextSourceLabel::caretAtOffsetIsValid(int32_t offset) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (offset == 0 || offset == $nc(this->source)->getLength()) {
 		return true;
 	}
@@ -498,7 +393,7 @@ bool ExtendedTextSourceLabel::caretAtOffsetIsValid(int32_t offset) {
 	int32_t v = l2v(offset);
 	int32_t idx = v * ExtendedTextSourceLabel::numvals + ExtendedTextSourceLabel::advx;
 	$var($floats, charinfo, getCharinfo());
-	if (charinfo == nullptr || idx >= $nc(charinfo)->length) {
+	if (charinfo == nullptr || idx >= charinfo->length) {
 		return false;
 	} else {
 		return charinfo->get(idx) != 0;
@@ -513,14 +408,14 @@ $floats* ExtendedTextSourceLabel::getCharinfo() {
 }
 
 $floats* ExtendedTextSourceLabel::createCharinfo() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StandardGlyphVector, gv, getGV());
 	$var($floats, glyphinfo, nullptr);
 	try {
 		$assign(glyphinfo, $nc(gv)->getGlyphInfo());
 	} catch ($Exception& e) {
 		if (ExtendedTextSourceLabel::DEBUG) {
-			$nc($System::err)->println($of(this->source));
+			$nc($System::err)->println(this->source);
 			e->printStackTrace();
 		}
 		$assign(glyphinfo, $new($floats, $nc(gv)->getNumGlyphs() * ExtendedTextSourceLabel::numvals));
@@ -533,10 +428,10 @@ $floats* ExtendedTextSourceLabel::createCharinfo() {
 	$var($floats, charInfo, $new($floats, $nc(this->source)->getLength() * ExtendedTextSourceLabel::numvals));
 	if (ExtendedTextSourceLabel::DEBUG) {
 		$nc($System::err)->println($$str({"number of glyphs: "_s, $$str(numGlyphs)}));
-		$nc($System::err)->println($$str({"glyphinfo.len: "_s, $$str($nc(glyphinfo)->length)}));
-		$nc($System::err)->println($$str({"indices.len: "_s, $$str($nc(indices)->length)}));
+		$System::err->println($$str({"glyphinfo.len: "_s, $$str($nc(glyphinfo)->length)}));
+		$System::err->println($$str({"indices.len: "_s, $$str($nc(indices)->length)}));
 		for (int32_t i = 0; i < numGlyphs; ++i) {
-			$nc($System::err)->println($$str({"g: "_s, $$str(i), "  v: "_s, $$str(gv->getGlyphCode(i)), ", x: "_s, $$str($nc(glyphinfo)->get(i * ExtendedTextSourceLabel::numvals + ExtendedTextSourceLabel::posx)), ", a: "_s, $$str(glyphinfo->get(i * ExtendedTextSourceLabel::numvals + ExtendedTextSourceLabel::advx)), ", n: "_s, $$str($nc(indices)->get(i))}));
+			$System::err->println($$str({"g: "_s, $$str(i), "  v: "_s, $$str(gv->getGlyphCode(i)), ", x: "_s, $$str(glyphinfo->get(i * ExtendedTextSourceLabel::numvals + ExtendedTextSourceLabel::posx)), ", a: "_s, $$str(glyphinfo->get(i * ExtendedTextSourceLabel::numvals + ExtendedTextSourceLabel::advx)), ", n: "_s, $$str(indices->get(i))}));
 		}
 	}
 	int32_t minIndex = $nc(indices)->get(0);
@@ -548,7 +443,7 @@ $floats* ExtendedTextSourceLabel::createCharinfo() {
 	int32_t gxlimit = numGlyphs;
 	int32_t pdelta = ExtendedTextSourceLabel::numvals;
 	int32_t xdelta = 1;
-	bool rtl = ((int32_t)($nc(this->source)->getLayoutFlags() & (uint32_t)1)) == 1;
+	bool rtl = ($nc(this->source)->getLayoutFlags() & 1) == 1;
 	if (rtl) {
 		minIndex = indices->get(numGlyphs - 1);
 		maxIndex = minIndex;
@@ -559,13 +454,13 @@ $floats* ExtendedTextSourceLabel::createCharinfo() {
 		pdelta = -ExtendedTextSourceLabel::numvals;
 		xdelta = -1;
 	}
-	float cposl = (float)0;
-	float cposr = (float)0;
-	float cvisl = (float)0;
-	float cvist = (float)0;
-	float cvisr = (float)0;
-	float cvisb = (float)0;
-	float baseline = (float)0;
+	float cposl = 0;
+	float cposr = 0;
+	float cvisl = 0;
+	float cvist = 0;
+	float cvisr = 0;
+	float cvisb = 0;
+	float baseline = 0;
 	while (gx != gxlimit) {
 		int32_t clusterExtraGlyphs = 0;
 		minIndex = indices->get(gx);
@@ -609,7 +504,7 @@ $floats* ExtendedTextSourceLabel::createCharinfo() {
 		charInfo->set(cp + ExtendedTextSourceLabel::posx, cposl);
 		charInfo->set(cp + ExtendedTextSourceLabel::posy, baseline);
 		charInfo->set(cp + ExtendedTextSourceLabel::advx, cposr - cposl);
-		charInfo->set(cp + ExtendedTextSourceLabel::advy, (float)0);
+		charInfo->set(cp + ExtendedTextSourceLabel::advy, 0);
 		charInfo->set(cp + ExtendedTextSourceLabel::visx, cvisl);
 		charInfo->set(cp + ExtendedTextSourceLabel::visy, cvist);
 		charInfo->set(cp + ExtendedTextSourceLabel::visw, cvisr - cvisl);
@@ -642,8 +537,8 @@ $floats* ExtendedTextSourceLabel::createCharinfo() {
 			}
 			charInfo->set(cp + ExtendedTextSourceLabel::posx, cposr);
 			charInfo->set(cp + ExtendedTextSourceLabel::posy, baseline);
-			charInfo->set(cp + ExtendedTextSourceLabel::advx, (float)0);
-			charInfo->set(cp + ExtendedTextSourceLabel::advy, (float)0);
+			charInfo->set(cp + ExtendedTextSourceLabel::advx, 0);
+			charInfo->set(cp + ExtendedTextSourceLabel::advy, 0);
 			charInfo->set(cp + ExtendedTextSourceLabel::visx, cvisl);
 			charInfo->set(cp + ExtendedTextSourceLabel::visy, cvist);
 			charInfo->set(cp + ExtendedTextSourceLabel::visw, cvisr);
@@ -658,33 +553,37 @@ $floats* ExtendedTextSourceLabel::createCharinfo() {
 		int32_t length = $nc(this->source)->getLength();
 		$nc($System::err)->println($$str({"char info for "_s, $$str(length), " characters"_s}));
 		for (int32_t i = 0; i < length * ExtendedTextSourceLabel::numvals;) {
-			$var($String, var$14, $$str({" ch: "_s, $($Integer::toHexString($nc(chars)->get(start + v2l($div(i, ExtendedTextSourceLabel::numvals))))), " x: "_s}));
-			$var($String, var$13, $$concat(var$14, $$str(charInfo->get(i++))));
-			$var($String, var$12, $$concat(var$13, " y: "_s));
-			$var($String, var$11, $$concat(var$12, $$str(charInfo->get(i++))));
-			$var($String, var$10, $$concat(var$11, " xa: "_s));
-			$var($String, var$9, $$concat(var$10, $$str(charInfo->get(i++))));
-			$var($String, var$8, $$concat(var$9, " ya: "_s));
-			$var($String, var$7, $$concat(var$8, $$str(charInfo->get(i++))));
-			$var($String, var$6, $$concat(var$7, " l: "_s));
-			$var($String, var$5, $$concat(var$6, $$str(charInfo->get(i++))));
-			$var($String, var$4, $$concat(var$5, " t: "_s));
-			$var($String, var$3, $$concat(var$4, $$str(charInfo->get(i++))));
-			$var($String, var$2, $$concat(var$3, " w: "_s));
-			$var($String, var$1, $$concat(var$2, $$str(charInfo->get(i++))));
-			$var($String, var$0, $$concat(var$1, " h: "_s));
-			$nc($System::err)->println($$concat(var$0, $$str(charInfo->get(i++))));
+			$var($StringBuilder, var$0, $new($StringBuilder));
+			var$0->append(" ch: "_s);
+			var$0->append($($Integer::toHexString($nc(chars)->get(start + v2l($div(i, ExtendedTextSourceLabel::numvals))))));
+			var$0->append(" x: "_s);
+			var$0->append(charInfo->get(i++));
+			var$0->append(" y: "_s);
+			var$0->append(charInfo->get(i++));
+			var$0->append(" xa: "_s);
+			var$0->append(charInfo->get(i++));
+			var$0->append(" ya: "_s);
+			var$0->append(charInfo->get(i++));
+			var$0->append(" l: "_s);
+			var$0->append(charInfo->get(i++));
+			var$0->append(" t: "_s);
+			var$0->append(charInfo->get(i++));
+			var$0->append(" w: "_s);
+			var$0->append(charInfo->get(i++));
+			var$0->append(" h: "_s);
+			var$0->append(charInfo->get(i++));
+			$System::err->println($$str(var$0));
 		}
 	}
 	return charInfo;
 }
 
 int32_t ExtendedTextSourceLabel::l2v(int32_t index) {
-	return ((int32_t)($nc(this->source)->getLayoutFlags() & (uint32_t)1)) == 0 ? index : $nc(this->source)->getLength() - 1 - index;
+	return ($nc(this->source)->getLayoutFlags() & 1) == 0 ? index : this->source->getLength() - 1 - index;
 }
 
 int32_t ExtendedTextSourceLabel::v2l(int32_t index) {
-	return ((int32_t)($nc(this->source)->getLayoutFlags() & (uint32_t)1)) == 0 ? index : $nc(this->source)->getLength() - 1 - index;
+	return ($nc(this->source)->getLayoutFlags() & 1) == 0 ? index : this->source->getLength() - 1 - index;
 }
 
 $TextLineComponent* ExtendedTextSourceLabel::getSubset(int32_t start, int32_t limit, int32_t dir) {
@@ -692,30 +591,30 @@ $TextLineComponent* ExtendedTextSourceLabel::getSubset(int32_t start, int32_t li
 }
 
 $String* ExtendedTextSourceLabel::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	{
 		return $nc(this->source)->toString($TextSource::WITHOUT_CONTEXT);
 	}
 	$var($StringBuilder, sb, $new($StringBuilder));
 	sb->append($($ExtendedTextLabel::toString()));
 	sb->append("[source:"_s);
-	sb->append($($nc(this->source)->toString($TextSource::WITHOUT_CONTEXT)));
+	sb->append($(this->source->toString($TextSource::WITHOUT_CONTEXT)));
 	sb->append(", lb:"_s);
-	sb->append($of(this->lb));
+	sb->append(this->lb);
 	sb->append(", ab:"_s);
-	sb->append($of(this->ab));
+	sb->append(this->ab);
 	sb->append(", vb:"_s);
-	sb->append($of(this->vb));
+	sb->append(this->vb);
 	sb->append(", gv:"_s);
-	sb->append($of(this->gv));
+	sb->append(this->gv);
 	sb->append(", ci: "_s);
 	if (this->charinfo == nullptr) {
 		sb->append("null"_s);
 	} else {
-		sb->append($nc(this->charinfo)->get(0));
-		for (int32_t i = 1; i < $nc(this->charinfo)->length;) {
+		sb->append(this->charinfo->get(0));
+		for (int32_t i = 1; i < this->charinfo->length;) {
 			sb->append($mod(i, ExtendedTextSourceLabel::numvals) == 0 ? "; "_s : ", "_s);
-			sb->append($nc(this->charinfo)->get(i));
+			sb->append(this->charinfo->get(i));
 		}
 	}
 	sb->append("]"_s);
@@ -723,23 +622,23 @@ $String* ExtendedTextSourceLabel::toString() {
 }
 
 int32_t ExtendedTextSourceLabel::getNumJustificationInfos() {
-	return $nc($(getGV()))->getNumGlyphs();
+	return $$nc(getGV())->getNumGlyphs();
 }
 
 void ExtendedTextSourceLabel::getJustificationInfos($GlyphJustificationInfoArray* infos, int32_t infoStart, int32_t charStart, int32_t charLimit) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StandardGlyphVector, gv, getGV());
 	$var($floats, charinfo, getCharinfo());
-	float size = $nc($($nc(gv)->getFont()))->getSize2D();
-	$var($GlyphJustificationInfo, nullInfo, $new($GlyphJustificationInfo, (float)0, false, $GlyphJustificationInfo::PRIORITY_NONE, (float)0, (float)0, false, $GlyphJustificationInfo::PRIORITY_NONE, (float)0, (float)0));
-	$var($GlyphJustificationInfo, spaceInfo, $new($GlyphJustificationInfo, size, true, $GlyphJustificationInfo::PRIORITY_WHITESPACE, (float)0, size, true, $GlyphJustificationInfo::PRIORITY_WHITESPACE, (float)0, size / 4.0f));
-	$var($GlyphJustificationInfo, kanjiInfo, $new($GlyphJustificationInfo, size, true, $GlyphJustificationInfo::PRIORITY_INTERCHAR, size, size, false, $GlyphJustificationInfo::PRIORITY_NONE, (float)0, (float)0));
+	float size = $$nc($nc(gv)->getFont())->getSize2D();
+	$var($GlyphJustificationInfo, nullInfo, $new($GlyphJustificationInfo, 0, false, $GlyphJustificationInfo::PRIORITY_NONE, 0, 0, false, $GlyphJustificationInfo::PRIORITY_NONE, 0, 0));
+	$var($GlyphJustificationInfo, spaceInfo, $new($GlyphJustificationInfo, size, true, $GlyphJustificationInfo::PRIORITY_WHITESPACE, 0, size, true, $GlyphJustificationInfo::PRIORITY_WHITESPACE, 0, size / 4.0f));
+	$var($GlyphJustificationInfo, kanjiInfo, $new($GlyphJustificationInfo, size, true, $GlyphJustificationInfo::PRIORITY_INTERCHAR, size, size, false, $GlyphJustificationInfo::PRIORITY_NONE, 0, 0));
 	$var($chars, chars, $nc(this->source)->getChars());
 	int32_t offset = $nc(this->source)->getStart();
 	int32_t numGlyphs = gv->getNumGlyphs();
 	int32_t minGlyph = 0;
 	int32_t maxGlyph = numGlyphs;
-	bool ltr = ((int32_t)($nc(this->source)->getLayoutFlags() & (uint32_t)1)) == 0;
+	bool ltr = ($nc(this->source)->getLayoutFlags() & 1) == 0;
 	if (charStart != 0 || charLimit != $nc(this->source)->getLength()) {
 		if (ltr) {
 			minGlyph = charStart;
@@ -759,7 +658,7 @@ void ExtendedTextSourceLabel::getJustificationInfos($GlyphJustificationInfoArray
 				char16_t c = $nc(chars)->get(offset + ci);
 				if ($Character::isWhitespace(c)) {
 					$assign(info, spaceInfo);
-				} else if (c >= 19968 && (c < 0x0000A000) || (c >= 0x0000AC00 && c < 0x0000D7B0) || (c >= 0x0000F900 && c < 0x0000FB00)) {
+				} else if (c >= 19968 && (c < 0x0000a000) || (c >= 0x0000ac00 && c < 0x0000d7b0) || (c >= 0x0000f900 && c < 0x0000fb00)) {
 					$assign(info, kanjiInfo);
 				} else {
 					$assign(info, nullInfo);
@@ -771,19 +670,19 @@ void ExtendedTextSourceLabel::getJustificationInfos($GlyphJustificationInfoArray
 }
 
 $TextLineComponent* ExtendedTextSourceLabel::applyJustificationDeltas($floats* deltas, int32_t deltaStart, $booleans* flags) {
-	$useLocalCurrentObjectStackCache();
-	$var($floats, newCharinfo, $cast($floats, $nc($(getCharinfo()))->clone()));
+	$useLocalObjectStack();
+	$var($floats, newCharinfo, $cast($floats, $$nc(getCharinfo())->clone()));
 	$nc(flags)->set(0, false);
-	$var($StandardGlyphVector, newgv, $cast($StandardGlyphVector, $nc($(getGV()))->clone()));
+	$var($StandardGlyphVector, newgv, $cast($StandardGlyphVector, $$nc(getGV())->clone()));
 	$var($floats, newPositions, $nc(newgv)->getGlyphPositions(nullptr));
 	int32_t numGlyphs = newgv->getNumGlyphs();
 	$var($chars, chars, $nc(this->source)->getChars());
 	int32_t offset = $nc(this->source)->getStart();
-	float deltaPos = (float)0;
+	float deltaPos = 0;
 	for (int32_t i = 0; i < numGlyphs; ++i) {
 		if ($Character::isWhitespace($nc(chars)->get(offset + v2l(i)))) {
 			(*$nc(newPositions))[i * 2] += deltaPos;
-			float deltaAdv = $nc(deltas)->get(deltaStart + i * 2) + deltas->get(deltaStart + i * 2 + 1);
+			float deltaAdv = $nc(deltas)->get(deltaStart + i * 2) + $nc(deltas)->get(deltaStart + i * 2 + 1);
 			(*newCharinfo)[i * ExtendedTextSourceLabel::numvals + ExtendedTextSourceLabel::posx] += deltaPos;
 			(*newCharinfo)[i * ExtendedTextSourceLabel::numvals + ExtendedTextSourceLabel::visx] += deltaPos;
 			(*newCharinfo)[i * ExtendedTextSourceLabel::numvals + ExtendedTextSourceLabel::advx] += deltaAdv;
@@ -804,7 +703,7 @@ $TextLineComponent* ExtendedTextSourceLabel::applyJustificationDeltas($floats* d
 	return result;
 }
 
-void clinit$ExtendedTextSourceLabel($Class* class$) {
+void ExtendedTextSourceLabel::clinit$($Class* clazz) {
 	ExtendedTextSourceLabel::DEBUG = $FontUtilities::debugFonts();
 }
 
@@ -812,7 +711,99 @@ ExtendedTextSourceLabel::ExtendedTextSourceLabel() {
 }
 
 $Class* ExtendedTextSourceLabel::load$($String* name, bool initialize) {
-	$loadClass(ExtendedTextSourceLabel, name, initialize, &_ExtendedTextSourceLabel_ClassInfo_, clinit$ExtendedTextSourceLabel, allocate$ExtendedTextSourceLabel);
+	$FieldInfo fieldInfos$$[] = {
+		{"source", "Lsun/font/TextSource;", nullptr, 0, $field(ExtendedTextSourceLabel, source)},
+		{"decorator", "Lsun/font/Decoration;", nullptr, $PRIVATE, $field(ExtendedTextSourceLabel, decorator)},
+		{"font", "Ljava/awt/Font;", nullptr, $PRIVATE, $field(ExtendedTextSourceLabel, font)},
+		{"baseTX", "Ljava/awt/geom/AffineTransform;", nullptr, $PRIVATE, $field(ExtendedTextSourceLabel, baseTX)},
+		{"cm", "Lsun/font/CoreMetrics;", nullptr, $PRIVATE, $field(ExtendedTextSourceLabel, cm)},
+		{"lb", "Ljava/awt/geom/Rectangle2D;", nullptr, 0, $field(ExtendedTextSourceLabel, lb)},
+		{"ab", "Ljava/awt/geom/Rectangle2D;", nullptr, 0, $field(ExtendedTextSourceLabel, ab)},
+		{"vb", "Ljava/awt/geom/Rectangle2D;", nullptr, 0, $field(ExtendedTextSourceLabel, vb)},
+		{"ib", "Ljava/awt/geom/Rectangle2D;", nullptr, 0, $field(ExtendedTextSourceLabel, ib)},
+		{"gv", "Lsun/font/StandardGlyphVector;", nullptr, 0, $field(ExtendedTextSourceLabel, gv)},
+		{"charinfo", "[F", nullptr, 0, $field(ExtendedTextSourceLabel, charinfo)},
+		{"posx", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ExtendedTextSourceLabel, posx)},
+		{"posy", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ExtendedTextSourceLabel, posy)},
+		{"advx", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ExtendedTextSourceLabel, advx)},
+		{"advy", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ExtendedTextSourceLabel, advy)},
+		{"visx", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ExtendedTextSourceLabel, visx)},
+		{"visy", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ExtendedTextSourceLabel, visy)},
+		{"visw", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ExtendedTextSourceLabel, visw)},
+		{"vish", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ExtendedTextSourceLabel, vish)},
+		{"numvals", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ExtendedTextSourceLabel, numvals)},
+		{"DEBUG", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ExtendedTextSourceLabel, DEBUG)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lsun/font/TextSource;Lsun/font/Decoration;)V", nullptr, $PUBLIC, $method(ExtendedTextSourceLabel, init$, void, $TextSource*, $Decoration*)},
+		{"<init>", "(Lsun/font/TextSource;Lsun/font/ExtendedTextSourceLabel;I)V", nullptr, $PUBLIC, $method(ExtendedTextSourceLabel, init$, void, $TextSource*, ExtendedTextSourceLabel*, int32_t)},
+		{"applyJustificationDeltas", "([FI[Z)Lsun/font/TextLineComponent;", nullptr, $PUBLIC, $virtualMethod(ExtendedTextSourceLabel, applyJustificationDeltas, $TextLineComponent*, $floats*, int32_t, $booleans*)},
+		{"caretAtOffsetIsValid", "(I)Z", nullptr, $PUBLIC, $virtualMethod(ExtendedTextSourceLabel, caretAtOffsetIsValid, bool, int32_t)},
+		{"createAlignBounds", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PROTECTED, $virtualMethod(ExtendedTextSourceLabel, createAlignBounds, $Rectangle2D*)},
+		{"createCharinfo", "()[F", nullptr, $PROTECTED, $virtualMethod(ExtendedTextSourceLabel, createCharinfo, $floats*)},
+		{"createGV", "()Lsun/font/StandardGlyphVector;", nullptr, $PROTECTED, $virtualMethod(ExtendedTextSourceLabel, createGV, $StandardGlyphVector*)},
+		{"createItalicBounds", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC, $virtualMethod(ExtendedTextSourceLabel, createItalicBounds, $Rectangle2D*)},
+		{"createLogicalBounds", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PROTECTED, $virtualMethod(ExtendedTextSourceLabel, createLogicalBounds, $Rectangle2D*)},
+		{"draw", "(Ljava/awt/Graphics2D;FF)V", nullptr, $PUBLIC, $virtualMethod(ExtendedTextSourceLabel, draw, void, $Graphics2D*, float, float)},
+		{"finishInit", "()V", nullptr, $PRIVATE, $method(ExtendedTextSourceLabel, finishInit, void)},
+		{"getAdvance", "()F", nullptr, $PUBLIC, $virtualMethod(ExtendedTextSourceLabel, getAdvance, float)},
+		{"getAdvanceBetween", "(II)F", nullptr, $PUBLIC, $virtualMethod(ExtendedTextSourceLabel, getAdvanceBetween, float, int32_t, int32_t)},
+		{"getAlignBounds", "(FF)Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC, $virtualMethod(ExtendedTextSourceLabel, getAlignBounds, $Rectangle2D*, float, float)},
+		{"getBaselineTransform", "()Ljava/awt/geom/AffineTransform;", nullptr, $PUBLIC, $virtualMethod(ExtendedTextSourceLabel, getBaselineTransform, $AffineTransform*)},
+		{"getCharAdvance", "(I)F", nullptr, $PUBLIC, $virtualMethod(ExtendedTextSourceLabel, getCharAdvance, float, int32_t)},
+		{"getCharVisualBounds", "(IFF)Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC, $virtualMethod(ExtendedTextSourceLabel, getCharVisualBounds, $Rectangle2D*, int32_t, float, float)},
+		{"getCharX", "(I)F", nullptr, $PUBLIC, $virtualMethod(ExtendedTextSourceLabel, getCharX, float, int32_t)},
+		{"getCharY", "(I)F", nullptr, $PUBLIC, $virtualMethod(ExtendedTextSourceLabel, getCharY, float, int32_t)},
+		{"getCharinfo", "()[F", nullptr, $PRIVATE, $method(ExtendedTextSourceLabel, getCharinfo, $floats*)},
+		{"getCoreMetrics", "()Lsun/font/CoreMetrics;", nullptr, $PUBLIC, $virtualMethod(ExtendedTextSourceLabel, getCoreMetrics, $CoreMetrics*)},
+		{"getGV", "()Lsun/font/StandardGlyphVector;", nullptr, $PRIVATE, $method(ExtendedTextSourceLabel, getGV, $StandardGlyphVector*)},
+		{"getItalicBounds", "(FF)Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC, $virtualMethod(ExtendedTextSourceLabel, getItalicBounds, $Rectangle2D*, float, float)},
+		{"getJustificationInfos", "([Ljava/awt/font/GlyphJustificationInfo;III)V", nullptr, $PUBLIC, $virtualMethod(ExtendedTextSourceLabel, getJustificationInfos, void, $GlyphJustificationInfoArray*, int32_t, int32_t, int32_t)},
+		{"getLineBreakIndex", "(IF)I", nullptr, $PUBLIC, $virtualMethod(ExtendedTextSourceLabel, getLineBreakIndex, int32_t, int32_t, float)},
+		{"getLogicalBounds", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC, $virtualMethod(ExtendedTextSourceLabel, getLogicalBounds, $Rectangle2D*)},
+		{"getLogicalBounds", "(FF)Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC, $virtualMethod(ExtendedTextSourceLabel, getLogicalBounds, $Rectangle2D*, float, float)},
+		{"getNumCharacters", "()I", nullptr, $PUBLIC, $virtualMethod(ExtendedTextSourceLabel, getNumCharacters, int32_t)},
+		{"getNumJustificationInfos", "()I", nullptr, $PUBLIC, $virtualMethod(ExtendedTextSourceLabel, getNumJustificationInfos, int32_t)},
+		{"getOutline", "(FF)Ljava/awt/Shape;", nullptr, $PUBLIC, $virtualMethod(ExtendedTextSourceLabel, getOutline, $Shape*, float, float)},
+		{"getPixelBounds", "(Ljava/awt/font/FontRenderContext;FF)Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(ExtendedTextSourceLabel, getPixelBounds, $Rectangle*, $FontRenderContext*, float, float)},
+		{"getSubset", "(III)Lsun/font/TextLineComponent;", nullptr, $PUBLIC, $virtualMethod(ExtendedTextSourceLabel, getSubset, $TextLineComponent*, int32_t, int32_t, int32_t)},
+		{"getVisualBounds", "(FF)Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC, $virtualMethod(ExtendedTextSourceLabel, getVisualBounds, $Rectangle2D*, float, float)},
+		{"handleDraw", "(Ljava/awt/Graphics2D;FF)V", nullptr, $PUBLIC, $virtualMethod(ExtendedTextSourceLabel, handleDraw, void, $Graphics2D*, float, float)},
+		{"handleGetCharVisualBounds", "(I)Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC, $virtualMethod(ExtendedTextSourceLabel, handleGetCharVisualBounds, $Rectangle2D*, int32_t)},
+		{"handleGetOutline", "(FF)Ljava/awt/Shape;", nullptr, $PUBLIC, $virtualMethod(ExtendedTextSourceLabel, handleGetOutline, $Shape*, float, float)},
+		{"handleGetVisualBounds", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC, $virtualMethod(ExtendedTextSourceLabel, handleGetVisualBounds, $Rectangle2D*)},
+		{"isSimple", "()Z", nullptr, $PUBLIC, $virtualMethod(ExtendedTextSourceLabel, isSimple, bool)},
+		{"l2v", "(I)I", nullptr, $PROTECTED, $virtualMethod(ExtendedTextSourceLabel, l2v, int32_t, int32_t)},
+		{"logicalToVisual", "(I)I", nullptr, $PUBLIC, $virtualMethod(ExtendedTextSourceLabel, logicalToVisual, int32_t, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ExtendedTextSourceLabel, toString, $String*)},
+		{"v2l", "(I)I", nullptr, $PROTECTED, $virtualMethod(ExtendedTextSourceLabel, v2l, int32_t, int32_t)},
+		{"validate", "(I)V", nullptr, $PRIVATE, $method(ExtendedTextSourceLabel, validate, void, int32_t)},
+		{"visualToLogical", "(I)I", nullptr, $PUBLIC, $virtualMethod(ExtendedTextSourceLabel, visualToLogical, int32_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.font.Decoration$Label", "sun.font.Decoration", "Label", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.font.ExtendedTextSourceLabel",
+		"sun.font.ExtendedTextLabel",
+		"sun.font.Decoration$Label",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$
+	};
+	$loadClass(ExtendedTextSourceLabel, name, initialize, &classInfo$$, ExtendedTextSourceLabel::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ExtendedTextSourceLabel));
+	});
 	return class$;
 }
 

@@ -38,6 +38,7 @@ class ReferralsCache : public ::java::lang::Object {
 	$class(ReferralsCache, 0, ::java::lang::Object)
 public:
 	ReferralsCache();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::sun::security::krb5::internal::ReferralsCache$ReferralCacheEntry* get(::sun::security::krb5::PrincipalName* cname, ::sun::security::krb5::PrincipalName* service, $String* fromRealm);
 	static void pruneExpired(::sun::security::krb5::internal::ReferralsCache$ReferralCacheKey* k);

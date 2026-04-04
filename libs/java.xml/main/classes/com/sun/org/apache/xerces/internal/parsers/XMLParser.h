@@ -59,6 +59,7 @@ class XMLParser : public ::java::lang::Object {
 	$class(XMLParser, 0, ::java::lang::Object)
 public:
 	XMLParser();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::com::sun::org::apache::xerces::internal::xni::parser::XMLParserConfiguration* config);
 	virtual bool getFeature($String* featureId);
 	virtual void parse(::com::sun::org::apache::xerces::internal::xni::parser::XMLInputSource* inputSource);

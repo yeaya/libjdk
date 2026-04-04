@@ -49,6 +49,7 @@ class AquaImageFactory : public ::java::lang::Object {
 	$class(AquaImageFactory, 0, ::java::lang::Object)
 public:
 	AquaImageFactory();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::javax::swing::plaf::IconUIResource* getAppIconCompositedOn(::com::apple::laf::AquaIcon$SystemIcon* systemIcon);
 	static ::javax::swing::plaf::IconUIResource* getAppIconCompositedOn(::java::awt::Image* background);

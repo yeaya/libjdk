@@ -75,6 +75,7 @@ class $import Main : public ::java::lang::Object {
 	$class(Main, 0, ::java::lang::Object)
 public:
 	Main();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void addFileSource(::javax::script::ScriptEngine* se, $String* fileName, $String* encoding);
 	static void addInteractiveMode(::javax::script::ScriptEngine* se);

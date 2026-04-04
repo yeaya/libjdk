@@ -1,5 +1,4 @@
 #include <java/util/prefs/MacOSXPreferencesFile$1.h>
-
 #include <java/util/prefs/MacOSXPreferencesFile.h>
 #include <jcpp.h>
 
@@ -12,57 +11,51 @@ namespace java {
 	namespace util {
 		namespace prefs {
 
-$MethodInfo _MacOSXPreferencesFile$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(MacOSXPreferencesFile$1, init$, void)},
-	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(MacOSXPreferencesFile$1, run, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _MacOSXPreferencesFile$1_EnclosingMethodInfo_ = {
-	"java.util.prefs.MacOSXPreferencesFile",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _MacOSXPreferencesFile$1_InnerClassesInfo_[] = {
-	{"java.util.prefs.MacOSXPreferencesFile$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _MacOSXPreferencesFile$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.prefs.MacOSXPreferencesFile$1",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	nullptr,
-	_MacOSXPreferencesFile$1_MethodInfo_,
-	"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/Void;>;",
-	&_MacOSXPreferencesFile$1_EnclosingMethodInfo_,
-	_MacOSXPreferencesFile$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.prefs.MacOSXPreferencesFile"
-};
-
-$Object* allocate$MacOSXPreferencesFile$1($Class* clazz) {
-	return $of($alloc(MacOSXPreferencesFile$1));
-}
-
 void MacOSXPreferencesFile$1::init$() {
 }
 
 $Object* MacOSXPreferencesFile$1::run() {
 	$beforeCallerSensitive();
 	$System::loadLibrary("prefs"_s);
-	return $of(nullptr);
+	return nullptr;
 }
 
 MacOSXPreferencesFile$1::MacOSXPreferencesFile$1() {
 }
 
 $Class* MacOSXPreferencesFile$1::load$($String* name, bool initialize) {
-	$loadClass(MacOSXPreferencesFile$1, name, initialize, &_MacOSXPreferencesFile$1_ClassInfo_, allocate$MacOSXPreferencesFile$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(MacOSXPreferencesFile$1, init$, void)},
+		{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(MacOSXPreferencesFile$1, run, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.util.prefs.MacOSXPreferencesFile",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.prefs.MacOSXPreferencesFile$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.prefs.MacOSXPreferencesFile$1",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		nullptr,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/Void;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.prefs.MacOSXPreferencesFile"
+	};
+	$loadClass(MacOSXPreferencesFile$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MacOSXPreferencesFile$1);
+	});
 	return class$;
 }
 

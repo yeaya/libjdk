@@ -1,5 +1,4 @@
 #include <javax/tools/ToolProvider.h>
-
 #include <java/io/Serializable.h>
 #include <java/lang/ClassLoader.h>
 #include <java/lang/Error.h>
@@ -52,80 +51,34 @@ public:
 	virtual $Object* run() override {
 		 return $of(ToolProvider::lambda$matches$0(tool, moduleName));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<ToolProvider$$Lambda$lambda$matches$0>());
-	}
 	$Object* tool = nullptr;
 	$String* moduleName = nullptr;
-	static $FieldInfo fieldInfos[3];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo ToolProvider$$Lambda$lambda$matches$0::fieldInfos[3] = {
-	{"tool", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(ToolProvider$$Lambda$lambda$matches$0, tool)},
-	{"moduleName", "Ljava/lang/String;", nullptr, $PUBLIC, $field(ToolProvider$$Lambda$lambda$matches$0, moduleName)},
-	{}
-};
-$MethodInfo ToolProvider$$Lambda$lambda$matches$0::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/Object;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ToolProvider$$Lambda$lambda$matches$0, init$, void, Object$*, $String*)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ToolProvider$$Lambda$lambda$matches$0, run, $Object*)},
-	{}
-};
-$ClassInfo ToolProvider$$Lambda$lambda$matches$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"javax.tools.ToolProvider$$Lambda$lambda$matches$0",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	fieldInfos,
-	methodInfos
 };
 $Class* ToolProvider$$Lambda$lambda$matches$0::load$($String* name, bool initialize) {
-	$loadClass(ToolProvider$$Lambda$lambda$matches$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"tool", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(ToolProvider$$Lambda$lambda$matches$0, tool)},
+		{"moduleName", "Ljava/lang/String;", nullptr, $PUBLIC, $field(ToolProvider$$Lambda$lambda$matches$0, moduleName)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Object;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ToolProvider$$Lambda$lambda$matches$0, init$, void, Object$*, $String*)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ToolProvider$$Lambda$lambda$matches$0, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"javax.tools.ToolProvider$$Lambda$lambda$matches$0",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ToolProvider$$Lambda$lambda$matches$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ToolProvider$$Lambda$lambda$matches$0);
+	});
 	return class$;
 }
 $Class* ToolProvider$$Lambda$lambda$matches$0::class$ = nullptr;
-
-$NamedAttribute ToolProvider_Attribute_var$0[] = {
-	{"since", 's', "9"},
-	{}
-};
-
-$CompoundAttribute _ToolProvider_MethodAnnotations_getSystemToolClassLoader4[] = {
-	{"Ljava/lang/Deprecated;", ToolProvider_Attribute_var$0},
-	{}
-};
-
-$FieldInfo _ToolProvider_FieldInfo_[] = {
-	{"systemJavaCompilerModule", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ToolProvider, systemJavaCompilerModule)},
-	{"systemJavaCompilerName", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ToolProvider, systemJavaCompilerName)},
-	{"systemDocumentationToolModule", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ToolProvider, systemDocumentationToolModule)},
-	{"systemDocumentationToolName", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ToolProvider, systemDocumentationToolName)},
-	{}
-};
-
-$MethodInfo _ToolProvider_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(ToolProvider, init$, void)},
-	{"getSystemDocumentationTool", "()Ljavax/tools/DocumentationTool;", nullptr, $PUBLIC | $STATIC, $staticMethod(ToolProvider, getSystemDocumentationTool, $DocumentationTool*)},
-	{"getSystemJavaCompiler", "()Ljavax/tools/JavaCompiler;", nullptr, $PUBLIC | $STATIC, $staticMethod(ToolProvider, getSystemJavaCompiler, $JavaCompiler*)},
-	{"getSystemTool", "(Ljava/lang/Class;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljava/lang/Class<TT;>;Ljava/lang/String;Ljava/lang/String;)TT;", $PRIVATE | $STATIC, $staticMethod(ToolProvider, getSystemTool, $Object*, $Class*, $String*, $String*)},
-	{"getSystemToolClassLoader", "()Ljava/lang/ClassLoader;", nullptr, $PUBLIC | $STATIC | $DEPRECATED, $staticMethod(ToolProvider, getSystemToolClassLoader, $ClassLoader*), nullptr, nullptr, _ToolProvider_MethodAnnotations_getSystemToolClassLoader4},
-	{"lambda$matches$0", "(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Boolean;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ToolProvider, lambda$matches$0, $Boolean*, Object$*, $String*)},
-	{"matches", "(Ljava/lang/Object;Ljava/lang/String;)Z", "<T:Ljava/lang/Object;>(TT;Ljava/lang/String;)Z", $PRIVATE | $STATIC, $staticMethod(ToolProvider, matches, bool, Object$*, $String*)},
-	{}
-};
-
-$ClassInfo _ToolProvider_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.tools.ToolProvider",
-	"java.lang.Object",
-	nullptr,
-	_ToolProvider_FieldInfo_,
-	_ToolProvider_MethodInfo_
-};
-
-$Object* allocate$ToolProvider($Class* clazz) {
-	return $of($alloc(ToolProvider));
-}
 
 $String* ToolProvider::systemJavaCompilerModule = nullptr;
 $String* ToolProvider::systemJavaCompilerName = nullptr;
@@ -154,7 +107,7 @@ $ClassLoader* ToolProvider::getSystemToolClassLoader() {
 
 $Object* ToolProvider::getSystemTool($Class* clazz, $String* moduleName, $String* className) {
 	$init(ToolProvider);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	try {
 		$var($ServiceLoader, sl, $ServiceLoader::load(clazz, $($ClassLoader::getSystemClassLoader())));
@@ -162,30 +115,28 @@ $Object* ToolProvider::getSystemTool($Class* clazz, $String* moduleName, $String
 			$var($Iterator, i$, $nc(sl)->iterator());
 			for (; $nc(i$)->hasNext();) {
 				$var($Object, tool, i$->next());
-				{
-					if (matches(tool, moduleName)) {
-						return $of(tool);
-					}
+				if (matches(tool, moduleName)) {
+					return tool;
 				}
 			}
 		}
 	} catch ($ServiceConfigurationError& e) {
-		$throwNew($Error, static_cast<$Throwable*>(e));
+		$throwNew($Error, e);
 	}
-	return $of(nullptr);
+	return nullptr;
 }
 
 bool ToolProvider::matches(Object$* tool, $String* moduleName) {
 	$init(ToolProvider);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
-	$var($PrivilegedAction, pa, static_cast<$PrivilegedAction*>($new(ToolProvider$$Lambda$lambda$matches$0, tool, moduleName)));
-	return $nc(($cast($Boolean, $($AccessController::doPrivileged(pa)))))->booleanValue();
+	$var($PrivilegedAction, pa, $new(ToolProvider$$Lambda$lambda$matches$0, tool, moduleName));
+	return $$sure($Boolean, $AccessController::doPrivileged(pa))->booleanValue();
 }
 
 $Boolean* ToolProvider::lambda$matches$0(Object$* tool, $String* moduleName) {
 	$init(ToolProvider);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Module, toolModule, $nc($of(tool))->getClass()->getModule());
 	$var($String, toolModuleName, $nc(toolModule)->getName());
 	return $Boolean::valueOf($Objects::equals(toolModuleName, moduleName));
@@ -194,7 +145,7 @@ $Boolean* ToolProvider::lambda$matches$0(Object$* tool, $String* moduleName) {
 ToolProvider::ToolProvider() {
 }
 
-void clinit$ToolProvider($Class* class$) {
+void ToolProvider::clinit$($Class* clazz) {
 	$assignStatic(ToolProvider::systemJavaCompilerModule, "jdk.compiler"_s);
 	$assignStatic(ToolProvider::systemJavaCompilerName, "com.sun.tools.javac.api.JavacTool"_s);
 	$assignStatic(ToolProvider::systemDocumentationToolModule, "jdk.javadoc"_s);
@@ -203,11 +154,46 @@ void clinit$ToolProvider($Class* class$) {
 
 $Class* ToolProvider::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(ToolProvider$$Lambda$lambda$matches$0::classInfo$.name)) {
+		if (name->equals("javax.tools.ToolProvider$$Lambda$lambda$matches$0")) {
 			return ToolProvider$$Lambda$lambda$matches$0::load$(name, initialize);
 		}
 	}
-	$loadClass(ToolProvider, name, initialize, &_ToolProvider_ClassInfo_, clinit$ToolProvider, allocate$ToolProvider);
+	$FieldInfo fieldInfos$$[] = {
+		{"systemJavaCompilerModule", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ToolProvider, systemJavaCompilerModule)},
+		{"systemJavaCompilerName", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ToolProvider, systemJavaCompilerName)},
+		{"systemDocumentationToolModule", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ToolProvider, systemDocumentationToolModule)},
+		{"systemDocumentationToolName", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ToolProvider, systemDocumentationToolName)},
+		{}
+	};
+	$NamedAttribute getSystemToolClassLoadermethodAnnotations$$$namedAttribute[] = {
+		{"since", 's', "9"},
+		{}
+	};
+	$CompoundAttribute getSystemToolClassLoadermethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", getSystemToolClassLoadermethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(ToolProvider, init$, void)},
+		{"getSystemDocumentationTool", "()Ljavax/tools/DocumentationTool;", nullptr, $PUBLIC | $STATIC, $staticMethod(ToolProvider, getSystemDocumentationTool, $DocumentationTool*)},
+		{"getSystemJavaCompiler", "()Ljavax/tools/JavaCompiler;", nullptr, $PUBLIC | $STATIC, $staticMethod(ToolProvider, getSystemJavaCompiler, $JavaCompiler*)},
+		{"getSystemTool", "(Ljava/lang/Class;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljava/lang/Class<TT;>;Ljava/lang/String;Ljava/lang/String;)TT;", $PRIVATE | $STATIC, $staticMethod(ToolProvider, getSystemTool, $Object*, $Class*, $String*, $String*)},
+		{"getSystemToolClassLoader", "()Ljava/lang/ClassLoader;", nullptr, $PUBLIC | $STATIC | $DEPRECATED, $staticMethod(ToolProvider, getSystemToolClassLoader, $ClassLoader*), nullptr, nullptr, getSystemToolClassLoadermethodAnnotations$$},
+		{"lambda$matches$0", "(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Boolean;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ToolProvider, lambda$matches$0, $Boolean*, Object$*, $String*)},
+		{"matches", "(Ljava/lang/Object;Ljava/lang/String;)Z", "<T:Ljava/lang/Object;>(TT;Ljava/lang/String;)Z", $PRIVATE | $STATIC, $staticMethod(ToolProvider, matches, bool, Object$*, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.tools.ToolProvider",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ToolProvider, name, initialize, &classInfo$$, ToolProvider::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ToolProvider);
+	});
 	return class$;
 }
 

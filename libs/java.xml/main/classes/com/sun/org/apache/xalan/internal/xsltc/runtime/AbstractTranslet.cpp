@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/runtime/AbstractTranslet.h>
-
 #include <com/sun/org/apache/xalan/internal/xsltc/DOM.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/DOMCache.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/DOMEnhancedForDTM.h>
@@ -17,7 +16,6 @@
 #include <java/io/BufferedOutputStream.h>
 #include <java/io/File.h>
 #include <java/io/FileOutputStream.h>
-#include <java/io/OutputStream.h>
 #include <java/lang/Runtime.h>
 #include <java/text/DecimalFormat.h>
 #include <java/text/DecimalFormatSymbols.h>
@@ -69,8 +67,6 @@ using $SerializationHandler = ::com::sun::org::apache::xml::internal::serializer
 using $BufferedOutputStream = ::java::io::BufferedOutputStream;
 using $File = ::java::io::File;
 using $FileOutputStream = ::java::io::FileOutputStream;
-using $OutputStream = ::java::io::OutputStream;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -82,16 +78,12 @@ using $DecimalFormatSymbols = ::java::text::DecimalFormatSymbols;
 using $ArrayList = ::java::util::ArrayList;
 using $HashMap = ::java::util::HashMap;
 using $Iterator = ::java::util::Iterator;
-using $List = ::java::util::List;
 using $Map = ::java::util::Map;
 using $Map$Entry = ::java::util::Map$Entry;
-using $Set = ::java::util::Set;
-using $DocumentBuilder = ::javax::xml::parsers::DocumentBuilder;
 using $DocumentBuilderFactory = ::javax::xml::parsers::DocumentBuilderFactory;
 using $Templates = ::javax::xml::transform::Templates;
 using $JdkConstants = ::jdk::xml::internal::JdkConstants;
 using $JdkXmlUtils = ::jdk::xml::internal::JdkXmlUtils;
-using $DOMImplementation = ::org::w3c::dom::DOMImplementation;
 using $Document = ::org::w3c::dom::Document;
 using $DocumentType = ::org::w3c::dom::DocumentType;
 
@@ -103,117 +95,6 @@ namespace com {
 					namespace internal {
 						namespace xsltc {
 							namespace runtime {
-
-$FieldInfo _AbstractTranslet_FieldInfo_[] = {
-	{"_version", "Ljava/lang/String;", nullptr, $PUBLIC, $field(AbstractTranslet, _version)},
-	{"_method", "Ljava/lang/String;", nullptr, $PUBLIC, $field(AbstractTranslet, _method)},
-	{"_encoding", "Ljava/lang/String;", nullptr, $PUBLIC, $field(AbstractTranslet, _encoding)},
-	{"_omitHeader", "Z", nullptr, $PUBLIC, $field(AbstractTranslet, _omitHeader)},
-	{"_standalone", "Ljava/lang/String;", nullptr, $PUBLIC, $field(AbstractTranslet, _standalone)},
-	{"_isStandalone", "Z", nullptr, $PUBLIC, $field(AbstractTranslet, _isStandalone)},
-	{"_doctypePublic", "Ljava/lang/String;", nullptr, $PUBLIC, $field(AbstractTranslet, _doctypePublic)},
-	{"_doctypeSystem", "Ljava/lang/String;", nullptr, $PUBLIC, $field(AbstractTranslet, _doctypeSystem)},
-	{"_indent", "Z", nullptr, $PUBLIC, $field(AbstractTranslet, _indent)},
-	{"_mediaType", "Ljava/lang/String;", nullptr, $PUBLIC, $field(AbstractTranslet, _mediaType)},
-	{"_cdata", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/String;>;", $PUBLIC, $field(AbstractTranslet, _cdata)},
-	{"_indentamount", "I", nullptr, $PUBLIC, $field(AbstractTranslet, _indentamount)},
-	{"FIRST_TRANSLET_VERSION", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(AbstractTranslet, FIRST_TRANSLET_VERSION)},
-	{"VER_SPLIT_NAMES_ARRAY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(AbstractTranslet, VER_SPLIT_NAMES_ARRAY)},
-	{"CURRENT_TRANSLET_VERSION", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(AbstractTranslet, CURRENT_TRANSLET_VERSION)},
-	{"transletVersion", "I", nullptr, $PROTECTED, $field(AbstractTranslet, transletVersion)},
-	{"namesArray", "[Ljava/lang/String;", nullptr, $PROTECTED, $field(AbstractTranslet, namesArray)},
-	{"urisArray", "[Ljava/lang/String;", nullptr, $PROTECTED, $field(AbstractTranslet, urisArray)},
-	{"typesArray", "[I", nullptr, $PROTECTED, $field(AbstractTranslet, typesArray)},
-	{"namespaceArray", "[Ljava/lang/String;", nullptr, $PROTECTED, $field(AbstractTranslet, namespaceArray)},
-	{"_templates", "Ljavax/xml/transform/Templates;", nullptr, $PROTECTED, $field(AbstractTranslet, _templates)},
-	{"_hasIdCall", "Z", nullptr, $PROTECTED, $field(AbstractTranslet, _hasIdCall)},
-	{"stringValueHandler", "Lcom/sun/org/apache/xalan/internal/xsltc/runtime/StringValueHandler;", nullptr, $PROTECTED, $field(AbstractTranslet, stringValueHandler)},
-	{"EMPTYSTRING", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AbstractTranslet, EMPTYSTRING)},
-	{"ID_INDEX_NAME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AbstractTranslet, ID_INDEX_NAME)},
-	{"_overrideDefaultParser", "Z", nullptr, $PRIVATE, $field(AbstractTranslet, _overrideDefaultParser)},
-	{"output", "Ljava/io/FileOutputStream;", nullptr, $PRIVATE, $field(AbstractTranslet, output)},
-	{"_accessExternalStylesheet", "Ljava/lang/String;", nullptr, $PRIVATE, $field(AbstractTranslet, _accessExternalStylesheet)},
-	{"pbase", "I", nullptr, $PROTECTED, $field(AbstractTranslet, pbase)},
-	{"pframe", "I", nullptr, $PROTECTED, $field(AbstractTranslet, pframe)},
-	{"paramsStack", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/Object;>;", $PROTECTED, $field(AbstractTranslet, paramsStack)},
-	{"_msgHandler", "Lcom/sun/org/apache/xalan/internal/xsltc/runtime/MessageHandler;", nullptr, $PRIVATE, $field(AbstractTranslet, _msgHandler)},
-	{"_formatSymbols", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/text/DecimalFormat;>;", $PUBLIC, $field(AbstractTranslet, _formatSymbols)},
-	{"_keyIndexes", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Lcom/sun/org/apache/xalan/internal/xsltc/dom/KeyIndex;>;", $PRIVATE, $field(AbstractTranslet, _keyIndexes)},
-	{"_emptyKeyIndex", "Lcom/sun/org/apache/xalan/internal/xsltc/dom/KeyIndex;", nullptr, $PRIVATE, $field(AbstractTranslet, _emptyKeyIndex)},
-	{"_indexSize", "I", nullptr, $PRIVATE, $field(AbstractTranslet, _indexSize)},
-	{"_currentRootForKeys", "I", nullptr, $PRIVATE, $field(AbstractTranslet, _currentRootForKeys)},
-	{"_domCache", "Lcom/sun/org/apache/xalan/internal/xsltc/DOMCache;", nullptr, $PRIVATE, $field(AbstractTranslet, _domCache)},
-	{"_auxClasses", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/Class<*>;>;", $PRIVATE, $field(AbstractTranslet, _auxClasses)},
-	{"_domImplementation", "Lorg/w3c/dom/DOMImplementation;", nullptr, $PROTECTED, $field(AbstractTranslet, _domImplementation)},
-	{}
-};
-
-$MethodInfo _AbstractTranslet_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AbstractTranslet, init$, void)},
-	{"addAuxiliaryClass", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;)V", $PUBLIC, $virtualMethod(AbstractTranslet, addAuxiliaryClass, void, $Class*)},
-	{"addCdataElement", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(AbstractTranslet, addCdataElement, void, $String*)},
-	{"addDecimalFormat", "(Ljava/lang/String;Ljava/text/DecimalFormatSymbols;)V", nullptr, $PUBLIC, $virtualMethod(AbstractTranslet, addDecimalFormat, void, $String*, $DecimalFormatSymbols*)},
-	{"addParameter", "(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $FINAL, $virtualMethod(AbstractTranslet, addParameter, $Object*, $String*, Object$*)},
-	{"addParameter", "(Ljava/lang/String;Ljava/lang/Object;Z)Ljava/lang/Object;", nullptr, $PUBLIC | $FINAL, $method(AbstractTranslet, addParameter, $Object*, $String*, Object$*, bool)},
-	{"buildIDIndex", "(Lcom/sun/org/apache/xalan/internal/xsltc/DOM;)V", nullptr, $PRIVATE | $FINAL, $method(AbstractTranslet, buildIDIndex, void, $DOM*)},
-	{"buildKeyIndex", "(Ljava/lang/String;ILjava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(AbstractTranslet, buildKeyIndex, void, $String*, int32_t, $String*)},
-	{"buildKeyIndex", "(Ljava/lang/String;Lcom/sun/org/apache/xalan/internal/xsltc/DOM;)V", nullptr, $PUBLIC, $virtualMethod(AbstractTranslet, buildKeyIndex, void, $String*, $DOM*)},
-	{"buildKeyIndexHelper", "(Ljava/lang/String;)Lcom/sun/org/apache/xalan/internal/xsltc/dom/KeyIndex;", nullptr, $PRIVATE, $method(AbstractTranslet, buildKeyIndexHelper, $KeyIndex*, $String*)},
-	{"buildKeys", "(Lcom/sun/org/apache/xalan/internal/xsltc/DOM;Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;Lcom/sun/org/apache/xml/internal/serializer/SerializationHandler;I)V", nullptr, $PUBLIC, $virtualMethod(AbstractTranslet, buildKeys, void, $DOM*, $DTMAxisIterator*, $SerializationHandler*, int32_t), "com.sun.org.apache.xalan.internal.xsltc.TransletException"},
-	{"characters", "(Ljava/lang/String;Lcom/sun/org/apache/xml/internal/serializer/SerializationHandler;)V", nullptr, $PUBLIC | $FINAL, $method(AbstractTranslet, characters, void, $String*, $SerializationHandler*), "com.sun.org.apache.xalan.internal.xsltc.TransletException"},
-	{"clearParameters", "()V", nullptr, $PUBLIC, $virtualMethod(AbstractTranslet, clearParameters, void)},
-	{"closeOutputHandler", "(Lcom/sun/org/apache/xml/internal/serializer/SerializationHandler;)V", nullptr, $PUBLIC, $virtualMethod(AbstractTranslet, closeOutputHandler, void, $SerializationHandler*)},
-	{"createKeyIndex", "()Lcom/sun/org/apache/xalan/internal/xsltc/dom/KeyIndex;", nullptr, $PUBLIC, $virtualMethod(AbstractTranslet, createKeyIndex, $KeyIndex*)},
-	{"displayMessage", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $FINAL, $method(AbstractTranslet, displayMessage, void, $String*)},
-	{"getAllowedProtocols", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AbstractTranslet, getAllowedProtocols, $String*)},
-	{"getAuxiliaryClass", "(Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/String;)Ljava/lang/Class<*>;", $PUBLIC, $virtualMethod(AbstractTranslet, getAuxiliaryClass, $Class*, $String*)},
-	{"getDOMCache", "()Lcom/sun/org/apache/xalan/internal/xsltc/DOMCache;", nullptr, $PUBLIC, $virtualMethod(AbstractTranslet, getDOMCache, $DOMCache*)},
-	{"getDecimalFormat", "(Ljava/lang/String;)Ljava/text/DecimalFormat;", nullptr, $PUBLIC | $FINAL, $method(AbstractTranslet, getDecimalFormat, $DecimalFormat*, $String*)},
-	{"getKeyIndex", "(Ljava/lang/String;)Lcom/sun/org/apache/xalan/internal/xsltc/dom/KeyIndex;", nullptr, $PUBLIC, $virtualMethod(AbstractTranslet, getKeyIndex, $KeyIndex*, $String*)},
-	{"getNamesArray", "()[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AbstractTranslet, getNamesArray, $StringArray*)},
-	{"getNamespaceArray", "()[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AbstractTranslet, getNamespaceArray, $StringArray*)},
-	{"getParameter", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC | $FINAL, $method(AbstractTranslet, getParameter, $Object*, $String*)},
-	{"getTemplates", "()Ljavax/xml/transform/Templates;", nullptr, $PUBLIC, $virtualMethod(AbstractTranslet, getTemplates, $Templates*)},
-	{"getTypesArray", "()[I", nullptr, $PUBLIC, $virtualMethod(AbstractTranslet, getTypesArray, $ints*)},
-	{"getUrisArray", "()[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AbstractTranslet, getUrisArray, $StringArray*)},
-	{"hasIdCall", "()Z", nullptr, $PUBLIC, $virtualMethod(AbstractTranslet, hasIdCall, bool)},
-	{"makeDOMAdapter", "(Lcom/sun/org/apache/xalan/internal/xsltc/DOM;)Lcom/sun/org/apache/xalan/internal/xsltc/dom/DOMAdapter;", nullptr, $PUBLIC | $FINAL, $method(AbstractTranslet, makeDOMAdapter, $DOMAdapter*, $DOM*), "com.sun.org.apache.xalan.internal.xsltc.TransletException"},
-	{"newDocument", "(Ljava/lang/String;Ljava/lang/String;)Lorg/w3c/dom/Document;", nullptr, $PUBLIC, $virtualMethod(AbstractTranslet, newDocument, $Document*, $String*, $String*), "javax.xml.parsers.ParserConfigurationException"},
-	{"openOutputHandler", "(Ljava/lang/String;Z)Lcom/sun/org/apache/xml/internal/serializer/SerializationHandler;", nullptr, $PUBLIC, $virtualMethod(AbstractTranslet, openOutputHandler, $SerializationHandler*, $String*, bool), "com.sun.org.apache.xalan.internal.xsltc.TransletException"},
-	{"openOutputHandler", "(Ljava/lang/String;)Lcom/sun/org/apache/xml/internal/serializer/SerializationHandler;", nullptr, $PUBLIC, $virtualMethod(AbstractTranslet, openOutputHandler, $SerializationHandler*, $String*), "com.sun.org.apache.xalan.internal.xsltc.TransletException"},
-	{"overrideDefaultParser", "()Z", nullptr, $PUBLIC, $virtualMethod(AbstractTranslet, overrideDefaultParser, bool)},
-	{"popParamFrame", "()V", nullptr, $PUBLIC | $FINAL, $method(AbstractTranslet, popParamFrame, void)},
-	{"postInitialization", "()V", nullptr, $PUBLIC | $FINAL, $method(AbstractTranslet, postInitialization, void)},
-	{"prepassDocument", "(Lcom/sun/org/apache/xalan/internal/xsltc/DOM;)V", nullptr, $PUBLIC | $FINAL, $method(AbstractTranslet, prepassDocument, void, $DOM*)},
-	{"printInternalState", "()V", nullptr, $PUBLIC, $virtualMethod(AbstractTranslet, printInternalState, void)},
-	{"pushParamFrame", "()V", nullptr, $PUBLIC | $FINAL, $method(AbstractTranslet, pushParamFrame, void)},
-	{"setAllowedProtocols", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(AbstractTranslet, setAllowedProtocols, void, $String*)},
-	{"setAuxiliaryClasses", "(Ljava/util/Map;)V", "(Ljava/util/Map<Ljava/lang/String;Ljava/lang/Class<*>;>;)V", $PUBLIC, $virtualMethod(AbstractTranslet, setAuxiliaryClasses, void, $Map*)},
-	{"setDOMCache", "(Lcom/sun/org/apache/xalan/internal/xsltc/DOMCache;)V", nullptr, $PUBLIC, $virtualMethod(AbstractTranslet, setDOMCache, void, $DOMCache*)},
-	{"setIndexSize", "(I)V", nullptr, $PUBLIC, $virtualMethod(AbstractTranslet, setIndexSize, void, int32_t)},
-	{"setKeyIndexDom", "(Ljava/lang/String;Lcom/sun/org/apache/xalan/internal/xsltc/DOM;)V", nullptr, $PUBLIC, $virtualMethod(AbstractTranslet, setKeyIndexDom, void, $String*, $DOM*)},
-	{"setMessageHandler", "(Lcom/sun/org/apache/xalan/internal/xsltc/runtime/MessageHandler;)V", nullptr, $PUBLIC | $FINAL, $method(AbstractTranslet, setMessageHandler, void, $MessageHandler*)},
-	{"setOverrideDefaultParser", "(Z)V", nullptr, $PUBLIC, $virtualMethod(AbstractTranslet, setOverrideDefaultParser, void, bool)},
-	{"setRootForKeys", "(I)V", nullptr, $PRIVATE, $method(AbstractTranslet, setRootForKeys, void, int32_t)},
-	{"setTemplates", "(Ljavax/xml/transform/Templates;)V", nullptr, $PUBLIC, $virtualMethod(AbstractTranslet, setTemplates, void, $Templates*)},
-	{"transferOutputSettings", "(Lcom/sun/org/apache/xml/internal/serializer/SerializationHandler;)V", nullptr, $PROTECTED, $virtualMethod(AbstractTranslet, transferOutputSettings, void, $SerializationHandler*)},
-	{"transform", "(Lcom/sun/org/apache/xalan/internal/xsltc/DOM;Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;Lcom/sun/org/apache/xml/internal/serializer/SerializationHandler;)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"transform", "(Lcom/sun/org/apache/xalan/internal/xsltc/DOM;Lcom/sun/org/apache/xml/internal/serializer/SerializationHandler;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(AbstractTranslet, transform, void, $DOM*, $SerializationHandler*), "com.sun.org.apache.xalan.internal.xsltc.TransletException"},
-	{}
-};
-
-$ClassInfo _AbstractTranslet_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"com.sun.org.apache.xalan.internal.xsltc.runtime.AbstractTranslet",
-	"java.lang.Object",
-	"com.sun.org.apache.xalan.internal.xsltc.Translet",
-	_AbstractTranslet_FieldInfo_,
-	_AbstractTranslet_MethodInfo_
-};
-
-$Object* allocate$AbstractTranslet($Class* clazz) {
-	return $of($alloc(AbstractTranslet));
-}
 
 $String* AbstractTranslet::EMPTYSTRING = nullptr;
 $String* AbstractTranslet::ID_INDEX_NAME = nullptr;
@@ -253,16 +134,16 @@ void AbstractTranslet::init$() {
 }
 
 void AbstractTranslet::printInternalState() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc($System::out)->println("-------------------------------------"_s);
-	$nc($System::out)->println($$str({"AbstractTranslet this = "_s, this}));
-	$nc($System::out)->println($$str({"pbase = "_s, $$str(this->pbase)}));
-	$nc($System::out)->println($$str({"vframe = "_s, $$str(this->pframe)}));
-	$nc($System::out)->println($$str({"paramsStack.size() = "_s, $$str($nc(this->paramsStack)->size())}));
-	$nc($System::out)->println($$str({"namesArray.size = "_s, $$str($nc(this->namesArray)->length)}));
-	$nc($System::out)->println($$str({"namespaceArray.size = "_s, $$str($nc(this->namespaceArray)->length)}));
-	$nc($System::out)->println(""_s);
-	$nc($System::out)->println($$str({"Total memory = "_s, $$str($nc($($Runtime::getRuntime()))->totalMemory())}));
+	$System::out->println($$str({"AbstractTranslet this = "_s, this}));
+	$System::out->println($$str({"pbase = "_s, $$str(this->pbase)}));
+	$System::out->println($$str({"vframe = "_s, $$str(this->pframe)}));
+	$System::out->println($$str({"paramsStack.size() = "_s, $$str($nc(this->paramsStack)->size())}));
+	$System::out->println($$str({"namesArray.size = "_s, $$str($nc(this->namesArray)->length)}));
+	$System::out->println($$str({"namespaceArray.size = "_s, $$str($nc(this->namespaceArray)->length)}));
+	$System::out->println(""_s);
+	$System::out->println($$str({"Total memory = "_s, $$str($$nc($Runtime::getRuntime())->totalMemory())}));
 }
 
 $DOMAdapter* AbstractTranslet::makeDOMAdapter($DOM* dom) {
@@ -277,9 +158,9 @@ void AbstractTranslet::pushParamFrame() {
 
 void AbstractTranslet::popParamFrame() {
 	if (this->pbase > 0) {
-		int32_t oldpbase = $nc(($cast($Integer, $($nc(this->paramsStack)->get(--this->pbase)))))->intValue();
+		int32_t oldpbase = $$sure($Integer, $nc(this->paramsStack)->get(--this->pbase))->intValue();
 		for (int32_t i = this->pframe - 1; i >= this->pbase; --i) {
-			$nc(this->paramsStack)->remove(i);
+			this->paramsStack->remove(i);
 		}
 		this->pframe = this->pbase;
 		this->pbase = oldpbase;
@@ -289,11 +170,11 @@ void AbstractTranslet::popParamFrame() {
 $Object* AbstractTranslet::addParameter($String* name$renamed, Object$* value) {
 	$var($String, name, name$renamed);
 	$assign(name, $BasisLibrary::mapQNameToJavaName(name));
-	return $of(addParameter(name, value, false));
+	return addParameter(name, value, false);
 }
 
 $Object* AbstractTranslet::addParameter($String* name, Object$* value, bool isDefault) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (int32_t i = this->pframe - 1; i >= this->pbase; --i) {
 		$var($Parameter, param, $cast($Parameter, $nc(this->paramsStack)->get(i)));
 		if ($nc($nc(param)->_name)->equals(name)) {
@@ -302,7 +183,7 @@ $Object* AbstractTranslet::addParameter($String* name, Object$* value, bool isDe
 				param->_isDefault = isDefault;
 				return $of(value);
 			}
-			return $of(param->_value);
+			return param->_value;
 		}
 	}
 	$nc(this->paramsStack)->add(this->pframe++, $$new($Parameter, name, value, isDefault));
@@ -315,16 +196,16 @@ void AbstractTranslet::clearParameters() {
 }
 
 $Object* AbstractTranslet::getParameter($String* name$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, name, name$renamed);
 	$assign(name, $BasisLibrary::mapQNameToJavaName(name));
 	for (int32_t i = this->pframe - 1; i >= this->pbase; --i) {
 		$var($Parameter, param, $cast($Parameter, $nc(this->paramsStack)->get(i)));
 		if ($nc($nc(param)->_name)->equals(name)) {
-			return $of(param->_value);
+			return param->_value;
 		}
 	}
-	return $of(nullptr);
+	return nullptr;
 }
 
 void AbstractTranslet::setMessageHandler($MessageHandler* handler) {
@@ -335,12 +216,12 @@ void AbstractTranslet::displayMessage($String* msg) {
 	if (this->_msgHandler == nullptr) {
 		$nc($System::err)->println(msg);
 	} else {
-		$nc(this->_msgHandler)->displayMessage(msg);
+		this->_msgHandler->displayMessage(msg);
 	}
 }
 
 void AbstractTranslet::addDecimalFormat($String* name$renamed, $DecimalFormatSymbols* symbols) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, name, name$renamed);
 	if (this->_formatSymbols == nullptr) {
 		$set(this, _formatSymbols, $new($HashMap));
@@ -356,15 +237,15 @@ void AbstractTranslet::addDecimalFormat($String* name$renamed, $DecimalFormatSym
 }
 
 $DecimalFormat* AbstractTranslet::getDecimalFormat($String* name$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, name, name$renamed);
 	if (this->_formatSymbols != nullptr) {
 		if (name == nullptr) {
 			$assign(name, AbstractTranslet::EMPTYSTRING);
 		}
-		$var($DecimalFormat, df, $cast($DecimalFormat, $nc(this->_formatSymbols)->get(name)));
+		$var($DecimalFormat, df, $cast($DecimalFormat, this->_formatSymbols->get(name)));
 		if (df == nullptr) {
-			$assign(df, $cast($DecimalFormat, $nc(this->_formatSymbols)->get(AbstractTranslet::EMPTYSTRING)));
+			$assign(df, $cast($DecimalFormat, this->_formatSymbols->get(AbstractTranslet::EMPTYSTRING)));
 		}
 		return df;
 	}
@@ -377,11 +258,11 @@ void AbstractTranslet::prepassDocument($DOM* document) {
 }
 
 void AbstractTranslet::buildIDIndex($DOM* document) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	setRootForKeys($nc(document)->getDocument());
 	if ($instanceOf($DOMEnhancedForDTM, document)) {
 		$var($DOMEnhancedForDTM, enhancedDOM, $cast($DOMEnhancedForDTM, document));
-		if ($nc(enhancedDOM)->hasDOMSource()) {
+		if (enhancedDOM->hasDOMSource()) {
 			buildKeyIndex(AbstractTranslet::ID_INDEX_NAME, document);
 			return;
 		} else {
@@ -391,12 +272,12 @@ void AbstractTranslet::buildIDIndex($DOM* document) {
 			}
 			bool hasIDValues = false;
 			{
-				$var($Iterator, i$, $nc($($nc(elementsByID)->entrySet()))->iterator());
+				$var($Iterator, i$, $$nc($nc(elementsByID)->entrySet())->iterator());
 				for (; $nc(i$)->hasNext();) {
 					$var($Map$Entry, entry, $cast($Map$Entry, i$->next()));
 					{
-						int32_t element = $nc(document)->getNodeHandle($nc(($cast($Integer, $($nc(entry)->getValue()))))->intValue());
-						buildKeyIndex(AbstractTranslet::ID_INDEX_NAME, element, $cast($String, $($nc(entry)->getKey())));
+						int32_t element = document->getNodeHandle($$sure($Integer, $nc(entry)->getValue())->intValue());
+						buildKeyIndex(AbstractTranslet::ID_INDEX_NAME, element, $$cast($String, entry->getKey()));
 						hasIDValues = true;
 					}
 				}
@@ -409,15 +290,15 @@ void AbstractTranslet::buildIDIndex($DOM* document) {
 }
 
 void AbstractTranslet::postInitialization() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->transletVersion < AbstractTranslet::VER_SPLIT_NAMES_ARRAY) {
 		int32_t arraySize = $nc(this->namesArray)->length;
 		$var($StringArray, newURIsArray, $new($StringArray, arraySize));
 		$var($StringArray, newNamesArray, $new($StringArray, arraySize));
 		$var($ints, newTypesArray, $new($ints, arraySize));
 		for (int32_t i = 0; i < arraySize; ++i) {
-			$var($String, name, $nc(this->namesArray)->get(i));
-			int32_t colonIndex = $nc(name)->lastIndexOf((int32_t)u':');
+			$var($String, name, this->namesArray->get(i));
+			int32_t colonIndex = $nc(name)->lastIndexOf(u':');
 			int32_t lNameStartIdx = colonIndex + 1;
 			if (colonIndex > -1) {
 				newURIsArray->set(i, $(name->substring(0, colonIndex)));
@@ -439,7 +320,7 @@ void AbstractTranslet::postInitialization() {
 	}
 	if (this->transletVersion > AbstractTranslet::CURRENT_TRANSLET_VERSION) {
 		$init($BasisLibrary);
-		$BasisLibrary::runTimeError($BasisLibrary::UNKNOWN_TRANSLET_VERSION_ERR, $($of($of(this)->getClass()->getName())));
+		$BasisLibrary::runTimeError($BasisLibrary::UNKNOWN_TRANSLET_VERSION_ERR, $(this->getClass()->getName()));
 	}
 }
 
@@ -469,7 +350,7 @@ $KeyIndex* AbstractTranslet::buildKeyIndexHelper($String* name) {
 	}
 	$var($KeyIndex, index, $cast($KeyIndex, $nc(this->_keyIndexes)->get(name)));
 	if (index == nullptr) {
-		$nc(this->_keyIndexes)->put(name, $assign(index, $new($KeyIndex, this->_indexSize)));
+		this->_keyIndexes->put(name, $assign(index, $new($KeyIndex, this->_indexSize)));
 	}
 	return index;
 }
@@ -493,7 +374,7 @@ void AbstractTranslet::buildKeys($DOM* document, $DTMAxisIterator* iterator, $Se
 }
 
 void AbstractTranslet::setKeyIndexDom($String* name, $DOM* document) {
-	$nc($(getKeyIndex(name)))->setDom(document, $nc(document)->getDocument());
+	$$nc(getKeyIndex(name))->setDom(document, $nc(document)->getDocument());
 }
 
 void AbstractTranslet::setDOMCache($DOMCache* cache) {
@@ -505,7 +386,7 @@ $DOMCache* AbstractTranslet::getDOMCache() {
 }
 
 $SerializationHandler* AbstractTranslet::openOutputHandler($String* filename, bool append) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$var($TransletOutputHandlerFactory, factory, $TransletOutputHandlerFactory::newInstance(this->_overrideDefaultParser, $($nc(this->_msgHandler)->getErrorListener())));
 		$var($String, dirStr, $$new($File, filename)->getParent());
@@ -523,7 +404,7 @@ $SerializationHandler* AbstractTranslet::openOutputHandler($String* filename, bo
 		$nc(handler)->startDocument();
 		return handler;
 	} catch ($Exception& e) {
-		$throwNew($TransletException, $cast($Exception, e));
+		$throwNew($TransletException, e);
 	}
 	$shouldNotReachHere();
 }
@@ -537,26 +418,24 @@ void AbstractTranslet::closeOutputHandler($SerializationHandler* handler) {
 		$nc(handler)->endDocument();
 		handler->close();
 		if (this->output != nullptr) {
-			$nc(this->output)->close();
+			this->output->close();
 		}
 	} catch ($Exception& e) {
 	}
 }
 
 void AbstractTranslet::transform($DOM* document, $SerializationHandler* handler) {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			transform(document, $($nc(document)->getIterator()), handler);
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$set(this, _keyIndexes, nullptr);
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	$useLocalObjectStack();
+	$var($Throwable, var$0, nullptr);
+	try {
+		transform(document, $($nc(document)->getIterator()), handler);
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$set(this, _keyIndexes, nullptr);
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
@@ -565,31 +444,31 @@ void AbstractTranslet::characters($String* string, $SerializationHandler* handle
 		try {
 			$nc(handler)->characters(string);
 		} catch ($Exception& e) {
-			$throwNew($TransletException, $cast($Exception, e));
+			$throwNew($TransletException, e);
 		}
 	}
 }
 
 void AbstractTranslet::addCdataElement($String* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->_cdata == nullptr) {
 		$set(this, _cdata, $new($ArrayList));
 	}
-	int32_t lastColon = $nc(name)->lastIndexOf((int32_t)u':');
+	int32_t lastColon = $nc(name)->lastIndexOf(u':');
 	if (lastColon > 0) {
 		$var($String, uri, name->substring(0, lastColon));
 		$var($String, localName, name->substring(lastColon + 1));
 		$nc(this->_cdata)->add(uri);
-		$nc(this->_cdata)->add(localName);
+		this->_cdata->add(localName);
 	} else {
 		$nc(this->_cdata)->add(nullptr);
-		$nc(this->_cdata)->add(name);
+		this->_cdata->add(name);
 	}
 }
 
 void AbstractTranslet::transferOutputSettings($SerializationHandler* handler) {
 	if (this->_method != nullptr) {
-		if ($nc(this->_method)->equals("xml"_s)) {
+		if (this->_method->equals("xml"_s)) {
 			if (this->_standalone != nullptr) {
 				$nc(handler)->setStandalone(this->_standalone);
 			}
@@ -647,7 +526,7 @@ $Class* AbstractTranslet::getAuxiliaryClass($String* className) {
 	if (this->_auxClasses == nullptr) {
 		return nullptr;
 	}
-	return ($cast($Class, $nc(this->_auxClasses)->get(className)));
+	return $cast($Class, $nc(this->_auxClasses)->get(className));
 }
 
 $StringArray* AbstractTranslet::getNamesArray() {
@@ -695,10 +574,10 @@ void AbstractTranslet::setAllowedProtocols($String* protocols) {
 }
 
 $Document* AbstractTranslet::newDocument($String* uri, $String* qname) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->_domImplementation == nullptr) {
 		$var($DocumentBuilderFactory, dbf, $JdkXmlUtils::getDOMFactory(this->_overrideDefaultParser));
-		$set(this, _domImplementation, $nc($($nc(dbf)->newDocumentBuilder()))->getDOMImplementation());
+		$set(this, _domImplementation, $$nc($nc(dbf)->newDocumentBuilder())->getDOMImplementation());
 	}
 	return $nc(this->_domImplementation)->createDocument(uri, qname, nullptr);
 }
@@ -706,13 +585,119 @@ $Document* AbstractTranslet::newDocument($String* uri, $String* qname) {
 AbstractTranslet::AbstractTranslet() {
 }
 
-void clinit$AbstractTranslet($Class* class$) {
+void AbstractTranslet::clinit$($Class* clazz) {
 	$assignStatic(AbstractTranslet::EMPTYSTRING, ""_s);
 	$assignStatic(AbstractTranslet::ID_INDEX_NAME, "##id"_s);
 }
 
 $Class* AbstractTranslet::load$($String* name, bool initialize) {
-	$loadClass(AbstractTranslet, name, initialize, &_AbstractTranslet_ClassInfo_, clinit$AbstractTranslet, allocate$AbstractTranslet);
+	$FieldInfo fieldInfos$$[] = {
+		{"_version", "Ljava/lang/String;", nullptr, $PUBLIC, $field(AbstractTranslet, _version)},
+		{"_method", "Ljava/lang/String;", nullptr, $PUBLIC, $field(AbstractTranslet, _method)},
+		{"_encoding", "Ljava/lang/String;", nullptr, $PUBLIC, $field(AbstractTranslet, _encoding)},
+		{"_omitHeader", "Z", nullptr, $PUBLIC, $field(AbstractTranslet, _omitHeader)},
+		{"_standalone", "Ljava/lang/String;", nullptr, $PUBLIC, $field(AbstractTranslet, _standalone)},
+		{"_isStandalone", "Z", nullptr, $PUBLIC, $field(AbstractTranslet, _isStandalone)},
+		{"_doctypePublic", "Ljava/lang/String;", nullptr, $PUBLIC, $field(AbstractTranslet, _doctypePublic)},
+		{"_doctypeSystem", "Ljava/lang/String;", nullptr, $PUBLIC, $field(AbstractTranslet, _doctypeSystem)},
+		{"_indent", "Z", nullptr, $PUBLIC, $field(AbstractTranslet, _indent)},
+		{"_mediaType", "Ljava/lang/String;", nullptr, $PUBLIC, $field(AbstractTranslet, _mediaType)},
+		{"_cdata", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/String;>;", $PUBLIC, $field(AbstractTranslet, _cdata)},
+		{"_indentamount", "I", nullptr, $PUBLIC, $field(AbstractTranslet, _indentamount)},
+		{"FIRST_TRANSLET_VERSION", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(AbstractTranslet, FIRST_TRANSLET_VERSION)},
+		{"VER_SPLIT_NAMES_ARRAY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(AbstractTranslet, VER_SPLIT_NAMES_ARRAY)},
+		{"CURRENT_TRANSLET_VERSION", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(AbstractTranslet, CURRENT_TRANSLET_VERSION)},
+		{"transletVersion", "I", nullptr, $PROTECTED, $field(AbstractTranslet, transletVersion)},
+		{"namesArray", "[Ljava/lang/String;", nullptr, $PROTECTED, $field(AbstractTranslet, namesArray)},
+		{"urisArray", "[Ljava/lang/String;", nullptr, $PROTECTED, $field(AbstractTranslet, urisArray)},
+		{"typesArray", "[I", nullptr, $PROTECTED, $field(AbstractTranslet, typesArray)},
+		{"namespaceArray", "[Ljava/lang/String;", nullptr, $PROTECTED, $field(AbstractTranslet, namespaceArray)},
+		{"_templates", "Ljavax/xml/transform/Templates;", nullptr, $PROTECTED, $field(AbstractTranslet, _templates)},
+		{"_hasIdCall", "Z", nullptr, $PROTECTED, $field(AbstractTranslet, _hasIdCall)},
+		{"stringValueHandler", "Lcom/sun/org/apache/xalan/internal/xsltc/runtime/StringValueHandler;", nullptr, $PROTECTED, $field(AbstractTranslet, stringValueHandler)},
+		{"EMPTYSTRING", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AbstractTranslet, EMPTYSTRING)},
+		{"ID_INDEX_NAME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AbstractTranslet, ID_INDEX_NAME)},
+		{"_overrideDefaultParser", "Z", nullptr, $PRIVATE, $field(AbstractTranslet, _overrideDefaultParser)},
+		{"output", "Ljava/io/FileOutputStream;", nullptr, $PRIVATE, $field(AbstractTranslet, output)},
+		{"_accessExternalStylesheet", "Ljava/lang/String;", nullptr, $PRIVATE, $field(AbstractTranslet, _accessExternalStylesheet)},
+		{"pbase", "I", nullptr, $PROTECTED, $field(AbstractTranslet, pbase)},
+		{"pframe", "I", nullptr, $PROTECTED, $field(AbstractTranslet, pframe)},
+		{"paramsStack", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/Object;>;", $PROTECTED, $field(AbstractTranslet, paramsStack)},
+		{"_msgHandler", "Lcom/sun/org/apache/xalan/internal/xsltc/runtime/MessageHandler;", nullptr, $PRIVATE, $field(AbstractTranslet, _msgHandler)},
+		{"_formatSymbols", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/text/DecimalFormat;>;", $PUBLIC, $field(AbstractTranslet, _formatSymbols)},
+		{"_keyIndexes", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Lcom/sun/org/apache/xalan/internal/xsltc/dom/KeyIndex;>;", $PRIVATE, $field(AbstractTranslet, _keyIndexes)},
+		{"_emptyKeyIndex", "Lcom/sun/org/apache/xalan/internal/xsltc/dom/KeyIndex;", nullptr, $PRIVATE, $field(AbstractTranslet, _emptyKeyIndex)},
+		{"_indexSize", "I", nullptr, $PRIVATE, $field(AbstractTranslet, _indexSize)},
+		{"_currentRootForKeys", "I", nullptr, $PRIVATE, $field(AbstractTranslet, _currentRootForKeys)},
+		{"_domCache", "Lcom/sun/org/apache/xalan/internal/xsltc/DOMCache;", nullptr, $PRIVATE, $field(AbstractTranslet, _domCache)},
+		{"_auxClasses", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/Class<*>;>;", $PRIVATE, $field(AbstractTranslet, _auxClasses)},
+		{"_domImplementation", "Lorg/w3c/dom/DOMImplementation;", nullptr, $PROTECTED, $field(AbstractTranslet, _domImplementation)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AbstractTranslet, init$, void)},
+		{"addAuxiliaryClass", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;)V", $PUBLIC, $virtualMethod(AbstractTranslet, addAuxiliaryClass, void, $Class*)},
+		{"addCdataElement", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(AbstractTranslet, addCdataElement, void, $String*)},
+		{"addDecimalFormat", "(Ljava/lang/String;Ljava/text/DecimalFormatSymbols;)V", nullptr, $PUBLIC, $virtualMethod(AbstractTranslet, addDecimalFormat, void, $String*, $DecimalFormatSymbols*)},
+		{"addParameter", "(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $FINAL, $virtualMethod(AbstractTranslet, addParameter, $Object*, $String*, Object$*)},
+		{"addParameter", "(Ljava/lang/String;Ljava/lang/Object;Z)Ljava/lang/Object;", nullptr, $PUBLIC | $FINAL, $method(AbstractTranslet, addParameter, $Object*, $String*, Object$*, bool)},
+		{"buildIDIndex", "(Lcom/sun/org/apache/xalan/internal/xsltc/DOM;)V", nullptr, $PRIVATE | $FINAL, $method(AbstractTranslet, buildIDIndex, void, $DOM*)},
+		{"buildKeyIndex", "(Ljava/lang/String;ILjava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(AbstractTranslet, buildKeyIndex, void, $String*, int32_t, $String*)},
+		{"buildKeyIndex", "(Ljava/lang/String;Lcom/sun/org/apache/xalan/internal/xsltc/DOM;)V", nullptr, $PUBLIC, $virtualMethod(AbstractTranslet, buildKeyIndex, void, $String*, $DOM*)},
+		{"buildKeyIndexHelper", "(Ljava/lang/String;)Lcom/sun/org/apache/xalan/internal/xsltc/dom/KeyIndex;", nullptr, $PRIVATE, $method(AbstractTranslet, buildKeyIndexHelper, $KeyIndex*, $String*)},
+		{"buildKeys", "(Lcom/sun/org/apache/xalan/internal/xsltc/DOM;Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;Lcom/sun/org/apache/xml/internal/serializer/SerializationHandler;I)V", nullptr, $PUBLIC, $virtualMethod(AbstractTranslet, buildKeys, void, $DOM*, $DTMAxisIterator*, $SerializationHandler*, int32_t), "com.sun.org.apache.xalan.internal.xsltc.TransletException"},
+		{"characters", "(Ljava/lang/String;Lcom/sun/org/apache/xml/internal/serializer/SerializationHandler;)V", nullptr, $PUBLIC | $FINAL, $method(AbstractTranslet, characters, void, $String*, $SerializationHandler*), "com.sun.org.apache.xalan.internal.xsltc.TransletException"},
+		{"clearParameters", "()V", nullptr, $PUBLIC, $virtualMethod(AbstractTranslet, clearParameters, void)},
+		{"closeOutputHandler", "(Lcom/sun/org/apache/xml/internal/serializer/SerializationHandler;)V", nullptr, $PUBLIC, $virtualMethod(AbstractTranslet, closeOutputHandler, void, $SerializationHandler*)},
+		{"createKeyIndex", "()Lcom/sun/org/apache/xalan/internal/xsltc/dom/KeyIndex;", nullptr, $PUBLIC, $virtualMethod(AbstractTranslet, createKeyIndex, $KeyIndex*)},
+		{"displayMessage", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $FINAL, $method(AbstractTranslet, displayMessage, void, $String*)},
+		{"getAllowedProtocols", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AbstractTranslet, getAllowedProtocols, $String*)},
+		{"getAuxiliaryClass", "(Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/String;)Ljava/lang/Class<*>;", $PUBLIC, $virtualMethod(AbstractTranslet, getAuxiliaryClass, $Class*, $String*)},
+		{"getDOMCache", "()Lcom/sun/org/apache/xalan/internal/xsltc/DOMCache;", nullptr, $PUBLIC, $virtualMethod(AbstractTranslet, getDOMCache, $DOMCache*)},
+		{"getDecimalFormat", "(Ljava/lang/String;)Ljava/text/DecimalFormat;", nullptr, $PUBLIC | $FINAL, $method(AbstractTranslet, getDecimalFormat, $DecimalFormat*, $String*)},
+		{"getKeyIndex", "(Ljava/lang/String;)Lcom/sun/org/apache/xalan/internal/xsltc/dom/KeyIndex;", nullptr, $PUBLIC, $virtualMethod(AbstractTranslet, getKeyIndex, $KeyIndex*, $String*)},
+		{"getNamesArray", "()[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AbstractTranslet, getNamesArray, $StringArray*)},
+		{"getNamespaceArray", "()[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AbstractTranslet, getNamespaceArray, $StringArray*)},
+		{"getParameter", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC | $FINAL, $method(AbstractTranslet, getParameter, $Object*, $String*)},
+		{"getTemplates", "()Ljavax/xml/transform/Templates;", nullptr, $PUBLIC, $virtualMethod(AbstractTranslet, getTemplates, $Templates*)},
+		{"getTypesArray", "()[I", nullptr, $PUBLIC, $virtualMethod(AbstractTranslet, getTypesArray, $ints*)},
+		{"getUrisArray", "()[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AbstractTranslet, getUrisArray, $StringArray*)},
+		{"hasIdCall", "()Z", nullptr, $PUBLIC, $virtualMethod(AbstractTranslet, hasIdCall, bool)},
+		{"makeDOMAdapter", "(Lcom/sun/org/apache/xalan/internal/xsltc/DOM;)Lcom/sun/org/apache/xalan/internal/xsltc/dom/DOMAdapter;", nullptr, $PUBLIC | $FINAL, $method(AbstractTranslet, makeDOMAdapter, $DOMAdapter*, $DOM*), "com.sun.org.apache.xalan.internal.xsltc.TransletException"},
+		{"newDocument", "(Ljava/lang/String;Ljava/lang/String;)Lorg/w3c/dom/Document;", nullptr, $PUBLIC, $virtualMethod(AbstractTranslet, newDocument, $Document*, $String*, $String*), "javax.xml.parsers.ParserConfigurationException"},
+		{"openOutputHandler", "(Ljava/lang/String;Z)Lcom/sun/org/apache/xml/internal/serializer/SerializationHandler;", nullptr, $PUBLIC, $virtualMethod(AbstractTranslet, openOutputHandler, $SerializationHandler*, $String*, bool), "com.sun.org.apache.xalan.internal.xsltc.TransletException"},
+		{"openOutputHandler", "(Ljava/lang/String;)Lcom/sun/org/apache/xml/internal/serializer/SerializationHandler;", nullptr, $PUBLIC, $virtualMethod(AbstractTranslet, openOutputHandler, $SerializationHandler*, $String*), "com.sun.org.apache.xalan.internal.xsltc.TransletException"},
+		{"overrideDefaultParser", "()Z", nullptr, $PUBLIC, $virtualMethod(AbstractTranslet, overrideDefaultParser, bool)},
+		{"popParamFrame", "()V", nullptr, $PUBLIC | $FINAL, $method(AbstractTranslet, popParamFrame, void)},
+		{"postInitialization", "()V", nullptr, $PUBLIC | $FINAL, $method(AbstractTranslet, postInitialization, void)},
+		{"prepassDocument", "(Lcom/sun/org/apache/xalan/internal/xsltc/DOM;)V", nullptr, $PUBLIC | $FINAL, $method(AbstractTranslet, prepassDocument, void, $DOM*)},
+		{"printInternalState", "()V", nullptr, $PUBLIC, $virtualMethod(AbstractTranslet, printInternalState, void)},
+		{"pushParamFrame", "()V", nullptr, $PUBLIC | $FINAL, $method(AbstractTranslet, pushParamFrame, void)},
+		{"setAllowedProtocols", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(AbstractTranslet, setAllowedProtocols, void, $String*)},
+		{"setAuxiliaryClasses", "(Ljava/util/Map;)V", "(Ljava/util/Map<Ljava/lang/String;Ljava/lang/Class<*>;>;)V", $PUBLIC, $virtualMethod(AbstractTranslet, setAuxiliaryClasses, void, $Map*)},
+		{"setDOMCache", "(Lcom/sun/org/apache/xalan/internal/xsltc/DOMCache;)V", nullptr, $PUBLIC, $virtualMethod(AbstractTranslet, setDOMCache, void, $DOMCache*)},
+		{"setIndexSize", "(I)V", nullptr, $PUBLIC, $virtualMethod(AbstractTranslet, setIndexSize, void, int32_t)},
+		{"setKeyIndexDom", "(Ljava/lang/String;Lcom/sun/org/apache/xalan/internal/xsltc/DOM;)V", nullptr, $PUBLIC, $virtualMethod(AbstractTranslet, setKeyIndexDom, void, $String*, $DOM*)},
+		{"setMessageHandler", "(Lcom/sun/org/apache/xalan/internal/xsltc/runtime/MessageHandler;)V", nullptr, $PUBLIC | $FINAL, $method(AbstractTranslet, setMessageHandler, void, $MessageHandler*)},
+		{"setOverrideDefaultParser", "(Z)V", nullptr, $PUBLIC, $virtualMethod(AbstractTranslet, setOverrideDefaultParser, void, bool)},
+		{"setRootForKeys", "(I)V", nullptr, $PRIVATE, $method(AbstractTranslet, setRootForKeys, void, int32_t)},
+		{"setTemplates", "(Ljavax/xml/transform/Templates;)V", nullptr, $PUBLIC, $virtualMethod(AbstractTranslet, setTemplates, void, $Templates*)},
+		{"transferOutputSettings", "(Lcom/sun/org/apache/xml/internal/serializer/SerializationHandler;)V", nullptr, $PROTECTED, $virtualMethod(AbstractTranslet, transferOutputSettings, void, $SerializationHandler*)},
+		{"transform", "(Lcom/sun/org/apache/xalan/internal/xsltc/DOM;Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;Lcom/sun/org/apache/xml/internal/serializer/SerializationHandler;)V", nullptr, $PUBLIC | $ABSTRACT},
+		{"transform", "(Lcom/sun/org/apache/xalan/internal/xsltc/DOM;Lcom/sun/org/apache/xml/internal/serializer/SerializationHandler;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(AbstractTranslet, transform, void, $DOM*, $SerializationHandler*), "com.sun.org.apache.xalan.internal.xsltc.TransletException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"com.sun.org.apache.xalan.internal.xsltc.runtime.AbstractTranslet",
+		"java.lang.Object",
+		"com.sun.org.apache.xalan.internal.xsltc.Translet",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(AbstractTranslet, name, initialize, &classInfo$$, AbstractTranslet::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(AbstractTranslet);
+	});
 	return class$;
 }
 

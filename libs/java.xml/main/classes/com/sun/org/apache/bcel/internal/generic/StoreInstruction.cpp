@@ -1,8 +1,6 @@
 #include <com/sun/org/apache/bcel/internal/generic/StoreInstruction.h>
-
 #include <com/sun/org/apache/bcel/internal/generic/ConstantPoolGen.h>
 #include <com/sun/org/apache/bcel/internal/generic/LocalVariableInstruction.h>
-#include <com/sun/org/apache/bcel/internal/generic/PopInstruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/StackConsumer.h>
 #include <com/sun/org/apache/bcel/internal/generic/TypedInstruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/Visitor.h>
@@ -10,9 +8,6 @@
 
 using $ConstantPoolGen = ::com::sun::org::apache::bcel::internal::generic::ConstantPoolGen;
 using $LocalVariableInstruction = ::com::sun::org::apache::bcel::internal::generic::LocalVariableInstruction;
-using $PopInstruction = ::com::sun::org::apache::bcel::internal::generic::PopInstruction;
-using $StackConsumer = ::com::sun::org::apache::bcel::internal::generic::StackConsumer;
-using $TypedInstruction = ::com::sun::org::apache::bcel::internal::generic::TypedInstruction;
 using $Visitor = ::com::sun::org::apache::bcel::internal::generic::Visitor;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -24,32 +19,6 @@ namespace com {
 				namespace bcel {
 					namespace internal {
 						namespace generic {
-
-$MethodInfo _StoreInstruction_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*consumeStack", "(Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;)I", nullptr, $PUBLIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "(SS)V", nullptr, 0, $method(StoreInstruction, init$, void, int16_t, int16_t)},
-	{"<init>", "(SSI)V", nullptr, $PROTECTED, $method(StoreInstruction, init$, void, int16_t, int16_t, int32_t)},
-	{"accept", "(Lcom/sun/org/apache/bcel/internal/generic/Visitor;)V", nullptr, $PUBLIC, $virtualMethod(StoreInstruction, accept, void, $Visitor*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _StoreInstruction_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"com.sun.org.apache.bcel.internal.generic.StoreInstruction",
-	"com.sun.org.apache.bcel.internal.generic.LocalVariableInstruction",
-	"com.sun.org.apache.bcel.internal.generic.PopInstruction",
-	nullptr,
-	_StoreInstruction_MethodInfo_
-};
-
-$Object* allocate$StoreInstruction($Class* clazz) {
-	return $of($alloc(StoreInstruction));
-}
 
 $String* StoreInstruction::toString() {
 	 return this->$LocalVariableInstruction::toString();
@@ -95,7 +64,29 @@ StoreInstruction::StoreInstruction() {
 }
 
 $Class* StoreInstruction::load$($String* name, bool initialize) {
-	$loadClass(StoreInstruction, name, initialize, &_StoreInstruction_ClassInfo_, allocate$StoreInstruction);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*consumeStack", "(Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;)I", nullptr, $PUBLIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC},
+		{"<init>", "(SS)V", nullptr, 0, $method(StoreInstruction, init$, void, int16_t, int16_t)},
+		{"<init>", "(SSI)V", nullptr, $PROTECTED, $method(StoreInstruction, init$, void, int16_t, int16_t, int32_t)},
+		{"accept", "(Lcom/sun/org/apache/bcel/internal/generic/Visitor;)V", nullptr, $PUBLIC, $virtualMethod(StoreInstruction, accept, void, $Visitor*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"com.sun.org.apache.bcel.internal.generic.StoreInstruction",
+		"com.sun.org.apache.bcel.internal.generic.LocalVariableInstruction",
+		"com.sun.org.apache.bcel.internal.generic.PopInstruction",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(StoreInstruction, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(StoreInstruction));
+	});
 	return class$;
 }
 

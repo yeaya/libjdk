@@ -1,5 +1,4 @@
 #include <com/sun/jmx/remote/security/MBeanServerFileAccessController$Parser.h>
-
 #include <com/sun/jmx/remote/security/MBeanServerFileAccessController$Access.h>
 #include <com/sun/jmx/remote/security/MBeanServerFileAccessController.h>
 #include <java/lang/AssertionError.h>
@@ -27,56 +26,6 @@ namespace com {
 			namespace remote {
 				namespace security {
 
-$FieldInfo _MBeanServerFileAccessController$Parser_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(MBeanServerFileAccessController$Parser, $assertionsDisabled)},
-	{"EOS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MBeanServerFileAccessController$Parser, EOS)},
-	{"identity", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(MBeanServerFileAccessController$Parser, identity)},
-	{"s", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(MBeanServerFileAccessController$Parser, s)},
-	{"len", "I", nullptr, $PRIVATE | $FINAL, $field(MBeanServerFileAccessController$Parser, len)},
-	{"i", "I", nullptr, $PRIVATE, $field(MBeanServerFileAccessController$Parser, i)},
-	{"c", "I", nullptr, $PRIVATE, $field(MBeanServerFileAccessController$Parser, c)},
-	{}
-};
-
-$MethodInfo _MBeanServerFileAccessController$Parser_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(MBeanServerFileAccessController$Parser, init$, void, $String*, $String*)},
-	{"next", "()V", nullptr, $PRIVATE, $method(MBeanServerFileAccessController$Parser, next, void)},
-	{"parseAccess", "(Ljava/lang/String;Ljava/lang/String;)Lcom/sun/jmx/remote/security/MBeanServerFileAccessController$Access;", nullptr, $STATIC, $staticMethod(MBeanServerFileAccessController$Parser, parseAccess, $MBeanServerFileAccessController$Access*, $String*, $String*)},
-	{"parseAccess", "()Lcom/sun/jmx/remote/security/MBeanServerFileAccessController$Access;", nullptr, $PRIVATE, $method(MBeanServerFileAccessController$Parser, parseAccess, $MBeanServerFileAccessController$Access*)},
-	{"parseClassName", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(MBeanServerFileAccessController$Parser, parseClassName, $String*)},
-	{"parseCreate", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/lang/String;>;)V", $PRIVATE, $method(MBeanServerFileAccessController$Parser, parseCreate, void, $List*)},
-	{"parseReadWrite", "()Lcom/sun/jmx/remote/security/MBeanServerFileAccessController$Access;", nullptr, $PRIVATE, $method(MBeanServerFileAccessController$Parser, parseReadWrite, $MBeanServerFileAccessController$Access*)},
-	{"parseWord", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(MBeanServerFileAccessController$Parser, parseWord, $String*)},
-	{"skipSpace", "()V", nullptr, $PRIVATE, $method(MBeanServerFileAccessController$Parser, skipSpace, void)},
-	{"syntax", "(Ljava/lang/String;)Ljava/lang/IllegalArgumentException;", nullptr, $PRIVATE, $method(MBeanServerFileAccessController$Parser, syntax, $IllegalArgumentException*, $String*)},
-	{}
-};
-
-$InnerClassInfo _MBeanServerFileAccessController$Parser_InnerClassesInfo_[] = {
-	{"com.sun.jmx.remote.security.MBeanServerFileAccessController$Parser", "com.sun.jmx.remote.security.MBeanServerFileAccessController", "Parser", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _MBeanServerFileAccessController$Parser_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.jmx.remote.security.MBeanServerFileAccessController$Parser",
-	"java.lang.Object",
-	nullptr,
-	_MBeanServerFileAccessController$Parser_FieldInfo_,
-	_MBeanServerFileAccessController$Parser_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MBeanServerFileAccessController$Parser_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.jmx.remote.security.MBeanServerFileAccessController"
-};
-
-$Object* allocate$MBeanServerFileAccessController$Parser($Class* clazz) {
-	return $of($alloc(MBeanServerFileAccessController$Parser));
-}
-
 bool MBeanServerFileAccessController$Parser::$assertionsDisabled = false;
 
 void MBeanServerFileAccessController$Parser::init$($String* identity, $String* s) {
@@ -97,7 +46,7 @@ $MBeanServerFileAccessController$Access* MBeanServerFileAccessController$Parser:
 }
 
 $MBeanServerFileAccessController$Access* MBeanServerFileAccessController$Parser::parseAccess() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	skipSpace();
 	$var($String, type, parseWord());
 	$var($MBeanServerFileAccessController$Access, access, nullptr);
@@ -115,7 +64,7 @@ $MBeanServerFileAccessController$Access* MBeanServerFileAccessController$Parser:
 }
 
 $MBeanServerFileAccessController$Access* MBeanServerFileAccessController$Parser::parseReadWrite() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, createClasses, $new($ArrayList));
 	bool unregister = false;
 	while (true) {
@@ -136,7 +85,7 @@ $MBeanServerFileAccessController$Access* MBeanServerFileAccessController$Parser:
 }
 
 void MBeanServerFileAccessController$Parser::parseCreate($List* createClasses) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	while (true) {
 		skipSpace();
 		$nc(createClasses)->add($(parseClassName()));
@@ -150,7 +99,7 @@ void MBeanServerFileAccessController$Parser::parseCreate($List* createClasses) {
 }
 
 $String* MBeanServerFileAccessController$Parser::parseClassName() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t start = this->i;
 	bool dotOK = false;
 	while (true) {
@@ -191,7 +140,7 @@ void MBeanServerFileAccessController$Parser::skipSpace() {
 }
 
 $String* MBeanServerFileAccessController$Parser::parseWord() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	skipSpace();
 	if (this->c == MBeanServerFileAccessController$Parser::EOS) {
 		$throw($(syntax("Expected word at end of line"_s)));
@@ -209,7 +158,7 @@ $IllegalArgumentException* MBeanServerFileAccessController$Parser::syntax($Strin
 	return $new($IllegalArgumentException, $$str({msg, " ["_s, this->identity, " "_s, this->s, "]"_s}));
 }
 
-void clinit$MBeanServerFileAccessController$Parser($Class* class$) {
+void MBeanServerFileAccessController$Parser::clinit$($Class* clazz) {
 	$load($MBeanServerFileAccessController);
 	MBeanServerFileAccessController$Parser::$assertionsDisabled = !$MBeanServerFileAccessController::class$->desiredAssertionStatus();
 	{
@@ -223,7 +172,51 @@ MBeanServerFileAccessController$Parser::MBeanServerFileAccessController$Parser()
 }
 
 $Class* MBeanServerFileAccessController$Parser::load$($String* name, bool initialize) {
-	$loadClass(MBeanServerFileAccessController$Parser, name, initialize, &_MBeanServerFileAccessController$Parser_ClassInfo_, clinit$MBeanServerFileAccessController$Parser, allocate$MBeanServerFileAccessController$Parser);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(MBeanServerFileAccessController$Parser, $assertionsDisabled)},
+		{"EOS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MBeanServerFileAccessController$Parser, EOS)},
+		{"identity", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(MBeanServerFileAccessController$Parser, identity)},
+		{"s", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(MBeanServerFileAccessController$Parser, s)},
+		{"len", "I", nullptr, $PRIVATE | $FINAL, $field(MBeanServerFileAccessController$Parser, len)},
+		{"i", "I", nullptr, $PRIVATE, $field(MBeanServerFileAccessController$Parser, i)},
+		{"c", "I", nullptr, $PRIVATE, $field(MBeanServerFileAccessController$Parser, c)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(MBeanServerFileAccessController$Parser, init$, void, $String*, $String*)},
+		{"next", "()V", nullptr, $PRIVATE, $method(MBeanServerFileAccessController$Parser, next, void)},
+		{"parseAccess", "(Ljava/lang/String;Ljava/lang/String;)Lcom/sun/jmx/remote/security/MBeanServerFileAccessController$Access;", nullptr, $STATIC, $staticMethod(MBeanServerFileAccessController$Parser, parseAccess, $MBeanServerFileAccessController$Access*, $String*, $String*)},
+		{"parseAccess", "()Lcom/sun/jmx/remote/security/MBeanServerFileAccessController$Access;", nullptr, $PRIVATE, $method(MBeanServerFileAccessController$Parser, parseAccess, $MBeanServerFileAccessController$Access*)},
+		{"parseClassName", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(MBeanServerFileAccessController$Parser, parseClassName, $String*)},
+		{"parseCreate", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/lang/String;>;)V", $PRIVATE, $method(MBeanServerFileAccessController$Parser, parseCreate, void, $List*)},
+		{"parseReadWrite", "()Lcom/sun/jmx/remote/security/MBeanServerFileAccessController$Access;", nullptr, $PRIVATE, $method(MBeanServerFileAccessController$Parser, parseReadWrite, $MBeanServerFileAccessController$Access*)},
+		{"parseWord", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(MBeanServerFileAccessController$Parser, parseWord, $String*)},
+		{"skipSpace", "()V", nullptr, $PRIVATE, $method(MBeanServerFileAccessController$Parser, skipSpace, void)},
+		{"syntax", "(Ljava/lang/String;)Ljava/lang/IllegalArgumentException;", nullptr, $PRIVATE, $method(MBeanServerFileAccessController$Parser, syntax, $IllegalArgumentException*, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.jmx.remote.security.MBeanServerFileAccessController$Parser", "com.sun.jmx.remote.security.MBeanServerFileAccessController", "Parser", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.jmx.remote.security.MBeanServerFileAccessController$Parser",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.jmx.remote.security.MBeanServerFileAccessController"
+	};
+	$loadClass(MBeanServerFileAccessController$Parser, name, initialize, &classInfo$$, MBeanServerFileAccessController$Parser::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(MBeanServerFileAccessController$Parser);
+	});
 	return class$;
 }
 

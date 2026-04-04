@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/code/Kinds$Kind.h>
-
 #include <com/sun/tools/javac/code/Kinds$Kind$Category.h>
 #include <com/sun/tools/javac/code/Kinds$KindName.h>
 #include <com/sun/tools/javac/code/Kinds$KindSelector.h>
@@ -50,79 +49,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace code {
-
-$FieldInfo _Kinds$Kind_FieldInfo_[] = {
-	{"NIL", "Lcom/sun/tools/javac/code/Kinds$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Kinds$Kind, NIL)},
-	{"PCK", "Lcom/sun/tools/javac/code/Kinds$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Kinds$Kind, PCK)},
-	{"TYP", "Lcom/sun/tools/javac/code/Kinds$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Kinds$Kind, TYP)},
-	{"VAR", "Lcom/sun/tools/javac/code/Kinds$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Kinds$Kind, VAR)},
-	{"MTH", "Lcom/sun/tools/javac/code/Kinds$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Kinds$Kind, MTH)},
-	{"POLY", "Lcom/sun/tools/javac/code/Kinds$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Kinds$Kind, POLY)},
-	{"MDL", "Lcom/sun/tools/javac/code/Kinds$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Kinds$Kind, MDL)},
-	{"ERR", "Lcom/sun/tools/javac/code/Kinds$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Kinds$Kind, ERR)},
-	{"AMBIGUOUS", "Lcom/sun/tools/javac/code/Kinds$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Kinds$Kind, AMBIGUOUS)},
-	{"HIDDEN", "Lcom/sun/tools/javac/code/Kinds$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Kinds$Kind, HIDDEN)},
-	{"STATICERR", "Lcom/sun/tools/javac/code/Kinds$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Kinds$Kind, STATICERR)},
-	{"MISSING_ENCL", "Lcom/sun/tools/javac/code/Kinds$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Kinds$Kind, MISSING_ENCL)},
-	{"BAD_RESTRICTED_TYPE", "Lcom/sun/tools/javac/code/Kinds$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Kinds$Kind, BAD_RESTRICTED_TYPE)},
-	{"ABSENT_VAR", "Lcom/sun/tools/javac/code/Kinds$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Kinds$Kind, ABSENT_VAR)},
-	{"WRONG_MTHS", "Lcom/sun/tools/javac/code/Kinds$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Kinds$Kind, WRONG_MTHS)},
-	{"WRONG_MTH", "Lcom/sun/tools/javac/code/Kinds$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Kinds$Kind, WRONG_MTH)},
-	{"ABSENT_MTH", "Lcom/sun/tools/javac/code/Kinds$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Kinds$Kind, ABSENT_MTH)},
-	{"ABSENT_TYP", "Lcom/sun/tools/javac/code/Kinds$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Kinds$Kind, ABSENT_TYP)},
-	{"$VALUES", "[Lcom/sun/tools/javac/code/Kinds$Kind;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(Kinds$Kind, $VALUES)},
-	{"kindName", "Lcom/sun/tools/javac/code/Kinds$KindName;", nullptr, $PRIVATE | $FINAL, $field(Kinds$Kind, kindName$)},
-	{"absentKind", "Lcom/sun/tools/javac/code/Kinds$KindName;", nullptr, $PRIVATE | $FINAL, $field(Kinds$Kind, absentKind$)},
-	{"selector", "Lcom/sun/tools/javac/code/Kinds$KindSelector;", nullptr, $PRIVATE | $FINAL, $field(Kinds$Kind, selector)},
-	{"category", "Lcom/sun/tools/javac/code/Kinds$Kind$Category;", nullptr, $PRIVATE | $FINAL, $field(Kinds$Kind, category)},
-	{}
-};
-
-$MethodInfo _Kinds$Kind_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/javac/code/Kinds$Kind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Kinds$Kind, $values, $Kinds$KindArray*)},
-	{"<init>", "(Ljava/lang/String;ILcom/sun/tools/javac/code/Kinds$Kind$Category;)V", "(Lcom/sun/tools/javac/code/Kinds$Kind$Category;)V", $PRIVATE, $method(Kinds$Kind, init$, void, $String*, int32_t, $Kinds$Kind$Category*)},
-	{"<init>", "(Ljava/lang/String;ILcom/sun/tools/javac/code/Kinds$Kind$Category;Lcom/sun/tools/javac/code/Kinds$KindSelector;)V", "(Lcom/sun/tools/javac/code/Kinds$Kind$Category;Lcom/sun/tools/javac/code/Kinds$KindSelector;)V", $PRIVATE, $method(Kinds$Kind, init$, void, $String*, int32_t, $Kinds$Kind$Category*, $Kinds$KindSelector*)},
-	{"<init>", "(Ljava/lang/String;ILcom/sun/tools/javac/code/Kinds$Kind$Category;Lcom/sun/tools/javac/code/Kinds$KindName;)V", "(Lcom/sun/tools/javac/code/Kinds$Kind$Category;Lcom/sun/tools/javac/code/Kinds$KindName;)V", $PRIVATE, $method(Kinds$Kind, init$, void, $String*, int32_t, $Kinds$Kind$Category*, $Kinds$KindName*)},
-	{"<init>", "(Ljava/lang/String;ILcom/sun/tools/javac/code/Kinds$Kind$Category;Lcom/sun/tools/javac/code/Kinds$KindName;Lcom/sun/tools/javac/code/Kinds$KindSelector;)V", "(Lcom/sun/tools/javac/code/Kinds$Kind$Category;Lcom/sun/tools/javac/code/Kinds$KindName;Lcom/sun/tools/javac/code/Kinds$KindSelector;)V", $PRIVATE, $method(Kinds$Kind, init$, void, $String*, int32_t, $Kinds$Kind$Category*, $Kinds$KindName*, $Kinds$KindSelector*)},
-	{"<init>", "(Ljava/lang/String;ILcom/sun/tools/javac/code/Kinds$Kind$Category;Lcom/sun/tools/javac/code/Kinds$KindName;Lcom/sun/tools/javac/code/Kinds$KindName;Lcom/sun/tools/javac/code/Kinds$KindSelector;)V", "(Lcom/sun/tools/javac/code/Kinds$Kind$Category;Lcom/sun/tools/javac/code/Kinds$KindName;Lcom/sun/tools/javac/code/Kinds$KindName;Lcom/sun/tools/javac/code/Kinds$KindSelector;)V", $PRIVATE, $method(Kinds$Kind, init$, void, $String*, int32_t, $Kinds$Kind$Category*, $Kinds$KindName*, $Kinds$KindName*, $Kinds$KindSelector*)},
-	{"absentKind", "()Lcom/sun/tools/javac/code/Kinds$KindName;", nullptr, $PUBLIC, $method(Kinds$Kind, absentKind, $Kinds$KindName*)},
-	{"betterThan", "(Lcom/sun/tools/javac/code/Kinds$Kind;)Z", nullptr, $PUBLIC, $method(Kinds$Kind, betterThan, bool, Kinds$Kind*)},
-	{"isResolutionError", "()Z", nullptr, $PUBLIC, $method(Kinds$Kind, isResolutionError, bool)},
-	{"isResolutionTargetError", "()Z", nullptr, $PUBLIC, $method(Kinds$Kind, isResolutionTargetError, bool)},
-	{"isValid", "()Z", nullptr, $PUBLIC, $method(Kinds$Kind, isValid, bool)},
-	{"kindName", "()Lcom/sun/tools/javac/code/Kinds$KindName;", nullptr, $PUBLIC, $method(Kinds$Kind, kindName, $Kinds$KindName*)},
-	{"matches", "(Lcom/sun/tools/javac/code/Kinds$KindSelector;)Z", nullptr, $PUBLIC, $method(Kinds$Kind, matches, bool, $Kinds$KindSelector*)},
-	{"toSelector", "()Lcom/sun/tools/javac/code/Kinds$KindSelector;", nullptr, $PUBLIC, $method(Kinds$Kind, toSelector, $Kinds$KindSelector*)},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/code/Kinds$Kind;", nullptr, $PUBLIC | $STATIC, $staticMethod(Kinds$Kind, valueOf, Kinds$Kind*, $String*)},
-	{"values", "()[Lcom/sun/tools/javac/code/Kinds$Kind;", nullptr, $PUBLIC | $STATIC, $staticMethod(Kinds$Kind, values, $Kinds$KindArray*)},
-	{}
-};
-
-$InnerClassInfo _Kinds$Kind_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.code.Kinds$Kind", "com.sun.tools.javac.code.Kinds", "Kind", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{"com.sun.tools.javac.code.Kinds$Kind$Category", "com.sun.tools.javac.code.Kinds$Kind", "Category", $PRIVATE | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _Kinds$Kind_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"com.sun.tools.javac.code.Kinds$Kind",
-	"java.lang.Enum",
-	nullptr,
-	_Kinds$Kind_FieldInfo_,
-	_Kinds$Kind_MethodInfo_,
-	"Ljava/lang/Enum<Lcom/sun/tools/javac/code/Kinds$Kind;>;",
-	nullptr,
-	_Kinds$Kind_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.code.Kinds"
-};
-
-$Object* allocate$Kinds$Kind($Class* clazz) {
-	return $of($alloc(Kinds$Kind));
-}
 
 Kinds$Kind* Kinds$Kind::NIL = nullptr;
 Kinds$Kind* Kinds$Kind::PCK = nullptr;
@@ -232,7 +158,7 @@ bool Kinds$Kind::betterThan(Kinds$Kind* other) {
 
 $Kinds$KindName* Kinds$Kind::kindName() {
 	if (this->kindName$ == nullptr) {
-		$throwNew($AssertionError, $of($$str({"Unexpected kind: "_s, this})));
+		$throwNew($AssertionError, $$of($str({"Unexpected kind: "_s, this})));
 	} else {
 		return this->kindName$;
 	}
@@ -240,13 +166,13 @@ $Kinds$KindName* Kinds$Kind::kindName() {
 
 $Kinds$KindName* Kinds$Kind::absentKind() {
 	if (this->absentKind$ == nullptr) {
-		$throwNew($AssertionError, $of($$str({"Unexpected kind: "_s, this})));
+		$throwNew($AssertionError, $$of($str({"Unexpected kind: "_s, this})));
 	} else {
 		return this->absentKind$;
 	}
 }
 
-void clinit$Kinds$Kind($Class* class$) {
+void Kinds$Kind::clinit$($Class* clazz) {
 	$init($Kinds$Kind$Category);
 	$init($Kinds$KindSelector);
 	$assignStatic(Kinds$Kind::NIL, $new(Kinds$Kind, "NIL"_s, 0, $Kinds$Kind$Category::BASIC, $Kinds$KindSelector::NIL));
@@ -275,7 +201,74 @@ Kinds$Kind::Kinds$Kind() {
 }
 
 $Class* Kinds$Kind::load$($String* name, bool initialize) {
-	$loadClass(Kinds$Kind, name, initialize, &_Kinds$Kind_ClassInfo_, clinit$Kinds$Kind, allocate$Kinds$Kind);
+	$FieldInfo fieldInfos$$[] = {
+		{"NIL", "Lcom/sun/tools/javac/code/Kinds$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Kinds$Kind, NIL)},
+		{"PCK", "Lcom/sun/tools/javac/code/Kinds$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Kinds$Kind, PCK)},
+		{"TYP", "Lcom/sun/tools/javac/code/Kinds$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Kinds$Kind, TYP)},
+		{"VAR", "Lcom/sun/tools/javac/code/Kinds$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Kinds$Kind, VAR)},
+		{"MTH", "Lcom/sun/tools/javac/code/Kinds$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Kinds$Kind, MTH)},
+		{"POLY", "Lcom/sun/tools/javac/code/Kinds$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Kinds$Kind, POLY)},
+		{"MDL", "Lcom/sun/tools/javac/code/Kinds$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Kinds$Kind, MDL)},
+		{"ERR", "Lcom/sun/tools/javac/code/Kinds$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Kinds$Kind, ERR)},
+		{"AMBIGUOUS", "Lcom/sun/tools/javac/code/Kinds$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Kinds$Kind, AMBIGUOUS)},
+		{"HIDDEN", "Lcom/sun/tools/javac/code/Kinds$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Kinds$Kind, HIDDEN)},
+		{"STATICERR", "Lcom/sun/tools/javac/code/Kinds$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Kinds$Kind, STATICERR)},
+		{"MISSING_ENCL", "Lcom/sun/tools/javac/code/Kinds$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Kinds$Kind, MISSING_ENCL)},
+		{"BAD_RESTRICTED_TYPE", "Lcom/sun/tools/javac/code/Kinds$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Kinds$Kind, BAD_RESTRICTED_TYPE)},
+		{"ABSENT_VAR", "Lcom/sun/tools/javac/code/Kinds$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Kinds$Kind, ABSENT_VAR)},
+		{"WRONG_MTHS", "Lcom/sun/tools/javac/code/Kinds$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Kinds$Kind, WRONG_MTHS)},
+		{"WRONG_MTH", "Lcom/sun/tools/javac/code/Kinds$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Kinds$Kind, WRONG_MTH)},
+		{"ABSENT_MTH", "Lcom/sun/tools/javac/code/Kinds$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Kinds$Kind, ABSENT_MTH)},
+		{"ABSENT_TYP", "Lcom/sun/tools/javac/code/Kinds$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Kinds$Kind, ABSENT_TYP)},
+		{"$VALUES", "[Lcom/sun/tools/javac/code/Kinds$Kind;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(Kinds$Kind, $VALUES)},
+		{"kindName", "Lcom/sun/tools/javac/code/Kinds$KindName;", nullptr, $PRIVATE | $FINAL, $field(Kinds$Kind, kindName$)},
+		{"absentKind", "Lcom/sun/tools/javac/code/Kinds$KindName;", nullptr, $PRIVATE | $FINAL, $field(Kinds$Kind, absentKind$)},
+		{"selector", "Lcom/sun/tools/javac/code/Kinds$KindSelector;", nullptr, $PRIVATE | $FINAL, $field(Kinds$Kind, selector)},
+		{"category", "Lcom/sun/tools/javac/code/Kinds$Kind$Category;", nullptr, $PRIVATE | $FINAL, $field(Kinds$Kind, category)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lcom/sun/tools/javac/code/Kinds$Kind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Kinds$Kind, $values, $Kinds$KindArray*)},
+		{"<init>", "(Ljava/lang/String;ILcom/sun/tools/javac/code/Kinds$Kind$Category;)V", "(Lcom/sun/tools/javac/code/Kinds$Kind$Category;)V", $PRIVATE, $method(Kinds$Kind, init$, void, $String*, int32_t, $Kinds$Kind$Category*)},
+		{"<init>", "(Ljava/lang/String;ILcom/sun/tools/javac/code/Kinds$Kind$Category;Lcom/sun/tools/javac/code/Kinds$KindSelector;)V", "(Lcom/sun/tools/javac/code/Kinds$Kind$Category;Lcom/sun/tools/javac/code/Kinds$KindSelector;)V", $PRIVATE, $method(Kinds$Kind, init$, void, $String*, int32_t, $Kinds$Kind$Category*, $Kinds$KindSelector*)},
+		{"<init>", "(Ljava/lang/String;ILcom/sun/tools/javac/code/Kinds$Kind$Category;Lcom/sun/tools/javac/code/Kinds$KindName;)V", "(Lcom/sun/tools/javac/code/Kinds$Kind$Category;Lcom/sun/tools/javac/code/Kinds$KindName;)V", $PRIVATE, $method(Kinds$Kind, init$, void, $String*, int32_t, $Kinds$Kind$Category*, $Kinds$KindName*)},
+		{"<init>", "(Ljava/lang/String;ILcom/sun/tools/javac/code/Kinds$Kind$Category;Lcom/sun/tools/javac/code/Kinds$KindName;Lcom/sun/tools/javac/code/Kinds$KindSelector;)V", "(Lcom/sun/tools/javac/code/Kinds$Kind$Category;Lcom/sun/tools/javac/code/Kinds$KindName;Lcom/sun/tools/javac/code/Kinds$KindSelector;)V", $PRIVATE, $method(Kinds$Kind, init$, void, $String*, int32_t, $Kinds$Kind$Category*, $Kinds$KindName*, $Kinds$KindSelector*)},
+		{"<init>", "(Ljava/lang/String;ILcom/sun/tools/javac/code/Kinds$Kind$Category;Lcom/sun/tools/javac/code/Kinds$KindName;Lcom/sun/tools/javac/code/Kinds$KindName;Lcom/sun/tools/javac/code/Kinds$KindSelector;)V", "(Lcom/sun/tools/javac/code/Kinds$Kind$Category;Lcom/sun/tools/javac/code/Kinds$KindName;Lcom/sun/tools/javac/code/Kinds$KindName;Lcom/sun/tools/javac/code/Kinds$KindSelector;)V", $PRIVATE, $method(Kinds$Kind, init$, void, $String*, int32_t, $Kinds$Kind$Category*, $Kinds$KindName*, $Kinds$KindName*, $Kinds$KindSelector*)},
+		{"absentKind", "()Lcom/sun/tools/javac/code/Kinds$KindName;", nullptr, $PUBLIC, $method(Kinds$Kind, absentKind, $Kinds$KindName*)},
+		{"betterThan", "(Lcom/sun/tools/javac/code/Kinds$Kind;)Z", nullptr, $PUBLIC, $method(Kinds$Kind, betterThan, bool, Kinds$Kind*)},
+		{"isResolutionError", "()Z", nullptr, $PUBLIC, $method(Kinds$Kind, isResolutionError, bool)},
+		{"isResolutionTargetError", "()Z", nullptr, $PUBLIC, $method(Kinds$Kind, isResolutionTargetError, bool)},
+		{"isValid", "()Z", nullptr, $PUBLIC, $method(Kinds$Kind, isValid, bool)},
+		{"kindName", "()Lcom/sun/tools/javac/code/Kinds$KindName;", nullptr, $PUBLIC, $method(Kinds$Kind, kindName, $Kinds$KindName*)},
+		{"matches", "(Lcom/sun/tools/javac/code/Kinds$KindSelector;)Z", nullptr, $PUBLIC, $method(Kinds$Kind, matches, bool, $Kinds$KindSelector*)},
+		{"toSelector", "()Lcom/sun/tools/javac/code/Kinds$KindSelector;", nullptr, $PUBLIC, $method(Kinds$Kind, toSelector, $Kinds$KindSelector*)},
+		{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/code/Kinds$Kind;", nullptr, $PUBLIC | $STATIC, $staticMethod(Kinds$Kind, valueOf, Kinds$Kind*, $String*)},
+		{"values", "()[Lcom/sun/tools/javac/code/Kinds$Kind;", nullptr, $PUBLIC | $STATIC, $staticMethod(Kinds$Kind, values, $Kinds$KindArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.code.Kinds$Kind", "com.sun.tools.javac.code.Kinds", "Kind", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{"com.sun.tools.javac.code.Kinds$Kind$Category", "com.sun.tools.javac.code.Kinds$Kind", "Category", $PRIVATE | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"com.sun.tools.javac.code.Kinds$Kind",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lcom/sun/tools/javac/code/Kinds$Kind;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.code.Kinds"
+	};
+	$loadClass(Kinds$Kind, name, initialize, &classInfo$$, Kinds$Kind::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Kinds$Kind));
+	});
 	return class$;
 }
 

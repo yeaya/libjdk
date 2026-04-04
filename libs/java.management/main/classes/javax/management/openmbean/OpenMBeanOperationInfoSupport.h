@@ -52,7 +52,7 @@ public:
 	virtual int32_t hashCode() override;
 	$Object* readResolve();
 	virtual $String* toString() override;
-	static const int64_t serialVersionUID = (int64_t)0x45586973C8032216;
+	static const int64_t serialVersionUID = (int64_t)0x45586973c8032216;
 	::javax::management::openmbean::OpenType* returnOpenType = nullptr;
 	::java::lang::Integer* myHashCode = nullptr;
 	$String* myToString = nullptr;

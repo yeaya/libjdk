@@ -1,5 +1,4 @@
 #include <sun/java2d/marlin/stats/Monitor.h>
-
 #include <sun/java2d/marlin/stats/StatLong.h>
 #include <jcpp.h>
 
@@ -15,32 +14,6 @@ namespace sun {
 		namespace marlin {
 			namespace stats {
 
-$FieldInfo _Monitor_FieldInfo_[] = {
-	{"INVALID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Monitor, INVALID)},
-	{"start", "J", nullptr, $PRIVATE, $field(Monitor, start$)},
-	{}
-};
-
-$MethodInfo _Monitor_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Monitor, init$, void, $String*)},
-	{"start", "()V", nullptr, $PUBLIC, $method(Monitor, start, void)},
-	{"stop", "()V", nullptr, $PUBLIC, $method(Monitor, stop, void)},
-	{}
-};
-
-$ClassInfo _Monitor_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.java2d.marlin.stats.Monitor",
-	"sun.java2d.marlin.stats.StatLong",
-	nullptr,
-	_Monitor_FieldInfo_,
-	_Monitor_MethodInfo_
-};
-
-$Object* allocate$Monitor($Class* clazz) {
-	return $of($alloc(Monitor));
-}
-
 void Monitor::init$($String* name) {
 	$StatLong::init$(name);
 	this->start$ = Monitor::INVALID;
@@ -52,7 +25,7 @@ void Monitor::start() {
 
 void Monitor::stop() {
 	int64_t elapsed = $System::nanoTime() - this->start$;
-	if (this->start$ != Monitor::INVALID && elapsed > (int64_t)0) {
+	if (this->start$ != Monitor::INVALID && elapsed > 0) {
 		add(elapsed);
 	}
 	this->start$ = Monitor::INVALID;
@@ -62,7 +35,28 @@ Monitor::Monitor() {
 }
 
 $Class* Monitor::load$($String* name, bool initialize) {
-	$loadClass(Monitor, name, initialize, &_Monitor_ClassInfo_, allocate$Monitor);
+	$FieldInfo fieldInfos$$[] = {
+		{"INVALID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Monitor, INVALID)},
+		{"start", "J", nullptr, $PRIVATE, $field(Monitor, start$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Monitor, init$, void, $String*)},
+		{"start", "()V", nullptr, $PUBLIC, $method(Monitor, start, void)},
+		{"stop", "()V", nullptr, $PUBLIC, $method(Monitor, stop, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.java2d.marlin.stats.Monitor",
+		"sun.java2d.marlin.stats.StatLong",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Monitor, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Monitor);
+	});
 	return class$;
 }
 

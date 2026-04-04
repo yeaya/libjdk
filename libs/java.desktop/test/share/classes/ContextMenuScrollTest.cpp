@@ -1,5 +1,4 @@
 #include <ContextMenuScrollTest.h>
-
 #include <ContextMenuScrollTest$1.h>
 #include <ContextMenuScrollTest$2.h>
 #include <ContextMenuScrollTest$3.h>
@@ -12,7 +11,6 @@
 #include <java/awt/Point.h>
 #include <java/awt/Robot.h>
 #include <java/awt/Window.h>
-#include <java/awt/event/ActionListener.h>
 #include <java/awt/event/InputEvent.h>
 #include <java/awt/event/KeyEvent.h>
 #include <java/io/Serializable.h>
@@ -46,10 +44,8 @@ using $Component = ::java::awt::Component;
 using $Dimension = ::java::awt::Dimension;
 using $Point = ::java::awt::Point;
 using $Robot = ::java::awt::Robot;
-using $ActionListener = ::java::awt::event::ActionListener;
 using $InputEvent = ::java::awt::event::InputEvent;
 using $KeyEvent = ::java::awt::event::KeyEvent;
-using $PrintStream = ::java::io::PrintStream;
 using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -75,27 +71,24 @@ public:
 	virtual void run() override {
 		ContextMenuScrollTest::lambda$main$0();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<ContextMenuScrollTest$$Lambda$lambda$main$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo ContextMenuScrollTest$$Lambda$lambda$main$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ContextMenuScrollTest$$Lambda$lambda$main$0, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(ContextMenuScrollTest$$Lambda$lambda$main$0, run, void)},
-	{}
-};
-$ClassInfo ContextMenuScrollTest$$Lambda$lambda$main$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"ContextMenuScrollTest$$Lambda$lambda$main$0",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* ContextMenuScrollTest$$Lambda$lambda$main$0::load$($String* name, bool initialize) {
-	$loadClass(ContextMenuScrollTest$$Lambda$lambda$main$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ContextMenuScrollTest$$Lambda$lambda$main$0, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(ContextMenuScrollTest$$Lambda$lambda$main$0, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"ContextMenuScrollTest$$Lambda$lambda$main$0",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ContextMenuScrollTest$$Lambda$lambda$main$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ContextMenuScrollTest$$Lambda$lambda$main$0);
+	});
 	return class$;
 }
 $Class* ContextMenuScrollTest$$Lambda$lambda$main$0::class$ = nullptr;
@@ -108,27 +101,24 @@ public:
 	virtual void run() override {
 		ContextMenuScrollTest::lambda$main$1();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<ContextMenuScrollTest$$Lambda$lambda$main$1$1>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo ContextMenuScrollTest$$Lambda$lambda$main$1$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ContextMenuScrollTest$$Lambda$lambda$main$1$1, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(ContextMenuScrollTest$$Lambda$lambda$main$1$1, run, void)},
-	{}
-};
-$ClassInfo ContextMenuScrollTest$$Lambda$lambda$main$1$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"ContextMenuScrollTest$$Lambda$lambda$main$1$1",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* ContextMenuScrollTest$$Lambda$lambda$main$1$1::load$($String* name, bool initialize) {
-	$loadClass(ContextMenuScrollTest$$Lambda$lambda$main$1$1, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ContextMenuScrollTest$$Lambda$lambda$main$1$1, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(ContextMenuScrollTest$$Lambda$lambda$main$1$1, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"ContextMenuScrollTest$$Lambda$lambda$main$1$1",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ContextMenuScrollTest$$Lambda$lambda$main$1$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ContextMenuScrollTest$$Lambda$lambda$main$1$1);
+	});
 	return class$;
 }
 $Class* ContextMenuScrollTest$$Lambda$lambda$main$1$1::class$ = nullptr;
@@ -141,27 +131,24 @@ public:
 	virtual void run() override {
 		ContextMenuScrollTest::lambda$main$2();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<ContextMenuScrollTest$$Lambda$lambda$main$2$2>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo ContextMenuScrollTest$$Lambda$lambda$main$2$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ContextMenuScrollTest$$Lambda$lambda$main$2$2, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(ContextMenuScrollTest$$Lambda$lambda$main$2$2, run, void)},
-	{}
-};
-$ClassInfo ContextMenuScrollTest$$Lambda$lambda$main$2$2::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"ContextMenuScrollTest$$Lambda$lambda$main$2$2",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* ContextMenuScrollTest$$Lambda$lambda$main$2$2::load$($String* name, bool initialize) {
-	$loadClass(ContextMenuScrollTest$$Lambda$lambda$main$2$2, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ContextMenuScrollTest$$Lambda$lambda$main$2$2, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(ContextMenuScrollTest$$Lambda$lambda$main$2$2, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"ContextMenuScrollTest$$Lambda$lambda$main$2$2",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ContextMenuScrollTest$$Lambda$lambda$main$2$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ContextMenuScrollTest$$Lambda$lambda$main$2$2);
+	});
 	return class$;
 }
 $Class* ContextMenuScrollTest$$Lambda$lambda$main$2$2::class$ = nullptr;
@@ -174,81 +161,27 @@ public:
 	virtual void run() override {
 		ContextMenuScrollTest::lambda$main$3();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<ContextMenuScrollTest$$Lambda$lambda$main$3$3>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo ContextMenuScrollTest$$Lambda$lambda$main$3$3::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ContextMenuScrollTest$$Lambda$lambda$main$3$3, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(ContextMenuScrollTest$$Lambda$lambda$main$3$3, run, void)},
-	{}
-};
-$ClassInfo ContextMenuScrollTest$$Lambda$lambda$main$3$3::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"ContextMenuScrollTest$$Lambda$lambda$main$3$3",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* ContextMenuScrollTest$$Lambda$lambda$main$3$3::load$($String* name, bool initialize) {
-	$loadClass(ContextMenuScrollTest$$Lambda$lambda$main$3$3, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ContextMenuScrollTest$$Lambda$lambda$main$3$3, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(ContextMenuScrollTest$$Lambda$lambda$main$3$3, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"ContextMenuScrollTest$$Lambda$lambda$main$3$3",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ContextMenuScrollTest$$Lambda$lambda$main$3$3, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ContextMenuScrollTest$$Lambda$lambda$main$3$3);
+	});
 	return class$;
 }
 $Class* ContextMenuScrollTest$$Lambda$lambda$main$3$3::class$ = nullptr;
-
-$FieldInfo _ContextMenuScrollTest_FieldInfo_[] = {
-	{"robot", "Ljava/awt/Robot;", nullptr, $PRIVATE | $STATIC, $staticField(ContextMenuScrollTest, robot)},
-	{"frame", "Ljavax/swing/JFrame;", nullptr, $PRIVATE | $STATIC, $staticField(ContextMenuScrollTest, frame)},
-	{"menu", "Ljavax/swing/JMenu;", nullptr, $PRIVATE | $STATIC, $staticField(ContextMenuScrollTest, menu)},
-	{"p", "Ljava/awt/Point;", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(ContextMenuScrollTest, p)},
-	{"d", "Ljava/awt/Dimension;", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(ContextMenuScrollTest, d)},
-	{"popupVisible", "Z", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(ContextMenuScrollTest, popupVisible)},
-	{}
-};
-
-$MethodInfo _ContextMenuScrollTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ContextMenuScrollTest, init$, void)},
-	{"createGUI", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(ContextMenuScrollTest, createGUI, void)},
-	{"lambda$main$0", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ContextMenuScrollTest, lambda$main$0, void)},
-	{"lambda$main$1", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ContextMenuScrollTest, lambda$main$1, void)},
-	{"lambda$main$2", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ContextMenuScrollTest, lambda$main$2, void)},
-	{"lambda$main$3", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ContextMenuScrollTest, lambda$main$3, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ContextMenuScrollTest, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$InnerClassInfo _ContextMenuScrollTest_InnerClassesInfo_[] = {
-	{"ContextMenuScrollTest$7", nullptr, nullptr, 0},
-	{"ContextMenuScrollTest$6", nullptr, nullptr, 0},
-	{"ContextMenuScrollTest$5", nullptr, nullptr, 0},
-	{"ContextMenuScrollTest$4", nullptr, nullptr, 0},
-	{"ContextMenuScrollTest$3", nullptr, nullptr, 0},
-	{"ContextMenuScrollTest$2", nullptr, nullptr, 0},
-	{"ContextMenuScrollTest$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _ContextMenuScrollTest_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"ContextMenuScrollTest",
-	"javax.swing.JPopupMenu",
-	nullptr,
-	_ContextMenuScrollTest_FieldInfo_,
-	_ContextMenuScrollTest_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ContextMenuScrollTest_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"ContextMenuScrollTest$7,ContextMenuScrollTest$6,ContextMenuScrollTest$5,ContextMenuScrollTest$4,ContextMenuScrollTest$3,ContextMenuScrollTest$2,ContextMenuScrollTest$1"
-};
-
-$Object* allocate$ContextMenuScrollTest($Class* clazz) {
-	return $of($alloc(ContextMenuScrollTest));
-}
 
 $Robot* ContextMenuScrollTest::robot = nullptr;
 $JFrame* ContextMenuScrollTest::frame = nullptr;
@@ -263,42 +196,40 @@ void ContextMenuScrollTest::init$() {
 
 void ContextMenuScrollTest::main($StringArray* args) {
 	$init(ContextMenuScrollTest);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$assignStatic(ContextMenuScrollTest::robot, $new($Robot));
-	$nc(ContextMenuScrollTest::robot)->setAutoDelay(100);
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(ContextMenuScrollTest$$Lambda$lambda$main$0)));
-			$nc(ContextMenuScrollTest::robot)->waitForIdle();
-			$nc(ContextMenuScrollTest::robot)->delay(1000);
-			$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(ContextMenuScrollTest$$Lambda$lambda$main$1$1)));
-			$nc($System::out)->println($$str({"p "_s, ContextMenuScrollTest::p, " d "_s, ContextMenuScrollTest::d}));
-			$nc(ContextMenuScrollTest::robot)->mouseMove($nc(ContextMenuScrollTest::p)->x + $nc(ContextMenuScrollTest::d)->width / 2, $nc(ContextMenuScrollTest::p)->y + $nc(ContextMenuScrollTest::d)->height / 2);
-			$nc(ContextMenuScrollTest::robot)->mousePress($InputEvent::BUTTON1_DOWN_MASK);
-			$nc(ContextMenuScrollTest::robot)->mouseRelease($InputEvent::BUTTON1_DOWN_MASK);
-			$nc(ContextMenuScrollTest::robot)->waitForIdle();
-			$nc(ContextMenuScrollTest::robot)->delay(1000);
-			$nc(ContextMenuScrollTest::robot)->mouseWheel(1);
-			$nc(ContextMenuScrollTest::robot)->waitForIdle();
-			$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(ContextMenuScrollTest$$Lambda$lambda$main$2$2)));
-			if (!ContextMenuScrollTest::popupVisible) {
-				$throwNew($RuntimeException, "Popup closes on mouse scroll"_s);
-			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(ContextMenuScrollTest$$Lambda$lambda$main$3$3)));
+	ContextMenuScrollTest::robot->setAutoDelay(100);
+	$var($Throwable, var$0, nullptr);
+	try {
+		$SwingUtilities::invokeAndWait($$new(ContextMenuScrollTest$$Lambda$lambda$main$0));
+		$nc(ContextMenuScrollTest::robot)->waitForIdle();
+		$nc(ContextMenuScrollTest::robot)->delay(1000);
+		$SwingUtilities::invokeAndWait($$new(ContextMenuScrollTest$$Lambda$lambda$main$1$1));
+		$nc($System::out)->println($$str({"p "_s, ContextMenuScrollTest::p, " d "_s, ContextMenuScrollTest::d}));
+		$nc(ContextMenuScrollTest::robot)->mouseMove($nc(ContextMenuScrollTest::p)->x + $nc(ContextMenuScrollTest::d)->width / 2, $nc(ContextMenuScrollTest::p)->y + $nc(ContextMenuScrollTest::d)->height / 2);
+		$nc(ContextMenuScrollTest::robot)->mousePress($InputEvent::BUTTON1_DOWN_MASK);
+		$nc(ContextMenuScrollTest::robot)->mouseRelease($InputEvent::BUTTON1_DOWN_MASK);
+		$nc(ContextMenuScrollTest::robot)->waitForIdle();
+		$nc(ContextMenuScrollTest::robot)->delay(1000);
+		$nc(ContextMenuScrollTest::robot)->mouseWheel(1);
+		$nc(ContextMenuScrollTest::robot)->waitForIdle();
+		$SwingUtilities::invokeAndWait($$new(ContextMenuScrollTest$$Lambda$lambda$main$2$2));
+		if (!ContextMenuScrollTest::popupVisible) {
+			$throwNew($RuntimeException, "Popup closes on mouse scroll"_s);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$SwingUtilities::invokeAndWait($$new(ContextMenuScrollTest$$Lambda$lambda$main$3$3));
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 void ContextMenuScrollTest::createGUI() {
 	$init(ContextMenuScrollTest);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$assignStatic(ContextMenuScrollTest::frame, $new($JFrame));
 	$var($JMenuBar, menuBar, $new($JMenuBar));
 	$assignStatic(ContextMenuScrollTest::menu, $new($JMenu, "Menu"_s));
@@ -313,7 +244,7 @@ void ContextMenuScrollTest::createGUI() {
 	redo->setAccelerator($($KeyStroke::getKeyStroke("control Y"_s)));
 	redo->addActionListener($$new($ContextMenuScrollTest$2));
 	$nc(ContextMenuScrollTest::menu)->add(redo);
-	$nc(ContextMenuScrollTest::menu)->add(static_cast<$Component*>($$new($JSeparator)));
+	$nc(ContextMenuScrollTest::menu)->add($$new($JSeparator));
 	$var($JMenuItem, cut, $new($JMenuItem, "Cut"_s));
 	cut->setEnabled(false);
 	cut->setAccelerator($($KeyStroke::getKeyStroke("control X"_s)));
@@ -334,7 +265,7 @@ void ContextMenuScrollTest::createGUI() {
 	delete$->setAccelerator($($KeyStroke::getKeyStroke($KeyEvent::VK_DELETE, 0)));
 	delete$->addActionListener($$new($ContextMenuScrollTest$6));
 	$nc(ContextMenuScrollTest::menu)->add(delete$);
-	$nc(ContextMenuScrollTest::menu)->add(static_cast<$Component*>($$new($JSeparator)));
+	$nc(ContextMenuScrollTest::menu)->add($$new($JSeparator));
 	$var($JMenuItem, selectAll, $new($JMenuItem, "Select All"_s));
 	selectAll->setEnabled(false);
 	selectAll->setAccelerator($($KeyStroke::getKeyStroke("control A"_s)));
@@ -367,7 +298,7 @@ void ContextMenuScrollTest::lambda$main$0() {
 	createGUI();
 }
 
-void clinit$ContextMenuScrollTest($Class* class$) {
+void ContextMenuScrollTest::clinit$($Class* clazz) {
 	$assignStatic(ContextMenuScrollTest::p, nullptr);
 	$assignStatic(ContextMenuScrollTest::d, nullptr);
 	ContextMenuScrollTest::popupVisible = false;
@@ -378,20 +309,65 @@ ContextMenuScrollTest::ContextMenuScrollTest() {
 
 $Class* ContextMenuScrollTest::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(ContextMenuScrollTest$$Lambda$lambda$main$0::classInfo$.name)) {
+		if (name->equals("ContextMenuScrollTest$$Lambda$lambda$main$0")) {
 			return ContextMenuScrollTest$$Lambda$lambda$main$0::load$(name, initialize);
 		}
-		if (name->equals(ContextMenuScrollTest$$Lambda$lambda$main$1$1::classInfo$.name)) {
+		if (name->equals("ContextMenuScrollTest$$Lambda$lambda$main$1$1")) {
 			return ContextMenuScrollTest$$Lambda$lambda$main$1$1::load$(name, initialize);
 		}
-		if (name->equals(ContextMenuScrollTest$$Lambda$lambda$main$2$2::classInfo$.name)) {
+		if (name->equals("ContextMenuScrollTest$$Lambda$lambda$main$2$2")) {
 			return ContextMenuScrollTest$$Lambda$lambda$main$2$2::load$(name, initialize);
 		}
-		if (name->equals(ContextMenuScrollTest$$Lambda$lambda$main$3$3::classInfo$.name)) {
+		if (name->equals("ContextMenuScrollTest$$Lambda$lambda$main$3$3")) {
 			return ContextMenuScrollTest$$Lambda$lambda$main$3$3::load$(name, initialize);
 		}
 	}
-	$loadClass(ContextMenuScrollTest, name, initialize, &_ContextMenuScrollTest_ClassInfo_, clinit$ContextMenuScrollTest, allocate$ContextMenuScrollTest);
+	$FieldInfo fieldInfos$$[] = {
+		{"robot", "Ljava/awt/Robot;", nullptr, $PRIVATE | $STATIC, $staticField(ContextMenuScrollTest, robot)},
+		{"frame", "Ljavax/swing/JFrame;", nullptr, $PRIVATE | $STATIC, $staticField(ContextMenuScrollTest, frame)},
+		{"menu", "Ljavax/swing/JMenu;", nullptr, $PRIVATE | $STATIC, $staticField(ContextMenuScrollTest, menu)},
+		{"p", "Ljava/awt/Point;", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(ContextMenuScrollTest, p)},
+		{"d", "Ljava/awt/Dimension;", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(ContextMenuScrollTest, d)},
+		{"popupVisible", "Z", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(ContextMenuScrollTest, popupVisible)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ContextMenuScrollTest, init$, void)},
+		{"createGUI", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(ContextMenuScrollTest, createGUI, void)},
+		{"lambda$main$0", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ContextMenuScrollTest, lambda$main$0, void)},
+		{"lambda$main$1", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ContextMenuScrollTest, lambda$main$1, void)},
+		{"lambda$main$2", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ContextMenuScrollTest, lambda$main$2, void)},
+		{"lambda$main$3", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ContextMenuScrollTest, lambda$main$3, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ContextMenuScrollTest, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"ContextMenuScrollTest$7", nullptr, nullptr, 0},
+		{"ContextMenuScrollTest$6", nullptr, nullptr, 0},
+		{"ContextMenuScrollTest$5", nullptr, nullptr, 0},
+		{"ContextMenuScrollTest$4", nullptr, nullptr, 0},
+		{"ContextMenuScrollTest$3", nullptr, nullptr, 0},
+		{"ContextMenuScrollTest$2", nullptr, nullptr, 0},
+		{"ContextMenuScrollTest$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"ContextMenuScrollTest",
+		"javax.swing.JPopupMenu",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"ContextMenuScrollTest$7,ContextMenuScrollTest$6,ContextMenuScrollTest$5,ContextMenuScrollTest$4,ContextMenuScrollTest$3,ContextMenuScrollTest$2,ContextMenuScrollTest$1"
+	};
+	$loadClass(ContextMenuScrollTest, name, initialize, &classInfo$$, ContextMenuScrollTest::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ContextMenuScrollTest));
+	});
 	return class$;
 }
 

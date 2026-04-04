@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/impl/xs/models/XSCMRepeatingLeaf.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/xs/models/XSCMLeaf.h>
 #include <jcpp.h>
 
@@ -17,32 +16,6 @@ namespace com {
 						namespace impl {
 							namespace xs {
 								namespace models {
-
-$FieldInfo _XSCMRepeatingLeaf_FieldInfo_[] = {
-	{"fMinOccurs", "I", nullptr, $PRIVATE | $FINAL, $field(XSCMRepeatingLeaf, fMinOccurs)},
-	{"fMaxOccurs", "I", nullptr, $PRIVATE | $FINAL, $field(XSCMRepeatingLeaf, fMaxOccurs)},
-	{}
-};
-
-$MethodInfo _XSCMRepeatingLeaf_MethodInfo_[] = {
-	{"<init>", "(ILjava/lang/Object;IIII)V", nullptr, $PUBLIC, $method(XSCMRepeatingLeaf, init$, void, int32_t, Object$*, int32_t, int32_t, int32_t, int32_t)},
-	{"getMaxOccurs", "()I", nullptr, $FINAL, $method(XSCMRepeatingLeaf, getMaxOccurs, int32_t)},
-	{"getMinOccurs", "()I", nullptr, $FINAL, $method(XSCMRepeatingLeaf, getMinOccurs, int32_t)},
-	{}
-};
-
-$ClassInfo _XSCMRepeatingLeaf_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.impl.xs.models.XSCMRepeatingLeaf",
-	"com.sun.org.apache.xerces.internal.impl.xs.models.XSCMLeaf",
-	nullptr,
-	_XSCMRepeatingLeaf_FieldInfo_,
-	_XSCMRepeatingLeaf_MethodInfo_
-};
-
-$Object* allocate$XSCMRepeatingLeaf($Class* clazz) {
-	return $of($alloc(XSCMRepeatingLeaf));
-}
 
 void XSCMRepeatingLeaf::init$(int32_t type, Object$* leaf, int32_t minOccurs, int32_t maxOccurs, int32_t id, int32_t position) {
 	$XSCMLeaf::init$(type, leaf, id, position);
@@ -62,7 +35,28 @@ XSCMRepeatingLeaf::XSCMRepeatingLeaf() {
 }
 
 $Class* XSCMRepeatingLeaf::load$($String* name, bool initialize) {
-	$loadClass(XSCMRepeatingLeaf, name, initialize, &_XSCMRepeatingLeaf_ClassInfo_, allocate$XSCMRepeatingLeaf);
+	$FieldInfo fieldInfos$$[] = {
+		{"fMinOccurs", "I", nullptr, $PRIVATE | $FINAL, $field(XSCMRepeatingLeaf, fMinOccurs)},
+		{"fMaxOccurs", "I", nullptr, $PRIVATE | $FINAL, $field(XSCMRepeatingLeaf, fMaxOccurs)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(ILjava/lang/Object;IIII)V", nullptr, $PUBLIC, $method(XSCMRepeatingLeaf, init$, void, int32_t, Object$*, int32_t, int32_t, int32_t, int32_t)},
+		{"getMaxOccurs", "()I", nullptr, $FINAL, $method(XSCMRepeatingLeaf, getMaxOccurs, int32_t)},
+		{"getMinOccurs", "()I", nullptr, $FINAL, $method(XSCMRepeatingLeaf, getMinOccurs, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.impl.xs.models.XSCMRepeatingLeaf",
+		"com.sun.org.apache.xerces.internal.impl.xs.models.XSCMLeaf",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XSCMRepeatingLeaf, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XSCMRepeatingLeaf);
+	});
 	return class$;
 }
 

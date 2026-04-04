@@ -1,5 +1,4 @@
 #include <sun/lwawt/macosx/CWarningWindow$Lock.h>
-
 #include <sun/lwawt/macosx/CWarningWindow.h>
 #include <jcpp.h>
 
@@ -11,36 +10,6 @@ namespace sun {
 	namespace lwawt {
 		namespace macosx {
 
-$MethodInfo _CWarningWindow$Lock_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(CWarningWindow$Lock, init$, void)},
-	{}
-};
-
-$InnerClassInfo _CWarningWindow$Lock_InnerClassesInfo_[] = {
-	{"sun.lwawt.macosx.CWarningWindow$Lock", "sun.lwawt.macosx.CWarningWindow", "Lock", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _CWarningWindow$Lock_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.lwawt.macosx.CWarningWindow$Lock",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_CWarningWindow$Lock_MethodInfo_,
-	nullptr,
-	nullptr,
-	_CWarningWindow$Lock_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.lwawt.macosx.CWarningWindow"
-};
-
-$Object* allocate$CWarningWindow$Lock($Class* clazz) {
-	return $of($alloc(CWarningWindow$Lock));
-}
-
 void CWarningWindow$Lock::init$() {
 }
 
@@ -48,7 +17,32 @@ CWarningWindow$Lock::CWarningWindow$Lock() {
 }
 
 $Class* CWarningWindow$Lock::load$($String* name, bool initialize) {
-	$loadClass(CWarningWindow$Lock, name, initialize, &_CWarningWindow$Lock_ClassInfo_, allocate$CWarningWindow$Lock);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(CWarningWindow$Lock, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.lwawt.macosx.CWarningWindow$Lock", "sun.lwawt.macosx.CWarningWindow", "Lock", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.lwawt.macosx.CWarningWindow$Lock",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.lwawt.macosx.CWarningWindow"
+	};
+	$loadClass(CWarningWindow$Lock, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CWarningWindow$Lock);
+	});
 	return class$;
 }
 

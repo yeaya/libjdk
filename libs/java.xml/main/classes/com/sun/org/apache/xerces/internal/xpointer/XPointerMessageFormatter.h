@@ -28,6 +28,7 @@ class XPointerMessageFormatter : public ::com::sun::org::apache::xerces::interna
 	$class(XPointerMessageFormatter, 0, ::com::sun::org::apache::xerces::internal::util::MessageFormatter)
 public:
 	XPointerMessageFormatter();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual $String* formatMessage(::java::util::Locale* locale, $String* key, $ObjectArray* arguments) override;
 	static $String* XPOINTER_DOMAIN;

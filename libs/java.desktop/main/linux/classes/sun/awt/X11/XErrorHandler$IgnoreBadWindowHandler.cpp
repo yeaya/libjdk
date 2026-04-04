@@ -1,5 +1,4 @@
 #include <sun/awt/X11/XErrorHandler$IgnoreBadWindowHandler.h>
-
 #include <sun/awt/X11/XConstants.h>
 #include <sun/awt/X11/XErrorEvent.h>
 #include <sun/awt/X11/XErrorHandler$XBaseErrorHandler.h>
@@ -17,44 +16,6 @@ using $XErrorHandler$XBaseErrorHandler = ::sun::awt::X11::XErrorHandler$XBaseErr
 namespace sun {
 	namespace awt {
 		namespace X11 {
-
-$FieldInfo _XErrorHandler$IgnoreBadWindowHandler_FieldInfo_[] = {
-	{"theInstance", "Lsun/awt/X11/XErrorHandler$IgnoreBadWindowHandler;", nullptr, $PRIVATE | $STATIC, $staticField(XErrorHandler$IgnoreBadWindowHandler, theInstance)},
-	{}
-};
-
-$MethodInfo _XErrorHandler$IgnoreBadWindowHandler_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(XErrorHandler$IgnoreBadWindowHandler, init$, void)},
-	{"getInstance", "()Lsun/awt/X11/XErrorHandler$IgnoreBadWindowHandler;", nullptr, $PUBLIC | $STATIC, $staticMethod(XErrorHandler$IgnoreBadWindowHandler, getInstance, XErrorHandler$IgnoreBadWindowHandler*)},
-	{"handleError", "(JLsun/awt/X11/XErrorEvent;)I", nullptr, $PUBLIC, $virtualMethod(XErrorHandler$IgnoreBadWindowHandler, handleError, int32_t, int64_t, $XErrorEvent*)},
-	{}
-};
-
-$InnerClassInfo _XErrorHandler$IgnoreBadWindowHandler_InnerClassesInfo_[] = {
-	{"sun.awt.X11.XErrorHandler$IgnoreBadWindowHandler", "sun.awt.X11.XErrorHandler", "IgnoreBadWindowHandler", $PUBLIC | $STATIC},
-	{"sun.awt.X11.XErrorHandler$XBaseErrorHandler", "sun.awt.X11.XErrorHandler", "XBaseErrorHandler", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _XErrorHandler$IgnoreBadWindowHandler_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.awt.X11.XErrorHandler$IgnoreBadWindowHandler",
-	"sun.awt.X11.XErrorHandler$XBaseErrorHandler",
-	nullptr,
-	_XErrorHandler$IgnoreBadWindowHandler_FieldInfo_,
-	_XErrorHandler$IgnoreBadWindowHandler_MethodInfo_,
-	nullptr,
-	nullptr,
-	_XErrorHandler$IgnoreBadWindowHandler_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.awt.X11.XErrorHandler"
-};
-
-$Object* allocate$XErrorHandler$IgnoreBadWindowHandler($Class* clazz) {
-	return $of($alloc(XErrorHandler$IgnoreBadWindowHandler));
-}
 
 XErrorHandler$IgnoreBadWindowHandler* XErrorHandler$IgnoreBadWindowHandler::theInstance = nullptr;
 
@@ -74,7 +35,7 @@ XErrorHandler$IgnoreBadWindowHandler* XErrorHandler$IgnoreBadWindowHandler::getI
 	return XErrorHandler$IgnoreBadWindowHandler::theInstance;
 }
 
-void clinit$XErrorHandler$IgnoreBadWindowHandler($Class* class$) {
+void XErrorHandler$IgnoreBadWindowHandler::clinit$($Class* clazz) {
 	$assignStatic(XErrorHandler$IgnoreBadWindowHandler::theInstance, $new(XErrorHandler$IgnoreBadWindowHandler));
 }
 
@@ -82,7 +43,39 @@ XErrorHandler$IgnoreBadWindowHandler::XErrorHandler$IgnoreBadWindowHandler() {
 }
 
 $Class* XErrorHandler$IgnoreBadWindowHandler::load$($String* name, bool initialize) {
-	$loadClass(XErrorHandler$IgnoreBadWindowHandler, name, initialize, &_XErrorHandler$IgnoreBadWindowHandler_ClassInfo_, clinit$XErrorHandler$IgnoreBadWindowHandler, allocate$XErrorHandler$IgnoreBadWindowHandler);
+	$FieldInfo fieldInfos$$[] = {
+		{"theInstance", "Lsun/awt/X11/XErrorHandler$IgnoreBadWindowHandler;", nullptr, $PRIVATE | $STATIC, $staticField(XErrorHandler$IgnoreBadWindowHandler, theInstance)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(XErrorHandler$IgnoreBadWindowHandler, init$, void)},
+		{"getInstance", "()Lsun/awt/X11/XErrorHandler$IgnoreBadWindowHandler;", nullptr, $PUBLIC | $STATIC, $staticMethod(XErrorHandler$IgnoreBadWindowHandler, getInstance, XErrorHandler$IgnoreBadWindowHandler*)},
+		{"handleError", "(JLsun/awt/X11/XErrorEvent;)I", nullptr, $PUBLIC, $virtualMethod(XErrorHandler$IgnoreBadWindowHandler, handleError, int32_t, int64_t, $XErrorEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.X11.XErrorHandler$IgnoreBadWindowHandler", "sun.awt.X11.XErrorHandler", "IgnoreBadWindowHandler", $PUBLIC | $STATIC},
+		{"sun.awt.X11.XErrorHandler$XBaseErrorHandler", "sun.awt.X11.XErrorHandler", "XBaseErrorHandler", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.awt.X11.XErrorHandler$IgnoreBadWindowHandler",
+		"sun.awt.X11.XErrorHandler$XBaseErrorHandler",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.awt.X11.XErrorHandler"
+	};
+	$loadClass(XErrorHandler$IgnoreBadWindowHandler, name, initialize, &classInfo$$, XErrorHandler$IgnoreBadWindowHandler::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(XErrorHandler$IgnoreBadWindowHandler);
+	});
 	return class$;
 }
 

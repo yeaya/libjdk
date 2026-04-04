@@ -1,9 +1,7 @@
 #include <FileChooserTest.h>
-
 #include <FileChooserTest$1.h>
 #include <Sysout4FileChooserTest.h>
 #include <java/lang/InterruptedException.h>
-#include <java/lang/Runnable.h>
 #include <javax/swing/JFileChooser.h>
 #include <javax/swing/SwingUtilities.h>
 #include <jcpp.h>
@@ -16,52 +14,9 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $InterruptedException = ::java::lang::InterruptedException;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $JFileChooser = ::javax::swing::JFileChooser;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
-
-$FieldInfo _FileChooserTest_FieldInfo_[] = {
-	{"theTestPassed", "Z", nullptr, $PRIVATE | $STATIC, $staticField(FileChooserTest, theTestPassed)},
-	{"testGeneratedInterrupt", "Z", nullptr, $PRIVATE | $STATIC, $staticField(FileChooserTest, testGeneratedInterrupt)},
-	{"mainThread", "Ljava/lang/Thread;", nullptr, $PRIVATE | $STATIC, $staticField(FileChooserTest, mainThread)},
-	{"sleepTime", "I", nullptr, $PRIVATE | $STATIC, $staticField(FileChooserTest, sleepTime)},
-	{"fileChooser", "Ljavax/swing/JFileChooser;", nullptr, $PUBLIC | $STATIC, $staticField(FileChooserTest, fileChooser)},
-	{}
-};
-
-$MethodInfo _FileChooserTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(FileChooserTest, init$, void)},
-	{"fail", "()V", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(FileChooserTest, fail, void)},
-	{"init", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(FileChooserTest, init, void), "java.lang.Exception"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(FileChooserTest, main, void, $StringArray*), "java.lang.Exception"},
-	{"pass", "()V", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(FileChooserTest, pass, void)},
-	{}
-};
-
-$InnerClassInfo _FileChooserTest_InnerClassesInfo_[] = {
-	{"FileChooserTest$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _FileChooserTest_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"FileChooserTest",
-	"java.lang.Object",
-	nullptr,
-	_FileChooserTest_FieldInfo_,
-	_FileChooserTest_MethodInfo_,
-	nullptr,
-	nullptr,
-	_FileChooserTest_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"FileChooserTest$1"
-};
-
-$Object* allocate$FileChooserTest($Class* clazz) {
-	return $of($alloc(FileChooserTest));
-}
 
 bool FileChooserTest::theTestPassed = false;
 bool FileChooserTest::testGeneratedInterrupt = false;
@@ -100,9 +55,8 @@ void FileChooserTest::main($StringArray* args) {
 }
 
 void FileChooserTest::pass() {
-	$load(FileChooserTest);
+	$init(FileChooserTest);
 	$synchronized(class$) {
-		$init(FileChooserTest);
 		FileChooserTest::theTestPassed = true;
 		FileChooserTest::testGeneratedInterrupt = true;
 		$nc(FileChooserTest::mainThread)->interrupt();
@@ -110,16 +64,15 @@ void FileChooserTest::pass() {
 }
 
 void FileChooserTest::fail() {
-	$load(FileChooserTest);
+	$init(FileChooserTest);
 	$synchronized(class$) {
-		$init(FileChooserTest);
 		FileChooserTest::theTestPassed = false;
 		FileChooserTest::testGeneratedInterrupt = true;
 		$nc(FileChooserTest::mainThread)->interrupt();
 	}
 }
 
-void clinit$FileChooserTest($Class* class$) {
+void FileChooserTest::clinit$($Class* clazz) {
 	FileChooserTest::sleepTime = 30000;
 }
 
@@ -127,7 +80,43 @@ FileChooserTest::FileChooserTest() {
 }
 
 $Class* FileChooserTest::load$($String* name, bool initialize) {
-	$loadClass(FileChooserTest, name, initialize, &_FileChooserTest_ClassInfo_, clinit$FileChooserTest, allocate$FileChooserTest);
+	$FieldInfo fieldInfos$$[] = {
+		{"theTestPassed", "Z", nullptr, $PRIVATE | $STATIC, $staticField(FileChooserTest, theTestPassed)},
+		{"testGeneratedInterrupt", "Z", nullptr, $PRIVATE | $STATIC, $staticField(FileChooserTest, testGeneratedInterrupt)},
+		{"mainThread", "Ljava/lang/Thread;", nullptr, $PRIVATE | $STATIC, $staticField(FileChooserTest, mainThread)},
+		{"sleepTime", "I", nullptr, $PRIVATE | $STATIC, $staticField(FileChooserTest, sleepTime)},
+		{"fileChooser", "Ljavax/swing/JFileChooser;", nullptr, $PUBLIC | $STATIC, $staticField(FileChooserTest, fileChooser)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(FileChooserTest, init$, void)},
+		{"fail", "()V", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(FileChooserTest, fail, void)},
+		{"init", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(FileChooserTest, init, void), "java.lang.Exception"},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(FileChooserTest, main, void, $StringArray*), "java.lang.Exception"},
+		{"pass", "()V", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(FileChooserTest, pass, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"FileChooserTest$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"FileChooserTest",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"FileChooserTest$1"
+	};
+	$loadClass(FileChooserTest, name, initialize, &classInfo$$, FileChooserTest::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(FileChooserTest);
+	});
 	return class$;
 }
 

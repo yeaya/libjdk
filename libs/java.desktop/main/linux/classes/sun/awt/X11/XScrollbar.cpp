@@ -1,22 +1,18 @@
 #include <sun/awt/X11/XScrollbar.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/Graphics.h>
 #include <java/awt/Graphics2D.h>
 #include <java/awt/GraphicsConfiguration.h>
-#include <java/awt/Image.h>
 #include <java/awt/Point.h>
 #include <java/awt/Polygon.h>
 #include <java/awt/Rectangle.h>
-#include <java/awt/Shape.h>
 #include <java/awt/event/AdjustmentEvent.h>
 #include <java/awt/event/InputEvent.h>
 #include <java/awt/event/MouseEvent.h>
 #include <java/awt/image/BufferedImage.h>
 #include <java/awt/image/ImageObserver.h>
 #include <java/lang/Math.h>
-#include <java/lang/Runnable.h>
 #include <sun/awt/SunToolkit.h>
 #include <sun/awt/X11/MotifColorUtilities.h>
 #include <sun/awt/X11/XComponentPeer.h>
@@ -48,14 +44,11 @@
 
 using $ColorArray = $Array<::java::awt::Color>;
 using $Color = ::java::awt::Color;
-using $Component = ::java::awt::Component;
 using $Graphics = ::java::awt::Graphics;
 using $Graphics2D = ::java::awt::Graphics2D;
-using $Image = ::java::awt::Image;
 using $Point = ::java::awt::Point;
 using $Polygon = ::java::awt::Polygon;
 using $Rectangle = ::java::awt::Rectangle;
-using $Shape = ::java::awt::Shape;
 using $AdjustmentEvent = ::java::awt::event::AdjustmentEvent;
 using $InputEvent = ::java::awt::event::InputEvent;
 using $MouseEvent = ::java::awt::event::MouseEvent;
@@ -67,7 +60,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
 using $SunToolkit = ::sun::awt::SunToolkit;
 using $MotifColorUtilities = ::sun::awt::X11::MotifColorUtilities;
 using $XComponentPeer = ::sun::awt::X11::XComponentPeer;
@@ -83,107 +75,6 @@ using $PlatformLogger$Level = ::sun::util::logging::PlatformLogger$Level;
 namespace sun {
 	namespace awt {
 		namespace X11 {
-
-$FieldInfo _XScrollbar_FieldInfo_[] = {
-	{"log", "Lsun/util/logging/PlatformLogger;", nullptr, $PRIVATE | $STATIC, $staticField(XScrollbar, log)},
-	{"scroller", "Lsun/awt/X11/XScrollRepeater;", nullptr, $PRIVATE | $STATIC, $staticField(XScrollbar, scroller)},
-	{"i_scroller", "Lsun/awt/X11/XScrollRepeater;", nullptr, $PRIVATE, $field(XScrollbar, i_scroller)},
-	{"MIN_THUMB_H", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XScrollbar, MIN_THUMB_H)},
-	{"ARROW_IND", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XScrollbar, ARROW_IND)},
-	{"sb", "Lsun/awt/X11/XScrollbarClient;", nullptr, 0, $field(XScrollbar, sb)},
-	{"val", "I", nullptr, $PRIVATE, $field(XScrollbar, val)},
-	{"min", "I", nullptr, $PRIVATE, $field(XScrollbar, min)},
-	{"max", "I", nullptr, $PRIVATE, $field(XScrollbar, max)},
-	{"vis", "I", nullptr, $PRIVATE, $field(XScrollbar, vis)},
-	{"line", "I", nullptr, $PRIVATE, $field(XScrollbar, line)},
-	{"page", "I", nullptr, $PRIVATE, $field(XScrollbar, page)},
-	{"needsRepaint", "Z", nullptr, $PRIVATE, $field(XScrollbar, needsRepaint$)},
-	{"pressed", "Z", nullptr, $PRIVATE, $field(XScrollbar, pressed)},
-	{"dragging", "Z", nullptr, $PRIVATE, $field(XScrollbar, dragging)},
-	{"firstArrow", "Ljava/awt/Polygon;", nullptr, 0, $field(XScrollbar, firstArrow)},
-	{"secondArrow", "Ljava/awt/Polygon;", nullptr, 0, $field(XScrollbar, secondArrow)},
-	{"width", "I", nullptr, 0, $field(XScrollbar, width)},
-	{"height", "I", nullptr, 0, $field(XScrollbar, height)},
-	{"barWidth", "I", nullptr, 0, $field(XScrollbar, barWidth)},
-	{"barLength", "I", nullptr, 0, $field(XScrollbar, barLength)},
-	{"arrowArea", "I", nullptr, 0, $field(XScrollbar, arrowArea)},
-	{"alignment", "I", nullptr, 0, $field(XScrollbar, alignment)},
-	{"ALIGNMENT_VERTICAL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XScrollbar, ALIGNMENT_VERTICAL)},
-	{"ALIGNMENT_HORIZONTAL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XScrollbar, ALIGNMENT_HORIZONTAL)},
-	{"mode", "I", nullptr, 0, $field(XScrollbar, mode)},
-	{"thumbOffset", "Ljava/awt/Point;", nullptr, 0, $field(XScrollbar, thumbOffset)},
-	{"prevThumb", "Ljava/awt/Rectangle;", nullptr, $PRIVATE, $field(XScrollbar, prevThumb)},
-	{}
-};
-
-$MethodInfo _XScrollbar_MethodInfo_[] = {
-	{"<init>", "(ILsun/awt/X11/XScrollbarClient;)V", nullptr, $PUBLIC, $method(XScrollbar, init$, void, int32_t, $XScrollbarClient*)},
-	{"beforeThumb", "(II)Z", nullptr, $ABSTRACT, $virtualMethod(XScrollbar, beforeThumb, bool, int32_t, int32_t)},
-	{"calculateArrowWidth", "()V", nullptr, 0, $virtualMethod(XScrollbar, calculateArrowWidth, void)},
-	{"calculateCursorOffset", "(II)I", nullptr, $PRIVATE, $method(XScrollbar, calculateCursorOffset, int32_t, int32_t, int32_t)},
-	{"calculateThumbRect", "()Ljava/awt/Rectangle;", nullptr, $PROTECTED, $virtualMethod(XScrollbar, calculateThumbRect, $Rectangle*)},
-	{"createArrowShape", "(ZZ)Ljava/awt/Polygon;", nullptr, $PROTECTED, $virtualMethod(XScrollbar, createArrowShape, $Polygon*, bool, bool)},
-	{"getArrowAreaWidth", "()I", nullptr, 0, $virtualMethod(XScrollbar, getArrowAreaWidth, int32_t)},
-	{"getArrowWidth", "()I", nullptr, 0, $virtualMethod(XScrollbar, getArrowWidth, int32_t)},
-	{"getBlockIncrement", "()I", nullptr, 0, $virtualMethod(XScrollbar, getBlockIncrement, int32_t)},
-	{"getMaximum", "()I", nullptr, 0, $virtualMethod(XScrollbar, getMaximum, int32_t)},
-	{"getMinimum", "()I", nullptr, 0, $virtualMethod(XScrollbar, getMinimum, int32_t)},
-	{"getScaleFactor", "()D", nullptr, $PRIVATE, $method(XScrollbar, getScaleFactor, double)},
-	{"getThumbArea", "()Ljava/awt/Rectangle;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(XScrollbar, getThumbArea, $Rectangle*)},
-	{"getUnitIncrement", "()I", nullptr, 0, $virtualMethod(XScrollbar, getUnitIncrement, int32_t)},
-	{"getValue", "()I", nullptr, 0, $virtualMethod(XScrollbar, getValue, int32_t)},
-	{"getVisibleAmount", "()I", nullptr, 0, $virtualMethod(XScrollbar, getVisibleAmount, int32_t)},
-	{"handleMouseEvent", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(XScrollbar, handleMouseEvent, void, int32_t, int32_t, int32_t, int32_t)},
-	{"handleTrackEvent", "(IIZ)V", nullptr, $PRIVATE, $method(XScrollbar, handleTrackEvent, void, int32_t, int32_t, bool)},
-	{"isInArrow", "(II)Z", nullptr, 0, $virtualMethod(XScrollbar, isInArrow, bool, int32_t, int32_t)},
-	{"isInThumb", "(II)Z", nullptr, 0, $virtualMethod(XScrollbar, isInThumb, bool, int32_t, int32_t)},
-	{"needsRepaint", "()Z", nullptr, $PUBLIC, $virtualMethod(XScrollbar, needsRepaint, bool)},
-	{"notifyValue", "(I)V", nullptr, 0, $virtualMethod(XScrollbar, notifyValue, void, int32_t)},
-	{"notifyValue", "(IZ)V", nullptr, 0, $virtualMethod(XScrollbar, notifyValue, void, int32_t, bool)},
-	{"paint", "(Ljava/awt/Graphics;[Ljava/awt/Color;Z)V", nullptr, 0, $virtualMethod(XScrollbar, paint, void, $Graphics*, $ColorArray*, bool)},
-	{"paintArrows", "(Ljava/awt/Graphics2D;Ljava/awt/Color;Ljava/awt/Color;Ljava/awt/Color;)V", nullptr, 0, $virtualMethod(XScrollbar, paintArrows, void, $Graphics2D*, $Color*, $Color*, $Color*)},
-	{"rebuildArrows", "()V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(XScrollbar, rebuildArrows, void)},
-	{"scroll", "()V", nullptr, 0, $virtualMethod(XScrollbar, scroll, void)},
-	{"setBlockIncrement", "(I)V", nullptr, $SYNCHRONIZED, $virtualMethod(XScrollbar, setBlockIncrement, void, int32_t)},
-	{"setMaximum", "(I)V", nullptr, $SYNCHRONIZED, $virtualMethod(XScrollbar, setMaximum, void, int32_t)},
-	{"setMinimum", "(I)V", nullptr, $SYNCHRONIZED, $virtualMethod(XScrollbar, setMinimum, void, int32_t)},
-	{"setMode", "(I)V", nullptr, $PUBLIC, $virtualMethod(XScrollbar, setMode, void, int32_t)},
-	{"setSize", "(II)V", nullptr, $PUBLIC, $virtualMethod(XScrollbar, setSize, void, int32_t, int32_t)},
-	{"setUnitIncrement", "(I)V", nullptr, $SYNCHRONIZED, $virtualMethod(XScrollbar, setUnitIncrement, void, int32_t)},
-	{"setValue", "(I)V", nullptr, $SYNCHRONIZED, $virtualMethod(XScrollbar, setValue, void, int32_t)},
-	{"setValues", "(IIII)V", nullptr, $SYNCHRONIZED, $virtualMethod(XScrollbar, setValues, void, int32_t, int32_t, int32_t, int32_t)},
-	{"setValues", "(IIIIII)V", nullptr, $SYNCHRONIZED, $virtualMethod(XScrollbar, setValues, void, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"setVisibleAmount", "(I)V", nullptr, $SYNCHRONIZED, $virtualMethod(XScrollbar, setVisibleAmount, void, int32_t)},
-	{"startScrolling", "()V", nullptr, 0, $virtualMethod(XScrollbar, startScrolling, void)},
-	{"startScrollingInstance", "()V", nullptr, 0, $virtualMethod(XScrollbar, startScrollingInstance, void)},
-	{"stopScrollingInstance", "()V", nullptr, 0, $virtualMethod(XScrollbar, stopScrollingInstance, void)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XScrollbar, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _XScrollbar_InnerClassesInfo_[] = {
-	{"sun.awt.X11.XScrollbar$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _XScrollbar_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"sun.awt.X11.XScrollbar",
-	"java.lang.Object",
-	nullptr,
-	_XScrollbar_FieldInfo_,
-	_XScrollbar_MethodInfo_,
-	nullptr,
-	nullptr,
-	_XScrollbar_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.awt.X11.XScrollbar$1"
-};
-
-$Object* allocate$XScrollbar($Class* clazz) {
-	return $of($alloc(XScrollbar));
-}
 
 $PlatformLogger* XScrollbar::log = nullptr;
 $XScrollRepeater* XScrollbar::scroller = nullptr;
@@ -206,7 +97,7 @@ void XScrollbar::notifyValue(int32_t v) {
 }
 
 void XScrollbar::notifyValue(int32_t v, bool isAdjusting) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (v < this->min) {
 		v = this->min;
 	} else if (v > this->max - this->vis) {
@@ -215,13 +106,13 @@ void XScrollbar::notifyValue(int32_t v, bool isAdjusting) {
 	int32_t value = v;
 	int32_t mode = this->mode;
 	if ((this->sb != nullptr) && ((value != this->val) || (!this->pressed))) {
-		$var($Object, var$0, $of($nc(this->sb)->getEventSource()));
+		$var($Object, var$0, this->sb->getEventSource());
 		$SunToolkit::executeOnEventHandlerThread(var$0, $$new($XScrollbar$1, this, mode, value, isAdjusting));
 	}
 }
 
 void XScrollbar::setSize(int32_t width, int32_t height) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($PlatformLogger$Level);
 	if ($nc(XScrollbar::log)->isLoggable($PlatformLogger$Level::FINER)) {
 		$nc(XScrollbar::log)->finer($$str({"Setting scroll bar "_s, this, " size to "_s, $$str(width), "x"_s, $$str(height)}));
@@ -253,7 +144,7 @@ $Polygon* XScrollbar::createArrowShape(bool vertical, bool up) {
 }
 
 void XScrollbar::paint($Graphics* g, $ColorArray* colors, bool paintAll) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($PlatformLogger$Level);
 	if ($nc(XScrollbar::log)->isLoggable($PlatformLogger$Level::FINER)) {
 		$nc(XScrollbar::log)->finer($$str({"Painting scrollbar "_s, this}));
@@ -262,100 +153,94 @@ void XScrollbar::paint($Graphics* g, $ColorArray* colors, bool paintAll) {
 	$var($Graphics2D, g2, nullptr);
 	$var($BufferedImage, buffer, nullptr);
 	if (!($instanceOf($Graphics2D, g))) {
-		$var($X11GraphicsConfig, graphicsConfig, ($cast($X11GraphicsConfig, $nc($($nc(this->sb)->getEventSource()))->getGraphicsConfiguration())));
+		$var($X11GraphicsConfig, graphicsConfig, $cast($X11GraphicsConfig, $$nc($nc(this->sb)->getEventSource())->getGraphicsConfiguration()));
 		$assign(buffer, $nc(graphicsConfig)->createCompatibleImage(this->width, this->height));
 		$assign(g2, $nc(buffer)->createGraphics());
 		useBufferedImage = true;
 	} else {
 		$assign(g2, $cast($Graphics2D, g));
 	}
-	{
-		$var($Throwable, var$0, nullptr);
+	$var($Throwable, var$0, nullptr);
+	try {
+		$var($Rectangle, thumbRect, calculateThumbRect());
+		$set(this, prevThumb, thumbRect);
+		$var($Color, back, $nc(colors)->get($XComponentPeer::BACKGROUND_COLOR));
+		int32_t var$1 = $nc(back)->getRed();
+		int32_t var$2 = back->getGreen();
+		$var($Color, selectColor, $new($Color, $MotifColorUtilities::calculateSelectFromBackground(var$1, var$2, back->getBlue())));
+		int32_t var$3 = back->getRed();
+		int32_t var$4 = back->getGreen();
+		$var($Color, darkShadow, $new($Color, $MotifColorUtilities::calculateBottomShadowFromBackground(var$3, var$4, back->getBlue())));
+		int32_t var$5 = back->getRed();
+		int32_t var$6 = back->getGreen();
+		$var($Color, lightShadow, $new($Color, $MotifColorUtilities::calculateTopShadowFromBackground(var$5, var$6, back->getBlue())));
+		$XToolkit::awtLock();
+		$var($Throwable, var$7, nullptr);
 		try {
-			$var($Rectangle, thumbRect, calculateThumbRect());
-			$set(this, prevThumb, thumbRect);
-			$var($Color, back, $nc(colors)->get($XComponentPeer::BACKGROUND_COLOR));
-			int32_t var$1 = $nc(back)->getRed();
-			int32_t var$2 = back->getGreen();
-			$var($Color, selectColor, $new($Color, $MotifColorUtilities::calculateSelectFromBackground(var$1, var$2, back->getBlue())));
-			int32_t var$3 = $nc(back)->getRed();
-			int32_t var$4 = back->getGreen();
-			$var($Color, darkShadow, $new($Color, $MotifColorUtilities::calculateBottomShadowFromBackground(var$3, var$4, back->getBlue())));
-			int32_t var$5 = $nc(back)->getRed();
-			int32_t var$6 = back->getGreen();
-			$var($Color, lightShadow, $new($Color, $MotifColorUtilities::calculateTopShadowFromBackground(var$5, var$6, back->getBlue())));
-			$XToolkit::awtLock();
-			{
-				$var($Throwable, var$7, nullptr);
-				try {
-					$XlibWrapper::XFlush($XToolkit::getDisplay());
-				} catch ($Throwable& var$8) {
-					$assign(var$7, var$8);
-				} /*finally*/ {
-					$XToolkit::awtUnlock();
-				}
-				if (var$7 != nullptr) {
-					$throw(var$7);
-				}
-			}
-			if (paintAll) {
-				$nc(g2)->setColor(selectColor);
-				if (this->alignment == XScrollbar::ALIGNMENT_HORIZONTAL) {
-					g2->fillRect(0, 0, $nc(thumbRect)->x, this->height);
-					g2->fillRect($nc(thumbRect)->x + thumbRect->width, 0, this->width - (thumbRect->x + thumbRect->width), this->height);
-				} else {
-					g2->fillRect(0, 0, this->width, $nc(thumbRect)->y);
-					g2->fillRect(0, $nc(thumbRect)->y + thumbRect->height, this->width, this->height - (thumbRect->y + thumbRect->height));
-				}
-				g2->setColor(darkShadow);
-				g2->drawLine(0, 0, this->width - 1, 0);
-				g2->drawLine(0, 0, 0, this->height - 1);
-				g2->setColor(lightShadow);
-				g2->drawLine(1, this->height - 1, this->width - 1, this->height - 1);
-				g2->drawLine(this->width - 1, 1, this->width - 1, this->height - 1);
-			} else {
-				$nc(g2)->setColor(selectColor);
-				$var($Rectangle, thumbArea, getThumbArea());
-				g2->fill(thumbArea);
-			}
-			if (paintAll) {
-				paintArrows(g2, colors->get($XComponentPeer::BACKGROUND_COLOR), darkShadow, lightShadow);
-			}
-			$nc(g2)->setColor(colors->get($XComponentPeer::BACKGROUND_COLOR));
-			g2->fillRect($nc(thumbRect)->x, thumbRect->y, thumbRect->width, thumbRect->height);
-			g2->setColor(lightShadow);
-			g2->drawLine($nc(thumbRect)->x, thumbRect->y, thumbRect->x + thumbRect->width, thumbRect->y);
-			g2->drawLine($nc(thumbRect)->x, thumbRect->y, thumbRect->x, thumbRect->y + thumbRect->height);
-			g2->setColor(darkShadow);
-			g2->drawLine($nc(thumbRect)->x + 1, thumbRect->y + thumbRect->height, thumbRect->x + thumbRect->width, thumbRect->y + thumbRect->height);
-			g2->drawLine($nc(thumbRect)->x + thumbRect->width, thumbRect->y + 1, thumbRect->x + thumbRect->width, thumbRect->y + thumbRect->height);
-		} catch ($Throwable& var$9) {
-			$assign(var$0, var$9);
+			$XlibWrapper::XFlush($XToolkit::getDisplay());
+		} catch ($Throwable& var$8) {
+			$assign(var$7, var$8);
 		} /*finally*/ {
-			if (useBufferedImage) {
-				$nc(g2)->dispose();
+			$XToolkit::awtUnlock();
+		}
+		if (var$7 != nullptr) {
+			$throw(var$7);
+		}
+		if (paintAll) {
+			$nc(g2)->setColor(selectColor);
+			if (this->alignment == XScrollbar::ALIGNMENT_HORIZONTAL) {
+				g2->fillRect(0, 0, $nc(thumbRect)->x, this->height);
+				g2->fillRect(thumbRect->x + thumbRect->width, 0, this->width - (thumbRect->x + thumbRect->width), this->height);
+			} else {
+				g2->fillRect(0, 0, this->width, $nc(thumbRect)->y);
+				g2->fillRect(0, thumbRect->y + thumbRect->height, this->width, this->height - (thumbRect->y + thumbRect->height));
 			}
+			g2->setColor(darkShadow);
+			g2->drawLine(0, 0, this->width - 1, 0);
+			g2->drawLine(0, 0, 0, this->height - 1);
+			g2->setColor(lightShadow);
+			g2->drawLine(1, this->height - 1, this->width - 1, this->height - 1);
+			g2->drawLine(this->width - 1, 1, this->width - 1, this->height - 1);
+		} else {
+			$nc(g2)->setColor(selectColor);
+			$var($Rectangle, thumbArea, getThumbArea());
+			g2->fill(thumbArea);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+		if (paintAll) {
+			paintArrows(g2, colors->get($XComponentPeer::BACKGROUND_COLOR), darkShadow, lightShadow);
 		}
+		$nc(g2)->setColor(colors->get($XComponentPeer::BACKGROUND_COLOR));
+		g2->fillRect($nc(thumbRect)->x, $nc(thumbRect)->y, $nc(thumbRect)->width, $nc(thumbRect)->height);
+		g2->setColor(lightShadow);
+		g2->drawLine(thumbRect->x, thumbRect->y, thumbRect->x + thumbRect->width, thumbRect->y);
+		g2->drawLine(thumbRect->x, thumbRect->y, thumbRect->x, thumbRect->y + thumbRect->height);
+		g2->setColor(darkShadow);
+		g2->drawLine(thumbRect->x + 1, thumbRect->y + thumbRect->height, thumbRect->x + thumbRect->width, thumbRect->y + thumbRect->height);
+		g2->drawLine(thumbRect->x + thumbRect->width, thumbRect->y + 1, thumbRect->x + thumbRect->width, thumbRect->y + thumbRect->height);
+	} catch ($Throwable& var$9) {
+		$assign(var$0, var$9);
+	} /*finally*/ {
+		if (useBufferedImage) {
+			$nc(g2)->dispose();
+		}
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 	if (useBufferedImage) {
 		$nc(g)->drawImage(buffer, 0, 0, nullptr);
 	}
 	$XToolkit::awtLock();
-	{
-		$var($Throwable, var$10, nullptr);
-		try {
-			$XlibWrapper::XFlush($XToolkit::getDisplay());
-		} catch ($Throwable& var$11) {
-			$assign(var$10, var$11);
-		} /*finally*/ {
-			$XToolkit::awtUnlock();
-		}
-		if (var$10 != nullptr) {
-			$throw(var$10);
-		}
+	$var($Throwable, var$10, nullptr);
+	try {
+		$XlibWrapper::XFlush($XToolkit::getDisplay());
+	} catch ($Throwable& var$11) {
+		$assign(var$10, var$11);
+	} /*finally*/ {
+		$XToolkit::awtUnlock();
+	}
+	if (var$10 != nullptr) {
+		$throw(var$10);
 	}
 }
 
@@ -403,7 +288,7 @@ void XScrollbar::startScrolling() {
 	if (XScrollbar::scroller == nullptr) {
 		$assignStatic(XScrollbar::scroller, $new($XScrollRepeater, this));
 	} else {
-		$nc(XScrollbar::scroller)->setScrollbar(this);
+		XScrollbar::scroller->setScrollbar(this);
 	}
 	$nc(XScrollbar::scroller)->start();
 }
@@ -433,25 +318,17 @@ void XScrollbar::setMode(int32_t mode) {
 void XScrollbar::scroll() {
 	switch (this->mode) {
 	case $AdjustmentEvent::UNIT_DECREMENT:
-		{
-			notifyValue(this->val - this->line);
-			return;
-		}
+		notifyValue(this->val - this->line);
+		return;
 	case $AdjustmentEvent::UNIT_INCREMENT:
-		{
-			notifyValue(this->val + this->line);
-			return;
-		}
+		notifyValue(this->val + this->line);
+		return;
 	case $AdjustmentEvent::BLOCK_DECREMENT:
-		{
-			notifyValue(this->val - this->page);
-			return;
-		}
+		notifyValue(this->val - this->page);
+		return;
 	case $AdjustmentEvent::BLOCK_INCREMENT:
-		{
-			notifyValue(this->val + this->page);
-			return;
-		}
+		notifyValue(this->val + this->page);
+		return;
 	}
 	return;
 }
@@ -474,8 +351,8 @@ bool XScrollbar::isInThumb(int32_t x, int32_t y) {
 }
 
 void XScrollbar::handleMouseEvent(int32_t id, int32_t modifiers, int32_t x, int32_t y) {
-	$useLocalCurrentObjectStackCache();
-	if (((int32_t)(modifiers & (uint32_t)$InputEvent::BUTTON1_MASK)) == 0) {
+	$useLocalObjectStack();
+	if ((modifiers & $InputEvent::BUTTON1_MASK) == 0) {
 		return;
 	}
 	$init($PlatformLogger$Level);
@@ -483,80 +360,76 @@ void XScrollbar::handleMouseEvent(int32_t id, int32_t modifiers, int32_t x, int3
 		$var($String, type, nullptr);
 		switch (id) {
 		case $MouseEvent::MOUSE_PRESSED:
-			{
-				$assign(type, "press"_s);
-				break;
-			}
+			$assign(type, "press"_s);
+			break;
 		case $MouseEvent::MOUSE_RELEASED:
-			{
-				$assign(type, "release"_s);
-				break;
-			}
+			$assign(type, "release"_s);
+			break;
 		case $MouseEvent::MOUSE_DRAGGED:
-			{
-				$assign(type, "drag"_s);
-				break;
-			}
+			$assign(type, "drag"_s);
+			break;
 		default:
-			{
-				$assign(type, "other"_s);
-			}
+			$assign(type, "other"_s);
 		}
-		$var($String, var$6, $$str({"Mouse "_s, type, " event in scroll bar "_s, this, "x = "_s, $$str(x), ", y = "_s, $$str(y), ", on arrow: "_s}));
-		$var($String, var$5, $$concat(var$6, $$str(isInArrow(x, y))));
-		$var($String, var$4, $$concat(var$5, ", on thumb: "_s));
-		$var($String, var$3, $$concat(var$4, $$str(isInThumb(x, y))));
-		$var($String, var$2, $$concat(var$3, ", before thumb: "_s));
-		$var($String, var$1, $$concat(var$2, $$str(beforeThumb(x, y))));
-		$var($String, var$0, $$concat(var$1, ", thumb rect"_s));
-		$nc(XScrollbar::log)->finer($$concat(var$0, $(calculateThumbRect())));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append("Mouse "_s);
+		var$0->append(type);
+		var$0->append(" event in scroll bar "_s);
+		var$0->append(this);
+		var$0->append("x = "_s);
+		var$0->append(x);
+		var$0->append(", y = "_s);
+		var$0->append(y);
+		var$0->append(", on arrow: "_s);
+		var$0->append(isInArrow(x, y));
+		var$0->append(", on thumb: "_s);
+		var$0->append(isInThumb(x, y));
+		var$0->append(", before thumb: "_s);
+		var$0->append(beforeThumb(x, y));
+		var$0->append(", thumb rect"_s);
+		var$0->append($(calculateThumbRect()));
+		$nc(XScrollbar::log)->finer($$str(var$0));
 	}
 	{
-		$var($Rectangle, pos, nullptr)
+		$var($Rectangle, pos, nullptr);
 		switch (id) {
 		case $MouseEvent::MOUSE_PRESSED:
-			{
-				if (isInArrow(x, y)) {
-					this->pressed = true;
-					if (beforeThumb(x, y)) {
-						this->mode = $AdjustmentEvent::UNIT_DECREMENT;
-					} else {
-						this->mode = $AdjustmentEvent::UNIT_INCREMENT;
-					}
-					$nc(this->sb)->repaintScrollbarRequest(this);
-					startScrolling();
-					break;
-				}
-				if (isInThumb(x, y)) {
-					this->mode = $AdjustmentEvent::TRACK;
+			if (isInArrow(x, y)) {
+				this->pressed = true;
+				if (beforeThumb(x, y)) {
+					this->mode = $AdjustmentEvent::UNIT_DECREMENT;
 				} else {
-					if (beforeThumb(x, y)) {
-						this->mode = $AdjustmentEvent::BLOCK_DECREMENT;
-					} else {
-						this->mode = $AdjustmentEvent::BLOCK_INCREMENT;
-					}
-					startScrolling();
+					this->mode = $AdjustmentEvent::UNIT_INCREMENT;
 				}
-				$assign(pos, calculateThumbRect());
-				$set(this, thumbOffset, $new($Point, x - $nc(pos)->x, y - pos->y));
-				break;
-			}
-		case $MouseEvent::MOUSE_RELEASED:
-			{
-				this->pressed = false;
 				$nc(this->sb)->repaintScrollbarRequest(this);
-				$nc(XScrollbar::scroller)->stop();
-				if (this->dragging) {
-					handleTrackEvent(x, y, false);
-					this->dragging = false;
-				}
+				startScrolling();
 				break;
 			}
-		case $MouseEvent::MOUSE_DRAGGED:
-			{
-				this->dragging = true;
-				handleTrackEvent(x, y, true);
+			if (isInThumb(x, y)) {
+				this->mode = $AdjustmentEvent::TRACK;
+			} else {
+				if (beforeThumb(x, y)) {
+					this->mode = $AdjustmentEvent::BLOCK_DECREMENT;
+				} else {
+					this->mode = $AdjustmentEvent::BLOCK_INCREMENT;
+				}
+				startScrolling();
 			}
+			$assign(pos, calculateThumbRect());
+			$set(this, thumbOffset, $new($Point, x - $nc(pos)->x, y - $nc(pos)->y));
+			break;
+		case $MouseEvent::MOUSE_RELEASED:
+			this->pressed = false;
+			$nc(this->sb)->repaintScrollbarRequest(this);
+			$nc(XScrollbar::scroller)->stop();
+			if (this->dragging) {
+				handleTrackEvent(x, y, false);
+				this->dragging = false;
+			}
+			break;
+		case $MouseEvent::MOUSE_DRAGGED:
+			this->dragging = true;
+			handleTrackEvent(x, y, true);
 		}
 	}
 }
@@ -570,17 +443,17 @@ void XScrollbar::handleTrackEvent(int32_t x, int32_t y, bool isAdjusting) {
 int32_t XScrollbar::calculateCursorOffset(int32_t x, int32_t y) {
 	if (this->alignment == XScrollbar::ALIGNMENT_HORIZONTAL) {
 		if (this->dragging) {
-			int32_t var$0 = (x - ($nc(this->thumbOffset)->x + getArrowAreaWidth()));
+			int32_t var$0 = x - ($nc(this->thumbOffset)->x + getArrowAreaWidth());
 			return $Math::max(0, $cast(int32_t, (var$0 / getScaleFactor()))) + this->min;
 		} else {
-			int32_t var$1 = (x - (getArrowAreaWidth()));
+			int32_t var$1 = x - (getArrowAreaWidth());
 			return $Math::max(0, $cast(int32_t, (var$1 / getScaleFactor()))) + this->min;
 		}
 	} else if (this->dragging) {
-		int32_t var$2 = (y - ($nc(this->thumbOffset)->y + getArrowAreaWidth()));
+		int32_t var$2 = y - ($nc(this->thumbOffset)->y + getArrowAreaWidth());
 		return $Math::max(0, $cast(int32_t, (var$2 / getScaleFactor()))) + this->min;
 	} else {
-		int32_t var$3 = (y - (getArrowAreaWidth()));
+		int32_t var$3 = y - (getArrowAreaWidth());
 		return $Math::max(0, $cast(int32_t, (var$3 / getScaleFactor()))) + this->min;
 	}
 }
@@ -757,11 +630,11 @@ $Rectangle* XScrollbar::calculateThumbRect() {
 }
 
 $String* XScrollbar::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $str({$of(this)->getClass(), "["_s, $$str(this->width), "x"_s, $$str(this->height), ","_s, $$str(this->barWidth), "x"_s, $$str(this->barLength), "]"_s});
 }
 
-void clinit$XScrollbar($Class* class$) {
+void XScrollbar::clinit$($Class* clazz) {
 	$assignStatic(XScrollbar::log, $PlatformLogger::getLogger("sun.awt.X11.XScrollbar"_s));
 	$assignStatic(XScrollbar::scroller, $new($XScrollRepeater, nullptr));
 }
@@ -770,7 +643,102 @@ XScrollbar::XScrollbar() {
 }
 
 $Class* XScrollbar::load$($String* name, bool initialize) {
-	$loadClass(XScrollbar, name, initialize, &_XScrollbar_ClassInfo_, clinit$XScrollbar, allocate$XScrollbar);
+	$FieldInfo fieldInfos$$[] = {
+		{"log", "Lsun/util/logging/PlatformLogger;", nullptr, $PRIVATE | $STATIC, $staticField(XScrollbar, log)},
+		{"scroller", "Lsun/awt/X11/XScrollRepeater;", nullptr, $PRIVATE | $STATIC, $staticField(XScrollbar, scroller)},
+		{"i_scroller", "Lsun/awt/X11/XScrollRepeater;", nullptr, $PRIVATE, $field(XScrollbar, i_scroller)},
+		{"MIN_THUMB_H", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XScrollbar, MIN_THUMB_H)},
+		{"ARROW_IND", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XScrollbar, ARROW_IND)},
+		{"sb", "Lsun/awt/X11/XScrollbarClient;", nullptr, 0, $field(XScrollbar, sb)},
+		{"val", "I", nullptr, $PRIVATE, $field(XScrollbar, val)},
+		{"min", "I", nullptr, $PRIVATE, $field(XScrollbar, min)},
+		{"max", "I", nullptr, $PRIVATE, $field(XScrollbar, max)},
+		{"vis", "I", nullptr, $PRIVATE, $field(XScrollbar, vis)},
+		{"line", "I", nullptr, $PRIVATE, $field(XScrollbar, line)},
+		{"page", "I", nullptr, $PRIVATE, $field(XScrollbar, page)},
+		{"needsRepaint", "Z", nullptr, $PRIVATE, $field(XScrollbar, needsRepaint$)},
+		{"pressed", "Z", nullptr, $PRIVATE, $field(XScrollbar, pressed)},
+		{"dragging", "Z", nullptr, $PRIVATE, $field(XScrollbar, dragging)},
+		{"firstArrow", "Ljava/awt/Polygon;", nullptr, 0, $field(XScrollbar, firstArrow)},
+		{"secondArrow", "Ljava/awt/Polygon;", nullptr, 0, $field(XScrollbar, secondArrow)},
+		{"width", "I", nullptr, 0, $field(XScrollbar, width)},
+		{"height", "I", nullptr, 0, $field(XScrollbar, height)},
+		{"barWidth", "I", nullptr, 0, $field(XScrollbar, barWidth)},
+		{"barLength", "I", nullptr, 0, $field(XScrollbar, barLength)},
+		{"arrowArea", "I", nullptr, 0, $field(XScrollbar, arrowArea)},
+		{"alignment", "I", nullptr, 0, $field(XScrollbar, alignment)},
+		{"ALIGNMENT_VERTICAL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XScrollbar, ALIGNMENT_VERTICAL)},
+		{"ALIGNMENT_HORIZONTAL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XScrollbar, ALIGNMENT_HORIZONTAL)},
+		{"mode", "I", nullptr, 0, $field(XScrollbar, mode)},
+		{"thumbOffset", "Ljava/awt/Point;", nullptr, 0, $field(XScrollbar, thumbOffset)},
+		{"prevThumb", "Ljava/awt/Rectangle;", nullptr, $PRIVATE, $field(XScrollbar, prevThumb)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(ILsun/awt/X11/XScrollbarClient;)V", nullptr, $PUBLIC, $method(XScrollbar, init$, void, int32_t, $XScrollbarClient*)},
+		{"beforeThumb", "(II)Z", nullptr, $ABSTRACT, $virtualMethod(XScrollbar, beforeThumb, bool, int32_t, int32_t)},
+		{"calculateArrowWidth", "()V", nullptr, 0, $virtualMethod(XScrollbar, calculateArrowWidth, void)},
+		{"calculateCursorOffset", "(II)I", nullptr, $PRIVATE, $method(XScrollbar, calculateCursorOffset, int32_t, int32_t, int32_t)},
+		{"calculateThumbRect", "()Ljava/awt/Rectangle;", nullptr, $PROTECTED, $virtualMethod(XScrollbar, calculateThumbRect, $Rectangle*)},
+		{"createArrowShape", "(ZZ)Ljava/awt/Polygon;", nullptr, $PROTECTED, $virtualMethod(XScrollbar, createArrowShape, $Polygon*, bool, bool)},
+		{"getArrowAreaWidth", "()I", nullptr, 0, $virtualMethod(XScrollbar, getArrowAreaWidth, int32_t)},
+		{"getArrowWidth", "()I", nullptr, 0, $virtualMethod(XScrollbar, getArrowWidth, int32_t)},
+		{"getBlockIncrement", "()I", nullptr, 0, $virtualMethod(XScrollbar, getBlockIncrement, int32_t)},
+		{"getMaximum", "()I", nullptr, 0, $virtualMethod(XScrollbar, getMaximum, int32_t)},
+		{"getMinimum", "()I", nullptr, 0, $virtualMethod(XScrollbar, getMinimum, int32_t)},
+		{"getScaleFactor", "()D", nullptr, $PRIVATE, $method(XScrollbar, getScaleFactor, double)},
+		{"getThumbArea", "()Ljava/awt/Rectangle;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(XScrollbar, getThumbArea, $Rectangle*)},
+		{"getUnitIncrement", "()I", nullptr, 0, $virtualMethod(XScrollbar, getUnitIncrement, int32_t)},
+		{"getValue", "()I", nullptr, 0, $virtualMethod(XScrollbar, getValue, int32_t)},
+		{"getVisibleAmount", "()I", nullptr, 0, $virtualMethod(XScrollbar, getVisibleAmount, int32_t)},
+		{"handleMouseEvent", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(XScrollbar, handleMouseEvent, void, int32_t, int32_t, int32_t, int32_t)},
+		{"handleTrackEvent", "(IIZ)V", nullptr, $PRIVATE, $method(XScrollbar, handleTrackEvent, void, int32_t, int32_t, bool)},
+		{"isInArrow", "(II)Z", nullptr, 0, $virtualMethod(XScrollbar, isInArrow, bool, int32_t, int32_t)},
+		{"isInThumb", "(II)Z", nullptr, 0, $virtualMethod(XScrollbar, isInThumb, bool, int32_t, int32_t)},
+		{"needsRepaint", "()Z", nullptr, $PUBLIC, $virtualMethod(XScrollbar, needsRepaint, bool)},
+		{"notifyValue", "(I)V", nullptr, 0, $virtualMethod(XScrollbar, notifyValue, void, int32_t)},
+		{"notifyValue", "(IZ)V", nullptr, 0, $virtualMethod(XScrollbar, notifyValue, void, int32_t, bool)},
+		{"paint", "(Ljava/awt/Graphics;[Ljava/awt/Color;Z)V", nullptr, 0, $virtualMethod(XScrollbar, paint, void, $Graphics*, $ColorArray*, bool)},
+		{"paintArrows", "(Ljava/awt/Graphics2D;Ljava/awt/Color;Ljava/awt/Color;Ljava/awt/Color;)V", nullptr, 0, $virtualMethod(XScrollbar, paintArrows, void, $Graphics2D*, $Color*, $Color*, $Color*)},
+		{"rebuildArrows", "()V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(XScrollbar, rebuildArrows, void)},
+		{"scroll", "()V", nullptr, 0, $virtualMethod(XScrollbar, scroll, void)},
+		{"setBlockIncrement", "(I)V", nullptr, $SYNCHRONIZED, $virtualMethod(XScrollbar, setBlockIncrement, void, int32_t)},
+		{"setMaximum", "(I)V", nullptr, $SYNCHRONIZED, $virtualMethod(XScrollbar, setMaximum, void, int32_t)},
+		{"setMinimum", "(I)V", nullptr, $SYNCHRONIZED, $virtualMethod(XScrollbar, setMinimum, void, int32_t)},
+		{"setMode", "(I)V", nullptr, $PUBLIC, $virtualMethod(XScrollbar, setMode, void, int32_t)},
+		{"setSize", "(II)V", nullptr, $PUBLIC, $virtualMethod(XScrollbar, setSize, void, int32_t, int32_t)},
+		{"setUnitIncrement", "(I)V", nullptr, $SYNCHRONIZED, $virtualMethod(XScrollbar, setUnitIncrement, void, int32_t)},
+		{"setValue", "(I)V", nullptr, $SYNCHRONIZED, $virtualMethod(XScrollbar, setValue, void, int32_t)},
+		{"setValues", "(IIII)V", nullptr, $SYNCHRONIZED, $virtualMethod(XScrollbar, setValues, void, int32_t, int32_t, int32_t, int32_t)},
+		{"setValues", "(IIIIII)V", nullptr, $SYNCHRONIZED, $virtualMethod(XScrollbar, setValues, void, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"setVisibleAmount", "(I)V", nullptr, $SYNCHRONIZED, $virtualMethod(XScrollbar, setVisibleAmount, void, int32_t)},
+		{"startScrolling", "()V", nullptr, 0, $virtualMethod(XScrollbar, startScrolling, void)},
+		{"startScrollingInstance", "()V", nullptr, 0, $virtualMethod(XScrollbar, startScrollingInstance, void)},
+		{"stopScrollingInstance", "()V", nullptr, 0, $virtualMethod(XScrollbar, stopScrollingInstance, void)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XScrollbar, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.X11.XScrollbar$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"sun.awt.X11.XScrollbar",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.awt.X11.XScrollbar$1"
+	};
+	$loadClass(XScrollbar, name, initialize, &classInfo$$, XScrollbar::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(XScrollbar);
+	});
 	return class$;
 }
 

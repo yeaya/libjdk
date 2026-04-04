@@ -1,5 +1,4 @@
 #include <javax/swing/JComboBox$AccessibleJComboBox$AccessibleEditor.h>
-
 #include <java/awt/Component.h>
 #include <javax/accessibility/Accessible.h>
 #include <javax/accessibility/AccessibleContext.h>
@@ -16,59 +15,20 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Accessible = ::javax::accessibility::Accessible;
 using $AccessibleContext = ::javax::accessibility::AccessibleContext;
-using $ComboBoxEditor = ::javax::swing::ComboBoxEditor;
-using $JComboBox = ::javax::swing::JComboBox;
 using $JComboBox$AccessibleJComboBox = ::javax::swing::JComboBox$AccessibleJComboBox;
 using $JComboBox$AccessibleJComboBox$EditorAccessibleContext = ::javax::swing::JComboBox$AccessibleJComboBox$EditorAccessibleContext;
 
 namespace javax {
 	namespace swing {
 
-$FieldInfo _JComboBox$AccessibleJComboBox$AccessibleEditor_FieldInfo_[] = {
-	{"this$1", "Ljavax/swing/JComboBox$AccessibleJComboBox;", nullptr, $FINAL | $SYNTHETIC, $field(JComboBox$AccessibleJComboBox$AccessibleEditor, this$1)},
-	{}
-};
-
-$MethodInfo _JComboBox$AccessibleJComboBox$AccessibleEditor_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/JComboBox$AccessibleJComboBox;)V", nullptr, $PRIVATE, $method(JComboBox$AccessibleJComboBox$AccessibleEditor, init$, void, $JComboBox$AccessibleJComboBox*)},
-	{"getAccessibleContext", "()Ljavax/accessibility/AccessibleContext;", nullptr, $PUBLIC, $virtualMethod(JComboBox$AccessibleJComboBox$AccessibleEditor, getAccessibleContext, $AccessibleContext*)},
-	{}
-};
-
-$InnerClassInfo _JComboBox$AccessibleJComboBox$AccessibleEditor_InnerClassesInfo_[] = {
-	{"javax.swing.JComboBox$AccessibleJComboBox", "javax.swing.JComboBox", "AccessibleJComboBox", $PROTECTED},
-	{"javax.swing.JComboBox$AccessibleJComboBox$AccessibleEditor", "javax.swing.JComboBox$AccessibleJComboBox", "AccessibleEditor", $PRIVATE},
-	{}
-};
-
-$ClassInfo _JComboBox$AccessibleJComboBox$AccessibleEditor_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.JComboBox$AccessibleJComboBox$AccessibleEditor",
-	"java.lang.Object",
-	"javax.accessibility.Accessible",
-	_JComboBox$AccessibleJComboBox$AccessibleEditor_FieldInfo_,
-	_JComboBox$AccessibleJComboBox$AccessibleEditor_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JComboBox$AccessibleJComboBox$AccessibleEditor_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.JComboBox"
-};
-
-$Object* allocate$JComboBox$AccessibleJComboBox$AccessibleEditor($Class* clazz) {
-	return $of($alloc(JComboBox$AccessibleJComboBox$AccessibleEditor));
-}
-
 void JComboBox$AccessibleJComboBox$AccessibleEditor::init$($JComboBox$AccessibleJComboBox* this$1) {
 	$set(this, this$1, this$1);
 }
 
 $AccessibleContext* JComboBox$AccessibleJComboBox$AccessibleEditor::getAccessibleContext() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->this$1->editorAccessibleContext == nullptr) {
-		$var($Component, c, $nc($($nc(this->this$1->this$0)->getEditor()))->getEditorComponent());
+		$var($Component, c, $$nc($nc(this->this$1->this$0)->getEditor())->getEditorComponent());
 		if ($instanceOf($Accessible, c)) {
 			$set(this->this$1, editorAccessibleContext, $new($JComboBox$AccessibleJComboBox$EditorAccessibleContext, this->this$1, $cast($Accessible, c)));
 		}
@@ -80,7 +40,38 @@ JComboBox$AccessibleJComboBox$AccessibleEditor::JComboBox$AccessibleJComboBox$Ac
 }
 
 $Class* JComboBox$AccessibleJComboBox$AccessibleEditor::load$($String* name, bool initialize) {
-	$loadClass(JComboBox$AccessibleJComboBox$AccessibleEditor, name, initialize, &_JComboBox$AccessibleJComboBox$AccessibleEditor_ClassInfo_, allocate$JComboBox$AccessibleJComboBox$AccessibleEditor);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$1", "Ljavax/swing/JComboBox$AccessibleJComboBox;", nullptr, $FINAL | $SYNTHETIC, $field(JComboBox$AccessibleJComboBox$AccessibleEditor, this$1)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/JComboBox$AccessibleJComboBox;)V", nullptr, $PRIVATE, $method(JComboBox$AccessibleJComboBox$AccessibleEditor, init$, void, $JComboBox$AccessibleJComboBox*)},
+		{"getAccessibleContext", "()Ljavax/accessibility/AccessibleContext;", nullptr, $PUBLIC, $virtualMethod(JComboBox$AccessibleJComboBox$AccessibleEditor, getAccessibleContext, $AccessibleContext*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.JComboBox$AccessibleJComboBox", "javax.swing.JComboBox", "AccessibleJComboBox", $PROTECTED},
+		{"javax.swing.JComboBox$AccessibleJComboBox$AccessibleEditor", "javax.swing.JComboBox$AccessibleJComboBox", "AccessibleEditor", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.JComboBox$AccessibleJComboBox$AccessibleEditor",
+		"java.lang.Object",
+		"javax.accessibility.Accessible",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.JComboBox"
+	};
+	$loadClass(JComboBox$AccessibleJComboBox$AccessibleEditor, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JComboBox$AccessibleJComboBox$AccessibleEditor);
+	});
 	return class$;
 }
 

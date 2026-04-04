@@ -1,5 +1,4 @@
 #include <com/apple/laf/AquaTableHeaderUI$1$2.h>
-
 #include <com/apple/laf/AquaTableHeaderUI$1.h>
 #include <com/apple/laf/AquaTableHeaderUI.h>
 #include <com/apple/laf/ClientPropertyApplicator$Property.h>
@@ -20,51 +19,6 @@ namespace com {
 	namespace apple {
 		namespace laf {
 
-$FieldInfo _AquaTableHeaderUI$1$2_FieldInfo_[] = {
-	{"this$0", "Lcom/apple/laf/AquaTableHeaderUI$1;", nullptr, $FINAL | $SYNTHETIC, $field(AquaTableHeaderUI$1$2, this$0)},
-	{}
-};
-
-$MethodInfo _AquaTableHeaderUI$1$2_MethodInfo_[] = {
-	{"<init>", "(Lcom/apple/laf/AquaTableHeaderUI$1;Ljava/lang/String;)V", nullptr, 0, $method(AquaTableHeaderUI$1$2, init$, void, $AquaTableHeaderUI$1*, $String*)},
-	{"applyProperty", "(Ljavax/swing/table/JTableHeader;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(AquaTableHeaderUI$1$2, applyProperty, void, $JTableHeader*, Object$*)},
-	{"applyProperty", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(AquaTableHeaderUI$1$2, applyProperty, void, Object$*, Object$*)},
-	{}
-};
-
-$EnclosingMethodInfo _AquaTableHeaderUI$1$2_EnclosingMethodInfo_ = {
-	"com.apple.laf.AquaTableHeaderUI$1",
-	"getInstance",
-	"()Lcom/apple/laf/ClientPropertyApplicator;"
-};
-
-$InnerClassInfo _AquaTableHeaderUI$1$2_InnerClassesInfo_[] = {
-	{"com.apple.laf.AquaTableHeaderUI$1", nullptr, nullptr, 0},
-	{"com.apple.laf.AquaTableHeaderUI$1$2", nullptr, nullptr, 0},
-	{"com.apple.laf.ClientPropertyApplicator$Property", "com.apple.laf.ClientPropertyApplicator", "Property", $PUBLIC | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _AquaTableHeaderUI$1$2_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.apple.laf.AquaTableHeaderUI$1$2",
-	"com.apple.laf.ClientPropertyApplicator$Property",
-	nullptr,
-	_AquaTableHeaderUI$1$2_FieldInfo_,
-	_AquaTableHeaderUI$1$2_MethodInfo_,
-	"Lcom/apple/laf/ClientPropertyApplicator$Property<Ljavax/swing/table/JTableHeader;>;",
-	&_AquaTableHeaderUI$1$2_EnclosingMethodInfo_,
-	_AquaTableHeaderUI$1$2_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.apple.laf.AquaTableHeaderUI"
-};
-
-$Object* allocate$AquaTableHeaderUI$1$2($Class* clazz) {
-	return $of($alloc(AquaTableHeaderUI$1$2));
-}
-
 void AquaTableHeaderUI$1$2::init$($AquaTableHeaderUI$1* this$0, $String* name) {
 	$set(this, this$0, this$0);
 	$ClientPropertyApplicator$Property::init$(name);
@@ -82,7 +36,45 @@ AquaTableHeaderUI$1$2::AquaTableHeaderUI$1$2() {
 }
 
 $Class* AquaTableHeaderUI$1$2::load$($String* name, bool initialize) {
-	$loadClass(AquaTableHeaderUI$1$2, name, initialize, &_AquaTableHeaderUI$1$2_ClassInfo_, allocate$AquaTableHeaderUI$1$2);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/apple/laf/AquaTableHeaderUI$1;", nullptr, $FINAL | $SYNTHETIC, $field(AquaTableHeaderUI$1$2, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/apple/laf/AquaTableHeaderUI$1;Ljava/lang/String;)V", nullptr, 0, $method(AquaTableHeaderUI$1$2, init$, void, $AquaTableHeaderUI$1*, $String*)},
+		{"applyProperty", "(Ljavax/swing/table/JTableHeader;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(AquaTableHeaderUI$1$2, applyProperty, void, $JTableHeader*, Object$*)},
+		{"applyProperty", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(AquaTableHeaderUI$1$2, applyProperty, void, Object$*, Object$*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.apple.laf.AquaTableHeaderUI$1",
+		"getInstance",
+		"()Lcom/apple/laf/ClientPropertyApplicator;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.laf.AquaTableHeaderUI$1", nullptr, nullptr, 0},
+		{"com.apple.laf.AquaTableHeaderUI$1$2", nullptr, nullptr, 0},
+		{"com.apple.laf.ClientPropertyApplicator$Property", "com.apple.laf.ClientPropertyApplicator", "Property", $PUBLIC | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.apple.laf.AquaTableHeaderUI$1$2",
+		"com.apple.laf.ClientPropertyApplicator$Property",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Lcom/apple/laf/ClientPropertyApplicator$Property<Ljavax/swing/table/JTableHeader;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.apple.laf.AquaTableHeaderUI"
+	};
+	$loadClass(AquaTableHeaderUI$1$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AquaTableHeaderUI$1$2);
+	});
 	return class$;
 }
 

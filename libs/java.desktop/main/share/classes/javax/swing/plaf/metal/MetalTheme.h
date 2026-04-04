@@ -41,6 +41,7 @@ class $export MetalTheme : public ::java::lang::Object {
 	$class(MetalTheme, 0, ::java::lang::Object)
 public:
 	MetalTheme();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void addCustomEntriesToTable(::javax::swing::UIDefaults* table);
 	virtual ::javax::swing::plaf::ColorUIResource* getAcceleratorForeground();

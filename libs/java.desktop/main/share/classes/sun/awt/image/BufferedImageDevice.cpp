@@ -1,5 +1,4 @@
 #include <sun/awt/image/BufferedImageDevice.h>
-
 #include <java/awt/GraphicsConfiguration.h>
 #include <java/awt/GraphicsDevice.h>
 #include <sun/awt/image/BufferedImageGraphicsConfig.h>
@@ -18,33 +17,6 @@ using $BufferedImageGraphicsConfig = ::sun::awt::image::BufferedImageGraphicsCon
 namespace sun {
 	namespace awt {
 		namespace image {
-
-$FieldInfo _BufferedImageDevice_FieldInfo_[] = {
-	{"config", "Ljava/awt/GraphicsConfiguration;", nullptr, $PRIVATE | $FINAL, $field(BufferedImageDevice, config)},
-	{}
-};
-
-$MethodInfo _BufferedImageDevice_MethodInfo_[] = {
-	{"<init>", "(Lsun/awt/image/BufferedImageGraphicsConfig;)V", nullptr, $PUBLIC, $method(BufferedImageDevice, init$, void, $BufferedImageGraphicsConfig*)},
-	{"getConfigurations", "()[Ljava/awt/GraphicsConfiguration;", nullptr, $PUBLIC, $virtualMethod(BufferedImageDevice, getConfigurations, $GraphicsConfigurationArray*)},
-	{"getDefaultConfiguration", "()Ljava/awt/GraphicsConfiguration;", nullptr, $PUBLIC, $virtualMethod(BufferedImageDevice, getDefaultConfiguration, $GraphicsConfiguration*)},
-	{"getIDstring", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(BufferedImageDevice, getIDstring, $String*)},
-	{"getType", "()I", nullptr, $PUBLIC, $virtualMethod(BufferedImageDevice, getType, int32_t)},
-	{}
-};
-
-$ClassInfo _BufferedImageDevice_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.awt.image.BufferedImageDevice",
-	"java.awt.GraphicsDevice",
-	nullptr,
-	_BufferedImageDevice_FieldInfo_,
-	_BufferedImageDevice_MethodInfo_
-};
-
-$Object* allocate$BufferedImageDevice($Class* clazz) {
-	return $of($alloc(BufferedImageDevice));
-}
 
 void BufferedImageDevice::init$($BufferedImageGraphicsConfig* config) {
 	$GraphicsDevice::init$();
@@ -71,7 +43,29 @@ BufferedImageDevice::BufferedImageDevice() {
 }
 
 $Class* BufferedImageDevice::load$($String* name, bool initialize) {
-	$loadClass(BufferedImageDevice, name, initialize, &_BufferedImageDevice_ClassInfo_, allocate$BufferedImageDevice);
+	$FieldInfo fieldInfos$$[] = {
+		{"config", "Ljava/awt/GraphicsConfiguration;", nullptr, $PRIVATE | $FINAL, $field(BufferedImageDevice, config)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/awt/image/BufferedImageGraphicsConfig;)V", nullptr, $PUBLIC, $method(BufferedImageDevice, init$, void, $BufferedImageGraphicsConfig*)},
+		{"getConfigurations", "()[Ljava/awt/GraphicsConfiguration;", nullptr, $PUBLIC, $virtualMethod(BufferedImageDevice, getConfigurations, $GraphicsConfigurationArray*)},
+		{"getDefaultConfiguration", "()Ljava/awt/GraphicsConfiguration;", nullptr, $PUBLIC, $virtualMethod(BufferedImageDevice, getDefaultConfiguration, $GraphicsConfiguration*)},
+		{"getIDstring", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(BufferedImageDevice, getIDstring, $String*)},
+		{"getType", "()I", nullptr, $PUBLIC, $virtualMethod(BufferedImageDevice, getType, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.awt.image.BufferedImageDevice",
+		"java.awt.GraphicsDevice",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(BufferedImageDevice, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BufferedImageDevice);
+	});
 	return class$;
 }
 

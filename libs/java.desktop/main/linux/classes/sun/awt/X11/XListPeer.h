@@ -128,6 +128,7 @@ public:
 	virtual int32_t hashCode() override;
 	virtual bool isObscured() override;
 	virtual bool isReparentSupported() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::awt::List* target);
 	virtual void add($String* item, int32_t index) override;
 	virtual void addItem($String* item, int32_t i);

@@ -45,7 +45,7 @@ public:
 	virtual $String* getDomain();
 	virtual $String* getKey();
 	virtual $String* getMessage() override;
-	static const int64_t serialVersionUID = (int64_t)0x75140CF43984A223;
+	static const int64_t serialVersionUID = (int64_t)0x75140cf43984a223;
 	::com::sun::org::apache::xerces::internal::util::MessageFormatter* fFormatter = nullptr;
 	::java::util::Locale* fLocale = nullptr;
 	$String* fDomain = nullptr;
@@ -54,7 +54,10 @@ public:
 	$String* fMessage = nullptr;
 	MalformedByteSequenceException(const MalformedByteSequenceException& e);
 	virtual void throw$() override;
-	inline MalformedByteSequenceException* operator ->() {
+	inline MalformedByteSequenceException* operator ->() const {
+		return (MalformedByteSequenceException*)throwing$;
+	}
+	inline operator MalformedByteSequenceException*() const {
 		return (MalformedByteSequenceException*)throwing$;
 	}
 };

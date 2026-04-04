@@ -1,5 +1,4 @@
 #include <javax/management/remote/TargetedNotification.h>
-
 #include <java/io/InvalidObjectException.h>
 #include <java/io/ObjectInputStream.h>
 #include <javax/management/Notification.h>
@@ -17,36 +16,6 @@ using $Notification = ::javax::management::Notification;
 namespace javax {
 	namespace management {
 		namespace remote {
-
-$FieldInfo _TargetedNotification_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(TargetedNotification, serialVersionUID)},
-	{"notif", "Ljavax/management/Notification;", nullptr, $PRIVATE, $field(TargetedNotification, notif)},
-	{"id", "Ljava/lang/Integer;", nullptr, $PRIVATE, $field(TargetedNotification, id)},
-	{}
-};
-
-$MethodInfo _TargetedNotification_MethodInfo_[] = {
-	{"<init>", "(Ljavax/management/Notification;Ljava/lang/Integer;)V", nullptr, $PUBLIC, $method(TargetedNotification, init$, void, $Notification*, $Integer*)},
-	{"getListenerID", "()Ljava/lang/Integer;", nullptr, $PUBLIC, $virtualMethod(TargetedNotification, getListenerID, $Integer*)},
-	{"getNotification", "()Ljavax/management/Notification;", nullptr, $PUBLIC, $virtualMethod(TargetedNotification, getNotification, $Notification*)},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(TargetedNotification, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TargetedNotification, toString, $String*)},
-	{"validate", "(Ljavax/management/Notification;Ljava/lang/Integer;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(TargetedNotification, validate, void, $Notification*, $Integer*), "java.lang.IllegalArgumentException"},
-	{}
-};
-
-$ClassInfo _TargetedNotification_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.management.remote.TargetedNotification",
-	"java.lang.Object",
-	"java.io.Serializable",
-	_TargetedNotification_FieldInfo_,
-	_TargetedNotification_MethodInfo_
-};
-
-$Object* allocate$TargetedNotification($Class* clazz) {
-	return $of($alloc(TargetedNotification));
-}
 
 void TargetedNotification::init$($Notification* notification, $Integer* listenerID) {
 	validate(notification, listenerID);
@@ -89,7 +58,32 @@ TargetedNotification::TargetedNotification() {
 }
 
 $Class* TargetedNotification::load$($String* name, bool initialize) {
-	$loadClass(TargetedNotification, name, initialize, &_TargetedNotification_ClassInfo_, allocate$TargetedNotification);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(TargetedNotification, serialVersionUID)},
+		{"notif", "Ljavax/management/Notification;", nullptr, $PRIVATE, $field(TargetedNotification, notif)},
+		{"id", "Ljava/lang/Integer;", nullptr, $PRIVATE, $field(TargetedNotification, id)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/management/Notification;Ljava/lang/Integer;)V", nullptr, $PUBLIC, $method(TargetedNotification, init$, void, $Notification*, $Integer*)},
+		{"getListenerID", "()Ljava/lang/Integer;", nullptr, $PUBLIC, $virtualMethod(TargetedNotification, getListenerID, $Integer*)},
+		{"getNotification", "()Ljavax/management/Notification;", nullptr, $PUBLIC, $virtualMethod(TargetedNotification, getNotification, $Notification*)},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(TargetedNotification, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TargetedNotification, toString, $String*)},
+		{"validate", "(Ljavax/management/Notification;Ljava/lang/Integer;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(TargetedNotification, validate, void, $Notification*, $Integer*), "java.lang.IllegalArgumentException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.management.remote.TargetedNotification",
+		"java.lang.Object",
+		"java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TargetedNotification, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TargetedNotification);
+	});
 	return class$;
 }
 

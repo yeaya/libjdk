@@ -1,5 +1,4 @@
 #include <java/awt/BufferCapabilities.h>
-
 #include <java/awt/BufferCapabilities$FlipContents.h>
 #include <java/awt/ImageCapabilities.h>
 #include <java/lang/CloneNotSupportedException.h>
@@ -20,49 +19,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace java {
 	namespace awt {
-
-$FieldInfo _BufferCapabilities_FieldInfo_[] = {
-	{"frontCaps", "Ljava/awt/ImageCapabilities;", nullptr, $PRIVATE, $field(BufferCapabilities, frontCaps)},
-	{"backCaps", "Ljava/awt/ImageCapabilities;", nullptr, $PRIVATE, $field(BufferCapabilities, backCaps)},
-	{"flipContents", "Ljava/awt/BufferCapabilities$FlipContents;", nullptr, $PRIVATE, $field(BufferCapabilities, flipContents)},
-	{}
-};
-
-$MethodInfo _BufferCapabilities_MethodInfo_[] = {
-	{"<init>", "(Ljava/awt/ImageCapabilities;Ljava/awt/ImageCapabilities;Ljava/awt/BufferCapabilities$FlipContents;)V", nullptr, $PUBLIC, $method(BufferCapabilities, init$, void, $ImageCapabilities*, $ImageCapabilities*, $BufferCapabilities$FlipContents*)},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(BufferCapabilities, clone, $Object*)},
-	{"getBackBufferCapabilities", "()Ljava/awt/ImageCapabilities;", nullptr, $PUBLIC, $virtualMethod(BufferCapabilities, getBackBufferCapabilities, $ImageCapabilities*)},
-	{"getFlipContents", "()Ljava/awt/BufferCapabilities$FlipContents;", nullptr, $PUBLIC, $virtualMethod(BufferCapabilities, getFlipContents, $BufferCapabilities$FlipContents*)},
-	{"getFrontBufferCapabilities", "()Ljava/awt/ImageCapabilities;", nullptr, $PUBLIC, $virtualMethod(BufferCapabilities, getFrontBufferCapabilities, $ImageCapabilities*)},
-	{"isFullScreenRequired", "()Z", nullptr, $PUBLIC, $virtualMethod(BufferCapabilities, isFullScreenRequired, bool)},
-	{"isMultiBufferAvailable", "()Z", nullptr, $PUBLIC, $virtualMethod(BufferCapabilities, isMultiBufferAvailable, bool)},
-	{"isPageFlipping", "()Z", nullptr, $PUBLIC, $virtualMethod(BufferCapabilities, isPageFlipping, bool)},
-	{}
-};
-
-$InnerClassInfo _BufferCapabilities_InnerClassesInfo_[] = {
-	{"java.awt.BufferCapabilities$FlipContents", "java.awt.BufferCapabilities", "FlipContents", $PUBLIC | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _BufferCapabilities_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.awt.BufferCapabilities",
-	"java.lang.Object",
-	"java.lang.Cloneable",
-	_BufferCapabilities_FieldInfo_,
-	_BufferCapabilities_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BufferCapabilities_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.awt.BufferCapabilities$FlipContents"
-};
-
-$Object* allocate$BufferCapabilities($Class* clazz) {
-	return $of($alloc(BufferCapabilities));
-}
 
 void BufferCapabilities::init$($ImageCapabilities* frontCaps, $ImageCapabilities* backCaps, $BufferCapabilities$FlipContents* flipContents) {
 	if (frontCaps == nullptr || backCaps == nullptr) {
@@ -99,9 +55,9 @@ bool BufferCapabilities::isMultiBufferAvailable() {
 
 $Object* BufferCapabilities::clone() {
 	try {
-		return $of($Cloneable::clone());
+		return $Cloneable::clone();
 	} catch ($CloneNotSupportedException& e) {
-		$throwNew($InternalError, static_cast<$Throwable*>(e));
+		$throwNew($InternalError, e);
 	}
 	$shouldNotReachHere();
 }
@@ -110,7 +66,44 @@ BufferCapabilities::BufferCapabilities() {
 }
 
 $Class* BufferCapabilities::load$($String* name, bool initialize) {
-	$loadClass(BufferCapabilities, name, initialize, &_BufferCapabilities_ClassInfo_, allocate$BufferCapabilities);
+	$FieldInfo fieldInfos$$[] = {
+		{"frontCaps", "Ljava/awt/ImageCapabilities;", nullptr, $PRIVATE, $field(BufferCapabilities, frontCaps)},
+		{"backCaps", "Ljava/awt/ImageCapabilities;", nullptr, $PRIVATE, $field(BufferCapabilities, backCaps)},
+		{"flipContents", "Ljava/awt/BufferCapabilities$FlipContents;", nullptr, $PRIVATE, $field(BufferCapabilities, flipContents)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/ImageCapabilities;Ljava/awt/ImageCapabilities;Ljava/awt/BufferCapabilities$FlipContents;)V", nullptr, $PUBLIC, $method(BufferCapabilities, init$, void, $ImageCapabilities*, $ImageCapabilities*, $BufferCapabilities$FlipContents*)},
+		{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(BufferCapabilities, clone, $Object*)},
+		{"getBackBufferCapabilities", "()Ljava/awt/ImageCapabilities;", nullptr, $PUBLIC, $virtualMethod(BufferCapabilities, getBackBufferCapabilities, $ImageCapabilities*)},
+		{"getFlipContents", "()Ljava/awt/BufferCapabilities$FlipContents;", nullptr, $PUBLIC, $virtualMethod(BufferCapabilities, getFlipContents, $BufferCapabilities$FlipContents*)},
+		{"getFrontBufferCapabilities", "()Ljava/awt/ImageCapabilities;", nullptr, $PUBLIC, $virtualMethod(BufferCapabilities, getFrontBufferCapabilities, $ImageCapabilities*)},
+		{"isFullScreenRequired", "()Z", nullptr, $PUBLIC, $virtualMethod(BufferCapabilities, isFullScreenRequired, bool)},
+		{"isMultiBufferAvailable", "()Z", nullptr, $PUBLIC, $virtualMethod(BufferCapabilities, isMultiBufferAvailable, bool)},
+		{"isPageFlipping", "()Z", nullptr, $PUBLIC, $virtualMethod(BufferCapabilities, isPageFlipping, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.awt.BufferCapabilities$FlipContents", "java.awt.BufferCapabilities", "FlipContents", $PUBLIC | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.awt.BufferCapabilities",
+		"java.lang.Object",
+		"java.lang.Cloneable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.awt.BufferCapabilities$FlipContents"
+	};
+	$loadClass(BufferCapabilities, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BufferCapabilities);
+	});
 	return class$;
 }
 

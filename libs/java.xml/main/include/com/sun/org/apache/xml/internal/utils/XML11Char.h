@@ -38,6 +38,7 @@ class $import XML11Char : public ::java::lang::Object {
 	$class(XML11Char, 0, ::java::lang::Object)
 public:
 	XML11Char();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static bool isXML11Content(int32_t c);
 	static bool isXML11InternalEntityContent(int32_t c);

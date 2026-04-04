@@ -15,6 +15,7 @@ class ClassReader$28 : public ::java::lang::Object {
 	$class(ClassReader$28, 0, ::java::lang::Object)
 public:
 	ClassReader$28();
+	static void clinit$(::java::lang::Class* clazz);
 	static $ints* $SwitchMap$com$sun$tools$javac$code$TargetType;
 	static $ints* $SwitchMap$com$sun$tools$javac$code$TypeTag;
 };

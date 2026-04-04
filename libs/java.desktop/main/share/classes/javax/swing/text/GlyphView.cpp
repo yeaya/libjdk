@@ -1,5 +1,4 @@
 #include <javax/swing/text/GlyphView.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
@@ -10,7 +9,6 @@
 #include <java/lang/CloneNotSupportedException.h>
 #include <java/lang/Math.h>
 #include <java/text/BreakIterator.h>
-#include <java/text/CharacterIterator.h>
 #include <java/util/BitSet.h>
 #include <java/util/Locale.h>
 #include <javax/swing/UIManager.h>
@@ -69,7 +67,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $BreakIterator = ::java::text::BreakIterator;
-using $CharacterIterator = ::java::text::CharacterIterator;
 using $BitSet = ::java::util::BitSet;
 using $Locale = ::java::util::Locale;
 using $UIManager = ::javax::swing::UIManager;
@@ -103,93 +100,6 @@ namespace javax {
 	namespace swing {
 		namespace text {
 
-$FieldInfo _GlyphView_FieldInfo_[] = {
-	{"selections", "[B", nullptr, $PRIVATE, $field(GlyphView, selections)},
-	{"offset", "I", nullptr, 0, $field(GlyphView, offset)},
-	{"length", "I", nullptr, 0, $field(GlyphView, length)},
-	{"impliedCR", "Z", nullptr, 0, $field(GlyphView, impliedCR)},
-	{"skipWidth", "Z", nullptr, 0, $field(GlyphView, skipWidth)},
-	{"expander", "Ljavax/swing/text/TabExpander;", nullptr, 0, $field(GlyphView, expander)},
-	{"minimumSpan", "F", nullptr, $PRIVATE, $field(GlyphView, minimumSpan)},
-	{"breakSpots", "[I", nullptr, $PRIVATE, $field(GlyphView, breakSpots)},
-	{"x", "I", nullptr, 0, $field(GlyphView, x)},
-	{"painter", "Ljavax/swing/text/GlyphView$GlyphPainter;", nullptr, 0, $field(GlyphView, painter)},
-	{"defaultPainter", "Ljavax/swing/text/GlyphView$GlyphPainter;", nullptr, $STATIC, $staticField(GlyphView, defaultPainter)},
-	{"justificationInfo", "Ljavax/swing/text/GlyphView$JustificationInfo;", nullptr, $PRIVATE, $field(GlyphView, justificationInfo)},
-	{}
-};
-
-$MethodInfo _GlyphView_MethodInfo_[] = {
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljavax/swing/text/Element;)V", nullptr, $PUBLIC, $method(GlyphView, init$, void, $Element*)},
-	{"breakView", "(IIFF)Ljavax/swing/text/View;", nullptr, $PUBLIC, $virtualMethod(GlyphView, breakView, $View*, int32_t, int32_t, float, float)},
-	{"changedUpdate", "(Ljavax/swing/event/DocumentEvent;Ljava/awt/Shape;Ljavax/swing/text/ViewFactory;)V", nullptr, $PUBLIC, $virtualMethod(GlyphView, changedUpdate, void, $DocumentEvent*, $Shape*, $ViewFactory*)},
-	{"checkPainter", "()V", nullptr, $PROTECTED, $virtualMethod(GlyphView, checkPainter, void)},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(GlyphView, clone, $Object*)},
-	{"createFragment", "(II)Ljavax/swing/text/View;", nullptr, $PUBLIC, $virtualMethod(GlyphView, createFragment, $View*, int32_t, int32_t)},
-	{"getAlignment", "(I)F", nullptr, $PUBLIC, $virtualMethod(GlyphView, getAlignment, float, int32_t)},
-	{"getBackground", "()Ljava/awt/Color;", nullptr, $PUBLIC, $virtualMethod(GlyphView, getBackground, $Color*)},
-	{"getBreakSpot", "(II)I", nullptr, $PRIVATE, $method(GlyphView, getBreakSpot, int32_t, int32_t, int32_t)},
-	{"getBreakWeight", "(IFF)I", nullptr, $PUBLIC, $virtualMethod(GlyphView, getBreakWeight, int32_t, int32_t, float, float)},
-	{"getBreaker", "()Ljava/text/BreakIterator;", nullptr, $PRIVATE, $method(GlyphView, getBreaker, $BreakIterator*)},
-	{"getEndOffset", "()I", nullptr, $PUBLIC, $virtualMethod(GlyphView, getEndOffset, int32_t)},
-	{"getFont", "()Ljava/awt/Font;", nullptr, $PUBLIC, $virtualMethod(GlyphView, getFont, $Font*)},
-	{"getForeground", "()Ljava/awt/Color;", nullptr, $PUBLIC, $virtualMethod(GlyphView, getForeground, $Color*)},
-	{"getGlyphPainter", "()Ljavax/swing/text/GlyphView$GlyphPainter;", nullptr, $PUBLIC, $virtualMethod(GlyphView, getGlyphPainter, $GlyphView$GlyphPainter*)},
-	{"getJustificationInfo", "(I)Ljavax/swing/text/GlyphView$JustificationInfo;", nullptr, 0, $virtualMethod(GlyphView, getJustificationInfo, $GlyphView$JustificationInfo*, int32_t)},
-	{"getMinimumSpan", "(I)F", nullptr, $PUBLIC, $virtualMethod(GlyphView, getMinimumSpan, float, int32_t)},
-	{"getNextVisualPositionFrom", "(ILjavax/swing/text/Position$Bias;Ljava/awt/Shape;I[Ljavax/swing/text/Position$Bias;)I", nullptr, $PUBLIC, $virtualMethod(GlyphView, getNextVisualPositionFrom, int32_t, int32_t, $Position$Bias*, $Shape*, int32_t, $Position$BiasArray*), "javax.swing.text.BadLocationException"},
-	{"getPartialSpan", "(II)F", nullptr, $PUBLIC, $virtualMethod(GlyphView, getPartialSpan, float, int32_t, int32_t)},
-	{"getPreferredSpan", "(I)F", nullptr, $PUBLIC, $virtualMethod(GlyphView, getPreferredSpan, float, int32_t)},
-	{"getStartOffset", "()I", nullptr, $PUBLIC, $virtualMethod(GlyphView, getStartOffset, int32_t)},
-	{"getTabExpander", "()Ljavax/swing/text/TabExpander;", nullptr, $PUBLIC, $virtualMethod(GlyphView, getTabExpander, $TabExpander*)},
-	{"getTabbedSpan", "(FLjavax/swing/text/TabExpander;)F", nullptr, $PUBLIC, $virtualMethod(GlyphView, getTabbedSpan, float, float, $TabExpander*)},
-	{"getText", "(II)Ljavax/swing/text/Segment;", nullptr, $PUBLIC, $virtualMethod(GlyphView, getText, $Segment*, int32_t, int32_t)},
-	{"initSelections", "(II)V", nullptr, $PRIVATE, $method(GlyphView, initSelections, void, int32_t, int32_t)},
-	{"insertUpdate", "(Ljavax/swing/event/DocumentEvent;Ljava/awt/Shape;Ljavax/swing/text/ViewFactory;)V", nullptr, $PUBLIC, $virtualMethod(GlyphView, insertUpdate, void, $DocumentEvent*, $Shape*, $ViewFactory*)},
-	{"isStrikeThrough", "()Z", nullptr, $PUBLIC, $virtualMethod(GlyphView, isStrikeThrough, bool)},
-	{"isSubscript", "()Z", nullptr, $PUBLIC, $virtualMethod(GlyphView, isSubscript, bool)},
-	{"isSuperscript", "()Z", nullptr, $PUBLIC, $virtualMethod(GlyphView, isSuperscript, bool)},
-	{"isUnderline", "()Z", nullptr, $PUBLIC, $virtualMethod(GlyphView, isUnderline, bool)},
-	{"modelToView", "(ILjava/awt/Shape;Ljavax/swing/text/Position$Bias;)Ljava/awt/Shape;", nullptr, $PUBLIC, $virtualMethod(GlyphView, modelToView, $Shape*, int32_t, $Shape*, $Position$Bias*), "javax.swing.text.BadLocationException"},
-	{"paint", "(Ljava/awt/Graphics;Ljava/awt/Shape;)V", nullptr, $PUBLIC, $virtualMethod(GlyphView, paint, void, $Graphics*, $Shape*)},
-	{"paintTextUsingColor", "(Ljava/awt/Graphics;Ljava/awt/Shape;Ljava/awt/Color;II)V", nullptr, $FINAL, $method(GlyphView, paintTextUsingColor, void, $Graphics*, $Shape*, $Color*, int32_t, int32_t)},
-	{"removeUpdate", "(Ljavax/swing/event/DocumentEvent;Ljava/awt/Shape;Ljavax/swing/text/ViewFactory;)V", nullptr, $PUBLIC, $virtualMethod(GlyphView, removeUpdate, void, $DocumentEvent*, $Shape*, $ViewFactory*)},
-	{"setGlyphPainter", "(Ljavax/swing/text/GlyphView$GlyphPainter;)V", nullptr, $PUBLIC, $virtualMethod(GlyphView, setGlyphPainter, void, $GlyphView$GlyphPainter*)},
-	{"syncCR", "()V", nullptr, $PRIVATE, $method(GlyphView, syncCR, void)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"updateAfterChange", "()V", nullptr, 0, $virtualMethod(GlyphView, updateAfterChange, void)},
-	{"viewToModel", "(FFLjava/awt/Shape;[Ljavax/swing/text/Position$Bias;)I", nullptr, $PUBLIC, $virtualMethod(GlyphView, viewToModel, int32_t, float, float, $Shape*, $Position$BiasArray*)},
-	{}
-};
-
-$InnerClassInfo _GlyphView_InnerClassesInfo_[] = {
-	{"javax.swing.text.GlyphView$GlyphPainter", "javax.swing.text.GlyphView", "GlyphPainter", $PUBLIC | $STATIC | $ABSTRACT},
-	{"javax.swing.text.GlyphView$JustificationInfo", "javax.swing.text.GlyphView", "JustificationInfo", $STATIC},
-	{}
-};
-
-$ClassInfo _GlyphView_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.text.GlyphView",
-	"javax.swing.text.View",
-	"javax.swing.text.TabableView,java.lang.Cloneable",
-	_GlyphView_FieldInfo_,
-	_GlyphView_MethodInfo_,
-	nullptr,
-	nullptr,
-	_GlyphView_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.swing.text.GlyphView$GlyphPainter,javax.swing.text.GlyphView$JustificationInfo"
-};
-
-$Object* allocate$GlyphView($Class* clazz) {
-	return $of($alloc(GlyphView));
-}
-
 int32_t GlyphView::hashCode() {
 	 return this->$View::hashCode();
 }
@@ -209,10 +119,10 @@ void GlyphView::finalize() {
 $GlyphView$GlyphPainter* GlyphView::defaultPainter = nullptr;
 
 void GlyphView::init$($Element* elem) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$View::init$(elem);
 	$set(this, selections, nullptr);
-	this->minimumSpan = (float)-1;
+	this->minimumSpan = -1;
 	$set(this, breakSpots, nullptr);
 	$set(this, justificationInfo, nullptr);
 	this->offset = 0;
@@ -221,7 +131,7 @@ void GlyphView::init$($Element* elem) {
 	$var($AttributeSet, attr, elem->getAttributes());
 	bool var$0 = attr != nullptr && attr->getAttribute("CR"_s) != nullptr && parent != nullptr;
 	this->impliedCR = (var$0 && parent->getElementCount() > 1);
-	this->skipWidth = $nc($(elem->getName()))->equals("br"_s);
+	this->skipWidth = $$nc(elem->getName())->equals("br"_s);
 }
 
 $Object* GlyphView::clone() {
@@ -231,7 +141,7 @@ $Object* GlyphView::clone() {
 	} catch ($CloneNotSupportedException& cnse) {
 		$assign(o, nullptr);
 	}
-	return $of(o);
+	return o;
 }
 
 $GlyphView$GlyphPainter* GlyphView::getGlyphPainter() {
@@ -243,7 +153,7 @@ void GlyphView::setGlyphPainter($GlyphView$GlyphPainter* p) {
 }
 
 $Segment* GlyphView::getText(int32_t p0, int32_t p1) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Segment, text, $SegmentCache::getSharedSegment());
 	try {
 		$var($Document, doc, getDocument());
@@ -255,24 +165,24 @@ $Segment* GlyphView::getText(int32_t p0, int32_t p1) {
 }
 
 $Color* GlyphView::getBackground() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Document, doc, getDocument());
 	if ($instanceOf($StyledDocument, doc)) {
 		$var($AttributeSet, attr, getAttributes());
 		$init($StyleConstants);
 		if ($nc(attr)->isDefined($StyleConstants::Background)) {
-			return $nc(($cast($StyledDocument, doc)))->getBackground(attr);
+			return $cast($StyledDocument, doc)->getBackground(attr);
 		}
 	}
 	return nullptr;
 }
 
 $Color* GlyphView::getForeground() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Document, doc, getDocument());
 	if ($instanceOf($StyledDocument, doc)) {
 		$var($AttributeSet, attr, getAttributes());
-		return $nc(($cast($StyledDocument, doc)))->getForeground(attr);
+		return $cast($StyledDocument, doc)->getForeground(attr);
 	}
 	$var($Component, c, getContainer());
 	if (c != nullptr) {
@@ -282,11 +192,11 @@ $Color* GlyphView::getForeground() {
 }
 
 $Font* GlyphView::getFont() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Document, doc, getDocument());
 	if ($instanceOf($StyledDocument, doc)) {
 		$var($AttributeSet, attr, getAttributes());
-		return $nc(($cast($StyledDocument, doc)))->getFont(attr);
+		return $cast($StyledDocument, doc)->getFont(attr);
 	}
 	$var($Component, c, getContainer());
 	if (c != nullptr) {
@@ -351,26 +261,27 @@ float GlyphView::getPartialSpan(int32_t p0, int32_t p1) {
 
 int32_t GlyphView::getStartOffset() {
 	$var($Element, e, getElement());
-	return (this->length > 0) ? $nc(e)->getStartOffset() + this->offset : e->getStartOffset();
+	return (this->length > 0) ? $nc(e)->getStartOffset() + this->offset : $nc(e)->getStartOffset();
 }
 
 int32_t GlyphView::getEndOffset() {
 	$var($Element, e, getElement());
-	return (this->length > 0) ? $nc(e)->getStartOffset() + this->offset + this->length : e->getEndOffset();
+	return (this->length > 0) ? $nc(e)->getStartOffset() + this->offset + this->length : $nc(e)->getEndOffset();
 }
 
 void GlyphView::initSelections(int32_t p0, int32_t p1) {
 	int32_t viewPosCount = p1 - p0 + 1;
-	if (this->selections == nullptr || viewPosCount > $nc(this->selections)->length) {
+	if (this->selections == nullptr || viewPosCount > this->selections->length) {
 		$set(this, selections, $new($bytes, viewPosCount));
 		return;
 	}
-	for (int32_t i = 0; i < viewPosCount; $nc(this->selections)->set(i++, (int8_t)0)) {
+	for (int32_t i = 0; i < viewPosCount; $nc(this->selections)->set(i++, 0)) {
+		;
 	}
 }
 
 void GlyphView::paint($Graphics* g, $Shape* a) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	checkPainter();
 	bool paintedText = false;
 	$var($Component, c, getContainer());
@@ -380,28 +291,28 @@ void GlyphView::paint($Graphics* g, $Shape* a) {
 	$var($Color, bg, getBackground());
 	$var($Color, fg, getForeground());
 	if (c != nullptr && !c->isEnabled()) {
-		$assign(fg, $instanceOf($JTextComponent, c) ? $nc(($cast($JTextComponent, c)))->getDisabledTextColor() : $UIManager::getColor("textInactiveText"_s));
+		$assign(fg, $instanceOf($JTextComponent, c) ? $cast($JTextComponent, c)->getDisabledTextColor() : $UIManager::getColor("textInactiveText"_s));
 	}
 	if (bg != nullptr) {
 		$nc(g)->setColor(bg);
-		g->fillRect($nc(alloc)->x, alloc->y, alloc->width, alloc->height);
+		g->fillRect($nc(alloc)->x, $nc(alloc)->y, $nc(alloc)->width, $nc(alloc)->height);
 	}
 	if ($instanceOf($JTextComponent, c)) {
 		$var($JTextComponent, tc, $cast($JTextComponent, c));
-		$var($Highlighter, h, $nc(tc)->getHighlighter());
+		$var($Highlighter, h, tc->getHighlighter());
 		if ($instanceOf($LayeredHighlighter, h)) {
-			$nc(($cast($LayeredHighlighter, h)))->paintLayeredHighlights(g, p0, p1, a, tc, this);
+			$cast($LayeredHighlighter, h)->paintLayeredHighlights(g, p0, p1, a, tc, this);
 		}
 	}
 	if ($Utilities::isComposedTextElement($(getElement()))) {
-		$Utilities::paintComposedText(g, $(a->getBounds()), this);
+		$Utilities::paintComposedText(g, $($nc(a)->getBounds()), this);
 		paintedText = true;
 	} else if ($instanceOf($JTextComponent, c)) {
 		$var($JTextComponent, tc, $cast($JTextComponent, c));
-		$var($Color, selFG, $nc(tc)->getSelectedTextColor());
+		$var($Color, selFG, tc->getSelectedTextColor());
 		bool var$0 = (tc->getHighlighter() != nullptr) && (selFG != nullptr);
 		if (var$0 && !selFG->equals(fg)) {
-			$var($Highlighter$HighlightArray, h, $nc($(tc->getHighlighter()))->getHighlights());
+			$var($Highlighter$HighlightArray, h, $$nc(tc->getHighlighter())->getHighlights());
 			if ($nc(h)->length != 0) {
 				bool initialized = false;
 				int32_t viewSelectionCount = 0;
@@ -428,7 +339,7 @@ void GlyphView::paint($Graphics* g, $Shape* a) {
 					hEnd = $Math::min(p1, hEnd);
 					paintTextUsingColor(g, a, selFG, hStart, hEnd);
 					++(*$nc(this->selections))[hStart - p0];
-					--(*$nc(this->selections))[hEnd - p0];
+					--(*this->selections)[hEnd - p0];
 					++viewSelectionCount;
 				}
 				if (!paintedText && viewSelectionCount > 0) {
@@ -459,7 +370,7 @@ void GlyphView::paint($Graphics* g, $Shape* a) {
 }
 
 void GlyphView::paintTextUsingColor($Graphics* g, $Shape* a, $Color* c, int32_t p0, int32_t p1) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(g)->setColor(c);
 	$nc(this->painter)->paint(this, g, a, p0, p1);
 	bool underline = isUnderline();
@@ -471,7 +382,7 @@ void GlyphView::paintTextUsingColor($Graphics* g, $Shape* a, $Color* c, int32_t 
 			$var($Segment, s, getText(p0, p1));
 			while ($Character::isWhitespace($nc(s)->last())) {
 				p1 -= 1;
-				$nc(s)->count -= 1;
+				s->count -= 1;
 			}
 			$SegmentCache::releaseSharedSegment(s);
 		}
@@ -483,7 +394,7 @@ void GlyphView::paintTextUsingColor($Graphics* g, $Shape* a, $Color* c, int32_t 
 		int32_t x1 = x0 + $cast(int32_t, $nc(this->painter)->getSpan(this, p0, p1, $(getTabExpander()), (float)x0));
 		int32_t var$0 = alloc->y;
 		float var$2 = $nc(this->painter)->getHeight(this);
-		int32_t var$1 = $cast(int32_t, (var$2 - $nc(this->painter)->getDescent(this)));
+		int32_t var$1 = $cast(int32_t, (var$2 - this->painter->getDescent(this)));
 		int32_t y = var$0 + var$1;
 		if (underline) {
 			int32_t yTmp = y + 1;
@@ -497,40 +408,34 @@ void GlyphView::paintTextUsingColor($Graphics* g, $Shape* a, $Color* c, int32_t 
 }
 
 float GlyphView::getMinimumSpan(int32_t axis) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	switch (axis) {
 	case $View::X_AXIS:
-		{
-			if (this->minimumSpan < 0) {
-				this->minimumSpan = (float)0;
-				int32_t p0 = getStartOffset();
-				int32_t p1 = getEndOffset();
-				while (p1 > p0) {
-					int32_t breakSpot = getBreakSpot(p0, p1);
-					if (breakSpot == $BreakIterator::DONE) {
-						breakSpot = p0;
-					}
-					this->minimumSpan = $Math::max(this->minimumSpan, getPartialSpan(breakSpot, p1));
-					p1 = breakSpot - 1;
+		if (this->minimumSpan < 0) {
+			this->minimumSpan = 0;
+			int32_t p0 = getStartOffset();
+			int32_t p1 = getEndOffset();
+			while (p1 > p0) {
+				int32_t breakSpot = getBreakSpot(p0, p1);
+				if (breakSpot == $BreakIterator::DONE) {
+					breakSpot = p0;
 				}
+				this->minimumSpan = $Math::max(this->minimumSpan, getPartialSpan(breakSpot, p1));
+				p1 = breakSpot - 1;
 			}
-			return this->minimumSpan;
 		}
+		return this->minimumSpan;
 	case $View::Y_AXIS:
-		{
-			return $View::getMinimumSpan(axis);
-		}
+		return $View::getMinimumSpan(axis);
 	default:
-		{
-			$throwNew($IllegalArgumentException, $$str({"Invalid axis: "_s, $$str(axis)}));
-		}
+		$throwNew($IllegalArgumentException, $$str({"Invalid axis: "_s, $$str(axis)}));
 	}
 }
 
 float GlyphView::getPreferredSpan(int32_t axis) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->impliedCR) {
-		return (float)0;
+		return 0;
 	}
 	checkPainter();
 	int32_t p0 = getStartOffset();
@@ -539,24 +444,18 @@ float GlyphView::getPreferredSpan(int32_t axis) {
 		float h = 0;
 		switch (axis) {
 		case $View::X_AXIS:
-			{
-				if (this->skipWidth) {
-					return (float)0;
-				}
-				return $nc(this->painter)->getSpan(this, p0, p1, this->expander, (float)this->x);
+			if (this->skipWidth) {
+				return 0;
 			}
+			return $nc(this->painter)->getSpan(this, p0, p1, this->expander, (float)this->x);
 		case $View::Y_AXIS:
-			{
-				h = $nc(this->painter)->getHeight(this);
-				if (isSuperscript()) {
-					h += h / 3;
-				}
-				return h;
+			h = $nc(this->painter)->getHeight(this);
+			if (isSuperscript()) {
+				h += h / 3;
 			}
+			return h;
 		default:
-			{
-				$throwNew($IllegalArgumentException, $$str({"Invalid axis: "_s, $$str(axis)}));
-			}
+			$throwNew($IllegalArgumentException, $$str({"Invalid axis: "_s, $$str(axis)}));
 		}
 	}
 }
@@ -573,9 +472,9 @@ float GlyphView::getAlignment(int32_t axis) {
 		if (sup) {
 			align = 1.0f;
 		} else if (sub) {
-			align = (h > 0) ? (h - (d + (a / 2))) / h : (float)0;
+			align = (h > 0) ? (h - (d + (a / 2))) / h : 0;
 		} else {
-			align = (h > 0) ? (h - d) / h : (float)0;
+			align = (h > 0) ? (h - d) / h : 0;
 		}
 		return align;
 	}
@@ -622,19 +521,19 @@ $View* GlyphView::breakView(int32_t axis, int32_t p0, float pos, float len) {
 }
 
 int32_t GlyphView::getBreakSpot(int32_t p0, int32_t p1) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->breakSpots == nullptr) {
 		int32_t start = getStartOffset();
 		int32_t end = getEndOffset();
 		$var($ints, bs, $new($ints, end + 1 - start));
 		int32_t ix = 0;
-		$var($Element, parent, $nc($(getElement()))->getParentElement());
-		int32_t pstart = (parent == nullptr ? start : $nc(parent)->getStartOffset());
+		$var($Element, parent, $$nc(getElement())->getParentElement());
+		int32_t pstart = (parent == nullptr ? start : parent->getStartOffset());
 		int32_t pend = (parent == nullptr ? end : parent->getEndOffset());
 		$var($Segment, s, getText(pstart, pend));
 		$nc(s)->first();
 		$var($BreakIterator, breaker, getBreaker());
-		$nc(breaker)->setText(static_cast<$CharacterIterator*>(s));
+		$nc(breaker)->setText(s);
 		int32_t startFrom = end + (pend > end ? 1 : 0);
 		for (;;) {
 			startFrom = breaker->preceding(s->offset + (startFrom - pstart)) + (pstart - s->offset);
@@ -650,7 +549,7 @@ int32_t GlyphView::getBreakSpot(int32_t p0, int32_t p1) {
 	}
 	int32_t breakSpot = $BreakIterator::DONE;
 	for (int32_t i = 0; i < $nc(this->breakSpots)->length; ++i) {
-		int32_t bsp = $nc(this->breakSpots)->get(i);
+		int32_t bsp = this->breakSpots->get(i);
 		if (bsp <= p1) {
 			if (bsp > p0) {
 				breakSpot = bsp;
@@ -662,13 +561,12 @@ int32_t GlyphView::getBreakSpot(int32_t p0, int32_t p1) {
 }
 
 $BreakIterator* GlyphView::getBreaker() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Document, doc, getDocument());
-	$init($Boolean);
 	$init($AbstractDocument);
 	if ((doc != nullptr) && $nc($Boolean::TRUE)->equals($(doc->getProperty($AbstractDocument::MultiByteProperty)))) {
 		$var($Container, c, getContainer());
-		$var($Locale, locale, c == nullptr ? $Locale::getDefault() : $nc(c)->getLocale());
+		$var($Locale, locale, c == nullptr ? $Locale::getDefault() : c->getLocale());
 		return $BreakIterator::getLineInstance(locale);
 	} else {
 		return $new($WhitespaceBasedBreakIterator);
@@ -676,7 +574,7 @@ $BreakIterator* GlyphView::getBreaker() {
 }
 
 $View* GlyphView::createFragment(int32_t p0, int32_t p1) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	checkPainter();
 	$var($Element, elem, getElement());
 	$var(GlyphView, v, $cast(GlyphView, clone()));
@@ -688,7 +586,7 @@ $View* GlyphView::createFragment(int32_t p0, int32_t p1) {
 }
 
 int32_t GlyphView::getNextVisualPositionFrom(int32_t pos, $Position$Bias* b, $Shape* a, int32_t direction, $Position$BiasArray* biasRet) {
-	if (pos < -1 || pos > $nc($(getDocument()))->getLength()) {
+	if (pos < -1 || pos > $$nc(getDocument())->getLength()) {
 		$throwNew($BadLocationException, "invalid position"_s, pos);
 	}
 	return $nc(this->painter)->getNextVisualPositionFrom(this, pos, b, a, direction, biasRet);
@@ -697,7 +595,7 @@ int32_t GlyphView::getNextVisualPositionFrom(int32_t pos, $Position$Bias* b, $Sh
 void GlyphView::insertUpdate($DocumentEvent* e, $Shape* a, $ViewFactory* f) {
 	$set(this, justificationInfo, nullptr);
 	$set(this, breakSpots, nullptr);
-	this->minimumSpan = (float)-1;
+	this->minimumSpan = -1;
 	syncCR();
 	preferenceChanged(nullptr, true, false);
 }
@@ -705,21 +603,21 @@ void GlyphView::insertUpdate($DocumentEvent* e, $Shape* a, $ViewFactory* f) {
 void GlyphView::removeUpdate($DocumentEvent* e, $Shape* a, $ViewFactory* f) {
 	$set(this, justificationInfo, nullptr);
 	$set(this, breakSpots, nullptr);
-	this->minimumSpan = (float)-1;
+	this->minimumSpan = -1;
 	syncCR();
 	preferenceChanged(nullptr, true, false);
 }
 
 void GlyphView::changedUpdate($DocumentEvent* e, $Shape* a, $ViewFactory* f) {
-	this->minimumSpan = (float)-1;
+	this->minimumSpan = -1;
 	syncCR();
 	preferenceChanged(nullptr, true, true);
 }
 
 void GlyphView::syncCR() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->impliedCR) {
-		$var($Element, parent, $nc($(getElement()))->getParentElement());
+		$var($Element, parent, $$nc(getElement())->getParentElement());
 		this->impliedCR = (parent != nullptr && parent->getElementCount() > 1);
 	}
 }
@@ -729,7 +627,7 @@ void GlyphView::updateAfterChange() {
 }
 
 $GlyphView$JustificationInfo* GlyphView::getJustificationInfo(int32_t rowStartOffset) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->justificationInfo != nullptr) {
 		return this->justificationInfo;
 	}
@@ -749,36 +647,32 @@ $GlyphView$JustificationInfo* GlyphView::getJustificationInfo(int32_t rowStartOf
 	int32_t leadingSpaces = 0;
 	bool hasTab = false;
 	$var($BitSet, spaceMap, $new($BitSet, endOffset - startOffset + 1));
-	{
-		int32_t i = txtEnd;
-		int32_t state = TRAILING;
-		for (; i >= txtOffset; --i) {
-			if (u' ' == $nc(segment->array)->get(i)) {
-				spaceMap->set(i - txtOffset);
-				if (state == TRAILING) {
-					++trailingSpaces;
-				} else if (state == CONTENT) {
-					state = SPACES;
-					leadingSpaces = 1;
-				} else if (state == SPACES) {
-					++leadingSpaces;
-				}
-			} else if (u'\t' == $nc(segment->array)->get(i)) {
-				hasTab = true;
-				break;
-			} else {
-				if (state == TRAILING) {
-					if (u'\n' != $nc(segment->array)->get(i) && u'\r' != $nc(segment->array)->get(i)) {
-						state = CONTENT;
-						endContentPosition = i;
-					}
-				} else if (state == CONTENT) {
-				} else if (state == SPACES) {
-					contentSpaces += leadingSpaces;
-					leadingSpaces = 0;
-				}
-				startContentPosition = i;
+	for (int32_t i = txtEnd, state = TRAILING; i >= txtOffset; --i) {
+		if (u' ' == $nc(segment->array)->get(i)) {
+			spaceMap->set(i - txtOffset);
+			if (state == TRAILING) {
+				++trailingSpaces;
+			} else if (state == CONTENT) {
+				state = SPACES;
+				leadingSpaces = 1;
+			} else if (state == SPACES) {
+				++leadingSpaces;
 			}
+		} else if (u'\t' == segment->array->get(i)) {
+			hasTab = true;
+			break;
+		} else {
+			if (state == TRAILING) {
+				if (u'\n' != segment->array->get(i) && u'\r' != segment->array->get(i)) {
+					state = CONTENT;
+					endContentPosition = i;
+				}
+			} else if (state == CONTENT) {
+			} else if (state == SPACES) {
+				contentSpaces += leadingSpaces;
+				leadingSpaces = 0;
+			}
+			startContentPosition = i;
 		}
 	}
 	$SegmentCache::releaseSharedSegment(segment);
@@ -798,7 +692,88 @@ GlyphView::GlyphView() {
 }
 
 $Class* GlyphView::load$($String* name, bool initialize) {
-	$loadClass(GlyphView, name, initialize, &_GlyphView_ClassInfo_, allocate$GlyphView);
+	$FieldInfo fieldInfos$$[] = {
+		{"selections", "[B", nullptr, $PRIVATE, $field(GlyphView, selections)},
+		{"offset", "I", nullptr, 0, $field(GlyphView, offset)},
+		{"length", "I", nullptr, 0, $field(GlyphView, length)},
+		{"impliedCR", "Z", nullptr, 0, $field(GlyphView, impliedCR)},
+		{"skipWidth", "Z", nullptr, 0, $field(GlyphView, skipWidth)},
+		{"expander", "Ljavax/swing/text/TabExpander;", nullptr, 0, $field(GlyphView, expander)},
+		{"minimumSpan", "F", nullptr, $PRIVATE, $field(GlyphView, minimumSpan)},
+		{"breakSpots", "[I", nullptr, $PRIVATE, $field(GlyphView, breakSpots)},
+		{"x", "I", nullptr, 0, $field(GlyphView, x)},
+		{"painter", "Ljavax/swing/text/GlyphView$GlyphPainter;", nullptr, 0, $field(GlyphView, painter)},
+		{"defaultPainter", "Ljavax/swing/text/GlyphView$GlyphPainter;", nullptr, $STATIC, $staticField(GlyphView, defaultPainter)},
+		{"justificationInfo", "Ljavax/swing/text/GlyphView$JustificationInfo;", nullptr, $PRIVATE, $field(GlyphView, justificationInfo)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljavax/swing/text/Element;)V", nullptr, $PUBLIC, $method(GlyphView, init$, void, $Element*)},
+		{"breakView", "(IIFF)Ljavax/swing/text/View;", nullptr, $PUBLIC, $virtualMethod(GlyphView, breakView, $View*, int32_t, int32_t, float, float)},
+		{"changedUpdate", "(Ljavax/swing/event/DocumentEvent;Ljava/awt/Shape;Ljavax/swing/text/ViewFactory;)V", nullptr, $PUBLIC, $virtualMethod(GlyphView, changedUpdate, void, $DocumentEvent*, $Shape*, $ViewFactory*)},
+		{"checkPainter", "()V", nullptr, $PROTECTED, $virtualMethod(GlyphView, checkPainter, void)},
+		{"clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(GlyphView, clone, $Object*)},
+		{"createFragment", "(II)Ljavax/swing/text/View;", nullptr, $PUBLIC, $virtualMethod(GlyphView, createFragment, $View*, int32_t, int32_t)},
+		{"getAlignment", "(I)F", nullptr, $PUBLIC, $virtualMethod(GlyphView, getAlignment, float, int32_t)},
+		{"getBackground", "()Ljava/awt/Color;", nullptr, $PUBLIC, $virtualMethod(GlyphView, getBackground, $Color*)},
+		{"getBreakSpot", "(II)I", nullptr, $PRIVATE, $method(GlyphView, getBreakSpot, int32_t, int32_t, int32_t)},
+		{"getBreakWeight", "(IFF)I", nullptr, $PUBLIC, $virtualMethod(GlyphView, getBreakWeight, int32_t, int32_t, float, float)},
+		{"getBreaker", "()Ljava/text/BreakIterator;", nullptr, $PRIVATE, $method(GlyphView, getBreaker, $BreakIterator*)},
+		{"getEndOffset", "()I", nullptr, $PUBLIC, $virtualMethod(GlyphView, getEndOffset, int32_t)},
+		{"getFont", "()Ljava/awt/Font;", nullptr, $PUBLIC, $virtualMethod(GlyphView, getFont, $Font*)},
+		{"getForeground", "()Ljava/awt/Color;", nullptr, $PUBLIC, $virtualMethod(GlyphView, getForeground, $Color*)},
+		{"getGlyphPainter", "()Ljavax/swing/text/GlyphView$GlyphPainter;", nullptr, $PUBLIC, $virtualMethod(GlyphView, getGlyphPainter, $GlyphView$GlyphPainter*)},
+		{"getJustificationInfo", "(I)Ljavax/swing/text/GlyphView$JustificationInfo;", nullptr, 0, $virtualMethod(GlyphView, getJustificationInfo, $GlyphView$JustificationInfo*, int32_t)},
+		{"getMinimumSpan", "(I)F", nullptr, $PUBLIC, $virtualMethod(GlyphView, getMinimumSpan, float, int32_t)},
+		{"getNextVisualPositionFrom", "(ILjavax/swing/text/Position$Bias;Ljava/awt/Shape;I[Ljavax/swing/text/Position$Bias;)I", nullptr, $PUBLIC, $virtualMethod(GlyphView, getNextVisualPositionFrom, int32_t, int32_t, $Position$Bias*, $Shape*, int32_t, $Position$BiasArray*), "javax.swing.text.BadLocationException"},
+		{"getPartialSpan", "(II)F", nullptr, $PUBLIC, $virtualMethod(GlyphView, getPartialSpan, float, int32_t, int32_t)},
+		{"getPreferredSpan", "(I)F", nullptr, $PUBLIC, $virtualMethod(GlyphView, getPreferredSpan, float, int32_t)},
+		{"getStartOffset", "()I", nullptr, $PUBLIC, $virtualMethod(GlyphView, getStartOffset, int32_t)},
+		{"getTabExpander", "()Ljavax/swing/text/TabExpander;", nullptr, $PUBLIC, $virtualMethod(GlyphView, getTabExpander, $TabExpander*)},
+		{"getTabbedSpan", "(FLjavax/swing/text/TabExpander;)F", nullptr, $PUBLIC, $virtualMethod(GlyphView, getTabbedSpan, float, float, $TabExpander*)},
+		{"getText", "(II)Ljavax/swing/text/Segment;", nullptr, $PUBLIC, $virtualMethod(GlyphView, getText, $Segment*, int32_t, int32_t)},
+		{"initSelections", "(II)V", nullptr, $PRIVATE, $method(GlyphView, initSelections, void, int32_t, int32_t)},
+		{"insertUpdate", "(Ljavax/swing/event/DocumentEvent;Ljava/awt/Shape;Ljavax/swing/text/ViewFactory;)V", nullptr, $PUBLIC, $virtualMethod(GlyphView, insertUpdate, void, $DocumentEvent*, $Shape*, $ViewFactory*)},
+		{"isStrikeThrough", "()Z", nullptr, $PUBLIC, $virtualMethod(GlyphView, isStrikeThrough, bool)},
+		{"isSubscript", "()Z", nullptr, $PUBLIC, $virtualMethod(GlyphView, isSubscript, bool)},
+		{"isSuperscript", "()Z", nullptr, $PUBLIC, $virtualMethod(GlyphView, isSuperscript, bool)},
+		{"isUnderline", "()Z", nullptr, $PUBLIC, $virtualMethod(GlyphView, isUnderline, bool)},
+		{"modelToView", "(ILjava/awt/Shape;Ljavax/swing/text/Position$Bias;)Ljava/awt/Shape;", nullptr, $PUBLIC, $virtualMethod(GlyphView, modelToView, $Shape*, int32_t, $Shape*, $Position$Bias*), "javax.swing.text.BadLocationException"},
+		{"paint", "(Ljava/awt/Graphics;Ljava/awt/Shape;)V", nullptr, $PUBLIC, $virtualMethod(GlyphView, paint, void, $Graphics*, $Shape*)},
+		{"paintTextUsingColor", "(Ljava/awt/Graphics;Ljava/awt/Shape;Ljava/awt/Color;II)V", nullptr, $FINAL, $method(GlyphView, paintTextUsingColor, void, $Graphics*, $Shape*, $Color*, int32_t, int32_t)},
+		{"removeUpdate", "(Ljavax/swing/event/DocumentEvent;Ljava/awt/Shape;Ljavax/swing/text/ViewFactory;)V", nullptr, $PUBLIC, $virtualMethod(GlyphView, removeUpdate, void, $DocumentEvent*, $Shape*, $ViewFactory*)},
+		{"setGlyphPainter", "(Ljavax/swing/text/GlyphView$GlyphPainter;)V", nullptr, $PUBLIC, $virtualMethod(GlyphView, setGlyphPainter, void, $GlyphView$GlyphPainter*)},
+		{"syncCR", "()V", nullptr, $PRIVATE, $method(GlyphView, syncCR, void)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"updateAfterChange", "()V", nullptr, 0, $virtualMethod(GlyphView, updateAfterChange, void)},
+		{"viewToModel", "(FFLjava/awt/Shape;[Ljavax/swing/text/Position$Bias;)I", nullptr, $PUBLIC, $virtualMethod(GlyphView, viewToModel, int32_t, float, float, $Shape*, $Position$BiasArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.GlyphView$GlyphPainter", "javax.swing.text.GlyphView", "GlyphPainter", $PUBLIC | $STATIC | $ABSTRACT},
+		{"javax.swing.text.GlyphView$JustificationInfo", "javax.swing.text.GlyphView", "JustificationInfo", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.text.GlyphView",
+		"javax.swing.text.View",
+		"javax.swing.text.TabableView,java.lang.Cloneable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.swing.text.GlyphView$GlyphPainter,javax.swing.text.GlyphView$JustificationInfo"
+	};
+	$loadClass(GlyphView, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(GlyphView));
+	});
 	return class$;
 }
 

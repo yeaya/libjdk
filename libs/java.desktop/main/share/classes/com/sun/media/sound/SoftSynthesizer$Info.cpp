@@ -1,5 +1,4 @@
 #include <com/sun/media/sound/SoftSynthesizer$Info.h>
-
 #include <com/sun/media/sound/SoftSynthesizer.h>
 #include <javax/sound/midi/MidiDevice$Info.h>
 #include <jcpp.h>
@@ -14,37 +13,6 @@ namespace com {
 		namespace media {
 			namespace sound {
 
-$MethodInfo _SoftSynthesizer$Info_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(SoftSynthesizer$Info, init$, void)},
-	{}
-};
-
-$InnerClassInfo _SoftSynthesizer$Info_InnerClassesInfo_[] = {
-	{"com.sun.media.sound.SoftSynthesizer$Info", "com.sun.media.sound.SoftSynthesizer", "Info", $PRIVATE | $STATIC},
-	{"javax.sound.midi.MidiDevice$Info", "javax.sound.midi.MidiDevice", "Info", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _SoftSynthesizer$Info_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.media.sound.SoftSynthesizer$Info",
-	"javax.sound.midi.MidiDevice$Info",
-	nullptr,
-	nullptr,
-	_SoftSynthesizer$Info_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SoftSynthesizer$Info_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.media.sound.SoftSynthesizer"
-};
-
-$Object* allocate$SoftSynthesizer$Info($Class* clazz) {
-	return $of($alloc(SoftSynthesizer$Info));
-}
-
 void SoftSynthesizer$Info::init$() {
 	$MidiDevice$Info::init$("Gervill"_s, "OpenJDK"_s, "Software MIDI Synthesizer"_s, "1.0"_s);
 }
@@ -53,7 +21,33 @@ SoftSynthesizer$Info::SoftSynthesizer$Info() {
 }
 
 $Class* SoftSynthesizer$Info::load$($String* name, bool initialize) {
-	$loadClass(SoftSynthesizer$Info, name, initialize, &_SoftSynthesizer$Info_ClassInfo_, allocate$SoftSynthesizer$Info);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(SoftSynthesizer$Info, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.media.sound.SoftSynthesizer$Info", "com.sun.media.sound.SoftSynthesizer", "Info", $PRIVATE | $STATIC},
+		{"javax.sound.midi.MidiDevice$Info", "javax.sound.midi.MidiDevice", "Info", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.media.sound.SoftSynthesizer$Info",
+		"javax.sound.midi.MidiDevice$Info",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.media.sound.SoftSynthesizer"
+	};
+	$loadClass(SoftSynthesizer$Info, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SoftSynthesizer$Info);
+	});
 	return class$;
 }
 

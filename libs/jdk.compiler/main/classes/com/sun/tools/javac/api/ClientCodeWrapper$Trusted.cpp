@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/api/ClientCodeWrapper$Trusted.h>
-
 #include <com/sun/tools/javac/api/ClientCodeWrapper.h>
 #include <jcpp.h>
 
@@ -15,54 +14,46 @@ namespace com {
 			namespace javac {
 				namespace api {
 
-$NamedAttribute ClientCodeWrapper$Trusted_Attribute_var$0[] = {
-	{"value", 'e', "Ljava/lang/annotation/RetentionPolicy; RUNTIME"},
-	{}
-};
-
-$Attribute ClientCodeWrapper$Trusted_Attribute_var$2[] = {
-	{'e', "Ljava/lang/annotation/ElementType; TYPE"},
-	{'-'}
-};
-
-$NamedAttribute ClientCodeWrapper$Trusted_Attribute_var$1[] = {
-	{"value", '[', ClientCodeWrapper$Trusted_Attribute_var$2},
-	{}
-};
-
-$CompoundAttribute _ClientCodeWrapper$Trusted_Annotations_[] = {
-	{"Ljava/lang/annotation/Retention;", ClientCodeWrapper$Trusted_Attribute_var$0},
-	{"Ljava/lang/annotation/Target;", ClientCodeWrapper$Trusted_Attribute_var$1},
-	{}
-};
-
-$InnerClassInfo _ClientCodeWrapper$Trusted_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.api.ClientCodeWrapper$Trusted", "com.sun.tools.javac.api.ClientCodeWrapper", "Trusted", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT | $ANNOTATION},
-	{}
-};
-
-$ClassInfo _ClientCodeWrapper$Trusted_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT | $ANNOTATION,
-	"com.sun.tools.javac.api.ClientCodeWrapper$Trusted",
-	nullptr,
-	"java.lang.annotation.Annotation",
-	nullptr,
-	nullptr,
-	nullptr,
-	nullptr,
-	_ClientCodeWrapper$Trusted_InnerClassesInfo_,
-	_ClientCodeWrapper$Trusted_Annotations_,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.api.ClientCodeWrapper"
-};
-
-$Object* allocate$ClientCodeWrapper$Trusted($Class* clazz) {
-	return $of($alloc(ClientCodeWrapper$Trusted));
-}
-
 $Class* ClientCodeWrapper$Trusted::load$($String* name, bool initialize) {
-	$loadClass(ClientCodeWrapper$Trusted, name, initialize, &_ClientCodeWrapper$Trusted_ClassInfo_, allocate$ClientCodeWrapper$Trusted);
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.api.ClientCodeWrapper$Trusted", "com.sun.tools.javac.api.ClientCodeWrapper", "Trusted", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT | $ANNOTATION},
+		{}
+	};
+	$NamedAttribute annotations$$$namedAttribute[] = {
+		{"value", 'e', "Ljava/lang/annotation/RetentionPolicy; RUNTIME"},
+		{}
+	};
+	$Attribute $attribute[] = {
+		{'e', "Ljava/lang/annotation/ElementType; TYPE"},
+		{'-'}
+	};
+	$NamedAttribute annotations$$$namedAttribute$1[] = {
+		{"value", '[', $attribute},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/lang/annotation/Retention;", annotations$$$namedAttribute},
+		{"Ljava/lang/annotation/Target;", annotations$$$namedAttribute$1},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT | $ANNOTATION,
+		"com.sun.tools.javac.api.ClientCodeWrapper$Trusted",
+		nullptr,
+		"java.lang.annotation.Annotation",
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		annotations$$,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.api.ClientCodeWrapper"
+	};
+	$loadClass(ClientCodeWrapper$Trusted, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ClientCodeWrapper$Trusted);
+	});
 	return class$;
 }
 

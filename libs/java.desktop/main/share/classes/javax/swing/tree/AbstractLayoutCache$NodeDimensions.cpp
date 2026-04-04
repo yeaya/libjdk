@@ -1,5 +1,4 @@
 #include <javax/swing/tree/AbstractLayoutCache$NodeDimensions.h>
-
 #include <java/awt/Rectangle.h>
 #include <javax/swing/tree/AbstractLayoutCache.h>
 #include <jcpp.h>
@@ -13,37 +12,6 @@ namespace javax {
 	namespace swing {
 		namespace tree {
 
-$MethodInfo _AbstractLayoutCache$NodeDimensions_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(AbstractLayoutCache$NodeDimensions, init$, void)},
-	{"getNodeDimensions", "(Ljava/lang/Object;IIZLjava/awt/Rectangle;)Ljava/awt/Rectangle;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AbstractLayoutCache$NodeDimensions, getNodeDimensions, $Rectangle*, Object$*, int32_t, int32_t, bool, $Rectangle*)},
-	{}
-};
-
-$InnerClassInfo _AbstractLayoutCache$NodeDimensions_InnerClassesInfo_[] = {
-	{"javax.swing.tree.AbstractLayoutCache$NodeDimensions", "javax.swing.tree.AbstractLayoutCache", "NodeDimensions", $PUBLIC | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _AbstractLayoutCache$NodeDimensions_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"javax.swing.tree.AbstractLayoutCache$NodeDimensions",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_AbstractLayoutCache$NodeDimensions_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AbstractLayoutCache$NodeDimensions_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.tree.AbstractLayoutCache"
-};
-
-$Object* allocate$AbstractLayoutCache$NodeDimensions($Class* clazz) {
-	return $of($alloc(AbstractLayoutCache$NodeDimensions));
-}
-
 void AbstractLayoutCache$NodeDimensions::init$() {
 }
 
@@ -51,7 +19,33 @@ AbstractLayoutCache$NodeDimensions::AbstractLayoutCache$NodeDimensions() {
 }
 
 $Class* AbstractLayoutCache$NodeDimensions::load$($String* name, bool initialize) {
-	$loadClass(AbstractLayoutCache$NodeDimensions, name, initialize, &_AbstractLayoutCache$NodeDimensions_ClassInfo_, allocate$AbstractLayoutCache$NodeDimensions);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PROTECTED, $method(AbstractLayoutCache$NodeDimensions, init$, void)},
+		{"getNodeDimensions", "(Ljava/lang/Object;IIZLjava/awt/Rectangle;)Ljava/awt/Rectangle;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AbstractLayoutCache$NodeDimensions, getNodeDimensions, $Rectangle*, Object$*, int32_t, int32_t, bool, $Rectangle*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.tree.AbstractLayoutCache$NodeDimensions", "javax.swing.tree.AbstractLayoutCache", "NodeDimensions", $PUBLIC | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"javax.swing.tree.AbstractLayoutCache$NodeDimensions",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.tree.AbstractLayoutCache"
+	};
+	$loadClass(AbstractLayoutCache$NodeDimensions, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AbstractLayoutCache$NodeDimensions);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <java/rmi/ServerRuntimeException.h>
-
 #include <java/rmi/RemoteException.h>
 #include <jcpp.h>
 
@@ -12,43 +11,6 @@ using $RemoteException = ::java::rmi::RemoteException;
 
 namespace java {
 	namespace rmi {
-
-$CompoundAttribute _ServerRuntimeException_Annotations_[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _ServerRuntimeException_MethodAnnotations_init$0[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$FieldInfo _ServerRuntimeException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ServerRuntimeException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _ServerRuntimeException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Exception;)V", nullptr, $PUBLIC | $DEPRECATED, $method(ServerRuntimeException, init$, void, $String*, $Exception*), nullptr, nullptr, _ServerRuntimeException_MethodAnnotations_init$0},
-	{}
-};
-
-$ClassInfo _ServerRuntimeException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.rmi.ServerRuntimeException",
-	"java.rmi.RemoteException",
-	nullptr,
-	_ServerRuntimeException_FieldInfo_,
-	_ServerRuntimeException_MethodInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	_ServerRuntimeException_Annotations_
-};
-
-$Object* allocate$ServerRuntimeException($Class* clazz) {
-	return $of($alloc(ServerRuntimeException));
-}
 
 void ServerRuntimeException::init$($String* s, $Exception* ex) {
 	$RemoteException::init$(s, ex);
@@ -65,7 +27,37 @@ void ServerRuntimeException::throw$() {
 }
 
 $Class* ServerRuntimeException::load$($String* name, bool initialize) {
-	$loadClass(ServerRuntimeException, name, initialize, &_ServerRuntimeException_ClassInfo_, allocate$ServerRuntimeException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ServerRuntimeException, serialVersionUID)},
+		{}
+	};
+	$CompoundAttribute init$methodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljava/lang/Exception;)V", nullptr, $PUBLIC | $DEPRECATED, $method(ServerRuntimeException, init$, void, $String*, $Exception*), nullptr, nullptr, init$methodAnnotations$$},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.rmi.ServerRuntimeException",
+		"java.rmi.RemoteException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(ServerRuntimeException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ServerRuntimeException);
+	});
 	return class$;
 }
 

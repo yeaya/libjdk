@@ -59,6 +59,7 @@ class $export TMSchema$Prop : public ::java::lang::Enum {
 public:
 	TMSchema$Prop();
 	static $Array<::com::sun::java::swing::plaf::windows::TMSchema$Prop>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal, $Class* type, int32_t value);
 	virtual int32_t getValue();
 	virtual $String* toString() override;

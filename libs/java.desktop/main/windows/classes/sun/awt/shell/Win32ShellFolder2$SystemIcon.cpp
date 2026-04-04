@@ -1,5 +1,4 @@
 #include <sun/awt/shell/Win32ShellFolder2$SystemIcon.h>
-
 #include <java/lang/Enum.h>
 #include <sun/awt/shell/Win32ShellFolder2.h>
 #include <jcpp.h>
@@ -24,55 +23,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace sun {
 	namespace awt {
 		namespace shell {
-
-$FieldInfo _Win32ShellFolder2$SystemIcon_FieldInfo_[] = {
-	{"IDI_APPLICATION", "Lsun/awt/shell/Win32ShellFolder2$SystemIcon;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Win32ShellFolder2$SystemIcon, IDI_APPLICATION)},
-	{"IDI_HAND", "Lsun/awt/shell/Win32ShellFolder2$SystemIcon;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Win32ShellFolder2$SystemIcon, IDI_HAND)},
-	{"IDI_ERROR", "Lsun/awt/shell/Win32ShellFolder2$SystemIcon;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Win32ShellFolder2$SystemIcon, IDI_ERROR)},
-	{"IDI_QUESTION", "Lsun/awt/shell/Win32ShellFolder2$SystemIcon;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Win32ShellFolder2$SystemIcon, IDI_QUESTION)},
-	{"IDI_EXCLAMATION", "Lsun/awt/shell/Win32ShellFolder2$SystemIcon;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Win32ShellFolder2$SystemIcon, IDI_EXCLAMATION)},
-	{"IDI_WARNING", "Lsun/awt/shell/Win32ShellFolder2$SystemIcon;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Win32ShellFolder2$SystemIcon, IDI_WARNING)},
-	{"IDI_ASTERISK", "Lsun/awt/shell/Win32ShellFolder2$SystemIcon;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Win32ShellFolder2$SystemIcon, IDI_ASTERISK)},
-	{"IDI_INFORMATION", "Lsun/awt/shell/Win32ShellFolder2$SystemIcon;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Win32ShellFolder2$SystemIcon, IDI_INFORMATION)},
-	{"IDI_WINLOGO", "Lsun/awt/shell/Win32ShellFolder2$SystemIcon;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Win32ShellFolder2$SystemIcon, IDI_WINLOGO)},
-	{"$VALUES", "[Lsun/awt/shell/Win32ShellFolder2$SystemIcon;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(Win32ShellFolder2$SystemIcon, $VALUES)},
-	{"iconID", "I", nullptr, $PRIVATE | $FINAL, $field(Win32ShellFolder2$SystemIcon, iconID)},
-	{}
-};
-
-$MethodInfo _Win32ShellFolder2$SystemIcon_MethodInfo_[] = {
-	{"$values", "()[Lsun/awt/shell/Win32ShellFolder2$SystemIcon;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Win32ShellFolder2$SystemIcon, $values, $Win32ShellFolder2$SystemIconArray*)},
-	{"<init>", "(Ljava/lang/String;II)V", "(I)V", $PRIVATE, $method(Win32ShellFolder2$SystemIcon, init$, void, $String*, int32_t, int32_t)},
-	{"getIconID", "()I", nullptr, $PUBLIC, $method(Win32ShellFolder2$SystemIcon, getIconID, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)Lsun/awt/shell/Win32ShellFolder2$SystemIcon;", nullptr, $PUBLIC | $STATIC, $staticMethod(Win32ShellFolder2$SystemIcon, valueOf, Win32ShellFolder2$SystemIcon*, $String*)},
-	{"values", "()[Lsun/awt/shell/Win32ShellFolder2$SystemIcon;", nullptr, $PUBLIC | $STATIC, $staticMethod(Win32ShellFolder2$SystemIcon, values, $Win32ShellFolder2$SystemIconArray*)},
-	{}
-};
-
-$InnerClassInfo _Win32ShellFolder2$SystemIcon_InnerClassesInfo_[] = {
-	{"sun.awt.shell.Win32ShellFolder2$SystemIcon", "sun.awt.shell.Win32ShellFolder2", "SystemIcon", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _Win32ShellFolder2$SystemIcon_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"sun.awt.shell.Win32ShellFolder2$SystemIcon",
-	"java.lang.Enum",
-	nullptr,
-	_Win32ShellFolder2$SystemIcon_FieldInfo_,
-	_Win32ShellFolder2$SystemIcon_MethodInfo_,
-	"Ljava/lang/Enum<Lsun/awt/shell/Win32ShellFolder2$SystemIcon;>;",
-	nullptr,
-	_Win32ShellFolder2$SystemIcon_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.awt.shell.Win32ShellFolder2"
-};
-
-$Object* allocate$Win32ShellFolder2$SystemIcon($Class* clazz) {
-	return $of($alloc(Win32ShellFolder2$SystemIcon));
-}
 
 Win32ShellFolder2$SystemIcon* Win32ShellFolder2$SystemIcon::IDI_APPLICATION = nullptr;
 Win32ShellFolder2$SystemIcon* Win32ShellFolder2$SystemIcon::IDI_HAND = nullptr;
@@ -119,7 +69,7 @@ int32_t Win32ShellFolder2$SystemIcon::getIconID() {
 	return this->iconID;
 }
 
-void clinit$Win32ShellFolder2$SystemIcon($Class* class$) {
+void Win32ShellFolder2$SystemIcon::clinit$($Class* clazz) {
 	$assignStatic(Win32ShellFolder2$SystemIcon::IDI_APPLICATION, $new(Win32ShellFolder2$SystemIcon, "IDI_APPLICATION"_s, 0, 32512));
 	$assignStatic(Win32ShellFolder2$SystemIcon::IDI_HAND, $new(Win32ShellFolder2$SystemIcon, "IDI_HAND"_s, 1, 32513));
 	$assignStatic(Win32ShellFolder2$SystemIcon::IDI_ERROR, $new(Win32ShellFolder2$SystemIcon, "IDI_ERROR"_s, 2, 32513));
@@ -136,7 +86,50 @@ Win32ShellFolder2$SystemIcon::Win32ShellFolder2$SystemIcon() {
 }
 
 $Class* Win32ShellFolder2$SystemIcon::load$($String* name, bool initialize) {
-	$loadClass(Win32ShellFolder2$SystemIcon, name, initialize, &_Win32ShellFolder2$SystemIcon_ClassInfo_, clinit$Win32ShellFolder2$SystemIcon, allocate$Win32ShellFolder2$SystemIcon);
+	$FieldInfo fieldInfos$$[] = {
+		{"IDI_APPLICATION", "Lsun/awt/shell/Win32ShellFolder2$SystemIcon;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Win32ShellFolder2$SystemIcon, IDI_APPLICATION)},
+		{"IDI_HAND", "Lsun/awt/shell/Win32ShellFolder2$SystemIcon;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Win32ShellFolder2$SystemIcon, IDI_HAND)},
+		{"IDI_ERROR", "Lsun/awt/shell/Win32ShellFolder2$SystemIcon;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Win32ShellFolder2$SystemIcon, IDI_ERROR)},
+		{"IDI_QUESTION", "Lsun/awt/shell/Win32ShellFolder2$SystemIcon;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Win32ShellFolder2$SystemIcon, IDI_QUESTION)},
+		{"IDI_EXCLAMATION", "Lsun/awt/shell/Win32ShellFolder2$SystemIcon;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Win32ShellFolder2$SystemIcon, IDI_EXCLAMATION)},
+		{"IDI_WARNING", "Lsun/awt/shell/Win32ShellFolder2$SystemIcon;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Win32ShellFolder2$SystemIcon, IDI_WARNING)},
+		{"IDI_ASTERISK", "Lsun/awt/shell/Win32ShellFolder2$SystemIcon;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Win32ShellFolder2$SystemIcon, IDI_ASTERISK)},
+		{"IDI_INFORMATION", "Lsun/awt/shell/Win32ShellFolder2$SystemIcon;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Win32ShellFolder2$SystemIcon, IDI_INFORMATION)},
+		{"IDI_WINLOGO", "Lsun/awt/shell/Win32ShellFolder2$SystemIcon;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Win32ShellFolder2$SystemIcon, IDI_WINLOGO)},
+		{"$VALUES", "[Lsun/awt/shell/Win32ShellFolder2$SystemIcon;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(Win32ShellFolder2$SystemIcon, $VALUES)},
+		{"iconID", "I", nullptr, $PRIVATE | $FINAL, $field(Win32ShellFolder2$SystemIcon, iconID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lsun/awt/shell/Win32ShellFolder2$SystemIcon;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Win32ShellFolder2$SystemIcon, $values, $Win32ShellFolder2$SystemIconArray*)},
+		{"<init>", "(Ljava/lang/String;II)V", "(I)V", $PRIVATE, $method(Win32ShellFolder2$SystemIcon, init$, void, $String*, int32_t, int32_t)},
+		{"getIconID", "()I", nullptr, $PUBLIC, $method(Win32ShellFolder2$SystemIcon, getIconID, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)Lsun/awt/shell/Win32ShellFolder2$SystemIcon;", nullptr, $PUBLIC | $STATIC, $staticMethod(Win32ShellFolder2$SystemIcon, valueOf, Win32ShellFolder2$SystemIcon*, $String*)},
+		{"values", "()[Lsun/awt/shell/Win32ShellFolder2$SystemIcon;", nullptr, $PUBLIC | $STATIC, $staticMethod(Win32ShellFolder2$SystemIcon, values, $Win32ShellFolder2$SystemIconArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.shell.Win32ShellFolder2$SystemIcon", "sun.awt.shell.Win32ShellFolder2", "SystemIcon", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"sun.awt.shell.Win32ShellFolder2$SystemIcon",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lsun/awt/shell/Win32ShellFolder2$SystemIcon;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.awt.shell.Win32ShellFolder2"
+	};
+	$loadClass(Win32ShellFolder2$SystemIcon, name, initialize, &classInfo$$, Win32ShellFolder2$SystemIcon::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Win32ShellFolder2$SystemIcon));
+	});
 	return class$;
 }
 

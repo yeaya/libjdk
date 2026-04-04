@@ -1,5 +1,4 @@
 #include <javax/imageio/plugins/tiff/ExifTIFFTagSet$PixelYDimension.h>
-
 #include <javax/imageio/plugins/tiff/ExifTIFFTagSet.h>
 #include <javax/imageio/plugins/tiff/TIFFTag.h>
 #include <jcpp.h>
@@ -17,45 +16,40 @@ namespace javax {
 		namespace plugins {
 			namespace tiff {
 
-$MethodInfo _ExifTIFFTagSet$PixelYDimension_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ExifTIFFTagSet$PixelYDimension, init$, void)},
-	{}
-};
-
-$InnerClassInfo _ExifTIFFTagSet$PixelYDimension_InnerClassesInfo_[] = {
-	{"javax.imageio.plugins.tiff.ExifTIFFTagSet$PixelYDimension", "javax.imageio.plugins.tiff.ExifTIFFTagSet", "PixelYDimension", $STATIC},
-	{}
-};
-
-$ClassInfo _ExifTIFFTagSet$PixelYDimension_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.imageio.plugins.tiff.ExifTIFFTagSet$PixelYDimension",
-	"javax.imageio.plugins.tiff.TIFFTag",
-	nullptr,
-	nullptr,
-	_ExifTIFFTagSet$PixelYDimension_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ExifTIFFTagSet$PixelYDimension_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.imageio.plugins.tiff.ExifTIFFTagSet"
-};
-
-$Object* allocate$ExifTIFFTagSet$PixelYDimension($Class* clazz) {
-	return $of($alloc(ExifTIFFTagSet$PixelYDimension));
-}
-
 void ExifTIFFTagSet$PixelYDimension::init$() {
-	$TIFFTag::init$("PixelYDimension"_s, 0x0000A003, ($sl(1, $TIFFTag::TIFF_SHORT)) | ($sl(1, $TIFFTag::TIFF_LONG)), 1);
+	$TIFFTag::init$("PixelYDimension"_s, 0x0000a003, ($sl(1, $TIFFTag::TIFF_SHORT)) | ($sl(1, $TIFFTag::TIFF_LONG)), 1);
 }
 
 ExifTIFFTagSet$PixelYDimension::ExifTIFFTagSet$PixelYDimension() {
 }
 
 $Class* ExifTIFFTagSet$PixelYDimension::load$($String* name, bool initialize) {
-	$loadClass(ExifTIFFTagSet$PixelYDimension, name, initialize, &_ExifTIFFTagSet$PixelYDimension_ClassInfo_, allocate$ExifTIFFTagSet$PixelYDimension);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ExifTIFFTagSet$PixelYDimension, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.imageio.plugins.tiff.ExifTIFFTagSet$PixelYDimension", "javax.imageio.plugins.tiff.ExifTIFFTagSet", "PixelYDimension", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.imageio.plugins.tiff.ExifTIFFTagSet$PixelYDimension",
+		"javax.imageio.plugins.tiff.TIFFTag",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.imageio.plugins.tiff.ExifTIFFTagSet"
+	};
+	$loadClass(ExifTIFFTagSet$PixelYDimension, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ExifTIFFTagSet$PixelYDimension);
+	});
 	return class$;
 }
 

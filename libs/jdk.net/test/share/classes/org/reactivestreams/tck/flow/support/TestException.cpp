@@ -1,5 +1,4 @@
 #include <org/reactivestreams/tck/flow/support/TestException.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -11,24 +10,6 @@ namespace org {
 		namespace tck {
 			namespace flow {
 				namespace support {
-
-$MethodInfo _TestException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TestException, init$, void)},
-	{}
-};
-
-$ClassInfo _TestException_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"org.reactivestreams.tck.flow.support.TestException",
-	"java.lang.RuntimeException",
-	nullptr,
-	nullptr,
-	_TestException_MethodInfo_
-};
-
-$Object* allocate$TestException($Class* clazz) {
-	return $of($alloc(TestException));
-}
 
 void TestException::init$() {
 	$RuntimeException::init$("Test Exception: Boom!"_s);
@@ -45,7 +26,21 @@ void TestException::throw$() {
 }
 
 $Class* TestException::load$($String* name, bool initialize) {
-	$loadClass(TestException, name, initialize, &_TestException_ClassInfo_, allocate$TestException);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TestException, init$, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"org.reactivestreams.tck.flow.support.TestException",
+		"java.lang.RuntimeException",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(TestException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TestException);
+	});
 	return class$;
 }
 

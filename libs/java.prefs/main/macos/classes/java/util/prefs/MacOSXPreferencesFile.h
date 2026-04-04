@@ -28,6 +28,7 @@ class MacOSXPreferencesFile : public ::java::lang::Object {
 	$class(MacOSXPreferencesFile, 0, ::java::lang::Object)
 public:
 	MacOSXPreferencesFile();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* newName, int64_t newUser, int64_t newHost);
 	virtual bool addChildToNode($String* path, $String* child);
 	static bool addChildToNode($String* path, $String* child, $String* name, int64_t user, int64_t host);

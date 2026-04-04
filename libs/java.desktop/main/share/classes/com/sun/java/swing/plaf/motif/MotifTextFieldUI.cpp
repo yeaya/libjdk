@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/motif/MotifTextFieldUI.h>
-
 #include <com/sun/java/swing/plaf/motif/MotifTextUI.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/plaf/ComponentUI.h>
@@ -22,26 +21,6 @@ namespace com {
 				namespace plaf {
 					namespace motif {
 
-$MethodInfo _MotifTextFieldUI_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MotifTextFieldUI, init$, void)},
-	{"createCaret", "()Ljavax/swing/text/Caret;", nullptr, $PROTECTED, $virtualMethod(MotifTextFieldUI, createCaret, $Caret*)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(MotifTextFieldUI, createUI, $ComponentUI*, $JComponent*)},
-	{}
-};
-
-$ClassInfo _MotifTextFieldUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.java.swing.plaf.motif.MotifTextFieldUI",
-	"javax.swing.plaf.basic.BasicTextFieldUI",
-	nullptr,
-	nullptr,
-	_MotifTextFieldUI_MethodInfo_
-};
-
-$Object* allocate$MotifTextFieldUI($Class* clazz) {
-	return $of($alloc(MotifTextFieldUI));
-}
-
 void MotifTextFieldUI::init$() {
 	$BasicTextFieldUI::init$();
 }
@@ -59,7 +38,23 @@ MotifTextFieldUI::MotifTextFieldUI() {
 }
 
 $Class* MotifTextFieldUI::load$($String* name, bool initialize) {
-	$loadClass(MotifTextFieldUI, name, initialize, &_MotifTextFieldUI_ClassInfo_, allocate$MotifTextFieldUI);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MotifTextFieldUI, init$, void)},
+		{"createCaret", "()Ljavax/swing/text/Caret;", nullptr, $PROTECTED, $virtualMethod(MotifTextFieldUI, createCaret, $Caret*)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(MotifTextFieldUI, createUI, $ComponentUI*, $JComponent*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.java.swing.plaf.motif.MotifTextFieldUI",
+		"javax.swing.plaf.basic.BasicTextFieldUI",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(MotifTextFieldUI, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MotifTextFieldUI));
+	});
 	return class$;
 }
 

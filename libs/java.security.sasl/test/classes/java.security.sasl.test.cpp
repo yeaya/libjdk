@@ -1,5 +1,4 @@
 #include <java.security.sasl.test.h>
-
 #include <java.security.sasl.h>
 #include <java.base.h>
 #include <java.logging.h>

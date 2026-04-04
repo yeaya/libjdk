@@ -1,5 +1,4 @@
 #include <Frame$Opcode.h>
-
 #include <Frame.h>
 #include <java/lang/Enum.h>
 #include <jcpp.h>
@@ -17,64 +16,6 @@ using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-
-$FieldInfo _Frame$Opcode_FieldInfo_[] = {
-	{"CONTINUATION", "LFrame$Opcode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Frame$Opcode, CONTINUATION)},
-	{"TEXT", "LFrame$Opcode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Frame$Opcode, TEXT)},
-	{"BINARY", "LFrame$Opcode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Frame$Opcode, BINARY)},
-	{"NON_CONTROL_0x3", "LFrame$Opcode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Frame$Opcode, NON_CONTROL_0x3)},
-	{"NON_CONTROL_0x4", "LFrame$Opcode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Frame$Opcode, NON_CONTROL_0x4)},
-	{"NON_CONTROL_0x5", "LFrame$Opcode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Frame$Opcode, NON_CONTROL_0x5)},
-	{"NON_CONTROL_0x6", "LFrame$Opcode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Frame$Opcode, NON_CONTROL_0x6)},
-	{"NON_CONTROL_0x7", "LFrame$Opcode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Frame$Opcode, NON_CONTROL_0x7)},
-	{"CLOSE", "LFrame$Opcode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Frame$Opcode, CLOSE)},
-	{"PING", "LFrame$Opcode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Frame$Opcode, PING)},
-	{"PONG", "LFrame$Opcode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Frame$Opcode, PONG)},
-	{"CONTROL_0xB", "LFrame$Opcode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Frame$Opcode, CONTROL_0xB)},
-	{"CONTROL_0xC", "LFrame$Opcode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Frame$Opcode, CONTROL_0xC)},
-	{"CONTROL_0xD", "LFrame$Opcode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Frame$Opcode, CONTROL_0xD)},
-	{"CONTROL_0xE", "LFrame$Opcode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Frame$Opcode, CONTROL_0xE)},
-	{"CONTROL_0xF", "LFrame$Opcode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Frame$Opcode, CONTROL_0xF)},
-	{"$VALUES", "[LFrame$Opcode;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(Frame$Opcode, $VALUES)},
-	{"opcodes", "[LFrame$Opcode;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Frame$Opcode, opcodes)},
-	{"code", "B", nullptr, $PRIVATE | $FINAL, $field(Frame$Opcode, code)},
-	{}
-};
-
-$MethodInfo _Frame$Opcode_MethodInfo_[] = {
-	{"$values", "()[LFrame$Opcode;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Frame$Opcode, $values, $Frame$OpcodeArray*)},
-	{"<init>", "(Ljava/lang/String;II)V", "(I)V", $PRIVATE, $method(Frame$Opcode, init$, void, $String*, int32_t, int32_t)},
-	{"isControl", "()Z", nullptr, 0, $method(Frame$Opcode, isControl, bool)},
-	{"ofCode", "(I)LFrame$Opcode;", nullptr, $STATIC, $staticMethod(Frame$Opcode, ofCode, Frame$Opcode*, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)LFrame$Opcode;", nullptr, $PUBLIC | $STATIC, $staticMethod(Frame$Opcode, valueOf, Frame$Opcode*, $String*)},
-	{"values", "()[LFrame$Opcode;", nullptr, $PUBLIC | $STATIC, $staticMethod(Frame$Opcode, values, $Frame$OpcodeArray*)},
-	{}
-};
-
-$InnerClassInfo _Frame$Opcode_InnerClassesInfo_[] = {
-	{"Frame$Opcode", "Frame", "Opcode", $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _Frame$Opcode_ClassInfo_ = {
-	$FINAL | $ACC_SUPER | $ENUM,
-	"Frame$Opcode",
-	"java.lang.Enum",
-	nullptr,
-	_Frame$Opcode_FieldInfo_,
-	_Frame$Opcode_MethodInfo_,
-	"Ljava/lang/Enum<LFrame$Opcode;>;",
-	nullptr,
-	_Frame$Opcode_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"Frame"
-};
-
-$Object* allocate$Frame$Opcode($Class* clazz) {
-	return $of($alloc(Frame$Opcode));
-}
 
 Frame$Opcode* Frame$Opcode::CONTINUATION = nullptr;
 Frame$Opcode* Frame$Opcode::TEXT = nullptr;
@@ -133,16 +74,16 @@ void Frame$Opcode::init$($String* $enum$name, int32_t $enum$ordinal, int32_t cod
 }
 
 bool Frame$Opcode::isControl() {
-	return ((int32_t)(this->code & (uint32_t)8)) != 0;
+	return (this->code & 8) != 0;
 }
 
 Frame$Opcode* Frame$Opcode::ofCode(int32_t code) {
 	$init(Frame$Opcode);
-	return $nc(Frame$Opcode::opcodes)->get((int32_t)(code & (uint32_t)15));
+	return $nc(Frame$Opcode::opcodes)->get(code & 0x0f);
 }
 
-void clinit$Frame$Opcode($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void Frame$Opcode::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(Frame$Opcode::CONTINUATION, $new(Frame$Opcode, "CONTINUATION"_s, 0, 0));
 	$assignStatic(Frame$Opcode::TEXT, $new(Frame$Opcode, "TEXT"_s, 1, 1));
 	$assignStatic(Frame$Opcode::BINARY, $new(Frame$Opcode, "BINARY"_s, 2, 2));
@@ -162,15 +103,13 @@ void clinit$Frame$Opcode($Class* class$) {
 	$assignStatic(Frame$Opcode::$VALUES, Frame$Opcode::$values());
 	{
 		$var($Frame$OpcodeArray, values, Frame$Opcode::values());
-		$assignStatic(Frame$Opcode::opcodes, $new($Frame$OpcodeArray, $nc(values)->length));
+		$assignStatic(Frame$Opcode::opcodes, $new($Frame$OpcodeArray, values->length));
 		{
 			$var($Frame$OpcodeArray, arr$, values);
-			int32_t len$ = arr$->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
+			for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 				Frame$Opcode* c = arr$->get(i$);
 				{
-					$nc(Frame$Opcode::opcodes)->set($nc(c)->code, c);
+					Frame$Opcode::opcodes->set($nc(c)->code, c);
 				}
 			}
 		}
@@ -181,7 +120,59 @@ Frame$Opcode::Frame$Opcode() {
 }
 
 $Class* Frame$Opcode::load$($String* name, bool initialize) {
-	$loadClass(Frame$Opcode, name, initialize, &_Frame$Opcode_ClassInfo_, clinit$Frame$Opcode, allocate$Frame$Opcode);
+	$FieldInfo fieldInfos$$[] = {
+		{"CONTINUATION", "LFrame$Opcode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Frame$Opcode, CONTINUATION)},
+		{"TEXT", "LFrame$Opcode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Frame$Opcode, TEXT)},
+		{"BINARY", "LFrame$Opcode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Frame$Opcode, BINARY)},
+		{"NON_CONTROL_0x3", "LFrame$Opcode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Frame$Opcode, NON_CONTROL_0x3)},
+		{"NON_CONTROL_0x4", "LFrame$Opcode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Frame$Opcode, NON_CONTROL_0x4)},
+		{"NON_CONTROL_0x5", "LFrame$Opcode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Frame$Opcode, NON_CONTROL_0x5)},
+		{"NON_CONTROL_0x6", "LFrame$Opcode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Frame$Opcode, NON_CONTROL_0x6)},
+		{"NON_CONTROL_0x7", "LFrame$Opcode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Frame$Opcode, NON_CONTROL_0x7)},
+		{"CLOSE", "LFrame$Opcode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Frame$Opcode, CLOSE)},
+		{"PING", "LFrame$Opcode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Frame$Opcode, PING)},
+		{"PONG", "LFrame$Opcode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Frame$Opcode, PONG)},
+		{"CONTROL_0xB", "LFrame$Opcode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Frame$Opcode, CONTROL_0xB)},
+		{"CONTROL_0xC", "LFrame$Opcode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Frame$Opcode, CONTROL_0xC)},
+		{"CONTROL_0xD", "LFrame$Opcode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Frame$Opcode, CONTROL_0xD)},
+		{"CONTROL_0xE", "LFrame$Opcode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Frame$Opcode, CONTROL_0xE)},
+		{"CONTROL_0xF", "LFrame$Opcode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Frame$Opcode, CONTROL_0xF)},
+		{"$VALUES", "[LFrame$Opcode;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(Frame$Opcode, $VALUES)},
+		{"opcodes", "[LFrame$Opcode;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Frame$Opcode, opcodes)},
+		{"code", "B", nullptr, $PRIVATE | $FINAL, $field(Frame$Opcode, code)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[LFrame$Opcode;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Frame$Opcode, $values, $Frame$OpcodeArray*)},
+		{"<init>", "(Ljava/lang/String;II)V", "(I)V", $PRIVATE, $method(Frame$Opcode, init$, void, $String*, int32_t, int32_t)},
+		{"isControl", "()Z", nullptr, 0, $method(Frame$Opcode, isControl, bool)},
+		{"ofCode", "(I)LFrame$Opcode;", nullptr, $STATIC, $staticMethod(Frame$Opcode, ofCode, Frame$Opcode*, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)LFrame$Opcode;", nullptr, $PUBLIC | $STATIC, $staticMethod(Frame$Opcode, valueOf, Frame$Opcode*, $String*)},
+		{"values", "()[LFrame$Opcode;", nullptr, $PUBLIC | $STATIC, $staticMethod(Frame$Opcode, values, $Frame$OpcodeArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"Frame$Opcode", "Frame", "Opcode", $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER | $ENUM,
+		"Frame$Opcode",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<LFrame$Opcode;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"Frame"
+	};
+	$loadClass(Frame$Opcode, name, initialize, &classInfo$$, Frame$Opcode::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Frame$Opcode));
+	});
 	return class$;
 }
 

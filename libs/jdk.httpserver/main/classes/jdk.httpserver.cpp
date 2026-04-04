@@ -1,13 +1,10 @@
 #include <jdk.httpserver.h>
-
 #include <java.base.h>
 #include <java/lang/ClassEntry.h>
 #include <java/lang/Library.h>
 #include <java/lang/ModuleInfo.h>
 #include <java/lang/ResourceEntry.h>
 #include <jcpp.h>
-#include <module-info>
-
 #include <com/sun/net/httpserver/Authenticator.h>
 #include <com/sun/net/httpserver/Authenticator$Failure.h>
 #include <com/sun/net/httpserver/Authenticator$Result.h>
@@ -220,6 +217,7 @@ $bytes* jdk$httpserver$GetResource($String* name) {
 
 void jdk$httpserver::init() {
 	::java$base::init();
+	#include <module-info.h>
 	::java::lang::Library lib = {
 		"jdk.httpserver", "17.35", "",
 		&_jdk$httpserver_ModuleInfo_,

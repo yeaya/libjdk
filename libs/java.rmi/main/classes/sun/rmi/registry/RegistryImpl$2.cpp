@@ -1,5 +1,4 @@
 #include <sun/rmi/registry/RegistryImpl$2.h>
-
 #include <java/io/ObjectInputFilter$FilterInfo.h>
 #include <java/io/ObjectInputFilter$Status.h>
 #include <java/io/ObjectInputFilter.h>
@@ -41,73 +40,27 @@ public:
 	virtual $ObjectInputFilter$Status* checkInput($ObjectInputFilter$FilterInfo* filterInfo) override {
 		 return $RegistryImpl::registryFilter(filterInfo);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<RegistryImpl$2$$Lambda$registryFilter>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo RegistryImpl$2$$Lambda$registryFilter::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(RegistryImpl$2$$Lambda$registryFilter, init$, void)},
-	{"checkInput", "(Ljava/io/ObjectInputFilter$FilterInfo;)Ljava/io/ObjectInputFilter$Status;", nullptr, $PUBLIC, $virtualMethod(RegistryImpl$2$$Lambda$registryFilter, checkInput, $ObjectInputFilter$Status*, $ObjectInputFilter$FilterInfo*)},
-	{}
-};
-$ClassInfo RegistryImpl$2$$Lambda$registryFilter::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.rmi.registry.RegistryImpl$2$$Lambda$registryFilter",
-	"java.lang.Object",
-	"java.io.ObjectInputFilter",
-	nullptr,
-	methodInfos
 };
 $Class* RegistryImpl$2$$Lambda$registryFilter::load$($String* name, bool initialize) {
-	$loadClass(RegistryImpl$2$$Lambda$registryFilter, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(RegistryImpl$2$$Lambda$registryFilter, init$, void)},
+		{"checkInput", "(Ljava/io/ObjectInputFilter$FilterInfo;)Ljava/io/ObjectInputFilter$Status;", nullptr, $PUBLIC, $virtualMethod(RegistryImpl$2$$Lambda$registryFilter, checkInput, $ObjectInputFilter$Status*, $ObjectInputFilter$FilterInfo*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.rmi.registry.RegistryImpl$2$$Lambda$registryFilter",
+		"java.lang.Object",
+		"java.io.ObjectInputFilter",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(RegistryImpl$2$$Lambda$registryFilter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RegistryImpl$2$$Lambda$registryFilter);
+	});
 	return class$;
 }
 $Class* RegistryImpl$2$$Lambda$registryFilter::class$ = nullptr;
-
-$FieldInfo _RegistryImpl$2_FieldInfo_[] = {
-	{"this$0", "Lsun/rmi/registry/RegistryImpl;", nullptr, $FINAL | $SYNTHETIC, $field(RegistryImpl$2, this$0)},
-	{"val$port", "I", nullptr, $FINAL | $SYNTHETIC, $field(RegistryImpl$2, val$port)},
-	{}
-};
-
-$MethodInfo _RegistryImpl$2_MethodInfo_[] = {
-	{"<init>", "(Lsun/rmi/registry/RegistryImpl;I)V", "()V", 0, $method(RegistryImpl$2, init$, void, $RegistryImpl*, int32_t)},
-	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(RegistryImpl$2, run, $Object*), "java.rmi.RemoteException"},
-	{}
-};
-
-$EnclosingMethodInfo _RegistryImpl$2_EnclosingMethodInfo_ = {
-	"sun.rmi.registry.RegistryImpl",
-	"<init>",
-	"(I)V"
-};
-
-$InnerClassInfo _RegistryImpl$2_InnerClassesInfo_[] = {
-	{"sun.rmi.registry.RegistryImpl$2", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _RegistryImpl$2_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.rmi.registry.RegistryImpl$2",
-	"java.lang.Object",
-	"java.security.PrivilegedExceptionAction",
-	_RegistryImpl$2_FieldInfo_,
-	_RegistryImpl$2_MethodInfo_,
-	"Ljava/lang/Object;Ljava/security/PrivilegedExceptionAction<Ljava/lang/Void;>;",
-	&_RegistryImpl$2_EnclosingMethodInfo_,
-	_RegistryImpl$2_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.rmi.registry.RegistryImpl"
-};
-
-$Object* allocate$RegistryImpl$2($Class* clazz) {
-	return $of($alloc(RegistryImpl$2));
-}
 
 void RegistryImpl$2::init$($RegistryImpl* this$0, int32_t val$port) {
 	$set(this, this$0, this$0);
@@ -115,11 +68,11 @@ void RegistryImpl$2::init$($RegistryImpl* this$0, int32_t val$port) {
 }
 
 $Object* RegistryImpl$2::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($RegistryImpl);
 	$var($LiveRef, lref, $new($LiveRef, $RegistryImpl::id, this->val$port));
-	this->this$0->setup($$new($UnicastServerRef, lref, static_cast<$ObjectInputFilter*>($$new(RegistryImpl$2$$Lambda$registryFilter))));
-	return $of(nullptr);
+	this->this$0->setup($$new($UnicastServerRef, lref, $$new(RegistryImpl$2$$Lambda$registryFilter)));
+	return nullptr;
 }
 
 RegistryImpl$2::RegistryImpl$2() {
@@ -127,11 +80,47 @@ RegistryImpl$2::RegistryImpl$2() {
 
 $Class* RegistryImpl$2::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(RegistryImpl$2$$Lambda$registryFilter::classInfo$.name)) {
+		if (name->equals("sun.rmi.registry.RegistryImpl$2$$Lambda$registryFilter")) {
 			return RegistryImpl$2$$Lambda$registryFilter::load$(name, initialize);
 		}
 	}
-	$loadClass(RegistryImpl$2, name, initialize, &_RegistryImpl$2_ClassInfo_, allocate$RegistryImpl$2);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/rmi/registry/RegistryImpl;", nullptr, $FINAL | $SYNTHETIC, $field(RegistryImpl$2, this$0)},
+		{"val$port", "I", nullptr, $FINAL | $SYNTHETIC, $field(RegistryImpl$2, val$port)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/rmi/registry/RegistryImpl;I)V", "()V", 0, $method(RegistryImpl$2, init$, void, $RegistryImpl*, int32_t)},
+		{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(RegistryImpl$2, run, $Object*), "java.rmi.RemoteException"},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.rmi.registry.RegistryImpl",
+		"<init>",
+		"(I)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.rmi.registry.RegistryImpl$2", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.rmi.registry.RegistryImpl$2",
+		"java.lang.Object",
+		"java.security.PrivilegedExceptionAction",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/security/PrivilegedExceptionAction<Ljava/lang/Void;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.rmi.registry.RegistryImpl"
+	};
+	$loadClass(RegistryImpl$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RegistryImpl$2);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <javax/swing/tree/FixedHeightLayoutCache.h>
-
 #include <java/awt/Rectangle.h>
 #include <java/lang/Math.h>
 #include <java/util/Enumeration.h>
@@ -33,85 +32,12 @@ using $FixedHeightLayoutCache$FHTreeStateNode = ::javax::swing::tree::FixedHeigh
 using $FixedHeightLayoutCache$SearchInfo = ::javax::swing::tree::FixedHeightLayoutCache$SearchInfo;
 using $FixedHeightLayoutCache$VisibleFHTreeStateNodeEnumeration = ::javax::swing::tree::FixedHeightLayoutCache$VisibleFHTreeStateNodeEnumeration;
 using $TreeModel = ::javax::swing::tree::TreeModel;
-using $TreeNode = ::javax::swing::tree::TreeNode;
 using $TreePath = ::javax::swing::tree::TreePath;
-using $TreeSelectionModel = ::javax::swing::tree::TreeSelectionModel;
 using $SwingUtilities2 = ::sun::swing::SwingUtilities2;
 
 namespace javax {
 	namespace swing {
 		namespace tree {
-
-$FieldInfo _FixedHeightLayoutCache_FieldInfo_[] = {
-	{"root", "Ljavax/swing/tree/FixedHeightLayoutCache$FHTreeStateNode;", nullptr, $PRIVATE, $field(FixedHeightLayoutCache, root)},
-	{"rowCount", "I", nullptr, $PRIVATE, $field(FixedHeightLayoutCache, rowCount)},
-	{"boundsBuffer", "Ljava/awt/Rectangle;", nullptr, $PRIVATE, $field(FixedHeightLayoutCache, boundsBuffer)},
-	{"treePathMapping", "Ljava/util/Hashtable;", "Ljava/util/Hashtable<Ljavax/swing/tree/TreePath;Ljavax/swing/tree/FixedHeightLayoutCache$FHTreeStateNode;>;", $PRIVATE, $field(FixedHeightLayoutCache, treePathMapping)},
-	{"info", "Ljavax/swing/tree/FixedHeightLayoutCache$SearchInfo;", nullptr, $PRIVATE, $field(FixedHeightLayoutCache, info)},
-	{"tempStacks", "Ljava/util/Stack;", "Ljava/util/Stack<Ljava/util/Stack<Ljavax/swing/tree/TreePath;>;>;", $PRIVATE, $field(FixedHeightLayoutCache, tempStacks)},
-	{}
-};
-
-$MethodInfo _FixedHeightLayoutCache_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(FixedHeightLayoutCache, init$, void)},
-	{"addMapping", "(Ljavax/swing/tree/FixedHeightLayoutCache$FHTreeStateNode;)V", nullptr, $PRIVATE, $method(FixedHeightLayoutCache, addMapping, void, $FixedHeightLayoutCache$FHTreeStateNode*)},
-	{"adjustRowCountBy", "(I)V", nullptr, $PRIVATE, $method(FixedHeightLayoutCache, adjustRowCountBy, void, int32_t)},
-	{"createNodeForValue", "(Ljava/lang/Object;I)Ljavax/swing/tree/FixedHeightLayoutCache$FHTreeStateNode;", nullptr, $PRIVATE, $method(FixedHeightLayoutCache, createNodeForValue, $FixedHeightLayoutCache$FHTreeStateNode*, Object$*, int32_t)},
-	{"ensurePathIsExpanded", "(Ljavax/swing/tree/TreePath;Z)Z", nullptr, $PRIVATE, $method(FixedHeightLayoutCache, ensurePathIsExpanded, bool, $TreePath*, bool)},
-	{"getBounds", "(Ljavax/swing/tree/TreePath;Ljava/awt/Rectangle;)Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(FixedHeightLayoutCache, getBounds, $Rectangle*, $TreePath*, $Rectangle*)},
-	{"getBounds", "(Ljavax/swing/tree/FixedHeightLayoutCache$FHTreeStateNode;ILjava/awt/Rectangle;)Ljava/awt/Rectangle;", nullptr, $PRIVATE, $method(FixedHeightLayoutCache, getBounds, $Rectangle*, $FixedHeightLayoutCache$FHTreeStateNode*, int32_t, $Rectangle*)},
-	{"getExpandedState", "(Ljavax/swing/tree/TreePath;)Z", nullptr, $PUBLIC, $virtualMethod(FixedHeightLayoutCache, getExpandedState, bool, $TreePath*)},
-	{"getMapping", "(Ljavax/swing/tree/TreePath;)Ljavax/swing/tree/FixedHeightLayoutCache$FHTreeStateNode;", nullptr, $PRIVATE, $method(FixedHeightLayoutCache, getMapping, $FixedHeightLayoutCache$FHTreeStateNode*, $TreePath*)},
-	{"getNodeForPath", "(Ljavax/swing/tree/TreePath;ZZ)Ljavax/swing/tree/FixedHeightLayoutCache$FHTreeStateNode;", nullptr, $PRIVATE, $method(FixedHeightLayoutCache, getNodeForPath, $FixedHeightLayoutCache$FHTreeStateNode*, $TreePath*, bool, bool)},
-	{"getPathClosestTo", "(II)Ljavax/swing/tree/TreePath;", nullptr, $PUBLIC, $virtualMethod(FixedHeightLayoutCache, getPathClosestTo, $TreePath*, int32_t, int32_t)},
-	{"getPathForRow", "(I)Ljavax/swing/tree/TreePath;", nullptr, $PUBLIC, $virtualMethod(FixedHeightLayoutCache, getPathForRow, $TreePath*, int32_t)},
-	{"getRowContainingYLocation", "(I)I", nullptr, $PRIVATE, $method(FixedHeightLayoutCache, getRowContainingYLocation, int32_t, int32_t)},
-	{"getRowCount", "()I", nullptr, $PUBLIC, $virtualMethod(FixedHeightLayoutCache, getRowCount, int32_t)},
-	{"getRowForPath", "(Ljavax/swing/tree/TreePath;)I", nullptr, $PUBLIC, $virtualMethod(FixedHeightLayoutCache, getRowForPath, int32_t, $TreePath*)},
-	{"getVisibleChildCount", "(Ljavax/swing/tree/TreePath;)I", nullptr, $PUBLIC, $virtualMethod(FixedHeightLayoutCache, getVisibleChildCount, int32_t, $TreePath*)},
-	{"getVisiblePathsFrom", "(Ljavax/swing/tree/TreePath;)Ljava/util/Enumeration;", "(Ljavax/swing/tree/TreePath;)Ljava/util/Enumeration<Ljavax/swing/tree/TreePath;>;", $PUBLIC, $virtualMethod(FixedHeightLayoutCache, getVisiblePathsFrom, $Enumeration*, $TreePath*)},
-	{"invalidatePathBounds", "(Ljavax/swing/tree/TreePath;)V", nullptr, $PUBLIC, $virtualMethod(FixedHeightLayoutCache, invalidatePathBounds, void, $TreePath*)},
-	{"invalidateSizes", "()V", nullptr, $PUBLIC, $virtualMethod(FixedHeightLayoutCache, invalidateSizes, void)},
-	{"isExpanded", "(Ljavax/swing/tree/TreePath;)Z", nullptr, $PUBLIC, $virtualMethod(FixedHeightLayoutCache, isExpanded, bool, $TreePath*)},
-	{"rebuild", "(Z)V", nullptr, $PRIVATE, $method(FixedHeightLayoutCache, rebuild, void, bool)},
-	{"removeMapping", "(Ljavax/swing/tree/FixedHeightLayoutCache$FHTreeStateNode;)V", nullptr, $PRIVATE, $method(FixedHeightLayoutCache, removeMapping, void, $FixedHeightLayoutCache$FHTreeStateNode*)},
-	{"setExpandedState", "(Ljavax/swing/tree/TreePath;Z)V", nullptr, $PUBLIC, $virtualMethod(FixedHeightLayoutCache, setExpandedState, void, $TreePath*, bool)},
-	{"setModel", "(Ljavax/swing/tree/TreeModel;)V", nullptr, $PUBLIC, $virtualMethod(FixedHeightLayoutCache, setModel, void, $TreeModel*)},
-	{"setRootVisible", "(Z)V", nullptr, $PUBLIC, $virtualMethod(FixedHeightLayoutCache, setRootVisible, void, bool)},
-	{"setRowHeight", "(I)V", nullptr, $PUBLIC, $virtualMethod(FixedHeightLayoutCache, setRowHeight, void, int32_t)},
-	{"treeNodesChanged", "(Ljavax/swing/event/TreeModelEvent;)V", nullptr, $PUBLIC, $virtualMethod(FixedHeightLayoutCache, treeNodesChanged, void, $TreeModelEvent*)},
-	{"treeNodesInserted", "(Ljavax/swing/event/TreeModelEvent;)V", nullptr, $PUBLIC, $virtualMethod(FixedHeightLayoutCache, treeNodesInserted, void, $TreeModelEvent*)},
-	{"treeNodesRemoved", "(Ljavax/swing/event/TreeModelEvent;)V", nullptr, $PUBLIC, $virtualMethod(FixedHeightLayoutCache, treeNodesRemoved, void, $TreeModelEvent*)},
-	{"treeStructureChanged", "(Ljavax/swing/event/TreeModelEvent;)V", nullptr, $PUBLIC, $virtualMethod(FixedHeightLayoutCache, treeStructureChanged, void, $TreeModelEvent*)},
-	{"visibleNodesChanged", "()V", nullptr, $PRIVATE, $method(FixedHeightLayoutCache, visibleNodesChanged, void)},
-	{}
-};
-
-$InnerClassInfo _FixedHeightLayoutCache_InnerClassesInfo_[] = {
-	{"javax.swing.tree.FixedHeightLayoutCache$VisibleFHTreeStateNodeEnumeration", "javax.swing.tree.FixedHeightLayoutCache", "VisibleFHTreeStateNodeEnumeration", $PRIVATE},
-	{"javax.swing.tree.FixedHeightLayoutCache$SearchInfo", "javax.swing.tree.FixedHeightLayoutCache", "SearchInfo", $PRIVATE},
-	{"javax.swing.tree.FixedHeightLayoutCache$FHTreeStateNode", "javax.swing.tree.FixedHeightLayoutCache", "FHTreeStateNode", $PRIVATE},
-	{}
-};
-
-$ClassInfo _FixedHeightLayoutCache_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.tree.FixedHeightLayoutCache",
-	"javax.swing.tree.AbstractLayoutCache",
-	nullptr,
-	_FixedHeightLayoutCache_FieldInfo_,
-	_FixedHeightLayoutCache_MethodInfo_,
-	nullptr,
-	nullptr,
-	_FixedHeightLayoutCache_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.swing.tree.FixedHeightLayoutCache$VisibleFHTreeStateNodeEnumeration,javax.swing.tree.FixedHeightLayoutCache$SearchInfo,javax.swing.tree.FixedHeightLayoutCache$FHTreeStateNode"
-};
-
-$Object* allocate$FixedHeightLayoutCache($Class* clazz) {
-	return $of($alloc(FixedHeightLayoutCache));
-}
 
 void FixedHeightLayoutCache::init$() {
 	$AbstractLayoutCache::init$();
@@ -133,7 +59,7 @@ void FixedHeightLayoutCache::setRootVisible(bool rootVisible) {
 		if (this->root != nullptr) {
 			if (rootVisible) {
 				++this->rowCount;
-				$nc(this->root)->adjustRowBy(1);
+				this->root->adjustRowBy(1);
 			} else {
 				--this->rowCount;
 				$nc(this->root)->adjustRowBy(-1);
@@ -173,7 +99,7 @@ bool FixedHeightLayoutCache::isExpanded($TreePath* path) {
 }
 
 $Rectangle* FixedHeightLayoutCache::getBounds($TreePath* path, $Rectangle* placeIn) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (path == nullptr) {
 		return nullptr;
 	}
@@ -203,7 +129,7 @@ $TreePath* FixedHeightLayoutCache::getPathForRow(int32_t row) {
 }
 
 int32_t FixedHeightLayoutCache::getRowForPath($TreePath* path) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (path == nullptr || this->root == nullptr) {
 		return -1;
 	}
@@ -237,7 +163,7 @@ int32_t FixedHeightLayoutCache::getVisibleChildCount($TreePath* path) {
 }
 
 $Enumeration* FixedHeightLayoutCache::getVisiblePathsFrom($TreePath* path) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (path == nullptr) {
 		return nullptr;
 	}
@@ -255,7 +181,7 @@ $Enumeration* FixedHeightLayoutCache::getVisiblePathsFrom($TreePath* path) {
 }
 
 void FixedHeightLayoutCache::setExpandedState($TreePath* path, bool isExpanded) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (isExpanded) {
 		ensurePathIsExpanded(path, true);
 	} else if (path != nullptr) {
@@ -286,7 +212,7 @@ bool FixedHeightLayoutCache::getExpandedState($TreePath* path) {
 }
 
 void FixedHeightLayoutCache::treeNodesChanged($TreeModelEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (e != nullptr) {
 		$var($ints, changedIndexs, nullptr);
 		$var($FixedHeightLayoutCache$FHTreeStateNode, changedParent, getNodeForPath($($SwingUtilities2::getTreePath(e, $(getModel()))), false, false));
@@ -306,8 +232,8 @@ void FixedHeightLayoutCache::treeNodesChanged($TreeModelEvent* e) {
 					visibleNodesChanged();
 				}
 			} else {
-				bool var$2 = changedParent == this->root && changedParent->isVisible();
-				if (var$2 && changedParent->isExpanded()) {
+				bool var$1 = changedParent == this->root && changedParent->isVisible();
+				if (var$1 && changedParent->isExpanded()) {
 					visibleNodesChanged();
 				}
 			}
@@ -316,7 +242,7 @@ void FixedHeightLayoutCache::treeNodesChanged($TreeModelEvent* e) {
 }
 
 void FixedHeightLayoutCache::treeNodesInserted($TreeModelEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (e != nullptr) {
 		$var($ints, changedIndexs, nullptr);
 		$var($FixedHeightLayoutCache$FHTreeStateNode, changedParent, getNodeForPath($($SwingUtilities2::getTreePath(e, $(getModel()))), false, false));
@@ -329,7 +255,7 @@ void FixedHeightLayoutCache::treeNodesInserted($TreeModelEvent* e) {
 				changedParent->childInsertedAtModelIndex(changedIndexs->get(counter), isVisible);
 			}
 			if (isVisible && this->treeSelectionModel != nullptr) {
-				$nc(this->treeSelectionModel)->resetRowSelection();
+				this->treeSelectionModel->resetRowSelection();
 			}
 			if (changedParent->isVisible()) {
 				this->visibleNodesChanged();
@@ -339,7 +265,7 @@ void FixedHeightLayoutCache::treeNodesInserted($TreeModelEvent* e) {
 }
 
 void FixedHeightLayoutCache::treeNodesRemoved($TreeModelEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (e != nullptr) {
 		$var($ints, changedIndexs, nullptr);
 		int32_t maxCounter = 0;
@@ -355,7 +281,7 @@ void FixedHeightLayoutCache::treeNodesRemoved($TreeModelEvent* e) {
 			}
 			if (isVisible) {
 				if (this->treeSelectionModel != nullptr) {
-					$nc(this->treeSelectionModel)->resetRowSelection();
+					this->treeSelectionModel->resetRowSelection();
 				}
 				bool var$1 = $nc(this->treeModel)->getChildCount($(changedParentNode->getUserObject())) == 0;
 				if (var$1 && changedParentNode->isLeaf()) {
@@ -370,7 +296,7 @@ void FixedHeightLayoutCache::treeNodesRemoved($TreeModelEvent* e) {
 }
 
 void FixedHeightLayoutCache::treeStructureChanged($TreeModelEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (e != nullptr) {
 		$var($TreePath, changedPath, $SwingUtilities2::getTreePath(e, $(getModel())));
 		$var($FixedHeightLayoutCache$FHTreeStateNode, changedNode, getNodeForPath(changedPath, false, false));
@@ -378,10 +304,10 @@ void FixedHeightLayoutCache::treeStructureChanged($TreeModelEvent* e) {
 		if (!var$0) {
 			bool var$1 = changedNode == nullptr;
 			if (var$1) {
-				bool var$2 = (changedPath == nullptr && this->treeModel != nullptr && $nc(this->treeModel)->getRoot() == nullptr);
-				var$1 = (var$2 || (changedPath != nullptr && changedPath->getPathCount() <= 1));
+				bool var$2 = changedPath == nullptr && this->treeModel != nullptr && this->treeModel->getRoot() == nullptr;
+				var$1 = var$2 || (changedPath != nullptr && changedPath->getPathCount() <= 1);
 			}
-			var$0 = (var$1);
+			var$0 = var$1;
 		}
 		if (var$0) {
 			rebuild(true);
@@ -401,7 +327,7 @@ void FixedHeightLayoutCache::treeStructureChanged($TreeModelEvent* e) {
 				$nc(changedNode)->expand();
 			}
 			if (this->treeSelectionModel != nullptr && wasVisible && wasExpanded) {
-				$nc(this->treeSelectionModel)->resetRowSelection();
+				this->treeSelectionModel->resetRowSelection();
 			}
 			if (wasVisible) {
 				this->visibleNodesChanged();
@@ -414,7 +340,7 @@ void FixedHeightLayoutCache::visibleNodesChanged() {
 }
 
 $Rectangle* FixedHeightLayoutCache::getBounds($FixedHeightLayoutCache$FHTreeStateNode* parent, int32_t childIndex, $Rectangle* placeIn$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle, placeIn, placeIn$renamed);
 	bool expanded = false;
 	int32_t level = 0;
@@ -464,7 +390,7 @@ $FixedHeightLayoutCache$FHTreeStateNode* FixedHeightLayoutCache::getMapping($Tre
 void FixedHeightLayoutCache::rebuild(bool clearSelection) {
 	$var($Object, rootUO, nullptr);
 	$nc(this->treePathMapping)->clear();
-	if (this->treeModel != nullptr && ($assign(rootUO, $nc(this->treeModel)->getRoot())) != nullptr) {
+	if (this->treeModel != nullptr && ($assign(rootUO, this->treeModel->getRoot())) != nullptr) {
 		$set(this, root, createNodeForValue(rootUO, 0));
 		$set($nc(this->root), path, $new($TreePath, rootUO));
 		addMapping(this->root);
@@ -481,7 +407,7 @@ void FixedHeightLayoutCache::rebuild(bool clearSelection) {
 		this->rowCount = 0;
 	}
 	if (clearSelection && this->treeSelectionModel != nullptr) {
-		$nc(this->treeSelectionModel)->clearSelection();
+		this->treeSelectionModel->clearSelection();
 	}
 	this->visibleNodesChanged();
 }
@@ -495,7 +421,7 @@ int32_t FixedHeightLayoutCache::getRowContainingYLocation(int32_t location) {
 }
 
 bool FixedHeightLayoutCache::ensurePathIsExpanded($TreePath* aPath$renamed, bool expandLast) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($TreePath, aPath, aPath$renamed);
 	if (aPath != nullptr) {
 		if ($nc(this->treeModel)->isLeaf($(aPath->getLastPathComponent()))) {
@@ -521,7 +447,7 @@ $FixedHeightLayoutCache$FHTreeStateNode* FixedHeightLayoutCache::createNodeForVa
 }
 
 $FixedHeightLayoutCache$FHTreeStateNode* FixedHeightLayoutCache::getNodeForPath($TreePath* path$renamed, bool onlyIfVisible, bool shouldCreate) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($TreePath, path, path$renamed);
 	if (path != nullptr) {
 		$var($FixedHeightLayoutCache$FHTreeStateNode, node, nullptr);
@@ -539,42 +465,40 @@ $FixedHeightLayoutCache$FHTreeStateNode* FixedHeightLayoutCache::getNodeForPath(
 		if ($nc(this->tempStacks)->size() == 0) {
 			$assign(paths, $new($Stack));
 		} else {
-			$assign(paths, $cast($Stack, $nc(this->tempStacks)->pop()));
+			$assign(paths, $cast($Stack, this->tempStacks->pop()));
 		}
-		{
-			$var($Throwable, var$0, nullptr);
-			$var($FixedHeightLayoutCache$FHTreeStateNode, var$2, nullptr);
-			bool return$1 = false;
-			try {
-				$nc(paths)->push(path);
-				$assign(path, path->getParentPath());
-				$assign(node, nullptr);
-				while (path != nullptr) {
-					$assign(node, getMapping(path));
-					if (node != nullptr) {
-						while (node != nullptr && paths->size() > 0) {
-							$assign(path, $cast($TreePath, paths->pop()));
-							$assign(node, node->createChildFor($($nc(path)->getLastPathComponent())));
-						}
-						$assign(var$2, node);
-						return$1 = true;
-						goto $finally;
+		$var($Throwable, var$0, nullptr);
+		$var($FixedHeightLayoutCache$FHTreeStateNode, var$2, nullptr);
+		bool return$1 = false;
+		try {
+			$nc(paths)->push(path);
+			$assign(path, path->getParentPath());
+			$assign(node, nullptr);
+			while (path != nullptr) {
+				$assign(node, getMapping(path));
+				if (node != nullptr) {
+					while (node != nullptr && paths->size() > 0) {
+						$assign(path, $cast($TreePath, paths->pop()));
+						$assign(node, node->createChildFor($($nc(path)->getLastPathComponent())));
 					}
-					paths->push(path);
-					$assign(path, path->getParentPath());
+					$assign(var$2, node);
+					return$1 = true;
+					goto $finally;
 				}
-			} catch ($Throwable& var$3) {
-				$assign(var$0, var$3);
-			} $finally: {
-				$nc(paths)->removeAllElements();
-				$nc(this->tempStacks)->push(paths);
+				paths->push(path);
+				$assign(path, $nc(path)->getParentPath());
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
-			if (return$1) {
-				return var$2;
-			}
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
+		} $finally: {
+			$nc(paths)->removeAllElements();
+			$nc(this->tempStacks)->push(paths);
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
+		}
+		if (return$1) {
+			return var$2;
 		}
 		return nullptr;
 	}
@@ -585,7 +509,72 @@ FixedHeightLayoutCache::FixedHeightLayoutCache() {
 }
 
 $Class* FixedHeightLayoutCache::load$($String* name, bool initialize) {
-	$loadClass(FixedHeightLayoutCache, name, initialize, &_FixedHeightLayoutCache_ClassInfo_, allocate$FixedHeightLayoutCache);
+	$FieldInfo fieldInfos$$[] = {
+		{"root", "Ljavax/swing/tree/FixedHeightLayoutCache$FHTreeStateNode;", nullptr, $PRIVATE, $field(FixedHeightLayoutCache, root)},
+		{"rowCount", "I", nullptr, $PRIVATE, $field(FixedHeightLayoutCache, rowCount)},
+		{"boundsBuffer", "Ljava/awt/Rectangle;", nullptr, $PRIVATE, $field(FixedHeightLayoutCache, boundsBuffer)},
+		{"treePathMapping", "Ljava/util/Hashtable;", "Ljava/util/Hashtable<Ljavax/swing/tree/TreePath;Ljavax/swing/tree/FixedHeightLayoutCache$FHTreeStateNode;>;", $PRIVATE, $field(FixedHeightLayoutCache, treePathMapping)},
+		{"info", "Ljavax/swing/tree/FixedHeightLayoutCache$SearchInfo;", nullptr, $PRIVATE, $field(FixedHeightLayoutCache, info)},
+		{"tempStacks", "Ljava/util/Stack;", "Ljava/util/Stack<Ljava/util/Stack<Ljavax/swing/tree/TreePath;>;>;", $PRIVATE, $field(FixedHeightLayoutCache, tempStacks)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(FixedHeightLayoutCache, init$, void)},
+		{"addMapping", "(Ljavax/swing/tree/FixedHeightLayoutCache$FHTreeStateNode;)V", nullptr, $PRIVATE, $method(FixedHeightLayoutCache, addMapping, void, $FixedHeightLayoutCache$FHTreeStateNode*)},
+		{"adjustRowCountBy", "(I)V", nullptr, $PRIVATE, $method(FixedHeightLayoutCache, adjustRowCountBy, void, int32_t)},
+		{"createNodeForValue", "(Ljava/lang/Object;I)Ljavax/swing/tree/FixedHeightLayoutCache$FHTreeStateNode;", nullptr, $PRIVATE, $method(FixedHeightLayoutCache, createNodeForValue, $FixedHeightLayoutCache$FHTreeStateNode*, Object$*, int32_t)},
+		{"ensurePathIsExpanded", "(Ljavax/swing/tree/TreePath;Z)Z", nullptr, $PRIVATE, $method(FixedHeightLayoutCache, ensurePathIsExpanded, bool, $TreePath*, bool)},
+		{"getBounds", "(Ljavax/swing/tree/TreePath;Ljava/awt/Rectangle;)Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(FixedHeightLayoutCache, getBounds, $Rectangle*, $TreePath*, $Rectangle*)},
+		{"getBounds", "(Ljavax/swing/tree/FixedHeightLayoutCache$FHTreeStateNode;ILjava/awt/Rectangle;)Ljava/awt/Rectangle;", nullptr, $PRIVATE, $method(FixedHeightLayoutCache, getBounds, $Rectangle*, $FixedHeightLayoutCache$FHTreeStateNode*, int32_t, $Rectangle*)},
+		{"getExpandedState", "(Ljavax/swing/tree/TreePath;)Z", nullptr, $PUBLIC, $virtualMethod(FixedHeightLayoutCache, getExpandedState, bool, $TreePath*)},
+		{"getMapping", "(Ljavax/swing/tree/TreePath;)Ljavax/swing/tree/FixedHeightLayoutCache$FHTreeStateNode;", nullptr, $PRIVATE, $method(FixedHeightLayoutCache, getMapping, $FixedHeightLayoutCache$FHTreeStateNode*, $TreePath*)},
+		{"getNodeForPath", "(Ljavax/swing/tree/TreePath;ZZ)Ljavax/swing/tree/FixedHeightLayoutCache$FHTreeStateNode;", nullptr, $PRIVATE, $method(FixedHeightLayoutCache, getNodeForPath, $FixedHeightLayoutCache$FHTreeStateNode*, $TreePath*, bool, bool)},
+		{"getPathClosestTo", "(II)Ljavax/swing/tree/TreePath;", nullptr, $PUBLIC, $virtualMethod(FixedHeightLayoutCache, getPathClosestTo, $TreePath*, int32_t, int32_t)},
+		{"getPathForRow", "(I)Ljavax/swing/tree/TreePath;", nullptr, $PUBLIC, $virtualMethod(FixedHeightLayoutCache, getPathForRow, $TreePath*, int32_t)},
+		{"getRowContainingYLocation", "(I)I", nullptr, $PRIVATE, $method(FixedHeightLayoutCache, getRowContainingYLocation, int32_t, int32_t)},
+		{"getRowCount", "()I", nullptr, $PUBLIC, $virtualMethod(FixedHeightLayoutCache, getRowCount, int32_t)},
+		{"getRowForPath", "(Ljavax/swing/tree/TreePath;)I", nullptr, $PUBLIC, $virtualMethod(FixedHeightLayoutCache, getRowForPath, int32_t, $TreePath*)},
+		{"getVisibleChildCount", "(Ljavax/swing/tree/TreePath;)I", nullptr, $PUBLIC, $virtualMethod(FixedHeightLayoutCache, getVisibleChildCount, int32_t, $TreePath*)},
+		{"getVisiblePathsFrom", "(Ljavax/swing/tree/TreePath;)Ljava/util/Enumeration;", "(Ljavax/swing/tree/TreePath;)Ljava/util/Enumeration<Ljavax/swing/tree/TreePath;>;", $PUBLIC, $virtualMethod(FixedHeightLayoutCache, getVisiblePathsFrom, $Enumeration*, $TreePath*)},
+		{"invalidatePathBounds", "(Ljavax/swing/tree/TreePath;)V", nullptr, $PUBLIC, $virtualMethod(FixedHeightLayoutCache, invalidatePathBounds, void, $TreePath*)},
+		{"invalidateSizes", "()V", nullptr, $PUBLIC, $virtualMethod(FixedHeightLayoutCache, invalidateSizes, void)},
+		{"isExpanded", "(Ljavax/swing/tree/TreePath;)Z", nullptr, $PUBLIC, $virtualMethod(FixedHeightLayoutCache, isExpanded, bool, $TreePath*)},
+		{"rebuild", "(Z)V", nullptr, $PRIVATE, $method(FixedHeightLayoutCache, rebuild, void, bool)},
+		{"removeMapping", "(Ljavax/swing/tree/FixedHeightLayoutCache$FHTreeStateNode;)V", nullptr, $PRIVATE, $method(FixedHeightLayoutCache, removeMapping, void, $FixedHeightLayoutCache$FHTreeStateNode*)},
+		{"setExpandedState", "(Ljavax/swing/tree/TreePath;Z)V", nullptr, $PUBLIC, $virtualMethod(FixedHeightLayoutCache, setExpandedState, void, $TreePath*, bool)},
+		{"setModel", "(Ljavax/swing/tree/TreeModel;)V", nullptr, $PUBLIC, $virtualMethod(FixedHeightLayoutCache, setModel, void, $TreeModel*)},
+		{"setRootVisible", "(Z)V", nullptr, $PUBLIC, $virtualMethod(FixedHeightLayoutCache, setRootVisible, void, bool)},
+		{"setRowHeight", "(I)V", nullptr, $PUBLIC, $virtualMethod(FixedHeightLayoutCache, setRowHeight, void, int32_t)},
+		{"treeNodesChanged", "(Ljavax/swing/event/TreeModelEvent;)V", nullptr, $PUBLIC, $virtualMethod(FixedHeightLayoutCache, treeNodesChanged, void, $TreeModelEvent*)},
+		{"treeNodesInserted", "(Ljavax/swing/event/TreeModelEvent;)V", nullptr, $PUBLIC, $virtualMethod(FixedHeightLayoutCache, treeNodesInserted, void, $TreeModelEvent*)},
+		{"treeNodesRemoved", "(Ljavax/swing/event/TreeModelEvent;)V", nullptr, $PUBLIC, $virtualMethod(FixedHeightLayoutCache, treeNodesRemoved, void, $TreeModelEvent*)},
+		{"treeStructureChanged", "(Ljavax/swing/event/TreeModelEvent;)V", nullptr, $PUBLIC, $virtualMethod(FixedHeightLayoutCache, treeStructureChanged, void, $TreeModelEvent*)},
+		{"visibleNodesChanged", "()V", nullptr, $PRIVATE, $method(FixedHeightLayoutCache, visibleNodesChanged, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.tree.FixedHeightLayoutCache$VisibleFHTreeStateNodeEnumeration", "javax.swing.tree.FixedHeightLayoutCache", "VisibleFHTreeStateNodeEnumeration", $PRIVATE},
+		{"javax.swing.tree.FixedHeightLayoutCache$SearchInfo", "javax.swing.tree.FixedHeightLayoutCache", "SearchInfo", $PRIVATE},
+		{"javax.swing.tree.FixedHeightLayoutCache$FHTreeStateNode", "javax.swing.tree.FixedHeightLayoutCache", "FHTreeStateNode", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.tree.FixedHeightLayoutCache",
+		"javax.swing.tree.AbstractLayoutCache",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.swing.tree.FixedHeightLayoutCache$VisibleFHTreeStateNodeEnumeration,javax.swing.tree.FixedHeightLayoutCache$SearchInfo,javax.swing.tree.FixedHeightLayoutCache$FHTreeStateNode"
+	};
+	$loadClass(FixedHeightLayoutCache, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FixedHeightLayoutCache);
+	});
 	return class$;
 }
 

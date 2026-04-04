@@ -1,5 +1,4 @@
 #include <sun/java2d/opengl/CGLSurfaceData$CGLLayerSurfaceData.h>
-
 #include <java/awt/image/ColorModel.h>
 #include <sun/java2d/SurfaceData.h>
 #include <sun/java2d/opengl/CGLGraphicsConfig.h>
@@ -24,46 +23,6 @@ namespace sun {
 	namespace java2d {
 		namespace opengl {
 
-$FieldInfo _CGLSurfaceData$CGLLayerSurfaceData_FieldInfo_[] = {
-	{"layer", "Lsun/java2d/opengl/CGLLayer;", nullptr, $PRIVATE | $FINAL, $field(CGLSurfaceData$CGLLayerSurfaceData, layer)},
-	{}
-};
-
-$MethodInfo _CGLSurfaceData$CGLLayerSurfaceData_MethodInfo_[] = {
-	{"<init>", "(Lsun/java2d/opengl/CGLLayer;Lsun/java2d/opengl/CGLGraphicsConfig;II)V", nullptr, $PRIVATE, $method(CGLSurfaceData$CGLLayerSurfaceData, init$, void, $CGLLayer*, $CGLGraphicsConfig*, int32_t, int32_t)},
-	{"getDestination", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(CGLSurfaceData$CGLLayerSurfaceData, getDestination, $Object*)},
-	{"getReplacement", "()Lsun/java2d/SurfaceData;", nullptr, $PUBLIC, $virtualMethod(CGLSurfaceData$CGLLayerSurfaceData, getReplacement, $SurfaceData*)},
-	{"getTransparency", "()I", nullptr, $PUBLIC, $virtualMethod(CGLSurfaceData$CGLLayerSurfaceData, getTransparency, int32_t)},
-	{"invalidate", "()V", nullptr, $PUBLIC, $virtualMethod(CGLSurfaceData$CGLLayerSurfaceData, invalidate, void)},
-	{"isOnScreen", "()Z", nullptr, 0, $virtualMethod(CGLSurfaceData$CGLLayerSurfaceData, isOnScreen, bool)},
-	{}
-};
-
-$InnerClassInfo _CGLSurfaceData$CGLLayerSurfaceData_InnerClassesInfo_[] = {
-	{"sun.java2d.opengl.CGLSurfaceData$CGLLayerSurfaceData", "sun.java2d.opengl.CGLSurfaceData", "CGLLayerSurfaceData", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _CGLSurfaceData$CGLLayerSurfaceData_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.java2d.opengl.CGLSurfaceData$CGLLayerSurfaceData",
-	"sun.java2d.opengl.CGLSurfaceData",
-	nullptr,
-	_CGLSurfaceData$CGLLayerSurfaceData_FieldInfo_,
-	_CGLSurfaceData$CGLLayerSurfaceData_MethodInfo_,
-	nullptr,
-	nullptr,
-	_CGLSurfaceData$CGLLayerSurfaceData_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.java2d.opengl.CGLSurfaceData"
-};
-
-$Object* allocate$CGLSurfaceData$CGLLayerSurfaceData($Class* clazz) {
-	return $of($alloc(CGLSurfaceData$CGLLayerSurfaceData));
-}
-
 void CGLSurfaceData$CGLLayerSurfaceData::init$($CGLLayer* layer, $CGLGraphicsConfig* gc, int32_t width, int32_t height) {
 	$CGLSurfaceData::init$(layer, gc, $($nc(gc)->getColorModel()), $OGLSurfaceData::FBOBJECT, width, height);
 	$set(this, layer, layer);
@@ -79,7 +38,7 @@ bool CGLSurfaceData$CGLLayerSurfaceData::isOnScreen() {
 }
 
 $Object* CGLSurfaceData$CGLLayerSurfaceData::getDestination() {
-	return $of($nc(this->layer)->getDestination());
+	return $nc(this->layer)->getDestination();
 }
 
 int32_t CGLSurfaceData$CGLLayerSurfaceData::getTransparency() {
@@ -95,7 +54,41 @@ CGLSurfaceData$CGLLayerSurfaceData::CGLSurfaceData$CGLLayerSurfaceData() {
 }
 
 $Class* CGLSurfaceData$CGLLayerSurfaceData::load$($String* name, bool initialize) {
-	$loadClass(CGLSurfaceData$CGLLayerSurfaceData, name, initialize, &_CGLSurfaceData$CGLLayerSurfaceData_ClassInfo_, allocate$CGLSurfaceData$CGLLayerSurfaceData);
+	$FieldInfo fieldInfos$$[] = {
+		{"layer", "Lsun/java2d/opengl/CGLLayer;", nullptr, $PRIVATE | $FINAL, $field(CGLSurfaceData$CGLLayerSurfaceData, layer)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/java2d/opengl/CGLLayer;Lsun/java2d/opengl/CGLGraphicsConfig;II)V", nullptr, $PRIVATE, $method(CGLSurfaceData$CGLLayerSurfaceData, init$, void, $CGLLayer*, $CGLGraphicsConfig*, int32_t, int32_t)},
+		{"getDestination", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(CGLSurfaceData$CGLLayerSurfaceData, getDestination, $Object*)},
+		{"getReplacement", "()Lsun/java2d/SurfaceData;", nullptr, $PUBLIC, $virtualMethod(CGLSurfaceData$CGLLayerSurfaceData, getReplacement, $SurfaceData*)},
+		{"getTransparency", "()I", nullptr, $PUBLIC, $virtualMethod(CGLSurfaceData$CGLLayerSurfaceData, getTransparency, int32_t)},
+		{"invalidate", "()V", nullptr, $PUBLIC, $virtualMethod(CGLSurfaceData$CGLLayerSurfaceData, invalidate, void)},
+		{"isOnScreen", "()Z", nullptr, 0, $virtualMethod(CGLSurfaceData$CGLLayerSurfaceData, isOnScreen, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.java2d.opengl.CGLSurfaceData$CGLLayerSurfaceData", "sun.java2d.opengl.CGLSurfaceData", "CGLLayerSurfaceData", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.java2d.opengl.CGLSurfaceData$CGLLayerSurfaceData",
+		"sun.java2d.opengl.CGLSurfaceData",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.java2d.opengl.CGLSurfaceData"
+	};
+	$loadClass(CGLSurfaceData$CGLLayerSurfaceData, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(CGLSurfaceData$CGLLayerSurfaceData));
+	});
 	return class$;
 }
 

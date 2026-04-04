@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/security/keys/storage/StorageResolverSpi.h>
-
 #include <java/util/Iterator.h>
 #include <jcpp.h>
 
@@ -17,25 +16,6 @@ namespace com {
 							namespace keys {
 								namespace storage {
 
-$MethodInfo _StorageResolverSpi_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(StorageResolverSpi, init$, void)},
-	{"getIterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljava/security/cert/Certificate;>;", $PUBLIC | $ABSTRACT, $virtualMethod(StorageResolverSpi, getIterator, $Iterator*)},
-	{}
-};
-
-$ClassInfo _StorageResolverSpi_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"com.sun.org.apache.xml.internal.security.keys.storage.StorageResolverSpi",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_StorageResolverSpi_MethodInfo_
-};
-
-$Object* allocate$StorageResolverSpi($Class* clazz) {
-	return $of($alloc(StorageResolverSpi));
-}
-
 void StorageResolverSpi::init$() {
 }
 
@@ -43,7 +23,22 @@ StorageResolverSpi::StorageResolverSpi() {
 }
 
 $Class* StorageResolverSpi::load$($String* name, bool initialize) {
-	$loadClass(StorageResolverSpi, name, initialize, &_StorageResolverSpi_ClassInfo_, allocate$StorageResolverSpi);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(StorageResolverSpi, init$, void)},
+		{"getIterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljava/security/cert/Certificate;>;", $PUBLIC | $ABSTRACT, $virtualMethod(StorageResolverSpi, getIterator, $Iterator*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"com.sun.org.apache.xml.internal.security.keys.storage.StorageResolverSpi",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(StorageResolverSpi, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(StorageResolverSpi);
+	});
 	return class$;
 }
 

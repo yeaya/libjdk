@@ -1,5 +1,4 @@
 #include <SpinnerTest.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <java/awt/Point.h>
@@ -26,7 +25,6 @@
 #undef VK_SPACE
 
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Point = ::java::awt::Point;
 using $Robot = ::java::awt::Robot;
 using $KeyEvent = ::java::awt::event::KeyEvent;
@@ -41,7 +39,6 @@ using $JLabel = ::javax::swing::JLabel;
 using $JPanel = ::javax::swing::JPanel;
 using $JSpinner = ::javax::swing::JSpinner;
 using $SpinnerListModel = ::javax::swing::SpinnerListModel;
-using $SpinnerModel = ::javax::swing::SpinnerModel;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 
 class SpinnerTest$$Lambda$lambda$main$0 : public $Runnable {
@@ -52,27 +49,24 @@ public:
 	virtual void run() override {
 		SpinnerTest::lambda$main$0();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<SpinnerTest$$Lambda$lambda$main$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo SpinnerTest$$Lambda$lambda$main$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SpinnerTest$$Lambda$lambda$main$0, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(SpinnerTest$$Lambda$lambda$main$0, run, void)},
-	{}
-};
-$ClassInfo SpinnerTest$$Lambda$lambda$main$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"SpinnerTest$$Lambda$lambda$main$0",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* SpinnerTest$$Lambda$lambda$main$0::load$($String* name, bool initialize) {
-	$loadClass(SpinnerTest$$Lambda$lambda$main$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SpinnerTest$$Lambda$lambda$main$0, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(SpinnerTest$$Lambda$lambda$main$0, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"SpinnerTest$$Lambda$lambda$main$0",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(SpinnerTest$$Lambda$lambda$main$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SpinnerTest$$Lambda$lambda$main$0);
+	});
 	return class$;
 }
 $Class* SpinnerTest$$Lambda$lambda$main$0::class$ = nullptr;
@@ -85,57 +79,27 @@ public:
 	virtual void run() override {
 		SpinnerTest::lambda$main$1();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<SpinnerTest$$Lambda$lambda$main$1$1>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo SpinnerTest$$Lambda$lambda$main$1$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SpinnerTest$$Lambda$lambda$main$1$1, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(SpinnerTest$$Lambda$lambda$main$1$1, run, void)},
-	{}
-};
-$ClassInfo SpinnerTest$$Lambda$lambda$main$1$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"SpinnerTest$$Lambda$lambda$main$1$1",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* SpinnerTest$$Lambda$lambda$main$1$1::load$($String* name, bool initialize) {
-	$loadClass(SpinnerTest$$Lambda$lambda$main$1$1, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SpinnerTest$$Lambda$lambda$main$1$1, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(SpinnerTest$$Lambda$lambda$main$1$1, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"SpinnerTest$$Lambda$lambda$main$1$1",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(SpinnerTest$$Lambda$lambda$main$1$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SpinnerTest$$Lambda$lambda$main$1$1);
+	});
 	return class$;
 }
 $Class* SpinnerTest$$Lambda$lambda$main$1$1::class$ = nullptr;
-
-$FieldInfo _SpinnerTest_FieldInfo_[] = {
-	{"frame", "Ljavax/swing/JFrame;", nullptr, $PRIVATE | $STATIC, $staticField(SpinnerTest, frame)},
-	{"spinner", "Ljavax/swing/JSpinner;", nullptr, $PRIVATE | $STATIC, $staticField(SpinnerTest, spinner)},
-	{}
-};
-
-$MethodInfo _SpinnerTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SpinnerTest, init$, void)},
-	{"lambda$main$0", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(SpinnerTest, lambda$main$0, void)},
-	{"lambda$main$1", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(SpinnerTest, lambda$main$1, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SpinnerTest, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _SpinnerTest_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"SpinnerTest",
-	"java.lang.Object",
-	nullptr,
-	_SpinnerTest_FieldInfo_,
-	_SpinnerTest_MethodInfo_
-};
-
-$Object* allocate$SpinnerTest($Class* clazz) {
-	return $of($alloc(SpinnerTest));
-}
 
 $JFrame* SpinnerTest::frame = nullptr;
 $JSpinner* SpinnerTest::spinner = nullptr;
@@ -144,31 +108,29 @@ void SpinnerTest::init$() {
 }
 
 void SpinnerTest::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Robot, robot, $new($Robot));
 	robot->setAutoDelay(100);
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(SpinnerTest$$Lambda$lambda$main$0)));
-			robot->waitForIdle();
-			robot->delay(1000);
-			$init(SpinnerTest);
-			$var($Point, loc, $nc(SpinnerTest::spinner)->getLocationOnScreen());
-			robot->mouseMove($nc(loc)->x, loc->y);
-			robot->keyPress($KeyEvent::VK_SPACE);
-			robot->keyRelease($KeyEvent::VK_SPACE);
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$init(SpinnerTest);
-			if (SpinnerTest::frame != nullptr) {
-				$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(SpinnerTest$$Lambda$lambda$main$1$1)));
-			}
+	$var($Throwable, var$0, nullptr);
+	try {
+		$SwingUtilities::invokeAndWait($$new(SpinnerTest$$Lambda$lambda$main$0));
+		robot->waitForIdle();
+		robot->delay(1000);
+		$init(SpinnerTest);
+		$var($Point, loc, $nc(SpinnerTest::spinner)->getLocationOnScreen());
+		robot->mouseMove($nc(loc)->x, $nc(loc)->y);
+		robot->keyPress($KeyEvent::VK_SPACE);
+		robot->keyRelease($KeyEvent::VK_SPACE);
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$init(SpinnerTest);
+		if (SpinnerTest::frame != nullptr) {
+			$SwingUtilities::invokeAndWait($$new(SpinnerTest$$Lambda$lambda$main$1$1));
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
@@ -178,24 +140,24 @@ void SpinnerTest::lambda$main$1() {
 }
 
 void SpinnerTest::lambda$main$0() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init(SpinnerTest);
 	$assignStatic(SpinnerTest::frame, $new($JFrame, "SpinnerDemo"_s));
-	$nc(SpinnerTest::frame)->setDefaultCloseOperation($JFrame::EXIT_ON_CLOSE);
+	SpinnerTest::frame->setDefaultCloseOperation($JFrame::EXIT_ON_CLOSE);
 	$var($JPanel, panel, $new($JPanel));
 	$var($StringArray, values, $new($StringArray, {
 		"Month: "_s,
 		"Year: "_s,
-		($String*)nullptr,
+		nullptr,
 		"Date"_s,
 		"Sent"_s
 	}));
 	$var($SpinnerListModel, listModel, $new($SpinnerListModel, values));
 	$var($JLabel, l, $new($JLabel, "Spinner"_s));
-	panel->add(static_cast<$Component*>(l));
+	panel->add(l);
 	$assignStatic(SpinnerTest::spinner, $new($JSpinner, listModel));
 	l->setLabelFor(SpinnerTest::spinner);
-	panel->add(static_cast<$Component*>(SpinnerTest::spinner));
+	panel->add(SpinnerTest::spinner);
 	panel->setOpaque(true);
 	$nc(SpinnerTest::frame)->setContentPane(panel);
 	$nc(SpinnerTest::frame)->pack();
@@ -208,14 +170,36 @@ SpinnerTest::SpinnerTest() {
 
 $Class* SpinnerTest::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(SpinnerTest$$Lambda$lambda$main$0::classInfo$.name)) {
+		if (name->equals("SpinnerTest$$Lambda$lambda$main$0")) {
 			return SpinnerTest$$Lambda$lambda$main$0::load$(name, initialize);
 		}
-		if (name->equals(SpinnerTest$$Lambda$lambda$main$1$1::classInfo$.name)) {
+		if (name->equals("SpinnerTest$$Lambda$lambda$main$1$1")) {
 			return SpinnerTest$$Lambda$lambda$main$1$1::load$(name, initialize);
 		}
 	}
-	$loadClass(SpinnerTest, name, initialize, &_SpinnerTest_ClassInfo_, allocate$SpinnerTest);
+	$FieldInfo fieldInfos$$[] = {
+		{"frame", "Ljavax/swing/JFrame;", nullptr, $PRIVATE | $STATIC, $staticField(SpinnerTest, frame)},
+		{"spinner", "Ljavax/swing/JSpinner;", nullptr, $PRIVATE | $STATIC, $staticField(SpinnerTest, spinner)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SpinnerTest, init$, void)},
+		{"lambda$main$0", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(SpinnerTest, lambda$main$0, void)},
+		{"lambda$main$1", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(SpinnerTest, lambda$main$1, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SpinnerTest, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"SpinnerTest",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SpinnerTest, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SpinnerTest);
+	});
 	return class$;
 }
 

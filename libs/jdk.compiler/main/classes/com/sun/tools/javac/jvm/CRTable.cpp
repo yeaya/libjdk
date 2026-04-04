@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/jvm/CRTable.h>
-
 #include <com/sun/tools/javac/jvm/CRTFlags.h>
 #include <com/sun/tools/javac/jvm/CRTable$CRTEntry.h>
 #include <com/sun/tools/javac/jvm/CRTable$SourceComputer.h>
@@ -7,7 +6,6 @@
 #include <com/sun/tools/javac/resources/CompilerProperties$Warnings.h>
 #include <com/sun/tools/javac/tree/EndPosTable.h>
 #include <com/sun/tools/javac/tree/JCTree$JCMethodDecl.h>
-#include <com/sun/tools/javac/tree/JCTree.h>
 #include <com/sun/tools/javac/util/Assert.h>
 #include <com/sun/tools/javac/util/ByteBuffer.h>
 #include <com/sun/tools/javac/util/JCDiagnostic$Warning.h>
@@ -37,7 +35,6 @@ using $CRTable$SourceComputer = ::com::sun::tools::javac::jvm::CRTable$SourceCom
 using $CRTable$SourceRange = ::com::sun::tools::javac::jvm::CRTable$SourceRange;
 using $CompilerProperties$Warnings = ::com::sun::tools::javac::resources::CompilerProperties$Warnings;
 using $EndPosTable = ::com::sun::tools::javac::tree::EndPosTable;
-using $JCTree = ::com::sun::tools::javac::tree::JCTree;
 using $JCTree$JCMethodDecl = ::com::sun::tools::javac::tree::JCTree$JCMethodDecl;
 using $Assert = ::com::sun::tools::javac::util::Assert;
 using $ByteBuffer = ::com::sun::tools::javac::util::ByteBuffer;
@@ -51,58 +48,12 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $HashMap = ::java::util::HashMap;
-using $Map = ::java::util::Map;
 
 namespace com {
 	namespace sun {
 		namespace tools {
 			namespace javac {
 				namespace jvm {
-
-$FieldInfo _CRTable_FieldInfo_[] = {
-	{"crtDebug", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CRTable, crtDebug)},
-	{"entries", "Lcom/sun/tools/javac/util/ListBuffer;", "Lcom/sun/tools/javac/util/ListBuffer<Lcom/sun/tools/javac/jvm/CRTable$CRTEntry;>;", $PRIVATE, $field(CRTable, entries)},
-	{"positions", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/Object;Lcom/sun/tools/javac/jvm/CRTable$SourceRange;>;", $PRIVATE, $field(CRTable, positions)},
-	{"endPosTable", "Lcom/sun/tools/javac/tree/EndPosTable;", nullptr, $PRIVATE, $field(CRTable, endPosTable)},
-	{"methodTree", "Lcom/sun/tools/javac/tree/JCTree$JCMethodDecl;", nullptr, 0, $field(CRTable, methodTree)},
-	{}
-};
-
-$MethodInfo _CRTable_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/tree/JCTree$JCMethodDecl;Lcom/sun/tools/javac/tree/EndPosTable;)V", nullptr, $PUBLIC, $method(CRTable, init$, void, $JCTree$JCMethodDecl*, $EndPosTable*)},
-	{"encodePosition", "(ILcom/sun/tools/javac/util/Position$LineMap;Lcom/sun/tools/javac/util/Log;)I", nullptr, $PRIVATE, $method(CRTable, encodePosition, int32_t, int32_t, $Position$LineMap*, $Log*)},
-	{"getTypes", "(I)Ljava/lang/String;", nullptr, $PRIVATE, $method(CRTable, getTypes, $String*, int32_t)},
-	{"length", "()I", nullptr, $PUBLIC, $virtualMethod(CRTable, length, int32_t)},
-	{"put", "(Ljava/lang/Object;III)V", nullptr, $PUBLIC, $virtualMethod(CRTable, put, void, Object$*, int32_t, int32_t, int32_t)},
-	{"writeCRT", "(Lcom/sun/tools/javac/util/ByteBuffer;Lcom/sun/tools/javac/util/Position$LineMap;Lcom/sun/tools/javac/util/Log;)I", nullptr, $PUBLIC, $virtualMethod(CRTable, writeCRT, int32_t, $ByteBuffer*, $Position$LineMap*, $Log*)},
-	{}
-};
-
-$InnerClassInfo _CRTable_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.jvm.CRTable$SourceRange", "com.sun.tools.javac.jvm.CRTable", "SourceRange", $STATIC},
-	{"com.sun.tools.javac.jvm.CRTable$CRTEntry", "com.sun.tools.javac.jvm.CRTable", "CRTEntry", $STATIC},
-	{"com.sun.tools.javac.jvm.CRTable$SourceComputer", "com.sun.tools.javac.jvm.CRTable", "SourceComputer", 0},
-	{}
-};
-
-$ClassInfo _CRTable_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.jvm.CRTable",
-	"java.lang.Object",
-	"com.sun.tools.javac.jvm.CRTFlags",
-	_CRTable_FieldInfo_,
-	_CRTable_MethodInfo_,
-	nullptr,
-	nullptr,
-	_CRTable_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.jvm.CRTable$SourceRange,com.sun.tools.javac.jvm.CRTable$CRTEntry,com.sun.tools.javac.jvm.CRTable$SourceComputer"
-};
-
-$Object* allocate$CRTable($Class* clazz) {
-	return $of($alloc(CRTable));
-}
 
 void CRTable::init$($JCTree$JCMethodDecl* tree, $EndPosTable* endPosTable) {
 	$set(this, entries, $new($ListBuffer));
@@ -116,34 +67,36 @@ void CRTable::put(Object$* tree, int32_t flags, int32_t startPc, int32_t endPc) 
 }
 
 int32_t CRTable::writeCRT($ByteBuffer* databuf, $Position$LineMap* lineMap, $Log* log) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t crtEntries = 0;
-	$$new($CRTable$SourceComputer, this)->csp(static_cast<$JCTree*>(this->methodTree));
+	$$new($CRTable$SourceComputer, this)->csp(this->methodTree);
 	{
 		$var($List, l, $nc(this->entries)->toList());
-		for (; $nc(l)->nonEmpty(); $assign(l, $nc(l)->tail)) {
+		for (; $nc(l)->nonEmpty(); $assign(l, l->tail)) {
 			$var($CRTable$CRTEntry, entry, $cast($CRTable$CRTEntry, l->head));
-			if ($nc(entry)->startPc == entry->endPc) {
+			if ($nc(entry)->startPc == $nc(entry)->endPc) {
 				continue;
 			}
-			$var($CRTable$SourceRange, pos, $cast($CRTable$SourceRange, $nc(this->positions)->get($nc(entry)->tree)));
-			$Assert::checkNonNull($of(pos), "CRT: tree source positions are undefined"_s);
-			if (($nc(pos)->startPos == $Position::NOPOS) || ($nc(pos)->endPos == $Position::NOPOS)) {
+			$var($CRTable$SourceRange, pos, $cast($CRTable$SourceRange, $nc(this->positions)->get(entry->tree)));
+			$Assert::checkNonNull(pos, "CRT: tree source positions are undefined"_s);
+			if (($nc(pos)->startPos == $Position::NOPOS) || (pos->endPos == $Position::NOPOS)) {
 				continue;
 			}
-			int32_t startPos = encodePosition($nc(pos)->startPos, lineMap, log);
+			;
+			int32_t startPos = encodePosition(pos->startPos, lineMap, log);
 			if (startPos == $Position::NOPOS) {
 				continue;
 			}
-			int32_t endPos = encodePosition($nc(pos)->endPos, lineMap, log);
+			;
+			int32_t endPos = encodePosition(pos->endPos, lineMap, log);
 			if (endPos == $Position::NOPOS) {
 				continue;
 			}
-			$nc(databuf)->appendChar($nc(entry)->startPc);
-			databuf->appendChar($nc(entry)->endPc - 1);
+			$nc(databuf)->appendChar(entry->startPc);
+			databuf->appendChar(entry->endPc - 1);
 			databuf->appendInt(startPos);
 			databuf->appendInt(endPos);
-			databuf->appendChar($nc(entry)->flags);
+			databuf->appendChar(entry->flags);
 			++crtEntries;
 		}
 	}
@@ -156,31 +109,31 @@ int32_t CRTable::length() {
 
 $String* CRTable::getTypes(int32_t flags) {
 	$var($String, types, ""_s);
-	if (((int32_t)(flags & (uint32_t)$CRTFlags::CRT_STATEMENT)) != 0) {
+	if ((flags & $CRTFlags::CRT_STATEMENT) != 0) {
 		$plusAssign(types, " CRT_STATEMENT"_s);
 	}
-	if (((int32_t)(flags & (uint32_t)$CRTFlags::CRT_BLOCK)) != 0) {
+	if ((flags & $CRTFlags::CRT_BLOCK) != 0) {
 		$plusAssign(types, " CRT_BLOCK"_s);
 	}
-	if (((int32_t)(flags & (uint32_t)$CRTFlags::CRT_ASSIGNMENT)) != 0) {
+	if ((flags & $CRTFlags::CRT_ASSIGNMENT) != 0) {
 		$plusAssign(types, " CRT_ASSIGNMENT"_s);
 	}
-	if (((int32_t)(flags & (uint32_t)$CRTFlags::CRT_FLOW_CONTROLLER)) != 0) {
+	if ((flags & $CRTFlags::CRT_FLOW_CONTROLLER) != 0) {
 		$plusAssign(types, " CRT_FLOW_CONTROLLER"_s);
 	}
-	if (((int32_t)(flags & (uint32_t)$CRTFlags::CRT_FLOW_TARGET)) != 0) {
+	if ((flags & $CRTFlags::CRT_FLOW_TARGET) != 0) {
 		$plusAssign(types, " CRT_FLOW_TARGET"_s);
 	}
-	if (((int32_t)(flags & (uint32_t)$CRTFlags::CRT_INVOKE)) != 0) {
+	if ((flags & $CRTFlags::CRT_INVOKE) != 0) {
 		$plusAssign(types, " CRT_INVOKE"_s);
 	}
-	if (((int32_t)(flags & (uint32_t)$CRTFlags::CRT_CREATE)) != 0) {
+	if ((flags & $CRTFlags::CRT_CREATE) != 0) {
 		$plusAssign(types, " CRT_CREATE"_s);
 	}
-	if (((int32_t)(flags & (uint32_t)$CRTFlags::CRT_BRANCH_TRUE)) != 0) {
+	if ((flags & $CRTFlags::CRT_BRANCH_TRUE) != 0) {
 		$plusAssign(types, " CRT_BRANCH_TRUE"_s);
 	}
-	if (((int32_t)(flags & (uint32_t)$CRTFlags::CRT_BRANCH_FALSE)) != 0) {
+	if ((flags & $CRTFlags::CRT_BRANCH_FALSE) != 0) {
 		$plusAssign(types, " CRT_BRANCH_FALSE"_s);
 	}
 	return types;
@@ -190,6 +143,7 @@ int32_t CRTable::encodePosition(int32_t pos, $Position$LineMap* lineMap, $Log* l
 	int32_t line = $nc(lineMap)->getLineNumber(pos);
 	int32_t col = lineMap->getColumnNumber(pos);
 	int32_t new_pos = $Position::encodePosition(line, col);
+	;
 	if (new_pos == $Position::NOPOS) {
 		$nc(log)->warning(pos, $($CompilerProperties$Warnings::PositionOverflow(line)));
 	}
@@ -200,7 +154,46 @@ CRTable::CRTable() {
 }
 
 $Class* CRTable::load$($String* name, bool initialize) {
-	$loadClass(CRTable, name, initialize, &_CRTable_ClassInfo_, allocate$CRTable);
+	$FieldInfo fieldInfos$$[] = {
+		{"crtDebug", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CRTable, crtDebug)},
+		{"entries", "Lcom/sun/tools/javac/util/ListBuffer;", "Lcom/sun/tools/javac/util/ListBuffer<Lcom/sun/tools/javac/jvm/CRTable$CRTEntry;>;", $PRIVATE, $field(CRTable, entries)},
+		{"positions", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/Object;Lcom/sun/tools/javac/jvm/CRTable$SourceRange;>;", $PRIVATE, $field(CRTable, positions)},
+		{"endPosTable", "Lcom/sun/tools/javac/tree/EndPosTable;", nullptr, $PRIVATE, $field(CRTable, endPosTable)},
+		{"methodTree", "Lcom/sun/tools/javac/tree/JCTree$JCMethodDecl;", nullptr, 0, $field(CRTable, methodTree)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/tree/JCTree$JCMethodDecl;Lcom/sun/tools/javac/tree/EndPosTable;)V", nullptr, $PUBLIC, $method(CRTable, init$, void, $JCTree$JCMethodDecl*, $EndPosTable*)},
+		{"encodePosition", "(ILcom/sun/tools/javac/util/Position$LineMap;Lcom/sun/tools/javac/util/Log;)I", nullptr, $PRIVATE, $method(CRTable, encodePosition, int32_t, int32_t, $Position$LineMap*, $Log*)},
+		{"getTypes", "(I)Ljava/lang/String;", nullptr, $PRIVATE, $method(CRTable, getTypes, $String*, int32_t)},
+		{"length", "()I", nullptr, $PUBLIC, $virtualMethod(CRTable, length, int32_t)},
+		{"put", "(Ljava/lang/Object;III)V", nullptr, $PUBLIC, $virtualMethod(CRTable, put, void, Object$*, int32_t, int32_t, int32_t)},
+		{"writeCRT", "(Lcom/sun/tools/javac/util/ByteBuffer;Lcom/sun/tools/javac/util/Position$LineMap;Lcom/sun/tools/javac/util/Log;)I", nullptr, $PUBLIC, $virtualMethod(CRTable, writeCRT, int32_t, $ByteBuffer*, $Position$LineMap*, $Log*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.jvm.CRTable$SourceRange", "com.sun.tools.javac.jvm.CRTable", "SourceRange", $STATIC},
+		{"com.sun.tools.javac.jvm.CRTable$CRTEntry", "com.sun.tools.javac.jvm.CRTable", "CRTEntry", $STATIC},
+		{"com.sun.tools.javac.jvm.CRTable$SourceComputer", "com.sun.tools.javac.jvm.CRTable", "SourceComputer", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.jvm.CRTable",
+		"java.lang.Object",
+		"com.sun.tools.javac.jvm.CRTFlags",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.jvm.CRTable$SourceRange,com.sun.tools.javac.jvm.CRTable$CRTEntry,com.sun.tools.javac.jvm.CRTable$SourceComputer"
+	};
+	$loadClass(CRTable, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CRTable);
+	});
 	return class$;
 }
 

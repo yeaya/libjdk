@@ -1,5 +1,4 @@
 #include <sun/nio/cs/ext/AbstractCharsetProvider$1.h>
-
 #include <java/lang/UnsupportedOperationException.h>
 #include <java/nio/charset/Charset.h>
 #include <java/util/ArrayList.h>
@@ -14,59 +13,12 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $UnsupportedOperationException = ::java::lang::UnsupportedOperationException;
 using $ArrayList = ::java::util::ArrayList;
-using $Iterator = ::java::util::Iterator;
 using $AbstractCharsetProvider = ::sun::nio::cs::ext::AbstractCharsetProvider;
 
 namespace sun {
 	namespace nio {
 		namespace cs {
 			namespace ext {
-
-$FieldInfo _AbstractCharsetProvider$1_FieldInfo_[] = {
-	{"this$0", "Lsun/nio/cs/ext/AbstractCharsetProvider;", nullptr, $FINAL | $SYNTHETIC, $field(AbstractCharsetProvider$1, this$0)},
-	{"val$ks", "Ljava/util/ArrayList;", nullptr, $FINAL | $SYNTHETIC, $field(AbstractCharsetProvider$1, val$ks)},
-	{"i", "Ljava/util/Iterator;", "Ljava/util/Iterator<Ljava/lang/String;>;", 0, $field(AbstractCharsetProvider$1, i)},
-	{}
-};
-
-$MethodInfo _AbstractCharsetProvider$1_MethodInfo_[] = {
-	{"<init>", "(Lsun/nio/cs/ext/AbstractCharsetProvider;Ljava/util/ArrayList;)V", "()V", 0, $method(AbstractCharsetProvider$1, init$, void, $AbstractCharsetProvider*, $ArrayList*)},
-	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(AbstractCharsetProvider$1, hasNext, bool)},
-	{"next", "()Ljava/nio/charset/Charset;", nullptr, $PUBLIC, $virtualMethod(AbstractCharsetProvider$1, next, $Object*)},
-	{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(AbstractCharsetProvider$1, remove, void)},
-	{}
-};
-
-$EnclosingMethodInfo _AbstractCharsetProvider$1_EnclosingMethodInfo_ = {
-	"sun.nio.cs.ext.AbstractCharsetProvider",
-	"charsets",
-	"()Ljava/util/Iterator;"
-};
-
-$InnerClassInfo _AbstractCharsetProvider$1_InnerClassesInfo_[] = {
-	{"sun.nio.cs.ext.AbstractCharsetProvider$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _AbstractCharsetProvider$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.nio.cs.ext.AbstractCharsetProvider$1",
-	"java.lang.Object",
-	"java.util.Iterator",
-	_AbstractCharsetProvider$1_FieldInfo_,
-	_AbstractCharsetProvider$1_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/Iterator<Ljava/nio/charset/Charset;>;",
-	&_AbstractCharsetProvider$1_EnclosingMethodInfo_,
-	_AbstractCharsetProvider$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.nio.cs.ext.AbstractCharsetProvider"
-};
-
-$Object* allocate$AbstractCharsetProvider$1($Class* clazz) {
-	return $of($alloc(AbstractCharsetProvider$1));
-}
 
 void AbstractCharsetProvider$1::init$($AbstractCharsetProvider* this$0, $ArrayList* val$ks) {
 	$set(this, this$0, this$0);
@@ -81,7 +33,7 @@ bool AbstractCharsetProvider$1::hasNext() {
 $Object* AbstractCharsetProvider$1::next() {
 	$var($String, csn, $cast($String, $nc(this->i)->next()));
 	$synchronized(this->this$0) {
-		return $of(this->this$0->lookup(csn));
+		return this->this$0->lookup(csn);
 	}
 }
 
@@ -93,7 +45,46 @@ AbstractCharsetProvider$1::AbstractCharsetProvider$1() {
 }
 
 $Class* AbstractCharsetProvider$1::load$($String* name, bool initialize) {
-	$loadClass(AbstractCharsetProvider$1, name, initialize, &_AbstractCharsetProvider$1_ClassInfo_, allocate$AbstractCharsetProvider$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/nio/cs/ext/AbstractCharsetProvider;", nullptr, $FINAL | $SYNTHETIC, $field(AbstractCharsetProvider$1, this$0)},
+		{"val$ks", "Ljava/util/ArrayList;", nullptr, $FINAL | $SYNTHETIC, $field(AbstractCharsetProvider$1, val$ks)},
+		{"i", "Ljava/util/Iterator;", "Ljava/util/Iterator<Ljava/lang/String;>;", 0, $field(AbstractCharsetProvider$1, i)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/nio/cs/ext/AbstractCharsetProvider;Ljava/util/ArrayList;)V", "()V", 0, $method(AbstractCharsetProvider$1, init$, void, $AbstractCharsetProvider*, $ArrayList*)},
+		{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(AbstractCharsetProvider$1, hasNext, bool)},
+		{"next", "()Ljava/nio/charset/Charset;", nullptr, $PUBLIC, $virtualMethod(AbstractCharsetProvider$1, next, $Object*)},
+		{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(AbstractCharsetProvider$1, remove, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.nio.cs.ext.AbstractCharsetProvider",
+		"charsets",
+		"()Ljava/util/Iterator;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.cs.ext.AbstractCharsetProvider$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.nio.cs.ext.AbstractCharsetProvider$1",
+		"java.lang.Object",
+		"java.util.Iterator",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/Iterator<Ljava/nio/charset/Charset;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.nio.cs.ext.AbstractCharsetProvider"
+	};
+	$loadClass(AbstractCharsetProvider$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AbstractCharsetProvider$1);
+	});
 	return class$;
 }
 

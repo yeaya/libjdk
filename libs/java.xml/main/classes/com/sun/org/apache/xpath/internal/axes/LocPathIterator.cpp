@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xpath/internal/axes/LocPathIterator.h>
-
 #include <com/sun/org/apache/xalan/internal/res/XSLMessages.h>
 #include <com/sun/org/apache/xml/internal/dtm/DTM.h>
 #include <com/sun/org/apache/xml/internal/dtm/DTMFilter.h>
@@ -37,7 +36,6 @@ using $DTMIterator = ::com::sun::org::apache::xml::internal::dtm::DTMIterator;
 using $DTMManager = ::com::sun::org::apache::xml::internal::dtm::DTMManager;
 using $PrefixResolver = ::com::sun::org::apache::xml::internal::utils::PrefixResolver;
 using $ExpressionOwner = ::com::sun::org::apache::xpath::internal::ExpressionOwner;
-using $VariableStack = ::com::sun::org::apache::xpath::internal::VariableStack;
 using $XPathContext = ::com::sun::org::apache::xpath::internal::XPathContext;
 using $XPathVisitor = ::com::sun::org::apache::xpath::internal::XPathVisitor;
 using $IteratorPool = ::com::sun::org::apache::xpath::internal::axes::IteratorPool;
@@ -46,7 +44,6 @@ using $WalkerFactory = ::com::sun::org::apache::xpath::internal::axes::WalkerFac
 using $Compiler = ::com::sun::org::apache::xpath::internal::compiler::Compiler;
 using $XNodeSet = ::com::sun::org::apache::xpath::internal::objects::XNodeSet;
 using $XObject = ::com::sun::org::apache::xpath::internal::objects::XObject;
-using $NodeTest = ::com::sun::org::apache::xpath::internal::patterns::NodeTest;
 using $XPATHErrorResources = ::com::sun::org::apache::xpath::internal::res::XPATHErrorResources;
 using $ObjectInputStream = ::java::io::ObjectInputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -63,97 +60,6 @@ namespace com {
 				namespace xpath {
 					namespace internal {
 						namespace axes {
-
-$FieldInfo _LocPathIterator_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(LocPathIterator, serialVersionUID)},
-	{"m_allowDetach", "Z", nullptr, $PROTECTED, $field(LocPathIterator, m_allowDetach)},
-	{"m_clones", "Lcom/sun/org/apache/xpath/internal/axes/IteratorPool;", nullptr, $PROTECTED | $TRANSIENT, $field(LocPathIterator, m_clones)},
-	{"m_cdtm", "Lcom/sun/org/apache/xml/internal/dtm/DTM;", nullptr, $PROTECTED | $TRANSIENT, $field(LocPathIterator, m_cdtm)},
-	{"m_stackFrame", "I", nullptr, $TRANSIENT, $field(LocPathIterator, m_stackFrame)},
-	{"m_isTopLevel", "Z", nullptr, $PRIVATE, $field(LocPathIterator, m_isTopLevel)},
-	{"m_lastFetched", "I", nullptr, $PUBLIC | $TRANSIENT, $field(LocPathIterator, m_lastFetched)},
-	{"m_context", "I", nullptr, $PROTECTED | $TRANSIENT, $field(LocPathIterator, m_context)},
-	{"m_currentContextNode", "I", nullptr, $PROTECTED | $TRANSIENT, $field(LocPathIterator, m_currentContextNode)},
-	{"m_pos", "I", nullptr, $PROTECTED | $TRANSIENT, $field(LocPathIterator, m_pos)},
-	{"m_length", "I", nullptr, $PROTECTED | $TRANSIENT, $field(LocPathIterator, m_length)},
-	{"m_prefixResolver", "Lcom/sun/org/apache/xml/internal/utils/PrefixResolver;", nullptr, $PRIVATE, $field(LocPathIterator, m_prefixResolver)},
-	{"m_execContext", "Lcom/sun/org/apache/xpath/internal/XPathContext;", nullptr, $PROTECTED | $TRANSIENT, $field(LocPathIterator, m_execContext)},
-	{}
-};
-
-$MethodInfo _LocPathIterator_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PROTECTED, $method(LocPathIterator, init$, void)},
-	{"<init>", "(Lcom/sun/org/apache/xml/internal/utils/PrefixResolver;)V", nullptr, $PROTECTED, $method(LocPathIterator, init$, void, $PrefixResolver*)},
-	{"<init>", "(Lcom/sun/org/apache/xpath/internal/compiler/Compiler;II)V", nullptr, $PROTECTED, $method(LocPathIterator, init$, void, $Compiler*, int32_t, int32_t), "javax.xml.transform.TransformerException"},
-	{"<init>", "(Lcom/sun/org/apache/xpath/internal/compiler/Compiler;IIZ)V", nullptr, $PROTECTED, $method(LocPathIterator, init$, void, $Compiler*, int32_t, int32_t, bool), "javax.xml.transform.TransformerException"},
-	{"allowDetachToRelease", "(Z)V", nullptr, $PUBLIC, $virtualMethod(LocPathIterator, allowDetachToRelease, void, bool)},
-	{"asIterator", "(Lcom/sun/org/apache/xpath/internal/XPathContext;I)Lcom/sun/org/apache/xml/internal/dtm/DTMIterator;", nullptr, $PUBLIC, $virtualMethod(LocPathIterator, asIterator, $DTMIterator*, $XPathContext*, int32_t), "javax.xml.transform.TransformerException"},
-	{"asNode", "(Lcom/sun/org/apache/xpath/internal/XPathContext;)I", nullptr, $PUBLIC, $virtualMethod(LocPathIterator, asNode, int32_t, $XPathContext*), "javax.xml.transform.TransformerException"},
-	{"bool", "(Lcom/sun/org/apache/xpath/internal/XPathContext;)Z", nullptr, $PUBLIC, $virtualMethod(LocPathIterator, bool$, bool, $XPathContext*), "javax.xml.transform.TransformerException"},
-	{"callVisitors", "(Lcom/sun/org/apache/xpath/internal/ExpressionOwner;Lcom/sun/org/apache/xpath/internal/XPathVisitor;)V", nullptr, $PUBLIC, $virtualMethod(LocPathIterator, callVisitors, void, $ExpressionOwner*, $XPathVisitor*)},
-	{"cloneWithReset", "()Lcom/sun/org/apache/xml/internal/dtm/DTMIterator;", nullptr, $PUBLIC, $virtualMethod(LocPathIterator, cloneWithReset, $DTMIterator*), "java.lang.CloneNotSupportedException"},
-	{"detach", "()V", nullptr, $PUBLIC, $virtualMethod(LocPathIterator, detach, void)},
-	{"execute", "(Lcom/sun/org/apache/xpath/internal/XPathContext;)Lcom/sun/org/apache/xpath/internal/objects/XObject;", nullptr, $PUBLIC, $virtualMethod(LocPathIterator, execute, $XObject*, $XPathContext*), "javax.xml.transform.TransformerException"},
-	{"executeCharsToContentHandler", "(Lcom/sun/org/apache/xpath/internal/XPathContext;Lorg/xml/sax/ContentHandler;)V", nullptr, $PUBLIC, $virtualMethod(LocPathIterator, executeCharsToContentHandler, void, $XPathContext*, $ContentHandler*), "javax.xml.transform.TransformerException,org.xml.sax.SAXException"},
-	{"getAnalysisBits", "()I", nullptr, $PUBLIC, $virtualMethod(LocPathIterator, getAnalysisBits, int32_t)},
-	{"getAxis", "()I", nullptr, $PUBLIC, $virtualMethod(LocPathIterator, getAxis, int32_t)},
-	{"getContext", "()I", nullptr, $PUBLIC | $FINAL, $method(LocPathIterator, getContext, int32_t)},
-	{"getCurrentContextNode", "()I", nullptr, $PUBLIC | $FINAL, $method(LocPathIterator, getCurrentContextNode, int32_t)},
-	{"getCurrentNode", "()I", nullptr, $PUBLIC, $virtualMethod(LocPathIterator, getCurrentNode, int32_t)},
-	{"getCurrentPos", "()I", nullptr, $PUBLIC | $FINAL, $virtualMethod(LocPathIterator, getCurrentPos, int32_t)},
-	{"getDTM", "(I)Lcom/sun/org/apache/xml/internal/dtm/DTM;", nullptr, $PUBLIC, $virtualMethod(LocPathIterator, getDTM, $DTM*, int32_t)},
-	{"getDTMManager", "()Lcom/sun/org/apache/xml/internal/dtm/DTMManager;", nullptr, $PUBLIC, $virtualMethod(LocPathIterator, getDTMManager, $DTMManager*)},
-	{"getExpandEntityReferences", "()Z", nullptr, $PUBLIC, $virtualMethod(LocPathIterator, getExpandEntityReferences, bool)},
-	{"getFilter", "()Lcom/sun/org/apache/xml/internal/dtm/DTMFilter;", nullptr, $PUBLIC, $virtualMethod(LocPathIterator, getFilter, $DTMFilter*)},
-	{"getFoundLast", "()Z", nullptr, $PUBLIC | $FINAL, $method(LocPathIterator, getFoundLast, bool)},
-	{"getIsTopLevel", "()Z", nullptr, $PUBLIC, $virtualMethod(LocPathIterator, getIsTopLevel, bool)},
-	{"getLastPos", "(Lcom/sun/org/apache/xpath/internal/XPathContext;)I", nullptr, $PUBLIC, $virtualMethod(LocPathIterator, getLastPos, int32_t, $XPathContext*)},
-	{"getLength", "()I", nullptr, $PUBLIC, $virtualMethod(LocPathIterator, getLength, int32_t)},
-	{"getPrefixResolver", "()Lcom/sun/org/apache/xml/internal/utils/PrefixResolver;", nullptr, $PUBLIC | $FINAL, $method(LocPathIterator, getPrefixResolver, $PrefixResolver*)},
-	{"getRoot", "()I", nullptr, $PUBLIC, $virtualMethod(LocPathIterator, getRoot, int32_t)},
-	{"getWhatToShow", "()I", nullptr, $PUBLIC, $virtualMethod(LocPathIterator, getWhatToShow, int32_t)},
-	{"getXPathContext", "()Lcom/sun/org/apache/xpath/internal/XPathContext;", nullptr, $PUBLIC | $FINAL, $method(LocPathIterator, getXPathContext, $XPathContext*)},
-	{"incrementCurrentPos", "()V", nullptr, $PUBLIC, $virtualMethod(LocPathIterator, incrementCurrentPos, void)},
-	{"isDocOrdered", "()Z", nullptr, $PUBLIC, $virtualMethod(LocPathIterator, isDocOrdered, bool)},
-	{"isFresh", "()Z", nullptr, $PUBLIC, $virtualMethod(LocPathIterator, isFresh, bool)},
-	{"isMutable", "()Z", nullptr, $PUBLIC, $virtualMethod(LocPathIterator, isMutable, bool)},
-	{"isNodesetExpr", "()Z", nullptr, $PUBLIC, $virtualMethod(LocPathIterator, isNodesetExpr, bool)},
-	{"item", "(I)I", nullptr, $PUBLIC, $virtualMethod(LocPathIterator, item, int32_t, int32_t)},
-	{"nextNode", "()I", nullptr, $PUBLIC | $ABSTRACT},
-	{"previousNode", "()I", nullptr, $PUBLIC, $virtualMethod(LocPathIterator, previousNode, int32_t)},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(LocPathIterator, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(LocPathIterator, reset, void)},
-	{"returnNextNode", "(I)I", nullptr, $PROTECTED, $virtualMethod(LocPathIterator, returnNextNode, int32_t, int32_t)},
-	{"runTo", "(I)V", nullptr, $PUBLIC, $virtualMethod(LocPathIterator, runTo, void, int32_t)},
-	{"setCurrentContextNode", "(I)V", nullptr, $PUBLIC | $FINAL, $method(LocPathIterator, setCurrentContextNode, void, int32_t)},
-	{"setCurrentPos", "(I)V", nullptr, $PUBLIC, $virtualMethod(LocPathIterator, setCurrentPos, void, int32_t)},
-	{"setEnvironment", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(LocPathIterator, setEnvironment, void, Object$*)},
-	{"setIsTopLevel", "(Z)V", nullptr, $PUBLIC, $virtualMethod(LocPathIterator, setIsTopLevel, void, bool)},
-	{"setItem", "(II)V", nullptr, $PUBLIC, $virtualMethod(LocPathIterator, setItem, void, int32_t, int32_t)},
-	{"setNextPosition", "(I)V", nullptr, $PROTECTED, $virtualMethod(LocPathIterator, setNextPosition, void, int32_t)},
-	{"setRoot", "(ILjava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(LocPathIterator, setRoot, void, int32_t, Object$*)},
-	{"setShouldCacheNodes", "(Z)V", nullptr, $PUBLIC, $virtualMethod(LocPathIterator, setShouldCacheNodes, void, bool)},
-	{"size", "()I", nullptr, $PUBLIC, $virtualMethod(LocPathIterator, size, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _LocPathIterator_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"com.sun.org.apache.xpath.internal.axes.LocPathIterator",
-	"com.sun.org.apache.xpath.internal.axes.PredicatedNodeTest",
-	"java.lang.Cloneable,com.sun.org.apache.xml.internal.dtm.DTMIterator,com.sun.org.apache.xpath.internal.axes.PathComponent",
-	_LocPathIterator_FieldInfo_,
-	_LocPathIterator_MethodInfo_
-};
-
-$Object* allocate$LocPathIterator($Class* clazz) {
-	return $of($alloc(LocPathIterator));
-}
 
 $Object* LocPathIterator::clone() {
 	 return this->$PredicatedNodeTest::clone();
@@ -244,14 +150,14 @@ $DTMManager* LocPathIterator::getDTMManager() {
 }
 
 $XObject* LocPathIterator::execute($XPathContext* xctxt) {
-	$useLocalCurrentObjectStackCache();
-	$var($XNodeSet, iter, $new($XNodeSet, $cast(LocPathIterator, $($nc(this->m_clones)->getInstance()))));
+	$useLocalObjectStack();
+	$var($XNodeSet, iter, $new($XNodeSet, $$cast(LocPathIterator, $nc(this->m_clones)->getInstance())));
 	iter->setRoot($nc(xctxt)->getCurrentNode(), xctxt);
 	return iter;
 }
 
 void LocPathIterator::executeCharsToContentHandler($XPathContext* xctxt, $ContentHandler* handler) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(LocPathIterator, clone, $cast(LocPathIterator, $nc(this->m_clones)->getInstance()));
 	int32_t current = $nc(xctxt)->getCurrentNode();
 	$nc(clone)->setRoot(current, xctxt);
@@ -264,8 +170,8 @@ void LocPathIterator::executeCharsToContentHandler($XPathContext* xctxt, $Conten
 }
 
 $DTMIterator* LocPathIterator::asIterator($XPathContext* xctxt, int32_t contextNode) {
-	$useLocalCurrentObjectStackCache();
-	$var($XNodeSet, iter, $new($XNodeSet, $cast(LocPathIterator, $($nc(this->m_clones)->getInstance()))));
+	$useLocalObjectStack();
+	$var($XNodeSet, iter, $new($XNodeSet, $$cast(LocPathIterator, $nc(this->m_clones)->getInstance())));
 	iter->setRoot(contextNode, xctxt);
 	return iter;
 }
@@ -296,7 +202,7 @@ bool LocPathIterator::getIsTopLevel() {
 }
 
 void LocPathIterator::setRoot(int32_t context, Object$* environment) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->m_context = context;
 	$var($XPathContext, xctxt, $cast($XPathContext, environment));
 	$set(this, m_execContext, xctxt);
@@ -310,7 +216,7 @@ void LocPathIterator::setRoot(int32_t context, Object$* environment) {
 	this->m_pos = 0;
 	this->m_length = -1;
 	if (this->m_isTopLevel) {
-		this->m_stackFrame = $nc($(xctxt->getVarStack()))->getStackFrame();
+		this->m_stackFrame = $$nc(xctxt->getVarStack())->getStackFrame();
 	}
 }
 
@@ -392,7 +298,7 @@ int32_t LocPathIterator::previousNode() {
 }
 
 int32_t LocPathIterator::getWhatToShow() {
-	return (int32_t)($DTMFilter::SHOW_ALL & (uint32_t)~$DTMFilter::SHOW_ENTITY_REFERENCE);
+	return $DTMFilter::SHOW_ALL & ~$DTMFilter::SHOW_ENTITY_REFERENCE;
 }
 
 $DTMFilter* LocPathIterator::getFilter() {
@@ -461,6 +367,7 @@ void LocPathIterator::runTo(int32_t index) {
 	int32_t n = 0;
 	if (-1 == index) {
 		while ($DTM::NULL != (n = nextNode())) {
+			;
 		}
 	} else {
 		while ($DTM::NULL != (n = nextNode())) {
@@ -521,7 +428,93 @@ LocPathIterator::LocPathIterator() {
 }
 
 $Class* LocPathIterator::load$($String* name, bool initialize) {
-	$loadClass(LocPathIterator, name, initialize, &_LocPathIterator_ClassInfo_, allocate$LocPathIterator);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(LocPathIterator, serialVersionUID)},
+		{"m_allowDetach", "Z", nullptr, $PROTECTED, $field(LocPathIterator, m_allowDetach)},
+		{"m_clones", "Lcom/sun/org/apache/xpath/internal/axes/IteratorPool;", nullptr, $PROTECTED | $TRANSIENT, $field(LocPathIterator, m_clones)},
+		{"m_cdtm", "Lcom/sun/org/apache/xml/internal/dtm/DTM;", nullptr, $PROTECTED | $TRANSIENT, $field(LocPathIterator, m_cdtm)},
+		{"m_stackFrame", "I", nullptr, $TRANSIENT, $field(LocPathIterator, m_stackFrame)},
+		{"m_isTopLevel", "Z", nullptr, $PRIVATE, $field(LocPathIterator, m_isTopLevel)},
+		{"m_lastFetched", "I", nullptr, $PUBLIC | $TRANSIENT, $field(LocPathIterator, m_lastFetched)},
+		{"m_context", "I", nullptr, $PROTECTED | $TRANSIENT, $field(LocPathIterator, m_context)},
+		{"m_currentContextNode", "I", nullptr, $PROTECTED | $TRANSIENT, $field(LocPathIterator, m_currentContextNode)},
+		{"m_pos", "I", nullptr, $PROTECTED | $TRANSIENT, $field(LocPathIterator, m_pos)},
+		{"m_length", "I", nullptr, $PROTECTED | $TRANSIENT, $field(LocPathIterator, m_length)},
+		{"m_prefixResolver", "Lcom/sun/org/apache/xml/internal/utils/PrefixResolver;", nullptr, $PRIVATE, $field(LocPathIterator, m_prefixResolver)},
+		{"m_execContext", "Lcom/sun/org/apache/xpath/internal/XPathContext;", nullptr, $PROTECTED | $TRANSIENT, $field(LocPathIterator, m_execContext)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PROTECTED, $method(LocPathIterator, init$, void)},
+		{"<init>", "(Lcom/sun/org/apache/xml/internal/utils/PrefixResolver;)V", nullptr, $PROTECTED, $method(LocPathIterator, init$, void, $PrefixResolver*)},
+		{"<init>", "(Lcom/sun/org/apache/xpath/internal/compiler/Compiler;II)V", nullptr, $PROTECTED, $method(LocPathIterator, init$, void, $Compiler*, int32_t, int32_t), "javax.xml.transform.TransformerException"},
+		{"<init>", "(Lcom/sun/org/apache/xpath/internal/compiler/Compiler;IIZ)V", nullptr, $PROTECTED, $method(LocPathIterator, init$, void, $Compiler*, int32_t, int32_t, bool), "javax.xml.transform.TransformerException"},
+		{"allowDetachToRelease", "(Z)V", nullptr, $PUBLIC, $virtualMethod(LocPathIterator, allowDetachToRelease, void, bool)},
+		{"asIterator", "(Lcom/sun/org/apache/xpath/internal/XPathContext;I)Lcom/sun/org/apache/xml/internal/dtm/DTMIterator;", nullptr, $PUBLIC, $virtualMethod(LocPathIterator, asIterator, $DTMIterator*, $XPathContext*, int32_t), "javax.xml.transform.TransformerException"},
+		{"asNode", "(Lcom/sun/org/apache/xpath/internal/XPathContext;)I", nullptr, $PUBLIC, $virtualMethod(LocPathIterator, asNode, int32_t, $XPathContext*), "javax.xml.transform.TransformerException"},
+		{"bool", "(Lcom/sun/org/apache/xpath/internal/XPathContext;)Z", nullptr, $PUBLIC, $virtualMethod(LocPathIterator, bool$, bool, $XPathContext*), "javax.xml.transform.TransformerException"},
+		{"callVisitors", "(Lcom/sun/org/apache/xpath/internal/ExpressionOwner;Lcom/sun/org/apache/xpath/internal/XPathVisitor;)V", nullptr, $PUBLIC, $virtualMethod(LocPathIterator, callVisitors, void, $ExpressionOwner*, $XPathVisitor*)},
+		{"cloneWithReset", "()Lcom/sun/org/apache/xml/internal/dtm/DTMIterator;", nullptr, $PUBLIC, $virtualMethod(LocPathIterator, cloneWithReset, $DTMIterator*), "java.lang.CloneNotSupportedException"},
+		{"detach", "()V", nullptr, $PUBLIC, $virtualMethod(LocPathIterator, detach, void)},
+		{"execute", "(Lcom/sun/org/apache/xpath/internal/XPathContext;)Lcom/sun/org/apache/xpath/internal/objects/XObject;", nullptr, $PUBLIC, $virtualMethod(LocPathIterator, execute, $XObject*, $XPathContext*), "javax.xml.transform.TransformerException"},
+		{"executeCharsToContentHandler", "(Lcom/sun/org/apache/xpath/internal/XPathContext;Lorg/xml/sax/ContentHandler;)V", nullptr, $PUBLIC, $virtualMethod(LocPathIterator, executeCharsToContentHandler, void, $XPathContext*, $ContentHandler*), "javax.xml.transform.TransformerException,org.xml.sax.SAXException"},
+		{"getAnalysisBits", "()I", nullptr, $PUBLIC, $virtualMethod(LocPathIterator, getAnalysisBits, int32_t)},
+		{"getAxis", "()I", nullptr, $PUBLIC, $virtualMethod(LocPathIterator, getAxis, int32_t)},
+		{"getContext", "()I", nullptr, $PUBLIC | $FINAL, $method(LocPathIterator, getContext, int32_t)},
+		{"getCurrentContextNode", "()I", nullptr, $PUBLIC | $FINAL, $method(LocPathIterator, getCurrentContextNode, int32_t)},
+		{"getCurrentNode", "()I", nullptr, $PUBLIC, $virtualMethod(LocPathIterator, getCurrentNode, int32_t)},
+		{"getCurrentPos", "()I", nullptr, $PUBLIC | $FINAL, $virtualMethod(LocPathIterator, getCurrentPos, int32_t)},
+		{"getDTM", "(I)Lcom/sun/org/apache/xml/internal/dtm/DTM;", nullptr, $PUBLIC, $virtualMethod(LocPathIterator, getDTM, $DTM*, int32_t)},
+		{"getDTMManager", "()Lcom/sun/org/apache/xml/internal/dtm/DTMManager;", nullptr, $PUBLIC, $virtualMethod(LocPathIterator, getDTMManager, $DTMManager*)},
+		{"getExpandEntityReferences", "()Z", nullptr, $PUBLIC, $virtualMethod(LocPathIterator, getExpandEntityReferences, bool)},
+		{"getFilter", "()Lcom/sun/org/apache/xml/internal/dtm/DTMFilter;", nullptr, $PUBLIC, $virtualMethod(LocPathIterator, getFilter, $DTMFilter*)},
+		{"getFoundLast", "()Z", nullptr, $PUBLIC | $FINAL, $method(LocPathIterator, getFoundLast, bool)},
+		{"getIsTopLevel", "()Z", nullptr, $PUBLIC, $virtualMethod(LocPathIterator, getIsTopLevel, bool)},
+		{"getLastPos", "(Lcom/sun/org/apache/xpath/internal/XPathContext;)I", nullptr, $PUBLIC, $virtualMethod(LocPathIterator, getLastPos, int32_t, $XPathContext*)},
+		{"getLength", "()I", nullptr, $PUBLIC, $virtualMethod(LocPathIterator, getLength, int32_t)},
+		{"getPrefixResolver", "()Lcom/sun/org/apache/xml/internal/utils/PrefixResolver;", nullptr, $PUBLIC | $FINAL, $method(LocPathIterator, getPrefixResolver, $PrefixResolver*)},
+		{"getRoot", "()I", nullptr, $PUBLIC, $virtualMethod(LocPathIterator, getRoot, int32_t)},
+		{"getWhatToShow", "()I", nullptr, $PUBLIC, $virtualMethod(LocPathIterator, getWhatToShow, int32_t)},
+		{"getXPathContext", "()Lcom/sun/org/apache/xpath/internal/XPathContext;", nullptr, $PUBLIC | $FINAL, $method(LocPathIterator, getXPathContext, $XPathContext*)},
+		{"incrementCurrentPos", "()V", nullptr, $PUBLIC, $virtualMethod(LocPathIterator, incrementCurrentPos, void)},
+		{"isDocOrdered", "()Z", nullptr, $PUBLIC, $virtualMethod(LocPathIterator, isDocOrdered, bool)},
+		{"isFresh", "()Z", nullptr, $PUBLIC, $virtualMethod(LocPathIterator, isFresh, bool)},
+		{"isMutable", "()Z", nullptr, $PUBLIC, $virtualMethod(LocPathIterator, isMutable, bool)},
+		{"isNodesetExpr", "()Z", nullptr, $PUBLIC, $virtualMethod(LocPathIterator, isNodesetExpr, bool)},
+		{"item", "(I)I", nullptr, $PUBLIC, $virtualMethod(LocPathIterator, item, int32_t, int32_t)},
+		{"nextNode", "()I", nullptr, $PUBLIC | $ABSTRACT},
+		{"previousNode", "()I", nullptr, $PUBLIC, $virtualMethod(LocPathIterator, previousNode, int32_t)},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(LocPathIterator, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+		{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(LocPathIterator, reset, void)},
+		{"returnNextNode", "(I)I", nullptr, $PROTECTED, $virtualMethod(LocPathIterator, returnNextNode, int32_t, int32_t)},
+		{"runTo", "(I)V", nullptr, $PUBLIC, $virtualMethod(LocPathIterator, runTo, void, int32_t)},
+		{"setCurrentContextNode", "(I)V", nullptr, $PUBLIC | $FINAL, $method(LocPathIterator, setCurrentContextNode, void, int32_t)},
+		{"setCurrentPos", "(I)V", nullptr, $PUBLIC, $virtualMethod(LocPathIterator, setCurrentPos, void, int32_t)},
+		{"setEnvironment", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(LocPathIterator, setEnvironment, void, Object$*)},
+		{"setIsTopLevel", "(Z)V", nullptr, $PUBLIC, $virtualMethod(LocPathIterator, setIsTopLevel, void, bool)},
+		{"setItem", "(II)V", nullptr, $PUBLIC, $virtualMethod(LocPathIterator, setItem, void, int32_t, int32_t)},
+		{"setNextPosition", "(I)V", nullptr, $PROTECTED, $virtualMethod(LocPathIterator, setNextPosition, void, int32_t)},
+		{"setRoot", "(ILjava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(LocPathIterator, setRoot, void, int32_t, Object$*)},
+		{"setShouldCacheNodes", "(Z)V", nullptr, $PUBLIC, $virtualMethod(LocPathIterator, setShouldCacheNodes, void, bool)},
+		{"size", "()I", nullptr, $PUBLIC, $virtualMethod(LocPathIterator, size, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"com.sun.org.apache.xpath.internal.axes.LocPathIterator",
+		"com.sun.org.apache.xpath.internal.axes.PredicatedNodeTest",
+		"java.lang.Cloneable,com.sun.org.apache.xml.internal.dtm.DTMIterator,com.sun.org.apache.xpath.internal.axes.PathComponent",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(LocPathIterator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(LocPathIterator));
+	});
 	return class$;
 }
 

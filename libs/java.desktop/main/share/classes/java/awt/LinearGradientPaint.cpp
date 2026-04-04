@@ -1,5 +1,4 @@
 #include <java/awt/LinearGradientPaint.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/GradientPaintContext.h>
 #include <java/awt/LinearGradientPaintContext.h>
@@ -48,68 +47,16 @@ using $NullPointerException = ::java::lang::NullPointerException;
 namespace java {
 	namespace awt {
 
-$Attribute LinearGradientPaint_Attribute_var$1[] = {
-	{'s', "startPoint"},
-	{'s', "endPoint"},
-	{'s', "fractions"},
-	{'s', "colors"},
-	{'s', "cycleMethod"},
-	{'s', "colorSpace"},
-	{'s', "transform"},
-	{'-'}
-};
-
-$NamedAttribute LinearGradientPaint_Attribute_var$0[] = {
-	{"value", '[', LinearGradientPaint_Attribute_var$1},
-	{}
-};
-
-$CompoundAttribute _LinearGradientPaint_MethodAnnotations_init$4[] = {
-	{"Ljava/beans/ConstructorProperties;", LinearGradientPaint_Attribute_var$0},
-	{}
-};
-
-$FieldInfo _LinearGradientPaint_FieldInfo_[] = {
-	{"start", "Ljava/awt/geom/Point2D;", nullptr, $PRIVATE | $FINAL, $field(LinearGradientPaint, start)},
-	{"end", "Ljava/awt/geom/Point2D;", nullptr, $PRIVATE | $FINAL, $field(LinearGradientPaint, end)},
-	{}
-};
-
-$MethodInfo _LinearGradientPaint_MethodInfo_[] = {
-	{"<init>", "(FFFF[F[Ljava/awt/Color;)V", nullptr, $PUBLIC, $method(LinearGradientPaint, init$, void, float, float, float, float, $floats*, $ColorArray*)},
-	{"<init>", "(FFFF[F[Ljava/awt/Color;Ljava/awt/MultipleGradientPaint$CycleMethod;)V", nullptr, $PUBLIC, $method(LinearGradientPaint, init$, void, float, float, float, float, $floats*, $ColorArray*, $MultipleGradientPaint$CycleMethod*)},
-	{"<init>", "(Ljava/awt/geom/Point2D;Ljava/awt/geom/Point2D;[F[Ljava/awt/Color;)V", nullptr, $PUBLIC, $method(LinearGradientPaint, init$, void, $Point2D*, $Point2D*, $floats*, $ColorArray*)},
-	{"<init>", "(Ljava/awt/geom/Point2D;Ljava/awt/geom/Point2D;[F[Ljava/awt/Color;Ljava/awt/MultipleGradientPaint$CycleMethod;)V", nullptr, $PUBLIC, $method(LinearGradientPaint, init$, void, $Point2D*, $Point2D*, $floats*, $ColorArray*, $MultipleGradientPaint$CycleMethod*)},
-	{"<init>", "(Ljava/awt/geom/Point2D;Ljava/awt/geom/Point2D;[F[Ljava/awt/Color;Ljava/awt/MultipleGradientPaint$CycleMethod;Ljava/awt/MultipleGradientPaint$ColorSpaceType;Ljava/awt/geom/AffineTransform;)V", nullptr, $PUBLIC, $method(LinearGradientPaint, init$, void, $Point2D*, $Point2D*, $floats*, $ColorArray*, $MultipleGradientPaint$CycleMethod*, $MultipleGradientPaint$ColorSpaceType*, $AffineTransform*), nullptr, nullptr, _LinearGradientPaint_MethodAnnotations_init$4},
-	{"createContext", "(Ljava/awt/image/ColorModel;Ljava/awt/Rectangle;Ljava/awt/geom/Rectangle2D;Ljava/awt/geom/AffineTransform;Ljava/awt/RenderingHints;)Ljava/awt/PaintContext;", nullptr, $PUBLIC, $virtualMethod(LinearGradientPaint, createContext, $PaintContext*, $ColorModel*, $Rectangle*, $Rectangle2D*, $AffineTransform*, $RenderingHints*)},
-	{"getEndPoint", "()Ljava/awt/geom/Point2D;", nullptr, $PUBLIC, $method(LinearGradientPaint, getEndPoint, $Point2D*)},
-	{"getStartPoint", "()Ljava/awt/geom/Point2D;", nullptr, $PUBLIC, $method(LinearGradientPaint, getStartPoint, $Point2D*)},
-	{}
-};
-
-$ClassInfo _LinearGradientPaint_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"java.awt.LinearGradientPaint",
-	"java.awt.MultipleGradientPaint",
-	nullptr,
-	_LinearGradientPaint_FieldInfo_,
-	_LinearGradientPaint_MethodInfo_
-};
-
-$Object* allocate$LinearGradientPaint($Class* clazz) {
-	return $of($alloc(LinearGradientPaint));
-}
-
 void LinearGradientPaint::init$(float startX, float startY, float endX, float endY, $floats* fractions, $ColorArray* colors) {
-	$useLocalCurrentObjectStackCache();
-	$var($Point2D, var$0, static_cast<$Point2D*>($new($Point2D$Float, startX, startY)));
+	$useLocalObjectStack();
+	$var($Point2D, var$0, $new($Point2D$Float, startX, startY));
 	$init($MultipleGradientPaint$CycleMethod);
 	LinearGradientPaint::init$(var$0, $$new($Point2D$Float, endX, endY), fractions, colors, $MultipleGradientPaint$CycleMethod::NO_CYCLE);
 }
 
 void LinearGradientPaint::init$(float startX, float startY, float endX, float endY, $floats* fractions, $ColorArray* colors, $MultipleGradientPaint$CycleMethod* cycleMethod) {
-	$useLocalCurrentObjectStackCache();
-	$var($Point2D, var$0, static_cast<$Point2D*>($new($Point2D$Float, startX, startY)));
+	$useLocalObjectStack();
+	$var($Point2D, var$0, $new($Point2D$Float, startX, startY));
 	LinearGradientPaint::init$(var$0, $$new($Point2D$Float, endX, endY), fractions, colors, cycleMethod);
 }
 
@@ -131,7 +78,7 @@ void LinearGradientPaint::init$($Point2D* start, $Point2D* end, $floats* fractio
 	if ($nc(start)->equals(end)) {
 		$throwNew($IllegalArgumentException, "Start point cannot equalendpoint"_s);
 	}
-	double var$0 = $nc(start)->getX();
+	double var$0 = start->getX();
 	$set(this, start, $new($Point2D$Double, var$0, start->getY()));
 	double var$1 = $nc(end)->getX();
 	$set(this, end, $new($Point2D$Double, var$1, end->getY()));
@@ -153,19 +100,63 @@ $PaintContext* LinearGradientPaint::createContext($ColorModel* cm, $Rectangle* d
 
 $Point2D* LinearGradientPaint::getStartPoint() {
 	double var$0 = $nc(this->start)->getX();
-	return $new($Point2D$Double, var$0, $nc(this->start)->getY());
+	return $new($Point2D$Double, var$0, this->start->getY());
 }
 
 $Point2D* LinearGradientPaint::getEndPoint() {
 	double var$0 = $nc(this->end)->getX();
-	return $new($Point2D$Double, var$0, $nc(this->end)->getY());
+	return $new($Point2D$Double, var$0, this->end->getY());
 }
 
 LinearGradientPaint::LinearGradientPaint() {
 }
 
 $Class* LinearGradientPaint::load$($String* name, bool initialize) {
-	$loadClass(LinearGradientPaint, name, initialize, &_LinearGradientPaint_ClassInfo_, allocate$LinearGradientPaint);
+	$FieldInfo fieldInfos$$[] = {
+		{"start", "Ljava/awt/geom/Point2D;", nullptr, $PRIVATE | $FINAL, $field(LinearGradientPaint, start)},
+		{"end", "Ljava/awt/geom/Point2D;", nullptr, $PRIVATE | $FINAL, $field(LinearGradientPaint, end)},
+		{}
+	};
+	$Attribute $attribute[] = {
+		{'s', "startPoint"},
+		{'s', "endPoint"},
+		{'s', "fractions"},
+		{'s', "colors"},
+		{'s', "cycleMethod"},
+		{'s', "colorSpace"},
+		{'s', "transform"},
+		{'-'}
+	};
+	$NamedAttribute init$methodAnnotations$$$4$namedAttribute[] = {
+		{"value", '[', $attribute},
+		{}
+	};
+	$CompoundAttribute init$methodAnnotations$$$4[] = {
+		{"Ljava/beans/ConstructorProperties;", init$methodAnnotations$$$4$namedAttribute},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(FFFF[F[Ljava/awt/Color;)V", nullptr, $PUBLIC, $method(LinearGradientPaint, init$, void, float, float, float, float, $floats*, $ColorArray*)},
+		{"<init>", "(FFFF[F[Ljava/awt/Color;Ljava/awt/MultipleGradientPaint$CycleMethod;)V", nullptr, $PUBLIC, $method(LinearGradientPaint, init$, void, float, float, float, float, $floats*, $ColorArray*, $MultipleGradientPaint$CycleMethod*)},
+		{"<init>", "(Ljava/awt/geom/Point2D;Ljava/awt/geom/Point2D;[F[Ljava/awt/Color;)V", nullptr, $PUBLIC, $method(LinearGradientPaint, init$, void, $Point2D*, $Point2D*, $floats*, $ColorArray*)},
+		{"<init>", "(Ljava/awt/geom/Point2D;Ljava/awt/geom/Point2D;[F[Ljava/awt/Color;Ljava/awt/MultipleGradientPaint$CycleMethod;)V", nullptr, $PUBLIC, $method(LinearGradientPaint, init$, void, $Point2D*, $Point2D*, $floats*, $ColorArray*, $MultipleGradientPaint$CycleMethod*)},
+		{"<init>", "(Ljava/awt/geom/Point2D;Ljava/awt/geom/Point2D;[F[Ljava/awt/Color;Ljava/awt/MultipleGradientPaint$CycleMethod;Ljava/awt/MultipleGradientPaint$ColorSpaceType;Ljava/awt/geom/AffineTransform;)V", nullptr, $PUBLIC, $method(LinearGradientPaint, init$, void, $Point2D*, $Point2D*, $floats*, $ColorArray*, $MultipleGradientPaint$CycleMethod*, $MultipleGradientPaint$ColorSpaceType*, $AffineTransform*), nullptr, nullptr, init$methodAnnotations$$$4},
+		{"createContext", "(Ljava/awt/image/ColorModel;Ljava/awt/Rectangle;Ljava/awt/geom/Rectangle2D;Ljava/awt/geom/AffineTransform;Ljava/awt/RenderingHints;)Ljava/awt/PaintContext;", nullptr, $PUBLIC, $virtualMethod(LinearGradientPaint, createContext, $PaintContext*, $ColorModel*, $Rectangle*, $Rectangle2D*, $AffineTransform*, $RenderingHints*)},
+		{"getEndPoint", "()Ljava/awt/geom/Point2D;", nullptr, $PUBLIC, $method(LinearGradientPaint, getEndPoint, $Point2D*)},
+		{"getStartPoint", "()Ljava/awt/geom/Point2D;", nullptr, $PUBLIC, $method(LinearGradientPaint, getStartPoint, $Point2D*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"java.awt.LinearGradientPaint",
+		"java.awt.MultipleGradientPaint",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(LinearGradientPaint, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LinearGradientPaint);
+	});
 	return class$;
 }
 

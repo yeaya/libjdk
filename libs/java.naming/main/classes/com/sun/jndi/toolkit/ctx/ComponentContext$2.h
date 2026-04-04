@@ -30,7 +30,7 @@ public:
 	void init$(::com::sun::jndi::toolkit::ctx::ComponentContext* this$0, $String* addrType);
 	virtual $Object* getContent() override;
 	::com::sun::jndi::toolkit::ctx::ComponentContext* this$0 = nullptr;
-	static const int64_t serialVersionUID = (int64_t)0xECB799B4DA1C5E66;
+	static const int64_t serialVersionUID = (int64_t)0xecb799b4da1c5e66;
 };
 
 				} // ctx

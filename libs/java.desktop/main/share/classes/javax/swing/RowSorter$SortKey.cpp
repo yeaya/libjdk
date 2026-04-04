@@ -1,5 +1,4 @@
 #include <javax/swing/RowSorter$SortKey.h>
-
 #include <javax/swing/RowSorter.h>
 #include <javax/swing/SortOrder.h>
 #include <jcpp.h>
@@ -13,46 +12,6 @@ using $SortOrder = ::javax::swing::SortOrder;
 
 namespace javax {
 	namespace swing {
-
-$FieldInfo _RowSorter$SortKey_FieldInfo_[] = {
-	{"column", "I", nullptr, $PRIVATE, $field(RowSorter$SortKey, column)},
-	{"sortOrder", "Ljavax/swing/SortOrder;", nullptr, $PRIVATE, $field(RowSorter$SortKey, sortOrder)},
-	{}
-};
-
-$MethodInfo _RowSorter$SortKey_MethodInfo_[] = {
-	{"<init>", "(ILjavax/swing/SortOrder;)V", nullptr, $PUBLIC, $method(RowSorter$SortKey, init$, void, int32_t, $SortOrder*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(RowSorter$SortKey, equals, bool, Object$*)},
-	{"getColumn", "()I", nullptr, $PUBLIC | $FINAL, $method(RowSorter$SortKey, getColumn, int32_t)},
-	{"getSortOrder", "()Ljavax/swing/SortOrder;", nullptr, $PUBLIC | $FINAL, $method(RowSorter$SortKey, getSortOrder, $SortOrder*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(RowSorter$SortKey, hashCode, int32_t)},
-	{}
-};
-
-$InnerClassInfo _RowSorter$SortKey_InnerClassesInfo_[] = {
-	{"javax.swing.RowSorter$SortKey", "javax.swing.RowSorter", "SortKey", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _RowSorter$SortKey_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.RowSorter$SortKey",
-	"java.lang.Object",
-	nullptr,
-	_RowSorter$SortKey_FieldInfo_,
-	_RowSorter$SortKey_MethodInfo_,
-	nullptr,
-	nullptr,
-	_RowSorter$SortKey_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.RowSorter"
-};
-
-$Object* allocate$RowSorter$SortKey($Class* clazz) {
-	return $of($alloc(RowSorter$SortKey));
-}
 
 void RowSorter$SortKey::init$(int32_t column, $SortOrder* sortOrder) {
 	if (sortOrder == nullptr) {
@@ -82,7 +41,7 @@ bool RowSorter$SortKey::equals(Object$* o) {
 		return true;
 	}
 	if ($instanceOf(RowSorter$SortKey, o)) {
-		return ($nc(($cast(RowSorter$SortKey, o)))->column == this->column && ($cast(RowSorter$SortKey, o))->sortOrder == this->sortOrder);
+		return ($cast(RowSorter$SortKey, o)->column == this->column && $cast(RowSorter$SortKey, o)->sortOrder == this->sortOrder);
 	}
 	return false;
 }
@@ -91,7 +50,41 @@ RowSorter$SortKey::RowSorter$SortKey() {
 }
 
 $Class* RowSorter$SortKey::load$($String* name, bool initialize) {
-	$loadClass(RowSorter$SortKey, name, initialize, &_RowSorter$SortKey_ClassInfo_, allocate$RowSorter$SortKey);
+	$FieldInfo fieldInfos$$[] = {
+		{"column", "I", nullptr, $PRIVATE, $field(RowSorter$SortKey, column)},
+		{"sortOrder", "Ljavax/swing/SortOrder;", nullptr, $PRIVATE, $field(RowSorter$SortKey, sortOrder)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(ILjavax/swing/SortOrder;)V", nullptr, $PUBLIC, $method(RowSorter$SortKey, init$, void, int32_t, $SortOrder*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(RowSorter$SortKey, equals, bool, Object$*)},
+		{"getColumn", "()I", nullptr, $PUBLIC | $FINAL, $method(RowSorter$SortKey, getColumn, int32_t)},
+		{"getSortOrder", "()Ljavax/swing/SortOrder;", nullptr, $PUBLIC | $FINAL, $method(RowSorter$SortKey, getSortOrder, $SortOrder*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(RowSorter$SortKey, hashCode, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.RowSorter$SortKey", "javax.swing.RowSorter", "SortKey", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.RowSorter$SortKey",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.RowSorter"
+	};
+	$loadClass(RowSorter$SortKey, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RowSorter$SortKey);
+	});
 	return class$;
 }
 

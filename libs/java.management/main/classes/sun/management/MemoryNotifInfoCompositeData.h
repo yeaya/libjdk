@@ -37,6 +37,7 @@ class $export MemoryNotifInfoCompositeData : public ::sun::management::LazyCompo
 	$class(MemoryNotifInfoCompositeData, 0, ::sun::management::LazyCompositeData)
 public:
 	MemoryNotifInfoCompositeData();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::lang::management::MemoryNotificationInfo* info);
 	virtual ::javax::management::openmbean::CompositeData* getCompositeData() override;
 	static int64_t getCount(::javax::management::openmbean::CompositeData* cd);
@@ -51,7 +52,7 @@ public:
 	static $String* USAGE;
 	static $String* COUNT;
 	static $StringArray* memoryNotifInfoItemNames;
-	static const int64_t serialVersionUID = (int64_t)0xE6F2E9CA149B2065;
+	static const int64_t serialVersionUID = (int64_t)0xe6f2e9ca149b2065;
 };
 
 	} // management

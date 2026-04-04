@@ -1,5 +1,4 @@
 #include <sun/awt/X11/XPropertyEvent.h>
-
 #include <jdk/internal/misc/Unsafe.h>
 #include <sun/awt/X11/Native.h>
 #include <sun/awt/X11/XAtom.h>
@@ -12,67 +11,14 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Unsafe = ::jdk::internal::misc::Unsafe;
 using $Native = ::sun::awt::X11::Native;
 using $XAtom = ::sun::awt::X11::XAtom;
 using $XWrapperBase = ::sun::awt::X11::XWrapperBase;
 using $XlibWrapper = ::sun::awt::X11::XlibWrapper;
-using $PlatformLogger = ::sun::util::logging::PlatformLogger;
 
 namespace sun {
 	namespace awt {
 		namespace X11 {
-
-$FieldInfo _XPropertyEvent_FieldInfo_[] = {
-	{"unsafe", "Ljdk/internal/misc/Unsafe;", nullptr, $PRIVATE, $field(XPropertyEvent, unsafe)},
-	{"should_free_memory", "Z", nullptr, $PRIVATE | $FINAL, $field(XPropertyEvent, should_free_memory)},
-	{"pData", "J", nullptr, 0, $field(XPropertyEvent, pData)},
-	{}
-};
-
-$MethodInfo _XPropertyEvent_MethodInfo_[] = {
-	{"<init>", "(J)V", nullptr, $PUBLIC, $method(XPropertyEvent, init$, void, int64_t)},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(XPropertyEvent, init$, void)},
-	{"clone", "()Lsun/awt/X11/XEvent;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XPropertyEvent, clone, $Object*)},
-	{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(XPropertyEvent, dispose, void)},
-	{"getDataSize", "()I", nullptr, $PUBLIC, $virtualMethod(XPropertyEvent, getDataSize, int32_t)},
-	{"getFieldsAsString", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(XPropertyEvent, getFieldsAsString, $String*)},
-	{"getName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(XPropertyEvent, getName, $String*)},
-	{"getPData", "()J", nullptr, $PUBLIC, $virtualMethod(XPropertyEvent, getPData, int64_t)},
-	{"getSize", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(XPropertyEvent, getSize, int32_t)},
-	{"get_atom", "()J", nullptr, $PUBLIC, $virtualMethod(XPropertyEvent, get_atom, int64_t)},
-	{"get_display", "()J", nullptr, $PUBLIC, $virtualMethod(XPropertyEvent, get_display, int64_t)},
-	{"get_send_event", "()Z", nullptr, $PUBLIC, $virtualMethod(XPropertyEvent, get_send_event, bool)},
-	{"get_serial", "()J", nullptr, $PUBLIC, $virtualMethod(XPropertyEvent, get_serial, int64_t)},
-	{"get_state", "()I", nullptr, $PUBLIC, $virtualMethod(XPropertyEvent, get_state, int32_t)},
-	{"get_time", "()J", nullptr, $PUBLIC, $virtualMethod(XPropertyEvent, get_time, int64_t)},
-	{"get_type", "()I", nullptr, $PUBLIC, $virtualMethod(XPropertyEvent, get_type, int32_t)},
-	{"get_window", "()J", nullptr, $PUBLIC, $virtualMethod(XPropertyEvent, get_window, int64_t)},
-	{"set_atom", "(J)V", nullptr, $PUBLIC, $virtualMethod(XPropertyEvent, set_atom, void, int64_t)},
-	{"set_display", "(J)V", nullptr, $PUBLIC, $virtualMethod(XPropertyEvent, set_display, void, int64_t)},
-	{"set_send_event", "(Z)V", nullptr, $PUBLIC, $virtualMethod(XPropertyEvent, set_send_event, void, bool)},
-	{"set_serial", "(J)V", nullptr, $PUBLIC, $virtualMethod(XPropertyEvent, set_serial, void, int64_t)},
-	{"set_state", "(I)V", nullptr, $PUBLIC, $virtualMethod(XPropertyEvent, set_state, void, int32_t)},
-	{"set_time", "(J)V", nullptr, $PUBLIC, $virtualMethod(XPropertyEvent, set_time, void, int64_t)},
-	{"set_type", "(I)V", nullptr, $PUBLIC, $virtualMethod(XPropertyEvent, set_type, void, int32_t)},
-	{"set_window", "(J)V", nullptr, $PUBLIC, $virtualMethod(XPropertyEvent, set_window, void, int64_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XPropertyEvent, toString, $String*)},
-	{"zero", "()V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XPropertyEvent, zero, void)},
-	{}
-};
-
-$ClassInfo _XPropertyEvent_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.awt.X11.XPropertyEvent",
-	"sun.awt.X11.XWrapperBase",
-	nullptr,
-	_XPropertyEvent_FieldInfo_,
-	_XPropertyEvent_MethodInfo_
-};
-
-$Object* allocate$XPropertyEvent($Class* clazz) {
-	return $of($alloc(XPropertyEvent));
-}
 
 int32_t XPropertyEvent::getSize() {
 	$init(XPropertyEvent);
@@ -111,7 +57,7 @@ void XPropertyEvent::dispose() {
 	$init($XWrapperBase);
 	$nc($XWrapperBase::log)->finest("Disposing"_s);
 	if (this->should_free_memory) {
-		$nc($XWrapperBase::log)->finest("freeing memory"_s);
+		$XWrapperBase::log->finest("freeing memory"_s);
 		$nc(this->unsafe)->freeMemory(this->pData);
 	}
 }
@@ -217,7 +163,7 @@ $String* XPropertyEvent::getName() {
 }
 
 $String* XPropertyEvent::getFieldsAsString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, ret, $new($StringBuilder, 320));
 	$init($XlibWrapper);
 	ret->append("type = "_s)->append($nc($XlibWrapper::eventToString)->get(get_type()))->append(", "_s);
@@ -225,14 +171,14 @@ $String* XPropertyEvent::getFieldsAsString() {
 	ret->append("send_event = "_s)->append(get_send_event())->append(", "_s);
 	ret->append("display = "_s)->append(get_display())->append(", "_s);
 	ret->append("window = "_s)->append($(getWindow(get_window())))->append(", "_s);
-	ret->append("atom = "_s)->append($($of($XAtom::get(get_atom()))))->append(", "_s);
+	ret->append("atom = "_s)->append($($XAtom::get(get_atom())))->append(", "_s);
 	ret->append("time = "_s)->append(get_time())->append(", "_s);
 	ret->append("state = "_s)->append(get_state())->append(", "_s);
 	return ret->toString();
 }
 
 $Object* XPropertyEvent::clone() {
-	return $of($XWrapperBase::clone());
+	return $XWrapperBase::clone();
 }
 
 void XPropertyEvent::zero() {
@@ -247,7 +193,53 @@ XPropertyEvent::XPropertyEvent() {
 }
 
 $Class* XPropertyEvent::load$($String* name, bool initialize) {
-	$loadClass(XPropertyEvent, name, initialize, &_XPropertyEvent_ClassInfo_, allocate$XPropertyEvent);
+	$FieldInfo fieldInfos$$[] = {
+		{"unsafe", "Ljdk/internal/misc/Unsafe;", nullptr, $PRIVATE, $field(XPropertyEvent, unsafe)},
+		{"should_free_memory", "Z", nullptr, $PRIVATE | $FINAL, $field(XPropertyEvent, should_free_memory)},
+		{"pData", "J", nullptr, 0, $field(XPropertyEvent, pData)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(J)V", nullptr, $PUBLIC, $method(XPropertyEvent, init$, void, int64_t)},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(XPropertyEvent, init$, void)},
+		{"clone", "()Lsun/awt/X11/XEvent;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XPropertyEvent, clone, $Object*)},
+		{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(XPropertyEvent, dispose, void)},
+		{"getDataSize", "()I", nullptr, $PUBLIC, $virtualMethod(XPropertyEvent, getDataSize, int32_t)},
+		{"getFieldsAsString", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(XPropertyEvent, getFieldsAsString, $String*)},
+		{"getName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(XPropertyEvent, getName, $String*)},
+		{"getPData", "()J", nullptr, $PUBLIC, $virtualMethod(XPropertyEvent, getPData, int64_t)},
+		{"getSize", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(XPropertyEvent, getSize, int32_t)},
+		{"get_atom", "()J", nullptr, $PUBLIC, $virtualMethod(XPropertyEvent, get_atom, int64_t)},
+		{"get_display", "()J", nullptr, $PUBLIC, $virtualMethod(XPropertyEvent, get_display, int64_t)},
+		{"get_send_event", "()Z", nullptr, $PUBLIC, $virtualMethod(XPropertyEvent, get_send_event, bool)},
+		{"get_serial", "()J", nullptr, $PUBLIC, $virtualMethod(XPropertyEvent, get_serial, int64_t)},
+		{"get_state", "()I", nullptr, $PUBLIC, $virtualMethod(XPropertyEvent, get_state, int32_t)},
+		{"get_time", "()J", nullptr, $PUBLIC, $virtualMethod(XPropertyEvent, get_time, int64_t)},
+		{"get_type", "()I", nullptr, $PUBLIC, $virtualMethod(XPropertyEvent, get_type, int32_t)},
+		{"get_window", "()J", nullptr, $PUBLIC, $virtualMethod(XPropertyEvent, get_window, int64_t)},
+		{"set_atom", "(J)V", nullptr, $PUBLIC, $virtualMethod(XPropertyEvent, set_atom, void, int64_t)},
+		{"set_display", "(J)V", nullptr, $PUBLIC, $virtualMethod(XPropertyEvent, set_display, void, int64_t)},
+		{"set_send_event", "(Z)V", nullptr, $PUBLIC, $virtualMethod(XPropertyEvent, set_send_event, void, bool)},
+		{"set_serial", "(J)V", nullptr, $PUBLIC, $virtualMethod(XPropertyEvent, set_serial, void, int64_t)},
+		{"set_state", "(I)V", nullptr, $PUBLIC, $virtualMethod(XPropertyEvent, set_state, void, int32_t)},
+		{"set_time", "(J)V", nullptr, $PUBLIC, $virtualMethod(XPropertyEvent, set_time, void, int64_t)},
+		{"set_type", "(I)V", nullptr, $PUBLIC, $virtualMethod(XPropertyEvent, set_type, void, int32_t)},
+		{"set_window", "(J)V", nullptr, $PUBLIC, $virtualMethod(XPropertyEvent, set_window, void, int64_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XPropertyEvent, toString, $String*)},
+		{"zero", "()V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XPropertyEvent, zero, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.awt.X11.XPropertyEvent",
+		"sun.awt.X11.XWrapperBase",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XPropertyEvent, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XPropertyEvent);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <javax/security/auth/kerberos/KeyTab.h>
-
 #include <java/io/File.h>
 #include <java/lang/StackTraceElement.h>
 #include <java/security/AccessControlException.h>
@@ -8,7 +7,6 @@
 #include <javax/security/auth/kerberos/KerberosKey.h>
 #include <javax/security/auth/kerberos/KerberosPrincipal.h>
 #include <sun/security/krb5/EncryptionKey.h>
-#include <sun/security/krb5/JavaxSecurityAuthKerberosAccess.h>
 #include <sun/security/krb5/KerberosSecrets.h>
 #include <sun/security/krb5/PrincipalName.h>
 #include <sun/security/krb5/RealmException.h>
@@ -29,8 +27,6 @@ using $Objects = ::java::util::Objects;
 using $JavaxSecurityAuthKerberosAccessImpl = ::javax::security::auth::kerberos::JavaxSecurityAuthKerberosAccessImpl;
 using $KerberosKey = ::javax::security::auth::kerberos::KerberosKey;
 using $KerberosPrincipal = ::javax::security::auth::kerberos::KerberosPrincipal;
-using $EncryptionKey = ::sun::security::krb5::EncryptionKey;
-using $JavaxSecurityAuthKerberosAccess = ::sun::security::krb5::JavaxSecurityAuthKerberosAccess;
 using $KerberosSecrets = ::sun::security::krb5::KerberosSecrets;
 using $PrincipalName = ::sun::security::krb5::PrincipalName;
 using $RealmException = ::sun::security::krb5::RealmException;
@@ -40,46 +36,6 @@ namespace javax {
 	namespace security {
 		namespace auth {
 			namespace kerberos {
-
-$FieldInfo _KeyTab_FieldInfo_[] = {
-	{"file", "Ljava/io/File;", nullptr, $PRIVATE | $FINAL, $field(KeyTab, file)},
-	{"princ", "Ljavax/security/auth/kerberos/KerberosPrincipal;", nullptr, $PRIVATE | $FINAL, $field(KeyTab, princ)},
-	{"bound", "Z", nullptr, $PRIVATE | $FINAL, $field(KeyTab, bound)},
-	{}
-};
-
-$MethodInfo _KeyTab_MethodInfo_[] = {
-	{"<init>", "(Ljavax/security/auth/kerberos/KerberosPrincipal;Ljava/io/File;Z)V", nullptr, $PRIVATE, $method(KeyTab, init$, void, $KerberosPrincipal*, $File*, bool)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(KeyTab, equals, bool, Object$*)},
-	{"exists", "()Z", nullptr, $PUBLIC, $method(KeyTab, exists, bool)},
-	{"getEncryptionKeys", "(Lsun/security/krb5/PrincipalName;)[Lsun/security/krb5/EncryptionKey;", nullptr, 0, $method(KeyTab, getEncryptionKeys, $EncryptionKeyArray*, $PrincipalName*)},
-	{"getInstance", "(Ljava/io/File;)Ljavax/security/auth/kerberos/KeyTab;", nullptr, $PUBLIC | $STATIC, $staticMethod(KeyTab, getInstance, KeyTab*, $File*)},
-	{"getInstance", "(Ljavax/security/auth/kerberos/KerberosPrincipal;Ljava/io/File;)Ljavax/security/auth/kerberos/KeyTab;", nullptr, $PUBLIC | $STATIC, $staticMethod(KeyTab, getInstance, KeyTab*, $KerberosPrincipal*, $File*)},
-	{"getInstance", "()Ljavax/security/auth/kerberos/KeyTab;", nullptr, $PUBLIC | $STATIC, $staticMethod(KeyTab, getInstance, KeyTab*)},
-	{"getInstance", "(Ljavax/security/auth/kerberos/KerberosPrincipal;)Ljavax/security/auth/kerberos/KeyTab;", nullptr, $PUBLIC | $STATIC, $staticMethod(KeyTab, getInstance, KeyTab*, $KerberosPrincipal*)},
-	{"getKeys", "(Ljavax/security/auth/kerberos/KerberosPrincipal;)[Ljavax/security/auth/kerberos/KerberosKey;", nullptr, $PUBLIC, $method(KeyTab, getKeys, $KerberosKeyArray*, $KerberosPrincipal*)},
-	{"getPrincipal", "()Ljavax/security/auth/kerberos/KerberosPrincipal;", nullptr, $PUBLIC, $method(KeyTab, getPrincipal, $KerberosPrincipal*)},
-	{"getUnboundInstance", "(Ljava/io/File;)Ljavax/security/auth/kerberos/KeyTab;", nullptr, $PUBLIC | $STATIC, $staticMethod(KeyTab, getUnboundInstance, KeyTab*, $File*)},
-	{"getUnboundInstance", "()Ljavax/security/auth/kerberos/KeyTab;", nullptr, $PUBLIC | $STATIC, $staticMethod(KeyTab, getUnboundInstance, KeyTab*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(KeyTab, hashCode, int32_t)},
-	{"isBound", "()Z", nullptr, $PUBLIC, $method(KeyTab, isBound, bool)},
-	{"takeSnapshot", "()Lsun/security/krb5/internal/ktab/KeyTab;", nullptr, 0, $method(KeyTab, takeSnapshot, $KeyTab*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(KeyTab, toString, $String*)},
-	{}
-};
-
-$ClassInfo _KeyTab_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"javax.security.auth.kerberos.KeyTab",
-	"java.lang.Object",
-	nullptr,
-	_KeyTab_FieldInfo_,
-	_KeyTab_MethodInfo_
-};
-
-$Object* allocate$KeyTab($Class* clazz) {
-	return $of($alloc(KeyTab));
-}
 
 void KeyTab::init$($KerberosPrincipal* princ, $File* file, bool bound) {
 	$set(this, princ, princ);
@@ -133,7 +89,7 @@ KeyTab* KeyTab::getInstance($KerberosPrincipal* princ) {
 }
 
 $KeyTab* KeyTab::takeSnapshot() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		return $KeyTab::getInstance(this->file);
 	} catch ($AccessControlException& ace) {
@@ -149,20 +105,19 @@ $KeyTab* KeyTab::takeSnapshot() {
 }
 
 $KerberosKeyArray* KeyTab::getKeys($KerberosPrincipal* principal) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		if (this->princ != nullptr && !$nc(principal)->equals(this->princ)) {
 			return $new($KerberosKeyArray, 0);
 		}
 		$var($PrincipalName, pn, $new($PrincipalName, $($nc(principal)->getName())));
-		$var($EncryptionKeyArray, keys, $nc($(takeSnapshot()))->readServiceKeys(pn));
+		$var($EncryptionKeyArray, keys, $$nc(takeSnapshot())->readServiceKeys(pn));
 		$var($KerberosKeyArray, kks, $new($KerberosKeyArray, $nc(keys)->length));
 		for (int32_t i = 0; i < kks->length; ++i) {
 			$var($Integer, tmp, $nc(keys->get(i))->getKeyVersionNumber());
-			$var($KerberosPrincipal, var$0, principal);
-			$var($bytes, var$1, $nc(keys->get(i))->getBytes());
-			int32_t var$2 = $nc(keys->get(i))->getEType();
-			kks->set(i, $$new($KerberosKey, var$0, var$1, var$2, tmp == nullptr ? 0 : $nc(tmp)->intValue()));
+			$var($bytes, var$0, $nc(keys->get(i))->getBytes());
+			int32_t var$1 = $nc(keys->get(i))->getEType();
+			kks->set(i, $$new($KerberosKey, principal, var$0, var$1, tmp == nullptr ? 0 : tmp->intValue()));
 			$nc(keys->get(i))->destroy();
 		}
 		return kks;
@@ -173,15 +128,15 @@ $KerberosKeyArray* KeyTab::getKeys($KerberosPrincipal* principal) {
 }
 
 $EncryptionKeyArray* KeyTab::getEncryptionKeys($PrincipalName* principal) {
-	return $nc($(takeSnapshot()))->readServiceKeys(principal);
+	return $$nc(takeSnapshot())->readServiceKeys(principal);
 }
 
 bool KeyTab::exists() {
-	return !$nc($(takeSnapshot()))->isMissing();
+	return !$$nc(takeSnapshot())->isMissing();
 }
 
 $String* KeyTab::toString() {
-	$var($String, s, (this->file == nullptr) ? "Default keytab"_s : $nc(this->file)->toString());
+	$var($String, s, (this->file == nullptr) ? "Default keytab"_s : this->file->toString());
 	if (!this->bound) {
 		return s;
 	} else if (this->princ == nullptr) {
@@ -192,11 +147,11 @@ $String* KeyTab::toString() {
 }
 
 int32_t KeyTab::hashCode() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $Objects::hash($$new($ObjectArray, {
-		$of(this->file),
-		$of(this->princ),
-		$($of($Boolean::valueOf(this->bound)))
+		this->file,
+		this->princ,
+		$($Boolean::valueOf(this->bound))
 	}));
 }
 
@@ -209,7 +164,7 @@ bool KeyTab::equals(Object$* other) {
 	}
 	$var(KeyTab, otherKtab, $cast(KeyTab, other));
 	bool var$0 = $Objects::equals($nc(otherKtab)->princ, this->princ);
-	return var$0 && $Objects::equals($nc(otherKtab)->file, this->file) && this->bound == $nc(otherKtab)->bound;
+	return var$0 && $Objects::equals(otherKtab->file, this->file) && this->bound == otherKtab->bound;
 }
 
 $KerberosPrincipal* KeyTab::getPrincipal() {
@@ -220,7 +175,7 @@ bool KeyTab::isBound() {
 	return this->bound;
 }
 
-void clinit$KeyTab($Class* class$) {
+void KeyTab::clinit$($Class* clazz) {
 	{
 		$KerberosSecrets::setJavaxSecurityAuthKerberosAccess($$new($JavaxSecurityAuthKerberosAccessImpl));
 	}
@@ -230,7 +185,42 @@ KeyTab::KeyTab() {
 }
 
 $Class* KeyTab::load$($String* name, bool initialize) {
-	$loadClass(KeyTab, name, initialize, &_KeyTab_ClassInfo_, clinit$KeyTab, allocate$KeyTab);
+	$FieldInfo fieldInfos$$[] = {
+		{"file", "Ljava/io/File;", nullptr, $PRIVATE | $FINAL, $field(KeyTab, file)},
+		{"princ", "Ljavax/security/auth/kerberos/KerberosPrincipal;", nullptr, $PRIVATE | $FINAL, $field(KeyTab, princ)},
+		{"bound", "Z", nullptr, $PRIVATE | $FINAL, $field(KeyTab, bound)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/security/auth/kerberos/KerberosPrincipal;Ljava/io/File;Z)V", nullptr, $PRIVATE, $method(KeyTab, init$, void, $KerberosPrincipal*, $File*, bool)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(KeyTab, equals, bool, Object$*)},
+		{"exists", "()Z", nullptr, $PUBLIC, $method(KeyTab, exists, bool)},
+		{"getEncryptionKeys", "(Lsun/security/krb5/PrincipalName;)[Lsun/security/krb5/EncryptionKey;", nullptr, 0, $method(KeyTab, getEncryptionKeys, $EncryptionKeyArray*, $PrincipalName*)},
+		{"getInstance", "(Ljava/io/File;)Ljavax/security/auth/kerberos/KeyTab;", nullptr, $PUBLIC | $STATIC, $staticMethod(KeyTab, getInstance, KeyTab*, $File*)},
+		{"getInstance", "(Ljavax/security/auth/kerberos/KerberosPrincipal;Ljava/io/File;)Ljavax/security/auth/kerberos/KeyTab;", nullptr, $PUBLIC | $STATIC, $staticMethod(KeyTab, getInstance, KeyTab*, $KerberosPrincipal*, $File*)},
+		{"getInstance", "()Ljavax/security/auth/kerberos/KeyTab;", nullptr, $PUBLIC | $STATIC, $staticMethod(KeyTab, getInstance, KeyTab*)},
+		{"getInstance", "(Ljavax/security/auth/kerberos/KerberosPrincipal;)Ljavax/security/auth/kerberos/KeyTab;", nullptr, $PUBLIC | $STATIC, $staticMethod(KeyTab, getInstance, KeyTab*, $KerberosPrincipal*)},
+		{"getKeys", "(Ljavax/security/auth/kerberos/KerberosPrincipal;)[Ljavax/security/auth/kerberos/KerberosKey;", nullptr, $PUBLIC, $method(KeyTab, getKeys, $KerberosKeyArray*, $KerberosPrincipal*)},
+		{"getPrincipal", "()Ljavax/security/auth/kerberos/KerberosPrincipal;", nullptr, $PUBLIC, $method(KeyTab, getPrincipal, $KerberosPrincipal*)},
+		{"getUnboundInstance", "(Ljava/io/File;)Ljavax/security/auth/kerberos/KeyTab;", nullptr, $PUBLIC | $STATIC, $staticMethod(KeyTab, getUnboundInstance, KeyTab*, $File*)},
+		{"getUnboundInstance", "()Ljavax/security/auth/kerberos/KeyTab;", nullptr, $PUBLIC | $STATIC, $staticMethod(KeyTab, getUnboundInstance, KeyTab*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(KeyTab, hashCode, int32_t)},
+		{"isBound", "()Z", nullptr, $PUBLIC, $method(KeyTab, isBound, bool)},
+		{"takeSnapshot", "()Lsun/security/krb5/internal/ktab/KeyTab;", nullptr, 0, $method(KeyTab, takeSnapshot, $KeyTab*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(KeyTab, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"javax.security.auth.kerberos.KeyTab",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(KeyTab, name, initialize, &classInfo$$, KeyTab::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(KeyTab);
+	});
 	return class$;
 }
 

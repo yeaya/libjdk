@@ -1,5 +1,4 @@
 #include <java/beans/PropertyChangeSupport$PropertyChangeListenerMap.h>
-
 #include <java/beans/ChangeListenerMap.h>
 #include <java/beans/PropertyChangeListener.h>
 #include <java/beans/PropertyChangeListenerProxy.h>
@@ -23,46 +22,6 @@ using $EventListener = ::java::util::EventListener;
 namespace java {
 	namespace beans {
 
-$FieldInfo _PropertyChangeSupport$PropertyChangeListenerMap_FieldInfo_[] = {
-	{"EMPTY", "[Ljava/beans/PropertyChangeListener;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PropertyChangeSupport$PropertyChangeListenerMap, EMPTY)},
-	{}
-};
-
-$MethodInfo _PropertyChangeSupport$PropertyChangeListenerMap_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(PropertyChangeSupport$PropertyChangeListenerMap, init$, void)},
-	{"extract", "(Ljava/beans/PropertyChangeListener;)Ljava/beans/PropertyChangeListener;", nullptr, $PUBLIC, $method(PropertyChangeSupport$PropertyChangeListenerMap, extract, $PropertyChangeListener*, $PropertyChangeListener*)},
-	{"extract", "(Ljava/util/EventListener;)Ljava/util/EventListener;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(PropertyChangeSupport$PropertyChangeListenerMap, extract, $EventListener*, $EventListener*)},
-	{"newArray", "(I)[Ljava/beans/PropertyChangeListener;", nullptr, $PROTECTED, $virtualMethod(PropertyChangeSupport$PropertyChangeListenerMap, newArray, $EventListenerArray*, int32_t)},
-	{"newProxy", "(Ljava/lang/String;Ljava/beans/PropertyChangeListener;)Ljava/beans/PropertyChangeListener;", nullptr, $PROTECTED, $method(PropertyChangeSupport$PropertyChangeListenerMap, newProxy, $PropertyChangeListener*, $String*, $PropertyChangeListener*)},
-	{"newProxy", "(Ljava/lang/String;Ljava/util/EventListener;)Ljava/util/EventListener;", nullptr, $PROTECTED | $VOLATILE | $SYNTHETIC, $virtualMethod(PropertyChangeSupport$PropertyChangeListenerMap, newProxy, $EventListener*, $String*, $EventListener*)},
-	{}
-};
-
-$InnerClassInfo _PropertyChangeSupport$PropertyChangeListenerMap_InnerClassesInfo_[] = {
-	{"java.beans.PropertyChangeSupport$PropertyChangeListenerMap", "java.beans.PropertyChangeSupport", "PropertyChangeListenerMap", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _PropertyChangeSupport$PropertyChangeListenerMap_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.beans.PropertyChangeSupport$PropertyChangeListenerMap",
-	"java.beans.ChangeListenerMap",
-	nullptr,
-	_PropertyChangeSupport$PropertyChangeListenerMap_FieldInfo_,
-	_PropertyChangeSupport$PropertyChangeListenerMap_MethodInfo_,
-	"Ljava/beans/ChangeListenerMap<Ljava/beans/PropertyChangeListener;>;",
-	nullptr,
-	_PropertyChangeSupport$PropertyChangeListenerMap_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.beans.PropertyChangeSupport"
-};
-
-$Object* allocate$PropertyChangeSupport$PropertyChangeListenerMap($Class* clazz) {
-	return $of($alloc(PropertyChangeSupport$PropertyChangeListenerMap));
-}
-
 $PropertyChangeListenerArray* PropertyChangeSupport$PropertyChangeListenerMap::EMPTY = nullptr;
 
 void PropertyChangeSupport$PropertyChangeListenerMap::init$() {
@@ -70,7 +29,7 @@ void PropertyChangeSupport$PropertyChangeListenerMap::init$() {
 }
 
 $EventListenerArray* PropertyChangeSupport$PropertyChangeListenerMap::newArray(int32_t length) {
-	return $fcast($EventListenerArray, ((0 < length) ? $new($PropertyChangeListenerArray, length) : PropertyChangeSupport$PropertyChangeListenerMap::EMPTY));
+	return $cast($EventListenerArray, (0 < length) ? $new($PropertyChangeListenerArray, length) : PropertyChangeSupport$PropertyChangeListenerMap::EMPTY);
 }
 
 $PropertyChangeListener* PropertyChangeSupport$PropertyChangeListenerMap::newProxy($String* name, $PropertyChangeListener* listener) {
@@ -80,7 +39,7 @@ $PropertyChangeListener* PropertyChangeSupport$PropertyChangeListenerMap::newPro
 $PropertyChangeListener* PropertyChangeSupport$PropertyChangeListenerMap::extract($PropertyChangeListener* listener$renamed) {
 	$var($PropertyChangeListener, listener, listener$renamed);
 	while ($instanceOf($PropertyChangeListenerProxy, listener)) {
-		$assign(listener, $cast($PropertyChangeListener, $nc(($cast($PropertyChangeListenerProxy, listener)))->getListener()));
+		$assign(listener, $cast($PropertyChangeListener, $cast($PropertyChangeListenerProxy, listener)->getListener()));
 	}
 	return listener;
 }
@@ -93,7 +52,7 @@ $EventListener* PropertyChangeSupport$PropertyChangeListenerMap::newProxy($Strin
 	return this->newProxy(name, $cast($PropertyChangeListener, listener));
 }
 
-void clinit$PropertyChangeSupport$PropertyChangeListenerMap($Class* class$) {
+void PropertyChangeSupport$PropertyChangeListenerMap::clinit$($Class* clazz) {
 	$assignStatic(PropertyChangeSupport$PropertyChangeListenerMap::EMPTY, $new($PropertyChangeListenerArray, 0));
 }
 
@@ -101,7 +60,41 @@ PropertyChangeSupport$PropertyChangeListenerMap::PropertyChangeSupport$PropertyC
 }
 
 $Class* PropertyChangeSupport$PropertyChangeListenerMap::load$($String* name, bool initialize) {
-	$loadClass(PropertyChangeSupport$PropertyChangeListenerMap, name, initialize, &_PropertyChangeSupport$PropertyChangeListenerMap_ClassInfo_, clinit$PropertyChangeSupport$PropertyChangeListenerMap, allocate$PropertyChangeSupport$PropertyChangeListenerMap);
+	$FieldInfo fieldInfos$$[] = {
+		{"EMPTY", "[Ljava/beans/PropertyChangeListener;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PropertyChangeSupport$PropertyChangeListenerMap, EMPTY)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(PropertyChangeSupport$PropertyChangeListenerMap, init$, void)},
+		{"extract", "(Ljava/beans/PropertyChangeListener;)Ljava/beans/PropertyChangeListener;", nullptr, $PUBLIC, $method(PropertyChangeSupport$PropertyChangeListenerMap, extract, $PropertyChangeListener*, $PropertyChangeListener*)},
+		{"extract", "(Ljava/util/EventListener;)Ljava/util/EventListener;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(PropertyChangeSupport$PropertyChangeListenerMap, extract, $EventListener*, $EventListener*)},
+		{"newArray", "(I)[Ljava/beans/PropertyChangeListener;", nullptr, $PROTECTED, $virtualMethod(PropertyChangeSupport$PropertyChangeListenerMap, newArray, $EventListenerArray*, int32_t)},
+		{"newProxy", "(Ljava/lang/String;Ljava/beans/PropertyChangeListener;)Ljava/beans/PropertyChangeListener;", nullptr, $PROTECTED, $method(PropertyChangeSupport$PropertyChangeListenerMap, newProxy, $PropertyChangeListener*, $String*, $PropertyChangeListener*)},
+		{"newProxy", "(Ljava/lang/String;Ljava/util/EventListener;)Ljava/util/EventListener;", nullptr, $PROTECTED | $VOLATILE | $SYNTHETIC, $virtualMethod(PropertyChangeSupport$PropertyChangeListenerMap, newProxy, $EventListener*, $String*, $EventListener*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.beans.PropertyChangeSupport$PropertyChangeListenerMap", "java.beans.PropertyChangeSupport", "PropertyChangeListenerMap", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.beans.PropertyChangeSupport$PropertyChangeListenerMap",
+		"java.beans.ChangeListenerMap",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/beans/ChangeListenerMap<Ljava/beans/PropertyChangeListener;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.beans.PropertyChangeSupport"
+	};
+	$loadClass(PropertyChangeSupport$PropertyChangeListenerMap, name, initialize, &classInfo$$, PropertyChangeSupport$PropertyChangeListenerMap::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(PropertyChangeSupport$PropertyChangeListenerMap);
+	});
 	return class$;
 }
 

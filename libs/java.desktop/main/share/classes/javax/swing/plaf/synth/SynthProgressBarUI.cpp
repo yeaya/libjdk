@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/synth/SynthProgressBarUI.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/ComponentOrientation.h>
@@ -14,7 +13,6 @@
 #include <java/awt/Shape.h>
 #include <java/awt/geom/AffineTransform.h>
 #include <java/beans/PropertyChangeEvent.h>
-#include <java/beans/PropertyChangeListener.h>
 #include <java/lang/Math.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JProgressBar.h>
@@ -28,7 +26,6 @@
 #include <javax/swing/plaf/synth/SynthLookAndFeel.h>
 #include <javax/swing/plaf/synth/SynthPainter.h>
 #include <javax/swing/plaf/synth/SynthStyle.h>
-#include <javax/swing/plaf/synth/SynthUI.h>
 #include <sun/swing/SwingUtilities2.h>
 #include <jcpp.h>
 
@@ -38,8 +35,6 @@
 #undef TEXT_FOREGROUND
 #undef VERTICAL
 
-using $Component = ::java::awt::Component;
-using $ComponentOrientation = ::java::awt::ComponentOrientation;
 using $Dimension = ::java::awt::Dimension;
 using $Font = ::java::awt::Font;
 using $FontMetrics = ::java::awt::FontMetrics;
@@ -51,7 +46,6 @@ using $Rectangle = ::java::awt::Rectangle;
 using $Shape = ::java::awt::Shape;
 using $AffineTransform = ::java::awt::geom::AffineTransform;
 using $PropertyChangeEvent = ::java::beans::PropertyChangeEvent;
-using $PropertyChangeListener = ::java::beans::PropertyChangeListener;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Double = ::java::lang::Double;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -66,71 +60,14 @@ using $BasicProgressBarUI = ::javax::swing::plaf::basic::BasicProgressBarUI;
 using $ColorType = ::javax::swing::plaf::synth::ColorType;
 using $SynthConstants = ::javax::swing::plaf::synth::SynthConstants;
 using $SynthContext = ::javax::swing::plaf::synth::SynthContext;
-using $SynthGraphicsUtils = ::javax::swing::plaf::synth::SynthGraphicsUtils;
 using $SynthLookAndFeel = ::javax::swing::plaf::synth::SynthLookAndFeel;
-using $SynthPainter = ::javax::swing::plaf::synth::SynthPainter;
 using $SynthStyle = ::javax::swing::plaf::synth::SynthStyle;
-using $SynthUI = ::javax::swing::plaf::synth::SynthUI;
 using $SwingUtilities2 = ::sun::swing::SwingUtilities2;
 
 namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace synth {
-
-$FieldInfo _SynthProgressBarUI_FieldInfo_[] = {
-	{"style", "Ljavax/swing/plaf/synth/SynthStyle;", nullptr, $PRIVATE, $field(SynthProgressBarUI, style)},
-	{"progressPadding", "I", nullptr, $PRIVATE, $field(SynthProgressBarUI, progressPadding)},
-	{"rotateText", "Z", nullptr, $PRIVATE, $field(SynthProgressBarUI, rotateText)},
-	{"paintOutsideClip", "Z", nullptr, $PRIVATE, $field(SynthProgressBarUI, paintOutsideClip)},
-	{"tileWhenIndeterminate", "Z", nullptr, $PRIVATE, $field(SynthProgressBarUI, tileWhenIndeterminate)},
-	{"tileWidth", "I", nullptr, $PRIVATE, $field(SynthProgressBarUI, tileWidth)},
-	{"minBarSize", "Ljava/awt/Dimension;", nullptr, $PRIVATE, $field(SynthProgressBarUI, minBarSize)},
-	{"glowWidth", "I", nullptr, $PRIVATE, $field(SynthProgressBarUI, glowWidth)},
-	{}
-};
-
-$MethodInfo _SynthProgressBarUI_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SynthProgressBarUI, init$, void)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(SynthProgressBarUI, createUI, $ComponentUI*, $JComponent*)},
-	{"getBaseline", "(Ljavax/swing/JComponent;II)I", nullptr, $PUBLIC, $virtualMethod(SynthProgressBarUI, getBaseline, int32_t, $JComponent*, int32_t, int32_t)},
-	{"getBox", "(Ljava/awt/Rectangle;)Ljava/awt/Rectangle;", nullptr, $PROTECTED, $virtualMethod(SynthProgressBarUI, getBox, $Rectangle*, $Rectangle*)},
-	{"getComponentState", "(Ljavax/swing/JComponent;)I", nullptr, $PRIVATE, $method(SynthProgressBarUI, getComponentState, int32_t, $JComponent*)},
-	{"getContext", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/synth/SynthContext;", nullptr, $PUBLIC, $virtualMethod(SynthProgressBarUI, getContext, $SynthContext*, $JComponent*)},
-	{"getContext", "(Ljavax/swing/JComponent;I)Ljavax/swing/plaf/synth/SynthContext;", nullptr, $PRIVATE, $method(SynthProgressBarUI, getContext, $SynthContext*, $JComponent*, int32_t)},
-	{"getPreferredSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(SynthProgressBarUI, getPreferredSize, $Dimension*, $JComponent*)},
-	{"installDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(SynthProgressBarUI, installDefaults, void)},
-	{"installListeners", "()V", nullptr, $PROTECTED, $virtualMethod(SynthProgressBarUI, installListeners, void)},
-	{"paint", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(SynthProgressBarUI, paint, void, $Graphics*, $JComponent*)},
-	{"paint", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;)V", nullptr, $PROTECTED, $virtualMethod(SynthProgressBarUI, paint, void, $SynthContext*, $Graphics*)},
-	{"paintBorder", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(SynthProgressBarUI, paintBorder, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{"paintText", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(SynthProgressBarUI, paintText, void, $SynthContext*, $Graphics*, $String*)},
-	{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(SynthProgressBarUI, propertyChange, void, $PropertyChangeEvent*)},
-	{"setAnimationIndex", "(I)V", nullptr, $PROTECTED, $virtualMethod(SynthProgressBarUI, setAnimationIndex, void, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"uninstallDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(SynthProgressBarUI, uninstallDefaults, void)},
-	{"uninstallListeners", "()V", nullptr, $PROTECTED, $virtualMethod(SynthProgressBarUI, uninstallListeners, void)},
-	{"update", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(SynthProgressBarUI, update, void, $Graphics*, $JComponent*)},
-	{"updateStyle", "(Ljavax/swing/JProgressBar;)V", nullptr, $PRIVATE, $method(SynthProgressBarUI, updateStyle, void, $JProgressBar*)},
-	{}
-};
-
-$ClassInfo _SynthProgressBarUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.synth.SynthProgressBarUI",
-	"javax.swing.plaf.basic.BasicProgressBarUI",
-	"javax.swing.plaf.synth.SynthUI,java.beans.PropertyChangeListener",
-	_SynthProgressBarUI_FieldInfo_,
-	_SynthProgressBarUI_MethodInfo_
-};
-
-$Object* allocate$SynthProgressBarUI($Class* clazz) {
-	return $of($alloc(SynthProgressBarUI));
-}
 
 int32_t SynthProgressBarUI::hashCode() {
 	 return this->$BasicProgressBarUI::hashCode();
@@ -176,7 +113,7 @@ void SynthProgressBarUI::installDefaults() {
 }
 
 void SynthProgressBarUI::updateStyle($JProgressBar* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SynthContext, context, getContext(c, $SynthConstants::ENABLED));
 	$var($SynthStyle, oldStyle, this->style);
 	$set(this, style, $SynthLookAndFeel::updateStyle(context, this));
@@ -220,12 +157,12 @@ int32_t SynthProgressBarUI::getComponentState($JComponent* c) {
 }
 
 int32_t SynthProgressBarUI::getBaseline($JComponent* c, int32_t width, int32_t height) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$BasicProgressBarUI::getBaseline(c, width, height);
 	bool var$0 = $nc(this->progressBar)->isStringPainted();
-	if (var$0 && $nc(this->progressBar)->getOrientation() == $JProgressBar::HORIZONTAL) {
+	if (var$0 && this->progressBar->getOrientation() == $JProgressBar::HORIZONTAL) {
 		$var($SynthContext, context, getContext(c));
-		$var($Font, font, $nc($($nc(context)->getStyle()))->getFont(context));
+		$var($Font, font, $$nc($nc(context)->getStyle())->getFont(context));
 		$var($FontMetrics, metrics, $nc(this->progressBar)->getFontMetrics(font));
 		int32_t var$2 = height - $nc(metrics)->getAscent();
 		int32_t var$1 = (var$2 - metrics->getDescent()) / 2;
@@ -255,14 +192,12 @@ void SynthProgressBarUI::setAnimationIndex(int32_t newValue) {
 }
 
 void SynthProgressBarUI::update($Graphics* g, $JComponent* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SynthContext, context, getContext(c));
 	$SynthLookAndFeel::update(context, g);
-	$var($SynthContext, var$0, context);
-	$var($Graphics, var$1, g);
-	int32_t var$2 = $nc(c)->getWidth();
-	int32_t var$3 = c->getHeight();
-	$nc($($nc(context)->getPainter()))->paintProgressBarBackground(var$0, var$1, 0, 0, var$2, var$3, $nc(this->progressBar)->getOrientation());
+	int32_t var$0 = $nc(c)->getWidth();
+	int32_t var$1 = c->getHeight();
+	$$nc($nc(context)->getPainter())->paintProgressBarBackground(context, g, 0, 0, var$0, var$1, $nc(this->progressBar)->getOrientation());
 	paint(context, g);
 }
 
@@ -272,7 +207,7 @@ void SynthProgressBarUI::paint($Graphics* g, $JComponent* c) {
 }
 
 void SynthProgressBarUI::paint($SynthContext* context, $Graphics* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JProgressBar, pBar, $cast($JProgressBar, $nc(context)->getComponent()));
 	int32_t x = 0;
 	int32_t y = 0;
@@ -303,11 +238,11 @@ void SynthProgressBarUI::paint($SynthContext* context, $Graphics* g) {
 	} else {
 		$set(this, boxRect, getBox(this->boxRect));
 		x = $nc(this->boxRect)->x + this->progressPadding;
-		y = $nc(this->boxRect)->y + this->progressPadding;
-		width = $nc(this->boxRect)->width - this->progressPadding - this->progressPadding;
-		height = $nc(this->boxRect)->height - this->progressPadding - this->progressPadding;
+		y = this->boxRect->y + this->progressPadding;
+		width = this->boxRect->width - this->progressPadding - this->progressPadding;
+		height = this->boxRect->height - this->progressPadding - this->progressPadding;
 	}
-	if (this->tileWhenIndeterminate && $nc(pBar)->isIndeterminate()) {
+	if (this->tileWhenIndeterminate && pBar->isIndeterminate()) {
 		double var$0 = (double)getAnimationIndex();
 		double percentComplete = var$0 / (double)getFrameCount();
 		int32_t offset = $cast(int32_t, (percentComplete * this->tileWidth));
@@ -315,35 +250,35 @@ void SynthProgressBarUI::paint($SynthContext* context, $Graphics* g) {
 		g->clipRect(x, y, width, height);
 		if (pBar->getOrientation() == $JProgressBar::HORIZONTAL) {
 			for (int32_t i = x - this->tileWidth + offset; i <= width; i += this->tileWidth) {
-				$nc($(context->getPainter()))->paintProgressBarForeground(context, g, i, y, this->tileWidth, height, pBar->getOrientation());
+				$$nc(context->getPainter())->paintProgressBarForeground(context, g, i, y, this->tileWidth, height, pBar->getOrientation());
 			}
 		} else {
 			for (int32_t i = y - offset; i < height + this->tileWidth; i += this->tileWidth) {
-				$nc($(context->getPainter()))->paintProgressBarForeground(context, g, x, i, width, this->tileWidth, pBar->getOrientation());
+				$$nc(context->getPainter())->paintProgressBarForeground(context, g, x, i, width, this->tileWidth, pBar->getOrientation());
 			}
 		}
 		g->setClip(clip);
-	} else if (this->minBarSize == nullptr || (width >= $nc(this->minBarSize)->width && height >= $nc(this->minBarSize)->height)) {
-		$nc($(context->getPainter()))->paintProgressBarForeground(context, g, x, y, width, height, pBar->getOrientation());
+	} else if (this->minBarSize == nullptr || (width >= this->minBarSize->width && height >= this->minBarSize->height)) {
+		$$nc(context->getPainter())->paintProgressBarForeground(context, g, x, y, width, height, pBar->getOrientation());
 	}
-	if ($nc(pBar)->isStringPainted()) {
+	if (pBar->isStringPainted()) {
 		paintText(context, g, $(pBar->getString()));
 	}
 }
 
 void SynthProgressBarUI::paintText($SynthContext* context, $Graphics* g, $String* title) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(this->progressBar)->isStringPainted()) {
 		$var($SynthStyle, style, $nc(context)->getStyle());
 		$var($Font, font, $nc(style)->getFont(context));
 		$var($FontMetrics, fm, $SwingUtilities2::getFontMetrics(this->progressBar, g, font));
-		int32_t strLength = $nc($(style->getGraphicsUtils(context)))->computeStringWidth(context, font, fm, title);
+		int32_t strLength = $$nc(style->getGraphicsUtils(context))->computeStringWidth(context, font, fm, title);
 		$var($Rectangle, bounds, $nc(this->progressBar)->getBounds());
 		if (this->rotateText && $nc(this->progressBar)->getOrientation() == $JProgressBar::VERTICAL) {
 			$var($Graphics2D, g2, $cast($Graphics2D, g));
 			$var($Point, textPos, nullptr);
 			$var($AffineTransform, rotation, nullptr);
-			if ($nc($($nc(this->progressBar)->getComponentOrientation()))->isLeftToRight()) {
+			if ($$nc($nc(this->progressBar)->getComponentOrientation())->isLeftToRight()) {
 				$init($Math);
 				$assign(rotation, $AffineTransform::getRotateInstance(-$Math::PI / 2));
 				int32_t var$0 = $nc(bounds)->width + $nc(fm)->getAscent();
@@ -361,9 +296,9 @@ void SynthProgressBarUI::paintText($SynthContext* context, $Graphics* g, $String
 			$nc(g2)->setFont(font);
 			$init($ColorType);
 			g2->setColor($(style->getColor(context, $ColorType::TEXT_FOREGROUND)));
-			$nc($(style->getGraphicsUtils(context)))->paintText(context, g, title, $nc(textPos)->x, textPos->y, -1);
+			$$nc(style->getGraphicsUtils(context))->paintText(context, g, title, textPos->x, textPos->y, -1);
 		} else {
-			int32_t var$2 = bounds->height;
+			int32_t var$2 = $nc(bounds)->height;
 			int32_t var$4 = $nc(fm)->getAscent();
 			int32_t var$3 = (var$4 + fm->getDescent());
 			$var($Rectangle, textRect, $new($Rectangle, ($nc(bounds)->width / 2) - (strLength / 2), (var$2 - var$3) / 2, 0, 0));
@@ -373,25 +308,25 @@ void SynthProgressBarUI::paintText($SynthContext* context, $Graphics* g, $String
 			$init($ColorType);
 			$nc(g)->setColor($(style->getColor(context, $ColorType::TEXT_FOREGROUND)));
 			g->setFont(font);
-			$nc($(style->getGraphicsUtils(context)))->paintText(context, g, title, textRect->x, textRect->y, -1);
+			$$nc(style->getGraphicsUtils(context))->paintText(context, g, title, textRect->x, textRect->y, -1);
 		}
 	}
 }
 
 void SynthProgressBarUI::paintBorder($SynthContext* context, $Graphics* g, int32_t x, int32_t y, int32_t w, int32_t h) {
-	$nc($($nc(context)->getPainter()))->paintProgressBarBorder(context, g, x, y, w, h, $nc(this->progressBar)->getOrientation());
+	$$nc($nc(context)->getPainter())->paintProgressBarBorder(context, g, x, y, w, h, $nc(this->progressBar)->getOrientation());
 }
 
 void SynthProgressBarUI::propertyChange($PropertyChangeEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool var$0 = $SynthLookAndFeel::shouldUpdateStyle(e);
 	if (var$0 || "indeterminate"_s->equals($($nc(e)->getPropertyName()))) {
-		updateStyle($cast($JProgressBar, $($nc(e)->getSource())));
+		updateStyle($$cast($JProgressBar, $nc(e)->getSource()));
 	}
 }
 
 $Dimension* SynthProgressBarUI::getPreferredSize($JComponent* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Dimension, size, nullptr);
 	$var($Insets, border, $nc(this->progressBar)->getInsets());
 	$var($FontMetrics, fontSizer, $nc(this->progressBar)->getFontMetrics($($nc(this->progressBar)->getFont())));
@@ -434,7 +369,7 @@ $Dimension* SynthProgressBarUI::getPreferredSize($JComponent* c) {
 			size->height *= 0.784f;
 		}
 	}
-	$nc(size)->width += $nc(border)->left + border->right;
+	$nc(size)->width += $nc(border)->left + $nc(border)->right;
 	size->height += border->top + border->bottom;
 	return size;
 }
@@ -443,7 +378,56 @@ SynthProgressBarUI::SynthProgressBarUI() {
 }
 
 $Class* SynthProgressBarUI::load$($String* name, bool initialize) {
-	$loadClass(SynthProgressBarUI, name, initialize, &_SynthProgressBarUI_ClassInfo_, allocate$SynthProgressBarUI);
+	$FieldInfo fieldInfos$$[] = {
+		{"style", "Ljavax/swing/plaf/synth/SynthStyle;", nullptr, $PRIVATE, $field(SynthProgressBarUI, style)},
+		{"progressPadding", "I", nullptr, $PRIVATE, $field(SynthProgressBarUI, progressPadding)},
+		{"rotateText", "Z", nullptr, $PRIVATE, $field(SynthProgressBarUI, rotateText)},
+		{"paintOutsideClip", "Z", nullptr, $PRIVATE, $field(SynthProgressBarUI, paintOutsideClip)},
+		{"tileWhenIndeterminate", "Z", nullptr, $PRIVATE, $field(SynthProgressBarUI, tileWhenIndeterminate)},
+		{"tileWidth", "I", nullptr, $PRIVATE, $field(SynthProgressBarUI, tileWidth)},
+		{"minBarSize", "Ljava/awt/Dimension;", nullptr, $PRIVATE, $field(SynthProgressBarUI, minBarSize)},
+		{"glowWidth", "I", nullptr, $PRIVATE, $field(SynthProgressBarUI, glowWidth)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SynthProgressBarUI, init$, void)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(SynthProgressBarUI, createUI, $ComponentUI*, $JComponent*)},
+		{"getBaseline", "(Ljavax/swing/JComponent;II)I", nullptr, $PUBLIC, $virtualMethod(SynthProgressBarUI, getBaseline, int32_t, $JComponent*, int32_t, int32_t)},
+		{"getBox", "(Ljava/awt/Rectangle;)Ljava/awt/Rectangle;", nullptr, $PROTECTED, $virtualMethod(SynthProgressBarUI, getBox, $Rectangle*, $Rectangle*)},
+		{"getComponentState", "(Ljavax/swing/JComponent;)I", nullptr, $PRIVATE, $method(SynthProgressBarUI, getComponentState, int32_t, $JComponent*)},
+		{"getContext", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/synth/SynthContext;", nullptr, $PUBLIC, $virtualMethod(SynthProgressBarUI, getContext, $SynthContext*, $JComponent*)},
+		{"getContext", "(Ljavax/swing/JComponent;I)Ljavax/swing/plaf/synth/SynthContext;", nullptr, $PRIVATE, $method(SynthProgressBarUI, getContext, $SynthContext*, $JComponent*, int32_t)},
+		{"getPreferredSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(SynthProgressBarUI, getPreferredSize, $Dimension*, $JComponent*)},
+		{"installDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(SynthProgressBarUI, installDefaults, void)},
+		{"installListeners", "()V", nullptr, $PROTECTED, $virtualMethod(SynthProgressBarUI, installListeners, void)},
+		{"paint", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(SynthProgressBarUI, paint, void, $Graphics*, $JComponent*)},
+		{"paint", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;)V", nullptr, $PROTECTED, $virtualMethod(SynthProgressBarUI, paint, void, $SynthContext*, $Graphics*)},
+		{"paintBorder", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(SynthProgressBarUI, paintBorder, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{"paintText", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(SynthProgressBarUI, paintText, void, $SynthContext*, $Graphics*, $String*)},
+		{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(SynthProgressBarUI, propertyChange, void, $PropertyChangeEvent*)},
+		{"setAnimationIndex", "(I)V", nullptr, $PROTECTED, $virtualMethod(SynthProgressBarUI, setAnimationIndex, void, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"uninstallDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(SynthProgressBarUI, uninstallDefaults, void)},
+		{"uninstallListeners", "()V", nullptr, $PROTECTED, $virtualMethod(SynthProgressBarUI, uninstallListeners, void)},
+		{"update", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(SynthProgressBarUI, update, void, $Graphics*, $JComponent*)},
+		{"updateStyle", "(Ljavax/swing/JProgressBar;)V", nullptr, $PRIVATE, $method(SynthProgressBarUI, updateStyle, void, $JProgressBar*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.synth.SynthProgressBarUI",
+		"javax.swing.plaf.basic.BasicProgressBarUI",
+		"javax.swing.plaf.synth.SynthUI,java.beans.PropertyChangeListener",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SynthProgressBarUI, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SynthProgressBarUI));
+	});
 	return class$;
 }
 

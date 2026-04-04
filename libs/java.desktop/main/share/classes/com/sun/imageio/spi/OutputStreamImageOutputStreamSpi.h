@@ -33,6 +33,7 @@ class OutputStreamImageOutputStreamSpi : public ::javax::imageio::spi::ImageOutp
 public:
 	OutputStreamImageOutputStreamSpi();
 	using ::javax::imageio::spi::ImageOutputStreamSpi::createOutputStreamInstance;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual bool canUseCacheFile() override;
 	virtual ::javax::imageio::stream::ImageOutputStream* createOutputStreamInstance(Object$* output, bool useCache, ::java::io::File* cacheDir) override;

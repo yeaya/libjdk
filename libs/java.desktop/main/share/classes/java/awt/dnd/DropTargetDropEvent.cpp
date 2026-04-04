@@ -1,5 +1,4 @@
 #include <java/awt/dnd/DropTargetDropEvent.h>
-
 #include <java/awt/Point.h>
 #include <java/awt/datatransfer/DataFlavor.h>
 #include <java/awt/datatransfer/Transferable.h>
@@ -33,50 +32,10 @@ namespace java {
 	namespace awt {
 		namespace dnd {
 
-$FieldInfo _DropTargetDropEvent_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DropTargetDropEvent, serialVersionUID)},
-	{"zero", "Ljava/awt/Point;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DropTargetDropEvent, zero)},
-	{"location", "Ljava/awt/Point;", nullptr, $PRIVATE, $field(DropTargetDropEvent, location)},
-	{"actions", "I", nullptr, $PRIVATE, $field(DropTargetDropEvent, actions)},
-	{"dropAction", "I", nullptr, $PRIVATE, $field(DropTargetDropEvent, dropAction)},
-	{"isLocalTx", "Z", nullptr, $PRIVATE, $field(DropTargetDropEvent, isLocalTx)},
-	{}
-};
-
-$MethodInfo _DropTargetDropEvent_MethodInfo_[] = {
-	{"<init>", "(Ljava/awt/dnd/DropTargetContext;Ljava/awt/Point;II)V", nullptr, $PUBLIC, $method(DropTargetDropEvent, init$, void, $DropTargetContext*, $Point*, int32_t, int32_t)},
-	{"<init>", "(Ljava/awt/dnd/DropTargetContext;Ljava/awt/Point;IIZ)V", nullptr, $PUBLIC, $method(DropTargetDropEvent, init$, void, $DropTargetContext*, $Point*, int32_t, int32_t, bool)},
-	{"acceptDrop", "(I)V", nullptr, $PUBLIC, $virtualMethod(DropTargetDropEvent, acceptDrop, void, int32_t)},
-	{"dropComplete", "(Z)V", nullptr, $PUBLIC, $virtualMethod(DropTargetDropEvent, dropComplete, void, bool)},
-	{"getCurrentDataFlavors", "()[Ljava/awt/datatransfer/DataFlavor;", nullptr, $PUBLIC, $virtualMethod(DropTargetDropEvent, getCurrentDataFlavors, $DataFlavorArray*)},
-	{"getCurrentDataFlavorsAsList", "()Ljava/util/List;", "()Ljava/util/List<Ljava/awt/datatransfer/DataFlavor;>;", $PUBLIC, $virtualMethod(DropTargetDropEvent, getCurrentDataFlavorsAsList, $List*)},
-	{"getDropAction", "()I", nullptr, $PUBLIC, $virtualMethod(DropTargetDropEvent, getDropAction, int32_t)},
-	{"getLocation", "()Ljava/awt/Point;", nullptr, $PUBLIC, $virtualMethod(DropTargetDropEvent, getLocation, $Point*)},
-	{"getSourceActions", "()I", nullptr, $PUBLIC, $virtualMethod(DropTargetDropEvent, getSourceActions, int32_t)},
-	{"getTransferable", "()Ljava/awt/datatransfer/Transferable;", nullptr, $PUBLIC, $virtualMethod(DropTargetDropEvent, getTransferable, $Transferable*)},
-	{"isDataFlavorSupported", "(Ljava/awt/datatransfer/DataFlavor;)Z", nullptr, $PUBLIC, $virtualMethod(DropTargetDropEvent, isDataFlavorSupported, bool, $DataFlavor*)},
-	{"isLocalTransfer", "()Z", nullptr, $PUBLIC, $virtualMethod(DropTargetDropEvent, isLocalTransfer, bool)},
-	{"rejectDrop", "()V", nullptr, $PUBLIC, $virtualMethod(DropTargetDropEvent, rejectDrop, void)},
-	{}
-};
-
-$ClassInfo _DropTargetDropEvent_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.awt.dnd.DropTargetDropEvent",
-	"java.awt.dnd.DropTargetEvent",
-	nullptr,
-	_DropTargetDropEvent_FieldInfo_,
-	_DropTargetDropEvent_MethodInfo_
-};
-
-$Object* allocate$DropTargetDropEvent($Class* clazz) {
-	return $of($alloc(DropTargetDropEvent));
-}
-
 $Point* DropTargetDropEvent::zero = nullptr;
 
 void DropTargetDropEvent::init$($DropTargetContext* dtc, $Point* cursorLocn, int32_t dropAction, int32_t srcActions) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$DropTargetEvent::init$(dtc);
 	$set(this, location, DropTargetDropEvent::zero);
 	this->actions = $DnDConstants::ACTION_NONE;
@@ -88,7 +47,7 @@ void DropTargetDropEvent::init$($DropTargetContext* dtc, $Point* cursorLocn, int
 	if (dropAction != $DnDConstants::ACTION_NONE && dropAction != $DnDConstants::ACTION_COPY && dropAction != $DnDConstants::ACTION_MOVE && dropAction != $DnDConstants::ACTION_LINK) {
 		$throwNew($IllegalArgumentException, $$str({"dropAction = "_s, $$str(dropAction)}));
 	}
-	if (((int32_t)(srcActions & (uint32_t)~($DnDConstants::ACTION_COPY_OR_MOVE | $DnDConstants::ACTION_LINK))) != 0) {
+	if ((srcActions & ~($DnDConstants::ACTION_COPY_OR_MOVE | $DnDConstants::ACTION_LINK)) != 0) {
 		$throwNew($IllegalArgumentException, "srcActions"_s);
 	}
 	$set(this, location, cursorLocn);
@@ -106,15 +65,15 @@ $Point* DropTargetDropEvent::getLocation() {
 }
 
 $DataFlavorArray* DropTargetDropEvent::getCurrentDataFlavors() {
-	return $nc($(getDropTargetContext()))->getCurrentDataFlavors();
+	return $$nc(getDropTargetContext())->getCurrentDataFlavors();
 }
 
 $List* DropTargetDropEvent::getCurrentDataFlavorsAsList() {
-	return $nc($(getDropTargetContext()))->getCurrentDataFlavorsAsList();
+	return $$nc(getDropTargetContext())->getCurrentDataFlavorsAsList();
 }
 
 bool DropTargetDropEvent::isDataFlavorSupported($DataFlavor* df) {
-	return $nc($(getDropTargetContext()))->isDataFlavorSupported(df);
+	return $$nc(getDropTargetContext())->isDataFlavorSupported(df);
 }
 
 int32_t DropTargetDropEvent::getSourceActions() {
@@ -126,26 +85,26 @@ int32_t DropTargetDropEvent::getDropAction() {
 }
 
 $Transferable* DropTargetDropEvent::getTransferable() {
-	return $nc($(getDropTargetContext()))->getTransferable();
+	return $$nc(getDropTargetContext())->getTransferable();
 }
 
 void DropTargetDropEvent::acceptDrop(int32_t dropAction) {
-	$nc($(getDropTargetContext()))->acceptDrop(dropAction);
+	$$nc(getDropTargetContext())->acceptDrop(dropAction);
 }
 
 void DropTargetDropEvent::rejectDrop() {
-	$nc($(getDropTargetContext()))->rejectDrop();
+	$$nc(getDropTargetContext())->rejectDrop();
 }
 
 void DropTargetDropEvent::dropComplete(bool success) {
-	$nc($(getDropTargetContext()))->dropComplete(success);
+	$$nc(getDropTargetContext())->dropComplete(success);
 }
 
 bool DropTargetDropEvent::isLocalTransfer() {
 	return this->isLocalTx;
 }
 
-void clinit$DropTargetDropEvent($Class* class$) {
+void DropTargetDropEvent::clinit$($Class* clazz) {
 	$assignStatic(DropTargetDropEvent::zero, $new($Point, 0, 0));
 }
 
@@ -153,7 +112,42 @@ DropTargetDropEvent::DropTargetDropEvent() {
 }
 
 $Class* DropTargetDropEvent::load$($String* name, bool initialize) {
-	$loadClass(DropTargetDropEvent, name, initialize, &_DropTargetDropEvent_ClassInfo_, clinit$DropTargetDropEvent, allocate$DropTargetDropEvent);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DropTargetDropEvent, serialVersionUID)},
+		{"zero", "Ljava/awt/Point;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DropTargetDropEvent, zero)},
+		{"location", "Ljava/awt/Point;", nullptr, $PRIVATE, $field(DropTargetDropEvent, location)},
+		{"actions", "I", nullptr, $PRIVATE, $field(DropTargetDropEvent, actions)},
+		{"dropAction", "I", nullptr, $PRIVATE, $field(DropTargetDropEvent, dropAction)},
+		{"isLocalTx", "Z", nullptr, $PRIVATE, $field(DropTargetDropEvent, isLocalTx)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/dnd/DropTargetContext;Ljava/awt/Point;II)V", nullptr, $PUBLIC, $method(DropTargetDropEvent, init$, void, $DropTargetContext*, $Point*, int32_t, int32_t)},
+		{"<init>", "(Ljava/awt/dnd/DropTargetContext;Ljava/awt/Point;IIZ)V", nullptr, $PUBLIC, $method(DropTargetDropEvent, init$, void, $DropTargetContext*, $Point*, int32_t, int32_t, bool)},
+		{"acceptDrop", "(I)V", nullptr, $PUBLIC, $virtualMethod(DropTargetDropEvent, acceptDrop, void, int32_t)},
+		{"dropComplete", "(Z)V", nullptr, $PUBLIC, $virtualMethod(DropTargetDropEvent, dropComplete, void, bool)},
+		{"getCurrentDataFlavors", "()[Ljava/awt/datatransfer/DataFlavor;", nullptr, $PUBLIC, $virtualMethod(DropTargetDropEvent, getCurrentDataFlavors, $DataFlavorArray*)},
+		{"getCurrentDataFlavorsAsList", "()Ljava/util/List;", "()Ljava/util/List<Ljava/awt/datatransfer/DataFlavor;>;", $PUBLIC, $virtualMethod(DropTargetDropEvent, getCurrentDataFlavorsAsList, $List*)},
+		{"getDropAction", "()I", nullptr, $PUBLIC, $virtualMethod(DropTargetDropEvent, getDropAction, int32_t)},
+		{"getLocation", "()Ljava/awt/Point;", nullptr, $PUBLIC, $virtualMethod(DropTargetDropEvent, getLocation, $Point*)},
+		{"getSourceActions", "()I", nullptr, $PUBLIC, $virtualMethod(DropTargetDropEvent, getSourceActions, int32_t)},
+		{"getTransferable", "()Ljava/awt/datatransfer/Transferable;", nullptr, $PUBLIC, $virtualMethod(DropTargetDropEvent, getTransferable, $Transferable*)},
+		{"isDataFlavorSupported", "(Ljava/awt/datatransfer/DataFlavor;)Z", nullptr, $PUBLIC, $virtualMethod(DropTargetDropEvent, isDataFlavorSupported, bool, $DataFlavor*)},
+		{"isLocalTransfer", "()Z", nullptr, $PUBLIC, $virtualMethod(DropTargetDropEvent, isLocalTransfer, bool)},
+		{"rejectDrop", "()V", nullptr, $PUBLIC, $virtualMethod(DropTargetDropEvent, rejectDrop, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.awt.dnd.DropTargetDropEvent",
+		"java.awt.dnd.DropTargetEvent",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DropTargetDropEvent, name, initialize, &classInfo$$, DropTargetDropEvent::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(DropTargetDropEvent);
+	});
 	return class$;
 }
 

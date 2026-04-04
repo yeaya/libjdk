@@ -1,5 +1,4 @@
 #include <sun/awt/X11/XColormapEvent.h>
-
 #include <jdk/internal/misc/Unsafe.h>
 #include <sun/awt/X11/Native.h>
 #include <sun/awt/X11/XEvent.h>
@@ -11,66 +10,13 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Unsafe = ::jdk::internal::misc::Unsafe;
 using $Native = ::sun::awt::X11::Native;
 using $XWrapperBase = ::sun::awt::X11::XWrapperBase;
 using $XlibWrapper = ::sun::awt::X11::XlibWrapper;
-using $PlatformLogger = ::sun::util::logging::PlatformLogger;
 
 namespace sun {
 	namespace awt {
 		namespace X11 {
-
-$FieldInfo _XColormapEvent_FieldInfo_[] = {
-	{"unsafe", "Ljdk/internal/misc/Unsafe;", nullptr, $PRIVATE, $field(XColormapEvent, unsafe)},
-	{"should_free_memory", "Z", nullptr, $PRIVATE | $FINAL, $field(XColormapEvent, should_free_memory)},
-	{"pData", "J", nullptr, 0, $field(XColormapEvent, pData)},
-	{}
-};
-
-$MethodInfo _XColormapEvent_MethodInfo_[] = {
-	{"<init>", "(J)V", nullptr, $PUBLIC, $method(XColormapEvent, init$, void, int64_t)},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(XColormapEvent, init$, void)},
-	{"clone", "()Lsun/awt/X11/XEvent;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XColormapEvent, clone, $Object*)},
-	{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(XColormapEvent, dispose, void)},
-	{"getDataSize", "()I", nullptr, $PUBLIC, $virtualMethod(XColormapEvent, getDataSize, int32_t)},
-	{"getFieldsAsString", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(XColormapEvent, getFieldsAsString, $String*)},
-	{"getName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(XColormapEvent, getName, $String*)},
-	{"getPData", "()J", nullptr, $PUBLIC, $virtualMethod(XColormapEvent, getPData, int64_t)},
-	{"getSize", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(XColormapEvent, getSize, int32_t)},
-	{"get_colormap", "()J", nullptr, $PUBLIC, $virtualMethod(XColormapEvent, get_colormap, int64_t)},
-	{"get_display", "()J", nullptr, $PUBLIC, $virtualMethod(XColormapEvent, get_display, int64_t)},
-	{"get_new", "()Z", nullptr, $PUBLIC, $virtualMethod(XColormapEvent, get_new, bool)},
-	{"get_send_event", "()Z", nullptr, $PUBLIC, $virtualMethod(XColormapEvent, get_send_event, bool)},
-	{"get_serial", "()J", nullptr, $PUBLIC, $virtualMethod(XColormapEvent, get_serial, int64_t)},
-	{"get_state", "()I", nullptr, $PUBLIC, $virtualMethod(XColormapEvent, get_state, int32_t)},
-	{"get_type", "()I", nullptr, $PUBLIC, $virtualMethod(XColormapEvent, get_type, int32_t)},
-	{"get_window", "()J", nullptr, $PUBLIC, $virtualMethod(XColormapEvent, get_window, int64_t)},
-	{"set_colormap", "(J)V", nullptr, $PUBLIC, $virtualMethod(XColormapEvent, set_colormap, void, int64_t)},
-	{"set_display", "(J)V", nullptr, $PUBLIC, $virtualMethod(XColormapEvent, set_display, void, int64_t)},
-	{"set_new", "(Z)V", nullptr, $PUBLIC, $virtualMethod(XColormapEvent, set_new, void, bool)},
-	{"set_send_event", "(Z)V", nullptr, $PUBLIC, $virtualMethod(XColormapEvent, set_send_event, void, bool)},
-	{"set_serial", "(J)V", nullptr, $PUBLIC, $virtualMethod(XColormapEvent, set_serial, void, int64_t)},
-	{"set_state", "(I)V", nullptr, $PUBLIC, $virtualMethod(XColormapEvent, set_state, void, int32_t)},
-	{"set_type", "(I)V", nullptr, $PUBLIC, $virtualMethod(XColormapEvent, set_type, void, int32_t)},
-	{"set_window", "(J)V", nullptr, $PUBLIC, $virtualMethod(XColormapEvent, set_window, void, int64_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XColormapEvent, toString, $String*)},
-	{"zero", "()V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XColormapEvent, zero, void)},
-	{}
-};
-
-$ClassInfo _XColormapEvent_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.awt.X11.XColormapEvent",
-	"sun.awt.X11.XWrapperBase",
-	nullptr,
-	_XColormapEvent_FieldInfo_,
-	_XColormapEvent_MethodInfo_
-};
-
-$Object* allocate$XColormapEvent($Class* clazz) {
-	return $of($alloc(XColormapEvent));
-}
 
 int32_t XColormapEvent::getSize() {
 	$init(XColormapEvent);
@@ -109,7 +55,7 @@ void XColormapEvent::dispose() {
 	$init($XWrapperBase);
 	$nc($XWrapperBase::log)->finest("Disposing"_s);
 	if (this->should_free_memory) {
-		$nc($XWrapperBase::log)->finest("freeing memory"_s);
+		$XWrapperBase::log->finest("freeing memory"_s);
 		$nc(this->unsafe)->freeMemory(this->pData);
 	}
 }
@@ -215,7 +161,7 @@ $String* XColormapEvent::getName() {
 }
 
 $String* XColormapEvent::getFieldsAsString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, ret, $new($StringBuilder, 320));
 	$init($XlibWrapper);
 	ret->append("type = "_s)->append($nc($XlibWrapper::eventToString)->get(get_type()))->append(", "_s);
@@ -230,7 +176,7 @@ $String* XColormapEvent::getFieldsAsString() {
 }
 
 $Object* XColormapEvent::clone() {
-	return $of($XWrapperBase::clone());
+	return $XWrapperBase::clone();
 }
 
 void XColormapEvent::zero() {
@@ -245,7 +191,53 @@ XColormapEvent::XColormapEvent() {
 }
 
 $Class* XColormapEvent::load$($String* name, bool initialize) {
-	$loadClass(XColormapEvent, name, initialize, &_XColormapEvent_ClassInfo_, allocate$XColormapEvent);
+	$FieldInfo fieldInfos$$[] = {
+		{"unsafe", "Ljdk/internal/misc/Unsafe;", nullptr, $PRIVATE, $field(XColormapEvent, unsafe)},
+		{"should_free_memory", "Z", nullptr, $PRIVATE | $FINAL, $field(XColormapEvent, should_free_memory)},
+		{"pData", "J", nullptr, 0, $field(XColormapEvent, pData)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(J)V", nullptr, $PUBLIC, $method(XColormapEvent, init$, void, int64_t)},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(XColormapEvent, init$, void)},
+		{"clone", "()Lsun/awt/X11/XEvent;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XColormapEvent, clone, $Object*)},
+		{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(XColormapEvent, dispose, void)},
+		{"getDataSize", "()I", nullptr, $PUBLIC, $virtualMethod(XColormapEvent, getDataSize, int32_t)},
+		{"getFieldsAsString", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(XColormapEvent, getFieldsAsString, $String*)},
+		{"getName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(XColormapEvent, getName, $String*)},
+		{"getPData", "()J", nullptr, $PUBLIC, $virtualMethod(XColormapEvent, getPData, int64_t)},
+		{"getSize", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(XColormapEvent, getSize, int32_t)},
+		{"get_colormap", "()J", nullptr, $PUBLIC, $virtualMethod(XColormapEvent, get_colormap, int64_t)},
+		{"get_display", "()J", nullptr, $PUBLIC, $virtualMethod(XColormapEvent, get_display, int64_t)},
+		{"get_new", "()Z", nullptr, $PUBLIC, $virtualMethod(XColormapEvent, get_new, bool)},
+		{"get_send_event", "()Z", nullptr, $PUBLIC, $virtualMethod(XColormapEvent, get_send_event, bool)},
+		{"get_serial", "()J", nullptr, $PUBLIC, $virtualMethod(XColormapEvent, get_serial, int64_t)},
+		{"get_state", "()I", nullptr, $PUBLIC, $virtualMethod(XColormapEvent, get_state, int32_t)},
+		{"get_type", "()I", nullptr, $PUBLIC, $virtualMethod(XColormapEvent, get_type, int32_t)},
+		{"get_window", "()J", nullptr, $PUBLIC, $virtualMethod(XColormapEvent, get_window, int64_t)},
+		{"set_colormap", "(J)V", nullptr, $PUBLIC, $virtualMethod(XColormapEvent, set_colormap, void, int64_t)},
+		{"set_display", "(J)V", nullptr, $PUBLIC, $virtualMethod(XColormapEvent, set_display, void, int64_t)},
+		{"set_new", "(Z)V", nullptr, $PUBLIC, $virtualMethod(XColormapEvent, set_new, void, bool)},
+		{"set_send_event", "(Z)V", nullptr, $PUBLIC, $virtualMethod(XColormapEvent, set_send_event, void, bool)},
+		{"set_serial", "(J)V", nullptr, $PUBLIC, $virtualMethod(XColormapEvent, set_serial, void, int64_t)},
+		{"set_state", "(I)V", nullptr, $PUBLIC, $virtualMethod(XColormapEvent, set_state, void, int32_t)},
+		{"set_type", "(I)V", nullptr, $PUBLIC, $virtualMethod(XColormapEvent, set_type, void, int32_t)},
+		{"set_window", "(J)V", nullptr, $PUBLIC, $virtualMethod(XColormapEvent, set_window, void, int64_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XColormapEvent, toString, $String*)},
+		{"zero", "()V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XColormapEvent, zero, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.awt.X11.XColormapEvent",
+		"sun.awt.X11.XWrapperBase",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XColormapEvent, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XColormapEvent);
+	});
 	return class$;
 }
 

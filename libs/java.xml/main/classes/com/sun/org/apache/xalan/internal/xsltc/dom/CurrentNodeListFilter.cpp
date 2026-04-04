@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/dom/CurrentNodeListFilter.h>
-
 #include <com/sun/org/apache/xalan/internal/xsltc/runtime/AbstractTranslet.h>
 #include <com/sun/org/apache/xml/internal/dtm/DTMAxisIterator.h>
 #include <jcpp.h>
@@ -18,26 +17,22 @@ namespace com {
 						namespace xsltc {
 							namespace dom {
 
-$MethodInfo _CurrentNodeListFilter_MethodInfo_[] = {
-	{"test", "(IIIILcom/sun/org/apache/xalan/internal/xsltc/runtime/AbstractTranslet;Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CurrentNodeListFilter, test, bool, int32_t, int32_t, int32_t, int32_t, $AbstractTranslet*, $DTMAxisIterator*)},
-	{}
-};
-
-$ClassInfo _CurrentNodeListFilter_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.org.apache.xalan.internal.xsltc.dom.CurrentNodeListFilter",
-	nullptr,
-	nullptr,
-	nullptr,
-	_CurrentNodeListFilter_MethodInfo_
-};
-
-$Object* allocate$CurrentNodeListFilter($Class* clazz) {
-	return $of($alloc(CurrentNodeListFilter));
-}
-
 $Class* CurrentNodeListFilter::load$($String* name, bool initialize) {
-	$loadClass(CurrentNodeListFilter, name, initialize, &_CurrentNodeListFilter_ClassInfo_, allocate$CurrentNodeListFilter);
+	$MethodInfo methodInfos$$[] = {
+		{"test", "(IIIILcom/sun/org/apache/xalan/internal/xsltc/runtime/AbstractTranslet;Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CurrentNodeListFilter, test, bool, int32_t, int32_t, int32_t, int32_t, $AbstractTranslet*, $DTMAxisIterator*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.org.apache.xalan.internal.xsltc.dom.CurrentNodeListFilter",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(CurrentNodeListFilter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CurrentNodeListFilter);
+	});
 	return class$;
 }
 

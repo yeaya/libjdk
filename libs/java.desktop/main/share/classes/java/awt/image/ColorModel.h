@@ -37,6 +37,7 @@ class $export ColorModel : public ::java::awt::Transparency {
 	$class(ColorModel, $HAS_FINALIZE, ::java::awt::Transparency)
 public:
 	ColorModel();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int32_t bits);
 	void init$(int32_t pixel_bits, $ints* bits, ::java::awt::color::ColorSpace* cspace, bool hasAlpha, bool isAlphaPremultiplied, int32_t transparency, int32_t transferType);
 	virtual ::java::awt::image::ColorModel* coerceData(::java::awt::image::WritableRaster* raster, bool isAlphaPremultiplied);

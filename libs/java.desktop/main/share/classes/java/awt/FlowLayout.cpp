@@ -1,5 +1,4 @@
 #include <java/awt/FlowLayout.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/ComponentOrientation.h>
 #include <java/awt/Container.h>
@@ -17,7 +16,6 @@
 #undef TRAILING
 
 using $Component = ::java::awt::Component;
-using $ComponentOrientation = ::java::awt::ComponentOrientation;
 using $Container = ::java::awt::Container;
 using $Dimension = ::java::awt::Dimension;
 using $Insets = ::java::awt::Insets;
@@ -30,63 +28,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace java {
 	namespace awt {
-
-$FieldInfo _FlowLayout_FieldInfo_[] = {
-	{"LEFT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(FlowLayout, LEFT)},
-	{"CENTER", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(FlowLayout, CENTER)},
-	{"RIGHT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(FlowLayout, RIGHT)},
-	{"LEADING", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(FlowLayout, LEADING)},
-	{"TRAILING", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(FlowLayout, TRAILING)},
-	{"align", "I", nullptr, 0, $field(FlowLayout, align)},
-	{"newAlign", "I", nullptr, 0, $field(FlowLayout, newAlign)},
-	{"hgap", "I", nullptr, 0, $field(FlowLayout, hgap)},
-	{"vgap", "I", nullptr, 0, $field(FlowLayout, vgap)},
-	{"alignOnBaseline", "Z", nullptr, $PRIVATE, $field(FlowLayout, alignOnBaseline)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(FlowLayout, serialVersionUID)},
-	{"currentSerialVersion", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(FlowLayout, currentSerialVersion)},
-	{"serialVersionOnStream", "I", nullptr, $PRIVATE, $field(FlowLayout, serialVersionOnStream)},
-	{}
-};
-
-$MethodInfo _FlowLayout_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(FlowLayout, init$, void)},
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(FlowLayout, init$, void, int32_t)},
-	{"<init>", "(III)V", nullptr, $PUBLIC, $method(FlowLayout, init$, void, int32_t, int32_t, int32_t)},
-	{"addLayoutComponent", "(Ljava/lang/String;Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(FlowLayout, addLayoutComponent, void, $String*, $Component*)},
-	{"getAlignOnBaseline", "()Z", nullptr, $PUBLIC, $virtualMethod(FlowLayout, getAlignOnBaseline, bool)},
-	{"getAlignment", "()I", nullptr, $PUBLIC, $virtualMethod(FlowLayout, getAlignment, int32_t)},
-	{"getHgap", "()I", nullptr, $PUBLIC, $virtualMethod(FlowLayout, getHgap, int32_t)},
-	{"getVgap", "()I", nullptr, $PUBLIC, $virtualMethod(FlowLayout, getVgap, int32_t)},
-	{"layoutContainer", "(Ljava/awt/Container;)V", nullptr, $PUBLIC, $virtualMethod(FlowLayout, layoutContainer, void, $Container*)},
-	{"minimumLayoutSize", "(Ljava/awt/Container;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(FlowLayout, minimumLayoutSize, $Dimension*, $Container*)},
-	{"moveComponents", "(Ljava/awt/Container;IIIIIIZZ[I[I)I", nullptr, $PRIVATE, $method(FlowLayout, moveComponents, int32_t, $Container*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, bool, bool, $ints*, $ints*)},
-	{"preferredLayoutSize", "(Ljava/awt/Container;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(FlowLayout, preferredLayoutSize, $Dimension*, $Container*)},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(FlowLayout, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"removeLayoutComponent", "(Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(FlowLayout, removeLayoutComponent, void, $Component*)},
-	{"setAlignOnBaseline", "(Z)V", nullptr, $PUBLIC, $virtualMethod(FlowLayout, setAlignOnBaseline, void, bool)},
-	{"setAlignment", "(I)V", nullptr, $PUBLIC, $virtualMethod(FlowLayout, setAlignment, void, int32_t)},
-	{"setHgap", "(I)V", nullptr, $PUBLIC, $virtualMethod(FlowLayout, setHgap, void, int32_t)},
-	{"setVgap", "(I)V", nullptr, $PUBLIC, $virtualMethod(FlowLayout, setVgap, void, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(FlowLayout, toString, $String*)},
-	{}
-};
-
-$ClassInfo _FlowLayout_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.awt.FlowLayout",
-	"java.lang.Object",
-	"java.awt.LayoutManager,java.io.Serializable",
-	_FlowLayout_FieldInfo_,
-	_FlowLayout_MethodInfo_
-};
-
-$Object* allocate$FlowLayout($Class* clazz) {
-	return $of($alloc(FlowLayout));
-}
 
 int32_t FlowLayout::hashCode() {
 	 return this->$LayoutManager::hashCode();
@@ -127,20 +68,14 @@ void FlowLayout::setAlignment(int32_t align) {
 	this->newAlign = align;
 	switch (align) {
 	case FlowLayout::LEADING:
-		{
-			this->align = FlowLayout::LEFT;
-			break;
-		}
+		this->align = FlowLayout::LEFT;
+		break;
 	case FlowLayout::TRAILING:
-		{
-			this->align = FlowLayout::RIGHT;
-			break;
-		}
+		this->align = FlowLayout::RIGHT;
+		break;
 	default:
-		{
-			this->align = align;
-			break;
-		}
+		this->align = align;
+		break;
 	}
 }
 
@@ -175,7 +110,7 @@ void FlowLayout::removeLayoutComponent($Component* comp) {
 }
 
 $Dimension* FlowLayout::preferredLayoutSize($Container* target) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized($nc(target)->getTreeLock()) {
 		$var($Dimension, dim, $new($Dimension, 0, 0));
 		int32_t nmembers = target->getComponentCount();
@@ -193,7 +128,7 @@ $Dimension* FlowLayout::preferredLayoutSize($Container* target) {
 				} else {
 					dim->width += this->hgap;
 				}
-				dim->width += $nc(d)->width;
+				dim->width += d->width;
 				if (useBaseline) {
 					int32_t baseline = m->getBaseline(d->width, d->height);
 					if (baseline >= 0) {
@@ -207,14 +142,14 @@ $Dimension* FlowLayout::preferredLayoutSize($Container* target) {
 			dim->height = $Math::max(maxAscent + maxDescent, dim->height);
 		}
 		$var($Insets, insets, target->getInsets());
-		dim->width += $nc(insets)->left + insets->right + this->hgap * 2;
+		dim->width += $nc(insets)->left + $nc(insets)->right + this->hgap * 2;
 		dim->height += insets->top + insets->bottom + this->vgap * 2;
 		return dim;
 	}
 }
 
 $Dimension* FlowLayout::minimumLayoutSize($Container* target) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized($nc(target)->getTreeLock()) {
 		bool useBaseline = getAlignOnBaseline();
 		$var($Dimension, dim, $new($Dimension, 0, 0));
@@ -232,7 +167,7 @@ $Dimension* FlowLayout::minimumLayoutSize($Container* target) {
 				} else {
 					dim->width += this->hgap;
 				}
-				dim->width += $nc(d)->width;
+				dim->width += d->width;
 				if (useBaseline) {
 					int32_t baseline = m->getBaseline(d->width, d->height);
 					if (baseline >= 0) {
@@ -246,39 +181,29 @@ $Dimension* FlowLayout::minimumLayoutSize($Container* target) {
 			dim->height = $Math::max(maxAscent + maxDescent, dim->height);
 		}
 		$var($Insets, insets, target->getInsets());
-		dim->width += $nc(insets)->left + insets->right + this->hgap * 2;
+		dim->width += $nc(insets)->left + $nc(insets)->right + this->hgap * 2;
 		dim->height += insets->top + insets->bottom + this->vgap * 2;
 		return dim;
 	}
 }
 
 int32_t FlowLayout::moveComponents($Container* target, int32_t x, int32_t y, int32_t width, int32_t height, int32_t rowStart, int32_t rowEnd, bool ltr, bool useBaseline, $ints* ascent, $ints* descent) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	switch (this->newAlign) {
 	case FlowLayout::LEFT:
-		{
-			x += ltr ? 0 : width;
-			break;
-		}
+		x += ltr ? 0 : width;
+		break;
 	case FlowLayout::CENTER:
-		{
-			x += width / 2;
-			break;
-		}
+		x += width / 2;
+		break;
 	case FlowLayout::RIGHT:
-		{
-			x += ltr ? width : 0;
-			break;
-		}
+		x += ltr ? width : 0;
+		break;
 	case FlowLayout::LEADING:
-		{
-			break;
-		}
+		break;
 	case FlowLayout::TRAILING:
-		{
-			x += width;
-			break;
-		}
+		x += width;
+		break;
 	}
 	int32_t maxAscent = 0;
 	int32_t nonbaselineHeight = 0;
@@ -320,16 +245,16 @@ int32_t FlowLayout::moveComponents($Container* target, int32_t x, int32_t y, int
 }
 
 void FlowLayout::layoutContainer($Container* target) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized($nc(target)->getTreeLock()) {
 		$var($Insets, insets, target->getInsets());
-		int32_t maxwidth = target->width - ($nc(insets)->left + insets->right + this->hgap * 2);
+		int32_t maxwidth = target->width - ($nc(insets)->left + $nc(insets)->right + this->hgap * 2);
 		int32_t nmembers = target->getComponentCount();
 		int32_t x = 0;
 		int32_t y = insets->top + this->vgap;
 		int32_t rowh = 0;
 		int32_t start = 0;
-		bool ltr = $nc($(target->getComponentOrientation()))->isLeftToRight();
+		bool ltr = $$nc(target->getComponentOrientation())->isLeftToRight();
 		bool useBaseline = getAlignOnBaseline();
 		$var($ints, ascent, nullptr);
 		$var($ints, descent, nullptr);
@@ -341,17 +266,17 @@ void FlowLayout::layoutContainer($Container* target) {
 			$var($Component, m, target->getComponent(i));
 			if ($nc(m)->isVisible()) {
 				$var($Dimension, d, m->getPreferredSize());
-				m->setSize($nc(d)->width, d->height);
+				m->setSize($nc(d)->width, $nc(d)->height);
 				if (useBaseline) {
-					int32_t baseline = m->getBaseline($nc(d)->width, d->height);
+					int32_t baseline = m->getBaseline(d->width, d->height);
 					if (baseline >= 0) {
 						$nc(ascent)->set(i, baseline);
-						$nc(descent)->set(i, $nc(d)->height - baseline);
+						$nc(descent)->set(i, d->height - baseline);
 					} else {
 						$nc(ascent)->set(i, -1);
 					}
 				}
-				if ((x == 0) || ((x + $nc(d)->width) <= maxwidth)) {
+				if ((x == 0) || ((x + d->width) <= maxwidth)) {
 					if (x > 0) {
 						x += this->hgap;
 					}
@@ -379,34 +304,24 @@ void FlowLayout::readObject($ObjectInputStream* stream) {
 }
 
 $String* FlowLayout::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, str, ""_s);
 	switch (this->align) {
 	case FlowLayout::LEFT:
-		{
-			$assign(str, ",align=left"_s);
-			break;
-		}
+		$assign(str, ",align=left"_s);
+		break;
 	case FlowLayout::CENTER:
-		{
-			$assign(str, ",align=center"_s);
-			break;
-		}
+		$assign(str, ",align=center"_s);
+		break;
 	case FlowLayout::RIGHT:
-		{
-			$assign(str, ",align=right"_s);
-			break;
-		}
+		$assign(str, ",align=right"_s);
+		break;
 	case FlowLayout::LEADING:
-		{
-			$assign(str, ",align=leading"_s);
-			break;
-		}
+		$assign(str, ",align=leading"_s);
+		break;
 	case FlowLayout::TRAILING:
-		{
-			$assign(str, ",align=trailing"_s);
-			break;
-		}
+		$assign(str, ",align=trailing"_s);
+		break;
 	}
 	return $str({$($of(this)->getClass()->getName()), "[hgap="_s, $$str(this->hgap), ",vgap="_s, $$str(this->vgap), str, "]"_s});
 }
@@ -415,7 +330,59 @@ FlowLayout::FlowLayout() {
 }
 
 $Class* FlowLayout::load$($String* name, bool initialize) {
-	$loadClass(FlowLayout, name, initialize, &_FlowLayout_ClassInfo_, allocate$FlowLayout);
+	$FieldInfo fieldInfos$$[] = {
+		{"LEFT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(FlowLayout, LEFT)},
+		{"CENTER", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(FlowLayout, CENTER)},
+		{"RIGHT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(FlowLayout, RIGHT)},
+		{"LEADING", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(FlowLayout, LEADING)},
+		{"TRAILING", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(FlowLayout, TRAILING)},
+		{"align", "I", nullptr, 0, $field(FlowLayout, align)},
+		{"newAlign", "I", nullptr, 0, $field(FlowLayout, newAlign)},
+		{"hgap", "I", nullptr, 0, $field(FlowLayout, hgap)},
+		{"vgap", "I", nullptr, 0, $field(FlowLayout, vgap)},
+		{"alignOnBaseline", "Z", nullptr, $PRIVATE, $field(FlowLayout, alignOnBaseline)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(FlowLayout, serialVersionUID)},
+		{"currentSerialVersion", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(FlowLayout, currentSerialVersion)},
+		{"serialVersionOnStream", "I", nullptr, $PRIVATE, $field(FlowLayout, serialVersionOnStream)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(FlowLayout, init$, void)},
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(FlowLayout, init$, void, int32_t)},
+		{"<init>", "(III)V", nullptr, $PUBLIC, $method(FlowLayout, init$, void, int32_t, int32_t, int32_t)},
+		{"addLayoutComponent", "(Ljava/lang/String;Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(FlowLayout, addLayoutComponent, void, $String*, $Component*)},
+		{"getAlignOnBaseline", "()Z", nullptr, $PUBLIC, $virtualMethod(FlowLayout, getAlignOnBaseline, bool)},
+		{"getAlignment", "()I", nullptr, $PUBLIC, $virtualMethod(FlowLayout, getAlignment, int32_t)},
+		{"getHgap", "()I", nullptr, $PUBLIC, $virtualMethod(FlowLayout, getHgap, int32_t)},
+		{"getVgap", "()I", nullptr, $PUBLIC, $virtualMethod(FlowLayout, getVgap, int32_t)},
+		{"layoutContainer", "(Ljava/awt/Container;)V", nullptr, $PUBLIC, $virtualMethod(FlowLayout, layoutContainer, void, $Container*)},
+		{"minimumLayoutSize", "(Ljava/awt/Container;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(FlowLayout, minimumLayoutSize, $Dimension*, $Container*)},
+		{"moveComponents", "(Ljava/awt/Container;IIIIIIZZ[I[I)I", nullptr, $PRIVATE, $method(FlowLayout, moveComponents, int32_t, $Container*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, bool, bool, $ints*, $ints*)},
+		{"preferredLayoutSize", "(Ljava/awt/Container;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(FlowLayout, preferredLayoutSize, $Dimension*, $Container*)},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(FlowLayout, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+		{"removeLayoutComponent", "(Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(FlowLayout, removeLayoutComponent, void, $Component*)},
+		{"setAlignOnBaseline", "(Z)V", nullptr, $PUBLIC, $virtualMethod(FlowLayout, setAlignOnBaseline, void, bool)},
+		{"setAlignment", "(I)V", nullptr, $PUBLIC, $virtualMethod(FlowLayout, setAlignment, void, int32_t)},
+		{"setHgap", "(I)V", nullptr, $PUBLIC, $virtualMethod(FlowLayout, setHgap, void, int32_t)},
+		{"setVgap", "(I)V", nullptr, $PUBLIC, $virtualMethod(FlowLayout, setVgap, void, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(FlowLayout, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.awt.FlowLayout",
+		"java.lang.Object",
+		"java.awt.LayoutManager,java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(FlowLayout, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(FlowLayout));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/java2d/loops/XorDrawPolygonsANY.h>
-
 #include <sun/java2d/SunGraphics2D.h>
 #include <sun/java2d/SurfaceData.h>
 #include <sun/java2d/loops/CompositeType.h>
@@ -25,25 +24,6 @@ namespace sun {
 	namespace java2d {
 		namespace loops {
 
-$MethodInfo _XorDrawPolygonsANY_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(XorDrawPolygonsANY, init$, void)},
-	{"DrawPolygons", "(Lsun/java2d/SunGraphics2D;Lsun/java2d/SurfaceData;[I[I[IIIIZ)V", nullptr, $PUBLIC, $virtualMethod(XorDrawPolygonsANY, DrawPolygons$, void, $SunGraphics2D*, $SurfaceData*, $ints*, $ints*, $ints*, int32_t, int32_t, int32_t, bool)},
-	{}
-};
-
-$ClassInfo _XorDrawPolygonsANY_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.java2d.loops.XorDrawPolygonsANY",
-	"sun.java2d.loops.DrawPolygons",
-	nullptr,
-	nullptr,
-	_XorDrawPolygonsANY_MethodInfo_
-};
-
-$Object* allocate$XorDrawPolygonsANY($Class* clazz) {
-	return $of($alloc(XorDrawPolygonsANY));
-}
-
 void XorDrawPolygonsANY::init$() {
 	$init($SurfaceType);
 	$init($CompositeType);
@@ -51,7 +31,7 @@ void XorDrawPolygonsANY::init$() {
 }
 
 void XorDrawPolygonsANY::DrawPolygons$($SunGraphics2D* sg2d, $SurfaceData* sData, $ints* xPoints, $ints* yPoints, $ints* nPoints, int32_t numPolys, int32_t transx, int32_t transy, bool close) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($PixelWriter, pw, $GeneralRenderer::createXorPixelWriter(sg2d, sData));
 	int32_t off = 0;
 	$var($Region, clip, $nc(sg2d)->getCompClip());
@@ -66,7 +46,22 @@ XorDrawPolygonsANY::XorDrawPolygonsANY() {
 }
 
 $Class* XorDrawPolygonsANY::load$($String* name, bool initialize) {
-	$loadClass(XorDrawPolygonsANY, name, initialize, &_XorDrawPolygonsANY_ClassInfo_, allocate$XorDrawPolygonsANY);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(XorDrawPolygonsANY, init$, void)},
+		{"DrawPolygons", "(Lsun/java2d/SunGraphics2D;Lsun/java2d/SurfaceData;[I[I[IIIIZ)V", nullptr, $PUBLIC, $virtualMethod(XorDrawPolygonsANY, DrawPolygons$, void, $SunGraphics2D*, $SurfaceData*, $ints*, $ints*, $ints*, int32_t, int32_t, int32_t, bool)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.java2d.loops.XorDrawPolygonsANY",
+		"sun.java2d.loops.DrawPolygons",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(XorDrawPolygonsANY, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XorDrawPolygonsANY);
+	});
 	return class$;
 }
 

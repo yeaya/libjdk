@@ -1,5 +1,4 @@
 #include <jdk/nio/zipfs/ZipDirectoryStream.h>
-
 #include <java/io/IOException.h>
 #include <java/lang/IllegalStateException.h>
 #include <java/nio/file/ClosedDirectoryStreamException.h>
@@ -32,48 +31,8 @@ namespace jdk {
 	namespace nio {
 		namespace zipfs {
 
-$FieldInfo _ZipDirectoryStream_FieldInfo_[] = {
-	{"zipfs", "Ljdk/nio/zipfs/ZipFileSystem;", nullptr, $PRIVATE | $FINAL, $field(ZipDirectoryStream, zipfs)},
-	{"dir", "Ljdk/nio/zipfs/ZipPath;", nullptr, $PRIVATE | $FINAL, $field(ZipDirectoryStream, dir)},
-	{"filter", "Ljava/nio/file/DirectoryStream$Filter;", "Ljava/nio/file/DirectoryStream$Filter<-Ljava/nio/file/Path;>;", $PRIVATE | $FINAL, $field(ZipDirectoryStream, filter)},
-	{"isClosed", "Z", nullptr, $PRIVATE | $VOLATILE, $field(ZipDirectoryStream, isClosed)},
-	{"itr", "Ljava/util/Iterator;", "Ljava/util/Iterator<Ljava/nio/file/Path;>;", $PRIVATE | $VOLATILE, $field(ZipDirectoryStream, itr)},
-	{}
-};
-
-$MethodInfo _ZipDirectoryStream_MethodInfo_[] = {
-	{"<init>", "(Ljdk/nio/zipfs/ZipPath;Ljava/nio/file/DirectoryStream$Filter;)V", "(Ljdk/nio/zipfs/ZipPath;Ljava/nio/file/DirectoryStream$Filter<-Ljava/nio/file/Path;>;)V", 0, $method(ZipDirectoryStream, init$, void, $ZipPath*, $DirectoryStream$Filter*), "java.io.IOException"},
-	{"close", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ZipDirectoryStream, close, void), "java.io.IOException"},
-	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljava/nio/file/Path;>;", $PUBLIC | $SYNCHRONIZED, $virtualMethod(ZipDirectoryStream, iterator, $Iterator*)},
-	{}
-};
-
-$InnerClassInfo _ZipDirectoryStream_InnerClassesInfo_[] = {
-	{"jdk.nio.zipfs.ZipDirectoryStream$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _ZipDirectoryStream_ClassInfo_ = {
-	$ACC_SUPER,
-	"jdk.nio.zipfs.ZipDirectoryStream",
-	"java.lang.Object",
-	"java.nio.file.DirectoryStream",
-	_ZipDirectoryStream_FieldInfo_,
-	_ZipDirectoryStream_MethodInfo_,
-	"Ljava/lang/Object;Ljava/nio/file/DirectoryStream<Ljava/nio/file/Path;>;",
-	nullptr,
-	_ZipDirectoryStream_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"jdk.nio.zipfs.ZipDirectoryStream$1"
-};
-
-$Object* allocate$ZipDirectoryStream($Class* clazz) {
-	return $of($alloc(ZipDirectoryStream));
-}
-
 void ZipDirectoryStream::init$($ZipPath* dir, $DirectoryStream$Filter* filter) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, zipfs, $cast($ZipFileSystem, $nc(dir)->getFileSystem()));
 	$set(this, dir, dir);
 	$set(this, filter, filter);
@@ -109,7 +68,41 @@ ZipDirectoryStream::ZipDirectoryStream() {
 }
 
 $Class* ZipDirectoryStream::load$($String* name, bool initialize) {
-	$loadClass(ZipDirectoryStream, name, initialize, &_ZipDirectoryStream_ClassInfo_, allocate$ZipDirectoryStream);
+	$FieldInfo fieldInfos$$[] = {
+		{"zipfs", "Ljdk/nio/zipfs/ZipFileSystem;", nullptr, $PRIVATE | $FINAL, $field(ZipDirectoryStream, zipfs)},
+		{"dir", "Ljdk/nio/zipfs/ZipPath;", nullptr, $PRIVATE | $FINAL, $field(ZipDirectoryStream, dir)},
+		{"filter", "Ljava/nio/file/DirectoryStream$Filter;", "Ljava/nio/file/DirectoryStream$Filter<-Ljava/nio/file/Path;>;", $PRIVATE | $FINAL, $field(ZipDirectoryStream, filter)},
+		{"isClosed", "Z", nullptr, $PRIVATE | $VOLATILE, $field(ZipDirectoryStream, isClosed)},
+		{"itr", "Ljava/util/Iterator;", "Ljava/util/Iterator<Ljava/nio/file/Path;>;", $PRIVATE | $VOLATILE, $field(ZipDirectoryStream, itr)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/nio/zipfs/ZipPath;Ljava/nio/file/DirectoryStream$Filter;)V", "(Ljdk/nio/zipfs/ZipPath;Ljava/nio/file/DirectoryStream$Filter<-Ljava/nio/file/Path;>;)V", 0, $method(ZipDirectoryStream, init$, void, $ZipPath*, $DirectoryStream$Filter*), "java.io.IOException"},
+		{"close", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ZipDirectoryStream, close, void), "java.io.IOException"},
+		{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljava/nio/file/Path;>;", $PUBLIC | $SYNCHRONIZED, $virtualMethod(ZipDirectoryStream, iterator, $Iterator*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.nio.zipfs.ZipDirectoryStream$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"jdk.nio.zipfs.ZipDirectoryStream",
+		"java.lang.Object",
+		"java.nio.file.DirectoryStream",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/nio/file/DirectoryStream<Ljava/nio/file/Path;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"jdk.nio.zipfs.ZipDirectoryStream$1"
+	};
+	$loadClass(ZipDirectoryStream, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ZipDirectoryStream));
+	});
 	return class$;
 }
 

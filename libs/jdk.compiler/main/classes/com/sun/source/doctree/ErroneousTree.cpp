@@ -1,5 +1,4 @@
 #include <com/sun/source/doctree/ErroneousTree.h>
-
 #include <javax/tools/Diagnostic.h>
 #include <jcpp.h>
 
@@ -12,26 +11,22 @@ namespace com {
 		namespace source {
 			namespace doctree {
 
-$MethodInfo _ErroneousTree_MethodInfo_[] = {
-	{"getDiagnostic", "()Ljavax/tools/Diagnostic;", "()Ljavax/tools/Diagnostic<Ljavax/tools/JavaFileObject;>;", $PUBLIC | $ABSTRACT, $virtualMethod(ErroneousTree, getDiagnostic, $Diagnostic*)},
-	{}
-};
-
-$ClassInfo _ErroneousTree_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.source.doctree.ErroneousTree",
-	nullptr,
-	"com.sun.source.doctree.TextTree",
-	nullptr,
-	_ErroneousTree_MethodInfo_
-};
-
-$Object* allocate$ErroneousTree($Class* clazz) {
-	return $of($alloc(ErroneousTree));
-}
-
 $Class* ErroneousTree::load$($String* name, bool initialize) {
-	$loadClass(ErroneousTree, name, initialize, &_ErroneousTree_ClassInfo_, allocate$ErroneousTree);
+	$MethodInfo methodInfos$$[] = {
+		{"getDiagnostic", "()Ljavax/tools/Diagnostic;", "()Ljavax/tools/Diagnostic<Ljavax/tools/JavaFileObject;>;", $PUBLIC | $ABSTRACT, $virtualMethod(ErroneousTree, getDiagnostic, $Diagnostic*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.source.doctree.ErroneousTree",
+		nullptr,
+		"com.sun.source.doctree.TextTree",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ErroneousTree, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ErroneousTree);
+	});
 	return class$;
 }
 

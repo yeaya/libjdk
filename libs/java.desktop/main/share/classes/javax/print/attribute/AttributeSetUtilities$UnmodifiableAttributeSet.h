@@ -41,7 +41,7 @@ public:
 	virtual int32_t size() override;
 	virtual $Array<::javax::print::attribute::Attribute>* toArray() override;
 	virtual $String* toString() override;
-	static const int64_t serialVersionUID = (int64_t)0xAAE77609A3FF2EFB;
+	static const int64_t serialVersionUID = (int64_t)0xaae77609a3ff2efb;
 	::javax::print::attribute::AttributeSet* attrset = nullptr;
 };
 

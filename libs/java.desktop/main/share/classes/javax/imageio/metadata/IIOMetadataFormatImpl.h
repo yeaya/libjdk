@@ -37,6 +37,7 @@ class $export IIOMetadataFormatImpl : public ::javax::imageio::metadata::IIOMeta
 public:
 	IIOMetadataFormatImpl();
 	virtual bool canNodeAppear($String* elementName, ::javax::imageio::ImageTypeSpecifier* imageType) override {return false;}
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* rootName, int32_t childPolicy);
 	void init$($String* rootName, int32_t minChildren, int32_t maxChildren);
 	virtual void addAttribute($String* elementName, $String* attrName, int32_t dataType, bool required, $String* defaultValue);

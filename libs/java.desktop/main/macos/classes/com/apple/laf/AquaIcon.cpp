@@ -1,5 +1,4 @@
 #include <com/apple/laf/AquaIcon.h>
-
 #include <com/apple/laf/AquaIcon$1.h>
 #include <com/apple/laf/AquaIcon$JRSUIControlSpec.h>
 #include <java/awt/Component.h>
@@ -30,47 +29,6 @@ namespace com {
 	namespace apple {
 		namespace laf {
 
-$MethodInfo _AquaIcon_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AquaIcon, init$, void)},
-	{"getIconFor", "(Lcom/apple/laf/AquaIcon$JRSUIControlSpec;II)Ljavax/swing/plaf/UIResource;", nullptr, $STATIC, $staticMethod(AquaIcon, getIconFor, $UIResource*, $AquaIcon$JRSUIControlSpec*, int32_t, int32_t)},
-	{"getImageForIcon", "(Ljavax/swing/Icon;)Ljava/awt/Image;", nullptr, $PUBLIC | $STATIC, $staticMethod(AquaIcon, getImageForIcon, $Image*, $Icon*)},
-	{}
-};
-
-$InnerClassInfo _AquaIcon_InnerClassesInfo_[] = {
-	{"com.apple.laf.AquaIcon$SystemIcon", "com.apple.laf.AquaIcon", "SystemIcon", $STATIC},
-	{"com.apple.laf.AquaIcon$SystemIconUIResourceSingleton", "com.apple.laf.AquaIcon", "SystemIconUIResourceSingleton", $STATIC},
-	{"com.apple.laf.AquaIcon$SystemIconSingleton", "com.apple.laf.AquaIcon", "SystemIconSingleton", $STATIC},
-	{"com.apple.laf.AquaIcon$FileIcon", "com.apple.laf.AquaIcon", "FileIcon", $STATIC},
-	{"com.apple.laf.AquaIcon$ScalingJRSUIIcon", "com.apple.laf.AquaIcon", "ScalingJRSUIIcon", $STATIC | $ABSTRACT},
-	{"com.apple.laf.AquaIcon$CachingScalingIcon", "com.apple.laf.AquaIcon", "CachingScalingIcon", $STATIC | $ABSTRACT},
-	{"com.apple.laf.AquaIcon$DynamicallySizingJRSUIIcon", "com.apple.laf.AquaIcon", "DynamicallySizingJRSUIIcon", $STATIC | $ABSTRACT},
-	{"com.apple.laf.AquaIcon$JRSUIIcon", "com.apple.laf.AquaIcon", "JRSUIIcon", $STATIC | $ABSTRACT},
-	{"com.apple.laf.AquaIcon$JRSUIControlSpec", "com.apple.laf.AquaIcon", "JRSUIControlSpec", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"com.apple.laf.AquaIcon$InvertableIcon", "com.apple.laf.AquaIcon", "InvertableIcon", $STATIC | $INTERFACE | $ABSTRACT},
-	{"com.apple.laf.AquaIcon$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _AquaIcon_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.apple.laf.AquaIcon",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_AquaIcon_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AquaIcon_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.apple.laf.AquaIcon$SystemIcon,com.apple.laf.AquaIcon$SystemIconUIResourceSingleton,com.apple.laf.AquaIcon$SystemIconSingleton,com.apple.laf.AquaIcon$FileIcon,com.apple.laf.AquaIcon$ScalingJRSUIIcon,com.apple.laf.AquaIcon$CachingScalingIcon,com.apple.laf.AquaIcon$DynamicallySizingJRSUIIcon,com.apple.laf.AquaIcon$JRSUIIcon,com.apple.laf.AquaIcon$JRSUIControlSpec,com.apple.laf.AquaIcon$InvertableIcon,com.apple.laf.AquaIcon$1"
-};
-
-$Object* allocate$AquaIcon($Class* clazz) {
-	return $of($alloc(AquaIcon));
-}
-
 void AquaIcon::init$() {
 }
 
@@ -79,9 +37,9 @@ $UIResource* AquaIcon::getIconFor($AquaIcon$JRSUIControlSpec* spec, int32_t widt
 }
 
 $Image* AquaIcon::getImageForIcon($Icon* i) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($instanceOf($ImageIcon, i)) {
-		return $nc(($cast($ImageIcon, i)))->getImage();
+		return $cast($ImageIcon, i)->getImage();
 	}
 	int32_t w = $nc(i)->getIconWidth();
 	int32_t h = i->getIconHeight();
@@ -99,7 +57,43 @@ AquaIcon::AquaIcon() {
 }
 
 $Class* AquaIcon::load$($String* name, bool initialize) {
-	$loadClass(AquaIcon, name, initialize, &_AquaIcon_ClassInfo_, allocate$AquaIcon);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AquaIcon, init$, void)},
+		{"getIconFor", "(Lcom/apple/laf/AquaIcon$JRSUIControlSpec;II)Ljavax/swing/plaf/UIResource;", nullptr, $STATIC, $staticMethod(AquaIcon, getIconFor, $UIResource*, $AquaIcon$JRSUIControlSpec*, int32_t, int32_t)},
+		{"getImageForIcon", "(Ljavax/swing/Icon;)Ljava/awt/Image;", nullptr, $PUBLIC | $STATIC, $staticMethod(AquaIcon, getImageForIcon, $Image*, $Icon*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.laf.AquaIcon$SystemIcon", "com.apple.laf.AquaIcon", "SystemIcon", $STATIC},
+		{"com.apple.laf.AquaIcon$SystemIconUIResourceSingleton", "com.apple.laf.AquaIcon", "SystemIconUIResourceSingleton", $STATIC},
+		{"com.apple.laf.AquaIcon$SystemIconSingleton", "com.apple.laf.AquaIcon", "SystemIconSingleton", $STATIC},
+		{"com.apple.laf.AquaIcon$FileIcon", "com.apple.laf.AquaIcon", "FileIcon", $STATIC},
+		{"com.apple.laf.AquaIcon$ScalingJRSUIIcon", "com.apple.laf.AquaIcon", "ScalingJRSUIIcon", $STATIC | $ABSTRACT},
+		{"com.apple.laf.AquaIcon$CachingScalingIcon", "com.apple.laf.AquaIcon", "CachingScalingIcon", $STATIC | $ABSTRACT},
+		{"com.apple.laf.AquaIcon$DynamicallySizingJRSUIIcon", "com.apple.laf.AquaIcon", "DynamicallySizingJRSUIIcon", $STATIC | $ABSTRACT},
+		{"com.apple.laf.AquaIcon$JRSUIIcon", "com.apple.laf.AquaIcon", "JRSUIIcon", $STATIC | $ABSTRACT},
+		{"com.apple.laf.AquaIcon$JRSUIControlSpec", "com.apple.laf.AquaIcon", "JRSUIControlSpec", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"com.apple.laf.AquaIcon$InvertableIcon", "com.apple.laf.AquaIcon", "InvertableIcon", $STATIC | $INTERFACE | $ABSTRACT},
+		{"com.apple.laf.AquaIcon$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.apple.laf.AquaIcon",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.apple.laf.AquaIcon$SystemIcon,com.apple.laf.AquaIcon$SystemIconUIResourceSingleton,com.apple.laf.AquaIcon$SystemIconSingleton,com.apple.laf.AquaIcon$FileIcon,com.apple.laf.AquaIcon$ScalingJRSUIIcon,com.apple.laf.AquaIcon$CachingScalingIcon,com.apple.laf.AquaIcon$DynamicallySizingJRSUIIcon,com.apple.laf.AquaIcon$JRSUIIcon,com.apple.laf.AquaIcon$JRSUIControlSpec,com.apple.laf.AquaIcon$InvertableIcon,com.apple.laf.AquaIcon$1"
+	};
+	$loadClass(AquaIcon, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AquaIcon);
+	});
 	return class$;
 }
 

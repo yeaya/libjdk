@@ -1,5 +1,4 @@
 #include <com/apple/laf/AquaFileChooserUI$OpenDirOrAnyPanel.h>
-
 #include <com/apple/laf/AquaFileChooserUI$DirOrAnyPanel.h>
 #include <com/apple/laf/AquaFileChooserUI$FCSubpanel.h>
 #include <com/apple/laf/AquaFileChooserUI$JTableExtension.h>
@@ -20,55 +19,12 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $JButton = ::javax::swing::JButton;
 using $JComponent = ::javax::swing::JComponent;
 using $JFileChooser = ::javax::swing::JFileChooser;
-using $JPanel = ::javax::swing::JPanel;
 
 namespace com {
 	namespace apple {
 		namespace laf {
-
-$FieldInfo _AquaFileChooserUI$OpenDirOrAnyPanel_FieldInfo_[] = {
-	{"this$0", "Lcom/apple/laf/AquaFileChooserUI;", nullptr, $FINAL | $SYNTHETIC, $field(AquaFileChooserUI$OpenDirOrAnyPanel, this$0)},
-	{}
-};
-
-$MethodInfo _AquaFileChooserUI$OpenDirOrAnyPanel_MethodInfo_[] = {
-	{"<init>", "(Lcom/apple/laf/AquaFileChooserUI;)V", nullptr, 0, $method(AquaFileChooserUI$OpenDirOrAnyPanel, init$, void, $AquaFileChooserUI*)},
-	{"getApproveButtonMnemonic", "(Ljavax/swing/JFileChooser;)I", nullptr, 0, $virtualMethod(AquaFileChooserUI$OpenDirOrAnyPanel, getApproveButtonMnemonic, int32_t, $JFileChooser*)},
-	{"getApproveButtonToolTipText", "(Ljavax/swing/JFileChooser;)Ljava/lang/String;", nullptr, 0, $virtualMethod(AquaFileChooserUI$OpenDirOrAnyPanel, getApproveButtonToolTipText, $String*, $JFileChooser*)},
-	{"getFocusComponent", "(Ljavax/swing/JFileChooser;)Ljavax/swing/JComponent;", nullptr, 0, $virtualMethod(AquaFileChooserUI$OpenDirOrAnyPanel, getFocusComponent, $JComponent*, $JFileChooser*)},
-	{"installPanel", "(Ljavax/swing/JFileChooser;Z)V", nullptr, 0, $virtualMethod(AquaFileChooserUI$OpenDirOrAnyPanel, installPanel, void, $JFileChooser*, bool)},
-	{"updateButtonState", "(Ljavax/swing/JFileChooser;Ljava/io/File;)V", nullptr, 0, $virtualMethod(AquaFileChooserUI$OpenDirOrAnyPanel, updateButtonState, void, $JFileChooser*, $File*)},
-	{}
-};
-
-$InnerClassInfo _AquaFileChooserUI$OpenDirOrAnyPanel_InnerClassesInfo_[] = {
-	{"com.apple.laf.AquaFileChooserUI$OpenDirOrAnyPanel", "com.apple.laf.AquaFileChooserUI", "OpenDirOrAnyPanel", 0},
-	{"com.apple.laf.AquaFileChooserUI$DirOrAnyPanel", "com.apple.laf.AquaFileChooserUI", "DirOrAnyPanel", $ABSTRACT},
-	{}
-};
-
-$ClassInfo _AquaFileChooserUI$OpenDirOrAnyPanel_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.apple.laf.AquaFileChooserUI$OpenDirOrAnyPanel",
-	"com.apple.laf.AquaFileChooserUI$DirOrAnyPanel",
-	nullptr,
-	_AquaFileChooserUI$OpenDirOrAnyPanel_FieldInfo_,
-	_AquaFileChooserUI$OpenDirOrAnyPanel_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AquaFileChooserUI$OpenDirOrAnyPanel_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.apple.laf.AquaFileChooserUI"
-};
-
-$Object* allocate$AquaFileChooserUI$OpenDirOrAnyPanel($Class* clazz) {
-	return $of($alloc(AquaFileChooserUI$OpenDirOrAnyPanel));
-}
 
 void AquaFileChooserUI$OpenDirOrAnyPanel::init$($AquaFileChooserUI* this$0) {
 	$set(this, this$0, this$0);
@@ -100,7 +56,7 @@ $String* AquaFileChooserUI$OpenDirOrAnyPanel::getApproveButtonToolTipText($JFile
 }
 
 void AquaFileChooserUI$OpenDirOrAnyPanel::updateButtonState($JFileChooser* fc, $File* f) {
-	$nc($(this->this$0->getApproveButton(fc)))->setEnabled(f != nullptr);
+	$$nc(this->this$0->getApproveButton(fc))->setEnabled(f != nullptr);
 	$AquaFileChooserUI$DirOrAnyPanel::updateButtonState(fc, f);
 }
 
@@ -108,7 +64,42 @@ AquaFileChooserUI$OpenDirOrAnyPanel::AquaFileChooserUI$OpenDirOrAnyPanel() {
 }
 
 $Class* AquaFileChooserUI$OpenDirOrAnyPanel::load$($String* name, bool initialize) {
-	$loadClass(AquaFileChooserUI$OpenDirOrAnyPanel, name, initialize, &_AquaFileChooserUI$OpenDirOrAnyPanel_ClassInfo_, allocate$AquaFileChooserUI$OpenDirOrAnyPanel);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/apple/laf/AquaFileChooserUI;", nullptr, $FINAL | $SYNTHETIC, $field(AquaFileChooserUI$OpenDirOrAnyPanel, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/apple/laf/AquaFileChooserUI;)V", nullptr, 0, $method(AquaFileChooserUI$OpenDirOrAnyPanel, init$, void, $AquaFileChooserUI*)},
+		{"getApproveButtonMnemonic", "(Ljavax/swing/JFileChooser;)I", nullptr, 0, $virtualMethod(AquaFileChooserUI$OpenDirOrAnyPanel, getApproveButtonMnemonic, int32_t, $JFileChooser*)},
+		{"getApproveButtonToolTipText", "(Ljavax/swing/JFileChooser;)Ljava/lang/String;", nullptr, 0, $virtualMethod(AquaFileChooserUI$OpenDirOrAnyPanel, getApproveButtonToolTipText, $String*, $JFileChooser*)},
+		{"getFocusComponent", "(Ljavax/swing/JFileChooser;)Ljavax/swing/JComponent;", nullptr, 0, $virtualMethod(AquaFileChooserUI$OpenDirOrAnyPanel, getFocusComponent, $JComponent*, $JFileChooser*)},
+		{"installPanel", "(Ljavax/swing/JFileChooser;Z)V", nullptr, 0, $virtualMethod(AquaFileChooserUI$OpenDirOrAnyPanel, installPanel, void, $JFileChooser*, bool)},
+		{"updateButtonState", "(Ljavax/swing/JFileChooser;Ljava/io/File;)V", nullptr, 0, $virtualMethod(AquaFileChooserUI$OpenDirOrAnyPanel, updateButtonState, void, $JFileChooser*, $File*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.laf.AquaFileChooserUI$OpenDirOrAnyPanel", "com.apple.laf.AquaFileChooserUI", "OpenDirOrAnyPanel", 0},
+		{"com.apple.laf.AquaFileChooserUI$DirOrAnyPanel", "com.apple.laf.AquaFileChooserUI", "DirOrAnyPanel", $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.apple.laf.AquaFileChooserUI$OpenDirOrAnyPanel",
+		"com.apple.laf.AquaFileChooserUI$DirOrAnyPanel",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.apple.laf.AquaFileChooserUI"
+	};
+	$loadClass(AquaFileChooserUI$OpenDirOrAnyPanel, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AquaFileChooserUI$OpenDirOrAnyPanel);
+	});
 	return class$;
 }
 

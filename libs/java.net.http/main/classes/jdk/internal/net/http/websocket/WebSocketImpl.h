@@ -89,6 +89,7 @@ class WebSocketImpl : public ::java::net::http::WebSocket {
 	$class(WebSocketImpl, 0, ::java::net::http::WebSocket)
 public:
 	WebSocketImpl();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::net::URI* uri, $String* subprotocol, ::java::net::http::WebSocket$Listener* listener, ::jdk::internal::net::http::websocket::TransportFactory* transportFactory);
 	virtual void abort() override;
 	::java::nio::ByteBuffer* clearAutomaticPong();

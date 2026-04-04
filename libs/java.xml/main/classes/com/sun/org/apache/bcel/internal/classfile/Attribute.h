@@ -52,6 +52,7 @@ public:
 	virtual bool equals(Object$* arg0) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int8_t tag, int32_t name_index, int32_t length, ::com::sun::org::apache::bcel::internal::classfile::ConstantPool* constant_pool);
 	static void addAttributeReader($String* name, ::com::sun::org::apache::bcel::internal::classfile::UnknownAttributeReader* r);
 	virtual $Object* clone() override;

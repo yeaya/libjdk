@@ -15,10 +15,13 @@ public:
 	NoSuchAttributeException();
 	void init$($String* explanation);
 	void init$();
-	static const int64_t serialVersionUID = (int64_t)0x431E6668495BFB09;
+	static const int64_t serialVersionUID = (int64_t)0x431e6668495bfb09;
 	NoSuchAttributeException(const NoSuchAttributeException& e);
 	virtual void throw$() override;
-	inline NoSuchAttributeException* operator ->() {
+	inline NoSuchAttributeException* operator ->() const {
+		return (NoSuchAttributeException*)throwing$;
+	}
+	inline operator NoSuchAttributeException*() const {
 		return (NoSuchAttributeException*)throwing$;
 	}
 };

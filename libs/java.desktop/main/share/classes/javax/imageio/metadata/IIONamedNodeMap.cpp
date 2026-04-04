@@ -1,5 +1,4 @@
 #include <javax/imageio/metadata/IIONamedNodeMap.h>
-
 #include <java/util/Iterator.h>
 #include <java/util/List.h>
 #include <org/w3c/dom/DOMException.h>
@@ -20,37 +19,6 @@ namespace javax {
 	namespace imageio {
 		namespace metadata {
 
-$FieldInfo _IIONamedNodeMap_FieldInfo_[] = {
-	{"nodes", "Ljava/util/List;", "Ljava/util/List<+Lorg/w3c/dom/Node;>;", 0, $field(IIONamedNodeMap, nodes)},
-	{}
-};
-
-$MethodInfo _IIONamedNodeMap_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/List;)V", "(Ljava/util/List<+Lorg/w3c/dom/Node;>;)V", $PUBLIC, $method(IIONamedNodeMap, init$, void, $List*)},
-	{"getLength", "()I", nullptr, $PUBLIC, $virtualMethod(IIONamedNodeMap, getLength, int32_t)},
-	{"getNamedItem", "(Ljava/lang/String;)Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(IIONamedNodeMap, getNamedItem, $Node*, $String*)},
-	{"getNamedItemNS", "(Ljava/lang/String;Ljava/lang/String;)Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(IIONamedNodeMap, getNamedItemNS, $Node*, $String*, $String*)},
-	{"item", "(I)Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(IIONamedNodeMap, item, $Node*, int32_t)},
-	{"removeNamedItem", "(Ljava/lang/String;)Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(IIONamedNodeMap, removeNamedItem, $Node*, $String*)},
-	{"removeNamedItemNS", "(Ljava/lang/String;Ljava/lang/String;)Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(IIONamedNodeMap, removeNamedItemNS, $Node*, $String*, $String*)},
-	{"setNamedItem", "(Lorg/w3c/dom/Node;)Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(IIONamedNodeMap, setNamedItem, $Node*, $Node*)},
-	{"setNamedItemNS", "(Lorg/w3c/dom/Node;)Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(IIONamedNodeMap, setNamedItemNS, $Node*, $Node*)},
-	{}
-};
-
-$ClassInfo _IIONamedNodeMap_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.imageio.metadata.IIONamedNodeMap",
-	"java.lang.Object",
-	"org.w3c.dom.NamedNodeMap",
-	_IIONamedNodeMap_FieldInfo_,
-	_IIONamedNodeMap_MethodInfo_
-};
-
-$Object* allocate$IIONamedNodeMap($Class* clazz) {
-	return $of($alloc(IIONamedNodeMap));
-}
-
 void IIONamedNodeMap::init$($List* nodes) {
 	$set(this, nodes, nodes);
 }
@@ -60,16 +28,12 @@ int32_t IIONamedNodeMap::getLength() {
 }
 
 $Node* IIONamedNodeMap::getNamedItem($String* name) {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Iterator, i$, $nc(this->nodes)->iterator());
-		for (; $nc(i$)->hasNext();) {
-			$var($Node, node, $cast($Node, i$->next()));
-			{
-				if ($nc(name)->equals($($nc(node)->getNodeName()))) {
-					return node;
-				}
-			}
+	$useLocalObjectStack();
+	$var($Iterator, i$, $nc(this->nodes)->iterator());
+	for (; $nc(i$)->hasNext();) {
+		$var($Node, node, $cast($Node, i$->next()));
+		if ($nc(name)->equals($($nc(node)->getNodeName()))) {
+			return node;
 		}
 	}
 	return nullptr;
@@ -106,7 +70,33 @@ IIONamedNodeMap::IIONamedNodeMap() {
 }
 
 $Class* IIONamedNodeMap::load$($String* name, bool initialize) {
-	$loadClass(IIONamedNodeMap, name, initialize, &_IIONamedNodeMap_ClassInfo_, allocate$IIONamedNodeMap);
+	$FieldInfo fieldInfos$$[] = {
+		{"nodes", "Ljava/util/List;", "Ljava/util/List<+Lorg/w3c/dom/Node;>;", 0, $field(IIONamedNodeMap, nodes)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/List;)V", "(Ljava/util/List<+Lorg/w3c/dom/Node;>;)V", $PUBLIC, $method(IIONamedNodeMap, init$, void, $List*)},
+		{"getLength", "()I", nullptr, $PUBLIC, $virtualMethod(IIONamedNodeMap, getLength, int32_t)},
+		{"getNamedItem", "(Ljava/lang/String;)Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(IIONamedNodeMap, getNamedItem, $Node*, $String*)},
+		{"getNamedItemNS", "(Ljava/lang/String;Ljava/lang/String;)Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(IIONamedNodeMap, getNamedItemNS, $Node*, $String*, $String*)},
+		{"item", "(I)Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(IIONamedNodeMap, item, $Node*, int32_t)},
+		{"removeNamedItem", "(Ljava/lang/String;)Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(IIONamedNodeMap, removeNamedItem, $Node*, $String*)},
+		{"removeNamedItemNS", "(Ljava/lang/String;Ljava/lang/String;)Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(IIONamedNodeMap, removeNamedItemNS, $Node*, $String*, $String*)},
+		{"setNamedItem", "(Lorg/w3c/dom/Node;)Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(IIONamedNodeMap, setNamedItem, $Node*, $Node*)},
+		{"setNamedItemNS", "(Lorg/w3c/dom/Node;)Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(IIONamedNodeMap, setNamedItemNS, $Node*, $Node*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.imageio.metadata.IIONamedNodeMap",
+		"java.lang.Object",
+		"org.w3c.dom.NamedNodeMap",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(IIONamedNodeMap, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(IIONamedNodeMap);
+	});
 	return class$;
 }
 

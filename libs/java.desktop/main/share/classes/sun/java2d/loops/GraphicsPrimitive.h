@@ -61,6 +61,7 @@ class GraphicsPrimitive : public ::java::lang::Object {
 	$class(GraphicsPrimitive, 0, ::java::lang::Object)
 public:
 	GraphicsPrimitive();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* methodSignature, int32_t primTypeID, ::sun::java2d::loops::SurfaceType* sourceType, ::sun::java2d::loops::CompositeType* compositeType, ::sun::java2d::loops::SurfaceType* destType);
 	void init$(int64_t pNativePrim, $String* methodSignature, int32_t primTypeID, ::sun::java2d::loops::SurfaceType* sourceType, ::sun::java2d::loops::CompositeType* compositeType, ::sun::java2d::loops::SurfaceType* destType);
 	static ::sun::java2d::SurfaceData* convertFrom(::sun::java2d::loops::Blit* ob, ::sun::java2d::SurfaceData* srcData, int32_t srcX, int32_t srcY, int32_t w, int32_t h, ::sun::java2d::SurfaceData* dstData);

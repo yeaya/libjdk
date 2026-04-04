@@ -47,6 +47,7 @@ class $import ReflectionFactory : public ::java::lang::Object {
 	$class(ReflectionFactory, 0, ::java::lang::Object)
 public:
 	ReflectionFactory();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::sun::reflect::ReflectionFactory* getReflectionFactory();
 	bool hasStaticInitializerForSerialization($Class* cl);

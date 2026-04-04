@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/windows/WindowsInternalFrameTitlePane$WindowsTitlePaneLayout.h>
-
 #include <com/sun/java/swing/plaf/windows/TMSchema$Part.h>
 #include <com/sun/java/swing/plaf/windows/TMSchema$Prop.h>
 #include <com/sun/java/swing/plaf/windows/TMSchema$State.h>
@@ -14,7 +13,6 @@
 #include <javax/swing/JInternalFrame.h>
 #include <javax/swing/JLabel.h>
 #include <javax/swing/plaf/basic/BasicInternalFrameTitlePane$TitlePaneLayout.h>
-#include <javax/swing/plaf/basic/BasicInternalFrameTitlePane.h>
 #include <jcpp.h>
 
 #undef CAPTIONMARGINS
@@ -39,8 +37,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $JComponent = ::javax::swing::JComponent;
-using $JInternalFrame = ::javax::swing::JInternalFrame;
-using $BasicInternalFrameTitlePane = ::javax::swing::plaf::basic::BasicInternalFrameTitlePane;
 using $BasicInternalFrameTitlePane$TitlePaneLayout = ::javax::swing::plaf::basic::BasicInternalFrameTitlePane$TitlePaneLayout;
 
 namespace com {
@@ -49,47 +45,6 @@ namespace com {
 			namespace swing {
 				namespace plaf {
 					namespace windows {
-
-$FieldInfo _WindowsInternalFrameTitlePane$WindowsTitlePaneLayout_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/java/swing/plaf/windows/WindowsInternalFrameTitlePane;", nullptr, $FINAL | $SYNTHETIC, $field(WindowsInternalFrameTitlePane$WindowsTitlePaneLayout, this$0)},
-	{"captionMargin", "Ljava/awt/Insets;", nullptr, $PRIVATE, $field(WindowsInternalFrameTitlePane$WindowsTitlePaneLayout, captionMargin)},
-	{"contentMargin", "Ljava/awt/Insets;", nullptr, $PRIVATE, $field(WindowsInternalFrameTitlePane$WindowsTitlePaneLayout, contentMargin)},
-	{"xp", "Lcom/sun/java/swing/plaf/windows/XPStyle;", nullptr, $PRIVATE, $field(WindowsInternalFrameTitlePane$WindowsTitlePaneLayout, xp)},
-	{}
-};
-
-$MethodInfo _WindowsInternalFrameTitlePane$WindowsTitlePaneLayout_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/java/swing/plaf/windows/WindowsInternalFrameTitlePane;)V", nullptr, 0, $method(WindowsInternalFrameTitlePane$WindowsTitlePaneLayout, init$, void, $WindowsInternalFrameTitlePane*)},
-	{"layoutButton", "(Ljavax/swing/JComponent;Lcom/sun/java/swing/plaf/windows/TMSchema$Part;IIIIIZ)I", nullptr, $PRIVATE, $method(WindowsInternalFrameTitlePane$WindowsTitlePaneLayout, layoutButton, int32_t, $JComponent*, $TMSchema$Part*, int32_t, int32_t, int32_t, int32_t, int32_t, bool)},
-	{"layoutContainer", "(Ljava/awt/Container;)V", nullptr, $PUBLIC, $virtualMethod(WindowsInternalFrameTitlePane$WindowsTitlePaneLayout, layoutContainer, void, $Container*)},
-	{}
-};
-
-$InnerClassInfo _WindowsInternalFrameTitlePane$WindowsTitlePaneLayout_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.windows.WindowsInternalFrameTitlePane$WindowsTitlePaneLayout", "com.sun.java.swing.plaf.windows.WindowsInternalFrameTitlePane", "WindowsTitlePaneLayout", $PUBLIC},
-	{"javax.swing.plaf.basic.BasicInternalFrameTitlePane$TitlePaneLayout", "javax.swing.plaf.basic.BasicInternalFrameTitlePane", "TitlePaneLayout", $PUBLIC},
-	{}
-};
-
-$ClassInfo _WindowsInternalFrameTitlePane$WindowsTitlePaneLayout_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.java.swing.plaf.windows.WindowsInternalFrameTitlePane$WindowsTitlePaneLayout",
-	"javax.swing.plaf.basic.BasicInternalFrameTitlePane$TitlePaneLayout",
-	nullptr,
-	_WindowsInternalFrameTitlePane$WindowsTitlePaneLayout_FieldInfo_,
-	_WindowsInternalFrameTitlePane$WindowsTitlePaneLayout_MethodInfo_,
-	nullptr,
-	nullptr,
-	_WindowsInternalFrameTitlePane$WindowsTitlePaneLayout_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.windows.WindowsInternalFrameTitlePane"
-};
-
-$Object* allocate$WindowsInternalFrameTitlePane$WindowsTitlePaneLayout($Class* clazz) {
-	return $of($alloc(WindowsInternalFrameTitlePane$WindowsTitlePaneLayout));
-}
 
 void WindowsInternalFrameTitlePane$WindowsTitlePaneLayout::init$($WindowsInternalFrameTitlePane* this$0) {
 	$set(this, this$0, this$0);
@@ -101,7 +56,7 @@ void WindowsInternalFrameTitlePane$WindowsTitlePaneLayout::init$($WindowsInterna
 		$var($Component, c, this$0);
 		$init($TMSchema$Part);
 		$init($TMSchema$Prop);
-		$set(this, captionMargin, $nc(this->xp)->getMargin(c, $TMSchema$Part::WP_CAPTION, nullptr, $TMSchema$Prop::CAPTIONMARGINS));
+		$set(this, captionMargin, this->xp->getMargin(c, $TMSchema$Part::WP_CAPTION, nullptr, $TMSchema$Prop::CAPTIONMARGINS));
 		$set(this, contentMargin, $nc(this->xp)->getMargin(c, $TMSchema$Part::WP_CAPTION, nullptr, $TMSchema$Prop::CONTENTMARGINS));
 	}
 	if (this->captionMargin == nullptr) {
@@ -126,7 +81,7 @@ int32_t WindowsInternalFrameTitlePane$WindowsTitlePaneLayout::layoutButton($JCom
 }
 
 void WindowsInternalFrameTitlePane$WindowsTitlePaneLayout::layoutContainer($Container* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool leftToRight = $WindowsGraphicsUtils::isLeftToRight($($WindowsInternalFrameTitlePane::access$400(this->this$0)));
 	int32_t x = 0;
 	int32_t y = 0;
@@ -144,7 +99,7 @@ void WindowsInternalFrameTitlePane$WindowsTitlePaneLayout::layoutContainer($Cont
 	if (this->xp != nullptr) {
 		x = (leftToRight) ? w - $nc(this->captionMargin)->right - 2 : $nc(this->captionMargin)->left + 2;
 		y = 1;
-		if ($nc($($WindowsInternalFrameTitlePane::access$500(this->this$0)))->isMaximum()) {
+		if ($$nc($WindowsInternalFrameTitlePane::access$500(this->this$0))->isMaximum()) {
 			y += 1;
 		} else {
 			y += 5;
@@ -153,13 +108,13 @@ void WindowsInternalFrameTitlePane$WindowsTitlePaneLayout::layoutContainer($Cont
 		x = (leftToRight) ? w - $nc(this->captionMargin)->right : $nc(this->captionMargin)->left;
 		y = (h - this->this$0->buttonHeight) / 2;
 	}
-	if ($nc($($WindowsInternalFrameTitlePane::access$600(this->this$0)))->isClosable()) {
+	if ($$nc($WindowsInternalFrameTitlePane::access$600(this->this$0))->isClosable()) {
 		x = layoutButton($($WindowsInternalFrameTitlePane::access$700(this->this$0)), $TMSchema$Part::WP_CLOSEBUTTON, x, y, this->this$0->buttonWidth, this->this$0->buttonHeight, 2, !leftToRight);
 	}
-	if ($nc($($WindowsInternalFrameTitlePane::access$800(this->this$0)))->isMaximizable()) {
+	if ($$nc($WindowsInternalFrameTitlePane::access$800(this->this$0))->isMaximizable()) {
 		x = layoutButton($($WindowsInternalFrameTitlePane::access$900(this->this$0)), $TMSchema$Part::WP_MAXBUTTON, x, y, this->this$0->buttonWidth, this->this$0->buttonHeight, (this->xp != nullptr) ? 2 : 0, !leftToRight);
 	}
-	if ($nc($($WindowsInternalFrameTitlePane::access$1000(this->this$0)))->isIconifiable()) {
+	if ($$nc($WindowsInternalFrameTitlePane::access$1000(this->this$0))->isIconifiable()) {
 		layoutButton($($WindowsInternalFrameTitlePane::access$1100(this->this$0)), $TMSchema$Part::WP_MINBUTTON, x, y, this->this$0->buttonWidth, this->this$0->buttonHeight, 0, !leftToRight);
 	}
 }
@@ -168,7 +123,42 @@ WindowsInternalFrameTitlePane$WindowsTitlePaneLayout::WindowsInternalFrameTitleP
 }
 
 $Class* WindowsInternalFrameTitlePane$WindowsTitlePaneLayout::load$($String* name, bool initialize) {
-	$loadClass(WindowsInternalFrameTitlePane$WindowsTitlePaneLayout, name, initialize, &_WindowsInternalFrameTitlePane$WindowsTitlePaneLayout_ClassInfo_, allocate$WindowsInternalFrameTitlePane$WindowsTitlePaneLayout);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/java/swing/plaf/windows/WindowsInternalFrameTitlePane;", nullptr, $FINAL | $SYNTHETIC, $field(WindowsInternalFrameTitlePane$WindowsTitlePaneLayout, this$0)},
+		{"captionMargin", "Ljava/awt/Insets;", nullptr, $PRIVATE, $field(WindowsInternalFrameTitlePane$WindowsTitlePaneLayout, captionMargin)},
+		{"contentMargin", "Ljava/awt/Insets;", nullptr, $PRIVATE, $field(WindowsInternalFrameTitlePane$WindowsTitlePaneLayout, contentMargin)},
+		{"xp", "Lcom/sun/java/swing/plaf/windows/XPStyle;", nullptr, $PRIVATE, $field(WindowsInternalFrameTitlePane$WindowsTitlePaneLayout, xp)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/java/swing/plaf/windows/WindowsInternalFrameTitlePane;)V", nullptr, 0, $method(WindowsInternalFrameTitlePane$WindowsTitlePaneLayout, init$, void, $WindowsInternalFrameTitlePane*)},
+		{"layoutButton", "(Ljavax/swing/JComponent;Lcom/sun/java/swing/plaf/windows/TMSchema$Part;IIIIIZ)I", nullptr, $PRIVATE, $method(WindowsInternalFrameTitlePane$WindowsTitlePaneLayout, layoutButton, int32_t, $JComponent*, $TMSchema$Part*, int32_t, int32_t, int32_t, int32_t, int32_t, bool)},
+		{"layoutContainer", "(Ljava/awt/Container;)V", nullptr, $PUBLIC, $virtualMethod(WindowsInternalFrameTitlePane$WindowsTitlePaneLayout, layoutContainer, void, $Container*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.windows.WindowsInternalFrameTitlePane$WindowsTitlePaneLayout", "com.sun.java.swing.plaf.windows.WindowsInternalFrameTitlePane", "WindowsTitlePaneLayout", $PUBLIC},
+		{"javax.swing.plaf.basic.BasicInternalFrameTitlePane$TitlePaneLayout", "javax.swing.plaf.basic.BasicInternalFrameTitlePane", "TitlePaneLayout", $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.java.swing.plaf.windows.WindowsInternalFrameTitlePane$WindowsTitlePaneLayout",
+		"javax.swing.plaf.basic.BasicInternalFrameTitlePane$TitlePaneLayout",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.windows.WindowsInternalFrameTitlePane"
+	};
+	$loadClass(WindowsInternalFrameTitlePane$WindowsTitlePaneLayout, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WindowsInternalFrameTitlePane$WindowsTitlePaneLayout);
+	});
 	return class$;
 }
 

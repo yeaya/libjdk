@@ -1,5 +1,4 @@
 #include <TestProperties.h>
-
 #include <java/lang/Error.h>
 #include <javax/swing/LookAndFeel.h>
 #include <javax/swing/UIManager.h>
@@ -7,46 +6,14 @@
 #include <javax/swing/plaf/nimbus/NimbusLookAndFeel.h>
 #include <jcpp.h>
 
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Error = ::java::lang::Error;
 using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $LookAndFeel = ::javax::swing::LookAndFeel;
 using $UIManager = ::javax::swing::UIManager;
 using $MetalLookAndFeel = ::javax::swing::plaf::metal::MetalLookAndFeel;
 using $NimbusLookAndFeel = ::javax::swing::plaf::nimbus::NimbusLookAndFeel;
-
-$FieldInfo _TestProperties_FieldInfo_[] = {
-	{"windowsProperties", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(TestProperties, windowsProperties)},
-	{"aquaProperties", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(TestProperties, aquaProperties)},
-	{"gtkProperties", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(TestProperties, gtkProperties)},
-	{"motifProperties", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(TestProperties, motifProperties)},
-	{"nimbusProperties", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(TestProperties, nimbusProperties)},
-	{"metalProperties", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(TestProperties, metalProperties)},
-	{}
-};
-
-$MethodInfo _TestProperties_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TestProperties, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TestProperties, main, void, $StringArray*), "java.lang.Exception"},
-	{"test", "([Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(TestProperties, test, void, $StringArray*)},
-	{}
-};
-
-$ClassInfo _TestProperties_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"TestProperties",
-	"java.lang.Object",
-	nullptr,
-	_TestProperties_FieldInfo_,
-	_TestProperties_MethodInfo_
-};
-
-$Object* allocate$TestProperties($Class* clazz) {
-	return $of($alloc(TestProperties));
-}
 
 $StringArray* TestProperties::windowsProperties = nullptr;
 $StringArray* TestProperties::aquaProperties = nullptr;
@@ -60,10 +27,10 @@ void TestProperties::init$() {
 
 void TestProperties::main($StringArray* args) {
 	$init(TestProperties);
-	$useLocalCurrentObjectStackCache();
-	$UIManager::setLookAndFeel(static_cast<$LookAndFeel*>($$new($MetalLookAndFeel)));
+	$useLocalObjectStack();
+	$UIManager::setLookAndFeel($$new($MetalLookAndFeel));
 	test(TestProperties::metalProperties);
-	$UIManager::setLookAndFeel(static_cast<$LookAndFeel*>($$new($NimbusLookAndFeel)));
+	$UIManager::setLookAndFeel($$new($NimbusLookAndFeel));
 	test(TestProperties::nimbusProperties);
 	$UIManager::setLookAndFeel("com.sun.java.swing.plaf.motif.MotifLookAndFeel"_s);
 	test(TestProperties::motifProperties);
@@ -86,26 +53,22 @@ void TestProperties::main($StringArray* args) {
 
 void TestProperties::test($StringArray* properties) {
 	$init(TestProperties);
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($StringArray, arr$, properties);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
-			$var($String, name, arr$->get(i$));
-			{
-				$var($String, value, $UIManager::getString(name));
-				if (value == nullptr) {
-					$nc($System::err)->println($$str({"Current LookAndFeel = "_s, $($nc($($UIManager::getLookAndFeel()))->getDescription())}));
-					$nc($System::err)->printf("The value for %s property is null\n"_s, $$new($ObjectArray, {$of(name)}));
-					$throwNew($Error);
-				}
+	$useLocalObjectStack();
+	$var($StringArray, arr$, properties);
+	for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
+		$var($String, name, arr$->get(i$));
+		{
+			$var($String, value, $UIManager::getString(name));
+			if (value == nullptr) {
+				$nc($System::err)->println($$str({"Current LookAndFeel = "_s, $($$nc($UIManager::getLookAndFeel())->getDescription())}));
+				$System::err->printf("The value for %s property is null\n"_s, $$new($ObjectArray, {name}));
+				$throwNew($Error);
 			}
 		}
 	}
 }
 
-void clinit$TestProperties($Class* class$) {
+void TestProperties::clinit$($Class* clazz) {
 	$assignStatic(TestProperties::windowsProperties, $new($StringArray, {
 		"FileChooser.viewMenuButtonToolTipText"_s,
 		"FileChooser.viewMenuButtonAccessibleName"_s
@@ -121,7 +84,32 @@ TestProperties::TestProperties() {
 }
 
 $Class* TestProperties::load$($String* name, bool initialize) {
-	$loadClass(TestProperties, name, initialize, &_TestProperties_ClassInfo_, clinit$TestProperties, allocate$TestProperties);
+	$FieldInfo fieldInfos$$[] = {
+		{"windowsProperties", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(TestProperties, windowsProperties)},
+		{"aquaProperties", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(TestProperties, aquaProperties)},
+		{"gtkProperties", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(TestProperties, gtkProperties)},
+		{"motifProperties", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(TestProperties, motifProperties)},
+		{"nimbusProperties", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(TestProperties, nimbusProperties)},
+		{"metalProperties", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(TestProperties, metalProperties)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TestProperties, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TestProperties, main, void, $StringArray*), "java.lang.Exception"},
+		{"test", "([Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(TestProperties, test, void, $StringArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"TestProperties",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TestProperties, name, initialize, &classInfo$$, TestProperties::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(TestProperties);
+	});
 	return class$;
 }
 

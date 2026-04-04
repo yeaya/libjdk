@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/PanelUI.h>
-
 #include <javax/swing/plaf/ComponentUI.h>
 #include <jcpp.h>
 
@@ -11,24 +10,6 @@ namespace javax {
 	namespace swing {
 		namespace plaf {
 
-$MethodInfo _PanelUI_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(PanelUI, init$, void)},
-	{}
-};
-
-$ClassInfo _PanelUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"javax.swing.plaf.PanelUI",
-	"javax.swing.plaf.ComponentUI",
-	nullptr,
-	nullptr,
-	_PanelUI_MethodInfo_
-};
-
-$Object* allocate$PanelUI($Class* clazz) {
-	return $of($alloc(PanelUI));
-}
-
 void PanelUI::init$() {
 	$ComponentUI::init$();
 }
@@ -37,7 +18,21 @@ PanelUI::PanelUI() {
 }
 
 $Class* PanelUI::load$($String* name, bool initialize) {
-	$loadClass(PanelUI, name, initialize, &_PanelUI_ClassInfo_, allocate$PanelUI);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PROTECTED, $method(PanelUI, init$, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"javax.swing.plaf.PanelUI",
+		"javax.swing.plaf.ComponentUI",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(PanelUI, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PanelUI);
+	});
 	return class$;
 }
 

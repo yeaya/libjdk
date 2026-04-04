@@ -130,6 +130,7 @@ public:
 	virtual int32_t hashCode() override;
 	virtual bool isSurfaceLost() override;
 	virtual bool isValid() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::awt::windows::WComponentPeer* peer, ::sun::java2d::d3d::D3DGraphicsConfig* gc, int32_t width, int32_t height, ::java::awt::Image* image, ::java::awt::image::ColorModel* cm, int32_t numBackBuffers, int32_t swapEffect, ::sun::java2d::pipe::hw::ExtendedBufferCapabilities$VSyncType* vSyncType, int32_t type);
 	virtual bool canRenderLCDText(::sun::java2d::SunGraphics2D* sg2d) override;
 	virtual bool copyArea(::sun::java2d::SunGraphics2D* sg2d, int32_t x, int32_t y, int32_t w, int32_t h, int32_t dx, int32_t dy) override;

@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/TransPatterns$BindingDeclarationFenceBindingContext.h>
-
 #include <com/sun/tools/javac/code/Symbol$BindingSymbol.h>
 #include <com/sun/tools/javac/code/Symbol$VarSymbol.h>
 #include <com/sun/tools/javac/comp/TransPatterns$BasicBindingContext.h>
@@ -21,43 +20,6 @@ namespace com {
 			namespace javac {
 				namespace comp {
 
-$FieldInfo _TransPatterns$BindingDeclarationFenceBindingContext_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/comp/TransPatterns;", nullptr, $FINAL | $SYNTHETIC, $field(TransPatterns$BindingDeclarationFenceBindingContext, this$0)},
-	{}
-};
-
-$MethodInfo _TransPatterns$BindingDeclarationFenceBindingContext_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/TransPatterns;)V", nullptr, $PRIVATE, $method(TransPatterns$BindingDeclarationFenceBindingContext, init$, void, $TransPatterns*)},
-	{"bindingDeclared", "(Lcom/sun/tools/javac/code/Symbol$BindingSymbol;)Lcom/sun/tools/javac/code/Symbol$VarSymbol;", nullptr, 0, $virtualMethod(TransPatterns$BindingDeclarationFenceBindingContext, bindingDeclared, $Symbol$VarSymbol*, $Symbol$BindingSymbol*)},
-	{}
-};
-
-$InnerClassInfo _TransPatterns$BindingDeclarationFenceBindingContext_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.TransPatterns$BindingDeclarationFenceBindingContext", "com.sun.tools.javac.comp.TransPatterns", "BindingDeclarationFenceBindingContext", $PRIVATE},
-	{"com.sun.tools.javac.comp.TransPatterns$BasicBindingContext", "com.sun.tools.javac.comp.TransPatterns", "BasicBindingContext", 0},
-	{}
-};
-
-$ClassInfo _TransPatterns$BindingDeclarationFenceBindingContext_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.comp.TransPatterns$BindingDeclarationFenceBindingContext",
-	"com.sun.tools.javac.comp.TransPatterns$BasicBindingContext",
-	nullptr,
-	_TransPatterns$BindingDeclarationFenceBindingContext_FieldInfo_,
-	_TransPatterns$BindingDeclarationFenceBindingContext_MethodInfo_,
-	nullptr,
-	nullptr,
-	_TransPatterns$BindingDeclarationFenceBindingContext_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.TransPatterns"
-};
-
-$Object* allocate$TransPatterns$BindingDeclarationFenceBindingContext($Class* clazz) {
-	return $of($alloc(TransPatterns$BindingDeclarationFenceBindingContext));
-}
-
 void TransPatterns$BindingDeclarationFenceBindingContext::init$($TransPatterns* this$0) {
 	$set(this, this$0, this$0);
 	$TransPatterns$BasicBindingContext::init$(this$0);
@@ -71,7 +33,38 @@ TransPatterns$BindingDeclarationFenceBindingContext::TransPatterns$BindingDeclar
 }
 
 $Class* TransPatterns$BindingDeclarationFenceBindingContext::load$($String* name, bool initialize) {
-	$loadClass(TransPatterns$BindingDeclarationFenceBindingContext, name, initialize, &_TransPatterns$BindingDeclarationFenceBindingContext_ClassInfo_, allocate$TransPatterns$BindingDeclarationFenceBindingContext);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/comp/TransPatterns;", nullptr, $FINAL | $SYNTHETIC, $field(TransPatterns$BindingDeclarationFenceBindingContext, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/comp/TransPatterns;)V", nullptr, $PRIVATE, $method(TransPatterns$BindingDeclarationFenceBindingContext, init$, void, $TransPatterns*)},
+		{"bindingDeclared", "(Lcom/sun/tools/javac/code/Symbol$BindingSymbol;)Lcom/sun/tools/javac/code/Symbol$VarSymbol;", nullptr, 0, $virtualMethod(TransPatterns$BindingDeclarationFenceBindingContext, bindingDeclared, $Symbol$VarSymbol*, $Symbol$BindingSymbol*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.TransPatterns$BindingDeclarationFenceBindingContext", "com.sun.tools.javac.comp.TransPatterns", "BindingDeclarationFenceBindingContext", $PRIVATE},
+		{"com.sun.tools.javac.comp.TransPatterns$BasicBindingContext", "com.sun.tools.javac.comp.TransPatterns", "BasicBindingContext", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.comp.TransPatterns$BindingDeclarationFenceBindingContext",
+		"com.sun.tools.javac.comp.TransPatterns$BasicBindingContext",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.TransPatterns"
+	};
+	$loadClass(TransPatterns$BindingDeclarationFenceBindingContext, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TransPatterns$BindingDeclarationFenceBindingContext);
+	});
 	return class$;
 }
 

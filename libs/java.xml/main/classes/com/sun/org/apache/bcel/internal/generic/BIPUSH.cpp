@@ -1,12 +1,9 @@
 #include <com/sun/org/apache/bcel/internal/generic/BIPUSH.h>
-
 #include <com/sun/org/apache/bcel/internal/Const.h>
 #include <com/sun/org/apache/bcel/internal/generic/BasicType.h>
 #include <com/sun/org/apache/bcel/internal/generic/ConstantPoolGen.h>
-#include <com/sun/org/apache/bcel/internal/generic/ConstantPushInstruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/Instruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/PushInstruction.h>
-#include <com/sun/org/apache/bcel/internal/generic/StackProducer.h>
 #include <com/sun/org/apache/bcel/internal/generic/Type.h>
 #include <com/sun/org/apache/bcel/internal/generic/TypedInstruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/Visitor.h>
@@ -20,12 +17,8 @@
 
 using $Const = ::com::sun::org::apache::bcel::internal::Const;
 using $ConstantPoolGen = ::com::sun::org::apache::bcel::internal::generic::ConstantPoolGen;
-using $ConstantPushInstruction = ::com::sun::org::apache::bcel::internal::generic::ConstantPushInstruction;
 using $Instruction = ::com::sun::org::apache::bcel::internal::generic::Instruction;
-using $PushInstruction = ::com::sun::org::apache::bcel::internal::generic::PushInstruction;
-using $StackProducer = ::com::sun::org::apache::bcel::internal::generic::StackProducer;
 using $Type = ::com::sun::org::apache::bcel::internal::generic::Type;
-using $TypedInstruction = ::com::sun::org::apache::bcel::internal::generic::TypedInstruction;
 using $Visitor = ::com::sun::org::apache::bcel::internal::generic::Visitor;
 using $ByteSequence = ::com::sun::org::apache::bcel::internal::util::ByteSequence;
 using $DataOutputStream = ::java::io::DataOutputStream;
@@ -42,42 +35,6 @@ namespace com {
 				namespace bcel {
 					namespace internal {
 						namespace generic {
-
-$FieldInfo _BIPUSH_FieldInfo_[] = {
-	{"b", "B", nullptr, $PRIVATE, $field(BIPUSH, b)},
-	{}
-};
-
-$MethodInfo _BIPUSH_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "()V", nullptr, 0, $method(BIPUSH, init$, void)},
-	{"<init>", "(B)V", nullptr, $PUBLIC, $method(BIPUSH, init$, void, int8_t)},
-	{"accept", "(Lcom/sun/org/apache/bcel/internal/generic/Visitor;)V", nullptr, $PUBLIC, $virtualMethod(BIPUSH, accept, void, $Visitor*)},
-	{"dump", "(Ljava/io/DataOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(BIPUSH, dump, void, $DataOutputStream*), "java.io.IOException"},
-	{"getType", "(Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;)Lcom/sun/org/apache/bcel/internal/generic/Type;", nullptr, $PUBLIC, $virtualMethod(BIPUSH, getType, $Type*, $ConstantPoolGen*)},
-	{"getValue", "()Ljava/lang/Number;", nullptr, $PUBLIC, $virtualMethod(BIPUSH, getValue, $Number*)},
-	{"initFromFile", "(Lcom/sun/org/apache/bcel/internal/util/ByteSequence;Z)V", nullptr, $PROTECTED, $virtualMethod(BIPUSH, initFromFile, void, $ByteSequence*, bool), "java.io.IOException"},
-	{"*produceStack", "(Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;)I", nullptr, $PUBLIC},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"toString", "(Z)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(BIPUSH, toString, $String*, bool)},
-	{}
-};
-
-$ClassInfo _BIPUSH_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.bcel.internal.generic.BIPUSH",
-	"com.sun.org.apache.bcel.internal.generic.Instruction",
-	"com.sun.org.apache.bcel.internal.generic.ConstantPushInstruction",
-	_BIPUSH_FieldInfo_,
-	_BIPUSH_MethodInfo_
-};
-
-$Object* allocate$BIPUSH($Class* clazz) {
-	return $of($alloc(BIPUSH));
-}
 
 $String* BIPUSH::toString() {
 	 return this->$Instruction::toString();
@@ -118,7 +75,7 @@ void BIPUSH::dump($DataOutputStream* out) {
 }
 
 $String* BIPUSH::toString(bool verbose) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $str({$($Instruction::toString(verbose)), " "_s, $$str(this->b)});
 }
 
@@ -128,7 +85,7 @@ void BIPUSH::initFromFile($ByteSequence* bytes, bool wide) {
 }
 
 $Number* BIPUSH::getValue() {
-	return $Integer::valueOf((int32_t)this->b);
+	return $Integer::valueOf(this->b);
 }
 
 $Type* BIPUSH::getType($ConstantPoolGen* cp) {
@@ -148,7 +105,38 @@ BIPUSH::BIPUSH() {
 }
 
 $Class* BIPUSH::load$($String* name, bool initialize) {
-	$loadClass(BIPUSH, name, initialize, &_BIPUSH_ClassInfo_, allocate$BIPUSH);
+	$FieldInfo fieldInfos$$[] = {
+		{"b", "B", nullptr, $PRIVATE, $field(BIPUSH, b)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC},
+		{"<init>", "()V", nullptr, 0, $method(BIPUSH, init$, void)},
+		{"<init>", "(B)V", nullptr, $PUBLIC, $method(BIPUSH, init$, void, int8_t)},
+		{"accept", "(Lcom/sun/org/apache/bcel/internal/generic/Visitor;)V", nullptr, $PUBLIC, $virtualMethod(BIPUSH, accept, void, $Visitor*)},
+		{"dump", "(Ljava/io/DataOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(BIPUSH, dump, void, $DataOutputStream*), "java.io.IOException"},
+		{"getType", "(Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;)Lcom/sun/org/apache/bcel/internal/generic/Type;", nullptr, $PUBLIC, $virtualMethod(BIPUSH, getType, $Type*, $ConstantPoolGen*)},
+		{"getValue", "()Ljava/lang/Number;", nullptr, $PUBLIC, $virtualMethod(BIPUSH, getValue, $Number*)},
+		{"initFromFile", "(Lcom/sun/org/apache/bcel/internal/util/ByteSequence;Z)V", nullptr, $PROTECTED, $virtualMethod(BIPUSH, initFromFile, void, $ByteSequence*, bool), "java.io.IOException"},
+		{"*produceStack", "(Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;)I", nullptr, $PUBLIC},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"toString", "(Z)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(BIPUSH, toString, $String*, bool)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.bcel.internal.generic.BIPUSH",
+		"com.sun.org.apache.bcel.internal.generic.Instruction",
+		"com.sun.org.apache.bcel.internal.generic.ConstantPushInstruction",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(BIPUSH, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(BIPUSH));
+	});
 	return class$;
 }
 

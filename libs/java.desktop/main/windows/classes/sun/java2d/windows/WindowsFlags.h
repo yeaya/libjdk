@@ -13,6 +13,7 @@ class WindowsFlags : public ::java::lang::Object {
 	$class(WindowsFlags, 0, ::java::lang::Object)
 public:
 	WindowsFlags();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static bool getBooleanProp($String* p, bool defaultVal);
 	static int32_t getIntProp($String* p, int32_t defaultVal);

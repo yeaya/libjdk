@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/metal/MetalInternalFrameUI$MetalPropertyChangeHandler.h>
-
 #include <java/beans/PropertyChangeEvent.h>
 #include <javax/swing/JInternalFrame.h>
 #include <javax/swing/plaf/ComponentUI.h>
@@ -25,65 +24,30 @@ namespace javax {
 		namespace plaf {
 			namespace metal {
 
-$MethodInfo _MetalInternalFrameUI$MetalPropertyChangeHandler_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(MetalInternalFrameUI$MetalPropertyChangeHandler, init$, void)},
-	{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(MetalInternalFrameUI$MetalPropertyChangeHandler, propertyChange, void, $PropertyChangeEvent*)},
-	{}
-};
-
-$InnerClassInfo _MetalInternalFrameUI$MetalPropertyChangeHandler_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.metal.MetalInternalFrameUI$MetalPropertyChangeHandler", "javax.swing.plaf.metal.MetalInternalFrameUI", "MetalPropertyChangeHandler", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _MetalInternalFrameUI$MetalPropertyChangeHandler_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.metal.MetalInternalFrameUI$MetalPropertyChangeHandler",
-	"java.lang.Object",
-	"java.beans.PropertyChangeListener",
-	nullptr,
-	_MetalInternalFrameUI$MetalPropertyChangeHandler_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MetalInternalFrameUI$MetalPropertyChangeHandler_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.metal.MetalInternalFrameUI"
-};
-
-$Object* allocate$MetalInternalFrameUI$MetalPropertyChangeHandler($Class* clazz) {
-	return $of($alloc(MetalInternalFrameUI$MetalPropertyChangeHandler));
-}
-
 void MetalInternalFrameUI$MetalPropertyChangeHandler::init$() {
 }
 
 void MetalInternalFrameUI$MetalPropertyChangeHandler::propertyChange($PropertyChangeEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, name, $nc(e)->getPropertyName());
 	$var($JInternalFrame, jif, $cast($JInternalFrame, e->getSource()));
-	if (!($instanceOf($MetalInternalFrameUI, $($cast($InternalFrameUI, $nc(jif)->getUI()))))) {
+	if (!($instanceOf($MetalInternalFrameUI, $$cast($InternalFrameUI, $nc(jif)->getUI())))) {
 		return;
 	}
-	$var($MetalInternalFrameUI, ui, $cast($MetalInternalFrameUI, $cast($InternalFrameUI, $nc(jif)->getUI())));
+	$var($MetalInternalFrameUI, ui, $cast($MetalInternalFrameUI, $cast($InternalFrameUI, jif->getUI())));
 	$init($MetalInternalFrameUI);
 	if ($nc(name)->equals($MetalInternalFrameUI::FRAME_TYPE)) {
 		if ($instanceOf($String, $(e->getNewValue()))) {
-			$nc(ui)->setFrameType($cast($String, $(e->getNewValue())));
+			$nc(ui)->setFrameType($$cast($String, e->getNewValue()));
 		}
-	} else {
-		if (name->equals($MetalInternalFrameUI::IS_PALETTE_KEY)) {
-			if (e->getNewValue() != nullptr) {
-				$nc(ui)->setPalette($nc(($cast($Boolean, $(e->getNewValue()))))->booleanValue());
-			} else {
-				$nc(ui)->setPalette(false);
-			}
+	} else if (name->equals($MetalInternalFrameUI::IS_PALETTE_KEY)) {
+		if (e->getNewValue() != nullptr) {
+			$nc(ui)->setPalette($$sure($Boolean, e->getNewValue())->booleanValue());
 		} else {
-			if (name->equals($JInternalFrame::CONTENT_PANE_PROPERTY)) {
-				$nc(ui)->stripContentBorder($(e->getNewValue()));
-			}
+			$nc(ui)->setPalette(false);
 		}
+	} else if (name->equals($JInternalFrame::CONTENT_PANE_PROPERTY)) {
+		$nc(ui)->stripContentBorder($(e->getNewValue()));
 	}
 }
 
@@ -91,7 +55,33 @@ MetalInternalFrameUI$MetalPropertyChangeHandler::MetalInternalFrameUI$MetalPrope
 }
 
 $Class* MetalInternalFrameUI$MetalPropertyChangeHandler::load$($String* name, bool initialize) {
-	$loadClass(MetalInternalFrameUI$MetalPropertyChangeHandler, name, initialize, &_MetalInternalFrameUI$MetalPropertyChangeHandler_ClassInfo_, allocate$MetalInternalFrameUI$MetalPropertyChangeHandler);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(MetalInternalFrameUI$MetalPropertyChangeHandler, init$, void)},
+		{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(MetalInternalFrameUI$MetalPropertyChangeHandler, propertyChange, void, $PropertyChangeEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.metal.MetalInternalFrameUI$MetalPropertyChangeHandler", "javax.swing.plaf.metal.MetalInternalFrameUI", "MetalPropertyChangeHandler", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.metal.MetalInternalFrameUI$MetalPropertyChangeHandler",
+		"java.lang.Object",
+		"java.beans.PropertyChangeListener",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.metal.MetalInternalFrameUI"
+	};
+	$loadClass(MetalInternalFrameUI$MetalPropertyChangeHandler, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MetalInternalFrameUI$MetalPropertyChangeHandler);
+	});
 	return class$;
 }
 

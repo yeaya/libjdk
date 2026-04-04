@@ -1,5 +1,4 @@
 #include <sun/awt/X11/XEmbedServerTester.h>
-
 #include <java/awt/Point.h>
 #include <java/awt/Rectangle.h>
 #include <java/awt/Robot.h>
@@ -17,7 +16,6 @@
 #include <sun/awt/X11/XCreateWindowParams.h>
 #include <sun/awt/X11/XEmbedHelper.h>
 #include <sun/awt/X11/XEvent.h>
-#include <sun/awt/X11/XEventDispatcher.h>
 #include <sun/awt/X11/XToolkit.h>
 #include <sun/awt/X11/XWindow.h>
 #include <sun/awt/X11/XlibUtil.h>
@@ -81,15 +79,12 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $Iterator = ::java::util::Iterator;
 using $LinkedList = ::java::util::LinkedList;
-using $Unsafe = ::jdk::internal::misc::Unsafe;
 using $Native = ::sun::awt::X11::Native;
-using $XAtom = ::sun::awt::X11::XAtom;
 using $XBaseWindow = ::sun::awt::X11::XBaseWindow;
 using $XClientMessageEvent = ::sun::awt::X11::XClientMessageEvent;
 using $XCreateWindowParams = ::sun::awt::X11::XCreateWindowParams;
 using $XEmbedHelper = ::sun::awt::X11::XEmbedHelper;
 using $XEvent = ::sun::awt::X11::XEvent;
-using $XEventDispatcher = ::sun::awt::X11::XEventDispatcher;
 using $XToolkit = ::sun::awt::X11::XToolkit;
 using $XWindow = ::sun::awt::X11::XWindow;
 using $XlibUtil = ::sun::awt::X11::XlibUtil;
@@ -101,134 +96,11 @@ namespace sun {
 	namespace awt {
 		namespace X11 {
 
-$FieldInfo _XEmbedServerTester_FieldInfo_[] = {
-	{"xembedLog", "Lsun/util/logging/PlatformLogger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XEmbedServerTester, xembedLog)},
-	{"EVENT_LOCK", "Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $field(XEmbedServerTester, EVENT_LOCK)},
-	{"SYSTEM_EVENT_MASK", "I", nullptr, $STATIC | $FINAL, $constField(XEmbedServerTester, SYSTEM_EVENT_MASK)},
-	{"my_version", "I", nullptr, 0, $field(XEmbedServerTester, my_version)},
-	{"server_version", "I", nullptr, 0, $field(XEmbedServerTester, server_version)},
-	{"xembed", "Lsun/awt/X11/XEmbedHelper;", nullptr, 0, $field(XEmbedServerTester, xembed)},
-	{"focused", "Z", nullptr, 0, $field(XEmbedServerTester, focused)},
-	{"focusedKind", "I", nullptr, 0, $field(XEmbedServerTester, focusedKind)},
-	{"focusedServerComponent", "I", nullptr, 0, $field(XEmbedServerTester, focusedServerComponent)},
-	{"reparent", "Z", nullptr, 0, $field(XEmbedServerTester, reparent)},
-	{"parent", "J", nullptr, 0, $field(XEmbedServerTester, parent)},
-	{"windowActive", "Z", nullptr, 0, $field(XEmbedServerTester, windowActive)},
-	{"xembedActive", "Z", nullptr, 0, $field(XEmbedServerTester, xembedActive)},
-	{"window", "Lsun/awt/X11/XBaseWindow;", nullptr, 0, $field(XEmbedServerTester, window)},
-	{"eventWaited", "I", nullptr, $VOLATILE, $field(XEmbedServerTester, eventWaited)},
-	{"eventReceived", "I", nullptr, $VOLATILE, $field(XEmbedServerTester, eventReceived)},
-	{"mapped", "I", nullptr, 0, $field(XEmbedServerTester, mapped)},
-	{"accel_key", "I", nullptr, 0, $field(XEmbedServerTester, accel_key)},
-	{"accel_keysym", "I", nullptr, 0, $field(XEmbedServerTester, accel_keysym)},
-	{"accel_mods", "I", nullptr, 0, $field(XEmbedServerTester, accel_mods)},
-	{"initialBounds", "Ljava/awt/Rectangle;", nullptr, $STATIC, $staticField(XEmbedServerTester, initialBounds)},
-	{"robot", "Ljava/awt/Robot;", nullptr, 0, $field(XEmbedServerTester, robot)},
-	{"serverBounds", "[Ljava/awt/Rectangle;", nullptr, 0, $field(XEmbedServerTester, serverBounds)},
-	{"SERVER_BOUNDS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XEmbedServerTester, SERVER_BOUNDS)},
-	{"OTHER_FRAME", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XEmbedServerTester, OTHER_FRAME)},
-	{"SERVER_FOCUS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XEmbedServerTester, SERVER_FOCUS)},
-	{"SERVER_MODAL", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XEmbedServerTester, SERVER_MODAL)},
-	{"MODAL_CLOSE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XEmbedServerTester, MODAL_CLOSE)},
-	{"events", "Ljava/util/LinkedList;", "Ljava/util/LinkedList<Ljava/lang/Integer;>;", 0, $field(XEmbedServerTester, events)},
-	{}
-};
-
-$MethodInfo _XEmbedServerTester_MethodInfo_[] = {
-	{"<init>", "([Ljava/awt/Rectangle;J)V", nullptr, $PRIVATE, $method(XEmbedServerTester, init$, void, $RectangleArray*, int64_t)},
-	{"activateServer", "(I)I", nullptr, $PRIVATE, $method(XEmbedServerTester, activateServer, int32_t, int32_t)},
-	{"activateServerNoWait", "(I)I", nullptr, $PRIVATE, $method(XEmbedServerTester, activateServerNoWait, int32_t, int32_t)},
-	{"checkEventList", "(II)I", nullptr, $PRIVATE, $method(XEmbedServerTester, checkEventList, int32_t, int32_t, int32_t)},
-	{"checkFocusGained", "(I)V", nullptr, $PRIVATE, $method(XEmbedServerTester, checkFocusGained, void, int32_t)},
-	{"checkFocusLost", "()V", nullptr, $PRIVATE, $method(XEmbedServerTester, checkFocusLost, void)},
-	{"checkFocused", "()V", nullptr, $PRIVATE, $method(XEmbedServerTester, checkFocused, void)},
-	{"checkFocusedServerNext", "()V", nullptr, $PRIVATE, $method(XEmbedServerTester, checkFocusedServerNext, void)},
-	{"checkFocusedServerPrev", "()V", nullptr, $PRIVATE, $method(XEmbedServerTester, checkFocusedServerPrev, void)},
-	{"checkMapped", "()V", nullptr, $PRIVATE, $method(XEmbedServerTester, checkMapped, void)},
-	{"checkNotFocused", "()V", nullptr, $PRIVATE, $method(XEmbedServerTester, checkNotFocused, void)},
-	{"checkNotMapped", "()V", nullptr, $PRIVATE, $method(XEmbedServerTester, checkNotMapped, void)},
-	{"checkWindowActivated", "()V", nullptr, $PRIVATE, $method(XEmbedServerTester, checkWindowActivated, void)},
-	{"deactivateServer", "()I", nullptr, $PRIVATE, $method(XEmbedServerTester, deactivateServer, int32_t)},
-	{"dispatchEvent", "(Lsun/awt/X11/XEvent;)V", nullptr, $PUBLIC, $virtualMethod(XEmbedServerTester, dispatchEvent, void, $XEvent*)},
-	{"dumpReceivedEvents", "()V", nullptr, $PRIVATE, $method(XEmbedServerTester, dumpReceivedEvents, void)},
-	{"embed", "()I", nullptr, $PRIVATE, $method(XEmbedServerTester, embed, int32_t)},
-	{"embedCompletely", "()I", nullptr, $PRIVATE, $method(XEmbedServerTester, embedCompletely, int32_t)},
-	{"focusServer", "()I", nullptr, $PRIVATE, $method(XEmbedServerTester, focusServer, int32_t)},
-	{"focusServerNext", "()I", nullptr, $PRIVATE, $method(XEmbedServerTester, focusServerNext, int32_t)},
-	{"focusServerPrev", "()I", nullptr, $PRIVATE, $method(XEmbedServerTester, focusServerPrev, int32_t)},
-	{"getEventPos", "()I", nullptr, $PRIVATE, $method(XEmbedServerTester, getEventPos, int32_t)},
-	{"getTester", "([Ljava/awt/Rectangle;J)Lsun/awt/X11/XEmbedServerTester;", nullptr, $PUBLIC | $STATIC, $staticMethod(XEmbedServerTester, getTester, XEmbedServerTester*, $RectangleArray*, int64_t)},
-	{"grabKey", "()V", nullptr, $PRIVATE, $method(XEmbedServerTester, grabKey, void)},
-	{"hideModalDialog", "()I", nullptr, $PRIVATE, $method(XEmbedServerTester, hideModalDialog, int32_t)},
-	{"initAccel", "()V", nullptr, $PRIVATE, $method(XEmbedServerTester, initAccel, void)},
-	{"pressAccelKey", "()I", nullptr, $PRIVATE, $method(XEmbedServerTester, pressAccelKey, int32_t)},
-	{"registerAccelerator", "()V", nullptr, $PRIVATE, $method(XEmbedServerTester, registerAccelerator, void)},
-	{"requestFocus", "()I", nullptr, $PRIVATE, $method(XEmbedServerTester, requestFocus, int32_t)},
-	{"requestFocusNoWait", "()I", nullptr, $PRIVATE, $method(XEmbedServerTester, requestFocusNoWait, int32_t)},
-	{"sendMessage", "(I)V", nullptr, $PRIVATE, $method(XEmbedServerTester, sendMessage, void, int32_t)},
-	{"sendMessage", "(IIJJ)V", nullptr, $PRIVATE, $method(XEmbedServerTester, sendMessage, void, int32_t, int32_t, int64_t, int64_t)},
-	{"showModalDialog", "()I", nullptr, $PRIVATE, $method(XEmbedServerTester, showModalDialog, int32_t)},
-	{"sleep", "(I)V", nullptr, $PRIVATE, $method(XEmbedServerTester, sleep, void, int32_t)},
-	{"test1_1", "()V", nullptr, $PUBLIC, $virtualMethod(XEmbedServerTester, test1_1, void)},
-	{"test1_2", "()V", nullptr, $PUBLIC, $virtualMethod(XEmbedServerTester, test1_2, void)},
-	{"test1_3", "()V", nullptr, $PUBLIC, $virtualMethod(XEmbedServerTester, test1_3, void)},
-	{"test1_4", "()V", nullptr, $PUBLIC, $virtualMethod(XEmbedServerTester, test1_4, void)},
-	{"test1_5", "()V", nullptr, $PUBLIC, $virtualMethod(XEmbedServerTester, test1_5, void)},
-	{"test1_6", "()V", nullptr, $PUBLIC, $virtualMethod(XEmbedServerTester, test1_6, void)},
-	{"test1_7", "()V", nullptr, $PUBLIC, $virtualMethod(XEmbedServerTester, test1_7, void)},
-	{"test2_5", "()V", nullptr, $PUBLIC, $virtualMethod(XEmbedServerTester, test2_5, void)},
-	{"test2_6", "()V", nullptr, $PUBLIC, $virtualMethod(XEmbedServerTester, test2_6, void)},
-	{"test3_1", "()V", nullptr, $PUBLIC, $virtualMethod(XEmbedServerTester, test3_1, void)},
-	{"test3_3", "()V", nullptr, $PUBLIC, $virtualMethod(XEmbedServerTester, test3_3, void)},
-	{"test3_4", "()V", nullptr, $PUBLIC, $virtualMethod(XEmbedServerTester, test3_4, void)},
-	{"test3_5", "()V", nullptr, $PUBLIC, $virtualMethod(XEmbedServerTester, test3_5, void)},
-	{"test3_6", "()V", nullptr, $PUBLIC, $virtualMethod(XEmbedServerTester, test3_6, void)},
-	{"test4_1", "()V", nullptr, $PUBLIC, $virtualMethod(XEmbedServerTester, test4_1, void)},
-	{"test4_2", "()V", nullptr, $PUBLIC, $virtualMethod(XEmbedServerTester, test4_2, void)},
-	{"test4_3", "()V", nullptr, $PUBLIC, $virtualMethod(XEmbedServerTester, test4_3, void)},
-	{"test4_4", "()V", nullptr, $PUBLIC, $virtualMethod(XEmbedServerTester, test4_4, void)},
-	{"test6_1_1", "()V", nullptr, $PUBLIC, $virtualMethod(XEmbedServerTester, test6_1_1, void)},
-	{"test6_1_2", "()V", nullptr, $PUBLIC, $virtualMethod(XEmbedServerTester, test6_1_2, void)},
-	{"test6_1_3", "()V", nullptr, $PUBLIC, $virtualMethod(XEmbedServerTester, test6_1_3, void)},
-	{"test6_1_4", "()V", nullptr, $PUBLIC, $virtualMethod(XEmbedServerTester, test6_1_4, void)},
-	{"test6_2_1", "()V", nullptr, $PUBLIC, $virtualMethod(XEmbedServerTester, test6_2_1, void)},
-	{"test6_2_2", "()V", nullptr, $PUBLIC, $virtualMethod(XEmbedServerTester, test6_2_2, void)},
-	{"test6_2_3", "()V", nullptr, $PUBLIC, $virtualMethod(XEmbedServerTester, test6_2_3, void)},
-	{"test6_2_4", "()V", nullptr, $PUBLIC, $virtualMethod(XEmbedServerTester, test6_2_4, void)},
-	{"test7_1", "()V", nullptr, $PUBLIC, $virtualMethod(XEmbedServerTester, test7_1, void)},
-	{"test7_2", "()V", nullptr, $PUBLIC, $virtualMethod(XEmbedServerTester, test7_2, void)},
-	{"test9_1", "()V", nullptr, $PUBLIC, $virtualMethod(XEmbedServerTester, test9_1, void)},
-	{"ungrabKey", "()V", nullptr, $PRIVATE, $method(XEmbedServerTester, ungrabKey, void)},
-	{"unregisterAccelerator", "()V", nullptr, $PRIVATE, $method(XEmbedServerTester, unregisterAccelerator, void)},
-	{"updateEmbedInfo", "()V", nullptr, $PRIVATE, $method(XEmbedServerTester, updateEmbedInfo, void)},
-	{"waitEmbeddedNotify", "(I)V", nullptr, $PRIVATE, $method(XEmbedServerTester, waitEmbeddedNotify, void, int32_t)},
-	{"waitFocusGained", "(I)V", nullptr, $PRIVATE, $method(XEmbedServerTester, waitFocusGained, void, int32_t)},
-	{"waitFocusLost", "(I)V", nullptr, $PRIVATE, $method(XEmbedServerTester, waitFocusLost, void, int32_t)},
-	{"waitForEvent", "(II)V", nullptr, $PRIVATE, $method(XEmbedServerTester, waitForEvent, void, int32_t, int32_t)},
-	{"waitSystemEvent", "(II)V", nullptr, $PRIVATE, $method(XEmbedServerTester, waitSystemEvent, void, int32_t, int32_t)},
-	{"waitWindowActivated", "(I)V", nullptr, $PRIVATE, $method(XEmbedServerTester, waitWindowActivated, void, int32_t)},
-	{"waitWindowDeactivated", "(I)V", nullptr, $PRIVATE, $method(XEmbedServerTester, waitWindowDeactivated, void, int32_t)},
-	{}
-};
-
-$ClassInfo _XEmbedServerTester_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.awt.X11.XEmbedServerTester",
-	"java.lang.Object",
-	"sun.awt.X11.XEventDispatcher",
-	_XEmbedServerTester_FieldInfo_,
-	_XEmbedServerTester_MethodInfo_
-};
-
-$Object* allocate$XEmbedServerTester($Class* clazz) {
-	return $of($alloc(XEmbedServerTester));
-}
-
 $PlatformLogger* XEmbedServerTester::xembedLog = nullptr;
 $Rectangle* XEmbedServerTester::initialBounds = nullptr;
 
 void XEmbedServerTester::init$($RectangleArray* serverBounds, int64_t parent) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, EVENT_LOCK, $new($Object));
 	$set(this, xembed, $new($XEmbedHelper));
 	this->eventWaited = -1;
@@ -248,14 +120,14 @@ void XEmbedServerTester::init$($RectangleArray* serverBounds, int64_t parent) {
 	}
 	try {
 		$set(this, robot, $new($Robot));
-		$nc(this->robot)->setAutoDelay(100);
+		this->robot->setAutoDelay(100);
 	} catch ($Exception& e) {
 		$throwNew($RuntimeException, "Can\'t create robot"_s);
 	}
 	initAccel();
 	$init($PlatformLogger$Level);
 	if ($nc(XEmbedServerTester::xembedLog)->isLoggable($PlatformLogger$Level::FINER)) {
-		$nc(XEmbedServerTester::xembedLog)->finer($$str({"XEmbed client(tester), embedder window: "_s, $($Long::toHexString(parent))}));
+		XEmbedServerTester::xembedLog->finer($$str({"XEmbed client(tester), embedder window: "_s, $($Long::toHexString(parent))}));
 	}
 }
 
@@ -265,21 +137,21 @@ XEmbedServerTester* XEmbedServerTester::getTester($RectangleArray* serverBounds,
 }
 
 void XEmbedServerTester::dumpReceivedEvents() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($PlatformLogger$Level);
 	if ($nc(XEmbedServerTester::xembedLog)->isLoggable($PlatformLogger$Level::FINER)) {
-		$nc(XEmbedServerTester::xembedLog)->finer("Events received so far:"_s);
+		XEmbedServerTester::xembedLog->finer("Events received so far:"_s);
 		int32_t pos = 0;
 		{
 			$var($Iterator, i$, $nc(this->events)->iterator());
 			for (; $nc(i$)->hasNext();) {
 				$var($Integer, event, $cast($Integer, i$->next()));
 				{
-					$nc(XEmbedServerTester::xembedLog)->finer($$str({$$str((pos++)), ":"_s, $($XEmbedHelper::msgidToString($nc(event)->intValue()))}));
+					XEmbedServerTester::xembedLog->finer($$str({$$str((pos++)), ":"_s, $($XEmbedHelper::msgidToString($nc(event)->intValue()))}));
 				}
 			}
 		}
-		$nc(XEmbedServerTester::xembedLog)->finer("End of event dump"_s);
+		XEmbedServerTester::xembedLog->finer("End of event dump"_s);
 	}
 }
 
@@ -369,7 +241,7 @@ void XEmbedServerTester::test3_3() {
 }
 
 void XEmbedServerTester::test3_4() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->my_version = 10;
 	embedCompletely();
 	if (this->server_version != $XEmbedHelper::XEMBED_VERSION) {
@@ -387,22 +259,20 @@ void XEmbedServerTester::test3_6() {
 	embedCompletely();
 	sleep(1000);
 	$XToolkit::awtLock();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			int64_t var$1 = $XToolkit::getDisplay();
-			$XlibWrapper::XUnmapWindow(var$1, $nc(this->window)->getWindow());
-			int64_t var$2 = $XToolkit::getDisplay();
-			int64_t var$3 = $nc(this->window)->getWindow();
-			$XlibWrapper::XReparentWindow(var$2, var$3, $XToolkit::getDefaultRootWindow(), 0, 0);
-		} catch ($Throwable& var$4) {
-			$assign(var$0, var$4);
-		} /*finally*/ {
-			$XToolkit::awtUnlock();
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	$var($Throwable, var$0, nullptr);
+	try {
+		int64_t var$1 = $XToolkit::getDisplay();
+		$XlibWrapper::XUnmapWindow(var$1, $nc(this->window)->getWindow());
+		int64_t var$2 = $XToolkit::getDisplay();
+		int64_t var$3 = $nc(this->window)->getWindow();
+		$XlibWrapper::XReparentWindow(var$2, var$3, $XToolkit::getDefaultRootWindow(), 0, 0);
+	} catch ($Throwable& var$4) {
+		$assign(var$0, var$4);
+	} /*finally*/ {
+		$XToolkit::awtUnlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 	int32_t res = getEventPos();
 	activateServerNoWait(res);
@@ -565,71 +435,66 @@ void XEmbedServerTester::test9_1() {
 }
 
 int32_t XEmbedServerTester::embed() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t res = getEventPos();
 	$XToolkit::awtLock();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$init($XBaseWindow);
-			$init($Boolean);
-			$var($XCreateWindowParams, params, $new($XCreateWindowParams, $$new($ObjectArray, {
-				$of($XBaseWindow::PARENT_WINDOW),
-				$($of($Long::valueOf(this->reparent ? $XToolkit::getDefaultRootWindow() : this->parent))),
-				$of($XBaseWindow::BOUNDS),
-				$of(XEmbedServerTester::initialBounds),
-				$of($XBaseWindow::EMBEDDED),
-				$of($Boolean::TRUE),
-				$of($XBaseWindow::VISIBLE),
-				$($of($Boolean::valueOf(this->mapped == $XEmbedHelper::XEMBED_MAPPED))),
-				$of($XBaseWindow::EVENT_MASK),
-				$($of($Long::valueOf((((int64_t)65536 | (int64_t)131072) | (int64_t)524288) | (int64_t)1)))
-			})));
-			$set(this, window, $new($XBaseWindow, params));
-			$init($PlatformLogger$Level);
-			if ($nc(XEmbedServerTester::xembedLog)->isLoggable($PlatformLogger$Level::FINER)) {
-				$nc(XEmbedServerTester::xembedLog)->finer($$str({"Created tester window: "_s, this->window}));
-			}
-			$XToolkit::addEventDispatcher($nc(this->window)->getWindow(), this);
-			updateEmbedInfo();
-			if (this->reparent) {
-				$nc(XEmbedServerTester::xembedLog)->finer("Reparenting to embedder"_s);
-				int64_t var$1 = $XToolkit::getDisplay();
-				$XlibWrapper::XReparentWindow(var$1, $nc(this->window)->getWindow(), this->parent, 0, 0);
-			}
-		} catch ($Throwable& var$2) {
-			$assign(var$0, var$2);
-		} /*finally*/ {
-			$XToolkit::awtUnlock();
+	$var($Throwable, var$0, nullptr);
+	try {
+		$init($XBaseWindow);
+		$var($XCreateWindowParams, params, $new($XCreateWindowParams, $$new($ObjectArray, {
+			$XBaseWindow::PARENT_WINDOW,
+			$($Long::valueOf(this->reparent ? $XToolkit::getDefaultRootWindow() : this->parent)),
+			$XBaseWindow::BOUNDS,
+			XEmbedServerTester::initialBounds,
+			$XBaseWindow::EMBEDDED,
+			$Boolean::TRUE,
+			$XBaseWindow::VISIBLE,
+			$($Boolean::valueOf(this->mapped == $XEmbedHelper::XEMBED_MAPPED)),
+			$XBaseWindow::EVENT_MASK,
+			$($Long::valueOf((((int64_t)0x00010000 | (int64_t)0x00020000) | (int64_t)0x00080000) | (int64_t)1))
+		})));
+		$set(this, window, $new($XBaseWindow, params));
+		$init($PlatformLogger$Level);
+		if ($nc(XEmbedServerTester::xembedLog)->isLoggable($PlatformLogger$Level::FINER)) {
+			XEmbedServerTester::xembedLog->finer($$str({"Created tester window: "_s, this->window}));
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+		$XToolkit::addEventDispatcher($nc(this->window)->getWindow(), this);
+		updateEmbedInfo();
+		if (this->reparent) {
+			XEmbedServerTester::xembedLog->finer("Reparenting to embedder"_s);
+			int64_t var$1 = $XToolkit::getDisplay();
+			$XlibWrapper::XReparentWindow(var$1, $nc(this->window)->getWindow(), this->parent, 0, 0);
 		}
+	} catch ($Throwable& var$2) {
+		$assign(var$0, var$2);
+	} /*finally*/ {
+		$XToolkit::awtUnlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 	return res;
 }
 
 void XEmbedServerTester::updateEmbedInfo() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($longs, info, $new($longs, {
-		(int64_t)this->my_version,
-		(int64_t)this->mapped
+		this->my_version,
+		this->mapped
 	}));
 	int64_t data = $Native::card32ToData(info);
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$init($XEmbedHelper);
-			$nc($XEmbedHelper::XEmbedInfo)->setAtomData($nc(this->window)->getWindow(), data, info->length);
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$init($XEmbedHelper);
-			$nc($XEmbedHelper::unsafe)->freeMemory(data);
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	$var($Throwable, var$0, nullptr);
+	try {
+		$init($XEmbedHelper);
+		$nc($XEmbedHelper::XEmbedInfo)->setAtomData($nc(this->window)->getWindow(), data, info->length);
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$init($XEmbedHelper);
+		$nc($XEmbedHelper::unsafe)->freeMemory(data);
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
@@ -672,7 +537,7 @@ int32_t XEmbedServerTester::activateServerNoWait(int32_t prev) {
 	$nc(XEmbedServerTester::xembedLog)->fine("Activating server"_s);
 	int32_t res = getEventPos();
 	if (checkEventList(prev, $XEmbedHelper::XEMBED_WINDOW_ACTIVATE) != -1) {
-		$nc(XEmbedServerTester::xembedLog)->fine("Activation already received"_s);
+		XEmbedServerTester::xembedLog->fine("Activation already received"_s);
 		return res;
 	}
 	$var($Point, loc, $nc($nc(this->serverBounds)->get(XEmbedServerTester::SERVER_BOUNDS))->getLocation());
@@ -756,19 +621,19 @@ void XEmbedServerTester::waitSystemEvent(int32_t position, int32_t event) {
 }
 
 void XEmbedServerTester::waitForEvent(int32_t position, int32_t event) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized(this->EVENT_LOCK) {
 		if (checkEventList(position, event) != -1) {
 			$init($PlatformLogger$Level);
 			if ($nc(XEmbedServerTester::xembedLog)->isLoggable($PlatformLogger$Level::FINER)) {
-				$nc(XEmbedServerTester::xembedLog)->finer($$str({"The event "_s, $($XEmbedHelper::msgidToString(event)), " has already been received"_s}));
+				XEmbedServerTester::xembedLog->finer($$str({"The event "_s, $($XEmbedHelper::msgidToString(event)), " has already been received"_s}));
 			}
 			return;
 		}
 		if (this->eventReceived == event) {
 			$init($PlatformLogger$Level);
 			if ($nc(XEmbedServerTester::xembedLog)->isLoggable($PlatformLogger$Level::FINER)) {
-				$nc(XEmbedServerTester::xembedLog)->finer($$str({"Already received "_s, $($XEmbedHelper::msgidToString(event))}));
+				XEmbedServerTester::xembedLog->finer($$str({"Already received "_s, $($XEmbedHelper::msgidToString(event))}));
 			}
 			return;
 		}
@@ -776,34 +641,36 @@ void XEmbedServerTester::waitForEvent(int32_t position, int32_t event) {
 		this->eventWaited = event;
 		$init($PlatformLogger$Level);
 		if ($nc(XEmbedServerTester::xembedLog)->isLoggable($PlatformLogger$Level::FINER)) {
-			$nc(XEmbedServerTester::xembedLog)->finer($$str({"Waiting for "_s, $($XEmbedHelper::msgidToString(event)), " starting from "_s, $$str(position)}));
+			XEmbedServerTester::xembedLog->finer($$str({"Waiting for "_s, $($XEmbedHelper::msgidToString(event)), " starting from "_s, $$str(position)}));
 		}
 		try {
-			$nc($of(this->EVENT_LOCK))->wait(3000);
+			this->EVENT_LOCK->wait(3000);
 		} catch ($InterruptedException& ie) {
-			$nc(XEmbedServerTester::xembedLog)->warning("Event wait interrupted"_s, static_cast<$Throwable*>(ie));
+			XEmbedServerTester::xembedLog->warning("Event wait interrupted"_s, ie);
 		}
 		this->eventWaited = -1;
 		if (checkEventList(position, event) == -1) {
 			dumpReceivedEvents();
-			$var($String, var$0, $$str({"Didn\'t receive event "_s, $($XEmbedHelper::msgidToString(event)), " but recevied "_s}));
-			$throwNew($RuntimeException, $$concat(var$0, $($XEmbedHelper::msgidToString(this->eventReceived))));
-		} else {
-			if ($nc(XEmbedServerTester::xembedLog)->isLoggable($PlatformLogger$Level::FINER)) {
-				$nc(XEmbedServerTester::xembedLog)->finer($$str({"Successfully recevied "_s, $($XEmbedHelper::msgidToString(event))}));
-			}
+			$var($StringBuilder, var$0, $new($StringBuilder));
+			var$0->append("Didn\'t receive event "_s);
+			var$0->append($($XEmbedHelper::msgidToString(event)));
+			var$0->append(" but recevied "_s);
+			var$0->append($($XEmbedHelper::msgidToString(this->eventReceived)));
+			$throwNew($RuntimeException, $$str(var$0));
+		} else if (XEmbedServerTester::xembedLog->isLoggable($PlatformLogger$Level::FINER)) {
+			XEmbedServerTester::xembedLog->finer($$str({"Successfully recevied "_s, $($XEmbedHelper::msgidToString(event))}));
 		}
 	}
 }
 
 int32_t XEmbedServerTester::checkEventList(int32_t position, int32_t event) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (position == -1) {
 		return -1;
 	}
 	$synchronized(this->EVENT_LOCK) {
 		for (int32_t i = position; i < $nc(this->events)->size(); ++i) {
-			if ($nc(($cast($Integer, $($nc(this->events)->get(i)))))->intValue() == event) {
+			if ($$sure($Integer, this->events->get(i))->intValue() == event) {
 				return i;
 			}
 		}
@@ -812,21 +679,21 @@ int32_t XEmbedServerTester::checkEventList(int32_t position, int32_t event) {
 }
 
 void XEmbedServerTester::checkFocusedServerNext() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->focusedServerComponent != 0) {
 		$throwNew($RuntimeException, $$str({"Wrong focused server component, should be 0, but it is "_s, $$str(this->focusedServerComponent)}));
 	}
 }
 
 void XEmbedServerTester::checkFocusedServerPrev() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->focusedServerComponent != 2) {
 		$throwNew($RuntimeException, $$str({"Wrong focused server component, should be 2, but it is "_s, $$str(this->focusedServerComponent)}));
 	}
 }
 
 void XEmbedServerTester::checkFocusGained(int32_t kind) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!this->focused) {
 		$throwNew($RuntimeException, "Didn\'t receive FOCUS_GAINED"_s);
 	}
@@ -881,7 +748,7 @@ void XEmbedServerTester::sendMessage(int32_t message, int32_t detail, int64_t da
 }
 
 void XEmbedServerTester::dispatchEvent($XEvent* ev) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(ev)->get_type() == 33) {
 		$var($XClientMessageEvent, msg, ev->get_xclient());
 		int64_t var$0 = $nc(msg)->get_message_type();
@@ -889,50 +756,40 @@ void XEmbedServerTester::dispatchEvent($XEvent* ev) {
 		if (var$0 == $nc($XEmbedHelper::XEmbed)->getAtom()) {
 			$init($PlatformLogger$Level);
 			if ($nc(XEmbedServerTester::xembedLog)->isLoggable($PlatformLogger$Level::FINE)) {
-				$nc(XEmbedServerTester::xembedLog)->fine($$str({"Embedded message: "_s, $($XEmbedHelper::msgidToString((int32_t)msg->get_data(1)))}));
+				XEmbedServerTester::xembedLog->fine($$str({"Embedded message: "_s, $($XEmbedHelper::msgidToString((int32_t)msg->get_data(1)))}));
 			}
 			switch ((int32_t)msg->get_data(1)) {
 			case $XEmbedHelper::XEMBED_EMBEDDED_NOTIFY:
-				{
-					this->xembedActive = true;
-					this->server_version = (int32_t)msg->get_data(3);
-					break;
-				}
+				this->xembedActive = true;
+				this->server_version = (int32_t)msg->get_data(3);
+				break;
 			case $XEmbedHelper::XEMBED_WINDOW_ACTIVATE:
-				{
-					this->windowActive = true;
-					break;
-				}
+				this->windowActive = true;
+				break;
 			case $XEmbedHelper::XEMBED_WINDOW_DEACTIVATE:
-				{
-					this->windowActive = false;
-					break;
-				}
+				this->windowActive = false;
+				break;
 			case $XEmbedHelper::XEMBED_FOCUS_IN:
-				{
-					this->focused = true;
-					this->focusedKind = (int32_t)msg->get_data(2);
-					break;
-				}
+				this->focused = true;
+				this->focusedKind = (int32_t)msg->get_data(2);
+				break;
 			case $XEmbedHelper::XEMBED_FOCUS_OUT:
-				{
-					this->focused = false;
-					this->focusedKind = $XEmbedHelper::XEMBED_FOCUS_OUT;
-					this->focusedServerComponent = (int32_t)msg->get_data(2);
-					break;
-				}
+				this->focused = false;
+				this->focusedKind = $XEmbedHelper::XEMBED_FOCUS_OUT;
+				this->focusedServerComponent = (int32_t)msg->get_data(2);
+				break;
 			}
 			$synchronized(this->EVENT_LOCK) {
 				$nc(this->events)->add($($Integer::valueOf((int32_t)msg->get_data(1))));
-				if ($nc(XEmbedServerTester::xembedLog)->isLoggable($PlatformLogger$Level::FINER)) {
-					$nc(XEmbedServerTester::xembedLog)->finer($$str({"Tester is waiting for "_s, $($XEmbedHelper::msgidToString(this->eventWaited))}));
+				if (XEmbedServerTester::xembedLog->isLoggable($PlatformLogger$Level::FINER)) {
+					XEmbedServerTester::xembedLog->finer($$str({"Tester is waiting for "_s, $($XEmbedHelper::msgidToString(this->eventWaited))}));
 				}
 				if ((int32_t)msg->get_data(1) == this->eventWaited) {
 					this->eventReceived = (int32_t)msg->get_data(1);
-					if ($nc(XEmbedServerTester::xembedLog)->isLoggable($PlatformLogger$Level::FINER)) {
-						$nc(XEmbedServerTester::xembedLog)->finer($$str({"Notifying waiting object for event "_s, $$str($System::identityHashCode(this->EVENT_LOCK))}));
+					if (XEmbedServerTester::xembedLog->isLoggable($PlatformLogger$Level::FINER)) {
+						XEmbedServerTester::xembedLog->finer($$str({"Notifying waiting object for event "_s, $$str($System::identityHashCode(this->EVENT_LOCK))}));
 					}
-					$nc($of(this->EVENT_LOCK))->notifyAll();
+					this->EVENT_LOCK->notifyAll();
 				}
 			}
 		}
@@ -942,16 +799,22 @@ void XEmbedServerTester::dispatchEvent($XEvent* ev) {
 			$nc(this->events)->add($($Integer::valueOf(eventID)));
 			$init($PlatformLogger$Level);
 			if ($nc(XEmbedServerTester::xembedLog)->isLoggable($PlatformLogger$Level::FINER)) {
-				$var($String, var$2, $$str({"Tester is waiting for "_s, $($XEmbedHelper::msgidToString(this->eventWaited)), ", but we received "_s, ev, "("_s}));
-				$var($String, var$1, $$concat(var$2, $($XEmbedHelper::msgidToString(eventID))));
-				$nc(XEmbedServerTester::xembedLog)->finer($$concat(var$1, ")"_s));
+				$var($StringBuilder, var$1, $new($StringBuilder));
+				var$1->append("Tester is waiting for "_s);
+				var$1->append($($XEmbedHelper::msgidToString(this->eventWaited)));
+				var$1->append(", but we received "_s);
+				var$1->append(ev);
+				var$1->append("("_s);
+				var$1->append($($XEmbedHelper::msgidToString(eventID)));
+				var$1->append(")"_s);
+				XEmbedServerTester::xembedLog->finer($$str(var$1));
 			}
 			if (eventID == this->eventWaited) {
 				this->eventReceived = eventID;
-				if ($nc(XEmbedServerTester::xembedLog)->isLoggable($PlatformLogger$Level::FINER)) {
-					$nc(XEmbedServerTester::xembedLog)->finer($$str({"Notifying waiting object"_s, $$str($System::identityHashCode(this->EVENT_LOCK))}));
+				if (XEmbedServerTester::xembedLog->isLoggable($PlatformLogger$Level::FINER)) {
+					XEmbedServerTester::xembedLog->finer($$str({"Notifying waiting object"_s, $$str($System::identityHashCode(this->EVENT_LOCK))}));
 				}
-				$nc($of(this->EVENT_LOCK))->notifyAll();
+				this->EVENT_LOCK->notifyAll();
 			}
 		}
 	}
@@ -1014,7 +877,7 @@ int32_t XEmbedServerTester::hideModalDialog() {
 	return res;
 }
 
-void clinit$XEmbedServerTester($Class* class$) {
+void XEmbedServerTester::clinit$($Class* clazz) {
 	$assignStatic(XEmbedServerTester::xembedLog, $PlatformLogger::getLogger("sun.awt.X11.xembed.XEmbedServerTester"_s));
 	$assignStatic(XEmbedServerTester::initialBounds, $new($Rectangle, 0, 0, 100, 100));
 }
@@ -1023,7 +886,125 @@ XEmbedServerTester::XEmbedServerTester() {
 }
 
 $Class* XEmbedServerTester::load$($String* name, bool initialize) {
-	$loadClass(XEmbedServerTester, name, initialize, &_XEmbedServerTester_ClassInfo_, clinit$XEmbedServerTester, allocate$XEmbedServerTester);
+	$FieldInfo fieldInfos$$[] = {
+		{"xembedLog", "Lsun/util/logging/PlatformLogger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XEmbedServerTester, xembedLog)},
+		{"EVENT_LOCK", "Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $field(XEmbedServerTester, EVENT_LOCK)},
+		{"SYSTEM_EVENT_MASK", "I", nullptr, $STATIC | $FINAL, $constField(XEmbedServerTester, SYSTEM_EVENT_MASK)},
+		{"my_version", "I", nullptr, 0, $field(XEmbedServerTester, my_version)},
+		{"server_version", "I", nullptr, 0, $field(XEmbedServerTester, server_version)},
+		{"xembed", "Lsun/awt/X11/XEmbedHelper;", nullptr, 0, $field(XEmbedServerTester, xembed)},
+		{"focused", "Z", nullptr, 0, $field(XEmbedServerTester, focused)},
+		{"focusedKind", "I", nullptr, 0, $field(XEmbedServerTester, focusedKind)},
+		{"focusedServerComponent", "I", nullptr, 0, $field(XEmbedServerTester, focusedServerComponent)},
+		{"reparent", "Z", nullptr, 0, $field(XEmbedServerTester, reparent)},
+		{"parent", "J", nullptr, 0, $field(XEmbedServerTester, parent)},
+		{"windowActive", "Z", nullptr, 0, $field(XEmbedServerTester, windowActive)},
+		{"xembedActive", "Z", nullptr, 0, $field(XEmbedServerTester, xembedActive)},
+		{"window", "Lsun/awt/X11/XBaseWindow;", nullptr, 0, $field(XEmbedServerTester, window)},
+		{"eventWaited", "I", nullptr, $VOLATILE, $field(XEmbedServerTester, eventWaited)},
+		{"eventReceived", "I", nullptr, $VOLATILE, $field(XEmbedServerTester, eventReceived)},
+		{"mapped", "I", nullptr, 0, $field(XEmbedServerTester, mapped)},
+		{"accel_key", "I", nullptr, 0, $field(XEmbedServerTester, accel_key)},
+		{"accel_keysym", "I", nullptr, 0, $field(XEmbedServerTester, accel_keysym)},
+		{"accel_mods", "I", nullptr, 0, $field(XEmbedServerTester, accel_mods)},
+		{"initialBounds", "Ljava/awt/Rectangle;", nullptr, $STATIC, $staticField(XEmbedServerTester, initialBounds)},
+		{"robot", "Ljava/awt/Robot;", nullptr, 0, $field(XEmbedServerTester, robot)},
+		{"serverBounds", "[Ljava/awt/Rectangle;", nullptr, 0, $field(XEmbedServerTester, serverBounds)},
+		{"SERVER_BOUNDS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XEmbedServerTester, SERVER_BOUNDS)},
+		{"OTHER_FRAME", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XEmbedServerTester, OTHER_FRAME)},
+		{"SERVER_FOCUS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XEmbedServerTester, SERVER_FOCUS)},
+		{"SERVER_MODAL", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XEmbedServerTester, SERVER_MODAL)},
+		{"MODAL_CLOSE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XEmbedServerTester, MODAL_CLOSE)},
+		{"events", "Ljava/util/LinkedList;", "Ljava/util/LinkedList<Ljava/lang/Integer;>;", 0, $field(XEmbedServerTester, events)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "([Ljava/awt/Rectangle;J)V", nullptr, $PRIVATE, $method(XEmbedServerTester, init$, void, $RectangleArray*, int64_t)},
+		{"activateServer", "(I)I", nullptr, $PRIVATE, $method(XEmbedServerTester, activateServer, int32_t, int32_t)},
+		{"activateServerNoWait", "(I)I", nullptr, $PRIVATE, $method(XEmbedServerTester, activateServerNoWait, int32_t, int32_t)},
+		{"checkEventList", "(II)I", nullptr, $PRIVATE, $method(XEmbedServerTester, checkEventList, int32_t, int32_t, int32_t)},
+		{"checkFocusGained", "(I)V", nullptr, $PRIVATE, $method(XEmbedServerTester, checkFocusGained, void, int32_t)},
+		{"checkFocusLost", "()V", nullptr, $PRIVATE, $method(XEmbedServerTester, checkFocusLost, void)},
+		{"checkFocused", "()V", nullptr, $PRIVATE, $method(XEmbedServerTester, checkFocused, void)},
+		{"checkFocusedServerNext", "()V", nullptr, $PRIVATE, $method(XEmbedServerTester, checkFocusedServerNext, void)},
+		{"checkFocusedServerPrev", "()V", nullptr, $PRIVATE, $method(XEmbedServerTester, checkFocusedServerPrev, void)},
+		{"checkMapped", "()V", nullptr, $PRIVATE, $method(XEmbedServerTester, checkMapped, void)},
+		{"checkNotFocused", "()V", nullptr, $PRIVATE, $method(XEmbedServerTester, checkNotFocused, void)},
+		{"checkNotMapped", "()V", nullptr, $PRIVATE, $method(XEmbedServerTester, checkNotMapped, void)},
+		{"checkWindowActivated", "()V", nullptr, $PRIVATE, $method(XEmbedServerTester, checkWindowActivated, void)},
+		{"deactivateServer", "()I", nullptr, $PRIVATE, $method(XEmbedServerTester, deactivateServer, int32_t)},
+		{"dispatchEvent", "(Lsun/awt/X11/XEvent;)V", nullptr, $PUBLIC, $virtualMethod(XEmbedServerTester, dispatchEvent, void, $XEvent*)},
+		{"dumpReceivedEvents", "()V", nullptr, $PRIVATE, $method(XEmbedServerTester, dumpReceivedEvents, void)},
+		{"embed", "()I", nullptr, $PRIVATE, $method(XEmbedServerTester, embed, int32_t)},
+		{"embedCompletely", "()I", nullptr, $PRIVATE, $method(XEmbedServerTester, embedCompletely, int32_t)},
+		{"focusServer", "()I", nullptr, $PRIVATE, $method(XEmbedServerTester, focusServer, int32_t)},
+		{"focusServerNext", "()I", nullptr, $PRIVATE, $method(XEmbedServerTester, focusServerNext, int32_t)},
+		{"focusServerPrev", "()I", nullptr, $PRIVATE, $method(XEmbedServerTester, focusServerPrev, int32_t)},
+		{"getEventPos", "()I", nullptr, $PRIVATE, $method(XEmbedServerTester, getEventPos, int32_t)},
+		{"getTester", "([Ljava/awt/Rectangle;J)Lsun/awt/X11/XEmbedServerTester;", nullptr, $PUBLIC | $STATIC, $staticMethod(XEmbedServerTester, getTester, XEmbedServerTester*, $RectangleArray*, int64_t)},
+		{"grabKey", "()V", nullptr, $PRIVATE, $method(XEmbedServerTester, grabKey, void)},
+		{"hideModalDialog", "()I", nullptr, $PRIVATE, $method(XEmbedServerTester, hideModalDialog, int32_t)},
+		{"initAccel", "()V", nullptr, $PRIVATE, $method(XEmbedServerTester, initAccel, void)},
+		{"pressAccelKey", "()I", nullptr, $PRIVATE, $method(XEmbedServerTester, pressAccelKey, int32_t)},
+		{"registerAccelerator", "()V", nullptr, $PRIVATE, $method(XEmbedServerTester, registerAccelerator, void)},
+		{"requestFocus", "()I", nullptr, $PRIVATE, $method(XEmbedServerTester, requestFocus, int32_t)},
+		{"requestFocusNoWait", "()I", nullptr, $PRIVATE, $method(XEmbedServerTester, requestFocusNoWait, int32_t)},
+		{"sendMessage", "(I)V", nullptr, $PRIVATE, $method(XEmbedServerTester, sendMessage, void, int32_t)},
+		{"sendMessage", "(IIJJ)V", nullptr, $PRIVATE, $method(XEmbedServerTester, sendMessage, void, int32_t, int32_t, int64_t, int64_t)},
+		{"showModalDialog", "()I", nullptr, $PRIVATE, $method(XEmbedServerTester, showModalDialog, int32_t)},
+		{"sleep", "(I)V", nullptr, $PRIVATE, $method(XEmbedServerTester, sleep, void, int32_t)},
+		{"test1_1", "()V", nullptr, $PUBLIC, $virtualMethod(XEmbedServerTester, test1_1, void)},
+		{"test1_2", "()V", nullptr, $PUBLIC, $virtualMethod(XEmbedServerTester, test1_2, void)},
+		{"test1_3", "()V", nullptr, $PUBLIC, $virtualMethod(XEmbedServerTester, test1_3, void)},
+		{"test1_4", "()V", nullptr, $PUBLIC, $virtualMethod(XEmbedServerTester, test1_4, void)},
+		{"test1_5", "()V", nullptr, $PUBLIC, $virtualMethod(XEmbedServerTester, test1_5, void)},
+		{"test1_6", "()V", nullptr, $PUBLIC, $virtualMethod(XEmbedServerTester, test1_6, void)},
+		{"test1_7", "()V", nullptr, $PUBLIC, $virtualMethod(XEmbedServerTester, test1_7, void)},
+		{"test2_5", "()V", nullptr, $PUBLIC, $virtualMethod(XEmbedServerTester, test2_5, void)},
+		{"test2_6", "()V", nullptr, $PUBLIC, $virtualMethod(XEmbedServerTester, test2_6, void)},
+		{"test3_1", "()V", nullptr, $PUBLIC, $virtualMethod(XEmbedServerTester, test3_1, void)},
+		{"test3_3", "()V", nullptr, $PUBLIC, $virtualMethod(XEmbedServerTester, test3_3, void)},
+		{"test3_4", "()V", nullptr, $PUBLIC, $virtualMethod(XEmbedServerTester, test3_4, void)},
+		{"test3_5", "()V", nullptr, $PUBLIC, $virtualMethod(XEmbedServerTester, test3_5, void)},
+		{"test3_6", "()V", nullptr, $PUBLIC, $virtualMethod(XEmbedServerTester, test3_6, void)},
+		{"test4_1", "()V", nullptr, $PUBLIC, $virtualMethod(XEmbedServerTester, test4_1, void)},
+		{"test4_2", "()V", nullptr, $PUBLIC, $virtualMethod(XEmbedServerTester, test4_2, void)},
+		{"test4_3", "()V", nullptr, $PUBLIC, $virtualMethod(XEmbedServerTester, test4_3, void)},
+		{"test4_4", "()V", nullptr, $PUBLIC, $virtualMethod(XEmbedServerTester, test4_4, void)},
+		{"test6_1_1", "()V", nullptr, $PUBLIC, $virtualMethod(XEmbedServerTester, test6_1_1, void)},
+		{"test6_1_2", "()V", nullptr, $PUBLIC, $virtualMethod(XEmbedServerTester, test6_1_2, void)},
+		{"test6_1_3", "()V", nullptr, $PUBLIC, $virtualMethod(XEmbedServerTester, test6_1_3, void)},
+		{"test6_1_4", "()V", nullptr, $PUBLIC, $virtualMethod(XEmbedServerTester, test6_1_4, void)},
+		{"test6_2_1", "()V", nullptr, $PUBLIC, $virtualMethod(XEmbedServerTester, test6_2_1, void)},
+		{"test6_2_2", "()V", nullptr, $PUBLIC, $virtualMethod(XEmbedServerTester, test6_2_2, void)},
+		{"test6_2_3", "()V", nullptr, $PUBLIC, $virtualMethod(XEmbedServerTester, test6_2_3, void)},
+		{"test6_2_4", "()V", nullptr, $PUBLIC, $virtualMethod(XEmbedServerTester, test6_2_4, void)},
+		{"test7_1", "()V", nullptr, $PUBLIC, $virtualMethod(XEmbedServerTester, test7_1, void)},
+		{"test7_2", "()V", nullptr, $PUBLIC, $virtualMethod(XEmbedServerTester, test7_2, void)},
+		{"test9_1", "()V", nullptr, $PUBLIC, $virtualMethod(XEmbedServerTester, test9_1, void)},
+		{"ungrabKey", "()V", nullptr, $PRIVATE, $method(XEmbedServerTester, ungrabKey, void)},
+		{"unregisterAccelerator", "()V", nullptr, $PRIVATE, $method(XEmbedServerTester, unregisterAccelerator, void)},
+		{"updateEmbedInfo", "()V", nullptr, $PRIVATE, $method(XEmbedServerTester, updateEmbedInfo, void)},
+		{"waitEmbeddedNotify", "(I)V", nullptr, $PRIVATE, $method(XEmbedServerTester, waitEmbeddedNotify, void, int32_t)},
+		{"waitFocusGained", "(I)V", nullptr, $PRIVATE, $method(XEmbedServerTester, waitFocusGained, void, int32_t)},
+		{"waitFocusLost", "(I)V", nullptr, $PRIVATE, $method(XEmbedServerTester, waitFocusLost, void, int32_t)},
+		{"waitForEvent", "(II)V", nullptr, $PRIVATE, $method(XEmbedServerTester, waitForEvent, void, int32_t, int32_t)},
+		{"waitSystemEvent", "(II)V", nullptr, $PRIVATE, $method(XEmbedServerTester, waitSystemEvent, void, int32_t, int32_t)},
+		{"waitWindowActivated", "(I)V", nullptr, $PRIVATE, $method(XEmbedServerTester, waitWindowActivated, void, int32_t)},
+		{"waitWindowDeactivated", "(I)V", nullptr, $PRIVATE, $method(XEmbedServerTester, waitWindowDeactivated, void, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.awt.X11.XEmbedServerTester",
+		"java.lang.Object",
+		"sun.awt.X11.XEventDispatcher",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XEmbedServerTester, name, initialize, &classInfo$$, XEmbedServerTester::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(XEmbedServerTester);
+	});
 	return class$;
 }
 

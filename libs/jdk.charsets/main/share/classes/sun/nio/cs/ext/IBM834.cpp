@@ -1,5 +1,4 @@
 #include <sun/nio/cs/ext/IBM834.h>
-
 #include <java/nio/charset/Charset.h>
 #include <java/nio/charset/CharsetDecoder.h>
 #include <java/nio/charset/CharsetEncoder.h>
@@ -25,38 +24,6 @@ namespace sun {
 		namespace cs {
 			namespace ext {
 
-$MethodInfo _IBM834_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(IBM834, init$, void)},
-	{"contains", "(Ljava/nio/charset/Charset;)Z", nullptr, $PUBLIC, $virtualMethod(IBM834, contains, bool, $Charset*)},
-	{"newDecoder", "()Ljava/nio/charset/CharsetDecoder;", nullptr, $PUBLIC, $virtualMethod(IBM834, newDecoder, $CharsetDecoder*)},
-	{"newEncoder", "()Ljava/nio/charset/CharsetEncoder;", nullptr, $PUBLIC, $virtualMethod(IBM834, newEncoder, $CharsetEncoder*)},
-	{}
-};
-
-$InnerClassInfo _IBM834_InnerClassesInfo_[] = {
-	{"sun.nio.cs.ext.IBM834$Encoder", "sun.nio.cs.ext.IBM834", "Encoder", $PROTECTED | $STATIC},
-	{}
-};
-
-$ClassInfo _IBM834_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.nio.cs.ext.IBM834",
-	"java.nio.charset.Charset",
-	nullptr,
-	nullptr,
-	_IBM834_MethodInfo_,
-	nullptr,
-	nullptr,
-	_IBM834_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.nio.cs.ext.IBM834$Encoder"
-};
-
-$Object* allocate$IBM834($Class* clazz) {
-	return $of($alloc(IBM834));
-}
-
 void IBM834::init$() {
 	$Charset::init$("x-IBM834"_s, $($ExtendedCharsets::aliasesFor("x-IBM834"_s)));
 }
@@ -78,7 +45,34 @@ IBM834::IBM834() {
 }
 
 $Class* IBM834::load$($String* name, bool initialize) {
-	$loadClass(IBM834, name, initialize, &_IBM834_ClassInfo_, allocate$IBM834);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(IBM834, init$, void)},
+		{"contains", "(Ljava/nio/charset/Charset;)Z", nullptr, $PUBLIC, $virtualMethod(IBM834, contains, bool, $Charset*)},
+		{"newDecoder", "()Ljava/nio/charset/CharsetDecoder;", nullptr, $PUBLIC, $virtualMethod(IBM834, newDecoder, $CharsetDecoder*)},
+		{"newEncoder", "()Ljava/nio/charset/CharsetEncoder;", nullptr, $PUBLIC, $virtualMethod(IBM834, newEncoder, $CharsetEncoder*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.cs.ext.IBM834$Encoder", "sun.nio.cs.ext.IBM834", "Encoder", $PROTECTED | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.nio.cs.ext.IBM834",
+		"java.nio.charset.Charset",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.nio.cs.ext.IBM834$Encoder"
+	};
+	$loadClass(IBM834, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(IBM834);
+	});
 	return class$;
 }
 

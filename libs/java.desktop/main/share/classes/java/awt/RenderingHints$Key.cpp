@@ -1,5 +1,4 @@
 #include <java/awt/RenderingHints$Key.h>
-
 #include <java/awt/RenderingHints.h>
 #include <java/lang/ref/WeakReference.h>
 #include <java/util/HashMap.h>
@@ -17,70 +16,30 @@ using $HashMap = ::java::util::HashMap;
 namespace java {
 	namespace awt {
 
-$FieldInfo _RenderingHints$Key_FieldInfo_[] = {
-	{"identitymap", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/lang/Object;Ljava/lang/Object;>;", $PRIVATE | $STATIC, $staticField(RenderingHints$Key, identitymap)},
-	{"privatekey", "I", nullptr, $PRIVATE, $field(RenderingHints$Key, privatekey)},
-	{}
-};
-
-$MethodInfo _RenderingHints$Key_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, $PROTECTED, $method(RenderingHints$Key, init$, void, int32_t)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(RenderingHints$Key, equals, bool, Object$*)},
-	{"getIdentity", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(RenderingHints$Key, getIdentity, $String*)},
-	{"hashCode", "()I", nullptr, $PUBLIC | $FINAL, $virtualMethod(RenderingHints$Key, hashCode, int32_t)},
-	{"intKey", "()I", nullptr, $PROTECTED | $FINAL, $method(RenderingHints$Key, intKey, int32_t)},
-	{"isCompatibleValue", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RenderingHints$Key, isCompatibleValue, bool, Object$*)},
-	{"recordIdentity", "(Ljava/awt/RenderingHints$Key;)V", nullptr, $PRIVATE | $STATIC | $SYNCHRONIZED, $staticMethod(RenderingHints$Key, recordIdentity, void, RenderingHints$Key*)},
-	{}
-};
-
-$InnerClassInfo _RenderingHints$Key_InnerClassesInfo_[] = {
-	{"java.awt.RenderingHints$Key", "java.awt.RenderingHints", "Key", $PUBLIC | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _RenderingHints$Key_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"java.awt.RenderingHints$Key",
-	"java.lang.Object",
-	nullptr,
-	_RenderingHints$Key_FieldInfo_,
-	_RenderingHints$Key_MethodInfo_,
-	nullptr,
-	nullptr,
-	_RenderingHints$Key_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.awt.RenderingHints"
-};
-
-$Object* allocate$RenderingHints$Key($Class* clazz) {
-	return $of($alloc(RenderingHints$Key));
-}
-
 $HashMap* RenderingHints$Key::identitymap = nullptr;
 
 $String* RenderingHints$Key::getIdentity() {
-	$useLocalCurrentObjectStackCache();
-	$var($String, var$2, $$str({$($of(this)->getClass()->getName()), "@"_s}));
-	$var($String, var$1, $$concat(var$2, $($Integer::toHexString($System::identityHashCode($of(this)->getClass())))));
-	$var($String, var$0, $$concat(var$1, ":"_s));
-	return $concat(var$0, $($Integer::toHexString(this->privatekey)));
+	$useLocalObjectStack();
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append($($of(this)->getClass()->getName()));
+	var$0->append("@"_s);
+	var$0->append($($Integer::toHexString($System::identityHashCode($of(this)->getClass()))));
+	var$0->append(":"_s);
+	var$0->append($($Integer::toHexString(this->privatekey)));
+	return $str(var$0);
 }
 
 void RenderingHints$Key::recordIdentity(RenderingHints$Key* k) {
-	$load(RenderingHints$Key);
+	$init(RenderingHints$Key);
 	$synchronized(class$) {
-		$init(RenderingHints$Key);
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$var($Object, identity, $nc(k)->getIdentity());
 		$var($Object, otherref, $nc(RenderingHints$Key::identitymap)->get(identity));
 		if (otherref != nullptr) {
-			$var(RenderingHints$Key, otherkey, $cast(RenderingHints$Key, $nc(($cast($WeakReference, otherref)))->get()));
+			$var(RenderingHints$Key, otherkey, $cast(RenderingHints$Key, $cast($WeakReference, otherref)->get()));
 			bool var$0 = otherkey != nullptr;
 			if (var$0) {
-				var$0 = $of(otherkey)->getClass() == $of(k)->getClass();
+				var$0 = otherkey->getClass() == $of(k)->getClass();
 			}
 			if (var$0) {
 				$throwNew($IllegalArgumentException, $$str({identity, " already registered"_s}));
@@ -107,7 +66,7 @@ bool RenderingHints$Key::equals(Object$* o) {
 	return $equals(this, o);
 }
 
-void clinit$RenderingHints$Key($Class* class$) {
+void RenderingHints$Key::clinit$($Class* clazz) {
 	$assignStatic(RenderingHints$Key::identitymap, $new($HashMap, 17));
 }
 
@@ -115,7 +74,43 @@ RenderingHints$Key::RenderingHints$Key() {
 }
 
 $Class* RenderingHints$Key::load$($String* name, bool initialize) {
-	$loadClass(RenderingHints$Key, name, initialize, &_RenderingHints$Key_ClassInfo_, clinit$RenderingHints$Key, allocate$RenderingHints$Key);
+	$FieldInfo fieldInfos$$[] = {
+		{"identitymap", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/lang/Object;Ljava/lang/Object;>;", $PRIVATE | $STATIC, $staticField(RenderingHints$Key, identitymap)},
+		{"privatekey", "I", nullptr, $PRIVATE, $field(RenderingHints$Key, privatekey)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I)V", nullptr, $PROTECTED, $method(RenderingHints$Key, init$, void, int32_t)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(RenderingHints$Key, equals, bool, Object$*)},
+		{"getIdentity", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(RenderingHints$Key, getIdentity, $String*)},
+		{"hashCode", "()I", nullptr, $PUBLIC | $FINAL, $virtualMethod(RenderingHints$Key, hashCode, int32_t)},
+		{"intKey", "()I", nullptr, $PROTECTED | $FINAL, $method(RenderingHints$Key, intKey, int32_t)},
+		{"isCompatibleValue", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RenderingHints$Key, isCompatibleValue, bool, Object$*)},
+		{"recordIdentity", "(Ljava/awt/RenderingHints$Key;)V", nullptr, $PRIVATE | $STATIC | $SYNCHRONIZED, $staticMethod(RenderingHints$Key, recordIdentity, void, RenderingHints$Key*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.awt.RenderingHints$Key", "java.awt.RenderingHints", "Key", $PUBLIC | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"java.awt.RenderingHints$Key",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.awt.RenderingHints"
+	};
+	$loadClass(RenderingHints$Key, name, initialize, &classInfo$$, RenderingHints$Key::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(RenderingHints$Key);
+	});
 	return class$;
 }
 

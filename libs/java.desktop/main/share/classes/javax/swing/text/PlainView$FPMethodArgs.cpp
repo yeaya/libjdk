@@ -1,5 +1,4 @@
 #include <javax/swing/text/PlainView$FPMethodArgs.h>
-
 #include <java/awt/Graphics.h>
 #include <java/awt/Graphics2D.h>
 #include <java/lang/Enum.h>
@@ -33,49 +32,6 @@ namespace javax {
 	namespace swing {
 		namespace text {
 
-$FieldInfo _PlainView$FPMethodArgs_FieldInfo_[] = {
-	{"IGNN", "Ljavax/swing/text/PlainView$FPMethodArgs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(PlainView$FPMethodArgs, IGNN)},
-	{"IIGNN", "Ljavax/swing/text/PlainView$FPMethodArgs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(PlainView$FPMethodArgs, IIGNN)},
-	{"GNNII", "Ljavax/swing/text/PlainView$FPMethodArgs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(PlainView$FPMethodArgs, GNNII)},
-	{"GNNC", "Ljavax/swing/text/PlainView$FPMethodArgs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(PlainView$FPMethodArgs, GNNC)},
-	{"$VALUES", "[Ljavax/swing/text/PlainView$FPMethodArgs;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(PlainView$FPMethodArgs, $VALUES)},
-	{}
-};
-
-$MethodInfo _PlainView$FPMethodArgs_MethodInfo_[] = {
-	{"$values", "()[Ljavax/swing/text/PlainView$FPMethodArgs;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(PlainView$FPMethodArgs, $values, $PlainView$FPMethodArgsArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(PlainView$FPMethodArgs, init$, void, $String*, int32_t)},
-	{"getMethodArguments", "(Z)[Ljava/lang/Class;", "(Z)[Ljava/lang/Class<*>;", $PUBLIC, $method(PlainView$FPMethodArgs, getMethodArguments, $ClassArray*, bool)},
-	{"valueOf", "(Ljava/lang/String;)Ljavax/swing/text/PlainView$FPMethodArgs;", nullptr, $PUBLIC | $STATIC, $staticMethod(PlainView$FPMethodArgs, valueOf, PlainView$FPMethodArgs*, $String*)},
-	{"values", "()[Ljavax/swing/text/PlainView$FPMethodArgs;", nullptr, $PUBLIC | $STATIC, $staticMethod(PlainView$FPMethodArgs, values, $PlainView$FPMethodArgsArray*)},
-	{}
-};
-
-$InnerClassInfo _PlainView$FPMethodArgs_InnerClassesInfo_[] = {
-	{"javax.swing.text.PlainView$FPMethodArgs", "javax.swing.text.PlainView", "FPMethodArgs", $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _PlainView$FPMethodArgs_ClassInfo_ = {
-	$FINAL | $ACC_SUPER | $ENUM,
-	"javax.swing.text.PlainView$FPMethodArgs",
-	"java.lang.Enum",
-	nullptr,
-	_PlainView$FPMethodArgs_FieldInfo_,
-	_PlainView$FPMethodArgs_MethodInfo_,
-	"Ljava/lang/Enum<Ljavax/swing/text/PlainView$FPMethodArgs;>;",
-	nullptr,
-	_PlainView$FPMethodArgs_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.PlainView"
-};
-
-$Object* allocate$PlainView$FPMethodArgs($Class* clazz) {
-	return $of($alloc(PlainView$FPMethodArgs));
-}
-
 PlainView$FPMethodArgs* PlainView$FPMethodArgs::IGNN = nullptr;
 PlainView$FPMethodArgs* PlainView$FPMethodArgs::IIGNN = nullptr;
 PlainView$FPMethodArgs* PlainView$FPMethodArgs::GNNII = nullptr;
@@ -107,8 +63,6 @@ void PlainView$FPMethodArgs::init$($String* $enum$name, int32_t $enum$ordinal) {
 }
 
 $ClassArray* PlainView$FPMethodArgs::getMethodArguments(bool isFPType) {
-	$init($Float);
-	$init($Integer);
 	$Class* N = (isFPType) ? $Float::TYPE : $Integer::TYPE;
 	$load($Graphics2D);
 	$load($Graphics);
@@ -116,52 +70,41 @@ $ClassArray* PlainView$FPMethodArgs::getMethodArguments(bool isFPType) {
 	$init($PlainView$2);
 	switch ($nc($PlainView$2::$SwitchMap$javax$swing$text$PlainView$FPMethodArgs)->get((this)->ordinal())) {
 	case 1:
-		{
-			return $new($ClassArray, {
-				$Integer::TYPE,
-				G,
-				N,
-				N
-			});
-		}
+		return $new($ClassArray, {
+			$Integer::TYPE,
+			G,
+			N,
+			N
+		});
 	case 2:
-		{
-			return $new($ClassArray, {
-				$Integer::TYPE,
-				$Integer::TYPE,
-				G,
-				N,
-				N
-			});
-		}
+		return $new($ClassArray, {
+			$Integer::TYPE,
+			$Integer::TYPE,
+			G,
+			N,
+			N
+		});
 	case 3:
-		{
-			return $new($ClassArray, {
-				G,
-				N,
-				N,
-				$Integer::TYPE,
-				$Integer::TYPE
-			});
-		}
+		return $new($ClassArray, {
+			G,
+			N,
+			N,
+			$Integer::TYPE,
+			$Integer::TYPE
+		});
 	case 4:
-		{
-			$init($Character);
-			return $new($ClassArray, {
-				G,
-				N,
-				N,
-				$Character::TYPE
-			});
-		}
+		return $new($ClassArray, {
+			G,
+			N,
+			N,
+			$Character::TYPE
+		});
 	default:
-		{
-			$throwNew($RuntimeException, "Unknown method arguments!"_s);
-		}
+		$throwNew($RuntimeException, "Unknown method arguments!"_s);
 	}
 }
 
-void clinit$PlainView$FPMethodArgs($Class* class$) {
+void PlainView$FPMethodArgs::clinit$($Class* clazz) {
 	$assignStatic(PlainView$FPMethodArgs::IGNN, $new(PlainView$FPMethodArgs, "IGNN"_s, 0));
 	$assignStatic(PlainView$FPMethodArgs::IIGNN, $new(PlainView$FPMethodArgs, "IIGNN"_s, 1));
 	$assignStatic(PlainView$FPMethodArgs::GNNII, $new(PlainView$FPMethodArgs, "GNNII"_s, 2));
@@ -173,7 +116,44 @@ PlainView$FPMethodArgs::PlainView$FPMethodArgs() {
 }
 
 $Class* PlainView$FPMethodArgs::load$($String* name, bool initialize) {
-	$loadClass(PlainView$FPMethodArgs, name, initialize, &_PlainView$FPMethodArgs_ClassInfo_, clinit$PlainView$FPMethodArgs, allocate$PlainView$FPMethodArgs);
+	$FieldInfo fieldInfos$$[] = {
+		{"IGNN", "Ljavax/swing/text/PlainView$FPMethodArgs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(PlainView$FPMethodArgs, IGNN)},
+		{"IIGNN", "Ljavax/swing/text/PlainView$FPMethodArgs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(PlainView$FPMethodArgs, IIGNN)},
+		{"GNNII", "Ljavax/swing/text/PlainView$FPMethodArgs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(PlainView$FPMethodArgs, GNNII)},
+		{"GNNC", "Ljavax/swing/text/PlainView$FPMethodArgs;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(PlainView$FPMethodArgs, GNNC)},
+		{"$VALUES", "[Ljavax/swing/text/PlainView$FPMethodArgs;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(PlainView$FPMethodArgs, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Ljavax/swing/text/PlainView$FPMethodArgs;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(PlainView$FPMethodArgs, $values, $PlainView$FPMethodArgsArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(PlainView$FPMethodArgs, init$, void, $String*, int32_t)},
+		{"getMethodArguments", "(Z)[Ljava/lang/Class;", "(Z)[Ljava/lang/Class<*>;", $PUBLIC, $method(PlainView$FPMethodArgs, getMethodArguments, $ClassArray*, bool)},
+		{"valueOf", "(Ljava/lang/String;)Ljavax/swing/text/PlainView$FPMethodArgs;", nullptr, $PUBLIC | $STATIC, $staticMethod(PlainView$FPMethodArgs, valueOf, PlainView$FPMethodArgs*, $String*)},
+		{"values", "()[Ljavax/swing/text/PlainView$FPMethodArgs;", nullptr, $PUBLIC | $STATIC, $staticMethod(PlainView$FPMethodArgs, values, $PlainView$FPMethodArgsArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.PlainView$FPMethodArgs", "javax.swing.text.PlainView", "FPMethodArgs", $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER | $ENUM,
+		"javax.swing.text.PlainView$FPMethodArgs",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Ljavax/swing/text/PlainView$FPMethodArgs;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.PlainView"
+	};
+	$loadClass(PlainView$FPMethodArgs, name, initialize, &classInfo$$, PlainView$FPMethodArgs::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(PlainView$FPMethodArgs));
+	});
 	return class$;
 }
 

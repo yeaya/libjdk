@@ -58,6 +58,7 @@ public:
 	virtual bool equals(Object$* arg0) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::javax::swing::JMenuBar* swingBar);
 	virtual ::java::awt::Menu* add(::java::awt::Menu* m, int32_t index);
 	virtual void addNotify() override;

@@ -1,5 +1,4 @@
 #include <com/sun/jmx/mbeanserver/ClassLoaderRepositorySupport$LoaderEntry.h>
-
 #include <com/sun/jmx/mbeanserver/ClassLoaderRepositorySupport.h>
 #include <java/lang/ClassLoader.h>
 #include <javax/management/ObjectName.h>
@@ -17,42 +16,6 @@ namespace com {
 		namespace jmx {
 			namespace mbeanserver {
 
-$FieldInfo _ClassLoaderRepositorySupport$LoaderEntry_FieldInfo_[] = {
-	{"name", "Ljavax/management/ObjectName;", nullptr, 0, $field(ClassLoaderRepositorySupport$LoaderEntry, name)},
-	{"loader", "Ljava/lang/ClassLoader;", nullptr, 0, $field(ClassLoaderRepositorySupport$LoaderEntry, loader)},
-	{}
-};
-
-$MethodInfo _ClassLoaderRepositorySupport$LoaderEntry_MethodInfo_[] = {
-	{"<init>", "(Ljavax/management/ObjectName;Ljava/lang/ClassLoader;)V", nullptr, 0, $method(ClassLoaderRepositorySupport$LoaderEntry, init$, void, $ObjectName*, $ClassLoader*)},
-	{}
-};
-
-$InnerClassInfo _ClassLoaderRepositorySupport$LoaderEntry_InnerClassesInfo_[] = {
-	{"com.sun.jmx.mbeanserver.ClassLoaderRepositorySupport$LoaderEntry", "com.sun.jmx.mbeanserver.ClassLoaderRepositorySupport", "LoaderEntry", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _ClassLoaderRepositorySupport$LoaderEntry_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.jmx.mbeanserver.ClassLoaderRepositorySupport$LoaderEntry",
-	"java.lang.Object",
-	nullptr,
-	_ClassLoaderRepositorySupport$LoaderEntry_FieldInfo_,
-	_ClassLoaderRepositorySupport$LoaderEntry_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ClassLoaderRepositorySupport$LoaderEntry_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.jmx.mbeanserver.ClassLoaderRepositorySupport"
-};
-
-$Object* allocate$ClassLoaderRepositorySupport$LoaderEntry($Class* clazz) {
-	return $of($alloc(ClassLoaderRepositorySupport$LoaderEntry));
-}
-
 void ClassLoaderRepositorySupport$LoaderEntry::init$($ObjectName* name, $ClassLoader* loader) {
 	$set(this, name, name);
 	$set(this, loader, loader);
@@ -62,7 +25,37 @@ ClassLoaderRepositorySupport$LoaderEntry::ClassLoaderRepositorySupport$LoaderEnt
 }
 
 $Class* ClassLoaderRepositorySupport$LoaderEntry::load$($String* name, bool initialize) {
-	$loadClass(ClassLoaderRepositorySupport$LoaderEntry, name, initialize, &_ClassLoaderRepositorySupport$LoaderEntry_ClassInfo_, allocate$ClassLoaderRepositorySupport$LoaderEntry);
+	$FieldInfo fieldInfos$$[] = {
+		{"name", "Ljavax/management/ObjectName;", nullptr, 0, $field(ClassLoaderRepositorySupport$LoaderEntry, name)},
+		{"loader", "Ljava/lang/ClassLoader;", nullptr, 0, $field(ClassLoaderRepositorySupport$LoaderEntry, loader)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/management/ObjectName;Ljava/lang/ClassLoader;)V", nullptr, 0, $method(ClassLoaderRepositorySupport$LoaderEntry, init$, void, $ObjectName*, $ClassLoader*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.jmx.mbeanserver.ClassLoaderRepositorySupport$LoaderEntry", "com.sun.jmx.mbeanserver.ClassLoaderRepositorySupport", "LoaderEntry", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.jmx.mbeanserver.ClassLoaderRepositorySupport$LoaderEntry",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.jmx.mbeanserver.ClassLoaderRepositorySupport"
+	};
+	$loadClass(ClassLoaderRepositorySupport$LoaderEntry, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ClassLoaderRepositorySupport$LoaderEntry);
+	});
 	return class$;
 }
 

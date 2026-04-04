@@ -1,5 +1,4 @@
 #include <sun/font/ColorGlyphSurfaceData.h>
-
 #include <java/awt/GraphicsConfiguration.h>
 #include <java/awt/Rectangle.h>
 #include <java/awt/image/Raster.h>
@@ -22,34 +21,6 @@ using $SurfaceData = ::sun::java2d::SurfaceData;
 namespace sun {
 	namespace font {
 
-$MethodInfo _ColorGlyphSurfaceData_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(ColorGlyphSurfaceData, init$, void)},
-	{"getBounds", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(ColorGlyphSurfaceData, getBounds, $Rectangle*)},
-	{"getDestination", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ColorGlyphSurfaceData, getDestination, $Object*)},
-	{"getDeviceConfiguration", "()Ljava/awt/GraphicsConfiguration;", nullptr, $PUBLIC, $virtualMethod(ColorGlyphSurfaceData, getDeviceConfiguration, $GraphicsConfiguration*)},
-	{"getRaster", "(IIII)Ljava/awt/image/Raster;", nullptr, $PUBLIC, $virtualMethod(ColorGlyphSurfaceData, getRaster, $Raster*, int32_t, int32_t, int32_t, int32_t)},
-	{"getReplacement", "()Lsun/java2d/SurfaceData;", nullptr, $PUBLIC, $virtualMethod(ColorGlyphSurfaceData, getReplacement, $SurfaceData*)},
-	{"initOps", "()V", nullptr, $PRIVATE | $NATIVE, $method(ColorGlyphSurfaceData, initOps, void)},
-	{"setCurrentGlyph", "(J)V", nullptr, $NATIVE, $virtualMethod(ColorGlyphSurfaceData, setCurrentGlyph, void, int64_t)},
-	{}
-};
-
-#define _METHOD_INDEX_initOps 6
-#define _METHOD_INDEX_setCurrentGlyph 7
-
-$ClassInfo _ColorGlyphSurfaceData_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.font.ColorGlyphSurfaceData",
-	"sun.java2d.SurfaceData",
-	nullptr,
-	nullptr,
-	_ColorGlyphSurfaceData_MethodInfo_
-};
-
-$Object* allocate$ColorGlyphSurfaceData($Class* clazz) {
-	return $of($alloc(ColorGlyphSurfaceData));
-}
-
 void ColorGlyphSurfaceData::init$() {
 	$init($StateTrackable$State);
 	$SurfaceData::init$($StateTrackable$State::UNTRACKABLE);
@@ -57,13 +28,13 @@ void ColorGlyphSurfaceData::init$() {
 }
 
 void ColorGlyphSurfaceData::initOps() {
-	$prepareNative(ColorGlyphSurfaceData, initOps, void);
+	$prepareNative(initOps, void);
 	$invokeNative();
 	$finishNative();
 }
 
 void ColorGlyphSurfaceData::setCurrentGlyph(int64_t imgPtr) {
-	$prepareNative(ColorGlyphSurfaceData, setCurrentGlyph, void, int64_t imgPtr);
+	$prepareNative(setCurrentGlyph, void, int64_t imgPtr);
 	$invokeNative(imgPtr);
 	$finishNative();
 }
@@ -97,7 +68,28 @@ ColorGlyphSurfaceData::ColorGlyphSurfaceData() {
 }
 
 $Class* ColorGlyphSurfaceData::load$($String* name, bool initialize) {
-	$loadClass(ColorGlyphSurfaceData, name, initialize, &_ColorGlyphSurfaceData_ClassInfo_, allocate$ColorGlyphSurfaceData);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(ColorGlyphSurfaceData, init$, void)},
+		{"getBounds", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(ColorGlyphSurfaceData, getBounds, $Rectangle*)},
+		{"getDestination", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ColorGlyphSurfaceData, getDestination, $Object*)},
+		{"getDeviceConfiguration", "()Ljava/awt/GraphicsConfiguration;", nullptr, $PUBLIC, $virtualMethod(ColorGlyphSurfaceData, getDeviceConfiguration, $GraphicsConfiguration*)},
+		{"getRaster", "(IIII)Ljava/awt/image/Raster;", nullptr, $PUBLIC, $virtualMethod(ColorGlyphSurfaceData, getRaster, $Raster*, int32_t, int32_t, int32_t, int32_t)},
+		{"getReplacement", "()Lsun/java2d/SurfaceData;", nullptr, $PUBLIC, $virtualMethod(ColorGlyphSurfaceData, getReplacement, $SurfaceData*)},
+		{"initOps", "()V", nullptr, $PRIVATE | $NATIVE, $method(ColorGlyphSurfaceData, initOps, void)},
+		{"setCurrentGlyph", "(J)V", nullptr, $NATIVE, $virtualMethod(ColorGlyphSurfaceData, setCurrentGlyph, void, int64_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.font.ColorGlyphSurfaceData",
+		"sun.java2d.SurfaceData",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ColorGlyphSurfaceData, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ColorGlyphSurfaceData));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <javax/management/relation/RoleResult.h>
-
 #include <com/sun/jmx/mbeanserver/GetPropertyAction.h>
 #include <java/io/ObjectInputStream$GetField.h>
 #include <java/io/ObjectInputStream.h>
@@ -7,7 +6,6 @@
 #include <java/io/ObjectOutputStream.h>
 #include <java/io/ObjectStreamField.h>
 #include <java/security/AccessController.h>
-#include <java/security/PrivilegedAction.h>
 #include <java/util/Iterator.h>
 #include <javax/management/relation/Role.h>
 #include <javax/management/relation/RoleList.h>
@@ -28,7 +26,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;
 using $AccessController = ::java::security::AccessController;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $Iterator = ::java::util::Iterator;
 using $Role = ::javax::management::relation::Role;
 using $RoleList = ::javax::management::relation::RoleList;
@@ -38,43 +35,6 @@ using $RoleUnresolvedList = ::javax::management::relation::RoleUnresolvedList;
 namespace javax {
 	namespace management {
 		namespace relation {
-
-$FieldInfo _RoleResult_FieldInfo_[] = {
-	{"oldSerialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(RoleResult, oldSerialVersionUID)},
-	{"newSerialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(RoleResult, newSerialVersionUID)},
-	{"oldSerialPersistentFields", "[Ljava/io/ObjectStreamField;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(RoleResult, oldSerialPersistentFields)},
-	{"newSerialPersistentFields", "[Ljava/io/ObjectStreamField;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(RoleResult, newSerialPersistentFields)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(RoleResult, serialVersionUID)},
-	{"serialPersistentFields", "[Ljava/io/ObjectStreamField;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(RoleResult, serialPersistentFields)},
-	{"compat", "Z", nullptr, $PRIVATE | $STATIC, $staticField(RoleResult, compat)},
-	{"roleList", "Ljavax/management/relation/RoleList;", nullptr, $PRIVATE, $field(RoleResult, roleList)},
-	{"unresolvedRoleList", "Ljavax/management/relation/RoleUnresolvedList;", nullptr, $PRIVATE, $field(RoleResult, unresolvedRoleList)},
-	{}
-};
-
-$MethodInfo _RoleResult_MethodInfo_[] = {
-	{"<init>", "(Ljavax/management/relation/RoleList;Ljavax/management/relation/RoleUnresolvedList;)V", nullptr, $PUBLIC, $method(RoleResult, init$, void, $RoleList*, $RoleUnresolvedList*)},
-	{"getRoles", "()Ljavax/management/relation/RoleList;", nullptr, $PUBLIC, $virtualMethod(RoleResult, getRoles, $RoleList*)},
-	{"getRolesUnresolved", "()Ljavax/management/relation/RoleUnresolvedList;", nullptr, $PUBLIC, $virtualMethod(RoleResult, getRolesUnresolved, $RoleUnresolvedList*)},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(RoleResult, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"setRoles", "(Ljavax/management/relation/RoleList;)V", nullptr, $PUBLIC, $virtualMethod(RoleResult, setRoles, void, $RoleList*)},
-	{"setRolesUnresolved", "(Ljavax/management/relation/RoleUnresolvedList;)V", nullptr, $PUBLIC, $virtualMethod(RoleResult, setRolesUnresolved, void, $RoleUnresolvedList*)},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(RoleResult, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _RoleResult_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.management.relation.RoleResult",
-	"java.lang.Object",
-	"java.io.Serializable",
-	_RoleResult_FieldInfo_,
-	_RoleResult_MethodInfo_
-};
-
-$Object* allocate$RoleResult($Class* clazz) {
-	return $of($alloc(RoleResult));
-}
 
 $ObjectStreamFieldArray* RoleResult::oldSerialPersistentFields = nullptr;
 $ObjectStreamFieldArray* RoleResult::newSerialPersistentFields = nullptr;
@@ -99,14 +59,14 @@ $RoleUnresolvedList* RoleResult::getRolesUnresolved() {
 }
 
 void RoleResult::setRoles($RoleList* list) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (list != nullptr) {
 		$set(this, roleList, $new($RoleList));
 		{
 			$var($Iterator, roleIter, list->iterator());
 			for (; $nc(roleIter)->hasNext();) {
-				$var($Role, currRole, ($cast($Role, roleIter->next())));
-				$nc(this->roleList)->add(($cast($Role, $($nc(currRole)->clone()))));
+				$var($Role, currRole, $cast($Role, roleIter->next()));
+				$nc(this->roleList)->add($$cast($Role, $nc(currRole)->clone()));
 			}
 		}
 	} else {
@@ -116,14 +76,14 @@ void RoleResult::setRoles($RoleList* list) {
 }
 
 void RoleResult::setRolesUnresolved($RoleUnresolvedList* unresolvedList) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (unresolvedList != nullptr) {
 		$set(this, unresolvedRoleList, $new($RoleUnresolvedList));
 		{
 			$var($Iterator, roleUnresIter, unresolvedList->iterator());
 			for (; $nc(roleUnresIter)->hasNext();) {
-				$var($RoleUnresolved, currRoleUnres, ($cast($RoleUnresolved, roleUnresIter->next())));
-				$nc(this->unresolvedRoleList)->add(($cast($RoleUnresolved, $($nc(currRoleUnres)->clone()))));
+				$var($RoleUnresolved, currRoleUnres, $cast($RoleUnresolved, roleUnresIter->next()));
+				$nc(this->unresolvedRoleList)->add($$cast($RoleUnresolved, $nc(currRoleUnres)->clone()));
 			}
 		}
 	} else {
@@ -135,11 +95,11 @@ void RoleResult::setRolesUnresolved($RoleUnresolvedList* unresolvedList) {
 void RoleResult::readObject($ObjectInputStream* in) {
 	if (RoleResult::compat) {
 		$var($ObjectInputStream$GetField, fields, $nc(in)->readFields());
-		$set(this, roleList, $cast($RoleList, $nc(fields)->get("myRoleList"_s, ($Object*)nullptr)));
+		$set(this, roleList, $cast($RoleList, $nc(fields)->get("myRoleList"_s, nullptr)));
 		if (fields->defaulted("myRoleList"_s)) {
 			$throwNew($NullPointerException, "myRoleList"_s);
 		}
-		$set(this, unresolvedRoleList, $cast($RoleUnresolvedList, fields->get("myRoleUnresList"_s, ($Object*)nullptr)));
+		$set(this, unresolvedRoleList, $cast($RoleUnresolvedList, fields->get("myRoleUnresList"_s, nullptr)));
 		if (fields->defaulted("myRoleUnresList"_s)) {
 			$throwNew($NullPointerException, "myRoleUnresList"_s);
 		}
@@ -151,16 +111,16 @@ void RoleResult::readObject($ObjectInputStream* in) {
 void RoleResult::writeObject($ObjectOutputStream* out) {
 	if (RoleResult::compat) {
 		$var($ObjectOutputStream$PutField, fields, $nc(out)->putFields());
-		$nc(fields)->put("myRoleList"_s, $of(this->roleList));
-		fields->put("myRoleUnresList"_s, $of(this->unresolvedRoleList));
+		$nc(fields)->put("myRoleList"_s, this->roleList);
+		fields->put("myRoleUnresList"_s, this->unresolvedRoleList);
 		out->writeFields();
 	} else {
 		$nc(out)->defaultWriteObject();
 	}
 }
 
-void clinit$RoleResult($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void RoleResult::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$load($RoleList);
 	$load($RoleUnresolvedList);
@@ -176,7 +136,7 @@ void clinit$RoleResult($Class* class$) {
 	{
 		try {
 			$var($GetPropertyAction, act, $new($GetPropertyAction, "jmx.serial.form"_s));
-			$var($String, form, $cast($String, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>(act))));
+			$var($String, form, $cast($String, $AccessController::doPrivileged(act)));
 			RoleResult::compat = (form != nullptr && form->equals("1.0"_s));
 		} catch ($Exception& e) {
 		}
@@ -194,7 +154,39 @@ RoleResult::RoleResult() {
 }
 
 $Class* RoleResult::load$($String* name, bool initialize) {
-	$loadClass(RoleResult, name, initialize, &_RoleResult_ClassInfo_, clinit$RoleResult, allocate$RoleResult);
+	$FieldInfo fieldInfos$$[] = {
+		{"oldSerialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(RoleResult, oldSerialVersionUID)},
+		{"newSerialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(RoleResult, newSerialVersionUID)},
+		{"oldSerialPersistentFields", "[Ljava/io/ObjectStreamField;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(RoleResult, oldSerialPersistentFields)},
+		{"newSerialPersistentFields", "[Ljava/io/ObjectStreamField;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(RoleResult, newSerialPersistentFields)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(RoleResult, serialVersionUID)},
+		{"serialPersistentFields", "[Ljava/io/ObjectStreamField;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(RoleResult, serialPersistentFields)},
+		{"compat", "Z", nullptr, $PRIVATE | $STATIC, $staticField(RoleResult, compat)},
+		{"roleList", "Ljavax/management/relation/RoleList;", nullptr, $PRIVATE, $field(RoleResult, roleList)},
+		{"unresolvedRoleList", "Ljavax/management/relation/RoleUnresolvedList;", nullptr, $PRIVATE, $field(RoleResult, unresolvedRoleList)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/management/relation/RoleList;Ljavax/management/relation/RoleUnresolvedList;)V", nullptr, $PUBLIC, $method(RoleResult, init$, void, $RoleList*, $RoleUnresolvedList*)},
+		{"getRoles", "()Ljavax/management/relation/RoleList;", nullptr, $PUBLIC, $virtualMethod(RoleResult, getRoles, $RoleList*)},
+		{"getRolesUnresolved", "()Ljavax/management/relation/RoleUnresolvedList;", nullptr, $PUBLIC, $virtualMethod(RoleResult, getRolesUnresolved, $RoleUnresolvedList*)},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(RoleResult, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+		{"setRoles", "(Ljavax/management/relation/RoleList;)V", nullptr, $PUBLIC, $virtualMethod(RoleResult, setRoles, void, $RoleList*)},
+		{"setRolesUnresolved", "(Ljavax/management/relation/RoleUnresolvedList;)V", nullptr, $PUBLIC, $virtualMethod(RoleResult, setRolesUnresolved, void, $RoleUnresolvedList*)},
+		{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(RoleResult, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.management.relation.RoleResult",
+		"java.lang.Object",
+		"java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(RoleResult, name, initialize, &classInfo$$, RoleResult::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(RoleResult);
+	});
 	return class$;
 }
 

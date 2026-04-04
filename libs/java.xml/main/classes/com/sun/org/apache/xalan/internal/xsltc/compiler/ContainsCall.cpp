@@ -1,11 +1,9 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/ContainsCall.h>
-
 #include <com/sun/org/apache/bcel/internal/generic/BranchHandle.h>
 #include <com/sun/org/apache/bcel/internal/generic/BranchInstruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/ConstantPoolGen.h>
 #include <com/sun/org/apache/bcel/internal/generic/IFLT.h>
 #include <com/sun/org/apache/bcel/internal/generic/INVOKEVIRTUAL.h>
-#include <com/sun/org/apache/bcel/internal/generic/Instruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/InstructionHandle.h>
 #include <com/sun/org/apache/bcel/internal/generic/InstructionList.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/CastExpr.h>
@@ -27,17 +25,13 @@
 #undef STRING_CLASS
 #undef STRING_SIG
 
-using $BranchInstruction = ::com::sun::org::apache::bcel::internal::generic::BranchInstruction;
 using $ConstantPoolGen = ::com::sun::org::apache::bcel::internal::generic::ConstantPoolGen;
 using $IFLT = ::com::sun::org::apache::bcel::internal::generic::IFLT;
 using $INVOKEVIRTUAL = ::com::sun::org::apache::bcel::internal::generic::INVOKEVIRTUAL;
-using $Instruction = ::com::sun::org::apache::bcel::internal::generic::Instruction;
 using $InstructionHandle = ::com::sun::org::apache::bcel::internal::generic::InstructionHandle;
 using $InstructionList = ::com::sun::org::apache::bcel::internal::generic::InstructionList;
 using $CastExpr = ::com::sun::org::apache::xalan::internal::xsltc::compiler::CastExpr;
 using $Constants = ::com::sun::org::apache::xalan::internal::xsltc::compiler::Constants;
-using $Expression = ::com::sun::org::apache::xalan::internal::xsltc::compiler::Expression;
-using $FlowList = ::com::sun::org::apache::xalan::internal::xsltc::compiler::FlowList;
 using $FunctionCall = ::com::sun::org::apache::xalan::internal::xsltc::compiler::FunctionCall;
 using $QName = ::com::sun::org::apache::xalan::internal::xsltc::compiler::QName;
 using $SymbolTable = ::com::sun::org::apache::xalan::internal::xsltc::compiler::SymbolTable;
@@ -60,34 +54,6 @@ namespace com {
 						namespace xsltc {
 							namespace compiler {
 
-$FieldInfo _ContainsCall_FieldInfo_[] = {
-	{"_base", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Expression;", nullptr, $PRIVATE, $field(ContainsCall, _base)},
-	{"_token", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Expression;", nullptr, $PRIVATE, $field(ContainsCall, _token)},
-	{}
-};
-
-$MethodInfo _ContainsCall_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;Ljava/util/List;)V", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;Ljava/util/List<Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Expression;>;)V", $PUBLIC, $method(ContainsCall, init$, void, $QName*, $List*)},
-	{"isBoolean", "()Z", nullptr, $PUBLIC, $method(ContainsCall, isBoolean, bool)},
-	{"translate", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;)V", nullptr, $PUBLIC, $virtualMethod(ContainsCall, translate, void, $ClassGenerator*, $MethodGenerator*)},
-	{"translateDesynthesized", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;)V", nullptr, $PUBLIC, $virtualMethod(ContainsCall, translateDesynthesized, void, $ClassGenerator*, $MethodGenerator*)},
-	{"typeCheck", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SymbolTable;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/Type;", nullptr, $PUBLIC, $virtualMethod(ContainsCall, typeCheck, $Type*, $SymbolTable*), "com.sun.org.apache.xalan.internal.xsltc.compiler.util.TypeCheckError"},
-	{}
-};
-
-$ClassInfo _ContainsCall_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xalan.internal.xsltc.compiler.ContainsCall",
-	"com.sun.org.apache.xalan.internal.xsltc.compiler.FunctionCall",
-	nullptr,
-	_ContainsCall_FieldInfo_,
-	_ContainsCall_MethodInfo_
-};
-
-$Object* allocate$ContainsCall($Class* clazz) {
-	return $of($alloc(ContainsCall));
-}
-
 void ContainsCall::init$($QName* fname, $List* arguments) {
 	$FunctionCall::init$(fname, arguments);
 	$set(this, _base, nullptr);
@@ -99,7 +65,7 @@ bool ContainsCall::isBoolean() {
 }
 
 $Type* ContainsCall::typeCheck($SymbolTable* stable) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (argumentCount() != 2) {
 		$init($ErrorMsg);
 		$throwNew($TypeCheckError, $ErrorMsg::ILLEGAL_ARG_ERR, $(getName()), this);
@@ -124,21 +90,44 @@ void ContainsCall::translate($ClassGenerator* classGen, $MethodGenerator* method
 }
 
 void ContainsCall::translateDesynthesized($ClassGenerator* classGen, $MethodGenerator* methodGen) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ConstantPoolGen, cpg, $nc(classGen)->getConstantPool());
 	$var($InstructionList, il, $nc(methodGen)->getInstructionList());
 	$nc(this->_base)->translate(classGen, methodGen);
 	$nc(this->_token)->translate(classGen, methodGen);
 	$init($Constants);
-	$nc(il)->append(static_cast<$Instruction*>($$new($INVOKEVIRTUAL, $nc(cpg)->addMethodref($Constants::STRING_CLASS, "indexOf"_s, $$str({"("_s, $Constants::STRING_SIG, ")I"_s})))));
-	$nc(this->_falseList)->add($(il->append(static_cast<$BranchInstruction*>($$new($IFLT, nullptr)))));
+	$nc(il)->append($$new($INVOKEVIRTUAL, $nc(cpg)->addMethodref($Constants::STRING_CLASS, "indexOf"_s, $$str({"("_s, $Constants::STRING_SIG, ")I"_s}))));
+	$nc(this->_falseList)->add($(il->append($$new($IFLT, nullptr))));
 }
 
 ContainsCall::ContainsCall() {
 }
 
 $Class* ContainsCall::load$($String* name, bool initialize) {
-	$loadClass(ContainsCall, name, initialize, &_ContainsCall_ClassInfo_, allocate$ContainsCall);
+	$FieldInfo fieldInfos$$[] = {
+		{"_base", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Expression;", nullptr, $PRIVATE, $field(ContainsCall, _base)},
+		{"_token", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Expression;", nullptr, $PRIVATE, $field(ContainsCall, _token)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;Ljava/util/List;)V", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;Ljava/util/List<Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Expression;>;)V", $PUBLIC, $method(ContainsCall, init$, void, $QName*, $List*)},
+		{"isBoolean", "()Z", nullptr, $PUBLIC, $method(ContainsCall, isBoolean, bool)},
+		{"translate", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;)V", nullptr, $PUBLIC, $virtualMethod(ContainsCall, translate, void, $ClassGenerator*, $MethodGenerator*)},
+		{"translateDesynthesized", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;)V", nullptr, $PUBLIC, $virtualMethod(ContainsCall, translateDesynthesized, void, $ClassGenerator*, $MethodGenerator*)},
+		{"typeCheck", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SymbolTable;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/Type;", nullptr, $PUBLIC, $virtualMethod(ContainsCall, typeCheck, $Type*, $SymbolTable*), "com.sun.org.apache.xalan.internal.xsltc.compiler.util.TypeCheckError"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xalan.internal.xsltc.compiler.ContainsCall",
+		"com.sun.org.apache.xalan.internal.xsltc.compiler.FunctionCall",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ContainsCall, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ContainsCall);
+	});
 	return class$;
 }
 

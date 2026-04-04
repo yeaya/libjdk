@@ -1,5 +1,4 @@
 #include <bug8158734$1.h>
-
 #include <bug8158734$MyClassloader.h>
 #include <bug8158734$MyEditorKit.h>
 #include <bug8158734.h>
@@ -19,48 +18,11 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $JEditorPane = ::javax::swing::JEditorPane;
 
-$MethodInfo _bug8158734$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(bug8158734$1, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug8158734$1, run, void)},
-	{}
-};
-
-$EnclosingMethodInfo _bug8158734$1_EnclosingMethodInfo_ = {
-	"bug8158734",
-	"main",
-	"([Ljava/lang/String;)V"
-};
-
-$InnerClassInfo _bug8158734$1_InnerClassesInfo_[] = {
-	{"bug8158734$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _bug8158734$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"bug8158734$1",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	_bug8158734$1_MethodInfo_,
-	nullptr,
-	&_bug8158734$1_EnclosingMethodInfo_,
-	_bug8158734$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"bug8158734"
-};
-
-$Object* allocate$bug8158734$1($Class* clazz) {
-	return $of($alloc(bug8158734$1));
-}
-
 void bug8158734$1::init$() {
 }
 
 void bug8158734$1::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JEditorPane, c, $new($JEditorPane));
 	c->setContentType("test/test"_s);
 	$var($bug8158734$MyClassloader, loader, $new($bug8158734$MyClassloader));
@@ -78,7 +40,38 @@ bug8158734$1::bug8158734$1() {
 }
 
 $Class* bug8158734$1::load$($String* name, bool initialize) {
-	$loadClass(bug8158734$1, name, initialize, &_bug8158734$1_ClassInfo_, allocate$bug8158734$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(bug8158734$1, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug8158734$1, run, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"bug8158734",
+		"main",
+		"([Ljava/lang/String;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"bug8158734$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"bug8158734$1",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"bug8158734"
+	};
+	$loadClass(bug8158734$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(bug8158734$1);
+	});
 	return class$;
 }
 

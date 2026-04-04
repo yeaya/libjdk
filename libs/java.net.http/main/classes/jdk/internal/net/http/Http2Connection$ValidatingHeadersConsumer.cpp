@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/Http2Connection$ValidatingHeadersConsumer.h>
-
 #include <java/io/IOException.h>
 #include <java/io/UncheckedIOException.h>
 #include <java/lang/CharSequence.h>
@@ -25,45 +24,6 @@ namespace jdk {
 		namespace net {
 			namespace http {
 
-$FieldInfo _Http2Connection$ValidatingHeadersConsumer_FieldInfo_[] = {
-	{"PSEUDO_HEADERS", "Ljava/util/Set;", "Ljava/util/Set<Ljava/lang/String;>;", $PRIVATE | $STATIC | $FINAL, $staticField(Http2Connection$ValidatingHeadersConsumer, PSEUDO_HEADERS)},
-	{"pseudoHeadersEnded", "Z", nullptr, $PRIVATE, $field(Http2Connection$ValidatingHeadersConsumer, pseudoHeadersEnded)},
-	{}
-};
-
-$MethodInfo _Http2Connection$ValidatingHeadersConsumer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(Http2Connection$ValidatingHeadersConsumer, init$, void)},
-	{"newException", "(Ljava/lang/String;Ljava/lang/String;)Ljava/io/UncheckedIOException;", nullptr, $PRIVATE, $method(Http2Connection$ValidatingHeadersConsumer, newException, $UncheckedIOException*, $String*, $String*)},
-	{"onDecoded", "(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)V", nullptr, $PUBLIC, $virtualMethod(Http2Connection$ValidatingHeadersConsumer, onDecoded, void, $CharSequence*, $CharSequence*), "java.io.UncheckedIOException"},
-	{"reset", "()V", nullptr, 0, $virtualMethod(Http2Connection$ValidatingHeadersConsumer, reset, void)},
-	{}
-};
-
-$InnerClassInfo _Http2Connection$ValidatingHeadersConsumer_InnerClassesInfo_[] = {
-	{"jdk.internal.net.http.Http2Connection$ValidatingHeadersConsumer", "jdk.internal.net.http.Http2Connection", "ValidatingHeadersConsumer", $STATIC},
-	{}
-};
-
-$ClassInfo _Http2Connection$ValidatingHeadersConsumer_ClassInfo_ = {
-	$ACC_SUPER,
-	"jdk.internal.net.http.Http2Connection$ValidatingHeadersConsumer",
-	"java.lang.Object",
-	"jdk.internal.net.http.hpack.DecodingCallback",
-	_Http2Connection$ValidatingHeadersConsumer_FieldInfo_,
-	_Http2Connection$ValidatingHeadersConsumer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Http2Connection$ValidatingHeadersConsumer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.net.http.Http2Connection"
-};
-
-$Object* allocate$Http2Connection$ValidatingHeadersConsumer($Class* clazz) {
-	return $of($alloc(Http2Connection$ValidatingHeadersConsumer));
-}
-
 $Set* Http2Connection$ValidatingHeadersConsumer::PSEUDO_HEADERS = nullptr;
 
 void Http2Connection$ValidatingHeadersConsumer::init$() {
@@ -74,7 +34,7 @@ void Http2Connection$ValidatingHeadersConsumer::reset() {
 }
 
 void Http2Connection$ValidatingHeadersConsumer::onDecoded($CharSequence* name, $CharSequence* value) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, n, $nc(name)->toString());
 	if ($nc(n)->startsWith(":"_s)) {
 		if (this->pseudoHeadersEnded) {
@@ -95,11 +55,11 @@ void Http2Connection$ValidatingHeadersConsumer::onDecoded($CharSequence* name, $
 }
 
 $UncheckedIOException* Http2Connection$ValidatingHeadersConsumer::newException($String* message, $String* header) {
-	$useLocalCurrentObjectStackCache();
-	return $new($UncheckedIOException, $$new($IOException, $($String::format(message, $$new($ObjectArray, {$of(header)})))));
+	$useLocalObjectStack();
+	return $new($UncheckedIOException, $$new($IOException, $($String::format(message, $$new($ObjectArray, {header})))));
 }
 
-void clinit$Http2Connection$ValidatingHeadersConsumer($Class* class$) {
+void Http2Connection$ValidatingHeadersConsumer::clinit$($Class* clazz) {
 	$assignStatic(Http2Connection$ValidatingHeadersConsumer::PSEUDO_HEADERS, $Set::of(":authority"_s, ":method"_s, ":path"_s, ":scheme"_s, ":status"_s));
 }
 
@@ -107,7 +67,40 @@ Http2Connection$ValidatingHeadersConsumer::Http2Connection$ValidatingHeadersCons
 }
 
 $Class* Http2Connection$ValidatingHeadersConsumer::load$($String* name, bool initialize) {
-	$loadClass(Http2Connection$ValidatingHeadersConsumer, name, initialize, &_Http2Connection$ValidatingHeadersConsumer_ClassInfo_, clinit$Http2Connection$ValidatingHeadersConsumer, allocate$Http2Connection$ValidatingHeadersConsumer);
+	$FieldInfo fieldInfos$$[] = {
+		{"PSEUDO_HEADERS", "Ljava/util/Set;", "Ljava/util/Set<Ljava/lang/String;>;", $PRIVATE | $STATIC | $FINAL, $staticField(Http2Connection$ValidatingHeadersConsumer, PSEUDO_HEADERS)},
+		{"pseudoHeadersEnded", "Z", nullptr, $PRIVATE, $field(Http2Connection$ValidatingHeadersConsumer, pseudoHeadersEnded)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(Http2Connection$ValidatingHeadersConsumer, init$, void)},
+		{"newException", "(Ljava/lang/String;Ljava/lang/String;)Ljava/io/UncheckedIOException;", nullptr, $PRIVATE, $method(Http2Connection$ValidatingHeadersConsumer, newException, $UncheckedIOException*, $String*, $String*)},
+		{"onDecoded", "(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)V", nullptr, $PUBLIC, $virtualMethod(Http2Connection$ValidatingHeadersConsumer, onDecoded, void, $CharSequence*, $CharSequence*), "java.io.UncheckedIOException"},
+		{"reset", "()V", nullptr, 0, $virtualMethod(Http2Connection$ValidatingHeadersConsumer, reset, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.net.http.Http2Connection$ValidatingHeadersConsumer", "jdk.internal.net.http.Http2Connection", "ValidatingHeadersConsumer", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"jdk.internal.net.http.Http2Connection$ValidatingHeadersConsumer",
+		"java.lang.Object",
+		"jdk.internal.net.http.hpack.DecodingCallback",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.net.http.Http2Connection"
+	};
+	$loadClass(Http2Connection$ValidatingHeadersConsumer, name, initialize, &classInfo$$, Http2Connection$ValidatingHeadersConsumer::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Http2Connection$ValidatingHeadersConsumer);
+	});
 	return class$;
 }
 

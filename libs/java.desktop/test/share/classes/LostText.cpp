@@ -1,9 +1,7 @@
 #include <LostText.h>
-
 #include <LostText$1.h>
 #include <LostText$2.h>
 #include <java/awt/Window.h>
-#include <java/lang/Runnable.h>
 #include <java/util/concurrent/CountDownLatch.h>
 #include <javax/swing/JDialog.h>
 #include <javax/swing/JFrame.h>
@@ -20,7 +18,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $CountDownLatch = ::java::util::concurrent::CountDownLatch;
 using $JDialog = ::javax::swing::JDialog;
@@ -28,50 +25,6 @@ using $JFrame = ::javax::swing::JFrame;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $DefaultTableModel = ::javax::swing::table::DefaultTableModel;
 using $TableModel = ::javax::swing::table::TableModel;
-
-$FieldInfo _LostText_FieldInfo_[] = {
-	{"f", "Ljavax/swing/JFrame;", nullptr, $STATIC, $staticField(LostText, f)},
-	{"dialog", "Ljavax/swing/JDialog;", nullptr, $STATIC, $staticField(LostText, dialog)},
-	{"model", "Ljavax/swing/table/DefaultTableModel;", nullptr, $STATIC, $staticField(LostText, model)},
-	{"testResult", "Z", nullptr, $PUBLIC, $field(LostText, testResult)},
-	{"latch", "Ljava/util/concurrent/CountDownLatch;", nullptr, $PRIVATE | $FINAL, $field(LostText, latch)},
-	{}
-};
-
-$MethodInfo _LostText_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/concurrent/CountDownLatch;)V", nullptr, $PUBLIC, $method(LostText, init$, void, $CountDownLatch*), "java.lang.Exception"},
-	{"createUI", "()V", nullptr, $PRIVATE | $FINAL, $method(LostText, createUI, void), "java.lang.Exception"},
-	{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(LostText, dispose, void)},
-	{"lostTextTest", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(LostText, lostTextTest, void), "java.lang.Exception"},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(LostText, run, void)},
-	{"testSelectionWithFilterTable", "()Ljavax/swing/table/TableModel;", nullptr, $PRIVATE | $STATIC, $staticMethod(LostText, testSelectionWithFilterTable, $TableModel*)},
-	{}
-};
-
-$InnerClassInfo _LostText_InnerClassesInfo_[] = {
-	{"LostText$2", nullptr, nullptr, 0},
-	{"LostText$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _LostText_ClassInfo_ = {
-	$ACC_SUPER,
-	"LostText",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	_LostText_FieldInfo_,
-	_LostText_MethodInfo_,
-	nullptr,
-	nullptr,
-	_LostText_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"LostText$2,LostText$1"
-};
-
-$Object* allocate$LostText($Class* clazz) {
-	return $of($alloc(LostText));
-}
 
 $JFrame* LostText::f = nullptr;
 $JDialog* LostText::dialog = nullptr;
@@ -83,13 +36,13 @@ void LostText::init$($CountDownLatch* latch) {
 }
 
 void LostText::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		createUI();
 		lostTextTest();
 	} catch ($Exception& ex) {
 		if (LostText::f != nullptr) {
-			$nc(LostText::f)->dispose();
+			LostText::f->dispose();
 		}
 		$nc(this->latch)->countDown();
 		$throwNew($RuntimeException, $$str({"createUI Failed: "_s, $(ex->getMessage())}));
@@ -108,11 +61,11 @@ void LostText::lostTextTest() {
 
 $TableModel* LostText::testSelectionWithFilterTable() {
 	$init(LostText);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$assignStatic(LostText::model, $new($DefaultTableModel, 0, 1));
 	int32_t last = 10;
 	for (int32_t i = 0; i <= last; ++i) {
-		$nc(LostText::model)->addRow($$new($ObjectArray, {$($of($Integer::valueOf(i)))}));
+		$nc(LostText::model)->addRow($$new($ObjectArray, {$($Integer::valueOf(i))}));
 	}
 	return LostText::model;
 }
@@ -125,7 +78,45 @@ LostText::LostText() {
 }
 
 $Class* LostText::load$($String* name, bool initialize) {
-	$loadClass(LostText, name, initialize, &_LostText_ClassInfo_, allocate$LostText);
+	$FieldInfo fieldInfos$$[] = {
+		{"f", "Ljavax/swing/JFrame;", nullptr, $STATIC, $staticField(LostText, f)},
+		{"dialog", "Ljavax/swing/JDialog;", nullptr, $STATIC, $staticField(LostText, dialog)},
+		{"model", "Ljavax/swing/table/DefaultTableModel;", nullptr, $STATIC, $staticField(LostText, model)},
+		{"testResult", "Z", nullptr, $PUBLIC, $field(LostText, testResult)},
+		{"latch", "Ljava/util/concurrent/CountDownLatch;", nullptr, $PRIVATE | $FINAL, $field(LostText, latch)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/concurrent/CountDownLatch;)V", nullptr, $PUBLIC, $method(LostText, init$, void, $CountDownLatch*), "java.lang.Exception"},
+		{"createUI", "()V", nullptr, $PRIVATE | $FINAL, $method(LostText, createUI, void), "java.lang.Exception"},
+		{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(LostText, dispose, void)},
+		{"lostTextTest", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(LostText, lostTextTest, void), "java.lang.Exception"},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(LostText, run, void)},
+		{"testSelectionWithFilterTable", "()Ljavax/swing/table/TableModel;", nullptr, $PRIVATE | $STATIC, $staticMethod(LostText, testSelectionWithFilterTable, $TableModel*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"LostText$2", nullptr, nullptr, 0},
+		{"LostText$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"LostText",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"LostText$2,LostText$1"
+	};
+	$loadClass(LostText, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LostText);
+	});
 	return class$;
 }
 

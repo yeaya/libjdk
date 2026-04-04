@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/motif/MotifInternalFrameTitlePane$MaximizeButton.h>
-
 #include <com/sun/java/swing/plaf/motif/MotifInternalFrameTitlePane$FrameButton.h>
 #include <com/sun/java/swing/plaf/motif/MotifInternalFrameTitlePane.h>
 #include <java/awt/Color.h>
@@ -14,7 +13,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $JInternalFrame = ::javax::swing::JInternalFrame;
 
 namespace com {
 	namespace sun {
@@ -22,43 +20,6 @@ namespace com {
 			namespace swing {
 				namespace plaf {
 					namespace motif {
-
-$FieldInfo _MotifInternalFrameTitlePane$MaximizeButton_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/java/swing/plaf/motif/MotifInternalFrameTitlePane;", nullptr, $FINAL | $SYNTHETIC, $field(MotifInternalFrameTitlePane$MaximizeButton, this$0)},
-	{}
-};
-
-$MethodInfo _MotifInternalFrameTitlePane$MaximizeButton_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/java/swing/plaf/motif/MotifInternalFrameTitlePane;)V", nullptr, $PRIVATE, $method(MotifInternalFrameTitlePane$MaximizeButton, init$, void, $MotifInternalFrameTitlePane*)},
-	{"paintComponent", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(MotifInternalFrameTitlePane$MaximizeButton, paintComponent, void, $Graphics*)},
-	{}
-};
-
-$InnerClassInfo _MotifInternalFrameTitlePane$MaximizeButton_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.motif.MotifInternalFrameTitlePane$MaximizeButton", "com.sun.java.swing.plaf.motif.MotifInternalFrameTitlePane", "MaximizeButton", $PRIVATE},
-	{"com.sun.java.swing.plaf.motif.MotifInternalFrameTitlePane$FrameButton", "com.sun.java.swing.plaf.motif.MotifInternalFrameTitlePane", "FrameButton", $PRIVATE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _MotifInternalFrameTitlePane$MaximizeButton_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.java.swing.plaf.motif.MotifInternalFrameTitlePane$MaximizeButton",
-	"com.sun.java.swing.plaf.motif.MotifInternalFrameTitlePane$FrameButton",
-	nullptr,
-	_MotifInternalFrameTitlePane$MaximizeButton_FieldInfo_,
-	_MotifInternalFrameTitlePane$MaximizeButton_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MotifInternalFrameTitlePane$MaximizeButton_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.motif.MotifInternalFrameTitlePane"
-};
-
-$Object* allocate$MotifInternalFrameTitlePane$MaximizeButton($Class* clazz) {
-	return $of($alloc(MotifInternalFrameTitlePane$MaximizeButton));
-}
 
 void MotifInternalFrameTitlePane$MaximizeButton::init$($MotifInternalFrameTitlePane* this$0) {
 	$set(this, this$0, this$0);
@@ -68,7 +29,7 @@ void MotifInternalFrameTitlePane$MaximizeButton::init$($MotifInternalFrameTitleP
 void MotifInternalFrameTitlePane$MaximizeButton::paintComponent($Graphics* g) {
 	$MotifInternalFrameTitlePane$FrameButton::paintComponent(g);
 	int32_t max = 19 - 5;
-	bool isMaxed = $nc($($MotifInternalFrameTitlePane::access$200(this->this$0)))->isMaximum();
+	bool isMaxed = $$nc($MotifInternalFrameTitlePane::access$200(this->this$0))->isMaximum();
 	$nc(g)->setColor(isMaxed ? this->this$0->shadow : this->this$0->highlight);
 	g->drawLine(4, 4, 4, max);
 	g->drawLine(4, 4, max, 4);
@@ -81,7 +42,38 @@ MotifInternalFrameTitlePane$MaximizeButton::MotifInternalFrameTitlePane$Maximize
 }
 
 $Class* MotifInternalFrameTitlePane$MaximizeButton::load$($String* name, bool initialize) {
-	$loadClass(MotifInternalFrameTitlePane$MaximizeButton, name, initialize, &_MotifInternalFrameTitlePane$MaximizeButton_ClassInfo_, allocate$MotifInternalFrameTitlePane$MaximizeButton);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/java/swing/plaf/motif/MotifInternalFrameTitlePane;", nullptr, $FINAL | $SYNTHETIC, $field(MotifInternalFrameTitlePane$MaximizeButton, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/java/swing/plaf/motif/MotifInternalFrameTitlePane;)V", nullptr, $PRIVATE, $method(MotifInternalFrameTitlePane$MaximizeButton, init$, void, $MotifInternalFrameTitlePane*)},
+		{"paintComponent", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(MotifInternalFrameTitlePane$MaximizeButton, paintComponent, void, $Graphics*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.motif.MotifInternalFrameTitlePane$MaximizeButton", "com.sun.java.swing.plaf.motif.MotifInternalFrameTitlePane", "MaximizeButton", $PRIVATE},
+		{"com.sun.java.swing.plaf.motif.MotifInternalFrameTitlePane$FrameButton", "com.sun.java.swing.plaf.motif.MotifInternalFrameTitlePane", "FrameButton", $PRIVATE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.java.swing.plaf.motif.MotifInternalFrameTitlePane$MaximizeButton",
+		"com.sun.java.swing.plaf.motif.MotifInternalFrameTitlePane$FrameButton",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.motif.MotifInternalFrameTitlePane"
+	};
+	$loadClass(MotifInternalFrameTitlePane$MaximizeButton, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MotifInternalFrameTitlePane$MaximizeButton));
+	});
 	return class$;
 }
 

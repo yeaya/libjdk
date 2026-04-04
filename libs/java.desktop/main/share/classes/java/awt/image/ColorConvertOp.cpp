@@ -1,7 +1,5 @@
 #include <java/awt/image/ColorConvertOp.h>
-
 #include <java/awt/Graphics2D.h>
-#include <java/awt/Image.h>
 #include <java/awt/Point.h>
 #include <java/awt/Rectangle.h>
 #include <java/awt/RenderingHints.h>
@@ -40,7 +38,6 @@ using $ColorSpaceArray = $Array<::java::awt::color::ColorSpace>;
 using $ICC_ProfileArray = $Array<::java::awt::color::ICC_Profile>;
 using $ColorTransformArray = $Array<::sun::java2d::cmm::ColorTransform>;
 using $Graphics2D = ::java::awt::Graphics2D;
-using $Image = ::java::awt::Image;
 using $Point = ::java::awt::Point;
 using $RenderingHints = ::java::awt::RenderingHints;
 using $ColorSpace = ::java::awt::color::ColorSpace;
@@ -74,66 +71,6 @@ namespace java {
 	namespace awt {
 		namespace image {
 
-$FieldInfo _ColorConvertOp_FieldInfo_[] = {
-	{"profileList", "[Ljava/awt/color/ICC_Profile;", nullptr, 0, $field(ColorConvertOp, profileList)},
-	{"CSList", "[Ljava/awt/color/ColorSpace;", nullptr, 0, $field(ColorConvertOp, CSList)},
-	{"thisTransform", "Lsun/java2d/cmm/ColorTransform;", nullptr, 0, $field(ColorConvertOp, thisTransform)},
-	{"thisRasterTransform", "Lsun/java2d/cmm/ColorTransform;", nullptr, 0, $field(ColorConvertOp, thisRasterTransform)},
-	{"thisSrcProfile", "Ljava/awt/color/ICC_Profile;", nullptr, 0, $field(ColorConvertOp, thisSrcProfile)},
-	{"thisDestProfile", "Ljava/awt/color/ICC_Profile;", nullptr, 0, $field(ColorConvertOp, thisDestProfile)},
-	{"hints", "Ljava/awt/RenderingHints;", nullptr, 0, $field(ColorConvertOp, hints)},
-	{"gotProfiles", "Z", nullptr, 0, $field(ColorConvertOp, gotProfiles)},
-	{"srcMinVals", "[F", nullptr, 0, $field(ColorConvertOp, srcMinVals)},
-	{"srcMaxVals", "[F", nullptr, 0, $field(ColorConvertOp, srcMaxVals)},
-	{"dstMinVals", "[F", nullptr, 0, $field(ColorConvertOp, dstMinVals)},
-	{"dstMaxVals", "[F", nullptr, 0, $field(ColorConvertOp, dstMaxVals)},
-	{}
-};
-
-$MethodInfo _ColorConvertOp_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/awt/RenderingHints;)V", nullptr, $PUBLIC, $method(ColorConvertOp, init$, void, $RenderingHints*)},
-	{"<init>", "(Ljava/awt/color/ColorSpace;Ljava/awt/RenderingHints;)V", nullptr, $PUBLIC, $method(ColorConvertOp, init$, void, $ColorSpace*, $RenderingHints*)},
-	{"<init>", "(Ljava/awt/color/ColorSpace;Ljava/awt/color/ColorSpace;Ljava/awt/RenderingHints;)V", nullptr, $PUBLIC, $method(ColorConvertOp, init$, void, $ColorSpace*, $ColorSpace*, $RenderingHints*)},
-	{"<init>", "([Ljava/awt/color/ICC_Profile;Ljava/awt/RenderingHints;)V", nullptr, $PUBLIC, $method(ColorConvertOp, init$, void, $ICC_ProfileArray*, $RenderingHints*)},
-	{"ICCBIFilter", "(Ljava/awt/image/BufferedImage;Ljava/awt/color/ColorSpace;Ljava/awt/image/BufferedImage;Ljava/awt/color/ColorSpace;)Ljava/awt/image/BufferedImage;", nullptr, $PRIVATE, $method(ColorConvertOp, ICCBIFilter, $BufferedImage*, $BufferedImage*, $ColorSpace*, $BufferedImage*, $ColorSpace*)},
-	{"createCompatibleDestImage", "(Ljava/awt/image/BufferedImage;Ljava/awt/image/ColorModel;)Ljava/awt/image/BufferedImage;", nullptr, $PUBLIC, $virtualMethod(ColorConvertOp, createCompatibleDestImage, $BufferedImage*, $BufferedImage*, $ColorModel*)},
-	{"createCompatibleDestImage", "(Ljava/awt/image/BufferedImage;Ljava/awt/image/ColorModel;Ljava/awt/color/ColorSpace;)Ljava/awt/image/BufferedImage;", nullptr, $PRIVATE, $method(ColorConvertOp, createCompatibleDestImage, $BufferedImage*, $BufferedImage*, $ColorModel*, $ColorSpace*)},
-	{"createCompatibleDestRaster", "(Ljava/awt/image/Raster;)Ljava/awt/image/WritableRaster;", nullptr, $PUBLIC, $virtualMethod(ColorConvertOp, createCompatibleDestRaster, $WritableRaster*, $Raster*)},
-	{"filter", "(Ljava/awt/image/BufferedImage;Ljava/awt/image/BufferedImage;)Ljava/awt/image/BufferedImage;", nullptr, $PUBLIC | $FINAL, $virtualMethod(ColorConvertOp, filter, $BufferedImage*, $BufferedImage*, $BufferedImage*)},
-	{"filter", "(Ljava/awt/image/Raster;Ljava/awt/image/WritableRaster;)Ljava/awt/image/WritableRaster;", nullptr, $PUBLIC | $FINAL, $virtualMethod(ColorConvertOp, filter, $WritableRaster*, $Raster*, $WritableRaster*)},
-	{"getBounds2D", "(Ljava/awt/image/BufferedImage;)Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC | $FINAL, $virtualMethod(ColorConvertOp, getBounds2D, $Rectangle2D*, $BufferedImage*)},
-	{"getBounds2D", "(Ljava/awt/image/Raster;)Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC | $FINAL, $virtualMethod(ColorConvertOp, getBounds2D, $Rectangle2D*, $Raster*)},
-	{"getICC_Profiles", "()[Ljava/awt/color/ICC_Profile;", nullptr, $PUBLIC | $FINAL, $method(ColorConvertOp, getICC_Profiles, $ICC_ProfileArray*)},
-	{"getMinMaxValsFromColorSpaces", "(Ljava/awt/color/ColorSpace;Ljava/awt/color/ColorSpace;)V", nullptr, $PRIVATE, $method(ColorConvertOp, getMinMaxValsFromColorSpaces, void, $ColorSpace*, $ColorSpace*)},
-	{"getMinMaxValsFromProfiles", "(Ljava/awt/color/ICC_Profile;Ljava/awt/color/ICC_Profile;)V", nullptr, $PRIVATE, $method(ColorConvertOp, getMinMaxValsFromProfiles, void, $ICC_Profile*, $ICC_Profile*)},
-	{"getPoint2D", "(Ljava/awt/geom/Point2D;Ljava/awt/geom/Point2D;)Ljava/awt/geom/Point2D;", nullptr, $PUBLIC | $FINAL, $virtualMethod(ColorConvertOp, getPoint2D, $Point2D*, $Point2D*, $Point2D*)},
-	{"getRenderingHints", "()Ljava/awt/RenderingHints;", nullptr, $PUBLIC | $FINAL, $virtualMethod(ColorConvertOp, getRenderingHints, $RenderingHints*)},
-	{"getRenderingIntent", "(Ljava/awt/color/ICC_Profile;)I", nullptr, $PRIVATE, $method(ColorConvertOp, getRenderingIntent, int32_t, $ICC_Profile*)},
-	{"nonICCBIFilter", "(Ljava/awt/image/BufferedImage;Ljava/awt/color/ColorSpace;Ljava/awt/image/BufferedImage;Ljava/awt/color/ColorSpace;)Ljava/awt/image/BufferedImage;", nullptr, $PRIVATE, $method(ColorConvertOp, nonICCBIFilter, $BufferedImage*, $BufferedImage*, $ColorSpace*, $BufferedImage*, $ColorSpace*)},
-	{"nonICCRasterFilter", "(Ljava/awt/image/Raster;Ljava/awt/image/WritableRaster;)Ljava/awt/image/WritableRaster;", nullptr, $PRIVATE, $method(ColorConvertOp, nonICCRasterFilter, $WritableRaster*, $Raster*, $WritableRaster*)},
-	{"setMinMax", "(II[F[F)V", nullptr, $PRIVATE, $method(ColorConvertOp, setMinMax, void, int32_t, int32_t, $floats*, $floats*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"updateBITransform", "(Ljava/awt/color/ICC_Profile;Ljava/awt/color/ICC_Profile;)V", nullptr, $PRIVATE, $method(ColorConvertOp, updateBITransform, void, $ICC_Profile*, $ICC_Profile*)},
-	{}
-};
-
-$ClassInfo _ColorConvertOp_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.awt.image.ColorConvertOp",
-	"java.lang.Object",
-	"java.awt.image.BufferedImageOp,java.awt.image.RasterOp",
-	_ColorConvertOp_FieldInfo_,
-	_ColorConvertOp_MethodInfo_
-};
-
-$Object* allocate$ColorConvertOp($Class* clazz) {
-	return $of($alloc(ColorConvertOp));
-}
-
 int32_t ColorConvertOp::hashCode() {
 	 return this->$BufferedImageOp::hashCode();
 }
@@ -165,28 +102,28 @@ void ColorConvertOp::init$($ColorSpace* cspace, $RenderingHints* hints) {
 	}
 	if ($instanceOf($ICC_ColorSpace, cspace)) {
 		$set(this, profileList, $new($ICC_ProfileArray, 1));
-		$nc(this->profileList)->set(0, $($nc(($cast($ICC_ColorSpace, cspace)))->getProfile()));
+		this->profileList->set(0, $($cast($ICC_ColorSpace, cspace)->getProfile()));
 	} else {
 		$set(this, CSList, $new($ColorSpaceArray, 1));
-		$nc(this->CSList)->set(0, cspace);
+		this->CSList->set(0, cspace);
 	}
 	$set(this, hints, hints);
 }
 
 void ColorConvertOp::init$($ColorSpace* srcCspace, $ColorSpace* dstCspace, $RenderingHints* hints) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ((srcCspace == nullptr) || (dstCspace == nullptr)) {
 		$throwNew($NullPointerException, "ColorSpaces cannot be null"_s);
 	}
 	if (($instanceOf($ICC_ColorSpace, srcCspace)) && ($instanceOf($ICC_ColorSpace, dstCspace))) {
 		$set(this, profileList, $new($ICC_ProfileArray, 2));
-		$nc(this->profileList)->set(0, $($nc(($cast($ICC_ColorSpace, srcCspace)))->getProfile()));
-		$nc(this->profileList)->set(1, $($nc(($cast($ICC_ColorSpace, dstCspace)))->getProfile()));
+		this->profileList->set(0, $($cast($ICC_ColorSpace, srcCspace)->getProfile()));
+		$nc(this->profileList)->set(1, $($cast($ICC_ColorSpace, dstCspace)->getProfile()));
 		getMinMaxValsFromColorSpaces(srcCspace, dstCspace);
 	} else {
 		$set(this, CSList, $new($ColorSpaceArray, 2));
-		$nc(this->CSList)->set(0, srcCspace);
-		$nc(this->CSList)->set(1, dstCspace);
+		this->CSList->set(0, srcCspace);
+		this->CSList->set(1, dstCspace);
 	}
 	$set(this, hints, hints);
 }
@@ -198,7 +135,7 @@ void ColorConvertOp::init$($ICC_ProfileArray* profiles, $RenderingHints* hints) 
 	this->gotProfiles = true;
 	$set(this, profileList, $new($ICC_ProfileArray, $nc(profiles)->length));
 	for (int32_t i1 = 0; i1 < profiles->length; ++i1) {
-		$nc(this->profileList)->set(i1, profiles->get(i1));
+		this->profileList->set(i1, profiles->get(i1));
 	}
 	$set(this, hints, hints);
 }
@@ -206,8 +143,8 @@ void ColorConvertOp::init$($ICC_ProfileArray* profiles, $RenderingHints* hints) 
 $ICC_ProfileArray* ColorConvertOp::getICC_Profiles() {
 	if (this->gotProfiles) {
 		$var($ICC_ProfileArray, profiles, $new($ICC_ProfileArray, $nc(this->profileList)->length));
-		for (int32_t i1 = 0; i1 < $nc(this->profileList)->length; ++i1) {
-			profiles->set(i1, $nc(this->profileList)->get(i1));
+		for (int32_t i1 = 0; i1 < this->profileList->length; ++i1) {
+			profiles->set(i1, this->profileList->get(i1));
 		}
 		return profiles;
 	}
@@ -215,7 +152,7 @@ $ICC_ProfileArray* ColorConvertOp::getICC_Profiles() {
 }
 
 $BufferedImage* ColorConvertOp::filter($BufferedImage* src$renamed, $BufferedImage* dest$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($BufferedImage, src, src$renamed);
 	$var($BufferedImage, dest, dest$renamed);
 	$var($ColorSpace, srcColorSpace, nullptr);
@@ -225,14 +162,14 @@ $BufferedImage* ColorConvertOp::filter($BufferedImage* src$renamed, $BufferedIma
 		$var($IndexColorModel, icm, $cast($IndexColorModel, src->getColorModel()));
 		$assign(src, $nc(icm)->convertToIntDiscrete($(src->getRaster()), true));
 	}
-	$assign(srcColorSpace, $nc($($nc(src)->getColorModel()))->getColorSpace());
+	$assign(srcColorSpace, $$nc($nc(src)->getColorModel())->getColorSpace());
 	if (dest != nullptr) {
 		if ($instanceOf($IndexColorModel, $(dest->getColorModel()))) {
 			$assign(savdest, dest);
 			$assign(dest, nullptr);
 			$assign(destColorSpace, nullptr);
 		} else {
-			$assign(destColorSpace, $nc($(dest->getColorModel()))->getColorSpace());
+			$assign(destColorSpace, $$nc(dest->getColorModel())->getColorSpace());
 		}
 	} else {
 		$assign(destColorSpace, nullptr);
@@ -244,18 +181,16 @@ $BufferedImage* ColorConvertOp::filter($BufferedImage* src$renamed, $BufferedIma
 	}
 	if (savdest != nullptr) {
 		$var($Graphics2D, big, savdest->createGraphics());
-		{
-			$var($Throwable, var$0, nullptr);
-			try {
-				$nc(big)->drawImage(dest, 0, 0, nullptr);
-			} catch ($Throwable& var$1) {
-				$assign(var$0, var$1);
-			} /*finally*/ {
-				$nc(big)->dispose();
-			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
+		$var($Throwable, var$0, nullptr);
+		try {
+			$nc(big)->drawImage(dest, 0, 0, nullptr);
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
+		} /*finally*/ {
+			$nc(big)->dispose();
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 		return savdest;
 	} else {
@@ -264,12 +199,12 @@ $BufferedImage* ColorConvertOp::filter($BufferedImage* src$renamed, $BufferedIma
 }
 
 $BufferedImage* ColorConvertOp::ICCBIFilter($BufferedImage* src, $ColorSpace* srcColorSpace, $BufferedImage* dest$renamed, $ColorSpace* destColorSpace) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($BufferedImage, dest, dest$renamed);
 	int32_t nProfiles = $nc(this->profileList)->length;
 	$var($ICC_Profile, srcProfile, nullptr);
 	$var($ICC_Profile, destProfile, nullptr);
-	$assign(srcProfile, $nc(($cast($ICC_ColorSpace, srcColorSpace)))->getProfile());
+	$assign(srcProfile, $nc($cast($ICC_ColorSpace, srcColorSpace))->getProfile());
 	if (dest == nullptr) {
 		if (nProfiles == 0) {
 			$throwNew($IllegalArgumentException, "Destination ColorSpace is undefined"_s);
@@ -278,15 +213,15 @@ $BufferedImage* ColorConvertOp::ICCBIFilter($BufferedImage* src, $ColorSpace* sr
 		$assign(dest, createCompatibleDestImage(src, nullptr));
 	} else {
 		int32_t var$1 = $nc(src)->getHeight();
-		bool var$0 = var$1 != $nc(dest)->getHeight();
+		bool var$0 = var$1 != dest->getHeight();
 		if (!var$0) {
-			int32_t var$2 = $nc(src)->getWidth();
-			var$0 = var$2 != $nc(dest)->getWidth();
+			int32_t var$2 = src->getWidth();
+			var$0 = var$2 != dest->getWidth();
 		}
 		if (var$0) {
 			$throwNew($IllegalArgumentException, "Width or height of BufferedImages do not match"_s);
 		}
-		$assign(destProfile, $nc(($cast($ICC_ColorSpace, destColorSpace)))->getProfile());
+		$assign(destProfile, $nc($cast($ICC_ColorSpace, destColorSpace))->getProfile());
 	}
 	if (srcProfile == destProfile) {
 		bool noTrans = true;
@@ -298,18 +233,16 @@ $BufferedImage* ColorConvertOp::ICCBIFilter($BufferedImage* src, $ColorSpace* sr
 		}
 		if (noTrans) {
 			$var($Graphics2D, g, $nc(dest)->createGraphics());
-			{
-				$var($Throwable, var$3, nullptr);
-				try {
-					$nc(g)->drawImage(src, 0, 0, nullptr);
-				} catch ($Throwable& var$4) {
-					$assign(var$3, var$4);
-				} /*finally*/ {
-					$nc(g)->dispose();
-				}
-				if (var$3 != nullptr) {
-					$throw(var$3);
-				}
+			$var($Throwable, var$3, nullptr);
+			try {
+				$nc(g)->drawImage(src, 0, 0, nullptr);
+			} catch ($Throwable& var$4) {
+				$assign(var$3, var$4);
+			} /*finally*/ {
+				$nc(g)->dispose();
+			}
+			if (var$3 != nullptr) {
+				$throw(var$3);
 			}
 			return dest;
 		}
@@ -322,7 +255,7 @@ $BufferedImage* ColorConvertOp::ICCBIFilter($BufferedImage* src, $ColorSpace* sr
 }
 
 void ColorConvertOp::updateBITransform($ICC_Profile* srcProfile, $ICC_Profile* destProfile) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ICC_ProfileArray, theProfiles, nullptr);
 	int32_t i1 = 0;
 	int32_t nProfiles = 0;
@@ -334,11 +267,11 @@ void ColorConvertOp::updateBITransform($ICC_Profile* srcProfile, $ICC_Profile* d
 	bool useDest = false;
 	nProfiles = $nc(this->profileList)->length;
 	nTransforms = nProfiles;
-	if ((nProfiles == 0) || (srcProfile != $nc(this->profileList)->get(0))) {
+	if ((nProfiles == 0) || (srcProfile != this->profileList->get(0))) {
 		nTransforms += 1;
 		useSrc = true;
 	}
-	if ((nProfiles == 0) || (destProfile != $nc(this->profileList)->get(nProfiles - 1)) || (nTransforms < 2)) {
+	if ((nProfiles == 0) || (destProfile != this->profileList->get(nProfiles - 1)) || (nTransforms < 2)) {
 		nTransforms += 1;
 		useDest = true;
 	}
@@ -348,7 +281,7 @@ void ColorConvertOp::updateBITransform($ICC_Profile* srcProfile, $ICC_Profile* d
 		theProfiles->set(idx++, srcProfile);
 	}
 	for (i1 = 0; i1 < nProfiles; ++i1) {
-		theProfiles->set(idx++, $nc(this->profileList)->get(i1));
+		theProfiles->set(idx++, this->profileList->get(i1));
 	}
 	if (useDest) {
 		theProfiles->set(idx, destProfile);
@@ -378,7 +311,7 @@ void ColorConvertOp::updateBITransform($ICC_Profile* srcProfile, $ICC_Profile* d
 }
 
 $WritableRaster* ColorConvertOp::filter($Raster* src, $WritableRaster* dest$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($WritableRaster, dest, dest$renamed);
 	if (this->CSList != nullptr) {
 		return nonICCRasterFilter(src, dest);
@@ -388,22 +321,22 @@ $WritableRaster* ColorConvertOp::filter($Raster* src, $WritableRaster* dest$rena
 		$throwNew($IllegalArgumentException, "Source or Destination ColorSpace is undefined"_s);
 	}
 	int32_t var$0 = $nc(src)->getNumBands();
-	if (var$0 != $nc($nc(this->profileList)->get(0))->getNumComponents()) {
+	if (var$0 != $nc(this->profileList->get(0))->getNumComponents()) {
 		$throwNew($IllegalArgumentException, "Numbers of source Raster bands and source color space components do not match"_s);
 	}
 	if (dest == nullptr) {
 		$assign(dest, createCompatibleDestRaster(src));
 	} else {
-		int32_t var$2 = $nc(src)->getHeight();
-		bool var$1 = var$2 != $nc(dest)->getHeight();
+		int32_t var$2 = src->getHeight();
+		bool var$1 = var$2 != dest->getHeight();
 		if (!var$1) {
-			int32_t var$3 = $nc(src)->getWidth();
-			var$1 = var$3 != $nc(dest)->getWidth();
+			int32_t var$3 = src->getWidth();
+			var$1 = var$3 != dest->getWidth();
 		}
 		if (var$1) {
 			$throwNew($IllegalArgumentException, "Width or height of Rasters do not match"_s);
 		}
-		int32_t var$4 = $nc(dest)->getNumBands();
+		int32_t var$4 = dest->getNumBands();
 		if (var$4 != $nc($nc(this->profileList)->get(nProfiles - 1))->getNumComponents()) {
 			$throwNew($IllegalArgumentException, "Numbers of destination Raster bands and destination color space components do not match"_s);
 		}
@@ -434,7 +367,7 @@ $WritableRaster* ColorConvertOp::filter($Raster* src, $WritableRaster* dest$rena
 		}
 		$set(this, thisRasterTransform, $nc(mdl)->createTransform(theTransforms));
 	}
-	int32_t srcTransferType = $nc(src)->getTransferType();
+	int32_t srcTransferType = src->getTransferType();
 	int32_t dstTransferType = $nc(dest)->getTransferType();
 	if ((srcTransferType == $DataBuffer::TYPE_FLOAT) || (srcTransferType == $DataBuffer::TYPE_DOUBLE) || (dstTransferType == $DataBuffer::TYPE_FLOAT) || (dstTransferType == $DataBuffer::TYPE_DOUBLE)) {
 		if (this->srcMinVals == nullptr) {
@@ -448,7 +381,7 @@ $WritableRaster* ColorConvertOp::filter($Raster* src, $WritableRaster* dest$rena
 }
 
 $Rectangle2D* ColorConvertOp::getBounds2D($BufferedImage* src) {
-	return getBounds2D($(static_cast<$Raster*>($nc(src)->getRaster())));
+	return getBounds2D($($nc(src)->getRaster()));
 }
 
 $Rectangle2D* ColorConvertOp::getBounds2D($Raster* src) {
@@ -456,26 +389,27 @@ $Rectangle2D* ColorConvertOp::getBounds2D($Raster* src) {
 }
 
 $BufferedImage* ColorConvertOp::createCompatibleDestImage($BufferedImage* src, $ColorModel* destCM) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ColorSpace, cs, nullptr);
+	;
 	if (destCM == nullptr) {
 		if (this->CSList == nullptr) {
 			int32_t nProfiles = $nc(this->profileList)->length;
 			if (nProfiles == 0) {
 				$throwNew($IllegalArgumentException, "Destination ColorSpace is undefined"_s);
 			}
-			$var($ICC_Profile, destProfile, $nc(this->profileList)->get(nProfiles - 1));
+			$var($ICC_Profile, destProfile, this->profileList->get(nProfiles - 1));
 			$assign(cs, $new($ICC_ColorSpace, destProfile));
 		} else {
-			int32_t nSpaces = $nc(this->CSList)->length;
-			$assign(cs, $nc(this->CSList)->get(nSpaces - 1));
+			int32_t nSpaces = this->CSList->length;
+			$assign(cs, this->CSList->get(nSpaces - 1));
 		}
 	}
 	return createCompatibleDestImage(src, destCM, cs);
 }
 
 $BufferedImage* ColorConvertOp::createCompatibleDestImage($BufferedImage* src, $ColorModel* destCM$renamed, $ColorSpace* destCS) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ColorModel, destCM, destCM$renamed);
 	$var($BufferedImage, image, nullptr);
 	if (destCM == nullptr) {
@@ -489,40 +423,35 @@ $BufferedImage* ColorConvertOp::createCompatibleDestImage($BufferedImage* src, $
 		for (int32_t i = 0; i < nbands; ++i) {
 			nbits->set(i, 8);
 		}
-		$var($ColorSpace, var$0, destCS);
-		$var($ints, var$1, nbits);
-		bool var$2 = hasAlpha;
-		bool var$3 = srcCM->isAlphaPremultiplied();
-		$assign(destCM, $new($ComponentColorModel, var$0, var$1, var$2, var$3, srcCM->getTransparency(), $DataBuffer::TYPE_BYTE));
+		bool var$0 = srcCM->isAlphaPremultiplied();
+		$assign(destCM, $new($ComponentColorModel, destCS, nbits, hasAlpha, var$0, srcCM->getTransparency(), $DataBuffer::TYPE_BYTE));
 	}
 	int32_t w = $nc(src)->getWidth();
 	int32_t h = src->getHeight();
-	$var($ColorModel, var$4, destCM);
-	$var($WritableRaster, var$5, $nc(destCM)->createCompatibleWritableRaster(w, h));
-	$assign(image, $new($BufferedImage, var$4, var$5, destCM->isAlphaPremultiplied(), ($Hashtable*)nullptr));
+	$var($WritableRaster, var$1, $nc(destCM)->createCompatibleWritableRaster(w, h));
+	$assign(image, $new($BufferedImage, destCM, var$1, destCM->isAlphaPremultiplied(), nullptr));
 	return image;
 }
 
 $WritableRaster* ColorConvertOp::createCompatibleDestRaster($Raster* src) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t ncomponents = 0;
 	if (this->CSList != nullptr) {
-		if ($nc(this->CSList)->length != 2) {
+		if (this->CSList->length != 2) {
 			$throwNew($IllegalArgumentException, "Destination ColorSpace is undefined"_s);
 		}
-		ncomponents = $nc($nc(this->CSList)->get(1))->getNumComponents();
+		ncomponents = $nc(this->CSList->get(1))->getNumComponents();
 	} else {
 		int32_t nProfiles = $nc(this->profileList)->length;
 		if (nProfiles < 2) {
 			$throwNew($IllegalArgumentException, "Destination ColorSpace is undefined"_s);
 		}
-		ncomponents = $nc($nc(this->profileList)->get(nProfiles - 1))->getNumComponents();
+		ncomponents = $nc(this->profileList->get(nProfiles - 1))->getNumComponents();
 	}
 	int32_t var$0 = $nc(src)->getWidth();
 	int32_t var$1 = src->getHeight();
-	int32_t var$2 = ncomponents;
-	int32_t var$3 = src->getMinX();
-	$var($WritableRaster, dest, $Raster::createInterleavedRaster($DataBuffer::TYPE_BYTE, var$0, var$1, var$2, $$new($Point, var$3, src->getMinY())));
+	int32_t var$2 = src->getMinX();
+	$var($WritableRaster, dest, $Raster::createInterleavedRaster($DataBuffer::TYPE_BYTE, var$0, var$1, ncomponents, $$new($Point, var$2, src->getMinY())));
 	return dest;
 }
 
@@ -539,7 +468,7 @@ $Point2D* ColorConvertOp::getPoint2D($Point2D* srcPt, $Point2D* dstPt$renamed) {
 int32_t ColorConvertOp::getRenderingIntent($ICC_Profile* profile) {
 	$var($bytes, header, $nc(profile)->getData($ICC_Profile::icSigHead));
 	int32_t index = $ICC_Profile::icHdrRenderingIntent;
-	return (((int32_t)($nc(header)->get(index + 2) & (uint32_t)255)) << 8) | ((int32_t)(header->get(index + 3) & (uint32_t)255));
+	return (($nc(header)->get(index + 2) & 0xff) << 8) | ($nc(header)->get(index + 3) & 0xff);
 }
 
 $RenderingHints* ColorConvertOp::getRenderingHints() {
@@ -547,7 +476,7 @@ $RenderingHints* ColorConvertOp::getRenderingHints() {
 }
 
 $BufferedImage* ColorConvertOp::nonICCBIFilter($BufferedImage* src, $ColorSpace* srcColorSpace, $BufferedImage* dst$renamed, $ColorSpace* dstColorSpace$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($BufferedImage, dst, dst$renamed);
 	$var($ColorSpace, dstColorSpace, dstColorSpace$renamed);
 	int32_t w = $nc(src)->getWidth();
@@ -555,10 +484,10 @@ $BufferedImage* ColorConvertOp::nonICCBIFilter($BufferedImage* src, $ColorSpace*
 	$var($ICC_ColorSpace, ciespace, $cast($ICC_ColorSpace, $ColorSpace::getInstance($ColorSpace::CS_CIEXYZ)));
 	if (dst == nullptr) {
 		$assign(dst, createCompatibleDestImage(src, nullptr));
-		$assign(dstColorSpace, $nc($($nc(dst)->getColorModel()))->getColorSpace());
+		$assign(dstColorSpace, $$nc($nc(dst)->getColorModel())->getColorSpace());
 	} else {
-		bool var$1 = (h != $nc(dst)->getHeight());
-		if (var$1 || (w != $nc(dst)->getWidth())) {
+		bool var$0 = h != dst->getHeight();
+		if (var$0 || (w != dst->getWidth())) {
 			$throwNew($IllegalArgumentException, "Width or height of BufferedImages do not match"_s);
 		}
 	}
@@ -581,14 +510,14 @@ $BufferedImage* ColorConvertOp::nonICCBIFilter($BufferedImage* src, $ColorSpace*
 			$assign(srcProfile, $nc(ciespace)->getProfile());
 		} else {
 			nonICCSrc = false;
-			$assign(srcProfile, $nc(($cast($ICC_ColorSpace, srcColorSpace)))->getProfile());
+			$assign(srcProfile, $cast($ICC_ColorSpace, srcColorSpace)->getProfile());
 		}
 		if (!($instanceOf($ICC_ColorSpace, dstColorSpace))) {
 			nonICCDst = true;
 			$assign(dstProfile, $nc(ciespace)->getProfile());
 		} else {
 			nonICCDst = false;
-			$assign(dstProfile, $nc(($cast($ICC_ColorSpace, dstColorSpace)))->getProfile());
+			$assign(dstProfile, $cast($ICC_ColorSpace, dstColorSpace)->getProfile());
 		}
 		if ((this->thisTransform == nullptr) || (this->thisSrcProfile != srcProfile) || (this->thisDestProfile != dstProfile)) {
 			updateBITransform(srcProfile, dstProfile);
@@ -662,7 +591,7 @@ $BufferedImage* ColorConvertOp::nonICCBIFilter($BufferedImage* src, $ColorSpace*
 			idx = 0;
 			for (int32_t x = 0; x < w; ++x) {
 				for (int32_t i = 0; i < iccDstNumComp; ++i) {
-					$nc(dstColor)->set(i, ((float)((int32_t)(dstLine->get(idx++) & (uint32_t)0x0000FFFF))) * dstDiffMinMax->get(i) + dstMinVal->get(i));
+					$nc(dstColor)->set(i, ((float)(dstLine->get(idx++) & 0xffff)) * dstDiffMinMax->get(i) + dstMinVal->get(i));
 				}
 				if (nonICCDst) {
 					$assign(color, $nc(srcColorSpace)->fromCIEXYZ(dstColor));
@@ -684,7 +613,7 @@ $BufferedImage* ColorConvertOp::nonICCBIFilter($BufferedImage* src, $ColorSpace*
 		if (this->CSList == nullptr) {
 			numCS = 0;
 		} else {
-			numCS = $nc(this->CSList)->length;
+			numCS = this->CSList->length;
 		}
 		$var($floats, dstColor, nullptr);
 		if (dstHasAlpha) {
@@ -723,28 +652,28 @@ $BufferedImage* ColorConvertOp::nonICCBIFilter($BufferedImage* src, $ColorSpace*
 }
 
 $WritableRaster* ColorConvertOp::nonICCRasterFilter($Raster* src, $WritableRaster* dst$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($WritableRaster, dst, dst$renamed);
 	if ($nc(this->CSList)->length != 2) {
 		$throwNew($IllegalArgumentException, "Destination ColorSpace is undefined"_s);
 	}
 	int32_t var$0 = $nc(src)->getNumBands();
-	if (var$0 != $nc($nc(this->CSList)->get(0))->getNumComponents()) {
+	if (var$0 != $nc(this->CSList->get(0))->getNumComponents()) {
 		$throwNew($IllegalArgumentException, "Numbers of source Raster bands and source color space components do not match"_s);
 	}
 	if (dst == nullptr) {
 		$assign(dst, createCompatibleDestRaster(src));
 	} else {
-		int32_t var$2 = $nc(src)->getHeight();
-		bool var$1 = var$2 != $nc(dst)->getHeight();
+		int32_t var$2 = src->getHeight();
+		bool var$1 = var$2 != dst->getHeight();
 		if (!var$1) {
-			int32_t var$3 = $nc(src)->getWidth();
-			var$1 = var$3 != $nc(dst)->getWidth();
+			int32_t var$3 = src->getWidth();
+			var$1 = var$3 != dst->getWidth();
 		}
 		if (var$1) {
 			$throwNew($IllegalArgumentException, "Width or height of Rasters do not match"_s);
 		}
-		int32_t var$4 = $nc(dst)->getNumBands();
+		int32_t var$4 = dst->getNumBands();
 		if (var$4 != $nc($nc(this->CSList)->get(1))->getNumComponents()) {
 			$throwNew($IllegalArgumentException, "Numbers of destination Raster bands and destination color space components do not match"_s);
 		}
@@ -752,7 +681,7 @@ $WritableRaster* ColorConvertOp::nonICCRasterFilter($Raster* src, $WritableRaste
 	if (this->srcMinVals == nullptr) {
 		getMinMaxValsFromColorSpaces($nc(this->CSList)->get(0), $nc(this->CSList)->get(1));
 	}
-	$var($SampleModel, srcSM, $nc(src)->getSampleModel());
+	$var($SampleModel, srcSM, src->getSampleModel());
 	$var($SampleModel, dstSM, $nc(dst)->getSampleModel());
 	bool srcIsFloat = false;
 	bool dstIsFloat = false;
@@ -802,7 +731,7 @@ $WritableRaster* ColorConvertOp::nonICCRasterFilter($Raster* src, $WritableRaste
 	$var($floats, color, $new($floats, srcNumBands));
 	$var($floats, tmpColor, nullptr);
 	$var($ColorSpace, srcColorSpace, $nc(this->CSList)->get(0));
-	$var($ColorSpace, dstColorSpace, $nc(this->CSList)->get(1));
+	$var($ColorSpace, dstColorSpace, this->CSList->get(1));
 	for (int32_t y = 0; y < h; ++y, ++ys, ++yd) {
 		xs = src->getMinX();
 		xd = dst->getMinX();
@@ -850,8 +779,8 @@ void ColorConvertOp::setMinMax(int32_t type, int32_t nc, $floats* minVals, $floa
 		minVals->set(2, -128.0f);
 		maxVals->set(2, 127.0f);
 	} else if (type == $ColorSpace::TYPE_XYZ) {
-		$nc(minVals)->set(0, minVals->set(1, minVals->set(2, 0.0f)));
-		$nc(maxVals)->set(0, maxVals->set(1, maxVals->set(2, 1.0f + (32767.0f / 32768.0f))));
+		$nc(minVals)->set(0, $nc(minVals)->set(1, $nc(minVals)->set(2, 0.0f)));
+		$nc(maxVals)->set(0, $nc(maxVals)->set(1, $nc(maxVals)->set(2, 1.0f + (32767.0f / 32768.0f))));
 	} else {
 		for (int32_t i = 0; i < nc; ++i) {
 			$nc(minVals)->set(i, 0.0f);
@@ -881,7 +810,62 @@ ColorConvertOp::ColorConvertOp() {
 }
 
 $Class* ColorConvertOp::load$($String* name, bool initialize) {
-	$loadClass(ColorConvertOp, name, initialize, &_ColorConvertOp_ClassInfo_, allocate$ColorConvertOp);
+	$FieldInfo fieldInfos$$[] = {
+		{"profileList", "[Ljava/awt/color/ICC_Profile;", nullptr, 0, $field(ColorConvertOp, profileList)},
+		{"CSList", "[Ljava/awt/color/ColorSpace;", nullptr, 0, $field(ColorConvertOp, CSList)},
+		{"thisTransform", "Lsun/java2d/cmm/ColorTransform;", nullptr, 0, $field(ColorConvertOp, thisTransform)},
+		{"thisRasterTransform", "Lsun/java2d/cmm/ColorTransform;", nullptr, 0, $field(ColorConvertOp, thisRasterTransform)},
+		{"thisSrcProfile", "Ljava/awt/color/ICC_Profile;", nullptr, 0, $field(ColorConvertOp, thisSrcProfile)},
+		{"thisDestProfile", "Ljava/awt/color/ICC_Profile;", nullptr, 0, $field(ColorConvertOp, thisDestProfile)},
+		{"hints", "Ljava/awt/RenderingHints;", nullptr, 0, $field(ColorConvertOp, hints)},
+		{"gotProfiles", "Z", nullptr, 0, $field(ColorConvertOp, gotProfiles)},
+		{"srcMinVals", "[F", nullptr, 0, $field(ColorConvertOp, srcMinVals)},
+		{"srcMaxVals", "[F", nullptr, 0, $field(ColorConvertOp, srcMaxVals)},
+		{"dstMinVals", "[F", nullptr, 0, $field(ColorConvertOp, dstMinVals)},
+		{"dstMaxVals", "[F", nullptr, 0, $field(ColorConvertOp, dstMaxVals)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/awt/RenderingHints;)V", nullptr, $PUBLIC, $method(ColorConvertOp, init$, void, $RenderingHints*)},
+		{"<init>", "(Ljava/awt/color/ColorSpace;Ljava/awt/RenderingHints;)V", nullptr, $PUBLIC, $method(ColorConvertOp, init$, void, $ColorSpace*, $RenderingHints*)},
+		{"<init>", "(Ljava/awt/color/ColorSpace;Ljava/awt/color/ColorSpace;Ljava/awt/RenderingHints;)V", nullptr, $PUBLIC, $method(ColorConvertOp, init$, void, $ColorSpace*, $ColorSpace*, $RenderingHints*)},
+		{"<init>", "([Ljava/awt/color/ICC_Profile;Ljava/awt/RenderingHints;)V", nullptr, $PUBLIC, $method(ColorConvertOp, init$, void, $ICC_ProfileArray*, $RenderingHints*)},
+		{"ICCBIFilter", "(Ljava/awt/image/BufferedImage;Ljava/awt/color/ColorSpace;Ljava/awt/image/BufferedImage;Ljava/awt/color/ColorSpace;)Ljava/awt/image/BufferedImage;", nullptr, $PRIVATE, $method(ColorConvertOp, ICCBIFilter, $BufferedImage*, $BufferedImage*, $ColorSpace*, $BufferedImage*, $ColorSpace*)},
+		{"createCompatibleDestImage", "(Ljava/awt/image/BufferedImage;Ljava/awt/image/ColorModel;)Ljava/awt/image/BufferedImage;", nullptr, $PUBLIC, $virtualMethod(ColorConvertOp, createCompatibleDestImage, $BufferedImage*, $BufferedImage*, $ColorModel*)},
+		{"createCompatibleDestImage", "(Ljava/awt/image/BufferedImage;Ljava/awt/image/ColorModel;Ljava/awt/color/ColorSpace;)Ljava/awt/image/BufferedImage;", nullptr, $PRIVATE, $method(ColorConvertOp, createCompatibleDestImage, $BufferedImage*, $BufferedImage*, $ColorModel*, $ColorSpace*)},
+		{"createCompatibleDestRaster", "(Ljava/awt/image/Raster;)Ljava/awt/image/WritableRaster;", nullptr, $PUBLIC, $virtualMethod(ColorConvertOp, createCompatibleDestRaster, $WritableRaster*, $Raster*)},
+		{"filter", "(Ljava/awt/image/BufferedImage;Ljava/awt/image/BufferedImage;)Ljava/awt/image/BufferedImage;", nullptr, $PUBLIC | $FINAL, $virtualMethod(ColorConvertOp, filter, $BufferedImage*, $BufferedImage*, $BufferedImage*)},
+		{"filter", "(Ljava/awt/image/Raster;Ljava/awt/image/WritableRaster;)Ljava/awt/image/WritableRaster;", nullptr, $PUBLIC | $FINAL, $virtualMethod(ColorConvertOp, filter, $WritableRaster*, $Raster*, $WritableRaster*)},
+		{"getBounds2D", "(Ljava/awt/image/BufferedImage;)Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC | $FINAL, $virtualMethod(ColorConvertOp, getBounds2D, $Rectangle2D*, $BufferedImage*)},
+		{"getBounds2D", "(Ljava/awt/image/Raster;)Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC | $FINAL, $virtualMethod(ColorConvertOp, getBounds2D, $Rectangle2D*, $Raster*)},
+		{"getICC_Profiles", "()[Ljava/awt/color/ICC_Profile;", nullptr, $PUBLIC | $FINAL, $method(ColorConvertOp, getICC_Profiles, $ICC_ProfileArray*)},
+		{"getMinMaxValsFromColorSpaces", "(Ljava/awt/color/ColorSpace;Ljava/awt/color/ColorSpace;)V", nullptr, $PRIVATE, $method(ColorConvertOp, getMinMaxValsFromColorSpaces, void, $ColorSpace*, $ColorSpace*)},
+		{"getMinMaxValsFromProfiles", "(Ljava/awt/color/ICC_Profile;Ljava/awt/color/ICC_Profile;)V", nullptr, $PRIVATE, $method(ColorConvertOp, getMinMaxValsFromProfiles, void, $ICC_Profile*, $ICC_Profile*)},
+		{"getPoint2D", "(Ljava/awt/geom/Point2D;Ljava/awt/geom/Point2D;)Ljava/awt/geom/Point2D;", nullptr, $PUBLIC | $FINAL, $virtualMethod(ColorConvertOp, getPoint2D, $Point2D*, $Point2D*, $Point2D*)},
+		{"getRenderingHints", "()Ljava/awt/RenderingHints;", nullptr, $PUBLIC | $FINAL, $virtualMethod(ColorConvertOp, getRenderingHints, $RenderingHints*)},
+		{"getRenderingIntent", "(Ljava/awt/color/ICC_Profile;)I", nullptr, $PRIVATE, $method(ColorConvertOp, getRenderingIntent, int32_t, $ICC_Profile*)},
+		{"nonICCBIFilter", "(Ljava/awt/image/BufferedImage;Ljava/awt/color/ColorSpace;Ljava/awt/image/BufferedImage;Ljava/awt/color/ColorSpace;)Ljava/awt/image/BufferedImage;", nullptr, $PRIVATE, $method(ColorConvertOp, nonICCBIFilter, $BufferedImage*, $BufferedImage*, $ColorSpace*, $BufferedImage*, $ColorSpace*)},
+		{"nonICCRasterFilter", "(Ljava/awt/image/Raster;Ljava/awt/image/WritableRaster;)Ljava/awt/image/WritableRaster;", nullptr, $PRIVATE, $method(ColorConvertOp, nonICCRasterFilter, $WritableRaster*, $Raster*, $WritableRaster*)},
+		{"setMinMax", "(II[F[F)V", nullptr, $PRIVATE, $method(ColorConvertOp, setMinMax, void, int32_t, int32_t, $floats*, $floats*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"updateBITransform", "(Ljava/awt/color/ICC_Profile;Ljava/awt/color/ICC_Profile;)V", nullptr, $PRIVATE, $method(ColorConvertOp, updateBITransform, void, $ICC_Profile*, $ICC_Profile*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.awt.image.ColorConvertOp",
+		"java.lang.Object",
+		"java.awt.image.BufferedImageOp,java.awt.image.RasterOp",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ColorConvertOp, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ColorConvertOp));
+	});
 	return class$;
 }
 

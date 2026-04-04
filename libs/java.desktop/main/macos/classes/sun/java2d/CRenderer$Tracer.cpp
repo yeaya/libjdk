@@ -1,5 +1,4 @@
 #include <sun/java2d/CRenderer$Tracer.h>
-
 #include <java/nio/FloatBuffer.h>
 #include <java/nio/IntBuffer.h>
 #include <sun/java2d/CRenderer.h>
@@ -18,44 +17,6 @@ using $GraphicsPrimitive = ::sun::java2d::loops::GraphicsPrimitive;
 
 namespace sun {
 	namespace java2d {
-
-$MethodInfo _CRenderer$Tracer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(CRenderer$Tracer, init$, void)},
-	{"doArc", "(Lsun/java2d/SurfaceData;FFFFFFIZ)V", nullptr, 0, $virtualMethod(CRenderer$Tracer, doArc, void, $SurfaceData*, float, float, float, float, float, float, int32_t, bool)},
-	{"doImage", "(Lsun/java2d/SurfaceData;Lsun/java2d/SurfaceData;ZZIIIIIIIIII)V", nullptr, 0, $virtualMethod(CRenderer$Tracer, doImage, void, $SurfaceData*, $SurfaceData*, bool, bool, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"doLine", "(Lsun/java2d/SurfaceData;FFFF)V", nullptr, 0, $virtualMethod(CRenderer$Tracer, doLine, void, $SurfaceData*, float, float, float, float)},
-	{"doOval", "(Lsun/java2d/SurfaceData;FFFFZ)V", nullptr, 0, $virtualMethod(CRenderer$Tracer, doOval, void, $SurfaceData*, float, float, float, float, bool)},
-	{"doPoly", "(Lsun/java2d/SurfaceData;[I[IIZZ)V", nullptr, 0, $virtualMethod(CRenderer$Tracer, doPoly, void, $SurfaceData*, $ints*, $ints*, int32_t, bool, bool)},
-	{"doRect", "(Lsun/java2d/SurfaceData;FFFFZ)V", nullptr, 0, $virtualMethod(CRenderer$Tracer, doRect, void, $SurfaceData*, float, float, float, float, bool)},
-	{"doRoundRect", "(Lsun/java2d/SurfaceData;FFFFFFZ)V", nullptr, 0, $virtualMethod(CRenderer$Tracer, doRoundRect, void, $SurfaceData*, float, float, float, float, float, float, bool)},
-	{"doShape", "(Lsun/java2d/SurfaceData;ILjava/nio/FloatBuffer;Ljava/nio/IntBuffer;IZZ)V", nullptr, 0, $virtualMethod(CRenderer$Tracer, doShape, void, $SurfaceData*, int32_t, $FloatBuffer*, $IntBuffer*, int32_t, bool, bool)},
-	{}
-};
-
-$InnerClassInfo _CRenderer$Tracer_InnerClassesInfo_[] = {
-	{"sun.java2d.CRenderer$Tracer", "sun.java2d.CRenderer", "Tracer", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _CRenderer$Tracer_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.java2d.CRenderer$Tracer",
-	"sun.java2d.CRenderer",
-	nullptr,
-	nullptr,
-	_CRenderer$Tracer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_CRenderer$Tracer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.java2d.CRenderer"
-};
-
-$Object* allocate$CRenderer$Tracer($Class* clazz) {
-	return $of($alloc(CRenderer$Tracer));
-}
 
 void CRenderer$Tracer::init$() {
 	$CRenderer::init$();
@@ -105,7 +66,40 @@ CRenderer$Tracer::CRenderer$Tracer() {
 }
 
 $Class* CRenderer$Tracer::load$($String* name, bool initialize) {
-	$loadClass(CRenderer$Tracer, name, initialize, &_CRenderer$Tracer_ClassInfo_, allocate$CRenderer$Tracer);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(CRenderer$Tracer, init$, void)},
+		{"doArc", "(Lsun/java2d/SurfaceData;FFFFFFIZ)V", nullptr, 0, $virtualMethod(CRenderer$Tracer, doArc, void, $SurfaceData*, float, float, float, float, float, float, int32_t, bool)},
+		{"doImage", "(Lsun/java2d/SurfaceData;Lsun/java2d/SurfaceData;ZZIIIIIIIIII)V", nullptr, 0, $virtualMethod(CRenderer$Tracer, doImage, void, $SurfaceData*, $SurfaceData*, bool, bool, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"doLine", "(Lsun/java2d/SurfaceData;FFFF)V", nullptr, 0, $virtualMethod(CRenderer$Tracer, doLine, void, $SurfaceData*, float, float, float, float)},
+		{"doOval", "(Lsun/java2d/SurfaceData;FFFFZ)V", nullptr, 0, $virtualMethod(CRenderer$Tracer, doOval, void, $SurfaceData*, float, float, float, float, bool)},
+		{"doPoly", "(Lsun/java2d/SurfaceData;[I[IIZZ)V", nullptr, 0, $virtualMethod(CRenderer$Tracer, doPoly, void, $SurfaceData*, $ints*, $ints*, int32_t, bool, bool)},
+		{"doRect", "(Lsun/java2d/SurfaceData;FFFFZ)V", nullptr, 0, $virtualMethod(CRenderer$Tracer, doRect, void, $SurfaceData*, float, float, float, float, bool)},
+		{"doRoundRect", "(Lsun/java2d/SurfaceData;FFFFFFZ)V", nullptr, 0, $virtualMethod(CRenderer$Tracer, doRoundRect, void, $SurfaceData*, float, float, float, float, float, float, bool)},
+		{"doShape", "(Lsun/java2d/SurfaceData;ILjava/nio/FloatBuffer;Ljava/nio/IntBuffer;IZZ)V", nullptr, 0, $virtualMethod(CRenderer$Tracer, doShape, void, $SurfaceData*, int32_t, $FloatBuffer*, $IntBuffer*, int32_t, bool, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.java2d.CRenderer$Tracer", "sun.java2d.CRenderer", "Tracer", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.java2d.CRenderer$Tracer",
+		"sun.java2d.CRenderer",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.java2d.CRenderer"
+	};
+	$loadClass(CRenderer$Tracer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(CRenderer$Tracer));
+	});
 	return class$;
 }
 

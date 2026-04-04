@@ -1,5 +1,4 @@
 #include <sun/datatransfer/DataFlavorUtil$RMI.h>
-
 #include <java/io/IOException.h>
 #include <java/lang/AssertionError.h>
 #include <java/lang/ClassLoader.h>
@@ -25,58 +24,12 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $InstantiationException = ::java::lang::InstantiationException;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NoSuchMethodException = ::java::lang::NoSuchMethodException;
-using $ReflectiveOperationException = ::java::lang::ReflectiveOperationException;
 using $Constructor = ::java::lang::reflect::Constructor;
 using $InvocationTargetException = ::java::lang::reflect::InvocationTargetException;
 using $Method = ::java::lang::reflect::Method;
 
 namespace sun {
 	namespace datatransfer {
-
-$FieldInfo _DataFlavorUtil$RMI_FieldInfo_[] = {
-	{"remoteClass", "Ljava/lang/Class;", "Ljava/lang/Class<*>;", $PRIVATE | $STATIC | $FINAL, $staticField(DataFlavorUtil$RMI, remoteClass$)},
-	{"marshallObjectClass", "Ljava/lang/Class;", "Ljava/lang/Class<*>;", $PRIVATE | $STATIC | $FINAL, $staticField(DataFlavorUtil$RMI, marshallObjectClass)},
-	{"marshallCtor", "Ljava/lang/reflect/Constructor;", "Ljava/lang/reflect/Constructor<*>;", $PRIVATE | $STATIC | $FINAL, $staticField(DataFlavorUtil$RMI, marshallCtor)},
-	{"marshallGet", "Ljava/lang/reflect/Method;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DataFlavorUtil$RMI, marshallGet)},
-	{}
-};
-
-$MethodInfo _DataFlavorUtil$RMI_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(DataFlavorUtil$RMI, init$, void)},
-	{"getClass", "(Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/String;)Ljava/lang/Class<*>;", $PRIVATE | $STATIC, $staticMethod(DataFlavorUtil$RMI, getClass, $Class*, $String*)},
-	{"getConstructor", "(Ljava/lang/Class;[Ljava/lang/Class;)Ljava/lang/reflect/Constructor;", "(Ljava/lang/Class<*>;[Ljava/lang/Class<*>;)Ljava/lang/reflect/Constructor<*>;", $PRIVATE | $STATIC | $TRANSIENT, $staticMethod(DataFlavorUtil$RMI, getConstructor, $Constructor*, $Class*, $ClassArray*)},
-	{"getMarshalledObject", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC, $staticMethod(DataFlavorUtil$RMI, getMarshalledObject, $Object*, Object$*), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"getMethod", "(Ljava/lang/Class;Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;", "(Ljava/lang/Class<*>;Ljava/lang/String;[Ljava/lang/Class<*>;)Ljava/lang/reflect/Method;", $PRIVATE | $STATIC | $TRANSIENT, $staticMethod(DataFlavorUtil$RMI, getMethod, $Method*, $Class*, $String*, $ClassArray*)},
-	{"isRemote", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;)Z", $PUBLIC | $STATIC, $staticMethod(DataFlavorUtil$RMI, isRemote, bool, $Class*)},
-	{"newMarshalledObject", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC, $staticMethod(DataFlavorUtil$RMI, newMarshalledObject, $Object*, Object$*), "java.io.IOException"},
-	{"remoteClass", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $STATIC, $staticMethod(DataFlavorUtil$RMI, remoteClass, $Class*)},
-	{}
-};
-
-$InnerClassInfo _DataFlavorUtil$RMI_InnerClassesInfo_[] = {
-	{"sun.datatransfer.DataFlavorUtil$RMI", "sun.datatransfer.DataFlavorUtil", "RMI", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _DataFlavorUtil$RMI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.datatransfer.DataFlavorUtil$RMI",
-	"java.lang.Object",
-	nullptr,
-	_DataFlavorUtil$RMI_FieldInfo_,
-	_DataFlavorUtil$RMI_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DataFlavorUtil$RMI_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.datatransfer.DataFlavorUtil"
-};
-
-$Object* allocate$DataFlavorUtil$RMI($Class* clazz) {
-	return $of($alloc(DataFlavorUtil$RMI));
-}
 
 $Class* DataFlavorUtil$RMI::remoteClass$ = nullptr;
 $Class* DataFlavorUtil$RMI::marshallObjectClass = nullptr;
@@ -101,7 +54,7 @@ $Constructor* DataFlavorUtil$RMI::getConstructor($Class* c, $ClassArray* types) 
 	$init(DataFlavorUtil$RMI);
 	$beforeCallerSensitive();
 	try {
-		return (c == nullptr) ? ($Constructor*)nullptr : $nc(c)->getDeclaredConstructor(types);
+		return (c == nullptr) ? ($Constructor*)nullptr : c->getDeclaredConstructor(types);
 	} catch ($NoSuchMethodException& x) {
 		$throwNew($AssertionError, $of(x));
 	}
@@ -112,7 +65,7 @@ $Method* DataFlavorUtil$RMI::getMethod($Class* c, $String* name, $ClassArray* ty
 	$init(DataFlavorUtil$RMI);
 	$beforeCallerSensitive();
 	try {
-		return (c == nullptr) ? ($Method*)nullptr : $nc(c)->getMethod(name, types);
+		return (c == nullptr) ? ($Method*)nullptr : c->getMethod(name, types);
 	} catch ($NoSuchMethodException& e) {
 		$throwNew($AssertionError, $of(e));
 	}
@@ -126,15 +79,15 @@ $Class* DataFlavorUtil$RMI::remoteClass() {
 
 bool DataFlavorUtil$RMI::isRemote($Class* c) {
 	$init(DataFlavorUtil$RMI);
-	return (DataFlavorUtil$RMI::remoteClass$ != nullptr) && $nc(DataFlavorUtil$RMI::remoteClass$)->isAssignableFrom(c);
+	return (DataFlavorUtil$RMI::remoteClass$ != nullptr) && DataFlavorUtil$RMI::remoteClass$->isAssignableFrom(c);
 }
 
 $Object* DataFlavorUtil$RMI::newMarshalledObject(Object$* obj) {
 	$init(DataFlavorUtil$RMI);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	try {
-		return $of(DataFlavorUtil$RMI::marshallCtor == nullptr ? ($Object*)nullptr : $nc(DataFlavorUtil$RMI::marshallCtor)->newInstance($$new($ObjectArray, {obj})));
+		return DataFlavorUtil$RMI::marshallCtor == nullptr ? ($Object*)nullptr : DataFlavorUtil$RMI::marshallCtor->newInstance($$new($ObjectArray, {obj}));
 	} catch ($InstantiationException& x) {
 		$throwNew($AssertionError, $of(x));
 	} catch ($IllegalAccessException& x) {
@@ -151,10 +104,10 @@ $Object* DataFlavorUtil$RMI::newMarshalledObject(Object$* obj) {
 
 $Object* DataFlavorUtil$RMI::getMarshalledObject(Object$* obj) {
 	$init(DataFlavorUtil$RMI);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	try {
-		return $of(DataFlavorUtil$RMI::marshallGet == nullptr ? ($Object*)nullptr : $nc(DataFlavorUtil$RMI::marshallGet)->invoke(obj, $$new($ObjectArray, 0)));
+		return DataFlavorUtil$RMI::marshallGet == nullptr ? ($Object*)nullptr : DataFlavorUtil$RMI::marshallGet->invoke(obj, $$new($ObjectArray, 0));
 	} catch ($IllegalAccessException& x) {
 		$throwNew($AssertionError, $of(x));
 	} catch ($InvocationTargetException& x) {
@@ -170,8 +123,8 @@ $Object* DataFlavorUtil$RMI::getMarshalledObject(Object$* obj) {
 	$shouldNotReachHere();
 }
 
-void clinit$DataFlavorUtil$RMI($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void DataFlavorUtil$RMI::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(DataFlavorUtil$RMI::remoteClass$, DataFlavorUtil$RMI::getClass("java.rmi.Remote"_s));
 	$assignStatic(DataFlavorUtil$RMI::marshallObjectClass, DataFlavorUtil$RMI::getClass("java.rmi.MarshalledObject"_s));
 	$assignStatic(DataFlavorUtil$RMI::marshallCtor, DataFlavorUtil$RMI::getConstructor(DataFlavorUtil$RMI::marshallObjectClass, $$new($ClassArray, {$Object::class$})));
@@ -182,7 +135,46 @@ DataFlavorUtil$RMI::DataFlavorUtil$RMI() {
 }
 
 $Class* DataFlavorUtil$RMI::load$($String* name, bool initialize) {
-	$loadClass(DataFlavorUtil$RMI, name, initialize, &_DataFlavorUtil$RMI_ClassInfo_, clinit$DataFlavorUtil$RMI, allocate$DataFlavorUtil$RMI);
+	$FieldInfo fieldInfos$$[] = {
+		{"remoteClass", "Ljava/lang/Class;", "Ljava/lang/Class<*>;", $PRIVATE | $STATIC | $FINAL, $staticField(DataFlavorUtil$RMI, remoteClass$)},
+		{"marshallObjectClass", "Ljava/lang/Class;", "Ljava/lang/Class<*>;", $PRIVATE | $STATIC | $FINAL, $staticField(DataFlavorUtil$RMI, marshallObjectClass)},
+		{"marshallCtor", "Ljava/lang/reflect/Constructor;", "Ljava/lang/reflect/Constructor<*>;", $PRIVATE | $STATIC | $FINAL, $staticField(DataFlavorUtil$RMI, marshallCtor)},
+		{"marshallGet", "Ljava/lang/reflect/Method;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DataFlavorUtil$RMI, marshallGet)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(DataFlavorUtil$RMI, init$, void)},
+		{"getClass", "(Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/String;)Ljava/lang/Class<*>;", $PRIVATE | $STATIC, $staticMethod(DataFlavorUtil$RMI, getClass, $Class*, $String*)},
+		{"getConstructor", "(Ljava/lang/Class;[Ljava/lang/Class;)Ljava/lang/reflect/Constructor;", "(Ljava/lang/Class<*>;[Ljava/lang/Class<*>;)Ljava/lang/reflect/Constructor<*>;", $PRIVATE | $STATIC | $TRANSIENT, $staticMethod(DataFlavorUtil$RMI, getConstructor, $Constructor*, $Class*, $ClassArray*)},
+		{"getMarshalledObject", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC, $staticMethod(DataFlavorUtil$RMI, getMarshalledObject, $Object*, Object$*), "java.io.IOException,java.lang.ClassNotFoundException"},
+		{"getMethod", "(Ljava/lang/Class;Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;", "(Ljava/lang/Class<*>;Ljava/lang/String;[Ljava/lang/Class<*>;)Ljava/lang/reflect/Method;", $PRIVATE | $STATIC | $TRANSIENT, $staticMethod(DataFlavorUtil$RMI, getMethod, $Method*, $Class*, $String*, $ClassArray*)},
+		{"isRemote", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;)Z", $PUBLIC | $STATIC, $staticMethod(DataFlavorUtil$RMI, isRemote, bool, $Class*)},
+		{"newMarshalledObject", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC, $staticMethod(DataFlavorUtil$RMI, newMarshalledObject, $Object*, Object$*), "java.io.IOException"},
+		{"remoteClass", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $STATIC, $staticMethod(DataFlavorUtil$RMI, remoteClass, $Class*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.datatransfer.DataFlavorUtil$RMI", "sun.datatransfer.DataFlavorUtil", "RMI", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.datatransfer.DataFlavorUtil$RMI",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.datatransfer.DataFlavorUtil"
+	};
+	$loadClass(DataFlavorUtil$RMI, name, initialize, &classInfo$$, DataFlavorUtil$RMI::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(DataFlavorUtil$RMI);
+	});
 	return class$;
 }
 

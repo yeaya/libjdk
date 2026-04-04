@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xpath/internal/jaxp/JAXPPrefixResolver.h>
-
 #include <javax/xml/namespace/NamespaceContext.h>
 #include <org/w3c/dom/NamedNodeMap.h>
 #include <org/w3c/dom/Node.h>
@@ -24,34 +23,6 @@ namespace com {
 					namespace internal {
 						namespace jaxp {
 
-$FieldInfo _JAXPPrefixResolver_FieldInfo_[] = {
-	{"namespaceContext", "Ljavax/xml/namespace/NamespaceContext;", nullptr, $PRIVATE, $field(JAXPPrefixResolver, namespaceContext)},
-	{"S_XMLNAMESPACEURI", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JAXPPrefixResolver, S_XMLNAMESPACEURI)},
-	{}
-};
-
-$MethodInfo _JAXPPrefixResolver_MethodInfo_[] = {
-	{"<init>", "(Ljavax/xml/namespace/NamespaceContext;)V", nullptr, $PUBLIC, $method(JAXPPrefixResolver, init$, void, $NamespaceContext*)},
-	{"getBaseIdentifier", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JAXPPrefixResolver, getBaseIdentifier, $String*)},
-	{"getNamespaceForPrefix", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JAXPPrefixResolver, getNamespaceForPrefix, $String*, $String*)},
-	{"getNamespaceForPrefix", "(Ljava/lang/String;Lorg/w3c/dom/Node;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JAXPPrefixResolver, getNamespaceForPrefix, $String*, $String*, $Node*)},
-	{"handlesNullPrefixes", "()Z", nullptr, $PUBLIC, $virtualMethod(JAXPPrefixResolver, handlesNullPrefixes, bool)},
-	{}
-};
-
-$ClassInfo _JAXPPrefixResolver_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xpath.internal.jaxp.JAXPPrefixResolver",
-	"java.lang.Object",
-	"com.sun.org.apache.xml.internal.utils.PrefixResolver",
-	_JAXPPrefixResolver_FieldInfo_,
-	_JAXPPrefixResolver_MethodInfo_
-};
-
-$Object* allocate$JAXPPrefixResolver($Class* clazz) {
-	return $of($alloc(JAXPPrefixResolver));
-}
-
 $String* JAXPPrefixResolver::S_XMLNAMESPACEURI = nullptr;
 
 void JAXPPrefixResolver::init$($NamespaceContext* nsContext) {
@@ -71,7 +42,7 @@ bool JAXPPrefixResolver::handlesNullPrefixes() {
 }
 
 $String* JAXPPrefixResolver::getNamespaceForPrefix($String* prefix, $Node* namespaceContext) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Node, parent, namespaceContext);
 	$var($String, namespace$, nullptr);
 	if ($nc(prefix)->equals("xml"_s)) {
@@ -81,8 +52,8 @@ $String* JAXPPrefixResolver::getNamespaceForPrefix($String* prefix, $Node* names
 		while (true) {
 			bool var$0 = (nullptr != parent) && (nullptr == namespace$);
 			if (var$0) {
-				bool var$1 = ((type = parent->getNodeType()) == $Node::ELEMENT_NODE);
-				var$0 = (var$1 || (type == $Node::ENTITY_REFERENCE_NODE));
+				bool var$1 = (type = parent->getNodeType()) == $Node::ELEMENT_NODE;
+				var$0 = var$1 || (type == $Node::ENTITY_REFERENCE_NODE);
 			}
 			if (!(var$0)) {
 				break;
@@ -95,7 +66,7 @@ $String* JAXPPrefixResolver::getNamespaceForPrefix($String* prefix, $Node* names
 						$var($String, aname, $nc(attr)->getNodeName());
 						bool isPrefix = $nc(aname)->startsWith("xmlns:"_s);
 						if (isPrefix || aname->equals("xmlns"_s)) {
-							int32_t index = aname->indexOf((int32_t)u':');
+							int32_t index = aname->indexOf(u':');
 							$var($String, p, isPrefix ? aname->substring(index + 1) : ""_s);
 							if ($nc(p)->equals(prefix)) {
 								$assign(namespace$, attr->getNodeValue());
@@ -114,12 +85,35 @@ $String* JAXPPrefixResolver::getNamespaceForPrefix($String* prefix, $Node* names
 JAXPPrefixResolver::JAXPPrefixResolver() {
 }
 
-void clinit$JAXPPrefixResolver($Class* class$) {
+void JAXPPrefixResolver::clinit$($Class* clazz) {
 	$assignStatic(JAXPPrefixResolver::S_XMLNAMESPACEURI, "http://www.w3.org/XML/1998/namespace"_s);
 }
 
 $Class* JAXPPrefixResolver::load$($String* name, bool initialize) {
-	$loadClass(JAXPPrefixResolver, name, initialize, &_JAXPPrefixResolver_ClassInfo_, clinit$JAXPPrefixResolver, allocate$JAXPPrefixResolver);
+	$FieldInfo fieldInfos$$[] = {
+		{"namespaceContext", "Ljavax/xml/namespace/NamespaceContext;", nullptr, $PRIVATE, $field(JAXPPrefixResolver, namespaceContext)},
+		{"S_XMLNAMESPACEURI", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JAXPPrefixResolver, S_XMLNAMESPACEURI)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/xml/namespace/NamespaceContext;)V", nullptr, $PUBLIC, $method(JAXPPrefixResolver, init$, void, $NamespaceContext*)},
+		{"getBaseIdentifier", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JAXPPrefixResolver, getBaseIdentifier, $String*)},
+		{"getNamespaceForPrefix", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JAXPPrefixResolver, getNamespaceForPrefix, $String*, $String*)},
+		{"getNamespaceForPrefix", "(Ljava/lang/String;Lorg/w3c/dom/Node;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JAXPPrefixResolver, getNamespaceForPrefix, $String*, $String*, $Node*)},
+		{"handlesNullPrefixes", "()Z", nullptr, $PUBLIC, $virtualMethod(JAXPPrefixResolver, handlesNullPrefixes, bool)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xpath.internal.jaxp.JAXPPrefixResolver",
+		"java.lang.Object",
+		"com.sun.org.apache.xml.internal.utils.PrefixResolver",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(JAXPPrefixResolver, name, initialize, &classInfo$$, JAXPPrefixResolver::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(JAXPPrefixResolver);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <TooltipImageTest.h>
-
 #include <java/awt/Dimension.h>
 #include <java/awt/Insets.h>
 #include <java/io/Serializable.h>
@@ -18,7 +17,6 @@
 
 using $Dimension = ::java::awt::Dimension;
 using $Insets = ::java::awt::Insets;
-using $PrintStream = ::java::io::PrintStream;
 using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -26,7 +24,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $URL = ::java::net::URL;
 using $JToolTip = ::javax::swing::JToolTip;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 
@@ -39,81 +36,56 @@ public:
 	virtual void run() override {
 		TooltipImageTest::lambda$main$0(PATH);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<TooltipImageTest$$Lambda$lambda$main$0>());
-	}
 	$String* PATH = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo TooltipImageTest$$Lambda$lambda$main$0::fieldInfos[2] = {
-	{"PATH", "Ljava/lang/String;", nullptr, $PUBLIC, $field(TooltipImageTest$$Lambda$lambda$main$0, PATH)},
-	{}
-};
-$MethodInfo TooltipImageTest$$Lambda$lambda$main$0::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(TooltipImageTest$$Lambda$lambda$main$0, init$, void, $String*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TooltipImageTest$$Lambda$lambda$main$0, run, void)},
-	{}
-};
-$ClassInfo TooltipImageTest$$Lambda$lambda$main$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"TooltipImageTest$$Lambda$lambda$main$0",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	fieldInfos,
-	methodInfos
 };
 $Class* TooltipImageTest$$Lambda$lambda$main$0::load$($String* name, bool initialize) {
-	$loadClass(TooltipImageTest$$Lambda$lambda$main$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"PATH", "Ljava/lang/String;", nullptr, $PUBLIC, $field(TooltipImageTest$$Lambda$lambda$main$0, PATH)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(TooltipImageTest$$Lambda$lambda$main$0, init$, void, $String*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TooltipImageTest$$Lambda$lambda$main$0, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"TooltipImageTest$$Lambda$lambda$main$0",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TooltipImageTest$$Lambda$lambda$main$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TooltipImageTest$$Lambda$lambda$main$0);
+	});
 	return class$;
 }
 $Class* TooltipImageTest$$Lambda$lambda$main$0::class$ = nullptr;
-
-$MethodInfo _TooltipImageTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TooltipImageTest, init$, void)},
-	{"checkSize", "(Ljavax/swing/JToolTip;II)V", nullptr, $PRIVATE | $STATIC, $staticMethod(TooltipImageTest, checkSize, void, $JToolTip*, int32_t, int32_t)},
-	{"lambda$main$0", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TooltipImageTest, lambda$main$0, void, $String*)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TooltipImageTest, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _TooltipImageTest_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"TooltipImageTest",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_TooltipImageTest_MethodInfo_
-};
-
-$Object* allocate$TooltipImageTest($Class* clazz) {
-	return $of($alloc(TooltipImageTest));
-}
 
 void TooltipImageTest::init$() {
 }
 
 void TooltipImageTest::checkSize($JToolTip* tip, int32_t width, int32_t height) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Dimension, d, $nc(tip)->getPreferredSize());
 	$var($Insets, insets, tip->getInsets());
-	if (!(($nc(d)->width - $nc(insets)->right - insets->left - 6) == width) && !((d->height - insets->top - insets->bottom) == height)) {
+	if (!(($nc(d)->width - $nc(insets)->right - $nc(insets)->left - 6) == width) && !((d->height - insets->top - insets->bottom) == height)) {
 		$throwNew($RuntimeException, $$str({"Test case fails: Expected width, height is "_s, $$str(width), ", "_s, $$str(height), " whereas actual width, height are "_s, $$str((d->width - insets->right - insets->left - 6)), " "_s, $$str((d->height - insets->top - insets->bottom))}));
 	}
 }
 
 void TooltipImageTest::main($StringArray* args) {
+	$useLocalObjectStack();
 	$load(TooltipImageTest);
-	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
-	$var($String, PATH, $nc($(TooltipImageTest::class$->getResource("circle.png"_s)))->getPath());
-	$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(TooltipImageTest$$Lambda$lambda$main$0, PATH)));
+	$var($String, PATH, $$nc(TooltipImageTest::class$->getResource("circle.png"_s))->getPath());
+	$SwingUtilities::invokeAndWait($$new(TooltipImageTest$$Lambda$lambda$main$0, PATH));
 	$nc($System::out)->println("Test case passed."_s);
 }
 
 void TooltipImageTest::lambda$main$0($String* PATH) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JToolTip, tip, $new($JToolTip));
 	tip->setTipText($$str({"<html><img width=\"100\" src=\"file:///"_s, PATH, "\"></html>"_s}));
 	checkSize(tip, 100, 100);
@@ -134,11 +106,28 @@ TooltipImageTest::TooltipImageTest() {
 
 $Class* TooltipImageTest::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(TooltipImageTest$$Lambda$lambda$main$0::classInfo$.name)) {
+		if (name->equals("TooltipImageTest$$Lambda$lambda$main$0")) {
 			return TooltipImageTest$$Lambda$lambda$main$0::load$(name, initialize);
 		}
 	}
-	$loadClass(TooltipImageTest, name, initialize, &_TooltipImageTest_ClassInfo_, allocate$TooltipImageTest);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TooltipImageTest, init$, void)},
+		{"checkSize", "(Ljavax/swing/JToolTip;II)V", nullptr, $PRIVATE | $STATIC, $staticMethod(TooltipImageTest, checkSize, void, $JToolTip*, int32_t, int32_t)},
+		{"lambda$main$0", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TooltipImageTest, lambda$main$0, void, $String*)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TooltipImageTest, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"TooltipImageTest",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(TooltipImageTest, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TooltipImageTest);
+	});
 	return class$;
 }
 

@@ -95,6 +95,7 @@ class CMNodeFactory : public ::java::lang::Object {
 	$class(CMNodeFactory, 0, ::java::lang::Object)
 public:
 	CMNodeFactory();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual ::com::sun::org::apache::xerces::internal::impl::dtd::models::CMNode* getCMBinOpNode(int32_t type, ::com::sun::org::apache::xerces::internal::impl::dtd::models::CMNode* leftNode, ::com::sun::org::apache::xerces::internal::impl::dtd::models::CMNode* rightNode);
 	virtual ::com::sun::org::apache::xerces::internal::impl::dtd::models::CMNode* getCMLeafNode(int32_t type, Object$* leaf, int32_t id, int32_t position);

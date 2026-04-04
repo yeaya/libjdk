@@ -1,5 +1,4 @@
 #include <TestPeruCurrencyFormat.h>
-
 #include <java/text/NumberFormat.h>
 #include <java/util/Locale.h>
 #include <jcpp.h>
@@ -11,30 +10,11 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $NumberFormat = ::java::text::NumberFormat;
 using $Locale = ::java::util::Locale;
 
-$MethodInfo _TestPeruCurrencyFormat_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TestPeruCurrencyFormat, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TestPeruCurrencyFormat, main, void, $StringArray*)},
-	{}
-};
-
-$ClassInfo _TestPeruCurrencyFormat_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"TestPeruCurrencyFormat",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_TestPeruCurrencyFormat_MethodInfo_
-};
-
-$Object* allocate$TestPeruCurrencyFormat($Class* clazz) {
-	return $of($alloc(TestPeruCurrencyFormat));
-}
-
 void TestPeruCurrencyFormat::init$() {
 }
 
 void TestPeruCurrencyFormat::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, expected, "S/.1,234.56"_s);
 	$var($NumberFormat, currencyFmt, $NumberFormat::getCurrencyInstance($$new($Locale, "es"_s, "PE"_s)));
 	$var($String, s, $nc(currencyFmt)->format(1234.56));
@@ -47,7 +27,22 @@ TestPeruCurrencyFormat::TestPeruCurrencyFormat() {
 }
 
 $Class* TestPeruCurrencyFormat::load$($String* name, bool initialize) {
-	$loadClass(TestPeruCurrencyFormat, name, initialize, &_TestPeruCurrencyFormat_ClassInfo_, allocate$TestPeruCurrencyFormat);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TestPeruCurrencyFormat, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TestPeruCurrencyFormat, main, void, $StringArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"TestPeruCurrencyFormat",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(TestPeruCurrencyFormat, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TestPeruCurrencyFormat);
+	});
 	return class$;
 }
 

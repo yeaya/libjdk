@@ -1,5 +1,4 @@
 #include <com/sun/imageio/plugins/jpeg/JPEGMetadataFormat.h>
-
 #include <java/util/ArrayList.h>
 #include <java/util/List.h>
 #include <javax/imageio/ImageTypeSpecifier.h>
@@ -31,41 +30,14 @@ namespace com {
 			namespace plugins {
 				namespace jpeg {
 
-$FieldInfo _JPEGMetadataFormat_FieldInfo_[] = {
-	{"MAX_JPEG_DATA_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JPEGMetadataFormat, MAX_JPEG_DATA_SIZE)},
-	{"resourceBaseName", "Ljava/lang/String;", nullptr, 0, $field(JPEGMetadataFormat, resourceBaseName)},
-	{}
-};
-
-$MethodInfo _JPEGMetadataFormat_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;I)V", nullptr, 0, $method(JPEGMetadataFormat, init$, void, $String*, int32_t)},
-	{"addStreamElements", "(Ljava/lang/String;)V", nullptr, 0, $virtualMethod(JPEGMetadataFormat, addStreamElements, void, $String*)},
-	{"canNodeAppear", "(Ljava/lang/String;Ljavax/imageio/ImageTypeSpecifier;)Z", nullptr, $PUBLIC, $virtualMethod(JPEGMetadataFormat, canNodeAppear, bool, $String*, $ImageTypeSpecifier*)},
-	{"isInSubtree", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PROTECTED, $virtualMethod(JPEGMetadataFormat, isInSubtree, bool, $String*, $String*)},
-	{}
-};
-
-$ClassInfo _JPEGMetadataFormat_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"com.sun.imageio.plugins.jpeg.JPEGMetadataFormat",
-	"javax.imageio.metadata.IIOMetadataFormatImpl",
-	nullptr,
-	_JPEGMetadataFormat_FieldInfo_,
-	_JPEGMetadataFormat_MethodInfo_
-};
-
-$Object* allocate$JPEGMetadataFormat($Class* clazz) {
-	return $of($alloc(JPEGMetadataFormat));
-}
-
 void JPEGMetadataFormat::init$($String* formatName, int32_t childPolicy) {
 	$IIOMetadataFormatImpl::init$(formatName, childPolicy);
-	$set(this, resourceBaseName, $str({$($of(this)->getClass()->getName()), "Resources"_s}));
+	$set(this, resourceBaseName, $str({$(this->getClass()->getName()), "Resources"_s}));
 	setResourceBaseName(this->resourceBaseName);
 }
 
 void JPEGMetadataFormat::addStreamElements($String* parentName) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	addElement("dqt"_s, parentName, 1, 4);
 	addElement("dqtable"_s, "dqt"_s, $IIOMetadataFormat::CHILD_POLICY_EMPTY);
 	addAttribute("dqtable"_s, "elementPrecision"_s, $IIOMetadataFormat::DATATYPE_INTEGER, false, "0"_s);
@@ -74,23 +46,22 @@ void JPEGMetadataFormat::addStreamElements($String* parentName) {
 	tabids->add("1"_s);
 	tabids->add("2"_s);
 	tabids->add("3"_s);
-	addAttribute("dqtable"_s, "qtableId"_s, $IIOMetadataFormat::DATATYPE_INTEGER, true, ($String*)nullptr, tabids);
+	addAttribute("dqtable"_s, "qtableId"_s, $IIOMetadataFormat::DATATYPE_INTEGER, true, nullptr, tabids);
 	$load($JPEGQTable);
-	addObjectValue("dqtable"_s, $JPEGQTable::class$, true, ($Object*)nullptr);
+	addObjectValue("dqtable"_s, $JPEGQTable::class$, true, nullptr);
 	addElement("dht"_s, parentName, 1, 4);
 	addElement("dhtable"_s, "dht"_s, $IIOMetadataFormat::CHILD_POLICY_EMPTY);
 	$var($List, classes, $new($ArrayList));
 	classes->add("0"_s);
 	classes->add("1"_s);
-	addAttribute("dhtable"_s, "class"_s, $IIOMetadataFormat::DATATYPE_INTEGER, true, ($String*)nullptr, classes);
-	addAttribute("dhtable"_s, "htableId"_s, $IIOMetadataFormat::DATATYPE_INTEGER, true, ($String*)nullptr, tabids);
+	addAttribute("dhtable"_s, "class"_s, $IIOMetadataFormat::DATATYPE_INTEGER, true, nullptr, classes);
+	addAttribute("dhtable"_s, "htableId"_s, $IIOMetadataFormat::DATATYPE_INTEGER, true, nullptr, tabids);
 	$load($JPEGHuffmanTable);
-	addObjectValue("dhtable"_s, $JPEGHuffmanTable::class$, true, ($Object*)nullptr);
+	addObjectValue("dhtable"_s, $JPEGHuffmanTable::class$, true, nullptr);
 	addElement("dri"_s, parentName, $IIOMetadataFormat::CHILD_POLICY_EMPTY);
 	addAttribute("dri"_s, "interval"_s, $IIOMetadataFormat::DATATYPE_INTEGER, true, nullptr, "0"_s, "65535"_s, true, true);
 	addElement("com"_s, parentName, $IIOMetadataFormat::CHILD_POLICY_EMPTY);
 	addAttribute("com"_s, "comment"_s, $IIOMetadataFormat::DATATYPE_STRING, false, nullptr);
-	$load($bytes);
 	addObjectValue("com"_s, $getClass($bytes), 1, JPEGMetadataFormat::MAX_JPEG_DATA_SIZE);
 	addElement("unknown"_s, parentName, $IIOMetadataFormat::CHILD_POLICY_EMPTY);
 	addAttribute("unknown"_s, "MarkerTag"_s, $IIOMetadataFormat::DATATYPE_INTEGER, true, nullptr, "0"_s, "255"_s, true, true);
@@ -121,7 +92,29 @@ JPEGMetadataFormat::JPEGMetadataFormat() {
 }
 
 $Class* JPEGMetadataFormat::load$($String* name, bool initialize) {
-	$loadClass(JPEGMetadataFormat, name, initialize, &_JPEGMetadataFormat_ClassInfo_, allocate$JPEGMetadataFormat);
+	$FieldInfo fieldInfos$$[] = {
+		{"MAX_JPEG_DATA_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JPEGMetadataFormat, MAX_JPEG_DATA_SIZE)},
+		{"resourceBaseName", "Ljava/lang/String;", nullptr, 0, $field(JPEGMetadataFormat, resourceBaseName)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;I)V", nullptr, 0, $method(JPEGMetadataFormat, init$, void, $String*, int32_t)},
+		{"addStreamElements", "(Ljava/lang/String;)V", nullptr, 0, $virtualMethod(JPEGMetadataFormat, addStreamElements, void, $String*)},
+		{"canNodeAppear", "(Ljava/lang/String;Ljavax/imageio/ImageTypeSpecifier;)Z", nullptr, $PUBLIC, $virtualMethod(JPEGMetadataFormat, canNodeAppear, bool, $String*, $ImageTypeSpecifier*)},
+		{"isInSubtree", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PROTECTED, $virtualMethod(JPEGMetadataFormat, isInSubtree, bool, $String*, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"com.sun.imageio.plugins.jpeg.JPEGMetadataFormat",
+		"javax.imageio.metadata.IIOMetadataFormatImpl",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(JPEGMetadataFormat, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JPEGMetadataFormat);
+	});
 	return class$;
 }
 

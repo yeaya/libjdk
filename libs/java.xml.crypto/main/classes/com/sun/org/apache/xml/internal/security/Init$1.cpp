@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/security/Init$1.h>
-
 #include <com/sun/org/apache/xml/internal/security/Init.h>
 #include <com/sun/org/apache/xml/internal/security/algorithms/JCEMapper.h>
 #include <com/sun/org/apache/xml/internal/security/algorithms/SignatureAlgorithm.h>
@@ -30,43 +29,6 @@ namespace com {
 					namespace internal {
 						namespace security {
 
-$MethodInfo _Init$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(Init$1, init$, void)},
-	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(Init$1, run, $Object*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
-	{}
-};
-
-$EnclosingMethodInfo _Init$1_EnclosingMethodInfo_ = {
-	"com.sun.org.apache.xml.internal.security.Init",
-	"dynamicInit",
-	"()V"
-};
-
-$InnerClassInfo _Init$1_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xml.internal.security.Init$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Init$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.org.apache.xml.internal.security.Init$1",
-	"java.lang.Object",
-	"java.security.PrivilegedExceptionAction",
-	nullptr,
-	_Init$1_MethodInfo_,
-	"Ljava/lang/Object;Ljava/security/PrivilegedExceptionAction<Ljava/lang/Void;>;",
-	&_Init$1_EnclosingMethodInfo_,
-	_Init$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xml.internal.security.Init"
-};
-
-$Object* allocate$Init$1($Class* clazz) {
-	return $of($alloc(Init$1));
-}
-
 void Init$1::init$() {
 }
 
@@ -78,14 +40,45 @@ $Object* Init$1::run() {
 	$Canonicalizer::registerDefaultAlgorithms();
 	$ResourceResolver::registerDefaultResolvers();
 	$KeyResolver::registerDefaultResolvers();
-	return $of(nullptr);
+	return nullptr;
 }
 
 Init$1::Init$1() {
 }
 
 $Class* Init$1::load$($String* name, bool initialize) {
-	$loadClass(Init$1, name, initialize, &_Init$1_ClassInfo_, allocate$Init$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(Init$1, init$, void)},
+		{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(Init$1, run, $Object*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.org.apache.xml.internal.security.Init",
+		"dynamicInit",
+		"()V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xml.internal.security.Init$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.org.apache.xml.internal.security.Init$1",
+		"java.lang.Object",
+		"java.security.PrivilegedExceptionAction",
+		nullptr,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/security/PrivilegedExceptionAction<Ljava/lang/Void;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xml.internal.security.Init"
+	};
+	$loadClass(Init$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Init$1);
+	});
 	return class$;
 }
 

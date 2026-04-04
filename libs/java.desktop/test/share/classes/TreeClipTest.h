@@ -17,6 +17,7 @@ class $export TreeClipTest : public ::java::lang::Object {
 	$class(TreeClipTest, 0, ::java::lang::Object)
 public:
 	TreeClipTest();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static bool checkImage(::java::awt::image::BufferedImage* img, int32_t clipY);
 	static void main($StringArray* args);

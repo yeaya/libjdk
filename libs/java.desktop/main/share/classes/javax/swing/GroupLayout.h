@@ -116,7 +116,7 @@ public:
 	static const int32_t MAX_SIZE = 2;
 	static const int32_t SPECIFIC_SIZE = 3;
 	static const int32_t UNSET = 0x80000000; // Integer.MIN_VALUE
-	static const int32_t INFINITE = 0x3FFFFFFF; // Integer.MAX_VALUE >> 1
+	static const int32_t INFINITE = 0x3fffffff; // Integer.MAX_VALUE >> 1
 	static const int32_t DEFAULT_SIZE = (-1);
 	static const int32_t PREFERRED_SIZE = (-2);
 	bool autocreatePadding = false;

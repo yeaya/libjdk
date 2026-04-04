@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/parsers/XML11Configuration.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/Constants.h>
 #include <com/sun/org/apache/xerces/internal/impl/XML11DTDScannerImpl.h>
 #include <com/sun/org/apache/xerces/internal/impl/XML11DocumentScannerImpl.h>
@@ -32,15 +31,11 @@
 #include <com/sun/org/apache/xerces/internal/xni/XMLDTDContentModelHandler.h>
 #include <com/sun/org/apache/xerces/internal/xni/XMLDTDHandler.h>
 #include <com/sun/org/apache/xerces/internal/xni/XMLDocumentHandler.h>
-#include <com/sun/org/apache/xerces/internal/xni/XMLLocator.h>
 #include <com/sun/org/apache/xerces/internal/xni/XNIException.h>
 #include <com/sun/org/apache/xerces/internal/xni/grammars/XMLGrammarPool.h>
 #include <com/sun/org/apache/xerces/internal/xni/parser/XMLComponent.h>
 #include <com/sun/org/apache/xerces/internal/xni/parser/XMLComponentManager.h>
-#include <com/sun/org/apache/xerces/internal/xni/parser/XMLDTDContentModelSource.h>
 #include <com/sun/org/apache/xerces/internal/xni/parser/XMLDTDScanner.h>
-#include <com/sun/org/apache/xerces/internal/xni/parser/XMLDTDSource.h>
-#include <com/sun/org/apache/xerces/internal/xni/parser/XMLDocumentFilter.h>
 #include <com/sun/org/apache/xerces/internal/xni/parser/XMLDocumentScanner.h>
 #include <com/sun/org/apache/xerces/internal/xni/parser/XMLDocumentSource.h>
 #include <com/sun/org/apache/xerces/internal/xni/parser/XMLEntityResolver.h>
@@ -216,24 +211,16 @@ using $ValidationManager = ::com::sun::org::apache::xerces::internal::impl::vali
 using $XMLSchemaValidator = ::com::sun::org::apache::xerces::internal::impl::xs::XMLSchemaValidator;
 using $XSMessageFormatter = ::com::sun::org::apache::xerces::internal::impl::xs::XSMessageFormatter;
 using $FeatureState = ::com::sun::org::apache::xerces::internal::util::FeatureState;
-using $MessageFormatter = ::com::sun::org::apache::xerces::internal::util::MessageFormatter;
 using $ParserConfigurationSettings = ::com::sun::org::apache::xerces::internal::util::ParserConfigurationSettings;
 using $PropertyState = ::com::sun::org::apache::xerces::internal::util::PropertyState;
 using $SymbolTable = ::com::sun::org::apache::xerces::internal::util::SymbolTable;
 using $XMLDTDContentModelHandler = ::com::sun::org::apache::xerces::internal::xni::XMLDTDContentModelHandler;
 using $XMLDTDHandler = ::com::sun::org::apache::xerces::internal::xni::XMLDTDHandler;
 using $XMLDocumentHandler = ::com::sun::org::apache::xerces::internal::xni::XMLDocumentHandler;
-using $XMLLocator = ::com::sun::org::apache::xerces::internal::xni::XMLLocator;
 using $XNIException = ::com::sun::org::apache::xerces::internal::xni::XNIException;
 using $XMLGrammarPool = ::com::sun::org::apache::xerces::internal::xni::grammars::XMLGrammarPool;
 using $XMLComponent = ::com::sun::org::apache::xerces::internal::xni::parser::XMLComponent;
 using $XMLComponentManager = ::com::sun::org::apache::xerces::internal::xni::parser::XMLComponentManager;
-using $XMLDTDContentModelSource = ::com::sun::org::apache::xerces::internal::xni::parser::XMLDTDContentModelSource;
-using $XMLDTDScanner = ::com::sun::org::apache::xerces::internal::xni::parser::XMLDTDScanner;
-using $XMLDTDSource = ::com::sun::org::apache::xerces::internal::xni::parser::XMLDTDSource;
-using $XMLDocumentFilter = ::com::sun::org::apache::xerces::internal::xni::parser::XMLDocumentFilter;
-using $XMLDocumentScanner = ::com::sun::org::apache::xerces::internal::xni::parser::XMLDocumentScanner;
-using $XMLDocumentSource = ::com::sun::org::apache::xerces::internal::xni::parser::XMLDocumentSource;
 using $XMLEntityResolver = ::com::sun::org::apache::xerces::internal::xni::parser::XMLEntityResolver;
 using $XMLErrorHandler = ::com::sun::org::apache::xerces::internal::xni::parser::XMLErrorHandler;
 using $XMLInputSource = ::com::sun::org::apache::xerces::internal::xni::parser::XMLInputSource;
@@ -247,9 +234,7 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $ArrayList = ::java::util::ArrayList;
 using $Iterator = ::java::util::Iterator;
-using $List = ::java::util::List;
 using $Locale = ::java::util::Locale;
-using $Map = ::java::util::Map;
 using $XMLConstants = ::javax::xml::XMLConstants;
 using $CatalogFeatures$Feature = ::javax::xml::catalog::CatalogFeatures$Feature;
 using $JdkConstants = ::jdk::xml::internal::JdkConstants;
@@ -262,169 +247,6 @@ namespace com {
 				namespace xerces {
 					namespace internal {
 						namespace parsers {
-
-$FieldInfo _XML11Configuration_FieldInfo_[] = {
-	{"XML11_DATATYPE_VALIDATOR_FACTORY", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XML11Configuration, XML11_DATATYPE_VALIDATOR_FACTORY)},
-	{"WARN_ON_DUPLICATE_ATTDEF", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XML11Configuration, WARN_ON_DUPLICATE_ATTDEF)},
-	{"WARN_ON_DUPLICATE_ENTITYDEF", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XML11Configuration, WARN_ON_DUPLICATE_ENTITYDEF)},
-	{"WARN_ON_UNDECLARED_ELEMDEF", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XML11Configuration, WARN_ON_UNDECLARED_ELEMDEF)},
-	{"ALLOW_JAVA_ENCODINGS", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XML11Configuration, ALLOW_JAVA_ENCODINGS)},
-	{"CONTINUE_AFTER_FATAL_ERROR", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XML11Configuration, CONTINUE_AFTER_FATAL_ERROR)},
-	{"LOAD_EXTERNAL_DTD", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XML11Configuration, LOAD_EXTERNAL_DTD)},
-	{"NOTIFY_BUILTIN_REFS", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XML11Configuration, NOTIFY_BUILTIN_REFS)},
-	{"NOTIFY_CHAR_REFS", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XML11Configuration, NOTIFY_CHAR_REFS)},
-	{"NORMALIZE_DATA", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XML11Configuration, NORMALIZE_DATA)},
-	{"SCHEMA_ELEMENT_DEFAULT", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XML11Configuration, SCHEMA_ELEMENT_DEFAULT)},
-	{"SCHEMA_AUGMENT_PSVI", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XML11Configuration, SCHEMA_AUGMENT_PSVI)},
-	{"XMLSCHEMA_VALIDATION", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XML11Configuration, XMLSCHEMA_VALIDATION)},
-	{"XMLSCHEMA_FULL_CHECKING", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XML11Configuration, XMLSCHEMA_FULL_CHECKING)},
-	{"GENERATE_SYNTHETIC_ANNOTATIONS", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XML11Configuration, GENERATE_SYNTHETIC_ANNOTATIONS)},
-	{"VALIDATE_ANNOTATIONS", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XML11Configuration, VALIDATE_ANNOTATIONS)},
-	{"HONOUR_ALL_SCHEMALOCATIONS", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XML11Configuration, HONOUR_ALL_SCHEMALOCATIONS)},
-	{"NAMESPACE_GROWTH", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XML11Configuration, NAMESPACE_GROWTH)},
-	{"TOLERATE_DUPLICATES", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XML11Configuration, TOLERATE_DUPLICATES)},
-	{"USE_GRAMMAR_POOL_ONLY", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XML11Configuration, USE_GRAMMAR_POOL_ONLY)},
-	{"VALIDATION", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XML11Configuration, VALIDATION)},
-	{"NAMESPACES", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XML11Configuration, NAMESPACES)},
-	{"EXTERNAL_GENERAL_ENTITIES", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XML11Configuration, EXTERNAL_GENERAL_ENTITIES)},
-	{"EXTERNAL_PARAMETER_ENTITIES", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XML11Configuration, EXTERNAL_PARAMETER_ENTITIES)},
-	{"IGNORE_XSI_TYPE", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XML11Configuration, IGNORE_XSI_TYPE)},
-	{"ID_IDREF_CHECKING", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XML11Configuration, ID_IDREF_CHECKING)},
-	{"UNPARSED_ENTITY_CHECKING", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XML11Configuration, UNPARSED_ENTITY_CHECKING)},
-	{"IDENTITY_CONSTRAINT_CHECKING", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XML11Configuration, IDENTITY_CONSTRAINT_CHECKING)},
-	{"XML_STRING", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XML11Configuration, XML_STRING)},
-	{"SYMBOL_TABLE", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XML11Configuration, SYMBOL_TABLE)},
-	{"ERROR_HANDLER", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XML11Configuration, ERROR_HANDLER)},
-	{"ENTITY_RESOLVER", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XML11Configuration, ENTITY_RESOLVER)},
-	{"SCHEMA_VALIDATOR", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XML11Configuration, SCHEMA_VALIDATOR)},
-	{"SCHEMA_LOCATION", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XML11Configuration, SCHEMA_LOCATION)},
-	{"SCHEMA_NONS_LOCATION", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XML11Configuration, SCHEMA_NONS_LOCATION)},
-	{"ERROR_REPORTER", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XML11Configuration, ERROR_REPORTER)},
-	{"ENTITY_MANAGER", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XML11Configuration, ENTITY_MANAGER)},
-	{"DOCUMENT_SCANNER", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XML11Configuration, DOCUMENT_SCANNER)},
-	{"DTD_SCANNER", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XML11Configuration, DTD_SCANNER)},
-	{"XMLGRAMMAR_POOL", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XML11Configuration, XMLGRAMMAR_POOL)},
-	{"DTD_PROCESSOR", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XML11Configuration, DTD_PROCESSOR)},
-	{"DTD_VALIDATOR", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XML11Configuration, DTD_VALIDATOR)},
-	{"NAMESPACE_BINDER", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XML11Configuration, NAMESPACE_BINDER)},
-	{"DATATYPE_VALIDATOR_FACTORY", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XML11Configuration, DATATYPE_VALIDATOR_FACTORY)},
-	{"VALIDATION_MANAGER", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XML11Configuration, VALIDATION_MANAGER)},
-	{"JAXP_SCHEMA_LANGUAGE", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XML11Configuration, JAXP_SCHEMA_LANGUAGE)},
-	{"JAXP_SCHEMA_SOURCE", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XML11Configuration, JAXP_SCHEMA_SOURCE)},
-	{"ROOT_TYPE_DEF", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XML11Configuration, ROOT_TYPE_DEF)},
-	{"ROOT_ELEMENT_DECL", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XML11Configuration, ROOT_ELEMENT_DECL)},
-	{"LOCALE", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XML11Configuration, LOCALE)},
-	{"SCHEMA_DV_FACTORY", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XML11Configuration, SCHEMA_DV_FACTORY)},
-	{"XML_SECURITY_PROPERTY_MANAGER", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XML11Configuration, XML_SECURITY_PROPERTY_MANAGER)},
-	{"SECURITY_MANAGER", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XML11Configuration, SECURITY_MANAGER)},
-	{"PRINT_EXCEPTION_STACK_TRACE", "Z", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(XML11Configuration, PRINT_EXCEPTION_STACK_TRACE)},
-	{"fSymbolTable", "Lcom/sun/org/apache/xerces/internal/util/SymbolTable;", nullptr, $PROTECTED, $field(XML11Configuration, fSymbolTable)},
-	{"fInputSource", "Lcom/sun/org/apache/xerces/internal/xni/parser/XMLInputSource;", nullptr, $PROTECTED, $field(XML11Configuration, fInputSource)},
-	{"fValidationManager", "Lcom/sun/org/apache/xerces/internal/impl/validation/ValidationManager;", nullptr, $PROTECTED, $field(XML11Configuration, fValidationManager)},
-	{"fVersionDetector", "Lcom/sun/org/apache/xerces/internal/impl/XMLVersionDetector;", nullptr, $PROTECTED, $field(XML11Configuration, fVersionDetector)},
-	{"fLocator", "Lcom/sun/org/apache/xerces/internal/xni/XMLLocator;", nullptr, $PROTECTED, $field(XML11Configuration, fLocator)},
-	{"fLocale", "Ljava/util/Locale;", nullptr, $PROTECTED, $field(XML11Configuration, fLocale)},
-	{"fComponents", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/org/apache/xerces/internal/xni/parser/XMLComponent;>;", $PROTECTED, $field(XML11Configuration, fComponents)},
-	{"fXML11Components", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/org/apache/xerces/internal/xni/parser/XMLComponent;>;", $PROTECTED, $field(XML11Configuration, fXML11Components)},
-	{"fCommonComponents", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/org/apache/xerces/internal/xni/parser/XMLComponent;>;", $PROTECTED, $field(XML11Configuration, fCommonComponents)},
-	{"fDocumentHandler", "Lcom/sun/org/apache/xerces/internal/xni/XMLDocumentHandler;", nullptr, $PROTECTED, $field(XML11Configuration, fDocumentHandler)},
-	{"fDTDHandler", "Lcom/sun/org/apache/xerces/internal/xni/XMLDTDHandler;", nullptr, $PROTECTED, $field(XML11Configuration, fDTDHandler)},
-	{"fDTDContentModelHandler", "Lcom/sun/org/apache/xerces/internal/xni/XMLDTDContentModelHandler;", nullptr, $PROTECTED, $field(XML11Configuration, fDTDContentModelHandler)},
-	{"fLastComponent", "Lcom/sun/org/apache/xerces/internal/xni/parser/XMLDocumentSource;", nullptr, $PROTECTED, $field(XML11Configuration, fLastComponent)},
-	{"fParseInProgress", "Z", nullptr, $PROTECTED, $field(XML11Configuration, fParseInProgress)},
-	{"fConfigUpdated", "Z", nullptr, $PROTECTED, $field(XML11Configuration, fConfigUpdated)},
-	{"fDatatypeValidatorFactory", "Lcom/sun/org/apache/xerces/internal/impl/dv/DTDDVFactory;", nullptr, $PROTECTED, $field(XML11Configuration, fDatatypeValidatorFactory)},
-	{"fNamespaceScanner", "Lcom/sun/org/apache/xerces/internal/impl/XMLNSDocumentScannerImpl;", nullptr, $PROTECTED, $field(XML11Configuration, fNamespaceScanner)},
-	{"fNonNSScanner", "Lcom/sun/org/apache/xerces/internal/impl/XMLDocumentScannerImpl;", nullptr, $PROTECTED, $field(XML11Configuration, fNonNSScanner)},
-	{"fDTDValidator", "Lcom/sun/org/apache/xerces/internal/impl/dtd/XMLDTDValidator;", nullptr, $PROTECTED, $field(XML11Configuration, fDTDValidator)},
-	{"fNonNSDTDValidator", "Lcom/sun/org/apache/xerces/internal/impl/dtd/XMLDTDValidator;", nullptr, $PROTECTED, $field(XML11Configuration, fNonNSDTDValidator)},
-	{"fDTDScanner", "Lcom/sun/org/apache/xerces/internal/xni/parser/XMLDTDScanner;", nullptr, $PROTECTED, $field(XML11Configuration, fDTDScanner)},
-	{"fDTDProcessor", "Lcom/sun/org/apache/xerces/internal/impl/dtd/XMLDTDProcessor;", nullptr, $PROTECTED, $field(XML11Configuration, fDTDProcessor)},
-	{"fXML11DatatypeFactory", "Lcom/sun/org/apache/xerces/internal/impl/dv/DTDDVFactory;", nullptr, $PROTECTED, $field(XML11Configuration, fXML11DatatypeFactory)},
-	{"fXML11NSDocScanner", "Lcom/sun/org/apache/xerces/internal/impl/XML11NSDocumentScannerImpl;", nullptr, $PROTECTED, $field(XML11Configuration, fXML11NSDocScanner)},
-	{"fXML11DocScanner", "Lcom/sun/org/apache/xerces/internal/impl/XML11DocumentScannerImpl;", nullptr, $PROTECTED, $field(XML11Configuration, fXML11DocScanner)},
-	{"fXML11NSDTDValidator", "Lcom/sun/org/apache/xerces/internal/impl/dtd/XML11NSDTDValidator;", nullptr, $PROTECTED, $field(XML11Configuration, fXML11NSDTDValidator)},
-	{"fXML11DTDValidator", "Lcom/sun/org/apache/xerces/internal/impl/dtd/XML11DTDValidator;", nullptr, $PROTECTED, $field(XML11Configuration, fXML11DTDValidator)},
-	{"fXML11DTDScanner", "Lcom/sun/org/apache/xerces/internal/impl/XML11DTDScannerImpl;", nullptr, $PROTECTED, $field(XML11Configuration, fXML11DTDScanner)},
-	{"fXML11DTDProcessor", "Lcom/sun/org/apache/xerces/internal/impl/dtd/XML11DTDProcessor;", nullptr, $PROTECTED, $field(XML11Configuration, fXML11DTDProcessor)},
-	{"fGrammarPool", "Lcom/sun/org/apache/xerces/internal/xni/grammars/XMLGrammarPool;", nullptr, $PROTECTED, $field(XML11Configuration, fGrammarPool)},
-	{"fErrorReporter", "Lcom/sun/org/apache/xerces/internal/impl/XMLErrorReporter;", nullptr, $PROTECTED, $field(XML11Configuration, fErrorReporter)},
-	{"fEntityManager", "Lcom/sun/org/apache/xerces/internal/impl/XMLEntityManager;", nullptr, $PROTECTED, $field(XML11Configuration, fEntityManager)},
-	{"fSchemaValidator", "Lcom/sun/org/apache/xerces/internal/impl/xs/XMLSchemaValidator;", nullptr, $PROTECTED, $field(XML11Configuration, fSchemaValidator)},
-	{"fCurrentScanner", "Lcom/sun/org/apache/xerces/internal/xni/parser/XMLDocumentScanner;", nullptr, $PROTECTED, $field(XML11Configuration, fCurrentScanner)},
-	{"fCurrentDVFactory", "Lcom/sun/org/apache/xerces/internal/impl/dv/DTDDVFactory;", nullptr, $PROTECTED, $field(XML11Configuration, fCurrentDVFactory)},
-	{"fCurrentDTDScanner", "Lcom/sun/org/apache/xerces/internal/xni/parser/XMLDTDScanner;", nullptr, $PROTECTED, $field(XML11Configuration, fCurrentDTDScanner)},
-	{"f11Initialized", "Z", nullptr, $PRIVATE, $field(XML11Configuration, f11Initialized)},
-	{"fSymbolTableProvided", "Z", nullptr, $PRIVATE, $field(XML11Configuration, fSymbolTableProvided)},
-	{"fSymbolTableJustInitialized", "Z", nullptr, $PRIVATE, $field(XML11Configuration, fSymbolTableJustInitialized)},
-	{}
-};
-
-$MethodInfo _XML11Configuration_MethodInfo_[] = {
-	{"*addRecognizedFeatures", "([Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"*addRecognizedProperties", "([Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*getFeature", "(Ljava/lang/String;)Z", nullptr, $PUBLIC},
-	{"*getFeature", "(Ljava/lang/String;Z)Z", nullptr, $PUBLIC | $FINAL},
-	{"*getProperty", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*getProperty", "(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $FINAL},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(XML11Configuration, init$, void)},
-	{"<init>", "(Lcom/sun/org/apache/xerces/internal/util/SymbolTable;)V", nullptr, $PUBLIC, $method(XML11Configuration, init$, void, $SymbolTable*)},
-	{"<init>", "(Lcom/sun/org/apache/xerces/internal/util/SymbolTable;Lcom/sun/org/apache/xerces/internal/xni/grammars/XMLGrammarPool;)V", nullptr, $PUBLIC, $method(XML11Configuration, init$, void, $SymbolTable*, $XMLGrammarPool*)},
-	{"<init>", "(Lcom/sun/org/apache/xerces/internal/util/SymbolTable;Lcom/sun/org/apache/xerces/internal/xni/grammars/XMLGrammarPool;Lcom/sun/org/apache/xerces/internal/xni/parser/XMLComponentManager;)V", nullptr, $PUBLIC, $method(XML11Configuration, init$, void, $SymbolTable*, $XMLGrammarPool*, $XMLComponentManager*)},
-	{"addCommonComponent", "(Lcom/sun/org/apache/xerces/internal/xni/parser/XMLComponent;)V", nullptr, $PROTECTED, $virtualMethod(XML11Configuration, addCommonComponent, void, $XMLComponent*)},
-	{"addComponent", "(Lcom/sun/org/apache/xerces/internal/xni/parser/XMLComponent;)V", nullptr, $PROTECTED, $virtualMethod(XML11Configuration, addComponent, void, $XMLComponent*)},
-	{"addRecognizedParamsAndSetDefaults", "(Lcom/sun/org/apache/xerces/internal/xni/parser/XMLComponent;)V", nullptr, $PROTECTED, $virtualMethod(XML11Configuration, addRecognizedParamsAndSetDefaults, void, $XMLComponent*)},
-	{"addXML11Component", "(Lcom/sun/org/apache/xerces/internal/xni/parser/XMLComponent;)V", nullptr, $PROTECTED, $virtualMethod(XML11Configuration, addXML11Component, void, $XMLComponent*)},
-	{"checkFeature", "(Ljava/lang/String;)Lcom/sun/org/apache/xerces/internal/util/FeatureState;", nullptr, $PROTECTED, $virtualMethod(XML11Configuration, checkFeature, $FeatureState*, $String*), "com.sun.org.apache.xerces.internal.xni.parser.XMLConfigurationException"},
-	{"checkProperty", "(Ljava/lang/String;)Lcom/sun/org/apache/xerces/internal/util/PropertyState;", nullptr, $PROTECTED, $virtualMethod(XML11Configuration, checkProperty, $PropertyState*, $String*), "com.sun.org.apache.xerces.internal.xni.parser.XMLConfigurationException"},
-	{"cleanup", "()V", nullptr, $PUBLIC, $virtualMethod(XML11Configuration, cleanup, void)},
-	{"configurePipeline", "()V", nullptr, $PROTECTED, $virtualMethod(XML11Configuration, configurePipeline, void)},
-	{"configureXML11Pipeline", "()V", nullptr, $PROTECTED, $virtualMethod(XML11Configuration, configureXML11Pipeline, void)},
-	{"getDTDContentModelHandler", "()Lcom/sun/org/apache/xerces/internal/xni/XMLDTDContentModelHandler;", nullptr, $PUBLIC, $virtualMethod(XML11Configuration, getDTDContentModelHandler, $XMLDTDContentModelHandler*)},
-	{"getDTDHandler", "()Lcom/sun/org/apache/xerces/internal/xni/XMLDTDHandler;", nullptr, $PUBLIC, $virtualMethod(XML11Configuration, getDTDHandler, $XMLDTDHandler*)},
-	{"getDocumentHandler", "()Lcom/sun/org/apache/xerces/internal/xni/XMLDocumentHandler;", nullptr, $PUBLIC, $virtualMethod(XML11Configuration, getDocumentHandler, $XMLDocumentHandler*)},
-	{"getEntityResolver", "()Lcom/sun/org/apache/xerces/internal/xni/parser/XMLEntityResolver;", nullptr, $PUBLIC, $virtualMethod(XML11Configuration, getEntityResolver, $XMLEntityResolver*)},
-	{"getErrorHandler", "()Lcom/sun/org/apache/xerces/internal/xni/parser/XMLErrorHandler;", nullptr, $PUBLIC, $virtualMethod(XML11Configuration, getErrorHandler, $XMLErrorHandler*)},
-	{"getFeatureState", "(Ljava/lang/String;)Lcom/sun/org/apache/xerces/internal/util/FeatureState;", nullptr, $PUBLIC, $virtualMethod(XML11Configuration, getFeatureState, $FeatureState*, $String*), "com.sun.org.apache.xerces.internal.xni.parser.XMLConfigurationException"},
-	{"getFeatureState0", "(Ljava/lang/String;)Lcom/sun/org/apache/xerces/internal/util/FeatureState;", nullptr, 0, $virtualMethod(XML11Configuration, getFeatureState0, $FeatureState*, $String*), "com.sun.org.apache.xerces.internal.xni.parser.XMLConfigurationException"},
-	{"getLocale", "()Ljava/util/Locale;", nullptr, $PUBLIC, $virtualMethod(XML11Configuration, getLocale, $Locale*)},
-	{"getPropertyState", "(Ljava/lang/String;)Lcom/sun/org/apache/xerces/internal/util/PropertyState;", nullptr, $PUBLIC, $virtualMethod(XML11Configuration, getPropertyState, $PropertyState*, $String*), "com.sun.org.apache.xerces.internal.xni.parser.XMLConfigurationException"},
-	{"initXML11Components", "()V", nullptr, $PRIVATE, $method(XML11Configuration, initXML11Components, void)},
-	{"parse", "(Lcom/sun/org/apache/xerces/internal/xni/parser/XMLInputSource;)V", nullptr, $PUBLIC, $virtualMethod(XML11Configuration, parse, void, $XMLInputSource*), "com.sun.org.apache.xerces.internal.xni.XNIException,java.io.IOException"},
-	{"parse", "(Z)Z", nullptr, $PUBLIC, $virtualMethod(XML11Configuration, parse, bool, bool), "com.sun.org.apache.xerces.internal.xni.XNIException,java.io.IOException"},
-	{"reset", "()V", nullptr, $PROTECTED, $virtualMethod(XML11Configuration, reset, void), "com.sun.org.apache.xerces.internal.xni.XNIException"},
-	{"resetCommon", "()V", nullptr, $PROTECTED, $virtualMethod(XML11Configuration, resetCommon, void), "com.sun.org.apache.xerces.internal.xni.XNIException"},
-	{"resetSymbolTable", "()V", nullptr, $PRIVATE, $method(XML11Configuration, resetSymbolTable, void)},
-	{"resetXML11", "()V", nullptr, $PROTECTED, $virtualMethod(XML11Configuration, resetXML11, void), "com.sun.org.apache.xerces.internal.xni.XNIException"},
-	{"setDTDContentModelHandler", "(Lcom/sun/org/apache/xerces/internal/xni/XMLDTDContentModelHandler;)V", nullptr, $PUBLIC, $virtualMethod(XML11Configuration, setDTDContentModelHandler, void, $XMLDTDContentModelHandler*)},
-	{"setDTDHandler", "(Lcom/sun/org/apache/xerces/internal/xni/XMLDTDHandler;)V", nullptr, $PUBLIC, $virtualMethod(XML11Configuration, setDTDHandler, void, $XMLDTDHandler*)},
-	{"setDocumentHandler", "(Lcom/sun/org/apache/xerces/internal/xni/XMLDocumentHandler;)V", nullptr, $PUBLIC, $virtualMethod(XML11Configuration, setDocumentHandler, void, $XMLDocumentHandler*)},
-	{"setEntityResolver", "(Lcom/sun/org/apache/xerces/internal/xni/parser/XMLEntityResolver;)V", nullptr, $PUBLIC, $virtualMethod(XML11Configuration, setEntityResolver, void, $XMLEntityResolver*)},
-	{"setErrorHandler", "(Lcom/sun/org/apache/xerces/internal/xni/parser/XMLErrorHandler;)V", nullptr, $PUBLIC, $virtualMethod(XML11Configuration, setErrorHandler, void, $XMLErrorHandler*)},
-	{"setFeature", "(Ljava/lang/String;Z)V", nullptr, $PUBLIC, $virtualMethod(XML11Configuration, setFeature, void, $String*, bool), "com.sun.org.apache.xerces.internal.xni.parser.XMLConfigurationException"},
-	{"setInputSource", "(Lcom/sun/org/apache/xerces/internal/xni/parser/XMLInputSource;)V", nullptr, $PUBLIC, $virtualMethod(XML11Configuration, setInputSource, void, $XMLInputSource*), "com.sun.org.apache.xerces.internal.xni.parser.XMLConfigurationException,java.io.IOException"},
-	{"setLocale", "(Ljava/util/Locale;)V", nullptr, $PUBLIC, $virtualMethod(XML11Configuration, setLocale, void, $Locale*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
-	{"setProperty", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(XML11Configuration, setProperty, void, $String*, Object$*), "com.sun.org.apache.xerces.internal.xni.parser.XMLConfigurationException"},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _XML11Configuration_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.parsers.XML11Configuration",
-	"com.sun.org.apache.xerces.internal.util.ParserConfigurationSettings",
-	"com.sun.org.apache.xerces.internal.xni.parser.XMLPullParserConfiguration,com.sun.org.apache.xerces.internal.parsers.XML11Configurable",
-	_XML11Configuration_FieldInfo_,
-	_XML11Configuration_MethodInfo_
-};
-
-$Object* allocate$XML11Configuration($Class* clazz) {
-	return $of($alloc(XML11Configuration));
-}
 
 void XML11Configuration::addRecognizedFeatures($StringArray* featureIds) {
 	this->$ParserConfigurationSettings::addRecognizedFeatures(featureIds);
@@ -537,7 +359,7 @@ void XML11Configuration::init$($SymbolTable* symbolTable, $XMLGrammarPool* gramm
 }
 
 void XML11Configuration::init$($SymbolTable* symbolTable, $XMLGrammarPool* grammarPool, $XMLComponentManager* parentSettings) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$ParserConfigurationSettings::init$(parentSettings);
 	$set(this, fXML11Components, nullptr);
 	$set(this, fCommonComponents, nullptr);
@@ -588,32 +410,31 @@ void XML11Configuration::init$($SymbolTable* symbolTable, $XMLGrammarPool* gramm
 		$JdkConstants::OVERRIDE_PARSER
 	}));
 	addRecognizedFeatures(recognizedFeatures);
-	$init($Boolean);
 	$nc(this->fFeatures)->put(XML11Configuration::VALIDATION, $Boolean::FALSE);
-	$nc(this->fFeatures)->put(XML11Configuration::NAMESPACES, $Boolean::TRUE);
-	$nc(this->fFeatures)->put(XML11Configuration::EXTERNAL_GENERAL_ENTITIES, $Boolean::TRUE);
-	$nc(this->fFeatures)->put(XML11Configuration::EXTERNAL_PARAMETER_ENTITIES, $Boolean::TRUE);
-	$nc(this->fFeatures)->put(XML11Configuration::CONTINUE_AFTER_FATAL_ERROR, $Boolean::FALSE);
-	$nc(this->fFeatures)->put(XML11Configuration::LOAD_EXTERNAL_DTD, $Boolean::TRUE);
-	$nc(this->fFeatures)->put(XML11Configuration::SCHEMA_ELEMENT_DEFAULT, $Boolean::TRUE);
-	$nc(this->fFeatures)->put(XML11Configuration::NORMALIZE_DATA, $Boolean::TRUE);
-	$nc(this->fFeatures)->put(XML11Configuration::SCHEMA_AUGMENT_PSVI, $Boolean::TRUE);
-	$nc(this->fFeatures)->put(XML11Configuration::GENERATE_SYNTHETIC_ANNOTATIONS, $Boolean::FALSE);
-	$nc(this->fFeatures)->put(XML11Configuration::VALIDATE_ANNOTATIONS, $Boolean::FALSE);
-	$nc(this->fFeatures)->put(XML11Configuration::HONOUR_ALL_SCHEMALOCATIONS, $Boolean::FALSE);
-	$nc(this->fFeatures)->put(XML11Configuration::IGNORE_XSI_TYPE, $Boolean::FALSE);
-	$nc(this->fFeatures)->put(XML11Configuration::ID_IDREF_CHECKING, $Boolean::TRUE);
-	$nc(this->fFeatures)->put(XML11Configuration::IDENTITY_CONSTRAINT_CHECKING, $Boolean::TRUE);
-	$nc(this->fFeatures)->put(XML11Configuration::UNPARSED_ENTITY_CHECKING, $Boolean::TRUE);
-	$nc(this->fFeatures)->put(XML11Configuration::NAMESPACE_GROWTH, $Boolean::FALSE);
-	$nc(this->fFeatures)->put(XML11Configuration::TOLERATE_DUPLICATES, $Boolean::FALSE);
-	$nc(this->fFeatures)->put(XML11Configuration::USE_GRAMMAR_POOL_ONLY, $Boolean::FALSE);
-	$nc(this->fFeatures)->put($ParserConfigurationSettings::PARSER_SETTINGS, $Boolean::TRUE);
-	$nc(this->fFeatures)->put($XMLConstants::FEATURE_SECURE_PROCESSING, $Boolean::TRUE);
+	this->fFeatures->put(XML11Configuration::NAMESPACES, $Boolean::TRUE);
+	this->fFeatures->put(XML11Configuration::EXTERNAL_GENERAL_ENTITIES, $Boolean::TRUE);
+	this->fFeatures->put(XML11Configuration::EXTERNAL_PARAMETER_ENTITIES, $Boolean::TRUE);
+	this->fFeatures->put(XML11Configuration::CONTINUE_AFTER_FATAL_ERROR, $Boolean::FALSE);
+	this->fFeatures->put(XML11Configuration::LOAD_EXTERNAL_DTD, $Boolean::TRUE);
+	this->fFeatures->put(XML11Configuration::SCHEMA_ELEMENT_DEFAULT, $Boolean::TRUE);
+	this->fFeatures->put(XML11Configuration::NORMALIZE_DATA, $Boolean::TRUE);
+	this->fFeatures->put(XML11Configuration::SCHEMA_AUGMENT_PSVI, $Boolean::TRUE);
+	this->fFeatures->put(XML11Configuration::GENERATE_SYNTHETIC_ANNOTATIONS, $Boolean::FALSE);
+	this->fFeatures->put(XML11Configuration::VALIDATE_ANNOTATIONS, $Boolean::FALSE);
+	this->fFeatures->put(XML11Configuration::HONOUR_ALL_SCHEMALOCATIONS, $Boolean::FALSE);
+	this->fFeatures->put(XML11Configuration::IGNORE_XSI_TYPE, $Boolean::FALSE);
+	this->fFeatures->put(XML11Configuration::ID_IDREF_CHECKING, $Boolean::TRUE);
+	this->fFeatures->put(XML11Configuration::IDENTITY_CONSTRAINT_CHECKING, $Boolean::TRUE);
+	this->fFeatures->put(XML11Configuration::UNPARSED_ENTITY_CHECKING, $Boolean::TRUE);
+	this->fFeatures->put(XML11Configuration::NAMESPACE_GROWTH, $Boolean::FALSE);
+	this->fFeatures->put(XML11Configuration::TOLERATE_DUPLICATES, $Boolean::FALSE);
+	this->fFeatures->put(XML11Configuration::USE_GRAMMAR_POOL_ONLY, $Boolean::FALSE);
+	this->fFeatures->put($ParserConfigurationSettings::PARSER_SETTINGS, $Boolean::TRUE);
+	this->fFeatures->put($XMLConstants::FEATURE_SECURE_PROCESSING, $Boolean::TRUE);
 	$init($JdkXmlUtils);
-	$nc(this->fFeatures)->put($XMLConstants::USE_CATALOG, $($Boolean::valueOf($JdkXmlUtils::USE_CATALOG_DEFAULT)));
-	$nc(this->fFeatures)->put($JdkConstants::RESET_SYMBOL_TABLE, $($Boolean::valueOf($JdkConstants::RESET_SYMBOL_TABLE_DEFAULT)));
-	$nc(this->fFeatures)->put($JdkConstants::OVERRIDE_PARSER, $($Boolean::valueOf($JdkConstants::OVERRIDE_PARSER_DEFAULT)));
+	this->fFeatures->put($XMLConstants::USE_CATALOG, $($Boolean::valueOf($JdkXmlUtils::USE_CATALOG_DEFAULT)));
+	this->fFeatures->put($JdkConstants::RESET_SYMBOL_TABLE, $($Boolean::valueOf($JdkConstants::RESET_SYMBOL_TABLE_DEFAULT)));
+	this->fFeatures->put($JdkConstants::OVERRIDE_PARSER, $($Boolean::valueOf($JdkConstants::OVERRIDE_PARSER_DEFAULT)));
 	$var($StringArray, recognizedProperties, $new($StringArray, {
 		XML11Configuration::SYMBOL_TABLE,
 		XML11Configuration::ERROR_HANDLER,
@@ -655,31 +476,31 @@ void XML11Configuration::init$($SymbolTable* symbolTable, $XMLGrammarPool* gramm
 	$nc(this->fProperties)->put(XML11Configuration::SYMBOL_TABLE, this->fSymbolTable);
 	$set(this, fGrammarPool, grammarPool);
 	if (this->fGrammarPool != nullptr) {
-		$nc(this->fProperties)->put(XML11Configuration::XMLGRAMMAR_POOL, this->fGrammarPool);
+		this->fProperties->put(XML11Configuration::XMLGRAMMAR_POOL, this->fGrammarPool);
 	}
 	$set(this, fEntityManager, $new($XMLEntityManager));
-	$nc(this->fProperties)->put(XML11Configuration::ENTITY_MANAGER, this->fEntityManager);
+	this->fProperties->put(XML11Configuration::ENTITY_MANAGER, this->fEntityManager);
 	addCommonComponent(this->fEntityManager);
 	$set(this, fErrorReporter, $new($XMLErrorReporter));
-	$nc(this->fErrorReporter)->setDocumentLocator($($nc(this->fEntityManager)->getEntityScanner()));
+	this->fErrorReporter->setDocumentLocator($($nc(this->fEntityManager)->getEntityScanner()));
 	$nc(this->fProperties)->put(XML11Configuration::ERROR_REPORTER, this->fErrorReporter);
 	addCommonComponent(this->fErrorReporter);
 	$set(this, fNamespaceScanner, $new($XMLNSDocumentScannerImpl));
 	$nc(this->fProperties)->put(XML11Configuration::DOCUMENT_SCANNER, this->fNamespaceScanner);
-	addComponent(static_cast<$XMLComponent*>(this->fNamespaceScanner));
+	addComponent($cast($XMLComponent, this->fNamespaceScanner));
 	$set(this, fDTDScanner, $new($XMLDTDScannerImpl));
 	$nc(this->fProperties)->put(XML11Configuration::DTD_SCANNER, this->fDTDScanner);
 	addComponent($cast($XMLComponent, this->fDTDScanner));
 	$set(this, fDTDProcessor, $new($XMLDTDProcessor));
 	$nc(this->fProperties)->put(XML11Configuration::DTD_PROCESSOR, this->fDTDProcessor);
-	addComponent(static_cast<$XMLComponent*>(this->fDTDProcessor));
+	addComponent($cast($XMLComponent, this->fDTDProcessor));
 	$set(this, fDTDValidator, $new($XMLNSDTDValidator));
 	$nc(this->fProperties)->put(XML11Configuration::DTD_VALIDATOR, this->fDTDValidator);
 	addComponent(this->fDTDValidator);
 	$set(this, fDatatypeValidatorFactory, $DTDDVFactory::getInstance());
 	$nc(this->fProperties)->put(XML11Configuration::DATATYPE_VALIDATOR_FACTORY, this->fDatatypeValidatorFactory);
 	$set(this, fValidationManager, $new($ValidationManager));
-	$nc(this->fProperties)->put(XML11Configuration::VALIDATION_MANAGER, this->fValidationManager);
+	this->fProperties->put(XML11Configuration::VALIDATION_MANAGER, this->fValidationManager);
 	$set(this, fVersionDetector, $new($XMLVersionDetector));
 	$init($XMLMessageFormatter);
 	if ($nc(this->fErrorReporter)->getMessageFormatter($XMLMessageFormatter::XML_DOMAIN) == nullptr) {
@@ -693,9 +514,7 @@ void XML11Configuration::init$($SymbolTable* symbolTable, $XMLGrammarPool* gramm
 	}
 	{
 		$var($CatalogFeatures$FeatureArray, arr$, $CatalogFeatures$Feature::values());
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 			$CatalogFeatures$Feature* f = arr$->get(i$);
 			{
 				$nc(this->fProperties)->put($($nc(f)->getPropertyName()), nullptr);
@@ -718,9 +537,9 @@ void XML11Configuration::setLocale($Locale* locale) {
 void XML11Configuration::setDocumentHandler($XMLDocumentHandler* documentHandler) {
 	$set(this, fDocumentHandler, documentHandler);
 	if (this->fLastComponent != nullptr) {
-		$nc(this->fLastComponent)->setDocumentHandler(this->fDocumentHandler);
+		this->fLastComponent->setDocumentHandler(this->fDocumentHandler);
 		if (this->fDocumentHandler != nullptr) {
-			$nc(this->fDocumentHandler)->setDocumentSource(this->fLastComponent);
+			this->fDocumentHandler->setDocumentSource(this->fLastComponent);
 		}
 	}
 }
@@ -770,30 +589,32 @@ void XML11Configuration::parse($XMLInputSource* source) {
 		$throwNew($XNIException, "FWK005 parse may not be called while parsing."_s);
 	}
 	this->fParseInProgress = true;
-	{
-		$var($Throwable, var$0, nullptr);
+	$var($Throwable, var$0, nullptr);
+	try {
 		try {
-			try {
-				setInputSource(source);
-				parse(true);
-			} catch ($XNIException& ex) {
-				$throw(ex);
-			} catch ($IOException& ex) {
-				$throw(ex);
-			} catch ($RuntimeException& ex) {
-				$throw(ex);
-			} catch ($Exception& ex) {
-				$throwNew($XNIException, $cast($Exception, ex));
-			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			this->fParseInProgress = false;
-			this->cleanup();
+			setInputSource(source);
+			parse(true);
+		} catch ($XNIException& ex) {
+			;
+			$throw(ex);
+		} catch ($IOException& ex) {
+			;
+			$throw(ex);
+		} catch ($RuntimeException& ex) {
+			;
+			$throw(ex);
+		} catch ($Exception& ex) {
+			;
+			$throwNew($XNIException, ex);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		this->fParseInProgress = false;
+		this->cleanup();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
@@ -801,7 +622,7 @@ bool XML11Configuration::parse(bool complete) {
 	if (this->fInputSource != nullptr) {
 		try {
 			$nc(this->fValidationManager)->reset();
-			$nc(this->fVersionDetector)->reset(static_cast<$XMLComponentManager*>(static_cast<$ParserConfigurationSettings*>(this)));
+			$nc(this->fVersionDetector)->reset($cast($ParserConfigurationSettings, this));
 			this->fConfigUpdated = true;
 			resetSymbolTable();
 			resetCommon();
@@ -818,21 +639,27 @@ bool XML11Configuration::parse(bool complete) {
 			$nc(this->fVersionDetector)->startDocumentParsing($cast($XMLEntityHandler, this->fCurrentScanner), version);
 			$set(this, fInputSource, nullptr);
 		} catch ($IOException& ex) {
+			;
 			$throw(ex);
 		} catch ($RuntimeException& ex) {
+			;
 			$throw(ex);
 		} catch ($Exception& ex) {
-			$throwNew($XNIException, $cast($Exception, ex));
+			;
+			$throwNew($XNIException, ex);
 		}
 	}
 	try {
 		return $nc(this->fCurrentScanner)->scanDocument(complete);
 	} catch ($IOException& ex) {
+		;
 		$throw(ex);
 	} catch ($RuntimeException& ex) {
+		;
 		$throw(ex);
 	} catch ($Exception& ex) {
-		$throwNew($XNIException, $cast($Exception, ex));
+		;
+		$throwNew($XNIException, ex);
 	}
 	$shouldNotReachHere();
 }
@@ -846,7 +673,7 @@ $FeatureState* XML11Configuration::getFeatureState($String* featureId) {
 }
 
 void XML11Configuration::setFeature($String* featureId, bool state) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->fConfigUpdated = true;
 	{
 		$var($Iterator, i$, $nc(this->fComponents)->iterator());
@@ -870,11 +697,9 @@ void XML11Configuration::setFeature($String* featureId, bool state) {
 		$var($Iterator, i$, $nc(this->fXML11Components)->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($XMLComponent, c, $cast($XMLComponent, i$->next()));
-			{
-				try {
-					$nc(c)->setFeature(featureId, state);
-				} catch ($Exception& e) {
-				}
+			try {
+				$nc(c)->setFeature(featureId, state);
+			} catch ($Exception& e) {
 			}
 		}
 	}
@@ -882,16 +707,16 @@ void XML11Configuration::setFeature($String* featureId, bool state) {
 }
 
 $PropertyState* XML11Configuration::getPropertyState($String* propertyId) {
-	if ($nc(XML11Configuration::LOCALE)->equals(propertyId)) {
+	if (XML11Configuration::LOCALE->equals(propertyId)) {
 		return $PropertyState::is($(getLocale()));
 	}
 	return $ParserConfigurationSettings::getPropertyState(propertyId);
 }
 
 void XML11Configuration::setProperty($String* propertyId, Object$* value) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->fConfigUpdated = true;
-	if ($nc(XML11Configuration::LOCALE)->equals(propertyId)) {
+	if (XML11Configuration::LOCALE->equals(propertyId)) {
 		setLocale($cast($Locale, value));
 	}
 	{
@@ -916,11 +741,9 @@ void XML11Configuration::setProperty($String* propertyId, Object$* value) {
 		$var($Iterator, i$, $nc(this->fXML11Components)->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($XMLComponent, c, $cast($XMLComponent, i$->next()));
-			{
-				try {
-					$nc(c)->setProperty(propertyId, value);
-				} catch ($Exception& e) {
-				}
+			try {
+				$nc(c)->setProperty(propertyId, value);
+			} catch ($Exception& e) {
 			}
 		}
 	}
@@ -932,29 +755,29 @@ $Locale* XML11Configuration::getLocale() {
 }
 
 void XML11Configuration::reset() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t count = $nc(this->fComponents)->size();
 	for (int32_t i = 0; i < count; ++i) {
 		$var($XMLComponent, c, $cast($XMLComponent, $nc(this->fComponents)->get(i)));
-		$nc(c)->reset(static_cast<$XMLComponentManager*>(static_cast<$ParserConfigurationSettings*>(this)));
+		$nc(c)->reset($cast($ParserConfigurationSettings, this));
 	}
 }
 
 void XML11Configuration::resetCommon() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t count = $nc(this->fCommonComponents)->size();
 	for (int32_t i = 0; i < count; ++i) {
 		$var($XMLComponent, c, $cast($XMLComponent, $nc(this->fCommonComponents)->get(i)));
-		$nc(c)->reset(static_cast<$XMLComponentManager*>(static_cast<$ParserConfigurationSettings*>(this)));
+		$nc(c)->reset($cast($ParserConfigurationSettings, this));
 	}
 }
 
 void XML11Configuration::resetXML11() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t count = $nc(this->fXML11Components)->size();
 	for (int32_t i = 0; i < count; ++i) {
 		$var($XMLComponent, c, $cast($XMLComponent, $nc(this->fXML11Components)->get(i)));
-		$nc(c)->reset(static_cast<$XMLComponentManager*>(static_cast<$ParserConfigurationSettings*>(this)));
+		$nc(c)->reset($cast($ParserConfigurationSettings, this));
 	}
 }
 
@@ -972,15 +795,14 @@ void XML11Configuration::configureXML11Pipeline() {
 	$nc(this->fXML11DTDProcessor)->setDTDSource(this->fXML11DTDScanner);
 	$nc(this->fXML11DTDProcessor)->setDTDHandler(this->fDTDHandler);
 	if (this->fDTDHandler != nullptr) {
-		$nc(this->fDTDHandler)->setDTDSource(this->fXML11DTDProcessor);
+		this->fDTDHandler->setDTDSource(this->fXML11DTDProcessor);
 	}
 	$nc(this->fXML11DTDScanner)->setDTDContentModelHandler(this->fXML11DTDProcessor);
 	$nc(this->fXML11DTDProcessor)->setDTDContentModelSource(this->fXML11DTDScanner);
 	$nc(this->fXML11DTDProcessor)->setDTDContentModelHandler(this->fDTDContentModelHandler);
 	if (this->fDTDContentModelHandler != nullptr) {
-		$nc(this->fDTDContentModelHandler)->setDTDContentModelSource(this->fXML11DTDProcessor);
+		this->fDTDContentModelHandler->setDTDContentModelSource(this->fXML11DTDProcessor);
 	}
-	$init($Boolean);
 	if ($equals($nc(this->fFeatures)->get(XML11Configuration::NAMESPACES), $Boolean::TRUE)) {
 		if (!$equals(this->fCurrentScanner, this->fXML11NSDocScanner)) {
 			$set(this, fCurrentScanner, this->fXML11NSDocScanner);
@@ -988,13 +810,13 @@ void XML11Configuration::configureXML11Pipeline() {
 			setProperty(XML11Configuration::DTD_VALIDATOR, this->fXML11NSDTDValidator);
 		}
 		$nc(this->fXML11NSDocScanner)->setDTDValidator(this->fXML11NSDTDValidator);
-		$nc(this->fXML11NSDocScanner)->setDocumentHandler(static_cast<$XMLDocumentHandler*>(static_cast<$XMLDocumentFilter*>(static_cast<$XMLDTDValidatorFilter*>(static_cast<$XMLDTDValidator*>(static_cast<$XML11DTDValidator*>(this->fXML11NSDTDValidator))))));
+		$nc(this->fXML11NSDocScanner)->setDocumentHandler($cast($XMLDTDValidatorFilter, this->fXML11NSDTDValidator));
 		$nc(this->fXML11NSDTDValidator)->setDocumentSource(this->fXML11NSDocScanner);
 		$nc(this->fXML11NSDTDValidator)->setDocumentHandler(this->fDocumentHandler);
 		if (this->fDocumentHandler != nullptr) {
-			$nc(this->fDocumentHandler)->setDocumentSource(static_cast<$XMLDocumentSource*>(static_cast<$XMLDocumentFilter*>(static_cast<$XMLDTDValidatorFilter*>(static_cast<$XMLDTDValidator*>(static_cast<$XML11DTDValidator*>(this->fXML11NSDTDValidator))))));
+			this->fDocumentHandler->setDocumentSource($cast($XMLDTDValidatorFilter, this->fXML11NSDTDValidator));
 		}
-		$set(this, fLastComponent, static_cast<$XMLDocumentSource*>(static_cast<$XMLDocumentFilter*>(static_cast<$XMLDTDValidatorFilter*>(static_cast<$XMLDTDValidator*>(static_cast<$XML11DTDValidator*>(this->fXML11NSDTDValidator))))));
+		$set(this, fLastComponent, $cast($XMLDTDValidatorFilter, this->fXML11NSDTDValidator));
 	} else {
 		if (this->fXML11DocScanner == nullptr) {
 			$set(this, fXML11DocScanner, $new($XML11DocumentScannerImpl));
@@ -1007,20 +829,20 @@ void XML11Configuration::configureXML11Pipeline() {
 			setProperty(XML11Configuration::DOCUMENT_SCANNER, this->fXML11DocScanner);
 			setProperty(XML11Configuration::DTD_VALIDATOR, this->fXML11DTDValidator);
 		}
-		$nc(this->fXML11DocScanner)->setDocumentHandler(static_cast<$XMLDocumentHandler*>(static_cast<$XMLDocumentFilter*>(static_cast<$XMLDTDValidatorFilter*>(static_cast<$XMLDTDValidator*>(this->fXML11DTDValidator)))));
+		$nc(this->fXML11DocScanner)->setDocumentHandler($cast($XMLDTDValidatorFilter, this->fXML11DTDValidator));
 		$nc(this->fXML11DTDValidator)->setDocumentSource(this->fXML11DocScanner);
 		$nc(this->fXML11DTDValidator)->setDocumentHandler(this->fDocumentHandler);
 		if (this->fDocumentHandler != nullptr) {
-			$nc(this->fDocumentHandler)->setDocumentSource(static_cast<$XMLDocumentSource*>(static_cast<$XMLDocumentFilter*>(static_cast<$XMLDTDValidatorFilter*>(static_cast<$XMLDTDValidator*>(this->fXML11DTDValidator)))));
+			this->fDocumentHandler->setDocumentSource($cast($XMLDTDValidatorFilter, this->fXML11DTDValidator));
 		}
-		$set(this, fLastComponent, static_cast<$XMLDocumentSource*>(static_cast<$XMLDocumentFilter*>(static_cast<$XMLDTDValidatorFilter*>(static_cast<$XMLDTDValidator*>(this->fXML11DTDValidator)))));
+		$set(this, fLastComponent, $cast($XMLDTDValidatorFilter, this->fXML11DTDValidator));
 	}
 	if ($equals($nc(this->fFeatures)->get(XML11Configuration::XMLSCHEMA_VALIDATION), $Boolean::TRUE)) {
 		if (this->fSchemaValidator == nullptr) {
 			$set(this, fSchemaValidator, $new($XMLSchemaValidator));
 			setProperty(XML11Configuration::SCHEMA_VALIDATOR, this->fSchemaValidator);
 			addCommonComponent(this->fSchemaValidator);
-			$nc(this->fSchemaValidator)->reset(static_cast<$XMLComponentManager*>(static_cast<$ParserConfigurationSettings*>(this)));
+			$nc(this->fSchemaValidator)->reset($cast($ParserConfigurationSettings, this));
 			$init($XSMessageFormatter);
 			if ($nc(this->fErrorReporter)->getMessageFormatter($XSMessageFormatter::SCHEMA_DOMAIN) == nullptr) {
 				$var($XSMessageFormatter, xmft, $new($XSMessageFormatter));
@@ -1031,7 +853,7 @@ void XML11Configuration::configureXML11Pipeline() {
 		$nc(this->fSchemaValidator)->setDocumentSource(this->fLastComponent);
 		$nc(this->fSchemaValidator)->setDocumentHandler(this->fDocumentHandler);
 		if (this->fDocumentHandler != nullptr) {
-			$nc(this->fDocumentHandler)->setDocumentSource(this->fSchemaValidator);
+			this->fDocumentHandler->setDocumentSource(this->fSchemaValidator);
 		}
 		$set(this, fLastComponent, this->fSchemaValidator);
 	}
@@ -1051,15 +873,14 @@ void XML11Configuration::configurePipeline() {
 	$nc(this->fDTDProcessor)->setDTDSource(this->fDTDScanner);
 	$nc(this->fDTDProcessor)->setDTDHandler(this->fDTDHandler);
 	if (this->fDTDHandler != nullptr) {
-		$nc(this->fDTDHandler)->setDTDSource(this->fDTDProcessor);
+		this->fDTDHandler->setDTDSource(this->fDTDProcessor);
 	}
 	$nc(this->fDTDScanner)->setDTDContentModelHandler(this->fDTDProcessor);
 	$nc(this->fDTDProcessor)->setDTDContentModelSource(this->fDTDScanner);
 	$nc(this->fDTDProcessor)->setDTDContentModelHandler(this->fDTDContentModelHandler);
 	if (this->fDTDContentModelHandler != nullptr) {
-		$nc(this->fDTDContentModelHandler)->setDTDContentModelSource(this->fDTDProcessor);
+		this->fDTDContentModelHandler->setDTDContentModelSource(this->fDTDProcessor);
 	}
-	$init($Boolean);
 	if ($equals($nc(this->fFeatures)->get(XML11Configuration::NAMESPACES), $Boolean::TRUE)) {
 		if (!$equals(this->fCurrentScanner, this->fNamespaceScanner)) {
 			$set(this, fCurrentScanner, this->fNamespaceScanner);
@@ -1067,39 +888,39 @@ void XML11Configuration::configurePipeline() {
 			setProperty(XML11Configuration::DTD_VALIDATOR, this->fDTDValidator);
 		}
 		$nc(this->fNamespaceScanner)->setDTDValidator(this->fDTDValidator);
-		$nc(this->fNamespaceScanner)->setDocumentHandler(static_cast<$XMLDocumentHandler*>(static_cast<$XMLDocumentFilter*>(static_cast<$XMLDTDValidatorFilter*>(this->fDTDValidator))));
+		$nc(this->fNamespaceScanner)->setDocumentHandler($cast($XMLDTDValidatorFilter, this->fDTDValidator));
 		$nc(this->fDTDValidator)->setDocumentSource(this->fNamespaceScanner);
 		$nc(this->fDTDValidator)->setDocumentHandler(this->fDocumentHandler);
 		if (this->fDocumentHandler != nullptr) {
-			$nc(this->fDocumentHandler)->setDocumentSource(static_cast<$XMLDocumentSource*>(static_cast<$XMLDocumentFilter*>(static_cast<$XMLDTDValidatorFilter*>(this->fDTDValidator))));
+			this->fDocumentHandler->setDocumentSource($cast($XMLDTDValidatorFilter, this->fDTDValidator));
 		}
-		$set(this, fLastComponent, static_cast<$XMLDocumentSource*>(static_cast<$XMLDocumentFilter*>(static_cast<$XMLDTDValidatorFilter*>(this->fDTDValidator))));
+		$set(this, fLastComponent, $cast($XMLDTDValidatorFilter, this->fDTDValidator));
 	} else {
 		if (this->fNonNSScanner == nullptr) {
 			$set(this, fNonNSScanner, $new($XMLDocumentScannerImpl));
 			$set(this, fNonNSDTDValidator, $new($XMLDTDValidator));
-			addComponent(static_cast<$XMLComponent*>(this->fNonNSScanner));
-			addComponent(static_cast<$XMLComponent*>(this->fNonNSDTDValidator));
+			addComponent($cast($XMLComponent, this->fNonNSScanner));
+			addComponent($cast($XMLComponent, this->fNonNSDTDValidator));
 		}
 		if (!$equals(this->fCurrentScanner, this->fNonNSScanner)) {
 			$set(this, fCurrentScanner, this->fNonNSScanner);
 			setProperty(XML11Configuration::DOCUMENT_SCANNER, this->fNonNSScanner);
 			setProperty(XML11Configuration::DTD_VALIDATOR, this->fNonNSDTDValidator);
 		}
-		$nc(this->fNonNSScanner)->setDocumentHandler(static_cast<$XMLDocumentHandler*>(static_cast<$XMLDocumentFilter*>(static_cast<$XMLDTDValidatorFilter*>(this->fNonNSDTDValidator))));
+		$nc(this->fNonNSScanner)->setDocumentHandler($cast($XMLDTDValidatorFilter, this->fNonNSDTDValidator));
 		$nc(this->fNonNSDTDValidator)->setDocumentSource(this->fNonNSScanner);
 		$nc(this->fNonNSDTDValidator)->setDocumentHandler(this->fDocumentHandler);
 		if (this->fDocumentHandler != nullptr) {
-			$nc(this->fDocumentHandler)->setDocumentSource(static_cast<$XMLDocumentSource*>(static_cast<$XMLDocumentFilter*>(static_cast<$XMLDTDValidatorFilter*>(this->fNonNSDTDValidator))));
+			this->fDocumentHandler->setDocumentSource($cast($XMLDTDValidatorFilter, this->fNonNSDTDValidator));
 		}
-		$set(this, fLastComponent, static_cast<$XMLDocumentSource*>(static_cast<$XMLDocumentFilter*>(static_cast<$XMLDTDValidatorFilter*>(this->fNonNSDTDValidator))));
+		$set(this, fLastComponent, $cast($XMLDTDValidatorFilter, this->fNonNSDTDValidator));
 	}
 	if ($equals($nc(this->fFeatures)->get(XML11Configuration::XMLSCHEMA_VALIDATION), $Boolean::TRUE)) {
 		if (this->fSchemaValidator == nullptr) {
 			$set(this, fSchemaValidator, $new($XMLSchemaValidator));
 			setProperty(XML11Configuration::SCHEMA_VALIDATOR, this->fSchemaValidator);
 			addCommonComponent(this->fSchemaValidator);
-			$nc(this->fSchemaValidator)->reset(static_cast<$XMLComponentManager*>(static_cast<$ParserConfigurationSettings*>(this)));
+			$nc(this->fSchemaValidator)->reset($cast($ParserConfigurationSettings, this));
 			$init($XSMessageFormatter);
 			if ($nc(this->fErrorReporter)->getMessageFormatter($XSMessageFormatter::SCHEMA_DOMAIN) == nullptr) {
 				$var($XSMessageFormatter, xmft, $new($XSMessageFormatter));
@@ -1110,7 +931,7 @@ void XML11Configuration::configurePipeline() {
 		$nc(this->fSchemaValidator)->setDocumentSource(this->fLastComponent);
 		$nc(this->fSchemaValidator)->setDocumentHandler(this->fDocumentHandler);
 		if (this->fDocumentHandler != nullptr) {
-			$nc(this->fDocumentHandler)->setDocumentSource(this->fSchemaValidator);
+			this->fDocumentHandler->setDocumentSource(this->fSchemaValidator);
 		}
 		$set(this, fLastComponent, this->fSchemaValidator);
 	}
@@ -1201,7 +1022,7 @@ $PropertyState* XML11Configuration::checkProperty($String* propertyId) {
 			return $PropertyState::RECOGNIZED;
 		}
 	}
-	if ($nc(propertyId)->startsWith($Constants::JAXP_PROPERTY_PREFIX)) {
+	if (propertyId->startsWith($Constants::JAXP_PROPERTY_PREFIX)) {
 		int32_t var$4 = propertyId->length();
 		int32_t suffixLength = var$4 - $nc($Constants::JAXP_PROPERTY_PREFIX)->length();
 		bool var$5 = suffixLength == $nc($Constants::SCHEMA_SOURCE)->length();
@@ -1210,7 +1031,7 @@ $PropertyState* XML11Configuration::checkProperty($String* propertyId) {
 			return $PropertyState::RECOGNIZED;
 		}
 	}
-	if ($nc(propertyId)->startsWith($Constants::SAX_PROPERTY_PREFIX)) {
+	if (propertyId->startsWith($Constants::SAX_PROPERTY_PREFIX)) {
 		int32_t var$6 = propertyId->length();
 		int32_t suffixLength = var$6 - $nc($Constants::SAX_PROPERTY_PREFIX)->length();
 		bool var$7 = suffixLength == $nc($Constants::XML_STRING_PROPERTY)->length();
@@ -1226,7 +1047,7 @@ void XML11Configuration::addComponent($XMLComponent* component) {
 	if ($nc(this->fComponents)->contains(component)) {
 		return;
 	}
-	$nc(this->fComponents)->add(component);
+	this->fComponents->add(component);
 	addRecognizedParamsAndSetDefaults(component);
 }
 
@@ -1234,7 +1055,7 @@ void XML11Configuration::addCommonComponent($XMLComponent* component) {
 	if ($nc(this->fCommonComponents)->contains(component)) {
 		return;
 	}
-	$nc(this->fCommonComponents)->add(component);
+	this->fCommonComponents->add(component);
 	addRecognizedParamsAndSetDefaults(component);
 }
 
@@ -1242,12 +1063,12 @@ void XML11Configuration::addXML11Component($XMLComponent* component) {
 	if ($nc(this->fXML11Components)->contains(component)) {
 		return;
 	}
-	$nc(this->fXML11Components)->add(component);
+	this->fXML11Components->add(component);
 	addRecognizedParamsAndSetDefaults(component);
 }
 
 void XML11Configuration::addRecognizedParamsAndSetDefaults($XMLComponent* component) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringArray, recognizedFeatures, $nc(component)->getRecognizedFeatures());
 	addRecognizedFeatures(recognizedFeatures);
 	$var($StringArray, recognizedProperties, component->getRecognizedProperties());
@@ -1258,7 +1079,7 @@ void XML11Configuration::addRecognizedParamsAndSetDefaults($XMLComponent* compon
 			$var($Boolean, state, component->getFeatureDefault(featureId));
 			if (state != nullptr) {
 				if (!$nc(this->fFeatures)->containsKey(featureId)) {
-					$nc(this->fFeatures)->put(featureId, state);
+					this->fFeatures->put(featureId, state);
 					this->fConfigUpdated = true;
 				}
 			}
@@ -1270,7 +1091,7 @@ void XML11Configuration::addRecognizedParamsAndSetDefaults($XMLComponent* compon
 			$var($Object, value, component->getPropertyDefault(propertyId));
 			if (value != nullptr) {
 				if (!$nc(this->fProperties)->containsKey(propertyId)) {
-					$nc(this->fProperties)->put(propertyId, value);
+					this->fProperties->put(propertyId, value);
 					this->fConfigUpdated = true;
 				}
 			}
@@ -1295,7 +1116,7 @@ void XML11Configuration::initXML11Components() {
 
 void XML11Configuration::resetSymbolTable() {
 	$init($JdkConstants);
-	if ($nc(($cast($Boolean, $($nc(this->fFeatures)->get($JdkConstants::RESET_SYMBOL_TABLE)))))->booleanValue() && !this->fSymbolTableProvided) {
+	if ($$sure($Boolean, $nc(this->fFeatures)->get($JdkConstants::RESET_SYMBOL_TABLE))->booleanValue() && !this->fSymbolTableProvided) {
 		if (this->fSymbolTableJustInitialized) {
 			this->fSymbolTableJustInitialized = false;
 		} else {
@@ -1312,7 +1133,7 @@ $FeatureState* XML11Configuration::getFeatureState0($String* featureId) {
 XML11Configuration::XML11Configuration() {
 }
 
-void clinit$XML11Configuration($Class* class$) {
+void XML11Configuration::clinit$($Class* clazz) {
 	$assignStatic(XML11Configuration::XML11_DATATYPE_VALIDATOR_FACTORY, "com.sun.org.apache.xerces.internal.impl.dv.dtd.XML11DTDDVFactoryImpl"_s);
 	$init($Constants);
 	$assignStatic(XML11Configuration::WARN_ON_DUPLICATE_ATTDEF, $str({$Constants::XERCES_FEATURE_PREFIX, $Constants::WARN_ON_DUPLICATE_ATTDEF_FEATURE}));
@@ -1371,7 +1192,165 @@ void clinit$XML11Configuration($Class* class$) {
 }
 
 $Class* XML11Configuration::load$($String* name, bool initialize) {
-	$loadClass(XML11Configuration, name, initialize, &_XML11Configuration_ClassInfo_, clinit$XML11Configuration, allocate$XML11Configuration);
+	$FieldInfo fieldInfos$$[] = {
+		{"XML11_DATATYPE_VALIDATOR_FACTORY", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XML11Configuration, XML11_DATATYPE_VALIDATOR_FACTORY)},
+		{"WARN_ON_DUPLICATE_ATTDEF", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XML11Configuration, WARN_ON_DUPLICATE_ATTDEF)},
+		{"WARN_ON_DUPLICATE_ENTITYDEF", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XML11Configuration, WARN_ON_DUPLICATE_ENTITYDEF)},
+		{"WARN_ON_UNDECLARED_ELEMDEF", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XML11Configuration, WARN_ON_UNDECLARED_ELEMDEF)},
+		{"ALLOW_JAVA_ENCODINGS", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XML11Configuration, ALLOW_JAVA_ENCODINGS)},
+		{"CONTINUE_AFTER_FATAL_ERROR", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XML11Configuration, CONTINUE_AFTER_FATAL_ERROR)},
+		{"LOAD_EXTERNAL_DTD", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XML11Configuration, LOAD_EXTERNAL_DTD)},
+		{"NOTIFY_BUILTIN_REFS", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XML11Configuration, NOTIFY_BUILTIN_REFS)},
+		{"NOTIFY_CHAR_REFS", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XML11Configuration, NOTIFY_CHAR_REFS)},
+		{"NORMALIZE_DATA", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XML11Configuration, NORMALIZE_DATA)},
+		{"SCHEMA_ELEMENT_DEFAULT", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XML11Configuration, SCHEMA_ELEMENT_DEFAULT)},
+		{"SCHEMA_AUGMENT_PSVI", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XML11Configuration, SCHEMA_AUGMENT_PSVI)},
+		{"XMLSCHEMA_VALIDATION", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XML11Configuration, XMLSCHEMA_VALIDATION)},
+		{"XMLSCHEMA_FULL_CHECKING", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XML11Configuration, XMLSCHEMA_FULL_CHECKING)},
+		{"GENERATE_SYNTHETIC_ANNOTATIONS", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XML11Configuration, GENERATE_SYNTHETIC_ANNOTATIONS)},
+		{"VALIDATE_ANNOTATIONS", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XML11Configuration, VALIDATE_ANNOTATIONS)},
+		{"HONOUR_ALL_SCHEMALOCATIONS", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XML11Configuration, HONOUR_ALL_SCHEMALOCATIONS)},
+		{"NAMESPACE_GROWTH", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XML11Configuration, NAMESPACE_GROWTH)},
+		{"TOLERATE_DUPLICATES", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XML11Configuration, TOLERATE_DUPLICATES)},
+		{"USE_GRAMMAR_POOL_ONLY", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XML11Configuration, USE_GRAMMAR_POOL_ONLY)},
+		{"VALIDATION", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XML11Configuration, VALIDATION)},
+		{"NAMESPACES", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XML11Configuration, NAMESPACES)},
+		{"EXTERNAL_GENERAL_ENTITIES", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XML11Configuration, EXTERNAL_GENERAL_ENTITIES)},
+		{"EXTERNAL_PARAMETER_ENTITIES", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XML11Configuration, EXTERNAL_PARAMETER_ENTITIES)},
+		{"IGNORE_XSI_TYPE", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XML11Configuration, IGNORE_XSI_TYPE)},
+		{"ID_IDREF_CHECKING", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XML11Configuration, ID_IDREF_CHECKING)},
+		{"UNPARSED_ENTITY_CHECKING", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XML11Configuration, UNPARSED_ENTITY_CHECKING)},
+		{"IDENTITY_CONSTRAINT_CHECKING", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XML11Configuration, IDENTITY_CONSTRAINT_CHECKING)},
+		{"XML_STRING", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XML11Configuration, XML_STRING)},
+		{"SYMBOL_TABLE", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XML11Configuration, SYMBOL_TABLE)},
+		{"ERROR_HANDLER", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XML11Configuration, ERROR_HANDLER)},
+		{"ENTITY_RESOLVER", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XML11Configuration, ENTITY_RESOLVER)},
+		{"SCHEMA_VALIDATOR", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XML11Configuration, SCHEMA_VALIDATOR)},
+		{"SCHEMA_LOCATION", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XML11Configuration, SCHEMA_LOCATION)},
+		{"SCHEMA_NONS_LOCATION", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XML11Configuration, SCHEMA_NONS_LOCATION)},
+		{"ERROR_REPORTER", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XML11Configuration, ERROR_REPORTER)},
+		{"ENTITY_MANAGER", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XML11Configuration, ENTITY_MANAGER)},
+		{"DOCUMENT_SCANNER", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XML11Configuration, DOCUMENT_SCANNER)},
+		{"DTD_SCANNER", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XML11Configuration, DTD_SCANNER)},
+		{"XMLGRAMMAR_POOL", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XML11Configuration, XMLGRAMMAR_POOL)},
+		{"DTD_PROCESSOR", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XML11Configuration, DTD_PROCESSOR)},
+		{"DTD_VALIDATOR", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XML11Configuration, DTD_VALIDATOR)},
+		{"NAMESPACE_BINDER", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XML11Configuration, NAMESPACE_BINDER)},
+		{"DATATYPE_VALIDATOR_FACTORY", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XML11Configuration, DATATYPE_VALIDATOR_FACTORY)},
+		{"VALIDATION_MANAGER", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XML11Configuration, VALIDATION_MANAGER)},
+		{"JAXP_SCHEMA_LANGUAGE", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XML11Configuration, JAXP_SCHEMA_LANGUAGE)},
+		{"JAXP_SCHEMA_SOURCE", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XML11Configuration, JAXP_SCHEMA_SOURCE)},
+		{"ROOT_TYPE_DEF", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XML11Configuration, ROOT_TYPE_DEF)},
+		{"ROOT_ELEMENT_DECL", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XML11Configuration, ROOT_ELEMENT_DECL)},
+		{"LOCALE", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XML11Configuration, LOCALE)},
+		{"SCHEMA_DV_FACTORY", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XML11Configuration, SCHEMA_DV_FACTORY)},
+		{"XML_SECURITY_PROPERTY_MANAGER", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XML11Configuration, XML_SECURITY_PROPERTY_MANAGER)},
+		{"SECURITY_MANAGER", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XML11Configuration, SECURITY_MANAGER)},
+		{"PRINT_EXCEPTION_STACK_TRACE", "Z", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(XML11Configuration, PRINT_EXCEPTION_STACK_TRACE)},
+		{"fSymbolTable", "Lcom/sun/org/apache/xerces/internal/util/SymbolTable;", nullptr, $PROTECTED, $field(XML11Configuration, fSymbolTable)},
+		{"fInputSource", "Lcom/sun/org/apache/xerces/internal/xni/parser/XMLInputSource;", nullptr, $PROTECTED, $field(XML11Configuration, fInputSource)},
+		{"fValidationManager", "Lcom/sun/org/apache/xerces/internal/impl/validation/ValidationManager;", nullptr, $PROTECTED, $field(XML11Configuration, fValidationManager)},
+		{"fVersionDetector", "Lcom/sun/org/apache/xerces/internal/impl/XMLVersionDetector;", nullptr, $PROTECTED, $field(XML11Configuration, fVersionDetector)},
+		{"fLocator", "Lcom/sun/org/apache/xerces/internal/xni/XMLLocator;", nullptr, $PROTECTED, $field(XML11Configuration, fLocator)},
+		{"fLocale", "Ljava/util/Locale;", nullptr, $PROTECTED, $field(XML11Configuration, fLocale)},
+		{"fComponents", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/org/apache/xerces/internal/xni/parser/XMLComponent;>;", $PROTECTED, $field(XML11Configuration, fComponents)},
+		{"fXML11Components", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/org/apache/xerces/internal/xni/parser/XMLComponent;>;", $PROTECTED, $field(XML11Configuration, fXML11Components)},
+		{"fCommonComponents", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/org/apache/xerces/internal/xni/parser/XMLComponent;>;", $PROTECTED, $field(XML11Configuration, fCommonComponents)},
+		{"fDocumentHandler", "Lcom/sun/org/apache/xerces/internal/xni/XMLDocumentHandler;", nullptr, $PROTECTED, $field(XML11Configuration, fDocumentHandler)},
+		{"fDTDHandler", "Lcom/sun/org/apache/xerces/internal/xni/XMLDTDHandler;", nullptr, $PROTECTED, $field(XML11Configuration, fDTDHandler)},
+		{"fDTDContentModelHandler", "Lcom/sun/org/apache/xerces/internal/xni/XMLDTDContentModelHandler;", nullptr, $PROTECTED, $field(XML11Configuration, fDTDContentModelHandler)},
+		{"fLastComponent", "Lcom/sun/org/apache/xerces/internal/xni/parser/XMLDocumentSource;", nullptr, $PROTECTED, $field(XML11Configuration, fLastComponent)},
+		{"fParseInProgress", "Z", nullptr, $PROTECTED, $field(XML11Configuration, fParseInProgress)},
+		{"fConfigUpdated", "Z", nullptr, $PROTECTED, $field(XML11Configuration, fConfigUpdated)},
+		{"fDatatypeValidatorFactory", "Lcom/sun/org/apache/xerces/internal/impl/dv/DTDDVFactory;", nullptr, $PROTECTED, $field(XML11Configuration, fDatatypeValidatorFactory)},
+		{"fNamespaceScanner", "Lcom/sun/org/apache/xerces/internal/impl/XMLNSDocumentScannerImpl;", nullptr, $PROTECTED, $field(XML11Configuration, fNamespaceScanner)},
+		{"fNonNSScanner", "Lcom/sun/org/apache/xerces/internal/impl/XMLDocumentScannerImpl;", nullptr, $PROTECTED, $field(XML11Configuration, fNonNSScanner)},
+		{"fDTDValidator", "Lcom/sun/org/apache/xerces/internal/impl/dtd/XMLDTDValidator;", nullptr, $PROTECTED, $field(XML11Configuration, fDTDValidator)},
+		{"fNonNSDTDValidator", "Lcom/sun/org/apache/xerces/internal/impl/dtd/XMLDTDValidator;", nullptr, $PROTECTED, $field(XML11Configuration, fNonNSDTDValidator)},
+		{"fDTDScanner", "Lcom/sun/org/apache/xerces/internal/xni/parser/XMLDTDScanner;", nullptr, $PROTECTED, $field(XML11Configuration, fDTDScanner)},
+		{"fDTDProcessor", "Lcom/sun/org/apache/xerces/internal/impl/dtd/XMLDTDProcessor;", nullptr, $PROTECTED, $field(XML11Configuration, fDTDProcessor)},
+		{"fXML11DatatypeFactory", "Lcom/sun/org/apache/xerces/internal/impl/dv/DTDDVFactory;", nullptr, $PROTECTED, $field(XML11Configuration, fXML11DatatypeFactory)},
+		{"fXML11NSDocScanner", "Lcom/sun/org/apache/xerces/internal/impl/XML11NSDocumentScannerImpl;", nullptr, $PROTECTED, $field(XML11Configuration, fXML11NSDocScanner)},
+		{"fXML11DocScanner", "Lcom/sun/org/apache/xerces/internal/impl/XML11DocumentScannerImpl;", nullptr, $PROTECTED, $field(XML11Configuration, fXML11DocScanner)},
+		{"fXML11NSDTDValidator", "Lcom/sun/org/apache/xerces/internal/impl/dtd/XML11NSDTDValidator;", nullptr, $PROTECTED, $field(XML11Configuration, fXML11NSDTDValidator)},
+		{"fXML11DTDValidator", "Lcom/sun/org/apache/xerces/internal/impl/dtd/XML11DTDValidator;", nullptr, $PROTECTED, $field(XML11Configuration, fXML11DTDValidator)},
+		{"fXML11DTDScanner", "Lcom/sun/org/apache/xerces/internal/impl/XML11DTDScannerImpl;", nullptr, $PROTECTED, $field(XML11Configuration, fXML11DTDScanner)},
+		{"fXML11DTDProcessor", "Lcom/sun/org/apache/xerces/internal/impl/dtd/XML11DTDProcessor;", nullptr, $PROTECTED, $field(XML11Configuration, fXML11DTDProcessor)},
+		{"fGrammarPool", "Lcom/sun/org/apache/xerces/internal/xni/grammars/XMLGrammarPool;", nullptr, $PROTECTED, $field(XML11Configuration, fGrammarPool)},
+		{"fErrorReporter", "Lcom/sun/org/apache/xerces/internal/impl/XMLErrorReporter;", nullptr, $PROTECTED, $field(XML11Configuration, fErrorReporter)},
+		{"fEntityManager", "Lcom/sun/org/apache/xerces/internal/impl/XMLEntityManager;", nullptr, $PROTECTED, $field(XML11Configuration, fEntityManager)},
+		{"fSchemaValidator", "Lcom/sun/org/apache/xerces/internal/impl/xs/XMLSchemaValidator;", nullptr, $PROTECTED, $field(XML11Configuration, fSchemaValidator)},
+		{"fCurrentScanner", "Lcom/sun/org/apache/xerces/internal/xni/parser/XMLDocumentScanner;", nullptr, $PROTECTED, $field(XML11Configuration, fCurrentScanner)},
+		{"fCurrentDVFactory", "Lcom/sun/org/apache/xerces/internal/impl/dv/DTDDVFactory;", nullptr, $PROTECTED, $field(XML11Configuration, fCurrentDVFactory)},
+		{"fCurrentDTDScanner", "Lcom/sun/org/apache/xerces/internal/xni/parser/XMLDTDScanner;", nullptr, $PROTECTED, $field(XML11Configuration, fCurrentDTDScanner)},
+		{"f11Initialized", "Z", nullptr, $PRIVATE, $field(XML11Configuration, f11Initialized)},
+		{"fSymbolTableProvided", "Z", nullptr, $PRIVATE, $field(XML11Configuration, fSymbolTableProvided)},
+		{"fSymbolTableJustInitialized", "Z", nullptr, $PRIVATE, $field(XML11Configuration, fSymbolTableJustInitialized)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*addRecognizedFeatures", "([Ljava/lang/String;)V", nullptr, $PUBLIC},
+		{"*addRecognizedProperties", "([Ljava/lang/String;)V", nullptr, $PUBLIC},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*getFeature", "(Ljava/lang/String;)Z", nullptr, $PUBLIC},
+		{"*getFeature", "(Ljava/lang/String;Z)Z", nullptr, $PUBLIC | $FINAL},
+		{"*getProperty", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*getProperty", "(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $FINAL},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(XML11Configuration, init$, void)},
+		{"<init>", "(Lcom/sun/org/apache/xerces/internal/util/SymbolTable;)V", nullptr, $PUBLIC, $method(XML11Configuration, init$, void, $SymbolTable*)},
+		{"<init>", "(Lcom/sun/org/apache/xerces/internal/util/SymbolTable;Lcom/sun/org/apache/xerces/internal/xni/grammars/XMLGrammarPool;)V", nullptr, $PUBLIC, $method(XML11Configuration, init$, void, $SymbolTable*, $XMLGrammarPool*)},
+		{"<init>", "(Lcom/sun/org/apache/xerces/internal/util/SymbolTable;Lcom/sun/org/apache/xerces/internal/xni/grammars/XMLGrammarPool;Lcom/sun/org/apache/xerces/internal/xni/parser/XMLComponentManager;)V", nullptr, $PUBLIC, $method(XML11Configuration, init$, void, $SymbolTable*, $XMLGrammarPool*, $XMLComponentManager*)},
+		{"addCommonComponent", "(Lcom/sun/org/apache/xerces/internal/xni/parser/XMLComponent;)V", nullptr, $PROTECTED, $virtualMethod(XML11Configuration, addCommonComponent, void, $XMLComponent*)},
+		{"addComponent", "(Lcom/sun/org/apache/xerces/internal/xni/parser/XMLComponent;)V", nullptr, $PROTECTED, $virtualMethod(XML11Configuration, addComponent, void, $XMLComponent*)},
+		{"addRecognizedParamsAndSetDefaults", "(Lcom/sun/org/apache/xerces/internal/xni/parser/XMLComponent;)V", nullptr, $PROTECTED, $virtualMethod(XML11Configuration, addRecognizedParamsAndSetDefaults, void, $XMLComponent*)},
+		{"addXML11Component", "(Lcom/sun/org/apache/xerces/internal/xni/parser/XMLComponent;)V", nullptr, $PROTECTED, $virtualMethod(XML11Configuration, addXML11Component, void, $XMLComponent*)},
+		{"checkFeature", "(Ljava/lang/String;)Lcom/sun/org/apache/xerces/internal/util/FeatureState;", nullptr, $PROTECTED, $virtualMethod(XML11Configuration, checkFeature, $FeatureState*, $String*), "com.sun.org.apache.xerces.internal.xni.parser.XMLConfigurationException"},
+		{"checkProperty", "(Ljava/lang/String;)Lcom/sun/org/apache/xerces/internal/util/PropertyState;", nullptr, $PROTECTED, $virtualMethod(XML11Configuration, checkProperty, $PropertyState*, $String*), "com.sun.org.apache.xerces.internal.xni.parser.XMLConfigurationException"},
+		{"cleanup", "()V", nullptr, $PUBLIC, $virtualMethod(XML11Configuration, cleanup, void)},
+		{"configurePipeline", "()V", nullptr, $PROTECTED, $virtualMethod(XML11Configuration, configurePipeline, void)},
+		{"configureXML11Pipeline", "()V", nullptr, $PROTECTED, $virtualMethod(XML11Configuration, configureXML11Pipeline, void)},
+		{"getDTDContentModelHandler", "()Lcom/sun/org/apache/xerces/internal/xni/XMLDTDContentModelHandler;", nullptr, $PUBLIC, $virtualMethod(XML11Configuration, getDTDContentModelHandler, $XMLDTDContentModelHandler*)},
+		{"getDTDHandler", "()Lcom/sun/org/apache/xerces/internal/xni/XMLDTDHandler;", nullptr, $PUBLIC, $virtualMethod(XML11Configuration, getDTDHandler, $XMLDTDHandler*)},
+		{"getDocumentHandler", "()Lcom/sun/org/apache/xerces/internal/xni/XMLDocumentHandler;", nullptr, $PUBLIC, $virtualMethod(XML11Configuration, getDocumentHandler, $XMLDocumentHandler*)},
+		{"getEntityResolver", "()Lcom/sun/org/apache/xerces/internal/xni/parser/XMLEntityResolver;", nullptr, $PUBLIC, $virtualMethod(XML11Configuration, getEntityResolver, $XMLEntityResolver*)},
+		{"getErrorHandler", "()Lcom/sun/org/apache/xerces/internal/xni/parser/XMLErrorHandler;", nullptr, $PUBLIC, $virtualMethod(XML11Configuration, getErrorHandler, $XMLErrorHandler*)},
+		{"getFeatureState", "(Ljava/lang/String;)Lcom/sun/org/apache/xerces/internal/util/FeatureState;", nullptr, $PUBLIC, $virtualMethod(XML11Configuration, getFeatureState, $FeatureState*, $String*), "com.sun.org.apache.xerces.internal.xni.parser.XMLConfigurationException"},
+		{"getFeatureState0", "(Ljava/lang/String;)Lcom/sun/org/apache/xerces/internal/util/FeatureState;", nullptr, 0, $virtualMethod(XML11Configuration, getFeatureState0, $FeatureState*, $String*), "com.sun.org.apache.xerces.internal.xni.parser.XMLConfigurationException"},
+		{"getLocale", "()Ljava/util/Locale;", nullptr, $PUBLIC, $virtualMethod(XML11Configuration, getLocale, $Locale*)},
+		{"getPropertyState", "(Ljava/lang/String;)Lcom/sun/org/apache/xerces/internal/util/PropertyState;", nullptr, $PUBLIC, $virtualMethod(XML11Configuration, getPropertyState, $PropertyState*, $String*), "com.sun.org.apache.xerces.internal.xni.parser.XMLConfigurationException"},
+		{"initXML11Components", "()V", nullptr, $PRIVATE, $method(XML11Configuration, initXML11Components, void)},
+		{"parse", "(Lcom/sun/org/apache/xerces/internal/xni/parser/XMLInputSource;)V", nullptr, $PUBLIC, $virtualMethod(XML11Configuration, parse, void, $XMLInputSource*), "com.sun.org.apache.xerces.internal.xni.XNIException,java.io.IOException"},
+		{"parse", "(Z)Z", nullptr, $PUBLIC, $virtualMethod(XML11Configuration, parse, bool, bool), "com.sun.org.apache.xerces.internal.xni.XNIException,java.io.IOException"},
+		{"reset", "()V", nullptr, $PROTECTED, $virtualMethod(XML11Configuration, reset, void), "com.sun.org.apache.xerces.internal.xni.XNIException"},
+		{"resetCommon", "()V", nullptr, $PROTECTED, $virtualMethod(XML11Configuration, resetCommon, void), "com.sun.org.apache.xerces.internal.xni.XNIException"},
+		{"resetSymbolTable", "()V", nullptr, $PRIVATE, $method(XML11Configuration, resetSymbolTable, void)},
+		{"resetXML11", "()V", nullptr, $PROTECTED, $virtualMethod(XML11Configuration, resetXML11, void), "com.sun.org.apache.xerces.internal.xni.XNIException"},
+		{"setDTDContentModelHandler", "(Lcom/sun/org/apache/xerces/internal/xni/XMLDTDContentModelHandler;)V", nullptr, $PUBLIC, $virtualMethod(XML11Configuration, setDTDContentModelHandler, void, $XMLDTDContentModelHandler*)},
+		{"setDTDHandler", "(Lcom/sun/org/apache/xerces/internal/xni/XMLDTDHandler;)V", nullptr, $PUBLIC, $virtualMethod(XML11Configuration, setDTDHandler, void, $XMLDTDHandler*)},
+		{"setDocumentHandler", "(Lcom/sun/org/apache/xerces/internal/xni/XMLDocumentHandler;)V", nullptr, $PUBLIC, $virtualMethod(XML11Configuration, setDocumentHandler, void, $XMLDocumentHandler*)},
+		{"setEntityResolver", "(Lcom/sun/org/apache/xerces/internal/xni/parser/XMLEntityResolver;)V", nullptr, $PUBLIC, $virtualMethod(XML11Configuration, setEntityResolver, void, $XMLEntityResolver*)},
+		{"setErrorHandler", "(Lcom/sun/org/apache/xerces/internal/xni/parser/XMLErrorHandler;)V", nullptr, $PUBLIC, $virtualMethod(XML11Configuration, setErrorHandler, void, $XMLErrorHandler*)},
+		{"setFeature", "(Ljava/lang/String;Z)V", nullptr, $PUBLIC, $virtualMethod(XML11Configuration, setFeature, void, $String*, bool), "com.sun.org.apache.xerces.internal.xni.parser.XMLConfigurationException"},
+		{"setInputSource", "(Lcom/sun/org/apache/xerces/internal/xni/parser/XMLInputSource;)V", nullptr, $PUBLIC, $virtualMethod(XML11Configuration, setInputSource, void, $XMLInputSource*), "com.sun.org.apache.xerces.internal.xni.parser.XMLConfigurationException,java.io.IOException"},
+		{"setLocale", "(Ljava/util/Locale;)V", nullptr, $PUBLIC, $virtualMethod(XML11Configuration, setLocale, void, $Locale*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
+		{"setProperty", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(XML11Configuration, setProperty, void, $String*, Object$*), "com.sun.org.apache.xerces.internal.xni.parser.XMLConfigurationException"},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.parsers.XML11Configuration",
+		"com.sun.org.apache.xerces.internal.util.ParserConfigurationSettings",
+		"com.sun.org.apache.xerces.internal.xni.parser.XMLPullParserConfiguration,com.sun.org.apache.xerces.internal.parsers.XML11Configurable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XML11Configuration, name, initialize, &classInfo$$, XML11Configuration::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(XML11Configuration));
+	});
 	return class$;
 }
 

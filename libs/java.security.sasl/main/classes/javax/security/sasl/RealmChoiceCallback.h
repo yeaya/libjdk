@@ -15,7 +15,7 @@ class $export RealmChoiceCallback : public ::javax::security::auth::callback::Ch
 public:
 	RealmChoiceCallback();
 	void init$($String* prompt, $StringArray* choices, int32_t defaultChoice, bool multiple);
-	static const int64_t serialVersionUID = (int64_t)0x88D0CAF1F52C5D8C;
+	static const int64_t serialVersionUID = (int64_t)0x88d0caf1f52c5d8c;
 };
 
 		} // sasl

@@ -1,5 +1,4 @@
 #include <AliasingTest$1.h>
-
 #include <AliasingTest.h>
 #include <java/awt/Graphics.h>
 #include <java/awt/Graphics2D.h>
@@ -21,43 +20,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $JEditorPane = ::javax::swing::JEditorPane;
 
-$MethodInfo _AliasingTest$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(AliasingTest$1, init$, void)},
-	{"paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(AliasingTest$1, paint, void, $Graphics*)},
-	{}
-};
-
-$EnclosingMethodInfo _AliasingTest$1_EnclosingMethodInfo_ = {
-	"AliasingTest",
-	"createHtmlViewer",
-	"(Z)Ljava/awt/Component;"
-};
-
-$InnerClassInfo _AliasingTest$1_InnerClassesInfo_[] = {
-	{"AliasingTest$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _AliasingTest$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"AliasingTest$1",
-	"javax.swing.JEditorPane",
-	nullptr,
-	nullptr,
-	_AliasingTest$1_MethodInfo_,
-	nullptr,
-	&_AliasingTest$1_EnclosingMethodInfo_,
-	_AliasingTest$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"AliasingTest"
-};
-
-$Object* allocate$AliasingTest$1($Class* clazz) {
-	return $of($alloc(AliasingTest$1));
-}
-
 void AliasingTest$1::init$() {
 	$JEditorPane::init$();
 }
@@ -74,7 +36,38 @@ AliasingTest$1::AliasingTest$1() {
 }
 
 $Class* AliasingTest$1::load$($String* name, bool initialize) {
-	$loadClass(AliasingTest$1, name, initialize, &_AliasingTest$1_ClassInfo_, allocate$AliasingTest$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(AliasingTest$1, init$, void)},
+		{"paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(AliasingTest$1, paint, void, $Graphics*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"AliasingTest",
+		"createHtmlViewer",
+		"(Z)Ljava/awt/Component;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"AliasingTest$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"AliasingTest$1",
+		"javax.swing.JEditorPane",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"AliasingTest"
+	};
+	$loadClass(AliasingTest$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AliasingTest$1));
+	});
 	return class$;
 }
 

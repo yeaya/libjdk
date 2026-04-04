@@ -33,6 +33,7 @@ class XAwtState : public ::java::lang::Object {
 	$class(XAwtState, 0, ::java::lang::Object)
 public:
 	XAwtState();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::awt::Component* getComponentMouseEntered();
 	static ::sun::awt::X11::XBaseWindow* getGrabWindow();

@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/AbstractSubscription.h>
-
 #include <jdk/internal/net/http/common/Demand.h>
 #include <jcpp.h>
 
@@ -14,38 +13,6 @@ namespace jdk {
 		namespace net {
 			namespace http {
 
-$FieldInfo _AbstractSubscription_FieldInfo_[] = {
-	{"demand", "Ljdk/internal/net/http/common/Demand;", nullptr, $PRIVATE | $FINAL, $field(AbstractSubscription, demand$)},
-	{}
-};
-
-$MethodInfo _AbstractSubscription_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(AbstractSubscription, init$, void)},
-	{"demand", "()Ljdk/internal/net/http/common/Demand;", nullptr, $PROTECTED, $virtualMethod(AbstractSubscription, demand, $Demand*)},
-	{}
-};
-
-$InnerClassInfo _AbstractSubscription_InnerClassesInfo_[] = {
-	{"java.util.concurrent.Flow$Subscription", "java.util.concurrent.Flow", "Subscription", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _AbstractSubscription_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"jdk.internal.net.http.AbstractSubscription",
-	"java.lang.Object",
-	"java.util.concurrent.Flow$Subscription",
-	_AbstractSubscription_FieldInfo_,
-	_AbstractSubscription_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AbstractSubscription_InnerClassesInfo_
-};
-
-$Object* allocate$AbstractSubscription($Class* clazz) {
-	return $of($alloc(AbstractSubscription));
-}
-
 void AbstractSubscription::init$() {
 	$set(this, demand$, $new($Demand));
 }
@@ -58,7 +25,33 @@ AbstractSubscription::AbstractSubscription() {
 }
 
 $Class* AbstractSubscription::load$($String* name, bool initialize) {
-	$loadClass(AbstractSubscription, name, initialize, &_AbstractSubscription_ClassInfo_, allocate$AbstractSubscription);
+	$FieldInfo fieldInfos$$[] = {
+		{"demand", "Ljdk/internal/net/http/common/Demand;", nullptr, $PRIVATE | $FINAL, $field(AbstractSubscription, demand$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(AbstractSubscription, init$, void)},
+		{"demand", "()Ljdk/internal/net/http/common/Demand;", nullptr, $PROTECTED, $virtualMethod(AbstractSubscription, demand, $Demand*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.concurrent.Flow$Subscription", "java.util.concurrent.Flow", "Subscription", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"jdk.internal.net.http.AbstractSubscription",
+		"java.lang.Object",
+		"java.util.concurrent.Flow$Subscription",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$
+	};
+	$loadClass(AbstractSubscription, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AbstractSubscription);
+	});
 	return class$;
 }
 

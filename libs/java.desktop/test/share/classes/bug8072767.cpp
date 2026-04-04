@@ -1,5 +1,4 @@
 #include <bug8072767.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <java/awt/Point.h>
@@ -20,7 +19,6 @@
 #include <javax/swing/JFrame.h>
 #include <javax/swing/JTable.h>
 #include <javax/swing/SwingUtilities.h>
-#include <javax/swing/table/TableCellEditor.h>
 #include <javax/swing/table/TableColumn.h>
 #include <javax/swing/table/TableColumnModel.h>
 #include <jcpp.h>
@@ -34,7 +32,6 @@
 using $ObjectArray2 = $Array<::java::lang::Object, 2>;
 using $StringArray2 = $Array<::java::lang::String, 2>;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Point = ::java::awt::Point;
 using $Rectangle = ::java::awt::Rectangle;
 using $Robot = ::java::awt::Robot;
@@ -52,9 +49,6 @@ using $JComboBox = ::javax::swing::JComboBox;
 using $JFrame = ::javax::swing::JFrame;
 using $JTable = ::javax::swing::JTable;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
-using $TableCellEditor = ::javax::swing::table::TableCellEditor;
-using $TableColumn = ::javax::swing::table::TableColumn;
-using $TableColumnModel = ::javax::swing::table::TableColumnModel;
 
 class bug8072767$$Lambda$createAndShowGUI : public $Runnable {
 	$class(bug8072767$$Lambda$createAndShowGUI, $NO_CLASS_INIT, $Runnable)
@@ -64,27 +58,24 @@ public:
 	virtual void run() override {
 		bug8072767::createAndShowGUI();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<bug8072767$$Lambda$createAndShowGUI>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo bug8072767$$Lambda$createAndShowGUI::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(bug8072767$$Lambda$createAndShowGUI, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug8072767$$Lambda$createAndShowGUI, run, void)},
-	{}
-};
-$ClassInfo bug8072767$$Lambda$createAndShowGUI::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"bug8072767$$Lambda$createAndShowGUI",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* bug8072767$$Lambda$createAndShowGUI::load$($String* name, bool initialize) {
-	$loadClass(bug8072767$$Lambda$createAndShowGUI, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(bug8072767$$Lambda$createAndShowGUI, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug8072767$$Lambda$createAndShowGUI, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"bug8072767$$Lambda$createAndShowGUI",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(bug8072767$$Lambda$createAndShowGUI, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(bug8072767$$Lambda$createAndShowGUI);
+	});
 	return class$;
 }
 $Class* bug8072767$$Lambda$createAndShowGUI::class$ = nullptr;
@@ -97,27 +88,24 @@ public:
 	virtual void run() override {
 		bug8072767::lambda$main$0();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<bug8072767$$Lambda$lambda$main$0$1>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo bug8072767$$Lambda$lambda$main$0$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(bug8072767$$Lambda$lambda$main$0$1, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug8072767$$Lambda$lambda$main$0$1, run, void)},
-	{}
-};
-$ClassInfo bug8072767$$Lambda$lambda$main$0$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"bug8072767$$Lambda$lambda$main$0$1",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* bug8072767$$Lambda$lambda$main$0$1::load$($String* name, bool initialize) {
-	$loadClass(bug8072767$$Lambda$lambda$main$0$1, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(bug8072767$$Lambda$lambda$main$0$1, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug8072767$$Lambda$lambda$main$0$1, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"bug8072767$$Lambda$lambda$main$0$1",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(bug8072767$$Lambda$lambda$main$0$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(bug8072767$$Lambda$lambda$main$0$1);
+	});
 	return class$;
 }
 $Class* bug8072767$$Lambda$lambda$main$0$1::class$ = nullptr;
@@ -130,27 +118,24 @@ public:
 	virtual void run() override {
 		bug8072767::lambda$main$1();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<bug8072767$$Lambda$lambda$main$1$2>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo bug8072767$$Lambda$lambda$main$1$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(bug8072767$$Lambda$lambda$main$1$2, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug8072767$$Lambda$lambda$main$1$2, run, void)},
-	{}
-};
-$ClassInfo bug8072767$$Lambda$lambda$main$1$2::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"bug8072767$$Lambda$lambda$main$1$2",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* bug8072767$$Lambda$lambda$main$1$2::load$($String* name, bool initialize) {
-	$loadClass(bug8072767$$Lambda$lambda$main$1$2, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(bug8072767$$Lambda$lambda$main$1$2, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug8072767$$Lambda$lambda$main$1$2, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"bug8072767$$Lambda$lambda$main$1$2",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(bug8072767$$Lambda$lambda$main$1$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(bug8072767$$Lambda$lambda$main$1$2);
+	});
 	return class$;
 }
 $Class* bug8072767$$Lambda$lambda$main$1$2::class$ = nullptr;
@@ -163,63 +148,27 @@ public:
 	virtual void run() override {
 		bug8072767::lambda$main$2();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<bug8072767$$Lambda$lambda$main$2$3>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo bug8072767$$Lambda$lambda$main$2$3::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(bug8072767$$Lambda$lambda$main$2$3, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug8072767$$Lambda$lambda$main$2$3, run, void)},
-	{}
-};
-$ClassInfo bug8072767$$Lambda$lambda$main$2$3::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"bug8072767$$Lambda$lambda$main$2$3",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* bug8072767$$Lambda$lambda$main$2$3::load$($String* name, bool initialize) {
-	$loadClass(bug8072767$$Lambda$lambda$main$2$3, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(bug8072767$$Lambda$lambda$main$2$3, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug8072767$$Lambda$lambda$main$2$3, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"bug8072767$$Lambda$lambda$main$2$3",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(bug8072767$$Lambda$lambda$main$2$3, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(bug8072767$$Lambda$lambda$main$2$3);
+	});
 	return class$;
 }
 $Class* bug8072767$$Lambda$lambda$main$2$3::class$ = nullptr;
-
-$FieldInfo _bug8072767_FieldInfo_[] = {
-	{"TEST1", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(bug8072767, TEST1)},
-	{"TEST2", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(bug8072767, TEST2)},
-	{"frame", "Ljavax/swing/JFrame;", nullptr, $PRIVATE | $STATIC, $staticField(bug8072767, frame)},
-	{"table", "Ljavax/swing/JTable;", nullptr, $PRIVATE | $STATIC, $staticField(bug8072767, table)},
-	{"point", "Ljava/awt/Point;", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(bug8072767, point)},
-	{"testPass", "Z", nullptr, $PRIVATE | $STATIC, $staticField(bug8072767, testPass)},
-	{}
-};
-
-$MethodInfo _bug8072767_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(bug8072767, init$, void)},
-	{"createAndShowGUI", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(bug8072767, createAndShowGUI, void)},
-	{"lambda$main$0", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(bug8072767, lambda$main$0, void)},
-	{"lambda$main$1", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(bug8072767, lambda$main$1, void)},
-	{"lambda$main$2", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(bug8072767, lambda$main$2, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(bug8072767, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _bug8072767_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"bug8072767",
-	"java.lang.Object",
-	nullptr,
-	_bug8072767_FieldInfo_,
-	_bug8072767_MethodInfo_
-};
-
-$Object* allocate$bug8072767($Class* clazz) {
-	return $of($alloc(bug8072767));
-}
 
 $String* bug8072767::TEST1 = nullptr;
 $String* bug8072767::TEST2 = nullptr;
@@ -233,13 +182,13 @@ void bug8072767::init$() {
 
 void bug8072767::main($StringArray* args) {
 	$init(bug8072767);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Robot, robot, $new($Robot));
 	robot->setAutoDelay(100);
-	$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(bug8072767$$Lambda$createAndShowGUI)));
+	$SwingUtilities::invokeAndWait($$new(bug8072767$$Lambda$createAndShowGUI));
 	robot->waitForIdle();
 	robot->delay(1000);
-	$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(bug8072767$$Lambda$lambda$main$0$1)));
+	$SwingUtilities::invokeAndWait($$new(bug8072767$$Lambda$lambda$main$0$1));
 	robot->mouseMove($nc(bug8072767::point)->x, $nc(bug8072767::point)->y);
 	robot->mousePress($InputEvent::BUTTON1_DOWN_MASK);
 	robot->mouseRelease($InputEvent::BUTTON1_DOWN_MASK);
@@ -247,12 +196,12 @@ void bug8072767::main($StringArray* args) {
 	robot->keyPress($KeyEvent::VK_1);
 	robot->keyRelease($KeyEvent::VK_1);
 	robot->waitForIdle();
-	$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(bug8072767$$Lambda$lambda$main$1$2)));
+	$SwingUtilities::invokeAndWait($$new(bug8072767$$Lambda$lambda$main$1$2));
 	robot->mouseMove($nc(bug8072767::point)->x, $nc(bug8072767::point)->y);
 	robot->mousePress($InputEvent::BUTTON1_DOWN_MASK);
 	robot->mouseRelease($InputEvent::BUTTON1_DOWN_MASK);
 	robot->waitForIdle();
-	$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(bug8072767$$Lambda$lambda$main$2$3)));
+	$SwingUtilities::invokeAndWait($$new(bug8072767$$Lambda$lambda$main$2$3));
 	if (!bug8072767::testPass) {
 		$throwNew($RuntimeException, "Table cell is not edited!"_s);
 	}
@@ -260,22 +209,22 @@ void bug8072767::main($StringArray* args) {
 
 void bug8072767::createAndShowGUI() {
 	$init(bug8072767);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$assignStatic(bug8072767::frame, $new($JFrame));
-	$nc(bug8072767::frame)->setDefaultCloseOperation($JFrame::EXIT_ON_CLOSE);
+	bug8072767::frame->setDefaultCloseOperation($JFrame::EXIT_ON_CLOSE);
 	$nc(bug8072767::frame)->setSize(200, 200);
-	$assignStatic(bug8072767::table, $new($JTable, $fcast($ObjectArray2, $$new($StringArray2, {$$new($StringArray, {bug8072767::TEST1})})), $$new($StringArray, {"Header"_s})));
+	$assignStatic(bug8072767::table, $new($JTable, $$cast($ObjectArray2, $new($StringArray2, {$$new($StringArray, {bug8072767::TEST1})})), $$new($StringArray, {"Header"_s})));
 	$var($JComboBox, comboBox, $new($JComboBox));
 	comboBox->setEditable(true);
-	$nc($($nc($($nc(bug8072767::table)->getColumnModel()))->getColumn(0)))->setCellEditor($$new($DefaultCellEditor, comboBox));
-	$nc($($nc(bug8072767::frame)->getContentPane()))->add(static_cast<$Component*>(bug8072767::table));
+	$$nc($$nc($nc(bug8072767::table)->getColumnModel())->getColumn(0))->setCellEditor($$new($DefaultCellEditor, comboBox));
+	$$nc($nc(bug8072767::frame)->getContentPane())->add(bug8072767::table);
 	$nc(bug8072767::frame)->setVisible(true);
 	$nc(bug8072767::frame)->setLocationRelativeTo(nullptr);
 }
 
 void bug8072767::lambda$main$2() {
 	$init(bug8072767);
-	bug8072767::testPass = $nc(bug8072767::TEST2)->equals($($nc(bug8072767::table)->getValueAt(0, 0)));
+	bug8072767::testPass = bug8072767::TEST2->equals($($nc(bug8072767::table)->getValueAt(0, 0)));
 	$nc(bug8072767::frame)->dispose();
 }
 
@@ -283,20 +232,20 @@ void bug8072767::lambda$main$1() {
 	$init(bug8072767);
 	$assignStatic(bug8072767::point, $nc(bug8072767::frame)->getLocationOnScreen());
 	int32_t var$0 = $nc(bug8072767::frame)->getWidth() / 2;
-	$nc(bug8072767::point)->translate(var$0, $nc(bug8072767::frame)->getHeight() / 2);
+	$nc(bug8072767::point)->translate(var$0, bug8072767::frame->getHeight() / 2);
 }
 
 void bug8072767::lambda$main$0() {
 	$init(bug8072767);
 	$assignStatic(bug8072767::point, $nc(bug8072767::table)->getLocationOnScreen());
 	$var($Rectangle, rect, $nc(bug8072767::table)->getCellRect(0, 0, true));
-	$nc(bug8072767::point)->translate($nc(rect)->width / 2, rect->height / 2);
+	$nc(bug8072767::point)->translate($nc(rect)->width / 2, $nc(rect)->height / 2);
 }
 
 bug8072767::bug8072767() {
 }
 
-void clinit$bug8072767($Class* class$) {
+void bug8072767::clinit$($Class* clazz) {
 	$assignStatic(bug8072767::TEST1, "Test"_s);
 	$init(bug8072767);
 	$assignStatic(bug8072767::TEST2, $str({bug8072767::TEST1, $$str(1)}));
@@ -304,20 +253,48 @@ void clinit$bug8072767($Class* class$) {
 
 $Class* bug8072767::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(bug8072767$$Lambda$createAndShowGUI::classInfo$.name)) {
+		if (name->equals("bug8072767$$Lambda$createAndShowGUI")) {
 			return bug8072767$$Lambda$createAndShowGUI::load$(name, initialize);
 		}
-		if (name->equals(bug8072767$$Lambda$lambda$main$0$1::classInfo$.name)) {
+		if (name->equals("bug8072767$$Lambda$lambda$main$0$1")) {
 			return bug8072767$$Lambda$lambda$main$0$1::load$(name, initialize);
 		}
-		if (name->equals(bug8072767$$Lambda$lambda$main$1$2::classInfo$.name)) {
+		if (name->equals("bug8072767$$Lambda$lambda$main$1$2")) {
 			return bug8072767$$Lambda$lambda$main$1$2::load$(name, initialize);
 		}
-		if (name->equals(bug8072767$$Lambda$lambda$main$2$3::classInfo$.name)) {
+		if (name->equals("bug8072767$$Lambda$lambda$main$2$3")) {
 			return bug8072767$$Lambda$lambda$main$2$3::load$(name, initialize);
 		}
 	}
-	$loadClass(bug8072767, name, initialize, &_bug8072767_ClassInfo_, clinit$bug8072767, allocate$bug8072767);
+	$FieldInfo fieldInfos$$[] = {
+		{"TEST1", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(bug8072767, TEST1)},
+		{"TEST2", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(bug8072767, TEST2)},
+		{"frame", "Ljavax/swing/JFrame;", nullptr, $PRIVATE | $STATIC, $staticField(bug8072767, frame)},
+		{"table", "Ljavax/swing/JTable;", nullptr, $PRIVATE | $STATIC, $staticField(bug8072767, table)},
+		{"point", "Ljava/awt/Point;", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(bug8072767, point)},
+		{"testPass", "Z", nullptr, $PRIVATE | $STATIC, $staticField(bug8072767, testPass)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(bug8072767, init$, void)},
+		{"createAndShowGUI", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(bug8072767, createAndShowGUI, void)},
+		{"lambda$main$0", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(bug8072767, lambda$main$0, void)},
+		{"lambda$main$1", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(bug8072767, lambda$main$1, void)},
+		{"lambda$main$2", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(bug8072767, lambda$main$2, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(bug8072767, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"bug8072767",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(bug8072767, name, initialize, &classInfo$$, bug8072767::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(bug8072767);
+	});
 	return class$;
 }
 

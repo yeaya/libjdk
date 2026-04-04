@@ -1,8 +1,6 @@
 #include <sun/java2d/Disposer.h>
-
 #include <java/io/Serializable.h>
 #include <java/lang/ClassLoader.h>
-#include <java/lang/Runnable.h>
 #include <java/lang/ThreadGroup.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
@@ -30,7 +28,6 @@
 #undef PHANTOM
 #undef WEAK
 
-using $PrintStream = ::java::io::PrintStream;
 using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $ClassLoader = ::java::lang::ClassLoader;
@@ -38,7 +35,6 @@ using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
 using $ThreadGroup = ::java::lang::ThreadGroup;
 using $Void = ::java::lang::Void;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
@@ -67,87 +63,29 @@ public:
 	void init$() {
 	}
 	virtual $Object* run() override {
-		 return $of(Disposer::lambda$static$0());
+		 return Disposer::lambda$static$0();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Disposer$$Lambda$lambda$static$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo Disposer$$Lambda$lambda$static$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Disposer$$Lambda$lambda$static$0, init$, void)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Disposer$$Lambda$lambda$static$0, run, $Object*)},
-	{}
-};
-$ClassInfo Disposer$$Lambda$lambda$static$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.java2d.Disposer$$Lambda$lambda$static$0",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	nullptr,
-	methodInfos
 };
 $Class* Disposer$$Lambda$lambda$static$0::load$($String* name, bool initialize) {
-	$loadClass(Disposer$$Lambda$lambda$static$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Disposer$$Lambda$lambda$static$0, init$, void)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Disposer$$Lambda$lambda$static$0, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.java2d.Disposer$$Lambda$lambda$static$0",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Disposer$$Lambda$lambda$static$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Disposer$$Lambda$lambda$static$0);
+	});
 	return class$;
 }
 $Class* Disposer$$Lambda$lambda$static$0::class$ = nullptr;
-
-$FieldInfo _Disposer_FieldInfo_[] = {
-	{"queue", "Ljava/lang/ref/ReferenceQueue;", "Ljava/lang/ref/ReferenceQueue<Ljava/lang/Object;>;", $PRIVATE | $STATIC | $FINAL, $staticField(Disposer, queue)},
-	{"records", "Ljava/util/Hashtable;", "Ljava/util/Hashtable<Ljava/lang/ref/Reference<Ljava/lang/Object;>;Lsun/java2d/DisposerRecord;>;", $PRIVATE | $STATIC | $FINAL, $staticField(Disposer, records)},
-	{"disposerInstance", "Lsun/java2d/Disposer;", nullptr, $PRIVATE | $STATIC, $staticField(Disposer, disposerInstance)},
-	{"WEAK", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Disposer, WEAK)},
-	{"PHANTOM", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Disposer, PHANTOM)},
-	{"refType", "I", nullptr, $PUBLIC | $STATIC, $staticField(Disposer, refType)},
-	{"deferredRecords", "Ljava/util/ArrayList;", "Ljava/util/ArrayList<Lsun/java2d/DisposerRecord;>;", $PRIVATE | $STATIC, $staticField(Disposer, deferredRecords)},
-	{"pollingQueue", "Z", nullptr, $PUBLIC | $STATIC | $VOLATILE, $staticField(Disposer, pollingQueue)},
-	{}
-};
-
-$MethodInfo _Disposer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Disposer, init$, void)},
-	{"add", "(Ljava/lang/Object;Lsun/java2d/DisposerRecord;)V", nullptr, $SYNCHRONIZED, $virtualMethod(Disposer, add, void, Object$*, $DisposerRecord*)},
-	{"addObjectRecord", "(Ljava/lang/Object;Lsun/java2d/DisposerRecord;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Disposer, addObjectRecord, void, Object$*, $DisposerRecord*)},
-	{"addRecord", "(Ljava/lang/Object;JJ)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Disposer, addRecord, void, Object$*, int64_t, int64_t)},
-	{"addRecord", "(Ljava/lang/Object;Lsun/java2d/DisposerRecord;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Disposer, addRecord, void, Object$*, $DisposerRecord*)},
-	{"addReference", "(Ljava/lang/ref/Reference;Lsun/java2d/DisposerRecord;)V", "(Ljava/lang/ref/Reference<Ljava/lang/Object;>;Lsun/java2d/DisposerRecord;)V", $PUBLIC | $STATIC, $staticMethod(Disposer, addReference, void, $Reference*, $DisposerRecord*)},
-	{"clearDeferredRecords", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(Disposer, clearDeferredRecords, void)},
-	{"getQueue", "()Ljava/lang/ref/ReferenceQueue;", "()Ljava/lang/ref/ReferenceQueue<Ljava/lang/Object;>;", $PUBLIC | $STATIC, $staticMethod(Disposer, getQueue, $ReferenceQueue*)},
-	{"initIDs", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(Disposer, initIDs, void)},
-	{"lambda$static$0", "()Ljava/lang/Void;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Disposer, lambda$static$0, $Void*)},
-	{"pollRemove", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(Disposer, pollRemove, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Disposer, run, void)},
-	{}
-};
-
-#define _METHOD_INDEX_initIDs 8
-
-$InnerClassInfo _Disposer_InnerClassesInfo_[] = {
-	{"sun.java2d.Disposer$PollDisposable", "sun.java2d.Disposer", "PollDisposable", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"sun.java2d.Disposer$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Disposer_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.java2d.Disposer",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	_Disposer_FieldInfo_,
-	_Disposer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Disposer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.java2d.Disposer$PollDisposable,sun.java2d.Disposer$1"
-};
-
-$Object* allocate$Disposer($Class* clazz) {
-	return $of($alloc(Disposer));
-}
 
 $ReferenceQueue* Disposer::queue = nullptr;
 $Hashtable* Disposer::records = nullptr;
@@ -171,10 +109,10 @@ void Disposer::addRecord(Object$* target, $DisposerRecord* rec) {
 
 void Disposer::add(Object$* target$renamed, $DisposerRecord* rec) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$var($Object, target, target$renamed);
 		if ($instanceOf($DisposerTarget, target)) {
-			$assign(target, $nc(($cast($DisposerTarget, target)))->getDisposerReferent());
+			$assign(target, $cast($DisposerTarget, target)->getDisposerReferent());
 		}
 		$var($Reference, ref, nullptr);
 		if (Disposer::refType == Disposer::PHANTOM) {
@@ -182,17 +120,17 @@ void Disposer::add(Object$* target$renamed, $DisposerRecord* rec) {
 		} else {
 			$assign(ref, $new($WeakReference, target, Disposer::queue));
 		}
-		$nc(Disposer::records)->put(ref, rec);
+		Disposer::records->put(ref, rec);
 	}
 }
 
 void Disposer::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	while (true) {
 		try {
-			$var($Object, obj, $nc(Disposer::queue)->remove());
-			$nc(($cast($Reference, obj)))->clear();
-			$var($DisposerRecord, rec, $cast($DisposerRecord, $nc(Disposer::records)->remove(obj)));
+			$var($Object, obj, Disposer::queue->remove());
+			$nc($cast($Reference, obj))->clear();
+			$var($DisposerRecord, rec, $cast($DisposerRecord, Disposer::records->remove(obj)));
 			$nc(rec)->dispose();
 			$assign(obj, nullptr);
 			$assign(rec, nullptr);
@@ -205,13 +143,13 @@ void Disposer::run() {
 
 void Disposer::clearDeferredRecords() {
 	$init(Disposer);
-	$useLocalCurrentObjectStackCache();
-	if (Disposer::deferredRecords == nullptr || $nc(Disposer::deferredRecords)->isEmpty()) {
+	$useLocalObjectStack();
+	if (Disposer::deferredRecords == nullptr || Disposer::deferredRecords->isEmpty()) {
 		return;
 	}
 	for (int32_t i = 0; i < $nc(Disposer::deferredRecords)->size(); ++i) {
 		try {
-			$var($DisposerRecord, rec, $cast($DisposerRecord, $nc(Disposer::deferredRecords)->get(i)));
+			$var($DisposerRecord, rec, $cast($DisposerRecord, Disposer::deferredRecords->get(i)));
 			$nc(rec)->dispose();
 		} catch ($Exception& e) {
 			$nc($System::out)->println("Exception while disposing deferred rec."_s);
@@ -222,7 +160,7 @@ void Disposer::clearDeferredRecords() {
 
 void Disposer::pollRemove() {
 	$init(Disposer);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (Disposer::pollingQueue) {
 		return;
 	}
@@ -230,58 +168,56 @@ void Disposer::pollRemove() {
 	Disposer::pollingQueue = true;
 	int32_t freed = 0;
 	int32_t deferred = 0;
-	{
-		$var($Throwable, var$0, nullptr);
+	$var($Throwable, var$0, nullptr);
+	try {
 		try {
-			try {
-				while (freed < 10000 && deferred < 100 && ($assign(obj, $nc(Disposer::queue)->poll())) != nullptr) {
-					++freed;
-					$nc(($cast($Reference, obj)))->clear();
-					$var($DisposerRecord, rec, $cast($DisposerRecord, $nc(Disposer::records)->remove(obj)));
-					if ($instanceOf($Disposer$PollDisposable, rec)) {
-						$nc(rec)->dispose();
-						$assign(obj, nullptr);
-						$assign(rec, nullptr);
-					} else {
-						if (rec == nullptr) {
-							continue;
-						}
-						++deferred;
-						if (Disposer::deferredRecords == nullptr) {
-							$assignStatic(Disposer::deferredRecords, $new($ArrayList, 5));
-						}
-						$nc(Disposer::deferredRecords)->add(rec);
+			while (freed < 10000 && deferred < 100 && ($assign(obj, Disposer::queue->poll())) != nullptr) {
+				++freed;
+				$nc($cast($Reference, obj))->clear();
+				$var($DisposerRecord, rec, $cast($DisposerRecord, Disposer::records->remove(obj)));
+				if ($instanceOf($Disposer$PollDisposable, rec)) {
+					rec->dispose();
+					$assign(obj, nullptr);
+					$assign(rec, nullptr);
+				} else {
+					if (rec == nullptr) {
+						continue;
 					}
+					++deferred;
+					if (Disposer::deferredRecords == nullptr) {
+						$assignStatic(Disposer::deferredRecords, $new($ArrayList, 5));
+					}
+					$nc(Disposer::deferredRecords)->add(rec);
 				}
-			} catch ($Exception& e) {
-				$nc($System::out)->println("Exception while removing reference."_s);
 			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			Disposer::pollingQueue = false;
+		} catch ($Exception& e) {
+			$nc($System::out)->println("Exception while removing reference."_s);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		Disposer::pollingQueue = false;
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 void Disposer::initIDs() {
 	$init(Disposer);
-	$prepareNativeStatic(Disposer, initIDs, void);
+	$prepareNativeStatic(initIDs, void);
 	$invokeNativeStatic();
 	$finishNativeStatic();
 }
 
 void Disposer::addReference($Reference* ref, $DisposerRecord* rec) {
 	$init(Disposer);
-	$nc(Disposer::records)->put(ref, rec);
+	Disposer::records->put(ref, rec);
 }
 
 void Disposer::addObjectRecord(Object$* obj, $DisposerRecord* rec) {
 	$init(Disposer);
-	$nc(Disposer::records)->put($$new($WeakReference, obj, Disposer::queue), rec);
+	Disposer::records->put($$new($WeakReference, obj, Disposer::queue), rec);
 }
 
 $ReferenceQueue* Disposer::getQueue() {
@@ -291,7 +227,7 @@ $ReferenceQueue* Disposer::getQueue() {
 
 $Void* Disposer::lambda$static$0() {
 	$init(Disposer);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, name, "Java2D Disposer"_s);
 	$var($ThreadGroup, rootTG, $ThreadGroupUtils::getRootThreadGroup());
 	$var($Thread, t, $new($Thread, rootTG, Disposer::disposerInstance, name, 0, false));
@@ -302,16 +238,16 @@ $Void* Disposer::lambda$static$0() {
 	return nullptr;
 }
 
-void clinit$Disposer($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void Disposer::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$assignStatic(Disposer::queue, $new($ReferenceQueue));
 	$assignStatic(Disposer::records, $new($Hashtable));
 	Disposer::refType = Disposer::PHANTOM;
 	{
-		$AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($Disposer$1)));
+		$AccessController::doPrivileged($$new($Disposer$1));
 		Disposer::initIDs();
-		$var($String, type, $cast($String, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($GetPropertyAction, "sun.java2d.reftype"_s)))));
+		$var($String, type, $cast($String, $AccessController::doPrivileged($$new($GetPropertyAction, "sun.java2d.reftype"_s))));
 		if (type != nullptr) {
 			if (type->equals("weak"_s)) {
 				Disposer::refType = Disposer::WEAK;
@@ -322,7 +258,7 @@ void clinit$Disposer($Class* class$) {
 			}
 		}
 		$assignStatic(Disposer::disposerInstance, $new(Disposer));
-		$AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new(Disposer$$Lambda$lambda$static$0)));
+		$AccessController::doPrivileged($cast($PrivilegedAction, $$new(Disposer$$Lambda$lambda$static$0)));
 	}
 	$assignStatic(Disposer::deferredRecords, nullptr);
 	Disposer::pollingQueue = false;
@@ -333,11 +269,58 @@ Disposer::Disposer() {
 
 $Class* Disposer::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(Disposer$$Lambda$lambda$static$0::classInfo$.name)) {
+		if (name->equals("sun.java2d.Disposer$$Lambda$lambda$static$0")) {
 			return Disposer$$Lambda$lambda$static$0::load$(name, initialize);
 		}
 	}
-	$loadClass(Disposer, name, initialize, &_Disposer_ClassInfo_, clinit$Disposer, allocate$Disposer);
+	$FieldInfo fieldInfos$$[] = {
+		{"queue", "Ljava/lang/ref/ReferenceQueue;", "Ljava/lang/ref/ReferenceQueue<Ljava/lang/Object;>;", $PRIVATE | $STATIC | $FINAL, $staticField(Disposer, queue)},
+		{"records", "Ljava/util/Hashtable;", "Ljava/util/Hashtable<Ljava/lang/ref/Reference<Ljava/lang/Object;>;Lsun/java2d/DisposerRecord;>;", $PRIVATE | $STATIC | $FINAL, $staticField(Disposer, records)},
+		{"disposerInstance", "Lsun/java2d/Disposer;", nullptr, $PRIVATE | $STATIC, $staticField(Disposer, disposerInstance)},
+		{"WEAK", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Disposer, WEAK)},
+		{"PHANTOM", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Disposer, PHANTOM)},
+		{"refType", "I", nullptr, $PUBLIC | $STATIC, $staticField(Disposer, refType)},
+		{"deferredRecords", "Ljava/util/ArrayList;", "Ljava/util/ArrayList<Lsun/java2d/DisposerRecord;>;", $PRIVATE | $STATIC, $staticField(Disposer, deferredRecords)},
+		{"pollingQueue", "Z", nullptr, $PUBLIC | $STATIC | $VOLATILE, $staticField(Disposer, pollingQueue)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Disposer, init$, void)},
+		{"add", "(Ljava/lang/Object;Lsun/java2d/DisposerRecord;)V", nullptr, $SYNCHRONIZED, $virtualMethod(Disposer, add, void, Object$*, $DisposerRecord*)},
+		{"addObjectRecord", "(Ljava/lang/Object;Lsun/java2d/DisposerRecord;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Disposer, addObjectRecord, void, Object$*, $DisposerRecord*)},
+		{"addRecord", "(Ljava/lang/Object;JJ)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Disposer, addRecord, void, Object$*, int64_t, int64_t)},
+		{"addRecord", "(Ljava/lang/Object;Lsun/java2d/DisposerRecord;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Disposer, addRecord, void, Object$*, $DisposerRecord*)},
+		{"addReference", "(Ljava/lang/ref/Reference;Lsun/java2d/DisposerRecord;)V", "(Ljava/lang/ref/Reference<Ljava/lang/Object;>;Lsun/java2d/DisposerRecord;)V", $PUBLIC | $STATIC, $staticMethod(Disposer, addReference, void, $Reference*, $DisposerRecord*)},
+		{"clearDeferredRecords", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(Disposer, clearDeferredRecords, void)},
+		{"getQueue", "()Ljava/lang/ref/ReferenceQueue;", "()Ljava/lang/ref/ReferenceQueue<Ljava/lang/Object;>;", $PUBLIC | $STATIC, $staticMethod(Disposer, getQueue, $ReferenceQueue*)},
+		{"initIDs", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(Disposer, initIDs, void)},
+		{"lambda$static$0", "()Ljava/lang/Void;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Disposer, lambda$static$0, $Void*)},
+		{"pollRemove", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(Disposer, pollRemove, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Disposer, run, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.java2d.Disposer$PollDisposable", "sun.java2d.Disposer", "PollDisposable", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"sun.java2d.Disposer$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.java2d.Disposer",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.java2d.Disposer$PollDisposable,sun.java2d.Disposer$1"
+	};
+	$loadClass(Disposer, name, initialize, &classInfo$$, Disposer::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Disposer);
+	});
 	return class$;
 }
 

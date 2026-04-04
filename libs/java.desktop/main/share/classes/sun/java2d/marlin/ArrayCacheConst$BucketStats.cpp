@@ -1,5 +1,4 @@
 #include <sun/java2d/marlin/ArrayCacheConst$BucketStats.h>
-
 #include <sun/java2d/marlin/ArrayCacheConst.h>
 #include <jcpp.h>
 
@@ -11,46 +10,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace sun {
 	namespace java2d {
 		namespace marlin {
-
-$FieldInfo _ArrayCacheConst$BucketStats_FieldInfo_[] = {
-	{"getOp", "I", nullptr, 0, $field(ArrayCacheConst$BucketStats, getOp)},
-	{"createOp", "I", nullptr, 0, $field(ArrayCacheConst$BucketStats, createOp)},
-	{"returnOp", "I", nullptr, 0, $field(ArrayCacheConst$BucketStats, returnOp)},
-	{"maxSize", "I", nullptr, 0, $field(ArrayCacheConst$BucketStats, maxSize)},
-	{}
-};
-
-$MethodInfo _ArrayCacheConst$BucketStats_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(ArrayCacheConst$BucketStats, init$, void)},
-	{"reset", "()V", nullptr, 0, $method(ArrayCacheConst$BucketStats, reset, void)},
-	{"updateMaxSize", "(I)V", nullptr, 0, $method(ArrayCacheConst$BucketStats, updateMaxSize, void, int32_t)},
-	{}
-};
-
-$InnerClassInfo _ArrayCacheConst$BucketStats_InnerClassesInfo_[] = {
-	{"sun.java2d.marlin.ArrayCacheConst$BucketStats", "sun.java2d.marlin.ArrayCacheConst", "BucketStats", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _ArrayCacheConst$BucketStats_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.java2d.marlin.ArrayCacheConst$BucketStats",
-	"java.lang.Object",
-	nullptr,
-	_ArrayCacheConst$BucketStats_FieldInfo_,
-	_ArrayCacheConst$BucketStats_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ArrayCacheConst$BucketStats_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.java2d.marlin.ArrayCacheConst"
-};
-
-$Object* allocate$ArrayCacheConst$BucketStats($Class* clazz) {
-	return $of($alloc(ArrayCacheConst$BucketStats));
-}
 
 void ArrayCacheConst$BucketStats::init$() {
 	this->getOp = 0;
@@ -76,7 +35,41 @@ ArrayCacheConst$BucketStats::ArrayCacheConst$BucketStats() {
 }
 
 $Class* ArrayCacheConst$BucketStats::load$($String* name, bool initialize) {
-	$loadClass(ArrayCacheConst$BucketStats, name, initialize, &_ArrayCacheConst$BucketStats_ClassInfo_, allocate$ArrayCacheConst$BucketStats);
+	$FieldInfo fieldInfos$$[] = {
+		{"getOp", "I", nullptr, 0, $field(ArrayCacheConst$BucketStats, getOp)},
+		{"createOp", "I", nullptr, 0, $field(ArrayCacheConst$BucketStats, createOp)},
+		{"returnOp", "I", nullptr, 0, $field(ArrayCacheConst$BucketStats, returnOp)},
+		{"maxSize", "I", nullptr, 0, $field(ArrayCacheConst$BucketStats, maxSize)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(ArrayCacheConst$BucketStats, init$, void)},
+		{"reset", "()V", nullptr, 0, $method(ArrayCacheConst$BucketStats, reset, void)},
+		{"updateMaxSize", "(I)V", nullptr, 0, $method(ArrayCacheConst$BucketStats, updateMaxSize, void, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.java2d.marlin.ArrayCacheConst$BucketStats", "sun.java2d.marlin.ArrayCacheConst", "BucketStats", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.java2d.marlin.ArrayCacheConst$BucketStats",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.java2d.marlin.ArrayCacheConst"
+	};
+	$loadClass(ArrayCacheConst$BucketStats, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ArrayCacheConst$BucketStats);
+	});
 	return class$;
 }
 

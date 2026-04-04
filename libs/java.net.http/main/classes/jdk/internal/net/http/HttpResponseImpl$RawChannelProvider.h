@@ -38,6 +38,7 @@ class $export HttpResponseImpl$RawChannelProvider : public ::jdk::internal::net:
 	$class(HttpResponseImpl$RawChannelProvider, 0, ::jdk::internal::net::http::websocket::RawChannel$Provider)
 public:
 	HttpResponseImpl$RawChannelProvider();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::jdk::internal::net::http::HttpConnection* conn, ::jdk::internal::net::http::Exchange* exch);
 	virtual void closeRawChannel() override;
 	static ::jdk::internal::net::http::HttpConnection* connection(::jdk::internal::net::http::Response* resp, ::jdk::internal::net::http::Exchange* exch);

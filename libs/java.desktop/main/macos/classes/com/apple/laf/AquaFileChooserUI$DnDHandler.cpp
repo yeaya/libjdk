@@ -1,5 +1,4 @@
 #include <com/apple/laf/AquaFileChooserUI$DnDHandler.h>
-
 #include <com/apple/laf/AquaFileChooserUI$DnDHandler$1.h>
 #include <com/apple/laf/AquaFileChooserUI.h>
 #include <com/apple/laf/AquaFileSystemModel.h>
@@ -10,7 +9,6 @@
 #include <java/awt/dnd/DropTargetDragEvent.h>
 #include <java/awt/dnd/DropTargetDropEvent.h>
 #include <java/io/File.h>
-#include <java/lang/Runnable.h>
 #include <java/net/URI.h>
 #include <java/util/List.h>
 #include <javax/swing/JFileChooser.h>
@@ -21,7 +19,6 @@
 using $FileArray = $Array<::java::io::File>;
 using $AquaFileChooserUI = ::com::apple::laf::AquaFileChooserUI;
 using $AquaFileChooserUI$DnDHandler$1 = ::com::apple::laf::AquaFileChooserUI$DnDHandler$1;
-using $AquaFileSystemModel = ::com::apple::laf::AquaFileSystemModel;
 using $DataFlavor = ::java::awt::datatransfer::DataFlavor;
 using $Transferable = ::java::awt::datatransfer::Transferable;
 using $DnDConstants = ::java::awt::dnd::DnDConstants;
@@ -34,7 +31,6 @@ using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
 using $URI = ::java::net::URI;
 using $List = ::java::util::List;
 using $JFileChooser = ::javax::swing::JFileChooser;
@@ -42,50 +38,6 @@ using $JFileChooser = ::javax::swing::JFileChooser;
 namespace com {
 	namespace apple {
 		namespace laf {
-
-$FieldInfo _AquaFileChooserUI$DnDHandler_FieldInfo_[] = {
-	{"this$0", "Lcom/apple/laf/AquaFileChooserUI;", nullptr, $FINAL | $SYNTHETIC, $field(AquaFileChooserUI$DnDHandler, this$0)},
-	{}
-};
-
-$MethodInfo _AquaFileChooserUI$DnDHandler_MethodInfo_[] = {
-	{"<init>", "(Lcom/apple/laf/AquaFileChooserUI;)V", nullptr, 0, $method(AquaFileChooserUI$DnDHandler, init$, void, $AquaFileChooserUI*)},
-	{"dragEnter", "(Ljava/awt/dnd/DropTargetDragEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaFileChooserUI$DnDHandler, dragEnter, void, $DropTargetDragEvent*)},
-	{"dragOver", "(Ljava/awt/dnd/DropTargetDragEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaFileChooserUI$DnDHandler, dragOver, void, $DropTargetDragEvent*)},
-	{"drop", "(Ljava/awt/dnd/DropTargetDropEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaFileChooserUI$DnDHandler, drop, void, $DropTargetDropEvent*)},
-	{"dropActionChanged", "(Ljava/awt/dnd/DropTargetDragEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaFileChooserUI$DnDHandler, dropActionChanged, void, $DropTargetDragEvent*)},
-	{"dropFiles", "([Ljava/io/File;)V", nullptr, $PROTECTED, $virtualMethod(AquaFileChooserUI$DnDHandler, dropFiles, void, $FileArray*)},
-	{"handleFileDropEvent", "(Ljava/awt/dnd/DropTargetDropEvent;)V", nullptr, $PROTECTED, $virtualMethod(AquaFileChooserUI$DnDHandler, handleFileDropEvent, void, $DropTargetDropEvent*)},
-	{"handleStringDropEvent", "(Ljava/awt/dnd/DropTargetDropEvent;)V", nullptr, $PROTECTED, $virtualMethod(AquaFileChooserUI$DnDHandler, handleStringDropEvent, void, $DropTargetDropEvent*)},
-	{"tryToAcceptDrag", "(Ljava/awt/dnd/DropTargetDragEvent;)V", nullptr, $PROTECTED, $virtualMethod(AquaFileChooserUI$DnDHandler, tryToAcceptDrag, void, $DropTargetDragEvent*)},
-	{}
-};
-
-$InnerClassInfo _AquaFileChooserUI$DnDHandler_InnerClassesInfo_[] = {
-	{"com.apple.laf.AquaFileChooserUI$DnDHandler", "com.apple.laf.AquaFileChooserUI", "DnDHandler", 0},
-	{"com.apple.laf.AquaFileChooserUI$DnDHandler$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _AquaFileChooserUI$DnDHandler_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.apple.laf.AquaFileChooserUI$DnDHandler",
-	"java.awt.dnd.DropTargetAdapter",
-	nullptr,
-	_AquaFileChooserUI$DnDHandler_FieldInfo_,
-	_AquaFileChooserUI$DnDHandler_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AquaFileChooserUI$DnDHandler_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.apple.laf.AquaFileChooserUI"
-};
-
-$Object* allocate$AquaFileChooserUI$DnDHandler($Class* clazz) {
-	return $of($alloc(AquaFileChooserUI$DnDHandler));
-}
 
 void AquaFileChooserUI$DnDHandler::init$($AquaFileChooserUI* this$0) {
 	$set(this, this$0, this$0);
@@ -110,7 +62,7 @@ void AquaFileChooserUI$DnDHandler::drop($DropTargetDropEvent* dtde) {
 		handleFileDropEvent(dtde);
 		return;
 	}
-	if ($nc(dtde)->isDataFlavorSupported($DataFlavor::stringFlavor)) {
+	if (dtde->isDataFlavorSupported($DataFlavor::stringFlavor)) {
 		handleStringDropEvent(dtde);
 		return;
 	}
@@ -119,21 +71,21 @@ void AquaFileChooserUI$DnDHandler::drop($DropTargetDropEvent* dtde) {
 void AquaFileChooserUI$DnDHandler::tryToAcceptDrag($DropTargetDragEvent* dtde) {
 	$init($DataFlavor);
 	bool var$0 = $nc(dtde)->isDataFlavorSupported($DataFlavor::javaFileListFlavor);
-	if (var$0 || $nc(dtde)->isDataFlavorSupported($DataFlavor::stringFlavor)) {
+	if (var$0 || dtde->isDataFlavorSupported($DataFlavor::stringFlavor)) {
 		dtde->acceptDrag($DnDConstants::ACTION_COPY);
 		return;
 	}
-	$nc(dtde)->rejectDrag();
+	dtde->rejectDrag();
 }
 
 void AquaFileChooserUI$DnDHandler::handleFileDropEvent($DropTargetDropEvent* dtde) {
-	$useLocalCurrentObjectStackCache();
-	$nc(dtde)->acceptDrop(dtde->getDropAction());
+	$useLocalObjectStack();
+	$nc(dtde)->acceptDrop($nc(dtde)->getDropAction());
 	$var($Transferable, transferable, dtde->getTransferable());
 	try {
 		$init($DataFlavor);
 		$var($List, fileList, $cast($List, $nc(transferable)->getTransferData($DataFlavor::javaFileListFlavor)));
-		dropFiles($fcast($FileArray, $($nc(fileList)->toArray($$new($FileArray, fileList->size())))));
+		dropFiles($$cast($FileArray, $nc(fileList)->toArray($$new($FileArray, $nc(fileList)->size()))));
 		dtde->dropComplete(true);
 	} catch ($Exception& e) {
 		dtde->dropComplete(false);
@@ -141,8 +93,8 @@ void AquaFileChooserUI$DnDHandler::handleFileDropEvent($DropTargetDropEvent* dtd
 }
 
 void AquaFileChooserUI$DnDHandler::handleStringDropEvent($DropTargetDropEvent* dtde) {
-	$useLocalCurrentObjectStackCache();
-	$nc(dtde)->acceptDrop(dtde->getDropAction());
+	$useLocalObjectStack();
+	$nc(dtde)->acceptDrop($nc(dtde)->getDropAction());
 	$var($Transferable, transferable, dtde->getTransferable());
 	$var($String, stringData, nullptr);
 	try {
@@ -174,7 +126,7 @@ void AquaFileChooserUI$DnDHandler::handleStringDropEvent($DropTargetDropEvent* d
 }
 
 void AquaFileChooserUI$DnDHandler::dropFiles($FileArray* files) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JFileChooser, jfc, this->this$0->getFileChooser());
 	if ($nc(files)->length == 1) {
 		if ($nc(files->get(0))->isDirectory()) {
@@ -188,23 +140,59 @@ void AquaFileChooserUI$DnDHandler::dropFiles($FileArray* files) {
 	$nc(jfc)->setSelectedFiles(files);
 	{
 		$var($FileArray, arr$, files);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 			$var($File, file, arr$->get(i$));
 			{
 				jfc->ensureFileIsVisible(file);
 			}
 		}
 	}
-	$nc($(this->this$0->getModel()))->runWhenDone($$new($AquaFileChooserUI$DnDHandler$1, this, files));
+	$$nc(this->this$0->getModel())->runWhenDone($$new($AquaFileChooserUI$DnDHandler$1, this, files));
 }
 
 AquaFileChooserUI$DnDHandler::AquaFileChooserUI$DnDHandler() {
 }
 
 $Class* AquaFileChooserUI$DnDHandler::load$($String* name, bool initialize) {
-	$loadClass(AquaFileChooserUI$DnDHandler, name, initialize, &_AquaFileChooserUI$DnDHandler_ClassInfo_, allocate$AquaFileChooserUI$DnDHandler);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/apple/laf/AquaFileChooserUI;", nullptr, $FINAL | $SYNTHETIC, $field(AquaFileChooserUI$DnDHandler, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/apple/laf/AquaFileChooserUI;)V", nullptr, 0, $method(AquaFileChooserUI$DnDHandler, init$, void, $AquaFileChooserUI*)},
+		{"dragEnter", "(Ljava/awt/dnd/DropTargetDragEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaFileChooserUI$DnDHandler, dragEnter, void, $DropTargetDragEvent*)},
+		{"dragOver", "(Ljava/awt/dnd/DropTargetDragEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaFileChooserUI$DnDHandler, dragOver, void, $DropTargetDragEvent*)},
+		{"drop", "(Ljava/awt/dnd/DropTargetDropEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaFileChooserUI$DnDHandler, drop, void, $DropTargetDropEvent*)},
+		{"dropActionChanged", "(Ljava/awt/dnd/DropTargetDragEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaFileChooserUI$DnDHandler, dropActionChanged, void, $DropTargetDragEvent*)},
+		{"dropFiles", "([Ljava/io/File;)V", nullptr, $PROTECTED, $virtualMethod(AquaFileChooserUI$DnDHandler, dropFiles, void, $FileArray*)},
+		{"handleFileDropEvent", "(Ljava/awt/dnd/DropTargetDropEvent;)V", nullptr, $PROTECTED, $virtualMethod(AquaFileChooserUI$DnDHandler, handleFileDropEvent, void, $DropTargetDropEvent*)},
+		{"handleStringDropEvent", "(Ljava/awt/dnd/DropTargetDropEvent;)V", nullptr, $PROTECTED, $virtualMethod(AquaFileChooserUI$DnDHandler, handleStringDropEvent, void, $DropTargetDropEvent*)},
+		{"tryToAcceptDrag", "(Ljava/awt/dnd/DropTargetDragEvent;)V", nullptr, $PROTECTED, $virtualMethod(AquaFileChooserUI$DnDHandler, tryToAcceptDrag, void, $DropTargetDragEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.laf.AquaFileChooserUI$DnDHandler", "com.apple.laf.AquaFileChooserUI", "DnDHandler", 0},
+		{"com.apple.laf.AquaFileChooserUI$DnDHandler$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.apple.laf.AquaFileChooserUI$DnDHandler",
+		"java.awt.dnd.DropTargetAdapter",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.apple.laf.AquaFileChooserUI"
+	};
+	$loadClass(AquaFileChooserUI$DnDHandler, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AquaFileChooserUI$DnDHandler);
+	});
 	return class$;
 }
 

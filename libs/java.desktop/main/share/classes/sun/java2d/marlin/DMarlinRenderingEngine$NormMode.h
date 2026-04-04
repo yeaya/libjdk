@@ -37,6 +37,7 @@ class DMarlinRenderingEngine$NormMode : public ::java::lang::Enum {
 public:
 	DMarlinRenderingEngine$NormMode();
 	static $Array<::sun::java2d::marlin::DMarlinRenderingEngine$NormMode>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	virtual ::java::awt::geom::PathIterator* getNormalizingPathIterator(::sun::java2d::marlin::RendererContext* rdrCtx, ::java::awt::geom::PathIterator* src) {return nullptr;}
 	static ::sun::java2d::marlin::DMarlinRenderingEngine$NormMode* valueOf($String* name);

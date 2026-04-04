@@ -1,9 +1,7 @@
 #include <javax/swing/plaf/basic/BasicPopupMenuUI.h>
-
 #include <java/awt/AWTEvent.h>
 #include <java/awt/Component.h>
 #include <java/awt/ComponentOrientation.h>
-#include <java/awt/Container.h>
 #include <java/awt/LayoutManager.h>
 #include <java/awt/event/MouseEvent.h>
 #include <java/util/ArrayList.h>
@@ -20,7 +18,6 @@
 #include <javax/swing/MenuSelectionManager.h>
 #include <javax/swing/SwingUtilities.h>
 #include <javax/swing/UIManager.h>
-#include <javax/swing/event/ChangeListener.h>
 #include <javax/swing/event/MenuKeyListener.h>
 #include <javax/swing/event/PopupMenuListener.h>
 #include <javax/swing/plaf/ComponentUI.h>
@@ -53,9 +50,6 @@
 
 using $MenuElementArray = $Array<::javax::swing::MenuElement>;
 using $Component = ::java::awt::Component;
-using $ComponentOrientation = ::java::awt::ComponentOrientation;
-using $Container = ::java::awt::Container;
-using $LayoutManager = ::java::awt::LayoutManager;
 using $MouseEvent = ::java::awt::event::MouseEvent;
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -64,7 +58,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ArrayList = ::java::util::ArrayList;
 using $List = ::java::util::List;
-using $Action = ::javax::swing::Action;
 using $ActionMap = ::javax::swing::ActionMap;
 using $BoxLayout = ::javax::swing::BoxLayout;
 using $InputMap = ::javax::swing::InputMap;
@@ -75,9 +68,6 @@ using $MenuElement = ::javax::swing::MenuElement;
 using $MenuSelectionManager = ::javax::swing::MenuSelectionManager;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $UIManager = ::javax::swing::UIManager;
-using $ChangeListener = ::javax::swing::event::ChangeListener;
-using $MenuKeyListener = ::javax::swing::event::MenuKeyListener;
-using $PopupMenuListener = ::javax::swing::event::PopupMenuListener;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
 using $PopupMenuUI = ::javax::swing::plaf::PopupMenuUI;
 using $UIResource = ::javax::swing::plaf::UIResource;
@@ -95,71 +85,6 @@ namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace basic {
-
-$FieldInfo _BasicPopupMenuUI_FieldInfo_[] = {
-	{"MOUSE_GRABBER_KEY", "Ljava/lang/StringBuilder;", nullptr, $STATIC | $FINAL, $staticField(BasicPopupMenuUI, MOUSE_GRABBER_KEY)},
-	{"MENU_KEYBOARD_HELPER_KEY", "Ljava/lang/StringBuilder;", nullptr, $STATIC | $FINAL, $staticField(BasicPopupMenuUI, MENU_KEYBOARD_HELPER_KEY)},
-	{"popupMenu", "Ljavax/swing/JPopupMenu;", nullptr, $PROTECTED, $field(BasicPopupMenuUI, popupMenu)},
-	{"popupMenuListener", "Ljavax/swing/event/PopupMenuListener;", nullptr, $PRIVATE | $TRANSIENT, $field(BasicPopupMenuUI, popupMenuListener)},
-	{"menuKeyListener", "Ljavax/swing/event/MenuKeyListener;", nullptr, $PRIVATE, $field(BasicPopupMenuUI, menuKeyListener)},
-	{"checkedUnpostPopup", "Z", nullptr, $PRIVATE | $STATIC, $staticField(BasicPopupMenuUI, checkedUnpostPopup)},
-	{"unpostPopup", "Z", nullptr, $PRIVATE | $STATIC, $staticField(BasicPopupMenuUI, unpostPopup)},
-	{}
-};
-
-$MethodInfo _BasicPopupMenuUI_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(BasicPopupMenuUI, init$, void)},
-	{"checkInvokerEqual", "(Ljavax/swing/MenuElement;Ljavax/swing/MenuElement;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(BasicPopupMenuUI, checkInvokerEqual, bool, $MenuElement*, $MenuElement*)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(BasicPopupMenuUI, createUI, $ComponentUI*, $JComponent*)},
-	{"findEnabledChild", "([Ljavax/swing/MenuElement;IZ)Ljavax/swing/MenuElement;", nullptr, $STATIC, $staticMethod(BasicPopupMenuUI, findEnabledChild, $MenuElement*, $MenuElementArray*, int32_t, bool)},
-	{"findEnabledChild", "([Ljavax/swing/MenuElement;Ljavax/swing/MenuElement;Z)Ljavax/swing/MenuElement;", nullptr, $STATIC, $staticMethod(BasicPopupMenuUI, findEnabledChild, $MenuElement*, $MenuElementArray*, $MenuElement*, bool)},
-	{"getActionMap", "()Ljavax/swing/ActionMap;", nullptr, $STATIC, $staticMethod(BasicPopupMenuUI, getActionMap, $ActionMap*)},
-	{"getFirstPopup", "()Ljavax/swing/MenuElement;", nullptr, $STATIC, $staticMethod(BasicPopupMenuUI, getFirstPopup, $MenuElement*)},
-	{"getInputMap", "(Ljavax/swing/JPopupMenu;Ljavax/swing/JComponent;)Ljavax/swing/InputMap;", nullptr, $STATIC, $staticMethod(BasicPopupMenuUI, getInputMap, $InputMap*, $JPopupMenu*, $JComponent*)},
-	{"getLastPopup", "()Ljavax/swing/JPopupMenu;", nullptr, $STATIC, $staticMethod(BasicPopupMenuUI, getLastPopup, $JPopupMenu*)},
-	{"getPopups", "()Ljava/util/List;", "()Ljava/util/List<Ljavax/swing/JPopupMenu;>;", $STATIC, $staticMethod(BasicPopupMenuUI, getPopups, $List*)},
-	{"installDefaults", "()V", nullptr, $PUBLIC, $virtualMethod(BasicPopupMenuUI, installDefaults, void)},
-	{"installKeyboardActions", "()V", nullptr, $PROTECTED, $virtualMethod(BasicPopupMenuUI, installKeyboardActions, void)},
-	{"installListeners", "()V", nullptr, $PROTECTED, $virtualMethod(BasicPopupMenuUI, installListeners, void)},
-	{"installUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(BasicPopupMenuUI, installUI, void, $JComponent*)},
-	{"isPopupTrigger", "(Ljava/awt/event/MouseEvent;)Z", nullptr, $PUBLIC, $virtualMethod(BasicPopupMenuUI, isPopupTrigger, bool, $MouseEvent*)},
-	{"loadActionMap", "(Ljavax/swing/plaf/basic/LazyActionMap;)V", nullptr, $STATIC, $staticMethod(BasicPopupMenuUI, loadActionMap, void, $LazyActionMap*)},
-	{"nextEnabledChild", "([Ljavax/swing/MenuElement;II)Ljavax/swing/MenuElement;", nullptr, $PRIVATE | $STATIC, $staticMethod(BasicPopupMenuUI, nextEnabledChild, $MenuElement*, $MenuElementArray*, int32_t, int32_t)},
-	{"previousEnabledChild", "([Ljavax/swing/MenuElement;II)Ljavax/swing/MenuElement;", nullptr, $PRIVATE | $STATIC, $staticMethod(BasicPopupMenuUI, previousEnabledChild, $MenuElement*, $MenuElementArray*, int32_t, int32_t)},
-	{"uninstallDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(BasicPopupMenuUI, uninstallDefaults, void)},
-	{"uninstallKeyboardActions", "()V", nullptr, $PROTECTED, $virtualMethod(BasicPopupMenuUI, uninstallKeyboardActions, void)},
-	{"uninstallListeners", "()V", nullptr, $PROTECTED, $virtualMethod(BasicPopupMenuUI, uninstallListeners, void)},
-	{"uninstallUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(BasicPopupMenuUI, uninstallUI, void, $JComponent*)},
-	{}
-};
-
-$InnerClassInfo _BasicPopupMenuUI_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.basic.BasicPopupMenuUI$MenuKeyboardHelper", "javax.swing.plaf.basic.BasicPopupMenuUI", "MenuKeyboardHelper", $STATIC},
-	{"javax.swing.plaf.basic.BasicPopupMenuUI$MouseGrabber", "javax.swing.plaf.basic.BasicPopupMenuUI", "MouseGrabber", $STATIC},
-	{"javax.swing.plaf.basic.BasicPopupMenuUI$Actions", "javax.swing.plaf.basic.BasicPopupMenuUI", "Actions", $PRIVATE | $STATIC},
-	{"javax.swing.plaf.basic.BasicPopupMenuUI$BasicMenuKeyListener", "javax.swing.plaf.basic.BasicPopupMenuUI", "BasicMenuKeyListener", $PRIVATE},
-	{"javax.swing.plaf.basic.BasicPopupMenuUI$BasicPopupMenuListener", "javax.swing.plaf.basic.BasicPopupMenuUI", "BasicPopupMenuListener", $PRIVATE},
-	{}
-};
-
-$ClassInfo _BasicPopupMenuUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.basic.BasicPopupMenuUI",
-	"javax.swing.plaf.PopupMenuUI",
-	nullptr,
-	_BasicPopupMenuUI_FieldInfo_,
-	_BasicPopupMenuUI_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BasicPopupMenuUI_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.basic.BasicPopupMenuUI$MenuKeyboardHelper,javax.swing.plaf.basic.BasicPopupMenuUI$MenuKeyboardHelper$1,javax.swing.plaf.basic.BasicPopupMenuUI$MouseGrabber,javax.swing.plaf.basic.BasicPopupMenuUI$MouseGrabber$2,javax.swing.plaf.basic.BasicPopupMenuUI$MouseGrabber$1,javax.swing.plaf.basic.BasicPopupMenuUI$Actions,javax.swing.plaf.basic.BasicPopupMenuUI$BasicMenuKeyListener,javax.swing.plaf.basic.BasicPopupMenuUI$BasicPopupMenuListener"
-};
-
-$Object* allocate$BasicPopupMenuUI($Class* clazz) {
-	return $of($alloc(BasicPopupMenuUI));
-}
 
 $StringBuilder* BasicPopupMenuUI::MOUSE_GRABBER_KEY = nullptr;
 $StringBuilder* BasicPopupMenuUI::MENU_KEYBOARD_HELPER_KEY = nullptr;
@@ -180,7 +105,7 @@ void BasicPopupMenuUI::init$() {
 	$BasicLookAndFeel::needsEventHelper = true;
 	$var($LookAndFeel, laf, $UIManager::getLookAndFeel());
 	if ($instanceOf($BasicLookAndFeel, laf)) {
-		$nc(($cast($BasicLookAndFeel, laf)))->installAWTEventListener();
+		$cast($BasicLookAndFeel, laf)->installAWTEventListener();
 	}
 }
 
@@ -192,19 +117,18 @@ void BasicPopupMenuUI::installUI($JComponent* c) {
 }
 
 void BasicPopupMenuUI::installDefaults() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool var$0 = $nc(this->popupMenu)->getLayout() == nullptr;
-	if (var$0 || $instanceOf($UIResource, $($nc(this->popupMenu)->getLayout()))) {
+	if (var$0 || $instanceOf($UIResource, $(this->popupMenu->getLayout()))) {
 		$nc(this->popupMenu)->setLayout($$new($DefaultMenuLayout, this->popupMenu, $BoxLayout::Y_AXIS));
 	}
-	$init($Boolean);
 	$LookAndFeel::installProperty(this->popupMenu, "opaque"_s, $Boolean::TRUE);
 	$LookAndFeel::installBorder(this->popupMenu, "PopupMenu.border"_s);
 	$LookAndFeel::installColorsAndFont(this->popupMenu, "PopupMenu.background"_s, "PopupMenu.foreground"_s, "PopupMenu.font"_s);
 }
 
 void BasicPopupMenuUI::installListeners() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->popupMenuListener == nullptr) {
 		$set(this, popupMenuListener, $new($BasicPopupMenuUI$BasicPopupMenuListener, this));
 	}
@@ -222,7 +146,7 @@ void BasicPopupMenuUI::installListeners() {
 		}
 	}
 	$synchronized(BasicPopupMenuUI::MENU_KEYBOARD_HELPER_KEY) {
-		$var($BasicPopupMenuUI$MenuKeyboardHelper, helper, $cast($BasicPopupMenuUI$MenuKeyboardHelper, $nc(context)->get(BasicPopupMenuUI::MENU_KEYBOARD_HELPER_KEY)));
+		$var($BasicPopupMenuUI$MenuKeyboardHelper, helper, $cast($BasicPopupMenuUI$MenuKeyboardHelper, context->get(BasicPopupMenuUI::MENU_KEYBOARD_HELPER_KEY)));
 		if (helper == nullptr) {
 			$assign(helper, $new($BasicPopupMenuUI$MenuKeyboardHelper));
 			context->put(BasicPopupMenuUI::MENU_KEYBOARD_HELPER_KEY, helper);
@@ -237,12 +161,12 @@ void BasicPopupMenuUI::installKeyboardActions() {
 
 $InputMap* BasicPopupMenuUI::getInputMap($JPopupMenu* popup, $JComponent* c) {
 	$init(BasicPopupMenuUI);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($InputMap, windowInputMap, nullptr);
 	$var($ObjectArray, bindings, $cast($ObjectArray, $UIManager::get("PopupMenu.selectedWindowInputMapBindings"_s)));
 	if (bindings != nullptr) {
 		$assign(windowInputMap, $LookAndFeel::makeComponentInputMap(c, bindings));
-		if (!$nc($($nc(popup)->getComponentOrientation()))->isLeftToRight()) {
+		if (!$$nc($nc(popup)->getComponentOrientation())->isLeftToRight()) {
 			$var($ObjectArray, km, $cast($ObjectArray, $UIManager::get("PopupMenu.selectedWindowInputMapBindings.RightToLeft"_s)));
 			if (km != nullptr) {
 				$var($InputMap, rightToLeftInputMap, $LookAndFeel::makeComponentInputMap(c, km));
@@ -261,7 +185,7 @@ $ActionMap* BasicPopupMenuUI::getActionMap() {
 
 void BasicPopupMenuUI::loadActionMap($LazyActionMap* map) {
 	$init(BasicPopupMenuUI);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($BasicPopupMenuUI$Actions);
 	$nc(map)->put($$new($BasicPopupMenuUI$Actions, $BasicPopupMenuUI$Actions::CANCEL));
 	map->put($$new($BasicPopupMenuUI$Actions, $BasicPopupMenuUI$Actions::SELECT_NEXT));
@@ -299,7 +223,7 @@ void BasicPopupMenuUI::uninstallKeyboardActions() {
 
 $MenuElement* BasicPopupMenuUI::getFirstPopup() {
 	$init(BasicPopupMenuUI);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($MenuSelectionManager, msm, $MenuSelectionManager::defaultManager());
 	$var($MenuElementArray, p, $nc(msm)->getSelectedPath());
 	$var($MenuElement, me, nullptr);
@@ -313,7 +237,7 @@ $MenuElement* BasicPopupMenuUI::getFirstPopup() {
 
 $JPopupMenu* BasicPopupMenuUI::getLastPopup() {
 	$init(BasicPopupMenuUI);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($MenuSelectionManager, msm, $MenuSelectionManager::defaultManager());
 	$var($MenuElementArray, p, $nc(msm)->getSelectedPath());
 	$var($JPopupMenu, popup, nullptr);
@@ -327,20 +251,16 @@ $JPopupMenu* BasicPopupMenuUI::getLastPopup() {
 
 $List* BasicPopupMenuUI::getPopups() {
 	$init(BasicPopupMenuUI);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($MenuSelectionManager, msm, $MenuSelectionManager::defaultManager());
 	$var($MenuElementArray, p, $nc(msm)->getSelectedPath());
 	$var($List, list, $new($ArrayList, $nc(p)->length));
 	{
 		$var($MenuElementArray, arr$, p);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 			$var($MenuElement, element, arr$->get(i$));
-			{
-				if ($instanceOf($JPopupMenu, element)) {
-					list->add($cast($JPopupMenu, element));
-				}
+			if ($instanceOf($JPopupMenu, element)) {
+				list->add($cast($JPopupMenu, element));
 			}
 		}
 	}
@@ -348,34 +268,34 @@ $List* BasicPopupMenuUI::getPopups() {
 }
 
 bool BasicPopupMenuUI::isPopupTrigger($MouseEvent* e) {
-	bool var$0 = ($nc(e)->getID() == $MouseEvent::MOUSE_RELEASED);
-	return (var$0 && (((int32_t)(e->getModifiers() & (uint32_t)$MouseEvent::BUTTON3_MASK)) != 0));
+	bool var$0 = $nc(e)->getID() == $MouseEvent::MOUSE_RELEASED;
+	return (var$0 && ((e->getModifiers() & $MouseEvent::BUTTON3_MASK) != 0));
 }
 
 bool BasicPopupMenuUI::checkInvokerEqual($MenuElement* present, $MenuElement* last) {
 	$init(BasicPopupMenuUI);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Component, invokerPresent, $nc(present)->getComponent());
 	$var($Component, invokerLast, $nc(last)->getComponent());
 	if ($instanceOf($JPopupMenu, invokerPresent)) {
-		$assign(invokerPresent, $nc(($cast($JPopupMenu, invokerPresent)))->getInvoker());
+		$assign(invokerPresent, $cast($JPopupMenu, invokerPresent)->getInvoker());
 	}
 	if ($instanceOf($JPopupMenu, invokerLast)) {
-		$assign(invokerLast, $nc(($cast($JPopupMenu, invokerLast)))->getInvoker());
+		$assign(invokerLast, $cast($JPopupMenu, invokerLast)->getInvoker());
 	}
 	return (invokerPresent == invokerLast);
 }
 
 $MenuElement* BasicPopupMenuUI::nextEnabledChild($MenuElementArray* e, int32_t fromIndex, int32_t toIndex) {
 	$init(BasicPopupMenuUI);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (int32_t i = fromIndex; i <= toIndex; ++i) {
 		if ($nc(e)->get(i) != nullptr) {
 			$var($Component, comp, $nc(e->get(i))->getComponent());
 			bool var$1 = comp != nullptr;
 			if (var$1) {
 				bool var$2 = comp->isEnabled();
-				var$1 = (var$2 || $UIManager::getBoolean("MenuItem.disabledAreNavigable"_s));
+				var$1 = var$2 || $UIManager::getBoolean("MenuItem.disabledAreNavigable"_s);
 			}
 			bool var$0 = var$1;
 			if (var$0 && $nc(comp)->isVisible()) {
@@ -388,14 +308,14 @@ $MenuElement* BasicPopupMenuUI::nextEnabledChild($MenuElementArray* e, int32_t f
 
 $MenuElement* BasicPopupMenuUI::previousEnabledChild($MenuElementArray* e, int32_t fromIndex, int32_t toIndex) {
 	$init(BasicPopupMenuUI);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (int32_t i = fromIndex; i >= toIndex; --i) {
 		if ($nc(e)->get(i) != nullptr) {
 			$var($Component, comp, $nc(e->get(i))->getComponent());
 			bool var$1 = comp != nullptr;
 			if (var$1) {
 				bool var$2 = comp->isEnabled();
-				var$1 = (var$2 || $UIManager::getBoolean("MenuItem.disabledAreNavigable"_s));
+				var$1 = var$2 || $UIManager::getBoolean("MenuItem.disabledAreNavigable"_s);
 			}
 			bool var$0 = var$1;
 			if (var$0 && $nc(comp)->isVisible()) {
@@ -433,7 +353,7 @@ $MenuElement* BasicPopupMenuUI::findEnabledChild($MenuElementArray* e, $MenuElem
 	return nullptr;
 }
 
-void clinit$BasicPopupMenuUI($Class* class$) {
+void BasicPopupMenuUI::clinit$($Class* clazz) {
 	$assignStatic(BasicPopupMenuUI::MOUSE_GRABBER_KEY, $new($StringBuilder, "javax.swing.plaf.basic.BasicPopupMenuUI.MouseGrabber"_s));
 	$assignStatic(BasicPopupMenuUI::MENU_KEYBOARD_HELPER_KEY, $new($StringBuilder, "javax.swing.plaf.basic.BasicPopupMenuUI.MenuKeyboardHelper"_s));
 }
@@ -442,7 +362,66 @@ BasicPopupMenuUI::BasicPopupMenuUI() {
 }
 
 $Class* BasicPopupMenuUI::load$($String* name, bool initialize) {
-	$loadClass(BasicPopupMenuUI, name, initialize, &_BasicPopupMenuUI_ClassInfo_, clinit$BasicPopupMenuUI, allocate$BasicPopupMenuUI);
+	$FieldInfo fieldInfos$$[] = {
+		{"MOUSE_GRABBER_KEY", "Ljava/lang/StringBuilder;", nullptr, $STATIC | $FINAL, $staticField(BasicPopupMenuUI, MOUSE_GRABBER_KEY)},
+		{"MENU_KEYBOARD_HELPER_KEY", "Ljava/lang/StringBuilder;", nullptr, $STATIC | $FINAL, $staticField(BasicPopupMenuUI, MENU_KEYBOARD_HELPER_KEY)},
+		{"popupMenu", "Ljavax/swing/JPopupMenu;", nullptr, $PROTECTED, $field(BasicPopupMenuUI, popupMenu)},
+		{"popupMenuListener", "Ljavax/swing/event/PopupMenuListener;", nullptr, $PRIVATE | $TRANSIENT, $field(BasicPopupMenuUI, popupMenuListener)},
+		{"menuKeyListener", "Ljavax/swing/event/MenuKeyListener;", nullptr, $PRIVATE, $field(BasicPopupMenuUI, menuKeyListener)},
+		{"checkedUnpostPopup", "Z", nullptr, $PRIVATE | $STATIC, $staticField(BasicPopupMenuUI, checkedUnpostPopup)},
+		{"unpostPopup", "Z", nullptr, $PRIVATE | $STATIC, $staticField(BasicPopupMenuUI, unpostPopup)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(BasicPopupMenuUI, init$, void)},
+		{"checkInvokerEqual", "(Ljavax/swing/MenuElement;Ljavax/swing/MenuElement;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(BasicPopupMenuUI, checkInvokerEqual, bool, $MenuElement*, $MenuElement*)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(BasicPopupMenuUI, createUI, $ComponentUI*, $JComponent*)},
+		{"findEnabledChild", "([Ljavax/swing/MenuElement;IZ)Ljavax/swing/MenuElement;", nullptr, $STATIC, $staticMethod(BasicPopupMenuUI, findEnabledChild, $MenuElement*, $MenuElementArray*, int32_t, bool)},
+		{"findEnabledChild", "([Ljavax/swing/MenuElement;Ljavax/swing/MenuElement;Z)Ljavax/swing/MenuElement;", nullptr, $STATIC, $staticMethod(BasicPopupMenuUI, findEnabledChild, $MenuElement*, $MenuElementArray*, $MenuElement*, bool)},
+		{"getActionMap", "()Ljavax/swing/ActionMap;", nullptr, $STATIC, $staticMethod(BasicPopupMenuUI, getActionMap, $ActionMap*)},
+		{"getFirstPopup", "()Ljavax/swing/MenuElement;", nullptr, $STATIC, $staticMethod(BasicPopupMenuUI, getFirstPopup, $MenuElement*)},
+		{"getInputMap", "(Ljavax/swing/JPopupMenu;Ljavax/swing/JComponent;)Ljavax/swing/InputMap;", nullptr, $STATIC, $staticMethod(BasicPopupMenuUI, getInputMap, $InputMap*, $JPopupMenu*, $JComponent*)},
+		{"getLastPopup", "()Ljavax/swing/JPopupMenu;", nullptr, $STATIC, $staticMethod(BasicPopupMenuUI, getLastPopup, $JPopupMenu*)},
+		{"getPopups", "()Ljava/util/List;", "()Ljava/util/List<Ljavax/swing/JPopupMenu;>;", $STATIC, $staticMethod(BasicPopupMenuUI, getPopups, $List*)},
+		{"installDefaults", "()V", nullptr, $PUBLIC, $virtualMethod(BasicPopupMenuUI, installDefaults, void)},
+		{"installKeyboardActions", "()V", nullptr, $PROTECTED, $virtualMethod(BasicPopupMenuUI, installKeyboardActions, void)},
+		{"installListeners", "()V", nullptr, $PROTECTED, $virtualMethod(BasicPopupMenuUI, installListeners, void)},
+		{"installUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(BasicPopupMenuUI, installUI, void, $JComponent*)},
+		{"isPopupTrigger", "(Ljava/awt/event/MouseEvent;)Z", nullptr, $PUBLIC, $virtualMethod(BasicPopupMenuUI, isPopupTrigger, bool, $MouseEvent*)},
+		{"loadActionMap", "(Ljavax/swing/plaf/basic/LazyActionMap;)V", nullptr, $STATIC, $staticMethod(BasicPopupMenuUI, loadActionMap, void, $LazyActionMap*)},
+		{"nextEnabledChild", "([Ljavax/swing/MenuElement;II)Ljavax/swing/MenuElement;", nullptr, $PRIVATE | $STATIC, $staticMethod(BasicPopupMenuUI, nextEnabledChild, $MenuElement*, $MenuElementArray*, int32_t, int32_t)},
+		{"previousEnabledChild", "([Ljavax/swing/MenuElement;II)Ljavax/swing/MenuElement;", nullptr, $PRIVATE | $STATIC, $staticMethod(BasicPopupMenuUI, previousEnabledChild, $MenuElement*, $MenuElementArray*, int32_t, int32_t)},
+		{"uninstallDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(BasicPopupMenuUI, uninstallDefaults, void)},
+		{"uninstallKeyboardActions", "()V", nullptr, $PROTECTED, $virtualMethod(BasicPopupMenuUI, uninstallKeyboardActions, void)},
+		{"uninstallListeners", "()V", nullptr, $PROTECTED, $virtualMethod(BasicPopupMenuUI, uninstallListeners, void)},
+		{"uninstallUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(BasicPopupMenuUI, uninstallUI, void, $JComponent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.basic.BasicPopupMenuUI$MenuKeyboardHelper", "javax.swing.plaf.basic.BasicPopupMenuUI", "MenuKeyboardHelper", $STATIC},
+		{"javax.swing.plaf.basic.BasicPopupMenuUI$MouseGrabber", "javax.swing.plaf.basic.BasicPopupMenuUI", "MouseGrabber", $STATIC},
+		{"javax.swing.plaf.basic.BasicPopupMenuUI$Actions", "javax.swing.plaf.basic.BasicPopupMenuUI", "Actions", $PRIVATE | $STATIC},
+		{"javax.swing.plaf.basic.BasicPopupMenuUI$BasicMenuKeyListener", "javax.swing.plaf.basic.BasicPopupMenuUI", "BasicMenuKeyListener", $PRIVATE},
+		{"javax.swing.plaf.basic.BasicPopupMenuUI$BasicPopupMenuListener", "javax.swing.plaf.basic.BasicPopupMenuUI", "BasicPopupMenuListener", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.basic.BasicPopupMenuUI",
+		"javax.swing.plaf.PopupMenuUI",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.basic.BasicPopupMenuUI$MenuKeyboardHelper,javax.swing.plaf.basic.BasicPopupMenuUI$MenuKeyboardHelper$1,javax.swing.plaf.basic.BasicPopupMenuUI$MouseGrabber,javax.swing.plaf.basic.BasicPopupMenuUI$MouseGrabber$2,javax.swing.plaf.basic.BasicPopupMenuUI$MouseGrabber$1,javax.swing.plaf.basic.BasicPopupMenuUI$Actions,javax.swing.plaf.basic.BasicPopupMenuUI$BasicMenuKeyListener,javax.swing.plaf.basic.BasicPopupMenuUI$BasicPopupMenuListener"
+	};
+	$loadClass(BasicPopupMenuUI, name, initialize, &classInfo$$, BasicPopupMenuUI::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(BasicPopupMenuUI);
+	});
 	return class$;
 }
 

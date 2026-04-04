@@ -1,5 +1,4 @@
 #include <com/sun/imageio/plugins/png/PNGImageDataEnumeration.h>
-
 #include <com/sun/imageio/plugins/common/InputStreamAdapter.h>
 #include <com/sun/imageio/plugins/common/SubImageInputStream.h>
 #include <com/sun/imageio/plugins/png/PNGImageReader.h>
@@ -24,34 +23,6 @@ namespace com {
 			namespace plugins {
 				namespace png {
 
-$FieldInfo _PNGImageDataEnumeration_FieldInfo_[] = {
-	{"firstTime", "Z", nullptr, 0, $field(PNGImageDataEnumeration, firstTime)},
-	{"stream", "Ljavax/imageio/stream/ImageInputStream;", nullptr, 0, $field(PNGImageDataEnumeration, stream)},
-	{"length", "I", nullptr, 0, $field(PNGImageDataEnumeration, length)},
-	{}
-};
-
-$MethodInfo _PNGImageDataEnumeration_MethodInfo_[] = {
-	{"<init>", "(Ljavax/imageio/stream/ImageInputStream;)V", nullptr, $PUBLIC, $method(PNGImageDataEnumeration, init$, void, $ImageInputStream*), "java.io.IOException"},
-	{"hasMoreElements", "()Z", nullptr, $PUBLIC, $virtualMethod(PNGImageDataEnumeration, hasMoreElements, bool)},
-	{"nextElement", "()Ljava/io/InputStream;", nullptr, $PUBLIC, $virtualMethod(PNGImageDataEnumeration, nextElement, $Object*)},
-	{}
-};
-
-$ClassInfo _PNGImageDataEnumeration_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.imageio.plugins.png.PNGImageDataEnumeration",
-	"java.lang.Object",
-	"java.util.Enumeration",
-	_PNGImageDataEnumeration_FieldInfo_,
-	_PNGImageDataEnumeration_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/Enumeration<Ljava/io/InputStream;>;"
-};
-
-$Object* allocate$PNGImageDataEnumeration($Class* clazz) {
-	return $of($alloc(PNGImageDataEnumeration));
-}
-
 void PNGImageDataEnumeration::init$($ImageInputStream* stream) {
 	this->firstTime = true;
 	$set(this, stream, stream);
@@ -63,9 +34,9 @@ $Object* PNGImageDataEnumeration::nextElement() {
 	try {
 		this->firstTime = false;
 		$var($ImageInputStream, iis, $new($SubImageInputStream, this->stream, this->length));
-		return $of($new($InputStreamAdapter, iis));
+		return $new($InputStreamAdapter, iis);
 	} catch ($IOException& e) {
-		return $of(nullptr);
+		return nullptr;
 	}
 	$shouldNotReachHere();
 }
@@ -93,7 +64,30 @@ PNGImageDataEnumeration::PNGImageDataEnumeration() {
 }
 
 $Class* PNGImageDataEnumeration::load$($String* name, bool initialize) {
-	$loadClass(PNGImageDataEnumeration, name, initialize, &_PNGImageDataEnumeration_ClassInfo_, allocate$PNGImageDataEnumeration);
+	$FieldInfo fieldInfos$$[] = {
+		{"firstTime", "Z", nullptr, 0, $field(PNGImageDataEnumeration, firstTime)},
+		{"stream", "Ljavax/imageio/stream/ImageInputStream;", nullptr, 0, $field(PNGImageDataEnumeration, stream)},
+		{"length", "I", nullptr, 0, $field(PNGImageDataEnumeration, length)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/imageio/stream/ImageInputStream;)V", nullptr, $PUBLIC, $method(PNGImageDataEnumeration, init$, void, $ImageInputStream*), "java.io.IOException"},
+		{"hasMoreElements", "()Z", nullptr, $PUBLIC, $virtualMethod(PNGImageDataEnumeration, hasMoreElements, bool)},
+		{"nextElement", "()Ljava/io/InputStream;", nullptr, $PUBLIC, $virtualMethod(PNGImageDataEnumeration, nextElement, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.imageio.plugins.png.PNGImageDataEnumeration",
+		"java.lang.Object",
+		"java.util.Enumeration",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/Enumeration<Ljava/io/InputStream;>;"
+	};
+	$loadClass(PNGImageDataEnumeration, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PNGImageDataEnumeration);
+	});
 	return class$;
 }
 

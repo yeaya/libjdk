@@ -1,5 +1,4 @@
 #include <InternalResourceBundle.h>
-
 #include <java/awt/EventQueue.h>
 #include <java/io/Serializable.h>
 #include <java/lang/Runnable.h>
@@ -23,7 +22,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $LookAndFeel = ::javax::swing::LookAndFeel;
 using $UIDefaults = ::javax::swing::UIDefaults;
 using $UIManager = ::javax::swing::UIManager;
 using $UnsupportedLookAndFeelException = ::javax::swing::UnsupportedLookAndFeelException;
@@ -38,69 +36,45 @@ public:
 	virtual void run() override {
 		InternalResourceBundle::lambda$main$0();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<InternalResourceBundle$$Lambda$lambda$main$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo InternalResourceBundle$$Lambda$lambda$main$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(InternalResourceBundle$$Lambda$lambda$main$0, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(InternalResourceBundle$$Lambda$lambda$main$0, run, void)},
-	{}
-};
-$ClassInfo InternalResourceBundle$$Lambda$lambda$main$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"InternalResourceBundle$$Lambda$lambda$main$0",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* InternalResourceBundle$$Lambda$lambda$main$0::load$($String* name, bool initialize) {
-	$loadClass(InternalResourceBundle$$Lambda$lambda$main$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(InternalResourceBundle$$Lambda$lambda$main$0, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(InternalResourceBundle$$Lambda$lambda$main$0, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"InternalResourceBundle$$Lambda$lambda$main$0",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(InternalResourceBundle$$Lambda$lambda$main$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(InternalResourceBundle$$Lambda$lambda$main$0);
+	});
 	return class$;
 }
 $Class* InternalResourceBundle$$Lambda$lambda$main$0::class$ = nullptr;
-
-$MethodInfo _InternalResourceBundle_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(InternalResourceBundle, init$, void)},
-	{"getValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC, $staticMethod(InternalResourceBundle, getValue, $Object*, $UIDefaults*)},
-	{"lambda$main$0", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(InternalResourceBundle, lambda$main$0, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(InternalResourceBundle, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _InternalResourceBundle_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"InternalResourceBundle",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_InternalResourceBundle_MethodInfo_
-};
-
-$Object* allocate$InternalResourceBundle($Class* clazz) {
-	return $of($alloc(InternalResourceBundle));
-}
 
 void InternalResourceBundle::init$() {
 }
 
 void InternalResourceBundle::main($StringArray* args) {
-	$EventQueue::invokeAndWait(static_cast<$Runnable*>($$new(InternalResourceBundle$$Lambda$lambda$main$0)));
+	$EventQueue::invokeAndWait($$new(InternalResourceBundle$$Lambda$lambda$main$0));
 }
 
 $Object* InternalResourceBundle::getValue($UIDefaults* defaults) {
-	return $of($nc(defaults)->get("MetalTitlePane.restore.titleAndMnemonic"_s));
+	return $nc(defaults)->get("MetalTitlePane.restore.titleAndMnemonic"_s);
 }
 
 void InternalResourceBundle::lambda$main$0() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
-		$UIManager::setLookAndFeel(static_cast<$LookAndFeel*>($$new($NimbusLookAndFeel)));
+		$UIManager::setLookAndFeel($$new($NimbusLookAndFeel));
 	} catch ($UnsupportedLookAndFeelException& e) {
-		$throwNew($RuntimeException, static_cast<$Throwable*>(e));
+		$throwNew($RuntimeException, e);
 	}
 	$var($UIDefaults, defaults, $UIManager::getDefaults());
 	$nc(defaults)->addResourceBundle("com.sun.swing.internal.plaf.metal.resources.metal"_s);
@@ -109,9 +83,9 @@ void InternalResourceBundle::lambda$main$0() {
 		$throwNew($RuntimeException, $$str({"value is not null = "_s, value}));
 	}
 	try {
-		$UIManager::setLookAndFeel(static_cast<$LookAndFeel*>($$new($MetalLookAndFeel)));
+		$UIManager::setLookAndFeel($$new($MetalLookAndFeel));
 	} catch ($UnsupportedLookAndFeelException& e) {
-		$throwNew($RuntimeException, static_cast<$Throwable*>(e));
+		$throwNew($RuntimeException, e);
 	}
 	$assign(value, getValue(defaults));
 	if (value == nullptr) {
@@ -124,11 +98,28 @@ InternalResourceBundle::InternalResourceBundle() {
 
 $Class* InternalResourceBundle::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(InternalResourceBundle$$Lambda$lambda$main$0::classInfo$.name)) {
+		if (name->equals("InternalResourceBundle$$Lambda$lambda$main$0")) {
 			return InternalResourceBundle$$Lambda$lambda$main$0::load$(name, initialize);
 		}
 	}
-	$loadClass(InternalResourceBundle, name, initialize, &_InternalResourceBundle_ClassInfo_, allocate$InternalResourceBundle);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(InternalResourceBundle, init$, void)},
+		{"getValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC, $staticMethod(InternalResourceBundle, getValue, $Object*, $UIDefaults*)},
+		{"lambda$main$0", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(InternalResourceBundle, lambda$main$0, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(InternalResourceBundle, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"InternalResourceBundle",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(InternalResourceBundle, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(InternalResourceBundle);
+	});
 	return class$;
 }
 

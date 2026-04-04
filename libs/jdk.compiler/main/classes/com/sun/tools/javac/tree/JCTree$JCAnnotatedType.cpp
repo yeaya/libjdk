@@ -1,6 +1,4 @@
 #include <com/sun/tools/javac/tree/JCTree$JCAnnotatedType.h>
-
-#include <com/sun/source/tree/AnnotatedTypeTree.h>
 #include <com/sun/source/tree/ExpressionTree.h>
 #include <com/sun/source/tree/Tree$Kind.h>
 #include <com/sun/source/tree/TreeVisitor.h>
@@ -15,7 +13,6 @@
 
 #undef ANNOTATED_TYPE
 
-using $AnnotatedTypeTree = ::com::sun::source::tree::AnnotatedTypeTree;
 using $ExpressionTree = ::com::sun::source::tree::ExpressionTree;
 using $Tree$Kind = ::com::sun::source::tree::Tree$Kind;
 using $TreeVisitor = ::com::sun::source::tree::TreeVisitor;
@@ -35,54 +32,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace tree {
-
-$FieldInfo _JCTree$JCAnnotatedType_FieldInfo_[] = {
-	{"annotations", "Lcom/sun/tools/javac/util/List;", "Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;>;", $PUBLIC, $field(JCTree$JCAnnotatedType, annotations)},
-	{"underlyingType", "Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, $PUBLIC, $field(JCTree$JCAnnotatedType, underlyingType)},
-	{}
-};
-
-$MethodInfo _JCTree$JCAnnotatedType_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/tree/JCTree$JCExpression;)V", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;>;Lcom/sun/tools/javac/tree/JCTree$JCExpression;)V", $PROTECTED, $method(JCTree$JCAnnotatedType, init$, void, $List*, $JCTree$JCExpression*)},
-	{"accept", "(Lcom/sun/tools/javac/tree/JCTree$Visitor;)V", nullptr, $PUBLIC, $virtualMethod(JCTree$JCAnnotatedType, accept, void, $JCTree$Visitor*)},
-	{"accept", "(Lcom/sun/source/tree/TreeVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;D:Ljava/lang/Object;>(Lcom/sun/source/tree/TreeVisitor<TR;TD;>;TD;)TR;", $PUBLIC, $virtualMethod(JCTree$JCAnnotatedType, accept, $Object*, $TreeVisitor*, Object$*)},
-	{"getAnnotations", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;>;", $PUBLIC, $virtualMethod(JCTree$JCAnnotatedType, getAnnotations, $1List*)},
-	{"getKind", "()Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCAnnotatedType, getKind, $Tree$Kind*)},
-	{"getTag", "()Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCAnnotatedType, getTag, $JCTree$Tag*)},
-	{"getUnderlyingType", "()Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCAnnotatedType, getUnderlyingType, $ExpressionTree*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _JCTree$JCAnnotatedType_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.tree.JCTree$JCAnnotatedType", "com.sun.tools.javac.tree.JCTree", "JCAnnotatedType", $PUBLIC | $STATIC},
-	{"com.sun.tools.javac.tree.JCTree$JCExpression", "com.sun.tools.javac.tree.JCTree", "JCExpression", $PUBLIC | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _JCTree$JCAnnotatedType_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.tree.JCTree$JCAnnotatedType",
-	"com.sun.tools.javac.tree.JCTree$JCExpression",
-	"com.sun.source.tree.AnnotatedTypeTree",
-	_JCTree$JCAnnotatedType_FieldInfo_,
-	_JCTree$JCAnnotatedType_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JCTree$JCAnnotatedType_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.tree.JCTree"
-};
-
-$Object* allocate$JCTree$JCAnnotatedType($Class* clazz) {
-	return $of($alloc(JCTree$JCAnnotatedType));
-}
 
 $String* JCTree$JCAnnotatedType::toString() {
 	 return this->$JCTree$JCExpression::toString();
@@ -129,7 +78,7 @@ $ExpressionTree* JCTree$JCAnnotatedType::getUnderlyingType() {
 }
 
 $Object* JCTree$JCAnnotatedType::accept($TreeVisitor* v, Object$* d) {
-	return $of($nc(v)->visitAnnotatedType(this, d));
+	return $nc(v)->visitAnnotatedType(this, d);
 }
 
 $JCTree$Tag* JCTree$JCAnnotatedType::getTag() {
@@ -141,7 +90,49 @@ JCTree$JCAnnotatedType::JCTree$JCAnnotatedType() {
 }
 
 $Class* JCTree$JCAnnotatedType::load$($String* name, bool initialize) {
-	$loadClass(JCTree$JCAnnotatedType, name, initialize, &_JCTree$JCAnnotatedType_ClassInfo_, allocate$JCTree$JCAnnotatedType);
+	$FieldInfo fieldInfos$$[] = {
+		{"annotations", "Lcom/sun/tools/javac/util/List;", "Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;>;", $PUBLIC, $field(JCTree$JCAnnotatedType, annotations)},
+		{"underlyingType", "Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, $PUBLIC, $field(JCTree$JCAnnotatedType, underlyingType)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/tree/JCTree$JCExpression;)V", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;>;Lcom/sun/tools/javac/tree/JCTree$JCExpression;)V", $PROTECTED, $method(JCTree$JCAnnotatedType, init$, void, $List*, $JCTree$JCExpression*)},
+		{"accept", "(Lcom/sun/tools/javac/tree/JCTree$Visitor;)V", nullptr, $PUBLIC, $virtualMethod(JCTree$JCAnnotatedType, accept, void, $JCTree$Visitor*)},
+		{"accept", "(Lcom/sun/source/tree/TreeVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;D:Ljava/lang/Object;>(Lcom/sun/source/tree/TreeVisitor<TR;TD;>;TD;)TR;", $PUBLIC, $virtualMethod(JCTree$JCAnnotatedType, accept, $Object*, $TreeVisitor*, Object$*)},
+		{"getAnnotations", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;>;", $PUBLIC, $virtualMethod(JCTree$JCAnnotatedType, getAnnotations, $1List*)},
+		{"getKind", "()Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCAnnotatedType, getKind, $Tree$Kind*)},
+		{"getTag", "()Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCAnnotatedType, getTag, $JCTree$Tag*)},
+		{"getUnderlyingType", "()Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCAnnotatedType, getUnderlyingType, $ExpressionTree*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.tree.JCTree$JCAnnotatedType", "com.sun.tools.javac.tree.JCTree", "JCAnnotatedType", $PUBLIC | $STATIC},
+		{"com.sun.tools.javac.tree.JCTree$JCExpression", "com.sun.tools.javac.tree.JCTree", "JCExpression", $PUBLIC | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.tree.JCTree$JCAnnotatedType",
+		"com.sun.tools.javac.tree.JCTree$JCExpression",
+		"com.sun.source.tree.AnnotatedTypeTree",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.tree.JCTree"
+	};
+	$loadClass(JCTree$JCAnnotatedType, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JCTree$JCAnnotatedType));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/Infer$InferenceException.h>
-
 #include <com/sun/tools/javac/comp/Infer.h>
 #include <com/sun/tools/javac/comp/Resolve$InapplicableMethodException.h>
 #include <com/sun/tools/javac/util/JCDiagnostic.h>
@@ -19,44 +18,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace comp {
-
-$FieldInfo _Infer$InferenceException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Infer$InferenceException, serialVersionUID)},
-	{"messages", "Lcom/sun/tools/javac/util/List;", "Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/util/JCDiagnostic;>;", $TRANSIENT, $field(Infer$InferenceException, messages)},
-	{}
-};
-
-$MethodInfo _Infer$InferenceException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(Infer$InferenceException, init$, void)},
-	{"getDiagnostic", "()Lcom/sun/tools/javac/util/JCDiagnostic;", nullptr, $PUBLIC, $virtualMethod(Infer$InferenceException, getDiagnostic, $JCDiagnostic*)},
-	{}
-};
-
-$InnerClassInfo _Infer$InferenceException_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.Infer$InferenceException", "com.sun.tools.javac.comp.Infer", "InferenceException", $PUBLIC | $STATIC},
-	{"com.sun.tools.javac.comp.Resolve$InapplicableMethodException", "com.sun.tools.javac.comp.Resolve", "InapplicableMethodException", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _Infer$InferenceException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.comp.Infer$InferenceException",
-	"com.sun.tools.javac.comp.Resolve$InapplicableMethodException",
-	nullptr,
-	_Infer$InferenceException_FieldInfo_,
-	_Infer$InferenceException_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Infer$InferenceException_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.Infer"
-};
-
-$Object* allocate$Infer$InferenceException($Class* clazz) {
-	return $of($alloc(Infer$InferenceException));
-}
 
 void Infer$InferenceException::init$() {
 	$Resolve$InapplicableMethodException::init$(nullptr);
@@ -78,7 +39,39 @@ void Infer$InferenceException::throw$() {
 }
 
 $Class* Infer$InferenceException::load$($String* name, bool initialize) {
-	$loadClass(Infer$InferenceException, name, initialize, &_Infer$InferenceException_ClassInfo_, allocate$Infer$InferenceException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Infer$InferenceException, serialVersionUID)},
+		{"messages", "Lcom/sun/tools/javac/util/List;", "Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/util/JCDiagnostic;>;", $TRANSIENT, $field(Infer$InferenceException, messages)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(Infer$InferenceException, init$, void)},
+		{"getDiagnostic", "()Lcom/sun/tools/javac/util/JCDiagnostic;", nullptr, $PUBLIC, $virtualMethod(Infer$InferenceException, getDiagnostic, $JCDiagnostic*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.Infer$InferenceException", "com.sun.tools.javac.comp.Infer", "InferenceException", $PUBLIC | $STATIC},
+		{"com.sun.tools.javac.comp.Resolve$InapplicableMethodException", "com.sun.tools.javac.comp.Resolve", "InapplicableMethodException", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.comp.Infer$InferenceException",
+		"com.sun.tools.javac.comp.Resolve$InapplicableMethodException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.Infer"
+	};
+	$loadClass(Infer$InferenceException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Infer$InferenceException);
+	});
 	return class$;
 }
 

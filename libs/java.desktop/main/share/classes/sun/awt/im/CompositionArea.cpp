@@ -1,5 +1,4 @@
 #include <sun/awt/im/CompositionArea.h>
-
 #include <java/awt/AWTEvent.h>
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
@@ -14,8 +13,6 @@
 #include <java/awt/Toolkit.h>
 #include <java/awt/Window.h>
 #include <java/awt/event/InputMethodEvent.h>
-#include <java/awt/event/InputMethodListener.h>
-#include <java/awt/event/WindowListener.h>
 #include <java/awt/font/FontRenderContext.h>
 #include <java/awt/font/TextHitInfo.h>
 #include <java/awt/font/TextLayout.h>
@@ -45,8 +42,6 @@
 
 using $AWTEvent = ::java::awt::AWTEvent;
 using $Color = ::java::awt::Color;
-using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Dimension = ::java::awt::Dimension;
 using $FontMetrics = ::java::awt::FontMetrics;
 using $Graphics = ::java::awt::Graphics;
@@ -55,8 +50,6 @@ using $Point = ::java::awt::Point;
 using $Rectangle = ::java::awt::Rectangle;
 using $Toolkit = ::java::awt::Toolkit;
 using $InputMethodEvent = ::java::awt::event::InputMethodEvent;
-using $InputMethodListener = ::java::awt::event::InputMethodListener;
-using $WindowListener = ::java::awt::event::WindowListener;
 using $FontRenderContext = ::java::awt::font::FontRenderContext;
 using $TextHitInfo = ::java::awt::font::TextHitInfo;
 using $TextLayout = ::java::awt::font::TextLayout;
@@ -81,68 +74,6 @@ namespace sun {
 	namespace awt {
 		namespace im {
 
-$FieldInfo _CompositionArea_FieldInfo_[] = {
-	{"handler", "Lsun/awt/im/CompositionAreaHandler;", nullptr, $PRIVATE, $field(CompositionArea, handler)},
-	{"composedTextLayout", "Ljava/awt/font/TextLayout;", nullptr, $PRIVATE, $field(CompositionArea, composedTextLayout)},
-	{"caret", "Ljava/awt/font/TextHitInfo;", nullptr, $PRIVATE, $field(CompositionArea, caret)},
-	{"compositionWindow", "Ljavax/swing/JFrame;", nullptr, $PRIVATE, $field(CompositionArea, compositionWindow)},
-	{"TEXT_ORIGIN_X", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CompositionArea, TEXT_ORIGIN_X)},
-	{"TEXT_ORIGIN_Y", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CompositionArea, TEXT_ORIGIN_Y)},
-	{"PASSIVE_WIDTH", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CompositionArea, PASSIVE_WIDTH)},
-	{"WIDTH_MARGIN", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CompositionArea, WIDTH_MARGIN)},
-	{"HEIGHT_MARGIN", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CompositionArea, HEIGHT_MARGIN)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CompositionArea, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _CompositionArea_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, 0, $method(CompositionArea, init$, void)},
-	{"caretPositionChanged", "(Ljava/awt/event/InputMethodEvent;)V", nullptr, $PUBLIC, $virtualMethod(CompositionArea, caretPositionChanged, void, $InputMethodEvent*)},
-	{"getCaretRectangle", "(Ljava/awt/font/TextHitInfo;)Ljava/awt/Rectangle;", nullptr, $PRIVATE, $method(CompositionArea, getCaretRectangle, $Rectangle*, $TextHitInfo*)},
-	{"getInputMethodRequests", "()Ljava/awt/im/InputMethodRequests;", nullptr, $PUBLIC, $virtualMethod(CompositionArea, getInputMethodRequests, $InputMethodRequests*)},
-	{"getLocationOffset", "(II)Ljava/awt/font/TextHitInfo;", nullptr, 0, $method(CompositionArea, getLocationOffset, $TextHitInfo*, int32_t, int32_t)},
-	{"getTextLocation", "(Ljava/awt/font/TextHitInfo;)Ljava/awt/Rectangle;", nullptr, 0, $method(CompositionArea, getTextLocation, $Rectangle*, $TextHitInfo*)},
-	{"inputMethodTextChanged", "(Ljava/awt/event/InputMethodEvent;)V", nullptr, $PUBLIC, $virtualMethod(CompositionArea, inputMethodTextChanged, void, $InputMethodEvent*)},
-	{"isCompositionAreaVisible", "()Z", nullptr, 0, $method(CompositionArea, isCompositionAreaVisible, bool)},
-	{"paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(CompositionArea, paint, void, $Graphics*)},
-	{"setCaret", "(Ljava/awt/font/TextHitInfo;)V", nullptr, 0, $method(CompositionArea, setCaret, void, $TextHitInfo*)},
-	{"setCompositionAreaUndecorated", "(Z)V", nullptr, 0, $method(CompositionArea, setCompositionAreaUndecorated, void, bool)},
-	{"setCompositionAreaVisible", "(Z)V", nullptr, 0, $method(CompositionArea, setCompositionAreaVisible, void, bool)},
-	{"setHandlerInfo", "(Lsun/awt/im/CompositionAreaHandler;Lsun/awt/im/InputContext;)V", nullptr, $SYNCHRONIZED, $method(CompositionArea, setHandlerInfo, void, $CompositionAreaHandler*, $InputContext*)},
-	{"setText", "(Ljava/text/AttributedCharacterIterator;Ljava/awt/font/TextHitInfo;)V", nullptr, 0, $method(CompositionArea, setText, void, $AttributedCharacterIterator*, $TextHitInfo*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"updateWindowLocation", "()V", nullptr, 0, $method(CompositionArea, updateWindowLocation, void)},
-	{}
-};
-
-$InnerClassInfo _CompositionArea_InnerClassesInfo_[] = {
-	{"sun.awt.im.CompositionArea$FrameWindowAdapter", "sun.awt.im.CompositionArea", "FrameWindowAdapter", 0},
-	{}
-};
-
-$ClassInfo _CompositionArea_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.awt.im.CompositionArea",
-	"javax.swing.JPanel",
-	"java.awt.event.InputMethodListener",
-	_CompositionArea_FieldInfo_,
-	_CompositionArea_MethodInfo_,
-	nullptr,
-	nullptr,
-	_CompositionArea_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.awt.im.CompositionArea$FrameWindowAdapter"
-};
-
-$Object* allocate$CompositionArea($Class* clazz) {
-	return $of($alloc(CompositionArea));
-}
-
 $String* CompositionArea::toString() {
 	 return this->$JPanel::toString();
 }
@@ -164,7 +95,7 @@ void CompositionArea::finalize() {
 }
 
 void CompositionArea::init$() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$JPanel::init$();
 	$set(this, caret, nullptr);
 	$var($String, windowTitle, $Toolkit::getProperty("AWT.CompositionWindowTitle"_s, "Input Window"_s));
@@ -176,21 +107,21 @@ void CompositionArea::init$() {
 	setBackground($Color::white);
 	enableInputMethods(true);
 	enableEvents($AWTEvent::KEY_EVENT_MASK);
-	$nc($($nc(this->compositionWindow)->getContentPane()))->add(static_cast<$Component*>(this));
+	$$nc($nc(this->compositionWindow)->getContentPane())->add(this);
 	$nc(this->compositionWindow)->addWindowListener($$new($CompositionArea$FrameWindowAdapter, this));
 	addInputMethodListener(this);
 	$nc(this->compositionWindow)->enableInputMethods(false);
 	$nc(this->compositionWindow)->pack();
 	$var($Dimension, windowSize, $nc(this->compositionWindow)->getSize());
-	$var($Dimension, screenSize, $nc(($(getToolkit())))->getScreenSize());
-	$nc(this->compositionWindow)->setLocation($nc(screenSize)->width - $nc(windowSize)->width - 20, screenSize->height - windowSize->height - 100);
+	$var($Dimension, screenSize, ($$nc(getToolkit()))->getScreenSize());
+	$nc(this->compositionWindow)->setLocation($nc(screenSize)->width - $nc(windowSize)->width - 20, $nc(screenSize)->height - $nc(windowSize)->height - 100);
 	$nc(this->compositionWindow)->setVisible(false);
 }
 
 void CompositionArea::setHandlerInfo($CompositionAreaHandler* handler, $InputContext* inputContext) {
 	$synchronized(this) {
 		$set(this, handler, handler);
-		$nc(($cast($InputMethodWindow, this->compositionWindow)))->setInputContext(inputContext);
+		$nc($cast($InputMethodWindow, this->compositionWindow))->setInputContext(inputContext);
 	}
 }
 
@@ -199,7 +130,7 @@ $InputMethodRequests* CompositionArea::getInputMethodRequests() {
 }
 
 $Rectangle* CompositionArea::getCaretRectangle($TextHitInfo* caret) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t caretLocation = 0;
 	$var($TextLayout, layout, this->composedTextLayout);
 	if (layout != nullptr) {
@@ -207,18 +138,16 @@ $Rectangle* CompositionArea::getCaretRectangle($TextHitInfo* caret) {
 	}
 	$var($Graphics, g, getGraphics());
 	$var($FontMetrics, metrics, nullptr);
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$assign(metrics, $nc(g)->getFontMetrics());
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$nc(g)->dispose();
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	$var($Throwable, var$0, nullptr);
+	try {
+		$assign(metrics, $nc(g)->getFontMetrics());
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$nc(g)->dispose();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 	int32_t var$2 = CompositionArea::TEXT_ORIGIN_X + caretLocation;
 	int32_t var$3 = CompositionArea::TEXT_ORIGIN_Y - $nc(metrics)->getAscent();
@@ -227,7 +156,7 @@ $Rectangle* CompositionArea::getCaretRectangle($TextHitInfo* caret) {
 }
 
 void CompositionArea::paint($Graphics* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$JPanel::paint(g);
 	$nc(g)->setColor($(getForeground()));
 	$var($TextLayout, layout, this->composedTextLayout);
@@ -237,7 +166,7 @@ void CompositionArea::paint($Graphics* g) {
 	if (this->caret != nullptr) {
 		$var($Rectangle, rectangle, getCaretRectangle(this->caret));
 		g->setXORMode($(getBackground()));
-		g->fillRect($nc(rectangle)->x, rectangle->y, 1, rectangle->height);
+		g->fillRect($nc(rectangle)->x, $nc(rectangle)->y, 1, $nc(rectangle)->height);
 		g->setPaintMode();
 	}
 }
@@ -259,7 +188,7 @@ void CompositionArea::caretPositionChanged($InputMethodEvent* event) {
 }
 
 void CompositionArea::setText($AttributedCharacterIterator* composedText, $TextHitInfo* caret) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, composedTextLayout, nullptr);
 	if (composedText == nullptr) {
 		$nc(this->compositionWindow)->setVisible(false);
@@ -272,68 +201,64 @@ void CompositionArea::setText($AttributedCharacterIterator* composedText, $TextH
 		if (g == nullptr) {
 			return;
 		}
-		{
-			$var($Throwable, var$0, nullptr);
-			try {
-				updateWindowLocation();
-				$var($FontRenderContext, context, $nc(($cast($Graphics2D, g)))->getFontRenderContext());
-				$set(this, composedTextLayout, $new($TextLayout, composedText, context));
-				$var($Rectangle2D, bounds, $nc(this->composedTextLayout)->getBounds());
-				$set(this, caret, caret);
-				$var($FontMetrics, metrics, $nc(g)->getFontMetrics());
-				$var($Rectangle2D, maxCharBoundsRec, $nc(metrics)->getMaxCharBounds(g));
-				int32_t newHeight = $cast(int32_t, $nc(maxCharBoundsRec)->getHeight()) + CompositionArea::HEIGHT_MARGIN;
-				int32_t var$1 = newHeight + $nc($($nc(this->compositionWindow)->getInsets()))->top;
-				int32_t newFrameHeight = var$1 + $nc($($nc(this->compositionWindow)->getInsets()))->bottom;
-				$var($InputMethodRequests, req, $nc(this->handler)->getClientInputMethodRequests());
-				int32_t newWidth = (req == nullptr) ? CompositionArea::PASSIVE_WIDTH : $cast(int32_t, $nc(bounds)->getWidth()) + CompositionArea::WIDTH_MARGIN;
-				int32_t var$2 = newWidth + $nc($($nc(this->compositionWindow)->getInsets()))->left;
-				int32_t newFrameWidth = var$2 + $nc($($nc(this->compositionWindow)->getInsets()))->right;
-				setPreferredSize($$new($Dimension, newWidth, newHeight));
-				$nc(this->compositionWindow)->setSize($$new($Dimension, newFrameWidth, newFrameHeight));
-				paint(g);
-			} catch ($Throwable& var$3) {
-				$assign(var$0, var$3);
-			} /*finally*/ {
-				$nc(g)->dispose();
-			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
+		$var($Throwable, var$0, nullptr);
+		try {
+			updateWindowLocation();
+			$var($FontRenderContext, context, $nc($cast($Graphics2D, g))->getFontRenderContext());
+			$set(this, composedTextLayout, $new($TextLayout, composedText, context));
+			$var($Rectangle2D, bounds, this->composedTextLayout->getBounds());
+			$set(this, caret, caret);
+			$var($FontMetrics, metrics, g->getFontMetrics());
+			$var($Rectangle2D, maxCharBoundsRec, $nc(metrics)->getMaxCharBounds(g));
+			int32_t newHeight = $cast(int32_t, $nc(maxCharBoundsRec)->getHeight()) + CompositionArea::HEIGHT_MARGIN;
+			int32_t var$1 = newHeight + $nc($($nc(this->compositionWindow)->getInsets()))->top;
+			int32_t newFrameHeight = var$1 + $nc($(this->compositionWindow->getInsets()))->bottom;
+			$var($InputMethodRequests, req, $nc(this->handler)->getClientInputMethodRequests());
+			int32_t newWidth = (req == nullptr) ? CompositionArea::PASSIVE_WIDTH : $cast(int32_t, $nc(bounds)->getWidth()) + CompositionArea::WIDTH_MARGIN;
+			int32_t var$2 = newWidth + $nc($($nc(this->compositionWindow)->getInsets()))->left;
+			int32_t newFrameWidth = var$2 + $nc($(this->compositionWindow->getInsets()))->right;
+			setPreferredSize($$new($Dimension, newWidth, newHeight));
+			$nc(this->compositionWindow)->setSize($$new($Dimension, newFrameWidth, newFrameHeight));
+			paint(g);
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
+		} /*finally*/ {
+			$nc(g)->dispose();
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	}
 }
 
 void CompositionArea::setCaret($TextHitInfo* caret) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, caret, caret);
 	if ($nc(this->compositionWindow)->isVisible()) {
 		$var($Graphics, g, getGraphics());
-		{
-			$var($Throwable, var$0, nullptr);
-			try {
-				paint(g);
-			} catch ($Throwable& var$1) {
-				$assign(var$0, var$1);
-			} /*finally*/ {
-				$nc(g)->dispose();
-			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
+		$var($Throwable, var$0, nullptr);
+		try {
+			paint(g);
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
+		} /*finally*/ {
+			$nc(g)->dispose();
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	}
 }
 
 void CompositionArea::updateWindowLocation() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($InputMethodRequests, req, $nc(this->handler)->getClientInputMethodRequests());
 	if (req == nullptr) {
 		return;
 	}
 	$var($Point, windowLocation, $new($Point));
 	$var($Rectangle, caretRect, $nc(req)->getTextLocation(nullptr));
-	$var($Dimension, screenSize, $nc($($Toolkit::getDefaultToolkit()))->getScreenSize());
+	$var($Dimension, screenSize, $$nc($Toolkit::getDefaultToolkit())->getScreenSize());
 	$var($Dimension, windowSize, $nc(this->compositionWindow)->getSize());
 	int32_t SPACING = 2;
 	if ($nc(caretRect)->x + $nc(windowSize)->width > $nc(screenSize)->width) {
@@ -341,7 +266,7 @@ void CompositionArea::updateWindowLocation() {
 	} else {
 		windowLocation->x = caretRect->x;
 	}
-	if ($nc(caretRect)->y + caretRect->height + SPACING + $nc(windowSize)->height > $nc(screenSize)->height) {
+	if (caretRect->y + caretRect->height + SPACING + windowSize->height > screenSize->height) {
 		windowLocation->y = caretRect->y - SPACING - windowSize->height;
 	} else {
 		windowLocation->y = caretRect->y + caretRect->height + SPACING;
@@ -350,15 +275,15 @@ void CompositionArea::updateWindowLocation() {
 }
 
 $Rectangle* CompositionArea::getTextLocation($TextHitInfo* offset) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle, rectangle, getCaretRectangle(offset));
 	$var($Point, location, getLocationOnScreen());
-	$nc(rectangle)->translate($nc(location)->x, location->y);
+	$nc(rectangle)->translate($nc(location)->x, $nc(location)->y);
 	return rectangle;
 }
 
 $TextHitInfo* CompositionArea::getLocationOffset(int32_t x, int32_t y) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($TextLayout, layout, this->composedTextLayout);
 	if (layout == nullptr) {
 		return nullptr;
@@ -366,7 +291,7 @@ $TextHitInfo* CompositionArea::getLocationOffset(int32_t x, int32_t y) {
 		$var($Point, location, getLocationOnScreen());
 		x -= $nc(location)->x + CompositionArea::TEXT_ORIGIN_X;
 		y -= location->y + CompositionArea::TEXT_ORIGIN_Y;
-		if ($nc($($nc(layout)->getBounds()))->contains((double)x, (double)y)) {
+		if ($$nc(layout->getBounds())->contains((double)x, (double)y)) {
 			return layout->hitTestChar((float)x, (float)y);
 		} else {
 			return nullptr;
@@ -386,7 +311,63 @@ CompositionArea::CompositionArea() {
 }
 
 $Class* CompositionArea::load$($String* name, bool initialize) {
-	$loadClass(CompositionArea, name, initialize, &_CompositionArea_ClassInfo_, allocate$CompositionArea);
+	$FieldInfo fieldInfos$$[] = {
+		{"handler", "Lsun/awt/im/CompositionAreaHandler;", nullptr, $PRIVATE, $field(CompositionArea, handler)},
+		{"composedTextLayout", "Ljava/awt/font/TextLayout;", nullptr, $PRIVATE, $field(CompositionArea, composedTextLayout)},
+		{"caret", "Ljava/awt/font/TextHitInfo;", nullptr, $PRIVATE, $field(CompositionArea, caret)},
+		{"compositionWindow", "Ljavax/swing/JFrame;", nullptr, $PRIVATE, $field(CompositionArea, compositionWindow)},
+		{"TEXT_ORIGIN_X", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CompositionArea, TEXT_ORIGIN_X)},
+		{"TEXT_ORIGIN_Y", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CompositionArea, TEXT_ORIGIN_Y)},
+		{"PASSIVE_WIDTH", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CompositionArea, PASSIVE_WIDTH)},
+		{"WIDTH_MARGIN", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CompositionArea, WIDTH_MARGIN)},
+		{"HEIGHT_MARGIN", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CompositionArea, HEIGHT_MARGIN)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CompositionArea, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, 0, $method(CompositionArea, init$, void)},
+		{"caretPositionChanged", "(Ljava/awt/event/InputMethodEvent;)V", nullptr, $PUBLIC, $virtualMethod(CompositionArea, caretPositionChanged, void, $InputMethodEvent*)},
+		{"getCaretRectangle", "(Ljava/awt/font/TextHitInfo;)Ljava/awt/Rectangle;", nullptr, $PRIVATE, $method(CompositionArea, getCaretRectangle, $Rectangle*, $TextHitInfo*)},
+		{"getInputMethodRequests", "()Ljava/awt/im/InputMethodRequests;", nullptr, $PUBLIC, $virtualMethod(CompositionArea, getInputMethodRequests, $InputMethodRequests*)},
+		{"getLocationOffset", "(II)Ljava/awt/font/TextHitInfo;", nullptr, 0, $method(CompositionArea, getLocationOffset, $TextHitInfo*, int32_t, int32_t)},
+		{"getTextLocation", "(Ljava/awt/font/TextHitInfo;)Ljava/awt/Rectangle;", nullptr, 0, $method(CompositionArea, getTextLocation, $Rectangle*, $TextHitInfo*)},
+		{"inputMethodTextChanged", "(Ljava/awt/event/InputMethodEvent;)V", nullptr, $PUBLIC, $virtualMethod(CompositionArea, inputMethodTextChanged, void, $InputMethodEvent*)},
+		{"isCompositionAreaVisible", "()Z", nullptr, 0, $method(CompositionArea, isCompositionAreaVisible, bool)},
+		{"paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(CompositionArea, paint, void, $Graphics*)},
+		{"setCaret", "(Ljava/awt/font/TextHitInfo;)V", nullptr, 0, $method(CompositionArea, setCaret, void, $TextHitInfo*)},
+		{"setCompositionAreaUndecorated", "(Z)V", nullptr, 0, $method(CompositionArea, setCompositionAreaUndecorated, void, bool)},
+		{"setCompositionAreaVisible", "(Z)V", nullptr, 0, $method(CompositionArea, setCompositionAreaVisible, void, bool)},
+		{"setHandlerInfo", "(Lsun/awt/im/CompositionAreaHandler;Lsun/awt/im/InputContext;)V", nullptr, $SYNCHRONIZED, $method(CompositionArea, setHandlerInfo, void, $CompositionAreaHandler*, $InputContext*)},
+		{"setText", "(Ljava/text/AttributedCharacterIterator;Ljava/awt/font/TextHitInfo;)V", nullptr, 0, $method(CompositionArea, setText, void, $AttributedCharacterIterator*, $TextHitInfo*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"updateWindowLocation", "()V", nullptr, 0, $method(CompositionArea, updateWindowLocation, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.im.CompositionArea$FrameWindowAdapter", "sun.awt.im.CompositionArea", "FrameWindowAdapter", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.awt.im.CompositionArea",
+		"javax.swing.JPanel",
+		"java.awt.event.InputMethodListener",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.awt.im.CompositionArea$FrameWindowAdapter"
+	};
+	$loadClass(CompositionArea, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(CompositionArea));
+	});
 	return class$;
 }
 

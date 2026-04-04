@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/bcel/internal/generic/ClassGenException.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -14,31 +13,6 @@ namespace com {
 				namespace bcel {
 					namespace internal {
 						namespace generic {
-
-$FieldInfo _ClassGenException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ClassGenException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _ClassGenException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ClassGenException, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ClassGenException, init$, void, $String*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(ClassGenException, init$, void, $String*, $Throwable*)},
-	{}
-};
-
-$ClassInfo _ClassGenException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.bcel.internal.generic.ClassGenException",
-	"java.lang.RuntimeException",
-	nullptr,
-	_ClassGenException_FieldInfo_,
-	_ClassGenException_MethodInfo_
-};
-
-$Object* allocate$ClassGenException($Class* clazz) {
-	return $of($alloc(ClassGenException));
-}
 
 void ClassGenException::init$() {
 	$RuntimeException::init$();
@@ -63,7 +37,27 @@ void ClassGenException::throw$() {
 }
 
 $Class* ClassGenException::load$($String* name, bool initialize) {
-	$loadClass(ClassGenException, name, initialize, &_ClassGenException_ClassInfo_, allocate$ClassGenException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ClassGenException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ClassGenException, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ClassGenException, init$, void, $String*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(ClassGenException, init$, void, $String*, $Throwable*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.bcel.internal.generic.ClassGenException",
+		"java.lang.RuntimeException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ClassGenException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ClassGenException);
+	});
 	return class$;
 }
 

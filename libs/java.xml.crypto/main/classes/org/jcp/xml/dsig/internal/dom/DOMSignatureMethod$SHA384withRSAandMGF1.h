@@ -45,6 +45,7 @@ class DOMSignatureMethod$SHA384withRSAandMGF1 : public ::org::jcp::xml::dsig::in
 	$class(DOMSignatureMethod$SHA384withRSAandMGF1, 0, ::org::jcp::xml::dsig::internal::dom::DOMSignatureMethod$AbstractRSAPSSSignatureMethod)
 public:
 	DOMSignatureMethod$SHA384withRSAandMGF1();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::security::spec::AlgorithmParameterSpec* params);
 	void init$(::org::w3c::dom::Element* dmElem);
 	virtual $String* getAlgorithm() override;

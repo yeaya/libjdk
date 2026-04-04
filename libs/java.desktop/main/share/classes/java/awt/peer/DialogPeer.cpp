@@ -1,5 +1,4 @@
 #include <java/awt/peer/DialogPeer.h>
-
 #include <java/util/List.h>
 #include <jcpp.h>
 
@@ -11,28 +10,24 @@ namespace java {
 	namespace awt {
 		namespace peer {
 
-$MethodInfo _DialogPeer_MethodInfo_[] = {
-	{"blockWindows", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/awt/Window;>;)V", $PUBLIC | $ABSTRACT, $virtualMethod(DialogPeer, blockWindows, void, $List*)},
-	{"setResizable", "(Z)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DialogPeer, setResizable, void, bool)},
-	{"setTitle", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DialogPeer, setTitle, void, $String*)},
-	{}
-};
-
-$ClassInfo _DialogPeer_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.awt.peer.DialogPeer",
-	nullptr,
-	"java.awt.peer.WindowPeer",
-	nullptr,
-	_DialogPeer_MethodInfo_
-};
-
-$Object* allocate$DialogPeer($Class* clazz) {
-	return $of($alloc(DialogPeer));
-}
-
 $Class* DialogPeer::load$($String* name, bool initialize) {
-	$loadClass(DialogPeer, name, initialize, &_DialogPeer_ClassInfo_, allocate$DialogPeer);
+	$MethodInfo methodInfos$$[] = {
+		{"blockWindows", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/awt/Window;>;)V", $PUBLIC | $ABSTRACT, $virtualMethod(DialogPeer, blockWindows, void, $List*)},
+		{"setResizable", "(Z)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DialogPeer, setResizable, void, bool)},
+		{"setTitle", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DialogPeer, setTitle, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.awt.peer.DialogPeer",
+		nullptr,
+		"java.awt.peer.WindowPeer",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(DialogPeer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DialogPeer);
+	});
 	return class$;
 }
 

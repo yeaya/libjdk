@@ -1,5 +1,4 @@
 #include <HeadlessJRadioButtonMenuItem.h>
-
 #include <HeadlessJRadioButtonMenuItem$1.h>
 #include <HeadlessJRadioButtonMenuItem$2.h>
 #include <HeadlessJRadioButtonMenuItem$3.h>
@@ -51,7 +50,6 @@ using $FlowLayout = ::java::awt::FlowLayout;
 using $Font = ::java::awt::Font;
 using $IllegalComponentStateException = ::java::awt::IllegalComponentStateException;
 using $Insets = ::java::awt::Insets;
-using $LayoutManager = ::java::awt::LayoutManager;
 using $Point = ::java::awt::Point;
 using $Rectangle = ::java::awt::Rectangle;
 using $Toolkit = ::java::awt::Toolkit;
@@ -62,43 +60,11 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $Locale = ::java::util::Locale;
 using $JRadioButtonMenuItem = ::javax::swing::JRadioButtonMenuItem;
 
-$MethodInfo _HeadlessJRadioButtonMenuItem_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(HeadlessJRadioButtonMenuItem, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(HeadlessJRadioButtonMenuItem, main, void, $StringArray*)},
-	{}
-};
-
-$InnerClassInfo _HeadlessJRadioButtonMenuItem_InnerClassesInfo_[] = {
-	{"HeadlessJRadioButtonMenuItem$3", nullptr, nullptr, 0},
-	{"HeadlessJRadioButtonMenuItem$2", nullptr, nullptr, 0},
-	{"HeadlessJRadioButtonMenuItem$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _HeadlessJRadioButtonMenuItem_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"HeadlessJRadioButtonMenuItem",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_HeadlessJRadioButtonMenuItem_MethodInfo_,
-	nullptr,
-	nullptr,
-	_HeadlessJRadioButtonMenuItem_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"HeadlessJRadioButtonMenuItem$3,HeadlessJRadioButtonMenuItem$2,HeadlessJRadioButtonMenuItem$1"
-};
-
-$Object* allocate$HeadlessJRadioButtonMenuItem($Class* clazz) {
-	return $of($alloc(HeadlessJRadioButtonMenuItem));
-}
-
 void HeadlessJRadioButtonMenuItem::init$() {
 }
 
 void HeadlessJRadioButtonMenuItem::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JRadioButtonMenuItem, i, $new($JRadioButtonMenuItem));
 	i->getAccessibleContext();
 	i->isFocusTraversable();
@@ -110,9 +76,9 @@ void HeadlessJRadioButtonMenuItem::main($StringArray* args) {
 	i->getMaximumSize();
 	i->getMinimumSize();
 	i->contains(1, 2);
-	$var($Component, c1, i->add(static_cast<$Component*>($$new($HeadlessJRadioButtonMenuItem$1))));
-	$var($Component, c2, i->add(static_cast<$Component*>($$new($HeadlessJRadioButtonMenuItem$2))));
-	$var($Component, c3, i->add(static_cast<$Component*>($$new($HeadlessJRadioButtonMenuItem$3))));
+	$var($Component, c1, i->add($$new($HeadlessJRadioButtonMenuItem$1)));
+	$var($Component, c2, i->add($$new($HeadlessJRadioButtonMenuItem$2)));
+	$var($Component, c3, i->add($$new($HeadlessJRadioButtonMenuItem$3)));
 	$var($Insets, ins, i->getInsets());
 	i->getAlignmentY();
 	i->getAlignmentX();
@@ -123,26 +89,22 @@ void HeadlessJRadioButtonMenuItem::main($StringArray* args) {
 	i->setForeground($Color::red);
 	i->setBackground($Color::red);
 	{
-		$var($StringArray, arr$, $nc($($Toolkit::getDefaultToolkit()))->getFontList());
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		$var($StringArray, arr$, $$nc($Toolkit::getDefaultToolkit())->getFontList());
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($String, font, arr$->get(i$));
-			{
-				for (int32_t j = 8; j < 17; ++j) {
-					$var($Font, f1, $new($Font, font, $Font::PLAIN, j));
-					$var($Font, f2, $new($Font, font, $Font::BOLD, j));
-					$var($Font, f3, $new($Font, font, $Font::ITALIC, j));
-					$var($Font, f4, $new($Font, font, $Font::BOLD | $Font::ITALIC, j));
-					i->setFont(f1);
-					i->setFont(f2);
-					i->setFont(f3);
-					i->setFont(f4);
-					i->getFontMetrics(f1);
-					i->getFontMetrics(f2);
-					i->getFontMetrics(f3);
-					i->getFontMetrics(f4);
-				}
+			for (int32_t j = 8; j < 17; ++j) {
+				$var($Font, f1, $new($Font, font, $Font::PLAIN, j));
+				$var($Font, f2, $new($Font, font, $Font::BOLD, j));
+				$var($Font, f3, $new($Font, font, $Font::ITALIC, j));
+				$var($Font, f4, $new($Font, font, $Font::BOLD | $Font::ITALIC, j));
+				i->setFont(f1);
+				i->setFont(f2);
+				i->setFont(f3);
+				i->setFont(f4);
+				i->getFontMetrics(f1);
+				i->getFontMetrics(f2);
+				i->getFontMetrics(f3);
+				i->getFontMetrics(f4);
 			}
 		}
 	}
@@ -207,13 +169,11 @@ void HeadlessJRadioButtonMenuItem::main($StringArray* args) {
 	i->getFont();
 	i->isFontSet();
 	$var($Container, c, $new($Container));
-	c->add(static_cast<$Component*>(i));
+	c->add(i);
 	i->getLocale();
 	{
 		$var($LocaleArray, arr$, $Locale::getAvailableLocales());
-		int32_t len$ = arr$->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($Locale, locale, arr$->get(i$));
 			i->setLocale(locale);
 		}
@@ -270,7 +230,34 @@ HeadlessJRadioButtonMenuItem::HeadlessJRadioButtonMenuItem() {
 }
 
 $Class* HeadlessJRadioButtonMenuItem::load$($String* name, bool initialize) {
-	$loadClass(HeadlessJRadioButtonMenuItem, name, initialize, &_HeadlessJRadioButtonMenuItem_ClassInfo_, allocate$HeadlessJRadioButtonMenuItem);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(HeadlessJRadioButtonMenuItem, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(HeadlessJRadioButtonMenuItem, main, void, $StringArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"HeadlessJRadioButtonMenuItem$3", nullptr, nullptr, 0},
+		{"HeadlessJRadioButtonMenuItem$2", nullptr, nullptr, 0},
+		{"HeadlessJRadioButtonMenuItem$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"HeadlessJRadioButtonMenuItem",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"HeadlessJRadioButtonMenuItem$3,HeadlessJRadioButtonMenuItem$2,HeadlessJRadioButtonMenuItem$1"
+	};
+	$loadClass(HeadlessJRadioButtonMenuItem, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HeadlessJRadioButtonMenuItem);
+	});
 	return class$;
 }
 

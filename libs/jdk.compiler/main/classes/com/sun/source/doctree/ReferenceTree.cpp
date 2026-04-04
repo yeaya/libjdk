@@ -1,5 +1,4 @@
 #include <com/sun/source/doctree/ReferenceTree.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -10,26 +9,22 @@ namespace com {
 		namespace source {
 			namespace doctree {
 
-$MethodInfo _ReferenceTree_MethodInfo_[] = {
-	{"getSignature", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ReferenceTree, getSignature, $String*)},
-	{}
-};
-
-$ClassInfo _ReferenceTree_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.source.doctree.ReferenceTree",
-	nullptr,
-	"com.sun.source.doctree.DocTree",
-	nullptr,
-	_ReferenceTree_MethodInfo_
-};
-
-$Object* allocate$ReferenceTree($Class* clazz) {
-	return $of($alloc(ReferenceTree));
-}
-
 $Class* ReferenceTree::load$($String* name, bool initialize) {
-	$loadClass(ReferenceTree, name, initialize, &_ReferenceTree_ClassInfo_, allocate$ReferenceTree);
+	$MethodInfo methodInfos$$[] = {
+		{"getSignature", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ReferenceTree, getSignature, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.source.doctree.ReferenceTree",
+		nullptr,
+		"com.sun.source.doctree.DocTree",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ReferenceTree, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ReferenceTree);
+	});
 	return class$;
 }
 

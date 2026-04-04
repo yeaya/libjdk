@@ -1,5 +1,4 @@
 #include <javax/naming/directory/AttributeInUseException.h>
-
 #include <javax/naming/NamingException.h>
 #include <jcpp.h>
 
@@ -11,30 +10,6 @@ using $NamingException = ::javax::naming::NamingException;
 namespace javax {
 	namespace naming {
 		namespace directory {
-
-$FieldInfo _AttributeInUseException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AttributeInUseException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _AttributeInUseException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(AttributeInUseException, init$, void, $String*)},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AttributeInUseException, init$, void)},
-	{}
-};
-
-$ClassInfo _AttributeInUseException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.naming.directory.AttributeInUseException",
-	"javax.naming.NamingException",
-	nullptr,
-	_AttributeInUseException_FieldInfo_,
-	_AttributeInUseException_MethodInfo_
-};
-
-$Object* allocate$AttributeInUseException($Class* clazz) {
-	return $of($alloc(AttributeInUseException));
-}
 
 void AttributeInUseException::init$($String* explanation) {
 	$NamingException::init$(explanation);
@@ -55,7 +30,26 @@ void AttributeInUseException::throw$() {
 }
 
 $Class* AttributeInUseException::load$($String* name, bool initialize) {
-	$loadClass(AttributeInUseException, name, initialize, &_AttributeInUseException_ClassInfo_, allocate$AttributeInUseException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AttributeInUseException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(AttributeInUseException, init$, void, $String*)},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AttributeInUseException, init$, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.naming.directory.AttributeInUseException",
+		"javax.naming.NamingException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(AttributeInUseException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AttributeInUseException);
+	});
 	return class$;
 }
 

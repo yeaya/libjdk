@@ -84,6 +84,7 @@ class ResolverDirectHTTP : public ::com::sun::org::apache::xml::internal::securi
 	$class(ResolverDirectHTTP, 0, ::com::sun::org::apache::xml::internal::security::utils::resolver::ResourceResolverSpi)
 public:
 	ResolverDirectHTTP();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(::java::util::Map* resolverProperties);
 	virtual bool engineCanResolveURI(::com::sun::org::apache::xml::internal::security::utils::resolver::ResourceResolverContext* context) override;

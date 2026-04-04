@@ -58,6 +58,7 @@ class $export Preview : public ::java::lang::Object {
 	$class(Preview, 0, ::java::lang::Object)
 public:
 	Preview();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::com::sun::tools::javac::util::Context* context);
 	virtual void checkSourceLevel(::com::sun::tools::javac::util::JCDiagnostic$DiagnosticPosition* pos, ::com::sun::tools::javac::code::Source$Feature* feature);
 	virtual void clear();

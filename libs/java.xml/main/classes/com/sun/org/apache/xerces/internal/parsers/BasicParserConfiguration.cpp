@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/parsers/BasicParserConfiguration.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/Constants.h>
 #include <com/sun/org/apache/xerces/internal/util/FeatureState.h>
 #include <com/sun/org/apache/xerces/internal/util/ParserConfigurationSettings.h>
@@ -56,7 +55,6 @@ using $XMLDTDHandler = ::com::sun::org::apache::xerces::internal::xni::XMLDTDHan
 using $XMLDocumentHandler = ::com::sun::org::apache::xerces::internal::xni::XMLDocumentHandler;
 using $XMLComponent = ::com::sun::org::apache::xerces::internal::xni::parser::XMLComponent;
 using $XMLComponentManager = ::com::sun::org::apache::xerces::internal::xni::parser::XMLComponentManager;
-using $XMLDocumentSource = ::com::sun::org::apache::xerces::internal::xni::parser::XMLDocumentSource;
 using $XMLEntityResolver = ::com::sun::org::apache::xerces::internal::xni::parser::XMLEntityResolver;
 using $XMLErrorHandler = ::com::sun::org::apache::xerces::internal::xni::parser::XMLErrorHandler;
 using $Boolean = ::java::lang::Boolean;
@@ -66,9 +64,7 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $ArrayList = ::java::util::ArrayList;
 using $HashMap = ::java::util::HashMap;
 using $Iterator = ::java::util::Iterator;
-using $List = ::java::util::List;
 using $Locale = ::java::util::Locale;
-using $Map = ::java::util::Map;
 
 namespace com {
 	namespace sun {
@@ -77,77 +73,6 @@ namespace com {
 				namespace xerces {
 					namespace internal {
 						namespace parsers {
-
-$FieldInfo _BasicParserConfiguration_FieldInfo_[] = {
-	{"VALIDATION", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(BasicParserConfiguration, VALIDATION)},
-	{"NAMESPACES", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(BasicParserConfiguration, NAMESPACES)},
-	{"EXTERNAL_GENERAL_ENTITIES", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(BasicParserConfiguration, EXTERNAL_GENERAL_ENTITIES)},
-	{"EXTERNAL_PARAMETER_ENTITIES", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(BasicParserConfiguration, EXTERNAL_PARAMETER_ENTITIES)},
-	{"XML_STRING", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(BasicParserConfiguration, XML_STRING)},
-	{"SYMBOL_TABLE", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(BasicParserConfiguration, SYMBOL_TABLE)},
-	{"ERROR_HANDLER", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(BasicParserConfiguration, ERROR_HANDLER)},
-	{"ENTITY_RESOLVER", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(BasicParserConfiguration, ENTITY_RESOLVER)},
-	{"fSymbolTable", "Lcom/sun/org/apache/xerces/internal/util/SymbolTable;", nullptr, $PROTECTED, $field(BasicParserConfiguration, fSymbolTable)},
-	{"fLocale", "Ljava/util/Locale;", nullptr, $PROTECTED, $field(BasicParserConfiguration, fLocale)},
-	{"fComponents", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/org/apache/xerces/internal/xni/parser/XMLComponent;>;", $PROTECTED, $field(BasicParserConfiguration, fComponents)},
-	{"fDocumentHandler", "Lcom/sun/org/apache/xerces/internal/xni/XMLDocumentHandler;", nullptr, $PROTECTED, $field(BasicParserConfiguration, fDocumentHandler)},
-	{"fDTDHandler", "Lcom/sun/org/apache/xerces/internal/xni/XMLDTDHandler;", nullptr, $PROTECTED, $field(BasicParserConfiguration, fDTDHandler)},
-	{"fDTDContentModelHandler", "Lcom/sun/org/apache/xerces/internal/xni/XMLDTDContentModelHandler;", nullptr, $PROTECTED, $field(BasicParserConfiguration, fDTDContentModelHandler)},
-	{"fLastComponent", "Lcom/sun/org/apache/xerces/internal/xni/parser/XMLDocumentSource;", nullptr, $PROTECTED, $field(BasicParserConfiguration, fLastComponent)},
-	{}
-};
-
-$MethodInfo _BasicParserConfiguration_MethodInfo_[] = {
-	{"*addRecognizedFeatures", "([Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"*addRecognizedProperties", "([Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*getFeature", "(Ljava/lang/String;)Z", nullptr, $PUBLIC},
-	{"*getFeature", "(Ljava/lang/String;Z)Z", nullptr, $PUBLIC | $FINAL},
-	{"*getFeatureState", "(Ljava/lang/String;)Lcom/sun/org/apache/xerces/internal/util/FeatureState;", nullptr, $PUBLIC},
-	{"*getProperty", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*getProperty", "(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $FINAL},
-	{"*getPropertyState", "(Ljava/lang/String;)Lcom/sun/org/apache/xerces/internal/util/PropertyState;", nullptr, $PUBLIC},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PROTECTED, $method(BasicParserConfiguration, init$, void)},
-	{"<init>", "(Lcom/sun/org/apache/xerces/internal/util/SymbolTable;)V", nullptr, $PROTECTED, $method(BasicParserConfiguration, init$, void, $SymbolTable*)},
-	{"<init>", "(Lcom/sun/org/apache/xerces/internal/util/SymbolTable;Lcom/sun/org/apache/xerces/internal/xni/parser/XMLComponentManager;)V", nullptr, $PROTECTED, $method(BasicParserConfiguration, init$, void, $SymbolTable*, $XMLComponentManager*)},
-	{"addComponent", "(Lcom/sun/org/apache/xerces/internal/xni/parser/XMLComponent;)V", nullptr, $PROTECTED, $virtualMethod(BasicParserConfiguration, addComponent, void, $XMLComponent*)},
-	{"checkFeature", "(Ljava/lang/String;)Lcom/sun/org/apache/xerces/internal/util/FeatureState;", nullptr, $PROTECTED, $virtualMethod(BasicParserConfiguration, checkFeature, $FeatureState*, $String*), "com.sun.org.apache.xerces.internal.xni.parser.XMLConfigurationException"},
-	{"checkProperty", "(Ljava/lang/String;)Lcom/sun/org/apache/xerces/internal/util/PropertyState;", nullptr, $PROTECTED, $virtualMethod(BasicParserConfiguration, checkProperty, $PropertyState*, $String*), "com.sun.org.apache.xerces.internal.xni.parser.XMLConfigurationException"},
-	{"getDTDContentModelHandler", "()Lcom/sun/org/apache/xerces/internal/xni/XMLDTDContentModelHandler;", nullptr, $PUBLIC, $virtualMethod(BasicParserConfiguration, getDTDContentModelHandler, $XMLDTDContentModelHandler*)},
-	{"getDTDHandler", "()Lcom/sun/org/apache/xerces/internal/xni/XMLDTDHandler;", nullptr, $PUBLIC, $virtualMethod(BasicParserConfiguration, getDTDHandler, $XMLDTDHandler*)},
-	{"getDocumentHandler", "()Lcom/sun/org/apache/xerces/internal/xni/XMLDocumentHandler;", nullptr, $PUBLIC, $virtualMethod(BasicParserConfiguration, getDocumentHandler, $XMLDocumentHandler*)},
-	{"getEntityResolver", "()Lcom/sun/org/apache/xerces/internal/xni/parser/XMLEntityResolver;", nullptr, $PUBLIC, $virtualMethod(BasicParserConfiguration, getEntityResolver, $XMLEntityResolver*)},
-	{"getErrorHandler", "()Lcom/sun/org/apache/xerces/internal/xni/parser/XMLErrorHandler;", nullptr, $PUBLIC, $virtualMethod(BasicParserConfiguration, getErrorHandler, $XMLErrorHandler*)},
-	{"getLocale", "()Ljava/util/Locale;", nullptr, $PUBLIC, $virtualMethod(BasicParserConfiguration, getLocale, $Locale*)},
-	{"parse", "(Lcom/sun/org/apache/xerces/internal/xni/parser/XMLInputSource;)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"reset", "()V", nullptr, $PROTECTED, $virtualMethod(BasicParserConfiguration, reset, void), "com.sun.org.apache.xerces.internal.xni.XNIException"},
-	{"setDTDContentModelHandler", "(Lcom/sun/org/apache/xerces/internal/xni/XMLDTDContentModelHandler;)V", nullptr, $PUBLIC, $virtualMethod(BasicParserConfiguration, setDTDContentModelHandler, void, $XMLDTDContentModelHandler*)},
-	{"setDTDHandler", "(Lcom/sun/org/apache/xerces/internal/xni/XMLDTDHandler;)V", nullptr, $PUBLIC, $virtualMethod(BasicParserConfiguration, setDTDHandler, void, $XMLDTDHandler*)},
-	{"setDocumentHandler", "(Lcom/sun/org/apache/xerces/internal/xni/XMLDocumentHandler;)V", nullptr, $PUBLIC, $virtualMethod(BasicParserConfiguration, setDocumentHandler, void, $XMLDocumentHandler*)},
-	{"setEntityResolver", "(Lcom/sun/org/apache/xerces/internal/xni/parser/XMLEntityResolver;)V", nullptr, $PUBLIC, $virtualMethod(BasicParserConfiguration, setEntityResolver, void, $XMLEntityResolver*)},
-	{"setErrorHandler", "(Lcom/sun/org/apache/xerces/internal/xni/parser/XMLErrorHandler;)V", nullptr, $PUBLIC, $virtualMethod(BasicParserConfiguration, setErrorHandler, void, $XMLErrorHandler*)},
-	{"setFeature", "(Ljava/lang/String;Z)V", nullptr, $PUBLIC, $virtualMethod(BasicParserConfiguration, setFeature, void, $String*, bool), "com.sun.org.apache.xerces.internal.xni.parser.XMLConfigurationException"},
-	{"setLocale", "(Ljava/util/Locale;)V", nullptr, $PUBLIC, $virtualMethod(BasicParserConfiguration, setLocale, void, $Locale*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
-	{"setProperty", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(BasicParserConfiguration, setProperty, void, $String*, Object$*), "com.sun.org.apache.xerces.internal.xni.parser.XMLConfigurationException"},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _BasicParserConfiguration_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"com.sun.org.apache.xerces.internal.parsers.BasicParserConfiguration",
-	"com.sun.org.apache.xerces.internal.util.ParserConfigurationSettings",
-	"com.sun.org.apache.xerces.internal.xni.parser.XMLParserConfiguration",
-	_BasicParserConfiguration_FieldInfo_,
-	_BasicParserConfiguration_MethodInfo_
-};
-
-$Object* allocate$BasicParserConfiguration($Class* clazz) {
-	return $of($alloc(BasicParserConfiguration));
-}
 
 void BasicParserConfiguration::addRecognizedFeatures($StringArray* featureIds) {
 	this->$ParserConfigurationSettings::addRecognizedFeatures(featureIds);
@@ -219,7 +144,7 @@ void BasicParserConfiguration::init$($SymbolTable* symbolTable) {
 }
 
 void BasicParserConfiguration::init$($SymbolTable* symbolTable$renamed, $XMLComponentManager* parentSettings) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SymbolTable, symbolTable, symbolTable$renamed);
 	$ParserConfigurationSettings::init$(parentSettings);
 	$set(this, fComponents, $new($ArrayList));
@@ -234,12 +159,11 @@ void BasicParserConfiguration::init$($SymbolTable* symbolTable$renamed, $XMLComp
 		BasicParserConfiguration::EXTERNAL_PARAMETER_ENTITIES
 	}));
 	addRecognizedFeatures(recognizedFeatures);
-	$init($Boolean);
 	$nc(this->fFeatures)->put($ParserConfigurationSettings::PARSER_SETTINGS, $Boolean::TRUE);
-	$nc(this->fFeatures)->put(BasicParserConfiguration::VALIDATION, $Boolean::FALSE);
-	$nc(this->fFeatures)->put(BasicParserConfiguration::NAMESPACES, $Boolean::TRUE);
-	$nc(this->fFeatures)->put(BasicParserConfiguration::EXTERNAL_GENERAL_ENTITIES, $Boolean::TRUE);
-	$nc(this->fFeatures)->put(BasicParserConfiguration::EXTERNAL_PARAMETER_ENTITIES, $Boolean::TRUE);
+	this->fFeatures->put(BasicParserConfiguration::VALIDATION, $Boolean::FALSE);
+	this->fFeatures->put(BasicParserConfiguration::NAMESPACES, $Boolean::TRUE);
+	this->fFeatures->put(BasicParserConfiguration::EXTERNAL_GENERAL_ENTITIES, $Boolean::TRUE);
+	this->fFeatures->put(BasicParserConfiguration::EXTERNAL_PARAMETER_ENTITIES, $Boolean::TRUE);
 	$var($StringArray, recognizedProperties, $new($StringArray, {
 		BasicParserConfiguration::XML_STRING,
 		BasicParserConfiguration::SYMBOL_TABLE,
@@ -255,11 +179,11 @@ void BasicParserConfiguration::init$($SymbolTable* symbolTable$renamed, $XMLComp
 }
 
 void BasicParserConfiguration::addComponent($XMLComponent* component) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(this->fComponents)->contains(component)) {
 		return;
 	}
-	$nc(this->fComponents)->add(component);
+	this->fComponents->add(component);
 	$var($StringArray, recognizedFeatures, $nc(component)->getRecognizedFeatures());
 	addRecognizedFeatures(recognizedFeatures);
 	$var($StringArray, recognizedProperties, component->getRecognizedProperties());
@@ -287,9 +211,9 @@ void BasicParserConfiguration::addComponent($XMLComponent* component) {
 void BasicParserConfiguration::setDocumentHandler($XMLDocumentHandler* documentHandler) {
 	$set(this, fDocumentHandler, documentHandler);
 	if (this->fLastComponent != nullptr) {
-		$nc(this->fLastComponent)->setDocumentHandler(this->fDocumentHandler);
+		this->fLastComponent->setDocumentHandler(this->fDocumentHandler);
 		if (this->fDocumentHandler != nullptr) {
-			$nc(this->fDocumentHandler)->setDocumentSource(this->fLastComponent);
+			this->fDocumentHandler->setDocumentSource(this->fLastComponent);
 		}
 	}
 }
@@ -331,7 +255,7 @@ $XMLErrorHandler* BasicParserConfiguration::getErrorHandler() {
 }
 
 void BasicParserConfiguration::setFeature($String* featureId, bool state) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	{
 		$var($Iterator, i$, $nc(this->fComponents)->iterator());
 		for (; $nc(i$)->hasNext();) {
@@ -345,7 +269,7 @@ void BasicParserConfiguration::setFeature($String* featureId, bool state) {
 }
 
 void BasicParserConfiguration::setProperty($String* propertyId, Object$* value) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	{
 		$var($Iterator, i$, $nc(this->fComponents)->iterator());
 		for (; $nc(i$)->hasNext();) {
@@ -367,14 +291,12 @@ $Locale* BasicParserConfiguration::getLocale() {
 }
 
 void BasicParserConfiguration::reset() {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Iterator, i$, $nc(this->fComponents)->iterator());
-		for (; $nc(i$)->hasNext();) {
-			$var($XMLComponent, c, $cast($XMLComponent, i$->next()));
-			{
-				$nc(c)->reset(static_cast<$XMLComponentManager*>(static_cast<$ParserConfigurationSettings*>(this)));
-			}
+	$useLocalObjectStack();
+	$var($Iterator, i$, $nc(this->fComponents)->iterator());
+	for (; $nc(i$)->hasNext();) {
+		$var($XMLComponent, c, $cast($XMLComponent, i$->next()));
+		{
+			$nc(c)->reset($cast($ParserConfigurationSettings, this));
 		}
 	}
 }
@@ -410,7 +332,7 @@ $FeatureState* BasicParserConfiguration::checkFeature($String* featureId) {
 BasicParserConfiguration::BasicParserConfiguration() {
 }
 
-void clinit$BasicParserConfiguration($Class* class$) {
+void BasicParserConfiguration::clinit$($Class* clazz) {
 	$init($Constants);
 	$assignStatic(BasicParserConfiguration::VALIDATION, $str({$Constants::SAX_FEATURE_PREFIX, $Constants::VALIDATION_FEATURE}));
 	$assignStatic(BasicParserConfiguration::NAMESPACES, $str({$Constants::SAX_FEATURE_PREFIX, $Constants::NAMESPACES_FEATURE}));
@@ -423,7 +345,73 @@ void clinit$BasicParserConfiguration($Class* class$) {
 }
 
 $Class* BasicParserConfiguration::load$($String* name, bool initialize) {
-	$loadClass(BasicParserConfiguration, name, initialize, &_BasicParserConfiguration_ClassInfo_, clinit$BasicParserConfiguration, allocate$BasicParserConfiguration);
+	$FieldInfo fieldInfos$$[] = {
+		{"VALIDATION", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(BasicParserConfiguration, VALIDATION)},
+		{"NAMESPACES", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(BasicParserConfiguration, NAMESPACES)},
+		{"EXTERNAL_GENERAL_ENTITIES", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(BasicParserConfiguration, EXTERNAL_GENERAL_ENTITIES)},
+		{"EXTERNAL_PARAMETER_ENTITIES", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(BasicParserConfiguration, EXTERNAL_PARAMETER_ENTITIES)},
+		{"XML_STRING", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(BasicParserConfiguration, XML_STRING)},
+		{"SYMBOL_TABLE", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(BasicParserConfiguration, SYMBOL_TABLE)},
+		{"ERROR_HANDLER", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(BasicParserConfiguration, ERROR_HANDLER)},
+		{"ENTITY_RESOLVER", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(BasicParserConfiguration, ENTITY_RESOLVER)},
+		{"fSymbolTable", "Lcom/sun/org/apache/xerces/internal/util/SymbolTable;", nullptr, $PROTECTED, $field(BasicParserConfiguration, fSymbolTable)},
+		{"fLocale", "Ljava/util/Locale;", nullptr, $PROTECTED, $field(BasicParserConfiguration, fLocale)},
+		{"fComponents", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/org/apache/xerces/internal/xni/parser/XMLComponent;>;", $PROTECTED, $field(BasicParserConfiguration, fComponents)},
+		{"fDocumentHandler", "Lcom/sun/org/apache/xerces/internal/xni/XMLDocumentHandler;", nullptr, $PROTECTED, $field(BasicParserConfiguration, fDocumentHandler)},
+		{"fDTDHandler", "Lcom/sun/org/apache/xerces/internal/xni/XMLDTDHandler;", nullptr, $PROTECTED, $field(BasicParserConfiguration, fDTDHandler)},
+		{"fDTDContentModelHandler", "Lcom/sun/org/apache/xerces/internal/xni/XMLDTDContentModelHandler;", nullptr, $PROTECTED, $field(BasicParserConfiguration, fDTDContentModelHandler)},
+		{"fLastComponent", "Lcom/sun/org/apache/xerces/internal/xni/parser/XMLDocumentSource;", nullptr, $PROTECTED, $field(BasicParserConfiguration, fLastComponent)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*addRecognizedFeatures", "([Ljava/lang/String;)V", nullptr, $PUBLIC},
+		{"*addRecognizedProperties", "([Ljava/lang/String;)V", nullptr, $PUBLIC},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*getFeature", "(Ljava/lang/String;)Z", nullptr, $PUBLIC},
+		{"*getFeature", "(Ljava/lang/String;Z)Z", nullptr, $PUBLIC | $FINAL},
+		{"*getFeatureState", "(Ljava/lang/String;)Lcom/sun/org/apache/xerces/internal/util/FeatureState;", nullptr, $PUBLIC},
+		{"*getProperty", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*getProperty", "(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $FINAL},
+		{"*getPropertyState", "(Ljava/lang/String;)Lcom/sun/org/apache/xerces/internal/util/PropertyState;", nullptr, $PUBLIC},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PROTECTED, $method(BasicParserConfiguration, init$, void)},
+		{"<init>", "(Lcom/sun/org/apache/xerces/internal/util/SymbolTable;)V", nullptr, $PROTECTED, $method(BasicParserConfiguration, init$, void, $SymbolTable*)},
+		{"<init>", "(Lcom/sun/org/apache/xerces/internal/util/SymbolTable;Lcom/sun/org/apache/xerces/internal/xni/parser/XMLComponentManager;)V", nullptr, $PROTECTED, $method(BasicParserConfiguration, init$, void, $SymbolTable*, $XMLComponentManager*)},
+		{"addComponent", "(Lcom/sun/org/apache/xerces/internal/xni/parser/XMLComponent;)V", nullptr, $PROTECTED, $virtualMethod(BasicParserConfiguration, addComponent, void, $XMLComponent*)},
+		{"checkFeature", "(Ljava/lang/String;)Lcom/sun/org/apache/xerces/internal/util/FeatureState;", nullptr, $PROTECTED, $virtualMethod(BasicParserConfiguration, checkFeature, $FeatureState*, $String*), "com.sun.org.apache.xerces.internal.xni.parser.XMLConfigurationException"},
+		{"checkProperty", "(Ljava/lang/String;)Lcom/sun/org/apache/xerces/internal/util/PropertyState;", nullptr, $PROTECTED, $virtualMethod(BasicParserConfiguration, checkProperty, $PropertyState*, $String*), "com.sun.org.apache.xerces.internal.xni.parser.XMLConfigurationException"},
+		{"getDTDContentModelHandler", "()Lcom/sun/org/apache/xerces/internal/xni/XMLDTDContentModelHandler;", nullptr, $PUBLIC, $virtualMethod(BasicParserConfiguration, getDTDContentModelHandler, $XMLDTDContentModelHandler*)},
+		{"getDTDHandler", "()Lcom/sun/org/apache/xerces/internal/xni/XMLDTDHandler;", nullptr, $PUBLIC, $virtualMethod(BasicParserConfiguration, getDTDHandler, $XMLDTDHandler*)},
+		{"getDocumentHandler", "()Lcom/sun/org/apache/xerces/internal/xni/XMLDocumentHandler;", nullptr, $PUBLIC, $virtualMethod(BasicParserConfiguration, getDocumentHandler, $XMLDocumentHandler*)},
+		{"getEntityResolver", "()Lcom/sun/org/apache/xerces/internal/xni/parser/XMLEntityResolver;", nullptr, $PUBLIC, $virtualMethod(BasicParserConfiguration, getEntityResolver, $XMLEntityResolver*)},
+		{"getErrorHandler", "()Lcom/sun/org/apache/xerces/internal/xni/parser/XMLErrorHandler;", nullptr, $PUBLIC, $virtualMethod(BasicParserConfiguration, getErrorHandler, $XMLErrorHandler*)},
+		{"getLocale", "()Ljava/util/Locale;", nullptr, $PUBLIC, $virtualMethod(BasicParserConfiguration, getLocale, $Locale*)},
+		{"parse", "(Lcom/sun/org/apache/xerces/internal/xni/parser/XMLInputSource;)V", nullptr, $PUBLIC | $ABSTRACT},
+		{"reset", "()V", nullptr, $PROTECTED, $virtualMethod(BasicParserConfiguration, reset, void), "com.sun.org.apache.xerces.internal.xni.XNIException"},
+		{"setDTDContentModelHandler", "(Lcom/sun/org/apache/xerces/internal/xni/XMLDTDContentModelHandler;)V", nullptr, $PUBLIC, $virtualMethod(BasicParserConfiguration, setDTDContentModelHandler, void, $XMLDTDContentModelHandler*)},
+		{"setDTDHandler", "(Lcom/sun/org/apache/xerces/internal/xni/XMLDTDHandler;)V", nullptr, $PUBLIC, $virtualMethod(BasicParserConfiguration, setDTDHandler, void, $XMLDTDHandler*)},
+		{"setDocumentHandler", "(Lcom/sun/org/apache/xerces/internal/xni/XMLDocumentHandler;)V", nullptr, $PUBLIC, $virtualMethod(BasicParserConfiguration, setDocumentHandler, void, $XMLDocumentHandler*)},
+		{"setEntityResolver", "(Lcom/sun/org/apache/xerces/internal/xni/parser/XMLEntityResolver;)V", nullptr, $PUBLIC, $virtualMethod(BasicParserConfiguration, setEntityResolver, void, $XMLEntityResolver*)},
+		{"setErrorHandler", "(Lcom/sun/org/apache/xerces/internal/xni/parser/XMLErrorHandler;)V", nullptr, $PUBLIC, $virtualMethod(BasicParserConfiguration, setErrorHandler, void, $XMLErrorHandler*)},
+		{"setFeature", "(Ljava/lang/String;Z)V", nullptr, $PUBLIC, $virtualMethod(BasicParserConfiguration, setFeature, void, $String*, bool), "com.sun.org.apache.xerces.internal.xni.parser.XMLConfigurationException"},
+		{"setLocale", "(Ljava/util/Locale;)V", nullptr, $PUBLIC, $virtualMethod(BasicParserConfiguration, setLocale, void, $Locale*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
+		{"setProperty", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(BasicParserConfiguration, setProperty, void, $String*, Object$*), "com.sun.org.apache.xerces.internal.xni.parser.XMLConfigurationException"},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"com.sun.org.apache.xerces.internal.parsers.BasicParserConfiguration",
+		"com.sun.org.apache.xerces.internal.util.ParserConfigurationSettings",
+		"com.sun.org.apache.xerces.internal.xni.parser.XMLParserConfiguration",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(BasicParserConfiguration, name, initialize, &classInfo$$, BasicParserConfiguration::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(BasicParserConfiguration));
+	});
 	return class$;
 }
 

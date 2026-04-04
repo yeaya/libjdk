@@ -1,5 +1,4 @@
 #include <sun/lwawt/macosx/CInputMethod.h>
-
 #include <java/awt/AWTEvent.h>
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
@@ -12,7 +11,6 @@
 #include <java/awt/peer/ComponentPeer.h>
 #include <java/awt/peer/LightweightPeer.h>
 #include <java/lang/Character$Subset.h>
-#include <java/lang/Runnable.h>
 #include <java/lang/UnsupportedOperationException.h>
 #include <java/lang/reflect/InvocationTargetException.h>
 #include <java/text/AttributedCharacterIterator$Attribute.h>
@@ -78,7 +76,6 @@ using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
 using $UnsupportedOperationException = ::java::lang::UnsupportedOperationException;
 using $InvocationTargetException = ::java::lang::reflect::InvocationTargetException;
 using $AttributedCharacterIterator = ::java::text::AttributedCharacterIterator;
@@ -110,107 +107,6 @@ namespace sun {
 	namespace lwawt {
 		namespace macosx {
 
-$FieldInfo _CInputMethod_FieldInfo_[] = {
-	{"fIMContext", "Ljava/awt/im/spi/InputMethodContext;", nullptr, $PRIVATE, $field(CInputMethod, fIMContext)},
-	{"fAwtFocussedComponent", "Ljava/awt/Component;", nullptr, $PRIVATE, $field(CInputMethod, fAwtFocussedComponent)},
-	{"fAwtFocussedComponentPeer", "Lsun/lwawt/LWComponentPeer;", "Lsun/lwawt/LWComponentPeer<**>;", $PRIVATE, $field(CInputMethod, fAwtFocussedComponentPeer)},
-	{"isActive", "Z", nullptr, $PRIVATE, $field(CInputMethod, isActive)},
-	{"sHighlightStyles", "[Ljava/util/Map;", "[Ljava/util/Map<Ljava/awt/font/TextAttribute;Ljava/lang/Integer;>;", $PRIVATE | $STATIC, $staticField(CInputMethod, sHighlightStyles)},
-	{"fCurrentText", "Ljava/text/AttributedString;", nullptr, $PRIVATE, $field(CInputMethod, fCurrentText)},
-	{"fCurrentTextAsString", "Ljava/lang/String;", nullptr, $PRIVATE, $field(CInputMethod, fCurrentTextAsString)},
-	{"fCurrentTextLength", "I", nullptr, $PRIVATE, $field(CInputMethod, fCurrentTextLength)},
-	{"kCaretPosition", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CInputMethod, kCaretPosition)},
-	{"kRawText", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CInputMethod, kRawText)},
-	{"kSelectedRawText", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CInputMethod, kSelectedRawText)},
-	{"kConvertedText", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CInputMethod, kConvertedText)},
-	{"kSelectedConvertedText", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CInputMethod, kSelectedConvertedText)},
-	{}
-};
-
-$MethodInfo _CInputMethod_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(CInputMethod, init$, void)},
-	{"activate", "()V", nullptr, $PUBLIC, $virtualMethod(CInputMethod, activate, void)},
-	{"addAttribute", "(ZZII)V", nullptr, $PRIVATE, $method(CInputMethod, addAttribute, void, bool, bool, int32_t, int32_t)},
-	{"attributedSubstringFromRange", "(II)Ljava/lang/String;", nullptr, $PRIVATE | $SYNCHRONIZED, $method(CInputMethod, attributedSubstringFromRange, $String*, int32_t, int32_t)},
-	{"characterIndexForPoint", "(II)I", nullptr, $PRIVATE | $SYNCHRONIZED, $method(CInputMethod, characterIndexForPoint, int32_t, int32_t, int32_t)},
-	{"deactivate", "(Z)V", nullptr, $PUBLIC, $virtualMethod(CInputMethod, deactivate, void, bool)},
-	{"disableInputMethod", "()V", nullptr, $PUBLIC, $virtualMethod(CInputMethod, disableInputMethod, void)},
-	{"dispatchEvent", "(Ljava/awt/AWTEvent;)V", nullptr, $PUBLIC, $virtualMethod(CInputMethod, dispatchEvent, void, $AWTEvent*)},
-	{"dispatchText", "(IIZ)V", nullptr, $PRIVATE, $method(CInputMethod, dispatchText, void, int32_t, int32_t, bool)},
-	{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(CInputMethod, dispose, void)},
-	{"endComposition", "()V", nullptr, $PUBLIC, $virtualMethod(CInputMethod, endComposition, void)},
-	{"firstRectForCharacterRange", "(I)[I", nullptr, $PRIVATE | $SYNCHRONIZED, $method(CInputMethod, firstRectForCharacterRange, $ints*, int32_t)},
-	{"getControlObject", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(CInputMethod, getControlObject, $Object*)},
-	{"getLocale", "()Ljava/util/Locale;", nullptr, $PUBLIC, $virtualMethod(CInputMethod, getLocale, $Locale*)},
-	{"getNativeInputMethodInfo", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CInputMethod, getNativeInputMethodInfo, $String*)},
-	{"getNativeLocale", "()Ljava/util/Locale;", nullptr, $STATIC | $NATIVE, $staticMethod(CInputMethod, getNativeLocale, $Locale*)},
-	{"getNativeViewPtr", "(Lsun/lwawt/LWComponentPeer;)J", "(Lsun/lwawt/LWComponentPeer<**>;)J", 0, $virtualMethod(CInputMethod, getNativeViewPtr, int64_t, $LWComponentPeer*)},
-	{"getNearestNativePeer", "(Ljava/awt/Component;)Lsun/lwawt/LWComponentPeer;", "(Ljava/awt/Component;)Lsun/lwawt/LWComponentPeer<**>;", $PRIVATE, $method(CInputMethod, getNearestNativePeer, $LWComponentPeer*, $Component*)},
-	{"hasMarkedText", "()Z", nullptr, $PRIVATE | $SYNCHRONIZED, $method(CInputMethod, hasMarkedText, bool)},
-	{"hideWindows", "()V", nullptr, $PUBLIC, $virtualMethod(CInputMethod, hideWindows, void)},
-	{"insertText", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(CInputMethod, insertText, void, $String*)},
-	{"isCompositionEnabled", "()Z", nullptr, $PUBLIC, $virtualMethod(CInputMethod, isCompositionEnabled, bool)},
-	{"mapInputMethodHighlight", "(Ljava/awt/im/InputMethodHighlight;)Ljava/util/Map;", "(Ljava/awt/im/InputMethodHighlight;)Ljava/util/Map<Ljava/awt/font/TextAttribute;*>;", $PUBLIC | $STATIC, $staticMethod(CInputMethod, mapInputMethodHighlight, $Map*, $InputMethodHighlight*)},
-	{"markedRange", "()[I", nullptr, $PRIVATE | $SYNCHRONIZED, $method(CInputMethod, markedRange, $ints*)},
-	{"nativeEndComposition", "(J)V", nullptr, $PRIVATE | $NATIVE, $method(CInputMethod, nativeEndComposition, void, int64_t)},
-	{"nativeGetCurrentInputMethodInfo", "()Ljava/lang/String;", nullptr, $STATIC | $NATIVE, $staticMethod(CInputMethod, nativeGetCurrentInputMethodInfo, $String*)},
-	{"nativeHandleEvent", "(Lsun/lwawt/LWComponentPeer;Ljava/awt/AWTEvent;)V", "(Lsun/lwawt/LWComponentPeer<**>;Ljava/awt/AWTEvent;)V", $PRIVATE | $NATIVE, $method(CInputMethod, nativeHandleEvent, void, $LWComponentPeer*, $AWTEvent*)},
-	{"nativeInit", "()V", nullptr, $STATIC | $NATIVE, $staticMethod(CInputMethod, nativeInit, void)},
-	{"nativeNotifyPeer", "(JLsun/lwawt/macosx/CInputMethod;)V", nullptr, $PRIVATE | $NATIVE, $method(CInputMethod, nativeNotifyPeer, void, int64_t, CInputMethod*)},
-	{"removeNotify", "()V", nullptr, $PUBLIC, $virtualMethod(CInputMethod, removeNotify, void)},
-	{"selectNextGlyph", "()V", nullptr, $PRIVATE, $method(CInputMethod, selectNextGlyph, void)},
-	{"selectPreviousGlyph", "()V", nullptr, $PRIVATE, $method(CInputMethod, selectPreviousGlyph, void)},
-	{"selectedRange", "()[I", nullptr, $PRIVATE | $SYNCHRONIZED, $method(CInputMethod, selectedRange, $ints*)},
-	{"setAWTFocussedComponent", "(Ljava/awt/Component;)V", nullptr, $PROTECTED, $virtualMethod(CInputMethod, setAWTFocussedComponent, void, $Component*)},
-	{"setCharacterSubsets", "([Ljava/lang/Character$Subset;)V", nullptr, $PUBLIC, $virtualMethod(CInputMethod, setCharacterSubsets, void, $Character$SubsetArray*)},
-	{"setCompositionEnabled", "(Z)V", nullptr, $PUBLIC, $virtualMethod(CInputMethod, setCompositionEnabled, void, bool)},
-	{"setInputMethodContext", "(Ljava/awt/im/spi/InputMethodContext;)V", nullptr, $PUBLIC, $virtualMethod(CInputMethod, setInputMethodContext, void, $InputMethodContext*)},
-	{"setLocale", "(Ljava/util/Locale;)Z", nullptr, $PUBLIC, $virtualMethod(CInputMethod, setLocale, bool, $Locale*)},
-	{"setLocale", "(Ljava/util/Locale;Z)Z", nullptr, $PRIVATE, $method(CInputMethod, setLocale, bool, $Locale*, bool)},
-	{"setNativeLocale", "(Ljava/lang/String;Z)Z", nullptr, $STATIC | $NATIVE, $staticMethod(CInputMethod, setNativeLocale, bool, $String*, bool)},
-	{"startIMUpdate", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(CInputMethod, startIMUpdate, void, $String*)},
-	{"unmarkText", "()V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(CInputMethod, unmarkText, void)},
-	{}
-};
-
-#define _METHOD_INDEX_getNativeLocale 15
-#define _METHOD_INDEX_nativeEndComposition 24
-#define _METHOD_INDEX_nativeGetCurrentInputMethodInfo 25
-#define _METHOD_INDEX_nativeHandleEvent 26
-#define _METHOD_INDEX_nativeInit 27
-#define _METHOD_INDEX_nativeNotifyPeer 28
-#define _METHOD_INDEX_setNativeLocale 39
-
-$InnerClassInfo _CInputMethod_InnerClassesInfo_[] = {
-	{"sun.lwawt.macosx.CInputMethod$7", nullptr, nullptr, 0},
-	{"sun.lwawt.macosx.CInputMethod$6", nullptr, nullptr, 0},
-	{"sun.lwawt.macosx.CInputMethod$5", nullptr, nullptr, 0},
-	{"sun.lwawt.macosx.CInputMethod$4", nullptr, nullptr, 0},
-	{"sun.lwawt.macosx.CInputMethod$3", nullptr, nullptr, 0},
-	{"sun.lwawt.macosx.CInputMethod$2", nullptr, nullptr, 0},
-	{"sun.lwawt.macosx.CInputMethod$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _CInputMethod_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.lwawt.macosx.CInputMethod",
-	"sun.awt.im.InputMethodAdapter",
-	nullptr,
-	_CInputMethod_FieldInfo_,
-	_CInputMethod_MethodInfo_,
-	nullptr,
-	nullptr,
-	_CInputMethod_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.lwawt.macosx.CInputMethod$7,sun.lwawt.macosx.CInputMethod$6,sun.lwawt.macosx.CInputMethod$5,sun.lwawt.macosx.CInputMethod$4,sun.lwawt.macosx.CInputMethod$3,sun.lwawt.macosx.CInputMethod$2,sun.lwawt.macosx.CInputMethod$1"
-};
-
-$Object* allocate$CInputMethod($Class* clazz) {
-	return $of($alloc(CInputMethod));
-}
-
 $MapArray* CInputMethod::sHighlightStyles = nullptr;
 
 void CInputMethod::init$() {
@@ -229,24 +125,23 @@ bool CInputMethod::setLocale($Locale* lang) {
 }
 
 bool CInputMethod::setLocale($Locale* lang, bool onActivate) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectArray, available, $CInputMethodDescriptor::getAvailableLocalesInternal());
 	for (int32_t i = 0; i < $nc(available)->length; ++i) {
 		$var($Locale, locale, $cast($Locale, available->get(i)));
 		bool var$1 = $nc(lang)->equals(locale);
 		if (!var$1) {
-			$init($Locale);
 			bool var$2 = $nc(locale)->equals($Locale::JAPAN);
-			var$1 = var$2 && $nc(lang)->equals($Locale::JAPANESE);
+			var$1 = var$2 && lang->equals($Locale::JAPANESE);
 		}
 		bool var$0 = var$1;
 		if (!var$0) {
 			bool var$3 = $nc(locale)->equals($Locale::KOREA);
-			var$0 = var$3 && $nc(lang)->equals($Locale::KOREAN);
+			var$0 = var$3 && lang->equals($Locale::KOREAN);
 		}
 		if (var$0) {
 			if (this->isActive) {
-				setNativeLocale($(locale->toString()), onActivate);
+				setNativeLocale($($nc(locale)->toString()), onActivate);
 			}
 			return true;
 		}
@@ -289,7 +184,7 @@ void CInputMethod::hideWindows() {
 }
 
 int64_t CInputMethod::getNativeViewPtr($LWComponentPeer* peer) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($instanceOf($CPlatformWindow, $($nc(peer)->getPlatformWindow()))) {
 		$var($CPlatformWindow, platformWindow, $cast($CPlatformWindow, peer->getPlatformWindow()));
 		$var($CPlatformView, platformView, $nc(platformWindow)->getContentView());
@@ -307,7 +202,7 @@ void CInputMethod::removeNotify() {
 }
 
 void CInputMethod::setAWTFocussedComponent($Component* component) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($LWComponentPeer, peer, nullptr);
 	int64_t modelPtr = 0;
 	$var(CInputMethod, imInstance, this);
@@ -316,7 +211,7 @@ void CInputMethod::setAWTFocussedComponent($Component* component) {
 		$assign(imInstance, nullptr);
 	} else {
 		$assign(peer, getNearestNativePeer(component));
-		if ($nc(component)->getInputMethodRequests() == nullptr) {
+		if (component->getInputMethodRequests() == nullptr) {
 			$assign(imInstance, nullptr);
 		}
 	}
@@ -358,11 +253,11 @@ void CInputMethod::dispose() {
 }
 
 $Object* CInputMethod::getControlObject() {
-	return $of(nullptr);
+	return nullptr;
 }
 
 $LWComponentPeer* CInputMethod::getNearestNativePeer($Component* comp$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Component, comp, comp$renamed);
 	if (comp == nullptr) {
 		return nullptr;
@@ -390,16 +285,16 @@ $LWComponentPeer* CInputMethod::getNearestNativePeer($Component* comp$renamed) {
 
 void CInputMethod::insertText($String* aString) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$var($AttributedString, attribString, $new($AttributedString, aString));
 		$init($AttributedCharacterIterator$Attribute);
 		$var($AttributedCharacterIterator$Attribute, var$0, $AttributedCharacterIterator$Attribute::LANGUAGE);
-		$var($Object, var$1, $of(getLocale()));
+		$var($Object, var$1, getLocale());
 		attribString->addAttribute(var$0, var$1, 0, $nc(aString)->length());
-		$var($TextHitInfo, theCaret, $TextHitInfo::afterOffset($nc(aString)->length() - 1));
+		$var($TextHitInfo, theCaret, $TextHitInfo::afterOffset(aString->length() - 1));
 		$var($Component, var$2, this->fAwtFocussedComponent);
 		$var($AttributedCharacterIterator, var$3, attribString->getIterator());
-		$var($InputMethodEvent, event, $new($InputMethodEvent, var$2, $InputMethodEvent::INPUT_METHOD_TEXT_CHANGED, var$3, $nc(aString)->length(), theCaret, theCaret));
+		$var($InputMethodEvent, event, $new($InputMethodEvent, var$2, $InputMethodEvent::INPUT_METHOD_TEXT_CHANGED, var$3, aString->length(), theCaret, theCaret));
 		$SunToolkit::postEvent($($LWCToolkit::targetToAppContext(this->fAwtFocussedComponent)), event);
 		$set(this, fCurrentText, nullptr);
 		$set(this, fCurrentTextAsString, nullptr);
@@ -429,31 +324,22 @@ void CInputMethod::addAttribute(bool isThickUnderline, bool isGray, int32_t star
 	$var($InputMethodHighlight, theHighlight, nullptr);
 	switch (markupType) {
 	case CInputMethod::kSelectedRawText:
-		{
-			$init($InputMethodHighlight);
-			$assign(theHighlight, $InputMethodHighlight::SELECTED_RAW_TEXT_HIGHLIGHT);
-			break;
-		}
+		$init($InputMethodHighlight);
+		$assign(theHighlight, $InputMethodHighlight::SELECTED_RAW_TEXT_HIGHLIGHT);
+		break;
 	case CInputMethod::kConvertedText:
-		{
-			$init($InputMethodHighlight);
-			$assign(theHighlight, $InputMethodHighlight::UNSELECTED_CONVERTED_TEXT_HIGHLIGHT);
-			break;
-		}
+		$init($InputMethodHighlight);
+		$assign(theHighlight, $InputMethodHighlight::UNSELECTED_CONVERTED_TEXT_HIGHLIGHT);
+		break;
 	case CInputMethod::kSelectedConvertedText:
-		{
-			$init($InputMethodHighlight);
-			$assign(theHighlight, $InputMethodHighlight::SELECTED_CONVERTED_TEXT_HIGHLIGHT);
-			break;
-		}
+		$init($InputMethodHighlight);
+		$assign(theHighlight, $InputMethodHighlight::SELECTED_CONVERTED_TEXT_HIGHLIGHT);
+		break;
 	case CInputMethod::kRawText:
-		{}
 	default:
-		{
-			$init($InputMethodHighlight);
-			$assign(theHighlight, $InputMethodHighlight::UNSELECTED_RAW_TEXT_HIGHLIGHT);
-			break;
-		}
+		$init($InputMethodHighlight);
+		$assign(theHighlight, $InputMethodHighlight::UNSELECTED_RAW_TEXT_HIGHLIGHT);
+		break;
 	}
 	$init($TextAttribute);
 	$nc(this->fCurrentText)->addAttribute($TextAttribute::INPUT_METHOD_HIGHLIGHT, theHighlight, begin, end);
@@ -482,7 +368,7 @@ void CInputMethod::selectNextGlyph() {
 }
 
 void CInputMethod::dispatchText(int32_t selectStart, int32_t selectLength, bool pressAndHold) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->fCurrentText == nullptr) {
 		return;
 	}
@@ -497,7 +383,7 @@ void CInputMethod::dispatchText(int32_t selectStart, int32_t selectLength, bool 
 
 void CInputMethod::unmarkText() {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		if (this->fCurrentText == nullptr) {
 			return;
 		}
@@ -519,10 +405,10 @@ bool CInputMethod::hasMarkedText() {
 
 $String* CInputMethod::attributedSubstringFromRange(int32_t locationIn, int32_t lengthIn) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$var($StringArray, retString, $new($StringArray, 1));
 		try {
-			$LWCToolkit::invokeAndWait(static_cast<$Runnable*>($$new($CInputMethod$3, this, retString, locationIn, lengthIn)), this->fAwtFocussedComponent);
+			$LWCToolkit::invokeAndWait($$new($CInputMethod$3, this, retString, locationIn, lengthIn), this->fAwtFocussedComponent);
 		} catch ($InvocationTargetException& ite) {
 			ite->printStackTrace();
 		}
@@ -534,10 +420,10 @@ $String* CInputMethod::attributedSubstringFromRange(int32_t locationIn, int32_t 
 
 $ints* CInputMethod::selectedRange() {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$var($ints, returnValue, $new($ints, 2));
 		try {
-			$LWCToolkit::invokeAndWait(static_cast<$Runnable*>($$new($CInputMethod$4, this, returnValue)), this->fAwtFocussedComponent);
+			$LWCToolkit::invokeAndWait($$new($CInputMethod$4, this, returnValue), this->fAwtFocussedComponent);
 		} catch ($InvocationTargetException& ite) {
 			ite->printStackTrace();
 		}
@@ -549,13 +435,13 @@ $ints* CInputMethod::selectedRange() {
 
 $ints* CInputMethod::markedRange() {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		if (this->fCurrentText == nullptr) {
 			return nullptr;
 		}
 		$var($ints, returnValue, $new($ints, 2));
 		try {
-			$LWCToolkit::invokeAndWait(static_cast<$Runnable*>($$new($CInputMethod$5, this, returnValue)), this->fAwtFocussedComponent);
+			$LWCToolkit::invokeAndWait($$new($CInputMethod$5, this, returnValue), this->fAwtFocussedComponent);
 		} catch ($InvocationTargetException& ite) {
 			ite->printStackTrace();
 		}
@@ -568,10 +454,10 @@ $ints* CInputMethod::markedRange() {
 
 $ints* CInputMethod::firstRectForCharacterRange(int32_t absoluteTextOffset) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$var($ints, rect, $new($ints, 4));
 		try {
-			$LWCToolkit::invokeAndWait(static_cast<$Runnable*>($$new($CInputMethod$6, this, rect, absoluteTextOffset)), this->fAwtFocussedComponent);
+			$LWCToolkit::invokeAndWait($$new($CInputMethod$6, this, rect, absoluteTextOffset), this->fAwtFocussedComponent);
 		} catch ($InvocationTargetException& ite) {
 			ite->printStackTrace();
 		}
@@ -583,11 +469,11 @@ $ints* CInputMethod::firstRectForCharacterRange(int32_t absoluteTextOffset) {
 
 int32_t CInputMethod::characterIndexForPoint(int32_t screenX, int32_t screenY) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$var($TextHitInfoArray, offsetInfo, $new($TextHitInfoArray, 1));
 		$var($ints, insertPositionOffset, $new($ints, 1));
 		try {
-			$LWCToolkit::invokeAndWait(static_cast<$Runnable*>($$new($CInputMethod$7, this, offsetInfo, screenX, screenY, insertPositionOffset)), this->fAwtFocussedComponent);
+			$LWCToolkit::invokeAndWait($$new($CInputMethod$7, this, offsetInfo, screenX, screenY, insertPositionOffset), this->fAwtFocussedComponent);
 		} catch ($InvocationTargetException& ite) {
 			ite->printStackTrace();
 		}
@@ -610,59 +496,56 @@ $String* CInputMethod::getNativeInputMethodInfo() {
 }
 
 void CInputMethod::nativeNotifyPeer(int64_t nativePeer, CInputMethod* imInstance) {
-	$prepareNative(CInputMethod, nativeNotifyPeer, void, int64_t nativePeer, CInputMethod* imInstance);
+	$prepareNative(nativeNotifyPeer, void, int64_t nativePeer, CInputMethod* imInstance);
 	$invokeNative(nativePeer, imInstance);
 	$finishNative();
 }
 
 void CInputMethod::nativeEndComposition(int64_t nativePeer) {
-	$prepareNative(CInputMethod, nativeEndComposition, void, int64_t nativePeer);
+	$prepareNative(nativeEndComposition, void, int64_t nativePeer);
 	$invokeNative(nativePeer);
 	$finishNative();
 }
 
 void CInputMethod::nativeHandleEvent($LWComponentPeer* peer, $AWTEvent* event) {
-	$prepareNative(CInputMethod, nativeHandleEvent, void, $LWComponentPeer* peer, $AWTEvent* event);
+	$prepareNative(nativeHandleEvent, void, $LWComponentPeer* peer, $AWTEvent* event);
 	$invokeNative(peer, event);
 	$finishNative();
 }
 
 $Locale* CInputMethod::getNativeLocale() {
 	$init(CInputMethod);
-	$var($Locale, $ret, nullptr);
-	$prepareNativeStatic(CInputMethod, getNativeLocale, $Locale*);
-	$assign($ret, $invokeNativeStaticObject());
+	$prepareNativeStatic(getNativeLocale, $Locale*);
+	$var($Locale, $ret, $invokeNativeStaticObject());
 	$finishNativeStatic();
 	return $ret;
 }
 
 bool CInputMethod::setNativeLocale($String* localeName, bool onActivate) {
 	$init(CInputMethod);
-	bool $ret = false;
-	$prepareNativeStatic(CInputMethod, setNativeLocale, bool, $String* localeName, bool onActivate);
-	$ret = $invokeNativeStatic(localeName, onActivate);
+	$prepareNativeStatic(setNativeLocale, bool, $String* localeName, bool onActivate);
+	bool $ret = $invokeNativeStatic(localeName, onActivate);
 	$finishNativeStatic();
 	return $ret;
 }
 
 $String* CInputMethod::nativeGetCurrentInputMethodInfo() {
 	$init(CInputMethod);
-	$var($String, $ret, nullptr);
-	$prepareNativeStatic(CInputMethod, nativeGetCurrentInputMethodInfo, $String*);
-	$assign($ret, $invokeNativeStaticObject());
+	$prepareNativeStatic(nativeGetCurrentInputMethodInfo, $String*);
+	$var($String, $ret, $invokeNativeStaticObject());
 	$finishNativeStatic();
 	return $ret;
 }
 
 void CInputMethod::nativeInit() {
 	$init(CInputMethod);
-	$prepareNativeStatic(CInputMethod, nativeInit, void);
+	$prepareNativeStatic(nativeInit, void);
 	$invokeNativeStatic();
 	$finishNativeStatic();
 }
 
-void clinit$CInputMethod($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void CInputMethod::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	{
 		$var($MapArray, styles, $new($MapArray, 4));
 		$var($HashMap, map, nullptr);
@@ -688,7 +571,94 @@ CInputMethod::CInputMethod() {
 }
 
 $Class* CInputMethod::load$($String* name, bool initialize) {
-	$loadClass(CInputMethod, name, initialize, &_CInputMethod_ClassInfo_, clinit$CInputMethod, allocate$CInputMethod);
+	$FieldInfo fieldInfos$$[] = {
+		{"fIMContext", "Ljava/awt/im/spi/InputMethodContext;", nullptr, $PRIVATE, $field(CInputMethod, fIMContext)},
+		{"fAwtFocussedComponent", "Ljava/awt/Component;", nullptr, $PRIVATE, $field(CInputMethod, fAwtFocussedComponent)},
+		{"fAwtFocussedComponentPeer", "Lsun/lwawt/LWComponentPeer;", "Lsun/lwawt/LWComponentPeer<**>;", $PRIVATE, $field(CInputMethod, fAwtFocussedComponentPeer)},
+		{"isActive", "Z", nullptr, $PRIVATE, $field(CInputMethod, isActive)},
+		{"sHighlightStyles", "[Ljava/util/Map;", "[Ljava/util/Map<Ljava/awt/font/TextAttribute;Ljava/lang/Integer;>;", $PRIVATE | $STATIC, $staticField(CInputMethod, sHighlightStyles)},
+		{"fCurrentText", "Ljava/text/AttributedString;", nullptr, $PRIVATE, $field(CInputMethod, fCurrentText)},
+		{"fCurrentTextAsString", "Ljava/lang/String;", nullptr, $PRIVATE, $field(CInputMethod, fCurrentTextAsString)},
+		{"fCurrentTextLength", "I", nullptr, $PRIVATE, $field(CInputMethod, fCurrentTextLength)},
+		{"kCaretPosition", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CInputMethod, kCaretPosition)},
+		{"kRawText", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CInputMethod, kRawText)},
+		{"kSelectedRawText", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CInputMethod, kSelectedRawText)},
+		{"kConvertedText", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CInputMethod, kConvertedText)},
+		{"kSelectedConvertedText", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CInputMethod, kSelectedConvertedText)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(CInputMethod, init$, void)},
+		{"activate", "()V", nullptr, $PUBLIC, $virtualMethod(CInputMethod, activate, void)},
+		{"addAttribute", "(ZZII)V", nullptr, $PRIVATE, $method(CInputMethod, addAttribute, void, bool, bool, int32_t, int32_t)},
+		{"attributedSubstringFromRange", "(II)Ljava/lang/String;", nullptr, $PRIVATE | $SYNCHRONIZED, $method(CInputMethod, attributedSubstringFromRange, $String*, int32_t, int32_t)},
+		{"characterIndexForPoint", "(II)I", nullptr, $PRIVATE | $SYNCHRONIZED, $method(CInputMethod, characterIndexForPoint, int32_t, int32_t, int32_t)},
+		{"deactivate", "(Z)V", nullptr, $PUBLIC, $virtualMethod(CInputMethod, deactivate, void, bool)},
+		{"disableInputMethod", "()V", nullptr, $PUBLIC, $virtualMethod(CInputMethod, disableInputMethod, void)},
+		{"dispatchEvent", "(Ljava/awt/AWTEvent;)V", nullptr, $PUBLIC, $virtualMethod(CInputMethod, dispatchEvent, void, $AWTEvent*)},
+		{"dispatchText", "(IIZ)V", nullptr, $PRIVATE, $method(CInputMethod, dispatchText, void, int32_t, int32_t, bool)},
+		{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(CInputMethod, dispose, void)},
+		{"endComposition", "()V", nullptr, $PUBLIC, $virtualMethod(CInputMethod, endComposition, void)},
+		{"firstRectForCharacterRange", "(I)[I", nullptr, $PRIVATE | $SYNCHRONIZED, $method(CInputMethod, firstRectForCharacterRange, $ints*, int32_t)},
+		{"getControlObject", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(CInputMethod, getControlObject, $Object*)},
+		{"getLocale", "()Ljava/util/Locale;", nullptr, $PUBLIC, $virtualMethod(CInputMethod, getLocale, $Locale*)},
+		{"getNativeInputMethodInfo", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CInputMethod, getNativeInputMethodInfo, $String*)},
+		{"getNativeLocale", "()Ljava/util/Locale;", nullptr, $STATIC | $NATIVE, $staticMethod(CInputMethod, getNativeLocale, $Locale*)},
+		{"getNativeViewPtr", "(Lsun/lwawt/LWComponentPeer;)J", "(Lsun/lwawt/LWComponentPeer<**>;)J", 0, $virtualMethod(CInputMethod, getNativeViewPtr, int64_t, $LWComponentPeer*)},
+		{"getNearestNativePeer", "(Ljava/awt/Component;)Lsun/lwawt/LWComponentPeer;", "(Ljava/awt/Component;)Lsun/lwawt/LWComponentPeer<**>;", $PRIVATE, $method(CInputMethod, getNearestNativePeer, $LWComponentPeer*, $Component*)},
+		{"hasMarkedText", "()Z", nullptr, $PRIVATE | $SYNCHRONIZED, $method(CInputMethod, hasMarkedText, bool)},
+		{"hideWindows", "()V", nullptr, $PUBLIC, $virtualMethod(CInputMethod, hideWindows, void)},
+		{"insertText", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(CInputMethod, insertText, void, $String*)},
+		{"isCompositionEnabled", "()Z", nullptr, $PUBLIC, $virtualMethod(CInputMethod, isCompositionEnabled, bool)},
+		{"mapInputMethodHighlight", "(Ljava/awt/im/InputMethodHighlight;)Ljava/util/Map;", "(Ljava/awt/im/InputMethodHighlight;)Ljava/util/Map<Ljava/awt/font/TextAttribute;*>;", $PUBLIC | $STATIC, $staticMethod(CInputMethod, mapInputMethodHighlight, $Map*, $InputMethodHighlight*)},
+		{"markedRange", "()[I", nullptr, $PRIVATE | $SYNCHRONIZED, $method(CInputMethod, markedRange, $ints*)},
+		{"nativeEndComposition", "(J)V", nullptr, $PRIVATE | $NATIVE, $method(CInputMethod, nativeEndComposition, void, int64_t)},
+		{"nativeGetCurrentInputMethodInfo", "()Ljava/lang/String;", nullptr, $STATIC | $NATIVE, $staticMethod(CInputMethod, nativeGetCurrentInputMethodInfo, $String*)},
+		{"nativeHandleEvent", "(Lsun/lwawt/LWComponentPeer;Ljava/awt/AWTEvent;)V", "(Lsun/lwawt/LWComponentPeer<**>;Ljava/awt/AWTEvent;)V", $PRIVATE | $NATIVE, $method(CInputMethod, nativeHandleEvent, void, $LWComponentPeer*, $AWTEvent*)},
+		{"nativeInit", "()V", nullptr, $STATIC | $NATIVE, $staticMethod(CInputMethod, nativeInit, void)},
+		{"nativeNotifyPeer", "(JLsun/lwawt/macosx/CInputMethod;)V", nullptr, $PRIVATE | $NATIVE, $method(CInputMethod, nativeNotifyPeer, void, int64_t, CInputMethod*)},
+		{"removeNotify", "()V", nullptr, $PUBLIC, $virtualMethod(CInputMethod, removeNotify, void)},
+		{"selectNextGlyph", "()V", nullptr, $PRIVATE, $method(CInputMethod, selectNextGlyph, void)},
+		{"selectPreviousGlyph", "()V", nullptr, $PRIVATE, $method(CInputMethod, selectPreviousGlyph, void)},
+		{"selectedRange", "()[I", nullptr, $PRIVATE | $SYNCHRONIZED, $method(CInputMethod, selectedRange, $ints*)},
+		{"setAWTFocussedComponent", "(Ljava/awt/Component;)V", nullptr, $PROTECTED, $virtualMethod(CInputMethod, setAWTFocussedComponent, void, $Component*)},
+		{"setCharacterSubsets", "([Ljava/lang/Character$Subset;)V", nullptr, $PUBLIC, $virtualMethod(CInputMethod, setCharacterSubsets, void, $Character$SubsetArray*)},
+		{"setCompositionEnabled", "(Z)V", nullptr, $PUBLIC, $virtualMethod(CInputMethod, setCompositionEnabled, void, bool)},
+		{"setInputMethodContext", "(Ljava/awt/im/spi/InputMethodContext;)V", nullptr, $PUBLIC, $virtualMethod(CInputMethod, setInputMethodContext, void, $InputMethodContext*)},
+		{"setLocale", "(Ljava/util/Locale;)Z", nullptr, $PUBLIC, $virtualMethod(CInputMethod, setLocale, bool, $Locale*)},
+		{"setLocale", "(Ljava/util/Locale;Z)Z", nullptr, $PRIVATE, $method(CInputMethod, setLocale, bool, $Locale*, bool)},
+		{"setNativeLocale", "(Ljava/lang/String;Z)Z", nullptr, $STATIC | $NATIVE, $staticMethod(CInputMethod, setNativeLocale, bool, $String*, bool)},
+		{"startIMUpdate", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(CInputMethod, startIMUpdate, void, $String*)},
+		{"unmarkText", "()V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(CInputMethod, unmarkText, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.lwawt.macosx.CInputMethod$7", nullptr, nullptr, 0},
+		{"sun.lwawt.macosx.CInputMethod$6", nullptr, nullptr, 0},
+		{"sun.lwawt.macosx.CInputMethod$5", nullptr, nullptr, 0},
+		{"sun.lwawt.macosx.CInputMethod$4", nullptr, nullptr, 0},
+		{"sun.lwawt.macosx.CInputMethod$3", nullptr, nullptr, 0},
+		{"sun.lwawt.macosx.CInputMethod$2", nullptr, nullptr, 0},
+		{"sun.lwawt.macosx.CInputMethod$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.lwawt.macosx.CInputMethod",
+		"sun.awt.im.InputMethodAdapter",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.lwawt.macosx.CInputMethod$7,sun.lwawt.macosx.CInputMethod$6,sun.lwawt.macosx.CInputMethod$5,sun.lwawt.macosx.CInputMethod$4,sun.lwawt.macosx.CInputMethod$3,sun.lwawt.macosx.CInputMethod$2,sun.lwawt.macosx.CInputMethod$1"
+	};
+	$loadClass(CInputMethod, name, initialize, &classInfo$$, CInputMethod::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(CInputMethod);
+	});
 	return class$;
 }
 

@@ -55,7 +55,7 @@ public:
 	virtual void run() override;
 	void run0();
 	::sun::rmi::transport::tcp::TCPTransport* this$0 = nullptr;
-	static const int32_t POST = 0x504F5354;
+	static const int32_t POST = 0x504f5354;
 	::java::security::AccessControlContext* okContext = nullptr;
 	::java::util::Map* authCache = nullptr;
 	::java::lang::SecurityManager* cacheSecurityManager = nullptr;

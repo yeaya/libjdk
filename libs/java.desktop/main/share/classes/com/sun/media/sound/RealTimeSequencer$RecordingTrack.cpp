@@ -1,5 +1,4 @@
 #include <com/sun/media/sound/RealTimeSequencer$RecordingTrack.h>
-
 #include <com/sun/media/sound/RealTimeSequencer.h>
 #include <java/util/List.h>
 #include <javax/sound/midi/Track.h>
@@ -17,53 +16,15 @@ namespace com {
 		namespace media {
 			namespace sound {
 
-$FieldInfo _RealTimeSequencer$RecordingTrack_FieldInfo_[] = {
-	{"track", "Ljavax/sound/midi/Track;", nullptr, $PRIVATE | $FINAL, $field(RealTimeSequencer$RecordingTrack, track)},
-	{"channel", "I", nullptr, $PRIVATE, $field(RealTimeSequencer$RecordingTrack, channel)},
-	{}
-};
-
-$MethodInfo _RealTimeSequencer$RecordingTrack_MethodInfo_[] = {
-	{"<init>", "(Ljavax/sound/midi/Track;I)V", nullptr, 0, $method(RealTimeSequencer$RecordingTrack, init$, void, $Track*, int32_t)},
-	{"get", "(Ljava/util/List;Ljavax/sound/midi/Track;)Lcom/sun/media/sound/RealTimeSequencer$RecordingTrack;", "(Ljava/util/List<Lcom/sun/media/sound/RealTimeSequencer$RecordingTrack;>;Ljavax/sound/midi/Track;)Lcom/sun/media/sound/RealTimeSequencer$RecordingTrack;", $STATIC, $staticMethod(RealTimeSequencer$RecordingTrack, get, RealTimeSequencer$RecordingTrack*, $List*, $Track*)},
-	{"get", "(Ljava/util/List;I)Ljavax/sound/midi/Track;", "(Ljava/util/List<Lcom/sun/media/sound/RealTimeSequencer$RecordingTrack;>;I)Ljavax/sound/midi/Track;", $STATIC, $staticMethod(RealTimeSequencer$RecordingTrack, get, $Track*, $List*, int32_t)},
-	{}
-};
-
-$InnerClassInfo _RealTimeSequencer$RecordingTrack_InnerClassesInfo_[] = {
-	{"com.sun.media.sound.RealTimeSequencer$RecordingTrack", "com.sun.media.sound.RealTimeSequencer", "RecordingTrack", $STATIC},
-	{}
-};
-
-$ClassInfo _RealTimeSequencer$RecordingTrack_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.media.sound.RealTimeSequencer$RecordingTrack",
-	"java.lang.Object",
-	nullptr,
-	_RealTimeSequencer$RecordingTrack_FieldInfo_,
-	_RealTimeSequencer$RecordingTrack_MethodInfo_,
-	nullptr,
-	nullptr,
-	_RealTimeSequencer$RecordingTrack_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.media.sound.RealTimeSequencer"
-};
-
-$Object* allocate$RealTimeSequencer$RecordingTrack($Class* clazz) {
-	return $of($alloc(RealTimeSequencer$RecordingTrack));
-}
-
 void RealTimeSequencer$RecordingTrack::init$($Track* track, int32_t channel) {
 	$set(this, track, track);
 	this->channel = channel;
 }
 
 RealTimeSequencer$RecordingTrack* RealTimeSequencer$RecordingTrack::get($List* recordingTracks, $Track* track) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized(recordingTracks) {
-		int32_t size = $nc(recordingTracks)->size();
+		int32_t size = recordingTracks->size();
 		for (int32_t i = 0; i < size; ++i) {
 			$var(RealTimeSequencer$RecordingTrack, current, $cast(RealTimeSequencer$RecordingTrack, recordingTracks->get(i)));
 			if ($nc(current)->track == track) {
@@ -75,12 +36,12 @@ RealTimeSequencer$RecordingTrack* RealTimeSequencer$RecordingTrack::get($List* r
 }
 
 $Track* RealTimeSequencer$RecordingTrack::get($List* recordingTracks, int32_t channel) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized(recordingTracks) {
-		int32_t size = $nc(recordingTracks)->size();
+		int32_t size = recordingTracks->size();
 		for (int32_t i = 0; i < size; ++i) {
 			$var(RealTimeSequencer$RecordingTrack, current, $cast(RealTimeSequencer$RecordingTrack, recordingTracks->get(i)));
-			if (($nc(current)->channel == channel) || ($nc(current)->channel == -1)) {
+			if (($nc(current)->channel == channel) || (current->channel == -1)) {
 				return current->track;
 			}
 		}
@@ -92,7 +53,39 @@ RealTimeSequencer$RecordingTrack::RealTimeSequencer$RecordingTrack() {
 }
 
 $Class* RealTimeSequencer$RecordingTrack::load$($String* name, bool initialize) {
-	$loadClass(RealTimeSequencer$RecordingTrack, name, initialize, &_RealTimeSequencer$RecordingTrack_ClassInfo_, allocate$RealTimeSequencer$RecordingTrack);
+	$FieldInfo fieldInfos$$[] = {
+		{"track", "Ljavax/sound/midi/Track;", nullptr, $PRIVATE | $FINAL, $field(RealTimeSequencer$RecordingTrack, track)},
+		{"channel", "I", nullptr, $PRIVATE, $field(RealTimeSequencer$RecordingTrack, channel)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/sound/midi/Track;I)V", nullptr, 0, $method(RealTimeSequencer$RecordingTrack, init$, void, $Track*, int32_t)},
+		{"get", "(Ljava/util/List;Ljavax/sound/midi/Track;)Lcom/sun/media/sound/RealTimeSequencer$RecordingTrack;", "(Ljava/util/List<Lcom/sun/media/sound/RealTimeSequencer$RecordingTrack;>;Ljavax/sound/midi/Track;)Lcom/sun/media/sound/RealTimeSequencer$RecordingTrack;", $STATIC, $staticMethod(RealTimeSequencer$RecordingTrack, get, RealTimeSequencer$RecordingTrack*, $List*, $Track*)},
+		{"get", "(Ljava/util/List;I)Ljavax/sound/midi/Track;", "(Ljava/util/List<Lcom/sun/media/sound/RealTimeSequencer$RecordingTrack;>;I)Ljavax/sound/midi/Track;", $STATIC, $staticMethod(RealTimeSequencer$RecordingTrack, get, $Track*, $List*, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.media.sound.RealTimeSequencer$RecordingTrack", "com.sun.media.sound.RealTimeSequencer", "RecordingTrack", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.media.sound.RealTimeSequencer$RecordingTrack",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.media.sound.RealTimeSequencer"
+	};
+	$loadClass(RealTimeSequencer$RecordingTrack, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RealTimeSequencer$RecordingTrack);
+	});
 	return class$;
 }
 

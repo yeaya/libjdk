@@ -94,6 +94,7 @@ class $export ManagementFactoryHelper : public ::java::lang::Object {
 	$class(ManagementFactoryHelper, 0, ::java::lang::Object)
 public:
 	ManagementFactoryHelper();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void addMBean(::javax::management::MBeanServer* mbs, Object$* mbean, $String* mbeanName);
 	static ::java::lang::management::BufferPoolMXBean* createBufferPoolMXBean(::jdk::internal::misc::VM$BufferPool* pool);
@@ -146,7 +147,7 @@ public:
 	static $String* HOTSPOT_MEMORY_MBEAN_NAME;
 	static $String* HOTSPOT_RUNTIME_MBEAN_NAME;
 	static $String* HOTSPOT_THREAD_MBEAN_NAME;
-	static const int32_t JMM_THREAD_STATE_FLAG_MASK = 0xFFF00000;
+	static const int32_t JMM_THREAD_STATE_FLAG_MASK = 0xfff00000;
 	static const int32_t JMM_THREAD_STATE_FLAG_SUSPENDED = 0x00100000;
 	static const int32_t JMM_THREAD_STATE_FLAG_NATIVE = 0x00400000;
 };

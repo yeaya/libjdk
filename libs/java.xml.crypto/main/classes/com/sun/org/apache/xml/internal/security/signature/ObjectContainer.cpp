@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/security/signature/ObjectContainer.h>
-
 #include <com/sun/org/apache/xml/internal/security/utils/Constants.h>
 #include <com/sun/org/apache/xml/internal/security/utils/ElementProxy.h>
 #include <com/sun/org/apache/xml/internal/security/utils/SignatureElementProxy.h>
@@ -29,33 +28,6 @@ namespace com {
 					namespace internal {
 						namespace security {
 							namespace signature {
-
-$MethodInfo _ObjectContainer_MethodInfo_[] = {
-	{"<init>", "(Lorg/w3c/dom/Document;)V", nullptr, $PUBLIC, $method(ObjectContainer, init$, void, $Document*)},
-	{"<init>", "(Lorg/w3c/dom/Element;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ObjectContainer, init$, void, $Element*, $String*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
-	{"appendChild", "(Lorg/w3c/dom/Node;)Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(ObjectContainer, appendChild, $Node*, $Node*)},
-	{"getBaseLocalName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ObjectContainer, getBaseLocalName, $String*)},
-	{"getEncoding", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ObjectContainer, getEncoding, $String*)},
-	{"getId", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ObjectContainer, getId, $String*)},
-	{"getMimeType", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ObjectContainer, getMimeType, $String*)},
-	{"setEncoding", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ObjectContainer, setEncoding, void, $String*)},
-	{"setId", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ObjectContainer, setId, void, $String*)},
-	{"setMimeType", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ObjectContainer, setMimeType, void, $String*)},
-	{}
-};
-
-$ClassInfo _ObjectContainer_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.security.signature.ObjectContainer",
-	"com.sun.org.apache.xml.internal.security.utils.SignatureElementProxy",
-	nullptr,
-	nullptr,
-	_ObjectContainer_MethodInfo_
-};
-
-$Object* allocate$ObjectContainer($Class* clazz) {
-	return $of($alloc(ObjectContainer));
-}
 
 void ObjectContainer::init$($Document* doc) {
 	$SignatureElementProxy::init$(doc);
@@ -115,7 +87,30 @@ ObjectContainer::ObjectContainer() {
 }
 
 $Class* ObjectContainer::load$($String* name, bool initialize) {
-	$loadClass(ObjectContainer, name, initialize, &_ObjectContainer_ClassInfo_, allocate$ObjectContainer);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lorg/w3c/dom/Document;)V", nullptr, $PUBLIC, $method(ObjectContainer, init$, void, $Document*)},
+		{"<init>", "(Lorg/w3c/dom/Element;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ObjectContainer, init$, void, $Element*, $String*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
+		{"appendChild", "(Lorg/w3c/dom/Node;)Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(ObjectContainer, appendChild, $Node*, $Node*)},
+		{"getBaseLocalName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ObjectContainer, getBaseLocalName, $String*)},
+		{"getEncoding", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ObjectContainer, getEncoding, $String*)},
+		{"getId", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ObjectContainer, getId, $String*)},
+		{"getMimeType", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ObjectContainer, getMimeType, $String*)},
+		{"setEncoding", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ObjectContainer, setEncoding, void, $String*)},
+		{"setId", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ObjectContainer, setId, void, $String*)},
+		{"setMimeType", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ObjectContainer, setMimeType, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.security.signature.ObjectContainer",
+		"com.sun.org.apache.xml.internal.security.utils.SignatureElementProxy",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ObjectContainer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ObjectContainer);
+	});
 	return class$;
 }
 

@@ -1,8 +1,6 @@
 #include <jdk/internal/net/http/common/SSLTube$SSLTubeFlowDelegate.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/util/concurrent/Executor.h>
-#include <java/util/concurrent/Flow$Publisher.h>
 #include <java/util/concurrent/Flow$Subscriber.h>
 #include <java/util/concurrent/Flow$Subscription.h>
 #include <java/util/function/Consumer.h>
@@ -28,15 +26,12 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Executor = ::java::util::concurrent::Executor;
-using $Flow$Publisher = ::java::util::concurrent::Flow$Publisher;
 using $Flow$Subscriber = ::java::util::concurrent::Flow$Subscriber;
-using $Flow$Subscription = ::java::util::concurrent::Flow$Subscription;
 using $Consumer = ::java::util::function::Consumer;
 using $SSLEngine = ::javax::net::ssl::SSLEngine;
 using $FlowTube = ::jdk::internal::net::http::common::FlowTube;
 using $FlowTube$TubePublisher = ::jdk::internal::net::http::common::FlowTube$TubePublisher;
 using $SSLFlowDelegate = ::jdk::internal::net::http::common::SSLFlowDelegate;
-using $SSLFlowDelegate$Reader = ::jdk::internal::net::http::common::SSLFlowDelegate$Reader;
 using $SSLTube = ::jdk::internal::net::http::common::SSLTube;
 using $SSLTube$SSLSubscriberWrapper = ::jdk::internal::net::http::common::SSLTube$SSLSubscriberWrapper;
 using $SubscriberWrapper$SchedulingAction = ::jdk::internal::net::http::common::SubscriberWrapper$SchedulingAction;
@@ -46,45 +41,6 @@ namespace jdk {
 		namespace net {
 			namespace http {
 				namespace common {
-
-$FieldInfo _SSLTube$SSLTubeFlowDelegate_FieldInfo_[] = {
-	{"this$0", "Ljdk/internal/net/http/common/SSLTube;", nullptr, $FINAL | $SYNTHETIC, $field(SSLTube$SSLTubeFlowDelegate, this$0)},
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(SSLTube$SSLTubeFlowDelegate, $assertionsDisabled)},
-	{}
-};
-
-$MethodInfo _SSLTube$SSLTubeFlowDelegate_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/net/http/common/SSLTube;Ljavax/net/ssl/SSLEngine;Ljava/util/concurrent/Executor;Ljava/util/function/Consumer;Ljdk/internal/net/http/common/SSLTube$SSLSubscriberWrapper;Ljdk/internal/net/http/common/FlowTube;)V", "(Ljavax/net/ssl/SSLEngine;Ljava/util/concurrent/Executor;Ljava/util/function/Consumer<Ljava/nio/ByteBuffer;>;Ljdk/internal/net/http/common/SSLTube$SSLSubscriberWrapper;Ljdk/internal/net/http/common/FlowTube;)V", 0, $method(SSLTube$SSLTubeFlowDelegate, init$, void, $SSLTube*, $SSLEngine*, $Executor*, $Consumer*, $SSLTube$SSLSubscriberWrapper*, $FlowTube*)},
-	{"checkForHandshake", "(Ljava/lang/Throwable;)Ljava/lang/Throwable;", nullptr, $PROTECTED, $virtualMethod(SSLTube$SSLTubeFlowDelegate, checkForHandshake, $Throwable*, $Throwable*)},
-	{"connect", "(Ljava/util/concurrent/Flow$Subscriber;Ljava/util/concurrent/Flow$Subscriber;)V", "(Ljava/util/concurrent/Flow$Subscriber<-Ljava/util/List<Ljava/nio/ByteBuffer;>;>;Ljava/util/concurrent/Flow$Subscriber<-Ljava/util/List<Ljava/nio/ByteBuffer;>;>;)V", 0, $virtualMethod(SSLTube$SSLTubeFlowDelegate, connect, void, $Flow$Subscriber*, $Flow$Subscriber*)},
-	{"enterReadScheduling", "()Ljdk/internal/net/http/common/SubscriberWrapper$SchedulingAction;", nullptr, $PROTECTED, $virtualMethod(SSLTube$SSLTubeFlowDelegate, enterReadScheduling, $SubscriberWrapper$SchedulingAction*)},
-	{}
-};
-
-$InnerClassInfo _SSLTube$SSLTubeFlowDelegate_InnerClassesInfo_[] = {
-	{"jdk.internal.net.http.common.SSLTube$SSLTubeFlowDelegate", "jdk.internal.net.http.common.SSLTube", "SSLTubeFlowDelegate", $FINAL},
-	{}
-};
-
-$ClassInfo _SSLTube$SSLTubeFlowDelegate_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"jdk.internal.net.http.common.SSLTube$SSLTubeFlowDelegate",
-	"jdk.internal.net.http.common.SSLFlowDelegate",
-	nullptr,
-	_SSLTube$SSLTubeFlowDelegate_FieldInfo_,
-	_SSLTube$SSLTubeFlowDelegate_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SSLTube$SSLTubeFlowDelegate_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.net.http.common.SSLTube"
-};
-
-$Object* allocate$SSLTube$SSLTubeFlowDelegate($Class* clazz) {
-	return $of($alloc(SSLTube$SSLTubeFlowDelegate));
-}
 
 bool SSLTube$SSLTubeFlowDelegate::$assertionsDisabled = false;
 
@@ -100,7 +56,7 @@ $SubscriberWrapper$SchedulingAction* SSLTube$SSLTubeFlowDelegate::enterReadSched
 }
 
 void SSLTube$SSLTubeFlowDelegate::connect($Flow$Subscriber* downReader, $Flow$Subscriber* downWriter) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!SSLTube$SSLTubeFlowDelegate::$assertionsDisabled && !$equals(downWriter, this->this$0->tube)) {
 		$throwNew($AssertionError);
 	}
@@ -110,14 +66,14 @@ void SSLTube$SSLTubeFlowDelegate::connect($Flow$Subscriber* downReader, $Flow$Su
 	$nc(this->reader)->subscribe(downReader);
 	$var($FlowTube$TubePublisher, var$0, $FlowTube::asTubePublisher(this->writer));
 	$nc(this->this$0->tube)->connectFlows(var$0, $($FlowTube::asTubeSubscriber($(upstreamReader()))));
-	$nc($(upstreamWriter()))->onSubscribe(this->this$0->writeSubscription);
+	$$nc(upstreamWriter())->onSubscribe(this->this$0->writeSubscription);
 }
 
 $Throwable* SSLTube$SSLTubeFlowDelegate::checkForHandshake($Throwable* t) {
 	return this->this$0->checkForHandshake(t);
 }
 
-void clinit$SSLTube$SSLTubeFlowDelegate($Class* class$) {
+void SSLTube$SSLTubeFlowDelegate::clinit$($Class* clazz) {
 	$load($SSLTube);
 	SSLTube$SSLTubeFlowDelegate::$assertionsDisabled = !$SSLTube::class$->desiredAssertionStatus();
 }
@@ -126,7 +82,40 @@ SSLTube$SSLTubeFlowDelegate::SSLTube$SSLTubeFlowDelegate() {
 }
 
 $Class* SSLTube$SSLTubeFlowDelegate::load$($String* name, bool initialize) {
-	$loadClass(SSLTube$SSLTubeFlowDelegate, name, initialize, &_SSLTube$SSLTubeFlowDelegate_ClassInfo_, clinit$SSLTube$SSLTubeFlowDelegate, allocate$SSLTube$SSLTubeFlowDelegate);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljdk/internal/net/http/common/SSLTube;", nullptr, $FINAL | $SYNTHETIC, $field(SSLTube$SSLTubeFlowDelegate, this$0)},
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(SSLTube$SSLTubeFlowDelegate, $assertionsDisabled)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/internal/net/http/common/SSLTube;Ljavax/net/ssl/SSLEngine;Ljava/util/concurrent/Executor;Ljava/util/function/Consumer;Ljdk/internal/net/http/common/SSLTube$SSLSubscriberWrapper;Ljdk/internal/net/http/common/FlowTube;)V", "(Ljavax/net/ssl/SSLEngine;Ljava/util/concurrent/Executor;Ljava/util/function/Consumer<Ljava/nio/ByteBuffer;>;Ljdk/internal/net/http/common/SSLTube$SSLSubscriberWrapper;Ljdk/internal/net/http/common/FlowTube;)V", 0, $method(SSLTube$SSLTubeFlowDelegate, init$, void, $SSLTube*, $SSLEngine*, $Executor*, $Consumer*, $SSLTube$SSLSubscriberWrapper*, $FlowTube*)},
+		{"checkForHandshake", "(Ljava/lang/Throwable;)Ljava/lang/Throwable;", nullptr, $PROTECTED, $virtualMethod(SSLTube$SSLTubeFlowDelegate, checkForHandshake, $Throwable*, $Throwable*)},
+		{"connect", "(Ljava/util/concurrent/Flow$Subscriber;Ljava/util/concurrent/Flow$Subscriber;)V", "(Ljava/util/concurrent/Flow$Subscriber<-Ljava/util/List<Ljava/nio/ByteBuffer;>;>;Ljava/util/concurrent/Flow$Subscriber<-Ljava/util/List<Ljava/nio/ByteBuffer;>;>;)V", 0, $virtualMethod(SSLTube$SSLTubeFlowDelegate, connect, void, $Flow$Subscriber*, $Flow$Subscriber*)},
+		{"enterReadScheduling", "()Ljdk/internal/net/http/common/SubscriberWrapper$SchedulingAction;", nullptr, $PROTECTED, $virtualMethod(SSLTube$SSLTubeFlowDelegate, enterReadScheduling, $SubscriberWrapper$SchedulingAction*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.net.http.common.SSLTube$SSLTubeFlowDelegate", "jdk.internal.net.http.common.SSLTube", "SSLTubeFlowDelegate", $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"jdk.internal.net.http.common.SSLTube$SSLTubeFlowDelegate",
+		"jdk.internal.net.http.common.SSLFlowDelegate",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.net.http.common.SSLTube"
+	};
+	$loadClass(SSLTube$SSLTubeFlowDelegate, name, initialize, &classInfo$$, SSLTube$SSLTubeFlowDelegate::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(SSLTube$SSLTubeFlowDelegate);
+	});
 	return class$;
 }
 

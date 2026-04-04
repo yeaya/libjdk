@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xpath/internal/NodeSetDTM.h>
-
 #include <com/sun/org/apache/xalan/internal/res/XSLMessages.h>
 #include <com/sun/org/apache/xml/internal/dtm/DTM.h>
 #include <com/sun/org/apache/xml/internal/dtm/DTMFilter.h>
@@ -43,94 +42,6 @@ namespace com {
 			namespace apache {
 				namespace xpath {
 					namespace internal {
-
-$FieldInfo _NodeSetDTM_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(NodeSetDTM, serialVersionUID)},
-	{"m_manager", "Lcom/sun/org/apache/xml/internal/dtm/DTMManager;", nullptr, 0, $field(NodeSetDTM, m_manager)},
-	{"m_next", "I", nullptr, $PROTECTED | $TRANSIENT, $field(NodeSetDTM, m_next)},
-	{"m_mutable", "Z", nullptr, $PROTECTED | $TRANSIENT, $field(NodeSetDTM, m_mutable)},
-	{"m_cacheNodes", "Z", nullptr, $PROTECTED | $TRANSIENT, $field(NodeSetDTM, m_cacheNodes)},
-	{"m_root", "I", nullptr, $PROTECTED, $field(NodeSetDTM, m_root)},
-	{"m_last", "I", nullptr, $PRIVATE | $TRANSIENT, $field(NodeSetDTM, m_last)},
-	{}
-};
-
-$MethodInfo _NodeSetDTM_MethodInfo_[] = {
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lcom/sun/org/apache/xml/internal/dtm/DTMManager;)V", nullptr, $PUBLIC, $method(NodeSetDTM, init$, void, $DTMManager*)},
-	{"<init>", "(IILcom/sun/org/apache/xml/internal/dtm/DTMManager;)V", nullptr, $PUBLIC, $method(NodeSetDTM, init$, void, int32_t, int32_t, $DTMManager*)},
-	{"<init>", "(Lcom/sun/org/apache/xpath/internal/NodeSetDTM;)V", nullptr, $PUBLIC, $method(NodeSetDTM, init$, void, NodeSetDTM*)},
-	{"<init>", "(Lcom/sun/org/apache/xml/internal/dtm/DTMIterator;)V", nullptr, $PUBLIC, $method(NodeSetDTM, init$, void, $DTMIterator*)},
-	{"<init>", "(Lorg/w3c/dom/traversal/NodeIterator;Lcom/sun/org/apache/xpath/internal/XPathContext;)V", nullptr, $PUBLIC, $method(NodeSetDTM, init$, void, $NodeIterator*, $XPathContext*)},
-	{"<init>", "(Lorg/w3c/dom/NodeList;Lcom/sun/org/apache/xpath/internal/XPathContext;)V", nullptr, $PUBLIC, $method(NodeSetDTM, init$, void, $NodeList*, $XPathContext*)},
-	{"<init>", "(ILcom/sun/org/apache/xml/internal/dtm/DTMManager;)V", nullptr, $PUBLIC, $method(NodeSetDTM, init$, void, int32_t, $DTMManager*)},
-	{"addElement", "(I)V", nullptr, $PUBLIC, $virtualMethod(NodeSetDTM, addElement, void, int32_t)},
-	{"addNode", "(I)V", nullptr, $PUBLIC, $virtualMethod(NodeSetDTM, addNode, void, int32_t)},
-	{"addNodeInDocOrder", "(IZLcom/sun/org/apache/xpath/internal/XPathContext;)I", nullptr, $PUBLIC, $virtualMethod(NodeSetDTM, addNodeInDocOrder, int32_t, int32_t, bool, $XPathContext*)},
-	{"addNodeInDocOrder", "(ILcom/sun/org/apache/xpath/internal/XPathContext;)I", nullptr, $PUBLIC, $virtualMethod(NodeSetDTM, addNodeInDocOrder, int32_t, int32_t, $XPathContext*)},
-	{"addNodes", "(Lcom/sun/org/apache/xml/internal/dtm/DTMIterator;)V", nullptr, $PUBLIC, $virtualMethod(NodeSetDTM, addNodes, void, $DTMIterator*)},
-	{"addNodesInDocOrder", "(Lcom/sun/org/apache/xml/internal/dtm/DTMIterator;Lcom/sun/org/apache/xpath/internal/XPathContext;)V", nullptr, $PUBLIC, $virtualMethod(NodeSetDTM, addNodesInDocOrder, void, $DTMIterator*, $XPathContext*)},
-	{"allowDetachToRelease", "(Z)V", nullptr, $PUBLIC, $virtualMethod(NodeSetDTM, allowDetachToRelease, void, bool)},
-	{"appendNodes", "(Lcom/sun/org/apache/xml/internal/utils/NodeVector;)V", nullptr, $PUBLIC, $virtualMethod(NodeSetDTM, appendNodes, void, $NodeVector*)},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(NodeSetDTM, clone, $Object*), "java.lang.CloneNotSupportedException"},
-	{"cloneWithReset", "()Lcom/sun/org/apache/xml/internal/dtm/DTMIterator;", nullptr, $PUBLIC, $virtualMethod(NodeSetDTM, cloneWithReset, $DTMIterator*), "java.lang.CloneNotSupportedException"},
-	{"contains", "(I)Z", nullptr, $PUBLIC, $virtualMethod(NodeSetDTM, contains, bool, int32_t)},
-	{"detach", "()V", nullptr, $PUBLIC, $virtualMethod(NodeSetDTM, detach, void)},
-	{"elementAt", "(I)I", nullptr, $PUBLIC, $virtualMethod(NodeSetDTM, elementAt, int32_t, int32_t)},
-	{"getAxis", "()I", nullptr, $PUBLIC, $virtualMethod(NodeSetDTM, getAxis, int32_t)},
-	{"getCurrentNode", "()I", nullptr, $PUBLIC, $virtualMethod(NodeSetDTM, getCurrentNode, int32_t)},
-	{"getCurrentPos", "()I", nullptr, $PUBLIC, $virtualMethod(NodeSetDTM, getCurrentPos, int32_t)},
-	{"getDTM", "(I)Lcom/sun/org/apache/xml/internal/dtm/DTM;", nullptr, $PUBLIC, $virtualMethod(NodeSetDTM, getDTM, $DTM*, int32_t)},
-	{"getDTMManager", "()Lcom/sun/org/apache/xml/internal/dtm/DTMManager;", nullptr, $PUBLIC, $virtualMethod(NodeSetDTM, getDTMManager, $DTMManager*)},
-	{"getExpandEntityReferences", "()Z", nullptr, $PUBLIC, $virtualMethod(NodeSetDTM, getExpandEntityReferences, bool)},
-	{"getFilter", "()Lcom/sun/org/apache/xml/internal/dtm/DTMFilter;", nullptr, $PUBLIC, $virtualMethod(NodeSetDTM, getFilter, $DTMFilter*)},
-	{"getLast", "()I", nullptr, $PUBLIC, $virtualMethod(NodeSetDTM, getLast, int32_t)},
-	{"getLength", "()I", nullptr, $PUBLIC, $virtualMethod(NodeSetDTM, getLength, int32_t)},
-	{"getRoot", "()I", nullptr, $PUBLIC, $virtualMethod(NodeSetDTM, getRoot, int32_t)},
-	{"getShouldCacheNodes", "()Z", nullptr, $PUBLIC, $virtualMethod(NodeSetDTM, getShouldCacheNodes, bool)},
-	{"getWhatToShow", "()I", nullptr, $PUBLIC, $virtualMethod(NodeSetDTM, getWhatToShow, int32_t)},
-	{"indexOf", "(II)I", nullptr, $PUBLIC, $virtualMethod(NodeSetDTM, indexOf, int32_t, int32_t, int32_t)},
-	{"indexOf", "(I)I", nullptr, $PUBLIC, $virtualMethod(NodeSetDTM, indexOf, int32_t, int32_t)},
-	{"insertElementAt", "(II)V", nullptr, $PUBLIC, $virtualMethod(NodeSetDTM, insertElementAt, void, int32_t, int32_t)},
-	{"insertNode", "(II)V", nullptr, $PUBLIC, $virtualMethod(NodeSetDTM, insertNode, void, int32_t, int32_t)},
-	{"isDocOrdered", "()Z", nullptr, $PUBLIC, $virtualMethod(NodeSetDTM, isDocOrdered, bool)},
-	{"isFresh", "()Z", nullptr, $PUBLIC, $virtualMethod(NodeSetDTM, isFresh, bool)},
-	{"isMutable", "()Z", nullptr, $PUBLIC, $virtualMethod(NodeSetDTM, isMutable, bool)},
-	{"item", "(I)I", nullptr, $PUBLIC, $virtualMethod(NodeSetDTM, item, int32_t, int32_t)},
-	{"nextNode", "()I", nullptr, $PUBLIC, $virtualMethod(NodeSetDTM, nextNode, int32_t)},
-	{"previousNode", "()I", nullptr, $PUBLIC, $virtualMethod(NodeSetDTM, previousNode, int32_t)},
-	{"removeAllElements", "()V", nullptr, $PUBLIC, $virtualMethod(NodeSetDTM, removeAllElements, void)},
-	{"removeElement", "(I)Z", nullptr, $PUBLIC, $virtualMethod(NodeSetDTM, removeElement, bool, int32_t)},
-	{"removeElementAt", "(I)V", nullptr, $PUBLIC, $virtualMethod(NodeSetDTM, removeElementAt, void, int32_t)},
-	{"removeNode", "(I)V", nullptr, $PUBLIC, $virtualMethod(NodeSetDTM, removeNode, void, int32_t)},
-	{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(NodeSetDTM, reset, void)},
-	{"runTo", "(I)V", nullptr, $PUBLIC, $virtualMethod(NodeSetDTM, runTo, void, int32_t)},
-	{"setCurrentPos", "(I)V", nullptr, $PUBLIC, $virtualMethod(NodeSetDTM, setCurrentPos, void, int32_t)},
-	{"setElementAt", "(II)V", nullptr, $PUBLIC, $virtualMethod(NodeSetDTM, setElementAt, void, int32_t, int32_t)},
-	{"setEnvironment", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(NodeSetDTM, setEnvironment, void, Object$*)},
-	{"setItem", "(II)V", nullptr, $PUBLIC, $virtualMethod(NodeSetDTM, setItem, void, int32_t, int32_t)},
-	{"setLast", "(I)V", nullptr, $PUBLIC, $virtualMethod(NodeSetDTM, setLast, void, int32_t)},
-	{"setRoot", "(ILjava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(NodeSetDTM, setRoot, void, int32_t, Object$*)},
-	{"setShouldCacheNodes", "(Z)V", nullptr, $PUBLIC, $virtualMethod(NodeSetDTM, setShouldCacheNodes, void, bool)},
-	{"size", "()I", nullptr, $PUBLIC, $virtualMethod(NodeSetDTM, size, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _NodeSetDTM_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xpath.internal.NodeSetDTM",
-	"com.sun.org.apache.xml.internal.utils.NodeVector",
-	"com.sun.org.apache.xml.internal.dtm.DTMIterator",
-	_NodeSetDTM_FieldInfo_,
-	_NodeSetDTM_MethodInfo_
-};
-
-$Object* allocate$NodeSetDTM($Class* clazz) {
-	return $of($alloc(NodeSetDTM));
-}
 
 int32_t NodeSetDTM::hashCode() {
 	 return this->$NodeVector::hashCode();
@@ -177,7 +88,7 @@ void NodeSetDTM::init$(NodeSetDTM* nodelist) {
 	this->m_last = 0;
 	$set(this, m_manager, $nc(nodelist)->getDTMManager());
 	this->m_root = nodelist->getRoot();
-	addNodes(static_cast<$DTMIterator*>(nodelist));
+	addNodes($cast($DTMIterator, nodelist));
 }
 
 void NodeSetDTM::init$($DTMIterator* ni) {
@@ -208,7 +119,7 @@ void NodeSetDTM::init$($NodeIterator* iterator, $XPathContext* xctxt) {
 }
 
 void NodeSetDTM::init$($NodeList* nodeList, $XPathContext* xctxt) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$NodeVector::init$();
 	this->m_next = 0;
 	this->m_mutable = true;
@@ -269,7 +180,7 @@ void NodeSetDTM::reset() {
 }
 
 int32_t NodeSetDTM::getWhatToShow() {
-	return (int32_t)($DTMFilter::SHOW_ALL & (uint32_t)~$DTMFilter::SHOW_ENTITY_REFERENCE);
+	return $DTMFilter::SHOW_ALL & ~$DTMFilter::SHOW_ENTITY_REFERENCE;
 }
 
 $DTMFilter* NodeSetDTM::getFilter() {
@@ -392,7 +303,7 @@ void NodeSetDTM::addNodesInDocOrder($DTMIterator* iterator, $XPathContext* suppo
 }
 
 int32_t NodeSetDTM::addNodeInDocOrder(int32_t node, bool test, $XPathContext* support) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!this->m_mutable) {
 		$init($XPATHErrorResources);
 		$throwNew($RuntimeException, $($XSLMessages::createXPATHMessage($XPATHErrorResources::ER_NODESETDTM_NOT_MUTABLE, nullptr)));
@@ -588,7 +499,90 @@ NodeSetDTM::NodeSetDTM() {
 }
 
 $Class* NodeSetDTM::load$($String* name, bool initialize) {
-	$loadClass(NodeSetDTM, name, initialize, &_NodeSetDTM_ClassInfo_, allocate$NodeSetDTM);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(NodeSetDTM, serialVersionUID)},
+		{"m_manager", "Lcom/sun/org/apache/xml/internal/dtm/DTMManager;", nullptr, 0, $field(NodeSetDTM, m_manager)},
+		{"m_next", "I", nullptr, $PROTECTED | $TRANSIENT, $field(NodeSetDTM, m_next)},
+		{"m_mutable", "Z", nullptr, $PROTECTED | $TRANSIENT, $field(NodeSetDTM, m_mutable)},
+		{"m_cacheNodes", "Z", nullptr, $PROTECTED | $TRANSIENT, $field(NodeSetDTM, m_cacheNodes)},
+		{"m_root", "I", nullptr, $PROTECTED, $field(NodeSetDTM, m_root)},
+		{"m_last", "I", nullptr, $PRIVATE | $TRANSIENT, $field(NodeSetDTM, m_last)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lcom/sun/org/apache/xml/internal/dtm/DTMManager;)V", nullptr, $PUBLIC, $method(NodeSetDTM, init$, void, $DTMManager*)},
+		{"<init>", "(IILcom/sun/org/apache/xml/internal/dtm/DTMManager;)V", nullptr, $PUBLIC, $method(NodeSetDTM, init$, void, int32_t, int32_t, $DTMManager*)},
+		{"<init>", "(Lcom/sun/org/apache/xpath/internal/NodeSetDTM;)V", nullptr, $PUBLIC, $method(NodeSetDTM, init$, void, NodeSetDTM*)},
+		{"<init>", "(Lcom/sun/org/apache/xml/internal/dtm/DTMIterator;)V", nullptr, $PUBLIC, $method(NodeSetDTM, init$, void, $DTMIterator*)},
+		{"<init>", "(Lorg/w3c/dom/traversal/NodeIterator;Lcom/sun/org/apache/xpath/internal/XPathContext;)V", nullptr, $PUBLIC, $method(NodeSetDTM, init$, void, $NodeIterator*, $XPathContext*)},
+		{"<init>", "(Lorg/w3c/dom/NodeList;Lcom/sun/org/apache/xpath/internal/XPathContext;)V", nullptr, $PUBLIC, $method(NodeSetDTM, init$, void, $NodeList*, $XPathContext*)},
+		{"<init>", "(ILcom/sun/org/apache/xml/internal/dtm/DTMManager;)V", nullptr, $PUBLIC, $method(NodeSetDTM, init$, void, int32_t, $DTMManager*)},
+		{"addElement", "(I)V", nullptr, $PUBLIC, $virtualMethod(NodeSetDTM, addElement, void, int32_t)},
+		{"addNode", "(I)V", nullptr, $PUBLIC, $virtualMethod(NodeSetDTM, addNode, void, int32_t)},
+		{"addNodeInDocOrder", "(IZLcom/sun/org/apache/xpath/internal/XPathContext;)I", nullptr, $PUBLIC, $virtualMethod(NodeSetDTM, addNodeInDocOrder, int32_t, int32_t, bool, $XPathContext*)},
+		{"addNodeInDocOrder", "(ILcom/sun/org/apache/xpath/internal/XPathContext;)I", nullptr, $PUBLIC, $virtualMethod(NodeSetDTM, addNodeInDocOrder, int32_t, int32_t, $XPathContext*)},
+		{"addNodes", "(Lcom/sun/org/apache/xml/internal/dtm/DTMIterator;)V", nullptr, $PUBLIC, $virtualMethod(NodeSetDTM, addNodes, void, $DTMIterator*)},
+		{"addNodesInDocOrder", "(Lcom/sun/org/apache/xml/internal/dtm/DTMIterator;Lcom/sun/org/apache/xpath/internal/XPathContext;)V", nullptr, $PUBLIC, $virtualMethod(NodeSetDTM, addNodesInDocOrder, void, $DTMIterator*, $XPathContext*)},
+		{"allowDetachToRelease", "(Z)V", nullptr, $PUBLIC, $virtualMethod(NodeSetDTM, allowDetachToRelease, void, bool)},
+		{"appendNodes", "(Lcom/sun/org/apache/xml/internal/utils/NodeVector;)V", nullptr, $PUBLIC, $virtualMethod(NodeSetDTM, appendNodes, void, $NodeVector*)},
+		{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(NodeSetDTM, clone, $Object*), "java.lang.CloneNotSupportedException"},
+		{"cloneWithReset", "()Lcom/sun/org/apache/xml/internal/dtm/DTMIterator;", nullptr, $PUBLIC, $virtualMethod(NodeSetDTM, cloneWithReset, $DTMIterator*), "java.lang.CloneNotSupportedException"},
+		{"contains", "(I)Z", nullptr, $PUBLIC, $virtualMethod(NodeSetDTM, contains, bool, int32_t)},
+		{"detach", "()V", nullptr, $PUBLIC, $virtualMethod(NodeSetDTM, detach, void)},
+		{"elementAt", "(I)I", nullptr, $PUBLIC, $virtualMethod(NodeSetDTM, elementAt, int32_t, int32_t)},
+		{"getAxis", "()I", nullptr, $PUBLIC, $virtualMethod(NodeSetDTM, getAxis, int32_t)},
+		{"getCurrentNode", "()I", nullptr, $PUBLIC, $virtualMethod(NodeSetDTM, getCurrentNode, int32_t)},
+		{"getCurrentPos", "()I", nullptr, $PUBLIC, $virtualMethod(NodeSetDTM, getCurrentPos, int32_t)},
+		{"getDTM", "(I)Lcom/sun/org/apache/xml/internal/dtm/DTM;", nullptr, $PUBLIC, $virtualMethod(NodeSetDTM, getDTM, $DTM*, int32_t)},
+		{"getDTMManager", "()Lcom/sun/org/apache/xml/internal/dtm/DTMManager;", nullptr, $PUBLIC, $virtualMethod(NodeSetDTM, getDTMManager, $DTMManager*)},
+		{"getExpandEntityReferences", "()Z", nullptr, $PUBLIC, $virtualMethod(NodeSetDTM, getExpandEntityReferences, bool)},
+		{"getFilter", "()Lcom/sun/org/apache/xml/internal/dtm/DTMFilter;", nullptr, $PUBLIC, $virtualMethod(NodeSetDTM, getFilter, $DTMFilter*)},
+		{"getLast", "()I", nullptr, $PUBLIC, $virtualMethod(NodeSetDTM, getLast, int32_t)},
+		{"getLength", "()I", nullptr, $PUBLIC, $virtualMethod(NodeSetDTM, getLength, int32_t)},
+		{"getRoot", "()I", nullptr, $PUBLIC, $virtualMethod(NodeSetDTM, getRoot, int32_t)},
+		{"getShouldCacheNodes", "()Z", nullptr, $PUBLIC, $virtualMethod(NodeSetDTM, getShouldCacheNodes, bool)},
+		{"getWhatToShow", "()I", nullptr, $PUBLIC, $virtualMethod(NodeSetDTM, getWhatToShow, int32_t)},
+		{"indexOf", "(II)I", nullptr, $PUBLIC, $virtualMethod(NodeSetDTM, indexOf, int32_t, int32_t, int32_t)},
+		{"indexOf", "(I)I", nullptr, $PUBLIC, $virtualMethod(NodeSetDTM, indexOf, int32_t, int32_t)},
+		{"insertElementAt", "(II)V", nullptr, $PUBLIC, $virtualMethod(NodeSetDTM, insertElementAt, void, int32_t, int32_t)},
+		{"insertNode", "(II)V", nullptr, $PUBLIC, $virtualMethod(NodeSetDTM, insertNode, void, int32_t, int32_t)},
+		{"isDocOrdered", "()Z", nullptr, $PUBLIC, $virtualMethod(NodeSetDTM, isDocOrdered, bool)},
+		{"isFresh", "()Z", nullptr, $PUBLIC, $virtualMethod(NodeSetDTM, isFresh, bool)},
+		{"isMutable", "()Z", nullptr, $PUBLIC, $virtualMethod(NodeSetDTM, isMutable, bool)},
+		{"item", "(I)I", nullptr, $PUBLIC, $virtualMethod(NodeSetDTM, item, int32_t, int32_t)},
+		{"nextNode", "()I", nullptr, $PUBLIC, $virtualMethod(NodeSetDTM, nextNode, int32_t)},
+		{"previousNode", "()I", nullptr, $PUBLIC, $virtualMethod(NodeSetDTM, previousNode, int32_t)},
+		{"removeAllElements", "()V", nullptr, $PUBLIC, $virtualMethod(NodeSetDTM, removeAllElements, void)},
+		{"removeElement", "(I)Z", nullptr, $PUBLIC, $virtualMethod(NodeSetDTM, removeElement, bool, int32_t)},
+		{"removeElementAt", "(I)V", nullptr, $PUBLIC, $virtualMethod(NodeSetDTM, removeElementAt, void, int32_t)},
+		{"removeNode", "(I)V", nullptr, $PUBLIC, $virtualMethod(NodeSetDTM, removeNode, void, int32_t)},
+		{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(NodeSetDTM, reset, void)},
+		{"runTo", "(I)V", nullptr, $PUBLIC, $virtualMethod(NodeSetDTM, runTo, void, int32_t)},
+		{"setCurrentPos", "(I)V", nullptr, $PUBLIC, $virtualMethod(NodeSetDTM, setCurrentPos, void, int32_t)},
+		{"setElementAt", "(II)V", nullptr, $PUBLIC, $virtualMethod(NodeSetDTM, setElementAt, void, int32_t, int32_t)},
+		{"setEnvironment", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(NodeSetDTM, setEnvironment, void, Object$*)},
+		{"setItem", "(II)V", nullptr, $PUBLIC, $virtualMethod(NodeSetDTM, setItem, void, int32_t, int32_t)},
+		{"setLast", "(I)V", nullptr, $PUBLIC, $virtualMethod(NodeSetDTM, setLast, void, int32_t)},
+		{"setRoot", "(ILjava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(NodeSetDTM, setRoot, void, int32_t, Object$*)},
+		{"setShouldCacheNodes", "(Z)V", nullptr, $PUBLIC, $virtualMethod(NodeSetDTM, setShouldCacheNodes, void, bool)},
+		{"size", "()I", nullptr, $PUBLIC, $virtualMethod(NodeSetDTM, size, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xpath.internal.NodeSetDTM",
+		"com.sun.org.apache.xml.internal.utils.NodeVector",
+		"com.sun.org.apache.xml.internal.dtm.DTMIterator",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(NodeSetDTM, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(NodeSetDTM));
+	});
 	return class$;
 }
 

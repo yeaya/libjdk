@@ -13,10 +13,13 @@ class $export AWTError : public ::java::lang::Error {
 public:
 	AWTError();
 	void init$($String* msg);
-	static const int64_t serialVersionUID = (int64_t)0xE6BE9B620904E302;
+	static const int64_t serialVersionUID = (int64_t)0xe6be9b620904e302;
 	AWTError(const AWTError& e);
 	virtual void throw$() override;
-	inline AWTError* operator ->() {
+	inline AWTError* operator ->() const {
+		return (AWTError*)throwing$;
+	}
+	inline operator AWTError*() const {
 		return (AWTError*)throwing$;
 	}
 };

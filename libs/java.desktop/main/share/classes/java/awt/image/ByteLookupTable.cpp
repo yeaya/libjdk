@@ -1,5 +1,4 @@
 #include <java/awt/image/ByteLookupTable.h>
-
 #include <java/awt/image/LookupTable.h>
 #include <java/lang/ArrayIndexOutOfBoundsException.h>
 #include <jcpp.h>
@@ -15,49 +14,22 @@ namespace java {
 	namespace awt {
 		namespace image {
 
-$FieldInfo _ByteLookupTable_FieldInfo_[] = {
-	{"data", "[[B", nullptr, 0, $field(ByteLookupTable, data)},
-	{}
-};
-
-$MethodInfo _ByteLookupTable_MethodInfo_[] = {
-	{"<init>", "(I[[B)V", nullptr, $PUBLIC, $method(ByteLookupTable, init$, void, int32_t, $byteArray2*)},
-	{"<init>", "(I[B)V", nullptr, $PUBLIC, $method(ByteLookupTable, init$, void, int32_t, $bytes*)},
-	{"getTable", "()[[B", nullptr, $PUBLIC | $FINAL, $method(ByteLookupTable, getTable, $byteArray2*)},
-	{"lookupPixel", "([I[I)[I", nullptr, $PUBLIC, $virtualMethod(ByteLookupTable, lookupPixel, $ints*, $ints*, $ints*)},
-	{"lookupPixel", "([B[B)[B", nullptr, $PUBLIC, $virtualMethod(ByteLookupTable, lookupPixel, $bytes*, $bytes*, $bytes*)},
-	{}
-};
-
-$ClassInfo _ByteLookupTable_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.awt.image.ByteLookupTable",
-	"java.awt.image.LookupTable",
-	nullptr,
-	_ByteLookupTable_FieldInfo_,
-	_ByteLookupTable_MethodInfo_
-};
-
-$Object* allocate$ByteLookupTable($Class* clazz) {
-	return $of($alloc(ByteLookupTable));
-}
-
 void ByteLookupTable::init$(int32_t offset, $byteArray2* data) {
 	$LookupTable::init$(offset, $nc(data)->length);
-	this->numComponents = $nc(data)->length;
+	this->numComponents = data->length;
 	this->numEntries = $nc(data->get(0))->length;
 	$set(this, data, $new($byteArray2, this->numComponents));
 	for (int32_t i = 0; i < this->numComponents; ++i) {
-		$nc(this->data)->set(i, data->get(i));
+		this->data->set(i, data->get(i));
 	}
 }
 
 void ByteLookupTable::init$(int32_t offset, $bytes* data) {
 	$LookupTable::init$(offset, $nc(data)->length);
 	this->numComponents = 1;
-	this->numEntries = $nc(data)->length;
+	this->numEntries = data->length;
 	$set(this, data, $new($byteArray2, 1));
-	$nc(this->data)->set(0, data);
+	this->data->set(0, data);
 }
 
 $byteArray2* ByteLookupTable::getTable() {
@@ -65,7 +37,7 @@ $byteArray2* ByteLookupTable::getTable() {
 }
 
 $ints* ByteLookupTable::lookupPixel($ints* src, $ints* dst$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ints, dst, dst$renamed);
 	if (dst == nullptr) {
 		$assign(dst, $new($ints, $nc(src)->length));
@@ -91,14 +63,14 @@ $ints* ByteLookupTable::lookupPixel($ints* src, $ints* dst$renamed) {
 }
 
 $bytes* ByteLookupTable::lookupPixel($bytes* src, $bytes* dst$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, dst, dst$renamed);
 	if (dst == nullptr) {
 		$assign(dst, $new($bytes, $nc(src)->length));
 	}
 	if (this->numComponents == 1) {
 		for (int32_t i = 0; i < $nc(src)->length; ++i) {
-			int32_t s = ((int32_t)(src->get(i) & (uint32_t)255)) - this->offset;
+			int32_t s = (src->get(i) & 0xff) - this->offset;
 			if (s < 0) {
 				$throwNew($ArrayIndexOutOfBoundsException, $$str({"src["_s, $$str(i), "]-offset is less than zero"_s}));
 			}
@@ -106,7 +78,7 @@ $bytes* ByteLookupTable::lookupPixel($bytes* src, $bytes* dst$renamed) {
 		}
 	} else {
 		for (int32_t i = 0; i < $nc(src)->length; ++i) {
-			int32_t s = ((int32_t)(src->get(i) & (uint32_t)255)) - this->offset;
+			int32_t s = (src->get(i) & 0xff) - this->offset;
 			if (s < 0) {
 				$throwNew($ArrayIndexOutOfBoundsException, $$str({"src["_s, $$str(i), "]-offset is less than zero"_s}));
 			}
@@ -120,7 +92,29 @@ ByteLookupTable::ByteLookupTable() {
 }
 
 $Class* ByteLookupTable::load$($String* name, bool initialize) {
-	$loadClass(ByteLookupTable, name, initialize, &_ByteLookupTable_ClassInfo_, allocate$ByteLookupTable);
+	$FieldInfo fieldInfos$$[] = {
+		{"data", "[[B", nullptr, 0, $field(ByteLookupTable, data)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I[[B)V", nullptr, $PUBLIC, $method(ByteLookupTable, init$, void, int32_t, $byteArray2*)},
+		{"<init>", "(I[B)V", nullptr, $PUBLIC, $method(ByteLookupTable, init$, void, int32_t, $bytes*)},
+		{"getTable", "()[[B", nullptr, $PUBLIC | $FINAL, $method(ByteLookupTable, getTable, $byteArray2*)},
+		{"lookupPixel", "([I[I)[I", nullptr, $PUBLIC, $virtualMethod(ByteLookupTable, lookupPixel, $ints*, $ints*, $ints*)},
+		{"lookupPixel", "([B[B)[B", nullptr, $PUBLIC, $virtualMethod(ByteLookupTable, lookupPixel, $bytes*, $bytes*, $bytes*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.awt.image.ByteLookupTable",
+		"java.awt.image.LookupTable",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ByteLookupTable, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ByteLookupTable);
+	});
 	return class$;
 }
 

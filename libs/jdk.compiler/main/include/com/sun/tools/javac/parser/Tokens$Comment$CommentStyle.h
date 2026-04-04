@@ -24,6 +24,7 @@ class $import Tokens$Comment$CommentStyle : public ::java::lang::Enum {
 public:
 	Tokens$Comment$CommentStyle();
 	static $Array<::com::sun::tools::javac::parser::Tokens$Comment$CommentStyle>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::com::sun::tools::javac::parser::Tokens$Comment$CommentStyle* valueOf($String* name);
 	static $Array<::com::sun::tools::javac::parser::Tokens$Comment$CommentStyle>* values();

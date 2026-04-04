@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/Attr$BreakAttr.h>
-
 #include <com/sun/tools/javac/comp/Attr.h>
 #include <com/sun/tools/javac/comp/Env.h>
 #include <jcpp.h>
@@ -17,42 +16,6 @@ namespace com {
 			namespace javac {
 				namespace comp {
 
-$FieldInfo _Attr$BreakAttr_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(Attr$BreakAttr, serialVersionUID)},
-	{"env", "Lcom/sun/tools/javac/comp/Env;", "Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;", $PRIVATE | $TRANSIENT, $field(Attr$BreakAttr, env)},
-	{}
-};
-
-$MethodInfo _Attr$BreakAttr_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Env;)V", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)V", $PRIVATE, $method(Attr$BreakAttr, init$, void, $Env*)},
-	{}
-};
-
-$InnerClassInfo _Attr$BreakAttr_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.Attr$BreakAttr", "com.sun.tools.javac.comp.Attr", "BreakAttr", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _Attr$BreakAttr_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.comp.Attr$BreakAttr",
-	"java.lang.RuntimeException",
-	nullptr,
-	_Attr$BreakAttr_FieldInfo_,
-	_Attr$BreakAttr_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Attr$BreakAttr_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.Attr"
-};
-
-$Object* allocate$Attr$BreakAttr($Class* clazz) {
-	return $of($alloc(Attr$BreakAttr));
-}
-
 void Attr$BreakAttr::init$($Env* env) {
 	$RuntimeException::init$();
 	$set(this, env, env);
@@ -69,7 +32,37 @@ void Attr$BreakAttr::throw$() {
 }
 
 $Class* Attr$BreakAttr::load$($String* name, bool initialize) {
-	$loadClass(Attr$BreakAttr, name, initialize, &_Attr$BreakAttr_ClassInfo_, allocate$Attr$BreakAttr);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(Attr$BreakAttr, serialVersionUID)},
+		{"env", "Lcom/sun/tools/javac/comp/Env;", "Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;", $PRIVATE | $TRANSIENT, $field(Attr$BreakAttr, env)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/comp/Env;)V", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)V", $PRIVATE, $method(Attr$BreakAttr, init$, void, $Env*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.Attr$BreakAttr", "com.sun.tools.javac.comp.Attr", "BreakAttr", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.comp.Attr$BreakAttr",
+		"java.lang.RuntimeException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.Attr"
+	};
+	$loadClass(Attr$BreakAttr, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Attr$BreakAttr);
+	});
 	return class$;
 }
 

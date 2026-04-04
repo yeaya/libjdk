@@ -1,9 +1,7 @@
 #include <com/sun/org/apache/xml/internal/serializer/Version.h>
-
 #include <java/lang/NumberFormatException.h>
 #include <jcpp.h>
 
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -17,45 +15,22 @@ namespace com {
 					namespace internal {
 						namespace serializer {
 
-$MethodInfo _Version_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Version, init$, void)},
-	{"_main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Version, _main, void, $StringArray*)},
-	{"getDevelopmentVersionNum", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(Version, getDevelopmentVersionNum, int32_t)},
-	{"getImplementationLanguage", "()Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Version, getImplementationLanguage, $String*)},
-	{"getMaintenanceVersionNum", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(Version, getMaintenanceVersionNum, int32_t)},
-	{"getMajorVersionNum", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(Version, getMajorVersionNum, int32_t)},
-	{"getProduct", "()Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Version, getProduct, $String*)},
-	{"getReleaseVersionNum", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(Version, getReleaseVersionNum, int32_t)},
-	{"getVersion", "()Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Version, getVersion, $String*)},
-	{}
-};
-
-$ClassInfo _Version_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.serializer.Version",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_Version_MethodInfo_
-};
-
-$Object* allocate$Version($Class* clazz) {
-	return $of($alloc(Version));
-}
-
 void Version::init$() {
 }
 
 $String* Version::getVersion() {
-	$useLocalCurrentObjectStackCache();
-	$var($String, var$6, $$str({$(getProduct()), " "_s}));
-	$var($String, var$5, $$concat(var$6, $(getImplementationLanguage())));
-	$var($String, var$4, $$concat(var$5, " "_s));
-	$var($String, var$3, $$concat(var$4, $$str(getMajorVersionNum())));
-	$var($String, var$2, $$concat(var$3, "."_s));
-	$var($String, var$1, $$concat(var$2, $$str(getReleaseVersionNum())));
-	$var($String, var$0, $$concat(var$1, "."_s));
-	return $concat(var$0, ((getDevelopmentVersionNum() > 0) ? ($$str({"D"_s, $$str(getDevelopmentVersionNum())})) : ($$str({""_s, $$str(getMaintenanceVersionNum())}))));
+	$useLocalObjectStack();
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append($(getProduct()));
+	var$0->append(" "_s);
+	var$0->append($(getImplementationLanguage()));
+	var$0->append(" "_s);
+	var$0->append(getMajorVersionNum());
+	var$0->append("."_s);
+	var$0->append(getReleaseVersionNum());
+	var$0->append("."_s);
+	var$0->append((getDevelopmentVersionNum() > 0) ? ($$str({"D"_s, $$str(getDevelopmentVersionNum())})) : ($$str({""_s, $$str(getMaintenanceVersionNum())})));
+	return $str(var$0);
 }
 
 void Version::_main($StringArray* argv) {
@@ -99,7 +74,29 @@ Version::Version() {
 }
 
 $Class* Version::load$($String* name, bool initialize) {
-	$loadClass(Version, name, initialize, &_Version_ClassInfo_, allocate$Version);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Version, init$, void)},
+		{"_main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Version, _main, void, $StringArray*)},
+		{"getDevelopmentVersionNum", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(Version, getDevelopmentVersionNum, int32_t)},
+		{"getImplementationLanguage", "()Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Version, getImplementationLanguage, $String*)},
+		{"getMaintenanceVersionNum", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(Version, getMaintenanceVersionNum, int32_t)},
+		{"getMajorVersionNum", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(Version, getMajorVersionNum, int32_t)},
+		{"getProduct", "()Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Version, getProduct, $String*)},
+		{"getReleaseVersionNum", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(Version, getReleaseVersionNum, int32_t)},
+		{"getVersion", "()Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Version, getVersion, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.serializer.Version",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Version, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Version);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <javax/annotation/processing/Completions.h>
-
 #include <javax/annotation/processing/Completion.h>
 #include <javax/annotation/processing/Completions$SimpleCompletion.h>
 #include <jcpp.h>
@@ -13,37 +12,6 @@ using $Completions$SimpleCompletion = ::javax::annotation::processing::Completio
 namespace javax {
 	namespace annotation {
 		namespace processing {
-
-$MethodInfo _Completions_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(Completions, init$, void)},
-	{"of", "(Ljava/lang/String;Ljava/lang/String;)Ljavax/annotation/processing/Completion;", nullptr, $PUBLIC | $STATIC, $staticMethod(Completions, of, $Completion*, $String*, $String*)},
-	{"of", "(Ljava/lang/String;)Ljavax/annotation/processing/Completion;", nullptr, $PUBLIC | $STATIC, $staticMethod(Completions, of, $Completion*, $String*)},
-	{}
-};
-
-$InnerClassInfo _Completions_InnerClassesInfo_[] = {
-	{"javax.annotation.processing.Completions$SimpleCompletion", "javax.annotation.processing.Completions", "SimpleCompletion", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _Completions_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.annotation.processing.Completions",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_Completions_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Completions_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.annotation.processing.Completions$SimpleCompletion"
-};
-
-$Object* allocate$Completions($Class* clazz) {
-	return $of($alloc(Completions));
-}
 
 void Completions::init$() {
 }
@@ -60,7 +28,33 @@ Completions::Completions() {
 }
 
 $Class* Completions::load$($String* name, bool initialize) {
-	$loadClass(Completions, name, initialize, &_Completions_ClassInfo_, allocate$Completions);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(Completions, init$, void)},
+		{"of", "(Ljava/lang/String;Ljava/lang/String;)Ljavax/annotation/processing/Completion;", nullptr, $PUBLIC | $STATIC, $staticMethod(Completions, of, $Completion*, $String*, $String*)},
+		{"of", "(Ljava/lang/String;)Ljavax/annotation/processing/Completion;", nullptr, $PUBLIC | $STATIC, $staticMethod(Completions, of, $Completion*, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.annotation.processing.Completions$SimpleCompletion", "javax.annotation.processing.Completions", "SimpleCompletion", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.annotation.processing.Completions",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.annotation.processing.Completions$SimpleCompletion"
+	};
+	$loadClass(Completions, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Completions);
+	});
 	return class$;
 }
 

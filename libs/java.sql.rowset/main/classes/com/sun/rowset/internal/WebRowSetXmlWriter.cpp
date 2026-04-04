@@ -1,5 +1,4 @@
 #include <com/sun/rowset/internal/WebRowSetXmlWriter.h>
-
 #include <com/sun/rowset/JdbcRowSetResourceBundle.h>
 #include <java/io/IOException.h>
 #include <java/io/ObjectInputStream.h>
@@ -53,7 +52,6 @@ using $IOException = ::java::io::IOException;
 using $ObjectInputStream = ::java::io::ObjectInputStream;
 using $OutputStream = ::java::io::OutputStream;
 using $OutputStreamWriter = ::java::io::OutputStreamWriter;
-using $PrintStream = ::java::io::PrintStream;
 using $Writer = ::java::io::Writer;
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -77,84 +75,16 @@ using $MessageFormat = ::java::text::MessageFormat;
 using $Iterator = ::java::util::Iterator;
 using $Map = ::java::util::Map;
 using $Map$Entry = ::java::util::Map$Entry;
-using $Set = ::java::util::Set;
 using $Stack = ::java::util::Stack;
 using $RowSet = ::javax::sql::RowSet;
 using $RowSetInternal = ::javax::sql::RowSetInternal;
 using $WebRowSet = ::javax::sql::rowset::WebRowSet;
-using $SyncProvider = ::javax::sql::rowset::spi::SyncProvider;
 using $XmlWriter = ::javax::sql::rowset::spi::XmlWriter;
 
 namespace com {
 	namespace sun {
 		namespace rowset {
 			namespace internal {
-
-$FieldInfo _WebRowSetXmlWriter_FieldInfo_[] = {
-	{"writer", "Ljava/io/Writer;", nullptr, $PRIVATE | $TRANSIENT, $field(WebRowSetXmlWriter, writer)},
-	{"stack", "Ljava/util/Stack;", "Ljava/util/Stack<Ljava/lang/String;>;", $PRIVATE, $field(WebRowSetXmlWriter, stack)},
-	{"resBundle", "Lcom/sun/rowset/JdbcRowSetResourceBundle;", nullptr, $PRIVATE, $field(WebRowSetXmlWriter, resBundle)},
-	{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(WebRowSetXmlWriter, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _WebRowSetXmlWriter_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(WebRowSetXmlWriter, init$, void)},
-	{"beginSection", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(WebRowSetXmlWriter, beginSection, void, $String*), "java.io.IOException"},
-	{"beginTag", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(WebRowSetXmlWriter, beginTag, void, $String*), "java.io.IOException"},
-	{"emptyTag", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(WebRowSetXmlWriter, emptyTag, void, $String*), "java.io.IOException"},
-	{"endHeader", "()V", nullptr, $PRIVATE, $method(WebRowSetXmlWriter, endHeader, void), "java.io.IOException"},
-	{"endSection", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(WebRowSetXmlWriter, endSection, void, $String*), "java.io.IOException"},
-	{"endSection", "()V", nullptr, $PRIVATE, $method(WebRowSetXmlWriter, endSection, void), "java.io.IOException"},
-	{"endTag", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(WebRowSetXmlWriter, endTag, void, $String*), "java.io.IOException"},
-	{"getTag", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(WebRowSetXmlWriter, getTag, $String*)},
-	{"processSpecialCharacters", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(WebRowSetXmlWriter, processSpecialCharacters, $String*, $String*)},
-	{"propBoolean", "(Ljava/lang/String;Z)V", nullptr, $PRIVATE, $method(WebRowSetXmlWriter, propBoolean, void, $String*, bool), "java.io.IOException"},
-	{"propInteger", "(Ljava/lang/String;I)V", nullptr, $PRIVATE, $method(WebRowSetXmlWriter, propInteger, void, $String*, int32_t), "java.io.IOException"},
-	{"propString", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(WebRowSetXmlWriter, propString, void, $String*, $String*), "java.io.IOException"},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(WebRowSetXmlWriter, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"setTag", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(WebRowSetXmlWriter, setTag, void, $String*)},
-	{"startHeader", "()V", nullptr, $PRIVATE, $method(WebRowSetXmlWriter, startHeader, void), "java.io.IOException"},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"writeBigDecimal", "(Ljava/math/BigDecimal;)V", nullptr, $PRIVATE, $method(WebRowSetXmlWriter, writeBigDecimal, void, $BigDecimal*), "java.io.IOException"},
-	{"writeBoolean", "(Z)V", nullptr, $PRIVATE, $method(WebRowSetXmlWriter, writeBoolean, void, bool), "java.io.IOException"},
-	{"writeData", "(Ljavax/sql/rowset/WebRowSet;)V", nullptr, $PRIVATE, $method(WebRowSetXmlWriter, writeData, void, $WebRowSet*), "java.io.IOException"},
-	{"writeData", "(Ljavax/sql/RowSetInternal;)Z", nullptr, $PUBLIC, $virtualMethod(WebRowSetXmlWriter, writeData, bool, $RowSetInternal*)},
-	{"writeDouble", "(D)V", nullptr, $PRIVATE, $method(WebRowSetXmlWriter, writeDouble, void, double), "java.io.IOException"},
-	{"writeEmptyString", "()V", nullptr, $PRIVATE, $method(WebRowSetXmlWriter, writeEmptyString, void), "java.io.IOException"},
-	{"writeFloat", "(F)V", nullptr, $PRIVATE, $method(WebRowSetXmlWriter, writeFloat, void, float), "java.io.IOException"},
-	{"writeIndent", "(I)V", nullptr, $PRIVATE, $method(WebRowSetXmlWriter, writeIndent, void, int32_t), "java.io.IOException"},
-	{"writeInteger", "(I)V", nullptr, $PRIVATE, $method(WebRowSetXmlWriter, writeInteger, void, int32_t), "java.io.IOException"},
-	{"writeLong", "(J)V", nullptr, $PRIVATE, $method(WebRowSetXmlWriter, writeLong, void, int64_t), "java.io.IOException"},
-	{"writeMetaData", "(Ljavax/sql/rowset/WebRowSet;)V", nullptr, $PRIVATE, $method(WebRowSetXmlWriter, writeMetaData, void, $WebRowSet*), "java.io.IOException"},
-	{"writeNull", "()V", nullptr, $PRIVATE, $method(WebRowSetXmlWriter, writeNull, void), "java.io.IOException"},
-	{"writeProperties", "(Ljavax/sql/rowset/WebRowSet;)V", nullptr, $PRIVATE, $method(WebRowSetXmlWriter, writeProperties, void, $WebRowSet*), "java.io.IOException"},
-	{"writeRowSet", "(Ljavax/sql/rowset/WebRowSet;)V", nullptr, $PRIVATE, $method(WebRowSetXmlWriter, writeRowSet, void, $WebRowSet*), "java.sql.SQLException"},
-	{"writeShort", "(S)V", nullptr, $PRIVATE, $method(WebRowSetXmlWriter, writeShort, void, int16_t), "java.io.IOException"},
-	{"writeString", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(WebRowSetXmlWriter, writeString, void, $String*), "java.io.IOException"},
-	{"writeStringData", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(WebRowSetXmlWriter, writeStringData, void, $String*), "java.io.IOException"},
-	{"writeValue", "(ILjavax/sql/RowSet;)V", nullptr, $PRIVATE, $method(WebRowSetXmlWriter, writeValue, void, int32_t, $RowSet*), "java.io.IOException"},
-	{"writeXML", "(Ljavax/sql/rowset/WebRowSet;Ljava/io/Writer;)V", nullptr, $PUBLIC, $virtualMethod(WebRowSetXmlWriter, writeXML, void, $WebRowSet*, $Writer*), "java.sql.SQLException"},
-	{"writeXML", "(Ljavax/sql/rowset/WebRowSet;Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $virtualMethod(WebRowSetXmlWriter, writeXML, void, $WebRowSet*, $OutputStream*), "java.sql.SQLException"},
-	{}
-};
-
-$ClassInfo _WebRowSetXmlWriter_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.rowset.internal.WebRowSetXmlWriter",
-	"java.lang.Object",
-	"javax.sql.rowset.spi.XmlWriter,java.io.Serializable",
-	_WebRowSetXmlWriter_FieldInfo_,
-	_WebRowSetXmlWriter_MethodInfo_
-};
-
-$Object* allocate$WebRowSetXmlWriter($Class* clazz) {
-	return $of($alloc(WebRowSetXmlWriter));
-}
 
 int32_t WebRowSetXmlWriter::hashCode() {
 	 return this->$XmlWriter::hashCode();
@@ -180,7 +110,7 @@ void WebRowSetXmlWriter::init$() {
 	try {
 		$set(this, resBundle, $JdbcRowSetResourceBundle::getJdbcRowSetResourceBundle());
 	} catch ($IOException& ioe) {
-		$throwNew($RuntimeException, static_cast<$Throwable*>(ioe));
+		$throwNew($RuntimeException, ioe);
 	}
 }
 
@@ -197,7 +127,7 @@ void WebRowSetXmlWriter::writeXML($WebRowSet* caller, $OutputStream* oStream) {
 }
 
 void WebRowSetXmlWriter::writeRowSet($WebRowSet* caller) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		startHeader();
 		writeProperties(caller);
@@ -205,16 +135,16 @@ void WebRowSetXmlWriter::writeRowSet($WebRowSet* caller) {
 		writeData(caller);
 		endHeader();
 	} catch ($IOException& ex) {
-		$var($String, var$0, $nc($of($($nc(this->resBundle)->handleGetObject("wrsxmlwriter.ioex"_s))))->toString());
-		$throwNew($SQLException, $($MessageFormat::format(var$0, $$new($ObjectArray, {$($of(ex->getMessage()))}))));
+		$var($String, var$0, $$nc($nc(this->resBundle)->handleGetObject("wrsxmlwriter.ioex"_s))->toString());
+		$throwNew($SQLException, $($MessageFormat::format(var$0, $$new($ObjectArray, {$(ex->getMessage())}))));
 	}
 }
 
 void WebRowSetXmlWriter::startHeader() {
 	setTag("webRowSet"_s);
 	$nc(this->writer)->write("<?xml version=\"1.0\"?>\n"_s);
-	$nc(this->writer)->write("<webRowSet xmlns=\"http://java.sun.com/xml/ns/jdbc\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n"_s);
-	$nc(this->writer)->write("xsi:schemaLocation=\"http://java.sun.com/xml/ns/jdbc http://java.sun.com/xml/ns/jdbc/webrowset.xsd\">\n"_s);
+	this->writer->write("<webRowSet xmlns=\"http://java.sun.com/xml/ns/jdbc\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n"_s);
+	this->writer->write("xsi:schemaLocation=\"http://java.sun.com/xml/ns/jdbc http://java.sun.com/xml/ns/jdbc/webrowset.xsd\">\n"_s);
 }
 
 void WebRowSetXmlWriter::endHeader() {
@@ -222,21 +152,21 @@ void WebRowSetXmlWriter::endHeader() {
 }
 
 void WebRowSetXmlWriter::writeProperties($WebRowSet* caller) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	beginSection("properties"_s);
 	try {
 		propString("command"_s, $(processSpecialCharacters($($nc(caller)->getCommand()))));
-		propInteger("concurrency"_s, $nc(caller)->getConcurrency());
-		propString("datasource"_s, $($nc(caller)->getDataSourceName()));
-		propBoolean("escape-processing"_s, $nc(caller)->getEscapeProcessing());
+		propInteger("concurrency"_s, caller->getConcurrency());
+		propString("datasource"_s, $(caller->getDataSourceName()));
+		propBoolean("escape-processing"_s, caller->getEscapeProcessing());
 		try {
-			propInteger("fetch-direction"_s, $nc(caller)->getFetchDirection());
+			propInteger("fetch-direction"_s, caller->getFetchDirection());
 		} catch ($SQLException& sqle) {
 		}
-		propInteger("fetch-size"_s, $nc(caller)->getFetchSize());
-		propInteger("isolation-level"_s, $nc(caller)->getTransactionIsolation());
+		propInteger("fetch-size"_s, caller->getFetchSize());
+		propInteger("isolation-level"_s, caller->getTransactionIsolation());
 		beginSection("key-columns"_s);
-		$var($ints, kc, $nc(caller)->getKeyColumns());
+		$var($ints, kc, caller->getKeyColumns());
 		for (int32_t i = 0; kc != nullptr && i < kc->length; ++i) {
 			propInteger("column"_s, kc->get(i));
 		}
@@ -244,14 +174,12 @@ void WebRowSetXmlWriter::writeProperties($WebRowSet* caller) {
 		beginSection("map"_s);
 		$var($Map, typeMap, caller->getTypeMap());
 		if (typeMap != nullptr) {
-			{
-				$var($Iterator, i$, $nc($(typeMap->entrySet()))->iterator());
-				for (; $nc(i$)->hasNext();) {
-					$var($Map$Entry, mm, $cast($Map$Entry, i$->next()));
-					{
-						propString("type"_s, $cast($String, $($nc(mm)->getKey())));
-						propString("class"_s, $($nc(($cast($Class, $($nc(mm)->getValue()))))->getName()));
-					}
+			$var($Iterator, i$, $$nc(typeMap->entrySet())->iterator());
+			for (; $nc(i$)->hasNext();) {
+				$var($Map$Entry, mm, $cast($Map$Entry, i$->next()));
+				{
+					propString("type"_s, $$cast($String, $nc(mm)->getKey()));
+					propString("class"_s, $($$sure($Class, mm->getValue())->getName()));
 				}
 			}
 		}
@@ -274,23 +202,23 @@ void WebRowSetXmlWriter::writeProperties($WebRowSet* caller) {
 		propString("table-name"_s, $(caller->getTableName()));
 		propString("url"_s, $(caller->getUrl()));
 		beginSection("sync-provider"_s);
-		$var($String, strProviderInstance, $nc($of(($(caller->getSyncProvider()))))->toString());
-		$var($String, strProvider, $nc(strProviderInstance)->substring(0, $nc($($nc($of(($(caller->getSyncProvider()))))->toString()))->indexOf((int32_t)u'@')));
+		$var($String, strProviderInstance, ($$nc(caller->getSyncProvider()))->toString());
+		$var($String, strProvider, $nc(strProviderInstance)->substring(0, $$nc(($$nc(caller->getSyncProvider()))->toString())->indexOf(u'@')));
 		propString("sync-provider-name"_s, strProvider);
 		propString("sync-provider-vendor"_s, "Oracle Corporation"_s);
 		propString("sync-provider-version"_s, "1.0"_s);
-		propInteger("sync-provider-grade"_s, $nc($(caller->getSyncProvider()))->getProviderGrade());
-		propInteger("data-source-lock"_s, $nc($(caller->getSyncProvider()))->getDataSourceLock());
+		propInteger("sync-provider-grade"_s, $$nc(caller->getSyncProvider())->getProviderGrade());
+		propInteger("data-source-lock"_s, $$nc(caller->getSyncProvider())->getDataSourceLock());
 		endSection("sync-provider"_s);
 	} catch ($SQLException& ex) {
-		$var($String, var$0, $nc($of($($nc(this->resBundle)->handleGetObject("wrsxmlwriter.sqlex"_s))))->toString());
-		$throwNew($IOException, $($MessageFormat::format(var$0, $$new($ObjectArray, {$($of(ex->getMessage()))}))));
+		$var($String, var$0, $$nc($nc(this->resBundle)->handleGetObject("wrsxmlwriter.sqlex"_s))->toString());
+		$throwNew($IOException, $($MessageFormat::format(var$0, $$new($ObjectArray, {$(ex->getMessage())}))));
 	}
 	endSection("properties"_s);
 }
 
 void WebRowSetXmlWriter::writeMetaData($WebRowSet* caller) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t columnCount = 0;
 	beginSection("metadata"_s);
 	try {
@@ -319,14 +247,14 @@ void WebRowSetXmlWriter::writeMetaData($WebRowSet* caller) {
 			endSection("column-definition"_s);
 		}
 	} catch ($SQLException& ex) {
-		$var($String, var$0, $nc($of($($nc(this->resBundle)->handleGetObject("wrsxmlwriter.sqlex"_s))))->toString());
-		$throwNew($IOException, $($MessageFormat::format(var$0, $$new($ObjectArray, {$($of(ex->getMessage()))}))));
+		$var($String, var$0, $$nc($nc(this->resBundle)->handleGetObject("wrsxmlwriter.sqlex"_s))->toString());
+		$throwNew($IOException, $($MessageFormat::format(var$0, $$new($ObjectArray, {$(ex->getMessage())}))));
 	}
 	endSection("metadata"_s);
 }
 
 void WebRowSetXmlWriter::writeData($WebRowSet* caller) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ResultSet, rs, nullptr);
 	try {
 		$var($ResultSetMetaData, rsmd, $nc(caller)->getMetaData());
@@ -366,15 +294,15 @@ void WebRowSetXmlWriter::writeData($WebRowSet* caller) {
 		}
 		endSection("data"_s);
 	} catch ($SQLException& ex) {
-		$var($String, var$1, $nc($of($($nc(this->resBundle)->handleGetObject("wrsxmlwriter.sqlex"_s))))->toString());
-		$throwNew($IOException, $($MessageFormat::format(var$1, $$new($ObjectArray, {$($of(ex->getMessage()))}))));
+		$var($String, var$1, $$nc($nc(this->resBundle)->handleGetObject("wrsxmlwriter.sqlex"_s))->toString());
+		$throwNew($IOException, $($MessageFormat::format(var$1, $$new($ObjectArray, {$(ex->getMessage())}))));
 	}
 }
 
 void WebRowSetXmlWriter::writeValue(int32_t idx, $RowSet* caller) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
-		int32_t type = $nc($($nc(caller)->getMetaData()))->getColumnType(idx);
+		int32_t type = $$nc($nc(caller)->getMetaData())->getColumnType(idx);
 		{
 			bool b = false;
 			int16_t s = 0;
@@ -382,139 +310,107 @@ void WebRowSetXmlWriter::writeValue(int32_t idx, $RowSet* caller) {
 			int64_t l = 0;
 			float f = 0;
 			double d = 0;
-			$var($Date, date, nullptr)
-			$var($Time, time, nullptr)
-			$var($Timestamp, ts, nullptr)
+			$var($Date, date, nullptr);
+			$var($Time, time, nullptr);
+			$var($Timestamp, ts, nullptr);
 			switch (type) {
 			case $Types::BIT:
-				{}
 			case $Types::BOOLEAN:
-				{
-					b = caller->getBoolean(idx);
-					if (caller->wasNull()) {
-						writeNull();
-					} else {
-						writeBoolean(b);
-					}
-					break;
+				b = caller->getBoolean(idx);
+				if (caller->wasNull()) {
+					writeNull();
+				} else {
+					writeBoolean(b);
 				}
+				break;
 			case $Types::TINYINT:
-				{}
 			case $Types::SMALLINT:
-				{
-					s = caller->getShort(idx);
-					if (caller->wasNull()) {
-						writeNull();
-					} else {
-						writeShort(s);
-					}
-					break;
+				s = caller->getShort(idx);
+				if (caller->wasNull()) {
+					writeNull();
+				} else {
+					writeShort(s);
 				}
+				break;
 			case $Types::INTEGER:
-				{
-					i = caller->getInt(idx);
-					if (caller->wasNull()) {
-						writeNull();
-					} else {
-						writeInteger(i);
-					}
-					break;
+				i = caller->getInt(idx);
+				if (caller->wasNull()) {
+					writeNull();
+				} else {
+					writeInteger(i);
 				}
+				break;
 			case $Types::BIGINT:
-				{
-					l = caller->getLong(idx);
-					if (caller->wasNull()) {
-						writeNull();
-					} else {
-						writeLong(l);
-					}
-					break;
+				l = caller->getLong(idx);
+				if (caller->wasNull()) {
+					writeNull();
+				} else {
+					writeLong(l);
 				}
+				break;
 			case $Types::REAL:
-				{}
 			case $Types::FLOAT:
-				{
-					f = caller->getFloat(idx);
-					if (caller->wasNull()) {
-						writeNull();
-					} else {
-						writeFloat(f);
-					}
-					break;
+				f = caller->getFloat(idx);
+				if (caller->wasNull()) {
+					writeNull();
+				} else {
+					writeFloat(f);
 				}
+				break;
 			case $Types::DOUBLE:
-				{
-					d = caller->getDouble(idx);
-					if (caller->wasNull()) {
-						writeNull();
-					} else {
-						writeDouble(d);
-					}
-					break;
+				d = caller->getDouble(idx);
+				if (caller->wasNull()) {
+					writeNull();
+				} else {
+					writeDouble(d);
 				}
+				break;
 			case $Types::NUMERIC:
-				{}
 			case $Types::DECIMAL:
-				{
-					writeBigDecimal($(caller->getBigDecimal(idx)));
-					break;
-				}
+				writeBigDecimal($(caller->getBigDecimal(idx)));
+				break;
 			case $Types::BINARY:
-				{}
 			case $Types::VARBINARY:
-				{}
 			case $Types::LONGVARBINARY:
-				{
-					break;
-				}
+				break;
 			case $Types::DATE:
-				{
-					$assign(date, caller->getDate(idx));
-					if (caller->wasNull()) {
-						writeNull();
-					} else {
-						writeLong($nc(date)->getTime());
-					}
-					break;
+				$assign(date, caller->getDate(idx));
+				if (caller->wasNull()) {
+					writeNull();
+				} else {
+					writeLong($nc(date)->getTime());
 				}
+				break;
 			case $Types::TIME:
-				{
-					$assign(time, caller->getTime(idx));
-					if (caller->wasNull()) {
-						writeNull();
-					} else {
-						writeLong($nc(time)->getTime());
-					}
-					break;
+				$assign(time, caller->getTime(idx));
+				if (caller->wasNull()) {
+					writeNull();
+				} else {
+					writeLong($nc(time)->getTime());
 				}
+				break;
 			case $Types::TIMESTAMP:
-				{
-					$assign(ts, caller->getTimestamp(idx));
-					if (caller->wasNull()) {
-						writeNull();
-					} else {
-						writeLong($nc(ts)->getTime());
-					}
-					break;
+				$assign(ts, caller->getTimestamp(idx));
+				if (caller->wasNull()) {
+					writeNull();
+				} else {
+					writeLong($nc(ts)->getTime());
 				}
+				break;
 			case $Types::CHAR:
-				{}
 			case $Types::VARCHAR:
-				{}
 			case $Types::LONGVARCHAR:
-				{
-					writeStringData($(caller->getString(idx)));
-					break;
-				}
+				writeStringData($(caller->getString(idx)));
+				break;
 			default:
-				{
-					$nc($System::out)->println($($nc($of($($nc(this->resBundle)->handleGetObject("wsrxmlwriter.notproper"_s))))->toString()));
-				}
+				$nc($System::out)->println($($$nc($nc(this->resBundle)->handleGetObject("wsrxmlwriter.notproper"_s))->toString()));
 			}
 		}
 	} catch ($SQLException& ex) {
-		$var($String, var$0, $($nc($of($($nc(this->resBundle)->handleGetObject("wrsxmlwriter.failedwrite"_s))))->toString()));
-		$throwNew($IOException, $$concat(var$0, $(ex->getMessage())));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append($($$nc($nc(this->resBundle)->handleGetObject("wrsxmlwriter.failedwrite"_s))->toString()));
+		var$0->append($(ex->getMessage()));
+		$throwNew($IOException, $$str(var$0));
 	}
 }
 
@@ -525,7 +421,7 @@ void WebRowSetXmlWriter::beginSection($String* tag) {
 }
 
 void WebRowSetXmlWriter::endSection($String* tag) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	writeIndent($nc(this->stack)->size());
 	$var($String, beginTag, getTag());
 	if ($nc(beginTag)->indexOf("webRowSet"_s) != -1) {
@@ -534,16 +430,17 @@ void WebRowSetXmlWriter::endSection($String* tag) {
 	if ($nc(tag)->equals(beginTag)) {
 		$nc(this->writer)->write($$str({"</"_s, beginTag, ">\n"_s}));
 	} else {
+		;
 	}
 	$nc(this->writer)->flush();
 }
 
 void WebRowSetXmlWriter::endSection() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	writeIndent($nc(this->stack)->size());
 	$var($String, beginTag, getTag());
 	$nc(this->writer)->write($$str({"</"_s, beginTag, ">\n"_s}));
-	$nc(this->writer)->flush();
+	this->writer->flush();
 }
 
 void WebRowSetXmlWriter::beginTag($String* tag) {
@@ -553,11 +450,12 @@ void WebRowSetXmlWriter::beginTag($String* tag) {
 }
 
 void WebRowSetXmlWriter::endTag($String* tag) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, beginTag, getTag());
 	if ($nc(tag)->equals(beginTag)) {
 		$nc(this->writer)->write($$str({"</"_s, beginTag, ">\n"_s}));
 	} else {
+		;
 	}
 	$nc(this->writer)->flush();
 }
@@ -582,7 +480,7 @@ void WebRowSetXmlWriter::writeStringData($String* s$renamed) {
 	$var($String, s, s$renamed);
 	if (s == nullptr) {
 		writeNull();
-	} else if ($nc(s)->isEmpty()) {
+	} else if (s->isEmpty()) {
 		writeEmptyString();
 	} else {
 		$assign(s, processSpecialCharacters(s));
@@ -611,8 +509,8 @@ void WebRowSetXmlWriter::writeInteger(int32_t i) {
 }
 
 void WebRowSetXmlWriter::writeBoolean(bool b) {
-	$useLocalCurrentObjectStackCache();
-	$nc(this->writer)->write($($nc($($Boolean::valueOf(b)))->toString()));
+	$useLocalObjectStack();
+	$nc(this->writer)->write($($($Boolean::valueOf(b))->toString()));
 }
 
 void WebRowSetXmlWriter::writeFloat(float f) {
@@ -664,7 +562,7 @@ bool WebRowSetXmlWriter::writeData($RowSetInternal* caller) {
 }
 
 $String* WebRowSetXmlWriter::processSpecialCharacters($String* s$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, s, s$renamed);
 	if (s == nullptr) {
 		return nullptr;
@@ -695,7 +593,7 @@ void WebRowSetXmlWriter::readObject($ObjectInputStream* ois) {
 	try {
 		$set(this, resBundle, $JdbcRowSetResourceBundle::getJdbcRowSetResourceBundle());
 	} catch ($IOException& ioe) {
-		$throwNew($RuntimeException, static_cast<$Throwable*>(ioe));
+		$throwNew($RuntimeException, ioe);
 	}
 }
 
@@ -703,7 +601,68 @@ WebRowSetXmlWriter::WebRowSetXmlWriter() {
 }
 
 $Class* WebRowSetXmlWriter::load$($String* name, bool initialize) {
-	$loadClass(WebRowSetXmlWriter, name, initialize, &_WebRowSetXmlWriter_ClassInfo_, allocate$WebRowSetXmlWriter);
+	$FieldInfo fieldInfos$$[] = {
+		{"writer", "Ljava/io/Writer;", nullptr, $PRIVATE | $TRANSIENT, $field(WebRowSetXmlWriter, writer)},
+		{"stack", "Ljava/util/Stack;", "Ljava/util/Stack<Ljava/lang/String;>;", $PRIVATE, $field(WebRowSetXmlWriter, stack)},
+		{"resBundle", "Lcom/sun/rowset/JdbcRowSetResourceBundle;", nullptr, $PRIVATE, $field(WebRowSetXmlWriter, resBundle)},
+		{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(WebRowSetXmlWriter, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(WebRowSetXmlWriter, init$, void)},
+		{"beginSection", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(WebRowSetXmlWriter, beginSection, void, $String*), "java.io.IOException"},
+		{"beginTag", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(WebRowSetXmlWriter, beginTag, void, $String*), "java.io.IOException"},
+		{"emptyTag", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(WebRowSetXmlWriter, emptyTag, void, $String*), "java.io.IOException"},
+		{"endHeader", "()V", nullptr, $PRIVATE, $method(WebRowSetXmlWriter, endHeader, void), "java.io.IOException"},
+		{"endSection", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(WebRowSetXmlWriter, endSection, void, $String*), "java.io.IOException"},
+		{"endSection", "()V", nullptr, $PRIVATE, $method(WebRowSetXmlWriter, endSection, void), "java.io.IOException"},
+		{"endTag", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(WebRowSetXmlWriter, endTag, void, $String*), "java.io.IOException"},
+		{"getTag", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(WebRowSetXmlWriter, getTag, $String*)},
+		{"processSpecialCharacters", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(WebRowSetXmlWriter, processSpecialCharacters, $String*, $String*)},
+		{"propBoolean", "(Ljava/lang/String;Z)V", nullptr, $PRIVATE, $method(WebRowSetXmlWriter, propBoolean, void, $String*, bool), "java.io.IOException"},
+		{"propInteger", "(Ljava/lang/String;I)V", nullptr, $PRIVATE, $method(WebRowSetXmlWriter, propInteger, void, $String*, int32_t), "java.io.IOException"},
+		{"propString", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(WebRowSetXmlWriter, propString, void, $String*, $String*), "java.io.IOException"},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(WebRowSetXmlWriter, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+		{"setTag", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(WebRowSetXmlWriter, setTag, void, $String*)},
+		{"startHeader", "()V", nullptr, $PRIVATE, $method(WebRowSetXmlWriter, startHeader, void), "java.io.IOException"},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"writeBigDecimal", "(Ljava/math/BigDecimal;)V", nullptr, $PRIVATE, $method(WebRowSetXmlWriter, writeBigDecimal, void, $BigDecimal*), "java.io.IOException"},
+		{"writeBoolean", "(Z)V", nullptr, $PRIVATE, $method(WebRowSetXmlWriter, writeBoolean, void, bool), "java.io.IOException"},
+		{"writeData", "(Ljavax/sql/rowset/WebRowSet;)V", nullptr, $PRIVATE, $method(WebRowSetXmlWriter, writeData, void, $WebRowSet*), "java.io.IOException"},
+		{"writeData", "(Ljavax/sql/RowSetInternal;)Z", nullptr, $PUBLIC, $virtualMethod(WebRowSetXmlWriter, writeData, bool, $RowSetInternal*)},
+		{"writeDouble", "(D)V", nullptr, $PRIVATE, $method(WebRowSetXmlWriter, writeDouble, void, double), "java.io.IOException"},
+		{"writeEmptyString", "()V", nullptr, $PRIVATE, $method(WebRowSetXmlWriter, writeEmptyString, void), "java.io.IOException"},
+		{"writeFloat", "(F)V", nullptr, $PRIVATE, $method(WebRowSetXmlWriter, writeFloat, void, float), "java.io.IOException"},
+		{"writeIndent", "(I)V", nullptr, $PRIVATE, $method(WebRowSetXmlWriter, writeIndent, void, int32_t), "java.io.IOException"},
+		{"writeInteger", "(I)V", nullptr, $PRIVATE, $method(WebRowSetXmlWriter, writeInteger, void, int32_t), "java.io.IOException"},
+		{"writeLong", "(J)V", nullptr, $PRIVATE, $method(WebRowSetXmlWriter, writeLong, void, int64_t), "java.io.IOException"},
+		{"writeMetaData", "(Ljavax/sql/rowset/WebRowSet;)V", nullptr, $PRIVATE, $method(WebRowSetXmlWriter, writeMetaData, void, $WebRowSet*), "java.io.IOException"},
+		{"writeNull", "()V", nullptr, $PRIVATE, $method(WebRowSetXmlWriter, writeNull, void), "java.io.IOException"},
+		{"writeProperties", "(Ljavax/sql/rowset/WebRowSet;)V", nullptr, $PRIVATE, $method(WebRowSetXmlWriter, writeProperties, void, $WebRowSet*), "java.io.IOException"},
+		{"writeRowSet", "(Ljavax/sql/rowset/WebRowSet;)V", nullptr, $PRIVATE, $method(WebRowSetXmlWriter, writeRowSet, void, $WebRowSet*), "java.sql.SQLException"},
+		{"writeShort", "(S)V", nullptr, $PRIVATE, $method(WebRowSetXmlWriter, writeShort, void, int16_t), "java.io.IOException"},
+		{"writeString", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(WebRowSetXmlWriter, writeString, void, $String*), "java.io.IOException"},
+		{"writeStringData", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(WebRowSetXmlWriter, writeStringData, void, $String*), "java.io.IOException"},
+		{"writeValue", "(ILjavax/sql/RowSet;)V", nullptr, $PRIVATE, $method(WebRowSetXmlWriter, writeValue, void, int32_t, $RowSet*), "java.io.IOException"},
+		{"writeXML", "(Ljavax/sql/rowset/WebRowSet;Ljava/io/Writer;)V", nullptr, $PUBLIC, $virtualMethod(WebRowSetXmlWriter, writeXML, void, $WebRowSet*, $Writer*), "java.sql.SQLException"},
+		{"writeXML", "(Ljavax/sql/rowset/WebRowSet;Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $virtualMethod(WebRowSetXmlWriter, writeXML, void, $WebRowSet*, $OutputStream*), "java.sql.SQLException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.rowset.internal.WebRowSetXmlWriter",
+		"java.lang.Object",
+		"javax.sql.rowset.spi.XmlWriter,java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(WebRowSetXmlWriter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(WebRowSetXmlWriter));
+	});
 	return class$;
 }
 

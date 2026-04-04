@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/utils/ObjectPool.h>
-
 #include <com/sun/org/apache/xalan/internal/utils/ObjectFactory.h>
 #include <com/sun/org/apache/xml/internal/res/XMLErrorResources.h>
 #include <com/sun/org/apache/xml/internal/res/XMLMessages.h>
@@ -23,7 +22,6 @@ using $XMLMessages = ::com::sun::org::apache::xml::internal::res::XMLMessages;
 using $WrappedRuntimeException = ::com::sun::org::apache::xml::internal::utils::WrappedRuntimeException;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $ClassNotFoundException = ::java::lang::ClassNotFoundException;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalAccessException = ::java::lang::IllegalAccessException;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
@@ -32,10 +30,8 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $NoSuchMethodException = ::java::lang::NoSuchMethodException;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $SecurityException = ::java::lang::SecurityException;
-using $Constructor = ::java::lang::reflect::Constructor;
 using $InvocationTargetException = ::java::lang::reflect::InvocationTargetException;
 using $ArrayList = ::java::util::ArrayList;
-using $List = ::java::util::List;
 
 namespace com {
 	namespace sun {
@@ -44,37 +40,6 @@ namespace com {
 				namespace xml {
 					namespace internal {
 						namespace utils {
-
-$FieldInfo _ObjectPool_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(ObjectPool, serialVersionUID)},
-	{"objectType", "Ljava/lang/Class;", "Ljava/lang/Class<*>;", $PRIVATE | $FINAL, $field(ObjectPool, objectType)},
-	{"freeStack", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/Object;>;", $PRIVATE | $FINAL, $field(ObjectPool, freeStack)},
-	{}
-};
-
-$MethodInfo _ObjectPool_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;)V", $PUBLIC, $method(ObjectPool, init$, void, $Class*)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ObjectPool, init$, void, $String*)},
-	{"<init>", "(Ljava/lang/Class;I)V", "(Ljava/lang/Class<*>;I)V", $PUBLIC, $method(ObjectPool, init$, void, $Class*, int32_t)},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ObjectPool, init$, void)},
-	{"freeInstance", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ObjectPool, freeInstance, void, Object$*)},
-	{"getInstance", "()Ljava/lang/Object;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ObjectPool, getInstance, $Object*)},
-	{"getInstanceIfFree", "()Ljava/lang/Object;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ObjectPool, getInstanceIfFree, $Object*)},
-	{}
-};
-
-$ClassInfo _ObjectPool_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.utils.ObjectPool",
-	"java.lang.Object",
-	"java.io.Serializable",
-	_ObjectPool_FieldInfo_,
-	_ObjectPool_MethodInfo_
-};
-
-$Object* allocate$ObjectPool($Class* clazz) {
-	return $of($alloc(ObjectPool));
-}
 
 void ObjectPool::init$($Class* type) {
 	$set(this, objectType, type);
@@ -103,20 +68,20 @@ void ObjectPool::init$() {
 $Object* ObjectPool::getInstanceIfFree() {
 	$synchronized(this) {
 		if (!$nc(this->freeStack)->isEmpty()) {
-			$var($Object, result, $nc(this->freeStack)->remove($nc(this->freeStack)->size() - 1));
-			return $of(result);
+			$var($Object, result, this->freeStack->remove(this->freeStack->size() - 1));
+			return result;
 		}
-		return $of(nullptr);
+		return nullptr;
 	}
 }
 
 $Object* ObjectPool::getInstance() {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$beforeCallerSensitive();
 		if ($nc(this->freeStack)->isEmpty()) {
 			try {
-				return $of($nc($($nc(this->objectType)->getConstructor($$new($ClassArray, 0))))->newInstance($$new($ObjectArray, 0)));
+				return $$nc($nc(this->objectType)->getConstructor($$new($ClassArray, 0)))->newInstance($$new($ObjectArray, 0));
 			} catch ($InstantiationException& ex) {
 			} catch ($IllegalAccessException& ex) {
 			} catch ($SecurityException& ex) {
@@ -127,8 +92,8 @@ $Object* ObjectPool::getInstance() {
 			$init($XMLErrorResources);
 			$throwNew($RuntimeException, $($XMLMessages::createXMLMessage($XMLErrorResources::ER_EXCEPTION_CREATING_POOL, nullptr)));
 		} else {
-			$var($Object, result, $nc(this->freeStack)->remove($nc(this->freeStack)->size() - 1));
-			return $of(result);
+			$var($Object, result, this->freeStack->remove(this->freeStack->size() - 1));
+			return result;
 		}
 	}
 }
@@ -143,7 +108,33 @@ ObjectPool::ObjectPool() {
 }
 
 $Class* ObjectPool::load$($String* name, bool initialize) {
-	$loadClass(ObjectPool, name, initialize, &_ObjectPool_ClassInfo_, allocate$ObjectPool);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(ObjectPool, serialVersionUID)},
+		{"objectType", "Ljava/lang/Class;", "Ljava/lang/Class<*>;", $PRIVATE | $FINAL, $field(ObjectPool, objectType)},
+		{"freeStack", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/Object;>;", $PRIVATE | $FINAL, $field(ObjectPool, freeStack)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;)V", $PUBLIC, $method(ObjectPool, init$, void, $Class*)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ObjectPool, init$, void, $String*)},
+		{"<init>", "(Ljava/lang/Class;I)V", "(Ljava/lang/Class<*>;I)V", $PUBLIC, $method(ObjectPool, init$, void, $Class*, int32_t)},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ObjectPool, init$, void)},
+		{"freeInstance", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ObjectPool, freeInstance, void, Object$*)},
+		{"getInstance", "()Ljava/lang/Object;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ObjectPool, getInstance, $Object*)},
+		{"getInstanceIfFree", "()Ljava/lang/Object;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ObjectPool, getInstanceIfFree, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.utils.ObjectPool",
+		"java.lang.Object",
+		"java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ObjectPool, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ObjectPool);
+	});
 	return class$;
 }
 

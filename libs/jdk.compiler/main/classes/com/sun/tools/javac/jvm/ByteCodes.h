@@ -14,6 +14,7 @@ namespace com {
 class $export ByteCodes : public ::java::lang::Object {
 	$interface(ByteCodes, 0, ::java::lang::Object)
 public:
+	static void clinit$(::java::lang::Class* clazz);
 	static const int32_t illegal = (-1);
 	static const int32_t nop = 0;
 	static const int32_t aconst_null = 1;

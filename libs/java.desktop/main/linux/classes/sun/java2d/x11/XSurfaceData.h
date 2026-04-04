@@ -41,6 +41,7 @@ class XSurfaceData : public ::sun::java2d::SurfaceData {
 	$class(XSurfaceData, 0, ::sun::java2d::SurfaceData)
 public:
 	XSurfaceData();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::java2d::loops::SurfaceType* surfaceType, ::java::awt::image::ColorModel* cm);
 	static int64_t XCreateGC(int64_t pXSData);
 	static void XResetClip(int64_t xgc);

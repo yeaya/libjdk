@@ -12,6 +12,7 @@ class CausedFocusEvent$3 : public ::java::lang::Object {
 	$class(CausedFocusEvent$3, 0, ::java::lang::Object)
 public:
 	CausedFocusEvent$3();
+	static void clinit$(::java::lang::Class* clazz);
 	static $ints* $SwitchMap$sun$awt$CausedFocusEvent$Cause;
 };
 

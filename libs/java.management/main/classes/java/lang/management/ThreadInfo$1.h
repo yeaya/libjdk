@@ -13,6 +13,7 @@ class ThreadInfo$1 : public ::java::lang::Object {
 	$class(ThreadInfo$1, 0, ::java::lang::Object)
 public:
 	ThreadInfo$1();
+	static void clinit$(::java::lang::Class* clazz);
 	static $ints* $SwitchMap$java$lang$Thread$State;
 };
 

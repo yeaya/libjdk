@@ -1,5 +1,4 @@
 #include <jdk/nio/zipfs/ZipPath$2.h>
-
 #include <java/lang/NoSuchFieldError.h>
 #include <java/nio/file/AccessMode.h>
 #include <jdk/nio/zipfs/ZipPath.h>
@@ -20,57 +19,21 @@ namespace jdk {
 	namespace nio {
 		namespace zipfs {
 
-$FieldInfo _ZipPath$2_FieldInfo_[] = {
-	{"$SwitchMap$java$nio$file$AccessMode", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(ZipPath$2, $SwitchMap$java$nio$file$AccessMode)},
-	{}
-};
-
-$EnclosingMethodInfo _ZipPath$2_EnclosingMethodInfo_ = {
-	"jdk.nio.zipfs.ZipPath",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _ZipPath$2_InnerClassesInfo_[] = {
-	{"jdk.nio.zipfs.ZipPath$2", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{}
-};
-
-$ClassInfo _ZipPath$2_ClassInfo_ = {
-	$ACC_SUPER | $SYNTHETIC,
-	"jdk.nio.zipfs.ZipPath$2",
-	"java.lang.Object",
-	nullptr,
-	_ZipPath$2_FieldInfo_,
-	nullptr,
-	nullptr,
-	&_ZipPath$2_EnclosingMethodInfo_,
-	_ZipPath$2_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.nio.zipfs.ZipPath"
-};
-
-$Object* allocate$ZipPath$2($Class* clazz) {
-	return $of($alloc(ZipPath$2));
-}
-
 $ints* ZipPath$2::$SwitchMap$java$nio$file$AccessMode = nullptr;
 
-void clinit$ZipPath$2($Class* class$) {
+void ZipPath$2::clinit$($Class* clazz) {
 	$assignStatic(ZipPath$2::$SwitchMap$java$nio$file$AccessMode, $new($ints, $($AccessMode::values())->length));
 	{
 		try {
-			$nc(ZipPath$2::$SwitchMap$java$nio$file$AccessMode)->set($AccessMode::READ->ordinal(), 1);
+			ZipPath$2::$SwitchMap$java$nio$file$AccessMode->set($AccessMode::READ->ordinal(), 1);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(ZipPath$2::$SwitchMap$java$nio$file$AccessMode)->set($AccessMode::WRITE->ordinal(), 2);
+			ZipPath$2::$SwitchMap$java$nio$file$AccessMode->set($AccessMode::WRITE->ordinal(), 2);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(ZipPath$2::$SwitchMap$java$nio$file$AccessMode)->set($AccessMode::EXECUTE->ordinal(), 3);
+			ZipPath$2::$SwitchMap$java$nio$file$AccessMode->set($AccessMode::EXECUTE->ordinal(), 3);
 		} catch ($NoSuchFieldError& ex) {
 		}
 	}
@@ -80,7 +43,37 @@ ZipPath$2::ZipPath$2() {
 }
 
 $Class* ZipPath$2::load$($String* name, bool initialize) {
-	$loadClass(ZipPath$2, name, initialize, &_ZipPath$2_ClassInfo_, clinit$ZipPath$2, allocate$ZipPath$2);
+	$FieldInfo fieldInfos$$[] = {
+		{"$SwitchMap$java$nio$file$AccessMode", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(ZipPath$2, $SwitchMap$java$nio$file$AccessMode)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"jdk.nio.zipfs.ZipPath",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.nio.zipfs.ZipPath$2", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $SYNTHETIC,
+		"jdk.nio.zipfs.ZipPath$2",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		nullptr,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.nio.zipfs.ZipPath"
+	};
+	$loadClass(ZipPath$2, name, initialize, &classInfo$$, ZipPath$2::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ZipPath$2);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/windows/WindowsDesktopProperty.h>
-
 #include <com/sun/java/swing/plaf/windows/XPStyle.h>
 #include <java/lang/Package.h>
 #include <javax/swing/LookAndFeel.h>
@@ -10,8 +9,6 @@
 using $XPStyle = ::com::sun::java::swing::plaf::windows::XPStyle;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Package = ::java::lang::Package;
-using $LookAndFeel = ::javax::swing::LookAndFeel;
 using $UIManager = ::javax::swing::UIManager;
 using $DesktopProperty = ::sun::swing::plaf::DesktopProperty;
 
@@ -22,29 +19,10 @@ namespace com {
 				namespace plaf {
 					namespace windows {
 
-$MethodInfo _WindowsDesktopProperty_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(WindowsDesktopProperty, init$, void, $String*, Object$*)},
-	{"updateAllUIs", "()V", nullptr, $PROTECTED | $FINAL, $virtualMethod(WindowsDesktopProperty, updateAllUIs, void)},
-	{}
-};
-
-$ClassInfo _WindowsDesktopProperty_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.java.swing.plaf.windows.WindowsDesktopProperty",
-	"sun.swing.plaf.DesktopProperty",
-	nullptr,
-	nullptr,
-	_WindowsDesktopProperty_MethodInfo_
-};
-
-$Object* allocate$WindowsDesktopProperty($Class* clazz) {
-	return $of($alloc(WindowsDesktopProperty));
-}
-
 void WindowsDesktopProperty::updateAllUIs() {
-	$useLocalCurrentObjectStackCache();
-	$Class* uiClass = $nc($of($($UIManager::getLookAndFeel())))->getClass();
-	if ($nc($of($($nc(uiClass)->getPackage())))->equals($(WindowsDesktopProperty::class$->getPackage()))) {
+	$useLocalObjectStack();
+	$Class* uiClass = $$nc($UIManager::getLookAndFeel())->getClass();
+	if ($$nc(uiClass->getPackage())->equals($(WindowsDesktopProperty::class$->getPackage()))) {
 		$XPStyle::invalidateStyle();
 	}
 	$DesktopProperty::updateAllUIs();
@@ -58,7 +36,22 @@ WindowsDesktopProperty::WindowsDesktopProperty() {
 }
 
 $Class* WindowsDesktopProperty::load$($String* name, bool initialize) {
-	$loadClass(WindowsDesktopProperty, name, initialize, &_WindowsDesktopProperty_ClassInfo_, allocate$WindowsDesktopProperty);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(WindowsDesktopProperty, init$, void, $String*, Object$*)},
+		{"updateAllUIs", "()V", nullptr, $PROTECTED | $FINAL, $virtualMethod(WindowsDesktopProperty, updateAllUIs, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.java.swing.plaf.windows.WindowsDesktopProperty",
+		"sun.swing.plaf.DesktopProperty",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(WindowsDesktopProperty, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WindowsDesktopProperty);
+	});
 	return class$;
 }
 

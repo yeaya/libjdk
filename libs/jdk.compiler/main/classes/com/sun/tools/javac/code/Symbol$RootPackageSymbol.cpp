@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/code/Symbol$RootPackageSymbol.h>
-
 #include <com/sun/tools/javac/code/MissingInfoHandler.h>
 #include <com/sun/tools/javac/code/Symbol$PackageSymbol.h>
 #include <com/sun/tools/javac/code/Symbol.h>
@@ -21,43 +20,6 @@ namespace com {
 			namespace javac {
 				namespace code {
 
-$FieldInfo _Symbol$RootPackageSymbol_FieldInfo_[] = {
-	{"missingInfoHandler", "Lcom/sun/tools/javac/code/MissingInfoHandler;", nullptr, $PUBLIC | $FINAL, $field(Symbol$RootPackageSymbol, missingInfoHandler)},
-	{"allowPrivateInvokeVirtual", "Z", nullptr, $PUBLIC | $FINAL, $field(Symbol$RootPackageSymbol, allowPrivateInvokeVirtual)},
-	{}
-};
-
-$MethodInfo _Symbol$RootPackageSymbol_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/MissingInfoHandler;Z)V", nullptr, $PUBLIC, $method(Symbol$RootPackageSymbol, init$, void, $Name*, $Symbol*, $MissingInfoHandler*, bool)},
-	{}
-};
-
-$InnerClassInfo _Symbol$RootPackageSymbol_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.code.Symbol$RootPackageSymbol", "com.sun.tools.javac.code.Symbol", "RootPackageSymbol", $PUBLIC | $STATIC},
-	{"com.sun.tools.javac.code.Symbol$PackageSymbol", "com.sun.tools.javac.code.Symbol", "PackageSymbol", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _Symbol$RootPackageSymbol_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.code.Symbol$RootPackageSymbol",
-	"com.sun.tools.javac.code.Symbol$PackageSymbol",
-	nullptr,
-	_Symbol$RootPackageSymbol_FieldInfo_,
-	_Symbol$RootPackageSymbol_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Symbol$RootPackageSymbol_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.code.Symbol"
-};
-
-$Object* allocate$Symbol$RootPackageSymbol($Class* clazz) {
-	return $of($alloc(Symbol$RootPackageSymbol));
-}
-
 void Symbol$RootPackageSymbol::init$($Name* name, $Symbol* owner, $MissingInfoHandler* missingInfoHandler, bool allowPrivateInvokeVirtual) {
 	$Symbol$PackageSymbol::init$(name, owner);
 	$set(this, missingInfoHandler, missingInfoHandler);
@@ -68,7 +30,38 @@ Symbol$RootPackageSymbol::Symbol$RootPackageSymbol() {
 }
 
 $Class* Symbol$RootPackageSymbol::load$($String* name, bool initialize) {
-	$loadClass(Symbol$RootPackageSymbol, name, initialize, &_Symbol$RootPackageSymbol_ClassInfo_, allocate$Symbol$RootPackageSymbol);
+	$FieldInfo fieldInfos$$[] = {
+		{"missingInfoHandler", "Lcom/sun/tools/javac/code/MissingInfoHandler;", nullptr, $PUBLIC | $FINAL, $field(Symbol$RootPackageSymbol, missingInfoHandler)},
+		{"allowPrivateInvokeVirtual", "Z", nullptr, $PUBLIC | $FINAL, $field(Symbol$RootPackageSymbol, allowPrivateInvokeVirtual)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/MissingInfoHandler;Z)V", nullptr, $PUBLIC, $method(Symbol$RootPackageSymbol, init$, void, $Name*, $Symbol*, $MissingInfoHandler*, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.code.Symbol$RootPackageSymbol", "com.sun.tools.javac.code.Symbol", "RootPackageSymbol", $PUBLIC | $STATIC},
+		{"com.sun.tools.javac.code.Symbol$PackageSymbol", "com.sun.tools.javac.code.Symbol", "PackageSymbol", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.code.Symbol$RootPackageSymbol",
+		"com.sun.tools.javac.code.Symbol$PackageSymbol",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.code.Symbol"
+	};
+	$loadClass(Symbol$RootPackageSymbol, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Symbol$RootPackageSymbol));
+	});
 	return class$;
 }
 

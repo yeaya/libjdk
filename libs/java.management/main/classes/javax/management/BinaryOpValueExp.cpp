@@ -1,5 +1,4 @@
 #include <javax/management/BinaryOpValueExp.h>
-
 #include <javax/management/BadBinaryOpValueExpException.h>
 #include <javax/management/BadStringOperationException.h>
 #include <javax/management/MBeanServer.h>
@@ -32,51 +31,6 @@ using $ValueExp = ::javax::management::ValueExp;
 
 namespace javax {
 	namespace management {
-
-$CompoundAttribute _BinaryOpValueExp_MethodAnnotations_setMBeanServer9[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$FieldInfo _BinaryOpValueExp_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BinaryOpValueExp, serialVersionUID)},
-	{"op", "I", nullptr, $PRIVATE, $field(BinaryOpValueExp, op)},
-	{"exp1", "Ljavax/management/ValueExp;", nullptr, $PRIVATE, $field(BinaryOpValueExp, exp1)},
-	{"exp2", "Ljavax/management/ValueExp;", nullptr, $PRIVATE, $field(BinaryOpValueExp, exp2)},
-	{}
-};
-
-$MethodInfo _BinaryOpValueExp_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(BinaryOpValueExp, init$, void)},
-	{"<init>", "(ILjavax/management/ValueExp;Ljavax/management/ValueExp;)V", nullptr, $PUBLIC, $method(BinaryOpValueExp, init$, void, int32_t, $ValueExp*, $ValueExp*)},
-	{"apply", "(Ljavax/management/ObjectName;)Ljavax/management/ValueExp;", nullptr, $PUBLIC, $virtualMethod(BinaryOpValueExp, apply, $ValueExp*, $ObjectName*), "javax.management.BadStringOperationException,javax.management.BadBinaryOpValueExpException,javax.management.BadAttributeValueExpException,javax.management.InvalidApplicationException"},
-	{"getLeftValue", "()Ljavax/management/ValueExp;", nullptr, $PUBLIC, $virtualMethod(BinaryOpValueExp, getLeftValue, $ValueExp*)},
-	{"getOperator", "()I", nullptr, $PUBLIC, $virtualMethod(BinaryOpValueExp, getOperator, int32_t)},
-	{"getRightValue", "()Ljavax/management/ValueExp;", nullptr, $PUBLIC, $virtualMethod(BinaryOpValueExp, getRightValue, $ValueExp*)},
-	{"opString", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(BinaryOpValueExp, opString, $String*), "javax.management.BadBinaryOpValueExpException"},
-	{"parens", "(Ljavax/management/ValueExp;Z)Ljava/lang/String;", nullptr, $PRIVATE, $method(BinaryOpValueExp, parens, $String*, $ValueExp*, bool), "javax.management.BadBinaryOpValueExpException"},
-	{"precedence", "(I)I", nullptr, $PRIVATE, $method(BinaryOpValueExp, precedence, int32_t, int32_t), "javax.management.BadBinaryOpValueExpException"},
-	{"setMBeanServer", "(Ljavax/management/MBeanServer;)V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(BinaryOpValueExp, setMBeanServer, void, $MBeanServer*), nullptr, nullptr, _BinaryOpValueExp_MethodAnnotations_setMBeanServer9},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(BinaryOpValueExp, toString, $String*)},
-	{}
-};
-
-$ClassInfo _BinaryOpValueExp_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.management.BinaryOpValueExp",
-	"javax.management.QueryEval",
-	"javax.management.ValueExp",
-	_BinaryOpValueExp_FieldInfo_,
-	_BinaryOpValueExp_MethodInfo_
-};
-
-$Object* allocate$BinaryOpValueExp($Class* clazz) {
-	return $of($alloc(BinaryOpValueExp));
-}
 
 int32_t BinaryOpValueExp::hashCode() {
 	 return this->$QueryEval::hashCode();
@@ -118,7 +72,7 @@ $ValueExp* BinaryOpValueExp::getRightValue() {
 }
 
 $ValueExp* BinaryOpValueExp::apply($ObjectName* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ValueExp, val1, $nc(this->exp1)->apply(name));
 	$var($ValueExp, val2, $nc(this->exp2)->apply(name));
 	$var($String, sval1, nullptr);
@@ -129,73 +83,56 @@ $ValueExp* BinaryOpValueExp::apply($ObjectName* name) {
 	int64_t lval2 = 0;
 	bool numeric = $instanceOf($NumericValueExp, val1);
 	if (numeric) {
-		if ($nc(($cast($NumericValueExp, val1)))->isLong()) {
-			lval1 = $nc(($cast($NumericValueExp, val1)))->longValue();
-			lval2 = $nc(($cast($NumericValueExp, val2)))->longValue();
+		if ($nc($cast($NumericValueExp, val1))->isLong()) {
+			lval1 = $cast($NumericValueExp, val1)->longValue();
+			lval2 = $nc($cast($NumericValueExp, val2))->longValue();
 			switch (this->op) {
 			case $Query::PLUS:
-				{
-					return $Query::value(lval1 + lval2);
-				}
+				return $Query::value(lval1 + lval2);
 			case $Query::TIMES:
-				{
-					return $Query::value(lval1 * lval2);
-				}
+				return $Query::value(lval1 * lval2);
 			case $Query::MINUS:
-				{
-					return $Query::value(lval1 - lval2);
-				}
+				return $Query::value(lval1 - lval2);
 			case $Query::DIV:
-				{
-					return $Query::value($div(lval1, lval2));
-				}
+				return $Query::value($div(lval1, lval2));
 			}
 		} else {
-			dval1 = $nc(($cast($NumericValueExp, val1)))->doubleValue();
-			dval2 = $nc(($cast($NumericValueExp, val2)))->doubleValue();
+			dval1 = $cast($NumericValueExp, val1)->doubleValue();
+			dval2 = $nc($cast($NumericValueExp, val2))->doubleValue();
 			switch (this->op) {
 			case $Query::PLUS:
-				{
-					return $Query::value(dval1 + dval2);
-				}
+				return $Query::value(dval1 + dval2);
 			case $Query::TIMES:
-				{
-					return $Query::value(dval1 * dval2);
-				}
+				return $Query::value(dval1 * dval2);
 			case $Query::MINUS:
-				{
-					return $Query::value(dval1 - dval2);
-				}
+				return $Query::value(dval1 - dval2);
 			case $Query::DIV:
-				{
-					return $Query::value(dval1 / dval2);
-				}
+				return $Query::value(dval1 / dval2);
 			}
 		}
 	} else {
-		$assign(sval1, $nc(($cast($StringValueExp, val1)))->getValue());
-		$assign(sval2, $nc(($cast($StringValueExp, val2)))->getValue());
+		$assign(sval1, $nc($cast($StringValueExp, val1))->getValue());
+		$assign(sval2, $nc($cast($StringValueExp, val2))->getValue());
 		switch (this->op) {
 		case $Query::PLUS:
-			{
-				return $new($StringValueExp, $$str({sval1, sval2}));
-			}
+			return $new($StringValueExp, $$str({sval1, sval2}));
 		default:
-			{
-				$throwNew($BadStringOperationException, $(opString()));
-			}
+			$throwNew($BadStringOperationException, $(opString()));
 		}
 	}
 	$throwNew($BadBinaryOpValueExpException, this);
 }
 
 $String* BinaryOpValueExp::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
-		$var($String, var$2, $$str({$(parens(this->exp1, true)), " "_s}));
-		$var($String, var$1, $$concat(var$2, $(opString())));
-		$var($String, var$0, $$concat(var$1, " "_s));
-		return $concat(var$0, $(parens(this->exp2, false)));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append($(parens(this->exp1, true)));
+		var$0->append(" "_s);
+		var$0->append($(opString()));
+		var$0->append(" "_s);
+		var$0->append($(parens(this->exp2, false)));
+		return $str(var$0);
 	} catch ($BadBinaryOpValueExpException& ex) {
 		return "invalid expression"_s;
 	}
@@ -205,7 +142,7 @@ $String* BinaryOpValueExp::toString() {
 $String* BinaryOpValueExp::parens($ValueExp* subexp, bool left) {
 	bool omit = false;
 	if ($instanceOf(BinaryOpValueExp, subexp)) {
-		int32_t subop = $nc(($cast(BinaryOpValueExp, subexp)))->op;
+		int32_t subop = $cast(BinaryOpValueExp, subexp)->op;
 		if (left) {
 			int32_t var$0 = precedence(subop);
 			omit = (var$0 >= precedence(this->op));
@@ -226,42 +163,26 @@ $String* BinaryOpValueExp::parens($ValueExp* subexp, bool left) {
 int32_t BinaryOpValueExp::precedence(int32_t xop) {
 	switch (xop) {
 	case $Query::PLUS:
-		{}
 	case $Query::MINUS:
-		{
-			return 0;
-		}
+		return 0;
 	case $Query::TIMES:
-		{}
 	case $Query::DIV:
-		{
-			return 1;
-		}
+		return 1;
 	default:
-		{
-			$throwNew($BadBinaryOpValueExpException, this);
-		}
+		$throwNew($BadBinaryOpValueExpException, this);
 	}
 }
 
 $String* BinaryOpValueExp::opString() {
 	switch (this->op) {
 	case $Query::PLUS:
-		{
-			return "+"_s;
-		}
+		return "+"_s;
 	case $Query::TIMES:
-		{
-			return "*"_s;
-		}
+		return "*"_s;
 	case $Query::MINUS:
-		{
-			return "-"_s;
-		}
+		return "-"_s;
 	case $Query::DIV:
-		{
-			return "/"_s;
-		}
+		return "/"_s;
 	}
 	$throwNew($BadBinaryOpValueExpException, this);
 }
@@ -274,7 +195,46 @@ BinaryOpValueExp::BinaryOpValueExp() {
 }
 
 $Class* BinaryOpValueExp::load$($String* name, bool initialize) {
-	$loadClass(BinaryOpValueExp, name, initialize, &_BinaryOpValueExp_ClassInfo_, allocate$BinaryOpValueExp);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BinaryOpValueExp, serialVersionUID)},
+		{"op", "I", nullptr, $PRIVATE, $field(BinaryOpValueExp, op)},
+		{"exp1", "Ljavax/management/ValueExp;", nullptr, $PRIVATE, $field(BinaryOpValueExp, exp1)},
+		{"exp2", "Ljavax/management/ValueExp;", nullptr, $PRIVATE, $field(BinaryOpValueExp, exp2)},
+		{}
+	};
+	$CompoundAttribute setMBeanServermethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(BinaryOpValueExp, init$, void)},
+		{"<init>", "(ILjavax/management/ValueExp;Ljavax/management/ValueExp;)V", nullptr, $PUBLIC, $method(BinaryOpValueExp, init$, void, int32_t, $ValueExp*, $ValueExp*)},
+		{"apply", "(Ljavax/management/ObjectName;)Ljavax/management/ValueExp;", nullptr, $PUBLIC, $virtualMethod(BinaryOpValueExp, apply, $ValueExp*, $ObjectName*), "javax.management.BadStringOperationException,javax.management.BadBinaryOpValueExpException,javax.management.BadAttributeValueExpException,javax.management.InvalidApplicationException"},
+		{"getLeftValue", "()Ljavax/management/ValueExp;", nullptr, $PUBLIC, $virtualMethod(BinaryOpValueExp, getLeftValue, $ValueExp*)},
+		{"getOperator", "()I", nullptr, $PUBLIC, $virtualMethod(BinaryOpValueExp, getOperator, int32_t)},
+		{"getRightValue", "()Ljavax/management/ValueExp;", nullptr, $PUBLIC, $virtualMethod(BinaryOpValueExp, getRightValue, $ValueExp*)},
+		{"opString", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(BinaryOpValueExp, opString, $String*), "javax.management.BadBinaryOpValueExpException"},
+		{"parens", "(Ljavax/management/ValueExp;Z)Ljava/lang/String;", nullptr, $PRIVATE, $method(BinaryOpValueExp, parens, $String*, $ValueExp*, bool), "javax.management.BadBinaryOpValueExpException"},
+		{"precedence", "(I)I", nullptr, $PRIVATE, $method(BinaryOpValueExp, precedence, int32_t, int32_t), "javax.management.BadBinaryOpValueExpException"},
+		{"setMBeanServer", "(Ljavax/management/MBeanServer;)V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(BinaryOpValueExp, setMBeanServer, void, $MBeanServer*), nullptr, nullptr, setMBeanServermethodAnnotations$$},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(BinaryOpValueExp, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.management.BinaryOpValueExp",
+		"javax.management.QueryEval",
+		"javax.management.ValueExp",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(BinaryOpValueExp, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(BinaryOpValueExp));
+	});
 	return class$;
 }
 

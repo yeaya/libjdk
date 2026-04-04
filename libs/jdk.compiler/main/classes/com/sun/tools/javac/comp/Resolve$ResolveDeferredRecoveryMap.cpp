@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/Resolve$ResolveDeferredRecoveryMap.h>
-
 #include <com/sun/tools/javac/code/Symbol.h>
 #include <com/sun/tools/javac/code/Type$JCNoType.h>
 #include <com/sun/tools/javac/code/Type.h>
@@ -18,15 +17,12 @@
 
 using $Symbol = ::com::sun::tools::javac::code::Symbol;
 using $Type = ::com::sun::tools::javac::code::Type;
-using $DeferredAttr = ::com::sun::tools::javac::comp::DeferredAttr;
 using $DeferredAttr$AttrMode = ::com::sun::tools::javac::comp::DeferredAttr$AttrMode;
 using $DeferredAttr$DeferredType = ::com::sun::tools::javac::comp::DeferredAttr$DeferredType;
 using $DeferredAttr$RecoveryDeferredTypeMap = ::com::sun::tools::javac::comp::DeferredAttr$RecoveryDeferredTypeMap;
 using $Resolve = ::com::sun::tools::javac::comp::Resolve;
 using $Resolve$18 = ::com::sun::tools::javac::comp::Resolve$18;
 using $Resolve$MethodResolutionPhase = ::com::sun::tools::javac::comp::Resolve$MethodResolutionPhase;
-using $JCTree$JCExpression = ::com::sun::tools::javac::tree::JCTree$JCExpression;
-using $JCTree$Tag = ::com::sun::tools::javac::tree::JCTree$Tag;
 using $TreeInfo = ::com::sun::tools::javac::tree::TreeInfo;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -39,66 +35,22 @@ namespace com {
 			namespace javac {
 				namespace comp {
 
-$FieldInfo _Resolve$ResolveDeferredRecoveryMap_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/comp/Resolve;", nullptr, $FINAL | $SYNTHETIC, $field(Resolve$ResolveDeferredRecoveryMap, this$0)},
-	{}
-};
-
-$MethodInfo _Resolve$ResolveDeferredRecoveryMap_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Resolve;Lcom/sun/tools/javac/comp/DeferredAttr$AttrMode;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/comp/Resolve$MethodResolutionPhase;)V", nullptr, $PUBLIC, $method(Resolve$ResolveDeferredRecoveryMap, init$, void, $Resolve*, $DeferredAttr$AttrMode*, $Symbol*, $Resolve$MethodResolutionPhase*)},
-	{"typeOf", "(Lcom/sun/tools/javac/comp/DeferredAttr$DeferredType;Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Type;", nullptr, $PROTECTED, $virtualMethod(Resolve$ResolveDeferredRecoveryMap, typeOf, $Type*, $DeferredAttr$DeferredType*, $Type*)},
-	{"typeOf", "(Lcom/sun/tools/javac/comp/DeferredAttr$DeferredType;Ljava/lang/Object;)Lcom/sun/tools/javac/code/Type;", nullptr, $PROTECTED | $VOLATILE | $SYNTHETIC, $virtualMethod(Resolve$ResolveDeferredRecoveryMap, typeOf, $Type*, $DeferredAttr$DeferredType*, Object$*)},
-	{}
-};
-
-$InnerClassInfo _Resolve$ResolveDeferredRecoveryMap_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.Resolve$ResolveDeferredRecoveryMap", "com.sun.tools.javac.comp.Resolve", "ResolveDeferredRecoveryMap", 0},
-	{"com.sun.tools.javac.comp.DeferredAttr$RecoveryDeferredTypeMap", "com.sun.tools.javac.comp.DeferredAttr", "RecoveryDeferredTypeMap", $PUBLIC},
-	{}
-};
-
-$ClassInfo _Resolve$ResolveDeferredRecoveryMap_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.comp.Resolve$ResolveDeferredRecoveryMap",
-	"com.sun.tools.javac.comp.DeferredAttr$RecoveryDeferredTypeMap",
-	nullptr,
-	_Resolve$ResolveDeferredRecoveryMap_FieldInfo_,
-	_Resolve$ResolveDeferredRecoveryMap_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Resolve$ResolveDeferredRecoveryMap_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.Resolve"
-};
-
-$Object* allocate$Resolve$ResolveDeferredRecoveryMap($Class* clazz) {
-	return $of($alloc(Resolve$ResolveDeferredRecoveryMap));
-}
-
 void Resolve$ResolveDeferredRecoveryMap::init$($Resolve* this$0, $DeferredAttr$AttrMode* mode, $Symbol* msym, $Resolve$MethodResolutionPhase* step) {
 	$set(this, this$0, this$0);
-	$DeferredAttr$RecoveryDeferredTypeMap::init$(static_cast<$DeferredAttr*>($nc(this$0->deferredAttr)), mode, msym, step);
+	$DeferredAttr$RecoveryDeferredTypeMap::init$($nc(this$0->deferredAttr), mode, msym, step);
 }
 
 $Type* Resolve$ResolveDeferredRecoveryMap::typeOf($DeferredAttr$DeferredType* dt, $Type* pt) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Type, res, $DeferredAttr$RecoveryDeferredTypeMap::typeOf(dt, pt));
 	if (!$nc(res)->isErroneous()) {
 		$init($Resolve$18);
-		switch ($nc($Resolve$18::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->get($nc(($($nc($($TreeInfo::skipParens($nc(dt)->tree)))->getTag())))->ordinal())) {
+		switch ($nc($Resolve$18::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->get(($$nc($$nc($TreeInfo::skipParens($nc(dt)->tree))->getTag()))->ordinal())) {
 		case 1:
-			{}
 		case 2:
-			{
-				return dt;
-			}
+			return dt;
 		case 3:
-			{
-				$init($Type);
-				return $equals(res, $Type::recoveryType) ? static_cast<$Type*>(dt) : res;
-			}
+			return $equals(res, $Type::recoveryType) ? $cast($Type, dt) : res;
 		}
 	}
 	return res;
@@ -112,7 +64,39 @@ Resolve$ResolveDeferredRecoveryMap::Resolve$ResolveDeferredRecoveryMap() {
 }
 
 $Class* Resolve$ResolveDeferredRecoveryMap::load$($String* name, bool initialize) {
-	$loadClass(Resolve$ResolveDeferredRecoveryMap, name, initialize, &_Resolve$ResolveDeferredRecoveryMap_ClassInfo_, allocate$Resolve$ResolveDeferredRecoveryMap);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/comp/Resolve;", nullptr, $FINAL | $SYNTHETIC, $field(Resolve$ResolveDeferredRecoveryMap, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/comp/Resolve;Lcom/sun/tools/javac/comp/DeferredAttr$AttrMode;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/comp/Resolve$MethodResolutionPhase;)V", nullptr, $PUBLIC, $method(Resolve$ResolveDeferredRecoveryMap, init$, void, $Resolve*, $DeferredAttr$AttrMode*, $Symbol*, $Resolve$MethodResolutionPhase*)},
+		{"typeOf", "(Lcom/sun/tools/javac/comp/DeferredAttr$DeferredType;Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Type;", nullptr, $PROTECTED, $virtualMethod(Resolve$ResolveDeferredRecoveryMap, typeOf, $Type*, $DeferredAttr$DeferredType*, $Type*)},
+		{"typeOf", "(Lcom/sun/tools/javac/comp/DeferredAttr$DeferredType;Ljava/lang/Object;)Lcom/sun/tools/javac/code/Type;", nullptr, $PROTECTED | $VOLATILE | $SYNTHETIC, $virtualMethod(Resolve$ResolveDeferredRecoveryMap, typeOf, $Type*, $DeferredAttr$DeferredType*, Object$*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.Resolve$ResolveDeferredRecoveryMap", "com.sun.tools.javac.comp.Resolve", "ResolveDeferredRecoveryMap", 0},
+		{"com.sun.tools.javac.comp.DeferredAttr$RecoveryDeferredTypeMap", "com.sun.tools.javac.comp.DeferredAttr", "RecoveryDeferredTypeMap", $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.comp.Resolve$ResolveDeferredRecoveryMap",
+		"com.sun.tools.javac.comp.DeferredAttr$RecoveryDeferredTypeMap",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.Resolve"
+	};
+	$loadClass(Resolve$ResolveDeferredRecoveryMap, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Resolve$ResolveDeferredRecoveryMap));
+	});
 	return class$;
 }
 

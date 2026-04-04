@@ -1,5 +1,4 @@
 #include <Test6462562$TestFormattedTextField.h>
-
 #include <Test6462562.h>
 #include <java/awt/event/ActionEvent.h>
 #include <java/text/ParseException.h>
@@ -19,76 +18,32 @@
 
 using $Test6462562 = ::Test6462562;
 using $ActionEvent = ::java::awt::event::ActionEvent;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ParseException = ::java::text::ParseException;
-using $Action = ::javax::swing::Action;
-using $ActionMap = ::javax::swing::ActionMap;
 using $JFormattedTextField = ::javax::swing::JFormattedTextField;
-using $JFormattedTextField$AbstractFormatter = ::javax::swing::JFormattedTextField$AbstractFormatter;
 using $Caret = ::javax::swing::text::Caret;
 using $DefaultEditorKit = ::javax::swing::text::DefaultEditorKit;
 using $InternationalFormatter = ::javax::swing::text::InternationalFormatter;
 
-$FieldInfo _Test6462562$TestFormattedTextField_FieldInfo_[] = {
-	{"this$0", "LTest6462562;", nullptr, $FINAL | $SYNTHETIC, $field(Test6462562$TestFormattedTextField, this$0)},
-	{"backspace", "Ljavax/swing/Action;", nullptr, $FINAL, $field(Test6462562$TestFormattedTextField, backspace)},
-	{"delete", "Ljavax/swing/Action;", nullptr, $FINAL, $field(Test6462562$TestFormattedTextField, delete$)},
-	{"insert", "Ljavax/swing/Action;", nullptr, $FINAL, $field(Test6462562$TestFormattedTextField, insert)},
-	{"dummyEvent", "Ljava/awt/event/ActionEvent;", nullptr, $FINAL, $field(Test6462562$TestFormattedTextField, dummyEvent)},
-	{}
-};
-
-$MethodInfo _Test6462562$TestFormattedTextField_MethodInfo_[] = {
-	{"<init>", "(LTest6462562;Ljavax/swing/text/InternationalFormatter;)V", nullptr, $PUBLIC, $method(Test6462562$TestFormattedTextField, init$, void, $Test6462562*, $InternationalFormatter*)},
-	{"test", "(IILjava/lang/String;Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Test6462562$TestFormattedTextField, test, bool, int32_t, int32_t, $String*, Object$*)},
-	{}
-};
-
-$InnerClassInfo _Test6462562$TestFormattedTextField_InnerClassesInfo_[] = {
-	{"Test6462562$TestFormattedTextField", "Test6462562", "TestFormattedTextField", 0},
-	{}
-};
-
-$ClassInfo _Test6462562$TestFormattedTextField_ClassInfo_ = {
-	$ACC_SUPER,
-	"Test6462562$TestFormattedTextField",
-	"javax.swing.JFormattedTextField",
-	nullptr,
-	_Test6462562$TestFormattedTextField_FieldInfo_,
-	_Test6462562$TestFormattedTextField_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Test6462562$TestFormattedTextField_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"Test6462562"
-};
-
-$Object* allocate$Test6462562$TestFormattedTextField($Class* clazz) {
-	return $of($alloc(Test6462562$TestFormattedTextField));
-}
-
 void Test6462562$TestFormattedTextField::init$($Test6462562* this$0, $InternationalFormatter* fmt) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, this$0, this$0);
-	$JFormattedTextField::init$(static_cast<$JFormattedTextField$AbstractFormatter*>(fmt));
+	$JFormattedTextField::init$(fmt);
 	$nc(fmt)->setAllowsInvalid(false);
 	fmt->setOverwriteMode(true);
 	$init($DefaultEditorKit);
-	$set(this, backspace, $nc($(getActionMap()))->get($DefaultEditorKit::deletePrevCharAction));
-	$set(this, delete$, $nc($(getActionMap()))->get($DefaultEditorKit::deleteNextCharAction));
-	$set(this, insert, $nc($(getActionMap()))->get($DefaultEditorKit::insertContentAction));
+	$set(this, backspace, $$nc(getActionMap())->get($DefaultEditorKit::deletePrevCharAction));
+	$set(this, delete$, $$nc(getActionMap())->get($DefaultEditorKit::deleteNextCharAction));
+	$set(this, insert, $$nc(getActionMap())->get($DefaultEditorKit::insertContentAction));
 	$set(this, dummyEvent, $new($ActionEvent, this, 0, nullptr));
 }
 
 bool Test6462562$TestFormattedTextField::test(int32_t pos, int32_t selectionLength, $String* todo, Object$* expectedResult) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, v0, getValue());
 	$var($Caret, caret, getCaret());
 	$nc(caret)->setDot(pos);
@@ -99,13 +54,11 @@ bool Test6462562$TestFormattedTextField::test(int32_t pos, int32_t selectionLeng
 	$init($Test6462562);
 	if (todo == $Test6462562::BACKSPACE) {
 		$nc(this->backspace)->actionPerformed(this->dummyEvent);
+	} else if (todo == $Test6462562::DELETE) {
+		$nc(this->delete$)->actionPerformed(this->dummyEvent);
 	} else {
-		if (todo == $Test6462562::DELETE) {
-			$nc(this->delete$)->actionPerformed(this->dummyEvent);
-		} else {
-			$assign(desc, $str({"insert(\'"_s, todo, "\')"_s}));
-			$nc(this->insert)->actionPerformed($$new($ActionEvent, this, 0, todo));
-		}
+		$assign(desc, $str({"insert(\'"_s, todo, "\')"_s}));
+		$nc(this->insert)->actionPerformed($$new($ActionEvent, this, 0, todo));
 	}
 	try {
 		commitEdit();
@@ -115,14 +68,14 @@ bool Test6462562$TestFormattedTextField::test(int32_t pos, int32_t selectionLeng
 		return false;
 	}
 	$var($Object, v1, getValue());
-	if (!$nc($of(v1))->equals(expectedResult)) {
+	if (!$nc(v1)->equals(expectedResult)) {
 		$nc($System::err)->printf("Failure: value=\'%s\', mark=%d, dot=%d, action=%s\n"_s, $$new($ObjectArray, {
 			v0,
-			$($of($Integer::valueOf(pos))),
-			$($of($Integer::valueOf(pos + selectionLength))),
-			$of(desc)
+			$($Integer::valueOf(pos)),
+			$($Integer::valueOf(pos + selectionLength)),
+			desc
 		}));
-		$nc($System::err)->printf("   Result: \'%s\', expected: \'%s\'\n"_s, $$new($ObjectArray, {
+		$System::err->printf("   Result: \'%s\', expected: \'%s\'\n"_s, $$new($ObjectArray, {
 			v1,
 			expectedResult
 		}));
@@ -136,7 +89,41 @@ Test6462562$TestFormattedTextField::Test6462562$TestFormattedTextField() {
 }
 
 $Class* Test6462562$TestFormattedTextField::load$($String* name, bool initialize) {
-	$loadClass(Test6462562$TestFormattedTextField, name, initialize, &_Test6462562$TestFormattedTextField_ClassInfo_, allocate$Test6462562$TestFormattedTextField);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "LTest6462562;", nullptr, $FINAL | $SYNTHETIC, $field(Test6462562$TestFormattedTextField, this$0)},
+		{"backspace", "Ljavax/swing/Action;", nullptr, $FINAL, $field(Test6462562$TestFormattedTextField, backspace)},
+		{"delete", "Ljavax/swing/Action;", nullptr, $FINAL, $field(Test6462562$TestFormattedTextField, delete$)},
+		{"insert", "Ljavax/swing/Action;", nullptr, $FINAL, $field(Test6462562$TestFormattedTextField, insert)},
+		{"dummyEvent", "Ljava/awt/event/ActionEvent;", nullptr, $FINAL, $field(Test6462562$TestFormattedTextField, dummyEvent)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(LTest6462562;Ljavax/swing/text/InternationalFormatter;)V", nullptr, $PUBLIC, $method(Test6462562$TestFormattedTextField, init$, void, $Test6462562*, $InternationalFormatter*)},
+		{"test", "(IILjava/lang/String;Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Test6462562$TestFormattedTextField, test, bool, int32_t, int32_t, $String*, Object$*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"Test6462562$TestFormattedTextField", "Test6462562", "TestFormattedTextField", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"Test6462562$TestFormattedTextField",
+		"javax.swing.JFormattedTextField",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"Test6462562"
+	};
+	$loadClass(Test6462562$TestFormattedTextField, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Test6462562$TestFormattedTextField));
+	});
 	return class$;
 }
 

@@ -60,6 +60,7 @@ class $import Level$KnownLevel : public ::java::lang::ref::WeakReference {
 	$class(Level$KnownLevel, 0, ::java::lang::ref::WeakReference)
 public:
 	Level$KnownLevel();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::util::logging::Level* l);
 	static void add(::java::util::logging::Level* l);
 	static ::java::util::Optional* findByLocalizedLevelName($String* name, ::java::util::function::Function* selector);

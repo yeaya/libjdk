@@ -36,6 +36,7 @@ namespace javax {
 class $export Document : public ::java::lang::Object {
 	$interface(Document, 0, ::java::lang::Object)
 public:
+	static void clinit$(::java::lang::Class* clazz);
 	virtual void addDocumentListener(::javax::swing::event::DocumentListener* listener) {}
 	virtual void addUndoableEditListener(::javax::swing::event::UndoableEditListener* listener) {}
 	virtual ::javax::swing::text::Position* createPosition(int32_t offs) {return nullptr;}

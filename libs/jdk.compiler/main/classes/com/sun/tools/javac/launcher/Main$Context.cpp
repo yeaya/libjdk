@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/launcher/Main$Context.h>
-
 #include <com/sun/tools/javac/launcher/Main$MemoryClassLoader.h>
 #include <com/sun/tools/javac/launcher/Main$MemoryFileManager.h>
 #include <com/sun/tools/javac/launcher/Main.h>
@@ -20,7 +19,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Path = ::java::nio::file::Path;
 using $HashMap = ::java::util::HashMap;
-using $Map = ::java::util::Map;
 using $JavaFileManager = ::javax::tools::JavaFileManager;
 using $StandardJavaFileManager = ::javax::tools::StandardJavaFileManager;
 
@@ -29,44 +27,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace launcher {
-
-$FieldInfo _Main$Context_FieldInfo_[] = {
-	{"file", "Ljava/nio/file/Path;", nullptr, $PRIVATE | $FINAL, $field(Main$Context, file)},
-	{"inMemoryClasses", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;[B>;", $PRIVATE | $FINAL, $field(Main$Context, inMemoryClasses)},
-	{}
-};
-
-$MethodInfo _Main$Context_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/file/Path;)V", nullptr, 0, $method(Main$Context, init$, void, $Path*)},
-	{"getClassLoader", "(Ljava/lang/ClassLoader;)Ljava/lang/ClassLoader;", nullptr, 0, $virtualMethod(Main$Context, getClassLoader, $ClassLoader*, $ClassLoader*)},
-	{"getFileManager", "(Ljavax/tools/StandardJavaFileManager;)Ljavax/tools/JavaFileManager;", nullptr, 0, $virtualMethod(Main$Context, getFileManager, $JavaFileManager*, $StandardJavaFileManager*)},
-	{}
-};
-
-$InnerClassInfo _Main$Context_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.launcher.Main$Context", "com.sun.tools.javac.launcher.Main", "Context", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _Main$Context_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.launcher.Main$Context",
-	"java.lang.Object",
-	nullptr,
-	_Main$Context_FieldInfo_,
-	_Main$Context_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Main$Context_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.launcher.Main"
-};
-
-$Object* allocate$Main$Context($Class* clazz) {
-	return $of($alloc(Main$Context));
-}
 
 void Main$Context::init$($Path* file) {
 	$set(this, inMemoryClasses, $new($HashMap));
@@ -85,7 +45,39 @@ Main$Context::Main$Context() {
 }
 
 $Class* Main$Context::load$($String* name, bool initialize) {
-	$loadClass(Main$Context, name, initialize, &_Main$Context_ClassInfo_, allocate$Main$Context);
+	$FieldInfo fieldInfos$$[] = {
+		{"file", "Ljava/nio/file/Path;", nullptr, $PRIVATE | $FINAL, $field(Main$Context, file)},
+		{"inMemoryClasses", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;[B>;", $PRIVATE | $FINAL, $field(Main$Context, inMemoryClasses)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/nio/file/Path;)V", nullptr, 0, $method(Main$Context, init$, void, $Path*)},
+		{"getClassLoader", "(Ljava/lang/ClassLoader;)Ljava/lang/ClassLoader;", nullptr, 0, $virtualMethod(Main$Context, getClassLoader, $ClassLoader*, $ClassLoader*)},
+		{"getFileManager", "(Ljavax/tools/StandardJavaFileManager;)Ljavax/tools/JavaFileManager;", nullptr, 0, $virtualMethod(Main$Context, getFileManager, $JavaFileManager*, $StandardJavaFileManager*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.launcher.Main$Context", "com.sun.tools.javac.launcher.Main", "Context", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.launcher.Main$Context",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.launcher.Main"
+	};
+	$loadClass(Main$Context, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Main$Context);
+	});
 	return class$;
 }
 

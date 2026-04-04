@@ -1,11 +1,9 @@
 #include <LostText$2.h>
-
 #include <LostText.h>
 #include <java/awt/BorderLayout.h>
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <java/awt/FlowLayout.h>
-#include <java/awt/LayoutManager.h>
 #include <java/awt/Window.h>
 #include <java/awt/event/ActionEvent.h>
 #include <java/awt/event/ActionListener.h>
@@ -27,9 +25,7 @@
 
 using $LostText = ::LostText;
 using $BorderLayout = ::java::awt::BorderLayout;
-using $Component = ::java::awt::Component;
 using $FlowLayout = ::java::awt::FlowLayout;
-using $LayoutManager = ::java::awt::LayoutManager;
 using $ActionEvent = ::java::awt::event::ActionEvent;
 using $ActionListener = ::java::awt::event::ActionListener;
 using $Serializable = ::java::io::Serializable;
@@ -39,7 +35,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $CountDownLatch = ::java::util::concurrent::CountDownLatch;
 using $JButton = ::javax::swing::JButton;
 using $JDialog = ::javax::swing::JDialog;
 using $JPanel = ::javax::swing::JPanel;
@@ -54,33 +49,29 @@ public:
 	virtual void actionPerformed($ActionEvent* e) override {
 		$nc(inst$)->lambda$run$0(e);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<LostText$2$$Lambda$lambda$run$0>());
-	}
 	LostText$2* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo LostText$2$$Lambda$lambda$run$0::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(LostText$2$$Lambda$lambda$run$0, inst$)},
-	{}
-};
-$MethodInfo LostText$2$$Lambda$lambda$run$0::methodInfos[3] = {
-	{"<init>", "(LLostText$2;)V", nullptr, $PUBLIC, $method(LostText$2$$Lambda$lambda$run$0, init$, void, LostText$2*)},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(LostText$2$$Lambda$lambda$run$0, actionPerformed, void, $ActionEvent*)},
-	{}
-};
-$ClassInfo LostText$2$$Lambda$lambda$run$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"LostText$2$$Lambda$lambda$run$0",
-	"java.lang.Object",
-	"java.awt.event.ActionListener",
-	fieldInfos,
-	methodInfos
 };
 $Class* LostText$2$$Lambda$lambda$run$0::load$($String* name, bool initialize) {
-	$loadClass(LostText$2$$Lambda$lambda$run$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(LostText$2$$Lambda$lambda$run$0, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(LLostText$2;)V", nullptr, $PUBLIC, $method(LostText$2$$Lambda$lambda$run$0, init$, void, LostText$2*)},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(LostText$2$$Lambda$lambda$run$0, actionPerformed, void, $ActionEvent*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"LostText$2$$Lambda$lambda$run$0",
+		"java.lang.Object",
+		"java.awt.event.ActionListener",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(LostText$2$$Lambda$lambda$run$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LostText$2$$Lambda$lambda$run$0);
+	});
 	return class$;
 }
 $Class* LostText$2$$Lambda$lambda$run$0::class$ = nullptr;
@@ -94,105 +85,56 @@ public:
 	virtual void actionPerformed($ActionEvent* e) override {
 		$nc(inst$)->lambda$run$1(e);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<LostText$2$$Lambda$lambda$run$1$1>());
-	}
 	LostText$2* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo LostText$2$$Lambda$lambda$run$1$1::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(LostText$2$$Lambda$lambda$run$1$1, inst$)},
-	{}
-};
-$MethodInfo LostText$2$$Lambda$lambda$run$1$1::methodInfos[3] = {
-	{"<init>", "(LLostText$2;)V", nullptr, $PUBLIC, $method(LostText$2$$Lambda$lambda$run$1$1, init$, void, LostText$2*)},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(LostText$2$$Lambda$lambda$run$1$1, actionPerformed, void, $ActionEvent*)},
-	{}
-};
-$ClassInfo LostText$2$$Lambda$lambda$run$1$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"LostText$2$$Lambda$lambda$run$1$1",
-	"java.lang.Object",
-	"java.awt.event.ActionListener",
-	fieldInfos,
-	methodInfos
 };
 $Class* LostText$2$$Lambda$lambda$run$1$1::load$($String* name, bool initialize) {
-	$loadClass(LostText$2$$Lambda$lambda$run$1$1, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(LostText$2$$Lambda$lambda$run$1$1, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(LLostText$2;)V", nullptr, $PUBLIC, $method(LostText$2$$Lambda$lambda$run$1$1, init$, void, LostText$2*)},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(LostText$2$$Lambda$lambda$run$1$1, actionPerformed, void, $ActionEvent*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"LostText$2$$Lambda$lambda$run$1$1",
+		"java.lang.Object",
+		"java.awt.event.ActionListener",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(LostText$2$$Lambda$lambda$run$1$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LostText$2$$Lambda$lambda$run$1$1);
+	});
 	return class$;
 }
 $Class* LostText$2$$Lambda$lambda$run$1$1::class$ = nullptr;
-
-$FieldInfo _LostText$2_FieldInfo_[] = {
-	{"this$0", "LLostText;", nullptr, $FINAL | $SYNTHETIC, $field(LostText$2, this$0)},
-	{}
-};
-
-$MethodInfo _LostText$2_MethodInfo_[] = {
-	{"<init>", "(LLostText;)V", nullptr, 0, $method(LostText$2, init$, void, $LostText*)},
-	{"lambda$run$0", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(LostText$2, lambda$run$0, void, $ActionEvent*)},
-	{"lambda$run$1", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(LostText$2, lambda$run$1, void, $ActionEvent*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(LostText$2, run, void)},
-	{}
-};
-
-$EnclosingMethodInfo _LostText$2_EnclosingMethodInfo_ = {
-	"LostText",
-	"createUI",
-	"()V"
-};
-
-$InnerClassInfo _LostText$2_InnerClassesInfo_[] = {
-	{"LostText$2", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _LostText$2_ClassInfo_ = {
-	$ACC_SUPER,
-	"LostText$2",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	_LostText$2_FieldInfo_,
-	_LostText$2_MethodInfo_,
-	nullptr,
-	&_LostText$2_EnclosingMethodInfo_,
-	_LostText$2_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"LostText"
-};
-
-$Object* allocate$LostText$2($Class* clazz) {
-	return $of($alloc(LostText$2));
-}
 
 void LostText$2::init$($LostText* this$0) {
 	$set(this, this$0, this$0);
 }
 
 void LostText$2::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, description, " INSTRUCTIONS:\n A JTable will be shown.\n Try to select different rows via mouse or keyboard.\n  Please verify if text are painted properly.\n If any moment any part of the rows will not be\n  painted properly and if some text are missing in JTable,\n  then press fail else press pass"_s);
 	$init($LostText);
 	$assignStatic($LostText::dialog, $new($JDialog));
-	$nc($LostText::dialog)->setTitle("textselectionTest"_s);
+	$LostText::dialog->setTitle("textselectionTest"_s);
 	$var($JTextArea, textArea, $new($JTextArea, description));
 	textArea->setEditable(false);
 	$var($JButton, passButton, $new($JButton, "PASS"_s));
-	passButton->addActionListener(static_cast<$ActionListener*>($$new(LostText$2$$Lambda$lambda$run$0, this)));
+	passButton->addActionListener($$new(LostText$2$$Lambda$lambda$run$0, this));
 	$var($JButton, failButton, $new($JButton, "FAIL"_s));
-	failButton->addActionListener(static_cast<$ActionListener*>($$new(LostText$2$$Lambda$lambda$run$1$1, this)));
-	$var($JPanel, mainPanel, $new($JPanel, static_cast<$LayoutManager*>($$new($BorderLayout))));
-	$init($BorderLayout);
-	mainPanel->add(static_cast<$Component*>(textArea), $of($BorderLayout::CENTER));
-	$var($JPanel, buttonPanel, $new($JPanel, static_cast<$LayoutManager*>($$new($FlowLayout))));
-	buttonPanel->add(static_cast<$Component*>(passButton));
-	buttonPanel->add(static_cast<$Component*>(failButton));
-	mainPanel->add(static_cast<$Component*>(buttonPanel), $of($BorderLayout::SOUTH));
-	$nc($LostText::dialog)->add(static_cast<$Component*>(mainPanel));
+	failButton->addActionListener($$new(LostText$2$$Lambda$lambda$run$1$1, this));
+	$var($JPanel, mainPanel, $new($JPanel, $$new($BorderLayout)));
+	mainPanel->add(textArea, $BorderLayout::CENTER);
+	$var($JPanel, buttonPanel, $new($JPanel, $$new($FlowLayout)));
+	buttonPanel->add(passButton);
+	buttonPanel->add(failButton);
+	mainPanel->add(buttonPanel, $BorderLayout::SOUTH);
+	$nc($LostText::dialog)->add(mainPanel);
 	$nc($LostText::dialog)->pack();
 	$nc($LostText::dialog)->setVisible(true);
 }
@@ -214,14 +156,51 @@ LostText$2::LostText$2() {
 
 $Class* LostText$2::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(LostText$2$$Lambda$lambda$run$0::classInfo$.name)) {
+		if (name->equals("LostText$2$$Lambda$lambda$run$0")) {
 			return LostText$2$$Lambda$lambda$run$0::load$(name, initialize);
 		}
-		if (name->equals(LostText$2$$Lambda$lambda$run$1$1::classInfo$.name)) {
+		if (name->equals("LostText$2$$Lambda$lambda$run$1$1")) {
 			return LostText$2$$Lambda$lambda$run$1$1::load$(name, initialize);
 		}
 	}
-	$loadClass(LostText$2, name, initialize, &_LostText$2_ClassInfo_, allocate$LostText$2);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "LLostText;", nullptr, $FINAL | $SYNTHETIC, $field(LostText$2, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(LLostText;)V", nullptr, 0, $method(LostText$2, init$, void, $LostText*)},
+		{"lambda$run$0", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(LostText$2, lambda$run$0, void, $ActionEvent*)},
+		{"lambda$run$1", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(LostText$2, lambda$run$1, void, $ActionEvent*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(LostText$2, run, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"LostText",
+		"createUI",
+		"()V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"LostText$2", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"LostText$2",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"LostText"
+	};
+	$loadClass(LostText$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LostText$2);
+	});
 	return class$;
 }
 

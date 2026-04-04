@@ -26,6 +26,7 @@ class XRobotPeer : public ::java::awt::peer::RobotPeer {
 	$class(XRobotPeer, 0, ::java::awt::peer::RobotPeer)
 public:
 	XRobotPeer();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::awt::X11GraphicsDevice* gd);
 	virtual int32_t getRGBPixel(int32_t x, int32_t y) override;
 	virtual $ints* getRGBPixels(::java::awt::Rectangle* bounds) override;

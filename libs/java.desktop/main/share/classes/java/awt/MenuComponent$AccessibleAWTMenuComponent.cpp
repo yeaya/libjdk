@@ -1,5 +1,4 @@
 #include <java/awt/MenuComponent$AccessibleAWTMenuComponent.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/Cursor.h>
@@ -47,92 +46,6 @@ using $AccessibleStateSet = ::javax::accessibility::AccessibleStateSet;
 
 namespace java {
 	namespace awt {
-
-$FieldInfo _MenuComponent$AccessibleAWTMenuComponent_FieldInfo_[] = {
-	{"this$0", "Ljava/awt/MenuComponent;", nullptr, $FINAL | $SYNTHETIC, $field(MenuComponent$AccessibleAWTMenuComponent, this$0)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MenuComponent$AccessibleAWTMenuComponent, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _MenuComponent$AccessibleAWTMenuComponent_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/awt/MenuComponent;)V", nullptr, $PROTECTED, $method(MenuComponent$AccessibleAWTMenuComponent, init$, void, $MenuComponent*)},
-	{"addAccessibleSelection", "(I)V", nullptr, $PUBLIC, $virtualMethod(MenuComponent$AccessibleAWTMenuComponent, addAccessibleSelection, void, int32_t)},
-	{"addFocusListener", "(Ljava/awt/event/FocusListener;)V", nullptr, $PUBLIC, $virtualMethod(MenuComponent$AccessibleAWTMenuComponent, addFocusListener, void, $FocusListener*)},
-	{"clearAccessibleSelection", "()V", nullptr, $PUBLIC, $virtualMethod(MenuComponent$AccessibleAWTMenuComponent, clearAccessibleSelection, void)},
-	{"contains", "(Ljava/awt/Point;)Z", nullptr, $PUBLIC, $virtualMethod(MenuComponent$AccessibleAWTMenuComponent, contains, bool, $Point*)},
-	{"getAccessibleAt", "(Ljava/awt/Point;)Ljavax/accessibility/Accessible;", nullptr, $PUBLIC, $virtualMethod(MenuComponent$AccessibleAWTMenuComponent, getAccessibleAt, $Accessible*, $Point*)},
-	{"getAccessibleChild", "(I)Ljavax/accessibility/Accessible;", nullptr, $PUBLIC, $virtualMethod(MenuComponent$AccessibleAWTMenuComponent, getAccessibleChild, $Accessible*, int32_t)},
-	{"getAccessibleChildrenCount", "()I", nullptr, $PUBLIC, $virtualMethod(MenuComponent$AccessibleAWTMenuComponent, getAccessibleChildrenCount, int32_t)},
-	{"getAccessibleComponent", "()Ljavax/accessibility/AccessibleComponent;", nullptr, $PUBLIC, $virtualMethod(MenuComponent$AccessibleAWTMenuComponent, getAccessibleComponent, $AccessibleComponent*)},
-	{"getAccessibleDescription", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MenuComponent$AccessibleAWTMenuComponent, getAccessibleDescription, $String*)},
-	{"getAccessibleIndexInParent", "()I", nullptr, $PUBLIC, $virtualMethod(MenuComponent$AccessibleAWTMenuComponent, getAccessibleIndexInParent, int32_t)},
-	{"getAccessibleName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MenuComponent$AccessibleAWTMenuComponent, getAccessibleName, $String*)},
-	{"getAccessibleParent", "()Ljavax/accessibility/Accessible;", nullptr, $PUBLIC, $virtualMethod(MenuComponent$AccessibleAWTMenuComponent, getAccessibleParent, $Accessible*)},
-	{"getAccessibleRole", "()Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC, $virtualMethod(MenuComponent$AccessibleAWTMenuComponent, getAccessibleRole, $AccessibleRole*)},
-	{"getAccessibleSelection", "()Ljavax/accessibility/AccessibleSelection;", nullptr, $PUBLIC, $virtualMethod(MenuComponent$AccessibleAWTMenuComponent, getAccessibleSelection, $AccessibleSelection*)},
-	{"getAccessibleSelection", "(I)Ljavax/accessibility/Accessible;", nullptr, $PUBLIC, $virtualMethod(MenuComponent$AccessibleAWTMenuComponent, getAccessibleSelection, $Accessible*, int32_t)},
-	{"getAccessibleSelectionCount", "()I", nullptr, $PUBLIC, $virtualMethod(MenuComponent$AccessibleAWTMenuComponent, getAccessibleSelectionCount, int32_t)},
-	{"getAccessibleStateSet", "()Ljavax/accessibility/AccessibleStateSet;", nullptr, $PUBLIC, $virtualMethod(MenuComponent$AccessibleAWTMenuComponent, getAccessibleStateSet, $AccessibleStateSet*)},
-	{"getBackground", "()Ljava/awt/Color;", nullptr, $PUBLIC, $virtualMethod(MenuComponent$AccessibleAWTMenuComponent, getBackground, $Color*)},
-	{"getBounds", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(MenuComponent$AccessibleAWTMenuComponent, getBounds, $Rectangle*)},
-	{"getCursor", "()Ljava/awt/Cursor;", nullptr, $PUBLIC, $virtualMethod(MenuComponent$AccessibleAWTMenuComponent, getCursor, $Cursor*)},
-	{"getFont", "()Ljava/awt/Font;", nullptr, $PUBLIC, $virtualMethod(MenuComponent$AccessibleAWTMenuComponent, getFont, $Font*)},
-	{"getFontMetrics", "(Ljava/awt/Font;)Ljava/awt/FontMetrics;", nullptr, $PUBLIC, $virtualMethod(MenuComponent$AccessibleAWTMenuComponent, getFontMetrics, $FontMetrics*, $Font*)},
-	{"getForeground", "()Ljava/awt/Color;", nullptr, $PUBLIC, $virtualMethod(MenuComponent$AccessibleAWTMenuComponent, getForeground, $Color*)},
-	{"getLocale", "()Ljava/util/Locale;", nullptr, $PUBLIC, $virtualMethod(MenuComponent$AccessibleAWTMenuComponent, getLocale, $Locale*)},
-	{"getLocation", "()Ljava/awt/Point;", nullptr, $PUBLIC, $virtualMethod(MenuComponent$AccessibleAWTMenuComponent, getLocation, $Point*)},
-	{"getLocationOnScreen", "()Ljava/awt/Point;", nullptr, $PUBLIC, $virtualMethod(MenuComponent$AccessibleAWTMenuComponent, getLocationOnScreen, $Point*)},
-	{"getSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(MenuComponent$AccessibleAWTMenuComponent, getSize, $Dimension*)},
-	{"isAccessibleChildSelected", "(I)Z", nullptr, $PUBLIC, $virtualMethod(MenuComponent$AccessibleAWTMenuComponent, isAccessibleChildSelected, bool, int32_t)},
-	{"isEnabled", "()Z", nullptr, $PUBLIC, $virtualMethod(MenuComponent$AccessibleAWTMenuComponent, isEnabled, bool)},
-	{"isFocusTraversable", "()Z", nullptr, $PUBLIC, $virtualMethod(MenuComponent$AccessibleAWTMenuComponent, isFocusTraversable, bool)},
-	{"isShowing", "()Z", nullptr, $PUBLIC, $virtualMethod(MenuComponent$AccessibleAWTMenuComponent, isShowing, bool)},
-	{"isVisible", "()Z", nullptr, $PUBLIC, $virtualMethod(MenuComponent$AccessibleAWTMenuComponent, isVisible, bool)},
-	{"removeAccessibleSelection", "(I)V", nullptr, $PUBLIC, $virtualMethod(MenuComponent$AccessibleAWTMenuComponent, removeAccessibleSelection, void, int32_t)},
-	{"removeFocusListener", "(Ljava/awt/event/FocusListener;)V", nullptr, $PUBLIC, $virtualMethod(MenuComponent$AccessibleAWTMenuComponent, removeFocusListener, void, $FocusListener*)},
-	{"requestFocus", "()V", nullptr, $PUBLIC, $virtualMethod(MenuComponent$AccessibleAWTMenuComponent, requestFocus, void)},
-	{"selectAllAccessibleSelection", "()V", nullptr, $PUBLIC, $virtualMethod(MenuComponent$AccessibleAWTMenuComponent, selectAllAccessibleSelection, void)},
-	{"setBackground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC, $virtualMethod(MenuComponent$AccessibleAWTMenuComponent, setBackground, void, $Color*)},
-	{"setBounds", "(Ljava/awt/Rectangle;)V", nullptr, $PUBLIC, $virtualMethod(MenuComponent$AccessibleAWTMenuComponent, setBounds, void, $Rectangle*)},
-	{"setCursor", "(Ljava/awt/Cursor;)V", nullptr, $PUBLIC, $virtualMethod(MenuComponent$AccessibleAWTMenuComponent, setCursor, void, $Cursor*)},
-	{"setEnabled", "(Z)V", nullptr, $PUBLIC, $virtualMethod(MenuComponent$AccessibleAWTMenuComponent, setEnabled, void, bool)},
-	{"setFont", "(Ljava/awt/Font;)V", nullptr, $PUBLIC, $virtualMethod(MenuComponent$AccessibleAWTMenuComponent, setFont, void, $Font*)},
-	{"setForeground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC, $virtualMethod(MenuComponent$AccessibleAWTMenuComponent, setForeground, void, $Color*)},
-	{"setLocation", "(Ljava/awt/Point;)V", nullptr, $PUBLIC, $virtualMethod(MenuComponent$AccessibleAWTMenuComponent, setLocation, void, $Point*)},
-	{"setSize", "(Ljava/awt/Dimension;)V", nullptr, $PUBLIC, $virtualMethod(MenuComponent$AccessibleAWTMenuComponent, setSize, void, $Dimension*)},
-	{"setVisible", "(Z)V", nullptr, $PUBLIC, $virtualMethod(MenuComponent$AccessibleAWTMenuComponent, setVisible, void, bool)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _MenuComponent$AccessibleAWTMenuComponent_InnerClassesInfo_[] = {
-	{"java.awt.MenuComponent$AccessibleAWTMenuComponent", "java.awt.MenuComponent", "AccessibleAWTMenuComponent", $PROTECTED | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _MenuComponent$AccessibleAWTMenuComponent_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"java.awt.MenuComponent$AccessibleAWTMenuComponent",
-	"javax.accessibility.AccessibleContext",
-	"java.io.Serializable,javax.accessibility.AccessibleComponent,javax.accessibility.AccessibleSelection",
-	_MenuComponent$AccessibleAWTMenuComponent_FieldInfo_,
-	_MenuComponent$AccessibleAWTMenuComponent_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MenuComponent$AccessibleAWTMenuComponent_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.awt.MenuComponent"
-};
-
-$Object* allocate$MenuComponent$AccessibleAWTMenuComponent($Class* clazz) {
-	return $of($alloc(MenuComponent$AccessibleAWTMenuComponent));
-}
 
 int32_t MenuComponent$AccessibleAWTMenuComponent::hashCode() {
 	 return this->$AccessibleContext::hashCode();
@@ -207,7 +120,7 @@ $Accessible* MenuComponent$AccessibleAWTMenuComponent::getAccessibleChild(int32_
 $Locale* MenuComponent$AccessibleAWTMenuComponent::getLocale() {
 	$var($MenuContainer, parent, this->this$0->getParent());
 	if ($instanceOf($Component, parent)) {
-		return $nc(($cast($Component, parent)))->getLocale();
+		return $cast($Component, parent)->getLocale();
 	} else {
 		return $Locale::getDefault();
 	}
@@ -342,7 +255,87 @@ MenuComponent$AccessibleAWTMenuComponent::MenuComponent$AccessibleAWTMenuCompone
 }
 
 $Class* MenuComponent$AccessibleAWTMenuComponent::load$($String* name, bool initialize) {
-	$loadClass(MenuComponent$AccessibleAWTMenuComponent, name, initialize, &_MenuComponent$AccessibleAWTMenuComponent_ClassInfo_, allocate$MenuComponent$AccessibleAWTMenuComponent);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljava/awt/MenuComponent;", nullptr, $FINAL | $SYNTHETIC, $field(MenuComponent$AccessibleAWTMenuComponent, this$0)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MenuComponent$AccessibleAWTMenuComponent, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/awt/MenuComponent;)V", nullptr, $PROTECTED, $method(MenuComponent$AccessibleAWTMenuComponent, init$, void, $MenuComponent*)},
+		{"addAccessibleSelection", "(I)V", nullptr, $PUBLIC, $virtualMethod(MenuComponent$AccessibleAWTMenuComponent, addAccessibleSelection, void, int32_t)},
+		{"addFocusListener", "(Ljava/awt/event/FocusListener;)V", nullptr, $PUBLIC, $virtualMethod(MenuComponent$AccessibleAWTMenuComponent, addFocusListener, void, $FocusListener*)},
+		{"clearAccessibleSelection", "()V", nullptr, $PUBLIC, $virtualMethod(MenuComponent$AccessibleAWTMenuComponent, clearAccessibleSelection, void)},
+		{"contains", "(Ljava/awt/Point;)Z", nullptr, $PUBLIC, $virtualMethod(MenuComponent$AccessibleAWTMenuComponent, contains, bool, $Point*)},
+		{"getAccessibleAt", "(Ljava/awt/Point;)Ljavax/accessibility/Accessible;", nullptr, $PUBLIC, $virtualMethod(MenuComponent$AccessibleAWTMenuComponent, getAccessibleAt, $Accessible*, $Point*)},
+		{"getAccessibleChild", "(I)Ljavax/accessibility/Accessible;", nullptr, $PUBLIC, $virtualMethod(MenuComponent$AccessibleAWTMenuComponent, getAccessibleChild, $Accessible*, int32_t)},
+		{"getAccessibleChildrenCount", "()I", nullptr, $PUBLIC, $virtualMethod(MenuComponent$AccessibleAWTMenuComponent, getAccessibleChildrenCount, int32_t)},
+		{"getAccessibleComponent", "()Ljavax/accessibility/AccessibleComponent;", nullptr, $PUBLIC, $virtualMethod(MenuComponent$AccessibleAWTMenuComponent, getAccessibleComponent, $AccessibleComponent*)},
+		{"getAccessibleDescription", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MenuComponent$AccessibleAWTMenuComponent, getAccessibleDescription, $String*)},
+		{"getAccessibleIndexInParent", "()I", nullptr, $PUBLIC, $virtualMethod(MenuComponent$AccessibleAWTMenuComponent, getAccessibleIndexInParent, int32_t)},
+		{"getAccessibleName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MenuComponent$AccessibleAWTMenuComponent, getAccessibleName, $String*)},
+		{"getAccessibleParent", "()Ljavax/accessibility/Accessible;", nullptr, $PUBLIC, $virtualMethod(MenuComponent$AccessibleAWTMenuComponent, getAccessibleParent, $Accessible*)},
+		{"getAccessibleRole", "()Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC, $virtualMethod(MenuComponent$AccessibleAWTMenuComponent, getAccessibleRole, $AccessibleRole*)},
+		{"getAccessibleSelection", "()Ljavax/accessibility/AccessibleSelection;", nullptr, $PUBLIC, $virtualMethod(MenuComponent$AccessibleAWTMenuComponent, getAccessibleSelection, $AccessibleSelection*)},
+		{"getAccessibleSelection", "(I)Ljavax/accessibility/Accessible;", nullptr, $PUBLIC, $virtualMethod(MenuComponent$AccessibleAWTMenuComponent, getAccessibleSelection, $Accessible*, int32_t)},
+		{"getAccessibleSelectionCount", "()I", nullptr, $PUBLIC, $virtualMethod(MenuComponent$AccessibleAWTMenuComponent, getAccessibleSelectionCount, int32_t)},
+		{"getAccessibleStateSet", "()Ljavax/accessibility/AccessibleStateSet;", nullptr, $PUBLIC, $virtualMethod(MenuComponent$AccessibleAWTMenuComponent, getAccessibleStateSet, $AccessibleStateSet*)},
+		{"getBackground", "()Ljava/awt/Color;", nullptr, $PUBLIC, $virtualMethod(MenuComponent$AccessibleAWTMenuComponent, getBackground, $Color*)},
+		{"getBounds", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(MenuComponent$AccessibleAWTMenuComponent, getBounds, $Rectangle*)},
+		{"getCursor", "()Ljava/awt/Cursor;", nullptr, $PUBLIC, $virtualMethod(MenuComponent$AccessibleAWTMenuComponent, getCursor, $Cursor*)},
+		{"getFont", "()Ljava/awt/Font;", nullptr, $PUBLIC, $virtualMethod(MenuComponent$AccessibleAWTMenuComponent, getFont, $Font*)},
+		{"getFontMetrics", "(Ljava/awt/Font;)Ljava/awt/FontMetrics;", nullptr, $PUBLIC, $virtualMethod(MenuComponent$AccessibleAWTMenuComponent, getFontMetrics, $FontMetrics*, $Font*)},
+		{"getForeground", "()Ljava/awt/Color;", nullptr, $PUBLIC, $virtualMethod(MenuComponent$AccessibleAWTMenuComponent, getForeground, $Color*)},
+		{"getLocale", "()Ljava/util/Locale;", nullptr, $PUBLIC, $virtualMethod(MenuComponent$AccessibleAWTMenuComponent, getLocale, $Locale*)},
+		{"getLocation", "()Ljava/awt/Point;", nullptr, $PUBLIC, $virtualMethod(MenuComponent$AccessibleAWTMenuComponent, getLocation, $Point*)},
+		{"getLocationOnScreen", "()Ljava/awt/Point;", nullptr, $PUBLIC, $virtualMethod(MenuComponent$AccessibleAWTMenuComponent, getLocationOnScreen, $Point*)},
+		{"getSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(MenuComponent$AccessibleAWTMenuComponent, getSize, $Dimension*)},
+		{"isAccessibleChildSelected", "(I)Z", nullptr, $PUBLIC, $virtualMethod(MenuComponent$AccessibleAWTMenuComponent, isAccessibleChildSelected, bool, int32_t)},
+		{"isEnabled", "()Z", nullptr, $PUBLIC, $virtualMethod(MenuComponent$AccessibleAWTMenuComponent, isEnabled, bool)},
+		{"isFocusTraversable", "()Z", nullptr, $PUBLIC, $virtualMethod(MenuComponent$AccessibleAWTMenuComponent, isFocusTraversable, bool)},
+		{"isShowing", "()Z", nullptr, $PUBLIC, $virtualMethod(MenuComponent$AccessibleAWTMenuComponent, isShowing, bool)},
+		{"isVisible", "()Z", nullptr, $PUBLIC, $virtualMethod(MenuComponent$AccessibleAWTMenuComponent, isVisible, bool)},
+		{"removeAccessibleSelection", "(I)V", nullptr, $PUBLIC, $virtualMethod(MenuComponent$AccessibleAWTMenuComponent, removeAccessibleSelection, void, int32_t)},
+		{"removeFocusListener", "(Ljava/awt/event/FocusListener;)V", nullptr, $PUBLIC, $virtualMethod(MenuComponent$AccessibleAWTMenuComponent, removeFocusListener, void, $FocusListener*)},
+		{"requestFocus", "()V", nullptr, $PUBLIC, $virtualMethod(MenuComponent$AccessibleAWTMenuComponent, requestFocus, void)},
+		{"selectAllAccessibleSelection", "()V", nullptr, $PUBLIC, $virtualMethod(MenuComponent$AccessibleAWTMenuComponent, selectAllAccessibleSelection, void)},
+		{"setBackground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC, $virtualMethod(MenuComponent$AccessibleAWTMenuComponent, setBackground, void, $Color*)},
+		{"setBounds", "(Ljava/awt/Rectangle;)V", nullptr, $PUBLIC, $virtualMethod(MenuComponent$AccessibleAWTMenuComponent, setBounds, void, $Rectangle*)},
+		{"setCursor", "(Ljava/awt/Cursor;)V", nullptr, $PUBLIC, $virtualMethod(MenuComponent$AccessibleAWTMenuComponent, setCursor, void, $Cursor*)},
+		{"setEnabled", "(Z)V", nullptr, $PUBLIC, $virtualMethod(MenuComponent$AccessibleAWTMenuComponent, setEnabled, void, bool)},
+		{"setFont", "(Ljava/awt/Font;)V", nullptr, $PUBLIC, $virtualMethod(MenuComponent$AccessibleAWTMenuComponent, setFont, void, $Font*)},
+		{"setForeground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC, $virtualMethod(MenuComponent$AccessibleAWTMenuComponent, setForeground, void, $Color*)},
+		{"setLocation", "(Ljava/awt/Point;)V", nullptr, $PUBLIC, $virtualMethod(MenuComponent$AccessibleAWTMenuComponent, setLocation, void, $Point*)},
+		{"setSize", "(Ljava/awt/Dimension;)V", nullptr, $PUBLIC, $virtualMethod(MenuComponent$AccessibleAWTMenuComponent, setSize, void, $Dimension*)},
+		{"setVisible", "(Z)V", nullptr, $PUBLIC, $virtualMethod(MenuComponent$AccessibleAWTMenuComponent, setVisible, void, bool)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.awt.MenuComponent$AccessibleAWTMenuComponent", "java.awt.MenuComponent", "AccessibleAWTMenuComponent", $PROTECTED | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"java.awt.MenuComponent$AccessibleAWTMenuComponent",
+		"javax.accessibility.AccessibleContext",
+		"java.io.Serializable,javax.accessibility.AccessibleComponent,javax.accessibility.AccessibleSelection",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.awt.MenuComponent"
+	};
+	$loadClass(MenuComponent$AccessibleAWTMenuComponent, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MenuComponent$AccessibleAWTMenuComponent));
+	});
 	return class$;
 }
 

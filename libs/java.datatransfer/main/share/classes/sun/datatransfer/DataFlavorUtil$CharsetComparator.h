@@ -36,6 +36,7 @@ class DataFlavorUtil$CharsetComparator : public ::java::util::Comparator {
 	$class(DataFlavorUtil$CharsetComparator, 0, ::java::util::Comparator)
 public:
 	DataFlavorUtil$CharsetComparator();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual int32_t compare($String* charset1, $String* charset2);
 	virtual int32_t compare(Object$* charset1, Object$* charset2) override;

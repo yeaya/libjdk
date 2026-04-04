@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/util/ModuleHelper.h>
-
 #include <java/lang/Module.h>
 #include <jcpp.h>
 
@@ -14,30 +13,6 @@ namespace com {
 			namespace javac {
 				namespace util {
 
-$FieldInfo _ModuleHelper_FieldInfo_[] = {
-	{"javacInternalPackages", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ModuleHelper, javacInternalPackages)},
-	{}
-};
-
-$MethodInfo _ModuleHelper_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ModuleHelper, init$, void)},
-	{"addExports", "(Ljava/lang/Module;Ljava/lang/Module;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ModuleHelper, addExports, void, $Module*, $Module*)},
-	{}
-};
-
-$ClassInfo _ModuleHelper_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.util.ModuleHelper",
-	"java.lang.Object",
-	nullptr,
-	_ModuleHelper_FieldInfo_,
-	_ModuleHelper_MethodInfo_
-};
-
-$Object* allocate$ModuleHelper($Class* clazz) {
-	return $of($alloc(ModuleHelper));
-}
-
 $StringArray* ModuleHelper::javacInternalPackages = nullptr;
 
 void ModuleHelper::init$() {
@@ -45,22 +20,18 @@ void ModuleHelper::init$() {
 
 void ModuleHelper::addExports($Module* from, $Module* to) {
 	$init(ModuleHelper);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
-	{
-		$var($StringArray, arr$, ModuleHelper::javacInternalPackages);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
-			$var($String, pack, arr$->get(i$));
-			{
-				$nc(from)->addExports(pack, to);
-			}
+	$var($StringArray, arr$, ModuleHelper::javacInternalPackages);
+	for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
+		$var($String, pack, arr$->get(i$));
+		{
+			$nc(from)->addExports(pack, to);
 		}
 	}
 }
 
-void clinit$ModuleHelper($Class* class$) {
+void ModuleHelper::clinit$($Class* clazz) {
 	$assignStatic(ModuleHelper::javacInternalPackages, $new($StringArray, {
 		"com.sun.tools.javac.api"_s,
 		"com.sun.tools.javac.code"_s,
@@ -82,7 +53,26 @@ ModuleHelper::ModuleHelper() {
 }
 
 $Class* ModuleHelper::load$($String* name, bool initialize) {
-	$loadClass(ModuleHelper, name, initialize, &_ModuleHelper_ClassInfo_, clinit$ModuleHelper, allocate$ModuleHelper);
+	$FieldInfo fieldInfos$$[] = {
+		{"javacInternalPackages", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ModuleHelper, javacInternalPackages)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ModuleHelper, init$, void)},
+		{"addExports", "(Ljava/lang/Module;Ljava/lang/Module;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ModuleHelper, addExports, void, $Module*, $Module*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.util.ModuleHelper",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ModuleHelper, name, initialize, &classInfo$$, ModuleHelper::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ModuleHelper);
+	});
 	return class$;
 }
 

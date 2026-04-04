@@ -1,5 +1,4 @@
 #include <sun/security/krb5/internal/ASReq.h>
-
 #include <sun/security/krb5/internal/KDCReq.h>
 #include <sun/security/krb5/internal/KDCReqBody.h>
 #include <sun/security/krb5/internal/Krb5.h>
@@ -21,27 +20,6 @@ namespace sun {
 	namespace security {
 		namespace krb5 {
 			namespace internal {
-
-$MethodInfo _ASReq_MethodInfo_[] = {
-	{"<init>", "([Lsun/security/krb5/internal/PAData;Lsun/security/krb5/internal/KDCReqBody;)V", nullptr, $PUBLIC, $method(ASReq, init$, void, $PADataArray*, $KDCReqBody*), "java.io.IOException"},
-	{"<init>", "([B)V", nullptr, $PUBLIC, $method(ASReq, init$, void, $bytes*), "sun.security.krb5.Asn1Exception,sun.security.krb5.KrbException,java.io.IOException"},
-	{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(ASReq, init$, void, $DerValue*), "sun.security.krb5.Asn1Exception,sun.security.krb5.KrbException,java.io.IOException"},
-	{"init", "(Lsun/security/util/DerValue;)V", nullptr, $PRIVATE, $method(ASReq, init, void, $DerValue*), "sun.security.krb5.Asn1Exception,java.io.IOException,sun.security.krb5.KrbException"},
-	{}
-};
-
-$ClassInfo _ASReq_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.krb5.internal.ASReq",
-	"sun.security.krb5.internal.KDCReq",
-	nullptr,
-	nullptr,
-	_ASReq_MethodInfo_
-};
-
-$Object* allocate$ASReq($Class* clazz) {
-	return $of($alloc(ASReq));
-}
 
 void ASReq::init$($PADataArray* new_pAData, $KDCReqBody* new_reqBody) {
 	$KDCReq::init$(new_pAData, new_reqBody, $Krb5::KRB_AS_REQ);
@@ -65,7 +43,24 @@ ASReq::ASReq() {
 }
 
 $Class* ASReq::load$($String* name, bool initialize) {
-	$loadClass(ASReq, name, initialize, &_ASReq_ClassInfo_, allocate$ASReq);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "([Lsun/security/krb5/internal/PAData;Lsun/security/krb5/internal/KDCReqBody;)V", nullptr, $PUBLIC, $method(ASReq, init$, void, $PADataArray*, $KDCReqBody*), "java.io.IOException"},
+		{"<init>", "([B)V", nullptr, $PUBLIC, $method(ASReq, init$, void, $bytes*), "sun.security.krb5.Asn1Exception,sun.security.krb5.KrbException,java.io.IOException"},
+		{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(ASReq, init$, void, $DerValue*), "sun.security.krb5.Asn1Exception,sun.security.krb5.KrbException,java.io.IOException"},
+		{"init", "(Lsun/security/util/DerValue;)V", nullptr, $PRIVATE, $method(ASReq, init, void, $DerValue*), "sun.security.krb5.Asn1Exception,java.io.IOException,sun.security.krb5.KrbException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.krb5.internal.ASReq",
+		"sun.security.krb5.internal.KDCReq",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ASReq, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ASReq);
+	});
 	return class$;
 }
 

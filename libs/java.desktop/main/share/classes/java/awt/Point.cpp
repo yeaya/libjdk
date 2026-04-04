@@ -1,5 +1,4 @@
 #include <java/awt/Point.h>
-
 #include <java/awt/geom/Point2D.h>
 #include <java/lang/Math.h>
 #include <jcpp.h>
@@ -14,51 +13,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace java {
 	namespace awt {
-
-$CompoundAttribute _Point_MethodAnnotations_getLocation4[] = {
-	{"Ljava/beans/Transient;", nullptr},
-	{}
-};
-
-$FieldInfo _Point_FieldInfo_[] = {
-	{"x", "I", nullptr, $PUBLIC, $field(Point, x)},
-	{"y", "I", nullptr, $PUBLIC, $field(Point, y)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Point, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _Point_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Point, init$, void)},
-	{"<init>", "(Ljava/awt/Point;)V", nullptr, $PUBLIC, $method(Point, init$, void, Point*)},
-	{"<init>", "(II)V", nullptr, $PUBLIC, $method(Point, init$, void, int32_t, int32_t)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Point, equals, bool, Object$*)},
-	{"getLocation", "()Ljava/awt/Point;", nullptr, $PUBLIC, $virtualMethod(Point, getLocation, Point*), nullptr, nullptr, _Point_MethodAnnotations_getLocation4},
-	{"getX", "()D", nullptr, $PUBLIC, $virtualMethod(Point, getX, double)},
-	{"getY", "()D", nullptr, $PUBLIC, $virtualMethod(Point, getY, double)},
-	{"move", "(II)V", nullptr, $PUBLIC, $virtualMethod(Point, move, void, int32_t, int32_t)},
-	{"setLocation", "(Ljava/awt/Point;)V", nullptr, $PUBLIC, $virtualMethod(Point, setLocation, void, Point*)},
-	{"setLocation", "(II)V", nullptr, $PUBLIC, $virtualMethod(Point, setLocation, void, int32_t, int32_t)},
-	{"setLocation", "(DD)V", nullptr, $PUBLIC, $virtualMethod(Point, setLocation, void, double, double)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Point, toString, $String*)},
-	{"translate", "(II)V", nullptr, $PUBLIC, $virtualMethod(Point, translate, void, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _Point_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.awt.Point",
-	"java.awt.geom.Point2D",
-	"java.io.Serializable",
-	_Point_FieldInfo_,
-	_Point_MethodInfo_
-};
-
-$Object* allocate$Point($Class* clazz) {
-	return $of($alloc(Point));
-}
 
 $Object* Point::clone() {
 	 return this->$Point2D::clone();
@@ -77,7 +31,7 @@ void Point::init$() {
 }
 
 void Point::init$(Point* p) {
-	Point::init$($nc(p)->x, p->y);
+	Point::init$($nc(p)->x, $nc(p)->y);
 }
 
 void Point::init$(int32_t x, int32_t y) {
@@ -99,7 +53,7 @@ Point* Point::getLocation() {
 }
 
 void Point::setLocation(Point* p) {
-	setLocation($nc(p)->x, p->y);
+	setLocation($nc(p)->x, $nc(p)->y);
 }
 
 void Point::setLocation(int32_t x, int32_t y) {
@@ -124,13 +78,13 @@ void Point::translate(int32_t dx, int32_t dy) {
 bool Point::equals(Object$* obj) {
 	if ($instanceOf(Point, obj)) {
 		$var(Point, pt, $cast(Point, obj));
-		return (this->x == $nc(pt)->x) && (this->y == pt->y);
+		return (this->x == pt->x) && (this->y == pt->y);
 	}
 	return $Point2D::equals(obj);
 }
 
 $String* Point::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $str({$($of(this)->getClass()->getName()), "[x="_s, $$str(this->x), ",y="_s, $$str(this->y), "]"_s});
 }
 
@@ -138,7 +92,46 @@ Point::Point() {
 }
 
 $Class* Point::load$($String* name, bool initialize) {
-	$loadClass(Point, name, initialize, &_Point_ClassInfo_, allocate$Point);
+	$FieldInfo fieldInfos$$[] = {
+		{"x", "I", nullptr, $PUBLIC, $field(Point, x)},
+		{"y", "I", nullptr, $PUBLIC, $field(Point, y)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Point, serialVersionUID)},
+		{}
+	};
+	$CompoundAttribute getLocationmethodAnnotations$$[] = {
+		{"Ljava/beans/Transient;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Point, init$, void)},
+		{"<init>", "(Ljava/awt/Point;)V", nullptr, $PUBLIC, $method(Point, init$, void, Point*)},
+		{"<init>", "(II)V", nullptr, $PUBLIC, $method(Point, init$, void, int32_t, int32_t)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Point, equals, bool, Object$*)},
+		{"getLocation", "()Ljava/awt/Point;", nullptr, $PUBLIC, $virtualMethod(Point, getLocation, Point*), nullptr, nullptr, getLocationmethodAnnotations$$},
+		{"getX", "()D", nullptr, $PUBLIC, $virtualMethod(Point, getX, double)},
+		{"getY", "()D", nullptr, $PUBLIC, $virtualMethod(Point, getY, double)},
+		{"move", "(II)V", nullptr, $PUBLIC, $virtualMethod(Point, move, void, int32_t, int32_t)},
+		{"setLocation", "(Ljava/awt/Point;)V", nullptr, $PUBLIC, $virtualMethod(Point, setLocation, void, Point*)},
+		{"setLocation", "(II)V", nullptr, $PUBLIC, $virtualMethod(Point, setLocation, void, int32_t, int32_t)},
+		{"setLocation", "(DD)V", nullptr, $PUBLIC, $virtualMethod(Point, setLocation, void, double, double)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Point, toString, $String*)},
+		{"translate", "(II)V", nullptr, $PUBLIC, $virtualMethod(Point, translate, void, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.awt.Point",
+		"java.awt.geom.Point2D",
+		"java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Point, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Point));
+	});
 	return class$;
 }
 

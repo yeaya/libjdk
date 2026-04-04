@@ -1,5 +1,4 @@
 #include <java/awt/Font.h>
-
 #include <java/awt/Font$1.h>
 #include <java/awt/Font$2.h>
 #include <java/awt/Font$3.h>
@@ -37,8 +36,6 @@
 #include <java/nio/file/Path.h>
 #include <java/nio/file/attribute/FileAttribute.h>
 #include <java/security/AccessController.h>
-#include <java/security/Permission.h>
-#include <java/security/PrivilegedExceptionAction.h>
 #include <java/text/AttributedCharacterIterator$Attribute.h>
 #include <java/text/CharacterIterator.h>
 #include <java/util/Hashtable.h>
@@ -158,7 +155,6 @@ using $LineMetrics = ::java::awt::font::LineMetrics;
 using $TextAttribute = ::java::awt::font::TextAttribute;
 using $TextLayout = ::java::awt::font::TextLayout;
 using $AffineTransform = ::java::awt::geom::AffineTransform;
-using $Point2D = ::java::awt::geom::Point2D;
 using $Point2D$Float = ::java::awt::geom::Point2D$Float;
 using $Rectangle2D = ::java::awt::geom::Rectangle2D;
 using $Rectangle2D$Float = ::java::awt::geom::Rectangle2D$Float;
@@ -189,11 +185,7 @@ using $SecurityException = ::java::lang::SecurityException;
 using $SecurityManager = ::java::lang::SecurityManager;
 using $SoftReference = ::java::lang::ref::SoftReference;
 using $Files = ::java::nio::file::Files;
-using $Path = ::java::nio::file::Path;
 using $AccessController = ::java::security::AccessController;
-using $Permission = ::java::security::Permission;
-using $PrivilegedExceptionAction = ::java::security::PrivilegedExceptionAction;
-using $AttributedCharacterIterator$Attribute = ::java::text::AttributedCharacterIterator$Attribute;
 using $CharacterIterator = ::java::text::CharacterIterator;
 using $Locale = ::java::util::Locale;
 using $Map = ::java::util::Map;
@@ -219,165 +211,6 @@ using $StandardGlyphVector = ::sun::font::StandardGlyphVector;
 namespace java {
 	namespace awt {
 
-$FieldInfo _Font_FieldInfo_[] = {
-	{"fRequestedAttributes", "Ljava/util/Hashtable;", "Ljava/util/Hashtable<Ljava/lang/Object;Ljava/lang/Object;>;", $PRIVATE, $field(Font, fRequestedAttributes)},
-	{"DIALOG", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Font, DIALOG)},
-	{"DIALOG_INPUT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Font, DIALOG_INPUT)},
-	{"SANS_SERIF", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Font, SANS_SERIF)},
-	{"SERIF", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Font, SERIF)},
-	{"MONOSPACED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Font, MONOSPACED)},
-	{"PLAIN", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Font, PLAIN)},
-	{"BOLD", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Font, BOLD)},
-	{"ITALIC", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Font, ITALIC)},
-	{"ROMAN_BASELINE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Font, ROMAN_BASELINE)},
-	{"CENTER_BASELINE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Font, CENTER_BASELINE)},
-	{"HANGING_BASELINE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Font, HANGING_BASELINE)},
-	{"TRUETYPE_FONT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Font, TRUETYPE_FONT)},
-	{"TYPE1_FONT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Font, TYPE1_FONT)},
-	{"name", "Ljava/lang/String;", nullptr, $PROTECTED, $field(Font, name)},
-	{"style", "I", nullptr, $PROTECTED, $field(Font, style)},
-	{"size", "I", nullptr, $PROTECTED, $field(Font, size)},
-	{"pointSize", "F", nullptr, $PROTECTED, $field(Font, pointSize)},
-	{"peer", "Ljava/awt/peer/FontPeer;", nullptr, $PRIVATE | $TRANSIENT, $field(Font, peer)},
-	{"pData", "J", nullptr, $PRIVATE | $TRANSIENT, $field(Font, pData)},
-	{"font2DHandle", "Lsun/font/Font2DHandle;", nullptr, $PRIVATE | $TRANSIENT, $field(Font, font2DHandle)},
-	{"values", "Lsun/font/AttributeValues;", nullptr, $PRIVATE | $TRANSIENT, $field(Font, values)},
-	{"hasLayoutAttributes", "Z", nullptr, $PRIVATE | $TRANSIENT, $field(Font, hasLayoutAttributes$)},
-	{"createdFont", "Z", nullptr, $PRIVATE | $TRANSIENT, $field(Font, createdFont)},
-	{"nonIdentityTx", "Z", nullptr, $PRIVATE | $TRANSIENT, $field(Font, nonIdentityTx)},
-	{"identityTx", "Ljava/awt/geom/AffineTransform;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Font, identityTx)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Font, serialVersionUID)},
-	{"RECOGNIZED_MASK", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Font, RECOGNIZED_MASK)},
-	{"PRIMARY_MASK", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Font, PRIMARY_MASK)},
-	{"SECONDARY_MASK", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Font, SECONDARY_MASK)},
-	{"LAYOUT_MASK", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Font, LAYOUT_MASK)},
-	{"EXTRA_MASK", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Font, EXTRA_MASK)},
-	{"ssinfo", "[F", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Font, ssinfo)},
-	{"hash", "I", nullptr, $TRANSIENT, $field(Font, hash)},
-	{"fontSerializedDataVersion", "I", nullptr, $PRIVATE, $field(Font, fontSerializedDataVersion)},
-	{"flmref", "Ljava/lang/ref/SoftReference;", "Ljava/lang/ref/SoftReference<Lsun/font/FontLineMetrics;>;", $PRIVATE | $TRANSIENT, $field(Font, flmref)},
-	{"LAYOUT_LEFT_TO_RIGHT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Font, LAYOUT_LEFT_TO_RIGHT)},
-	{"LAYOUT_RIGHT_TO_LEFT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Font, LAYOUT_RIGHT_TO_LEFT)},
-	{"LAYOUT_NO_START_CONTEXT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Font, LAYOUT_NO_START_CONTEXT)},
-	{"LAYOUT_NO_LIMIT_CONTEXT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Font, LAYOUT_NO_LIMIT_CONTEXT)},
-	{}
-};
-
-$MethodInfo _Font_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;II)V", nullptr, $PUBLIC, $method(Font, init$, void, $String*, int32_t, int32_t)},
-	{"<init>", "(Ljava/lang/String;IF)V", nullptr, $PRIVATE, $method(Font, init$, void, $String*, int32_t, float)},
-	{"<init>", "(Ljava/lang/String;IFZLsun/font/Font2DHandle;)V", nullptr, $PRIVATE, $method(Font, init$, void, $String*, int32_t, float, bool, $Font2DHandle*)},
-	{"<init>", "(Ljava/io/File;IZLsun/font/CreatedFontTracker;)V", nullptr, $PRIVATE, $method(Font, init$, void, $File*, int32_t, bool, $CreatedFontTracker*), "java.awt.FontFormatException"},
-	{"<init>", "(Lsun/font/AttributeValues;Ljava/lang/String;IZLsun/font/Font2DHandle;)V", nullptr, $PRIVATE, $method(Font, init$, void, $AttributeValues*, $String*, int32_t, bool, $Font2DHandle*)},
-	{"<init>", "(Ljava/util/Map;)V", "(Ljava/util/Map<+Ljava/text/AttributedCharacterIterator$Attribute;*>;)V", $PUBLIC, $method(Font, init$, void, $Map*)},
-	{"<init>", "(Ljava/awt/Font;)V", nullptr, $PROTECTED, $method(Font, init$, void, Font*)},
-	{"<init>", "(Lsun/font/Font2D;)V", nullptr, $PRIVATE, $method(Font, init$, void, $Font2D*)},
-	{"applyStyle", "(ILsun/font/AttributeValues;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Font, applyStyle, void, int32_t, $AttributeValues*)},
-	{"applyTransform", "(Ljava/awt/geom/AffineTransform;Lsun/font/AttributeValues;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Font, applyTransform, void, $AffineTransform*, $AttributeValues*)},
-	{"canDisplay", "(C)Z", nullptr, $PUBLIC, $virtualMethod(Font, canDisplay, bool, char16_t)},
-	{"canDisplay", "(I)Z", nullptr, $PUBLIC, $virtualMethod(Font, canDisplay, bool, int32_t)},
-	{"canDisplayUpTo", "(Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(Font, canDisplayUpTo, int32_t, $String*)},
-	{"canDisplayUpTo", "([CII)I", nullptr, $PUBLIC, $virtualMethod(Font, canDisplayUpTo, int32_t, $chars*, int32_t, int32_t)},
-	{"canDisplayUpTo", "(Ljava/text/CharacterIterator;II)I", nullptr, $PUBLIC, $virtualMethod(Font, canDisplayUpTo, int32_t, $CharacterIterator*, int32_t, int32_t)},
-	{"checkFontFile", "(ILjava/io/File;)Ljava/io/File;", nullptr, $PRIVATE | $STATIC, $staticMethod(Font, checkFontFile, $File*, int32_t, $File*), "java.awt.FontFormatException,java.io.IOException"},
-	{"createFont", "(ILjava/io/InputStream;)Ljava/awt/Font;", nullptr, $PUBLIC | $STATIC, $staticMethod(Font, createFont, Font*, int32_t, $InputStream*), "java.awt.FontFormatException,java.io.IOException"},
-	{"createFont", "(ILjava/io/File;)Ljava/awt/Font;", nullptr, $PUBLIC | $STATIC, $staticMethod(Font, createFont, Font*, int32_t, $File*), "java.awt.FontFormatException,java.io.IOException"},
-	{"createFont0", "(ILjava/io/InputStream;ZLsun/font/CreatedFontTracker;)[Ljava/awt/Font;", nullptr, $PRIVATE | $STATIC, $staticMethod(Font, createFont0, $FontArray*, int32_t, $InputStream*, bool, $CreatedFontTracker*), "java.awt.FontFormatException,java.io.IOException"},
-	{"createFonts", "(Ljava/io/InputStream;)[Ljava/awt/Font;", nullptr, $PUBLIC | $STATIC, $staticMethod(Font, createFonts, $FontArray*, $InputStream*), "java.awt.FontFormatException,java.io.IOException"},
-	{"createFonts", "(Ljava/io/File;)[Ljava/awt/Font;", nullptr, $PUBLIC | $STATIC, $staticMethod(Font, createFonts, $FontArray*, $File*), "java.awt.FontFormatException,java.io.IOException"},
-	{"createGlyphVector", "(Ljava/awt/font/FontRenderContext;Ljava/lang/String;)Ljava/awt/font/GlyphVector;", nullptr, $PUBLIC, $virtualMethod(Font, createGlyphVector, $GlyphVector*, $FontRenderContext*, $String*)},
-	{"createGlyphVector", "(Ljava/awt/font/FontRenderContext;[C)Ljava/awt/font/GlyphVector;", nullptr, $PUBLIC, $virtualMethod(Font, createGlyphVector, $GlyphVector*, $FontRenderContext*, $chars*)},
-	{"createGlyphVector", "(Ljava/awt/font/FontRenderContext;Ljava/text/CharacterIterator;)Ljava/awt/font/GlyphVector;", nullptr, $PUBLIC, $virtualMethod(Font, createGlyphVector, $GlyphVector*, $FontRenderContext*, $CharacterIterator*)},
-	{"createGlyphVector", "(Ljava/awt/font/FontRenderContext;[I)Ljava/awt/font/GlyphVector;", nullptr, $PUBLIC, $virtualMethod(Font, createGlyphVector, $GlyphVector*, $FontRenderContext*, $ints*)},
-	{"decode", "(Ljava/lang/String;)Ljava/awt/Font;", nullptr, $PUBLIC | $STATIC, $staticMethod(Font, decode, Font*, $String*)},
-	{"defaultLineMetrics", "(Ljava/awt/font/FontRenderContext;)Lsun/font/FontLineMetrics;", nullptr, $PRIVATE, $method(Font, defaultLineMetrics, $FontLineMetrics*, $FontRenderContext*)},
-	{"deriveFont", "(IF)Ljava/awt/Font;", nullptr, $PUBLIC, $virtualMethod(Font, deriveFont, Font*, int32_t, float)},
-	{"deriveFont", "(ILjava/awt/geom/AffineTransform;)Ljava/awt/Font;", nullptr, $PUBLIC, $virtualMethod(Font, deriveFont, Font*, int32_t, $AffineTransform*)},
-	{"deriveFont", "(F)Ljava/awt/Font;", nullptr, $PUBLIC, $virtualMethod(Font, deriveFont, Font*, float)},
-	{"deriveFont", "(Ljava/awt/geom/AffineTransform;)Ljava/awt/Font;", nullptr, $PUBLIC, $virtualMethod(Font, deriveFont, Font*, $AffineTransform*)},
-	{"deriveFont", "(I)Ljava/awt/Font;", nullptr, $PUBLIC, $virtualMethod(Font, deriveFont, Font*, int32_t)},
-	{"deriveFont", "(Ljava/util/Map;)Ljava/awt/Font;", "(Ljava/util/Map<+Ljava/text/AttributedCharacterIterator$Attribute;*>;)Ljava/awt/Font;", $PUBLIC, $virtualMethod(Font, deriveFont, Font*, $Map*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Font, equals, bool, Object$*)},
-	{"getAttributeValues", "()Lsun/font/AttributeValues;", nullptr, $PRIVATE, $method(Font, getAttributeValues, $AttributeValues*)},
-	{"getAttributes", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/awt/font/TextAttribute;*>;", $PUBLIC, $virtualMethod(Font, getAttributes, $Map*)},
-	{"getAvailableAttributes", "()[Ljava/text/AttributedCharacterIterator$Attribute;", nullptr, $PUBLIC, $virtualMethod(Font, getAvailableAttributes, $AttributedCharacterIterator$AttributeArray*)},
-	{"getBaselineFor", "(C)B", nullptr, $PUBLIC, $virtualMethod(Font, getBaselineFor, int8_t, char16_t)},
-	{"getFamily", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Font, getFamily, $String*)},
-	{"getFamily", "(Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Font, getFamily, $String*, $Locale*)},
-	{"getFamily_NoClientCode", "()Ljava/lang/String;", nullptr, $FINAL, $method(Font, getFamily_NoClientCode, $String*)},
-	{"getFont", "(Ljava/util/Map;)Ljava/awt/Font;", "(Ljava/util/Map<+Ljava/text/AttributedCharacterIterator$Attribute;*>;)Ljava/awt/Font;", $PUBLIC | $STATIC, $staticMethod(Font, getFont, Font*, $Map*)},
-	{"getFont", "(Ljava/lang/String;)Ljava/awt/Font;", nullptr, $PUBLIC | $STATIC, $staticMethod(Font, getFont, Font*, $String*)},
-	{"getFont", "(Ljava/lang/String;Ljava/awt/Font;)Ljava/awt/Font;", nullptr, $PUBLIC | $STATIC, $staticMethod(Font, getFont, Font*, $String*, Font*)},
-	{"getFont2D", "()Lsun/font/Font2D;", nullptr, $PRIVATE, $method(Font, getFont2D, $Font2D*)},
-	{"getFontName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Font, getFontName, $String*)},
-	{"getFontName", "(Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Font, getFontName, $String*, $Locale*)},
-	{"getFontPeer", "()Ljava/awt/peer/FontPeer;", nullptr, $PRIVATE, $method(Font, getFontPeer, $FontPeer*)},
-	{"getItalicAngle", "()F", nullptr, $PUBLIC, $virtualMethod(Font, getItalicAngle, float)},
-	{"getItalicAngle", "(Ljava/awt/font/FontRenderContext;)F", nullptr, $PRIVATE, $method(Font, getItalicAngle, float, $FontRenderContext*)},
-	{"getLineMetrics", "(Ljava/lang/String;Ljava/awt/font/FontRenderContext;)Ljava/awt/font/LineMetrics;", nullptr, $PUBLIC, $virtualMethod(Font, getLineMetrics, $LineMetrics*, $String*, $FontRenderContext*)},
-	{"getLineMetrics", "(Ljava/lang/String;IILjava/awt/font/FontRenderContext;)Ljava/awt/font/LineMetrics;", nullptr, $PUBLIC, $virtualMethod(Font, getLineMetrics, $LineMetrics*, $String*, int32_t, int32_t, $FontRenderContext*)},
-	{"getLineMetrics", "([CIILjava/awt/font/FontRenderContext;)Ljava/awt/font/LineMetrics;", nullptr, $PUBLIC, $virtualMethod(Font, getLineMetrics, $LineMetrics*, $chars*, int32_t, int32_t, $FontRenderContext*)},
-	{"getLineMetrics", "(Ljava/text/CharacterIterator;IILjava/awt/font/FontRenderContext;)Ljava/awt/font/LineMetrics;", nullptr, $PUBLIC, $virtualMethod(Font, getLineMetrics, $LineMetrics*, $CharacterIterator*, int32_t, int32_t, $FontRenderContext*)},
-	{"getMaxCharBounds", "(Ljava/awt/font/FontRenderContext;)Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC, $virtualMethod(Font, getMaxCharBounds, $Rectangle2D*, $FontRenderContext*)},
-	{"getMissingGlyphCode", "()I", nullptr, $PUBLIC, $virtualMethod(Font, getMissingGlyphCode, int32_t)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Font, getName, $String*)},
-	{"getNumGlyphs", "()I", nullptr, $PUBLIC, $virtualMethod(Font, getNumGlyphs, int32_t)},
-	{"getPSName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Font, getPSName, $String*)},
-	{"getSize", "()I", nullptr, $PUBLIC, $virtualMethod(Font, getSize, int32_t)},
-	{"getSize2D", "()F", nullptr, $PUBLIC, $virtualMethod(Font, getSize2D, float)},
-	{"getStringBounds", "(Ljava/lang/String;Ljava/awt/font/FontRenderContext;)Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC, $virtualMethod(Font, getStringBounds, $Rectangle2D*, $String*, $FontRenderContext*)},
-	{"getStringBounds", "(Ljava/lang/String;IILjava/awt/font/FontRenderContext;)Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC, $virtualMethod(Font, getStringBounds, $Rectangle2D*, $String*, int32_t, int32_t, $FontRenderContext*)},
-	{"getStringBounds", "([CIILjava/awt/font/FontRenderContext;)Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC, $virtualMethod(Font, getStringBounds, $Rectangle2D*, $chars*, int32_t, int32_t, $FontRenderContext*)},
-	{"getStringBounds", "(Ljava/text/CharacterIterator;IILjava/awt/font/FontRenderContext;)Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC, $virtualMethod(Font, getStringBounds, $Rectangle2D*, $CharacterIterator*, int32_t, int32_t, $FontRenderContext*)},
-	{"getStyle", "()I", nullptr, $PUBLIC, $virtualMethod(Font, getStyle, int32_t)},
-	{"getTransform", "()Ljava/awt/geom/AffineTransform;", nullptr, $PUBLIC, $virtualMethod(Font, getTransform, $AffineTransform*)},
-	{"hasLayoutAttributes", "()Z", nullptr, $PUBLIC, $virtualMethod(Font, hasLayoutAttributes, bool)},
-	{"hasTempPermission", "()Z", nullptr, $PRIVATE | $STATIC, $staticMethod(Font, hasTempPermission, bool)},
-	{"hasUniformLineMetrics", "()Z", nullptr, $PUBLIC, $virtualMethod(Font, hasUniformLineMetrics, bool)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Font, hashCode, int32_t)},
-	{"initFromValues", "(Lsun/font/AttributeValues;)V", nullptr, $PRIVATE, $method(Font, initFromValues, void, $AttributeValues*)},
-	{"initIDs", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(Font, initIDs, void)},
-	{"isBold", "()Z", nullptr, $PUBLIC, $virtualMethod(Font, isBold, bool)},
-	{"isItalic", "()Z", nullptr, $PUBLIC, $virtualMethod(Font, isItalic, bool)},
-	{"isPlain", "()Z", nullptr, $PUBLIC, $virtualMethod(Font, isPlain, bool)},
-	{"isTransformed", "()Z", nullptr, $PUBLIC, $virtualMethod(Font, isTransformed, bool)},
-	{"layoutGlyphVector", "(Ljava/awt/font/FontRenderContext;[CIII)Ljava/awt/font/GlyphVector;", nullptr, $PUBLIC, $virtualMethod(Font, layoutGlyphVector, $GlyphVector*, $FontRenderContext*, $chars*, int32_t, int32_t, int32_t)},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(Font, readObject, void, $ObjectInputStream*), "java.lang.ClassNotFoundException,java.io.IOException"},
-	{"textRequiresLayout", "([CII)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Font, textRequiresLayout, bool, $chars*, int32_t, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Font, toString, $String*)},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(Font, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
-	{}
-};
-
-#define _METHOD_INDEX_initIDs 72
-
-$InnerClassInfo _Font_InnerClassesInfo_[] = {
-	{"java.awt.Font$FontAccessImpl", "java.awt.Font", "FontAccessImpl", $PRIVATE | $STATIC},
-	{"java.awt.Font$3", nullptr, nullptr, 0},
-	{"java.awt.Font$2", nullptr, nullptr, 0},
-	{"java.awt.Font$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Font_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.awt.Font",
-	"java.lang.Object",
-	"java.io.Serializable",
-	_Font_FieldInfo_,
-	_Font_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Font_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.awt.Font$FontAccessImpl,java.awt.Font$3,java.awt.Font$2,java.awt.Font$1"
-};
-
-$Object* allocate$Font($Class* clazz) {
-	return $of($alloc(Font));
-}
-
 $String* Font::DIALOG = nullptr;
 $String* Font::DIALOG_INPUT = nullptr;
 $String* Font::SANS_SERIF = nullptr;
@@ -395,7 +228,7 @@ $FontPeer* Font::getFontPeer() {
 	if (this->peer == nullptr) {
 		$var($Toolkit, tk, $Toolkit::getDefaultToolkit());
 		if ($instanceOf($ComponentFactory, tk)) {
-			$set(this, peer, $nc(($cast($ComponentFactory, tk)))->getFontPeer(this->name, this->style));
+			$set(this, peer, $cast($ComponentFactory, tk)->getFontPeer(this->name, this->style));
 		}
 	}
 	return this->peer;
@@ -406,10 +239,10 @@ $AttributeValues* Font::getAttributeValues() {
 		$var($AttributeValues, valuesTmp, $new($AttributeValues));
 		valuesTmp->setFamily(this->name);
 		valuesTmp->setSize(this->pointSize);
-		if (((int32_t)(this->style & (uint32_t)Font::BOLD)) != 0) {
-			valuesTmp->setWeight((float)2);
+		if ((this->style & Font::BOLD) != 0) {
+			valuesTmp->setWeight(2);
 		}
-		if (((int32_t)(this->style & (uint32_t)Font::ITALIC)) != 0) {
+		if ((this->style & Font::ITALIC) != 0) {
 			valuesTmp->setPosture(0.2f);
 		}
 		valuesTmp->defineAll(Font::PRIMARY_MASK);
@@ -419,7 +252,7 @@ $AttributeValues* Font::getAttributeValues() {
 }
 
 $Font2D* Font::getFont2D() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($FontManager, fm, $FontManagerFactory::getInstance());
 	if (this->font2DHandle == nullptr) {
 		$set(this, font2DHandle, $nc($($nc(fm)->findFont2D(this->name, this->style, $FontManager::LOGICAL_FALLBACK)))->handle);
@@ -431,7 +264,7 @@ void Font::init$($String* name, int32_t style, int32_t size) {
 	this->createdFont = false;
 	this->fontSerializedDataVersion = 1;
 	$set(this, name, (name != nullptr) ? name : "Default"_s);
-	this->style = ((int32_t)(style & (uint32_t)~3)) == 0 ? style : 0;
+	this->style = (style & ~3) == 0 ? style : 0;
 	this->size = size;
 	this->pointSize = (float)size;
 }
@@ -440,7 +273,7 @@ void Font::init$($String* name, int32_t style, float sizePts) {
 	this->createdFont = false;
 	this->fontSerializedDataVersion = 1;
 	$set(this, name, (name != nullptr) ? name : "Default"_s);
-	this->style = ((int32_t)(style & (uint32_t)~3)) == 0 ? style : 0;
+	this->style = (style & ~3) == 0 ? style : 0;
 	this->size = $cast(int32_t, (sizePts + 0.5));
 	this->pointSize = sizePts;
 }
@@ -449,7 +282,7 @@ void Font::init$($String* name, int32_t style, float sizePts, bool created, $Fon
 	Font::init$(name, style, sizePts);
 	this->createdFont = created;
 	if (created) {
-		if ($instanceOf($CompositeFont, $nc(handle)->font2D) && $nc(handle->font2D)->getStyle() != style) {
+		if ($instanceOf($CompositeFont, $nc(handle)->font2D) && handle->font2D->getStyle() != style) {
 			$var($FontManager, fm, $FontManagerFactory::getInstance());
 			$set(this, font2DHandle, $nc(fm)->getNewComposite(nullptr, style, handle));
 		} else {
@@ -459,7 +292,7 @@ void Font::init$($String* name, int32_t style, float sizePts, bool created, $Fon
 }
 
 void Font::init$($File* fontFile, int32_t fontFormat, bool isCopy, $CreatedFontTracker* tracker) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->createdFont = false;
 	this->fontSerializedDataVersion = 1;
 	this->createdFont = true;
@@ -473,7 +306,7 @@ void Font::init$($File* fontFile, int32_t fontFormat, bool isCopy, $CreatedFontT
 }
 
 void Font::init$($AttributeValues* values, $String* oldName, int32_t oldStyle, bool created, $Font2DHandle* handle) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->createdFont = false;
 	this->fontSerializedDataVersion = 1;
 	this->createdFont = created;
@@ -493,7 +326,7 @@ void Font::init$($AttributeValues* values, $String* oldName, int32_t oldStyle, b
 			if ($nc(values)->getWeight() >= 2.0f) {
 				newStyle = Font::BOLD;
 			}
-			if ($nc(values)->getPosture() >= 0.2f) {
+			if (values->getPosture() >= 0.2f) {
 				newStyle |= Font::ITALIC;
 			}
 			if (oldStyle == newStyle) {
@@ -520,18 +353,18 @@ void Font::init$($Map* attributes) {
 }
 
 void Font::init$(Font* font) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->createdFont = false;
 	this->fontSerializedDataVersion = 1;
 	if ($nc(font)->values != nullptr) {
-		initFromValues($($nc($(font->getAttributeValues()))->clone()));
+		initFromValues($($$nc(font->getAttributeValues())->clone()));
 	} else {
 		$set(this, name, font->name);
 		this->style = font->style;
 		this->size = font->size;
 		this->pointSize = font->pointSize;
 	}
-	$set(this, font2DHandle, $nc(font)->font2DHandle);
+	$set(this, font2DHandle, font->font2DHandle);
 	this->createdFont = font->createdFont;
 }
 
@@ -564,16 +397,16 @@ bool Font::textRequiresLayout($chars* chars, int32_t start, int32_t end) {
 
 Font* Font::getFont($Map* attributes) {
 	$init(Font);
-	$useLocalCurrentObjectStackCache();
-	if ($instanceOf($AttributeMap, attributes) && $nc(($cast($AttributeMap, attributes)))->getValues() != nullptr) {
-		$var($AttributeValues, values, ($cast($AttributeMap, attributes))->getValues());
+	$useLocalObjectStack();
+	if ($instanceOf($AttributeMap, attributes) && $cast($AttributeMap, attributes)->getValues() != nullptr) {
+		$var($AttributeValues, values, $cast($AttributeMap, attributes)->getValues());
 		$init($EAttribute);
 		if ($nc(values)->isNonDefault($EAttribute::EFONT)) {
 			$var(Font, font, values->getFont());
 			if (!values->anyDefined(Font::SECONDARY_MASK)) {
 				return font;
 			}
-			$assign(values, $nc($($nc(font)->getAttributeValues()))->clone());
+			$assign(values, $$nc($nc(font)->getAttributeValues())->clone());
 			$nc(values)->merge(attributes, Font::SECONDARY_MASK);
 			return $new(Font, values, font->name, font->style, font->createdFont, font->font2DHandle);
 		}
@@ -583,7 +416,7 @@ Font* Font::getFont($Map* attributes) {
 	$var(Font, font, $cast(Font, $nc(attributes)->get($TextAttribute::FONT)));
 	if (font != nullptr) {
 		if (attributes->size() > 1) {
-			$var($AttributeValues, values, $nc($(font->getAttributeValues()))->clone());
+			$var($AttributeValues, values, $$nc(font->getAttributeValues())->clone());
 			$nc(values)->merge(attributes, Font::SECONDARY_MASK);
 			return $new(Font, values, font->name, font->style, font->createdFont, font->font2DHandle);
 		}
@@ -594,14 +427,14 @@ Font* Font::getFont($Map* attributes) {
 
 bool Font::hasTempPermission() {
 	$init(Font);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($System::getSecurityManager() == nullptr) {
 		return true;
 	}
 	$var($File, f, nullptr);
 	bool hasPerm = false;
 	try {
-		$assign(f, $nc($($Files::createTempFile("+~JT"_s, ".tmp"_s, $$new($FileAttributeArray, 0))))->toFile());
+		$assign(f, $$nc($Files::createTempFile("+~JT"_s, ".tmp"_s, $$new($FileAttributeArray, 0)))->toFile());
 		$nc(f)->delete$();
 		$assign(f, nullptr);
 		hasPerm = true;
@@ -612,42 +445,40 @@ bool Font::hasTempPermission() {
 
 $FontArray* Font::createFonts($InputStream* fontStream) {
 	$init(Font);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t fontFormat = Font::TRUETYPE_FONT;
 	if (hasTempPermission()) {
 		return createFont0(fontFormat, fontStream, true, nullptr);
 	}
 	$var($CreatedFontTracker, tracker, $CreatedFontTracker::getTracker());
 	bool acquired = false;
-	{
-		$var($Throwable, var$0, nullptr);
-		$var($FontArray, var$2, nullptr);
-		bool return$1 = false;
+	$var($Throwable, var$0, nullptr);
+	$var($FontArray, var$2, nullptr);
+	bool return$1 = false;
+	try {
 		try {
-			try {
-				acquired = $nc(tracker)->acquirePermit();
-				if (!acquired) {
-					$throwNew($IOException, "Timed out waiting for resources."_s);
-				}
-				$assign(var$2, createFont0(fontFormat, fontStream, true, tracker));
-				return$1 = true;
-				goto $finally;
-			} catch ($InterruptedException& e) {
-				$throwNew($IOException, "Problem reading font data."_s);
+			acquired = $nc(tracker)->acquirePermit();
+			if (!acquired) {
+				$throwNew($IOException, "Timed out waiting for resources."_s);
 			}
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			if (acquired) {
-				$nc(tracker)->releasePermit();
-			}
+			$assign(var$2, createFont0(fontFormat, fontStream, true, tracker));
+			return$1 = true;
+			goto $finally;
+		} catch ($InterruptedException& e) {
+			$throwNew($IOException, "Problem reading font data."_s);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		if (acquired) {
+			$nc(tracker)->releasePermit();
 		}
-		if (return$1) {
-			return var$2;
-		}
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
@@ -665,7 +496,7 @@ void Font::init$($Font2D* font2D) {
 
 $FontArray* Font::createFonts($File* fontFile$renamed) {
 	$init(Font);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($File, fontFile, fontFile$renamed);
 	int32_t fontFormat = Font::TRUETYPE_FONT;
 	$assign(fontFile, checkFontFile(fontFormat, fontFile));
@@ -681,33 +512,115 @@ $FontArray* Font::createFonts($File* fontFile$renamed) {
 
 Font* Font::createFont(int32_t fontFormat, $InputStream* fontStream) {
 	$init(Font);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (hasTempPermission()) {
 		return $nc($(createFont0(fontFormat, fontStream, false, nullptr)))->get(0);
 	}
 	$var($CreatedFontTracker, tracker, $CreatedFontTracker::getTracker());
 	bool acquired = false;
-	{
+	$var($Throwable, var$0, nullptr);
+	$var(Font, var$2, nullptr);
+	bool return$1 = false;
+	try {
+		try {
+			acquired = $nc(tracker)->acquirePermit();
+			if (!acquired) {
+				$throwNew($IOException, "Timed out waiting for resources."_s);
+			}
+			$assign(var$2, $nc($(createFont0(fontFormat, fontStream, false, tracker)))->get(0));
+			return$1 = true;
+			goto $finally;
+		} catch ($InterruptedException& e) {
+			$throwNew($IOException, "Problem reading font data."_s);
+		}
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		if (acquired) {
+			$nc(tracker)->releasePermit();
+		}
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
+	}
+	$shouldNotReachHere();
+}
+
+$FontArray* Font::createFont0(int32_t fontFormat, $InputStream* fontStream, bool allFonts, $CreatedFontTracker* tracker) {
+	$init(Font);
+	$useLocalObjectStack();
+	$beforeCallerSensitive();
+	if (fontFormat != Font::TRUETYPE_FONT && fontFormat != Font::TYPE1_FONT) {
+		$throwNew($IllegalArgumentException, "font format not recognized"_s);
+	}
+	bool copiedFontData = false;
+	try {
+		$var($File, tFile, $cast($File, $AccessController::doPrivileged($$new($Font$1))));
+		if (tracker != nullptr) {
+			tracker->add(tFile);
+		}
+		int32_t totalSize = 0;
 		$var($Throwable, var$0, nullptr);
-		$var(Font, var$2, nullptr);
+		$var($FontArray, var$2, nullptr);
 		bool return$1 = false;
 		try {
-			try {
-				acquired = $nc(tracker)->acquirePermit();
-				if (!acquired) {
-					$throwNew($IOException, "Timed out waiting for resources."_s);
-				}
-				$assign(var$2, $nc($(createFont0(fontFormat, fontStream, false, tracker)))->get(0));
-				return$1 = true;
-				goto $finally;
-			} catch ($InterruptedException& e) {
-				$throwNew($IOException, "Problem reading font data."_s);
+			$var($OutputStream, outStream, $cast($OutputStream, $AccessController::doPrivileged($$new($Font$2, tFile))));
+			if (tracker != nullptr) {
+				tracker->set(tFile, outStream);
 			}
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
+			$var($Throwable, var$3, nullptr);
+			try {
+				$var($bytes, buf, $new($bytes, 8192));
+				for (;;) {
+					int32_t bytesRead = $nc(fontStream)->read(buf);
+					if (bytesRead < 0) {
+						break;
+					}
+					if (tracker != nullptr) {
+						if (totalSize + bytesRead > $CreatedFontTracker::MAX_FILE_SIZE) {
+							$throwNew($IOException, "File too big."_s);
+						}
+						if (totalSize + tracker->getNumBytes() > $CreatedFontTracker::MAX_TOTAL_BYTES) {
+							$throwNew($IOException, "Total files too big."_s);
+						}
+						totalSize += bytesRead;
+						tracker->addBytes(bytesRead);
+					}
+					$nc(outStream)->write(buf, 0, bytesRead);
+				}
+			} catch ($Throwable& var$4) {
+				$assign(var$3, var$4);
+			} /*finally*/ {
+				$nc(outStream)->close();
+			}
+			if (var$3 != nullptr) {
+				$throw(var$3);
+			}
+			copiedFontData = true;
+			$var($FontManager, fm, $FontManagerFactory::getInstance());
+			$var($Font2DArray, font2DArr, $nc(fm)->createFont2D(tFile, fontFormat, allFonts, true, tracker));
+			int32_t num = $nc(font2DArr)->length;
+			$var($FontArray, fonts, $new($FontArray, num));
+			for (int32_t i = 0; i < num; ++i) {
+				fonts->set(i, $$new(Font, font2DArr->get(i)));
+			}
+			$assign(var$2, fonts);
+			return$1 = true;
+			goto $finally;
+		} catch ($Throwable& var$5) {
+			$assign(var$0, var$5);
 		} $finally: {
-			if (acquired) {
-				$nc(tracker)->releasePermit();
+			if (tracker != nullptr) {
+				tracker->remove(tFile);
+			}
+			if (!copiedFontData) {
+				if (tracker != nullptr) {
+					tracker->subBytes(totalSize);
+				}
+				$AccessController::doPrivileged($$new($Font$3, tFile));
 			}
 		}
 		if (var$0 != nullptr) {
@@ -715,94 +628,6 @@ Font* Font::createFont(int32_t fontFormat, $InputStream* fontStream) {
 		}
 		if (return$1) {
 			return var$2;
-		}
-	}
-	$shouldNotReachHere();
-}
-
-$FontArray* Font::createFont0(int32_t fontFormat, $InputStream* fontStream, bool allFonts, $CreatedFontTracker* tracker) {
-	$init(Font);
-	$useLocalCurrentObjectStackCache();
-	$beforeCallerSensitive();
-	if (fontFormat != Font::TRUETYPE_FONT && fontFormat != Font::TYPE1_FONT) {
-		$throwNew($IllegalArgumentException, "font format not recognized"_s);
-	}
-	bool copiedFontData = false;
-	try {
-		$var($File, tFile, $cast($File, $AccessController::doPrivileged(static_cast<$PrivilegedExceptionAction*>($$new($Font$1)))));
-		if (tracker != nullptr) {
-			tracker->add(tFile);
-		}
-		int32_t totalSize = 0;
-		{
-			$var($Throwable, var$0, nullptr);
-			$var($FontArray, var$2, nullptr);
-			bool return$1 = false;
-			try {
-				$var($OutputStream, outStream, $cast($OutputStream, $AccessController::doPrivileged(static_cast<$PrivilegedExceptionAction*>($$new($Font$2, tFile)))));
-				if (tracker != nullptr) {
-					tracker->set(tFile, outStream);
-				}
-				{
-					$var($Throwable, var$3, nullptr);
-					try {
-						$var($bytes, buf, $new($bytes, 8192));
-						for (;;) {
-							int32_t bytesRead = $nc(fontStream)->read(buf);
-							if (bytesRead < 0) {
-								break;
-							}
-							if (tracker != nullptr) {
-								if (totalSize + bytesRead > $CreatedFontTracker::MAX_FILE_SIZE) {
-									$throwNew($IOException, "File too big."_s);
-								}
-								if (totalSize + tracker->getNumBytes() > $CreatedFontTracker::MAX_TOTAL_BYTES) {
-									$throwNew($IOException, "Total files too big."_s);
-								}
-								totalSize += bytesRead;
-								tracker->addBytes(bytesRead);
-							}
-							$nc(outStream)->write(buf, 0, bytesRead);
-						}
-					} catch ($Throwable& var$4) {
-						$assign(var$3, var$4);
-					} /*finally*/ {
-						$nc(outStream)->close();
-					}
-					if (var$3 != nullptr) {
-						$throw(var$3);
-					}
-				}
-				copiedFontData = true;
-				$var($FontManager, fm, $FontManagerFactory::getInstance());
-				$var($Font2DArray, font2DArr, $nc(fm)->createFont2D(tFile, fontFormat, allFonts, true, tracker));
-				int32_t num = $nc(font2DArr)->length;
-				$var($FontArray, fonts, $new($FontArray, num));
-				for (int32_t i = 0; i < num; ++i) {
-					fonts->set(i, $$new(Font, font2DArr->get(i)));
-				}
-				$assign(var$2, fonts);
-				return$1 = true;
-				goto $finally;
-			} catch ($Throwable& var$5) {
-				$assign(var$0, var$5);
-			} $finally: {
-				if (tracker != nullptr) {
-					tracker->remove(tFile);
-				}
-				if (!copiedFontData) {
-					if (tracker != nullptr) {
-						tracker->subBytes(totalSize);
-					}
-					$AccessController::doPrivileged(static_cast<$PrivilegedExceptionAction*>($$new($Font$3, tFile)));
-				}
-			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
-			if (return$1) {
-				return var$2;
-			}
 		}
 	} catch ($Throwable& t) {
 		if ($instanceOf($FontFormatException, t)) {
@@ -829,7 +654,7 @@ Font* Font::createFont(int32_t fontFormat, $File* fontFile$renamed) {
 
 $File* Font::checkFontFile(int32_t fontFormat, $File* fontFile$renamed) {
 	$init(Font);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($File, fontFile, fontFile$renamed);
 	$assign(fontFile, $new($File, $($nc(fontFile)->getPath())));
 	if (fontFormat != Font::TRUETYPE_FONT && fontFormat != Font::TYPE1_FONT) {
@@ -847,31 +672,31 @@ $File* Font::checkFontFile(int32_t fontFormat, $File* fontFile$renamed) {
 }
 
 $AffineTransform* Font::getTransform() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->nonIdentityTx) {
 		$var($AttributeValues, values, getAttributeValues());
 		$init($EAttribute);
-		$var($AffineTransform, at, $nc(values)->isNonDefault($EAttribute::ETRANSFORM) ? $new($AffineTransform, $($nc(values)->getTransform())) : $new($AffineTransform));
-		if ($nc(values)->getSuperscript() != 0) {
+		$var($AffineTransform, at, $nc(values)->isNonDefault($EAttribute::ETRANSFORM) ? $new($AffineTransform, $(values->getTransform())) : $new($AffineTransform));
+		if (values->getSuperscript() != 0) {
 			int32_t superscript = values->getSuperscript();
-			double trans = (double)0;
+			double trans = 0;
 			int32_t n = 0;
 			bool up = superscript > 0;
 			int32_t sign = up ? -1 : 1;
 			int32_t ss = up ? superscript : -superscript;
-			while (((int32_t)(ss & (uint32_t)7)) > n) {
-				int32_t newn = (int32_t)(ss & (uint32_t)7);
-				trans += sign * ($nc(Font::ssinfo)->get(newn) - $nc(Font::ssinfo)->get(n));
+			while ((ss & 7) > n) {
+				int32_t newn = ss & 7;
+				trans += sign * (Font::ssinfo->get(newn) - Font::ssinfo->get(n));
 				ss >>= 3;
 				sign = -sign;
 				n = newn;
 			}
 			trans *= this->pointSize;
 			double scale = $Math::pow(2.0 / 3.0, (double)n);
-			$nc(at)->preConcatenate($($AffineTransform::getTranslateInstance((double)0, trans)));
+			$nc(at)->preConcatenate($($AffineTransform::getTranslateInstance(0, trans)));
 			at->scale(scale, scale);
 		}
-		if ($nc(values)->isNonDefault($EAttribute::EWIDTH)) {
+		if (values->isNonDefault($EAttribute::EWIDTH)) {
 			$nc(at)->scale(values->getWidth(), 1.0f);
 		}
 		return at;
@@ -891,11 +716,11 @@ $String* Font::getFamily($Locale* l) {
 	if (l == nullptr) {
 		$throwNew($NullPointerException, "null locale doesn\'t mean default"_s);
 	}
-	return $nc($(getFont2D()))->getFamilyName(l);
+	return $$nc(getFont2D())->getFamilyName(l);
 }
 
 $String* Font::getPSName() {
-	return $nc($(getFont2D()))->getPostscriptName();
+	return $$nc(getFont2D())->getPostscriptName();
 }
 
 $String* Font::getName() {
@@ -910,7 +735,7 @@ $String* Font::getFontName($Locale* l) {
 	if (l == nullptr) {
 		$throwNew($NullPointerException, "null locale doesn\'t mean default"_s);
 	}
-	return $nc($(getFont2D()))->getFontName(l);
+	return $$nc(getFont2D())->getFontName(l);
 }
 
 int32_t Font::getStyle() {
@@ -930,11 +755,11 @@ bool Font::isPlain() {
 }
 
 bool Font::isBold() {
-	return ((int32_t)(this->style & (uint32_t)Font::BOLD)) != 0;
+	return (this->style & Font::BOLD) != 0;
 }
 
 bool Font::isItalic() {
-	return ((int32_t)(this->style & (uint32_t)Font::ITALIC)) != 0;
+	return (this->style & Font::ITALIC) != 0;
 }
 
 bool Font::isTransformed() {
@@ -952,7 +777,7 @@ Font* Font::getFont($String* nm) {
 
 Font* Font::decode($String* str) {
 	$init(Font);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, fontName, str);
 	$var($String, styleName, ""_s);
 	int32_t fontSize = 12;
@@ -960,15 +785,15 @@ Font* Font::decode($String* str) {
 	if (str == nullptr) {
 		return $new(Font, Font::DIALOG, fontStyle, fontSize);
 	}
-	int32_t lastHyphen = $nc(str)->lastIndexOf((int32_t)u'-');
-	int32_t lastSpace = str->lastIndexOf((int32_t)u' ');
+	int32_t lastHyphen = $nc(str)->lastIndexOf(u'-');
+	int32_t lastSpace = str->lastIndexOf(u' ');
 	char16_t sepChar = (lastHyphen > lastSpace) ? u'-' : u' ';
-	int32_t sizeIndex = str->lastIndexOf((int32_t)sepChar);
-	int32_t styleIndex = str->lastIndexOf((int32_t)sepChar, sizeIndex - 1);
+	int32_t sizeIndex = str->lastIndexOf(sepChar);
+	int32_t styleIndex = str->lastIndexOf(sepChar, sizeIndex - 1);
 	int32_t strlen = str->length();
 	if (sizeIndex > 0 && sizeIndex + 1 < strlen) {
 		try {
-			fontSize = $nc($($Integer::valueOf($(str->substring(sizeIndex + 1)))))->intValue();
+			fontSize = $($Integer::valueOf($(str->substring(sizeIndex + 1))))->intValue();
 			if (fontSize <= 0) {
 				fontSize = 12;
 			}
@@ -1030,29 +855,29 @@ Font* Font::getFont($String* nm, Font* font) {
 int32_t Font::hashCode() {
 	if (this->hash == 0) {
 		this->hash = ($nc(this->name)->hashCode() ^ this->style) ^ this->size;
-		if (this->nonIdentityTx && this->values != nullptr && $nc(this->values)->getTransform() != nullptr) {
-			this->hash ^= $nc($($nc(this->values)->getTransform()))->hashCode();
+		if (this->nonIdentityTx && this->values != nullptr && this->values->getTransform() != nullptr) {
+			this->hash ^= $$nc(this->values->getTransform())->hashCode();
 		}
 	}
 	return this->hash;
 }
 
 bool Font::equals(Object$* obj) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($equals(obj, this)) {
 		return true;
 	}
 	if ($instanceOf(Font, obj)) {
 		$var(Font, font, $cast(Font, obj));
-		if (this->size == $nc(font)->size && this->style == font->style && this->nonIdentityTx == font->nonIdentityTx && this->hasLayoutAttributes$ == font->hasLayoutAttributes$ && this->pointSize == font->pointSize && $nc(this->name)->equals(font->name)) {
+		if (this->size == font->size && this->style == font->style && this->nonIdentityTx == font->nonIdentityTx && this->hasLayoutAttributes$ == font->hasLayoutAttributes$ && this->pointSize == font->pointSize && $nc(this->name)->equals(font->name)) {
 			if (this->values == nullptr) {
 				if (font->values == nullptr) {
 					return true;
 				} else {
-					return $nc($(getAttributeValues()))->equals(font->values);
+					return $$nc(getAttributeValues())->equals(font->values);
 				}
 			} else {
-				return $nc(this->values)->equals($(font->getAttributeValues()));
+				return this->values->equals($(font->getAttributeValues()));
 			}
 		}
 	}
@@ -1060,28 +885,31 @@ bool Font::equals(Object$* obj) {
 }
 
 $String* Font::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, strStyle, nullptr);
 	if (isBold()) {
 		$assign(strStyle, isItalic() ? "bolditalic"_s : "bold"_s);
 	} else {
 		$assign(strStyle, isItalic() ? "italic"_s : "plain"_s);
 	}
-	$var($String, var$7, $$str({$($of(this)->getClass()->getName()), "[family="_s}));
-	$var($String, var$6, $$concat(var$7, $(getFamily())));
-	$var($String, var$5, $$concat(var$6, ",name="_s));
-	$var($String, var$4, $$concat(var$5, this->name));
-	$var($String, var$3, $$concat(var$4, ",style="_s));
-	$var($String, var$2, $$concat(var$3, strStyle));
-	$var($String, var$1, $$concat(var$2, ",size="_s));
-	$var($String, var$0, $$concat(var$1, $$str(this->size)));
-	return $concat(var$0, "]"_s);
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append($($of(this)->getClass()->getName()));
+	var$0->append("[family="_s);
+	var$0->append($(getFamily()));
+	var$0->append(",name="_s);
+	var$0->append(this->name);
+	var$0->append(",style="_s);
+	var$0->append(strStyle);
+	var$0->append(",size="_s);
+	var$0->append(this->size);
+	var$0->append("]"_s);
+	return $str(var$0);
 }
 
 void Font::writeObject($ObjectOutputStream* s) {
 	if (this->values != nullptr) {
 		$synchronized(this->values) {
-			$set(this, fRequestedAttributes, $nc(this->values)->toSerializableHashtable());
+			$set(this, fRequestedAttributes, this->values->toSerializableHashtable());
 			$nc(s)->defaultWriteObject();
 			$set(this, fRequestedAttributes, nullptr);
 		}
@@ -1091,49 +919,47 @@ void Font::writeObject($ObjectOutputStream* s) {
 }
 
 void Font::readObject($ObjectInputStream* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(s)->defaultReadObject();
 	if (this->pointSize == 0) {
 		this->pointSize = (float)this->size;
 	}
 	if (this->fRequestedAttributes != nullptr) {
-		{
-			$var($Throwable, var$0, nullptr);
+		$var($Throwable, var$0, nullptr);
+		try {
 			try {
-				try {
-					$set(this, values, getAttributeValues());
-					$var($AttributeValues, extras, $AttributeValues::fromSerializableHashtable(this->fRequestedAttributes));
-					if (!$AttributeValues::is16Hashtable(this->fRequestedAttributes)) {
-						$nc(extras)->unsetDefault();
-					}
-					$set(this, values, $nc($(getAttributeValues()))->merge(extras));
-					this->nonIdentityTx = $nc(this->values)->anyNonDefault(Font::EXTRA_MASK);
-					this->hasLayoutAttributes$ = $nc(this->values)->anyNonDefault(Font::LAYOUT_MASK);
-				} catch ($Throwable& t) {
-					$throwNew($IOException, $cast($Throwable, t));
+				$set(this, values, getAttributeValues());
+				$var($AttributeValues, extras, $AttributeValues::fromSerializableHashtable(this->fRequestedAttributes));
+				if (!$AttributeValues::is16Hashtable(this->fRequestedAttributes)) {
+					$nc(extras)->unsetDefault();
 				}
-			} catch ($Throwable& var$1) {
-				$assign(var$0, var$1);
-			} /*finally*/ {
-				$set(this, fRequestedAttributes, nullptr);
+				$set(this, values, $$nc(getAttributeValues())->merge(extras));
+				this->nonIdentityTx = $nc(this->values)->anyNonDefault(Font::EXTRA_MASK);
+				this->hasLayoutAttributes$ = $nc(this->values)->anyNonDefault(Font::LAYOUT_MASK);
+			} catch ($Throwable& t) {
+				$throwNew($IOException, t);
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
+		} /*finally*/ {
+			$set(this, fRequestedAttributes, nullptr);
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	}
 }
 
 int32_t Font::getNumGlyphs() {
-	return $nc($(getFont2D()))->getNumGlyphs();
+	return $$nc(getFont2D())->getNumGlyphs();
 }
 
 int32_t Font::getMissingGlyphCode() {
-	return $nc($(getFont2D()))->getMissingGlyphCode();
+	return $$nc(getFont2D())->getMissingGlyphCode();
 }
 
 int8_t Font::getBaselineFor(char16_t c) {
-	return $nc($(getFont2D()))->getBaselineFor(c);
+	return $$nc(getFont2D())->getBaselineFor(c);
 }
 
 $Map* Font::getAttributes() {
@@ -1143,101 +969,101 @@ $Map* Font::getAttributes() {
 $AttributedCharacterIterator$AttributeArray* Font::getAvailableAttributes() {
 	$init($TextAttribute);
 	$var($AttributedCharacterIterator$AttributeArray, attributes, $new($AttributedCharacterIterator$AttributeArray, {
-		static_cast<$AttributedCharacterIterator$Attribute*>($TextAttribute::FAMILY),
-		static_cast<$AttributedCharacterIterator$Attribute*>($TextAttribute::WEIGHT),
-		static_cast<$AttributedCharacterIterator$Attribute*>($TextAttribute::WIDTH),
-		static_cast<$AttributedCharacterIterator$Attribute*>($TextAttribute::POSTURE),
-		static_cast<$AttributedCharacterIterator$Attribute*>($TextAttribute::SIZE),
-		static_cast<$AttributedCharacterIterator$Attribute*>($TextAttribute::TRANSFORM),
-		static_cast<$AttributedCharacterIterator$Attribute*>($TextAttribute::SUPERSCRIPT),
-		static_cast<$AttributedCharacterIterator$Attribute*>($TextAttribute::CHAR_REPLACEMENT),
-		static_cast<$AttributedCharacterIterator$Attribute*>($TextAttribute::FOREGROUND),
-		static_cast<$AttributedCharacterIterator$Attribute*>($TextAttribute::BACKGROUND),
-		static_cast<$AttributedCharacterIterator$Attribute*>($TextAttribute::UNDERLINE),
-		static_cast<$AttributedCharacterIterator$Attribute*>($TextAttribute::STRIKETHROUGH),
-		static_cast<$AttributedCharacterIterator$Attribute*>($TextAttribute::RUN_DIRECTION),
-		static_cast<$AttributedCharacterIterator$Attribute*>($TextAttribute::BIDI_EMBEDDING),
-		static_cast<$AttributedCharacterIterator$Attribute*>($TextAttribute::JUSTIFICATION),
-		static_cast<$AttributedCharacterIterator$Attribute*>($TextAttribute::INPUT_METHOD_HIGHLIGHT),
-		static_cast<$AttributedCharacterIterator$Attribute*>($TextAttribute::INPUT_METHOD_UNDERLINE),
-		static_cast<$AttributedCharacterIterator$Attribute*>($TextAttribute::SWAP_COLORS),
-		static_cast<$AttributedCharacterIterator$Attribute*>($TextAttribute::NUMERIC_SHAPING),
-		static_cast<$AttributedCharacterIterator$Attribute*>($TextAttribute::KERNING),
-		static_cast<$AttributedCharacterIterator$Attribute*>($TextAttribute::LIGATURES),
-		static_cast<$AttributedCharacterIterator$Attribute*>($TextAttribute::TRACKING)
+		$TextAttribute::FAMILY,
+		$TextAttribute::WEIGHT,
+		$TextAttribute::WIDTH,
+		$TextAttribute::POSTURE,
+		$TextAttribute::SIZE,
+		$TextAttribute::TRANSFORM,
+		$TextAttribute::SUPERSCRIPT,
+		$TextAttribute::CHAR_REPLACEMENT,
+		$TextAttribute::FOREGROUND,
+		$TextAttribute::BACKGROUND,
+		$TextAttribute::UNDERLINE,
+		$TextAttribute::STRIKETHROUGH,
+		$TextAttribute::RUN_DIRECTION,
+		$TextAttribute::BIDI_EMBEDDING,
+		$TextAttribute::JUSTIFICATION,
+		$TextAttribute::INPUT_METHOD_HIGHLIGHT,
+		$TextAttribute::INPUT_METHOD_UNDERLINE,
+		$TextAttribute::SWAP_COLORS,
+		$TextAttribute::NUMERIC_SHAPING,
+		$TextAttribute::KERNING,
+		$TextAttribute::LIGATURES,
+		$TextAttribute::TRACKING
 	}));
 	return attributes;
 }
 
 Font* Font::deriveFont(int32_t style, float size) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->values == nullptr) {
 		return $new(Font, this->name, style, size, this->createdFont, this->font2DHandle);
 	}
-	$var($AttributeValues, newValues, $nc($(getAttributeValues()))->clone());
+	$var($AttributeValues, newValues, $$nc(getAttributeValues())->clone());
 	int32_t oldStyle = (this->style != style) ? this->style : -1;
 	applyStyle(style, newValues);
 	$nc(newValues)->setSize(size);
-	return $new(Font, newValues, ($String*)nullptr, oldStyle, this->createdFont, this->font2DHandle);
+	return $new(Font, newValues, nullptr, oldStyle, this->createdFont, this->font2DHandle);
 }
 
 Font* Font::deriveFont(int32_t style, $AffineTransform* trans) {
-	$useLocalCurrentObjectStackCache();
-	$var($AttributeValues, newValues, $nc($(getAttributeValues()))->clone());
+	$useLocalObjectStack();
+	$var($AttributeValues, newValues, $$nc(getAttributeValues())->clone());
 	int32_t oldStyle = (this->style != style) ? this->style : -1;
 	applyStyle(style, newValues);
 	applyTransform(trans, newValues);
-	return $new(Font, newValues, ($String*)nullptr, oldStyle, this->createdFont, this->font2DHandle);
+	return $new(Font, newValues, nullptr, oldStyle, this->createdFont, this->font2DHandle);
 }
 
 Font* Font::deriveFont(float size) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->values == nullptr) {
 		return $new(Font, this->name, this->style, size, this->createdFont, this->font2DHandle);
 	}
-	$var($AttributeValues, newValues, $nc($(getAttributeValues()))->clone());
+	$var($AttributeValues, newValues, $$nc(getAttributeValues())->clone());
 	$nc(newValues)->setSize(size);
-	return $new(Font, newValues, ($String*)nullptr, -1, this->createdFont, this->font2DHandle);
+	return $new(Font, newValues, nullptr, -1, this->createdFont, this->font2DHandle);
 }
 
 Font* Font::deriveFont($AffineTransform* trans) {
-	$useLocalCurrentObjectStackCache();
-	$var($AttributeValues, newValues, $nc($(getAttributeValues()))->clone());
+	$useLocalObjectStack();
+	$var($AttributeValues, newValues, $$nc(getAttributeValues())->clone());
 	applyTransform(trans, newValues);
-	return $new(Font, newValues, ($String*)nullptr, -1, this->createdFont, this->font2DHandle);
+	return $new(Font, newValues, nullptr, -1, this->createdFont, this->font2DHandle);
 }
 
 Font* Font::deriveFont(int32_t style) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->values == nullptr) {
 		return $new(Font, this->name, style, (float)this->size, this->createdFont, this->font2DHandle);
 	}
-	$var($AttributeValues, newValues, $nc($(getAttributeValues()))->clone());
+	$var($AttributeValues, newValues, $$nc(getAttributeValues())->clone());
 	int32_t oldStyle = (this->style != style) ? this->style : -1;
 	applyStyle(style, newValues);
-	return $new(Font, newValues, ($String*)nullptr, oldStyle, this->createdFont, this->font2DHandle);
+	return $new(Font, newValues, nullptr, oldStyle, this->createdFont, this->font2DHandle);
 }
 
 Font* Font::deriveFont($Map* attributes) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (attributes == nullptr) {
 		return this;
 	}
-	$var($AttributeValues, newValues, $nc($(getAttributeValues()))->clone());
+	$var($AttributeValues, newValues, $$nc(getAttributeValues())->clone());
 	$nc(newValues)->merge(attributes, Font::RECOGNIZED_MASK);
 	return $new(Font, newValues, this->name, this->style, this->createdFont, this->font2DHandle);
 }
 
 bool Font::canDisplay(char16_t c) {
-	return $nc($(getFont2D()))->canDisplay(c);
+	return $$nc(getFont2D())->canDisplay(c);
 }
 
 bool Font::canDisplay(int32_t codePoint) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!$Character::isValidCodePoint(codePoint)) {
 		$throwNew($IllegalArgumentException, $$str({"invalid code point: "_s, $($Integer::toHexString(codePoint))}));
 	}
-	return $nc($(getFont2D()))->canDisplay(codePoint);
+	return $$nc(getFont2D())->canDisplay(codePoint);
 }
 
 int32_t Font::canDisplayUpTo($String* str) {
@@ -1251,7 +1077,7 @@ int32_t Font::canDisplayUpTo($String* str) {
 		if (!$Character::isHighSurrogate(c)) {
 			return i;
 		}
-		if (!$nc(font2d)->canDisplay(str->codePointAt(i))) {
+		if (!font2d->canDisplay(str->codePointAt(i))) {
 			return i;
 		}
 		++i;
@@ -1269,7 +1095,7 @@ int32_t Font::canDisplayUpTo($chars* text, int32_t start, int32_t limit) {
 		if (!$Character::isHighSurrogate(c)) {
 			return i;
 		}
-		if (!$nc(font2d)->canDisplay($Character::codePointAt(text, i, limit))) {
+		if (!font2d->canDisplay($Character::codePointAt(text, i, limit))) {
 			return i;
 		}
 		++i;
@@ -1291,7 +1117,7 @@ int32_t Font::canDisplayUpTo($CharacterIterator* iter, int32_t start, int32_t li
 		if (!$Character::isLowSurrogate(c2)) {
 			return i;
 		}
-		if (!$nc(font2d)->canDisplay($Character::toCodePoint(c, c2))) {
+		if (!font2d->canDisplay($Character::toCodePoint(c, c2))) {
 			return i;
 		}
 		++i;
@@ -1304,7 +1130,7 @@ float Font::getItalicAngle() {
 }
 
 float Font::getItalicAngle($FontRenderContext* frc) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, aa, nullptr);
 	$var($Object, fm, nullptr);
 	if (frc == nullptr) {
@@ -1312,10 +1138,10 @@ float Font::getItalicAngle($FontRenderContext* frc) {
 		$assign(aa, $RenderingHints::VALUE_TEXT_ANTIALIAS_OFF);
 		$assign(fm, $RenderingHints::VALUE_FRACTIONALMETRICS_OFF);
 	} else {
-		$assign(aa, $nc(frc)->getAntiAliasingHint());
+		$assign(aa, frc->getAntiAliasingHint());
 		$assign(fm, frc->getFractionalMetricsHint());
 	}
-	return $nc($(getFont2D()))->getItalicAngle(this, Font::identityTx, aa, fm);
+	return $$nc(getFont2D())->getItalicAngle(this, Font::identityTx, aa, fm);
 }
 
 bool Font::hasUniformLineMetrics() {
@@ -1323,27 +1149,27 @@ bool Font::hasUniformLineMetrics() {
 }
 
 $FontLineMetrics* Font::defaultLineMetrics($FontRenderContext* frc) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($FontLineMetrics, flm, nullptr);
-	bool var$0 = this->flmref == nullptr || ($assign(flm, $cast($FontLineMetrics, $nc(this->flmref)->get()))) == nullptr;
+	bool var$0 = this->flmref == nullptr || ($assign(flm, $cast($FontLineMetrics, this->flmref->get()))) == nullptr;
 	if (var$0 || !$nc($nc(flm)->frc)->equals(frc)) {
 		$var($floats, metrics, $new($floats, 8));
 		$var($AffineTransform, var$1, Font::identityTx);
 		$var($Object, var$2, $nc(frc)->getAntiAliasingHint());
-		$nc($(getFont2D()))->getFontMetrics(this, var$1, var$2, $(frc->getFractionalMetricsHint()), metrics);
+		$$nc(getFont2D())->getFontMetrics(this, var$1, var$2, $(frc->getFractionalMetricsHint()), metrics);
 		float ascent = metrics->get(0);
 		float descent = metrics->get(1);
 		float leading = metrics->get(2);
-		float ssOffset = (float)0;
-		if (this->values != nullptr && $nc(this->values)->getSuperscript() != 0) {
-			ssOffset = (float)$nc($(getTransform()))->getTranslateY();
+		float ssOffset = 0;
+		if (this->values != nullptr && this->values->getSuperscript() != 0) {
+			ssOffset = (float)$$nc(getTransform())->getTranslateY();
 			ascent -= ssOffset;
 			descent += ssOffset;
 		}
 		float height = ascent + descent + leading;
 		int32_t baselineIndex = 0;
 		$var($floats, baselineOffsets, $new($floats, {
-			(float)0,
+			0,
 			(descent / 2.0f - ascent) / 2.0f,
 			-ascent
 		}));
@@ -1356,16 +1182,16 @@ $FontLineMetrics* Font::defaultLineMetrics($FontRenderContext* frc) {
 			$var($AffineTransform, ctx, $nc(this->values)->getCharTransform());
 			if (ctx != nullptr) {
 				$var($Point2D$Float, pt, $new($Point2D$Float));
-				pt->setLocation((float)0, strikethroughOffset);
+				pt->setLocation(0, strikethroughOffset);
 				ctx->deltaTransform(pt, pt);
 				strikethroughOffset = pt->y;
-				pt->setLocation((float)0, strikethroughThickness);
+				pt->setLocation(0, strikethroughThickness);
 				ctx->deltaTransform(pt, pt);
 				strikethroughThickness = pt->y;
-				pt->setLocation((float)0, underlineOffset);
+				pt->setLocation(0, underlineOffset);
 				ctx->deltaTransform(pt, pt);
 				underlineOffset = pt->y;
-				pt->setLocation((float)0, underlineThickness);
+				pt->setLocation(0, underlineThickness);
 				ctx->deltaTransform(pt, pt);
 				underlineThickness = pt->y;
 			}
@@ -1417,7 +1243,7 @@ $Rectangle2D* Font::getStringBounds($String* str, int32_t beginIndex, int32_t li
 }
 
 $Rectangle2D* Font::getStringBounds($chars* chars, int32_t beginIndex, int32_t limit, $FontRenderContext* frc) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (beginIndex < 0) {
 		$throwNew($IndexOutOfBoundsException, $$str({"beginIndex: "_s, $$str(beginIndex)}));
 	}
@@ -1429,9 +1255,9 @@ $Rectangle2D* Font::getStringBounds($chars* chars, int32_t beginIndex, int32_t l
 	}
 	bool var$0 = this->values == nullptr;
 	if (!var$0) {
-		bool var$2 = $nc(this->values)->getKerning() == 0;
-		bool var$1 = var$2 && $nc(this->values)->getLigatures() == 0;
-		var$0 = (var$1 && $nc(this->values)->getBaselineTransform() == nullptr);
+		bool var$2 = this->values->getKerning() == 0;
+		bool var$1 = var$2 && this->values->getLigatures() == 0;
+		var$0 = var$1 && this->values->getBaselineTransform() == nullptr;
 	}
 	bool simple = var$0;
 	if (simple) {
@@ -1447,12 +1273,12 @@ $Rectangle2D* Font::getStringBounds($chars* chars, int32_t beginIndex, int32_t l
 		float var$4 = tl->getAdvance();
 		float var$6 = tl->getAscent();
 		float var$5 = var$6 + tl->getDescent();
-		return $new($Rectangle2D$Float, (float)0, var$3, var$4, var$5 + tl->getLeading());
+		return $new($Rectangle2D$Float, 0, var$3, var$4, var$5 + tl->getLeading());
 	}
 }
 
 $Rectangle2D* Font::getStringBounds($CharacterIterator* ci, int32_t beginIndex, int32_t limit, $FontRenderContext* frc) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t start = $nc(ci)->getBeginIndex();
 	int32_t end = ci->getEndIndex();
 	if (beginIndex < start) {
@@ -1474,30 +1300,30 @@ $Rectangle2D* Font::getStringBounds($CharacterIterator* ci, int32_t beginIndex, 
 }
 
 $Rectangle2D* Font::getMaxCharBounds($FontRenderContext* frc) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($floats, metrics, $new($floats, 4));
-	$nc($(getFont2D()))->getFontMetrics(this, frc, metrics);
-	return $new($Rectangle2D$Float, (float)0, -metrics->get(0), metrics->get(3), metrics->get(0) + metrics->get(1) + metrics->get(2));
+	$$nc(getFont2D())->getFontMetrics(this, frc, metrics);
+	return $new($Rectangle2D$Float, 0, -metrics->get(0), metrics->get(3), metrics->get(0) + metrics->get(1) + metrics->get(2));
 }
 
 $GlyphVector* Font::createGlyphVector($FontRenderContext* frc, $String* str) {
-	return static_cast<$GlyphVector*>($new($StandardGlyphVector, this, str, frc));
+	return $cast($GlyphVector, $new($StandardGlyphVector, this, str, frc));
 }
 
 $GlyphVector* Font::createGlyphVector($FontRenderContext* frc, $chars* chars) {
-	return static_cast<$GlyphVector*>($new($StandardGlyphVector, this, chars, frc));
+	return $cast($GlyphVector, $new($StandardGlyphVector, this, chars, frc));
 }
 
 $GlyphVector* Font::createGlyphVector($FontRenderContext* frc, $CharacterIterator* ci) {
-	return static_cast<$GlyphVector*>($new($StandardGlyphVector, this, ci, frc));
+	return $cast($GlyphVector, $new($StandardGlyphVector, this, ci, frc));
 }
 
 $GlyphVector* Font::createGlyphVector($FontRenderContext* frc, $ints* glyphCodes) {
-	return static_cast<$GlyphVector*>($new($StandardGlyphVector, this, glyphCodes, frc));
+	return $cast($GlyphVector, $new($StandardGlyphVector, this, glyphCodes, frc));
 }
 
 $GlyphVector* Font::layoutGlyphVector($FontRenderContext* frc, $chars* text, int32_t start, int32_t limit, int32_t flags) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($GlyphLayout, gl, $GlyphLayout::get(nullptr));
 	$var($StandardGlyphVector, gv, $nc(gl)->layout(this, frc, text, start, limit - start, flags, nullptr));
 	$GlyphLayout::done(gl);
@@ -1514,19 +1340,19 @@ void Font::applyTransform($AffineTransform* trans, $AttributeValues* values) {
 
 void Font::applyStyle(int32_t style, $AttributeValues* values) {
 	$init(Font);
-	$nc(values)->setWeight(((int32_t)(style & (uint32_t)Font::BOLD)) != 0 ? 2.0f : 1.0f);
-	values->setPosture(((int32_t)(style & (uint32_t)Font::ITALIC)) != 0 ? 0.2f : 0.0f);
+	$nc(values)->setWeight((style & Font::BOLD) != 0 ? 2.0f : 1.0f);
+	values->setPosture((style & Font::ITALIC) != 0 ? 0.2f : 0.0f);
 }
 
 void Font::initIDs() {
 	$init(Font);
-	$prepareNativeStatic(Font, initIDs, void);
+	$prepareNativeStatic(initIDs, void);
 	$invokeNativeStatic();
 	$finishNativeStatic();
 }
 
-void clinit$Font($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void Font::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(Font::DIALOG, "Dialog"_s);
 	$assignStatic(Font::DIALOG_INPUT, "DialogInput"_s);
 	$assignStatic(Font::SANS_SERIF, "SansSerif"_s);
@@ -1540,7 +1366,7 @@ void clinit$Font($Class* class$) {
 	$assignStatic(Font::identityTx, $new($AffineTransform));
 	$init($AttributeValues);
 	$init($EAttribute);
-	Font::RECOGNIZED_MASK = (int32_t)($AttributeValues::MASK_ALL & (uint32_t)~$AttributeValues::getMask($EAttribute::EFONT));
+	Font::RECOGNIZED_MASK = $AttributeValues::MASK_ALL & ~$AttributeValues::getMask($EAttribute::EFONT);
 	Font::PRIMARY_MASK = $AttributeValues::getMask($$new($EAttributeArray, {
 		$EAttribute::EFAMILY,
 		$EAttribute::EWEIGHT,
@@ -1551,7 +1377,7 @@ void clinit$Font($Class* class$) {
 		$EAttribute::ESUPERSCRIPT,
 		$EAttribute::ETRACKING
 	}));
-	Font::SECONDARY_MASK = (int32_t)(Font::RECOGNIZED_MASK & (uint32_t)~Font::PRIMARY_MASK);
+	Font::SECONDARY_MASK = Font::RECOGNIZED_MASK & ~Font::PRIMARY_MASK;
 	Font::LAYOUT_MASK = $AttributeValues::getMask($$new($EAttributeArray, {
 		$EAttribute::ECHAR_REPLACEMENT,
 		$EAttribute::EFOREGROUND,
@@ -1591,7 +1417,158 @@ Font::Font() {
 }
 
 $Class* Font::load$($String* name, bool initialize) {
-	$loadClass(Font, name, initialize, &_Font_ClassInfo_, clinit$Font, allocate$Font);
+	$FieldInfo fieldInfos$$[] = {
+		{"fRequestedAttributes", "Ljava/util/Hashtable;", "Ljava/util/Hashtable<Ljava/lang/Object;Ljava/lang/Object;>;", $PRIVATE, $field(Font, fRequestedAttributes)},
+		{"DIALOG", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Font, DIALOG)},
+		{"DIALOG_INPUT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Font, DIALOG_INPUT)},
+		{"SANS_SERIF", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Font, SANS_SERIF)},
+		{"SERIF", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Font, SERIF)},
+		{"MONOSPACED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Font, MONOSPACED)},
+		{"PLAIN", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Font, PLAIN)},
+		{"BOLD", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Font, BOLD)},
+		{"ITALIC", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Font, ITALIC)},
+		{"ROMAN_BASELINE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Font, ROMAN_BASELINE)},
+		{"CENTER_BASELINE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Font, CENTER_BASELINE)},
+		{"HANGING_BASELINE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Font, HANGING_BASELINE)},
+		{"TRUETYPE_FONT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Font, TRUETYPE_FONT)},
+		{"TYPE1_FONT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Font, TYPE1_FONT)},
+		{"name", "Ljava/lang/String;", nullptr, $PROTECTED, $field(Font, name)},
+		{"style", "I", nullptr, $PROTECTED, $field(Font, style)},
+		{"size", "I", nullptr, $PROTECTED, $field(Font, size)},
+		{"pointSize", "F", nullptr, $PROTECTED, $field(Font, pointSize)},
+		{"peer", "Ljava/awt/peer/FontPeer;", nullptr, $PRIVATE | $TRANSIENT, $field(Font, peer)},
+		{"pData", "J", nullptr, $PRIVATE | $TRANSIENT, $field(Font, pData)},
+		{"font2DHandle", "Lsun/font/Font2DHandle;", nullptr, $PRIVATE | $TRANSIENT, $field(Font, font2DHandle)},
+		{"values", "Lsun/font/AttributeValues;", nullptr, $PRIVATE | $TRANSIENT, $field(Font, values)},
+		{"hasLayoutAttributes", "Z", nullptr, $PRIVATE | $TRANSIENT, $field(Font, hasLayoutAttributes$)},
+		{"createdFont", "Z", nullptr, $PRIVATE | $TRANSIENT, $field(Font, createdFont)},
+		{"nonIdentityTx", "Z", nullptr, $PRIVATE | $TRANSIENT, $field(Font, nonIdentityTx)},
+		{"identityTx", "Ljava/awt/geom/AffineTransform;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Font, identityTx)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Font, serialVersionUID)},
+		{"RECOGNIZED_MASK", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Font, RECOGNIZED_MASK)},
+		{"PRIMARY_MASK", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Font, PRIMARY_MASK)},
+		{"SECONDARY_MASK", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Font, SECONDARY_MASK)},
+		{"LAYOUT_MASK", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Font, LAYOUT_MASK)},
+		{"EXTRA_MASK", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Font, EXTRA_MASK)},
+		{"ssinfo", "[F", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Font, ssinfo)},
+		{"hash", "I", nullptr, $TRANSIENT, $field(Font, hash)},
+		{"fontSerializedDataVersion", "I", nullptr, $PRIVATE, $field(Font, fontSerializedDataVersion)},
+		{"flmref", "Ljava/lang/ref/SoftReference;", "Ljava/lang/ref/SoftReference<Lsun/font/FontLineMetrics;>;", $PRIVATE | $TRANSIENT, $field(Font, flmref)},
+		{"LAYOUT_LEFT_TO_RIGHT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Font, LAYOUT_LEFT_TO_RIGHT)},
+		{"LAYOUT_RIGHT_TO_LEFT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Font, LAYOUT_RIGHT_TO_LEFT)},
+		{"LAYOUT_NO_START_CONTEXT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Font, LAYOUT_NO_START_CONTEXT)},
+		{"LAYOUT_NO_LIMIT_CONTEXT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Font, LAYOUT_NO_LIMIT_CONTEXT)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;II)V", nullptr, $PUBLIC, $method(Font, init$, void, $String*, int32_t, int32_t)},
+		{"<init>", "(Ljava/lang/String;IF)V", nullptr, $PRIVATE, $method(Font, init$, void, $String*, int32_t, float)},
+		{"<init>", "(Ljava/lang/String;IFZLsun/font/Font2DHandle;)V", nullptr, $PRIVATE, $method(Font, init$, void, $String*, int32_t, float, bool, $Font2DHandle*)},
+		{"<init>", "(Ljava/io/File;IZLsun/font/CreatedFontTracker;)V", nullptr, $PRIVATE, $method(Font, init$, void, $File*, int32_t, bool, $CreatedFontTracker*), "java.awt.FontFormatException"},
+		{"<init>", "(Lsun/font/AttributeValues;Ljava/lang/String;IZLsun/font/Font2DHandle;)V", nullptr, $PRIVATE, $method(Font, init$, void, $AttributeValues*, $String*, int32_t, bool, $Font2DHandle*)},
+		{"<init>", "(Ljava/util/Map;)V", "(Ljava/util/Map<+Ljava/text/AttributedCharacterIterator$Attribute;*>;)V", $PUBLIC, $method(Font, init$, void, $Map*)},
+		{"<init>", "(Ljava/awt/Font;)V", nullptr, $PROTECTED, $method(Font, init$, void, Font*)},
+		{"<init>", "(Lsun/font/Font2D;)V", nullptr, $PRIVATE, $method(Font, init$, void, $Font2D*)},
+		{"applyStyle", "(ILsun/font/AttributeValues;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Font, applyStyle, void, int32_t, $AttributeValues*)},
+		{"applyTransform", "(Ljava/awt/geom/AffineTransform;Lsun/font/AttributeValues;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Font, applyTransform, void, $AffineTransform*, $AttributeValues*)},
+		{"canDisplay", "(C)Z", nullptr, $PUBLIC, $virtualMethod(Font, canDisplay, bool, char16_t)},
+		{"canDisplay", "(I)Z", nullptr, $PUBLIC, $virtualMethod(Font, canDisplay, bool, int32_t)},
+		{"canDisplayUpTo", "(Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(Font, canDisplayUpTo, int32_t, $String*)},
+		{"canDisplayUpTo", "([CII)I", nullptr, $PUBLIC, $virtualMethod(Font, canDisplayUpTo, int32_t, $chars*, int32_t, int32_t)},
+		{"canDisplayUpTo", "(Ljava/text/CharacterIterator;II)I", nullptr, $PUBLIC, $virtualMethod(Font, canDisplayUpTo, int32_t, $CharacterIterator*, int32_t, int32_t)},
+		{"checkFontFile", "(ILjava/io/File;)Ljava/io/File;", nullptr, $PRIVATE | $STATIC, $staticMethod(Font, checkFontFile, $File*, int32_t, $File*), "java.awt.FontFormatException,java.io.IOException"},
+		{"createFont", "(ILjava/io/InputStream;)Ljava/awt/Font;", nullptr, $PUBLIC | $STATIC, $staticMethod(Font, createFont, Font*, int32_t, $InputStream*), "java.awt.FontFormatException,java.io.IOException"},
+		{"createFont", "(ILjava/io/File;)Ljava/awt/Font;", nullptr, $PUBLIC | $STATIC, $staticMethod(Font, createFont, Font*, int32_t, $File*), "java.awt.FontFormatException,java.io.IOException"},
+		{"createFont0", "(ILjava/io/InputStream;ZLsun/font/CreatedFontTracker;)[Ljava/awt/Font;", nullptr, $PRIVATE | $STATIC, $staticMethod(Font, createFont0, $FontArray*, int32_t, $InputStream*, bool, $CreatedFontTracker*), "java.awt.FontFormatException,java.io.IOException"},
+		{"createFonts", "(Ljava/io/InputStream;)[Ljava/awt/Font;", nullptr, $PUBLIC | $STATIC, $staticMethod(Font, createFonts, $FontArray*, $InputStream*), "java.awt.FontFormatException,java.io.IOException"},
+		{"createFonts", "(Ljava/io/File;)[Ljava/awt/Font;", nullptr, $PUBLIC | $STATIC, $staticMethod(Font, createFonts, $FontArray*, $File*), "java.awt.FontFormatException,java.io.IOException"},
+		{"createGlyphVector", "(Ljava/awt/font/FontRenderContext;Ljava/lang/String;)Ljava/awt/font/GlyphVector;", nullptr, $PUBLIC, $virtualMethod(Font, createGlyphVector, $GlyphVector*, $FontRenderContext*, $String*)},
+		{"createGlyphVector", "(Ljava/awt/font/FontRenderContext;[C)Ljava/awt/font/GlyphVector;", nullptr, $PUBLIC, $virtualMethod(Font, createGlyphVector, $GlyphVector*, $FontRenderContext*, $chars*)},
+		{"createGlyphVector", "(Ljava/awt/font/FontRenderContext;Ljava/text/CharacterIterator;)Ljava/awt/font/GlyphVector;", nullptr, $PUBLIC, $virtualMethod(Font, createGlyphVector, $GlyphVector*, $FontRenderContext*, $CharacterIterator*)},
+		{"createGlyphVector", "(Ljava/awt/font/FontRenderContext;[I)Ljava/awt/font/GlyphVector;", nullptr, $PUBLIC, $virtualMethod(Font, createGlyphVector, $GlyphVector*, $FontRenderContext*, $ints*)},
+		{"decode", "(Ljava/lang/String;)Ljava/awt/Font;", nullptr, $PUBLIC | $STATIC, $staticMethod(Font, decode, Font*, $String*)},
+		{"defaultLineMetrics", "(Ljava/awt/font/FontRenderContext;)Lsun/font/FontLineMetrics;", nullptr, $PRIVATE, $method(Font, defaultLineMetrics, $FontLineMetrics*, $FontRenderContext*)},
+		{"deriveFont", "(IF)Ljava/awt/Font;", nullptr, $PUBLIC, $virtualMethod(Font, deriveFont, Font*, int32_t, float)},
+		{"deriveFont", "(ILjava/awt/geom/AffineTransform;)Ljava/awt/Font;", nullptr, $PUBLIC, $virtualMethod(Font, deriveFont, Font*, int32_t, $AffineTransform*)},
+		{"deriveFont", "(F)Ljava/awt/Font;", nullptr, $PUBLIC, $virtualMethod(Font, deriveFont, Font*, float)},
+		{"deriveFont", "(Ljava/awt/geom/AffineTransform;)Ljava/awt/Font;", nullptr, $PUBLIC, $virtualMethod(Font, deriveFont, Font*, $AffineTransform*)},
+		{"deriveFont", "(I)Ljava/awt/Font;", nullptr, $PUBLIC, $virtualMethod(Font, deriveFont, Font*, int32_t)},
+		{"deriveFont", "(Ljava/util/Map;)Ljava/awt/Font;", "(Ljava/util/Map<+Ljava/text/AttributedCharacterIterator$Attribute;*>;)Ljava/awt/Font;", $PUBLIC, $virtualMethod(Font, deriveFont, Font*, $Map*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Font, equals, bool, Object$*)},
+		{"getAttributeValues", "()Lsun/font/AttributeValues;", nullptr, $PRIVATE, $method(Font, getAttributeValues, $AttributeValues*)},
+		{"getAttributes", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/awt/font/TextAttribute;*>;", $PUBLIC, $virtualMethod(Font, getAttributes, $Map*)},
+		{"getAvailableAttributes", "()[Ljava/text/AttributedCharacterIterator$Attribute;", nullptr, $PUBLIC, $virtualMethod(Font, getAvailableAttributes, $AttributedCharacterIterator$AttributeArray*)},
+		{"getBaselineFor", "(C)B", nullptr, $PUBLIC, $virtualMethod(Font, getBaselineFor, int8_t, char16_t)},
+		{"getFamily", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Font, getFamily, $String*)},
+		{"getFamily", "(Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Font, getFamily, $String*, $Locale*)},
+		{"getFamily_NoClientCode", "()Ljava/lang/String;", nullptr, $FINAL, $method(Font, getFamily_NoClientCode, $String*)},
+		{"getFont", "(Ljava/util/Map;)Ljava/awt/Font;", "(Ljava/util/Map<+Ljava/text/AttributedCharacterIterator$Attribute;*>;)Ljava/awt/Font;", $PUBLIC | $STATIC, $staticMethod(Font, getFont, Font*, $Map*)},
+		{"getFont", "(Ljava/lang/String;)Ljava/awt/Font;", nullptr, $PUBLIC | $STATIC, $staticMethod(Font, getFont, Font*, $String*)},
+		{"getFont", "(Ljava/lang/String;Ljava/awt/Font;)Ljava/awt/Font;", nullptr, $PUBLIC | $STATIC, $staticMethod(Font, getFont, Font*, $String*, Font*)},
+		{"getFont2D", "()Lsun/font/Font2D;", nullptr, $PRIVATE, $method(Font, getFont2D, $Font2D*)},
+		{"getFontName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Font, getFontName, $String*)},
+		{"getFontName", "(Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Font, getFontName, $String*, $Locale*)},
+		{"getFontPeer", "()Ljava/awt/peer/FontPeer;", nullptr, $PRIVATE, $method(Font, getFontPeer, $FontPeer*)},
+		{"getItalicAngle", "()F", nullptr, $PUBLIC, $virtualMethod(Font, getItalicAngle, float)},
+		{"getItalicAngle", "(Ljava/awt/font/FontRenderContext;)F", nullptr, $PRIVATE, $method(Font, getItalicAngle, float, $FontRenderContext*)},
+		{"getLineMetrics", "(Ljava/lang/String;Ljava/awt/font/FontRenderContext;)Ljava/awt/font/LineMetrics;", nullptr, $PUBLIC, $virtualMethod(Font, getLineMetrics, $LineMetrics*, $String*, $FontRenderContext*)},
+		{"getLineMetrics", "(Ljava/lang/String;IILjava/awt/font/FontRenderContext;)Ljava/awt/font/LineMetrics;", nullptr, $PUBLIC, $virtualMethod(Font, getLineMetrics, $LineMetrics*, $String*, int32_t, int32_t, $FontRenderContext*)},
+		{"getLineMetrics", "([CIILjava/awt/font/FontRenderContext;)Ljava/awt/font/LineMetrics;", nullptr, $PUBLIC, $virtualMethod(Font, getLineMetrics, $LineMetrics*, $chars*, int32_t, int32_t, $FontRenderContext*)},
+		{"getLineMetrics", "(Ljava/text/CharacterIterator;IILjava/awt/font/FontRenderContext;)Ljava/awt/font/LineMetrics;", nullptr, $PUBLIC, $virtualMethod(Font, getLineMetrics, $LineMetrics*, $CharacterIterator*, int32_t, int32_t, $FontRenderContext*)},
+		{"getMaxCharBounds", "(Ljava/awt/font/FontRenderContext;)Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC, $virtualMethod(Font, getMaxCharBounds, $Rectangle2D*, $FontRenderContext*)},
+		{"getMissingGlyphCode", "()I", nullptr, $PUBLIC, $virtualMethod(Font, getMissingGlyphCode, int32_t)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Font, getName, $String*)},
+		{"getNumGlyphs", "()I", nullptr, $PUBLIC, $virtualMethod(Font, getNumGlyphs, int32_t)},
+		{"getPSName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Font, getPSName, $String*)},
+		{"getSize", "()I", nullptr, $PUBLIC, $virtualMethod(Font, getSize, int32_t)},
+		{"getSize2D", "()F", nullptr, $PUBLIC, $virtualMethod(Font, getSize2D, float)},
+		{"getStringBounds", "(Ljava/lang/String;Ljava/awt/font/FontRenderContext;)Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC, $virtualMethod(Font, getStringBounds, $Rectangle2D*, $String*, $FontRenderContext*)},
+		{"getStringBounds", "(Ljava/lang/String;IILjava/awt/font/FontRenderContext;)Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC, $virtualMethod(Font, getStringBounds, $Rectangle2D*, $String*, int32_t, int32_t, $FontRenderContext*)},
+		{"getStringBounds", "([CIILjava/awt/font/FontRenderContext;)Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC, $virtualMethod(Font, getStringBounds, $Rectangle2D*, $chars*, int32_t, int32_t, $FontRenderContext*)},
+		{"getStringBounds", "(Ljava/text/CharacterIterator;IILjava/awt/font/FontRenderContext;)Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC, $virtualMethod(Font, getStringBounds, $Rectangle2D*, $CharacterIterator*, int32_t, int32_t, $FontRenderContext*)},
+		{"getStyle", "()I", nullptr, $PUBLIC, $virtualMethod(Font, getStyle, int32_t)},
+		{"getTransform", "()Ljava/awt/geom/AffineTransform;", nullptr, $PUBLIC, $virtualMethod(Font, getTransform, $AffineTransform*)},
+		{"hasLayoutAttributes", "()Z", nullptr, $PUBLIC, $virtualMethod(Font, hasLayoutAttributes, bool)},
+		{"hasTempPermission", "()Z", nullptr, $PRIVATE | $STATIC, $staticMethod(Font, hasTempPermission, bool)},
+		{"hasUniformLineMetrics", "()Z", nullptr, $PUBLIC, $virtualMethod(Font, hasUniformLineMetrics, bool)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Font, hashCode, int32_t)},
+		{"initFromValues", "(Lsun/font/AttributeValues;)V", nullptr, $PRIVATE, $method(Font, initFromValues, void, $AttributeValues*)},
+		{"initIDs", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(Font, initIDs, void)},
+		{"isBold", "()Z", nullptr, $PUBLIC, $virtualMethod(Font, isBold, bool)},
+		{"isItalic", "()Z", nullptr, $PUBLIC, $virtualMethod(Font, isItalic, bool)},
+		{"isPlain", "()Z", nullptr, $PUBLIC, $virtualMethod(Font, isPlain, bool)},
+		{"isTransformed", "()Z", nullptr, $PUBLIC, $virtualMethod(Font, isTransformed, bool)},
+		{"layoutGlyphVector", "(Ljava/awt/font/FontRenderContext;[CIII)Ljava/awt/font/GlyphVector;", nullptr, $PUBLIC, $virtualMethod(Font, layoutGlyphVector, $GlyphVector*, $FontRenderContext*, $chars*, int32_t, int32_t, int32_t)},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(Font, readObject, void, $ObjectInputStream*), "java.lang.ClassNotFoundException,java.io.IOException"},
+		{"textRequiresLayout", "([CII)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Font, textRequiresLayout, bool, $chars*, int32_t, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Font, toString, $String*)},
+		{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(Font, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.awt.Font$FontAccessImpl", "java.awt.Font", "FontAccessImpl", $PRIVATE | $STATIC},
+		{"java.awt.Font$3", nullptr, nullptr, 0},
+		{"java.awt.Font$2", nullptr, nullptr, 0},
+		{"java.awt.Font$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.awt.Font",
+		"java.lang.Object",
+		"java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.awt.Font$FontAccessImpl,java.awt.Font$3,java.awt.Font$2,java.awt.Font$1"
+	};
+	$loadClass(Font, name, initialize, &classInfo$$, Font::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Font);
+	});
 	return class$;
 }
 

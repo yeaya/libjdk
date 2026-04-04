@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/util/Name$NameMapper.h>
-
 #include <com/sun/tools/javac/util/Name.h>
 #include <jcpp.h>
 
@@ -13,38 +12,33 @@ namespace com {
 			namespace javac {
 				namespace util {
 
-$MethodInfo _Name$NameMapper_MethodInfo_[] = {
-	{"map", "([BII)Ljava/lang/Object;", "([BII)TX;", $PUBLIC | $ABSTRACT, $virtualMethod(Name$NameMapper, map, $Object*, $bytes*, int32_t, int32_t)},
-	{}
-};
-
-$InnerClassInfo _Name$NameMapper_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.util.Name$NameMapper", "com.sun.tools.javac.util.Name", "NameMapper", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Name$NameMapper_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.tools.javac.util.Name$NameMapper",
-	nullptr,
-	nullptr,
-	nullptr,
-	_Name$NameMapper_MethodInfo_,
-	"<X:Ljava/lang/Object;>Ljava/lang/Object;",
-	nullptr,
-	_Name$NameMapper_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.util.Name"
-};
-
-$Object* allocate$Name$NameMapper($Class* clazz) {
-	return $of($alloc(Name$NameMapper));
-}
-
 $Class* Name$NameMapper::load$($String* name, bool initialize) {
-	$loadClass(Name$NameMapper, name, initialize, &_Name$NameMapper_ClassInfo_, allocate$Name$NameMapper);
+	$MethodInfo methodInfos$$[] = {
+		{"map", "([BII)Ljava/lang/Object;", "([BII)TX;", $PUBLIC | $ABSTRACT, $virtualMethod(Name$NameMapper, map, $Object*, $bytes*, int32_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.util.Name$NameMapper", "com.sun.tools.javac.util.Name", "NameMapper", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.tools.javac.util.Name$NameMapper",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		"<X:Ljava/lang/Object;>Ljava/lang/Object;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.util.Name"
+	};
+	$loadClass(Name$NameMapper, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Name$NameMapper);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/tools/jar/GNUStyleOptions$7.h>
-
 #include <sun/tools/jar/GNUStyleOptions$BadArgs.h>
 #include <sun/tools/jar/GNUStyleOptions$Option.h>
 #include <sun/tools/jar/GNUStyleOptions$OptionType.h>
@@ -19,61 +18,55 @@ namespace sun {
 	namespace tools {
 		namespace jar {
 
-$MethodInfo _GNUStyleOptions$7_MethodInfo_[] = {
-	{"<init>", "(ZLsun/tools/jar/GNUStyleOptions$OptionType;[Ljava/lang/String;)V", nullptr, $TRANSIENT, $method(GNUStyleOptions$7, init$, void, bool, $GNUStyleOptions$OptionType*, $StringArray*)},
-	{"process", "(Lsun/tools/jar/Main;Ljava/lang/String;Ljava/lang/String;)V", nullptr, 0, $virtualMethod(GNUStyleOptions$7, process, void, $Main*, $String*, $String*), "sun.tools.jar.GNUStyleOptions$BadArgs"},
-	{}
-};
-
-$EnclosingMethodInfo _GNUStyleOptions$7_EnclosingMethodInfo_ = {
-	"sun.tools.jar.GNUStyleOptions",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _GNUStyleOptions$7_InnerClassesInfo_[] = {
-	{"sun.tools.jar.GNUStyleOptions$7", nullptr, nullptr, 0},
-	{"sun.tools.jar.GNUStyleOptions$Option", "sun.tools.jar.GNUStyleOptions", "Option", $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _GNUStyleOptions$7_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.tools.jar.GNUStyleOptions$7",
-	"sun.tools.jar.GNUStyleOptions$Option",
-	nullptr,
-	nullptr,
-	_GNUStyleOptions$7_MethodInfo_,
-	nullptr,
-	&_GNUStyleOptions$7_EnclosingMethodInfo_,
-	_GNUStyleOptions$7_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.tools.jar.GNUStyleOptions"
-};
-
-$Object* allocate$GNUStyleOptions$7($Class* clazz) {
-	return $of($alloc(GNUStyleOptions$7));
-}
-
 void GNUStyleOptions$7::init$(bool hasArg, $GNUStyleOptions$OptionType* type, $StringArray* aliases) {
 	$GNUStyleOptions$Option::init$(hasArg, type, aliases);
 }
 
 void GNUStyleOptions$7::process($Main* tool, $String* opt, $String* arg) {
-	$useLocalCurrentObjectStackCache();
-	if ($nc(tool)->cflag || $nc(tool)->iflag || $nc(tool)->tflag || $nc(tool)->uflag || $nc(tool)->xflag || $nc(tool)->dflag) {
+	$useLocalObjectStack();
+	if ($nc(tool)->cflag || tool->iflag || tool->tflag || tool->uflag || tool->xflag || tool->dflag) {
 		$throw($($$new($GNUStyleOptions$BadArgs, "error.multiple.main.operations"_s)->showUsage(true)));
 	}
-	$nc(tool)->validate = true;
+	tool->validate = true;
 }
 
 GNUStyleOptions$7::GNUStyleOptions$7() {
 }
 
 $Class* GNUStyleOptions$7::load$($String* name, bool initialize) {
-	$loadClass(GNUStyleOptions$7, name, initialize, &_GNUStyleOptions$7_ClassInfo_, allocate$GNUStyleOptions$7);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(ZLsun/tools/jar/GNUStyleOptions$OptionType;[Ljava/lang/String;)V", nullptr, $TRANSIENT, $method(GNUStyleOptions$7, init$, void, bool, $GNUStyleOptions$OptionType*, $StringArray*)},
+		{"process", "(Lsun/tools/jar/Main;Ljava/lang/String;Ljava/lang/String;)V", nullptr, 0, $virtualMethod(GNUStyleOptions$7, process, void, $Main*, $String*, $String*), "sun.tools.jar.GNUStyleOptions$BadArgs"},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.tools.jar.GNUStyleOptions",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.tools.jar.GNUStyleOptions$7", nullptr, nullptr, 0},
+		{"sun.tools.jar.GNUStyleOptions$Option", "sun.tools.jar.GNUStyleOptions", "Option", $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.tools.jar.GNUStyleOptions$7",
+		"sun.tools.jar.GNUStyleOptions$Option",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.tools.jar.GNUStyleOptions"
+	};
+	$loadClass(GNUStyleOptions$7, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(GNUStyleOptions$7);
+	});
 	return class$;
 }
 

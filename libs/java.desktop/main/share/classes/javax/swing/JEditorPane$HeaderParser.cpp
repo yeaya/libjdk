@@ -1,5 +1,4 @@
 #include <javax/swing/JEditorPane$HeaderParser.h>
-
 #include <javax/swing/JEditorPane.h>
 #include <jcpp.h>
 
@@ -13,48 +12,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace javax {
 	namespace swing {
 
-$FieldInfo _JEditorPane$HeaderParser_FieldInfo_[] = {
-	{"raw", "Ljava/lang/String;", nullptr, 0, $field(JEditorPane$HeaderParser, raw)},
-	{"tab", "[[Ljava/lang/String;", nullptr, 0, $field(JEditorPane$HeaderParser, tab)},
-	{}
-};
-
-$MethodInfo _JEditorPane$HeaderParser_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(JEditorPane$HeaderParser, init$, void, $String*)},
-	{"findInt", "(Ljava/lang/String;I)I", nullptr, $PUBLIC, $virtualMethod(JEditorPane$HeaderParser, findInt, int32_t, $String*, int32_t)},
-	{"findKey", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JEditorPane$HeaderParser, findKey, $String*, int32_t)},
-	{"findValue", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JEditorPane$HeaderParser, findValue, $String*, int32_t)},
-	{"findValue", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JEditorPane$HeaderParser, findValue, $String*, $String*)},
-	{"findValue", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JEditorPane$HeaderParser, findValue, $String*, $String*, $String*)},
-	{"parse", "()V", nullptr, $PRIVATE, $method(JEditorPane$HeaderParser, parse, void)},
-	{}
-};
-
-$InnerClassInfo _JEditorPane$HeaderParser_InnerClassesInfo_[] = {
-	{"javax.swing.JEditorPane$HeaderParser", "javax.swing.JEditorPane", "HeaderParser", $STATIC},
-	{}
-};
-
-$ClassInfo _JEditorPane$HeaderParser_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.JEditorPane$HeaderParser",
-	"java.lang.Object",
-	nullptr,
-	_JEditorPane$HeaderParser_FieldInfo_,
-	_JEditorPane$HeaderParser_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JEditorPane$HeaderParser_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.JEditorPane"
-};
-
-$Object* allocate$JEditorPane$HeaderParser($Class* clazz) {
-	return $of($alloc(JEditorPane$HeaderParser));
-}
-
 void JEditorPane$HeaderParser::init$($String* raw) {
 	$set(this, raw, raw);
 	$set(this, tab, $new($StringArray2, 10, 2));
@@ -62,10 +19,10 @@ void JEditorPane$HeaderParser::init$($String* raw) {
 }
 
 void JEditorPane$HeaderParser::parse() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->raw != nullptr) {
-		$set(this, raw, $nc(this->raw)->trim());
-		$var($chars, ca, $nc(this->raw)->toCharArray());
+		$set(this, raw, this->raw->trim());
+		$var($chars, ca, this->raw->toCharArray());
 		int32_t beg = 0;
 		int32_t end = 0;
 		int32_t i = 0;
@@ -162,15 +119,15 @@ $String* JEditorPane$HeaderParser::findValue($String* k$renamed, $String* Defaul
 	for (int32_t i = 0; i < 10; ++i) {
 		if ($nc($nc(this->tab)->get(i))->get(0) == nullptr) {
 			return Default;
-		} else if (k->equals($nc($nc(this->tab)->get(i))->get(0))) {
-			return $nc($nc(this->tab)->get(i))->get(1);
+		} else if (k->equals($nc(this->tab->get(i))->get(0))) {
+			return $nc(this->tab->get(i))->get(1);
 		}
 	}
 	return Default;
 }
 
 int32_t JEditorPane$HeaderParser::findInt($String* k, int32_t Default) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		return $Integer::parseInt($(findValue(k, $($String::valueOf(Default)))));
 	} catch ($Throwable& t) {
@@ -183,7 +140,43 @@ JEditorPane$HeaderParser::JEditorPane$HeaderParser() {
 }
 
 $Class* JEditorPane$HeaderParser::load$($String* name, bool initialize) {
-	$loadClass(JEditorPane$HeaderParser, name, initialize, &_JEditorPane$HeaderParser_ClassInfo_, allocate$JEditorPane$HeaderParser);
+	$FieldInfo fieldInfos$$[] = {
+		{"raw", "Ljava/lang/String;", nullptr, 0, $field(JEditorPane$HeaderParser, raw)},
+		{"tab", "[[Ljava/lang/String;", nullptr, 0, $field(JEditorPane$HeaderParser, tab)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(JEditorPane$HeaderParser, init$, void, $String*)},
+		{"findInt", "(Ljava/lang/String;I)I", nullptr, $PUBLIC, $virtualMethod(JEditorPane$HeaderParser, findInt, int32_t, $String*, int32_t)},
+		{"findKey", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JEditorPane$HeaderParser, findKey, $String*, int32_t)},
+		{"findValue", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JEditorPane$HeaderParser, findValue, $String*, int32_t)},
+		{"findValue", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JEditorPane$HeaderParser, findValue, $String*, $String*)},
+		{"findValue", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JEditorPane$HeaderParser, findValue, $String*, $String*, $String*)},
+		{"parse", "()V", nullptr, $PRIVATE, $method(JEditorPane$HeaderParser, parse, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.JEditorPane$HeaderParser", "javax.swing.JEditorPane", "HeaderParser", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.JEditorPane$HeaderParser",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.JEditorPane"
+	};
+	$loadClass(JEditorPane$HeaderParser, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JEditorPane$HeaderParser);
+	});
 	return class$;
 }
 

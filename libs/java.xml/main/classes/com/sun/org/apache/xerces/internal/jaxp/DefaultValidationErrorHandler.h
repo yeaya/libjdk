@@ -33,6 +33,7 @@ class DefaultValidationErrorHandler : public ::org::xml::sax::helpers::DefaultHa
 	$class(DefaultValidationErrorHandler, 0, ::org::xml::sax::helpers::DefaultHandler)
 public:
 	DefaultValidationErrorHandler();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::util::Locale* locale);
 	virtual void error(::org::xml::sax::SAXParseException* e) override;
 	static int32_t ERROR_COUNT_LIMIT;

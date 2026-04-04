@@ -1,5 +1,4 @@
 #include <com/sun/xml/internal/stream/events/StartElementEvent.h>
-
 #include <com/sun/xml/internal/stream/events/DummyEvent.h>
 #include <com/sun/xml/internal/stream/util/ReadOnlyIterator.h>
 #include <java/io/Writer.h>
@@ -32,8 +31,6 @@ using $ArrayList = ::java::util::ArrayList;
 using $Collection = ::java::util::Collection;
 using $HashMap = ::java::util::HashMap;
 using $Iterator = ::java::util::Iterator;
-using $List = ::java::util::List;
-using $Map = ::java::util::Map;
 using $NamespaceContext = ::javax::xml::namespace$::NamespaceContext;
 using $QName = ::javax::xml::namespace$::QName;
 using $Location = ::javax::xml::stream::Location;
@@ -50,71 +47,6 @@ namespace com {
 			namespace internal {
 				namespace stream {
 					namespace events {
-
-$FieldInfo _StartElementEvent_FieldInfo_[] = {
-	{"fAttributes", "Ljava/util/Map;", "Ljava/util/Map<Ljavax/xml/namespace/QName;Ljavax/xml/stream/events/Attribute;>;", $PRIVATE, $field(StartElementEvent, fAttributes)},
-	{"fNamespaces", "Ljava/util/List;", "Ljava/util/List<Ljavax/xml/stream/events/Namespace;>;", $PRIVATE, $field(StartElementEvent, fNamespaces)},
-	{"fNamespaceContext", "Ljavax/xml/namespace/NamespaceContext;", nullptr, $PRIVATE, $field(StartElementEvent, fNamespaceContext)},
-	{"fQName", "Ljavax/xml/namespace/QName;", nullptr, $PRIVATE, $field(StartElementEvent, fQName)},
-	{}
-};
-
-$MethodInfo _StartElementEvent_MethodInfo_[] = {
-	{"*asCharacters", "()Ljavax/xml/stream/events/Characters;", nullptr, $PUBLIC},
-	{"*asEndElement", "()Ljavax/xml/stream/events/EndElement;", nullptr, $PUBLIC},
-	{"*asStartElement", "()Ljavax/xml/stream/events/StartElement;", nullptr, $PUBLIC},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*getEventType", "()I", nullptr, $PUBLIC},
-	{"*getLocation", "()Ljavax/xml/stream/Location;", nullptr, $PUBLIC},
-	{"*getSchemaType", "()Ljavax/xml/namespace/QName;", nullptr, $PUBLIC},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(StartElementEvent, init$, void, $String*, $String*, $String*)},
-	{"<init>", "(Ljavax/xml/namespace/QName;)V", nullptr, $PUBLIC, $method(StartElementEvent, init$, void, $QName*)},
-	{"<init>", "(Ljavax/xml/stream/events/StartElement;)V", nullptr, $PUBLIC, $method(StartElementEvent, init$, void, $StartElement*)},
-	{"addAttribute", "(Ljavax/xml/stream/events/Attribute;)V", nullptr, 0, $virtualMethod(StartElementEvent, addAttribute, void, $Attribute*)},
-	{"addAttributes", "(Ljava/util/Iterator;)V", "(Ljava/util/Iterator<+Ljavax/xml/stream/events/Attribute;>;)V", $FINAL, $method(StartElementEvent, addAttributes, void, $Iterator*)},
-	{"addNamespaceAttribute", "(Ljavax/xml/stream/events/Namespace;)V", nullptr, 0, $virtualMethod(StartElementEvent, addNamespaceAttribute, void, $Namespace*)},
-	{"addNamespaceAttributes", "(Ljava/util/Iterator;)V", "(Ljava/util/Iterator<+Ljavax/xml/stream/events/Namespace;>;)V", $FINAL, $method(StartElementEvent, addNamespaceAttributes, void, $Iterator*)},
-	{"getAttributeByName", "(Ljavax/xml/namespace/QName;)Ljavax/xml/stream/events/Attribute;", nullptr, $PUBLIC, $virtualMethod(StartElementEvent, getAttributeByName, $Attribute*, $QName*)},
-	{"getAttributes", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljavax/xml/stream/events/Attribute;>;", $PUBLIC, $virtualMethod(StartElementEvent, getAttributes, $Iterator*)},
-	{"getName", "()Ljavax/xml/namespace/QName;", nullptr, $PUBLIC, $virtualMethod(StartElementEvent, getName, $QName*)},
-	{"getNamespace", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StartElementEvent, getNamespace, $String*)},
-	{"getNamespaceContext", "()Ljavax/xml/namespace/NamespaceContext;", nullptr, $PUBLIC, $virtualMethod(StartElementEvent, getNamespaceContext, $NamespaceContext*)},
-	{"getNamespaceURI", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StartElementEvent, getNamespaceURI, $String*, $String*)},
-	{"getNamespaces", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljavax/xml/stream/events/Namespace;>;", $PUBLIC, $virtualMethod(StartElementEvent, getNamespaces, $Iterator*)},
-	{"init", "()V", nullptr, $PROTECTED | $FINAL, $method(StartElementEvent, init, void)},
-	{"*isAttribute", "()Z", nullptr, $PUBLIC},
-	{"*isCharacters", "()Z", nullptr, $PUBLIC},
-	{"*isEndDocument", "()Z", nullptr, $PUBLIC},
-	{"*isEndElement", "()Z", nullptr, $PUBLIC},
-	{"*isEntityReference", "()Z", nullptr, $PUBLIC},
-	{"*isNamespace", "()Z", nullptr, $PUBLIC},
-	{"*isProcessingInstruction", "()Z", nullptr, $PUBLIC},
-	{"*isStartDocument", "()Z", nullptr, $PUBLIC},
-	{"*isStartElement", "()Z", nullptr, $PUBLIC},
-	{"nameAsString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StartElementEvent, nameAsString, $String*)},
-	{"setName", "(Ljavax/xml/namespace/QName;)V", nullptr, $PUBLIC, $virtualMethod(StartElementEvent, setName, void, $QName*)},
-	{"setNamespaceContext", "(Ljavax/xml/namespace/NamespaceContext;)V", nullptr, $PUBLIC, $virtualMethod(StartElementEvent, setNamespaceContext, void, $NamespaceContext*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StartElementEvent, toString, $String*)},
-	{"*writeAsEncodedUnicode", "(Ljava/io/Writer;)V", nullptr, $PUBLIC},
-	{"writeAsEncodedUnicodeEx", "(Ljava/io/Writer;)V", nullptr, $PROTECTED, $virtualMethod(StartElementEvent, writeAsEncodedUnicodeEx, void, $Writer*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _StartElementEvent_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.xml.internal.stream.events.StartElementEvent",
-	"com.sun.xml.internal.stream.events.DummyEvent",
-	"javax.xml.stream.events.StartElement",
-	_StartElementEvent_FieldInfo_,
-	_StartElementEvent_MethodInfo_
-};
-
-$Object* allocate$StartElementEvent($Class* clazz) {
-	return $of($alloc(StartElementEvent));
-}
 
 int32_t StartElementEvent::getEventType() {
 	 return this->$DummyEvent::getEventType();
@@ -208,10 +140,10 @@ void StartElementEvent::init$($QName* qname) {
 }
 
 void StartElementEvent::init$($StartElement* startelement) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	StartElementEvent::init$($($nc(startelement)->getName()));
-	addAttributes($($nc(startelement)->getAttributes()));
-	addNamespaceAttributes($($nc(startelement)->getNamespaces()));
+	addAttributes($(startelement->getAttributes()));
+	addNamespaceAttributes($(startelement->getNamespaces()));
 }
 
 void StartElementEvent::init() {
@@ -229,9 +161,9 @@ void StartElementEvent::setName($QName* qname) {
 }
 
 $Iterator* StartElementEvent::getAttributes() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->fAttributes != nullptr) {
-		$var($Collection, coll, $nc(this->fAttributes)->values());
+		$var($Collection, coll, this->fAttributes->values());
 		return $new($ReadOnlyIterator, $($nc(coll)->iterator()));
 	}
 	return $new($ReadOnlyIterator);
@@ -239,7 +171,7 @@ $Iterator* StartElementEvent::getAttributes() {
 
 $Iterator* StartElementEvent::getNamespaces() {
 	if (this->fNamespaces != nullptr) {
-		return $new($ReadOnlyIterator, $($nc(this->fNamespaces)->iterator()));
+		return $new($ReadOnlyIterator, $(this->fNamespaces->iterator()));
 	}
 	return $new($ReadOnlyIterator);
 }
@@ -257,17 +189,17 @@ $String* StartElementEvent::getNamespace() {
 
 $String* StartElementEvent::getNamespaceURI($String* prefix) {
 	bool var$0 = getNamespace() != nullptr;
-	if (var$0 && $nc($($nc(this->fQName)->getPrefix()))->equals(prefix)) {
+	if (var$0 && $$nc($nc(this->fQName)->getPrefix())->equals(prefix)) {
 		return getNamespace();
 	}
 	if (this->fNamespaceContext != nullptr) {
-		return $nc(this->fNamespaceContext)->getNamespaceURI(prefix);
+		return this->fNamespaceContext->getNamespaceURI(prefix);
 	}
 	return nullptr;
 }
 
 $String* StartElementEvent::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, startElement, $new($StringBuilder));
 	startElement->append("<"_s);
 	startElement->append($(nameAsString()));
@@ -277,16 +209,16 @@ $String* StartElementEvent::toString() {
 		while ($nc(it)->hasNext()) {
 			$assign(attr, $cast($Attribute, it->next()));
 			startElement->append(" "_s);
-			startElement->append($($nc($of(attr))->toString()));
+			startElement->append($($nc(attr)->toString()));
 		}
 	}
 	if (this->fNamespaces != nullptr) {
-		$var($Iterator, it, $nc(this->fNamespaces)->iterator());
+		$var($Iterator, it, this->fNamespaces->iterator());
 		$var($Namespace, ns, nullptr);
 		while ($nc(it)->hasNext()) {
 			$assign(ns, $cast($Namespace, it->next()));
 			startElement->append(" "_s);
-			startElement->append($($nc($of(ns))->toString()));
+			startElement->append($($nc(ns)->toString()));
 		}
 	}
 	startElement->append(">"_s);
@@ -294,18 +226,26 @@ $String* StartElementEvent::toString() {
 }
 
 $String* StartElementEvent::nameAsString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (""_s->equals($($nc(this->fQName)->getNamespaceURI()))) {
 		return $nc(this->fQName)->getLocalPart();
 	}
 	if ($nc(this->fQName)->getPrefix() != nullptr) {
-		$var($String, var$2, $$str({"[\'"_s, $($nc(this->fQName)->getNamespaceURI()), "\']:"_s}));
-		$var($String, var$1, $$concat(var$2, $($nc(this->fQName)->getPrefix())));
-		$var($String, var$0, $$concat(var$1, ":"_s));
-		return $concat(var$0, $($nc(this->fQName)->getLocalPart()));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append("[\'"_s);
+		var$0->append($($nc(this->fQName)->getNamespaceURI()));
+		var$0->append("\']:"_s);
+		var$0->append($(this->fQName->getPrefix()));
+		var$0->append(":"_s);
+		var$0->append($(this->fQName->getLocalPart()));
+		return $str(var$0);
 	} else {
-		$var($String, var$3, $$str({"[\'"_s, $($nc(this->fQName)->getNamespaceURI()), "\']:"_s}));
-		return $concat(var$3, $($nc(this->fQName)->getLocalPart()));
+		$var($StringBuilder, var$1, $new($StringBuilder));
+		var$1->append("[\'"_s);
+		var$1->append($($nc(this->fQName)->getNamespaceURI()));
+		var$1->append("\']:"_s);
+		var$1->append($(this->fQName->getLocalPart()));
+		return $str(var$1);
 	}
 }
 
@@ -330,7 +270,7 @@ void StartElementEvent::addAttribute($Attribute* attr) {
 }
 
 void StartElementEvent::addAttributes($Iterator* attrs) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (attrs == nullptr) {
 		return;
 	}
@@ -348,7 +288,7 @@ void StartElementEvent::addNamespaceAttribute($Namespace* attr) {
 }
 
 void StartElementEvent::addNamespaceAttributes($Iterator* attrs) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (attrs == nullptr) {
 		return;
 	}
@@ -362,7 +302,67 @@ StartElementEvent::StartElementEvent() {
 }
 
 $Class* StartElementEvent::load$($String* name, bool initialize) {
-	$loadClass(StartElementEvent, name, initialize, &_StartElementEvent_ClassInfo_, allocate$StartElementEvent);
+	$FieldInfo fieldInfos$$[] = {
+		{"fAttributes", "Ljava/util/Map;", "Ljava/util/Map<Ljavax/xml/namespace/QName;Ljavax/xml/stream/events/Attribute;>;", $PRIVATE, $field(StartElementEvent, fAttributes)},
+		{"fNamespaces", "Ljava/util/List;", "Ljava/util/List<Ljavax/xml/stream/events/Namespace;>;", $PRIVATE, $field(StartElementEvent, fNamespaces)},
+		{"fNamespaceContext", "Ljavax/xml/namespace/NamespaceContext;", nullptr, $PRIVATE, $field(StartElementEvent, fNamespaceContext)},
+		{"fQName", "Ljavax/xml/namespace/QName;", nullptr, $PRIVATE, $field(StartElementEvent, fQName)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*asCharacters", "()Ljavax/xml/stream/events/Characters;", nullptr, $PUBLIC},
+		{"*asEndElement", "()Ljavax/xml/stream/events/EndElement;", nullptr, $PUBLIC},
+		{"*asStartElement", "()Ljavax/xml/stream/events/StartElement;", nullptr, $PUBLIC},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*getEventType", "()I", nullptr, $PUBLIC},
+		{"*getLocation", "()Ljavax/xml/stream/Location;", nullptr, $PUBLIC},
+		{"*getSchemaType", "()Ljavax/xml/namespace/QName;", nullptr, $PUBLIC},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(StartElementEvent, init$, void, $String*, $String*, $String*)},
+		{"<init>", "(Ljavax/xml/namespace/QName;)V", nullptr, $PUBLIC, $method(StartElementEvent, init$, void, $QName*)},
+		{"<init>", "(Ljavax/xml/stream/events/StartElement;)V", nullptr, $PUBLIC, $method(StartElementEvent, init$, void, $StartElement*)},
+		{"addAttribute", "(Ljavax/xml/stream/events/Attribute;)V", nullptr, 0, $virtualMethod(StartElementEvent, addAttribute, void, $Attribute*)},
+		{"addAttributes", "(Ljava/util/Iterator;)V", "(Ljava/util/Iterator<+Ljavax/xml/stream/events/Attribute;>;)V", $FINAL, $method(StartElementEvent, addAttributes, void, $Iterator*)},
+		{"addNamespaceAttribute", "(Ljavax/xml/stream/events/Namespace;)V", nullptr, 0, $virtualMethod(StartElementEvent, addNamespaceAttribute, void, $Namespace*)},
+		{"addNamespaceAttributes", "(Ljava/util/Iterator;)V", "(Ljava/util/Iterator<+Ljavax/xml/stream/events/Namespace;>;)V", $FINAL, $method(StartElementEvent, addNamespaceAttributes, void, $Iterator*)},
+		{"getAttributeByName", "(Ljavax/xml/namespace/QName;)Ljavax/xml/stream/events/Attribute;", nullptr, $PUBLIC, $virtualMethod(StartElementEvent, getAttributeByName, $Attribute*, $QName*)},
+		{"getAttributes", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljavax/xml/stream/events/Attribute;>;", $PUBLIC, $virtualMethod(StartElementEvent, getAttributes, $Iterator*)},
+		{"getName", "()Ljavax/xml/namespace/QName;", nullptr, $PUBLIC, $virtualMethod(StartElementEvent, getName, $QName*)},
+		{"getNamespace", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StartElementEvent, getNamespace, $String*)},
+		{"getNamespaceContext", "()Ljavax/xml/namespace/NamespaceContext;", nullptr, $PUBLIC, $virtualMethod(StartElementEvent, getNamespaceContext, $NamespaceContext*)},
+		{"getNamespaceURI", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StartElementEvent, getNamespaceURI, $String*, $String*)},
+		{"getNamespaces", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljavax/xml/stream/events/Namespace;>;", $PUBLIC, $virtualMethod(StartElementEvent, getNamespaces, $Iterator*)},
+		{"init", "()V", nullptr, $PROTECTED | $FINAL, $method(StartElementEvent, init, void)},
+		{"*isAttribute", "()Z", nullptr, $PUBLIC},
+		{"*isCharacters", "()Z", nullptr, $PUBLIC},
+		{"*isEndDocument", "()Z", nullptr, $PUBLIC},
+		{"*isEndElement", "()Z", nullptr, $PUBLIC},
+		{"*isEntityReference", "()Z", nullptr, $PUBLIC},
+		{"*isNamespace", "()Z", nullptr, $PUBLIC},
+		{"*isProcessingInstruction", "()Z", nullptr, $PUBLIC},
+		{"*isStartDocument", "()Z", nullptr, $PUBLIC},
+		{"*isStartElement", "()Z", nullptr, $PUBLIC},
+		{"nameAsString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StartElementEvent, nameAsString, $String*)},
+		{"setName", "(Ljavax/xml/namespace/QName;)V", nullptr, $PUBLIC, $virtualMethod(StartElementEvent, setName, void, $QName*)},
+		{"setNamespaceContext", "(Ljavax/xml/namespace/NamespaceContext;)V", nullptr, $PUBLIC, $virtualMethod(StartElementEvent, setNamespaceContext, void, $NamespaceContext*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StartElementEvent, toString, $String*)},
+		{"*writeAsEncodedUnicode", "(Ljava/io/Writer;)V", nullptr, $PUBLIC},
+		{"writeAsEncodedUnicodeEx", "(Ljava/io/Writer;)V", nullptr, $PROTECTED, $virtualMethod(StartElementEvent, writeAsEncodedUnicodeEx, void, $Writer*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.xml.internal.stream.events.StartElementEvent",
+		"com.sun.xml.internal.stream.events.DummyEvent",
+		"javax.xml.stream.events.StartElement",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(StartElementEvent, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(StartElementEvent));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <bug8032874$TestTableModel.h>
-
 #include <bug8032874.h>
 #include <java/util/ArrayList.h>
 #include <java/util/List.h>
@@ -12,59 +11,19 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ArrayList = ::java::util::ArrayList;
-using $List = ::java::util::List;
 using $AbstractTableModel = ::javax::swing::table::AbstractTableModel;
 
-$FieldInfo _bug8032874$TestTableModel_FieldInfo_[] = {
-	{"data", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/Integer;>;", $PRIVATE | $FINAL, $field(bug8032874$TestTableModel, data)},
-	{}
-};
-
-$MethodInfo _bug8032874$TestTableModel_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(bug8032874$TestTableModel, init$, void)},
-	{"getColumnCount", "()I", nullptr, $PUBLIC, $virtualMethod(bug8032874$TestTableModel, getColumnCount, int32_t)},
-	{"getRowCount", "()I", nullptr, $PUBLIC, $virtualMethod(bug8032874$TestTableModel, getRowCount, int32_t)},
-	{"getValueAt", "(II)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(bug8032874$TestTableModel, getValueAt, $Object*, int32_t, int32_t)},
-	{"remove", "(I)V", nullptr, $PUBLIC, $virtualMethod(bug8032874$TestTableModel, remove, void, int32_t)},
-	{}
-};
-
-$InnerClassInfo _bug8032874$TestTableModel_InnerClassesInfo_[] = {
-	{"bug8032874$TestTableModel", "bug8032874", "TestTableModel", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _bug8032874$TestTableModel_ClassInfo_ = {
-	$ACC_SUPER,
-	"bug8032874$TestTableModel",
-	"javax.swing.table.AbstractTableModel",
-	nullptr,
-	_bug8032874$TestTableModel_FieldInfo_,
-	_bug8032874$TestTableModel_MethodInfo_,
-	nullptr,
-	nullptr,
-	_bug8032874$TestTableModel_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"bug8032874"
-};
-
-$Object* allocate$bug8032874$TestTableModel($Class* clazz) {
-	return $of($alloc(bug8032874$TestTableModel));
-}
-
 void bug8032874$TestTableModel::init$() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$AbstractTableModel::init$();
 	$set(this, data, $new($ArrayList));
 	for (int32_t i = 0; i < 5; ++i) {
-		$nc(this->data)->add($($Integer::valueOf(i)));
+		this->data->add($($Integer::valueOf(i)));
 	}
 }
 
 int32_t bug8032874$TestTableModel::getRowCount() {
-	return $nc(this->data)->size();
+	return this->data->size();
 }
 
 int32_t bug8032874$TestTableModel::getColumnCount() {
@@ -72,11 +31,11 @@ int32_t bug8032874$TestTableModel::getColumnCount() {
 }
 
 $Object* bug8032874$TestTableModel::getValueAt(int32_t rowIndex, int32_t columnIndex) {
-	return $of($nc(this->data)->get(rowIndex));
+	return this->data->get(rowIndex);
 }
 
 void bug8032874$TestTableModel::remove(int32_t row) {
-	$nc(this->data)->remove(row);
+	this->data->remove(row);
 	fireTableRowsDeleted(row, row);
 }
 
@@ -84,7 +43,40 @@ bug8032874$TestTableModel::bug8032874$TestTableModel() {
 }
 
 $Class* bug8032874$TestTableModel::load$($String* name, bool initialize) {
-	$loadClass(bug8032874$TestTableModel, name, initialize, &_bug8032874$TestTableModel_ClassInfo_, allocate$bug8032874$TestTableModel);
+	$FieldInfo fieldInfos$$[] = {
+		{"data", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/Integer;>;", $PRIVATE | $FINAL, $field(bug8032874$TestTableModel, data)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(bug8032874$TestTableModel, init$, void)},
+		{"getColumnCount", "()I", nullptr, $PUBLIC, $virtualMethod(bug8032874$TestTableModel, getColumnCount, int32_t)},
+		{"getRowCount", "()I", nullptr, $PUBLIC, $virtualMethod(bug8032874$TestTableModel, getRowCount, int32_t)},
+		{"getValueAt", "(II)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(bug8032874$TestTableModel, getValueAt, $Object*, int32_t, int32_t)},
+		{"remove", "(I)V", nullptr, $PUBLIC, $virtualMethod(bug8032874$TestTableModel, remove, void, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"bug8032874$TestTableModel", "bug8032874", "TestTableModel", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"bug8032874$TestTableModel",
+		"javax.swing.table.AbstractTableModel",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"bug8032874"
+	};
+	$loadClass(bug8032874$TestTableModel, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(bug8032874$TestTableModel));
+	});
 	return class$;
 }
 

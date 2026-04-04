@@ -1,6 +1,4 @@
 #include <com/sun/tools/javac/tree/JCTree$JCBreak.h>
-
-#include <com/sun/source/tree/BreakTree.h>
 #include <com/sun/source/tree/Tree$Kind.h>
 #include <com/sun/source/tree/TreeVisitor.h>
 #include <com/sun/tools/javac/tree/JCTree$JCStatement.h>
@@ -14,7 +12,6 @@
 #undef BREAK
 #undef SWITCH_EXPRESSION
 
-using $BreakTree = ::com::sun::source::tree::BreakTree;
 using $Tree$Kind = ::com::sun::source::tree::Tree$Kind;
 using $TreeVisitor = ::com::sun::source::tree::TreeVisitor;
 using $JCTree = ::com::sun::tools::javac::tree::JCTree;
@@ -33,54 +30,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace tree {
-
-$FieldInfo _JCTree$JCBreak_FieldInfo_[] = {
-	{"label", "Lcom/sun/tools/javac/util/Name;", nullptr, $PUBLIC, $field(JCTree$JCBreak, label)},
-	{"target", "Lcom/sun/tools/javac/tree/JCTree;", nullptr, $PUBLIC, $field(JCTree$JCBreak, target)},
-	{}
-};
-
-$MethodInfo _JCTree$JCBreak_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/tree/JCTree;)V", nullptr, $PROTECTED, $method(JCTree$JCBreak, init$, void, $Name*, $JCTree*)},
-	{"accept", "(Lcom/sun/tools/javac/tree/JCTree$Visitor;)V", nullptr, $PUBLIC, $virtualMethod(JCTree$JCBreak, accept, void, $JCTree$Visitor*)},
-	{"accept", "(Lcom/sun/source/tree/TreeVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;D:Ljava/lang/Object;>(Lcom/sun/source/tree/TreeVisitor<TR;TD;>;TD;)TR;", $PUBLIC, $virtualMethod(JCTree$JCBreak, accept, $Object*, $TreeVisitor*, Object$*)},
-	{"getKind", "()Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCBreak, getKind, $Tree$Kind*)},
-	{"getLabel", "()Lcom/sun/tools/javac/util/Name;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCBreak, getLabel, $1Name*)},
-	{"getTag", "()Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCBreak, getTag, $JCTree$Tag*)},
-	{"isValueBreak", "()Z", nullptr, $PUBLIC, $virtualMethod(JCTree$JCBreak, isValueBreak, bool)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _JCTree$JCBreak_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.tree.JCTree$JCBreak", "com.sun.tools.javac.tree.JCTree", "JCBreak", $PUBLIC | $STATIC},
-	{"com.sun.tools.javac.tree.JCTree$JCStatement", "com.sun.tools.javac.tree.JCTree", "JCStatement", $PUBLIC | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _JCTree$JCBreak_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.tree.JCTree$JCBreak",
-	"com.sun.tools.javac.tree.JCTree$JCStatement",
-	"com.sun.source.tree.BreakTree",
-	_JCTree$JCBreak_FieldInfo_,
-	_JCTree$JCBreak_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JCTree$JCBreak_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.tree.JCTree"
-};
-
-$Object* allocate$JCTree$JCBreak($Class* clazz) {
-	return $of($alloc(JCTree$JCBreak));
-}
 
 $String* JCTree$JCBreak::toString() {
 	 return this->$JCTree$JCStatement::toString();
@@ -114,7 +63,7 @@ void JCTree$JCBreak::accept($JCTree$Visitor* v) {
 
 bool JCTree$JCBreak::isValueBreak() {
 	$init($JCTree$Tag);
-	return this->target != nullptr && $nc(this->target)->hasTag($JCTree$Tag::SWITCH_EXPRESSION);
+	return this->target != nullptr && this->target->hasTag($JCTree$Tag::SWITCH_EXPRESSION);
 }
 
 $Tree$Kind* JCTree$JCBreak::getKind() {
@@ -127,7 +76,7 @@ $1Name* JCTree$JCBreak::getLabel() {
 }
 
 $Object* JCTree$JCBreak::accept($TreeVisitor* v, Object$* d) {
-	return $of($nc(v)->visitBreak(this, d));
+	return $nc(v)->visitBreak(this, d);
 }
 
 $JCTree$Tag* JCTree$JCBreak::getTag() {
@@ -139,7 +88,49 @@ JCTree$JCBreak::JCTree$JCBreak() {
 }
 
 $Class* JCTree$JCBreak::load$($String* name, bool initialize) {
-	$loadClass(JCTree$JCBreak, name, initialize, &_JCTree$JCBreak_ClassInfo_, allocate$JCTree$JCBreak);
+	$FieldInfo fieldInfos$$[] = {
+		{"label", "Lcom/sun/tools/javac/util/Name;", nullptr, $PUBLIC, $field(JCTree$JCBreak, label)},
+		{"target", "Lcom/sun/tools/javac/tree/JCTree;", nullptr, $PUBLIC, $field(JCTree$JCBreak, target)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/tree/JCTree;)V", nullptr, $PROTECTED, $method(JCTree$JCBreak, init$, void, $Name*, $JCTree*)},
+		{"accept", "(Lcom/sun/tools/javac/tree/JCTree$Visitor;)V", nullptr, $PUBLIC, $virtualMethod(JCTree$JCBreak, accept, void, $JCTree$Visitor*)},
+		{"accept", "(Lcom/sun/source/tree/TreeVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;D:Ljava/lang/Object;>(Lcom/sun/source/tree/TreeVisitor<TR;TD;>;TD;)TR;", $PUBLIC, $virtualMethod(JCTree$JCBreak, accept, $Object*, $TreeVisitor*, Object$*)},
+		{"getKind", "()Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCBreak, getKind, $Tree$Kind*)},
+		{"getLabel", "()Lcom/sun/tools/javac/util/Name;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCBreak, getLabel, $1Name*)},
+		{"getTag", "()Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCBreak, getTag, $JCTree$Tag*)},
+		{"isValueBreak", "()Z", nullptr, $PUBLIC, $virtualMethod(JCTree$JCBreak, isValueBreak, bool)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.tree.JCTree$JCBreak", "com.sun.tools.javac.tree.JCTree", "JCBreak", $PUBLIC | $STATIC},
+		{"com.sun.tools.javac.tree.JCTree$JCStatement", "com.sun.tools.javac.tree.JCTree", "JCStatement", $PUBLIC | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.tree.JCTree$JCBreak",
+		"com.sun.tools.javac.tree.JCTree$JCStatement",
+		"com.sun.source.tree.BreakTree",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.tree.JCTree"
+	};
+	$loadClass(JCTree$JCBreak, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JCTree$JCBreak));
+	});
 	return class$;
 }
 

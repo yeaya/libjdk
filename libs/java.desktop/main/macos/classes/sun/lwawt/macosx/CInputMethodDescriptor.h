@@ -35,6 +35,7 @@ class CInputMethodDescriptor : public ::java::awt::im::spi::InputMethodDescripto
 	$class(CInputMethodDescriptor, 0, ::java::awt::im::spi::InputMethodDescriptor)
 public:
 	CInputMethodDescriptor();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual ::java::awt::im::spi::InputMethod* createInputMethod() override;
 	virtual $Array<::java::util::Locale>* getAvailableLocales() override;

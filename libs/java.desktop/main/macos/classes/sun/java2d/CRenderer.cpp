@@ -1,5 +1,4 @@
 #include <sun/java2d/CRenderer.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Graphics.h>
 #include <java/awt/Graphics2D.h>
@@ -49,7 +48,6 @@ using $Color = ::java::awt::Color;
 using $Graphics = ::java::awt::Graphics;
 using $Image = ::java::awt::Image;
 using $Shape = ::java::awt::Shape;
-using $Stroke = ::java::awt::Stroke;
 using $AffineTransform = ::java::awt::geom::AffineTransform;
 using $Arc2D = ::java::awt::geom::Arc2D;
 using $Arc2D$Float = ::java::awt::geom::Arc2D$Float;
@@ -87,106 +85,6 @@ using $CPrinterSurfaceData = ::sun::lwawt::macosx::CPrinterSurfaceData;
 namespace sun {
 	namespace java2d {
 
-$FieldInfo _CRenderer_FieldInfo_[] = {
-	{"lineToShape", "Ljava/awt/geom/Line2D;", nullptr, 0, $field(CRenderer, lineToShape)},
-	{"rectToShape", "Ljava/awt/geom/Rectangle2D;", nullptr, 0, $field(CRenderer, rectToShape)},
-	{"roundrectToShape", "Ljava/awt/geom/RoundRectangle2D;", nullptr, 0, $field(CRenderer, roundrectToShape)},
-	{"ovalToShape", "Ljava/awt/geom/Ellipse2D;", nullptr, 0, $field(CRenderer, ovalToShape)},
-	{"arcToShape", "Ljava/awt/geom/Arc2D;", nullptr, 0, $field(CRenderer, arcToShape)},
-	{}
-};
-
-$MethodInfo _CRenderer_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(CRenderer, init$, void)},
-	{"blitImage", "(Lsun/java2d/SunGraphics2D;Ljava/awt/Image;ZZIIIIIIIILjava/awt/Color;)Z", nullptr, $PROTECTED, $virtualMethod(CRenderer, blitImage, bool, $SunGraphics2D*, $Image*, bool, bool, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, $Color*)},
-	{"copyImage", "(Lsun/java2d/SunGraphics2D;Ljava/awt/Image;IILjava/awt/Color;)Z", nullptr, $PROTECTED, $virtualMethod(CRenderer, copyImage, bool, $SunGraphics2D*, $Image*, int32_t, int32_t, $Color*)},
-	{"copyImage", "(Lsun/java2d/SunGraphics2D;Ljava/awt/Image;IIIIIILjava/awt/Color;)Z", nullptr, $PROTECTED, $virtualMethod(CRenderer, copyImage, bool, $SunGraphics2D*, $Image*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, $Color*)},
-	{"copyImage", "(Lsun/java2d/SunGraphics2D;Ljava/awt/Image;IILjava/awt/Color;Ljava/awt/image/ImageObserver;)Z", nullptr, $PUBLIC, $virtualMethod(CRenderer, copyImage, bool, $SunGraphics2D*, $Image*, int32_t, int32_t, $Color*, $ImageObserver*)},
-	{"copyImage", "(Lsun/java2d/SunGraphics2D;Ljava/awt/Image;IIIIIILjava/awt/Color;Ljava/awt/image/ImageObserver;)Z", nullptr, $PUBLIC, $virtualMethod(CRenderer, copyImage, bool, $SunGraphics2D*, $Image*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, $Color*, $ImageObserver*)},
-	{"doArc", "(Lsun/java2d/SurfaceData;FFFFFFIZ)V", nullptr, $NATIVE, $virtualMethod(CRenderer, doArc, void, $SurfaceData*, float, float, float, float, float, float, int32_t, bool)},
-	{"doImage", "(Lsun/java2d/SurfaceData;Lsun/java2d/SurfaceData;ZZIIIIIIIIII)V", nullptr, $NATIVE, $virtualMethod(CRenderer, doImage, void, $SurfaceData*, $SurfaceData*, bool, bool, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"doLine", "(Lsun/java2d/SurfaceData;FFFF)V", nullptr, $NATIVE, $virtualMethod(CRenderer, doLine, void, $SurfaceData*, float, float, float, float)},
-	{"doOval", "(Lsun/java2d/SurfaceData;FFFFZ)V", nullptr, $NATIVE, $virtualMethod(CRenderer, doOval, void, $SurfaceData*, float, float, float, float, bool)},
-	{"doPoly", "(Lsun/java2d/SurfaceData;[I[IIZZ)V", nullptr, $NATIVE, $virtualMethod(CRenderer, doPoly, void, $SurfaceData*, $ints*, $ints*, int32_t, bool, bool)},
-	{"doRect", "(Lsun/java2d/SurfaceData;FFFFZ)V", nullptr, $NATIVE, $virtualMethod(CRenderer, doRect, void, $SurfaceData*, float, float, float, float, bool)},
-	{"doRoundRect", "(Lsun/java2d/SurfaceData;FFFFFFZ)V", nullptr, $NATIVE, $virtualMethod(CRenderer, doRoundRect, void, $SurfaceData*, float, float, float, float, float, float, bool)},
-	{"doShape", "(Lsun/java2d/SurfaceData;ILjava/nio/FloatBuffer;Ljava/nio/IntBuffer;IZZ)V", nullptr, $NATIVE, $virtualMethod(CRenderer, doShape, void, $SurfaceData*, int32_t, $FloatBuffer*, $IntBuffer*, int32_t, bool, bool)},
-	{"draw", "(Lsun/java2d/SunGraphics2D;Ljava/awt/Shape;)V", nullptr, $PUBLIC, $virtualMethod(CRenderer, draw, void, $SunGraphics2D*, $Shape*)},
-	{"drawArc", "(Lsun/java2d/SunGraphics2D;IIIIII)V", nullptr, $PUBLIC, $virtualMethod(CRenderer, drawArc, void, $SunGraphics2D*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"drawArc", "(Lsun/java2d/SunGraphics2D;FFFFFFI)V", nullptr, $PUBLIC, $virtualMethod(CRenderer, drawArc, void, $SunGraphics2D*, float, float, float, float, float, float, int32_t)},
-	{"drawLine", "(Lsun/java2d/SunGraphics2D;IIII)V", nullptr, $PUBLIC, $virtualMethod(CRenderer, drawLine, void, $SunGraphics2D*, int32_t, int32_t, int32_t, int32_t)},
-	{"drawLine", "(Lsun/java2d/SunGraphics2D;FFFF)V", nullptr, $PUBLIC, $virtualMethod(CRenderer, drawLine, void, $SunGraphics2D*, float, float, float, float)},
-	{"drawOval", "(Lsun/java2d/SunGraphics2D;IIII)V", nullptr, $PUBLIC, $virtualMethod(CRenderer, drawOval, void, $SunGraphics2D*, int32_t, int32_t, int32_t, int32_t)},
-	{"drawOval", "(Lsun/java2d/SunGraphics2D;FFFF)V", nullptr, $PUBLIC, $virtualMethod(CRenderer, drawOval, void, $SunGraphics2D*, float, float, float, float)},
-	{"drawPolygon", "(Lsun/java2d/SunGraphics2D;[I[II)V", nullptr, $PUBLIC, $virtualMethod(CRenderer, drawPolygon, void, $SunGraphics2D*, $ints*, $ints*, int32_t)},
-	{"drawPolyline", "(Lsun/java2d/SunGraphics2D;[I[II)V", nullptr, $PUBLIC, $virtualMethod(CRenderer, drawPolyline, void, $SunGraphics2D*, $ints*, $ints*, int32_t)},
-	{"drawRect", "(Lsun/java2d/SunGraphics2D;IIII)V", nullptr, $PUBLIC, $virtualMethod(CRenderer, drawRect, void, $SunGraphics2D*, int32_t, int32_t, int32_t, int32_t)},
-	{"drawRect", "(Lsun/java2d/SunGraphics2D;FFFF)V", nullptr, $PUBLIC, $virtualMethod(CRenderer, drawRect, void, $SunGraphics2D*, float, float, float, float)},
-	{"drawRoundRect", "(Lsun/java2d/SunGraphics2D;IIIIII)V", nullptr, $PUBLIC, $virtualMethod(CRenderer, drawRoundRect, void, $SunGraphics2D*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"drawRoundRect", "(Lsun/java2d/SunGraphics2D;FFFFFF)V", nullptr, $PUBLIC, $virtualMethod(CRenderer, drawRoundRect, void, $SunGraphics2D*, float, float, float, float, float, float)},
-	{"drawfillShape", "(Lsun/java2d/SunGraphics2D;Ljava/awt/Shape;ZZ)V", nullptr, 0, $virtualMethod(CRenderer, drawfillShape, void, $SunGraphics2D*, $Shape*, bool, bool)},
-	{"fill", "(Lsun/java2d/SunGraphics2D;Ljava/awt/Shape;)V", nullptr, $PUBLIC, $virtualMethod(CRenderer, fill, void, $SunGraphics2D*, $Shape*)},
-	{"fillArc", "(Lsun/java2d/SunGraphics2D;IIIIII)V", nullptr, $PUBLIC, $virtualMethod(CRenderer, fillArc, void, $SunGraphics2D*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"fillArc", "(Lsun/java2d/SunGraphics2D;FFFFFFI)V", nullptr, $PUBLIC, $virtualMethod(CRenderer, fillArc, void, $SunGraphics2D*, float, float, float, float, float, float, int32_t)},
-	{"fillOval", "(Lsun/java2d/SunGraphics2D;IIII)V", nullptr, $PUBLIC, $virtualMethod(CRenderer, fillOval, void, $SunGraphics2D*, int32_t, int32_t, int32_t, int32_t)},
-	{"fillOval", "(Lsun/java2d/SunGraphics2D;FFFF)V", nullptr, $PUBLIC, $virtualMethod(CRenderer, fillOval, void, $SunGraphics2D*, float, float, float, float)},
-	{"fillPolygon", "(Lsun/java2d/SunGraphics2D;[I[II)V", nullptr, $PUBLIC, $virtualMethod(CRenderer, fillPolygon, void, $SunGraphics2D*, $ints*, $ints*, int32_t)},
-	{"fillRect", "(Lsun/java2d/SunGraphics2D;IIII)V", nullptr, $PUBLIC, $virtualMethod(CRenderer, fillRect, void, $SunGraphics2D*, int32_t, int32_t, int32_t, int32_t)},
-	{"fillRect", "(Lsun/java2d/SunGraphics2D;FFFF)V", nullptr, $PUBLIC, $virtualMethod(CRenderer, fillRect, void, $SunGraphics2D*, float, float, float, float)},
-	{"fillRoundRect", "(Lsun/java2d/SunGraphics2D;IIIIII)V", nullptr, $PUBLIC, $virtualMethod(CRenderer, fillRoundRect, void, $SunGraphics2D*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"fillRoundRect", "(Lsun/java2d/SunGraphics2D;FFFFFF)V", nullptr, $PUBLIC, $virtualMethod(CRenderer, fillRoundRect, void, $SunGraphics2D*, float, float, float, float, float, float)},
-	{"imageReady", "(Lsun/awt/image/ToolkitImage;Ljava/awt/image/ImageObserver;)Z", nullptr, $PROTECTED, $virtualMethod(CRenderer, imageReady, bool, $ToolkitImage*, $ImageObserver*)},
-	{"init", "()V", nullptr, $STATIC | $NATIVE, $staticMethod(CRenderer, init, void)},
-	{"scaleImage", "(Lsun/java2d/SunGraphics2D;Ljava/awt/Image;IIIILjava/awt/Color;)Z", nullptr, $PUBLIC, $virtualMethod(CRenderer, scaleImage, bool, $SunGraphics2D*, $Image*, int32_t, int32_t, int32_t, int32_t, $Color*)},
-	{"scaleImage", "(Lsun/java2d/SunGraphics2D;Ljava/awt/Image;IIIIIIIILjava/awt/Color;)Z", nullptr, $PUBLIC, $virtualMethod(CRenderer, scaleImage, bool, $SunGraphics2D*, $Image*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, $Color*)},
-	{"scaleImage", "(Lsun/java2d/SunGraphics2D;Ljava/awt/Image;IIIILjava/awt/Color;Ljava/awt/image/ImageObserver;)Z", nullptr, $PUBLIC, $virtualMethod(CRenderer, scaleImage, bool, $SunGraphics2D*, $Image*, int32_t, int32_t, int32_t, int32_t, $Color*, $ImageObserver*)},
-	{"scaleImage", "(Lsun/java2d/SunGraphics2D;Ljava/awt/Image;IIIIIIIILjava/awt/Color;Ljava/awt/image/ImageObserver;)Z", nullptr, $PUBLIC, $virtualMethod(CRenderer, scaleImage, bool, $SunGraphics2D*, $Image*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, $Color*, $ImageObserver*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"traceWrap", "()Lsun/java2d/CRenderer;", nullptr, $PUBLIC, $virtualMethod(CRenderer, traceWrap, CRenderer*)},
-	{"transformImage", "(Lsun/java2d/SunGraphics2D;Ljava/awt/Image;IILjava/awt/image/BufferedImageOp;Ljava/awt/geom/AffineTransform;Ljava/awt/Color;)V", nullptr, $PROTECTED, $virtualMethod(CRenderer, transformImage, void, $SunGraphics2D*, $Image*, int32_t, int32_t, $BufferedImageOp*, $AffineTransform*, $Color*)},
-	{"transformImage", "(Lsun/java2d/SunGraphics2D;Ljava/awt/Image;Ljava/awt/geom/AffineTransform;Ljava/awt/image/ImageObserver;)Z", nullptr, $PUBLIC, $virtualMethod(CRenderer, transformImage, bool, $SunGraphics2D*, $Image*, $AffineTransform*, $ImageObserver*)},
-	{"transformImage", "(Lsun/java2d/SunGraphics2D;Ljava/awt/image/BufferedImage;Ljava/awt/image/BufferedImageOp;II)V", nullptr, $PUBLIC, $virtualMethod(CRenderer, transformImage, void, $SunGraphics2D*, $BufferedImage*, $BufferedImageOp*, int32_t, int32_t)},
-	{}
-};
-
-#define _METHOD_INDEX_doArc 10
-#define _METHOD_INDEX_doImage 11
-#define _METHOD_INDEX_doLine 12
-#define _METHOD_INDEX_doOval 13
-#define _METHOD_INDEX_doPoly 14
-#define _METHOD_INDEX_doRect 15
-#define _METHOD_INDEX_doRoundRect 16
-#define _METHOD_INDEX_doShape 17
-#define _METHOD_INDEX_init 43
-
-$InnerClassInfo _CRenderer_InnerClassesInfo_[] = {
-	{"sun.java2d.CRenderer$Tracer", "sun.java2d.CRenderer", "Tracer", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _CRenderer_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.java2d.CRenderer",
-	"java.lang.Object",
-	"sun.java2d.pipe.PixelDrawPipe,sun.java2d.pipe.PixelFillPipe,sun.java2d.pipe.ShapeDrawPipe,sun.java2d.pipe.DrawImagePipe",
-	_CRenderer_FieldInfo_,
-	_CRenderer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_CRenderer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.java2d.CRenderer$Tracer"
-};
-
-$Object* allocate$CRenderer($Class* clazz) {
-	return $of($alloc(CRenderer));
-}
-
 int32_t CRenderer::hashCode() {
 	 return this->$PixelDrawPipe::hashCode();
 }
@@ -212,13 +110,13 @@ void CRenderer::init$() {
 
 void CRenderer::init() {
 	$init(CRenderer);
-	$prepareNativeStatic(CRenderer, init, void);
+	$prepareNativeStatic(init, void);
 	$invokeNativeStatic();
 	$finishNativeStatic();
 }
 
 void CRenderer::doLine($SurfaceData* sData, float x1, float y1, float x2, float y2) {
-	$prepareNative(CRenderer, doLine, void, $SurfaceData* sData, float x1, float y1, float x2, float y2);
+	$prepareNative(doLine, void, $SurfaceData* sData, float x1, float y1, float x2, float y2);
 	$invokeNative(sData, x1, y1, x2, y2);
 	$finishNative();
 }
@@ -228,7 +126,7 @@ void CRenderer::drawLine($SunGraphics2D* sg2d, int32_t x1, int32_t y1, int32_t x
 }
 
 void CRenderer::drawLine($SunGraphics2D* sg2d, float x1, float y1, float x2, float y2) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($OSXSurfaceData, surfaceData, $cast($OSXSurfaceData, $nc(sg2d)->getSurfaceData()));
 	if ((sg2d->strokeState != $SunGraphics2D::STROKE_CUSTOM) && ($OSXSurfaceData::IsSimpleColor(sg2d->paint))) {
 		$nc(surfaceData)->doLine(this, sg2d, x1, y1, x2, y2);
@@ -241,14 +139,14 @@ void CRenderer::drawLine($SunGraphics2D* sg2d, float x1, float y1, float x2, flo
 			}
 		}
 		$synchronized(this->lineToShape) {
-			$nc(this->lineToShape)->setLine(x1, y1, x2, y2);
+			this->lineToShape->setLine(x1, y1, x2, y2);
 			drawfillShape(sg2d, $($nc(sg2d->stroke)->createStrokedShape(this->lineToShape)), true, true);
 		}
 	}
 }
 
 void CRenderer::doRect($SurfaceData* sData, float x, float y, float width, float height, bool isfill) {
-	$prepareNative(CRenderer, doRect, void, $SurfaceData* sData, float x, float y, float width, float height, bool isfill);
+	$prepareNative(doRect, void, $SurfaceData* sData, float x, float y, float width, float height, bool isfill);
 	$invokeNative(sData, x, y, width, height, isfill);
 	$finishNative();
 }
@@ -258,7 +156,7 @@ void CRenderer::drawRect($SunGraphics2D* sg2d, int32_t x, int32_t y, int32_t wid
 }
 
 void CRenderer::drawRect($SunGraphics2D* sg2d, float x, float y, float width, float height) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ((width < 0) || (height < 0)) {
 		return;
 	}
@@ -274,7 +172,7 @@ void CRenderer::drawRect($SunGraphics2D* sg2d, float x, float y, float width, fl
 			}
 		}
 		$synchronized(this->rectToShape) {
-			$nc(this->rectToShape)->setRect(x, y, width, height);
+			this->rectToShape->setRect(x, y, width, height);
 			drawfillShape(sg2d, $($nc(sg2d->stroke)->createStrokedShape(this->rectToShape)), true, true);
 		}
 	}
@@ -292,7 +190,7 @@ void CRenderer::fillRect($SunGraphics2D* sg2d, float x, float y, float width, fl
 }
 
 void CRenderer::doRoundRect($SurfaceData* sData, float x, float y, float width, float height, float arcW, float arcH, bool isfill) {
-	$prepareNative(CRenderer, doRoundRect, void, $SurfaceData* sData, float x, float y, float width, float height, float arcW, float arcH, bool isfill);
+	$prepareNative(doRoundRect, void, $SurfaceData* sData, float x, float y, float width, float height, float arcW, float arcH, bool isfill);
 	$invokeNative(sData, x, y, width, height, arcW, arcH, isfill);
 	$finishNative();
 }
@@ -302,7 +200,7 @@ void CRenderer::drawRoundRect($SunGraphics2D* sg2d, int32_t x, int32_t y, int32_
 }
 
 void CRenderer::drawRoundRect($SunGraphics2D* sg2d, float x, float y, float width, float height, float arcWidth, float arcHeight) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ((width < 0) || (height < 0)) {
 		return;
 	}
@@ -318,7 +216,7 @@ void CRenderer::drawRoundRect($SunGraphics2D* sg2d, float x, float y, float widt
 			}
 		}
 		$synchronized(this->roundrectToShape) {
-			$nc(this->roundrectToShape)->setRoundRect(x, y, width, height, arcWidth, arcHeight);
+			this->roundrectToShape->setRoundRect(x, y, width, height, arcWidth, arcHeight);
 			drawfillShape(sg2d, $($nc(sg2d->stroke)->createStrokedShape(this->roundrectToShape)), true, true);
 		}
 	}
@@ -337,7 +235,7 @@ void CRenderer::fillRoundRect($SunGraphics2D* sg2d, float x, float y, float widt
 }
 
 void CRenderer::doOval($SurfaceData* sData, float x, float y, float width, float height, bool isfill) {
-	$prepareNative(CRenderer, doOval, void, $SurfaceData* sData, float x, float y, float width, float height, bool isfill);
+	$prepareNative(doOval, void, $SurfaceData* sData, float x, float y, float width, float height, bool isfill);
 	$invokeNative(sData, x, y, width, height, isfill);
 	$finishNative();
 }
@@ -347,7 +245,7 @@ void CRenderer::drawOval($SunGraphics2D* sg2d, int32_t x, int32_t y, int32_t wid
 }
 
 void CRenderer::drawOval($SunGraphics2D* sg2d, float x, float y, float width, float height) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ((width < 0) || (height < 0)) {
 		return;
 	}
@@ -363,7 +261,7 @@ void CRenderer::drawOval($SunGraphics2D* sg2d, float x, float y, float width, fl
 			}
 		}
 		$synchronized(this->ovalToShape) {
-			$nc(this->ovalToShape)->setFrame(x, y, width, height);
+			this->ovalToShape->setFrame(x, y, width, height);
 			drawfillShape(sg2d, $($nc(sg2d->stroke)->createStrokedShape(this->ovalToShape)), true, true);
 		}
 	}
@@ -382,7 +280,7 @@ void CRenderer::fillOval($SunGraphics2D* sg2d, float x, float y, float width, fl
 }
 
 void CRenderer::doArc($SurfaceData* sData, float x, float y, float width, float height, float angleStart, float angleExtent, int32_t type, bool isfill) {
-	$prepareNative(CRenderer, doArc, void, $SurfaceData* sData, float x, float y, float width, float height, float angleStart, float angleExtent, int32_t type, bool isfill);
+	$prepareNative(doArc, void, $SurfaceData* sData, float x, float y, float width, float height, float angleStart, float angleExtent, int32_t type, bool isfill);
 	$invokeNative(sData, x, y, width, height, angleStart, angleExtent, type, isfill);
 	$finishNative();
 }
@@ -392,7 +290,7 @@ void CRenderer::drawArc($SunGraphics2D* sg2d, int32_t x, int32_t y, int32_t widt
 }
 
 void CRenderer::drawArc($SunGraphics2D* sg2d, float x, float y, float width, float height, float startAngle, float arcAngle, int32_t type) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ((width < 0) || (height < 0)) {
 		return;
 	}
@@ -408,7 +306,7 @@ void CRenderer::drawArc($SunGraphics2D* sg2d, float x, float y, float width, flo
 			}
 		}
 		$synchronized(this->arcToShape) {
-			$nc(this->arcToShape)->setArc(x, y, width, height, startAngle, arcAngle, type);
+			this->arcToShape->setArc(x, y, width, height, startAngle, arcAngle, type);
 			drawfillShape(sg2d, $($nc(sg2d->stroke)->createStrokedShape(this->arcToShape)), true, true);
 		}
 	}
@@ -427,13 +325,13 @@ void CRenderer::fillArc($SunGraphics2D* sg2d, float x, float y, float width, flo
 }
 
 void CRenderer::doPoly($SurfaceData* sData, $ints* xpoints, $ints* ypoints, int32_t npoints, bool ispolygon, bool isfill) {
-	$prepareNative(CRenderer, doPoly, void, $SurfaceData* sData, $ints* xpoints, $ints* ypoints, int32_t npoints, bool ispolygon, bool isfill);
+	$prepareNative(doPoly, void, $SurfaceData* sData, $ints* xpoints, $ints* ypoints, int32_t npoints, bool ispolygon, bool isfill);
 	$invokeNative(sData, xpoints, ypoints, npoints, ispolygon, isfill);
 	$finishNative();
 }
 
 void CRenderer::drawPolyline($SunGraphics2D* sg2d, $ints* xpoints, $ints* ypoints, int32_t npoints) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($OSXSurfaceData, surfaceData, $cast($OSXSurfaceData, $nc(sg2d)->getSurfaceData()));
 	if ((sg2d->strokeState != $SunGraphics2D::STROKE_CUSTOM) && ($OSXSurfaceData::IsSimpleColor(sg2d->paint))) {
 		$nc(surfaceData)->doPolygon(this, sg2d, xpoints, ypoints, npoints, false, false);
@@ -441,14 +339,14 @@ void CRenderer::drawPolyline($SunGraphics2D* sg2d, $ints* xpoints, $ints* ypoint
 		$var($GeneralPath, polyToShape, $new($GeneralPath));
 		polyToShape->moveTo((float)$nc(xpoints)->get(0), (float)$nc(ypoints)->get(0));
 		for (int32_t i = 1; i < npoints; ++i) {
-			polyToShape->lineTo((float)$nc(xpoints)->get(i), (float)$nc(ypoints)->get(i));
+			polyToShape->lineTo((float)xpoints->get(i), (float)ypoints->get(i));
 		}
 		drawfillShape(sg2d, $($nc(sg2d->stroke)->createStrokedShape(polyToShape)), true, true);
 	}
 }
 
 void CRenderer::drawPolygon($SunGraphics2D* sg2d, $ints* xpoints, $ints* ypoints, int32_t npoints) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($OSXSurfaceData, surfaceData, $cast($OSXSurfaceData, $nc(sg2d)->getSurfaceData()));
 	if ((sg2d->strokeState != $SunGraphics2D::STROKE_CUSTOM) && ($OSXSurfaceData::IsSimpleColor(sg2d->paint))) {
 		$nc(surfaceData)->doPolygon(this, sg2d, xpoints, ypoints, npoints, true, false);
@@ -456,9 +354,9 @@ void CRenderer::drawPolygon($SunGraphics2D* sg2d, $ints* xpoints, $ints* ypoints
 		$var($GeneralPath, polyToShape, $new($GeneralPath));
 		polyToShape->moveTo((float)$nc(xpoints)->get(0), (float)$nc(ypoints)->get(0));
 		for (int32_t i = 1; i < npoints; ++i) {
-			polyToShape->lineTo((float)$nc(xpoints)->get(i), (float)$nc(ypoints)->get(i));
+			polyToShape->lineTo((float)xpoints->get(i), (float)ypoints->get(i));
 		}
-		polyToShape->lineTo((float)$nc(xpoints)->get(0), (float)$nc(ypoints)->get(0));
+		polyToShape->lineTo((float)xpoints->get(0), (float)ypoints->get(0));
 		drawfillShape(sg2d, $($nc(sg2d->stroke)->createStrokedShape(polyToShape)), true, true);
 	}
 }
@@ -469,13 +367,13 @@ void CRenderer::fillPolygon($SunGraphics2D* sg2d, $ints* xpoints, $ints* ypoints
 }
 
 void CRenderer::doShape($SurfaceData* sData, int32_t length, $FloatBuffer* coordinates, $IntBuffer* types, int32_t windingRule, bool isfill, bool shouldApplyOffset) {
-	$prepareNative(CRenderer, doShape, void, $SurfaceData* sData, int32_t length, $FloatBuffer* coordinates, $IntBuffer* types, int32_t windingRule, bool isfill, bool shouldApplyOffset);
+	$prepareNative(doShape, void, $SurfaceData* sData, int32_t length, $FloatBuffer* coordinates, $IntBuffer* types, int32_t windingRule, bool isfill, bool shouldApplyOffset);
 	$invokeNative(sData, length, coordinates, types, windingRule, isfill, shouldApplyOffset);
 	$finishNative();
 }
 
 void CRenderer::drawfillShape($SunGraphics2D* sg2d, $Shape* s, bool isfill, bool shouldApplyOffset) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (s == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -484,7 +382,7 @@ void CRenderer::drawfillShape($SunGraphics2D* sg2d, $Shape* s, bool isfill, bool
 	if (sOptimizeShapes && $OSXSurfaceData::IsSimpleColor(sg2d->paint)) {
 		if ($instanceOf($Rectangle2D, s)) {
 			$var($Rectangle2D, rectangle, $cast($Rectangle2D, s));
-			float x = (float)$nc(rectangle)->getX();
+			float x = (float)rectangle->getX();
 			float y = (float)rectangle->getY();
 			float w = (float)rectangle->getWidth();
 			float h = (float)rectangle->getHeight();
@@ -495,7 +393,7 @@ void CRenderer::drawfillShape($SunGraphics2D* sg2d, $Shape* s, bool isfill, bool
 			}
 		} else if ($instanceOf($Ellipse2D, s)) {
 			$var($Ellipse2D, ellipse, $cast($Ellipse2D, s));
-			float x = (float)$nc(ellipse)->getX();
+			float x = (float)ellipse->getX();
 			float y = (float)ellipse->getY();
 			float w = (float)ellipse->getWidth();
 			float h = (float)ellipse->getHeight();
@@ -506,7 +404,7 @@ void CRenderer::drawfillShape($SunGraphics2D* sg2d, $Shape* s, bool isfill, bool
 			}
 		} else if ($instanceOf($Arc2D, s)) {
 			$var($Arc2D, arc, $cast($Arc2D, s));
-			float x = (float)$nc(arc)->getX();
+			float x = (float)arc->getX();
 			float y = (float)arc->getY();
 			float w = (float)arc->getWidth();
 			float h = (float)arc->getHeight();
@@ -519,7 +417,7 @@ void CRenderer::drawfillShape($SunGraphics2D* sg2d, $Shape* s, bool isfill, bool
 			}
 		} else if ($instanceOf($RoundRectangle2D, s)) {
 			$var($RoundRectangle2D, roundrect, $cast($RoundRectangle2D, s));
-			float x = (float)$nc(roundrect)->getX();
+			float x = (float)roundrect->getX();
 			float y = (float)roundrect->getY();
 			float w = (float)roundrect->getWidth();
 			float h = (float)roundrect->getHeight();
@@ -532,14 +430,14 @@ void CRenderer::drawfillShape($SunGraphics2D* sg2d, $Shape* s, bool isfill, bool
 			}
 		} else if ($instanceOf($Line2D, s)) {
 			$var($Line2D, line, $cast($Line2D, s));
-			float x1 = (float)$nc(line)->getX1();
+			float x1 = (float)line->getX1();
 			float y1 = (float)line->getY1();
 			float x2 = (float)line->getX2();
 			float y2 = (float)line->getY2();
 			drawLine(sg2d, x1, y1, x2, y2);
 		} else if ($instanceOf($Point2D, s)) {
 			$var($Point2D, point, $cast($Point2D, s));
-			float x = (float)$nc(point)->getX();
+			float x = (float)point->getX();
 			float y = (float)point->getY();
 			drawLine(sg2d, x, y, x, y);
 		} else {
@@ -569,7 +467,7 @@ void CRenderer::drawfillShape($SunGraphics2D* sg2d, $Shape* s, bool isfill, bool
 }
 
 void CRenderer::draw($SunGraphics2D* sg2d, $Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($OSXSurfaceData, surfaceData, $cast($OSXSurfaceData, $nc(sg2d)->getSurfaceData()));
 	if ((sg2d->strokeState != $SunGraphics2D::STROKE_CUSTOM) && ($OSXSurfaceData::IsSimpleColor(sg2d->paint))) {
 		drawfillShape(sg2d, s, false, true);
@@ -583,7 +481,7 @@ void CRenderer::fill($SunGraphics2D* sg2d, $Shape* s) {
 }
 
 void CRenderer::doImage($SurfaceData* sData, $SurfaceData* img, bool fliph, bool flipv, int32_t w, int32_t h, int32_t sx, int32_t sy, int32_t sw, int32_t sh, int32_t dx, int32_t dy, int32_t dw, int32_t dh) {
-	$prepareNative(CRenderer, doImage, void, $SurfaceData* sData, $SurfaceData* img, bool fliph, bool flipv, int32_t w, int32_t h, int32_t sx, int32_t sy, int32_t sw, int32_t sh, int32_t dx, int32_t dy, int32_t dw, int32_t dh);
+	$prepareNative(doImage, void, $SurfaceData* sData, $SurfaceData* img, bool fliph, bool flipv, int32_t w, int32_t h, int32_t sx, int32_t sy, int32_t sw, int32_t sh, int32_t dx, int32_t dy, int32_t dw, int32_t dh);
 	$invokeNative(sData, img, fliph, flipv, w, h, sx, sy, sw, sh, dx, dy, dw, dh);
 	$finishNative();
 }
@@ -651,7 +549,7 @@ bool CRenderer::scaleImage($SunGraphics2D* sg2d, $Image* img, int32_t dx1, int32
 }
 
 bool CRenderer::blitImage($SunGraphics2D* sg2d, $Image* img, bool fliph, bool flipv, int32_t sx, int32_t sy, int32_t sw, int32_t sh, int32_t dx, int32_t dy, int32_t dw, int32_t dh, $Color* bgColor) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($CPrinterSurfaceData, surfaceData, $cast($CPrinterSurfaceData, $nc(sg2d)->getSurfaceData()));
 	$var($OSXOffScreenSurfaceData, imgSurfaceData, $OSXOffScreenSurfaceData::createNewSurface($cast($BufferedImage, img)));
 	$nc(surfaceData)->blitImage(this, sg2d, imgSurfaceData, fliph, flipv, sx, sy, sw, sh, dx, dy, dw, dh, bgColor);
@@ -674,13 +572,13 @@ bool CRenderer::copyImage($SunGraphics2D* sg2d, $Image* img, int32_t dx, int32_t
 }
 
 void CRenderer::transformImage($SunGraphics2D* sg2d, $Image* img$renamed, int32_t x, int32_t y, $BufferedImageOp* op, $AffineTransform* xf, $Color* bgColor) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Image, img, img$renamed);
 	if (img != nullptr) {
 		int32_t iw = img->getWidth(nullptr);
 		int32_t ih = img->getHeight(nullptr);
 		if ((op != nullptr) && ($instanceOf($BufferedImage, img))) {
-			if ($nc(($cast($BufferedImage, img)))->getType() == $BufferedImage::TYPE_CUSTOM) {
+			if ($cast($BufferedImage, img)->getType() == $BufferedImage::TYPE_CUSTOM) {
 				$var($BufferedImage, dest, nullptr);
 				$assign(dest, $new($BufferedImage, iw, ih, $BufferedImage::TYPE_INT_ARGB_PRE));
 				$var($Graphics, g, dest->createGraphics());
@@ -690,7 +588,7 @@ void CRenderer::transformImage($SunGraphics2D* sg2d, $Image* img$renamed, int32_
 			} else {
 				$assign(img, op->filter($cast($BufferedImage, img), nullptr));
 			}
-			iw = img->getWidth(nullptr);
+			iw = $nc(img)->getWidth(nullptr);
 			ih = img->getHeight(nullptr);
 		}
 		if (xf != nullptr) {
@@ -717,7 +615,7 @@ bool CRenderer::imageReady($ToolkitImage* sunimg, $ImageObserver* observer) {
 }
 
 bool CRenderer::copyImage($SunGraphics2D* sg2d, $Image* img, int32_t x, int32_t y, $Color* bgColor, $ImageObserver* observer) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (img == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -733,7 +631,7 @@ bool CRenderer::copyImage($SunGraphics2D* sg2d, $Image* img, int32_t x, int32_t 
 }
 
 bool CRenderer::copyImage($SunGraphics2D* sg2d, $Image* img, int32_t dx, int32_t dy, int32_t sx, int32_t sy, int32_t width, int32_t height, $Color* bgColor, $ImageObserver* observer) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (img == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -749,7 +647,7 @@ bool CRenderer::copyImage($SunGraphics2D* sg2d, $Image* img, int32_t dx, int32_t
 }
 
 bool CRenderer::scaleImage($SunGraphics2D* sg2d, $Image* img, int32_t x, int32_t y, int32_t width, int32_t height, $Color* bgColor, $ImageObserver* observer) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (img == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -765,7 +663,7 @@ bool CRenderer::scaleImage($SunGraphics2D* sg2d, $Image* img, int32_t x, int32_t
 }
 
 bool CRenderer::scaleImage($SunGraphics2D* sg2d, $Image* img, int32_t dx1, int32_t dy1, int32_t dx2, int32_t dy2, int32_t sx1, int32_t sy1, int32_t sx2, int32_t sy2, $Color* bgColor, $ImageObserver* observer) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (img == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -781,7 +679,7 @@ bool CRenderer::scaleImage($SunGraphics2D* sg2d, $Image* img, int32_t dx1, int32
 }
 
 bool CRenderer::transformImage($SunGraphics2D* sg2d, $Image* img, $AffineTransform* atfm, $ImageObserver* observer) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (img == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -809,7 +707,7 @@ CRenderer* CRenderer::traceWrap() {
 	return $new($CRenderer$Tracer);
 }
 
-void clinit$CRenderer($Class* class$) {
+void CRenderer::clinit$($Class* clazz) {
 	{
 		CRenderer::init();
 	}
@@ -819,7 +717,91 @@ CRenderer::CRenderer() {
 }
 
 $Class* CRenderer::load$($String* name, bool initialize) {
-	$loadClass(CRenderer, name, initialize, &_CRenderer_ClassInfo_, clinit$CRenderer, allocate$CRenderer);
+	$FieldInfo fieldInfos$$[] = {
+		{"lineToShape", "Ljava/awt/geom/Line2D;", nullptr, 0, $field(CRenderer, lineToShape)},
+		{"rectToShape", "Ljava/awt/geom/Rectangle2D;", nullptr, 0, $field(CRenderer, rectToShape)},
+		{"roundrectToShape", "Ljava/awt/geom/RoundRectangle2D;", nullptr, 0, $field(CRenderer, roundrectToShape)},
+		{"ovalToShape", "Ljava/awt/geom/Ellipse2D;", nullptr, 0, $field(CRenderer, ovalToShape)},
+		{"arcToShape", "Ljava/awt/geom/Arc2D;", nullptr, 0, $field(CRenderer, arcToShape)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(CRenderer, init$, void)},
+		{"blitImage", "(Lsun/java2d/SunGraphics2D;Ljava/awt/Image;ZZIIIIIIIILjava/awt/Color;)Z", nullptr, $PROTECTED, $virtualMethod(CRenderer, blitImage, bool, $SunGraphics2D*, $Image*, bool, bool, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, $Color*)},
+		{"copyImage", "(Lsun/java2d/SunGraphics2D;Ljava/awt/Image;IILjava/awt/Color;)Z", nullptr, $PROTECTED, $virtualMethod(CRenderer, copyImage, bool, $SunGraphics2D*, $Image*, int32_t, int32_t, $Color*)},
+		{"copyImage", "(Lsun/java2d/SunGraphics2D;Ljava/awt/Image;IIIIIILjava/awt/Color;)Z", nullptr, $PROTECTED, $virtualMethod(CRenderer, copyImage, bool, $SunGraphics2D*, $Image*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, $Color*)},
+		{"copyImage", "(Lsun/java2d/SunGraphics2D;Ljava/awt/Image;IILjava/awt/Color;Ljava/awt/image/ImageObserver;)Z", nullptr, $PUBLIC, $virtualMethod(CRenderer, copyImage, bool, $SunGraphics2D*, $Image*, int32_t, int32_t, $Color*, $ImageObserver*)},
+		{"copyImage", "(Lsun/java2d/SunGraphics2D;Ljava/awt/Image;IIIIIILjava/awt/Color;Ljava/awt/image/ImageObserver;)Z", nullptr, $PUBLIC, $virtualMethod(CRenderer, copyImage, bool, $SunGraphics2D*, $Image*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, $Color*, $ImageObserver*)},
+		{"doArc", "(Lsun/java2d/SurfaceData;FFFFFFIZ)V", nullptr, $NATIVE, $virtualMethod(CRenderer, doArc, void, $SurfaceData*, float, float, float, float, float, float, int32_t, bool)},
+		{"doImage", "(Lsun/java2d/SurfaceData;Lsun/java2d/SurfaceData;ZZIIIIIIIIII)V", nullptr, $NATIVE, $virtualMethod(CRenderer, doImage, void, $SurfaceData*, $SurfaceData*, bool, bool, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"doLine", "(Lsun/java2d/SurfaceData;FFFF)V", nullptr, $NATIVE, $virtualMethod(CRenderer, doLine, void, $SurfaceData*, float, float, float, float)},
+		{"doOval", "(Lsun/java2d/SurfaceData;FFFFZ)V", nullptr, $NATIVE, $virtualMethod(CRenderer, doOval, void, $SurfaceData*, float, float, float, float, bool)},
+		{"doPoly", "(Lsun/java2d/SurfaceData;[I[IIZZ)V", nullptr, $NATIVE, $virtualMethod(CRenderer, doPoly, void, $SurfaceData*, $ints*, $ints*, int32_t, bool, bool)},
+		{"doRect", "(Lsun/java2d/SurfaceData;FFFFZ)V", nullptr, $NATIVE, $virtualMethod(CRenderer, doRect, void, $SurfaceData*, float, float, float, float, bool)},
+		{"doRoundRect", "(Lsun/java2d/SurfaceData;FFFFFFZ)V", nullptr, $NATIVE, $virtualMethod(CRenderer, doRoundRect, void, $SurfaceData*, float, float, float, float, float, float, bool)},
+		{"doShape", "(Lsun/java2d/SurfaceData;ILjava/nio/FloatBuffer;Ljava/nio/IntBuffer;IZZ)V", nullptr, $NATIVE, $virtualMethod(CRenderer, doShape, void, $SurfaceData*, int32_t, $FloatBuffer*, $IntBuffer*, int32_t, bool, bool)},
+		{"draw", "(Lsun/java2d/SunGraphics2D;Ljava/awt/Shape;)V", nullptr, $PUBLIC, $virtualMethod(CRenderer, draw, void, $SunGraphics2D*, $Shape*)},
+		{"drawArc", "(Lsun/java2d/SunGraphics2D;IIIIII)V", nullptr, $PUBLIC, $virtualMethod(CRenderer, drawArc, void, $SunGraphics2D*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"drawArc", "(Lsun/java2d/SunGraphics2D;FFFFFFI)V", nullptr, $PUBLIC, $virtualMethod(CRenderer, drawArc, void, $SunGraphics2D*, float, float, float, float, float, float, int32_t)},
+		{"drawLine", "(Lsun/java2d/SunGraphics2D;IIII)V", nullptr, $PUBLIC, $virtualMethod(CRenderer, drawLine, void, $SunGraphics2D*, int32_t, int32_t, int32_t, int32_t)},
+		{"drawLine", "(Lsun/java2d/SunGraphics2D;FFFF)V", nullptr, $PUBLIC, $virtualMethod(CRenderer, drawLine, void, $SunGraphics2D*, float, float, float, float)},
+		{"drawOval", "(Lsun/java2d/SunGraphics2D;IIII)V", nullptr, $PUBLIC, $virtualMethod(CRenderer, drawOval, void, $SunGraphics2D*, int32_t, int32_t, int32_t, int32_t)},
+		{"drawOval", "(Lsun/java2d/SunGraphics2D;FFFF)V", nullptr, $PUBLIC, $virtualMethod(CRenderer, drawOval, void, $SunGraphics2D*, float, float, float, float)},
+		{"drawPolygon", "(Lsun/java2d/SunGraphics2D;[I[II)V", nullptr, $PUBLIC, $virtualMethod(CRenderer, drawPolygon, void, $SunGraphics2D*, $ints*, $ints*, int32_t)},
+		{"drawPolyline", "(Lsun/java2d/SunGraphics2D;[I[II)V", nullptr, $PUBLIC, $virtualMethod(CRenderer, drawPolyline, void, $SunGraphics2D*, $ints*, $ints*, int32_t)},
+		{"drawRect", "(Lsun/java2d/SunGraphics2D;IIII)V", nullptr, $PUBLIC, $virtualMethod(CRenderer, drawRect, void, $SunGraphics2D*, int32_t, int32_t, int32_t, int32_t)},
+		{"drawRect", "(Lsun/java2d/SunGraphics2D;FFFF)V", nullptr, $PUBLIC, $virtualMethod(CRenderer, drawRect, void, $SunGraphics2D*, float, float, float, float)},
+		{"drawRoundRect", "(Lsun/java2d/SunGraphics2D;IIIIII)V", nullptr, $PUBLIC, $virtualMethod(CRenderer, drawRoundRect, void, $SunGraphics2D*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"drawRoundRect", "(Lsun/java2d/SunGraphics2D;FFFFFF)V", nullptr, $PUBLIC, $virtualMethod(CRenderer, drawRoundRect, void, $SunGraphics2D*, float, float, float, float, float, float)},
+		{"drawfillShape", "(Lsun/java2d/SunGraphics2D;Ljava/awt/Shape;ZZ)V", nullptr, 0, $virtualMethod(CRenderer, drawfillShape, void, $SunGraphics2D*, $Shape*, bool, bool)},
+		{"fill", "(Lsun/java2d/SunGraphics2D;Ljava/awt/Shape;)V", nullptr, $PUBLIC, $virtualMethod(CRenderer, fill, void, $SunGraphics2D*, $Shape*)},
+		{"fillArc", "(Lsun/java2d/SunGraphics2D;IIIIII)V", nullptr, $PUBLIC, $virtualMethod(CRenderer, fillArc, void, $SunGraphics2D*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"fillArc", "(Lsun/java2d/SunGraphics2D;FFFFFFI)V", nullptr, $PUBLIC, $virtualMethod(CRenderer, fillArc, void, $SunGraphics2D*, float, float, float, float, float, float, int32_t)},
+		{"fillOval", "(Lsun/java2d/SunGraphics2D;IIII)V", nullptr, $PUBLIC, $virtualMethod(CRenderer, fillOval, void, $SunGraphics2D*, int32_t, int32_t, int32_t, int32_t)},
+		{"fillOval", "(Lsun/java2d/SunGraphics2D;FFFF)V", nullptr, $PUBLIC, $virtualMethod(CRenderer, fillOval, void, $SunGraphics2D*, float, float, float, float)},
+		{"fillPolygon", "(Lsun/java2d/SunGraphics2D;[I[II)V", nullptr, $PUBLIC, $virtualMethod(CRenderer, fillPolygon, void, $SunGraphics2D*, $ints*, $ints*, int32_t)},
+		{"fillRect", "(Lsun/java2d/SunGraphics2D;IIII)V", nullptr, $PUBLIC, $virtualMethod(CRenderer, fillRect, void, $SunGraphics2D*, int32_t, int32_t, int32_t, int32_t)},
+		{"fillRect", "(Lsun/java2d/SunGraphics2D;FFFF)V", nullptr, $PUBLIC, $virtualMethod(CRenderer, fillRect, void, $SunGraphics2D*, float, float, float, float)},
+		{"fillRoundRect", "(Lsun/java2d/SunGraphics2D;IIIIII)V", nullptr, $PUBLIC, $virtualMethod(CRenderer, fillRoundRect, void, $SunGraphics2D*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"fillRoundRect", "(Lsun/java2d/SunGraphics2D;FFFFFF)V", nullptr, $PUBLIC, $virtualMethod(CRenderer, fillRoundRect, void, $SunGraphics2D*, float, float, float, float, float, float)},
+		{"imageReady", "(Lsun/awt/image/ToolkitImage;Ljava/awt/image/ImageObserver;)Z", nullptr, $PROTECTED, $virtualMethod(CRenderer, imageReady, bool, $ToolkitImage*, $ImageObserver*)},
+		{"init", "()V", nullptr, $STATIC | $NATIVE, $staticMethod(CRenderer, init, void)},
+		{"scaleImage", "(Lsun/java2d/SunGraphics2D;Ljava/awt/Image;IIIILjava/awt/Color;)Z", nullptr, $PUBLIC, $virtualMethod(CRenderer, scaleImage, bool, $SunGraphics2D*, $Image*, int32_t, int32_t, int32_t, int32_t, $Color*)},
+		{"scaleImage", "(Lsun/java2d/SunGraphics2D;Ljava/awt/Image;IIIIIIIILjava/awt/Color;)Z", nullptr, $PUBLIC, $virtualMethod(CRenderer, scaleImage, bool, $SunGraphics2D*, $Image*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, $Color*)},
+		{"scaleImage", "(Lsun/java2d/SunGraphics2D;Ljava/awt/Image;IIIILjava/awt/Color;Ljava/awt/image/ImageObserver;)Z", nullptr, $PUBLIC, $virtualMethod(CRenderer, scaleImage, bool, $SunGraphics2D*, $Image*, int32_t, int32_t, int32_t, int32_t, $Color*, $ImageObserver*)},
+		{"scaleImage", "(Lsun/java2d/SunGraphics2D;Ljava/awt/Image;IIIIIIIILjava/awt/Color;Ljava/awt/image/ImageObserver;)Z", nullptr, $PUBLIC, $virtualMethod(CRenderer, scaleImage, bool, $SunGraphics2D*, $Image*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, $Color*, $ImageObserver*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"traceWrap", "()Lsun/java2d/CRenderer;", nullptr, $PUBLIC, $virtualMethod(CRenderer, traceWrap, CRenderer*)},
+		{"transformImage", "(Lsun/java2d/SunGraphics2D;Ljava/awt/Image;IILjava/awt/image/BufferedImageOp;Ljava/awt/geom/AffineTransform;Ljava/awt/Color;)V", nullptr, $PROTECTED, $virtualMethod(CRenderer, transformImage, void, $SunGraphics2D*, $Image*, int32_t, int32_t, $BufferedImageOp*, $AffineTransform*, $Color*)},
+		{"transformImage", "(Lsun/java2d/SunGraphics2D;Ljava/awt/Image;Ljava/awt/geom/AffineTransform;Ljava/awt/image/ImageObserver;)Z", nullptr, $PUBLIC, $virtualMethod(CRenderer, transformImage, bool, $SunGraphics2D*, $Image*, $AffineTransform*, $ImageObserver*)},
+		{"transformImage", "(Lsun/java2d/SunGraphics2D;Ljava/awt/image/BufferedImage;Ljava/awt/image/BufferedImageOp;II)V", nullptr, $PUBLIC, $virtualMethod(CRenderer, transformImage, void, $SunGraphics2D*, $BufferedImage*, $BufferedImageOp*, int32_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.java2d.CRenderer$Tracer", "sun.java2d.CRenderer", "Tracer", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.java2d.CRenderer",
+		"java.lang.Object",
+		"sun.java2d.pipe.PixelDrawPipe,sun.java2d.pipe.PixelFillPipe,sun.java2d.pipe.ShapeDrawPipe,sun.java2d.pipe.DrawImagePipe",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.java2d.CRenderer$Tracer"
+	};
+	$loadClass(CRenderer, name, initialize, &classInfo$$, CRenderer::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(CRenderer));
+	});
 	return class$;
 }
 

@@ -57,6 +57,7 @@ class $export BasicButtonUI : public ::javax::swing::plaf::ButtonUI {
 	$class(BasicButtonUI, 0, ::javax::swing::plaf::ButtonUI)
 public:
 	BasicButtonUI();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void clearTextShiftOffset();
 	virtual ::javax::swing::plaf::basic::BasicButtonListener* createButtonListener(::javax::swing::AbstractButton* b);

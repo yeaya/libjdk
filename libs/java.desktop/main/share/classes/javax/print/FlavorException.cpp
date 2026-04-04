@@ -1,5 +1,4 @@
 #include <javax/print/FlavorException.h>
-
 #include <javax/print/DocFlavor.h>
 #include <jcpp.h>
 
@@ -10,26 +9,22 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace javax {
 	namespace print {
 
-$MethodInfo _FlavorException_MethodInfo_[] = {
-	{"getUnsupportedFlavors", "()[Ljavax/print/DocFlavor;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(FlavorException, getUnsupportedFlavors, $DocFlavorArray*)},
-	{}
-};
-
-$ClassInfo _FlavorException_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"javax.print.FlavorException",
-	nullptr,
-	nullptr,
-	nullptr,
-	_FlavorException_MethodInfo_
-};
-
-$Object* allocate$FlavorException($Class* clazz) {
-	return $of($alloc(FlavorException));
-}
-
 $Class* FlavorException::load$($String* name, bool initialize) {
-	$loadClass(FlavorException, name, initialize, &_FlavorException_ClassInfo_, allocate$FlavorException);
+	$MethodInfo methodInfos$$[] = {
+		{"getUnsupportedFlavors", "()[Ljavax/print/DocFlavor;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(FlavorException, getUnsupportedFlavors, $DocFlavorArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"javax.print.FlavorException",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(FlavorException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FlavorException);
+	});
 	return class$;
 }
 

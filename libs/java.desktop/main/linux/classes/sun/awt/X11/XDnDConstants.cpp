@@ -1,5 +1,4 @@
 #include <sun/awt/X11/XDnDConstants.h>
-
 #include <java/awt/dnd/DnDConstants.h>
 #include <sun/awt/X11/XAtom.h>
 #include <sun/awt/X11/XSelection.h>
@@ -27,51 +26,6 @@ namespace sun {
 	namespace awt {
 		namespace X11 {
 
-$FieldInfo _XDnDConstants_FieldInfo_[] = {
-	{"XA_XdndActionCopy", "Lsun/awt/X11/XAtom;", nullptr, $STATIC | $FINAL, $staticField(XDnDConstants, XA_XdndActionCopy)},
-	{"XA_XdndActionMove", "Lsun/awt/X11/XAtom;", nullptr, $STATIC | $FINAL, $staticField(XDnDConstants, XA_XdndActionMove)},
-	{"XA_XdndActionLink", "Lsun/awt/X11/XAtom;", nullptr, $STATIC | $FINAL, $staticField(XDnDConstants, XA_XdndActionLink)},
-	{"XA_XdndActionList", "Lsun/awt/X11/XAtom;", nullptr, $STATIC | $FINAL, $staticField(XDnDConstants, XA_XdndActionList)},
-	{"XA_XdndTypeList", "Lsun/awt/X11/XAtom;", nullptr, $STATIC | $FINAL, $staticField(XDnDConstants, XA_XdndTypeList)},
-	{"XA_XdndAware", "Lsun/awt/X11/XAtom;", nullptr, $STATIC | $FINAL, $staticField(XDnDConstants, XA_XdndAware)},
-	{"XA_XdndProxy", "Lsun/awt/X11/XAtom;", nullptr, $STATIC | $FINAL, $staticField(XDnDConstants, XA_XdndProxy)},
-	{"XA_XdndSelection", "Lsun/awt/X11/XAtom;", nullptr, $STATIC | $FINAL, $staticField(XDnDConstants, XA_XdndSelection)},
-	{"XA_XdndEnter", "Lsun/awt/X11/XAtom;", nullptr, $STATIC | $FINAL, $staticField(XDnDConstants, XA_XdndEnter)},
-	{"XA_XdndPosition", "Lsun/awt/X11/XAtom;", nullptr, $STATIC | $FINAL, $staticField(XDnDConstants, XA_XdndPosition)},
-	{"XA_XdndLeave", "Lsun/awt/X11/XAtom;", nullptr, $STATIC | $FINAL, $staticField(XDnDConstants, XA_XdndLeave)},
-	{"XA_XdndDrop", "Lsun/awt/X11/XAtom;", nullptr, $STATIC | $FINAL, $staticField(XDnDConstants, XA_XdndDrop)},
-	{"XA_XdndStatus", "Lsun/awt/X11/XAtom;", nullptr, $STATIC | $FINAL, $staticField(XDnDConstants, XA_XdndStatus)},
-	{"XA_XdndFinished", "Lsun/awt/X11/XAtom;", nullptr, $STATIC | $FINAL, $staticField(XDnDConstants, XA_XdndFinished)},
-	{"XDnDSelection", "Lsun/awt/X11/XSelection;", nullptr, $STATIC | $FINAL, $staticField(XDnDConstants, XDnDSelection)},
-	{"XDND_MIN_PROTOCOL_VERSION", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XDnDConstants, XDND_MIN_PROTOCOL_VERSION)},
-	{"XDND_PROTOCOL_VERSION", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XDnDConstants, XDND_PROTOCOL_VERSION)},
-	{"XDND_PROTOCOL_MASK", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XDnDConstants, XDND_PROTOCOL_MASK)},
-	{"XDND_PROTOCOL_SHIFT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XDnDConstants, XDND_PROTOCOL_SHIFT)},
-	{"XDND_DATA_TYPES_BIT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XDnDConstants, XDND_DATA_TYPES_BIT)},
-	{"XDND_ACCEPT_DROP_FLAG", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XDnDConstants, XDND_ACCEPT_DROP_FLAG)},
-	{}
-};
-
-$MethodInfo _XDnDConstants_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(XDnDConstants, init$, void)},
-	{"getJavaActionForXDnDAction", "(J)I", nullptr, $STATIC, $staticMethod(XDnDConstants, getJavaActionForXDnDAction, int32_t, int64_t)},
-	{"getXDnDActionForJavaAction", "(I)J", nullptr, $STATIC, $staticMethod(XDnDConstants, getXDnDActionForJavaAction, int64_t, int32_t)},
-	{}
-};
-
-$ClassInfo _XDnDConstants_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.awt.X11.XDnDConstants",
-	"java.lang.Object",
-	nullptr,
-	_XDnDConstants_FieldInfo_,
-	_XDnDConstants_MethodInfo_
-};
-
-$Object* allocate$XDnDConstants($Class* clazz) {
-	return $of($alloc(XDnDConstants));
-}
-
 $XAtom* XDnDConstants::XA_XdndActionCopy = nullptr;
 $XAtom* XDnDConstants::XA_XdndActionMove = nullptr;
 $XAtom* XDnDConstants::XA_XdndActionLink = nullptr;
@@ -95,21 +49,13 @@ int64_t XDnDConstants::getXDnDActionForJavaAction(int32_t javaAction) {
 	$init(XDnDConstants);
 	switch (javaAction) {
 	case $DnDConstants::ACTION_COPY:
-		{
-			return $nc(XDnDConstants::XA_XdndActionCopy)->getAtom();
-		}
+		return $nc(XDnDConstants::XA_XdndActionCopy)->getAtom();
 	case $DnDConstants::ACTION_MOVE:
-		{
-			return $nc(XDnDConstants::XA_XdndActionMove)->getAtom();
-		}
+		return $nc(XDnDConstants::XA_XdndActionMove)->getAtom();
 	case $DnDConstants::ACTION_LINK:
-		{
-			return $nc(XDnDConstants::XA_XdndActionLink)->getAtom();
-		}
+		return $nc(XDnDConstants::XA_XdndActionLink)->getAtom();
 	default:
-		{
-			return 0;
-		}
+		return 0;
 	}
 }
 
@@ -117,20 +63,16 @@ int32_t XDnDConstants::getJavaActionForXDnDAction(int64_t xdndAction) {
 	$init(XDnDConstants);
 	if (xdndAction == $nc(XDnDConstants::XA_XdndActionCopy)->getAtom()) {
 		return $DnDConstants::ACTION_COPY;
+	} else if (xdndAction == $nc(XDnDConstants::XA_XdndActionMove)->getAtom()) {
+		return $DnDConstants::ACTION_MOVE;
+	} else if (xdndAction == $nc(XDnDConstants::XA_XdndActionLink)->getAtom()) {
+		return $DnDConstants::ACTION_LINK;
 	} else {
-		if (xdndAction == $nc(XDnDConstants::XA_XdndActionMove)->getAtom()) {
-			return $DnDConstants::ACTION_MOVE;
-		} else {
-			if (xdndAction == $nc(XDnDConstants::XA_XdndActionLink)->getAtom()) {
-				return $DnDConstants::ACTION_LINK;
-			} else {
-				return $DnDConstants::ACTION_NONE;
-			}
-		}
+		return $DnDConstants::ACTION_NONE;
 	}
 }
 
-void clinit$XDnDConstants($Class* class$) {
+void XDnDConstants::clinit$($Class* clazz) {
 	$assignStatic(XDnDConstants::XA_XdndActionCopy, $XAtom::get("XdndActionCopy"_s));
 	$assignStatic(XDnDConstants::XA_XdndActionMove, $XAtom::get("XdndActionMove"_s));
 	$assignStatic(XDnDConstants::XA_XdndActionLink, $XAtom::get("XdndActionLink"_s));
@@ -152,7 +94,47 @@ XDnDConstants::XDnDConstants() {
 }
 
 $Class* XDnDConstants::load$($String* name, bool initialize) {
-	$loadClass(XDnDConstants, name, initialize, &_XDnDConstants_ClassInfo_, clinit$XDnDConstants, allocate$XDnDConstants);
+	$FieldInfo fieldInfos$$[] = {
+		{"XA_XdndActionCopy", "Lsun/awt/X11/XAtom;", nullptr, $STATIC | $FINAL, $staticField(XDnDConstants, XA_XdndActionCopy)},
+		{"XA_XdndActionMove", "Lsun/awt/X11/XAtom;", nullptr, $STATIC | $FINAL, $staticField(XDnDConstants, XA_XdndActionMove)},
+		{"XA_XdndActionLink", "Lsun/awt/X11/XAtom;", nullptr, $STATIC | $FINAL, $staticField(XDnDConstants, XA_XdndActionLink)},
+		{"XA_XdndActionList", "Lsun/awt/X11/XAtom;", nullptr, $STATIC | $FINAL, $staticField(XDnDConstants, XA_XdndActionList)},
+		{"XA_XdndTypeList", "Lsun/awt/X11/XAtom;", nullptr, $STATIC | $FINAL, $staticField(XDnDConstants, XA_XdndTypeList)},
+		{"XA_XdndAware", "Lsun/awt/X11/XAtom;", nullptr, $STATIC | $FINAL, $staticField(XDnDConstants, XA_XdndAware)},
+		{"XA_XdndProxy", "Lsun/awt/X11/XAtom;", nullptr, $STATIC | $FINAL, $staticField(XDnDConstants, XA_XdndProxy)},
+		{"XA_XdndSelection", "Lsun/awt/X11/XAtom;", nullptr, $STATIC | $FINAL, $staticField(XDnDConstants, XA_XdndSelection)},
+		{"XA_XdndEnter", "Lsun/awt/X11/XAtom;", nullptr, $STATIC | $FINAL, $staticField(XDnDConstants, XA_XdndEnter)},
+		{"XA_XdndPosition", "Lsun/awt/X11/XAtom;", nullptr, $STATIC | $FINAL, $staticField(XDnDConstants, XA_XdndPosition)},
+		{"XA_XdndLeave", "Lsun/awt/X11/XAtom;", nullptr, $STATIC | $FINAL, $staticField(XDnDConstants, XA_XdndLeave)},
+		{"XA_XdndDrop", "Lsun/awt/X11/XAtom;", nullptr, $STATIC | $FINAL, $staticField(XDnDConstants, XA_XdndDrop)},
+		{"XA_XdndStatus", "Lsun/awt/X11/XAtom;", nullptr, $STATIC | $FINAL, $staticField(XDnDConstants, XA_XdndStatus)},
+		{"XA_XdndFinished", "Lsun/awt/X11/XAtom;", nullptr, $STATIC | $FINAL, $staticField(XDnDConstants, XA_XdndFinished)},
+		{"XDnDSelection", "Lsun/awt/X11/XSelection;", nullptr, $STATIC | $FINAL, $staticField(XDnDConstants, XDnDSelection)},
+		{"XDND_MIN_PROTOCOL_VERSION", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XDnDConstants, XDND_MIN_PROTOCOL_VERSION)},
+		{"XDND_PROTOCOL_VERSION", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XDnDConstants, XDND_PROTOCOL_VERSION)},
+		{"XDND_PROTOCOL_MASK", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XDnDConstants, XDND_PROTOCOL_MASK)},
+		{"XDND_PROTOCOL_SHIFT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XDnDConstants, XDND_PROTOCOL_SHIFT)},
+		{"XDND_DATA_TYPES_BIT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XDnDConstants, XDND_DATA_TYPES_BIT)},
+		{"XDND_ACCEPT_DROP_FLAG", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XDnDConstants, XDND_ACCEPT_DROP_FLAG)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(XDnDConstants, init$, void)},
+		{"getJavaActionForXDnDAction", "(J)I", nullptr, $STATIC, $staticMethod(XDnDConstants, getJavaActionForXDnDAction, int32_t, int64_t)},
+		{"getXDnDActionForJavaAction", "(I)J", nullptr, $STATIC, $staticMethod(XDnDConstants, getXDnDActionForJavaAction, int64_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.awt.X11.XDnDConstants",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XDnDConstants, name, initialize, &classInfo$$, XDnDConstants::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(XDnDConstants);
+	});
 	return class$;
 }
 

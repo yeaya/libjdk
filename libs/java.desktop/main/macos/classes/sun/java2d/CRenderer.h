@@ -69,6 +69,7 @@ public:
 	virtual bool equals(Object$* arg0) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual bool blitImage(::sun::java2d::SunGraphics2D* sg2d, ::java::awt::Image* img, bool fliph, bool flipv, int32_t sx, int32_t sy, int32_t sw, int32_t sh, int32_t dx, int32_t dy, int32_t dw, int32_t dh, ::java::awt::Color* bgColor);
 	virtual bool copyImage(::sun::java2d::SunGraphics2D* sg2d, ::java::awt::Image* img, int32_t dx, int32_t dy, ::java::awt::Color* bgColor);

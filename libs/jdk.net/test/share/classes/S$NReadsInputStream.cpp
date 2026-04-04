@@ -1,5 +1,4 @@
 #include <S$NReadsInputStream.h>
-
 #include <S.h>
 #include <java/io/InputStream.h>
 #include <java/util/Objects.h>
@@ -17,45 +16,6 @@ using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Objects = ::java::util::Objects;
-using $Random = ::java::util::Random;
-
-$FieldInfo _S$NReadsInputStream_FieldInfo_[] = {
-	{"EOF", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(S$NReadsInputStream, EOF)},
-	{"readsLeft", "J", nullptr, $PRIVATE, $field(S$NReadsInputStream, readsLeft)},
-	{}
-};
-
-$MethodInfo _S$NReadsInputStream_MethodInfo_[] = {
-	{"<init>", "(J)V", nullptr, 0, $method(S$NReadsInputStream, init$, void, int64_t)},
-	{"read", "()I", nullptr, $PUBLIC, $virtualMethod(S$NReadsInputStream, read, int32_t)},
-	{"read", "([BII)I", nullptr, $PUBLIC, $virtualMethod(S$NReadsInputStream, read, int32_t, $bytes*, int32_t, int32_t)},
-	{}
-};
-
-$InnerClassInfo _S$NReadsInputStream_InnerClassesInfo_[] = {
-	{"S$NReadsInputStream", "S", "NReadsInputStream", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _S$NReadsInputStream_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"S$NReadsInputStream",
-	"java.io.InputStream",
-	nullptr,
-	_S$NReadsInputStream_FieldInfo_,
-	_S$NReadsInputStream_MethodInfo_,
-	nullptr,
-	nullptr,
-	_S$NReadsInputStream_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"S"
-};
-
-$Object* allocate$S$NReadsInputStream($Class* clazz) {
-	return $of($alloc(S$NReadsInputStream));
-}
 
 void S$NReadsInputStream::init$(int64_t n) {
 	$InputStream::init$();
@@ -66,7 +26,7 @@ void S$NReadsInputStream::init$(int64_t n) {
 }
 
 int32_t S$NReadsInputStream::read() {
-	if (this->readsLeft == (int64_t)0) {
+	if (this->readsLeft == 0) {
 		return S$NReadsInputStream::EOF;
 	}
 	--this->readsLeft;
@@ -78,14 +38,14 @@ int32_t S$NReadsInputStream::read($bytes* b, int32_t off, int32_t len) {
 	if (len == 0) {
 		return 0;
 	}
-	if (this->readsLeft == (int64_t)0) {
+	if (this->readsLeft == 0) {
 		return S$NReadsInputStream::EOF;
 	}
 	--this->readsLeft;
 	$init($S);
 	int32_t r = $nc($S::RANDOM)->nextInt(len) + 1;
 	for (int32_t i = 0; i < r; ++i) {
-		$nc(b)->set(i, (int8_t)$S::randomIntUpTo(256));
+		b->set(i, (int8_t)$S::randomIntUpTo(256));
 	}
 	return r;
 }
@@ -94,7 +54,39 @@ S$NReadsInputStream::S$NReadsInputStream() {
 }
 
 $Class* S$NReadsInputStream::load$($String* name, bool initialize) {
-	$loadClass(S$NReadsInputStream, name, initialize, &_S$NReadsInputStream_ClassInfo_, allocate$S$NReadsInputStream);
+	$FieldInfo fieldInfos$$[] = {
+		{"EOF", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(S$NReadsInputStream, EOF)},
+		{"readsLeft", "J", nullptr, $PRIVATE, $field(S$NReadsInputStream, readsLeft)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(J)V", nullptr, 0, $method(S$NReadsInputStream, init$, void, int64_t)},
+		{"read", "()I", nullptr, $PUBLIC, $virtualMethod(S$NReadsInputStream, read, int32_t)},
+		{"read", "([BII)I", nullptr, $PUBLIC, $virtualMethod(S$NReadsInputStream, read, int32_t, $bytes*, int32_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"S$NReadsInputStream", "S", "NReadsInputStream", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"S$NReadsInputStream",
+		"java.io.InputStream",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"S"
+	};
+	$loadClass(S$NReadsInputStream, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(S$NReadsInputStream);
+	});
 	return class$;
 }
 

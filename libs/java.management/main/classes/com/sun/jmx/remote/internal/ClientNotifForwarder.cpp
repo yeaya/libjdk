@@ -1,5 +1,4 @@
 #include <com/sun/jmx/remote/internal/ClientNotifForwarder.h>
-
 #include <com/sun/jmx/remote/internal/ClientListenerInfo.h>
 #include <com/sun/jmx/remote/internal/ClientNotifForwarder$LinearExecutor.h>
 #include <com/sun/jmx/remote/internal/ClientNotifForwarder$NotifFetcher.h>
@@ -9,7 +8,6 @@
 #include <java/lang/ClassLoader.h>
 #include <java/lang/ClassNotFoundException.h>
 #include <java/lang/InterruptedException.h>
-#include <java/lang/Runnable.h>
 #include <java/security/AccessControlContext.h>
 #include <java/security/AccessController.h>
 #include <java/util/ArrayList.h>
@@ -49,10 +47,8 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $InterruptedException = ::java::lang::InterruptedException;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
 using $AccessController = ::java::security::AccessController;
 using $ArrayList = ::java::util::ArrayList;
-using $Collection = ::java::util::Collection;
 using $HashMap = ::java::util::HashMap;
 using $List = ::java::util::List;
 using $Map = ::java::util::Map;
@@ -70,75 +66,6 @@ namespace com {
 			namespace remote {
 				namespace internal {
 
-$FieldInfo _ClientNotifForwarder_FieldInfo_[] = {
-	{"acc", "Ljava/security/AccessControlContext;", nullptr, $PRIVATE | $FINAL, $field(ClientNotifForwarder, acc)},
-	{"threadId", "I", nullptr, $PRIVATE | $STATIC, $staticField(ClientNotifForwarder, threadId)},
-	{"defaultClassLoader", "Ljava/lang/ClassLoader;", nullptr, $PRIVATE | $FINAL, $field(ClientNotifForwarder, defaultClassLoader)},
-	{"executor", "Ljava/util/concurrent/Executor;", nullptr, $PRIVATE, $field(ClientNotifForwarder, executor)},
-	{"infoList", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/Integer;Lcom/sun/jmx/remote/internal/ClientListenerInfo;>;", $PRIVATE | $FINAL, $field(ClientNotifForwarder, infoList)},
-	{"clientSequenceNumber", "J", nullptr, $PRIVATE, $field(ClientNotifForwarder, clientSequenceNumber)},
-	{"maxNotifications", "I", nullptr, $PRIVATE | $FINAL, $field(ClientNotifForwarder, maxNotifications)},
-	{"timeout", "J", nullptr, $PRIVATE | $FINAL, $field(ClientNotifForwarder, timeout)},
-	{"mbeanRemovedNotifID", "Ljava/lang/Integer;", nullptr, $PRIVATE, $field(ClientNotifForwarder, mbeanRemovedNotifID)},
-	{"currentFetchThread", "Ljava/lang/Thread;", nullptr, $PRIVATE, $field(ClientNotifForwarder, currentFetchThread)},
-	{"STARTING", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ClientNotifForwarder, STARTING)},
-	{"STARTED", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ClientNotifForwarder, STARTED)},
-	{"STOPPING", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ClientNotifForwarder, STOPPING)},
-	{"STOPPED", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ClientNotifForwarder, STOPPED)},
-	{"TERMINATED", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ClientNotifForwarder, TERMINATED)},
-	{"state", "I", nullptr, $PRIVATE, $field(ClientNotifForwarder, state)},
-	{"beingReconnected", "Z", nullptr, $PRIVATE, $field(ClientNotifForwarder, beingReconnected)},
-	{"logger", "Lcom/sun/jmx/remote/util/ClassLogger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ClientNotifForwarder, logger)},
-	{}
-};
-
-$MethodInfo _ClientNotifForwarder_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/Map;)V", "(Ljava/util/Map<Ljava/lang/String;*>;)V", $PUBLIC, $method(ClientNotifForwarder, init$, void, $Map*)},
-	{"<init>", "(Ljava/lang/ClassLoader;Ljava/util/Map;)V", "(Ljava/lang/ClassLoader;Ljava/util/Map<Ljava/lang/String;*>;)V", $PUBLIC, $method(ClientNotifForwarder, init$, void, $ClassLoader*, $Map*)},
-	{"addListenerForMBeanRemovedNotif", "()Ljava/lang/Integer;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(ClientNotifForwarder, addListenerForMBeanRemovedNotif, $Integer*), "java.io.IOException,javax.management.InstanceNotFoundException"},
-	{"addNotificationListener", "(Ljava/lang/Integer;Ljavax/management/ObjectName;Ljavax/management/NotificationListener;Ljavax/management/NotificationFilter;Ljava/lang/Object;Ljavax/security/auth/Subject;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ClientNotifForwarder, addNotificationListener, void, $Integer*, $ObjectName*, $NotificationListener*, $NotificationFilter*, Object$*, $Subject*), "java.io.IOException,javax.management.InstanceNotFoundException"},
-	{"beforeRemove", "()V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(ClientNotifForwarder, beforeRemove, void), "java.io.IOException"},
-	{"fetchNotifs", "(JIJ)Ljavax/management/remote/NotificationResult;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(ClientNotifForwarder, fetchNotifs, $NotificationResult*, int64_t, int32_t, int64_t), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"getListenerId", "(Ljavax/management/ObjectName;Ljavax/management/NotificationListener;Ljavax/management/NotificationFilter;Ljava/lang/Object;)Ljava/lang/Integer;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ClientNotifForwarder, getListenerId, $Integer*, $ObjectName*, $NotificationListener*, $NotificationFilter*, Object$*), "javax.management.ListenerNotFoundException,java.io.IOException"},
-	{"getListenerIds", "(Ljavax/management/ObjectName;Ljavax/management/NotificationListener;)[Ljava/lang/Integer;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ClientNotifForwarder, getListenerIds, $IntegerArray*, $ObjectName*, $NotificationListener*), "javax.management.ListenerNotFoundException,java.io.IOException"},
-	{"init", "(Z)V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(ClientNotifForwarder, init, void, bool), "java.io.IOException"},
-	{"lostNotifs", "(Ljava/lang/String;J)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(ClientNotifForwarder, lostNotifs, void, $String*, int64_t)},
-	{"postReconnection", "([Lcom/sun/jmx/remote/internal/ClientListenerInfo;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ClientNotifForwarder, postReconnection, void, $ClientListenerInfoArray*), "java.io.IOException"},
-	{"preReconnection", "()[Lcom/sun/jmx/remote/internal/ClientListenerInfo;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ClientNotifForwarder, preReconnection, $ClientListenerInfoArray*), "java.io.IOException"},
-	{"removeListenerForMBeanRemovedNotif", "(Ljava/lang/Integer;)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(ClientNotifForwarder, removeListenerForMBeanRemovedNotif, void, $Integer*), "java.io.IOException,javax.management.InstanceNotFoundException,javax.management.ListenerNotFoundException"},
-	{"removeNotificationListener", "(Ljavax/management/ObjectName;Ljavax/management/NotificationListener;)[Ljava/lang/Integer;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ClientNotifForwarder, removeNotificationListener, $IntegerArray*, $ObjectName*, $NotificationListener*), "javax.management.ListenerNotFoundException,java.io.IOException"},
-	{"removeNotificationListener", "(Ljavax/management/ObjectName;Ljavax/management/NotificationListener;Ljavax/management/NotificationFilter;Ljava/lang/Object;)Ljava/lang/Integer;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ClientNotifForwarder, removeNotificationListener, $Integer*, $ObjectName*, $NotificationListener*, $NotificationFilter*, Object$*), "javax.management.ListenerNotFoundException,java.io.IOException"},
-	{"removeNotificationListener", "(Ljavax/management/ObjectName;)[Ljava/lang/Integer;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ClientNotifForwarder, removeNotificationListener, $IntegerArray*, $ObjectName*)},
-	{"setState", "(I)V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(ClientNotifForwarder, setState, void, int32_t)},
-	{"terminate", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ClientNotifForwarder, terminate, void)},
-	{}
-};
-
-$InnerClassInfo _ClientNotifForwarder_InnerClassesInfo_[] = {
-	{"com.sun.jmx.remote.internal.ClientNotifForwarder$NotifFetcher", "com.sun.jmx.remote.internal.ClientNotifForwarder", "NotifFetcher", $PRIVATE},
-	{"com.sun.jmx.remote.internal.ClientNotifForwarder$LinearExecutor", "com.sun.jmx.remote.internal.ClientNotifForwarder", "LinearExecutor", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _ClientNotifForwarder_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"com.sun.jmx.remote.internal.ClientNotifForwarder",
-	"java.lang.Object",
-	nullptr,
-	_ClientNotifForwarder_FieldInfo_,
-	_ClientNotifForwarder_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ClientNotifForwarder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.jmx.remote.internal.ClientNotifForwarder$NotifFetcher,com.sun.jmx.remote.internal.ClientNotifForwarder$NotifFetcher$1,com.sun.jmx.remote.internal.ClientNotifForwarder$LinearExecutor"
-};
-
-$Object* allocate$ClientNotifForwarder($Class* clazz) {
-	return $of($alloc(ClientNotifForwarder));
-}
-
 int32_t ClientNotifForwarder::threadId = 0;
 $ClassLogger* ClientNotifForwarder::logger = nullptr;
 
@@ -147,7 +74,7 @@ void ClientNotifForwarder::init$($Map* env) {
 }
 
 void ClientNotifForwarder::init$($ClassLoader* defaultClassLoader, $Map* env) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, infoList, $new($HashMap));
 	this->clientSequenceNumber = -1;
 	$set(this, mbeanRemovedNotifID, nullptr);
@@ -158,8 +85,8 @@ void ClientNotifForwarder::init$($ClassLoader* defaultClassLoader, $Map* env) {
 	$var($Executor, ex, $cast($Executor, $nc(env)->get("jmx.remote.x.fetch.notifications.executor"_s)));
 	if (ex == nullptr) {
 		$assign(ex, $new($ClientNotifForwarder$LinearExecutor));
-	} else if ($nc(ClientNotifForwarder::logger)->traceOn()) {
-		$nc(ClientNotifForwarder::logger)->trace("ClientNotifForwarder"_s, $$str({"executor is "_s, ex}));
+	} else if (ClientNotifForwarder::logger->traceOn()) {
+		ClientNotifForwarder::logger->trace("ClientNotifForwarder"_s, $$str({"executor is "_s, ex}));
 	}
 	$set(this, defaultClassLoader, defaultClassLoader);
 	$set(this, executor, ex);
@@ -168,9 +95,9 @@ void ClientNotifForwarder::init$($ClassLoader* defaultClassLoader, $Map* env) {
 
 void ClientNotifForwarder::addNotificationListener($Integer* listenerID, $ObjectName* name, $NotificationListener* listener, $NotificationFilter* filter, Object$* handback, $Subject* delegationSubject) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
-		if ($nc(ClientNotifForwarder::logger)->traceOn()) {
-			$nc(ClientNotifForwarder::logger)->trace("addNotificationListener"_s, $$str({"Add the listener "_s, listener, " at "_s, name}));
+		$useLocalObjectStack();
+		if (ClientNotifForwarder::logger->traceOn()) {
+			ClientNotifForwarder::logger->trace("addNotificationListener"_s, $$str({"Add the listener "_s, listener, " at "_s, name}));
 		}
 		$nc(this->infoList)->put(listenerID, $$new($ClientListenerInfo, listenerID, name, listener, filter, handback, delegationSubject));
 		init(false);
@@ -179,7 +106,7 @@ void ClientNotifForwarder::addNotificationListener($Integer* listenerID, $Object
 
 $IntegerArray* ClientNotifForwarder::getListenerIds($ObjectName* name, $NotificationListener* listener) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$var($List, ids, $new($ArrayList));
 		$var($List, values, $new($ArrayList, $($nc(this->infoList)->values())));
 		for (int32_t i = values->size() - 1; i >= 0; --i) {
@@ -191,13 +118,13 @@ $IntegerArray* ClientNotifForwarder::getListenerIds($ObjectName* name, $Notifica
 		if (ids->isEmpty()) {
 			$throwNew($ListenerNotFoundException, "Listener not found"_s);
 		}
-		return $fcast($IntegerArray, ids->toArray($$new($IntegerArray, 0)));
+		return $cast($IntegerArray, ids->toArray($$new($IntegerArray, 0)));
 	}
 }
 
 $Integer* ClientNotifForwarder::getListenerId($ObjectName* name, $NotificationListener* listener, $NotificationFilter* filter, Object$* handback) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$var($Integer, id, nullptr);
 		$var($List, values, $new($ArrayList, $($nc(this->infoList)->values())));
 		for (int32_t i = values->size() - 1; i >= 0; --i) {
@@ -216,10 +143,10 @@ $Integer* ClientNotifForwarder::getListenerId($ObjectName* name, $NotificationLi
 
 $IntegerArray* ClientNotifForwarder::removeNotificationListener($ObjectName* name, $NotificationListener* listener) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		beforeRemove();
-		if ($nc(ClientNotifForwarder::logger)->traceOn()) {
-			$nc(ClientNotifForwarder::logger)->trace("removeNotificationListener"_s, $$str({"Remove the listener "_s, listener, " from "_s, name}));
+		if (ClientNotifForwarder::logger->traceOn()) {
+			ClientNotifForwarder::logger->trace("removeNotificationListener"_s, $$str({"Remove the listener "_s, listener, " from "_s, name}));
 		}
 		$var($IntegerArray, liIds, getListenerIds(name, listener));
 		for (int32_t i = 0; i < $nc(liIds)->length; ++i) {
@@ -231,9 +158,9 @@ $IntegerArray* ClientNotifForwarder::removeNotificationListener($ObjectName* nam
 
 $Integer* ClientNotifForwarder::removeNotificationListener($ObjectName* name, $NotificationListener* listener, $NotificationFilter* filter, Object$* handback) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
-		if ($nc(ClientNotifForwarder::logger)->traceOn()) {
-			$nc(ClientNotifForwarder::logger)->trace("removeNotificationListener"_s, $$str({"Remove the listener "_s, listener, " from "_s, name}));
+		$useLocalObjectStack();
+		if (ClientNotifForwarder::logger->traceOn()) {
+			ClientNotifForwarder::logger->trace("removeNotificationListener"_s, $$str({"Remove the listener "_s, listener, " from "_s, name}));
 		}
 		beforeRemove();
 		$var($Integer, liId, getListenerId(name, listener, filter, handback));
@@ -244,9 +171,9 @@ $Integer* ClientNotifForwarder::removeNotificationListener($ObjectName* name, $N
 
 $IntegerArray* ClientNotifForwarder::removeNotificationListener($ObjectName* name) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
-		if ($nc(ClientNotifForwarder::logger)->traceOn()) {
-			$nc(ClientNotifForwarder::logger)->trace("removeNotificationListener"_s, $$str({"Remove all listeners registered at "_s, name}));
+		$useLocalObjectStack();
+		if (ClientNotifForwarder::logger->traceOn()) {
+			ClientNotifForwarder::logger->trace("removeNotificationListener"_s, $$str({"Remove all listeners registered at "_s, name}));
 		}
 		$var($List, ids, $new($ArrayList));
 		$var($List, values, $new($ArrayList, $($nc(this->infoList)->values())));
@@ -254,29 +181,29 @@ $IntegerArray* ClientNotifForwarder::removeNotificationListener($ObjectName* nam
 			$var($ClientListenerInfo, li, $cast($ClientListenerInfo, values->get(i)));
 			if ($nc(li)->sameAs(name)) {
 				ids->add($(li->getListenerID()));
-				$nc(this->infoList)->remove($(li->getListenerID()));
+				this->infoList->remove($(li->getListenerID()));
 			}
 		}
-		return $fcast($IntegerArray, ids->toArray($$new($IntegerArray, 0)));
+		return $cast($IntegerArray, ids->toArray($$new($IntegerArray, 0)));
 	}
 }
 
 $ClientListenerInfoArray* ClientNotifForwarder::preReconnection() {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		if (this->state == ClientNotifForwarder::TERMINATED || this->beingReconnected) {
 			$throwNew($IOException, "Illegal state."_s);
 		}
-		$var($ClientListenerInfoArray, tmp, $fcast($ClientListenerInfoArray, $nc($($nc(this->infoList)->values()))->toArray($$new($ClientListenerInfoArray, 0))));
+		$var($ClientListenerInfoArray, tmp, $cast($ClientListenerInfoArray, $$nc($nc(this->infoList)->values())->toArray($$new($ClientListenerInfoArray, 0))));
 		this->beingReconnected = true;
-		$nc(this->infoList)->clear();
+		this->infoList->clear();
 		return tmp;
 	}
 }
 
 void ClientNotifForwarder::postReconnection($ClientListenerInfoArray* listenerInfos) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		if (this->state == ClientNotifForwarder::TERMINATED) {
 			return;
 		}
@@ -289,11 +216,11 @@ void ClientNotifForwarder::postReconnection($ClientListenerInfoArray* listenerIn
 				$throw(ioe);
 			}
 		}
-		bool trace = $nc(ClientNotifForwarder::logger)->traceOn();
+		bool trace = ClientNotifForwarder::logger->traceOn();
 		int32_t len = $nc(listenerInfos)->length;
 		for (int32_t i = 0; i < len; ++i) {
 			if (trace) {
-				$nc(ClientNotifForwarder::logger)->trace("addNotificationListeners"_s, $$str({"Add a listener at "_s, $($nc(listenerInfos->get(i))->getListenerID())}));
+				ClientNotifForwarder::logger->trace("addNotificationListeners"_s, $$str({"Add a listener at "_s, $($nc(listenerInfos->get(i))->getListenerID())}));
 			}
 			$nc(this->infoList)->put($($nc(listenerInfos->get(i))->getListenerID()), listenerInfos->get(i));
 		}
@@ -304,8 +231,8 @@ void ClientNotifForwarder::postReconnection($ClientListenerInfoArray* listenerIn
 				$set(this, mbeanRemovedNotifID, addListenerForMBeanRemovedNotif());
 			} catch ($Exception& e) {
 				$var($String, msg, "Failed to register a listener to the mbean server: the client will not do clean when an MBean is unregistered"_s);
-				if ($nc(ClientNotifForwarder::logger)->traceOn()) {
-					$nc(ClientNotifForwarder::logger)->trace("init"_s, msg, e);
+				if (ClientNotifForwarder::logger->traceOn()) {
+					ClientNotifForwarder::logger->trace("init"_s, msg, e);
 				}
 			}
 		} else {
@@ -332,8 +259,8 @@ void ClientNotifForwarder::terminate() {
 		if (this->state == ClientNotifForwarder::TERMINATED) {
 			return;
 		}
-		if ($nc(ClientNotifForwarder::logger)->traceOn()) {
-			$nc(ClientNotifForwarder::logger)->trace("terminate"_s, "Terminating..."_s);
+		if (ClientNotifForwarder::logger->traceOn()) {
+			ClientNotifForwarder::logger->trace("terminate"_s, "Terminating..."_s);
 		}
 		if (this->state == ClientNotifForwarder::STARTED) {
 			$nc(this->infoList)->clear();
@@ -348,86 +275,74 @@ void ClientNotifForwarder::setState(int32_t newState) {
 			return;
 		}
 		this->state = newState;
-		$of(this)->notifyAll();
+		this->notifyAll();
 	}
 }
 
 void ClientNotifForwarder::init(bool reconnected) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		switch (this->state) {
 		case ClientNotifForwarder::STARTED:
-			{
-				return;
-			}
+			return;
 		case ClientNotifForwarder::STARTING:
-			{
-				return;
-			}
+			return;
 		case ClientNotifForwarder::TERMINATED:
-			{
-				$throwNew($IOException, "The ClientNotifForwarder has been terminated."_s);
-			}
+			$throwNew($IOException, "The ClientNotifForwarder has been terminated."_s);
 		case ClientNotifForwarder::STOPPING:
-			{
-				if (this->beingReconnected == true) {
-					return;
-				}
-				while (this->state == ClientNotifForwarder::STOPPING) {
-					try {
-						$of(this)->wait();
-					} catch ($InterruptedException& ire) {
-						$var($IOException, ioe, $new($IOException, $(ire->toString())));
-						$EnvHelp::initCause(ioe, ire);
-						$throw(ioe);
-					}
-				}
-				init(reconnected);
+			if (this->beingReconnected == true) {
 				return;
 			}
-		case ClientNotifForwarder::STOPPED:
-			{
-				if (this->beingReconnected == true) {
-					return;
-				}
-				if ($nc(ClientNotifForwarder::logger)->traceOn()) {
-					$nc(ClientNotifForwarder::logger)->trace("init"_s, "Initializing..."_s);
-				}
-				if (!reconnected) {
-					try {
-						$var($NotificationResult, nr, fetchNotifs(-1, 0, 0));
-						if (this->state != ClientNotifForwarder::STOPPED) {
-							return;
-						}
-						this->clientSequenceNumber = $nc(nr)->getNextSequenceNumber();
-					} catch ($ClassNotFoundException& e) {
-						$nc(ClientNotifForwarder::logger)->warning("init"_s, $$str({"Impossible exception: "_s, e}));
-						$nc(ClientNotifForwarder::logger)->debug("init"_s, static_cast<$Throwable*>(e));
-					}
-				}
+			while (this->state == ClientNotifForwarder::STOPPING) {
 				try {
-					$set(this, mbeanRemovedNotifID, addListenerForMBeanRemovedNotif());
-				} catch ($Exception& e) {
-					$var($String, msg, "Failed to register a listener to the mbean server: the client will not do clean when an MBean is unregistered"_s);
-					if ($nc(ClientNotifForwarder::logger)->traceOn()) {
-						$nc(ClientNotifForwarder::logger)->trace("init"_s, msg, e);
-					}
+					$of(this)->wait();
+				} catch ($InterruptedException& ire) {
+					$var($IOException, ioe, $new($IOException, $(ire->toString())));
+					$EnvHelp::initCause(ioe, ire);
+					$throw(ioe);
 				}
-				setState(ClientNotifForwarder::STARTING);
-				$nc(this->executor)->execute($$new($ClientNotifForwarder$NotifFetcher, this));
+			}
+			init(reconnected);
+			return;
+		case ClientNotifForwarder::STOPPED:
+			if (this->beingReconnected == true) {
 				return;
 			}
-		default:
-			{
-				$throwNew($IOException, "Unknown state."_s);
+			if (ClientNotifForwarder::logger->traceOn()) {
+				ClientNotifForwarder::logger->trace("init"_s, "Initializing..."_s);
 			}
+			if (!reconnected) {
+				try {
+					$var($NotificationResult, nr, fetchNotifs(-1, 0, 0));
+					if (this->state != ClientNotifForwarder::STOPPED) {
+						return;
+					}
+					this->clientSequenceNumber = $nc(nr)->getNextSequenceNumber();
+				} catch ($ClassNotFoundException& e) {
+					ClientNotifForwarder::logger->warning("init"_s, $$str({"Impossible exception: "_s, e}));
+					ClientNotifForwarder::logger->debug("init"_s, e);
+				}
+			}
+			try {
+				$set(this, mbeanRemovedNotifID, addListenerForMBeanRemovedNotif());
+			} catch ($Exception& e) {
+				$var($String, msg, "Failed to register a listener to the mbean server: the client will not do clean when an MBean is unregistered"_s);
+				if (ClientNotifForwarder::logger->traceOn()) {
+					ClientNotifForwarder::logger->trace("init"_s, msg, e);
+				}
+			}
+			setState(ClientNotifForwarder::STARTING);
+			$nc(this->executor)->execute($$new($ClientNotifForwarder$NotifFetcher, this));
+			return;
+		default:
+			$throwNew($IOException, "Unknown state."_s);
 		}
 	}
 }
 
 void ClientNotifForwarder::beforeRemove() {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		while (this->beingReconnected) {
 			if (this->state == ClientNotifForwarder::TERMINATED) {
 				$throwNew($IOException, "Terminated."_s);
@@ -446,7 +361,7 @@ void ClientNotifForwarder::beforeRemove() {
 	}
 }
 
-void clinit$ClientNotifForwarder($Class* class$) {
+void ClientNotifForwarder::clinit$($Class* clazz) {
 	$assignStatic(ClientNotifForwarder::logger, $new($ClassLogger, "javax.management.remote.misc"_s, "ClientNotifForwarder"_s));
 }
 
@@ -454,7 +369,70 @@ ClientNotifForwarder::ClientNotifForwarder() {
 }
 
 $Class* ClientNotifForwarder::load$($String* name, bool initialize) {
-	$loadClass(ClientNotifForwarder, name, initialize, &_ClientNotifForwarder_ClassInfo_, clinit$ClientNotifForwarder, allocate$ClientNotifForwarder);
+	$FieldInfo fieldInfos$$[] = {
+		{"acc", "Ljava/security/AccessControlContext;", nullptr, $PRIVATE | $FINAL, $field(ClientNotifForwarder, acc)},
+		{"threadId", "I", nullptr, $PRIVATE | $STATIC, $staticField(ClientNotifForwarder, threadId)},
+		{"defaultClassLoader", "Ljava/lang/ClassLoader;", nullptr, $PRIVATE | $FINAL, $field(ClientNotifForwarder, defaultClassLoader)},
+		{"executor", "Ljava/util/concurrent/Executor;", nullptr, $PRIVATE, $field(ClientNotifForwarder, executor)},
+		{"infoList", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/Integer;Lcom/sun/jmx/remote/internal/ClientListenerInfo;>;", $PRIVATE | $FINAL, $field(ClientNotifForwarder, infoList)},
+		{"clientSequenceNumber", "J", nullptr, $PRIVATE, $field(ClientNotifForwarder, clientSequenceNumber)},
+		{"maxNotifications", "I", nullptr, $PRIVATE | $FINAL, $field(ClientNotifForwarder, maxNotifications)},
+		{"timeout", "J", nullptr, $PRIVATE | $FINAL, $field(ClientNotifForwarder, timeout)},
+		{"mbeanRemovedNotifID", "Ljava/lang/Integer;", nullptr, $PRIVATE, $field(ClientNotifForwarder, mbeanRemovedNotifID)},
+		{"currentFetchThread", "Ljava/lang/Thread;", nullptr, $PRIVATE, $field(ClientNotifForwarder, currentFetchThread)},
+		{"STARTING", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ClientNotifForwarder, STARTING)},
+		{"STARTED", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ClientNotifForwarder, STARTED)},
+		{"STOPPING", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ClientNotifForwarder, STOPPING)},
+		{"STOPPED", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ClientNotifForwarder, STOPPED)},
+		{"TERMINATED", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ClientNotifForwarder, TERMINATED)},
+		{"state", "I", nullptr, $PRIVATE, $field(ClientNotifForwarder, state)},
+		{"beingReconnected", "Z", nullptr, $PRIVATE, $field(ClientNotifForwarder, beingReconnected)},
+		{"logger", "Lcom/sun/jmx/remote/util/ClassLogger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ClientNotifForwarder, logger)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/Map;)V", "(Ljava/util/Map<Ljava/lang/String;*>;)V", $PUBLIC, $method(ClientNotifForwarder, init$, void, $Map*)},
+		{"<init>", "(Ljava/lang/ClassLoader;Ljava/util/Map;)V", "(Ljava/lang/ClassLoader;Ljava/util/Map<Ljava/lang/String;*>;)V", $PUBLIC, $method(ClientNotifForwarder, init$, void, $ClassLoader*, $Map*)},
+		{"addListenerForMBeanRemovedNotif", "()Ljava/lang/Integer;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(ClientNotifForwarder, addListenerForMBeanRemovedNotif, $Integer*), "java.io.IOException,javax.management.InstanceNotFoundException"},
+		{"addNotificationListener", "(Ljava/lang/Integer;Ljavax/management/ObjectName;Ljavax/management/NotificationListener;Ljavax/management/NotificationFilter;Ljava/lang/Object;Ljavax/security/auth/Subject;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ClientNotifForwarder, addNotificationListener, void, $Integer*, $ObjectName*, $NotificationListener*, $NotificationFilter*, Object$*, $Subject*), "java.io.IOException,javax.management.InstanceNotFoundException"},
+		{"beforeRemove", "()V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(ClientNotifForwarder, beforeRemove, void), "java.io.IOException"},
+		{"fetchNotifs", "(JIJ)Ljavax/management/remote/NotificationResult;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(ClientNotifForwarder, fetchNotifs, $NotificationResult*, int64_t, int32_t, int64_t), "java.io.IOException,java.lang.ClassNotFoundException"},
+		{"getListenerId", "(Ljavax/management/ObjectName;Ljavax/management/NotificationListener;Ljavax/management/NotificationFilter;Ljava/lang/Object;)Ljava/lang/Integer;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ClientNotifForwarder, getListenerId, $Integer*, $ObjectName*, $NotificationListener*, $NotificationFilter*, Object$*), "javax.management.ListenerNotFoundException,java.io.IOException"},
+		{"getListenerIds", "(Ljavax/management/ObjectName;Ljavax/management/NotificationListener;)[Ljava/lang/Integer;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ClientNotifForwarder, getListenerIds, $IntegerArray*, $ObjectName*, $NotificationListener*), "javax.management.ListenerNotFoundException,java.io.IOException"},
+		{"init", "(Z)V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(ClientNotifForwarder, init, void, bool), "java.io.IOException"},
+		{"lostNotifs", "(Ljava/lang/String;J)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(ClientNotifForwarder, lostNotifs, void, $String*, int64_t)},
+		{"postReconnection", "([Lcom/sun/jmx/remote/internal/ClientListenerInfo;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ClientNotifForwarder, postReconnection, void, $ClientListenerInfoArray*), "java.io.IOException"},
+		{"preReconnection", "()[Lcom/sun/jmx/remote/internal/ClientListenerInfo;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ClientNotifForwarder, preReconnection, $ClientListenerInfoArray*), "java.io.IOException"},
+		{"removeListenerForMBeanRemovedNotif", "(Ljava/lang/Integer;)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(ClientNotifForwarder, removeListenerForMBeanRemovedNotif, void, $Integer*), "java.io.IOException,javax.management.InstanceNotFoundException,javax.management.ListenerNotFoundException"},
+		{"removeNotificationListener", "(Ljavax/management/ObjectName;Ljavax/management/NotificationListener;)[Ljava/lang/Integer;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ClientNotifForwarder, removeNotificationListener, $IntegerArray*, $ObjectName*, $NotificationListener*), "javax.management.ListenerNotFoundException,java.io.IOException"},
+		{"removeNotificationListener", "(Ljavax/management/ObjectName;Ljavax/management/NotificationListener;Ljavax/management/NotificationFilter;Ljava/lang/Object;)Ljava/lang/Integer;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ClientNotifForwarder, removeNotificationListener, $Integer*, $ObjectName*, $NotificationListener*, $NotificationFilter*, Object$*), "javax.management.ListenerNotFoundException,java.io.IOException"},
+		{"removeNotificationListener", "(Ljavax/management/ObjectName;)[Ljava/lang/Integer;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ClientNotifForwarder, removeNotificationListener, $IntegerArray*, $ObjectName*)},
+		{"setState", "(I)V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(ClientNotifForwarder, setState, void, int32_t)},
+		{"terminate", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ClientNotifForwarder, terminate, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.jmx.remote.internal.ClientNotifForwarder$NotifFetcher", "com.sun.jmx.remote.internal.ClientNotifForwarder", "NotifFetcher", $PRIVATE},
+		{"com.sun.jmx.remote.internal.ClientNotifForwarder$LinearExecutor", "com.sun.jmx.remote.internal.ClientNotifForwarder", "LinearExecutor", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"com.sun.jmx.remote.internal.ClientNotifForwarder",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.jmx.remote.internal.ClientNotifForwarder$NotifFetcher,com.sun.jmx.remote.internal.ClientNotifForwarder$NotifFetcher$1,com.sun.jmx.remote.internal.ClientNotifForwarder$LinearExecutor"
+	};
+	$loadClass(ClientNotifForwarder, name, initialize, &classInfo$$, ClientNotifForwarder::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ClientNotifForwarder);
+	});
 	return class$;
 }
 

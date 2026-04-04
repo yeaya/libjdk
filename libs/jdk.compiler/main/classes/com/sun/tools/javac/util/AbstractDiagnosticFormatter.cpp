@@ -1,12 +1,10 @@
 #include <com/sun/tools/javac/util/AbstractDiagnosticFormatter.h>
-
 #include <com/sun/source/tree/Tree$Kind.h>
 #include <com/sun/tools/javac/api/DiagnosticFormatter$Configuration$DiagnosticPart.h>
 #include <com/sun/tools/javac/api/DiagnosticFormatter$Configuration$MultilineLimit.h>
 #include <com/sun/tools/javac/api/DiagnosticFormatter$Configuration.h>
 #include <com/sun/tools/javac/api/DiagnosticFormatter$PositionKind.h>
 #include <com/sun/tools/javac/api/Formattable.h>
-#include <com/sun/tools/javac/api/Messages.h>
 #include <com/sun/tools/javac/code/Lint$LintCategory.h>
 #include <com/sun/tools/javac/code/Printer.h>
 #include <com/sun/tools/javac/code/Source.h>
@@ -43,7 +41,6 @@
 #include <java/util/Locale.h>
 #include <java/util/Set.h>
 #include <javax/tools/Diagnostic.h>
-#include <javax/tools/FileObject.h>
 #include <javax/tools/JavaFileObject.h>
 #include <jcpp.h>
 
@@ -58,7 +55,6 @@ using $DiagnosticFormatter$Configuration$DiagnosticPart = ::com::sun::tools::jav
 using $DiagnosticFormatter$Configuration$MultilineLimit = ::com::sun::tools::javac::api::DiagnosticFormatter$Configuration$MultilineLimit;
 using $DiagnosticFormatter$PositionKind = ::com::sun::tools::javac::api::DiagnosticFormatter$PositionKind;
 using $Formattable = ::com::sun::tools::javac::api::Formattable;
-using $Messages = ::com::sun::tools::javac::api::Messages;
 using $Lint$LintCategory = ::com::sun::tools::javac::code::Lint$LintCategory;
 using $Printer = ::com::sun::tools::javac::code::Printer;
 using $Source = ::com::sun::tools::javac::code::Source;
@@ -68,7 +64,6 @@ using $PathFileObject = ::com::sun::tools::javac::file::PathFileObject;
 using $Profile = ::com::sun::tools::javac::jvm::Profile;
 using $Target = ::com::sun::tools::javac::jvm::Target;
 using $Option = ::com::sun::tools::javac::main::Option;
-using $JCTree = ::com::sun::tools::javac::tree::JCTree;
 using $JCTree$JCExpression = ::com::sun::tools::javac::tree::JCTree$JCExpression;
 using $JCTree$JCParens = ::com::sun::tools::javac::tree::JCTree$JCParens;
 using $JCTree$Tag = ::com::sun::tools::javac::tree::JCTree$Tag;
@@ -99,7 +94,6 @@ using $EnumSet = ::java::util::EnumSet;
 using $Iterator = ::java::util::Iterator;
 using $Locale = ::java::util::Locale;
 using $Diagnostic = ::javax::tools::Diagnostic;
-using $FileObject = ::javax::tools::FileObject;
 using $JavaFileObject = ::javax::tools::JavaFileObject;
 
 namespace com {
@@ -107,73 +101,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace util {
-
-$FieldInfo _AbstractDiagnosticFormatter_FieldInfo_[] = {
-	{"messages", "Lcom/sun/tools/javac/util/JavacMessages;", nullptr, $PROTECTED, $field(AbstractDiagnosticFormatter, messages)},
-	{"config", "Lcom/sun/tools/javac/util/AbstractDiagnosticFormatter$SimpleConfiguration;", nullptr, $PRIVATE, $field(AbstractDiagnosticFormatter, config)},
-	{"depth", "I", nullptr, $PROTECTED, $field(AbstractDiagnosticFormatter, depth)},
-	{"allCaptured", "Lcom/sun/tools/javac/util/List;", "Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", $PRIVATE, $field(AbstractDiagnosticFormatter, allCaptured)},
-	{"printer", "Lcom/sun/tools/javac/code/Printer;", nullptr, $PROTECTED, $field(AbstractDiagnosticFormatter, printer)},
-	{}
-};
-
-$MethodInfo _AbstractDiagnosticFormatter_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/util/JavacMessages;Lcom/sun/tools/javac/util/AbstractDiagnosticFormatter$SimpleConfiguration;)V", nullptr, $PROTECTED, $method(AbstractDiagnosticFormatter, init$, void, $JavacMessages*, $AbstractDiagnosticFormatter$SimpleConfiguration*)},
-	{"displaySource", "(Lcom/sun/tools/javac/util/JCDiagnostic;)Z", nullptr, $PUBLIC, $virtualMethod(AbstractDiagnosticFormatter, displaySource, bool, $JCDiagnostic*)},
-	{"displaySource", "(Ljavax/tools/Diagnostic;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(AbstractDiagnosticFormatter, displaySource, bool, $Diagnostic*)},
-	{"expr2String", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;)Ljava/lang/String;", nullptr, $PRIVATE, $method(AbstractDiagnosticFormatter, expr2String, $String*, $JCTree$JCExpression*)},
-	{"format", "(Lcom/sun/tools/javac/util/JCDiagnostic;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AbstractDiagnosticFormatter, format, $String*, $JCDiagnostic*, $Locale*)},
-	{"format", "(Ljavax/tools/Diagnostic;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(AbstractDiagnosticFormatter, format, $String*, $Diagnostic*, $Locale*)},
-	{"formatArgument", "(Lcom/sun/tools/javac/util/JCDiagnostic;Ljava/lang/Object;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(AbstractDiagnosticFormatter, formatArgument, $String*, $JCDiagnostic*, Object$*, $Locale*)},
-	{"formatArguments", "(Lcom/sun/tools/javac/util/JCDiagnostic;Ljava/util/Locale;)Ljava/util/Collection;", "(Lcom/sun/tools/javac/util/JCDiagnostic;Ljava/util/Locale;)Ljava/util/Collection<Ljava/lang/String;>;", $PROTECTED, $virtualMethod(AbstractDiagnosticFormatter, formatArguments, $Collection*, $JCDiagnostic*, $Locale*)},
-	{"formatDiagnostic", "(Lcom/sun/tools/javac/util/JCDiagnostic;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(AbstractDiagnosticFormatter, formatDiagnostic, $String*, $JCDiagnostic*, $Locale*)},
-	{"formatIterable", "(Lcom/sun/tools/javac/util/JCDiagnostic;Ljava/lang/Iterable;Ljava/util/Locale;)Ljava/lang/String;", "(Lcom/sun/tools/javac/util/JCDiagnostic;Ljava/lang/Iterable<*>;Ljava/util/Locale;)Ljava/lang/String;", $PROTECTED, $virtualMethod(AbstractDiagnosticFormatter, formatIterable, $String*, $JCDiagnostic*, $Iterable*, $Locale*)},
-	{"formatKind", "(Lcom/sun/tools/javac/util/JCDiagnostic;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AbstractDiagnosticFormatter, formatKind, $String*, $JCDiagnostic*, $Locale*)},
-	{"formatKind", "(Ljavax/tools/Diagnostic;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(AbstractDiagnosticFormatter, formatKind, $String*, $Diagnostic*, $Locale*)},
-	{"formatLintCategory", "(Lcom/sun/tools/javac/util/JCDiagnostic;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(AbstractDiagnosticFormatter, formatLintCategory, $String*, $JCDiagnostic*, $Locale*)},
-	{"formatPosition", "(Lcom/sun/tools/javac/util/JCDiagnostic;Lcom/sun/tools/javac/api/DiagnosticFormatter$PositionKind;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AbstractDiagnosticFormatter, formatPosition, $String*, $JCDiagnostic*, $DiagnosticFormatter$PositionKind*, $Locale*)},
-	{"formatPosition", "(Ljavax/tools/Diagnostic;Lcom/sun/tools/javac/api/DiagnosticFormatter$PositionKind;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(AbstractDiagnosticFormatter, formatPosition, $String*, $Diagnostic*, $DiagnosticFormatter$PositionKind*, $Locale*)},
-	{"formatSource", "(Lcom/sun/tools/javac/util/JCDiagnostic;ZLjava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AbstractDiagnosticFormatter, formatSource, $String*, $JCDiagnostic*, bool, $Locale*)},
-	{"formatSource", "(Ljavax/tools/Diagnostic;ZLjava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(AbstractDiagnosticFormatter, formatSource, $String*, $Diagnostic*, bool, $Locale*)},
-	{"formatSourceLine", "(Lcom/sun/tools/javac/util/JCDiagnostic;I)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(AbstractDiagnosticFormatter, formatSourceLine, $String*, $JCDiagnostic*, int32_t)},
-	{"formatSubdiagnostic", "(Lcom/sun/tools/javac/util/JCDiagnostic;Lcom/sun/tools/javac/util/JCDiagnostic;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(AbstractDiagnosticFormatter, formatSubdiagnostic, $String*, $JCDiagnostic*, $JCDiagnostic*, $Locale*)},
-	{"formatSubdiagnostics", "(Lcom/sun/tools/javac/util/JCDiagnostic;Ljava/util/Locale;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/util/JCDiagnostic;Ljava/util/Locale;)Lcom/sun/tools/javac/util/List<Ljava/lang/String;>;", $PROTECTED, $virtualMethod(AbstractDiagnosticFormatter, formatSubdiagnostics, $List*, $JCDiagnostic*, $Locale*)},
-	{"getConfiguration", "()Lcom/sun/tools/javac/util/AbstractDiagnosticFormatter$SimpleConfiguration;", nullptr, $PUBLIC, $virtualMethod(AbstractDiagnosticFormatter, getConfiguration, $DiagnosticFormatter$Configuration*)},
-	{"getPosition", "(Lcom/sun/tools/javac/util/JCDiagnostic;Lcom/sun/tools/javac/api/DiagnosticFormatter$PositionKind;)J", nullptr, $PRIVATE, $method(AbstractDiagnosticFormatter, getPosition, int64_t, $JCDiagnostic*, $DiagnosticFormatter$PositionKind*)},
-	{"getPrinter", "()Lcom/sun/tools/javac/code/Printer;", nullptr, $PUBLIC, $virtualMethod(AbstractDiagnosticFormatter, getPrinter, $Printer*)},
-	{"indent", "(Ljava/lang/String;I)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(AbstractDiagnosticFormatter, indent, $String*, $String*, int32_t)},
-	{"indentString", "(I)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(AbstractDiagnosticFormatter, indentString, $String*, int32_t)},
-	{"isRaw", "()Z", nullptr, $PUBLIC, $virtualMethod(AbstractDiagnosticFormatter, isRaw, bool)},
-	{"localize", "(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PROTECTED | $TRANSIENT, $virtualMethod(AbstractDiagnosticFormatter, localize, $String*, $Locale*, $String*, $ObjectArray*)},
-	{"setPrinter", "(Lcom/sun/tools/javac/code/Printer;)V", nullptr, $PUBLIC, $virtualMethod(AbstractDiagnosticFormatter, setPrinter, void, $Printer*)},
-	{}
-};
-
-$InnerClassInfo _AbstractDiagnosticFormatter_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.util.AbstractDiagnosticFormatter$2", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{"com.sun.tools.javac.util.AbstractDiagnosticFormatter$SimpleConfiguration", "com.sun.tools.javac.util.AbstractDiagnosticFormatter", "SimpleConfiguration", $PUBLIC | $STATIC},
-	{"com.sun.tools.javac.util.AbstractDiagnosticFormatter$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _AbstractDiagnosticFormatter_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"com.sun.tools.javac.util.AbstractDiagnosticFormatter",
-	"java.lang.Object",
-	"com.sun.tools.javac.api.DiagnosticFormatter",
-	_AbstractDiagnosticFormatter_FieldInfo_,
-	_AbstractDiagnosticFormatter_MethodInfo_,
-	"Ljava/lang/Object;Lcom/sun/tools/javac/api/DiagnosticFormatter<Lcom/sun/tools/javac/util/JCDiagnostic;>;",
-	nullptr,
-	_AbstractDiagnosticFormatter_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.util.AbstractDiagnosticFormatter$2,com.sun.tools.javac.util.AbstractDiagnosticFormatter$SimpleConfiguration,com.sun.tools.javac.util.AbstractDiagnosticFormatter$1"
-};
-
-$Object* allocate$AbstractDiagnosticFormatter($Class* clazz) {
-	return $of($alloc(AbstractDiagnosticFormatter));
-}
 
 void AbstractDiagnosticFormatter::init$($JavacMessages* messages, $AbstractDiagnosticFormatter$SimpleConfiguration* config) {
 	this->depth = 0;
@@ -184,29 +111,19 @@ void AbstractDiagnosticFormatter::init$($JavacMessages* messages, $AbstractDiagn
 }
 
 $String* AbstractDiagnosticFormatter::formatKind($JCDiagnostic* d, $Locale* l) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($AbstractDiagnosticFormatter$2);
-	switch ($nc($AbstractDiagnosticFormatter$2::$SwitchMap$com$sun$tools$javac$util$JCDiagnostic$DiagnosticType)->get($nc(($($nc(d)->getType())))->ordinal())) {
+	switch ($nc($AbstractDiagnosticFormatter$2::$SwitchMap$com$sun$tools$javac$util$JCDiagnostic$DiagnosticType)->get(($$nc($nc(d)->getType()))->ordinal())) {
 	case 1:
-		{
-			return ""_s;
-		}
+		return ""_s;
 	case 2:
-		{
-			return localize(l, "compiler.note.note"_s, $$new($ObjectArray, 0));
-		}
+		return localize(l, "compiler.note.note"_s, $$new($ObjectArray, 0));
 	case 3:
-		{
-			return localize(l, "compiler.warn.warning"_s, $$new($ObjectArray, 0));
-		}
+		return localize(l, "compiler.warn.warning"_s, $$new($ObjectArray, 0));
 	case 4:
-		{
-			return localize(l, "compiler.err.error"_s, $$new($ObjectArray, 0));
-		}
+		return localize(l, "compiler.err.error"_s, $$new($ObjectArray, 0));
 	default:
-		{
-			$throwNew($AssertionError, $of($$str({"Unknown diagnostic type: "_s, $(d->getType())})));
-		}
+		$throwNew($AssertionError, $$of($str({"Unknown diagnostic type: "_s, $(d->getType())})));
 	}
 }
 
@@ -224,34 +141,22 @@ int64_t AbstractDiagnosticFormatter::getPosition($JCDiagnostic* d, $DiagnosticFo
 	$init($AbstractDiagnosticFormatter$2);
 	switch ($nc($AbstractDiagnosticFormatter$2::$SwitchMap$com$sun$tools$javac$api$DiagnosticFormatter$PositionKind)->get($nc((pk))->ordinal())) {
 	case 1:
-		{
-			return $nc(d)->getIntStartPosition();
-		}
+		return $nc(d)->getIntStartPosition();
 	case 2:
-		{
-			return $nc(d)->getIntEndPosition();
-		}
+		return $nc(d)->getIntEndPosition();
 	case 3:
-		{
-			return $nc(d)->getLineNumber();
-		}
+		return $nc(d)->getLineNumber();
 	case 4:
-		{
-			return $nc(d)->getColumnNumber();
-		}
+		return $nc(d)->getColumnNumber();
 	case 5:
-		{
-			return $nc(d)->getIntPosition();
-		}
+		return $nc(d)->getIntPosition();
 	default:
-		{
-			$throwNew($AssertionError, $of($$str({"Unknown diagnostic position: "_s, pk})));
-		}
+		$throwNew($AssertionError, $$of($str({"Unknown diagnostic position: "_s, pk})));
 	}
 }
 
 $String* AbstractDiagnosticFormatter::formatSource($JCDiagnostic* d, bool fullname, $Locale* l) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JavaFileObject, fo, $cast($JavaFileObject, $nc(d)->getSource()));
 	if (fo == nullptr) {
 		$throwNew($IllegalArgumentException);
@@ -261,12 +166,12 @@ $String* AbstractDiagnosticFormatter::formatSource($JCDiagnostic* d, bool fullna
 		if (fullname) {
 			return $nc(fo)->getName();
 		} else {
-			bool var$1 = $instanceOf($PathFileObject, fo);
-			if (var$1) {
+			bool var$0 = $instanceOf($PathFileObject, fo);
+			if (var$0) {
 				$assign(pathFileObject, $cast($PathFileObject, fo));
-				var$1 = true;
+				var$0 = true;
 			}
-			if (var$1) {
+			if (var$0) {
 				return $nc(pathFileObject)->getShortName();
 			} else {
 				return $PathFileObject::getSimpleName(fo);
@@ -276,24 +181,22 @@ $String* AbstractDiagnosticFormatter::formatSource($JCDiagnostic* d, bool fullna
 }
 
 $Collection* AbstractDiagnosticFormatter::formatArguments($JCDiagnostic* d, $Locale* l) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ListBuffer, buf, $new($ListBuffer));
 	{
 		$var($ObjectArray, arr$, $nc(d)->getArgs());
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($Object0, o, arr$->get(i$));
 			{
 				buf->append($(formatArgument(d, o, l)));
 			}
 		}
 	}
-	return static_cast<$Collection*>(static_cast<$AbstractCollection*>(buf->toList()));
+	return $cast($AbstractCollection, buf->toList());
 }
 
 $String* AbstractDiagnosticFormatter::formatArgument($JCDiagnostic* d, Object$* arg, $Locale* l) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	{
 		$var($JCDiagnostic, diagnostic, nullptr);
 		$var($JCTree$JCExpression, expression, nullptr);
@@ -315,107 +218,105 @@ $String* AbstractDiagnosticFormatter::formatArgument($JCDiagnostic* d, Object$* 
 		if (var$0) {
 			$var($String, s, nullptr);
 			++this->depth;
-			{
-				$var($Throwable, var$1, nullptr);
-				try {
-					$assign(s, formatMessage(diagnostic, l));
-				} catch ($Throwable& var$2) {
-					$assign(var$1, var$2);
-				} /*finally*/ {
-					--this->depth;
-				}
-				if (var$1 != nullptr) {
-					$throw(var$1);
-				}
+			$var($Throwable, var$1, nullptr);
+			try {
+				$assign(s, formatMessage(diagnostic, l));
+			} catch ($Throwable& var$2) {
+				$assign(var$1, var$2);
+			} /*finally*/ {
+				--this->depth;
+			}
+			if (var$1 != nullptr) {
+				$throw(var$1);
 			}
 			return s;
 		} else {
-			bool var$4 = $instanceOf($JCTree$JCExpression, arg);
-			if (var$4) {
+			bool var$3 = $instanceOf($JCTree$JCExpression, arg);
+			if (var$3) {
 				$assign(expression, $cast($JCTree$JCExpression, arg));
-				var$4 = true;
+				var$3 = true;
 			}
-			if (var$4) {
+			if (var$3) {
 				return expr2String(expression);
 			} else {
-				bool var$6 = $instanceOf($Iterable, arg);
-				if (var$6) {
+				bool var$4 = $instanceOf($Iterable, arg);
+				if (var$4) {
 					$assign(iterable, $cast($Iterable, arg));
-					var$6 = true;
+					var$4 = true;
 				}
-				if (var$6 && !($instanceOf($Path, arg))) {
+				if (var$4 && !($instanceOf($Path, arg))) {
 					return formatIterable(d, iterable, l);
 				} else {
-					bool var$8 = $instanceOf($Type, arg);
-					if (var$8) {
+					bool var$5 = $instanceOf($Type, arg);
+					if (var$5) {
 						$assign(type, $cast($Type, arg));
-						var$8 = true;
+						var$5 = true;
 					}
-					if (var$8) {
+					if (var$5) {
 						return $nc(this->printer)->visit(type, l);
 					} else {
-						bool var$10 = $instanceOf($Symbol, arg);
-						if (var$10) {
+						bool var$6 = $instanceOf($Symbol, arg);
+						if (var$6) {
 							$assign(symbol, $cast($Symbol, arg));
-							var$10 = true;
+							var$6 = true;
 						}
-						if (var$10) {
+						if (var$6) {
 							return $nc(this->printer)->visit(symbol, l);
 						} else {
-							bool var$12 = $instanceOf($JavaFileObject, arg);
-							if (var$12) {
+							bool var$7 = $instanceOf($JavaFileObject, arg);
+							if (var$7) {
 								$assign(javaFileObject, $cast($JavaFileObject, arg));
-								var$12 = true;
+								var$7 = true;
 							}
-							if (var$12) {
+							if (var$7) {
 								return $nc(javaFileObject)->getName();
 							} else {
-								bool var$14 = $instanceOf($Profile, arg);
-								if (var$14) {
+								bool var$8 = $instanceOf($Profile, arg);
+								if (var$8) {
 									profile = $cast($Profile, arg);
-									var$14 = true;
+									var$8 = true;
 								}
-								if (var$14) {
+								if (var$8) {
 									return $nc(profile)->name$;
 								} else {
-									bool var$16 = $instanceOf($Option, arg);
-									if (var$16) {
+									bool var$9 = $instanceOf($Option, arg);
+									if (var$9) {
 										option = $cast($Option, arg);
-										var$16 = true;
+										var$9 = true;
 									}
-									if (var$16) {
+									if (var$9) {
 										return $nc(option)->primaryName;
 									} else {
-										bool var$18 = $instanceOf($Formattable, arg);
-										if (var$18) {
+										bool var$10 = $instanceOf($Formattable, arg);
+										if (var$10) {
 											$assign(formattable, $cast($Formattable, arg));
-											var$18 = true;
+											var$10 = true;
 										}
-										if (var$18) {
+										if (var$10) {
 											return $nc(formattable)->toString(l, this->messages);
 										} else {
-											bool var$20 = $instanceOf($Target, arg);
-											if (var$20) {
+											bool var$11 = $instanceOf($Target, arg);
+											if (var$11) {
 												target = $cast($Target, arg);
-												var$20 = true;
+												var$11 = true;
 											}
-											if (var$20) {
+											if (var$11) {
 												return $nc(target)->name$;
 											} else {
-												bool var$22 = $instanceOf($Source, arg);
-												if (var$22) {
+												bool var$12 = $instanceOf($Source, arg);
+												if (var$12) {
 													source = $cast($Source, arg);
-													var$22 = true;
+													var$12 = true;
 												}
-												if (var$22) {
+												if (var$12) {
 													return $nc(source)->name$;
 												} else {
-													bool var$24 = $instanceOf($JCTree$Tag, arg);
-													if (var$24) {
+													bool var$13 = $instanceOf($JCTree$Tag, arg);
+													if (var$13) {
 														tag = $cast($JCTree$Tag, arg);
-														var$24 = true;
+														var$13 = true;
 													}
-													if (var$24) {
+													if (var$13) {
 														return $nc(this->messages)->getLocalizedString(l, $$str({"compiler.misc.tree.tag."_s, $($StringUtils::toLowerCase($($nc(tag)->name())))}), $$new($ObjectArray, 0));
 													} else {
 														return $String::valueOf(arg);
@@ -435,31 +336,23 @@ $String* AbstractDiagnosticFormatter::formatArgument($JCDiagnostic* d, Object$* 
 }
 
 $String* AbstractDiagnosticFormatter::expr2String($JCTree$JCExpression* tree) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($AbstractDiagnosticFormatter$2);
-	switch ($nc($AbstractDiagnosticFormatter$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->get($nc(($($nc(tree)->getTag())))->ordinal())) {
+	switch ($nc($AbstractDiagnosticFormatter$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->get(($$nc($nc(tree)->getTag()))->ordinal())) {
 	case 1:
-		{
-			return expr2String($nc(($cast($JCTree$JCParens, tree)))->expr);
-		}
+		return expr2String($cast($JCTree$JCParens, tree)->expr);
 	case 2:
-		{}
 	case 3:
-		{}
 	case 4:
-		{
-			return $Pretty::toSimpleString(tree);
-		}
+		return $Pretty::toSimpleString(tree);
 	default:
-		{
-			$Assert::error($$str({"unexpected tree kind "_s, $(tree->getKind())}));
-			return nullptr;
-		}
+		$Assert::error($$str({"unexpected tree kind "_s, $(tree->getKind())}));
+		return nullptr;
 	}
 }
 
 $String* AbstractDiagnosticFormatter::formatIterable($JCDiagnostic* d, $Iterable* it, $Locale* l) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, sbuf, $new($StringBuilder));
 	$var($String, sep, ""_s);
 	{
@@ -477,39 +370,35 @@ $String* AbstractDiagnosticFormatter::formatIterable($JCDiagnostic* d, $Iterable
 }
 
 $List* AbstractDiagnosticFormatter::formatSubdiagnostics($JCDiagnostic* d, $Locale* l) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, subdiagnostics, $List::nil());
 	$init($DiagnosticFormatter$Configuration$MultilineLimit);
 	int32_t maxDepth = $nc(this->config)->getMultilineLimit($DiagnosticFormatter$Configuration$MultilineLimit::DEPTH);
 	if (maxDepth == -1 || this->depth < maxDepth) {
 		++this->depth;
-		{
-			$var($Throwable, var$0, nullptr);
-			try {
-				int32_t maxCount = $nc(this->config)->getMultilineLimit($DiagnosticFormatter$Configuration$MultilineLimit::LENGTH);
-				int32_t count = 0;
-				{
-					$var($Iterator, i$, $nc($($nc(d)->getSubdiagnostics()))->iterator());
-					for (; $nc(i$)->hasNext();) {
-						$var($JCDiagnostic, d2, $cast($JCDiagnostic, i$->next()));
-						{
-							if (maxCount == -1 || count < maxCount) {
-								$assign(subdiagnostics, $nc(subdiagnostics)->append($(formatSubdiagnostic(d, d2, l))));
-								++count;
-							} else {
-								break;
-							}
-						}
+		$var($Throwable, var$0, nullptr);
+		try {
+			int32_t maxCount = $nc(this->config)->getMultilineLimit($DiagnosticFormatter$Configuration$MultilineLimit::LENGTH);
+			int32_t count = 0;
+			{
+				$var($Iterator, i$, $$nc($nc(d)->getSubdiagnostics())->iterator());
+				for (; $nc(i$)->hasNext();) {
+					$var($JCDiagnostic, d2, $cast($JCDiagnostic, i$->next()));
+					if (maxCount == -1 || count < maxCount) {
+						$assign(subdiagnostics, $nc(subdiagnostics)->append($(formatSubdiagnostic(d, d2, l))));
+						++count;
+					} else {
+						break;
 					}
 				}
-			} catch ($Throwable& var$1) {
-				$assign(var$0, var$1);
-			} /*finally*/ {
-				--this->depth;
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
+		} /*finally*/ {
+			--this->depth;
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	}
 	return subdiagnostics;
@@ -520,19 +409,19 @@ $String* AbstractDiagnosticFormatter::formatSubdiagnostic($JCDiagnostic* parent,
 }
 
 $String* AbstractDiagnosticFormatter::formatSourceLine($JCDiagnostic* d, int32_t nSpaces) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, buf, $new($StringBuilder));
 	$var($DiagnosticSource, source, $nc(d)->getDiagnosticSource());
 	int32_t pos = d->getIntPosition();
 	if (d->getIntPosition() == $Position::NOPOS) {
 		$throwNew($AssertionError);
 	}
-	$var($String, line, source == nullptr ? ($String*)nullptr : $nc(source)->getLine(pos));
+	$var($String, line, source == nullptr ? ($String*)nullptr : source->getLine(pos));
 	if (line == nullptr) {
 		return ""_s;
 	}
 	buf->append($(indent(line, nSpaces)));
-	int32_t col = source->getColumnNumber(pos, false);
+	int32_t col = $nc(source)->getColumnNumber(pos, false);
 	if ($nc(this->config)->isCaretEnabled()) {
 		buf->append("\n"_s);
 		for (int32_t i = 0; i < col - 1; ++i) {
@@ -548,7 +437,7 @@ $String* AbstractDiagnosticFormatter::formatLintCategory($JCDiagnostic* d, $Loca
 	if (lc == nullptr) {
 		return ""_s;
 	}
-	return localize(l, "compiler.warn.lintOption"_s, $$new($ObjectArray, {$of($nc(lc)->option)}));
+	return localize(l, "compiler.warn.lintOption"_s, $$new($ObjectArray, {$nc(lc)->option}));
 }
 
 $String* AbstractDiagnosticFormatter::localize($Locale* l, $String* key, $ObjectArray* args) {
@@ -557,7 +446,7 @@ $String* AbstractDiagnosticFormatter::localize($Locale* l, $String* key, $Object
 
 bool AbstractDiagnosticFormatter::displaySource($JCDiagnostic* d) {
 	$init($DiagnosticFormatter$Configuration$DiagnosticPart);
-	bool var$1 = $nc($($cast($EnumSet, $nc(this->config)->getVisible())))->contains($DiagnosticFormatter$Configuration$DiagnosticPart::SOURCE);
+	bool var$1 = $$sure($EnumSet, $nc(this->config)->getVisible())->contains($DiagnosticFormatter$Configuration$DiagnosticPart::SOURCE);
 	$init($JCDiagnostic$DiagnosticType);
 	bool var$0 = var$1 && $nc(d)->getType() != $JCDiagnostic$DiagnosticType::FRAGMENT;
 	return var$0 && d->getIntPosition() != $Position::NOPOS;
@@ -568,7 +457,7 @@ bool AbstractDiagnosticFormatter::isRaw() {
 }
 
 $String* AbstractDiagnosticFormatter::indentString(int32_t nSpaces) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, spaces, "                        "_s);
 	if (nSpaces <= spaces->length()) {
 		return spaces->substring(0, nSpaces);
@@ -582,15 +471,13 @@ $String* AbstractDiagnosticFormatter::indentString(int32_t nSpaces) {
 }
 
 $String* AbstractDiagnosticFormatter::indent($String* s, int32_t nSpaces) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, indent, indentString(nSpaces));
 	$var($StringBuilder, buf, $new($StringBuilder));
 	$var($String, nl, ""_s);
 	{
 		$var($StringArray, arr$, $nc(s)->split("\n"_s));
-		int32_t len$ = arr$->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 			$var($String, line, arr$->get(i$));
 			{
 				buf->append(nl);
@@ -638,7 +525,68 @@ AbstractDiagnosticFormatter::AbstractDiagnosticFormatter() {
 }
 
 $Class* AbstractDiagnosticFormatter::load$($String* name, bool initialize) {
-	$loadClass(AbstractDiagnosticFormatter, name, initialize, &_AbstractDiagnosticFormatter_ClassInfo_, allocate$AbstractDiagnosticFormatter);
+	$FieldInfo fieldInfos$$[] = {
+		{"messages", "Lcom/sun/tools/javac/util/JavacMessages;", nullptr, $PROTECTED, $field(AbstractDiagnosticFormatter, messages)},
+		{"config", "Lcom/sun/tools/javac/util/AbstractDiagnosticFormatter$SimpleConfiguration;", nullptr, $PRIVATE, $field(AbstractDiagnosticFormatter, config)},
+		{"depth", "I", nullptr, $PROTECTED, $field(AbstractDiagnosticFormatter, depth)},
+		{"allCaptured", "Lcom/sun/tools/javac/util/List;", "Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", $PRIVATE, $field(AbstractDiagnosticFormatter, allCaptured)},
+		{"printer", "Lcom/sun/tools/javac/code/Printer;", nullptr, $PROTECTED, $field(AbstractDiagnosticFormatter, printer)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/util/JavacMessages;Lcom/sun/tools/javac/util/AbstractDiagnosticFormatter$SimpleConfiguration;)V", nullptr, $PROTECTED, $method(AbstractDiagnosticFormatter, init$, void, $JavacMessages*, $AbstractDiagnosticFormatter$SimpleConfiguration*)},
+		{"displaySource", "(Lcom/sun/tools/javac/util/JCDiagnostic;)Z", nullptr, $PUBLIC, $virtualMethod(AbstractDiagnosticFormatter, displaySource, bool, $JCDiagnostic*)},
+		{"displaySource", "(Ljavax/tools/Diagnostic;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(AbstractDiagnosticFormatter, displaySource, bool, $Diagnostic*)},
+		{"expr2String", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;)Ljava/lang/String;", nullptr, $PRIVATE, $method(AbstractDiagnosticFormatter, expr2String, $String*, $JCTree$JCExpression*)},
+		{"format", "(Lcom/sun/tools/javac/util/JCDiagnostic;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AbstractDiagnosticFormatter, format, $String*, $JCDiagnostic*, $Locale*)},
+		{"format", "(Ljavax/tools/Diagnostic;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(AbstractDiagnosticFormatter, format, $String*, $Diagnostic*, $Locale*)},
+		{"formatArgument", "(Lcom/sun/tools/javac/util/JCDiagnostic;Ljava/lang/Object;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(AbstractDiagnosticFormatter, formatArgument, $String*, $JCDiagnostic*, Object$*, $Locale*)},
+		{"formatArguments", "(Lcom/sun/tools/javac/util/JCDiagnostic;Ljava/util/Locale;)Ljava/util/Collection;", "(Lcom/sun/tools/javac/util/JCDiagnostic;Ljava/util/Locale;)Ljava/util/Collection<Ljava/lang/String;>;", $PROTECTED, $virtualMethod(AbstractDiagnosticFormatter, formatArguments, $Collection*, $JCDiagnostic*, $Locale*)},
+		{"formatDiagnostic", "(Lcom/sun/tools/javac/util/JCDiagnostic;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(AbstractDiagnosticFormatter, formatDiagnostic, $String*, $JCDiagnostic*, $Locale*)},
+		{"formatIterable", "(Lcom/sun/tools/javac/util/JCDiagnostic;Ljava/lang/Iterable;Ljava/util/Locale;)Ljava/lang/String;", "(Lcom/sun/tools/javac/util/JCDiagnostic;Ljava/lang/Iterable<*>;Ljava/util/Locale;)Ljava/lang/String;", $PROTECTED, $virtualMethod(AbstractDiagnosticFormatter, formatIterable, $String*, $JCDiagnostic*, $Iterable*, $Locale*)},
+		{"formatKind", "(Lcom/sun/tools/javac/util/JCDiagnostic;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AbstractDiagnosticFormatter, formatKind, $String*, $JCDiagnostic*, $Locale*)},
+		{"formatKind", "(Ljavax/tools/Diagnostic;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(AbstractDiagnosticFormatter, formatKind, $String*, $Diagnostic*, $Locale*)},
+		{"formatLintCategory", "(Lcom/sun/tools/javac/util/JCDiagnostic;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(AbstractDiagnosticFormatter, formatLintCategory, $String*, $JCDiagnostic*, $Locale*)},
+		{"formatPosition", "(Lcom/sun/tools/javac/util/JCDiagnostic;Lcom/sun/tools/javac/api/DiagnosticFormatter$PositionKind;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AbstractDiagnosticFormatter, formatPosition, $String*, $JCDiagnostic*, $DiagnosticFormatter$PositionKind*, $Locale*)},
+		{"formatPosition", "(Ljavax/tools/Diagnostic;Lcom/sun/tools/javac/api/DiagnosticFormatter$PositionKind;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(AbstractDiagnosticFormatter, formatPosition, $String*, $Diagnostic*, $DiagnosticFormatter$PositionKind*, $Locale*)},
+		{"formatSource", "(Lcom/sun/tools/javac/util/JCDiagnostic;ZLjava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AbstractDiagnosticFormatter, formatSource, $String*, $JCDiagnostic*, bool, $Locale*)},
+		{"formatSource", "(Ljavax/tools/Diagnostic;ZLjava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(AbstractDiagnosticFormatter, formatSource, $String*, $Diagnostic*, bool, $Locale*)},
+		{"formatSourceLine", "(Lcom/sun/tools/javac/util/JCDiagnostic;I)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(AbstractDiagnosticFormatter, formatSourceLine, $String*, $JCDiagnostic*, int32_t)},
+		{"formatSubdiagnostic", "(Lcom/sun/tools/javac/util/JCDiagnostic;Lcom/sun/tools/javac/util/JCDiagnostic;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(AbstractDiagnosticFormatter, formatSubdiagnostic, $String*, $JCDiagnostic*, $JCDiagnostic*, $Locale*)},
+		{"formatSubdiagnostics", "(Lcom/sun/tools/javac/util/JCDiagnostic;Ljava/util/Locale;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/util/JCDiagnostic;Ljava/util/Locale;)Lcom/sun/tools/javac/util/List<Ljava/lang/String;>;", $PROTECTED, $virtualMethod(AbstractDiagnosticFormatter, formatSubdiagnostics, $List*, $JCDiagnostic*, $Locale*)},
+		{"getConfiguration", "()Lcom/sun/tools/javac/util/AbstractDiagnosticFormatter$SimpleConfiguration;", nullptr, $PUBLIC, $virtualMethod(AbstractDiagnosticFormatter, getConfiguration, $DiagnosticFormatter$Configuration*)},
+		{"getPosition", "(Lcom/sun/tools/javac/util/JCDiagnostic;Lcom/sun/tools/javac/api/DiagnosticFormatter$PositionKind;)J", nullptr, $PRIVATE, $method(AbstractDiagnosticFormatter, getPosition, int64_t, $JCDiagnostic*, $DiagnosticFormatter$PositionKind*)},
+		{"getPrinter", "()Lcom/sun/tools/javac/code/Printer;", nullptr, $PUBLIC, $virtualMethod(AbstractDiagnosticFormatter, getPrinter, $Printer*)},
+		{"indent", "(Ljava/lang/String;I)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(AbstractDiagnosticFormatter, indent, $String*, $String*, int32_t)},
+		{"indentString", "(I)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(AbstractDiagnosticFormatter, indentString, $String*, int32_t)},
+		{"isRaw", "()Z", nullptr, $PUBLIC, $virtualMethod(AbstractDiagnosticFormatter, isRaw, bool)},
+		{"localize", "(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PROTECTED | $TRANSIENT, $virtualMethod(AbstractDiagnosticFormatter, localize, $String*, $Locale*, $String*, $ObjectArray*)},
+		{"setPrinter", "(Lcom/sun/tools/javac/code/Printer;)V", nullptr, $PUBLIC, $virtualMethod(AbstractDiagnosticFormatter, setPrinter, void, $Printer*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.util.AbstractDiagnosticFormatter$2", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{"com.sun.tools.javac.util.AbstractDiagnosticFormatter$SimpleConfiguration", "com.sun.tools.javac.util.AbstractDiagnosticFormatter", "SimpleConfiguration", $PUBLIC | $STATIC},
+		{"com.sun.tools.javac.util.AbstractDiagnosticFormatter$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"com.sun.tools.javac.util.AbstractDiagnosticFormatter",
+		"java.lang.Object",
+		"com.sun.tools.javac.api.DiagnosticFormatter",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Lcom/sun/tools/javac/api/DiagnosticFormatter<Lcom/sun/tools/javac/util/JCDiagnostic;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.util.AbstractDiagnosticFormatter$2,com.sun.tools.javac.util.AbstractDiagnosticFormatter$SimpleConfiguration,com.sun.tools.javac.util.AbstractDiagnosticFormatter$1"
+	};
+	$loadClass(AbstractDiagnosticFormatter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AbstractDiagnosticFormatter);
+	});
 	return class$;
 }
 

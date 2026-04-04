@@ -1,5 +1,4 @@
 #include <javax/swing/tree/DefaultMutableTreeNode.h>
-
 #include <java/io/ObjectInputStream$GetField.h>
 #include <java/io/ObjectInputStream.h>
 #include <java/io/ObjectOutputStream.h>
@@ -53,111 +52,6 @@ using $TreeNode = ::javax::swing::tree::TreeNode;
 namespace javax {
 	namespace swing {
 		namespace tree {
-
-$CompoundAttribute _DefaultMutableTreeNode_MethodAnnotations_setParent52[] = {
-	{"Ljava/beans/Transient;", nullptr},
-	{}
-};
-
-$FieldInfo _DefaultMutableTreeNode_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DefaultMutableTreeNode, serialVersionUID)},
-	{"EMPTY_ENUMERATION", "Ljava/util/Enumeration;", "Ljava/util/Enumeration<Ljavax/swing/tree/TreeNode;>;", $PUBLIC | $STATIC | $FINAL, $staticField(DefaultMutableTreeNode, EMPTY_ENUMERATION)},
-	{"parent", "Ljavax/swing/tree/MutableTreeNode;", nullptr, $PROTECTED, $field(DefaultMutableTreeNode, parent)},
-	{"children", "Ljava/util/Vector;", "Ljava/util/Vector<Ljavax/swing/tree/TreeNode;>;", $PROTECTED, $field(DefaultMutableTreeNode, children$)},
-	{"userObject", "Ljava/lang/Object;", nullptr, $PROTECTED | $TRANSIENT, $field(DefaultMutableTreeNode, userObject)},
-	{"allowsChildren", "Z", nullptr, $PROTECTED, $field(DefaultMutableTreeNode, allowsChildren)},
-	{}
-};
-
-$MethodInfo _DefaultMutableTreeNode_MethodInfo_[] = {
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(DefaultMutableTreeNode, init$, void)},
-	{"<init>", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(DefaultMutableTreeNode, init$, void, Object$*)},
-	{"<init>", "(Ljava/lang/Object;Z)V", nullptr, $PUBLIC, $method(DefaultMutableTreeNode, init$, void, Object$*, bool)},
-	{"add", "(Ljavax/swing/tree/MutableTreeNode;)V", nullptr, $PUBLIC, $virtualMethod(DefaultMutableTreeNode, add, void, $MutableTreeNode*)},
-	{"breadthFirstEnumeration", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljavax/swing/tree/TreeNode;>;", $PUBLIC, $virtualMethod(DefaultMutableTreeNode, breadthFirstEnumeration, $Enumeration*)},
-	{"children", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljavax/swing/tree/TreeNode;>;", $PUBLIC, $virtualMethod(DefaultMutableTreeNode, children, $Enumeration*)},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DefaultMutableTreeNode, clone, $Object*)},
-	{"depthFirstEnumeration", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljavax/swing/tree/TreeNode;>;", $PUBLIC, $virtualMethod(DefaultMutableTreeNode, depthFirstEnumeration, $Enumeration*)},
-	{"getAllowsChildren", "()Z", nullptr, $PUBLIC, $virtualMethod(DefaultMutableTreeNode, getAllowsChildren, bool)},
-	{"getChildAfter", "(Ljavax/swing/tree/TreeNode;)Ljavax/swing/tree/TreeNode;", nullptr, $PUBLIC, $virtualMethod(DefaultMutableTreeNode, getChildAfter, $TreeNode*, $TreeNode*)},
-	{"getChildAt", "(I)Ljavax/swing/tree/TreeNode;", nullptr, $PUBLIC, $virtualMethod(DefaultMutableTreeNode, getChildAt, $TreeNode*, int32_t)},
-	{"getChildBefore", "(Ljavax/swing/tree/TreeNode;)Ljavax/swing/tree/TreeNode;", nullptr, $PUBLIC, $virtualMethod(DefaultMutableTreeNode, getChildBefore, $TreeNode*, $TreeNode*)},
-	{"getChildCount", "()I", nullptr, $PUBLIC, $virtualMethod(DefaultMutableTreeNode, getChildCount, int32_t)},
-	{"getDepth", "()I", nullptr, $PUBLIC, $virtualMethod(DefaultMutableTreeNode, getDepth, int32_t)},
-	{"getFirstChild", "()Ljavax/swing/tree/TreeNode;", nullptr, $PUBLIC, $virtualMethod(DefaultMutableTreeNode, getFirstChild, $TreeNode*)},
-	{"getFirstLeaf", "()Ljavax/swing/tree/DefaultMutableTreeNode;", nullptr, $PUBLIC, $virtualMethod(DefaultMutableTreeNode, getFirstLeaf, DefaultMutableTreeNode*)},
-	{"getIndex", "(Ljavax/swing/tree/TreeNode;)I", nullptr, $PUBLIC, $virtualMethod(DefaultMutableTreeNode, getIndex, int32_t, $TreeNode*)},
-	{"getLastChild", "()Ljavax/swing/tree/TreeNode;", nullptr, $PUBLIC, $virtualMethod(DefaultMutableTreeNode, getLastChild, $TreeNode*)},
-	{"getLastLeaf", "()Ljavax/swing/tree/DefaultMutableTreeNode;", nullptr, $PUBLIC, $virtualMethod(DefaultMutableTreeNode, getLastLeaf, DefaultMutableTreeNode*)},
-	{"getLeafCount", "()I", nullptr, $PUBLIC, $virtualMethod(DefaultMutableTreeNode, getLeafCount, int32_t)},
-	{"getLevel", "()I", nullptr, $PUBLIC, $virtualMethod(DefaultMutableTreeNode, getLevel, int32_t)},
-	{"getNextLeaf", "()Ljavax/swing/tree/DefaultMutableTreeNode;", nullptr, $PUBLIC, $virtualMethod(DefaultMutableTreeNode, getNextLeaf, DefaultMutableTreeNode*)},
-	{"getNextNode", "()Ljavax/swing/tree/DefaultMutableTreeNode;", nullptr, $PUBLIC, $virtualMethod(DefaultMutableTreeNode, getNextNode, DefaultMutableTreeNode*)},
-	{"getNextSibling", "()Ljavax/swing/tree/DefaultMutableTreeNode;", nullptr, $PUBLIC, $virtualMethod(DefaultMutableTreeNode, getNextSibling, DefaultMutableTreeNode*)},
-	{"getParent", "()Ljavax/swing/tree/TreeNode;", nullptr, $PUBLIC, $virtualMethod(DefaultMutableTreeNode, getParent, $TreeNode*)},
-	{"getPath", "()[Ljavax/swing/tree/TreeNode;", nullptr, $PUBLIC, $virtualMethod(DefaultMutableTreeNode, getPath, $TreeNodeArray*)},
-	{"getPathToRoot", "(Ljavax/swing/tree/TreeNode;I)[Ljavax/swing/tree/TreeNode;", nullptr, $PROTECTED, $virtualMethod(DefaultMutableTreeNode, getPathToRoot, $TreeNodeArray*, $TreeNode*, int32_t)},
-	{"getPreviousLeaf", "()Ljavax/swing/tree/DefaultMutableTreeNode;", nullptr, $PUBLIC, $virtualMethod(DefaultMutableTreeNode, getPreviousLeaf, DefaultMutableTreeNode*)},
-	{"getPreviousNode", "()Ljavax/swing/tree/DefaultMutableTreeNode;", nullptr, $PUBLIC, $virtualMethod(DefaultMutableTreeNode, getPreviousNode, DefaultMutableTreeNode*)},
-	{"getPreviousSibling", "()Ljavax/swing/tree/DefaultMutableTreeNode;", nullptr, $PUBLIC, $virtualMethod(DefaultMutableTreeNode, getPreviousSibling, DefaultMutableTreeNode*)},
-	{"getRoot", "()Ljavax/swing/tree/TreeNode;", nullptr, $PUBLIC, $virtualMethod(DefaultMutableTreeNode, getRoot, $TreeNode*)},
-	{"getSharedAncestor", "(Ljavax/swing/tree/DefaultMutableTreeNode;)Ljavax/swing/tree/TreeNode;", nullptr, $PUBLIC, $virtualMethod(DefaultMutableTreeNode, getSharedAncestor, $TreeNode*, DefaultMutableTreeNode*)},
-	{"getSiblingCount", "()I", nullptr, $PUBLIC, $virtualMethod(DefaultMutableTreeNode, getSiblingCount, int32_t)},
-	{"getUserObject", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DefaultMutableTreeNode, getUserObject, $Object*)},
-	{"getUserObjectPath", "()[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DefaultMutableTreeNode, getUserObjectPath, $ObjectArray*)},
-	{"insert", "(Ljavax/swing/tree/MutableTreeNode;I)V", nullptr, $PUBLIC, $virtualMethod(DefaultMutableTreeNode, insert, void, $MutableTreeNode*, int32_t)},
-	{"isLeaf", "()Z", nullptr, $PUBLIC, $virtualMethod(DefaultMutableTreeNode, isLeaf, bool)},
-	{"isNodeAncestor", "(Ljavax/swing/tree/TreeNode;)Z", nullptr, $PUBLIC, $virtualMethod(DefaultMutableTreeNode, isNodeAncestor, bool, $TreeNode*)},
-	{"isNodeChild", "(Ljavax/swing/tree/TreeNode;)Z", nullptr, $PUBLIC, $virtualMethod(DefaultMutableTreeNode, isNodeChild, bool, $TreeNode*)},
-	{"isNodeDescendant", "(Ljavax/swing/tree/DefaultMutableTreeNode;)Z", nullptr, $PUBLIC, $virtualMethod(DefaultMutableTreeNode, isNodeDescendant, bool, DefaultMutableTreeNode*)},
-	{"isNodeRelated", "(Ljavax/swing/tree/DefaultMutableTreeNode;)Z", nullptr, $PUBLIC, $virtualMethod(DefaultMutableTreeNode, isNodeRelated, bool, DefaultMutableTreeNode*)},
-	{"isNodeSibling", "(Ljavax/swing/tree/TreeNode;)Z", nullptr, $PUBLIC, $virtualMethod(DefaultMutableTreeNode, isNodeSibling, bool, $TreeNode*)},
-	{"isRoot", "()Z", nullptr, $PUBLIC, $virtualMethod(DefaultMutableTreeNode, isRoot, bool)},
-	{"pathFromAncestorEnumeration", "(Ljavax/swing/tree/TreeNode;)Ljava/util/Enumeration;", "(Ljavax/swing/tree/TreeNode;)Ljava/util/Enumeration<Ljavax/swing/tree/TreeNode;>;", $PUBLIC, $virtualMethod(DefaultMutableTreeNode, pathFromAncestorEnumeration, $Enumeration*, $TreeNode*)},
-	{"postorderEnumeration", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljavax/swing/tree/TreeNode;>;", $PUBLIC, $virtualMethod(DefaultMutableTreeNode, postorderEnumeration, $Enumeration*)},
-	{"preorderEnumeration", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljavax/swing/tree/TreeNode;>;", $PUBLIC, $virtualMethod(DefaultMutableTreeNode, preorderEnumeration, $Enumeration*)},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(DefaultMutableTreeNode, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"remove", "(I)V", nullptr, $PUBLIC, $virtualMethod(DefaultMutableTreeNode, remove, void, int32_t)},
-	{"remove", "(Ljavax/swing/tree/MutableTreeNode;)V", nullptr, $PUBLIC, $virtualMethod(DefaultMutableTreeNode, remove, void, $MutableTreeNode*)},
-	{"removeAllChildren", "()V", nullptr, $PUBLIC, $virtualMethod(DefaultMutableTreeNode, removeAllChildren, void)},
-	{"removeFromParent", "()V", nullptr, $PUBLIC, $virtualMethod(DefaultMutableTreeNode, removeFromParent, void)},
-	{"setAllowsChildren", "(Z)V", nullptr, $PUBLIC, $virtualMethod(DefaultMutableTreeNode, setAllowsChildren, void, bool)},
-	{"setParent", "(Ljavax/swing/tree/MutableTreeNode;)V", nullptr, $PUBLIC, $virtualMethod(DefaultMutableTreeNode, setParent, void, $MutableTreeNode*), nullptr, nullptr, _DefaultMutableTreeNode_MethodAnnotations_setParent52},
-	{"setUserObject", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(DefaultMutableTreeNode, setUserObject, void, Object$*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DefaultMutableTreeNode, toString, $String*)},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(DefaultMutableTreeNode, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _DefaultMutableTreeNode_InnerClassesInfo_[] = {
-	{"javax.swing.tree.DefaultMutableTreeNode$PathBetweenNodesEnumeration", "javax.swing.tree.DefaultMutableTreeNode", "PathBetweenNodesEnumeration", $FINAL},
-	{"javax.swing.tree.DefaultMutableTreeNode$BreadthFirstEnumeration", "javax.swing.tree.DefaultMutableTreeNode", "BreadthFirstEnumeration", $FINAL},
-	{"javax.swing.tree.DefaultMutableTreeNode$PostorderEnumeration", "javax.swing.tree.DefaultMutableTreeNode", "PostorderEnumeration", $FINAL},
-	{"javax.swing.tree.DefaultMutableTreeNode$PreorderEnumeration", "javax.swing.tree.DefaultMutableTreeNode", "PreorderEnumeration", $PRIVATE | $FINAL},
-	{}
-};
-
-$ClassInfo _DefaultMutableTreeNode_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.tree.DefaultMutableTreeNode",
-	"java.lang.Object",
-	"java.lang.Cloneable,javax.swing.tree.MutableTreeNode,java.io.Serializable",
-	_DefaultMutableTreeNode_FieldInfo_,
-	_DefaultMutableTreeNode_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DefaultMutableTreeNode_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.swing.tree.DefaultMutableTreeNode$PathBetweenNodesEnumeration,javax.swing.tree.DefaultMutableTreeNode$BreadthFirstEnumeration,javax.swing.tree.DefaultMutableTreeNode$BreadthFirstEnumeration$Queue,javax.swing.tree.DefaultMutableTreeNode$BreadthFirstEnumeration$Queue$QNode,javax.swing.tree.DefaultMutableTreeNode$PostorderEnumeration,javax.swing.tree.DefaultMutableTreeNode$PreorderEnumeration"
-};
-
-$Object* allocate$DefaultMutableTreeNode($Class* clazz) {
-	return $of($alloc(DefaultMutableTreeNode));
-}
 
 int32_t DefaultMutableTreeNode::hashCode() {
 	 return this->$Cloneable::hashCode();
@@ -231,7 +125,7 @@ int32_t DefaultMutableTreeNode::getChildCount() {
 	if (this->children$ == nullptr) {
 		return 0;
 	} else {
-		return $nc(this->children$)->size();
+		return this->children$->size();
 	}
 }
 
@@ -249,7 +143,7 @@ $Enumeration* DefaultMutableTreeNode::children() {
 	if (this->children$ == nullptr) {
 		return DefaultMutableTreeNode::EMPTY_ENUMERATION;
 	} else {
-		return $nc(this->children$)->elements();
+		return this->children$->elements();
 	}
 }
 
@@ -271,13 +165,13 @@ void DefaultMutableTreeNode::setUserObject(Object$* userObject) {
 }
 
 $Object* DefaultMutableTreeNode::getUserObject() {
-	return $of(this->userObject);
+	return this->userObject;
 }
 
 void DefaultMutableTreeNode::removeFromParent() {
 	$var($MutableTreeNode, parent, $cast($MutableTreeNode, getParent()));
 	if (parent != nullptr) {
-		parent->remove(static_cast<$MutableTreeNode*>(this));
+		parent->remove(this);
 	}
 }
 
@@ -326,7 +220,7 @@ bool DefaultMutableTreeNode::isNodeDescendant(DefaultMutableTreeNode* anotherNod
 }
 
 $TreeNode* DefaultMutableTreeNode::getSharedAncestor(DefaultMutableTreeNode* aNode) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (aNode == this) {
 		return this;
 	} else if (aNode == nullptr) {
@@ -366,15 +260,15 @@ $TreeNode* DefaultMutableTreeNode::getSharedAncestor(DefaultMutableTreeNode* aNo
 }
 
 bool DefaultMutableTreeNode::isNodeRelated(DefaultMutableTreeNode* aNode) {
-	bool var$0 = (aNode != nullptr);
+	bool var$0 = aNode != nullptr;
 	if (var$0) {
-		var$0 = (getRoot() == aNode->getRoot());
+		var$0 = getRoot() == aNode->getRoot();
 	}
 	return var$0;
 }
 
 int32_t DefaultMutableTreeNode::getDepth() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, last, nullptr);
 	$var($Enumeration, enum_, breadthFirstEnumeration());
 	while ($nc(enum_)->hasMoreElements()) {
@@ -383,7 +277,7 @@ int32_t DefaultMutableTreeNode::getDepth() {
 	if (last == nullptr) {
 		$throwNew($Error, "nodes should be null"_s);
 	}
-	int32_t var$0 = $nc(($cast(DefaultMutableTreeNode, last)))->getLevel();
+	int32_t var$0 = $nc($cast(DefaultMutableTreeNode, last))->getLevel();
 	return var$0 - getLevel();
 }
 
@@ -402,7 +296,7 @@ $TreeNodeArray* DefaultMutableTreeNode::getPath() {
 }
 
 $TreeNodeArray* DefaultMutableTreeNode::getPathToRoot($TreeNode* aNode, int32_t depth) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($TreeNodeArray, retNodes, nullptr);
 	if (aNode == nullptr) {
 		if (depth == 0) {
@@ -412,29 +306,29 @@ $TreeNodeArray* DefaultMutableTreeNode::getPathToRoot($TreeNode* aNode, int32_t 
 		}
 	} else {
 		++depth;
-		$assign(retNodes, getPathToRoot($($nc(aNode)->getParent()), depth));
-		$nc(retNodes)->set(retNodes->length - depth, aNode);
+		$assign(retNodes, getPathToRoot($(aNode->getParent()), depth));
+		$nc(retNodes)->set($nc(retNodes)->length - depth, aNode);
 	}
 	return retNodes;
 }
 
 $ObjectArray* DefaultMutableTreeNode::getUserObjectPath() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($TreeNodeArray, realPath, getPath());
 	$var($ObjectArray, retPath, $new($ObjectArray, $nc(realPath)->length));
 	for (int32_t counter = 0; counter < realPath->length; ++counter) {
-		retPath->set(counter, $($nc(($cast(DefaultMutableTreeNode, realPath->get(counter))))->getUserObject()));
+		retPath->set(counter, $($nc($cast(DefaultMutableTreeNode, realPath->get(counter)))->getUserObject()));
 	}
 	return retPath;
 }
 
 $TreeNode* DefaultMutableTreeNode::getRoot() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($TreeNode, ancestor, this);
 	$var($TreeNode, previous, nullptr);
 	do {
 		$assign(previous, ancestor);
-		$assign(ancestor, ancestor->getParent());
+		$assign(ancestor, $nc(ancestor)->getParent());
 	} while (ancestor != nullptr);
 	return previous;
 }
@@ -444,7 +338,7 @@ bool DefaultMutableTreeNode::isRoot() {
 }
 
 DefaultMutableTreeNode* DefaultMutableTreeNode::getNextNode() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (getChildCount() == 0) {
 		$var(DefaultMutableTreeNode, nextSibling, getNextSibling());
 		if (nextSibling == nullptr) {
@@ -468,7 +362,7 @@ DefaultMutableTreeNode* DefaultMutableTreeNode::getNextNode() {
 }
 
 DefaultMutableTreeNode* DefaultMutableTreeNode::getPreviousNode() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(DefaultMutableTreeNode, previousSibling, nullptr);
 	$var(DefaultMutableTreeNode, myParent, $cast(DefaultMutableTreeNode, getParent()));
 	if (myParent == nullptr) {
@@ -513,7 +407,7 @@ bool DefaultMutableTreeNode::isNodeChild($TreeNode* aNode) {
 	} else if (getChildCount() == 0) {
 		retval = false;
 	} else {
-		retval = ($equals($nc(aNode)->getParent(), this));
+		retval = ($equals(aNode->getParent(), this));
 	}
 	return retval;
 }
@@ -563,7 +457,7 @@ $TreeNode* DefaultMutableTreeNode::getChildBefore($TreeNode* aChild) {
 }
 
 bool DefaultMutableTreeNode::isNodeSibling($TreeNode* anotherNode) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool retval = false;
 	if (anotherNode == nullptr) {
 		retval = false;
@@ -572,7 +466,7 @@ bool DefaultMutableTreeNode::isNodeSibling($TreeNode* anotherNode) {
 	} else {
 		$var($TreeNode, myParent, getParent());
 		retval = (myParent != nullptr && myParent == anotherNode->getParent());
-		if (retval && !$nc(($cast(DefaultMutableTreeNode, $(getParent()))))->isNodeChild(anotherNode)) {
+		if (retval && !$$sure(DefaultMutableTreeNode, getParent())->isNodeChild(anotherNode)) {
 			$throwNew($Error, "sibling has different parent"_s);
 		}
 	}
@@ -584,18 +478,18 @@ int32_t DefaultMutableTreeNode::getSiblingCount() {
 	if (myParent == nullptr) {
 		return 1;
 	} else {
-		return $nc(myParent)->getChildCount();
+		return myParent->getChildCount();
 	}
 }
 
 DefaultMutableTreeNode* DefaultMutableTreeNode::getNextSibling() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(DefaultMutableTreeNode, retval, nullptr);
 	$var(DefaultMutableTreeNode, myParent, $cast(DefaultMutableTreeNode, getParent()));
 	if (myParent == nullptr) {
 		$assign(retval, nullptr);
 	} else {
-		$assign(retval, $cast(DefaultMutableTreeNode, $nc(myParent)->getChildAfter(this)));
+		$assign(retval, $cast(DefaultMutableTreeNode, myParent->getChildAfter(this)));
 	}
 	if (retval != nullptr && !isNodeSibling(retval)) {
 		$throwNew($Error, "child of parent is not a sibling"_s);
@@ -604,13 +498,13 @@ DefaultMutableTreeNode* DefaultMutableTreeNode::getNextSibling() {
 }
 
 DefaultMutableTreeNode* DefaultMutableTreeNode::getPreviousSibling() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(DefaultMutableTreeNode, retval, nullptr);
 	$var(DefaultMutableTreeNode, myParent, $cast(DefaultMutableTreeNode, getParent()));
 	if (myParent == nullptr) {
 		$assign(retval, nullptr);
 	} else {
-		$assign(retval, $cast(DefaultMutableTreeNode, $nc(myParent)->getChildBefore(this)));
+		$assign(retval, $cast(DefaultMutableTreeNode, myParent->getChildBefore(this)));
 	}
 	if (retval != nullptr && !isNodeSibling(retval)) {
 		$throwNew($Error, "child of parent is not a sibling"_s);
@@ -639,7 +533,7 @@ DefaultMutableTreeNode* DefaultMutableTreeNode::getLastLeaf() {
 }
 
 DefaultMutableTreeNode* DefaultMutableTreeNode::getNextLeaf() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(DefaultMutableTreeNode, nextSibling, nullptr);
 	$var(DefaultMutableTreeNode, myParent, $cast(DefaultMutableTreeNode, getParent()));
 	if (myParent == nullptr) {
@@ -653,7 +547,7 @@ DefaultMutableTreeNode* DefaultMutableTreeNode::getNextLeaf() {
 }
 
 DefaultMutableTreeNode* DefaultMutableTreeNode::getPreviousLeaf() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(DefaultMutableTreeNode, previousSibling, nullptr);
 	$var(DefaultMutableTreeNode, myParent, $cast(DefaultMutableTreeNode, getParent()));
 	if (myParent == nullptr) {
@@ -667,7 +561,7 @@ DefaultMutableTreeNode* DefaultMutableTreeNode::getPreviousLeaf() {
 }
 
 int32_t DefaultMutableTreeNode::getLeafCount() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t count = 0;
 	$var($TreeNode, node, nullptr);
 	$var($Enumeration, enum_, breadthFirstEnumeration());
@@ -687,12 +581,12 @@ $String* DefaultMutableTreeNode::toString() {
 	if (this->userObject == nullptr) {
 		return ""_s;
 	} else {
-		return $nc($of(this->userObject))->toString();
+		return this->userObject->toString();
 	}
 }
 
 $Object* DefaultMutableTreeNode::clone() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(DefaultMutableTreeNode, newNode, nullptr);
 	try {
 		$assign(newNode, $cast(DefaultMutableTreeNode, $Cloneable::clone()));
@@ -718,10 +612,10 @@ void DefaultMutableTreeNode::writeObject($ObjectOutputStream* s) {
 }
 
 void DefaultMutableTreeNode::readObject($ObjectInputStream* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectInputStream$GetField, f, $nc(s)->readFields());
-	$set(this, parent, $cast($MutableTreeNode, $nc(f)->get("parent"_s, ($Object*)nullptr)));
-	$var($Vector, newChildren, $cast($Vector, f->get("children"_s, ($Object*)nullptr)));
+	$set(this, parent, $cast($MutableTreeNode, $nc(f)->get("parent"_s, nullptr)));
+	$var($Vector, newChildren, $cast($Vector, f->get("children"_s, nullptr)));
 	bool newAllowsChildren = f->get("allowsChildren"_s, false);
 	if (!newAllowsChildren && newChildren != nullptr && newChildren->size() > 0) {
 		$throwNew($IllegalStateException, "node does not allow children"_s);
@@ -730,12 +624,12 @@ void DefaultMutableTreeNode::readObject($ObjectInputStream* s) {
 	this->allowsChildren = newAllowsChildren;
 	$var($ObjectArray, tValues, nullptr);
 	$assign(tValues, $cast($ObjectArray, s->readObject()));
-	if ($nc(tValues)->length > 0 && $nc($of(tValues->get(0)))->equals("userObject"_s)) {
+	if ($nc(tValues)->length > 0 && $nc(tValues->get(0))->equals("userObject"_s)) {
 		$set(this, userObject, tValues->get(1));
 	}
 }
 
-void clinit$DefaultMutableTreeNode($Class* class$) {
+void DefaultMutableTreeNode::clinit$($Class* clazz) {
 	$assignStatic(DefaultMutableTreeNode::EMPTY_ENUMERATION, $Collections::emptyEnumeration());
 }
 
@@ -743,7 +637,105 @@ DefaultMutableTreeNode::DefaultMutableTreeNode() {
 }
 
 $Class* DefaultMutableTreeNode::load$($String* name, bool initialize) {
-	$loadClass(DefaultMutableTreeNode, name, initialize, &_DefaultMutableTreeNode_ClassInfo_, clinit$DefaultMutableTreeNode, allocate$DefaultMutableTreeNode);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DefaultMutableTreeNode, serialVersionUID)},
+		{"EMPTY_ENUMERATION", "Ljava/util/Enumeration;", "Ljava/util/Enumeration<Ljavax/swing/tree/TreeNode;>;", $PUBLIC | $STATIC | $FINAL, $staticField(DefaultMutableTreeNode, EMPTY_ENUMERATION)},
+		{"parent", "Ljavax/swing/tree/MutableTreeNode;", nullptr, $PROTECTED, $field(DefaultMutableTreeNode, parent)},
+		{"children", "Ljava/util/Vector;", "Ljava/util/Vector<Ljavax/swing/tree/TreeNode;>;", $PROTECTED, $field(DefaultMutableTreeNode, children$)},
+		{"userObject", "Ljava/lang/Object;", nullptr, $PROTECTED | $TRANSIENT, $field(DefaultMutableTreeNode, userObject)},
+		{"allowsChildren", "Z", nullptr, $PROTECTED, $field(DefaultMutableTreeNode, allowsChildren)},
+		{}
+	};
+	$CompoundAttribute setParentmethodAnnotations$$[] = {
+		{"Ljava/beans/Transient;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(DefaultMutableTreeNode, init$, void)},
+		{"<init>", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(DefaultMutableTreeNode, init$, void, Object$*)},
+		{"<init>", "(Ljava/lang/Object;Z)V", nullptr, $PUBLIC, $method(DefaultMutableTreeNode, init$, void, Object$*, bool)},
+		{"add", "(Ljavax/swing/tree/MutableTreeNode;)V", nullptr, $PUBLIC, $virtualMethod(DefaultMutableTreeNode, add, void, $MutableTreeNode*)},
+		{"breadthFirstEnumeration", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljavax/swing/tree/TreeNode;>;", $PUBLIC, $virtualMethod(DefaultMutableTreeNode, breadthFirstEnumeration, $Enumeration*)},
+		{"children", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljavax/swing/tree/TreeNode;>;", $PUBLIC, $virtualMethod(DefaultMutableTreeNode, children, $Enumeration*)},
+		{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DefaultMutableTreeNode, clone, $Object*)},
+		{"depthFirstEnumeration", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljavax/swing/tree/TreeNode;>;", $PUBLIC, $virtualMethod(DefaultMutableTreeNode, depthFirstEnumeration, $Enumeration*)},
+		{"getAllowsChildren", "()Z", nullptr, $PUBLIC, $virtualMethod(DefaultMutableTreeNode, getAllowsChildren, bool)},
+		{"getChildAfter", "(Ljavax/swing/tree/TreeNode;)Ljavax/swing/tree/TreeNode;", nullptr, $PUBLIC, $virtualMethod(DefaultMutableTreeNode, getChildAfter, $TreeNode*, $TreeNode*)},
+		{"getChildAt", "(I)Ljavax/swing/tree/TreeNode;", nullptr, $PUBLIC, $virtualMethod(DefaultMutableTreeNode, getChildAt, $TreeNode*, int32_t)},
+		{"getChildBefore", "(Ljavax/swing/tree/TreeNode;)Ljavax/swing/tree/TreeNode;", nullptr, $PUBLIC, $virtualMethod(DefaultMutableTreeNode, getChildBefore, $TreeNode*, $TreeNode*)},
+		{"getChildCount", "()I", nullptr, $PUBLIC, $virtualMethod(DefaultMutableTreeNode, getChildCount, int32_t)},
+		{"getDepth", "()I", nullptr, $PUBLIC, $virtualMethod(DefaultMutableTreeNode, getDepth, int32_t)},
+		{"getFirstChild", "()Ljavax/swing/tree/TreeNode;", nullptr, $PUBLIC, $virtualMethod(DefaultMutableTreeNode, getFirstChild, $TreeNode*)},
+		{"getFirstLeaf", "()Ljavax/swing/tree/DefaultMutableTreeNode;", nullptr, $PUBLIC, $virtualMethod(DefaultMutableTreeNode, getFirstLeaf, DefaultMutableTreeNode*)},
+		{"getIndex", "(Ljavax/swing/tree/TreeNode;)I", nullptr, $PUBLIC, $virtualMethod(DefaultMutableTreeNode, getIndex, int32_t, $TreeNode*)},
+		{"getLastChild", "()Ljavax/swing/tree/TreeNode;", nullptr, $PUBLIC, $virtualMethod(DefaultMutableTreeNode, getLastChild, $TreeNode*)},
+		{"getLastLeaf", "()Ljavax/swing/tree/DefaultMutableTreeNode;", nullptr, $PUBLIC, $virtualMethod(DefaultMutableTreeNode, getLastLeaf, DefaultMutableTreeNode*)},
+		{"getLeafCount", "()I", nullptr, $PUBLIC, $virtualMethod(DefaultMutableTreeNode, getLeafCount, int32_t)},
+		{"getLevel", "()I", nullptr, $PUBLIC, $virtualMethod(DefaultMutableTreeNode, getLevel, int32_t)},
+		{"getNextLeaf", "()Ljavax/swing/tree/DefaultMutableTreeNode;", nullptr, $PUBLIC, $virtualMethod(DefaultMutableTreeNode, getNextLeaf, DefaultMutableTreeNode*)},
+		{"getNextNode", "()Ljavax/swing/tree/DefaultMutableTreeNode;", nullptr, $PUBLIC, $virtualMethod(DefaultMutableTreeNode, getNextNode, DefaultMutableTreeNode*)},
+		{"getNextSibling", "()Ljavax/swing/tree/DefaultMutableTreeNode;", nullptr, $PUBLIC, $virtualMethod(DefaultMutableTreeNode, getNextSibling, DefaultMutableTreeNode*)},
+		{"getParent", "()Ljavax/swing/tree/TreeNode;", nullptr, $PUBLIC, $virtualMethod(DefaultMutableTreeNode, getParent, $TreeNode*)},
+		{"getPath", "()[Ljavax/swing/tree/TreeNode;", nullptr, $PUBLIC, $virtualMethod(DefaultMutableTreeNode, getPath, $TreeNodeArray*)},
+		{"getPathToRoot", "(Ljavax/swing/tree/TreeNode;I)[Ljavax/swing/tree/TreeNode;", nullptr, $PROTECTED, $virtualMethod(DefaultMutableTreeNode, getPathToRoot, $TreeNodeArray*, $TreeNode*, int32_t)},
+		{"getPreviousLeaf", "()Ljavax/swing/tree/DefaultMutableTreeNode;", nullptr, $PUBLIC, $virtualMethod(DefaultMutableTreeNode, getPreviousLeaf, DefaultMutableTreeNode*)},
+		{"getPreviousNode", "()Ljavax/swing/tree/DefaultMutableTreeNode;", nullptr, $PUBLIC, $virtualMethod(DefaultMutableTreeNode, getPreviousNode, DefaultMutableTreeNode*)},
+		{"getPreviousSibling", "()Ljavax/swing/tree/DefaultMutableTreeNode;", nullptr, $PUBLIC, $virtualMethod(DefaultMutableTreeNode, getPreviousSibling, DefaultMutableTreeNode*)},
+		{"getRoot", "()Ljavax/swing/tree/TreeNode;", nullptr, $PUBLIC, $virtualMethod(DefaultMutableTreeNode, getRoot, $TreeNode*)},
+		{"getSharedAncestor", "(Ljavax/swing/tree/DefaultMutableTreeNode;)Ljavax/swing/tree/TreeNode;", nullptr, $PUBLIC, $virtualMethod(DefaultMutableTreeNode, getSharedAncestor, $TreeNode*, DefaultMutableTreeNode*)},
+		{"getSiblingCount", "()I", nullptr, $PUBLIC, $virtualMethod(DefaultMutableTreeNode, getSiblingCount, int32_t)},
+		{"getUserObject", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DefaultMutableTreeNode, getUserObject, $Object*)},
+		{"getUserObjectPath", "()[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DefaultMutableTreeNode, getUserObjectPath, $ObjectArray*)},
+		{"insert", "(Ljavax/swing/tree/MutableTreeNode;I)V", nullptr, $PUBLIC, $virtualMethod(DefaultMutableTreeNode, insert, void, $MutableTreeNode*, int32_t)},
+		{"isLeaf", "()Z", nullptr, $PUBLIC, $virtualMethod(DefaultMutableTreeNode, isLeaf, bool)},
+		{"isNodeAncestor", "(Ljavax/swing/tree/TreeNode;)Z", nullptr, $PUBLIC, $virtualMethod(DefaultMutableTreeNode, isNodeAncestor, bool, $TreeNode*)},
+		{"isNodeChild", "(Ljavax/swing/tree/TreeNode;)Z", nullptr, $PUBLIC, $virtualMethod(DefaultMutableTreeNode, isNodeChild, bool, $TreeNode*)},
+		{"isNodeDescendant", "(Ljavax/swing/tree/DefaultMutableTreeNode;)Z", nullptr, $PUBLIC, $virtualMethod(DefaultMutableTreeNode, isNodeDescendant, bool, DefaultMutableTreeNode*)},
+		{"isNodeRelated", "(Ljavax/swing/tree/DefaultMutableTreeNode;)Z", nullptr, $PUBLIC, $virtualMethod(DefaultMutableTreeNode, isNodeRelated, bool, DefaultMutableTreeNode*)},
+		{"isNodeSibling", "(Ljavax/swing/tree/TreeNode;)Z", nullptr, $PUBLIC, $virtualMethod(DefaultMutableTreeNode, isNodeSibling, bool, $TreeNode*)},
+		{"isRoot", "()Z", nullptr, $PUBLIC, $virtualMethod(DefaultMutableTreeNode, isRoot, bool)},
+		{"pathFromAncestorEnumeration", "(Ljavax/swing/tree/TreeNode;)Ljava/util/Enumeration;", "(Ljavax/swing/tree/TreeNode;)Ljava/util/Enumeration<Ljavax/swing/tree/TreeNode;>;", $PUBLIC, $virtualMethod(DefaultMutableTreeNode, pathFromAncestorEnumeration, $Enumeration*, $TreeNode*)},
+		{"postorderEnumeration", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljavax/swing/tree/TreeNode;>;", $PUBLIC, $virtualMethod(DefaultMutableTreeNode, postorderEnumeration, $Enumeration*)},
+		{"preorderEnumeration", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljavax/swing/tree/TreeNode;>;", $PUBLIC, $virtualMethod(DefaultMutableTreeNode, preorderEnumeration, $Enumeration*)},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(DefaultMutableTreeNode, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+		{"remove", "(I)V", nullptr, $PUBLIC, $virtualMethod(DefaultMutableTreeNode, remove, void, int32_t)},
+		{"remove", "(Ljavax/swing/tree/MutableTreeNode;)V", nullptr, $PUBLIC, $virtualMethod(DefaultMutableTreeNode, remove, void, $MutableTreeNode*)},
+		{"removeAllChildren", "()V", nullptr, $PUBLIC, $virtualMethod(DefaultMutableTreeNode, removeAllChildren, void)},
+		{"removeFromParent", "()V", nullptr, $PUBLIC, $virtualMethod(DefaultMutableTreeNode, removeFromParent, void)},
+		{"setAllowsChildren", "(Z)V", nullptr, $PUBLIC, $virtualMethod(DefaultMutableTreeNode, setAllowsChildren, void, bool)},
+		{"setParent", "(Ljavax/swing/tree/MutableTreeNode;)V", nullptr, $PUBLIC, $virtualMethod(DefaultMutableTreeNode, setParent, void, $MutableTreeNode*), nullptr, nullptr, setParentmethodAnnotations$$},
+		{"setUserObject", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(DefaultMutableTreeNode, setUserObject, void, Object$*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DefaultMutableTreeNode, toString, $String*)},
+		{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(DefaultMutableTreeNode, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.tree.DefaultMutableTreeNode$PathBetweenNodesEnumeration", "javax.swing.tree.DefaultMutableTreeNode", "PathBetweenNodesEnumeration", $FINAL},
+		{"javax.swing.tree.DefaultMutableTreeNode$BreadthFirstEnumeration", "javax.swing.tree.DefaultMutableTreeNode", "BreadthFirstEnumeration", $FINAL},
+		{"javax.swing.tree.DefaultMutableTreeNode$PostorderEnumeration", "javax.swing.tree.DefaultMutableTreeNode", "PostorderEnumeration", $FINAL},
+		{"javax.swing.tree.DefaultMutableTreeNode$PreorderEnumeration", "javax.swing.tree.DefaultMutableTreeNode", "PreorderEnumeration", $PRIVATE | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.tree.DefaultMutableTreeNode",
+		"java.lang.Object",
+		"java.lang.Cloneable,javax.swing.tree.MutableTreeNode,java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.swing.tree.DefaultMutableTreeNode$PathBetweenNodesEnumeration,javax.swing.tree.DefaultMutableTreeNode$BreadthFirstEnumeration,javax.swing.tree.DefaultMutableTreeNode$BreadthFirstEnumeration$Queue,javax.swing.tree.DefaultMutableTreeNode$BreadthFirstEnumeration$Queue$QNode,javax.swing.tree.DefaultMutableTreeNode$PostorderEnumeration,javax.swing.tree.DefaultMutableTreeNode$PreorderEnumeration"
+	};
+	$loadClass(DefaultMutableTreeNode, name, initialize, &classInfo$$, DefaultMutableTreeNode::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DefaultMutableTreeNode));
+	});
 	return class$;
 }
 

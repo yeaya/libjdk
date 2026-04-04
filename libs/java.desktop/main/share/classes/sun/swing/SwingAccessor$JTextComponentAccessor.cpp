@@ -1,5 +1,4 @@
 #include <sun/swing/SwingAccessor$JTextComponentAccessor.h>
-
 #include <java/awt/Point.h>
 #include <javax/swing/TransferHandler$DropLocation.h>
 #include <javax/swing/text/JTextComponent.h>
@@ -16,39 +15,34 @@ using $JTextComponent = ::javax::swing::text::JTextComponent;
 namespace sun {
 	namespace swing {
 
-$MethodInfo _SwingAccessor$JTextComponentAccessor_MethodInfo_[] = {
-	{"dropLocationForPoint", "(Ljavax/swing/text/JTextComponent;Ljava/awt/Point;)Ljavax/swing/TransferHandler$DropLocation;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SwingAccessor$JTextComponentAccessor, dropLocationForPoint, $TransferHandler$DropLocation*, $JTextComponent*, $Point*)},
-	{"setDropLocation", "(Ljavax/swing/text/JTextComponent;Ljavax/swing/TransferHandler$DropLocation;Ljava/lang/Object;Z)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SwingAccessor$JTextComponentAccessor, setDropLocation, $Object*, $JTextComponent*, $TransferHandler$DropLocation*, Object$*, bool)},
-	{}
-};
-
-$InnerClassInfo _SwingAccessor$JTextComponentAccessor_InnerClassesInfo_[] = {
-	{"sun.swing.SwingAccessor$JTextComponentAccessor", "sun.swing.SwingAccessor", "JTextComponentAccessor", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _SwingAccessor$JTextComponentAccessor_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"sun.swing.SwingAccessor$JTextComponentAccessor",
-	nullptr,
-	nullptr,
-	nullptr,
-	_SwingAccessor$JTextComponentAccessor_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SwingAccessor$JTextComponentAccessor_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.swing.SwingAccessor"
-};
-
-$Object* allocate$SwingAccessor$JTextComponentAccessor($Class* clazz) {
-	return $of($alloc(SwingAccessor$JTextComponentAccessor));
-}
-
 $Class* SwingAccessor$JTextComponentAccessor::load$($String* name, bool initialize) {
-	$loadClass(SwingAccessor$JTextComponentAccessor, name, initialize, &_SwingAccessor$JTextComponentAccessor_ClassInfo_, allocate$SwingAccessor$JTextComponentAccessor);
+	$MethodInfo methodInfos$$[] = {
+		{"dropLocationForPoint", "(Ljavax/swing/text/JTextComponent;Ljava/awt/Point;)Ljavax/swing/TransferHandler$DropLocation;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SwingAccessor$JTextComponentAccessor, dropLocationForPoint, $TransferHandler$DropLocation*, $JTextComponent*, $Point*)},
+		{"setDropLocation", "(Ljavax/swing/text/JTextComponent;Ljavax/swing/TransferHandler$DropLocation;Ljava/lang/Object;Z)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SwingAccessor$JTextComponentAccessor, setDropLocation, $Object*, $JTextComponent*, $TransferHandler$DropLocation*, Object$*, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.swing.SwingAccessor$JTextComponentAccessor", "sun.swing.SwingAccessor", "JTextComponentAccessor", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"sun.swing.SwingAccessor$JTextComponentAccessor",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.swing.SwingAccessor"
+	};
+	$loadClass(SwingAccessor$JTextComponentAccessor, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SwingAccessor$JTextComponentAccessor);
+	});
 	return class$;
 }
 

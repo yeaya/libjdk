@@ -30,6 +30,7 @@ class MLetParser : public ::java::lang::Object {
 	$class(MLetParser, 0, ::java::lang::Object)
 public:
 	MLetParser();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual ::java::util::List* parse(::java::net::URL* url);
 	virtual ::java::util::List* parseURL($String* urlname);

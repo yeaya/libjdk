@@ -1,5 +1,4 @@
 #include <TestObjectView.h>
-
 #include <TestObjectView$UserElement.h>
 #include <TestObjectView$UserJComponent.h>
 #include <TestObjectView$UserObjectView.h>
@@ -13,7 +12,6 @@
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
 #include <javax/swing/SwingUtilities.h>
-#include <javax/swing/text/Element.h>
 #include <jcpp.h>
 
 using $TestObjectView$UserElement = ::TestObjectView$UserElement;
@@ -29,7 +27,6 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $SecurityManager = ::java::lang::SecurityManager;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
-using $Element = ::javax::swing::text::Element;
 
 class TestObjectView$$Lambda$testObjectView : public $Runnable {
 	$class(TestObjectView$$Lambda$testObjectView, $NO_CLASS_INIT, $Runnable)
@@ -39,78 +36,42 @@ public:
 	virtual void run() override {
 		TestObjectView::testObjectView();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<TestObjectView$$Lambda$testObjectView>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo TestObjectView$$Lambda$testObjectView::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TestObjectView$$Lambda$testObjectView, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestObjectView$$Lambda$testObjectView, run, void)},
-	{}
-};
-$ClassInfo TestObjectView$$Lambda$testObjectView::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"TestObjectView$$Lambda$testObjectView",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* TestObjectView$$Lambda$testObjectView::load$($String* name, bool initialize) {
-	$loadClass(TestObjectView$$Lambda$testObjectView, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TestObjectView$$Lambda$testObjectView, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestObjectView$$Lambda$testObjectView, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"TestObjectView$$Lambda$testObjectView",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(TestObjectView$$Lambda$testObjectView, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TestObjectView$$Lambda$testObjectView);
+	});
 	return class$;
 }
 $Class* TestObjectView$$Lambda$testObjectView::class$ = nullptr;
-
-$MethodInfo _TestObjectView_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TestObjectView, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TestObjectView, main, void, $StringArray*), "java.lang.Exception"},
-	{"testObjectView", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(TestObjectView, testObjectView, void)},
-	{}
-};
-
-$InnerClassInfo _TestObjectView_InnerClassesInfo_[] = {
-	{"TestObjectView$UserElement", "TestObjectView", "UserElement", $PUBLIC | $STATIC},
-	{"TestObjectView$UserObjectView", "TestObjectView", "UserObjectView", $PUBLIC | $STATIC},
-	{"TestObjectView$UserJComponent", "TestObjectView", "UserJComponent", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _TestObjectView_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"TestObjectView",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_TestObjectView_MethodInfo_,
-	nullptr,
-	nullptr,
-	_TestObjectView_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"TestObjectView$UserElement,TestObjectView$UserElement$1,TestObjectView$UserObjectView,TestObjectView$UserJComponent"
-};
-
-$Object* allocate$TestObjectView($Class* clazz) {
-	return $of($alloc(TestObjectView));
-}
 
 void TestObjectView::init$() {
 }
 
 void TestObjectView::main($StringArray* args) {
+	$useLocalObjectStack();
 	$load(TestObjectView);
-	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
-	$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(TestObjectView$$Lambda$testObjectView)));
+	$SwingUtilities::invokeAndWait($$new(TestObjectView$$Lambda$testObjectView));
 	$System::setSecurityManager($$new($SecurityManager));
-	$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(TestObjectView$$Lambda$testObjectView)));
+	$SwingUtilities::invokeAndWait($$new(TestObjectView$$Lambda$testObjectView));
 }
 
 void TestObjectView::testObjectView() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($TestObjectView$UserObjectView, objectView, $new($TestObjectView$UserObjectView, $$new($TestObjectView$UserElement)));
 	$var($Component, comp, objectView->createComponent());
 	if (!($instanceOf($TestObjectView$UserJComponent, comp))) {
@@ -123,11 +84,39 @@ TestObjectView::TestObjectView() {
 
 $Class* TestObjectView::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(TestObjectView$$Lambda$testObjectView::classInfo$.name)) {
+		if (name->equals("TestObjectView$$Lambda$testObjectView")) {
 			return TestObjectView$$Lambda$testObjectView::load$(name, initialize);
 		}
 	}
-	$loadClass(TestObjectView, name, initialize, &_TestObjectView_ClassInfo_, allocate$TestObjectView);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TestObjectView, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TestObjectView, main, void, $StringArray*), "java.lang.Exception"},
+		{"testObjectView", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(TestObjectView, testObjectView, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"TestObjectView$UserElement", "TestObjectView", "UserElement", $PUBLIC | $STATIC},
+		{"TestObjectView$UserObjectView", "TestObjectView", "UserObjectView", $PUBLIC | $STATIC},
+		{"TestObjectView$UserJComponent", "TestObjectView", "UserJComponent", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"TestObjectView",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"TestObjectView$UserElement,TestObjectView$UserElement$1,TestObjectView$UserObjectView,TestObjectView$UserJComponent"
+	};
+	$loadClass(TestObjectView, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TestObjectView);
+	});
 	return class$;
 }
 

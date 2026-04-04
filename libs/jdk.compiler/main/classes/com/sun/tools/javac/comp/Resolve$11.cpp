@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/Resolve$11.h>
-
 #include <com/sun/tools/javac/code/Kinds$Kind.h>
 #include <com/sun/tools/javac/code/Symbol$MethodSymbol.h>
 #include <com/sun/tools/javac/code/Symbol.h>
@@ -17,7 +16,6 @@
 
 #undef BASIC
 
-using $Kinds$Kind = ::com::sun::tools::javac::code::Kinds$Kind;
 using $Symbol = ::com::sun::tools::javac::code::Symbol;
 using $Symbol$MethodSymbol = ::com::sun::tools::javac::code::Symbol$MethodSymbol;
 using $Type = ::com::sun::tools::javac::code::Type;
@@ -41,76 +39,29 @@ namespace com {
 			namespace javac {
 				namespace comp {
 
-$FieldInfo _Resolve$11_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/comp/Resolve;", nullptr, $FINAL | $SYNTHETIC, $field(Resolve$11, this$0)},
-	{}
-};
-
-$MethodInfo _Resolve$11_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Resolve;Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;)V", nullptr, 0, $method(Resolve$11, init$, void, $Resolve*, $Name*, $Type*, $List*, $List*)},
-	{"access", "(Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Symbol;)Lcom/sun/tools/javac/code/Symbol;", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Symbol;)Lcom/sun/tools/javac/code/Symbol;", 0, $virtualMethod(Resolve$11, access, $Symbol*, $Env*, $JCDiagnostic$DiagnosticPosition*, $Symbol*, $Symbol*)},
-	{"doLookup", "(Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/comp/Resolve$MethodResolutionPhase;)Lcom/sun/tools/javac/code/Symbol;", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;Lcom/sun/tools/javac/comp/Resolve$MethodResolutionPhase;)Lcom/sun/tools/javac/code/Symbol;", 0, $virtualMethod(Resolve$11, doLookup, $Symbol*, $Env*, $Resolve$MethodResolutionPhase*)},
-	{}
-};
-
-$EnclosingMethodInfo _Resolve$11_EnclosingMethodInfo_ = {
-	"com.sun.tools.javac.comp.Resolve",
-	"resolveQualifiedMethod",
-	"(Lcom/sun/tools/javac/comp/Resolve$MethodResolutionContext;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/code/Symbol;"
-};
-
-$InnerClassInfo _Resolve$11_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.Resolve$11", nullptr, nullptr, 0},
-	{"com.sun.tools.javac.comp.Resolve$BasicLookupHelper", "com.sun.tools.javac.comp.Resolve", "BasicLookupHelper", $ABSTRACT},
-	{"com.sun.tools.javac.comp.Resolve$MethodResolutionContext", "com.sun.tools.javac.comp.Resolve", "MethodResolutionContext", 0},
-	{"com.sun.tools.javac.util.JCDiagnostic$DiagnosticPosition", "com.sun.tools.javac.util.JCDiagnostic", "DiagnosticPosition", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Resolve$11_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.comp.Resolve$11",
-	"com.sun.tools.javac.comp.Resolve$BasicLookupHelper",
-	nullptr,
-	_Resolve$11_FieldInfo_,
-	_Resolve$11_MethodInfo_,
-	nullptr,
-	&_Resolve$11_EnclosingMethodInfo_,
-	_Resolve$11_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.Resolve"
-};
-
-$Object* allocate$Resolve$11($Class* clazz) {
-	return $of($alloc(Resolve$11));
-}
-
 void Resolve$11::init$($Resolve* this$0, $Name* name, $Type* site, $List* argtypes, $List* typeargtypes) {
 	$set(this, this$0, this$0);
 	$Resolve$BasicLookupHelper::init$(this$0, name, site, argtypes, typeargtypes);
 }
 
 $Symbol* Resolve$11::doLookup($Env* env, $Resolve$MethodResolutionPhase* phase) {
-	$useLocalCurrentObjectStackCache();
-	$var($Env, var$0, env);
-	$var($Type, var$1, this->site);
-	$var($Name, var$2, this->name);
-	$var($List, var$3, this->argtypes);
-	$var($List, var$4, this->typeargtypes);
-	bool var$5 = $nc(phase)->isBoxingRequired();
-	return this->this$0->findMethod(var$0, var$1, var$2, var$3, var$4, var$5, phase->isVarargsRequired());
+	$useLocalObjectStack();
+	$var($Type, var$0, this->site);
+	$var($Name, var$1, this->name);
+	$var($List, var$2, this->argtypes);
+	$var($List, var$3, this->typeargtypes);
+	bool var$4 = $nc(phase)->isBoxingRequired();
+	return this->this$0->findMethod(env, var$0, var$1, var$2, var$3, var$4, phase->isVarargsRequired());
 }
 
 $Symbol* Resolve$11::access($Env* env, $JCDiagnostic$DiagnosticPosition* pos, $Symbol* location, $Symbol* sym$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Symbol, sym, sym$renamed);
 	if ($nc($nc(sym)->kind)->isResolutionError()) {
 		$assign(sym, $Resolve$BasicLookupHelper::access(env, pos, location, sym));
 	} else {
 		$var($Symbol$MethodSymbol, msym, $cast($Symbol$MethodSymbol, sym));
-		if (((int64_t)(msym->flags() & (uint64_t)(int64_t)0x0000400000000000)) != 0) {
+		if ((msym->flags() & (int64_t)0x0000400000000000) != 0) {
 			$init($Resolve$MethodResolutionPhase);
 			$set($nc($cast($AttrContext, $nc(env)->info)), pendingResolutionPhase, $Resolve$MethodResolutionPhase::BASIC);
 			return this->this$0->findPolymorphicSignatureInstance(env, sym, this->argtypes);
@@ -123,7 +74,46 @@ Resolve$11::Resolve$11() {
 }
 
 $Class* Resolve$11::load$($String* name, bool initialize) {
-	$loadClass(Resolve$11, name, initialize, &_Resolve$11_ClassInfo_, allocate$Resolve$11);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/comp/Resolve;", nullptr, $FINAL | $SYNTHETIC, $field(Resolve$11, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/comp/Resolve;Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;)V", nullptr, 0, $method(Resolve$11, init$, void, $Resolve*, $Name*, $Type*, $List*, $List*)},
+		{"access", "(Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Symbol;)Lcom/sun/tools/javac/code/Symbol;", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Symbol;)Lcom/sun/tools/javac/code/Symbol;", 0, $virtualMethod(Resolve$11, access, $Symbol*, $Env*, $JCDiagnostic$DiagnosticPosition*, $Symbol*, $Symbol*)},
+		{"doLookup", "(Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/comp/Resolve$MethodResolutionPhase;)Lcom/sun/tools/javac/code/Symbol;", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;Lcom/sun/tools/javac/comp/Resolve$MethodResolutionPhase;)Lcom/sun/tools/javac/code/Symbol;", 0, $virtualMethod(Resolve$11, doLookup, $Symbol*, $Env*, $Resolve$MethodResolutionPhase*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.tools.javac.comp.Resolve",
+		"resolveQualifiedMethod",
+		"(Lcom/sun/tools/javac/comp/Resolve$MethodResolutionContext;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/code/Symbol;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.Resolve$11", nullptr, nullptr, 0},
+		{"com.sun.tools.javac.comp.Resolve$BasicLookupHelper", "com.sun.tools.javac.comp.Resolve", "BasicLookupHelper", $ABSTRACT},
+		{"com.sun.tools.javac.comp.Resolve$MethodResolutionContext", "com.sun.tools.javac.comp.Resolve", "MethodResolutionContext", 0},
+		{"com.sun.tools.javac.util.JCDiagnostic$DiagnosticPosition", "com.sun.tools.javac.util.JCDiagnostic", "DiagnosticPosition", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.comp.Resolve$11",
+		"com.sun.tools.javac.comp.Resolve$BasicLookupHelper",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.Resolve"
+	};
+	$loadClass(Resolve$11, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Resolve$11);
+	});
 	return class$;
 }
 

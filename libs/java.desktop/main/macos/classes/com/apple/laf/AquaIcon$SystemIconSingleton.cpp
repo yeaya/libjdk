@@ -1,5 +1,4 @@
 #include <com/apple/laf/AquaIcon$SystemIconSingleton.h>
-
 #include <com/apple/laf/AquaIcon$SystemIcon.h>
 #include <com/apple/laf/AquaIcon.h>
 #include <com/apple/laf/AquaUtils$RecyclableSingleton.h>
@@ -16,44 +15,6 @@ namespace com {
 	namespace apple {
 		namespace laf {
 
-$FieldInfo _AquaIcon$SystemIconSingleton_FieldInfo_[] = {
-	{"selector", "Ljava/lang/String;", nullptr, $FINAL, $field(AquaIcon$SystemIconSingleton, selector)},
-	{}
-};
-
-$MethodInfo _AquaIcon$SystemIconSingleton_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(AquaIcon$SystemIconSingleton, init$, void, $String*)},
-	{"getInstance", "()Lcom/apple/laf/AquaIcon$SystemIcon;", nullptr, $PROTECTED, $virtualMethod(AquaIcon$SystemIconSingleton, getInstance, $Object*)},
-	{}
-};
-
-$InnerClassInfo _AquaIcon$SystemIconSingleton_InnerClassesInfo_[] = {
-	{"com.apple.laf.AquaIcon$SystemIconSingleton", "com.apple.laf.AquaIcon", "SystemIconSingleton", $STATIC},
-	{"com.apple.laf.AquaUtils$RecyclableSingleton", "com.apple.laf.AquaUtils", "RecyclableSingleton", $STATIC | $ABSTRACT},
-	{"com.apple.laf.AquaIcon$SystemIcon", "com.apple.laf.AquaIcon", "SystemIcon", $STATIC},
-	{}
-};
-
-$ClassInfo _AquaIcon$SystemIconSingleton_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.apple.laf.AquaIcon$SystemIconSingleton",
-	"com.apple.laf.AquaUtils$RecyclableSingleton",
-	nullptr,
-	_AquaIcon$SystemIconSingleton_FieldInfo_,
-	_AquaIcon$SystemIconSingleton_MethodInfo_,
-	"Lcom/apple/laf/AquaUtils$RecyclableSingleton<Lcom/apple/laf/AquaIcon$SystemIcon;>;",
-	nullptr,
-	_AquaIcon$SystemIconSingleton_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.apple.laf.AquaIcon"
-};
-
-$Object* allocate$AquaIcon$SystemIconSingleton($Class* clazz) {
-	return $of($alloc(AquaIcon$SystemIconSingleton));
-}
-
 void AquaIcon$SystemIconSingleton::init$($String* selector) {
 	$AquaUtils$RecyclableSingleton::init$();
 	$set(this, selector, selector);
@@ -67,7 +28,39 @@ AquaIcon$SystemIconSingleton::AquaIcon$SystemIconSingleton() {
 }
 
 $Class* AquaIcon$SystemIconSingleton::load$($String* name, bool initialize) {
-	$loadClass(AquaIcon$SystemIconSingleton, name, initialize, &_AquaIcon$SystemIconSingleton_ClassInfo_, allocate$AquaIcon$SystemIconSingleton);
+	$FieldInfo fieldInfos$$[] = {
+		{"selector", "Ljava/lang/String;", nullptr, $FINAL, $field(AquaIcon$SystemIconSingleton, selector)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(AquaIcon$SystemIconSingleton, init$, void, $String*)},
+		{"getInstance", "()Lcom/apple/laf/AquaIcon$SystemIcon;", nullptr, $PROTECTED, $virtualMethod(AquaIcon$SystemIconSingleton, getInstance, $Object*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.laf.AquaIcon$SystemIconSingleton", "com.apple.laf.AquaIcon", "SystemIconSingleton", $STATIC},
+		{"com.apple.laf.AquaUtils$RecyclableSingleton", "com.apple.laf.AquaUtils", "RecyclableSingleton", $STATIC | $ABSTRACT},
+		{"com.apple.laf.AquaIcon$SystemIcon", "com.apple.laf.AquaIcon", "SystemIcon", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.apple.laf.AquaIcon$SystemIconSingleton",
+		"com.apple.laf.AquaUtils$RecyclableSingleton",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Lcom/apple/laf/AquaUtils$RecyclableSingleton<Lcom/apple/laf/AquaIcon$SystemIcon;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.apple.laf.AquaIcon"
+	};
+	$loadClass(AquaIcon$SystemIconSingleton, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AquaIcon$SystemIconSingleton);
+	});
 	return class$;
 }
 

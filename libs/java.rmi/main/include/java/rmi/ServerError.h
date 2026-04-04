@@ -19,10 +19,13 @@ class $import ServerError : public ::java::rmi::RemoteException {
 public:
 	ServerError();
 	void init$($String* s, ::java::lang::Error* err);
-	static const int64_t serialVersionUID = (int64_t)0x755734D02036BFE2;
+	static const int64_t serialVersionUID = (int64_t)0x755734d02036bfe2;
 	ServerError(const ServerError& e);
 	virtual void throw$() override;
-	inline ServerError* operator ->() {
+	inline ServerError* operator ->() const {
+		return (ServerError*)throwing$;
+	}
+	inline operator ServerError*() const {
 		return (ServerError*)throwing$;
 	}
 };

@@ -15,6 +15,7 @@ class ClassWriter$1 : public ::java::lang::Object {
 	$class(ClassWriter$1, 0, ::java::lang::Object)
 public:
 	ClassWriter$1();
+	static void clinit$(::java::lang::Class* clazz);
 	static $ints* $SwitchMap$com$sun$tools$javac$code$Kinds$Kind;
 	static $ints* $SwitchMap$com$sun$tools$javac$jvm$Code$StackMapFormat;
 	static $ints* $SwitchMap$com$sun$tools$javac$code$TargetType;

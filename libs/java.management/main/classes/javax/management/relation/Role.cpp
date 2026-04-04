@@ -1,5 +1,4 @@
 #include <javax/management/relation/Role.h>
-
 #include <com/sun/jmx/mbeanserver/GetPropertyAction.h>
 #include <com/sun/jmx/mbeanserver/Util.h>
 #include <java/io/ObjectInputStream$GetField.h>
@@ -8,9 +7,7 @@
 #include <java/io/ObjectOutputStream.h>
 #include <java/io/ObjectStreamField.h>
 #include <java/security/AccessController.h>
-#include <java/security/PrivilegedAction.h>
 #include <java/util/ArrayList.h>
-#include <java/util/Collection.h>
 #include <java/util/Iterator.h>
 #include <java/util/List.h>
 #include <javax/management/ObjectName.h>
@@ -31,9 +28,7 @@ using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;
 using $AccessController = ::java::security::AccessController;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $ArrayList = ::java::util::ArrayList;
-using $Collection = ::java::util::Collection;
 using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
 using $ObjectName = ::javax::management::ObjectName;
@@ -41,46 +36,6 @@ using $ObjectName = ::javax::management::ObjectName;
 namespace javax {
 	namespace management {
 		namespace relation {
-
-$FieldInfo _Role_FieldInfo_[] = {
-	{"oldSerialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Role, oldSerialVersionUID)},
-	{"newSerialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Role, newSerialVersionUID)},
-	{"oldSerialPersistentFields", "[Ljava/io/ObjectStreamField;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Role, oldSerialPersistentFields)},
-	{"newSerialPersistentFields", "[Ljava/io/ObjectStreamField;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Role, newSerialPersistentFields)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Role, serialVersionUID)},
-	{"serialPersistentFields", "[Ljava/io/ObjectStreamField;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Role, serialPersistentFields)},
-	{"compat", "Z", nullptr, $PRIVATE | $STATIC, $staticField(Role, compat)},
-	{"name", "Ljava/lang/String;", nullptr, $PRIVATE, $field(Role, name)},
-	{"objectNameList", "Ljava/util/List;", "Ljava/util/List<Ljavax/management/ObjectName;>;", $PRIVATE, $field(Role, objectNameList)},
-	{}
-};
-
-$MethodInfo _Role_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/util/List;)V", "(Ljava/lang/String;Ljava/util/List<Ljavax/management/ObjectName;>;)V", $PUBLIC, $method(Role, init$, void, $String*, $List*), "java.lang.IllegalArgumentException"},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Role, clone, $Object*)},
-	{"getRoleName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Role, getRoleName, $String*)},
-	{"getRoleValue", "()Ljava/util/List;", "()Ljava/util/List<Ljavax/management/ObjectName;>;", $PUBLIC, $virtualMethod(Role, getRoleValue, $List*)},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(Role, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"roleValueToString", "(Ljava/util/List;)Ljava/lang/String;", "(Ljava/util/List<Ljavax/management/ObjectName;>;)Ljava/lang/String;", $PUBLIC | $STATIC, $staticMethod(Role, roleValueToString, $String*, $List*), "java.lang.IllegalArgumentException"},
-	{"setRoleName", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Role, setRoleName, void, $String*), "java.lang.IllegalArgumentException"},
-	{"setRoleValue", "(Ljava/util/List;)V", "(Ljava/util/List<Ljavax/management/ObjectName;>;)V", $PUBLIC, $virtualMethod(Role, setRoleValue, void, $List*), "java.lang.IllegalArgumentException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Role, toString, $String*)},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(Role, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _Role_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.management.relation.Role",
-	"java.lang.Object",
-	"java.io.Serializable",
-	_Role_FieldInfo_,
-	_Role_MethodInfo_
-};
-
-$Object* allocate$Role($Class* clazz) {
-	return $of($alloc(Role));
-}
 
 $ObjectStreamFieldArray* Role::oldSerialPersistentFields = nullptr;
 $ObjectStreamFieldArray* Role::newSerialPersistentFields = nullptr;
@@ -122,12 +77,12 @@ void Role::setRoleValue($List* roleValue) {
 		$var($String, excMsg, "Invalid parameter."_s);
 		$throwNew($IllegalArgumentException, excMsg);
 	}
-	$set(this, objectNameList, $new($ArrayList, static_cast<$Collection*>(roleValue)));
+	$set(this, objectNameList, $new($ArrayList, roleValue));
 	return;
 }
 
 $String* Role::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, result, $new($StringBuilder));
 	result->append($$str({"role name: "_s, this->name, "; role value: "_s}));
 	{
@@ -145,16 +100,16 @@ $String* Role::toString() {
 
 $Object* Role::clone() {
 	try {
-		return $of($new(Role, this->name, this->objectNameList));
+		return $new(Role, this->name, this->objectNameList);
 	} catch ($IllegalArgumentException& exc) {
-		return $of(nullptr);
+		return nullptr;
 	}
 	$shouldNotReachHere();
 }
 
 $String* Role::roleValueToString($List* roleValue) {
 	$init(Role);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (roleValue == nullptr) {
 		$var($String, excMsg, "Invalid parameter"_s);
 		$throwNew($IllegalArgumentException, excMsg);
@@ -176,14 +131,14 @@ $String* Role::roleValueToString($List* roleValue) {
 }
 
 void Role::readObject($ObjectInputStream* in) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (Role::compat) {
 		$var($ObjectInputStream$GetField, fields, $nc(in)->readFields());
-		$set(this, name, $cast($String, $nc(fields)->get("myName"_s, ($Object*)nullptr)));
+		$set(this, name, $cast($String, $nc(fields)->get("myName"_s, nullptr)));
 		if (fields->defaulted("myName"_s)) {
 			$throwNew($NullPointerException, "myName"_s);
 		}
-		$set(this, objectNameList, $cast($List, $Util::cast($(fields->get("myObjNameList"_s, ($Object*)nullptr)))));
+		$set(this, objectNameList, $cast($List, $Util::cast($(fields->get("myObjNameList"_s, nullptr)))));
 		if (fields->defaulted("myObjNameList"_s)) {
 			$throwNew($NullPointerException, "myObjNameList"_s);
 		}
@@ -195,16 +150,16 @@ void Role::readObject($ObjectInputStream* in) {
 void Role::writeObject($ObjectOutputStream* out) {
 	if (Role::compat) {
 		$var($ObjectOutputStream$PutField, fields, $nc(out)->putFields());
-		$nc(fields)->put("myName"_s, $of(this->name));
-		fields->put("myObjNameList"_s, $of(this->objectNameList));
+		$nc(fields)->put("myName"_s, this->name);
+		fields->put("myObjNameList"_s, this->objectNameList);
 		out->writeFields();
 	} else {
 		$nc(out)->defaultWriteObject();
 	}
 }
 
-void clinit$Role($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void Role::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$load($ArrayList);
 	$assignStatic(Role::oldSerialPersistentFields, $new($ObjectStreamFieldArray, {
@@ -220,7 +175,7 @@ void clinit$Role($Class* class$) {
 	{
 		try {
 			$var($GetPropertyAction, act, $new($GetPropertyAction, "jmx.serial.form"_s));
-			$var($String, form, $cast($String, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>(act))));
+			$var($String, form, $cast($String, $AccessController::doPrivileged(act)));
 			Role::compat = (form != nullptr && form->equals("1.0"_s));
 		} catch ($Exception& e) {
 		}
@@ -238,7 +193,42 @@ Role::Role() {
 }
 
 $Class* Role::load$($String* name, bool initialize) {
-	$loadClass(Role, name, initialize, &_Role_ClassInfo_, clinit$Role, allocate$Role);
+	$FieldInfo fieldInfos$$[] = {
+		{"oldSerialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Role, oldSerialVersionUID)},
+		{"newSerialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Role, newSerialVersionUID)},
+		{"oldSerialPersistentFields", "[Ljava/io/ObjectStreamField;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Role, oldSerialPersistentFields)},
+		{"newSerialPersistentFields", "[Ljava/io/ObjectStreamField;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Role, newSerialPersistentFields)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Role, serialVersionUID)},
+		{"serialPersistentFields", "[Ljava/io/ObjectStreamField;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Role, serialPersistentFields)},
+		{"compat", "Z", nullptr, $PRIVATE | $STATIC, $staticField(Role, compat)},
+		{"name", "Ljava/lang/String;", nullptr, $PRIVATE, $field(Role, name)},
+		{"objectNameList", "Ljava/util/List;", "Ljava/util/List<Ljavax/management/ObjectName;>;", $PRIVATE, $field(Role, objectNameList)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljava/util/List;)V", "(Ljava/lang/String;Ljava/util/List<Ljavax/management/ObjectName;>;)V", $PUBLIC, $method(Role, init$, void, $String*, $List*), "java.lang.IllegalArgumentException"},
+		{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Role, clone, $Object*)},
+		{"getRoleName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Role, getRoleName, $String*)},
+		{"getRoleValue", "()Ljava/util/List;", "()Ljava/util/List<Ljavax/management/ObjectName;>;", $PUBLIC, $virtualMethod(Role, getRoleValue, $List*)},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(Role, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+		{"roleValueToString", "(Ljava/util/List;)Ljava/lang/String;", "(Ljava/util/List<Ljavax/management/ObjectName;>;)Ljava/lang/String;", $PUBLIC | $STATIC, $staticMethod(Role, roleValueToString, $String*, $List*), "java.lang.IllegalArgumentException"},
+		{"setRoleName", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Role, setRoleName, void, $String*), "java.lang.IllegalArgumentException"},
+		{"setRoleValue", "(Ljava/util/List;)V", "(Ljava/util/List<Ljavax/management/ObjectName;>;)V", $PUBLIC, $virtualMethod(Role, setRoleValue, void, $List*), "java.lang.IllegalArgumentException"},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Role, toString, $String*)},
+		{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(Role, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.management.relation.Role",
+		"java.lang.Object",
+		"java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Role, name, initialize, &classInfo$$, Role::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Role);
+	});
 	return class$;
 }
 

@@ -36,11 +36,14 @@ public:
 	TargetLostException();
 	void init$($Array<::com::sun::org::apache::bcel::internal::generic::InstructionHandle>* t, $String* mesg);
 	$Array<::com::sun::org::apache::bcel::internal::generic::InstructionHandle>* getTargets();
-	static const int64_t serialVersionUID = (int64_t)0xA0D612D715014400;
+	static const int64_t serialVersionUID = (int64_t)0xa0d612d715014400;
 	$Array<::com::sun::org::apache::bcel::internal::generic::InstructionHandle>* targets = nullptr;
 	TargetLostException(const TargetLostException& e);
 	virtual void throw$() override;
-	inline TargetLostException* operator ->() {
+	inline TargetLostException* operator ->() const {
+		return (TargetLostException*)throwing$;
+	}
+	inline operator TargetLostException*() const {
 		return (TargetLostException*)throwing$;
 	}
 };

@@ -22,6 +22,7 @@ class X11GB18030_0$Encoder : public ::sun::font::DoubleByteEncoder {
 public:
 	X11GB18030_0$Encoder();
 	using ::sun::font::DoubleByteEncoder::canEncode;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::nio::charset::Charset* cs);
 	virtual int32_t encodeSingle(char16_t inputChar) override;
 	virtual bool isLegalReplacement($bytes* repl) override;

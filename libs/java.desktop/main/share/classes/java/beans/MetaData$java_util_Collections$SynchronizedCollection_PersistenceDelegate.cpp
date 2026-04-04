@@ -1,5 +1,4 @@
 #include <java/beans/MetaData$java_util_Collections$SynchronizedCollection_PersistenceDelegate.h>
-
 #include <java/beans/Encoder.h>
 #include <java/beans/Expression.h>
 #include <java/beans/MetaData$java_util_Collections.h>
@@ -23,54 +22,49 @@ using $List = ::java::util::List;
 namespace java {
 	namespace beans {
 
-$MethodInfo _MetaData$java_util_Collections$SynchronizedCollection_PersistenceDelegate_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(MetaData$java_util_Collections$SynchronizedCollection_PersistenceDelegate, init$, void)},
-	{"instantiate", "(Ljava/lang/Object;Ljava/beans/Encoder;)Ljava/beans/Expression;", nullptr, $PROTECTED, $virtualMethod(MetaData$java_util_Collections$SynchronizedCollection_PersistenceDelegate, instantiate, $Expression*, Object$*, $Encoder*)},
-	{}
-};
-
-$InnerClassInfo _MetaData$java_util_Collections$SynchronizedCollection_PersistenceDelegate_InnerClassesInfo_[] = {
-	{"java.beans.MetaData$java_util_Collections", "java.beans.MetaData", "java_util_Collections", $PRIVATE | $STATIC | $ABSTRACT},
-	{"java.beans.MetaData$java_util_Collections$SynchronizedCollection_PersistenceDelegate", "java.beans.MetaData$java_util_Collections", "SynchronizedCollection_PersistenceDelegate", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _MetaData$java_util_Collections$SynchronizedCollection_PersistenceDelegate_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.beans.MetaData$java_util_Collections$SynchronizedCollection_PersistenceDelegate",
-	"java.beans.MetaData$java_util_Collections",
-	nullptr,
-	nullptr,
-	_MetaData$java_util_Collections$SynchronizedCollection_PersistenceDelegate_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MetaData$java_util_Collections$SynchronizedCollection_PersistenceDelegate_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.beans.MetaData"
-};
-
-$Object* allocate$MetaData$java_util_Collections$SynchronizedCollection_PersistenceDelegate($Class* clazz) {
-	return $of($alloc(MetaData$java_util_Collections$SynchronizedCollection_PersistenceDelegate));
-}
-
 void MetaData$java_util_Collections$SynchronizedCollection_PersistenceDelegate::init$() {
 	$MetaData$java_util_Collections::init$();
 }
 
 $Expression* MetaData$java_util_Collections$SynchronizedCollection_PersistenceDelegate::instantiate(Object$* oldInstance, $Encoder* out) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, list, $new($ArrayList, $cast($Collection, oldInstance)));
 	$load($Collections);
-	return $new($Expression, oldInstance, $Collections::class$, "synchronizedCollection"_s, $$new($ObjectArray, {$of(list)}));
+	return $new($Expression, oldInstance, $Collections::class$, "synchronizedCollection"_s, $$new($ObjectArray, {list}));
 }
 
 MetaData$java_util_Collections$SynchronizedCollection_PersistenceDelegate::MetaData$java_util_Collections$SynchronizedCollection_PersistenceDelegate() {
 }
 
 $Class* MetaData$java_util_Collections$SynchronizedCollection_PersistenceDelegate::load$($String* name, bool initialize) {
-	$loadClass(MetaData$java_util_Collections$SynchronizedCollection_PersistenceDelegate, name, initialize, &_MetaData$java_util_Collections$SynchronizedCollection_PersistenceDelegate_ClassInfo_, allocate$MetaData$java_util_Collections$SynchronizedCollection_PersistenceDelegate);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(MetaData$java_util_Collections$SynchronizedCollection_PersistenceDelegate, init$, void)},
+		{"instantiate", "(Ljava/lang/Object;Ljava/beans/Encoder;)Ljava/beans/Expression;", nullptr, $PROTECTED, $virtualMethod(MetaData$java_util_Collections$SynchronizedCollection_PersistenceDelegate, instantiate, $Expression*, Object$*, $Encoder*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.beans.MetaData$java_util_Collections", "java.beans.MetaData", "java_util_Collections", $PRIVATE | $STATIC | $ABSTRACT},
+		{"java.beans.MetaData$java_util_Collections$SynchronizedCollection_PersistenceDelegate", "java.beans.MetaData$java_util_Collections", "SynchronizedCollection_PersistenceDelegate", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.beans.MetaData$java_util_Collections$SynchronizedCollection_PersistenceDelegate",
+		"java.beans.MetaData$java_util_Collections",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.beans.MetaData"
+	};
+	$loadClass(MetaData$java_util_Collections$SynchronizedCollection_PersistenceDelegate, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MetaData$java_util_Collections$SynchronizedCollection_PersistenceDelegate);
+	});
 	return class$;
 }
 

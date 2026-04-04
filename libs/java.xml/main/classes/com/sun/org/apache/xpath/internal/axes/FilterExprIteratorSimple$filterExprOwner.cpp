@@ -1,12 +1,9 @@
 #include <com/sun/org/apache/xpath/internal/axes/FilterExprIteratorSimple$filterExprOwner.h>
-
 #include <com/sun/org/apache/xpath/internal/Expression.h>
-#include <com/sun/org/apache/xpath/internal/ExpressionNode.h>
 #include <com/sun/org/apache/xpath/internal/axes/FilterExprIteratorSimple.h>
 #include <jcpp.h>
 
 using $Expression = ::com::sun::org::apache::xpath::internal::Expression;
-using $ExpressionNode = ::com::sun::org::apache::xpath::internal::ExpressionNode;
 using $FilterExprIteratorSimple = ::com::sun::org::apache::xpath::internal::axes::FilterExprIteratorSimple;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -20,43 +17,6 @@ namespace com {
 				namespace xpath {
 					namespace internal {
 						namespace axes {
-
-$FieldInfo _FilterExprIteratorSimple$filterExprOwner_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/org/apache/xpath/internal/axes/FilterExprIteratorSimple;", nullptr, $FINAL | $SYNTHETIC, $field(FilterExprIteratorSimple$filterExprOwner, this$0)},
-	{}
-};
-
-$MethodInfo _FilterExprIteratorSimple$filterExprOwner_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/org/apache/xpath/internal/axes/FilterExprIteratorSimple;)V", nullptr, 0, $method(FilterExprIteratorSimple$filterExprOwner, init$, void, $FilterExprIteratorSimple*)},
-	{"getExpression", "()Lcom/sun/org/apache/xpath/internal/Expression;", nullptr, $PUBLIC, $virtualMethod(FilterExprIteratorSimple$filterExprOwner, getExpression, $Expression*)},
-	{"setExpression", "(Lcom/sun/org/apache/xpath/internal/Expression;)V", nullptr, $PUBLIC, $virtualMethod(FilterExprIteratorSimple$filterExprOwner, setExpression, void, $Expression*)},
-	{}
-};
-
-$InnerClassInfo _FilterExprIteratorSimple$filterExprOwner_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xpath.internal.axes.FilterExprIteratorSimple$filterExprOwner", "com.sun.org.apache.xpath.internal.axes.FilterExprIteratorSimple", "filterExprOwner", 0},
-	{}
-};
-
-$ClassInfo _FilterExprIteratorSimple$filterExprOwner_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.org.apache.xpath.internal.axes.FilterExprIteratorSimple$filterExprOwner",
-	"java.lang.Object",
-	"com.sun.org.apache.xpath.internal.ExpressionOwner",
-	_FilterExprIteratorSimple$filterExprOwner_FieldInfo_,
-	_FilterExprIteratorSimple$filterExprOwner_MethodInfo_,
-	nullptr,
-	nullptr,
-	_FilterExprIteratorSimple$filterExprOwner_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xpath.internal.axes.FilterExprIteratorSimple"
-};
-
-$Object* allocate$FilterExprIteratorSimple$filterExprOwner($Class* clazz) {
-	return $of($alloc(FilterExprIteratorSimple$filterExprOwner));
-}
 
 void FilterExprIteratorSimple$filterExprOwner::init$($FilterExprIteratorSimple* this$0) {
 	$set(this, this$0, this$0);
@@ -75,7 +35,38 @@ FilterExprIteratorSimple$filterExprOwner::FilterExprIteratorSimple$filterExprOwn
 }
 
 $Class* FilterExprIteratorSimple$filterExprOwner::load$($String* name, bool initialize) {
-	$loadClass(FilterExprIteratorSimple$filterExprOwner, name, initialize, &_FilterExprIteratorSimple$filterExprOwner_ClassInfo_, allocate$FilterExprIteratorSimple$filterExprOwner);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/org/apache/xpath/internal/axes/FilterExprIteratorSimple;", nullptr, $FINAL | $SYNTHETIC, $field(FilterExprIteratorSimple$filterExprOwner, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/org/apache/xpath/internal/axes/FilterExprIteratorSimple;)V", nullptr, 0, $method(FilterExprIteratorSimple$filterExprOwner, init$, void, $FilterExprIteratorSimple*)},
+		{"getExpression", "()Lcom/sun/org/apache/xpath/internal/Expression;", nullptr, $PUBLIC, $virtualMethod(FilterExprIteratorSimple$filterExprOwner, getExpression, $Expression*)},
+		{"setExpression", "(Lcom/sun/org/apache/xpath/internal/Expression;)V", nullptr, $PUBLIC, $virtualMethod(FilterExprIteratorSimple$filterExprOwner, setExpression, void, $Expression*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xpath.internal.axes.FilterExprIteratorSimple$filterExprOwner", "com.sun.org.apache.xpath.internal.axes.FilterExprIteratorSimple", "filterExprOwner", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.org.apache.xpath.internal.axes.FilterExprIteratorSimple$filterExprOwner",
+		"java.lang.Object",
+		"com.sun.org.apache.xpath.internal.ExpressionOwner",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xpath.internal.axes.FilterExprIteratorSimple"
+	};
+	$loadClass(FilterExprIteratorSimple$filterExprOwner, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FilterExprIteratorSimple$filterExprOwner);
+	});
 	return class$;
 }
 

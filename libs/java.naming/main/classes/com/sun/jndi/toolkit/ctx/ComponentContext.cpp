@@ -1,5 +1,4 @@
 #include <com/sun/jndi/toolkit/ctx/ComponentContext.h>
-
 #include <com/sun/jndi/toolkit/ctx/ComponentContext$1.h>
 #include <com/sun/jndi/toolkit/ctx/ComponentContext$2.h>
 #include <com/sun/jndi/toolkit/ctx/Continuation.h>
@@ -29,7 +28,6 @@ using $ComponentContext$2 = ::com::sun::jndi::toolkit::ctx::ComponentContext$2;
 using $Continuation = ::com::sun::jndi::toolkit::ctx::Continuation;
 using $HeadTail = ::com::sun::jndi::toolkit::ctx::HeadTail;
 using $PartialCompositeContext = ::com::sun::jndi::toolkit::ctx::PartialCompositeContext;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -51,84 +49,6 @@ namespace com {
 			namespace toolkit {
 				namespace ctx {
 
-$FieldInfo _ComponentContext_FieldInfo_[] = {
-	{"debug", "I", nullptr, $PRIVATE | $STATIC, $staticField(ComponentContext, debug)},
-	{"USE_CONTINUATION", "B", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(ComponentContext, USE_CONTINUATION)},
-	{"TERMINAL_COMPONENT", "B", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(ComponentContext, TERMINAL_COMPONENT)},
-	{"TERMINAL_NNS_COMPONENT", "B", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(ComponentContext, TERMINAL_NNS_COMPONENT)},
-	{}
-};
-
-$MethodInfo _ComponentContext_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(ComponentContext, init$, void)},
-	{"c_bind", "(Ljavax/naming/Name;Ljava/lang/Object;Lcom/sun/jndi/toolkit/ctx/Continuation;)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(ComponentContext, c_bind, void, $Name*, Object$*, $Continuation*), "javax.naming.NamingException"},
-	{"c_bind_nns", "(Ljavax/naming/Name;Ljava/lang/Object;Lcom/sun/jndi/toolkit/ctx/Continuation;)V", nullptr, $PROTECTED, $virtualMethod(ComponentContext, c_bind_nns, void, $Name*, Object$*, $Continuation*), "javax.naming.NamingException"},
-	{"c_createSubcontext", "(Ljavax/naming/Name;Lcom/sun/jndi/toolkit/ctx/Continuation;)Ljavax/naming/Context;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(ComponentContext, c_createSubcontext, $Context*, $Name*, $Continuation*), "javax.naming.NamingException"},
-	{"c_createSubcontext_nns", "(Ljavax/naming/Name;Lcom/sun/jndi/toolkit/ctx/Continuation;)Ljavax/naming/Context;", nullptr, $PROTECTED, $virtualMethod(ComponentContext, c_createSubcontext_nns, $Context*, $Name*, $Continuation*), "javax.naming.NamingException"},
-	{"c_destroySubcontext", "(Ljavax/naming/Name;Lcom/sun/jndi/toolkit/ctx/Continuation;)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(ComponentContext, c_destroySubcontext, void, $Name*, $Continuation*), "javax.naming.NamingException"},
-	{"c_destroySubcontext_nns", "(Ljavax/naming/Name;Lcom/sun/jndi/toolkit/ctx/Continuation;)V", nullptr, $PROTECTED, $virtualMethod(ComponentContext, c_destroySubcontext_nns, void, $Name*, $Continuation*), "javax.naming.NamingException"},
-	{"c_getNameParser", "(Ljavax/naming/Name;Lcom/sun/jndi/toolkit/ctx/Continuation;)Ljavax/naming/NameParser;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(ComponentContext, c_getNameParser, $NameParser*, $Name*, $Continuation*), "javax.naming.NamingException"},
-	{"c_getNameParser_nns", "(Ljavax/naming/Name;Lcom/sun/jndi/toolkit/ctx/Continuation;)Ljavax/naming/NameParser;", nullptr, $PROTECTED, $virtualMethod(ComponentContext, c_getNameParser_nns, $NameParser*, $Name*, $Continuation*), "javax.naming.NamingException"},
-	{"c_list", "(Ljavax/naming/Name;Lcom/sun/jndi/toolkit/ctx/Continuation;)Ljavax/naming/NamingEnumeration;", "(Ljavax/naming/Name;Lcom/sun/jndi/toolkit/ctx/Continuation;)Ljavax/naming/NamingEnumeration<Ljavax/naming/NameClassPair;>;", $PROTECTED | $ABSTRACT, $virtualMethod(ComponentContext, c_list, $NamingEnumeration*, $Name*, $Continuation*), "javax.naming.NamingException"},
-	{"c_listBindings", "(Ljavax/naming/Name;Lcom/sun/jndi/toolkit/ctx/Continuation;)Ljavax/naming/NamingEnumeration;", "(Ljavax/naming/Name;Lcom/sun/jndi/toolkit/ctx/Continuation;)Ljavax/naming/NamingEnumeration<Ljavax/naming/Binding;>;", $PROTECTED | $ABSTRACT, $virtualMethod(ComponentContext, c_listBindings, $NamingEnumeration*, $Name*, $Continuation*), "javax.naming.NamingException"},
-	{"c_listBindings_nns", "(Ljavax/naming/Name;Lcom/sun/jndi/toolkit/ctx/Continuation;)Ljavax/naming/NamingEnumeration;", "(Ljavax/naming/Name;Lcom/sun/jndi/toolkit/ctx/Continuation;)Ljavax/naming/NamingEnumeration<Ljavax/naming/Binding;>;", $PROTECTED, $virtualMethod(ComponentContext, c_listBindings_nns, $NamingEnumeration*, $Name*, $Continuation*), "javax.naming.NamingException"},
-	{"c_list_nns", "(Ljavax/naming/Name;Lcom/sun/jndi/toolkit/ctx/Continuation;)Ljavax/naming/NamingEnumeration;", "(Ljavax/naming/Name;Lcom/sun/jndi/toolkit/ctx/Continuation;)Ljavax/naming/NamingEnumeration<Ljavax/naming/NameClassPair;>;", $PROTECTED, $virtualMethod(ComponentContext, c_list_nns, $NamingEnumeration*, $Name*, $Continuation*), "javax.naming.NamingException"},
-	{"c_lookup", "(Ljavax/naming/Name;Lcom/sun/jndi/toolkit/ctx/Continuation;)Ljava/lang/Object;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(ComponentContext, c_lookup, $Object*, $Name*, $Continuation*), "javax.naming.NamingException"},
-	{"c_lookupLink", "(Ljavax/naming/Name;Lcom/sun/jndi/toolkit/ctx/Continuation;)Ljava/lang/Object;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(ComponentContext, c_lookupLink, $Object*, $Name*, $Continuation*), "javax.naming.NamingException"},
-	{"c_lookupLink_nns", "(Ljavax/naming/Name;Lcom/sun/jndi/toolkit/ctx/Continuation;)Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(ComponentContext, c_lookupLink_nns, $Object*, $Name*, $Continuation*), "javax.naming.NamingException"},
-	{"c_lookup_nns", "(Ljavax/naming/Name;Lcom/sun/jndi/toolkit/ctx/Continuation;)Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(ComponentContext, c_lookup_nns, $Object*, $Name*, $Continuation*), "javax.naming.NamingException"},
-	{"c_processJunction_nns", "(Ljavax/naming/Name;Lcom/sun/jndi/toolkit/ctx/Continuation;)V", nullptr, $PROTECTED, $virtualMethod(ComponentContext, c_processJunction_nns, void, $Name*, $Continuation*), "javax.naming.NamingException"},
-	{"c_rebind", "(Ljavax/naming/Name;Ljava/lang/Object;Lcom/sun/jndi/toolkit/ctx/Continuation;)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(ComponentContext, c_rebind, void, $Name*, Object$*, $Continuation*), "javax.naming.NamingException"},
-	{"c_rebind_nns", "(Ljavax/naming/Name;Ljava/lang/Object;Lcom/sun/jndi/toolkit/ctx/Continuation;)V", nullptr, $PROTECTED, $virtualMethod(ComponentContext, c_rebind_nns, void, $Name*, Object$*, $Continuation*), "javax.naming.NamingException"},
-	{"c_rename", "(Ljavax/naming/Name;Ljavax/naming/Name;Lcom/sun/jndi/toolkit/ctx/Continuation;)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(ComponentContext, c_rename, void, $Name*, $Name*, $Continuation*), "javax.naming.NamingException"},
-	{"c_rename_nns", "(Ljavax/naming/Name;Ljavax/naming/Name;Lcom/sun/jndi/toolkit/ctx/Continuation;)V", nullptr, $PROTECTED, $virtualMethod(ComponentContext, c_rename_nns, void, $Name*, $Name*, $Continuation*), "javax.naming.NamingException"},
-	{"c_resolveIntermediate_nns", "(Ljavax/naming/Name;Lcom/sun/jndi/toolkit/ctx/Continuation;)Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(ComponentContext, c_resolveIntermediate_nns, $Object*, $Name*, $Continuation*), "javax.naming.NamingException"},
-	{"c_unbind", "(Ljavax/naming/Name;Lcom/sun/jndi/toolkit/ctx/Continuation;)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(ComponentContext, c_unbind, void, $Name*, $Continuation*), "javax.naming.NamingException"},
-	{"c_unbind_nns", "(Ljavax/naming/Name;Lcom/sun/jndi/toolkit/ctx/Continuation;)V", nullptr, $PROTECTED, $virtualMethod(ComponentContext, c_unbind_nns, void, $Name*, $Continuation*), "javax.naming.NamingException"},
-	{"checkAndAdjustRemainingName", "(Ljavax/naming/Name;)V", nullptr, 0, $virtualMethod(ComponentContext, checkAndAdjustRemainingName, void, $Name*), "javax.naming.InvalidNameException"},
-	{"isAllEmpty", "(Ljavax/naming/Name;)Z", nullptr, $PROTECTED, $virtualMethod(ComponentContext, isAllEmpty, bool, $Name*)},
-	{"p_bind", "(Ljavax/naming/Name;Ljava/lang/Object;Lcom/sun/jndi/toolkit/ctx/Continuation;)V", nullptr, $PROTECTED, $virtualMethod(ComponentContext, p_bind, void, $Name*, Object$*, $Continuation*), "javax.naming.NamingException"},
-	{"p_createSubcontext", "(Ljavax/naming/Name;Lcom/sun/jndi/toolkit/ctx/Continuation;)Ljavax/naming/Context;", nullptr, $PROTECTED, $virtualMethod(ComponentContext, p_createSubcontext, $Context*, $Name*, $Continuation*), "javax.naming.NamingException"},
-	{"p_destroySubcontext", "(Ljavax/naming/Name;Lcom/sun/jndi/toolkit/ctx/Continuation;)V", nullptr, $PROTECTED, $virtualMethod(ComponentContext, p_destroySubcontext, void, $Name*, $Continuation*), "javax.naming.NamingException"},
-	{"p_getNameParser", "(Ljavax/naming/Name;Lcom/sun/jndi/toolkit/ctx/Continuation;)Ljavax/naming/NameParser;", nullptr, $PROTECTED, $virtualMethod(ComponentContext, p_getNameParser, $NameParser*, $Name*, $Continuation*), "javax.naming.NamingException"},
-	{"p_list", "(Ljavax/naming/Name;Lcom/sun/jndi/toolkit/ctx/Continuation;)Ljavax/naming/NamingEnumeration;", "(Ljavax/naming/Name;Lcom/sun/jndi/toolkit/ctx/Continuation;)Ljavax/naming/NamingEnumeration<Ljavax/naming/NameClassPair;>;", $PROTECTED, $virtualMethod(ComponentContext, p_list, $NamingEnumeration*, $Name*, $Continuation*), "javax.naming.NamingException"},
-	{"p_listBindings", "(Ljavax/naming/Name;Lcom/sun/jndi/toolkit/ctx/Continuation;)Ljavax/naming/NamingEnumeration;", "(Ljavax/naming/Name;Lcom/sun/jndi/toolkit/ctx/Continuation;)Ljavax/naming/NamingEnumeration<Ljavax/naming/Binding;>;", $PROTECTED, $virtualMethod(ComponentContext, p_listBindings, $NamingEnumeration*, $Name*, $Continuation*), "javax.naming.NamingException"},
-	{"p_lookup", "(Ljavax/naming/Name;Lcom/sun/jndi/toolkit/ctx/Continuation;)Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(ComponentContext, p_lookup, $Object*, $Name*, $Continuation*), "javax.naming.NamingException"},
-	{"p_lookupLink", "(Ljavax/naming/Name;Lcom/sun/jndi/toolkit/ctx/Continuation;)Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(ComponentContext, p_lookupLink, $Object*, $Name*, $Continuation*), "javax.naming.NamingException"},
-	{"p_parseComponent", "(Ljavax/naming/Name;Lcom/sun/jndi/toolkit/ctx/Continuation;)Lcom/sun/jndi/toolkit/ctx/HeadTail;", nullptr, $PROTECTED, $virtualMethod(ComponentContext, p_parseComponent, $HeadTail*, $Name*, $Continuation*), "javax.naming.NamingException"},
-	{"p_rebind", "(Ljavax/naming/Name;Ljava/lang/Object;Lcom/sun/jndi/toolkit/ctx/Continuation;)V", nullptr, $PROTECTED, $virtualMethod(ComponentContext, p_rebind, void, $Name*, Object$*, $Continuation*), "javax.naming.NamingException"},
-	{"p_rename", "(Ljavax/naming/Name;Ljavax/naming/Name;Lcom/sun/jndi/toolkit/ctx/Continuation;)V", nullptr, $PROTECTED, $virtualMethod(ComponentContext, p_rename, void, $Name*, $Name*, $Continuation*), "javax.naming.NamingException"},
-	{"p_resolveIntermediate", "(Ljavax/naming/Name;Lcom/sun/jndi/toolkit/ctx/Continuation;)Lcom/sun/jndi/toolkit/ctx/HeadTail;", nullptr, $PROTECTED, $virtualMethod(ComponentContext, p_resolveIntermediate, $HeadTail*, $Name*, $Continuation*), "javax.naming.NamingException"},
-	{"p_resolveToClass", "(Ljavax/naming/Name;Ljava/lang/Class;Lcom/sun/jndi/toolkit/ctx/Continuation;)Ljavax/naming/spi/ResolveResult;", "(Ljavax/naming/Name;Ljava/lang/Class<*>;Lcom/sun/jndi/toolkit/ctx/Continuation;)Ljavax/naming/spi/ResolveResult;", $PROTECTED, $virtualMethod(ComponentContext, p_resolveToClass, $ResolveResult*, $Name*, $Class*, $Continuation*), "javax.naming.NamingException"},
-	{"p_unbind", "(Ljavax/naming/Name;Lcom/sun/jndi/toolkit/ctx/Continuation;)V", nullptr, $PROTECTED, $virtualMethod(ComponentContext, p_unbind, void, $Name*, $Continuation*), "javax.naming.NamingException"},
-	{}
-};
-
-$InnerClassInfo _ComponentContext_InnerClassesInfo_[] = {
-	{"com.sun.jndi.toolkit.ctx.ComponentContext$2", nullptr, nullptr, 0},
-	{"com.sun.jndi.toolkit.ctx.ComponentContext$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _ComponentContext_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"com.sun.jndi.toolkit.ctx.ComponentContext",
-	"com.sun.jndi.toolkit.ctx.PartialCompositeContext",
-	nullptr,
-	_ComponentContext_FieldInfo_,
-	_ComponentContext_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ComponentContext_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.jndi.toolkit.ctx.ComponentContext$2,com.sun.jndi.toolkit.ctx.ComponentContext$1"
-};
-
-$Object* allocate$ComponentContext($Class* clazz) {
-	return $of($alloc(ComponentContext));
-}
-
 int32_t ComponentContext::debug = 0;
 
 void ComponentContext::init$() {
@@ -137,10 +57,10 @@ void ComponentContext::init$() {
 }
 
 $HeadTail* ComponentContext::p_parseComponent($Name* name, $Continuation* cont) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t separator = 0;
 	bool var$0 = $nc(name)->isEmpty();
-	if (var$0 || $nc($($nc(name)->get(0)))->isEmpty()) {
+	if (var$0 || $$nc(name->get(0))->isEmpty()) {
 		separator = 0;
 	} else {
 		separator = 1;
@@ -148,36 +68,36 @@ $HeadTail* ComponentContext::p_parseComponent($Name* name, $Continuation* cont) 
 	$var($Name, head, nullptr);
 	$var($Name, tail, nullptr);
 	if ($instanceOf($CompositeName, name)) {
-		$assign(head, $nc(name)->getPrefix(separator));
+		$assign(head, name->getPrefix(separator));
 		$assign(tail, name->getSuffix(separator));
 	} else {
-		$assign(head, $$new($CompositeName)->add($($nc($of(name))->toString())));
+		$assign(head, $$new($CompositeName)->add($($of(name)->toString())));
 		$assign(tail, nullptr);
 	}
 	if (ComponentContext::debug > 2) {
 		$nc($System::err)->println($$str({"ORIG: "_s, name}));
-		$nc($System::err)->println($$str({"PREFIX: "_s, name}));
-		$nc($System::err)->println($$str({"SUFFIX: "_s, ($String*)nullptr}));
+		$System::err->println($$str({"PREFIX: "_s, name}));
+		$System::err->println($$str({"SUFFIX: "_s, ($String*)nullptr}));
 	}
 	return $new($HeadTail, head, tail);
 }
 
 $Object* ComponentContext::c_resolveIntermediate_nns($Name* name, $Continuation* cont) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$var($Object, obj, c_lookup(name, cont));
 		if (obj != nullptr && $of(this)->getClass()->isInstance(obj)) {
-			$nc(cont)->setContinueNNS(obj, name, static_cast<$Context*>(this));
-			return $of(nullptr);
+			$nc(cont)->setContinueNNS(obj, name, this);
+			return nullptr;
 		} else if (obj != nullptr && !($instanceOf($Context, obj))) {
 			$var($RefAddr, addr, $new($ComponentContext$1, this, "nns"_s, obj));
 			$var($Reference, ref, $new($Reference, "java.lang.Object"_s, addr));
 			$var($CompositeName, resName, $cast($CompositeName, $nc(name)->clone()));
 			$nc(resName)->add(""_s);
 			$nc(cont)->setContinue(ref, resName, this);
-			return $of(nullptr);
+			return nullptr;
 		} else {
-			return $of(obj);
+			return obj;
 		}
 	} catch ($NamingException& e) {
 		e->appendRemainingComponent(""_s);
@@ -188,12 +108,12 @@ $Object* ComponentContext::c_resolveIntermediate_nns($Name* name, $Continuation*
 
 $Object* ComponentContext::c_lookup_nns($Name* name, $Continuation* cont) {
 	c_processJunction_nns(name, cont);
-	return $of(nullptr);
+	return nullptr;
 }
 
 $Object* ComponentContext::c_lookupLink_nns($Name* name, $Continuation* cont) {
 	c_processJunction_nns(name, cont);
-	return $of(nullptr);
+	return nullptr;
 }
 
 $NamingEnumeration* ComponentContext::c_list_nns($Name* name, $Continuation* cont) {
@@ -237,7 +157,7 @@ $NameParser* ComponentContext::c_getNameParser_nns($Name* name, $Continuation* c
 }
 
 void ComponentContext::c_processJunction_nns($Name* name, $Continuation* cont) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(name)->isEmpty()) {
 		$var($RefAddr, addr, $new($ComponentContext$2, this, "nns"_s));
 		$var($Reference, ref, $new($Reference, "java.lang.Object"_s, addr));
@@ -250,7 +170,7 @@ void ComponentContext::c_processJunction_nns($Name* name, $Continuation* cont) {
 		if ($nc(cont)->isContinue()) {
 			cont->appendRemainingComponent(""_s);
 		} else {
-			cont->setContinueNNS(target, name, static_cast<$Context*>(this));
+			cont->setContinueNNS(target, name, this);
 		}
 	} catch ($NamingException& e) {
 		e->appendRemainingComponent(""_s);
@@ -259,19 +179,19 @@ void ComponentContext::c_processJunction_nns($Name* name, $Continuation* cont) {
 }
 
 $HeadTail* ComponentContext::p_resolveIntermediate($Name* name, $Continuation* cont) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t ret = ComponentContext::USE_CONTINUATION;
 	$nc(cont)->setSuccess();
 	$var($HeadTail, p, p_parseComponent(name, cont));
 	$var($Name, tail, $nc(p)->getTail());
 	$var($Name, head, p->getHead());
-	if (tail == nullptr || $nc(tail)->isEmpty()) {
+	if (tail == nullptr || tail->isEmpty()) {
 		ret = ComponentContext::TERMINAL_COMPONENT;
-	} else if (!$nc($(tail->get(0)))->isEmpty()) {
+	} else if (!$$nc(tail->get(0))->isEmpty()) {
 		try {
 			$var($Object, obj, c_resolveIntermediate_nns(head, cont));
 			if (obj != nullptr) {
-				cont->setContinue(obj, head, static_cast<$Context*>(this), tail);
+				cont->setContinue(obj, head, this, tail);
 			} else if (cont->isContinue()) {
 				checkAndAdjustRemainingName($(cont->getRemainingName()));
 				cont->appendRemainingName(tail);
@@ -284,13 +204,13 @@ $HeadTail* ComponentContext::p_resolveIntermediate($Name* name, $Continuation* c
 	} else if (tail->size() == 1) {
 		ret = ComponentContext::TERMINAL_NNS_COMPONENT;
 	} else {
-		bool var$1 = $nc(head)->isEmpty();
-		if (var$1 || isAllEmpty(tail)) {
+		bool var$0 = $nc(head)->isEmpty();
+		if (var$0 || isAllEmpty(tail)) {
 			$var($Name, newTail, tail->getSuffix(1));
 			try {
 				$var($Object, obj, c_lookup_nns(head, cont));
 				if (obj != nullptr) {
-					cont->setContinue(obj, head, static_cast<$Context*>(this), newTail);
+					cont->setContinue(obj, head, this, newTail);
 				} else if (cont->isContinue()) {
 					cont->appendRemainingName(newTail);
 				}
@@ -302,7 +222,7 @@ $HeadTail* ComponentContext::p_resolveIntermediate($Name* name, $Continuation* c
 			try {
 				$var($Object, obj, c_resolveIntermediate_nns(head, cont));
 				if (obj != nullptr) {
-					cont->setContinue(obj, head, static_cast<$Context*>(this), tail);
+					cont->setContinue(obj, head, this, tail);
 				} else if (cont->isContinue()) {
 					checkAndAdjustRemainingName($(cont->getRemainingName()));
 					cont->appendRemainingName(tail);
@@ -321,16 +241,16 @@ $HeadTail* ComponentContext::p_resolveIntermediate($Name* name, $Continuation* c
 void ComponentContext::checkAndAdjustRemainingName($Name* rname) {
 	int32_t count = 0;
 	bool var$0 = rname != nullptr && (count = rname->size()) > 1;
-	if (var$0 && $nc($(rname->get(count - 1)))->isEmpty()) {
+	if (var$0 && $$nc(rname->get(count - 1))->isEmpty()) {
 		rname->remove(count - 1);
 	}
 }
 
 bool ComponentContext::isAllEmpty($Name* n) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t count = $nc(n)->size();
 	for (int32_t i = 0; i < count; ++i) {
-		if (!$nc($(n->get(i)))->isEmpty()) {
+		if (!$$nc(n->get(i))->isEmpty()) {
 			return false;
 		}
 	}
@@ -338,298 +258,228 @@ bool ComponentContext::isAllEmpty($Name* n) {
 }
 
 $ResolveResult* ComponentContext::p_resolveToClass($Name* name, $Class* contextType, $Continuation* cont) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(contextType)->isInstance(this)) {
 		$nc(cont)->setSuccess();
-		return ($new($ResolveResult, $of(this), name));
+		return ($new($ResolveResult, this, name));
 	}
 	$var($ResolveResult, ret, nullptr);
 	$var($HeadTail, res, p_resolveIntermediate(name, cont));
 	{
-		$var($Object, obj, nullptr)
+		$var($Object, obj, nullptr);
 		switch ($nc(res)->getStatus()) {
 		case ComponentContext::TERMINAL_NNS_COMPONENT:
 			{
 				$assign(obj, p_lookup(name, cont));
 				bool var$0 = !$nc(cont)->isContinue();
-				if (var$0 && $nc(contextType)->isInstance(obj)) {
+				if (var$0 && contextType->isInstance(obj)) {
 					$init($PartialCompositeContext);
-					$assign(ret, $new($ResolveResult, obj, static_cast<$Name*>($PartialCompositeContext::_EMPTY_NAME)));
+					$assign(ret, $new($ResolveResult, obj, $PartialCompositeContext::_EMPTY_NAME));
 				}
 				break;
 			}
 		case ComponentContext::TERMINAL_COMPONENT:
-			{
-				$nc(cont)->setSuccess();
-				break;
-			}
+			$nc(cont)->setSuccess();
+			break;
 		default:
-			{
-				break;
-			}
+			break;
 		}
 	}
 	return ret;
 }
 
 $Object* ComponentContext::p_lookup($Name* name, $Continuation* cont) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, ret, nullptr);
 	$var($HeadTail, res, p_resolveIntermediate(name, cont));
 	switch ($nc(res)->getStatus()) {
 	case ComponentContext::TERMINAL_NNS_COMPONENT:
-		{
-			$assign(ret, c_lookup_nns($(res->getHead()), cont));
-			if ($instanceOf($LinkRef, ret)) {
-				$nc(cont)->setContinue(ret, $(res->getHead()), this);
-				$assign(ret, nullptr);
-			}
-			break;
+		$assign(ret, c_lookup_nns($(res->getHead()), cont));
+		if ($instanceOf($LinkRef, ret)) {
+			$nc(cont)->setContinue(ret, $(res->getHead()), this);
+			$assign(ret, nullptr);
 		}
+		break;
 	case ComponentContext::TERMINAL_COMPONENT:
-		{
-			$assign(ret, c_lookup($(res->getHead()), cont));
-			if ($instanceOf($LinkRef, ret)) {
-				$nc(cont)->setContinue(ret, $(res->getHead()), this);
-				$assign(ret, nullptr);
-			}
-			break;
+		$assign(ret, c_lookup($(res->getHead()), cont));
+		if ($instanceOf($LinkRef, ret)) {
+			$nc(cont)->setContinue(ret, $(res->getHead()), this);
+			$assign(ret, nullptr);
 		}
+		break;
 	default:
-		{
-			break;
-		}
+		break;
 	}
-	return $of(ret);
+	return ret;
 }
 
 $NamingEnumeration* ComponentContext::p_list($Name* name, $Continuation* cont) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($NamingEnumeration, ret, nullptr);
 	$var($HeadTail, res, p_resolveIntermediate(name, cont));
 	switch ($nc(res)->getStatus()) {
 	case ComponentContext::TERMINAL_NNS_COMPONENT:
-		{
-			if (ComponentContext::debug > 0) {
-				$nc($System::out)->println($$str({"c_list_nns("_s, $(res->getHead()), ")"_s}));
-			}
-			$assign(ret, c_list_nns($(res->getHead()), cont));
-			break;
+		if (ComponentContext::debug > 0) {
+			$nc($System::out)->println($$str({"c_list_nns("_s, $(res->getHead()), ")"_s}));
 		}
+		$assign(ret, c_list_nns($(res->getHead()), cont));
+		break;
 	case ComponentContext::TERMINAL_COMPONENT:
-		{
-			if (ComponentContext::debug > 0) {
-				$nc($System::out)->println($$str({"c_list("_s, $(res->getHead()), ")"_s}));
-			}
-			$assign(ret, c_list($(res->getHead()), cont));
-			break;
+		if (ComponentContext::debug > 0) {
+			$nc($System::out)->println($$str({"c_list("_s, $(res->getHead()), ")"_s}));
 		}
+		$assign(ret, c_list($(res->getHead()), cont));
+		break;
 	default:
-		{
-			break;
-		}
+		break;
 	}
 	return ret;
 }
 
 $NamingEnumeration* ComponentContext::p_listBindings($Name* name, $Continuation* cont) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($NamingEnumeration, ret, nullptr);
 	$var($HeadTail, res, p_resolveIntermediate(name, cont));
 	switch ($nc(res)->getStatus()) {
 	case ComponentContext::TERMINAL_NNS_COMPONENT:
-		{
-			$assign(ret, c_listBindings_nns($(res->getHead()), cont));
-			break;
-		}
+		$assign(ret, c_listBindings_nns($(res->getHead()), cont));
+		break;
 	case ComponentContext::TERMINAL_COMPONENT:
-		{
-			$assign(ret, c_listBindings($(res->getHead()), cont));
-			break;
-		}
+		$assign(ret, c_listBindings($(res->getHead()), cont));
+		break;
 	default:
-		{
-			break;
-		}
+		break;
 	}
 	return ret;
 }
 
 void ComponentContext::p_bind($Name* name, Object$* obj, $Continuation* cont) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($HeadTail, res, p_resolveIntermediate(name, cont));
 	switch ($nc(res)->getStatus()) {
 	case ComponentContext::TERMINAL_NNS_COMPONENT:
-		{
-			c_bind_nns($(res->getHead()), obj, cont);
-			break;
-		}
+		c_bind_nns($(res->getHead()), obj, cont);
+		break;
 	case ComponentContext::TERMINAL_COMPONENT:
-		{
-			c_bind($(res->getHead()), obj, cont);
-			break;
-		}
+		c_bind($(res->getHead()), obj, cont);
+		break;
 	default:
-		{
-			break;
-		}
+		break;
 	}
 }
 
 void ComponentContext::p_rebind($Name* name, Object$* obj, $Continuation* cont) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($HeadTail, res, p_resolveIntermediate(name, cont));
 	switch ($nc(res)->getStatus()) {
 	case ComponentContext::TERMINAL_NNS_COMPONENT:
-		{
-			c_rebind_nns($(res->getHead()), obj, cont);
-			break;
-		}
+		c_rebind_nns($(res->getHead()), obj, cont);
+		break;
 	case ComponentContext::TERMINAL_COMPONENT:
-		{
-			c_rebind($(res->getHead()), obj, cont);
-			break;
-		}
+		c_rebind($(res->getHead()), obj, cont);
+		break;
 	default:
-		{
-			break;
-		}
+		break;
 	}
 }
 
 void ComponentContext::p_unbind($Name* name, $Continuation* cont) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($HeadTail, res, p_resolveIntermediate(name, cont));
 	switch ($nc(res)->getStatus()) {
 	case ComponentContext::TERMINAL_NNS_COMPONENT:
-		{
-			c_unbind_nns($(res->getHead()), cont);
-			break;
-		}
+		c_unbind_nns($(res->getHead()), cont);
+		break;
 	case ComponentContext::TERMINAL_COMPONENT:
-		{
-			c_unbind($(res->getHead()), cont);
-			break;
-		}
+		c_unbind($(res->getHead()), cont);
+		break;
 	default:
-		{
-			break;
-		}
+		break;
 	}
 }
 
 void ComponentContext::p_destroySubcontext($Name* name, $Continuation* cont) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($HeadTail, res, p_resolveIntermediate(name, cont));
 	switch ($nc(res)->getStatus()) {
 	case ComponentContext::TERMINAL_NNS_COMPONENT:
-		{
-			c_destroySubcontext_nns($(res->getHead()), cont);
-			break;
-		}
+		c_destroySubcontext_nns($(res->getHead()), cont);
+		break;
 	case ComponentContext::TERMINAL_COMPONENT:
-		{
-			c_destroySubcontext($(res->getHead()), cont);
-			break;
-		}
+		c_destroySubcontext($(res->getHead()), cont);
+		break;
 	default:
-		{
-			break;
-		}
+		break;
 	}
 }
 
 $Context* ComponentContext::p_createSubcontext($Name* name, $Continuation* cont) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Context, ret, nullptr);
 	$var($HeadTail, res, p_resolveIntermediate(name, cont));
 	switch ($nc(res)->getStatus()) {
 	case ComponentContext::TERMINAL_NNS_COMPONENT:
-		{
-			$assign(ret, c_createSubcontext_nns($(res->getHead()), cont));
-			break;
-		}
+		$assign(ret, c_createSubcontext_nns($(res->getHead()), cont));
+		break;
 	case ComponentContext::TERMINAL_COMPONENT:
-		{
-			$assign(ret, c_createSubcontext($(res->getHead()), cont));
-			break;
-		}
+		$assign(ret, c_createSubcontext($(res->getHead()), cont));
+		break;
 	default:
-		{
-			break;
-		}
+		break;
 	}
 	return ret;
 }
 
 void ComponentContext::p_rename($Name* oldName, $Name* newName, $Continuation* cont) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($HeadTail, res, p_resolveIntermediate(oldName, cont));
 	switch ($nc(res)->getStatus()) {
 	case ComponentContext::TERMINAL_NNS_COMPONENT:
-		{
-			c_rename_nns($(res->getHead()), newName, cont);
-			break;
-		}
+		c_rename_nns($(res->getHead()), newName, cont);
+		break;
 	case ComponentContext::TERMINAL_COMPONENT:
-		{
-			c_rename($(res->getHead()), newName, cont);
-			break;
-		}
+		c_rename($(res->getHead()), newName, cont);
+		break;
 	default:
-		{
-			break;
-		}
+		break;
 	}
 }
 
 $NameParser* ComponentContext::p_getNameParser($Name* name, $Continuation* cont) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($NameParser, ret, nullptr);
 	$var($HeadTail, res, p_resolveIntermediate(name, cont));
 	switch ($nc(res)->getStatus()) {
 	case ComponentContext::TERMINAL_NNS_COMPONENT:
-		{
-			$assign(ret, c_getNameParser_nns($(res->getHead()), cont));
-			break;
-		}
+		$assign(ret, c_getNameParser_nns($(res->getHead()), cont));
+		break;
 	case ComponentContext::TERMINAL_COMPONENT:
-		{
-			$assign(ret, c_getNameParser($(res->getHead()), cont));
-			break;
-		}
+		$assign(ret, c_getNameParser($(res->getHead()), cont));
+		break;
 	default:
-		{
-			break;
-		}
+		break;
 	}
 	return ret;
 }
 
 $Object* ComponentContext::p_lookupLink($Name* name, $Continuation* cont) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, ret, nullptr);
 	$var($HeadTail, res, p_resolveIntermediate(name, cont));
 	switch ($nc(res)->getStatus()) {
 	case ComponentContext::TERMINAL_NNS_COMPONENT:
-		{
-			$assign(ret, c_lookupLink_nns($(res->getHead()), cont));
-			break;
-		}
+		$assign(ret, c_lookupLink_nns($(res->getHead()), cont));
+		break;
 	case ComponentContext::TERMINAL_COMPONENT:
-		{
-			$assign(ret, c_lookupLink($(res->getHead()), cont));
-			break;
-		}
+		$assign(ret, c_lookupLink($(res->getHead()), cont));
+		break;
 	default:
-		{
-			break;
-		}
+		break;
 	}
-	return $of(ret);
+	return ret;
 }
 
-void clinit$ComponentContext($Class* class$) {
+void ComponentContext::clinit$($Class* clazz) {
 	ComponentContext::debug = 0;
 }
 
@@ -637,7 +487,79 @@ ComponentContext::ComponentContext() {
 }
 
 $Class* ComponentContext::load$($String* name, bool initialize) {
-	$loadClass(ComponentContext, name, initialize, &_ComponentContext_ClassInfo_, clinit$ComponentContext, allocate$ComponentContext);
+	$FieldInfo fieldInfos$$[] = {
+		{"debug", "I", nullptr, $PRIVATE | $STATIC, $staticField(ComponentContext, debug)},
+		{"USE_CONTINUATION", "B", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(ComponentContext, USE_CONTINUATION)},
+		{"TERMINAL_COMPONENT", "B", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(ComponentContext, TERMINAL_COMPONENT)},
+		{"TERMINAL_NNS_COMPONENT", "B", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(ComponentContext, TERMINAL_NNS_COMPONENT)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PROTECTED, $method(ComponentContext, init$, void)},
+		{"c_bind", "(Ljavax/naming/Name;Ljava/lang/Object;Lcom/sun/jndi/toolkit/ctx/Continuation;)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(ComponentContext, c_bind, void, $Name*, Object$*, $Continuation*), "javax.naming.NamingException"},
+		{"c_bind_nns", "(Ljavax/naming/Name;Ljava/lang/Object;Lcom/sun/jndi/toolkit/ctx/Continuation;)V", nullptr, $PROTECTED, $virtualMethod(ComponentContext, c_bind_nns, void, $Name*, Object$*, $Continuation*), "javax.naming.NamingException"},
+		{"c_createSubcontext", "(Ljavax/naming/Name;Lcom/sun/jndi/toolkit/ctx/Continuation;)Ljavax/naming/Context;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(ComponentContext, c_createSubcontext, $Context*, $Name*, $Continuation*), "javax.naming.NamingException"},
+		{"c_createSubcontext_nns", "(Ljavax/naming/Name;Lcom/sun/jndi/toolkit/ctx/Continuation;)Ljavax/naming/Context;", nullptr, $PROTECTED, $virtualMethod(ComponentContext, c_createSubcontext_nns, $Context*, $Name*, $Continuation*), "javax.naming.NamingException"},
+		{"c_destroySubcontext", "(Ljavax/naming/Name;Lcom/sun/jndi/toolkit/ctx/Continuation;)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(ComponentContext, c_destroySubcontext, void, $Name*, $Continuation*), "javax.naming.NamingException"},
+		{"c_destroySubcontext_nns", "(Ljavax/naming/Name;Lcom/sun/jndi/toolkit/ctx/Continuation;)V", nullptr, $PROTECTED, $virtualMethod(ComponentContext, c_destroySubcontext_nns, void, $Name*, $Continuation*), "javax.naming.NamingException"},
+		{"c_getNameParser", "(Ljavax/naming/Name;Lcom/sun/jndi/toolkit/ctx/Continuation;)Ljavax/naming/NameParser;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(ComponentContext, c_getNameParser, $NameParser*, $Name*, $Continuation*), "javax.naming.NamingException"},
+		{"c_getNameParser_nns", "(Ljavax/naming/Name;Lcom/sun/jndi/toolkit/ctx/Continuation;)Ljavax/naming/NameParser;", nullptr, $PROTECTED, $virtualMethod(ComponentContext, c_getNameParser_nns, $NameParser*, $Name*, $Continuation*), "javax.naming.NamingException"},
+		{"c_list", "(Ljavax/naming/Name;Lcom/sun/jndi/toolkit/ctx/Continuation;)Ljavax/naming/NamingEnumeration;", "(Ljavax/naming/Name;Lcom/sun/jndi/toolkit/ctx/Continuation;)Ljavax/naming/NamingEnumeration<Ljavax/naming/NameClassPair;>;", $PROTECTED | $ABSTRACT, $virtualMethod(ComponentContext, c_list, $NamingEnumeration*, $Name*, $Continuation*), "javax.naming.NamingException"},
+		{"c_listBindings", "(Ljavax/naming/Name;Lcom/sun/jndi/toolkit/ctx/Continuation;)Ljavax/naming/NamingEnumeration;", "(Ljavax/naming/Name;Lcom/sun/jndi/toolkit/ctx/Continuation;)Ljavax/naming/NamingEnumeration<Ljavax/naming/Binding;>;", $PROTECTED | $ABSTRACT, $virtualMethod(ComponentContext, c_listBindings, $NamingEnumeration*, $Name*, $Continuation*), "javax.naming.NamingException"},
+		{"c_listBindings_nns", "(Ljavax/naming/Name;Lcom/sun/jndi/toolkit/ctx/Continuation;)Ljavax/naming/NamingEnumeration;", "(Ljavax/naming/Name;Lcom/sun/jndi/toolkit/ctx/Continuation;)Ljavax/naming/NamingEnumeration<Ljavax/naming/Binding;>;", $PROTECTED, $virtualMethod(ComponentContext, c_listBindings_nns, $NamingEnumeration*, $Name*, $Continuation*), "javax.naming.NamingException"},
+		{"c_list_nns", "(Ljavax/naming/Name;Lcom/sun/jndi/toolkit/ctx/Continuation;)Ljavax/naming/NamingEnumeration;", "(Ljavax/naming/Name;Lcom/sun/jndi/toolkit/ctx/Continuation;)Ljavax/naming/NamingEnumeration<Ljavax/naming/NameClassPair;>;", $PROTECTED, $virtualMethod(ComponentContext, c_list_nns, $NamingEnumeration*, $Name*, $Continuation*), "javax.naming.NamingException"},
+		{"c_lookup", "(Ljavax/naming/Name;Lcom/sun/jndi/toolkit/ctx/Continuation;)Ljava/lang/Object;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(ComponentContext, c_lookup, $Object*, $Name*, $Continuation*), "javax.naming.NamingException"},
+		{"c_lookupLink", "(Ljavax/naming/Name;Lcom/sun/jndi/toolkit/ctx/Continuation;)Ljava/lang/Object;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(ComponentContext, c_lookupLink, $Object*, $Name*, $Continuation*), "javax.naming.NamingException"},
+		{"c_lookupLink_nns", "(Ljavax/naming/Name;Lcom/sun/jndi/toolkit/ctx/Continuation;)Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(ComponentContext, c_lookupLink_nns, $Object*, $Name*, $Continuation*), "javax.naming.NamingException"},
+		{"c_lookup_nns", "(Ljavax/naming/Name;Lcom/sun/jndi/toolkit/ctx/Continuation;)Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(ComponentContext, c_lookup_nns, $Object*, $Name*, $Continuation*), "javax.naming.NamingException"},
+		{"c_processJunction_nns", "(Ljavax/naming/Name;Lcom/sun/jndi/toolkit/ctx/Continuation;)V", nullptr, $PROTECTED, $virtualMethod(ComponentContext, c_processJunction_nns, void, $Name*, $Continuation*), "javax.naming.NamingException"},
+		{"c_rebind", "(Ljavax/naming/Name;Ljava/lang/Object;Lcom/sun/jndi/toolkit/ctx/Continuation;)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(ComponentContext, c_rebind, void, $Name*, Object$*, $Continuation*), "javax.naming.NamingException"},
+		{"c_rebind_nns", "(Ljavax/naming/Name;Ljava/lang/Object;Lcom/sun/jndi/toolkit/ctx/Continuation;)V", nullptr, $PROTECTED, $virtualMethod(ComponentContext, c_rebind_nns, void, $Name*, Object$*, $Continuation*), "javax.naming.NamingException"},
+		{"c_rename", "(Ljavax/naming/Name;Ljavax/naming/Name;Lcom/sun/jndi/toolkit/ctx/Continuation;)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(ComponentContext, c_rename, void, $Name*, $Name*, $Continuation*), "javax.naming.NamingException"},
+		{"c_rename_nns", "(Ljavax/naming/Name;Ljavax/naming/Name;Lcom/sun/jndi/toolkit/ctx/Continuation;)V", nullptr, $PROTECTED, $virtualMethod(ComponentContext, c_rename_nns, void, $Name*, $Name*, $Continuation*), "javax.naming.NamingException"},
+		{"c_resolveIntermediate_nns", "(Ljavax/naming/Name;Lcom/sun/jndi/toolkit/ctx/Continuation;)Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(ComponentContext, c_resolveIntermediate_nns, $Object*, $Name*, $Continuation*), "javax.naming.NamingException"},
+		{"c_unbind", "(Ljavax/naming/Name;Lcom/sun/jndi/toolkit/ctx/Continuation;)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(ComponentContext, c_unbind, void, $Name*, $Continuation*), "javax.naming.NamingException"},
+		{"c_unbind_nns", "(Ljavax/naming/Name;Lcom/sun/jndi/toolkit/ctx/Continuation;)V", nullptr, $PROTECTED, $virtualMethod(ComponentContext, c_unbind_nns, void, $Name*, $Continuation*), "javax.naming.NamingException"},
+		{"checkAndAdjustRemainingName", "(Ljavax/naming/Name;)V", nullptr, 0, $virtualMethod(ComponentContext, checkAndAdjustRemainingName, void, $Name*), "javax.naming.InvalidNameException"},
+		{"isAllEmpty", "(Ljavax/naming/Name;)Z", nullptr, $PROTECTED, $virtualMethod(ComponentContext, isAllEmpty, bool, $Name*)},
+		{"p_bind", "(Ljavax/naming/Name;Ljava/lang/Object;Lcom/sun/jndi/toolkit/ctx/Continuation;)V", nullptr, $PROTECTED, $virtualMethod(ComponentContext, p_bind, void, $Name*, Object$*, $Continuation*), "javax.naming.NamingException"},
+		{"p_createSubcontext", "(Ljavax/naming/Name;Lcom/sun/jndi/toolkit/ctx/Continuation;)Ljavax/naming/Context;", nullptr, $PROTECTED, $virtualMethod(ComponentContext, p_createSubcontext, $Context*, $Name*, $Continuation*), "javax.naming.NamingException"},
+		{"p_destroySubcontext", "(Ljavax/naming/Name;Lcom/sun/jndi/toolkit/ctx/Continuation;)V", nullptr, $PROTECTED, $virtualMethod(ComponentContext, p_destroySubcontext, void, $Name*, $Continuation*), "javax.naming.NamingException"},
+		{"p_getNameParser", "(Ljavax/naming/Name;Lcom/sun/jndi/toolkit/ctx/Continuation;)Ljavax/naming/NameParser;", nullptr, $PROTECTED, $virtualMethod(ComponentContext, p_getNameParser, $NameParser*, $Name*, $Continuation*), "javax.naming.NamingException"},
+		{"p_list", "(Ljavax/naming/Name;Lcom/sun/jndi/toolkit/ctx/Continuation;)Ljavax/naming/NamingEnumeration;", "(Ljavax/naming/Name;Lcom/sun/jndi/toolkit/ctx/Continuation;)Ljavax/naming/NamingEnumeration<Ljavax/naming/NameClassPair;>;", $PROTECTED, $virtualMethod(ComponentContext, p_list, $NamingEnumeration*, $Name*, $Continuation*), "javax.naming.NamingException"},
+		{"p_listBindings", "(Ljavax/naming/Name;Lcom/sun/jndi/toolkit/ctx/Continuation;)Ljavax/naming/NamingEnumeration;", "(Ljavax/naming/Name;Lcom/sun/jndi/toolkit/ctx/Continuation;)Ljavax/naming/NamingEnumeration<Ljavax/naming/Binding;>;", $PROTECTED, $virtualMethod(ComponentContext, p_listBindings, $NamingEnumeration*, $Name*, $Continuation*), "javax.naming.NamingException"},
+		{"p_lookup", "(Ljavax/naming/Name;Lcom/sun/jndi/toolkit/ctx/Continuation;)Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(ComponentContext, p_lookup, $Object*, $Name*, $Continuation*), "javax.naming.NamingException"},
+		{"p_lookupLink", "(Ljavax/naming/Name;Lcom/sun/jndi/toolkit/ctx/Continuation;)Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(ComponentContext, p_lookupLink, $Object*, $Name*, $Continuation*), "javax.naming.NamingException"},
+		{"p_parseComponent", "(Ljavax/naming/Name;Lcom/sun/jndi/toolkit/ctx/Continuation;)Lcom/sun/jndi/toolkit/ctx/HeadTail;", nullptr, $PROTECTED, $virtualMethod(ComponentContext, p_parseComponent, $HeadTail*, $Name*, $Continuation*), "javax.naming.NamingException"},
+		{"p_rebind", "(Ljavax/naming/Name;Ljava/lang/Object;Lcom/sun/jndi/toolkit/ctx/Continuation;)V", nullptr, $PROTECTED, $virtualMethod(ComponentContext, p_rebind, void, $Name*, Object$*, $Continuation*), "javax.naming.NamingException"},
+		{"p_rename", "(Ljavax/naming/Name;Ljavax/naming/Name;Lcom/sun/jndi/toolkit/ctx/Continuation;)V", nullptr, $PROTECTED, $virtualMethod(ComponentContext, p_rename, void, $Name*, $Name*, $Continuation*), "javax.naming.NamingException"},
+		{"p_resolveIntermediate", "(Ljavax/naming/Name;Lcom/sun/jndi/toolkit/ctx/Continuation;)Lcom/sun/jndi/toolkit/ctx/HeadTail;", nullptr, $PROTECTED, $virtualMethod(ComponentContext, p_resolveIntermediate, $HeadTail*, $Name*, $Continuation*), "javax.naming.NamingException"},
+		{"p_resolveToClass", "(Ljavax/naming/Name;Ljava/lang/Class;Lcom/sun/jndi/toolkit/ctx/Continuation;)Ljavax/naming/spi/ResolveResult;", "(Ljavax/naming/Name;Ljava/lang/Class<*>;Lcom/sun/jndi/toolkit/ctx/Continuation;)Ljavax/naming/spi/ResolveResult;", $PROTECTED, $virtualMethod(ComponentContext, p_resolveToClass, $ResolveResult*, $Name*, $Class*, $Continuation*), "javax.naming.NamingException"},
+		{"p_unbind", "(Ljavax/naming/Name;Lcom/sun/jndi/toolkit/ctx/Continuation;)V", nullptr, $PROTECTED, $virtualMethod(ComponentContext, p_unbind, void, $Name*, $Continuation*), "javax.naming.NamingException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.jndi.toolkit.ctx.ComponentContext$2", nullptr, nullptr, 0},
+		{"com.sun.jndi.toolkit.ctx.ComponentContext$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"com.sun.jndi.toolkit.ctx.ComponentContext",
+		"com.sun.jndi.toolkit.ctx.PartialCompositeContext",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.jndi.toolkit.ctx.ComponentContext$2,com.sun.jndi.toolkit.ctx.ComponentContext$1"
+	};
+	$loadClass(ComponentContext, name, initialize, &classInfo$$, ComponentContext::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ComponentContext));
+	});
 	return class$;
 }
 

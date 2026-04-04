@@ -1,5 +1,4 @@
 #include <java/awt/Component$AccessibleAWTComponent$AccessibleAWTFocusHandler.h>
-
 #include <java/awt/Component$AccessibleAWTComponent.h>
 #include <java/awt/Component.h>
 #include <java/awt/event/FocusEvent.h>
@@ -23,50 +22,6 @@ using $AccessibleState = ::javax::accessibility::AccessibleState;
 
 namespace java {
 	namespace awt {
-
-$FieldInfo _Component$AccessibleAWTComponent$AccessibleAWTFocusHandler_FieldInfo_[] = {
-	{"this$1", "Ljava/awt/Component$AccessibleAWTComponent;", nullptr, $FINAL | $SYNTHETIC, $field(Component$AccessibleAWTComponent$AccessibleAWTFocusHandler, this$1)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Component$AccessibleAWTComponent$AccessibleAWTFocusHandler, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _Component$AccessibleAWTComponent$AccessibleAWTFocusHandler_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/awt/Component$AccessibleAWTComponent;)V", nullptr, $PROTECTED, $method(Component$AccessibleAWTComponent$AccessibleAWTFocusHandler, init$, void, $Component$AccessibleAWTComponent*)},
-	{"focusGained", "(Ljava/awt/event/FocusEvent;)V", nullptr, $PUBLIC, $virtualMethod(Component$AccessibleAWTComponent$AccessibleAWTFocusHandler, focusGained, void, $FocusEvent*)},
-	{"focusLost", "(Ljava/awt/event/FocusEvent;)V", nullptr, $PUBLIC, $virtualMethod(Component$AccessibleAWTComponent$AccessibleAWTFocusHandler, focusLost, void, $FocusEvent*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _Component$AccessibleAWTComponent$AccessibleAWTFocusHandler_InnerClassesInfo_[] = {
-	{"java.awt.Component$AccessibleAWTComponent", "java.awt.Component", "AccessibleAWTComponent", $PROTECTED | $ABSTRACT},
-	{"java.awt.Component$AccessibleAWTComponent$AccessibleAWTFocusHandler", "java.awt.Component$AccessibleAWTComponent", "AccessibleAWTFocusHandler", $PROTECTED},
-	{}
-};
-
-$ClassInfo _Component$AccessibleAWTComponent$AccessibleAWTFocusHandler_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.awt.Component$AccessibleAWTComponent$AccessibleAWTFocusHandler",
-	"java.lang.Object",
-	"java.awt.event.FocusListener,java.io.Serializable",
-	_Component$AccessibleAWTComponent$AccessibleAWTFocusHandler_FieldInfo_,
-	_Component$AccessibleAWTComponent$AccessibleAWTFocusHandler_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Component$AccessibleAWTComponent$AccessibleAWTFocusHandler_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.awt.Component"
-};
-
-$Object* allocate$Component$AccessibleAWTComponent$AccessibleAWTFocusHandler($Class* clazz) {
-	return $of($alloc(Component$AccessibleAWTComponent$AccessibleAWTFocusHandler));
-}
 
 int32_t Component$AccessibleAWTComponent$AccessibleAWTFocusHandler::hashCode() {
 	 return this->$FocusListener::hashCode();
@@ -96,7 +51,7 @@ void Component$AccessibleAWTComponent$AccessibleAWTFocusHandler::focusGained($Fo
 	if ($nc(this->this$1->this$0)->accessibleContext != nullptr) {
 		$init($AccessibleContext);
 		$init($AccessibleState);
-		$nc($nc(this->this$1->this$0)->accessibleContext)->firePropertyChange($AccessibleContext::ACCESSIBLE_STATE_PROPERTY, nullptr, $AccessibleState::FOCUSED);
+		this->this$1->this$0->accessibleContext->firePropertyChange($AccessibleContext::ACCESSIBLE_STATE_PROPERTY, nullptr, $AccessibleState::FOCUSED);
 	}
 }
 
@@ -104,7 +59,7 @@ void Component$AccessibleAWTComponent$AccessibleAWTFocusHandler::focusLost($Focu
 	if ($nc(this->this$1->this$0)->accessibleContext != nullptr) {
 		$init($AccessibleContext);
 		$init($AccessibleState);
-		$nc($nc(this->this$1->this$0)->accessibleContext)->firePropertyChange($AccessibleContext::ACCESSIBLE_STATE_PROPERTY, $AccessibleState::FOCUSED, nullptr);
+		this->this$1->this$0->accessibleContext->firePropertyChange($AccessibleContext::ACCESSIBLE_STATE_PROPERTY, $AccessibleState::FOCUSED, nullptr);
 	}
 }
 
@@ -112,7 +67,45 @@ Component$AccessibleAWTComponent$AccessibleAWTFocusHandler::Component$Accessible
 }
 
 $Class* Component$AccessibleAWTComponent$AccessibleAWTFocusHandler::load$($String* name, bool initialize) {
-	$loadClass(Component$AccessibleAWTComponent$AccessibleAWTFocusHandler, name, initialize, &_Component$AccessibleAWTComponent$AccessibleAWTFocusHandler_ClassInfo_, allocate$Component$AccessibleAWTComponent$AccessibleAWTFocusHandler);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$1", "Ljava/awt/Component$AccessibleAWTComponent;", nullptr, $FINAL | $SYNTHETIC, $field(Component$AccessibleAWTComponent$AccessibleAWTFocusHandler, this$1)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Component$AccessibleAWTComponent$AccessibleAWTFocusHandler, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/awt/Component$AccessibleAWTComponent;)V", nullptr, $PROTECTED, $method(Component$AccessibleAWTComponent$AccessibleAWTFocusHandler, init$, void, $Component$AccessibleAWTComponent*)},
+		{"focusGained", "(Ljava/awt/event/FocusEvent;)V", nullptr, $PUBLIC, $virtualMethod(Component$AccessibleAWTComponent$AccessibleAWTFocusHandler, focusGained, void, $FocusEvent*)},
+		{"focusLost", "(Ljava/awt/event/FocusEvent;)V", nullptr, $PUBLIC, $virtualMethod(Component$AccessibleAWTComponent$AccessibleAWTFocusHandler, focusLost, void, $FocusEvent*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.awt.Component$AccessibleAWTComponent", "java.awt.Component", "AccessibleAWTComponent", $PROTECTED | $ABSTRACT},
+		{"java.awt.Component$AccessibleAWTComponent$AccessibleAWTFocusHandler", "java.awt.Component$AccessibleAWTComponent", "AccessibleAWTFocusHandler", $PROTECTED},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.awt.Component$AccessibleAWTComponent$AccessibleAWTFocusHandler",
+		"java.lang.Object",
+		"java.awt.event.FocusListener,java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.awt.Component"
+	};
+	$loadClass(Component$AccessibleAWTComponent$AccessibleAWTFocusHandler, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Component$AccessibleAWTComponent$AccessibleAWTFocusHandler));
+	});
 	return class$;
 }
 

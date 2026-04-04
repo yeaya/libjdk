@@ -1,5 +1,4 @@
 #include <javax/swing/text/html/HTML$Attribute.h>
-
 #include <javax/swing/text/html/HTML.h>
 #include <jcpp.h>
 
@@ -96,124 +95,6 @@ namespace javax {
 		namespace text {
 			namespace html {
 
-$FieldInfo _HTML$Attribute_FieldInfo_[] = {
-	{"name", "Ljava/lang/String;", nullptr, $PRIVATE, $field(HTML$Attribute, name)},
-	{"SIZE", "Ljavax/swing/text/html/HTML$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Attribute, SIZE)},
-	{"COLOR", "Ljavax/swing/text/html/HTML$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Attribute, COLOR)},
-	{"CLEAR", "Ljavax/swing/text/html/HTML$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Attribute, CLEAR)},
-	{"BACKGROUND", "Ljavax/swing/text/html/HTML$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Attribute, BACKGROUND)},
-	{"BGCOLOR", "Ljavax/swing/text/html/HTML$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Attribute, BGCOLOR)},
-	{"TEXT", "Ljavax/swing/text/html/HTML$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Attribute, TEXT)},
-	{"LINK", "Ljavax/swing/text/html/HTML$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Attribute, LINK)},
-	{"VLINK", "Ljavax/swing/text/html/HTML$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Attribute, VLINK)},
-	{"ALINK", "Ljavax/swing/text/html/HTML$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Attribute, ALINK)},
-	{"WIDTH", "Ljavax/swing/text/html/HTML$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Attribute, WIDTH)},
-	{"HEIGHT", "Ljavax/swing/text/html/HTML$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Attribute, HEIGHT)},
-	{"ALIGN", "Ljavax/swing/text/html/HTML$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Attribute, ALIGN)},
-	{"NAME", "Ljavax/swing/text/html/HTML$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Attribute, NAME)},
-	{"HREF", "Ljavax/swing/text/html/HTML$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Attribute, HREF)},
-	{"REL", "Ljavax/swing/text/html/HTML$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Attribute, REL)},
-	{"REV", "Ljavax/swing/text/html/HTML$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Attribute, REV)},
-	{"TITLE", "Ljavax/swing/text/html/HTML$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Attribute, TITLE)},
-	{"TARGET", "Ljavax/swing/text/html/HTML$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Attribute, TARGET)},
-	{"SHAPE", "Ljavax/swing/text/html/HTML$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Attribute, SHAPE)},
-	{"COORDS", "Ljavax/swing/text/html/HTML$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Attribute, COORDS)},
-	{"ISMAP", "Ljavax/swing/text/html/HTML$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Attribute, ISMAP)},
-	{"NOHREF", "Ljavax/swing/text/html/HTML$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Attribute, NOHREF)},
-	{"ALT", "Ljavax/swing/text/html/HTML$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Attribute, ALT)},
-	{"ID", "Ljavax/swing/text/html/HTML$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Attribute, ID)},
-	{"SRC", "Ljavax/swing/text/html/HTML$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Attribute, SRC)},
-	{"HSPACE", "Ljavax/swing/text/html/HTML$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Attribute, HSPACE)},
-	{"VSPACE", "Ljavax/swing/text/html/HTML$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Attribute, VSPACE)},
-	{"USEMAP", "Ljavax/swing/text/html/HTML$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Attribute, USEMAP)},
-	{"LOWSRC", "Ljavax/swing/text/html/HTML$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Attribute, LOWSRC)},
-	{"CODEBASE", "Ljavax/swing/text/html/HTML$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Attribute, CODEBASE)},
-	{"CODE", "Ljavax/swing/text/html/HTML$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Attribute, CODE)},
-	{"ARCHIVE", "Ljavax/swing/text/html/HTML$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Attribute, ARCHIVE)},
-	{"VALUE", "Ljavax/swing/text/html/HTML$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Attribute, VALUE)},
-	{"VALUETYPE", "Ljavax/swing/text/html/HTML$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Attribute, VALUETYPE)},
-	{"TYPE", "Ljavax/swing/text/html/HTML$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Attribute, TYPE)},
-	{"CLASS", "Ljavax/swing/text/html/HTML$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Attribute, CLASS)},
-	{"STYLE", "Ljavax/swing/text/html/HTML$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Attribute, STYLE)},
-	{"LANG", "Ljavax/swing/text/html/HTML$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Attribute, LANG)},
-	{"FACE", "Ljavax/swing/text/html/HTML$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Attribute, FACE)},
-	{"DIR", "Ljavax/swing/text/html/HTML$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Attribute, DIR)},
-	{"DECLARE", "Ljavax/swing/text/html/HTML$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Attribute, DECLARE)},
-	{"CLASSID", "Ljavax/swing/text/html/HTML$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Attribute, CLASSID)},
-	{"DATA", "Ljavax/swing/text/html/HTML$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Attribute, DATA)},
-	{"CODETYPE", "Ljavax/swing/text/html/HTML$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Attribute, CODETYPE)},
-	{"STANDBY", "Ljavax/swing/text/html/HTML$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Attribute, STANDBY)},
-	{"BORDER", "Ljavax/swing/text/html/HTML$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Attribute, BORDER)},
-	{"SHAPES", "Ljavax/swing/text/html/HTML$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Attribute, SHAPES)},
-	{"NOSHADE", "Ljavax/swing/text/html/HTML$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Attribute, NOSHADE)},
-	{"COMPACT", "Ljavax/swing/text/html/HTML$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Attribute, COMPACT)},
-	{"START", "Ljavax/swing/text/html/HTML$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Attribute, START)},
-	{"ACTION", "Ljavax/swing/text/html/HTML$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Attribute, ACTION)},
-	{"METHOD", "Ljavax/swing/text/html/HTML$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Attribute, METHOD)},
-	{"ENCTYPE", "Ljavax/swing/text/html/HTML$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Attribute, ENCTYPE)},
-	{"CHECKED", "Ljavax/swing/text/html/HTML$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Attribute, CHECKED)},
-	{"MAXLENGTH", "Ljavax/swing/text/html/HTML$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Attribute, MAXLENGTH)},
-	{"MULTIPLE", "Ljavax/swing/text/html/HTML$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Attribute, MULTIPLE)},
-	{"SELECTED", "Ljavax/swing/text/html/HTML$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Attribute, SELECTED)},
-	{"ROWS", "Ljavax/swing/text/html/HTML$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Attribute, ROWS)},
-	{"COLS", "Ljavax/swing/text/html/HTML$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Attribute, COLS)},
-	{"DUMMY", "Ljavax/swing/text/html/HTML$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Attribute, DUMMY)},
-	{"CELLSPACING", "Ljavax/swing/text/html/HTML$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Attribute, CELLSPACING)},
-	{"CELLPADDING", "Ljavax/swing/text/html/HTML$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Attribute, CELLPADDING)},
-	{"VALIGN", "Ljavax/swing/text/html/HTML$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Attribute, VALIGN)},
-	{"HALIGN", "Ljavax/swing/text/html/HTML$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Attribute, HALIGN)},
-	{"NOWRAP", "Ljavax/swing/text/html/HTML$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Attribute, NOWRAP)},
-	{"ROWSPAN", "Ljavax/swing/text/html/HTML$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Attribute, ROWSPAN)},
-	{"COLSPAN", "Ljavax/swing/text/html/HTML$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Attribute, COLSPAN)},
-	{"PROMPT", "Ljavax/swing/text/html/HTML$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Attribute, PROMPT)},
-	{"HTTPEQUIV", "Ljavax/swing/text/html/HTML$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Attribute, HTTPEQUIV)},
-	{"CONTENT", "Ljavax/swing/text/html/HTML$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Attribute, CONTENT)},
-	{"LANGUAGE", "Ljavax/swing/text/html/HTML$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Attribute, LANGUAGE)},
-	{"VERSION", "Ljavax/swing/text/html/HTML$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Attribute, VERSION)},
-	{"N", "Ljavax/swing/text/html/HTML$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Attribute, N)},
-	{"FRAMEBORDER", "Ljavax/swing/text/html/HTML$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Attribute, FRAMEBORDER)},
-	{"MARGINWIDTH", "Ljavax/swing/text/html/HTML$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Attribute, MARGINWIDTH)},
-	{"MARGINHEIGHT", "Ljavax/swing/text/html/HTML$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Attribute, MARGINHEIGHT)},
-	{"SCROLLING", "Ljavax/swing/text/html/HTML$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Attribute, SCROLLING)},
-	{"NORESIZE", "Ljavax/swing/text/html/HTML$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Attribute, NORESIZE)},
-	{"ENDTAG", "Ljavax/swing/text/html/HTML$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Attribute, ENDTAG)},
-	{"COMMENT", "Ljavax/swing/text/html/HTML$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Attribute, COMMENT)},
-	{"MEDIA", "Ljavax/swing/text/html/HTML$Attribute;", nullptr, $STATIC | $FINAL, $staticField(HTML$Attribute, MEDIA)},
-	{"allAttributes", "[Ljavax/swing/text/html/HTML$Attribute;", nullptr, $STATIC | $FINAL, $staticField(HTML$Attribute, allAttributes)},
-	{}
-};
-
-$MethodInfo _HTML$Attribute_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(HTML$Attribute, init$, void, $String*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HTML$Attribute, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _HTML$Attribute_InnerClassesInfo_[] = {
-	{"javax.swing.text.html.HTML$Attribute", "javax.swing.text.html.HTML", "Attribute", $PUBLIC | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _HTML$Attribute_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"javax.swing.text.html.HTML$Attribute",
-	"java.lang.Object",
-	nullptr,
-	_HTML$Attribute_FieldInfo_,
-	_HTML$Attribute_MethodInfo_,
-	nullptr,
-	nullptr,
-	_HTML$Attribute_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.html.HTML"
-};
-
-$Object* allocate$HTML$Attribute($Class* clazz) {
-	return $of($alloc(HTML$Attribute));
-}
-
 HTML$Attribute* HTML$Attribute::SIZE = nullptr;
 HTML$Attribute* HTML$Attribute::COLOR = nullptr;
 HTML$Attribute* HTML$Attribute::CLEAR = nullptr;
@@ -305,7 +186,7 @@ $String* HTML$Attribute::toString() {
 	return this->name;
 }
 
-void clinit$HTML$Attribute($Class* class$) {
+void HTML$Attribute::clinit$($Class* clazz) {
 	$assignStatic(HTML$Attribute::SIZE, $new(HTML$Attribute, "size"_s));
 	$assignStatic(HTML$Attribute::COLOR, $new(HTML$Attribute, "color"_s));
 	$assignStatic(HTML$Attribute::CLEAR, $new(HTML$Attribute, "clear"_s));
@@ -476,7 +357,119 @@ HTML$Attribute::HTML$Attribute() {
 }
 
 $Class* HTML$Attribute::load$($String* name, bool initialize) {
-	$loadClass(HTML$Attribute, name, initialize, &_HTML$Attribute_ClassInfo_, clinit$HTML$Attribute, allocate$HTML$Attribute);
+	$FieldInfo fieldInfos$$[] = {
+		{"name", "Ljava/lang/String;", nullptr, $PRIVATE, $field(HTML$Attribute, name)},
+		{"SIZE", "Ljavax/swing/text/html/HTML$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Attribute, SIZE)},
+		{"COLOR", "Ljavax/swing/text/html/HTML$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Attribute, COLOR)},
+		{"CLEAR", "Ljavax/swing/text/html/HTML$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Attribute, CLEAR)},
+		{"BACKGROUND", "Ljavax/swing/text/html/HTML$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Attribute, BACKGROUND)},
+		{"BGCOLOR", "Ljavax/swing/text/html/HTML$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Attribute, BGCOLOR)},
+		{"TEXT", "Ljavax/swing/text/html/HTML$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Attribute, TEXT)},
+		{"LINK", "Ljavax/swing/text/html/HTML$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Attribute, LINK)},
+		{"VLINK", "Ljavax/swing/text/html/HTML$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Attribute, VLINK)},
+		{"ALINK", "Ljavax/swing/text/html/HTML$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Attribute, ALINK)},
+		{"WIDTH", "Ljavax/swing/text/html/HTML$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Attribute, WIDTH)},
+		{"HEIGHT", "Ljavax/swing/text/html/HTML$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Attribute, HEIGHT)},
+		{"ALIGN", "Ljavax/swing/text/html/HTML$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Attribute, ALIGN)},
+		{"NAME", "Ljavax/swing/text/html/HTML$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Attribute, NAME)},
+		{"HREF", "Ljavax/swing/text/html/HTML$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Attribute, HREF)},
+		{"REL", "Ljavax/swing/text/html/HTML$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Attribute, REL)},
+		{"REV", "Ljavax/swing/text/html/HTML$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Attribute, REV)},
+		{"TITLE", "Ljavax/swing/text/html/HTML$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Attribute, TITLE)},
+		{"TARGET", "Ljavax/swing/text/html/HTML$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Attribute, TARGET)},
+		{"SHAPE", "Ljavax/swing/text/html/HTML$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Attribute, SHAPE)},
+		{"COORDS", "Ljavax/swing/text/html/HTML$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Attribute, COORDS)},
+		{"ISMAP", "Ljavax/swing/text/html/HTML$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Attribute, ISMAP)},
+		{"NOHREF", "Ljavax/swing/text/html/HTML$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Attribute, NOHREF)},
+		{"ALT", "Ljavax/swing/text/html/HTML$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Attribute, ALT)},
+		{"ID", "Ljavax/swing/text/html/HTML$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Attribute, ID)},
+		{"SRC", "Ljavax/swing/text/html/HTML$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Attribute, SRC)},
+		{"HSPACE", "Ljavax/swing/text/html/HTML$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Attribute, HSPACE)},
+		{"VSPACE", "Ljavax/swing/text/html/HTML$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Attribute, VSPACE)},
+		{"USEMAP", "Ljavax/swing/text/html/HTML$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Attribute, USEMAP)},
+		{"LOWSRC", "Ljavax/swing/text/html/HTML$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Attribute, LOWSRC)},
+		{"CODEBASE", "Ljavax/swing/text/html/HTML$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Attribute, CODEBASE)},
+		{"CODE", "Ljavax/swing/text/html/HTML$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Attribute, CODE)},
+		{"ARCHIVE", "Ljavax/swing/text/html/HTML$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Attribute, ARCHIVE)},
+		{"VALUE", "Ljavax/swing/text/html/HTML$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Attribute, VALUE)},
+		{"VALUETYPE", "Ljavax/swing/text/html/HTML$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Attribute, VALUETYPE)},
+		{"TYPE", "Ljavax/swing/text/html/HTML$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Attribute, TYPE)},
+		{"CLASS", "Ljavax/swing/text/html/HTML$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Attribute, CLASS)},
+		{"STYLE", "Ljavax/swing/text/html/HTML$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Attribute, STYLE)},
+		{"LANG", "Ljavax/swing/text/html/HTML$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Attribute, LANG)},
+		{"FACE", "Ljavax/swing/text/html/HTML$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Attribute, FACE)},
+		{"DIR", "Ljavax/swing/text/html/HTML$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Attribute, DIR)},
+		{"DECLARE", "Ljavax/swing/text/html/HTML$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Attribute, DECLARE)},
+		{"CLASSID", "Ljavax/swing/text/html/HTML$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Attribute, CLASSID)},
+		{"DATA", "Ljavax/swing/text/html/HTML$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Attribute, DATA)},
+		{"CODETYPE", "Ljavax/swing/text/html/HTML$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Attribute, CODETYPE)},
+		{"STANDBY", "Ljavax/swing/text/html/HTML$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Attribute, STANDBY)},
+		{"BORDER", "Ljavax/swing/text/html/HTML$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Attribute, BORDER)},
+		{"SHAPES", "Ljavax/swing/text/html/HTML$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Attribute, SHAPES)},
+		{"NOSHADE", "Ljavax/swing/text/html/HTML$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Attribute, NOSHADE)},
+		{"COMPACT", "Ljavax/swing/text/html/HTML$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Attribute, COMPACT)},
+		{"START", "Ljavax/swing/text/html/HTML$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Attribute, START)},
+		{"ACTION", "Ljavax/swing/text/html/HTML$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Attribute, ACTION)},
+		{"METHOD", "Ljavax/swing/text/html/HTML$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Attribute, METHOD)},
+		{"ENCTYPE", "Ljavax/swing/text/html/HTML$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Attribute, ENCTYPE)},
+		{"CHECKED", "Ljavax/swing/text/html/HTML$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Attribute, CHECKED)},
+		{"MAXLENGTH", "Ljavax/swing/text/html/HTML$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Attribute, MAXLENGTH)},
+		{"MULTIPLE", "Ljavax/swing/text/html/HTML$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Attribute, MULTIPLE)},
+		{"SELECTED", "Ljavax/swing/text/html/HTML$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Attribute, SELECTED)},
+		{"ROWS", "Ljavax/swing/text/html/HTML$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Attribute, ROWS)},
+		{"COLS", "Ljavax/swing/text/html/HTML$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Attribute, COLS)},
+		{"DUMMY", "Ljavax/swing/text/html/HTML$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Attribute, DUMMY)},
+		{"CELLSPACING", "Ljavax/swing/text/html/HTML$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Attribute, CELLSPACING)},
+		{"CELLPADDING", "Ljavax/swing/text/html/HTML$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Attribute, CELLPADDING)},
+		{"VALIGN", "Ljavax/swing/text/html/HTML$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Attribute, VALIGN)},
+		{"HALIGN", "Ljavax/swing/text/html/HTML$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Attribute, HALIGN)},
+		{"NOWRAP", "Ljavax/swing/text/html/HTML$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Attribute, NOWRAP)},
+		{"ROWSPAN", "Ljavax/swing/text/html/HTML$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Attribute, ROWSPAN)},
+		{"COLSPAN", "Ljavax/swing/text/html/HTML$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Attribute, COLSPAN)},
+		{"PROMPT", "Ljavax/swing/text/html/HTML$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Attribute, PROMPT)},
+		{"HTTPEQUIV", "Ljavax/swing/text/html/HTML$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Attribute, HTTPEQUIV)},
+		{"CONTENT", "Ljavax/swing/text/html/HTML$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Attribute, CONTENT)},
+		{"LANGUAGE", "Ljavax/swing/text/html/HTML$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Attribute, LANGUAGE)},
+		{"VERSION", "Ljavax/swing/text/html/HTML$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Attribute, VERSION)},
+		{"N", "Ljavax/swing/text/html/HTML$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Attribute, N)},
+		{"FRAMEBORDER", "Ljavax/swing/text/html/HTML$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Attribute, FRAMEBORDER)},
+		{"MARGINWIDTH", "Ljavax/swing/text/html/HTML$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Attribute, MARGINWIDTH)},
+		{"MARGINHEIGHT", "Ljavax/swing/text/html/HTML$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Attribute, MARGINHEIGHT)},
+		{"SCROLLING", "Ljavax/swing/text/html/HTML$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Attribute, SCROLLING)},
+		{"NORESIZE", "Ljavax/swing/text/html/HTML$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Attribute, NORESIZE)},
+		{"ENDTAG", "Ljavax/swing/text/html/HTML$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Attribute, ENDTAG)},
+		{"COMMENT", "Ljavax/swing/text/html/HTML$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HTML$Attribute, COMMENT)},
+		{"MEDIA", "Ljavax/swing/text/html/HTML$Attribute;", nullptr, $STATIC | $FINAL, $staticField(HTML$Attribute, MEDIA)},
+		{"allAttributes", "[Ljavax/swing/text/html/HTML$Attribute;", nullptr, $STATIC | $FINAL, $staticField(HTML$Attribute, allAttributes)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(HTML$Attribute, init$, void, $String*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HTML$Attribute, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.html.HTML$Attribute", "javax.swing.text.html.HTML", "Attribute", $PUBLIC | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"javax.swing.text.html.HTML$Attribute",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.html.HTML"
+	};
+	$loadClass(HTML$Attribute, name, initialize, &classInfo$$, HTML$Attribute::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(HTML$Attribute);
+	});
 	return class$;
 }
 

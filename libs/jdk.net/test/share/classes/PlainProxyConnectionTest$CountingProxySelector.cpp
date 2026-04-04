@@ -1,5 +1,4 @@
 #include <PlainProxyConnectionTest$CountingProxySelector.h>
-
 #include <PlainProxyConnectionTest.h>
 #include <java/io/IOException.h>
 #include <java/net/InetSocketAddress.h>
@@ -19,46 +18,6 @@ using $ProxySelector = ::java::net::ProxySelector;
 using $SocketAddress = ::java::net::SocketAddress;
 using $URI = ::java::net::URI;
 using $List = ::java::util::List;
-
-$FieldInfo _PlainProxyConnectionTest$CountingProxySelector_FieldInfo_[] = {
-	{"proxySelector", "Ljava/net/ProxySelector;", nullptr, $PRIVATE | $FINAL, $field(PlainProxyConnectionTest$CountingProxySelector, proxySelector)},
-	{"count", "I", nullptr, $PRIVATE | $VOLATILE, $field(PlainProxyConnectionTest$CountingProxySelector, count$)},
-	{}
-};
-
-$MethodInfo _PlainProxyConnectionTest$CountingProxySelector_MethodInfo_[] = {
-	{"<init>", "(Ljava/net/InetSocketAddress;)V", nullptr, $PRIVATE, $method(PlainProxyConnectionTest$CountingProxySelector, init$, void, $InetSocketAddress*)},
-	{"connectFailed", "(Ljava/net/URI;Ljava/net/SocketAddress;Ljava/io/IOException;)V", nullptr, $PUBLIC, $virtualMethod(PlainProxyConnectionTest$CountingProxySelector, connectFailed, void, $URI*, $SocketAddress*, $IOException*)},
-	{"count", "()I", nullptr, 0, $virtualMethod(PlainProxyConnectionTest$CountingProxySelector, count, int32_t)},
-	{"of", "(Ljava/net/InetSocketAddress;)LPlainProxyConnectionTest$CountingProxySelector;", nullptr, $PUBLIC | $STATIC, $staticMethod(PlainProxyConnectionTest$CountingProxySelector, of, PlainProxyConnectionTest$CountingProxySelector*, $InetSocketAddress*)},
-	{"select", "(Ljava/net/URI;)Ljava/util/List;", "(Ljava/net/URI;)Ljava/util/List<Ljava/net/Proxy;>;", $PUBLIC, $virtualMethod(PlainProxyConnectionTest$CountingProxySelector, select, $List*, $URI*)},
-	{}
-};
-
-$InnerClassInfo _PlainProxyConnectionTest$CountingProxySelector_InnerClassesInfo_[] = {
-	{"PlainProxyConnectionTest$CountingProxySelector", "PlainProxyConnectionTest", "CountingProxySelector", $STATIC},
-	{}
-};
-
-$ClassInfo _PlainProxyConnectionTest$CountingProxySelector_ClassInfo_ = {
-	$ACC_SUPER,
-	"PlainProxyConnectionTest$CountingProxySelector",
-	"java.net.ProxySelector",
-	nullptr,
-	_PlainProxyConnectionTest$CountingProxySelector_FieldInfo_,
-	_PlainProxyConnectionTest$CountingProxySelector_MethodInfo_,
-	nullptr,
-	nullptr,
-	_PlainProxyConnectionTest$CountingProxySelector_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"PlainProxyConnectionTest"
-};
-
-$Object* allocate$PlainProxyConnectionTest$CountingProxySelector($Class* clazz) {
-	return $of($alloc(PlainProxyConnectionTest$CountingProxySelector));
-}
 
 void PlainProxyConnectionTest$CountingProxySelector::init$($InetSocketAddress* proxyAddress) {
 	$ProxySelector::init$();
@@ -87,7 +46,41 @@ PlainProxyConnectionTest$CountingProxySelector::PlainProxyConnectionTest$Countin
 }
 
 $Class* PlainProxyConnectionTest$CountingProxySelector::load$($String* name, bool initialize) {
-	$loadClass(PlainProxyConnectionTest$CountingProxySelector, name, initialize, &_PlainProxyConnectionTest$CountingProxySelector_ClassInfo_, allocate$PlainProxyConnectionTest$CountingProxySelector);
+	$FieldInfo fieldInfos$$[] = {
+		{"proxySelector", "Ljava/net/ProxySelector;", nullptr, $PRIVATE | $FINAL, $field(PlainProxyConnectionTest$CountingProxySelector, proxySelector)},
+		{"count", "I", nullptr, $PRIVATE | $VOLATILE, $field(PlainProxyConnectionTest$CountingProxySelector, count$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/net/InetSocketAddress;)V", nullptr, $PRIVATE, $method(PlainProxyConnectionTest$CountingProxySelector, init$, void, $InetSocketAddress*)},
+		{"connectFailed", "(Ljava/net/URI;Ljava/net/SocketAddress;Ljava/io/IOException;)V", nullptr, $PUBLIC, $virtualMethod(PlainProxyConnectionTest$CountingProxySelector, connectFailed, void, $URI*, $SocketAddress*, $IOException*)},
+		{"count", "()I", nullptr, 0, $virtualMethod(PlainProxyConnectionTest$CountingProxySelector, count, int32_t)},
+		{"of", "(Ljava/net/InetSocketAddress;)LPlainProxyConnectionTest$CountingProxySelector;", nullptr, $PUBLIC | $STATIC, $staticMethod(PlainProxyConnectionTest$CountingProxySelector, of, PlainProxyConnectionTest$CountingProxySelector*, $InetSocketAddress*)},
+		{"select", "(Ljava/net/URI;)Ljava/util/List;", "(Ljava/net/URI;)Ljava/util/List<Ljava/net/Proxy;>;", $PUBLIC, $virtualMethod(PlainProxyConnectionTest$CountingProxySelector, select, $List*, $URI*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"PlainProxyConnectionTest$CountingProxySelector", "PlainProxyConnectionTest", "CountingProxySelector", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"PlainProxyConnectionTest$CountingProxySelector",
+		"java.net.ProxySelector",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"PlainProxyConnectionTest"
+	};
+	$loadClass(PlainProxyConnectionTest$CountingProxySelector, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PlainProxyConnectionTest$CountingProxySelector);
+	});
 	return class$;
 }
 

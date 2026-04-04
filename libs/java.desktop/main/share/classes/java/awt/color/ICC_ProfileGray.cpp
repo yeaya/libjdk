@@ -1,5 +1,4 @@
 #include <java/awt/color/ICC_ProfileGray.h>
-
 #include <java/awt/color/ICC_Profile.h>
 #include <sun/java2d/cmm/Profile.h>
 #include <sun/java2d/cmm/ProfileDeferralInfo.h>
@@ -15,33 +14,6 @@ using $ProfileDeferralInfo = ::sun::java2d::cmm::ProfileDeferralInfo;
 namespace java {
 	namespace awt {
 		namespace color {
-
-$FieldInfo _ICC_ProfileGray_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ICC_ProfileGray, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _ICC_ProfileGray_MethodInfo_[] = {
-	{"<init>", "(Lsun/java2d/cmm/Profile;)V", nullptr, 0, $method(ICC_ProfileGray, init$, void, $Profile*)},
-	{"<init>", "(Lsun/java2d/cmm/ProfileDeferralInfo;)V", nullptr, 0, $method(ICC_ProfileGray, init$, void, $ProfileDeferralInfo*)},
-	{"getGamma", "()F", nullptr, $PUBLIC, $virtualMethod(ICC_ProfileGray, getGamma, float)},
-	{"getMediaWhitePoint", "()[F", nullptr, $PUBLIC, $virtualMethod(ICC_ProfileGray, getMediaWhitePoint, $floats*)},
-	{"getTRC", "()[S", nullptr, $PUBLIC, $virtualMethod(ICC_ProfileGray, getTRC, $shorts*)},
-	{}
-};
-
-$ClassInfo _ICC_ProfileGray_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.awt.color.ICC_ProfileGray",
-	"java.awt.color.ICC_Profile",
-	nullptr,
-	_ICC_ProfileGray_FieldInfo_,
-	_ICC_ProfileGray_MethodInfo_
-};
-
-$Object* allocate$ICC_ProfileGray($Class* clazz) {
-	return $of($alloc(ICC_ProfileGray));
-}
 
 void ICC_ProfileGray::init$($Profile* p) {
 	$ICC_Profile::init$(p);
@@ -67,7 +39,29 @@ ICC_ProfileGray::ICC_ProfileGray() {
 }
 
 $Class* ICC_ProfileGray::load$($String* name, bool initialize) {
-	$loadClass(ICC_ProfileGray, name, initialize, &_ICC_ProfileGray_ClassInfo_, allocate$ICC_ProfileGray);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ICC_ProfileGray, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/java2d/cmm/Profile;)V", nullptr, 0, $method(ICC_ProfileGray, init$, void, $Profile*)},
+		{"<init>", "(Lsun/java2d/cmm/ProfileDeferralInfo;)V", nullptr, 0, $method(ICC_ProfileGray, init$, void, $ProfileDeferralInfo*)},
+		{"getGamma", "()F", nullptr, $PUBLIC, $virtualMethod(ICC_ProfileGray, getGamma, float)},
+		{"getMediaWhitePoint", "()[F", nullptr, $PUBLIC, $virtualMethod(ICC_ProfileGray, getMediaWhitePoint, $floats*)},
+		{"getTRC", "()[S", nullptr, $PUBLIC, $virtualMethod(ICC_ProfileGray, getTRC, $shorts*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.awt.color.ICC_ProfileGray",
+		"java.awt.color.ICC_Profile",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ICC_ProfileGray, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ICC_ProfileGray);
+	});
 	return class$;
 }
 

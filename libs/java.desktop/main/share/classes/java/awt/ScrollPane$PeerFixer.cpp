@@ -1,5 +1,4 @@
 #include <java/awt/ScrollPane$PeerFixer.h>
-
 #include <java/awt/Adjustable.h>
 #include <java/awt/Component.h>
 #include <java/awt/Point.h>
@@ -28,49 +27,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace java {
 	namespace awt {
 
-$FieldInfo _ScrollPane$PeerFixer_FieldInfo_[] = {
-	{"this$0", "Ljava/awt/ScrollPane;", nullptr, $FINAL | $SYNTHETIC, $field(ScrollPane$PeerFixer, this$0)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ScrollPane$PeerFixer, serialVersionUID)},
-	{"scroller", "Ljava/awt/ScrollPane;", nullptr, $PRIVATE, $field(ScrollPane$PeerFixer, scroller)},
-	{}
-};
-
-$MethodInfo _ScrollPane$PeerFixer_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/awt/ScrollPane;Ljava/awt/ScrollPane;)V", nullptr, 0, $method(ScrollPane$PeerFixer, init$, void, $ScrollPane*, $ScrollPane*)},
-	{"adjustmentValueChanged", "(Ljava/awt/event/AdjustmentEvent;)V", nullptr, $PUBLIC, $virtualMethod(ScrollPane$PeerFixer, adjustmentValueChanged, void, $AdjustmentEvent*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _ScrollPane$PeerFixer_InnerClassesInfo_[] = {
-	{"java.awt.ScrollPane$PeerFixer", "java.awt.ScrollPane", "PeerFixer", 0},
-	{}
-};
-
-$ClassInfo _ScrollPane$PeerFixer_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.awt.ScrollPane$PeerFixer",
-	"java.lang.Object",
-	"java.awt.event.AdjustmentListener,java.io.Serializable",
-	_ScrollPane$PeerFixer_FieldInfo_,
-	_ScrollPane$PeerFixer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ScrollPane$PeerFixer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.awt.ScrollPane"
-};
-
-$Object* allocate$ScrollPane$PeerFixer($Class* clazz) {
-	return $of($alloc(ScrollPane$PeerFixer));
-}
-
 int32_t ScrollPane$PeerFixer::hashCode() {
 	 return this->$AdjustmentListener::hashCode();
 }
@@ -97,7 +53,7 @@ void ScrollPane$PeerFixer::init$($ScrollPane* this$0, $ScrollPane* scroller) {
 }
 
 void ScrollPane$PeerFixer::adjustmentValueChanged($AdjustmentEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Adjustable, adj, $nc(e)->getAdjustable());
 	int32_t value = e->getValue();
 	$var($ScrollPanePeer, peer, $cast($ScrollPanePeer, $nc(this->scroller)->peer));
@@ -107,19 +63,13 @@ void ScrollPane$PeerFixer::adjustmentValueChanged($AdjustmentEvent* e) {
 	$var($Component, c, $nc(this->scroller)->getComponent(0));
 	switch ($nc(adj)->getOrientation()) {
 	case $Adjustable::VERTICAL:
-		{
-			$nc(c)->move($nc($(c->getLocation()))->x, -(value));
-			break;
-		}
+		$nc(c)->move($nc($($nc(c)->getLocation()))->x, -(value));
+		break;
 	case $Adjustable::HORIZONTAL:
-		{
-			$nc(c)->move(-(value), $nc($(c->getLocation()))->y);
-			break;
-		}
+		$nc(c)->move(-(value), $nc($($nc(c)->getLocation()))->y);
+		break;
 	default:
-		{
-			$throwNew($IllegalArgumentException, "Illegal adjustable orientation"_s);
-		}
+		$throwNew($IllegalArgumentException, "Illegal adjustable orientation"_s);
 	}
 }
 
@@ -127,7 +77,44 @@ ScrollPane$PeerFixer::ScrollPane$PeerFixer() {
 }
 
 $Class* ScrollPane$PeerFixer::load$($String* name, bool initialize) {
-	$loadClass(ScrollPane$PeerFixer, name, initialize, &_ScrollPane$PeerFixer_ClassInfo_, allocate$ScrollPane$PeerFixer);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljava/awt/ScrollPane;", nullptr, $FINAL | $SYNTHETIC, $field(ScrollPane$PeerFixer, this$0)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ScrollPane$PeerFixer, serialVersionUID)},
+		{"scroller", "Ljava/awt/ScrollPane;", nullptr, $PRIVATE, $field(ScrollPane$PeerFixer, scroller)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/awt/ScrollPane;Ljava/awt/ScrollPane;)V", nullptr, 0, $method(ScrollPane$PeerFixer, init$, void, $ScrollPane*, $ScrollPane*)},
+		{"adjustmentValueChanged", "(Ljava/awt/event/AdjustmentEvent;)V", nullptr, $PUBLIC, $virtualMethod(ScrollPane$PeerFixer, adjustmentValueChanged, void, $AdjustmentEvent*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.awt.ScrollPane$PeerFixer", "java.awt.ScrollPane", "PeerFixer", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.awt.ScrollPane$PeerFixer",
+		"java.lang.Object",
+		"java.awt.event.AdjustmentListener,java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.awt.ScrollPane"
+	};
+	$loadClass(ScrollPane$PeerFixer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ScrollPane$PeerFixer));
+	});
 	return class$;
 }
 

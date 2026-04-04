@@ -1,5 +1,4 @@
 #include <com/sun/jmx/mbeanserver/MBeanInstantiator.h>
-
 #include <com/sun/jmx/defaults/JmxProperties.h>
 #include <com/sun/jmx/mbeanserver/Introspector.h>
 #include <com/sun/jmx/mbeanserver/MBeanInstantiator$1.h>
@@ -8,7 +7,6 @@
 #include <com/sun/jmx/mbeanserver/Util.h>
 #include <java/io/ByteArrayInputStream.h>
 #include <java/io/IOException.h>
-#include <java/io/InputStream.h>
 #include <java/io/ObjectInputStream.h>
 #include <java/lang/ClassLoader.h>
 #include <java/lang/ClassNotFoundException.h>
@@ -27,9 +25,7 @@
 #include <java/security/AccessController.h>
 #include <java/security/CodeSource.h>
 #include <java/security/Permission.h>
-#include <java/security/PermissionCollection.h>
 #include <java/security/Permissions.h>
-#include <java/security/PrivilegedAction.h>
 #include <java/security/ProtectionDomain.h>
 #include <java/util/Map.h>
 #include <javax/management/InstanceNotFoundException.h>
@@ -58,7 +54,6 @@ using $ObjectInputStreamWithLoader = ::com::sun::jmx::mbeanserver::ObjectInputSt
 using $Util = ::com::sun::jmx::mbeanserver::Util;
 using $ByteArrayInputStream = ::java::io::ByteArrayInputStream;
 using $IOException = ::java::io::IOException;
-using $InputStream = ::java::io::InputStream;
 using $ObjectInputStream = ::java::io::ObjectInputStream;
 using $Boolean = ::java::lang::Boolean;
 using $Byte = ::java::lang::Byte;
@@ -83,7 +78,6 @@ using $NoSuchMethodException = ::java::lang::NoSuchMethodException;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $SecurityManager = ::java::lang::SecurityManager;
 using $Short = ::java::lang::Short;
-using $System$Logger = ::java::lang::System$Logger;
 using $System$Logger$Level = ::java::lang::System$Logger$Level;
 using $Constructor = ::java::lang::reflect::Constructor;
 using $InvocationTargetException = ::java::lang::reflect::InvocationTargetException;
@@ -92,9 +86,7 @@ using $AccessControlContext = ::java::security::AccessControlContext;
 using $AccessController = ::java::security::AccessController;
 using $CodeSource = ::java::security::CodeSource;
 using $Permission = ::java::security::Permission;
-using $PermissionCollection = ::java::security::PermissionCollection;
 using $Permissions = ::java::security::Permissions;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $ProtectionDomain = ::java::security::ProtectionDomain;
 using $Map = ::java::util::Map;
 using $InstanceNotFoundException = ::javax::management::InstanceNotFoundException;
@@ -113,62 +105,6 @@ namespace com {
 	namespace sun {
 		namespace jmx {
 			namespace mbeanserver {
-
-$FieldInfo _MBeanInstantiator_FieldInfo_[] = {
-	{"clr", "Lcom/sun/jmx/mbeanserver/ModifiableClassLoaderRepository;", nullptr, $PRIVATE | $FINAL, $field(MBeanInstantiator, clr)},
-	{"primitiveClasses", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/Class<*>;>;", $PRIVATE | $STATIC | $FINAL, $staticField(MBeanInstantiator, primitiveClasses)},
-	{}
-};
-
-$MethodInfo _MBeanInstantiator_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/jmx/mbeanserver/ModifiableClassLoaderRepository;)V", nullptr, 0, $method(MBeanInstantiator, init$, void, $ModifiableClassLoaderRepository*)},
-	{"checkMBeanPermission", "(Ljava/lang/Class;Ljava/lang/String;Ljavax/management/ObjectName;Ljava/lang/String;)V", "(Ljava/lang/Class<*>;Ljava/lang/String;Ljavax/management/ObjectName;Ljava/lang/String;)V", $PRIVATE | $STATIC, $staticMethod(MBeanInstantiator, checkMBeanPermission, void, $Class*, $String*, $ObjectName*, $String*)},
-	{"checkMBeanPermission", "(Ljava/lang/String;Ljava/lang/String;Ljavax/management/ObjectName;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(MBeanInstantiator, checkMBeanPermission, void, $String*, $String*, $ObjectName*, $String*), "java.lang.SecurityException"},
-	{"deserialize", "(Ljava/lang/ClassLoader;[B)Ljava/io/ObjectInputStream;", nullptr, $PUBLIC, $virtualMethod(MBeanInstantiator, deserialize, $ObjectInputStream*, $ClassLoader*, $bytes*), "javax.management.OperationsException"},
-	{"deserialize", "(Ljava/lang/String;Ljavax/management/ObjectName;[BLjava/lang/ClassLoader;)Ljava/io/ObjectInputStream;", nullptr, $PUBLIC, $virtualMethod(MBeanInstantiator, deserialize, $ObjectInputStream*, $String*, $ObjectName*, $bytes*, $ClassLoader*), "javax.management.InstanceNotFoundException,javax.management.OperationsException,javax.management.ReflectionException"},
-	{"ensureClassAccess", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;)V", $PRIVATE | $STATIC, $staticMethod(MBeanInstantiator, ensureClassAccess, void, $Class*), "java.lang.IllegalAccessException"},
-	{"findClass", "(Ljava/lang/String;Ljava/lang/ClassLoader;)Ljava/lang/Class;", "(Ljava/lang/String;Ljava/lang/ClassLoader;)Ljava/lang/Class<*>;", $PUBLIC, $virtualMethod(MBeanInstantiator, findClass, $Class*, $String*, $ClassLoader*), "javax.management.ReflectionException"},
-	{"findClass", "(Ljava/lang/String;Ljavax/management/ObjectName;)Ljava/lang/Class;", "(Ljava/lang/String;Ljavax/management/ObjectName;)Ljava/lang/Class<*>;", $PUBLIC, $virtualMethod(MBeanInstantiator, findClass, $Class*, $String*, $ObjectName*), "javax.management.ReflectionException,javax.management.InstanceNotFoundException"},
-	{"findClassWithDefaultLoaderRepository", "(Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/String;)Ljava/lang/Class<*>;", $PUBLIC, $virtualMethod(MBeanInstantiator, findClassWithDefaultLoaderRepository, $Class*, $String*), "javax.management.ReflectionException"},
-	{"findConstructor", "(Ljava/lang/Class;[Ljava/lang/Class;)Ljava/lang/reflect/Constructor;", "(Ljava/lang/Class<*>;[Ljava/lang/Class<*>;)Ljava/lang/reflect/Constructor<*>;", $PRIVATE, $method(MBeanInstantiator, findConstructor, $Constructor*, $Class*, $ClassArray*)},
-	{"findSignatureClasses", "([Ljava/lang/String;Ljava/lang/ClassLoader;)[Ljava/lang/Class;", "([Ljava/lang/String;Ljava/lang/ClassLoader;)[Ljava/lang/Class<*>;", $PUBLIC, $virtualMethod(MBeanInstantiator, findSignatureClasses, $ClassArray*, $StringArray*, $ClassLoader*), "javax.management.ReflectionException"},
-	{"getClassLoader", "(Ljavax/management/ObjectName;)Ljava/lang/ClassLoader;", nullptr, $PRIVATE, $method(MBeanInstantiator, getClassLoader, $ClassLoader*, $ObjectName*)},
-	{"getClassLoaderRepository", "()Lcom/sun/jmx/mbeanserver/ModifiableClassLoaderRepository;", nullptr, $PUBLIC, $virtualMethod(MBeanInstantiator, getClassLoaderRepository, $ModifiableClassLoaderRepository*)},
-	{"instantiate", "(Ljava/lang/Class;)Ljava/lang/Object;", "(Ljava/lang/Class<*>;)Ljava/lang/Object;", $PUBLIC, $virtualMethod(MBeanInstantiator, instantiate, $Object*, $Class*), "javax.management.ReflectionException,javax.management.MBeanException"},
-	{"instantiate", "(Ljava/lang/Class;[Ljava/lang/Object;[Ljava/lang/String;Ljava/lang/ClassLoader;)Ljava/lang/Object;", "(Ljava/lang/Class<*>;[Ljava/lang/Object;[Ljava/lang/String;Ljava/lang/ClassLoader;)Ljava/lang/Object;", $PUBLIC, $virtualMethod(MBeanInstantiator, instantiate, $Object*, $Class*, $ObjectArray*, $StringArray*, $ClassLoader*), "javax.management.ReflectionException,javax.management.MBeanException"},
-	{"instantiate", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MBeanInstantiator, instantiate, $Object*, $String*), "javax.management.ReflectionException,javax.management.MBeanException"},
-	{"instantiate", "(Ljava/lang/String;Ljavax/management/ObjectName;Ljava/lang/ClassLoader;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MBeanInstantiator, instantiate, $Object*, $String*, $ObjectName*, $ClassLoader*), "javax.management.ReflectionException,javax.management.MBeanException,javax.management.InstanceNotFoundException"},
-	{"instantiate", "(Ljava/lang/String;[Ljava/lang/Object;[Ljava/lang/String;Ljava/lang/ClassLoader;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MBeanInstantiator, instantiate, $Object*, $String*, $ObjectArray*, $StringArray*, $ClassLoader*), "javax.management.ReflectionException,javax.management.MBeanException"},
-	{"instantiate", "(Ljava/lang/String;Ljavax/management/ObjectName;[Ljava/lang/Object;[Ljava/lang/String;Ljava/lang/ClassLoader;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MBeanInstantiator, instantiate, $Object*, $String*, $ObjectName*, $ObjectArray*, $StringArray*, $ClassLoader*), "javax.management.ReflectionException,javax.management.MBeanException,javax.management.InstanceNotFoundException"},
-	{"loadClass", "(Ljava/lang/String;Ljava/lang/ClassLoader;)Ljava/lang/Class;", "(Ljava/lang/String;Ljava/lang/ClassLoader;)Ljava/lang/Class<*>;", $STATIC, $staticMethod(MBeanInstantiator, loadClass, $Class*, $String*, $ClassLoader*), "javax.management.ReflectionException"},
-	{"loadSignatureClasses", "([Ljava/lang/String;Ljava/lang/ClassLoader;)[Ljava/lang/Class;", "([Ljava/lang/String;Ljava/lang/ClassLoader;)[Ljava/lang/Class<*>;", $STATIC, $staticMethod(MBeanInstantiator, loadSignatureClasses, $ClassArray*, $StringArray*, $ClassLoader*), "javax.management.ReflectionException"},
-	{"testCreation", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;)V", $PUBLIC, $virtualMethod(MBeanInstantiator, testCreation, void, $Class*), "javax.management.NotCompliantMBeanException"},
-	{}
-};
-
-$InnerClassInfo _MBeanInstantiator_InnerClassesInfo_[] = {
-	{"com.sun.jmx.mbeanserver.MBeanInstantiator$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _MBeanInstantiator_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.jmx.mbeanserver.MBeanInstantiator",
-	"java.lang.Object",
-	nullptr,
-	_MBeanInstantiator_FieldInfo_,
-	_MBeanInstantiator_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MBeanInstantiator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.jmx.mbeanserver.MBeanInstantiator$1"
-};
-
-$Object* allocate$MBeanInstantiator($Class* clazz) {
-	return $of($alloc(MBeanInstantiator));
-}
 
 $Map* MBeanInstantiator::primitiveClasses = nullptr;
 
@@ -202,7 +138,7 @@ $Class* MBeanInstantiator::findClass($String* className, $ClassLoader* loader) {
 }
 
 $Class* MBeanInstantiator::findClass($String* className, $ObjectName* aLoader) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (aLoader == nullptr) {
 		$throwNew($RuntimeOperationsException, $$new($IllegalArgumentException), "Null loader passed in parameter"_s);
 	}
@@ -217,7 +153,7 @@ $Class* MBeanInstantiator::findClass($String* className, $ObjectName* aLoader) {
 }
 
 $ClassArray* MBeanInstantiator::findSignatureClasses($StringArray* signature, $ClassLoader* loader) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	if (signature == nullptr) {
 		return nullptr;
@@ -239,21 +175,21 @@ $ClassArray* MBeanInstantiator::findSignatureClasses($StringArray* signature, $C
 			if (aLoader != nullptr) {
 				tab->set(i, $Class::forName(signature->get(i), false, aLoader));
 			} else {
-				tab->set(i, findClass(signature->get(i), $($of(this)->getClass()->getClassLoader())));
+				tab->set(i, findClass(signature->get(i), $(this->getClass()->getClassLoader())));
 			}
 		}
 	} catch ($ClassNotFoundException& e) {
 		$init($JmxProperties);
 		$init($System$Logger$Level);
 		if ($nc($JmxProperties::MBEANSERVER_LOGGER)->isLoggable($System$Logger$Level::DEBUG)) {
-			$nc($JmxProperties::MBEANSERVER_LOGGER)->log($System$Logger$Level::DEBUG, "The parameter class could not be found"_s, static_cast<$Throwable*>(e));
+			$JmxProperties::MBEANSERVER_LOGGER->log($System$Logger$Level::DEBUG, "The parameter class could not be found"_s, e);
 		}
 		$throwNew($ReflectionException, e, "The parameter class could not be found"_s);
 	} catch ($RuntimeException& e) {
 		$init($JmxProperties);
 		$init($System$Logger$Level);
 		if ($nc($JmxProperties::MBEANSERVER_LOGGER)->isLoggable($System$Logger$Level::DEBUG)) {
-			$nc($JmxProperties::MBEANSERVER_LOGGER)->log($System$Logger$Level::DEBUG, "Unexpected exception"_s, static_cast<$Throwable*>(e));
+			$JmxProperties::MBEANSERVER_LOGGER->log($System$Logger$Level::DEBUG, "Unexpected exception"_s, e);
 		}
 		$throw(e);
 	}
@@ -261,9 +197,9 @@ $ClassArray* MBeanInstantiator::findSignatureClasses($StringArray* signature, $C
 }
 
 $Object* MBeanInstantiator::instantiate($Class* theClass) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
-	checkMBeanPermission(theClass, ($String*)nullptr, ($ObjectName*)nullptr, "instantiate"_s);
+	checkMBeanPermission(theClass, nullptr, nullptr, "instantiate"_s);
 	$var($Object, moi, nullptr);
 	$var($Constructor, cons, findConstructor(theClass, nullptr));
 	if (cons == nullptr) {
@@ -291,13 +227,13 @@ $Object* MBeanInstantiator::instantiate($Class* theClass) {
 	} catch ($IllegalArgumentException& e) {
 		$throwNew($ReflectionException, e, "Exception thrown trying to invoke the MBean\'s empty constructor"_s);
 	}
-	return $of(moi);
+	return moi;
 }
 
 $Object* MBeanInstantiator::instantiate($Class* theClass, $ObjectArray* params, $StringArray* signature, $ClassLoader* loader) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
-	checkMBeanPermission(theClass, ($String*)nullptr, ($ObjectName*)nullptr, "instantiate"_s);
+	checkMBeanPermission(theClass, nullptr, nullptr, "instantiate"_s);
 	$var($ClassArray, tab, nullptr);
 	$var($Object, moi, nullptr);
 	try {
@@ -330,11 +266,11 @@ $Object* MBeanInstantiator::instantiate($Class* theClass, $ObjectArray* params, 
 			$throwNew($MBeanException, $cast($Exception, th), "Exception thrown in the MBean\'s constructor"_s);
 		}
 	}
-	return $of(moi);
+	return moi;
 }
 
 $ObjectInputStream* MBeanInstantiator::deserialize($ClassLoader* loader, $bytes* data) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (data == nullptr) {
 		$throwNew($RuntimeOperationsException, $$new($IllegalArgumentException), "Null data passed in parameter"_s);
 	}
@@ -353,7 +289,7 @@ $ObjectInputStream* MBeanInstantiator::deserialize($ClassLoader* loader, $bytes*
 }
 
 $ObjectInputStream* MBeanInstantiator::deserialize($String* className, $ObjectName* loaderName, $bytes* data, $ClassLoader* loader) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	if (data == nullptr) {
 		$throwNew($RuntimeOperationsException, $$new($IllegalArgumentException), "Null data passed in parameter"_s);
@@ -377,7 +313,7 @@ $ObjectInputStream* MBeanInstantiator::deserialize($String* className, $ObjectNa
 			}
 			theClass = $Class::forName(className, false, instance);
 		} catch ($ClassNotFoundException& e) {
-			$throwNew($ReflectionException, e, $$str({"The MBean class could not be loaded by the "_s, $($nc(loaderName)->toString()), " class loader"_s}));
+			$throwNew($ReflectionException, e, $$str({"The MBean class could not be loaded by the "_s, $(loaderName->toString()), " class loader"_s}));
 		}
 	}
 	$var($ByteArrayInputStream, bIn, nullptr);
@@ -392,16 +328,16 @@ $ObjectInputStream* MBeanInstantiator::deserialize($String* className, $ObjectNa
 }
 
 $Object* MBeanInstantiator::instantiate($String* className) {
-	return $of(instantiate(className, ($ObjectArray*)nullptr, ($StringArray*)nullptr, ($ClassLoader*)nullptr));
+	return instantiate(className, ($ObjectArray*)nullptr, ($StringArray*)nullptr, nullptr);
 }
 
 $Object* MBeanInstantiator::instantiate($String* className, $ObjectName* loaderName, $ClassLoader* loader) {
-	return $of(instantiate(className, loaderName, ($ObjectArray*)nullptr, ($StringArray*)nullptr, loader));
+	return instantiate(className, loaderName, ($ObjectArray*)nullptr, ($StringArray*)nullptr, loader);
 }
 
 $Object* MBeanInstantiator::instantiate($String* className, $ObjectArray* params, $StringArray* signature, $ClassLoader* loader) {
 	$Class* theClass = findClassWithDefaultLoaderRepository(className);
-	return $of(instantiate(theClass, params, signature, loader));
+	return instantiate(theClass, params, signature, loader);
 }
 
 $Object* MBeanInstantiator::instantiate($String* className, $ObjectName* loaderName, $ObjectArray* params, $StringArray* signature, $ClassLoader* loader) {
@@ -411,17 +347,17 @@ $Object* MBeanInstantiator::instantiate($String* className, $ObjectName* loaderN
 	} else {
 		theClass = findClass(className, loaderName);
 	}
-	return $of(instantiate(theClass, params, signature, loader));
+	return instantiate(theClass, params, signature, loader);
 }
 
 $ModifiableClassLoaderRepository* MBeanInstantiator::getClassLoaderRepository() {
-	checkMBeanPermission(($String*)nullptr, ($String*)nullptr, ($ObjectName*)nullptr, "getClassLoaderRepository"_s);
+	checkMBeanPermission(($String*)nullptr, nullptr, nullptr, "getClassLoaderRepository"_s);
 	return this->clr;
 }
 
 $Class* MBeanInstantiator::loadClass($String* className, $ClassLoader* loader$renamed) {
 	$init(MBeanInstantiator);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ClassLoader, loader, loader$renamed);
 	$beforeCallerSensitive();
 	$Class* theClass = nullptr;
@@ -446,7 +382,7 @@ $Class* MBeanInstantiator::loadClass($String* className, $ClassLoader* loader$re
 
 $ClassArray* MBeanInstantiator::loadSignatureClasses($StringArray* signature, $ClassLoader* loader) {
 	$init(MBeanInstantiator);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	if (signature == nullptr) {
 		return nullptr;
@@ -471,14 +407,14 @@ $ClassArray* MBeanInstantiator::loadSignatureClasses($StringArray* signature, $C
 		$init($JmxProperties);
 		$init($System$Logger$Level);
 		if ($nc($JmxProperties::MBEANSERVER_LOGGER)->isLoggable($System$Logger$Level::DEBUG)) {
-			$nc($JmxProperties::MBEANSERVER_LOGGER)->log($System$Logger$Level::DEBUG, "The parameter class could not be found"_s, static_cast<$Throwable*>(e));
+			$JmxProperties::MBEANSERVER_LOGGER->log($System$Logger$Level::DEBUG, "The parameter class could not be found"_s, e);
 		}
 		$throwNew($ReflectionException, e, "The parameter class could not be found"_s);
 	} catch ($RuntimeException& e) {
 		$init($JmxProperties);
 		$init($System$Logger$Level);
 		if ($nc($JmxProperties::MBEANSERVER_LOGGER)->isLoggable($System$Logger$Level::DEBUG)) {
-			$nc($JmxProperties::MBEANSERVER_LOGGER)->log($System$Logger$Level::DEBUG, "Unexpected exception"_s, static_cast<$Throwable*>(e));
+			$JmxProperties::MBEANSERVER_LOGGER->log($System$Logger$Level::DEBUG, "Unexpected exception"_s, e);
 		}
 		$throw(e);
 	}
@@ -503,7 +439,7 @@ void MBeanInstantiator::checkMBeanPermission($Class* clazz, $String* member, $Ob
 
 void MBeanInstantiator::checkMBeanPermission($String* classname, $String* member, $ObjectName* objectName, $String* actions) {
 	$init(MBeanInstantiator);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	if (sm != nullptr) {
 		$var($Permission, perm, $new($MBeanPermission, classname, member, objectName, actions));
@@ -520,7 +456,7 @@ void MBeanInstantiator::ensureClassAccess($Class* clazz) {
 }
 
 $ClassLoader* MBeanInstantiator::getClassLoader($ObjectName* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	if (this->clr == nullptr) {
 		return nullptr;
@@ -530,39 +466,27 @@ $ClassLoader* MBeanInstantiator::getClassLoader($ObjectName* name) {
 	$var($ProtectionDomain, protectionDomain, $new($ProtectionDomain, nullptr, permissions));
 	$var($ProtectionDomainArray, domains, $new($ProtectionDomainArray, {protectionDomain}));
 	$var($AccessControlContext, ctx, $new($AccessControlContext, domains));
-	$var($ClassLoader, loader, $cast($ClassLoader, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($MBeanInstantiator$1, this, name)), ctx)));
+	$var($ClassLoader, loader, $cast($ClassLoader, $AccessController::doPrivileged($$new($MBeanInstantiator$1, this, name), ctx)));
 	return loader;
 }
 
-void clinit$MBeanInstantiator($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void MBeanInstantiator::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(MBeanInstantiator::primitiveClasses, $Util::newMap());
 	{
-		{
-			$init($Byte);
-			$init($Short);
-			$init($Integer);
-			$init($Long);
-			$init($Float);
-			$init($Double);
-			$init($Character);
-			$init($Boolean);
-			$var($ClassArray, arr$, $new($ClassArray, {
-				$Byte::TYPE,
-				$Short::TYPE,
-				$Integer::TYPE,
-				$Long::TYPE,
-				$Float::TYPE,
-				$Double::TYPE,
-				$Character::TYPE,
-				$Boolean::TYPE
-			}));
-			int32_t len$ = arr$->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
-				$Class* c = arr$->get(i$);
-				$nc(MBeanInstantiator::primitiveClasses)->put($($nc(c)->getName()), c);
-			}
+		$var($ClassArray, arr$, $new($ClassArray, {
+			$Byte::TYPE,
+			$Short::TYPE,
+			$Integer::TYPE,
+			$Long::TYPE,
+			$Float::TYPE,
+			$Double::TYPE,
+			$Character::TYPE,
+			$Boolean::TYPE
+		}));
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
+			$Class* c = arr$->get(i$);
+			$nc(MBeanInstantiator::primitiveClasses)->put($($nc(c)->getName()), c);
 		}
 	}
 }
@@ -571,7 +495,57 @@ MBeanInstantiator::MBeanInstantiator() {
 }
 
 $Class* MBeanInstantiator::load$($String* name, bool initialize) {
-	$loadClass(MBeanInstantiator, name, initialize, &_MBeanInstantiator_ClassInfo_, clinit$MBeanInstantiator, allocate$MBeanInstantiator);
+	$FieldInfo fieldInfos$$[] = {
+		{"clr", "Lcom/sun/jmx/mbeanserver/ModifiableClassLoaderRepository;", nullptr, $PRIVATE | $FINAL, $field(MBeanInstantiator, clr)},
+		{"primitiveClasses", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/Class<*>;>;", $PRIVATE | $STATIC | $FINAL, $staticField(MBeanInstantiator, primitiveClasses)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/jmx/mbeanserver/ModifiableClassLoaderRepository;)V", nullptr, 0, $method(MBeanInstantiator, init$, void, $ModifiableClassLoaderRepository*)},
+		{"checkMBeanPermission", "(Ljava/lang/Class;Ljava/lang/String;Ljavax/management/ObjectName;Ljava/lang/String;)V", "(Ljava/lang/Class<*>;Ljava/lang/String;Ljavax/management/ObjectName;Ljava/lang/String;)V", $PRIVATE | $STATIC, $staticMethod(MBeanInstantiator, checkMBeanPermission, void, $Class*, $String*, $ObjectName*, $String*)},
+		{"checkMBeanPermission", "(Ljava/lang/String;Ljava/lang/String;Ljavax/management/ObjectName;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(MBeanInstantiator, checkMBeanPermission, void, $String*, $String*, $ObjectName*, $String*), "java.lang.SecurityException"},
+		{"deserialize", "(Ljava/lang/ClassLoader;[B)Ljava/io/ObjectInputStream;", nullptr, $PUBLIC, $virtualMethod(MBeanInstantiator, deserialize, $ObjectInputStream*, $ClassLoader*, $bytes*), "javax.management.OperationsException"},
+		{"deserialize", "(Ljava/lang/String;Ljavax/management/ObjectName;[BLjava/lang/ClassLoader;)Ljava/io/ObjectInputStream;", nullptr, $PUBLIC, $virtualMethod(MBeanInstantiator, deserialize, $ObjectInputStream*, $String*, $ObjectName*, $bytes*, $ClassLoader*), "javax.management.InstanceNotFoundException,javax.management.OperationsException,javax.management.ReflectionException"},
+		{"ensureClassAccess", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;)V", $PRIVATE | $STATIC, $staticMethod(MBeanInstantiator, ensureClassAccess, void, $Class*), "java.lang.IllegalAccessException"},
+		{"findClass", "(Ljava/lang/String;Ljava/lang/ClassLoader;)Ljava/lang/Class;", "(Ljava/lang/String;Ljava/lang/ClassLoader;)Ljava/lang/Class<*>;", $PUBLIC, $virtualMethod(MBeanInstantiator, findClass, $Class*, $String*, $ClassLoader*), "javax.management.ReflectionException"},
+		{"findClass", "(Ljava/lang/String;Ljavax/management/ObjectName;)Ljava/lang/Class;", "(Ljava/lang/String;Ljavax/management/ObjectName;)Ljava/lang/Class<*>;", $PUBLIC, $virtualMethod(MBeanInstantiator, findClass, $Class*, $String*, $ObjectName*), "javax.management.ReflectionException,javax.management.InstanceNotFoundException"},
+		{"findClassWithDefaultLoaderRepository", "(Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/String;)Ljava/lang/Class<*>;", $PUBLIC, $virtualMethod(MBeanInstantiator, findClassWithDefaultLoaderRepository, $Class*, $String*), "javax.management.ReflectionException"},
+		{"findConstructor", "(Ljava/lang/Class;[Ljava/lang/Class;)Ljava/lang/reflect/Constructor;", "(Ljava/lang/Class<*>;[Ljava/lang/Class<*>;)Ljava/lang/reflect/Constructor<*>;", $PRIVATE, $method(MBeanInstantiator, findConstructor, $Constructor*, $Class*, $ClassArray*)},
+		{"findSignatureClasses", "([Ljava/lang/String;Ljava/lang/ClassLoader;)[Ljava/lang/Class;", "([Ljava/lang/String;Ljava/lang/ClassLoader;)[Ljava/lang/Class<*>;", $PUBLIC, $virtualMethod(MBeanInstantiator, findSignatureClasses, $ClassArray*, $StringArray*, $ClassLoader*), "javax.management.ReflectionException"},
+		{"getClassLoader", "(Ljavax/management/ObjectName;)Ljava/lang/ClassLoader;", nullptr, $PRIVATE, $method(MBeanInstantiator, getClassLoader, $ClassLoader*, $ObjectName*)},
+		{"getClassLoaderRepository", "()Lcom/sun/jmx/mbeanserver/ModifiableClassLoaderRepository;", nullptr, $PUBLIC, $virtualMethod(MBeanInstantiator, getClassLoaderRepository, $ModifiableClassLoaderRepository*)},
+		{"instantiate", "(Ljava/lang/Class;)Ljava/lang/Object;", "(Ljava/lang/Class<*>;)Ljava/lang/Object;", $PUBLIC, $virtualMethod(MBeanInstantiator, instantiate, $Object*, $Class*), "javax.management.ReflectionException,javax.management.MBeanException"},
+		{"instantiate", "(Ljava/lang/Class;[Ljava/lang/Object;[Ljava/lang/String;Ljava/lang/ClassLoader;)Ljava/lang/Object;", "(Ljava/lang/Class<*>;[Ljava/lang/Object;[Ljava/lang/String;Ljava/lang/ClassLoader;)Ljava/lang/Object;", $PUBLIC, $virtualMethod(MBeanInstantiator, instantiate, $Object*, $Class*, $ObjectArray*, $StringArray*, $ClassLoader*), "javax.management.ReflectionException,javax.management.MBeanException"},
+		{"instantiate", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MBeanInstantiator, instantiate, $Object*, $String*), "javax.management.ReflectionException,javax.management.MBeanException"},
+		{"instantiate", "(Ljava/lang/String;Ljavax/management/ObjectName;Ljava/lang/ClassLoader;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MBeanInstantiator, instantiate, $Object*, $String*, $ObjectName*, $ClassLoader*), "javax.management.ReflectionException,javax.management.MBeanException,javax.management.InstanceNotFoundException"},
+		{"instantiate", "(Ljava/lang/String;[Ljava/lang/Object;[Ljava/lang/String;Ljava/lang/ClassLoader;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MBeanInstantiator, instantiate, $Object*, $String*, $ObjectArray*, $StringArray*, $ClassLoader*), "javax.management.ReflectionException,javax.management.MBeanException"},
+		{"instantiate", "(Ljava/lang/String;Ljavax/management/ObjectName;[Ljava/lang/Object;[Ljava/lang/String;Ljava/lang/ClassLoader;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MBeanInstantiator, instantiate, $Object*, $String*, $ObjectName*, $ObjectArray*, $StringArray*, $ClassLoader*), "javax.management.ReflectionException,javax.management.MBeanException,javax.management.InstanceNotFoundException"},
+		{"loadClass", "(Ljava/lang/String;Ljava/lang/ClassLoader;)Ljava/lang/Class;", "(Ljava/lang/String;Ljava/lang/ClassLoader;)Ljava/lang/Class<*>;", $STATIC, $staticMethod(MBeanInstantiator, loadClass, $Class*, $String*, $ClassLoader*), "javax.management.ReflectionException"},
+		{"loadSignatureClasses", "([Ljava/lang/String;Ljava/lang/ClassLoader;)[Ljava/lang/Class;", "([Ljava/lang/String;Ljava/lang/ClassLoader;)[Ljava/lang/Class<*>;", $STATIC, $staticMethod(MBeanInstantiator, loadSignatureClasses, $ClassArray*, $StringArray*, $ClassLoader*), "javax.management.ReflectionException"},
+		{"testCreation", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;)V", $PUBLIC, $virtualMethod(MBeanInstantiator, testCreation, void, $Class*), "javax.management.NotCompliantMBeanException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.jmx.mbeanserver.MBeanInstantiator$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.jmx.mbeanserver.MBeanInstantiator",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.jmx.mbeanserver.MBeanInstantiator$1"
+	};
+	$loadClass(MBeanInstantiator, name, initialize, &classInfo$$, MBeanInstantiator::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(MBeanInstantiator);
+	});
 	return class$;
 }
 

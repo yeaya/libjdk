@@ -21,10 +21,13 @@ public:
 	void init$();
 	void init$($String* message);
 	void init$($String* message, $Throwable* cause);
-	static const int64_t serialVersionUID = (int64_t)0x5B39361CCA78B445;
+	static const int64_t serialVersionUID = (int64_t)0x5b39361cca78b445;
 	JMRuntimeException(const JMRuntimeException& e);
 	virtual void throw$() override;
-	inline JMRuntimeException* operator ->() {
+	inline JMRuntimeException* operator ->() const {
+		return (JMRuntimeException*)throwing$;
+	}
+	inline operator JMRuntimeException*() const {
 		return (JMRuntimeException*)throwing$;
 	}
 };

@@ -1,5 +1,4 @@
 #include <sun/util/resources/cldr/ext/LocaleNames_ar.h>
-
 #include <sun/util/resources/OpenListResourceBundle.h>
 #include <jcpp.h>
 
@@ -14,31 +13,12 @@ namespace sun {
 			namespace cldr {
 				namespace ext {
 
-$MethodInfo _LocaleNames_ar_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(LocaleNames_ar, init$, void)},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(LocaleNames_ar, getContents, $ObjectArray2*)},
-	{}
-};
-
-$ClassInfo _LocaleNames_ar_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.util.resources.cldr.ext.LocaleNames_ar",
-	"sun.util.resources.OpenListResourceBundle",
-	nullptr,
-	nullptr,
-	_LocaleNames_ar_MethodInfo_
-};
-
-$Object* allocate$LocaleNames_ar($Class* clazz) {
-	return $of($alloc(LocaleNames_ar));
-}
-
 void LocaleNames_ar::init$() {
 	$OpenListResourceBundle::init$();
 }
 
 $ObjectArray2* LocaleNames_ar::getContents() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, metaValue_ar, u"العربية"_s);
 	$var($String, metaValue_bn, u"البنغالية"_s);
 	$var($String, metaValue_bo, u"التبتية"_s);
@@ -65,4272 +45,4272 @@ $ObjectArray2* LocaleNames_ar::getContents() {
 	$var($String, metaValue_vai, u"الفاي"_s);
 	$var($ObjectArray2, data, $new($ObjectArray2, {
 		$$new($ObjectArray, {
-			$of("ksh"_s),
-			$of(u"لغة الكولونيان"_s)
+			"ksh"_s,
+			u"لغة الكولونيان"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Ogam"_s),
-			$of(u"الأوجهام"_s)
+			"Ogam"_s,
+			u"الأوجهام"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mwl"_s),
-			$of(u"الميرانديز"_s)
+			"mwl"_s,
+			u"الميرانديز"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Zsym"_s),
-			$of(u"رموز"_s)
+			"Zsym"_s,
+			u"رموز"_s
 		}),
 		$$new($ObjectArray, {
-			$of("cch"_s),
-			$of(u"الأتسام"_s)
+			"cch"_s,
+			u"الأتسام"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mwr"_s),
-			$of(u"الماروارية"_s)
+			"mwr"_s,
+			u"الماروارية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Tagb"_s),
-			$of(u"التاجبانوا"_s)
+			"Tagb"_s,
+			u"التاجبانوا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Zsye"_s),
-			$of(u"إيموجي"_s)
+			"Zsye"_s,
+			u"إيموجي"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ccp"_s),
-			$of(u"تشاكما"_s)
+			"ccp"_s,
+			u"تشاكما"_s
 		}),
 		$$new($ObjectArray, {
-			$of("egy"_s),
-			$of(u"المصرية القديمة"_s)
+			"egy"_s,
+			u"المصرية القديمة"_s
 		}),
 		$$new($ObjectArray, {
-			$of("raj"_s),
-			$of(u"الراجاسثانية"_s)
+			"raj"_s,
+			u"الراجاسثانية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Phag"_s),
-			$of(u"الفاجسبا"_s)
+			"Phag"_s,
+			u"الفاجسبا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tem"_s),
-			$of(u"التيمن"_s)
+			"tem"_s,
+			u"التيمن"_s
 		}),
 		$$new($ObjectArray, {
-			$of("teo"_s),
-			$of(u"تيسو"_s)
+			"teo"_s,
+			u"تيسو"_s
 		}),
 		$$new($ObjectArray, {
-			$of("rap"_s),
-			$of(u"الراباني"_s)
+			"rap"_s,
+			u"الراباني"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ter"_s),
-			$of(u"التيرينو"_s)
+			"ter"_s,
+			u"التيرينو"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AC"_s),
-			$of(u"جزيرة أسينشيون"_s)
+			"AC"_s,
+			u"جزيرة أسينشيون"_s
 		}),
 		$$new($ObjectArray, {
-			$of("rar"_s),
-			$of(u"الراروتونجاني"_s)
+			"rar"_s,
+			u"الراروتونجاني"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tet"_s),
-			$of(u"التيتم"_s)
+			"tet"_s,
+			u"التيتم"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AD"_s),
-			$of(u"أندورا"_s)
+			"AD"_s,
+			u"أندورا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AE"_s),
-			$of(u"الإمارات العربية المتحدة"_s)
+			"AE"_s,
+			u"الإمارات العربية المتحدة"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nl_BE"_s),
-			$of(u"الفلمنكية"_s)
+			"nl_BE"_s,
+			u"الفلمنكية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AF"_s),
-			$of(u"أفغانستان"_s)
+			"AF"_s,
+			u"أفغانستان"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AG"_s),
-			$of(u"أنتيغوا وبربودا"_s)
+			"AG"_s,
+			u"أنتيغوا وبربودا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.ca.ethiopic"_s),
-			$of(u"التقويم الإثيوبي"_s)
+			"type.ca.ethiopic"_s,
+			u"التقويم الإثيوبي"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AI"_s),
-			$of(u"أنغويلا"_s)
+			"AI"_s,
+			u"أنغويلا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("key.tz"_s),
-			$of(u"المنطقة الزمنية"_s)
+			"key.tz"_s,
+			u"المنطقة الزمنية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AL"_s),
-			$of(u"ألبانيا"_s)
+			"AL"_s,
+			u"ألبانيا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AM"_s),
-			$of(u"أرمينيا"_s)
+			"AM"_s,
+			u"أرمينيا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Teng"_s),
-			$of(u"التينجوار"_s)
+			"Teng"_s,
+			u"التينجوار"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AO"_s),
-			$of(u"أنغولا"_s)
+			"AO"_s,
+			u"أنغولا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AQ"_s),
-			$of(u"أنتاركتيكا"_s)
+			"AQ"_s,
+			u"أنتاركتيكا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AR"_s),
-			$of(u"الأرجنتين"_s)
+			"AR"_s,
+			u"الأرجنتين"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AS"_s),
-			$of(u"ساموا الأمريكية"_s)
+			"AS"_s,
+			u"ساموا الأمريكية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AT"_s),
-			$of(u"النمسا"_s)
+			"AT"_s,
+			u"النمسا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AU"_s),
-			$of(u"أستراليا"_s)
+			"AU"_s,
+			u"أستراليا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AW"_s),
-			$of(u"أروبا"_s)
+			"AW"_s,
+			u"أروبا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("en_US"_s),
-			$of(u"الإنجليزية الأمريكية"_s)
+			"en_US"_s,
+			u"الإنجليزية الأمريكية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AX"_s),
-			$of(u"جزر آلاند"_s)
+			"AX"_s,
+			u"جزر آلاند"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AZ"_s),
-			$of(u"أذربيجان"_s)
+			"AZ"_s,
+			u"أذربيجان"_s
 		}),
 		$$new($ObjectArray, {
-			$of("%%AREVELA"_s),
-			$of(u"أرمنية شرقية"_s)
+			"%%AREVELA"_s,
+			u"أرمنية شرقية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BA"_s),
-			$of(u"البوسنة والهرسك"_s)
+			"BA"_s,
+			u"البوسنة والهرسك"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BB"_s),
-			$of(u"بربادوس"_s)
+			"BB"_s,
+			u"بربادوس"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ceb"_s),
-			$of(u"السيبيوانية"_s)
+			"ceb"_s,
+			u"السيبيوانية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BD"_s),
-			$of(u"بنغلاديش"_s)
+			"BD"_s,
+			u"بنغلاديش"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kum"_s),
-			$of(u"القموقية"_s)
+			"kum"_s,
+			u"القموقية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BE"_s),
-			$of(u"بلجيكا"_s)
+			"BE"_s,
+			u"بلجيكا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gmh"_s),
-			$of(u"الألمانية العليا الوسطى"_s)
+			"gmh"_s,
+			u"الألمانية العليا الوسطى"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BF"_s),
-			$of(u"بوركينا فاسو"_s)
+			"BF"_s,
+			u"بوركينا فاسو"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BG"_s),
-			$of(u"بلغاريا"_s)
+			"BG"_s,
+			u"بلغاريا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BH"_s),
-			$of(u"البحرين"_s)
+			"BH"_s,
+			u"البحرين"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BI"_s),
-			$of(u"بوروندي"_s)
+			"BI"_s,
+			u"بوروندي"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BJ"_s),
-			$of(u"بنين"_s)
+			"BJ"_s,
+			u"بنين"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BL"_s),
-			$of(u"سان بارتليمي"_s)
+			"BL"_s,
+			u"سان بارتليمي"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BM"_s),
-			$of(u"برمودا"_s)
+			"BM"_s,
+			u"برمودا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kut"_s),
-			$of(u"الكتيناي"_s)
+			"kut"_s,
+			u"الكتيناي"_s
 		}),
 		$$new($ObjectArray, {
-			$of("myv"_s),
-			$of(u"الأرزية"_s)
+			"myv"_s,
+			u"الأرزية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BN"_s),
-			$of(u"بروناي"_s)
+			"BN"_s,
+			u"بروناي"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BO"_s),
-			$of(u"بوليفيا"_s)
+			"BO"_s,
+			u"بوليفيا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BQ"_s),
-			$of(u"هولندا الكاريبية"_s)
+			"BQ"_s,
+			u"هولندا الكاريبية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BR"_s),
-			$of(u"البرازيل"_s)
+			"BR"_s,
+			u"البرازيل"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BS"_s),
-			$of(u"جزر البهاما"_s)
+			"BS"_s,
+			u"جزر البهاما"_s
 		}),
 		$$new($ObjectArray, {
-			$of("xog"_s),
-			$of(u"السوغا"_s)
+			"xog"_s,
+			u"السوغا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BT"_s),
-			$of(u"بوتان"_s)
+			"BT"_s,
+			u"بوتان"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BV"_s),
-			$of(u"جزيرة بوفيه"_s)
+			"BV"_s,
+			u"جزيرة بوفيه"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BW"_s),
-			$of(u"بوتسوانا"_s)
+			"BW"_s,
+			u"بوتسوانا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BY"_s),
-			$of(u"بيلاروس"_s)
+			"BY"_s,
+			u"بيلاروس"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BZ"_s),
-			$of(u"بليز"_s)
+			"BZ"_s,
+			u"بليز"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Visp"_s),
-			$of(u"الكلام المرئي"_s)
+			"Visp"_s,
+			u"الكلام المرئي"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.ca.persian"_s),
-			$of(u"التقويم الفارسي"_s)
+			"type.ca.persian"_s,
+			u"التقويم الفارسي"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.hebr"_s),
-			$of(u"الأرقام العبرية"_s)
+			"type.nu.hebr"_s,
+			u"الأرقام العبرية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CA"_s),
-			$of(u"كندا"_s)
+			"CA"_s,
+			u"كندا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CC"_s),
-			$of(u"جزر كوكوس (كيلينغ)"_s)
+			"CC"_s,
+			u"جزر كوكوس (كيلينغ)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mzn"_s),
-			$of(u"المازندرانية"_s)
+			"mzn"_s,
+			u"المازندرانية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CD"_s),
-			$of(u"الكونغو - كينشاسا"_s)
+			"CD"_s,
+			u"الكونغو - كينشاسا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CF"_s),
-			$of(u"جمهورية أفريقيا الوسطى"_s)
+			"CF"_s,
+			u"جمهورية أفريقيا الوسطى"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CG"_s),
-			$of(u"الكونغو - برازافيل"_s)
+			"CG"_s,
+			u"الكونغو - برازافيل"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CH"_s),
-			$of(u"سويسرا"_s)
+			"CH"_s,
+			u"سويسرا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CI"_s),
-			$of(u"ساحل العاج"_s)
+			"CI"_s,
+			u"ساحل العاج"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CK"_s),
-			$of(u"جزر كوك"_s)
+			"CK"_s,
+			u"جزر كوك"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CL"_s),
-			$of(u"تشيلي"_s)
+			"CL"_s,
+			u"تشيلي"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CM"_s),
-			$of(u"الكاميرون"_s)
+			"CM"_s,
+			u"الكاميرون"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CN"_s),
-			$of(u"الصين"_s)
+			"CN"_s,
+			u"الصين"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CO"_s),
-			$of(u"كولومبيا"_s)
+			"CO"_s,
+			u"كولومبيا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CP"_s),
-			$of(u"جزيرة كليبيرتون"_s)
+			"CP"_s,
+			u"جزيرة كليبيرتون"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CR"_s),
-			$of(u"كوستاريكا"_s)
+			"CR"_s,
+			u"كوستاريكا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CU"_s),
-			$of(u"كوبا"_s)
+			"CU"_s,
+			u"كوبا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CV"_s),
-			$of(u"الرأس الأخضر"_s)
+			"CV"_s,
+			u"الرأس الأخضر"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CW"_s),
-			$of(u"كوراساو"_s)
+			"CW"_s,
+			u"كوراساو"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CX"_s),
-			$of(u"جزيرة كريسماس"_s)
+			"CX"_s,
+			u"جزيرة كريسماس"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CY"_s),
-			$of(u"قبرص"_s)
+			"CY"_s,
+			u"قبرص"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CZ"_s),
-			$of(u"التشيك"_s)
+			"CZ"_s,
+			u"التشيك"_s
 		}),
 		$$new($ObjectArray, {
-			$of("eka"_s),
-			$of(u"الإكاجك"_s)
+			"eka"_s,
+			u"الإكاجك"_s
 		}),
 		$$new($ObjectArray, {
-			$of("DE"_s),
-			$of(u"ألمانيا"_s)
+			"DE"_s,
+			u"ألمانيا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("goh"_s),
-			$of(u"الألمانية العليا القديمة"_s)
+			"goh"_s,
+			u"الألمانية العليا القديمة"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ace"_s),
-			$of(u"الأتشينيزية"_s)
+			"ace"_s,
+			u"الأتشينيزية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("cgg"_s),
-			$of(u"تشيغا"_s)
+			"cgg"_s,
+			u"تشيغا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("DG"_s),
-			$of(u"دييغو غارسيا"_s)
+			"DG"_s,
+			u"دييغو غارسيا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.deva"_s),
-			$of(u"الأرقام الديفانغارية"_s)
+			"type.nu.deva"_s,
+			u"الأرقام الديفانغارية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("DJ"_s),
-			$of(u"جيبوتي"_s)
+			"DJ"_s,
+			u"جيبوتي"_s
 		}),
 		$$new($ObjectArray, {
-			$of("DK"_s),
-			$of(u"الدانمرك"_s)
+			"DK"_s,
+			u"الدانمرك"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ach"_s),
-			$of(u"الأكولية"_s)
+			"ach"_s,
+			u"الأكولية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gon"_s),
-			$of(u"الجندي"_s)
+			"gon"_s,
+			u"الجندي"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Brai"_s),
-			$of(u"البرايل"_s)
+			"Brai"_s,
+			u"البرايل"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Brah"_s),
-			$of(u"الهندوسية"_s)
+			"Brah"_s,
+			u"الهندوسية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("DM"_s),
-			$of(u"دومينيكا"_s)
+			"DM"_s,
+			u"دومينيكا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.armnlow"_s),
-			$of(u"الأرقام الأرمينية الصغيرة"_s)
+			"type.nu.armnlow"_s,
+			u"الأرقام الأرمينية الصغيرة"_s
 		}),
 		$$new($ObjectArray, {
-			$of("DO"_s),
-			$of(u"جمهورية الدومينيكان"_s)
+			"DO"_s,
+			u"جمهورية الدومينيكان"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gor"_s),
-			$of(u"الجورونتالو"_s)
+			"gor"_s,
+			u"الجورونتالو"_s
 		}),
 		$$new($ObjectArray, {
-			$of("got"_s),
-			$of(metaValue_got)
+			"got"_s,
+			metaValue_got
 		}),
 		$$new($ObjectArray, {
-			$of("Mtei"_s),
-			$of(u"ميتي ماييك"_s)
+			"Mtei"_s,
+			u"ميتي ماييك"_s
 		}),
 		$$new($ObjectArray, {
-			$of("zun"_s),
-			$of(u"الزونية"_s)
+			"zun"_s,
+			u"الزونية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tig"_s),
-			$of(u"التيغرية"_s)
+			"tig"_s,
+			u"التيغرية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("DZ"_s),
-			$of(u"الجزائر"_s)
+			"DZ"_s,
+			u"الجزائر"_s
 		}),
 		$$new($ObjectArray, {
-			$of("pag"_s),
-			$of(u"البانجاسينان"_s)
+			"pag"_s,
+			u"البانجاسينان"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.d0.hwidth"_s),
-			$of(u"نصف العرض"_s)
+			"type.d0.hwidth"_s,
+			u"نصف العرض"_s
 		}),
 		$$new($ObjectArray, {
-			$of("pal"_s),
-			$of(u"البهلوية"_s)
+			"pal"_s,
+			u"البهلوية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("EA"_s),
-			$of(u"سيوتا وميليلا"_s)
+			"EA"_s,
+			u"سيوتا وميليلا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("chb"_s),
-			$of(u"التشيبشا"_s)
+			"chb"_s,
+			u"التشيبشا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("pam"_s),
-			$of(u"البامبانجا"_s)
+			"pam"_s,
+			u"البامبانجا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("EC"_s),
-			$of(u"الإكوادور"_s)
+			"EC"_s,
+			u"الإكوادور"_s
 		}),
 		$$new($ObjectArray, {
-			$of("pap"_s),
-			$of(u"البابيامينتو"_s)
+			"pap"_s,
+			u"البابيامينتو"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ada"_s),
-			$of(u"الأدانجمية"_s)
+			"ada"_s,
+			u"الأدانجمية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("EE"_s),
-			$of(u"إستونيا"_s)
+			"EE"_s,
+			u"إستونيا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tiv"_s),
-			$of(u"التيف"_s)
+			"tiv"_s,
+			u"التيف"_s
 		}),
 		$$new($ObjectArray, {
-			$of("EG"_s),
-			$of(u"مصر"_s)
+			"EG"_s,
+			u"مصر"_s
 		}),
 		$$new($ObjectArray, {
-			$of("EH"_s),
-			$of(u"الصحراء الغربية"_s)
+			"EH"_s,
+			u"الصحراء الغربية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("chg"_s),
-			$of(u"التشاجاتاي"_s)
+			"chg"_s,
+			u"التشاجاتاي"_s
 		}),
 		$$new($ObjectArray, {
-			$of("pau"_s),
-			$of(u"البالوان"_s)
+			"pau"_s,
+			u"البالوان"_s
 		}),
 		$$new($ObjectArray, {
-			$of("chk"_s),
-			$of(u"التشكيزية"_s)
+			"chk"_s,
+			u"التشكيزية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("chn"_s),
-			$of(u"الشينوك جارجون"_s)
+			"chn"_s,
+			u"الشينوك جارجون"_s
 		}),
 		$$new($ObjectArray, {
-			$of("chm"_s),
-			$of(u"الماري"_s)
+			"chm"_s,
+			u"الماري"_s
 		}),
 		$$new($ObjectArray, {
-			$of("chp"_s),
-			$of(u"الشيباوايان"_s)
+			"chp"_s,
+			u"الشيباوايان"_s
 		}),
 		$$new($ObjectArray, {
-			$of("cho"_s),
-			$of(u"الشوكتو"_s)
+			"cho"_s,
+			u"الشوكتو"_s
 		}),
 		$$new($ObjectArray, {
-			$of("chr"_s),
-			$of(metaValue_chr)
+			"chr"_s,
+			metaValue_chr
 		}),
 		$$new($ObjectArray, {
-			$of("ER"_s),
-			$of(u"إريتريا"_s)
+			"ER"_s,
+			u"إريتريا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ES"_s),
-			$of(u"إسبانيا"_s)
+			"ES"_s,
+			u"إسبانيا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ET"_s),
-			$of(u"إثيوبيا"_s)
+			"ET"_s,
+			u"إثيوبيا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("EU"_s),
-			$of(u"الاتحاد الأوروبي"_s)
+			"EU"_s,
+			u"الاتحاد الأوروبي"_s
 		}),
 		$$new($ObjectArray, {
-			$of("elx"_s),
-			$of(u"الإمايت"_s)
+			"elx"_s,
+			u"الإمايت"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.ca.gregorian"_s),
-			$of(u"التقويم الميلادي"_s)
+			"type.ca.gregorian"_s,
+			u"التقويم الميلادي"_s
 		}),
 		$$new($ObjectArray, {
-			$of("EZ"_s),
-			$of(u"منطقة اليورو"_s)
+			"EZ"_s,
+			u"منطقة اليورو"_s
 		}),
 		$$new($ObjectArray, {
-			$of("chy"_s),
-			$of(u"الشايان"_s)
+			"chy"_s,
+			u"الشايان"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.gujr"_s),
-			$of(u"الأرقام الغوجاراتية"_s)
+			"type.nu.gujr"_s,
+			u"الأرقام الغوجاراتية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Inds"_s),
-			$of(u"اندس - هارابان"_s)
+			"Inds"_s,
+			u"اندس - هارابان"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ady"_s),
-			$of(u"الأديغة"_s)
+			"ady"_s,
+			u"الأديغة"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FI"_s),
-			$of(u"فنلندا"_s)
+			"FI"_s,
+			u"فنلندا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FJ"_s),
-			$of(u"فيجي"_s)
+			"FJ"_s,
+			u"فيجي"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FK"_s),
-			$of(u"جزر فوكلاند"_s)
+			"FK"_s,
+			u"جزر فوكلاند"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FM"_s),
-			$of(u"ميكرونيزيا"_s)
+			"FM"_s,
+			u"ميكرونيزيا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("key.va"_s),
-			$of(u"متغيرات اللغة"_s)
+			"key.va"_s,
+			u"متغيرات اللغة"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FO"_s),
-			$of(u"جزر فارو"_s)
+			"FO"_s,
+			u"جزر فارو"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Taml"_s),
-			$of(metaValue_ta)
+			"Taml"_s,
+			metaValue_ta
 		}),
 		$$new($ObjectArray, {
-			$of("FR"_s),
-			$of(u"فرنسا"_s)
+			"FR"_s,
+			u"فرنسا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tkl"_s),
-			$of(u"التوكيلاو"_s)
+			"tkl"_s,
+			u"التوكيلاو"_s
 		}),
 		$$new($ObjectArray, {
-			$of("grb"_s),
-			$of(u"الجريبو"_s)
+			"grb"_s,
+			u"الجريبو"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.ca.indian"_s),
-			$of(u"التقويم القومي الهندي"_s)
+			"type.ca.indian"_s,
+			u"التقويم القومي الهندي"_s
 		}),
 		$$new($ObjectArray, {
-			$of("grc"_s),
-			$of(u"اليونانية القديمة"_s)
+			"grc"_s,
+			u"اليونانية القديمة"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GA"_s),
-			$of(u"الغابون"_s)
+			"GA"_s,
+			u"الغابون"_s
 		}),
 		$$new($ObjectArray, {
-			$of("vot"_s),
-			$of(u"الفوتيك"_s)
+			"vot"_s,
+			u"الفوتيك"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GB"_s),
-			$of(u"المملكة المتحدة"_s)
+			"GB"_s,
+			u"المملكة المتحدة"_s
 		}),
 		$$new($ObjectArray, {
-			$of("pcm"_s),
-			$of(u"البدجنية النيجيرية"_s)
+			"pcm"_s,
+			u"البدجنية النيجيرية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GD"_s),
-			$of(u"غرينادا"_s)
+			"GD"_s,
+			u"غرينادا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GE"_s),
-			$of(u"جورجيا"_s)
+			"GE"_s,
+			u"جورجيا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GF"_s),
-			$of(u"غويانا الفرنسية"_s)
+			"GF"_s,
+			u"غويانا الفرنسية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GG"_s),
-			$of(u"غيرنزي"_s)
+			"GG"_s,
+			u"غيرنزي"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GH"_s),
-			$of(u"غانا"_s)
+			"GH"_s,
+			u"غانا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Tale"_s),
-			$of(u"التاي لي"_s)
+			"Tale"_s,
+			u"التاي لي"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GI"_s),
-			$of(u"جبل طارق"_s)
+			"GI"_s,
+			u"جبل طارق"_s
 		}),
 		$$new($ObjectArray, {
-			$of("afh"_s),
-			$of(u"الأفريهيلية"_s)
+			"afh"_s,
+			u"الأفريهيلية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GL"_s),
-			$of(u"غرينلاند"_s)
+			"GL"_s,
+			u"غرينلاند"_s
 		}),
 		$$new($ObjectArray, {
-			$of("enm"_s),
-			$of(u"الإنجليزية الوسطى"_s)
+			"enm"_s,
+			u"الإنجليزية الوسطى"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GM"_s),
-			$of(u"غامبيا"_s)
+			"GM"_s,
+			u"غامبيا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GN"_s),
-			$of(u"غينيا"_s)
+			"GN"_s,
+			u"غينيا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GP"_s),
-			$of(u"غوادلوب"_s)
+			"GP"_s,
+			u"غوادلوب"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GQ"_s),
-			$of(u"غينيا الاستوائية"_s)
+			"GQ"_s,
+			u"غينيا الاستوائية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GR"_s),
-			$of(u"اليونان"_s)
+			"GR"_s,
+			u"اليونان"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GS"_s),
-			$of(u"جورجيا الجنوبية وجزر ساندويتش الجنوبية"_s)
+			"GS"_s,
+			u"جورجيا الجنوبية وجزر ساندويتش الجنوبية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GT"_s),
-			$of(u"غواتيمالا"_s)
+			"GT"_s,
+			u"غواتيمالا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GU"_s),
-			$of(u"غوام"_s)
+			"GU"_s,
+			u"غوام"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GW"_s),
-			$of(u"غينيا بيساو"_s)
+			"GW"_s,
+			u"غينيا بيساو"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tli"_s),
-			$of(u"التلينغيتية"_s)
+			"tli"_s,
+			u"التلينغيتية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tlh"_s),
-			$of(u"الكلينجون"_s)
+			"tlh"_s,
+			u"الكلينجون"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Talu"_s),
-			$of(u"التاى لى الجديد"_s)
+			"Talu"_s,
+			u"التاى لى الجديد"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GY"_s),
-			$of(u"غيانا"_s)
+			"GY"_s,
+			u"غيانا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ckb"_s),
-			$of(u"السورانية الكردية"_s)
+			"ckb"_s,
+			u"السورانية الكردية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("zxx"_s),
-			$of(u"بدون محتوى لغوي"_s)
+			"zxx"_s,
+			u"بدون محتوى لغوي"_s
 		}),
 		$$new($ObjectArray, {
-			$of("de_AT"_s),
-			$of(u"الألمانية النمساوية"_s)
+			"de_AT"_s,
+			u"الألمانية النمساوية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Vaii"_s),
-			$of(metaValue_vai)
+			"Vaii"_s,
+			metaValue_vai
 		}),
 		$$new($ObjectArray, {
-			$of("HK"_s),
-			$of(u"هونغ كونغ الصينية (منطقة إدارية خاصة)"_s)
+			"HK"_s,
+			u"هونغ كونغ الصينية (منطقة إدارية خاصة)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("HM"_s),
-			$of(u"جزيرة هيرد وجزر ماكدونالد"_s)
+			"HM"_s,
+			u"جزيرة هيرد وجزر ماكدونالد"_s
 		}),
 		$$new($ObjectArray, {
-			$of("HN"_s),
-			$of(u"هندوراس"_s)
+			"HN"_s,
+			u"هندوراس"_s
 		}),
 		$$new($ObjectArray, {
-			$of("HR"_s),
-			$of(u"كرواتيا"_s)
+			"HR"_s,
+			u"كرواتيا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("agq"_s),
-			$of(u"الأغم"_s)
+			"agq"_s,
+			u"الأغم"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gsw"_s),
-			$of(u"الألمانية السويسرية"_s)
+			"gsw"_s,
+			u"الألمانية السويسرية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.ca.islamic-umalqura"_s),
-			$of(u"التقويم الإسلامي (أم القرى)"_s)
+			"type.ca.islamic-umalqura"_s,
+			u"التقويم الإسلامي (أم القرى)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("HT"_s),
-			$of(u"هايتي"_s)
+			"HT"_s,
+			u"هايتي"_s
 		}),
 		$$new($ObjectArray, {
-			$of("HU"_s),
-			$of(u"هنغاريا"_s)
+			"HU"_s,
+			u"هنغاريا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tmh"_s),
-			$of(u"التاماشيك"_s)
+			"tmh"_s,
+			u"التاماشيك"_s
 		}),
 		$$new($ObjectArray, {
-			$of("IC"_s),
-			$of(u"جزر الكناري"_s)
+			"IC"_s,
+			u"جزر الكناري"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nan"_s),
-			$of(u"مين-نان الصينية"_s)
+			"nan"_s,
+			u"مين-نان الصينية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("peo"_s),
-			$of(metaValue_peo)
+			"peo"_s,
+			metaValue_peo
 		}),
 		$$new($ObjectArray, {
-			$of("ID"_s),
-			$of(u"إندونيسيا"_s)
+			"ID"_s,
+			u"إندونيسيا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("IE"_s),
-			$of(u"أيرلندا"_s)
+			"IE"_s,
+			u"أيرلندا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nap"_s),
-			$of(u"النابولية"_s)
+			"nap"_s,
+			u"النابولية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("naq"_s),
-			$of(u"لغة الناما"_s)
+			"naq"_s,
+			u"لغة الناما"_s
 		}),
 		$$new($ObjectArray, {
-			$of("zza"_s),
-			$of(u"زازا"_s)
+			"zza"_s,
+			u"زازا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("IL"_s),
-			$of(u"إسرائيل"_s)
+			"IL"_s,
+			u"إسرائيل"_s
 		}),
 		$$new($ObjectArray, {
-			$of("IM"_s),
-			$of(u"جزيرة مان"_s)
+			"IM"_s,
+			u"جزيرة مان"_s
 		}),
 		$$new($ObjectArray, {
-			$of("IN"_s),
-			$of(u"الهند"_s)
+			"IN"_s,
+			u"الهند"_s
 		}),
 		$$new($ObjectArray, {
-			$of("IO"_s),
-			$of(u"الإقليم البريطاني في المحيط الهندي"_s)
+			"IO"_s,
+			u"الإقليم البريطاني في المحيط الهندي"_s
 		}),
 		$$new($ObjectArray, {
-			$of("IQ"_s),
-			$of(u"العراق"_s)
+			"IQ"_s,
+			u"العراق"_s
 		}),
 		$$new($ObjectArray, {
-			$of("IR"_s),
-			$of(u"إيران"_s)
+			"IR"_s,
+			u"إيران"_s
 		}),
 		$$new($ObjectArray, {
-			$of("IS"_s),
-			$of(u"آيسلندا"_s)
+			"IS"_s,
+			u"آيسلندا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("IT"_s),
-			$of(u"إيطاليا"_s)
+			"IT"_s,
+			u"إيطاليا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Zmth"_s),
-			$of(u"تدوين رياضي"_s)
+			"Zmth"_s,
+			u"تدوين رياضي"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.thai"_s),
-			$of(u"الأرقام التايلاندية"_s)
+			"type.nu.thai"_s,
+			u"الأرقام التايلاندية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("%%POSIX"_s),
-			$of(u"حاسوب"_s)
+			"%%POSIX"_s,
+			u"حاسوب"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.beng"_s),
-			$of(u"الأرقام البنغالية"_s)
+			"type.nu.beng"_s,
+			u"الأرقام البنغالية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("JE"_s),
-			$of(u"جيرسي"_s)
+			"JE"_s,
+			u"جيرسي"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.ca.islamic"_s),
-			$of(u"التقويم الهجري"_s)
+			"type.ca.islamic"_s,
+			u"التقويم الهجري"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Beng"_s),
-			$of(metaValue_bn)
+			"Beng"_s,
+			metaValue_bn
 		}),
 		$$new($ObjectArray, {
-			$of("JM"_s),
-			$of(u"جامايكا"_s)
+			"JM"_s,
+			u"جامايكا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("JO"_s),
-			$of(u"الأردن"_s)
+			"JO"_s,
+			u"الأردن"_s
 		}),
 		$$new($ObjectArray, {
-			$of("JP"_s),
-			$of(u"اليابان"_s)
+			"JP"_s,
+			u"اليابان"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ain"_s),
-			$of(u"الآينوية"_s)
+			"ain"_s,
+			u"الآينوية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("guz"_s),
-			$of(u"الغيزية"_s)
+			"guz"_s,
+			u"الغيزية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tog"_s),
-			$of(u"تونجا - نياسا"_s)
+			"tog"_s,
+			u"تونجا - نياسا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.knda"_s),
-			$of(u"أرقام الكانادا"_s)
+			"type.nu.knda"_s,
+			u"أرقام الكانادا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Kali"_s),
-			$of(u"الكياه لى"_s)
+			"Kali"_s,
+			u"الكياه لى"_s
 		}),
 		$$new($ObjectArray, {
-			$of("de_CH"_s),
-			$of(u"الألمانية العليا السويسرية"_s)
+			"de_CH"_s,
+			u"الألمانية العليا السويسرية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.co.phonetic"_s),
-			$of(u"ترتيب الفرز الصوتي"_s)
+			"type.co.phonetic"_s,
+			u"ترتيب الفرز الصوتي"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.ca.buddhist"_s),
-			$of(u"التقويم البوذي"_s)
+			"type.ca.buddhist"_s,
+			u"التقويم البوذي"_s
 		}),
 		$$new($ObjectArray, {
-			$of("KE"_s),
-			$of(u"كينيا"_s)
+			"KE"_s,
+			u"كينيا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("419"_s),
-			$of(u"أمريكا اللاتينية"_s)
+			"419"_s,
+			u"أمريكا اللاتينية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("KG"_s),
-			$of(u"قيرغيزستان"_s)
+			"KG"_s,
+			u"قيرغيزستان"_s
 		}),
 		$$new($ObjectArray, {
-			$of("KH"_s),
-			$of(u"كمبوديا"_s)
+			"KH"_s,
+			u"كمبوديا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("KI"_s),
-			$of(u"كيريباتي"_s)
+			"KI"_s,
+			u"كيريباتي"_s
 		}),
 		$$new($ObjectArray, {
-			$of("KM"_s),
-			$of(u"جزر القمر"_s)
+			"KM"_s,
+			u"جزر القمر"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Knda"_s),
-			$of(metaValue_kn)
+			"Knda"_s,
+			metaValue_kn
 		}),
 		$$new($ObjectArray, {
-			$of("KN"_s),
-			$of(u"سانت كيتس ونيفيس"_s)
+			"KN"_s,
+			u"سانت كيتس ونيفيس"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Zinh"_s),
-			$of(u"الموروث"_s)
+			"Zinh"_s,
+			u"الموروث"_s
 		}),
 		$$new($ObjectArray, {
-			$of("fr_CA"_s),
-			$of(u"الفرنسية الكندية"_s)
+			"fr_CA"_s,
+			u"الفرنسية الكندية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("KP"_s),
-			$of(u"كوريا الشمالية"_s)
+			"KP"_s,
+			u"كوريا الشمالية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("KR"_s),
-			$of(u"كوريا الجنوبية"_s)
+			"KR"_s,
+			u"كوريا الجنوبية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Plrd"_s),
-			$of(u"الصوتيات الجماء"_s)
+			"Plrd"_s,
+			u"الصوتيات الجماء"_s
 		}),
 		$$new($ObjectArray, {
-			$of("fr_CH"_s),
-			$of(u"الفرنسية السويسرية"_s)
+			"fr_CH"_s,
+			u"الفرنسية السويسرية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("KW"_s),
-			$of(u"الكويت"_s)
+			"KW"_s,
+			u"الكويت"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tpi"_s),
-			$of(u"التوك بيسين"_s)
+			"tpi"_s,
+			u"التوك بيسين"_s
 		}),
 		$$new($ObjectArray, {
-			$of("KY"_s),
-			$of(u"جزر كايمان"_s)
+			"KY"_s,
+			u"جزر كايمان"_s
 		}),
 		$$new($ObjectArray, {
-			$of("KZ"_s),
-			$of(u"كازاخستان"_s)
+			"KZ"_s,
+			u"كازاخستان"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Cyrl"_s),
-			$of(u"السيريلية"_s)
+			"Cyrl"_s,
+			u"السيريلية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("LA"_s),
-			$of(u"لاوس"_s)
+			"LA"_s,
+			u"لاوس"_s
 		}),
 		$$new($ObjectArray, {
-			$of("LB"_s),
-			$of(u"لبنان"_s)
+			"LB"_s,
+			u"لبنان"_s
 		}),
 		$$new($ObjectArray, {
-			$of("phn"_s),
-			$of(metaValue_phn)
+			"phn"_s,
+			metaValue_phn
 		}),
 		$$new($ObjectArray, {
-			$of("LC"_s),
-			$of(u"سانت لوسيا"_s)
+			"LC"_s,
+			u"سانت لوسيا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Cyrs"_s),
-			$of(u"السيريلية السلافية الكنسية القديمة"_s)
+			"Cyrs"_s,
+			u"السيريلية السلافية الكنسية القديمة"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gwi"_s),
-			$of(u"غوتشن"_s)
+			"gwi"_s,
+			u"غوتشن"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nds"_s),
-			$of(u"الألمانية السفلى"_s)
+			"nds"_s,
+			u"الألمانية السفلى"_s
 		}),
 		$$new($ObjectArray, {
-			$of("LI"_s),
-			$of(u"ليختنشتاين"_s)
+			"LI"_s,
+			u"ليختنشتاين"_s
 		}),
 		$$new($ObjectArray, {
-			$of("LK"_s),
-			$of(u"سريلانكا"_s)
+			"LK"_s,
+			u"سريلانكا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("akk"_s),
-			$of(u"الأكادية"_s)
+			"akk"_s,
+			u"الأكادية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("cop"_s),
-			$of(metaValue_cop)
+			"cop"_s,
+			metaValue_cop
 		}),
 		$$new($ObjectArray, {
-			$of("LR"_s),
-			$of(u"ليبيريا"_s)
+			"LR"_s,
+			u"ليبيريا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("LS"_s),
-			$of(u"ليسوتو"_s)
+			"LS"_s,
+			u"ليسوتو"_s
 		}),
 		$$new($ObjectArray, {
-			$of("LT"_s),
-			$of(u"ليتوانيا"_s)
+			"LT"_s,
+			u"ليتوانيا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("LU"_s),
-			$of(u"لوكسمبورغ"_s)
+			"LU"_s,
+			u"لوكسمبورغ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("LV"_s),
-			$of(u"لاتفيا"_s)
+			"LV"_s,
+			u"لاتفيا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Kana"_s),
-			$of(u"الكتكانا"_s)
+			"Kana"_s,
+			u"الكتكانا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("LY"_s),
-			$of(u"ليبيا"_s)
+			"LY"_s,
+			u"ليبيا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lad"_s),
-			$of(u"اللادينو"_s)
+			"lad"_s,
+			u"اللادينو"_s
 		}),
 		$$new($ObjectArray, {
-			$of("vun"_s),
-			$of(u"الفونجو"_s)
+			"vun"_s,
+			u"الفونجو"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lah"_s),
-			$of(u"اللاهندا"_s)
+			"lah"_s,
+			u"اللاهندا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lag"_s),
-			$of(u"لانجي"_s)
+			"lag"_s,
+			u"لانجي"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Thaa"_s),
-			$of(u"الثعنة"_s)
+			"Thaa"_s,
+			u"الثعنة"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MA"_s),
-			$of(u"المغرب"_s)
+			"MA"_s,
+			u"المغرب"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MC"_s),
-			$of(u"موناكو"_s)
+			"MC"_s,
+			u"موناكو"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MD"_s),
-			$of(u"مولدوفا"_s)
+			"MD"_s,
+			u"مولدوفا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ME"_s),
-			$of(u"الجبل الأسود"_s)
+			"ME"_s,
+			u"الجبل الأسود"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MF"_s),
-			$of(u"سان مارتن"_s)
+			"MF"_s,
+			u"سان مارتن"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lam"_s),
-			$of(u"اللامبا"_s)
+			"lam"_s,
+			u"اللامبا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MG"_s),
-			$of(u"مدغشقر"_s)
+			"MG"_s,
+			u"مدغشقر"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Thai"_s),
-			$of(metaValue_th)
+			"Thai"_s,
+			metaValue_th
 		}),
 		$$new($ObjectArray, {
-			$of("MH"_s),
-			$of(u"جزر مارشال"_s)
+			"MH"_s,
+			u"جزر مارشال"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ale"_s),
-			$of(u"الأليوتية"_s)
+			"ale"_s,
+			u"الأليوتية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.vaii"_s),
-			$of(u"أرقام فاي"_s)
+			"type.nu.vaii"_s,
+			u"أرقام فاي"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MK"_s),
-			$of(u"مقدونيا الشمالية"_s)
+			"MK"_s,
+			u"مقدونيا الشمالية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ML"_s),
-			$of(u"مالي"_s)
+			"ML"_s,
+			u"مالي"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MM"_s),
-			$of(u"ميانمار (بورما)"_s)
+			"MM"_s,
+			u"ميانمار (بورما)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MN"_s),
-			$of(u"منغوليا"_s)
+			"MN"_s,
+			u"منغوليا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("new"_s),
-			$of(u"النوارية"_s)
+			"new"_s,
+			u"النوارية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MO"_s),
-			$of(u"منطقة ماكاو الإدارية الخاصة"_s)
+			"MO"_s,
+			u"منطقة ماكاو الإدارية الخاصة"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MP"_s),
-			$of(u"جزر ماريانا الشمالية"_s)
+			"MP"_s,
+			u"جزر ماريانا الشمالية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MQ"_s),
-			$of(u"جزر المارتينيك"_s)
+			"MQ"_s,
+			u"جزر المارتينيك"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MR"_s),
-			$of(u"موريتانيا"_s)
+			"MR"_s,
+			u"موريتانيا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MS"_s),
-			$of(u"مونتسرات"_s)
+			"MS"_s,
+			u"مونتسرات"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MT"_s),
-			$of(u"مالطا"_s)
+			"MT"_s,
+			u"مالطا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.m0.ungegn"_s),
-			$of(u"يو إن جي إي جي إن"_s)
+			"type.m0.ungegn"_s,
+			u"يو إن جي إي جي إن"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MU"_s),
-			$of(u"موريشيوس"_s)
+			"MU"_s,
+			u"موريشيوس"_s
 		}),
 		$$new($ObjectArray, {
-			$of("alt"_s),
-			$of(u"الألطائية الجنوبية"_s)
+			"alt"_s,
+			u"الألطائية الجنوبية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MV"_s),
-			$of(u"جزر المالديف"_s)
+			"MV"_s,
+			u"جزر المالديف"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MW"_s),
-			$of(u"ملاوي"_s)
+			"MW"_s,
+			u"ملاوي"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MX"_s),
-			$of(u"المكسيك"_s)
+			"MX"_s,
+			u"المكسيك"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.ca.japanese"_s),
-			$of(u"التقويم الياباني"_s)
+			"type.ca.japanese"_s,
+			u"التقويم الياباني"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MY"_s),
-			$of(u"ماليزيا"_s)
+			"MY"_s,
+			u"ماليزيا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MZ"_s),
-			$of(u"موزمبيق"_s)
+			"MZ"_s,
+			u"موزمبيق"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NA"_s),
-			$of(u"ناميبيا"_s)
+			"NA"_s,
+			u"ناميبيا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("202"_s),
-			$of(u"أفريقيا جنوب الصحراء الكبرى"_s)
+			"202"_s,
+			u"أفريقيا جنوب الصحراء الكبرى"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.ca.hebrew"_s),
-			$of(u"التقويم العبري"_s)
+			"type.ca.hebrew"_s,
+			u"التقويم العبري"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.co.dictionary"_s),
-			$of(u"ترتيب فرز القاموس"_s)
+			"type.co.dictionary"_s,
+			u"ترتيب فرز القاموس"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NC"_s),
-			$of(u"كاليدونيا الجديدة"_s)
+			"NC"_s,
+			u"كاليدونيا الجديدة"_s
 		}),
 		$$new($ObjectArray, {
-			$of("%%WADEGILE"_s),
-			$of(u"المندرين باللاتينية - ويد–جيلز"_s)
+			"%%WADEGILE"_s,
+			u"المندرين باللاتينية - ويد–جيلز"_s
 		}),
 		$$new($ObjectArray, {
-			$of("%%UCRCOR"_s),
-			$of(u"التهجئة المراجعة الموحدة"_s)
+			"%%UCRCOR"_s,
+			u"التهجئة المراجعة الموحدة"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NE"_s),
-			$of(u"النيجر"_s)
+			"NE"_s,
+			u"النيجر"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NF"_s),
-			$of(u"جزيرة نورفولك"_s)
+			"NF"_s,
+			u"جزيرة نورفولك"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NG"_s),
-			$of(u"نيجيريا"_s)
+			"NG"_s,
+			u"نيجيريا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("trv"_s),
-			$of(u"لغة التاروكو"_s)
+			"trv"_s,
+			u"لغة التاروكو"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NI"_s),
-			$of(u"نيكاراغوا"_s)
+			"NI"_s,
+			u"نيكاراغوا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Hmng"_s),
-			$of(u"الباهوه همونج"_s)
+			"Hmng"_s,
+			u"الباهوه همونج"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NL"_s),
-			$of(u"هولندا"_s)
+			"NL"_s,
+			u"هولندا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NO"_s),
-			$of(u"النرويج"_s)
+			"NO"_s,
+			u"النرويج"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NP"_s),
-			$of(u"نيبال"_s)
+			"NP"_s,
+			u"نيبال"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NR"_s),
-			$of(u"ناورو"_s)
+			"NR"_s,
+			u"ناورو"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Phnx"_s),
-			$of(metaValue_phn)
+			"Phnx"_s,
+			metaValue_phn
 		}),
 		$$new($ObjectArray, {
-			$of("NU"_s),
-			$of(u"نيوي"_s)
+			"NU"_s,
+			u"نيوي"_s
 		}),
 		$$new($ObjectArray, {
-			$of("rof"_s),
-			$of(u"الرومبو"_s)
+			"rof"_s,
+			u"الرومبو"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tsi"_s),
-			$of(u"التسيمشيان"_s)
+			"tsi"_s,
+			u"التسيمشيان"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NZ"_s),
-			$of(u"نيوزيلندا"_s)
+			"NZ"_s,
+			u"نيوزيلندا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("rom"_s),
-			$of(u"الغجرية"_s)
+			"rom"_s,
+			u"الغجرية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Mero"_s),
-			$of(u"الميرويتيك"_s)
+			"Mero"_s,
+			u"الميرويتيك"_s
 		}),
 		$$new($ObjectArray, {
-			$of("crh"_s),
-			$of(u"لغة تتار القرم"_s)
+			"crh"_s,
+			u"لغة تتار القرم"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ang"_s),
-			$of(u"الإنجليزية القديمة"_s)
+			"ang"_s,
+			u"الإنجليزية القديمة"_s
 		}),
 		$$new($ObjectArray, {
-			$of("OM"_s),
-			$of(u"عُمان"_s)
+			"OM"_s,
+			u"عُمان"_s
 		}),
 		$$new($ObjectArray, {
-			$of("anp"_s),
-			$of(u"الأنجيكا"_s)
+			"anp"_s,
+			u"الأنجيكا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("crs"_s),
-			$of(u"الفرنسية الكريولية السيشيلية"_s)
+			"crs"_s,
+			u"الفرنسية الكريولية السيشيلية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Xpeo"_s),
-			$of(metaValue_peo)
+			"Xpeo"_s,
+			metaValue_peo
 		}),
 		$$new($ObjectArray, {
-			$of("PA"_s),
-			$of(u"بنما"_s)
+			"PA"_s,
+			u"بنما"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.ca.islamic-civil"_s),
-			$of(u"التقويم الإسلامي المدني"_s)
+			"type.ca.islamic-civil"_s,
+			u"التقويم الإسلامي المدني"_s
 		}),
 		$$new($ObjectArray, {
-			$of("csb"_s),
-			$of(u"الكاشبايان"_s)
+			"csb"_s,
+			u"الكاشبايان"_s
 		}),
 		$$new($ObjectArray, {
-			$of("en_GB"_s),
-			$of(u"الإنجليزية البريطانية"_s)
+			"en_GB"_s,
+			u"الإنجليزية البريطانية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PE"_s),
-			$of(u"بيرو"_s)
+			"PE"_s,
+			u"بيرو"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PF"_s),
-			$of(u"بولينيزيا الفرنسية"_s)
+			"PF"_s,
+			u"بولينيزيا الفرنسية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PG"_s),
-			$of(u"بابوا غينيا الجديدة"_s)
+			"PG"_s,
+			u"بابوا غينيا الجديدة"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PH"_s),
-			$of(u"الفلبين"_s)
+			"PH"_s,
+			u"الفلبين"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PK"_s),
-			$of(u"باكستان"_s)
+			"PK"_s,
+			u"باكستان"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PL"_s),
-			$of(u"بولندا"_s)
+			"PL"_s,
+			u"بولندا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ewo"_s),
-			$of(u"الإيوندو"_s)
+			"ewo"_s,
+			u"الإيوندو"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PM"_s),
-			$of(u"سان بيير ومكويلون"_s)
+			"PM"_s,
+			u"سان بيير ومكويلون"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PN"_s),
-			$of(u"جزر بيتكيرن"_s)
+			"PN"_s,
+			u"جزر بيتكيرن"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PR"_s),
-			$of(u"بورتوريكو"_s)
+			"PR"_s,
+			u"بورتوريكو"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Bali"_s),
-			$of(metaValue_pi)
+			"Bali"_s,
+			metaValue_pi
 		}),
 		$$new($ObjectArray, {
-			$of("PS"_s),
-			$of(u"الأراضي الفلسطينية"_s)
+			"PS"_s,
+			u"الأراضي الفلسطينية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PT"_s),
-			$of(u"البرتغال"_s)
+			"PT"_s,
+			u"البرتغال"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PW"_s),
-			$of(u"بالاو"_s)
+			"PW"_s,
+			u"بالاو"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nia"_s),
-			$of(u"النياس"_s)
+			"nia"_s,
+			u"النياس"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.greklow"_s),
-			$of(u"الأرقام اليونانية الصغيرة"_s)
+			"type.nu.greklow"_s,
+			u"الأرقام اليونانية الصغيرة"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PY"_s),
-			$of(u"باراغواي"_s)
+			"PY"_s,
+			u"باراغواي"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tum"_s),
-			$of(u"التامبوكا"_s)
+			"tum"_s,
+			u"التامبوكا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Hebr"_s),
-			$of(metaValue_he)
+			"Hebr"_s,
+			metaValue_he
 		}),
 		$$new($ObjectArray, {
-			$of("QA"_s),
-			$of(u"قطر"_s)
+			"QA"_s,
+			u"قطر"_s
 		}),
 		$$new($ObjectArray, {
-			$of("%%SCOTLAND"_s),
-			$of(u"الإنجليزية الأسكتلندنية الرسمية"_s)
+			"%%SCOTLAND"_s,
+			u"الإنجليزية الأسكتلندنية الرسمية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("niu"_s),
-			$of(u"النيوي"_s)
+			"niu"_s,
+			u"النيوي"_s
 		}),
 		$$new($ObjectArray, {
-			$of("QO"_s),
-			$of(u"أوقيانوسيا النائية"_s)
+			"QO"_s,
+			u"أوقيانوسيا النائية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lez"_s),
-			$of(u"الليزجية"_s)
+			"lez"_s,
+			u"الليزجية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tvl"_s),
-			$of(u"التوفالو"_s)
+			"tvl"_s,
+			u"التوفالو"_s
 		}),
 		$$new($ObjectArray, {
-			$of("001"_s),
-			$of(u"العالم"_s)
+			"001"_s,
+			u"العالم"_s
 		}),
 		$$new($ObjectArray, {
-			$of("002"_s),
-			$of(u"أفريقيا"_s)
+			"002"_s,
+			u"أفريقيا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("003"_s),
-			$of(u"أمريكا الشمالية"_s)
+			"003"_s,
+			u"أمريكا الشمالية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("RE"_s),
-			$of(u"روينيون"_s)
+			"RE"_s,
+			u"روينيون"_s
 		}),
 		$$new($ObjectArray, {
-			$of("005"_s),
-			$of(u"أمريكا الجنوبية"_s)
+			"005"_s,
+			u"أمريكا الجنوبية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("jbo"_s),
-			$of(u"اللوجبان"_s)
+			"jbo"_s,
+			u"اللوجبان"_s
 		}),
 		$$new($ObjectArray, {
-			$of("009"_s),
-			$of(u"أوقيانوسيا"_s)
+			"009"_s,
+			u"أوقيانوسيا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("RO"_s),
-			$of(u"رومانيا"_s)
+			"RO"_s,
+			u"رومانيا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("RS"_s),
-			$of(u"صربيا"_s)
+			"RS"_s,
+			u"صربيا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("RU"_s),
-			$of(u"روسيا"_s)
+			"RU"_s,
+			u"روسيا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("RW"_s),
-			$of(u"رواندا"_s)
+			"RW"_s,
+			u"رواندا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Ugar"_s),
-			$of(u"الأجاريتيكية"_s)
+			"Ugar"_s,
+			u"الأجاريتيكية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Khar"_s),
-			$of(u"الخاروشتى"_s)
+			"Khar"_s,
+			u"الخاروشتى"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SA"_s),
-			$of(u"المملكة العربية السعودية"_s)
+			"SA"_s,
+			u"المملكة العربية السعودية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("pon"_s),
-			$of(u"البوهنبيايان"_s)
+			"pon"_s,
+			u"البوهنبيايان"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Mand"_s),
-			$of(u"المانداينية"_s)
+			"Mand"_s,
+			u"المانداينية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SB"_s),
-			$of(u"جزر سليمان"_s)
+			"SB"_s,
+			u"جزر سليمان"_s
 		}),
 		$$new($ObjectArray, {
-			$of("twq"_s),
-			$of(u"تاساواق"_s)
+			"twq"_s,
+			u"تاساواق"_s
 		}),
 		$$new($ObjectArray, {
-			$of("011"_s),
-			$of(u"غرب أفريقيا"_s)
+			"011"_s,
+			u"غرب أفريقيا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SC"_s),
-			$of(u"سيشل"_s)
+			"SC"_s,
+			u"سيشل"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SD"_s),
-			$of(u"السودان"_s)
+			"SD"_s,
+			u"السودان"_s
 		}),
 		$$new($ObjectArray, {
-			$of("013"_s),
-			$of(u"أمريكا الوسطى"_s)
+			"013"_s,
+			u"أمريكا الوسطى"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SE"_s),
-			$of(u"السويد"_s)
+			"SE"_s,
+			u"السويد"_s
 		}),
 		$$new($ObjectArray, {
-			$of("014"_s),
-			$of(u"شرق أفريقيا"_s)
+			"014"_s,
+			u"شرق أفريقيا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("arc"_s),
-			$of(u"الآرامية"_s)
+			"arc"_s,
+			u"الآرامية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("015"_s),
-			$of(u"شمال أفريقيا"_s)
+			"015"_s,
+			u"شمال أفريقيا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SG"_s),
-			$of(u"سنغافورة"_s)
+			"SG"_s,
+			u"سنغافورة"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SH"_s),
-			$of(u"سانت هيلينا"_s)
+			"SH"_s,
+			u"سانت هيلينا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.lb.strict"_s),
-			$of(u"نمط فصل السطور: متقارب"_s)
+			"type.lb.strict"_s,
+			u"نمط فصل السطور: متقارب"_s
 		}),
 		$$new($ObjectArray, {
-			$of("017"_s),
-			$of(u"وسط أفريقيا"_s)
+			"017"_s,
+			u"وسط أفريقيا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SI"_s),
-			$of(u"سلوفينيا"_s)
+			"SI"_s,
+			u"سلوفينيا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("018"_s),
-			$of(u"أفريقيا الجنوبية"_s)
+			"018"_s,
+			u"أفريقيا الجنوبية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SJ"_s),
-			$of(u"سفالبارد وجان ماين"_s)
+			"SJ"_s,
+			u"سفالبارد وجان ماين"_s
 		}),
 		$$new($ObjectArray, {
-			$of("019"_s),
-			$of(u"الأمريكتان"_s)
+			"019"_s,
+			u"الأمريكتان"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SK"_s),
-			$of(u"سلوفاكيا"_s)
+			"SK"_s,
+			u"سلوفاكيا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SL"_s),
-			$of(u"سيراليون"_s)
+			"SL"_s,
+			u"سيراليون"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SM"_s),
-			$of(u"سان مارينو"_s)
+			"SM"_s,
+			u"سان مارينو"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SN"_s),
-			$of(u"السنغال"_s)
+			"SN"_s,
+			u"السنغال"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SO"_s),
-			$of(u"الصومال"_s)
+			"SO"_s,
+			u"الصومال"_s
 		}),
 		$$new($ObjectArray, {
-			$of("arn"_s),
-			$of(u"المابودونغونية"_s)
+			"arn"_s,
+			u"المابودونغونية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("arp"_s),
-			$of(u"الأراباهو"_s)
+			"arp"_s,
+			u"الأراباهو"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.taml"_s),
-			$of(u"الأرقام التاميلية التقليدية"_s)
+			"type.nu.taml"_s,
+			u"الأرقام التاميلية التقليدية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SR"_s),
-			$of(u"سورينام"_s)
+			"SR"_s,
+			u"سورينام"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SS"_s),
-			$of(u"جنوب السودان"_s)
+			"SS"_s,
+			u"جنوب السودان"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ST"_s),
-			$of(u"ساو تومي وبرينسيبي"_s)
+			"ST"_s,
+			u"ساو تومي وبرينسيبي"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SV"_s),
-			$of(u"السلفادور"_s)
+			"SV"_s,
+			u"السلفادور"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ars"_s),
-			$of(u"اللهجة النجدية"_s)
+			"ars"_s,
+			u"اللهجة النجدية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SX"_s),
-			$of(u"سانت مارتن"_s)
+			"SX"_s,
+			u"سانت مارتن"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SY"_s),
-			$of(u"سوريا"_s)
+			"SY"_s,
+			u"سوريا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("yao"_s),
-			$of(u"الياو"_s)
+			"yao"_s,
+			u"الياو"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SZ"_s),
-			$of(u"إسواتيني"_s)
+			"SZ"_s,
+			u"إسواتيني"_s
 		}),
 		$$new($ObjectArray, {
-			$of("arw"_s),
-			$of(u"الأراواكية"_s)
+			"arw"_s,
+			u"الأراواكية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("yap"_s),
-			$of(u"اليابيز"_s)
+			"yap"_s,
+			u"اليابيز"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TA"_s),
-			$of(u"تريستان دا كونا"_s)
+			"TA"_s,
+			u"تريستان دا كونا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("asa"_s),
-			$of(u"الآسو"_s)
+			"asa"_s,
+			u"الآسو"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.ms.ussystem"_s),
-			$of(u"نظام القياس الأمريكي"_s)
+			"type.ms.ussystem"_s,
+			u"نظام القياس الأمريكي"_s
 		}),
 		$$new($ObjectArray, {
-			$of("021"_s),
-			$of(u"شمال أمريكا"_s)
+			"021"_s,
+			u"شمال أمريكا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TC"_s),
-			$of(u"جزر توركس وكايكوس"_s)
+			"TC"_s,
+			u"جزر توركس وكايكوس"_s
 		}),
 		$$new($ObjectArray, {
-			$of("yav"_s),
-			$of(u"يانجبن"_s)
+			"yav"_s,
+			u"يانجبن"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TD"_s),
-			$of(u"تشاد"_s)
+			"TD"_s,
+			u"تشاد"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Qaag"_s),
-			$of(u"زوجيي"_s)
+			"Qaag"_s,
+			u"زوجيي"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TF"_s),
-			$of(u"الأقاليم الجنوبية الفرنسية"_s)
+			"TF"_s,
+			u"الأقاليم الجنوبية الفرنسية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TG"_s),
-			$of(u"توغو"_s)
+			"TG"_s,
+			u"توغو"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TH"_s),
-			$of(u"تايلاند"_s)
+			"TH"_s,
+			u"تايلاند"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TJ"_s),
-			$of(u"طاجيكستان"_s)
+			"TJ"_s,
+			u"طاجيكستان"_s
 		}),
 		$$new($ObjectArray, {
-			$of("029"_s),
-			$of(u"الكاريبي"_s)
+			"029"_s,
+			u"الكاريبي"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TK"_s),
-			$of(u"توكيلو"_s)
+			"TK"_s,
+			u"توكيلو"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TL"_s),
-			$of(u"تيمور - ليشتي"_s)
+			"TL"_s,
+			u"تيمور - ليشتي"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ybb"_s),
-			$of(u"يمبا"_s)
+			"ybb"_s,
+			u"يمبا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.co.searchjl"_s),
-			$of(u"بحث باستخدام حرف الهانغول الساكن الأول"_s)
+			"type.co.searchjl"_s,
+			u"بحث باستخدام حرف الهانغول الساكن الأول"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TM"_s),
-			$of(u"تركمانستان"_s)
+			"TM"_s,
+			u"تركمانستان"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TN"_s),
-			$of(u"تونس"_s)
+			"TN"_s,
+			u"تونس"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TO"_s),
-			$of(u"تونغا"_s)
+			"TO"_s,
+			u"تونغا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TR"_s),
-			$of(u"تركيا"_s)
+			"TR"_s,
+			u"تركيا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TT"_s),
-			$of(u"ترينيداد وتوباغو"_s)
+			"TT"_s,
+			u"ترينيداد وتوباغو"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TV"_s),
-			$of(u"توفالو"_s)
+			"TV"_s,
+			u"توفالو"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TW"_s),
-			$of(u"تايوان"_s)
+			"TW"_s,
+			u"تايوان"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ast"_s),
-			$of(u"الأسترية"_s)
+			"ast"_s,
+			u"الأسترية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Orkh"_s),
-			$of(u"الأورخون"_s)
+			"Orkh"_s,
+			u"الأورخون"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TZ"_s),
-			$of(u"تنزانيا"_s)
+			"TZ"_s,
+			u"تنزانيا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nmg"_s),
-			$of(u"كواسيو"_s)
+			"nmg"_s,
+			u"كواسيو"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Zzzz"_s),
-			$of(u"نظام كتابة غير معروف"_s)
+			"Zzzz"_s,
+			u"نظام كتابة غير معروف"_s
 		}),
 		$$new($ObjectArray, {
-			$of("UA"_s),
-			$of(u"أوكرانيا"_s)
+			"UA"_s,
+			u"أوكرانيا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("rup"_s),
-			$of(u"الأرومانيان"_s)
+			"rup"_s,
+			u"الأرومانيان"_s
 		}),
 		$$new($ObjectArray, {
-			$of("030"_s),
-			$of(u"شرق آسيا"_s)
+			"030"_s,
+			u"شرق آسيا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tyv"_s),
-			$of(u"التوفية"_s)
+			"tyv"_s,
+			u"التوفية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sw_CD"_s),
-			$of(u"الكونغو السواحلية"_s)
+			"sw_CD"_s,
+			u"الكونغو السواحلية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("034"_s),
-			$of(u"جنوب آسيا"_s)
+			"034"_s,
+			u"جنوب آسيا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("hai"_s),
-			$of(u"الهيدا"_s)
+			"hai"_s,
+			u"الهيدا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("035"_s),
-			$of(u"جنوب شرق آسيا"_s)
+			"035"_s,
+			u"جنوب شرق آسيا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("UG"_s),
-			$of(u"أوغندا"_s)
+			"UG"_s,
+			u"أوغندا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("hak"_s),
-			$of(u"الهاكا الصينية"_s)
+			"hak"_s,
+			u"الهاكا الصينية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.co.pinyin"_s),
-			$of(u"الترتيب الصيني بنيين المبسط"_s)
+			"type.co.pinyin"_s,
+			u"الترتيب الصيني بنيين المبسط"_s
 		}),
 		$$new($ObjectArray, {
-			$of("039"_s),
-			$of(u"جنوب أوروبا"_s)
+			"039"_s,
+			u"جنوب أوروبا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Sinh"_s),
-			$of(u"السينهالا"_s)
+			"Sinh"_s,
+			u"السينهالا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("UM"_s),
-			$of(u"جزر الولايات المتحدة النائية"_s)
+			"UM"_s,
+			u"جزر الولايات المتحدة النائية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("UN"_s),
-			$of(u"الأمم المتحدة"_s)
+			"UN"_s,
+			u"الأمم المتحدة"_s
 		}),
 		$$new($ObjectArray, {
-			$of("US"_s),
-			$of(u"الولايات المتحدة"_s)
+			"US"_s,
+			u"الولايات المتحدة"_s
 		}),
 		$$new($ObjectArray, {
-			$of("haw"_s),
-			$of(u"لغة هاواي"_s)
+			"haw"_s,
+			u"لغة هاواي"_s
 		}),
 		$$new($ObjectArray, {
-			$of("%%1959ACAD"_s),
-			$of(u"أكاديمي"_s)
+			"%%1959ACAD"_s,
+			u"أكاديمي"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.co.gb2312han"_s),
-			$of(u"ترتيب فرز الصينية المبسطة (GB2312)"_s)
+			"type.co.gb2312han"_s,
+			u"ترتيب فرز الصينية المبسطة (GB2312)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("UY"_s),
-			$of(u"أورغواي"_s)
+			"UY"_s,
+			u"أورغواي"_s
 		}),
 		$$new($ObjectArray, {
-			$of("prg"_s),
-			$of(u"البروسياوية"_s)
+			"prg"_s,
+			u"البروسياوية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("UZ"_s),
-			$of(u"أوزبكستان"_s)
+			"UZ"_s,
+			u"أوزبكستان"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tzm"_s),
-			$of(u"الأمازيغية وسط الأطلس"_s)
+			"tzm"_s,
+			u"الأمازيغية وسط الأطلس"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.co.stroke"_s),
-			$of(u"الترتيب الصيني بنيين التقليدي"_s)
+			"type.co.stroke"_s,
+			u"الترتيب الصيني بنيين التقليدي"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nnh"_s),
-			$of(u"لغة النجيمبون"_s)
+			"nnh"_s,
+			u"لغة النجيمبون"_s
 		}),
 		$$new($ObjectArray, {
-			$of("VA"_s),
-			$of(u"الفاتيكان"_s)
+			"VA"_s,
+			u"الفاتيكان"_s
 		}),
 		$$new($ObjectArray, {
-			$of("pro"_s),
-			$of(u"البروفانسية القديمة"_s)
+			"pro"_s,
+			u"البروفانسية القديمة"_s
 		}),
 		$$new($ObjectArray, {
-			$of("VC"_s),
-			$of(u"سانت فنسنت وجزر غرينادين"_s)
+			"VC"_s,
+			u"سانت فنسنت وجزر غرينادين"_s
 		}),
 		$$new($ObjectArray, {
-			$of("VE"_s),
-			$of(u"فنزويلا"_s)
+			"VE"_s,
+			u"فنزويلا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("VG"_s),
-			$of(u"جزر فيرجن البريطانية"_s)
+			"VG"_s,
+			u"جزر فيرجن البريطانية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("VI"_s),
-			$of(u"جزر فيرجن التابعة للولايات المتحدة"_s)
+			"VI"_s,
+			u"جزر فيرجن التابعة للولايات المتحدة"_s
 		}),
 		$$new($ObjectArray, {
-			$of("VN"_s),
-			$of(u"فيتنام"_s)
+			"VN"_s,
+			u"فيتنام"_s
 		}),
 		$$new($ObjectArray, {
-			$of("VU"_s),
-			$of(u"فانواتو"_s)
+			"VU"_s,
+			u"فانواتو"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nog"_s),
-			$of(u"النوجاي"_s)
+			"nog"_s,
+			u"النوجاي"_s
 		}),
 		$$new($ObjectArray, {
-			$of("rwk"_s),
-			$of(u"الروا"_s)
+			"rwk"_s,
+			u"الروا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("non"_s),
-			$of(u"النورس القديم"_s)
+			"non"_s,
+			u"النورس القديم"_s
 		}),
 		$$new($ObjectArray, {
-			$of("053"_s),
-			$of(u"أسترالاسيا"_s)
+			"053"_s,
+			u"أسترالاسيا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("%%AREVMDA"_s),
-			$of(u"أرمنية غربية"_s)
+			"%%AREVMDA"_s,
+			u"أرمنية غربية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("054"_s),
-			$of(u"ميلانيزيا"_s)
+			"054"_s,
+			u"ميلانيزيا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("WF"_s),
-			$of(u"جزر والس وفوتونا"_s)
+			"WF"_s,
+			u"جزر والس وفوتونا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.co.traditional"_s),
-			$of(u"ترتيب تقليدي"_s)
+			"type.co.traditional"_s,
+			u"ترتيب تقليدي"_s
 		}),
 		$$new($ObjectArray, {
-			$of("057"_s),
-			$of(u"الجزر الميكرونيزية"_s)
+			"057"_s,
+			u"الجزر الميكرونيزية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("jgo"_s),
-			$of(u"نغومبا"_s)
+			"jgo"_s,
+			u"نغومبا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lkt"_s),
-			$of(u"لاكوتا"_s)
+			"lkt"_s,
+			u"لاكوتا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.finance"_s),
-			$of(u"الأرقام المالية"_s)
+			"type.nu.finance"_s,
+			u"الأرقام المالية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.co.compat"_s),
-			$of(u"ترتيب الفرز السابق: للتوافق"_s)
+			"type.co.compat"_s,
+			u"ترتيب الفرز السابق: للتوافق"_s
 		}),
 		$$new($ObjectArray, {
-			$of("wae"_s),
-			$of(u"الوالسر"_s)
+			"wae"_s,
+			u"الوالسر"_s
 		}),
 		$$new($ObjectArray, {
-			$of("WS"_s),
-			$of(u"ساموا"_s)
+			"WS"_s,
+			u"ساموا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("wal"_s),
-			$of(u"الولاياتا"_s)
+			"wal"_s,
+			u"الولاياتا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("was"_s),
-			$of(u"الواشو"_s)
+			"was"_s,
+			u"الواشو"_s
 		}),
 		$$new($ObjectArray, {
-			$of("XA"_s),
-			$of(u"لكنات تجريبية غير أصلية"_s)
+			"XA"_s,
+			u"لكنات تجريبية غير أصلية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("war"_s),
-			$of(u"الواراي"_s)
+			"war"_s,
+			u"الواراي"_s
 		}),
 		$$new($ObjectArray, {
-			$of("XB"_s),
-			$of(u"لكنات تجريبية ثنائية الاتجاه"_s)
+			"XB"_s,
+			u"لكنات تجريبية ثنائية الاتجاه"_s
 		}),
 		$$new($ObjectArray, {
-			$of("awa"_s),
-			$of(u"الأوادية"_s)
+			"awa"_s,
+			u"الأوادية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("061"_s),
-			$of(u"بولينيزيا"_s)
+			"061"_s,
+			u"بولينيزيا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("XK"_s),
-			$of(u"كوسوفو"_s)
+			"XK"_s,
+			u"كوسوفو"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Gujr"_s),
-			$of(u"التاغجراتية"_s)
+			"Gujr"_s,
+			u"التاغجراتية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Zxxx"_s),
-			$of(u"غير مكتوب"_s)
+			"Zxxx"_s,
+			u"غير مكتوب"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Olck"_s),
-			$of(u"أول تشيكي"_s)
+			"Olck"_s,
+			u"أول تشيكي"_s
 		}),
 		$$new($ObjectArray, {
-			$of("wbp"_s),
-			$of(u"وارلبيري"_s)
+			"wbp"_s,
+			u"وارلبيري"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Batk"_s),
-			$of(u"الباتاك"_s)
+			"Batk"_s,
+			u"الباتاك"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Blis"_s),
-			$of(u"رموز بليس"_s)
+			"Blis"_s,
+			u"رموز بليس"_s
 		}),
 		$$new($ObjectArray, {
-			$of("YE"_s),
-			$of(u"اليمن"_s)
+			"YE"_s,
+			u"اليمن"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nqo"_s),
-			$of(metaValue_nqo)
+			"nqo"_s,
+			metaValue_nqo
 		}),
 		$$new($ObjectArray, {
-			$of("type.co.standard"_s),
-			$of(u"ترتيب الفرز القياسي"_s)
+			"type.co.standard"_s,
+			u"ترتيب الفرز القياسي"_s
 		}),
 		$$new($ObjectArray, {
-			$of("fan"_s),
-			$of(u"الفانج"_s)
+			"fan"_s,
+			u"الفانج"_s
 		}),
 		$$new($ObjectArray, {
-			$of("fat"_s),
-			$of(u"الفانتي"_s)
+			"fat"_s,
+			u"الفانتي"_s
 		}),
 		$$new($ObjectArray, {
-			$of("YT"_s),
-			$of(u"مايوت"_s)
+			"YT"_s,
+			u"مايوت"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ZA"_s),
-			$of(u"جنوب أفريقيا"_s)
+			"ZA"_s,
+			u"جنوب أفريقيا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.lb.loose"_s),
-			$of(u"نمط فصل السطور: متباعد"_s)
+			"type.lb.loose"_s,
+			u"نمط فصل السطور: متباعد"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Deva"_s),
-			$of(u"الديفاناجاري"_s)
+			"Deva"_s,
+			u"الديفاناجاري"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.geor"_s),
-			$of(u"الأرقام الجورجية"_s)
+			"type.nu.geor"_s,
+			u"الأرقام الجورجية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Hira"_s),
-			$of(u"الهيراجانا"_s)
+			"Hira"_s,
+			u"الهيراجانا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ZM"_s),
-			$of(u"زامبيا"_s)
+			"ZM"_s,
+			u"زامبيا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("%%PINYIN"_s),
-			$of(u"بينيين باللاتينية"_s)
+			"%%PINYIN"_s,
+			u"بينيين باللاتينية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ZW"_s),
-			$of(u"زيمبابوي"_s)
+			"ZW"_s,
+			u"زيمبابوي"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ZZ"_s),
-			$of(u"منطقة غير معروفة"_s)
+			"ZZ"_s,
+			u"منطقة غير معروفة"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Runr"_s),
-			$of(u"الروني"_s)
+			"Runr"_s,
+			u"الروني"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.ms.metric"_s),
-			$of(u"النظام المتري"_s)
+			"type.ms.metric"_s,
+			u"النظام المتري"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.ca.iso8601"_s),
-			$of(u"تقويم ISO-8601"_s)
+			"type.ca.iso8601"_s,
+			u"تقويم ISO-8601"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lol"_s),
-			$of(u"منغولى"_s)
+			"lol"_s,
+			u"منغولى"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nso"_s),
-			$of(u"السوتو الشمالية"_s)
+			"nso"_s,
+			u"السوتو الشمالية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.telu"_s),
-			$of(u"الأرقام التيلوغوية"_s)
+			"type.nu.telu"_s,
+			u"الأرقام التيلوغوية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lou"_s),
-			$of(u"الكريولية اللويزيانية"_s)
+			"lou"_s,
+			u"الكريولية اللويزيانية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("loz"_s),
-			$of(u"اللوزي"_s)
+			"loz"_s,
+			u"اللوزي"_s
 		}),
 		$$new($ObjectArray, {
-			$of("jmc"_s),
-			$of(u"الماتشامية"_s)
+			"jmc"_s,
+			u"الماتشامية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.hansfin"_s),
-			$of(u"الأرقام المالية الصينية المبسطة"_s)
+			"type.nu.hansfin"_s,
+			u"الأرقام المالية الصينية المبسطة"_s
 		}),
 		$$new($ObjectArray, {
-			$of("hil"_s),
-			$of(u"الهيليجينون"_s)
+			"hil"_s,
+			u"الهيليجينون"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.arabext"_s),
-			$of(u"الأرقام العربية الهندية الممتدة"_s)
+			"type.nu.arabext"_s,
+			u"الأرقام العربية الهندية الممتدة"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nus"_s),
-			$of(u"النوير"_s)
+			"nus"_s,
+			u"النوير"_s
 		}),
 		$$new($ObjectArray, {
-			$of("dak"_s),
-			$of(u"الداكوتا"_s)
+			"dak"_s,
+			u"الداكوتا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.fullwide"_s),
-			$of(u"أرقام كاملة العرض"_s)
+			"type.nu.fullwide"_s,
+			u"أرقام كاملة العرض"_s
 		}),
 		$$new($ObjectArray, {
-			$of("hit"_s),
-			$of(u"الحثية"_s)
+			"hit"_s,
+			u"الحثية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("dar"_s),
-			$of(u"الدارجوا"_s)
+			"dar"_s,
+			u"الدارجوا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("dav"_s),
-			$of(u"تيتا"_s)
+			"dav"_s,
+			u"تيتا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Maya"_s),
-			$of(u"المايا الهيروغليفية"_s)
+			"Maya"_s,
+			u"المايا الهيروغليفية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lrc"_s),
-			$of(u"اللرية الشمالية"_s)
+			"lrc"_s,
+			u"اللرية الشمالية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Copt"_s),
-			$of(metaValue_cop)
+			"Copt"_s,
+			metaValue_cop
 		}),
 		$$new($ObjectArray, {
-			$of("nwc"_s),
-			$of(u"النوارية التقليدية"_s)
+			"nwc"_s,
+			u"النوارية التقليدية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("udm"_s),
-			$of(u"الأدمرت"_s)
+			"udm"_s,
+			u"الأدمرت"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Khmr"_s),
-			$of(metaValue_km)
+			"Khmr"_s,
+			metaValue_km
 		}),
 		$$new($ObjectArray, {
-			$of("type.ca.islamic-rgsa"_s),
-			$of(u"التقويم الإسلامي (السعودية - الرؤية)"_s)
+			"type.ca.islamic-rgsa"_s,
+			u"التقويم الإسلامي (السعودية - الرؤية)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Limb"_s),
-			$of(u"الليمبو"_s)
+			"Limb"_s,
+			u"الليمبو"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sad"_s),
-			$of(u"السانداوي"_s)
+			"sad"_s,
+			u"السانداوي"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.roman"_s),
-			$of(u"الأرقام الرومانية"_s)
+			"type.nu.roman"_s,
+			u"الأرقام الرومانية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sah"_s),
-			$of(u"الساخيّة"_s)
+			"sah"_s,
+			u"الساخيّة"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sam"_s),
-			$of(u"الآرامية السامرية"_s)
+			"sam"_s,
+			u"الآرامية السامرية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("saq"_s),
-			$of(u"سامبورو"_s)
+			"saq"_s,
+			u"سامبورو"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sas"_s),
-			$of(u"الساساك"_s)
+			"sas"_s,
+			u"الساساك"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sat"_s),
-			$of(u"السانتالية"_s)
+			"sat"_s,
+			u"السانتالية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Tfng"_s),
-			$of(u"التيفيناغ"_s)
+			"Tfng"_s,
+			u"التيفيناغ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("jpr"_s),
-			$of(u"الفارسية اليهودية"_s)
+			"jpr"_s,
+			u"الفارسية اليهودية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.d0.npinyin"_s),
-			$of(u"رقمي"_s)
+			"type.d0.npinyin"_s,
+			u"رقمي"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.native"_s),
-			$of(u"الأرقام الأصلية"_s)
+			"type.nu.native"_s,
+			u"الأرقام الأصلية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sba"_s),
-			$of(u"نامبي"_s)
+			"sba"_s,
+			u"نامبي"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Guru"_s),
-			$of(u"الجرمخي"_s)
+			"Guru"_s,
+			u"الجرمخي"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lua"_s),
-			$of(u"اللبا-لؤلؤ"_s)
+			"lua"_s,
+			u"اللبا-لؤلؤ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.d0.fwidth"_s),
-			$of(u"عرض كامل"_s)
+			"type.d0.fwidth"_s,
+			u"عرض كامل"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sbp"_s),
-			$of(u"سانغو"_s)
+			"sbp"_s,
+			u"سانغو"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lui"_s),
-			$of(u"اللوسينو"_s)
+			"lui"_s,
+			u"اللوسينو"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nyn"_s),
-			$of(u"النيانكول"_s)
+			"nyn"_s,
+			u"النيانكول"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nym"_s),
-			$of(u"النيامويزي"_s)
+			"nym"_s,
+			u"النيامويزي"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lun"_s),
-			$of(u"اللوندا"_s)
+			"lun"_s,
+			u"اللوندا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nyo"_s),
-			$of(u"النيورو"_s)
+			"nyo"_s,
+			u"النيورو"_s
 		}),
 		$$new($ObjectArray, {
-			$of("luo"_s),
-			$of(u"اللو"_s)
+			"luo"_s,
+			u"اللو"_s
 		}),
 		$$new($ObjectArray, {
-			$of("fil"_s),
-			$of(u"الفلبينية"_s)
+			"fil"_s,
+			u"الفلبينية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("hmn"_s),
-			$of(u"الهمونجية"_s)
+			"hmn"_s,
+			u"الهمونجية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("del"_s),
-			$of(u"الديلوير"_s)
+			"del"_s,
+			u"الديلوير"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lus"_s),
-			$of(u"الميزو"_s)
+			"lus"_s,
+			u"الميزو"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bal"_s),
-			$of(u"البلوشية"_s)
+			"bal"_s,
+			u"البلوشية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("den"_s),
-			$of(u"السلافية"_s)
+			"den"_s,
+			u"السلافية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ban"_s),
-			$of(u"البالينية"_s)
+			"ban"_s,
+			u"البالينية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("uga"_s),
-			$of(u"اليجاريتيك"_s)
+			"uga"_s,
+			u"اليجاريتيك"_s
 		}),
 		$$new($ObjectArray, {
-			$of("luy"_s),
-			$of(u"لغة اللويا"_s)
+			"luy"_s,
+			u"لغة اللويا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bas"_s),
-			$of(u"الباسا"_s)
+			"bas"_s,
+			u"الباسا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bax"_s),
-			$of(u"بامن"_s)
+			"bax"_s,
+			u"بامن"_s
 		}),
 		$$new($ObjectArray, {
-			$of("jrb"_s),
-			$of(u"العربية اليهودية"_s)
+			"jrb"_s,
+			u"العربية اليهودية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("es_ES"_s),
-			$of(u"الإسبانية الأوروبية"_s)
+			"es_ES"_s,
+			u"الإسبانية الأوروبية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nzi"_s),
-			$of(u"النزيما"_s)
+			"nzi"_s,
+			u"النزيما"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sco"_s),
-			$of(u"الأسكتلندية"_s)
+			"sco"_s,
+			u"الأسكتلندية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("scn"_s),
-			$of(u"الصقلية"_s)
+			"scn"_s,
+			u"الصقلية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("aa"_s),
-			$of(u"الأفارية"_s)
+			"aa"_s,
+			u"الأفارية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ab"_s),
-			$of(u"الأبخازية"_s)
+			"ab"_s,
+			u"الأبخازية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Aran"_s),
-			$of(u"نستعليق"_s)
+			"Aran"_s,
+			u"نستعليق"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ae"_s),
-			$of(u"الأفستية"_s)
+			"ae"_s,
+			u"الأفستية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("af"_s),
-			$of(u"الأفريقانية"_s)
+			"af"_s,
+			u"الأفريقانية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ak"_s),
-			$of(u"الأكانية"_s)
+			"ak"_s,
+			u"الأكانية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bbj"_s),
-			$of(u"لغة الغومالا"_s)
+			"bbj"_s,
+			u"لغة الغومالا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("am"_s),
-			$of(u"الأمهرية"_s)
+			"am"_s,
+			u"الأمهرية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Arab"_s),
-			$of(metaValue_ar)
+			"Arab"_s,
+			metaValue_ar
 		}),
 		$$new($ObjectArray, {
-			$of("an"_s),
-			$of(u"الأراغونية"_s)
+			"an"_s,
+			u"الأراغونية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Jpan"_s),
-			$of(metaValue_ja)
+			"Jpan"_s,
+			metaValue_ja
 		}),
 		$$new($ObjectArray, {
-			$of("ar"_s),
-			$of(metaValue_ar)
+			"ar"_s,
+			metaValue_ar
 		}),
 		$$new($ObjectArray, {
-			$of("Hrkt"_s),
-			$of(u"أبجدية مقطعية يابانية"_s)
+			"Hrkt"_s,
+			u"أبجدية مقطعية يابانية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("as"_s),
-			$of(u"الأسامية"_s)
+			"as"_s,
+			u"الأسامية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Lina"_s),
-			$of(u"الخطية أ"_s)
+			"Lina"_s,
+			u"الخطية أ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("av"_s),
-			$of(u"الأوارية"_s)
+			"av"_s,
+			u"الأوارية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Linb"_s),
-			$of(u"الخطية ب"_s)
+			"Linb"_s,
+			u"الخطية ب"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sdh"_s),
-			$of(u"الكردية الجنوبية"_s)
+			"sdh"_s,
+			u"الكردية الجنوبية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ay"_s),
-			$of(u"الأيمارا"_s)
+			"ay"_s,
+			u"الأيمارا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("az"_s),
-			$of(u"الأذربيجانية"_s)
+			"az"_s,
+			u"الأذربيجانية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ba"_s),
-			$of(u"الباشكيرية"_s)
+			"ba"_s,
+			u"الباشكيرية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.co.unihan"_s),
-			$of(u"ترتيب تصنيف الجذر والضغطات"_s)
+			"type.co.unihan"_s,
+			u"ترتيب تصنيف الجذر والضغطات"_s
 		}),
 		$$new($ObjectArray, {
-			$of("be"_s),
-			$of(u"البيلاروسية"_s)
+			"be"_s,
+			u"البيلاروسية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bg"_s),
-			$of(u"البلغارية"_s)
+			"bg"_s,
+			u"البلغارية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bi"_s),
-			$of(u"البيسلامية"_s)
+			"bi"_s,
+			u"البيسلامية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bm"_s),
-			$of(u"البامبارا"_s)
+			"bm"_s,
+			u"البامبارا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bn"_s),
-			$of(metaValue_bn)
+			"bn"_s,
+			metaValue_bn
 		}),
 		$$new($ObjectArray, {
-			$of("bo"_s),
-			$of(metaValue_bo)
+			"bo"_s,
+			metaValue_bo
 		}),
 		$$new($ObjectArray, {
-			$of("dgr"_s),
-			$of(u"الدوجريب"_s)
+			"dgr"_s,
+			u"الدوجريب"_s
 		}),
 		$$new($ObjectArray, {
-			$of("br"_s),
-			$of(u"البريتونية"_s)
+			"br"_s,
+			u"البريتونية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bs"_s),
-			$of(u"البوسنية"_s)
+			"bs"_s,
+			u"البوسنية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("see"_s),
-			$of(u"السنيكا"_s)
+			"see"_s,
+			u"السنيكا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Mymr"_s),
-			$of(u"الميانمار"_s)
+			"Mymr"_s,
+			u"الميانمار"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.laoo"_s),
-			$of(u"الأرقام اللاوية"_s)
+			"type.nu.laoo"_s,
+			u"الأرقام اللاوية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("seh"_s),
-			$of(u"سينا"_s)
+			"seh"_s,
+			u"سينا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Nkoo"_s),
-			$of(metaValue_nqo)
+			"Nkoo"_s,
+			metaValue_nqo
 		}),
 		$$new($ObjectArray, {
-			$of("sel"_s),
-			$of(u"السيلكب"_s)
+			"sel"_s,
+			u"السيلكب"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ca"_s),
-			$of(u"الكتالانية"_s)
+			"ca"_s,
+			u"الكتالانية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ses"_s),
-			$of(u"كويرابورو سيني"_s)
+			"ses"_s,
+			u"كويرابورو سيني"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ce"_s),
-			$of(u"الشيشانية"_s)
+			"ce"_s,
+			u"الشيشانية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ch"_s),
-			$of(u"التشامورو"_s)
+			"ch"_s,
+			u"التشامورو"_s
 		}),
 		$$new($ObjectArray, {
-			$of("%%REVISED"_s),
-			$of(u"تهجئة تمت مراجعتها"_s)
+			"%%REVISED"_s,
+			u"تهجئة تمت مراجعتها"_s
 		}),
 		$$new($ObjectArray, {
-			$of("co"_s),
-			$of(u"الكورسيكية"_s)
+			"co"_s,
+			u"الكورسيكية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Orya"_s),
-			$of(u"الأوريا"_s)
+			"Orya"_s,
+			u"الأوريا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("cr"_s),
-			$of(u"الكرى"_s)
+			"cr"_s,
+			u"الكرى"_s
 		}),
 		$$new($ObjectArray, {
-			$of("cs"_s),
-			$of(u"التشيكية"_s)
+			"cs"_s,
+			u"التشيكية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("cu"_s),
-			$of(u"سلافية كنسية"_s)
+			"cu"_s,
+			u"سلافية كنسية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("cv"_s),
-			$of(u"التشوفاشي"_s)
+			"cv"_s,
+			u"التشوفاشي"_s
 		}),
 		$$new($ObjectArray, {
-			$of("cy"_s),
-			$of(u"الويلزية"_s)
+			"cy"_s,
+			u"الويلزية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.ethi"_s),
-			$of(u"الأرقام الإثيوبية"_s)
+			"type.nu.ethi"_s,
+			u"الأرقام الإثيوبية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Yiii"_s),
-			$of(u"اليي"_s)
+			"Yiii"_s,
+			u"اليي"_s
 		}),
 		$$new($ObjectArray, {
-			$of("da"_s),
-			$of(u"الدانمركية"_s)
+			"da"_s,
+			u"الدانمركية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("pt_PT"_s),
-			$of(u"البرتغالية الأوروبية"_s)
+			"pt_PT"_s,
+			u"البرتغالية الأوروبية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("de"_s),
-			$of(u"الألمانية"_s)
+			"de"_s,
+			u"الألمانية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.cf.standard"_s),
-			$of(u"تنسيق العملة القياسي"_s)
+			"type.cf.standard"_s,
+			u"تنسيق العملة القياسي"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bej"_s),
-			$of(u"البيجا"_s)
+			"bej"_s,
+			u"البيجا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("din"_s),
-			$of(u"الدنكا"_s)
+			"din"_s,
+			u"الدنكا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Bugi"_s),
-			$of(u"البجينيز"_s)
+			"Bugi"_s,
+			u"البجينيز"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bem"_s),
-			$of(u"البيمبا"_s)
+			"bem"_s,
+			u"البيمبا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sga"_s),
-			$of(u"الأيرلندية القديمة"_s)
+			"sga"_s,
+			u"الأيرلندية القديمة"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.mong"_s),
-			$of(u"الأرقام المغولية"_s)
+			"type.nu.mong"_s,
+			u"الأرقام المغولية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("dv"_s),
-			$of(u"المالديفية"_s)
+			"dv"_s,
+			u"المالديفية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("es_419"_s),
-			$of(u"الإسبانية أمريكا اللاتينية"_s)
+			"es_419"_s,
+			u"الإسبانية أمريكا اللاتينية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("dz"_s),
-			$of(u"الزونخاية"_s)
+			"dz"_s,
+			u"الزونخاية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bez"_s),
-			$of(u"بينا"_s)
+			"bez"_s,
+			u"بينا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.ca.chinese"_s),
-			$of(u"التقويم الصيني"_s)
+			"type.ca.chinese"_s,
+			u"التقويم الصيني"_s
 		}),
 		$$new($ObjectArray, {
-			$of("dje"_s),
-			$of(u"الزارمية"_s)
+			"dje"_s,
+			u"الزارمية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.grek"_s),
-			$of(u"الأرقام اليونانية"_s)
+			"type.nu.grek"_s,
+			u"الأرقام اليونانية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ee"_s),
-			$of(u"الإيوي"_s)
+			"ee"_s,
+			u"الإيوي"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bfd"_s),
-			$of(u"لغة البافوت"_s)
+			"bfd"_s,
+			u"لغة البافوت"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.lb.normal"_s),
-			$of(u"نمط فصل السطور: عادي"_s)
+			"type.lb.normal"_s,
+			u"نمط فصل السطور: عادي"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ro_MD"_s),
-			$of(u"المولدوفية"_s)
+			"ro_MD"_s,
+			u"المولدوفية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("el"_s),
-			$of(metaValue_el)
+			"el"_s,
+			metaValue_el
 		}),
 		$$new($ObjectArray, {
-			$of("en"_s),
-			$of(u"الإنجليزية"_s)
+			"en"_s,
+			u"الإنجليزية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("eo"_s),
-			$of(u"الإسبرانتو"_s)
+			"eo"_s,
+			u"الإسبرانتو"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.co.big5han"_s),
-			$of(u"ترتيب فرز الصينية التقليدية (Big5)"_s)
+			"type.co.big5han"_s,
+			u"ترتيب فرز الصينية التقليدية (Big5)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("es"_s),
-			$of(u"الإسبانية"_s)
+			"es"_s,
+			u"الإسبانية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("et"_s),
-			$of(u"الإستونية"_s)
+			"et"_s,
+			u"الإستونية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Hanb"_s),
-			$of(u"هانب"_s)
+			"Hanb"_s,
+			u"هانب"_s
 		}),
 		$$new($ObjectArray, {
-			$of("eu"_s),
-			$of(u"الباسكية"_s)
+			"eu"_s,
+			u"الباسكية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Buhd"_s),
-			$of(u"البهيدية"_s)
+			"Buhd"_s,
+			u"البهيدية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Hang"_s),
-			$of(u"الهانغول"_s)
+			"Hang"_s,
+			u"الهانغول"_s
 		}),
 		$$new($ObjectArray, {
-			$of("shi"_s),
-			$of(u"تشلحيت"_s)
+			"shi"_s,
+			u"تشلحيت"_s
 		}),
 		$$new($ObjectArray, {
-			$of("hsb"_s),
-			$of(u"الصوربية العليا"_s)
+			"hsb"_s,
+			u"الصوربية العليا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Hani"_s),
-			$of(u"الهان"_s)
+			"Hani"_s,
+			u"الهان"_s
 		}),
 		$$new($ObjectArray, {
-			$of("shn"_s),
-			$of(u"الشان"_s)
+			"shn"_s,
+			u"الشان"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Hano"_s),
-			$of(u"الهانونو"_s)
+			"Hano"_s,
+			u"الهانونو"_s
 		}),
 		$$new($ObjectArray, {
-			$of("fa"_s),
-			$of(u"الفارسية"_s)
+			"fa"_s,
+			u"الفارسية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Hans"_s),
-			$of(u"المبسطة"_s)
+			"Hans"_s,
+			u"المبسطة"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.latn"_s),
-			$of(u"الأرقام الغربية"_s)
+			"type.nu.latn"_s,
+			u"الأرقام الغربية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Hant"_s),
-			$of(u"التقليدية"_s)
+			"Hant"_s,
+			u"التقليدية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ff"_s),
-			$of(u"الفولانية"_s)
+			"ff"_s,
+			u"الفولانية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("shu"_s),
-			$of(u"العربية التشادية"_s)
+			"shu"_s,
+			u"العربية التشادية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("hsn"_s),
-			$of(u"شيانغ الصينية"_s)
+			"hsn"_s,
+			u"شيانغ الصينية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("fi"_s),
-			$of(u"الفنلندية"_s)
+			"fi"_s,
+			u"الفنلندية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("fj"_s),
-			$of(u"الفيجية"_s)
+			"fj"_s,
+			u"الفيجية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("fon"_s),
-			$of(u"الفون"_s)
+			"fon"_s,
+			u"الفون"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bgn"_s),
-			$of(u"البلوشية الغربية"_s)
+			"bgn"_s,
+			u"البلوشية الغربية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("yue"_s),
-			$of(u"الكَنْتُونية"_s)
+			"yue"_s,
+			u"الكَنْتُونية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("fo"_s),
-			$of(u"الفاروية"_s)
+			"fo"_s,
+			u"الفاروية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.m0.bgn"_s),
-			$of(u"بي جي إن"_s)
+			"type.m0.bgn"_s,
+			u"بي جي إن"_s
 		}),
 		$$new($ObjectArray, {
-			$of("umb"_s),
-			$of(u"الأمبندو"_s)
+			"umb"_s,
+			u"الأمبندو"_s
 		}),
 		$$new($ObjectArray, {
-			$of("fr"_s),
-			$of(u"الفرنسية"_s)
+			"fr"_s,
+			u"الفرنسية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sid"_s),
-			$of(u"السيدامو"_s)
+			"sid"_s,
+			u"السيدامو"_s
 		}),
 		$$new($ObjectArray, {
-			$of("fy"_s),
-			$of(u"الفريزيان"_s)
+			"fy"_s,
+			u"الفريزيان"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ga"_s),
-			$of(u"الأيرلندية"_s)
+			"ga"_s,
+			u"الأيرلندية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gd"_s),
-			$of(u"الغيلية الأسكتلندية"_s)
+			"gd"_s,
+			u"الغيلية الأسكتلندية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gl"_s),
-			$of(u"الجاليكية"_s)
+			"gl"_s,
+			u"الجاليكية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gn"_s),
-			$of(u"الغوارانية"_s)
+			"gn"_s,
+			u"الغوارانية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bho"_s),
-			$of(u"البهوجبورية"_s)
+			"bho"_s,
+			u"البهوجبورية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("und"_s),
-			$of(u"لغة غير معروفة"_s)
+			"und"_s,
+			u"لغة غير معروفة"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.ca.ethiopic-amete-alem"_s),
-			$of(u"تقويم أميتي أليم الإثيوبي"_s)
+			"type.ca.ethiopic-amete-alem"_s,
+			u"تقويم أميتي أليم الإثيوبي"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gu"_s),
-			$of(u"الغوجاراتية"_s)
+			"gu"_s,
+			u"الغوجاراتية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.ca.islamic-tbla"_s),
-			$of(u"التقويم الإسلامي (الحسابات الفلكية)"_s)
+			"type.ca.islamic-tbla"_s,
+			u"التقويم الإسلامي (الحسابات الفلكية)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gv"_s),
-			$of(u"المنكية"_s)
+			"gv"_s,
+			u"المنكية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ha"_s),
-			$of(u"الهوسا"_s)
+			"ha"_s,
+			u"الهوسا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("he"_s),
-			$of(metaValue_he)
+			"he"_s,
+			metaValue_he
 		}),
 		$$new($ObjectArray, {
-			$of("hi"_s),
-			$of(u"الهندية"_s)
+			"hi"_s,
+			u"الهندية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("hup"_s),
-			$of(u"الهبا"_s)
+			"hup"_s,
+			u"الهبا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bik"_s),
-			$of(u"البيكولية"_s)
+			"bik"_s,
+			u"البيكولية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bin"_s),
-			$of(u"البينية"_s)
+			"bin"_s,
+			u"البينية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ho"_s),
-			$of(u"الهيري موتو"_s)
+			"ho"_s,
+			u"الهيري موتو"_s
 		}),
 		$$new($ObjectArray, {
-			$of("hr"_s),
-			$of(u"الكرواتية"_s)
+			"hr"_s,
+			u"الكرواتية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ht"_s),
-			$of(u"الكريولية الهايتية"_s)
+			"ht"_s,
+			u"الكريولية الهايتية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("hu"_s),
-			$of(u"الهنغارية"_s)
+			"hu"_s,
+			u"الهنغارية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("hy"_s),
-			$of(u"الأرمنية"_s)
+			"hy"_s,
+			u"الأرمنية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("hz"_s),
-			$of(u"الهيريرو"_s)
+			"hz"_s,
+			u"الهيريرو"_s
 		}),
 		$$new($ObjectArray, {
-			$of("frc"_s),
-			$of(u"الفرنسية الكاجونية"_s)
+			"frc"_s,
+			u"الفرنسية الكاجونية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ia"_s),
-			$of(u"اللّغة الوسيطة"_s)
+			"ia"_s,
+			u"اللّغة الوسيطة"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Jamo"_s),
-			$of(u"جامو"_s)
+			"Jamo"_s,
+			u"جامو"_s
 		}),
 		$$new($ObjectArray, {
-			$of("id"_s),
-			$of(u"الإندونيسية"_s)
+			"id"_s,
+			u"الإندونيسية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.tibt"_s),
-			$of(u"الأرقام التبتية"_s)
+			"type.nu.tibt"_s,
+			u"الأرقام التبتية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ie"_s),
-			$of(u"الإنترلينج"_s)
+			"ie"_s,
+			u"الإنترلينج"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ig"_s),
-			$of(u"الإيجبو"_s)
+			"ig"_s,
+			u"الإيجبو"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ii"_s),
-			$of(u"السيتشيون يي"_s)
+			"ii"_s,
+			u"السيتشيون يي"_s
 		}),
 		$$new($ObjectArray, {
-			$of("frm"_s),
-			$of(u"الفرنسية الوسطى"_s)
+			"frm"_s,
+			u"الفرنسية الوسطى"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ik"_s),
-			$of(u"الإينبياك"_s)
+			"ik"_s,
+			u"الإينبياك"_s
 		}),
 		$$new($ObjectArray, {
-			$of("fro"_s),
-			$of(u"الفرنسية القديمة"_s)
+			"fro"_s,
+			u"الفرنسية القديمة"_s
 		}),
 		$$new($ObjectArray, {
-			$of("io"_s),
-			$of(u"الإيدو"_s)
+			"io"_s,
+			u"الإيدو"_s
 		}),
 		$$new($ObjectArray, {
-			$of("frs"_s),
-			$of(u"الفريزينية الشرقية"_s)
+			"frs"_s,
+			u"الفريزينية الشرقية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("frr"_s),
-			$of(u"الفريزينية الشمالية"_s)
+			"frr"_s,
+			u"الفريزينية الشمالية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("is"_s),
-			$of(u"الأيسلندية"_s)
+			"is"_s,
+			u"الأيسلندية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("it"_s),
-			$of(u"الإيطالية"_s)
+			"it"_s,
+			u"الإيطالية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("iu"_s),
-			$of(u"الإينكتيتت"_s)
+			"iu"_s,
+			u"الإينكتيتت"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ja"_s),
-			$of(metaValue_ja)
+			"ja"_s,
+			metaValue_ja
 		}),
 		$$new($ObjectArray, {
-			$of("Mlym"_s),
-			$of(u"الماليالام"_s)
+			"Mlym"_s,
+			u"الماليالام"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Sarb"_s),
-			$of(u"العربية الجنوبية القديمة"_s)
+			"Sarb"_s,
+			u"العربية الجنوبية القديمة"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Sara"_s),
-			$of(u"الساراتي"_s)
+			"Sara"_s,
+			u"الساراتي"_s
 		}),
 		$$new($ObjectArray, {
-			$of("doi"_s),
-			$of(u"الدوجرية"_s)
+			"doi"_s,
+			u"الدوجرية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bkm"_s),
-			$of(u"لغة الكوم"_s)
+			"bkm"_s,
+			u"لغة الكوم"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sma"_s),
-			$of(u"السامي الجنوبي"_s)
+			"sma"_s,
+			u"السامي الجنوبي"_s
 		}),
 		$$new($ObjectArray, {
-			$of("jv"_s),
-			$of(metaValue_jv)
+			"jv"_s,
+			metaValue_jv
 		}),
 		$$new($ObjectArray, {
-			$of("Shaw"_s),
-			$of(u"الشواني"_s)
+			"Shaw"_s,
+			u"الشواني"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mad"_s),
-			$of(u"المادريز"_s)
+			"mad"_s,
+			u"المادريز"_s
 		}),
 		$$new($ObjectArray, {
-			$of("smj"_s),
-			$of(u"اللول سامي"_s)
+			"smj"_s,
+			u"اللول سامي"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mag"_s),
-			$of(u"الماجا"_s)
+			"mag"_s,
+			u"الماجا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mai"_s),
-			$of(u"المايثيلي"_s)
+			"mai"_s,
+			u"المايثيلي"_s
 		}),
 		$$new($ObjectArray, {
-			$of("smn"_s),
-			$of(u"الإيناري سامي"_s)
+			"smn"_s,
+			u"الإيناري سامي"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ka"_s),
-			$of(metaValue_ka)
+			"ka"_s,
+			metaValue_ka
 		}),
 		$$new($ObjectArray, {
-			$of("bla"_s),
-			$of(u"السيكسيكية"_s)
+			"bla"_s,
+			u"السيكسيكية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mak"_s),
-			$of(u"الماكاسار"_s)
+			"mak"_s,
+			u"الماكاسار"_s
 		}),
 		$$new($ObjectArray, {
-			$of("wuu"_s),
-			$of(u"الوو الصينية"_s)
+			"wuu"_s,
+			u"الوو الصينية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sms"_s),
-			$of(u"السكولت سامي"_s)
+			"sms"_s,
+			u"السكولت سامي"_s
 		}),
 		$$new($ObjectArray, {
-			$of("man"_s),
-			$of(u"الماندينغ"_s)
+			"man"_s,
+			u"الماندينغ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kg"_s),
-			$of(u"الكونغو"_s)
+			"kg"_s,
+			u"الكونغو"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Goth"_s),
-			$of(metaValue_got)
+			"Goth"_s,
+			metaValue_got
 		}),
 		$$new($ObjectArray, {
-			$of("ki"_s),
-			$of(u"الكيكيو"_s)
+			"ki"_s,
+			u"الكيكيو"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mas"_s),
-			$of(u"الماساي"_s)
+			"mas"_s,
+			u"الماساي"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kj"_s),
-			$of(u"الكيونياما"_s)
+			"kj"_s,
+			u"الكيونياما"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kk"_s),
-			$of(u"الكازاخستانية"_s)
+			"kk"_s,
+			u"الكازاخستانية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kl"_s),
-			$of(u"الكالاليست"_s)
+			"kl"_s,
+			u"الكالاليست"_s
 		}),
 		$$new($ObjectArray, {
-			$of("km"_s),
-			$of(metaValue_km)
+			"km"_s,
+			metaValue_km
 		}),
 		$$new($ObjectArray, {
-			$of("kn"_s),
-			$of(metaValue_kn)
+			"kn"_s,
+			metaValue_kn
 		}),
 		$$new($ObjectArray, {
-			$of("ko"_s),
-			$of(metaValue_ko)
+			"ko"_s,
+			metaValue_ko
 		}),
 		$$new($ObjectArray, {
-			$of("kr"_s),
-			$of(u"الكانوري"_s)
+			"kr"_s,
+			u"الكانوري"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ks"_s),
-			$of(u"الكشميرية"_s)
+			"ks"_s,
+			u"الكشميرية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Cirt"_s),
-			$of(u"السيرث"_s)
+			"Cirt"_s,
+			u"السيرث"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Lepc"_s),
-			$of(u"الليبتشا - رونج"_s)
+			"Lepc"_s,
+			u"الليبتشا - رونج"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ku"_s),
-			$of(u"الكردية"_s)
+			"ku"_s,
+			u"الكردية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kv"_s),
-			$of(u"الكومي"_s)
+			"kv"_s,
+			u"الكومي"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kw"_s),
-			$of(u"الكورنية"_s)
+			"kw"_s,
+			u"الكورنية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ky"_s),
-			$of(u"القيرغيزية"_s)
+			"ky"_s,
+			u"القيرغيزية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("snk"_s),
-			$of(u"السونينك"_s)
+			"snk"_s,
+			u"السونينك"_s
 		}),
 		$$new($ObjectArray, {
-			$of("la"_s),
-			$of(metaValue_la)
+			"la"_s,
+			metaValue_la
 		}),
 		$$new($ObjectArray, {
-			$of("lb"_s),
-			$of(u"اللكسمبورغية"_s)
+			"lb"_s,
+			u"اللكسمبورغية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.mlym"_s),
-			$of(u"الأرقام الملايلامية"_s)
+			"type.nu.mlym"_s,
+			u"الأرقام الملايلامية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lg"_s),
-			$of(u"الغاندا"_s)
+			"lg"_s,
+			u"الغاندا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Roro"_s),
-			$of(u"رنجورنجو"_s)
+			"Roro"_s,
+			u"رنجورنجو"_s
 		}),
 		$$new($ObjectArray, {
-			$of("li"_s),
-			$of(u"الليمبورغية"_s)
+			"li"_s,
+			u"الليمبورغية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Tibt"_s),
-			$of(metaValue_bo)
+			"Tibt"_s,
+			metaValue_bo
 		}),
 		$$new($ObjectArray, {
-			$of("ln"_s),
-			$of(u"اللينجالا"_s)
+			"ln"_s,
+			u"اللينجالا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("fur"_s),
-			$of(u"الفريلايان"_s)
+			"fur"_s,
+			u"الفريلايان"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lo"_s),
-			$of(u"اللاوية"_s)
+			"lo"_s,
+			u"اللاوية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.ms.uksystem"_s),
-			$of(u"نظام القياس البريطاني"_s)
+			"type.ms.uksystem"_s,
+			u"نظام القياس البريطاني"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lt"_s),
-			$of(u"الليتوانية"_s)
+			"lt"_s,
+			u"الليتوانية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lu"_s),
-			$of(u"اللوبا كاتانغا"_s)
+			"lu"_s,
+			u"اللوبا كاتانغا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lv"_s),
-			$of(u"اللاتفية"_s)
+			"lv"_s,
+			u"اللاتفية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sog"_s),
-			$of(u"السوجدين"_s)
+			"sog"_s,
+			u"السوجدين"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ListCompositionPattern"_s),
-			$of(u"{0}، {1}"_s)
+			"ListCompositionPattern"_s,
+			u"{0}، {1}"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mg"_s),
-			$of(u"الملغاشي"_s)
+			"mg"_s,
+			u"الملغاشي"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mh"_s),
-			$of(u"المارشالية"_s)
+			"mh"_s,
+			u"المارشالية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.co.ducet"_s),
-			$of(u"ترتيب فرز Unicode الافتراضي"_s)
+			"type.co.ducet"_s,
+			u"ترتيب فرز Unicode الافتراضي"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mi"_s),
-			$of(u"الماورية"_s)
+			"mi"_s,
+			u"الماورية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mk"_s),
-			$of(u"المقدونية"_s)
+			"mk"_s,
+			u"المقدونية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ml"_s),
-			$of(u"المالايالامية"_s)
+			"ml"_s,
+			u"المالايالامية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mn"_s),
-			$of(u"المنغولية"_s)
+			"mn"_s,
+			u"المنغولية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mr"_s),
-			$of(u"الماراثية"_s)
+			"mr"_s,
+			u"الماراثية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ms"_s),
-			$of(u"الماليزية"_s)
+			"ms"_s,
+			u"الماليزية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mt"_s),
-			$of(u"المالطية"_s)
+			"mt"_s,
+			u"المالطية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("my"_s),
-			$of(u"البورمية"_s)
+			"my"_s,
+			u"البورمية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Armn"_s),
-			$of(u"الأرمينية"_s)
+			"Armn"_s,
+			u"الأرمينية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mdf"_s),
-			$of(u"الموكشا"_s)
+			"mdf"_s,
+			u"الموكشا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mde"_s),
-			$of(u"مابا"_s)
+			"mde"_s,
+			u"مابا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("dsb"_s),
-			$of(u"صوربيا السفلى"_s)
+			"dsb"_s,
+			u"صوربيا السفلى"_s
 		}),
 		$$new($ObjectArray, {
-			$of("na"_s),
-			$of(u"النورو"_s)
+			"na"_s,
+			u"النورو"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.co.search"_s),
-			$of(u"بحث لأغراض عامة"_s)
+			"type.co.search"_s,
+			u"بحث لأغراض عامة"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nb"_s),
-			$of(u"النرويجية بوكمال"_s)
+			"nb"_s,
+			u"النرويجية بوكمال"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nd"_s),
-			$of(u"النديبيل الشمالية"_s)
+			"nd"_s,
+			u"النديبيل الشمالية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ne"_s),
-			$of(u"النيبالية"_s)
+			"ne"_s,
+			u"النيبالية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ng"_s),
-			$of(u"الندونجا"_s)
+			"ng"_s,
+			u"الندونجا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mdr"_s),
-			$of(u"الماندار"_s)
+			"mdr"_s,
+			u"الماندار"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nl"_s),
-			$of(u"الهولندية"_s)
+			"nl"_s,
+			u"الهولندية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nn"_s),
-			$of(u"النرويجية نينورسك"_s)
+			"nn"_s,
+			u"النرويجية نينورسك"_s
 		}),
 		$$new($ObjectArray, {
-			$of("no"_s),
-			$of(u"النرويجية"_s)
+			"no"_s,
+			u"النرويجية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nr"_s),
-			$of(u"النديبيل الجنوبي"_s)
+			"nr"_s,
+			u"النديبيل الجنوبي"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nv"_s),
-			$of(u"النافاجو"_s)
+			"nv"_s,
+			u"النافاجو"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kaa"_s),
-			$of(u"الكارا-كالباك"_s)
+			"kaa"_s,
+			u"الكارا-كالباك"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ny"_s),
-			$of(u"النيانجا"_s)
+			"ny"_s,
+			u"النيانجا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kac"_s),
-			$of(u"الكاتشين"_s)
+			"kac"_s,
+			u"الكاتشين"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kab"_s),
-			$of(u"القبيلية"_s)
+			"kab"_s,
+			u"القبيلية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("%%POLYTON"_s),
-			$of(u"متعدد النغمات"_s)
+			"%%POLYTON"_s,
+			u"متعدد النغمات"_s
 		}),
 		$$new($ObjectArray, {
-			$of("oc"_s),
-			$of(u"الأوكسيتانية"_s)
+			"oc"_s,
+			u"الأوكسيتانية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kaj"_s),
-			$of(u"الجو"_s)
+			"kaj"_s,
+			u"الجو"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kam"_s),
-			$of(u"الكامبا"_s)
+			"kam"_s,
+			u"الكامبا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("men"_s),
-			$of(u"الميند"_s)
+			"men"_s,
+			u"الميند"_s
 		}),
 		$$new($ObjectArray, {
-			$of("oj"_s),
-			$of(u"الأوجيبوا"_s)
+			"oj"_s,
+			u"الأوجيبوا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mer"_s),
-			$of(u"الميرو"_s)
+			"mer"_s,
+			u"الميرو"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.armn"_s),
-			$of(u"الأرقام الأرمينية"_s)
+			"type.nu.armn"_s,
+			u"الأرقام الأرمينية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("om"_s),
-			$of(u"الأورومية"_s)
+			"om"_s,
+			u"الأورومية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kaw"_s),
-			$of(u"الكوي"_s)
+			"kaw"_s,
+			u"الكوي"_s
 		}),
 		$$new($ObjectArray, {
-			$of("or"_s),
-			$of(u"الأورية"_s)
+			"or"_s,
+			u"الأورية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("os"_s),
-			$of(u"الأوسيتيك"_s)
+			"os"_s,
+			u"الأوسيتيك"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kbd"_s),
-			$of(u"الكاباردايان"_s)
+			"kbd"_s,
+			u"الكاباردايان"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mfe"_s),
-			$of(u"المورسيانية"_s)
+			"mfe"_s,
+			u"المورسيانية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("srn"_s),
-			$of(u"السرانان تونجو"_s)
+			"srn"_s,
+			u"السرانان تونجو"_s
 		}),
 		$$new($ObjectArray, {
-			$of("pa"_s),
-			$of(u"البنجابية"_s)
+			"pa"_s,
+			u"البنجابية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("dua"_s),
-			$of(u"الديولا"_s)
+			"dua"_s,
+			u"الديولا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("srr"_s),
-			$of(u"السرر"_s)
+			"srr"_s,
+			u"السرر"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kbl"_s),
-			$of(u"كانمبو"_s)
+			"kbl"_s,
+			u"كانمبو"_s
 		}),
 		$$new($ObjectArray, {
-			$of("pi"_s),
-			$of(metaValue_pi)
+			"pi"_s,
+			metaValue_pi
 		}),
 		$$new($ObjectArray, {
-			$of("pl"_s),
-			$of(u"البولندية"_s)
+			"pl"_s,
+			u"البولندية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("dum"_s),
-			$of(u"الهولندية الوسطى"_s)
+			"dum"_s,
+			u"الهولندية الوسطى"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.ca.dangi"_s),
-			$of(u"تقويم دانجي"_s)
+			"type.ca.dangi"_s,
+			u"تقويم دانجي"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ps"_s),
-			$of(u"البشتو"_s)
+			"ps"_s,
+			u"البشتو"_s
 		}),
 		$$new($ObjectArray, {
-			$of("pt"_s),
-			$of(u"البرتغالية"_s)
+			"pt"_s,
+			u"البرتغالية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mga"_s),
-			$of(u"الأيرلندية الوسطى"_s)
+			"mga"_s,
+			u"الأيرلندية الوسطى"_s
 		}),
 		$$new($ObjectArray, {
-			$of("key.co"_s),
-			$of(u"ترتيب الفرز"_s)
+			"key.co"_s,
+			u"ترتيب الفرز"_s
 		}),
 		$$new($ObjectArray, {
-			$of("pt_BR"_s),
-			$of(u"البرتغالية البرازيلية"_s)
+			"pt_BR"_s,
+			u"البرتغالية البرازيلية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kcg"_s),
-			$of(u"التايابية"_s)
+			"kcg"_s,
+			u"التايابية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mgh"_s),
-			$of(u"ماخاوا-ميتو"_s)
+			"mgh"_s,
+			u"ماخاوا-ميتو"_s
 		}),
 		$$new($ObjectArray, {
-			$of("key.cf"_s),
-			$of(u"تنسيق العملة"_s)
+			"key.cf"_s,
+			u"تنسيق العملة"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bra"_s),
-			$of(u"البراجية"_s)
+			"bra"_s,
+			u"البراجية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("key.ca"_s),
-			$of(u"التقويم"_s)
+			"key.ca"_s,
+			u"التقويم"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Laoo"_s),
-			$of(u"اللاو"_s)
+			"Laoo"_s,
+			u"اللاو"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mgo"_s),
-			$of(u"ميتا"_s)
+			"mgo"_s,
+			u"ميتا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.hc.h23"_s),
-			$of(u"نظام 24 ساعة (0–23)"_s)
+			"type.hc.h23"_s,
+			u"نظام 24 ساعة (0–23)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.hc.h24"_s),
-			$of(u"نظام 24 ساعة (1–24)"_s)
+			"type.hc.h24"_s,
+			u"نظام 24 ساعة (1–24)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ssy"_s),
-			$of(u"لغة الساهو"_s)
+			"ssy"_s,
+			u"لغة الساهو"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.mymr"_s),
-			$of(u"أرقام ميانمار"_s)
+			"type.nu.mymr"_s,
+			u"أرقام ميانمار"_s
 		}),
 		$$new($ObjectArray, {
-			$of("qu"_s),
-			$of(u"الكويتشوا"_s)
+			"qu"_s,
+			u"الكويتشوا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("zap"_s),
-			$of(u"الزابوتيك"_s)
+			"zap"_s,
+			u"الزابوتيك"_s
 		}),
 		$$new($ObjectArray, {
-			$of("brx"_s),
-			$of(u"البودو"_s)
+			"brx"_s,
+			u"البودو"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Lana"_s),
-			$of(u"الانا"_s)
+			"Lana"_s,
+			u"الانا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kde"_s),
-			$of(u"ماكونده"_s)
+			"kde"_s,
+			u"ماكونده"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Ethi"_s),
-			$of(u"الأثيوبية"_s)
+			"Ethi"_s,
+			u"الأثيوبية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.hc.h12"_s),
-			$of(u"نظام 12 ساعة (1–12)"_s)
+			"type.hc.h12"_s,
+			u"نظام 12 ساعة (1–12)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.hc.h11"_s),
-			$of(u"نظام 12 ساعة (0–11)"_s)
+			"type.hc.h11"_s,
+			u"نظام 12 ساعة (0–11)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("rm"_s),
-			$of(u"الرومانشية"_s)
+			"rm"_s,
+			u"الرومانشية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("rn"_s),
-			$of(u"الرندي"_s)
+			"rn"_s,
+			u"الرندي"_s
 		}),
 		$$new($ObjectArray, {
-			$of("key.cu"_s),
-			$of(u"العملة"_s)
+			"key.cu"_s,
+			u"العملة"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ro"_s),
-			$of(u"الرومانية"_s)
+			"ro"_s,
+			u"الرومانية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.orya"_s),
-			$of(u"أرقام الأوريا"_s)
+			"type.nu.orya"_s,
+			u"أرقام الأوريا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.hanidec"_s),
-			$of(u"الأرقام العشرية الصينية"_s)
+			"type.nu.hanidec"_s,
+			u"الأرقام العشرية الصينية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ru"_s),
-			$of(u"الروسية"_s)
+			"ru"_s,
+			u"الروسية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bss"_s),
-			$of(u"أكوس"_s)
+			"bss"_s,
+			u"أكوس"_s
 		}),
 		$$new($ObjectArray, {
-			$of("rw"_s),
-			$of(u"الكينيارواندا"_s)
+			"rw"_s,
+			u"الكينيارواندا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("zbl"_s),
-			$of(u"رموز المعايير الأساسية"_s)
+			"zbl"_s,
+			u"رموز المعايير الأساسية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kea"_s),
-			$of(u"كابوفيرديانو"_s)
+			"kea"_s,
+			u"كابوفيرديانو"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mic"_s),
-			$of(u"الميكماكيونية"_s)
+			"mic"_s,
+			u"الميكماكيونية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("suk"_s),
-			$of(u"السوكوما"_s)
+			"suk"_s,
+			u"السوكوما"_s
 		}),
 		$$new($ObjectArray, {
-			$of("en_AU"_s),
-			$of(u"الإنجليزية الأسترالية"_s)
+			"en_AU"_s,
+			u"الإنجليزية الأسترالية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sa"_s),
-			$of(u"السنسكريتية"_s)
+			"sa"_s,
+			u"السنسكريتية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("%%UCCOR"_s),
-			$of(u"التهجئة الموحدة"_s)
+			"%%UCCOR"_s,
+			u"التهجئة الموحدة"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sc"_s),
-			$of(u"السردينية"_s)
+			"sc"_s,
+			u"السردينية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sus"_s),
-			$of(u"السوسو"_s)
+			"sus"_s,
+			u"السوسو"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sd"_s),
-			$of(u"السندية"_s)
+			"sd"_s,
+			u"السندية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("se"_s),
-			$of(u"سامي الشمالية"_s)
+			"se"_s,
+			u"سامي الشمالية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("min"_s),
-			$of(u"المينانجكاباو"_s)
+			"min"_s,
+			u"المينانجكاباو"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sg"_s),
-			$of(u"السانجو"_s)
+			"sg"_s,
+			u"السانجو"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sh"_s),
-			$of(u"صربية-كرواتية"_s)
+			"sh"_s,
+			u"صربية-كرواتية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("si"_s),
-			$of(u"السنهالية"_s)
+			"si"_s,
+			u"السنهالية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sux"_s),
-			$of(u"السومارية"_s)
+			"sux"_s,
+			u"السومارية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sk"_s),
-			$of(u"السلوفاكية"_s)
+			"sk"_s,
+			u"السلوفاكية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sl"_s),
-			$of(u"السلوفانية"_s)
+			"sl"_s,
+			u"السلوفانية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sm"_s),
-			$of(u"الساموائية"_s)
+			"sm"_s,
+			u"الساموائية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sn"_s),
-			$of(u"الشونا"_s)
+			"sn"_s,
+			u"الشونا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("so"_s),
-			$of(u"الصومالية"_s)
+			"so"_s,
+			u"الصومالية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.arab"_s),
-			$of(u"الأرقام العربية الهندية"_s)
+			"type.nu.arab"_s,
+			u"الأرقام العربية الهندية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sq"_s),
-			$of(u"الألبانية"_s)
+			"sq"_s,
+			u"الألبانية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sr"_s),
-			$of(u"الصربية"_s)
+			"sr"_s,
+			u"الصربية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ss"_s),
-			$of(u"السواتي"_s)
+			"ss"_s,
+			u"السواتي"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.cf.account"_s),
-			$of(u"تنسيق العملة للحسابات"_s)
+			"type.cf.account"_s,
+			u"تنسيق العملة للحسابات"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Java"_s),
-			$of(metaValue_jv)
+			"Java"_s,
+			metaValue_jv
 		}),
 		$$new($ObjectArray, {
-			$of("st"_s),
-			$of(u"السوتو الجنوبية"_s)
+			"st"_s,
+			u"السوتو الجنوبية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("su"_s),
-			$of(metaValue_su)
+			"su"_s,
+			metaValue_su
 		}),
 		$$new($ObjectArray, {
-			$of("%%NEDIS"_s),
-			$of(u"لهجة ناتيسون"_s)
+			"%%NEDIS"_s,
+			u"لهجة ناتيسون"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sv"_s),
-			$of(u"السويدية"_s)
+			"sv"_s,
+			u"السويدية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sw"_s),
-			$of(u"السواحلية"_s)
+			"sw"_s,
+			u"السواحلية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.hantfin"_s),
-			$of(u"الأرقام المالية الصينية التقليدية"_s)
+			"type.nu.hantfin"_s,
+			u"الأرقام المالية الصينية التقليدية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ibb"_s),
-			$of(u"الإيبيبيو"_s)
+			"ibb"_s,
+			u"الإيبيبيو"_s
 		}),
 		$$new($ObjectArray, {
-			$of("iba"_s),
-			$of(u"الإيبان"_s)
+			"iba"_s,
+			u"الإيبان"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ta"_s),
-			$of(metaValue_ta)
+			"ta"_s,
+			metaValue_ta
 		}),
 		$$new($ObjectArray, {
-			$of("142"_s),
-			$of(u"آسيا"_s)
+			"142"_s,
+			u"آسيا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bua"_s),
-			$of(u"البرياتية"_s)
+			"bua"_s,
+			u"البرياتية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("143"_s),
-			$of(u"وسط آسيا"_s)
+			"143"_s,
+			u"وسط آسيا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("te"_s),
-			$of(u"التيلوغوية"_s)
+			"te"_s,
+			u"التيلوغوية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("145"_s),
-			$of(u"غرب آسيا"_s)
+			"145"_s,
+			u"غرب آسيا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tg"_s),
-			$of(u"الطاجيكية"_s)
+			"tg"_s,
+			u"الطاجيكية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("th"_s),
-			$of(metaValue_th)
+			"th"_s,
+			metaValue_th
 		}),
 		$$new($ObjectArray, {
-			$of("ti"_s),
-			$of(u"التغرينية"_s)
+			"ti"_s,
+			u"التغرينية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bug"_s),
-			$of(u"البجينيزية"_s)
+			"bug"_s,
+			u"البجينيزية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kfo"_s),
-			$of(u"الكورو"_s)
+			"kfo"_s,
+			u"الكورو"_s
 		}),
 		$$new($ObjectArray, {
-			$of("en_CA"_s),
-			$of(u"الإنجليزية الكندية"_s)
+			"en_CA"_s,
+			u"الإنجليزية الكندية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tk"_s),
-			$of(u"التركمانية"_s)
+			"tk"_s,
+			u"التركمانية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tl"_s),
-			$of(u"التاغالوغية"_s)
+			"tl"_s,
+			u"التاغالوغية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tn"_s),
-			$of(u"التسوانية"_s)
+			"tn"_s,
+			u"التسوانية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("to"_s),
-			$of(u"التونغية"_s)
+			"to"_s,
+			u"التونغية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bum"_s),
-			$of(u"لغة البولو"_s)
+			"bum"_s,
+			u"لغة البولو"_s
 		}),
 		$$new($ObjectArray, {
-			$of("dyo"_s),
-			$of(u"جولا فونيا"_s)
+			"dyo"_s,
+			u"جولا فونيا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.jpan"_s),
-			$of(u"الأرقام اليابانية"_s)
+			"type.nu.jpan"_s,
+			u"الأرقام اليابانية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tr"_s),
-			$of(u"التركية"_s)
+			"tr"_s,
+			u"التركية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ts"_s),
-			$of(u"السونجا"_s)
+			"ts"_s,
+			u"السونجا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("swb"_s),
-			$of(u"القمرية"_s)
+			"swb"_s,
+			u"القمرية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tt"_s),
-			$of(u"التترية"_s)
+			"tt"_s,
+			u"التترية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("dyu"_s),
-			$of(u"الدايلا"_s)
+			"dyu"_s,
+			u"الدايلا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tw"_s),
-			$of(u"التوي"_s)
+			"tw"_s,
+			u"التوي"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ty"_s),
-			$of(u"التاهيتية"_s)
+			"ty"_s,
+			u"التاهيتية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("150"_s),
-			$of(u"أوروبا"_s)
+			"150"_s,
+			u"أوروبا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("151"_s),
-			$of(u"شرق أوروبا"_s)
+			"151"_s,
+			u"شرق أوروبا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("154"_s),
-			$of(u"شمال أوروبا"_s)
+			"154"_s,
+			u"شمال أوروبا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("dzg"_s),
-			$of(u"القرعانية"_s)
+			"dzg"_s,
+			u"القرعانية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("155"_s),
-			$of(u"غرب أوروبا"_s)
+			"155"_s,
+			u"غرب أوروبا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ug"_s),
-			$of(u"الأويغورية"_s)
+			"ug"_s,
+			u"الأويغورية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Kore"_s),
-			$of(metaValue_ko)
+			"Kore"_s,
+			metaValue_ko
 		}),
 		$$new($ObjectArray, {
-			$of("Ital"_s),
-			$of(u"الإيطالية القديمة"_s)
+			"Ital"_s,
+			u"الإيطالية القديمة"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Zyyy"_s),
-			$of(u"عام"_s)
+			"Zyyy"_s,
+			u"عام"_s
 		}),
 		$$new($ObjectArray, {
-			$of("uk"_s),
-			$of(u"الأوكرانية"_s)
+			"uk"_s,
+			u"الأوكرانية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.ca.coptic"_s),
-			$of(u"التقويم القبطي"_s)
+			"type.ca.coptic"_s,
+			u"التقويم القبطي"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ur"_s),
-			$of(u"الأوردية"_s)
+			"ur"_s,
+			u"الأوردية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("xal"_s),
-			$of(u"الكالميك"_s)
+			"xal"_s,
+			u"الكالميك"_s
 		}),
 		$$new($ObjectArray, {
-			$of("zen"_s),
-			$of(u"الزيناجا"_s)
+			"zen"_s,
+			u"الزيناجا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("uz"_s),
-			$of(u"الأوزبكية"_s)
+			"uz"_s,
+			u"الأوزبكية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kha"_s),
-			$of(u"الكازية"_s)
+			"kha"_s,
+			u"الكازية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("%%1996"_s),
-			$of(u"التهجئة الألمانية لعام 1996"_s)
+			"%%1996"_s,
+			u"التهجئة الألمانية لعام 1996"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nds_NL"_s),
-			$of(u"السكسونية السفلى"_s)
+			"nds_NL"_s,
+			u"السكسونية السفلى"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Sylo"_s),
-			$of(u"السيلوتي ناغري"_s)
+			"Sylo"_s,
+			u"السيلوتي ناغري"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ve"_s),
-			$of(u"الفيندا"_s)
+			"ve"_s,
+			u"الفيندا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.ca.roc"_s),
-			$of(u"تقويم مينجو"_s)
+			"type.ca.roc"_s,
+			u"تقويم مينجو"_s
 		}),
 		$$new($ObjectArray, {
-			$of("vi"_s),
-			$of(u"الفيتنامية"_s)
+			"vi"_s,
+			u"الفيتنامية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kho"_s),
-			$of(u"الخوتانيز"_s)
+			"kho"_s,
+			u"الخوتانيز"_s
 		}),
 		$$new($ObjectArray, {
-			$of("khq"_s),
-			$of(u"كويرا تشيني"_s)
+			"khq"_s,
+			u"كويرا تشيني"_s
 		}),
 		$$new($ObjectArray, {
-			$of("key.hc"_s),
-			$of(u"نظام التوقيت (12 مقابل 24)"_s)
+			"key.hc"_s,
+			u"نظام التوقيت (12 مقابل 24)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("vo"_s),
-			$of(u"لغة الفولابوك"_s)
+			"vo"_s,
+			u"لغة الفولابوك"_s
 		}),
 		$$new($ObjectArray, {
-			$of("syc"_s),
-			$of(u"سريانية تقليدية"_s)
+			"syc"_s,
+			u"سريانية تقليدية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Osma"_s),
-			$of(u"الأوسمانيا"_s)
+			"Osma"_s,
+			u"الأوسمانيا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("quc"_s),
-			$of(u"الكيشية"_s)
+			"quc"_s,
+			u"الكيشية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gaa"_s),
-			$of(u"الجا"_s)
+			"gaa"_s,
+			u"الجا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("wa"_s),
-			$of(u"الولونية"_s)
+			"wa"_s,
+			u"الولونية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gag"_s),
-			$of(u"الغاغوز"_s)
+			"gag"_s,
+			u"الغاغوز"_s
 		}),
 		$$new($ObjectArray, {
-			$of("syr"_s),
-			$of(metaValue_syr)
+			"syr"_s,
+			metaValue_syr
 		}),
 		$$new($ObjectArray, {
-			$of("Grek"_s),
-			$of(metaValue_el)
+			"Grek"_s,
+			metaValue_el
 		}),
 		$$new($ObjectArray, {
-			$of("gan"_s),
-			$of(u"الغان الصينية"_s)
+			"gan"_s,
+			u"الغان الصينية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Lydi"_s),
-			$of(u"الليدية"_s)
+			"Lydi"_s,
+			u"الليدية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Xsux"_s),
-			$of(u"الكتابة المسمارية الأكدية السومرية"_s)
+			"Xsux"_s,
+			u"الكتابة المسمارية الأكدية السومرية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("wo"_s),
-			$of(u"الولوفية"_s)
+			"wo"_s,
+			u"الولوفية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("zgh"_s),
-			$of(u"التمازيغية المغربية القياسية"_s)
+			"zgh"_s,
+			u"التمازيغية المغربية القياسية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ar_001"_s),
-			$of(u"العربية الفصحى الحديثة"_s)
+			"ar_001"_s,
+			u"العربية الفصحى الحديثة"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Cans"_s),
-			$of(u"مقاطع كندية أصلية موحدة"_s)
+			"Cans"_s,
+			u"مقاطع كندية أصلية موحدة"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gay"_s),
-			$of(u"الجايو"_s)
+			"gay"_s,
+			u"الجايو"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Mong"_s),
-			$of(u"المغولية"_s)
+			"Mong"_s,
+			u"المغولية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mnc"_s),
-			$of(u"المانشو"_s)
+			"mnc"_s,
+			u"المانشو"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Latf"_s),
-			$of(u"اللاتينية - متغير فراكتر"_s)
+			"Latf"_s,
+			u"اللاتينية - متغير فراكتر"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gba"_s),
-			$of(u"الجبيا"_s)
+			"gba"_s,
+			u"الجبيا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mni"_s),
-			$of(u"المانيبورية"_s)
+			"mni"_s,
+			u"المانيبورية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Latn"_s),
-			$of(metaValue_la)
+			"Latn"_s,
+			metaValue_la
 		}),
 		$$new($ObjectArray, {
-			$of("Latg"_s),
-			$of(u"اللاتينية - متغير غيلى"_s)
+			"Latg"_s,
+			u"اللاتينية - متغير غيلى"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.hans"_s),
-			$of(u"الأرقام الصينية المبسطة"_s)
+			"type.nu.hans"_s,
+			u"الأرقام الصينية المبسطة"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.hant"_s),
-			$of(u"الأرقام الصينية التقليدية"_s)
+			"type.nu.hant"_s,
+			u"الأرقام الصينية التقليدية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("xh"_s),
-			$of(u"الخوسا"_s)
+			"xh"_s,
+			u"الخوسا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.romanlow"_s),
-			$of(u"الأرقام الرومانية الصغيرة"_s)
+			"type.nu.romanlow"_s,
+			u"الأرقام الرومانية الصغيرة"_s
 		}),
 		$$new($ObjectArray, {
-			$of("byn"_s),
-			$of(u"البلينية"_s)
+			"byn"_s,
+			u"البلينية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Lyci"_s),
-			$of(u"الليسية"_s)
+			"Lyci"_s,
+			u"الليسية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("osa"_s),
-			$of(u"الأوساج"_s)
+			"osa"_s,
+			u"الأوساج"_s
 		}),
 		$$new($ObjectArray, {
-			$of("byv"_s),
-			$of(u"لغة الميدومبا"_s)
+			"byv"_s,
+			u"لغة الميدومبا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Moon"_s),
-			$of(u"مون"_s)
+			"Moon"_s,
+			u"مون"_s
 		}),
 		$$new($ObjectArray, {
-			$of("moh"_s),
-			$of(u"الموهوك"_s)
+			"moh"_s,
+			u"الموهوك"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kkj"_s),
-			$of(u"لغة الكاكو"_s)
+			"kkj"_s,
+			u"لغة الكاكو"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Syrc"_s),
-			$of(metaValue_syr)
+			"Syrc"_s,
+			metaValue_syr
 		}),
 		$$new($ObjectArray, {
-			$of("yi"_s),
-			$of(u"اليديشية"_s)
+			"yi"_s,
+			u"اليديشية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mos"_s),
-			$of(u"الموسي"_s)
+			"mos"_s,
+			u"الموسي"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Dsrt"_s),
-			$of(u"الديسيريت"_s)
+			"Dsrt"_s,
+			u"الديسيريت"_s
 		}),
 		$$new($ObjectArray, {
-			$of("yo"_s),
-			$of(u"اليوروبا"_s)
+			"yo"_s,
+			u"اليوروبا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.traditional"_s),
-			$of(u"أرقام تقليدية"_s)
+			"type.nu.traditional"_s,
+			u"أرقام تقليدية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("es_MX"_s),
-			$of(u"الإسبانية المكسيكية"_s)
+			"es_MX"_s,
+			u"الإسبانية المكسيكية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Syrj"_s),
-			$of(u"السريانية الغربية"_s)
+			"Syrj"_s,
+			u"السريانية الغربية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ota"_s),
-			$of(u"التركية العثمانية"_s)
+			"ota"_s,
+			u"التركية العثمانية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Syre"_s),
-			$of(u"السريانية الأسترنجيلية"_s)
+			"Syre"_s,
+			u"السريانية الأسترنجيلية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("vai"_s),
-			$of(metaValue_vai)
+			"vai"_s,
+			metaValue_vai
 		}),
 		$$new($ObjectArray, {
-			$of("za"_s),
-			$of(u"الزهيونج"_s)
+			"za"_s,
+			u"الزهيونج"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Cari"_s),
-			$of(u"الكارية"_s)
+			"Cari"_s,
+			u"الكارية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kln"_s),
-			$of(u"كالينجين"_s)
+			"kln"_s,
+			u"كالينجين"_s
 		}),
 		$$new($ObjectArray, {
-			$of("zh"_s),
-			$of(u"الصينية"_s)
+			"zh"_s,
+			u"الصينية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Bopo"_s),
-			$of(u"البوبوموفو"_s)
+			"Bopo"_s,
+			u"البوبوموفو"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Perm"_s),
-			$of(u"البيرميكية القديمة"_s)
+			"Perm"_s,
+			u"البيرميكية القديمة"_s
 		}),
 		$$new($ObjectArray, {
-			$of("key.lb"_s),
-			$of(u"نمط فصل السطور"_s)
+			"key.lb"_s,
+			u"نمط فصل السطور"_s
 		}),
 		$$new($ObjectArray, {
-			$of("zu"_s),
-			$of(u"الزولو"_s)
+			"zu"_s,
+			u"الزولو"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.co.phonebook"_s),
-			$of(u"ترتيب فرز دليل الهاتف"_s)
+			"type.co.phonebook"_s,
+			u"ترتيب فرز دليل الهاتف"_s
 		}),
 		$$new($ObjectArray, {
-			$of("%%MONOTON"_s),
-			$of(u"أحادي النغمة"_s)
+			"%%MONOTON"_s,
+			u"أحادي النغمة"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Geor"_s),
-			$of(metaValue_ka)
+			"Geor"_s,
+			metaValue_ka
 		}),
 		$$new($ObjectArray, {
-			$of("kmb"_s),
-			$of(u"الكيمبندو"_s)
+			"kmb"_s,
+			u"الكيمبندو"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.jpanfin"_s),
-			$of(u"الأرقام المالية اليابانية"_s)
+			"type.nu.jpanfin"_s,
+			u"الأرقام المالية اليابانية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Cham"_s),
-			$of(u"التشامية"_s)
+			"Cham"_s,
+			u"التشامية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gez"_s),
-			$of(u"الجعزية"_s)
+			"gez"_s,
+			u"الجعزية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Syrn"_s),
-			$of(u"السريانية الشرقية"_s)
+			"Syrn"_s,
+			u"السريانية الشرقية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Narb"_s),
-			$of(u"العربية الشمالية القديمة"_s)
+			"Narb"_s,
+			u"العربية الشمالية القديمة"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.co.reformed"_s),
-			$of(u"ترتيب فرز محسَّن"_s)
+			"type.co.reformed"_s,
+			u"ترتيب فرز محسَّن"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Tglg"_s),
-			$of(u"التغالوغية"_s)
+			"Tglg"_s,
+			u"التغالوغية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Egyd"_s),
-			$of(u"الديموطيقية"_s)
+			"Egyd"_s,
+			u"الديموطيقية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Egyh"_s),
-			$of(u"الهيراطيقية"_s)
+			"Egyh"_s,
+			u"الهيراطيقية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ebu"_s),
-			$of(u"إمبو"_s)
+			"ebu"_s,
+			u"إمبو"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Egyp"_s),
-			$of(u"الهيروغليفية"_s)
+			"Egyp"_s,
+			u"الهيروغليفية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Geok"_s),
-			$of(u"الأبجدية الجورجية - أسومتافرلي و نسخري"_s)
+			"Geok"_s,
+			u"الأبجدية الجورجية - أسومتافرلي و نسخري"_s
 		}),
 		$$new($ObjectArray, {
-			$of("zh_Hans"_s),
-			$of(u"الصينية المبسطة"_s)
+			"zh_Hans"_s,
+			u"الصينية المبسطة"_s
 		}),
 		$$new($ObjectArray, {
-			$of("koi"_s),
-			$of(u"كومي-بيرماياك"_s)
+			"koi"_s,
+			u"كومي-بيرماياك"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Hung"_s),
-			$of(u"المجرية القديمة"_s)
+			"Hung"_s,
+			u"المجرية القديمة"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kok"_s),
-			$of(u"الكونكانية"_s)
+			"kok"_s,
+			u"الكونكانية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("%%1901"_s),
-			$of(u"التهجئة الألمانية التقليدية"_s)
+			"%%1901"_s,
+			u"التهجئة الألمانية التقليدية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kos"_s),
-			$of(u"الكوسراين"_s)
+			"kos"_s,
+			u"الكوسراين"_s
 		}),
 		$$new($ObjectArray, {
-			$of("zh_Hant"_s),
-			$of(u"الصينية التقليدية"_s)
+			"zh_Hant"_s,
+			u"الصينية التقليدية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Sund"_s),
-			$of(metaValue_su)
+			"Sund"_s,
+			metaValue_su
 		}),
 		$$new($ObjectArray, {
-			$of("kpe"_s),
-			$of(u"الكبيل"_s)
+			"kpe"_s,
+			u"الكبيل"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.khmr"_s),
-			$of(u"الأرقام الخيمرية"_s)
+			"type.nu.khmr"_s,
+			u"الأرقام الخيمرية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ilo"_s),
-			$of(u"الإيلوكو"_s)
+			"ilo"_s,
+			u"الإيلوكو"_s
 		}),
 		$$new($ObjectArray, {
-			$of("%%VALENCIA"_s),
-			$of(u"بلنسية"_s)
+			"%%VALENCIA"_s,
+			u"بلنسية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Cprt"_s),
-			$of(u"القبرصية"_s)
+			"Cprt"_s,
+			u"القبرصية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("%%BAKU1926"_s),
-			$of(u"الأبجدية التركية اللاتينية الموحدة"_s)
+			"%%BAKU1926"_s,
+			u"الأبجدية التركية اللاتينية الموحدة"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mua"_s),
-			$of(u"مندنج"_s)
+			"mua"_s,
+			u"مندنج"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.guru"_s),
-			$of(u"الأرقام الغورموخية"_s)
+			"type.nu.guru"_s,
+			u"الأرقام الغورموخية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mul"_s),
-			$of(u"لغات متعددة"_s)
+			"mul"_s,
+			u"لغات متعددة"_s
 		}),
 		$$new($ObjectArray, {
-			$of("cad"_s),
-			$of(u"الكادو"_s)
+			"cad"_s,
+			u"الكادو"_s
 		}),
 		$$new($ObjectArray, {
-			$of("key.ms"_s),
-			$of(u"نظام القياس"_s)
+			"key.ms"_s,
+			u"نظام القياس"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mus"_s),
-			$of(u"الكريك"_s)
+			"mus"_s,
+			u"الكريك"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Glag"_s),
-			$of(u"الجلاجوليتيك"_s)
+			"Glag"_s,
+			u"الجلاجوليتيك"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gil"_s),
-			$of(u"لغة أهل جبل طارق"_s)
+			"gil"_s,
+			u"لغة أهل جبل طارق"_s
 		}),
 		$$new($ObjectArray, {
-			$of("%%KKCOR"_s),
-			$of(u"التهجئة العامة"_s)
+			"%%KKCOR"_s,
+			u"التهجئة العامة"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Cher"_s),
-			$of(metaValue_chr)
+			"Cher"_s,
+			metaValue_chr
 		}),
 		$$new($ObjectArray, {
-			$of("car"_s),
-			$of(u"الكاريبية"_s)
+			"car"_s,
+			u"الكاريبية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("cay"_s),
-			$of(u"الكايوجية"_s)
+			"cay"_s,
+			u"الكايوجية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.tamldec"_s),
-			$of(u"الأرقام التاميلية"_s)
+			"type.nu.tamldec"_s,
+			u"الأرقام التاميلية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("krc"_s),
-			$of(u"الكاراتشاي-بالكار"_s)
+			"krc"_s,
+			u"الكاراتشاي-بالكار"_s
 		}),
 		$$new($ObjectArray, {
-			$of("inh"_s),
-			$of(u"الإنجوشية"_s)
+			"inh"_s,
+			u"الإنجوشية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("fa_AF"_s),
-			$of(u"الدارية"_s)
+			"fa_AF"_s,
+			u"الدارية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("krl"_s),
-			$of(u"الكاريلية"_s)
+			"krl"_s,
+			u"الكاريلية"_s
 		}),
 		$$new($ObjectArray, {
-			$of("efi"_s),
-			$of(u"الإفيك"_s)
+			"efi"_s,
+			u"الإفيك"_s
 		}),
 		$$new($ObjectArray, {
-			$of("key.nu"_s),
-			$of(u"الأرقام"_s)
+			"key.nu"_s,
+			u"الأرقام"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kru"_s),
-			$of(u"الكوروخ"_s)
+			"kru"_s,
+			u"الكوروخ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ksb"_s),
-			$of(u"شامبالا"_s)
+			"ksb"_s,
+			u"شامبالا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Telu"_s),
-			$of(u"التيلجو"_s)
+			"Telu"_s,
+			u"التيلجو"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ksf"_s),
-			$of(u"لغة البافيا"_s)
+			"ksf"_s,
+			u"لغة البافيا"_s
 		})
 	}));
 	return data;
@@ -4340,7 +4320,22 @@ LocaleNames_ar::LocaleNames_ar() {
 }
 
 $Class* LocaleNames_ar::load$($String* name, bool initialize) {
-	$loadClass(LocaleNames_ar, name, initialize, &_LocaleNames_ar_ClassInfo_, allocate$LocaleNames_ar);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(LocaleNames_ar, init$, void)},
+		{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(LocaleNames_ar, getContents, $ObjectArray2*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.util.resources.cldr.ext.LocaleNames_ar",
+		"sun.util.resources.OpenListResourceBundle",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(LocaleNames_ar, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LocaleNames_ar);
+	});
 	return class$;
 }
 

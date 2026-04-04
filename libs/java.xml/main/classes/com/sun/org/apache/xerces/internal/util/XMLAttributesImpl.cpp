@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/util/XMLAttributesImpl.h>
-
 #include <com/sun/org/apache/xerces/internal/util/PrimeNumberSequenceGenerator.h>
 #include <com/sun/org/apache/xerces/internal/util/XMLAttributesImpl$Attribute.h>
 #include <com/sun/org/apache/xerces/internal/xni/Augmentations.h>
@@ -36,115 +35,6 @@ namespace com {
 					namespace internal {
 						namespace util {
 
-$FieldInfo _XMLAttributesImpl_FieldInfo_[] = {
-	{"TABLE_SIZE", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(XMLAttributesImpl, TABLE_SIZE)},
-	{"MAX_HASH_COLLISIONS", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(XMLAttributesImpl, MAX_HASH_COLLISIONS)},
-	{"MULTIPLIERS_SIZE", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(XMLAttributesImpl, MULTIPLIERS_SIZE)},
-	{"MULTIPLIERS_MASK", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(XMLAttributesImpl, MULTIPLIERS_MASK)},
-	{"SIZE_LIMIT", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(XMLAttributesImpl, SIZE_LIMIT)},
-	{"fNamespaces", "Z", nullptr, $PROTECTED, $field(XMLAttributesImpl, fNamespaces)},
-	{"fLargeCount", "I", nullptr, $PROTECTED, $field(XMLAttributesImpl, fLargeCount)},
-	{"fLength", "I", nullptr, $PROTECTED, $field(XMLAttributesImpl, fLength)},
-	{"fAttributes", "[Lcom/sun/org/apache/xerces/internal/util/XMLAttributesImpl$Attribute;", nullptr, $PROTECTED, $field(XMLAttributesImpl, fAttributes)},
-	{"fAttributeTableView", "[Lcom/sun/org/apache/xerces/internal/util/XMLAttributesImpl$Attribute;", nullptr, $PROTECTED, $field(XMLAttributesImpl, fAttributeTableView)},
-	{"fAttributeTableViewChainState", "[I", nullptr, $PROTECTED, $field(XMLAttributesImpl, fAttributeTableViewChainState)},
-	{"fTableViewBuckets", "I", nullptr, $PROTECTED, $field(XMLAttributesImpl, fTableViewBuckets)},
-	{"fIsTableViewConsistent", "Z", nullptr, $PROTECTED, $field(XMLAttributesImpl, fIsTableViewConsistent)},
-	{"fHashMultipliers", "[I", nullptr, $PROTECTED, $field(XMLAttributesImpl, fHashMultipliers)},
-	{}
-};
-
-$MethodInfo _XMLAttributesImpl_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(XMLAttributesImpl, init$, void)},
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(XMLAttributesImpl, init$, void, int32_t)},
-	{"addAttribute", "(Lcom/sun/org/apache/xerces/internal/xni/QName;Ljava/lang/String;Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(XMLAttributesImpl, addAttribute, int32_t, $QName*, $String*, $String*)},
-	{"addAttribute", "(Lcom/sun/org/apache/xerces/internal/xni/QName;Ljava/lang/String;Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/xni/XMLString;)I", nullptr, $PUBLIC, $virtualMethod(XMLAttributesImpl, addAttribute, int32_t, $QName*, $String*, $String*, $XMLString*)},
-	{"addAttributeNS", "(Lcom/sun/org/apache/xerces/internal/xni/QName;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(XMLAttributesImpl, addAttributeNS, void, $QName*, $String*, $String*)},
-	{"checkDuplicatesNS", "()Lcom/sun/org/apache/xerces/internal/xni/QName;", nullptr, $PUBLIC, $virtualMethod(XMLAttributesImpl, checkDuplicatesNS, $QName*)},
-	{"checkManyDuplicatesNS", "()Lcom/sun/org/apache/xerces/internal/xni/QName;", nullptr, $PRIVATE, $method(XMLAttributesImpl, checkManyDuplicatesNS, $QName*)},
-	{"cleanTableView", "()V", nullptr, $PROTECTED, $virtualMethod(XMLAttributesImpl, cleanTableView, void)},
-	{"getAugmentations", "(Ljava/lang/String;Ljava/lang/String;)Lcom/sun/org/apache/xerces/internal/xni/Augmentations;", nullptr, $PUBLIC, $virtualMethod(XMLAttributesImpl, getAugmentations, $Augmentations*, $String*, $String*)},
-	{"getAugmentations", "(Ljava/lang/String;)Lcom/sun/org/apache/xerces/internal/xni/Augmentations;", nullptr, $PUBLIC, $virtualMethod(XMLAttributesImpl, getAugmentations, $Augmentations*, $String*)},
-	{"getAugmentations", "(I)Lcom/sun/org/apache/xerces/internal/xni/Augmentations;", nullptr, $PUBLIC, $virtualMethod(XMLAttributesImpl, getAugmentations, $Augmentations*, int32_t)},
-	{"getIndex", "(Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(XMLAttributesImpl, getIndex, int32_t, $String*)},
-	{"getIndex", "(Ljava/lang/String;Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(XMLAttributesImpl, getIndex, int32_t, $String*, $String*)},
-	{"getIndexByLocalName", "(Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(XMLAttributesImpl, getIndexByLocalName, int32_t, $String*)},
-	{"getIndexFast", "(Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(XMLAttributesImpl, getIndexFast, int32_t, $String*)},
-	{"getIndexFast", "(Ljava/lang/String;Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(XMLAttributesImpl, getIndexFast, int32_t, $String*, $String*)},
-	{"getLength", "()I", nullptr, $PUBLIC, $virtualMethod(XMLAttributesImpl, getLength, int32_t)},
-	{"getLocalName", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLAttributesImpl, getLocalName, $String*, int32_t)},
-	{"getName", "(ILcom/sun/org/apache/xerces/internal/xni/QName;)V", nullptr, $PUBLIC, $virtualMethod(XMLAttributesImpl, getName, void, int32_t, $QName*)},
-	{"getName", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLAttributesImpl, getName, $String*, int32_t)},
-	{"getNonNormalizedValue", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLAttributesImpl, getNonNormalizedValue, $String*, int32_t)},
-	{"getPrefix", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLAttributesImpl, getPrefix, $String*, int32_t)},
-	{"getQName", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLAttributesImpl, getQName, $String*, int32_t)},
-	{"getQualifiedName", "(I)Lcom/sun/org/apache/xerces/internal/xni/QName;", nullptr, $PUBLIC, $virtualMethod(XMLAttributesImpl, getQualifiedName, $QName*, int32_t)},
-	{"getReportableType", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(XMLAttributesImpl, getReportableType, $String*, $String*)},
-	{"getTableViewBucket", "(Ljava/lang/String;)I", nullptr, $PROTECTED, $virtualMethod(XMLAttributesImpl, getTableViewBucket, int32_t, $String*)},
-	{"getTableViewBucket", "(Ljava/lang/String;Ljava/lang/String;)I", nullptr, $PROTECTED, $virtualMethod(XMLAttributesImpl, getTableViewBucket, int32_t, $String*, $String*)},
-	{"getType", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLAttributesImpl, getType, $String*, int32_t)},
-	{"getType", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLAttributesImpl, getType, $String*, $String*)},
-	{"getType", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLAttributesImpl, getType, $String*, $String*, $String*)},
-	{"getURI", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLAttributesImpl, getURI, $String*, int32_t)},
-	{"getValue", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLAttributesImpl, getValue, $String*, int32_t)},
-	{"getValue", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLAttributesImpl, getValue, $String*, $String*)},
-	{"getValue", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLAttributesImpl, getValue, $String*, $String*, $String*)},
-	{"growTableView", "()V", nullptr, $PRIVATE, $method(XMLAttributesImpl, growTableView, void)},
-	{"hash", "(Ljava/lang/String;)I", nullptr, $PRIVATE, $method(XMLAttributesImpl, hash, int32_t, $String*)},
-	{"hash", "(Ljava/lang/String;Ljava/lang/String;)I", nullptr, $PRIVATE, $method(XMLAttributesImpl, hash, int32_t, $String*, $String*)},
-	{"hash0", "(Ljava/lang/String;)I", nullptr, $PRIVATE, $method(XMLAttributesImpl, hash0, int32_t, $String*)},
-	{"isSpecified", "(I)Z", nullptr, $PUBLIC, $virtualMethod(XMLAttributesImpl, isSpecified, bool, int32_t)},
-	{"prepareAndPopulateTableView", "()V", nullptr, $PROTECTED, $virtualMethod(XMLAttributesImpl, prepareAndPopulateTableView, void)},
-	{"prepareAndPopulateTableView", "(I)V", nullptr, $PRIVATE, $method(XMLAttributesImpl, prepareAndPopulateTableView, void, int32_t)},
-	{"prepareAndPopulateTableViewNS", "(I)V", nullptr, $PRIVATE, $method(XMLAttributesImpl, prepareAndPopulateTableViewNS, void, int32_t)},
-	{"prepareTableView", "()V", nullptr, $PROTECTED, $virtualMethod(XMLAttributesImpl, prepareTableView, void)},
-	{"rebalanceTableView", "(I)V", nullptr, $PRIVATE, $method(XMLAttributesImpl, rebalanceTableView, void, int32_t)},
-	{"rebalanceTableViewNS", "(I)V", nullptr, $PRIVATE, $method(XMLAttributesImpl, rebalanceTableViewNS, void, int32_t)},
-	{"refresh", "()V", nullptr, $PUBLIC, $virtualMethod(XMLAttributesImpl, refresh, void)},
-	{"refresh", "(I)V", nullptr, $PUBLIC, $virtualMethod(XMLAttributesImpl, refresh, void, int32_t)},
-	{"removeAllAttributes", "()V", nullptr, $PUBLIC, $virtualMethod(XMLAttributesImpl, removeAllAttributes, void)},
-	{"removeAttributeAt", "(I)V", nullptr, $PUBLIC, $virtualMethod(XMLAttributesImpl, removeAttributeAt, void, int32_t)},
-	{"setAugmentations", "(ILcom/sun/org/apache/xerces/internal/xni/Augmentations;)V", nullptr, $PUBLIC, $virtualMethod(XMLAttributesImpl, setAugmentations, void, int32_t, $Augmentations*)},
-	{"setName", "(ILcom/sun/org/apache/xerces/internal/xni/QName;)V", nullptr, $PUBLIC, $virtualMethod(XMLAttributesImpl, setName, void, int32_t, $QName*)},
-	{"setNamespaces", "(Z)V", nullptr, $PUBLIC, $virtualMethod(XMLAttributesImpl, setNamespaces, void, bool)},
-	{"setNonNormalizedValue", "(ILjava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(XMLAttributesImpl, setNonNormalizedValue, void, int32_t, $String*)},
-	{"setSpecified", "(IZ)V", nullptr, $PUBLIC, $virtualMethod(XMLAttributesImpl, setSpecified, void, int32_t, bool)},
-	{"setType", "(ILjava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(XMLAttributesImpl, setType, void, int32_t, $String*)},
-	{"setURI", "(ILjava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(XMLAttributesImpl, setURI, void, int32_t, $String*)},
-	{"setValue", "(ILjava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(XMLAttributesImpl, setValue, void, int32_t, $String*)},
-	{"setValue", "(ILjava/lang/String;Lcom/sun/org/apache/xerces/internal/xni/XMLString;)V", nullptr, $PUBLIC, $virtualMethod(XMLAttributesImpl, setValue, void, int32_t, $String*, $XMLString*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _XMLAttributesImpl_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xerces.internal.util.XMLAttributesImpl$Attribute", "com.sun.org.apache.xerces.internal.util.XMLAttributesImpl", "Attribute", $STATIC},
-	{}
-};
-
-$ClassInfo _XMLAttributesImpl_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.util.XMLAttributesImpl",
-	"java.lang.Object",
-	"com.sun.org.apache.xerces.internal.xni.XMLAttributes,com.sun.xml.internal.stream.XMLBufferListener",
-	_XMLAttributesImpl_FieldInfo_,
-	_XMLAttributesImpl_MethodInfo_,
-	nullptr,
-	nullptr,
-	_XMLAttributesImpl_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xerces.internal.util.XMLAttributesImpl$Attribute"
-};
-
-$Object* allocate$XMLAttributesImpl($Class* clazz) {
-	return $of($alloc(XMLAttributesImpl));
-}
-
 int32_t XMLAttributesImpl::hashCode() {
 	 return this->$XMLAttributes::hashCode();
 }
@@ -170,13 +60,13 @@ void XMLAttributesImpl::init$() {
 }
 
 void XMLAttributesImpl::init$(int32_t tableSize) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->fNamespaces = true;
 	this->fLargeCount = 1;
 	$set(this, fAttributes, $new($XMLAttributesImpl$AttributeArray, 4));
 	this->fTableViewBuckets = tableSize;
-	for (int32_t i = 0; i < $nc(this->fAttributes)->length; ++i) {
-		$nc(this->fAttributes)->set(i, $$new($XMLAttributesImpl$Attribute));
+	for (int32_t i = 0; i < this->fAttributes->length; ++i) {
+		this->fAttributes->set(i, $$new($XMLAttributesImpl$Attribute));
 	}
 }
 
@@ -189,47 +79,47 @@ int32_t XMLAttributesImpl::addAttribute($QName* name, $String* type, $String* va
 }
 
 int32_t XMLAttributesImpl::addAttribute($QName* name, $String* type, $String* value, $XMLString* valueCache) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t index = 0;
 	if (this->fLength < XMLAttributesImpl::SIZE_LIMIT) {
-		index = $nc(name)->uri != nullptr && $nc(name->uri)->length() != 0 ? getIndexFast($nc(name)->uri, name->localpart) : getIndexFast($nc(name)->rawname);
+		index = $nc(name)->uri != nullptr && name->uri->length() != 0 ? getIndexFast(name->uri, name->localpart) : getIndexFast(name->rawname);
 		if (index == -1) {
 			index = this->fLength;
 			if (this->fLength++ == $nc(this->fAttributes)->length) {
-				$var($XMLAttributesImpl$AttributeArray, attributes, $new($XMLAttributesImpl$AttributeArray, $nc(this->fAttributes)->length + 4));
-				$System::arraycopy(this->fAttributes, 0, attributes, 0, $nc(this->fAttributes)->length);
-				for (int32_t i = $nc(this->fAttributes)->length; i < attributes->length; ++i) {
+				$var($XMLAttributesImpl$AttributeArray, attributes, $new($XMLAttributesImpl$AttributeArray, this->fAttributes->length + 4));
+				$System::arraycopy(this->fAttributes, 0, attributes, 0, this->fAttributes->length);
+				for (int32_t i = this->fAttributes->length; i < attributes->length; ++i) {
 					attributes->set(i, $$new($XMLAttributesImpl$Attribute));
 				}
 				$set(this, fAttributes, attributes);
 			}
 		}
 	} else {
-		bool var$1 = $nc(name)->uri == nullptr || $nc($nc(name)->uri)->length() == 0;
-		if (var$1 || (index = getIndexFast($nc(name)->uri, name->localpart)) == -1) {
+		bool var$0 = $nc(name)->uri == nullptr || name->uri->length() == 0;
+		if (var$0 || (index = getIndexFast(name->uri, name->localpart)) == -1) {
 			if (!this->fIsTableViewConsistent || this->fLength == XMLAttributesImpl::SIZE_LIMIT || (this->fLength > XMLAttributesImpl::SIZE_LIMIT && this->fLength > this->fTableViewBuckets)) {
 				prepareAndPopulateTableView();
 				this->fIsTableViewConsistent = true;
 			}
-			int32_t bucket = getTableViewBucket($nc(name)->rawname);
+			int32_t bucket = getTableViewBucket(name->rawname);
 			if ($nc(this->fAttributeTableViewChainState)->get(bucket) != this->fLargeCount) {
 				index = this->fLength;
 				if (this->fLength++ == $nc(this->fAttributes)->length) {
-					$var($XMLAttributesImpl$AttributeArray, attributes, $new($XMLAttributesImpl$AttributeArray, $nc(this->fAttributes)->length << 1));
-					$System::arraycopy(this->fAttributes, 0, attributes, 0, $nc(this->fAttributes)->length);
-					for (int32_t i = $nc(this->fAttributes)->length; i < attributes->length; ++i) {
+					$var($XMLAttributesImpl$AttributeArray, attributes, $new($XMLAttributesImpl$AttributeArray, this->fAttributes->length << 1));
+					$System::arraycopy(this->fAttributes, 0, attributes, 0, this->fAttributes->length);
+					for (int32_t i = this->fAttributes->length; i < attributes->length; ++i) {
 						attributes->set(i, $$new($XMLAttributesImpl$Attribute));
 					}
 					$set(this, fAttributes, attributes);
 				}
-				$nc(this->fAttributeTableViewChainState)->set(bucket, this->fLargeCount);
-				$set($nc($nc(this->fAttributes)->get(index)), next, nullptr);
-				$nc(this->fAttributeTableView)->set(bucket, $nc(this->fAttributes)->get(index));
+				this->fAttributeTableViewChainState->set(bucket, this->fLargeCount);
+				$set($nc(this->fAttributes->get(index)), next, nullptr);
+				$nc(this->fAttributeTableView)->set(bucket, this->fAttributes->get(index));
 			} else {
 				int32_t collisionCount = 0;
 				$var($XMLAttributesImpl$Attribute, found, $nc(this->fAttributeTableView)->get(bucket));
 				while (found != nullptr) {
-					if ($nc(found->name)->rawname == $nc(name)->rawname) {
+					if ($nc(found->name)->rawname == name->rawname) {
 						break;
 					}
 					$assign(found, found->next);
@@ -238,22 +128,22 @@ int32_t XMLAttributesImpl::addAttribute($QName* name, $String* type, $String* va
 				if (found == nullptr) {
 					index = this->fLength;
 					if (this->fLength++ == $nc(this->fAttributes)->length) {
-						$var($XMLAttributesImpl$AttributeArray, attributes, $new($XMLAttributesImpl$AttributeArray, $nc(this->fAttributes)->length << 1));
-						$System::arraycopy(this->fAttributes, 0, attributes, 0, $nc(this->fAttributes)->length);
-						for (int32_t i = $nc(this->fAttributes)->length; i < attributes->length; ++i) {
+						$var($XMLAttributesImpl$AttributeArray, attributes, $new($XMLAttributesImpl$AttributeArray, this->fAttributes->length << 1));
+						$System::arraycopy(this->fAttributes, 0, attributes, 0, this->fAttributes->length);
+						for (int32_t i = this->fAttributes->length; i < attributes->length; ++i) {
 							attributes->set(i, $$new($XMLAttributesImpl$Attribute));
 						}
 						$set(this, fAttributes, attributes);
 					}
 					if (collisionCount >= XMLAttributesImpl::MAX_HASH_COLLISIONS) {
-						$nc($nc($nc(this->fAttributes)->get(index))->name)->setValues(name);
+						$nc($nc(this->fAttributes->get(index))->name)->setValues(name);
 						rebalanceTableView(this->fLength);
 					} else {
 						$set($nc($nc(this->fAttributes)->get(index)), next, $nc(this->fAttributeTableView)->get(bucket));
-						$nc(this->fAttributeTableView)->set(bucket, $nc(this->fAttributes)->get(index));
+						this->fAttributeTableView->set(bucket, this->fAttributes->get(index));
 					}
 				} else {
-					index = getIndexFast($nc(name)->rawname);
+					index = getIndexFast(name->rawname);
 				}
 			}
 		}
@@ -266,7 +156,7 @@ int32_t XMLAttributesImpl::addAttribute($QName* name, $String* type, $String* va
 	$set(attribute, nonNormalizedValue, value);
 	attribute->specified = false;
 	if (attribute->augs != nullptr) {
-		$nc(attribute->augs)->removeAllItems();
+		attribute->augs->removeAllItems();
 	}
 	return index;
 }
@@ -280,7 +170,7 @@ void XMLAttributesImpl::removeAttributeAt(int32_t attrIndex) {
 	if (attrIndex < this->fLength - 1) {
 		$var($XMLAttributesImpl$Attribute, removedAttr, $nc(this->fAttributes)->get(attrIndex));
 		$System::arraycopy(this->fAttributes, attrIndex + 1, this->fAttributes, attrIndex, this->fLength - attrIndex - 1);
-		$nc(this->fAttributes)->set(this->fLength - 1, removedAttr);
+		this->fAttributes->set(this->fLength - 1, removedAttr);
 	}
 	--this->fLength;
 }
@@ -349,8 +239,8 @@ $String* XMLAttributesImpl::getValue(int32_t index) {
 	if (index < 0 || index >= this->fLength) {
 		return nullptr;
 	}
-	if ($nc($nc(this->fAttributes)->get(index))->value == nullptr && $nc($nc(this->fAttributes)->get(index))->xmlValue != nullptr) {
-		$set($nc($nc(this->fAttributes)->get(index)), value, $nc($nc($nc(this->fAttributes)->get(index))->xmlValue)->toString());
+	if ($nc($nc(this->fAttributes)->get(index))->value == nullptr && $nc(this->fAttributes->get(index))->xmlValue != nullptr) {
+		$set($nc(this->fAttributes->get(index)), value, $nc(this->fAttributes->get(index))->xmlValue->toString());
 	}
 	return $nc($nc(this->fAttributes)->get(index))->value;
 }
@@ -361,7 +251,7 @@ $String* XMLAttributesImpl::getValue($String* qname) {
 		return nullptr;
 	}
 	if ($nc($nc(this->fAttributes)->get(index))->value == nullptr) {
-		$set($nc($nc(this->fAttributes)->get(index)), value, $nc($nc($nc(this->fAttributes)->get(index))->xmlValue)->toString());
+		$set($nc(this->fAttributes->get(index)), value, $nc($nc(this->fAttributes->get(index))->xmlValue)->toString());
 	}
 	return $nc($nc(this->fAttributes)->get(index))->value;
 }
@@ -374,10 +264,10 @@ $String* XMLAttributesImpl::getName(int32_t index) {
 }
 
 int32_t XMLAttributesImpl::getIndex($String* qName) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (int32_t i = 0; i < this->fLength; ++i) {
 		$var($XMLAttributesImpl$Attribute, attribute, $nc(this->fAttributes)->get(i));
-		if ($nc($nc(attribute)->name)->rawname != nullptr && $nc($nc(attribute->name)->rawname)->equals(qName)) {
+		if ($nc($nc(attribute)->name)->rawname != nullptr && attribute->name->rawname->equals(qName)) {
 			return i;
 		}
 	}
@@ -385,11 +275,11 @@ int32_t XMLAttributesImpl::getIndex($String* qName) {
 }
 
 int32_t XMLAttributesImpl::getIndex($String* uri, $String* localPart) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (int32_t i = 0; i < this->fLength; ++i) {
 		$var($XMLAttributesImpl$Attribute, attribute, $nc(this->fAttributes)->get(i));
-		bool var$0 = $nc($nc(attribute)->name)->localpart != nullptr && $nc($nc(attribute->name)->localpart)->equals(localPart);
-		if (var$0 && ((uri == $nc(attribute->name)->uri) || (uri != nullptr && $nc($nc(attribute)->name)->uri != nullptr && $nc($nc(attribute->name)->uri)->equals(uri)))) {
+		bool var$0 = $nc($nc(attribute)->name)->localpart != nullptr && attribute->name->localpart->equals(localPart);
+		if (var$0 && ((uri == attribute->name->uri) || (uri != nullptr && attribute->name->uri != nullptr && attribute->name->uri->equals(uri)))) {
 			return i;
 		}
 	}
@@ -397,10 +287,10 @@ int32_t XMLAttributesImpl::getIndex($String* uri, $String* localPart) {
 }
 
 int32_t XMLAttributesImpl::getIndexByLocalName($String* localPart) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (int32_t i = 0; i < this->fLength; ++i) {
 		$var($XMLAttributesImpl$Attribute, attribute, $nc(this->fAttributes)->get(i));
-		if ($nc($nc(attribute)->name)->localpart != nullptr && $nc($nc(attribute->name)->localpart)->equals(localPart)) {
+		if ($nc($nc(attribute)->name)->localpart != nullptr && attribute->name->localpart->equals(localPart)) {
 			return i;
 		}
 	}
@@ -441,7 +331,7 @@ $String* XMLAttributesImpl::getType($String* uri, $String* localName) {
 }
 
 int32_t XMLAttributesImpl::getIndexFast($String* qName) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (int32_t i = 0; i < this->fLength; ++i) {
 		$var($XMLAttributesImpl$Attribute, attribute, $nc(this->fAttributes)->get(i));
 		if ($nc($nc(attribute)->name)->rawname == qName) {
@@ -452,22 +342,22 @@ int32_t XMLAttributesImpl::getIndexFast($String* qName) {
 }
 
 void XMLAttributesImpl::addAttributeNS($QName* name, $String* type, $String* value) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t index = this->fLength;
 	if (this->fLength++ == $nc(this->fAttributes)->length) {
 		$var($XMLAttributesImpl$AttributeArray, attributes, nullptr);
 		if (this->fLength < XMLAttributesImpl::SIZE_LIMIT) {
-			$assign(attributes, $new($XMLAttributesImpl$AttributeArray, $nc(this->fAttributes)->length + 4));
+			$assign(attributes, $new($XMLAttributesImpl$AttributeArray, this->fAttributes->length + 4));
 		} else {
-			$assign(attributes, $new($XMLAttributesImpl$AttributeArray, $nc(this->fAttributes)->length << 1));
+			$assign(attributes, $new($XMLAttributesImpl$AttributeArray, this->fAttributes->length << 1));
 		}
-		$System::arraycopy(this->fAttributes, 0, attributes, 0, $nc(this->fAttributes)->length);
-		for (int32_t i = $nc(this->fAttributes)->length; i < $nc(attributes)->length; ++i) {
+		$System::arraycopy(this->fAttributes, 0, attributes, 0, this->fAttributes->length);
+		for (int32_t i = this->fAttributes->length; i < $nc(attributes)->length; ++i) {
 			attributes->set(i, $$new($XMLAttributesImpl$Attribute));
 		}
 		$set(this, fAttributes, attributes);
 	}
-	$var($XMLAttributesImpl$Attribute, attribute, $nc(this->fAttributes)->get(index));
+	$var($XMLAttributesImpl$Attribute, attribute, this->fAttributes->get(index));
 	$nc($nc(attribute)->name)->setValues(name);
 	$set(attribute, type, type);
 	$set(attribute, value, value);
@@ -477,7 +367,7 @@ void XMLAttributesImpl::addAttributeNS($QName* name, $String* type, $String* val
 }
 
 $QName* XMLAttributesImpl::checkDuplicatesNS() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t length = this->fLength;
 	if (length <= XMLAttributesImpl::SIZE_LIMIT) {
 		$var($XMLAttributesImpl$AttributeArray, attributes, this->fAttributes);
@@ -485,7 +375,7 @@ $QName* XMLAttributesImpl::checkDuplicatesNS() {
 			$var($XMLAttributesImpl$Attribute, att1, $nc(attributes)->get(i));
 			for (int32_t j = i + 1; j < length; ++j) {
 				$var($XMLAttributesImpl$Attribute, att2, attributes->get(j));
-				if ($nc($nc(att1)->name)->localpart == $nc($nc(att2)->name)->localpart && $nc(att1->name)->uri == $nc(att2->name)->uri) {
+				if ($nc($nc(att1)->name)->localpart == $nc($nc(att2)->name)->localpart && att1->name->uri == att2->name->uri) {
 					return att2->name;
 				}
 			}
@@ -497,7 +387,7 @@ $QName* XMLAttributesImpl::checkDuplicatesNS() {
 }
 
 $QName* XMLAttributesImpl::checkManyDuplicatesNS() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->fIsTableViewConsistent = false;
 	prepareTableView();
 	$var($XMLAttributesImpl$Attribute, attr, nullptr);
@@ -509,16 +399,16 @@ $QName* XMLAttributesImpl::checkManyDuplicatesNS() {
 	int32_t largeCount = this->fLargeCount;
 	for (int32_t i = 0; i < length; ++i) {
 		$assign(attr, $nc(attributes)->get(i));
-		bucket = getTableViewBucket($nc($nc(attr)->name)->localpart, $nc(attr->name)->uri);
+		bucket = getTableViewBucket($nc($nc(attr)->name)->localpart, $nc($nc(attr)->name)->uri);
 		if ($nc(attributeTableViewChainState)->get(bucket) != largeCount) {
 			attributeTableViewChainState->set(bucket, largeCount);
-			$set($nc(attr), next, nullptr);
+			$set(attr, next, nullptr);
 			$nc(attributeTableView)->set(bucket, attr);
 		} else {
 			int32_t collisionCount = 0;
 			$var($XMLAttributesImpl$Attribute, found, $nc(attributeTableView)->get(bucket));
 			while (found != nullptr) {
-				if ($nc(found->name)->localpart == $nc($nc(attr)->name)->localpart && $nc(found->name)->uri == $nc(attr->name)->uri) {
+				if ($nc(found->name)->localpart == attr->name->localpart && found->name->uri == attr->name->uri) {
 					return attr->name;
 				}
 				$assign(found, found->next);
@@ -528,7 +418,7 @@ $QName* XMLAttributesImpl::checkManyDuplicatesNS() {
 				rebalanceTableViewNS(i + 1);
 				largeCount = this->fLargeCount;
 			} else {
-				$set($nc(attr), next, attributeTableView->get(bucket));
+				$set(attr, next, attributeTableView->get(bucket));
 				attributeTableView->set(bucket, attr);
 			}
 		}
@@ -537,10 +427,10 @@ $QName* XMLAttributesImpl::checkManyDuplicatesNS() {
 }
 
 int32_t XMLAttributesImpl::getIndexFast($String* uri, $String* localPart) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (int32_t i = 0; i < this->fLength; ++i) {
 		$var($XMLAttributesImpl$Attribute, attribute, $nc(this->fAttributes)->get(i));
-		if ($nc($nc(attribute)->name)->localpart == localPart && $nc(attribute->name)->uri == uri) {
+		if ($nc($nc(attribute)->name)->localpart == localPart && attribute->name->uri == uri) {
 			return i;
 		}
 	}
@@ -555,14 +445,14 @@ $String* XMLAttributesImpl::getReportableType($String* type) {
 }
 
 int32_t XMLAttributesImpl::getTableViewBucket($String* qname) {
-	return $mod(((int32_t)(hash(qname) & (uint32_t)0x7FFFFFFF)), this->fTableViewBuckets);
+	return $mod((hash(qname) & 0x7fffffff), this->fTableViewBuckets);
 }
 
 int32_t XMLAttributesImpl::getTableViewBucket($String* localpart, $String* uri) {
 	if (uri == nullptr) {
-		return $mod(((int32_t)(hash(localpart) & (uint32_t)0x7FFFFFFF)), this->fTableViewBuckets);
+		return $mod((hash(localpart) & 0x7fffffff), this->fTableViewBuckets);
 	} else {
-		return $mod(((int32_t)(hash(localpart, uri) & (uint32_t)0x7FFFFFFF)), this->fTableViewBuckets);
+		return $mod((hash(localpart, uri) & 0x7fffffff), this->fTableViewBuckets);
 	}
 }
 
@@ -587,7 +477,7 @@ int32_t XMLAttributesImpl::hash0($String* symbol) {
 	int32_t length = $nc(symbol)->length();
 	$var($ints, multipliers, this->fHashMultipliers);
 	for (int32_t i = 0; i < length; ++i) {
-		code = code * $nc(multipliers)->get((int32_t)(i & (uint32_t)XMLAttributesImpl::MULTIPLIERS_MASK)) + symbol->charAt(i);
+		code = code * $nc(multipliers)->get(i & XMLAttributesImpl::MULTIPLIERS_MASK) + symbol->charAt(i);
 	}
 	return code;
 }
@@ -596,7 +486,7 @@ void XMLAttributesImpl::cleanTableView() {
 	if (++this->fLargeCount < 0) {
 		if (this->fAttributeTableViewChainState != nullptr) {
 			for (int32_t i = this->fTableViewBuckets - 1; i >= 0; --i) {
-				$nc(this->fAttributeTableViewChainState)->set(i, 0);
+				this->fAttributeTableViewChainState->set(i, 0);
 			}
 		}
 		this->fLargeCount = 1;
@@ -642,12 +532,12 @@ void XMLAttributesImpl::prepareAndPopulateTableView(int32_t count) {
 		$assign(attr, $nc(this->fAttributes)->get(i));
 		bucket = getTableViewBucket($nc($nc(attr)->name)->rawname);
 		if ($nc(this->fAttributeTableViewChainState)->get(bucket) != this->fLargeCount) {
-			$nc(this->fAttributeTableViewChainState)->set(bucket, this->fLargeCount);
-			$set($nc(attr), next, nullptr);
+			this->fAttributeTableViewChainState->set(bucket, this->fLargeCount);
+			$set(attr, next, nullptr);
 			$nc(this->fAttributeTableView)->set(bucket, attr);
 		} else {
-			$set($nc(attr), next, $nc(this->fAttributeTableView)->get(bucket));
-			$nc(this->fAttributeTableView)->set(bucket, attr);
+			$set(attr, next, $nc(this->fAttributeTableView)->get(bucket));
+			this->fAttributeTableView->set(bucket, attr);
 		}
 	}
 }
@@ -715,14 +605,14 @@ void XMLAttributesImpl::prepareAndPopulateTableViewNS(int32_t count) {
 	int32_t bucket = 0;
 	for (int32_t i = 0; i < count; ++i) {
 		$assign(attr, $nc(this->fAttributes)->get(i));
-		bucket = getTableViewBucket($nc($nc(attr)->name)->localpart, $nc(attr->name)->uri);
+		bucket = getTableViewBucket($nc($nc(attr)->name)->localpart, $nc($nc(attr)->name)->uri);
 		if ($nc(this->fAttributeTableViewChainState)->get(bucket) != this->fLargeCount) {
-			$nc(this->fAttributeTableViewChainState)->set(bucket, this->fLargeCount);
-			$set($nc(attr), next, nullptr);
+			this->fAttributeTableViewChainState->set(bucket, this->fLargeCount);
+			$set(attr, next, nullptr);
 			$nc(this->fAttributeTableView)->set(bucket, attr);
 		} else {
-			$set($nc(attr), next, $nc(this->fAttributeTableView)->get(bucket));
-			$nc(this->fAttributeTableView)->set(bucket, attr);
+			$set(attr, next, $nc(this->fAttributeTableView)->get(bucket));
+			this->fAttributeTableView->set(bucket, attr);
 		}
 	}
 }
@@ -747,7 +637,110 @@ XMLAttributesImpl::XMLAttributesImpl() {
 }
 
 $Class* XMLAttributesImpl::load$($String* name, bool initialize) {
-	$loadClass(XMLAttributesImpl, name, initialize, &_XMLAttributesImpl_ClassInfo_, allocate$XMLAttributesImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"TABLE_SIZE", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(XMLAttributesImpl, TABLE_SIZE)},
+		{"MAX_HASH_COLLISIONS", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(XMLAttributesImpl, MAX_HASH_COLLISIONS)},
+		{"MULTIPLIERS_SIZE", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(XMLAttributesImpl, MULTIPLIERS_SIZE)},
+		{"MULTIPLIERS_MASK", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(XMLAttributesImpl, MULTIPLIERS_MASK)},
+		{"SIZE_LIMIT", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(XMLAttributesImpl, SIZE_LIMIT)},
+		{"fNamespaces", "Z", nullptr, $PROTECTED, $field(XMLAttributesImpl, fNamespaces)},
+		{"fLargeCount", "I", nullptr, $PROTECTED, $field(XMLAttributesImpl, fLargeCount)},
+		{"fLength", "I", nullptr, $PROTECTED, $field(XMLAttributesImpl, fLength)},
+		{"fAttributes", "[Lcom/sun/org/apache/xerces/internal/util/XMLAttributesImpl$Attribute;", nullptr, $PROTECTED, $field(XMLAttributesImpl, fAttributes)},
+		{"fAttributeTableView", "[Lcom/sun/org/apache/xerces/internal/util/XMLAttributesImpl$Attribute;", nullptr, $PROTECTED, $field(XMLAttributesImpl, fAttributeTableView)},
+		{"fAttributeTableViewChainState", "[I", nullptr, $PROTECTED, $field(XMLAttributesImpl, fAttributeTableViewChainState)},
+		{"fTableViewBuckets", "I", nullptr, $PROTECTED, $field(XMLAttributesImpl, fTableViewBuckets)},
+		{"fIsTableViewConsistent", "Z", nullptr, $PROTECTED, $field(XMLAttributesImpl, fIsTableViewConsistent)},
+		{"fHashMultipliers", "[I", nullptr, $PROTECTED, $field(XMLAttributesImpl, fHashMultipliers)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(XMLAttributesImpl, init$, void)},
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(XMLAttributesImpl, init$, void, int32_t)},
+		{"addAttribute", "(Lcom/sun/org/apache/xerces/internal/xni/QName;Ljava/lang/String;Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(XMLAttributesImpl, addAttribute, int32_t, $QName*, $String*, $String*)},
+		{"addAttribute", "(Lcom/sun/org/apache/xerces/internal/xni/QName;Ljava/lang/String;Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/xni/XMLString;)I", nullptr, $PUBLIC, $virtualMethod(XMLAttributesImpl, addAttribute, int32_t, $QName*, $String*, $String*, $XMLString*)},
+		{"addAttributeNS", "(Lcom/sun/org/apache/xerces/internal/xni/QName;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(XMLAttributesImpl, addAttributeNS, void, $QName*, $String*, $String*)},
+		{"checkDuplicatesNS", "()Lcom/sun/org/apache/xerces/internal/xni/QName;", nullptr, $PUBLIC, $virtualMethod(XMLAttributesImpl, checkDuplicatesNS, $QName*)},
+		{"checkManyDuplicatesNS", "()Lcom/sun/org/apache/xerces/internal/xni/QName;", nullptr, $PRIVATE, $method(XMLAttributesImpl, checkManyDuplicatesNS, $QName*)},
+		{"cleanTableView", "()V", nullptr, $PROTECTED, $virtualMethod(XMLAttributesImpl, cleanTableView, void)},
+		{"getAugmentations", "(Ljava/lang/String;Ljava/lang/String;)Lcom/sun/org/apache/xerces/internal/xni/Augmentations;", nullptr, $PUBLIC, $virtualMethod(XMLAttributesImpl, getAugmentations, $Augmentations*, $String*, $String*)},
+		{"getAugmentations", "(Ljava/lang/String;)Lcom/sun/org/apache/xerces/internal/xni/Augmentations;", nullptr, $PUBLIC, $virtualMethod(XMLAttributesImpl, getAugmentations, $Augmentations*, $String*)},
+		{"getAugmentations", "(I)Lcom/sun/org/apache/xerces/internal/xni/Augmentations;", nullptr, $PUBLIC, $virtualMethod(XMLAttributesImpl, getAugmentations, $Augmentations*, int32_t)},
+		{"getIndex", "(Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(XMLAttributesImpl, getIndex, int32_t, $String*)},
+		{"getIndex", "(Ljava/lang/String;Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(XMLAttributesImpl, getIndex, int32_t, $String*, $String*)},
+		{"getIndexByLocalName", "(Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(XMLAttributesImpl, getIndexByLocalName, int32_t, $String*)},
+		{"getIndexFast", "(Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(XMLAttributesImpl, getIndexFast, int32_t, $String*)},
+		{"getIndexFast", "(Ljava/lang/String;Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(XMLAttributesImpl, getIndexFast, int32_t, $String*, $String*)},
+		{"getLength", "()I", nullptr, $PUBLIC, $virtualMethod(XMLAttributesImpl, getLength, int32_t)},
+		{"getLocalName", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLAttributesImpl, getLocalName, $String*, int32_t)},
+		{"getName", "(ILcom/sun/org/apache/xerces/internal/xni/QName;)V", nullptr, $PUBLIC, $virtualMethod(XMLAttributesImpl, getName, void, int32_t, $QName*)},
+		{"getName", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLAttributesImpl, getName, $String*, int32_t)},
+		{"getNonNormalizedValue", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLAttributesImpl, getNonNormalizedValue, $String*, int32_t)},
+		{"getPrefix", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLAttributesImpl, getPrefix, $String*, int32_t)},
+		{"getQName", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLAttributesImpl, getQName, $String*, int32_t)},
+		{"getQualifiedName", "(I)Lcom/sun/org/apache/xerces/internal/xni/QName;", nullptr, $PUBLIC, $virtualMethod(XMLAttributesImpl, getQualifiedName, $QName*, int32_t)},
+		{"getReportableType", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(XMLAttributesImpl, getReportableType, $String*, $String*)},
+		{"getTableViewBucket", "(Ljava/lang/String;)I", nullptr, $PROTECTED, $virtualMethod(XMLAttributesImpl, getTableViewBucket, int32_t, $String*)},
+		{"getTableViewBucket", "(Ljava/lang/String;Ljava/lang/String;)I", nullptr, $PROTECTED, $virtualMethod(XMLAttributesImpl, getTableViewBucket, int32_t, $String*, $String*)},
+		{"getType", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLAttributesImpl, getType, $String*, int32_t)},
+		{"getType", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLAttributesImpl, getType, $String*, $String*)},
+		{"getType", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLAttributesImpl, getType, $String*, $String*, $String*)},
+		{"getURI", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLAttributesImpl, getURI, $String*, int32_t)},
+		{"getValue", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLAttributesImpl, getValue, $String*, int32_t)},
+		{"getValue", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLAttributesImpl, getValue, $String*, $String*)},
+		{"getValue", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLAttributesImpl, getValue, $String*, $String*, $String*)},
+		{"growTableView", "()V", nullptr, $PRIVATE, $method(XMLAttributesImpl, growTableView, void)},
+		{"hash", "(Ljava/lang/String;)I", nullptr, $PRIVATE, $method(XMLAttributesImpl, hash, int32_t, $String*)},
+		{"hash", "(Ljava/lang/String;Ljava/lang/String;)I", nullptr, $PRIVATE, $method(XMLAttributesImpl, hash, int32_t, $String*, $String*)},
+		{"hash0", "(Ljava/lang/String;)I", nullptr, $PRIVATE, $method(XMLAttributesImpl, hash0, int32_t, $String*)},
+		{"isSpecified", "(I)Z", nullptr, $PUBLIC, $virtualMethod(XMLAttributesImpl, isSpecified, bool, int32_t)},
+		{"prepareAndPopulateTableView", "()V", nullptr, $PROTECTED, $virtualMethod(XMLAttributesImpl, prepareAndPopulateTableView, void)},
+		{"prepareAndPopulateTableView", "(I)V", nullptr, $PRIVATE, $method(XMLAttributesImpl, prepareAndPopulateTableView, void, int32_t)},
+		{"prepareAndPopulateTableViewNS", "(I)V", nullptr, $PRIVATE, $method(XMLAttributesImpl, prepareAndPopulateTableViewNS, void, int32_t)},
+		{"prepareTableView", "()V", nullptr, $PROTECTED, $virtualMethod(XMLAttributesImpl, prepareTableView, void)},
+		{"rebalanceTableView", "(I)V", nullptr, $PRIVATE, $method(XMLAttributesImpl, rebalanceTableView, void, int32_t)},
+		{"rebalanceTableViewNS", "(I)V", nullptr, $PRIVATE, $method(XMLAttributesImpl, rebalanceTableViewNS, void, int32_t)},
+		{"refresh", "()V", nullptr, $PUBLIC, $virtualMethod(XMLAttributesImpl, refresh, void)},
+		{"refresh", "(I)V", nullptr, $PUBLIC, $virtualMethod(XMLAttributesImpl, refresh, void, int32_t)},
+		{"removeAllAttributes", "()V", nullptr, $PUBLIC, $virtualMethod(XMLAttributesImpl, removeAllAttributes, void)},
+		{"removeAttributeAt", "(I)V", nullptr, $PUBLIC, $virtualMethod(XMLAttributesImpl, removeAttributeAt, void, int32_t)},
+		{"setAugmentations", "(ILcom/sun/org/apache/xerces/internal/xni/Augmentations;)V", nullptr, $PUBLIC, $virtualMethod(XMLAttributesImpl, setAugmentations, void, int32_t, $Augmentations*)},
+		{"setName", "(ILcom/sun/org/apache/xerces/internal/xni/QName;)V", nullptr, $PUBLIC, $virtualMethod(XMLAttributesImpl, setName, void, int32_t, $QName*)},
+		{"setNamespaces", "(Z)V", nullptr, $PUBLIC, $virtualMethod(XMLAttributesImpl, setNamespaces, void, bool)},
+		{"setNonNormalizedValue", "(ILjava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(XMLAttributesImpl, setNonNormalizedValue, void, int32_t, $String*)},
+		{"setSpecified", "(IZ)V", nullptr, $PUBLIC, $virtualMethod(XMLAttributesImpl, setSpecified, void, int32_t, bool)},
+		{"setType", "(ILjava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(XMLAttributesImpl, setType, void, int32_t, $String*)},
+		{"setURI", "(ILjava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(XMLAttributesImpl, setURI, void, int32_t, $String*)},
+		{"setValue", "(ILjava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(XMLAttributesImpl, setValue, void, int32_t, $String*)},
+		{"setValue", "(ILjava/lang/String;Lcom/sun/org/apache/xerces/internal/xni/XMLString;)V", nullptr, $PUBLIC, $virtualMethod(XMLAttributesImpl, setValue, void, int32_t, $String*, $XMLString*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xerces.internal.util.XMLAttributesImpl$Attribute", "com.sun.org.apache.xerces.internal.util.XMLAttributesImpl", "Attribute", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.util.XMLAttributesImpl",
+		"java.lang.Object",
+		"com.sun.org.apache.xerces.internal.xni.XMLAttributes,com.sun.xml.internal.stream.XMLBufferListener",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xerces.internal.util.XMLAttributesImpl$Attribute"
+	};
+	$loadClass(XMLAttributesImpl, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(XMLAttributesImpl));
+	});
 	return class$;
 }
 

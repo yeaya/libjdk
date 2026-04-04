@@ -1,5 +1,4 @@
 #include <javax/xml/catalog/Normalizer.h>
-
 #include <java/io/UnsupportedEncodingException.h>
 #include <java/lang/CharSequence.h>
 #include <java/net/URLDecoder.h>
@@ -25,43 +24,19 @@ namespace javax {
 	namespace xml {
 		namespace catalog {
 
-$MethodInfo _Normalizer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(Normalizer, init$, void)},
-	{"decodeURN", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(Normalizer, decodeURN, $String*, $String*)},
-	{"encodeURN", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(Normalizer, encodeURN, $String*, $String*)},
-	{"normalizePublicId", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(Normalizer, normalizePublicId, $String*, $String*)},
-	{"normalizeURI", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(Normalizer, normalizeURI, $String*, $String*)},
-	{}
-};
-
-$ClassInfo _Normalizer_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.xml.catalog.Normalizer",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_Normalizer_MethodInfo_
-};
-
-$Object* allocate$Normalizer($Class* clazz) {
-	return $of($alloc(Normalizer));
-}
-
 void Normalizer::init$() {
 }
 
 $String* Normalizer::normalizePublicId($String* publicId) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (publicId == nullptr) {
 		return nullptr;
 	}
 	$var($StringBuilder, sb, $new($StringBuilder, $nc(publicId)->length()));
 	char16_t last = u'a';
 	{
-		$var($chars, arr$, $nc(publicId)->toCharArray());
-		int32_t len$ = arr$->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		$var($chars, arr$, publicId->toCharArray());
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 			char16_t c = arr$->get(i$);
 			{
 				if ((c == u' ') && (sb->length() == 0 || last == u' ')) {
@@ -89,11 +64,11 @@ $String* Normalizer::encodeURN($String* publicId) {
 	$var($String, urn, normalizePublicId(publicId));
 	try {
 		$assign(urn, $URLEncoder::encode(urn, "UTF-8"_s));
-		$assign(urn, $nc(urn)->replace(static_cast<$CharSequence*>("::"_s), static_cast<$CharSequence*>(";"_s)));
-		$assign(urn, urn->replace(static_cast<$CharSequence*>("//"_s), static_cast<$CharSequence*>(":"_s)));
+		$assign(urn, $nc(urn)->replace("::"_s, ";"_s));
+		$assign(urn, urn->replace("//"_s, ":"_s));
 	} catch ($UnsupportedEncodingException& ex) {
 		$init($CatalogMessages);
-		$CatalogMessages::reportRunTimeError($CatalogMessages::ERR_OTHER, static_cast<$Throwable*>(ex));
+		$CatalogMessages::reportRunTimeError($CatalogMessages::ERR_OTHER, ex);
 	}
 	$init($Util);
 	return $str({$Util::URN, urn});
@@ -108,18 +83,18 @@ $String* Normalizer::decodeURN($String* urn) {
 		return urn;
 	}
 	try {
-		$assign(publicId, $nc(publicId)->replace(static_cast<$CharSequence*>(":"_s), static_cast<$CharSequence*>("//"_s)));
-		$assign(publicId, publicId->replace(static_cast<$CharSequence*>(";"_s), static_cast<$CharSequence*>("::"_s)));
+		$assign(publicId, $nc(publicId)->replace(":"_s, "//"_s));
+		$assign(publicId, publicId->replace(";"_s, "::"_s));
 		$assign(publicId, $URLDecoder::decode(publicId, "UTF-8"_s));
 	} catch ($UnsupportedEncodingException& ex) {
 		$init($CatalogMessages);
-		$CatalogMessages::reportRunTimeError($CatalogMessages::ERR_OTHER, static_cast<$Throwable*>(ex));
+		$CatalogMessages::reportRunTimeError($CatalogMessages::ERR_OTHER, ex);
 	}
 	return publicId;
 }
 
 $String* Normalizer::normalizeURI($String* uriref$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, uriref, uriref$renamed);
 	if (uriref == nullptr) {
 		return nullptr;
@@ -132,22 +107,40 @@ $String* Normalizer::normalizeURI($String* uriref$renamed) {
 		return uriref;
 	}
 	$var($StringBuilder, newRef, $new($StringBuilder, $nc(bytes)->length));
-	for (int32_t count = 0; count < $nc(bytes)->length; ++count) {
-		int32_t ch = (int32_t)(bytes->get(count) & (uint32_t)255);
+	for (int32_t count = 0; count < bytes->length; ++count) {
+		int32_t ch = bytes->get(count) & 0xff;
 		if ((ch <= 32) || (ch > 127) || (ch == 34) || (ch == 60) || (ch == 62) || (ch == 92) || (ch == 94) || (ch == 96) || (ch == 123) || (ch == 124) || (ch == 125) || (ch == 127)) {
-			newRef->append("%"_s)->append($($String::format("%02X"_s, $$new($ObjectArray, {$($of($Integer::valueOf(ch)))}))));
+			newRef->append("%"_s)->append($($String::format("%02X"_s, $$new($ObjectArray, {$($Integer::valueOf(ch))}))));
 		} else {
 			newRef->append((char16_t)bytes->get(count));
 		}
 	}
-	return $nc($(newRef->toString()))->trim();
+	return $(newRef->toString())->trim();
 }
 
 Normalizer::Normalizer() {
 }
 
 $Class* Normalizer::load$($String* name, bool initialize) {
-	$loadClass(Normalizer, name, initialize, &_Normalizer_ClassInfo_, allocate$Normalizer);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(Normalizer, init$, void)},
+		{"decodeURN", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(Normalizer, decodeURN, $String*, $String*)},
+		{"encodeURN", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(Normalizer, encodeURN, $String*, $String*)},
+		{"normalizePublicId", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(Normalizer, normalizePublicId, $String*, $String*)},
+		{"normalizeURI", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(Normalizer, normalizeURI, $String*, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.xml.catalog.Normalizer",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Normalizer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Normalizer);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <javax/swing/text/DefaultEditorKit$PasteAction.h>
-
 #include <java/awt/event/ActionEvent.h>
 #include <javax/swing/text/DefaultEditorKit.h>
 #include <javax/swing/text/JTextComponent.h>
@@ -17,37 +16,6 @@ namespace javax {
 	namespace swing {
 		namespace text {
 
-$MethodInfo _DefaultEditorKit$PasteAction_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(DefaultEditorKit$PasteAction, init$, void)},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(DefaultEditorKit$PasteAction, actionPerformed, void, $ActionEvent*)},
-	{}
-};
-
-$InnerClassInfo _DefaultEditorKit$PasteAction_InnerClassesInfo_[] = {
-	{"javax.swing.text.DefaultEditorKit$PasteAction", "javax.swing.text.DefaultEditorKit", "PasteAction", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _DefaultEditorKit$PasteAction_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.text.DefaultEditorKit$PasteAction",
-	"javax.swing.text.TextAction",
-	nullptr,
-	nullptr,
-	_DefaultEditorKit$PasteAction_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DefaultEditorKit$PasteAction_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.DefaultEditorKit"
-};
-
-$Object* allocate$DefaultEditorKit$PasteAction($Class* clazz) {
-	return $of($alloc(DefaultEditorKit$PasteAction));
-}
-
 void DefaultEditorKit$PasteAction::init$() {
 	$TextAction::init$("paste-from-clipboard"_s);
 }
@@ -63,7 +31,33 @@ DefaultEditorKit$PasteAction::DefaultEditorKit$PasteAction() {
 }
 
 $Class* DefaultEditorKit$PasteAction::load$($String* name, bool initialize) {
-	$loadClass(DefaultEditorKit$PasteAction, name, initialize, &_DefaultEditorKit$PasteAction_ClassInfo_, allocate$DefaultEditorKit$PasteAction);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(DefaultEditorKit$PasteAction, init$, void)},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(DefaultEditorKit$PasteAction, actionPerformed, void, $ActionEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.DefaultEditorKit$PasteAction", "javax.swing.text.DefaultEditorKit", "PasteAction", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.text.DefaultEditorKit$PasteAction",
+		"javax.swing.text.TextAction",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.DefaultEditorKit"
+	};
+	$loadClass(DefaultEditorKit$PasteAction, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DefaultEditorKit$PasteAction));
+	});
 	return class$;
 }
 

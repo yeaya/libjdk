@@ -1,5 +1,4 @@
 #include <javax/swing/text/html/CSSBorder$DottedDashedPainter.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Graphics.h>
 #include <java/awt/Polygon.h>
@@ -28,50 +27,13 @@ namespace javax {
 		namespace text {
 			namespace html {
 
-$FieldInfo _CSSBorder$DottedDashedPainter_FieldInfo_[] = {
-	{"factor", "I", nullptr, $FINAL, $field(CSSBorder$DottedDashedPainter, factor)},
-	{}
-};
-
-$MethodInfo _CSSBorder$DottedDashedPainter_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, 0, $method(CSSBorder$DottedDashedPainter, init$, void, int32_t)},
-	{"paint", "(Ljava/awt/Polygon;Ljava/awt/Graphics;Ljava/awt/Color;I)V", nullptr, $PUBLIC, $virtualMethod(CSSBorder$DottedDashedPainter, paint, void, $Polygon*, $Graphics*, $Color*, int32_t)},
-	{}
-};
-
-$InnerClassInfo _CSSBorder$DottedDashedPainter_InnerClassesInfo_[] = {
-	{"javax.swing.text.html.CSSBorder$DottedDashedPainter", "javax.swing.text.html.CSSBorder", "DottedDashedPainter", $STATIC},
-	{"javax.swing.text.html.CSSBorder$StrokePainter", "javax.swing.text.html.CSSBorder", "StrokePainter", $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _CSSBorder$DottedDashedPainter_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.text.html.CSSBorder$DottedDashedPainter",
-	"javax.swing.text.html.CSSBorder$StrokePainter",
-	nullptr,
-	_CSSBorder$DottedDashedPainter_FieldInfo_,
-	_CSSBorder$DottedDashedPainter_MethodInfo_,
-	nullptr,
-	nullptr,
-	_CSSBorder$DottedDashedPainter_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.html.CSSBorder"
-};
-
-$Object* allocate$CSSBorder$DottedDashedPainter($Class* clazz) {
-	return $of($alloc(CSSBorder$DottedDashedPainter));
-}
-
 void CSSBorder$DottedDashedPainter::init$(int32_t factor) {
 	$CSSBorder$StrokePainter::init$();
 	this->factor = factor;
 }
 
 void CSSBorder$DottedDashedPainter::paint($Polygon* shape, $Graphics* g, $Color* color, int32_t side) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle, r, $nc(shape)->getBounds());
 	int32_t length = $nc(r)->height * this->factor;
 	$var($ints, lengthPattern, $new($ints, {
@@ -80,7 +42,7 @@ void CSSBorder$DottedDashedPainter::paint($Polygon* shape, $Graphics* g, $Color*
 	}));
 	$var($ColorArray, colorPattern, $new($ColorArray, {
 		color,
-		($Color*)nullptr
+		nullptr
 	}));
 	paintStrokes(r, g, $View::X_AXIS, lengthPattern, colorPattern);
 }
@@ -89,7 +51,38 @@ CSSBorder$DottedDashedPainter::CSSBorder$DottedDashedPainter() {
 }
 
 $Class* CSSBorder$DottedDashedPainter::load$($String* name, bool initialize) {
-	$loadClass(CSSBorder$DottedDashedPainter, name, initialize, &_CSSBorder$DottedDashedPainter_ClassInfo_, allocate$CSSBorder$DottedDashedPainter);
+	$FieldInfo fieldInfos$$[] = {
+		{"factor", "I", nullptr, $FINAL, $field(CSSBorder$DottedDashedPainter, factor)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I)V", nullptr, 0, $method(CSSBorder$DottedDashedPainter, init$, void, int32_t)},
+		{"paint", "(Ljava/awt/Polygon;Ljava/awt/Graphics;Ljava/awt/Color;I)V", nullptr, $PUBLIC, $virtualMethod(CSSBorder$DottedDashedPainter, paint, void, $Polygon*, $Graphics*, $Color*, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.html.CSSBorder$DottedDashedPainter", "javax.swing.text.html.CSSBorder", "DottedDashedPainter", $STATIC},
+		{"javax.swing.text.html.CSSBorder$StrokePainter", "javax.swing.text.html.CSSBorder", "StrokePainter", $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.text.html.CSSBorder$DottedDashedPainter",
+		"javax.swing.text.html.CSSBorder$StrokePainter",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.html.CSSBorder"
+	};
+	$loadClass(CSSBorder$DottedDashedPainter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CSSBorder$DottedDashedPainter);
+	});
 	return class$;
 }
 

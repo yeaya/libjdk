@@ -1,5 +1,4 @@
 #include <HeadlessJWindow.h>
-
 #include <java/awt/Frame.h>
 #include <java/awt/HeadlessException.h>
 #include <javax/swing/JWindow.h>
@@ -12,30 +11,11 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $JWindow = ::javax::swing::JWindow;
 
-$MethodInfo _HeadlessJWindow_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(HeadlessJWindow, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(HeadlessJWindow, main, void, $StringArray*)},
-	{}
-};
-
-$ClassInfo _HeadlessJWindow_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"HeadlessJWindow",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_HeadlessJWindow_MethodInfo_
-};
-
-$Object* allocate$HeadlessJWindow($Class* clazz) {
-	return $of($alloc(HeadlessJWindow));
-}
-
 void HeadlessJWindow::init$() {
 }
 
 void HeadlessJWindow::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool exceptions = false;
 	$var($JWindow, w, nullptr);
 	try {
@@ -61,7 +41,22 @@ HeadlessJWindow::HeadlessJWindow() {
 }
 
 $Class* HeadlessJWindow::load$($String* name, bool initialize) {
-	$loadClass(HeadlessJWindow, name, initialize, &_HeadlessJWindow_ClassInfo_, allocate$HeadlessJWindow);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(HeadlessJWindow, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(HeadlessJWindow, main, void, $StringArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"HeadlessJWindow",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(HeadlessJWindow, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HeadlessJWindow);
+	});
 	return class$;
 }
 

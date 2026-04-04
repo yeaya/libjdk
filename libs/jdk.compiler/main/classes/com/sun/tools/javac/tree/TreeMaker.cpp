@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/tree/TreeMaker.h>
-
 #include <com/sun/source/tree/CaseTree$CaseKind.h>
 #include <com/sun/source/tree/MemberReferenceTree$ReferenceMode.h>
 #include <com/sun/source/tree/ModuleTree$ModuleKind.h>
@@ -155,21 +154,16 @@ using $Attribute$TypeCompound = ::com::sun::tools::javac::code::Attribute$TypeCo
 using $BoundKind = ::com::sun::tools::javac::code::BoundKind;
 using $Flags = ::com::sun::tools::javac::code::Flags;
 using $Kinds$Kind = ::com::sun::tools::javac::code::Kinds$Kind;
-using $Scope$NamedImportScope = ::com::sun::tools::javac::code::Scope$NamedImportScope;
-using $Scope$StarImportScope = ::com::sun::tools::javac::code::Scope$StarImportScope;
-using $Scope$WriteableScope = ::com::sun::tools::javac::code::Scope$WriteableScope;
 using $Symbol = ::com::sun::tools::javac::code::Symbol;
 using $Symbol$ClassSymbol = ::com::sun::tools::javac::code::Symbol$ClassSymbol;
 using $Symbol$MethodSymbol = ::com::sun::tools::javac::code::Symbol$MethodSymbol;
 using $Symbol$OperatorSymbol = ::com::sun::tools::javac::code::Symbol$OperatorSymbol;
-using $Symbol$PackageSymbol = ::com::sun::tools::javac::code::Symbol$PackageSymbol;
 using $Symbol$TypeSymbol = ::com::sun::tools::javac::code::Symbol$TypeSymbol;
 using $Symbol$VarSymbol = ::com::sun::tools::javac::code::Symbol$VarSymbol;
 using $Symtab = ::com::sun::tools::javac::code::Symtab;
 using $Type = ::com::sun::tools::javac::code::Type;
 using $Type$ArrayType = ::com::sun::tools::javac::code::Type$ArrayType;
 using $Type$IntersectionClassType = ::com::sun::tools::javac::code::Type$IntersectionClassType;
-using $Type$JCPrimitiveType = ::com::sun::tools::javac::code::Type$JCPrimitiveType;
 using $Type$TypeVar = ::com::sun::tools::javac::code::Type$TypeVar;
 using $Type$UnionClassType = ::com::sun::tools::javac::code::Type$UnionClassType;
 using $Type$WildcardType = ::com::sun::tools::javac::code::Type$WildcardType;
@@ -270,14 +264,12 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $Float = ::java::lang::Float;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
-using $Iterable = ::java::lang::Iterable;
 using $Long = ::java::lang::Long;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Short = ::java::lang::Short;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $Iterator = ::java::util::Iterator;
 using $Supplier = ::java::util::function::Supplier;
-using $TypeKind = ::javax::lang::model::type::TypeKind;
 
 namespace com {
 	namespace sun {
@@ -294,197 +286,32 @@ public:
 	virtual $Object* get() override {
 		 return $of(TreeMaker::lambda$TopLevel$0(node));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<TreeMaker$$Lambda$lambda$TopLevel$0>());
-	}
 	$JCTree* node = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo TreeMaker$$Lambda$lambda$TopLevel$0::fieldInfos[2] = {
-	{"node", "Lcom/sun/tools/javac/tree/JCTree;", nullptr, $PUBLIC, $field(TreeMaker$$Lambda$lambda$TopLevel$0, node)},
-	{}
-};
-$MethodInfo TreeMaker$$Lambda$lambda$TopLevel$0::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/tree/JCTree;)V", nullptr, $PUBLIC, $method(TreeMaker$$Lambda$lambda$TopLevel$0, init$, void, $JCTree*)},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(TreeMaker$$Lambda$lambda$TopLevel$0, get, $Object*)},
-	{}
-};
-$ClassInfo TreeMaker$$Lambda$lambda$TopLevel$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.tree.TreeMaker$$Lambda$lambda$TopLevel$0",
-	"java.lang.Object",
-	"java.util.function.Supplier",
-	fieldInfos,
-	methodInfos
 };
 $Class* TreeMaker$$Lambda$lambda$TopLevel$0::load$($String* name, bool initialize) {
-	$loadClass(TreeMaker$$Lambda$lambda$TopLevel$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"node", "Lcom/sun/tools/javac/tree/JCTree;", nullptr, $PUBLIC, $field(TreeMaker$$Lambda$lambda$TopLevel$0, node)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/tree/JCTree;)V", nullptr, $PUBLIC, $method(TreeMaker$$Lambda$lambda$TopLevel$0, init$, void, $JCTree*)},
+		{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(TreeMaker$$Lambda$lambda$TopLevel$0, get, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.tree.TreeMaker$$Lambda$lambda$TopLevel$0",
+		"java.lang.Object",
+		"java.util.function.Supplier",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TreeMaker$$Lambda$lambda$TopLevel$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TreeMaker$$Lambda$lambda$TopLevel$0);
+	});
 	return class$;
 }
 $Class* TreeMaker$$Lambda$lambda$TopLevel$0::class$ = nullptr;
-
-$FieldInfo _TreeMaker_FieldInfo_[] = {
-	{"treeMakerKey", "Lcom/sun/tools/javac/util/Context$Key;", "Lcom/sun/tools/javac/util/Context$Key<Lcom/sun/tools/javac/tree/TreeMaker;>;", $PROTECTED | $STATIC | $FINAL, $staticField(TreeMaker, treeMakerKey)},
-	{"pos", "I", nullptr, $PUBLIC, $field(TreeMaker, pos)},
-	{"toplevel", "Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;", nullptr, $PUBLIC, $field(TreeMaker, toplevel)},
-	{"names", "Lcom/sun/tools/javac/util/Names;", nullptr, 0, $field(TreeMaker, names)},
-	{"types", "Lcom/sun/tools/javac/code/Types;", nullptr, 0, $field(TreeMaker, types)},
-	{"syms", "Lcom/sun/tools/javac/code/Symtab;", nullptr, 0, $field(TreeMaker, syms)},
-	{"annotationBuilder", "Lcom/sun/tools/javac/tree/TreeMaker$AnnotationBuilder;", nullptr, 0, $field(TreeMaker, annotationBuilder)},
-	{}
-};
-
-$MethodInfo _TreeMaker_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/util/Context;)V", nullptr, $PROTECTED, $method(TreeMaker, init$, void, $Context*)},
-	{"<init>", "(Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;Lcom/sun/tools/javac/util/Names;Lcom/sun/tools/javac/code/Types;Lcom/sun/tools/javac/code/Symtab;)V", nullptr, $PROTECTED, $method(TreeMaker, init$, void, $JCTree$JCCompilationUnit*, $Names*, $Types*, $Symtab*)},
-	{"AnnotatedType", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/tree/JCTree$JCAnnotatedType;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;>;Lcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/tree/JCTree$JCAnnotatedType;", $PUBLIC, $virtualMethod(TreeMaker, AnnotatedType, $JCTree$JCAnnotatedType*, $List*, $JCTree$JCExpression*)},
-	{"Annotation", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;)Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;", $PUBLIC, $virtualMethod(TreeMaker, Annotation, $JCTree$JCAnnotation*, $JCTree*, $List*)},
-	{"Annotation", "(Lcom/sun/tools/javac/code/Attribute;)Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;", nullptr, $PUBLIC, $virtualMethod(TreeMaker, Annotation, $JCTree$JCAnnotation*, $Attribute*)},
-	{"Annotations", "(Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute$Compound;>;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;>;", $PUBLIC, $virtualMethod(TreeMaker, Annotations, $List*, $List*)},
-	{"AnonymousClassDef", "(Lcom/sun/tools/javac/tree/JCTree$JCModifiers;Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;", "(Lcom/sun/tools/javac/tree/JCTree$JCModifiers;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree;>;)Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;", $PUBLIC, $virtualMethod(TreeMaker, AnonymousClassDef, $JCTree$JCClassDecl*, $JCTree$JCModifiers*, $List*)},
-	{"App", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/tree/JCTree$JCMethodInvocation;", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;)Lcom/sun/tools/javac/tree/JCTree$JCMethodInvocation;", $PUBLIC, $virtualMethod(TreeMaker, App, $JCTree$JCMethodInvocation*, $JCTree$JCExpression*, $List*)},
-	{"App", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/tree/JCTree$JCMethodInvocation;", nullptr, $PUBLIC, $virtualMethod(TreeMaker, App, $JCTree$JCMethodInvocation*, $JCTree$JCExpression*)},
-	{"Apply", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/tree/JCTree$JCMethodInvocation;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;)Lcom/sun/tools/javac/tree/JCTree$JCMethodInvocation;", $PUBLIC, $virtualMethod(TreeMaker, Apply, $JCTree$JCMethodInvocation*, $List*, $JCTree$JCExpression*, $List*)},
-	{"Assert", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/tree/JCTree$JCAssert;", nullptr, $PUBLIC, $virtualMethod(TreeMaker, Assert, $JCTree$JCAssert*, $JCTree$JCExpression*, $JCTree$JCExpression*)},
-	{"Assign", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/tree/JCTree$JCAssign;", nullptr, $PUBLIC, $virtualMethod(TreeMaker, Assign, $JCTree$JCAssign*, $JCTree$JCExpression*, $JCTree$JCExpression*)},
-	{"Assignment", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/tree/JCTree$JCStatement;", nullptr, $PUBLIC, $virtualMethod(TreeMaker, Assignment, $JCTree$JCStatement*, $Symbol*, $JCTree$JCExpression*)},
-	{"Assignop", "(Lcom/sun/tools/javac/tree/JCTree$Tag;Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/tree/JCTree$JCAssignOp;", nullptr, $PUBLIC, $virtualMethod(TreeMaker, Assignop, $JCTree$JCAssignOp*, $JCTree$Tag*, $JCTree*, $JCTree*)},
-	{"Binary", "(Lcom/sun/tools/javac/tree/JCTree$Tag;Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/tree/JCTree$JCBinary;", nullptr, $PUBLIC, $virtualMethod(TreeMaker, Binary, $JCTree$JCBinary*, $JCTree$Tag*, $JCTree$JCExpression*, $JCTree$JCExpression*)},
-	{"BindingPattern", "(Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;)Lcom/sun/tools/javac/tree/JCTree$JCBindingPattern;", nullptr, $PUBLIC, $virtualMethod(TreeMaker, BindingPattern, $JCTree$JCBindingPattern*, $JCTree$JCVariableDecl*)},
-	{"Block", "(JLcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/tree/JCTree$JCBlock;", "(JLcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCStatement;>;)Lcom/sun/tools/javac/tree/JCTree$JCBlock;", $PUBLIC, $virtualMethod(TreeMaker, Block, $JCTree$JCBlock*, int64_t, $List*)},
-	{"Break", "(Lcom/sun/tools/javac/util/Name;)Lcom/sun/tools/javac/tree/JCTree$JCBreak;", nullptr, $PUBLIC, $virtualMethod(TreeMaker, Break, $JCTree$JCBreak*, $Name*)},
-	{"Call", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/tree/JCTree$JCStatement;", nullptr, $PUBLIC, $virtualMethod(TreeMaker, Call, $JCTree$JCStatement*, $JCTree$JCExpression*)},
-	{"Case", "(Lcom/sun/source/tree/CaseTree$CaseKind;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/tree/JCTree$JCCase;", "(Lcom/sun/source/tree/CaseTree$CaseKind;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCCaseLabel;>;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCStatement;>;Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/tree/JCTree$JCCase;", $PUBLIC, $virtualMethod(TreeMaker, Case, $JCTree$JCCase*, $CaseTree$CaseKind*, $List*, $List*, $JCTree*)},
-	{"Catch", "(Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;Lcom/sun/tools/javac/tree/JCTree$JCBlock;)Lcom/sun/tools/javac/tree/JCTree$JCCatch;", nullptr, $PUBLIC, $virtualMethod(TreeMaker, Catch, $JCTree$JCCatch*, $JCTree$JCVariableDecl*, $JCTree$JCBlock*)},
-	{"ClassDef", "(Lcom/sun/tools/javac/tree/JCTree$JCModifiers;Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;", "(Lcom/sun/tools/javac/tree/JCTree$JCModifiers;Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCTypeParameter;>;Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree;>;)Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;", $PUBLIC, $virtualMethod(TreeMaker, ClassDef, $JCTree$JCClassDecl*, $JCTree$JCModifiers*, $Name*, $List*, $JCTree$JCExpression*, $List*, $List*)},
-	{"ClassDef", "(Lcom/sun/tools/javac/tree/JCTree$JCModifiers;Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;", "(Lcom/sun/tools/javac/tree/JCTree$JCModifiers;Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCTypeParameter;>;Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree;>;)Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;", $PUBLIC, $virtualMethod(TreeMaker, ClassDef, $JCTree$JCClassDecl*, $JCTree$JCModifiers*, $Name*, $List*, $JCTree$JCExpression*, $List*, $List*, $List*)},
-	{"ClassLiteral", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, $PUBLIC, $virtualMethod(TreeMaker, ClassLiteral, $JCTree$JCExpression*, $Symbol$ClassSymbol*)},
-	{"ClassLiteral", "(Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, $PUBLIC, $virtualMethod(TreeMaker, ClassLiteral, $JCTree$JCExpression*, $Type*)},
-	{"Conditional", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/tree/JCTree$JCConditional;", nullptr, $PUBLIC, $virtualMethod(TreeMaker, Conditional, $JCTree$JCConditional*, $JCTree$JCExpression*, $JCTree$JCExpression*, $JCTree$JCExpression*)},
-	{"Continue", "(Lcom/sun/tools/javac/util/Name;)Lcom/sun/tools/javac/tree/JCTree$JCContinue;", nullptr, $PUBLIC, $virtualMethod(TreeMaker, Continue, $JCTree$JCContinue*, $Name*)},
-	{"Create", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", $PUBLIC, $virtualMethod(TreeMaker, Create, $JCTree$JCExpression*, $Symbol*, $List*)},
-	{"DefaultCaseLabel", "()Lcom/sun/tools/javac/tree/JCTree$JCDefaultCaseLabel;", nullptr, $PUBLIC, $virtualMethod(TreeMaker, DefaultCaseLabel, $JCTree$JCDefaultCaseLabel*)},
-	{"DoLoop", "(Lcom/sun/tools/javac/tree/JCTree$JCStatement;Lcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/tree/JCTree$JCDoWhileLoop;", nullptr, $PUBLIC, $virtualMethod(TreeMaker, DoLoop, $JCTree$JCDoWhileLoop*, $JCTree$JCStatement*, $JCTree$JCExpression*)},
-	{"Erroneous", "()Lcom/sun/tools/javac/tree/JCTree$JCErroneous;", nullptr, $PUBLIC, $virtualMethod(TreeMaker, Erroneous, $JCTree$JCErroneous*)},
-	{"Erroneous", "(Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/tree/JCTree$JCErroneous;", "(Lcom/sun/tools/javac/util/List<+Lcom/sun/tools/javac/tree/JCTree;>;)Lcom/sun/tools/javac/tree/JCTree$JCErroneous;", $PUBLIC, $virtualMethod(TreeMaker, Erroneous, $JCTree$JCErroneous*, $List*)},
-	{"Exec", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/tree/JCTree$JCExpressionStatement;", nullptr, $PUBLIC, $virtualMethod(TreeMaker, Exec, $JCTree$JCExpressionStatement*, $JCTree$JCExpression*)},
-	{"Exports", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/tree/JCTree$JCExports;", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;)Lcom/sun/tools/javac/tree/JCTree$JCExports;", $PUBLIC, $virtualMethod(TreeMaker, Exports, $JCTree$JCExports*, $JCTree$JCExpression*, $List*)},
-	{"ForLoop", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/tree/JCTree$JCStatement;)Lcom/sun/tools/javac/tree/JCTree$JCForLoop;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCStatement;>;Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpressionStatement;>;Lcom/sun/tools/javac/tree/JCTree$JCStatement;)Lcom/sun/tools/javac/tree/JCTree$JCForLoop;", $PUBLIC, $virtualMethod(TreeMaker, ForLoop, $JCTree$JCForLoop*, $List*, $JCTree$JCExpression*, $List*, $JCTree$JCStatement*)},
-	{"ForeachLoop", "(Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/tree/JCTree$JCStatement;)Lcom/sun/tools/javac/tree/JCTree$JCEnhancedForLoop;", nullptr, $PUBLIC, $virtualMethod(TreeMaker, ForeachLoop, $JCTree$JCEnhancedForLoop*, $JCTree$JCVariableDecl*, $JCTree$JCExpression*, $JCTree$JCStatement*)},
-	{"GuardPattern", "(Lcom/sun/tools/javac/tree/JCTree$JCPattern;Lcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/tree/JCTree$JCGuardPattern;", nullptr, $PUBLIC, $virtualMethod(TreeMaker, GuardPattern, $JCTree$JCGuardPattern*, $JCTree$JCPattern*, $JCTree$JCExpression*)},
-	{"Ident", "(Lcom/sun/tools/javac/util/Name;)Lcom/sun/tools/javac/tree/JCTree$JCIdent;", nullptr, $PUBLIC, $virtualMethod(TreeMaker, Ident, $JCTree$JCIdent*, $Name*)},
-	{"Ident", "(Lcom/sun/tools/javac/code/Symbol;)Lcom/sun/tools/javac/tree/JCTree$JCIdent;", nullptr, $PUBLIC, $virtualMethod(TreeMaker, Ident, $JCTree$JCIdent*, $Symbol*)},
-	{"Ident", "(Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, $PUBLIC, $virtualMethod(TreeMaker, Ident, $JCTree$JCExpression*, $JCTree$JCVariableDecl*)},
-	{"Idents", "(Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;>;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;", $PUBLIC, $virtualMethod(TreeMaker, Idents, $List*, $List*)},
-	{"If", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/tree/JCTree$JCStatement;Lcom/sun/tools/javac/tree/JCTree$JCStatement;)Lcom/sun/tools/javac/tree/JCTree$JCIf;", nullptr, $PUBLIC, $virtualMethod(TreeMaker, If, $JCTree$JCIf*, $JCTree$JCExpression*, $JCTree$JCStatement*, $JCTree$JCStatement*)},
-	{"Import", "(Lcom/sun/tools/javac/tree/JCTree;Z)Lcom/sun/tools/javac/tree/JCTree$JCImport;", nullptr, $PUBLIC, $virtualMethod(TreeMaker, Import, $JCTree$JCImport*, $JCTree*, bool)},
-	{"Indexed", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/tree/JCTree$JCArrayAccess;", nullptr, $PUBLIC, $virtualMethod(TreeMaker, Indexed, $JCTree$JCArrayAccess*, $JCTree$JCExpression*, $JCTree$JCExpression*)},
-	{"Indexed", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/tree/JCTree$JCArrayAccess;", nullptr, $PUBLIC, $virtualMethod(TreeMaker, Indexed, $JCTree$JCArrayAccess*, $Symbol*, $JCTree$JCExpression*)},
-	{"Labelled", "(Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/tree/JCTree$JCStatement;)Lcom/sun/tools/javac/tree/JCTree$JCLabeledStatement;", nullptr, $PUBLIC, $virtualMethod(TreeMaker, Labelled, $JCTree$JCLabeledStatement*, $Name*, $JCTree$JCStatement*)},
-	{"Lambda", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/tree/JCTree$JCLambda;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;>;Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/tree/JCTree$JCLambda;", $PUBLIC, $virtualMethod(TreeMaker, Lambda, $JCTree$JCLambda*, $List*, $JCTree*)},
-	{"LetExpr", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/tree/JCTree$LetExpr;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCStatement;>;Lcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/tree/JCTree$LetExpr;", $PUBLIC, $virtualMethod(TreeMaker, LetExpr, $JCTree$LetExpr*, $List*, $JCTree$JCExpression*)},
-	{"LetExpr", "(Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;Lcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/tree/JCTree$LetExpr;", nullptr, $PUBLIC, $virtualMethod(TreeMaker, LetExpr, $JCTree$LetExpr*, $JCTree$JCVariableDecl*, $JCTree$JCExpression*)},
-	{"Literal", "(Lcom/sun/tools/javac/code/TypeTag;Ljava/lang/Object;)Lcom/sun/tools/javac/tree/JCTree$JCLiteral;", nullptr, $PUBLIC, $virtualMethod(TreeMaker, Literal, $JCTree$JCLiteral*, $TypeTag*, Object$*)},
-	{"Literal", "(Ljava/lang/Object;)Lcom/sun/tools/javac/tree/JCTree$JCLiteral;", nullptr, $PUBLIC, $virtualMethod(TreeMaker, Literal, $JCTree$JCLiteral*, Object$*)},
-	{"MethodDef", "(Lcom/sun/tools/javac/tree/JCTree$JCModifiers;Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/tree/JCTree$JCBlock;Lcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/tree/JCTree$JCMethodDecl;", "(Lcom/sun/tools/javac/tree/JCTree$JCModifiers;Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCTypeParameter;>;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;>;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;Lcom/sun/tools/javac/tree/JCTree$JCBlock;Lcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/tree/JCTree$JCMethodDecl;", $PUBLIC, $virtualMethod(TreeMaker, MethodDef, $JCTree$JCMethodDecl*, $JCTree$JCModifiers*, $Name*, $JCTree$JCExpression*, $List*, $List*, $List*, $JCTree$JCBlock*, $JCTree$JCExpression*)},
-	{"MethodDef", "(Lcom/sun/tools/javac/tree/JCTree$JCModifiers;Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/tree/JCTree$JCBlock;Lcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/tree/JCTree$JCMethodDecl;", "(Lcom/sun/tools/javac/tree/JCTree$JCModifiers;Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCTypeParameter;>;Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;>;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;Lcom/sun/tools/javac/tree/JCTree$JCBlock;Lcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/tree/JCTree$JCMethodDecl;", $PUBLIC, $virtualMethod(TreeMaker, MethodDef, $JCTree$JCMethodDecl*, $JCTree$JCModifiers*, $Name*, $JCTree$JCExpression*, $List*, $JCTree$JCVariableDecl*, $List*, $List*, $JCTree$JCBlock*, $JCTree$JCExpression*)},
-	{"MethodDef", "(Lcom/sun/tools/javac/code/Symbol$MethodSymbol;Lcom/sun/tools/javac/tree/JCTree$JCBlock;)Lcom/sun/tools/javac/tree/JCTree$JCMethodDecl;", nullptr, $PUBLIC, $virtualMethod(TreeMaker, MethodDef, $JCTree$JCMethodDecl*, $Symbol$MethodSymbol*, $JCTree$JCBlock*)},
-	{"MethodDef", "(Lcom/sun/tools/javac/code/Symbol$MethodSymbol;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/tree/JCTree$JCBlock;)Lcom/sun/tools/javac/tree/JCTree$JCMethodDecl;", nullptr, $PUBLIC, $virtualMethod(TreeMaker, MethodDef, $JCTree$JCMethodDecl*, $Symbol$MethodSymbol*, $Type*, $JCTree$JCBlock*)},
-	{"Modifiers", "(JLcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/tree/JCTree$JCModifiers;", "(JLcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;>;)Lcom/sun/tools/javac/tree/JCTree$JCModifiers;", $PUBLIC, $virtualMethod(TreeMaker, Modifiers, $JCTree$JCModifiers*, int64_t, $List*)},
-	{"Modifiers", "(J)Lcom/sun/tools/javac/tree/JCTree$JCModifiers;", nullptr, $PUBLIC, $virtualMethod(TreeMaker, Modifiers, $JCTree$JCModifiers*, int64_t)},
-	{"ModuleDef", "(Lcom/sun/tools/javac/tree/JCTree$JCModifiers;Lcom/sun/source/tree/ModuleTree$ModuleKind;Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/tree/JCTree$JCModuleDecl;", "(Lcom/sun/tools/javac/tree/JCTree$JCModifiers;Lcom/sun/source/tree/ModuleTree$ModuleKind;Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCDirective;>;)Lcom/sun/tools/javac/tree/JCTree$JCModuleDecl;", $PUBLIC, $virtualMethod(TreeMaker, ModuleDef, $JCTree$JCModuleDecl*, $JCTree$JCModifiers*, $ModuleTree$ModuleKind*, $JCTree$JCExpression*, $List*)},
-	{"NewArray", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/tree/JCTree$JCNewArray;", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;)Lcom/sun/tools/javac/tree/JCTree$JCNewArray;", $PUBLIC, $virtualMethod(TreeMaker, NewArray, $JCTree$JCNewArray*, $JCTree$JCExpression*, $List*, $List*)},
-	{"NewClass", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)Lcom/sun/tools/javac/tree/JCTree$JCNewClass;", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)Lcom/sun/tools/javac/tree/JCTree$JCNewClass;", $PUBLIC, $virtualMethod(TreeMaker, NewClass, $JCTree$JCNewClass*, $JCTree$JCExpression*, $List*, $JCTree$JCExpression*, $List*, $JCTree$JCClassDecl*)},
-	{"Opens", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/tree/JCTree$JCOpens;", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;)Lcom/sun/tools/javac/tree/JCTree$JCOpens;", $PUBLIC, $virtualMethod(TreeMaker, Opens, $JCTree$JCOpens*, $JCTree$JCExpression*, $List*)},
-	{"PackageDecl", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/tree/JCTree$JCPackageDecl;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;>;Lcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/tree/JCTree$JCPackageDecl;", $PUBLIC, $virtualMethod(TreeMaker, PackageDecl, $JCTree$JCPackageDecl*, $List*, $JCTree$JCExpression*)},
-	{"Param", "(Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol;)Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;", nullptr, $PUBLIC, $virtualMethod(TreeMaker, Param, $JCTree$JCVariableDecl*, $Name*, $Type*, $Symbol*)},
-	{"Params", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/code/Symbol;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;Lcom/sun/tools/javac/code/Symbol;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;>;", $PUBLIC, $virtualMethod(TreeMaker, Params, $List*, $List*, $Symbol*)},
-	{"Parens", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/tree/JCTree$JCParens;", nullptr, $PUBLIC, $virtualMethod(TreeMaker, Parens, $JCTree$JCParens*, $JCTree$JCExpression*)},
-	{"ParenthesizedPattern", "(Lcom/sun/tools/javac/tree/JCTree$JCPattern;)Lcom/sun/tools/javac/tree/JCTree$JCParenthesizedPattern;", nullptr, $PUBLIC, $virtualMethod(TreeMaker, ParenthesizedPattern, $JCTree$JCParenthesizedPattern*, $JCTree$JCPattern*)},
-	{"Provides", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/tree/JCTree$JCProvides;", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;)Lcom/sun/tools/javac/tree/JCTree$JCProvides;", $PUBLIC, $virtualMethod(TreeMaker, Provides, $JCTree$JCProvides*, $JCTree$JCExpression*, $List*)},
-	{"QualIdent", "(Lcom/sun/tools/javac/code/Symbol;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, $PUBLIC, $virtualMethod(TreeMaker, QualIdent, $JCTree$JCExpression*, $Symbol*)},
-	{"QualThis", "(Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, $PUBLIC, $virtualMethod(TreeMaker, QualThis, $JCTree$JCExpression*, $Type*)},
-	{"ReceiverVarDef", "(Lcom/sun/tools/javac/tree/JCTree$JCModifiers;Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;", nullptr, $PUBLIC, $virtualMethod(TreeMaker, ReceiverVarDef, $JCTree$JCVariableDecl*, $JCTree$JCModifiers*, $JCTree$JCExpression*, $JCTree$JCExpression*)},
-	{"Reference", "(Lcom/sun/source/tree/MemberReferenceTree$ReferenceMode;Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/tree/JCTree$JCMemberReference;", "(Lcom/sun/source/tree/MemberReferenceTree$ReferenceMode;Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;)Lcom/sun/tools/javac/tree/JCTree$JCMemberReference;", $PUBLIC, $virtualMethod(TreeMaker, Reference, $JCTree$JCMemberReference*, $MemberReferenceTree$ReferenceMode*, $Name*, $JCTree$JCExpression*, $List*)},
-	{"Requires", "(ZZLcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/tree/JCTree$JCRequires;", nullptr, $PUBLIC, $virtualMethod(TreeMaker, Requires, $JCTree$JCRequires*, bool, bool, $JCTree$JCExpression*)},
-	{"Return", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/tree/JCTree$JCReturn;", nullptr, $PUBLIC, $virtualMethod(TreeMaker, Return, $JCTree$JCReturn*, $JCTree$JCExpression*)},
-	{"Select", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/util/Name;)Lcom/sun/tools/javac/tree/JCTree$JCFieldAccess;", nullptr, $PUBLIC, $virtualMethod(TreeMaker, Select, $JCTree$JCFieldAccess*, $JCTree$JCExpression*, $Name*)},
-	{"Select", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/code/Symbol;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, $PUBLIC, $virtualMethod(TreeMaker, Select, $JCTree$JCExpression*, $JCTree$JCExpression*, $Symbol*)},
-	{"Skip", "()Lcom/sun/tools/javac/tree/JCTree$JCSkip;", nullptr, $PUBLIC, $virtualMethod(TreeMaker, Skip, $JCTree$JCSkip*)},
-	{"SpeculativeNewClass", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;Z)Lcom/sun/tools/javac/tree/JCTree$JCNewClass;", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;Z)Lcom/sun/tools/javac/tree/JCTree$JCNewClass;", $PUBLIC, $virtualMethod(TreeMaker, SpeculativeNewClass, $JCTree$JCNewClass*, $JCTree$JCExpression*, $List*, $JCTree$JCExpression*, $List*, $JCTree$JCClassDecl*, bool)},
-	{"Super", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol$TypeSymbol;)Lcom/sun/tools/javac/tree/JCTree$JCIdent;", nullptr, $PUBLIC, $virtualMethod(TreeMaker, Super, $JCTree$JCIdent*, $Type*, $Symbol$TypeSymbol*)},
-	{"Switch", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/tree/JCTree$JCSwitch;", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCCase;>;)Lcom/sun/tools/javac/tree/JCTree$JCSwitch;", $PUBLIC, $virtualMethod(TreeMaker, Switch, $JCTree$JCSwitch*, $JCTree$JCExpression*, $List*)},
-	{"SwitchExpression", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/tree/JCTree$JCSwitchExpression;", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCCase;>;)Lcom/sun/tools/javac/tree/JCTree$JCSwitchExpression;", $PUBLIC, $virtualMethod(TreeMaker, SwitchExpression, $JCTree$JCSwitchExpression*, $JCTree$JCExpression*, $List*)},
-	{"Synchronized", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/tree/JCTree$JCBlock;)Lcom/sun/tools/javac/tree/JCTree$JCSynchronized;", nullptr, $PUBLIC, $virtualMethod(TreeMaker, Synchronized, $JCTree$JCSynchronized*, $JCTree$JCExpression*, $JCTree$JCBlock*)},
-	{"This", "(Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, $PUBLIC, $virtualMethod(TreeMaker, This, $JCTree$JCExpression*, $Type*)},
-	{"Throw", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/tree/JCTree$JCThrow;", nullptr, $PUBLIC, $virtualMethod(TreeMaker, Throw, $JCTree$JCThrow*, $JCTree$JCExpression*)},
-	{"TopLevel", "(Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree;>;)Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;", $PUBLIC, $virtualMethod(TreeMaker, TopLevel, $JCTree$JCCompilationUnit*, $List*)},
-	{"Try", "(Lcom/sun/tools/javac/tree/JCTree$JCBlock;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/tree/JCTree$JCBlock;)Lcom/sun/tools/javac/tree/JCTree$JCTry;", "(Lcom/sun/tools/javac/tree/JCTree$JCBlock;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCCatch;>;Lcom/sun/tools/javac/tree/JCTree$JCBlock;)Lcom/sun/tools/javac/tree/JCTree$JCTry;", $PUBLIC, $virtualMethod(TreeMaker, Try, $JCTree$JCTry*, $JCTree$JCBlock*, $List*, $JCTree$JCBlock*)},
-	{"Try", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/tree/JCTree$JCBlock;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/tree/JCTree$JCBlock;)Lcom/sun/tools/javac/tree/JCTree$JCTry;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree;>;Lcom/sun/tools/javac/tree/JCTree$JCBlock;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCCatch;>;Lcom/sun/tools/javac/tree/JCTree$JCBlock;)Lcom/sun/tools/javac/tree/JCTree$JCTry;", $PUBLIC, $virtualMethod(TreeMaker, Try, $JCTree$JCTry*, $List*, $JCTree$JCBlock*, $List*, $JCTree$JCBlock*)},
-	{"Type", "(Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, $PUBLIC, $virtualMethod(TreeMaker, Type, $JCTree$JCExpression*, $Type*)},
-	{"TypeAnnotation", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;)Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;", $PUBLIC, $virtualMethod(TreeMaker, TypeAnnotation, $JCTree$JCAnnotation*, $JCTree*, $List*)},
-	{"TypeAnnotation", "(Lcom/sun/tools/javac/code/Attribute;)Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;", nullptr, $PUBLIC, $virtualMethod(TreeMaker, TypeAnnotation, $JCTree$JCAnnotation*, $Attribute*)},
-	{"TypeApply", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/tree/JCTree$JCTypeApply;", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;)Lcom/sun/tools/javac/tree/JCTree$JCTypeApply;", $PUBLIC, $virtualMethod(TreeMaker, TypeApply, $JCTree$JCTypeApply*, $JCTree$JCExpression*, $List*)},
-	{"TypeArray", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/tree/JCTree$JCArrayTypeTree;", nullptr, $PUBLIC, $virtualMethod(TreeMaker, TypeArray, $JCTree$JCArrayTypeTree*, $JCTree$JCExpression*)},
-	{"TypeBoundKind", "(Lcom/sun/tools/javac/code/BoundKind;)Lcom/sun/tools/javac/tree/JCTree$TypeBoundKind;", nullptr, $PUBLIC, $virtualMethod(TreeMaker, TypeBoundKind, $JCTree$TypeBoundKind*, $BoundKind*)},
-	{"TypeCast", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/tree/JCTree$JCTypeCast;", nullptr, $PUBLIC, $virtualMethod(TreeMaker, TypeCast, $JCTree$JCTypeCast*, $JCTree*, $JCTree$JCExpression*)},
-	{"TypeCast", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/tree/JCTree$JCTypeCast;", nullptr, $PUBLIC, $virtualMethod(TreeMaker, TypeCast, $JCTree$JCTypeCast*, $Type*, $JCTree$JCExpression*)},
-	{"TypeIdent", "(Lcom/sun/tools/javac/code/TypeTag;)Lcom/sun/tools/javac/tree/JCTree$JCPrimitiveTypeTree;", nullptr, $PUBLIC, $virtualMethod(TreeMaker, TypeIdent, $JCTree$JCPrimitiveTypeTree*, $TypeTag*)},
-	{"TypeIntersection", "(Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/tree/JCTree$JCTypeIntersection;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;)Lcom/sun/tools/javac/tree/JCTree$JCTypeIntersection;", $PUBLIC, $virtualMethod(TreeMaker, TypeIntersection, $JCTree$JCTypeIntersection*, $List*)},
-	{"TypeParam", "(Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/code/Type$TypeVar;)Lcom/sun/tools/javac/tree/JCTree$JCTypeParameter;", nullptr, $PUBLIC, $virtualMethod(TreeMaker, TypeParam, $JCTree$JCTypeParameter*, $Name*, $Type$TypeVar*)},
-	{"TypeParameter", "(Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/tree/JCTree$JCTypeParameter;", "(Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;)Lcom/sun/tools/javac/tree/JCTree$JCTypeParameter;", $PUBLIC, $virtualMethod(TreeMaker, TypeParameter, $JCTree$JCTypeParameter*, $Name*, $List*)},
-	{"TypeParameter", "(Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/tree/JCTree$JCTypeParameter;", "(Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;>;)Lcom/sun/tools/javac/tree/JCTree$JCTypeParameter;", $PUBLIC, $virtualMethod(TreeMaker, TypeParameter, $JCTree$JCTypeParameter*, $Name*, $List*, $List*)},
-	{"TypeParams", "(Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCTypeParameter;>;", $PUBLIC, $virtualMethod(TreeMaker, TypeParams, $List*, $List*)},
-	{"TypeTest", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/tree/JCTree$JCInstanceOf;", nullptr, $PUBLIC, $virtualMethod(TreeMaker, TypeTest, $JCTree$JCInstanceOf*, $JCTree$JCExpression*, $JCTree*)},
-	{"TypeUnion", "(Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/tree/JCTree$JCTypeUnion;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;)Lcom/sun/tools/javac/tree/JCTree$JCTypeUnion;", $PUBLIC, $virtualMethod(TreeMaker, TypeUnion, $JCTree$JCTypeUnion*, $List*)},
-	{"Types", "(Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;", $PUBLIC, $virtualMethod(TreeMaker, Types, $List*, $List*)},
-	{"Unary", "(Lcom/sun/tools/javac/tree/JCTree$Tag;Lcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/tree/JCTree$JCUnary;", nullptr, $PUBLIC, $virtualMethod(TreeMaker, Unary, $JCTree$JCUnary*, $JCTree$Tag*, $JCTree$JCExpression*)},
-	{"Uses", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/tree/JCTree$JCUses;", nullptr, $PUBLIC, $virtualMethod(TreeMaker, Uses, $JCTree$JCUses*, $JCTree$JCExpression*)},
-	{"VarDef", "(Lcom/sun/tools/javac/tree/JCTree$JCModifiers;Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;", nullptr, $PUBLIC, $virtualMethod(TreeMaker, VarDef, $JCTree$JCVariableDecl*, $JCTree$JCModifiers*, $Name*, $JCTree$JCExpression*, $JCTree$JCExpression*)},
-	{"VarDef", "(Lcom/sun/tools/javac/tree/JCTree$JCModifiers;Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/tree/JCTree$JCExpression;Z)Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;", nullptr, $PUBLIC, $virtualMethod(TreeMaker, VarDef, $JCTree$JCVariableDecl*, $JCTree$JCModifiers*, $Name*, $JCTree$JCExpression*, $JCTree$JCExpression*, bool)},
-	{"VarDef", "(Lcom/sun/tools/javac/code/Symbol$VarSymbol;Lcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;", nullptr, $PUBLIC, $virtualMethod(TreeMaker, VarDef, $JCTree$JCVariableDecl*, $Symbol$VarSymbol*, $JCTree$JCExpression*)},
-	{"WhileLoop", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/tree/JCTree$JCStatement;)Lcom/sun/tools/javac/tree/JCTree$JCWhileLoop;", nullptr, $PUBLIC, $virtualMethod(TreeMaker, WhileLoop, $JCTree$JCWhileLoop*, $JCTree$JCExpression*, $JCTree$JCStatement*)},
-	{"Wildcard", "(Lcom/sun/tools/javac/tree/JCTree$TypeBoundKind;Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/tree/JCTree$JCWildcard;", nullptr, $PUBLIC, $virtualMethod(TreeMaker, Wildcard, $JCTree$JCWildcard*, $JCTree$TypeBoundKind*, $JCTree*)},
-	{"Yield", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/tree/JCTree$JCYield;", nullptr, $PUBLIC, $virtualMethod(TreeMaker, Yield, $JCTree$JCYield*, $JCTree$JCExpression*)},
-	{"at", "(I)Lcom/sun/tools/javac/tree/TreeMaker;", nullptr, $PUBLIC, $virtualMethod(TreeMaker, at, TreeMaker*, int32_t)},
-	{"at", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;)Lcom/sun/tools/javac/tree/TreeMaker;", nullptr, $PUBLIC, $virtualMethod(TreeMaker, at, TreeMaker*, $JCDiagnostic$DiagnosticPosition*)},
-	{"forToplevel", "(Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;)Lcom/sun/tools/javac/tree/TreeMaker;", nullptr, $PUBLIC, $virtualMethod(TreeMaker, forToplevel, TreeMaker*, $JCTree$JCCompilationUnit*)},
-	{"instance", "(Lcom/sun/tools/javac/util/Context;)Lcom/sun/tools/javac/tree/TreeMaker;", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeMaker, instance, TreeMaker*, $Context*)},
-	{"isUnqualifiable", "(Lcom/sun/tools/javac/code/Symbol;)Z", nullptr, 0, $virtualMethod(TreeMaker, isUnqualifiable, bool, $Symbol*)},
-	{"lambda$TopLevel$0", "(Lcom/sun/tools/javac/tree/JCTree;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TreeMaker, lambda$TopLevel$0, $String*, $JCTree*)},
-	{"paramName", "(I)Lcom/sun/tools/javac/util/Name;", nullptr, $PUBLIC, $virtualMethod(TreeMaker, paramName, $Name*, int32_t)},
-	{"typaramName", "(I)Lcom/sun/tools/javac/util/Name;", nullptr, $PUBLIC, $virtualMethod(TreeMaker, typaramName, $Name*, int32_t)},
-	{}
-};
-
-$InnerClassInfo _TreeMaker_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.tree.JCTree$Factory", "com.sun.tools.javac.tree.JCTree", "Factory", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"com.sun.tools.javac.tree.TreeMaker$2", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{"com.sun.tools.javac.tree.TreeMaker$AnnotationBuilder", "com.sun.tools.javac.tree.TreeMaker", "AnnotationBuilder", 0},
-	{"com.sun.tools.javac.tree.TreeMaker$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _TreeMaker_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.tree.TreeMaker",
-	"java.lang.Object",
-	"com.sun.tools.javac.tree.JCTree$Factory",
-	_TreeMaker_FieldInfo_,
-	_TreeMaker_MethodInfo_,
-	nullptr,
-	nullptr,
-	_TreeMaker_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.tree.TreeMaker$2,com.sun.tools.javac.tree.TreeMaker$AnnotationBuilder,com.sun.tools.javac.tree.TreeMaker$1"
-};
-
-$Object* allocate$TreeMaker($Class* clazz) {
-	return $of($alloc(TreeMaker));
-}
 
 $Context$Key* TreeMaker::treeMakerKey = nullptr;
 
@@ -500,7 +327,7 @@ TreeMaker* TreeMaker::instance($Context* context) {
 void TreeMaker::init$($Context* context) {
 	this->pos = $Position::NOPOS;
 	$set(this, annotationBuilder, $new($TreeMaker$AnnotationBuilder, this));
-	$nc(context)->put(TreeMaker::treeMakerKey, $of(this));
+	$nc(context)->put(TreeMaker::treeMakerKey, this);
 	this->pos = $Position::NOPOS;
 	$set(this, toplevel, nullptr);
 	$set(this, names, $Names::instance(context));
@@ -528,12 +355,12 @@ TreeMaker* TreeMaker::at(int32_t pos) {
 }
 
 TreeMaker* TreeMaker::at($JCDiagnostic$DiagnosticPosition* pos) {
-	this->pos = (pos == nullptr ? $Position::NOPOS : $nc(pos)->getStartPosition());
+	this->pos = (pos == nullptr ? $Position::NOPOS : pos->getStartPosition());
 	return this;
 }
 
 $JCTree$JCCompilationUnit* TreeMaker::TopLevel($List* defs) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	{
 		$var($Iterator, i$, $nc(defs)->iterator());
 		for (; $nc(i$)->hasNext();) {
@@ -547,9 +374,9 @@ $JCTree$JCCompilationUnit* TreeMaker::TopLevel($List* defs) {
 					var$2 = true;
 				}
 				bool var$1 = var$2;
-				var$0 = (var$1 && $instanceOf($JCTree$JCErroneous, $nc(expressionStatement)->expr));
+				var$0 = var$1 && $instanceOf($JCTree$JCErroneous, $nc(expressionStatement)->expr);
 			}
-			$Assert::check(var$0, static_cast<$Supplier*>($$new(TreeMaker$$Lambda$lambda$TopLevel$0, node)));
+			$Assert::check(var$0, $$new(TreeMaker$$Lambda$lambda$TopLevel$0, node));
 		}
 	}
 	$var($JCTree$JCCompilationUnit, tree, $new($JCTree$JCCompilationUnit, defs));
@@ -756,7 +583,7 @@ $JCTree$JCNewClass* TreeMaker::NewClass($JCTree$JCExpression* encl, $List* typea
 }
 
 $JCTree$JCNewClass* TreeMaker::SpeculativeNewClass($JCTree$JCExpression* encl, $List* typeargs, $JCTree$JCExpression* clazz, $List* args, $JCTree$JCClassDecl* def, bool classDefRemoved) {
-	$var($JCTree$JCNewClass, tree, classDefRemoved ? static_cast<$JCTree$JCNewClass*>($new($TreeMaker$1, this, encl, typeargs, clazz, args, def)) : $new($JCTree$JCNewClass, encl, typeargs, clazz, args, def));
+	$var($JCTree$JCNewClass, tree, classDefRemoved ? $cast($JCTree$JCNewClass, $new($TreeMaker$1, this, encl, typeargs, clazz, args, def)) : $new($JCTree$JCNewClass, encl, typeargs, clazz, args, def));
 	$nc(tree)->pos$ = this->pos;
 	return tree;
 }
@@ -937,7 +764,7 @@ $JCTree$JCAnnotation* TreeMaker::TypeAnnotation($JCTree* annotationType, $List* 
 
 $JCTree$JCModifiers* TreeMaker::Modifiers(int64_t flags, $List* annotations) {
 	$var($JCTree$JCModifiers, tree, $new($JCTree$JCModifiers, flags, annotations));
-	bool noFlags = ((int64_t)(flags & (uint64_t)($Flags::ModifierFlags | $Flags::ANNOTATION))) == 0;
+	bool noFlags = (flags & ($Flags::ModifierFlags | $Flags::ANNOTATION)) == 0;
 	tree->pos$ = (noFlags && $nc(annotations)->isEmpty()) ? $Position::NOPOS : this->pos;
 	return tree;
 }
@@ -1005,44 +832,43 @@ $JCTree$LetExpr* TreeMaker::LetExpr($List* defs, $JCTree$JCExpression* expr) {
 }
 
 $JCTree$JCClassDecl* TreeMaker::AnonymousClassDef($JCTree$JCModifiers* mods, $List* defs) {
-	$useLocalCurrentObjectStackCache();
-	$var($JCTree$JCModifiers, var$0, mods);
-	$var($Name, var$1, $nc(this->names)->empty);
-	$var($List, var$2, $List::nil());
-	return ClassDef(var$0, var$1, var$2, nullptr, $($List::nil()), defs);
+	$useLocalObjectStack();
+	$var($Name, var$0, $nc(this->names)->empty);
+	$var($List, var$1, $List::nil());
+	return ClassDef(mods, var$0, var$1, nullptr, $($List::nil()), defs);
 }
 
 $JCTree$LetExpr* TreeMaker::LetExpr($JCTree$JCVariableDecl* def, $JCTree$JCExpression* expr) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JCTree$LetExpr, tree, $new($JCTree$LetExpr, $($List::of(def)), expr));
 	tree->pos$ = this->pos;
 	return tree;
 }
 
 $JCTree$JCIdent* TreeMaker::Ident($Symbol* sym) {
-	$useLocalCurrentObjectStackCache();
-	return $cast($JCTree$JCIdent, $nc($($$new($JCTree$JCIdent, ($nc(sym)->name != $nc(this->names)->empty) ? $nc(sym)->name : $(sym->flatName()), sym)->setPos(this->pos)))->setType($nc(sym)->type));
+	$useLocalObjectStack();
+	return $cast($JCTree$JCIdent, $$nc($$new($JCTree$JCIdent, ($nc(sym)->name != $nc(this->names)->empty) ? sym->name : $(sym->flatName()), sym)->setPos(this->pos))->setType(sym->type));
 }
 
 $JCTree$JCExpression* TreeMaker::Select($JCTree$JCExpression* base, $Symbol* sym) {
-	$useLocalCurrentObjectStackCache();
-	return $nc($($$new($JCTree$JCFieldAccess, base, $nc(sym)->name, sym)->setPos(this->pos)))->setType($nc(sym)->type);
+	$useLocalObjectStack();
+	return $$nc($$new($JCTree$JCFieldAccess, base, $nc(sym)->name, sym)->setPos(this->pos))->setType($nc(sym)->type);
 }
 
 $JCTree$JCExpression* TreeMaker::QualIdent($Symbol* sym) {
-	return isUnqualifiable(sym) ? static_cast<$JCTree$JCExpression*>(Ident(sym)) : Select($(QualIdent($nc(sym)->owner)), sym);
+	return isUnqualifiable(sym) ? $cast($JCTree$JCExpression, Ident(sym)) : Select($(QualIdent($nc(sym)->owner)), sym);
 }
 
 $JCTree$JCExpression* TreeMaker::Ident($JCTree$JCVariableDecl* param) {
-	return Ident(static_cast<$Symbol*>($nc(param)->sym));
+	return Ident($nc(param)->sym);
 }
 
 $List* TreeMaker::Idents($List* params) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ListBuffer, ids, $new($ListBuffer));
 	{
 		$var($List, l, params);
-		for (; $nc(l)->nonEmpty(); $assign(l, $nc(l)->tail)) {
+		for (; $nc(l)->nonEmpty(); $assign(l, l->tail)) {
 			ids->append($(Ident($cast($JCTree$JCVariableDecl, l->head))));
 		}
 	}
@@ -1050,13 +876,13 @@ $List* TreeMaker::Idents($List* params) {
 }
 
 $JCTree$JCExpression* TreeMaker::This($Type* t) {
-	return Ident(static_cast<$Symbol*>($$new($Symbol$VarSymbol, 16, $nc(this->names)->_this, t, $nc(t)->tsym)));
+	return Ident($$new($Symbol$VarSymbol, 16, $nc(this->names)->_this, t, $nc(t)->tsym));
 }
 
 $JCTree$JCExpression* TreeMaker::QualThis($Type* t) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JCTree$JCExpression, var$0, Type(t));
-	return Select(var$0, static_cast<$Symbol*>($$new($Symbol$VarSymbol, 16, $nc(this->names)->_this, t, $nc(t)->tsym)));
+	return Select(var$0, $$new($Symbol$VarSymbol, 16, $nc(this->names)->_this, t, $nc(t)->tsym));
 }
 
 $JCTree$JCExpression* TreeMaker::ClassLiteral($Symbol$ClassSymbol* clazz) {
@@ -1064,27 +890,27 @@ $JCTree$JCExpression* TreeMaker::ClassLiteral($Symbol$ClassSymbol* clazz) {
 }
 
 $JCTree$JCExpression* TreeMaker::ClassLiteral($Type* t) {
-	$useLocalCurrentObjectStackCache();
-	$var($Symbol$VarSymbol, lit, $new($Symbol$VarSymbol, (8 | 1) | 16, $nc(this->names)->_class, t, $nc(t)->tsym));
-	return Select($(Type(t)), static_cast<$Symbol*>(lit));
+	$useLocalObjectStack();
+	$var($Symbol$VarSymbol, lit, $new($Symbol$VarSymbol, (8 | 1) | 0x10, $nc(this->names)->_class, t, $nc(t)->tsym));
+	return Select($(Type(t)), lit);
 }
 
 $JCTree$JCIdent* TreeMaker::Super($Type* t, $Symbol$TypeSymbol* owner) {
-	return Ident(static_cast<$Symbol*>($$new($Symbol$VarSymbol, 16, $nc(this->names)->_super, t, owner)));
+	return Ident($$new($Symbol$VarSymbol, 16, $nc(this->names)->_super, t, owner));
 }
 
 $JCTree$JCMethodInvocation* TreeMaker::App($JCTree$JCExpression* meth, $List* args) {
-	$useLocalCurrentObjectStackCache();
-	return $nc($(Apply(nullptr, meth, args)))->setType($($nc($nc(meth)->type)->getReturnType()));
+	$useLocalObjectStack();
+	return $$nc(Apply(nullptr, meth, args))->setType($($nc($nc(meth)->type)->getReturnType()));
 }
 
 $JCTree$JCMethodInvocation* TreeMaker::App($JCTree$JCExpression* meth) {
-	$useLocalCurrentObjectStackCache();
-	return $nc($(Apply(nullptr, meth, $($List::nil()))))->setType($($nc($nc(meth)->type)->getReturnType()));
+	$useLocalObjectStack();
+	return $$nc(Apply(nullptr, meth, $($List::nil())))->setType($($nc($nc(meth)->type)->getReturnType()));
 }
 
 $JCTree$JCExpression* TreeMaker::Create($Symbol* ctor, $List* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Type, t, $nc($nc(ctor)->owner)->erasure(this->types));
 	$var($JCTree$JCNewClass, newclass, NewClass(nullptr, nullptr, $(Type(t)), args, nullptr));
 	$set($nc(newclass), constructor, ctor);
@@ -1093,127 +919,97 @@ $JCTree$JCExpression* TreeMaker::Create($Symbol* ctor, $List* args) {
 }
 
 $JCTree$JCExpression* TreeMaker::Type($Type* t) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (t == nullptr) {
 		return nullptr;
 	}
 	$var($JCTree$JCExpression, tp, nullptr);
 	$init($TreeMaker$2);
-	switch ($nc($TreeMaker$2::$SwitchMap$com$sun$tools$javac$code$TypeTag)->get($nc(($($nc(t)->getTag())))->ordinal())) {
+	switch ($nc($TreeMaker$2::$SwitchMap$com$sun$tools$javac$code$TypeTag)->get(($$nc($nc(t)->getTag()))->ordinal())) {
 	case 1:
-		{}
 	case 2:
-		{}
 	case 3:
-		{}
 	case 4:
-		{}
 	case 5:
-		{}
 	case 6:
-		{}
 	case 7:
-		{}
 	case 8:
-		{}
 	case 9:
-		{
-			$assign(tp, TypeIdent($(t->getTag())));
-			break;
-		}
+		$assign(tp, TypeIdent($(t->getTag())));
+		break;
 	case 10:
-		{
-			$assign(tp, Ident(static_cast<$Symbol*>(t->tsym)));
-			break;
-		}
+		$assign(tp, Ident(t->tsym));
+		break;
 	case 11:
 		{
+			$var($Type$WildcardType, a, $cast($Type$WildcardType, t));
+			$var($JCTree$TypeBoundKind, var$0, TypeBoundKind(a->kind));
+			$init($BoundKind);
+			$assign(tp, Wildcard(var$0, a->kind == $BoundKind::UNBOUND ? ($JCTree*)nullptr : $$cast($JCTree, Type(a->type))));
+			break;
+		}
+	case 12:
+		switch ($nc($TreeMaker$2::$SwitchMap$javax$lang$model$type$TypeKind)->get(($$nc(t->getKind()))->ordinal())) {
+		case 1:
 			{
-				$var($Type$WildcardType, a, $cast($Type$WildcardType, t));
-				$var($JCTree$TypeBoundKind, var$0, TypeBoundKind(a->kind));
-				$init($BoundKind);
-				$assign(tp, Wildcard(var$0, a->kind == $BoundKind::UNBOUND ? ($JCTree*)nullptr : $(static_cast<$JCTree*>(Type(a->type)))));
+				$var($Type$UnionClassType, tu, $cast($Type$UnionClassType, t));
+				$var($ListBuffer, la, $new($ListBuffer));
+				{
+					$var($Iterator, i$, $$nc(tu->getAlternativeTypes())->iterator());
+					for (; $nc(i$)->hasNext();) {
+						$var($Type, ta, $cast($Type, i$->next()));
+						{
+							la->add($(Type(ta)));
+						}
+					}
+				}
+				$assign(tp, TypeUnion($(la->toList())));
+				break;
+			}
+		case 2:
+			{
+				$var($Type$IntersectionClassType, it, $cast($Type$IntersectionClassType, t));
+				$var($ListBuffer, la, $new($ListBuffer));
+				{
+					$var($Iterator, i$, $$nc(it->getExplicitComponents())->iterator());
+					for (; $nc(i$)->hasNext();) {
+						$var($Type, ta, $cast($Type, i$->next()));
+						{
+							la->add($(Type(ta)));
+						}
+					}
+				}
+				$assign(tp, TypeIntersection($(la->toList())));
+				break;
+			}
+		default:
+			{
+				$var($Type, outer, t->getEnclosingType());
+				$init($Kinds$Kind);
+				$var($JCTree$JCExpression, clazz, $nc(outer)->hasTag($TypeTag::CLASS) && $nc($nc(t->tsym)->owner)->kind == $Kinds$Kind::TYP ? Select($(Type(outer)), t->tsym) : QualIdent(t->tsym));
+				$assign(tp, $$nc(t->getTypeArguments())->isEmpty() ? clazz : $cast($JCTree$JCExpression, TypeApply(clazz, $(Types($(t->getTypeArguments()))))));
 				break;
 			}
 		}
-	case 12:
-		{
-			switch ($nc($TreeMaker$2::$SwitchMap$javax$lang$model$type$TypeKind)->get($nc(($(t->getKind())))->ordinal())) {
-			case 1:
-				{
-					{
-						$var($Type$UnionClassType, tu, $cast($Type$UnionClassType, t));
-						$var($ListBuffer, la, $new($ListBuffer));
-						{
-							$var($Iterator, i$, $nc($(tu->getAlternativeTypes()))->iterator());
-							for (; $nc(i$)->hasNext();) {
-								$var($Type, ta, $cast($Type, i$->next()));
-								{
-									la->add($(Type(ta)));
-								}
-							}
-						}
-						$assign(tp, TypeUnion($(la->toList())));
-						break;
-					}
-				}
-			case 2:
-				{
-					{
-						$var($Type$IntersectionClassType, it, $cast($Type$IntersectionClassType, t));
-						$var($ListBuffer, la, $new($ListBuffer));
-						{
-							$var($Iterator, i$, $nc($(it->getExplicitComponents()))->iterator());
-							for (; $nc(i$)->hasNext();) {
-								$var($Type, ta, $cast($Type, i$->next()));
-								{
-									la->add($(Type(ta)));
-								}
-							}
-						}
-						$assign(tp, TypeIntersection($(la->toList())));
-						break;
-					}
-				}
-			default:
-				{
-					{
-						$var($Type, outer, t->getEnclosingType());
-						$init($TypeTag);
-						$init($Kinds$Kind);
-						$var($JCTree$JCExpression, clazz, $nc(outer)->hasTag($TypeTag::CLASS) && $nc($nc(t->tsym)->owner)->kind == $Kinds$Kind::TYP ? Select($(Type(outer)), static_cast<$Symbol*>(t->tsym)) : QualIdent(t->tsym));
-						$assign(tp, $nc($(t->getTypeArguments()))->isEmpty() ? clazz : static_cast<$JCTree$JCExpression*>(TypeApply(clazz, $(Types($(t->getTypeArguments()))))));
-						break;
-					}
-				}
-			}
-			break;
-		}
+		break;
 	case 13:
-		{
-			$assign(tp, TypeArray($(Type($($nc(this->types)->elemtype(t))))));
-			break;
-		}
+		$assign(tp, TypeArray($(Type($($nc(this->types)->elemtype(t))))));
+		break;
 	case 14:
-		{
-			$init($TypeTag);
-			$assign(tp, TypeIdent($TypeTag::ERROR));
-			break;
-		}
+		$assign(tp, TypeIdent($TypeTag::ERROR));
+		break;
 	default:
-		{
-			$throwNew($AssertionError, $of($$str({"unexpected type: "_s, t})));
-		}
+		$throwNew($AssertionError, $$of($str({"unexpected type: "_s, t})));
 	}
 	return $nc(tp)->setType(t);
 }
 
 $List* TreeMaker::Types($List* ts) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ListBuffer, lb, $new($ListBuffer));
 	{
 		$var($List, l, ts);
-		for (; $nc(l)->nonEmpty(); $assign(l, $nc(l)->tail)) {
+		for (; $nc(l)->nonEmpty(); $assign(l, l->tail)) {
 			lb->append($(Type($cast($Type, l->head))));
 		}
 	}
@@ -1221,22 +1017,22 @@ $List* TreeMaker::Types($List* ts) {
 }
 
 $JCTree$JCVariableDecl* TreeMaker::VarDef($Symbol$VarSymbol* v, $JCTree$JCExpression* init) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int64_t var$1 = $nc(v)->flags();
 	$var($JCTree$JCModifiers, var$0, Modifiers(var$1, $(Annotations($(v->getRawAttributes())))));
-	$var($Name, var$2, $nc(v)->name);
-	return $cast($JCTree$JCVariableDecl, $nc($($$new($JCTree$JCVariableDecl, var$0, var$2, $(Type(v->type)), init, v)->setPos(this->pos)))->setType($nc(v)->type));
+	$var($Name, var$2, v->name);
+	return $cast($JCTree$JCVariableDecl, $$nc($$new($JCTree$JCVariableDecl, var$0, var$2, $(Type(v->type)), init, v)->setPos(this->pos))->setType(v->type));
 }
 
 $List* TreeMaker::Annotations($List* attributes) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (attributes == nullptr) {
 		return $List::nil();
 	}
 	$var($ListBuffer, result, $new($ListBuffer));
 	{
 		$var($List, i, attributes);
-		for (; $nc(i)->nonEmpty(); $assign(i, $nc(i)->tail)) {
+		for (; $nc(i)->nonEmpty(); $assign(i, i->tail)) {
 			$var($Attribute, a, $cast($Attribute, i->head));
 			result->append($(Annotation(a)));
 		}
@@ -1245,52 +1041,52 @@ $List* TreeMaker::Annotations($List* attributes) {
 }
 
 $JCTree$JCLiteral* TreeMaker::Literal(Object$* value) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JCTree$JCLiteral, result, nullptr);
 	$var($Boolean, boolVal, nullptr);
 	{
 		$var($Character, charVal, nullptr);
 		if ($instanceOf($String, value)) {
 			$init($TypeTag);
-			$assign(result, $nc($(Literal($TypeTag::CLASS, value)))->setType($($nc($nc(this->syms)->stringType)->constType(value))));
+			$assign(result, $$nc(Literal($TypeTag::CLASS, value))->setType($($nc($nc(this->syms)->stringType)->constType(value))));
 		} else if ($instanceOf($Integer, value)) {
 			$init($TypeTag);
-			$assign(result, $nc($(Literal($TypeTag::INT, value)))->setType($($nc($nc(this->syms)->intType)->constType(value))));
+			$assign(result, $$nc(Literal($TypeTag::INT, value))->setType($($nc($nc(this->syms)->intType)->constType(value))));
 		} else if ($instanceOf($Long, value)) {
 			$init($TypeTag);
-			$assign(result, $nc($(Literal($TypeTag::LONG, value)))->setType($($nc($nc(this->syms)->longType)->constType(value))));
+			$assign(result, $$nc(Literal($TypeTag::LONG, value))->setType($($nc($nc(this->syms)->longType)->constType(value))));
 		} else if ($instanceOf($Byte, value)) {
 			$init($TypeTag);
-			$assign(result, $nc($(Literal($TypeTag::BYTE, value)))->setType($($nc($nc(this->syms)->byteType)->constType(value))));
+			$assign(result, $$nc(Literal($TypeTag::BYTE, value))->setType($($nc($nc(this->syms)->byteType)->constType(value))));
 		} else {
-			bool var$1 = $instanceOf($Character, value);
-			if (var$1) {
+			bool var$0 = $instanceOf($Character, value);
+			if (var$0) {
 				$assign(charVal, $cast($Character, value));
-				var$1 = true;
+				var$0 = true;
 			}
-			if (var$1) {
-				int32_t v = $nc($($nc(charVal)->toString()))->charAt(0);
+			if (var$0) {
+				int32_t v = $($nc(charVal)->toString())->charAt(0);
 				$init($TypeTag);
-				$assign(result, $nc($(Literal($TypeTag::CHAR, $($Integer::valueOf(v)))))->setType($($nc($nc(this->syms)->charType)->constType($($Integer::valueOf(v))))));
+				$assign(result, $$nc(Literal($TypeTag::CHAR, $($Integer::valueOf(v))))->setType($($nc($nc(this->syms)->charType)->constType($($Integer::valueOf(v))))));
 			} else if ($instanceOf($Double, value)) {
 				$init($TypeTag);
-				$assign(result, $nc($(Literal($TypeTag::DOUBLE, value)))->setType($($nc($nc(this->syms)->doubleType)->constType(value))));
+				$assign(result, $$nc(Literal($TypeTag::DOUBLE, value))->setType($($nc($nc(this->syms)->doubleType)->constType(value))));
 			} else if ($instanceOf($Float, value)) {
 				$init($TypeTag);
-				$assign(result, $nc($(Literal($TypeTag::FLOAT, value)))->setType($($nc($nc(this->syms)->floatType)->constType(value))));
+				$assign(result, $$nc(Literal($TypeTag::FLOAT, value))->setType($($nc($nc(this->syms)->floatType)->constType(value))));
 			} else if ($instanceOf($Short, value)) {
 				$init($TypeTag);
-				$assign(result, $nc($(Literal($TypeTag::SHORT, value)))->setType($($nc($nc(this->syms)->shortType)->constType(value))));
+				$assign(result, $$nc(Literal($TypeTag::SHORT, value))->setType($($nc($nc(this->syms)->shortType)->constType(value))));
 			} else {
-				bool var$3 = $instanceOf($Boolean, value);
-				if (var$3) {
+				bool var$1 = $instanceOf($Boolean, value);
+				if (var$1) {
 					$assign(boolVal, $cast($Boolean, value));
-					var$3 = true;
+					var$1 = true;
 				}
-				if (var$3) {
+				if (var$1) {
 					int32_t v = $nc(boolVal)->booleanValue() ? 1 : 0;
 					$init($TypeTag);
-					$assign(result, $nc($(Literal($TypeTag::BOOLEAN, $($Integer::valueOf(v)))))->setType($($nc($nc(this->syms)->booleanType)->constType($($Integer::valueOf(v))))));
+					$assign(result, $$nc(Literal($TypeTag::BOOLEAN, $($Integer::valueOf(v))))->setType($($nc($nc(this->syms)->booleanType)->constType($($Integer::valueOf(v))))));
 				} else {
 					$throwNew($AssertionError, value);
 				}
@@ -1313,27 +1109,27 @@ $JCTree$JCMethodDecl* TreeMaker::MethodDef($Symbol$MethodSymbol* m, $JCTree$JCBl
 }
 
 $JCTree$JCMethodDecl* TreeMaker::MethodDef($Symbol$MethodSymbol* m, $Type* mtype, $JCTree$JCBlock* body) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int64_t var$1 = $nc(m)->flags();
 	$var($JCTree$JCModifiers, var$0, Modifiers(var$1, $(Annotations($(m->getRawAttributes())))));
-	$var($Name, var$2, $nc(m)->name);
+	$var($Name, var$2, m->name);
 	$var($JCTree$JCExpression, var$3, m->name != $nc(this->names)->init ? Type($($nc(mtype)->getReturnType())) : ($JCTree$JCExpression*)nullptr);
 	$var($List, var$4, TypeParams($($nc(mtype)->getTypeArguments())));
-	$var($List, var$5, Params($($nc(mtype)->getParameterTypes()), m));
-	return $cast($JCTree$JCMethodDecl, $nc($($$new($JCTree$JCMethodDecl, var$0, var$2, var$3, var$4, nullptr, var$5, $(Types($($nc(mtype)->getThrownTypes()))), body, nullptr, m)->setPos(this->pos)))->setType(mtype));
+	$var($List, var$5, Params($(mtype->getParameterTypes()), m));
+	return $cast($JCTree$JCMethodDecl, $$nc($$new($JCTree$JCMethodDecl, var$0, var$2, var$3, var$4, nullptr, var$5, $(Types($(mtype->getThrownTypes()))), body, nullptr, m)->setPos(this->pos))->setType(mtype));
 }
 
 $JCTree$JCTypeParameter* TreeMaker::TypeParam($Name* name, $Type$TypeVar* tvar) {
-	$useLocalCurrentObjectStackCache();
-	return $cast($JCTree$JCTypeParameter, $nc($($nc($(TypeParameter(name, $(Types($($nc(this->types)->getBounds(tvar)))))))->setPos(this->pos)))->setType(tvar));
+	$useLocalObjectStack();
+	return $cast($JCTree$JCTypeParameter, $$nc($$nc(TypeParameter(name, $(Types($($nc(this->types)->getBounds(tvar))))))->setPos(this->pos))->setType(tvar));
 }
 
 $List* TreeMaker::TypeParams($List* typarams) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ListBuffer, tparams, $new($ListBuffer));
 	{
 		$var($List, l, typarams);
-		for (; $nc(l)->nonEmpty(); $assign(l, $nc(l)->tail)) {
+		for (; $nc(l)->nonEmpty(); $assign(l, l->tail)) {
 			tparams->append($(TypeParam($nc($nc(($cast($Type, l->head)))->tsym)->name, $cast($Type$TypeVar, l->head))));
 		}
 	}
@@ -1341,33 +1137,31 @@ $List* TreeMaker::TypeParams($List* typarams) {
 }
 
 $JCTree$JCVariableDecl* TreeMaker::Param($Name* name, $Type* argtype, $Symbol* owner) {
-	return VarDef($$new($Symbol$VarSymbol, 0x0000000200000000, name, argtype, owner), nullptr);
+	return VarDef($$new($Symbol$VarSymbol, (int64_t)0x0000000200000000, name, argtype, owner), nullptr);
 }
 
 $List* TreeMaker::Params($List* argtypes, $Symbol* owner) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ListBuffer, params, $new($ListBuffer));
 	$init($Kinds$Kind);
-	$var($Symbol$MethodSymbol, mth, ($nc(owner)->kind == $Kinds$Kind::MTH) ? ($cast($Symbol$MethodSymbol, owner)) : ($Symbol$MethodSymbol*)nullptr);
+	$var($Symbol$MethodSymbol, mth, ($nc(owner)->kind == $Kinds$Kind::MTH) ? $cast($Symbol$MethodSymbol, owner) : ($Symbol$MethodSymbol*)nullptr);
 	bool var$0 = mth != nullptr && mth->params$ != nullptr;
 	if (var$0) {
 		int32_t var$1 = $nc(argtypes)->length();
-		var$0 = var$1 == $nc(mth->params$)->length();
+		var$0 = var$1 == mth->params$->length();
 	}
 	if (var$0) {
-		{
-			$var($Iterator, i$, $nc($nc(($cast($Symbol$MethodSymbol, owner)))->params$)->iterator());
-			for (; $nc(i$)->hasNext();) {
-				$var($Symbol$VarSymbol, param, $cast($Symbol$VarSymbol, i$->next()));
-				params->append($(VarDef(param, nullptr)));
-			}
+		$var($Iterator, i$, $nc($cast($Symbol$MethodSymbol, owner)->params$)->iterator());
+		for (; $nc(i$)->hasNext();) {
+			$var($Symbol$VarSymbol, param, $cast($Symbol$VarSymbol, i$->next()));
+			params->append($(VarDef(param, nullptr)));
 		}
 	} else {
 		int32_t i = 0;
 		{
 			$var($List, l, argtypes);
-			for (; l->nonEmpty(); $assign(l, l->tail)) {
-				params->append($(Param($(paramName(i++)), $cast($Type, $nc(l)->head), owner)));
+			for (; $nc(l)->nonEmpty(); $assign(l, l->tail)) {
+				params->append($(Param($(paramName(i++)), $cast($Type, l->head), owner)));
 			}
 		}
 	}
@@ -1376,60 +1170,58 @@ $List* TreeMaker::Params($List* argtypes, $Symbol* owner) {
 
 $JCTree$JCStatement* TreeMaker::Call($JCTree$JCExpression* apply) {
 	$init($TypeTag);
-	return $nc($nc(apply)->type)->hasTag($TypeTag::VOID) ? static_cast<$JCTree$JCStatement*>(Exec(apply)) : static_cast<$JCTree$JCStatement*>(Return(apply));
+	return $nc($nc(apply)->type)->hasTag($TypeTag::VOID) ? $cast($JCTree$JCStatement, Exec(apply)) : $cast($JCTree$JCStatement, Return(apply));
 }
 
 $JCTree$JCStatement* TreeMaker::Assignment($Symbol* v, $JCTree$JCExpression* rhs) {
-	$useLocalCurrentObjectStackCache();
-	return Exec($($nc($(Assign($(Ident(v)), rhs)))->setType($nc(v)->type)));
+	$useLocalObjectStack();
+	return Exec($($$nc(Assign($(Ident(v)), rhs))->setType($nc(v)->type)));
 }
 
 $JCTree$JCArrayAccess* TreeMaker::Indexed($Symbol* v, $JCTree$JCExpression* index) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JCTree$JCArrayAccess, tree, $new($JCTree$JCArrayAccess, $(QualIdent(v)), index));
-	$set(tree, type, $nc(($cast($Type$ArrayType, $nc(v)->type)))->elemtype);
+	$set(tree, type, $nc($cast($Type$ArrayType, $nc(v)->type))->elemtype);
 	return tree;
 }
 
 $JCTree$JCTypeCast* TreeMaker::TypeCast($Type* type, $JCTree$JCExpression* expr) {
-	$useLocalCurrentObjectStackCache();
-	return $cast($JCTree$JCTypeCast, $nc($(TypeCast($(static_cast<$JCTree*>(Type(type))), expr)))->setType(type));
+	$useLocalObjectStack();
+	return $cast($JCTree$JCTypeCast, $$nc(TypeCast($(Type(type)), expr))->setType(type));
 }
 
 bool TreeMaker::isUnqualifiable($Symbol* sym) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Kinds$Kind);
-	if ($nc(sym)->name == $nc(this->names)->empty || $nc(sym)->owner == nullptr || $equals($nc(sym)->owner, $nc(this->syms)->rootPackage) || $nc($nc(sym)->owner)->kind == $Kinds$Kind::MTH || $nc($nc(sym)->owner)->kind == $Kinds$Kind::VAR) {
+	if ($nc(sym)->name == $nc(this->names)->empty || sym->owner == nullptr || $equals(sym->owner, $nc(this->syms)->rootPackage) || sym->owner->kind == $Kinds$Kind::MTH || sym->owner->kind == $Kinds$Kind::VAR) {
 		return true;
-	} else {
-		if (sym->kind == $Kinds$Kind::TYP && this->toplevel != nullptr) {
-			$var($Iterator, it, $nc($($nc($nc(this->toplevel)->namedImportScope)->getSymbolsByName(sym->name)))->iterator());
-			if ($nc(it)->hasNext()) {
-				$var($Symbol, s, $cast($Symbol, it->next()));
-				return s == sym && !it->hasNext();
-			}
-			$assign(it, $nc($($nc($($nc($nc(this->toplevel)->packge)->members()))->getSymbolsByName(sym->name)))->iterator());
-			if ($nc(it)->hasNext()) {
-				$var($Symbol, s, $cast($Symbol, it->next()));
-				return s == sym && !it->hasNext();
-			}
-			$assign(it, $nc($($nc($nc(this->toplevel)->starImportScope)->getSymbolsByName(sym->name)))->iterator());
-			if ($nc(it)->hasNext()) {
-				$var($Symbol, s, $cast($Symbol, it->next()));
-				return s == sym && !it->hasNext();
-			}
+	} else if (sym->kind == $Kinds$Kind::TYP && this->toplevel != nullptr) {
+		$var($Iterator, it, $$nc($nc(this->toplevel->namedImportScope)->getSymbolsByName(sym->name))->iterator());
+		if ($nc(it)->hasNext()) {
+			$var($Symbol, s, $cast($Symbol, it->next()));
+			return s == sym && !it->hasNext();
+		}
+		$assign(it, $$nc($$nc($nc($nc(this->toplevel)->packge)->members())->getSymbolsByName(sym->name))->iterator());
+		if ($nc(it)->hasNext()) {
+			$var($Symbol, s, $cast($Symbol, it->next()));
+			return s == sym && !it->hasNext();
+		}
+		$assign(it, $$nc($nc($nc(this->toplevel)->starImportScope)->getSymbolsByName(sym->name))->iterator());
+		if ($nc(it)->hasNext()) {
+			$var($Symbol, s, $cast($Symbol, it->next()));
+			return s == sym && !it->hasNext();
 		}
 	}
 	return false;
 }
 
 $Name* TreeMaker::paramName(int32_t i) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $nc(this->names)->fromString($$str({"x"_s, $$str(i)}));
 }
 
 $Name* TreeMaker::typaramName(int32_t i) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $nc(this->names)->fromString($$str({"A"_s, $$str(i)}));
 }
 
@@ -1438,7 +1230,7 @@ $String* TreeMaker::lambda$TopLevel$0($JCTree* node) {
 	return $nc($of(node))->getClass()->getSimpleName();
 }
 
-void clinit$TreeMaker($Class* class$) {
+void TreeMaker::clinit$($Class* clazz) {
 	$assignStatic(TreeMaker::treeMakerKey, $new($Context$Key));
 }
 
@@ -1447,11 +1239,166 @@ TreeMaker::TreeMaker() {
 
 $Class* TreeMaker::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(TreeMaker$$Lambda$lambda$TopLevel$0::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.tree.TreeMaker$$Lambda$lambda$TopLevel$0")) {
 			return TreeMaker$$Lambda$lambda$TopLevel$0::load$(name, initialize);
 		}
 	}
-	$loadClass(TreeMaker, name, initialize, &_TreeMaker_ClassInfo_, clinit$TreeMaker, allocate$TreeMaker);
+	$FieldInfo fieldInfos$$[] = {
+		{"treeMakerKey", "Lcom/sun/tools/javac/util/Context$Key;", "Lcom/sun/tools/javac/util/Context$Key<Lcom/sun/tools/javac/tree/TreeMaker;>;", $PROTECTED | $STATIC | $FINAL, $staticField(TreeMaker, treeMakerKey)},
+		{"pos", "I", nullptr, $PUBLIC, $field(TreeMaker, pos)},
+		{"toplevel", "Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;", nullptr, $PUBLIC, $field(TreeMaker, toplevel)},
+		{"names", "Lcom/sun/tools/javac/util/Names;", nullptr, 0, $field(TreeMaker, names)},
+		{"types", "Lcom/sun/tools/javac/code/Types;", nullptr, 0, $field(TreeMaker, types)},
+		{"syms", "Lcom/sun/tools/javac/code/Symtab;", nullptr, 0, $field(TreeMaker, syms)},
+		{"annotationBuilder", "Lcom/sun/tools/javac/tree/TreeMaker$AnnotationBuilder;", nullptr, 0, $field(TreeMaker, annotationBuilder)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/util/Context;)V", nullptr, $PROTECTED, $method(TreeMaker, init$, void, $Context*)},
+		{"<init>", "(Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;Lcom/sun/tools/javac/util/Names;Lcom/sun/tools/javac/code/Types;Lcom/sun/tools/javac/code/Symtab;)V", nullptr, $PROTECTED, $method(TreeMaker, init$, void, $JCTree$JCCompilationUnit*, $Names*, $Types*, $Symtab*)},
+		{"AnnotatedType", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/tree/JCTree$JCAnnotatedType;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;>;Lcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/tree/JCTree$JCAnnotatedType;", $PUBLIC, $virtualMethod(TreeMaker, AnnotatedType, $JCTree$JCAnnotatedType*, $List*, $JCTree$JCExpression*)},
+		{"Annotation", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;)Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;", $PUBLIC, $virtualMethod(TreeMaker, Annotation, $JCTree$JCAnnotation*, $JCTree*, $List*)},
+		{"Annotation", "(Lcom/sun/tools/javac/code/Attribute;)Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;", nullptr, $PUBLIC, $virtualMethod(TreeMaker, Annotation, $JCTree$JCAnnotation*, $Attribute*)},
+		{"Annotations", "(Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute$Compound;>;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;>;", $PUBLIC, $virtualMethod(TreeMaker, Annotations, $List*, $List*)},
+		{"AnonymousClassDef", "(Lcom/sun/tools/javac/tree/JCTree$JCModifiers;Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;", "(Lcom/sun/tools/javac/tree/JCTree$JCModifiers;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree;>;)Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;", $PUBLIC, $virtualMethod(TreeMaker, AnonymousClassDef, $JCTree$JCClassDecl*, $JCTree$JCModifiers*, $List*)},
+		{"App", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/tree/JCTree$JCMethodInvocation;", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;)Lcom/sun/tools/javac/tree/JCTree$JCMethodInvocation;", $PUBLIC, $virtualMethod(TreeMaker, App, $JCTree$JCMethodInvocation*, $JCTree$JCExpression*, $List*)},
+		{"App", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/tree/JCTree$JCMethodInvocation;", nullptr, $PUBLIC, $virtualMethod(TreeMaker, App, $JCTree$JCMethodInvocation*, $JCTree$JCExpression*)},
+		{"Apply", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/tree/JCTree$JCMethodInvocation;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;)Lcom/sun/tools/javac/tree/JCTree$JCMethodInvocation;", $PUBLIC, $virtualMethod(TreeMaker, Apply, $JCTree$JCMethodInvocation*, $List*, $JCTree$JCExpression*, $List*)},
+		{"Assert", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/tree/JCTree$JCAssert;", nullptr, $PUBLIC, $virtualMethod(TreeMaker, Assert, $JCTree$JCAssert*, $JCTree$JCExpression*, $JCTree$JCExpression*)},
+		{"Assign", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/tree/JCTree$JCAssign;", nullptr, $PUBLIC, $virtualMethod(TreeMaker, Assign, $JCTree$JCAssign*, $JCTree$JCExpression*, $JCTree$JCExpression*)},
+		{"Assignment", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/tree/JCTree$JCStatement;", nullptr, $PUBLIC, $virtualMethod(TreeMaker, Assignment, $JCTree$JCStatement*, $Symbol*, $JCTree$JCExpression*)},
+		{"Assignop", "(Lcom/sun/tools/javac/tree/JCTree$Tag;Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/tree/JCTree$JCAssignOp;", nullptr, $PUBLIC, $virtualMethod(TreeMaker, Assignop, $JCTree$JCAssignOp*, $JCTree$Tag*, $JCTree*, $JCTree*)},
+		{"Binary", "(Lcom/sun/tools/javac/tree/JCTree$Tag;Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/tree/JCTree$JCBinary;", nullptr, $PUBLIC, $virtualMethod(TreeMaker, Binary, $JCTree$JCBinary*, $JCTree$Tag*, $JCTree$JCExpression*, $JCTree$JCExpression*)},
+		{"BindingPattern", "(Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;)Lcom/sun/tools/javac/tree/JCTree$JCBindingPattern;", nullptr, $PUBLIC, $virtualMethod(TreeMaker, BindingPattern, $JCTree$JCBindingPattern*, $JCTree$JCVariableDecl*)},
+		{"Block", "(JLcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/tree/JCTree$JCBlock;", "(JLcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCStatement;>;)Lcom/sun/tools/javac/tree/JCTree$JCBlock;", $PUBLIC, $virtualMethod(TreeMaker, Block, $JCTree$JCBlock*, int64_t, $List*)},
+		{"Break", "(Lcom/sun/tools/javac/util/Name;)Lcom/sun/tools/javac/tree/JCTree$JCBreak;", nullptr, $PUBLIC, $virtualMethod(TreeMaker, Break, $JCTree$JCBreak*, $Name*)},
+		{"Call", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/tree/JCTree$JCStatement;", nullptr, $PUBLIC, $virtualMethod(TreeMaker, Call, $JCTree$JCStatement*, $JCTree$JCExpression*)},
+		{"Case", "(Lcom/sun/source/tree/CaseTree$CaseKind;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/tree/JCTree$JCCase;", "(Lcom/sun/source/tree/CaseTree$CaseKind;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCCaseLabel;>;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCStatement;>;Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/tree/JCTree$JCCase;", $PUBLIC, $virtualMethod(TreeMaker, Case, $JCTree$JCCase*, $CaseTree$CaseKind*, $List*, $List*, $JCTree*)},
+		{"Catch", "(Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;Lcom/sun/tools/javac/tree/JCTree$JCBlock;)Lcom/sun/tools/javac/tree/JCTree$JCCatch;", nullptr, $PUBLIC, $virtualMethod(TreeMaker, Catch, $JCTree$JCCatch*, $JCTree$JCVariableDecl*, $JCTree$JCBlock*)},
+		{"ClassDef", "(Lcom/sun/tools/javac/tree/JCTree$JCModifiers;Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;", "(Lcom/sun/tools/javac/tree/JCTree$JCModifiers;Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCTypeParameter;>;Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree;>;)Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;", $PUBLIC, $virtualMethod(TreeMaker, ClassDef, $JCTree$JCClassDecl*, $JCTree$JCModifiers*, $Name*, $List*, $JCTree$JCExpression*, $List*, $List*)},
+		{"ClassDef", "(Lcom/sun/tools/javac/tree/JCTree$JCModifiers;Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;", "(Lcom/sun/tools/javac/tree/JCTree$JCModifiers;Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCTypeParameter;>;Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree;>;)Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;", $PUBLIC, $virtualMethod(TreeMaker, ClassDef, $JCTree$JCClassDecl*, $JCTree$JCModifiers*, $Name*, $List*, $JCTree$JCExpression*, $List*, $List*, $List*)},
+		{"ClassLiteral", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, $PUBLIC, $virtualMethod(TreeMaker, ClassLiteral, $JCTree$JCExpression*, $Symbol$ClassSymbol*)},
+		{"ClassLiteral", "(Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, $PUBLIC, $virtualMethod(TreeMaker, ClassLiteral, $JCTree$JCExpression*, $Type*)},
+		{"Conditional", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/tree/JCTree$JCConditional;", nullptr, $PUBLIC, $virtualMethod(TreeMaker, Conditional, $JCTree$JCConditional*, $JCTree$JCExpression*, $JCTree$JCExpression*, $JCTree$JCExpression*)},
+		{"Continue", "(Lcom/sun/tools/javac/util/Name;)Lcom/sun/tools/javac/tree/JCTree$JCContinue;", nullptr, $PUBLIC, $virtualMethod(TreeMaker, Continue, $JCTree$JCContinue*, $Name*)},
+		{"Create", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", $PUBLIC, $virtualMethod(TreeMaker, Create, $JCTree$JCExpression*, $Symbol*, $List*)},
+		{"DefaultCaseLabel", "()Lcom/sun/tools/javac/tree/JCTree$JCDefaultCaseLabel;", nullptr, $PUBLIC, $virtualMethod(TreeMaker, DefaultCaseLabel, $JCTree$JCDefaultCaseLabel*)},
+		{"DoLoop", "(Lcom/sun/tools/javac/tree/JCTree$JCStatement;Lcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/tree/JCTree$JCDoWhileLoop;", nullptr, $PUBLIC, $virtualMethod(TreeMaker, DoLoop, $JCTree$JCDoWhileLoop*, $JCTree$JCStatement*, $JCTree$JCExpression*)},
+		{"Erroneous", "()Lcom/sun/tools/javac/tree/JCTree$JCErroneous;", nullptr, $PUBLIC, $virtualMethod(TreeMaker, Erroneous, $JCTree$JCErroneous*)},
+		{"Erroneous", "(Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/tree/JCTree$JCErroneous;", "(Lcom/sun/tools/javac/util/List<+Lcom/sun/tools/javac/tree/JCTree;>;)Lcom/sun/tools/javac/tree/JCTree$JCErroneous;", $PUBLIC, $virtualMethod(TreeMaker, Erroneous, $JCTree$JCErroneous*, $List*)},
+		{"Exec", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/tree/JCTree$JCExpressionStatement;", nullptr, $PUBLIC, $virtualMethod(TreeMaker, Exec, $JCTree$JCExpressionStatement*, $JCTree$JCExpression*)},
+		{"Exports", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/tree/JCTree$JCExports;", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;)Lcom/sun/tools/javac/tree/JCTree$JCExports;", $PUBLIC, $virtualMethod(TreeMaker, Exports, $JCTree$JCExports*, $JCTree$JCExpression*, $List*)},
+		{"ForLoop", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/tree/JCTree$JCStatement;)Lcom/sun/tools/javac/tree/JCTree$JCForLoop;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCStatement;>;Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpressionStatement;>;Lcom/sun/tools/javac/tree/JCTree$JCStatement;)Lcom/sun/tools/javac/tree/JCTree$JCForLoop;", $PUBLIC, $virtualMethod(TreeMaker, ForLoop, $JCTree$JCForLoop*, $List*, $JCTree$JCExpression*, $List*, $JCTree$JCStatement*)},
+		{"ForeachLoop", "(Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/tree/JCTree$JCStatement;)Lcom/sun/tools/javac/tree/JCTree$JCEnhancedForLoop;", nullptr, $PUBLIC, $virtualMethod(TreeMaker, ForeachLoop, $JCTree$JCEnhancedForLoop*, $JCTree$JCVariableDecl*, $JCTree$JCExpression*, $JCTree$JCStatement*)},
+		{"GuardPattern", "(Lcom/sun/tools/javac/tree/JCTree$JCPattern;Lcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/tree/JCTree$JCGuardPattern;", nullptr, $PUBLIC, $virtualMethod(TreeMaker, GuardPattern, $JCTree$JCGuardPattern*, $JCTree$JCPattern*, $JCTree$JCExpression*)},
+		{"Ident", "(Lcom/sun/tools/javac/util/Name;)Lcom/sun/tools/javac/tree/JCTree$JCIdent;", nullptr, $PUBLIC, $virtualMethod(TreeMaker, Ident, $JCTree$JCIdent*, $Name*)},
+		{"Ident", "(Lcom/sun/tools/javac/code/Symbol;)Lcom/sun/tools/javac/tree/JCTree$JCIdent;", nullptr, $PUBLIC, $virtualMethod(TreeMaker, Ident, $JCTree$JCIdent*, $Symbol*)},
+		{"Ident", "(Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, $PUBLIC, $virtualMethod(TreeMaker, Ident, $JCTree$JCExpression*, $JCTree$JCVariableDecl*)},
+		{"Idents", "(Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;>;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;", $PUBLIC, $virtualMethod(TreeMaker, Idents, $List*, $List*)},
+		{"If", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/tree/JCTree$JCStatement;Lcom/sun/tools/javac/tree/JCTree$JCStatement;)Lcom/sun/tools/javac/tree/JCTree$JCIf;", nullptr, $PUBLIC, $virtualMethod(TreeMaker, If, $JCTree$JCIf*, $JCTree$JCExpression*, $JCTree$JCStatement*, $JCTree$JCStatement*)},
+		{"Import", "(Lcom/sun/tools/javac/tree/JCTree;Z)Lcom/sun/tools/javac/tree/JCTree$JCImport;", nullptr, $PUBLIC, $virtualMethod(TreeMaker, Import, $JCTree$JCImport*, $JCTree*, bool)},
+		{"Indexed", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/tree/JCTree$JCArrayAccess;", nullptr, $PUBLIC, $virtualMethod(TreeMaker, Indexed, $JCTree$JCArrayAccess*, $JCTree$JCExpression*, $JCTree$JCExpression*)},
+		{"Indexed", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/tree/JCTree$JCArrayAccess;", nullptr, $PUBLIC, $virtualMethod(TreeMaker, Indexed, $JCTree$JCArrayAccess*, $Symbol*, $JCTree$JCExpression*)},
+		{"Labelled", "(Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/tree/JCTree$JCStatement;)Lcom/sun/tools/javac/tree/JCTree$JCLabeledStatement;", nullptr, $PUBLIC, $virtualMethod(TreeMaker, Labelled, $JCTree$JCLabeledStatement*, $Name*, $JCTree$JCStatement*)},
+		{"Lambda", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/tree/JCTree$JCLambda;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;>;Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/tree/JCTree$JCLambda;", $PUBLIC, $virtualMethod(TreeMaker, Lambda, $JCTree$JCLambda*, $List*, $JCTree*)},
+		{"LetExpr", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/tree/JCTree$LetExpr;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCStatement;>;Lcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/tree/JCTree$LetExpr;", $PUBLIC, $virtualMethod(TreeMaker, LetExpr, $JCTree$LetExpr*, $List*, $JCTree$JCExpression*)},
+		{"LetExpr", "(Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;Lcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/tree/JCTree$LetExpr;", nullptr, $PUBLIC, $virtualMethod(TreeMaker, LetExpr, $JCTree$LetExpr*, $JCTree$JCVariableDecl*, $JCTree$JCExpression*)},
+		{"Literal", "(Lcom/sun/tools/javac/code/TypeTag;Ljava/lang/Object;)Lcom/sun/tools/javac/tree/JCTree$JCLiteral;", nullptr, $PUBLIC, $virtualMethod(TreeMaker, Literal, $JCTree$JCLiteral*, $TypeTag*, Object$*)},
+		{"Literal", "(Ljava/lang/Object;)Lcom/sun/tools/javac/tree/JCTree$JCLiteral;", nullptr, $PUBLIC, $virtualMethod(TreeMaker, Literal, $JCTree$JCLiteral*, Object$*)},
+		{"MethodDef", "(Lcom/sun/tools/javac/tree/JCTree$JCModifiers;Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/tree/JCTree$JCBlock;Lcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/tree/JCTree$JCMethodDecl;", "(Lcom/sun/tools/javac/tree/JCTree$JCModifiers;Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCTypeParameter;>;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;>;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;Lcom/sun/tools/javac/tree/JCTree$JCBlock;Lcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/tree/JCTree$JCMethodDecl;", $PUBLIC, $virtualMethod(TreeMaker, MethodDef, $JCTree$JCMethodDecl*, $JCTree$JCModifiers*, $Name*, $JCTree$JCExpression*, $List*, $List*, $List*, $JCTree$JCBlock*, $JCTree$JCExpression*)},
+		{"MethodDef", "(Lcom/sun/tools/javac/tree/JCTree$JCModifiers;Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/tree/JCTree$JCBlock;Lcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/tree/JCTree$JCMethodDecl;", "(Lcom/sun/tools/javac/tree/JCTree$JCModifiers;Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCTypeParameter;>;Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;>;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;Lcom/sun/tools/javac/tree/JCTree$JCBlock;Lcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/tree/JCTree$JCMethodDecl;", $PUBLIC, $virtualMethod(TreeMaker, MethodDef, $JCTree$JCMethodDecl*, $JCTree$JCModifiers*, $Name*, $JCTree$JCExpression*, $List*, $JCTree$JCVariableDecl*, $List*, $List*, $JCTree$JCBlock*, $JCTree$JCExpression*)},
+		{"MethodDef", "(Lcom/sun/tools/javac/code/Symbol$MethodSymbol;Lcom/sun/tools/javac/tree/JCTree$JCBlock;)Lcom/sun/tools/javac/tree/JCTree$JCMethodDecl;", nullptr, $PUBLIC, $virtualMethod(TreeMaker, MethodDef, $JCTree$JCMethodDecl*, $Symbol$MethodSymbol*, $JCTree$JCBlock*)},
+		{"MethodDef", "(Lcom/sun/tools/javac/code/Symbol$MethodSymbol;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/tree/JCTree$JCBlock;)Lcom/sun/tools/javac/tree/JCTree$JCMethodDecl;", nullptr, $PUBLIC, $virtualMethod(TreeMaker, MethodDef, $JCTree$JCMethodDecl*, $Symbol$MethodSymbol*, $Type*, $JCTree$JCBlock*)},
+		{"Modifiers", "(JLcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/tree/JCTree$JCModifiers;", "(JLcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;>;)Lcom/sun/tools/javac/tree/JCTree$JCModifiers;", $PUBLIC, $virtualMethod(TreeMaker, Modifiers, $JCTree$JCModifiers*, int64_t, $List*)},
+		{"Modifiers", "(J)Lcom/sun/tools/javac/tree/JCTree$JCModifiers;", nullptr, $PUBLIC, $virtualMethod(TreeMaker, Modifiers, $JCTree$JCModifiers*, int64_t)},
+		{"ModuleDef", "(Lcom/sun/tools/javac/tree/JCTree$JCModifiers;Lcom/sun/source/tree/ModuleTree$ModuleKind;Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/tree/JCTree$JCModuleDecl;", "(Lcom/sun/tools/javac/tree/JCTree$JCModifiers;Lcom/sun/source/tree/ModuleTree$ModuleKind;Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCDirective;>;)Lcom/sun/tools/javac/tree/JCTree$JCModuleDecl;", $PUBLIC, $virtualMethod(TreeMaker, ModuleDef, $JCTree$JCModuleDecl*, $JCTree$JCModifiers*, $ModuleTree$ModuleKind*, $JCTree$JCExpression*, $List*)},
+		{"NewArray", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/tree/JCTree$JCNewArray;", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;)Lcom/sun/tools/javac/tree/JCTree$JCNewArray;", $PUBLIC, $virtualMethod(TreeMaker, NewArray, $JCTree$JCNewArray*, $JCTree$JCExpression*, $List*, $List*)},
+		{"NewClass", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)Lcom/sun/tools/javac/tree/JCTree$JCNewClass;", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)Lcom/sun/tools/javac/tree/JCTree$JCNewClass;", $PUBLIC, $virtualMethod(TreeMaker, NewClass, $JCTree$JCNewClass*, $JCTree$JCExpression*, $List*, $JCTree$JCExpression*, $List*, $JCTree$JCClassDecl*)},
+		{"Opens", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/tree/JCTree$JCOpens;", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;)Lcom/sun/tools/javac/tree/JCTree$JCOpens;", $PUBLIC, $virtualMethod(TreeMaker, Opens, $JCTree$JCOpens*, $JCTree$JCExpression*, $List*)},
+		{"PackageDecl", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/tree/JCTree$JCPackageDecl;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;>;Lcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/tree/JCTree$JCPackageDecl;", $PUBLIC, $virtualMethod(TreeMaker, PackageDecl, $JCTree$JCPackageDecl*, $List*, $JCTree$JCExpression*)},
+		{"Param", "(Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol;)Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;", nullptr, $PUBLIC, $virtualMethod(TreeMaker, Param, $JCTree$JCVariableDecl*, $Name*, $Type*, $Symbol*)},
+		{"Params", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/code/Symbol;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;Lcom/sun/tools/javac/code/Symbol;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;>;", $PUBLIC, $virtualMethod(TreeMaker, Params, $List*, $List*, $Symbol*)},
+		{"Parens", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/tree/JCTree$JCParens;", nullptr, $PUBLIC, $virtualMethod(TreeMaker, Parens, $JCTree$JCParens*, $JCTree$JCExpression*)},
+		{"ParenthesizedPattern", "(Lcom/sun/tools/javac/tree/JCTree$JCPattern;)Lcom/sun/tools/javac/tree/JCTree$JCParenthesizedPattern;", nullptr, $PUBLIC, $virtualMethod(TreeMaker, ParenthesizedPattern, $JCTree$JCParenthesizedPattern*, $JCTree$JCPattern*)},
+		{"Provides", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/tree/JCTree$JCProvides;", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;)Lcom/sun/tools/javac/tree/JCTree$JCProvides;", $PUBLIC, $virtualMethod(TreeMaker, Provides, $JCTree$JCProvides*, $JCTree$JCExpression*, $List*)},
+		{"QualIdent", "(Lcom/sun/tools/javac/code/Symbol;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, $PUBLIC, $virtualMethod(TreeMaker, QualIdent, $JCTree$JCExpression*, $Symbol*)},
+		{"QualThis", "(Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, $PUBLIC, $virtualMethod(TreeMaker, QualThis, $JCTree$JCExpression*, $Type*)},
+		{"ReceiverVarDef", "(Lcom/sun/tools/javac/tree/JCTree$JCModifiers;Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;", nullptr, $PUBLIC, $virtualMethod(TreeMaker, ReceiverVarDef, $JCTree$JCVariableDecl*, $JCTree$JCModifiers*, $JCTree$JCExpression*, $JCTree$JCExpression*)},
+		{"Reference", "(Lcom/sun/source/tree/MemberReferenceTree$ReferenceMode;Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/tree/JCTree$JCMemberReference;", "(Lcom/sun/source/tree/MemberReferenceTree$ReferenceMode;Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;)Lcom/sun/tools/javac/tree/JCTree$JCMemberReference;", $PUBLIC, $virtualMethod(TreeMaker, Reference, $JCTree$JCMemberReference*, $MemberReferenceTree$ReferenceMode*, $Name*, $JCTree$JCExpression*, $List*)},
+		{"Requires", "(ZZLcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/tree/JCTree$JCRequires;", nullptr, $PUBLIC, $virtualMethod(TreeMaker, Requires, $JCTree$JCRequires*, bool, bool, $JCTree$JCExpression*)},
+		{"Return", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/tree/JCTree$JCReturn;", nullptr, $PUBLIC, $virtualMethod(TreeMaker, Return, $JCTree$JCReturn*, $JCTree$JCExpression*)},
+		{"Select", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/util/Name;)Lcom/sun/tools/javac/tree/JCTree$JCFieldAccess;", nullptr, $PUBLIC, $virtualMethod(TreeMaker, Select, $JCTree$JCFieldAccess*, $JCTree$JCExpression*, $Name*)},
+		{"Select", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/code/Symbol;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, $PUBLIC, $virtualMethod(TreeMaker, Select, $JCTree$JCExpression*, $JCTree$JCExpression*, $Symbol*)},
+		{"Skip", "()Lcom/sun/tools/javac/tree/JCTree$JCSkip;", nullptr, $PUBLIC, $virtualMethod(TreeMaker, Skip, $JCTree$JCSkip*)},
+		{"SpeculativeNewClass", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;Z)Lcom/sun/tools/javac/tree/JCTree$JCNewClass;", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;Z)Lcom/sun/tools/javac/tree/JCTree$JCNewClass;", $PUBLIC, $virtualMethod(TreeMaker, SpeculativeNewClass, $JCTree$JCNewClass*, $JCTree$JCExpression*, $List*, $JCTree$JCExpression*, $List*, $JCTree$JCClassDecl*, bool)},
+		{"Super", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol$TypeSymbol;)Lcom/sun/tools/javac/tree/JCTree$JCIdent;", nullptr, $PUBLIC, $virtualMethod(TreeMaker, Super, $JCTree$JCIdent*, $Type*, $Symbol$TypeSymbol*)},
+		{"Switch", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/tree/JCTree$JCSwitch;", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCCase;>;)Lcom/sun/tools/javac/tree/JCTree$JCSwitch;", $PUBLIC, $virtualMethod(TreeMaker, Switch, $JCTree$JCSwitch*, $JCTree$JCExpression*, $List*)},
+		{"SwitchExpression", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/tree/JCTree$JCSwitchExpression;", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCCase;>;)Lcom/sun/tools/javac/tree/JCTree$JCSwitchExpression;", $PUBLIC, $virtualMethod(TreeMaker, SwitchExpression, $JCTree$JCSwitchExpression*, $JCTree$JCExpression*, $List*)},
+		{"Synchronized", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/tree/JCTree$JCBlock;)Lcom/sun/tools/javac/tree/JCTree$JCSynchronized;", nullptr, $PUBLIC, $virtualMethod(TreeMaker, Synchronized, $JCTree$JCSynchronized*, $JCTree$JCExpression*, $JCTree$JCBlock*)},
+		{"This", "(Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, $PUBLIC, $virtualMethod(TreeMaker, This, $JCTree$JCExpression*, $Type*)},
+		{"Throw", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/tree/JCTree$JCThrow;", nullptr, $PUBLIC, $virtualMethod(TreeMaker, Throw, $JCTree$JCThrow*, $JCTree$JCExpression*)},
+		{"TopLevel", "(Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree;>;)Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;", $PUBLIC, $virtualMethod(TreeMaker, TopLevel, $JCTree$JCCompilationUnit*, $List*)},
+		{"Try", "(Lcom/sun/tools/javac/tree/JCTree$JCBlock;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/tree/JCTree$JCBlock;)Lcom/sun/tools/javac/tree/JCTree$JCTry;", "(Lcom/sun/tools/javac/tree/JCTree$JCBlock;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCCatch;>;Lcom/sun/tools/javac/tree/JCTree$JCBlock;)Lcom/sun/tools/javac/tree/JCTree$JCTry;", $PUBLIC, $virtualMethod(TreeMaker, Try, $JCTree$JCTry*, $JCTree$JCBlock*, $List*, $JCTree$JCBlock*)},
+		{"Try", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/tree/JCTree$JCBlock;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/tree/JCTree$JCBlock;)Lcom/sun/tools/javac/tree/JCTree$JCTry;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree;>;Lcom/sun/tools/javac/tree/JCTree$JCBlock;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCCatch;>;Lcom/sun/tools/javac/tree/JCTree$JCBlock;)Lcom/sun/tools/javac/tree/JCTree$JCTry;", $PUBLIC, $virtualMethod(TreeMaker, Try, $JCTree$JCTry*, $List*, $JCTree$JCBlock*, $List*, $JCTree$JCBlock*)},
+		{"Type", "(Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, $PUBLIC, $virtualMethod(TreeMaker, Type, $JCTree$JCExpression*, $Type*)},
+		{"TypeAnnotation", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;)Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;", $PUBLIC, $virtualMethod(TreeMaker, TypeAnnotation, $JCTree$JCAnnotation*, $JCTree*, $List*)},
+		{"TypeAnnotation", "(Lcom/sun/tools/javac/code/Attribute;)Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;", nullptr, $PUBLIC, $virtualMethod(TreeMaker, TypeAnnotation, $JCTree$JCAnnotation*, $Attribute*)},
+		{"TypeApply", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/tree/JCTree$JCTypeApply;", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;)Lcom/sun/tools/javac/tree/JCTree$JCTypeApply;", $PUBLIC, $virtualMethod(TreeMaker, TypeApply, $JCTree$JCTypeApply*, $JCTree$JCExpression*, $List*)},
+		{"TypeArray", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/tree/JCTree$JCArrayTypeTree;", nullptr, $PUBLIC, $virtualMethod(TreeMaker, TypeArray, $JCTree$JCArrayTypeTree*, $JCTree$JCExpression*)},
+		{"TypeBoundKind", "(Lcom/sun/tools/javac/code/BoundKind;)Lcom/sun/tools/javac/tree/JCTree$TypeBoundKind;", nullptr, $PUBLIC, $virtualMethod(TreeMaker, TypeBoundKind, $JCTree$TypeBoundKind*, $BoundKind*)},
+		{"TypeCast", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/tree/JCTree$JCTypeCast;", nullptr, $PUBLIC, $virtualMethod(TreeMaker, TypeCast, $JCTree$JCTypeCast*, $JCTree*, $JCTree$JCExpression*)},
+		{"TypeCast", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/tree/JCTree$JCTypeCast;", nullptr, $PUBLIC, $virtualMethod(TreeMaker, TypeCast, $JCTree$JCTypeCast*, $Type*, $JCTree$JCExpression*)},
+		{"TypeIdent", "(Lcom/sun/tools/javac/code/TypeTag;)Lcom/sun/tools/javac/tree/JCTree$JCPrimitiveTypeTree;", nullptr, $PUBLIC, $virtualMethod(TreeMaker, TypeIdent, $JCTree$JCPrimitiveTypeTree*, $TypeTag*)},
+		{"TypeIntersection", "(Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/tree/JCTree$JCTypeIntersection;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;)Lcom/sun/tools/javac/tree/JCTree$JCTypeIntersection;", $PUBLIC, $virtualMethod(TreeMaker, TypeIntersection, $JCTree$JCTypeIntersection*, $List*)},
+		{"TypeParam", "(Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/code/Type$TypeVar;)Lcom/sun/tools/javac/tree/JCTree$JCTypeParameter;", nullptr, $PUBLIC, $virtualMethod(TreeMaker, TypeParam, $JCTree$JCTypeParameter*, $Name*, $Type$TypeVar*)},
+		{"TypeParameter", "(Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/tree/JCTree$JCTypeParameter;", "(Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;)Lcom/sun/tools/javac/tree/JCTree$JCTypeParameter;", $PUBLIC, $virtualMethod(TreeMaker, TypeParameter, $JCTree$JCTypeParameter*, $Name*, $List*)},
+		{"TypeParameter", "(Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/tree/JCTree$JCTypeParameter;", "(Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;>;)Lcom/sun/tools/javac/tree/JCTree$JCTypeParameter;", $PUBLIC, $virtualMethod(TreeMaker, TypeParameter, $JCTree$JCTypeParameter*, $Name*, $List*, $List*)},
+		{"TypeParams", "(Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCTypeParameter;>;", $PUBLIC, $virtualMethod(TreeMaker, TypeParams, $List*, $List*)},
+		{"TypeTest", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/tree/JCTree$JCInstanceOf;", nullptr, $PUBLIC, $virtualMethod(TreeMaker, TypeTest, $JCTree$JCInstanceOf*, $JCTree$JCExpression*, $JCTree*)},
+		{"TypeUnion", "(Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/tree/JCTree$JCTypeUnion;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;)Lcom/sun/tools/javac/tree/JCTree$JCTypeUnion;", $PUBLIC, $virtualMethod(TreeMaker, TypeUnion, $JCTree$JCTypeUnion*, $List*)},
+		{"Types", "(Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;", $PUBLIC, $virtualMethod(TreeMaker, Types, $List*, $List*)},
+		{"Unary", "(Lcom/sun/tools/javac/tree/JCTree$Tag;Lcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/tree/JCTree$JCUnary;", nullptr, $PUBLIC, $virtualMethod(TreeMaker, Unary, $JCTree$JCUnary*, $JCTree$Tag*, $JCTree$JCExpression*)},
+		{"Uses", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/tree/JCTree$JCUses;", nullptr, $PUBLIC, $virtualMethod(TreeMaker, Uses, $JCTree$JCUses*, $JCTree$JCExpression*)},
+		{"VarDef", "(Lcom/sun/tools/javac/tree/JCTree$JCModifiers;Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;", nullptr, $PUBLIC, $virtualMethod(TreeMaker, VarDef, $JCTree$JCVariableDecl*, $JCTree$JCModifiers*, $Name*, $JCTree$JCExpression*, $JCTree$JCExpression*)},
+		{"VarDef", "(Lcom/sun/tools/javac/tree/JCTree$JCModifiers;Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/tree/JCTree$JCExpression;Z)Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;", nullptr, $PUBLIC, $virtualMethod(TreeMaker, VarDef, $JCTree$JCVariableDecl*, $JCTree$JCModifiers*, $Name*, $JCTree$JCExpression*, $JCTree$JCExpression*, bool)},
+		{"VarDef", "(Lcom/sun/tools/javac/code/Symbol$VarSymbol;Lcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;", nullptr, $PUBLIC, $virtualMethod(TreeMaker, VarDef, $JCTree$JCVariableDecl*, $Symbol$VarSymbol*, $JCTree$JCExpression*)},
+		{"WhileLoop", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/tree/JCTree$JCStatement;)Lcom/sun/tools/javac/tree/JCTree$JCWhileLoop;", nullptr, $PUBLIC, $virtualMethod(TreeMaker, WhileLoop, $JCTree$JCWhileLoop*, $JCTree$JCExpression*, $JCTree$JCStatement*)},
+		{"Wildcard", "(Lcom/sun/tools/javac/tree/JCTree$TypeBoundKind;Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/tree/JCTree$JCWildcard;", nullptr, $PUBLIC, $virtualMethod(TreeMaker, Wildcard, $JCTree$JCWildcard*, $JCTree$TypeBoundKind*, $JCTree*)},
+		{"Yield", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/tree/JCTree$JCYield;", nullptr, $PUBLIC, $virtualMethod(TreeMaker, Yield, $JCTree$JCYield*, $JCTree$JCExpression*)},
+		{"at", "(I)Lcom/sun/tools/javac/tree/TreeMaker;", nullptr, $PUBLIC, $virtualMethod(TreeMaker, at, TreeMaker*, int32_t)},
+		{"at", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;)Lcom/sun/tools/javac/tree/TreeMaker;", nullptr, $PUBLIC, $virtualMethod(TreeMaker, at, TreeMaker*, $JCDiagnostic$DiagnosticPosition*)},
+		{"forToplevel", "(Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;)Lcom/sun/tools/javac/tree/TreeMaker;", nullptr, $PUBLIC, $virtualMethod(TreeMaker, forToplevel, TreeMaker*, $JCTree$JCCompilationUnit*)},
+		{"instance", "(Lcom/sun/tools/javac/util/Context;)Lcom/sun/tools/javac/tree/TreeMaker;", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeMaker, instance, TreeMaker*, $Context*)},
+		{"isUnqualifiable", "(Lcom/sun/tools/javac/code/Symbol;)Z", nullptr, 0, $virtualMethod(TreeMaker, isUnqualifiable, bool, $Symbol*)},
+		{"lambda$TopLevel$0", "(Lcom/sun/tools/javac/tree/JCTree;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TreeMaker, lambda$TopLevel$0, $String*, $JCTree*)},
+		{"paramName", "(I)Lcom/sun/tools/javac/util/Name;", nullptr, $PUBLIC, $virtualMethod(TreeMaker, paramName, $Name*, int32_t)},
+		{"typaramName", "(I)Lcom/sun/tools/javac/util/Name;", nullptr, $PUBLIC, $virtualMethod(TreeMaker, typaramName, $Name*, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.tree.JCTree$Factory", "com.sun.tools.javac.tree.JCTree", "Factory", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"com.sun.tools.javac.tree.TreeMaker$2", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{"com.sun.tools.javac.tree.TreeMaker$AnnotationBuilder", "com.sun.tools.javac.tree.TreeMaker", "AnnotationBuilder", 0},
+		{"com.sun.tools.javac.tree.TreeMaker$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.tree.TreeMaker",
+		"java.lang.Object",
+		"com.sun.tools.javac.tree.JCTree$Factory",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.tree.TreeMaker$2,com.sun.tools.javac.tree.TreeMaker$AnnotationBuilder,com.sun.tools.javac.tree.TreeMaker$1"
+	};
+	$loadClass(TreeMaker, name, initialize, &classInfo$$, TreeMaker::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(TreeMaker);
+	});
 	return class$;
 }
 

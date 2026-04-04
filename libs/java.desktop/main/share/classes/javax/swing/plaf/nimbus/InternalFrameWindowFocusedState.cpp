@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/nimbus/InternalFrameWindowFocusedState.h>
-
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JInternalFrame.h>
 #include <javax/swing/plaf/nimbus/State.h>
@@ -16,39 +15,35 @@ namespace javax {
 		namespace plaf {
 			namespace nimbus {
 
-$MethodInfo _InternalFrameWindowFocusedState_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(InternalFrameWindowFocusedState, init$, void)},
-	{"isInState", "(Ljavax/swing/JComponent;)Z", nullptr, $PROTECTED, $virtualMethod(InternalFrameWindowFocusedState, isInState, bool, $JComponent*)},
-	{}
-};
-
-$ClassInfo _InternalFrameWindowFocusedState_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.nimbus.InternalFrameWindowFocusedState",
-	"javax.swing.plaf.nimbus.State",
-	nullptr,
-	nullptr,
-	_InternalFrameWindowFocusedState_MethodInfo_,
-	"Ljavax/swing/plaf/nimbus/State<Ljavax/swing/JComponent;>;"
-};
-
-$Object* allocate$InternalFrameWindowFocusedState($Class* clazz) {
-	return $of($alloc(InternalFrameWindowFocusedState));
-}
-
 void InternalFrameWindowFocusedState::init$() {
 	$State::init$("WindowFocused"_s);
 }
 
 bool InternalFrameWindowFocusedState::isInState($JComponent* c) {
-	return $instanceOf($JInternalFrame, c) && $nc(($cast($JInternalFrame, c)))->isSelected();
+	return $instanceOf($JInternalFrame, c) && $cast($JInternalFrame, c)->isSelected();
 }
 
 InternalFrameWindowFocusedState::InternalFrameWindowFocusedState() {
 }
 
 $Class* InternalFrameWindowFocusedState::load$($String* name, bool initialize) {
-	$loadClass(InternalFrameWindowFocusedState, name, initialize, &_InternalFrameWindowFocusedState_ClassInfo_, allocate$InternalFrameWindowFocusedState);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(InternalFrameWindowFocusedState, init$, void)},
+		{"isInState", "(Ljavax/swing/JComponent;)Z", nullptr, $PROTECTED, $virtualMethod(InternalFrameWindowFocusedState, isInState, bool, $JComponent*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.nimbus.InternalFrameWindowFocusedState",
+		"javax.swing.plaf.nimbus.State",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		"Ljavax/swing/plaf/nimbus/State<Ljavax/swing/JComponent;>;"
+	};
+	$loadClass(InternalFrameWindowFocusedState, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(InternalFrameWindowFocusedState);
+	});
 	return class$;
 }
 

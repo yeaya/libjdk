@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xpath/internal/Arg.h>
-
 #include <com/sun/org/apache/xml/internal/utils/QName.h>
 #include <com/sun/org/apache/xpath/internal/objects/XObject.h>
 #include <java/util/Objects.h>
@@ -19,48 +18,6 @@ namespace com {
 				namespace xpath {
 					namespace internal {
 
-$FieldInfo _Arg_FieldInfo_[] = {
-	{"m_qname", "Lcom/sun/org/apache/xml/internal/utils/QName;", nullptr, $PRIVATE, $field(Arg, m_qname)},
-	{"m_val", "Lcom/sun/org/apache/xpath/internal/objects/XObject;", nullptr, $PRIVATE, $field(Arg, m_val)},
-	{"m_expression", "Ljava/lang/String;", nullptr, $PRIVATE, $field(Arg, m_expression)},
-	{"m_isFromWithParam", "Z", nullptr, $PRIVATE, $field(Arg, m_isFromWithParam)},
-	{"m_isVisible", "Z", nullptr, $PRIVATE, $field(Arg, m_isVisible)},
-	{}
-};
-
-$MethodInfo _Arg_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Arg, init$, void)},
-	{"<init>", "(Lcom/sun/org/apache/xml/internal/utils/QName;Ljava/lang/String;Z)V", nullptr, $PUBLIC, $method(Arg, init$, void, $QName*, $String*, bool)},
-	{"<init>", "(Lcom/sun/org/apache/xml/internal/utils/QName;Lcom/sun/org/apache/xpath/internal/objects/XObject;)V", nullptr, $PUBLIC, $method(Arg, init$, void, $QName*, $XObject*)},
-	{"<init>", "(Lcom/sun/org/apache/xml/internal/utils/QName;Lcom/sun/org/apache/xpath/internal/objects/XObject;Z)V", nullptr, $PUBLIC, $method(Arg, init$, void, $QName*, $XObject*, bool)},
-	{"detach", "()V", nullptr, $PUBLIC, $virtualMethod(Arg, detach, void)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Arg, equals, bool, Object$*)},
-	{"getExpression", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Arg, getExpression, $String*)},
-	{"getQName", "()Lcom/sun/org/apache/xml/internal/utils/QName;", nullptr, $PUBLIC | $FINAL, $method(Arg, getQName, $QName*)},
-	{"getVal", "()Lcom/sun/org/apache/xpath/internal/objects/XObject;", nullptr, $PUBLIC | $FINAL, $method(Arg, getVal, $XObject*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Arg, hashCode, int32_t)},
-	{"isFromWithParam", "()Z", nullptr, $PUBLIC, $virtualMethod(Arg, isFromWithParam, bool)},
-	{"isVisible", "()Z", nullptr, $PUBLIC, $virtualMethod(Arg, isVisible, bool)},
-	{"setExpression", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Arg, setExpression, void, $String*)},
-	{"setIsVisible", "(Z)V", nullptr, $PUBLIC, $virtualMethod(Arg, setIsVisible, void, bool)},
-	{"setQName", "(Lcom/sun/org/apache/xml/internal/utils/QName;)V", nullptr, $PUBLIC | $FINAL, $method(Arg, setQName, void, $QName*)},
-	{"setVal", "(Lcom/sun/org/apache/xpath/internal/objects/XObject;)V", nullptr, $PUBLIC | $FINAL, $method(Arg, setVal, void, $XObject*)},
-	{}
-};
-
-$ClassInfo _Arg_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xpath.internal.Arg",
-	"java.lang.Object",
-	nullptr,
-	_Arg_FieldInfo_,
-	_Arg_MethodInfo_
-};
-
-$Object* allocate$Arg($Class* clazz) {
-	return $of($alloc(Arg));
-}
-
 $QName* Arg::getQName() {
 	return this->m_qname;
 }
@@ -79,7 +36,7 @@ void Arg::setVal($XObject* val) {
 
 void Arg::detach() {
 	if (nullptr != this->m_val) {
-		$nc(this->m_val)->allowDetachToRelease(true);
+		this->m_val->allowDetachToRelease(true);
 		$nc(this->m_val)->detach();
 	}
 }
@@ -152,7 +109,44 @@ Arg::Arg() {
 }
 
 $Class* Arg::load$($String* name, bool initialize) {
-	$loadClass(Arg, name, initialize, &_Arg_ClassInfo_, allocate$Arg);
+	$FieldInfo fieldInfos$$[] = {
+		{"m_qname", "Lcom/sun/org/apache/xml/internal/utils/QName;", nullptr, $PRIVATE, $field(Arg, m_qname)},
+		{"m_val", "Lcom/sun/org/apache/xpath/internal/objects/XObject;", nullptr, $PRIVATE, $field(Arg, m_val)},
+		{"m_expression", "Ljava/lang/String;", nullptr, $PRIVATE, $field(Arg, m_expression)},
+		{"m_isFromWithParam", "Z", nullptr, $PRIVATE, $field(Arg, m_isFromWithParam)},
+		{"m_isVisible", "Z", nullptr, $PRIVATE, $field(Arg, m_isVisible)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Arg, init$, void)},
+		{"<init>", "(Lcom/sun/org/apache/xml/internal/utils/QName;Ljava/lang/String;Z)V", nullptr, $PUBLIC, $method(Arg, init$, void, $QName*, $String*, bool)},
+		{"<init>", "(Lcom/sun/org/apache/xml/internal/utils/QName;Lcom/sun/org/apache/xpath/internal/objects/XObject;)V", nullptr, $PUBLIC, $method(Arg, init$, void, $QName*, $XObject*)},
+		{"<init>", "(Lcom/sun/org/apache/xml/internal/utils/QName;Lcom/sun/org/apache/xpath/internal/objects/XObject;Z)V", nullptr, $PUBLIC, $method(Arg, init$, void, $QName*, $XObject*, bool)},
+		{"detach", "()V", nullptr, $PUBLIC, $virtualMethod(Arg, detach, void)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Arg, equals, bool, Object$*)},
+		{"getExpression", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Arg, getExpression, $String*)},
+		{"getQName", "()Lcom/sun/org/apache/xml/internal/utils/QName;", nullptr, $PUBLIC | $FINAL, $method(Arg, getQName, $QName*)},
+		{"getVal", "()Lcom/sun/org/apache/xpath/internal/objects/XObject;", nullptr, $PUBLIC | $FINAL, $method(Arg, getVal, $XObject*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Arg, hashCode, int32_t)},
+		{"isFromWithParam", "()Z", nullptr, $PUBLIC, $virtualMethod(Arg, isFromWithParam, bool)},
+		{"isVisible", "()Z", nullptr, $PUBLIC, $virtualMethod(Arg, isVisible, bool)},
+		{"setExpression", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Arg, setExpression, void, $String*)},
+		{"setIsVisible", "(Z)V", nullptr, $PUBLIC, $virtualMethod(Arg, setIsVisible, void, bool)},
+		{"setQName", "(Lcom/sun/org/apache/xml/internal/utils/QName;)V", nullptr, $PUBLIC | $FINAL, $method(Arg, setQName, void, $QName*)},
+		{"setVal", "(Lcom/sun/org/apache/xpath/internal/objects/XObject;)V", nullptr, $PUBLIC | $FINAL, $method(Arg, setVal, void, $XObject*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xpath.internal.Arg",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Arg, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Arg);
+	});
 	return class$;
 }
 

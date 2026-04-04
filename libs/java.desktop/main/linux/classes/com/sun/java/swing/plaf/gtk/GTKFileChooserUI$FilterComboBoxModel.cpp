@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/gtk/GTKFileChooserUI$FilterComboBoxModel.h>
-
 #include <com/sun/java/swing/plaf/gtk/GTKFileChooserUI.h>
 #include <java/beans/PropertyChangeEvent.h>
 #include <javax/swing/AbstractListModel.h>
@@ -30,54 +29,6 @@ namespace com {
 			namespace swing {
 				namespace plaf {
 					namespace gtk {
-
-$FieldInfo _GTKFileChooserUI$FilterComboBoxModel_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/java/swing/plaf/gtk/GTKFileChooserUI;", nullptr, $FINAL | $SYNTHETIC, $field(GTKFileChooserUI$FilterComboBoxModel, this$0)},
-	{"filters", "[Ljavax/swing/filechooser/FileFilter;", nullptr, $PROTECTED, $field(GTKFileChooserUI$FilterComboBoxModel, filters)},
-	{}
-};
-
-$MethodInfo _GTKFileChooserUI$FilterComboBoxModel_MethodInfo_[] = {
-	{"*addListDataListener", "(Ljavax/swing/event/ListDataListener;)V", nullptr, $PUBLIC},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lcom/sun/java/swing/plaf/gtk/GTKFileChooserUI;)V", nullptr, $PROTECTED, $method(GTKFileChooserUI$FilterComboBoxModel, init$, void, $GTKFileChooserUI*)},
-	{"getElementAt", "(I)Ljavax/swing/filechooser/FileFilter;", nullptr, $PUBLIC, $virtualMethod(GTKFileChooserUI$FilterComboBoxModel, getElementAt, $Object*, int32_t)},
-	{"getSelectedItem", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(GTKFileChooserUI$FilterComboBoxModel, getSelectedItem, $Object*)},
-	{"getSize", "()I", nullptr, $PUBLIC, $virtualMethod(GTKFileChooserUI$FilterComboBoxModel, getSize, int32_t)},
-	{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(GTKFileChooserUI$FilterComboBoxModel, propertyChange, void, $PropertyChangeEvent*)},
-	{"*removeListDataListener", "(Ljavax/swing/event/ListDataListener;)V", nullptr, $PUBLIC},
-	{"setSelectedItem", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(GTKFileChooserUI$FilterComboBoxModel, setSelectedItem, void, Object$*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _GTKFileChooserUI$FilterComboBoxModel_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.gtk.GTKFileChooserUI$FilterComboBoxModel", "com.sun.java.swing.plaf.gtk.GTKFileChooserUI", "FilterComboBoxModel", $PROTECTED},
-	{}
-};
-
-$ClassInfo _GTKFileChooserUI$FilterComboBoxModel_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.java.swing.plaf.gtk.GTKFileChooserUI$FilterComboBoxModel",
-	"javax.swing.AbstractListModel",
-	"javax.swing.ComboBoxModel,java.beans.PropertyChangeListener",
-	_GTKFileChooserUI$FilterComboBoxModel_FieldInfo_,
-	_GTKFileChooserUI$FilterComboBoxModel_MethodInfo_,
-	"Ljavax/swing/AbstractListModel<Ljavax/swing/filechooser/FileFilter;>;Ljavax/swing/ComboBoxModel<Ljavax/swing/filechooser/FileFilter;>;Ljava/beans/PropertyChangeListener;",
-	nullptr,
-	_GTKFileChooserUI$FilterComboBoxModel_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.gtk.GTKFileChooserUI"
-};
-
-$Object* allocate$GTKFileChooserUI$FilterComboBoxModel($Class* clazz) {
-	return $of($alloc(GTKFileChooserUI$FilterComboBoxModel));
-}
 
 void GTKFileChooserUI$FilterComboBoxModel::addListDataListener($ListDataListener* l) {
 	this->$AbstractListModel::addListDataListener(l);
@@ -110,7 +61,7 @@ void GTKFileChooserUI$FilterComboBoxModel::finalize() {
 void GTKFileChooserUI$FilterComboBoxModel::init$($GTKFileChooserUI* this$0) {
 	$set(this, this$0, this$0);
 	$AbstractListModel::init$();
-	$set(this, filters, $nc($(this$0->getFileChooser()))->getChoosableFileFilters());
+	$set(this, filters, $$nc(this$0->getFileChooser())->getChoosableFileFilters());
 }
 
 void GTKFileChooserUI$FilterComboBoxModel::propertyChange($PropertyChangeEvent* e) {
@@ -119,48 +70,42 @@ void GTKFileChooserUI$FilterComboBoxModel::propertyChange($PropertyChangeEvent* 
 	if (prop == $JFileChooser::CHOOSABLE_FILE_FILTER_CHANGED_PROPERTY) {
 		$set(this, filters, $cast($FileFilterArray, e->getNewValue()));
 		fireContentsChanged(this, -1, -1);
-	} else {
-		if (prop == $JFileChooser::FILE_FILTER_CHANGED_PROPERTY) {
-			fireContentsChanged(this, -1, -1);
-		}
+	} else if (prop == $JFileChooser::FILE_FILTER_CHANGED_PROPERTY) {
+		fireContentsChanged(this, -1, -1);
 	}
 }
 
 void GTKFileChooserUI$FilterComboBoxModel::setSelectedItem(Object$* filter) {
 	if (filter != nullptr) {
-		$nc($(this->this$0->getFileChooser()))->setFileFilter($cast($FileFilter, filter));
+		$$nc(this->this$0->getFileChooser())->setFileFilter($cast($FileFilter, filter));
 		fireContentsChanged(this, -1, -1);
 	}
 }
 
 $Object* GTKFileChooserUI$FilterComboBoxModel::getSelectedItem() {
-	$useLocalCurrentObjectStackCache();
-	$var($FileFilter, currentFilter, $nc($(this->this$0->getFileChooser()))->getFileFilter());
+	$useLocalObjectStack();
+	$var($FileFilter, currentFilter, $$nc(this->this$0->getFileChooser())->getFileFilter());
 	bool found = false;
 	if (currentFilter != nullptr) {
 		{
 			$var($FileFilterArray, arr$, this->filters);
-			int32_t len$ = $nc(arr$)->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
+			for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 				$var($FileFilter, filter, arr$->get(i$));
-				{
-					if (filter == currentFilter) {
-						found = true;
-					}
+				if (filter == currentFilter) {
+					found = true;
 				}
 			}
 		}
 		if (found == false) {
-			$nc($(this->this$0->getFileChooser()))->addChoosableFileFilter(currentFilter);
+			$$nc(this->this$0->getFileChooser())->addChoosableFileFilter(currentFilter);
 		}
 	}
-	return $of($nc($(this->this$0->getFileChooser()))->getFileFilter());
+	return $$nc(this->this$0->getFileChooser())->getFileFilter();
 }
 
 int32_t GTKFileChooserUI$FilterComboBoxModel::getSize() {
 	if (this->filters != nullptr) {
-		return $nc(this->filters)->length;
+		return this->filters->length;
 	} else {
 		return 0;
 	}
@@ -168,12 +113,12 @@ int32_t GTKFileChooserUI$FilterComboBoxModel::getSize() {
 
 $Object* GTKFileChooserUI$FilterComboBoxModel::getElementAt(int32_t index) {
 	if (index > getSize() - 1) {
-		return $of($nc($(this->this$0->getFileChooser()))->getFileFilter());
+		return $$nc(this->this$0->getFileChooser())->getFileFilter();
 	}
 	if (this->filters != nullptr) {
-		return $of($nc(this->filters)->get(index));
+		return this->filters->get(index);
 	} else {
-		return $of(nullptr);
+		return nullptr;
 	}
 }
 
@@ -181,7 +126,49 @@ GTKFileChooserUI$FilterComboBoxModel::GTKFileChooserUI$FilterComboBoxModel() {
 }
 
 $Class* GTKFileChooserUI$FilterComboBoxModel::load$($String* name, bool initialize) {
-	$loadClass(GTKFileChooserUI$FilterComboBoxModel, name, initialize, &_GTKFileChooserUI$FilterComboBoxModel_ClassInfo_, allocate$GTKFileChooserUI$FilterComboBoxModel);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/java/swing/plaf/gtk/GTKFileChooserUI;", nullptr, $FINAL | $SYNTHETIC, $field(GTKFileChooserUI$FilterComboBoxModel, this$0)},
+		{"filters", "[Ljavax/swing/filechooser/FileFilter;", nullptr, $PROTECTED, $field(GTKFileChooserUI$FilterComboBoxModel, filters)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*addListDataListener", "(Ljavax/swing/event/ListDataListener;)V", nullptr, $PUBLIC},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lcom/sun/java/swing/plaf/gtk/GTKFileChooserUI;)V", nullptr, $PROTECTED, $method(GTKFileChooserUI$FilterComboBoxModel, init$, void, $GTKFileChooserUI*)},
+		{"getElementAt", "(I)Ljavax/swing/filechooser/FileFilter;", nullptr, $PUBLIC, $virtualMethod(GTKFileChooserUI$FilterComboBoxModel, getElementAt, $Object*, int32_t)},
+		{"getSelectedItem", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(GTKFileChooserUI$FilterComboBoxModel, getSelectedItem, $Object*)},
+		{"getSize", "()I", nullptr, $PUBLIC, $virtualMethod(GTKFileChooserUI$FilterComboBoxModel, getSize, int32_t)},
+		{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(GTKFileChooserUI$FilterComboBoxModel, propertyChange, void, $PropertyChangeEvent*)},
+		{"*removeListDataListener", "(Ljavax/swing/event/ListDataListener;)V", nullptr, $PUBLIC},
+		{"setSelectedItem", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(GTKFileChooserUI$FilterComboBoxModel, setSelectedItem, void, Object$*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.gtk.GTKFileChooserUI$FilterComboBoxModel", "com.sun.java.swing.plaf.gtk.GTKFileChooserUI", "FilterComboBoxModel", $PROTECTED},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.java.swing.plaf.gtk.GTKFileChooserUI$FilterComboBoxModel",
+		"javax.swing.AbstractListModel",
+		"javax.swing.ComboBoxModel,java.beans.PropertyChangeListener",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljavax/swing/AbstractListModel<Ljavax/swing/filechooser/FileFilter;>;Ljavax/swing/ComboBoxModel<Ljavax/swing/filechooser/FileFilter;>;Ljava/beans/PropertyChangeListener;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.gtk.GTKFileChooserUI"
+	};
+	$loadClass(GTKFileChooserUI$FilterComboBoxModel, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(GTKFileChooserUI$FilterComboBoxModel));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <javax/accessibility/Accessible.h>
-
 #include <javax/accessibility/AccessibleContext.h>
 #include <jcpp.h>
 
@@ -10,26 +9,22 @@ using $AccessibleContext = ::javax::accessibility::AccessibleContext;
 namespace javax {
 	namespace accessibility {
 
-$MethodInfo _Accessible_MethodInfo_[] = {
-	{"getAccessibleContext", "()Ljavax/accessibility/AccessibleContext;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Accessible, getAccessibleContext, $AccessibleContext*)},
-	{}
-};
-
-$ClassInfo _Accessible_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"javax.accessibility.Accessible",
-	nullptr,
-	nullptr,
-	nullptr,
-	_Accessible_MethodInfo_
-};
-
-$Object* allocate$Accessible($Class* clazz) {
-	return $of($alloc(Accessible));
-}
-
 $Class* Accessible::load$($String* name, bool initialize) {
-	$loadClass(Accessible, name, initialize, &_Accessible_ClassInfo_, allocate$Accessible);
+	$MethodInfo methodInfos$$[] = {
+		{"getAccessibleContext", "()Ljavax/accessibility/AccessibleContext;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Accessible, getAccessibleContext, $AccessibleContext*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"javax.accessibility.Accessible",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Accessible, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Accessible);
+	});
 	return class$;
 }
 

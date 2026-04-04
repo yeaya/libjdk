@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/security/transforms/implementations/TransformXSLT.h>
-
 #include <com/sun/org/apache/xml/internal/security/exceptions/XMLSecurityException.h>
 #include <com/sun/org/apache/xml/internal/security/signature/XMLSignatureInput.h>
 #include <com/sun/org/apache/xml/internal/security/transforms/TransformSpi.h>
@@ -13,7 +12,6 @@
 #include <java/io/InputStream.h>
 #include <java/io/OutputStream.h>
 #include <javax/xml/XMLConstants.h>
-#include <javax/xml/transform/Result.h>
 #include <javax/xml/transform/Source.h>
 #include <javax/xml/transform/Transformer.h>
 #include <javax/xml/transform/TransformerException.h>
@@ -52,7 +50,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $XMLConstants = ::javax::xml::XMLConstants;
-using $Result = ::javax::xml::transform::Result;
 using $Source = ::javax::xml::transform::Source;
 using $Transformer = ::javax::xml::transform::Transformer;
 using $TransformerException = ::javax::xml::transform::TransformerException;
@@ -61,7 +58,6 @@ using $DOMSource = ::javax::xml::transform::dom::DOMSource;
 using $StreamResult = ::javax::xml::transform::stream::StreamResult;
 using $StreamSource = ::javax::xml::transform::stream::StreamSource;
 using $Element = ::org::w3c::dom::Element;
-using $Node = ::org::w3c::dom::Node;
 
 namespace com {
 	namespace sun {
@@ -72,34 +68,6 @@ namespace com {
 						namespace security {
 							namespace transforms {
 								namespace implementations {
-
-$FieldInfo _TransformXSLT_FieldInfo_[] = {
-	{"XSLTSpecNS", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(TransformXSLT, XSLTSpecNS)},
-	{"defaultXSLTSpecNSprefix", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(TransformXSLT, defaultXSLTSpecNSprefix)},
-	{"XSLTSTYLESHEET", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(TransformXSLT, XSLTSTYLESHEET)},
-	{"LOG", "Lcom/sun/org/slf4j/internal/Logger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(TransformXSLT, LOG)},
-	{}
-};
-
-$MethodInfo _TransformXSLT_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TransformXSLT, init$, void)},
-	{"engineGetURI", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(TransformXSLT, engineGetURI, $String*)},
-	{"enginePerformTransform", "(Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;Ljava/io/OutputStream;Lorg/w3c/dom/Element;Ljava/lang/String;Z)Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;", nullptr, $PROTECTED, $virtualMethod(TransformXSLT, enginePerformTransform, $XMLSignatureInput*, $XMLSignatureInput*, $OutputStream*, $Element*, $String*, bool), "java.io.IOException,com.sun.org.apache.xml.internal.security.transforms.TransformationException"},
-	{}
-};
-
-$ClassInfo _TransformXSLT_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.security.transforms.implementations.TransformXSLT",
-	"com.sun.org.apache.xml.internal.security.transforms.TransformSpi",
-	nullptr,
-	_TransformXSLT_FieldInfo_,
-	_TransformXSLT_MethodInfo_
-};
-
-$Object* allocate$TransformXSLT($Class* clazz) {
-	return $of($alloc(TransformXSLT));
-}
 
 $String* TransformXSLT::XSLTSpecNS = nullptr;
 $String* TransformXSLT::defaultXSLTSpecNSprefix = nullptr;
@@ -116,22 +84,21 @@ $String* TransformXSLT::engineGetURI() {
 }
 
 $XMLSignatureInput* TransformXSLT::enginePerformTransform($XMLSignatureInput* input, $OutputStream* baos, $Element* transformElement, $String* baseURI, bool secureValidation) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$var($Element, xsltElement, $XMLUtils::selectNode($($nc(transformElement)->getFirstChild()), TransformXSLT::XSLTSpecNS, "stylesheet"_s, 0));
 		if (xsltElement == nullptr) {
-			$assign(xsltElement, $XMLUtils::selectNode($($nc(transformElement)->getFirstChild()), TransformXSLT::XSLTSpecNS, "transform"_s, 0));
+			$assign(xsltElement, $XMLUtils::selectNode($(transformElement->getFirstChild()), TransformXSLT::XSLTSpecNS, "transform"_s, 0));
 		}
 		if (xsltElement == nullptr) {
 			$var($ObjectArray, exArgs, $new($ObjectArray, {
-				$of("xslt:stylesheet"_s),
-				$of("Transform"_s)
+				"xslt:stylesheet"_s,
+				"Transform"_s
 			}));
 			$throwNew($TransformationException, "xml.WrongContent"_s, exArgs);
 		}
 		$var($TransformerFactory, tFactory, $TransformerFactory::newInstance());
 		$init($XMLConstants);
-		$init($Boolean);
 		$nc(tFactory)->setFeature($XMLConstants::FEATURE_SECURE_PROCESSING, $nc($Boolean::TRUE)->booleanValue());
 		if (secureValidation) {
 			try {
@@ -142,34 +109,30 @@ $XMLSignatureInput* TransformXSLT::enginePerformTransform($XMLSignatureInput* in
 		}
 		$var($Source, stylesheet, nullptr);
 		{
-			{
-				$var($ByteArrayOutputStream, os, $new($ByteArrayOutputStream));
-				{
-					$var($Throwable, var$0, nullptr);
+			$var($ByteArrayOutputStream, os, $new($ByteArrayOutputStream));
+			$var($Throwable, var$0, nullptr);
+			try {
+				try {
+					$var($Transformer, transformer, tFactory->newTransformer());
+					$var($DOMSource, source, $new($DOMSource, xsltElement));
+					$var($StreamResult, result, $new($StreamResult, os));
+					$nc(transformer)->transform(source, result);
+					$assign(stylesheet, $new($StreamSource, $$new($ByteArrayInputStream, $(os->toByteArray()))));
+				} catch ($Throwable& t$) {
 					try {
-						try {
-							$var($Transformer, transformer, tFactory->newTransformer());
-							$var($DOMSource, source, $new($DOMSource, xsltElement));
-							$var($StreamResult, result, $new($StreamResult, static_cast<$OutputStream*>(os)));
-							$nc(transformer)->transform(source, result);
-							$assign(stylesheet, $new($StreamSource, static_cast<$InputStream*>($$new($ByteArrayInputStream, $(os->toByteArray())))));
-						} catch ($Throwable& t$) {
-							try {
-								os->close();
-							} catch ($Throwable& x2) {
-								t$->addSuppressed(x2);
-							}
-							$throw(t$);
-						}
-					} catch ($Throwable& var$1) {
-						$assign(var$0, var$1);
-					} /*finally*/ {
 						os->close();
+					} catch ($Throwable& x2) {
+						t$->addSuppressed(x2);
 					}
-					if (var$0 != nullptr) {
-						$throw(var$0);
-					}
+					$throw(t$);
 				}
+			} catch ($Throwable& var$1) {
+				$assign(var$0, var$1);
+			} /*finally*/ {
+				os->close();
+			}
+			if (var$0 != nullptr) {
+				$throw(var$0);
 			}
 		}
 		$var($Transformer, transformer, tFactory->newTransformer(stylesheet));
@@ -180,74 +143,68 @@ $XMLSignatureInput* TransformXSLT::enginePerformTransform($XMLSignatureInput* in
 		}
 		{
 			$var($InputStream, is, $new($ByteArrayInputStream, $($nc(input)->getBytes())));
-			{
-				$var($Throwable, var$2, nullptr);
-				$var($XMLSignatureInput, var$4, nullptr);
-				bool return$3 = false;
+			$var($Throwable, var$2, nullptr);
+			$var($XMLSignatureInput, var$4, nullptr);
+			bool return$3 = false;
+			try {
 				try {
-					try {
-						$var($Source, xmlSource, $new($StreamSource, is));
-						if (baos == nullptr) {
-							{
-								$var($ByteArrayOutputStream, baos1, $new($ByteArrayOutputStream));
-								{
-									$var($Throwable, var$5, nullptr);
-									$var($XMLSignatureInput, var$7, nullptr);
-									bool return$6 = false;
-									try {
-										try {
-											$var($StreamResult, outputTarget, $new($StreamResult, static_cast<$OutputStream*>(baos1)));
-											$nc(transformer)->transform(xmlSource, outputTarget);
-											$var($XMLSignatureInput, output, $new($XMLSignatureInput, $(baos1->toByteArray())));
-											output->setSecureValidation(secureValidation);
-											$assign(var$7, output);
-											return$6 = true;
-											goto $finally2;
-										} catch ($Throwable& t$) {
-											try {
-												baos1->close();
-											} catch ($Throwable& x2) {
-												t$->addSuppressed(x2);
-											}
-											$throw(t$);
-										}
-									} catch ($Throwable& var$8) {
-										$assign(var$5, var$8);
-									} $finally2: {
-										baos1->close();
-									}
-									if (var$5 != nullptr) {
-										$throw(var$5);
-									}
-									if (return$6) {
-										$assign(var$4, var$7);
-										return$3 = true;
-										goto $finally1;
-									}
-								}
-							}
-						}
-						$var($StreamResult, outputTarget, $new($StreamResult, baos));
-						$nc(transformer)->transform(xmlSource, outputTarget);
-					} catch ($Throwable& t$) {
+					$var($Source, xmlSource, $new($StreamSource, is));
+					if (baos == nullptr) {
+						$var($ByteArrayOutputStream, baos1, $new($ByteArrayOutputStream));
+						$var($Throwable, var$5, nullptr);
+						$var($XMLSignatureInput, var$7, nullptr);
+						bool return$6 = false;
 						try {
-							is->close();
-						} catch ($Throwable& x2) {
-							t$->addSuppressed(x2);
+							try {
+								$var($StreamResult, outputTarget, $new($StreamResult, baos1));
+								$nc(transformer)->transform(xmlSource, outputTarget);
+								$var($XMLSignatureInput, output, $new($XMLSignatureInput, $(baos1->toByteArray())));
+								output->setSecureValidation(secureValidation);
+								$assign(var$7, output);
+								return$6 = true;
+								goto $finally2;
+							} catch ($Throwable& t$) {
+								try {
+									baos1->close();
+								} catch ($Throwable& x2) {
+									t$->addSuppressed(x2);
+								}
+								$throw(t$);
+							}
+						} catch ($Throwable& var$8) {
+							$assign(var$5, var$8);
+						} $finally2: {
+							baos1->close();
 						}
-						$throw(t$);
+						if (var$5 != nullptr) {
+							$throw(var$5);
+						}
+						if (return$6) {
+							$assign(var$4, var$7);
+							return$3 = true;
+							goto $finally1;
+						}
 					}
-				} catch ($Throwable& var$9) {
-					$assign(var$2, var$9);
-				} $finally1: {
-					is->close();
+					$var($StreamResult, outputTarget, $new($StreamResult, baos));
+					$nc(transformer)->transform(xmlSource, outputTarget);
+				} catch ($Throwable& t$) {
+					try {
+						is->close();
+					} catch ($Throwable& x2) {
+						t$->addSuppressed(x2);
+					}
+					$throw(t$);
 				}
-				if (var$2 != nullptr) {
-					$throw(var$2);
-				}
-				if (return$3) {
-					return var$4;
-				}
+			} catch ($Throwable& var$9) {
+				$assign(var$2, var$9);
+			} $finally1: {
+				is->close();
+			}
+			if (var$2 != nullptr) {
+				$throw(var$2);
+			}
+			if (return$3) {
+				return var$4;
 			}
 		}
 		$var($XMLSignatureInput, output, $new($XMLSignatureInput, ($bytes*)nullptr));
@@ -255,14 +212,14 @@ $XMLSignatureInput* TransformXSLT::enginePerformTransform($XMLSignatureInput* in
 		output->setOutputStream(baos);
 		return output;
 	} catch ($XMLSecurityException& ex) {
-		$throwNew($TransformationException, $cast($Exception, ex));
+		$throwNew($TransformationException, ex);
 	} catch ($TransformerException& ex) {
-		$throwNew($TransformationException, $cast($Exception, ex));
+		$throwNew($TransformationException, ex);
 	}
 	$shouldNotReachHere();
 }
 
-void clinit$TransformXSLT($Class* class$) {
+void TransformXSLT::clinit$($Class* clazz) {
 	$assignStatic(TransformXSLT::XSLTSpecNS, "http://www.w3.org/1999/XSL/Transform"_s);
 	$assignStatic(TransformXSLT::defaultXSLTSpecNSprefix, "xslt"_s);
 	$assignStatic(TransformXSLT::XSLTSTYLESHEET, "stylesheet"_s);
@@ -273,7 +230,30 @@ TransformXSLT::TransformXSLT() {
 }
 
 $Class* TransformXSLT::load$($String* name, bool initialize) {
-	$loadClass(TransformXSLT, name, initialize, &_TransformXSLT_ClassInfo_, clinit$TransformXSLT, allocate$TransformXSLT);
+	$FieldInfo fieldInfos$$[] = {
+		{"XSLTSpecNS", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(TransformXSLT, XSLTSpecNS)},
+		{"defaultXSLTSpecNSprefix", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(TransformXSLT, defaultXSLTSpecNSprefix)},
+		{"XSLTSTYLESHEET", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(TransformXSLT, XSLTSTYLESHEET)},
+		{"LOG", "Lcom/sun/org/slf4j/internal/Logger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(TransformXSLT, LOG)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TransformXSLT, init$, void)},
+		{"engineGetURI", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(TransformXSLT, engineGetURI, $String*)},
+		{"enginePerformTransform", "(Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;Ljava/io/OutputStream;Lorg/w3c/dom/Element;Ljava/lang/String;Z)Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;", nullptr, $PROTECTED, $virtualMethod(TransformXSLT, enginePerformTransform, $XMLSignatureInput*, $XMLSignatureInput*, $OutputStream*, $Element*, $String*, bool), "java.io.IOException,com.sun.org.apache.xml.internal.security.transforms.TransformationException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.security.transforms.implementations.TransformXSLT",
+		"com.sun.org.apache.xml.internal.security.transforms.TransformSpi",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TransformXSLT, name, initialize, &classInfo$$, TransformXSLT::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(TransformXSLT);
+	});
 	return class$;
 }
 

@@ -27,6 +27,7 @@ class $export StartTlsResponse : public ::javax::naming::ldap::ExtendedResponse 
 	$class(StartTlsResponse, 0, ::javax::naming::ldap::ExtendedResponse)
 public:
 	StartTlsResponse();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void close() {}
 	virtual $bytes* getEncodedValue() override;
@@ -36,7 +37,7 @@ public:
 	virtual void setEnabledCipherSuites($StringArray* suites) {}
 	virtual void setHostnameVerifier(::javax::net::ssl::HostnameVerifier* verifier) {}
 	static $String* OID;
-	static const int64_t serialVersionUID = (int64_t)0x74324F9A950B4A82;
+	static const int64_t serialVersionUID = (int64_t)0x74324f9a950b4a82;
 };
 
 		} // ldap

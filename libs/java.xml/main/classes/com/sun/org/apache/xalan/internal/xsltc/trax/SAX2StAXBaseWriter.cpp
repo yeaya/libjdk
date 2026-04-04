@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/trax/SAX2StAXBaseWriter.h>
-
 #include <com/sun/org/apache/xalan/internal/xsltc/trax/SAX2StAXBaseWriter$SAXLocation.h>
 #include <java/lang/StringBuffer.h>
 #include <java/util/ArrayList.h>
@@ -17,13 +16,11 @@
 
 using $SAX2StAXBaseWriter$SAXLocation = ::com::sun::org::apache::xalan::internal::xsltc::trax::SAX2StAXBaseWriter$SAXLocation;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $StringBuffer = ::java::lang::StringBuffer;
 using $ArrayList = ::java::util::ArrayList;
-using $List = ::java::util::List;
 using $Location = ::javax::xml::stream::Location;
 using $XMLReporter = ::javax::xml::stream::XMLReporter;
 using $XMLStreamException = ::javax::xml::stream::XMLStreamException;
@@ -42,78 +39,6 @@ namespace com {
 					namespace internal {
 						namespace xsltc {
 							namespace trax {
-
-$FieldInfo _SAX2StAXBaseWriter_FieldInfo_[] = {
-	{"isCDATA", "Z", nullptr, $PROTECTED, $field(SAX2StAXBaseWriter, isCDATA)},
-	{"CDATABuffer", "Ljava/lang/StringBuffer;", nullptr, $PROTECTED, $field(SAX2StAXBaseWriter, CDATABuffer)},
-	{"namespaces", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/String;>;", $PROTECTED, $field(SAX2StAXBaseWriter, namespaces)},
-	{"docLocator", "Lorg/xml/sax/Locator;", nullptr, $PROTECTED, $field(SAX2StAXBaseWriter, docLocator)},
-	{"reporter", "Ljavax/xml/stream/XMLReporter;", nullptr, $PROTECTED, $field(SAX2StAXBaseWriter, reporter)},
-	{"xmlVersion", "Ljava/lang/String;", nullptr, 0, $field(SAX2StAXBaseWriter, xmlVersion)},
-	{"encoding", "Ljava/lang/String;", nullptr, 0, $field(SAX2StAXBaseWriter, encoding)},
-	{}
-};
-
-$MethodInfo _SAX2StAXBaseWriter_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SAX2StAXBaseWriter, init$, void)},
-	{"<init>", "(Ljavax/xml/stream/XMLReporter;)V", nullptr, $PUBLIC, $method(SAX2StAXBaseWriter, init$, void, $XMLReporter*)},
-	{"characters", "([CII)V", nullptr, $PUBLIC, $virtualMethod(SAX2StAXBaseWriter, characters, void, $chars*, int32_t, int32_t), "org.xml.sax.SAXException"},
-	{"comment", "([CII)V", nullptr, $PUBLIC, $virtualMethod(SAX2StAXBaseWriter, comment, void, $chars*, int32_t, int32_t), "org.xml.sax.SAXException"},
-	{"endCDATA", "()V", nullptr, $PUBLIC, $virtualMethod(SAX2StAXBaseWriter, endCDATA, void), "org.xml.sax.SAXException"},
-	{"endDTD", "()V", nullptr, $PUBLIC, $virtualMethod(SAX2StAXBaseWriter, endDTD, void), "org.xml.sax.SAXException"},
-	{"endDocument", "()V", nullptr, $PUBLIC, $virtualMethod(SAX2StAXBaseWriter, endDocument, void), "org.xml.sax.SAXException"},
-	{"endElement", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SAX2StAXBaseWriter, endElement, void, $String*, $String*, $String*), "org.xml.sax.SAXException"},
-	{"endEntity", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SAX2StAXBaseWriter, endEntity, void, $String*), "org.xml.sax.SAXException"},
-	{"endPrefixMapping", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SAX2StAXBaseWriter, endPrefixMapping, void, $String*), "org.xml.sax.SAXException"},
-	{"error", "(Lorg/xml/sax/SAXParseException;)V", nullptr, $PUBLIC, $virtualMethod(SAX2StAXBaseWriter, error, void, $SAXParseException*), "org.xml.sax.SAXException"},
-	{"fatalError", "(Lorg/xml/sax/SAXParseException;)V", nullptr, $PUBLIC, $virtualMethod(SAX2StAXBaseWriter, fatalError, void, $SAXParseException*), "org.xml.sax.SAXException"},
-	{"getCurrentLocation", "()Ljavax/xml/stream/Location;", nullptr, $PUBLIC, $virtualMethod(SAX2StAXBaseWriter, getCurrentLocation, $Location*)},
-	{"parseQName", "(Ljava/lang/String;[Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(SAX2StAXBaseWriter, parseQName, void, $String*, $StringArray*)},
-	{"reportException", "(Ljava/lang/String;Lorg/xml/sax/SAXException;)V", nullptr, $PROTECTED, $virtualMethod(SAX2StAXBaseWriter, reportException, void, $String*, $SAXException*), "org.xml.sax.SAXException"},
-	{"setDocumentLocator", "(Lorg/xml/sax/Locator;)V", nullptr, $PUBLIC, $virtualMethod(SAX2StAXBaseWriter, setDocumentLocator, void, $Locator*)},
-	{"setEncoding", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SAX2StAXBaseWriter, setEncoding, void, $String*)},
-	{"setXMLReporter", "(Ljavax/xml/stream/XMLReporter;)V", nullptr, $PUBLIC, $virtualMethod(SAX2StAXBaseWriter, setXMLReporter, void, $XMLReporter*)},
-	{"setXmlVersion", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SAX2StAXBaseWriter, setXmlVersion, void, $String*)},
-	{"startCDATA", "()V", nullptr, $PUBLIC, $virtualMethod(SAX2StAXBaseWriter, startCDATA, void), "org.xml.sax.SAXException"},
-	{"startDTD", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SAX2StAXBaseWriter, startDTD, void, $String*, $String*, $String*), "org.xml.sax.SAXException"},
-	{"startDocument", "()V", nullptr, $PUBLIC, $virtualMethod(SAX2StAXBaseWriter, startDocument, void), "org.xml.sax.SAXException"},
-	{"startElement", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lorg/xml/sax/Attributes;)V", nullptr, $PUBLIC, $virtualMethod(SAX2StAXBaseWriter, startElement, void, $String*, $String*, $String*, $Attributes*), "org.xml.sax.SAXException"},
-	{"startEntity", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SAX2StAXBaseWriter, startEntity, void, $String*), "org.xml.sax.SAXException"},
-	{"startPrefixMapping", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SAX2StAXBaseWriter, startPrefixMapping, void, $String*, $String*), "org.xml.sax.SAXException"},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"updateVersionAndEncoding", "()V", nullptr, $PRIVATE, $method(SAX2StAXBaseWriter, updateVersionAndEncoding, void)},
-	{"warning", "(Lorg/xml/sax/SAXParseException;)V", nullptr, $PUBLIC, $virtualMethod(SAX2StAXBaseWriter, warning, void, $SAXParseException*), "org.xml.sax.SAXException"},
-	{"writeStartDocument", "()V", nullptr, 0, $virtualMethod(SAX2StAXBaseWriter, writeStartDocument, void), "org.xml.sax.SAXException"},
-	{}
-};
-
-$InnerClassInfo _SAX2StAXBaseWriter_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xalan.internal.xsltc.trax.SAX2StAXBaseWriter$SAXLocation", "com.sun.org.apache.xalan.internal.xsltc.trax.SAX2StAXBaseWriter", "SAXLocation", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _SAX2StAXBaseWriter_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"com.sun.org.apache.xalan.internal.xsltc.trax.SAX2StAXBaseWriter",
-	"org.xml.sax.helpers.DefaultHandler",
-	"org.xml.sax.ext.LexicalHandler",
-	_SAX2StAXBaseWriter_FieldInfo_,
-	_SAX2StAXBaseWriter_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SAX2StAXBaseWriter_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xalan.internal.xsltc.trax.SAX2StAXBaseWriter$SAXLocation"
-};
-
-$Object* allocate$SAX2StAXBaseWriter($Class* clazz) {
-	return $of($alloc(SAX2StAXBaseWriter));
-}
 
 int32_t SAX2StAXBaseWriter::hashCode() {
 	 return this->$DefaultHandler::hashCode();
@@ -216,14 +141,14 @@ void SAX2StAXBaseWriter::startPrefixMapping($String* prefix$renamed, $String* ur
 	$var($String, prefix, prefix$renamed);
 	if (prefix == nullptr) {
 		$assign(prefix, ""_s);
-	} else if ($nc(prefix)->equals("xml"_s)) {
+	} else if (prefix->equals("xml"_s)) {
 		return;
 	}
 	if (this->namespaces == nullptr) {
 		$set(this, namespaces, $new($ArrayList, 2));
 	}
 	$nc(this->namespaces)->add(prefix);
-	$nc(this->namespaces)->add(uri);
+	this->namespaces->add(uri);
 }
 
 void SAX2StAXBaseWriter::endPrefixMapping($String* prefix) {
@@ -234,7 +159,7 @@ void SAX2StAXBaseWriter::startCDATA() {
 	if (this->CDATABuffer == nullptr) {
 		$set(this, CDATABuffer, $new($StringBuffer));
 	} else {
-		$nc(this->CDATABuffer)->setLength(0);
+		this->CDATABuffer->setLength(0);
 	}
 }
 
@@ -265,25 +190,23 @@ void SAX2StAXBaseWriter::startEntity($String* name) {
 }
 
 void SAX2StAXBaseWriter::reportException($String* type, $SAXException* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->reporter != nullptr) {
 		try {
 			$var($String, var$0, $nc(e)->getMessage());
-			$var($String, var$1, type);
-			$var($Object, var$2, $of(e));
-			$nc(this->reporter)->report(var$0, var$1, var$2, $(getCurrentLocation()));
+			this->reporter->report(var$0, type, e, $(getCurrentLocation()));
 		} catch ($XMLStreamException& e1) {
-			$throwNew($SAXException, static_cast<$Exception*>(e1));
+			$throwNew($SAXException, e1);
 		}
 	}
 }
 
 void SAX2StAXBaseWriter::parseQName($String* qName, $StringArray* results) {
 	$init(SAX2StAXBaseWriter);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, prefix, nullptr);
 	$var($String, local, nullptr);
-	int32_t idx = $nc(qName)->indexOf((int32_t)u':');
+	int32_t idx = $nc(qName)->indexOf(u':');
 	if (idx >= 0) {
 		$assign(prefix, qName->substring(0, idx));
 		$assign(local, qName->substring(idx + 1));
@@ -299,7 +222,73 @@ SAX2StAXBaseWriter::SAX2StAXBaseWriter() {
 }
 
 $Class* SAX2StAXBaseWriter::load$($String* name, bool initialize) {
-	$loadClass(SAX2StAXBaseWriter, name, initialize, &_SAX2StAXBaseWriter_ClassInfo_, allocate$SAX2StAXBaseWriter);
+	$FieldInfo fieldInfos$$[] = {
+		{"isCDATA", "Z", nullptr, $PROTECTED, $field(SAX2StAXBaseWriter, isCDATA)},
+		{"CDATABuffer", "Ljava/lang/StringBuffer;", nullptr, $PROTECTED, $field(SAX2StAXBaseWriter, CDATABuffer)},
+		{"namespaces", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/String;>;", $PROTECTED, $field(SAX2StAXBaseWriter, namespaces)},
+		{"docLocator", "Lorg/xml/sax/Locator;", nullptr, $PROTECTED, $field(SAX2StAXBaseWriter, docLocator)},
+		{"reporter", "Ljavax/xml/stream/XMLReporter;", nullptr, $PROTECTED, $field(SAX2StAXBaseWriter, reporter)},
+		{"xmlVersion", "Ljava/lang/String;", nullptr, 0, $field(SAX2StAXBaseWriter, xmlVersion)},
+		{"encoding", "Ljava/lang/String;", nullptr, 0, $field(SAX2StAXBaseWriter, encoding)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SAX2StAXBaseWriter, init$, void)},
+		{"<init>", "(Ljavax/xml/stream/XMLReporter;)V", nullptr, $PUBLIC, $method(SAX2StAXBaseWriter, init$, void, $XMLReporter*)},
+		{"characters", "([CII)V", nullptr, $PUBLIC, $virtualMethod(SAX2StAXBaseWriter, characters, void, $chars*, int32_t, int32_t), "org.xml.sax.SAXException"},
+		{"comment", "([CII)V", nullptr, $PUBLIC, $virtualMethod(SAX2StAXBaseWriter, comment, void, $chars*, int32_t, int32_t), "org.xml.sax.SAXException"},
+		{"endCDATA", "()V", nullptr, $PUBLIC, $virtualMethod(SAX2StAXBaseWriter, endCDATA, void), "org.xml.sax.SAXException"},
+		{"endDTD", "()V", nullptr, $PUBLIC, $virtualMethod(SAX2StAXBaseWriter, endDTD, void), "org.xml.sax.SAXException"},
+		{"endDocument", "()V", nullptr, $PUBLIC, $virtualMethod(SAX2StAXBaseWriter, endDocument, void), "org.xml.sax.SAXException"},
+		{"endElement", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SAX2StAXBaseWriter, endElement, void, $String*, $String*, $String*), "org.xml.sax.SAXException"},
+		{"endEntity", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SAX2StAXBaseWriter, endEntity, void, $String*), "org.xml.sax.SAXException"},
+		{"endPrefixMapping", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SAX2StAXBaseWriter, endPrefixMapping, void, $String*), "org.xml.sax.SAXException"},
+		{"error", "(Lorg/xml/sax/SAXParseException;)V", nullptr, $PUBLIC, $virtualMethod(SAX2StAXBaseWriter, error, void, $SAXParseException*), "org.xml.sax.SAXException"},
+		{"fatalError", "(Lorg/xml/sax/SAXParseException;)V", nullptr, $PUBLIC, $virtualMethod(SAX2StAXBaseWriter, fatalError, void, $SAXParseException*), "org.xml.sax.SAXException"},
+		{"getCurrentLocation", "()Ljavax/xml/stream/Location;", nullptr, $PUBLIC, $virtualMethod(SAX2StAXBaseWriter, getCurrentLocation, $Location*)},
+		{"parseQName", "(Ljava/lang/String;[Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(SAX2StAXBaseWriter, parseQName, void, $String*, $StringArray*)},
+		{"reportException", "(Ljava/lang/String;Lorg/xml/sax/SAXException;)V", nullptr, $PROTECTED, $virtualMethod(SAX2StAXBaseWriter, reportException, void, $String*, $SAXException*), "org.xml.sax.SAXException"},
+		{"setDocumentLocator", "(Lorg/xml/sax/Locator;)V", nullptr, $PUBLIC, $virtualMethod(SAX2StAXBaseWriter, setDocumentLocator, void, $Locator*)},
+		{"setEncoding", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SAX2StAXBaseWriter, setEncoding, void, $String*)},
+		{"setXMLReporter", "(Ljavax/xml/stream/XMLReporter;)V", nullptr, $PUBLIC, $virtualMethod(SAX2StAXBaseWriter, setXMLReporter, void, $XMLReporter*)},
+		{"setXmlVersion", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SAX2StAXBaseWriter, setXmlVersion, void, $String*)},
+		{"startCDATA", "()V", nullptr, $PUBLIC, $virtualMethod(SAX2StAXBaseWriter, startCDATA, void), "org.xml.sax.SAXException"},
+		{"startDTD", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SAX2StAXBaseWriter, startDTD, void, $String*, $String*, $String*), "org.xml.sax.SAXException"},
+		{"startDocument", "()V", nullptr, $PUBLIC, $virtualMethod(SAX2StAXBaseWriter, startDocument, void), "org.xml.sax.SAXException"},
+		{"startElement", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lorg/xml/sax/Attributes;)V", nullptr, $PUBLIC, $virtualMethod(SAX2StAXBaseWriter, startElement, void, $String*, $String*, $String*, $Attributes*), "org.xml.sax.SAXException"},
+		{"startEntity", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SAX2StAXBaseWriter, startEntity, void, $String*), "org.xml.sax.SAXException"},
+		{"startPrefixMapping", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SAX2StAXBaseWriter, startPrefixMapping, void, $String*, $String*), "org.xml.sax.SAXException"},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"updateVersionAndEncoding", "()V", nullptr, $PRIVATE, $method(SAX2StAXBaseWriter, updateVersionAndEncoding, void)},
+		{"warning", "(Lorg/xml/sax/SAXParseException;)V", nullptr, $PUBLIC, $virtualMethod(SAX2StAXBaseWriter, warning, void, $SAXParseException*), "org.xml.sax.SAXException"},
+		{"writeStartDocument", "()V", nullptr, 0, $virtualMethod(SAX2StAXBaseWriter, writeStartDocument, void), "org.xml.sax.SAXException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xalan.internal.xsltc.trax.SAX2StAXBaseWriter$SAXLocation", "com.sun.org.apache.xalan.internal.xsltc.trax.SAX2StAXBaseWriter", "SAXLocation", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"com.sun.org.apache.xalan.internal.xsltc.trax.SAX2StAXBaseWriter",
+		"org.xml.sax.helpers.DefaultHandler",
+		"org.xml.sax.ext.LexicalHandler",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xalan.internal.xsltc.trax.SAX2StAXBaseWriter$SAXLocation"
+	};
+	$loadClass(SAX2StAXBaseWriter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SAX2StAXBaseWriter));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <javax/print/attribute/standard/MediaSize$NA.h>
-
 #include <javax/print/attribute/Size2DSyntax.h>
 #include <javax/print/attribute/standard/MediaSize.h>
 #include <javax/print/attribute/standard/MediaSizeName.h>
@@ -35,56 +34,6 @@ namespace javax {
 		namespace attribute {
 			namespace standard {
 
-$FieldInfo _MediaSize$NA_FieldInfo_[] = {
-	{"LETTER", "Ljavax/print/attribute/standard/MediaSize;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSize$NA, LETTER)},
-	{"LEGAL", "Ljavax/print/attribute/standard/MediaSize;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSize$NA, LEGAL)},
-	{"NA_5X7", "Ljavax/print/attribute/standard/MediaSize;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSize$NA, NA_5X7)},
-	{"NA_8X10", "Ljavax/print/attribute/standard/MediaSize;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSize$NA, NA_8X10)},
-	{"NA_NUMBER_9_ENVELOPE", "Ljavax/print/attribute/standard/MediaSize;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSize$NA, NA_NUMBER_9_ENVELOPE)},
-	{"NA_NUMBER_10_ENVELOPE", "Ljavax/print/attribute/standard/MediaSize;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSize$NA, NA_NUMBER_10_ENVELOPE)},
-	{"NA_NUMBER_11_ENVELOPE", "Ljavax/print/attribute/standard/MediaSize;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSize$NA, NA_NUMBER_11_ENVELOPE)},
-	{"NA_NUMBER_12_ENVELOPE", "Ljavax/print/attribute/standard/MediaSize;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSize$NA, NA_NUMBER_12_ENVELOPE)},
-	{"NA_NUMBER_14_ENVELOPE", "Ljavax/print/attribute/standard/MediaSize;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSize$NA, NA_NUMBER_14_ENVELOPE)},
-	{"NA_6X9_ENVELOPE", "Ljavax/print/attribute/standard/MediaSize;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSize$NA, NA_6X9_ENVELOPE)},
-	{"NA_7X9_ENVELOPE", "Ljavax/print/attribute/standard/MediaSize;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSize$NA, NA_7X9_ENVELOPE)},
-	{"NA_9x11_ENVELOPE", "Ljavax/print/attribute/standard/MediaSize;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSize$NA, NA_9x11_ENVELOPE)},
-	{"NA_9x12_ENVELOPE", "Ljavax/print/attribute/standard/MediaSize;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSize$NA, NA_9x12_ENVELOPE)},
-	{"NA_10x13_ENVELOPE", "Ljavax/print/attribute/standard/MediaSize;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSize$NA, NA_10x13_ENVELOPE)},
-	{"NA_10x14_ENVELOPE", "Ljavax/print/attribute/standard/MediaSize;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSize$NA, NA_10x14_ENVELOPE)},
-	{"NA_10X15_ENVELOPE", "Ljavax/print/attribute/standard/MediaSize;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSize$NA, NA_10X15_ENVELOPE)},
-	{}
-};
-
-$MethodInfo _MediaSize$NA_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(MediaSize$NA, init$, void)},
-	{}
-};
-
-$InnerClassInfo _MediaSize$NA_InnerClassesInfo_[] = {
-	{"javax.print.attribute.standard.MediaSize$NA", "javax.print.attribute.standard.MediaSize", "NA", $PUBLIC | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _MediaSize$NA_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"javax.print.attribute.standard.MediaSize$NA",
-	"java.lang.Object",
-	nullptr,
-	_MediaSize$NA_FieldInfo_,
-	_MediaSize$NA_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MediaSize$NA_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.print.attribute.standard.MediaSize"
-};
-
-$Object* allocate$MediaSize$NA($Class* clazz) {
-	return $of($alloc(MediaSize$NA));
-}
-
 $MediaSize* MediaSize$NA::LETTER = nullptr;
 $MediaSize* MediaSize$NA::LEGAL = nullptr;
 $MediaSize* MediaSize$NA::NA_5X7 = nullptr;
@@ -105,7 +54,7 @@ $MediaSize* MediaSize$NA::NA_10X15_ENVELOPE = nullptr;
 void MediaSize$NA::init$() {
 }
 
-void clinit$MediaSize$NA($Class* class$) {
+void MediaSize$NA::clinit$($Class* clazz) {
 	$init($MediaSizeName);
 	$assignStatic(MediaSize$NA::LETTER, $new($MediaSize, 8.5f, 11.0f, $Size2DSyntax::INCH, $MediaSizeName::NA_LETTER));
 	$assignStatic(MediaSize$NA::LEGAL, $new($MediaSize, 8.5f, 14.0f, $Size2DSyntax::INCH, $MediaSizeName::NA_LEGAL));
@@ -129,7 +78,51 @@ MediaSize$NA::MediaSize$NA() {
 }
 
 $Class* MediaSize$NA::load$($String* name, bool initialize) {
-	$loadClass(MediaSize$NA, name, initialize, &_MediaSize$NA_ClassInfo_, clinit$MediaSize$NA, allocate$MediaSize$NA);
+	$FieldInfo fieldInfos$$[] = {
+		{"LETTER", "Ljavax/print/attribute/standard/MediaSize;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSize$NA, LETTER)},
+		{"LEGAL", "Ljavax/print/attribute/standard/MediaSize;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSize$NA, LEGAL)},
+		{"NA_5X7", "Ljavax/print/attribute/standard/MediaSize;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSize$NA, NA_5X7)},
+		{"NA_8X10", "Ljavax/print/attribute/standard/MediaSize;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSize$NA, NA_8X10)},
+		{"NA_NUMBER_9_ENVELOPE", "Ljavax/print/attribute/standard/MediaSize;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSize$NA, NA_NUMBER_9_ENVELOPE)},
+		{"NA_NUMBER_10_ENVELOPE", "Ljavax/print/attribute/standard/MediaSize;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSize$NA, NA_NUMBER_10_ENVELOPE)},
+		{"NA_NUMBER_11_ENVELOPE", "Ljavax/print/attribute/standard/MediaSize;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSize$NA, NA_NUMBER_11_ENVELOPE)},
+		{"NA_NUMBER_12_ENVELOPE", "Ljavax/print/attribute/standard/MediaSize;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSize$NA, NA_NUMBER_12_ENVELOPE)},
+		{"NA_NUMBER_14_ENVELOPE", "Ljavax/print/attribute/standard/MediaSize;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSize$NA, NA_NUMBER_14_ENVELOPE)},
+		{"NA_6X9_ENVELOPE", "Ljavax/print/attribute/standard/MediaSize;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSize$NA, NA_6X9_ENVELOPE)},
+		{"NA_7X9_ENVELOPE", "Ljavax/print/attribute/standard/MediaSize;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSize$NA, NA_7X9_ENVELOPE)},
+		{"NA_9x11_ENVELOPE", "Ljavax/print/attribute/standard/MediaSize;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSize$NA, NA_9x11_ENVELOPE)},
+		{"NA_9x12_ENVELOPE", "Ljavax/print/attribute/standard/MediaSize;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSize$NA, NA_9x12_ENVELOPE)},
+		{"NA_10x13_ENVELOPE", "Ljavax/print/attribute/standard/MediaSize;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSize$NA, NA_10x13_ENVELOPE)},
+		{"NA_10x14_ENVELOPE", "Ljavax/print/attribute/standard/MediaSize;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSize$NA, NA_10x14_ENVELOPE)},
+		{"NA_10X15_ENVELOPE", "Ljavax/print/attribute/standard/MediaSize;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSize$NA, NA_10X15_ENVELOPE)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(MediaSize$NA, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.print.attribute.standard.MediaSize$NA", "javax.print.attribute.standard.MediaSize", "NA", $PUBLIC | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"javax.print.attribute.standard.MediaSize$NA",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.print.attribute.standard.MediaSize"
+	};
+	$loadClass(MediaSize$NA, name, initialize, &classInfo$$, MediaSize$NA::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(MediaSize$NA);
+	});
 	return class$;
 }
 

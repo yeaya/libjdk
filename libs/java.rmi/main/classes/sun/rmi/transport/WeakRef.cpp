@@ -1,5 +1,4 @@
 #include <sun/rmi/transport/WeakRef.h>
-
 #include <java/lang/ref/Reference.h>
 #include <java/lang/ref/ReferenceQueue.h>
 #include <java/lang/ref/WeakReference.h>
@@ -22,37 +21,6 @@ namespace sun {
 	namespace rmi {
 		namespace transport {
 
-$FieldInfo _WeakRef_FieldInfo_[] = {
-	{"hashValue", "I", nullptr, $PRIVATE, $field(WeakRef, hashValue)},
-	{"strongRef", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(WeakRef, strongRef)},
-	{}
-};
-
-$MethodInfo _WeakRef_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(WeakRef, init$, void, Object$*)},
-	{"<init>", "(Ljava/lang/Object;Ljava/lang/ref/ReferenceQueue;)V", "(Ljava/lang/Object;Ljava/lang/ref/ReferenceQueue<Ljava/lang/Object;>;)V", $PUBLIC, $method(WeakRef, init$, void, Object$*, $ReferenceQueue*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(WeakRef, equals, bool, Object$*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(WeakRef, hashCode, int32_t)},
-	{"pin", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(WeakRef, pin, void)},
-	{"setHashValue", "(Ljava/lang/Object;)V", nullptr, $PRIVATE, $method(WeakRef, setHashValue, void, Object$*)},
-	{"unpin", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(WeakRef, unpin, void)},
-	{}
-};
-
-$ClassInfo _WeakRef_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.rmi.transport.WeakRef",
-	"java.lang.ref.WeakReference",
-	nullptr,
-	_WeakRef_FieldInfo_,
-	_WeakRef_MethodInfo_,
-	"Ljava/lang/ref/WeakReference<Ljava/lang/Object;>;"
-};
-
-$Object* allocate$WeakRef($Class* clazz) {
-	return $of($alloc(WeakRef));
-}
-
 void WeakRef::init$(Object$* obj) {
 	$WeakReference::init$(obj);
 	$set(this, strongRef, nullptr);
@@ -72,7 +40,7 @@ void WeakRef::pin() {
 			$init($DGCImpl);
 			$init($Log);
 			if ($nc($DGCImpl::dgcLog)->isLoggable($Log::VERBOSE)) {
-				$nc($DGCImpl::dgcLog)->log($Log::VERBOSE, $$str({"strongRef = "_s, this->strongRef}));
+				$DGCImpl::dgcLog->log($Log::VERBOSE, $$str({"strongRef = "_s, this->strongRef}));
 			}
 		}
 	}
@@ -84,7 +52,7 @@ void WeakRef::unpin() {
 			$init($DGCImpl);
 			$init($Log);
 			if ($nc($DGCImpl::dgcLog)->isLoggable($Log::VERBOSE)) {
-				$nc($DGCImpl::dgcLog)->log($Log::VERBOSE, $$str({"strongRef = "_s, this->strongRef}));
+				$DGCImpl::dgcLog->log($Log::VERBOSE, $$str({"strongRef = "_s, this->strongRef}));
 			}
 			$set(this, strongRef, nullptr);
 		}
@@ -109,7 +77,7 @@ bool WeakRef::equals(Object$* obj) {
 			return true;
 		}
 		$var($Object, referent, get());
-		return (referent != nullptr) && ($equals(referent, $nc(($cast(WeakRef, obj)))->get()));
+		return (referent != nullptr) && ($equals(referent, $cast(WeakRef, obj)->get()));
 	} else {
 		return false;
 	}
@@ -119,7 +87,33 @@ WeakRef::WeakRef() {
 }
 
 $Class* WeakRef::load$($String* name, bool initialize) {
-	$loadClass(WeakRef, name, initialize, &_WeakRef_ClassInfo_, allocate$WeakRef);
+	$FieldInfo fieldInfos$$[] = {
+		{"hashValue", "I", nullptr, $PRIVATE, $field(WeakRef, hashValue)},
+		{"strongRef", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(WeakRef, strongRef)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(WeakRef, init$, void, Object$*)},
+		{"<init>", "(Ljava/lang/Object;Ljava/lang/ref/ReferenceQueue;)V", "(Ljava/lang/Object;Ljava/lang/ref/ReferenceQueue<Ljava/lang/Object;>;)V", $PUBLIC, $method(WeakRef, init$, void, Object$*, $ReferenceQueue*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(WeakRef, equals, bool, Object$*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(WeakRef, hashCode, int32_t)},
+		{"pin", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(WeakRef, pin, void)},
+		{"setHashValue", "(Ljava/lang/Object;)V", nullptr, $PRIVATE, $method(WeakRef, setHashValue, void, Object$*)},
+		{"unpin", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(WeakRef, unpin, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.rmi.transport.WeakRef",
+		"java.lang.ref.WeakReference",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/ref/WeakReference<Ljava/lang/Object;>;"
+	};
+	$loadClass(WeakRef, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WeakRef);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <javax/print/attribute/standard/Media.h>
-
 #include <javax/print/attribute/EnumSyntax.h>
 #include <jcpp.h>
 
@@ -12,36 +11,6 @@ namespace javax {
 	namespace print {
 		namespace attribute {
 			namespace standard {
-
-$FieldInfo _Media_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Media, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _Media_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "(I)V", nullptr, $PROTECTED, $method(Media, init$, void, int32_t)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Media, equals, bool, Object$*)},
-	{"getCategory", "()Ljava/lang/Class;", "()Ljava/lang/Class<+Ljavax/print/attribute/Attribute;>;", $PUBLIC | $FINAL, $virtualMethod(Media, getCategory, $Class*)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(Media, getName, $String*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _Media_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"javax.print.attribute.standard.Media",
-	"javax.print.attribute.EnumSyntax",
-	"javax.print.attribute.DocAttribute,javax.print.attribute.PrintRequestAttribute,javax.print.attribute.PrintJobAttribute",
-	_Media_FieldInfo_,
-	_Media_MethodInfo_
-};
-
-$Object* allocate$Media($Class* clazz) {
-	return $of($alloc(Media));
-}
 
 $Object* Media::clone() {
 	 return this->$EnumSyntax::clone();
@@ -70,7 +39,7 @@ bool Media::equals(Object$* object) {
 	}
 	bool var$0 = var$1;
 	if (var$0) {
-		int32_t var$2 = $nc(($cast(Media, object)))->getValue();
+		int32_t var$2 = $nc($cast(Media, object))->getValue();
 		var$0 = var$2 == this->getValue();
 	}
 	return (var$0);
@@ -88,7 +57,32 @@ Media::Media() {
 }
 
 $Class* Media::load$($String* name, bool initialize) {
-	$loadClass(Media, name, initialize, &_Media_ClassInfo_, allocate$Media);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Media, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC},
+		{"<init>", "(I)V", nullptr, $PROTECTED, $method(Media, init$, void, int32_t)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Media, equals, bool, Object$*)},
+		{"getCategory", "()Ljava/lang/Class;", "()Ljava/lang/Class<+Ljavax/print/attribute/Attribute;>;", $PUBLIC | $FINAL, $virtualMethod(Media, getCategory, $Class*)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(Media, getName, $String*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"javax.print.attribute.standard.Media",
+		"javax.print.attribute.EnumSyntax",
+		"javax.print.attribute.DocAttribute,javax.print.attribute.PrintRequestAttribute,javax.print.attribute.PrintJobAttribute",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Media, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Media));
+	});
 	return class$;
 }
 

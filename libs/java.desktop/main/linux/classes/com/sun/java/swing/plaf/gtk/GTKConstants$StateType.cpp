@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/gtk/GTKConstants$StateType.h>
-
 #include <com/sun/java/swing/plaf/gtk/GTKConstants.h>
 #include <java/lang/Enum.h>
 #include <jcpp.h>
@@ -23,49 +22,6 @@ namespace com {
 			namespace swing {
 				namespace plaf {
 					namespace gtk {
-
-$FieldInfo _GTKConstants$StateType_FieldInfo_[] = {
-	{"NORMAL", "Lcom/sun/java/swing/plaf/gtk/GTKConstants$StateType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKConstants$StateType, NORMAL)},
-	{"ACTIVE", "Lcom/sun/java/swing/plaf/gtk/GTKConstants$StateType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKConstants$StateType, ACTIVE)},
-	{"PRELIGHT", "Lcom/sun/java/swing/plaf/gtk/GTKConstants$StateType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKConstants$StateType, PRELIGHT)},
-	{"SELECTED", "Lcom/sun/java/swing/plaf/gtk/GTKConstants$StateType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKConstants$StateType, SELECTED)},
-	{"INSENSITIVE", "Lcom/sun/java/swing/plaf/gtk/GTKConstants$StateType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKConstants$StateType, INSENSITIVE)},
-	{"$VALUES", "[Lcom/sun/java/swing/plaf/gtk/GTKConstants$StateType;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(GTKConstants$StateType, $VALUES)},
-	{}
-};
-
-$MethodInfo _GTKConstants$StateType_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/java/swing/plaf/gtk/GTKConstants$StateType;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(GTKConstants$StateType, $values, $GTKConstants$StateTypeArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(GTKConstants$StateType, init$, void, $String*, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/java/swing/plaf/gtk/GTKConstants$StateType;", nullptr, $PUBLIC | $STATIC, $staticMethod(GTKConstants$StateType, valueOf, GTKConstants$StateType*, $String*)},
-	{"values", "()[Lcom/sun/java/swing/plaf/gtk/GTKConstants$StateType;", nullptr, $PUBLIC | $STATIC, $staticMethod(GTKConstants$StateType, values, $GTKConstants$StateTypeArray*)},
-	{}
-};
-
-$InnerClassInfo _GTKConstants$StateType_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.gtk.GTKConstants$StateType", "com.sun.java.swing.plaf.gtk.GTKConstants", "StateType", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _GTKConstants$StateType_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"com.sun.java.swing.plaf.gtk.GTKConstants$StateType",
-	"java.lang.Enum",
-	nullptr,
-	_GTKConstants$StateType_FieldInfo_,
-	_GTKConstants$StateType_MethodInfo_,
-	"Ljava/lang/Enum<Lcom/sun/java/swing/plaf/gtk/GTKConstants$StateType;>;",
-	nullptr,
-	_GTKConstants$StateType_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.gtk.GTKConstants"
-};
-
-$Object* allocate$GTKConstants$StateType($Class* clazz) {
-	return $of($alloc(GTKConstants$StateType));
-}
 
 GTKConstants$StateType* GTKConstants$StateType::NORMAL = nullptr;
 GTKConstants$StateType* GTKConstants$StateType::ACTIVE = nullptr;
@@ -99,7 +55,7 @@ void GTKConstants$StateType::init$($String* $enum$name, int32_t $enum$ordinal) {
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$GTKConstants$StateType($Class* class$) {
+void GTKConstants$StateType::clinit$($Class* clazz) {
 	$assignStatic(GTKConstants$StateType::NORMAL, $new(GTKConstants$StateType, "NORMAL"_s, 0));
 	$assignStatic(GTKConstants$StateType::ACTIVE, $new(GTKConstants$StateType, "ACTIVE"_s, 1));
 	$assignStatic(GTKConstants$StateType::PRELIGHT, $new(GTKConstants$StateType, "PRELIGHT"_s, 2));
@@ -112,7 +68,44 @@ GTKConstants$StateType::GTKConstants$StateType() {
 }
 
 $Class* GTKConstants$StateType::load$($String* name, bool initialize) {
-	$loadClass(GTKConstants$StateType, name, initialize, &_GTKConstants$StateType_ClassInfo_, clinit$GTKConstants$StateType, allocate$GTKConstants$StateType);
+	$FieldInfo fieldInfos$$[] = {
+		{"NORMAL", "Lcom/sun/java/swing/plaf/gtk/GTKConstants$StateType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKConstants$StateType, NORMAL)},
+		{"ACTIVE", "Lcom/sun/java/swing/plaf/gtk/GTKConstants$StateType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKConstants$StateType, ACTIVE)},
+		{"PRELIGHT", "Lcom/sun/java/swing/plaf/gtk/GTKConstants$StateType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKConstants$StateType, PRELIGHT)},
+		{"SELECTED", "Lcom/sun/java/swing/plaf/gtk/GTKConstants$StateType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKConstants$StateType, SELECTED)},
+		{"INSENSITIVE", "Lcom/sun/java/swing/plaf/gtk/GTKConstants$StateType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKConstants$StateType, INSENSITIVE)},
+		{"$VALUES", "[Lcom/sun/java/swing/plaf/gtk/GTKConstants$StateType;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(GTKConstants$StateType, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lcom/sun/java/swing/plaf/gtk/GTKConstants$StateType;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(GTKConstants$StateType, $values, $GTKConstants$StateTypeArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(GTKConstants$StateType, init$, void, $String*, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)Lcom/sun/java/swing/plaf/gtk/GTKConstants$StateType;", nullptr, $PUBLIC | $STATIC, $staticMethod(GTKConstants$StateType, valueOf, GTKConstants$StateType*, $String*)},
+		{"values", "()[Lcom/sun/java/swing/plaf/gtk/GTKConstants$StateType;", nullptr, $PUBLIC | $STATIC, $staticMethod(GTKConstants$StateType, values, $GTKConstants$StateTypeArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.gtk.GTKConstants$StateType", "com.sun.java.swing.plaf.gtk.GTKConstants", "StateType", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"com.sun.java.swing.plaf.gtk.GTKConstants$StateType",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lcom/sun/java/swing/plaf/gtk/GTKConstants$StateType;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.gtk.GTKConstants"
+	};
+	$loadClass(GTKConstants$StateType, name, initialize, &classInfo$$, GTKConstants$StateType::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(GTKConstants$StateType));
+	});
 	return class$;
 }
 

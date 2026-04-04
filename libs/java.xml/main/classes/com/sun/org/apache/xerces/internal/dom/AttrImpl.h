@@ -55,6 +55,7 @@ class AttrImpl : public ::com::sun::org::apache::xerces::internal::dom::NodeImpl
 	$class(AttrImpl, 0, ::com::sun::org::apache::xerces::internal::dom::NodeImpl, ::org::w3c::dom::Attr, ::org::w3c::dom::TypeInfo)
 public:
 	AttrImpl();
+	static void clinit$(::java::lang::Class* clazz);
 	using ::com::sun::org::apache::xerces::internal::dom::NodeImpl::getTextContent;
 	using ::com::sun::org::apache::xerces::internal::dom::NodeImpl::getUserData;
 	virtual ::org::w3c::dom::Node* appendChild(::org::w3c::dom::Node* newChild) override;
@@ -131,7 +132,7 @@ public:
 	virtual void synchronizeChildren();
 	virtual $String* toString() override;
 	void writeObject(::java::io::ObjectOutputStream* out);
-	static const int64_t serialVersionUID = (int64_t)0x64FF9C955F6BCFC6;
+	static const int64_t serialVersionUID = (int64_t)0x64ff9c955f6bcfc6;
 	static $String* DTD_URI;
 	$Object* value = nullptr;
 	$String* name = nullptr;

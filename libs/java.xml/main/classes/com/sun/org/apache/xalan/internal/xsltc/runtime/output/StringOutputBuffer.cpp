@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/runtime/output/StringOutputBuffer.h>
-
 #include <com/sun/org/apache/xalan/internal/xsltc/runtime/output/OutputBuffer.h>
 #include <java/lang/StringBuffer.h>
 #include <jcpp.h>
@@ -19,33 +18,6 @@ namespace com {
 						namespace xsltc {
 							namespace runtime {
 								namespace output {
-
-$FieldInfo _StringOutputBuffer_FieldInfo_[] = {
-	{"_buffer", "Ljava/lang/StringBuffer;", nullptr, $PRIVATE, $field(StringOutputBuffer, _buffer)},
-	{}
-};
-
-$MethodInfo _StringOutputBuffer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(StringOutputBuffer, init$, void)},
-	{"append", "(Ljava/lang/String;)Lcom/sun/org/apache/xalan/internal/xsltc/runtime/output/OutputBuffer;", nullptr, $PUBLIC, $virtualMethod(StringOutputBuffer, append, $OutputBuffer*, $String*)},
-	{"append", "([CII)Lcom/sun/org/apache/xalan/internal/xsltc/runtime/output/OutputBuffer;", nullptr, $PUBLIC, $virtualMethod(StringOutputBuffer, append, $OutputBuffer*, $chars*, int32_t, int32_t)},
-	{"append", "(C)Lcom/sun/org/apache/xalan/internal/xsltc/runtime/output/OutputBuffer;", nullptr, $PUBLIC, $virtualMethod(StringOutputBuffer, append, $OutputBuffer*, char16_t)},
-	{"close", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StringOutputBuffer, close, $String*)},
-	{}
-};
-
-$ClassInfo _StringOutputBuffer_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.org.apache.xalan.internal.xsltc.runtime.output.StringOutputBuffer",
-	"java.lang.Object",
-	"com.sun.org.apache.xalan.internal.xsltc.runtime.output.OutputBuffer",
-	_StringOutputBuffer_FieldInfo_,
-	_StringOutputBuffer_MethodInfo_
-};
-
-$Object* allocate$StringOutputBuffer($Class* clazz) {
-	return $of($alloc(StringOutputBuffer));
-}
 
 void StringOutputBuffer::init$() {
 	$set(this, _buffer, $new($StringBuffer));
@@ -74,7 +46,29 @@ StringOutputBuffer::StringOutputBuffer() {
 }
 
 $Class* StringOutputBuffer::load$($String* name, bool initialize) {
-	$loadClass(StringOutputBuffer, name, initialize, &_StringOutputBuffer_ClassInfo_, allocate$StringOutputBuffer);
+	$FieldInfo fieldInfos$$[] = {
+		{"_buffer", "Ljava/lang/StringBuffer;", nullptr, $PRIVATE, $field(StringOutputBuffer, _buffer)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(StringOutputBuffer, init$, void)},
+		{"append", "(Ljava/lang/String;)Lcom/sun/org/apache/xalan/internal/xsltc/runtime/output/OutputBuffer;", nullptr, $PUBLIC, $virtualMethod(StringOutputBuffer, append, $OutputBuffer*, $String*)},
+		{"append", "([CII)Lcom/sun/org/apache/xalan/internal/xsltc/runtime/output/OutputBuffer;", nullptr, $PUBLIC, $virtualMethod(StringOutputBuffer, append, $OutputBuffer*, $chars*, int32_t, int32_t)},
+		{"append", "(C)Lcom/sun/org/apache/xalan/internal/xsltc/runtime/output/OutputBuffer;", nullptr, $PUBLIC, $virtualMethod(StringOutputBuffer, append, $OutputBuffer*, char16_t)},
+		{"close", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StringOutputBuffer, close, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.org.apache.xalan.internal.xsltc.runtime.output.StringOutputBuffer",
+		"java.lang.Object",
+		"com.sun.org.apache.xalan.internal.xsltc.runtime.output.OutputBuffer",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(StringOutputBuffer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(StringOutputBuffer);
+	});
 	return class$;
 }
 

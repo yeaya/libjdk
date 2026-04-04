@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/util/MatchingUtils.h>
-
 #include <java/lang/CharSequence.h>
 #include <java/util/regex/Pattern.h>
 #include <javax/lang/model/SourceVersion.h>
@@ -18,33 +17,6 @@ namespace com {
 			namespace javac {
 				namespace util {
 
-$FieldInfo _MatchingUtils_FieldInfo_[] = {
-	{"allMatchesString", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MatchingUtils, allMatchesString)},
-	{"allMatches", "Ljava/util/regex/Pattern;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MatchingUtils, allMatches)},
-	{}
-};
-
-$MethodInfo _MatchingUtils_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MatchingUtils, init$, void)},
-	{"isValidImportString", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(MatchingUtils, isValidImportString, bool, $String*)},
-	{"validImportStringToPattern", "(Ljava/lang/String;)Ljava/util/regex/Pattern;", nullptr, $PUBLIC | $STATIC, $staticMethod(MatchingUtils, validImportStringToPattern, $Pattern*, $String*)},
-	{"validImportStringToPatternString", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(MatchingUtils, validImportStringToPatternString, $String*, $String*)},
-	{}
-};
-
-$ClassInfo _MatchingUtils_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.util.MatchingUtils",
-	"java.lang.Object",
-	nullptr,
-	_MatchingUtils_FieldInfo_,
-	_MatchingUtils_MethodInfo_
-};
-
-$Object* allocate$MatchingUtils($Class* clazz) {
-	return $of($alloc(MatchingUtils));
-}
-
 $String* MatchingUtils::allMatchesString = nullptr;
 $Pattern* MatchingUtils::allMatches = nullptr;
 
@@ -53,13 +25,13 @@ void MatchingUtils::init$() {
 
 bool MatchingUtils::isValidImportString($String* s) {
 	$init(MatchingUtils);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(s)->equals("*"_s)) {
 		return true;
 	}
 	bool valid = true;
 	$var($String, t, s);
-	int32_t index = $nc(t)->indexOf((int32_t)u'*');
+	int32_t index = t->indexOf(u'*');
 	if (index != -1) {
 		if (index == t->length() - 1) {
 			if (index - 1 >= 0) {
@@ -74,9 +46,7 @@ bool MatchingUtils::isValidImportString($String* s) {
 		$var($StringArray, javaIds, t->split("\\."_s, t->length() + 2));
 		{
 			$var($StringArray, arr$, javaIds);
-			int32_t len$ = arr$->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
+			for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 				$var($String, javaId, arr$->get(i$));
 				valid &= $SourceVersion::isIdentifier(javaId);
 			}
@@ -87,11 +57,11 @@ bool MatchingUtils::isValidImportString($String* s) {
 
 $String* MatchingUtils::validImportStringToPatternString($String* s) {
 	$init(MatchingUtils);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(s)->equals("*"_s)) {
 		return MatchingUtils::allMatchesString;
 	} else {
-		$var($String, s_prime, s->replace(static_cast<$CharSequence*>("."_s), static_cast<$CharSequence*>("\\."_s)));
+		$var($String, s_prime, s->replace("."_s, "\\."_s));
 		if (s_prime->endsWith("*"_s)) {
 			$assign(s_prime, $str({$(s_prime->substring(0, s_prime->length() - 1)), ".+"_s}));
 		}
@@ -109,7 +79,7 @@ $Pattern* MatchingUtils::validImportStringToPattern($String* s) {
 	}
 }
 
-void clinit$MatchingUtils($Class* class$) {
+void MatchingUtils::clinit$($Class* clazz) {
 	$assignStatic(MatchingUtils::allMatchesString, ".*"_s);
 	$assignStatic(MatchingUtils::allMatches, $Pattern::compile(MatchingUtils::allMatchesString));
 }
@@ -118,7 +88,29 @@ MatchingUtils::MatchingUtils() {
 }
 
 $Class* MatchingUtils::load$($String* name, bool initialize) {
-	$loadClass(MatchingUtils, name, initialize, &_MatchingUtils_ClassInfo_, clinit$MatchingUtils, allocate$MatchingUtils);
+	$FieldInfo fieldInfos$$[] = {
+		{"allMatchesString", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MatchingUtils, allMatchesString)},
+		{"allMatches", "Ljava/util/regex/Pattern;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MatchingUtils, allMatches)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MatchingUtils, init$, void)},
+		{"isValidImportString", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(MatchingUtils, isValidImportString, bool, $String*)},
+		{"validImportStringToPattern", "(Ljava/lang/String;)Ljava/util/regex/Pattern;", nullptr, $PUBLIC | $STATIC, $staticMethod(MatchingUtils, validImportStringToPattern, $Pattern*, $String*)},
+		{"validImportStringToPatternString", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(MatchingUtils, validImportStringToPatternString, $String*, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.util.MatchingUtils",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(MatchingUtils, name, initialize, &classInfo$$, MatchingUtils::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(MatchingUtils);
+	});
 	return class$;
 }
 

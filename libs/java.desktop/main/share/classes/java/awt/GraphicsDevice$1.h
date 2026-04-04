@@ -12,6 +12,7 @@ class GraphicsDevice$1 : public ::java::lang::Object {
 	$class(GraphicsDevice$1, 0, ::java::lang::Object)
 public:
 	GraphicsDevice$1();
+	static void clinit$(::java::lang::Class* clazz);
 	static $ints* $SwitchMap$java$awt$GraphicsDevice$WindowTranslucency;
 };
 

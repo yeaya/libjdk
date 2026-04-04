@@ -1,5 +1,4 @@
 #include <javax/imageio/IIOException.h>
-
 #include <java/io/IOException.h>
 #include <jcpp.h>
 
@@ -10,30 +9,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace javax {
 	namespace imageio {
-
-$FieldInfo _IIOException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(IIOException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _IIOException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(IIOException, init$, void, $String*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(IIOException, init$, void, $String*, $Throwable*)},
-	{}
-};
-
-$ClassInfo _IIOException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.imageio.IIOException",
-	"java.io.IOException",
-	nullptr,
-	_IIOException_FieldInfo_,
-	_IIOException_MethodInfo_
-};
-
-$Object* allocate$IIOException($Class* clazz) {
-	return $of($alloc(IIOException));
-}
 
 void IIOException::init$($String* message) {
 	$IOException::init$(message);
@@ -55,7 +30,26 @@ void IIOException::throw$() {
 }
 
 $Class* IIOException::load$($String* name, bool initialize) {
-	$loadClass(IIOException, name, initialize, &_IIOException_ClassInfo_, allocate$IIOException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(IIOException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(IIOException, init$, void, $String*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(IIOException, init$, void, $String*, $Throwable*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.imageio.IIOException",
+		"java.io.IOException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(IIOException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(IIOException);
+	});
 	return class$;
 }
 

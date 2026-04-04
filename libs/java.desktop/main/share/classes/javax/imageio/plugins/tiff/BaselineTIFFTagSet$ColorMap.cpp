@@ -1,5 +1,4 @@
 #include <javax/imageio/plugins/tiff/BaselineTIFFTagSet$ColorMap.h>
-
 #include <javax/imageio/plugins/tiff/BaselineTIFFTagSet.h>
 #include <javax/imageio/plugins/tiff/TIFFTag.h>
 #include <jcpp.h>
@@ -16,36 +15,6 @@ namespace javax {
 		namespace plugins {
 			namespace tiff {
 
-$MethodInfo _BaselineTIFFTagSet$ColorMap_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(BaselineTIFFTagSet$ColorMap, init$, void)},
-	{}
-};
-
-$InnerClassInfo _BaselineTIFFTagSet$ColorMap_InnerClassesInfo_[] = {
-	{"javax.imageio.plugins.tiff.BaselineTIFFTagSet$ColorMap", "javax.imageio.plugins.tiff.BaselineTIFFTagSet", "ColorMap", $STATIC},
-	{}
-};
-
-$ClassInfo _BaselineTIFFTagSet$ColorMap_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.imageio.plugins.tiff.BaselineTIFFTagSet$ColorMap",
-	"javax.imageio.plugins.tiff.TIFFTag",
-	nullptr,
-	nullptr,
-	_BaselineTIFFTagSet$ColorMap_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BaselineTIFFTagSet$ColorMap_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.imageio.plugins.tiff.BaselineTIFFTagSet"
-};
-
-$Object* allocate$BaselineTIFFTagSet$ColorMap($Class* clazz) {
-	return $of($alloc(BaselineTIFFTagSet$ColorMap));
-}
-
 void BaselineTIFFTagSet$ColorMap::init$() {
 	$TIFFTag::init$("ColorMap"_s, 320, $sl(1, $TIFFTag::TIFF_SHORT));
 }
@@ -54,7 +23,32 @@ BaselineTIFFTagSet$ColorMap::BaselineTIFFTagSet$ColorMap() {
 }
 
 $Class* BaselineTIFFTagSet$ColorMap::load$($String* name, bool initialize) {
-	$loadClass(BaselineTIFFTagSet$ColorMap, name, initialize, &_BaselineTIFFTagSet$ColorMap_ClassInfo_, allocate$BaselineTIFFTagSet$ColorMap);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(BaselineTIFFTagSet$ColorMap, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.imageio.plugins.tiff.BaselineTIFFTagSet$ColorMap", "javax.imageio.plugins.tiff.BaselineTIFFTagSet", "ColorMap", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.imageio.plugins.tiff.BaselineTIFFTagSet$ColorMap",
+		"javax.imageio.plugins.tiff.TIFFTag",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.imageio.plugins.tiff.BaselineTIFFTagSet"
+	};
+	$loadClass(BaselineTIFFTagSet$ColorMap, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BaselineTIFFTagSet$ColorMap);
+	});
 	return class$;
 }
 

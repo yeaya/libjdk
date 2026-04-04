@@ -1,5 +1,4 @@
 #include <Test4760089.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <javax/swing/JApplet.h>
@@ -13,8 +12,6 @@
 #undef RIGHT
 #undef TOP
 
-using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $JApplet = ::javax::swing::JApplet;
@@ -23,44 +20,40 @@ using $Border = ::javax::swing::border::Border;
 using $EtchedBorder = ::javax::swing::border::EtchedBorder;
 using $TitledBorder = ::javax::swing::border::TitledBorder;
 
-$MethodInfo _Test4760089_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Test4760089, init$, void)},
-	{"init", "()V", nullptr, $PUBLIC, $virtualMethod(Test4760089, init, void)},
-	{}
-};
-
-$ClassInfo _Test4760089_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"Test4760089",
-	"javax.swing.JApplet",
-	nullptr,
-	nullptr,
-	_Test4760089_MethodInfo_
-};
-
-$Object* allocate$Test4760089($Class* clazz) {
-	return $of($alloc(Test4760089));
-}
-
 void Test4760089::init$() {
 	$JApplet::init$();
 }
 
 void Test4760089::init() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Border, border, $new($EtchedBorder));
 	$assign(border, $new($TitledBorder, border, "LEFT"_s, $TitledBorder::LEFT, $TitledBorder::TOP));
 	$assign(border, $new($TitledBorder, border, "RIGHT"_s, $TitledBorder::RIGHT, $TitledBorder::TOP));
 	$var($JPanel, panel, $new($JPanel));
 	panel->setBorder(border);
-	$nc($(getContentPane()))->add(static_cast<$Component*>(panel));
+	$$nc(getContentPane())->add(panel);
 }
 
 Test4760089::Test4760089() {
 }
 
 $Class* Test4760089::load$($String* name, bool initialize) {
-	$loadClass(Test4760089, name, initialize, &_Test4760089_ClassInfo_, allocate$Test4760089);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Test4760089, init$, void)},
+		{"init", "()V", nullptr, $PUBLIC, $virtualMethod(Test4760089, init, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"Test4760089",
+		"javax.swing.JApplet",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Test4760089, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Test4760089));
+	});
 	return class$;
 }
 

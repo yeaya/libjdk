@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/TypeEnter$AbstractHeaderPhase$Synthesizer.h>
-
 #include <com/sun/tools/javac/code/Scope$ErrorScope.h>
 #include <com/sun/tools/javac/code/Scope$WriteableScope.h>
 #include <com/sun/tools/javac/code/Symbol$ClassSymbol.h>
@@ -33,11 +32,9 @@
 #undef ERROR
 
 using $Scope$ErrorScope = ::com::sun::tools::javac::code::Scope$ErrorScope;
-using $Scope$WriteableScope = ::com::sun::tools::javac::code::Scope$WriteableScope;
 using $Symbol = ::com::sun::tools::javac::code::Symbol;
 using $Symbol$ClassSymbol = ::com::sun::tools::javac::code::Symbol$ClassSymbol;
 using $Symbol$ModuleSymbol = ::com::sun::tools::javac::code::Symbol$ModuleSymbol;
-using $Symbol$TypeSymbol = ::com::sun::tools::javac::code::Symbol$TypeSymbol;
 using $Type = ::com::sun::tools::javac::code::Type;
 using $Type$ClassType = ::com::sun::tools::javac::code::Type$ClassType;
 using $Type$TypeVar = ::com::sun::tools::javac::code::Type$TypeVar;
@@ -54,7 +51,6 @@ using $Assert = ::com::sun::tools::javac::util::Assert;
 using $List = ::com::sun::tools::javac::util::List;
 using $ListBuffer = ::com::sun::tools::javac::util::ListBuffer;
 using $Name = ::com::sun::tools::javac::util::Name;
-using $Names = ::com::sun::tools::javac::util::Names;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -66,58 +62,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace comp {
-
-$FieldInfo _TypeEnter$AbstractHeaderPhase$Synthesizer_FieldInfo_[] = {
-	{"this$1", "Lcom/sun/tools/javac/comp/TypeEnter$AbstractHeaderPhase;", nullptr, $FINAL | $SYNTHETIC, $field(TypeEnter$AbstractHeaderPhase$Synthesizer, this$1)},
-	{"msym", "Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;", nullptr, 0, $field(TypeEnter$AbstractHeaderPhase$Synthesizer, msym)},
-	{"originalType", "Lcom/sun/tools/javac/code/Type;", nullptr, 0, $field(TypeEnter$AbstractHeaderPhase$Synthesizer, originalType)},
-	{"interfaceExpected", "Z", nullptr, 0, $field(TypeEnter$AbstractHeaderPhase$Synthesizer, interfaceExpected)},
-	{"synthesizedSymbols", "Lcom/sun/tools/javac/util/List;", "Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Symbol$ClassSymbol;>;", 0, $field(TypeEnter$AbstractHeaderPhase$Synthesizer, synthesizedSymbols)},
-	{"result", "Lcom/sun/tools/javac/code/Type;", nullptr, 0, $field(TypeEnter$AbstractHeaderPhase$Synthesizer, result)},
-	{}
-};
-
-$MethodInfo _TypeEnter$AbstractHeaderPhase$Synthesizer_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/TypeEnter$AbstractHeaderPhase;Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;Lcom/sun/tools/javac/code/Type;Z)V", nullptr, 0, $method(TypeEnter$AbstractHeaderPhase$Synthesizer, init$, void, $TypeEnter$AbstractHeaderPhase*, $Symbol$ModuleSymbol*, $Type*, bool)},
-	{"synthesizeClass", "(Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/code/Symbol;)Lcom/sun/tools/javac/code/Symbol$ClassSymbol;", nullptr, 0, $virtualMethod(TypeEnter$AbstractHeaderPhase$Synthesizer, synthesizeClass, $Symbol$ClassSymbol*, $Name*, $Symbol*)},
-	{"synthesizeTyparams", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;I)V", nullptr, 0, $virtualMethod(TypeEnter$AbstractHeaderPhase$Synthesizer, synthesizeTyparams, void, $Symbol$ClassSymbol*, int32_t)},
-	{"visit", "(Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/code/Type;", nullptr, 0, $virtualMethod(TypeEnter$AbstractHeaderPhase$Synthesizer, visit, $Type*, $JCTree*)},
-	{"visit", "(Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/util/List<+Lcom/sun/tools/javac/tree/JCTree;>;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", 0, $virtualMethod(TypeEnter$AbstractHeaderPhase$Synthesizer, visit, $List*, $List*)},
-	{"visitIdent", "(Lcom/sun/tools/javac/tree/JCTree$JCIdent;)V", nullptr, $PUBLIC, $virtualMethod(TypeEnter$AbstractHeaderPhase$Synthesizer, visitIdent, void, $JCTree$JCIdent*)},
-	{"visitSelect", "(Lcom/sun/tools/javac/tree/JCTree$JCFieldAccess;)V", nullptr, $PUBLIC, $virtualMethod(TypeEnter$AbstractHeaderPhase$Synthesizer, visitSelect, void, $JCTree$JCFieldAccess*)},
-	{"visitTree", "(Lcom/sun/tools/javac/tree/JCTree;)V", nullptr, $PUBLIC, $virtualMethod(TypeEnter$AbstractHeaderPhase$Synthesizer, visitTree, void, $JCTree*)},
-	{"visitTypeApply", "(Lcom/sun/tools/javac/tree/JCTree$JCTypeApply;)V", nullptr, $PUBLIC, $virtualMethod(TypeEnter$AbstractHeaderPhase$Synthesizer, visitTypeApply, void, $JCTree$JCTypeApply*)},
-	{}
-};
-
-$InnerClassInfo _TypeEnter$AbstractHeaderPhase$Synthesizer_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.TypeEnter$AbstractHeaderPhase", "com.sun.tools.javac.comp.TypeEnter", "AbstractHeaderPhase", $PRIVATE | $ABSTRACT},
-	{"com.sun.tools.javac.comp.TypeEnter$AbstractHeaderPhase$Synthesizer", "com.sun.tools.javac.comp.TypeEnter$AbstractHeaderPhase", "Synthesizer", $PRIVATE},
-	{"com.sun.tools.javac.tree.JCTree$Visitor", "com.sun.tools.javac.tree.JCTree", "Visitor", $PUBLIC | $STATIC | $ABSTRACT},
-	{"com.sun.tools.javac.comp.TypeEnter$AbstractHeaderPhase$Synthesizer$2", nullptr, nullptr, 0},
-	{"com.sun.tools.javac.comp.TypeEnter$AbstractHeaderPhase$Synthesizer$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _TypeEnter$AbstractHeaderPhase$Synthesizer_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.comp.TypeEnter$AbstractHeaderPhase$Synthesizer",
-	"com.sun.tools.javac.tree.JCTree$Visitor",
-	nullptr,
-	_TypeEnter$AbstractHeaderPhase$Synthesizer_FieldInfo_,
-	_TypeEnter$AbstractHeaderPhase$Synthesizer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_TypeEnter$AbstractHeaderPhase$Synthesizer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.TypeEnter"
-};
-
-$Object* allocate$TypeEnter$AbstractHeaderPhase$Synthesizer($Class* clazz) {
-	return $of($alloc(TypeEnter$AbstractHeaderPhase$Synthesizer));
-}
 
 void TypeEnter$AbstractHeaderPhase$Synthesizer::init$($TypeEnter$AbstractHeaderPhase* this$1, $Symbol$ModuleSymbol* msym, $Type* originalType, bool interfaceExpected) {
 	$set(this, this$1, this$1);
@@ -134,7 +78,7 @@ $Type* TypeEnter$AbstractHeaderPhase$Synthesizer::visit($JCTree* tree) {
 }
 
 $List* TypeEnter$AbstractHeaderPhase$Synthesizer::visit($List* trees) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ListBuffer, lb, $new($ListBuffer));
 	{
 		$var($Iterator, i$, $nc(trees)->iterator());
@@ -160,26 +104,24 @@ void TypeEnter$AbstractHeaderPhase$Synthesizer::visitIdent($JCTree$JCIdent* tree
 }
 
 void TypeEnter$AbstractHeaderPhase$Synthesizer::visitSelect($JCTree$JCFieldAccess* tree) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($TypeTag);
 	if (!$nc($nc(tree)->type)->hasTag($TypeTag::ERROR)) {
 		$set(this, result, tree->type);
 	} else {
 		$var($Type, selectedType, nullptr);
 		bool prev = this->interfaceExpected;
-		{
-			$var($Throwable, var$0, nullptr);
-			try {
-				this->interfaceExpected = false;
-				$assign(selectedType, visit(static_cast<$JCTree*>(tree->selected)));
-			} catch ($Throwable& var$1) {
-				$assign(var$0, var$1);
-			} /*finally*/ {
-				this->interfaceExpected = prev;
-			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
+		$var($Throwable, var$0, nullptr);
+		try {
+			this->interfaceExpected = false;
+			$assign(selectedType, visit(tree->selected));
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
+		} /*finally*/ {
+			this->interfaceExpected = prev;
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 		$var($Symbol$ClassSymbol, c, synthesizeClass(tree->name, $nc(selectedType)->tsym));
 		$set(this, result, $nc(c)->type);
@@ -187,17 +129,17 @@ void TypeEnter$AbstractHeaderPhase$Synthesizer::visitSelect($JCTree$JCFieldAcces
 }
 
 void TypeEnter$AbstractHeaderPhase$Synthesizer::visitTypeApply($JCTree$JCTypeApply* tree) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($TypeTag);
 	if (!$nc($nc(tree)->type)->hasTag($TypeTag::ERROR)) {
 		$set(this, result, tree->type);
 	} else {
-		$var($Type$ClassType, clazzType, $cast($Type$ClassType, visit(static_cast<$JCTree*>(tree->clazz))));
+		$var($Type$ClassType, clazzType, $cast($Type$ClassType, visit(tree->clazz)));
 		if ($nc(this->synthesizedSymbols)->contains($nc(clazzType)->tsym)) {
-			synthesizeTyparams($cast($Symbol$ClassSymbol, $nc(clazzType)->tsym), $nc(tree->arguments)->size());
+			synthesizeTyparams($cast($Symbol$ClassSymbol, clazzType->tsym), $nc(tree->arguments)->size());
 		}
 		$var($List, actuals, visit(tree->arguments));
-		$set(this, result, $new($TypeEnter$AbstractHeaderPhase$Synthesizer$1, this, tree->type, $nc(clazzType)->tsym, actuals));
+		$set(this, result, $new($TypeEnter$AbstractHeaderPhase$Synthesizer$1, this, tree->type, clazzType->tsym, actuals));
 	}
 }
 
@@ -211,16 +153,16 @@ $Symbol$ClassSymbol* TypeEnter$AbstractHeaderPhase$Synthesizer::synthesizeClass(
 }
 
 void TypeEnter$AbstractHeaderPhase$Synthesizer::synthesizeTyparams($Symbol$ClassSymbol* sym, int32_t n) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Type$ClassType, ct, $cast($Type$ClassType, $nc(sym)->type));
 	$Assert::check($nc($nc(ct)->typarams_field)->isEmpty());
 	if (n == 1) {
-		$var($Type$TypeVar, v, $new($Type$TypeVar, $($nc($nc(this->this$1->this$0)->names)->fromString("T"_s)), static_cast<$Symbol*>(sym), $nc($nc(this->this$1->this$0)->syms)->botType));
-		$set($nc(ct), typarams_field, $nc(ct->typarams_field)->prepend(v));
+		$var($Type$TypeVar, v, $new($Type$TypeVar, $($nc($nc(this->this$1->this$0)->names)->fromString("T"_s)), sym, $nc($nc(this->this$1->this$0)->syms)->botType));
+		$set(ct, typarams_field, $nc(ct->typarams_field)->prepend(v));
 	} else {
 		for (int32_t i = n; i > 0; --i) {
-			$var($Type$TypeVar, v, $new($Type$TypeVar, $($nc($nc(this->this$1->this$0)->names)->fromString($$str({"T"_s, $$str(i)}))), static_cast<$Symbol*>(sym), $nc($nc(this->this$1->this$0)->syms)->botType));
-			$set($nc(ct), typarams_field, $nc(ct->typarams_field)->prepend(v));
+			$var($Type$TypeVar, v, $new($Type$TypeVar, $($nc($nc(this->this$1->this$0)->names)->fromString($$str({"T"_s, $$str(i)}))), sym, $nc($nc(this->this$1->this$0)->syms)->botType));
+			$set(ct, typarams_field, $nc(ct->typarams_field)->prepend(v));
 		}
 	}
 }
@@ -229,7 +171,53 @@ TypeEnter$AbstractHeaderPhase$Synthesizer::TypeEnter$AbstractHeaderPhase$Synthes
 }
 
 $Class* TypeEnter$AbstractHeaderPhase$Synthesizer::load$($String* name, bool initialize) {
-	$loadClass(TypeEnter$AbstractHeaderPhase$Synthesizer, name, initialize, &_TypeEnter$AbstractHeaderPhase$Synthesizer_ClassInfo_, allocate$TypeEnter$AbstractHeaderPhase$Synthesizer);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$1", "Lcom/sun/tools/javac/comp/TypeEnter$AbstractHeaderPhase;", nullptr, $FINAL | $SYNTHETIC, $field(TypeEnter$AbstractHeaderPhase$Synthesizer, this$1)},
+		{"msym", "Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;", nullptr, 0, $field(TypeEnter$AbstractHeaderPhase$Synthesizer, msym)},
+		{"originalType", "Lcom/sun/tools/javac/code/Type;", nullptr, 0, $field(TypeEnter$AbstractHeaderPhase$Synthesizer, originalType)},
+		{"interfaceExpected", "Z", nullptr, 0, $field(TypeEnter$AbstractHeaderPhase$Synthesizer, interfaceExpected)},
+		{"synthesizedSymbols", "Lcom/sun/tools/javac/util/List;", "Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Symbol$ClassSymbol;>;", 0, $field(TypeEnter$AbstractHeaderPhase$Synthesizer, synthesizedSymbols)},
+		{"result", "Lcom/sun/tools/javac/code/Type;", nullptr, 0, $field(TypeEnter$AbstractHeaderPhase$Synthesizer, result)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/comp/TypeEnter$AbstractHeaderPhase;Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;Lcom/sun/tools/javac/code/Type;Z)V", nullptr, 0, $method(TypeEnter$AbstractHeaderPhase$Synthesizer, init$, void, $TypeEnter$AbstractHeaderPhase*, $Symbol$ModuleSymbol*, $Type*, bool)},
+		{"synthesizeClass", "(Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/code/Symbol;)Lcom/sun/tools/javac/code/Symbol$ClassSymbol;", nullptr, 0, $virtualMethod(TypeEnter$AbstractHeaderPhase$Synthesizer, synthesizeClass, $Symbol$ClassSymbol*, $Name*, $Symbol*)},
+		{"synthesizeTyparams", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;I)V", nullptr, 0, $virtualMethod(TypeEnter$AbstractHeaderPhase$Synthesizer, synthesizeTyparams, void, $Symbol$ClassSymbol*, int32_t)},
+		{"visit", "(Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/code/Type;", nullptr, 0, $virtualMethod(TypeEnter$AbstractHeaderPhase$Synthesizer, visit, $Type*, $JCTree*)},
+		{"visit", "(Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/util/List<+Lcom/sun/tools/javac/tree/JCTree;>;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", 0, $virtualMethod(TypeEnter$AbstractHeaderPhase$Synthesizer, visit, $List*, $List*)},
+		{"visitIdent", "(Lcom/sun/tools/javac/tree/JCTree$JCIdent;)V", nullptr, $PUBLIC, $virtualMethod(TypeEnter$AbstractHeaderPhase$Synthesizer, visitIdent, void, $JCTree$JCIdent*)},
+		{"visitSelect", "(Lcom/sun/tools/javac/tree/JCTree$JCFieldAccess;)V", nullptr, $PUBLIC, $virtualMethod(TypeEnter$AbstractHeaderPhase$Synthesizer, visitSelect, void, $JCTree$JCFieldAccess*)},
+		{"visitTree", "(Lcom/sun/tools/javac/tree/JCTree;)V", nullptr, $PUBLIC, $virtualMethod(TypeEnter$AbstractHeaderPhase$Synthesizer, visitTree, void, $JCTree*)},
+		{"visitTypeApply", "(Lcom/sun/tools/javac/tree/JCTree$JCTypeApply;)V", nullptr, $PUBLIC, $virtualMethod(TypeEnter$AbstractHeaderPhase$Synthesizer, visitTypeApply, void, $JCTree$JCTypeApply*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.TypeEnter$AbstractHeaderPhase", "com.sun.tools.javac.comp.TypeEnter", "AbstractHeaderPhase", $PRIVATE | $ABSTRACT},
+		{"com.sun.tools.javac.comp.TypeEnter$AbstractHeaderPhase$Synthesizer", "com.sun.tools.javac.comp.TypeEnter$AbstractHeaderPhase", "Synthesizer", $PRIVATE},
+		{"com.sun.tools.javac.tree.JCTree$Visitor", "com.sun.tools.javac.tree.JCTree", "Visitor", $PUBLIC | $STATIC | $ABSTRACT},
+		{"com.sun.tools.javac.comp.TypeEnter$AbstractHeaderPhase$Synthesizer$2", nullptr, nullptr, 0},
+		{"com.sun.tools.javac.comp.TypeEnter$AbstractHeaderPhase$Synthesizer$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.comp.TypeEnter$AbstractHeaderPhase$Synthesizer",
+		"com.sun.tools.javac.tree.JCTree$Visitor",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.TypeEnter"
+	};
+	$loadClass(TypeEnter$AbstractHeaderPhase$Synthesizer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TypeEnter$AbstractHeaderPhase$Synthesizer);
+	});
 	return class$;
 }
 

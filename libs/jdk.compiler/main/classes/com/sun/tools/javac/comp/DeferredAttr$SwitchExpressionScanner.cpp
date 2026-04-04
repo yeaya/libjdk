@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/DeferredAttr$SwitchExpressionScanner.h>
-
 #include <com/sun/tools/javac/comp/DeferredAttr$FilterScanner.h>
 #include <com/sun/tools/javac/comp/DeferredAttr.h>
 #include <com/sun/tools/javac/tree/JCTree$Tag.h>
@@ -26,11 +25,9 @@ using $EnumArray = $Array<::java::lang::Enum>;
 using $DeferredAttr$FilterScanner = ::com::sun::tools::javac::comp::DeferredAttr$FilterScanner;
 using $JCTree$Tag = ::com::sun::tools::javac::tree::JCTree$Tag;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Enum = ::java::lang::Enum;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $EnumSet = ::java::util::EnumSet;
-using $Set = ::java::util::Set;
 
 namespace com {
 	namespace sun {
@@ -38,41 +35,10 @@ namespace com {
 			namespace javac {
 				namespace comp {
 
-$MethodInfo _DeferredAttr$SwitchExpressionScanner_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(DeferredAttr$SwitchExpressionScanner, init$, void)},
-	{}
-};
-
-$InnerClassInfo _DeferredAttr$SwitchExpressionScanner_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.DeferredAttr$SwitchExpressionScanner", "com.sun.tools.javac.comp.DeferredAttr", "SwitchExpressionScanner", $STATIC},
-	{"com.sun.tools.javac.comp.DeferredAttr$FilterScanner", "com.sun.tools.javac.comp.DeferredAttr", "FilterScanner", $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _DeferredAttr$SwitchExpressionScanner_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.comp.DeferredAttr$SwitchExpressionScanner",
-	"com.sun.tools.javac.comp.DeferredAttr$FilterScanner",
-	nullptr,
-	nullptr,
-	_DeferredAttr$SwitchExpressionScanner_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DeferredAttr$SwitchExpressionScanner_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.DeferredAttr"
-};
-
-$Object* allocate$DeferredAttr$SwitchExpressionScanner($Class* clazz) {
-	return $of($alloc(DeferredAttr$SwitchExpressionScanner));
-}
-
 void DeferredAttr$SwitchExpressionScanner::init$() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($JCTree$Tag);
-	$DeferredAttr$FilterScanner::init$($($EnumSet::of(static_cast<$Enum*>($JCTree$Tag::BLOCK), $fcast($EnumArray, $$new($JCTree$TagArray, {
+	$DeferredAttr$FilterScanner::init$($($EnumSet::of($JCTree$Tag::BLOCK, $$cast($EnumArray, $new($JCTree$TagArray, {
 		$JCTree$Tag::CASE,
 		$JCTree$Tag::CATCH,
 		$JCTree$Tag::DOLOOP,
@@ -91,7 +57,33 @@ DeferredAttr$SwitchExpressionScanner::DeferredAttr$SwitchExpressionScanner() {
 }
 
 $Class* DeferredAttr$SwitchExpressionScanner::load$($String* name, bool initialize) {
-	$loadClass(DeferredAttr$SwitchExpressionScanner, name, initialize, &_DeferredAttr$SwitchExpressionScanner_ClassInfo_, allocate$DeferredAttr$SwitchExpressionScanner);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(DeferredAttr$SwitchExpressionScanner, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.DeferredAttr$SwitchExpressionScanner", "com.sun.tools.javac.comp.DeferredAttr", "SwitchExpressionScanner", $STATIC},
+		{"com.sun.tools.javac.comp.DeferredAttr$FilterScanner", "com.sun.tools.javac.comp.DeferredAttr", "FilterScanner", $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.comp.DeferredAttr$SwitchExpressionScanner",
+		"com.sun.tools.javac.comp.DeferredAttr$FilterScanner",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.DeferredAttr"
+	};
+	$loadClass(DeferredAttr$SwitchExpressionScanner, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DeferredAttr$SwitchExpressionScanner);
+	});
 	return class$;
 }
 

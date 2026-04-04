@@ -1,5 +1,4 @@
 #include <javax/swing/JTextField$TextFieldActionPropertyChangeListener.h>
-
 #include <java/beans/PropertyChangeEvent.h>
 #include <javax/swing/AbstractAction.h>
 #include <javax/swing/Action.h>
@@ -21,38 +20,6 @@ using $JTextField = ::javax::swing::JTextField;
 namespace javax {
 	namespace swing {
 
-$MethodInfo _JTextField$TextFieldActionPropertyChangeListener_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/JTextField;Ljavax/swing/Action;)V", nullptr, 0, $method(JTextField$TextFieldActionPropertyChangeListener, init$, void, $JTextField*, $Action*)},
-	{"actionPropertyChanged", "(Ljavax/swing/JTextField;Ljavax/swing/Action;Ljava/beans/PropertyChangeEvent;)V", nullptr, $PROTECTED, $virtualMethod(JTextField$TextFieldActionPropertyChangeListener, actionPropertyChanged, void, $JTextField*, $Action*, $PropertyChangeEvent*)},
-	{"actionPropertyChanged", "(Ljavax/swing/JComponent;Ljavax/swing/Action;Ljava/beans/PropertyChangeEvent;)V", nullptr, $PROTECTED | $VOLATILE | $SYNTHETIC, $virtualMethod(JTextField$TextFieldActionPropertyChangeListener, actionPropertyChanged, void, $JComponent*, $Action*, $PropertyChangeEvent*)},
-	{}
-};
-
-$InnerClassInfo _JTextField$TextFieldActionPropertyChangeListener_InnerClassesInfo_[] = {
-	{"javax.swing.JTextField$TextFieldActionPropertyChangeListener", "javax.swing.JTextField", "TextFieldActionPropertyChangeListener", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _JTextField$TextFieldActionPropertyChangeListener_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.JTextField$TextFieldActionPropertyChangeListener",
-	"javax.swing.ActionPropertyChangeListener",
-	nullptr,
-	nullptr,
-	_JTextField$TextFieldActionPropertyChangeListener_MethodInfo_,
-	"Ljavax/swing/ActionPropertyChangeListener<Ljavax/swing/JTextField;>;",
-	nullptr,
-	_JTextField$TextFieldActionPropertyChangeListener_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.JTextField"
-};
-
-$Object* allocate$JTextField$TextFieldActionPropertyChangeListener($Class* clazz) {
-	return $of($alloc(JTextField$TextFieldActionPropertyChangeListener));
-}
-
 void JTextField$TextFieldActionPropertyChangeListener::init$($JTextField* tf, $Action* a) {
 	$ActionPropertyChangeListener::init$(tf, a);
 }
@@ -73,7 +40,34 @@ JTextField$TextFieldActionPropertyChangeListener::JTextField$TextFieldActionProp
 }
 
 $Class* JTextField$TextFieldActionPropertyChangeListener::load$($String* name, bool initialize) {
-	$loadClass(JTextField$TextFieldActionPropertyChangeListener, name, initialize, &_JTextField$TextFieldActionPropertyChangeListener_ClassInfo_, allocate$JTextField$TextFieldActionPropertyChangeListener);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/JTextField;Ljavax/swing/Action;)V", nullptr, 0, $method(JTextField$TextFieldActionPropertyChangeListener, init$, void, $JTextField*, $Action*)},
+		{"actionPropertyChanged", "(Ljavax/swing/JTextField;Ljavax/swing/Action;Ljava/beans/PropertyChangeEvent;)V", nullptr, $PROTECTED, $virtualMethod(JTextField$TextFieldActionPropertyChangeListener, actionPropertyChanged, void, $JTextField*, $Action*, $PropertyChangeEvent*)},
+		{"actionPropertyChanged", "(Ljavax/swing/JComponent;Ljavax/swing/Action;Ljava/beans/PropertyChangeEvent;)V", nullptr, $PROTECTED | $VOLATILE | $SYNTHETIC, $virtualMethod(JTextField$TextFieldActionPropertyChangeListener, actionPropertyChanged, void, $JComponent*, $Action*, $PropertyChangeEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.JTextField$TextFieldActionPropertyChangeListener", "javax.swing.JTextField", "TextFieldActionPropertyChangeListener", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.JTextField$TextFieldActionPropertyChangeListener",
+		"javax.swing.ActionPropertyChangeListener",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		"Ljavax/swing/ActionPropertyChangeListener<Ljavax/swing/JTextField;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.JTextField"
+	};
+	$loadClass(JTextField$TextFieldActionPropertyChangeListener, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JTextField$TextFieldActionPropertyChangeListener));
+	});
 	return class$;
 }
 

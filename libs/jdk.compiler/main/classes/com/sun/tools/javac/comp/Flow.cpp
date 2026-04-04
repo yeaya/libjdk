@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/Flow.h>
-
 #include <com/sun/tools/javac/code/Lint.h>
 #include <com/sun/tools/javac/code/Source$Feature.h>
 #include <com/sun/tools/javac/code/Source.h>
@@ -71,69 +70,6 @@ namespace com {
 			namespace javac {
 				namespace comp {
 
-$FieldInfo _Flow_FieldInfo_[] = {
-	{"flowKey", "Lcom/sun/tools/javac/util/Context$Key;", "Lcom/sun/tools/javac/util/Context$Key<Lcom/sun/tools/javac/comp/Flow;>;", $PROTECTED | $STATIC | $FINAL, $staticField(Flow, flowKey)},
-	{"names", "Lcom/sun/tools/javac/util/Names;", nullptr, $PRIVATE | $FINAL, $field(Flow, names)},
-	{"log", "Lcom/sun/tools/javac/util/Log;", nullptr, $PRIVATE | $FINAL, $field(Flow, log)},
-	{"syms", "Lcom/sun/tools/javac/code/Symtab;", nullptr, $PRIVATE | $FINAL, $field(Flow, syms)},
-	{"types", "Lcom/sun/tools/javac/code/Types;", nullptr, $PRIVATE | $FINAL, $field(Flow, types)},
-	{"chk", "Lcom/sun/tools/javac/comp/Check;", nullptr, $PRIVATE | $FINAL, $field(Flow, chk)},
-	{"make", "Lcom/sun/tools/javac/tree/TreeMaker;", nullptr, $PRIVATE, $field(Flow, make)},
-	{"rs", "Lcom/sun/tools/javac/comp/Resolve;", nullptr, $PRIVATE | $FINAL, $field(Flow, rs)},
-	{"diags", "Lcom/sun/tools/javac/util/JCDiagnostic$Factory;", nullptr, $PRIVATE | $FINAL, $field(Flow, diags)},
-	{"attrEnv", "Lcom/sun/tools/javac/comp/Env;", "Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;", $PRIVATE, $field(Flow, attrEnv)},
-	{"lint", "Lcom/sun/tools/javac/code/Lint;", nullptr, $PRIVATE, $field(Flow, lint)},
-	{"allowEffectivelyFinalInInnerClasses", "Z", nullptr, $PRIVATE | $FINAL, $field(Flow, allowEffectivelyFinalInInnerClasses)},
-	{}
-};
-
-$MethodInfo _Flow_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/util/Context;)V", nullptr, $PROTECTED, $method(Flow, init$, void, $Context*)},
-	{"aliveAfter", "(Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/tree/TreeMaker;)Z", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/tree/TreeMaker;)Z", $PUBLIC, $virtualMethod(Flow, aliveAfter, bool, $Env*, $JCTree*, $TreeMaker*)},
-	{"analyzeLambda", "(Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/tree/JCTree$JCLambda;Lcom/sun/tools/javac/tree/TreeMaker;Z)V", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;Lcom/sun/tools/javac/tree/JCTree$JCLambda;Lcom/sun/tools/javac/tree/TreeMaker;Z)V", $PUBLIC, $virtualMethod(Flow, analyzeLambda, void, $Env*, $JCTree$JCLambda*, $TreeMaker*, bool)},
-	{"analyzeLambdaThrownTypes", "(Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/tree/JCTree$JCLambda;Lcom/sun/tools/javac/tree/TreeMaker;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;Lcom/sun/tools/javac/tree/JCTree$JCLambda;Lcom/sun/tools/javac/tree/TreeMaker;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", $PUBLIC, $virtualMethod(Flow, analyzeLambdaThrownTypes, $List*, $Env*, $JCTree$JCLambda*, $TreeMaker*)},
-	{"analyzeTree", "(Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/tree/TreeMaker;)V", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;Lcom/sun/tools/javac/tree/TreeMaker;)V", $PUBLIC, $virtualMethod(Flow, analyzeTree, void, $Env*, $TreeMaker*)},
-	{"breaksOutOf", "(Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/tree/TreeMaker;)Z", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/tree/TreeMaker;)Z", $PUBLIC, $virtualMethod(Flow, breaksOutOf, bool, $Env*, $JCTree*, $JCTree*, $TreeMaker*)},
-	{"instance", "(Lcom/sun/tools/javac/util/Context;)Lcom/sun/tools/javac/comp/Flow;", nullptr, $PUBLIC | $STATIC, $staticMethod(Flow, instance, Flow*, $Context*)},
-	{}
-};
-
-$InnerClassInfo _Flow_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.Flow$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{"com.sun.tools.javac.comp.Flow$Liveness", "com.sun.tools.javac.comp.Flow", "Liveness", $STATIC | $ABSTRACT | $ENUM},
-	{"com.sun.tools.javac.comp.Flow$CaptureAnalyzer", "com.sun.tools.javac.comp.Flow", "CaptureAnalyzer", 0},
-	{"com.sun.tools.javac.comp.Flow$AssignAnalyzer", "com.sun.tools.javac.comp.Flow", "AssignAnalyzer", $PUBLIC},
-	{"com.sun.tools.javac.comp.Flow$LambdaFlowAnalyzer", "com.sun.tools.javac.comp.Flow", "LambdaFlowAnalyzer", 0},
-	{"com.sun.tools.javac.comp.Flow$LambdaAssignAnalyzer", "com.sun.tools.javac.comp.Flow", "LambdaAssignAnalyzer", 0},
-	{"com.sun.tools.javac.comp.Flow$SnippetBreakAnalyzer", "com.sun.tools.javac.comp.Flow", "SnippetBreakAnalyzer", 0},
-	{"com.sun.tools.javac.comp.Flow$SnippetAliveAnalyzer", "com.sun.tools.javac.comp.Flow", "SnippetAliveAnalyzer", 0},
-	{"com.sun.tools.javac.comp.Flow$LambdaAliveAnalyzer", "com.sun.tools.javac.comp.Flow", "LambdaAliveAnalyzer", 0},
-	{"com.sun.tools.javac.comp.Flow$FlowAnalyzer", "com.sun.tools.javac.comp.Flow", "FlowAnalyzer", 0},
-	{"com.sun.tools.javac.comp.Flow$AliveAnalyzer", "com.sun.tools.javac.comp.Flow", "AliveAnalyzer", 0},
-	{"com.sun.tools.javac.comp.Flow$BaseAnalyzer", "com.sun.tools.javac.comp.Flow", "BaseAnalyzer", $STATIC | $ABSTRACT},
-	{"com.sun.tools.javac.comp.Flow$FlowKind", "com.sun.tools.javac.comp.Flow", "FlowKind", $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _Flow_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.comp.Flow",
-	"java.lang.Object",
-	nullptr,
-	_Flow_FieldInfo_,
-	_Flow_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Flow_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.Flow$1,com.sun.tools.javac.comp.Flow$Liveness,com.sun.tools.javac.comp.Flow$Liveness$3,com.sun.tools.javac.comp.Flow$Liveness$2,com.sun.tools.javac.comp.Flow$Liveness$1,com.sun.tools.javac.comp.Flow$CaptureAnalyzer,com.sun.tools.javac.comp.Flow$AssignAnalyzer,com.sun.tools.javac.comp.Flow$AssignAnalyzer$AssignPendingExit,com.sun.tools.javac.comp.Flow$AssignAnalyzer$1,com.sun.tools.javac.comp.Flow$LambdaFlowAnalyzer,com.sun.tools.javac.comp.Flow$LambdaAssignAnalyzer,com.sun.tools.javac.comp.Flow$SnippetBreakAnalyzer,com.sun.tools.javac.comp.Flow$SnippetAliveAnalyzer,com.sun.tools.javac.comp.Flow$LambdaAliveAnalyzer,com.sun.tools.javac.comp.Flow$FlowAnalyzer,com.sun.tools.javac.comp.Flow$FlowAnalyzer$ThrownPendingExit,com.sun.tools.javac.comp.Flow$AliveAnalyzer,com.sun.tools.javac.comp.Flow$BaseAnalyzer,com.sun.tools.javac.comp.Flow$BaseAnalyzer$PendingExit,com.sun.tools.javac.comp.Flow$BaseAnalyzer$JumpKind,com.sun.tools.javac.comp.Flow$BaseAnalyzer$JumpKind$3,com.sun.tools.javac.comp.Flow$BaseAnalyzer$JumpKind$2,com.sun.tools.javac.comp.Flow$BaseAnalyzer$JumpKind$1,com.sun.tools.javac.comp.Flow$FlowKind"
-};
-
-$Object* allocate$Flow($Class* clazz) {
-	return $of($alloc(Flow));
-}
-
 $Context$Key* Flow::flowKey = nullptr;
 
 Flow* Flow::instance($Context* context) {
@@ -146,7 +82,7 @@ Flow* Flow::instance($Context* context) {
 }
 
 void Flow::analyzeTree($Env* env, $TreeMaker* make) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$$new($Flow$AliveAnalyzer, this)->analyzeTree(env, make);
 	$$new($Flow$AssignAnalyzer, this)->analyzeTree(env, make);
 	$$new($Flow$FlowAnalyzer, this)->analyzeTree(env, make);
@@ -154,115 +90,107 @@ void Flow::analyzeTree($Env* env, $TreeMaker* make) {
 }
 
 void Flow::analyzeLambda($Env* env, $JCTree$JCLambda* that, $TreeMaker* make, bool speculative) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Log$DiagnosticHandler, diagHandler, nullptr);
 	if (!speculative) {
 		$assign(diagHandler, $new($Log$DiscardDiagnosticHandler, this->log));
 	}
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$$new($Flow$LambdaAliveAnalyzer, this)->analyzeTree(env, that, make);
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			if (!speculative) {
-				$nc(this->log)->popDiagnosticHandler(diagHandler);
-			}
+	$var($Throwable, var$0, nullptr);
+	try {
+		$$new($Flow$LambdaAliveAnalyzer, this)->analyzeTree(env, that, make);
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		if (!speculative) {
+			$nc(this->log)->popDiagnosticHandler(diagHandler);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 $List* Flow::analyzeLambdaThrownTypes($Env* env, $JCTree$JCLambda* that, $TreeMaker* make) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Log$DiagnosticHandler, diagHandler, $new($Log$DiscardDiagnosticHandler, this->log));
-	{
-		$var($Throwable, var$0, nullptr);
-		$var($List, var$2, nullptr);
-		bool return$1 = false;
-		try {
-			$$new($Flow$LambdaAssignAnalyzer, this, env)->analyzeTree(env, that, make);
-			$var($Flow$LambdaFlowAnalyzer, flowAnalyzer, $new($Flow$LambdaFlowAnalyzer, this));
-			flowAnalyzer->analyzeTree(env, that, make);
-			$assign(var$2, flowAnalyzer->inferredThrownTypes);
-			return$1 = true;
-			goto $finally;
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			$nc(this->log)->popDiagnosticHandler(diagHandler);
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+	$var($Throwable, var$0, nullptr);
+	$var($List, var$2, nullptr);
+	bool return$1 = false;
+	try {
+		$$new($Flow$LambdaAssignAnalyzer, this, env)->analyzeTree(env, that, make);
+		$var($Flow$LambdaFlowAnalyzer, flowAnalyzer, $new($Flow$LambdaFlowAnalyzer, this));
+		flowAnalyzer->analyzeTree(env, that, make);
+		$assign(var$2, flowAnalyzer->inferredThrownTypes);
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		$nc(this->log)->popDiagnosticHandler(diagHandler);
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
 
 bool Flow::aliveAfter($Env* env, $JCTree* that, $TreeMaker* make) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Log$DiagnosticHandler, diagHandler, $new($Log$DiscardDiagnosticHandler, this->log));
-	{
-		$var($Throwable, var$0, nullptr);
-		bool var$2 = false;
-		bool return$1 = false;
-		try {
-			$var($Flow$SnippetAliveAnalyzer, analyzer, $new($Flow$SnippetAliveAnalyzer, this));
-			analyzer->analyzeTree(env, that, make);
-			var$2 = analyzer->isAlive();
-			return$1 = true;
-			goto $finally;
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			$nc(this->log)->popDiagnosticHandler(diagHandler);
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+	$var($Throwable, var$0, nullptr);
+	bool var$2 = false;
+	bool return$1 = false;
+	try {
+		$var($Flow$SnippetAliveAnalyzer, analyzer, $new($Flow$SnippetAliveAnalyzer, this));
+		analyzer->analyzeTree(env, that, make);
+		var$2 = analyzer->isAlive();
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		$nc(this->log)->popDiagnosticHandler(diagHandler);
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
 
 bool Flow::breaksOutOf($Env* env, $JCTree* loop, $JCTree* body, $TreeMaker* make) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Log$DiagnosticHandler, diagHandler, $new($Log$DiscardDiagnosticHandler, this->log));
-	{
-		$var($Throwable, var$0, nullptr);
-		bool var$2 = false;
-		bool return$1 = false;
-		try {
-			$var($Flow$SnippetBreakAnalyzer, analyzer, $new($Flow$SnippetBreakAnalyzer, this));
-			analyzer->analyzeTree(env, body, make);
-			var$2 = analyzer->breaksOut();
-			return$1 = true;
-			goto $finally;
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			$nc(this->log)->popDiagnosticHandler(diagHandler);
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+	$var($Throwable, var$0, nullptr);
+	bool var$2 = false;
+	bool return$1 = false;
+	try {
+		$var($Flow$SnippetBreakAnalyzer, analyzer, $new($Flow$SnippetBreakAnalyzer, this));
+		analyzer->analyzeTree(env, body, make);
+		var$2 = analyzer->breaksOut();
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		$nc(this->log)->popDiagnosticHandler(diagHandler);
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
 
 void Flow::init$($Context* context) {
-	$nc(context)->put(Flow::flowKey, $of(this));
+	$nc(context)->put(Flow::flowKey, this);
 	$set(this, names, $Names::instance(context));
 	$set(this, log, $Log::instance(context));
 	$set(this, syms, $Symtab::instance(context));
@@ -276,7 +204,7 @@ void Flow::init$($Context* context) {
 	this->allowEffectivelyFinalInInnerClasses = $Source$Feature::EFFECTIVELY_FINAL_IN_INNER_CLASSES->allowedInSource(source);
 }
 
-void clinit$Flow($Class* class$) {
+void Flow::clinit$($Class* clazz) {
 	$assignStatic(Flow::flowKey, $new($Context$Key));
 }
 
@@ -284,7 +212,64 @@ Flow::Flow() {
 }
 
 $Class* Flow::load$($String* name, bool initialize) {
-	$loadClass(Flow, name, initialize, &_Flow_ClassInfo_, clinit$Flow, allocate$Flow);
+	$FieldInfo fieldInfos$$[] = {
+		{"flowKey", "Lcom/sun/tools/javac/util/Context$Key;", "Lcom/sun/tools/javac/util/Context$Key<Lcom/sun/tools/javac/comp/Flow;>;", $PROTECTED | $STATIC | $FINAL, $staticField(Flow, flowKey)},
+		{"names", "Lcom/sun/tools/javac/util/Names;", nullptr, $PRIVATE | $FINAL, $field(Flow, names)},
+		{"log", "Lcom/sun/tools/javac/util/Log;", nullptr, $PRIVATE | $FINAL, $field(Flow, log)},
+		{"syms", "Lcom/sun/tools/javac/code/Symtab;", nullptr, $PRIVATE | $FINAL, $field(Flow, syms)},
+		{"types", "Lcom/sun/tools/javac/code/Types;", nullptr, $PRIVATE | $FINAL, $field(Flow, types)},
+		{"chk", "Lcom/sun/tools/javac/comp/Check;", nullptr, $PRIVATE | $FINAL, $field(Flow, chk)},
+		{"make", "Lcom/sun/tools/javac/tree/TreeMaker;", nullptr, $PRIVATE, $field(Flow, make)},
+		{"rs", "Lcom/sun/tools/javac/comp/Resolve;", nullptr, $PRIVATE | $FINAL, $field(Flow, rs)},
+		{"diags", "Lcom/sun/tools/javac/util/JCDiagnostic$Factory;", nullptr, $PRIVATE | $FINAL, $field(Flow, diags)},
+		{"attrEnv", "Lcom/sun/tools/javac/comp/Env;", "Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;", $PRIVATE, $field(Flow, attrEnv)},
+		{"lint", "Lcom/sun/tools/javac/code/Lint;", nullptr, $PRIVATE, $field(Flow, lint)},
+		{"allowEffectivelyFinalInInnerClasses", "Z", nullptr, $PRIVATE | $FINAL, $field(Flow, allowEffectivelyFinalInInnerClasses)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/util/Context;)V", nullptr, $PROTECTED, $method(Flow, init$, void, $Context*)},
+		{"aliveAfter", "(Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/tree/TreeMaker;)Z", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/tree/TreeMaker;)Z", $PUBLIC, $virtualMethod(Flow, aliveAfter, bool, $Env*, $JCTree*, $TreeMaker*)},
+		{"analyzeLambda", "(Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/tree/JCTree$JCLambda;Lcom/sun/tools/javac/tree/TreeMaker;Z)V", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;Lcom/sun/tools/javac/tree/JCTree$JCLambda;Lcom/sun/tools/javac/tree/TreeMaker;Z)V", $PUBLIC, $virtualMethod(Flow, analyzeLambda, void, $Env*, $JCTree$JCLambda*, $TreeMaker*, bool)},
+		{"analyzeLambdaThrownTypes", "(Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/tree/JCTree$JCLambda;Lcom/sun/tools/javac/tree/TreeMaker;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;Lcom/sun/tools/javac/tree/JCTree$JCLambda;Lcom/sun/tools/javac/tree/TreeMaker;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", $PUBLIC, $virtualMethod(Flow, analyzeLambdaThrownTypes, $List*, $Env*, $JCTree$JCLambda*, $TreeMaker*)},
+		{"analyzeTree", "(Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/tree/TreeMaker;)V", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;Lcom/sun/tools/javac/tree/TreeMaker;)V", $PUBLIC, $virtualMethod(Flow, analyzeTree, void, $Env*, $TreeMaker*)},
+		{"breaksOutOf", "(Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/tree/TreeMaker;)Z", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/tree/TreeMaker;)Z", $PUBLIC, $virtualMethod(Flow, breaksOutOf, bool, $Env*, $JCTree*, $JCTree*, $TreeMaker*)},
+		{"instance", "(Lcom/sun/tools/javac/util/Context;)Lcom/sun/tools/javac/comp/Flow;", nullptr, $PUBLIC | $STATIC, $staticMethod(Flow, instance, Flow*, $Context*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.Flow$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{"com.sun.tools.javac.comp.Flow$Liveness", "com.sun.tools.javac.comp.Flow", "Liveness", $STATIC | $ABSTRACT | $ENUM},
+		{"com.sun.tools.javac.comp.Flow$CaptureAnalyzer", "com.sun.tools.javac.comp.Flow", "CaptureAnalyzer", 0},
+		{"com.sun.tools.javac.comp.Flow$AssignAnalyzer", "com.sun.tools.javac.comp.Flow", "AssignAnalyzer", $PUBLIC},
+		{"com.sun.tools.javac.comp.Flow$LambdaFlowAnalyzer", "com.sun.tools.javac.comp.Flow", "LambdaFlowAnalyzer", 0},
+		{"com.sun.tools.javac.comp.Flow$LambdaAssignAnalyzer", "com.sun.tools.javac.comp.Flow", "LambdaAssignAnalyzer", 0},
+		{"com.sun.tools.javac.comp.Flow$SnippetBreakAnalyzer", "com.sun.tools.javac.comp.Flow", "SnippetBreakAnalyzer", 0},
+		{"com.sun.tools.javac.comp.Flow$SnippetAliveAnalyzer", "com.sun.tools.javac.comp.Flow", "SnippetAliveAnalyzer", 0},
+		{"com.sun.tools.javac.comp.Flow$LambdaAliveAnalyzer", "com.sun.tools.javac.comp.Flow", "LambdaAliveAnalyzer", 0},
+		{"com.sun.tools.javac.comp.Flow$FlowAnalyzer", "com.sun.tools.javac.comp.Flow", "FlowAnalyzer", 0},
+		{"com.sun.tools.javac.comp.Flow$AliveAnalyzer", "com.sun.tools.javac.comp.Flow", "AliveAnalyzer", 0},
+		{"com.sun.tools.javac.comp.Flow$BaseAnalyzer", "com.sun.tools.javac.comp.Flow", "BaseAnalyzer", $STATIC | $ABSTRACT},
+		{"com.sun.tools.javac.comp.Flow$FlowKind", "com.sun.tools.javac.comp.Flow", "FlowKind", $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.comp.Flow",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.Flow$1,com.sun.tools.javac.comp.Flow$Liveness,com.sun.tools.javac.comp.Flow$Liveness$3,com.sun.tools.javac.comp.Flow$Liveness$2,com.sun.tools.javac.comp.Flow$Liveness$1,com.sun.tools.javac.comp.Flow$CaptureAnalyzer,com.sun.tools.javac.comp.Flow$AssignAnalyzer,com.sun.tools.javac.comp.Flow$AssignAnalyzer$AssignPendingExit,com.sun.tools.javac.comp.Flow$AssignAnalyzer$1,com.sun.tools.javac.comp.Flow$LambdaFlowAnalyzer,com.sun.tools.javac.comp.Flow$LambdaAssignAnalyzer,com.sun.tools.javac.comp.Flow$SnippetBreakAnalyzer,com.sun.tools.javac.comp.Flow$SnippetAliveAnalyzer,com.sun.tools.javac.comp.Flow$LambdaAliveAnalyzer,com.sun.tools.javac.comp.Flow$FlowAnalyzer,com.sun.tools.javac.comp.Flow$FlowAnalyzer$ThrownPendingExit,com.sun.tools.javac.comp.Flow$AliveAnalyzer,com.sun.tools.javac.comp.Flow$BaseAnalyzer,com.sun.tools.javac.comp.Flow$BaseAnalyzer$PendingExit,com.sun.tools.javac.comp.Flow$BaseAnalyzer$JumpKind,com.sun.tools.javac.comp.Flow$BaseAnalyzer$JumpKind$3,com.sun.tools.javac.comp.Flow$BaseAnalyzer$JumpKind$2,com.sun.tools.javac.comp.Flow$BaseAnalyzer$JumpKind$1,com.sun.tools.javac.comp.Flow$FlowKind"
+	};
+	$loadClass(Flow, name, initialize, &classInfo$$, Flow::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Flow);
+	});
 	return class$;
 }
 

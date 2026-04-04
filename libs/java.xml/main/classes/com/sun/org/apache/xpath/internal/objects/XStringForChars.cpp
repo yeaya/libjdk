@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xpath/internal/objects/XStringForChars.h>
-
 #include <com/sun/org/apache/xalan/internal/res/XSLMessages.h>
 #include <com/sun/org/apache/xml/internal/utils/FastStringBuffer.h>
 #include <com/sun/org/apache/xpath/internal/objects/XObject.h>
@@ -33,45 +32,8 @@ namespace com {
 					namespace internal {
 						namespace objects {
 
-$FieldInfo _XStringForChars_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(XStringForChars, serialVersionUID)},
-	{"m_start", "I", nullptr, 0, $field(XStringForChars, m_start)},
-	{"m_length", "I", nullptr, 0, $field(XStringForChars, m_length)},
-	{"m_strCache", "Ljava/lang/String;", nullptr, $PROTECTED, $field(XStringForChars, m_strCache)},
-	{}
-};
-
-$MethodInfo _XStringForChars_MethodInfo_[] = {
-	{"<init>", "([CII)V", nullptr, $PUBLIC, $method(XStringForChars, init$, void, $chars*, int32_t, int32_t)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(XStringForChars, init$, void, $String*)},
-	{"appendToFsb", "(Lcom/sun/org/apache/xml/internal/utils/FastStringBuffer;)V", nullptr, $PUBLIC, $virtualMethod(XStringForChars, appendToFsb, void, $FastStringBuffer*)},
-	{"charAt", "(I)C", nullptr, $PUBLIC, $virtualMethod(XStringForChars, charAt, char16_t, int32_t)},
-	{"dispatchAsComment", "(Lorg/xml/sax/ext/LexicalHandler;)V", nullptr, $PUBLIC, $virtualMethod(XStringForChars, dispatchAsComment, void, $LexicalHandler*), "org.xml.sax.SAXException"},
-	{"dispatchCharactersEvents", "(Lorg/xml/sax/ContentHandler;)V", nullptr, $PUBLIC, $virtualMethod(XStringForChars, dispatchCharactersEvents, void, $ContentHandler*), "org.xml.sax.SAXException"},
-	{"fsb", "()Lcom/sun/org/apache/xml/internal/utils/FastStringBuffer;", nullptr, $PUBLIC, $virtualMethod(XStringForChars, fsb, $FastStringBuffer*)},
-	{"getChars", "(II[CI)V", nullptr, $PUBLIC, $virtualMethod(XStringForChars, getChars, void, int32_t, int32_t, $chars*, int32_t)},
-	{"hasString", "()Z", nullptr, $PUBLIC, $virtualMethod(XStringForChars, hasString, bool)},
-	{"length", "()I", nullptr, $PUBLIC, $virtualMethod(XStringForChars, length, int32_t)},
-	{"object", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(XStringForChars, object, $Object*)},
-	{"str", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XStringForChars, str, $String*)},
-	{}
-};
-
-$ClassInfo _XStringForChars_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xpath.internal.objects.XStringForChars",
-	"com.sun.org.apache.xpath.internal.objects.XString",
-	nullptr,
-	_XStringForChars_FieldInfo_,
-	_XStringForChars_MethodInfo_
-};
-
-$Object* allocate$XStringForChars($Class* clazz) {
-	return $of($alloc(XStringForChars));
-}
-
 void XStringForChars::init$($chars* val, int32_t start, int32_t length) {
-	$XString::init$($of(val));
+	$XString::init$(val);
 	$set(this, m_strCache, nullptr);
 	this->m_start = start;
 	this->m_length = length;
@@ -126,7 +88,7 @@ int32_t XStringForChars::length() {
 }
 
 char16_t XStringForChars::charAt(int32_t index) {
-	return $nc(($cast($chars, this->m_obj)))->get(index + this->m_start);
+	return $nc($cast($chars, this->m_obj))->get(index + this->m_start);
 }
 
 void XStringForChars::getChars(int32_t srcBegin, int32_t srcEnd, $chars* dst, int32_t dstBegin) {
@@ -137,7 +99,39 @@ XStringForChars::XStringForChars() {
 }
 
 $Class* XStringForChars::load$($String* name, bool initialize) {
-	$loadClass(XStringForChars, name, initialize, &_XStringForChars_ClassInfo_, allocate$XStringForChars);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(XStringForChars, serialVersionUID)},
+		{"m_start", "I", nullptr, 0, $field(XStringForChars, m_start)},
+		{"m_length", "I", nullptr, 0, $field(XStringForChars, m_length)},
+		{"m_strCache", "Ljava/lang/String;", nullptr, $PROTECTED, $field(XStringForChars, m_strCache)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "([CII)V", nullptr, $PUBLIC, $method(XStringForChars, init$, void, $chars*, int32_t, int32_t)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(XStringForChars, init$, void, $String*)},
+		{"appendToFsb", "(Lcom/sun/org/apache/xml/internal/utils/FastStringBuffer;)V", nullptr, $PUBLIC, $virtualMethod(XStringForChars, appendToFsb, void, $FastStringBuffer*)},
+		{"charAt", "(I)C", nullptr, $PUBLIC, $virtualMethod(XStringForChars, charAt, char16_t, int32_t)},
+		{"dispatchAsComment", "(Lorg/xml/sax/ext/LexicalHandler;)V", nullptr, $PUBLIC, $virtualMethod(XStringForChars, dispatchAsComment, void, $LexicalHandler*), "org.xml.sax.SAXException"},
+		{"dispatchCharactersEvents", "(Lorg/xml/sax/ContentHandler;)V", nullptr, $PUBLIC, $virtualMethod(XStringForChars, dispatchCharactersEvents, void, $ContentHandler*), "org.xml.sax.SAXException"},
+		{"fsb", "()Lcom/sun/org/apache/xml/internal/utils/FastStringBuffer;", nullptr, $PUBLIC, $virtualMethod(XStringForChars, fsb, $FastStringBuffer*)},
+		{"getChars", "(II[CI)V", nullptr, $PUBLIC, $virtualMethod(XStringForChars, getChars, void, int32_t, int32_t, $chars*, int32_t)},
+		{"hasString", "()Z", nullptr, $PUBLIC, $virtualMethod(XStringForChars, hasString, bool)},
+		{"length", "()I", nullptr, $PUBLIC, $virtualMethod(XStringForChars, length, int32_t)},
+		{"object", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(XStringForChars, object, $Object*)},
+		{"str", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XStringForChars, str, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xpath.internal.objects.XStringForChars",
+		"com.sun.org.apache.xpath.internal.objects.XString",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XStringForChars, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(XStringForChars));
+	});
 	return class$;
 }
 

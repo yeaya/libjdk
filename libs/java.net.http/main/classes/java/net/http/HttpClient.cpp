@@ -1,5 +1,4 @@
 #include <java/net/http/HttpClient.h>
-
 #include <java/lang/UnsupportedOperationException.h>
 #include <java/net/http/HttpClient$Builder.h>
 #include <java/net/http/HttpClient$Redirect.h>
@@ -38,57 +37,11 @@ namespace java {
 	namespace net {
 		namespace http {
 
-$MethodInfo _HttpClient_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(HttpClient, init$, void)},
-	{"authenticator", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/net/Authenticator;>;", $PUBLIC | $ABSTRACT, $virtualMethod(HttpClient, authenticator, $Optional*)},
-	{"connectTimeout", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/time/Duration;>;", $PUBLIC | $ABSTRACT, $virtualMethod(HttpClient, connectTimeout, $Optional*)},
-	{"cookieHandler", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/net/CookieHandler;>;", $PUBLIC | $ABSTRACT, $virtualMethod(HttpClient, cookieHandler, $Optional*)},
-	{"executor", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/util/concurrent/Executor;>;", $PUBLIC | $ABSTRACT, $virtualMethod(HttpClient, executor, $Optional*)},
-	{"followRedirects", "()Ljava/net/http/HttpClient$Redirect;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(HttpClient, followRedirects, $HttpClient$Redirect*)},
-	{"newBuilder", "()Ljava/net/http/HttpClient$Builder;", nullptr, $PUBLIC | $STATIC, $staticMethod(HttpClient, newBuilder, $HttpClient$Builder*)},
-	{"newHttpClient", "()Ljava/net/http/HttpClient;", nullptr, $PUBLIC | $STATIC, $staticMethod(HttpClient, newHttpClient, HttpClient*)},
-	{"newWebSocketBuilder", "()Ljava/net/http/WebSocket$Builder;", nullptr, $PUBLIC, $virtualMethod(HttpClient, newWebSocketBuilder, $WebSocket$Builder*)},
-	{"proxy", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/net/ProxySelector;>;", $PUBLIC | $ABSTRACT, $virtualMethod(HttpClient, proxy, $Optional*)},
-	{"send", "(Ljava/net/http/HttpRequest;Ljava/net/http/HttpResponse$BodyHandler;)Ljava/net/http/HttpResponse;", "<T:Ljava/lang/Object;>(Ljava/net/http/HttpRequest;Ljava/net/http/HttpResponse$BodyHandler<TT;>;)Ljava/net/http/HttpResponse<TT;>;", $PUBLIC | $ABSTRACT, $virtualMethod(HttpClient, send, $HttpResponse*, $HttpRequest*, $HttpResponse$BodyHandler*), "java.io.IOException,java.lang.InterruptedException"},
-	{"sendAsync", "(Ljava/net/http/HttpRequest;Ljava/net/http/HttpResponse$BodyHandler;)Ljava/util/concurrent/CompletableFuture;", "<T:Ljava/lang/Object;>(Ljava/net/http/HttpRequest;Ljava/net/http/HttpResponse$BodyHandler<TT;>;)Ljava/util/concurrent/CompletableFuture<Ljava/net/http/HttpResponse<TT;>;>;", $PUBLIC | $ABSTRACT, $virtualMethod(HttpClient, sendAsync, $CompletableFuture*, $HttpRequest*, $HttpResponse$BodyHandler*)},
-	{"sendAsync", "(Ljava/net/http/HttpRequest;Ljava/net/http/HttpResponse$BodyHandler;Ljava/net/http/HttpResponse$PushPromiseHandler;)Ljava/util/concurrent/CompletableFuture;", "<T:Ljava/lang/Object;>(Ljava/net/http/HttpRequest;Ljava/net/http/HttpResponse$BodyHandler<TT;>;Ljava/net/http/HttpResponse$PushPromiseHandler<TT;>;)Ljava/util/concurrent/CompletableFuture<Ljava/net/http/HttpResponse<TT;>;>;", $PUBLIC | $ABSTRACT, $virtualMethod(HttpClient, sendAsync, $CompletableFuture*, $HttpRequest*, $HttpResponse$BodyHandler*, $HttpResponse$PushPromiseHandler*)},
-	{"sslContext", "()Ljavax/net/ssl/SSLContext;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(HttpClient, sslContext, $SSLContext*)},
-	{"sslParameters", "()Ljavax/net/ssl/SSLParameters;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(HttpClient, sslParameters, $SSLParameters*)},
-	{"version", "()Ljava/net/http/HttpClient$Version;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(HttpClient, version, $HttpClient$Version*)},
-	{}
-};
-
-$InnerClassInfo _HttpClient_InnerClassesInfo_[] = {
-	{"java.net.http.HttpClient$Redirect", "java.net.http.HttpClient", "Redirect", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{"java.net.http.HttpClient$Version", "java.net.http.HttpClient", "Version", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{"java.net.http.HttpClient$Builder", "java.net.http.HttpClient", "Builder", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _HttpClient_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"java.net.http.HttpClient",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_HttpClient_MethodInfo_,
-	nullptr,
-	nullptr,
-	_HttpClient_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.net.http.HttpClient$Redirect,java.net.http.HttpClient$Version,java.net.http.HttpClient$Builder"
-};
-
-$Object* allocate$HttpClient($Class* clazz) {
-	return $of($alloc(HttpClient));
-}
-
 void HttpClient::init$() {
 }
 
 HttpClient* HttpClient::newHttpClient() {
-	return $nc($(newBuilder()))->build();
+	return $$nc(newBuilder())->build();
 }
 
 $HttpClient$Builder* HttpClient::newBuilder() {
@@ -104,7 +57,48 @@ HttpClient::HttpClient() {
 }
 
 $Class* HttpClient::load$($String* name, bool initialize) {
-	$loadClass(HttpClient, name, initialize, &_HttpClient_ClassInfo_, allocate$HttpClient);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PROTECTED, $method(HttpClient, init$, void)},
+		{"authenticator", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/net/Authenticator;>;", $PUBLIC | $ABSTRACT, $virtualMethod(HttpClient, authenticator, $Optional*)},
+		{"connectTimeout", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/time/Duration;>;", $PUBLIC | $ABSTRACT, $virtualMethod(HttpClient, connectTimeout, $Optional*)},
+		{"cookieHandler", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/net/CookieHandler;>;", $PUBLIC | $ABSTRACT, $virtualMethod(HttpClient, cookieHandler, $Optional*)},
+		{"executor", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/util/concurrent/Executor;>;", $PUBLIC | $ABSTRACT, $virtualMethod(HttpClient, executor, $Optional*)},
+		{"followRedirects", "()Ljava/net/http/HttpClient$Redirect;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(HttpClient, followRedirects, $HttpClient$Redirect*)},
+		{"newBuilder", "()Ljava/net/http/HttpClient$Builder;", nullptr, $PUBLIC | $STATIC, $staticMethod(HttpClient, newBuilder, $HttpClient$Builder*)},
+		{"newHttpClient", "()Ljava/net/http/HttpClient;", nullptr, $PUBLIC | $STATIC, $staticMethod(HttpClient, newHttpClient, HttpClient*)},
+		{"newWebSocketBuilder", "()Ljava/net/http/WebSocket$Builder;", nullptr, $PUBLIC, $virtualMethod(HttpClient, newWebSocketBuilder, $WebSocket$Builder*)},
+		{"proxy", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/net/ProxySelector;>;", $PUBLIC | $ABSTRACT, $virtualMethod(HttpClient, proxy, $Optional*)},
+		{"send", "(Ljava/net/http/HttpRequest;Ljava/net/http/HttpResponse$BodyHandler;)Ljava/net/http/HttpResponse;", "<T:Ljava/lang/Object;>(Ljava/net/http/HttpRequest;Ljava/net/http/HttpResponse$BodyHandler<TT;>;)Ljava/net/http/HttpResponse<TT;>;", $PUBLIC | $ABSTRACT, $virtualMethod(HttpClient, send, $HttpResponse*, $HttpRequest*, $HttpResponse$BodyHandler*), "java.io.IOException,java.lang.InterruptedException"},
+		{"sendAsync", "(Ljava/net/http/HttpRequest;Ljava/net/http/HttpResponse$BodyHandler;)Ljava/util/concurrent/CompletableFuture;", "<T:Ljava/lang/Object;>(Ljava/net/http/HttpRequest;Ljava/net/http/HttpResponse$BodyHandler<TT;>;)Ljava/util/concurrent/CompletableFuture<Ljava/net/http/HttpResponse<TT;>;>;", $PUBLIC | $ABSTRACT, $virtualMethod(HttpClient, sendAsync, $CompletableFuture*, $HttpRequest*, $HttpResponse$BodyHandler*)},
+		{"sendAsync", "(Ljava/net/http/HttpRequest;Ljava/net/http/HttpResponse$BodyHandler;Ljava/net/http/HttpResponse$PushPromiseHandler;)Ljava/util/concurrent/CompletableFuture;", "<T:Ljava/lang/Object;>(Ljava/net/http/HttpRequest;Ljava/net/http/HttpResponse$BodyHandler<TT;>;Ljava/net/http/HttpResponse$PushPromiseHandler<TT;>;)Ljava/util/concurrent/CompletableFuture<Ljava/net/http/HttpResponse<TT;>;>;", $PUBLIC | $ABSTRACT, $virtualMethod(HttpClient, sendAsync, $CompletableFuture*, $HttpRequest*, $HttpResponse$BodyHandler*, $HttpResponse$PushPromiseHandler*)},
+		{"sslContext", "()Ljavax/net/ssl/SSLContext;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(HttpClient, sslContext, $SSLContext*)},
+		{"sslParameters", "()Ljavax/net/ssl/SSLParameters;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(HttpClient, sslParameters, $SSLParameters*)},
+		{"version", "()Ljava/net/http/HttpClient$Version;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(HttpClient, version, $HttpClient$Version*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.net.http.HttpClient$Redirect", "java.net.http.HttpClient", "Redirect", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{"java.net.http.HttpClient$Version", "java.net.http.HttpClient", "Version", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{"java.net.http.HttpClient$Builder", "java.net.http.HttpClient", "Builder", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"java.net.http.HttpClient",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.net.http.HttpClient$Redirect,java.net.http.HttpClient$Version,java.net.http.HttpClient$Builder"
+	};
+	$loadClass(HttpClient, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HttpClient);
+	});
 	return class$;
 }
 

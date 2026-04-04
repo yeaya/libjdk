@@ -13,6 +13,7 @@ class $import Expression : public ::java::beans::Statement {
 	$class(Expression, 0, ::java::beans::Statement)
 public:
 	Expression();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(Object$* target, $String* methodName, $ObjectArray* arguments);
 	void init$(Object$* value, Object$* target, $String* methodName, $ObjectArray* arguments);
 	virtual void execute() override;

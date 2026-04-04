@@ -1,5 +1,4 @@
 #include <sun/java2d/opengl/OGLRTTSurfaceToSurfaceScale.h>
-
 #include <java/awt/Composite.h>
 #include <java/awt/geom/AffineTransform.h>
 #include <java/awt/image/AffineTransformOp.h>
@@ -34,25 +33,6 @@ namespace sun {
 	namespace java2d {
 		namespace opengl {
 
-$MethodInfo _OGLRTTSurfaceToSurfaceScale_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(OGLRTTSurfaceToSurfaceScale, init$, void)},
-	{"Scale", "(Lsun/java2d/SurfaceData;Lsun/java2d/SurfaceData;Ljava/awt/Composite;Lsun/java2d/pipe/Region;IIIIDDDD)V", nullptr, $PUBLIC, $virtualMethod(OGLRTTSurfaceToSurfaceScale, Scale, void, $SurfaceData*, $SurfaceData*, $Composite*, $Region*, int32_t, int32_t, int32_t, int32_t, double, double, double, double)},
-	{}
-};
-
-$ClassInfo _OGLRTTSurfaceToSurfaceScale_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.java2d.opengl.OGLRTTSurfaceToSurfaceScale",
-	"sun.java2d.loops.ScaledBlit",
-	nullptr,
-	nullptr,
-	_OGLRTTSurfaceToSurfaceScale_MethodInfo_
-};
-
-$Object* allocate$OGLRTTSurfaceToSurfaceScale($Class* clazz) {
-	return $of($alloc(OGLRTTSurfaceToSurfaceScale));
-}
-
 void OGLRTTSurfaceToSurfaceScale::init$() {
 	$init($OGLSurfaceData);
 	$init($CompositeType);
@@ -67,7 +47,22 @@ OGLRTTSurfaceToSurfaceScale::OGLRTTSurfaceToSurfaceScale() {
 }
 
 $Class* OGLRTTSurfaceToSurfaceScale::load$($String* name, bool initialize) {
-	$loadClass(OGLRTTSurfaceToSurfaceScale, name, initialize, &_OGLRTTSurfaceToSurfaceScale_ClassInfo_, allocate$OGLRTTSurfaceToSurfaceScale);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(OGLRTTSurfaceToSurfaceScale, init$, void)},
+		{"Scale", "(Lsun/java2d/SurfaceData;Lsun/java2d/SurfaceData;Ljava/awt/Composite;Lsun/java2d/pipe/Region;IIIIDDDD)V", nullptr, $PUBLIC, $virtualMethod(OGLRTTSurfaceToSurfaceScale, Scale, void, $SurfaceData*, $SurfaceData*, $Composite*, $Region*, int32_t, int32_t, int32_t, int32_t, double, double, double, double)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.java2d.opengl.OGLRTTSurfaceToSurfaceScale",
+		"sun.java2d.loops.ScaledBlit",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(OGLRTTSurfaceToSurfaceScale, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(OGLRTTSurfaceToSurfaceScale);
+	});
 	return class$;
 }
 

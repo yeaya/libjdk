@@ -1,8 +1,6 @@
 #include <com/sun/org/apache/xml/internal/security/utils/JDKXPathAPI.h>
-
 #include <com/sun/org/apache/xml/internal/security/utils/DOMNamespaceContext.h>
 #include <javax/xml/XMLConstants.h>
-#include <javax/xml/namespace/NamespaceContext.h>
 #include <javax/xml/namespace/QName.h>
 #include <javax/xml/transform/TransformerException.h>
 #include <javax/xml/xpath/XPath.h>
@@ -26,11 +24,9 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $XMLConstants = ::javax::xml::XMLConstants;
-using $NamespaceContext = ::javax::xml::namespace$::NamespaceContext;
 using $TransformerException = ::javax::xml::transform::TransformerException;
 using $XPath = ::javax::xml::xpath::XPath;
 using $XPathConstants = ::javax::xml::xpath::XPathConstants;
-using $XPathExpression = ::javax::xml::xpath::XPathExpression;
 using $XPathExpressionException = ::javax::xml::xpath::XPathExpressionException;
 using $XPathFactory = ::javax::xml::xpath::XPathFactory;
 using $XPathFactoryConfigurationException = ::javax::xml::xpath::XPathFactoryConfigurationException;
@@ -46,48 +42,19 @@ namespace com {
 						namespace security {
 							namespace utils {
 
-$FieldInfo _JDKXPathAPI_FieldInfo_[] = {
-	{"xpf", "Ljavax/xml/xpath/XPathFactory;", nullptr, $PRIVATE, $field(JDKXPathAPI, xpf)},
-	{"xpathStr", "Ljava/lang/String;", nullptr, $PRIVATE, $field(JDKXPathAPI, xpathStr)},
-	{"xpathExpression", "Ljavax/xml/xpath/XPathExpression;", nullptr, $PRIVATE, $field(JDKXPathAPI, xpathExpression)},
-	{}
-};
-
-$MethodInfo _JDKXPathAPI_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(JDKXPathAPI, init$, void)},
-	{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(JDKXPathAPI, clear, void)},
-	{"evaluate", "(Lorg/w3c/dom/Node;Lorg/w3c/dom/Node;Ljava/lang/String;Lorg/w3c/dom/Node;)Z", nullptr, $PUBLIC, $virtualMethod(JDKXPathAPI, evaluate, bool, $Node*, $Node*, $String*, $Node*), "javax.xml.transform.TransformerException"},
-	{"selectNodeList", "(Lorg/w3c/dom/Node;Lorg/w3c/dom/Node;Ljava/lang/String;Lorg/w3c/dom/Node;)Lorg/w3c/dom/NodeList;", nullptr, $PUBLIC, $virtualMethod(JDKXPathAPI, selectNodeList, $NodeList*, $Node*, $Node*, $String*, $Node*), "javax.xml.transform.TransformerException"},
-	{}
-};
-
-$ClassInfo _JDKXPathAPI_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.org.apache.xml.internal.security.utils.JDKXPathAPI",
-	"java.lang.Object",
-	"com.sun.org.apache.xml.internal.security.utils.XPathAPI",
-	_JDKXPathAPI_FieldInfo_,
-	_JDKXPathAPI_MethodInfo_
-};
-
-$Object* allocate$JDKXPathAPI($Class* clazz) {
-	return $of($alloc(JDKXPathAPI));
-}
-
 void JDKXPathAPI::init$() {
 }
 
 $NodeList* JDKXPathAPI::selectNodeList($Node* contextNode, $Node* xpathnode, $String* str, $Node* namespaceNode) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!$nc(str)->equals(this->xpathStr) || this->xpathExpression == nullptr) {
 		if (this->xpf == nullptr) {
 			$set(this, xpf, $XPathFactory::newInstance());
 			try {
 				$init($XMLConstants);
-				$init($Boolean);
 				$nc(this->xpf)->setFeature($XMLConstants::FEATURE_SECURE_PROCESSING, $nc($Boolean::TRUE)->booleanValue());
 			} catch ($XPathFactoryConfigurationException& ex) {
-				$throwNew($TransformerException, static_cast<$Throwable*>(ex));
+				$throwNew($TransformerException, ex);
 			}
 		}
 		$var($XPath, xpath, $nc(this->xpf)->newXPath());
@@ -96,29 +63,28 @@ $NodeList* JDKXPathAPI::selectNodeList($Node* contextNode, $Node* xpathnode, $St
 		try {
 			$set(this, xpathExpression, xpath->compile(this->xpathStr));
 		} catch ($XPathExpressionException& ex) {
-			$throwNew($TransformerException, static_cast<$Throwable*>(ex));
+			$throwNew($TransformerException, ex);
 		}
 	}
 	try {
 		$init($XPathConstants);
-		return $cast($NodeList, $nc(this->xpathExpression)->evaluate($of(contextNode), $XPathConstants::NODESET));
+		return $cast($NodeList, $nc(this->xpathExpression)->evaluate(contextNode, $XPathConstants::NODESET));
 	} catch ($XPathExpressionException& ex) {
-		$throwNew($TransformerException, static_cast<$Throwable*>(ex));
+		$throwNew($TransformerException, ex);
 	}
 	$shouldNotReachHere();
 }
 
 bool JDKXPathAPI::evaluate($Node* contextNode, $Node* xpathnode, $String* str, $Node* namespaceNode) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!$nc(str)->equals(this->xpathStr) || this->xpathExpression == nullptr) {
 		if (this->xpf == nullptr) {
 			$set(this, xpf, $XPathFactory::newInstance());
 			try {
 				$init($XMLConstants);
-				$init($Boolean);
 				$nc(this->xpf)->setFeature($XMLConstants::FEATURE_SECURE_PROCESSING, $nc($Boolean::TRUE)->booleanValue());
 			} catch ($XPathFactoryConfigurationException& ex) {
-				$throwNew($TransformerException, static_cast<$Throwable*>(ex));
+				$throwNew($TransformerException, ex);
 			}
 		}
 		$var($XPath, xpath, $nc(this->xpf)->newXPath());
@@ -127,14 +93,14 @@ bool JDKXPathAPI::evaluate($Node* contextNode, $Node* xpathnode, $String* str, $
 		try {
 			$set(this, xpathExpression, xpath->compile(this->xpathStr));
 		} catch ($XPathExpressionException& ex) {
-			$throwNew($TransformerException, static_cast<$Throwable*>(ex));
+			$throwNew($TransformerException, ex);
 		}
 	}
 	try {
 		$init($XPathConstants);
-		return $nc(($cast($Boolean, $($nc(this->xpathExpression)->evaluate($of(contextNode), $XPathConstants::BOOLEAN)))))->booleanValue();
+		return $$sure($Boolean, $nc(this->xpathExpression)->evaluate(contextNode, $XPathConstants::BOOLEAN))->booleanValue();
 	} catch ($XPathExpressionException& ex) {
-		$throwNew($TransformerException, static_cast<$Throwable*>(ex));
+		$throwNew($TransformerException, ex);
 	}
 	$shouldNotReachHere();
 }
@@ -149,7 +115,30 @@ JDKXPathAPI::JDKXPathAPI() {
 }
 
 $Class* JDKXPathAPI::load$($String* name, bool initialize) {
-	$loadClass(JDKXPathAPI, name, initialize, &_JDKXPathAPI_ClassInfo_, allocate$JDKXPathAPI);
+	$FieldInfo fieldInfos$$[] = {
+		{"xpf", "Ljavax/xml/xpath/XPathFactory;", nullptr, $PRIVATE, $field(JDKXPathAPI, xpf)},
+		{"xpathStr", "Ljava/lang/String;", nullptr, $PRIVATE, $field(JDKXPathAPI, xpathStr)},
+		{"xpathExpression", "Ljavax/xml/xpath/XPathExpression;", nullptr, $PRIVATE, $field(JDKXPathAPI, xpathExpression)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(JDKXPathAPI, init$, void)},
+		{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(JDKXPathAPI, clear, void)},
+		{"evaluate", "(Lorg/w3c/dom/Node;Lorg/w3c/dom/Node;Ljava/lang/String;Lorg/w3c/dom/Node;)Z", nullptr, $PUBLIC, $virtualMethod(JDKXPathAPI, evaluate, bool, $Node*, $Node*, $String*, $Node*), "javax.xml.transform.TransformerException"},
+		{"selectNodeList", "(Lorg/w3c/dom/Node;Lorg/w3c/dom/Node;Ljava/lang/String;Lorg/w3c/dom/Node;)Lorg/w3c/dom/NodeList;", nullptr, $PUBLIC, $virtualMethod(JDKXPathAPI, selectNodeList, $NodeList*, $Node*, $Node*, $String*, $Node*), "javax.xml.transform.TransformerException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.org.apache.xml.internal.security.utils.JDKXPathAPI",
+		"java.lang.Object",
+		"com.sun.org.apache.xml.internal.security.utils.XPathAPI",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(JDKXPathAPI, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JDKXPathAPI);
+	});
 	return class$;
 }
 

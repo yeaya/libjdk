@@ -1,5 +1,4 @@
 #include <java/rmi/server/Operation.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -10,55 +9,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace java {
 	namespace rmi {
 		namespace server {
-
-$CompoundAttribute _Operation_Annotations_[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Operation_MethodAnnotations_init$0[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Operation_MethodAnnotations_getOperation1[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Operation_MethodAnnotations_toString2[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$FieldInfo _Operation_FieldInfo_[] = {
-	{"operation", "Ljava/lang/String;", nullptr, $PRIVATE, $field(Operation, operation)},
-	{}
-};
-
-$MethodInfo _Operation_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $DEPRECATED, $method(Operation, init$, void, $String*), nullptr, nullptr, _Operation_MethodAnnotations_init$0},
-	{"getOperation", "()Ljava/lang/String;", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(Operation, getOperation, $String*), nullptr, nullptr, _Operation_MethodAnnotations_getOperation1},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(Operation, toString, $String*), nullptr, nullptr, _Operation_MethodAnnotations_toString2},
-	{}
-};
-
-$ClassInfo _Operation_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.rmi.server.Operation",
-	"java.lang.Object",
-	nullptr,
-	_Operation_FieldInfo_,
-	_Operation_MethodInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	_Operation_Annotations_
-};
-
-$Object* allocate$Operation($Class* clazz) {
-	return $of($alloc(Operation));
-}
 
 void Operation::init$($String* op) {
 	$set(this, operation, op);
@@ -76,7 +26,47 @@ Operation::Operation() {
 }
 
 $Class* Operation::load$($String* name, bool initialize) {
-	$loadClass(Operation, name, initialize, &_Operation_ClassInfo_, allocate$Operation);
+	$FieldInfo fieldInfos$$[] = {
+		{"operation", "Ljava/lang/String;", nullptr, $PRIVATE, $field(Operation, operation)},
+		{}
+	};
+	$CompoundAttribute init$methodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute getOperationmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute toStringmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $DEPRECATED, $method(Operation, init$, void, $String*), nullptr, nullptr, init$methodAnnotations$$},
+		{"getOperation", "()Ljava/lang/String;", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(Operation, getOperation, $String*), nullptr, nullptr, getOperationmethodAnnotations$$},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(Operation, toString, $String*), nullptr, nullptr, toStringmethodAnnotations$$},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.rmi.server.Operation",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(Operation, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Operation);
+	});
 	return class$;
 }
 

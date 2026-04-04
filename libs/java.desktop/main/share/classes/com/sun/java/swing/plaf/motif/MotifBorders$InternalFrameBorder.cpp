@@ -1,12 +1,10 @@
 #include <com/sun/java/swing/plaf/motif/MotifBorders$InternalFrameBorder.h>
-
 #include <com/sun/java/swing/plaf/motif/MotifBorders$FrameBorder.h>
 #include <com/sun/java/swing/plaf/motif/MotifBorders.h>
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/Graphics.h>
 #include <java/awt/Insets.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JInternalFrame.h>
 #include <javax/swing/border/AbstractBorder.h>
 #include <jcpp.h>
@@ -21,7 +19,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $JComponent = ::javax::swing::JComponent;
 using $JInternalFrame = ::javax::swing::JInternalFrame;
 
 namespace com {
@@ -30,51 +27,6 @@ namespace com {
 			namespace swing {
 				namespace plaf {
 					namespace motif {
-
-$FieldInfo _MotifBorders$InternalFrameBorder_FieldInfo_[] = {
-	{"frame", "Ljavax/swing/JInternalFrame;", nullptr, 0, $field(MotifBorders$InternalFrameBorder, frame$)},
-	{"CORNER_SIZE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(MotifBorders$InternalFrameBorder, CORNER_SIZE)},
-	{}
-};
-
-$MethodInfo _MotifBorders$InternalFrameBorder_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/JInternalFrame;)V", nullptr, $PUBLIC, $method(MotifBorders$InternalFrameBorder, init$, void, $JInternalFrame*)},
-	{"drawBottomBorder", "(Ljava/awt/Component;Ljava/awt/Graphics;IIII)Z", nullptr, $PROTECTED, $virtualMethod(MotifBorders$InternalFrameBorder, drawBottomBorder, bool, $Component*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{"drawLeftBorder", "(Ljava/awt/Component;Ljava/awt/Graphics;IIII)Z", nullptr, $PROTECTED, $virtualMethod(MotifBorders$InternalFrameBorder, drawLeftBorder, bool, $Component*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{"drawRightBorder", "(Ljava/awt/Component;Ljava/awt/Graphics;IIII)Z", nullptr, $PROTECTED, $virtualMethod(MotifBorders$InternalFrameBorder, drawRightBorder, bool, $Component*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{"drawTopBorder", "(Ljava/awt/Component;Ljava/awt/Graphics;IIII)Z", nullptr, $PROTECTED, $virtualMethod(MotifBorders$InternalFrameBorder, drawTopBorder, bool, $Component*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{"frame", "()Ljavax/swing/JInternalFrame;", nullptr, $PUBLIC, $virtualMethod(MotifBorders$InternalFrameBorder, frame, $JInternalFrame*)},
-	{"isActiveFrame", "()Z", nullptr, $PROTECTED, $virtualMethod(MotifBorders$InternalFrameBorder, isActiveFrame, bool)},
-	{"resizePartWidth", "()I", nullptr, $PUBLIC, $virtualMethod(MotifBorders$InternalFrameBorder, resizePartWidth, int32_t)},
-	{"setFrame", "(Ljavax/swing/JInternalFrame;)V", nullptr, $PUBLIC, $virtualMethod(MotifBorders$InternalFrameBorder, setFrame, void, $JInternalFrame*)},
-	{}
-};
-
-$InnerClassInfo _MotifBorders$InternalFrameBorder_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.motif.MotifBorders$InternalFrameBorder", "com.sun.java.swing.plaf.motif.MotifBorders", "InternalFrameBorder", $PUBLIC | $STATIC},
-	{"com.sun.java.swing.plaf.motif.MotifBorders$FrameBorder", "com.sun.java.swing.plaf.motif.MotifBorders", "FrameBorder", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _MotifBorders$InternalFrameBorder_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.java.swing.plaf.motif.MotifBorders$InternalFrameBorder",
-	"com.sun.java.swing.plaf.motif.MotifBorders$FrameBorder",
-	nullptr,
-	_MotifBorders$InternalFrameBorder_FieldInfo_,
-	_MotifBorders$InternalFrameBorder_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MotifBorders$InternalFrameBorder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.motif.MotifBorders"
-};
-
-$Object* allocate$MotifBorders$InternalFrameBorder($Class* clazz) {
-	return $of($alloc(MotifBorders$InternalFrameBorder));
-}
 
 void MotifBorders$InternalFrameBorder::init$($JInternalFrame* aFrame) {
 	$MotifBorders$FrameBorder::init$(aFrame);
@@ -97,7 +49,7 @@ int32_t MotifBorders$InternalFrameBorder::resizePartWidth() {
 }
 
 bool MotifBorders$InternalFrameBorder::drawTopBorder($Component* c, $Graphics* g, int32_t x, int32_t y, int32_t width, int32_t height) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool var$0 = $MotifBorders$FrameBorder::drawTopBorder(c, g, x, y, width, height);
 	if (var$0 && $nc(this->frame$)->isResizable()) {
 		$nc(g)->setColor($(getFrameShadow()));
@@ -112,7 +64,7 @@ bool MotifBorders$InternalFrameBorder::drawTopBorder($Component* c, $Graphics* g
 }
 
 bool MotifBorders$InternalFrameBorder::drawLeftBorder($Component* c, $Graphics* g, int32_t x, int32_t y, int32_t width, int32_t height) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool var$0 = $MotifBorders$FrameBorder::drawLeftBorder(c, g, x, y, width, height);
 	if (var$0 && $nc(this->frame$)->isResizable()) {
 		$nc(g)->setColor($(getFrameHighlight()));
@@ -129,7 +81,7 @@ bool MotifBorders$InternalFrameBorder::drawLeftBorder($Component* c, $Graphics* 
 }
 
 bool MotifBorders$InternalFrameBorder::drawRightBorder($Component* c, $Graphics* g, int32_t x, int32_t y, int32_t width, int32_t height) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool var$0 = $MotifBorders$FrameBorder::drawRightBorder(c, g, x, y, width, height);
 	if (var$0 && $nc(this->frame$)->isResizable()) {
 		int32_t startX = width - $nc($(getBorderInsets(c)))->right;
@@ -147,7 +99,7 @@ bool MotifBorders$InternalFrameBorder::drawRightBorder($Component* c, $Graphics*
 }
 
 bool MotifBorders$InternalFrameBorder::drawBottomBorder($Component* c, $Graphics* g, int32_t x, int32_t y, int32_t width, int32_t height) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool var$0 = $MotifBorders$FrameBorder::drawBottomBorder(c, g, x, y, width, height);
 	if (var$0 && $nc(this->frame$)->isResizable()) {
 		int32_t startY = height - $nc($(getBorderInsets(c)))->bottom;
@@ -170,7 +122,46 @@ MotifBorders$InternalFrameBorder::MotifBorders$InternalFrameBorder() {
 }
 
 $Class* MotifBorders$InternalFrameBorder::load$($String* name, bool initialize) {
-	$loadClass(MotifBorders$InternalFrameBorder, name, initialize, &_MotifBorders$InternalFrameBorder_ClassInfo_, allocate$MotifBorders$InternalFrameBorder);
+	$FieldInfo fieldInfos$$[] = {
+		{"frame", "Ljavax/swing/JInternalFrame;", nullptr, 0, $field(MotifBorders$InternalFrameBorder, frame$)},
+		{"CORNER_SIZE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(MotifBorders$InternalFrameBorder, CORNER_SIZE)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/JInternalFrame;)V", nullptr, $PUBLIC, $method(MotifBorders$InternalFrameBorder, init$, void, $JInternalFrame*)},
+		{"drawBottomBorder", "(Ljava/awt/Component;Ljava/awt/Graphics;IIII)Z", nullptr, $PROTECTED, $virtualMethod(MotifBorders$InternalFrameBorder, drawBottomBorder, bool, $Component*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{"drawLeftBorder", "(Ljava/awt/Component;Ljava/awt/Graphics;IIII)Z", nullptr, $PROTECTED, $virtualMethod(MotifBorders$InternalFrameBorder, drawLeftBorder, bool, $Component*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{"drawRightBorder", "(Ljava/awt/Component;Ljava/awt/Graphics;IIII)Z", nullptr, $PROTECTED, $virtualMethod(MotifBorders$InternalFrameBorder, drawRightBorder, bool, $Component*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{"drawTopBorder", "(Ljava/awt/Component;Ljava/awt/Graphics;IIII)Z", nullptr, $PROTECTED, $virtualMethod(MotifBorders$InternalFrameBorder, drawTopBorder, bool, $Component*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{"frame", "()Ljavax/swing/JInternalFrame;", nullptr, $PUBLIC, $virtualMethod(MotifBorders$InternalFrameBorder, frame, $JInternalFrame*)},
+		{"isActiveFrame", "()Z", nullptr, $PROTECTED, $virtualMethod(MotifBorders$InternalFrameBorder, isActiveFrame, bool)},
+		{"resizePartWidth", "()I", nullptr, $PUBLIC, $virtualMethod(MotifBorders$InternalFrameBorder, resizePartWidth, int32_t)},
+		{"setFrame", "(Ljavax/swing/JInternalFrame;)V", nullptr, $PUBLIC, $virtualMethod(MotifBorders$InternalFrameBorder, setFrame, void, $JInternalFrame*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.motif.MotifBorders$InternalFrameBorder", "com.sun.java.swing.plaf.motif.MotifBorders", "InternalFrameBorder", $PUBLIC | $STATIC},
+		{"com.sun.java.swing.plaf.motif.MotifBorders$FrameBorder", "com.sun.java.swing.plaf.motif.MotifBorders", "FrameBorder", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.java.swing.plaf.motif.MotifBorders$InternalFrameBorder",
+		"com.sun.java.swing.plaf.motif.MotifBorders$FrameBorder",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.motif.MotifBorders"
+	};
+	$loadClass(MotifBorders$InternalFrameBorder, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MotifBorders$InternalFrameBorder));
+	});
 	return class$;
 }
 

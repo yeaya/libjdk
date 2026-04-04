@@ -1,5 +1,4 @@
 #include <InternalFrameIsNotCollectedTest.h>
-
 #include <InternalFrameIsNotCollectedTest$1.h>
 #include <InternalFrameIsNotCollectedTest$CustomInternalFrame.h>
 #include <java/awt/BorderLayout.h>
@@ -17,7 +16,6 @@
 #include <java/lang/invoke/MethodType.h>
 #include <java/util/Date.h>
 #include <javax/swing/DefaultDesktopManager.h>
-#include <javax/swing/DesktopManager.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JDesktopPane.h>
 #include <javax/swing/JFrame.h>
@@ -31,11 +29,7 @@
 using $InternalFrameIsNotCollectedTest$1 = ::InternalFrameIsNotCollectedTest$1;
 using $InternalFrameIsNotCollectedTest$CustomInternalFrame = ::InternalFrameIsNotCollectedTest$CustomInternalFrame;
 using $BorderLayout = ::java::awt::BorderLayout;
-using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
-using $LayoutManager = ::java::awt::LayoutManager;
 using $Robot = ::java::awt::Robot;
-using $PrintStream = ::java::io::PrintStream;
 using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -46,7 +40,6 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $Date = ::java::util::Date;
 using $DefaultDesktopManager = ::javax::swing::DefaultDesktopManager;
-using $DesktopManager = ::javax::swing::DesktopManager;
 using $JDesktopPane = ::javax::swing::JDesktopPane;
 using $JFrame = ::javax::swing::JFrame;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
@@ -60,75 +53,27 @@ public:
 	virtual void run() override {
 		InternalFrameIsNotCollectedTest::lambda$main$0();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<InternalFrameIsNotCollectedTest$$Lambda$lambda$main$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo InternalFrameIsNotCollectedTest$$Lambda$lambda$main$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(InternalFrameIsNotCollectedTest$$Lambda$lambda$main$0, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(InternalFrameIsNotCollectedTest$$Lambda$lambda$main$0, run, void)},
-	{}
-};
-$ClassInfo InternalFrameIsNotCollectedTest$$Lambda$lambda$main$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"InternalFrameIsNotCollectedTest$$Lambda$lambda$main$0",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* InternalFrameIsNotCollectedTest$$Lambda$lambda$main$0::load$($String* name, bool initialize) {
-	$loadClass(InternalFrameIsNotCollectedTest$$Lambda$lambda$main$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(InternalFrameIsNotCollectedTest$$Lambda$lambda$main$0, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(InternalFrameIsNotCollectedTest$$Lambda$lambda$main$0, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"InternalFrameIsNotCollectedTest$$Lambda$lambda$main$0",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(InternalFrameIsNotCollectedTest$$Lambda$lambda$main$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(InternalFrameIsNotCollectedTest$$Lambda$lambda$main$0);
+	});
 	return class$;
 }
 $Class* InternalFrameIsNotCollectedTest$$Lambda$lambda$main$0::class$ = nullptr;
-
-$FieldInfo _InternalFrameIsNotCollectedTest_FieldInfo_[] = {
-	{"maxWaitTime", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(InternalFrameIsNotCollectedTest, maxWaitTime)},
-	{"waitTime", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(InternalFrameIsNotCollectedTest, waitTime)},
-	{"robot", "Ljava/awt/Robot;", nullptr, $PRIVATE | $STATIC, $staticField(InternalFrameIsNotCollectedTest, robot)},
-	{"iFrame", "LInternalFrameIsNotCollectedTest$CustomInternalFrame;", nullptr, $PRIVATE | $STATIC, $staticField(InternalFrameIsNotCollectedTest, iFrame)},
-	{"frame", "Ljavax/swing/JFrame;", nullptr, $PRIVATE | $STATIC, $staticField(InternalFrameIsNotCollectedTest, frame)},
-	{}
-};
-
-$MethodInfo _InternalFrameIsNotCollectedTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(InternalFrameIsNotCollectedTest, init$, void)},
-	{"closeInternalFrame", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(InternalFrameIsNotCollectedTest, closeInternalFrame, void), "java.beans.PropertyVetoException"},
-	{"initRobot", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(InternalFrameIsNotCollectedTest, initRobot, void), "java.awt.AWTException"},
-	{"initUI", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(InternalFrameIsNotCollectedTest, initUI, void)},
-	{"invokeGC", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(InternalFrameIsNotCollectedTest, invokeGC, void)},
-	{"lambda$main$0", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(InternalFrameIsNotCollectedTest, lambda$main$0, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(InternalFrameIsNotCollectedTest, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$InnerClassInfo _InternalFrameIsNotCollectedTest_InnerClassesInfo_[] = {
-	{"InternalFrameIsNotCollectedTest$CustomInternalFrame", "InternalFrameIsNotCollectedTest", "CustomInternalFrame", $PUBLIC | $STATIC},
-	{"InternalFrameIsNotCollectedTest$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _InternalFrameIsNotCollectedTest_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"InternalFrameIsNotCollectedTest",
-	"java.lang.Object",
-	nullptr,
-	_InternalFrameIsNotCollectedTest_FieldInfo_,
-	_InternalFrameIsNotCollectedTest_MethodInfo_,
-	nullptr,
-	nullptr,
-	_InternalFrameIsNotCollectedTest_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"InternalFrameIsNotCollectedTest$CustomInternalFrame,InternalFrameIsNotCollectedTest$1"
-};
-
-$Object* allocate$InternalFrameIsNotCollectedTest($Class* clazz) {
-	return $of($alloc(InternalFrameIsNotCollectedTest));
-}
 
 $Robot* InternalFrameIsNotCollectedTest::robot = nullptr;
 $InternalFrameIsNotCollectedTest$CustomInternalFrame* InternalFrameIsNotCollectedTest::iFrame = nullptr;
@@ -138,53 +83,51 @@ void InternalFrameIsNotCollectedTest::init$() {
 }
 
 void InternalFrameIsNotCollectedTest::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			initRobot();
-			$SwingUtilities::invokeAndWait($$new($InternalFrameIsNotCollectedTest$1));
-			$init(InternalFrameIsNotCollectedTest);
-			$nc(InternalFrameIsNotCollectedTest::robot)->waitForIdle();
-			invokeGC();
-			$System::runFinalization();
-			$Thread::sleep(1000);
-			$var($Date, startWaiting, $new($Date));
-			$init($InternalFrameIsNotCollectedTest$CustomInternalFrame);
-			$synchronized($InternalFrameIsNotCollectedTest$CustomInternalFrame::waiter) {
-				$var($Date, now, $new($Date));
-				while (true) {
-					int64_t var$1 = now->getTime();
-					if (!(var$1 - startWaiting->getTime() < InternalFrameIsNotCollectedTest::maxWaitTime && !$InternalFrameIsNotCollectedTest$CustomInternalFrame::finalized)) {
-						break;
-					}
-					{
-						$nc($of($InternalFrameIsNotCollectedTest$CustomInternalFrame::waiter))->wait(InternalFrameIsNotCollectedTest::waitTime);
-						$assign(now, $new($Date));
-					}
+	$useLocalObjectStack();
+	$var($Throwable, var$0, nullptr);
+	try {
+		initRobot();
+		$SwingUtilities::invokeAndWait($$new($InternalFrameIsNotCollectedTest$1));
+		$init(InternalFrameIsNotCollectedTest);
+		$nc(InternalFrameIsNotCollectedTest::robot)->waitForIdle();
+		invokeGC();
+		$System::runFinalization();
+		$Thread::sleep(1000);
+		$var($Date, startWaiting, $new($Date));
+		$init($InternalFrameIsNotCollectedTest$CustomInternalFrame);
+		$synchronized($InternalFrameIsNotCollectedTest$CustomInternalFrame::waiter) {
+			$var($Date, now, $new($Date));
+			while (true) {
+				int64_t var$1 = now->getTime();
+				if (!(var$1 - startWaiting->getTime() < InternalFrameIsNotCollectedTest::maxWaitTime && !$InternalFrameIsNotCollectedTest$CustomInternalFrame::finalized)) {
+					break;
+				}
+				{
+					$InternalFrameIsNotCollectedTest$CustomInternalFrame::waiter->wait(InternalFrameIsNotCollectedTest::waitTime);
+					$assign(now, $new($Date));
 				}
 			}
-			if (!$InternalFrameIsNotCollectedTest$CustomInternalFrame::finalized) {
-				$throwNew($RuntimeException, "Closed internal frame wasn\'t collected"_s);
-			}
-		} catch ($Throwable& var$2) {
-			$assign(var$0, var$2);
-		} /*finally*/ {
-			$init(InternalFrameIsNotCollectedTest);
-			if (InternalFrameIsNotCollectedTest::frame != nullptr) {
-				$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(InternalFrameIsNotCollectedTest$$Lambda$lambda$main$0)));
-			}
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+		if (!$InternalFrameIsNotCollectedTest$CustomInternalFrame::finalized) {
+			$throwNew($RuntimeException, "Closed internal frame wasn\'t collected"_s);
 		}
+	} catch ($Throwable& var$2) {
+		$assign(var$0, var$2);
+	} /*finally*/ {
+		$init(InternalFrameIsNotCollectedTest);
+		if (InternalFrameIsNotCollectedTest::frame != nullptr) {
+			$SwingUtilities::invokeAndWait($$new(InternalFrameIsNotCollectedTest$$Lambda$lambda$main$0));
+		}
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 void InternalFrameIsNotCollectedTest::initRobot() {
 	$init(InternalFrameIsNotCollectedTest);
 	$assignStatic(InternalFrameIsNotCollectedTest::robot, $new($Robot));
-	$nc(InternalFrameIsNotCollectedTest::robot)->setAutoDelay(100);
+	InternalFrameIsNotCollectedTest::robot->setAutoDelay(100);
 }
 
 void InternalFrameIsNotCollectedTest::closeInternalFrame() {
@@ -194,18 +137,17 @@ void InternalFrameIsNotCollectedTest::closeInternalFrame() {
 }
 
 void InternalFrameIsNotCollectedTest::initUI() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init(InternalFrameIsNotCollectedTest);
 	$assignStatic(InternalFrameIsNotCollectedTest::frame, $new($JFrame, "Internal Frame Test"_s));
-	$nc($($nc(InternalFrameIsNotCollectedTest::frame)->getContentPane()))->setLayout($$new($BorderLayout));
+	$$nc(InternalFrameIsNotCollectedTest::frame->getContentPane())->setLayout($$new($BorderLayout));
 	$var($JDesktopPane, desktopPane, $new($JDesktopPane));
 	desktopPane->setDesktopManager($$new($DefaultDesktopManager));
-	$init($BorderLayout);
-	$nc($($nc(InternalFrameIsNotCollectedTest::frame)->getContentPane()))->add(static_cast<$Component*>(desktopPane), $of($BorderLayout::CENTER));
+	$$nc($nc(InternalFrameIsNotCollectedTest::frame)->getContentPane())->add(desktopPane, $BorderLayout::CENTER);
 	$assignStatic(InternalFrameIsNotCollectedTest::iFrame, $new($InternalFrameIsNotCollectedTest$CustomInternalFrame, "Dummy Frame"_s));
-	$nc(InternalFrameIsNotCollectedTest::iFrame)->setSize(200, 200);
+	InternalFrameIsNotCollectedTest::iFrame->setSize(200, 200);
 	$nc(InternalFrameIsNotCollectedTest::iFrame)->setDefaultCloseOperation($WindowConstants::DISPOSE_ON_CLOSE);
-	desktopPane->add(static_cast<$Component*>(InternalFrameIsNotCollectedTest::iFrame));
+	desktopPane->add(InternalFrameIsNotCollectedTest::iFrame);
 	$nc(InternalFrameIsNotCollectedTest::frame)->setSize(800, 600);
 	$nc(InternalFrameIsNotCollectedTest::frame)->setDefaultCloseOperation($WindowConstants::DISPOSE_ON_CLOSE);
 	$nc(InternalFrameIsNotCollectedTest::frame)->setVisible(true);
@@ -213,7 +155,7 @@ void InternalFrameIsNotCollectedTest::initUI() {
 }
 
 void InternalFrameIsNotCollectedTest::invokeGC() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc($System::out)->println("Firing garbage collection!"_s);
 	try {
 		$var($StringBuilder, sb, $new($StringBuilder));
@@ -234,11 +176,50 @@ InternalFrameIsNotCollectedTest::InternalFrameIsNotCollectedTest() {
 
 $Class* InternalFrameIsNotCollectedTest::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(InternalFrameIsNotCollectedTest$$Lambda$lambda$main$0::classInfo$.name)) {
+		if (name->equals("InternalFrameIsNotCollectedTest$$Lambda$lambda$main$0")) {
 			return InternalFrameIsNotCollectedTest$$Lambda$lambda$main$0::load$(name, initialize);
 		}
 	}
-	$loadClass(InternalFrameIsNotCollectedTest, name, initialize, &_InternalFrameIsNotCollectedTest_ClassInfo_, allocate$InternalFrameIsNotCollectedTest);
+	$FieldInfo fieldInfos$$[] = {
+		{"maxWaitTime", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(InternalFrameIsNotCollectedTest, maxWaitTime)},
+		{"waitTime", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(InternalFrameIsNotCollectedTest, waitTime)},
+		{"robot", "Ljava/awt/Robot;", nullptr, $PRIVATE | $STATIC, $staticField(InternalFrameIsNotCollectedTest, robot)},
+		{"iFrame", "LInternalFrameIsNotCollectedTest$CustomInternalFrame;", nullptr, $PRIVATE | $STATIC, $staticField(InternalFrameIsNotCollectedTest, iFrame)},
+		{"frame", "Ljavax/swing/JFrame;", nullptr, $PRIVATE | $STATIC, $staticField(InternalFrameIsNotCollectedTest, frame)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(InternalFrameIsNotCollectedTest, init$, void)},
+		{"closeInternalFrame", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(InternalFrameIsNotCollectedTest, closeInternalFrame, void), "java.beans.PropertyVetoException"},
+		{"initRobot", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(InternalFrameIsNotCollectedTest, initRobot, void), "java.awt.AWTException"},
+		{"initUI", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(InternalFrameIsNotCollectedTest, initUI, void)},
+		{"invokeGC", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(InternalFrameIsNotCollectedTest, invokeGC, void)},
+		{"lambda$main$0", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(InternalFrameIsNotCollectedTest, lambda$main$0, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(InternalFrameIsNotCollectedTest, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"InternalFrameIsNotCollectedTest$CustomInternalFrame", "InternalFrameIsNotCollectedTest", "CustomInternalFrame", $PUBLIC | $STATIC},
+		{"InternalFrameIsNotCollectedTest$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"InternalFrameIsNotCollectedTest",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"InternalFrameIsNotCollectedTest$CustomInternalFrame,InternalFrameIsNotCollectedTest$1"
+	};
+	$loadClass(InternalFrameIsNotCollectedTest, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(InternalFrameIsNotCollectedTest);
+	});
 	return class$;
 }
 

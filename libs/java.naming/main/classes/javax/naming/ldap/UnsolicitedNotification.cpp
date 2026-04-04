@@ -1,5 +1,4 @@
 #include <javax/naming/ldap/UnsolicitedNotification.h>
-
 #include <javax/naming/NamingException.h>
 #include <javax/naming/ldap/ExtendedResponse.h>
 #include <jcpp.h>
@@ -12,30 +11,6 @@ using $ExtendedResponse = ::javax::naming::ldap::ExtendedResponse;
 namespace javax {
 	namespace naming {
 		namespace ldap {
-
-$MethodInfo _UnsolicitedNotification_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"getException", "()Ljavax/naming/NamingException;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(UnsolicitedNotification, getException, $NamingException*)},
-	{"getReferrals", "()[Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(UnsolicitedNotification, getReferrals, $StringArray*)},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _UnsolicitedNotification_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"javax.naming.ldap.UnsolicitedNotification",
-	nullptr,
-	"javax.naming.ldap.ExtendedResponse,javax.naming.ldap.HasControls",
-	nullptr,
-	_UnsolicitedNotification_MethodInfo_
-};
-
-$Object* allocate$UnsolicitedNotification($Class* clazz) {
-	return $of($alloc(UnsolicitedNotification));
-}
 
 int32_t UnsolicitedNotification::hashCode() {
 	 return this->$ExtendedResponse::hashCode();
@@ -58,7 +33,27 @@ void UnsolicitedNotification::finalize() {
 }
 
 $Class* UnsolicitedNotification::load$($String* name, bool initialize) {
-	$loadClass(UnsolicitedNotification, name, initialize, &_UnsolicitedNotification_ClassInfo_, allocate$UnsolicitedNotification);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"getException", "()Ljavax/naming/NamingException;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(UnsolicitedNotification, getException, $NamingException*)},
+		{"getReferrals", "()[Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(UnsolicitedNotification, getReferrals, $StringArray*)},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"javax.naming.ldap.UnsolicitedNotification",
+		nullptr,
+		"javax.naming.ldap.ExtendedResponse,javax.naming.ldap.HasControls",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(UnsolicitedNotification, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(UnsolicitedNotification));
+	});
 	return class$;
 }
 

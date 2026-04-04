@@ -51,7 +51,7 @@ public:
 	void init$(int32_t axis, int32_t paxis);
 	virtual ::com::sun::org::apache::xpath::internal::objects::XObject* execute(::com::sun::org::apache::xpath::internal::XPathContext* xctxt) override;
 	virtual ::com::sun::org::apache::xpath::internal::objects::XObject* executeRelativePathPattern(::com::sun::org::apache::xpath::internal::XPathContext* xctxt, ::com::sun::org::apache::xpath::internal::patterns::StepPattern* prevStep);
-	static const int64_t serialVersionUID = (int64_t)0xE5CC259EEA0E55DA;
+	static const int64_t serialVersionUID = (int64_t)0xe5cc259eea0e55da;
 };
 
 						} // patterns

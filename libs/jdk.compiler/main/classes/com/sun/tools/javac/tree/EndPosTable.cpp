@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/tree/EndPosTable.h>
-
 #include <com/sun/tools/javac/tree/JCTree.h>
 #include <jcpp.h>
 
@@ -13,28 +12,24 @@ namespace com {
 			namespace javac {
 				namespace tree {
 
-$MethodInfo _EndPosTable_MethodInfo_[] = {
-	{"getEndPos", "(Lcom/sun/tools/javac/tree/JCTree;)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(EndPosTable, getEndPos, int32_t, $JCTree*)},
-	{"replaceTree", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/tree/JCTree;)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(EndPosTable, replaceTree, int32_t, $JCTree*, $JCTree*)},
-	{"storeEnd", "(Lcom/sun/tools/javac/tree/JCTree;I)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(EndPosTable, storeEnd, void, $JCTree*, int32_t)},
-	{}
-};
-
-$ClassInfo _EndPosTable_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.tools.javac.tree.EndPosTable",
-	nullptr,
-	nullptr,
-	nullptr,
-	_EndPosTable_MethodInfo_
-};
-
-$Object* allocate$EndPosTable($Class* clazz) {
-	return $of($alloc(EndPosTable));
-}
-
 $Class* EndPosTable::load$($String* name, bool initialize) {
-	$loadClass(EndPosTable, name, initialize, &_EndPosTable_ClassInfo_, allocate$EndPosTable);
+	$MethodInfo methodInfos$$[] = {
+		{"getEndPos", "(Lcom/sun/tools/javac/tree/JCTree;)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(EndPosTable, getEndPos, int32_t, $JCTree*)},
+		{"replaceTree", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/tree/JCTree;)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(EndPosTable, replaceTree, int32_t, $JCTree*, $JCTree*)},
+		{"storeEnd", "(Lcom/sun/tools/javac/tree/JCTree;I)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(EndPosTable, storeEnd, void, $JCTree*, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.tools.javac.tree.EndPosTable",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(EndPosTable, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(EndPosTable);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/security/algorithms/implementations/SignatureECDSA.h>
-
 #include <com/sun/org/apache/xml/internal/security/algorithms/JCEMapper.h>
 #include <com/sun/org/apache/xml/internal/security/algorithms/SignatureAlgorithmSpi.h>
 #include <com/sun/org/apache/xml/internal/security/algorithms/implementations/ECDSAUtils.h>
@@ -35,11 +34,9 @@ using $Logger = ::com::sun::org::slf4j::internal::Logger;
 using $LoggerFactory = ::com::sun::org::slf4j::internal::LoggerFactory;
 using $IOException = ::java::io::IOException;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $GeneralSecurityException = ::java::security::GeneralSecurityException;
 using $InvalidAlgorithmParameterException = ::java::security::InvalidAlgorithmParameterException;
 using $Key = ::java::security::Key;
 using $NoSuchAlgorithmException = ::java::security::NoSuchAlgorithmException;
@@ -50,9 +47,6 @@ using $Signature = ::java::security::Signature;
 using $SignatureException = ::java::security::SignatureException;
 using $ECPrivateKey = ::java::security::interfaces::ECPrivateKey;
 using $AlgorithmParameterSpec = ::java::security::spec::AlgorithmParameterSpec;
-using $ECField = ::java::security::spec::ECField;
-using $ECParameterSpec = ::java::security::spec::ECParameterSpec;
-using $EllipticCurve = ::java::security::spec::EllipticCurve;
 
 namespace com {
 	namespace sun {
@@ -63,63 +57,6 @@ namespace com {
 						namespace security {
 							namespace algorithms {
 								namespace implementations {
-
-$FieldInfo _SignatureECDSA_FieldInfo_[] = {
-	{"LOG", "Lcom/sun/org/slf4j/internal/Logger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SignatureECDSA, LOG)},
-	{"signatureAlgorithm", "Ljava/security/Signature;", nullptr, $PRIVATE | $FINAL, $field(SignatureECDSA, signatureAlgorithm)},
-	{"signIntLen", "I", nullptr, $PRIVATE, $field(SignatureECDSA, signIntLen)},
-	{}
-};
-
-$MethodInfo _SignatureECDSA_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SignatureECDSA, init$, void), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
-	{"<init>", "(Ljava/security/Provider;)V", nullptr, $PUBLIC, $method(SignatureECDSA, init$, void, $Provider*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
-	{"convertASN1toXMLDSIG", "([BI)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(SignatureECDSA, convertASN1toXMLDSIG, $bytes*, $bytes*, int32_t), "java.io.IOException"},
-	{"convertXMLDSIGtoASN1", "([B)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(SignatureECDSA, convertXMLDSIGtoASN1, $bytes*, $bytes*), "java.io.IOException"},
-	{"engineGetJCEAlgorithmString", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(SignatureECDSA, engineGetJCEAlgorithmString, $String*)},
-	{"engineGetJCEProviderName", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(SignatureECDSA, engineGetJCEProviderName, $String*)},
-	{"engineInitSign", "(Ljava/security/Key;Ljava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(SignatureECDSA, engineInitSign, void, $Key*, $SecureRandom*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
-	{"engineInitSign", "(Ljava/security/Key;)V", nullptr, $PROTECTED, $virtualMethod(SignatureECDSA, engineInitSign, void, $Key*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
-	{"engineInitSign", "(Ljava/security/Key;Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, $PROTECTED, $virtualMethod(SignatureECDSA, engineInitSign, void, $Key*, $AlgorithmParameterSpec*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
-	{"engineInitVerify", "(Ljava/security/Key;)V", nullptr, $PROTECTED, $virtualMethod(SignatureECDSA, engineInitVerify, void, $Key*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
-	{"engineSetHMACOutputLength", "(I)V", nullptr, $PROTECTED, $virtualMethod(SignatureECDSA, engineSetHMACOutputLength, void, int32_t), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
-	{"engineSetParameter", "(Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, $PROTECTED, $virtualMethod(SignatureECDSA, engineSetParameter, void, $AlgorithmParameterSpec*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
-	{"engineSign", "()[B", nullptr, $PROTECTED, $virtualMethod(SignatureECDSA, engineSign, $bytes*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
-	{"engineUpdate", "([B)V", nullptr, $PROTECTED, $virtualMethod(SignatureECDSA, engineUpdate, void, $bytes*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
-	{"engineUpdate", "(B)V", nullptr, $PROTECTED, $virtualMethod(SignatureECDSA, engineUpdate, void, int8_t), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
-	{"engineUpdate", "([BII)V", nullptr, $PROTECTED, $virtualMethod(SignatureECDSA, engineUpdate, void, $bytes*, int32_t, int32_t), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
-	{"engineVerify", "([B)Z", nullptr, $PROTECTED, $virtualMethod(SignatureECDSA, engineVerify, bool, $bytes*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
-	{}
-};
-
-$InnerClassInfo _SignatureECDSA_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureECDSA$SignatureECDSARIPEMD160", "com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureECDSA", "SignatureECDSARIPEMD160", $PUBLIC | $STATIC},
-	{"com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureECDSA$SignatureECDSASHA512", "com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureECDSA", "SignatureECDSASHA512", $PUBLIC | $STATIC},
-	{"com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureECDSA$SignatureECDSASHA384", "com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureECDSA", "SignatureECDSASHA384", $PUBLIC | $STATIC},
-	{"com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureECDSA$SignatureECDSASHA256", "com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureECDSA", "SignatureECDSASHA256", $PUBLIC | $STATIC},
-	{"com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureECDSA$SignatureECDSASHA224", "com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureECDSA", "SignatureECDSASHA224", $PUBLIC | $STATIC},
-	{"com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureECDSA$SignatureECDSASHA1", "com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureECDSA", "SignatureECDSASHA1", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _SignatureECDSA_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureECDSA",
-	"com.sun.org.apache.xml.internal.security.algorithms.SignatureAlgorithmSpi",
-	nullptr,
-	_SignatureECDSA_FieldInfo_,
-	_SignatureECDSA_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SignatureECDSA_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureECDSA$SignatureECDSARIPEMD160,com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureECDSA$SignatureECDSASHA512,com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureECDSA$SignatureECDSASHA384,com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureECDSA$SignatureECDSASHA256,com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureECDSA$SignatureECDSASHA224,com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureECDSA$SignatureECDSASHA1"
-};
-
-$Object* allocate$SignatureECDSA($Class* clazz) {
-	return $of($alloc(SignatureECDSA));
-}
 
 $Logger* SignatureECDSA::LOG = nullptr;
 
@@ -138,11 +75,11 @@ void SignatureECDSA::init$() {
 }
 
 void SignatureECDSA::init$($Provider* provider) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$SignatureAlgorithmSpi::init$();
 	this->signIntLen = -1;
 	$var($String, algorithmID, $JCEMapper::translateURItoJCEID($(this->engineGetURI())));
-	$nc(SignatureECDSA::LOG)->debug("Created SignatureECDSA using {}"_s, $$new($ObjectArray, {$of(algorithmID)}));
+	$nc(SignatureECDSA::LOG)->debug("Created SignatureECDSA using {}"_s, $$new($ObjectArray, {algorithmID}));
 	try {
 		if (provider == nullptr) {
 			$var($String, providerId, $JCEMapper::getProviderId());
@@ -156,14 +93,14 @@ void SignatureECDSA::init$($Provider* provider) {
 		}
 	} catch ($NoSuchAlgorithmException& ex) {
 		$var($ObjectArray, exArgs, $new($ObjectArray, {
-			$of(algorithmID),
-			$($of(ex->getLocalizedMessage()))
+			algorithmID,
+			$(ex->getLocalizedMessage())
 		}));
 		$throwNew($XMLSignatureException, "algorithms.NoSuchAlgorithm"_s, exArgs);
 	} catch ($NoSuchProviderException& ex) {
 		$var($ObjectArray, exArgs, $new($ObjectArray, {
-			$of(algorithmID),
-			$($of(ex->getLocalizedMessage()))
+			algorithmID,
+			$(ex->getLocalizedMessage())
 		}));
 		$throwNew($XMLSignatureException, "algorithms.NoSuchAlgorithm"_s, exArgs);
 	}
@@ -173,22 +110,22 @@ void SignatureECDSA::engineSetParameter($AlgorithmParameterSpec* params) {
 	try {
 		$nc(this->signatureAlgorithm)->setParameter(params);
 	} catch ($InvalidAlgorithmParameterException& ex) {
-		$throwNew($XMLSignatureException, static_cast<$Exception*>(ex));
+		$throwNew($XMLSignatureException, ex);
 	}
 }
 
 bool SignatureECDSA::engineVerify($bytes* signature) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$var($bytes, jcebytes, SignatureECDSA::convertXMLDSIGtoASN1(signature));
 		if ($nc(SignatureECDSA::LOG)->isDebugEnabled()) {
-			$nc(SignatureECDSA::LOG)->debug($$str({"Called ECDSA.verify() on "_s, $($XMLUtils::encodeToString(signature))}));
+			SignatureECDSA::LOG->debug($$str({"Called ECDSA.verify() on "_s, $($XMLUtils::encodeToString(signature))}));
 		}
 		return $nc(this->signatureAlgorithm)->verify(jcebytes);
 	} catch ($SignatureException& ex) {
-		$throwNew($XMLSignatureException, $cast($Exception, ex));
+		$throwNew($XMLSignatureException, ex);
 	} catch ($IOException& ex) {
-		$throwNew($XMLSignatureException, $cast($Exception, ex));
+		$throwNew($XMLSignatureException, ex);
 	}
 	$shouldNotReachHere();
 }
@@ -202,18 +139,18 @@ $bytes* SignatureECDSA::engineSign() {
 		$var($bytes, jcebytes, $nc(this->signatureAlgorithm)->sign());
 		return SignatureECDSA::convertASN1toXMLDSIG(jcebytes, this->signIntLen);
 	} catch ($SignatureException& ex) {
-		$throwNew($XMLSignatureException, $cast($Exception, ex));
+		$throwNew($XMLSignatureException, ex);
 	} catch ($IOException& ex) {
-		$throwNew($XMLSignatureException, $cast($Exception, ex));
+		$throwNew($XMLSignatureException, ex);
 	}
 	$shouldNotReachHere();
 }
 
 void SignatureECDSA::engineInitSign($Key* privateKey, $SecureRandom* secureRandom) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($instanceOf($ECPrivateKey, privateKey)) {
 		$var($ECPrivateKey, ecKey, $cast($ECPrivateKey, privateKey));
-		this->signIntLen = ($nc($($nc($($nc($($nc(ecKey)->getParams()))->getCurve()))->getField()))->getFieldSize() + 7) / 8;
+		this->signIntLen = ($$nc($$nc($$nc(ecKey->getParams())->getCurve())->getField())->getFieldSize() + 7) / 8;
 	}
 	$SignatureAlgorithmSpi::engineInitSign(privateKey, secureRandom, this->signatureAlgorithm);
 }
@@ -226,7 +163,7 @@ void SignatureECDSA::engineUpdate($bytes* input) {
 	try {
 		$nc(this->signatureAlgorithm)->update(input);
 	} catch ($SignatureException& ex) {
-		$throwNew($XMLSignatureException, static_cast<$Exception*>(ex));
+		$throwNew($XMLSignatureException, ex);
 	}
 }
 
@@ -234,7 +171,7 @@ void SignatureECDSA::engineUpdate(int8_t input) {
 	try {
 		$nc(this->signatureAlgorithm)->update(input);
 	} catch ($SignatureException& ex) {
-		$throwNew($XMLSignatureException, static_cast<$Exception*>(ex));
+		$throwNew($XMLSignatureException, ex);
 	}
 }
 
@@ -242,7 +179,7 @@ void SignatureECDSA::engineUpdate($bytes* buf, int32_t offset, int32_t len) {
 	try {
 		$nc(this->signatureAlgorithm)->update(buf, offset, len);
 	} catch ($SignatureException& ex) {
-		$throwNew($XMLSignatureException, static_cast<$Exception*>(ex));
+		$throwNew($XMLSignatureException, ex);
 	}
 }
 
@@ -251,7 +188,7 @@ $String* SignatureECDSA::engineGetJCEAlgorithmString() {
 }
 
 $String* SignatureECDSA::engineGetJCEProviderName() {
-	return $nc($($nc(this->signatureAlgorithm)->getProvider()))->getName();
+	return $$nc($nc(this->signatureAlgorithm)->getProvider())->getName();
 }
 
 void SignatureECDSA::engineSetHMACOutputLength(int32_t HMACOutputLength) {
@@ -262,7 +199,7 @@ void SignatureECDSA::engineInitSign($Key* signingKey, $AlgorithmParameterSpec* a
 	$throwNew($XMLSignatureException, "algorithms.CannotUseAlgorithmParameterSpecOnRSA"_s);
 }
 
-void clinit$SignatureECDSA($Class* class$) {
+void SignatureECDSA::clinit$($Class* clazz) {
 	$assignStatic(SignatureECDSA::LOG, $LoggerFactory::getLogger(SignatureECDSA::class$));
 }
 
@@ -270,7 +207,58 @@ SignatureECDSA::SignatureECDSA() {
 }
 
 $Class* SignatureECDSA::load$($String* name, bool initialize) {
-	$loadClass(SignatureECDSA, name, initialize, &_SignatureECDSA_ClassInfo_, clinit$SignatureECDSA, allocate$SignatureECDSA);
+	$FieldInfo fieldInfos$$[] = {
+		{"LOG", "Lcom/sun/org/slf4j/internal/Logger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SignatureECDSA, LOG)},
+		{"signatureAlgorithm", "Ljava/security/Signature;", nullptr, $PRIVATE | $FINAL, $field(SignatureECDSA, signatureAlgorithm)},
+		{"signIntLen", "I", nullptr, $PRIVATE, $field(SignatureECDSA, signIntLen)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SignatureECDSA, init$, void), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
+		{"<init>", "(Ljava/security/Provider;)V", nullptr, $PUBLIC, $method(SignatureECDSA, init$, void, $Provider*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
+		{"convertASN1toXMLDSIG", "([BI)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(SignatureECDSA, convertASN1toXMLDSIG, $bytes*, $bytes*, int32_t), "java.io.IOException"},
+		{"convertXMLDSIGtoASN1", "([B)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(SignatureECDSA, convertXMLDSIGtoASN1, $bytes*, $bytes*), "java.io.IOException"},
+		{"engineGetJCEAlgorithmString", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(SignatureECDSA, engineGetJCEAlgorithmString, $String*)},
+		{"engineGetJCEProviderName", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(SignatureECDSA, engineGetJCEProviderName, $String*)},
+		{"engineInitSign", "(Ljava/security/Key;Ljava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(SignatureECDSA, engineInitSign, void, $Key*, $SecureRandom*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
+		{"engineInitSign", "(Ljava/security/Key;)V", nullptr, $PROTECTED, $virtualMethod(SignatureECDSA, engineInitSign, void, $Key*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
+		{"engineInitSign", "(Ljava/security/Key;Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, $PROTECTED, $virtualMethod(SignatureECDSA, engineInitSign, void, $Key*, $AlgorithmParameterSpec*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
+		{"engineInitVerify", "(Ljava/security/Key;)V", nullptr, $PROTECTED, $virtualMethod(SignatureECDSA, engineInitVerify, void, $Key*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
+		{"engineSetHMACOutputLength", "(I)V", nullptr, $PROTECTED, $virtualMethod(SignatureECDSA, engineSetHMACOutputLength, void, int32_t), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
+		{"engineSetParameter", "(Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, $PROTECTED, $virtualMethod(SignatureECDSA, engineSetParameter, void, $AlgorithmParameterSpec*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
+		{"engineSign", "()[B", nullptr, $PROTECTED, $virtualMethod(SignatureECDSA, engineSign, $bytes*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
+		{"engineUpdate", "([B)V", nullptr, $PROTECTED, $virtualMethod(SignatureECDSA, engineUpdate, void, $bytes*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
+		{"engineUpdate", "(B)V", nullptr, $PROTECTED, $virtualMethod(SignatureECDSA, engineUpdate, void, int8_t), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
+		{"engineUpdate", "([BII)V", nullptr, $PROTECTED, $virtualMethod(SignatureECDSA, engineUpdate, void, $bytes*, int32_t, int32_t), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
+		{"engineVerify", "([B)Z", nullptr, $PROTECTED, $virtualMethod(SignatureECDSA, engineVerify, bool, $bytes*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureECDSA$SignatureECDSARIPEMD160", "com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureECDSA", "SignatureECDSARIPEMD160", $PUBLIC | $STATIC},
+		{"com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureECDSA$SignatureECDSASHA512", "com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureECDSA", "SignatureECDSASHA512", $PUBLIC | $STATIC},
+		{"com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureECDSA$SignatureECDSASHA384", "com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureECDSA", "SignatureECDSASHA384", $PUBLIC | $STATIC},
+		{"com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureECDSA$SignatureECDSASHA256", "com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureECDSA", "SignatureECDSASHA256", $PUBLIC | $STATIC},
+		{"com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureECDSA$SignatureECDSASHA224", "com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureECDSA", "SignatureECDSASHA224", $PUBLIC | $STATIC},
+		{"com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureECDSA$SignatureECDSASHA1", "com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureECDSA", "SignatureECDSASHA1", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureECDSA",
+		"com.sun.org.apache.xml.internal.security.algorithms.SignatureAlgorithmSpi",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureECDSA$SignatureECDSARIPEMD160,com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureECDSA$SignatureECDSASHA512,com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureECDSA$SignatureECDSASHA384,com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureECDSA$SignatureECDSASHA256,com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureECDSA$SignatureECDSASHA224,com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureECDSA$SignatureECDSASHA1"
+	};
+	$loadClass(SignatureECDSA, name, initialize, &classInfo$$, SignatureECDSA::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(SignatureECDSA);
+	});
 	return class$;
 }
 

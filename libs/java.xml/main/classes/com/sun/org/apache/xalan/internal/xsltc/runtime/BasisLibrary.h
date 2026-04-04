@@ -144,6 +144,7 @@ class BasisLibrary : public ::java::lang::Object {
 	$class(BasisLibrary, 0, ::java::lang::Object)
 public:
 	BasisLibrary();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static bool booleanF(Object$* obj);
 	static void checkAttribQName($String* name);

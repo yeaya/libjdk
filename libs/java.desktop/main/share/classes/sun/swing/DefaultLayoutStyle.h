@@ -30,6 +30,7 @@ class $export DefaultLayoutStyle : public ::javax::swing::LayoutStyle {
 	$class(DefaultLayoutStyle, 0, ::javax::swing::LayoutStyle)
 public:
 	DefaultLayoutStyle();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void checkPosition(int32_t position);
 	virtual int32_t flipDirection(int32_t position);

@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/PrivilegedExecutor$PrivilegedRunnable.h>
-
 #include <java/io/Serializable.h>
 #include <java/lang/Runnable.h>
 #include <java/lang/invoke/CallSite.h>
@@ -37,76 +36,34 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* run() override {
-		 return $of($nc(inst$)->lambda$run$0());
-	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<PrivilegedExecutor$PrivilegedRunnable$$Lambda$lambda$run$0>());
+		 return $nc(inst$)->lambda$run$0();
 	}
 	PrivilegedExecutor$PrivilegedRunnable* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo PrivilegedExecutor$PrivilegedRunnable$$Lambda$lambda$run$0::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(PrivilegedExecutor$PrivilegedRunnable$$Lambda$lambda$run$0, inst$)},
-	{}
-};
-$MethodInfo PrivilegedExecutor$PrivilegedRunnable$$Lambda$lambda$run$0::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/PrivilegedExecutor$PrivilegedRunnable;)V", nullptr, $PUBLIC, $method(PrivilegedExecutor$PrivilegedRunnable$$Lambda$lambda$run$0, init$, void, PrivilegedExecutor$PrivilegedRunnable*)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(PrivilegedExecutor$PrivilegedRunnable$$Lambda$lambda$run$0, run, $Object*)},
-	{}
-};
-$ClassInfo PrivilegedExecutor$PrivilegedRunnable$$Lambda$lambda$run$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.net.http.PrivilegedExecutor$PrivilegedRunnable$$Lambda$lambda$run$0",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	fieldInfos,
-	methodInfos
 };
 $Class* PrivilegedExecutor$PrivilegedRunnable$$Lambda$lambda$run$0::load$($String* name, bool initialize) {
-	$loadClass(PrivilegedExecutor$PrivilegedRunnable$$Lambda$lambda$run$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(PrivilegedExecutor$PrivilegedRunnable$$Lambda$lambda$run$0, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/internal/net/http/PrivilegedExecutor$PrivilegedRunnable;)V", nullptr, $PUBLIC, $method(PrivilegedExecutor$PrivilegedRunnable$$Lambda$lambda$run$0, init$, void, PrivilegedExecutor$PrivilegedRunnable*)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(PrivilegedExecutor$PrivilegedRunnable$$Lambda$lambda$run$0, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.net.http.PrivilegedExecutor$PrivilegedRunnable$$Lambda$lambda$run$0",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(PrivilegedExecutor$PrivilegedRunnable$$Lambda$lambda$run$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PrivilegedExecutor$PrivilegedRunnable$$Lambda$lambda$run$0);
+	});
 	return class$;
 }
 $Class* PrivilegedExecutor$PrivilegedRunnable$$Lambda$lambda$run$0::class$ = nullptr;
-
-$FieldInfo _PrivilegedExecutor$PrivilegedRunnable_FieldInfo_[] = {
-	{"r", "Ljava/lang/Runnable;", nullptr, $PRIVATE | $FINAL, $field(PrivilegedExecutor$PrivilegedRunnable, r)},
-	{"acc", "Ljava/security/AccessControlContext;", nullptr, $PRIVATE | $FINAL, $field(PrivilegedExecutor$PrivilegedRunnable, acc)},
-	{}
-};
-
-$MethodInfo _PrivilegedExecutor$PrivilegedRunnable_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Runnable;Ljava/security/AccessControlContext;)V", nullptr, 0, $method(PrivilegedExecutor$PrivilegedRunnable, init$, void, $Runnable*, $AccessControlContext*)},
-	{"lambda$run$0", "()Ljava/lang/Void;", nullptr, $PRIVATE | $SYNTHETIC, $method(PrivilegedExecutor$PrivilegedRunnable, lambda$run$0, $Void*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(PrivilegedExecutor$PrivilegedRunnable, run, void)},
-	{}
-};
-
-$InnerClassInfo _PrivilegedExecutor$PrivilegedRunnable_InnerClassesInfo_[] = {
-	{"jdk.internal.net.http.PrivilegedExecutor$PrivilegedRunnable", "jdk.internal.net.http.PrivilegedExecutor", "PrivilegedRunnable", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _PrivilegedExecutor$PrivilegedRunnable_ClassInfo_ = {
-	$ACC_SUPER,
-	"jdk.internal.net.http.PrivilegedExecutor$PrivilegedRunnable",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	_PrivilegedExecutor$PrivilegedRunnable_FieldInfo_,
-	_PrivilegedExecutor$PrivilegedRunnable_MethodInfo_,
-	nullptr,
-	nullptr,
-	_PrivilegedExecutor$PrivilegedRunnable_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.net.http.PrivilegedExecutor"
-};
-
-$Object* allocate$PrivilegedExecutor$PrivilegedRunnable($Class* clazz) {
-	return $of($alloc(PrivilegedExecutor$PrivilegedRunnable));
-}
 
 void PrivilegedExecutor$PrivilegedRunnable::init$($Runnable* r, $AccessControlContext* acc) {
 	$set(this, r, r);
@@ -115,7 +72,7 @@ void PrivilegedExecutor$PrivilegedRunnable::init$($Runnable* r, $AccessControlCo
 
 void PrivilegedExecutor$PrivilegedRunnable::run() {
 	$beforeCallerSensitive();
-	$var($PrivilegedAction, pa, static_cast<$PrivilegedAction*>($new(PrivilegedExecutor$PrivilegedRunnable$$Lambda$lambda$run$0, this)));
+	$var($PrivilegedAction, pa, $new(PrivilegedExecutor$PrivilegedRunnable$$Lambda$lambda$run$0, this));
 	$AccessController::doPrivileged(pa, this->acc);
 }
 
@@ -129,11 +86,43 @@ PrivilegedExecutor$PrivilegedRunnable::PrivilegedExecutor$PrivilegedRunnable() {
 
 $Class* PrivilegedExecutor$PrivilegedRunnable::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(PrivilegedExecutor$PrivilegedRunnable$$Lambda$lambda$run$0::classInfo$.name)) {
+		if (name->equals("jdk.internal.net.http.PrivilegedExecutor$PrivilegedRunnable$$Lambda$lambda$run$0")) {
 			return PrivilegedExecutor$PrivilegedRunnable$$Lambda$lambda$run$0::load$(name, initialize);
 		}
 	}
-	$loadClass(PrivilegedExecutor$PrivilegedRunnable, name, initialize, &_PrivilegedExecutor$PrivilegedRunnable_ClassInfo_, allocate$PrivilegedExecutor$PrivilegedRunnable);
+	$FieldInfo fieldInfos$$[] = {
+		{"r", "Ljava/lang/Runnable;", nullptr, $PRIVATE | $FINAL, $field(PrivilegedExecutor$PrivilegedRunnable, r)},
+		{"acc", "Ljava/security/AccessControlContext;", nullptr, $PRIVATE | $FINAL, $field(PrivilegedExecutor$PrivilegedRunnable, acc)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Runnable;Ljava/security/AccessControlContext;)V", nullptr, 0, $method(PrivilegedExecutor$PrivilegedRunnable, init$, void, $Runnable*, $AccessControlContext*)},
+		{"lambda$run$0", "()Ljava/lang/Void;", nullptr, $PRIVATE | $SYNTHETIC, $method(PrivilegedExecutor$PrivilegedRunnable, lambda$run$0, $Void*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(PrivilegedExecutor$PrivilegedRunnable, run, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.net.http.PrivilegedExecutor$PrivilegedRunnable", "jdk.internal.net.http.PrivilegedExecutor", "PrivilegedRunnable", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"jdk.internal.net.http.PrivilegedExecutor$PrivilegedRunnable",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.net.http.PrivilegedExecutor"
+	};
+	$loadClass(PrivilegedExecutor$PrivilegedRunnable, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PrivilegedExecutor$PrivilegedRunnable);
+	});
 	return class$;
 }
 

@@ -85,6 +85,7 @@ class MethodGen : public ::com::sun::org::apache::bcel::internal::generic::Field
 	$class(MethodGen, 0, ::com::sun::org::apache::bcel::internal::generic::FieldGenOrMethodGen)
 public:
 	MethodGen();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int32_t access_flags, ::com::sun::org::apache::bcel::internal::generic::Type* return_type, $Array<::com::sun::org::apache::bcel::internal::generic::Type>* argTypes, $StringArray* argNames, $String* method_name, $String* className, ::com::sun::org::apache::bcel::internal::generic::InstructionList* il, ::com::sun::org::apache::bcel::internal::generic::ConstantPoolGen* cp);
 	void init$(::com::sun::org::apache::bcel::internal::classfile::Method* method, $String* className, ::com::sun::org::apache::bcel::internal::generic::ConstantPoolGen* cp);
 	virtual void addAnnotationsAsAttribute(::com::sun::org::apache::bcel::internal::generic::ConstantPoolGen* cp);

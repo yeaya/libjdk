@@ -45,6 +45,7 @@ class ConvertingMethod : public ::java::lang::Object {
 	$class(ConvertingMethod, 0, ::java::lang::Object)
 public:
 	ConvertingMethod();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::lang::reflect::Method* m);
 	void checkCallFromOpen();
 	void checkCallToOpen();

@@ -37,6 +37,7 @@ class WFontConfiguration : public ::sun::awt::FontConfiguration {
 	$class(WFontConfiguration, 0, ::sun::awt::FontConfiguration)
 public:
 	WFontConfiguration();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::font::SunFontManager* fm);
 	void init$(::sun::font::SunFontManager* fm, bool preferLocaleFonts, bool preferPropFonts);
 	$String* findFontWithCharset($Array<::sun::awt::FontDescriptor>* fontDescriptors, $String* charset);

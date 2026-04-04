@@ -1,5 +1,4 @@
 #include <javax/swing/JPopupMenu$Separator.h>
-
 #include <javax/swing/JPopupMenu.h>
 #include <javax/swing/JSeparator.h>
 #include <jcpp.h>
@@ -14,37 +13,6 @@ using $JSeparator = ::javax::swing::JSeparator;
 namespace javax {
 	namespace swing {
 
-$MethodInfo _JPopupMenu$Separator_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(JPopupMenu$Separator, init$, void)},
-	{"getUIClassID", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JPopupMenu$Separator, getUIClassID, $String*)},
-	{}
-};
-
-$InnerClassInfo _JPopupMenu$Separator_InnerClassesInfo_[] = {
-	{"javax.swing.JPopupMenu$Separator", "javax.swing.JPopupMenu", "Separator", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _JPopupMenu$Separator_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.JPopupMenu$Separator",
-	"javax.swing.JSeparator",
-	nullptr,
-	nullptr,
-	_JPopupMenu$Separator_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JPopupMenu$Separator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.JPopupMenu"
-};
-
-$Object* allocate$JPopupMenu$Separator($Class* clazz) {
-	return $of($alloc(JPopupMenu$Separator));
-}
-
 void JPopupMenu$Separator::init$() {
 	$JSeparator::init$($JSeparator::HORIZONTAL);
 }
@@ -57,7 +25,33 @@ JPopupMenu$Separator::JPopupMenu$Separator() {
 }
 
 $Class* JPopupMenu$Separator::load$($String* name, bool initialize) {
-	$loadClass(JPopupMenu$Separator, name, initialize, &_JPopupMenu$Separator_ClassInfo_, allocate$JPopupMenu$Separator);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(JPopupMenu$Separator, init$, void)},
+		{"getUIClassID", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JPopupMenu$Separator, getUIClassID, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.JPopupMenu$Separator", "javax.swing.JPopupMenu", "Separator", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.JPopupMenu$Separator",
+		"javax.swing.JSeparator",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.JPopupMenu"
+	};
+	$loadClass(JPopupMenu$Separator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JPopupMenu$Separator));
+	});
 	return class$;
 }
 

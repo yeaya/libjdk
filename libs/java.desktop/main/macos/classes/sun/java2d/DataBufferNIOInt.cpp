@@ -1,5 +1,4 @@
 #include <sun/java2d/DataBufferNIOInt.h>
-
 #include <java/awt/image/DataBuffer.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/nio/ByteOrder.h>
@@ -21,45 +20,11 @@ using $IntBuffer = ::java::nio::IntBuffer;
 namespace sun {
 	namespace java2d {
 
-$FieldInfo _DataBufferNIOInt_FieldInfo_[] = {
-	{"data", "Ljava/nio/IntBuffer;", nullptr, 0, $field(DataBufferNIOInt, data)},
-	{"bankdata", "[Ljava/nio/IntBuffer;", nullptr, 0, $field(DataBufferNIOInt, bankdata)},
-	{}
-};
-
-$MethodInfo _DataBufferNIOInt_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(DataBufferNIOInt, init$, void, int32_t)},
-	{"getBankData", "()[[I", nullptr, $PUBLIC, $method(DataBufferNIOInt, getBankData, $intArray2*)},
-	{"getBuffer", "()Ljava/nio/IntBuffer;", nullptr, $PUBLIC, $method(DataBufferNIOInt, getBuffer, $IntBuffer*)},
-	{"getBuffer", "(I)Ljava/nio/IntBuffer;", nullptr, $PUBLIC, $method(DataBufferNIOInt, getBuffer, $IntBuffer*, int32_t)},
-	{"getBufferOfSize", "(I)Ljava/nio/ByteBuffer;", nullptr, 0, $method(DataBufferNIOInt, getBufferOfSize, $ByteBuffer*, int32_t)},
-	{"getData", "()[I", nullptr, $PUBLIC, $method(DataBufferNIOInt, getData, $ints*)},
-	{"getData", "(I)[I", nullptr, $PUBLIC, $method(DataBufferNIOInt, getData, $ints*, int32_t)},
-	{"getElem", "(I)I", nullptr, $PUBLIC, $virtualMethod(DataBufferNIOInt, getElem, int32_t, int32_t)},
-	{"getElem", "(II)I", nullptr, $PUBLIC, $virtualMethod(DataBufferNIOInt, getElem, int32_t, int32_t, int32_t)},
-	{"setElem", "(II)V", nullptr, $PUBLIC, $virtualMethod(DataBufferNIOInt, setElem, void, int32_t, int32_t)},
-	{"setElem", "(III)V", nullptr, $PUBLIC, $virtualMethod(DataBufferNIOInt, setElem, void, int32_t, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _DataBufferNIOInt_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.java2d.DataBufferNIOInt",
-	"java.awt.image.DataBuffer",
-	nullptr,
-	_DataBufferNIOInt_FieldInfo_,
-	_DataBufferNIOInt_MethodInfo_
-};
-
-$Object* allocate$DataBufferNIOInt($Class* clazz) {
-	return $of($alloc(DataBufferNIOInt));
-}
-
 void DataBufferNIOInt::init$(int32_t size) {
 	$DataBuffer::init$($DataBuffer::TYPE_INT, size);
-	$set(this, data, $nc($(getBufferOfSize(size * 4)))->asIntBuffer());
+	$set(this, data, $$nc(getBufferOfSize(size * 4))->asIntBuffer());
 	$set(this, bankdata, $new($IntBufferArray, 1));
-	$nc(this->bankdata)->set(0, this->data);
+	this->bankdata->set(0, this->data);
 }
 
 $IntBuffer* DataBufferNIOInt::getBuffer() {
@@ -99,7 +64,7 @@ void DataBufferNIOInt::setElem(int32_t bank, int32_t i, int32_t val) {
 }
 
 $ByteBuffer* DataBufferNIOInt::getBufferOfSize(int32_t size) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ByteBuffer, buffer, $ByteBuffer::allocateDirect(size));
 	$nc(buffer)->order($($ByteOrder::nativeOrder()));
 	return buffer;
@@ -109,7 +74,36 @@ DataBufferNIOInt::DataBufferNIOInt() {
 }
 
 $Class* DataBufferNIOInt::load$($String* name, bool initialize) {
-	$loadClass(DataBufferNIOInt, name, initialize, &_DataBufferNIOInt_ClassInfo_, allocate$DataBufferNIOInt);
+	$FieldInfo fieldInfos$$[] = {
+		{"data", "Ljava/nio/IntBuffer;", nullptr, 0, $field(DataBufferNIOInt, data)},
+		{"bankdata", "[Ljava/nio/IntBuffer;", nullptr, 0, $field(DataBufferNIOInt, bankdata)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(DataBufferNIOInt, init$, void, int32_t)},
+		{"getBankData", "()[[I", nullptr, $PUBLIC, $method(DataBufferNIOInt, getBankData, $intArray2*)},
+		{"getBuffer", "()Ljava/nio/IntBuffer;", nullptr, $PUBLIC, $method(DataBufferNIOInt, getBuffer, $IntBuffer*)},
+		{"getBuffer", "(I)Ljava/nio/IntBuffer;", nullptr, $PUBLIC, $method(DataBufferNIOInt, getBuffer, $IntBuffer*, int32_t)},
+		{"getBufferOfSize", "(I)Ljava/nio/ByteBuffer;", nullptr, 0, $method(DataBufferNIOInt, getBufferOfSize, $ByteBuffer*, int32_t)},
+		{"getData", "()[I", nullptr, $PUBLIC, $method(DataBufferNIOInt, getData, $ints*)},
+		{"getData", "(I)[I", nullptr, $PUBLIC, $method(DataBufferNIOInt, getData, $ints*, int32_t)},
+		{"getElem", "(I)I", nullptr, $PUBLIC, $virtualMethod(DataBufferNIOInt, getElem, int32_t, int32_t)},
+		{"getElem", "(II)I", nullptr, $PUBLIC, $virtualMethod(DataBufferNIOInt, getElem, int32_t, int32_t, int32_t)},
+		{"setElem", "(II)V", nullptr, $PUBLIC, $virtualMethod(DataBufferNIOInt, setElem, void, int32_t, int32_t)},
+		{"setElem", "(III)V", nullptr, $PUBLIC, $virtualMethod(DataBufferNIOInt, setElem, void, int32_t, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.java2d.DataBufferNIOInt",
+		"java.awt.image.DataBuffer",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DataBufferNIOInt, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DataBufferNIOInt);
+	});
 	return class$;
 }
 

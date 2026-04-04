@@ -1,10 +1,7 @@
 #include <bug6520101.h>
-
 #include <bug6520101$1.h>
 #include <java/awt/Component.h>
-#include <java/awt/event/ActionListener.h>
 #include <java/lang/InterruptedException.h>
-#include <java/lang/Runnable.h>
 #include <javax/swing/JFileChooser.h>
 #include <javax/swing/Timer.h>
 #include <javax/swing/UIManager.h>
@@ -20,61 +17,14 @@
 
 using $bug6520101$1 = ::bug6520101$1;
 using $Component = ::java::awt::Component;
-using $ActionListener = ::java::awt::event::ActionListener;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $InterruptedException = ::java::lang::InterruptedException;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
 using $JFileChooser = ::javax::swing::JFileChooser;
 using $Timer = ::javax::swing::Timer;
 using $UIManager = ::javax::swing::UIManager;
-
-$FieldInfo _bug6520101_FieldInfo_[] = {
-	{"ATTEMPTS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(bug6520101, ATTEMPTS)},
-	{"INTERVAL", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(bug6520101, INTERVAL)},
-	{"ALWAYS_NEW_INSTANCE", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(bug6520101, ALWAYS_NEW_INSTANCE)},
-	{"DO_GC_EACH_INTERVAL", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(bug6520101, DO_GC_EACH_INTERVAL)},
-	{"UPDATE_UI_EACH_INTERVAL", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(bug6520101, UPDATE_UI_EACH_INTERVAL)},
-	{"AUTO_CLOSE_DIALOG", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(bug6520101, AUTO_CLOSE_DIALOG)},
-	{"CHOOSER", "Ljavax/swing/JFileChooser;", nullptr, $PRIVATE | $STATIC, $staticField(bug6520101, CHOOSER)},
-	{"chooser", "Ljavax/swing/JFileChooser;", nullptr, $PRIVATE | $FINAL, $field(bug6520101, chooser)},
-	{}
-};
-
-$MethodInfo _bug6520101_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/JFileChooser;)V", nullptr, 0, $method(bug6520101, init$, void, $JFileChooser*)},
-	{"doAttempt", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(bug6520101, doAttempt, void), "java.lang.InterruptedException"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(bug6520101, main, void, $StringArray*), "java.lang.Exception"},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug6520101, run, void)},
-	{}
-};
-
-$InnerClassInfo _bug6520101_InnerClassesInfo_[] = {
-	{"bug6520101$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _bug6520101_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"bug6520101",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	_bug6520101_FieldInfo_,
-	_bug6520101_MethodInfo_,
-	nullptr,
-	nullptr,
-	_bug6520101_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"bug6520101$1"
-};
-
-$Object* allocate$bug6520101($Class* clazz) {
-	return $of($alloc(bug6520101));
-}
 
 $JFileChooser* bug6520101::CHOOSER = nullptr;
 
@@ -89,7 +39,7 @@ void bug6520101::main($StringArray* args) {
 
 void bug6520101::doAttempt() {
 	$init(bug6520101);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (bug6520101::CHOOSER == nullptr) {
 		$assignStatic(bug6520101::CHOOSER, $new($JFileChooser, "."_s));
 	}
@@ -97,11 +47,12 @@ void bug6520101::doAttempt() {
 		$nc(bug6520101::CHOOSER)->updateUI();
 	}
 	{
-		$var($Thread, t, $new($Thread, static_cast<$Runnable*>($$new(bug6520101, bug6520101::CHOOSER))));
+		$var($Thread, t, $new($Thread, $$new(bug6520101, bug6520101::CHOOSER)));
 		t->start();
 		$nc(bug6520101::CHOOSER)->showOpenDialog(nullptr);
 		t->join();
 	}
+	;
 }
 
 void bug6520101::init$($JFileChooser* chooser) {
@@ -109,7 +60,7 @@ void bug6520101::init$($JFileChooser* chooser) {
 }
 
 void bug6520101::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	while (!$nc(this->chooser)->isShowing()) {
 		try {
 			$Thread::sleep(30);
@@ -126,7 +77,45 @@ bug6520101::bug6520101() {
 }
 
 $Class* bug6520101::load$($String* name, bool initialize) {
-	$loadClass(bug6520101, name, initialize, &_bug6520101_ClassInfo_, allocate$bug6520101);
+	$FieldInfo fieldInfos$$[] = {
+		{"ATTEMPTS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(bug6520101, ATTEMPTS)},
+		{"INTERVAL", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(bug6520101, INTERVAL)},
+		{"ALWAYS_NEW_INSTANCE", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(bug6520101, ALWAYS_NEW_INSTANCE)},
+		{"DO_GC_EACH_INTERVAL", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(bug6520101, DO_GC_EACH_INTERVAL)},
+		{"UPDATE_UI_EACH_INTERVAL", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(bug6520101, UPDATE_UI_EACH_INTERVAL)},
+		{"AUTO_CLOSE_DIALOG", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(bug6520101, AUTO_CLOSE_DIALOG)},
+		{"CHOOSER", "Ljavax/swing/JFileChooser;", nullptr, $PRIVATE | $STATIC, $staticField(bug6520101, CHOOSER)},
+		{"chooser", "Ljavax/swing/JFileChooser;", nullptr, $PRIVATE | $FINAL, $field(bug6520101, chooser)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/JFileChooser;)V", nullptr, 0, $method(bug6520101, init$, void, $JFileChooser*)},
+		{"doAttempt", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(bug6520101, doAttempt, void), "java.lang.InterruptedException"},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(bug6520101, main, void, $StringArray*), "java.lang.Exception"},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug6520101, run, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"bug6520101$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"bug6520101",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"bug6520101$1"
+	};
+	$loadClass(bug6520101, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(bug6520101);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/security/jgss/krb5/Krb5Token.h>
-
 #include <java/io/IOException.h>
 #include <org/ietf/jgss/Oid.h>
 #include <sun/security/jgss/GSSToken.h>
@@ -19,7 +18,6 @@ using $IOException = ::java::io::IOException;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Oid = ::org::ietf::jgss::Oid;
 using $GSSToken = ::sun::security::jgss::GSSToken;
 using $Krb5MechFactory = ::sun::security::jgss::krb5::Krb5MechFactory;
 using $ObjectIdentifier = ::sun::security::util::ObjectIdentifier;
@@ -28,37 +26,6 @@ namespace sun {
 	namespace security {
 		namespace jgss {
 			namespace krb5 {
-
-$FieldInfo _Krb5Token_FieldInfo_[] = {
-	{"AP_REQ_ID", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Krb5Token, AP_REQ_ID)},
-	{"AP_REP_ID", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Krb5Token, AP_REP_ID)},
-	{"ERR_ID", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Krb5Token, ERR_ID)},
-	{"MIC_ID", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Krb5Token, MIC_ID)},
-	{"WRAP_ID", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Krb5Token, WRAP_ID)},
-	{"MIC_ID_v2", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Krb5Token, MIC_ID_v2)},
-	{"WRAP_ID_v2", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Krb5Token, WRAP_ID_v2)},
-	{"OID", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC, $staticField(Krb5Token, OID)},
-	{}
-};
-
-$MethodInfo _Krb5Token_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(Krb5Token, init$, void)},
-	{"getTokenName", "(I)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Krb5Token, getTokenName, $String*, int32_t)},
-	{}
-};
-
-$ClassInfo _Krb5Token_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"sun.security.jgss.krb5.Krb5Token",
-	"sun.security.jgss.GSSToken",
-	nullptr,
-	_Krb5Token_FieldInfo_,
-	_Krb5Token_MethodInfo_
-};
-
-$Object* allocate$Krb5Token($Class* clazz) {
-	return $of($alloc(Krb5Token));
-}
 
 $ObjectIdentifier* Krb5Token::OID = nullptr;
 
@@ -71,42 +38,29 @@ $String* Krb5Token::getTokenName(int32_t tokenId) {
 	$var($String, retVal, nullptr);
 	switch (tokenId) {
 	case Krb5Token::AP_REQ_ID:
-		{}
 	case Krb5Token::AP_REP_ID:
-		{
-			$assign(retVal, "Context Establishment Token"_s);
-			break;
-		}
+		$assign(retVal, "Context Establishment Token"_s);
+		break;
 	case Krb5Token::MIC_ID:
-		{
-			$assign(retVal, "MIC Token"_s);
-			break;
-		}
+		$assign(retVal, "MIC Token"_s);
+		break;
 	case Krb5Token::MIC_ID_v2:
-		{
-			$assign(retVal, "MIC Token (new format)"_s);
-			break;
-		}
+		$assign(retVal, "MIC Token (new format)"_s);
+		break;
 	case Krb5Token::WRAP_ID:
-		{
-			$assign(retVal, "Wrap Token"_s);
-			break;
-		}
+		$assign(retVal, "Wrap Token"_s);
+		break;
 	case Krb5Token::WRAP_ID_v2:
-		{
-			$assign(retVal, "Wrap Token (new format)"_s);
-			break;
-		}
+		$assign(retVal, "Wrap Token (new format)"_s);
+		break;
 	default:
-		{
-			$assign(retVal, "Kerberos GSS-API Mechanism Token"_s);
-			break;
-		}
+		$assign(retVal, "Kerberos GSS-API Mechanism Token"_s);
+		break;
 	}
 	return retVal;
 }
 
-void clinit$Krb5Token($Class* class$) {
+void Krb5Token::clinit$($Class* clazz) {
 	{
 		try {
 			$init($Krb5MechFactory);
@@ -120,7 +74,33 @@ Krb5Token::Krb5Token() {
 }
 
 $Class* Krb5Token::load$($String* name, bool initialize) {
-	$loadClass(Krb5Token, name, initialize, &_Krb5Token_ClassInfo_, clinit$Krb5Token, allocate$Krb5Token);
+	$FieldInfo fieldInfos$$[] = {
+		{"AP_REQ_ID", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Krb5Token, AP_REQ_ID)},
+		{"AP_REP_ID", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Krb5Token, AP_REP_ID)},
+		{"ERR_ID", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Krb5Token, ERR_ID)},
+		{"MIC_ID", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Krb5Token, MIC_ID)},
+		{"WRAP_ID", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Krb5Token, WRAP_ID)},
+		{"MIC_ID_v2", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Krb5Token, MIC_ID_v2)},
+		{"WRAP_ID_v2", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Krb5Token, WRAP_ID_v2)},
+		{"OID", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC, $staticField(Krb5Token, OID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(Krb5Token, init$, void)},
+		{"getTokenName", "(I)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Krb5Token, getTokenName, $String*, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"sun.security.jgss.krb5.Krb5Token",
+		"sun.security.jgss.GSSToken",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Krb5Token, name, initialize, &classInfo$$, Krb5Token::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Krb5Token);
+	});
 	return class$;
 }
 

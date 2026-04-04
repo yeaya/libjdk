@@ -1,5 +1,4 @@
 #include <com/apple/eawt/_AppEventHandler$_HiddenAppDispatcher.h>
-
 #include <com/apple/eawt/_AppEventHandler$_BooleanAppEventMultiplexor.h>
 #include <com/apple/eawt/_AppEventHandler.h>
 #include <java/awt/desktop/AppHiddenEvent.h>
@@ -19,54 +18,13 @@ namespace com {
 	namespace apple {
 		namespace eawt {
 
-$FieldInfo __AppEventHandler$_HiddenAppDispatcher_FieldInfo_[] = {
-	{"this$0", "Lcom/apple/eawt/_AppEventHandler;", nullptr, $FINAL | $SYNTHETIC, $field(_AppEventHandler$_HiddenAppDispatcher, this$0)},
-	{}
-};
-
-$MethodInfo __AppEventHandler$_HiddenAppDispatcher_MethodInfo_[] = {
-	{"<init>", "(Lcom/apple/eawt/_AppEventHandler;)V", nullptr, 0, $method(_AppEventHandler$_HiddenAppDispatcher, init$, void, $_AppEventHandler*)},
-	{"createEvent", "(Z)Ljava/awt/desktop/AppHiddenEvent;", nullptr, 0, $virtualMethod(_AppEventHandler$_HiddenAppDispatcher, createEvent, $Object*, bool)},
-	{"performFalseEventOn", "(Ljava/awt/desktop/AppHiddenListener;Ljava/awt/desktop/AppHiddenEvent;)V", nullptr, 0, $virtualMethod(_AppEventHandler$_HiddenAppDispatcher, performFalseEventOn, void, $AppHiddenListener*, $AppHiddenEvent*)},
-	{"performFalseEventOn", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $VOLATILE | $SYNTHETIC, $virtualMethod(_AppEventHandler$_HiddenAppDispatcher, performFalseEventOn, void, Object$*, Object$*)},
-	{"performTrueEventOn", "(Ljava/awt/desktop/AppHiddenListener;Ljava/awt/desktop/AppHiddenEvent;)V", nullptr, 0, $virtualMethod(_AppEventHandler$_HiddenAppDispatcher, performTrueEventOn, void, $AppHiddenListener*, $AppHiddenEvent*)},
-	{"performTrueEventOn", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $VOLATILE | $SYNTHETIC, $virtualMethod(_AppEventHandler$_HiddenAppDispatcher, performTrueEventOn, void, Object$*, Object$*)},
-	{}
-};
-
-$InnerClassInfo __AppEventHandler$_HiddenAppDispatcher_InnerClassesInfo_[] = {
-	{"com.apple.eawt._AppEventHandler$_HiddenAppDispatcher", "com.apple.eawt._AppEventHandler", "_HiddenAppDispatcher", 0},
-	{"com.apple.eawt._AppEventHandler$_BooleanAppEventMultiplexor", "com.apple.eawt._AppEventHandler", "_BooleanAppEventMultiplexor", $ABSTRACT},
-	{}
-};
-
-$ClassInfo __AppEventHandler$_HiddenAppDispatcher_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.apple.eawt._AppEventHandler$_HiddenAppDispatcher",
-	"com.apple.eawt._AppEventHandler$_BooleanAppEventMultiplexor",
-	nullptr,
-	__AppEventHandler$_HiddenAppDispatcher_FieldInfo_,
-	__AppEventHandler$_HiddenAppDispatcher_MethodInfo_,
-	"Lcom/apple/eawt/_AppEventHandler$_BooleanAppEventMultiplexor<Ljava/awt/desktop/AppHiddenListener;Ljava/awt/desktop/AppHiddenEvent;>;",
-	nullptr,
-	__AppEventHandler$_HiddenAppDispatcher_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.apple.eawt._AppEventHandler"
-};
-
-$Object* allocate$_AppEventHandler$_HiddenAppDispatcher($Class* clazz) {
-	return $of($alloc(_AppEventHandler$_HiddenAppDispatcher));
-}
-
 void _AppEventHandler$_HiddenAppDispatcher::init$($_AppEventHandler* this$0) {
 	$set(this, this$0, this$0);
 	$_AppEventHandler$_BooleanAppEventMultiplexor::init$(this$0);
 }
 
 $Object* _AppEventHandler$_HiddenAppDispatcher::createEvent(bool isTrue) {
-	return $of($new($AppHiddenEvent));
+	return $new($AppHiddenEvent);
 }
 
 void _AppEventHandler$_HiddenAppDispatcher::performFalseEventOn($AppHiddenListener* listener, $AppHiddenEvent* e) {
@@ -89,7 +47,42 @@ _AppEventHandler$_HiddenAppDispatcher::_AppEventHandler$_HiddenAppDispatcher() {
 }
 
 $Class* _AppEventHandler$_HiddenAppDispatcher::load$($String* name, bool initialize) {
-	$loadClass(_AppEventHandler$_HiddenAppDispatcher, name, initialize, &__AppEventHandler$_HiddenAppDispatcher_ClassInfo_, allocate$_AppEventHandler$_HiddenAppDispatcher);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/apple/eawt/_AppEventHandler;", nullptr, $FINAL | $SYNTHETIC, $field(_AppEventHandler$_HiddenAppDispatcher, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/apple/eawt/_AppEventHandler;)V", nullptr, 0, $method(_AppEventHandler$_HiddenAppDispatcher, init$, void, $_AppEventHandler*)},
+		{"createEvent", "(Z)Ljava/awt/desktop/AppHiddenEvent;", nullptr, 0, $virtualMethod(_AppEventHandler$_HiddenAppDispatcher, createEvent, $Object*, bool)},
+		{"performFalseEventOn", "(Ljava/awt/desktop/AppHiddenListener;Ljava/awt/desktop/AppHiddenEvent;)V", nullptr, 0, $virtualMethod(_AppEventHandler$_HiddenAppDispatcher, performFalseEventOn, void, $AppHiddenListener*, $AppHiddenEvent*)},
+		{"performFalseEventOn", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $VOLATILE | $SYNTHETIC, $virtualMethod(_AppEventHandler$_HiddenAppDispatcher, performFalseEventOn, void, Object$*, Object$*)},
+		{"performTrueEventOn", "(Ljava/awt/desktop/AppHiddenListener;Ljava/awt/desktop/AppHiddenEvent;)V", nullptr, 0, $virtualMethod(_AppEventHandler$_HiddenAppDispatcher, performTrueEventOn, void, $AppHiddenListener*, $AppHiddenEvent*)},
+		{"performTrueEventOn", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $VOLATILE | $SYNTHETIC, $virtualMethod(_AppEventHandler$_HiddenAppDispatcher, performTrueEventOn, void, Object$*, Object$*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.eawt._AppEventHandler$_HiddenAppDispatcher", "com.apple.eawt._AppEventHandler", "_HiddenAppDispatcher", 0},
+		{"com.apple.eawt._AppEventHandler$_BooleanAppEventMultiplexor", "com.apple.eawt._AppEventHandler", "_BooleanAppEventMultiplexor", $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.apple.eawt._AppEventHandler$_HiddenAppDispatcher",
+		"com.apple.eawt._AppEventHandler$_BooleanAppEventMultiplexor",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Lcom/apple/eawt/_AppEventHandler$_BooleanAppEventMultiplexor<Ljava/awt/desktop/AppHiddenListener;Ljava/awt/desktop/AppHiddenEvent;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.apple.eawt._AppEventHandler"
+	};
+	$loadClass(_AppEventHandler$_HiddenAppDispatcher, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(_AppEventHandler$_HiddenAppDispatcher);
+	});
 	return class$;
 }
 

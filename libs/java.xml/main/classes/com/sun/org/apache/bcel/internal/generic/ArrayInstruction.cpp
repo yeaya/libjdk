@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/bcel/internal/generic/ArrayInstruction.h>
-
 #include <com/sun/org/apache/bcel/internal/Const.h>
 #include <com/sun/org/apache/bcel/internal/ExceptionConst$EXCS.h>
 #include <com/sun/org/apache/bcel/internal/ExceptionConst.h>
@@ -55,32 +54,6 @@ namespace com {
 					namespace internal {
 						namespace generic {
 
-$MethodInfo _ArrayInstruction_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "()V", nullptr, 0, $method(ArrayInstruction, init$, void)},
-	{"<init>", "(S)V", nullptr, $PROTECTED, $method(ArrayInstruction, init$, void, int16_t)},
-	{"getExceptions", "()[Ljava/lang/Class;", "()[Ljava/lang/Class<*>;", $PUBLIC, $virtualMethod(ArrayInstruction, getExceptions, $ClassArray*)},
-	{"getType", "(Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;)Lcom/sun/org/apache/bcel/internal/generic/Type;", nullptr, $PUBLIC, $virtualMethod(ArrayInstruction, getType, $Type*, $ConstantPoolGen*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _ArrayInstruction_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"com.sun.org.apache.bcel.internal.generic.ArrayInstruction",
-	"com.sun.org.apache.bcel.internal.generic.Instruction",
-	"com.sun.org.apache.bcel.internal.generic.ExceptionThrower,com.sun.org.apache.bcel.internal.generic.TypedInstruction",
-	nullptr,
-	_ArrayInstruction_MethodInfo_
-};
-
-$Object* allocate$ArrayInstruction($Class* clazz) {
-	return $of($alloc(ArrayInstruction));
-}
-
 $String* ArrayInstruction::toString() {
 	 return this->$Instruction::toString();
 }
@@ -115,69 +88,43 @@ $ClassArray* ArrayInstruction::getExceptions() {
 }
 
 $Type* ArrayInstruction::getType($ConstantPoolGen* cp) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int16_t _opcode = $Instruction::getOpcode();
 	switch (_opcode) {
 	case $Const::IALOAD:
-		{}
 	case $Const::IASTORE:
-		{
-			$init($Type);
-			return $Type::INT;
-		}
+		$init($Type);
+		return $Type::INT;
 	case $Const::CALOAD:
-		{}
 	case $Const::CASTORE:
-		{
-			$init($Type);
-			return $Type::CHAR;
-		}
+		$init($Type);
+		return $Type::CHAR;
 	case $Const::BALOAD:
-		{}
 	case $Const::BASTORE:
-		{
-			$init($Type);
-			return $Type::BYTE;
-		}
+		$init($Type);
+		return $Type::BYTE;
 	case $Const::SALOAD:
-		{}
 	case $Const::SASTORE:
-		{
-			$init($Type);
-			return $Type::SHORT;
-		}
+		$init($Type);
+		return $Type::SHORT;
 	case $Const::LALOAD:
-		{}
 	case $Const::LASTORE:
-		{
-			$init($Type);
-			return $Type::LONG;
-		}
+		$init($Type);
+		return $Type::LONG;
 	case $Const::DALOAD:
-		{}
 	case $Const::DASTORE:
-		{
-			$init($Type);
-			return $Type::DOUBLE;
-		}
+		$init($Type);
+		return $Type::DOUBLE;
 	case $Const::FALOAD:
-		{}
 	case $Const::FASTORE:
-		{
-			$init($Type);
-			return $Type::FLOAT;
-		}
+		$init($Type);
+		return $Type::FLOAT;
 	case $Const::AALOAD:
-		{}
 	case $Const::AASTORE:
-		{
-			$init($Type);
-			return $Type::OBJECT;
-		}
+		$init($Type);
+		return $Type::OBJECT;
 	default:
-		{
-			$throwNew($ClassGenException, $$str({"Unknown case in switch"_s, $$str(_opcode)}));
-		}
+		$throwNew($ClassGenException, $$str({"Unknown case in switch"_s, $$str(_opcode)}));
 	}
 }
 
@@ -185,7 +132,29 @@ ArrayInstruction::ArrayInstruction() {
 }
 
 $Class* ArrayInstruction::load$($String* name, bool initialize) {
-	$loadClass(ArrayInstruction, name, initialize, &_ArrayInstruction_ClassInfo_, allocate$ArrayInstruction);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC},
+		{"<init>", "()V", nullptr, 0, $method(ArrayInstruction, init$, void)},
+		{"<init>", "(S)V", nullptr, $PROTECTED, $method(ArrayInstruction, init$, void, int16_t)},
+		{"getExceptions", "()[Ljava/lang/Class;", "()[Ljava/lang/Class<*>;", $PUBLIC, $virtualMethod(ArrayInstruction, getExceptions, $ClassArray*)},
+		{"getType", "(Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;)Lcom/sun/org/apache/bcel/internal/generic/Type;", nullptr, $PUBLIC, $virtualMethod(ArrayInstruction, getType, $Type*, $ConstantPoolGen*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"com.sun.org.apache.bcel.internal.generic.ArrayInstruction",
+		"com.sun.org.apache.bcel.internal.generic.Instruction",
+		"com.sun.org.apache.bcel.internal.generic.ExceptionThrower,com.sun.org.apache.bcel.internal.generic.TypedInstruction",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ArrayInstruction, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ArrayInstruction));
+	});
 	return class$;
 }
 

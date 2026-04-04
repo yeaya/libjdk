@@ -36,6 +36,7 @@ class $import DefaultPersistenceDelegate : public ::java::beans::PersistenceDele
 	$class(DefaultPersistenceDelegate, 0, ::java::beans::PersistenceDelegate)
 public:
 	DefaultPersistenceDelegate();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$($StringArray* constructorPropertyNames);
 	static bool definesEquals($Class* type);

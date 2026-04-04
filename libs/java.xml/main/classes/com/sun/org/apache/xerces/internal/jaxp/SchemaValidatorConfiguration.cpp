@@ -1,12 +1,10 @@
 #include <com/sun/org/apache/xerces/internal/jaxp/SchemaValidatorConfiguration.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/Constants.h>
 #include <com/sun/org/apache/xerces/internal/impl/XMLErrorReporter.h>
 #include <com/sun/org/apache/xerces/internal/impl/validation/ValidationManager.h>
 #include <com/sun/org/apache/xerces/internal/impl/xs/XSMessageFormatter.h>
 #include <com/sun/org/apache/xerces/internal/jaxp/validation/XSGrammarPoolContainer.h>
 #include <com/sun/org/apache/xerces/internal/util/FeatureState.h>
-#include <com/sun/org/apache/xerces/internal/util/MessageFormatter.h>
 #include <com/sun/org/apache/xerces/internal/util/PropertyState.h>
 #include <com/sun/org/apache/xerces/internal/util/Status.h>
 #include <com/sun/org/apache/xerces/internal/xni/grammars/XMLGrammarPool.h>
@@ -38,7 +36,6 @@ using $ValidationManager = ::com::sun::org::apache::xerces::internal::impl::vali
 using $XSMessageFormatter = ::com::sun::org::apache::xerces::internal::impl::xs::XSMessageFormatter;
 using $XSGrammarPoolContainer = ::com::sun::org::apache::xerces::internal::jaxp::validation::XSGrammarPoolContainer;
 using $FeatureState = ::com::sun::org::apache::xerces::internal::util::FeatureState;
-using $MessageFormatter = ::com::sun::org::apache::xerces::internal::util::MessageFormatter;
 using $PropertyState = ::com::sun::org::apache::xerces::internal::util::PropertyState;
 using $XMLComponentManager = ::com::sun::org::apache::xerces::internal::xni::parser::XMLComponentManager;
 using $XMLConfigurationException = ::com::sun::org::apache::xerces::internal::xni::parser::XMLConfigurationException;
@@ -54,45 +51,6 @@ namespace com {
 					namespace internal {
 						namespace jaxp {
 
-$FieldInfo _SchemaValidatorConfiguration_FieldInfo_[] = {
-	{"SCHEMA_VALIDATION", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SchemaValidatorConfiguration, SCHEMA_VALIDATION)},
-	{"VALIDATION", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SchemaValidatorConfiguration, VALIDATION)},
-	{"USE_GRAMMAR_POOL_ONLY", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SchemaValidatorConfiguration, USE_GRAMMAR_POOL_ONLY)},
-	{"PARSER_SETTINGS", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SchemaValidatorConfiguration, PARSER_SETTINGS)},
-	{"ERROR_REPORTER", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SchemaValidatorConfiguration, ERROR_REPORTER)},
-	{"VALIDATION_MANAGER", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SchemaValidatorConfiguration, VALIDATION_MANAGER)},
-	{"XMLGRAMMAR_POOL", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SchemaValidatorConfiguration, XMLGRAMMAR_POOL)},
-	{"fParentComponentManager", "Lcom/sun/org/apache/xerces/internal/xni/parser/XMLComponentManager;", nullptr, $PRIVATE | $FINAL, $field(SchemaValidatorConfiguration, fParentComponentManager)},
-	{"fGrammarPool", "Lcom/sun/org/apache/xerces/internal/xni/grammars/XMLGrammarPool;", nullptr, $PRIVATE | $FINAL, $field(SchemaValidatorConfiguration, fGrammarPool)},
-	{"fUseGrammarPoolOnly", "Z", nullptr, $PRIVATE | $FINAL, $field(SchemaValidatorConfiguration, fUseGrammarPoolOnly)},
-	{"fValidationManager", "Lcom/sun/org/apache/xerces/internal/impl/validation/ValidationManager;", nullptr, $PRIVATE | $FINAL, $field(SchemaValidatorConfiguration, fValidationManager)},
-	{}
-};
-
-$MethodInfo _SchemaValidatorConfiguration_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/org/apache/xerces/internal/xni/parser/XMLComponentManager;Lcom/sun/org/apache/xerces/internal/jaxp/validation/XSGrammarPoolContainer;Lcom/sun/org/apache/xerces/internal/impl/validation/ValidationManager;)V", nullptr, $PUBLIC, $method(SchemaValidatorConfiguration, init$, void, $XMLComponentManager*, $XSGrammarPoolContainer*, $ValidationManager*)},
-	{"getFeature", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(SchemaValidatorConfiguration, getFeature, bool, $String*), "com.sun.org.apache.xerces.internal.xni.parser.XMLConfigurationException"},
-	{"getFeature", "(Ljava/lang/String;Z)Z", nullptr, $PUBLIC, $virtualMethod(SchemaValidatorConfiguration, getFeature, bool, $String*, bool)},
-	{"getFeatureState", "(Ljava/lang/String;)Lcom/sun/org/apache/xerces/internal/util/FeatureState;", nullptr, $PUBLIC, $virtualMethod(SchemaValidatorConfiguration, getFeatureState, $FeatureState*, $String*)},
-	{"getProperty", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SchemaValidatorConfiguration, getProperty, $Object*, $String*), "com.sun.org.apache.xerces.internal.xni.parser.XMLConfigurationException"},
-	{"getProperty", "(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SchemaValidatorConfiguration, getProperty, $Object*, $String*, Object$*)},
-	{"getPropertyState", "(Ljava/lang/String;)Lcom/sun/org/apache/xerces/internal/util/PropertyState;", nullptr, $PUBLIC, $virtualMethod(SchemaValidatorConfiguration, getPropertyState, $PropertyState*, $String*)},
-	{}
-};
-
-$ClassInfo _SchemaValidatorConfiguration_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.jaxp.SchemaValidatorConfiguration",
-	"java.lang.Object",
-	"com.sun.org.apache.xerces.internal.xni.parser.XMLComponentManager",
-	_SchemaValidatorConfiguration_FieldInfo_,
-	_SchemaValidatorConfiguration_MethodInfo_
-};
-
-$Object* allocate$SchemaValidatorConfiguration($Class* clazz) {
-	return $of($alloc(SchemaValidatorConfiguration));
-}
-
 $String* SchemaValidatorConfiguration::SCHEMA_VALIDATION = nullptr;
 $String* SchemaValidatorConfiguration::VALIDATION = nullptr;
 $String* SchemaValidatorConfiguration::USE_GRAMMAR_POOL_ONLY = nullptr;
@@ -102,7 +60,7 @@ $String* SchemaValidatorConfiguration::VALIDATION_MANAGER = nullptr;
 $String* SchemaValidatorConfiguration::XMLGRAMMAR_POOL = nullptr;
 
 void SchemaValidatorConfiguration::init$($XMLComponentManager* parentManager, $XSGrammarPoolContainer* grammarContainer, $ValidationManager* validationManager) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, fParentComponentManager, parentManager);
 	$set(this, fGrammarPool, $nc(grammarContainer)->getGrammarPool());
 	this->fUseGrammarPoolOnly = grammarContainer->isFullyComposed();
@@ -122,17 +80,17 @@ bool SchemaValidatorConfiguration::getFeature($String* featureId) {
 	if ($nc(state)->isExceptional()) {
 		$throwNew($XMLConfigurationException, state->status, featureId);
 	}
-	return $nc(state)->state;
+	return state->state;
 }
 
 $FeatureState* SchemaValidatorConfiguration::getFeatureState($String* featureId) {
-	if ($nc(SchemaValidatorConfiguration::PARSER_SETTINGS)->equals(featureId)) {
+	if (SchemaValidatorConfiguration::PARSER_SETTINGS->equals(featureId)) {
 		return $nc(this->fParentComponentManager)->getFeatureState(featureId);
 	} else {
-		bool var$1 = $nc(SchemaValidatorConfiguration::VALIDATION)->equals(featureId);
-		if (var$1 || $nc(SchemaValidatorConfiguration::SCHEMA_VALIDATION)->equals(featureId)) {
+		bool var$0 = SchemaValidatorConfiguration::VALIDATION->equals(featureId);
+		if (var$0 || SchemaValidatorConfiguration::SCHEMA_VALIDATION->equals(featureId)) {
 			return $FeatureState::is(true);
-		} else if ($nc(SchemaValidatorConfiguration::USE_GRAMMAR_POOL_ONLY)->equals(featureId)) {
+		} else if (SchemaValidatorConfiguration::USE_GRAMMAR_POOL_ONLY->equals(featureId)) {
 			return $FeatureState::is(this->fUseGrammarPoolOnly);
 		}
 	}
@@ -140,9 +98,9 @@ $FeatureState* SchemaValidatorConfiguration::getFeatureState($String* featureId)
 }
 
 $PropertyState* SchemaValidatorConfiguration::getPropertyState($String* propertyId) {
-	if ($nc(SchemaValidatorConfiguration::XMLGRAMMAR_POOL)->equals(propertyId)) {
+	if (SchemaValidatorConfiguration::XMLGRAMMAR_POOL->equals(propertyId)) {
 		return $PropertyState::is(this->fGrammarPool);
-	} else if ($nc(SchemaValidatorConfiguration::VALIDATION_MANAGER)->equals(propertyId)) {
+	} else if (SchemaValidatorConfiguration::VALIDATION_MANAGER->equals(propertyId)) {
 		return $PropertyState::is(this->fValidationManager);
 	}
 	return $nc(this->fParentComponentManager)->getPropertyState(propertyId);
@@ -153,7 +111,7 @@ $Object* SchemaValidatorConfiguration::getProperty($String* propertyId) {
 	if ($nc(state)->isExceptional()) {
 		$throwNew($XMLConfigurationException, state->status, propertyId);
 	}
-	return $of($nc(state)->state);
+	return state->state;
 }
 
 bool SchemaValidatorConfiguration::getFeature($String* featureId, bool defaultValue) {
@@ -161,7 +119,7 @@ bool SchemaValidatorConfiguration::getFeature($String* featureId, bool defaultVa
 	if ($nc(state)->isExceptional()) {
 		return defaultValue;
 	}
-	return $nc(state)->state;
+	return state->state;
 }
 
 $Object* SchemaValidatorConfiguration::getProperty($String* propertyId, Object$* defaultValue) {
@@ -169,13 +127,13 @@ $Object* SchemaValidatorConfiguration::getProperty($String* propertyId, Object$*
 	if ($nc(state)->isExceptional()) {
 		return $of(defaultValue);
 	}
-	return $of($nc(state)->state);
+	return state->state;
 }
 
 SchemaValidatorConfiguration::SchemaValidatorConfiguration() {
 }
 
-void clinit$SchemaValidatorConfiguration($Class* class$) {
+void SchemaValidatorConfiguration::clinit$($Class* clazz) {
 	$init($Constants);
 	$assignStatic(SchemaValidatorConfiguration::SCHEMA_VALIDATION, $str({$Constants::XERCES_FEATURE_PREFIX, $Constants::SCHEMA_VALIDATION_FEATURE}));
 	$assignStatic(SchemaValidatorConfiguration::VALIDATION, $str({$Constants::SAX_FEATURE_PREFIX, $Constants::VALIDATION_FEATURE}));
@@ -187,7 +145,41 @@ void clinit$SchemaValidatorConfiguration($Class* class$) {
 }
 
 $Class* SchemaValidatorConfiguration::load$($String* name, bool initialize) {
-	$loadClass(SchemaValidatorConfiguration, name, initialize, &_SchemaValidatorConfiguration_ClassInfo_, clinit$SchemaValidatorConfiguration, allocate$SchemaValidatorConfiguration);
+	$FieldInfo fieldInfos$$[] = {
+		{"SCHEMA_VALIDATION", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SchemaValidatorConfiguration, SCHEMA_VALIDATION)},
+		{"VALIDATION", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SchemaValidatorConfiguration, VALIDATION)},
+		{"USE_GRAMMAR_POOL_ONLY", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SchemaValidatorConfiguration, USE_GRAMMAR_POOL_ONLY)},
+		{"PARSER_SETTINGS", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SchemaValidatorConfiguration, PARSER_SETTINGS)},
+		{"ERROR_REPORTER", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SchemaValidatorConfiguration, ERROR_REPORTER)},
+		{"VALIDATION_MANAGER", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SchemaValidatorConfiguration, VALIDATION_MANAGER)},
+		{"XMLGRAMMAR_POOL", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SchemaValidatorConfiguration, XMLGRAMMAR_POOL)},
+		{"fParentComponentManager", "Lcom/sun/org/apache/xerces/internal/xni/parser/XMLComponentManager;", nullptr, $PRIVATE | $FINAL, $field(SchemaValidatorConfiguration, fParentComponentManager)},
+		{"fGrammarPool", "Lcom/sun/org/apache/xerces/internal/xni/grammars/XMLGrammarPool;", nullptr, $PRIVATE | $FINAL, $field(SchemaValidatorConfiguration, fGrammarPool)},
+		{"fUseGrammarPoolOnly", "Z", nullptr, $PRIVATE | $FINAL, $field(SchemaValidatorConfiguration, fUseGrammarPoolOnly)},
+		{"fValidationManager", "Lcom/sun/org/apache/xerces/internal/impl/validation/ValidationManager;", nullptr, $PRIVATE | $FINAL, $field(SchemaValidatorConfiguration, fValidationManager)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/org/apache/xerces/internal/xni/parser/XMLComponentManager;Lcom/sun/org/apache/xerces/internal/jaxp/validation/XSGrammarPoolContainer;Lcom/sun/org/apache/xerces/internal/impl/validation/ValidationManager;)V", nullptr, $PUBLIC, $method(SchemaValidatorConfiguration, init$, void, $XMLComponentManager*, $XSGrammarPoolContainer*, $ValidationManager*)},
+		{"getFeature", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(SchemaValidatorConfiguration, getFeature, bool, $String*), "com.sun.org.apache.xerces.internal.xni.parser.XMLConfigurationException"},
+		{"getFeature", "(Ljava/lang/String;Z)Z", nullptr, $PUBLIC, $virtualMethod(SchemaValidatorConfiguration, getFeature, bool, $String*, bool)},
+		{"getFeatureState", "(Ljava/lang/String;)Lcom/sun/org/apache/xerces/internal/util/FeatureState;", nullptr, $PUBLIC, $virtualMethod(SchemaValidatorConfiguration, getFeatureState, $FeatureState*, $String*)},
+		{"getProperty", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SchemaValidatorConfiguration, getProperty, $Object*, $String*), "com.sun.org.apache.xerces.internal.xni.parser.XMLConfigurationException"},
+		{"getProperty", "(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SchemaValidatorConfiguration, getProperty, $Object*, $String*, Object$*)},
+		{"getPropertyState", "(Ljava/lang/String;)Lcom/sun/org/apache/xerces/internal/util/PropertyState;", nullptr, $PUBLIC, $virtualMethod(SchemaValidatorConfiguration, getPropertyState, $PropertyState*, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.jaxp.SchemaValidatorConfiguration",
+		"java.lang.Object",
+		"com.sun.org.apache.xerces.internal.xni.parser.XMLComponentManager",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SchemaValidatorConfiguration, name, initialize, &classInfo$$, SchemaValidatorConfiguration::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(SchemaValidatorConfiguration);
+	});
 	return class$;
 }
 

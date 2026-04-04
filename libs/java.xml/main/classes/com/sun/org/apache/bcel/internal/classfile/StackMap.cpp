@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/bcel/internal/classfile/StackMap.h>
-
 #include <com/sun/org/apache/bcel/internal/Const.h>
 #include <com/sun/org/apache/bcel/internal/classfile/Attribute.h>
 #include <com/sun/org/apache/bcel/internal/classfile/ConstantPool.h>
@@ -31,61 +30,28 @@ namespace com {
 					namespace internal {
 						namespace classfile {
 
-$FieldInfo _StackMap_FieldInfo_[] = {
-	{"map", "[Lcom/sun/org/apache/bcel/internal/classfile/StackMapEntry;", nullptr, $PRIVATE, $field(StackMap, map)},
-	{}
-};
-
-$MethodInfo _StackMap_MethodInfo_[] = {
-	{"<init>", "(II[Lcom/sun/org/apache/bcel/internal/classfile/StackMapEntry;Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;)V", nullptr, $PUBLIC, $method(StackMap, init$, void, int32_t, int32_t, $StackMapEntryArray*, $ConstantPool*)},
-	{"<init>", "(IILjava/io/DataInput;Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;)V", nullptr, 0, $method(StackMap, init$, void, int32_t, int32_t, $DataInput*, $ConstantPool*), "java.io.IOException"},
-	{"accept", "(Lcom/sun/org/apache/bcel/internal/classfile/Visitor;)V", nullptr, $PUBLIC, $virtualMethod(StackMap, accept, void, $Visitor*)},
-	{"copy", "(Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;)Lcom/sun/org/apache/bcel/internal/classfile/Attribute;", nullptr, $PUBLIC, $virtualMethod(StackMap, copy, $Attribute*, $ConstantPool*)},
-	{"dump", "(Ljava/io/DataOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(StackMap, dump, void, $DataOutputStream*), "java.io.IOException"},
-	{"getMapLength", "()I", nullptr, $PUBLIC, $method(StackMap, getMapLength, int32_t)},
-	{"getStackMap", "()[Lcom/sun/org/apache/bcel/internal/classfile/StackMapEntry;", nullptr, $PUBLIC, $method(StackMap, getStackMap, $StackMapEntryArray*)},
-	{"setStackMap", "([Lcom/sun/org/apache/bcel/internal/classfile/StackMapEntry;)V", nullptr, $PUBLIC, $method(StackMap, setStackMap, void, $StackMapEntryArray*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StackMap, toString, $String*)},
-	{}
-};
-
-$ClassInfo _StackMap_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.org.apache.bcel.internal.classfile.StackMap",
-	"com.sun.org.apache.bcel.internal.classfile.Attribute",
-	nullptr,
-	_StackMap_FieldInfo_,
-	_StackMap_MethodInfo_
-};
-
-$Object* allocate$StackMap($Class* clazz) {
-	return $of($alloc(StackMap));
-}
-
 void StackMap::init$(int32_t name_index, int32_t length, $StackMapEntryArray* map, $ConstantPool* constant_pool) {
 	$Attribute::init$($Const::ATTR_STACK_MAP, name_index, length, constant_pool);
 	$set(this, map, map);
 }
 
 void StackMap::init$(int32_t name_index, int32_t length, $DataInput* input, $ConstantPool* constant_pool) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	StackMap::init$(name_index, length, ($StackMapEntryArray*)nullptr, constant_pool);
 	int32_t map_length = $nc(input)->readUnsignedShort();
 	$set(this, map, $new($StackMapEntryArray, map_length));
 	for (int32_t i = 0; i < map_length; ++i) {
-		$nc(this->map)->set(i, $$new($StackMapEntry, input, constant_pool));
+		this->map->set(i, $$new($StackMapEntry, input, constant_pool));
 	}
 }
 
 void StackMap::dump($DataOutputStream* file) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Attribute::dump(file);
 	$nc(file)->writeShort($nc(this->map)->length);
 	{
 		$var($StackMapEntryArray, arr$, this->map);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($StackMapEntry, entry, arr$->get(i$));
 			{
 				$nc(entry)->dump(file);
@@ -99,14 +65,12 @@ $StackMapEntryArray* StackMap::getStackMap() {
 }
 
 void StackMap::setStackMap($StackMapEntryArray* map) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, map, map);
 	int32_t len = 2;
 	{
 		$var($StackMapEntryArray, arr$, map);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($StackMapEntry, element, arr$->get(i$));
 			{
 				len += $nc(element)->getMapEntrySize();
@@ -119,8 +83,8 @@ void StackMap::setStackMap($StackMapEntryArray* map) {
 $String* StackMap::toString() {
 	$var($StringBuilder, buf, $new($StringBuilder, "StackMap("_s));
 	for (int32_t i = 0; i < $nc(this->map)->length; ++i) {
-		buf->append($of($nc(this->map)->get(i)));
-		if (i < $nc(this->map)->length - 1) {
+		buf->append(this->map->get(i));
+		if (i < this->map->length - 1) {
 			buf->append(", "_s);
 		}
 	}
@@ -129,11 +93,11 @@ $String* StackMap::toString() {
 }
 
 $Attribute* StackMap::copy($ConstantPool* _constant_pool) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(StackMap, c, $cast(StackMap, clone()));
 	$set($nc(c), map, $new($StackMapEntryArray, $nc(this->map)->length));
 	for (int32_t i = 0; i < $nc(this->map)->length; ++i) {
-		$nc(c->map)->set(i, $($nc($nc(this->map)->get(i))->copy()));
+		$nc(c->map)->set(i, $($nc(this->map->get(i))->copy()));
 	}
 	c->setConstantPool(_constant_pool);
 	return c;
@@ -144,14 +108,40 @@ void StackMap::accept($Visitor* v) {
 }
 
 int32_t StackMap::getMapLength() {
-	return this->map == nullptr ? 0 : $nc(this->map)->length;
+	return this->map == nullptr ? 0 : this->map->length;
 }
 
 StackMap::StackMap() {
 }
 
 $Class* StackMap::load$($String* name, bool initialize) {
-	$loadClass(StackMap, name, initialize, &_StackMap_ClassInfo_, allocate$StackMap);
+	$FieldInfo fieldInfos$$[] = {
+		{"map", "[Lcom/sun/org/apache/bcel/internal/classfile/StackMapEntry;", nullptr, $PRIVATE, $field(StackMap, map)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(II[Lcom/sun/org/apache/bcel/internal/classfile/StackMapEntry;Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;)V", nullptr, $PUBLIC, $method(StackMap, init$, void, int32_t, int32_t, $StackMapEntryArray*, $ConstantPool*)},
+		{"<init>", "(IILjava/io/DataInput;Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;)V", nullptr, 0, $method(StackMap, init$, void, int32_t, int32_t, $DataInput*, $ConstantPool*), "java.io.IOException"},
+		{"accept", "(Lcom/sun/org/apache/bcel/internal/classfile/Visitor;)V", nullptr, $PUBLIC, $virtualMethod(StackMap, accept, void, $Visitor*)},
+		{"copy", "(Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;)Lcom/sun/org/apache/bcel/internal/classfile/Attribute;", nullptr, $PUBLIC, $virtualMethod(StackMap, copy, $Attribute*, $ConstantPool*)},
+		{"dump", "(Ljava/io/DataOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(StackMap, dump, void, $DataOutputStream*), "java.io.IOException"},
+		{"getMapLength", "()I", nullptr, $PUBLIC, $method(StackMap, getMapLength, int32_t)},
+		{"getStackMap", "()[Lcom/sun/org/apache/bcel/internal/classfile/StackMapEntry;", nullptr, $PUBLIC, $method(StackMap, getStackMap, $StackMapEntryArray*)},
+		{"setStackMap", "([Lcom/sun/org/apache/bcel/internal/classfile/StackMapEntry;)V", nullptr, $PUBLIC, $method(StackMap, setStackMap, void, $StackMapEntryArray*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StackMap, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.org.apache.bcel.internal.classfile.StackMap",
+		"com.sun.org.apache.bcel.internal.classfile.Attribute",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(StackMap, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(StackMap));
+	});
 	return class$;
 }
 

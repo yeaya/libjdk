@@ -1,5 +1,4 @@
 #include <sun/awt/X11/UnsafeXDisposerRecord.h>
-
 #include <jdk/internal/misc/Unsafe.h>
 #include <sun/awt/SunToolkit.h>
 #include <sun/awt/X11/Native.h>
@@ -24,37 +23,6 @@ using $PlatformLogger$Level = ::sun::util::logging::PlatformLogger$Level;
 namespace sun {
 	namespace awt {
 		namespace X11 {
-
-$FieldInfo _UnsafeXDisposerRecord_FieldInfo_[] = {
-	{"log", "Lsun/util/logging/PlatformLogger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(UnsafeXDisposerRecord, log)},
-	{"unsafe", "Ljdk/internal/misc/Unsafe;", nullptr, $PRIVATE | $STATIC, $staticField(UnsafeXDisposerRecord, unsafe)},
-	{"unsafe_ptrs", "[J", nullptr, $FINAL, $field(UnsafeXDisposerRecord, unsafe_ptrs)},
-	{"x_ptrs", "[J", nullptr, $FINAL, $field(UnsafeXDisposerRecord, x_ptrs)},
-	{"name", "Ljava/lang/String;", nullptr, $FINAL, $field(UnsafeXDisposerRecord, name)},
-	{"disposed", "Z", nullptr, $VOLATILE, $field(UnsafeXDisposerRecord, disposed)},
-	{"place", "Ljava/lang/Throwable;", nullptr, $FINAL, $field(UnsafeXDisposerRecord, place)},
-	{}
-};
-
-$MethodInfo _UnsafeXDisposerRecord_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;[J[J)V", nullptr, $PUBLIC, $method(UnsafeXDisposerRecord, init$, void, $String*, $longs*, $longs*)},
-	{"<init>", "(Ljava/lang/String;[J)V", nullptr, $PUBLIC | $TRANSIENT, $method(UnsafeXDisposerRecord, init$, void, $String*, $longs*)},
-	{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(UnsafeXDisposerRecord, dispose, void)},
-	{}
-};
-
-$ClassInfo _UnsafeXDisposerRecord_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.awt.X11.UnsafeXDisposerRecord",
-	"java.lang.Object",
-	"sun.java2d.DisposerRecord",
-	_UnsafeXDisposerRecord_FieldInfo_,
-	_UnsafeXDisposerRecord_MethodInfo_
-};
-
-$Object* allocate$UnsafeXDisposerRecord($Class* clazz) {
-	return $of($alloc(UnsafeXDisposerRecord));
-}
 
 $PlatformLogger* UnsafeXDisposerRecord::log = nullptr;
 $Unsafe* UnsafeXDisposerRecord::unsafe = nullptr;
@@ -84,69 +52,55 @@ void UnsafeXDisposerRecord::init$($String* name, $longs* unsafe_ptrs) {
 }
 
 void UnsafeXDisposerRecord::dispose() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$XToolkit::awtLock();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			if (!this->disposed) {
-				$init($XlibWrapper);
-				bool var$1 = $XlibWrapper::isBuildInternal && "Java2D Disposer"_s->equals($($($Thread::currentThread())->getName()));
-				$init($PlatformLogger$Level);
-				if (var$1 && $nc(UnsafeXDisposerRecord::log)->isLoggable($PlatformLogger$Level::WARNING)) {
-					if (this->place != nullptr) {
-						$nc(UnsafeXDisposerRecord::log)->warning($$str({this->name, " object was not disposed before finalization!"_s}), this->place);
-					} else {
-						$nc(UnsafeXDisposerRecord::log)->warning($$str({this->name, " object was not disposed before finalization!"_s}));
-					}
+	$var($Throwable, var$0, nullptr);
+	try {
+		if (!this->disposed) {
+			$init($XlibWrapper);
+			bool var$1 = $XlibWrapper::isBuildInternal && "Java2D Disposer"_s->equals($($($Thread::currentThread())->getName()));
+			$init($PlatformLogger$Level);
+			if (var$1 && $nc(UnsafeXDisposerRecord::log)->isLoggable($PlatformLogger$Level::WARNING)) {
+				if (this->place != nullptr) {
+					UnsafeXDisposerRecord::log->warning($$str({this->name, " object was not disposed before finalization!"_s}), this->place);
+				} else {
+					UnsafeXDisposerRecord::log->warning($$str({this->name, " object was not disposed before finalization!"_s}));
 				}
-				if (this->unsafe_ptrs != nullptr) {
-					{
-						$var($longs, arr$, this->unsafe_ptrs);
-						int32_t len$ = $nc(arr$)->length;
-						int32_t i$ = 0;
-						for (; i$ < len$; ++i$) {
-							int64_t l = arr$->get(i$);
-							{
-								if (l != 0) {
-									$nc(UnsafeXDisposerRecord::unsafe)->freeMemory(l);
-								}
-							}
-						}
-					}
-				}
-				if (this->x_ptrs != nullptr) {
-					{
-						$var($longs, arr$, this->x_ptrs);
-						int32_t len$ = $nc(arr$)->length;
-						int32_t i$ = 0;
-						for (; i$ < len$; ++i$) {
-							int64_t l = arr$->get(i$);
-							{
-								if (l != 0) {
-									if ($Native::getLong(l) != 0) {
-										$XlibWrapper::XFree($Native::getLong(l));
-									}
-									$nc(UnsafeXDisposerRecord::unsafe)->freeMemory(l);
-								}
-							}
-						}
-					}
-				}
-				this->disposed = true;
 			}
-		} catch ($Throwable& var$2) {
-			$assign(var$0, var$2);
-		} /*finally*/ {
-			$XToolkit::awtUnlock();
+			if (this->unsafe_ptrs != nullptr) {
+				$var($longs, arr$, this->unsafe_ptrs);
+				for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
+					int64_t l = arr$->get(i$);
+					if (l != 0) {
+						$nc(UnsafeXDisposerRecord::unsafe)->freeMemory(l);
+					}
+				}
+			}
+			if (this->x_ptrs != nullptr) {
+				$var($longs, arr$, this->x_ptrs);
+				for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
+					int64_t l = arr$->get(i$);
+					if (l != 0) {
+						if ($Native::getLong(l) != 0) {
+							$XlibWrapper::XFree($Native::getLong(l));
+						}
+						$nc(UnsafeXDisposerRecord::unsafe)->freeMemory(l);
+					}
+				}
+			}
+			this->disposed = true;
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	} catch ($Throwable& var$2) {
+		$assign(var$0, var$2);
+	} /*finally*/ {
+		$XToolkit::awtUnlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
-void clinit$UnsafeXDisposerRecord($Class* class$) {
+void UnsafeXDisposerRecord::clinit$($Class* clazz) {
 	$assignStatic(UnsafeXDisposerRecord::log, $PlatformLogger::getLogger("sun.awt.X11.UnsafeXDisposerRecord"_s));
 	$init($XlibWrapper);
 	$assignStatic(UnsafeXDisposerRecord::unsafe, $XlibWrapper::unsafe);
@@ -156,7 +110,33 @@ UnsafeXDisposerRecord::UnsafeXDisposerRecord() {
 }
 
 $Class* UnsafeXDisposerRecord::load$($String* name, bool initialize) {
-	$loadClass(UnsafeXDisposerRecord, name, initialize, &_UnsafeXDisposerRecord_ClassInfo_, clinit$UnsafeXDisposerRecord, allocate$UnsafeXDisposerRecord);
+	$FieldInfo fieldInfos$$[] = {
+		{"log", "Lsun/util/logging/PlatformLogger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(UnsafeXDisposerRecord, log)},
+		{"unsafe", "Ljdk/internal/misc/Unsafe;", nullptr, $PRIVATE | $STATIC, $staticField(UnsafeXDisposerRecord, unsafe)},
+		{"unsafe_ptrs", "[J", nullptr, $FINAL, $field(UnsafeXDisposerRecord, unsafe_ptrs)},
+		{"x_ptrs", "[J", nullptr, $FINAL, $field(UnsafeXDisposerRecord, x_ptrs)},
+		{"name", "Ljava/lang/String;", nullptr, $FINAL, $field(UnsafeXDisposerRecord, name)},
+		{"disposed", "Z", nullptr, $VOLATILE, $field(UnsafeXDisposerRecord, disposed)},
+		{"place", "Ljava/lang/Throwable;", nullptr, $FINAL, $field(UnsafeXDisposerRecord, place)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;[J[J)V", nullptr, $PUBLIC, $method(UnsafeXDisposerRecord, init$, void, $String*, $longs*, $longs*)},
+		{"<init>", "(Ljava/lang/String;[J)V", nullptr, $PUBLIC | $TRANSIENT, $method(UnsafeXDisposerRecord, init$, void, $String*, $longs*)},
+		{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(UnsafeXDisposerRecord, dispose, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.awt.X11.UnsafeXDisposerRecord",
+		"java.lang.Object",
+		"sun.java2d.DisposerRecord",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(UnsafeXDisposerRecord, name, initialize, &classInfo$$, UnsafeXDisposerRecord::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(UnsafeXDisposerRecord);
+	});
 	return class$;
 }
 

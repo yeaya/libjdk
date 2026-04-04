@@ -35,6 +35,7 @@ class XColors : public ::java::lang::Object {
 	$class(XColors, 0, ::java::lang::Object)
 public:
 	XColors();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::awt::Color* lookupColor($String* name);
 	static ::com::sun::java::swing::plaf::gtk::XColors$XColor* key;

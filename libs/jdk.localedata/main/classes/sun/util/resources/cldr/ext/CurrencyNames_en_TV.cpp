@@ -1,5 +1,4 @@
 #include <sun/util/resources/cldr/ext/CurrencyNames_en_TV.h>
-
 #include <sun/util/resources/OpenListResourceBundle.h>
 #include <jcpp.h>
 
@@ -14,34 +13,15 @@ namespace sun {
 			namespace cldr {
 				namespace ext {
 
-$MethodInfo _CurrencyNames_en_TV_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(CurrencyNames_en_TV, init$, void)},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(CurrencyNames_en_TV, getContents, $ObjectArray2*)},
-	{}
-};
-
-$ClassInfo _CurrencyNames_en_TV_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.util.resources.cldr.ext.CurrencyNames_en_TV",
-	"sun.util.resources.OpenListResourceBundle",
-	nullptr,
-	nullptr,
-	_CurrencyNames_en_TV_MethodInfo_
-};
-
-$Object* allocate$CurrencyNames_en_TV($Class* clazz) {
-	return $of($alloc(CurrencyNames_en_TV));
-}
-
 void CurrencyNames_en_TV::init$() {
 	$OpenListResourceBundle::init$();
 }
 
 $ObjectArray2* CurrencyNames_en_TV::getContents() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectArray2, data, $new($ObjectArray2, {$$new($ObjectArray, {
-		$of("AUD"_s),
-		$of("$"_s)
+		"AUD"_s,
+		"$"_s
 	})}));
 	return data;
 }
@@ -50,7 +30,22 @@ CurrencyNames_en_TV::CurrencyNames_en_TV() {
 }
 
 $Class* CurrencyNames_en_TV::load$($String* name, bool initialize) {
-	$loadClass(CurrencyNames_en_TV, name, initialize, &_CurrencyNames_en_TV_ClassInfo_, allocate$CurrencyNames_en_TV);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(CurrencyNames_en_TV, init$, void)},
+		{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(CurrencyNames_en_TV, getContents, $ObjectArray2*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.util.resources.cldr.ext.CurrencyNames_en_TV",
+		"sun.util.resources.OpenListResourceBundle",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(CurrencyNames_en_TV, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CurrencyNames_en_TV);
+	});
 	return class$;
 }
 

@@ -74,6 +74,7 @@ class BasicDesktopPaneUI$Actions : public ::sun::swing::UIAction {
 	$class(BasicDesktopPaneUI$Actions, 0, ::sun::swing::UIAction)
 public:
 	BasicDesktopPaneUI$Actions();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$($String* name);
 	virtual bool accept(Object$* sender) override;

@@ -76,6 +76,7 @@ class $import FileLoginModule : public ::javax::security::auth::spi::LoginModule
 	$class(FileLoginModule, 0, ::javax::security::auth::spi::LoginModule)
 public:
 	FileLoginModule();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual bool abort() override;
 	void attemptAuthentication(bool usePasswdFromSharedState);

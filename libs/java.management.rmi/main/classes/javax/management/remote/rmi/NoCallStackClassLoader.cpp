@@ -1,5 +1,4 @@
 #include <javax/management/remote/rmi/NoCallStackClassLoader.h>
-
 #include <java/lang/ClassLoader.h>
 #include <java/lang/ClassNotFoundException.h>
 #include <java/security/ProtectionDomain.h>
@@ -19,44 +18,14 @@ namespace javax {
 		namespace remote {
 			namespace rmi {
 
-$FieldInfo _NoCallStackClassLoader_FieldInfo_[] = {
-	{"classNames", "[Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(NoCallStackClassLoader, classNames)},
-	{"byteCodes", "[[B", nullptr, $PRIVATE | $FINAL, $field(NoCallStackClassLoader, byteCodes)},
-	{"referencedClassNames", "[Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(NoCallStackClassLoader, referencedClassNames)},
-	{"referencedClassLoader", "Ljava/lang/ClassLoader;", nullptr, $PRIVATE | $FINAL, $field(NoCallStackClassLoader, referencedClassLoader)},
-	{"protectionDomain", "Ljava/security/ProtectionDomain;", nullptr, $PRIVATE | $FINAL, $field(NoCallStackClassLoader, protectionDomain)},
-	{}
-};
-
-$MethodInfo _NoCallStackClassLoader_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;[B[Ljava/lang/String;Ljava/lang/ClassLoader;Ljava/security/ProtectionDomain;)V", nullptr, $PUBLIC, $method(NoCallStackClassLoader, init$, void, $String*, $bytes*, $StringArray*, $ClassLoader*, $ProtectionDomain*)},
-	{"<init>", "([Ljava/lang/String;[[B[Ljava/lang/String;Ljava/lang/ClassLoader;Ljava/security/ProtectionDomain;)V", nullptr, $PUBLIC, $method(NoCallStackClassLoader, init$, void, $StringArray*, $byteArray2*, $StringArray*, $ClassLoader*, $ProtectionDomain*)},
-	{"findClass", "(Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/String;)Ljava/lang/Class<*>;", $PROTECTED, $virtualMethod(NoCallStackClassLoader, findClass, $Class*, $String*), "java.lang.ClassNotFoundException"},
-	{"stringToBytes", "(Ljava/lang/String;)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(NoCallStackClassLoader, stringToBytes, $bytes*, $String*)},
-	{}
-};
-
-$ClassInfo _NoCallStackClassLoader_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.management.remote.rmi.NoCallStackClassLoader",
-	"java.lang.ClassLoader",
-	nullptr,
-	_NoCallStackClassLoader_FieldInfo_,
-	_NoCallStackClassLoader_MethodInfo_
-};
-
-$Object* allocate$NoCallStackClassLoader($Class* clazz) {
-	return $of($alloc(NoCallStackClassLoader));
-}
-
 void NoCallStackClassLoader::init$($String* className, $bytes* byteCode, $StringArray* referencedClassNames, $ClassLoader* referencedClassLoader, $ProtectionDomain* protectionDomain) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	NoCallStackClassLoader::init$($$new($StringArray, {className}), $$new($byteArray2, {byteCode}), referencedClassNames, referencedClassLoader, protectionDomain);
 }
 
 void NoCallStackClassLoader::init$($StringArray* classNames, $byteArray2* byteCodes, $StringArray* referencedClassNames, $ClassLoader* referencedClassLoader, $ProtectionDomain* protectionDomain) {
 	$ClassLoader::init$(nullptr);
-	if (classNames == nullptr || $nc(classNames)->length == 0 || byteCodes == nullptr || $nc(classNames)->length != $nc(byteCodes)->length || referencedClassNames == nullptr || protectionDomain == nullptr) {
+	if (classNames == nullptr || classNames->length == 0 || byteCodes == nullptr || classNames->length != byteCodes->length || referencedClassNames == nullptr || protectionDomain == nullptr) {
 		$throwNew($IllegalArgumentException);
 	}
 	for (int32_t i = 0; i < $nc(classNames)->length; ++i) {
@@ -78,14 +47,14 @@ void NoCallStackClassLoader::init$($StringArray* classNames, $byteArray2* byteCo
 
 $Class* NoCallStackClassLoader::findClass($String* name) {
 	for (int32_t i = 0; i < $nc(this->classNames)->length; ++i) {
-		if ($nc(name)->equals($nc(this->classNames)->get(i))) {
-			return defineClass($nc(this->classNames)->get(i), $nc(this->byteCodes)->get(i), 0, $nc($nc(this->byteCodes)->get(i))->length, this->protectionDomain);
+		if ($nc(name)->equals(this->classNames->get(i))) {
+			return defineClass(this->classNames->get(i), $nc(this->byteCodes)->get(i), 0, $nc($nc(this->byteCodes)->get(i))->length, this->protectionDomain);
 		}
 	}
 	if (this->referencedClassLoader != nullptr) {
 		for (int32_t i = 0; i < $nc(this->referencedClassNames)->length; ++i) {
-			if ($nc(name)->equals($nc(this->referencedClassNames)->get(i))) {
-				return $nc(this->referencedClassLoader)->loadClass(name);
+			if ($nc(name)->equals(this->referencedClassNames->get(i))) {
+				return this->referencedClassLoader->loadClass(name);
 			}
 		}
 	}
@@ -106,7 +75,32 @@ NoCallStackClassLoader::NoCallStackClassLoader() {
 }
 
 $Class* NoCallStackClassLoader::load$($String* name, bool initialize) {
-	$loadClass(NoCallStackClassLoader, name, initialize, &_NoCallStackClassLoader_ClassInfo_, allocate$NoCallStackClassLoader);
+	$FieldInfo fieldInfos$$[] = {
+		{"classNames", "[Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(NoCallStackClassLoader, classNames)},
+		{"byteCodes", "[[B", nullptr, $PRIVATE | $FINAL, $field(NoCallStackClassLoader, byteCodes)},
+		{"referencedClassNames", "[Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(NoCallStackClassLoader, referencedClassNames)},
+		{"referencedClassLoader", "Ljava/lang/ClassLoader;", nullptr, $PRIVATE | $FINAL, $field(NoCallStackClassLoader, referencedClassLoader)},
+		{"protectionDomain", "Ljava/security/ProtectionDomain;", nullptr, $PRIVATE | $FINAL, $field(NoCallStackClassLoader, protectionDomain)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;[B[Ljava/lang/String;Ljava/lang/ClassLoader;Ljava/security/ProtectionDomain;)V", nullptr, $PUBLIC, $method(NoCallStackClassLoader, init$, void, $String*, $bytes*, $StringArray*, $ClassLoader*, $ProtectionDomain*)},
+		{"<init>", "([Ljava/lang/String;[[B[Ljava/lang/String;Ljava/lang/ClassLoader;Ljava/security/ProtectionDomain;)V", nullptr, $PUBLIC, $method(NoCallStackClassLoader, init$, void, $StringArray*, $byteArray2*, $StringArray*, $ClassLoader*, $ProtectionDomain*)},
+		{"findClass", "(Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/String;)Ljava/lang/Class<*>;", $PROTECTED, $virtualMethod(NoCallStackClassLoader, findClass, $Class*, $String*), "java.lang.ClassNotFoundException"},
+		{"stringToBytes", "(Ljava/lang/String;)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(NoCallStackClassLoader, stringToBytes, $bytes*, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.management.remote.rmi.NoCallStackClassLoader",
+		"java.lang.ClassLoader",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(NoCallStackClassLoader, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(NoCallStackClassLoader);
+	});
 	return class$;
 }
 

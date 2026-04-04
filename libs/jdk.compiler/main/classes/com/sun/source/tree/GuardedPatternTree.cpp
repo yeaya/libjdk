@@ -1,5 +1,4 @@
 #include <com/sun/source/tree/GuardedPatternTree.h>
-
 #include <com/sun/source/tree/ExpressionTree.h>
 #include <com/sun/source/tree/PatternTree.h>
 #include <jcpp.h>
@@ -15,35 +14,30 @@ namespace com {
 		namespace source {
 			namespace tree {
 
-$CompoundAttribute _GuardedPatternTree_Annotations_[] = {
-	{}
-};
-
-$MethodInfo _GuardedPatternTree_MethodInfo_[] = {
-	{"getExpression", "()Lcom/sun/source/tree/ExpressionTree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GuardedPatternTree, getExpression, $ExpressionTree*)},
-	{"getPattern", "()Lcom/sun/source/tree/PatternTree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GuardedPatternTree, getPattern, $PatternTree*)},
-	{}
-};
-
-$ClassInfo _GuardedPatternTree_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.source.tree.GuardedPatternTree",
-	nullptr,
-	"com.sun.source.tree.PatternTree",
-	nullptr,
-	_GuardedPatternTree_MethodInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	_GuardedPatternTree_Annotations_
-};
-
-$Object* allocate$GuardedPatternTree($Class* clazz) {
-	return $of($alloc(GuardedPatternTree));
-}
-
 $Class* GuardedPatternTree::load$($String* name, bool initialize) {
-	$loadClass(GuardedPatternTree, name, initialize, &_GuardedPatternTree_ClassInfo_, allocate$GuardedPatternTree);
+	$MethodInfo methodInfos$$[] = {
+		{"getExpression", "()Lcom/sun/source/tree/ExpressionTree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GuardedPatternTree, getExpression, $ExpressionTree*)},
+		{"getPattern", "()Lcom/sun/source/tree/PatternTree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GuardedPatternTree, getPattern, $PatternTree*)},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.source.tree.GuardedPatternTree",
+		nullptr,
+		"com.sun.source.tree.PatternTree",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(GuardedPatternTree, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(GuardedPatternTree);
+	});
 	return class$;
 }
 

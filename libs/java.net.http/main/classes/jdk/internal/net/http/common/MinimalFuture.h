@@ -53,6 +53,7 @@ class $export MinimalFuture : public ::java::util::concurrent::CompletableFuture
 public:
 	MinimalFuture();
 	using ::java::util::concurrent::CompletableFuture::complete;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(::jdk::internal::net::http::common::Cancelable* cancelable);
 	virtual bool cancel(bool mayInterruptIfRunning) override;

@@ -1,9 +1,7 @@
 #include <org/w3c/dom/bootstrap/DOMImplementationRegistry.h>
-
 #include <java/io/BufferedReader.h>
 #include <java/io/InputStream.h>
 #include <java/io/InputStreamReader.h>
-#include <java/io/Reader.h>
 #include <java/io/UnsupportedEncodingException.h>
 #include <java/lang/ClassLoader.h>
 #include <java/lang/InstantiationException.h>
@@ -13,7 +11,6 @@
 #include <java/lang/reflect/Constructor.h>
 #include <java/lang/reflect/InvocationTargetException.h>
 #include <java/security/AccessController.h>
-#include <java/security/PrivilegedAction.h>
 #include <java/util/ArrayList.h>
 #include <java/util/List.h>
 #include <java/util/StringTokenizer.h>
@@ -34,7 +31,6 @@
 using $BufferedReader = ::java::io::BufferedReader;
 using $InputStream = ::java::io::InputStream;
 using $InputStreamReader = ::java::io::InputStreamReader;
-using $Reader = ::java::io::Reader;
 using $UnsupportedEncodingException = ::java::io::UnsupportedEncodingException;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $ClassLoader = ::java::lang::ClassLoader;
@@ -45,11 +41,8 @@ using $InstantiationException = ::java::lang::InstantiationException;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NoSuchMethodException = ::java::lang::NoSuchMethodException;
 using $NullPointerException = ::java::lang::NullPointerException;
-using $ReflectiveOperationException = ::java::lang::ReflectiveOperationException;
-using $Constructor = ::java::lang::reflect::Constructor;
 using $InvocationTargetException = ::java::lang::reflect::InvocationTargetException;
 using $AccessController = ::java::security::AccessController;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $ArrayList = ::java::util::ArrayList;
 using $List = ::java::util::List;
 using $StringTokenizer = ::java::util::StringTokenizer;
@@ -66,56 +59,6 @@ namespace org {
 		namespace dom {
 			namespace bootstrap {
 
-$FieldInfo _DOMImplementationRegistry_FieldInfo_[] = {
-	{"PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DOMImplementationRegistry, PROPERTY)},
-	{"DEFAULT_LINE_LENGTH", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DOMImplementationRegistry, DEFAULT_LINE_LENGTH)},
-	{"sources", "Ljava/util/List;", "Ljava/util/List<Lorg/w3c/dom/DOMImplementationSource;>;", $PRIVATE, $field(DOMImplementationRegistry, sources)},
-	{"FALLBACK_CLASS", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DOMImplementationRegistry, FALLBACK_CLASS)},
-	{"DEFAULT_PACKAGE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DOMImplementationRegistry, DEFAULT_PACKAGE)},
-	{}
-};
-
-$MethodInfo _DOMImplementationRegistry_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/List;)V", "(Ljava/util/List<Lorg/w3c/dom/DOMImplementationSource;>;)V", $PRIVATE, $method(DOMImplementationRegistry, init$, void, $List*)},
-	{"addSource", "(Lorg/w3c/dom/DOMImplementationSource;)V", nullptr, $PUBLIC, $method(DOMImplementationRegistry, addSource, void, $DOMImplementationSource*)},
-	{"getClassLoader", "()Ljava/lang/ClassLoader;", nullptr, $PRIVATE | $STATIC, $staticMethod(DOMImplementationRegistry, getClassLoader, $ClassLoader*)},
-	{"getContextClassLoader", "()Ljava/lang/ClassLoader;", nullptr, $PRIVATE | $STATIC, $staticMethod(DOMImplementationRegistry, getContextClassLoader, $ClassLoader*)},
-	{"getDOMImplementation", "(Ljava/lang/String;)Lorg/w3c/dom/DOMImplementation;", nullptr, $PUBLIC, $method(DOMImplementationRegistry, getDOMImplementation, $DOMImplementation*, $String*)},
-	{"getDOMImplementationList", "(Ljava/lang/String;)Lorg/w3c/dom/DOMImplementationList;", nullptr, $PUBLIC, $method(DOMImplementationRegistry, getDOMImplementationList, $DOMImplementationList*, $String*)},
-	{"getResourceAsStream", "(Ljava/lang/ClassLoader;Ljava/lang/String;)Ljava/io/InputStream;", nullptr, $PRIVATE | $STATIC, $staticMethod(DOMImplementationRegistry, getResourceAsStream, $InputStream*, $ClassLoader*, $String*)},
-	{"getServiceValue", "(Ljava/lang/ClassLoader;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(DOMImplementationRegistry, getServiceValue, $String*, $ClassLoader*)},
-	{"getSystemProperty", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(DOMImplementationRegistry, getSystemProperty, $String*, $String*)},
-	{"newInstance", "()Lorg/w3c/dom/bootstrap/DOMImplementationRegistry;", nullptr, $PUBLIC | $STATIC, $staticMethod(DOMImplementationRegistry, newInstance, DOMImplementationRegistry*), "java.lang.ClassNotFoundException,java.lang.InstantiationException,java.lang.IllegalAccessException,java.lang.ClassCastException"},
-	{}
-};
-
-$InnerClassInfo _DOMImplementationRegistry_InnerClassesInfo_[] = {
-	{"org.w3c.dom.bootstrap.DOMImplementationRegistry$4", nullptr, nullptr, 0},
-	{"org.w3c.dom.bootstrap.DOMImplementationRegistry$3", nullptr, nullptr, 0},
-	{"org.w3c.dom.bootstrap.DOMImplementationRegistry$2", nullptr, nullptr, 0},
-	{"org.w3c.dom.bootstrap.DOMImplementationRegistry$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _DOMImplementationRegistry_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"org.w3c.dom.bootstrap.DOMImplementationRegistry",
-	"java.lang.Object",
-	nullptr,
-	_DOMImplementationRegistry_FieldInfo_,
-	_DOMImplementationRegistry_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DOMImplementationRegistry_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"org.w3c.dom.bootstrap.DOMImplementationRegistry$4,org.w3c.dom.bootstrap.DOMImplementationRegistry$3,org.w3c.dom.bootstrap.DOMImplementationRegistry$2,org.w3c.dom.bootstrap.DOMImplementationRegistry$1"
-};
-
-$Object* allocate$DOMImplementationRegistry($Class* clazz) {
-	return $of($alloc(DOMImplementationRegistry));
-}
-
 $String* DOMImplementationRegistry::PROPERTY = nullptr;
 $String* DOMImplementationRegistry::FALLBACK_CLASS = nullptr;
 $String* DOMImplementationRegistry::DEFAULT_PACKAGE = nullptr;
@@ -126,7 +69,7 @@ void DOMImplementationRegistry::init$($List* srcs) {
 
 DOMImplementationRegistry* DOMImplementationRegistry::newInstance() {
 	$init(DOMImplementationRegistry);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$var($List, sources, $new($ArrayList));
 	$var($ClassLoader, classLoader, getClassLoader());
@@ -154,7 +97,7 @@ DOMImplementationRegistry* DOMImplementationRegistry::newInstance() {
 				sourceClass = $Class::forName(sourceName);
 			}
 			try {
-				$var($DOMImplementationSource, source, $cast($DOMImplementationSource, $nc($($nc(sourceClass)->getConstructor($$new($ClassArray, 0))))->newInstance($$new($ObjectArray, 0))));
+				$var($DOMImplementationSource, source, $cast($DOMImplementationSource, $$nc($nc(sourceClass)->getConstructor($$new($ClassArray, 0)))->newInstance($$new($ObjectArray, 0))));
 				sources->add(source);
 			} catch ($NoSuchMethodException& e) {
 				$throwNew($InstantiationException, $(e->getMessage()));
@@ -167,7 +110,7 @@ DOMImplementationRegistry* DOMImplementationRegistry::newInstance() {
 }
 
 $DOMImplementation* DOMImplementationRegistry::getDOMImplementation($String* features) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t size = $nc(this->sources)->size();
 	$var($String, name, nullptr);
 	for (int32_t i = 0; i < size; ++i) {
@@ -181,7 +124,7 @@ $DOMImplementation* DOMImplementationRegistry::getDOMImplementation($String* fea
 }
 
 $DOMImplementationList* DOMImplementationRegistry::getDOMImplementationList($String* features) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, implementations, $new($ArrayList));
 	int32_t size = $nc(this->sources)->size();
 	for (int32_t i = 0; i < size; ++i) {
@@ -200,7 +143,7 @@ void DOMImplementationRegistry::addSource($DOMImplementationSource* s) {
 		$throwNew($NullPointerException);
 	}
 	if (!$nc(this->sources)->contains(s)) {
-		$nc(this->sources)->add(s);
+		this->sources->add(s);
 	}
 }
 
@@ -220,7 +163,7 @@ $ClassLoader* DOMImplementationRegistry::getClassLoader() {
 
 $String* DOMImplementationRegistry::getServiceValue($ClassLoader* classLoader) {
 	$init(DOMImplementationRegistry);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, serviceId, $str({"META-INF/services/"_s, DOMImplementationRegistry::PROPERTY}));
 	try {
 		$var($InputStream, is, getResourceAsStream(classLoader, serviceId));
@@ -246,32 +189,76 @@ $String* DOMImplementationRegistry::getServiceValue($ClassLoader* classLoader) {
 $ClassLoader* DOMImplementationRegistry::getContextClassLoader() {
 	$init(DOMImplementationRegistry);
 	$beforeCallerSensitive();
-	return $cast($ClassLoader, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($DOMImplementationRegistry$2))));
+	return $cast($ClassLoader, $AccessController::doPrivileged($$new($DOMImplementationRegistry$2)));
 }
 
 $String* DOMImplementationRegistry::getSystemProperty($String* name) {
 	$init(DOMImplementationRegistry);
 	$beforeCallerSensitive();
-	return $cast($String, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($DOMImplementationRegistry$3, name))));
+	return $cast($String, $AccessController::doPrivileged($$new($DOMImplementationRegistry$3, name)));
 }
 
 $InputStream* DOMImplementationRegistry::getResourceAsStream($ClassLoader* classLoader, $String* name) {
 	$init(DOMImplementationRegistry);
 	$beforeCallerSensitive();
-	return $cast($InputStream, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($DOMImplementationRegistry$4, classLoader, name))));
+	return $cast($InputStream, $AccessController::doPrivileged($$new($DOMImplementationRegistry$4, classLoader, name)));
 }
 
 DOMImplementationRegistry::DOMImplementationRegistry() {
 }
 
-void clinit$DOMImplementationRegistry($Class* class$) {
+void DOMImplementationRegistry::clinit$($Class* clazz) {
 	$assignStatic(DOMImplementationRegistry::PROPERTY, "org.w3c.dom.DOMImplementationSourceList"_s);
 	$assignStatic(DOMImplementationRegistry::FALLBACK_CLASS, "com.sun.org.apache.xerces.internal.dom.DOMXSImplementationSourceImpl"_s);
 	$assignStatic(DOMImplementationRegistry::DEFAULT_PACKAGE, "com.sun.org.apache.xerces.internal.dom"_s);
 }
 
 $Class* DOMImplementationRegistry::load$($String* name, bool initialize) {
-	$loadClass(DOMImplementationRegistry, name, initialize, &_DOMImplementationRegistry_ClassInfo_, clinit$DOMImplementationRegistry, allocate$DOMImplementationRegistry);
+	$FieldInfo fieldInfos$$[] = {
+		{"PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DOMImplementationRegistry, PROPERTY)},
+		{"DEFAULT_LINE_LENGTH", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DOMImplementationRegistry, DEFAULT_LINE_LENGTH)},
+		{"sources", "Ljava/util/List;", "Ljava/util/List<Lorg/w3c/dom/DOMImplementationSource;>;", $PRIVATE, $field(DOMImplementationRegistry, sources)},
+		{"FALLBACK_CLASS", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DOMImplementationRegistry, FALLBACK_CLASS)},
+		{"DEFAULT_PACKAGE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DOMImplementationRegistry, DEFAULT_PACKAGE)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/List;)V", "(Ljava/util/List<Lorg/w3c/dom/DOMImplementationSource;>;)V", $PRIVATE, $method(DOMImplementationRegistry, init$, void, $List*)},
+		{"addSource", "(Lorg/w3c/dom/DOMImplementationSource;)V", nullptr, $PUBLIC, $method(DOMImplementationRegistry, addSource, void, $DOMImplementationSource*)},
+		{"getClassLoader", "()Ljava/lang/ClassLoader;", nullptr, $PRIVATE | $STATIC, $staticMethod(DOMImplementationRegistry, getClassLoader, $ClassLoader*)},
+		{"getContextClassLoader", "()Ljava/lang/ClassLoader;", nullptr, $PRIVATE | $STATIC, $staticMethod(DOMImplementationRegistry, getContextClassLoader, $ClassLoader*)},
+		{"getDOMImplementation", "(Ljava/lang/String;)Lorg/w3c/dom/DOMImplementation;", nullptr, $PUBLIC, $method(DOMImplementationRegistry, getDOMImplementation, $DOMImplementation*, $String*)},
+		{"getDOMImplementationList", "(Ljava/lang/String;)Lorg/w3c/dom/DOMImplementationList;", nullptr, $PUBLIC, $method(DOMImplementationRegistry, getDOMImplementationList, $DOMImplementationList*, $String*)},
+		{"getResourceAsStream", "(Ljava/lang/ClassLoader;Ljava/lang/String;)Ljava/io/InputStream;", nullptr, $PRIVATE | $STATIC, $staticMethod(DOMImplementationRegistry, getResourceAsStream, $InputStream*, $ClassLoader*, $String*)},
+		{"getServiceValue", "(Ljava/lang/ClassLoader;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(DOMImplementationRegistry, getServiceValue, $String*, $ClassLoader*)},
+		{"getSystemProperty", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(DOMImplementationRegistry, getSystemProperty, $String*, $String*)},
+		{"newInstance", "()Lorg/w3c/dom/bootstrap/DOMImplementationRegistry;", nullptr, $PUBLIC | $STATIC, $staticMethod(DOMImplementationRegistry, newInstance, DOMImplementationRegistry*), "java.lang.ClassNotFoundException,java.lang.InstantiationException,java.lang.IllegalAccessException,java.lang.ClassCastException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"org.w3c.dom.bootstrap.DOMImplementationRegistry$4", nullptr, nullptr, 0},
+		{"org.w3c.dom.bootstrap.DOMImplementationRegistry$3", nullptr, nullptr, 0},
+		{"org.w3c.dom.bootstrap.DOMImplementationRegistry$2", nullptr, nullptr, 0},
+		{"org.w3c.dom.bootstrap.DOMImplementationRegistry$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"org.w3c.dom.bootstrap.DOMImplementationRegistry",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"org.w3c.dom.bootstrap.DOMImplementationRegistry$4,org.w3c.dom.bootstrap.DOMImplementationRegistry$3,org.w3c.dom.bootstrap.DOMImplementationRegistry$2,org.w3c.dom.bootstrap.DOMImplementationRegistry$1"
+	};
+	$loadClass(DOMImplementationRegistry, name, initialize, &classInfo$$, DOMImplementationRegistry::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(DOMImplementationRegistry);
+	});
 	return class$;
 }
 

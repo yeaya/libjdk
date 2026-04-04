@@ -32,10 +32,11 @@ class $export MediaName : public ::javax::print::attribute::standard::Media {
 	$class(MediaName, 0, ::javax::print::attribute::standard::Media)
 public:
 	MediaName();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int32_t value);
 	virtual $Array<::javax::print::attribute::EnumSyntax>* getEnumValueTable() override;
 	virtual $StringArray* getStringTable() override;
-	static const int64_t serialVersionUID = (int64_t)0x409331E8784A2E38;
+	static const int64_t serialVersionUID = (int64_t)0x409331e8784a2e38;
 	static ::javax::print::attribute::standard::MediaName* NA_LETTER_WHITE;
 	static ::javax::print::attribute::standard::MediaName* NA_LETTER_TRANSPARENT;
 	static ::javax::print::attribute::standard::MediaName* ISO_A4_WHITE;

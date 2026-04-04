@@ -1,5 +1,4 @@
 #include <sun/font/GlyphLayout$GVData.h>
-
 #include <java/awt/Font.h>
 #include <java/awt/font/FontRenderContext.h>
 #include <java/awt/font/GlyphVector.h>
@@ -24,57 +23,13 @@ using $StandardGlyphVector = ::sun::font::StandardGlyphVector;
 namespace sun {
 	namespace font {
 
-$FieldInfo _GlyphLayout$GVData_FieldInfo_[] = {
-	{"_count", "I", nullptr, $PUBLIC, $field(GlyphLayout$GVData, _count)},
-	{"_flags", "I", nullptr, $PUBLIC, $field(GlyphLayout$GVData, _flags)},
-	{"_glyphs", "[I", nullptr, $PUBLIC, $field(GlyphLayout$GVData, _glyphs)},
-	{"_positions", "[F", nullptr, $PUBLIC, $field(GlyphLayout$GVData, _positions)},
-	{"_indices", "[I", nullptr, $PUBLIC, $field(GlyphLayout$GVData, _indices)},
-	{"UNINITIALIZED_FLAGS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(GlyphLayout$GVData, UNINITIALIZED_FLAGS)},
-	{}
-};
-
-$MethodInfo _GlyphLayout$GVData_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(GlyphLayout$GVData, init$, void)},
-	{"createGlyphVector", "(Ljava/awt/Font;Ljava/awt/font/FontRenderContext;Lsun/font/StandardGlyphVector;)Lsun/font/StandardGlyphVector;", nullptr, $PUBLIC, $method(GlyphLayout$GVData, createGlyphVector, $StandardGlyphVector*, $Font*, $FontRenderContext*, $StandardGlyphVector*)},
-	{"grow", "()V", nullptr, $PUBLIC, $method(GlyphLayout$GVData, grow, void)},
-	{"grow", "(I)V", nullptr, $PUBLIC, $method(GlyphLayout$GVData, grow, void, int32_t)},
-	{"init", "(I)V", nullptr, $PUBLIC, $method(GlyphLayout$GVData, init, void, int32_t)},
-	{}
-};
-
-$InnerClassInfo _GlyphLayout$GVData_InnerClassesInfo_[] = {
-	{"sun.font.GlyphLayout$GVData", "sun.font.GlyphLayout", "GVData", $PUBLIC | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _GlyphLayout$GVData_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.font.GlyphLayout$GVData",
-	"java.lang.Object",
-	nullptr,
-	_GlyphLayout$GVData_FieldInfo_,
-	_GlyphLayout$GVData_MethodInfo_,
-	nullptr,
-	nullptr,
-	_GlyphLayout$GVData_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.font.GlyphLayout"
-};
-
-$Object* allocate$GlyphLayout$GVData($Class* clazz) {
-	return $of($alloc(GlyphLayout$GVData));
-}
-
 void GlyphLayout$GVData::init$() {
 }
 
 void GlyphLayout$GVData::init(int32_t size) {
 	this->_count = 0;
 	this->_flags = GlyphLayout$GVData::UNINITIALIZED_FLAGS;
-	if (this->_glyphs == nullptr || $nc(this->_glyphs)->length < size) {
+	if (this->_glyphs == nullptr || this->_glyphs->length < size) {
 		if (size < 20) {
 			size = 20;
 		}
@@ -89,7 +44,7 @@ void GlyphLayout$GVData::grow() {
 }
 
 void GlyphLayout$GVData::grow(int32_t delta) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t size = $nc(this->_glyphs)->length + delta;
 	$var($ints, nglyphs, $new($ints, size));
 	$System::arraycopy(this->_glyphs, 0, nglyphs, 0, this->_count);
@@ -103,7 +58,7 @@ void GlyphLayout$GVData::grow(int32_t delta) {
 }
 
 $StandardGlyphVector* GlyphLayout$GVData::createGlyphVector($Font* font, $FontRenderContext* frc, $StandardGlyphVector* result$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StandardGlyphVector, result, result$renamed);
 	if (this->_flags == GlyphLayout$GVData::UNINITIALIZED_FLAGS) {
 		this->_flags = 0;
@@ -128,19 +83,19 @@ $StandardGlyphVector* GlyphLayout$GVData::createGlyphVector($Font* font, $FontRe
 	$var($ints, glyphs, $new($ints, this->_count));
 	$System::arraycopy(this->_glyphs, 0, glyphs, 0, this->_count);
 	$var($floats, positions, nullptr);
-	if (((int32_t)(this->_flags & (uint32_t)$GlyphVector::FLAG_HAS_POSITION_ADJUSTMENTS)) != 0) {
+	if ((this->_flags & $GlyphVector::FLAG_HAS_POSITION_ADJUSTMENTS) != 0) {
 		$assign(positions, $new($floats, this->_count * 2 + 2));
 		$System::arraycopy(this->_positions, 0, positions, 0, positions->length);
 	}
 	$var($ints, indices, nullptr);
-	if (((int32_t)(this->_flags & (uint32_t)$GlyphVector::FLAG_COMPLEX_GLYPHS)) != 0) {
+	if ((this->_flags & $GlyphVector::FLAG_COMPLEX_GLYPHS) != 0) {
 		$assign(indices, $new($ints, this->_count));
 		$System::arraycopy(this->_indices, 0, indices, 0, this->_count);
 	}
 	if (result == nullptr) {
 		$assign(result, $new($StandardGlyphVector, font, frc, glyphs, positions, indices, this->_flags));
 	} else {
-		$nc(result)->initGlyphVector(font, frc, glyphs, positions, indices, this->_flags);
+		result->initGlyphVector(font, frc, glyphs, positions, indices, this->_flags);
 	}
 	return result;
 }
@@ -149,7 +104,45 @@ GlyphLayout$GVData::GlyphLayout$GVData() {
 }
 
 $Class* GlyphLayout$GVData::load$($String* name, bool initialize) {
-	$loadClass(GlyphLayout$GVData, name, initialize, &_GlyphLayout$GVData_ClassInfo_, allocate$GlyphLayout$GVData);
+	$FieldInfo fieldInfos$$[] = {
+		{"_count", "I", nullptr, $PUBLIC, $field(GlyphLayout$GVData, _count)},
+		{"_flags", "I", nullptr, $PUBLIC, $field(GlyphLayout$GVData, _flags)},
+		{"_glyphs", "[I", nullptr, $PUBLIC, $field(GlyphLayout$GVData, _glyphs)},
+		{"_positions", "[F", nullptr, $PUBLIC, $field(GlyphLayout$GVData, _positions)},
+		{"_indices", "[I", nullptr, $PUBLIC, $field(GlyphLayout$GVData, _indices)},
+		{"UNINITIALIZED_FLAGS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(GlyphLayout$GVData, UNINITIALIZED_FLAGS)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(GlyphLayout$GVData, init$, void)},
+		{"createGlyphVector", "(Ljava/awt/Font;Ljava/awt/font/FontRenderContext;Lsun/font/StandardGlyphVector;)Lsun/font/StandardGlyphVector;", nullptr, $PUBLIC, $method(GlyphLayout$GVData, createGlyphVector, $StandardGlyphVector*, $Font*, $FontRenderContext*, $StandardGlyphVector*)},
+		{"grow", "()V", nullptr, $PUBLIC, $method(GlyphLayout$GVData, grow, void)},
+		{"grow", "(I)V", nullptr, $PUBLIC, $method(GlyphLayout$GVData, grow, void, int32_t)},
+		{"init", "(I)V", nullptr, $PUBLIC, $method(GlyphLayout$GVData, init, void, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.font.GlyphLayout$GVData", "sun.font.GlyphLayout", "GVData", $PUBLIC | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.font.GlyphLayout$GVData",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.font.GlyphLayout"
+	};
+	$loadClass(GlyphLayout$GVData, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(GlyphLayout$GVData);
+	});
 	return class$;
 }
 

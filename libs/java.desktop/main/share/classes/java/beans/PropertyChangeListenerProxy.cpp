@@ -1,5 +1,4 @@
 #include <java/beans/PropertyChangeListenerProxy.h>
-
 #include <java/beans/PropertyChangeEvent.h>
 #include <java/beans/PropertyChangeListener.h>
 #include <java/util/EventListener.h>
@@ -11,42 +10,10 @@ using $PropertyChangeListener = ::java::beans::PropertyChangeListener;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $EventListener = ::java::util::EventListener;
 using $EventListenerProxy = ::java::util::EventListenerProxy;
 
 namespace java {
 	namespace beans {
-
-$FieldInfo _PropertyChangeListenerProxy_FieldInfo_[] = {
-	{"propertyName", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(PropertyChangeListenerProxy, propertyName)},
-	{}
-};
-
-$MethodInfo _PropertyChangeListenerProxy_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/lang/String;Ljava/beans/PropertyChangeListener;)V", nullptr, $PUBLIC, $method(PropertyChangeListenerProxy, init$, void, $String*, $PropertyChangeListener*)},
-	{"getPropertyName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PropertyChangeListenerProxy, getPropertyName, $String*)},
-	{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(PropertyChangeListenerProxy, propertyChange, void, $PropertyChangeEvent*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _PropertyChangeListenerProxy_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.beans.PropertyChangeListenerProxy",
-	"java.util.EventListenerProxy",
-	"java.beans.PropertyChangeListener",
-	_PropertyChangeListenerProxy_FieldInfo_,
-	_PropertyChangeListenerProxy_MethodInfo_,
-	"Ljava/util/EventListenerProxy<Ljava/beans/PropertyChangeListener;>;Ljava/beans/PropertyChangeListener;"
-};
-
-$Object* allocate$PropertyChangeListenerProxy($Class* clazz) {
-	return $of($alloc(PropertyChangeListenerProxy));
-}
 
 int32_t PropertyChangeListenerProxy::hashCode() {
 	 return this->$EventListenerProxy::hashCode();
@@ -74,7 +41,7 @@ void PropertyChangeListenerProxy::init$($String* propertyName, $PropertyChangeLi
 }
 
 void PropertyChangeListenerProxy::propertyChange($PropertyChangeEvent* event) {
-	$nc(($cast($PropertyChangeListener, $(getListener()))))->propertyChange(event);
+	$$sure($PropertyChangeListener, getListener())->propertyChange(event);
 }
 
 $String* PropertyChangeListenerProxy::getPropertyName() {
@@ -85,7 +52,33 @@ PropertyChangeListenerProxy::PropertyChangeListenerProxy() {
 }
 
 $Class* PropertyChangeListenerProxy::load$($String* name, bool initialize) {
-	$loadClass(PropertyChangeListenerProxy, name, initialize, &_PropertyChangeListenerProxy_ClassInfo_, allocate$PropertyChangeListenerProxy);
+	$FieldInfo fieldInfos$$[] = {
+		{"propertyName", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(PropertyChangeListenerProxy, propertyName)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/lang/String;Ljava/beans/PropertyChangeListener;)V", nullptr, $PUBLIC, $method(PropertyChangeListenerProxy, init$, void, $String*, $PropertyChangeListener*)},
+		{"getPropertyName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PropertyChangeListenerProxy, getPropertyName, $String*)},
+		{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(PropertyChangeListenerProxy, propertyChange, void, $PropertyChangeEvent*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.beans.PropertyChangeListenerProxy",
+		"java.util.EventListenerProxy",
+		"java.beans.PropertyChangeListener",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/util/EventListenerProxy<Ljava/beans/PropertyChangeListener;>;Ljava/beans/PropertyChangeListener;"
+	};
+	$loadClass(PropertyChangeListenerProxy, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(PropertyChangeListenerProxy));
+	});
 	return class$;
 }
 

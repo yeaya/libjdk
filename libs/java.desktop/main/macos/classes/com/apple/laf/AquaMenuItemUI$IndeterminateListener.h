@@ -27,6 +27,7 @@ class AquaMenuItemUI$IndeterminateListener : public ::java::beans::PropertyChang
 	$class(AquaMenuItemUI$IndeterminateListener, 0, ::java::beans::PropertyChangeListener)
 public:
 	AquaMenuItemUI$IndeterminateListener();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void apply(::javax::swing::JMenuItem* menuItem, Object$* value);
 	static void install(::javax::swing::JMenuItem* menuItem);

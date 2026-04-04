@@ -1,5 +1,4 @@
 #include <com/sun/jndi/url/ldap/ldapURLContext.h>
-
 #include <com/sun/jndi/ldap/LdapURL.h>
 #include <com/sun/jndi/toolkit/url/GenericURLContext.h>
 #include <com/sun/jndi/toolkit/url/GenericURLDirContext.h>
@@ -48,79 +47,6 @@ namespace com {
 			namespace url {
 				namespace ldap {
 
-$MethodInfo _ldapURLContext_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/Hashtable;)V", "(Ljava/util/Hashtable<**>;)V", 0, $method(ldapURLContext, init$, void, $Hashtable*)},
-	{"bind", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(ldapURLContext, bind, void, $String*, Object$*), "javax.naming.NamingException"},
-	{"bind", "(Ljavax/naming/Name;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(ldapURLContext, bind, void, $Name*, Object$*), "javax.naming.NamingException"},
-	{"bind", "(Ljava/lang/String;Ljava/lang/Object;Ljavax/naming/directory/Attributes;)V", nullptr, $PUBLIC, $virtualMethod(ldapURLContext, bind, void, $String*, Object$*, $Attributes*), "javax.naming.NamingException"},
-	{"bind", "(Ljavax/naming/Name;Ljava/lang/Object;Ljavax/naming/directory/Attributes;)V", nullptr, $PUBLIC, $virtualMethod(ldapURLContext, bind, void, $Name*, Object$*, $Attributes*), "javax.naming.NamingException"},
-	{"composeName", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ldapURLContext, composeName, $String*, $String*, $String*), "javax.naming.NamingException"},
-	{"composeName", "(Ljavax/naming/Name;Ljavax/naming/Name;)Ljavax/naming/Name;", nullptr, $PUBLIC, $virtualMethod(ldapURLContext, composeName, $Name*, $Name*, $Name*), "javax.naming.NamingException"},
-	{"createSubcontext", "(Ljava/lang/String;)Ljavax/naming/Context;", nullptr, $PUBLIC, $virtualMethod(ldapURLContext, createSubcontext, $Context*, $String*), "javax.naming.NamingException"},
-	{"createSubcontext", "(Ljavax/naming/Name;)Ljavax/naming/Context;", nullptr, $PUBLIC, $virtualMethod(ldapURLContext, createSubcontext, $Context*, $Name*), "javax.naming.NamingException"},
-	{"createSubcontext", "(Ljava/lang/String;Ljavax/naming/directory/Attributes;)Ljavax/naming/directory/DirContext;", nullptr, $PUBLIC, $virtualMethod(ldapURLContext, createSubcontext, $DirContext*, $String*, $Attributes*), "javax.naming.NamingException"},
-	{"createSubcontext", "(Ljavax/naming/Name;Ljavax/naming/directory/Attributes;)Ljavax/naming/directory/DirContext;", nullptr, $PUBLIC, $virtualMethod(ldapURLContext, createSubcontext, $DirContext*, $Name*, $Attributes*), "javax.naming.NamingException"},
-	{"destroySubcontext", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ldapURLContext, destroySubcontext, void, $String*), "javax.naming.NamingException"},
-	{"destroySubcontext", "(Ljavax/naming/Name;)V", nullptr, $PUBLIC, $virtualMethod(ldapURLContext, destroySubcontext, void, $Name*), "javax.naming.NamingException"},
-	{"getAttributes", "(Ljava/lang/String;)Ljavax/naming/directory/Attributes;", nullptr, $PUBLIC, $virtualMethod(ldapURLContext, getAttributes, $Attributes*, $String*), "javax.naming.NamingException"},
-	{"getAttributes", "(Ljavax/naming/Name;)Ljavax/naming/directory/Attributes;", nullptr, $PUBLIC, $virtualMethod(ldapURLContext, getAttributes, $Attributes*, $Name*), "javax.naming.NamingException"},
-	{"getAttributes", "(Ljava/lang/String;[Ljava/lang/String;)Ljavax/naming/directory/Attributes;", nullptr, $PUBLIC, $virtualMethod(ldapURLContext, getAttributes, $Attributes*, $String*, $StringArray*), "javax.naming.NamingException"},
-	{"getAttributes", "(Ljavax/naming/Name;[Ljava/lang/String;)Ljavax/naming/directory/Attributes;", nullptr, $PUBLIC, $virtualMethod(ldapURLContext, getAttributes, $Attributes*, $Name*, $StringArray*), "javax.naming.NamingException"},
-	{"getNameParser", "(Ljava/lang/String;)Ljavax/naming/NameParser;", nullptr, $PUBLIC, $virtualMethod(ldapURLContext, getNameParser, $NameParser*, $String*), "javax.naming.NamingException"},
-	{"getNameParser", "(Ljavax/naming/Name;)Ljavax/naming/NameParser;", nullptr, $PUBLIC, $virtualMethod(ldapURLContext, getNameParser, $NameParser*, $Name*), "javax.naming.NamingException"},
-	{"getRootURLContext", "(Ljava/lang/String;Ljava/util/Hashtable;)Ljavax/naming/spi/ResolveResult;", "(Ljava/lang/String;Ljava/util/Hashtable<**>;)Ljavax/naming/spi/ResolveResult;", $PROTECTED, $virtualMethod(ldapURLContext, getRootURLContext, $ResolveResult*, $String*, $Hashtable*), "javax.naming.NamingException"},
-	{"getSchema", "(Ljava/lang/String;)Ljavax/naming/directory/DirContext;", nullptr, $PUBLIC, $virtualMethod(ldapURLContext, getSchema, $DirContext*, $String*), "javax.naming.NamingException"},
-	{"getSchema", "(Ljavax/naming/Name;)Ljavax/naming/directory/DirContext;", nullptr, $PUBLIC, $virtualMethod(ldapURLContext, getSchema, $DirContext*, $Name*), "javax.naming.NamingException"},
-	{"getSchemaClassDefinition", "(Ljava/lang/String;)Ljavax/naming/directory/DirContext;", nullptr, $PUBLIC, $virtualMethod(ldapURLContext, getSchemaClassDefinition, $DirContext*, $String*), "javax.naming.NamingException"},
-	{"getSchemaClassDefinition", "(Ljavax/naming/Name;)Ljavax/naming/directory/DirContext;", nullptr, $PUBLIC, $virtualMethod(ldapURLContext, getSchemaClassDefinition, $DirContext*, $Name*), "javax.naming.NamingException"},
-	{"getURLSuffix", "(Ljava/lang/String;Ljava/lang/String;)Ljavax/naming/Name;", nullptr, $PROTECTED, $virtualMethod(ldapURLContext, getURLSuffix, $Name*, $String*, $String*), "javax.naming.NamingException"},
-	{"list", "(Ljava/lang/String;)Ljavax/naming/NamingEnumeration;", "(Ljava/lang/String;)Ljavax/naming/NamingEnumeration<Ljavax/naming/NameClassPair;>;", $PUBLIC, $virtualMethod(ldapURLContext, list, $NamingEnumeration*, $String*), "javax.naming.NamingException"},
-	{"list", "(Ljavax/naming/Name;)Ljavax/naming/NamingEnumeration;", "(Ljavax/naming/Name;)Ljavax/naming/NamingEnumeration<Ljavax/naming/NameClassPair;>;", $PUBLIC, $virtualMethod(ldapURLContext, list, $NamingEnumeration*, $Name*), "javax.naming.NamingException"},
-	{"listBindings", "(Ljava/lang/String;)Ljavax/naming/NamingEnumeration;", "(Ljava/lang/String;)Ljavax/naming/NamingEnumeration<Ljavax/naming/Binding;>;", $PUBLIC, $virtualMethod(ldapURLContext, listBindings, $NamingEnumeration*, $String*), "javax.naming.NamingException"},
-	{"listBindings", "(Ljavax/naming/Name;)Ljavax/naming/NamingEnumeration;", "(Ljavax/naming/Name;)Ljavax/naming/NamingEnumeration<Ljavax/naming/Binding;>;", $PUBLIC, $virtualMethod(ldapURLContext, listBindings, $NamingEnumeration*, $Name*), "javax.naming.NamingException"},
-	{"lookup", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ldapURLContext, lookup, $Object*, $String*), "javax.naming.NamingException"},
-	{"lookup", "(Ljavax/naming/Name;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ldapURLContext, lookup, $Object*, $Name*), "javax.naming.NamingException"},
-	{"lookupLink", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ldapURLContext, lookupLink, $Object*, $String*), "javax.naming.NamingException"},
-	{"lookupLink", "(Ljavax/naming/Name;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ldapURLContext, lookupLink, $Object*, $Name*), "javax.naming.NamingException"},
-	{"modifyAttributes", "(Ljava/lang/String;ILjavax/naming/directory/Attributes;)V", nullptr, $PUBLIC, $virtualMethod(ldapURLContext, modifyAttributes, void, $String*, int32_t, $Attributes*), "javax.naming.NamingException"},
-	{"modifyAttributes", "(Ljavax/naming/Name;ILjavax/naming/directory/Attributes;)V", nullptr, $PUBLIC, $virtualMethod(ldapURLContext, modifyAttributes, void, $Name*, int32_t, $Attributes*), "javax.naming.NamingException"},
-	{"modifyAttributes", "(Ljava/lang/String;[Ljavax/naming/directory/ModificationItem;)V", nullptr, $PUBLIC, $virtualMethod(ldapURLContext, modifyAttributes, void, $String*, $ModificationItemArray*), "javax.naming.NamingException"},
-	{"modifyAttributes", "(Ljavax/naming/Name;[Ljavax/naming/directory/ModificationItem;)V", nullptr, $PUBLIC, $virtualMethod(ldapURLContext, modifyAttributes, void, $Name*, $ModificationItemArray*), "javax.naming.NamingException"},
-	{"rebind", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(ldapURLContext, rebind, void, $String*, Object$*), "javax.naming.NamingException"},
-	{"rebind", "(Ljavax/naming/Name;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(ldapURLContext, rebind, void, $Name*, Object$*), "javax.naming.NamingException"},
-	{"rebind", "(Ljava/lang/String;Ljava/lang/Object;Ljavax/naming/directory/Attributes;)V", nullptr, $PUBLIC, $virtualMethod(ldapURLContext, rebind, void, $String*, Object$*, $Attributes*), "javax.naming.NamingException"},
-	{"rebind", "(Ljavax/naming/Name;Ljava/lang/Object;Ljavax/naming/directory/Attributes;)V", nullptr, $PUBLIC, $virtualMethod(ldapURLContext, rebind, void, $Name*, Object$*, $Attributes*), "javax.naming.NamingException"},
-	{"rename", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ldapURLContext, rename, void, $String*, $String*), "javax.naming.NamingException"},
-	{"rename", "(Ljavax/naming/Name;Ljavax/naming/Name;)V", nullptr, $PUBLIC, $virtualMethod(ldapURLContext, rename, void, $Name*, $Name*), "javax.naming.NamingException"},
-	{"search", "(Ljava/lang/String;Ljavax/naming/directory/Attributes;)Ljavax/naming/NamingEnumeration;", "(Ljava/lang/String;Ljavax/naming/directory/Attributes;)Ljavax/naming/NamingEnumeration<Ljavax/naming/directory/SearchResult;>;", $PUBLIC, $virtualMethod(ldapURLContext, search, $NamingEnumeration*, $String*, $Attributes*), "javax.naming.NamingException"},
-	{"search", "(Ljavax/naming/Name;Ljavax/naming/directory/Attributes;)Ljavax/naming/NamingEnumeration;", "(Ljavax/naming/Name;Ljavax/naming/directory/Attributes;)Ljavax/naming/NamingEnumeration<Ljavax/naming/directory/SearchResult;>;", $PUBLIC, $virtualMethod(ldapURLContext, search, $NamingEnumeration*, $Name*, $Attributes*), "javax.naming.NamingException"},
-	{"search", "(Ljava/lang/String;Ljavax/naming/directory/Attributes;[Ljava/lang/String;)Ljavax/naming/NamingEnumeration;", "(Ljava/lang/String;Ljavax/naming/directory/Attributes;[Ljava/lang/String;)Ljavax/naming/NamingEnumeration<Ljavax/naming/directory/SearchResult;>;", $PUBLIC, $virtualMethod(ldapURLContext, search, $NamingEnumeration*, $String*, $Attributes*, $StringArray*), "javax.naming.NamingException"},
-	{"search", "(Ljavax/naming/Name;Ljavax/naming/directory/Attributes;[Ljava/lang/String;)Ljavax/naming/NamingEnumeration;", "(Ljavax/naming/Name;Ljavax/naming/directory/Attributes;[Ljava/lang/String;)Ljavax/naming/NamingEnumeration<Ljavax/naming/directory/SearchResult;>;", $PUBLIC, $virtualMethod(ldapURLContext, search, $NamingEnumeration*, $Name*, $Attributes*, $StringArray*), "javax.naming.NamingException"},
-	{"search", "(Ljava/lang/String;Ljava/lang/String;Ljavax/naming/directory/SearchControls;)Ljavax/naming/NamingEnumeration;", "(Ljava/lang/String;Ljava/lang/String;Ljavax/naming/directory/SearchControls;)Ljavax/naming/NamingEnumeration<Ljavax/naming/directory/SearchResult;>;", $PUBLIC, $virtualMethod(ldapURLContext, search, $NamingEnumeration*, $String*, $String*, $SearchControls*), "javax.naming.NamingException"},
-	{"search", "(Ljavax/naming/Name;Ljava/lang/String;Ljavax/naming/directory/SearchControls;)Ljavax/naming/NamingEnumeration;", "(Ljavax/naming/Name;Ljava/lang/String;Ljavax/naming/directory/SearchControls;)Ljavax/naming/NamingEnumeration<Ljavax/naming/directory/SearchResult;>;", $PUBLIC, $virtualMethod(ldapURLContext, search, $NamingEnumeration*, $Name*, $String*, $SearchControls*), "javax.naming.NamingException"},
-	{"search", "(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;Ljavax/naming/directory/SearchControls;)Ljavax/naming/NamingEnumeration;", "(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;Ljavax/naming/directory/SearchControls;)Ljavax/naming/NamingEnumeration<Ljavax/naming/directory/SearchResult;>;", $PUBLIC, $virtualMethod(ldapURLContext, search, $NamingEnumeration*, $String*, $String*, $ObjectArray*, $SearchControls*), "javax.naming.NamingException"},
-	{"search", "(Ljavax/naming/Name;Ljava/lang/String;[Ljava/lang/Object;Ljavax/naming/directory/SearchControls;)Ljavax/naming/NamingEnumeration;", "(Ljavax/naming/Name;Ljava/lang/String;[Ljava/lang/Object;Ljavax/naming/directory/SearchControls;)Ljavax/naming/NamingEnumeration<Ljavax/naming/directory/SearchResult;>;", $PUBLIC, $virtualMethod(ldapURLContext, search, $NamingEnumeration*, $Name*, $String*, $ObjectArray*, $SearchControls*), "javax.naming.NamingException"},
-	{"searchUsingURL", "(Ljava/lang/String;)Ljavax/naming/NamingEnumeration;", "(Ljava/lang/String;)Ljavax/naming/NamingEnumeration<Ljavax/naming/directory/SearchResult;>;", $PRIVATE, $method(ldapURLContext, searchUsingURL, $NamingEnumeration*, $String*), "javax.naming.NamingException"},
-	{"setFilterUsingURL", "(Lcom/sun/jndi/ldap/LdapURL;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(ldapURLContext, setFilterUsingURL, $String*, $LdapURL*)},
-	{"setSearchControlsUsingURL", "(Lcom/sun/jndi/ldap/LdapURL;)Ljavax/naming/directory/SearchControls;", nullptr, $PRIVATE | $STATIC, $staticMethod(ldapURLContext, setSearchControlsUsingURL, $SearchControls*, $LdapURL*)},
-	{"unbind", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ldapURLContext, unbind, void, $String*), "javax.naming.NamingException"},
-	{"unbind", "(Ljavax/naming/Name;)V", nullptr, $PUBLIC, $virtualMethod(ldapURLContext, unbind, void, $Name*), "javax.naming.NamingException"},
-	{}
-};
-
-$ClassInfo _ldapURLContext_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.jndi.url.ldap.ldapURLContext",
-	"com.sun.jndi.toolkit.url.GenericURLDirContext",
-	nullptr,
-	nullptr,
-	_ldapURLContext_MethodInfo_
-};
-
-$Object* allocate$ldapURLContext($Class* clazz) {
-	return $of($alloc(ldapURLContext));
-}
-
 void ldapURLContext::init$($Hashtable* env) {
 	$GenericURLDirContext::init$(env);
 }
@@ -130,7 +56,7 @@ $ResolveResult* ldapURLContext::getRootURLContext($String* name, $Hashtable* env
 }
 
 $Name* ldapURLContext::getURLSuffix($String* prefix, $String* url) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($LdapURL, ldapUrl, $new($LdapURL, url));
 	$var($String, dn, ldapUrl->getDN() != nullptr ? ldapUrl->getDN() : ""_s);
 	$var($CompositeName, remaining, $new($CompositeName));
@@ -144,16 +70,16 @@ $Object* ldapURLContext::lookup($String* name) {
 	if ($LdapURL::hasQueryComponents(name)) {
 		$throwNew($InvalidNameException, name);
 	} else {
-		return $of($GenericURLDirContext::lookup(name));
+		return $GenericURLDirContext::lookup(name);
 	}
 }
 
 $Object* ldapURLContext::lookup($Name* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($LdapURL::hasQueryComponents($($nc(name)->get(0)))) {
-		$throwNew($InvalidNameException, $($nc($of(name))->toString()));
+		$throwNew($InvalidNameException, $($of(name)->toString()));
 	} else {
-		return $of($GenericURLDirContext::lookup(name));
+		return $GenericURLDirContext::lookup(name);
 	}
 }
 
@@ -166,9 +92,9 @@ void ldapURLContext::bind($String* name, Object$* obj) {
 }
 
 void ldapURLContext::bind($Name* name, Object$* obj) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($LdapURL::hasQueryComponents($($nc(name)->get(0)))) {
-		$throwNew($InvalidNameException, $($nc($of(name))->toString()));
+		$throwNew($InvalidNameException, $($of(name)->toString()));
 	} else {
 		$GenericURLDirContext::bind(name, obj);
 	}
@@ -183,9 +109,9 @@ void ldapURLContext::rebind($String* name, Object$* obj) {
 }
 
 void ldapURLContext::rebind($Name* name, Object$* obj) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($LdapURL::hasQueryComponents($($nc(name)->get(0)))) {
-		$throwNew($InvalidNameException, $($nc($of(name))->toString()));
+		$throwNew($InvalidNameException, $($of(name)->toString()));
 	} else {
 		$GenericURLDirContext::rebind(name, obj);
 	}
@@ -200,9 +126,9 @@ void ldapURLContext::unbind($String* name) {
 }
 
 void ldapURLContext::unbind($Name* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($LdapURL::hasQueryComponents($($nc(name)->get(0)))) {
-		$throwNew($InvalidNameException, $($nc($of(name))->toString()));
+		$throwNew($InvalidNameException, $($of(name)->toString()));
 	} else {
 		$GenericURLDirContext::unbind(name);
 	}
@@ -219,11 +145,11 @@ void ldapURLContext::rename($String* oldName, $String* newName) {
 }
 
 void ldapURLContext::rename($Name* oldName, $Name* newName) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($LdapURL::hasQueryComponents($($nc(oldName)->get(0)))) {
-		$throwNew($InvalidNameException, $($nc($of(oldName))->toString()));
+		$throwNew($InvalidNameException, $($of(oldName)->toString()));
 	} else if ($LdapURL::hasQueryComponents($($nc(newName)->get(0)))) {
-		$throwNew($InvalidNameException, $($nc($of(newName))->toString()));
+		$throwNew($InvalidNameException, $($of(newName)->toString()));
 	} else {
 		$GenericURLDirContext::rename(oldName, newName);
 	}
@@ -238,9 +164,9 @@ $NamingEnumeration* ldapURLContext::list($String* name) {
 }
 
 $NamingEnumeration* ldapURLContext::list($Name* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($LdapURL::hasQueryComponents($($nc(name)->get(0)))) {
-		$throwNew($InvalidNameException, $($nc($of(name))->toString()));
+		$throwNew($InvalidNameException, $($of(name)->toString()));
 	} else {
 		return $GenericURLDirContext::list(name);
 	}
@@ -255,9 +181,9 @@ $NamingEnumeration* ldapURLContext::listBindings($String* name) {
 }
 
 $NamingEnumeration* ldapURLContext::listBindings($Name* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($LdapURL::hasQueryComponents($($nc(name)->get(0)))) {
-		$throwNew($InvalidNameException, $($nc($of(name))->toString()));
+		$throwNew($InvalidNameException, $($of(name)->toString()));
 	} else {
 		return $GenericURLDirContext::listBindings(name);
 	}
@@ -272,9 +198,9 @@ void ldapURLContext::destroySubcontext($String* name) {
 }
 
 void ldapURLContext::destroySubcontext($Name* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($LdapURL::hasQueryComponents($($nc(name)->get(0)))) {
-		$throwNew($InvalidNameException, $($nc($of(name))->toString()));
+		$throwNew($InvalidNameException, $($of(name)->toString()));
 	} else {
 		$GenericURLDirContext::destroySubcontext(name);
 	}
@@ -289,9 +215,9 @@ $Context* ldapURLContext::createSubcontext($String* name) {
 }
 
 $Context* ldapURLContext::createSubcontext($Name* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($LdapURL::hasQueryComponents($($nc(name)->get(0)))) {
-		$throwNew($InvalidNameException, $($nc($of(name))->toString()));
+		$throwNew($InvalidNameException, $($of(name)->toString()));
 	} else {
 		return $GenericURLDirContext::createSubcontext(name);
 	}
@@ -301,16 +227,16 @@ $Object* ldapURLContext::lookupLink($String* name) {
 	if ($LdapURL::hasQueryComponents(name)) {
 		$throwNew($InvalidNameException, name);
 	} else {
-		return $of($GenericURLDirContext::lookupLink(name));
+		return $GenericURLDirContext::lookupLink(name);
 	}
 }
 
 $Object* ldapURLContext::lookupLink($Name* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($LdapURL::hasQueryComponents($($nc(name)->get(0)))) {
-		$throwNew($InvalidNameException, $($nc($of(name))->toString()));
+		$throwNew($InvalidNameException, $($of(name)->toString()));
 	} else {
-		return $of($GenericURLDirContext::lookupLink(name));
+		return $GenericURLDirContext::lookupLink(name);
 	}
 }
 
@@ -323,9 +249,9 @@ $NameParser* ldapURLContext::getNameParser($String* name) {
 }
 
 $NameParser* ldapURLContext::getNameParser($Name* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($LdapURL::hasQueryComponents($($nc(name)->get(0)))) {
-		$throwNew($InvalidNameException, $($nc($of(name))->toString()));
+		$throwNew($InvalidNameException, $($of(name)->toString()));
 	} else {
 		return $GenericURLDirContext::getNameParser(name);
 	}
@@ -342,11 +268,11 @@ $String* ldapURLContext::composeName($String* name, $String* prefix) {
 }
 
 $Name* ldapURLContext::composeName($Name* name, $Name* prefix) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($LdapURL::hasQueryComponents($($nc(name)->get(0)))) {
-		$throwNew($InvalidNameException, $($nc($of(name))->toString()));
+		$throwNew($InvalidNameException, $($of(name)->toString()));
 	} else if ($LdapURL::hasQueryComponents($($nc(prefix)->get(0)))) {
-		$throwNew($InvalidNameException, $($nc($of(prefix))->toString()));
+		$throwNew($InvalidNameException, $($of(prefix)->toString()));
 	} else {
 		return $GenericURLDirContext::composeName(name, prefix);
 	}
@@ -361,9 +287,9 @@ $Attributes* ldapURLContext::getAttributes($String* name) {
 }
 
 $Attributes* ldapURLContext::getAttributes($Name* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($LdapURL::hasQueryComponents($($nc(name)->get(0)))) {
-		$throwNew($InvalidNameException, $($nc($of(name))->toString()));
+		$throwNew($InvalidNameException, $($of(name)->toString()));
 	} else {
 		return $GenericURLDirContext::getAttributes(name);
 	}
@@ -378,9 +304,9 @@ $Attributes* ldapURLContext::getAttributes($String* name, $StringArray* attrIds)
 }
 
 $Attributes* ldapURLContext::getAttributes($Name* name, $StringArray* attrIds) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($LdapURL::hasQueryComponents($($nc(name)->get(0)))) {
-		$throwNew($InvalidNameException, $($nc($of(name))->toString()));
+		$throwNew($InvalidNameException, $($of(name)->toString()));
 	} else {
 		return $GenericURLDirContext::getAttributes(name, attrIds);
 	}
@@ -395,9 +321,9 @@ void ldapURLContext::modifyAttributes($String* name, int32_t mod_op, $Attributes
 }
 
 void ldapURLContext::modifyAttributes($Name* name, int32_t mod_op, $Attributes* attrs) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($LdapURL::hasQueryComponents($($nc(name)->get(0)))) {
-		$throwNew($InvalidNameException, $($nc($of(name))->toString()));
+		$throwNew($InvalidNameException, $($of(name)->toString()));
 	} else {
 		$GenericURLDirContext::modifyAttributes(name, mod_op, attrs);
 	}
@@ -412,9 +338,9 @@ void ldapURLContext::modifyAttributes($String* name, $ModificationItemArray* mod
 }
 
 void ldapURLContext::modifyAttributes($Name* name, $ModificationItemArray* mods) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($LdapURL::hasQueryComponents($($nc(name)->get(0)))) {
-		$throwNew($InvalidNameException, $($nc($of(name))->toString()));
+		$throwNew($InvalidNameException, $($of(name)->toString()));
 	} else {
 		$GenericURLDirContext::modifyAttributes(name, mods);
 	}
@@ -429,9 +355,9 @@ void ldapURLContext::bind($String* name, Object$* obj, $Attributes* attrs) {
 }
 
 void ldapURLContext::bind($Name* name, Object$* obj, $Attributes* attrs) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($LdapURL::hasQueryComponents($($nc(name)->get(0)))) {
-		$throwNew($InvalidNameException, $($nc($of(name))->toString()));
+		$throwNew($InvalidNameException, $($of(name)->toString()));
 	} else {
 		$GenericURLDirContext::bind(name, obj, attrs);
 	}
@@ -446,9 +372,9 @@ void ldapURLContext::rebind($String* name, Object$* obj, $Attributes* attrs) {
 }
 
 void ldapURLContext::rebind($Name* name, Object$* obj, $Attributes* attrs) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($LdapURL::hasQueryComponents($($nc(name)->get(0)))) {
-		$throwNew($InvalidNameException, $($nc($of(name))->toString()));
+		$throwNew($InvalidNameException, $($of(name)->toString()));
 	} else {
 		$GenericURLDirContext::rebind(name, obj, attrs);
 	}
@@ -463,9 +389,9 @@ $DirContext* ldapURLContext::createSubcontext($String* name, $Attributes* attrs)
 }
 
 $DirContext* ldapURLContext::createSubcontext($Name* name, $Attributes* attrs) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($LdapURL::hasQueryComponents($($nc(name)->get(0)))) {
-		$throwNew($InvalidNameException, $($nc($of(name))->toString()));
+		$throwNew($InvalidNameException, $($of(name)->toString()));
 	} else {
 		return $GenericURLDirContext::createSubcontext(name, attrs);
 	}
@@ -480,9 +406,9 @@ $DirContext* ldapURLContext::getSchema($String* name) {
 }
 
 $DirContext* ldapURLContext::getSchema($Name* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($LdapURL::hasQueryComponents($($nc(name)->get(0)))) {
-		$throwNew($InvalidNameException, $($nc($of(name))->toString()));
+		$throwNew($InvalidNameException, $($of(name)->toString()));
 	} else {
 		return $GenericURLDirContext::getSchema(name);
 	}
@@ -497,9 +423,9 @@ $DirContext* ldapURLContext::getSchemaClassDefinition($String* name) {
 }
 
 $DirContext* ldapURLContext::getSchemaClassDefinition($Name* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($LdapURL::hasQueryComponents($($nc(name)->get(0)))) {
-		$throwNew($InvalidNameException, $($nc($of(name))->toString()));
+		$throwNew($InvalidNameException, $($of(name)->toString()));
 	} else {
 		return $GenericURLDirContext::getSchemaClassDefinition(name);
 	}
@@ -514,7 +440,7 @@ $NamingEnumeration* ldapURLContext::search($String* name, $Attributes* matchingA
 }
 
 $NamingEnumeration* ldapURLContext::search($Name* name, $Attributes* matchingAttributes) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(name)->size() == 1) {
 		return search($(name->get(0)), matchingAttributes);
 	} else if ($LdapURL::hasQueryComponents($(name->get(0)))) {
@@ -533,7 +459,7 @@ $NamingEnumeration* ldapURLContext::search($String* name, $Attributes* matchingA
 }
 
 $NamingEnumeration* ldapURLContext::search($Name* name, $Attributes* matchingAttributes, $StringArray* attributesToReturn) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(name)->size() == 1) {
 		return search($(name->get(0)), matchingAttributes, attributesToReturn);
 	} else if ($LdapURL::hasQueryComponents($(name->get(0)))) {
@@ -552,7 +478,7 @@ $NamingEnumeration* ldapURLContext::search($String* name, $String* filter, $Sear
 }
 
 $NamingEnumeration* ldapURLContext::search($Name* name, $String* filter, $SearchControls* cons) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(name)->size() == 1) {
 		return search($(name->get(0)), filter, cons);
 	} else if ($LdapURL::hasQueryComponents($(name->get(0)))) {
@@ -571,7 +497,7 @@ $NamingEnumeration* ldapURLContext::search($String* name, $String* filterExpr, $
 }
 
 $NamingEnumeration* ldapURLContext::search($Name* name, $String* filterExpr, $ObjectArray* filterArgs, $SearchControls* cons) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(name)->size() == 1) {
 		return search($(name->get(0)), filterExpr, filterArgs, cons);
 	} else if ($LdapURL::hasQueryComponents($(name->get(0)))) {
@@ -582,31 +508,29 @@ $NamingEnumeration* ldapURLContext::search($Name* name, $String* filterExpr, $Ob
 }
 
 $NamingEnumeration* ldapURLContext::searchUsingURL($String* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($LdapURL, url, $new($LdapURL, name));
 	$var($ResolveResult, res, getRootURLContext(name, this->myEnv));
 	$var($DirContext, ctx, $cast($DirContext, $nc(res)->getResolvedObj()));
-	{
-		$var($Throwable, var$0, nullptr);
-		$var($NamingEnumeration, var$2, nullptr);
-		bool return$1 = false;
-		try {
-			$var($Name, var$3, res->getRemainingName());
-			$var($String, var$4, setFilterUsingURL(url));
-			$assign(var$2, $nc(ctx)->search(var$3, var$4, $(setSearchControlsUsingURL(url))));
-			return$1 = true;
-			goto $finally;
-		} catch ($Throwable& var$5) {
-			$assign(var$0, var$5);
-		} $finally: {
-			$nc(ctx)->close();
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+	$var($Throwable, var$0, nullptr);
+	$var($NamingEnumeration, var$2, nullptr);
+	bool return$1 = false;
+	try {
+		$var($Name, var$3, res->getRemainingName());
+		$var($String, var$4, setFilterUsingURL(url));
+		$assign(var$2, $nc(ctx)->search(var$3, var$4, $(setSearchControlsUsingURL(url))));
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$5) {
+		$assign(var$0, var$5);
+	} $finally: {
+		$nc(ctx)->close();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
@@ -622,13 +546,13 @@ $String* ldapURLContext::setFilterUsingURL($LdapURL* url) {
 
 $SearchControls* ldapURLContext::setSearchControlsUsingURL($LdapURL* url) {
 	$init(ldapURLContext);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SearchControls, cons, $new($SearchControls));
 	$var($String, scope, $nc(url)->getScope());
 	$var($String, attributes, url->getAttributes());
 	if (scope == nullptr) {
 		cons->setSearchScope($SearchControls::OBJECT_SCOPE);
-	} else if ($nc(scope)->equals("sub"_s)) {
+	} else if (scope->equals("sub"_s)) {
 		cons->setSearchScope($SearchControls::SUBTREE_SCOPE);
 	} else if (scope->equals("one"_s)) {
 		cons->setSearchScope($SearchControls::ONELEVEL_SCOPE);
@@ -653,7 +577,76 @@ ldapURLContext::ldapURLContext() {
 }
 
 $Class* ldapURLContext::load$($String* name, bool initialize) {
-	$loadClass(ldapURLContext, name, initialize, &_ldapURLContext_ClassInfo_, allocate$ldapURLContext);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/Hashtable;)V", "(Ljava/util/Hashtable<**>;)V", 0, $method(ldapURLContext, init$, void, $Hashtable*)},
+		{"bind", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(ldapURLContext, bind, void, $String*, Object$*), "javax.naming.NamingException"},
+		{"bind", "(Ljavax/naming/Name;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(ldapURLContext, bind, void, $Name*, Object$*), "javax.naming.NamingException"},
+		{"bind", "(Ljava/lang/String;Ljava/lang/Object;Ljavax/naming/directory/Attributes;)V", nullptr, $PUBLIC, $virtualMethod(ldapURLContext, bind, void, $String*, Object$*, $Attributes*), "javax.naming.NamingException"},
+		{"bind", "(Ljavax/naming/Name;Ljava/lang/Object;Ljavax/naming/directory/Attributes;)V", nullptr, $PUBLIC, $virtualMethod(ldapURLContext, bind, void, $Name*, Object$*, $Attributes*), "javax.naming.NamingException"},
+		{"composeName", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ldapURLContext, composeName, $String*, $String*, $String*), "javax.naming.NamingException"},
+		{"composeName", "(Ljavax/naming/Name;Ljavax/naming/Name;)Ljavax/naming/Name;", nullptr, $PUBLIC, $virtualMethod(ldapURLContext, composeName, $Name*, $Name*, $Name*), "javax.naming.NamingException"},
+		{"createSubcontext", "(Ljava/lang/String;)Ljavax/naming/Context;", nullptr, $PUBLIC, $virtualMethod(ldapURLContext, createSubcontext, $Context*, $String*), "javax.naming.NamingException"},
+		{"createSubcontext", "(Ljavax/naming/Name;)Ljavax/naming/Context;", nullptr, $PUBLIC, $virtualMethod(ldapURLContext, createSubcontext, $Context*, $Name*), "javax.naming.NamingException"},
+		{"createSubcontext", "(Ljava/lang/String;Ljavax/naming/directory/Attributes;)Ljavax/naming/directory/DirContext;", nullptr, $PUBLIC, $virtualMethod(ldapURLContext, createSubcontext, $DirContext*, $String*, $Attributes*), "javax.naming.NamingException"},
+		{"createSubcontext", "(Ljavax/naming/Name;Ljavax/naming/directory/Attributes;)Ljavax/naming/directory/DirContext;", nullptr, $PUBLIC, $virtualMethod(ldapURLContext, createSubcontext, $DirContext*, $Name*, $Attributes*), "javax.naming.NamingException"},
+		{"destroySubcontext", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ldapURLContext, destroySubcontext, void, $String*), "javax.naming.NamingException"},
+		{"destroySubcontext", "(Ljavax/naming/Name;)V", nullptr, $PUBLIC, $virtualMethod(ldapURLContext, destroySubcontext, void, $Name*), "javax.naming.NamingException"},
+		{"getAttributes", "(Ljava/lang/String;)Ljavax/naming/directory/Attributes;", nullptr, $PUBLIC, $virtualMethod(ldapURLContext, getAttributes, $Attributes*, $String*), "javax.naming.NamingException"},
+		{"getAttributes", "(Ljavax/naming/Name;)Ljavax/naming/directory/Attributes;", nullptr, $PUBLIC, $virtualMethod(ldapURLContext, getAttributes, $Attributes*, $Name*), "javax.naming.NamingException"},
+		{"getAttributes", "(Ljava/lang/String;[Ljava/lang/String;)Ljavax/naming/directory/Attributes;", nullptr, $PUBLIC, $virtualMethod(ldapURLContext, getAttributes, $Attributes*, $String*, $StringArray*), "javax.naming.NamingException"},
+		{"getAttributes", "(Ljavax/naming/Name;[Ljava/lang/String;)Ljavax/naming/directory/Attributes;", nullptr, $PUBLIC, $virtualMethod(ldapURLContext, getAttributes, $Attributes*, $Name*, $StringArray*), "javax.naming.NamingException"},
+		{"getNameParser", "(Ljava/lang/String;)Ljavax/naming/NameParser;", nullptr, $PUBLIC, $virtualMethod(ldapURLContext, getNameParser, $NameParser*, $String*), "javax.naming.NamingException"},
+		{"getNameParser", "(Ljavax/naming/Name;)Ljavax/naming/NameParser;", nullptr, $PUBLIC, $virtualMethod(ldapURLContext, getNameParser, $NameParser*, $Name*), "javax.naming.NamingException"},
+		{"getRootURLContext", "(Ljava/lang/String;Ljava/util/Hashtable;)Ljavax/naming/spi/ResolveResult;", "(Ljava/lang/String;Ljava/util/Hashtable<**>;)Ljavax/naming/spi/ResolveResult;", $PROTECTED, $virtualMethod(ldapURLContext, getRootURLContext, $ResolveResult*, $String*, $Hashtable*), "javax.naming.NamingException"},
+		{"getSchema", "(Ljava/lang/String;)Ljavax/naming/directory/DirContext;", nullptr, $PUBLIC, $virtualMethod(ldapURLContext, getSchema, $DirContext*, $String*), "javax.naming.NamingException"},
+		{"getSchema", "(Ljavax/naming/Name;)Ljavax/naming/directory/DirContext;", nullptr, $PUBLIC, $virtualMethod(ldapURLContext, getSchema, $DirContext*, $Name*), "javax.naming.NamingException"},
+		{"getSchemaClassDefinition", "(Ljava/lang/String;)Ljavax/naming/directory/DirContext;", nullptr, $PUBLIC, $virtualMethod(ldapURLContext, getSchemaClassDefinition, $DirContext*, $String*), "javax.naming.NamingException"},
+		{"getSchemaClassDefinition", "(Ljavax/naming/Name;)Ljavax/naming/directory/DirContext;", nullptr, $PUBLIC, $virtualMethod(ldapURLContext, getSchemaClassDefinition, $DirContext*, $Name*), "javax.naming.NamingException"},
+		{"getURLSuffix", "(Ljava/lang/String;Ljava/lang/String;)Ljavax/naming/Name;", nullptr, $PROTECTED, $virtualMethod(ldapURLContext, getURLSuffix, $Name*, $String*, $String*), "javax.naming.NamingException"},
+		{"list", "(Ljava/lang/String;)Ljavax/naming/NamingEnumeration;", "(Ljava/lang/String;)Ljavax/naming/NamingEnumeration<Ljavax/naming/NameClassPair;>;", $PUBLIC, $virtualMethod(ldapURLContext, list, $NamingEnumeration*, $String*), "javax.naming.NamingException"},
+		{"list", "(Ljavax/naming/Name;)Ljavax/naming/NamingEnumeration;", "(Ljavax/naming/Name;)Ljavax/naming/NamingEnumeration<Ljavax/naming/NameClassPair;>;", $PUBLIC, $virtualMethod(ldapURLContext, list, $NamingEnumeration*, $Name*), "javax.naming.NamingException"},
+		{"listBindings", "(Ljava/lang/String;)Ljavax/naming/NamingEnumeration;", "(Ljava/lang/String;)Ljavax/naming/NamingEnumeration<Ljavax/naming/Binding;>;", $PUBLIC, $virtualMethod(ldapURLContext, listBindings, $NamingEnumeration*, $String*), "javax.naming.NamingException"},
+		{"listBindings", "(Ljavax/naming/Name;)Ljavax/naming/NamingEnumeration;", "(Ljavax/naming/Name;)Ljavax/naming/NamingEnumeration<Ljavax/naming/Binding;>;", $PUBLIC, $virtualMethod(ldapURLContext, listBindings, $NamingEnumeration*, $Name*), "javax.naming.NamingException"},
+		{"lookup", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ldapURLContext, lookup, $Object*, $String*), "javax.naming.NamingException"},
+		{"lookup", "(Ljavax/naming/Name;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ldapURLContext, lookup, $Object*, $Name*), "javax.naming.NamingException"},
+		{"lookupLink", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ldapURLContext, lookupLink, $Object*, $String*), "javax.naming.NamingException"},
+		{"lookupLink", "(Ljavax/naming/Name;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ldapURLContext, lookupLink, $Object*, $Name*), "javax.naming.NamingException"},
+		{"modifyAttributes", "(Ljava/lang/String;ILjavax/naming/directory/Attributes;)V", nullptr, $PUBLIC, $virtualMethod(ldapURLContext, modifyAttributes, void, $String*, int32_t, $Attributes*), "javax.naming.NamingException"},
+		{"modifyAttributes", "(Ljavax/naming/Name;ILjavax/naming/directory/Attributes;)V", nullptr, $PUBLIC, $virtualMethod(ldapURLContext, modifyAttributes, void, $Name*, int32_t, $Attributes*), "javax.naming.NamingException"},
+		{"modifyAttributes", "(Ljava/lang/String;[Ljavax/naming/directory/ModificationItem;)V", nullptr, $PUBLIC, $virtualMethod(ldapURLContext, modifyAttributes, void, $String*, $ModificationItemArray*), "javax.naming.NamingException"},
+		{"modifyAttributes", "(Ljavax/naming/Name;[Ljavax/naming/directory/ModificationItem;)V", nullptr, $PUBLIC, $virtualMethod(ldapURLContext, modifyAttributes, void, $Name*, $ModificationItemArray*), "javax.naming.NamingException"},
+		{"rebind", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(ldapURLContext, rebind, void, $String*, Object$*), "javax.naming.NamingException"},
+		{"rebind", "(Ljavax/naming/Name;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(ldapURLContext, rebind, void, $Name*, Object$*), "javax.naming.NamingException"},
+		{"rebind", "(Ljava/lang/String;Ljava/lang/Object;Ljavax/naming/directory/Attributes;)V", nullptr, $PUBLIC, $virtualMethod(ldapURLContext, rebind, void, $String*, Object$*, $Attributes*), "javax.naming.NamingException"},
+		{"rebind", "(Ljavax/naming/Name;Ljava/lang/Object;Ljavax/naming/directory/Attributes;)V", nullptr, $PUBLIC, $virtualMethod(ldapURLContext, rebind, void, $Name*, Object$*, $Attributes*), "javax.naming.NamingException"},
+		{"rename", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ldapURLContext, rename, void, $String*, $String*), "javax.naming.NamingException"},
+		{"rename", "(Ljavax/naming/Name;Ljavax/naming/Name;)V", nullptr, $PUBLIC, $virtualMethod(ldapURLContext, rename, void, $Name*, $Name*), "javax.naming.NamingException"},
+		{"search", "(Ljava/lang/String;Ljavax/naming/directory/Attributes;)Ljavax/naming/NamingEnumeration;", "(Ljava/lang/String;Ljavax/naming/directory/Attributes;)Ljavax/naming/NamingEnumeration<Ljavax/naming/directory/SearchResult;>;", $PUBLIC, $virtualMethod(ldapURLContext, search, $NamingEnumeration*, $String*, $Attributes*), "javax.naming.NamingException"},
+		{"search", "(Ljavax/naming/Name;Ljavax/naming/directory/Attributes;)Ljavax/naming/NamingEnumeration;", "(Ljavax/naming/Name;Ljavax/naming/directory/Attributes;)Ljavax/naming/NamingEnumeration<Ljavax/naming/directory/SearchResult;>;", $PUBLIC, $virtualMethod(ldapURLContext, search, $NamingEnumeration*, $Name*, $Attributes*), "javax.naming.NamingException"},
+		{"search", "(Ljava/lang/String;Ljavax/naming/directory/Attributes;[Ljava/lang/String;)Ljavax/naming/NamingEnumeration;", "(Ljava/lang/String;Ljavax/naming/directory/Attributes;[Ljava/lang/String;)Ljavax/naming/NamingEnumeration<Ljavax/naming/directory/SearchResult;>;", $PUBLIC, $virtualMethod(ldapURLContext, search, $NamingEnumeration*, $String*, $Attributes*, $StringArray*), "javax.naming.NamingException"},
+		{"search", "(Ljavax/naming/Name;Ljavax/naming/directory/Attributes;[Ljava/lang/String;)Ljavax/naming/NamingEnumeration;", "(Ljavax/naming/Name;Ljavax/naming/directory/Attributes;[Ljava/lang/String;)Ljavax/naming/NamingEnumeration<Ljavax/naming/directory/SearchResult;>;", $PUBLIC, $virtualMethod(ldapURLContext, search, $NamingEnumeration*, $Name*, $Attributes*, $StringArray*), "javax.naming.NamingException"},
+		{"search", "(Ljava/lang/String;Ljava/lang/String;Ljavax/naming/directory/SearchControls;)Ljavax/naming/NamingEnumeration;", "(Ljava/lang/String;Ljava/lang/String;Ljavax/naming/directory/SearchControls;)Ljavax/naming/NamingEnumeration<Ljavax/naming/directory/SearchResult;>;", $PUBLIC, $virtualMethod(ldapURLContext, search, $NamingEnumeration*, $String*, $String*, $SearchControls*), "javax.naming.NamingException"},
+		{"search", "(Ljavax/naming/Name;Ljava/lang/String;Ljavax/naming/directory/SearchControls;)Ljavax/naming/NamingEnumeration;", "(Ljavax/naming/Name;Ljava/lang/String;Ljavax/naming/directory/SearchControls;)Ljavax/naming/NamingEnumeration<Ljavax/naming/directory/SearchResult;>;", $PUBLIC, $virtualMethod(ldapURLContext, search, $NamingEnumeration*, $Name*, $String*, $SearchControls*), "javax.naming.NamingException"},
+		{"search", "(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;Ljavax/naming/directory/SearchControls;)Ljavax/naming/NamingEnumeration;", "(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;Ljavax/naming/directory/SearchControls;)Ljavax/naming/NamingEnumeration<Ljavax/naming/directory/SearchResult;>;", $PUBLIC, $virtualMethod(ldapURLContext, search, $NamingEnumeration*, $String*, $String*, $ObjectArray*, $SearchControls*), "javax.naming.NamingException"},
+		{"search", "(Ljavax/naming/Name;Ljava/lang/String;[Ljava/lang/Object;Ljavax/naming/directory/SearchControls;)Ljavax/naming/NamingEnumeration;", "(Ljavax/naming/Name;Ljava/lang/String;[Ljava/lang/Object;Ljavax/naming/directory/SearchControls;)Ljavax/naming/NamingEnumeration<Ljavax/naming/directory/SearchResult;>;", $PUBLIC, $virtualMethod(ldapURLContext, search, $NamingEnumeration*, $Name*, $String*, $ObjectArray*, $SearchControls*), "javax.naming.NamingException"},
+		{"searchUsingURL", "(Ljava/lang/String;)Ljavax/naming/NamingEnumeration;", "(Ljava/lang/String;)Ljavax/naming/NamingEnumeration<Ljavax/naming/directory/SearchResult;>;", $PRIVATE, $method(ldapURLContext, searchUsingURL, $NamingEnumeration*, $String*), "javax.naming.NamingException"},
+		{"setFilterUsingURL", "(Lcom/sun/jndi/ldap/LdapURL;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(ldapURLContext, setFilterUsingURL, $String*, $LdapURL*)},
+		{"setSearchControlsUsingURL", "(Lcom/sun/jndi/ldap/LdapURL;)Ljavax/naming/directory/SearchControls;", nullptr, $PRIVATE | $STATIC, $staticMethod(ldapURLContext, setSearchControlsUsingURL, $SearchControls*, $LdapURL*)},
+		{"unbind", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ldapURLContext, unbind, void, $String*), "javax.naming.NamingException"},
+		{"unbind", "(Ljavax/naming/Name;)V", nullptr, $PUBLIC, $virtualMethod(ldapURLContext, unbind, void, $Name*), "javax.naming.NamingException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.jndi.url.ldap.ldapURLContext",
+		"com.sun.jndi.toolkit.url.GenericURLDirContext",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ldapURLContext, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ldapURLContext));
+	});
 	return class$;
 }
 

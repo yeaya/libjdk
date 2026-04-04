@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/Otherwise.h>
-
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/Constants.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/Instruction.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/Parser.h>
@@ -37,27 +36,6 @@ namespace com {
 						namespace xsltc {
 							namespace compiler {
 
-$MethodInfo _Otherwise_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(Otherwise, init$, void)},
-	{"display", "(I)V", nullptr, $PUBLIC, $virtualMethod(Otherwise, display, void, int32_t)},
-	{"translate", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;)V", nullptr, $PUBLIC, $virtualMethod(Otherwise, translate, void, $ClassGenerator*, $MethodGenerator*)},
-	{"typeCheck", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SymbolTable;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/Type;", nullptr, $PUBLIC, $virtualMethod(Otherwise, typeCheck, $Type*, $SymbolTable*), "com.sun.org.apache.xalan.internal.xsltc.compiler.util.TypeCheckError"},
-	{}
-};
-
-$ClassInfo _Otherwise_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xalan.internal.xsltc.compiler.Otherwise",
-	"com.sun.org.apache.xalan.internal.xsltc.compiler.Instruction",
-	nullptr,
-	nullptr,
-	_Otherwise_MethodInfo_
-};
-
-$Object* allocate$Otherwise($Class* clazz) {
-	return $of($alloc(Otherwise));
-}
-
 void Otherwise::init$() {
 	$Instruction::init$();
 }
@@ -76,10 +54,10 @@ $Type* Otherwise::typeCheck($SymbolTable* stable) {
 }
 
 void Otherwise::translate($ClassGenerator* classGen, $MethodGenerator* methodGen) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Parser, parser, getParser());
 	$init($ErrorMsg);
-	$var($ErrorMsg, err, $new($ErrorMsg, $ErrorMsg::STRAY_OTHERWISE_ERR, static_cast<$SyntaxTreeNode*>(this)));
+	$var($ErrorMsg, err, $new($ErrorMsg, $ErrorMsg::STRAY_OTHERWISE_ERR, this));
 	$nc(parser)->reportError($Constants::ERROR, err);
 }
 
@@ -87,7 +65,24 @@ Otherwise::Otherwise() {
 }
 
 $Class* Otherwise::load$($String* name, bool initialize) {
-	$loadClass(Otherwise, name, initialize, &_Otherwise_ClassInfo_, allocate$Otherwise);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(Otherwise, init$, void)},
+		{"display", "(I)V", nullptr, $PUBLIC, $virtualMethod(Otherwise, display, void, int32_t)},
+		{"translate", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;)V", nullptr, $PUBLIC, $virtualMethod(Otherwise, translate, void, $ClassGenerator*, $MethodGenerator*)},
+		{"typeCheck", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SymbolTable;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/Type;", nullptr, $PUBLIC, $virtualMethod(Otherwise, typeCheck, $Type*, $SymbolTable*), "com.sun.org.apache.xalan.internal.xsltc.compiler.util.TypeCheckError"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xalan.internal.xsltc.compiler.Otherwise",
+		"com.sun.org.apache.xalan.internal.xsltc.compiler.Instruction",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Otherwise, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Otherwise);
+	});
 	return class$;
 }
 

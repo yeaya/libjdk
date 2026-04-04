@@ -1,5 +1,4 @@
 #include <javax/swing/text/StyledEditorKit$ForegroundAction.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/event/ActionEvent.h>
@@ -8,7 +7,6 @@
 #include <javax/swing/JEditorPane.h>
 #include <javax/swing/LookAndFeel.h>
 #include <javax/swing/UIManager.h>
-#include <javax/swing/text/AttributeSet.h>
 #include <javax/swing/text/MutableAttributeSet.h>
 #include <javax/swing/text/SimpleAttributeSet.h>
 #include <javax/swing/text/StyleConstants.h>
@@ -17,7 +15,6 @@
 #include <jcpp.h>
 
 using $Color = ::java::awt::Color;
-using $Component = ::java::awt::Component;
 using $ActionEvent = ::java::awt::event::ActionEvent;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -25,9 +22,7 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NumberFormatException = ::java::lang::NumberFormatException;
 using $JEditorPane = ::javax::swing::JEditorPane;
-using $LookAndFeel = ::javax::swing::LookAndFeel;
 using $UIManager = ::javax::swing::UIManager;
-using $AttributeSet = ::javax::swing::text::AttributeSet;
 using $MutableAttributeSet = ::javax::swing::text::MutableAttributeSet;
 using $SimpleAttributeSet = ::javax::swing::text::SimpleAttributeSet;
 using $StyleConstants = ::javax::swing::text::StyleConstants;
@@ -37,50 +32,13 @@ namespace javax {
 	namespace swing {
 		namespace text {
 
-$FieldInfo _StyledEditorKit$ForegroundAction_FieldInfo_[] = {
-	{"fg", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(StyledEditorKit$ForegroundAction, fg)},
-	{}
-};
-
-$MethodInfo _StyledEditorKit$ForegroundAction_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/awt/Color;)V", nullptr, $PUBLIC, $method(StyledEditorKit$ForegroundAction, init$, void, $String*, $Color*)},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(StyledEditorKit$ForegroundAction, actionPerformed, void, $ActionEvent*)},
-	{}
-};
-
-$InnerClassInfo _StyledEditorKit$ForegroundAction_InnerClassesInfo_[] = {
-	{"javax.swing.text.StyledEditorKit$ForegroundAction", "javax.swing.text.StyledEditorKit", "ForegroundAction", $PUBLIC | $STATIC},
-	{"javax.swing.text.StyledEditorKit$StyledTextAction", "javax.swing.text.StyledEditorKit", "StyledTextAction", $PUBLIC | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _StyledEditorKit$ForegroundAction_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.text.StyledEditorKit$ForegroundAction",
-	"javax.swing.text.StyledEditorKit$StyledTextAction",
-	nullptr,
-	_StyledEditorKit$ForegroundAction_FieldInfo_,
-	_StyledEditorKit$ForegroundAction_MethodInfo_,
-	nullptr,
-	nullptr,
-	_StyledEditorKit$ForegroundAction_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.StyledEditorKit"
-};
-
-$Object* allocate$StyledEditorKit$ForegroundAction($Class* clazz) {
-	return $of($alloc(StyledEditorKit$ForegroundAction));
-}
-
 void StyledEditorKit$ForegroundAction::init$($String* nm, $Color* fg) {
 	$StyledEditorKit$StyledTextAction::init$(nm);
 	$set(this, fg, fg);
 }
 
 void StyledEditorKit$ForegroundAction::actionPerformed($ActionEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JEditorPane, editor, getEditor(e));
 	if (editor != nullptr) {
 		$var($Color, fg, this->fg);
@@ -96,7 +54,7 @@ void StyledEditorKit$ForegroundAction::actionPerformed($ActionEvent* e) {
 			$StyleConstants::setForeground(attr, fg);
 			setCharacterAttributes(editor, attr, false);
 		} else {
-			$nc($($UIManager::getLookAndFeel()))->provideErrorFeedback(editor);
+			$$nc($UIManager::getLookAndFeel())->provideErrorFeedback(editor);
 		}
 	}
 }
@@ -105,7 +63,38 @@ StyledEditorKit$ForegroundAction::StyledEditorKit$ForegroundAction() {
 }
 
 $Class* StyledEditorKit$ForegroundAction::load$($String* name, bool initialize) {
-	$loadClass(StyledEditorKit$ForegroundAction, name, initialize, &_StyledEditorKit$ForegroundAction_ClassInfo_, allocate$StyledEditorKit$ForegroundAction);
+	$FieldInfo fieldInfos$$[] = {
+		{"fg", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(StyledEditorKit$ForegroundAction, fg)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljava/awt/Color;)V", nullptr, $PUBLIC, $method(StyledEditorKit$ForegroundAction, init$, void, $String*, $Color*)},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(StyledEditorKit$ForegroundAction, actionPerformed, void, $ActionEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.StyledEditorKit$ForegroundAction", "javax.swing.text.StyledEditorKit", "ForegroundAction", $PUBLIC | $STATIC},
+		{"javax.swing.text.StyledEditorKit$StyledTextAction", "javax.swing.text.StyledEditorKit", "StyledTextAction", $PUBLIC | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.text.StyledEditorKit$ForegroundAction",
+		"javax.swing.text.StyledEditorKit$StyledTextAction",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.StyledEditorKit"
+	};
+	$loadClass(StyledEditorKit$ForegroundAction, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(StyledEditorKit$ForegroundAction));
+	});
 	return class$;
 }
 

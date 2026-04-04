@@ -35,6 +35,7 @@ class $export LockInfoCompositeData : public ::sun::management::LazyCompositeDat
 	$class(LockInfoCompositeData, 0, ::sun::management::LazyCompositeData)
 public:
 	LockInfoCompositeData();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::lang::management::LockInfo* li);
 	static ::javax::management::openmbean::CompositeType* compositeType();
 	virtual ::javax::management::openmbean::CompositeData* getCompositeData() override;
@@ -45,7 +46,7 @@ public:
 	static ::javax::management::openmbean::CompositeType* LOCK_INFO_COMPOSITE_TYPE;
 	static $String* CLASS_NAME;
 	static $String* IDENTITY_HASH_CODE;
-	static const int64_t serialVersionUID = (int64_t)0xA7884E51B27E0DDC;
+	static const int64_t serialVersionUID = (int64_t)0xa7884e51b27e0ddc;
 };
 
 	} // management

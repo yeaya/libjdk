@@ -1,5 +1,4 @@
 #include <sun/awt/image/PixelConverter$Rgba.h>
-
 #include <java/awt/image/ColorModel.h>
 #include <sun/awt/image/PixelConverter.h>
 #include <jcpp.h>
@@ -14,43 +13,6 @@ using $PixelConverter = ::sun::awt::image::PixelConverter;
 namespace sun {
 	namespace awt {
 		namespace image {
-
-$FieldInfo _PixelConverter$Rgba_FieldInfo_[] = {
-	{"instance", "Lsun/awt/image/PixelConverter;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PixelConverter$Rgba, instance)},
-	{}
-};
-
-$MethodInfo _PixelConverter$Rgba_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(PixelConverter$Rgba, init$, void)},
-	{"pixelToRgb", "(ILjava/awt/image/ColorModel;)I", nullptr, $PUBLIC, $virtualMethod(PixelConverter$Rgba, pixelToRgb, int32_t, int32_t, $ColorModel*)},
-	{"rgbToPixel", "(ILjava/awt/image/ColorModel;)I", nullptr, $PUBLIC, $virtualMethod(PixelConverter$Rgba, rgbToPixel, int32_t, int32_t, $ColorModel*)},
-	{}
-};
-
-$InnerClassInfo _PixelConverter$Rgba_InnerClassesInfo_[] = {
-	{"sun.awt.image.PixelConverter$Rgba", "sun.awt.image.PixelConverter", "Rgba", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _PixelConverter$Rgba_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.awt.image.PixelConverter$Rgba",
-	"sun.awt.image.PixelConverter",
-	nullptr,
-	_PixelConverter$Rgba_FieldInfo_,
-	_PixelConverter$Rgba_MethodInfo_,
-	nullptr,
-	nullptr,
-	_PixelConverter$Rgba_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.awt.image.PixelConverter"
-};
-
-$Object* allocate$PixelConverter$Rgba($Class* clazz) {
-	return $of($alloc(PixelConverter$Rgba));
-}
 
 $PixelConverter* PixelConverter$Rgba::instance = nullptr;
 
@@ -67,7 +29,7 @@ int32_t PixelConverter$Rgba::pixelToRgb(int32_t pixel, $ColorModel* cm) {
 	return ((pixel << 24) | ((int32_t)((uint32_t)pixel >> 8)));
 }
 
-void clinit$PixelConverter$Rgba($Class* class$) {
+void PixelConverter$Rgba::clinit$($Class* clazz) {
 	$assignStatic(PixelConverter$Rgba::instance, $new(PixelConverter$Rgba));
 }
 
@@ -75,7 +37,38 @@ PixelConverter$Rgba::PixelConverter$Rgba() {
 }
 
 $Class* PixelConverter$Rgba::load$($String* name, bool initialize) {
-	$loadClass(PixelConverter$Rgba, name, initialize, &_PixelConverter$Rgba_ClassInfo_, clinit$PixelConverter$Rgba, allocate$PixelConverter$Rgba);
+	$FieldInfo fieldInfos$$[] = {
+		{"instance", "Lsun/awt/image/PixelConverter;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PixelConverter$Rgba, instance)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(PixelConverter$Rgba, init$, void)},
+		{"pixelToRgb", "(ILjava/awt/image/ColorModel;)I", nullptr, $PUBLIC, $virtualMethod(PixelConverter$Rgba, pixelToRgb, int32_t, int32_t, $ColorModel*)},
+		{"rgbToPixel", "(ILjava/awt/image/ColorModel;)I", nullptr, $PUBLIC, $virtualMethod(PixelConverter$Rgba, rgbToPixel, int32_t, int32_t, $ColorModel*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.image.PixelConverter$Rgba", "sun.awt.image.PixelConverter", "Rgba", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.awt.image.PixelConverter$Rgba",
+		"sun.awt.image.PixelConverter",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.awt.image.PixelConverter"
+	};
+	$loadClass(PixelConverter$Rgba, name, initialize, &classInfo$$, PixelConverter$Rgba::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(PixelConverter$Rgba);
+	});
 	return class$;
 }
 

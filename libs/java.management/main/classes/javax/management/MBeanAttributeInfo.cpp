@@ -1,14 +1,11 @@
 #include <javax/management/MBeanAttributeInfo.h>
-
 #include <com/sun/jmx/mbeanserver/GetPropertyAction.h>
 #include <com/sun/jmx/mbeanserver/Introspector.h>
 #include <java/lang/CloneNotSupportedException.h>
 #include <java/lang/reflect/AccessibleObject.h>
 #include <java/lang/reflect/AnnotatedElement.h>
-#include <java/lang/reflect/Executable.h>
 #include <java/lang/reflect/Method.h>
 #include <java/security/AccessController.h>
-#include <java/security/PrivilegedAction.h>
 #include <java/util/Objects.h>
 #include <javax/management/Descriptor.h>
 #include <javax/management/ImmutableDescriptor.h>
@@ -32,11 +29,8 @@ using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Void = ::java::lang::Void;
 using $AccessibleObject = ::java::lang::reflect::AccessibleObject;
-using $AnnotatedElement = ::java::lang::reflect::AnnotatedElement;
-using $Executable = ::java::lang::reflect::Executable;
 using $Method = ::java::lang::reflect::Method;
 using $AccessController = ::java::security::AccessController;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $Objects = ::java::util::Objects;
 using $Descriptor = ::javax::management::Descriptor;
 using $ImmutableDescriptor = ::javax::management::ImmutableDescriptor;
@@ -45,47 +39,6 @@ using $MBeanFeatureInfo = ::javax::management::MBeanFeatureInfo;
 
 namespace javax {
 	namespace management {
-
-$FieldInfo _MBeanAttributeInfo_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MBeanAttributeInfo, serialVersionUID)},
-	{"NO_ATTRIBUTES", "[Ljavax/management/MBeanAttributeInfo;", nullptr, $STATIC | $FINAL, $staticField(MBeanAttributeInfo, NO_ATTRIBUTES)},
-	{"attributeType", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(MBeanAttributeInfo, attributeType$)},
-	{"isWrite", "Z", nullptr, $PRIVATE | $FINAL, $field(MBeanAttributeInfo, isWrite)},
-	{"isRead", "Z", nullptr, $PRIVATE | $FINAL, $field(MBeanAttributeInfo, isRead)},
-	{"is", "Z", nullptr, $PRIVATE | $FINAL, $field(MBeanAttributeInfo, is)},
-	{}
-};
-
-$MethodInfo _MBeanAttributeInfo_MethodInfo_[] = {
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZZZ)V", nullptr, $PUBLIC, $method(MBeanAttributeInfo, init$, void, $String*, $String*, $String*, bool, bool, bool)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZZZLjavax/management/Descriptor;)V", nullptr, $PUBLIC, $method(MBeanAttributeInfo, init$, void, $String*, $String*, $String*, bool, bool, bool, $Descriptor*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/reflect/Method;Ljava/lang/reflect/Method;)V", nullptr, $PUBLIC, $method(MBeanAttributeInfo, init$, void, $String*, $String*, $Method*, $Method*), "javax.management.IntrospectionException"},
-	{"attributeType", "(Ljava/lang/reflect/Method;Ljava/lang/reflect/Method;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(MBeanAttributeInfo, attributeType, $String*, $Method*, $Method*), "javax.management.IntrospectionException"},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MBeanAttributeInfo, clone, $Object*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(MBeanAttributeInfo, equals, bool, Object$*)},
-	{"getType", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MBeanAttributeInfo, getType, $String*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(MBeanAttributeInfo, hashCode, int32_t)},
-	{"isIs", "()Z", nullptr, $PUBLIC, $virtualMethod(MBeanAttributeInfo, isIs, bool)},
-	{"isIs", "(Ljava/lang/reflect/Method;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(MBeanAttributeInfo, isIs, bool, $Method*)},
-	{"isReadable", "()Z", nullptr, $PUBLIC, $virtualMethod(MBeanAttributeInfo, isReadable, bool)},
-	{"isWritable", "()Z", nullptr, $PUBLIC, $virtualMethod(MBeanAttributeInfo, isWritable, bool)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MBeanAttributeInfo, toString, $String*)},
-	{}
-};
-
-$ClassInfo _MBeanAttributeInfo_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.management.MBeanAttributeInfo",
-	"javax.management.MBeanFeatureInfo",
-	"java.lang.Cloneable",
-	_MBeanAttributeInfo_FieldInfo_,
-	_MBeanAttributeInfo_MethodInfo_
-};
-
-$Object* allocate$MBeanAttributeInfo($Class* clazz) {
-	return $of($alloc(MBeanAttributeInfo));
-}
 
 void MBeanAttributeInfo::finalize() {
 	this->$MBeanFeatureInfo::finalize();
@@ -114,24 +67,22 @@ void MBeanAttributeInfo::init$($String* name, $String* type, $String* descriptio
 }
 
 void MBeanAttributeInfo::init$($String* name, $String* description, $Method* getter, $Method* setter) {
-	$useLocalCurrentObjectStackCache();
-	$var($String, var$0, name);
-	$var($String, var$1, attributeType(getter, setter));
-	$var($String, var$2, description);
-	bool var$3 = (getter != nullptr);
-	bool var$4 = (setter != nullptr);
-	bool var$5 = isIs(getter);
-	MBeanAttributeInfo::init$(var$0, var$1, var$2, var$3, var$4, var$5, $($ImmutableDescriptor::union$($$new($DescriptorArray, {
-		$($Introspector::descriptorForElement(static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(getter))))),
-		$($Introspector::descriptorForElement(static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(setter)))))
+	$useLocalObjectStack();
+	$var($String, var$0, attributeType(getter, setter));
+	bool var$1 = getter != nullptr;
+	bool var$2 = setter != nullptr;
+	bool var$3 = isIs(getter);
+	MBeanAttributeInfo::init$(name, var$0, description, var$1, var$2, var$3, $($ImmutableDescriptor::union$($$new($DescriptorArray, {
+		$($Introspector::descriptorForElement($cast($AccessibleObject, getter))),
+		$($Introspector::descriptorForElement($cast($AccessibleObject, setter)))
 	}))));
 }
 
 $Object* MBeanAttributeInfo::clone() {
 	try {
-		return $of($MBeanFeatureInfo::clone());
+		return $MBeanFeatureInfo::clone();
 	} catch ($CloneNotSupportedException& e) {
-		return $of(nullptr);
+		return nullptr;
 	}
 	$shouldNotReachHere();
 }
@@ -153,7 +104,7 @@ bool MBeanAttributeInfo::isIs() {
 }
 
 $String* MBeanAttributeInfo::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, access, nullptr);
 	if (isReadable()) {
 		if (isWritable()) {
@@ -166,23 +117,26 @@ $String* MBeanAttributeInfo::toString() {
 	} else {
 		$assign(access, "no-access"_s);
 	}
-	$var($String, var$11, $$str({$($of(this)->getClass()->getName()), "[description="_s}));
-	$var($String, var$10, $$concat(var$11, $(getDescription())));
-	$var($String, var$9, $$concat(var$10, ", name="_s));
-	$var($String, var$8, $$concat(var$9, $(getName())));
-	$var($String, var$7, $$concat(var$8, ", type="_s));
-	$var($String, var$6, $$concat(var$7, $(getType())));
-	$var($String, var$5, $$concat(var$6, ", "_s));
-	$var($String, var$4, $$concat(var$5, access));
-	$var($String, var$3, $$concat(var$4, ", "_s));
-	$var($String, var$2, $$concat(var$3, (isIs() ? "isIs, "_s : ""_s)));
-	$var($String, var$1, $$concat(var$2, "descriptor="_s));
-	$var($String, var$0, $$concat(var$1, $(getDescriptor())));
-	return $concat(var$0, "]"_s);
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append($($of(this)->getClass()->getName()));
+	var$0->append("[description="_s);
+	var$0->append($(getDescription()));
+	var$0->append(", name="_s);
+	var$0->append($(getName()));
+	var$0->append(", type="_s);
+	var$0->append($(getType()));
+	var$0->append(", "_s);
+	var$0->append(access);
+	var$0->append(", "_s);
+	var$0->append(isIs() ? "isIs, "_s : ""_s);
+	var$0->append("descriptor="_s);
+	var$0->append($(getDescriptor()));
+	var$0->append("]"_s);
+	return $str(var$0);
 }
 
 bool MBeanAttributeInfo::equals(Object$* o) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($equals(o, this)) {
 		return true;
 	}
@@ -190,25 +144,25 @@ bool MBeanAttributeInfo::equals(Object$* o) {
 		return false;
 	}
 	$var(MBeanAttributeInfo, p, $cast(MBeanAttributeInfo, o));
-	$var($Object, var$6, $of($nc(p)->getName()));
+	$var($Object, var$6, $nc(p)->getName());
 	bool var$5 = $Objects::equals(var$6, $(getName()));
 	if (var$5) {
-		$var($Object, var$7, $of($nc(p)->getType()));
+		$var($Object, var$7, p->getType());
 		var$5 = $Objects::equals(var$7, $(getType()));
 	}
 	bool var$4 = var$5;
 	if (var$4) {
-		$var($Object, var$8, $of($nc(p)->getDescription()));
+		$var($Object, var$8, p->getDescription());
 		var$4 = $Objects::equals(var$8, $(getDescription()));
 	}
 	bool var$3 = var$4;
 	if (var$3) {
-		$var($Object, var$9, $of($nc(p)->getDescriptor()));
+		$var($Object, var$9, p->getDescriptor());
 		var$3 = $Objects::equals(var$9, $(getDescriptor()));
 	}
 	bool var$2 = var$3;
 	if (var$2) {
-		bool var$10 = $nc(p)->isReadable();
+		bool var$10 = p->isReadable();
 		var$2 = var$10 == isReadable();
 	}
 	bool var$1 = var$2;
@@ -225,34 +179,32 @@ bool MBeanAttributeInfo::equals(Object$* o) {
 }
 
 int32_t MBeanAttributeInfo::hashCode() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $Objects::hash($$new($ObjectArray, {
-		$($of(getName())),
-		$($of(getType()))
+		$(getName()),
+		$(getType())
 	}));
 }
 
 bool MBeanAttributeInfo::isIs($Method* getter) {
 	$init(MBeanAttributeInfo);
-	bool var$0 = getter != nullptr && $nc($(getter->getName()))->startsWith("is"_s);
+	bool var$0 = getter != nullptr && $$nc(getter->getName())->startsWith("is"_s);
 	if (var$0) {
-		$init($Boolean);
-		bool var$1 = $nc($of(getter->getReturnType()))->equals($Boolean::TYPE);
-		var$0 = (var$1 || $nc($of(getter->getReturnType()))->equals($Boolean::class$));
+		bool var$1 = $nc(getter->getReturnType())->equals($Boolean::TYPE);
+		var$0 = var$1 || $nc(getter->getReturnType())->equals($Boolean::class$);
 	}
 	return (var$0);
 }
 
 $String* MBeanAttributeInfo::attributeType($Method* getter, $Method* setter) {
 	$init(MBeanAttributeInfo);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Class* type = nullptr;
 	if (getter != nullptr) {
 		if ($nc($(getter->getParameterTypes()))->length != 0) {
 			$throwNew($IntrospectionException, "bad getter arg count"_s);
 		}
 		type = getter->getReturnType();
-		$init($Void);
 		if (type == $Void::TYPE) {
 			$throwNew($IntrospectionException, $$str({"getter "_s, $(getter->getName()), " returns void"_s}));
 		}
@@ -263,8 +215,8 @@ $String* MBeanAttributeInfo::attributeType($Method* getter, $Method* setter) {
 			$throwNew($IntrospectionException, "bad setter arg count"_s);
 		}
 		if (type == nullptr) {
-			type = $nc(params)->get(0);
-		} else if (type != $nc(params)->get(0)) {
+			type = params->get(0);
+		} else if (type != params->get(0)) {
 			$throwNew($IntrospectionException, "type mismatch between getter and setter"_s);
 		}
 	}
@@ -274,16 +226,16 @@ $String* MBeanAttributeInfo::attributeType($Method* getter, $Method* setter) {
 	return $nc(type)->getName();
 }
 
-void clinit$MBeanAttributeInfo($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void MBeanAttributeInfo::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	{
-		int64_t uid = 0x77F8293B6A2944D8;
+		int64_t uid = (int64_t)0x77f8293b6a2944d8;
 		try {
 			$var($GetPropertyAction, act, $new($GetPropertyAction, "jmx.serial.form"_s));
-			$var($String, form, $cast($String, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>(act))));
+			$var($String, form, $cast($String, $AccessController::doPrivileged(act)));
 			if ("1.0"_s->equals(form)) {
-				uid = 0x61C0CD3EDFC681B1;
+				uid = (int64_t)0x61c0cd3edfc681b1;
 			}
 		} catch ($Exception& e) {
 		}
@@ -296,7 +248,43 @@ MBeanAttributeInfo::MBeanAttributeInfo() {
 }
 
 $Class* MBeanAttributeInfo::load$($String* name, bool initialize) {
-	$loadClass(MBeanAttributeInfo, name, initialize, &_MBeanAttributeInfo_ClassInfo_, clinit$MBeanAttributeInfo, allocate$MBeanAttributeInfo);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MBeanAttributeInfo, serialVersionUID)},
+		{"NO_ATTRIBUTES", "[Ljavax/management/MBeanAttributeInfo;", nullptr, $STATIC | $FINAL, $staticField(MBeanAttributeInfo, NO_ATTRIBUTES)},
+		{"attributeType", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(MBeanAttributeInfo, attributeType$)},
+		{"isWrite", "Z", nullptr, $PRIVATE | $FINAL, $field(MBeanAttributeInfo, isWrite)},
+		{"isRead", "Z", nullptr, $PRIVATE | $FINAL, $field(MBeanAttributeInfo, isRead)},
+		{"is", "Z", nullptr, $PRIVATE | $FINAL, $field(MBeanAttributeInfo, is)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZZZ)V", nullptr, $PUBLIC, $method(MBeanAttributeInfo, init$, void, $String*, $String*, $String*, bool, bool, bool)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZZZLjavax/management/Descriptor;)V", nullptr, $PUBLIC, $method(MBeanAttributeInfo, init$, void, $String*, $String*, $String*, bool, bool, bool, $Descriptor*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/reflect/Method;Ljava/lang/reflect/Method;)V", nullptr, $PUBLIC, $method(MBeanAttributeInfo, init$, void, $String*, $String*, $Method*, $Method*), "javax.management.IntrospectionException"},
+		{"attributeType", "(Ljava/lang/reflect/Method;Ljava/lang/reflect/Method;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(MBeanAttributeInfo, attributeType, $String*, $Method*, $Method*), "javax.management.IntrospectionException"},
+		{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MBeanAttributeInfo, clone, $Object*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(MBeanAttributeInfo, equals, bool, Object$*)},
+		{"getType", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MBeanAttributeInfo, getType, $String*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(MBeanAttributeInfo, hashCode, int32_t)},
+		{"isIs", "()Z", nullptr, $PUBLIC, $virtualMethod(MBeanAttributeInfo, isIs, bool)},
+		{"isIs", "(Ljava/lang/reflect/Method;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(MBeanAttributeInfo, isIs, bool, $Method*)},
+		{"isReadable", "()Z", nullptr, $PUBLIC, $virtualMethod(MBeanAttributeInfo, isReadable, bool)},
+		{"isWritable", "()Z", nullptr, $PUBLIC, $virtualMethod(MBeanAttributeInfo, isWritable, bool)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MBeanAttributeInfo, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.management.MBeanAttributeInfo",
+		"javax.management.MBeanFeatureInfo",
+		"java.lang.Cloneable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(MBeanAttributeInfo, name, initialize, &classInfo$$, MBeanAttributeInfo::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MBeanAttributeInfo));
+	});
 	return class$;
 }
 

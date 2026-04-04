@@ -1,5 +1,4 @@
 #include <com/apple/laf/AquaToolBarUI.h>
-
 #include <com/apple/laf/AquaToolBarUI$ToolBarBorder.h>
 #include <com/apple/laf/AquaUtils$RecyclableSingleton.h>
 #include <com/apple/laf/AquaUtils$RecyclableSingletonFromDefaultConstructor.h>
@@ -26,7 +25,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $JComponent = ::javax::swing::JComponent;
-using $JRootPane = ::javax::swing::JRootPane;
 using $JToolBar = ::javax::swing::JToolBar;
 using $RootPaneContainer = ::javax::swing::RootPaneContainer;
 using $Border = ::javax::swing::border::Border;
@@ -37,47 +35,6 @@ namespace com {
 	namespace apple {
 		namespace laf {
 
-$FieldInfo _AquaToolBarUI_FieldInfo_[] = {
-	{"toolBarBorder", "Lcom/apple/laf/AquaUtils$RecyclableSingleton;", "Lcom/apple/laf/AquaUtils$RecyclableSingleton<Lcom/apple/laf/AquaToolBarUI$ToolBarBorder;>;", $PRIVATE | $STATIC | $FINAL, $staticField(AquaToolBarUI, toolBarBorder)},
-	{}
-};
-
-$MethodInfo _AquaToolBarUI_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AquaToolBarUI, init$, void)},
-	{"createFloatingWindow", "(Ljavax/swing/JToolBar;)Ljavax/swing/RootPaneContainer;", nullptr, $PROTECTED, $virtualMethod(AquaToolBarUI, createFloatingWindow, $RootPaneContainer*, $JToolBar*)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(AquaToolBarUI, createUI, $ComponentUI*, $JComponent*)},
-	{"getToolBarBorder", "()Ljavax/swing/border/Border;", nullptr, $PUBLIC | $STATIC, $staticMethod(AquaToolBarUI, getToolBarBorder, $Border*)},
-	{"setBorderToNonRollover", "(Ljava/awt/Component;)V", nullptr, $PROTECTED, $virtualMethod(AquaToolBarUI, setBorderToNonRollover, void, $Component*)},
-	{"setBorderToNormal", "(Ljava/awt/Component;)V", nullptr, $PROTECTED, $virtualMethod(AquaToolBarUI, setBorderToNormal, void, $Component*)},
-	{"setBorderToRollover", "(Ljava/awt/Component;)V", nullptr, $PROTECTED, $virtualMethod(AquaToolBarUI, setBorderToRollover, void, $Component*)},
-	{"update", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(AquaToolBarUI, update, void, $Graphics*, $JComponent*)},
-	{}
-};
-
-$InnerClassInfo _AquaToolBarUI_InnerClassesInfo_[] = {
-	{"com.apple.laf.AquaToolBarUI$ToolBarBorder", "com.apple.laf.AquaToolBarUI", "ToolBarBorder", $STATIC},
-	{}
-};
-
-$ClassInfo _AquaToolBarUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.apple.laf.AquaToolBarUI",
-	"javax.swing.plaf.basic.BasicToolBarUI",
-	nullptr,
-	_AquaToolBarUI_FieldInfo_,
-	_AquaToolBarUI_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AquaToolBarUI_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.apple.laf.AquaToolBarUI$ToolBarBorder"
-};
-
-$Object* allocate$AquaToolBarUI($Class* clazz) {
-	return $of($alloc(AquaToolBarUI));
-}
-
 $AquaUtils$RecyclableSingleton* AquaToolBarUI::toolBarBorder = nullptr;
 
 void AquaToolBarUI::init$() {
@@ -86,7 +43,7 @@ void AquaToolBarUI::init$() {
 
 $Border* AquaToolBarUI::getToolBarBorder() {
 	$init(AquaToolBarUI);
-	return $cast($Border, $nc(AquaToolBarUI::toolBarBorder)->get());
+	return $cast($Border, AquaToolBarUI::toolBarBorder->get());
 }
 
 $ComponentUI* AquaToolBarUI::createUI($JComponent* c) {
@@ -104,9 +61,9 @@ void AquaToolBarUI::setBorderToRollover($Component* c) {
 }
 
 $RootPaneContainer* AquaToolBarUI::createFloatingWindow($JToolBar* toolbar) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($RootPaneContainer, window, $BasicToolBarUI::createFloatingWindow(toolbar));
-	$nc($($nc(window)->getRootPane()))->putClientProperty("Window.style"_s, "small"_s);
+	$$nc($nc(window)->getRootPane())->putClientProperty("Window.style"_s, "small"_s);
 	return window;
 }
 
@@ -117,7 +74,7 @@ void AquaToolBarUI::update($Graphics* g, $JComponent* c) {
 	paint(g, c);
 }
 
-void clinit$AquaToolBarUI($Class* class$) {
+void AquaToolBarUI::clinit$($Class* clazz) {
 	$load($AquaToolBarUI$ToolBarBorder);
 	$assignStatic(AquaToolBarUI::toolBarBorder, $new($AquaUtils$RecyclableSingletonFromDefaultConstructor, $AquaToolBarUI$ToolBarBorder::class$));
 }
@@ -126,7 +83,42 @@ AquaToolBarUI::AquaToolBarUI() {
 }
 
 $Class* AquaToolBarUI::load$($String* name, bool initialize) {
-	$loadClass(AquaToolBarUI, name, initialize, &_AquaToolBarUI_ClassInfo_, clinit$AquaToolBarUI, allocate$AquaToolBarUI);
+	$FieldInfo fieldInfos$$[] = {
+		{"toolBarBorder", "Lcom/apple/laf/AquaUtils$RecyclableSingleton;", "Lcom/apple/laf/AquaUtils$RecyclableSingleton<Lcom/apple/laf/AquaToolBarUI$ToolBarBorder;>;", $PRIVATE | $STATIC | $FINAL, $staticField(AquaToolBarUI, toolBarBorder)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AquaToolBarUI, init$, void)},
+		{"createFloatingWindow", "(Ljavax/swing/JToolBar;)Ljavax/swing/RootPaneContainer;", nullptr, $PROTECTED, $virtualMethod(AquaToolBarUI, createFloatingWindow, $RootPaneContainer*, $JToolBar*)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(AquaToolBarUI, createUI, $ComponentUI*, $JComponent*)},
+		{"getToolBarBorder", "()Ljavax/swing/border/Border;", nullptr, $PUBLIC | $STATIC, $staticMethod(AquaToolBarUI, getToolBarBorder, $Border*)},
+		{"setBorderToNonRollover", "(Ljava/awt/Component;)V", nullptr, $PROTECTED, $virtualMethod(AquaToolBarUI, setBorderToNonRollover, void, $Component*)},
+		{"setBorderToNormal", "(Ljava/awt/Component;)V", nullptr, $PROTECTED, $virtualMethod(AquaToolBarUI, setBorderToNormal, void, $Component*)},
+		{"setBorderToRollover", "(Ljava/awt/Component;)V", nullptr, $PROTECTED, $virtualMethod(AquaToolBarUI, setBorderToRollover, void, $Component*)},
+		{"update", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(AquaToolBarUI, update, void, $Graphics*, $JComponent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.laf.AquaToolBarUI$ToolBarBorder", "com.apple.laf.AquaToolBarUI", "ToolBarBorder", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.apple.laf.AquaToolBarUI",
+		"javax.swing.plaf.basic.BasicToolBarUI",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.apple.laf.AquaToolBarUI$ToolBarBorder"
+	};
+	$loadClass(AquaToolBarUI, name, initialize, &classInfo$$, AquaToolBarUI::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AquaToolBarUI));
+	});
 	return class$;
 }
 

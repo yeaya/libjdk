@@ -1,5 +1,4 @@
 #include <com/sun/media/sound/FastSysexMessage.h>
-
 #include <com/sun/media/sound/MidiUtils.h>
 #include <javax/sound/midi/MidiMessage.h>
 #include <javax/sound/midi/SysexMessage.h>
@@ -14,26 +13,6 @@ namespace com {
 	namespace sun {
 		namespace media {
 			namespace sound {
-
-$MethodInfo _FastSysexMessage_MethodInfo_[] = {
-	{"<init>", "([B)V", nullptr, 0, $method(FastSysexMessage, init$, void, $bytes*), "javax.sound.midi.InvalidMidiDataException"},
-	{"getReadOnlyMessage", "()[B", nullptr, 0, $method(FastSysexMessage, getReadOnlyMessage, $bytes*)},
-	{"setMessage", "([BI)V", nullptr, $PUBLIC, $virtualMethod(FastSysexMessage, setMessage, void, $bytes*, int32_t), "javax.sound.midi.InvalidMidiDataException"},
-	{}
-};
-
-$ClassInfo _FastSysexMessage_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.media.sound.FastSysexMessage",
-	"javax.sound.midi.SysexMessage",
-	nullptr,
-	nullptr,
-	_FastSysexMessage_MethodInfo_
-};
-
-$Object* allocate$FastSysexMessage($Class* clazz) {
-	return $of($alloc(FastSysexMessage));
-}
 
 void FastSysexMessage::init$($bytes* data) {
 	$SysexMessage::init$(data);
@@ -55,7 +34,23 @@ FastSysexMessage::FastSysexMessage() {
 }
 
 $Class* FastSysexMessage::load$($String* name, bool initialize) {
-	$loadClass(FastSysexMessage, name, initialize, &_FastSysexMessage_ClassInfo_, allocate$FastSysexMessage);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "([B)V", nullptr, 0, $method(FastSysexMessage, init$, void, $bytes*), "javax.sound.midi.InvalidMidiDataException"},
+		{"getReadOnlyMessage", "()[B", nullptr, 0, $method(FastSysexMessage, getReadOnlyMessage, $bytes*)},
+		{"setMessage", "([BI)V", nullptr, $PUBLIC, $virtualMethod(FastSysexMessage, setMessage, void, $bytes*, int32_t), "javax.sound.midi.InvalidMidiDataException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.media.sound.FastSysexMessage",
+		"javax.sound.midi.SysexMessage",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(FastSysexMessage, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FastSysexMessage);
+	});
 	return class$;
 }
 

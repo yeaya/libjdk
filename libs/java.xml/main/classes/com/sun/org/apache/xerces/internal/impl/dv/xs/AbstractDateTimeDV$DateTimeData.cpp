@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/impl/dv/xs/AbstractDateTimeDV$DateTimeData.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/dv/xs/AbstractDateTimeDV.h>
 #include <com/sun/org/apache/xerces/internal/impl/dv/xs/DurationDV.h>
 #include <com/sun/org/apache/xerces/internal/xs/datatypes/XSDateTime.h>
@@ -26,79 +25,6 @@ namespace com {
 						namespace impl {
 							namespace dv {
 								namespace xs {
-
-$FieldInfo _AbstractDateTimeDV$DateTimeData_FieldInfo_[] = {
-	{"year", "I", nullptr, 0, $field(AbstractDateTimeDV$DateTimeData, year)},
-	{"month", "I", nullptr, 0, $field(AbstractDateTimeDV$DateTimeData, month)},
-	{"day", "I", nullptr, 0, $field(AbstractDateTimeDV$DateTimeData, day)},
-	{"hour", "I", nullptr, 0, $field(AbstractDateTimeDV$DateTimeData, hour)},
-	{"minute", "I", nullptr, 0, $field(AbstractDateTimeDV$DateTimeData, minute)},
-	{"utc", "I", nullptr, 0, $field(AbstractDateTimeDV$DateTimeData, utc)},
-	{"second", "D", nullptr, 0, $field(AbstractDateTimeDV$DateTimeData, second)},
-	{"timezoneHr", "I", nullptr, 0, $field(AbstractDateTimeDV$DateTimeData, timezoneHr)},
-	{"timezoneMin", "I", nullptr, 0, $field(AbstractDateTimeDV$DateTimeData, timezoneMin)},
-	{"originalValue", "Ljava/lang/String;", nullptr, $PRIVATE, $field(AbstractDateTimeDV$DateTimeData, originalValue)},
-	{"normalized", "Z", nullptr, 0, $field(AbstractDateTimeDV$DateTimeData, normalized)},
-	{"unNormYear", "I", nullptr, 0, $field(AbstractDateTimeDV$DateTimeData, unNormYear)},
-	{"unNormMonth", "I", nullptr, 0, $field(AbstractDateTimeDV$DateTimeData, unNormMonth)},
-	{"unNormDay", "I", nullptr, 0, $field(AbstractDateTimeDV$DateTimeData, unNormDay)},
-	{"unNormHour", "I", nullptr, 0, $field(AbstractDateTimeDV$DateTimeData, unNormHour)},
-	{"unNormMinute", "I", nullptr, 0, $field(AbstractDateTimeDV$DateTimeData, unNormMinute)},
-	{"unNormSecond", "D", nullptr, 0, $field(AbstractDateTimeDV$DateTimeData, unNormSecond)},
-	{"position", "I", nullptr, 0, $field(AbstractDateTimeDV$DateTimeData, position)},
-	{"type", "Lcom/sun/org/apache/xerces/internal/impl/dv/xs/AbstractDateTimeDV;", nullptr, $FINAL, $field(AbstractDateTimeDV$DateTimeData, type)},
-	{"canonical", "Ljava/lang/String;", nullptr, $PRIVATE | $VOLATILE, $field(AbstractDateTimeDV$DateTimeData, canonical)},
-	{}
-};
-
-$MethodInfo _AbstractDateTimeDV$DateTimeData_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/impl/dv/xs/AbstractDateTimeDV;)V", nullptr, $PUBLIC, $method(AbstractDateTimeDV$DateTimeData, init$, void, $String*, $AbstractDateTimeDV*)},
-	{"<init>", "(IIIIIDILjava/lang/String;ZLcom/sun/org/apache/xerces/internal/impl/dv/xs/AbstractDateTimeDV;)V", nullptr, $PUBLIC, $method(AbstractDateTimeDV$DateTimeData, init$, void, int32_t, int32_t, int32_t, int32_t, int32_t, double, int32_t, $String*, bool, $AbstractDateTimeDV*)},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AbstractDateTimeDV$DateTimeData, clone, $Object*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(AbstractDateTimeDV$DateTimeData, equals, bool, Object$*)},
-	{"getDays", "()I", nullptr, $PUBLIC, $virtualMethod(AbstractDateTimeDV$DateTimeData, getDays, int32_t)},
-	{"getDuration", "()Ljavax/xml/datatype/Duration;", nullptr, $PUBLIC, $virtualMethod(AbstractDateTimeDV$DateTimeData, getDuration, $Duration*)},
-	{"getHours", "()I", nullptr, $PUBLIC, $virtualMethod(AbstractDateTimeDV$DateTimeData, getHours, int32_t)},
-	{"getLexicalValue", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AbstractDateTimeDV$DateTimeData, getLexicalValue, $String*)},
-	{"getMinutes", "()I", nullptr, $PUBLIC, $virtualMethod(AbstractDateTimeDV$DateTimeData, getMinutes, int32_t)},
-	{"getMonths", "()I", nullptr, $PUBLIC, $virtualMethod(AbstractDateTimeDV$DateTimeData, getMonths, int32_t)},
-	{"getSeconds", "()D", nullptr, $PUBLIC, $virtualMethod(AbstractDateTimeDV$DateTimeData, getSeconds, double)},
-	{"getTimeZoneHours", "()I", nullptr, $PUBLIC, $virtualMethod(AbstractDateTimeDV$DateTimeData, getTimeZoneHours, int32_t)},
-	{"getTimeZoneMinutes", "()I", nullptr, $PUBLIC, $virtualMethod(AbstractDateTimeDV$DateTimeData, getTimeZoneMinutes, int32_t)},
-	{"getXMLGregorianCalendar", "()Ljavax/xml/datatype/XMLGregorianCalendar;", nullptr, $PUBLIC, $virtualMethod(AbstractDateTimeDV$DateTimeData, getXMLGregorianCalendar, $XMLGregorianCalendar*)},
-	{"getYears", "()I", nullptr, $PUBLIC, $virtualMethod(AbstractDateTimeDV$DateTimeData, getYears, int32_t)},
-	{"hasTimeZone", "()Z", nullptr, $PUBLIC, $virtualMethod(AbstractDateTimeDV$DateTimeData, hasTimeZone, bool)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(AbstractDateTimeDV$DateTimeData, hashCode, int32_t)},
-	{"isNormalized", "()Z", nullptr, $PUBLIC, $virtualMethod(AbstractDateTimeDV$DateTimeData, isNormalized, bool)},
-	{"normalize", "()Lcom/sun/org/apache/xerces/internal/xs/datatypes/XSDateTime;", nullptr, $PUBLIC, $virtualMethod(AbstractDateTimeDV$DateTimeData, normalize, $XSDateTime*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AbstractDateTimeDV$DateTimeData, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _AbstractDateTimeDV$DateTimeData_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xerces.internal.impl.dv.xs.AbstractDateTimeDV$DateTimeData", "com.sun.org.apache.xerces.internal.impl.dv.xs.AbstractDateTimeDV", "DateTimeData", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _AbstractDateTimeDV$DateTimeData_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.impl.dv.xs.AbstractDateTimeDV$DateTimeData",
-	"java.lang.Object",
-	"com.sun.org.apache.xerces.internal.xs.datatypes.XSDateTime",
-	_AbstractDateTimeDV$DateTimeData_FieldInfo_,
-	_AbstractDateTimeDV$DateTimeData_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AbstractDateTimeDV$DateTimeData_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xerces.internal.impl.dv.xs.AbstractDateTimeDV"
-};
-
-$Object* allocate$AbstractDateTimeDV$DateTimeData($Class* clazz) {
-	return $of($alloc(AbstractDateTimeDV$DateTimeData));
-}
 
 void AbstractDateTimeDV$DateTimeData::init$($String* originalValue, $AbstractDateTimeDV* type) {
 	this->normalized = true;
@@ -127,11 +53,11 @@ bool AbstractDateTimeDV$DateTimeData::equals(Object$* obj) {
 }
 
 int32_t AbstractDateTimeDV$DateTimeData::hashCode() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(AbstractDateTimeDV$DateTimeData, tempDate, $new(AbstractDateTimeDV$DateTimeData, nullptr, this->type));
 	$nc(this->type)->cloneDate(this, tempDate);
-	$nc(this->type)->normalize(tempDate);
-	return $nc($($nc(this->type)->dateToString(tempDate)))->hashCode();
+	this->type->normalize(tempDate);
+	return $$nc(this->type->dateToString(tempDate))->hashCode();
 }
 
 $String* AbstractDateTimeDV$DateTimeData::toString() {
@@ -224,7 +150,7 @@ $Object* AbstractDateTimeDV$DateTimeData::clone() {
 	dt->unNormHour = this->unNormHour;
 	dt->unNormMinute = this->unNormMinute;
 	dt->unNormSecond = this->unNormSecond;
-	return $of(dt);
+	return dt;
 }
 
 $XMLGregorianCalendar* AbstractDateTimeDV$DateTimeData::getXMLGregorianCalendar() {
@@ -239,7 +165,74 @@ AbstractDateTimeDV$DateTimeData::AbstractDateTimeDV$DateTimeData() {
 }
 
 $Class* AbstractDateTimeDV$DateTimeData::load$($String* name, bool initialize) {
-	$loadClass(AbstractDateTimeDV$DateTimeData, name, initialize, &_AbstractDateTimeDV$DateTimeData_ClassInfo_, allocate$AbstractDateTimeDV$DateTimeData);
+	$FieldInfo fieldInfos$$[] = {
+		{"year", "I", nullptr, 0, $field(AbstractDateTimeDV$DateTimeData, year)},
+		{"month", "I", nullptr, 0, $field(AbstractDateTimeDV$DateTimeData, month)},
+		{"day", "I", nullptr, 0, $field(AbstractDateTimeDV$DateTimeData, day)},
+		{"hour", "I", nullptr, 0, $field(AbstractDateTimeDV$DateTimeData, hour)},
+		{"minute", "I", nullptr, 0, $field(AbstractDateTimeDV$DateTimeData, minute)},
+		{"utc", "I", nullptr, 0, $field(AbstractDateTimeDV$DateTimeData, utc)},
+		{"second", "D", nullptr, 0, $field(AbstractDateTimeDV$DateTimeData, second)},
+		{"timezoneHr", "I", nullptr, 0, $field(AbstractDateTimeDV$DateTimeData, timezoneHr)},
+		{"timezoneMin", "I", nullptr, 0, $field(AbstractDateTimeDV$DateTimeData, timezoneMin)},
+		{"originalValue", "Ljava/lang/String;", nullptr, $PRIVATE, $field(AbstractDateTimeDV$DateTimeData, originalValue)},
+		{"normalized", "Z", nullptr, 0, $field(AbstractDateTimeDV$DateTimeData, normalized)},
+		{"unNormYear", "I", nullptr, 0, $field(AbstractDateTimeDV$DateTimeData, unNormYear)},
+		{"unNormMonth", "I", nullptr, 0, $field(AbstractDateTimeDV$DateTimeData, unNormMonth)},
+		{"unNormDay", "I", nullptr, 0, $field(AbstractDateTimeDV$DateTimeData, unNormDay)},
+		{"unNormHour", "I", nullptr, 0, $field(AbstractDateTimeDV$DateTimeData, unNormHour)},
+		{"unNormMinute", "I", nullptr, 0, $field(AbstractDateTimeDV$DateTimeData, unNormMinute)},
+		{"unNormSecond", "D", nullptr, 0, $field(AbstractDateTimeDV$DateTimeData, unNormSecond)},
+		{"position", "I", nullptr, 0, $field(AbstractDateTimeDV$DateTimeData, position)},
+		{"type", "Lcom/sun/org/apache/xerces/internal/impl/dv/xs/AbstractDateTimeDV;", nullptr, $FINAL, $field(AbstractDateTimeDV$DateTimeData, type)},
+		{"canonical", "Ljava/lang/String;", nullptr, $PRIVATE | $VOLATILE, $field(AbstractDateTimeDV$DateTimeData, canonical)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/impl/dv/xs/AbstractDateTimeDV;)V", nullptr, $PUBLIC, $method(AbstractDateTimeDV$DateTimeData, init$, void, $String*, $AbstractDateTimeDV*)},
+		{"<init>", "(IIIIIDILjava/lang/String;ZLcom/sun/org/apache/xerces/internal/impl/dv/xs/AbstractDateTimeDV;)V", nullptr, $PUBLIC, $method(AbstractDateTimeDV$DateTimeData, init$, void, int32_t, int32_t, int32_t, int32_t, int32_t, double, int32_t, $String*, bool, $AbstractDateTimeDV*)},
+		{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AbstractDateTimeDV$DateTimeData, clone, $Object*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(AbstractDateTimeDV$DateTimeData, equals, bool, Object$*)},
+		{"getDays", "()I", nullptr, $PUBLIC, $virtualMethod(AbstractDateTimeDV$DateTimeData, getDays, int32_t)},
+		{"getDuration", "()Ljavax/xml/datatype/Duration;", nullptr, $PUBLIC, $virtualMethod(AbstractDateTimeDV$DateTimeData, getDuration, $Duration*)},
+		{"getHours", "()I", nullptr, $PUBLIC, $virtualMethod(AbstractDateTimeDV$DateTimeData, getHours, int32_t)},
+		{"getLexicalValue", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AbstractDateTimeDV$DateTimeData, getLexicalValue, $String*)},
+		{"getMinutes", "()I", nullptr, $PUBLIC, $virtualMethod(AbstractDateTimeDV$DateTimeData, getMinutes, int32_t)},
+		{"getMonths", "()I", nullptr, $PUBLIC, $virtualMethod(AbstractDateTimeDV$DateTimeData, getMonths, int32_t)},
+		{"getSeconds", "()D", nullptr, $PUBLIC, $virtualMethod(AbstractDateTimeDV$DateTimeData, getSeconds, double)},
+		{"getTimeZoneHours", "()I", nullptr, $PUBLIC, $virtualMethod(AbstractDateTimeDV$DateTimeData, getTimeZoneHours, int32_t)},
+		{"getTimeZoneMinutes", "()I", nullptr, $PUBLIC, $virtualMethod(AbstractDateTimeDV$DateTimeData, getTimeZoneMinutes, int32_t)},
+		{"getXMLGregorianCalendar", "()Ljavax/xml/datatype/XMLGregorianCalendar;", nullptr, $PUBLIC, $virtualMethod(AbstractDateTimeDV$DateTimeData, getXMLGregorianCalendar, $XMLGregorianCalendar*)},
+		{"getYears", "()I", nullptr, $PUBLIC, $virtualMethod(AbstractDateTimeDV$DateTimeData, getYears, int32_t)},
+		{"hasTimeZone", "()Z", nullptr, $PUBLIC, $virtualMethod(AbstractDateTimeDV$DateTimeData, hasTimeZone, bool)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(AbstractDateTimeDV$DateTimeData, hashCode, int32_t)},
+		{"isNormalized", "()Z", nullptr, $PUBLIC, $virtualMethod(AbstractDateTimeDV$DateTimeData, isNormalized, bool)},
+		{"normalize", "()Lcom/sun/org/apache/xerces/internal/xs/datatypes/XSDateTime;", nullptr, $PUBLIC, $virtualMethod(AbstractDateTimeDV$DateTimeData, normalize, $XSDateTime*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AbstractDateTimeDV$DateTimeData, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xerces.internal.impl.dv.xs.AbstractDateTimeDV$DateTimeData", "com.sun.org.apache.xerces.internal.impl.dv.xs.AbstractDateTimeDV", "DateTimeData", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.impl.dv.xs.AbstractDateTimeDV$DateTimeData",
+		"java.lang.Object",
+		"com.sun.org.apache.xerces.internal.xs.datatypes.XSDateTime",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xerces.internal.impl.dv.xs.AbstractDateTimeDV"
+	};
+	$loadClass(AbstractDateTimeDV$DateTimeData, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AbstractDateTimeDV$DateTimeData);
+	});
 	return class$;
 }
 

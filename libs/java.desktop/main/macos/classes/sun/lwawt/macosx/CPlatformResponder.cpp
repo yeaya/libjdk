@@ -1,5 +1,4 @@
 #include <sun/lwawt/macosx/CPlatformResponder.h>
-
 #include <java/awt/Toolkit.h>
 #include <java/awt/event/InputEvent.h>
 #include <java/awt/event/KeyEvent.h>
@@ -56,50 +55,6 @@ namespace sun {
 	namespace lwawt {
 		namespace macosx {
 
-$FieldInfo _CPlatformResponder_FieldInfo_[] = {
-	{"eventNotifier", "Lsun/lwawt/PlatformEventNotifier;", nullptr, $PRIVATE | $FINAL, $field(CPlatformResponder, eventNotifier)},
-	{"isNpapiCallback", "Z", nullptr, $PRIVATE | $FINAL, $field(CPlatformResponder, isNpapiCallback)},
-	{"lastKeyPressCode", "I", nullptr, $PRIVATE, $field(CPlatformResponder, lastKeyPressCode)},
-	{"deltaAccumulatorX", "Lsun/lwawt/macosx/CPlatformResponder$DeltaAccumulator;", nullptr, $PRIVATE | $FINAL, $field(CPlatformResponder, deltaAccumulatorX)},
-	{"deltaAccumulatorY", "Lsun/lwawt/macosx/CPlatformResponder$DeltaAccumulator;", nullptr, $PRIVATE | $FINAL, $field(CPlatformResponder, deltaAccumulatorY)},
-	{}
-};
-
-$MethodInfo _CPlatformResponder_MethodInfo_[] = {
-	{"<init>", "(Lsun/lwawt/PlatformEventNotifier;Z)V", nullptr, 0, $method(CPlatformResponder, init$, void, $PlatformEventNotifier*, bool)},
-	{"dispatchScrollEvent", "(IIIIIID)V", nullptr, $PRIVATE, $method(CPlatformResponder, dispatchScrollEvent, void, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, double)},
-	{"handleInputEvent", "(Ljava/lang/String;)V", nullptr, 0, $method(CPlatformResponder, handleInputEvent, void, $String*)},
-	{"handleKeyEvent", "(IILjava/lang/String;Ljava/lang/String;SZZ)V", nullptr, 0, $method(CPlatformResponder, handleKeyEvent, void, int32_t, int32_t, $String*, $String*, int16_t, bool, bool)},
-	{"handleMouseEvent", "(IIIIIIII)V", nullptr, 0, $method(CPlatformResponder, handleMouseEvent, void, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"handleScrollEvent", "(IIIIIDDI)V", nullptr, 0, $method(CPlatformResponder, handleScrollEvent, void, int32_t, int32_t, int32_t, int32_t, int32_t, double, double, int32_t)},
-	{"handleWindowFocusEvent", "(ZLsun/lwawt/LWWindowPeer;)V", nullptr, 0, $method(CPlatformResponder, handleWindowFocusEvent, void, bool, $LWWindowPeer*)},
-	{}
-};
-
-$InnerClassInfo _CPlatformResponder_InnerClassesInfo_[] = {
-	{"sun.lwawt.macosx.CPlatformResponder$DeltaAccumulator", "sun.lwawt.macosx.CPlatformResponder", "DeltaAccumulator", $STATIC},
-	{}
-};
-
-$ClassInfo _CPlatformResponder_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.lwawt.macosx.CPlatformResponder",
-	"java.lang.Object",
-	nullptr,
-	_CPlatformResponder_FieldInfo_,
-	_CPlatformResponder_MethodInfo_,
-	nullptr,
-	nullptr,
-	_CPlatformResponder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.lwawt.macosx.CPlatformResponder$DeltaAccumulator"
-};
-
-$Object* allocate$CPlatformResponder($Class* clazz) {
-	return $of($alloc(CPlatformResponder));
-}
-
 void CPlatformResponder::init$($PlatformEventNotifier* eventNotifier, bool isNpapiCallback) {
 	this->lastKeyPressCode = $KeyEvent::VK_UNDEFINED;
 	$set(this, deltaAccumulatorX, $new($CPlatformResponder$DeltaAccumulator));
@@ -110,7 +65,7 @@ void CPlatformResponder::init$($PlatformEventNotifier* eventNotifier, bool isNpa
 
 void CPlatformResponder::handleMouseEvent(int32_t eventType, int32_t modifierFlags, int32_t buttonNumber, int32_t clickCount, int32_t x, int32_t y, int32_t absX, int32_t absY) {
 	$var($SunToolkit, tk, $cast($SunToolkit, $Toolkit::getDefaultToolkit()));
-	bool var$0 = (buttonNumber > 2 && !$nc(tk)->areExtraMouseButtonsEnabled());
+	bool var$0 = buttonNumber > 2 && !$nc(tk)->areExtraMouseButtonsEnabled();
 	if (var$0 || buttonNumber > $nc(tk)->getNumberOfButtons() - 1) {
 		return;
 	}
@@ -128,9 +83,9 @@ void CPlatformResponder::handleMouseEvent(int32_t eventType, int32_t modifierFla
 
 void CPlatformResponder::handleScrollEvent(int32_t x, int32_t y, int32_t absX, int32_t absY, int32_t modifierFlags, double deltaX, double deltaY, int32_t scrollPhase) {
 	int32_t jmodifiers = $NSEvent::nsToJavaModifiers(modifierFlags);
-	bool isShift = ((int32_t)(jmodifiers & (uint32_t)$InputEvent::SHIFT_DOWN_MASK)) != 0;
-	int32_t roundDeltaX = $nc(this->deltaAccumulatorX)->getRoundedDelta(deltaX, scrollPhase);
-	int32_t roundDeltaY = $nc(this->deltaAccumulatorY)->getRoundedDelta(deltaY, scrollPhase);
+	bool isShift = (jmodifiers & $InputEvent::SHIFT_DOWN_MASK) != 0;
+	int32_t roundDeltaX = this->deltaAccumulatorX->getRoundedDelta(deltaX, scrollPhase);
+	int32_t roundDeltaY = this->deltaAccumulatorY->getRoundedDelta(deltaY, scrollPhase);
 	if (!isShift && (deltaY != 0.0 || roundDeltaY != 0)) {
 		dispatchScrollEvent(x, y, absX, absY, jmodifiers, roundDeltaY, deltaY);
 	}
@@ -150,7 +105,7 @@ void CPlatformResponder::dispatchScrollEvent(int32_t x, int32_t y, int32_t absX,
 }
 
 void CPlatformResponder::handleKeyEvent(int32_t eventType, int32_t modifierFlags, $String* chars, $String* charsIgnoringModifiers, int16_t keyCode, bool needsKeyTyped, bool needsKeyReleased) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool isFlagsChangedEvent = this->isNpapiCallback ? (eventType == $CocoaConstants::NPCocoaEventFlagsChanged) : (eventType == $CocoaConstants::NSFlagsChanged);
 	int32_t jeventType = $KeyEvent::KEY_PRESSED;
 	int32_t jkeyCode = $KeyEvent::VK_UNDEFINED;
@@ -162,7 +117,7 @@ void CPlatformResponder::handleKeyEvent(int32_t eventType, int32_t modifierFlags
 	if (isFlagsChangedEvent) {
 		$var($ints, in, $new($ints, {
 			modifierFlags,
-			(int32_t)keyCode
+			keyCode
 		}));
 		$var($ints, out, $new($ints, 3));
 		$NSEvent::nsKeyModifiersToJavaKeyInfo(in, out);
@@ -176,12 +131,12 @@ void CPlatformResponder::handleKeyEvent(int32_t eventType, int32_t modifierFlags
 				spaceKeyTyped = true;
 			}
 		}
-		char16_t testCharIgnoringModifiers = charsIgnoringModifiers != nullptr && charsIgnoringModifiers->length() > 0 ? $nc(charsIgnoringModifiers)->charAt(0) : $KeyEvent::CHAR_UNDEFINED;
+		char16_t testCharIgnoringModifiers = charsIgnoringModifiers != nullptr && charsIgnoringModifiers->length() > 0 ? charsIgnoringModifiers->charAt(0) : $KeyEvent::CHAR_UNDEFINED;
 		$var($ints, in, $new($ints, {
-			(int32_t)testCharIgnoringModifiers,
+			testCharIgnoringModifiers,
 			isDeadChar ? 1 : 0,
 			modifierFlags,
-			(int32_t)keyCode
+			keyCode
 		}));
 		$var($ints, out, $new($ints, 3));
 		postsTyped = $NSEvent::nsToJavaKeyInfo(in, out);
@@ -197,10 +152,10 @@ void CPlatformResponder::handleKeyEvent(int32_t eventType, int32_t modifierFlags
 		$var($LWCToolkit, lwcToolkit, $cast($LWCToolkit, $Toolkit::getDefaultToolkit()));
 		bool var$1 = $nc(lwcToolkit)->getLockingKeyState($KeyEvent::VK_CAPS_LOCK);
 		$init($Locale);
-		bool var$0 = (var$1 && $nc($Locale::SIMPLIFIED_CHINESE)->equals($(lwcToolkit->getDefaultKeyboardLocale())));
+		bool var$0 = var$1 && $nc($Locale::SIMPLIFIED_CHINESE)->equals($(lwcToolkit->getDefaultKeyboardLocale()));
 		if (!var$0) {
-			bool var$2 = $LWCToolkit::isLocaleUSInternationalPC($($nc(lwcToolkit)->getDefaultKeyboardLocale()));
-			var$0 = (var$2 && $LWCToolkit::isCharModifierKeyInUSInternationalPC(testChar) && (testChar != testCharIgnoringModifiers));
+			bool var$2 = $LWCToolkit::isLocaleUSInternationalPC($(lwcToolkit->getDefaultKeyboardLocale()));
+			var$0 = var$2 && $LWCToolkit::isCharModifierKeyInUSInternationalPC(testChar) && (testChar != testCharIgnoringModifiers);
 		}
 		if (var$0) {
 			testChar = testCharIgnoringModifiers;
@@ -220,13 +175,13 @@ void CPlatformResponder::handleKeyEvent(int32_t eventType, int32_t modifierFlags
 	}
 	$nc(this->eventNotifier)->notifyKeyEvent(jeventType, when, jmodifiers, jkeyCode, javaChar, jkeyLocation);
 	postsTyped &= needsKeyTyped;
-	if (jeventType == $KeyEvent::KEY_PRESSED && postsTyped && ((int32_t)(jmodifiers & (uint32_t)$KeyEvent::META_DOWN_MASK)) == 0) {
+	if (jeventType == $KeyEvent::KEY_PRESSED && postsTyped && (jmodifiers & $KeyEvent::META_DOWN_MASK) == 0) {
 		if (needsKeyReleased && (jkeyCode == $KeyEvent::VK_ENTER || jkeyCode == $KeyEvent::VK_SPACE)) {
 			return;
 		}
-		$nc(this->eventNotifier)->notifyKeyEvent($KeyEvent::KEY_TYPED, when, jmodifiers, $KeyEvent::VK_UNDEFINED, javaChar, $KeyEvent::KEY_LOCATION_UNKNOWN);
+		this->eventNotifier->notifyKeyEvent($KeyEvent::KEY_TYPED, when, jmodifiers, $KeyEvent::VK_UNDEFINED, javaChar, $KeyEvent::KEY_LOCATION_UNKNOWN);
 		if (needsKeyReleased) {
-			$nc(this->eventNotifier)->notifyKeyEvent($KeyEvent::KEY_RELEASED, when, jmodifiers, jkeyCode, javaChar, $KeyEvent::KEY_LOCATION_UNKNOWN);
+			this->eventNotifier->notifyKeyEvent($KeyEvent::KEY_RELEASED, when, jmodifiers, jkeyCode, javaChar, $KeyEvent::KEY_LOCATION_UNKNOWN);
 		}
 	}
 }
@@ -235,7 +190,7 @@ void CPlatformResponder::handleInputEvent($String* text) {
 	if (text != nullptr) {
 		int32_t index = 0;
 		int32_t length = text->length();
-		char16_t c = (char16_t)0;
+		char16_t c = 0;
 		while (index < length) {
 			c = text->charAt(index);
 			$nc(this->eventNotifier)->notifyKeyEvent($KeyEvent::KEY_TYPED, $System::currentTimeMillis(), 0, $KeyEvent::VK_UNDEFINED, c, $KeyEvent::KEY_LOCATION_UNKNOWN);
@@ -253,7 +208,45 @@ CPlatformResponder::CPlatformResponder() {
 }
 
 $Class* CPlatformResponder::load$($String* name, bool initialize) {
-	$loadClass(CPlatformResponder, name, initialize, &_CPlatformResponder_ClassInfo_, allocate$CPlatformResponder);
+	$FieldInfo fieldInfos$$[] = {
+		{"eventNotifier", "Lsun/lwawt/PlatformEventNotifier;", nullptr, $PRIVATE | $FINAL, $field(CPlatformResponder, eventNotifier)},
+		{"isNpapiCallback", "Z", nullptr, $PRIVATE | $FINAL, $field(CPlatformResponder, isNpapiCallback)},
+		{"lastKeyPressCode", "I", nullptr, $PRIVATE, $field(CPlatformResponder, lastKeyPressCode)},
+		{"deltaAccumulatorX", "Lsun/lwawt/macosx/CPlatformResponder$DeltaAccumulator;", nullptr, $PRIVATE | $FINAL, $field(CPlatformResponder, deltaAccumulatorX)},
+		{"deltaAccumulatorY", "Lsun/lwawt/macosx/CPlatformResponder$DeltaAccumulator;", nullptr, $PRIVATE | $FINAL, $field(CPlatformResponder, deltaAccumulatorY)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/lwawt/PlatformEventNotifier;Z)V", nullptr, 0, $method(CPlatformResponder, init$, void, $PlatformEventNotifier*, bool)},
+		{"dispatchScrollEvent", "(IIIIIID)V", nullptr, $PRIVATE, $method(CPlatformResponder, dispatchScrollEvent, void, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, double)},
+		{"handleInputEvent", "(Ljava/lang/String;)V", nullptr, 0, $method(CPlatformResponder, handleInputEvent, void, $String*)},
+		{"handleKeyEvent", "(IILjava/lang/String;Ljava/lang/String;SZZ)V", nullptr, 0, $method(CPlatformResponder, handleKeyEvent, void, int32_t, int32_t, $String*, $String*, int16_t, bool, bool)},
+		{"handleMouseEvent", "(IIIIIIII)V", nullptr, 0, $method(CPlatformResponder, handleMouseEvent, void, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"handleScrollEvent", "(IIIIIDDI)V", nullptr, 0, $method(CPlatformResponder, handleScrollEvent, void, int32_t, int32_t, int32_t, int32_t, int32_t, double, double, int32_t)},
+		{"handleWindowFocusEvent", "(ZLsun/lwawt/LWWindowPeer;)V", nullptr, 0, $method(CPlatformResponder, handleWindowFocusEvent, void, bool, $LWWindowPeer*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.lwawt.macosx.CPlatformResponder$DeltaAccumulator", "sun.lwawt.macosx.CPlatformResponder", "DeltaAccumulator", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.lwawt.macosx.CPlatformResponder",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.lwawt.macosx.CPlatformResponder$DeltaAccumulator"
+	};
+	$loadClass(CPlatformResponder, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CPlatformResponder);
+	});
 	return class$;
 }
 

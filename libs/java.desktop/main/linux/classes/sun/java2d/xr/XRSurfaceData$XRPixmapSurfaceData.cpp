@@ -1,5 +1,4 @@
 #include <sun/java2d/xr/XRSurfaceData$XRPixmapSurfaceData.h>
-
 #include <java/awt/GraphicsDevice.h>
 #include <java/awt/Image.h>
 #include <java/awt/Rectangle.h>
@@ -33,57 +32,9 @@ namespace sun {
 	namespace java2d {
 		namespace xr {
 
-$FieldInfo _XRSurfaceData$XRPixmapSurfaceData_FieldInfo_[] = {
-	{"offscreenImage", "Ljava/awt/Image;", nullptr, 0, $field(XRSurfaceData$XRPixmapSurfaceData, offscreenImage)},
-	{"width", "I", nullptr, 0, $field(XRSurfaceData$XRPixmapSurfaceData, width)},
-	{"height", "I", nullptr, 0, $field(XRSurfaceData$XRPixmapSurfaceData, height)},
-	{"transparency", "I", nullptr, 0, $field(XRSurfaceData$XRPixmapSurfaceData, transparency)},
-	{"scale", "I", nullptr, $PRIVATE | $FINAL, $field(XRSurfaceData$XRPixmapSurfaceData, scale)},
-	{}
-};
-
-$MethodInfo _XRSurfaceData$XRPixmapSurfaceData_MethodInfo_[] = {
-	{"<init>", "(Lsun/java2d/xr/XRGraphicsConfig;IILjava/awt/Image;Lsun/java2d/loops/SurfaceType;Ljava/awt/image/ColorModel;JIIIZ)V", nullptr, $PUBLIC, $method(XRSurfaceData$XRPixmapSurfaceData, init$, void, $XRGraphicsConfig*, int32_t, int32_t, $Image*, $SurfaceType*, $ColorModel*, int64_t, int32_t, int32_t, int32_t, bool)},
-	{"canSourceSendExposures", "(IIII)Z", nullptr, $PUBLIC, $virtualMethod(XRSurfaceData$XRPixmapSurfaceData, canSourceSendExposures, bool, int32_t, int32_t, int32_t, int32_t)},
-	{"flush", "()V", nullptr, $PUBLIC, $virtualMethod(XRSurfaceData$XRPixmapSurfaceData, flush, void)},
-	{"getBounds", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(XRSurfaceData$XRPixmapSurfaceData, getBounds, $Rectangle*)},
-	{"getDefaultScaleX", "()D", nullptr, $PUBLIC, $virtualMethod(XRSurfaceData$XRPixmapSurfaceData, getDefaultScaleX, double)},
-	{"getDefaultScaleY", "()D", nullptr, $PUBLIC, $virtualMethod(XRSurfaceData$XRPixmapSurfaceData, getDefaultScaleY, double)},
-	{"getDestination", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(XRSurfaceData$XRPixmapSurfaceData, getDestination, $Object*)},
-	{"getReplacement", "()Lsun/java2d/SurfaceData;", nullptr, $PUBLIC, $virtualMethod(XRSurfaceData$XRPixmapSurfaceData, getReplacement, $SurfaceData*)},
-	{"getTransparency", "()I", nullptr, $PUBLIC, $virtualMethod(XRSurfaceData$XRPixmapSurfaceData, getTransparency, int32_t)},
-	{"initSurface", "(IIIJI)V", nullptr, $PUBLIC, $virtualMethod(XRSurfaceData$XRPixmapSurfaceData, initSurface, void, int32_t, int32_t, int32_t, int64_t, int32_t)},
-	{}
-};
-
-$InnerClassInfo _XRSurfaceData$XRPixmapSurfaceData_InnerClassesInfo_[] = {
-	{"sun.java2d.xr.XRSurfaceData$XRPixmapSurfaceData", "sun.java2d.xr.XRSurfaceData", "XRPixmapSurfaceData", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _XRSurfaceData$XRPixmapSurfaceData_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.java2d.xr.XRSurfaceData$XRPixmapSurfaceData",
-	"sun.java2d.xr.XRSurfaceData",
-	nullptr,
-	_XRSurfaceData$XRPixmapSurfaceData_FieldInfo_,
-	_XRSurfaceData$XRPixmapSurfaceData_MethodInfo_,
-	nullptr,
-	nullptr,
-	_XRSurfaceData$XRPixmapSurfaceData_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.java2d.xr.XRSurfaceData"
-};
-
-$Object* allocate$XRSurfaceData$XRPixmapSurfaceData($Class* clazz) {
-	return $of($alloc(XRSurfaceData$XRPixmapSurfaceData));
-}
-
 void XRSurfaceData$XRPixmapSurfaceData::init$($XRGraphicsConfig* gc, int32_t width, int32_t height, $Image* image, $SurfaceType* sType, $ColorModel* cm, int64_t drawable, int32_t transparency, int32_t pictFormat, int32_t depth, bool isTexture) {
 	$XRSurfaceData::init$(nullptr, gc, sType, cm, depth, transparency);
-	this->scale = isTexture ? 1 : $nc($($cast($X11GraphicsDevice, $nc(gc)->getDevice())))->getScaleFactor();
+	this->scale = isTexture ? 1 : $$sure($X11GraphicsDevice, $nc(gc)->getDevice())->getScaleFactor();
 	this->width = width * this->scale;
 	this->height = height * this->scale;
 	$set(this, offscreenImage, image);
@@ -94,19 +45,17 @@ void XRSurfaceData$XRPixmapSurfaceData::init$($XRGraphicsConfig* gc, int32_t wid
 }
 
 void XRSurfaceData$XRPixmapSurfaceData::initSurface(int32_t depth, int32_t width, int32_t height, int64_t drawable, int32_t pictFormat) {
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$SunToolkit::awtLock();
-			XRInitSurface(depth, width, height, drawable, pictFormat);
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$SunToolkit::awtUnlock();
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	$var($Throwable, var$0, nullptr);
+	try {
+		$SunToolkit::awtLock();
+		XRInitSurface(depth, width, height, drawable, pictFormat);
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$SunToolkit::awtUnlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
@@ -132,7 +81,7 @@ void XRSurfaceData$XRPixmapSurfaceData::flush() {
 }
 
 $Object* XRSurfaceData$XRPixmapSurfaceData::getDestination() {
-	return $of(this->offscreenImage);
+	return this->offscreenImage;
 }
 
 double XRSurfaceData$XRPixmapSurfaceData::getDefaultScaleX() {
@@ -147,7 +96,49 @@ XRSurfaceData$XRPixmapSurfaceData::XRSurfaceData$XRPixmapSurfaceData() {
 }
 
 $Class* XRSurfaceData$XRPixmapSurfaceData::load$($String* name, bool initialize) {
-	$loadClass(XRSurfaceData$XRPixmapSurfaceData, name, initialize, &_XRSurfaceData$XRPixmapSurfaceData_ClassInfo_, allocate$XRSurfaceData$XRPixmapSurfaceData);
+	$FieldInfo fieldInfos$$[] = {
+		{"offscreenImage", "Ljava/awt/Image;", nullptr, 0, $field(XRSurfaceData$XRPixmapSurfaceData, offscreenImage)},
+		{"width", "I", nullptr, 0, $field(XRSurfaceData$XRPixmapSurfaceData, width)},
+		{"height", "I", nullptr, 0, $field(XRSurfaceData$XRPixmapSurfaceData, height)},
+		{"transparency", "I", nullptr, 0, $field(XRSurfaceData$XRPixmapSurfaceData, transparency)},
+		{"scale", "I", nullptr, $PRIVATE | $FINAL, $field(XRSurfaceData$XRPixmapSurfaceData, scale)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/java2d/xr/XRGraphicsConfig;IILjava/awt/Image;Lsun/java2d/loops/SurfaceType;Ljava/awt/image/ColorModel;JIIIZ)V", nullptr, $PUBLIC, $method(XRSurfaceData$XRPixmapSurfaceData, init$, void, $XRGraphicsConfig*, int32_t, int32_t, $Image*, $SurfaceType*, $ColorModel*, int64_t, int32_t, int32_t, int32_t, bool)},
+		{"canSourceSendExposures", "(IIII)Z", nullptr, $PUBLIC, $virtualMethod(XRSurfaceData$XRPixmapSurfaceData, canSourceSendExposures, bool, int32_t, int32_t, int32_t, int32_t)},
+		{"flush", "()V", nullptr, $PUBLIC, $virtualMethod(XRSurfaceData$XRPixmapSurfaceData, flush, void)},
+		{"getBounds", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(XRSurfaceData$XRPixmapSurfaceData, getBounds, $Rectangle*)},
+		{"getDefaultScaleX", "()D", nullptr, $PUBLIC, $virtualMethod(XRSurfaceData$XRPixmapSurfaceData, getDefaultScaleX, double)},
+		{"getDefaultScaleY", "()D", nullptr, $PUBLIC, $virtualMethod(XRSurfaceData$XRPixmapSurfaceData, getDefaultScaleY, double)},
+		{"getDestination", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(XRSurfaceData$XRPixmapSurfaceData, getDestination, $Object*)},
+		{"getReplacement", "()Lsun/java2d/SurfaceData;", nullptr, $PUBLIC, $virtualMethod(XRSurfaceData$XRPixmapSurfaceData, getReplacement, $SurfaceData*)},
+		{"getTransparency", "()I", nullptr, $PUBLIC, $virtualMethod(XRSurfaceData$XRPixmapSurfaceData, getTransparency, int32_t)},
+		{"initSurface", "(IIIJI)V", nullptr, $PUBLIC, $virtualMethod(XRSurfaceData$XRPixmapSurfaceData, initSurface, void, int32_t, int32_t, int32_t, int64_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.java2d.xr.XRSurfaceData$XRPixmapSurfaceData", "sun.java2d.xr.XRSurfaceData", "XRPixmapSurfaceData", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.java2d.xr.XRSurfaceData$XRPixmapSurfaceData",
+		"sun.java2d.xr.XRSurfaceData",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.java2d.xr.XRSurfaceData"
+	};
+	$loadClass(XRSurfaceData$XRPixmapSurfaceData, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(XRSurfaceData$XRPixmapSurfaceData));
+	});
 	return class$;
 }
 

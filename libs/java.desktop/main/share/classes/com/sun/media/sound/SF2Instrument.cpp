@@ -1,5 +1,4 @@
 #include <com/sun/media/sound/SF2Instrument.h>
-
 #include <com/sun/media/sound/ModelByteBuffer.h>
 #include <com/sun/media/sound/ModelByteBufferWavetable.h>
 #include <com/sun/media/sound/ModelConnectionBlock.h>
@@ -153,7 +152,6 @@ using $ModelPatch = ::com::sun::media::sound::ModelPatch;
 using $ModelPerformer = ::com::sun::media::sound::ModelPerformer;
 using $ModelSource = ::com::sun::media::sound::ModelSource;
 using $ModelStandardTransform = ::com::sun::media::sound::ModelStandardTransform;
-using $ModelTransform = ::com::sun::media::sound::ModelTransform;
 using $ModelWavetable = ::com::sun::media::sound::ModelWavetable;
 using $SF2GlobalRegion = ::com::sun::media::sound::SF2GlobalRegion;
 using $SF2Instrument$1 = ::com::sun::media::sound::SF2Instrument$1;
@@ -178,7 +176,6 @@ using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
 using $Map = ::java::util::Map;
 using $Map$Entry = ::java::util::Map$Entry;
-using $Set = ::java::util::Set;
 using $Patch = ::javax::sound::midi::Patch;
 using $Soundbank = ::javax::sound::midi::Soundbank;
 
@@ -186,71 +183,6 @@ namespace com {
 	namespace sun {
 		namespace media {
 			namespace sound {
-
-$FieldInfo _SF2Instrument_FieldInfo_[] = {
-	{"name", "Ljava/lang/String;", nullptr, 0, $field(SF2Instrument, name)},
-	{"preset", "I", nullptr, 0, $field(SF2Instrument, preset)},
-	{"bank", "I", nullptr, 0, $field(SF2Instrument, bank)},
-	{"library", "J", nullptr, 0, $field(SF2Instrument, library)},
-	{"genre", "J", nullptr, 0, $field(SF2Instrument, genre)},
-	{"morphology", "J", nullptr, 0, $field(SF2Instrument, morphology)},
-	{"globalregion", "Lcom/sun/media/sound/SF2GlobalRegion;", nullptr, 0, $field(SF2Instrument, globalregion)},
-	{"regions", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/media/sound/SF2InstrumentRegion;>;", 0, $field(SF2Instrument, regions)},
-	{}
-};
-
-$MethodInfo _SF2Instrument_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SF2Instrument, init$, void)},
-	{"<init>", "(Lcom/sun/media/sound/SF2Soundbank;)V", nullptr, $PUBLIC, $method(SF2Instrument, init$, void, $SF2Soundbank*)},
-	{"addTimecentValue", "(Lcom/sun/media/sound/ModelPerformer;Lcom/sun/media/sound/ModelIdentifier;S)V", nullptr, $PRIVATE, $method(SF2Instrument, addTimecentValue, void, $ModelPerformer*, $ModelIdentifier*, int16_t)},
-	{"addValue", "(Lcom/sun/media/sound/ModelPerformer;Lcom/sun/media/sound/ModelIdentifier;S)V", nullptr, $PRIVATE, $method(SF2Instrument, addValue, void, $ModelPerformer*, $ModelIdentifier*, int16_t)},
-	{"addValue", "(Lcom/sun/media/sound/ModelPerformer;Lcom/sun/media/sound/ModelIdentifier;D)V", nullptr, $PRIVATE, $method(SF2Instrument, addValue, void, $ModelPerformer*, $ModelIdentifier*, double)},
-	{"convertDestination", "(I[D[Lcom/sun/media/sound/ModelSource;)Lcom/sun/media/sound/ModelDestination;", nullptr, $STATIC, $staticMethod(SF2Instrument, convertDestination, $ModelDestination*, int32_t, $doubles*, $ModelSourceArray*)},
-	{"convertModulator", "(Lcom/sun/media/sound/ModelPerformer;Lcom/sun/media/sound/SF2Modulator;)V", nullptr, $PRIVATE, $method(SF2Instrument, convertModulator, void, $ModelPerformer*, $SF2Modulator*)},
-	{"convertSource", "(I)Lcom/sun/media/sound/ModelSource;", nullptr, $PRIVATE | $STATIC, $staticMethod(SF2Instrument, convertSource, $ModelSource*, int32_t)},
-	{"getData", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SF2Instrument, getData, $Object*)},
-	{"getGeneratorValue", "(Ljava/util/Map;I)S", "(Ljava/util/Map<Ljava/lang/Integer;Ljava/lang/Short;>;I)S", $PRIVATE, $method(SF2Instrument, getGeneratorValue, int16_t, $Map*, int32_t)},
-	{"getGenre", "()J", nullptr, $PUBLIC, $method(SF2Instrument, getGenre, int64_t)},
-	{"getGlobalRegion", "()Lcom/sun/media/sound/SF2GlobalRegion;", nullptr, $PUBLIC, $method(SF2Instrument, getGlobalRegion, $SF2GlobalRegion*)},
-	{"getLibrary", "()J", nullptr, $PUBLIC, $method(SF2Instrument, getLibrary, int64_t)},
-	{"getMorphology", "()J", nullptr, $PUBLIC, $method(SF2Instrument, getMorphology, int64_t)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SF2Instrument, getName, $String*)},
-	{"getPatch", "()Ljavax/sound/midi/Patch;", nullptr, $PUBLIC, $virtualMethod(SF2Instrument, getPatch, $Patch*)},
-	{"getPerformers", "()[Lcom/sun/media/sound/ModelPerformer;", nullptr, $PUBLIC, $virtualMethod(SF2Instrument, getPerformers, $ModelPerformerArray*)},
-	{"getRegions", "()Ljava/util/List;", "()Ljava/util/List<Lcom/sun/media/sound/SF2InstrumentRegion;>;", $PUBLIC, $method(SF2Instrument, getRegions, $List*)},
-	{"setGenre", "(J)V", nullptr, $PUBLIC, $method(SF2Instrument, setGenre, void, int64_t)},
-	{"setGlobalZone", "(Lcom/sun/media/sound/SF2GlobalRegion;)V", nullptr, $PUBLIC, $method(SF2Instrument, setGlobalZone, void, $SF2GlobalRegion*)},
-	{"setLibrary", "(J)V", nullptr, $PUBLIC, $method(SF2Instrument, setLibrary, void, int64_t)},
-	{"setMorphology", "(J)V", nullptr, $PUBLIC, $method(SF2Instrument, setMorphology, void, int64_t)},
-	{"setName", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SF2Instrument, setName, void, $String*)},
-	{"setPatch", "(Ljavax/sound/midi/Patch;)V", nullptr, $PUBLIC, $method(SF2Instrument, setPatch, void, $Patch*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SF2Instrument, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _SF2Instrument_InnerClassesInfo_[] = {
-	{"com.sun.media.sound.SF2Instrument$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _SF2Instrument_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.media.sound.SF2Instrument",
-	"com.sun.media.sound.ModelInstrument",
-	nullptr,
-	_SF2Instrument_FieldInfo_,
-	_SF2Instrument_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SF2Instrument_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.media.sound.SF2Instrument$1"
-};
-
-$Object* allocate$SF2Instrument($Class* clazz) {
-	return $of($alloc(SF2Instrument));
-}
 
 void SF2Instrument::init$() {
 	$ModelInstrument::init$(nullptr, nullptr, nullptr, nullptr);
@@ -293,9 +225,9 @@ $Patch* SF2Instrument::getPatch() {
 }
 
 void SF2Instrument::setPatch($Patch* patch) {
-	if ($instanceOf($ModelPatch, patch) && $nc(($cast($ModelPatch, patch)))->isPercussion()) {
+	if ($instanceOf($ModelPatch, patch) && $cast($ModelPatch, patch)->isPercussion()) {
 		this->bank = 128;
-		this->preset = $nc(patch)->getProgram();
+		this->preset = patch->getProgram();
 	} else {
 		this->bank = $nc(patch)->getBank() >> 7;
 		this->preset = patch->getProgram();
@@ -303,7 +235,7 @@ void SF2Instrument::setPatch($Patch* patch) {
 }
 
 $Object* SF2Instrument::getData() {
-	return $of(nullptr);
+	return nullptr;
 }
 
 int64_t SF2Instrument::getGenre() {
@@ -343,7 +275,7 @@ void SF2Instrument::setGlobalZone($SF2GlobalRegion* zone) {
 }
 
 $String* SF2Instrument::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->bank == 128) {
 		return $str({"Drumkit: "_s, this->name, " preset #"_s, $$str(this->preset)});
 	} else {
@@ -352,13 +284,13 @@ $String* SF2Instrument::toString() {
 }
 
 $ModelPerformerArray* SF2Instrument::getPerformers() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t performercount = 0;
 	{
 		$var($Iterator, i$, $nc(this->regions)->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($SF2InstrumentRegion, presetzone, $cast($SF2InstrumentRegion, i$->next()));
-			performercount += $nc($($nc($($nc(presetzone)->getLayer()))->getRegions()))->size();
+			performercount += $$nc($$nc($nc(presetzone)->getLayer())->getRegions())->size();
 		}
 	}
 	$var($ModelPerformerArray, performers, $new($ModelPerformerArray, performercount));
@@ -374,16 +306,16 @@ $ModelPerformerArray* SF2Instrument::getPerformers() {
 				if (presetglobal != nullptr) {
 					pgenerators->putAll($(presetglobal->getGenerators()));
 				}
-				$var($SF2Layer, layer, $nc(presetzone)->getLayer());
+				$var($SF2Layer, layer, presetzone->getLayer());
 				$var($SF2GlobalRegion, layerglobal, $nc(layer)->getGlobalRegion());
 				{
-					$var($Iterator, i$, $nc($(layer->getRegions()))->iterator());
+					$var($Iterator, i$, $$nc(layer->getRegions())->iterator());
 					for (; $nc(i$)->hasNext();) {
 						$var($SF2LayerRegion, layerzone, $cast($SF2LayerRegion, i$->next()));
 						{
 							$var($ModelPerformer, performer, $new($ModelPerformer));
 							if ($nc(layerzone)->getSample() != nullptr) {
-								performer->setName($($nc($(layerzone->getSample()))->getName()));
+								performer->setName($($$nc(layerzone->getSample())->getName()));
 							} else {
 								performer->setName($(layer->getName()));
 							}
@@ -392,30 +324,30 @@ $ModelPerformerArray* SF2Instrument::getPerformers() {
 							int32_t keyto = 127;
 							int32_t velfrom = 0;
 							int32_t velto = 127;
-							if ($nc(layerzone)->contains($SF2Region::GENERATOR_EXCLUSIVECLASS)) {
+							if (layerzone->contains($SF2Region::GENERATOR_EXCLUSIVECLASS)) {
 								performer->setExclusiveClass(layerzone->getInteger($SF2Region::GENERATOR_EXCLUSIVECLASS));
 							}
-							if ($nc(layerzone)->contains($SF2Region::GENERATOR_KEYRANGE)) {
+							if (layerzone->contains($SF2Region::GENERATOR_KEYRANGE)) {
 								$var($bytes, bytes, layerzone->getBytes($SF2Region::GENERATOR_KEYRANGE));
 								if ($nc(bytes)->get(0) >= 0) {
 									if (bytes->get(0) > keyfrom) {
 										keyfrom = bytes->get(0);
 									}
 								}
-								if ($nc(bytes)->get(1) >= 0) {
+								if (bytes->get(1) >= 0) {
 									if (bytes->get(1) < keyto) {
 										keyto = bytes->get(1);
 									}
 								}
 							}
-							if ($nc(layerzone)->contains($SF2Region::GENERATOR_VELRANGE)) {
+							if (layerzone->contains($SF2Region::GENERATOR_VELRANGE)) {
 								$var($bytes, bytes, layerzone->getBytes($SF2Region::GENERATOR_VELRANGE));
 								if ($nc(bytes)->get(0) >= 0) {
 									if (bytes->get(0) > velfrom) {
 										velfrom = bytes->get(0);
 									}
 								}
-								if ($nc(bytes)->get(1) >= 0) {
+								if (bytes->get(1) >= 0) {
 									if (bytes->get(1) < velto) {
 										velto = bytes->get(1);
 									}
@@ -426,7 +358,7 @@ $ModelPerformerArray* SF2Instrument::getPerformers() {
 								if ($nc(bytes)->get(0) > keyfrom) {
 									keyfrom = bytes->get(0);
 								}
-								if ($nc(bytes)->get(1) < keyto) {
+								if (bytes->get(1) < keyto) {
 									keyto = bytes->get(1);
 								}
 							}
@@ -435,7 +367,7 @@ $ModelPerformerArray* SF2Instrument::getPerformers() {
 								if ($nc(bytes)->get(0) > velfrom) {
 									velfrom = bytes->get(0);
 								}
-								if ($nc(bytes)->get(1) < velto) {
+								if (bytes->get(1) < velto) {
 									velto = bytes->get(1);
 								}
 							}
@@ -443,14 +375,14 @@ $ModelPerformerArray* SF2Instrument::getPerformers() {
 							performer->setKeyTo(keyto);
 							performer->setVelFrom(velfrom);
 							performer->setVelTo(velto);
-							int32_t startAddrsOffset = $nc(layerzone)->getShort($SF2Region::GENERATOR_STARTADDRSOFFSET);
+							int32_t startAddrsOffset = layerzone->getShort($SF2Region::GENERATOR_STARTADDRSOFFSET);
 							int32_t endAddrsOffset = layerzone->getShort($SF2Region::GENERATOR_ENDADDRSOFFSET);
 							int32_t startloopAddrsOffset = layerzone->getShort($SF2Region::GENERATOR_STARTLOOPADDRSOFFSET);
 							int32_t endloopAddrsOffset = layerzone->getShort($SF2Region::GENERATOR_ENDLOOPADDRSOFFSET);
-							startAddrsOffset += layerzone->getShort($SF2Region::GENERATOR_STARTADDRSCOARSEOFFSET) * 32768;
-							endAddrsOffset += layerzone->getShort($SF2Region::GENERATOR_ENDADDRSCOARSEOFFSET) * 32768;
-							startloopAddrsOffset += layerzone->getShort($SF2Region::GENERATOR_STARTLOOPADDRSCOARSEOFFSET) * 32768;
-							endloopAddrsOffset += layerzone->getShort($SF2Region::GENERATOR_ENDLOOPADDRSCOARSEOFFSET) * 32768;
+							startAddrsOffset += layerzone->getShort($SF2Region::GENERATOR_STARTADDRSCOARSEOFFSET) * 0x00008000;
+							endAddrsOffset += layerzone->getShort($SF2Region::GENERATOR_ENDADDRSCOARSEOFFSET) * 0x00008000;
+							startloopAddrsOffset += layerzone->getShort($SF2Region::GENERATOR_STARTLOOPADDRSCOARSEOFFSET) * 0x00008000;
+							endloopAddrsOffset += layerzone->getShort($SF2Region::GENERATOR_ENDLOOPADDRSCOARSEOFFSET) * 0x00008000;
 							startloopAddrsOffset -= startAddrsOffset;
 							endloopAddrsOffset -= startAddrsOffset;
 							$var($SF2Sample, sample, layerzone->getSample());
@@ -462,7 +394,7 @@ $ModelPerformerArray* SF2Instrument::getPerformers() {
 							$var($ModelByteBuffer, buff, sample->getDataBuffer());
 							$var($ModelByteBuffer, buff24, sample->getData24Buffer());
 							if (startAddrsOffset != 0 || endAddrsOffset != 0) {
-								$assign(buff, $nc(buff)->subbuffer(startAddrsOffset * 2, buff->capacity() + endAddrsOffset * 2));
+								$assign(buff, $nc(buff)->subbuffer(startAddrsOffset * 2, $nc(buff)->capacity() + endAddrsOffset * 2));
 								if (buff24 != nullptr) {
 									$assign(buff24, buff24->subbuffer(startAddrsOffset, buff24->capacity() + endAddrsOffset));
 								}
@@ -477,17 +409,17 @@ $ModelPerformerArray* SF2Instrument::getPerformers() {
 							}
 							generators->putAll($(layerzone->getGenerators()));
 							{
-								$var($Iterator, i$, $nc($(pgenerators->entrySet()))->iterator());
+								$var($Iterator, i$, $$nc(pgenerators->entrySet())->iterator());
 								for (; $nc(i$)->hasNext();) {
 									$var($Map$Entry, gen, $cast($Map$Entry, i$->next()));
 									{
 										int16_t val = 0;
 										if (!generators->containsKey($($nc(gen)->getKey()))) {
-											val = layerzone->getShort($nc(($cast($Integer, $($nc(gen)->getKey()))))->intValue());
+											val = layerzone->getShort($$sure($Integer, gen->getKey())->intValue());
 										} else {
-											val = $nc(($cast($Short, $(generators->get($($nc(gen)->getKey()))))))->shortValue();
+											val = $$sure($Short, generators->get($(gen->getKey())))->shortValue();
 										}
-										val += $nc(($cast($Short, $($nc(gen)->getValue()))))->shortValue();
+										val += $$sure($Short, gen->getValue())->shortValue();
 										$var($Object, var$0, $cast($Integer, gen->getKey()));
 										generators->put(var$0, $($Short::valueOf(val)));
 									}
@@ -506,7 +438,7 @@ $ModelPerformerArray* SF2Instrument::getPerformers() {
 									}
 								}
 							}
-							$nc($(performer->getOscillators()))->add(osc);
+							$$nc(performer->getOscillators())->add(osc);
 							int16_t volDelay = getGeneratorValue(generators, $SF2Region::GENERATOR_DELAYVOLENV);
 							int16_t volAttack = getGeneratorValue(generators, $SF2Region::GENERATOR_ATTACKVOLENV);
 							int16_t volHold = getGeneratorValue(generators, $SF2Region::GENERATOR_HOLDVOLENV);
@@ -522,8 +454,7 @@ $ModelPerformerArray* SF2Instrument::getPerformers() {
 								$init($ModelDestination);
 								$var($ModelIdentifier, dest, $ModelDestination::DESTINATION_EG1_HOLD);
 								$var($ModelSource, var$1, $new($ModelSource, src));
-								double var$2 = (double)fvalue;
-								$nc($(performer->getConnectionBlocks()))->add($$new($ModelConnectionBlock, var$1, var$2, $$new($ModelDestination, dest)));
+								$$nc(performer->getConnectionBlocks())->add($$new($ModelConnectionBlock, var$1, fvalue, $$new($ModelDestination, dest)));
 							}
 							if (volDecay != -12000) {
 								int16_t volKeyNumToDecay = getGeneratorValue(generators, $SF2Region::GENERATOR_KEYNUMTOVOLENVDECAY);
@@ -533,9 +464,8 @@ $ModelPerformerArray* SF2Instrument::getPerformers() {
 								$var($ModelIdentifier, src, $ModelSource::SOURCE_NOTEON_KEYNUMBER);
 								$init($ModelDestination);
 								$var($ModelIdentifier, dest, $ModelDestination::DESTINATION_EG1_DECAY);
-								$var($ModelSource, var$3, $new($ModelSource, src));
-								double var$4 = (double)fvalue;
-								$nc($(performer->getConnectionBlocks()))->add($$new($ModelConnectionBlock, var$3, var$4, $$new($ModelDestination, dest)));
+								$var($ModelSource, var$2, $new($ModelSource, src));
+								$$nc(performer->getConnectionBlocks())->add($$new($ModelConnectionBlock, var$2, fvalue, $$new($ModelDestination, dest)));
 							}
 							$init($ModelDestination);
 							addTimecentValue(performer, $ModelDestination::DESTINATION_EG1_DELAY, volDelay);
@@ -544,15 +474,15 @@ $ModelPerformerArray* SF2Instrument::getPerformers() {
 							addTimecentValue(performer, $ModelDestination::DESTINATION_EG1_DECAY, volDecay);
 							volSustain = (int16_t)(1000 - volSustain);
 							if (volSustain < 0) {
-								volSustain = (int16_t)0;
+								volSustain = 0;
 							}
 							if (volSustain > 1000) {
-								volSustain = (int16_t)1000;
+								volSustain = 1000;
 							}
 							addValue(performer, $ModelDestination::DESTINATION_EG1_SUSTAIN, volSustain);
 							addTimecentValue(performer, $ModelDestination::DESTINATION_EG1_RELEASE, volRelease);
-							bool var$5 = getGeneratorValue(generators, $SF2Region::GENERATOR_MODENVTOFILTERFC) != 0;
-							if (var$5 || getGeneratorValue(generators, $SF2Region::GENERATOR_MODENVTOPITCH) != 0) {
+							bool var$3 = getGeneratorValue(generators, $SF2Region::GENERATOR_MODENVTOFILTERFC) != 0;
+							if (var$3 || getGeneratorValue(generators, $SF2Region::GENERATOR_MODENVTOPITCH) != 0) {
 								int16_t modDelay = getGeneratorValue(generators, $SF2Region::GENERATOR_DELAYMODENV);
 								int16_t modAttack = getGeneratorValue(generators, $SF2Region::GENERATOR_ATTACKMODENV);
 								int16_t modHold = getGeneratorValue(generators, $SF2Region::GENERATOR_HOLDMODENV);
@@ -566,9 +496,8 @@ $ModelPerformerArray* SF2Instrument::getPerformers() {
 									$init($ModelSource);
 									$var($ModelIdentifier, src, $ModelSource::SOURCE_NOTEON_KEYNUMBER);
 									$var($ModelIdentifier, dest, $ModelDestination::DESTINATION_EG2_HOLD);
-									$var($ModelSource, var$6, $new($ModelSource, src));
-									double var$7 = (double)fvalue;
-									$nc($(performer->getConnectionBlocks()))->add($$new($ModelConnectionBlock, var$6, var$7, $$new($ModelDestination, dest)));
+									$var($ModelSource, var$4, $new($ModelSource, src));
+									$$nc(performer->getConnectionBlocks())->add($$new($ModelConnectionBlock, var$4, fvalue, $$new($ModelDestination, dest)));
 								}
 								if (modDecay != -12000) {
 									int16_t modKeyNumToDecay = getGeneratorValue(generators, $SF2Region::GENERATOR_KEYNUMTOMODENVDECAY);
@@ -577,19 +506,18 @@ $ModelPerformerArray* SF2Instrument::getPerformers() {
 									$init($ModelSource);
 									$var($ModelIdentifier, src, $ModelSource::SOURCE_NOTEON_KEYNUMBER);
 									$var($ModelIdentifier, dest, $ModelDestination::DESTINATION_EG2_DECAY);
-									$var($ModelSource, var$8, $new($ModelSource, src));
-									double var$9 = (double)fvalue;
-									$nc($(performer->getConnectionBlocks()))->add($$new($ModelConnectionBlock, var$8, var$9, $$new($ModelDestination, dest)));
+									$var($ModelSource, var$5, $new($ModelSource, src));
+									$$nc(performer->getConnectionBlocks())->add($$new($ModelConnectionBlock, var$5, fvalue, $$new($ModelDestination, dest)));
 								}
 								addTimecentValue(performer, $ModelDestination::DESTINATION_EG2_DELAY, modDelay);
 								addTimecentValue(performer, $ModelDestination::DESTINATION_EG2_ATTACK, modAttack);
 								addTimecentValue(performer, $ModelDestination::DESTINATION_EG2_HOLD, modHold);
 								addTimecentValue(performer, $ModelDestination::DESTINATION_EG2_DECAY, modDecay);
 								if (modSustain < 0) {
-									modSustain = (int16_t)0;
+									modSustain = 0;
 								}
 								if (modSustain > 1000) {
-									modSustain = (int16_t)1000;
+									modSustain = 1000;
 								}
 								addValue(performer, $ModelDestination::DESTINATION_EG2_SUSTAIN, (double)(1000 - modSustain));
 								addTimecentValue(performer, $ModelDestination::DESTINATION_EG2_RELEASE, modRelease);
@@ -598,23 +526,21 @@ $ModelPerformerArray* SF2Instrument::getPerformers() {
 									$init($ModelSource);
 									$var($ModelIdentifier, src, $ModelSource::SOURCE_EG2);
 									$var($ModelIdentifier, dest, $ModelDestination::DESTINATION_FILTER_FREQ);
-									$var($ModelSource, var$10, $new($ModelSource, src));
-									double var$11 = fvalue;
-									$nc($(performer->getConnectionBlocks()))->add($$new($ModelConnectionBlock, var$10, var$11, $$new($ModelDestination, dest)));
+									$var($ModelSource, var$6, $new($ModelSource, src));
+									$$nc(performer->getConnectionBlocks())->add($$new($ModelConnectionBlock, var$6, fvalue, $$new($ModelDestination, dest)));
 								}
 								if (getGeneratorValue(generators, $SF2Region::GENERATOR_MODENVTOPITCH) != 0) {
 									double fvalue = (double)getGeneratorValue(generators, $SF2Region::GENERATOR_MODENVTOPITCH);
 									$init($ModelSource);
 									$var($ModelIdentifier, src, $ModelSource::SOURCE_EG2);
 									$var($ModelIdentifier, dest, $ModelDestination::DESTINATION_PITCH);
-									$var($ModelSource, var$12, $new($ModelSource, src));
-									double var$13 = fvalue;
-									$nc($(performer->getConnectionBlocks()))->add($$new($ModelConnectionBlock, var$12, var$13, $$new($ModelDestination, dest)));
+									$var($ModelSource, var$7, $new($ModelSource, src));
+									$$nc(performer->getConnectionBlocks())->add($$new($ModelConnectionBlock, var$7, fvalue, $$new($ModelDestination, dest)));
 								}
 							}
-							bool var$15 = getGeneratorValue(generators, $SF2Region::GENERATOR_MODLFOTOFILTERFC) != 0;
-							bool var$14 = var$15 || getGeneratorValue(generators, $SF2Region::GENERATOR_MODLFOTOPITCH) != 0;
-							if (var$14 || getGeneratorValue(generators, $SF2Region::GENERATOR_MODLFOTOVOLUME) != 0) {
+							bool var$9 = getGeneratorValue(generators, $SF2Region::GENERATOR_MODLFOTOFILTERFC) != 0;
+							bool var$8 = var$9 || getGeneratorValue(generators, $SF2Region::GENERATOR_MODLFOTOPITCH) != 0;
+							if (var$8 || getGeneratorValue(generators, $SF2Region::GENERATOR_MODLFOTOVOLUME) != 0) {
 								int16_t lfo_freq = getGeneratorValue(generators, $SF2Region::GENERATOR_FREQMODLFO);
 								int16_t lfo_delay = getGeneratorValue(generators, $SF2Region::GENERATOR_DELAYMODLFO);
 								addTimecentValue(performer, $ModelDestination::DESTINATION_LFO1_DELAY, lfo_delay);
@@ -629,36 +555,32 @@ $ModelPerformerArray* SF2Instrument::getPerformers() {
 								$init($ModelSource);
 								$var($ModelIdentifier, src, $ModelSource::SOURCE_LFO2);
 								$var($ModelIdentifier, dest, $ModelDestination::DESTINATION_PITCH);
-								$var($ModelSource, var$16, $new($ModelSource, src, $ModelStandardTransform::DIRECTION_MIN2MAX, $ModelStandardTransform::POLARITY_BIPOLAR));
-								double var$17 = fvalue;
-								$nc($(performer->getConnectionBlocks()))->add($$new($ModelConnectionBlock, var$16, var$17, $$new($ModelDestination, dest)));
+								$var($ModelSource, var$10, $new($ModelSource, src, $ModelStandardTransform::DIRECTION_MIN2MAX, $ModelStandardTransform::POLARITY_BIPOLAR));
+								$$nc(performer->getConnectionBlocks())->add($$new($ModelConnectionBlock, var$10, fvalue, $$new($ModelDestination, dest)));
 							}
 							if (getGeneratorValue(generators, $SF2Region::GENERATOR_MODLFOTOFILTERFC) != 0) {
 								double fvalue = (double)getGeneratorValue(generators, $SF2Region::GENERATOR_MODLFOTOFILTERFC);
 								$init($ModelSource);
 								$var($ModelIdentifier, src, $ModelSource::SOURCE_LFO1);
 								$var($ModelIdentifier, dest, $ModelDestination::DESTINATION_FILTER_FREQ);
-								$var($ModelSource, var$18, $new($ModelSource, src, $ModelStandardTransform::DIRECTION_MIN2MAX, $ModelStandardTransform::POLARITY_BIPOLAR));
-								double var$19 = fvalue;
-								$nc($(performer->getConnectionBlocks()))->add($$new($ModelConnectionBlock, var$18, var$19, $$new($ModelDestination, dest)));
+								$var($ModelSource, var$11, $new($ModelSource, src, $ModelStandardTransform::DIRECTION_MIN2MAX, $ModelStandardTransform::POLARITY_BIPOLAR));
+								$$nc(performer->getConnectionBlocks())->add($$new($ModelConnectionBlock, var$11, fvalue, $$new($ModelDestination, dest)));
 							}
 							if (getGeneratorValue(generators, $SF2Region::GENERATOR_MODLFOTOPITCH) != 0) {
 								double fvalue = (double)getGeneratorValue(generators, $SF2Region::GENERATOR_MODLFOTOPITCH);
 								$init($ModelSource);
 								$var($ModelIdentifier, src, $ModelSource::SOURCE_LFO1);
 								$var($ModelIdentifier, dest, $ModelDestination::DESTINATION_PITCH);
-								$var($ModelSource, var$20, $new($ModelSource, src, $ModelStandardTransform::DIRECTION_MIN2MAX, $ModelStandardTransform::POLARITY_BIPOLAR));
-								double var$21 = fvalue;
-								$nc($(performer->getConnectionBlocks()))->add($$new($ModelConnectionBlock, var$20, var$21, $$new($ModelDestination, dest)));
+								$var($ModelSource, var$12, $new($ModelSource, src, $ModelStandardTransform::DIRECTION_MIN2MAX, $ModelStandardTransform::POLARITY_BIPOLAR));
+								$$nc(performer->getConnectionBlocks())->add($$new($ModelConnectionBlock, var$12, fvalue, $$new($ModelDestination, dest)));
 							}
 							if (getGeneratorValue(generators, $SF2Region::GENERATOR_MODLFOTOVOLUME) != 0) {
 								double fvalue = (double)getGeneratorValue(generators, $SF2Region::GENERATOR_MODLFOTOVOLUME);
 								$init($ModelSource);
 								$var($ModelIdentifier, src, $ModelSource::SOURCE_LFO1);
 								$var($ModelIdentifier, dest, $ModelDestination::DESTINATION_GAIN);
-								$var($ModelSource, var$22, $new($ModelSource, src, $ModelStandardTransform::DIRECTION_MIN2MAX, $ModelStandardTransform::POLARITY_BIPOLAR));
-								double var$23 = fvalue;
-								$nc($(performer->getConnectionBlocks()))->add($$new($ModelConnectionBlock, var$22, var$23, $$new($ModelDestination, dest)));
+								$var($ModelSource, var$13, $new($ModelSource, src, $ModelStandardTransform::DIRECTION_MIN2MAX, $ModelStandardTransform::POLARITY_BIPOLAR));
+								$$nc(performer->getConnectionBlocks())->add($$new($ModelConnectionBlock, var$13, fvalue, $$new($ModelDestination, dest)));
 							}
 							if (layerzone->getShort($SF2Region::GENERATOR_KEYNUM) != -1) {
 								double val = layerzone->getShort($SF2Region::GENERATOR_KEYNUM) / 128.0;
@@ -699,53 +621,49 @@ $ModelPerformerArray* SF2Instrument::getPerformers() {
 								int16_t fvalue = getGeneratorValue(generators, $SF2Region::GENERATOR_SCALETUNING);
 								if (fvalue == 0) {
 									$var($ModelIdentifier, dest, $ModelDestination::DESTINATION_PITCH);
-									$nc($(performer->getConnectionBlocks()))->add($$new($ModelConnectionBlock, ($ModelSource*)nullptr, (double)(rootkey * 100), $$new($ModelDestination, dest)));
+									$$nc(performer->getConnectionBlocks())->add($$new($ModelConnectionBlock, nullptr, (double)(rootkey * 100), $$new($ModelDestination, dest)));
 								} else {
 									$var($ModelIdentifier, dest, $ModelDestination::DESTINATION_PITCH);
-									$nc($(performer->getConnectionBlocks()))->add($$new($ModelConnectionBlock, ($ModelSource*)nullptr, (double)(rootkey * (100 - fvalue)), $$new($ModelDestination, dest)));
+									$$nc(performer->getConnectionBlocks())->add($$new($ModelConnectionBlock, nullptr, (double)(rootkey * (100 - fvalue)), $$new($ModelDestination, dest)));
 								}
 								$init($ModelSource);
 								$var($ModelIdentifier, src, $ModelSource::SOURCE_NOTEON_KEYNUMBER);
 								$var($ModelIdentifier, dest, $ModelDestination::DESTINATION_PITCH);
-								$var($ModelSource, var$24, $new($ModelSource, src));
-								double var$25 = (double)(128 * fvalue);
-								$nc($(performer->getConnectionBlocks()))->add($$new($ModelConnectionBlock, var$24, var$25, $$new($ModelDestination, dest)));
+								$var($ModelSource, var$14, $new($ModelSource, src));
+								double var$15 = (double)(128 * fvalue);
+								$$nc(performer->getConnectionBlocks())->add($$new($ModelConnectionBlock, var$14, var$15, $$new($ModelDestination, dest)));
 							}
 							$init($ModelSource);
-							$var($ModelSource, var$26, $new($ModelSource, $ModelSource::SOURCE_NOTEON_VELOCITY, static_cast<$ModelTransform*>($$new($SF2Instrument$1, this))));
-							$nc($(performer->getConnectionBlocks()))->add($$new($ModelConnectionBlock, var$26, (double)-2400, $$new($ModelDestination, $ModelDestination::DESTINATION_FILTER_FREQ)));
-							$var($ModelSource, var$27, $new($ModelSource, $ModelSource::SOURCE_LFO2, $ModelStandardTransform::DIRECTION_MIN2MAX, $ModelStandardTransform::POLARITY_BIPOLAR, $ModelStandardTransform::TRANSFORM_LINEAR));
-							$var($ModelSource, var$28, $new($ModelSource, $$new($ModelIdentifier, "midi_cc"_s, "1"_s, 0), $ModelStandardTransform::DIRECTION_MIN2MAX, $ModelStandardTransform::POLARITY_UNIPOLAR, $ModelStandardTransform::TRANSFORM_LINEAR));
-							$nc($(performer->getConnectionBlocks()))->add($$new($ModelConnectionBlock, var$27, var$28, (double)50, $$new($ModelDestination, $ModelDestination::DESTINATION_PITCH)));
+							$var($ModelSource, var$16, $new($ModelSource, $ModelSource::SOURCE_NOTEON_VELOCITY, $$new($SF2Instrument$1, this)));
+							$$nc(performer->getConnectionBlocks())->add($$new($ModelConnectionBlock, var$16, -2400, $$new($ModelDestination, $ModelDestination::DESTINATION_FILTER_FREQ)));
+							$var($ModelSource, var$17, $new($ModelSource, $ModelSource::SOURCE_LFO2, $ModelStandardTransform::DIRECTION_MIN2MAX, $ModelStandardTransform::POLARITY_BIPOLAR, $ModelStandardTransform::TRANSFORM_LINEAR));
+							$var($ModelSource, var$18, $new($ModelSource, $$new($ModelIdentifier, "midi_cc"_s, "1"_s, 0), $ModelStandardTransform::DIRECTION_MIN2MAX, $ModelStandardTransform::POLARITY_UNIPOLAR, $ModelStandardTransform::TRANSFORM_LINEAR));
+							$$nc(performer->getConnectionBlocks())->add($$new($ModelConnectionBlock, var$17, var$18, 50, $$new($ModelDestination, $ModelDestination::DESTINATION_PITCH)));
 							if (layer->getGlobalRegion() != nullptr) {
-								{
-									$var($Iterator, i$, $nc($($nc($(layer->getGlobalRegion()))->getModulators()))->iterator());
-									for (; $nc(i$)->hasNext();) {
-										$var($SF2Modulator, modulator, $cast($SF2Modulator, i$->next()));
-										{
-											convertModulator(performer, modulator);
-										}
+								$var($Iterator, i$, $$nc($$nc(layer->getGlobalRegion())->getModulators())->iterator());
+								for (; $nc(i$)->hasNext();) {
+									$var($SF2Modulator, modulator, $cast($SF2Modulator, i$->next()));
+									{
+										convertModulator(performer, modulator);
 									}
 								}
 							}
 							{
-								$var($Iterator, i$, $nc($(layerzone->getModulators()))->iterator());
+								$var($Iterator, i$, $$nc(layerzone->getModulators())->iterator());
 								for (; $nc(i$)->hasNext();) {
 									$var($SF2Modulator, modulator, $cast($SF2Modulator, i$->next()));
 									convertModulator(performer, modulator);
 								}
 							}
 							if (presetglobal != nullptr) {
-								{
-									$var($Iterator, i$, $nc($(presetglobal->getModulators()))->iterator());
-									for (; $nc(i$)->hasNext();) {
-										$var($SF2Modulator, modulator, $cast($SF2Modulator, i$->next()));
-										convertModulator(performer, modulator);
-									}
+								$var($Iterator, i$, $$nc(presetglobal->getModulators())->iterator());
+								for (; $nc(i$)->hasNext();) {
+									$var($SF2Modulator, modulator, $cast($SF2Modulator, i$->next()));
+									convertModulator(performer, modulator);
 								}
 							}
 							{
-								$var($Iterator, i$, $nc($(presetzone->getModulators()))->iterator());
+								$var($Iterator, i$, $$nc(presetzone->getModulators())->iterator());
 								for (; $nc(i$)->hasNext();) {
 									$var($SF2Modulator, modulator, $cast($SF2Modulator, i$->next()));
 									convertModulator(performer, modulator);
@@ -761,43 +679,43 @@ $ModelPerformerArray* SF2Instrument::getPerformers() {
 }
 
 void SF2Instrument::convertModulator($ModelPerformer* performer, $SF2Modulator* modulator) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ModelSource, src1, convertSource($nc(modulator)->getSourceOperator()));
-	$var($ModelSource, src2, convertSource($nc(modulator)->getAmountSourceOperator()));
-	if (src1 == nullptr && $nc(modulator)->getSourceOperator() != 0) {
+	$var($ModelSource, src2, convertSource(modulator->getAmountSourceOperator()));
+	if (src1 == nullptr && modulator->getSourceOperator() != 0) {
 		return;
 	}
-	if (src2 == nullptr && $nc(modulator)->getAmountSourceOperator() != 0) {
+	if (src2 == nullptr && modulator->getAmountSourceOperator() != 0) {
 		return;
 	}
-	double amount = (double)$nc(modulator)->getAmount();
+	double amount = (double)modulator->getAmount();
 	$var($doubles, amountcorrection, $new($doubles, 1));
 	$var($ModelSourceArray, extrasrc, $new($ModelSourceArray, 1));
-	amountcorrection->set(0, (double)1);
+	amountcorrection->set(0, 1);
 	$var($ModelDestination, dst, convertDestination(modulator->getDestinationOperator(), amountcorrection, extrasrc));
 	amount *= amountcorrection->get(0);
 	if (dst == nullptr) {
 		return;
 	}
 	if (modulator->getTransportOperator() == $SF2Modulator::TRANSFORM_ABSOLUTE) {
-		$nc(($cast($ModelStandardTransform, $($nc(dst)->getTransform()))))->setTransform($ModelStandardTransform::TRANSFORM_ABSOLUTE);
+		$$sure($ModelStandardTransform, $nc(dst)->getTransform())->setTransform($ModelStandardTransform::TRANSFORM_ABSOLUTE);
 	}
 	$var($ModelConnectionBlock, conn, $new($ModelConnectionBlock, src1, src2, amount, dst));
 	if (extrasrc->get(0) != nullptr) {
 		conn->addSource(extrasrc->get(0));
 	}
-	$nc($($nc(performer)->getConnectionBlocks()))->add(conn);
+	$$nc($nc(performer)->getConnectionBlocks())->add(conn);
 }
 
 $ModelSource* SF2Instrument::convertSource(int32_t src) {
 	$init(SF2Instrument);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (src == 0) {
 		return nullptr;
 	}
 	$var($ModelIdentifier, id, nullptr);
-	int32_t idsrc = (int32_t)(src & (uint32_t)127);
-	if (((int32_t)(src & (uint32_t)$SF2Modulator::SOURCE_MIDI_CONTROL)) != 0) {
+	int32_t idsrc = src & 0x7f;
+	if ((src & $SF2Modulator::SOURCE_MIDI_CONTROL) != 0) {
 		$assign(id, $new($ModelIdentifier, "midi_cc"_s, $($Integer::toString(idsrc))));
 	} else {
 		if (idsrc == $SF2Modulator::SOURCE_NOTE_ON_VELOCITY) {
@@ -829,23 +747,23 @@ $ModelSource* SF2Instrument::convertSource(int32_t src) {
 	}
 	$var($ModelSource, msrc, $new($ModelSource, id));
 	$var($ModelStandardTransform, transform, $cast($ModelStandardTransform, msrc->getTransform()));
-	if (((int32_t)($SF2Modulator::SOURCE_DIRECTION_MAX_MIN & (uint32_t)src)) != 0) {
+	if (($SF2Modulator::SOURCE_DIRECTION_MAX_MIN & src) != 0) {
 		$nc(transform)->setDirection($ModelStandardTransform::DIRECTION_MAX2MIN);
 	} else {
 		$nc(transform)->setDirection($ModelStandardTransform::DIRECTION_MIN2MAX);
 	}
-	if (((int32_t)($SF2Modulator::SOURCE_POLARITY_BIPOLAR & (uint32_t)src)) != 0) {
+	if (($SF2Modulator::SOURCE_POLARITY_BIPOLAR & src) != 0) {
 		$nc(transform)->setPolarity($ModelStandardTransform::POLARITY_BIPOLAR);
 	} else {
 		$nc(transform)->setPolarity($ModelStandardTransform::POLARITY_UNIPOLAR);
 	}
-	if (((int32_t)($SF2Modulator::SOURCE_TYPE_CONCAVE & (uint32_t)src)) != 0) {
+	if (($SF2Modulator::SOURCE_TYPE_CONCAVE & src) != 0) {
 		$nc(transform)->setTransform($ModelStandardTransform::TRANSFORM_CONCAVE);
 	}
-	if (((int32_t)($SF2Modulator::SOURCE_TYPE_CONVEX & (uint32_t)src)) != 0) {
+	if (($SF2Modulator::SOURCE_TYPE_CONVEX & src) != 0) {
 		$nc(transform)->setTransform($ModelStandardTransform::TRANSFORM_CONVEX);
 	}
-	if (((int32_t)($SF2Modulator::SOURCE_TYPE_SWITCH & (uint32_t)src)) != 0) {
+	if (($SF2Modulator::SOURCE_TYPE_SWITCH & src) != 0) {
 		$nc(transform)->setTransform($ModelStandardTransform::TRANSFORM_SWITCH);
 	}
 	return msrc;
@@ -853,222 +771,156 @@ $ModelSource* SF2Instrument::convertSource(int32_t src) {
 
 $ModelDestination* SF2Instrument::convertDestination(int32_t dst, $doubles* amountcorrection, $ModelSourceArray* extrasrc) {
 	$init(SF2Instrument);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ModelIdentifier, id, nullptr);
 	switch (dst) {
 	case $SF2Region::GENERATOR_INITIALFILTERFC:
-		{
-			$init($ModelDestination);
-			$assign(id, $ModelDestination::DESTINATION_FILTER_FREQ);
-			break;
-		}
+		$init($ModelDestination);
+		$assign(id, $ModelDestination::DESTINATION_FILTER_FREQ);
+		break;
 	case $SF2Region::GENERATOR_INITIALFILTERQ:
-		{
-			$init($ModelDestination);
-			$assign(id, $ModelDestination::DESTINATION_FILTER_Q);
-			break;
-		}
+		$init($ModelDestination);
+		$assign(id, $ModelDestination::DESTINATION_FILTER_Q);
+		break;
 	case $SF2Region::GENERATOR_CHORUSEFFECTSSEND:
-		{
-			$init($ModelDestination);
-			$assign(id, $ModelDestination::DESTINATION_CHORUS);
-			break;
-		}
+		$init($ModelDestination);
+		$assign(id, $ModelDestination::DESTINATION_CHORUS);
+		break;
 	case $SF2Region::GENERATOR_REVERBEFFECTSSEND:
-		{
-			$init($ModelDestination);
-			$assign(id, $ModelDestination::DESTINATION_REVERB);
-			break;
-		}
+		$init($ModelDestination);
+		$assign(id, $ModelDestination::DESTINATION_REVERB);
+		break;
 	case $SF2Region::GENERATOR_PAN:
-		{
-			$init($ModelDestination);
-			$assign(id, $ModelDestination::DESTINATION_PAN);
-			break;
-		}
+		$init($ModelDestination);
+		$assign(id, $ModelDestination::DESTINATION_PAN);
+		break;
 	case $SF2Region::GENERATOR_DELAYMODLFO:
-		{
-			$init($ModelDestination);
-			$assign(id, $ModelDestination::DESTINATION_LFO1_DELAY);
-			break;
-		}
+		$init($ModelDestination);
+		$assign(id, $ModelDestination::DESTINATION_LFO1_DELAY);
+		break;
 	case $SF2Region::GENERATOR_FREQMODLFO:
-		{
-			$init($ModelDestination);
-			$assign(id, $ModelDestination::DESTINATION_LFO1_FREQ);
-			break;
-		}
+		$init($ModelDestination);
+		$assign(id, $ModelDestination::DESTINATION_LFO1_FREQ);
+		break;
 	case $SF2Region::GENERATOR_DELAYVIBLFO:
-		{
-			$init($ModelDestination);
-			$assign(id, $ModelDestination::DESTINATION_LFO2_DELAY);
-			break;
-		}
+		$init($ModelDestination);
+		$assign(id, $ModelDestination::DESTINATION_LFO2_DELAY);
+		break;
 	case $SF2Region::GENERATOR_FREQVIBLFO:
-		{
-			$init($ModelDestination);
-			$assign(id, $ModelDestination::DESTINATION_LFO2_FREQ);
-			break;
-		}
+		$init($ModelDestination);
+		$assign(id, $ModelDestination::DESTINATION_LFO2_FREQ);
+		break;
 	case $SF2Region::GENERATOR_DELAYMODENV:
-		{
-			$init($ModelDestination);
-			$assign(id, $ModelDestination::DESTINATION_EG2_DELAY);
-			break;
-		}
+		$init($ModelDestination);
+		$assign(id, $ModelDestination::DESTINATION_EG2_DELAY);
+		break;
 	case $SF2Region::GENERATOR_ATTACKMODENV:
-		{
-			$init($ModelDestination);
-			$assign(id, $ModelDestination::DESTINATION_EG2_ATTACK);
-			break;
-		}
+		$init($ModelDestination);
+		$assign(id, $ModelDestination::DESTINATION_EG2_ATTACK);
+		break;
 	case $SF2Region::GENERATOR_HOLDMODENV:
-		{
-			$init($ModelDestination);
-			$assign(id, $ModelDestination::DESTINATION_EG2_HOLD);
-			break;
-		}
+		$init($ModelDestination);
+		$assign(id, $ModelDestination::DESTINATION_EG2_HOLD);
+		break;
 	case $SF2Region::GENERATOR_DECAYMODENV:
-		{
-			$init($ModelDestination);
-			$assign(id, $ModelDestination::DESTINATION_EG2_DECAY);
-			break;
-		}
+		$init($ModelDestination);
+		$assign(id, $ModelDestination::DESTINATION_EG2_DECAY);
+		break;
 	case $SF2Region::GENERATOR_SUSTAINMODENV:
-		{
-			$init($ModelDestination);
-			$assign(id, $ModelDestination::DESTINATION_EG2_SUSTAIN);
-			$nc(amountcorrection)->set(0, (double)-1);
-			break;
-		}
+		$init($ModelDestination);
+		$assign(id, $ModelDestination::DESTINATION_EG2_SUSTAIN);
+		$nc(amountcorrection)->set(0, -1);
+		break;
 	case $SF2Region::GENERATOR_RELEASEMODENV:
-		{
-			$init($ModelDestination);
-			$assign(id, $ModelDestination::DESTINATION_EG2_RELEASE);
-			break;
-		}
+		$init($ModelDestination);
+		$assign(id, $ModelDestination::DESTINATION_EG2_RELEASE);
+		break;
 	case $SF2Region::GENERATOR_DELAYVOLENV:
-		{
-			$init($ModelDestination);
-			$assign(id, $ModelDestination::DESTINATION_EG1_DELAY);
-			break;
-		}
+		$init($ModelDestination);
+		$assign(id, $ModelDestination::DESTINATION_EG1_DELAY);
+		break;
 	case $SF2Region::GENERATOR_ATTACKVOLENV:
-		{
-			$init($ModelDestination);
-			$assign(id, $ModelDestination::DESTINATION_EG1_ATTACK);
-			break;
-		}
+		$init($ModelDestination);
+		$assign(id, $ModelDestination::DESTINATION_EG1_ATTACK);
+		break;
 	case $SF2Region::GENERATOR_HOLDVOLENV:
-		{
-			$init($ModelDestination);
-			$assign(id, $ModelDestination::DESTINATION_EG1_HOLD);
-			break;
-		}
+		$init($ModelDestination);
+		$assign(id, $ModelDestination::DESTINATION_EG1_HOLD);
+		break;
 	case $SF2Region::GENERATOR_DECAYVOLENV:
-		{
-			$init($ModelDestination);
-			$assign(id, $ModelDestination::DESTINATION_EG1_DECAY);
-			break;
-		}
+		$init($ModelDestination);
+		$assign(id, $ModelDestination::DESTINATION_EG1_DECAY);
+		break;
 	case $SF2Region::GENERATOR_SUSTAINVOLENV:
-		{
-			$init($ModelDestination);
-			$assign(id, $ModelDestination::DESTINATION_EG1_SUSTAIN);
-			$nc(amountcorrection)->set(0, (double)-1);
-			break;
-		}
+		$init($ModelDestination);
+		$assign(id, $ModelDestination::DESTINATION_EG1_SUSTAIN);
+		$nc(amountcorrection)->set(0, -1);
+		break;
 	case $SF2Region::GENERATOR_RELEASEVOLENV:
-		{
-			$init($ModelDestination);
-			$assign(id, $ModelDestination::DESTINATION_EG1_RELEASE);
-			break;
-		}
+		$init($ModelDestination);
+		$assign(id, $ModelDestination::DESTINATION_EG1_RELEASE);
+		break;
 	case $SF2Region::GENERATOR_KEYNUM:
-		{
-			$init($ModelDestination);
-			$assign(id, $ModelDestination::DESTINATION_KEYNUMBER);
-			break;
-		}
+		$init($ModelDestination);
+		$assign(id, $ModelDestination::DESTINATION_KEYNUMBER);
+		break;
 	case $SF2Region::GENERATOR_VELOCITY:
-		{
-			$init($ModelDestination);
-			$assign(id, $ModelDestination::DESTINATION_VELOCITY);
-			break;
-		}
+		$init($ModelDestination);
+		$assign(id, $ModelDestination::DESTINATION_VELOCITY);
+		break;
 	case $SF2Region::GENERATOR_COARSETUNE:
-		{
-			$nc(amountcorrection)->set(0, (double)100);
-			$init($ModelDestination);
-			$assign(id, $ModelDestination::DESTINATION_PITCH);
-			break;
-		}
+		$nc(amountcorrection)->set(0, 100);
+		$init($ModelDestination);
+		$assign(id, $ModelDestination::DESTINATION_PITCH);
+		break;
 	case $SF2Region::GENERATOR_FINETUNE:
-		{
-			$init($ModelDestination);
-			$assign(id, $ModelDestination::DESTINATION_PITCH);
-			break;
-		}
+		$init($ModelDestination);
+		$assign(id, $ModelDestination::DESTINATION_PITCH);
+		break;
 	case $SF2Region::GENERATOR_INITIALATTENUATION:
-		{
-			$init($ModelDestination);
-			$assign(id, $ModelDestination::DESTINATION_GAIN);
-			$nc(amountcorrection)->set(0, -0.376287f);
-			break;
-		}
+		$init($ModelDestination);
+		$assign(id, $ModelDestination::DESTINATION_GAIN);
+		$nc(amountcorrection)->set(0, -0.376287f);
+		break;
 	case $SF2Region::GENERATOR_VIBLFOTOPITCH:
-		{
-			$init($ModelDestination);
-			$assign(id, $ModelDestination::DESTINATION_PITCH);
-			$init($ModelSource);
-			$nc(extrasrc)->set(0, $$new($ModelSource, $ModelSource::SOURCE_LFO2, $ModelStandardTransform::DIRECTION_MIN2MAX, $ModelStandardTransform::POLARITY_BIPOLAR));
-			break;
-		}
+		$init($ModelDestination);
+		$assign(id, $ModelDestination::DESTINATION_PITCH);
+		$init($ModelSource);
+		$nc(extrasrc)->set(0, $$new($ModelSource, $ModelSource::SOURCE_LFO2, $ModelStandardTransform::DIRECTION_MIN2MAX, $ModelStandardTransform::POLARITY_BIPOLAR));
+		break;
 	case $SF2Region::GENERATOR_MODLFOTOPITCH:
-		{
-			$init($ModelDestination);
-			$assign(id, $ModelDestination::DESTINATION_PITCH);
-			$init($ModelSource);
-			$nc(extrasrc)->set(0, $$new($ModelSource, $ModelSource::SOURCE_LFO1, $ModelStandardTransform::DIRECTION_MIN2MAX, $ModelStandardTransform::POLARITY_BIPOLAR));
-			break;
-		}
+		$init($ModelDestination);
+		$assign(id, $ModelDestination::DESTINATION_PITCH);
+		$init($ModelSource);
+		$nc(extrasrc)->set(0, $$new($ModelSource, $ModelSource::SOURCE_LFO1, $ModelStandardTransform::DIRECTION_MIN2MAX, $ModelStandardTransform::POLARITY_BIPOLAR));
+		break;
 	case $SF2Region::GENERATOR_MODLFOTOFILTERFC:
-		{
-			$init($ModelDestination);
-			$assign(id, $ModelDestination::DESTINATION_FILTER_FREQ);
-			$init($ModelSource);
-			$nc(extrasrc)->set(0, $$new($ModelSource, $ModelSource::SOURCE_LFO1, $ModelStandardTransform::DIRECTION_MIN2MAX, $ModelStandardTransform::POLARITY_BIPOLAR));
-			break;
-		}
+		$init($ModelDestination);
+		$assign(id, $ModelDestination::DESTINATION_FILTER_FREQ);
+		$init($ModelSource);
+		$nc(extrasrc)->set(0, $$new($ModelSource, $ModelSource::SOURCE_LFO1, $ModelStandardTransform::DIRECTION_MIN2MAX, $ModelStandardTransform::POLARITY_BIPOLAR));
+		break;
 	case $SF2Region::GENERATOR_MODLFOTOVOLUME:
-		{
-			$init($ModelDestination);
-			$assign(id, $ModelDestination::DESTINATION_GAIN);
-			$nc(amountcorrection)->set(0, -0.376287f);
-			$init($ModelSource);
-			$nc(extrasrc)->set(0, $$new($ModelSource, $ModelSource::SOURCE_LFO1, $ModelStandardTransform::DIRECTION_MIN2MAX, $ModelStandardTransform::POLARITY_BIPOLAR));
-			break;
-		}
+		$init($ModelDestination);
+		$assign(id, $ModelDestination::DESTINATION_GAIN);
+		$nc(amountcorrection)->set(0, -0.376287f);
+		$init($ModelSource);
+		$nc(extrasrc)->set(0, $$new($ModelSource, $ModelSource::SOURCE_LFO1, $ModelStandardTransform::DIRECTION_MIN2MAX, $ModelStandardTransform::POLARITY_BIPOLAR));
+		break;
 	case $SF2Region::GENERATOR_MODENVTOPITCH:
-		{
-			$init($ModelDestination);
-			$assign(id, $ModelDestination::DESTINATION_PITCH);
-			$init($ModelSource);
-			$nc(extrasrc)->set(0, $$new($ModelSource, $ModelSource::SOURCE_EG2, $ModelStandardTransform::DIRECTION_MIN2MAX, $ModelStandardTransform::POLARITY_BIPOLAR));
-			break;
-		}
+		$init($ModelDestination);
+		$assign(id, $ModelDestination::DESTINATION_PITCH);
+		$init($ModelSource);
+		$nc(extrasrc)->set(0, $$new($ModelSource, $ModelSource::SOURCE_EG2, $ModelStandardTransform::DIRECTION_MIN2MAX, $ModelStandardTransform::POLARITY_BIPOLAR));
+		break;
 	case $SF2Region::GENERATOR_MODENVTOFILTERFC:
-		{
-			$init($ModelDestination);
-			$assign(id, $ModelDestination::DESTINATION_FILTER_FREQ);
-			$init($ModelSource);
-			$nc(extrasrc)->set(0, $$new($ModelSource, $ModelSource::SOURCE_EG2, $ModelStandardTransform::DIRECTION_MIN2MAX, $ModelStandardTransform::POLARITY_BIPOLAR));
-			break;
-		}
+		$init($ModelDestination);
+		$assign(id, $ModelDestination::DESTINATION_FILTER_FREQ);
+		$init($ModelSource);
+		$nc(extrasrc)->set(0, $$new($ModelSource, $ModelSource::SOURCE_EG2, $ModelStandardTransform::DIRECTION_MIN2MAX, $ModelStandardTransform::POLARITY_BIPOLAR));
+		break;
 	default:
-		{
-			break;
-		}
+		break;
 	}
 	if (id != nullptr) {
 		return $new($ModelDestination, id);
@@ -1077,33 +929,32 @@ $ModelDestination* SF2Instrument::convertDestination(int32_t dst, $doubles* amou
 }
 
 void SF2Instrument::addTimecentValue($ModelPerformer* performer, $ModelIdentifier* dest, int16_t value) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	double fvalue = 0.0;
 	if (value == -12000) {
-		$init($Double);
 		fvalue = $Double::NEGATIVE_INFINITY;
 	} else {
 		fvalue = (double)value;
 	}
-	$nc($($nc(performer)->getConnectionBlocks()))->add($$new($ModelConnectionBlock, fvalue, $$new($ModelDestination, dest)));
+	$$nc($nc(performer)->getConnectionBlocks())->add($$new($ModelConnectionBlock, fvalue, $$new($ModelDestination, dest)));
 }
 
 void SF2Instrument::addValue($ModelPerformer* performer, $ModelIdentifier* dest, int16_t value) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	double fvalue = (double)value;
-	$nc($($nc(performer)->getConnectionBlocks()))->add($$new($ModelConnectionBlock, fvalue, $$new($ModelDestination, dest)));
+	$$nc($nc(performer)->getConnectionBlocks())->add($$new($ModelConnectionBlock, fvalue, $$new($ModelDestination, dest)));
 }
 
 void SF2Instrument::addValue($ModelPerformer* performer, $ModelIdentifier* dest, double value) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	double fvalue = value;
-	$nc($($nc(performer)->getConnectionBlocks()))->add($$new($ModelConnectionBlock, fvalue, $$new($ModelDestination, dest)));
+	$$nc($nc(performer)->getConnectionBlocks())->add($$new($ModelConnectionBlock, fvalue, $$new($ModelDestination, dest)));
 }
 
 int16_t SF2Instrument::getGeneratorValue($Map* generators, int32_t gen) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(generators)->containsKey($($Integer::valueOf(gen)))) {
-		return $nc(($cast($Short, $(generators->get($($Integer::valueOf(gen)))))))->shortValue();
+		return $$sure($Short, generators->get($($Integer::valueOf(gen))))->shortValue();
 	}
 	return $SF2Region::getDefaultValue(gen);
 }
@@ -1112,7 +963,66 @@ SF2Instrument::SF2Instrument() {
 }
 
 $Class* SF2Instrument::load$($String* name, bool initialize) {
-	$loadClass(SF2Instrument, name, initialize, &_SF2Instrument_ClassInfo_, allocate$SF2Instrument);
+	$FieldInfo fieldInfos$$[] = {
+		{"name", "Ljava/lang/String;", nullptr, 0, $field(SF2Instrument, name)},
+		{"preset", "I", nullptr, 0, $field(SF2Instrument, preset)},
+		{"bank", "I", nullptr, 0, $field(SF2Instrument, bank)},
+		{"library", "J", nullptr, 0, $field(SF2Instrument, library)},
+		{"genre", "J", nullptr, 0, $field(SF2Instrument, genre)},
+		{"morphology", "J", nullptr, 0, $field(SF2Instrument, morphology)},
+		{"globalregion", "Lcom/sun/media/sound/SF2GlobalRegion;", nullptr, 0, $field(SF2Instrument, globalregion)},
+		{"regions", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/media/sound/SF2InstrumentRegion;>;", 0, $field(SF2Instrument, regions)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SF2Instrument, init$, void)},
+		{"<init>", "(Lcom/sun/media/sound/SF2Soundbank;)V", nullptr, $PUBLIC, $method(SF2Instrument, init$, void, $SF2Soundbank*)},
+		{"addTimecentValue", "(Lcom/sun/media/sound/ModelPerformer;Lcom/sun/media/sound/ModelIdentifier;S)V", nullptr, $PRIVATE, $method(SF2Instrument, addTimecentValue, void, $ModelPerformer*, $ModelIdentifier*, int16_t)},
+		{"addValue", "(Lcom/sun/media/sound/ModelPerformer;Lcom/sun/media/sound/ModelIdentifier;S)V", nullptr, $PRIVATE, $method(SF2Instrument, addValue, void, $ModelPerformer*, $ModelIdentifier*, int16_t)},
+		{"addValue", "(Lcom/sun/media/sound/ModelPerformer;Lcom/sun/media/sound/ModelIdentifier;D)V", nullptr, $PRIVATE, $method(SF2Instrument, addValue, void, $ModelPerformer*, $ModelIdentifier*, double)},
+		{"convertDestination", "(I[D[Lcom/sun/media/sound/ModelSource;)Lcom/sun/media/sound/ModelDestination;", nullptr, $STATIC, $staticMethod(SF2Instrument, convertDestination, $ModelDestination*, int32_t, $doubles*, $ModelSourceArray*)},
+		{"convertModulator", "(Lcom/sun/media/sound/ModelPerformer;Lcom/sun/media/sound/SF2Modulator;)V", nullptr, $PRIVATE, $method(SF2Instrument, convertModulator, void, $ModelPerformer*, $SF2Modulator*)},
+		{"convertSource", "(I)Lcom/sun/media/sound/ModelSource;", nullptr, $PRIVATE | $STATIC, $staticMethod(SF2Instrument, convertSource, $ModelSource*, int32_t)},
+		{"getData", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SF2Instrument, getData, $Object*)},
+		{"getGeneratorValue", "(Ljava/util/Map;I)S", "(Ljava/util/Map<Ljava/lang/Integer;Ljava/lang/Short;>;I)S", $PRIVATE, $method(SF2Instrument, getGeneratorValue, int16_t, $Map*, int32_t)},
+		{"getGenre", "()J", nullptr, $PUBLIC, $method(SF2Instrument, getGenre, int64_t)},
+		{"getGlobalRegion", "()Lcom/sun/media/sound/SF2GlobalRegion;", nullptr, $PUBLIC, $method(SF2Instrument, getGlobalRegion, $SF2GlobalRegion*)},
+		{"getLibrary", "()J", nullptr, $PUBLIC, $method(SF2Instrument, getLibrary, int64_t)},
+		{"getMorphology", "()J", nullptr, $PUBLIC, $method(SF2Instrument, getMorphology, int64_t)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SF2Instrument, getName, $String*)},
+		{"getPatch", "()Ljavax/sound/midi/Patch;", nullptr, $PUBLIC, $virtualMethod(SF2Instrument, getPatch, $Patch*)},
+		{"getPerformers", "()[Lcom/sun/media/sound/ModelPerformer;", nullptr, $PUBLIC, $virtualMethod(SF2Instrument, getPerformers, $ModelPerformerArray*)},
+		{"getRegions", "()Ljava/util/List;", "()Ljava/util/List<Lcom/sun/media/sound/SF2InstrumentRegion;>;", $PUBLIC, $method(SF2Instrument, getRegions, $List*)},
+		{"setGenre", "(J)V", nullptr, $PUBLIC, $method(SF2Instrument, setGenre, void, int64_t)},
+		{"setGlobalZone", "(Lcom/sun/media/sound/SF2GlobalRegion;)V", nullptr, $PUBLIC, $method(SF2Instrument, setGlobalZone, void, $SF2GlobalRegion*)},
+		{"setLibrary", "(J)V", nullptr, $PUBLIC, $method(SF2Instrument, setLibrary, void, int64_t)},
+		{"setMorphology", "(J)V", nullptr, $PUBLIC, $method(SF2Instrument, setMorphology, void, int64_t)},
+		{"setName", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SF2Instrument, setName, void, $String*)},
+		{"setPatch", "(Ljavax/sound/midi/Patch;)V", nullptr, $PUBLIC, $method(SF2Instrument, setPatch, void, $Patch*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SF2Instrument, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.media.sound.SF2Instrument$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.media.sound.SF2Instrument",
+		"com.sun.media.sound.ModelInstrument",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.media.sound.SF2Instrument$1"
+	};
+	$loadClass(SF2Instrument, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SF2Instrument);
+	});
 	return class$;
 }
 

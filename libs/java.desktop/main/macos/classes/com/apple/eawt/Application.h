@@ -49,6 +49,7 @@ class Application : public ::java::lang::Object {
 	$class(Application, 0, ::java::lang::Object)
 public:
 	Application();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void addAppEventListener(::java::awt::desktop::SystemEventListener* listener);
 	static void checkSecurity();

@@ -33,6 +33,7 @@ class $export TestSingleScreenGConfigNotify : public ::java::lang::Object {
 	$class(TestSingleScreenGConfigNotify, 0, ::java::lang::Object)
 public:
 	TestSingleScreenGConfigNotify();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void lambda$main$0(::java::beans::PropertyChangeEvent* evt);
 	static void lambda$main$1();

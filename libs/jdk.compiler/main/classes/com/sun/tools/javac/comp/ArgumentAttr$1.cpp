@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/ArgumentAttr$1.h>
-
 #include <com/sun/tools/javac/comp/ArgumentAttr$UniquePos.h>
 #include <com/sun/tools/javac/comp/ArgumentAttr.h>
 #include <com/sun/tools/javac/comp/Attr$MethodAttrInfo.h>
@@ -24,55 +23,10 @@ namespace com {
 			namespace javac {
 				namespace comp {
 
-$FieldInfo _ArgumentAttr$1_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/comp/ArgumentAttr;", nullptr, $FINAL | $SYNTHETIC, $field(ArgumentAttr$1, this$0)},
-	{"val$pos", "Lcom/sun/tools/javac/comp/ArgumentAttr$UniquePos;", nullptr, $FINAL | $SYNTHETIC, $field(ArgumentAttr$1, val$pos)},
-	{}
-};
-
-$MethodInfo _ArgumentAttr$1_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/ArgumentAttr;Lcom/sun/tools/javac/comp/Attr;Lcom/sun/tools/javac/comp/ArgumentAttr$UniquePos;)V", nullptr, 0, $method(ArgumentAttr$1, init$, void, $ArgumentAttr*, $Attr*, $ArgumentAttr$UniquePos*)},
-	{"needsArgumentAttr", "(Lcom/sun/tools/javac/tree/JCTree;)Z", nullptr, $PROTECTED, $virtualMethod(ArgumentAttr$1, needsArgumentAttr, bool, $JCTree*)},
-	{}
-};
-
-$EnclosingMethodInfo _ArgumentAttr$1_EnclosingMethodInfo_ = {
-	"com.sun.tools.javac.comp.ArgumentAttr",
-	"processArg",
-	"(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Ljava/util/function/Function;)V"
-};
-
-$InnerClassInfo _ArgumentAttr$1_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.ArgumentAttr$1", nullptr, nullptr, 0},
-	{"com.sun.tools.javac.comp.Attr$MethodAttrInfo", "com.sun.tools.javac.comp.Attr", "MethodAttrInfo", 0},
-	{"com.sun.tools.javac.tree.JCTree$JCExpression", "com.sun.tools.javac.tree.JCTree", "JCExpression", $PUBLIC | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _ArgumentAttr$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.comp.ArgumentAttr$1",
-	"com.sun.tools.javac.comp.Attr$MethodAttrInfo",
-	nullptr,
-	_ArgumentAttr$1_FieldInfo_,
-	_ArgumentAttr$1_MethodInfo_,
-	nullptr,
-	&_ArgumentAttr$1_EnclosingMethodInfo_,
-	_ArgumentAttr$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.ArgumentAttr"
-};
-
-$Object* allocate$ArgumentAttr$1($Class* clazz) {
-	return $of($alloc(ArgumentAttr$1));
-}
-
 void ArgumentAttr$1::init$($ArgumentAttr* this$0, $Attr* x0, $ArgumentAttr$UniquePos* val$pos) {
 	$set(this, this$0, this$0);
 	$set(this, val$pos, val$pos);
-	$Attr$MethodAttrInfo::init$(static_cast<$Attr*>($nc(x0)));
+	$Attr$MethodAttrInfo::init$($nc(x0));
 }
 
 bool ArgumentAttr$1::needsArgumentAttr($JCTree* tree) {
@@ -83,7 +37,45 @@ ArgumentAttr$1::ArgumentAttr$1() {
 }
 
 $Class* ArgumentAttr$1::load$($String* name, bool initialize) {
-	$loadClass(ArgumentAttr$1, name, initialize, &_ArgumentAttr$1_ClassInfo_, allocate$ArgumentAttr$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/comp/ArgumentAttr;", nullptr, $FINAL | $SYNTHETIC, $field(ArgumentAttr$1, this$0)},
+		{"val$pos", "Lcom/sun/tools/javac/comp/ArgumentAttr$UniquePos;", nullptr, $FINAL | $SYNTHETIC, $field(ArgumentAttr$1, val$pos)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/comp/ArgumentAttr;Lcom/sun/tools/javac/comp/Attr;Lcom/sun/tools/javac/comp/ArgumentAttr$UniquePos;)V", nullptr, 0, $method(ArgumentAttr$1, init$, void, $ArgumentAttr*, $Attr*, $ArgumentAttr$UniquePos*)},
+		{"needsArgumentAttr", "(Lcom/sun/tools/javac/tree/JCTree;)Z", nullptr, $PROTECTED, $virtualMethod(ArgumentAttr$1, needsArgumentAttr, bool, $JCTree*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.tools.javac.comp.ArgumentAttr",
+		"processArg",
+		"(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Ljava/util/function/Function;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.ArgumentAttr$1", nullptr, nullptr, 0},
+		{"com.sun.tools.javac.comp.Attr$MethodAttrInfo", "com.sun.tools.javac.comp.Attr", "MethodAttrInfo", 0},
+		{"com.sun.tools.javac.tree.JCTree$JCExpression", "com.sun.tools.javac.tree.JCTree", "JCExpression", $PUBLIC | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.comp.ArgumentAttr$1",
+		"com.sun.tools.javac.comp.Attr$MethodAttrInfo",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.ArgumentAttr"
+	};
+	$loadClass(ArgumentAttr$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ArgumentAttr$1);
+	});
 	return class$;
 }
 

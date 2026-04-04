@@ -1,8 +1,6 @@
 #include <sun/java2d/pipe/BufferedPaints.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/GradientPaint.h>
-#include <java/awt/Image.h>
 #include <java/awt/LinearGradientPaint.h>
 #include <java/awt/MultipleGradientPaint$ColorSpaceType.h>
 #include <java/awt/MultipleGradientPaint$CycleMethod.h>
@@ -43,7 +41,6 @@
 using $ColorArray = $Array<::java::awt::Color>;
 using $Color = ::java::awt::Color;
 using $GradientPaint = ::java::awt::GradientPaint;
-using $Image = ::java::awt::Image;
 using $LinearGradientPaint = ::java::awt::LinearGradientPaint;
 using $MultipleGradientPaint$ColorSpaceType = ::java::awt::MultipleGradientPaint$ColorSpaceType;
 using $MultipleGradientPaint$CycleMethod = ::java::awt::MultipleGradientPaint$CycleMethod;
@@ -77,40 +74,6 @@ namespace sun {
 	namespace java2d {
 		namespace pipe {
 
-$FieldInfo _BufferedPaints_FieldInfo_[] = {
-	{"MULTI_MAX_FRACTIONS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(BufferedPaints, MULTI_MAX_FRACTIONS)},
-	{}
-};
-
-$MethodInfo _BufferedPaints_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(BufferedPaints, init$, void)},
-	{"colorToIntArgbPrePixel", "(Ljava/awt/Color;Z)I", nullptr, $PRIVATE | $STATIC, $staticMethod(BufferedPaints, colorToIntArgbPrePixel, int32_t, $Color*, bool)},
-	{"convertSRGBtoLinearRGB", "(I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(BufferedPaints, convertSRGBtoLinearRGB, int32_t, int32_t)},
-	{"convertToIntArgbPrePixels", "([Ljava/awt/Color;Z)[I", nullptr, $PRIVATE | $STATIC, $staticMethod(BufferedPaints, convertToIntArgbPrePixels, $ints*, $ColorArray*, bool)},
-	{"resetPaint", "(Lsun/java2d/pipe/RenderQueue;)V", nullptr, $STATIC, $staticMethod(BufferedPaints, resetPaint, void, $RenderQueue*)},
-	{"setColor", "(Lsun/java2d/pipe/RenderQueue;I)V", nullptr, $PRIVATE | $STATIC, $staticMethod(BufferedPaints, setColor, void, $RenderQueue*, int32_t)},
-	{"setGradientPaint", "(Lsun/java2d/pipe/RenderQueue;Ljava/awt/geom/AffineTransform;Ljava/awt/Color;Ljava/awt/Color;Ljava/awt/geom/Point2D;Ljava/awt/geom/Point2D;ZZ)V", nullptr, $PRIVATE | $STATIC, $staticMethod(BufferedPaints, setGradientPaint, void, $RenderQueue*, $AffineTransform*, $Color*, $Color*, $Point2D*, $Point2D*, bool, bool)},
-	{"setGradientPaint", "(Lsun/java2d/pipe/RenderQueue;Lsun/java2d/SunGraphics2D;Ljava/awt/GradientPaint;Z)V", nullptr, $PRIVATE | $STATIC, $staticMethod(BufferedPaints, setGradientPaint, void, $RenderQueue*, $SunGraphics2D*, $GradientPaint*, bool)},
-	{"setLinearGradientPaint", "(Lsun/java2d/pipe/RenderQueue;Lsun/java2d/SunGraphics2D;Ljava/awt/LinearGradientPaint;Z)V", nullptr, $PRIVATE | $STATIC, $staticMethod(BufferedPaints, setLinearGradientPaint, void, $RenderQueue*, $SunGraphics2D*, $LinearGradientPaint*, bool)},
-	{"setPaint", "(Lsun/java2d/pipe/RenderQueue;Lsun/java2d/SunGraphics2D;Ljava/awt/Paint;I)V", nullptr, $STATIC, $staticMethod(BufferedPaints, setPaint, void, $RenderQueue*, $SunGraphics2D*, $Paint*, int32_t)},
-	{"setRadialGradientPaint", "(Lsun/java2d/pipe/RenderQueue;Lsun/java2d/SunGraphics2D;Ljava/awt/RadialGradientPaint;Z)V", nullptr, $PRIVATE | $STATIC, $staticMethod(BufferedPaints, setRadialGradientPaint, void, $RenderQueue*, $SunGraphics2D*, $RadialGradientPaint*, bool)},
-	{"setTexturePaint", "(Lsun/java2d/pipe/RenderQueue;Lsun/java2d/SunGraphics2D;Ljava/awt/TexturePaint;Z)V", nullptr, $PRIVATE | $STATIC, $staticMethod(BufferedPaints, setTexturePaint, void, $RenderQueue*, $SunGraphics2D*, $TexturePaint*, bool)},
-	{}
-};
-
-$ClassInfo _BufferedPaints_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.java2d.pipe.BufferedPaints",
-	"java.lang.Object",
-	nullptr,
-	_BufferedPaints_FieldInfo_,
-	_BufferedPaints_MethodInfo_
-};
-
-$Object* allocate$BufferedPaints($Class* clazz) {
-	return $of($alloc(BufferedPaints));
-}
-
 void BufferedPaints::init$() {
 }
 
@@ -118,32 +81,22 @@ void BufferedPaints::setPaint($RenderQueue* rq, $SunGraphics2D* sg2d, $Paint* pa
 	if ($nc(sg2d)->paintState <= $SunGraphics2D::PAINT_ALPHACOLOR) {
 		setColor(rq, sg2d->pixel);
 	} else {
-		bool useMask = ((int32_t)(ctxflags & (uint32_t)$BufferedContext::USE_MASK)) != 0;
+		bool useMask = (ctxflags & $BufferedContext::USE_MASK) != 0;
 		switch (sg2d->paintState) {
 		case $SunGraphics2D::PAINT_GRADIENT:
-			{
-				setGradientPaint(rq, sg2d, $cast($GradientPaint, paint), useMask);
-				break;
-			}
+			setGradientPaint(rq, sg2d, $cast($GradientPaint, paint), useMask);
+			break;
 		case $SunGraphics2D::PAINT_LIN_GRADIENT:
-			{
-				setLinearGradientPaint(rq, sg2d, $cast($LinearGradientPaint, paint), useMask);
-				break;
-			}
+			setLinearGradientPaint(rq, sg2d, $cast($LinearGradientPaint, paint), useMask);
+			break;
 		case $SunGraphics2D::PAINT_RAD_GRADIENT:
-			{
-				setRadialGradientPaint(rq, sg2d, $cast($RadialGradientPaint, paint), useMask);
-				break;
-			}
+			setRadialGradientPaint(rq, sg2d, $cast($RadialGradientPaint, paint), useMask);
+			break;
 		case $SunGraphics2D::PAINT_TEXTURE:
-			{
-				setTexturePaint(rq, sg2d, $cast($TexturePaint, paint), useMask);
-				break;
-			}
+			setTexturePaint(rq, sg2d, $cast($TexturePaint, paint), useMask);
+			break;
 		default:
-			{
-				break;
-			}
+			break;
 		}
 	}
 }
@@ -162,7 +115,7 @@ void BufferedPaints::setColor($RenderQueue* rq, int32_t pixel) {
 }
 
 void BufferedPaints::setGradientPaint($RenderQueue* rq, $AffineTransform* at, $Color* c1, $Color* c2, $Point2D* pt1, $Point2D* pt2, bool isCyclic, bool useMask) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($PixelConverter$ArgbPre);
 	$var($PixelConverter, pc, $PixelConverter$ArgbPre::instance);
 	int32_t pixel1 = $nc(pc)->rgbToPixel($nc(c1)->getRGB(), nullptr);
@@ -174,8 +127,8 @@ void BufferedPaints::setGradientPaint($RenderQueue* rq, $AffineTransform* at, $C
 	y = pt2->getY() - y;
 	double len = $Math::sqrt(x * x + y * y);
 	at->rotate(x, y);
-	at->scale(2 * len, (double)1);
-	at->translate(-0.25, (double)0);
+	at->scale(2 * len, 1);
+	at->translate(-0.25, 0);
 	double p0 = 0.0;
 	double p1 = 0.0;
 	double p3 = 0.0;
@@ -192,23 +145,22 @@ void BufferedPaints::setGradientPaint($RenderQueue* rq, $AffineTransform* at, $C
 	$nc(buf)->putInt(102);
 	buf->putInt(useMask ? 1 : 0);
 	buf->putInt(isCyclic ? 1 : 0);
-	$nc($($nc($(buf->putDouble(p0)))->putDouble(p1)))->putDouble(p3);
-	$nc($(buf->putInt(pixel1)))->putInt(pixel2);
+	$$nc($$nc(buf->putDouble(p0))->putDouble(p1))->putDouble(p3);
+	$$nc(buf->putInt(pixel1))->putInt(pixel2);
 }
 
 void BufferedPaints::setGradientPaint($RenderQueue* rq, $SunGraphics2D* sg2d, $GradientPaint* paint, bool useMask) {
-	$useLocalCurrentObjectStackCache();
-	$var($RenderQueue, var$0, rq);
-	$var($AffineTransform, var$1, $cast($AffineTransform, $nc($nc(sg2d)->transform$)->clone()));
-	$var($Color, var$2, $nc(paint)->getColor1());
-	$var($Color, var$3, paint->getColor2());
-	$var($Point2D, var$4, paint->getPoint1());
-	$var($Point2D, var$5, paint->getPoint2());
-	setGradientPaint(var$0, var$1, var$2, var$3, var$4, var$5, paint->isCyclic(), useMask);
+	$useLocalObjectStack();
+	$var($AffineTransform, var$0, $cast($AffineTransform, $nc($nc(sg2d)->transform$)->clone()));
+	$var($Color, var$1, $nc(paint)->getColor1());
+	$var($Color, var$2, paint->getColor2());
+	$var($Point2D, var$3, paint->getPoint1());
+	$var($Point2D, var$4, paint->getPoint2());
+	setGradientPaint(rq, var$0, var$1, var$2, var$3, var$4, paint->isCyclic(), useMask);
 }
 
 void BufferedPaints::setTexturePaint($RenderQueue* rq, $SunGraphics2D* sg2d, $TexturePaint* paint, bool useMask) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($BufferedImage, bi, $nc(paint)->getImage());
 	$var($SurfaceData, dstData, $nc(sg2d)->surfaceData);
 	$init($CompositeType);
@@ -218,8 +170,8 @@ void BufferedPaints::setTexturePaint($RenderQueue* rq, $SunGraphics2D* sg2d, $Te
 	$var($Rectangle2D, anchor, paint->getAnchorRect());
 	double var$0 = $nc(anchor)->getX();
 	$nc(at)->translate(var$0, anchor->getY());
-	double var$1 = $nc(anchor)->getWidth();
-	at->scale(var$1, anchor->getHeight());
+	double var$1 = anchor->getWidth();
+	$nc(at)->scale(var$1, anchor->getHeight());
 	double xp0 = 0.0;
 	double xp1 = 0.0;
 	double xp3 = 0.0;
@@ -227,7 +179,7 @@ void BufferedPaints::setTexturePaint($RenderQueue* rq, $SunGraphics2D* sg2d, $Te
 	double yp1 = 0.0;
 	double yp3 = 0.0;
 	try {
-		at->invert();
+		$nc(at)->invert();
 		xp0 = at->getScaleX();
 		xp1 = at->getShearX();
 		xp3 = at->getTranslateX();
@@ -243,8 +195,8 @@ void BufferedPaints::setTexturePaint($RenderQueue* rq, $SunGraphics2D* sg2d, $Te
 	buf->putInt(useMask ? 1 : 0);
 	buf->putInt(filter ? 1 : 0);
 	buf->putLong($nc(srcData)->getNativeOps());
-	$nc($($nc($(buf->putDouble(xp0)))->putDouble(xp1)))->putDouble(xp3);
-	$nc($($nc($(buf->putDouble(yp0)))->putDouble(yp1)))->putDouble(yp3);
+	$$nc($$nc(buf->putDouble(xp0))->putDouble(xp1))->putDouble(xp3);
+	$$nc($$nc(buf->putDouble(yp0))->putDouble(yp1))->putDouble(yp3);
 }
 
 int32_t BufferedPaints::convertSRGBtoLinearRGB(int32_t color) {
@@ -265,9 +217,9 @@ int32_t BufferedPaints::colorToIntArgbPrePixel($Color* c, bool linear) {
 		return rgb;
 	}
 	int32_t a = (int32_t)((uint32_t)rgb >> 24);
-	int32_t r = (int32_t)((rgb >> 16) & (uint32_t)255);
-	int32_t g = (int32_t)((rgb >> 8) & (uint32_t)255);
-	int32_t b = (int32_t)((rgb) & (uint32_t)255);
+	int32_t r = (rgb >> 16) & 0xff;
+	int32_t g = (rgb >> 8) & 0xff;
+	int32_t b = (rgb) & 0xff;
 	if (linear) {
 		r = convertSRGBtoLinearRGB(r);
 		g = convertSRGBtoLinearRGB(g);
@@ -289,7 +241,7 @@ $ints* BufferedPaints::convertToIntArgbPrePixels($ColorArray* colors, bool linea
 }
 
 void BufferedPaints::setLinearGradientPaint($RenderQueue* rq, $SunGraphics2D* sg2d, $LinearGradientPaint* paint, bool useMask) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($MultipleGradientPaint$ColorSpaceType);
 	bool linear = ($nc(paint)->getColorSpace() == $MultipleGradientPaint$ColorSpaceType::LINEAR_RGB);
 	$var($ColorArray, colors, paint->getColors());
@@ -304,7 +256,7 @@ void BufferedPaints::setLinearGradientPaint($RenderQueue* rq, $SunGraphics2D* sg
 		setGradientPaint(rq, at, colors->get(0), colors->get(1), pt1, pt2, isCyclic, useMask);
 		return;
 	}
-	int32_t cycleMethod = $nc($(paint->getCycleMethod()))->ordinal();
+	int32_t cycleMethod = $$nc(paint->getCycleMethod())->ordinal();
 	$var($floats, fractions, paint->getFractions());
 	$var($ints, pixels, convertToIntArgbPrePixels(colors, linear));
 	double x = $nc(pt1)->getX();
@@ -314,7 +266,7 @@ void BufferedPaints::setLinearGradientPaint($RenderQueue* rq, $SunGraphics2D* sg
 	y = pt2->getY() - y;
 	double len = $Math::sqrt(x * x + y * y);
 	at->rotate(x, y);
-	at->scale(len, (double)1);
+	at->scale(len, 1);
 	float p0 = 0.0;
 	float p1 = 0.0;
 	float p3 = 0.0;
@@ -341,10 +293,10 @@ void BufferedPaints::setLinearGradientPaint($RenderQueue* rq, $SunGraphics2D* sg
 }
 
 void BufferedPaints::setRadialGradientPaint($RenderQueue* rq, $SunGraphics2D* sg2d, $RadialGradientPaint* paint, bool useMask) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($MultipleGradientPaint$ColorSpaceType);
 	bool linear = ($nc(paint)->getColorSpace() == $MultipleGradientPaint$ColorSpaceType::LINEAR_RGB);
-	int32_t cycleMethod = $nc($(paint->getCycleMethod()))->ordinal();
+	int32_t cycleMethod = $$nc(paint->getCycleMethod())->ordinal();
 	$var($floats, fractions, paint->getFractions());
 	$var($ColorArray, colors, paint->getColors());
 	int32_t numStops = $nc(colors)->length;
@@ -368,7 +320,7 @@ void BufferedPaints::setRadialGradientPaint($RenderQueue* rq, $SunGraphics2D* sg
 		at->setToScale(0.0, 0.0);
 	}
 	$assign(focus, at->transform(focus, focus));
-	fx = $Math::min(focus->getX(), 0.99);
+	fx = $Math::min($nc(focus)->getX(), 0.99);
 	$nc(rq)->ensureCapacity(20 + 28 + (numStops * 4 * 2));
 	$var($RenderBuffer, buf, rq->getBuffer());
 	$nc(buf)->putInt(104);
@@ -391,7 +343,36 @@ BufferedPaints::BufferedPaints() {
 }
 
 $Class* BufferedPaints::load$($String* name, bool initialize) {
-	$loadClass(BufferedPaints, name, initialize, &_BufferedPaints_ClassInfo_, allocate$BufferedPaints);
+	$FieldInfo fieldInfos$$[] = {
+		{"MULTI_MAX_FRACTIONS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(BufferedPaints, MULTI_MAX_FRACTIONS)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(BufferedPaints, init$, void)},
+		{"colorToIntArgbPrePixel", "(Ljava/awt/Color;Z)I", nullptr, $PRIVATE | $STATIC, $staticMethod(BufferedPaints, colorToIntArgbPrePixel, int32_t, $Color*, bool)},
+		{"convertSRGBtoLinearRGB", "(I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(BufferedPaints, convertSRGBtoLinearRGB, int32_t, int32_t)},
+		{"convertToIntArgbPrePixels", "([Ljava/awt/Color;Z)[I", nullptr, $PRIVATE | $STATIC, $staticMethod(BufferedPaints, convertToIntArgbPrePixels, $ints*, $ColorArray*, bool)},
+		{"resetPaint", "(Lsun/java2d/pipe/RenderQueue;)V", nullptr, $STATIC, $staticMethod(BufferedPaints, resetPaint, void, $RenderQueue*)},
+		{"setColor", "(Lsun/java2d/pipe/RenderQueue;I)V", nullptr, $PRIVATE | $STATIC, $staticMethod(BufferedPaints, setColor, void, $RenderQueue*, int32_t)},
+		{"setGradientPaint", "(Lsun/java2d/pipe/RenderQueue;Ljava/awt/geom/AffineTransform;Ljava/awt/Color;Ljava/awt/Color;Ljava/awt/geom/Point2D;Ljava/awt/geom/Point2D;ZZ)V", nullptr, $PRIVATE | $STATIC, $staticMethod(BufferedPaints, setGradientPaint, void, $RenderQueue*, $AffineTransform*, $Color*, $Color*, $Point2D*, $Point2D*, bool, bool)},
+		{"setGradientPaint", "(Lsun/java2d/pipe/RenderQueue;Lsun/java2d/SunGraphics2D;Ljava/awt/GradientPaint;Z)V", nullptr, $PRIVATE | $STATIC, $staticMethod(BufferedPaints, setGradientPaint, void, $RenderQueue*, $SunGraphics2D*, $GradientPaint*, bool)},
+		{"setLinearGradientPaint", "(Lsun/java2d/pipe/RenderQueue;Lsun/java2d/SunGraphics2D;Ljava/awt/LinearGradientPaint;Z)V", nullptr, $PRIVATE | $STATIC, $staticMethod(BufferedPaints, setLinearGradientPaint, void, $RenderQueue*, $SunGraphics2D*, $LinearGradientPaint*, bool)},
+		{"setPaint", "(Lsun/java2d/pipe/RenderQueue;Lsun/java2d/SunGraphics2D;Ljava/awt/Paint;I)V", nullptr, $STATIC, $staticMethod(BufferedPaints, setPaint, void, $RenderQueue*, $SunGraphics2D*, $Paint*, int32_t)},
+		{"setRadialGradientPaint", "(Lsun/java2d/pipe/RenderQueue;Lsun/java2d/SunGraphics2D;Ljava/awt/RadialGradientPaint;Z)V", nullptr, $PRIVATE | $STATIC, $staticMethod(BufferedPaints, setRadialGradientPaint, void, $RenderQueue*, $SunGraphics2D*, $RadialGradientPaint*, bool)},
+		{"setTexturePaint", "(Lsun/java2d/pipe/RenderQueue;Lsun/java2d/SunGraphics2D;Ljava/awt/TexturePaint;Z)V", nullptr, $PRIVATE | $STATIC, $staticMethod(BufferedPaints, setTexturePaint, void, $RenderQueue*, $SunGraphics2D*, $TexturePaint*, bool)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.java2d.pipe.BufferedPaints",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(BufferedPaints, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BufferedPaints);
+	});
 	return class$;
 }
 

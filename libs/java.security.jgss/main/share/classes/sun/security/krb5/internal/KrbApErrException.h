@@ -16,10 +16,13 @@ public:
 	KrbApErrException();
 	void init$(int32_t i);
 	void init$(int32_t i, $String* s);
-	static const int64_t serialVersionUID = (int64_t)0x68B62A01E48546EB;
+	static const int64_t serialVersionUID = (int64_t)0x68b62a01e48546eb;
 	KrbApErrException(const KrbApErrException& e);
 	virtual void throw$() override;
-	inline KrbApErrException* operator ->() {
+	inline KrbApErrException* operator ->() const {
+		return (KrbApErrException*)throwing$;
+	}
+	inline operator KrbApErrException*() const {
 		return (KrbApErrException*)throwing$;
 	}
 };

@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/basic/BasicInternalFrameTitlePane$CloseAction.h>
-
 #include <java/awt/event/ActionEvent.h>
 #include <javax/swing/AbstractAction.h>
 #include <javax/swing/JInternalFrame.h>
@@ -13,7 +12,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AbstractAction = ::javax::swing::AbstractAction;
-using $JInternalFrame = ::javax::swing::JInternalFrame;
 using $UIManager = ::javax::swing::UIManager;
 using $BasicInternalFrameTitlePane = ::javax::swing::plaf::basic::BasicInternalFrameTitlePane;
 
@@ -21,42 +19,6 @@ namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace basic {
-
-$FieldInfo _BasicInternalFrameTitlePane$CloseAction_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/plaf/basic/BasicInternalFrameTitlePane;", nullptr, $FINAL | $SYNTHETIC, $field(BasicInternalFrameTitlePane$CloseAction, this$0)},
-	{}
-};
-
-$MethodInfo _BasicInternalFrameTitlePane$CloseAction_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/plaf/basic/BasicInternalFrameTitlePane;)V", nullptr, $PUBLIC, $method(BasicInternalFrameTitlePane$CloseAction, init$, void, $BasicInternalFrameTitlePane*)},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicInternalFrameTitlePane$CloseAction, actionPerformed, void, $ActionEvent*)},
-	{}
-};
-
-$InnerClassInfo _BasicInternalFrameTitlePane$CloseAction_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.basic.BasicInternalFrameTitlePane$CloseAction", "javax.swing.plaf.basic.BasicInternalFrameTitlePane", "CloseAction", $PUBLIC},
-	{}
-};
-
-$ClassInfo _BasicInternalFrameTitlePane$CloseAction_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.basic.BasicInternalFrameTitlePane$CloseAction",
-	"javax.swing.AbstractAction",
-	nullptr,
-	_BasicInternalFrameTitlePane$CloseAction_FieldInfo_,
-	_BasicInternalFrameTitlePane$CloseAction_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BasicInternalFrameTitlePane$CloseAction_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.basic.BasicInternalFrameTitlePane"
-};
-
-$Object* allocate$BasicInternalFrameTitlePane$CloseAction($Class* clazz) {
-	return $of($alloc(BasicInternalFrameTitlePane$CloseAction));
-}
 
 void BasicInternalFrameTitlePane$CloseAction::init$($BasicInternalFrameTitlePane* this$0) {
 	$set(this, this$0, this$0);
@@ -73,7 +35,37 @@ BasicInternalFrameTitlePane$CloseAction::BasicInternalFrameTitlePane$CloseAction
 }
 
 $Class* BasicInternalFrameTitlePane$CloseAction::load$($String* name, bool initialize) {
-	$loadClass(BasicInternalFrameTitlePane$CloseAction, name, initialize, &_BasicInternalFrameTitlePane$CloseAction_ClassInfo_, allocate$BasicInternalFrameTitlePane$CloseAction);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/plaf/basic/BasicInternalFrameTitlePane;", nullptr, $FINAL | $SYNTHETIC, $field(BasicInternalFrameTitlePane$CloseAction, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/plaf/basic/BasicInternalFrameTitlePane;)V", nullptr, $PUBLIC, $method(BasicInternalFrameTitlePane$CloseAction, init$, void, $BasicInternalFrameTitlePane*)},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicInternalFrameTitlePane$CloseAction, actionPerformed, void, $ActionEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.basic.BasicInternalFrameTitlePane$CloseAction", "javax.swing.plaf.basic.BasicInternalFrameTitlePane", "CloseAction", $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.basic.BasicInternalFrameTitlePane$CloseAction",
+		"javax.swing.AbstractAction",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.basic.BasicInternalFrameTitlePane"
+	};
+	$loadClass(BasicInternalFrameTitlePane$CloseAction, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(BasicInternalFrameTitlePane$CloseAction));
+	});
 	return class$;
 }
 

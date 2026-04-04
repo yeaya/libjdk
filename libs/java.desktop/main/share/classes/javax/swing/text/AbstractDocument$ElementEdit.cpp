@@ -1,5 +1,4 @@
 #include <javax/swing/text/AbstractDocument$ElementEdit.h>
-
 #include <javax/swing/text/AbstractDocument$BranchElement.h>
 #include <javax/swing/text/AbstractDocument.h>
 #include <javax/swing/text/Element.h>
@@ -18,56 +17,6 @@ using $AbstractUndoableEdit = ::javax::swing::undo::AbstractUndoableEdit;
 namespace javax {
 	namespace swing {
 		namespace text {
-
-$FieldInfo _AbstractDocument$ElementEdit_FieldInfo_[] = {
-	{"e", "Ljavax/swing/text/Element;", nullptr, $PRIVATE, $field(AbstractDocument$ElementEdit, e)},
-	{"index", "I", nullptr, $PRIVATE, $field(AbstractDocument$ElementEdit, index)},
-	{"removed", "[Ljavax/swing/text/Element;", nullptr, $PRIVATE, $field(AbstractDocument$ElementEdit, removed)},
-	{"added", "[Ljavax/swing/text/Element;", nullptr, $PRIVATE, $field(AbstractDocument$ElementEdit, added)},
-	{}
-};
-
-$MethodInfo _AbstractDocument$ElementEdit_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljavax/swing/text/Element;I[Ljavax/swing/text/Element;[Ljavax/swing/text/Element;)V", nullptr, $PUBLIC, $method(AbstractDocument$ElementEdit, init$, void, $Element*, int32_t, $ElementArray*, $ElementArray*)},
-	{"getChildrenAdded", "()[Ljavax/swing/text/Element;", nullptr, $PUBLIC, $virtualMethod(AbstractDocument$ElementEdit, getChildrenAdded, $ElementArray*)},
-	{"getChildrenRemoved", "()[Ljavax/swing/text/Element;", nullptr, $PUBLIC, $virtualMethod(AbstractDocument$ElementEdit, getChildrenRemoved, $ElementArray*)},
-	{"getElement", "()Ljavax/swing/text/Element;", nullptr, $PUBLIC, $virtualMethod(AbstractDocument$ElementEdit, getElement, $Element*)},
-	{"getIndex", "()I", nullptr, $PUBLIC, $virtualMethod(AbstractDocument$ElementEdit, getIndex, int32_t)},
-	{"redo", "()V", nullptr, $PUBLIC, $virtualMethod(AbstractDocument$ElementEdit, redo, void), "javax.swing.undo.CannotRedoException"},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"undo", "()V", nullptr, $PUBLIC, $virtualMethod(AbstractDocument$ElementEdit, undo, void), "javax.swing.undo.CannotUndoException"},
-	{}
-};
-
-$InnerClassInfo _AbstractDocument$ElementEdit_InnerClassesInfo_[] = {
-	{"javax.swing.text.AbstractDocument$ElementEdit", "javax.swing.text.AbstractDocument", "ElementEdit", $PUBLIC | $STATIC},
-	{"javax.swing.event.DocumentEvent$ElementChange", "javax.swing.event.DocumentEvent", "ElementChange", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _AbstractDocument$ElementEdit_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.text.AbstractDocument$ElementEdit",
-	"javax.swing.undo.AbstractUndoableEdit",
-	"javax.swing.event.DocumentEvent$ElementChange",
-	_AbstractDocument$ElementEdit_FieldInfo_,
-	_AbstractDocument$ElementEdit_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AbstractDocument$ElementEdit_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.AbstractDocument"
-};
-
-$Object* allocate$AbstractDocument$ElementEdit($Class* clazz) {
-	return $of($alloc(AbstractDocument$ElementEdit));
-}
 
 $String* AbstractDocument$ElementEdit::toString() {
 	 return this->$AbstractUndoableEdit::toString();
@@ -118,12 +67,12 @@ void AbstractDocument$ElementEdit::redo() {
 	$var($ElementArray, tmp, this->removed);
 	$set(this, removed, this->added);
 	$set(this, added, tmp);
-	$nc(($cast($AbstractDocument$BranchElement, this->e)))->replace(this->index, $nc(this->removed)->length, this->added);
+	$nc($cast($AbstractDocument$BranchElement, this->e))->replace(this->index, $nc(this->removed)->length, this->added);
 }
 
 void AbstractDocument$ElementEdit::undo() {
 	$AbstractUndoableEdit::undo();
-	$nc(($cast($AbstractDocument$BranchElement, this->e)))->replace(this->index, $nc(this->added)->length, this->removed);
+	$nc($cast($AbstractDocument$BranchElement, this->e))->replace(this->index, $nc(this->added)->length, this->removed);
 	$var($ElementArray, tmp, this->removed);
 	$set(this, removed, this->added);
 	$set(this, added, tmp);
@@ -133,7 +82,51 @@ AbstractDocument$ElementEdit::AbstractDocument$ElementEdit() {
 }
 
 $Class* AbstractDocument$ElementEdit::load$($String* name, bool initialize) {
-	$loadClass(AbstractDocument$ElementEdit, name, initialize, &_AbstractDocument$ElementEdit_ClassInfo_, allocate$AbstractDocument$ElementEdit);
+	$FieldInfo fieldInfos$$[] = {
+		{"e", "Ljavax/swing/text/Element;", nullptr, $PRIVATE, $field(AbstractDocument$ElementEdit, e)},
+		{"index", "I", nullptr, $PRIVATE, $field(AbstractDocument$ElementEdit, index)},
+		{"removed", "[Ljavax/swing/text/Element;", nullptr, $PRIVATE, $field(AbstractDocument$ElementEdit, removed)},
+		{"added", "[Ljavax/swing/text/Element;", nullptr, $PRIVATE, $field(AbstractDocument$ElementEdit, added)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljavax/swing/text/Element;I[Ljavax/swing/text/Element;[Ljavax/swing/text/Element;)V", nullptr, $PUBLIC, $method(AbstractDocument$ElementEdit, init$, void, $Element*, int32_t, $ElementArray*, $ElementArray*)},
+		{"getChildrenAdded", "()[Ljavax/swing/text/Element;", nullptr, $PUBLIC, $virtualMethod(AbstractDocument$ElementEdit, getChildrenAdded, $ElementArray*)},
+		{"getChildrenRemoved", "()[Ljavax/swing/text/Element;", nullptr, $PUBLIC, $virtualMethod(AbstractDocument$ElementEdit, getChildrenRemoved, $ElementArray*)},
+		{"getElement", "()Ljavax/swing/text/Element;", nullptr, $PUBLIC, $virtualMethod(AbstractDocument$ElementEdit, getElement, $Element*)},
+		{"getIndex", "()I", nullptr, $PUBLIC, $virtualMethod(AbstractDocument$ElementEdit, getIndex, int32_t)},
+		{"redo", "()V", nullptr, $PUBLIC, $virtualMethod(AbstractDocument$ElementEdit, redo, void), "javax.swing.undo.CannotRedoException"},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"undo", "()V", nullptr, $PUBLIC, $virtualMethod(AbstractDocument$ElementEdit, undo, void), "javax.swing.undo.CannotUndoException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.AbstractDocument$ElementEdit", "javax.swing.text.AbstractDocument", "ElementEdit", $PUBLIC | $STATIC},
+		{"javax.swing.event.DocumentEvent$ElementChange", "javax.swing.event.DocumentEvent", "ElementChange", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.text.AbstractDocument$ElementEdit",
+		"javax.swing.undo.AbstractUndoableEdit",
+		"javax.swing.event.DocumentEvent$ElementChange",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.AbstractDocument"
+	};
+	$loadClass(AbstractDocument$ElementEdit, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AbstractDocument$ElementEdit));
+	});
 	return class$;
 }
 

@@ -74,6 +74,7 @@ class $import BasicSplitPaneUI : public ::javax::swing::plaf::SplitPaneUI {
 	$class(BasicSplitPaneUI, 0, ::javax::swing::plaf::SplitPaneUI)
 public:
 	BasicSplitPaneUI();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void addHeavyweightDivider();
 	virtual ::javax::swing::plaf::basic::BasicSplitPaneDivider* createDefaultDivider();

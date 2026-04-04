@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/windows/WindowsToolBarUI.h>
-
 #include <com/sun/java/swing/plaf/windows/TMSchema$Part.h>
 #include <com/sun/java/swing/plaf/windows/TMSchema$State.h>
 #include <com/sun/java/swing/plaf/windows/WindowsButtonUI.h>
@@ -21,8 +20,6 @@ using $TMSchema$Part = ::com::sun::java::swing::plaf::windows::TMSchema$Part;
 using $TMSchema$State = ::com::sun::java::swing::plaf::windows::TMSchema$State;
 using $WindowsButtonUI = ::com::sun::java::swing::plaf::windows::WindowsButtonUI;
 using $XPStyle = ::com::sun::java::swing::plaf::windows::XPStyle;
-using $XPStyle$Skin = ::com::sun::java::swing::plaf::windows::XPStyle$Skin;
-using $Component = ::java::awt::Component;
 using $Graphics = ::java::awt::Graphics;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -39,30 +36,6 @@ namespace com {
 			namespace swing {
 				namespace plaf {
 					namespace windows {
-
-$MethodInfo _WindowsToolBarUI_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(WindowsToolBarUI, init$, void)},
-	{"createNonRolloverBorder", "()Ljavax/swing/border/Border;", nullptr, $PROTECTED, $virtualMethod(WindowsToolBarUI, createNonRolloverBorder, $Border*)},
-	{"createRolloverBorder", "()Ljavax/swing/border/Border;", nullptr, $PROTECTED, $virtualMethod(WindowsToolBarUI, createRolloverBorder, $Border*)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(WindowsToolBarUI, createUI, $ComponentUI*, $JComponent*)},
-	{"getRolloverBorder", "(Ljavax/swing/AbstractButton;)Ljavax/swing/border/Border;", nullptr, $PROTECTED, $virtualMethod(WindowsToolBarUI, getRolloverBorder, $Border*, $AbstractButton*)},
-	{"installDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(WindowsToolBarUI, installDefaults, void)},
-	{"paint", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(WindowsToolBarUI, paint, void, $Graphics*, $JComponent*)},
-	{}
-};
-
-$ClassInfo _WindowsToolBarUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.java.swing.plaf.windows.WindowsToolBarUI",
-	"javax.swing.plaf.basic.BasicToolBarUI",
-	nullptr,
-	nullptr,
-	_WindowsToolBarUI_MethodInfo_
-};
-
-$Object* allocate$WindowsToolBarUI($Class* clazz) {
-	return $of($alloc(WindowsToolBarUI));
-}
 
 void WindowsToolBarUI::init$() {
 	$BasicToolBarUI::init$();
@@ -97,20 +70,19 @@ $Border* WindowsToolBarUI::createNonRolloverBorder() {
 }
 
 void WindowsToolBarUI::paint($Graphics* g, $JComponent* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($XPStyle, xp, $XPStyle::getXP());
 	if (xp != nullptr) {
 		$init($TMSchema$Part);
-		$var($Graphics, var$0, g);
-		int32_t var$1 = $nc(c)->getWidth();
-		$nc($(xp->getSkin(c, $TMSchema$Part::TP_TOOLBAR)))->paintSkin(var$0, 0, 0, var$1, c->getHeight(), nullptr, true);
+		int32_t var$0 = $nc(c)->getWidth();
+		$$nc(xp->getSkin(c, $TMSchema$Part::TP_TOOLBAR))->paintSkin(g, 0, 0, var$0, c->getHeight(), nullptr, true);
 	} else {
 		$BasicToolBarUI::paint(g, c);
 	}
 }
 
 $Border* WindowsToolBarUI::getRolloverBorder($AbstractButton* b) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($XPStyle, xp, $XPStyle::getXP());
 	if (xp != nullptr) {
 		return xp->getBorder(b, $($WindowsButtonUI::getXPButtonType(b)));
@@ -123,7 +95,27 @@ WindowsToolBarUI::WindowsToolBarUI() {
 }
 
 $Class* WindowsToolBarUI::load$($String* name, bool initialize) {
-	$loadClass(WindowsToolBarUI, name, initialize, &_WindowsToolBarUI_ClassInfo_, allocate$WindowsToolBarUI);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(WindowsToolBarUI, init$, void)},
+		{"createNonRolloverBorder", "()Ljavax/swing/border/Border;", nullptr, $PROTECTED, $virtualMethod(WindowsToolBarUI, createNonRolloverBorder, $Border*)},
+		{"createRolloverBorder", "()Ljavax/swing/border/Border;", nullptr, $PROTECTED, $virtualMethod(WindowsToolBarUI, createRolloverBorder, $Border*)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(WindowsToolBarUI, createUI, $ComponentUI*, $JComponent*)},
+		{"getRolloverBorder", "(Ljavax/swing/AbstractButton;)Ljavax/swing/border/Border;", nullptr, $PROTECTED, $virtualMethod(WindowsToolBarUI, getRolloverBorder, $Border*, $AbstractButton*)},
+		{"installDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(WindowsToolBarUI, installDefaults, void)},
+		{"paint", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(WindowsToolBarUI, paint, void, $Graphics*, $JComponent*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.java.swing.plaf.windows.WindowsToolBarUI",
+		"javax.swing.plaf.basic.BasicToolBarUI",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(WindowsToolBarUI, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(WindowsToolBarUI));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/awt/windows/WFileDialogPeer$1.h>
-
 #include <java/awt/FileDialog.h>
 #include <sun/awt/windows/WFileDialogPeer.h>
 #include <jcpp.h>
@@ -16,49 +15,6 @@ namespace sun {
 	namespace awt {
 		namespace windows {
 
-$FieldInfo _WFileDialogPeer$1_FieldInfo_[] = {
-	{"this$0", "Lsun/awt/windows/WFileDialogPeer;", nullptr, $FINAL | $SYNTHETIC, $field(WFileDialogPeer$1, this$0)},
-	{"val$fileDialog", "Ljava/awt/FileDialog;", nullptr, $FINAL | $SYNTHETIC, $field(WFileDialogPeer$1, val$fileDialog)},
-	{}
-};
-
-$MethodInfo _WFileDialogPeer$1_MethodInfo_[] = {
-	{"<init>", "(Lsun/awt/windows/WFileDialogPeer;Ljava/awt/FileDialog;)V", "()V", 0, $method(WFileDialogPeer$1, init$, void, $WFileDialogPeer*, $FileDialog*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(WFileDialogPeer$1, run, void)},
-	{}
-};
-
-$EnclosingMethodInfo _WFileDialogPeer$1_EnclosingMethodInfo_ = {
-	"sun.awt.windows.WFileDialogPeer",
-	"handleSelected",
-	"([C)V"
-};
-
-$InnerClassInfo _WFileDialogPeer$1_InnerClassesInfo_[] = {
-	{"sun.awt.windows.WFileDialogPeer$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _WFileDialogPeer$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.awt.windows.WFileDialogPeer$1",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	_WFileDialogPeer$1_FieldInfo_,
-	_WFileDialogPeer$1_MethodInfo_,
-	nullptr,
-	&_WFileDialogPeer$1_EnclosingMethodInfo_,
-	_WFileDialogPeer$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.awt.windows.WFileDialogPeer"
-};
-
-$Object* allocate$WFileDialogPeer$1($Class* clazz) {
-	return $of($alloc(WFileDialogPeer$1));
-}
-
 void WFileDialogPeer$1::init$($WFileDialogPeer* this$0, $FileDialog* val$fileDialog) {
 	$set(this, this$0, this$0);
 	$set(this, val$fileDialog, val$fileDialog);
@@ -72,7 +28,43 @@ WFileDialogPeer$1::WFileDialogPeer$1() {
 }
 
 $Class* WFileDialogPeer$1::load$($String* name, bool initialize) {
-	$loadClass(WFileDialogPeer$1, name, initialize, &_WFileDialogPeer$1_ClassInfo_, allocate$WFileDialogPeer$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/awt/windows/WFileDialogPeer;", nullptr, $FINAL | $SYNTHETIC, $field(WFileDialogPeer$1, this$0)},
+		{"val$fileDialog", "Ljava/awt/FileDialog;", nullptr, $FINAL | $SYNTHETIC, $field(WFileDialogPeer$1, val$fileDialog)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/awt/windows/WFileDialogPeer;Ljava/awt/FileDialog;)V", "()V", 0, $method(WFileDialogPeer$1, init$, void, $WFileDialogPeer*, $FileDialog*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(WFileDialogPeer$1, run, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.awt.windows.WFileDialogPeer",
+		"handleSelected",
+		"([C)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.windows.WFileDialogPeer$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.awt.windows.WFileDialogPeer$1",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.awt.windows.WFileDialogPeer"
+	};
+	$loadClass(WFileDialogPeer$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WFileDialogPeer$1);
+	});
 	return class$;
 }
 

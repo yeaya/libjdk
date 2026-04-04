@@ -15,6 +15,7 @@ class BMPCompressionTypes : public ::java::lang::Object {
 	$class(BMPCompressionTypes, 0, ::java::lang::Object)
 public:
 	BMPCompressionTypes();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $StringArray* getCompressionTypes();
 	static $String* getName(int32_t type);

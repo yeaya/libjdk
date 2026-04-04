@@ -23,6 +23,7 @@ class VKCollection : public ::java::lang::Object {
 	$class(VKCollection, 0, ::java::lang::Object)
 public:
 	VKCollection();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual ::java::lang::Integer* findCode($String* name);
 	virtual $String* findName(::java::lang::Integer* code);

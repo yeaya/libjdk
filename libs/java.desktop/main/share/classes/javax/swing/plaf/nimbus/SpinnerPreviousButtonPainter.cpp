@@ -1,18 +1,15 @@
 #include <javax/swing/plaf/nimbus/SpinnerPreviousButtonPainter.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Graphics2D.h>
 #include <java/awt/LinearGradientPaint.h>
 #include <java/awt/Paint.h>
 #include <java/awt/Shape.h>
 #include <java/awt/geom/Ellipse2D$Float.h>
-#include <java/awt/geom/Ellipse2D.h>
 #include <java/awt/geom/Path2D$Float.h>
 #include <java/awt/geom/Path2D.h>
 #include <java/awt/geom/Rectangle2D$Float.h>
 #include <java/awt/geom/Rectangle2D.h>
 #include <java/awt/geom/RoundRectangle2D$Float.h>
-#include <java/awt/geom/RoundRectangle2D.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext.h>
 #include <javax/swing/plaf/nimbus/AbstractRegionPainter.h>
@@ -37,13 +34,11 @@ using $ColorArray = $Array<::java::awt::Color>;
 using $Graphics2D = ::java::awt::Graphics2D;
 using $Paint = ::java::awt::Paint;
 using $Shape = ::java::awt::Shape;
-using $Ellipse2D = ::java::awt::geom::Ellipse2D;
 using $Ellipse2D$Float = ::java::awt::geom::Ellipse2D$Float;
 using $Path2D = ::java::awt::geom::Path2D;
 using $Path2D$Float = ::java::awt::geom::Path2D$Float;
 using $Rectangle2D = ::java::awt::geom::Rectangle2D;
 using $Rectangle2D$Float = ::java::awt::geom::Rectangle2D$Float;
-using $RoundRectangle2D = ::java::awt::geom::RoundRectangle2D;
 using $RoundRectangle2D$Float = ::java::awt::geom::RoundRectangle2D$Float;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -58,118 +53,12 @@ namespace javax {
 		namespace plaf {
 			namespace nimbus {
 
-$FieldInfo _SpinnerPreviousButtonPainter_FieldInfo_[] = {
-	{"BACKGROUND_DISABLED", "I", nullptr, $STATIC | $FINAL, $constField(SpinnerPreviousButtonPainter, BACKGROUND_DISABLED)},
-	{"BACKGROUND_ENABLED", "I", nullptr, $STATIC | $FINAL, $constField(SpinnerPreviousButtonPainter, BACKGROUND_ENABLED)},
-	{"BACKGROUND_FOCUSED", "I", nullptr, $STATIC | $FINAL, $constField(SpinnerPreviousButtonPainter, BACKGROUND_FOCUSED)},
-	{"BACKGROUND_MOUSEOVER_FOCUSED", "I", nullptr, $STATIC | $FINAL, $constField(SpinnerPreviousButtonPainter, BACKGROUND_MOUSEOVER_FOCUSED)},
-	{"BACKGROUND_PRESSED_FOCUSED", "I", nullptr, $STATIC | $FINAL, $constField(SpinnerPreviousButtonPainter, BACKGROUND_PRESSED_FOCUSED)},
-	{"BACKGROUND_MOUSEOVER", "I", nullptr, $STATIC | $FINAL, $constField(SpinnerPreviousButtonPainter, BACKGROUND_MOUSEOVER)},
-	{"BACKGROUND_PRESSED", "I", nullptr, $STATIC | $FINAL, $constField(SpinnerPreviousButtonPainter, BACKGROUND_PRESSED)},
-	{"FOREGROUND_DISABLED", "I", nullptr, $STATIC | $FINAL, $constField(SpinnerPreviousButtonPainter, FOREGROUND_DISABLED)},
-	{"FOREGROUND_ENABLED", "I", nullptr, $STATIC | $FINAL, $constField(SpinnerPreviousButtonPainter, FOREGROUND_ENABLED)},
-	{"FOREGROUND_FOCUSED", "I", nullptr, $STATIC | $FINAL, $constField(SpinnerPreviousButtonPainter, FOREGROUND_FOCUSED)},
-	{"FOREGROUND_MOUSEOVER_FOCUSED", "I", nullptr, $STATIC | $FINAL, $constField(SpinnerPreviousButtonPainter, FOREGROUND_MOUSEOVER_FOCUSED)},
-	{"FOREGROUND_PRESSED_FOCUSED", "I", nullptr, $STATIC | $FINAL, $constField(SpinnerPreviousButtonPainter, FOREGROUND_PRESSED_FOCUSED)},
-	{"FOREGROUND_MOUSEOVER", "I", nullptr, $STATIC | $FINAL, $constField(SpinnerPreviousButtonPainter, FOREGROUND_MOUSEOVER)},
-	{"FOREGROUND_PRESSED", "I", nullptr, $STATIC | $FINAL, $constField(SpinnerPreviousButtonPainter, FOREGROUND_PRESSED)},
-	{"state", "I", nullptr, $PRIVATE, $field(SpinnerPreviousButtonPainter, state)},
-	{"ctx", "Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext;", nullptr, $PRIVATE, $field(SpinnerPreviousButtonPainter, ctx)},
-	{"path", "Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $field(SpinnerPreviousButtonPainter, path)},
-	{"rect", "Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $field(SpinnerPreviousButtonPainter, rect)},
-	{"roundRect", "Ljava/awt/geom/RoundRectangle2D;", nullptr, $PRIVATE, $field(SpinnerPreviousButtonPainter, roundRect)},
-	{"ellipse", "Ljava/awt/geom/Ellipse2D;", nullptr, $PRIVATE, $field(SpinnerPreviousButtonPainter, ellipse)},
-	{"color1", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SpinnerPreviousButtonPainter, color1)},
-	{"color2", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SpinnerPreviousButtonPainter, color2)},
-	{"color3", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SpinnerPreviousButtonPainter, color3)},
-	{"color4", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SpinnerPreviousButtonPainter, color4)},
-	{"color5", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SpinnerPreviousButtonPainter, color5)},
-	{"color6", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SpinnerPreviousButtonPainter, color6)},
-	{"color7", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SpinnerPreviousButtonPainter, color7)},
-	{"color8", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SpinnerPreviousButtonPainter, color8)},
-	{"color9", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SpinnerPreviousButtonPainter, color9)},
-	{"color10", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SpinnerPreviousButtonPainter, color10)},
-	{"color11", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SpinnerPreviousButtonPainter, color11)},
-	{"color12", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SpinnerPreviousButtonPainter, color12)},
-	{"color13", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SpinnerPreviousButtonPainter, color13)},
-	{"color14", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SpinnerPreviousButtonPainter, color14)},
-	{"color15", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SpinnerPreviousButtonPainter, color15)},
-	{"color16", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SpinnerPreviousButtonPainter, color16)},
-	{"color17", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SpinnerPreviousButtonPainter, color17)},
-	{"color18", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SpinnerPreviousButtonPainter, color18)},
-	{"color19", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SpinnerPreviousButtonPainter, color19)},
-	{"color20", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SpinnerPreviousButtonPainter, color20)},
-	{"color21", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SpinnerPreviousButtonPainter, color21)},
-	{"color22", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SpinnerPreviousButtonPainter, color22)},
-	{"color23", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SpinnerPreviousButtonPainter, color23)},
-	{"color24", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SpinnerPreviousButtonPainter, color24)},
-	{"color25", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SpinnerPreviousButtonPainter, color25)},
-	{"color26", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SpinnerPreviousButtonPainter, color26)},
-	{"color27", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SpinnerPreviousButtonPainter, color27)},
-	{"color28", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SpinnerPreviousButtonPainter, color28)},
-	{"color29", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SpinnerPreviousButtonPainter, color29)},
-	{"color30", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SpinnerPreviousButtonPainter, color30)},
-	{"componentColors", "[Ljava/lang/Object;", nullptr, $PRIVATE, $field(SpinnerPreviousButtonPainter, componentColors)},
-	{}
-};
-
-$MethodInfo _SpinnerPreviousButtonPainter_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext;I)V", nullptr, $PUBLIC, $method(SpinnerPreviousButtonPainter, init$, void, $AbstractRegionPainter$PaintContext*, int32_t)},
-	{"decodeGradient1", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(SpinnerPreviousButtonPainter, decodeGradient1, $Paint*, $Shape*)},
-	{"decodeGradient2", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(SpinnerPreviousButtonPainter, decodeGradient2, $Paint*, $Shape*)},
-	{"decodeGradient3", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(SpinnerPreviousButtonPainter, decodeGradient3, $Paint*, $Shape*)},
-	{"decodeGradient4", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(SpinnerPreviousButtonPainter, decodeGradient4, $Paint*, $Shape*)},
-	{"decodeGradient5", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(SpinnerPreviousButtonPainter, decodeGradient5, $Paint*, $Shape*)},
-	{"decodeGradient6", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(SpinnerPreviousButtonPainter, decodeGradient6, $Paint*, $Shape*)},
-	{"decodeGradient7", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(SpinnerPreviousButtonPainter, decodeGradient7, $Paint*, $Shape*)},
-	{"decodeGradient8", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(SpinnerPreviousButtonPainter, decodeGradient8, $Paint*, $Shape*)},
-	{"decodePath1", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(SpinnerPreviousButtonPainter, decodePath1, $Path2D*)},
-	{"decodePath2", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(SpinnerPreviousButtonPainter, decodePath2, $Path2D*)},
-	{"decodePath3", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(SpinnerPreviousButtonPainter, decodePath3, $Path2D*)},
-	{"decodePath4", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(SpinnerPreviousButtonPainter, decodePath4, $Path2D*)},
-	{"decodePath5", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(SpinnerPreviousButtonPainter, decodePath5, $Path2D*)},
-	{"decodePath6", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(SpinnerPreviousButtonPainter, decodePath6, $Path2D*)},
-	{"decodePath7", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(SpinnerPreviousButtonPainter, decodePath7, $Path2D*)},
-	{"decodePath8", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(SpinnerPreviousButtonPainter, decodePath8, $Path2D*)},
-	{"decodePath9", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(SpinnerPreviousButtonPainter, decodePath9, $Path2D*)},
-	{"doPaint", "(Ljava/awt/Graphics2D;Ljavax/swing/JComponent;II[Ljava/lang/Object;)V", nullptr, $PROTECTED, $virtualMethod(SpinnerPreviousButtonPainter, doPaint, void, $Graphics2D*, $JComponent*, int32_t, int32_t, $ObjectArray*)},
-	{"getPaintContext", "()Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext;", nullptr, $PROTECTED | $FINAL, $virtualMethod(SpinnerPreviousButtonPainter, getPaintContext, $AbstractRegionPainter$PaintContext*)},
-	{"paintBackgroundDisabled", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(SpinnerPreviousButtonPainter, paintBackgroundDisabled, void, $Graphics2D*)},
-	{"paintBackgroundEnabled", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(SpinnerPreviousButtonPainter, paintBackgroundEnabled, void, $Graphics2D*)},
-	{"paintBackgroundFocused", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(SpinnerPreviousButtonPainter, paintBackgroundFocused, void, $Graphics2D*)},
-	{"paintBackgroundMouseOver", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(SpinnerPreviousButtonPainter, paintBackgroundMouseOver, void, $Graphics2D*)},
-	{"paintBackgroundMouseOverAndFocused", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(SpinnerPreviousButtonPainter, paintBackgroundMouseOverAndFocused, void, $Graphics2D*)},
-	{"paintBackgroundPressed", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(SpinnerPreviousButtonPainter, paintBackgroundPressed, void, $Graphics2D*)},
-	{"paintBackgroundPressedAndFocused", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(SpinnerPreviousButtonPainter, paintBackgroundPressedAndFocused, void, $Graphics2D*)},
-	{"paintForegroundDisabled", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(SpinnerPreviousButtonPainter, paintForegroundDisabled, void, $Graphics2D*)},
-	{"paintForegroundEnabled", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(SpinnerPreviousButtonPainter, paintForegroundEnabled, void, $Graphics2D*)},
-	{"paintForegroundFocused", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(SpinnerPreviousButtonPainter, paintForegroundFocused, void, $Graphics2D*)},
-	{"paintForegroundMouseOver", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(SpinnerPreviousButtonPainter, paintForegroundMouseOver, void, $Graphics2D*)},
-	{"paintForegroundMouseOverAndFocused", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(SpinnerPreviousButtonPainter, paintForegroundMouseOverAndFocused, void, $Graphics2D*)},
-	{"paintForegroundPressed", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(SpinnerPreviousButtonPainter, paintForegroundPressed, void, $Graphics2D*)},
-	{"paintForegroundPressedAndFocused", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(SpinnerPreviousButtonPainter, paintForegroundPressedAndFocused, void, $Graphics2D*)},
-	{}
-};
-
-$ClassInfo _SpinnerPreviousButtonPainter_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"javax.swing.plaf.nimbus.SpinnerPreviousButtonPainter",
-	"javax.swing.plaf.nimbus.AbstractRegionPainter",
-	nullptr,
-	_SpinnerPreviousButtonPainter_FieldInfo_,
-	_SpinnerPreviousButtonPainter_MethodInfo_
-};
-
-$Object* allocate$SpinnerPreviousButtonPainter($Class* clazz) {
-	return $of($alloc(SpinnerPreviousButtonPainter));
-}
-
 void SpinnerPreviousButtonPainter::init$($AbstractRegionPainter$PaintContext* ctx, int32_t state) {
 	$AbstractRegionPainter::init$();
 	$set(this, path, $new($Path2D$Float));
-	$set(this, rect, $new($Rectangle2D$Float, (float)0, (float)0, (float)0, (float)0));
-	$set(this, roundRect, $new($RoundRectangle2D$Float, (float)0, (float)0, (float)0, (float)0, (float)0, (float)0));
-	$set(this, ellipse, $new($Ellipse2D$Float, (float)0, (float)0, (float)0, (float)0));
+	$set(this, rect, $new($Rectangle2D$Float, 0, 0, 0, 0));
+	$set(this, roundRect, $new($RoundRectangle2D$Float, 0, 0, 0, 0, 0, 0));
+	$set(this, ellipse, $new($Ellipse2D$Float, 0, 0, 0, 0));
 	$set(this, color1, decodeColor("nimbusBase"_s, 0.015098333f, -0.5557143f, 0.2352941f, 0));
 	$set(this, color2, decodeColor("nimbusBase"_s, 0.010237217f, -0.55799407f, 0.20784312f, 0));
 	$set(this, color3, decodeColor("nimbusBase"_s, 0.018570602f, -0.5821429f, 0.32941175f, 0));
@@ -208,75 +97,47 @@ void SpinnerPreviousButtonPainter::doPaint($Graphics2D* g, $JComponent* c, int32
 	$set(this, componentColors, extendedCacheKeys);
 	switch (this->state) {
 	case SpinnerPreviousButtonPainter::BACKGROUND_DISABLED:
-		{
-			paintBackgroundDisabled(g);
-			break;
-		}
+		paintBackgroundDisabled(g);
+		break;
 	case SpinnerPreviousButtonPainter::BACKGROUND_ENABLED:
-		{
-			paintBackgroundEnabled(g);
-			break;
-		}
+		paintBackgroundEnabled(g);
+		break;
 	case SpinnerPreviousButtonPainter::BACKGROUND_FOCUSED:
-		{
-			paintBackgroundFocused(g);
-			break;
-		}
+		paintBackgroundFocused(g);
+		break;
 	case SpinnerPreviousButtonPainter::BACKGROUND_MOUSEOVER_FOCUSED:
-		{
-			paintBackgroundMouseOverAndFocused(g);
-			break;
-		}
+		paintBackgroundMouseOverAndFocused(g);
+		break;
 	case SpinnerPreviousButtonPainter::BACKGROUND_PRESSED_FOCUSED:
-		{
-			paintBackgroundPressedAndFocused(g);
-			break;
-		}
+		paintBackgroundPressedAndFocused(g);
+		break;
 	case SpinnerPreviousButtonPainter::BACKGROUND_MOUSEOVER:
-		{
-			paintBackgroundMouseOver(g);
-			break;
-		}
+		paintBackgroundMouseOver(g);
+		break;
 	case SpinnerPreviousButtonPainter::BACKGROUND_PRESSED:
-		{
-			paintBackgroundPressed(g);
-			break;
-		}
+		paintBackgroundPressed(g);
+		break;
 	case SpinnerPreviousButtonPainter::FOREGROUND_DISABLED:
-		{
-			paintForegroundDisabled(g);
-			break;
-		}
+		paintForegroundDisabled(g);
+		break;
 	case SpinnerPreviousButtonPainter::FOREGROUND_ENABLED:
-		{
-			paintForegroundEnabled(g);
-			break;
-		}
+		paintForegroundEnabled(g);
+		break;
 	case SpinnerPreviousButtonPainter::FOREGROUND_FOCUSED:
-		{
-			paintForegroundFocused(g);
-			break;
-		}
+		paintForegroundFocused(g);
+		break;
 	case SpinnerPreviousButtonPainter::FOREGROUND_MOUSEOVER_FOCUSED:
-		{
-			paintForegroundMouseOverAndFocused(g);
-			break;
-		}
+		paintForegroundMouseOverAndFocused(g);
+		break;
 	case SpinnerPreviousButtonPainter::FOREGROUND_PRESSED_FOCUSED:
-		{
-			paintForegroundPressedAndFocused(g);
-			break;
-		}
+		paintForegroundPressedAndFocused(g);
+		break;
 	case SpinnerPreviousButtonPainter::FOREGROUND_MOUSEOVER:
-		{
-			paintForegroundMouseOver(g);
-			break;
-		}
+		paintForegroundMouseOver(g);
+		break;
 	case SpinnerPreviousButtonPainter::FOREGROUND_PRESSED:
-		{
-			paintForegroundPressed(g);
-			break;
-		}
+		paintForegroundPressed(g);
+		break;
 	}
 }
 
@@ -285,7 +146,7 @@ $AbstractRegionPainter$PaintContext* SpinnerPreviousButtonPainter::getPaintConte
 }
 
 void SpinnerPreviousButtonPainter::paintBackgroundDisabled($Graphics2D* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, path, decodePath1());
 	$nc(g)->setPaint($(decodeGradient1(this->path)));
 	g->fill(this->path);
@@ -295,7 +156,7 @@ void SpinnerPreviousButtonPainter::paintBackgroundDisabled($Graphics2D* g) {
 }
 
 void SpinnerPreviousButtonPainter::paintBackgroundEnabled($Graphics2D* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, path, decodePath3());
 	$nc(g)->setPaint(this->color6);
 	g->fill(this->path);
@@ -308,7 +169,7 @@ void SpinnerPreviousButtonPainter::paintBackgroundEnabled($Graphics2D* g) {
 }
 
 void SpinnerPreviousButtonPainter::paintBackgroundFocused($Graphics2D* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, path, decodePath4());
 	$nc(g)->setPaint(this->color13);
 	g->fill(this->path);
@@ -321,7 +182,7 @@ void SpinnerPreviousButtonPainter::paintBackgroundFocused($Graphics2D* g) {
 }
 
 void SpinnerPreviousButtonPainter::paintBackgroundMouseOverAndFocused($Graphics2D* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, path, decodePath5());
 	$nc(g)->setPaint(this->color13);
 	g->fill(this->path);
@@ -334,7 +195,7 @@ void SpinnerPreviousButtonPainter::paintBackgroundMouseOverAndFocused($Graphics2
 }
 
 void SpinnerPreviousButtonPainter::paintBackgroundPressedAndFocused($Graphics2D* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, path, decodePath4());
 	$nc(g)->setPaint(this->color13);
 	g->fill(this->path);
@@ -347,7 +208,7 @@ void SpinnerPreviousButtonPainter::paintBackgroundPressedAndFocused($Graphics2D*
 }
 
 void SpinnerPreviousButtonPainter::paintBackgroundMouseOver($Graphics2D* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, path, decodePath3());
 	$nc(g)->setPaint(this->color26);
 	g->fill(this->path);
@@ -360,7 +221,7 @@ void SpinnerPreviousButtonPainter::paintBackgroundMouseOver($Graphics2D* g) {
 }
 
 void SpinnerPreviousButtonPainter::paintBackgroundPressed($Graphics2D* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, path, decodePath8());
 	$nc(g)->setPaint(this->color27);
 	g->fill(this->path);
@@ -416,21 +277,21 @@ void SpinnerPreviousButtonPainter::paintForegroundPressed($Graphics2D* g) {
 
 $Path2D* SpinnerPreviousButtonPainter::decodePath1() {
 	$nc(this->path)->reset();
-	double var$0 = (double)decodeX(0.0f);
+	double var$0 = decodeX(0.0f);
 	$nc(this->path)->moveTo(var$0, decodeY(1.0f));
-	double var$1 = (double)decodeX(0.0f);
+	double var$1 = decodeX(0.0f);
 	$nc(this->path)->lineTo(var$1, decodeY(2.6666667f));
-	double var$2 = (double)decodeX(2.142857f);
+	double var$2 = decodeX(2.142857f);
 	$nc(this->path)->lineTo(var$2, decodeY(2.6666667f));
-	double var$3 = (double)decodeAnchorX(2.142857f, 3.0f);
-	double var$4 = (double)decodeAnchorY(2.6666667f, 0.0f);
-	double var$5 = (double)decodeAnchorX(2.7142859f, 0.0f);
-	double var$6 = (double)decodeAnchorY(2.0f, 2.0f);
-	double var$7 = (double)decodeX(2.7142859f);
+	double var$3 = decodeAnchorX(2.142857f, 3.0f);
+	double var$4 = decodeAnchorY(2.6666667f, 0.0f);
+	double var$5 = decodeAnchorX(2.7142859f, 0.0f);
+	double var$6 = decodeAnchorY(2.0f, 2.0f);
+	double var$7 = decodeX(2.7142859f);
 	$nc(this->path)->curveTo(var$3, var$4, var$5, var$6, var$7, decodeY(2.0f));
-	double var$8 = (double)decodeX(2.7142859f);
+	double var$8 = decodeX(2.7142859f);
 	$nc(this->path)->lineTo(var$8, decodeY(1.0f));
-	double var$9 = (double)decodeX(0.0f);
+	double var$9 = decodeX(0.0f);
 	$nc(this->path)->lineTo(var$9, decodeY(1.0f));
 	$nc(this->path)->closePath();
 	return this->path;
@@ -438,21 +299,21 @@ $Path2D* SpinnerPreviousButtonPainter::decodePath1() {
 
 $Path2D* SpinnerPreviousButtonPainter::decodePath2() {
 	$nc(this->path)->reset();
-	double var$0 = (double)decodeX(1.0f);
+	double var$0 = decodeX(1.0f);
 	$nc(this->path)->moveTo(var$0, decodeY(1.0f));
-	double var$1 = (double)decodeX(1.0f);
+	double var$1 = decodeX(1.0f);
 	$nc(this->path)->lineTo(var$1, decodeY(2.5f));
-	double var$2 = (double)decodeX(2.142857f);
+	double var$2 = decodeX(2.142857f);
 	$nc(this->path)->lineTo(var$2, decodeY(2.5f));
-	double var$3 = (double)decodeAnchorX(2.142857f, 2.0f);
-	double var$4 = (double)decodeAnchorY(2.5f, 0.0f);
-	double var$5 = (double)decodeAnchorX(2.5714285f, 0.0f);
-	double var$6 = (double)decodeAnchorY(2.0f, 1.0f);
-	double var$7 = (double)decodeX(2.5714285f);
+	double var$3 = decodeAnchorX(2.142857f, 2.0f);
+	double var$4 = decodeAnchorY(2.5f, 0.0f);
+	double var$5 = decodeAnchorX(2.5714285f, 0.0f);
+	double var$6 = decodeAnchorY(2.0f, 1.0f);
+	double var$7 = decodeX(2.5714285f);
 	$nc(this->path)->curveTo(var$3, var$4, var$5, var$6, var$7, decodeY(2.0f));
-	double var$8 = (double)decodeX(2.5714285f);
+	double var$8 = decodeX(2.5714285f);
 	$nc(this->path)->lineTo(var$8, decodeY(1.0f));
-	double var$9 = (double)decodeX(1.0f);
+	double var$9 = decodeX(1.0f);
 	$nc(this->path)->lineTo(var$9, decodeY(1.0f));
 	$nc(this->path)->closePath();
 	return this->path;
@@ -460,19 +321,19 @@ $Path2D* SpinnerPreviousButtonPainter::decodePath2() {
 
 $Path2D* SpinnerPreviousButtonPainter::decodePath3() {
 	$nc(this->path)->reset();
-	double var$0 = (double)decodeX(0.0f);
+	double var$0 = decodeX(0.0f);
 	$nc(this->path)->moveTo(var$0, decodeY(2.6666667f));
-	double var$1 = (double)decodeX(0.0f);
+	double var$1 = decodeX(0.0f);
 	$nc(this->path)->lineTo(var$1, decodeY(2.8333333f));
-	double var$2 = (double)decodeX(2.0324676f);
+	double var$2 = decodeX(2.0324676f);
 	$nc(this->path)->lineTo(var$2, decodeY(2.8333333f));
-	double var$3 = (double)decodeAnchorX(2.0324676f, 2.1136363f);
-	double var$4 = (double)decodeAnchorY(2.8333333f, 0.0f);
-	double var$5 = (double)decodeAnchorX(2.7142859f, 0.0f);
-	double var$6 = (double)decodeAnchorY(2.0f, 3.0f);
-	double var$7 = (double)decodeX(2.7142859f);
+	double var$3 = decodeAnchorX(2.0324676f, 2.1136363f);
+	double var$4 = decodeAnchorY(2.8333333f, 0.0f);
+	double var$5 = decodeAnchorX(2.7142859f, 0.0f);
+	double var$6 = decodeAnchorY(2.0f, 3.0f);
+	double var$7 = decodeX(2.7142859f);
 	$nc(this->path)->curveTo(var$3, var$4, var$5, var$6, var$7, decodeY(2.0f));
-	double var$8 = (double)decodeX(0.0f);
+	double var$8 = decodeX(0.0f);
 	$nc(this->path)->lineTo(var$8, decodeY(2.6666667f));
 	$nc(this->path)->closePath();
 	return this->path;
@@ -480,21 +341,21 @@ $Path2D* SpinnerPreviousButtonPainter::decodePath3() {
 
 $Path2D* SpinnerPreviousButtonPainter::decodePath4() {
 	$nc(this->path)->reset();
-	double var$0 = (double)decodeX(0.0f);
+	double var$0 = decodeX(0.0f);
 	$nc(this->path)->moveTo(var$0, decodeY(1.0f));
-	double var$1 = (double)decodeX(0.0f);
+	double var$1 = decodeX(0.0f);
 	$nc(this->path)->lineTo(var$1, decodeY(2.8999999f));
-	double var$2 = (double)decodeX(2.2f);
+	double var$2 = decodeX(2.2f);
 	$nc(this->path)->lineTo(var$2, decodeY(2.8999999f));
-	double var$3 = (double)decodeAnchorX(2.2f, 3.0f);
-	double var$4 = (double)decodeAnchorY(2.8999999f, 0.0f);
-	double var$5 = (double)decodeAnchorX(2.9142857f, 0.0f);
-	double var$6 = (double)decodeAnchorY(2.2333333f, 3.0f);
-	double var$7 = (double)decodeX(2.9142857f);
+	double var$3 = decodeAnchorX(2.2f, 3.0f);
+	double var$4 = decodeAnchorY(2.8999999f, 0.0f);
+	double var$5 = decodeAnchorX(2.9142857f, 0.0f);
+	double var$6 = decodeAnchorY(2.2333333f, 3.0f);
+	double var$7 = decodeX(2.9142857f);
 	$nc(this->path)->curveTo(var$3, var$4, var$5, var$6, var$7, decodeY(2.2333333f));
-	double var$8 = (double)decodeX(2.9142857f);
+	double var$8 = decodeX(2.9142857f);
 	$nc(this->path)->lineTo(var$8, decodeY(1.0f));
-	double var$9 = (double)decodeX(0.0f);
+	double var$9 = decodeX(0.0f);
 	$nc(this->path)->lineTo(var$9, decodeY(1.0f));
 	$nc(this->path)->closePath();
 	return this->path;
@@ -502,21 +363,21 @@ $Path2D* SpinnerPreviousButtonPainter::decodePath4() {
 
 $Path2D* SpinnerPreviousButtonPainter::decodePath5() {
 	$nc(this->path)->reset();
-	double var$0 = (double)decodeX(0.0f);
+	double var$0 = decodeX(0.0f);
 	$nc(this->path)->moveTo(var$0, decodeY(0.0f));
-	double var$1 = (double)decodeX(0.0f);
+	double var$1 = decodeX(0.0f);
 	$nc(this->path)->lineTo(var$1, decodeY(2.8999999f));
-	double var$2 = (double)decodeX(2.2f);
+	double var$2 = decodeX(2.2f);
 	$nc(this->path)->lineTo(var$2, decodeY(2.8999999f));
-	double var$3 = (double)decodeAnchorX(2.2f, 3.0f);
-	double var$4 = (double)decodeAnchorY(2.8999999f, 0.0f);
-	double var$5 = (double)decodeAnchorX(2.9142857f, 0.0f);
-	double var$6 = (double)decodeAnchorY(2.2333333f, 3.0f);
-	double var$7 = (double)decodeX(2.9142857f);
+	double var$3 = decodeAnchorX(2.2f, 3.0f);
+	double var$4 = decodeAnchorY(2.8999999f, 0.0f);
+	double var$5 = decodeAnchorX(2.9142857f, 0.0f);
+	double var$6 = decodeAnchorY(2.2333333f, 3.0f);
+	double var$7 = decodeX(2.9142857f);
 	$nc(this->path)->curveTo(var$3, var$4, var$5, var$6, var$7, decodeY(2.2333333f));
-	double var$8 = (double)decodeX(2.9142857f);
+	double var$8 = decodeX(2.9142857f);
 	$nc(this->path)->lineTo(var$8, decodeY(0.0f));
-	double var$9 = (double)decodeX(0.0f);
+	double var$9 = decodeX(0.0f);
 	$nc(this->path)->lineTo(var$9, decodeY(0.0f));
 	$nc(this->path)->closePath();
 	return this->path;
@@ -524,21 +385,21 @@ $Path2D* SpinnerPreviousButtonPainter::decodePath5() {
 
 $Path2D* SpinnerPreviousButtonPainter::decodePath6() {
 	$nc(this->path)->reset();
-	double var$0 = (double)decodeX(0.0f);
+	double var$0 = decodeX(0.0f);
 	$nc(this->path)->moveTo(var$0, decodeY(0.0f));
-	double var$1 = (double)decodeX(0.0f);
+	double var$1 = decodeX(0.0f);
 	$nc(this->path)->lineTo(var$1, decodeY(2.6666667f));
-	double var$2 = (double)decodeX(2.142857f);
+	double var$2 = decodeX(2.142857f);
 	$nc(this->path)->lineTo(var$2, decodeY(2.6666667f));
-	double var$3 = (double)decodeAnchorX(2.142857f, 3.0f);
-	double var$4 = (double)decodeAnchorY(2.6666667f, 0.0f);
-	double var$5 = (double)decodeAnchorX(2.7142859f, 0.0f);
-	double var$6 = (double)decodeAnchorY(2.0f, 2.0f);
-	double var$7 = (double)decodeX(2.7142859f);
+	double var$3 = decodeAnchorX(2.142857f, 3.0f);
+	double var$4 = decodeAnchorY(2.6666667f, 0.0f);
+	double var$5 = decodeAnchorX(2.7142859f, 0.0f);
+	double var$6 = decodeAnchorY(2.0f, 2.0f);
+	double var$7 = decodeX(2.7142859f);
 	$nc(this->path)->curveTo(var$3, var$4, var$5, var$6, var$7, decodeY(2.0f));
-	double var$8 = (double)decodeX(2.7142859f);
+	double var$8 = decodeX(2.7142859f);
 	$nc(this->path)->lineTo(var$8, decodeY(0.0f));
-	double var$9 = (double)decodeX(0.0f);
+	double var$9 = decodeX(0.0f);
 	$nc(this->path)->lineTo(var$9, decodeY(0.0f));
 	$nc(this->path)->closePath();
 	return this->path;
@@ -546,21 +407,21 @@ $Path2D* SpinnerPreviousButtonPainter::decodePath6() {
 
 $Path2D* SpinnerPreviousButtonPainter::decodePath7() {
 	$nc(this->path)->reset();
-	double var$0 = (double)decodeX(1.0f);
+	double var$0 = decodeX(1.0f);
 	$nc(this->path)->moveTo(var$0, decodeY(0.0f));
-	double var$1 = (double)decodeX(1.0f);
+	double var$1 = decodeX(1.0f);
 	$nc(this->path)->lineTo(var$1, decodeY(2.5f));
-	double var$2 = (double)decodeX(2.142857f);
+	double var$2 = decodeX(2.142857f);
 	$nc(this->path)->lineTo(var$2, decodeY(2.5f));
-	double var$3 = (double)decodeAnchorX(2.142857f, 2.0f);
-	double var$4 = (double)decodeAnchorY(2.5f, 0.0f);
-	double var$5 = (double)decodeAnchorX(2.5714285f, 0.0f);
-	double var$6 = (double)decodeAnchorY(2.0f, 1.0f);
-	double var$7 = (double)decodeX(2.5714285f);
+	double var$3 = decodeAnchorX(2.142857f, 2.0f);
+	double var$4 = decodeAnchorY(2.5f, 0.0f);
+	double var$5 = decodeAnchorX(2.5714285f, 0.0f);
+	double var$6 = decodeAnchorY(2.0f, 1.0f);
+	double var$7 = decodeX(2.5714285f);
 	$nc(this->path)->curveTo(var$3, var$4, var$5, var$6, var$7, decodeY(2.0f));
-	double var$8 = (double)decodeX(2.5714285f);
+	double var$8 = decodeX(2.5714285f);
 	$nc(this->path)->lineTo(var$8, decodeY(0.0f));
-	double var$9 = (double)decodeX(1.0f);
+	double var$9 = decodeX(1.0f);
 	$nc(this->path)->lineTo(var$9, decodeY(0.0f));
 	$nc(this->path)->closePath();
 	return this->path;
@@ -568,23 +429,23 @@ $Path2D* SpinnerPreviousButtonPainter::decodePath7() {
 
 $Path2D* SpinnerPreviousButtonPainter::decodePath8() {
 	$nc(this->path)->reset();
-	double var$0 = (double)decodeX(0.0f);
+	double var$0 = decodeX(0.0f);
 	$nc(this->path)->moveTo(var$0, decodeY(2.6666667f));
-	double var$1 = (double)decodeX(0.0f);
+	double var$1 = decodeX(0.0f);
 	$nc(this->path)->lineTo(var$1, decodeY(2.8333333f));
-	double var$2 = (double)decodeAnchorX(0.0f, 0.0f);
-	double var$3 = (double)decodeAnchorY(2.8333333f, 0.0f);
-	double var$4 = (double)decodeAnchorX(2.0324676f, -2.1136363f);
-	double var$5 = (double)decodeAnchorY(2.8333333f, 0.0f);
-	double var$6 = (double)decodeX(2.0324676f);
+	double var$2 = decodeAnchorX(0.0f, 0.0f);
+	double var$3 = decodeAnchorY(2.8333333f, 0.0f);
+	double var$4 = decodeAnchorX(2.0324676f, -2.1136363f);
+	double var$5 = decodeAnchorY(2.8333333f, 0.0f);
+	double var$6 = decodeX(2.0324676f);
 	$nc(this->path)->curveTo(var$2, var$3, var$4, var$5, var$6, decodeY(2.8333333f));
-	double var$7 = (double)decodeAnchorX(2.0324676f, 2.1136363f);
-	double var$8 = (double)decodeAnchorY(2.8333333f, 0.0f);
-	double var$9 = (double)decodeAnchorX(2.7142859f, 0.0f);
-	double var$10 = (double)decodeAnchorY(2.0f, 3.0f);
-	double var$11 = (double)decodeX(2.7142859f);
+	double var$7 = decodeAnchorX(2.0324676f, 2.1136363f);
+	double var$8 = decodeAnchorY(2.8333333f, 0.0f);
+	double var$9 = decodeAnchorX(2.7142859f, 0.0f);
+	double var$10 = decodeAnchorY(2.0f, 3.0f);
+	double var$11 = decodeX(2.7142859f);
 	$nc(this->path)->curveTo(var$7, var$8, var$9, var$10, var$11, decodeY(2.0f));
-	double var$12 = (double)decodeX(0.0f);
+	double var$12 = decodeX(0.0f);
 	$nc(this->path)->lineTo(var$12, decodeY(2.6666667f));
 	$nc(this->path)->closePath();
 	return this->path;
@@ -592,20 +453,20 @@ $Path2D* SpinnerPreviousButtonPainter::decodePath8() {
 
 $Path2D* SpinnerPreviousButtonPainter::decodePath9() {
 	$nc(this->path)->reset();
-	double var$0 = (double)decodeX(1.0f);
+	double var$0 = decodeX(1.0f);
 	$nc(this->path)->moveTo(var$0, decodeY(1.0f));
-	double var$1 = (double)decodeX(1.5045455f);
+	double var$1 = decodeX(1.5045455f);
 	$nc(this->path)->lineTo(var$1, decodeY(1.9943181f));
-	double var$2 = (double)decodeX(2.0f);
+	double var$2 = decodeX(2.0f);
 	$nc(this->path)->lineTo(var$2, decodeY(1.0f));
-	double var$3 = (double)decodeX(1.0f);
+	double var$3 = decodeX(1.0f);
 	$nc(this->path)->lineTo(var$3, decodeY(1.0f));
 	$nc(this->path)->closePath();
 	return this->path;
 }
 
 $Paint* SpinnerPreviousButtonPainter::decodeGradient1($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -623,7 +484,7 @@ $Paint* SpinnerPreviousButtonPainter::decodeGradient1($Shape* s) {
 }
 
 $Paint* SpinnerPreviousButtonPainter::decodeGradient2($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -645,7 +506,7 @@ $Paint* SpinnerPreviousButtonPainter::decodeGradient2($Shape* s) {
 }
 
 $Paint* SpinnerPreviousButtonPainter::decodeGradient3($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -663,7 +524,7 @@ $Paint* SpinnerPreviousButtonPainter::decodeGradient3($Shape* s) {
 }
 
 $Paint* SpinnerPreviousButtonPainter::decodeGradient4($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -689,7 +550,7 @@ $Paint* SpinnerPreviousButtonPainter::decodeGradient4($Shape* s) {
 }
 
 $Paint* SpinnerPreviousButtonPainter::decodeGradient5($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -707,7 +568,7 @@ $Paint* SpinnerPreviousButtonPainter::decodeGradient5($Shape* s) {
 }
 
 $Paint* SpinnerPreviousButtonPainter::decodeGradient6($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -733,7 +594,7 @@ $Paint* SpinnerPreviousButtonPainter::decodeGradient6($Shape* s) {
 }
 
 $Paint* SpinnerPreviousButtonPainter::decodeGradient7($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -751,7 +612,7 @@ $Paint* SpinnerPreviousButtonPainter::decodeGradient7($Shape* s) {
 }
 
 $Paint* SpinnerPreviousButtonPainter::decodeGradient8($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -780,7 +641,108 @@ SpinnerPreviousButtonPainter::SpinnerPreviousButtonPainter() {
 }
 
 $Class* SpinnerPreviousButtonPainter::load$($String* name, bool initialize) {
-	$loadClass(SpinnerPreviousButtonPainter, name, initialize, &_SpinnerPreviousButtonPainter_ClassInfo_, allocate$SpinnerPreviousButtonPainter);
+	$FieldInfo fieldInfos$$[] = {
+		{"BACKGROUND_DISABLED", "I", nullptr, $STATIC | $FINAL, $constField(SpinnerPreviousButtonPainter, BACKGROUND_DISABLED)},
+		{"BACKGROUND_ENABLED", "I", nullptr, $STATIC | $FINAL, $constField(SpinnerPreviousButtonPainter, BACKGROUND_ENABLED)},
+		{"BACKGROUND_FOCUSED", "I", nullptr, $STATIC | $FINAL, $constField(SpinnerPreviousButtonPainter, BACKGROUND_FOCUSED)},
+		{"BACKGROUND_MOUSEOVER_FOCUSED", "I", nullptr, $STATIC | $FINAL, $constField(SpinnerPreviousButtonPainter, BACKGROUND_MOUSEOVER_FOCUSED)},
+		{"BACKGROUND_PRESSED_FOCUSED", "I", nullptr, $STATIC | $FINAL, $constField(SpinnerPreviousButtonPainter, BACKGROUND_PRESSED_FOCUSED)},
+		{"BACKGROUND_MOUSEOVER", "I", nullptr, $STATIC | $FINAL, $constField(SpinnerPreviousButtonPainter, BACKGROUND_MOUSEOVER)},
+		{"BACKGROUND_PRESSED", "I", nullptr, $STATIC | $FINAL, $constField(SpinnerPreviousButtonPainter, BACKGROUND_PRESSED)},
+		{"FOREGROUND_DISABLED", "I", nullptr, $STATIC | $FINAL, $constField(SpinnerPreviousButtonPainter, FOREGROUND_DISABLED)},
+		{"FOREGROUND_ENABLED", "I", nullptr, $STATIC | $FINAL, $constField(SpinnerPreviousButtonPainter, FOREGROUND_ENABLED)},
+		{"FOREGROUND_FOCUSED", "I", nullptr, $STATIC | $FINAL, $constField(SpinnerPreviousButtonPainter, FOREGROUND_FOCUSED)},
+		{"FOREGROUND_MOUSEOVER_FOCUSED", "I", nullptr, $STATIC | $FINAL, $constField(SpinnerPreviousButtonPainter, FOREGROUND_MOUSEOVER_FOCUSED)},
+		{"FOREGROUND_PRESSED_FOCUSED", "I", nullptr, $STATIC | $FINAL, $constField(SpinnerPreviousButtonPainter, FOREGROUND_PRESSED_FOCUSED)},
+		{"FOREGROUND_MOUSEOVER", "I", nullptr, $STATIC | $FINAL, $constField(SpinnerPreviousButtonPainter, FOREGROUND_MOUSEOVER)},
+		{"FOREGROUND_PRESSED", "I", nullptr, $STATIC | $FINAL, $constField(SpinnerPreviousButtonPainter, FOREGROUND_PRESSED)},
+		{"state", "I", nullptr, $PRIVATE, $field(SpinnerPreviousButtonPainter, state)},
+		{"ctx", "Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext;", nullptr, $PRIVATE, $field(SpinnerPreviousButtonPainter, ctx)},
+		{"path", "Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $field(SpinnerPreviousButtonPainter, path)},
+		{"rect", "Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $field(SpinnerPreviousButtonPainter, rect)},
+		{"roundRect", "Ljava/awt/geom/RoundRectangle2D;", nullptr, $PRIVATE, $field(SpinnerPreviousButtonPainter, roundRect)},
+		{"ellipse", "Ljava/awt/geom/Ellipse2D;", nullptr, $PRIVATE, $field(SpinnerPreviousButtonPainter, ellipse)},
+		{"color1", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SpinnerPreviousButtonPainter, color1)},
+		{"color2", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SpinnerPreviousButtonPainter, color2)},
+		{"color3", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SpinnerPreviousButtonPainter, color3)},
+		{"color4", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SpinnerPreviousButtonPainter, color4)},
+		{"color5", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SpinnerPreviousButtonPainter, color5)},
+		{"color6", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SpinnerPreviousButtonPainter, color6)},
+		{"color7", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SpinnerPreviousButtonPainter, color7)},
+		{"color8", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SpinnerPreviousButtonPainter, color8)},
+		{"color9", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SpinnerPreviousButtonPainter, color9)},
+		{"color10", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SpinnerPreviousButtonPainter, color10)},
+		{"color11", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SpinnerPreviousButtonPainter, color11)},
+		{"color12", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SpinnerPreviousButtonPainter, color12)},
+		{"color13", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SpinnerPreviousButtonPainter, color13)},
+		{"color14", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SpinnerPreviousButtonPainter, color14)},
+		{"color15", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SpinnerPreviousButtonPainter, color15)},
+		{"color16", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SpinnerPreviousButtonPainter, color16)},
+		{"color17", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SpinnerPreviousButtonPainter, color17)},
+		{"color18", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SpinnerPreviousButtonPainter, color18)},
+		{"color19", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SpinnerPreviousButtonPainter, color19)},
+		{"color20", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SpinnerPreviousButtonPainter, color20)},
+		{"color21", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SpinnerPreviousButtonPainter, color21)},
+		{"color22", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SpinnerPreviousButtonPainter, color22)},
+		{"color23", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SpinnerPreviousButtonPainter, color23)},
+		{"color24", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SpinnerPreviousButtonPainter, color24)},
+		{"color25", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SpinnerPreviousButtonPainter, color25)},
+		{"color26", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SpinnerPreviousButtonPainter, color26)},
+		{"color27", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SpinnerPreviousButtonPainter, color27)},
+		{"color28", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SpinnerPreviousButtonPainter, color28)},
+		{"color29", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SpinnerPreviousButtonPainter, color29)},
+		{"color30", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SpinnerPreviousButtonPainter, color30)},
+		{"componentColors", "[Ljava/lang/Object;", nullptr, $PRIVATE, $field(SpinnerPreviousButtonPainter, componentColors)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext;I)V", nullptr, $PUBLIC, $method(SpinnerPreviousButtonPainter, init$, void, $AbstractRegionPainter$PaintContext*, int32_t)},
+		{"decodeGradient1", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(SpinnerPreviousButtonPainter, decodeGradient1, $Paint*, $Shape*)},
+		{"decodeGradient2", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(SpinnerPreviousButtonPainter, decodeGradient2, $Paint*, $Shape*)},
+		{"decodeGradient3", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(SpinnerPreviousButtonPainter, decodeGradient3, $Paint*, $Shape*)},
+		{"decodeGradient4", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(SpinnerPreviousButtonPainter, decodeGradient4, $Paint*, $Shape*)},
+		{"decodeGradient5", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(SpinnerPreviousButtonPainter, decodeGradient5, $Paint*, $Shape*)},
+		{"decodeGradient6", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(SpinnerPreviousButtonPainter, decodeGradient6, $Paint*, $Shape*)},
+		{"decodeGradient7", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(SpinnerPreviousButtonPainter, decodeGradient7, $Paint*, $Shape*)},
+		{"decodeGradient8", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(SpinnerPreviousButtonPainter, decodeGradient8, $Paint*, $Shape*)},
+		{"decodePath1", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(SpinnerPreviousButtonPainter, decodePath1, $Path2D*)},
+		{"decodePath2", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(SpinnerPreviousButtonPainter, decodePath2, $Path2D*)},
+		{"decodePath3", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(SpinnerPreviousButtonPainter, decodePath3, $Path2D*)},
+		{"decodePath4", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(SpinnerPreviousButtonPainter, decodePath4, $Path2D*)},
+		{"decodePath5", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(SpinnerPreviousButtonPainter, decodePath5, $Path2D*)},
+		{"decodePath6", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(SpinnerPreviousButtonPainter, decodePath6, $Path2D*)},
+		{"decodePath7", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(SpinnerPreviousButtonPainter, decodePath7, $Path2D*)},
+		{"decodePath8", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(SpinnerPreviousButtonPainter, decodePath8, $Path2D*)},
+		{"decodePath9", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(SpinnerPreviousButtonPainter, decodePath9, $Path2D*)},
+		{"doPaint", "(Ljava/awt/Graphics2D;Ljavax/swing/JComponent;II[Ljava/lang/Object;)V", nullptr, $PROTECTED, $virtualMethod(SpinnerPreviousButtonPainter, doPaint, void, $Graphics2D*, $JComponent*, int32_t, int32_t, $ObjectArray*)},
+		{"getPaintContext", "()Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext;", nullptr, $PROTECTED | $FINAL, $virtualMethod(SpinnerPreviousButtonPainter, getPaintContext, $AbstractRegionPainter$PaintContext*)},
+		{"paintBackgroundDisabled", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(SpinnerPreviousButtonPainter, paintBackgroundDisabled, void, $Graphics2D*)},
+		{"paintBackgroundEnabled", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(SpinnerPreviousButtonPainter, paintBackgroundEnabled, void, $Graphics2D*)},
+		{"paintBackgroundFocused", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(SpinnerPreviousButtonPainter, paintBackgroundFocused, void, $Graphics2D*)},
+		{"paintBackgroundMouseOver", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(SpinnerPreviousButtonPainter, paintBackgroundMouseOver, void, $Graphics2D*)},
+		{"paintBackgroundMouseOverAndFocused", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(SpinnerPreviousButtonPainter, paintBackgroundMouseOverAndFocused, void, $Graphics2D*)},
+		{"paintBackgroundPressed", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(SpinnerPreviousButtonPainter, paintBackgroundPressed, void, $Graphics2D*)},
+		{"paintBackgroundPressedAndFocused", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(SpinnerPreviousButtonPainter, paintBackgroundPressedAndFocused, void, $Graphics2D*)},
+		{"paintForegroundDisabled", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(SpinnerPreviousButtonPainter, paintForegroundDisabled, void, $Graphics2D*)},
+		{"paintForegroundEnabled", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(SpinnerPreviousButtonPainter, paintForegroundEnabled, void, $Graphics2D*)},
+		{"paintForegroundFocused", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(SpinnerPreviousButtonPainter, paintForegroundFocused, void, $Graphics2D*)},
+		{"paintForegroundMouseOver", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(SpinnerPreviousButtonPainter, paintForegroundMouseOver, void, $Graphics2D*)},
+		{"paintForegroundMouseOverAndFocused", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(SpinnerPreviousButtonPainter, paintForegroundMouseOverAndFocused, void, $Graphics2D*)},
+		{"paintForegroundPressed", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(SpinnerPreviousButtonPainter, paintForegroundPressed, void, $Graphics2D*)},
+		{"paintForegroundPressedAndFocused", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(SpinnerPreviousButtonPainter, paintForegroundPressedAndFocused, void, $Graphics2D*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"javax.swing.plaf.nimbus.SpinnerPreviousButtonPainter",
+		"javax.swing.plaf.nimbus.AbstractRegionPainter",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SpinnerPreviousButtonPainter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SpinnerPreviousButtonPainter);
+	});
 	return class$;
 }
 

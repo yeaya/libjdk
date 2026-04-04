@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/main/Option$14.h>
-
 #include <com/sun/tools/javac/main/Arguments.h>
 #include <com/sun/tools/javac/main/Option$OptionGroup.h>
 #include <com/sun/tools/javac/main/Option$OptionKind.h>
@@ -66,29 +65,26 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* provider) override {
-		 return $of(Option$14::lambda$help$0($cast($PlatformProvider, provider)));
+		 return Option$14::lambda$help$0($cast($PlatformProvider, provider));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Option$14$$Lambda$lambda$help$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo Option$14$$Lambda$lambda$help$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Option$14$$Lambda$lambda$help$0, init$, void)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Option$14$$Lambda$lambda$help$0, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo Option$14$$Lambda$lambda$help$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.main.Option$14$$Lambda$lambda$help$0",
-	"java.lang.Object",
-	"java.util.function.Function",
-	nullptr,
-	methodInfos
 };
 $Class* Option$14$$Lambda$lambda$help$0::load$($String* name, bool initialize) {
-	$loadClass(Option$14$$Lambda$lambda$help$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Option$14$$Lambda$lambda$help$0, init$, void)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Option$14$$Lambda$lambda$help$0, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.main.Option$14$$Lambda$lambda$help$0",
+		"java.lang.Object",
+		"java.util.function.Function",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Option$14$$Lambda$lambda$help$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Option$14$$Lambda$lambda$help$0);
+	});
 	return class$;
 }
 $Class* Option$14$$Lambda$lambda$help$0::class$ = nullptr;
@@ -101,80 +97,39 @@ public:
 	virtual $Object* get() override {
 		 return $of($new($LinkedHashSet));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Option$14$$Lambda$LinkedHashSet$1>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo Option$14$$Lambda$LinkedHashSet$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Option$14$$Lambda$LinkedHashSet$1, init$, void)},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Option$14$$Lambda$LinkedHashSet$1, get, $Object*)},
-	{}
-};
-$ClassInfo Option$14$$Lambda$LinkedHashSet$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.main.Option$14$$Lambda$LinkedHashSet$1",
-	"java.lang.Object",
-	"java.util.function.Supplier",
-	nullptr,
-	methodInfos
 };
 $Class* Option$14$$Lambda$LinkedHashSet$1::load$($String* name, bool initialize) {
-	$loadClass(Option$14$$Lambda$LinkedHashSet$1, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Option$14$$Lambda$LinkedHashSet$1, init$, void)},
+		{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Option$14$$Lambda$LinkedHashSet$1, get, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.main.Option$14$$Lambda$LinkedHashSet$1",
+		"java.lang.Object",
+		"java.util.function.Supplier",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Option$14$$Lambda$LinkedHashSet$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Option$14$$Lambda$LinkedHashSet$1);
+	});
 	return class$;
 }
 $Class* Option$14$$Lambda$LinkedHashSet$1::class$ = nullptr;
-
-$MethodInfo _Option$14_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/sun/tools/javac/main/Option$OptionKind;Lcom/sun/tools/javac/main/Option$OptionGroup;)V", nullptr, $PRIVATE, $method(Option$14, init$, void, $String*, int32_t, $String*, $String*, $String*, $Option$OptionKind*, $Option$OptionGroup*)},
-	{"help", "(Lcom/sun/tools/javac/util/Log;)V", nullptr, $PROTECTED, $virtualMethod(Option$14, help, void, $Log*)},
-	{"lambda$help$0", "(Lcom/sun/tools/javac/platform/PlatformProvider;)Ljava/util/stream/Stream;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Option$14, lambda$help$0, $Stream*, $PlatformProvider*)},
-	{}
-};
-
-$EnclosingMethodInfo _Option$14_EnclosingMethodInfo_ = {
-	"com.sun.tools.javac.main.Option",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _Option$14_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.main.Option$14", nullptr, nullptr, $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _Option$14_ClassInfo_ = {
-	$FINAL | $ACC_SUPER | $ENUM,
-	"com.sun.tools.javac.main.Option$14",
-	"com.sun.tools.javac.main.Option",
-	nullptr,
-	nullptr,
-	_Option$14_MethodInfo_,
-	nullptr,
-	&_Option$14_EnclosingMethodInfo_,
-	_Option$14_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.main.Option"
-};
-
-$Object* allocate$Option$14($Class* clazz) {
-	return $of($alloc(Option$14));
-}
 
 void Option$14::init$($String* $enum$name, int32_t $enum$ordinal, $String* text, $String* argsNameKey, $String* descrKey, $Option$OptionKind* kind, $Option$OptionGroup* group) {
 	$Option::init$($enum$name, $enum$ordinal, text, argsNameKey, descrKey, kind, group);
 }
 
 void Option$14::help($Log* log) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$load($PlatformProvider);
 	$load($Arguments);
 	$var($Iterable, providers, $ServiceLoader::load($PlatformProvider::class$, $($Arguments::class$->getClassLoader())));
-	$var($Set, platforms, $cast($Set, $nc($($nc($($StreamSupport::stream($($nc(providers)->spliterator()), false)))->flatMap(static_cast<$Function*>($$new(Option$14$$Lambda$lambda$help$0)))))->collect($($Collectors::toCollection(static_cast<$Supplier*>($$new(Option$14$$Lambda$LinkedHashSet$1)))))));
+	$var($Set, platforms, $cast($Set, $$nc($$nc($StreamSupport::stream($($nc(providers)->spliterator()), false))->flatMap($$new(Option$14$$Lambda$lambda$help$0)))->collect($($Collectors::toCollection($$new(Option$14$$Lambda$LinkedHashSet$1))))));
 	$var($StringBuilder, targets, $new($StringBuilder));
 	$var($String, delim, ""_s);
 	{
@@ -189,13 +144,13 @@ void Option$14::help($Log* log) {
 		}
 	}
 	$init($Log$PrefixKind);
-	$Option::help(log, $($nc(log)->localize($Log$PrefixKind::JAVAC, this->descrKey, $$new($ObjectArray, {$($of(targets->toString()))}))));
+	$Option::help(log, $($nc(log)->localize($Log$PrefixKind::JAVAC, this->descrKey, $$new($ObjectArray, {$(targets->toString())}))));
 }
 
 $Stream* Option$14::lambda$help$0($PlatformProvider* provider) {
 	$init(Option$14);
-	$useLocalCurrentObjectStackCache();
-	return $StreamSupport::stream($($nc($($nc(provider)->getSupportedPlatformNames()))->spliterator()), false);
+	$useLocalObjectStack();
+	return $StreamSupport::stream($($$nc($nc(provider)->getSupportedPlatformNames())->spliterator()), false);
 }
 
 Option$14::Option$14() {
@@ -203,14 +158,46 @@ Option$14::Option$14() {
 
 $Class* Option$14::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(Option$14$$Lambda$lambda$help$0::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.main.Option$14$$Lambda$lambda$help$0")) {
 			return Option$14$$Lambda$lambda$help$0::load$(name, initialize);
 		}
-		if (name->equals(Option$14$$Lambda$LinkedHashSet$1::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.main.Option$14$$Lambda$LinkedHashSet$1")) {
 			return Option$14$$Lambda$LinkedHashSet$1::load$(name, initialize);
 		}
 	}
-	$loadClass(Option$14, name, initialize, &_Option$14_ClassInfo_, allocate$Option$14);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/sun/tools/javac/main/Option$OptionKind;Lcom/sun/tools/javac/main/Option$OptionGroup;)V", nullptr, $PRIVATE, $method(Option$14, init$, void, $String*, int32_t, $String*, $String*, $String*, $Option$OptionKind*, $Option$OptionGroup*)},
+		{"help", "(Lcom/sun/tools/javac/util/Log;)V", nullptr, $PROTECTED, $virtualMethod(Option$14, help, void, $Log*)},
+		{"lambda$help$0", "(Lcom/sun/tools/javac/platform/PlatformProvider;)Ljava/util/stream/Stream;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Option$14, lambda$help$0, $Stream*, $PlatformProvider*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.tools.javac.main.Option",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.main.Option$14", nullptr, nullptr, $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER | $ENUM,
+		"com.sun.tools.javac.main.Option$14",
+		"com.sun.tools.javac.main.Option",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.main.Option"
+	};
+	$loadClass(Option$14, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Option$14));
+	});
 	return class$;
 }
 

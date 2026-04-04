@@ -35,6 +35,7 @@ class ImagingLib : public ::java::lang::Object {
 	$class(ImagingLib, 0, ::java::lang::Object)
 public:
 	ImagingLib();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static int32_t convolveBI(::java::awt::image::BufferedImage* src, ::java::awt::image::BufferedImage* dst, ::java::awt::image::Kernel* kernel, int32_t edgeHint);
 	static int32_t convolveRaster(::java::awt::image::Raster* src, ::java::awt::image::Raster* dst, ::java::awt::image::Kernel* kernel, int32_t edgeHint);

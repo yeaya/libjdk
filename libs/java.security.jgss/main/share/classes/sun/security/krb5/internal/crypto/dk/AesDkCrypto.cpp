@@ -1,11 +1,7 @@
 #include <sun/security/krb5/internal/crypto/dk/AesDkCrypto.h>
-
 #include <java/nio/charset/Charset.h>
 #include <java/nio/charset/StandardCharsets.h>
 #include <java/security/GeneralSecurityException.h>
-#include <java/security/Key.h>
-#include <java/security/spec/AlgorithmParameterSpec.h>
-#include <java/security/spec/KeySpec.h>
 #include <java/util/Arrays.h>
 #include <javax/crypto/Cipher.h>
 #include <javax/crypto/Mac.h>
@@ -35,9 +31,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $StandardCharsets = ::java::nio::charset::StandardCharsets;
 using $GeneralSecurityException = ::java::security::GeneralSecurityException;
-using $Key = ::java::security::Key;
-using $AlgorithmParameterSpec = ::java::security::spec::AlgorithmParameterSpec;
-using $KeySpec = ::java::security::spec::KeySpec;
 using $Arrays = ::java::util::Arrays;
 using $Cipher = ::javax::crypto::Cipher;
 using $Mac = ::javax::crypto::Mac;
@@ -57,50 +50,6 @@ namespace sun {
 				namespace crypto {
 					namespace dk {
 
-$FieldInfo _AesDkCrypto_FieldInfo_[] = {
-	{"debug", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AesDkCrypto, debug)},
-	{"BLOCK_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AesDkCrypto, BLOCK_SIZE)},
-	{"DEFAULT_ITERATION_COUNT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AesDkCrypto, DEFAULT_ITERATION_COUNT)},
-	{"ZERO_IV", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AesDkCrypto, ZERO_IV)},
-	{"hashSize", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AesDkCrypto, hashSize)},
-	{"keyLength", "I", nullptr, $PRIVATE | $FINAL, $field(AesDkCrypto, keyLength)},
-	{}
-};
-
-$MethodInfo _AesDkCrypto_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(AesDkCrypto, init$, void, int32_t)},
-	{"PBKDF2", "([C[BII)[B", nullptr, $PRIVATE | $STATIC, $staticMethod(AesDkCrypto, PBKDF2, $bytes*, $chars*, $bytes*, int32_t, int32_t), "java.security.GeneralSecurityException"},
-	{"calculateChecksum", "([BI[BII)[B", nullptr, $PUBLIC, $virtualMethod(AesDkCrypto, calculateChecksum, $bytes*, $bytes*, int32_t, $bytes*, int32_t, int32_t), "java.security.GeneralSecurityException"},
-	{"decrypt", "([BI[B[BII)[B", nullptr, $PUBLIC, $virtualMethod(AesDkCrypto, decrypt, $bytes*, $bytes*, int32_t, $bytes*, $bytes*, int32_t, int32_t), "java.security.GeneralSecurityException"},
-	{"decryptCTS", "([BI[B[BIIZ)[B", nullptr, $PRIVATE, $method(AesDkCrypto, decryptCTS, $bytes*, $bytes*, int32_t, $bytes*, $bytes*, int32_t, int32_t, bool), "java.security.GeneralSecurityException"},
-	{"decryptRaw", "([BI[B[BII)[B", nullptr, $PUBLIC, $virtualMethod(AesDkCrypto, decryptRaw, $bytes*, $bytes*, int32_t, $bytes*, $bytes*, int32_t, int32_t), "java.security.GeneralSecurityException"},
-	{"encrypt", "([BI[B[B[BII)[B", nullptr, $PUBLIC, $virtualMethod(AesDkCrypto, encrypt, $bytes*, $bytes*, int32_t, $bytes*, $bytes*, $bytes*, int32_t, int32_t), "java.security.GeneralSecurityException,sun.security.krb5.KrbCryptoException"},
-	{"encryptCTS", "([BI[B[B[BIIZ)[B", nullptr, $PRIVATE, $method(AesDkCrypto, encryptCTS, $bytes*, $bytes*, int32_t, $bytes*, $bytes*, $bytes*, int32_t, int32_t, bool), "java.security.GeneralSecurityException,sun.security.krb5.KrbCryptoException"},
-	{"encryptRaw", "([BI[B[BII)[B", nullptr, $PUBLIC, $virtualMethod(AesDkCrypto, encryptRaw, $bytes*, $bytes*, int32_t, $bytes*, $bytes*, int32_t, int32_t), "java.security.GeneralSecurityException,sun.security.krb5.KrbCryptoException"},
-	{"getChecksumLength", "()I", nullptr, $PUBLIC, $virtualMethod(AesDkCrypto, getChecksumLength, int32_t)},
-	{"getCipher", "([B[BI)Ljavax/crypto/Cipher;", nullptr, $PROTECTED, $virtualMethod(AesDkCrypto, getCipher, $Cipher*, $bytes*, $bytes*, int32_t), "java.security.GeneralSecurityException"},
-	{"getHmac", "([B[B)[B", nullptr, $PROTECTED, $virtualMethod(AesDkCrypto, getHmac, $bytes*, $bytes*, $bytes*), "java.security.GeneralSecurityException"},
-	{"getKeySeedLength", "()I", nullptr, $PROTECTED, $virtualMethod(AesDkCrypto, getKeySeedLength, int32_t)},
-	{"randomToKey", "([B)[B", nullptr, $PROTECTED, $virtualMethod(AesDkCrypto, randomToKey, $bytes*, $bytes*)},
-	{"readBigEndian", "([BII)I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(AesDkCrypto, readBigEndian, int32_t, $bytes*, int32_t, int32_t)},
-	{"stringToKey", "([CLjava/lang/String;[B)[B", nullptr, $PUBLIC, $virtualMethod(AesDkCrypto, stringToKey, $bytes*, $chars*, $String*, $bytes*), "java.security.GeneralSecurityException"},
-	{"stringToKey", "([C[B[B)[B", nullptr, $PRIVATE, $method(AesDkCrypto, stringToKey, $bytes*, $chars*, $bytes*, $bytes*), "java.security.GeneralSecurityException"},
-	{}
-};
-
-$ClassInfo _AesDkCrypto_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.krb5.internal.crypto.dk.AesDkCrypto",
-	"sun.security.krb5.internal.crypto.dk.DkCrypto",
-	nullptr,
-	_AesDkCrypto_FieldInfo_,
-	_AesDkCrypto_MethodInfo_
-};
-
-$Object* allocate$AesDkCrypto($Class* clazz) {
-	return $of($alloc(AesDkCrypto));
-}
-
 $bytes* AesDkCrypto::ZERO_IV = nullptr;
 
 void AesDkCrypto::init$(int32_t length) {
@@ -113,43 +62,41 @@ int32_t AesDkCrypto::getKeySeedLength() {
 }
 
 $bytes* AesDkCrypto::stringToKey($chars* password, $String* salt, $bytes* s2kparams) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, saltUtf8, nullptr);
-	{
-		$var($Throwable, var$0, nullptr);
-		$var($bytes, var$2, nullptr);
-		bool return$1 = false;
+	$var($Throwable, var$0, nullptr);
+	$var($bytes, var$2, nullptr);
+	bool return$1 = false;
+	try {
 		try {
-			try {
-				$init($StandardCharsets);
-				$assign(saltUtf8, $nc(salt)->getBytes($StandardCharsets::UTF_8));
-				$assign(var$2, stringToKey(password, saltUtf8, s2kparams));
-				return$1 = true;
-				goto $finally;
-			} catch ($Exception& e) {
-				$assign(var$2, nullptr);
-				return$1 = true;
-				goto $finally;
-			}
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			if (saltUtf8 != nullptr) {
-				$Arrays::fill(saltUtf8, (int8_t)0);
-			}
+			$init($StandardCharsets);
+			$assign(saltUtf8, $nc(salt)->getBytes($StandardCharsets::UTF_8));
+			$assign(var$2, stringToKey(password, saltUtf8, s2kparams));
+			return$1 = true;
+			goto $finally;
+		} catch ($Exception& e) {
+			$assign(var$2, nullptr);
+			return$1 = true;
+			goto $finally;
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		if (saltUtf8 != nullptr) {
+			$Arrays::fill(saltUtf8, (int8_t)0);
 		}
-		if (return$1) {
-			return var$2;
-		}
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
 
 $bytes* AesDkCrypto::stringToKey($chars* secret, $bytes* salt, $bytes* params) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t iter_count = AesDkCrypto::DEFAULT_ITERATION_COUNT;
 	if (params != nullptr) {
 		if (params->length != 4) {
@@ -168,7 +115,7 @@ $bytes* AesDkCrypto::randomToKey($bytes* in) {
 }
 
 $Cipher* AesDkCrypto::getCipher($bytes* key, $bytes* ivec$renamed, int32_t mode) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, ivec, ivec$renamed);
 	if (ivec == nullptr) {
 		$assign(ivec, AesDkCrypto::ZERO_IV);
@@ -176,7 +123,7 @@ $Cipher* AesDkCrypto::getCipher($bytes* key, $bytes* ivec$renamed, int32_t mode)
 	$var($SecretKeySpec, secretKey, $new($SecretKeySpec, key, "AES"_s));
 	$var($Cipher, cipher, $Cipher::getInstance("AES/CBC/NoPadding"_s));
 	$var($IvParameterSpec, encIv, $new($IvParameterSpec, ivec, 0, $nc(ivec)->length));
-	$nc(cipher)->init(mode, static_cast<$Key*>(secretKey), static_cast<$AlgorithmParameterSpec*>(encIv));
+	$nc(cipher)->init(mode, secretKey, encIv);
 	return cipher;
 }
 
@@ -185,7 +132,7 @@ int32_t AesDkCrypto::getChecksumLength() {
 }
 
 $bytes* AesDkCrypto::getHmac($bytes* key, $bytes* msg) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SecretKey, keyKi, $new($SecretKeySpec, key, "HMAC"_s));
 	$var($Mac, m, $Mac::getInstance("HmacSHA1"_s));
 	$nc(m)->init(keyKi);
@@ -196,53 +143,53 @@ $bytes* AesDkCrypto::getHmac($bytes* key, $bytes* msg) {
 }
 
 $bytes* AesDkCrypto::calculateChecksum($bytes* baseKey, int32_t usage, $bytes* input, int32_t start, int32_t len) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!$KeyUsage::isValid(usage)) {
 		$throwNew($GeneralSecurityException, $$str({"Invalid key usage number: "_s, $$str(usage)}));
 	}
 	$var($bytes, constant, $new($bytes, 5));
-	constant->set(0, (int8_t)((int32_t)((usage >> 24) & (uint32_t)255)));
-	constant->set(1, (int8_t)((int32_t)((usage >> 16) & (uint32_t)255)));
-	constant->set(2, (int8_t)((int32_t)((usage >> 8) & (uint32_t)255)));
-	constant->set(3, (int8_t)((int32_t)(usage & (uint32_t)255)));
+	constant->set(0, (int8_t)((usage >> 24) & 0xff));
+	constant->set(1, (int8_t)((usage >> 16) & 0xff));
+	constant->set(2, (int8_t)((usage >> 8) & 0xff));
+	constant->set(3, (int8_t)(usage & 0xff));
 	constant->set(4, (int8_t)153);
 	$var($bytes, Kc, dk(baseKey, constant));
-	{
-		$var($Throwable, var$0, nullptr);
-		$var($bytes, var$2, nullptr);
-		bool return$1 = false;
-		try {
-			$var($bytes, hmac, getHmac(Kc, input));
-			if ($nc(hmac)->length == getChecksumLength()) {
-				$assign(var$2, hmac);
-				return$1 = true;
-				goto $finally;
-			} else if (hmac->length > getChecksumLength()) {
-				$var($bytes, buf, $new($bytes, getChecksumLength()));
-				$System::arraycopy(hmac, 0, buf, 0, buf->length);
-				$assign(var$2, buf);
-				return$1 = true;
-				goto $finally;
-			} else {
-				$throwNew($GeneralSecurityException, $$str({"checksum size too short: "_s, $$str(hmac->length), "; expecting : "_s, $$str(getChecksumLength())}));
-			}
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			$Arrays::fill(Kc, 0, $nc(Kc)->length, (int8_t)0);
+	;
+	$var($Throwable, var$0, nullptr);
+	$var($bytes, var$2, nullptr);
+	bool return$1 = false;
+	try {
+		$var($bytes, hmac, getHmac(Kc, input));
+		;
+		if ($nc(hmac)->length == getChecksumLength()) {
+			$assign(var$2, hmac);
+			return$1 = true;
+			goto $finally;
+		} else if (hmac->length > getChecksumLength()) {
+			$var($bytes, buf, $new($bytes, getChecksumLength()));
+			$System::arraycopy(hmac, 0, buf, 0, buf->length);
+			$assign(var$2, buf);
+			return$1 = true;
+			goto $finally;
+		} else {
+			$throwNew($GeneralSecurityException, $$str({"checksum size too short: "_s, $$str(hmac->length), "; expecting : "_s, $$str(getChecksumLength())}));
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		$Arrays::fill(Kc, 0, $nc(Kc)->length, (int8_t)0);
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
 
 $bytes* AesDkCrypto::encrypt($bytes* baseKey, int32_t usage, $bytes* ivec, $bytes* new_ivec, $bytes* plaintext, int32_t start, int32_t len) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!$KeyUsage::isValid(usage)) {
 		$throwNew($GeneralSecurityException, $$str({"Invalid key usage number: "_s, $$str(usage)}));
 	}
@@ -251,7 +198,7 @@ $bytes* AesDkCrypto::encrypt($bytes* baseKey, int32_t usage, $bytes* ivec, $byte
 }
 
 $bytes* AesDkCrypto::encryptRaw($bytes* baseKey, int32_t usage, $bytes* ivec, $bytes* plaintext, int32_t start, int32_t len) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!$KeyUsage::isValid(usage)) {
 		$throwNew($GeneralSecurityException, $$str({"Invalid key usage number: "_s, $$str(usage)}));
 	}
@@ -260,7 +207,7 @@ $bytes* AesDkCrypto::encryptRaw($bytes* baseKey, int32_t usage, $bytes* ivec, $b
 }
 
 $bytes* AesDkCrypto::decrypt($bytes* baseKey, int32_t usage, $bytes* ivec, $bytes* ciphertext, int32_t start, int32_t len) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!$KeyUsage::isValid(usage)) {
 		$throwNew($GeneralSecurityException, $$str({"Invalid key usage number: "_s, $$str(usage)}));
 	}
@@ -269,7 +216,7 @@ $bytes* AesDkCrypto::decrypt($bytes* baseKey, int32_t usage, $bytes* ivec, $byte
 }
 
 $bytes* AesDkCrypto::decryptRaw($bytes* baseKey, int32_t usage, $bytes* ivec, $bytes* ciphertext, int32_t start, int32_t len) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!$KeyUsage::isValid(usage)) {
 		$throwNew($GeneralSecurityException, $$str({"Invalid key usage number: "_s, $$str(usage)}));
 	}
@@ -278,135 +225,138 @@ $bytes* AesDkCrypto::decryptRaw($bytes* baseKey, int32_t usage, $bytes* ivec, $b
 }
 
 $bytes* AesDkCrypto::encryptCTS($bytes* baseKey, int32_t usage, $bytes* ivec, $bytes* new_ivec, $bytes* plaintext, int32_t start, int32_t len, bool confounder_exists) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, Ke, nullptr);
 	$var($bytes, Ki, nullptr);
-	{
-		$var($Throwable, var$0, nullptr);
-		$var($bytes, var$2, nullptr);
-		bool return$1 = false;
-		try {
-			$var($bytes, constant, $new($bytes, 5));
-			constant->set(0, (int8_t)((int32_t)((usage >> 24) & (uint32_t)255)));
-			constant->set(1, (int8_t)((int32_t)((usage >> 16) & (uint32_t)255)));
-			constant->set(2, (int8_t)((int32_t)((usage >> 8) & (uint32_t)255)));
-			constant->set(3, (int8_t)((int32_t)(usage & (uint32_t)255)));
-			constant->set(4, (int8_t)170);
-			$assign(Ke, dk(baseKey, constant));
-			$var($bytes, toBeEncrypted, nullptr);
-			if (confounder_exists) {
-				$var($bytes, confounder, $Confounder::bytes(AesDkCrypto::BLOCK_SIZE));
-				$assign(toBeEncrypted, $new($bytes, $nc(confounder)->length + len));
-				$System::arraycopy(confounder, 0, toBeEncrypted, 0, confounder->length);
-				$System::arraycopy(plaintext, start, toBeEncrypted, confounder->length, len);
-			} else {
-				$assign(toBeEncrypted, $new($bytes, len));
-				$System::arraycopy(plaintext, start, toBeEncrypted, 0, len);
-			}
-			$var($bytes, output, $new($bytes, $nc(toBeEncrypted)->length + AesDkCrypto::hashSize));
-			$var($Cipher, cipher, $Cipher::getInstance("AES/CTS/NoPadding"_s));
-			$var($SecretKeySpec, secretKey, $new($SecretKeySpec, Ke, "AES"_s));
-			$var($IvParameterSpec, encIv, $new($IvParameterSpec, ivec, 0, $nc(ivec)->length));
-			$nc(cipher)->init($Cipher::ENCRYPT_MODE, static_cast<$Key*>(secretKey), static_cast<$AlgorithmParameterSpec*>(encIv));
-			cipher->doFinal(toBeEncrypted, 0, toBeEncrypted->length, output);
-			constant->set(4, (int8_t)85);
-			$assign(Ki, dk(baseKey, constant));
-			$var($bytes, hmac, getHmac(Ki, toBeEncrypted));
-			$System::arraycopy(hmac, 0, output, toBeEncrypted->length, $nc(hmac)->length);
-			$assign(var$2, output);
-			return$1 = true;
-			goto $finally;
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			if (Ke != nullptr) {
-				$Arrays::fill(Ke, 0, Ke->length, (int8_t)0);
-			}
-			if (Ki != nullptr) {
-				$Arrays::fill(Ki, 0, Ki->length, (int8_t)0);
-			}
+	;
+	$var($Throwable, var$0, nullptr);
+	$var($bytes, var$2, nullptr);
+	bool return$1 = false;
+	try {
+		$var($bytes, constant, $new($bytes, 5));
+		constant->set(0, (int8_t)((usage >> 24) & 0xff));
+		constant->set(1, (int8_t)((usage >> 16) & 0xff));
+		constant->set(2, (int8_t)((usage >> 8) & 0xff));
+		constant->set(3, (int8_t)(usage & 0xff));
+		constant->set(4, (int8_t)170);
+		$assign(Ke, dk(baseKey, constant));
+		$var($bytes, toBeEncrypted, nullptr);
+		if (confounder_exists) {
+			$var($bytes, confounder, $Confounder::bytes(AesDkCrypto::BLOCK_SIZE));
+			$assign(toBeEncrypted, $new($bytes, $nc(confounder)->length + len));
+			$System::arraycopy(confounder, 0, toBeEncrypted, 0, confounder->length);
+			$System::arraycopy(plaintext, start, toBeEncrypted, confounder->length, len);
+		} else {
+			$assign(toBeEncrypted, $new($bytes, len));
+			$System::arraycopy(plaintext, start, toBeEncrypted, 0, len);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+		$var($bytes, output, $new($bytes, $nc(toBeEncrypted)->length + AesDkCrypto::hashSize));
+		$var($Cipher, cipher, $Cipher::getInstance("AES/CTS/NoPadding"_s));
+		$var($SecretKeySpec, secretKey, $new($SecretKeySpec, Ke, "AES"_s));
+		$var($IvParameterSpec, encIv, $new($IvParameterSpec, ivec, 0, $nc(ivec)->length));
+		$nc(cipher)->init($Cipher::ENCRYPT_MODE, secretKey, encIv);
+		cipher->doFinal(toBeEncrypted, 0, toBeEncrypted->length, output);
+		constant->set(4, (int8_t)85);
+		$assign(Ki, dk(baseKey, constant));
+		;
+		$var($bytes, hmac, getHmac(Ki, toBeEncrypted));
+		$System::arraycopy(hmac, 0, output, toBeEncrypted->length, $nc(hmac)->length);
+		$assign(var$2, output);
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		if (Ke != nullptr) {
+			$Arrays::fill(Ke, 0, Ke->length, (int8_t)0);
 		}
-		if (return$1) {
-			return var$2;
+		if (Ki != nullptr) {
+			$Arrays::fill(Ki, 0, Ki->length, (int8_t)0);
 		}
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
 
 $bytes* AesDkCrypto::decryptCTS($bytes* baseKey, int32_t usage, $bytes* ivec, $bytes* ciphertext, int32_t start, int32_t len, bool confounder_exists) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, Ke, nullptr);
 	$var($bytes, Ki, nullptr);
-	{
-		$var($Throwable, var$0, nullptr);
-		$var($bytes, var$2, nullptr);
-		bool return$1 = false;
-		try {
-			$var($bytes, constant, $new($bytes, 5));
-			constant->set(0, (int8_t)((int32_t)((usage >> 24) & (uint32_t)255)));
-			constant->set(1, (int8_t)((int32_t)((usage >> 16) & (uint32_t)255)));
-			constant->set(2, (int8_t)((int32_t)((usage >> 8) & (uint32_t)255)));
-			constant->set(3, (int8_t)((int32_t)(usage & (uint32_t)255)));
-			constant->set(4, (int8_t)170);
-			$assign(Ke, dk(baseKey, constant));
-			$var($Cipher, cipher, $Cipher::getInstance("AES/CTS/NoPadding"_s));
-			$var($SecretKeySpec, secretKey, $new($SecretKeySpec, Ke, "AES"_s));
-			$var($IvParameterSpec, encIv, $new($IvParameterSpec, ivec, 0, $nc(ivec)->length));
-			$nc(cipher)->init($Cipher::DECRYPT_MODE, static_cast<$Key*>(secretKey), static_cast<$AlgorithmParameterSpec*>(encIv));
-			$var($bytes, plaintext, cipher->doFinal(ciphertext, start, len - AesDkCrypto::hashSize));
-			constant->set(4, (int8_t)85);
-			$assign(Ki, dk(baseKey, constant));
-			$var($bytes, calculatedHmac, getHmac(Ki, plaintext));
-			int32_t hmacOffset = start + len - AesDkCrypto::hashSize;
-			bool cksumFailed = false;
-			if ($nc(calculatedHmac)->length >= AesDkCrypto::hashSize) {
-				for (int32_t i = 0; i < AesDkCrypto::hashSize; ++i) {
-					if (calculatedHmac->get(i) != $nc(ciphertext)->get(hmacOffset + i)) {
-						cksumFailed = true;
-						break;
-					}
+	$var($Throwable, var$0, nullptr);
+	$var($bytes, var$2, nullptr);
+	bool return$1 = false;
+	try {
+		$var($bytes, constant, $new($bytes, 5));
+		constant->set(0, (int8_t)((usage >> 24) & 0xff));
+		constant->set(1, (int8_t)((usage >> 16) & 0xff));
+		constant->set(2, (int8_t)((usage >> 8) & 0xff));
+		constant->set(3, (int8_t)(usage & 0xff));
+		constant->set(4, (int8_t)170);
+		$assign(Ke, dk(baseKey, constant));
+		;
+		$var($Cipher, cipher, $Cipher::getInstance("AES/CTS/NoPadding"_s));
+		$var($SecretKeySpec, secretKey, $new($SecretKeySpec, Ke, "AES"_s));
+		$var($IvParameterSpec, encIv, $new($IvParameterSpec, ivec, 0, $nc(ivec)->length));
+		$nc(cipher)->init($Cipher::DECRYPT_MODE, secretKey, encIv);
+		$var($bytes, plaintext, cipher->doFinal(ciphertext, start, len - AesDkCrypto::hashSize));
+		;
+		constant->set(4, (int8_t)85);
+		$assign(Ki, dk(baseKey, constant));
+		;
+		$var($bytes, calculatedHmac, getHmac(Ki, plaintext));
+		int32_t hmacOffset = start + len - AesDkCrypto::hashSize;
+		;
+		bool cksumFailed = false;
+		if ($nc(calculatedHmac)->length >= AesDkCrypto::hashSize) {
+			for (int32_t i = 0; i < AesDkCrypto::hashSize; ++i) {
+				if (calculatedHmac->get(i) != $nc(ciphertext)->get(hmacOffset + i)) {
+					cksumFailed = true;
+					;
+					break;
 				}
 			}
-			if (cksumFailed) {
-				$throwNew($GeneralSecurityException, "Checksum failed"_s);
-			}
-			if (confounder_exists) {
-				$var($bytes, output, $new($bytes, $nc(plaintext)->length - AesDkCrypto::BLOCK_SIZE));
-				$System::arraycopy(plaintext, AesDkCrypto::BLOCK_SIZE, output, 0, output->length);
-				$assign(var$2, output);
-				return$1 = true;
-				goto $finally;
-			} else {
-				$assign(var$2, plaintext);
-				return$1 = true;
-				goto $finally;
-			}
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			if (Ke != nullptr) {
-				$Arrays::fill(Ke, 0, Ke->length, (int8_t)0);
-			}
-			if (Ki != nullptr) {
-				$Arrays::fill(Ki, 0, Ki->length, (int8_t)0);
-			}
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+		if (cksumFailed) {
+			$throwNew($GeneralSecurityException, "Checksum failed"_s);
 		}
-		if (return$1) {
-			return var$2;
+		if (confounder_exists) {
+			$var($bytes, output, $new($bytes, $nc(plaintext)->length - AesDkCrypto::BLOCK_SIZE));
+			$System::arraycopy(plaintext, AesDkCrypto::BLOCK_SIZE, output, 0, output->length);
+			$assign(var$2, output);
+			return$1 = true;
+			goto $finally;
+		} else {
+			$assign(var$2, plaintext);
+			return$1 = true;
+			goto $finally;
 		}
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		if (Ke != nullptr) {
+			$Arrays::fill(Ke, 0, Ke->length, (int8_t)0);
+		}
+		if (Ki != nullptr) {
+			$Arrays::fill(Ki, 0, Ki->length, (int8_t)0);
+		}
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
 
 $bytes* AesDkCrypto::PBKDF2($chars* secret, $bytes* salt, int32_t count, int32_t keyLength) {
 	$init(AesDkCrypto);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($PBEKeySpec, keySpec, $new($PBEKeySpec, secret, salt, count, keyLength));
 	$var($SecretKeyFactory, skf, $SecretKeyFactory::getInstance("PBKDF2WithHmacSHA1"_s));
 	$var($SecretKey, key, $nc(skf)->generateSecret(keySpec));
@@ -419,7 +369,7 @@ int32_t AesDkCrypto::readBigEndian($bytes* data, int32_t pos, int32_t size) {
 	int32_t retVal = 0;
 	int32_t shifter = (size - 1) * 8;
 	while (size > 0) {
-		retVal += $sl((int32_t)($nc(data)->get(pos) & (uint32_t)255), shifter);
+		retVal += $sl($nc(data)->get(pos) & 0xff, shifter);
 		shifter -= 8;
 		++pos;
 		--size;
@@ -427,24 +377,24 @@ int32_t AesDkCrypto::readBigEndian($bytes* data, int32_t pos, int32_t size) {
 	return retVal;
 }
 
-void clinit$AesDkCrypto($Class* class$) {
+void AesDkCrypto::clinit$($Class* clazz) {
 	$assignStatic(AesDkCrypto::ZERO_IV, $new($bytes, {
-		(int8_t)0,
-		(int8_t)0,
-		(int8_t)0,
-		(int8_t)0,
-		(int8_t)0,
-		(int8_t)0,
-		(int8_t)0,
-		(int8_t)0,
-		(int8_t)0,
-		(int8_t)0,
-		(int8_t)0,
-		(int8_t)0,
-		(int8_t)0,
-		(int8_t)0,
-		(int8_t)0,
-		(int8_t)0
+		0,
+		0,
+		0,
+		0,
+		0,
+		0,
+		0,
+		0,
+		0,
+		0,
+		0,
+		0,
+		0,
+		0,
+		0,
+		0
 	}));
 }
 
@@ -452,7 +402,46 @@ AesDkCrypto::AesDkCrypto() {
 }
 
 $Class* AesDkCrypto::load$($String* name, bool initialize) {
-	$loadClass(AesDkCrypto, name, initialize, &_AesDkCrypto_ClassInfo_, clinit$AesDkCrypto, allocate$AesDkCrypto);
+	$FieldInfo fieldInfos$$[] = {
+		{"debug", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AesDkCrypto, debug)},
+		{"BLOCK_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AesDkCrypto, BLOCK_SIZE)},
+		{"DEFAULT_ITERATION_COUNT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AesDkCrypto, DEFAULT_ITERATION_COUNT)},
+		{"ZERO_IV", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AesDkCrypto, ZERO_IV)},
+		{"hashSize", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AesDkCrypto, hashSize)},
+		{"keyLength", "I", nullptr, $PRIVATE | $FINAL, $field(AesDkCrypto, keyLength)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(AesDkCrypto, init$, void, int32_t)},
+		{"PBKDF2", "([C[BII)[B", nullptr, $PRIVATE | $STATIC, $staticMethod(AesDkCrypto, PBKDF2, $bytes*, $chars*, $bytes*, int32_t, int32_t), "java.security.GeneralSecurityException"},
+		{"calculateChecksum", "([BI[BII)[B", nullptr, $PUBLIC, $virtualMethod(AesDkCrypto, calculateChecksum, $bytes*, $bytes*, int32_t, $bytes*, int32_t, int32_t), "java.security.GeneralSecurityException"},
+		{"decrypt", "([BI[B[BII)[B", nullptr, $PUBLIC, $virtualMethod(AesDkCrypto, decrypt, $bytes*, $bytes*, int32_t, $bytes*, $bytes*, int32_t, int32_t), "java.security.GeneralSecurityException"},
+		{"decryptCTS", "([BI[B[BIIZ)[B", nullptr, $PRIVATE, $method(AesDkCrypto, decryptCTS, $bytes*, $bytes*, int32_t, $bytes*, $bytes*, int32_t, int32_t, bool), "java.security.GeneralSecurityException"},
+		{"decryptRaw", "([BI[B[BII)[B", nullptr, $PUBLIC, $virtualMethod(AesDkCrypto, decryptRaw, $bytes*, $bytes*, int32_t, $bytes*, $bytes*, int32_t, int32_t), "java.security.GeneralSecurityException"},
+		{"encrypt", "([BI[B[B[BII)[B", nullptr, $PUBLIC, $virtualMethod(AesDkCrypto, encrypt, $bytes*, $bytes*, int32_t, $bytes*, $bytes*, $bytes*, int32_t, int32_t), "java.security.GeneralSecurityException,sun.security.krb5.KrbCryptoException"},
+		{"encryptCTS", "([BI[B[B[BIIZ)[B", nullptr, $PRIVATE, $method(AesDkCrypto, encryptCTS, $bytes*, $bytes*, int32_t, $bytes*, $bytes*, $bytes*, int32_t, int32_t, bool), "java.security.GeneralSecurityException,sun.security.krb5.KrbCryptoException"},
+		{"encryptRaw", "([BI[B[BII)[B", nullptr, $PUBLIC, $virtualMethod(AesDkCrypto, encryptRaw, $bytes*, $bytes*, int32_t, $bytes*, $bytes*, int32_t, int32_t), "java.security.GeneralSecurityException,sun.security.krb5.KrbCryptoException"},
+		{"getChecksumLength", "()I", nullptr, $PUBLIC, $virtualMethod(AesDkCrypto, getChecksumLength, int32_t)},
+		{"getCipher", "([B[BI)Ljavax/crypto/Cipher;", nullptr, $PROTECTED, $virtualMethod(AesDkCrypto, getCipher, $Cipher*, $bytes*, $bytes*, int32_t), "java.security.GeneralSecurityException"},
+		{"getHmac", "([B[B)[B", nullptr, $PROTECTED, $virtualMethod(AesDkCrypto, getHmac, $bytes*, $bytes*, $bytes*), "java.security.GeneralSecurityException"},
+		{"getKeySeedLength", "()I", nullptr, $PROTECTED, $virtualMethod(AesDkCrypto, getKeySeedLength, int32_t)},
+		{"randomToKey", "([B)[B", nullptr, $PROTECTED, $virtualMethod(AesDkCrypto, randomToKey, $bytes*, $bytes*)},
+		{"readBigEndian", "([BII)I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(AesDkCrypto, readBigEndian, int32_t, $bytes*, int32_t, int32_t)},
+		{"stringToKey", "([CLjava/lang/String;[B)[B", nullptr, $PUBLIC, $virtualMethod(AesDkCrypto, stringToKey, $bytes*, $chars*, $String*, $bytes*), "java.security.GeneralSecurityException"},
+		{"stringToKey", "([C[B[B)[B", nullptr, $PRIVATE, $method(AesDkCrypto, stringToKey, $bytes*, $chars*, $bytes*, $bytes*), "java.security.GeneralSecurityException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.krb5.internal.crypto.dk.AesDkCrypto",
+		"sun.security.krb5.internal.crypto.dk.DkCrypto",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(AesDkCrypto, name, initialize, &classInfo$$, AesDkCrypto::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(AesDkCrypto);
+	});
 	return class$;
 }
 

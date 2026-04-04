@@ -57,6 +57,7 @@ class FilterGenerator : public ::com::sun::org::apache::xalan::internal::xsltc::
 public:
 	FilterGenerator();
 	using ::com::sun::org::apache::xalan::internal::xsltc::compiler::util::ClassGenerator::addMethod;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* className, $String* superClassName, $String* fileName, int32_t accessFlags, $StringArray* interfaces, ::com::sun::org::apache::xalan::internal::xsltc::compiler::Stylesheet* stylesheet);
 	virtual bool isExternal() override;
 	virtual ::com::sun::org::apache::bcel::internal::generic::Instruction* loadTranslet() override;

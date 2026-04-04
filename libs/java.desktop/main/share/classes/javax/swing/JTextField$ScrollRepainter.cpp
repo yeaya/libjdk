@@ -1,5 +1,4 @@
 #include <javax/swing/JTextField$ScrollRepainter.h>
-
 #include <java/awt/Component.h>
 #include <javax/swing/JTextField.h>
 #include <javax/swing/event/ChangeEvent.h>
@@ -16,47 +15,6 @@ using $ChangeListener = ::javax::swing::event::ChangeListener;
 
 namespace javax {
 	namespace swing {
-
-$FieldInfo _JTextField$ScrollRepainter_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/JTextField;", nullptr, $FINAL | $SYNTHETIC, $field(JTextField$ScrollRepainter, this$0)},
-	{}
-};
-
-$MethodInfo _JTextField$ScrollRepainter_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljavax/swing/JTextField;)V", nullptr, 0, $method(JTextField$ScrollRepainter, init$, void, $JTextField*)},
-	{"stateChanged", "(Ljavax/swing/event/ChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(JTextField$ScrollRepainter, stateChanged, void, $ChangeEvent*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _JTextField$ScrollRepainter_InnerClassesInfo_[] = {
-	{"javax.swing.JTextField$ScrollRepainter", "javax.swing.JTextField", "ScrollRepainter", 0},
-	{}
-};
-
-$ClassInfo _JTextField$ScrollRepainter_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.JTextField$ScrollRepainter",
-	"java.lang.Object",
-	"javax.swing.event.ChangeListener,java.io.Serializable",
-	_JTextField$ScrollRepainter_FieldInfo_,
-	_JTextField$ScrollRepainter_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JTextField$ScrollRepainter_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.JTextField"
-};
-
-$Object* allocate$JTextField$ScrollRepainter($Class* clazz) {
-	return $of($alloc(JTextField$ScrollRepainter));
-}
 
 int32_t JTextField$ScrollRepainter::hashCode() {
 	 return this->$ChangeListener::hashCode();
@@ -90,7 +48,42 @@ JTextField$ScrollRepainter::JTextField$ScrollRepainter() {
 }
 
 $Class* JTextField$ScrollRepainter::load$($String* name, bool initialize) {
-	$loadClass(JTextField$ScrollRepainter, name, initialize, &_JTextField$ScrollRepainter_ClassInfo_, allocate$JTextField$ScrollRepainter);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/JTextField;", nullptr, $FINAL | $SYNTHETIC, $field(JTextField$ScrollRepainter, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljavax/swing/JTextField;)V", nullptr, 0, $method(JTextField$ScrollRepainter, init$, void, $JTextField*)},
+		{"stateChanged", "(Ljavax/swing/event/ChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(JTextField$ScrollRepainter, stateChanged, void, $ChangeEvent*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.JTextField$ScrollRepainter", "javax.swing.JTextField", "ScrollRepainter", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.JTextField$ScrollRepainter",
+		"java.lang.Object",
+		"javax.swing.event.ChangeListener,java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.JTextField"
+	};
+	$loadClass(JTextField$ScrollRepainter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JTextField$ScrollRepainter));
+	});
 	return class$;
 }
 

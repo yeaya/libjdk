@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/parsers/XMLGrammarPreparser.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/Constants.h>
 #include <com/sun/org/apache/xerces/internal/impl/XMLEntityManager.h>
 #include <com/sun/org/apache/xerces/internal/impl/XMLErrorReporter.h>
@@ -62,7 +61,6 @@ using $Iterator = ::java::util::Iterator;
 using $Locale = ::java::util::Locale;
 using $Map = ::java::util::Map;
 using $Map$Entry = ::java::util::Map$Entry;
-using $Set = ::java::util::Set;
 
 namespace com {
 	namespace sun {
@@ -71,58 +69,6 @@ namespace com {
 				namespace xerces {
 					namespace internal {
 						namespace parsers {
-
-$FieldInfo _XMLGrammarPreparser_FieldInfo_[] = {
-	{"CONTINUE_AFTER_FATAL_ERROR", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XMLGrammarPreparser, CONTINUE_AFTER_FATAL_ERROR)},
-	{"SYMBOL_TABLE", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XMLGrammarPreparser, SYMBOL_TABLE)},
-	{"ERROR_REPORTER", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XMLGrammarPreparser, ERROR_REPORTER)},
-	{"ERROR_HANDLER", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XMLGrammarPreparser, ERROR_HANDLER)},
-	{"ENTITY_RESOLVER", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XMLGrammarPreparser, ENTITY_RESOLVER)},
-	{"GRAMMAR_POOL", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XMLGrammarPreparser, GRAMMAR_POOL)},
-	{"KNOWN_LOADERS", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;", $PRIVATE | $STATIC | $FINAL, $staticField(XMLGrammarPreparser, KNOWN_LOADERS)},
-	{"RECOGNIZED_PROPERTIES", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XMLGrammarPreparser, RECOGNIZED_PROPERTIES)},
-	{"fSymbolTable", "Lcom/sun/org/apache/xerces/internal/util/SymbolTable;", nullptr, $PROTECTED, $field(XMLGrammarPreparser, fSymbolTable)},
-	{"fErrorReporter", "Lcom/sun/org/apache/xerces/internal/impl/XMLErrorReporter;", nullptr, $PROTECTED, $field(XMLGrammarPreparser, fErrorReporter)},
-	{"fEntityResolver", "Lcom/sun/org/apache/xerces/internal/xni/parser/XMLEntityResolver;", nullptr, $PROTECTED, $field(XMLGrammarPreparser, fEntityResolver)},
-	{"fGrammarPool", "Lcom/sun/org/apache/xerces/internal/xni/grammars/XMLGrammarPool;", nullptr, $PROTECTED, $field(XMLGrammarPreparser, fGrammarPool)},
-	{"fLocale", "Ljava/util/Locale;", nullptr, $PROTECTED, $field(XMLGrammarPreparser, fLocale)},
-	{"fLoaders", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/xni/grammars/XMLGrammarLoader;>;", $PRIVATE, $field(XMLGrammarPreparser, fLoaders)},
-	{}
-};
-
-$MethodInfo _XMLGrammarPreparser_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(XMLGrammarPreparser, init$, void)},
-	{"<init>", "(Lcom/sun/org/apache/xerces/internal/util/SymbolTable;)V", nullptr, $PUBLIC, $method(XMLGrammarPreparser, init$, void, $SymbolTable*)},
-	{"getEntityResolver", "()Lcom/sun/org/apache/xerces/internal/xni/parser/XMLEntityResolver;", nullptr, $PUBLIC, $virtualMethod(XMLGrammarPreparser, getEntityResolver, $XMLEntityResolver*)},
-	{"getErrorHandler", "()Lcom/sun/org/apache/xerces/internal/xni/parser/XMLErrorHandler;", nullptr, $PUBLIC, $virtualMethod(XMLGrammarPreparser, getErrorHandler, $XMLErrorHandler*)},
-	{"getFeature", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(XMLGrammarPreparser, getFeature, bool, $String*, $String*)},
-	{"getGrammarPool", "()Lcom/sun/org/apache/xerces/internal/xni/grammars/XMLGrammarPool;", nullptr, $PUBLIC, $virtualMethod(XMLGrammarPreparser, getGrammarPool, $XMLGrammarPool*)},
-	{"getLoader", "(Ljava/lang/String;)Lcom/sun/org/apache/xerces/internal/xni/grammars/XMLGrammarLoader;", nullptr, $PUBLIC, $virtualMethod(XMLGrammarPreparser, getLoader, $XMLGrammarLoader*, $String*)},
-	{"getLocale", "()Ljava/util/Locale;", nullptr, $PUBLIC, $virtualMethod(XMLGrammarPreparser, getLocale, $Locale*)},
-	{"getProperty", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(XMLGrammarPreparser, getProperty, $Object*, $String*, $String*)},
-	{"preparseGrammar", "(Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/xni/parser/XMLInputSource;)Lcom/sun/org/apache/xerces/internal/xni/grammars/Grammar;", nullptr, $PUBLIC, $virtualMethod(XMLGrammarPreparser, preparseGrammar, $Grammar*, $String*, $XMLInputSource*), "com.sun.org.apache.xerces.internal.xni.XNIException,java.io.IOException"},
-	{"registerPreparser", "(Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/xni/grammars/XMLGrammarLoader;)Z", nullptr, $PUBLIC, $virtualMethod(XMLGrammarPreparser, registerPreparser, bool, $String*, $XMLGrammarLoader*)},
-	{"setEntityResolver", "(Lcom/sun/org/apache/xerces/internal/xni/parser/XMLEntityResolver;)V", nullptr, $PUBLIC, $virtualMethod(XMLGrammarPreparser, setEntityResolver, void, $XMLEntityResolver*)},
-	{"setErrorHandler", "(Lcom/sun/org/apache/xerces/internal/xni/parser/XMLErrorHandler;)V", nullptr, $PUBLIC, $virtualMethod(XMLGrammarPreparser, setErrorHandler, void, $XMLErrorHandler*)},
-	{"setFeature", "(Ljava/lang/String;Z)V", nullptr, $PUBLIC, $virtualMethod(XMLGrammarPreparser, setFeature, void, $String*, bool)},
-	{"setGrammarPool", "(Lcom/sun/org/apache/xerces/internal/xni/grammars/XMLGrammarPool;)V", nullptr, $PUBLIC, $virtualMethod(XMLGrammarPreparser, setGrammarPool, void, $XMLGrammarPool*)},
-	{"setLocale", "(Ljava/util/Locale;)V", nullptr, $PUBLIC, $virtualMethod(XMLGrammarPreparser, setLocale, void, $Locale*)},
-	{"setProperty", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(XMLGrammarPreparser, setProperty, void, $String*, Object$*)},
-	{}
-};
-
-$ClassInfo _XMLGrammarPreparser_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.parsers.XMLGrammarPreparser",
-	"java.lang.Object",
-	nullptr,
-	_XMLGrammarPreparser_FieldInfo_,
-	_XMLGrammarPreparser_MethodInfo_
-};
-
-$Object* allocate$XMLGrammarPreparser($Class* clazz) {
-	return $of($alloc(XMLGrammarPreparser));
-}
 
 $String* XMLGrammarPreparser::CONTINUE_AFTER_FATAL_ERROR = nullptr;
 $String* XMLGrammarPreparser::SYMBOL_TABLE = nullptr;
@@ -146,12 +92,12 @@ void XMLGrammarPreparser::init$($SymbolTable* symbolTable) {
 }
 
 bool XMLGrammarPreparser::registerPreparser($String* grammarType, $XMLGrammarLoader* loader) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (loader == nullptr) {
 		if ($nc(XMLGrammarPreparser::KNOWN_LOADERS)->containsKey(grammarType)) {
-			$var($String, loaderName, $cast($String, $nc(XMLGrammarPreparser::KNOWN_LOADERS)->get(grammarType)));
+			$var($String, loaderName, $cast($String, XMLGrammarPreparser::KNOWN_LOADERS->get(grammarType)));
 			try {
-				$var($XMLGrammarLoader, gl, ($cast($XMLGrammarLoader, $ObjectFactory::newInstance(loaderName, true))));
+				$var($XMLGrammarLoader, gl, $cast($XMLGrammarLoader, $ObjectFactory::newInstance(loaderName, true)));
 				$nc(this->fLoaders)->put(grammarType, gl);
 			} catch ($Exception& e) {
 				return false;
@@ -166,7 +112,7 @@ bool XMLGrammarPreparser::registerPreparser($String* grammarType, $XMLGrammarLoa
 
 $Grammar* XMLGrammarPreparser::preparseGrammar($String* type, $XMLInputSource* is) {
 	if ($nc(this->fLoaders)->containsKey(type)) {
-		$var($XMLGrammarLoader, gl, $cast($XMLGrammarLoader, $nc(this->fLoaders)->get(type)));
+		$var($XMLGrammarLoader, gl, $cast($XMLGrammarLoader, this->fLoaders->get(type)));
 		$nc(gl)->setProperty(XMLGrammarPreparser::SYMBOL_TABLE, this->fSymbolTable);
 		gl->setProperty(XMLGrammarPreparser::ENTITY_RESOLVER, this->fEntityResolver);
 		gl->setProperty(XMLGrammarPreparser::ERROR_REPORTER, this->fErrorReporter);
@@ -219,17 +165,15 @@ $XMLGrammarLoader* XMLGrammarPreparser::getLoader($String* type) {
 }
 
 void XMLGrammarPreparser::setFeature($String* featureId, bool value) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	{
-		$var($Iterator, i$, $nc($($nc(this->fLoaders)->entrySet()))->iterator());
+		$var($Iterator, i$, $$nc($nc(this->fLoaders)->entrySet())->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Map$Entry, entry, $cast($Map$Entry, i$->next()));
-			{
-				try {
-					$var($XMLGrammarLoader, gl, $cast($XMLGrammarLoader, $nc(entry)->getValue()));
-					$nc(gl)->setFeature(featureId, value);
-				} catch ($Exception& e) {
-				}
+			try {
+				$var($XMLGrammarLoader, gl, $cast($XMLGrammarLoader, $nc(entry)->getValue()));
+				$nc(gl)->setFeature(featureId, value);
+			} catch ($Exception& e) {
 			}
 		}
 	}
@@ -239,18 +183,14 @@ void XMLGrammarPreparser::setFeature($String* featureId, bool value) {
 }
 
 void XMLGrammarPreparser::setProperty($String* propId, Object$* value) {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Iterator, i$, $nc($($nc(this->fLoaders)->entrySet()))->iterator());
-		for (; $nc(i$)->hasNext();) {
-			$var($Map$Entry, entry, $cast($Map$Entry, i$->next()));
-			{
-				try {
-					$var($XMLGrammarLoader, gl, $cast($XMLGrammarLoader, $nc(entry)->getValue()));
-					$nc(gl)->setProperty(propId, value);
-				} catch ($Exception& e) {
-				}
-			}
+	$useLocalObjectStack();
+	$var($Iterator, i$, $$nc($nc(this->fLoaders)->entrySet())->iterator());
+	for (; $nc(i$)->hasNext();) {
+		$var($Map$Entry, entry, $cast($Map$Entry, i$->next()));
+		try {
+			$var($XMLGrammarLoader, gl, $cast($XMLGrammarLoader, $nc(entry)->getValue()));
+			$nc(gl)->setProperty(propId, value);
+		} catch ($Exception& e) {
 		}
 	}
 }
@@ -262,10 +202,10 @@ bool XMLGrammarPreparser::getFeature($String* type, $String* featureId) {
 
 $Object* XMLGrammarPreparser::getProperty($String* type, $String* propertyId) {
 	$var($XMLGrammarLoader, gl, $cast($XMLGrammarLoader, $nc(this->fLoaders)->get(type)));
-	return $of($nc(gl)->getProperty(propertyId));
+	return $nc(gl)->getProperty(propertyId);
 }
 
-void clinit$XMLGrammarPreparser($Class* class$) {
+void XMLGrammarPreparser::clinit$($Class* clazz) {
 	$init($Constants);
 	$assignStatic(XMLGrammarPreparser::CONTINUE_AFTER_FATAL_ERROR, $str({$Constants::XERCES_FEATURE_PREFIX, $Constants::CONTINUE_AFTER_FATAL_ERROR_FEATURE}));
 	$assignStatic(XMLGrammarPreparser::SYMBOL_TABLE, $str({$Constants::XERCES_PROPERTY_PREFIX, $Constants::SYMBOL_TABLE_PROPERTY}));
@@ -293,7 +233,54 @@ XMLGrammarPreparser::XMLGrammarPreparser() {
 }
 
 $Class* XMLGrammarPreparser::load$($String* name, bool initialize) {
-	$loadClass(XMLGrammarPreparser, name, initialize, &_XMLGrammarPreparser_ClassInfo_, clinit$XMLGrammarPreparser, allocate$XMLGrammarPreparser);
+	$FieldInfo fieldInfos$$[] = {
+		{"CONTINUE_AFTER_FATAL_ERROR", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XMLGrammarPreparser, CONTINUE_AFTER_FATAL_ERROR)},
+		{"SYMBOL_TABLE", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XMLGrammarPreparser, SYMBOL_TABLE)},
+		{"ERROR_REPORTER", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XMLGrammarPreparser, ERROR_REPORTER)},
+		{"ERROR_HANDLER", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XMLGrammarPreparser, ERROR_HANDLER)},
+		{"ENTITY_RESOLVER", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XMLGrammarPreparser, ENTITY_RESOLVER)},
+		{"GRAMMAR_POOL", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XMLGrammarPreparser, GRAMMAR_POOL)},
+		{"KNOWN_LOADERS", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;", $PRIVATE | $STATIC | $FINAL, $staticField(XMLGrammarPreparser, KNOWN_LOADERS)},
+		{"RECOGNIZED_PROPERTIES", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XMLGrammarPreparser, RECOGNIZED_PROPERTIES)},
+		{"fSymbolTable", "Lcom/sun/org/apache/xerces/internal/util/SymbolTable;", nullptr, $PROTECTED, $field(XMLGrammarPreparser, fSymbolTable)},
+		{"fErrorReporter", "Lcom/sun/org/apache/xerces/internal/impl/XMLErrorReporter;", nullptr, $PROTECTED, $field(XMLGrammarPreparser, fErrorReporter)},
+		{"fEntityResolver", "Lcom/sun/org/apache/xerces/internal/xni/parser/XMLEntityResolver;", nullptr, $PROTECTED, $field(XMLGrammarPreparser, fEntityResolver)},
+		{"fGrammarPool", "Lcom/sun/org/apache/xerces/internal/xni/grammars/XMLGrammarPool;", nullptr, $PROTECTED, $field(XMLGrammarPreparser, fGrammarPool)},
+		{"fLocale", "Ljava/util/Locale;", nullptr, $PROTECTED, $field(XMLGrammarPreparser, fLocale)},
+		{"fLoaders", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/xni/grammars/XMLGrammarLoader;>;", $PRIVATE, $field(XMLGrammarPreparser, fLoaders)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(XMLGrammarPreparser, init$, void)},
+		{"<init>", "(Lcom/sun/org/apache/xerces/internal/util/SymbolTable;)V", nullptr, $PUBLIC, $method(XMLGrammarPreparser, init$, void, $SymbolTable*)},
+		{"getEntityResolver", "()Lcom/sun/org/apache/xerces/internal/xni/parser/XMLEntityResolver;", nullptr, $PUBLIC, $virtualMethod(XMLGrammarPreparser, getEntityResolver, $XMLEntityResolver*)},
+		{"getErrorHandler", "()Lcom/sun/org/apache/xerces/internal/xni/parser/XMLErrorHandler;", nullptr, $PUBLIC, $virtualMethod(XMLGrammarPreparser, getErrorHandler, $XMLErrorHandler*)},
+		{"getFeature", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(XMLGrammarPreparser, getFeature, bool, $String*, $String*)},
+		{"getGrammarPool", "()Lcom/sun/org/apache/xerces/internal/xni/grammars/XMLGrammarPool;", nullptr, $PUBLIC, $virtualMethod(XMLGrammarPreparser, getGrammarPool, $XMLGrammarPool*)},
+		{"getLoader", "(Ljava/lang/String;)Lcom/sun/org/apache/xerces/internal/xni/grammars/XMLGrammarLoader;", nullptr, $PUBLIC, $virtualMethod(XMLGrammarPreparser, getLoader, $XMLGrammarLoader*, $String*)},
+		{"getLocale", "()Ljava/util/Locale;", nullptr, $PUBLIC, $virtualMethod(XMLGrammarPreparser, getLocale, $Locale*)},
+		{"getProperty", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(XMLGrammarPreparser, getProperty, $Object*, $String*, $String*)},
+		{"preparseGrammar", "(Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/xni/parser/XMLInputSource;)Lcom/sun/org/apache/xerces/internal/xni/grammars/Grammar;", nullptr, $PUBLIC, $virtualMethod(XMLGrammarPreparser, preparseGrammar, $Grammar*, $String*, $XMLInputSource*), "com.sun.org.apache.xerces.internal.xni.XNIException,java.io.IOException"},
+		{"registerPreparser", "(Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/xni/grammars/XMLGrammarLoader;)Z", nullptr, $PUBLIC, $virtualMethod(XMLGrammarPreparser, registerPreparser, bool, $String*, $XMLGrammarLoader*)},
+		{"setEntityResolver", "(Lcom/sun/org/apache/xerces/internal/xni/parser/XMLEntityResolver;)V", nullptr, $PUBLIC, $virtualMethod(XMLGrammarPreparser, setEntityResolver, void, $XMLEntityResolver*)},
+		{"setErrorHandler", "(Lcom/sun/org/apache/xerces/internal/xni/parser/XMLErrorHandler;)V", nullptr, $PUBLIC, $virtualMethod(XMLGrammarPreparser, setErrorHandler, void, $XMLErrorHandler*)},
+		{"setFeature", "(Ljava/lang/String;Z)V", nullptr, $PUBLIC, $virtualMethod(XMLGrammarPreparser, setFeature, void, $String*, bool)},
+		{"setGrammarPool", "(Lcom/sun/org/apache/xerces/internal/xni/grammars/XMLGrammarPool;)V", nullptr, $PUBLIC, $virtualMethod(XMLGrammarPreparser, setGrammarPool, void, $XMLGrammarPool*)},
+		{"setLocale", "(Ljava/util/Locale;)V", nullptr, $PUBLIC, $virtualMethod(XMLGrammarPreparser, setLocale, void, $Locale*)},
+		{"setProperty", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(XMLGrammarPreparser, setProperty, void, $String*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.parsers.XMLGrammarPreparser",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XMLGrammarPreparser, name, initialize, &classInfo$$, XMLGrammarPreparser::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(XMLGrammarPreparser);
+	});
 	return class$;
 }
 

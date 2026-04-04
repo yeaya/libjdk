@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/windows/WindowsIconFactory$FrameButtonIcon.h>
-
 #include <com/sun/java/swing/plaf/windows/TMSchema$Part.h>
 #include <com/sun/java/swing/plaf/windows/TMSchema$State.h>
 #include <com/sun/java/swing/plaf/windows/WindowsIconFactory.h>
@@ -59,49 +58,6 @@ namespace com {
 				namespace plaf {
 					namespace windows {
 
-$FieldInfo _WindowsIconFactory$FrameButtonIcon_FieldInfo_[] = {
-	{"part", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PRIVATE, $field(WindowsIconFactory$FrameButtonIcon, part)},
-	{}
-};
-
-$MethodInfo _WindowsIconFactory$FrameButtonIcon_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lcom/sun/java/swing/plaf/windows/TMSchema$Part;)V", nullptr, $PRIVATE, $method(WindowsIconFactory$FrameButtonIcon, init$, void, $TMSchema$Part*)},
-	{"getIconHeight", "()I", nullptr, $PUBLIC, $virtualMethod(WindowsIconFactory$FrameButtonIcon, getIconHeight, int32_t)},
-	{"getIconWidth", "()I", nullptr, $PUBLIC, $virtualMethod(WindowsIconFactory$FrameButtonIcon, getIconWidth, int32_t)},
-	{"paintIcon", "(Ljava/awt/Component;Ljava/awt/Graphics;II)V", nullptr, $PUBLIC, $virtualMethod(WindowsIconFactory$FrameButtonIcon, paintIcon, void, $Component*, $Graphics*, int32_t, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _WindowsIconFactory$FrameButtonIcon_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.windows.WindowsIconFactory$FrameButtonIcon", "com.sun.java.swing.plaf.windows.WindowsIconFactory", "FrameButtonIcon", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _WindowsIconFactory$FrameButtonIcon_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.java.swing.plaf.windows.WindowsIconFactory$FrameButtonIcon",
-	"java.lang.Object",
-	"javax.swing.Icon,java.io.Serializable",
-	_WindowsIconFactory$FrameButtonIcon_FieldInfo_,
-	_WindowsIconFactory$FrameButtonIcon_MethodInfo_,
-	nullptr,
-	nullptr,
-	_WindowsIconFactory$FrameButtonIcon_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.windows.WindowsIconFactory"
-};
-
-$Object* allocate$WindowsIconFactory$FrameButtonIcon($Class* clazz) {
-	return $of($alloc(WindowsIconFactory$FrameButtonIcon));
-}
-
 int32_t WindowsIconFactory$FrameButtonIcon::hashCode() {
 	 return this->$Icon::hashCode();
 }
@@ -127,7 +83,7 @@ void WindowsIconFactory$FrameButtonIcon::init$($TMSchema$Part* part) {
 }
 
 void WindowsIconFactory$FrameButtonIcon::paintIcon($Component* c, $Graphics* g, int32_t x0, int32_t y0) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t width = getIconWidth();
 	int32_t height = getIconHeight();
 	$var($XPStyle, xp, $XPStyle::getXP());
@@ -144,8 +100,8 @@ void WindowsIconFactory$FrameButtonIcon::paintIcon($Component* c, $Graphics* g, 
 				$init($TMSchema$State);
 				state = $TMSchema$State::DISABLED;
 			} else {
-				bool var$1 = model->isArmed();
-				if (var$1 && model->isPressed()) {
+				bool var$0 = model->isArmed();
+				if (var$0 && model->isPressed()) {
 					$init($TMSchema$State);
 					state = $TMSchema$State::PUSHED;
 				} else if (model->isRollover()) {
@@ -160,8 +116,8 @@ void WindowsIconFactory$FrameButtonIcon::paintIcon($Component* c, $Graphics* g, 
 			$init($TMSchema$State);
 			state = $TMSchema$State::INACTIVEDISABLED;
 		} else {
-			bool var$3 = model->isArmed();
-			if (var$3 && model->isPressed()) {
+			bool var$1 = model->isArmed();
+			if (var$1 && model->isPressed()) {
 				$init($TMSchema$State);
 				state = $TMSchema$State::INACTIVEPUSHED;
 			} else if (model->isRollover()) {
@@ -232,28 +188,22 @@ void WindowsIconFactory$FrameButtonIcon::paintIcon($Component* c, $Graphics* g, 
 					g->drawLine(x + w - 1, y + i - 2, x + i - 2, y + w - 1);
 				}
 			}
-		} else {
-			if (this->part == $TMSchema$Part::WP_MINBUTTON) {
-				g->fillRect(x, y + h - thickness2, w - w / 3, thickness2);
-			} else {
-				if (this->part == $TMSchema$Part::WP_MAXBUTTON) {
-					g->fillRect(x, y, w, thickness2);
-					g->fillRect(x, y, thickness, h);
-					g->fillRect(x + w - thickness, y, thickness, h);
-					g->fillRect(x, y + h - thickness, w, thickness);
-				} else {
-					if (this->part == $TMSchema$Part::WP_RESTOREBUTTON) {
-						g->fillRect(x + w / 3, y, w - w / 3, thickness2);
-						g->fillRect(x + w / 3, y, thickness, h / 3);
-						g->fillRect(x + w - thickness, y, thickness, h - h / 3);
-						g->fillRect(x + w - w / 3, y + h - h / 3 - thickness, w / 3, thickness);
-						g->fillRect(x, y + h / 3, w - w / 3, thickness2);
-						g->fillRect(x, y + h / 3, thickness, h - h / 3);
-						g->fillRect(x + w - w / 3 - thickness, y + h / 3, thickness, h - h / 3);
-						g->fillRect(x, y + h - thickness, w - w / 3, thickness);
-					}
-				}
-			}
+		} else if (this->part == $TMSchema$Part::WP_MINBUTTON) {
+			g->fillRect(x, y + h - thickness2, w - w / 3, thickness2);
+		} else if (this->part == $TMSchema$Part::WP_MAXBUTTON) {
+			g->fillRect(x, y, w, thickness2);
+			g->fillRect(x, y, thickness, h);
+			g->fillRect(x + w - thickness, y, thickness, h);
+			g->fillRect(x, y + h - thickness, w, thickness);
+		} else if (this->part == $TMSchema$Part::WP_RESTOREBUTTON) {
+			g->fillRect(x + w / 3, y, w - w / 3, thickness2);
+			g->fillRect(x + w / 3, y, thickness, h / 3);
+			g->fillRect(x + w - thickness, y, thickness, h - h / 3);
+			g->fillRect(x + w - w / 3, y + h - h / 3 - thickness, w / 3, thickness);
+			g->fillRect(x, y + h / 3, w - w / 3, thickness2);
+			g->fillRect(x, y + h / 3, thickness, h - h / 3);
+			g->fillRect(x + w - w / 3 - thickness, y + h / 3, thickness, h - h / 3);
+			g->fillRect(x, y + h - thickness, w - w / 3, thickness);
 		}
 	}
 }
@@ -286,7 +236,44 @@ WindowsIconFactory$FrameButtonIcon::WindowsIconFactory$FrameButtonIcon() {
 }
 
 $Class* WindowsIconFactory$FrameButtonIcon::load$($String* name, bool initialize) {
-	$loadClass(WindowsIconFactory$FrameButtonIcon, name, initialize, &_WindowsIconFactory$FrameButtonIcon_ClassInfo_, allocate$WindowsIconFactory$FrameButtonIcon);
+	$FieldInfo fieldInfos$$[] = {
+		{"part", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PRIVATE, $field(WindowsIconFactory$FrameButtonIcon, part)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lcom/sun/java/swing/plaf/windows/TMSchema$Part;)V", nullptr, $PRIVATE, $method(WindowsIconFactory$FrameButtonIcon, init$, void, $TMSchema$Part*)},
+		{"getIconHeight", "()I", nullptr, $PUBLIC, $virtualMethod(WindowsIconFactory$FrameButtonIcon, getIconHeight, int32_t)},
+		{"getIconWidth", "()I", nullptr, $PUBLIC, $virtualMethod(WindowsIconFactory$FrameButtonIcon, getIconWidth, int32_t)},
+		{"paintIcon", "(Ljava/awt/Component;Ljava/awt/Graphics;II)V", nullptr, $PUBLIC, $virtualMethod(WindowsIconFactory$FrameButtonIcon, paintIcon, void, $Component*, $Graphics*, int32_t, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.windows.WindowsIconFactory$FrameButtonIcon", "com.sun.java.swing.plaf.windows.WindowsIconFactory", "FrameButtonIcon", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.java.swing.plaf.windows.WindowsIconFactory$FrameButtonIcon",
+		"java.lang.Object",
+		"javax.swing.Icon,java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.windows.WindowsIconFactory"
+	};
+	$loadClass(WindowsIconFactory$FrameButtonIcon, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(WindowsIconFactory$FrameButtonIcon));
+	});
 	return class$;
 }
 

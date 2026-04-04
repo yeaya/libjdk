@@ -27,6 +27,7 @@ class DefaultMetalTheme$FontDelegate : public ::java::lang::Object {
 	$class(DefaultMetalTheme$FontDelegate, 0, ::java::lang::Object)
 public:
 	DefaultMetalTheme$FontDelegate();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual ::javax::swing::plaf::FontUIResource* getFont(int32_t type);
 	virtual ::java::awt::Font* getPrivilegedFont(int32_t key);

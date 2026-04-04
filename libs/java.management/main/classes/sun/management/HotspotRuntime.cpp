@@ -1,5 +1,4 @@
 #include <sun/management/HotspotRuntime.h>
-
 #include <java/util/List.h>
 #include <sun/management/VMManagement.h>
 #include <jcpp.h>
@@ -20,40 +19,6 @@ using $VMManagement = ::sun::management::VMManagement;
 
 namespace sun {
 	namespace management {
-
-$FieldInfo _HotspotRuntime_FieldInfo_[] = {
-	{"jvm", "Lsun/management/VMManagement;", nullptr, $PRIVATE, $field(HotspotRuntime, jvm)},
-	{"JAVA_RT", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(HotspotRuntime, JAVA_RT)},
-	{"COM_SUN_RT", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(HotspotRuntime, COM_SUN_RT)},
-	{"SUN_RT", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(HotspotRuntime, SUN_RT)},
-	{"JAVA_PROPERTY", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(HotspotRuntime, JAVA_PROPERTY)},
-	{"COM_SUN_PROPERTY", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(HotspotRuntime, COM_SUN_PROPERTY)},
-	{"SUN_PROPERTY", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(HotspotRuntime, SUN_PROPERTY)},
-	{"RT_COUNTER_NAME_PATTERN", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(HotspotRuntime, RT_COUNTER_NAME_PATTERN)},
-	{}
-};
-
-$MethodInfo _HotspotRuntime_MethodInfo_[] = {
-	{"<init>", "(Lsun/management/VMManagement;)V", nullptr, 0, $method(HotspotRuntime, init$, void, $VMManagement*)},
-	{"getInternalRuntimeCounters", "()Ljava/util/List;", "()Ljava/util/List<Lsun/management/counter/Counter;>;", $PUBLIC, $virtualMethod(HotspotRuntime, getInternalRuntimeCounters, $List*)},
-	{"getSafepointCount", "()J", nullptr, $PUBLIC, $virtualMethod(HotspotRuntime, getSafepointCount, int64_t)},
-	{"getSafepointSyncTime", "()J", nullptr, $PUBLIC, $virtualMethod(HotspotRuntime, getSafepointSyncTime, int64_t)},
-	{"getTotalSafepointTime", "()J", nullptr, $PUBLIC, $virtualMethod(HotspotRuntime, getTotalSafepointTime, int64_t)},
-	{}
-};
-
-$ClassInfo _HotspotRuntime_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.management.HotspotRuntime",
-	"java.lang.Object",
-	"sun.management.HotspotRuntimeMBean",
-	_HotspotRuntime_FieldInfo_,
-	_HotspotRuntime_MethodInfo_
-};
-
-$Object* allocate$HotspotRuntime($Class* clazz) {
-	return $of($alloc(HotspotRuntime));
-}
 
 $String* HotspotRuntime::JAVA_RT = nullptr;
 $String* HotspotRuntime::COM_SUN_RT = nullptr;
@@ -86,7 +51,7 @@ $List* HotspotRuntime::getInternalRuntimeCounters() {
 HotspotRuntime::HotspotRuntime() {
 }
 
-void clinit$HotspotRuntime($Class* class$) {
+void HotspotRuntime::clinit$($Class* clazz) {
 	$assignStatic(HotspotRuntime::JAVA_RT, "java.rt."_s);
 	$assignStatic(HotspotRuntime::COM_SUN_RT, "com.sun.rt."_s);
 	$assignStatic(HotspotRuntime::SUN_RT, "sun.rt."_s);
@@ -97,7 +62,36 @@ void clinit$HotspotRuntime($Class* class$) {
 }
 
 $Class* HotspotRuntime::load$($String* name, bool initialize) {
-	$loadClass(HotspotRuntime, name, initialize, &_HotspotRuntime_ClassInfo_, clinit$HotspotRuntime, allocate$HotspotRuntime);
+	$FieldInfo fieldInfos$$[] = {
+		{"jvm", "Lsun/management/VMManagement;", nullptr, $PRIVATE, $field(HotspotRuntime, jvm)},
+		{"JAVA_RT", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(HotspotRuntime, JAVA_RT)},
+		{"COM_SUN_RT", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(HotspotRuntime, COM_SUN_RT)},
+		{"SUN_RT", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(HotspotRuntime, SUN_RT)},
+		{"JAVA_PROPERTY", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(HotspotRuntime, JAVA_PROPERTY)},
+		{"COM_SUN_PROPERTY", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(HotspotRuntime, COM_SUN_PROPERTY)},
+		{"SUN_PROPERTY", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(HotspotRuntime, SUN_PROPERTY)},
+		{"RT_COUNTER_NAME_PATTERN", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(HotspotRuntime, RT_COUNTER_NAME_PATTERN)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/management/VMManagement;)V", nullptr, 0, $method(HotspotRuntime, init$, void, $VMManagement*)},
+		{"getInternalRuntimeCounters", "()Ljava/util/List;", "()Ljava/util/List<Lsun/management/counter/Counter;>;", $PUBLIC, $virtualMethod(HotspotRuntime, getInternalRuntimeCounters, $List*)},
+		{"getSafepointCount", "()J", nullptr, $PUBLIC, $virtualMethod(HotspotRuntime, getSafepointCount, int64_t)},
+		{"getSafepointSyncTime", "()J", nullptr, $PUBLIC, $virtualMethod(HotspotRuntime, getSafepointSyncTime, int64_t)},
+		{"getTotalSafepointTime", "()J", nullptr, $PUBLIC, $virtualMethod(HotspotRuntime, getTotalSafepointTime, int64_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.management.HotspotRuntime",
+		"java.lang.Object",
+		"sun.management.HotspotRuntimeMBean",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(HotspotRuntime, name, initialize, &classInfo$$, HotspotRuntime::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(HotspotRuntime);
+	});
 	return class$;
 }
 

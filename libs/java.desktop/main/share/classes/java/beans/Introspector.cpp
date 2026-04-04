@@ -1,5 +1,4 @@
 #include <java/beans/Introspector.h>
-
 #include <com/sun/beans/TypeResolver.h>
 #include <com/sun/beans/finder/BeanInfoFinder.h>
 #include <com/sun/beans/finder/ClassFinder.h>
@@ -37,7 +36,6 @@
 #include <java/util/Map.h>
 #include <java/util/Set.h>
 #include <java/util/TreeMap.h>
-#include <jdk/internal/access/JavaBeansAccess.h>
 #include <jdk/internal/access/SharedSecrets.h>
 #include <sun/reflect/misc/ReflectUtil.h>
 #include <jcpp.h>
@@ -59,9 +57,8 @@ using $PropertyDescriptorArray = $Array<::java::beans::PropertyDescriptor>;
 using $MethodArray = $Array<::java::lang::reflect::Method>;
 using $TypeArray = $Array<::java::lang::reflect::Type>;
 using $TypeResolver = ::com::sun::beans::TypeResolver;
-using $BeanInfoFinder = ::com::sun::beans::finder::BeanInfoFinder;
 using $ClassFinder = ::com::sun::beans::finder::ClassFinder;
-using $1ClassInfo = ::com::sun::beans::introspect::ClassInfo;
+using $ClassInfo = ::com::sun::beans::introspect::ClassInfo;
 using $EventSetInfo = ::com::sun::beans::introspect::EventSetInfo;
 using $PropertyInfo = ::com::sun::beans::introspect::PropertyInfo;
 using $Component = ::java::awt::Component;
@@ -80,7 +77,7 @@ using $NameGenerator = ::java::beans::NameGenerator;
 using $PropertyDescriptor = ::java::beans::PropertyDescriptor;
 using $ThreadGroupContext = ::java::beans::ThreadGroupContext;
 using $Character = ::java::lang::Character;
-using $ClassInfo = ::java::lang::ClassInfo;
+using $1ClassInfo = ::java::lang::ClassInfo;
 using $ClassLoader = ::java::lang::ClassLoader;
 using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -91,112 +88,17 @@ using $SecurityManager = ::java::lang::SecurityManager;
 using $Method = ::java::lang::reflect::Method;
 using $AbstractMap = ::java::util::AbstractMap;
 using $ArrayList = ::java::util::ArrayList;
-using $Collection = ::java::util::Collection;
 using $EventObject = ::java::util::EventObject;
 using $HashMap = ::java::util::HashMap;
 using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
-using $Map = ::java::util::Map;
 using $Map$Entry = ::java::util::Map$Entry;
-using $Set = ::java::util::Set;
 using $TreeMap = ::java::util::TreeMap;
-using $JavaBeansAccess = ::jdk::internal::access::JavaBeansAccess;
 using $SharedSecrets = ::jdk::internal::access::SharedSecrets;
 using $ReflectUtil = ::sun::reflect::misc::ReflectUtil;
 
 namespace java {
 	namespace beans {
-
-$FieldInfo _Introspector_FieldInfo_[] = {
-	{"USE_ALL_BEANINFO", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Introspector, USE_ALL_BEANINFO)},
-	{"IGNORE_IMMEDIATE_BEANINFO", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Introspector, IGNORE_IMMEDIATE_BEANINFO)},
-	{"IGNORE_ALL_BEANINFO", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Introspector, IGNORE_ALL_BEANINFO)},
-	{"beanClass", "Ljava/lang/Class;", "Ljava/lang/Class<*>;", $PRIVATE, $field(Introspector, beanClass)},
-	{"explicitBeanInfo", "Ljava/beans/BeanInfo;", nullptr, $PRIVATE, $field(Introspector, explicitBeanInfo)},
-	{"superBeanInfo", "Ljava/beans/BeanInfo;", nullptr, $PRIVATE, $field(Introspector, superBeanInfo)},
-	{"additionalBeanInfo", "[Ljava/beans/BeanInfo;", nullptr, $PRIVATE, $field(Introspector, additionalBeanInfo)},
-	{"propertyChangeSource", "Z", nullptr, $PRIVATE, $field(Introspector, propertyChangeSource)},
-	{"defaultEventName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(Introspector, defaultEventName)},
-	{"defaultPropertyName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(Introspector, defaultPropertyName)},
-	{"defaultEventIndex", "I", nullptr, $PRIVATE, $field(Introspector, defaultEventIndex)},
-	{"defaultPropertyIndex", "I", nullptr, $PRIVATE, $field(Introspector, defaultPropertyIndex)},
-	{"methods", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/beans/MethodDescriptor;>;", $PRIVATE, $field(Introspector, methods)},
-	{"properties", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/beans/PropertyDescriptor;>;", $PRIVATE, $field(Introspector, properties)},
-	{"events", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/beans/EventSetDescriptor;>;", $PRIVATE, $field(Introspector, events)},
-	{"EMPTY_EVENTSETDESCRIPTORS", "[Ljava/beans/EventSetDescriptor;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Introspector, EMPTY_EVENTSETDESCRIPTORS)},
-	{"ADD_PREFIX", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(Introspector, ADD_PREFIX)},
-	{"REMOVE_PREFIX", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(Introspector, REMOVE_PREFIX)},
-	{"GET_PREFIX", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(Introspector, GET_PREFIX)},
-	{"SET_PREFIX", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(Introspector, SET_PREFIX)},
-	{"IS_PREFIX", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(Introspector, IS_PREFIX)},
-	{"pdStore", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/lang/String;Ljava/util/List<Ljava/beans/PropertyDescriptor;>;>;", $PRIVATE, $field(Introspector, pdStore)},
-	{}
-};
-
-$MethodInfo _Introspector_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Class;Ljava/lang/Class;I)V", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;I)V", $PRIVATE, $method(Introspector, init$, void, $Class*, $Class*, int32_t), "java.beans.IntrospectionException"},
-	{"addEvent", "(Ljava/beans/EventSetDescriptor;)V", nullptr, $PRIVATE, $method(Introspector, addEvent, void, $EventSetDescriptor*)},
-	{"addMethod", "(Ljava/beans/MethodDescriptor;)V", nullptr, $PRIVATE, $method(Introspector, addMethod, void, $MethodDescriptor*)},
-	{"addPropertyDescriptor", "(Ljava/beans/PropertyDescriptor;)V", nullptr, $PRIVATE, $method(Introspector, addPropertyDescriptor, void, $PropertyDescriptor*)},
-	{"addPropertyDescriptors", "([Ljava/beans/PropertyDescriptor;)V", nullptr, $PRIVATE, $method(Introspector, addPropertyDescriptors, void, $PropertyDescriptorArray*)},
-	{"decapitalize", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Introspector, decapitalize, $String*, $String*)},
-	{"findCustomizerClass", "(Ljava/lang/Class;)Ljava/lang/Class;", "(Ljava/lang/Class<*>;)Ljava/lang/Class<*>;", $PRIVATE | $STATIC, $staticMethod(Introspector, findCustomizerClass, $Class*, $Class*)},
-	{"findExplicitBeanInfo", "(Ljava/lang/Class;)Ljava/beans/BeanInfo;", "(Ljava/lang/Class<*>;)Ljava/beans/BeanInfo;", $PRIVATE | $STATIC, $staticMethod(Introspector, findExplicitBeanInfo, $BeanInfo*, $Class*)},
-	{"findMethod", "(Ljava/lang/Class;Ljava/lang/String;I)Ljava/lang/reflect/Method;", "(Ljava/lang/Class<*>;Ljava/lang/String;I)Ljava/lang/reflect/Method;", $STATIC, $staticMethod(Introspector, findMethod, $Method*, $Class*, $String*, int32_t)},
-	{"findMethod", "(Ljava/lang/Class;Ljava/lang/String;I[Ljava/lang/Class;)Ljava/lang/reflect/Method;", "(Ljava/lang/Class<*>;Ljava/lang/String;I[Ljava/lang/Class<*>;)Ljava/lang/reflect/Method;", $STATIC, $staticMethod(Introspector, findMethod, $Method*, $Class*, $String*, int32_t, $ClassArray*)},
-	{"flushCaches", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(Introspector, flushCaches, void)},
-	{"flushFromCaches", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;)V", $PUBLIC | $STATIC, $staticMethod(Introspector, flushFromCaches, void, $Class*)},
-	{"getBeanInfo", "(Ljava/lang/Class;)Ljava/beans/BeanInfo;", "(Ljava/lang/Class<*>;)Ljava/beans/BeanInfo;", $PUBLIC | $STATIC, $staticMethod(Introspector, getBeanInfo, $BeanInfo*, $Class*), "java.beans.IntrospectionException"},
-	{"getBeanInfo", "(Ljava/lang/Class;I)Ljava/beans/BeanInfo;", "(Ljava/lang/Class<*>;I)Ljava/beans/BeanInfo;", $PUBLIC | $STATIC, $staticMethod(Introspector, getBeanInfo, $BeanInfo*, $Class*, int32_t), "java.beans.IntrospectionException"},
-	{"getBeanInfo", "(Ljava/lang/Class;Ljava/lang/Class;)Ljava/beans/BeanInfo;", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;)Ljava/beans/BeanInfo;", $PUBLIC | $STATIC, $staticMethod(Introspector, getBeanInfo, $BeanInfo*, $Class*, $Class*), "java.beans.IntrospectionException"},
-	{"getBeanInfo", "(Ljava/lang/Class;Ljava/lang/Class;I)Ljava/beans/BeanInfo;", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;I)Ljava/beans/BeanInfo;", $PUBLIC | $STATIC, $staticMethod(Introspector, getBeanInfo, $BeanInfo*, $Class*, $Class*, int32_t), "java.beans.IntrospectionException"},
-	{"getBeanInfo", "()Ljava/beans/BeanInfo;", nullptr, $PRIVATE, $method(Introspector, getBeanInfo, $BeanInfo*), "java.beans.IntrospectionException"},
-	{"getBeanInfoSearchPath", "()[Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Introspector, getBeanInfoSearchPath, $StringArray*)},
-	{"getPropertyDescriptors", "(Ljava/beans/BeanInfo;)[Ljava/beans/PropertyDescriptor;", nullptr, $PRIVATE, $method(Introspector, getPropertyDescriptors, $PropertyDescriptorArray*, $BeanInfo*)},
-	{"getTargetBeanDescriptor", "()Ljava/beans/BeanDescriptor;", nullptr, $PRIVATE, $method(Introspector, getTargetBeanDescriptor, $BeanDescriptor*)},
-	{"getTargetDefaultEventIndex", "()I", nullptr, $PRIVATE, $method(Introspector, getTargetDefaultEventIndex, int32_t)},
-	{"getTargetDefaultPropertyIndex", "()I", nullptr, $PRIVATE, $method(Introspector, getTargetDefaultPropertyIndex, int32_t)},
-	{"getTargetEventInfo", "()[Ljava/beans/EventSetDescriptor;", nullptr, $PRIVATE, $method(Introspector, getTargetEventInfo, $EventSetDescriptorArray*), "java.beans.IntrospectionException"},
-	{"getTargetMethodInfo", "()[Ljava/beans/MethodDescriptor;", nullptr, $PRIVATE, $method(Introspector, getTargetMethodInfo, $MethodDescriptorArray*)},
-	{"getTargetPropertyInfo", "()[Ljava/beans/PropertyDescriptor;", nullptr, $PRIVATE, $method(Introspector, getTargetPropertyInfo, $PropertyDescriptorArray*)},
-	{"instantiate", "(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Object;", "(Ljava/lang/Class<*>;Ljava/lang/String;)Ljava/lang/Object;", $STATIC, $staticMethod(Introspector, instantiate, $Object*, $Class*, $String*), "java.lang.InstantiationException,java.lang.IllegalAccessException,java.lang.NoSuchMethodException,java.lang.reflect.InvocationTargetException,java.lang.ClassNotFoundException"},
-	{"internalFindMethod", "(Ljava/lang/Class;Ljava/lang/String;I[Ljava/lang/Class;)Ljava/lang/reflect/Method;", "(Ljava/lang/Class<*>;Ljava/lang/String;I[Ljava/lang/Class<*>;)Ljava/lang/reflect/Method;", $PRIVATE | $STATIC, $staticMethod(Introspector, internalFindMethod, $Method*, $Class*, $String*, int32_t, $ClassArray*)},
-	{"isAssignable", "(Ljava/lang/Class;Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;)Z", $PRIVATE | $STATIC, $staticMethod(Introspector, isAssignable, bool, $Class*, $Class*)},
-	{"isEventHandler", "(Ljava/lang/reflect/Method;)Z", nullptr, $PRIVATE, $method(Introspector, isEventHandler, bool, $Method*)},
-	{"isSubclass", "(Ljava/lang/Class;Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;)Z", $STATIC, $staticMethod(Introspector, isSubclass, bool, $Class*, $Class*)},
-	{"makeQualifiedMethodName", "(Ljava/lang/String;[Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Introspector, makeQualifiedMethodName, $String*, $String*, $StringArray*)},
-	{"mergePropertyDescriptor", "(Ljava/beans/IndexedPropertyDescriptor;Ljava/beans/PropertyDescriptor;)Ljava/beans/PropertyDescriptor;", nullptr, $PRIVATE, $method(Introspector, mergePropertyDescriptor, $PropertyDescriptor*, $IndexedPropertyDescriptor*, $PropertyDescriptor*)},
-	{"mergePropertyDescriptor", "(Ljava/beans/PropertyDescriptor;Ljava/beans/PropertyDescriptor;)Ljava/beans/PropertyDescriptor;", nullptr, $PRIVATE, $method(Introspector, mergePropertyDescriptor, $PropertyDescriptor*, $PropertyDescriptor*, $PropertyDescriptor*)},
-	{"mergePropertyDescriptor", "(Ljava/beans/IndexedPropertyDescriptor;Ljava/beans/IndexedPropertyDescriptor;)Ljava/beans/IndexedPropertyDescriptor;", nullptr, $PRIVATE, $method(Introspector, mergePropertyDescriptor, $IndexedPropertyDescriptor*, $IndexedPropertyDescriptor*, $IndexedPropertyDescriptor*)},
-	{"mergePropertyWithIndexedProperty", "(Ljava/beans/PropertyDescriptor;Ljava/beans/IndexedPropertyDescriptor;)Ljava/beans/PropertyDescriptor;", nullptr, $PRIVATE, $method(Introspector, mergePropertyWithIndexedProperty, $PropertyDescriptor*, $PropertyDescriptor*, $IndexedPropertyDescriptor*)},
-	{"processPropertyDescriptors", "()V", nullptr, $PRIVATE, $method(Introspector, processPropertyDescriptors, void)},
-	{"setBeanInfoSearchPath", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Introspector, setBeanInfoSearchPath, void, $StringArray*)},
-	{}
-};
-
-$InnerClassInfo _Introspector_InnerClassesInfo_[] = {
-	{"java.beans.Introspector$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Introspector_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.beans.Introspector",
-	"java.lang.Object",
-	nullptr,
-	_Introspector_FieldInfo_,
-	_Introspector_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Introspector_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.beans.Introspector$1"
-};
-
-$Object* allocate$Introspector($Class* clazz) {
-	return $of($alloc(Introspector));
-}
 
 $EventSetDescriptorArray* Introspector::EMPTY_EVENTSETDESCRIPTORS = nullptr;
 $String* Introspector::ADD_PREFIX = nullptr;
@@ -207,7 +109,7 @@ $String* Introspector::IS_PREFIX = nullptr;
 
 $BeanInfo* Introspector::getBeanInfo($Class* beanClass) {
 	$init(Introspector);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!$ReflectUtil::isPackageAccessible(beanClass)) {
 		return ($$new(Introspector, beanClass, nullptr, Introspector::USE_ALL_BEANINFO))->getBeanInfo();
 	}
@@ -232,7 +134,7 @@ $BeanInfo* Introspector::getBeanInfo($Class* beanClass, $Class* stopClass) {
 
 $BeanInfo* Introspector::getBeanInfo($Class* beanClass, $Class* stopClass, int32_t flags) {
 	$init(Introspector);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($BeanInfo, bi, nullptr);
 	if (stopClass == nullptr && flags == Introspector::USE_ALL_BEANINFO) {
 		$assign(bi, getBeanInfo(beanClass));
@@ -244,7 +146,7 @@ $BeanInfo* Introspector::getBeanInfo($Class* beanClass, $Class* stopClass, int32
 
 $String* Introspector::decapitalize($String* name) {
 	$init(Introspector);
-	if (name == nullptr || $nc(name)->length() == 0) {
+	if (name == nullptr || name->length() == 0) {
 		return name;
 	}
 	bool var$1 = $nc(name)->length() > 1;
@@ -252,31 +154,31 @@ $String* Introspector::decapitalize($String* name) {
 	if (var$0 && $Character::isUpperCase(name->charAt(0))) {
 		return name;
 	}
-	$var($chars, chars, $nc(name)->toCharArray());
+	$var($chars, chars, name->toCharArray());
 	chars->set(0, $Character::toLowerCase(chars->get(0)));
 	return $new($String, chars);
 }
 
 $StringArray* Introspector::getBeanInfoSearchPath() {
 	$init(Introspector);
-	$useLocalCurrentObjectStackCache();
-	return $nc($($nc($($ThreadGroupContext::getContext()))->getBeanInfoFinder()))->getPackages();
+	$useLocalObjectStack();
+	return $$nc($$nc($ThreadGroupContext::getContext())->getBeanInfoFinder())->getPackages();
 }
 
 void Introspector::setBeanInfoSearchPath($StringArray* path) {
 	$init(Introspector);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	if (sm != nullptr) {
 		sm->checkPropertiesAccess();
 	}
-	$nc($($nc($($ThreadGroupContext::getContext()))->getBeanInfoFinder()))->setPackages(path);
+	$$nc($$nc($ThreadGroupContext::getContext())->getBeanInfoFinder())->setPackages(path);
 }
 
 void Introspector::flushCaches() {
 	$init(Introspector);
-	$nc($($ThreadGroupContext::getContext()))->clearBeanInfoCache();
-	$1ClassInfo::clear();
+	$$nc($ThreadGroupContext::getContext())->clearBeanInfoCache();
+	$ClassInfo::clear();
 }
 
 void Introspector::flushFromCaches($Class* clz) {
@@ -284,12 +186,12 @@ void Introspector::flushFromCaches($Class* clz) {
 	if (clz == nullptr) {
 		$throwNew($NullPointerException);
 	}
-	$nc($($ThreadGroupContext::getContext()))->removeBeanInfo(clz);
-	$1ClassInfo::remove(clz);
+	$$nc($ThreadGroupContext::getContext())->removeBeanInfo(clz);
+	$ClassInfo::remove(clz);
 }
 
 void Introspector::init$($Class* beanClass, $Class* stopClass, int32_t flags) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->propertyChangeSource = false;
 	this->defaultEventIndex = -1;
 	this->defaultPropertyIndex = -1;
@@ -299,15 +201,18 @@ void Introspector::init$($Class* beanClass, $Class* stopClass, int32_t flags) {
 		bool isSuper = false;
 		{
 			$Class* c = $nc(beanClass)->getSuperclass();
-			for (; c != nullptr; c = $nc(c)->getSuperclass()) {
+			for (; c != nullptr; c = c->getSuperclass()) {
 				if (c == stopClass) {
 					isSuper = true;
 				}
 			}
 		}
 		if (!isSuper) {
-			$var($String, var$0, $$str({$(stopClass->getName()), " not superclass of "_s}));
-			$throwNew($IntrospectionException, $$concat(var$0, $(beanClass->getName())));
+			$var($StringBuilder, var$0, $new($StringBuilder));
+			var$0->append($(stopClass->getName()));
+			var$0->append(" not superclass of "_s);
+			var$0->append($(beanClass->getName()));
+			$throwNew($IntrospectionException, $$str(var$0));
 		}
 	}
 	if (flags == Introspector::USE_ALL_BEANINFO) {
@@ -322,7 +227,7 @@ void Introspector::init$($Class* beanClass, $Class* stopClass, int32_t flags) {
 		$set(this, superBeanInfo, getBeanInfo(superClass, stopClass, newFlags));
 	}
 	if (this->explicitBeanInfo != nullptr) {
-		$set(this, additionalBeanInfo, $nc(this->explicitBeanInfo)->getAdditionalBeanInfo());
+		$set(this, additionalBeanInfo, this->explicitBeanInfo->getAdditionalBeanInfo());
 	}
 	if (this->additionalBeanInfo == nullptr) {
 		$set(this, additionalBeanInfo, $new($BeanInfoArray, 0));
@@ -330,7 +235,7 @@ void Introspector::init$($Class* beanClass, $Class* stopClass, int32_t flags) {
 }
 
 $BeanInfo* Introspector::getBeanInfo() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($BeanDescriptor, bd, getTargetBeanDescriptor());
 	$var($MethodDescriptorArray, mds, getTargetMethodInfo());
 	$var($EventSetDescriptorArray, esds, getTargetEventInfo());
@@ -342,12 +247,12 @@ $BeanInfo* Introspector::getBeanInfo() {
 
 $BeanInfo* Introspector::findExplicitBeanInfo($Class* beanClass) {
 	$init(Introspector);
-	$useLocalCurrentObjectStackCache();
-	return $cast($BeanInfo, $nc($($nc($($ThreadGroupContext::getContext()))->getBeanInfoFinder()))->find(beanClass));
+	$useLocalObjectStack();
+	return $cast($BeanInfo, $$nc($$nc($ThreadGroupContext::getContext())->getBeanInfoFinder())->find(beanClass));
 }
 
 $PropertyDescriptorArray* Introspector::getTargetPropertyInfo() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($PropertyDescriptorArray, explicitProperties, nullptr);
 	if (this->explicitBeanInfo != nullptr) {
 		$assign(explicitProperties, getPropertyDescriptors(this->explicitBeanInfo));
@@ -356,28 +261,28 @@ $PropertyDescriptorArray* Introspector::getTargetPropertyInfo() {
 		addPropertyDescriptors($(getPropertyDescriptors(this->superBeanInfo)));
 	}
 	for (int32_t i = 0; i < $nc(this->additionalBeanInfo)->length; ++i) {
-		addPropertyDescriptors($($nc($nc(this->additionalBeanInfo)->get(i))->getPropertyDescriptors()));
+		addPropertyDescriptors($($nc(this->additionalBeanInfo->get(i))->getPropertyDescriptors()));
 	}
 	if (explicitProperties != nullptr) {
 		addPropertyDescriptors(explicitProperties);
 	} else {
 		{
-			$var($Iterator, i$, $nc($($nc($($nc($($1ClassInfo::get(this->beanClass)))->getProperties()))->entrySet()))->iterator());
+			$var($Iterator, i$, $$nc($$nc($$nc($ClassInfo::get(this->beanClass))->getProperties())->entrySet())->iterator());
 			for (; $nc(i$)->hasNext();) {
 				$var($Map$Entry, entry, $cast($Map$Entry, i$->next()));
 				{
-					addPropertyDescriptor(nullptr != $nc(($cast($PropertyInfo, $($nc(entry)->getValue()))))->getIndexed() ? static_cast<$PropertyDescriptor*>($$new($IndexedPropertyDescriptor, entry, this->propertyChangeSource)) : $$new($PropertyDescriptor, entry, this->propertyChangeSource));
+					addPropertyDescriptor(nullptr != $$sure($PropertyInfo, $nc(entry)->getValue())->getIndexed() ? $$cast($PropertyDescriptor, $new($IndexedPropertyDescriptor, entry, this->propertyChangeSource)) : $$new($PropertyDescriptor, entry, this->propertyChangeSource));
 				}
 			}
 		}
 		$load($JavaBean);
 		$var($JavaBean, annotation, $cast($JavaBean, $nc(this->beanClass)->getAnnotation($JavaBean::class$)));
-		if ((annotation != nullptr) && !$nc($(annotation->defaultProperty()))->isEmpty()) {
+		if ((annotation != nullptr) && !$$nc(annotation->defaultProperty())->isEmpty()) {
 			$set(this, defaultPropertyName, annotation->defaultProperty());
 		}
 	}
 	processPropertyDescriptors();
-	$var($PropertyDescriptorArray, result, $fcast($PropertyDescriptorArray, $nc($($nc(this->properties)->values()))->toArray($$new($PropertyDescriptorArray, $nc(this->properties)->size()))));
+	$var($PropertyDescriptorArray, result, $cast($PropertyDescriptorArray, $$nc($nc(this->properties)->values())->toArray($$new($PropertyDescriptorArray, $nc(this->properties)->size()))));
 	if (this->defaultPropertyName != nullptr) {
 		for (int32_t i = 0; i < $nc(result)->length; ++i) {
 			if ($nc(this->defaultPropertyName)->equals($($nc(result->get(i))->getName()))) {
@@ -389,13 +294,13 @@ $PropertyDescriptorArray* Introspector::getTargetPropertyInfo() {
 }
 
 void Introspector::addPropertyDescriptor($PropertyDescriptor* pd$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($PropertyDescriptor, pd, pd$renamed);
 	$var($String, propName, $nc(pd)->getName());
 	$var($List, list, $cast($List, $nc(this->pdStore)->get(propName)));
 	if (list == nullptr) {
 		$assign(list, $new($ArrayList));
-		$nc(this->pdStore)->put(propName, list);
+		this->pdStore->put(propName, list);
 	}
 	if (this->beanClass != pd->getClass0()) {
 		$var($Method, read, pd->getReadMethod());
@@ -430,17 +335,13 @@ void Introspector::addPropertyDescriptor($PropertyDescriptor* pd$renamed) {
 }
 
 void Introspector::addPropertyDescriptors($PropertyDescriptorArray* descriptors) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (descriptors != nullptr) {
-		{
-			$var($PropertyDescriptorArray, arr$, descriptors);
-			int32_t len$ = arr$->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
-				$var($PropertyDescriptor, descriptor, arr$->get(i$));
-				{
-					addPropertyDescriptor(descriptor);
-				}
+		$var($PropertyDescriptorArray, arr$, descriptors);
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
+			$var($PropertyDescriptor, descriptor, arr$->get(i$));
+			{
+				addPropertyDescriptor(descriptor);
 			}
 		}
 	}
@@ -456,9 +357,9 @@ $PropertyDescriptorArray* Introspector::getPropertyDescriptors($BeanInfo* info) 
 }
 
 void Introspector::processPropertyDescriptors() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->properties == nullptr) {
-		$set(this, properties, static_cast<$Map*>(static_cast<$AbstractMap*>($new($TreeMap))));
+		$set(this, properties, $cast($AbstractMap, $new($TreeMap)));
 	}
 	$var($List, list, nullptr);
 	$var($PropertyDescriptor, pd, nullptr);
@@ -468,7 +369,7 @@ void Introspector::processPropertyDescriptors() {
 	$var($IndexedPropertyDescriptor, igpd, nullptr);
 	$var($IndexedPropertyDescriptor, ispd, nullptr);
 	{
-		$var($Iterator, i$, $nc($($nc(this->pdStore)->values()))->iterator());
+		$var($Iterator, i$, $$nc($nc(this->pdStore)->values())->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($List, propertyDescriptors, $cast($List, i$->next()));
 			{
@@ -483,19 +384,19 @@ void Introspector::processPropertyDescriptors() {
 					$assign(pd, $cast($PropertyDescriptor, list->get(i)));
 					if ($instanceOf($IndexedPropertyDescriptor, pd)) {
 						$assign(ipd, $cast($IndexedPropertyDescriptor, pd));
-						if ($nc(ipd)->getIndexedReadMethod() != nullptr) {
+						if (ipd->getIndexedReadMethod() != nullptr) {
 							if (igpd != nullptr) {
-								$assign(igpd, $new($IndexedPropertyDescriptor, static_cast<$PropertyDescriptor*>(igpd), static_cast<$PropertyDescriptor*>(ipd)));
+								$assign(igpd, $new($IndexedPropertyDescriptor, igpd, ipd));
 							} else {
 								$assign(igpd, ipd);
 							}
 						}
 					} else if ($nc(pd)->getReadMethod() != nullptr) {
-						$var($String, pdName, $nc($(pd->getReadMethod()))->getName());
+						$var($String, pdName, $$nc(pd->getReadMethod())->getName());
 						if (gpd != nullptr) {
-							$var($String, gpdName, $nc($(gpd->getReadMethod()))->getName());
+							$var($String, gpdName, $$nc(gpd->getReadMethod())->getName());
 							bool var$0 = $nc(gpdName)->equals(pdName);
-							if (var$0 || !$nc(gpdName)->startsWith(Introspector::IS_PREFIX)) {
+							if (var$0 || !gpdName->startsWith(Introspector::IS_PREFIX)) {
 								$assign(gpd, $new($PropertyDescriptor, gpd, pd));
 							}
 						} else {
@@ -503,22 +404,22 @@ void Introspector::processPropertyDescriptors() {
 						}
 					}
 				}
-				for (int32_t i = 0; i < $nc(list)->size(); ++i) {
+				for (int32_t i = 0; i < list->size(); ++i) {
 					$assign(pd, $cast($PropertyDescriptor, list->get(i)));
 					if ($instanceOf($IndexedPropertyDescriptor, pd)) {
 						$assign(ipd, $cast($IndexedPropertyDescriptor, pd));
-						if ($nc(ipd)->getIndexedWriteMethod() != nullptr) {
+						if (ipd->getIndexedWriteMethod() != nullptr) {
 							if (igpd != nullptr) {
 								$Class* var$1 = igpd->getIndexedPropertyType();
 								if (isAssignable(var$1, ipd->getIndexedPropertyType())) {
 									if (ispd != nullptr) {
-										$assign(ispd, $new($IndexedPropertyDescriptor, static_cast<$PropertyDescriptor*>(ispd), static_cast<$PropertyDescriptor*>(ipd)));
+										$assign(ispd, $new($IndexedPropertyDescriptor, ispd, ipd));
 									} else {
 										$assign(ispd, ipd);
 									}
 								}
 							} else if (ispd != nullptr) {
-								$assign(ispd, $new($IndexedPropertyDescriptor, static_cast<$PropertyDescriptor*>(ispd), static_cast<$PropertyDescriptor*>(ipd)));
+								$assign(ispd, $new($IndexedPropertyDescriptor, ispd, ipd));
 							} else {
 								$assign(ispd, ipd);
 							}
@@ -562,13 +463,13 @@ void Introspector::processPropertyDescriptors() {
 					if (pd == nullptr) {
 						$assign(pd, ipd);
 					} else {
-						$Class* propType = $nc(pd)->getPropertyType();
+						$Class* propType = pd->getPropertyType();
 						$Class* ipropType = $nc(ipd)->getIndexedPropertyType();
 						bool var$3 = $nc(propType)->isArray();
 						if (var$3 && propType->getComponentType() == ipropType) {
-							$assign(pd, $nc(pd->getClass0())->isAssignableFrom(ipd->getClass0()) ? static_cast<$PropertyDescriptor*>($new($IndexedPropertyDescriptor, pd, static_cast<$PropertyDescriptor*>(ipd))) : static_cast<$PropertyDescriptor*>($new($IndexedPropertyDescriptor, static_cast<$PropertyDescriptor*>(ipd), pd)));
+							$assign(pd, $nc(pd->getClass0())->isAssignableFrom(ipd->getClass0()) ? $new($IndexedPropertyDescriptor, pd, ipd) : $new($IndexedPropertyDescriptor, ipd, pd));
 						} else if ($nc(pd->getClass0())->isAssignableFrom(ipd->getClass0())) {
-							$assign(pd, $nc(pd->getClass0())->isAssignableFrom(ipd->getClass0()) ? $new($PropertyDescriptor, pd, static_cast<$PropertyDescriptor*>(ipd)) : $new($PropertyDescriptor, static_cast<$PropertyDescriptor*>(ipd), pd));
+							$assign(pd, $nc(pd->getClass0())->isAssignableFrom(ipd->getClass0()) ? $new($PropertyDescriptor, pd, ipd) : $new($PropertyDescriptor, ipd, pd));
 						} else {
 							$assign(pd, ipd);
 						}
@@ -612,12 +513,12 @@ void Introspector::processPropertyDescriptors() {
 				}
 				if ($instanceOf($IndexedPropertyDescriptor, pd)) {
 					$assign(ipd, $cast($IndexedPropertyDescriptor, pd));
-					bool var$4 = $nc(ipd)->getIndexedReadMethod() == nullptr;
+					bool var$4 = ipd->getIndexedReadMethod() == nullptr;
 					if (var$4 && ipd->getIndexedWriteMethod() == nullptr) {
 						$assign(pd, $new($PropertyDescriptor, ipd));
 					}
 				}
-				if ((pd == nullptr) && ($nc(list)->size() > 0)) {
+				if ((pd == nullptr) && (list->size() > 0)) {
 					$assign(pd, $cast($PropertyDescriptor, list->get(0)));
 				}
 				if (pd != nullptr) {
@@ -630,40 +531,40 @@ void Introspector::processPropertyDescriptors() {
 
 bool Introspector::isAssignable($Class* current, $Class* candidate) {
 	$init(Introspector);
-	return ((current == nullptr) || (candidate == nullptr)) ? current == candidate : $nc(current)->isAssignableFrom(candidate);
+	return ((current == nullptr) || (candidate == nullptr)) ? current == candidate : current->isAssignableFrom(candidate);
 }
 
 $PropertyDescriptor* Introspector::mergePropertyWithIndexedProperty($PropertyDescriptor* pd, $IndexedPropertyDescriptor* ipd) {
 	$Class* type = $nc(pd)->getPropertyType();
 	bool var$0 = $nc(type)->isArray();
 	if (var$0) {
-		var$0 = (type->getComponentType() == $nc(ipd)->getIndexedPropertyType());
+		var$0 = type->getComponentType() == $nc(ipd)->getIndexedPropertyType();
 	}
 	if (var$0) {
-		return $nc(pd->getClass0())->isAssignableFrom(ipd->getClass0()) ? static_cast<$PropertyDescriptor*>($new($IndexedPropertyDescriptor, pd, static_cast<$PropertyDescriptor*>(ipd))) : static_cast<$PropertyDescriptor*>($new($IndexedPropertyDescriptor, static_cast<$PropertyDescriptor*>(ipd), pd));
+		return $nc(pd->getClass0())->isAssignableFrom($nc(ipd)->getClass0()) ? $new($IndexedPropertyDescriptor, pd, ipd) : $new($IndexedPropertyDescriptor, ipd, pd);
 	}
 	return pd;
 }
 
 $PropertyDescriptor* Introspector::mergePropertyDescriptor($IndexedPropertyDescriptor* ipd, $PropertyDescriptor* pd) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($PropertyDescriptor, result, nullptr);
 	$Class* propType = $nc(pd)->getPropertyType();
 	$Class* ipropType = $nc(ipd)->getIndexedPropertyType();
 	bool var$0 = $nc(propType)->isArray();
 	if (var$0 && propType->getComponentType() == ipropType) {
 		if ($nc(pd->getClass0())->isAssignableFrom(ipd->getClass0())) {
-			$assign(result, $new($IndexedPropertyDescriptor, pd, static_cast<$PropertyDescriptor*>(ipd)));
+			$assign(result, $new($IndexedPropertyDescriptor, pd, ipd));
 		} else {
-			$assign(result, $new($IndexedPropertyDescriptor, static_cast<$PropertyDescriptor*>(ipd), pd));
+			$assign(result, $new($IndexedPropertyDescriptor, ipd, pd));
 		}
 	} else {
-		bool var$2 = (ipd->getReadMethod() == nullptr);
-		if (var$2 && (ipd->getWriteMethod() == nullptr)) {
+		bool var$1 = ipd->getReadMethod() == nullptr;
+		if (var$1 && (ipd->getWriteMethod() == nullptr)) {
 			if ($nc(pd->getClass0())->isAssignableFrom(ipd->getClass0())) {
-				$assign(result, $new($PropertyDescriptor, pd, static_cast<$PropertyDescriptor*>(ipd)));
+				$assign(result, $new($PropertyDescriptor, pd, ipd));
 			} else {
-				$assign(result, $new($PropertyDescriptor, static_cast<$PropertyDescriptor*>(ipd), pd));
+				$assign(result, $new($PropertyDescriptor, ipd, pd));
 			}
 		} else if ($nc(pd->getClass0())->isAssignableFrom(ipd->getClass0())) {
 			$assign(result, ipd);
@@ -672,8 +573,8 @@ $PropertyDescriptor* Introspector::mergePropertyDescriptor($IndexedPropertyDescr
 			$var($Method, write, result->getWriteMethod());
 			$var($Method, read, result->getReadMethod());
 			if (read == nullptr && write != nullptr) {
-				$Class* var$3 = result->getClass0();
-				$assign(read, findMethod(var$3, $$str({Introspector::GET_PREFIX, $($NameGenerator::capitalize($(result->getName())))}), 0));
+				$Class* var$2 = result->getClass0();
+				$assign(read, findMethod(var$2, $$str({Introspector::GET_PREFIX, $($NameGenerator::capitalize($(result->getName())))}), 0));
 				if (read != nullptr) {
 					try {
 						result->setReadMethod(read);
@@ -682,9 +583,9 @@ $PropertyDescriptor* Introspector::mergePropertyDescriptor($IndexedPropertyDescr
 				}
 			}
 			if (write == nullptr && read != nullptr) {
-				$Class* var$4 = result->getClass0();
-				$var($String, var$5, $str({Introspector::SET_PREFIX, $($NameGenerator::capitalize($(result->getName())))}));
-				$assign(write, findMethod(var$4, var$5, 1, $$new($ClassArray, {$FeatureDescriptor::getReturnType(result->getClass0(), read)})));
+				$Class* var$3 = result->getClass0();
+				$var($String, var$4, $str({Introspector::SET_PREFIX, $($NameGenerator::capitalize($(result->getName())))}));
+				$assign(write, findMethod(var$3, var$4, 1, $$new($ClassArray, {$FeatureDescriptor::getReturnType(result->getClass0(), read)})));
 				if (write != nullptr) {
 					try {
 						result->setWriteMethod(write);
@@ -707,37 +608,37 @@ $PropertyDescriptor* Introspector::mergePropertyDescriptor($PropertyDescriptor* 
 
 $IndexedPropertyDescriptor* Introspector::mergePropertyDescriptor($IndexedPropertyDescriptor* ipd1, $IndexedPropertyDescriptor* ipd2) {
 	if ($nc($nc(ipd1)->getClass0())->isAssignableFrom($nc(ipd2)->getClass0())) {
-		return $new($IndexedPropertyDescriptor, static_cast<$PropertyDescriptor*>(ipd1), static_cast<$PropertyDescriptor*>(ipd2));
+		return $new($IndexedPropertyDescriptor, ipd1, ipd2);
 	} else {
-		return $new($IndexedPropertyDescriptor, static_cast<$PropertyDescriptor*>(ipd2), static_cast<$PropertyDescriptor*>(ipd1));
+		return $new($IndexedPropertyDescriptor, ipd2, ipd1);
 	}
 }
 
 $EventSetDescriptorArray* Introspector::getTargetEventInfo() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->events == nullptr) {
 		$set(this, events, $new($HashMap));
 	}
 	$var($EventSetDescriptorArray, explicitEvents, nullptr);
 	if (this->explicitBeanInfo != nullptr) {
-		$assign(explicitEvents, $nc(this->explicitBeanInfo)->getEventSetDescriptors());
+		$assign(explicitEvents, this->explicitBeanInfo->getEventSetDescriptors());
 		int32_t ix = $nc(this->explicitBeanInfo)->getDefaultEventIndex();
 		if (ix >= 0 && ix < $nc(explicitEvents)->length) {
 			$set(this, defaultEventName, $nc(explicitEvents->get(ix))->getName());
 		}
 	}
 	if (explicitEvents == nullptr && this->superBeanInfo != nullptr) {
-		$var($EventSetDescriptorArray, supers, $nc(this->superBeanInfo)->getEventSetDescriptors());
+		$var($EventSetDescriptorArray, supers, this->superBeanInfo->getEventSetDescriptors());
 		for (int32_t i = 0; i < $nc(supers)->length; ++i) {
 			addEvent(supers->get(i));
 		}
 		int32_t ix = $nc(this->superBeanInfo)->getDefaultEventIndex();
-		if (ix >= 0 && ix < $nc(supers)->length) {
+		if (ix >= 0 && ix < supers->length) {
 			$set(this, defaultEventName, $nc(supers->get(ix))->getName());
 		}
 	}
 	for (int32_t i = 0; i < $nc(this->additionalBeanInfo)->length; ++i) {
-		$var($EventSetDescriptorArray, additional, $nc($nc(this->additionalBeanInfo)->get(i))->getEventSetDescriptors());
+		$var($EventSetDescriptorArray, additional, $nc(this->additionalBeanInfo->get(i))->getEventSetDescriptors());
 		if (additional != nullptr) {
 			for (int32_t j = 0; j < additional->length; ++j) {
 				addEvent(additional->get(j));
@@ -750,31 +651,29 @@ $EventSetDescriptorArray* Introspector::getTargetEventInfo() {
 		}
 	} else {
 		{
-			$var($Iterator, i$, $nc($($nc($($nc($($1ClassInfo::get(this->beanClass)))->getEventSets()))->entrySet()))->iterator());
+			$var($Iterator, i$, $$nc($$nc($$nc($ClassInfo::get(this->beanClass))->getEventSets())->entrySet())->iterator());
 			for (; $nc(i$)->hasNext();) {
 				$var($Map$Entry, entry, $cast($Map$Entry, i$->next()));
 				{
 					$var($List, methods, $new($ArrayList));
 					{
-						$var($Iterator, i$, $nc($($nc($($1ClassInfo::get($nc(($cast($EventSetInfo, $($nc(entry)->getValue()))))->getListenerType())))->getMethods()))->iterator());
+						$var($Iterator, i$, $$nc($$nc($ClassInfo::get($$sure($EventSetInfo, $nc(entry)->getValue())->getListenerType()))->getMethods())->iterator());
 						for (; $nc(i$)->hasNext();) {
 							$var($Method, method, $cast($Method, i$->next()));
-							{
-								if (isEventHandler(method)) {
-									methods->add(method);
-								}
+							if (isEventHandler(method)) {
+								methods->add(method);
 							}
 						}
 					}
-					$var($String, var$0, $cast($String, $nc(entry)->getKey()));
+					$var($String, var$0, $cast($String, entry->getKey()));
 					$var($EventSetInfo, var$1, $cast($EventSetInfo, entry->getValue()));
-					addEvent($$new($EventSetDescriptor, var$0, var$1, $fcast($MethodArray, $(methods->toArray($$new($MethodArray, methods->size()))))));
+					addEvent($$new($EventSetDescriptor, var$0, var$1, $$cast($MethodArray, methods->toArray($$new($MethodArray, methods->size())))));
 				}
 			}
 		}
 		$load($JavaBean);
 		$var($JavaBean, annotation, $cast($JavaBean, $nc(this->beanClass)->getAnnotation($JavaBean::class$)));
-		if ((annotation != nullptr) && !$nc($(annotation->defaultEventSet()))->isEmpty()) {
+		if ((annotation != nullptr) && !$$nc(annotation->defaultEventSet())->isEmpty()) {
 			$set(this, defaultEventName, annotation->defaultEventSet());
 		}
 	}
@@ -782,8 +681,8 @@ $EventSetDescriptorArray* Introspector::getTargetEventInfo() {
 	if ($nc(this->events)->size() == 0) {
 		$assign(result, Introspector::EMPTY_EVENTSETDESCRIPTORS);
 	} else {
-		$assign(result, $new($EventSetDescriptorArray, $nc(this->events)->size()));
-		$assign(result, $fcast($EventSetDescriptorArray, $nc($($nc(this->events)->values()))->toArray(result)));
+		$assign(result, $new($EventSetDescriptorArray, this->events->size()));
+		$assign(result, $cast($EventSetDescriptorArray, $$nc(this->events->values())->toArray(result)));
 		if (this->defaultEventName != nullptr) {
 			for (int32_t i = 0; i < $nc(result)->length; ++i) {
 				if ($nc(this->defaultEventName)->equals($($nc(result->get(i))->getName()))) {
@@ -796,37 +695,37 @@ $EventSetDescriptorArray* Introspector::getTargetEventInfo() {
 }
 
 void Introspector::addEvent($EventSetDescriptor* esd) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, key, $nc(esd)->getName());
-	if ($nc($(esd->getName()))->equals("propertyChange"_s)) {
+	if ($$nc(esd->getName())->equals("propertyChange"_s)) {
 		this->propertyChangeSource = true;
 	}
 	$var($EventSetDescriptor, old, $cast($EventSetDescriptor, $nc(this->events)->get(key)));
 	if (old == nullptr) {
-		$nc(this->events)->put(key, esd);
+		this->events->put(key, esd);
 		return;
 	}
 	$var($EventSetDescriptor, composite, $new($EventSetDescriptor, old, esd));
-	$nc(this->events)->put(key, composite);
+	this->events->put(key, composite);
 }
 
 $MethodDescriptorArray* Introspector::getTargetMethodInfo() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->methods == nullptr) {
 		$set(this, methods, $new($HashMap, 100));
 	}
 	$var($MethodDescriptorArray, explicitMethods, nullptr);
 	if (this->explicitBeanInfo != nullptr) {
-		$assign(explicitMethods, $nc(this->explicitBeanInfo)->getMethodDescriptors());
+		$assign(explicitMethods, this->explicitBeanInfo->getMethodDescriptors());
 	}
 	if (explicitMethods == nullptr && this->superBeanInfo != nullptr) {
-		$var($MethodDescriptorArray, supers, $nc(this->superBeanInfo)->getMethodDescriptors());
+		$var($MethodDescriptorArray, supers, this->superBeanInfo->getMethodDescriptors());
 		for (int32_t i = 0; i < $nc(supers)->length; ++i) {
 			addMethod(supers->get(i));
 		}
 	}
 	for (int32_t i = 0; i < $nc(this->additionalBeanInfo)->length; ++i) {
-		$var($MethodDescriptorArray, additional, $nc($nc(this->additionalBeanInfo)->get(i))->getMethodDescriptors());
+		$var($MethodDescriptorArray, additional, $nc(this->additionalBeanInfo->get(i))->getMethodDescriptors());
 		if (additional != nullptr) {
 			for (int32_t j = 0; j < additional->length; ++j) {
 				addMethod(additional->get(j));
@@ -838,27 +737,25 @@ $MethodDescriptorArray* Introspector::getTargetMethodInfo() {
 			addMethod(explicitMethods->get(i));
 		}
 	} else {
-		{
-			$var($Iterator, i$, $nc($($nc($($1ClassInfo::get(this->beanClass)))->getMethods()))->iterator());
-			for (; $nc(i$)->hasNext();) {
-				$var($Method, method, $cast($Method, i$->next()));
-				{
-					addMethod($$new($MethodDescriptor, method));
-				}
+		$var($Iterator, i$, $$nc($$nc($ClassInfo::get(this->beanClass))->getMethods())->iterator());
+		for (; $nc(i$)->hasNext();) {
+			$var($Method, method, $cast($Method, i$->next()));
+			{
+				addMethod($$new($MethodDescriptor, method));
 			}
 		}
 	}
 	$var($MethodDescriptorArray, result, $new($MethodDescriptorArray, $nc(this->methods)->size()));
-	$assign(result, $fcast($MethodDescriptorArray, $nc($($nc(this->methods)->values()))->toArray(result)));
+	$assign(result, $cast($MethodDescriptorArray, $$nc(this->methods->values())->toArray(result)));
 	return result;
 }
 
 void Introspector::addMethod($MethodDescriptor* md) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, name, $nc(md)->getName());
 	$var($MethodDescriptor, old, $cast($MethodDescriptor, $nc(this->methods)->get(name)));
 	if (old == nullptr) {
-		$nc(this->methods)->put(name, md);
+		this->methods->put(name, md);
 		return;
 	}
 	$var($StringArray, p1, md->getParamNames());
@@ -881,11 +778,11 @@ void Introspector::addMethod($MethodDescriptor* md) {
 	$var($String, longKey, makeQualifiedMethodName(name, p1));
 	$assign(old, $cast($MethodDescriptor, $nc(this->methods)->get(longKey)));
 	if (old == nullptr) {
-		$nc(this->methods)->put(longKey, md);
+		this->methods->put(longKey, md);
 		return;
 	}
 	$var($MethodDescriptor, composite, $new($MethodDescriptor, old, md));
-	$nc(this->methods)->put(longKey, composite);
+	this->methods->put(longKey, composite);
 }
 
 $String* Introspector::makeQualifiedMethodName($String* name, $StringArray* params) {
@@ -909,7 +806,7 @@ int32_t Introspector::getTargetDefaultPropertyIndex() {
 
 $BeanDescriptor* Introspector::getTargetBeanDescriptor() {
 	if (this->explicitBeanInfo != nullptr) {
-		$var($BeanDescriptor, bd, $nc(this->explicitBeanInfo)->getBeanDescriptor());
+		$var($BeanDescriptor, bd, this->explicitBeanInfo->getBeanDescriptor());
 		if (bd != nullptr) {
 			return (bd);
 		}
@@ -919,7 +816,7 @@ $BeanDescriptor* Introspector::getTargetBeanDescriptor() {
 
 $Class* Introspector::findCustomizerClass($Class* type) {
 	$init(Introspector);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$var($String, name, $str({$($nc(type)->getName()), "Customizer"_s}));
 	try {
@@ -936,46 +833,42 @@ $Class* Introspector::findCustomizerClass($Class* type) {
 }
 
 bool Introspector::isEventHandler($Method* m) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($TypeArray, argTypes, $nc(m)->getGenericParameterTypes());
 	if ($nc(argTypes)->length != 1) {
 		return false;
 	}
 	$load($EventObject);
-	return isSubclass($TypeResolver::erase($($TypeResolver::resolveInClass(this->beanClass, $nc(argTypes)->get(0)))), $EventObject::class$);
+	return isSubclass($TypeResolver::erase($($TypeResolver::resolveInClass(this->beanClass, argTypes->get(0)))), $EventObject::class$);
 }
 
 $Method* Introspector::internalFindMethod($Class* start, $String* methodName, int32_t argCount, $ClassArray* args) {
 	$init(Introspector);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	{
 		$Class* cl = start;
-		for (; cl != nullptr; cl = $nc(cl)->getSuperclass()) {
-			{
-				$var($Iterator, i$, $nc($($nc($($1ClassInfo::get(cl)))->getMethods()))->iterator());
-				for (; $nc(i$)->hasNext();) {
-					$var($Method, method, $cast($Method, i$->next()));
-					{
-						if ($nc($($nc(method)->getName()))->equals(methodName)) {
-							$var($TypeArray, params, method->getGenericParameterTypes());
-							if ($nc(params)->length == argCount) {
-								if (args != nullptr) {
-									bool different = false;
-									if (argCount > 0) {
-										for (int32_t j = 0; j < argCount; ++j) {
-											if ($TypeResolver::erase($($TypeResolver::resolveInClass(start, params->get(j)))) != args->get(j)) {
-												different = true;
-												continue;
-											}
-										}
-										if (different) {
-											continue;
-										}
+		for (; cl != nullptr; cl = cl->getSuperclass()) {
+			$var($Iterator, i$, $$nc($$nc($ClassInfo::get(cl))->getMethods())->iterator());
+			for (; $nc(i$)->hasNext();) {
+				$var($Method, method, $cast($Method, i$->next()));
+				if ($$nc($nc(method)->getName())->equals(methodName)) {
+					$var($TypeArray, params, method->getGenericParameterTypes());
+					if ($nc(params)->length == argCount) {
+						if (args != nullptr) {
+							bool different = false;
+							if (argCount > 0) {
+								for (int32_t j = 0; j < argCount; ++j) {
+									if ($TypeResolver::erase($($TypeResolver::resolveInClass(start, params->get(j)))) != args->get(j)) {
+										different = true;
+										continue;
 									}
 								}
-								return method;
+								if (different) {
+									continue;
+								}
 							}
 						}
+						return method;
 					}
 				}
 			}
@@ -1006,7 +899,7 @@ $Method* Introspector::findMethod($Class* cls, $String* methodName, int32_t argC
 
 bool Introspector::isSubclass($Class* a, $Class* b) {
 	$init(Introspector);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (a == b) {
 		return true;
 	}
@@ -1015,7 +908,7 @@ bool Introspector::isSubclass($Class* a, $Class* b) {
 	}
 	{
 		$Class* x = a;
-		for (; x != nullptr; x = $nc(x)->getSuperclass()) {
+		for (; x != nullptr; x = x->getSuperclass()) {
 			if (x == b) {
 				return true;
 			}
@@ -1037,10 +930,10 @@ $Object* Introspector::instantiate($Class* sibling, $String* className) {
 	$beforeCallerSensitive();
 	$var($ClassLoader, cl, $nc(sibling)->getClassLoader());
 	$Class* cls = $ClassFinder::findClass(className, cl);
-	return $of($nc(cls)->newInstance());
+	return $nc(cls)->newInstance();
 }
 
-void clinit$Introspector($Class* class$) {
+void Introspector::clinit$($Class* clazz) {
 	$assignStatic(Introspector::ADD_PREFIX, "add"_s);
 	$assignStatic(Introspector::REMOVE_PREFIX, "remove"_s);
 	$assignStatic(Introspector::GET_PREFIX, "get"_s);
@@ -1056,7 +949,92 @@ Introspector::Introspector() {
 }
 
 $Class* Introspector::load$($String* name, bool initialize) {
-	$loadClass(Introspector, name, initialize, &_Introspector_ClassInfo_, clinit$Introspector, allocate$Introspector);
+	$FieldInfo fieldInfos$$[] = {
+		{"USE_ALL_BEANINFO", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Introspector, USE_ALL_BEANINFO)},
+		{"IGNORE_IMMEDIATE_BEANINFO", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Introspector, IGNORE_IMMEDIATE_BEANINFO)},
+		{"IGNORE_ALL_BEANINFO", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Introspector, IGNORE_ALL_BEANINFO)},
+		{"beanClass", "Ljava/lang/Class;", "Ljava/lang/Class<*>;", $PRIVATE, $field(Introspector, beanClass)},
+		{"explicitBeanInfo", "Ljava/beans/BeanInfo;", nullptr, $PRIVATE, $field(Introspector, explicitBeanInfo)},
+		{"superBeanInfo", "Ljava/beans/BeanInfo;", nullptr, $PRIVATE, $field(Introspector, superBeanInfo)},
+		{"additionalBeanInfo", "[Ljava/beans/BeanInfo;", nullptr, $PRIVATE, $field(Introspector, additionalBeanInfo)},
+		{"propertyChangeSource", "Z", nullptr, $PRIVATE, $field(Introspector, propertyChangeSource)},
+		{"defaultEventName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(Introspector, defaultEventName)},
+		{"defaultPropertyName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(Introspector, defaultPropertyName)},
+		{"defaultEventIndex", "I", nullptr, $PRIVATE, $field(Introspector, defaultEventIndex)},
+		{"defaultPropertyIndex", "I", nullptr, $PRIVATE, $field(Introspector, defaultPropertyIndex)},
+		{"methods", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/beans/MethodDescriptor;>;", $PRIVATE, $field(Introspector, methods)},
+		{"properties", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/beans/PropertyDescriptor;>;", $PRIVATE, $field(Introspector, properties)},
+		{"events", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/beans/EventSetDescriptor;>;", $PRIVATE, $field(Introspector, events)},
+		{"EMPTY_EVENTSETDESCRIPTORS", "[Ljava/beans/EventSetDescriptor;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Introspector, EMPTY_EVENTSETDESCRIPTORS)},
+		{"ADD_PREFIX", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(Introspector, ADD_PREFIX)},
+		{"REMOVE_PREFIX", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(Introspector, REMOVE_PREFIX)},
+		{"GET_PREFIX", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(Introspector, GET_PREFIX)},
+		{"SET_PREFIX", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(Introspector, SET_PREFIX)},
+		{"IS_PREFIX", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(Introspector, IS_PREFIX)},
+		{"pdStore", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/lang/String;Ljava/util/List<Ljava/beans/PropertyDescriptor;>;>;", $PRIVATE, $field(Introspector, pdStore)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Class;Ljava/lang/Class;I)V", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;I)V", $PRIVATE, $method(Introspector, init$, void, $Class*, $Class*, int32_t), "java.beans.IntrospectionException"},
+		{"addEvent", "(Ljava/beans/EventSetDescriptor;)V", nullptr, $PRIVATE, $method(Introspector, addEvent, void, $EventSetDescriptor*)},
+		{"addMethod", "(Ljava/beans/MethodDescriptor;)V", nullptr, $PRIVATE, $method(Introspector, addMethod, void, $MethodDescriptor*)},
+		{"addPropertyDescriptor", "(Ljava/beans/PropertyDescriptor;)V", nullptr, $PRIVATE, $method(Introspector, addPropertyDescriptor, void, $PropertyDescriptor*)},
+		{"addPropertyDescriptors", "([Ljava/beans/PropertyDescriptor;)V", nullptr, $PRIVATE, $method(Introspector, addPropertyDescriptors, void, $PropertyDescriptorArray*)},
+		{"decapitalize", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Introspector, decapitalize, $String*, $String*)},
+		{"findCustomizerClass", "(Ljava/lang/Class;)Ljava/lang/Class;", "(Ljava/lang/Class<*>;)Ljava/lang/Class<*>;", $PRIVATE | $STATIC, $staticMethod(Introspector, findCustomizerClass, $Class*, $Class*)},
+		{"findExplicitBeanInfo", "(Ljava/lang/Class;)Ljava/beans/BeanInfo;", "(Ljava/lang/Class<*>;)Ljava/beans/BeanInfo;", $PRIVATE | $STATIC, $staticMethod(Introspector, findExplicitBeanInfo, $BeanInfo*, $Class*)},
+		{"findMethod", "(Ljava/lang/Class;Ljava/lang/String;I)Ljava/lang/reflect/Method;", "(Ljava/lang/Class<*>;Ljava/lang/String;I)Ljava/lang/reflect/Method;", $STATIC, $staticMethod(Introspector, findMethod, $Method*, $Class*, $String*, int32_t)},
+		{"findMethod", "(Ljava/lang/Class;Ljava/lang/String;I[Ljava/lang/Class;)Ljava/lang/reflect/Method;", "(Ljava/lang/Class<*>;Ljava/lang/String;I[Ljava/lang/Class<*>;)Ljava/lang/reflect/Method;", $STATIC, $staticMethod(Introspector, findMethod, $Method*, $Class*, $String*, int32_t, $ClassArray*)},
+		{"flushCaches", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(Introspector, flushCaches, void)},
+		{"flushFromCaches", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;)V", $PUBLIC | $STATIC, $staticMethod(Introspector, flushFromCaches, void, $Class*)},
+		{"getBeanInfo", "(Ljava/lang/Class;)Ljava/beans/BeanInfo;", "(Ljava/lang/Class<*>;)Ljava/beans/BeanInfo;", $PUBLIC | $STATIC, $staticMethod(Introspector, getBeanInfo, $BeanInfo*, $Class*), "java.beans.IntrospectionException"},
+		{"getBeanInfo", "(Ljava/lang/Class;I)Ljava/beans/BeanInfo;", "(Ljava/lang/Class<*>;I)Ljava/beans/BeanInfo;", $PUBLIC | $STATIC, $staticMethod(Introspector, getBeanInfo, $BeanInfo*, $Class*, int32_t), "java.beans.IntrospectionException"},
+		{"getBeanInfo", "(Ljava/lang/Class;Ljava/lang/Class;)Ljava/beans/BeanInfo;", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;)Ljava/beans/BeanInfo;", $PUBLIC | $STATIC, $staticMethod(Introspector, getBeanInfo, $BeanInfo*, $Class*, $Class*), "java.beans.IntrospectionException"},
+		{"getBeanInfo", "(Ljava/lang/Class;Ljava/lang/Class;I)Ljava/beans/BeanInfo;", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;I)Ljava/beans/BeanInfo;", $PUBLIC | $STATIC, $staticMethod(Introspector, getBeanInfo, $BeanInfo*, $Class*, $Class*, int32_t), "java.beans.IntrospectionException"},
+		{"getBeanInfo", "()Ljava/beans/BeanInfo;", nullptr, $PRIVATE, $method(Introspector, getBeanInfo, $BeanInfo*), "java.beans.IntrospectionException"},
+		{"getBeanInfoSearchPath", "()[Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Introspector, getBeanInfoSearchPath, $StringArray*)},
+		{"getPropertyDescriptors", "(Ljava/beans/BeanInfo;)[Ljava/beans/PropertyDescriptor;", nullptr, $PRIVATE, $method(Introspector, getPropertyDescriptors, $PropertyDescriptorArray*, $BeanInfo*)},
+		{"getTargetBeanDescriptor", "()Ljava/beans/BeanDescriptor;", nullptr, $PRIVATE, $method(Introspector, getTargetBeanDescriptor, $BeanDescriptor*)},
+		{"getTargetDefaultEventIndex", "()I", nullptr, $PRIVATE, $method(Introspector, getTargetDefaultEventIndex, int32_t)},
+		{"getTargetDefaultPropertyIndex", "()I", nullptr, $PRIVATE, $method(Introspector, getTargetDefaultPropertyIndex, int32_t)},
+		{"getTargetEventInfo", "()[Ljava/beans/EventSetDescriptor;", nullptr, $PRIVATE, $method(Introspector, getTargetEventInfo, $EventSetDescriptorArray*), "java.beans.IntrospectionException"},
+		{"getTargetMethodInfo", "()[Ljava/beans/MethodDescriptor;", nullptr, $PRIVATE, $method(Introspector, getTargetMethodInfo, $MethodDescriptorArray*)},
+		{"getTargetPropertyInfo", "()[Ljava/beans/PropertyDescriptor;", nullptr, $PRIVATE, $method(Introspector, getTargetPropertyInfo, $PropertyDescriptorArray*)},
+		{"instantiate", "(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Object;", "(Ljava/lang/Class<*>;Ljava/lang/String;)Ljava/lang/Object;", $STATIC, $staticMethod(Introspector, instantiate, $Object*, $Class*, $String*), "java.lang.InstantiationException,java.lang.IllegalAccessException,java.lang.NoSuchMethodException,java.lang.reflect.InvocationTargetException,java.lang.ClassNotFoundException"},
+		{"internalFindMethod", "(Ljava/lang/Class;Ljava/lang/String;I[Ljava/lang/Class;)Ljava/lang/reflect/Method;", "(Ljava/lang/Class<*>;Ljava/lang/String;I[Ljava/lang/Class<*>;)Ljava/lang/reflect/Method;", $PRIVATE | $STATIC, $staticMethod(Introspector, internalFindMethod, $Method*, $Class*, $String*, int32_t, $ClassArray*)},
+		{"isAssignable", "(Ljava/lang/Class;Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;)Z", $PRIVATE | $STATIC, $staticMethod(Introspector, isAssignable, bool, $Class*, $Class*)},
+		{"isEventHandler", "(Ljava/lang/reflect/Method;)Z", nullptr, $PRIVATE, $method(Introspector, isEventHandler, bool, $Method*)},
+		{"isSubclass", "(Ljava/lang/Class;Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;)Z", $STATIC, $staticMethod(Introspector, isSubclass, bool, $Class*, $Class*)},
+		{"makeQualifiedMethodName", "(Ljava/lang/String;[Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Introspector, makeQualifiedMethodName, $String*, $String*, $StringArray*)},
+		{"mergePropertyDescriptor", "(Ljava/beans/IndexedPropertyDescriptor;Ljava/beans/PropertyDescriptor;)Ljava/beans/PropertyDescriptor;", nullptr, $PRIVATE, $method(Introspector, mergePropertyDescriptor, $PropertyDescriptor*, $IndexedPropertyDescriptor*, $PropertyDescriptor*)},
+		{"mergePropertyDescriptor", "(Ljava/beans/PropertyDescriptor;Ljava/beans/PropertyDescriptor;)Ljava/beans/PropertyDescriptor;", nullptr, $PRIVATE, $method(Introspector, mergePropertyDescriptor, $PropertyDescriptor*, $PropertyDescriptor*, $PropertyDescriptor*)},
+		{"mergePropertyDescriptor", "(Ljava/beans/IndexedPropertyDescriptor;Ljava/beans/IndexedPropertyDescriptor;)Ljava/beans/IndexedPropertyDescriptor;", nullptr, $PRIVATE, $method(Introspector, mergePropertyDescriptor, $IndexedPropertyDescriptor*, $IndexedPropertyDescriptor*, $IndexedPropertyDescriptor*)},
+		{"mergePropertyWithIndexedProperty", "(Ljava/beans/PropertyDescriptor;Ljava/beans/IndexedPropertyDescriptor;)Ljava/beans/PropertyDescriptor;", nullptr, $PRIVATE, $method(Introspector, mergePropertyWithIndexedProperty, $PropertyDescriptor*, $PropertyDescriptor*, $IndexedPropertyDescriptor*)},
+		{"processPropertyDescriptors", "()V", nullptr, $PRIVATE, $method(Introspector, processPropertyDescriptors, void)},
+		{"setBeanInfoSearchPath", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Introspector, setBeanInfoSearchPath, void, $StringArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.beans.Introspector$1", nullptr, nullptr, 0},
+		{}
+	};
+	$1ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.beans.Introspector",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.beans.Introspector$1"
+	};
+	$loadClass(Introspector, name, initialize, &classInfo$$, Introspector::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Introspector);
+	});
 	return class$;
 }
 

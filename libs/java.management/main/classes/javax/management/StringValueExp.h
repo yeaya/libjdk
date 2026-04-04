@@ -25,7 +25,7 @@ public:
 	virtual $String* getValue();
 	virtual void setMBeanServer(::javax::management::MBeanServer* s) override;
 	virtual $String* toString() override;
-	static const int64_t serialVersionUID = (int64_t)0xD2CEFA159D0B12F4;
+	static const int64_t serialVersionUID = (int64_t)0xd2cefa159d0b12f4;
 	$String* val = nullptr;
 };
 

@@ -1,5 +1,4 @@
 #include <com/sun/source/doctree/LiteralTree.h>
-
 #include <com/sun/source/doctree/TextTree.h>
 #include <jcpp.h>
 
@@ -12,26 +11,22 @@ namespace com {
 		namespace source {
 			namespace doctree {
 
-$MethodInfo _LiteralTree_MethodInfo_[] = {
-	{"getBody", "()Lcom/sun/source/doctree/TextTree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LiteralTree, getBody, $TextTree*)},
-	{}
-};
-
-$ClassInfo _LiteralTree_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.source.doctree.LiteralTree",
-	nullptr,
-	"com.sun.source.doctree.InlineTagTree",
-	nullptr,
-	_LiteralTree_MethodInfo_
-};
-
-$Object* allocate$LiteralTree($Class* clazz) {
-	return $of($alloc(LiteralTree));
-}
-
 $Class* LiteralTree::load$($String* name, bool initialize) {
-	$loadClass(LiteralTree, name, initialize, &_LiteralTree_ClassInfo_, allocate$LiteralTree);
+	$MethodInfo methodInfos$$[] = {
+		{"getBody", "()Lcom/sun/source/doctree/TextTree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LiteralTree, getBody, $TextTree*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.source.doctree.LiteralTree",
+		nullptr,
+		"com.sun.source.doctree.InlineTagTree",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(LiteralTree, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LiteralTree);
+	});
 	return class$;
 }
 

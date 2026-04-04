@@ -49,6 +49,7 @@ class $import DropTargetContext : public ::java::io::Serializable {
 	$class(DropTargetContext, 0, ::java::io::Serializable)
 public:
 	DropTargetContext();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::awt::dnd::DropTarget* dt);
 	virtual void acceptDrag(int32_t dragOperation);
 	virtual void acceptDrop(int32_t dropOperation);
@@ -67,7 +68,7 @@ public:
 	virtual void reset();
 	virtual void setDropTargetContextPeer(::java::awt::dnd::peer::DropTargetContextPeer* dtcp);
 	virtual void setTargetActions(int32_t actions);
-	static const int64_t serialVersionUID = (int64_t)0xF73303C711FFFDF5;
+	static const int64_t serialVersionUID = (int64_t)0xf73303c711fffdf5;
 	::java::awt::dnd::DropTarget* dropTarget = nullptr;
 	::java::awt::dnd::peer::DropTargetContextPeer* dropTargetContextPeer = nullptr;
 	::java::awt::datatransfer::Transferable* transferable = nullptr;

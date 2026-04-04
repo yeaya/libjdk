@@ -1,13 +1,9 @@
 #include <javax/swing/plaf/basic/BasicDesktopIconUI.h>
-
 #include <java/awt/BorderLayout.h>
-#include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <java/awt/Dimension.h>
 #include <java/awt/Insets.h>
 #include <java/awt/LayoutManager.h>
-#include <java/awt/event/MouseListener.h>
-#include <java/awt/event/MouseMotionListener.h>
 #include <java/beans/PropertyVetoException.h>
 #include <javax/swing/DefaultDesktopManager.h>
 #include <javax/swing/DesktopManager.h>
@@ -30,13 +26,9 @@
 #undef TRUE
 
 using $BorderLayout = ::java::awt::BorderLayout;
-using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Dimension = ::java::awt::Dimension;
 using $Insets = ::java::awt::Insets;
 using $LayoutManager = ::java::awt::LayoutManager;
-using $MouseListener = ::java::awt::event::MouseListener;
-using $MouseMotionListener = ::java::awt::event::MouseMotionListener;
 using $PropertyVetoException = ::java::beans::PropertyVetoException;
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -64,58 +56,6 @@ namespace javax {
 		namespace plaf {
 			namespace basic {
 
-$FieldInfo _BasicDesktopIconUI_FieldInfo_[] = {
-	{"desktopIcon", "Ljavax/swing/JInternalFrame$JDesktopIcon;", nullptr, $PROTECTED, $field(BasicDesktopIconUI, desktopIcon)},
-	{"frame", "Ljavax/swing/JInternalFrame;", nullptr, $PROTECTED, $field(BasicDesktopIconUI, frame)},
-	{"iconPane", "Ljavax/swing/JComponent;", nullptr, $PROTECTED, $field(BasicDesktopIconUI, iconPane)},
-	{"mouseInputListener", "Ljavax/swing/event/MouseInputListener;", nullptr, 0, $field(BasicDesktopIconUI, mouseInputListener)},
-	{}
-};
-
-$MethodInfo _BasicDesktopIconUI_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(BasicDesktopIconUI, init$, void)},
-	{"createMouseInputListener", "()Ljavax/swing/event/MouseInputListener;", nullptr, $PROTECTED, $virtualMethod(BasicDesktopIconUI, createMouseInputListener, $MouseInputListener*)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(BasicDesktopIconUI, createUI, $ComponentUI*, $JComponent*)},
-	{"deiconize", "()V", nullptr, $PUBLIC, $virtualMethod(BasicDesktopIconUI, deiconize, void)},
-	{"getInsets", "(Ljavax/swing/JComponent;)Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(BasicDesktopIconUI, getInsets, $Insets*, $JComponent*)},
-	{"getMaximumSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BasicDesktopIconUI, getMaximumSize, $Dimension*, $JComponent*)},
-	{"getMinimumSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BasicDesktopIconUI, getMinimumSize, $Dimension*, $JComponent*)},
-	{"getPreferredSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BasicDesktopIconUI, getPreferredSize, $Dimension*, $JComponent*)},
-	{"installComponents", "()V", nullptr, $PROTECTED, $virtualMethod(BasicDesktopIconUI, installComponents, void)},
-	{"installDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(BasicDesktopIconUI, installDefaults, void)},
-	{"installListeners", "()V", nullptr, $PROTECTED, $virtualMethod(BasicDesktopIconUI, installListeners, void)},
-	{"installUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(BasicDesktopIconUI, installUI, void, $JComponent*)},
-	{"uninstallComponents", "()V", nullptr, $PROTECTED, $virtualMethod(BasicDesktopIconUI, uninstallComponents, void)},
-	{"uninstallDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(BasicDesktopIconUI, uninstallDefaults, void)},
-	{"uninstallListeners", "()V", nullptr, $PROTECTED, $virtualMethod(BasicDesktopIconUI, uninstallListeners, void)},
-	{"uninstallUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(BasicDesktopIconUI, uninstallUI, void, $JComponent*)},
-	{}
-};
-
-$InnerClassInfo _BasicDesktopIconUI_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.basic.BasicDesktopIconUI$MouseInputHandler", "javax.swing.plaf.basic.BasicDesktopIconUI", "MouseInputHandler", $PUBLIC},
-	{}
-};
-
-$ClassInfo _BasicDesktopIconUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.basic.BasicDesktopIconUI",
-	"javax.swing.plaf.DesktopIconUI",
-	nullptr,
-	_BasicDesktopIconUI_FieldInfo_,
-	_BasicDesktopIconUI_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BasicDesktopIconUI_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.basic.BasicDesktopIconUI$MouseInputHandler"
-};
-
-$Object* allocate$BasicDesktopIconUI($Class* clazz) {
-	return $of($alloc(BasicDesktopIconUI));
-}
-
 $ComponentUI* BasicDesktopIconUI::createUI($JComponent* c) {
 	$init(BasicDesktopIconUI);
 	return $new(BasicDesktopIconUI);
@@ -126,7 +66,7 @@ void BasicDesktopIconUI::init$() {
 }
 
 void BasicDesktopIconUI::installUI($JComponent* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, desktopIcon, $cast($JInternalFrame$JDesktopIcon, c));
 	$set(this, frame, $nc(this->desktopIcon)->getInternalFrame());
 	installDefaults();
@@ -138,16 +78,16 @@ void BasicDesktopIconUI::installUI($JComponent* c) {
 		if (desktop != nullptr) {
 			$var($DesktopManager, desktopManager, desktop->getDesktopManager());
 			if ($instanceOf($DefaultDesktopManager, desktopManager)) {
-				$nc(desktopManager)->iconifyFrame(f);
+				desktopManager->iconifyFrame(f);
 			}
 		}
 	}
 	installListeners();
-	$JLayeredPane::putLayer(this->desktopIcon, $JLayeredPane::getLayer(static_cast<$JComponent*>(this->frame)));
+	$JLayeredPane::putLayer(this->desktopIcon, $JLayeredPane::getLayer(this->frame));
 }
 
 void BasicDesktopIconUI::uninstallUI($JComponent* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	uninstallDefaults();
 	uninstallComponents();
 	$var($JInternalFrame, f, $nc(this->desktopIcon)->getInternalFrame());
@@ -169,12 +109,11 @@ void BasicDesktopIconUI::uninstallUI($JComponent* c) {
 void BasicDesktopIconUI::installComponents() {
 	$set(this, iconPane, $new($BasicInternalFrameTitlePane, this->frame));
 	$nc(this->desktopIcon)->setLayout($$new($BorderLayout));
-	$init($BorderLayout);
-	$nc(this->desktopIcon)->add(static_cast<$Component*>(this->iconPane), $of($BorderLayout::CENTER));
+	$nc(this->desktopIcon)->add(this->iconPane, $BorderLayout::CENTER);
 }
 
 void BasicDesktopIconUI::uninstallComponents() {
-	$nc(this->desktopIcon)->remove(static_cast<$Component*>(this->iconPane));
+	$nc(this->desktopIcon)->remove(this->iconPane);
 	$nc(this->desktopIcon)->setLayout(nullptr);
 	$set(this, iconPane, nullptr);
 }
@@ -193,7 +132,6 @@ void BasicDesktopIconUI::uninstallListeners() {
 
 void BasicDesktopIconUI::installDefaults() {
 	$LookAndFeel::installBorder(this->desktopIcon, "DesktopIcon.border"_s);
-	$init($Boolean);
 	$LookAndFeel::installProperty(this->desktopIcon, "opaque"_s, $Boolean::TRUE);
 }
 
@@ -206,11 +144,11 @@ $MouseInputListener* BasicDesktopIconUI::createMouseInputListener() {
 }
 
 $Dimension* BasicDesktopIconUI::getPreferredSize($JComponent* c) {
-	return $nc($($nc(this->desktopIcon)->getLayout()))->preferredLayoutSize(this->desktopIcon);
+	return $$nc($nc(this->desktopIcon)->getLayout())->preferredLayoutSize(this->desktopIcon);
 }
 
 $Dimension* BasicDesktopIconUI::getMinimumSize($JComponent* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Dimension, dim, $new($Dimension, $($nc(this->iconPane)->getMinimumSize())));
 	$var($Border, border, $nc(this->frame)->getBorder());
 	if (border != nullptr) {
@@ -225,7 +163,7 @@ $Dimension* BasicDesktopIconUI::getMaximumSize($JComponent* c) {
 }
 
 $Insets* BasicDesktopIconUI::getInsets($JComponent* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JInternalFrame, iframe, $nc(this->desktopIcon)->getInternalFrame());
 	$var($Border, border, $nc(iframe)->getBorder());
 	if (border != nullptr) {
@@ -245,7 +183,53 @@ BasicDesktopIconUI::BasicDesktopIconUI() {
 }
 
 $Class* BasicDesktopIconUI::load$($String* name, bool initialize) {
-	$loadClass(BasicDesktopIconUI, name, initialize, &_BasicDesktopIconUI_ClassInfo_, allocate$BasicDesktopIconUI);
+	$FieldInfo fieldInfos$$[] = {
+		{"desktopIcon", "Ljavax/swing/JInternalFrame$JDesktopIcon;", nullptr, $PROTECTED, $field(BasicDesktopIconUI, desktopIcon)},
+		{"frame", "Ljavax/swing/JInternalFrame;", nullptr, $PROTECTED, $field(BasicDesktopIconUI, frame)},
+		{"iconPane", "Ljavax/swing/JComponent;", nullptr, $PROTECTED, $field(BasicDesktopIconUI, iconPane)},
+		{"mouseInputListener", "Ljavax/swing/event/MouseInputListener;", nullptr, 0, $field(BasicDesktopIconUI, mouseInputListener)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(BasicDesktopIconUI, init$, void)},
+		{"createMouseInputListener", "()Ljavax/swing/event/MouseInputListener;", nullptr, $PROTECTED, $virtualMethod(BasicDesktopIconUI, createMouseInputListener, $MouseInputListener*)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(BasicDesktopIconUI, createUI, $ComponentUI*, $JComponent*)},
+		{"deiconize", "()V", nullptr, $PUBLIC, $virtualMethod(BasicDesktopIconUI, deiconize, void)},
+		{"getInsets", "(Ljavax/swing/JComponent;)Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(BasicDesktopIconUI, getInsets, $Insets*, $JComponent*)},
+		{"getMaximumSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BasicDesktopIconUI, getMaximumSize, $Dimension*, $JComponent*)},
+		{"getMinimumSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BasicDesktopIconUI, getMinimumSize, $Dimension*, $JComponent*)},
+		{"getPreferredSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BasicDesktopIconUI, getPreferredSize, $Dimension*, $JComponent*)},
+		{"installComponents", "()V", nullptr, $PROTECTED, $virtualMethod(BasicDesktopIconUI, installComponents, void)},
+		{"installDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(BasicDesktopIconUI, installDefaults, void)},
+		{"installListeners", "()V", nullptr, $PROTECTED, $virtualMethod(BasicDesktopIconUI, installListeners, void)},
+		{"installUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(BasicDesktopIconUI, installUI, void, $JComponent*)},
+		{"uninstallComponents", "()V", nullptr, $PROTECTED, $virtualMethod(BasicDesktopIconUI, uninstallComponents, void)},
+		{"uninstallDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(BasicDesktopIconUI, uninstallDefaults, void)},
+		{"uninstallListeners", "()V", nullptr, $PROTECTED, $virtualMethod(BasicDesktopIconUI, uninstallListeners, void)},
+		{"uninstallUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(BasicDesktopIconUI, uninstallUI, void, $JComponent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.basic.BasicDesktopIconUI$MouseInputHandler", "javax.swing.plaf.basic.BasicDesktopIconUI", "MouseInputHandler", $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.basic.BasicDesktopIconUI",
+		"javax.swing.plaf.DesktopIconUI",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.basic.BasicDesktopIconUI$MouseInputHandler"
+	};
+	$loadClass(BasicDesktopIconUI, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BasicDesktopIconUI);
+	});
 	return class$;
 }
 

@@ -22,6 +22,7 @@ namespace sun {
 class $import SignalHandler : public ::java::lang::Object {
 	$interface(SignalHandler, 0, ::java::lang::Object)
 public:
+	static void clinit$(::java::lang::Class* clazz);
 	virtual void handle(::sun::misc::Signal* sig) {}
 	static ::sun::misc::SignalHandler* SIG_DFL;
 	static ::sun::misc::SignalHandler* SIG_IGN;

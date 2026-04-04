@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/security/utils/resolver/implementations/ResolverFragment.h>
-
 #include <com/sun/org/apache/xml/internal/security/signature/XMLSignatureInput.h>
 #include <com/sun/org/apache/xml/internal/security/utils/XMLUtils.h>
 #include <com/sun/org/apache/xml/internal/security/utils/resolver/ResourceResolverContext.h>
@@ -25,7 +24,6 @@ using $LoggerFactory = ::com::sun::org::slf4j::internal::LoggerFactory;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Attr = ::org::w3c::dom::Attr;
 using $Document = ::org::w3c::dom::Document;
 using $Element = ::org::w3c::dom::Element;
 using $Node = ::org::w3c::dom::Node;
@@ -41,31 +39,6 @@ namespace com {
 								namespace resolver {
 									namespace implementations {
 
-$FieldInfo _ResolverFragment_FieldInfo_[] = {
-	{"LOG", "Lcom/sun/org/slf4j/internal/Logger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ResolverFragment, LOG)},
-	{}
-};
-
-$MethodInfo _ResolverFragment_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ResolverFragment, init$, void)},
-	{"engineCanResolveURI", "(Lcom/sun/org/apache/xml/internal/security/utils/resolver/ResourceResolverContext;)Z", nullptr, $PUBLIC, $virtualMethod(ResolverFragment, engineCanResolveURI, bool, $ResourceResolverContext*)},
-	{"engineResolveURI", "(Lcom/sun/org/apache/xml/internal/security/utils/resolver/ResourceResolverContext;)Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;", nullptr, $PUBLIC, $virtualMethod(ResolverFragment, engineResolveURI, $XMLSignatureInput*, $ResourceResolverContext*), "com.sun.org.apache.xml.internal.security.utils.resolver.ResourceResolverException"},
-	{}
-};
-
-$ClassInfo _ResolverFragment_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.security.utils.resolver.implementations.ResolverFragment",
-	"com.sun.org.apache.xml.internal.security.utils.resolver.ResourceResolverSpi",
-	nullptr,
-	_ResolverFragment_FieldInfo_,
-	_ResolverFragment_MethodInfo_
-};
-
-$Object* allocate$ResolverFragment($Class* clazz) {
-	return $of($alloc(ResolverFragment));
-}
-
 $Logger* ResolverFragment::LOG = nullptr;
 
 void ResolverFragment::init$() {
@@ -73,37 +46,37 @@ void ResolverFragment::init$() {
 }
 
 $XMLSignatureInput* ResolverFragment::engineResolveURI($ResourceResolverContext* context) {
-	$useLocalCurrentObjectStackCache();
-	$var($Document, doc, $nc($($nc($nc(context)->attr)->getOwnerElement()))->getOwnerDocument());
+	$useLocalObjectStack();
+	$var($Document, doc, $$nc($nc($nc(context)->attr)->getOwnerElement())->getOwnerDocument());
 	$var($Node, selectedElem, nullptr);
 	if ($nc(context->uriToResolve)->isEmpty()) {
 		$nc(ResolverFragment::LOG)->debug("ResolverFragment with empty URI (means complete document)"_s);
 		$assign(selectedElem, doc);
 	} else {
-		$var($String, id, $nc(context->uriToResolve)->substring(1));
+		$var($String, id, context->uriToResolve->substring(1));
 		$assign(selectedElem, $nc(doc)->getElementById(id));
 		if (selectedElem == nullptr) {
-			$var($ObjectArray, exArgs, $new($ObjectArray, {$of(id)}));
+			$var($ObjectArray, exArgs, $new($ObjectArray, {id}));
 			$throwNew($ResourceResolverException, "signature.Verification.MissingID"_s, exArgs, context->uriToResolve, context->baseUri);
 		}
 		if (context->secureValidation) {
-			$var($Element, start, $nc($($nc(context->attr)->getOwnerDocument()))->getDocumentElement());
+			$var($Element, start, $$nc(context->attr->getOwnerDocument())->getDocumentElement());
 			if (!$XMLUtils::protectAgainstWrappingAttack(start, id)) {
-				$var($ObjectArray, exArgs, $new($ObjectArray, {$of(id)}));
+				$var($ObjectArray, exArgs, $new($ObjectArray, {id}));
 				$throwNew($ResourceResolverException, "signature.Verification.MultipleIDs"_s, exArgs, context->uriToResolve, context->baseUri);
 			}
 		}
 		$nc(ResolverFragment::LOG)->debug("Try to catch an Element with ID {} and Element was {}"_s, $$new($ObjectArray, {
-			$of(id),
-			$of(selectedElem)
+			id,
+			selectedElem
 		}));
 	}
 	$var($XMLSignatureInput, result, $new($XMLSignatureInput, selectedElem));
 	result->setSecureValidation(context->secureValidation);
 	result->setExcludeComments(true);
 	result->setMIMEType("text/xml"_s);
-	if (context->baseUri != nullptr && $nc(context->baseUri)->length() > 0) {
-		result->setSourceURI($($nc(context->baseUri)->concat(context->uriToResolve)));
+	if (context->baseUri != nullptr && context->baseUri->length() > 0) {
+		result->setSourceURI($(context->baseUri->concat(context->uriToResolve)));
 	} else {
 		result->setSourceURI(context->uriToResolve);
 	}
@@ -111,25 +84,25 @@ $XMLSignatureInput* ResolverFragment::engineResolveURI($ResourceResolverContext*
 }
 
 bool ResolverFragment::engineCanResolveURI($ResourceResolverContext* context) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(context)->uriToResolve == nullptr) {
 		$nc(ResolverFragment::LOG)->debug("Quick fail for null uri"_s);
 		return false;
 	}
-	bool var$0 = $nc($nc(context)->uriToResolve)->isEmpty();
+	bool var$0 = $nc(context->uriToResolve)->isEmpty();
 	if (!var$0) {
-		bool var$1 = $nc($nc(context)->uriToResolve)->charAt(0) == u'#';
-		var$0 = var$1 && !$nc(context->uriToResolve)->startsWith("#xpointer("_s);
+		bool var$1 = context->uriToResolve->charAt(0) == u'#';
+		var$0 = var$1 && !context->uriToResolve->startsWith("#xpointer("_s);
 	}
 	if (var$0) {
-		$nc(ResolverFragment::LOG)->debug("State I can resolve reference: \"{}\""_s, $$new($ObjectArray, {$of(context->uriToResolve)}));
+		$nc(ResolverFragment::LOG)->debug("State I can resolve reference: \"{}\""_s, $$new($ObjectArray, {context->uriToResolve}));
 		return true;
 	}
-	$nc(ResolverFragment::LOG)->debug("Do not seem to be able to resolve reference: \"{}\""_s, $$new($ObjectArray, {$of($nc(context)->uriToResolve)}));
+	$nc(ResolverFragment::LOG)->debug("Do not seem to be able to resolve reference: \"{}\""_s, $$new($ObjectArray, {context->uriToResolve}));
 	return false;
 }
 
-void clinit$ResolverFragment($Class* class$) {
+void ResolverFragment::clinit$($Class* clazz) {
 	$assignStatic(ResolverFragment::LOG, $LoggerFactory::getLogger(ResolverFragment::class$));
 }
 
@@ -137,7 +110,27 @@ ResolverFragment::ResolverFragment() {
 }
 
 $Class* ResolverFragment::load$($String* name, bool initialize) {
-	$loadClass(ResolverFragment, name, initialize, &_ResolverFragment_ClassInfo_, clinit$ResolverFragment, allocate$ResolverFragment);
+	$FieldInfo fieldInfos$$[] = {
+		{"LOG", "Lcom/sun/org/slf4j/internal/Logger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ResolverFragment, LOG)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ResolverFragment, init$, void)},
+		{"engineCanResolveURI", "(Lcom/sun/org/apache/xml/internal/security/utils/resolver/ResourceResolverContext;)Z", nullptr, $PUBLIC, $virtualMethod(ResolverFragment, engineCanResolveURI, bool, $ResourceResolverContext*)},
+		{"engineResolveURI", "(Lcom/sun/org/apache/xml/internal/security/utils/resolver/ResourceResolverContext;)Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;", nullptr, $PUBLIC, $virtualMethod(ResolverFragment, engineResolveURI, $XMLSignatureInput*, $ResourceResolverContext*), "com.sun.org.apache.xml.internal.security.utils.resolver.ResourceResolverException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.security.utils.resolver.implementations.ResolverFragment",
+		"com.sun.org.apache.xml.internal.security.utils.resolver.ResourceResolverSpi",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ResolverFragment, name, initialize, &classInfo$$, ResolverFragment::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ResolverFragment);
+	});
 	return class$;
 }
 

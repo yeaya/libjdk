@@ -37,6 +37,7 @@ class CUPSPrinter : public ::java::lang::Object {
 	$class(CUPSPrinter, 0, ::java::lang::Object)
 public:
 	CUPSPrinter();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* printerName);
 	static bool canConnect($String* server, int32_t port);
 	static $StringArray* getAllPrinters();

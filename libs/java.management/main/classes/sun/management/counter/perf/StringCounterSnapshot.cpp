@@ -1,5 +1,4 @@
 #include <sun/management/counter/perf/StringCounterSnapshot.h>
-
 #include <sun/management/counter/AbstractCounter.h>
 #include <sun/management/counter/Units.h>
 #include <sun/management/counter/Variability.h>
@@ -16,44 +15,6 @@ namespace sun {
 	namespace management {
 		namespace counter {
 			namespace perf {
-
-$FieldInfo _StringCounterSnapshot_FieldInfo_[] = {
-	{"value", "Ljava/lang/String;", nullptr, 0, $field(StringCounterSnapshot, value)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StringCounterSnapshot, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _StringCounterSnapshot_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*getFlags", "()I", nullptr, $PUBLIC},
-	{"*getName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*getUnits", "()Lsun/management/counter/Units;", nullptr, $PUBLIC},
-	{"*getVariability", "()Lsun/management/counter/Variability;", nullptr, $PUBLIC},
-	{"*getVectorLength", "()I", nullptr, $PUBLIC},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/lang/String;Lsun/management/counter/Units;Lsun/management/counter/Variability;ILjava/lang/String;)V", nullptr, 0, $method(StringCounterSnapshot, init$, void, $String*, $Units*, $Variability*, int32_t, $String*)},
-	{"getValue", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(StringCounterSnapshot, getValue, $Object*)},
-	{"*isInternal", "()Z", nullptr, $PUBLIC},
-	{"*isVector", "()Z", nullptr, $PUBLIC},
-	{"stringValue", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StringCounterSnapshot, stringValue, $String*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _StringCounterSnapshot_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.management.counter.perf.StringCounterSnapshot",
-	"sun.management.counter.AbstractCounter",
-	"sun.management.counter.StringCounter",
-	_StringCounterSnapshot_FieldInfo_,
-	_StringCounterSnapshot_MethodInfo_
-};
-
-$Object* allocate$StringCounterSnapshot($Class* clazz) {
-	return $of($alloc(StringCounterSnapshot));
-}
 
 $String* StringCounterSnapshot::getName() {
 	 return this->$AbstractCounter::getName();
@@ -120,7 +81,40 @@ StringCounterSnapshot::StringCounterSnapshot() {
 }
 
 $Class* StringCounterSnapshot::load$($String* name, bool initialize) {
-	$loadClass(StringCounterSnapshot, name, initialize, &_StringCounterSnapshot_ClassInfo_, allocate$StringCounterSnapshot);
+	$FieldInfo fieldInfos$$[] = {
+		{"value", "Ljava/lang/String;", nullptr, 0, $field(StringCounterSnapshot, value)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StringCounterSnapshot, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*getFlags", "()I", nullptr, $PUBLIC},
+		{"*getName", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*getUnits", "()Lsun/management/counter/Units;", nullptr, $PUBLIC},
+		{"*getVariability", "()Lsun/management/counter/Variability;", nullptr, $PUBLIC},
+		{"*getVectorLength", "()I", nullptr, $PUBLIC},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/lang/String;Lsun/management/counter/Units;Lsun/management/counter/Variability;ILjava/lang/String;)V", nullptr, 0, $method(StringCounterSnapshot, init$, void, $String*, $Units*, $Variability*, int32_t, $String*)},
+		{"getValue", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(StringCounterSnapshot, getValue, $Object*)},
+		{"*isInternal", "()Z", nullptr, $PUBLIC},
+		{"*isVector", "()Z", nullptr, $PUBLIC},
+		{"stringValue", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StringCounterSnapshot, stringValue, $String*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.management.counter.perf.StringCounterSnapshot",
+		"sun.management.counter.AbstractCounter",
+		"sun.management.counter.StringCounter",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(StringCounterSnapshot, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(StringCounterSnapshot));
+	});
 	return class$;
 }
 

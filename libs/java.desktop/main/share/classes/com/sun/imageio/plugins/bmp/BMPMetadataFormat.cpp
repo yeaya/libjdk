@@ -1,5 +1,4 @@
 #include <com/sun/imageio/plugins/bmp/BMPMetadataFormat.h>
-
 #include <com/sun/imageio/plugins/bmp/BMPMetadata.h>
 #include <javax/imageio/ImageTypeSpecifier.h>
 #include <javax/imageio/metadata/IIOMetadataFormat.h>
@@ -27,31 +26,6 @@ namespace com {
 		namespace imageio {
 			namespace plugins {
 				namespace bmp {
-
-$FieldInfo _BMPMetadataFormat_FieldInfo_[] = {
-	{"instance", "Ljavax/imageio/metadata/IIOMetadataFormat;", nullptr, $PRIVATE | $STATIC, $staticField(BMPMetadataFormat, instance)},
-	{}
-};
-
-$MethodInfo _BMPMetadataFormat_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(BMPMetadataFormat, init$, void)},
-	{"canNodeAppear", "(Ljava/lang/String;Ljavax/imageio/ImageTypeSpecifier;)Z", nullptr, $PUBLIC, $virtualMethod(BMPMetadataFormat, canNodeAppear, bool, $String*, $ImageTypeSpecifier*)},
-	{"getInstance", "()Ljavax/imageio/metadata/IIOMetadataFormat;", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(BMPMetadataFormat, getInstance, $IIOMetadataFormat*)},
-	{}
-};
-
-$ClassInfo _BMPMetadataFormat_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.imageio.plugins.bmp.BMPMetadataFormat",
-	"javax.imageio.metadata.IIOMetadataFormatImpl",
-	nullptr,
-	_BMPMetadataFormat_FieldInfo_,
-	_BMPMetadataFormat_MethodInfo_
-};
-
-$Object* allocate$BMPMetadataFormat($Class* clazz) {
-	return $of($alloc(BMPMetadataFormat));
-}
 
 $IIOMetadataFormat* BMPMetadataFormat::instance = nullptr;
 
@@ -112,9 +86,8 @@ bool BMPMetadataFormat::canNodeAppear($String* elementName, $ImageTypeSpecifier*
 }
 
 $IIOMetadataFormat* BMPMetadataFormat::getInstance() {
-	$load(BMPMetadataFormat);
+	$init(BMPMetadataFormat);
 	$synchronized(class$) {
-		$init(BMPMetadataFormat);
 		if (BMPMetadataFormat::instance == nullptr) {
 			$assignStatic(BMPMetadataFormat::instance, $new(BMPMetadataFormat));
 		}
@@ -122,7 +95,7 @@ $IIOMetadataFormat* BMPMetadataFormat::getInstance() {
 	}
 }
 
-void clinit$BMPMetadataFormat($Class* class$) {
+void BMPMetadataFormat::clinit$($Class* clazz) {
 	$assignStatic(BMPMetadataFormat::instance, nullptr);
 }
 
@@ -130,7 +103,27 @@ BMPMetadataFormat::BMPMetadataFormat() {
 }
 
 $Class* BMPMetadataFormat::load$($String* name, bool initialize) {
-	$loadClass(BMPMetadataFormat, name, initialize, &_BMPMetadataFormat_ClassInfo_, clinit$BMPMetadataFormat, allocate$BMPMetadataFormat);
+	$FieldInfo fieldInfos$$[] = {
+		{"instance", "Ljavax/imageio/metadata/IIOMetadataFormat;", nullptr, $PRIVATE | $STATIC, $staticField(BMPMetadataFormat, instance)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(BMPMetadataFormat, init$, void)},
+		{"canNodeAppear", "(Ljava/lang/String;Ljavax/imageio/ImageTypeSpecifier;)Z", nullptr, $PUBLIC, $virtualMethod(BMPMetadataFormat, canNodeAppear, bool, $String*, $ImageTypeSpecifier*)},
+		{"getInstance", "()Ljavax/imageio/metadata/IIOMetadataFormat;", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(BMPMetadataFormat, getInstance, $IIOMetadataFormat*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.imageio.plugins.bmp.BMPMetadataFormat",
+		"javax.imageio.metadata.IIOMetadataFormatImpl",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(BMPMetadataFormat, name, initialize, &classInfo$$, BMPMetadataFormat::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(BMPMetadataFormat);
+	});
 	return class$;
 }
 

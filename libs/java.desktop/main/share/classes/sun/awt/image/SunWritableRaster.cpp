@@ -1,5 +1,4 @@
 #include <sun/awt/image/SunWritableRaster.h>
-
 #include <java/awt/Image.h>
 #include <java/awt/Point.h>
 #include <java/awt/Rectangle.h>
@@ -41,54 +40,6 @@ using $SurfaceData = ::sun::java2d::SurfaceData;
 namespace sun {
 	namespace awt {
 		namespace image {
-
-$FieldInfo _SunWritableRaster_FieldInfo_[] = {
-	{"stealer", "Lsun/awt/image/SunWritableRaster$DataStealer;", nullptr, $PRIVATE | $STATIC, $staticField(SunWritableRaster, stealer)},
-	{"theTrackable", "Lsun/java2d/StateTrackableDelegate;", nullptr, $PRIVATE, $field(SunWritableRaster, theTrackable)},
-	{}
-};
-
-$MethodInfo _SunWritableRaster_MethodInfo_[] = {
-	{"<init>", "(Ljava/awt/image/SampleModel;Ljava/awt/Point;)V", nullptr, $PUBLIC, $method(SunWritableRaster, init$, void, $SampleModel*, $Point*)},
-	{"<init>", "(Ljava/awt/image/SampleModel;Ljava/awt/image/DataBuffer;Ljava/awt/Point;)V", nullptr, $PUBLIC, $method(SunWritableRaster, init$, void, $SampleModel*, $DataBuffer*, $Point*)},
-	{"<init>", "(Ljava/awt/image/SampleModel;Ljava/awt/image/DataBuffer;Ljava/awt/Rectangle;Ljava/awt/Point;Ljava/awt/image/WritableRaster;)V", nullptr, $PUBLIC, $method(SunWritableRaster, init$, void, $SampleModel*, $DataBuffer*, $Rectangle*, $Point*, $WritableRaster*)},
-	{"makeTrackable", "(Ljava/awt/image/DataBuffer;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SunWritableRaster, makeTrackable, void, $DataBuffer*)},
-	{"markDirty", "(Ljava/awt/image/DataBuffer;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SunWritableRaster, markDirty, void, $DataBuffer*)},
-	{"markDirty", "(Ljava/awt/image/WritableRaster;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SunWritableRaster, markDirty, void, $WritableRaster*)},
-	{"markDirty", "(Ljava/awt/Image;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SunWritableRaster, markDirty, void, $Image*)},
-	{"markDirty", "()V", nullptr, $PUBLIC | $FINAL, $method(SunWritableRaster, markDirty, void)},
-	{"setDataStealer", "(Lsun/awt/image/SunWritableRaster$DataStealer;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SunWritableRaster, setDataStealer, void, $SunWritableRaster$DataStealer*)},
-	{"setTrackable", "(Ljava/awt/image/DataBuffer;Lsun/java2d/StateTrackableDelegate;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SunWritableRaster, setTrackable, void, $DataBuffer*, $StateTrackableDelegate*)},
-	{"stealData", "(Ljava/awt/image/DataBufferByte;I)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(SunWritableRaster, stealData, $bytes*, $DataBufferByte*, int32_t)},
-	{"stealData", "(Ljava/awt/image/DataBufferUShort;I)[S", nullptr, $PUBLIC | $STATIC, $staticMethod(SunWritableRaster, stealData, $shorts*, $DataBufferUShort*, int32_t)},
-	{"stealData", "(Ljava/awt/image/DataBufferInt;I)[I", nullptr, $PUBLIC | $STATIC, $staticMethod(SunWritableRaster, stealData, $ints*, $DataBufferInt*, int32_t)},
-	{"stealTrackable", "(Ljava/awt/image/DataBuffer;)Lsun/java2d/StateTrackableDelegate;", nullptr, $PUBLIC | $STATIC, $staticMethod(SunWritableRaster, stealTrackable, $StateTrackableDelegate*, $DataBuffer*)},
-	{}
-};
-
-$InnerClassInfo _SunWritableRaster_InnerClassesInfo_[] = {
-	{"sun.awt.image.SunWritableRaster$DataStealer", "sun.awt.image.SunWritableRaster", "DataStealer", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _SunWritableRaster_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.awt.image.SunWritableRaster",
-	"java.awt.image.WritableRaster",
-	nullptr,
-	_SunWritableRaster_FieldInfo_,
-	_SunWritableRaster_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SunWritableRaster_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.awt.image.SunWritableRaster$DataStealer"
-};
-
-$Object* allocate$SunWritableRaster($Class* clazz) {
-	return $of($alloc(SunWritableRaster));
-}
 
 $SunWritableRaster$DataStealer* SunWritableRaster::stealer = nullptr;
 
@@ -133,13 +84,13 @@ void SunWritableRaster::makeTrackable($DataBuffer* db) {
 
 void SunWritableRaster::markDirty($DataBuffer* db) {
 	$init(SunWritableRaster);
-	$nc($($nc(SunWritableRaster::stealer)->getTrackable(db)))->markDirty();
+	$$nc($nc(SunWritableRaster::stealer)->getTrackable(db))->markDirty();
 }
 
 void SunWritableRaster::markDirty($WritableRaster* wr) {
 	$init(SunWritableRaster);
 	if ($instanceOf(SunWritableRaster, wr)) {
-		$nc(($cast(SunWritableRaster, wr)))->markDirty();
+		$cast(SunWritableRaster, wr)->markDirty();
 	} else {
 		markDirty($($nc(wr)->getDataBuffer()));
 	}
@@ -147,7 +98,7 @@ void SunWritableRaster::markDirty($WritableRaster* wr) {
 
 void SunWritableRaster::markDirty($Image* img) {
 	$init(SunWritableRaster);
-	$nc($($SurfaceData::getPrimarySurfaceData(img)))->markDirty();
+	$$nc($SurfaceData::getPrimarySurfaceData(img))->markDirty();
 }
 
 void SunWritableRaster::init$($SampleModel* sampleModel, $Point* origin) {
@@ -173,7 +124,49 @@ SunWritableRaster::SunWritableRaster() {
 }
 
 $Class* SunWritableRaster::load$($String* name, bool initialize) {
-	$loadClass(SunWritableRaster, name, initialize, &_SunWritableRaster_ClassInfo_, allocate$SunWritableRaster);
+	$FieldInfo fieldInfos$$[] = {
+		{"stealer", "Lsun/awt/image/SunWritableRaster$DataStealer;", nullptr, $PRIVATE | $STATIC, $staticField(SunWritableRaster, stealer)},
+		{"theTrackable", "Lsun/java2d/StateTrackableDelegate;", nullptr, $PRIVATE, $field(SunWritableRaster, theTrackable)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/image/SampleModel;Ljava/awt/Point;)V", nullptr, $PUBLIC, $method(SunWritableRaster, init$, void, $SampleModel*, $Point*)},
+		{"<init>", "(Ljava/awt/image/SampleModel;Ljava/awt/image/DataBuffer;Ljava/awt/Point;)V", nullptr, $PUBLIC, $method(SunWritableRaster, init$, void, $SampleModel*, $DataBuffer*, $Point*)},
+		{"<init>", "(Ljava/awt/image/SampleModel;Ljava/awt/image/DataBuffer;Ljava/awt/Rectangle;Ljava/awt/Point;Ljava/awt/image/WritableRaster;)V", nullptr, $PUBLIC, $method(SunWritableRaster, init$, void, $SampleModel*, $DataBuffer*, $Rectangle*, $Point*, $WritableRaster*)},
+		{"makeTrackable", "(Ljava/awt/image/DataBuffer;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SunWritableRaster, makeTrackable, void, $DataBuffer*)},
+		{"markDirty", "(Ljava/awt/image/DataBuffer;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SunWritableRaster, markDirty, void, $DataBuffer*)},
+		{"markDirty", "(Ljava/awt/image/WritableRaster;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SunWritableRaster, markDirty, void, $WritableRaster*)},
+		{"markDirty", "(Ljava/awt/Image;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SunWritableRaster, markDirty, void, $Image*)},
+		{"markDirty", "()V", nullptr, $PUBLIC | $FINAL, $method(SunWritableRaster, markDirty, void)},
+		{"setDataStealer", "(Lsun/awt/image/SunWritableRaster$DataStealer;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SunWritableRaster, setDataStealer, void, $SunWritableRaster$DataStealer*)},
+		{"setTrackable", "(Ljava/awt/image/DataBuffer;Lsun/java2d/StateTrackableDelegate;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SunWritableRaster, setTrackable, void, $DataBuffer*, $StateTrackableDelegate*)},
+		{"stealData", "(Ljava/awt/image/DataBufferByte;I)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(SunWritableRaster, stealData, $bytes*, $DataBufferByte*, int32_t)},
+		{"stealData", "(Ljava/awt/image/DataBufferUShort;I)[S", nullptr, $PUBLIC | $STATIC, $staticMethod(SunWritableRaster, stealData, $shorts*, $DataBufferUShort*, int32_t)},
+		{"stealData", "(Ljava/awt/image/DataBufferInt;I)[I", nullptr, $PUBLIC | $STATIC, $staticMethod(SunWritableRaster, stealData, $ints*, $DataBufferInt*, int32_t)},
+		{"stealTrackable", "(Ljava/awt/image/DataBuffer;)Lsun/java2d/StateTrackableDelegate;", nullptr, $PUBLIC | $STATIC, $staticMethod(SunWritableRaster, stealTrackable, $StateTrackableDelegate*, $DataBuffer*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.image.SunWritableRaster$DataStealer", "sun.awt.image.SunWritableRaster", "DataStealer", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.awt.image.SunWritableRaster",
+		"java.awt.image.WritableRaster",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.awt.image.SunWritableRaster$DataStealer"
+	};
+	$loadClass(SunWritableRaster, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SunWritableRaster);
+	});
 	return class$;
 }
 

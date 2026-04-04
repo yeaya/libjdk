@@ -1,10 +1,8 @@
 #include <sun/lwawt/macosx/CTrayIcon.h>
-
 #include <java/awt/AWTEvent.h>
 #include <java/awt/Button.h>
 #include <java/awt/Component.h>
 #include <java/awt/Frame.h>
-#include <java/awt/Graphics.h>
 #include <java/awt/Graphics2D.h>
 #include <java/awt/GraphicsConfiguration.h>
 #include <java/awt/GraphicsDevice.h>
@@ -26,7 +24,6 @@
 #include <java/awt/peer/MenuComponentPeer.h>
 #include <java/io/Serializable.h>
 #include <java/lang/InterruptedException.h>
-#include <java/lang/Runnable.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
@@ -65,14 +62,12 @@ using $AWTEvent = ::java::awt::AWTEvent;
 using $Button = ::java::awt::Button;
 using $Component = ::java::awt::Component;
 using $Frame = ::java::awt::Frame;
-using $Graphics = ::java::awt::Graphics;
 using $Graphics2D = ::java::awt::Graphics2D;
 using $GraphicsConfiguration = ::java::awt::GraphicsConfiguration;
 using $GraphicsDevice = ::java::awt::GraphicsDevice;
 using $GraphicsEnvironment = ::java::awt::GraphicsEnvironment;
 using $Image = ::java::awt::Image;
 using $MediaTracker = ::java::awt::MediaTracker;
-using $MenuComponent = ::java::awt::MenuComponent;
 using $PopupMenu = ::java::awt::PopupMenu;
 using $RenderingHints = ::java::awt::RenderingHints;
 using $Toolkit = ::java::awt::Toolkit;
@@ -92,7 +87,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $InterruptedException = ::java::lang::InterruptedException;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $AccessController = ::java::security::AccessController;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
@@ -104,7 +98,6 @@ using $SunToolkit = ::sun::awt::SunToolkit;
 using $CFRetainedResource = ::sun::lwawt::macosx::CFRetainedResource;
 using $CFRetainedResource$CFNativeAction = ::sun::lwawt::macosx::CFRetainedResource$CFNativeAction;
 using $CImage = ::sun::lwawt::macosx::CImage;
-using $CImage$Creator = ::sun::lwawt::macosx::CImage$Creator;
 using $CPopupMenu = ::sun::lwawt::macosx::CPopupMenu;
 using $CTrayIcon$1 = ::sun::lwawt::macosx::CTrayIcon$1;
 using $CTrayIcon$IconObserver = ::sun::lwawt::macosx::CTrayIcon$IconObserver;
@@ -123,27 +116,24 @@ public:
 	virtual $Object* run() override {
 		 return $of(CTrayIcon::lambda$static$0());
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<CTrayIcon$$Lambda$lambda$static$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo CTrayIcon$$Lambda$lambda$static$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(CTrayIcon$$Lambda$lambda$static$0, init$, void)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(CTrayIcon$$Lambda$lambda$static$0, run, $Object*)},
-	{}
-};
-$ClassInfo CTrayIcon$$Lambda$lambda$static$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.lwawt.macosx.CTrayIcon$$Lambda$lambda$static$0",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	nullptr,
-	methodInfos
 };
 $Class* CTrayIcon$$Lambda$lambda$static$0::load$($String* name, bool initialize) {
-	$loadClass(CTrayIcon$$Lambda$lambda$static$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(CTrayIcon$$Lambda$lambda$static$0, init$, void)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(CTrayIcon$$Lambda$lambda$static$0, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.lwawt.macosx.CTrayIcon$$Lambda$lambda$static$0",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(CTrayIcon$$Lambda$lambda$static$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CTrayIcon$$Lambda$lambda$static$0);
+	});
 	return class$;
 }
 $Class* CTrayIcon$$Lambda$lambda$static$0::class$ = nullptr;
@@ -159,37 +149,33 @@ public:
 	virtual void run(int64_t imagePtr) override {
 		$nc(inst$)->lambda$displayMessage$2(caption, text, imagePtr);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<CTrayIcon$$Lambda$lambda$displayMessage$2$1>());
-	}
 	CTrayIcon* inst$ = nullptr;
 	$String* caption = nullptr;
 	$String* text = nullptr;
-	static $FieldInfo fieldInfos[4];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo CTrayIcon$$Lambda$lambda$displayMessage$2$1::fieldInfos[4] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(CTrayIcon$$Lambda$lambda$displayMessage$2$1, inst$)},
-	{"caption", "Ljava/lang/String;", nullptr, $PUBLIC, $field(CTrayIcon$$Lambda$lambda$displayMessage$2$1, caption)},
-	{"text", "Ljava/lang/String;", nullptr, $PUBLIC, $field(CTrayIcon$$Lambda$lambda$displayMessage$2$1, text)},
-	{}
-};
-$MethodInfo CTrayIcon$$Lambda$lambda$displayMessage$2$1::methodInfos[3] = {
-	{"<init>", "(Lsun/lwawt/macosx/CTrayIcon;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(CTrayIcon$$Lambda$lambda$displayMessage$2$1, init$, void, CTrayIcon*, $String*, $String*)},
-	{"run", "(J)V", nullptr, $PUBLIC, $virtualMethod(CTrayIcon$$Lambda$lambda$displayMessage$2$1, run, void, int64_t)},
-	{}
-};
-$ClassInfo CTrayIcon$$Lambda$lambda$displayMessage$2$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.lwawt.macosx.CTrayIcon$$Lambda$lambda$displayMessage$2$1",
-	"java.lang.Object",
-	"sun.lwawt.macosx.CFRetainedResource$CFNativeAction",
-	fieldInfos,
-	methodInfos
 };
 $Class* CTrayIcon$$Lambda$lambda$displayMessage$2$1::load$($String* name, bool initialize) {
-	$loadClass(CTrayIcon$$Lambda$lambda$displayMessage$2$1, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(CTrayIcon$$Lambda$lambda$displayMessage$2$1, inst$)},
+		{"caption", "Ljava/lang/String;", nullptr, $PUBLIC, $field(CTrayIcon$$Lambda$lambda$displayMessage$2$1, caption)},
+		{"text", "Ljava/lang/String;", nullptr, $PUBLIC, $field(CTrayIcon$$Lambda$lambda$displayMessage$2$1, text)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/lwawt/macosx/CTrayIcon;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(CTrayIcon$$Lambda$lambda$displayMessage$2$1, init$, void, CTrayIcon*, $String*, $String*)},
+		{"run", "(J)V", nullptr, $PUBLIC, $virtualMethod(CTrayIcon$$Lambda$lambda$displayMessage$2$1, run, void, int64_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.lwawt.macosx.CTrayIcon$$Lambda$lambda$displayMessage$2$1",
+		"java.lang.Object",
+		"sun.lwawt.macosx.CFRetainedResource$CFNativeAction",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CTrayIcon$$Lambda$lambda$displayMessage$2$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CTrayIcon$$Lambda$lambda$displayMessage$2$1);
+	});
 	return class$;
 }
 $Class* CTrayIcon$$Lambda$lambda$displayMessage$2$1::class$ = nullptr;
@@ -205,37 +191,33 @@ public:
 	virtual void run(int64_t ptr) override {
 		$nc(inst$)->lambda$displayMessage$3(caption, text, ptr);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<CTrayIcon$$Lambda$lambda$displayMessage$3$2>());
-	}
 	CTrayIcon* inst$ = nullptr;
 	$String* caption = nullptr;
 	$String* text = nullptr;
-	static $FieldInfo fieldInfos[4];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo CTrayIcon$$Lambda$lambda$displayMessage$3$2::fieldInfos[4] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(CTrayIcon$$Lambda$lambda$displayMessage$3$2, inst$)},
-	{"caption", "Ljava/lang/String;", nullptr, $PUBLIC, $field(CTrayIcon$$Lambda$lambda$displayMessage$3$2, caption)},
-	{"text", "Ljava/lang/String;", nullptr, $PUBLIC, $field(CTrayIcon$$Lambda$lambda$displayMessage$3$2, text)},
-	{}
-};
-$MethodInfo CTrayIcon$$Lambda$lambda$displayMessage$3$2::methodInfos[3] = {
-	{"<init>", "(Lsun/lwawt/macosx/CTrayIcon;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(CTrayIcon$$Lambda$lambda$displayMessage$3$2, init$, void, CTrayIcon*, $String*, $String*)},
-	{"run", "(J)V", nullptr, $PUBLIC, $virtualMethod(CTrayIcon$$Lambda$lambda$displayMessage$3$2, run, void, int64_t)},
-	{}
-};
-$ClassInfo CTrayIcon$$Lambda$lambda$displayMessage$3$2::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.lwawt.macosx.CTrayIcon$$Lambda$lambda$displayMessage$3$2",
-	"java.lang.Object",
-	"sun.lwawt.macosx.CFRetainedResource$CFNativeAction",
-	fieldInfos,
-	methodInfos
 };
 $Class* CTrayIcon$$Lambda$lambda$displayMessage$3$2::load$($String* name, bool initialize) {
-	$loadClass(CTrayIcon$$Lambda$lambda$displayMessage$3$2, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(CTrayIcon$$Lambda$lambda$displayMessage$3$2, inst$)},
+		{"caption", "Ljava/lang/String;", nullptr, $PUBLIC, $field(CTrayIcon$$Lambda$lambda$displayMessage$3$2, caption)},
+		{"text", "Ljava/lang/String;", nullptr, $PUBLIC, $field(CTrayIcon$$Lambda$lambda$displayMessage$3$2, text)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/lwawt/macosx/CTrayIcon;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(CTrayIcon$$Lambda$lambda$displayMessage$3$2, init$, void, CTrayIcon*, $String*, $String*)},
+		{"run", "(J)V", nullptr, $PUBLIC, $virtualMethod(CTrayIcon$$Lambda$lambda$displayMessage$3$2, run, void, int64_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.lwawt.macosx.CTrayIcon$$Lambda$lambda$displayMessage$3$2",
+		"java.lang.Object",
+		"sun.lwawt.macosx.CFRetainedResource$CFNativeAction",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CTrayIcon$$Lambda$lambda$displayMessage$3$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CTrayIcon$$Lambda$lambda$displayMessage$3$2);
+	});
 	return class$;
 }
 $Class* CTrayIcon$$Lambda$lambda$displayMessage$3$2::class$ = nullptr;
@@ -250,35 +232,31 @@ public:
 	virtual void run(int64_t ptr) override {
 		$nc(inst$)->lambda$setToolTip$4(tooltip, ptr);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<CTrayIcon$$Lambda$lambda$setToolTip$4$3>());
-	}
 	CTrayIcon* inst$ = nullptr;
 	$String* tooltip = nullptr;
-	static $FieldInfo fieldInfos[3];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo CTrayIcon$$Lambda$lambda$setToolTip$4$3::fieldInfos[3] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(CTrayIcon$$Lambda$lambda$setToolTip$4$3, inst$)},
-	{"tooltip", "Ljava/lang/String;", nullptr, $PUBLIC, $field(CTrayIcon$$Lambda$lambda$setToolTip$4$3, tooltip)},
-	{}
-};
-$MethodInfo CTrayIcon$$Lambda$lambda$setToolTip$4$3::methodInfos[3] = {
-	{"<init>", "(Lsun/lwawt/macosx/CTrayIcon;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(CTrayIcon$$Lambda$lambda$setToolTip$4$3, init$, void, CTrayIcon*, $String*)},
-	{"run", "(J)V", nullptr, $PUBLIC, $virtualMethod(CTrayIcon$$Lambda$lambda$setToolTip$4$3, run, void, int64_t)},
-	{}
-};
-$ClassInfo CTrayIcon$$Lambda$lambda$setToolTip$4$3::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.lwawt.macosx.CTrayIcon$$Lambda$lambda$setToolTip$4$3",
-	"java.lang.Object",
-	"sun.lwawt.macosx.CFRetainedResource$CFNativeAction",
-	fieldInfos,
-	methodInfos
 };
 $Class* CTrayIcon$$Lambda$lambda$setToolTip$4$3::load$($String* name, bool initialize) {
-	$loadClass(CTrayIcon$$Lambda$lambda$setToolTip$4$3, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(CTrayIcon$$Lambda$lambda$setToolTip$4$3, inst$)},
+		{"tooltip", "Ljava/lang/String;", nullptr, $PUBLIC, $field(CTrayIcon$$Lambda$lambda$setToolTip$4$3, tooltip)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/lwawt/macosx/CTrayIcon;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(CTrayIcon$$Lambda$lambda$setToolTip$4$3, init$, void, CTrayIcon*, $String*)},
+		{"run", "(J)V", nullptr, $PUBLIC, $virtualMethod(CTrayIcon$$Lambda$lambda$setToolTip$4$3, run, void, int64_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.lwawt.macosx.CTrayIcon$$Lambda$lambda$setToolTip$4$3",
+		"java.lang.Object",
+		"sun.lwawt.macosx.CFRetainedResource$CFNativeAction",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CTrayIcon$$Lambda$lambda$setToolTip$4$3, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CTrayIcon$$Lambda$lambda$setToolTip$4$3);
+	});
 	return class$;
 }
 $Class* CTrayIcon$$Lambda$lambda$setToolTip$4$3::class$ = nullptr;
@@ -293,35 +271,31 @@ public:
 	virtual void run(int64_t imagePtr) override {
 		$nc(inst$)->lambda$updateNativeImage$6(imageAutoSize, imagePtr);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<CTrayIcon$$Lambda$lambda$updateNativeImage$6$4>());
-	}
 	CTrayIcon* inst$ = nullptr;
 	bool imageAutoSize = false;
-	static $FieldInfo fieldInfos[3];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo CTrayIcon$$Lambda$lambda$updateNativeImage$6$4::fieldInfos[3] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(CTrayIcon$$Lambda$lambda$updateNativeImage$6$4, inst$)},
-	{"imageAutoSize", "Z", nullptr, $PUBLIC, $field(CTrayIcon$$Lambda$lambda$updateNativeImage$6$4, imageAutoSize)},
-	{}
-};
-$MethodInfo CTrayIcon$$Lambda$lambda$updateNativeImage$6$4::methodInfos[3] = {
-	{"<init>", "(Lsun/lwawt/macosx/CTrayIcon;Z)V", nullptr, $PUBLIC, $method(CTrayIcon$$Lambda$lambda$updateNativeImage$6$4, init$, void, CTrayIcon*, bool)},
-	{"run", "(J)V", nullptr, $PUBLIC, $virtualMethod(CTrayIcon$$Lambda$lambda$updateNativeImage$6$4, run, void, int64_t)},
-	{}
-};
-$ClassInfo CTrayIcon$$Lambda$lambda$updateNativeImage$6$4::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.lwawt.macosx.CTrayIcon$$Lambda$lambda$updateNativeImage$6$4",
-	"java.lang.Object",
-	"sun.lwawt.macosx.CFRetainedResource$CFNativeAction",
-	fieldInfos,
-	methodInfos
 };
 $Class* CTrayIcon$$Lambda$lambda$updateNativeImage$6$4::load$($String* name, bool initialize) {
-	$loadClass(CTrayIcon$$Lambda$lambda$updateNativeImage$6$4, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(CTrayIcon$$Lambda$lambda$updateNativeImage$6$4, inst$)},
+		{"imageAutoSize", "Z", nullptr, $PUBLIC, $field(CTrayIcon$$Lambda$lambda$updateNativeImage$6$4, imageAutoSize)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/lwawt/macosx/CTrayIcon;Z)V", nullptr, $PUBLIC, $method(CTrayIcon$$Lambda$lambda$updateNativeImage$6$4, init$, void, CTrayIcon*, bool)},
+		{"run", "(J)V", nullptr, $PUBLIC, $virtualMethod(CTrayIcon$$Lambda$lambda$updateNativeImage$6$4, run, void, int64_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.lwawt.macosx.CTrayIcon$$Lambda$lambda$updateNativeImage$6$4",
+		"java.lang.Object",
+		"sun.lwawt.macosx.CFRetainedResource$CFNativeAction",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CTrayIcon$$Lambda$lambda$updateNativeImage$6$4, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CTrayIcon$$Lambda$lambda$updateNativeImage$6$4);
+	});
 	return class$;
 }
 $Class* CTrayIcon$$Lambda$lambda$updateNativeImage$6$4::class$ = nullptr;
@@ -337,37 +311,33 @@ public:
 	virtual void run(int64_t ptr) override {
 		$nc(inst$)->lambda$updateNativeImage$5(imagePtr, imageAutoSize, ptr);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<CTrayIcon$$Lambda$lambda$updateNativeImage$5$5>());
-	}
 	CTrayIcon* inst$ = nullptr;
 	int64_t imagePtr = 0;
 	bool imageAutoSize = false;
-	static $FieldInfo fieldInfos[4];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo CTrayIcon$$Lambda$lambda$updateNativeImage$5$5::fieldInfos[4] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(CTrayIcon$$Lambda$lambda$updateNativeImage$5$5, inst$)},
-	{"imagePtr", "J", nullptr, $PUBLIC, $field(CTrayIcon$$Lambda$lambda$updateNativeImage$5$5, imagePtr)},
-	{"imageAutoSize", "Z", nullptr, $PUBLIC, $field(CTrayIcon$$Lambda$lambda$updateNativeImage$5$5, imageAutoSize)},
-	{}
-};
-$MethodInfo CTrayIcon$$Lambda$lambda$updateNativeImage$5$5::methodInfos[3] = {
-	{"<init>", "(Lsun/lwawt/macosx/CTrayIcon;JZ)V", nullptr, $PUBLIC, $method(CTrayIcon$$Lambda$lambda$updateNativeImage$5$5, init$, void, CTrayIcon*, int64_t, bool)},
-	{"run", "(J)V", nullptr, $PUBLIC, $virtualMethod(CTrayIcon$$Lambda$lambda$updateNativeImage$5$5, run, void, int64_t)},
-	{}
-};
-$ClassInfo CTrayIcon$$Lambda$lambda$updateNativeImage$5$5::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.lwawt.macosx.CTrayIcon$$Lambda$lambda$updateNativeImage$5$5",
-	"java.lang.Object",
-	"sun.lwawt.macosx.CFRetainedResource$CFNativeAction",
-	fieldInfos,
-	methodInfos
 };
 $Class* CTrayIcon$$Lambda$lambda$updateNativeImage$5$5::load$($String* name, bool initialize) {
-	$loadClass(CTrayIcon$$Lambda$lambda$updateNativeImage$5$5, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(CTrayIcon$$Lambda$lambda$updateNativeImage$5$5, inst$)},
+		{"imagePtr", "J", nullptr, $PUBLIC, $field(CTrayIcon$$Lambda$lambda$updateNativeImage$5$5, imagePtr)},
+		{"imageAutoSize", "Z", nullptr, $PUBLIC, $field(CTrayIcon$$Lambda$lambda$updateNativeImage$5$5, imageAutoSize)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/lwawt/macosx/CTrayIcon;JZ)V", nullptr, $PUBLIC, $method(CTrayIcon$$Lambda$lambda$updateNativeImage$5$5, init$, void, CTrayIcon*, int64_t, bool)},
+		{"run", "(J)V", nullptr, $PUBLIC, $virtualMethod(CTrayIcon$$Lambda$lambda$updateNativeImage$5$5, run, void, int64_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.lwawt.macosx.CTrayIcon$$Lambda$lambda$updateNativeImage$5$5",
+		"java.lang.Object",
+		"sun.lwawt.macosx.CFRetainedResource$CFNativeAction",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CTrayIcon$$Lambda$lambda$updateNativeImage$5$5, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CTrayIcon$$Lambda$lambda$updateNativeImage$5$5);
+	});
 	return class$;
 }
 $Class* CTrayIcon$$Lambda$lambda$updateNativeImage$5$5::class$ = nullptr;
@@ -384,118 +354,38 @@ public:
 	virtual void run(int64_t ptr) override {
 		$nc(inst$)->lambda$displayMessage$1(caption, text, imagePtr, ptr);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<CTrayIcon$$Lambda$lambda$displayMessage$1$6>());
-	}
 	CTrayIcon* inst$ = nullptr;
 	$String* caption = nullptr;
 	$String* text = nullptr;
 	int64_t imagePtr = 0;
-	static $FieldInfo fieldInfos[5];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo CTrayIcon$$Lambda$lambda$displayMessage$1$6::fieldInfos[5] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(CTrayIcon$$Lambda$lambda$displayMessage$1$6, inst$)},
-	{"caption", "Ljava/lang/String;", nullptr, $PUBLIC, $field(CTrayIcon$$Lambda$lambda$displayMessage$1$6, caption)},
-	{"text", "Ljava/lang/String;", nullptr, $PUBLIC, $field(CTrayIcon$$Lambda$lambda$displayMessage$1$6, text)},
-	{"imagePtr", "J", nullptr, $PUBLIC, $field(CTrayIcon$$Lambda$lambda$displayMessage$1$6, imagePtr)},
-	{}
-};
-$MethodInfo CTrayIcon$$Lambda$lambda$displayMessage$1$6::methodInfos[3] = {
-	{"<init>", "(Lsun/lwawt/macosx/CTrayIcon;Ljava/lang/String;Ljava/lang/String;J)V", nullptr, $PUBLIC, $method(CTrayIcon$$Lambda$lambda$displayMessage$1$6, init$, void, CTrayIcon*, $String*, $String*, int64_t)},
-	{"run", "(J)V", nullptr, $PUBLIC, $virtualMethod(CTrayIcon$$Lambda$lambda$displayMessage$1$6, run, void, int64_t)},
-	{}
-};
-$ClassInfo CTrayIcon$$Lambda$lambda$displayMessage$1$6::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.lwawt.macosx.CTrayIcon$$Lambda$lambda$displayMessage$1$6",
-	"java.lang.Object",
-	"sun.lwawt.macosx.CFRetainedResource$CFNativeAction",
-	fieldInfos,
-	methodInfos
 };
 $Class* CTrayIcon$$Lambda$lambda$displayMessage$1$6::load$($String* name, bool initialize) {
-	$loadClass(CTrayIcon$$Lambda$lambda$displayMessage$1$6, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(CTrayIcon$$Lambda$lambda$displayMessage$1$6, inst$)},
+		{"caption", "Ljava/lang/String;", nullptr, $PUBLIC, $field(CTrayIcon$$Lambda$lambda$displayMessage$1$6, caption)},
+		{"text", "Ljava/lang/String;", nullptr, $PUBLIC, $field(CTrayIcon$$Lambda$lambda$displayMessage$1$6, text)},
+		{"imagePtr", "J", nullptr, $PUBLIC, $field(CTrayIcon$$Lambda$lambda$displayMessage$1$6, imagePtr)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/lwawt/macosx/CTrayIcon;Ljava/lang/String;Ljava/lang/String;J)V", nullptr, $PUBLIC, $method(CTrayIcon$$Lambda$lambda$displayMessage$1$6, init$, void, CTrayIcon*, $String*, $String*, int64_t)},
+		{"run", "(J)V", nullptr, $PUBLIC, $virtualMethod(CTrayIcon$$Lambda$lambda$displayMessage$1$6, run, void, int64_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.lwawt.macosx.CTrayIcon$$Lambda$lambda$displayMessage$1$6",
+		"java.lang.Object",
+		"sun.lwawt.macosx.CFRetainedResource$CFNativeAction",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CTrayIcon$$Lambda$lambda$displayMessage$1$6, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CTrayIcon$$Lambda$lambda$displayMessage$1$6);
+	});
 	return class$;
 }
 $Class* CTrayIcon$$Lambda$lambda$displayMessage$1$6::class$ = nullptr;
-
-$FieldInfo _CTrayIcon_FieldInfo_[] = {
-	{"target", "Ljava/awt/TrayIcon;", nullptr, $PRIVATE, $field(CTrayIcon, target)},
-	{"popup", "Ljava/awt/PopupMenu;", nullptr, $PRIVATE, $field(CTrayIcon, popup)},
-	{"dummyFrame", "Ljava/awt/Frame;", nullptr, $PRIVATE | $FINAL, $field(CTrayIcon, dummyFrame)},
-	{"observer", "Lsun/lwawt/macosx/CTrayIcon$IconObserver;", nullptr, 0, $field(CTrayIcon, observer)},
-	{"mouseClickButtons", "I", nullptr, $PRIVATE | $STATIC, $staticField(CTrayIcon, mouseClickButtons)},
-	{"useTemplateImages", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CTrayIcon, useTemplateImages)},
-	{}
-};
-
-$MethodInfo _CTrayIcon_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $FINAL},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/awt/TrayIcon;)V", nullptr, 0, $method(CTrayIcon, init$, void, $TrayIcon*)},
-	{"checkAndCreatePopupPeer", "()Lsun/lwawt/macosx/CPopupMenu;", nullptr, $PRIVATE, $method(CTrayIcon, checkAndCreatePopupPeer, $CPopupMenu*)},
-	{"createModel", "()J", nullptr, $PRIVATE, $method(CTrayIcon, createModel, int64_t)},
-	{"displayMessage", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(CTrayIcon, displayMessage, void, $String*, $String*, $String*)},
-	{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(CTrayIcon, dispose, void)},
-	{"getIconForMessageType", "(Ljava/lang/String;)Ljavax/swing/Icon;", nullptr, $PRIVATE | $STATIC, $staticMethod(CTrayIcon, getIconForMessageType, $Icon*, $String*)},
-	{"getPopupMenuModel", "()J", nullptr, $PUBLIC, $virtualMethod(CTrayIcon, getPopupMenuModel, int64_t)},
-	{"handleMouseEvent", "(Lsun/lwawt/macosx/NSEvent;)V", nullptr, $PRIVATE, $method(CTrayIcon, handleMouseEvent, void, $NSEvent*)},
-	{"lambda$displayMessage$1", "(Ljava/lang/String;Ljava/lang/String;JJ)V", nullptr, $PRIVATE | $SYNTHETIC, $method(CTrayIcon, lambda$displayMessage$1, void, $String*, $String*, int64_t, int64_t)},
-	{"lambda$displayMessage$2", "(Ljava/lang/String;Ljava/lang/String;J)V", nullptr, $PRIVATE | $SYNTHETIC, $method(CTrayIcon, lambda$displayMessage$2, void, $String*, $String*, int64_t)},
-	{"lambda$displayMessage$3", "(Ljava/lang/String;Ljava/lang/String;J)V", nullptr, $PRIVATE | $SYNTHETIC, $method(CTrayIcon, lambda$displayMessage$3, void, $String*, $String*, int64_t)},
-	{"lambda$setToolTip$4", "(Ljava/lang/String;J)V", nullptr, $PRIVATE | $SYNTHETIC, $method(CTrayIcon, lambda$setToolTip$4, void, $String*, int64_t)},
-	{"lambda$static$0", "()Ljava/lang/Boolean;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(CTrayIcon, lambda$static$0, $Boolean*)},
-	{"lambda$updateNativeImage$5", "(JZJ)V", nullptr, $PRIVATE | $SYNTHETIC, $method(CTrayIcon, lambda$updateNativeImage$5, void, int64_t, bool, int64_t)},
-	{"lambda$updateNativeImage$6", "(ZJ)V", nullptr, $PRIVATE | $SYNTHETIC, $method(CTrayIcon, lambda$updateNativeImage$6, void, bool, int64_t)},
-	{"nativeCreate", "()J", nullptr, $PRIVATE | $NATIVE, $method(CTrayIcon, nativeCreate, int64_t)},
-	{"nativeGetIconLocation", "(J)Ljava/awt/geom/Point2D;", nullptr, $PRIVATE | $NATIVE, $method(CTrayIcon, nativeGetIconLocation, $Point2D*, int64_t)},
-	{"nativeSetToolTip", "(JLjava/lang/String;)V", nullptr, $PRIVATE | $NATIVE, $method(CTrayIcon, nativeSetToolTip, void, int64_t, $String*)},
-	{"nativeShowNotification", "(JLjava/lang/String;Ljava/lang/String;J)V", nullptr, $PRIVATE | $NATIVE, $method(CTrayIcon, nativeShowNotification, void, int64_t, $String*, $String*, int64_t)},
-	{"postEvent", "(Ljava/awt/AWTEvent;)V", nullptr, $PRIVATE, $method(CTrayIcon, postEvent, void, $AWTEvent*)},
-	{"scaleIcon", "(Ljavax/swing/Icon;D)Ljava/awt/image/BufferedImage;", nullptr, $PRIVATE | $STATIC, $staticMethod(CTrayIcon, scaleIcon, $BufferedImage*, $Icon*, double)},
-	{"setNativeImage", "(JJZZ)V", nullptr, $PRIVATE | $NATIVE, $method(CTrayIcon, setNativeImage, void, int64_t, int64_t, bool, bool)},
-	{"setToolTip", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(CTrayIcon, setToolTip, void, $String*)},
-	{"showPopupMenu", "(II)V", nullptr, $PUBLIC, $virtualMethod(CTrayIcon, showPopupMenu, void, int32_t, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"updateImage", "()V", nullptr, $PUBLIC, $virtualMethod(CTrayIcon, updateImage, void)},
-	{"updateNativeImage", "(Ljava/awt/Image;)V", nullptr, 0, $virtualMethod(CTrayIcon, updateNativeImage, void, $Image*)},
-	{}
-};
-
-#define _METHOD_INDEX_nativeCreate 19
-#define _METHOD_INDEX_nativeGetIconLocation 20
-#define _METHOD_INDEX_nativeSetToolTip 21
-#define _METHOD_INDEX_nativeShowNotification 22
-#define _METHOD_INDEX_setNativeImage 25
-
-$InnerClassInfo _CTrayIcon_InnerClassesInfo_[] = {
-	{"sun.lwawt.macosx.CTrayIcon$IconObserver", "sun.lwawt.macosx.CTrayIcon", "IconObserver", 0},
-	{"sun.lwawt.macosx.CTrayIcon$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _CTrayIcon_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.lwawt.macosx.CTrayIcon",
-	"sun.lwawt.macosx.CFRetainedResource",
-	"java.awt.peer.TrayIconPeer",
-	_CTrayIcon_FieldInfo_,
-	_CTrayIcon_MethodInfo_,
-	nullptr,
-	nullptr,
-	_CTrayIcon_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.lwawt.macosx.CTrayIcon$IconObserver,sun.lwawt.macosx.CTrayIcon$IconObserver$1,sun.lwawt.macosx.CTrayIcon$1"
-};
-
-$Object* allocate$CTrayIcon($Class* clazz) {
-	return $of($alloc(CTrayIcon));
-}
 
 void CTrayIcon::finalize() {
 	this->$CFRetainedResource::finalize();
@@ -532,7 +422,7 @@ void CTrayIcon::init$($TrayIcon* target) {
 }
 
 $CPopupMenu* CTrayIcon::checkAndCreatePopupPeer() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($CPopupMenu, menuPeer, nullptr);
 	if (this->popup != nullptr) {
 		try {
@@ -554,15 +444,14 @@ int64_t CTrayIcon::createModel() {
 }
 
 int64_t CTrayIcon::nativeCreate() {
-	int64_t $ret = 0;
-	$prepareNative(CTrayIcon, nativeCreate, int64_t);
-	$ret = $invokeNative();
+	$prepareNative(nativeCreate, int64_t);
+	int64_t $ret = $invokeNative();
 	$finishNative();
 	return $ret;
 }
 
 int64_t CTrayIcon::getPopupMenuModel() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($PopupMenu, newPopup, $nc(this->target)->getPopupMenu());
 	if (this->popup == newPopup) {
 		if (this->popup == nullptr) {
@@ -570,7 +459,7 @@ int64_t CTrayIcon::getPopupMenuModel() {
 		}
 	} else if (newPopup != nullptr) {
 		if (this->popup != nullptr) {
-			$nc(this->popup)->removeNotify();
+			this->popup->removeNotify();
 			$set(this, popup, newPopup);
 		} else {
 			$set(this, popup, newPopup);
@@ -582,24 +471,24 @@ int64_t CTrayIcon::getPopupMenuModel() {
 }
 
 void CTrayIcon::displayMessage($String* caption, $String* text, $String* messageType) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Icon, icon, getIconForMessageType(messageType));
 	$var($CImage, cimage, nullptr);
 	if (icon != nullptr) {
 		$var($BufferedImage, image, scaleIcon(icon, 0.75));
-		$assign(cimage, $nc($($CImage::getCreator()))->createFromImage(image, nullptr));
+		$assign(cimage, $$nc($CImage::getCreator())->createFromImage(image, nullptr));
 	}
 	if (cimage != nullptr) {
-		cimage->execute(static_cast<$CFRetainedResource$CFNativeAction*>($$new(CTrayIcon$$Lambda$lambda$displayMessage$2$1, this, caption, text)));
+		cimage->execute($$new(CTrayIcon$$Lambda$lambda$displayMessage$2$1, this, caption, text));
 	} else {
-		execute(static_cast<$CFRetainedResource$CFNativeAction*>($$new(CTrayIcon$$Lambda$lambda$displayMessage$3$2, this, caption, text)));
+		execute($$new(CTrayIcon$$Lambda$lambda$displayMessage$3$2, this, caption, text));
 	}
 }
 
 void CTrayIcon::dispose() {
 	$nc(this->dummyFrame)->dispose();
 	if (this->popup != nullptr) {
-		$nc(this->popup)->removeNotify();
+		this->popup->removeNotify();
 	}
 	$LWCToolkit::targetDisposedPeer(this->target, this);
 	$set(this, target, nullptr);
@@ -607,11 +496,11 @@ void CTrayIcon::dispose() {
 }
 
 void CTrayIcon::setToolTip($String* tooltip) {
-	execute(static_cast<$CFRetainedResource$CFNativeAction*>($$new(CTrayIcon$$Lambda$lambda$setToolTip$4$3, this, tooltip)));
+	execute($$new(CTrayIcon$$Lambda$lambda$setToolTip$4$3, this, tooltip));
 }
 
 void CTrayIcon::nativeSetToolTip(int64_t trayIconModel, $String* tooltip) {
-	$prepareNative(CTrayIcon, nativeSetToolTip, void, int64_t trayIconModel, $String* tooltip);
+	$prepareNative(nativeSetToolTip, void, int64_t trayIconModel, $String* tooltip);
 	$invokeNative(trayIconModel, tooltip);
 	$finishNative();
 }
@@ -627,7 +516,7 @@ void CTrayIcon::updateImage() {
 }
 
 void CTrayIcon::updateNativeImage($Image* image) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($MediaTracker, tracker, $new($MediaTracker, $$new($Button, ""_s)));
 	tracker->addImage(image, 0);
 	try {
@@ -635,18 +524,18 @@ void CTrayIcon::updateNativeImage($Image* image) {
 	} catch ($InterruptedException& ignore) {
 	}
 	bool var$0 = $nc(image)->getWidth(nullptr) <= 0;
-	if (var$0 || $nc(image)->getHeight(nullptr) <= 0) {
+	if (var$0 || image->getHeight(nullptr) <= 0) {
 		return;
 	}
-	$var($CImage, cimage, $nc($($CImage::getCreator()))->createFromImage(image, this->observer));
+	$var($CImage, cimage, $$nc($CImage::getCreator())->createFromImage(image, this->observer));
 	bool imageAutoSize = $nc(this->target)->isImageAutoSize();
 	if (cimage != nullptr) {
-		cimage->execute(static_cast<$CFRetainedResource$CFNativeAction*>($$new(CTrayIcon$$Lambda$lambda$updateNativeImage$6$4, this, imageAutoSize)));
+		cimage->execute($$new(CTrayIcon$$Lambda$lambda$updateNativeImage$6$4, this, imageAutoSize));
 	}
 }
 
 void CTrayIcon::setNativeImage(int64_t model, int64_t nsimage, bool autosize, bool template$) {
-	$prepareNative(CTrayIcon, setNativeImage, void, int64_t model, int64_t nsimage, bool autosize, bool template$);
+	$prepareNative(setNativeImage, void, int64_t model, int64_t nsimage, bool autosize, bool template$);
 	$invokeNative(model, nsimage, autosize, template$);
 	$finishNative();
 }
@@ -656,10 +545,10 @@ void CTrayIcon::postEvent($AWTEvent* event) {
 }
 
 void CTrayIcon::handleMouseEvent($NSEvent* nsEvent) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t buttonNumber = $nc(nsEvent)->getButtonNumber();
 	$var($SunToolkit, tk, $cast($SunToolkit, $Toolkit::getDefaultToolkit()));
-	bool var$0 = (buttonNumber > 2 && !$nc(tk)->areExtraMouseButtonsEnabled());
+	bool var$0 = buttonNumber > 2 && !$nc(tk)->areExtraMouseButtonsEnabled();
 	if (var$0 || buttonNumber > $nc(tk)->getNumberOfButtons() - 1) {
 		return;
 	}
@@ -690,7 +579,7 @@ void CTrayIcon::handleMouseEvent($NSEvent* nsEvent) {
 		postEvent(event);
 	}
 	if (jeventType == $MouseEvent::MOUSE_RELEASED) {
-		if (((int32_t)(CTrayIcon::mouseClickButtons & (uint32_t)eventButtonMask)) != 0) {
+		if ((CTrayIcon::mouseClickButtons & eventButtonMask) != 0) {
 			$var($MouseEvent, clickEvent, $new($MouseEvent, this->dummyFrame, $MouseEvent::MOUSE_CLICKED, when, jmodifiers, absX, absY, absX, absY, jclickCount, isPopupTrigger, jbuttonNumber));
 			clickEvent->setSource(this->target);
 			postEvent(clickEvent);
@@ -700,22 +589,21 @@ void CTrayIcon::handleMouseEvent($NSEvent* nsEvent) {
 }
 
 void CTrayIcon::nativeShowNotification(int64_t trayIconModel, $String* caption, $String* text, int64_t nsimage) {
-	$prepareNative(CTrayIcon, nativeShowNotification, void, int64_t trayIconModel, $String* caption, $String* text, int64_t nsimage);
+	$prepareNative(nativeShowNotification, void, int64_t trayIconModel, $String* caption, $String* text, int64_t nsimage);
 	$invokeNative(trayIconModel, caption, text, nsimage);
 	$finishNative();
 }
 
 $Point2D* CTrayIcon::nativeGetIconLocation(int64_t trayIconModel) {
-	$var($Point2D, $ret, nullptr);
-	$prepareNative(CTrayIcon, nativeGetIconLocation, $Point2D*, int64_t trayIconModel);
-	$assign($ret, $invokeNativeObject(trayIconModel));
+	$prepareNative(nativeGetIconLocation, $Point2D*, int64_t trayIconModel);
+	$var($Point2D, $ret, $invokeNativeObject(trayIconModel));
 	$finishNative();
 	return $ret;
 }
 
 $BufferedImage* CTrayIcon::scaleIcon($Icon* icon, double scaleFactor) {
 	$init(CTrayIcon);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (icon == nullptr) {
 		return nullptr;
 	}
@@ -733,7 +621,7 @@ $BufferedImage* CTrayIcon::scaleIcon($Icon* icon, double scaleFactor) {
 	$var($BufferedImage, scaledImage, gc->createCompatibleImage(scaledW, scaledH, $Transparency::TRANSLUCENT));
 	$assign(g, $nc(scaledImage)->createGraphics());
 	$init($RenderingHints);
-	g->setRenderingHint($RenderingHints::KEY_INTERPOLATION, $RenderingHints::VALUE_INTERPOLATION_BILINEAR);
+	$nc(g)->setRenderingHint($RenderingHints::KEY_INTERPOLATION, $RenderingHints::VALUE_INTERPOLATION_BILINEAR);
 	g->drawImage(iconImage, 0, 0, scaledW, scaledH, nullptr);
 	g->dispose();
 	return scaledImage;
@@ -751,7 +639,7 @@ $Icon* CTrayIcon::getIconForMessageType($String* messageType) {
 }
 
 void CTrayIcon::lambda$updateNativeImage$6(bool imageAutoSize, int64_t imagePtr) {
-	execute(static_cast<$CFRetainedResource$CFNativeAction*>($$new(CTrayIcon$$Lambda$lambda$updateNativeImage$5$5, this, imagePtr, imageAutoSize)));
+	execute($$new(CTrayIcon$$Lambda$lambda$updateNativeImage$5$5, this, imagePtr, imageAutoSize));
 }
 
 void CTrayIcon::lambda$updateNativeImage$5(int64_t imagePtr, bool imageAutoSize, int64_t ptr) {
@@ -767,7 +655,7 @@ void CTrayIcon::lambda$displayMessage$3($String* caption, $String* text, int64_t
 }
 
 void CTrayIcon::lambda$displayMessage$2($String* caption, $String* text, int64_t imagePtr) {
-	execute(static_cast<$CFRetainedResource$CFNativeAction*>($$new(CTrayIcon$$Lambda$lambda$displayMessage$1$6, this, caption, text, imagePtr)));
+	execute($$new(CTrayIcon$$Lambda$lambda$displayMessage$1$6, this, caption, text, imagePtr));
 }
 
 void CTrayIcon::lambda$displayMessage$1($String* caption, $String* text, int64_t imagePtr, int64_t ptr) {
@@ -779,11 +667,11 @@ $Boolean* CTrayIcon::lambda$static$0() {
 	return $Boolean::valueOf($Boolean::getBoolean("apple.awt.enableTemplateImages"_s));
 }
 
-void clinit$CTrayIcon($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void CTrayIcon::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	CTrayIcon::mouseClickButtons = 0;
-	CTrayIcon::useTemplateImages = $nc(($cast($Boolean, $($AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new(CTrayIcon$$Lambda$lambda$static$0)))))))->booleanValue();
+	CTrayIcon::useTemplateImages = $$sure($Boolean, $AccessController::doPrivileged($cast($PrivilegedAction, $$new(CTrayIcon$$Lambda$lambda$static$0))))->booleanValue();
 }
 
 CTrayIcon::CTrayIcon() {
@@ -791,29 +679,93 @@ CTrayIcon::CTrayIcon() {
 
 $Class* CTrayIcon::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(CTrayIcon$$Lambda$lambda$static$0::classInfo$.name)) {
+		if (name->equals("sun.lwawt.macosx.CTrayIcon$$Lambda$lambda$static$0")) {
 			return CTrayIcon$$Lambda$lambda$static$0::load$(name, initialize);
 		}
-		if (name->equals(CTrayIcon$$Lambda$lambda$displayMessage$2$1::classInfo$.name)) {
+		if (name->equals("sun.lwawt.macosx.CTrayIcon$$Lambda$lambda$displayMessage$2$1")) {
 			return CTrayIcon$$Lambda$lambda$displayMessage$2$1::load$(name, initialize);
 		}
-		if (name->equals(CTrayIcon$$Lambda$lambda$displayMessage$3$2::classInfo$.name)) {
+		if (name->equals("sun.lwawt.macosx.CTrayIcon$$Lambda$lambda$displayMessage$3$2")) {
 			return CTrayIcon$$Lambda$lambda$displayMessage$3$2::load$(name, initialize);
 		}
-		if (name->equals(CTrayIcon$$Lambda$lambda$setToolTip$4$3::classInfo$.name)) {
+		if (name->equals("sun.lwawt.macosx.CTrayIcon$$Lambda$lambda$setToolTip$4$3")) {
 			return CTrayIcon$$Lambda$lambda$setToolTip$4$3::load$(name, initialize);
 		}
-		if (name->equals(CTrayIcon$$Lambda$lambda$updateNativeImage$6$4::classInfo$.name)) {
+		if (name->equals("sun.lwawt.macosx.CTrayIcon$$Lambda$lambda$updateNativeImage$6$4")) {
 			return CTrayIcon$$Lambda$lambda$updateNativeImage$6$4::load$(name, initialize);
 		}
-		if (name->equals(CTrayIcon$$Lambda$lambda$updateNativeImage$5$5::classInfo$.name)) {
+		if (name->equals("sun.lwawt.macosx.CTrayIcon$$Lambda$lambda$updateNativeImage$5$5")) {
 			return CTrayIcon$$Lambda$lambda$updateNativeImage$5$5::load$(name, initialize);
 		}
-		if (name->equals(CTrayIcon$$Lambda$lambda$displayMessage$1$6::classInfo$.name)) {
+		if (name->equals("sun.lwawt.macosx.CTrayIcon$$Lambda$lambda$displayMessage$1$6")) {
 			return CTrayIcon$$Lambda$lambda$displayMessage$1$6::load$(name, initialize);
 		}
 	}
-	$loadClass(CTrayIcon, name, initialize, &_CTrayIcon_ClassInfo_, clinit$CTrayIcon, allocate$CTrayIcon);
+	$FieldInfo fieldInfos$$[] = {
+		{"target", "Ljava/awt/TrayIcon;", nullptr, $PRIVATE, $field(CTrayIcon, target)},
+		{"popup", "Ljava/awt/PopupMenu;", nullptr, $PRIVATE, $field(CTrayIcon, popup)},
+		{"dummyFrame", "Ljava/awt/Frame;", nullptr, $PRIVATE | $FINAL, $field(CTrayIcon, dummyFrame)},
+		{"observer", "Lsun/lwawt/macosx/CTrayIcon$IconObserver;", nullptr, 0, $field(CTrayIcon, observer)},
+		{"mouseClickButtons", "I", nullptr, $PRIVATE | $STATIC, $staticField(CTrayIcon, mouseClickButtons)},
+		{"useTemplateImages", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CTrayIcon, useTemplateImages)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $FINAL},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/awt/TrayIcon;)V", nullptr, 0, $method(CTrayIcon, init$, void, $TrayIcon*)},
+		{"checkAndCreatePopupPeer", "()Lsun/lwawt/macosx/CPopupMenu;", nullptr, $PRIVATE, $method(CTrayIcon, checkAndCreatePopupPeer, $CPopupMenu*)},
+		{"createModel", "()J", nullptr, $PRIVATE, $method(CTrayIcon, createModel, int64_t)},
+		{"displayMessage", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(CTrayIcon, displayMessage, void, $String*, $String*, $String*)},
+		{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(CTrayIcon, dispose, void)},
+		{"getIconForMessageType", "(Ljava/lang/String;)Ljavax/swing/Icon;", nullptr, $PRIVATE | $STATIC, $staticMethod(CTrayIcon, getIconForMessageType, $Icon*, $String*)},
+		{"getPopupMenuModel", "()J", nullptr, $PUBLIC, $virtualMethod(CTrayIcon, getPopupMenuModel, int64_t)},
+		{"handleMouseEvent", "(Lsun/lwawt/macosx/NSEvent;)V", nullptr, $PRIVATE, $method(CTrayIcon, handleMouseEvent, void, $NSEvent*)},
+		{"lambda$displayMessage$1", "(Ljava/lang/String;Ljava/lang/String;JJ)V", nullptr, $PRIVATE | $SYNTHETIC, $method(CTrayIcon, lambda$displayMessage$1, void, $String*, $String*, int64_t, int64_t)},
+		{"lambda$displayMessage$2", "(Ljava/lang/String;Ljava/lang/String;J)V", nullptr, $PRIVATE | $SYNTHETIC, $method(CTrayIcon, lambda$displayMessage$2, void, $String*, $String*, int64_t)},
+		{"lambda$displayMessage$3", "(Ljava/lang/String;Ljava/lang/String;J)V", nullptr, $PRIVATE | $SYNTHETIC, $method(CTrayIcon, lambda$displayMessage$3, void, $String*, $String*, int64_t)},
+		{"lambda$setToolTip$4", "(Ljava/lang/String;J)V", nullptr, $PRIVATE | $SYNTHETIC, $method(CTrayIcon, lambda$setToolTip$4, void, $String*, int64_t)},
+		{"lambda$static$0", "()Ljava/lang/Boolean;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(CTrayIcon, lambda$static$0, $Boolean*)},
+		{"lambda$updateNativeImage$5", "(JZJ)V", nullptr, $PRIVATE | $SYNTHETIC, $method(CTrayIcon, lambda$updateNativeImage$5, void, int64_t, bool, int64_t)},
+		{"lambda$updateNativeImage$6", "(ZJ)V", nullptr, $PRIVATE | $SYNTHETIC, $method(CTrayIcon, lambda$updateNativeImage$6, void, bool, int64_t)},
+		{"nativeCreate", "()J", nullptr, $PRIVATE | $NATIVE, $method(CTrayIcon, nativeCreate, int64_t)},
+		{"nativeGetIconLocation", "(J)Ljava/awt/geom/Point2D;", nullptr, $PRIVATE | $NATIVE, $method(CTrayIcon, nativeGetIconLocation, $Point2D*, int64_t)},
+		{"nativeSetToolTip", "(JLjava/lang/String;)V", nullptr, $PRIVATE | $NATIVE, $method(CTrayIcon, nativeSetToolTip, void, int64_t, $String*)},
+		{"nativeShowNotification", "(JLjava/lang/String;Ljava/lang/String;J)V", nullptr, $PRIVATE | $NATIVE, $method(CTrayIcon, nativeShowNotification, void, int64_t, $String*, $String*, int64_t)},
+		{"postEvent", "(Ljava/awt/AWTEvent;)V", nullptr, $PRIVATE, $method(CTrayIcon, postEvent, void, $AWTEvent*)},
+		{"scaleIcon", "(Ljavax/swing/Icon;D)Ljava/awt/image/BufferedImage;", nullptr, $PRIVATE | $STATIC, $staticMethod(CTrayIcon, scaleIcon, $BufferedImage*, $Icon*, double)},
+		{"setNativeImage", "(JJZZ)V", nullptr, $PRIVATE | $NATIVE, $method(CTrayIcon, setNativeImage, void, int64_t, int64_t, bool, bool)},
+		{"setToolTip", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(CTrayIcon, setToolTip, void, $String*)},
+		{"showPopupMenu", "(II)V", nullptr, $PUBLIC, $virtualMethod(CTrayIcon, showPopupMenu, void, int32_t, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"updateImage", "()V", nullptr, $PUBLIC, $virtualMethod(CTrayIcon, updateImage, void)},
+		{"updateNativeImage", "(Ljava/awt/Image;)V", nullptr, 0, $virtualMethod(CTrayIcon, updateNativeImage, void, $Image*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.lwawt.macosx.CTrayIcon$IconObserver", "sun.lwawt.macosx.CTrayIcon", "IconObserver", 0},
+		{"sun.lwawt.macosx.CTrayIcon$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.lwawt.macosx.CTrayIcon",
+		"sun.lwawt.macosx.CFRetainedResource",
+		"java.awt.peer.TrayIconPeer",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.lwawt.macosx.CTrayIcon$IconObserver,sun.lwawt.macosx.CTrayIcon$IconObserver$1,sun.lwawt.macosx.CTrayIcon$1"
+	};
+	$loadClass(CTrayIcon, name, initialize, &classInfo$$, CTrayIcon::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(CTrayIcon));
+	});
 	return class$;
 }
 

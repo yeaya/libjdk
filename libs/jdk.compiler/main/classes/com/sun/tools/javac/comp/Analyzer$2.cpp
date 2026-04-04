@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/Analyzer$2.h>
-
 #include <com/sun/tools/javac/code/Symbol$ClassSymbol.h>
 #include <com/sun/tools/javac/code/Symbol.h>
 #include <com/sun/tools/javac/comp/Analyzer$DeferredAnalysisHelper.h>
@@ -36,7 +35,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $ArrayDeque = ::java::util::ArrayDeque;
 using $HashMap = ::java::util::HashMap;
-using $Map = ::java::util::Map;
 using $Queue = ::java::util::Queue;
 using $Function = ::java::util::function::Function;
 
@@ -52,78 +50,29 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* k) override {
-		 return $of(Analyzer$2::lambda$queue$0($cast($Symbol$ClassSymbol, k)));
+		 return Analyzer$2::lambda$queue$0($cast($Symbol$ClassSymbol, k));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Analyzer$2$$Lambda$lambda$queue$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo Analyzer$2$$Lambda$lambda$queue$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Analyzer$2$$Lambda$lambda$queue$0, init$, void)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Analyzer$2$$Lambda$lambda$queue$0, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo Analyzer$2$$Lambda$lambda$queue$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.comp.Analyzer$2$$Lambda$lambda$queue$0",
-	"java.lang.Object",
-	"java.util.function.Function",
-	nullptr,
-	methodInfos
 };
 $Class* Analyzer$2$$Lambda$lambda$queue$0::load$($String* name, bool initialize) {
-	$loadClass(Analyzer$2$$Lambda$lambda$queue$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Analyzer$2$$Lambda$lambda$queue$0, init$, void)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Analyzer$2$$Lambda$lambda$queue$0, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.comp.Analyzer$2$$Lambda$lambda$queue$0",
+		"java.lang.Object",
+		"java.util.function.Function",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Analyzer$2$$Lambda$lambda$queue$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Analyzer$2$$Lambda$lambda$queue$0);
+	});
 	return class$;
 }
 $Class* Analyzer$2$$Lambda$lambda$queue$0::class$ = nullptr;
-
-$FieldInfo _Analyzer$2_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/comp/Analyzer;", nullptr, $FINAL | $SYNTHETIC, $field(Analyzer$2, this$0)},
-	{"Q", "Ljava/util/Map;", "Ljava/util/Map<Lcom/sun/tools/javac/code/Symbol$ClassSymbol;Ljava/util/Queue<Lcom/sun/tools/javac/comp/Analyzer$RewritingContext;>;>;", 0, $field(Analyzer$2, Q)},
-	{}
-};
-
-$MethodInfo _Analyzer$2_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Analyzer;)V", nullptr, 0, $method(Analyzer$2, init$, void, $Analyzer*)},
-	{"flush", "(Lcom/sun/tools/javac/comp/Env;)V", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)V", $PUBLIC, $virtualMethod(Analyzer$2, flush, void, $Env*)},
-	{"lambda$queue$0", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)Ljava/util/Queue;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Analyzer$2, lambda$queue$0, $Queue*, $Symbol$ClassSymbol*)},
-	{"queue", "(Lcom/sun/tools/javac/comp/Analyzer$RewritingContext;)V", nullptr, $PUBLIC, $virtualMethod(Analyzer$2, queue, void, $Analyzer$RewritingContext*)},
-	{}
-};
-
-$EnclosingMethodInfo _Analyzer$2_EnclosingMethodInfo_ = {
-	"com.sun.tools.javac.comp.Analyzer",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _Analyzer$2_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.Analyzer$2", nullptr, nullptr, 0},
-	{"com.sun.tools.javac.comp.Analyzer$DeferredAnalysisHelper", "com.sun.tools.javac.comp.Analyzer", "DeferredAnalysisHelper", $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Analyzer$2_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.comp.Analyzer$2",
-	"java.lang.Object",
-	"com.sun.tools.javac.comp.Analyzer$DeferredAnalysisHelper",
-	_Analyzer$2_FieldInfo_,
-	_Analyzer$2_MethodInfo_,
-	nullptr,
-	&_Analyzer$2_EnclosingMethodInfo_,
-	_Analyzer$2_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.Analyzer"
-};
-
-$Object* allocate$Analyzer$2($Class* clazz) {
-	return $of($alloc(Analyzer$2));
-}
 
 void Analyzer$2::init$($Analyzer* this$0) {
 	$set(this, this$0, this$0);
@@ -131,32 +80,30 @@ void Analyzer$2::init$($Analyzer* this$0) {
 }
 
 void Analyzer$2::queue($Analyzer$RewritingContext* rewriting) {
-	$useLocalCurrentObjectStackCache();
-	$var($Object, var$0, $of($nc($nc($nc($nc(rewriting)->env)->enclClass)->sym)->outermostClass()));
-	$var($Queue, s, $cast($Queue, $nc(this->Q)->computeIfAbsent(var$0, static_cast<$Function*>($$new(Analyzer$2$$Lambda$lambda$queue$0)))));
+	$useLocalObjectStack();
+	$var($Object, var$0, $nc($nc($nc($nc(rewriting)->env)->enclClass)->sym)->outermostClass());
+	$var($Queue, s, $cast($Queue, $nc(this->Q)->computeIfAbsent(var$0, $$new(Analyzer$2$$Lambda$lambda$queue$0))));
 	$nc(s)->add(rewriting);
 }
 
 void Analyzer$2::flush($Env* flushEnv) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!$nc(this->Q)->isEmpty()) {
 		$var($Analyzer$DeferredAnalysisHelper, prevHelper, this->this$0->deferredAnalysisHelper);
-		{
-			$var($Throwable, var$0, nullptr);
-			try {
-				$set(this->this$0, deferredAnalysisHelper, this->this$0->flushDeferredHelper);
-				$var($Queue, rewritings, $cast($Queue, $nc(this->Q)->get($($nc($nc($nc(flushEnv)->enclClass)->sym)->outermostClass()))));
-				while (rewritings != nullptr && !rewritings->isEmpty()) {
-					this->this$0->doAnalysis($cast($Analyzer$RewritingContext, $(rewritings->remove())));
-				}
-			} catch ($Throwable& var$1) {
-				$assign(var$0, var$1);
-			} /*finally*/ {
-				$set(this->this$0, deferredAnalysisHelper, prevHelper);
+		$var($Throwable, var$0, nullptr);
+		try {
+			$set(this->this$0, deferredAnalysisHelper, this->this$0->flushDeferredHelper);
+			$var($Queue, rewritings, $cast($Queue, this->Q->get($($nc($nc($nc(flushEnv)->enclClass)->sym)->outermostClass()))));
+			while (rewritings != nullptr && !rewritings->isEmpty()) {
+				this->this$0->doAnalysis($$cast($Analyzer$RewritingContext, rewritings->remove()));
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
+		} /*finally*/ {
+			$set(this->this$0, deferredAnalysisHelper, prevHelper);
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	}
 }
@@ -171,11 +118,50 @@ Analyzer$2::Analyzer$2() {
 
 $Class* Analyzer$2::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(Analyzer$2$$Lambda$lambda$queue$0::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.comp.Analyzer$2$$Lambda$lambda$queue$0")) {
 			return Analyzer$2$$Lambda$lambda$queue$0::load$(name, initialize);
 		}
 	}
-	$loadClass(Analyzer$2, name, initialize, &_Analyzer$2_ClassInfo_, allocate$Analyzer$2);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/comp/Analyzer;", nullptr, $FINAL | $SYNTHETIC, $field(Analyzer$2, this$0)},
+		{"Q", "Ljava/util/Map;", "Ljava/util/Map<Lcom/sun/tools/javac/code/Symbol$ClassSymbol;Ljava/util/Queue<Lcom/sun/tools/javac/comp/Analyzer$RewritingContext;>;>;", 0, $field(Analyzer$2, Q)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/comp/Analyzer;)V", nullptr, 0, $method(Analyzer$2, init$, void, $Analyzer*)},
+		{"flush", "(Lcom/sun/tools/javac/comp/Env;)V", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)V", $PUBLIC, $virtualMethod(Analyzer$2, flush, void, $Env*)},
+		{"lambda$queue$0", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)Ljava/util/Queue;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Analyzer$2, lambda$queue$0, $Queue*, $Symbol$ClassSymbol*)},
+		{"queue", "(Lcom/sun/tools/javac/comp/Analyzer$RewritingContext;)V", nullptr, $PUBLIC, $virtualMethod(Analyzer$2, queue, void, $Analyzer$RewritingContext*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.tools.javac.comp.Analyzer",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.Analyzer$2", nullptr, nullptr, 0},
+		{"com.sun.tools.javac.comp.Analyzer$DeferredAnalysisHelper", "com.sun.tools.javac.comp.Analyzer", "DeferredAnalysisHelper", $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.comp.Analyzer$2",
+		"java.lang.Object",
+		"com.sun.tools.javac.comp.Analyzer$DeferredAnalysisHelper",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.Analyzer"
+	};
+	$loadClass(Analyzer$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Analyzer$2);
+	});
 	return class$;
 }
 

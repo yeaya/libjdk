@@ -47,7 +47,7 @@ public:
 	using ::javax::swing::JFrame::show;
 	virtual $String* toString() override;
 	::sun::awt::im::InputContext* inputContext = nullptr;
-	static const int64_t serialVersionUID = (int64_t)0xBEB17038792F300B;
+	static const int64_t serialVersionUID = (int64_t)0xbeb17038792f300b;
 };
 
 		} // im

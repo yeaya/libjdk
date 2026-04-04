@@ -26,6 +26,7 @@ class BCELifier$FLAGS : public ::java::lang::Enum {
 public:
 	BCELifier$FLAGS();
 	static $Array<::com::sun::org::apache::bcel::internal::util::BCELifier$FLAGS>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::com::sun::org::apache::bcel::internal::util::BCELifier$FLAGS* valueOf($String* name);
 	static $Array<::com::sun::org::apache::bcel::internal::util::BCELifier$FLAGS>* values();

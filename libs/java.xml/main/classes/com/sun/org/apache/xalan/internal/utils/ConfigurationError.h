@@ -25,11 +25,14 @@ public:
 	ConfigurationError();
 	void init$($String* msg, ::java::lang::Exception* x);
 	::java::lang::Exception* getException();
-	static const int64_t serialVersionUID = (int64_t)0x0A6577CF5A95B048;
+	static const int64_t serialVersionUID = (int64_t)0x0a6577cf5a95b048;
 	::java::lang::Exception* exception = nullptr;
 	ConfigurationError(const ConfigurationError& e);
 	virtual void throw$() override;
-	inline ConfigurationError* operator ->() {
+	inline ConfigurationError* operator ->() const {
+		return (ConfigurationError*)throwing$;
+	}
+	inline operator ConfigurationError*() const {
 		return (ConfigurationError*)throwing$;
 	}
 };

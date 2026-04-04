@@ -1,5 +1,4 @@
 #include <com/sun/jmx/remote/util/ClassLoaderWithRepository.h>
-
 #include <java/lang/ClassLoader.h>
 #include <java/lang/ClassNotFoundException.h>
 #include <javax/management/loading/ClassLoaderRepository.h>
@@ -19,31 +18,6 @@ namespace com {
 			namespace remote {
 				namespace util {
 
-$FieldInfo _ClassLoaderWithRepository_FieldInfo_[] = {
-	{"repository", "Ljavax/management/loading/ClassLoaderRepository;", nullptr, $PRIVATE, $field(ClassLoaderWithRepository, repository)},
-	{"cl2", "Ljava/lang/ClassLoader;", nullptr, $PRIVATE, $field(ClassLoaderWithRepository, cl2)},
-	{}
-};
-
-$MethodInfo _ClassLoaderWithRepository_MethodInfo_[] = {
-	{"<init>", "(Ljavax/management/loading/ClassLoaderRepository;Ljava/lang/ClassLoader;)V", nullptr, $PUBLIC, $method(ClassLoaderWithRepository, init$, void, $ClassLoaderRepository*, $ClassLoader*)},
-	{"findClass", "(Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/String;)Ljava/lang/Class<*>;", $PROTECTED, $virtualMethod(ClassLoaderWithRepository, findClass, $Class*, $String*), "java.lang.ClassNotFoundException"},
-	{}
-};
-
-$ClassInfo _ClassLoaderWithRepository_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.jmx.remote.util.ClassLoaderWithRepository",
-	"java.lang.ClassLoader",
-	nullptr,
-	_ClassLoaderWithRepository_FieldInfo_,
-	_ClassLoaderWithRepository_MethodInfo_
-};
-
-$Object* allocate$ClassLoaderWithRepository($Class* clazz) {
-	return $of($alloc(ClassLoaderWithRepository));
-}
-
 void ClassLoaderWithRepository::init$($ClassLoaderRepository* clr, $ClassLoader* cl2) {
 	$ClassLoader::init$();
 	if (clr == nullptr) {
@@ -59,14 +33,14 @@ $Class* ClassLoaderWithRepository::findClass($String* name) {
 		cls = $nc(this->repository)->loadClass(name);
 	} catch ($ClassNotFoundException& cne) {
 		if (this->cl2 != nullptr) {
-			return $nc(this->cl2)->loadClass(name);
+			return this->cl2->loadClass(name);
 		} else {
 			$throw(cne);
 		}
 	}
-	if (!$nc($($nc(cls)->getName()))->equals(name)) {
+	if (!$$nc($nc(cls)->getName())->equals(name)) {
 		if (this->cl2 != nullptr) {
-			return $nc(this->cl2)->loadClass(name);
+			return this->cl2->loadClass(name);
 		} else {
 			$throwNew($ClassNotFoundException, name);
 		}
@@ -78,7 +52,27 @@ ClassLoaderWithRepository::ClassLoaderWithRepository() {
 }
 
 $Class* ClassLoaderWithRepository::load$($String* name, bool initialize) {
-	$loadClass(ClassLoaderWithRepository, name, initialize, &_ClassLoaderWithRepository_ClassInfo_, allocate$ClassLoaderWithRepository);
+	$FieldInfo fieldInfos$$[] = {
+		{"repository", "Ljavax/management/loading/ClassLoaderRepository;", nullptr, $PRIVATE, $field(ClassLoaderWithRepository, repository)},
+		{"cl2", "Ljava/lang/ClassLoader;", nullptr, $PRIVATE, $field(ClassLoaderWithRepository, cl2)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/management/loading/ClassLoaderRepository;Ljava/lang/ClassLoader;)V", nullptr, $PUBLIC, $method(ClassLoaderWithRepository, init$, void, $ClassLoaderRepository*, $ClassLoader*)},
+		{"findClass", "(Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/String;)Ljava/lang/Class<*>;", $PROTECTED, $virtualMethod(ClassLoaderWithRepository, findClass, $Class*, $String*), "java.lang.ClassNotFoundException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.jmx.remote.util.ClassLoaderWithRepository",
+		"java.lang.ClassLoader",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ClassLoaderWithRepository, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ClassLoaderWithRepository);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/serialize/Printer.h>
-
 #include <com/sun/org/apache/xml/internal/serialize/OutputFormat.h>
 #include <java/io/IOException.h>
 #include <java/io/StringWriter.h>
@@ -24,62 +23,6 @@ namespace com {
 				namespace xml {
 					namespace internal {
 						namespace serialize {
-
-$CompoundAttribute _Printer_Annotations_[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$FieldInfo _Printer_FieldInfo_[] = {
-	{"_format", "Lcom/sun/org/apache/xml/internal/serialize/OutputFormat;", nullptr, $PROTECTED | $FINAL, $field(Printer, _format)},
-	{"_writer", "Ljava/io/Writer;", nullptr, $PROTECTED, $field(Printer, _writer)},
-	{"_dtdWriter", "Ljava/io/StringWriter;", nullptr, $PROTECTED, $field(Printer, _dtdWriter)},
-	{"_docWriter", "Ljava/io/Writer;", nullptr, $PROTECTED, $field(Printer, _docWriter)},
-	{"_exception", "Ljava/io/IOException;", nullptr, $PROTECTED, $field(Printer, _exception)},
-	{"BufferSize", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Printer, BufferSize)},
-	{"_buffer", "[C", nullptr, $PRIVATE | $FINAL, $field(Printer, _buffer)},
-	{"_pos", "I", nullptr, $PRIVATE, $field(Printer, _pos)},
-	{}
-};
-
-$MethodInfo _Printer_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/Writer;Lcom/sun/org/apache/xml/internal/serialize/OutputFormat;)V", nullptr, $PUBLIC, $method(Printer, init$, void, $Writer*, $OutputFormat*)},
-	{"breakLine", "()V", nullptr, $PUBLIC, $virtualMethod(Printer, breakLine, void), "java.io.IOException"},
-	{"breakLine", "(Z)V", nullptr, $PUBLIC, $virtualMethod(Printer, breakLine, void, bool), "java.io.IOException"},
-	{"enterDTD", "()V", nullptr, $PUBLIC, $virtualMethod(Printer, enterDTD, void), "java.io.IOException"},
-	{"flush", "()V", nullptr, $PUBLIC, $virtualMethod(Printer, flush, void), "java.io.IOException"},
-	{"flushLine", "(Z)V", nullptr, $PUBLIC, $virtualMethod(Printer, flushLine, void, bool), "java.io.IOException"},
-	{"getException", "()Ljava/io/IOException;", nullptr, $PUBLIC, $virtualMethod(Printer, getException, $IOException*)},
-	{"getNextIndent", "()I", nullptr, $PUBLIC, $virtualMethod(Printer, getNextIndent, int32_t)},
-	{"indent", "()V", nullptr, $PUBLIC, $virtualMethod(Printer, indent, void)},
-	{"leaveDTD", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Printer, leaveDTD, $String*), "java.io.IOException"},
-	{"printSpace", "()V", nullptr, $PUBLIC, $virtualMethod(Printer, printSpace, void), "java.io.IOException"},
-	{"printText", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Printer, printText, void, $String*), "java.io.IOException"},
-	{"printText", "(Ljava/lang/StringBuffer;)V", nullptr, $PUBLIC, $virtualMethod(Printer, printText, void, $StringBuffer*), "java.io.IOException"},
-	{"printText", "([CII)V", nullptr, $PUBLIC, $virtualMethod(Printer, printText, void, $chars*, int32_t, int32_t), "java.io.IOException"},
-	{"printText", "(C)V", nullptr, $PUBLIC, $virtualMethod(Printer, printText, void, char16_t), "java.io.IOException"},
-	{"setNextIndent", "(I)V", nullptr, $PUBLIC, $virtualMethod(Printer, setNextIndent, void, int32_t)},
-	{"setThisIndent", "(I)V", nullptr, $PUBLIC, $virtualMethod(Printer, setThisIndent, void, int32_t)},
-	{"unindent", "()V", nullptr, $PUBLIC, $virtualMethod(Printer, unindent, void)},
-	{}
-};
-
-$ClassInfo _Printer_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.serialize.Printer",
-	"java.lang.Object",
-	nullptr,
-	_Printer_FieldInfo_,
-	_Printer_MethodInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	_Printer_Annotations_
-};
-
-$Object* allocate$Printer($Class* clazz) {
-	return $of($alloc(Printer));
-}
 
 void Printer::init$($Writer* writer, $OutputFormat* format) {
 	$set(this, _buffer, $new($chars, Printer::BufferSize));
@@ -123,7 +66,7 @@ void Printer::printText($String* text) {
 				$nc(this->_writer)->write(this->_buffer);
 				this->_pos = 0;
 			}
-			$nc(this->_buffer)->set(this->_pos, text->charAt(i));
+			this->_buffer->set(this->_pos, text->charAt(i));
 			++this->_pos;
 		}
 	} catch ($IOException& except) {
@@ -142,7 +85,7 @@ void Printer::printText($StringBuffer* text) {
 				$nc(this->_writer)->write(this->_buffer);
 				this->_pos = 0;
 			}
-			$nc(this->_buffer)->set(this->_pos, text->charAt(i));
+			this->_buffer->set(this->_pos, text->charAt(i));
 			++this->_pos;
 		}
 	} catch ($IOException& except) {
@@ -160,7 +103,7 @@ void Printer::printText($chars* chars, int32_t start, int32_t length) {
 				$nc(this->_writer)->write(this->_buffer);
 				this->_pos = 0;
 			}
-			$nc(this->_buffer)->set(this->_pos, $nc(chars)->get(start));
+			this->_buffer->set(this->_pos, $nc(chars)->get(start));
 			++start;
 			++this->_pos;
 		}
@@ -178,7 +121,7 @@ void Printer::printText(char16_t ch) {
 			$nc(this->_writer)->write(this->_buffer);
 			this->_pos = 0;
 		}
-		$nc(this->_buffer)->set(this->_pos, ch);
+		this->_buffer->set(this->_pos, ch);
 		++this->_pos;
 	} catch ($IOException& except) {
 		if (this->_exception == nullptr) {
@@ -194,7 +137,7 @@ void Printer::printSpace() {
 			$nc(this->_writer)->write(this->_buffer);
 			this->_pos = 0;
 		}
-		$nc(this->_buffer)->set(this->_pos, u' ');
+		this->_buffer->set(this->_pos, u' ');
 		++this->_pos;
 	} catch ($IOException& except) {
 		if (this->_exception == nullptr) {
@@ -210,7 +153,7 @@ void Printer::breakLine() {
 			$nc(this->_writer)->write(this->_buffer);
 			this->_pos = 0;
 		}
-		$nc(this->_buffer)->set(this->_pos, u'\n');
+		this->_buffer->set(this->_pos, u'\n');
 		++this->_pos;
 	} catch ($IOException& except) {
 		if (this->_exception == nullptr) {
@@ -238,7 +181,7 @@ void Printer::flushLine(bool preserveSpace) {
 void Printer::flush() {
 	try {
 		$nc(this->_writer)->write(this->_buffer, 0, this->_pos);
-		$nc(this->_writer)->flush();
+		this->_writer->flush();
 	} catch ($IOException& except) {
 		if (this->_exception == nullptr) {
 			$set(this, _exception, except);
@@ -268,7 +211,57 @@ Printer::Printer() {
 }
 
 $Class* Printer::load$($String* name, bool initialize) {
-	$loadClass(Printer, name, initialize, &_Printer_ClassInfo_, allocate$Printer);
+	$FieldInfo fieldInfos$$[] = {
+		{"_format", "Lcom/sun/org/apache/xml/internal/serialize/OutputFormat;", nullptr, $PROTECTED | $FINAL, $field(Printer, _format)},
+		{"_writer", "Ljava/io/Writer;", nullptr, $PROTECTED, $field(Printer, _writer)},
+		{"_dtdWriter", "Ljava/io/StringWriter;", nullptr, $PROTECTED, $field(Printer, _dtdWriter)},
+		{"_docWriter", "Ljava/io/Writer;", nullptr, $PROTECTED, $field(Printer, _docWriter)},
+		{"_exception", "Ljava/io/IOException;", nullptr, $PROTECTED, $field(Printer, _exception)},
+		{"BufferSize", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Printer, BufferSize)},
+		{"_buffer", "[C", nullptr, $PRIVATE | $FINAL, $field(Printer, _buffer)},
+		{"_pos", "I", nullptr, $PRIVATE, $field(Printer, _pos)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/io/Writer;Lcom/sun/org/apache/xml/internal/serialize/OutputFormat;)V", nullptr, $PUBLIC, $method(Printer, init$, void, $Writer*, $OutputFormat*)},
+		{"breakLine", "()V", nullptr, $PUBLIC, $virtualMethod(Printer, breakLine, void), "java.io.IOException"},
+		{"breakLine", "(Z)V", nullptr, $PUBLIC, $virtualMethod(Printer, breakLine, void, bool), "java.io.IOException"},
+		{"enterDTD", "()V", nullptr, $PUBLIC, $virtualMethod(Printer, enterDTD, void), "java.io.IOException"},
+		{"flush", "()V", nullptr, $PUBLIC, $virtualMethod(Printer, flush, void), "java.io.IOException"},
+		{"flushLine", "(Z)V", nullptr, $PUBLIC, $virtualMethod(Printer, flushLine, void, bool), "java.io.IOException"},
+		{"getException", "()Ljava/io/IOException;", nullptr, $PUBLIC, $virtualMethod(Printer, getException, $IOException*)},
+		{"getNextIndent", "()I", nullptr, $PUBLIC, $virtualMethod(Printer, getNextIndent, int32_t)},
+		{"indent", "()V", nullptr, $PUBLIC, $virtualMethod(Printer, indent, void)},
+		{"leaveDTD", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Printer, leaveDTD, $String*), "java.io.IOException"},
+		{"printSpace", "()V", nullptr, $PUBLIC, $virtualMethod(Printer, printSpace, void), "java.io.IOException"},
+		{"printText", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Printer, printText, void, $String*), "java.io.IOException"},
+		{"printText", "(Ljava/lang/StringBuffer;)V", nullptr, $PUBLIC, $virtualMethod(Printer, printText, void, $StringBuffer*), "java.io.IOException"},
+		{"printText", "([CII)V", nullptr, $PUBLIC, $virtualMethod(Printer, printText, void, $chars*, int32_t, int32_t), "java.io.IOException"},
+		{"printText", "(C)V", nullptr, $PUBLIC, $virtualMethod(Printer, printText, void, char16_t), "java.io.IOException"},
+		{"setNextIndent", "(I)V", nullptr, $PUBLIC, $virtualMethod(Printer, setNextIndent, void, int32_t)},
+		{"setThisIndent", "(I)V", nullptr, $PUBLIC, $virtualMethod(Printer, setThisIndent, void, int32_t)},
+		{"unindent", "()V", nullptr, $PUBLIC, $virtualMethod(Printer, unindent, void)},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.serialize.Printer",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(Printer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Printer);
+	});
 	return class$;
 }
 

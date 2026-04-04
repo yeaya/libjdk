@@ -1,13 +1,10 @@
 #include <java.datatransfer.h>
-
 #include <java.base.h>
 #include <java/lang/ClassEntry.h>
 #include <java/lang/Library.h>
 #include <java/lang/ModuleInfo.h>
 #include <java/lang/ResourceEntry.h>
 #include <jcpp.h>
-#include <module-info>
-
 #include <java/awt/datatransfer/Clipboard.h>
 #include <java/awt/datatransfer/ClipboardOwner.h>
 #include <java/awt/datatransfer/DataFlavor.h>
@@ -151,6 +148,7 @@ $bytes* java$datatransfer$GetResource($String* name) {
 
 void java$datatransfer::init() {
 	::java$base::init();
+	#include <module-info.h>
 	::java::lang::Library lib = {
 		"java.datatransfer", "17.35", "",
 		&_java$datatransfer_ModuleInfo_,

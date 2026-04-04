@@ -1,5 +1,4 @@
 #include <java/util/prefs/MacOSXPreferencesFile$SyncTask.h>
-
 #include <java/util/TimerTask.h>
 #include <java/util/prefs/MacOSXPreferencesFile.h>
 #include <jcpp.h>
@@ -15,42 +14,6 @@ namespace java {
 	namespace util {
 		namespace prefs {
 
-$FieldInfo _MacOSXPreferencesFile$SyncTask_FieldInfo_[] = {
-	{"this$0", "Ljava/util/prefs/MacOSXPreferencesFile;", nullptr, $FINAL | $SYNTHETIC, $field(MacOSXPreferencesFile$SyncTask, this$0)},
-	{}
-};
-
-$MethodInfo _MacOSXPreferencesFile$SyncTask_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/prefs/MacOSXPreferencesFile;)V", nullptr, $PRIVATE, $method(MacOSXPreferencesFile$SyncTask, init$, void, $MacOSXPreferencesFile*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(MacOSXPreferencesFile$SyncTask, run, void)},
-	{}
-};
-
-$InnerClassInfo _MacOSXPreferencesFile$SyncTask_InnerClassesInfo_[] = {
-	{"java.util.prefs.MacOSXPreferencesFile$SyncTask", "java.util.prefs.MacOSXPreferencesFile", "SyncTask", $PRIVATE},
-	{}
-};
-
-$ClassInfo _MacOSXPreferencesFile$SyncTask_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.prefs.MacOSXPreferencesFile$SyncTask",
-	"java.util.TimerTask",
-	nullptr,
-	_MacOSXPreferencesFile$SyncTask_FieldInfo_,
-	_MacOSXPreferencesFile$SyncTask_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MacOSXPreferencesFile$SyncTask_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.prefs.MacOSXPreferencesFile"
-};
-
-$Object* allocate$MacOSXPreferencesFile$SyncTask($Class* clazz) {
-	return $of($alloc(MacOSXPreferencesFile$SyncTask));
-}
-
 void MacOSXPreferencesFile$SyncTask::init$($MacOSXPreferencesFile* this$0) {
 	$set(this, this$0, this$0);
 	$TimerTask::init$();
@@ -64,7 +27,37 @@ MacOSXPreferencesFile$SyncTask::MacOSXPreferencesFile$SyncTask() {
 }
 
 $Class* MacOSXPreferencesFile$SyncTask::load$($String* name, bool initialize) {
-	$loadClass(MacOSXPreferencesFile$SyncTask, name, initialize, &_MacOSXPreferencesFile$SyncTask_ClassInfo_, allocate$MacOSXPreferencesFile$SyncTask);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljava/util/prefs/MacOSXPreferencesFile;", nullptr, $FINAL | $SYNTHETIC, $field(MacOSXPreferencesFile$SyncTask, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/prefs/MacOSXPreferencesFile;)V", nullptr, $PRIVATE, $method(MacOSXPreferencesFile$SyncTask, init$, void, $MacOSXPreferencesFile*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(MacOSXPreferencesFile$SyncTask, run, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.prefs.MacOSXPreferencesFile$SyncTask", "java.util.prefs.MacOSXPreferencesFile", "SyncTask", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.prefs.MacOSXPreferencesFile$SyncTask",
+		"java.util.TimerTask",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.prefs.MacOSXPreferencesFile"
+	};
+	$loadClass(MacOSXPreferencesFile$SyncTask, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MacOSXPreferencesFile$SyncTask);
+	});
 	return class$;
 }
 

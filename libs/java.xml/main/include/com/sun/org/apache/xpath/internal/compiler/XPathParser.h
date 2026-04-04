@@ -67,6 +67,7 @@ class $import XPathParser : public ::java::lang::Object {
 	$class(XPathParser, 0, ::java::lang::Object)
 public:
 	XPathParser();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::javax::xml::transform::ErrorListener* errorListener, ::javax::xml::transform::SourceLocator* sourceLocator);
 	virtual bool AbbreviatedNodeTestStep(bool isLeadingSlashPermitted);
 	virtual int32_t AdditiveExpr(int32_t addPos);

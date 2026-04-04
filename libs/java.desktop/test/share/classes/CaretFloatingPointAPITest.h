@@ -32,6 +32,7 @@ class $export CaretFloatingPointAPITest : public ::java::lang::Object {
 	$class(CaretFloatingPointAPITest, 0, ::java::lang::Object)
 public:
 	CaretFloatingPointAPITest();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void createUI();
 	static void lambda$createUI$0(::javax::swing::JFrame* mainFrame, ::java::awt::event::ActionEvent* e);

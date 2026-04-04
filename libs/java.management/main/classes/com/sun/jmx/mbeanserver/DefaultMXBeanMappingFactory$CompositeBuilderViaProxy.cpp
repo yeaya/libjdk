@@ -1,17 +1,14 @@
 #include <com/sun/jmx/mbeanserver/DefaultMXBeanMappingFactory$CompositeBuilderViaProxy.h>
-
 #include <com/sun/jmx/mbeanserver/DefaultMXBeanMappingFactory$CompositeBuilder.h>
 #include <com/sun/jmx/mbeanserver/DefaultMXBeanMappingFactory.h>
 #include <com/sun/jmx/mbeanserver/MXBeanMapping.h>
 #include <com/sun/jmx/mbeanserver/Util.h>
 #include <java/lang/ClassLoader.h>
 #include <java/lang/NoSuchMethodException.h>
-#include <java/lang/reflect/InvocationHandler.h>
 #include <java/lang/reflect/Method.h>
 #include <java/lang/reflect/Modifier.h>
 #include <java/lang/reflect/Proxy.h>
 #include <java/util/Arrays.h>
-#include <java/util/Collection.h>
 #include <java/util/Iterator.h>
 #include <java/util/List.h>
 #include <java/util/Set.h>
@@ -28,12 +25,10 @@ using $ClassLoader = ::java::lang::ClassLoader;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NoSuchMethodException = ::java::lang::NoSuchMethodException;
-using $InvocationHandler = ::java::lang::reflect::InvocationHandler;
 using $Method = ::java::lang::reflect::Method;
 using $Modifier = ::java::lang::reflect::Modifier;
 using $Proxy = ::java::lang::reflect::Proxy;
 using $Arrays = ::java::util::Arrays;
-using $Collection = ::java::util::Collection;
 using $Iterator = ::java::util::Iterator;
 using $Set = ::java::util::Set;
 using $CompositeData = ::javax::management::openmbean::CompositeData;
@@ -44,51 +39,18 @@ namespace com {
 		namespace jmx {
 			namespace mbeanserver {
 
-$MethodInfo _DefaultMXBeanMappingFactory$CompositeBuilderViaProxy_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Class;[Ljava/lang/String;)V", "(Ljava/lang/Class<*>;[Ljava/lang/String;)V", 0, $method(DefaultMXBeanMappingFactory$CompositeBuilderViaProxy, init$, void, $Class*, $StringArray*)},
-	{"applicable", "([Ljava/lang/reflect/Method;)Ljava/lang/String;", nullptr, 0, $virtualMethod(DefaultMXBeanMappingFactory$CompositeBuilderViaProxy, applicable, $String*, $MethodArray*)},
-	{"fromCompositeData", "(Ljavax/management/openmbean/CompositeData;[Ljava/lang/String;[Lcom/sun/jmx/mbeanserver/MXBeanMapping;)Ljava/lang/Object;", nullptr, $FINAL, $virtualMethod(DefaultMXBeanMappingFactory$CompositeBuilderViaProxy, fromCompositeData, $Object*, $CompositeData*, $StringArray*, $MXBeanMappingArray*)},
-	{}
-};
-
-$InnerClassInfo _DefaultMXBeanMappingFactory$CompositeBuilderViaProxy_InnerClassesInfo_[] = {
-	{"com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory$CompositeBuilderViaProxy", "com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory", "CompositeBuilderViaProxy", $PRIVATE | $STATIC | $FINAL},
-	{"com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory$CompositeBuilder", "com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory", "CompositeBuilder", $PRIVATE | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _DefaultMXBeanMappingFactory$CompositeBuilderViaProxy_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory$CompositeBuilderViaProxy",
-	"com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory$CompositeBuilder",
-	nullptr,
-	nullptr,
-	_DefaultMXBeanMappingFactory$CompositeBuilderViaProxy_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DefaultMXBeanMappingFactory$CompositeBuilderViaProxy_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory"
-};
-
-$Object* allocate$DefaultMXBeanMappingFactory$CompositeBuilderViaProxy($Class* clazz) {
-	return $of($alloc(DefaultMXBeanMappingFactory$CompositeBuilderViaProxy));
-}
-
 void DefaultMXBeanMappingFactory$CompositeBuilderViaProxy::init$($Class* targetClass, $StringArray* itemNames) {
 	$DefaultMXBeanMappingFactory$CompositeBuilder::init$(targetClass, itemNames);
 }
 
 $String* DefaultMXBeanMappingFactory$CompositeBuilderViaProxy::applicable($MethodArray* getters) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$Class* targetClass = getTargetClass();
 	if (!$nc(targetClass)->isInterface()) {
 		return "not an interface"_s;
 	}
-	$var($Set, methods, $Util::newSet($($Arrays::asList($($nc(targetClass)->getMethods())))));
+	$var($Set, methods, $Util::newSet($($Arrays::asList($(targetClass->getMethods())))));
 	$nc(methods)->removeAll($($Arrays::asList(getters)));
 	$var($String, bad, nullptr);
 	{
@@ -116,19 +78,47 @@ $String* DefaultMXBeanMappingFactory$CompositeBuilderViaProxy::applicable($Metho
 }
 
 $Object* DefaultMXBeanMappingFactory$CompositeBuilderViaProxy::fromCompositeData($CompositeData* cd, $StringArray* itemNames, $MXBeanMappingArray* converters) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$Class* targetClass = getTargetClass();
 	$var($ClassLoader, var$0, $nc(targetClass)->getClassLoader());
 	$var($ClassArray, var$1, $new($ClassArray, {targetClass}));
-	return $of($Proxy::newProxyInstance(var$0, var$1, static_cast<$InvocationHandler*>($$new($CompositeDataInvocationHandler, cd))));
+	return $Proxy::newProxyInstance(var$0, var$1, $$new($CompositeDataInvocationHandler, cd));
 }
 
 DefaultMXBeanMappingFactory$CompositeBuilderViaProxy::DefaultMXBeanMappingFactory$CompositeBuilderViaProxy() {
 }
 
 $Class* DefaultMXBeanMappingFactory$CompositeBuilderViaProxy::load$($String* name, bool initialize) {
-	$loadClass(DefaultMXBeanMappingFactory$CompositeBuilderViaProxy, name, initialize, &_DefaultMXBeanMappingFactory$CompositeBuilderViaProxy_ClassInfo_, allocate$DefaultMXBeanMappingFactory$CompositeBuilderViaProxy);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Class;[Ljava/lang/String;)V", "(Ljava/lang/Class<*>;[Ljava/lang/String;)V", 0, $method(DefaultMXBeanMappingFactory$CompositeBuilderViaProxy, init$, void, $Class*, $StringArray*)},
+		{"applicable", "([Ljava/lang/reflect/Method;)Ljava/lang/String;", nullptr, 0, $virtualMethod(DefaultMXBeanMappingFactory$CompositeBuilderViaProxy, applicable, $String*, $MethodArray*)},
+		{"fromCompositeData", "(Ljavax/management/openmbean/CompositeData;[Ljava/lang/String;[Lcom/sun/jmx/mbeanserver/MXBeanMapping;)Ljava/lang/Object;", nullptr, $FINAL, $virtualMethod(DefaultMXBeanMappingFactory$CompositeBuilderViaProxy, fromCompositeData, $Object*, $CompositeData*, $StringArray*, $MXBeanMappingArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory$CompositeBuilderViaProxy", "com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory", "CompositeBuilderViaProxy", $PRIVATE | $STATIC | $FINAL},
+		{"com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory$CompositeBuilder", "com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory", "CompositeBuilder", $PRIVATE | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory$CompositeBuilderViaProxy",
+		"com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory$CompositeBuilder",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory"
+	};
+	$loadClass(DefaultMXBeanMappingFactory$CompositeBuilderViaProxy, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DefaultMXBeanMappingFactory$CompositeBuilderViaProxy);
+	});
 	return class$;
 }
 

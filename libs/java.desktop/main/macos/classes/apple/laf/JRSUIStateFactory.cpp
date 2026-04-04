@@ -1,5 +1,4 @@
 #include <apple/laf/JRSUIStateFactory.h>
-
 #include <apple/laf/JRSUIConstants$NoIndicator.h>
 #include <apple/laf/JRSUIConstants$SegmentTrailingSeparator.h>
 #include <apple/laf/JRSUIConstants$Widget.h>
@@ -33,34 +32,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace apple {
 	namespace laf {
-
-$MethodInfo _JRSUIStateFactory_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(JRSUIStateFactory, init$, void)},
-	{"getDisclosureTriangle", "()Lapple/laf/JRSUIState$AnimationFrameState;", nullptr, $PUBLIC | $STATIC, $staticMethod(JRSUIStateFactory, getDisclosureTriangle, $JRSUIState$AnimationFrameState*)},
-	{"getLabeledButton", "()Lapple/laf/JRSUIState$ValueState;", nullptr, $PUBLIC | $STATIC, $staticMethod(JRSUIStateFactory, getLabeledButton, $JRSUIState$ValueState*)},
-	{"getProgressBar", "()Lapple/laf/JRSUIState$ValueState;", nullptr, $PUBLIC | $STATIC, $staticMethod(JRSUIStateFactory, getProgressBar, $JRSUIState$ValueState*)},
-	{"getScrollBar", "()Lapple/laf/JRSUIState$ScrollBarState;", nullptr, $PUBLIC | $STATIC, $staticMethod(JRSUIStateFactory, getScrollBar, $JRSUIState$ScrollBarState*)},
-	{"getSliderThumb", "()Lapple/laf/JRSUIState;", nullptr, $PUBLIC | $STATIC, $staticMethod(JRSUIStateFactory, getSliderThumb, $JRSUIState*)},
-	{"getSliderTrack", "()Lapple/laf/JRSUIState;", nullptr, $PUBLIC | $STATIC, $staticMethod(JRSUIStateFactory, getSliderTrack, $JRSUIState*)},
-	{"getSpinnerArrows", "()Lapple/laf/JRSUIState;", nullptr, $PUBLIC | $STATIC, $staticMethod(JRSUIStateFactory, getSpinnerArrows, $JRSUIState*)},
-	{"getSplitPaneDivider", "()Lapple/laf/JRSUIState;", nullptr, $PUBLIC | $STATIC, $staticMethod(JRSUIStateFactory, getSplitPaneDivider, $JRSUIState*)},
-	{"getTab", "()Lapple/laf/JRSUIState;", nullptr, $PUBLIC | $STATIC, $staticMethod(JRSUIStateFactory, getTab, $JRSUIState*)},
-	{"getTitleBar", "()Lapple/laf/JRSUIState$TitleBarHeightState;", nullptr, $PUBLIC | $STATIC, $staticMethod(JRSUIStateFactory, getTitleBar, $JRSUIState$TitleBarHeightState*)},
-	{}
-};
-
-$ClassInfo _JRSUIStateFactory_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"apple.laf.JRSUIStateFactory",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_JRSUIStateFactory_MethodInfo_
-};
-
-$Object* allocate$JRSUIStateFactory($Class* clazz) {
-	return $of($alloc(JRSUIStateFactory));
-}
 
 void JRSUIStateFactory::init$() {
 }
@@ -99,27 +70,51 @@ $JRSUIState$AnimationFrameState* JRSUIStateFactory::getDisclosureTriangle() {
 
 $JRSUIState$ScrollBarState* JRSUIStateFactory::getScrollBar() {
 	$init($JRSUIConstants$Widget);
-	return $new($JRSUIState$ScrollBarState, $nc($JRSUIConstants$Widget::SCROLL_BAR)->apply(0), (double)0, (double)0, (double)0);
+	return $new($JRSUIState$ScrollBarState, $nc($JRSUIConstants$Widget::SCROLL_BAR)->apply(0), 0, 0, 0);
 }
 
 $JRSUIState$TitleBarHeightState* JRSUIStateFactory::getTitleBar() {
 	$init($JRSUIConstants$Widget);
-	return $new($JRSUIState$TitleBarHeightState, $nc($JRSUIConstants$Widget::WINDOW_FRAME)->apply(0), (double)0);
+	return $new($JRSUIState$TitleBarHeightState, $nc($JRSUIConstants$Widget::WINDOW_FRAME)->apply(0), 0);
 }
 
 $JRSUIState$ValueState* JRSUIStateFactory::getProgressBar() {
-	return $new($JRSUIState$ValueState, 0, (double)0);
+	return $new($JRSUIState$ValueState, 0, 0);
 }
 
 $JRSUIState$ValueState* JRSUIStateFactory::getLabeledButton() {
-	return $new($JRSUIState$ValueState, 0, (double)0);
+	return $new($JRSUIState$ValueState, 0, 0);
 }
 
 JRSUIStateFactory::JRSUIStateFactory() {
 }
 
 $Class* JRSUIStateFactory::load$($String* name, bool initialize) {
-	$loadClass(JRSUIStateFactory, name, initialize, &_JRSUIStateFactory_ClassInfo_, allocate$JRSUIStateFactory);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(JRSUIStateFactory, init$, void)},
+		{"getDisclosureTriangle", "()Lapple/laf/JRSUIState$AnimationFrameState;", nullptr, $PUBLIC | $STATIC, $staticMethod(JRSUIStateFactory, getDisclosureTriangle, $JRSUIState$AnimationFrameState*)},
+		{"getLabeledButton", "()Lapple/laf/JRSUIState$ValueState;", nullptr, $PUBLIC | $STATIC, $staticMethod(JRSUIStateFactory, getLabeledButton, $JRSUIState$ValueState*)},
+		{"getProgressBar", "()Lapple/laf/JRSUIState$ValueState;", nullptr, $PUBLIC | $STATIC, $staticMethod(JRSUIStateFactory, getProgressBar, $JRSUIState$ValueState*)},
+		{"getScrollBar", "()Lapple/laf/JRSUIState$ScrollBarState;", nullptr, $PUBLIC | $STATIC, $staticMethod(JRSUIStateFactory, getScrollBar, $JRSUIState$ScrollBarState*)},
+		{"getSliderThumb", "()Lapple/laf/JRSUIState;", nullptr, $PUBLIC | $STATIC, $staticMethod(JRSUIStateFactory, getSliderThumb, $JRSUIState*)},
+		{"getSliderTrack", "()Lapple/laf/JRSUIState;", nullptr, $PUBLIC | $STATIC, $staticMethod(JRSUIStateFactory, getSliderTrack, $JRSUIState*)},
+		{"getSpinnerArrows", "()Lapple/laf/JRSUIState;", nullptr, $PUBLIC | $STATIC, $staticMethod(JRSUIStateFactory, getSpinnerArrows, $JRSUIState*)},
+		{"getSplitPaneDivider", "()Lapple/laf/JRSUIState;", nullptr, $PUBLIC | $STATIC, $staticMethod(JRSUIStateFactory, getSplitPaneDivider, $JRSUIState*)},
+		{"getTab", "()Lapple/laf/JRSUIState;", nullptr, $PUBLIC | $STATIC, $staticMethod(JRSUIStateFactory, getTab, $JRSUIState*)},
+		{"getTitleBar", "()Lapple/laf/JRSUIState$TitleBarHeightState;", nullptr, $PUBLIC | $STATIC, $staticMethod(JRSUIStateFactory, getTitleBar, $JRSUIState$TitleBarHeightState*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"apple.laf.JRSUIStateFactory",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(JRSUIStateFactory, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JRSUIStateFactory);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/apple/laf/AquaUtils$RecyclableSingleton.h>
-
 #include <com/apple/laf/AquaUtils.h>
 #include <java/io/Serializable.h>
 #include <java/lang/invoke/CallSite.h>
@@ -33,84 +32,46 @@ public:
 	virtual $Object* get() override {
 		 return $nc(inst$)->lambda$get$0();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<AquaUtils$RecyclableSingleton$$Lambda$lambda$get$0>());
-	}
 	AquaUtils$RecyclableSingleton* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo AquaUtils$RecyclableSingleton$$Lambda$lambda$get$0::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(AquaUtils$RecyclableSingleton$$Lambda$lambda$get$0, inst$)},
-	{}
-};
-$MethodInfo AquaUtils$RecyclableSingleton$$Lambda$lambda$get$0::methodInfos[3] = {
-	{"<init>", "(Lcom/apple/laf/AquaUtils$RecyclableSingleton;)V", nullptr, $PUBLIC, $method(AquaUtils$RecyclableSingleton$$Lambda$lambda$get$0, init$, void, AquaUtils$RecyclableSingleton*)},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AquaUtils$RecyclableSingleton$$Lambda$lambda$get$0, get, $Object*)},
-	{}
-};
-$ClassInfo AquaUtils$RecyclableSingleton$$Lambda$lambda$get$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.apple.laf.AquaUtils$RecyclableSingleton$$Lambda$lambda$get$0",
-	"java.lang.Object",
-	"java.util.function.Supplier",
-	fieldInfos,
-	methodInfos
 };
 $Class* AquaUtils$RecyclableSingleton$$Lambda$lambda$get$0::load$($String* name, bool initialize) {
-	$loadClass(AquaUtils$RecyclableSingleton$$Lambda$lambda$get$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(AquaUtils$RecyclableSingleton$$Lambda$lambda$get$0, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/apple/laf/AquaUtils$RecyclableSingleton;)V", nullptr, $PUBLIC, $method(AquaUtils$RecyclableSingleton$$Lambda$lambda$get$0, init$, void, AquaUtils$RecyclableSingleton*)},
+		{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AquaUtils$RecyclableSingleton$$Lambda$lambda$get$0, get, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.apple.laf.AquaUtils$RecyclableSingleton$$Lambda$lambda$get$0",
+		"java.lang.Object",
+		"java.util.function.Supplier",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(AquaUtils$RecyclableSingleton$$Lambda$lambda$get$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AquaUtils$RecyclableSingleton$$Lambda$lambda$get$0);
+	});
 	return class$;
 }
 $Class* AquaUtils$RecyclableSingleton$$Lambda$lambda$get$0::class$ = nullptr;
-
-$MethodInfo _AquaUtils$RecyclableSingleton_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(AquaUtils$RecyclableSingleton, init$, void)},
-	{"get", "()Ljava/lang/Object;", "()TT;", $FINAL, $method(AquaUtils$RecyclableSingleton, get, $Object*)},
-	{"getInstance", "()Ljava/lang/Object;", "()TT;", $ABSTRACT, $virtualMethod(AquaUtils$RecyclableSingleton, getInstance, $Object*)},
-	{"lambda$get$0", "()Ljava/lang/Object;", nullptr, $PRIVATE | $SYNTHETIC, $method(AquaUtils$RecyclableSingleton, lambda$get$0, $Object*)},
-	{"reset", "()V", nullptr, 0, $virtualMethod(AquaUtils$RecyclableSingleton, reset, void)},
-	{}
-};
-
-$InnerClassInfo _AquaUtils$RecyclableSingleton_InnerClassesInfo_[] = {
-	{"com.apple.laf.AquaUtils$RecyclableSingleton", "com.apple.laf.AquaUtils", "RecyclableSingleton", $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _AquaUtils$RecyclableSingleton_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"com.apple.laf.AquaUtils$RecyclableSingleton",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_AquaUtils$RecyclableSingleton_MethodInfo_,
-	"<T:Ljava/lang/Object;>Ljava/lang/Object;",
-	nullptr,
-	_AquaUtils$RecyclableSingleton_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.apple.laf.AquaUtils"
-};
-
-$Object* allocate$AquaUtils$RecyclableSingleton($Class* clazz) {
-	return $of($alloc(AquaUtils$RecyclableSingleton));
-}
 
 void AquaUtils$RecyclableSingleton::init$() {
 }
 
 $Object* AquaUtils$RecyclableSingleton::get() {
-	return $of($AppContext::getSoftReferenceValue(this, static_cast<$Supplier*>($$new(AquaUtils$RecyclableSingleton$$Lambda$lambda$get$0, this))));
+	return $AppContext::getSoftReferenceValue(this, $$new(AquaUtils$RecyclableSingleton$$Lambda$lambda$get$0, this));
 }
 
 void AquaUtils$RecyclableSingleton::reset() {
-	$nc($($AppContext::getAppContext()))->remove(this);
+	$$nc($AppContext::getAppContext())->remove(this);
 }
 
 $Object* AquaUtils$RecyclableSingleton::lambda$get$0() {
-	return $of(getInstance());
+	return getInstance();
 }
 
 AquaUtils$RecyclableSingleton::AquaUtils$RecyclableSingleton() {
@@ -118,11 +79,40 @@ AquaUtils$RecyclableSingleton::AquaUtils$RecyclableSingleton() {
 
 $Class* AquaUtils$RecyclableSingleton::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(AquaUtils$RecyclableSingleton$$Lambda$lambda$get$0::classInfo$.name)) {
+		if (name->equals("com.apple.laf.AquaUtils$RecyclableSingleton$$Lambda$lambda$get$0")) {
 			return AquaUtils$RecyclableSingleton$$Lambda$lambda$get$0::load$(name, initialize);
 		}
 	}
-	$loadClass(AquaUtils$RecyclableSingleton, name, initialize, &_AquaUtils$RecyclableSingleton_ClassInfo_, allocate$AquaUtils$RecyclableSingleton);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(AquaUtils$RecyclableSingleton, init$, void)},
+		{"get", "()Ljava/lang/Object;", "()TT;", $FINAL, $method(AquaUtils$RecyclableSingleton, get, $Object*)},
+		{"getInstance", "()Ljava/lang/Object;", "()TT;", $ABSTRACT, $virtualMethod(AquaUtils$RecyclableSingleton, getInstance, $Object*)},
+		{"lambda$get$0", "()Ljava/lang/Object;", nullptr, $PRIVATE | $SYNTHETIC, $method(AquaUtils$RecyclableSingleton, lambda$get$0, $Object*)},
+		{"reset", "()V", nullptr, 0, $virtualMethod(AquaUtils$RecyclableSingleton, reset, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.laf.AquaUtils$RecyclableSingleton", "com.apple.laf.AquaUtils", "RecyclableSingleton", $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"com.apple.laf.AquaUtils$RecyclableSingleton",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		"<T:Ljava/lang/Object;>Ljava/lang/Object;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.apple.laf.AquaUtils"
+	};
+	$loadClass(AquaUtils$RecyclableSingleton, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AquaUtils$RecyclableSingleton);
+	});
 	return class$;
 }
 

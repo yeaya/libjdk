@@ -1,5 +1,4 @@
 #include <sun/java2d/d3d/D3DSwToSurfaceTransform.h>
-
 #include <java/awt/Composite.h>
 #include <java/awt/geom/AffineTransform.h>
 #include <sun/java2d/SurfaceData.h>
@@ -28,30 +27,6 @@ namespace sun {
 	namespace java2d {
 		namespace d3d {
 
-$FieldInfo _D3DSwToSurfaceTransform_FieldInfo_[] = {
-	{"typeval", "I", nullptr, $PRIVATE, $field(D3DSwToSurfaceTransform, typeval)},
-	{}
-};
-
-$MethodInfo _D3DSwToSurfaceTransform_MethodInfo_[] = {
-	{"<init>", "(Lsun/java2d/loops/SurfaceType;I)V", nullptr, 0, $method(D3DSwToSurfaceTransform, init$, void, $SurfaceType*, int32_t)},
-	{"Transform", "(Lsun/java2d/SurfaceData;Lsun/java2d/SurfaceData;Ljava/awt/Composite;Lsun/java2d/pipe/Region;Ljava/awt/geom/AffineTransform;IIIIIII)V", nullptr, $PUBLIC, $virtualMethod(D3DSwToSurfaceTransform, Transform, void, $SurfaceData*, $SurfaceData*, $Composite*, $Region*, $AffineTransform*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _D3DSwToSurfaceTransform_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.java2d.d3d.D3DSwToSurfaceTransform",
-	"sun.java2d.loops.TransformBlit",
-	nullptr,
-	_D3DSwToSurfaceTransform_FieldInfo_,
-	_D3DSwToSurfaceTransform_MethodInfo_
-};
-
-$Object* allocate$D3DSwToSurfaceTransform($Class* clazz) {
-	return $of($alloc(D3DSwToSurfaceTransform));
-}
-
 void D3DSwToSurfaceTransform::init$($SurfaceType* srcType, int32_t typeval) {
 	$init($CompositeType);
 	$init($D3DSurfaceData);
@@ -67,7 +42,26 @@ D3DSwToSurfaceTransform::D3DSwToSurfaceTransform() {
 }
 
 $Class* D3DSwToSurfaceTransform::load$($String* name, bool initialize) {
-	$loadClass(D3DSwToSurfaceTransform, name, initialize, &_D3DSwToSurfaceTransform_ClassInfo_, allocate$D3DSwToSurfaceTransform);
+	$FieldInfo fieldInfos$$[] = {
+		{"typeval", "I", nullptr, $PRIVATE, $field(D3DSwToSurfaceTransform, typeval)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/java2d/loops/SurfaceType;I)V", nullptr, 0, $method(D3DSwToSurfaceTransform, init$, void, $SurfaceType*, int32_t)},
+		{"Transform", "(Lsun/java2d/SurfaceData;Lsun/java2d/SurfaceData;Ljava/awt/Composite;Lsun/java2d/pipe/Region;Ljava/awt/geom/AffineTransform;IIIIIII)V", nullptr, $PUBLIC, $virtualMethod(D3DSwToSurfaceTransform, Transform, void, $SurfaceData*, $SurfaceData*, $Composite*, $Region*, $AffineTransform*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.java2d.d3d.D3DSwToSurfaceTransform",
+		"sun.java2d.loops.TransformBlit",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(D3DSwToSurfaceTransform, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(D3DSwToSurfaceTransform);
+	});
 	return class$;
 }
 

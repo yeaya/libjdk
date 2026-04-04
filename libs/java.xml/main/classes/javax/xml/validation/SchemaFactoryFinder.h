@@ -53,6 +53,7 @@ class SchemaFactoryFinder : public ::java::lang::Object {
 	$class(SchemaFactoryFinder, 0, ::java::lang::Object)
 public:
 	SchemaFactoryFinder();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::lang::ClassLoader* loader);
 	::javax::xml::validation::SchemaFactory* _newFactory($String* schemaLanguage);
 	$Class* createClass($String* className);

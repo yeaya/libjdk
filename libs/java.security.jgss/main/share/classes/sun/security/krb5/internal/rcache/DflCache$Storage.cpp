@@ -1,5 +1,4 @@
 #include <sun/security/krb5/internal/rcache/DflCache$Storage.h>
-
 #include <java/io/IOException.h>
 #include <java/lang/UnsupportedOperationException.h>
 #include <java/nio/BufferUnderflowException.h>
@@ -57,9 +56,7 @@ using $BufferUnderflowException = ::java::nio::BufferUnderflowException;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $ByteOrder = ::java::nio::ByteOrder;
 using $SeekableByteChannel = ::java::nio::channels::SeekableByteChannel;
-using $CopyOption = ::java::nio::file::CopyOption;
 using $Files = ::java::nio::file::Files;
-using $OpenOption = ::java::nio::file::OpenOption;
 using $Path = ::java::nio::file::Path;
 using $StandardCopyOption = ::java::nio::file::StandardCopyOption;
 using $StandardOpenOption = ::java::nio::file::StandardOpenOption;
@@ -79,49 +76,6 @@ namespace sun {
 			namespace internal {
 				namespace rcache {
 
-$FieldInfo _DflCache$Storage_FieldInfo_[] = {
-	{"chan", "Ljava/nio/channels/SeekableByteChannel;", nullptr, 0, $field(DflCache$Storage, chan)},
-	{}
-};
-
-$MethodInfo _DflCache$Storage_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(DflCache$Storage, init$, void)},
-	{"append", "(Lsun/security/krb5/internal/rcache/AuthTimeWithHash;)V", nullptr, $PRIVATE, $method(DflCache$Storage, append, void, $AuthTimeWithHash*), "java.io.IOException"},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(DflCache$Storage, close, void), "java.io.IOException"},
-	{"create", "(Ljava/nio/file/Path;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(DflCache$Storage, create, void, $Path*), "java.io.IOException"},
-	{"createNoClose", "(Ljava/nio/file/Path;)Ljava/nio/channels/SeekableByteChannel;", nullptr, $PRIVATE | $STATIC, $staticMethod(DflCache$Storage, createNoClose, $SeekableByteChannel*, $Path*), "java.io.IOException"},
-	{"expunge", "(Ljava/nio/file/Path;Lsun/security/krb5/internal/KerberosTime;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(DflCache$Storage, expunge, void, $Path*, $KerberosTime*), "java.io.IOException"},
-	{"loadAndCheck", "(Ljava/nio/file/Path;Lsun/security/krb5/internal/rcache/AuthTimeWithHash;Lsun/security/krb5/internal/KerberosTime;)I", nullptr, $PRIVATE, $method(DflCache$Storage, loadAndCheck, int32_t, $Path*, $AuthTimeWithHash*, $KerberosTime*), "java.io.IOException,sun.security.krb5.internal.KrbApErrException"},
-	{"makeMine", "(Ljava/nio/file/Path;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(DflCache$Storage, makeMine, void, $Path*), "java.io.IOException"},
-	{"readHeader", "(Ljava/nio/channels/SeekableByteChannel;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(DflCache$Storage, readHeader, int32_t, $SeekableByteChannel*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _DflCache$Storage_InnerClassesInfo_[] = {
-	{"sun.security.krb5.internal.rcache.DflCache$Storage", "sun.security.krb5.internal.rcache.DflCache", "Storage", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _DflCache$Storage_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.security.krb5.internal.rcache.DflCache$Storage",
-	"java.lang.Object",
-	"java.io.Closeable",
-	_DflCache$Storage_FieldInfo_,
-	_DflCache$Storage_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DflCache$Storage_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.krb5.internal.rcache.DflCache"
-};
-
-$Object* allocate$DflCache$Storage($Class* clazz) {
-	return $of($alloc(DflCache$Storage));
-}
-
 void DflCache$Storage::init$() {
 }
 
@@ -129,10 +83,8 @@ void DflCache$Storage::create($Path* p) {
 	$init(DflCache$Storage);
 	{
 		$var($SeekableByteChannel, newChan, createNoClose(p));
-		{
-			if (newChan != nullptr) {
-				newChan->close();
-			}
+		if (newChan != nullptr) {
+			newChan->close();
 		}
 	}
 	makeMine(p);
@@ -152,12 +104,12 @@ void DflCache$Storage::makeMine($Path* p) {
 
 $SeekableByteChannel* DflCache$Storage::createNoClose($Path* p) {
 	$init(DflCache$Storage);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($StandardOpenOption);
 	$var($SeekableByteChannel, newChan, $Files::newByteChannel(p, $$new($OpenOptionArray, {
-		static_cast<$OpenOption*>($StandardOpenOption::CREATE),
-		static_cast<$OpenOption*>($StandardOpenOption::TRUNCATE_EXISTING),
-		static_cast<$OpenOption*>($StandardOpenOption::WRITE)
+		$StandardOpenOption::CREATE,
+		$StandardOpenOption::TRUNCATE_EXISTING,
+		$StandardOpenOption::WRITE
 	})));
 	$var($ByteBuffer, buffer, $ByteBuffer::allocate(6));
 	$nc(buffer)->putShort((int16_t)1281);
@@ -170,85 +122,81 @@ $SeekableByteChannel* DflCache$Storage::createNoClose($Path* p) {
 
 void DflCache$Storage::expunge($Path* p, $KerberosTime* currTime) {
 	$init(DflCache$Storage);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Path, p2, $Files::createTempFile($($nc(p)->getParent()), "rcache"_s, nullptr, $$new($FileAttributeArray, 0)));
 	{
 		$var($SeekableByteChannel, oldChan, $Files::newByteChannel(p, $$new($OpenOptionArray, 0)));
-		{
-			$var($Throwable, var$0, nullptr);
+		$var($Throwable, var$0, nullptr);
+		try {
 			try {
+				$var($SeekableByteChannel, newChan, createNoClose(p2));
+				$var($Throwable, var$1, nullptr);
 				try {
-					$var($SeekableByteChannel, newChan, createNoClose(p2));
-					{
-						$var($Throwable, var$1, nullptr);
-						try {
+					try {
+						int32_t var$2 = $nc(currTime)->getSeconds();
+						int64_t timeLimit = var$2 - readHeader(oldChan);
+						while (true) {
 							try {
-								int32_t var$2 = $nc(currTime)->getSeconds();
-								int64_t timeLimit = var$2 - readHeader(oldChan);
-								while (true) {
-									try {
-										$var($AuthTime, at, $AuthTime::readFrom(oldChan));
-										if ($nc(at)->ctime > timeLimit) {
-											$var($ByteBuffer, bb, $ByteBuffer::wrap($(at->encode(true))));
-											$nc(newChan)->write(bb);
-										}
-									} catch ($BufferUnderflowException& e) {
-										break;
-									}
+								$var($AuthTime, at, $AuthTime::readFrom(oldChan));
+								if ($nc(at)->ctime > timeLimit) {
+									$var($ByteBuffer, bb, $ByteBuffer::wrap($(at->encode(true))));
+									$nc(newChan)->write(bb);
 								}
-							} catch ($Throwable& t$) {
-								if (newChan != nullptr) {
-									try {
-										newChan->close();
-									} catch ($Throwable& x2) {
-										t$->addSuppressed(x2);
-									}
-								}
-								$throw(t$);
+							} catch ($BufferUnderflowException& e) {
+								break;
 							}
-						} catch ($Throwable& var$3) {
-							$assign(var$1, var$3);
-						} /*finally*/ {
-							if (newChan != nullptr) {
+						}
+					} catch ($Throwable& t$) {
+						if (newChan != nullptr) {
+							try {
 								newChan->close();
+							} catch ($Throwable& x2) {
+								t$->addSuppressed(x2);
 							}
 						}
-						if (var$1 != nullptr) {
-							$throw(var$1);
-						}
+						$throw(t$);
 					}
-				} catch ($Throwable& t$) {
-					if (oldChan != nullptr) {
-						try {
-							oldChan->close();
-						} catch ($Throwable& x2) {
-							t$->addSuppressed(x2);
-						}
+				} catch ($Throwable& var$3) {
+					$assign(var$1, var$3);
+				} /*finally*/ {
+					if (newChan != nullptr) {
+						newChan->close();
 					}
-					$throw(t$);
 				}
-			} catch ($Throwable& var$4) {
-				$assign(var$0, var$4);
-			} /*finally*/ {
+				if (var$1 != nullptr) {
+					$throw(var$1);
+				}
+			} catch ($Throwable& t$) {
 				if (oldChan != nullptr) {
-					oldChan->close();
+					try {
+						oldChan->close();
+					} catch ($Throwable& x2) {
+						t$->addSuppressed(x2);
+					}
 				}
+				$throw(t$);
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
+		} catch ($Throwable& var$4) {
+			$assign(var$0, var$4);
+		} /*finally*/ {
+			if (oldChan != nullptr) {
+				oldChan->close();
 			}
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	}
 	makeMine(p2);
 	$init($StandardCopyOption);
 	$Files::move(p2, p, $$new($CopyOptionArray, {
-		static_cast<$CopyOption*>($StandardCopyOption::REPLACE_EXISTING),
-		static_cast<$CopyOption*>($StandardCopyOption::ATOMIC_MOVE)
+		$StandardCopyOption::REPLACE_EXISTING,
+		$StandardCopyOption::ATOMIC_MOVE
 	}));
 }
 
 int32_t DflCache$Storage::loadAndCheck($Path* p, $AuthTimeWithHash* time, $KerberosTime* currTime) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t missed = 0;
 	if ($Files::isSymbolicLink(p)) {
 		$throwNew($IOException, "Symlink not accepted"_s);
@@ -256,24 +204,24 @@ int32_t DflCache$Storage::loadAndCheck($Path* p, $AuthTimeWithHash* time, $Kerbe
 	try {
 		$var($Set, perms, $Files::getPosixFilePermissions(p, $$new($LinkOptionArray, 0)));
 		$init($DflCache);
-		if ($DflCache::uid != -1 && $nc(($cast($Integer, $($Files::getAttribute(p, "unix:uid"_s, $$new($LinkOptionArray, 0))))))->intValue() != $DflCache::uid) {
+		if ($DflCache::uid != -1 && $$sure($Integer, $Files::getAttribute(p, "unix:uid"_s, $$new($LinkOptionArray, 0)))->intValue() != $DflCache::uid) {
 			$throwNew($IOException, "Not mine"_s);
 		}
 		$init($PosixFilePermission);
 		bool var$4 = $nc(perms)->contains($PosixFilePermission::GROUP_READ);
-		bool var$3 = var$4 || $nc(perms)->contains($PosixFilePermission::GROUP_WRITE);
-		bool var$2 = var$3 || $nc(perms)->contains($PosixFilePermission::GROUP_EXECUTE);
-		bool var$1 = var$2 || $nc(perms)->contains($PosixFilePermission::OTHERS_READ);
-		bool var$0 = var$1 || $nc(perms)->contains($PosixFilePermission::OTHERS_WRITE);
-		if (var$0 || $nc(perms)->contains($PosixFilePermission::OTHERS_EXECUTE)) {
+		bool var$3 = var$4 || perms->contains($PosixFilePermission::GROUP_WRITE);
+		bool var$2 = var$3 || perms->contains($PosixFilePermission::GROUP_EXECUTE);
+		bool var$1 = var$2 || perms->contains($PosixFilePermission::OTHERS_READ);
+		bool var$0 = var$1 || perms->contains($PosixFilePermission::OTHERS_WRITE);
+		if (var$0 || perms->contains($PosixFilePermission::OTHERS_EXECUTE)) {
 			$throwNew($IOException, "Accessible by someone else"_s);
 		}
 	} catch ($UnsupportedOperationException& uoe) {
 	}
 	$init($StandardOpenOption);
 	$set(this, chan, $Files::newByteChannel(p, $$new($OpenOptionArray, {
-		static_cast<$OpenOption*>($StandardOpenOption::WRITE),
-		static_cast<$OpenOption*>($StandardOpenOption::READ)
+		$StandardOpenOption::WRITE,
+		$StandardOpenOption::READ
 	})));
 	int32_t var$5 = $nc(currTime)->getSeconds();
 	int64_t timeLimit = var$5 - readHeader(this->chan);
@@ -309,28 +257,28 @@ int32_t DflCache$Storage::loadAndCheck($Path* p, $AuthTimeWithHash* time, $Kerbe
 
 int32_t DflCache$Storage::readHeader($SeekableByteChannel* chan) {
 	$init(DflCache$Storage);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ByteBuffer, bb, $ByteBuffer::allocate(6));
 	$nc(chan)->read(bb);
 	if ($nc(bb)->getShort(0) != 1281) {
 		$throwNew($IOException, "Not correct rcache version"_s);
 	}
-	$nc(bb)->order($($ByteOrder::nativeOrder()));
+	bb->order($($ByteOrder::nativeOrder()));
 	return bb->getInt(2);
 }
 
 void DflCache$Storage::append($AuthTimeWithHash* at) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ByteBuffer, bb, nullptr);
 	$assign(bb, $ByteBuffer::wrap($($nc(at)->encode(true))));
 	$nc(this->chan)->write(bb);
-	$assign(bb, $ByteBuffer::wrap($($nc(at)->encode(false))));
+	$assign(bb, $ByteBuffer::wrap($(at->encode(false))));
 	$nc(this->chan)->write(bb);
 }
 
 void DflCache$Storage::close() {
 	if (this->chan != nullptr) {
-		$nc(this->chan)->close();
+		this->chan->close();
 	}
 	$set(this, chan, nullptr);
 }
@@ -339,7 +287,44 @@ DflCache$Storage::DflCache$Storage() {
 }
 
 $Class* DflCache$Storage::load$($String* name, bool initialize) {
-	$loadClass(DflCache$Storage, name, initialize, &_DflCache$Storage_ClassInfo_, allocate$DflCache$Storage);
+	$FieldInfo fieldInfos$$[] = {
+		{"chan", "Ljava/nio/channels/SeekableByteChannel;", nullptr, 0, $field(DflCache$Storage, chan)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(DflCache$Storage, init$, void)},
+		{"append", "(Lsun/security/krb5/internal/rcache/AuthTimeWithHash;)V", nullptr, $PRIVATE, $method(DflCache$Storage, append, void, $AuthTimeWithHash*), "java.io.IOException"},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(DflCache$Storage, close, void), "java.io.IOException"},
+		{"create", "(Ljava/nio/file/Path;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(DflCache$Storage, create, void, $Path*), "java.io.IOException"},
+		{"createNoClose", "(Ljava/nio/file/Path;)Ljava/nio/channels/SeekableByteChannel;", nullptr, $PRIVATE | $STATIC, $staticMethod(DflCache$Storage, createNoClose, $SeekableByteChannel*, $Path*), "java.io.IOException"},
+		{"expunge", "(Ljava/nio/file/Path;Lsun/security/krb5/internal/KerberosTime;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(DflCache$Storage, expunge, void, $Path*, $KerberosTime*), "java.io.IOException"},
+		{"loadAndCheck", "(Ljava/nio/file/Path;Lsun/security/krb5/internal/rcache/AuthTimeWithHash;Lsun/security/krb5/internal/KerberosTime;)I", nullptr, $PRIVATE, $method(DflCache$Storage, loadAndCheck, int32_t, $Path*, $AuthTimeWithHash*, $KerberosTime*), "java.io.IOException,sun.security.krb5.internal.KrbApErrException"},
+		{"makeMine", "(Ljava/nio/file/Path;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(DflCache$Storage, makeMine, void, $Path*), "java.io.IOException"},
+		{"readHeader", "(Ljava/nio/channels/SeekableByteChannel;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(DflCache$Storage, readHeader, int32_t, $SeekableByteChannel*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.krb5.internal.rcache.DflCache$Storage", "sun.security.krb5.internal.rcache.DflCache", "Storage", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.security.krb5.internal.rcache.DflCache$Storage",
+		"java.lang.Object",
+		"java.io.Closeable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.krb5.internal.rcache.DflCache"
+	};
+	$loadClass(DflCache$Storage, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DflCache$Storage);
+	});
 	return class$;
 }
 

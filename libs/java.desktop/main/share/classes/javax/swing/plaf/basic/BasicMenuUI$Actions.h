@@ -30,6 +30,7 @@ class BasicMenuUI$Actions : public ::sun::swing::UIAction {
 	$class(BasicMenuUI$Actions, 0, ::sun::swing::UIAction)
 public:
 	BasicMenuUI$Actions();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* key, ::javax::swing::JMenu* menu, bool shouldForce);
 	virtual bool accept(Object$* c) override;
 	virtual void actionPerformed(::java::awt::event::ActionEvent* e) override;

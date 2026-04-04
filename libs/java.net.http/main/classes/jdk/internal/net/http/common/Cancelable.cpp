@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/common/Cancelable.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -12,35 +11,30 @@ namespace jdk {
 			namespace http {
 				namespace common {
 
-$CompoundAttribute _Cancelable_Annotations_[] = {
-	{"Ljava/lang/FunctionalInterface;", nullptr},
-	{}
-};
-
-$MethodInfo _Cancelable_MethodInfo_[] = {
-	{"cancel", "(Z)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Cancelable, cancel, bool, bool)},
-	{}
-};
-
-$ClassInfo _Cancelable_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"jdk.internal.net.http.common.Cancelable",
-	nullptr,
-	nullptr,
-	nullptr,
-	_Cancelable_MethodInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	_Cancelable_Annotations_
-};
-
-$Object* allocate$Cancelable($Class* clazz) {
-	return $of($alloc(Cancelable));
-}
-
 $Class* Cancelable::load$($String* name, bool initialize) {
-	$loadClass(Cancelable, name, initialize, &_Cancelable_ClassInfo_, allocate$Cancelable);
+	$MethodInfo methodInfos$$[] = {
+		{"cancel", "(Z)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Cancelable, cancel, bool, bool)},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/lang/FunctionalInterface;", nullptr},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"jdk.internal.net.http.common.Cancelable",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(Cancelable, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Cancelable);
+	});
 	return class$;
 }
 

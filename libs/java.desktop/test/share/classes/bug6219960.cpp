@@ -1,11 +1,9 @@
 #include <bug6219960.h>
-
 #include <java/awt/AWTException.h>
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <java/awt/GridLayout.h>
 #include <java/awt/IllegalComponentStateException.h>
-#include <java/awt/LayoutManager.h>
 #include <java/awt/Point.h>
 #include <java/awt/Rectangle.h>
 #include <java/awt/Robot.h>
@@ -44,7 +42,6 @@ using $Component = ::java::awt::Component;
 using $Container = ::java::awt::Container;
 using $GridLayout = ::java::awt::GridLayout;
 using $IllegalComponentStateException = ::java::awt::IllegalComponentStateException;
-using $LayoutManager = ::java::awt::LayoutManager;
 using $Point = ::java::awt::Point;
 using $Rectangle = ::java::awt::Rectangle;
 using $Robot = ::java::awt::Robot;
@@ -69,7 +66,6 @@ using $JTable = ::javax::swing::JTable;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $ToolTipManager = ::javax::swing::ToolTipManager;
 using $DefaultTableModel = ::javax::swing::table::DefaultTableModel;
-using $TableModel = ::javax::swing::table::TableModel;
 
 class bug6219960$$Lambda$createAndShowGUI : public $Runnable {
 	$class(bug6219960$$Lambda$createAndShowGUI, $NO_CLASS_INIT, $Runnable)
@@ -79,27 +75,24 @@ public:
 	virtual void run() override {
 		bug6219960::createAndShowGUI();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<bug6219960$$Lambda$createAndShowGUI>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo bug6219960$$Lambda$createAndShowGUI::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(bug6219960$$Lambda$createAndShowGUI, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug6219960$$Lambda$createAndShowGUI, run, void)},
-	{}
-};
-$ClassInfo bug6219960$$Lambda$createAndShowGUI::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"bug6219960$$Lambda$createAndShowGUI",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* bug6219960$$Lambda$createAndShowGUI::load$($String* name, bool initialize) {
-	$loadClass(bug6219960$$Lambda$createAndShowGUI, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(bug6219960$$Lambda$createAndShowGUI, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug6219960$$Lambda$createAndShowGUI, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"bug6219960$$Lambda$createAndShowGUI",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(bug6219960$$Lambda$createAndShowGUI, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(bug6219960$$Lambda$createAndShowGUI);
+	});
 	return class$;
 }
 $Class* bug6219960$$Lambda$createAndShowGUI::class$ = nullptr;
@@ -112,27 +105,24 @@ public:
 	virtual void run() override {
 		bug6219960::lambda$showModal$0();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<bug6219960$$Lambda$lambda$showModal$0$1>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo bug6219960$$Lambda$lambda$showModal$0$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(bug6219960$$Lambda$lambda$showModal$0$1, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug6219960$$Lambda$lambda$showModal$0$1, run, void)},
-	{}
-};
-$ClassInfo bug6219960$$Lambda$lambda$showModal$0$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"bug6219960$$Lambda$lambda$showModal$0$1",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* bug6219960$$Lambda$lambda$showModal$0$1::load$($String* name, bool initialize) {
-	$loadClass(bug6219960$$Lambda$lambda$showModal$0$1, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(bug6219960$$Lambda$lambda$showModal$0$1, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug6219960$$Lambda$lambda$showModal$0$1, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"bug6219960$$Lambda$lambda$showModal$0$1",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(bug6219960$$Lambda$lambda$showModal$0$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(bug6219960$$Lambda$lambda$showModal$0$1);
+	});
 	return class$;
 }
 $Class* bug6219960$$Lambda$lambda$showModal$0$1::class$ = nullptr;
@@ -146,70 +136,32 @@ public:
 	virtual void run() override {
 		bug6219960::lambda$showModal$1(msg);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<bug6219960$$Lambda$lambda$showModal$1$2>());
-	}
 	$String* msg = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo bug6219960$$Lambda$lambda$showModal$1$2::fieldInfos[2] = {
-	{"msg", "Ljava/lang/String;", nullptr, $PUBLIC, $field(bug6219960$$Lambda$lambda$showModal$1$2, msg)},
-	{}
-};
-$MethodInfo bug6219960$$Lambda$lambda$showModal$1$2::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(bug6219960$$Lambda$lambda$showModal$1$2, init$, void, $String*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug6219960$$Lambda$lambda$showModal$1$2, run, void)},
-	{}
-};
-$ClassInfo bug6219960$$Lambda$lambda$showModal$1$2::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"bug6219960$$Lambda$lambda$showModal$1$2",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	fieldInfos,
-	methodInfos
 };
 $Class* bug6219960$$Lambda$lambda$showModal$1$2::load$($String* name, bool initialize) {
-	$loadClass(bug6219960$$Lambda$lambda$showModal$1$2, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"msg", "Ljava/lang/String;", nullptr, $PUBLIC, $field(bug6219960$$Lambda$lambda$showModal$1$2, msg)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(bug6219960$$Lambda$lambda$showModal$1$2, init$, void, $String*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug6219960$$Lambda$lambda$showModal$1$2, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"bug6219960$$Lambda$lambda$showModal$1$2",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(bug6219960$$Lambda$lambda$showModal$1$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(bug6219960$$Lambda$lambda$showModal$1$2);
+	});
 	return class$;
 }
 $Class* bug6219960$$Lambda$lambda$showModal$1$2::class$ = nullptr;
-
-$FieldInfo _bug6219960_FieldInfo_[] = {
-	{"QUESTION", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(bug6219960, QUESTION)},
-	{"frame", "Ljavax/swing/JFrame;", nullptr, $STATIC | $VOLATILE, $staticField(bug6219960, frame)},
-	{"table", "Ljavax/swing/JTable;", nullptr, $STATIC, $staticField(bug6219960, table)},
-	{}
-};
-
-$MethodInfo _bug6219960_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(bug6219960, init$, void)},
-	{"createAndShowGUI", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(bug6219960, createAndShowGUI, void)},
-	{"createTable", "()Ljavax/swing/JTable;", nullptr, $PRIVATE | $STATIC, $staticMethod(bug6219960, createTable, $JTable*)},
-	{"findButton", "(Ljava/awt/Component;)Ljavax/swing/JButton;", nullptr, $PRIVATE | $STATIC, $staticMethod(bug6219960, findButton, $JButton*, $Component*)},
-	{"findModalInternalFrame", "(Ljava/awt/Component;Ljava/lang/String;)Ljavax/swing/JInternalFrame;", nullptr, $PRIVATE | $STATIC, $staticMethod(bug6219960, findModalInternalFrame, $JInternalFrame*, $Component*, $String*)},
-	{"lambda$showModal$0", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(bug6219960, lambda$showModal$0, void)},
-	{"lambda$showModal$1", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(bug6219960, lambda$showModal$1, void, $String*)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(bug6219960, main, void, $StringArray*), "java.lang.Exception"},
-	{"pressOK", "(Ljava/awt/Component;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(bug6219960, pressOK, bool, $Component*)},
-	{"showModal", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(bug6219960, showModal, void, $String*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _bug6219960_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"bug6219960",
-	"java.lang.Object",
-	nullptr,
-	_bug6219960_FieldInfo_,
-	_bug6219960_MethodInfo_
-};
-
-$Object* allocate$bug6219960($Class* clazz) {
-	return $of($alloc(bug6219960));
-}
 
 $String* bug6219960::QUESTION = nullptr;
 $volatile($JFrame*) bug6219960::frame = nullptr;
@@ -220,9 +172,9 @@ void bug6219960::init$() {
 
 void bug6219960::main($StringArray* args) {
 	$init(bug6219960);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Robot, robot, $new($Robot));
-	$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(bug6219960$$Lambda$createAndShowGUI)));
+	$SwingUtilities::invokeAndWait($$new(bug6219960$$Lambda$createAndShowGUI));
 	robot->waitForIdle();
 	showModal("The tooltip should be showing. Press ok with mouse. And don\'t move it."_s);
 	robot->waitForIdle();
@@ -232,24 +184,24 @@ void bug6219960::main($StringArray* args) {
 
 void bug6219960::createAndShowGUI() {
 	$init(bug6219960);
-	$useLocalCurrentObjectStackCache();
-	$nc($($ToolTipManager::sharedInstance()))->setDismissDelay(10 * 60 * 1000);
+	$useLocalObjectStack();
+	$$nc($ToolTipManager::sharedInstance())->setDismissDelay(10 * 60 * 1000);
 	$assignStatic(bug6219960::frame, $new($JFrame));
 	$nc(bug6219960::frame)->setLocation(20, 20);
 	$nc(bug6219960::frame)->setDefaultCloseOperation($JFrame::EXIT_ON_CLOSE);
 	$var($JDesktopPane, desk, $new($JDesktopPane));
 	$var($JInternalFrame, iframe, $new($JInternalFrame));
 	iframe->setDefaultCloseOperation($JInternalFrame::DISPOSE_ON_CLOSE);
-	desk->add(static_cast<$Component*>(iframe));
+	desk->add(iframe);
 	$var($JButton, save, $new($JButton));
 	save->setToolTipText("Wait for dialog to show."_s);
 	save->setText("Wait for the tooltip to show."_s);
-	$var($JPanel, panel, $new($JPanel, static_cast<$LayoutManager*>($$new($GridLayout, 1, 2))));
-	panel->add(static_cast<$Component*>(save));
+	$var($JPanel, panel, $new($JPanel, $$new($GridLayout, 1, 2)));
+	panel->add(save);
 	$assignStatic(bug6219960::table, createTable());
-	panel->add(static_cast<$Component*>($$new($JScrollPane, bug6219960::table)));
+	panel->add($$new($JScrollPane, bug6219960::table));
 	iframe->setContentPane(panel);
-	$nc($($nc(bug6219960::frame)->getContentPane()))->add(static_cast<$Component*>(desk));
+	$$nc($nc(bug6219960::frame)->getContentPane())->add(desk);
 	$nc(bug6219960::frame)->setSize(800, 600);
 	iframe->setSize(640, 480);
 	iframe->validate();
@@ -270,21 +222,21 @@ void bug6219960::createAndShowGUI() {
 		int32_t centerY = $cast(int32_t, (var$1 + bounds->getHeight() / 6));
 		robot->mouseMove(centerX, centerY);
 	} catch ($AWTException& e) {
-		$throwNew($RuntimeException, static_cast<$Throwable*>(e));
+		$throwNew($RuntimeException, e);
 	}
 }
 
 void bug6219960::showModal($String* msg) {
 	$init(bug6219960);
-	$useLocalCurrentObjectStackCache();
-	$$new($Thread, static_cast<$Runnable*>($$new(bug6219960$$Lambda$lambda$showModal$0$1)))->start();
+	$useLocalObjectStack();
+	$$new($Thread, $$new(bug6219960$$Lambda$lambda$showModal$0$1))->start();
 	$Thread::sleep(900);
-	$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(bug6219960$$Lambda$lambda$showModal$1$2, msg)));
+	$SwingUtilities::invokeAndWait($$new(bug6219960$$Lambda$lambda$showModal$1$2, msg));
 }
 
 $JTable* bug6219960::createTable() {
 	$init(bug6219960);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DefaultTableModel, model, $new($DefaultTableModel));
 	$var($JTable, table, $new($JTable, model));
 	table->setFillsViewportHeight(true);
@@ -293,7 +245,7 @@ $JTable* bug6219960::createTable() {
 
 bool bug6219960::pressOK($Component* comp) {
 	$init(bug6219960);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JInternalFrame, internalFrame, findModalInternalFrame(comp, bug6219960::QUESTION));
 	if (internalFrame == nullptr) {
 		return false;
@@ -316,23 +268,23 @@ bool bug6219960::pressOK($Component* comp) {
 	} catch ($IllegalComponentStateException& ignore) {
 		return false;
 	} catch ($AWTException& e) {
-		$throwNew($RuntimeException, static_cast<$Throwable*>(e));
+		$throwNew($RuntimeException, e);
 	}
 	return true;
 }
 
 $JInternalFrame* bug6219960::findModalInternalFrame($Component* comp, $String* title) {
 	$init(bug6219960);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($instanceOf($JInternalFrame, comp)) {
 		$var($JInternalFrame, internalFrame, $cast($JInternalFrame, comp));
-		if ($nc($($nc(internalFrame)->getTitle()))->equals(title)) {
+		if ($$nc(internalFrame->getTitle())->equals(title)) {
 			return $cast($JInternalFrame, comp);
 		}
 	}
 	if ($instanceOf($Container, comp)) {
 		$var($Container, cont, $cast($Container, comp));
-		for (int32_t i = 0; i < $nc(cont)->getComponentCount(); ++i) {
+		for (int32_t i = 0; i < cont->getComponentCount(); ++i) {
 			$var($JInternalFrame, result, findModalInternalFrame($(cont->getComponent(i)), title));
 			if (result != nullptr) {
 				return result;
@@ -344,13 +296,13 @@ $JInternalFrame* bug6219960::findModalInternalFrame($Component* comp, $String* t
 
 $JButton* bug6219960::findButton($Component* comp) {
 	$init(bug6219960);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($instanceOf($JButton, comp)) {
 		return $cast($JButton, comp);
 	}
 	if ($instanceOf($Container, comp)) {
 		$var($Container, cont, $cast($Container, comp));
-		for (int32_t i = 0; i < $nc(cont)->getComponentCount(); ++i) {
+		for (int32_t i = 0; i < cont->getComponentCount(); ++i) {
 			$var($JButton, result, findButton($(cont->getComponent(i))));
 			if (result != nullptr) {
 				return result;
@@ -380,23 +332,52 @@ void bug6219960::lambda$showModal$0() {
 bug6219960::bug6219960() {
 }
 
-void clinit$bug6219960($Class* class$) {
+void bug6219960::clinit$($Class* clazz) {
 	$assignStatic(bug6219960::QUESTION, "Question"_s);
 }
 
 $Class* bug6219960::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(bug6219960$$Lambda$createAndShowGUI::classInfo$.name)) {
+		if (name->equals("bug6219960$$Lambda$createAndShowGUI")) {
 			return bug6219960$$Lambda$createAndShowGUI::load$(name, initialize);
 		}
-		if (name->equals(bug6219960$$Lambda$lambda$showModal$0$1::classInfo$.name)) {
+		if (name->equals("bug6219960$$Lambda$lambda$showModal$0$1")) {
 			return bug6219960$$Lambda$lambda$showModal$0$1::load$(name, initialize);
 		}
-		if (name->equals(bug6219960$$Lambda$lambda$showModal$1$2::classInfo$.name)) {
+		if (name->equals("bug6219960$$Lambda$lambda$showModal$1$2")) {
 			return bug6219960$$Lambda$lambda$showModal$1$2::load$(name, initialize);
 		}
 	}
-	$loadClass(bug6219960, name, initialize, &_bug6219960_ClassInfo_, clinit$bug6219960, allocate$bug6219960);
+	$FieldInfo fieldInfos$$[] = {
+		{"QUESTION", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(bug6219960, QUESTION)},
+		{"frame", "Ljavax/swing/JFrame;", nullptr, $STATIC | $VOLATILE, $staticField(bug6219960, frame)},
+		{"table", "Ljavax/swing/JTable;", nullptr, $STATIC, $staticField(bug6219960, table)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(bug6219960, init$, void)},
+		{"createAndShowGUI", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(bug6219960, createAndShowGUI, void)},
+		{"createTable", "()Ljavax/swing/JTable;", nullptr, $PRIVATE | $STATIC, $staticMethod(bug6219960, createTable, $JTable*)},
+		{"findButton", "(Ljava/awt/Component;)Ljavax/swing/JButton;", nullptr, $PRIVATE | $STATIC, $staticMethod(bug6219960, findButton, $JButton*, $Component*)},
+		{"findModalInternalFrame", "(Ljava/awt/Component;Ljava/lang/String;)Ljavax/swing/JInternalFrame;", nullptr, $PRIVATE | $STATIC, $staticMethod(bug6219960, findModalInternalFrame, $JInternalFrame*, $Component*, $String*)},
+		{"lambda$showModal$0", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(bug6219960, lambda$showModal$0, void)},
+		{"lambda$showModal$1", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(bug6219960, lambda$showModal$1, void, $String*)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(bug6219960, main, void, $StringArray*), "java.lang.Exception"},
+		{"pressOK", "(Ljava/awt/Component;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(bug6219960, pressOK, bool, $Component*)},
+		{"showModal", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(bug6219960, showModal, void, $String*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"bug6219960",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(bug6219960, name, initialize, &classInfo$$, bug6219960::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(bug6219960);
+	});
 	return class$;
 }
 

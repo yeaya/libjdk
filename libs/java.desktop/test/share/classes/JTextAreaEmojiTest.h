@@ -38,6 +38,7 @@ class $export JTextAreaEmojiTest : public ::java::awt::event::ActionListener {
 	$class(JTextAreaEmojiTest, 0, ::java::awt::event::ActionListener)
 public:
 	JTextAreaEmojiTest();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void actionPerformed(::java::awt::event::ActionEvent* evt) override;
 	static void cleanUp();

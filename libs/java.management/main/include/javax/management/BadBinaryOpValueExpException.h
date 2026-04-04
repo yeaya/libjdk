@@ -21,11 +21,14 @@ public:
 	void init$(::javax::management::ValueExp* exp);
 	virtual ::javax::management::ValueExp* getExp();
 	virtual $String* toString() override;
-	static const int64_t serialVersionUID = (int64_t)0x4656D7B1D5D8F72B;
+	static const int64_t serialVersionUID = (int64_t)0x4656d7b1d5d8f72b;
 	::javax::management::ValueExp* exp = nullptr;
 	BadBinaryOpValueExpException(const BadBinaryOpValueExpException& e);
 	virtual void throw$() override;
-	inline BadBinaryOpValueExpException* operator ->() {
+	inline BadBinaryOpValueExpException* operator ->() const {
+		return (BadBinaryOpValueExpException*)throwing$;
+	}
+	inline operator BadBinaryOpValueExpException*() const {
 		return (BadBinaryOpValueExpException*)throwing$;
 	}
 };

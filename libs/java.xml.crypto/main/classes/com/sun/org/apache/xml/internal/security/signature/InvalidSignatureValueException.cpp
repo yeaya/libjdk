@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/security/signature/InvalidSignatureValueException.h>
-
 #include <com/sun/org/apache/xml/internal/security/signature/XMLSignatureException.h>
 #include <jcpp.h>
 
@@ -18,45 +17,6 @@ namespace com {
 					namespace internal {
 						namespace security {
 							namespace signature {
-
-$CompoundAttribute _InvalidSignatureValueException_MethodAnnotations_init$4[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _InvalidSignatureValueException_MethodAnnotations_init$6[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$FieldInfo _InvalidSignatureValueException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(InvalidSignatureValueException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _InvalidSignatureValueException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(InvalidSignatureValueException, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(InvalidSignatureValueException, init$, void, $String*)},
-	{"<init>", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(InvalidSignatureValueException, init$, void, $String*, $ObjectArray*)},
-	{"<init>", "(Ljava/lang/Exception;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(InvalidSignatureValueException, init$, void, $Exception*, $String*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Exception;)V", nullptr, $PUBLIC | $DEPRECATED, $method(InvalidSignatureValueException, init$, void, $String*, $Exception*), nullptr, nullptr, _InvalidSignatureValueException_MethodAnnotations_init$4},
-	{"<init>", "(Ljava/lang/Exception;Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(InvalidSignatureValueException, init$, void, $Exception*, $String*, $ObjectArray*)},
-	{"<init>", "(Ljava/lang/String;[Ljava/lang/Object;Ljava/lang/Exception;)V", nullptr, $PUBLIC | $DEPRECATED, $method(InvalidSignatureValueException, init$, void, $String*, $ObjectArray*, $Exception*), nullptr, nullptr, _InvalidSignatureValueException_MethodAnnotations_init$6},
-	{}
-};
-
-$ClassInfo _InvalidSignatureValueException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.security.signature.InvalidSignatureValueException",
-	"com.sun.org.apache.xml.internal.security.signature.XMLSignatureException",
-	nullptr,
-	_InvalidSignatureValueException_FieldInfo_,
-	_InvalidSignatureValueException_MethodInfo_
-};
-
-$Object* allocate$InvalidSignatureValueException($Class* clazz) {
-	return $of($alloc(InvalidSignatureValueException));
-}
 
 void InvalidSignatureValueException::init$() {
 	$XMLSignatureException::init$();
@@ -97,7 +57,39 @@ void InvalidSignatureValueException::throw$() {
 }
 
 $Class* InvalidSignatureValueException::load$($String* name, bool initialize) {
-	$loadClass(InvalidSignatureValueException, name, initialize, &_InvalidSignatureValueException_ClassInfo_, allocate$InvalidSignatureValueException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(InvalidSignatureValueException, serialVersionUID)},
+		{}
+	};
+	$CompoundAttribute init$methodAnnotations$$$4[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute init$methodAnnotations$$$6[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(InvalidSignatureValueException, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(InvalidSignatureValueException, init$, void, $String*)},
+		{"<init>", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(InvalidSignatureValueException, init$, void, $String*, $ObjectArray*)},
+		{"<init>", "(Ljava/lang/Exception;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(InvalidSignatureValueException, init$, void, $Exception*, $String*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/Exception;)V", nullptr, $PUBLIC | $DEPRECATED, $method(InvalidSignatureValueException, init$, void, $String*, $Exception*), nullptr, nullptr, init$methodAnnotations$$$4},
+		{"<init>", "(Ljava/lang/Exception;Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(InvalidSignatureValueException, init$, void, $Exception*, $String*, $ObjectArray*)},
+		{"<init>", "(Ljava/lang/String;[Ljava/lang/Object;Ljava/lang/Exception;)V", nullptr, $PUBLIC | $DEPRECATED, $method(InvalidSignatureValueException, init$, void, $String*, $ObjectArray*, $Exception*), nullptr, nullptr, init$methodAnnotations$$$6},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.security.signature.InvalidSignatureValueException",
+		"com.sun.org.apache.xml.internal.security.signature.XMLSignatureException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(InvalidSignatureValueException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(InvalidSignatureValueException);
+	});
 	return class$;
 }
 

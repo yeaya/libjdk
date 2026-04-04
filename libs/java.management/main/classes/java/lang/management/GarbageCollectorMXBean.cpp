@@ -1,5 +1,4 @@
 #include <java/lang/management/GarbageCollectorMXBean.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -9,27 +8,23 @@ namespace java {
 	namespace lang {
 		namespace management {
 
-$MethodInfo _GarbageCollectorMXBean_MethodInfo_[] = {
-	{"getCollectionCount", "()J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GarbageCollectorMXBean, getCollectionCount, int64_t)},
-	{"getCollectionTime", "()J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GarbageCollectorMXBean, getCollectionTime, int64_t)},
-	{}
-};
-
-$ClassInfo _GarbageCollectorMXBean_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.lang.management.GarbageCollectorMXBean",
-	nullptr,
-	"java.lang.management.MemoryManagerMXBean",
-	nullptr,
-	_GarbageCollectorMXBean_MethodInfo_
-};
-
-$Object* allocate$GarbageCollectorMXBean($Class* clazz) {
-	return $of($alloc(GarbageCollectorMXBean));
-}
-
 $Class* GarbageCollectorMXBean::load$($String* name, bool initialize) {
-	$loadClass(GarbageCollectorMXBean, name, initialize, &_GarbageCollectorMXBean_ClassInfo_, allocate$GarbageCollectorMXBean);
+	$MethodInfo methodInfos$$[] = {
+		{"getCollectionCount", "()J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GarbageCollectorMXBean, getCollectionCount, int64_t)},
+		{"getCollectionTime", "()J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GarbageCollectorMXBean, getCollectionTime, int64_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.lang.management.GarbageCollectorMXBean",
+		nullptr,
+		"java.lang.management.MemoryManagerMXBean",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(GarbageCollectorMXBean, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(GarbageCollectorMXBean);
+	});
 	return class$;
 }
 

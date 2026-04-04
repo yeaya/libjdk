@@ -25,6 +25,7 @@ class ImageScalingHelper$PaintType : public ::java::lang::Enum {
 public:
 	ImageScalingHelper$PaintType();
 	static $Array<::javax::swing::plaf::nimbus::ImageScalingHelper$PaintType>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::javax::swing::plaf::nimbus::ImageScalingHelper$PaintType* valueOf($String* name);
 	static $Array<::javax::swing::plaf::nimbus::ImageScalingHelper$PaintType>* values();

@@ -36,7 +36,10 @@ public:
 	static const int64_t serialVersionUID = (int64_t)1;
 	InvalidCanonicalizerException(const InvalidCanonicalizerException& e);
 	virtual void throw$() override;
-	inline InvalidCanonicalizerException* operator ->() {
+	inline InvalidCanonicalizerException* operator ->() const {
+		return (InvalidCanonicalizerException*)throwing$;
+	}
+	inline operator InvalidCanonicalizerException*() const {
 		return (InvalidCanonicalizerException*)throwing$;
 	}
 };

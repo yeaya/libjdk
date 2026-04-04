@@ -1,9 +1,7 @@
 #include <DrawGridLinesTest.h>
-
 #include <DrawGridLinesTest$1.h>
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
-#include <java/awt/Graphics.h>
 #include <java/awt/Graphics2D.h>
 #include <java/awt/image/BufferedImage.h>
 #include <java/io/Serializable.h>
@@ -17,7 +15,6 @@
 #include <javax/swing/JTable.h>
 #include <javax/swing/SwingUtilities.h>
 #include <javax/swing/table/DefaultTableCellRenderer.h>
-#include <javax/swing/table/TableCellRenderer.h>
 #include <javax/swing/table/TableModel.h>
 #include <jcpp.h>
 
@@ -34,7 +31,6 @@
 
 using $DrawGridLinesTest$1 = ::DrawGridLinesTest$1;
 using $Color = ::java::awt::Color;
-using $Graphics = ::java::awt::Graphics;
 using $Graphics2D = ::java::awt::Graphics2D;
 using $BufferedImage = ::java::awt::image::BufferedImage;
 using $Serializable = ::java::io::Serializable;
@@ -49,7 +45,6 @@ using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $JTable = ::javax::swing::JTable;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $DefaultTableCellRenderer = ::javax::swing::table::DefaultTableCellRenderer;
-using $TableCellRenderer = ::javax::swing::table::TableCellRenderer;
 using $TableModel = ::javax::swing::table::TableModel;
 
 class DrawGridLinesTest$$Lambda$checkTableGridLines : public $Runnable {
@@ -60,72 +55,27 @@ public:
 	virtual void run() override {
 		DrawGridLinesTest::checkTableGridLines();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<DrawGridLinesTest$$Lambda$checkTableGridLines>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo DrawGridLinesTest$$Lambda$checkTableGridLines::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(DrawGridLinesTest$$Lambda$checkTableGridLines, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(DrawGridLinesTest$$Lambda$checkTableGridLines, run, void)},
-	{}
-};
-$ClassInfo DrawGridLinesTest$$Lambda$checkTableGridLines::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"DrawGridLinesTest$$Lambda$checkTableGridLines",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* DrawGridLinesTest$$Lambda$checkTableGridLines::load$($String* name, bool initialize) {
-	$loadClass(DrawGridLinesTest$$Lambda$checkTableGridLines, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(DrawGridLinesTest$$Lambda$checkTableGridLines, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(DrawGridLinesTest$$Lambda$checkTableGridLines, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"DrawGridLinesTest$$Lambda$checkTableGridLines",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(DrawGridLinesTest$$Lambda$checkTableGridLines, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DrawGridLinesTest$$Lambda$checkTableGridLines);
+	});
 	return class$;
 }
 $Class* DrawGridLinesTest$$Lambda$checkTableGridLines::class$ = nullptr;
-
-$FieldInfo _DrawGridLinesTest_FieldInfo_[] = {
-	{"WIDTH", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DrawGridLinesTest, WIDTH)},
-	{"HEIGHT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DrawGridLinesTest, HEIGHT)},
-	{"GRID_COLOR", "Ljava/awt/Color;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DrawGridLinesTest, GRID_COLOR)},
-	{"TABLE_BACKGROUND_COLOR", "Ljava/awt/Color;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DrawGridLinesTest, TABLE_BACKGROUND_COLOR)},
-	{"CELL_RENDERER_BACKGROUND_COLOR", "Ljava/awt/Color;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DrawGridLinesTest, CELL_RENDERER_BACKGROUND_COLOR)},
-	{"SCALE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DrawGridLinesTest, SCALE)},
-	{}
-};
-
-$MethodInfo _DrawGridLinesTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(DrawGridLinesTest, init$, void)},
-	{"checkTableGridLines", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(DrawGridLinesTest, checkTableGridLines, void)},
-	{"checkTableGridLines", "(Ljavax/swing/JTable;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(DrawGridLinesTest, checkTableGridLines, void, $JTable*)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(DrawGridLinesTest, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$InnerClassInfo _DrawGridLinesTest_InnerClassesInfo_[] = {
-	{"DrawGridLinesTest$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _DrawGridLinesTest_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"DrawGridLinesTest",
-	"java.lang.Object",
-	nullptr,
-	_DrawGridLinesTest_FieldInfo_,
-	_DrawGridLinesTest_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DrawGridLinesTest_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"DrawGridLinesTest$1"
-};
-
-$Object* allocate$DrawGridLinesTest($Class* clazz) {
-	return $of($alloc(DrawGridLinesTest));
-}
 
 $Color* DrawGridLinesTest::GRID_COLOR = nullptr;
 $Color* DrawGridLinesTest::TABLE_BACKGROUND_COLOR = nullptr;
@@ -136,12 +86,12 @@ void DrawGridLinesTest::init$() {
 
 void DrawGridLinesTest::main($StringArray* args) {
 	$init(DrawGridLinesTest);
-	$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(DrawGridLinesTest$$Lambda$checkTableGridLines)));
+	$SwingUtilities::invokeAndWait($$new(DrawGridLinesTest$$Lambda$checkTableGridLines));
 }
 
 void DrawGridLinesTest::checkTableGridLines() {
 	$init(DrawGridLinesTest);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($TableModel, dataModel, $new($DrawGridLinesTest$1));
 	$var($DefaultTableCellRenderer, r, $new($DefaultTableCellRenderer));
 	r->setOpaque(true);
@@ -159,7 +109,7 @@ void DrawGridLinesTest::checkTableGridLines() {
 
 void DrawGridLinesTest::checkTableGridLines($JTable* table) {
 	$init(DrawGridLinesTest);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t w = DrawGridLinesTest::SCALE * DrawGridLinesTest::WIDTH;
 	int32_t h = DrawGridLinesTest::SCALE * DrawGridLinesTest::HEIGHT;
 	$var($BufferedImage, img, $new($BufferedImage, w, h, $BufferedImage::TYPE_INT_RGB));
@@ -177,7 +127,7 @@ void DrawGridLinesTest::checkTableGridLines($JTable* table) {
 	}
 }
 
-void clinit$DrawGridLinesTest($Class* class$) {
+void DrawGridLinesTest::clinit$($Class* clazz) {
 	$init($Color);
 	$assignStatic(DrawGridLinesTest::GRID_COLOR, $Color::BLACK);
 	$assignStatic(DrawGridLinesTest::TABLE_BACKGROUND_COLOR, $Color::BLUE);
@@ -189,11 +139,47 @@ DrawGridLinesTest::DrawGridLinesTest() {
 
 $Class* DrawGridLinesTest::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(DrawGridLinesTest$$Lambda$checkTableGridLines::classInfo$.name)) {
+		if (name->equals("DrawGridLinesTest$$Lambda$checkTableGridLines")) {
 			return DrawGridLinesTest$$Lambda$checkTableGridLines::load$(name, initialize);
 		}
 	}
-	$loadClass(DrawGridLinesTest, name, initialize, &_DrawGridLinesTest_ClassInfo_, clinit$DrawGridLinesTest, allocate$DrawGridLinesTest);
+	$FieldInfo fieldInfos$$[] = {
+		{"WIDTH", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DrawGridLinesTest, WIDTH)},
+		{"HEIGHT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DrawGridLinesTest, HEIGHT)},
+		{"GRID_COLOR", "Ljava/awt/Color;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DrawGridLinesTest, GRID_COLOR)},
+		{"TABLE_BACKGROUND_COLOR", "Ljava/awt/Color;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DrawGridLinesTest, TABLE_BACKGROUND_COLOR)},
+		{"CELL_RENDERER_BACKGROUND_COLOR", "Ljava/awt/Color;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DrawGridLinesTest, CELL_RENDERER_BACKGROUND_COLOR)},
+		{"SCALE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DrawGridLinesTest, SCALE)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(DrawGridLinesTest, init$, void)},
+		{"checkTableGridLines", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(DrawGridLinesTest, checkTableGridLines, void)},
+		{"checkTableGridLines", "(Ljavax/swing/JTable;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(DrawGridLinesTest, checkTableGridLines, void, $JTable*)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(DrawGridLinesTest, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"DrawGridLinesTest$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"DrawGridLinesTest",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"DrawGridLinesTest$1"
+	};
+	$loadClass(DrawGridLinesTest, name, initialize, &classInfo$$, DrawGridLinesTest::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(DrawGridLinesTest);
+	});
 	return class$;
 }
 

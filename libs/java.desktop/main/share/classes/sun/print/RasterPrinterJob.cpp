@@ -1,5 +1,4 @@
 #include <sun/print/RasterPrinterJob.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/Dialog.h>
@@ -10,7 +9,6 @@
 #include <java/awt/GraphicsEnvironment.h>
 #include <java/awt/HeadlessException.h>
 #include <java/awt/KeyboardFocusManager.h>
-#include <java/awt/Paint.h>
 #include <java/awt/Rectangle.h>
 #include <java/awt/Shape.h>
 #include <java/awt/Window.h>
@@ -38,8 +36,6 @@
 #include <java/lang/SecurityManager.h>
 #include <java/net/URI.h>
 #include <java/security/AccessController.h>
-#include <java/security/Permission.h>
-#include <java/security/PrivilegedAction.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Locale.h>
 #include <javax/print/Doc.h>
@@ -156,19 +152,15 @@ using $MediaArray = $Array<::javax::print::attribute::standard::Media>;
 using $MediaPrintableAreaArray = $Array<::javax::print::attribute::standard::MediaPrintableArea>;
 using $intArray2 = $Array<int32_t, 2>;
 using $Color = ::java::awt::Color;
-using $Graphics = ::java::awt::Graphics;
 using $Graphics2D = ::java::awt::Graphics2D;
 using $GraphicsConfiguration = ::java::awt::GraphicsConfiguration;
-using $GraphicsDevice = ::java::awt::GraphicsDevice;
 using $GraphicsEnvironment = ::java::awt::GraphicsEnvironment;
 using $HeadlessException = ::java::awt::HeadlessException;
 using $KeyboardFocusManager = ::java::awt::KeyboardFocusManager;
-using $Paint = ::java::awt::Paint;
 using $Rectangle = ::java::awt::Rectangle;
 using $Shape = ::java::awt::Shape;
 using $Window = ::java::awt::Window;
 using $AffineTransform = ::java::awt::geom::AffineTransform;
-using $Point2D = ::java::awt::geom::Point2D;
 using $Point2D$Double = ::java::awt::geom::Point2D$Double;
 using $Rectangle2D = ::java::awt::geom::Rectangle2D;
 using $Rectangle2D$Double = ::java::awt::geom::Rectangle2D$Double;
@@ -185,7 +177,6 @@ using $File = ::java::io::File;
 using $FilePermission = ::java::io::FilePermission;
 using $IOException = ::java::io::IOException;
 using $OutputStream = ::java::io::OutputStream;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Double = ::java::lang::Double;
 using $Exception = ::java::lang::Exception;
@@ -199,10 +190,7 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;
 using $SecurityException = ::java::lang::SecurityException;
 using $SecurityManager = ::java::lang::SecurityManager;
-using $URI = ::java::net::URI;
 using $AccessController = ::java::security::AccessController;
-using $Permission = ::java::security::Permission;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $ArrayList = ::java::util::ArrayList;
 using $Locale = ::java::util::Locale;
 using $Doc = ::javax::print::Doc;
@@ -214,7 +202,6 @@ using $PrintService = ::javax::print::PrintService;
 using $PrintServiceLookup = ::javax::print::PrintServiceLookup;
 using $ServiceUI = ::javax::print::ServiceUI;
 using $StreamPrintService = ::javax::print::StreamPrintService;
-using $StreamPrintServiceFactory = ::javax::print::StreamPrintServiceFactory;
 using $Attribute = ::javax::print::attribute::Attribute;
 using $AttributeSet = ::javax::print::attribute::AttributeSet;
 using $DocAttribute = ::javax::print::attribute::DocAttribute;
@@ -271,174 +258,6 @@ using $GetPropertyAction = ::sun::security::action::GetPropertyAction;
 namespace sun {
 	namespace print {
 
-$FieldInfo _RasterPrinterJob_FieldInfo_[] = {
-	{"PRINTER", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(RasterPrinterJob, PRINTER)},
-	{"FILE", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(RasterPrinterJob, FILE)},
-	{"STREAM", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(RasterPrinterJob, STREAM)},
-	{"MAX_UNKNOWN_PAGES", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(RasterPrinterJob, MAX_UNKNOWN_PAGES)},
-	{"PD_ALLPAGES", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(RasterPrinterJob, PD_ALLPAGES)},
-	{"PD_SELECTION", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(RasterPrinterJob, PD_SELECTION)},
-	{"PD_PAGENUMS", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(RasterPrinterJob, PD_PAGENUMS)},
-	{"PD_NOSELECTION", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(RasterPrinterJob, PD_NOSELECTION)},
-	{"MAX_BAND_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(RasterPrinterJob, MAX_BAND_SIZE)},
-	{"DPI", "F", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(RasterPrinterJob, DPI)},
-	{"FORCE_PIPE_PROP", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(RasterPrinterJob, FORCE_PIPE_PROP)},
-	{"FORCE_RASTER", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(RasterPrinterJob, FORCE_RASTER)},
-	{"FORCE_PDL", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(RasterPrinterJob, FORCE_PDL)},
-	{"SHAPE_TEXT_PROP", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(RasterPrinterJob, SHAPE_TEXT_PROP)},
-	{"forcePDL", "Z", nullptr, $PUBLIC | $STATIC, $staticField(RasterPrinterJob, forcePDL)},
-	{"forceRaster", "Z", nullptr, $PUBLIC | $STATIC, $staticField(RasterPrinterJob, forceRaster)},
-	{"shapeTextProp", "Z", nullptr, $PUBLIC | $STATIC, $staticField(RasterPrinterJob, shapeTextProp)},
-	{"cachedBandWidth", "I", nullptr, $PRIVATE, $field(RasterPrinterJob, cachedBandWidth)},
-	{"cachedBandHeight", "I", nullptr, $PRIVATE, $field(RasterPrinterJob, cachedBandHeight)},
-	{"cachedBand", "Ljava/awt/image/BufferedImage;", nullptr, $PRIVATE, $field(RasterPrinterJob, cachedBand)},
-	{"mNumCopies", "I", nullptr, $PRIVATE, $field(RasterPrinterJob, mNumCopies)},
-	{"mCollate", "Z", nullptr, $PRIVATE, $field(RasterPrinterJob, mCollate)},
-	{"mFirstPage", "I", nullptr, $PRIVATE, $field(RasterPrinterJob, mFirstPage)},
-	{"mLastPage", "I", nullptr, $PRIVATE, $field(RasterPrinterJob, mLastPage)},
-	{"previousPaper", "Ljava/awt/print/Paper;", nullptr, $PRIVATE, $field(RasterPrinterJob, previousPaper)},
-	{"mDocument", "Ljava/awt/print/Pageable;", nullptr, $PROTECTED, $field(RasterPrinterJob, mDocument)},
-	{"mDocName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(RasterPrinterJob, mDocName)},
-	{"performingPrinting", "Z", nullptr, $PROTECTED, $field(RasterPrinterJob, performingPrinting)},
-	{"userCancelled", "Z", nullptr, $PROTECTED, $field(RasterPrinterJob, userCancelled)},
-	{"printToFilePermission", "Ljava/io/FilePermission;", nullptr, $PRIVATE, $field(RasterPrinterJob, printToFilePermission)},
-	{"redrawList", "Ljava/util/ArrayList;", "Ljava/util/ArrayList<Lsun/print/RasterPrinterJob$GraphicsState;>;", $PRIVATE, $field(RasterPrinterJob, redrawList)},
-	{"copiesAttr", "I", nullptr, $PRIVATE, $field(RasterPrinterJob, copiesAttr)},
-	{"jobNameAttr", "Ljava/lang/String;", nullptr, $PRIVATE, $field(RasterPrinterJob, jobNameAttr)},
-	{"userNameAttr", "Ljava/lang/String;", nullptr, $PRIVATE, $field(RasterPrinterJob, userNameAttr)},
-	{"pageRangesAttr", "Ljavax/print/attribute/standard/PageRanges;", nullptr, $PRIVATE, $field(RasterPrinterJob, pageRangesAttr)},
-	{"printerResAttr", "Ljavax/print/attribute/standard/PrinterResolution;", nullptr, $PROTECTED, $field(RasterPrinterJob, printerResAttr)},
-	{"sidesAttr", "Ljavax/print/attribute/standard/Sides;", nullptr, $PROTECTED, $field(RasterPrinterJob, sidesAttr)},
-	{"destinationAttr", "Ljava/lang/String;", nullptr, $PROTECTED, $field(RasterPrinterJob, destinationAttr)},
-	{"noJobSheet", "Z", nullptr, $PROTECTED, $field(RasterPrinterJob, noJobSheet)},
-	{"mDestType", "I", nullptr, $PROTECTED, $field(RasterPrinterJob, mDestType)},
-	{"mDestination", "Ljava/lang/String;", nullptr, $PROTECTED, $field(RasterPrinterJob, mDestination)},
-	{"collateAttReq", "Z", nullptr, $PROTECTED, $field(RasterPrinterJob, collateAttReq)},
-	{"landscapeRotates270", "Z", nullptr, $PROTECTED, $field(RasterPrinterJob, landscapeRotates270)},
-	{"attributes", "Ljavax/print/attribute/PrintRequestAttributeSet;", nullptr, $PROTECTED, $field(RasterPrinterJob, attributes)},
-	{"myService", "Ljavax/print/PrintService;", nullptr, $PROTECTED, $field(RasterPrinterJob, myService)},
-	{"debugPrint", "Z", nullptr, $PUBLIC | $STATIC, $staticField(RasterPrinterJob, debugPrint)},
-	{"deviceWidth", "I", nullptr, $PRIVATE, $field(RasterPrinterJob, deviceWidth)},
-	{"deviceHeight", "I", nullptr, $PRIVATE, $field(RasterPrinterJob, deviceHeight)},
-	{"defaultDeviceTransform", "Ljava/awt/geom/AffineTransform;", nullptr, $PRIVATE, $field(RasterPrinterJob, defaultDeviceTransform)},
-	{"pgConfig", "Lsun/print/PrinterGraphicsConfig;", nullptr, $PRIVATE, $field(RasterPrinterJob, pgConfig)},
-	{"onTop", "Ljavax/print/attribute/standard/DialogOwner;", nullptr, $PRIVATE, $field(RasterPrinterJob, onTop)},
-	{"parentWindowID", "J", nullptr, $PRIVATE, $field(RasterPrinterJob, parentWindowID)},
-	{}
-};
-
-$MethodInfo _RasterPrinterJob_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(RasterPrinterJob, init$, void)},
-	{"abortDoc", "()V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(RasterPrinterJob, abortDoc, void)},
-	{"attributeToPageFormat", "(Ljavax/print/PrintService;Ljavax/print/attribute/PrintRequestAttributeSet;)Ljava/awt/print/PageFormat;", nullptr, $PRIVATE, $method(RasterPrinterJob, attributeToPageFormat, $PageFormat*, $PrintService*, $PrintRequestAttributeSet*)},
-	{"cancel", "()V", nullptr, $PUBLIC, $virtualMethod(RasterPrinterJob, cancel, void)},
-	{"cancelDoc", "()V", nullptr, $PROTECTED, $virtualMethod(RasterPrinterJob, cancelDoc, void), "java.awt.print.PrinterAbortException"},
-	{"checkAllowedToPrintToFile", "()Z", nullptr, $PUBLIC, $virtualMethod(RasterPrinterJob, checkAllowedToPrintToFile, bool)},
-	{"clearParentWindowID", "()V", nullptr, $PRIVATE, $method(RasterPrinterJob, clearParentWindowID, void)},
-	{"createPathGraphics", "(Lsun/print/PeekGraphics;Ljava/awt/print/PrinterJob;Ljava/awt/print/Printable;Ljava/awt/print/PageFormat;I)Ljava/awt/Graphics2D;", nullptr, $PROTECTED, $virtualMethod(RasterPrinterJob, createPathGraphics, $Graphics2D*, $PeekGraphics*, $PrinterJob*, $Printable*, $PageFormat*, int32_t)},
-	{"createPeekGraphics", "(Ljava/awt/Graphics2D;Ljava/awt/print/PrinterJob;)Lsun/print/PeekGraphics;", nullptr, $PROTECTED, $virtualMethod(RasterPrinterJob, createPeekGraphics, $PeekGraphics*, $Graphics2D*, $PrinterJob*)},
-	{"debug_println", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(RasterPrinterJob, debug_println, void, $String*)},
-	{"defaultPage", "(Ljava/awt/print/PageFormat;)Ljava/awt/print/PageFormat;", nullptr, $PUBLIC, $virtualMethod(RasterPrinterJob, defaultPage, $PageFormat*, $PageFormat*)},
-	{"endDoc", "()V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(RasterPrinterJob, endDoc, void), "java.awt.print.PrinterException"},
-	{"endPage", "(Ljava/awt/print/PageFormat;Ljava/awt/print/Printable;I)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(RasterPrinterJob, endPage, void, $PageFormat*, $Printable*, int32_t), "java.awt.print.PrinterException"},
-	{"getCollatedCopies", "()I", nullptr, $PROTECTED, $virtualMethod(RasterPrinterJob, getCollatedCopies, int32_t)},
-	{"getCopies", "()I", nullptr, $PUBLIC, $virtualMethod(RasterPrinterJob, getCopies, int32_t)},
-	{"getCopiesInt", "()I", nullptr, $PROTECTED, $virtualMethod(RasterPrinterJob, getCopiesInt, int32_t)},
-	{"getDefaultPrintableArea", "(Ljava/awt/print/PageFormat;DD)Ljavax/print/attribute/standard/MediaPrintableArea;", nullptr, $PROTECTED, $virtualMethod(RasterPrinterJob, getDefaultPrintableArea, $MediaPrintableArea*, $PageFormat*, double, double)},
-	{"getFirstPage", "()I", nullptr, $PROTECTED, $virtualMethod(RasterPrinterJob, getFirstPage, int32_t)},
-	{"getFromPageAttrib", "()I", nullptr, $PROTECTED | $FINAL, $method(RasterPrinterJob, getFromPageAttrib, int32_t)},
-	{"getJobName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RasterPrinterJob, getJobName, $String*)},
-	{"getJobNameInt", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(RasterPrinterJob, getJobNameInt, $String*)},
-	{"getLastPage", "()I", nullptr, $PROTECTED, $virtualMethod(RasterPrinterJob, getLastPage, int32_t)},
-	{"getMaxPageAttrib", "()I", nullptr, $PROTECTED | $FINAL, $method(RasterPrinterJob, getMaxPageAttrib, int32_t)},
-	{"getMediaSize", "(Ljavax/print/attribute/standard/Media;Ljavax/print/PrintService;Ljava/awt/print/PageFormat;)Ljavax/print/attribute/standard/MediaSize;", nullptr, $PROTECTED, $virtualMethod(RasterPrinterJob, getMediaSize, $MediaSize*, $Media*, $PrintService*, $PageFormat*)},
-	{"getMinPageAttrib", "()I", nullptr, $PROTECTED | $FINAL, $method(RasterPrinterJob, getMinPageAttrib, int32_t)},
-	{"getNoncollatedCopies", "()I", nullptr, $PROTECTED, $virtualMethod(RasterPrinterJob, getNoncollatedCopies, int32_t)},
-	{"getPageFormatFromAttributes", "()Ljava/awt/print/PageFormat;", nullptr, $PROTECTED, $virtualMethod(RasterPrinterJob, getPageFormatFromAttributes, $PageFormat*)},
-	{"getPageable", "()Ljava/awt/print/Pageable;", nullptr, $PROTECTED, $virtualMethod(RasterPrinterJob, getPageable, $Pageable*)},
-	{"getParentWindowID", "()J", nullptr, $PRIVATE, $method(RasterPrinterJob, getParentWindowID, int64_t)},
-	{"getPhysicalPageHeight", "(Ljava/awt/print/Paper;)D", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(RasterPrinterJob, getPhysicalPageHeight, double, $Paper*)},
-	{"getPhysicalPageWidth", "(Ljava/awt/print/Paper;)D", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(RasterPrinterJob, getPhysicalPageWidth, double, $Paper*)},
-	{"getPhysicalPrintableHeight", "(Ljava/awt/print/Paper;)D", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(RasterPrinterJob, getPhysicalPrintableHeight, double, $Paper*)},
-	{"getPhysicalPrintableWidth", "(Ljava/awt/print/Paper;)D", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(RasterPrinterJob, getPhysicalPrintableWidth, double, $Paper*)},
-	{"getPhysicalPrintableX", "(Ljava/awt/print/Paper;)D", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(RasterPrinterJob, getPhysicalPrintableX, double, $Paper*)},
-	{"getPhysicalPrintableY", "(Ljava/awt/print/Paper;)D", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(RasterPrinterJob, getPhysicalPrintableY, double, $Paper*)},
-	{"getPrintService", "()Ljavax/print/PrintService;", nullptr, $PUBLIC, $virtualMethod(RasterPrinterJob, getPrintService, $PrintService*)},
-	{"getPrinterGraphicsConfig", "()Lsun/print/PrinterGraphicsConfig;", nullptr, $SYNCHRONIZED, $virtualMethod(RasterPrinterJob, getPrinterGraphicsConfig, $PrinterGraphicsConfig*)},
-	{"getSelectAttrib", "()I", nullptr, $PROTECTED | $FINAL, $method(RasterPrinterJob, getSelectAttrib, int32_t)},
-	{"getToPageAttrib", "()I", nullptr, $PROTECTED | $FINAL, $method(RasterPrinterJob, getToPageAttrib, int32_t)},
-	{"getUserName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RasterPrinterJob, getUserName, $String*)},
-	{"getUserNameInt", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(RasterPrinterJob, getUserNameInt, $String*)},
-	{"getXRes", "()D", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(RasterPrinterJob, getXRes, double)},
-	{"getYRes", "()D", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(RasterPrinterJob, getYRes, double)},
-	{"initPrinter", "()V", nullptr, $PROTECTED, $virtualMethod(RasterPrinterJob, initPrinter, void)},
-	{"initPrinterGraphics", "(Ljava/awt/Graphics2D;Ljava/awt/geom/Rectangle2D;)V", nullptr, $PROTECTED, $virtualMethod(RasterPrinterJob, initPrinterGraphics, void, $Graphics2D*, $Rectangle2D*)},
-	{"isCancelled", "()Z", nullptr, $PUBLIC, $virtualMethod(RasterPrinterJob, isCancelled, bool)},
-	{"isCollated", "()Z", nullptr, $PROTECTED, $virtualMethod(RasterPrinterJob, isCollated, bool)},
-	{"isSupportedValue", "(Ljavax/print/attribute/Attribute;Ljavax/print/attribute/PrintRequestAttributeSet;)Z", nullptr, $PROTECTED, $virtualMethod(RasterPrinterJob, isSupportedValue, bool, $Attribute*, $PrintRequestAttributeSet*)},
-	{"lookupDefaultPrintService", "()Ljavax/print/PrintService;", nullptr, $PROTECTED | $STATIC, $staticMethod(RasterPrinterJob, lookupDefaultPrintService, $PrintService*)},
-	{"pageDialog", "(Ljava/awt/print/PageFormat;)Ljava/awt/print/PageFormat;", nullptr, $PUBLIC, $virtualMethod(RasterPrinterJob, pageDialog, $PageFormat*, $PageFormat*), "java.awt.HeadlessException"},
-	{"pageDialog", "(Ljavax/print/attribute/PrintRequestAttributeSet;)Ljava/awt/print/PageFormat;", nullptr, $PUBLIC, $virtualMethod(RasterPrinterJob, pageDialog, $PageFormat*, $PrintRequestAttributeSet*), "java.awt.HeadlessException"},
-	{"print", "()V", nullptr, $PUBLIC, $virtualMethod(RasterPrinterJob, print, void), "java.awt.print.PrinterException"},
-	{"print", "(Ljavax/print/attribute/PrintRequestAttributeSet;)V", nullptr, $PUBLIC, $virtualMethod(RasterPrinterJob, print, void, $PrintRequestAttributeSet*), "java.awt.print.PrinterException"},
-	{"printBand", "([BIIII)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(RasterPrinterJob, printBand, void, $bytes*, int32_t, int32_t, int32_t, int32_t), "java.awt.print.PrinterException"},
-	{"printDialog", "(Ljavax/print/attribute/PrintRequestAttributeSet;)Z", nullptr, $PUBLIC, $virtualMethod(RasterPrinterJob, printDialog, bool, $PrintRequestAttributeSet*), "java.awt.HeadlessException"},
-	{"printDialog", "()Z", nullptr, $PUBLIC, $virtualMethod(RasterPrinterJob, printDialog, bool), "java.awt.HeadlessException"},
-	{"printPage", "(Ljava/awt/print/Pageable;I)I", nullptr, $PROTECTED, $virtualMethod(RasterPrinterJob, printPage, int32_t, $Pageable*, int32_t), "java.awt.print.PrinterException"},
-	{"removeControlChars", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(RasterPrinterJob, removeControlChars, $String*, $String*)},
-	{"saveState", "(Ljava/awt/geom/AffineTransform;Ljava/awt/Shape;Ljava/awt/geom/Rectangle2D;DD)V", nullptr, $PUBLIC, $virtualMethod(RasterPrinterJob, saveState, void, $AffineTransform*, $Shape*, $Rectangle2D*, double, double)},
-	{"setAttributes", "(Ljavax/print/attribute/PrintRequestAttributeSet;)V", nullptr, $PROTECTED, $virtualMethod(RasterPrinterJob, setAttributes, void, $PrintRequestAttributeSet*), "java.awt.print.PrinterException"},
-	{"setCollated", "(Z)V", nullptr, $PROTECTED, $virtualMethod(RasterPrinterJob, setCollated, void, bool)},
-	{"setCopies", "(I)V", nullptr, $PUBLIC, $virtualMethod(RasterPrinterJob, setCopies, void, int32_t)},
-	{"setGraphicsConfigInfo", "(Ljava/awt/geom/AffineTransform;DD)V", nullptr, $SYNCHRONIZED, $virtualMethod(RasterPrinterJob, setGraphicsConfigInfo, void, $AffineTransform*, double, double)},
-	{"setJobName", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(RasterPrinterJob, setJobName, void, $String*)},
-	{"setPageRange", "(II)V", nullptr, $PROTECTED, $virtualMethod(RasterPrinterJob, setPageRange, void, int32_t, int32_t)},
-	{"setPageable", "(Ljava/awt/print/Pageable;)V", nullptr, $PUBLIC, $virtualMethod(RasterPrinterJob, setPageable, void, $Pageable*), "java.lang.NullPointerException"},
-	{"setParentWindowID", "(Ljavax/print/attribute/PrintRequestAttributeSet;)V", nullptr, $PRIVATE, $method(RasterPrinterJob, setParentWindowID, void, $PrintRequestAttributeSet*)},
-	{"setPrintService", "(Ljavax/print/PrintService;)V", nullptr, $PUBLIC, $virtualMethod(RasterPrinterJob, setPrintService, void, $PrintService*), "java.awt.print.PrinterException"},
-	{"setPrintable", "(Ljava/awt/print/Printable;)V", nullptr, $PUBLIC, $virtualMethod(RasterPrinterJob, setPrintable, void, $Printable*)},
-	{"setPrintable", "(Ljava/awt/print/Printable;Ljava/awt/print/PageFormat;)V", nullptr, $PUBLIC, $virtualMethod(RasterPrinterJob, setPrintable, void, $Printable*, $PageFormat*)},
-	{"setXYRes", "(DD)V", nullptr, $PROTECTED, $virtualMethod(RasterPrinterJob, setXYRes, void, double, double)},
-	{"spoolToService", "(Ljavax/print/PrintService;Ljavax/print/attribute/PrintRequestAttributeSet;)V", nullptr, $PROTECTED, $virtualMethod(RasterPrinterJob, spoolToService, void, $PrintService*, $PrintRequestAttributeSet*), "java.awt.print.PrinterException"},
-	{"startDoc", "()V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(RasterPrinterJob, startDoc, void), "java.awt.print.PrinterException"},
-	{"startPage", "(Ljava/awt/print/PageFormat;Ljava/awt/print/Printable;IZ)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(RasterPrinterJob, startPage, void, $PageFormat*, $Printable*, int32_t, bool), "java.awt.print.PrinterException"},
-	{"throwPrintToFile", "()V", nullptr, $PRIVATE, $method(RasterPrinterJob, throwPrintToFile, void)},
-	{"updateAttributesWithPageFormat", "(Ljavax/print/PrintService;Ljava/awt/print/PageFormat;Ljavax/print/attribute/PrintRequestAttributeSet;)V", nullptr, $PROTECTED, $virtualMethod(RasterPrinterJob, updateAttributesWithPageFormat, void, $PrintService*, $PageFormat*, $PrintRequestAttributeSet*)},
-	{"updatePageAttributes", "(Ljavax/print/PrintService;Ljava/awt/print/PageFormat;)V", nullptr, $PROTECTED, $virtualMethod(RasterPrinterJob, updatePageAttributes, void, $PrintService*, $PageFormat*)},
-	{"validateDestination", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(RasterPrinterJob, validateDestination, void, $String*), "java.awt.print.PrinterException"},
-	{"validatePage", "(Ljava/awt/print/PageFormat;)Ljava/awt/print/PageFormat;", nullptr, $PUBLIC, $virtualMethod(RasterPrinterJob, validatePage, $PageFormat*, $PageFormat*)},
-	{"validatePaper", "(Ljava/awt/print/Paper;Ljava/awt/print/Paper;)V", nullptr, $PROTECTED, $virtualMethod(RasterPrinterJob, validatePaper, void, $Paper*, $Paper*)},
-	{}
-};
-
-$InnerClassInfo _RasterPrinterJob_InnerClassesInfo_[] = {
-	{"sun.print.RasterPrinterJob$GraphicsState", "sun.print.RasterPrinterJob", "GraphicsState", $PRIVATE},
-	{"sun.print.RasterPrinterJob$4", nullptr, nullptr, 0},
-	{"sun.print.RasterPrinterJob$3", nullptr, nullptr, 0},
-	{"sun.print.RasterPrinterJob$2", nullptr, nullptr, 0},
-	{"sun.print.RasterPrinterJob$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _RasterPrinterJob_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"sun.print.RasterPrinterJob",
-	"java.awt.print.PrinterJob",
-	nullptr,
-	_RasterPrinterJob_FieldInfo_,
-	_RasterPrinterJob_MethodInfo_,
-	nullptr,
-	nullptr,
-	_RasterPrinterJob_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.print.RasterPrinterJob$GraphicsState,sun.print.RasterPrinterJob$4,sun.print.RasterPrinterJob$3,sun.print.RasterPrinterJob$2,sun.print.RasterPrinterJob$1"
-};
-
-$Object* allocate$RasterPrinterJob($Class* clazz) {
-	return $of($alloc(RasterPrinterJob));
-}
-
 float RasterPrinterJob::DPI = 0.0;
 $String* RasterPrinterJob::FORCE_PIPE_PROP = nullptr;
 $String* RasterPrinterJob::FORCE_RASTER = nullptr;
@@ -485,7 +304,7 @@ void RasterPrinterJob::saveState($AffineTransform* at, $Shape* clip, $Rectangle2
 
 $PrintService* RasterPrinterJob::lookupDefaultPrintService() {
 	$init(RasterPrinterJob);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($PrintService, service, $PrintServiceLookup::lookupDefaultPrintService());
 	$init($DocFlavor$SERVICE_FORMATTED);
 	bool var$0 = service != nullptr && service->isDocFlavorSupported($DocFlavor$SERVICE_FORMATTED::PAGEABLE);
@@ -501,7 +320,7 @@ $PrintService* RasterPrinterJob::lookupDefaultPrintService() {
 }
 
 $PrintService* RasterPrinterJob::getPrintService() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->myService == nullptr) {
 		$var($PrintService, svc, $PrintServiceLookup::lookupDefaultPrintService());
 		$init($DocFlavor$SERVICE_FORMATTED);
@@ -527,10 +346,10 @@ $PrintService* RasterPrinterJob::getPrintService() {
 }
 
 void RasterPrinterJob::setPrintService($PrintService* service) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (service == nullptr) {
 		$throwNew($PrinterException, "Service cannot be null"_s);
-	} else if (!($instanceOf($StreamPrintService, service)) && $nc(service)->getName() == nullptr) {
+	} else if (!($instanceOf($StreamPrintService, service)) && service->getName() == nullptr) {
 		$throwNew($PrinterException, "Null PrintService name."_s);
 	} else {
 		$load($PrinterState);
@@ -555,7 +374,7 @@ void RasterPrinterJob::setPrintService($PrintService* service) {
 }
 
 $PageFormat* RasterPrinterJob::attributeToPageFormat($PrintService* service, $PrintRequestAttributeSet* attSet) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($PageFormat, page, defaultPage());
 	if (service == nullptr) {
 		return page;
@@ -568,12 +387,10 @@ $PageFormat* RasterPrinterJob::attributeToPageFormat($PrintService* service, $Pr
 	$init($OrientationRequested);
 	if (orient == $OrientationRequested::REVERSE_LANDSCAPE) {
 		$nc(page)->setOrientation($PageFormat::REVERSE_LANDSCAPE);
+	} else if (orient == $OrientationRequested::LANDSCAPE) {
+		$nc(page)->setOrientation($PageFormat::LANDSCAPE);
 	} else {
-		if (orient == $OrientationRequested::LANDSCAPE) {
-			$nc(page)->setOrientation($PageFormat::LANDSCAPE);
-		} else {
-			$nc(page)->setOrientation($PageFormat::PORTRAIT);
-		}
+		$nc(page)->setOrientation($PageFormat::PORTRAIT);
 	}
 	$load($Media);
 	$var($Media, media, $cast($Media, attSet->get($Media::class$)));
@@ -581,7 +398,7 @@ $PageFormat* RasterPrinterJob::attributeToPageFormat($PrintService* service, $Pr
 	$var($Paper, paper, $new($Paper));
 	$var($floats, dim, $nc(size)->getSize(1));
 	double w = $Math::rint($div(($nc(dim)->get(0) * 72.0), $Size2DSyntax::INCH));
-	double h = $Math::rint($div(($nc(dim)->get(1) * 72.0), $Size2DSyntax::INCH));
+	double h = $Math::rint($div((dim->get(1) * 72.0), $Size2DSyntax::INCH));
 	paper->setSize(w, h);
 	$load($MediaPrintableArea);
 	$var($MediaPrintableArea, area, $cast($MediaPrintableArea, attSet->get($MediaPrintableArea::class$)));
@@ -593,16 +410,16 @@ $PageFormat* RasterPrinterJob::attributeToPageFormat($PrintService* service, $Pr
 	double iy = 0.0;
 	double ih = 0.0;
 	ix = $Math::rint($nc(area)->getX($MediaPrintableArea::INCH) * RasterPrinterJob::DPI);
-	iy = $Math::rint($nc(area)->getY($MediaPrintableArea::INCH) * RasterPrinterJob::DPI);
-	iw = $Math::rint($nc(area)->getWidth($MediaPrintableArea::INCH) * RasterPrinterJob::DPI);
-	ih = $Math::rint($nc(area)->getHeight($MediaPrintableArea::INCH) * RasterPrinterJob::DPI);
+	iy = $Math::rint(area->getY($MediaPrintableArea::INCH) * RasterPrinterJob::DPI);
+	iw = $Math::rint(area->getWidth($MediaPrintableArea::INCH) * RasterPrinterJob::DPI);
+	ih = $Math::rint(area->getHeight($MediaPrintableArea::INCH) * RasterPrinterJob::DPI);
 	paper->setImageableArea(ix, iy, iw, ih);
 	$nc(page)->setPaper(paper);
 	return page;
 }
 
 $MediaSize* RasterPrinterJob::getMediaSize($Media* media$renamed, $PrintService* service, $PageFormat* page) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Media, media, media$renamed);
 	if (media == nullptr) {
 		$load($Media);
@@ -647,12 +464,12 @@ void RasterPrinterJob::updatePageAttributes($PrintService* service, $PageFormat*
 }
 
 void RasterPrinterJob::updateAttributesWithPageFormat($PrintService* service, $PageFormat* page, $PrintRequestAttributeSet* pageAttributes) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (service == nullptr || page == nullptr || pageAttributes == nullptr) {
 		return;
 	}
-	float x = $div((float)$Math::rint($div(($nc($($nc(page)->getPaper()))->getWidth() * $Size2DSyntax::INCH), (72.0))), (float)$Size2DSyntax::INCH);
-	float y = $div((float)$Math::rint($div(($nc($($nc(page)->getPaper()))->getHeight() * $Size2DSyntax::INCH), (72.0))), (float)$Size2DSyntax::INCH);
+	float x = $div((float)$Math::rint($div(($$nc($nc(page)->getPaper())->getWidth() * $Size2DSyntax::INCH), (72.0))), (float)$Size2DSyntax::INCH);
+	float y = $div((float)$Math::rint($div(($$nc(page->getPaper())->getHeight() * $Size2DSyntax::INCH), (72.0))), (float)$Size2DSyntax::INCH);
 	$load($Media);
 	$var($MediaArray, mediaList, $cast($MediaArray, $nc(service)->getSupportedAttributeValues($Media::class$, nullptr, nullptr)));
 	$var($Media, media, nullptr);
@@ -660,69 +477,63 @@ void RasterPrinterJob::updateAttributesWithPageFormat($PrintService* service, $P
 		$assign(media, $CustomMediaSizeName::findMedia(mediaList, x, y, $Size2DSyntax::INCH));
 	} catch ($IllegalArgumentException& iae) {
 	}
-	if ((media == nullptr) || !(service->isAttributeValueSupported(static_cast<$Attribute*>(static_cast<$DocAttribute*>(media)), nullptr, nullptr))) {
+	if ((media == nullptr) || !(service->isAttributeValueSupported($cast($DocAttribute, media), nullptr, nullptr))) {
 		$assign(media, $cast($Media, service->getDefaultAttributeValue($Media::class$)));
 	}
 	$var($OrientationRequested, orient, nullptr);
-	switch ($nc(page)->getOrientation()) {
+	switch (page->getOrientation()) {
 	case $PageFormat::LANDSCAPE:
-		{
-			$init($OrientationRequested);
-			$assign(orient, $OrientationRequested::LANDSCAPE);
-			break;
-		}
+		$init($OrientationRequested);
+		$assign(orient, $OrientationRequested::LANDSCAPE);
+		break;
 	case $PageFormat::REVERSE_LANDSCAPE:
-		{
-			$init($OrientationRequested);
-			$assign(orient, $OrientationRequested::REVERSE_LANDSCAPE);
-			break;
-		}
+		$init($OrientationRequested);
+		$assign(orient, $OrientationRequested::REVERSE_LANDSCAPE);
+		break;
 	default:
-		{
-			$init($OrientationRequested);
-			$assign(orient, $OrientationRequested::PORTRAIT);
-		}
+		$init($OrientationRequested);
+		$assign(orient, $OrientationRequested::PORTRAIT);
 	}
 	if (media != nullptr) {
-		$nc(pageAttributes)->add(static_cast<$Attribute*>(static_cast<$DocAttribute*>(media)));
+		$nc(pageAttributes)->add($cast($DocAttribute, media));
 	}
-	$nc(pageAttributes)->add(static_cast<$Attribute*>(static_cast<$DocAttribute*>(orient)));
-	float ix = (float)($div($nc($(page->getPaper()))->getImageableX(), RasterPrinterJob::DPI));
-	float iw = (float)($div($nc($(page->getPaper()))->getImageableWidth(), RasterPrinterJob::DPI));
-	float iy = (float)($div($nc($(page->getPaper()))->getImageableY(), RasterPrinterJob::DPI));
-	float ih = (float)($div($nc($(page->getPaper()))->getImageableHeight(), RasterPrinterJob::DPI));
+	$nc(pageAttributes)->add($cast($DocAttribute, orient));
+	float ix = (float)($div($$nc(page->getPaper())->getImageableX(), RasterPrinterJob::DPI));
+	float iw = (float)($div($$nc(page->getPaper())->getImageableWidth(), RasterPrinterJob::DPI));
+	float iy = (float)($div($$nc(page->getPaper())->getImageableY(), RasterPrinterJob::DPI));
+	float ih = (float)($div($$nc(page->getPaper())->getImageableHeight(), RasterPrinterJob::DPI));
 	if (ix < 0) {
-		ix = (float)0;
+		ix = 0;
 	}
 	if (iy < 0) {
-		iy = (float)0;
+		iy = 0;
 	}
 	if (iw <= 0) {
-		iw = (float)($div($nc($(page->getPaper()))->getWidth(), RasterPrinterJob::DPI)) - (ix * 2);
+		iw = (float)($div($$nc(page->getPaper())->getWidth(), RasterPrinterJob::DPI)) - (ix * 2);
 	}
 	if (iw < 0) {
-		iw = (float)0;
+		iw = 0;
 	}
 	if (ih <= 0) {
-		ih = (float)($div($nc($(page->getPaper()))->getHeight(), RasterPrinterJob::DPI)) - (iy * 2);
+		ih = (float)($div($$nc(page->getPaper())->getHeight(), RasterPrinterJob::DPI)) - (iy * 2);
 	}
 	if (ih < 0) {
-		ih = (float)0;
+		ih = 0;
 	}
 	try {
-		pageAttributes->add(static_cast<$Attribute*>(static_cast<$DocAttribute*>($$new($MediaPrintableArea, ix, iy, iw, ih, $MediaPrintableArea::INCH))));
+		pageAttributes->add($$cast($DocAttribute, $new($MediaPrintableArea, ix, iy, iw, ih, $MediaPrintableArea::INCH)));
 	} catch ($IllegalArgumentException& iae) {
 	}
 }
 
 $PageFormat* RasterPrinterJob::pageDialog($PageFormat* page) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	if ($GraphicsEnvironment::isHeadless()) {
 		$throwNew($HeadlessException);
 	}
-	$var($GraphicsConfiguration, gc, $nc($($nc($($GraphicsEnvironment::getLocalGraphicsEnvironment()))->getDefaultScreenDevice()))->getDefaultConfiguration());
-	$var($PrintService, service, $cast($PrintService, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($RasterPrinterJob$1, this, gc)))));
+	$var($GraphicsConfiguration, gc, $$nc($$nc($GraphicsEnvironment::getLocalGraphicsEnvironment())->getDefaultScreenDevice())->getDefaultConfiguration());
+	$var($PrintService, service, $cast($PrintService, $AccessController::doPrivileged($$new($RasterPrinterJob$1, this, gc))));
 	if (service == nullptr) {
 		return page;
 	}
@@ -746,7 +557,7 @@ $PageFormat* RasterPrinterJob::pageDialog($PageFormat* page) {
 }
 
 $PageFormat* RasterPrinterJob::pageDialog($PrintRequestAttributeSet* attributes) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	if ($GraphicsEnvironment::isHeadless()) {
 		$throwNew($HeadlessException);
@@ -767,14 +578,14 @@ $PageFormat* RasterPrinterJob::pageDialog($PrintRequestAttributeSet* attributes)
 		return page;
 	}
 	$var($GraphicsConfiguration, grCfg, nullptr);
-	$var($Window, w, $nc($($KeyboardFocusManager::getCurrentKeyboardFocusManager()))->getActiveWindow());
+	$var($Window, w, $$nc($KeyboardFocusManager::getCurrentKeyboardFocusManager())->getActiveWindow());
 	if (w != nullptr) {
 		$assign(grCfg, w->getGraphicsConfiguration());
 	} else {
-		$assign(grCfg, $nc($($nc($($GraphicsEnvironment::getLocalGraphicsEnvironment()))->getDefaultScreenDevice()))->getDefaultConfiguration());
+		$assign(grCfg, $$nc($$nc($GraphicsEnvironment::getLocalGraphicsEnvironment())->getDefaultScreenDevice())->getDefaultConfiguration());
 	}
 	$var($GraphicsConfiguration, gc, grCfg);
-	$var($PrintService, service, $cast($PrintService, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($RasterPrinterJob$2, this, gc)))));
+	$var($PrintService, service, $cast($PrintService, $AccessController::doPrivileged($$new($RasterPrinterJob$2, this, gc))));
 	if (service == nullptr) {
 		return nullptr;
 	}
@@ -802,21 +613,21 @@ $PageFormat* RasterPrinterJob::pageDialog($PrintRequestAttributeSet* attributes)
 	}
 	$var($Rectangle, dlgBounds, pageDialog->getBounds());
 	if (!gcBounds->contains(dlgBounds)) {
-		if ($nc(dlgBounds)->x + dlgBounds->width > gcBounds->x + gcBounds->width) {
+		if ($nc(dlgBounds)->x + $nc(dlgBounds)->width > gcBounds->x + gcBounds->width) {
 			if ((gcBounds->x + gcBounds->width - dlgBounds->width) > gcBounds->x) {
 				x = (gcBounds->x + gcBounds->width) - dlgBounds->width;
 			} else {
 				x = gcBounds->x;
 			}
 		}
-		if ($nc(dlgBounds)->y + dlgBounds->height > gcBounds->y + gcBounds->height) {
+		if (dlgBounds->y + dlgBounds->height > gcBounds->y + gcBounds->height) {
 			if ((gcBounds->y + gcBounds->height - dlgBounds->height) > gcBounds->y) {
 				y = (gcBounds->y + gcBounds->height) - dlgBounds->height;
 			} else {
 				y = gcBounds->y;
 			}
 		}
-		pageDialog->setBounds(x, y, $nc(dlgBounds)->width, dlgBounds->height);
+		pageDialog->setBounds(x, y, dlgBounds->width, dlgBounds->height);
 	}
 	pageDialog->show();
 	if (pageDialog->getStatus() == $ServiceDialog::APPROVE) {
@@ -835,9 +646,9 @@ $PageFormat* RasterPrinterJob::pageDialog($PrintRequestAttributeSet* attributes)
 }
 
 $PageFormat* RasterPrinterJob::getPageFormatFromAttributes() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Pageable, pageable, nullptr);
-	bool var$0 = this->attributes == nullptr || $nc(this->attributes)->isEmpty();
+	bool var$0 = this->attributes == nullptr || this->attributes->isEmpty();
 	if (var$0 || !($instanceOf($OpenBook, $assign(pageable, getPageable())))) {
 		return nullptr;
 	}
@@ -873,7 +684,7 @@ $PageFormat* RasterPrinterJob::getPageFormatFromAttributes() {
 }
 
 bool RasterPrinterJob::printDialog($PrintRequestAttributeSet* attributes) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	if ($GraphicsEnvironment::isHeadless()) {
 		$throwNew($HeadlessException);
@@ -895,7 +706,7 @@ bool RasterPrinterJob::printDialog($PrintRequestAttributeSet* attributes) {
 		return ret;
 	}
 	$var($GraphicsConfiguration, grCfg, nullptr);
-	$var($Window, w, $nc($($KeyboardFocusManager::getCurrentKeyboardFocusManager()))->getActiveWindow());
+	$var($Window, w, $$nc($KeyboardFocusManager::getCurrentKeyboardFocusManager())->getActiveWindow());
 	if (w != nullptr) {
 		$assign(grCfg, w->getGraphicsConfiguration());
 		$load($DialogOwner);
@@ -903,10 +714,10 @@ bool RasterPrinterJob::printDialog($PrintRequestAttributeSet* attributes) {
 			attributes->add($$new($DialogOwner, w));
 		}
 	} else {
-		$assign(grCfg, $nc($($nc($($GraphicsEnvironment::getLocalGraphicsEnvironment()))->getDefaultScreenDevice()))->getDefaultConfiguration());
+		$assign(grCfg, $$nc($$nc($GraphicsEnvironment::getLocalGraphicsEnvironment())->getDefaultScreenDevice())->getDefaultConfiguration());
 	}
 	$var($GraphicsConfiguration, gc, grCfg);
-	$var($PrintService, service, $cast($PrintService, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($RasterPrinterJob$3, this, gc)))));
+	$var($PrintService, service, $cast($PrintService, $AccessController::doPrivileged($$new($RasterPrinterJob$3, this, gc))));
 	if (service == nullptr) {
 		return false;
 	}
@@ -914,13 +725,13 @@ bool RasterPrinterJob::printDialog($PrintRequestAttributeSet* attributes) {
 	$var($StreamPrintServiceFactoryArray, spsFactories, nullptr);
 	if ($instanceOf($StreamPrintService, service)) {
 		$assign(spsFactories, lookupStreamPrintServices(nullptr));
-		$assign(services, $fcast($PrintServiceArray, $new($StreamPrintServiceArray, $nc(spsFactories)->length)));
+		$assign(services, $cast($PrintServiceArray, $new($StreamPrintServiceArray, $nc(spsFactories)->length)));
 		for (int32_t i = 0; i < spsFactories->length; ++i) {
 			services->set(i, $($nc(spsFactories->get(i))->getPrintService(nullptr)));
 		}
 	} else {
-		$assign(services, $cast($PrintServiceArray, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($RasterPrinterJob$4, this)))));
-		if ((services == nullptr) || ($nc(services)->length == 0)) {
+		$assign(services, $cast($PrintServiceArray, $AccessController::doPrivileged($$new($RasterPrinterJob$4, this))));
+		if ((services == nullptr) || (services->length == 0)) {
 			$assign(services, $new($PrintServiceArray, 1));
 			services->set(0, service);
 		}
@@ -933,7 +744,7 @@ bool RasterPrinterJob::printDialog($PrintRequestAttributeSet* attributes) {
 	$load($PageRanges);
 	$var($PageRanges, pgRng, $cast($PageRanges, attributes->get($PageRanges::class$)));
 	if (pgRng == nullptr && $nc(this->mDocument)->getNumberOfPages() > 1) {
-		attributes->add(static_cast<$Attribute*>(static_cast<$DocAttribute*>($$new($PageRanges, 1, $nc(this->mDocument)->getNumberOfPages()))));
+		attributes->add($$cast($DocAttribute, $new($PageRanges, 1, $nc(this->mDocument)->getNumberOfPages())));
 	}
 	try {
 		$init($DocFlavor$SERVICE_FORMATTED);
@@ -942,7 +753,6 @@ bool RasterPrinterJob::printDialog($PrintRequestAttributeSet* attributes) {
 		$init($DocFlavor$SERVICE_FORMATTED);
 		$assign(newService, $ServiceUI::printDialog(gc, x, y, services, $nc(services)->get(0), $DocFlavor$SERVICE_FORMATTED::PAGEABLE, attributes));
 	}
-	$load($PrinterJobWrapper);
 	attributes->remove($PrinterJobWrapper::class$);
 	$load($DialogOwner);
 	attributes->remove($DialogOwner::class$);
@@ -960,21 +770,19 @@ bool RasterPrinterJob::printDialog($PrintRequestAttributeSet* attributes) {
 }
 
 bool RasterPrinterJob::printDialog() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($GraphicsEnvironment::isHeadless()) {
 		$throwNew($HeadlessException);
 	}
 	$var($PrintRequestAttributeSet, attributes, $new($HashPrintRequestAttributeSet));
-	attributes->add(static_cast<$Attribute*>(static_cast<$PrintRequestAttribute*>($$new($Copies, getCopies()))));
-	attributes->add(static_cast<$Attribute*>(static_cast<$PrintRequestAttribute*>($$new($JobName, $(getJobName()), nullptr))));
+	attributes->add($$cast($PrintRequestAttribute, $new($Copies, getCopies())));
+	attributes->add($$cast($PrintRequestAttribute, $new($JobName, $(getJobName()), nullptr)));
 	bool doPrint = printDialog(attributes);
 	if (doPrint) {
-		$load($JobName);
 		$var($JobName, jobName, $cast($JobName, attributes->get($JobName::class$)));
 		if (jobName != nullptr) {
 			setJobName($(jobName->getValue()));
 		}
-		$load($Copies);
 		$var($Copies, copies, $cast($Copies, attributes->get($Copies::class$)));
 		if (copies != nullptr) {
 			setCopies(copies->getValue());
@@ -1007,12 +815,12 @@ bool RasterPrinterJob::printDialog() {
 }
 
 void RasterPrinterJob::setPrintable($Printable* painter) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	setPageable($$new($OpenBook, $(defaultPage($$new($PageFormat))), painter));
 }
 
 void RasterPrinterJob::setPrintable($Printable* painter, $PageFormat* format) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	setPageable($$new($OpenBook, format, painter));
 	updatePageAttributes($(getPrintService()), format);
 }
@@ -1039,7 +847,7 @@ void RasterPrinterJob::setXYRes(double x, double y) {
 }
 
 void RasterPrinterJob::setAttributes($PrintRequestAttributeSet* attributes) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	setCollated(false);
 	$set(this, sidesAttr, nullptr);
 	$set(this, printerResAttr, nullptr);
@@ -1069,31 +877,31 @@ void RasterPrinterJob::setAttributes($PrintRequestAttributeSet* attributes) {
 	}
 	$load($SheetCollate);
 	$var($SheetCollate, collateAttr, $cast($SheetCollate, attributes->get($SheetCollate::class$)));
-	if (isSupportedValue(static_cast<$Attribute*>(static_cast<$DocAttribute*>(collateAttr)), attributes)) {
+	if (isSupportedValue($cast($DocAttribute, collateAttr), attributes)) {
 		$init($SheetCollate);
 		setCollated(collateAttr == $SheetCollate::COLLATED);
 	}
 	$load($Sides);
 	$set(this, sidesAttr, $cast($Sides, attributes->get($Sides::class$)));
-	if (!isSupportedValue(static_cast<$Attribute*>(static_cast<$DocAttribute*>(this->sidesAttr)), attributes)) {
+	if (!isSupportedValue($cast($DocAttribute, this->sidesAttr), attributes)) {
 		$init($Sides);
 		$set(this, sidesAttr, $Sides::ONE_SIDED);
 	}
 	$load($PrinterResolution);
 	$set(this, printerResAttr, $cast($PrinterResolution, attributes->get($PrinterResolution::class$)));
 	if ($nc(service)->isAttributeCategorySupported($PrinterResolution::class$)) {
-		if (!isSupportedValue(static_cast<$Attribute*>(static_cast<$DocAttribute*>(this->printerResAttr)), attributes)) {
+		if (!isSupportedValue($cast($DocAttribute, this->printerResAttr), attributes)) {
 			$set(this, printerResAttr, $cast($PrinterResolution, service->getDefaultAttributeValue($PrinterResolution::class$)));
 		}
 		if (this->printerResAttr != nullptr) {
-			double xr = (double)$nc(this->printerResAttr)->getCrossFeedResolution($ResolutionSyntax::DPI);
+			double xr = (double)this->printerResAttr->getCrossFeedResolution($ResolutionSyntax::DPI);
 			double yr = (double)$nc(this->printerResAttr)->getFeedResolution($ResolutionSyntax::DPI);
 			setXYRes(xr, yr);
 		}
 	}
 	$load($PageRanges);
 	$set(this, pageRangesAttr, $cast($PageRanges, attributes->get($PageRanges::class$)));
-	if (!isSupportedValue(static_cast<$Attribute*>(static_cast<$DocAttribute*>(this->pageRangesAttr)), attributes)) {
+	if (!isSupportedValue($cast($DocAttribute, this->pageRangesAttr), attributes)) {
 		$set(this, pageRangesAttr, nullptr);
 		setPageRange(-1, -1);
 	} else {
@@ -1101,28 +909,28 @@ void RasterPrinterJob::setAttributes($PrintRequestAttributeSet* attributes) {
 		$init($SunPageSelection);
 		if ($cast($SunPageSelection, attributes->get($SunPageSelection::class$)) == $SunPageSelection::RANGE) {
 			$var($intArray2, range, $nc(this->pageRangesAttr)->getMembers());
-			setPageRange($nc($nc(range)->get(0))->get(0) - 1, $nc(range->get(0))->get(1) - 1);
+			setPageRange($nc($nc(range)->get(0))->get(0) - 1, $nc($nc(range)->get(0))->get(1) - 1);
 		} else {
 			setPageRange(-1, -1);
 		}
 	}
 	$load($Copies);
 	$var($Copies, copies, $cast($Copies, attributes->get($Copies::class$)));
-	if (isSupportedValue(static_cast<$Attribute*>(static_cast<$PrintRequestAttribute*>(copies)), attributes) || (!fidelity && copies != nullptr)) {
-		this->copiesAttr = copies->getValue();
+	if (isSupportedValue($cast($PrintRequestAttribute, copies), attributes) || (!fidelity && copies != nullptr)) {
+		this->copiesAttr = $nc(copies)->getValue();
 		setCopies(this->copiesAttr);
 	} else {
 		this->copiesAttr = getCopies();
 	}
 	$load($Destination);
 	$var($Destination, destination, $cast($Destination, attributes->get($Destination::class$)));
-	if (isSupportedValue(static_cast<$Attribute*>(static_cast<$PrintJobAttribute*>(destination)), attributes)) {
+	if (isSupportedValue($cast($PrintJobAttribute, destination), attributes)) {
 		try {
-			$set(this, destinationAttr, $str({""_s, $$new($File, $($nc($($nc(destination)->getURI()))->getSchemeSpecificPart()))}));
+			$set(this, destinationAttr, $str({""_s, $$new($File, $($$nc($nc(destination)->getURI())->getSchemeSpecificPart()))}));
 		} catch ($Exception& e) {
-			$var($Destination, defaultDest, $cast($Destination, $nc(service)->getDefaultAttributeValue($Destination::class$)));
+			$var($Destination, defaultDest, $cast($Destination, service->getDefaultAttributeValue($Destination::class$)));
 			if (defaultDest != nullptr) {
-				$set(this, destinationAttr, $str({""_s, $$new($File, $($nc($(defaultDest->getURI()))->getSchemeSpecificPart()))}));
+				$set(this, destinationAttr, $str({""_s, $$new($File, $($$nc(defaultDest->getURI())->getSchemeSpecificPart()))}));
 			}
 		}
 	}
@@ -1134,8 +942,8 @@ void RasterPrinterJob::setAttributes($PrintRequestAttributeSet* attributes) {
 	}
 	$load($JobName);
 	$var($JobName, jobName, $cast($JobName, attributes->get($JobName::class$)));
-	if (isSupportedValue(static_cast<$Attribute*>(static_cast<$PrintRequestAttribute*>(jobName)), attributes) || (!fidelity && jobName != nullptr)) {
-		$set(this, jobNameAttr, jobName->getValue());
+	if (isSupportedValue($cast($PrintRequestAttribute, jobName), attributes) || (!fidelity && jobName != nullptr)) {
+		$set(this, jobNameAttr, $nc(jobName)->getValue());
 		setJobName(this->jobNameAttr);
 	} else {
 		$set(this, jobNameAttr, getJobName());
@@ -1143,7 +951,7 @@ void RasterPrinterJob::setAttributes($PrintRequestAttributeSet* attributes) {
 	$load($RequestingUserName);
 	$var($RequestingUserName, userName, $cast($RequestingUserName, attributes->get($RequestingUserName::class$)));
 	if (isSupportedValue(userName, attributes) || (!fidelity && userName != nullptr)) {
-		$set(this, userNameAttr, userName->getValue());
+		$set(this, userNameAttr, $nc(userName)->getValue());
 	} else {
 		try {
 			$set(this, userNameAttr, getUserName());
@@ -1160,29 +968,27 @@ void RasterPrinterJob::setAttributes($PrintRequestAttributeSet* attributes) {
 	if ((orientReq != nullptr || media != nullptr || mpa != nullptr) && $instanceOf($OpenBook, $(getPageable()))) {
 		$var($Pageable, pageable, getPageable());
 		$var($Printable, printable, $nc(pageable)->getPrintable(0));
-		$var($PageFormat, pf, $cast($PageFormat, $nc($(pageable->getPageFormat(0)))->clone()));
+		$var($PageFormat, pf, $cast($PageFormat, $$nc(pageable->getPageFormat(0))->clone()));
 		$var($Paper, paper, $nc(pf)->getPaper());
-		if (mpa == nullptr && media != nullptr && $nc(service)->isAttributeCategorySupported($MediaPrintableArea::class$)) {
+		if (mpa == nullptr && media != nullptr && service->isAttributeCategorySupported($MediaPrintableArea::class$)) {
 			$var($Object, mpaVals, service->getSupportedAttributeValues($MediaPrintableArea::class$, nullptr, attributes));
-			if ($instanceOf($MediaPrintableAreaArray, mpaVals) && $nc(($cast($MediaPrintableAreaArray, mpaVals)))->length > 0) {
-				$assign(mpa, $nc(($cast($MediaPrintableAreaArray, mpaVals)))->get(0));
+			if ($instanceOf($MediaPrintableAreaArray, mpaVals) && $cast($MediaPrintableAreaArray, mpaVals)->length > 0) {
+				$assign(mpa, $cast($MediaPrintableAreaArray, mpaVals)->get(0));
 			}
 		}
-		if (isSupportedValue(static_cast<$Attribute*>(static_cast<$DocAttribute*>(orientReq)), attributes) || (!fidelity && orientReq != nullptr)) {
+		if (isSupportedValue($cast($DocAttribute, orientReq), attributes) || (!fidelity && orientReq != nullptr)) {
 			int32_t orient = 0;
 			$init($OrientationRequested);
-			if ($of(orientReq)->equals($OrientationRequested::REVERSE_LANDSCAPE)) {
+			if ($nc(orientReq)->equals($OrientationRequested::REVERSE_LANDSCAPE)) {
 				orient = $PageFormat::REVERSE_LANDSCAPE;
+			} else if (orientReq->equals($OrientationRequested::LANDSCAPE)) {
+				orient = $PageFormat::LANDSCAPE;
 			} else {
-				if ($of(orientReq)->equals($OrientationRequested::LANDSCAPE)) {
-					orient = $PageFormat::LANDSCAPE;
-				} else {
-					orient = $PageFormat::PORTRAIT;
-				}
+				orient = $PageFormat::PORTRAIT;
 			}
 			pf->setOrientation(orient);
 		}
-		if (isSupportedValue(static_cast<$Attribute*>(static_cast<$DocAttribute*>(media)), attributes) || (!fidelity && media != nullptr)) {
+		if (isSupportedValue($cast($DocAttribute, media), attributes) || (!fidelity && media != nullptr)) {
 			if ($instanceOf($MediaSizeName, media)) {
 				$var($MediaSizeName, msn, $cast($MediaSizeName, media));
 				$var($MediaSize, msz, $MediaSize::getMediaSizeForName(msn));
@@ -1196,12 +1002,12 @@ void RasterPrinterJob::setAttributes($PrintRequestAttributeSet* attributes) {
 				}
 			}
 		}
-		if (isSupportedValue(static_cast<$Attribute*>(static_cast<$DocAttribute*>(mpa)), attributes) || (!fidelity && mpa != nullptr)) {
-			$var($floats, printableArea, mpa->getPrintableArea($MediaPrintableArea::INCH));
+		if (isSupportedValue($cast($DocAttribute, mpa), attributes) || (!fidelity && mpa != nullptr)) {
+			$var($floats, printableArea, $nc(mpa)->getPrintableArea($MediaPrintableArea::INCH));
 			for (int32_t i = 0; i < $nc(printableArea)->length; ++i) {
 				printableArea->set(i, printableArea->get(i) * 72.0f);
 			}
-			$nc(paper)->setImageableArea($nc(printableArea)->get(0), printableArea->get(1), printableArea->get(2), printableArea->get(3));
+			$nc(paper)->setImageableArea(printableArea->get(0), printableArea->get(1), printableArea->get(2), printableArea->get(3));
 		}
 		pf->setPaper(paper);
 		$assign(pf, validatePage(pf));
@@ -1212,7 +1018,7 @@ void RasterPrinterJob::setAttributes($PrintRequestAttributeSet* attributes) {
 }
 
 void RasterPrinterJob::spoolToService($PrintService* psvc, $PrintRequestAttributeSet* attributes$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($PrintRequestAttributeSet, attributes, attributes$renamed);
 	if (psvc == nullptr) {
 		$throwNew($PrinterException, "No print service found."_s);
@@ -1221,8 +1027,8 @@ void RasterPrinterJob::spoolToService($PrintService* psvc, $PrintRequestAttribut
 	$var($Doc, doc, $new($PageableDoc, $(getPageable())));
 	if (attributes == nullptr) {
 		$assign(attributes, $new($HashPrintRequestAttributeSet));
-		attributes->add(static_cast<$Attribute*>(static_cast<$PrintRequestAttribute*>($$new($Copies, getCopies()))));
-		attributes->add(static_cast<$Attribute*>(static_cast<$PrintRequestAttribute*>($$new($JobName, $(getJobName()), nullptr))));
+		attributes->add($$cast($PrintRequestAttribute, $new($Copies, getCopies())));
+		attributes->add($$cast($PrintRequestAttribute, $new($JobName, $(getJobName()), nullptr)));
 	}
 	try {
 		$nc(job)->print(doc, attributes);
@@ -1242,7 +1048,7 @@ void RasterPrinterJob::debug_println($String* str) {
 }
 
 void RasterPrinterJob::print($PrintRequestAttributeSet* attributes) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($PrintService, psvc, getPrintService());
 	debug_println($$str({"psvc = "_s, psvc}));
 	if (psvc == nullptr) {
@@ -1267,10 +1073,10 @@ void RasterPrinterJob::print($PrintRequestAttributeSet* attributes) {
 	$load($JobSheets);
 	$var($JobSheets, js, $cast($JobSheets, psvc->getDefaultAttributeValue($JobSheets::class$)));
 	$init($JobSheets);
-	if (js != nullptr && $of(js)->equals($JobSheets::NONE)) {
+	if (js != nullptr && js->equals($JobSheets::NONE)) {
 		this->noJobSheet = true;
 	}
-	if (($instanceOf($SunPrinterJobService, psvc)) && $nc(($cast($SunPrinterJobService, psvc)))->usesClass($of(this)->getClass())) {
+	if (($instanceOf($SunPrinterJobService, psvc)) && $cast($SunPrinterJobService, psvc)->usesClass($of(this)->getClass())) {
 		setAttributes(attributes);
 		if (this->destinationAttr != nullptr) {
 			validateDestination(this->destinationAttr);
@@ -1295,73 +1101,67 @@ void RasterPrinterJob::print($PrintRequestAttributeSet* attributes) {
 			lastPage = $nc(this->mDocument)->getNumberOfPages() - 1;
 		}
 	}
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$synchronized(this) {
-				this->performingPrinting = true;
-				this->userCancelled = false;
+	$var($Throwable, var$0, nullptr);
+	try {
+		$synchronized(this) {
+			this->performingPrinting = true;
+			this->userCancelled = false;
+		}
+		startDoc();
+		if (isCancelled()) {
+			cancelDoc();
+		}
+		bool rangeIsSelected = true;
+		if (attributes != nullptr) {
+			$load($SunPageSelection);
+			$var($SunPageSelection, pages, $cast($SunPageSelection, attributes->get($SunPageSelection::class$)));
+			$init($SunPageSelection);
+			if ((pages != nullptr) && (pages != $SunPageSelection::RANGE)) {
+				rangeIsSelected = false;
 			}
-			startDoc();
-			if (isCancelled()) {
-				cancelDoc();
-			}
-			bool rangeIsSelected = true;
-			if (attributes != nullptr) {
-				$load($SunPageSelection);
-				$var($SunPageSelection, pages, $cast($SunPageSelection, attributes->get($SunPageSelection::class$)));
-				$init($SunPageSelection);
-				if ((pages != nullptr) && (pages != $SunPageSelection::RANGE)) {
-					rangeIsSelected = false;
-				}
-			}
-			debug_println($$str({"after startDoc rangeSelected? "_s, $$str(rangeIsSelected), " numNonCollatedCopies "_s, $$str(numNonCollatedCopies)}));
-			for (int32_t collated = 0; collated < numCollatedCopies; ++collated) {
-				{
-					int32_t i = firstPage;
-					int32_t pageResult = $Printable::PAGE_EXISTS;
-					for (; (i <= lastPage || lastPage == $Pageable::UNKNOWN_NUMBER_OF_PAGES) && pageResult == $Printable::PAGE_EXISTS; ++i) {
-						if ((this->pageRangesAttr != nullptr) && rangeIsSelected) {
-							int32_t nexti = $nc(this->pageRangesAttr)->next(i);
-							if (nexti == -1) {
-								break;
-							} else if (nexti != i + 1) {
-								continue;
-							}
-						}
-						for (int32_t nonCollated = 0; nonCollated < numNonCollatedCopies && pageResult == $Printable::PAGE_EXISTS; ++nonCollated) {
-							if (isCancelled()) {
-								cancelDoc();
-							}
-							debug_println($$str({"printPage "_s, $$str(i)}));
-							pageResult = printPage(this->mDocument, i);
-						}
+		}
+		debug_println($$str({"after startDoc rangeSelected? "_s, $$str(rangeIsSelected), " numNonCollatedCopies "_s, $$str(numNonCollatedCopies)}));
+		for (int32_t collated = 0; collated < numCollatedCopies; ++collated) {
+			for (int32_t i = firstPage, pageResult = $Printable::PAGE_EXISTS; (i <= lastPage || lastPage == $Pageable::UNKNOWN_NUMBER_OF_PAGES) && pageResult == $Printable::PAGE_EXISTS; ++i) {
+				if ((this->pageRangesAttr != nullptr) && rangeIsSelected) {
+					int32_t nexti = this->pageRangesAttr->next(i);
+					if (nexti == -1) {
+						break;
+					} else if (nexti != i + 1) {
+						continue;
 					}
 				}
-			}
-			if (isCancelled()) {
-				cancelDoc();
-			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$set(this, previousPaper, nullptr);
-			$synchronized(this) {
-				if (this->performingPrinting) {
-					endDoc();
+				for (int32_t nonCollated = 0; nonCollated < numNonCollatedCopies && pageResult == $Printable::PAGE_EXISTS; ++nonCollated) {
+					if (isCancelled()) {
+						cancelDoc();
+					}
+					debug_println($$str({"printPage "_s, $$str(i)}));
+					pageResult = printPage(this->mDocument, i);
 				}
-				this->performingPrinting = false;
-				$of(this)->notify();
 			}
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+		if (isCancelled()) {
+			cancelDoc();
 		}
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$set(this, previousPaper, nullptr);
+		$synchronized(this) {
+			if (this->performingPrinting) {
+				endDoc();
+			}
+			this->performingPrinting = false;
+			$of(this)->notify();
+		}
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 void RasterPrinterJob::validateDestination($String* dest) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (dest == nullptr) {
 		return;
 	}
@@ -1378,20 +1178,20 @@ void RasterPrinterJob::validateDestination($String* dest) {
 	bool var$1 = f->exists();
 	if (var$1) {
 		bool var$2 = !f->isFile();
-		var$1 = (var$2 || !f->canWrite());
+		var$1 = var$2 || !f->canWrite();
 	}
-	bool var$0 = (var$1);
+	bool var$0 = var$1;
 	if (!var$0) {
-		bool var$3 = (pFile != nullptr);
+		bool var$3 = pFile != nullptr;
 		if (var$3) {
 			bool var$4 = !pFile->exists();
 			if (!var$4) {
-				bool var$5 = $nc(pFile)->exists();
-				var$4 = (var$5 && !pFile->canWrite());
+				bool var$5 = pFile->exists();
+				var$4 = var$5 && !pFile->canWrite();
 			}
-			var$3 = (var$4);
+			var$3 = var$4;
 		}
-		var$0 = (var$3);
+		var$0 = var$3;
 	}
 	if (var$0) {
 		if (f->exists()) {
@@ -1405,7 +1205,7 @@ void RasterPrinterJob::validatePaper($Paper* origPaper, $Paper* newPaper) {
 	if (origPaper == nullptr || newPaper == nullptr) {
 		return;
 	} else {
-		double wid = $nc(origPaper)->getWidth();
+		double wid = origPaper->getWidth();
 		double hgt = origPaper->getHeight();
 		double ix = origPaper->getImageableX();
 		double iy = origPaper->getImageableY();
@@ -1430,13 +1230,13 @@ void RasterPrinterJob::validatePaper($Paper* origPaper, $Paper* newPaper) {
 		if ((iy + ih) > hgt) {
 			iy = hgt - ih;
 		}
-		$nc(newPaper)->setSize(wid, hgt);
+		newPaper->setSize(wid, hgt);
 		newPaper->setImageableArea(ix, iy, iw, ih);
 	}
 }
 
 $PageFormat* RasterPrinterJob::defaultPage($PageFormat* page) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($PageFormat, newPage, $cast($PageFormat, $nc(page)->clone()));
 	$nc(newPage)->setOrientation($PageFormat::PORTRAIT);
 	$var($Paper, newPaper, $new($Paper));
@@ -1458,8 +1258,8 @@ $PageFormat* RasterPrinterJob::defaultPage($PageFormat* page) {
 			return newPage;
 		}
 	}
-	$var($String, defaultCountry, $nc($($Locale::getDefault()))->getCountry());
-	bool var$1 = !$nc($($Locale::getDefault()))->equals($Locale::ENGLISH) && defaultCountry != nullptr;
+	$var($String, defaultCountry, $$nc($Locale::getDefault())->getCountry());
+	bool var$1 = !$$nc($Locale::getDefault())->equals($Locale::ENGLISH) && defaultCountry != nullptr;
 	bool var$0 = var$1 && !defaultCountry->equals($($nc($Locale::US)->getCountry()));
 	if (var$0 && !defaultCountry->equals($($nc($Locale::CANADA)->getCountry()))) {
 		double mmPerInch = 25.4;
@@ -1473,11 +1273,11 @@ $PageFormat* RasterPrinterJob::defaultPage($PageFormat* page) {
 }
 
 $PageFormat* RasterPrinterJob::validatePage($PageFormat* page) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($PageFormat, newPage, $cast($PageFormat, $nc(page)->clone()));
 	$var($Paper, newPaper, $new($Paper));
 	validatePaper($($nc(newPage)->getPaper()), newPaper);
-	$nc(newPage)->setPaper(newPaper);
+	newPage->setPaper(newPaper);
 	return newPage;
 }
 
@@ -1559,28 +1359,24 @@ bool RasterPrinterJob::isCollated() {
 int32_t RasterPrinterJob::getSelectAttrib() {
 	if (this->attributes != nullptr) {
 		$load($SunPageSelection);
-		$var($SunPageSelection, pages, $cast($SunPageSelection, $nc(this->attributes)->get($SunPageSelection::class$)));
+		$var($SunPageSelection, pages, $cast($SunPageSelection, this->attributes->get($SunPageSelection::class$)));
 		$init($SunPageSelection);
 		if (pages == $SunPageSelection::RANGE) {
 			return RasterPrinterJob::PD_PAGENUMS;
-		} else {
-			if (pages == $SunPageSelection::SELECTION) {
-				return RasterPrinterJob::PD_SELECTION;
-			} else {
-				if (pages == $SunPageSelection::ALL) {
-					return RasterPrinterJob::PD_ALLPAGES;
-				}
-			}
+		} else if (pages == $SunPageSelection::SELECTION) {
+			return RasterPrinterJob::PD_SELECTION;
+		} else if (pages == $SunPageSelection::ALL) {
+			return RasterPrinterJob::PD_ALLPAGES;
 		}
 	}
 	return RasterPrinterJob::PD_NOSELECTION;
 }
 
 int32_t RasterPrinterJob::getFromPageAttrib() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->attributes != nullptr) {
 		$load($PageRanges);
-		$var($PageRanges, pageRangesAttr, $cast($PageRanges, $nc(this->attributes)->get($PageRanges::class$)));
+		$var($PageRanges, pageRangesAttr, $cast($PageRanges, this->attributes->get($PageRanges::class$)));
 		if (pageRangesAttr != nullptr) {
 			$var($intArray2, range, pageRangesAttr->getMembers());
 			return $nc($nc(range)->get(0))->get(0);
@@ -1590,13 +1386,13 @@ int32_t RasterPrinterJob::getFromPageAttrib() {
 }
 
 int32_t RasterPrinterJob::getToPageAttrib() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->attributes != nullptr) {
 		$load($PageRanges);
-		$var($PageRanges, pageRangesAttr, $cast($PageRanges, $nc(this->attributes)->get($PageRanges::class$)));
+		$var($PageRanges, pageRangesAttr, $cast($PageRanges, this->attributes->get($PageRanges::class$)));
 		if (pageRangesAttr != nullptr) {
 			$var($intArray2, range, pageRangesAttr->getMembers());
-			return $nc($nc(range)->get(range->length - 1))->get(1);
+			return $nc($nc(range)->get($nc(range)->length - 1))->get(1);
 		}
 	}
 	return getMaxPageAttrib();
@@ -1605,7 +1401,7 @@ int32_t RasterPrinterJob::getToPageAttrib() {
 int32_t RasterPrinterJob::getMinPageAttrib() {
 	if (this->attributes != nullptr) {
 		$load($SunMinMaxPage);
-		$var($SunMinMaxPage, s, $cast($SunMinMaxPage, $nc(this->attributes)->get($SunMinMaxPage::class$)));
+		$var($SunMinMaxPage, s, $cast($SunMinMaxPage, this->attributes->get($SunMinMaxPage::class$)));
 		if (s != nullptr) {
 			return s->getMin();
 		}
@@ -1614,10 +1410,10 @@ int32_t RasterPrinterJob::getMinPageAttrib() {
 }
 
 int32_t RasterPrinterJob::getMaxPageAttrib() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->attributes != nullptr) {
 		$load($SunMinMaxPage);
-		$var($SunMinMaxPage, s, $cast($SunMinMaxPage, $nc(this->attributes)->get($SunMinMaxPage::class$)));
+		$var($SunMinMaxPage, s, $cast($SunMinMaxPage, this->attributes->get($SunMinMaxPage::class$)));
 		if (s != nullptr) {
 			return s->getMax();
 		}
@@ -1668,14 +1464,14 @@ void RasterPrinterJob::setGraphicsConfigInfo($AffineTransform* at, double pw, do
 
 $PrinterGraphicsConfig* RasterPrinterJob::getPrinterGraphicsConfig() {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		if (this->pgConfig != nullptr) {
 			return this->pgConfig;
 		}
 		$var($String, deviceID, "Printer Device"_s);
 		$var($PrintService, service, getPrintService());
 		if (service != nullptr) {
-			$assign(deviceID, $of(service)->toString());
+			$assign(deviceID, service->toString());
 		}
 		$set(this, pgConfig, $new($PrinterGraphicsConfig, deviceID, this->defaultDeviceTransform, this->deviceWidth, this->deviceHeight));
 		return this->pgConfig;
@@ -1683,7 +1479,7 @@ $PrinterGraphicsConfig* RasterPrinterJob::getPrinterGraphicsConfig() {
 }
 
 int32_t RasterPrinterJob::printPage($Pageable* document, int32_t pageIndex) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($PageFormat, page, nullptr);
 	$var($PageFormat, origPage, nullptr);
 	$var($Printable, painter, nullptr);
@@ -1732,12 +1528,12 @@ int32_t RasterPrinterJob::printPage($Pageable* document, int32_t pageIndex) {
 		$throwNew($PrinterException, "Paper\'s imageable height is too small."_s);
 	}
 	int32_t bandHeight = ($div(RasterPrinterJob::MAX_BAND_SIZE, bandWidth) / 3);
-	int32_t deviceLeft = $cast(int32_t, $Math::rint($nc(paper)->getImageableX() * xScale));
-	int32_t deviceTop = $cast(int32_t, $Math::rint($nc(paper)->getImageableY() * yScale));
+	int32_t deviceLeft = $cast(int32_t, $Math::rint(paper->getImageableX() * xScale));
+	int32_t deviceTop = $cast(int32_t, $Math::rint(paper->getImageableY() * yScale));
 	$var($AffineTransform, deviceTransform, $new($AffineTransform));
-	deviceTransform->translate((double)(-deviceLeft), (double)deviceTop);
-	deviceTransform->translate((double)0, (double)bandHeight);
-	deviceTransform->scale((double)1, (double)-1);
+	deviceTransform->translate((double)-deviceLeft, (double)deviceTop);
+	deviceTransform->translate(0, (double)bandHeight);
+	deviceTransform->scale(1, -1);
 	$var($BufferedImage, pBand, $new($BufferedImage, 1, 1, $BufferedImage::TYPE_3BYTE_BGR));
 	$var($PeekGraphics, peekGraphics, createPeekGraphics($(pBand->createGraphics()), this));
 	double var$4 = page->getImageableX();
@@ -1750,41 +1546,40 @@ int32_t RasterPrinterJob::printPage($Pageable* document, int32_t pageIndex) {
 	peekGraphics->transform($$new($AffineTransform, $(page->getMatrix())));
 	initPrinterGraphics(peekGraphics, pageFormatArea);
 	$var($AffineTransform, pgAt, peekGraphics->getTransform());
-	$var($AffineTransform, var$8, scaleTransform);
-	double var$9 = $nc(paper)->getWidth();
-	setGraphicsConfigInfo(var$8, var$9, paper->getHeight());
+	double var$8 = paper->getWidth();
+	setGraphicsConfigInfo(scaleTransform, var$8, paper->getHeight());
 	int32_t pageResult = $nc(painter)->print(peekGraphics, origPage, pageIndex);
 	debug_println($$str({"pageResult "_s, $$str(pageResult)}));
 	if (pageResult == $Printable::PAGE_EXISTS) {
 		debug_println($$str({"startPage "_s, $$str(pageIndex)}));
 		$var($Paper, thisPaper, page->getPaper());
-		bool var$11 = this->previousPaper == nullptr;
-		if (!var$11) {
-			double var$12 = $nc(thisPaper)->getWidth();
-			var$11 = var$12 != $nc(this->previousPaper)->getWidth();
-		}
-		bool var$10 = var$11;
+		bool var$10 = this->previousPaper == nullptr;
 		if (!var$10) {
-			double var$13 = $nc(thisPaper)->getHeight();
-			var$10 = var$13 != $nc(this->previousPaper)->getHeight();
+			double var$11 = $nc(thisPaper)->getWidth();
+			var$10 = var$11 != this->previousPaper->getWidth();
 		}
-		bool paperChanged = var$10;
+		bool var$9 = var$10;
+		if (!var$9) {
+			double var$12 = $nc(thisPaper)->getHeight();
+			var$9 = var$12 != $nc(this->previousPaper)->getHeight();
+		}
+		bool paperChanged = var$9;
 		$set(this, previousPaper, thisPaper);
 		startPage(page, painter, pageIndex, paperChanged);
 		$var($Graphics2D, pathGraphics, createPathGraphics(peekGraphics, this, painter, page, pageIndex));
 		if (pathGraphics != nullptr) {
 			pathGraphics->transform(scaleTransform);
-			double var$14 = -getPhysicalPrintableX(paper) / xScale;
-			pathGraphics->translate(var$14, -getPhysicalPrintableY(paper) / yScale);
+			double var$13 = -getPhysicalPrintableX(paper) / xScale;
+			pathGraphics->translate(var$13, -getPhysicalPrintableY(paper) / yScale);
 			pathGraphics->transform($$new($AffineTransform, $(page->getMatrix())));
 			initPrinterGraphics(pathGraphics, pageFormatArea);
 			$nc(this->redrawList)->clear();
 			$var($AffineTransform, initialTx, pathGraphics->getTransform());
 			painter->print(pathGraphics, origPage, pageIndex);
 			for (int32_t i = 0; i < $nc(this->redrawList)->size(); ++i) {
-				$var($RasterPrinterJob$GraphicsState, gstate, $cast($RasterPrinterJob$GraphicsState, $nc(this->redrawList)->get(i)));
+				$var($RasterPrinterJob$GraphicsState, gstate, $cast($RasterPrinterJob$GraphicsState, this->redrawList->get(i)));
 				pathGraphics->setTransform(initialTx);
-				$nc(($cast($PathGraphics, pathGraphics)))->redrawRegion($nc(gstate)->region, gstate->sx, gstate->sy, gstate->theClip, gstate->theTransform);
+				$cast($PathGraphics, pathGraphics)->redrawRegion($nc(gstate)->region, $nc(gstate)->sx, $nc(gstate)->sy, $nc(gstate)->theClip, $nc(gstate)->theTransform);
 			}
 		} else {
 			$var($BufferedImage, band, this->cachedBand);
@@ -1795,7 +1590,7 @@ int32_t RasterPrinterJob::printPage($Pageable* document, int32_t pageIndex) {
 				this->cachedBandHeight = bandHeight;
 			}
 			$var($Graphics2D, bandGraphics, $nc(band)->createGraphics());
-			$var($Rectangle2D$Double, clipArea, $new($Rectangle2D$Double, (double)0, (double)0, (double)bandWidth, (double)bandHeight));
+			$var($Rectangle2D$Double, clipArea, $new($Rectangle2D$Double, 0, 0, (double)bandWidth, (double)bandHeight));
 			initPrinterGraphics(bandGraphics, clipArea);
 			$var($ProxyGraphics2D, painterGraphics, $new($ProxyGraphics2D, bandGraphics, this));
 			$var($Graphics2D, clearGraphics, band->createGraphics());
@@ -1810,11 +1605,11 @@ int32_t RasterPrinterJob::printPage($Pageable* document, int32_t pageIndex) {
 				clearGraphics->fillRect(0, 0, bandWidth, bandHeight);
 				$nc(bandGraphics)->setTransform(uniformTransform);
 				bandGraphics->transform(deviceTransform);
-				deviceTransform->translate((double)0, (double)(-bandHeight));
+				deviceTransform->translate(0, (double)-bandHeight);
 				bandGraphics->transform(scaleTransform);
 				bandGraphics->transform($$new($AffineTransform, $(page->getMatrix())));
 				$var($Rectangle, clip, bandGraphics->getClipBounds());
-				$assign(clip, $nc($($nc(pgAt)->createTransformedShape(clip)))->getBounds());
+				$assign(clip, $$nc($nc(pgAt)->createTransformedShape(clip))->getBounds());
 				if ((clip == nullptr) || peekGraphics->hitsDrawingArea(clip) && (bandWidth > 0 && bandHeight > 0)) {
 					int32_t bandX = deviceLeft - deviceAddressableX;
 					if (bandX < 0) {
@@ -1826,7 +1621,7 @@ int32_t RasterPrinterJob::printPage($Pageable* document, int32_t pageIndex) {
 						bandGraphics->translate((double)0, bandY / yScale);
 						bandY = 0;
 					}
-					painterGraphics->setDelegate($cast($Graphics2D, $(bandGraphics->create())));
+					painterGraphics->setDelegate($$cast($Graphics2D, bandGraphics->create()));
 					painter->print(painterGraphics, origPage, pageIndex);
 					painterGraphics->dispose();
 					printBand(data, bandX, bandY, bandWidth, bandHeight);
@@ -1898,14 +1693,14 @@ void RasterPrinterJob::throwPrintToFile() {
 }
 
 $String* RasterPrinterJob::removeControlChars($String* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($chars, in_chars, $nc(s)->toCharArray());
 	int32_t len = in_chars->length;
 	$var($chars, out_chars, $new($chars, len));
 	int32_t pos = 0;
 	for (int32_t i = 0; i < len; ++i) {
 		char16_t c = in_chars->get(i);
-		if (c > u'\r' || c < u'\t' || c == (char16_t)0xB || c == u'\f') {
+		if (c > u'\r' || c < u'\t' || c == (char16_t)0x0b || c == u'\f') {
 			out_chars->set(pos++, c);
 		}
 	}
@@ -1934,8 +1729,8 @@ void RasterPrinterJob::setParentWindowID($PrintRequestAttributeSet* attrs) {
 	}
 }
 
-void clinit$RasterPrinterJob($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void RasterPrinterJob::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	RasterPrinterJob::DPI = 72.0f;
 	$assignStatic(RasterPrinterJob::FORCE_PIPE_PROP, "sun.java2d.print.pipeline"_s);
 	$assignStatic(RasterPrinterJob::FORCE_RASTER, "raster"_s);
@@ -1946,7 +1741,7 @@ void clinit$RasterPrinterJob($Class* class$) {
 	RasterPrinterJob::forceRaster = false;
 	RasterPrinterJob::shapeTextProp = false;
 	{
-		$var($String, forceStr, $cast($String, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($GetPropertyAction, RasterPrinterJob::FORCE_PIPE_PROP)))));
+		$var($String, forceStr, $cast($String, $AccessController::doPrivileged($$new($GetPropertyAction, RasterPrinterJob::FORCE_PIPE_PROP))));
 		if (forceStr != nullptr) {
 			if (forceStr->equalsIgnoreCase(RasterPrinterJob::FORCE_PDL)) {
 				RasterPrinterJob::forcePDL = true;
@@ -1954,7 +1749,7 @@ void clinit$RasterPrinterJob($Class* class$) {
 				RasterPrinterJob::forceRaster = true;
 			}
 		}
-		$var($String, shapeTextStr, $cast($String, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($GetPropertyAction, RasterPrinterJob::SHAPE_TEXT_PROP)))));
+		$var($String, shapeTextStr, $cast($String, $AccessController::doPrivileged($$new($GetPropertyAction, RasterPrinterJob::SHAPE_TEXT_PROP))));
 		if (shapeTextStr != nullptr) {
 			RasterPrinterJob::shapeTextProp = true;
 		}
@@ -1966,7 +1761,169 @@ RasterPrinterJob::RasterPrinterJob() {
 }
 
 $Class* RasterPrinterJob::load$($String* name, bool initialize) {
-	$loadClass(RasterPrinterJob, name, initialize, &_RasterPrinterJob_ClassInfo_, clinit$RasterPrinterJob, allocate$RasterPrinterJob);
+	$FieldInfo fieldInfos$$[] = {
+		{"PRINTER", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(RasterPrinterJob, PRINTER)},
+		{"FILE", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(RasterPrinterJob, FILE)},
+		{"STREAM", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(RasterPrinterJob, STREAM)},
+		{"MAX_UNKNOWN_PAGES", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(RasterPrinterJob, MAX_UNKNOWN_PAGES)},
+		{"PD_ALLPAGES", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(RasterPrinterJob, PD_ALLPAGES)},
+		{"PD_SELECTION", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(RasterPrinterJob, PD_SELECTION)},
+		{"PD_PAGENUMS", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(RasterPrinterJob, PD_PAGENUMS)},
+		{"PD_NOSELECTION", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(RasterPrinterJob, PD_NOSELECTION)},
+		{"MAX_BAND_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(RasterPrinterJob, MAX_BAND_SIZE)},
+		{"DPI", "F", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(RasterPrinterJob, DPI)},
+		{"FORCE_PIPE_PROP", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(RasterPrinterJob, FORCE_PIPE_PROP)},
+		{"FORCE_RASTER", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(RasterPrinterJob, FORCE_RASTER)},
+		{"FORCE_PDL", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(RasterPrinterJob, FORCE_PDL)},
+		{"SHAPE_TEXT_PROP", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(RasterPrinterJob, SHAPE_TEXT_PROP)},
+		{"forcePDL", "Z", nullptr, $PUBLIC | $STATIC, $staticField(RasterPrinterJob, forcePDL)},
+		{"forceRaster", "Z", nullptr, $PUBLIC | $STATIC, $staticField(RasterPrinterJob, forceRaster)},
+		{"shapeTextProp", "Z", nullptr, $PUBLIC | $STATIC, $staticField(RasterPrinterJob, shapeTextProp)},
+		{"cachedBandWidth", "I", nullptr, $PRIVATE, $field(RasterPrinterJob, cachedBandWidth)},
+		{"cachedBandHeight", "I", nullptr, $PRIVATE, $field(RasterPrinterJob, cachedBandHeight)},
+		{"cachedBand", "Ljava/awt/image/BufferedImage;", nullptr, $PRIVATE, $field(RasterPrinterJob, cachedBand)},
+		{"mNumCopies", "I", nullptr, $PRIVATE, $field(RasterPrinterJob, mNumCopies)},
+		{"mCollate", "Z", nullptr, $PRIVATE, $field(RasterPrinterJob, mCollate)},
+		{"mFirstPage", "I", nullptr, $PRIVATE, $field(RasterPrinterJob, mFirstPage)},
+		{"mLastPage", "I", nullptr, $PRIVATE, $field(RasterPrinterJob, mLastPage)},
+		{"previousPaper", "Ljava/awt/print/Paper;", nullptr, $PRIVATE, $field(RasterPrinterJob, previousPaper)},
+		{"mDocument", "Ljava/awt/print/Pageable;", nullptr, $PROTECTED, $field(RasterPrinterJob, mDocument)},
+		{"mDocName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(RasterPrinterJob, mDocName)},
+		{"performingPrinting", "Z", nullptr, $PROTECTED, $field(RasterPrinterJob, performingPrinting)},
+		{"userCancelled", "Z", nullptr, $PROTECTED, $field(RasterPrinterJob, userCancelled)},
+		{"printToFilePermission", "Ljava/io/FilePermission;", nullptr, $PRIVATE, $field(RasterPrinterJob, printToFilePermission)},
+		{"redrawList", "Ljava/util/ArrayList;", "Ljava/util/ArrayList<Lsun/print/RasterPrinterJob$GraphicsState;>;", $PRIVATE, $field(RasterPrinterJob, redrawList)},
+		{"copiesAttr", "I", nullptr, $PRIVATE, $field(RasterPrinterJob, copiesAttr)},
+		{"jobNameAttr", "Ljava/lang/String;", nullptr, $PRIVATE, $field(RasterPrinterJob, jobNameAttr)},
+		{"userNameAttr", "Ljava/lang/String;", nullptr, $PRIVATE, $field(RasterPrinterJob, userNameAttr)},
+		{"pageRangesAttr", "Ljavax/print/attribute/standard/PageRanges;", nullptr, $PRIVATE, $field(RasterPrinterJob, pageRangesAttr)},
+		{"printerResAttr", "Ljavax/print/attribute/standard/PrinterResolution;", nullptr, $PROTECTED, $field(RasterPrinterJob, printerResAttr)},
+		{"sidesAttr", "Ljavax/print/attribute/standard/Sides;", nullptr, $PROTECTED, $field(RasterPrinterJob, sidesAttr)},
+		{"destinationAttr", "Ljava/lang/String;", nullptr, $PROTECTED, $field(RasterPrinterJob, destinationAttr)},
+		{"noJobSheet", "Z", nullptr, $PROTECTED, $field(RasterPrinterJob, noJobSheet)},
+		{"mDestType", "I", nullptr, $PROTECTED, $field(RasterPrinterJob, mDestType)},
+		{"mDestination", "Ljava/lang/String;", nullptr, $PROTECTED, $field(RasterPrinterJob, mDestination)},
+		{"collateAttReq", "Z", nullptr, $PROTECTED, $field(RasterPrinterJob, collateAttReq)},
+		{"landscapeRotates270", "Z", nullptr, $PROTECTED, $field(RasterPrinterJob, landscapeRotates270)},
+		{"attributes", "Ljavax/print/attribute/PrintRequestAttributeSet;", nullptr, $PROTECTED, $field(RasterPrinterJob, attributes)},
+		{"myService", "Ljavax/print/PrintService;", nullptr, $PROTECTED, $field(RasterPrinterJob, myService)},
+		{"debugPrint", "Z", nullptr, $PUBLIC | $STATIC, $staticField(RasterPrinterJob, debugPrint)},
+		{"deviceWidth", "I", nullptr, $PRIVATE, $field(RasterPrinterJob, deviceWidth)},
+		{"deviceHeight", "I", nullptr, $PRIVATE, $field(RasterPrinterJob, deviceHeight)},
+		{"defaultDeviceTransform", "Ljava/awt/geom/AffineTransform;", nullptr, $PRIVATE, $field(RasterPrinterJob, defaultDeviceTransform)},
+		{"pgConfig", "Lsun/print/PrinterGraphicsConfig;", nullptr, $PRIVATE, $field(RasterPrinterJob, pgConfig)},
+		{"onTop", "Ljavax/print/attribute/standard/DialogOwner;", nullptr, $PRIVATE, $field(RasterPrinterJob, onTop)},
+		{"parentWindowID", "J", nullptr, $PRIVATE, $field(RasterPrinterJob, parentWindowID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(RasterPrinterJob, init$, void)},
+		{"abortDoc", "()V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(RasterPrinterJob, abortDoc, void)},
+		{"attributeToPageFormat", "(Ljavax/print/PrintService;Ljavax/print/attribute/PrintRequestAttributeSet;)Ljava/awt/print/PageFormat;", nullptr, $PRIVATE, $method(RasterPrinterJob, attributeToPageFormat, $PageFormat*, $PrintService*, $PrintRequestAttributeSet*)},
+		{"cancel", "()V", nullptr, $PUBLIC, $virtualMethod(RasterPrinterJob, cancel, void)},
+		{"cancelDoc", "()V", nullptr, $PROTECTED, $virtualMethod(RasterPrinterJob, cancelDoc, void), "java.awt.print.PrinterAbortException"},
+		{"checkAllowedToPrintToFile", "()Z", nullptr, $PUBLIC, $virtualMethod(RasterPrinterJob, checkAllowedToPrintToFile, bool)},
+		{"clearParentWindowID", "()V", nullptr, $PRIVATE, $method(RasterPrinterJob, clearParentWindowID, void)},
+		{"createPathGraphics", "(Lsun/print/PeekGraphics;Ljava/awt/print/PrinterJob;Ljava/awt/print/Printable;Ljava/awt/print/PageFormat;I)Ljava/awt/Graphics2D;", nullptr, $PROTECTED, $virtualMethod(RasterPrinterJob, createPathGraphics, $Graphics2D*, $PeekGraphics*, $PrinterJob*, $Printable*, $PageFormat*, int32_t)},
+		{"createPeekGraphics", "(Ljava/awt/Graphics2D;Ljava/awt/print/PrinterJob;)Lsun/print/PeekGraphics;", nullptr, $PROTECTED, $virtualMethod(RasterPrinterJob, createPeekGraphics, $PeekGraphics*, $Graphics2D*, $PrinterJob*)},
+		{"debug_println", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(RasterPrinterJob, debug_println, void, $String*)},
+		{"defaultPage", "(Ljava/awt/print/PageFormat;)Ljava/awt/print/PageFormat;", nullptr, $PUBLIC, $virtualMethod(RasterPrinterJob, defaultPage, $PageFormat*, $PageFormat*)},
+		{"endDoc", "()V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(RasterPrinterJob, endDoc, void), "java.awt.print.PrinterException"},
+		{"endPage", "(Ljava/awt/print/PageFormat;Ljava/awt/print/Printable;I)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(RasterPrinterJob, endPage, void, $PageFormat*, $Printable*, int32_t), "java.awt.print.PrinterException"},
+		{"getCollatedCopies", "()I", nullptr, $PROTECTED, $virtualMethod(RasterPrinterJob, getCollatedCopies, int32_t)},
+		{"getCopies", "()I", nullptr, $PUBLIC, $virtualMethod(RasterPrinterJob, getCopies, int32_t)},
+		{"getCopiesInt", "()I", nullptr, $PROTECTED, $virtualMethod(RasterPrinterJob, getCopiesInt, int32_t)},
+		{"getDefaultPrintableArea", "(Ljava/awt/print/PageFormat;DD)Ljavax/print/attribute/standard/MediaPrintableArea;", nullptr, $PROTECTED, $virtualMethod(RasterPrinterJob, getDefaultPrintableArea, $MediaPrintableArea*, $PageFormat*, double, double)},
+		{"getFirstPage", "()I", nullptr, $PROTECTED, $virtualMethod(RasterPrinterJob, getFirstPage, int32_t)},
+		{"getFromPageAttrib", "()I", nullptr, $PROTECTED | $FINAL, $method(RasterPrinterJob, getFromPageAttrib, int32_t)},
+		{"getJobName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RasterPrinterJob, getJobName, $String*)},
+		{"getJobNameInt", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(RasterPrinterJob, getJobNameInt, $String*)},
+		{"getLastPage", "()I", nullptr, $PROTECTED, $virtualMethod(RasterPrinterJob, getLastPage, int32_t)},
+		{"getMaxPageAttrib", "()I", nullptr, $PROTECTED | $FINAL, $method(RasterPrinterJob, getMaxPageAttrib, int32_t)},
+		{"getMediaSize", "(Ljavax/print/attribute/standard/Media;Ljavax/print/PrintService;Ljava/awt/print/PageFormat;)Ljavax/print/attribute/standard/MediaSize;", nullptr, $PROTECTED, $virtualMethod(RasterPrinterJob, getMediaSize, $MediaSize*, $Media*, $PrintService*, $PageFormat*)},
+		{"getMinPageAttrib", "()I", nullptr, $PROTECTED | $FINAL, $method(RasterPrinterJob, getMinPageAttrib, int32_t)},
+		{"getNoncollatedCopies", "()I", nullptr, $PROTECTED, $virtualMethod(RasterPrinterJob, getNoncollatedCopies, int32_t)},
+		{"getPageFormatFromAttributes", "()Ljava/awt/print/PageFormat;", nullptr, $PROTECTED, $virtualMethod(RasterPrinterJob, getPageFormatFromAttributes, $PageFormat*)},
+		{"getPageable", "()Ljava/awt/print/Pageable;", nullptr, $PROTECTED, $virtualMethod(RasterPrinterJob, getPageable, $Pageable*)},
+		{"getParentWindowID", "()J", nullptr, $PRIVATE, $method(RasterPrinterJob, getParentWindowID, int64_t)},
+		{"getPhysicalPageHeight", "(Ljava/awt/print/Paper;)D", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(RasterPrinterJob, getPhysicalPageHeight, double, $Paper*)},
+		{"getPhysicalPageWidth", "(Ljava/awt/print/Paper;)D", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(RasterPrinterJob, getPhysicalPageWidth, double, $Paper*)},
+		{"getPhysicalPrintableHeight", "(Ljava/awt/print/Paper;)D", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(RasterPrinterJob, getPhysicalPrintableHeight, double, $Paper*)},
+		{"getPhysicalPrintableWidth", "(Ljava/awt/print/Paper;)D", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(RasterPrinterJob, getPhysicalPrintableWidth, double, $Paper*)},
+		{"getPhysicalPrintableX", "(Ljava/awt/print/Paper;)D", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(RasterPrinterJob, getPhysicalPrintableX, double, $Paper*)},
+		{"getPhysicalPrintableY", "(Ljava/awt/print/Paper;)D", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(RasterPrinterJob, getPhysicalPrintableY, double, $Paper*)},
+		{"getPrintService", "()Ljavax/print/PrintService;", nullptr, $PUBLIC, $virtualMethod(RasterPrinterJob, getPrintService, $PrintService*)},
+		{"getPrinterGraphicsConfig", "()Lsun/print/PrinterGraphicsConfig;", nullptr, $SYNCHRONIZED, $virtualMethod(RasterPrinterJob, getPrinterGraphicsConfig, $PrinterGraphicsConfig*)},
+		{"getSelectAttrib", "()I", nullptr, $PROTECTED | $FINAL, $method(RasterPrinterJob, getSelectAttrib, int32_t)},
+		{"getToPageAttrib", "()I", nullptr, $PROTECTED | $FINAL, $method(RasterPrinterJob, getToPageAttrib, int32_t)},
+		{"getUserName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RasterPrinterJob, getUserName, $String*)},
+		{"getUserNameInt", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(RasterPrinterJob, getUserNameInt, $String*)},
+		{"getXRes", "()D", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(RasterPrinterJob, getXRes, double)},
+		{"getYRes", "()D", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(RasterPrinterJob, getYRes, double)},
+		{"initPrinter", "()V", nullptr, $PROTECTED, $virtualMethod(RasterPrinterJob, initPrinter, void)},
+		{"initPrinterGraphics", "(Ljava/awt/Graphics2D;Ljava/awt/geom/Rectangle2D;)V", nullptr, $PROTECTED, $virtualMethod(RasterPrinterJob, initPrinterGraphics, void, $Graphics2D*, $Rectangle2D*)},
+		{"isCancelled", "()Z", nullptr, $PUBLIC, $virtualMethod(RasterPrinterJob, isCancelled, bool)},
+		{"isCollated", "()Z", nullptr, $PROTECTED, $virtualMethod(RasterPrinterJob, isCollated, bool)},
+		{"isSupportedValue", "(Ljavax/print/attribute/Attribute;Ljavax/print/attribute/PrintRequestAttributeSet;)Z", nullptr, $PROTECTED, $virtualMethod(RasterPrinterJob, isSupportedValue, bool, $Attribute*, $PrintRequestAttributeSet*)},
+		{"lookupDefaultPrintService", "()Ljavax/print/PrintService;", nullptr, $PROTECTED | $STATIC, $staticMethod(RasterPrinterJob, lookupDefaultPrintService, $PrintService*)},
+		{"pageDialog", "(Ljava/awt/print/PageFormat;)Ljava/awt/print/PageFormat;", nullptr, $PUBLIC, $virtualMethod(RasterPrinterJob, pageDialog, $PageFormat*, $PageFormat*), "java.awt.HeadlessException"},
+		{"pageDialog", "(Ljavax/print/attribute/PrintRequestAttributeSet;)Ljava/awt/print/PageFormat;", nullptr, $PUBLIC, $virtualMethod(RasterPrinterJob, pageDialog, $PageFormat*, $PrintRequestAttributeSet*), "java.awt.HeadlessException"},
+		{"print", "()V", nullptr, $PUBLIC, $virtualMethod(RasterPrinterJob, print, void), "java.awt.print.PrinterException"},
+		{"print", "(Ljavax/print/attribute/PrintRequestAttributeSet;)V", nullptr, $PUBLIC, $virtualMethod(RasterPrinterJob, print, void, $PrintRequestAttributeSet*), "java.awt.print.PrinterException"},
+		{"printBand", "([BIIII)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(RasterPrinterJob, printBand, void, $bytes*, int32_t, int32_t, int32_t, int32_t), "java.awt.print.PrinterException"},
+		{"printDialog", "(Ljavax/print/attribute/PrintRequestAttributeSet;)Z", nullptr, $PUBLIC, $virtualMethod(RasterPrinterJob, printDialog, bool, $PrintRequestAttributeSet*), "java.awt.HeadlessException"},
+		{"printDialog", "()Z", nullptr, $PUBLIC, $virtualMethod(RasterPrinterJob, printDialog, bool), "java.awt.HeadlessException"},
+		{"printPage", "(Ljava/awt/print/Pageable;I)I", nullptr, $PROTECTED, $virtualMethod(RasterPrinterJob, printPage, int32_t, $Pageable*, int32_t), "java.awt.print.PrinterException"},
+		{"removeControlChars", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(RasterPrinterJob, removeControlChars, $String*, $String*)},
+		{"saveState", "(Ljava/awt/geom/AffineTransform;Ljava/awt/Shape;Ljava/awt/geom/Rectangle2D;DD)V", nullptr, $PUBLIC, $virtualMethod(RasterPrinterJob, saveState, void, $AffineTransform*, $Shape*, $Rectangle2D*, double, double)},
+		{"setAttributes", "(Ljavax/print/attribute/PrintRequestAttributeSet;)V", nullptr, $PROTECTED, $virtualMethod(RasterPrinterJob, setAttributes, void, $PrintRequestAttributeSet*), "java.awt.print.PrinterException"},
+		{"setCollated", "(Z)V", nullptr, $PROTECTED, $virtualMethod(RasterPrinterJob, setCollated, void, bool)},
+		{"setCopies", "(I)V", nullptr, $PUBLIC, $virtualMethod(RasterPrinterJob, setCopies, void, int32_t)},
+		{"setGraphicsConfigInfo", "(Ljava/awt/geom/AffineTransform;DD)V", nullptr, $SYNCHRONIZED, $virtualMethod(RasterPrinterJob, setGraphicsConfigInfo, void, $AffineTransform*, double, double)},
+		{"setJobName", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(RasterPrinterJob, setJobName, void, $String*)},
+		{"setPageRange", "(II)V", nullptr, $PROTECTED, $virtualMethod(RasterPrinterJob, setPageRange, void, int32_t, int32_t)},
+		{"setPageable", "(Ljava/awt/print/Pageable;)V", nullptr, $PUBLIC, $virtualMethod(RasterPrinterJob, setPageable, void, $Pageable*), "java.lang.NullPointerException"},
+		{"setParentWindowID", "(Ljavax/print/attribute/PrintRequestAttributeSet;)V", nullptr, $PRIVATE, $method(RasterPrinterJob, setParentWindowID, void, $PrintRequestAttributeSet*)},
+		{"setPrintService", "(Ljavax/print/PrintService;)V", nullptr, $PUBLIC, $virtualMethod(RasterPrinterJob, setPrintService, void, $PrintService*), "java.awt.print.PrinterException"},
+		{"setPrintable", "(Ljava/awt/print/Printable;)V", nullptr, $PUBLIC, $virtualMethod(RasterPrinterJob, setPrintable, void, $Printable*)},
+		{"setPrintable", "(Ljava/awt/print/Printable;Ljava/awt/print/PageFormat;)V", nullptr, $PUBLIC, $virtualMethod(RasterPrinterJob, setPrintable, void, $Printable*, $PageFormat*)},
+		{"setXYRes", "(DD)V", nullptr, $PROTECTED, $virtualMethod(RasterPrinterJob, setXYRes, void, double, double)},
+		{"spoolToService", "(Ljavax/print/PrintService;Ljavax/print/attribute/PrintRequestAttributeSet;)V", nullptr, $PROTECTED, $virtualMethod(RasterPrinterJob, spoolToService, void, $PrintService*, $PrintRequestAttributeSet*), "java.awt.print.PrinterException"},
+		{"startDoc", "()V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(RasterPrinterJob, startDoc, void), "java.awt.print.PrinterException"},
+		{"startPage", "(Ljava/awt/print/PageFormat;Ljava/awt/print/Printable;IZ)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(RasterPrinterJob, startPage, void, $PageFormat*, $Printable*, int32_t, bool), "java.awt.print.PrinterException"},
+		{"throwPrintToFile", "()V", nullptr, $PRIVATE, $method(RasterPrinterJob, throwPrintToFile, void)},
+		{"updateAttributesWithPageFormat", "(Ljavax/print/PrintService;Ljava/awt/print/PageFormat;Ljavax/print/attribute/PrintRequestAttributeSet;)V", nullptr, $PROTECTED, $virtualMethod(RasterPrinterJob, updateAttributesWithPageFormat, void, $PrintService*, $PageFormat*, $PrintRequestAttributeSet*)},
+		{"updatePageAttributes", "(Ljavax/print/PrintService;Ljava/awt/print/PageFormat;)V", nullptr, $PROTECTED, $virtualMethod(RasterPrinterJob, updatePageAttributes, void, $PrintService*, $PageFormat*)},
+		{"validateDestination", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(RasterPrinterJob, validateDestination, void, $String*), "java.awt.print.PrinterException"},
+		{"validatePage", "(Ljava/awt/print/PageFormat;)Ljava/awt/print/PageFormat;", nullptr, $PUBLIC, $virtualMethod(RasterPrinterJob, validatePage, $PageFormat*, $PageFormat*)},
+		{"validatePaper", "(Ljava/awt/print/Paper;Ljava/awt/print/Paper;)V", nullptr, $PROTECTED, $virtualMethod(RasterPrinterJob, validatePaper, void, $Paper*, $Paper*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.print.RasterPrinterJob$GraphicsState", "sun.print.RasterPrinterJob", "GraphicsState", $PRIVATE},
+		{"sun.print.RasterPrinterJob$4", nullptr, nullptr, 0},
+		{"sun.print.RasterPrinterJob$3", nullptr, nullptr, 0},
+		{"sun.print.RasterPrinterJob$2", nullptr, nullptr, 0},
+		{"sun.print.RasterPrinterJob$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"sun.print.RasterPrinterJob",
+		"java.awt.print.PrinterJob",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.print.RasterPrinterJob$GraphicsState,sun.print.RasterPrinterJob$4,sun.print.RasterPrinterJob$3,sun.print.RasterPrinterJob$2,sun.print.RasterPrinterJob$1"
+	};
+	$loadClass(RasterPrinterJob, name, initialize, &classInfo$$, RasterPrinterJob::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(RasterPrinterJob);
+	});
 	return class$;
 }
 

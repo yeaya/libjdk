@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xpath/internal/operations/Neg.h>
-
 #include <com/sun/org/apache/xpath/internal/Expression.h>
 #include <com/sun/org/apache/xpath/internal/XPathContext.h>
 #include <com/sun/org/apache/xpath/internal/objects/XNumber.h>
@@ -7,7 +6,6 @@
 #include <com/sun/org/apache/xpath/internal/operations/UnaryOperation.h>
 #include <jcpp.h>
 
-using $Expression = ::com::sun::org::apache::xpath::internal::Expression;
 using $XPathContext = ::com::sun::org::apache::xpath::internal::XPathContext;
 using $XNumber = ::com::sun::org::apache::xpath::internal::objects::XNumber;
 using $XObject = ::com::sun::org::apache::xpath::internal::objects::XObject;
@@ -23,31 +21,6 @@ namespace com {
 				namespace xpath {
 					namespace internal {
 						namespace operations {
-
-$FieldInfo _Neg_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(Neg, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _Neg_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Neg, init$, void)},
-	{"num", "(Lcom/sun/org/apache/xpath/internal/XPathContext;)D", nullptr, $PUBLIC, $virtualMethod(Neg, num, double, $XPathContext*), "javax.xml.transform.TransformerException"},
-	{"operate", "(Lcom/sun/org/apache/xpath/internal/objects/XObject;)Lcom/sun/org/apache/xpath/internal/objects/XObject;", nullptr, $PUBLIC, $virtualMethod(Neg, operate, $XObject*, $XObject*), "javax.xml.transform.TransformerException"},
-	{}
-};
-
-$ClassInfo _Neg_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xpath.internal.operations.Neg",
-	"com.sun.org.apache.xpath.internal.operations.UnaryOperation",
-	nullptr,
-	_Neg_FieldInfo_,
-	_Neg_MethodInfo_
-};
-
-$Object* allocate$Neg($Class* clazz) {
-	return $of($alloc(Neg));
-}
 
 void Neg::init$() {
 	$UnaryOperation::init$();
@@ -65,7 +38,27 @@ Neg::Neg() {
 }
 
 $Class* Neg::load$($String* name, bool initialize) {
-	$loadClass(Neg, name, initialize, &_Neg_ClassInfo_, allocate$Neg);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(Neg, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Neg, init$, void)},
+		{"num", "(Lcom/sun/org/apache/xpath/internal/XPathContext;)D", nullptr, $PUBLIC, $virtualMethod(Neg, num, double, $XPathContext*), "javax.xml.transform.TransformerException"},
+		{"operate", "(Lcom/sun/org/apache/xpath/internal/objects/XObject;)Lcom/sun/org/apache/xpath/internal/objects/XObject;", nullptr, $PUBLIC, $virtualMethod(Neg, operate, $XObject*, $XObject*), "javax.xml.transform.TransformerException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xpath.internal.operations.Neg",
+		"com.sun.org.apache.xpath.internal.operations.UnaryOperation",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Neg, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Neg));
+	});
 	return class$;
 }
 

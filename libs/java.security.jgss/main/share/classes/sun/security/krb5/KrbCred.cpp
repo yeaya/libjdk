@@ -1,5 +1,4 @@
 #include <sun/security/krb5/KrbCred.h>
-
 #include <sun/security/krb5/Credentials.h>
 #include <sun/security/krb5/EncryptedData.h>
 #include <sun/security/krb5/EncryptionKey.h>
@@ -31,7 +30,6 @@
 using $CredentialsArray = $Array<::sun::security::krb5::Credentials>;
 using $KrbCredInfoArray = $Array<::sun::security::krb5::internal::KrbCredInfo>;
 using $TicketArray = $Array<::sun::security::krb5::internal::Ticket>;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $Integer = ::java::lang::Integer;
@@ -59,43 +57,10 @@ namespace sun {
 	namespace security {
 		namespace krb5 {
 
-$FieldInfo _KrbCred_FieldInfo_[] = {
-	{"DEBUG", "Z", nullptr, $PRIVATE | $STATIC, $staticField(KrbCred, DEBUG)},
-	{"obuf", "[B", nullptr, $PRIVATE, $field(KrbCred, obuf)},
-	{"credMessg", "Lsun/security/krb5/internal/KRBCred;", nullptr, $PRIVATE, $field(KrbCred, credMessg)},
-	{"ticket", "Lsun/security/krb5/internal/Ticket;", nullptr, $PRIVATE, $field(KrbCred, ticket)},
-	{"encPart", "Lsun/security/krb5/internal/EncKrbCredPart;", nullptr, $PRIVATE, $field(KrbCred, encPart)},
-	{"creds", "Lsun/security/krb5/Credentials;", nullptr, $PRIVATE, $field(KrbCred, creds)},
-	{"timeStamp", "Lsun/security/krb5/internal/KerberosTime;", nullptr, $PRIVATE, $field(KrbCred, timeStamp)},
-	{}
-};
-
-$MethodInfo _KrbCred_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/krb5/Credentials;Lsun/security/krb5/Credentials;Lsun/security/krb5/EncryptionKey;)V", nullptr, $PUBLIC, $method(KrbCred, init$, void, $Credentials*, $Credentials*, $EncryptionKey*), "sun.security.krb5.KrbException,java.io.IOException"},
-	{"<init>", "([BLsun/security/krb5/EncryptionKey;)V", nullptr, $PUBLIC, $method(KrbCred, init$, void, $bytes*, $EncryptionKey*), "sun.security.krb5.KrbException,java.io.IOException"},
-	{"createMessage", "(Lsun/security/krb5/Credentials;Lsun/security/krb5/EncryptionKey;)Lsun/security/krb5/internal/KRBCred;", nullptr, 0, $virtualMethod(KrbCred, createMessage, $KRBCred*, $Credentials*, $EncryptionKey*), "sun.security.krb5.KrbException,java.io.IOException"},
-	{"getDelegatedCreds", "()[Lsun/security/krb5/Credentials;", nullptr, $PUBLIC, $virtualMethod(KrbCred, getDelegatedCreds, $CredentialsArray*)},
-	{"getMessage", "()[B", nullptr, $PUBLIC, $virtualMethod(KrbCred, getMessage, $bytes*)},
-	{}
-};
-
-$ClassInfo _KrbCred_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.krb5.KrbCred",
-	"java.lang.Object",
-	nullptr,
-	_KrbCred_FieldInfo_,
-	_KrbCred_MethodInfo_
-};
-
-$Object* allocate$KrbCred($Class* clazz) {
-	return $of($alloc(KrbCred));
-}
-
 bool KrbCred::DEBUG = false;
 
 void KrbCred::init$($Credentials* tgt, $Credentials* serviceTicket, $EncryptionKey* key) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, obuf, nullptr);
 	$set(this, credMessg, nullptr);
 	$set(this, ticket, nullptr);
@@ -104,7 +69,7 @@ void KrbCred::init$($Credentials* tgt, $Credentials* serviceTicket, $EncryptionK
 	$set(this, timeStamp, nullptr);
 	$var($PrincipalName, client, $nc(tgt)->getClient());
 	$var($PrincipalName, tgService, tgt->getServer());
-	if (!$nc($($nc(serviceTicket)->getClient()))->equals(client)) {
+	if (!$$nc($nc(serviceTicket)->getClient())->equals(client)) {
 		$throwNew($KrbException, $Krb5::KRB_ERR_GENERIC, "Client principal does not match"_s);
 	}
 	$var($KDCOptions, options, $new($KDCOptions));
@@ -116,7 +81,7 @@ void KrbCred::init$($Credentials* tgt, $Credentials* serviceTicket, $EncryptionK
 }
 
 $KRBCred* KrbCred::createMessage($Credentials* delegatedCreds, $EncryptionKey* key) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($EncryptionKey, sessionKey, $nc(delegatedCreds)->getSessionKey());
 	$var($PrincipalName, princ, delegatedCreds->getClient());
 	$var($PrincipalName, tgService, delegatedCreds->getServer());
@@ -131,7 +96,7 @@ $KRBCred* KrbCred::createMessage($Credentials* delegatedCreds, $EncryptionKey* k
 }
 
 void KrbCred::init$($bytes* asn1Message, $EncryptionKey* key$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($EncryptionKey, key, key$renamed);
 	$set(this, obuf, nullptr);
 	$set(this, credMessg, nullptr);
@@ -140,8 +105,8 @@ void KrbCred::init$($bytes* asn1Message, $EncryptionKey* key$renamed) {
 	$set(this, creds, nullptr);
 	$set(this, timeStamp, nullptr);
 	$set(this, credMessg, $new($KRBCred, asn1Message));
-	$set(this, ticket, $nc($nc(this->credMessg)->tickets)->get(0));
-	if ($nc($nc(this->credMessg)->encPart)->getEType() == 0) {
+	$set(this, ticket, $nc(this->credMessg->tickets)->get(0));
+	if ($nc(this->credMessg->encPart)->getEType() == 0) {
 		$init($EncryptionKey);
 		$assign(key, $EncryptionKey::NULL_KEY);
 	}
@@ -175,7 +140,7 @@ $bytes* KrbCred::getMessage() {
 	return this->obuf;
 }
 
-void clinit$KrbCred($Class* class$) {
+void KrbCred::clinit$($Class* clazz) {
 	$init($Krb5);
 	KrbCred::DEBUG = $Krb5::DEBUG;
 }
@@ -184,7 +149,35 @@ KrbCred::KrbCred() {
 }
 
 $Class* KrbCred::load$($String* name, bool initialize) {
-	$loadClass(KrbCred, name, initialize, &_KrbCred_ClassInfo_, clinit$KrbCred, allocate$KrbCred);
+	$FieldInfo fieldInfos$$[] = {
+		{"DEBUG", "Z", nullptr, $PRIVATE | $STATIC, $staticField(KrbCred, DEBUG)},
+		{"obuf", "[B", nullptr, $PRIVATE, $field(KrbCred, obuf)},
+		{"credMessg", "Lsun/security/krb5/internal/KRBCred;", nullptr, $PRIVATE, $field(KrbCred, credMessg)},
+		{"ticket", "Lsun/security/krb5/internal/Ticket;", nullptr, $PRIVATE, $field(KrbCred, ticket)},
+		{"encPart", "Lsun/security/krb5/internal/EncKrbCredPart;", nullptr, $PRIVATE, $field(KrbCred, encPart)},
+		{"creds", "Lsun/security/krb5/Credentials;", nullptr, $PRIVATE, $field(KrbCred, creds)},
+		{"timeStamp", "Lsun/security/krb5/internal/KerberosTime;", nullptr, $PRIVATE, $field(KrbCred, timeStamp)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/security/krb5/Credentials;Lsun/security/krb5/Credentials;Lsun/security/krb5/EncryptionKey;)V", nullptr, $PUBLIC, $method(KrbCred, init$, void, $Credentials*, $Credentials*, $EncryptionKey*), "sun.security.krb5.KrbException,java.io.IOException"},
+		{"<init>", "([BLsun/security/krb5/EncryptionKey;)V", nullptr, $PUBLIC, $method(KrbCred, init$, void, $bytes*, $EncryptionKey*), "sun.security.krb5.KrbException,java.io.IOException"},
+		{"createMessage", "(Lsun/security/krb5/Credentials;Lsun/security/krb5/EncryptionKey;)Lsun/security/krb5/internal/KRBCred;", nullptr, 0, $virtualMethod(KrbCred, createMessage, $KRBCred*, $Credentials*, $EncryptionKey*), "sun.security.krb5.KrbException,java.io.IOException"},
+		{"getDelegatedCreds", "()[Lsun/security/krb5/Credentials;", nullptr, $PUBLIC, $virtualMethod(KrbCred, getDelegatedCreds, $CredentialsArray*)},
+		{"getMessage", "()[B", nullptr, $PUBLIC, $virtualMethod(KrbCred, getMessage, $bytes*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.krb5.KrbCred",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(KrbCred, name, initialize, &classInfo$$, KrbCred::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(KrbCred);
+	});
 	return class$;
 }
 

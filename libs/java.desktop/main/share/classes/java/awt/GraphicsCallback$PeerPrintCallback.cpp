@@ -1,5 +1,4 @@
 #include <java/awt/GraphicsCallback$PeerPrintCallback.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Graphics.h>
 #include <java/awt/GraphicsCallback.h>
@@ -10,7 +9,6 @@
 using $Component = ::java::awt::Component;
 using $Graphics = ::java::awt::Graphics;
 using $GraphicsCallback = ::java::awt::GraphicsCallback;
-using $ComponentPeer = ::java::awt::peer::ComponentPeer;
 using $LightweightPeer = ::java::awt::peer::LightweightPeer;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -19,43 +17,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace java {
 	namespace awt {
-
-$FieldInfo _GraphicsCallback$PeerPrintCallback_FieldInfo_[] = {
-	{"instance", "Ljava/awt/GraphicsCallback$PeerPrintCallback;", nullptr, $PRIVATE | $STATIC, $staticField(GraphicsCallback$PeerPrintCallback, instance)},
-	{}
-};
-
-$MethodInfo _GraphicsCallback$PeerPrintCallback_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(GraphicsCallback$PeerPrintCallback, init$, void)},
-	{"getInstance", "()Ljava/awt/GraphicsCallback$PeerPrintCallback;", nullptr, $STATIC, $staticMethod(GraphicsCallback$PeerPrintCallback, getInstance, GraphicsCallback$PeerPrintCallback*)},
-	{"run", "(Ljava/awt/Component;Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(GraphicsCallback$PeerPrintCallback, run, void, $Component*, $Graphics*)},
-	{}
-};
-
-$InnerClassInfo _GraphicsCallback$PeerPrintCallback_InnerClassesInfo_[] = {
-	{"java.awt.GraphicsCallback$PeerPrintCallback", "java.awt.GraphicsCallback", "PeerPrintCallback", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _GraphicsCallback$PeerPrintCallback_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.awt.GraphicsCallback$PeerPrintCallback",
-	"java.awt.GraphicsCallback",
-	nullptr,
-	_GraphicsCallback$PeerPrintCallback_FieldInfo_,
-	_GraphicsCallback$PeerPrintCallback_MethodInfo_,
-	nullptr,
-	nullptr,
-	_GraphicsCallback$PeerPrintCallback_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.awt.GraphicsCallback"
-};
-
-$Object* allocate$GraphicsCallback$PeerPrintCallback($Class* clazz) {
-	return $of($alloc(GraphicsCallback$PeerPrintCallback));
-}
 
 GraphicsCallback$PeerPrintCallback* GraphicsCallback$PeerPrintCallback::instance = nullptr;
 
@@ -77,7 +38,7 @@ GraphicsCallback$PeerPrintCallback* GraphicsCallback$PeerPrintCallback::getInsta
 	return GraphicsCallback$PeerPrintCallback::instance;
 }
 
-void clinit$GraphicsCallback$PeerPrintCallback($Class* class$) {
+void GraphicsCallback$PeerPrintCallback::clinit$($Class* clazz) {
 	$assignStatic(GraphicsCallback$PeerPrintCallback::instance, $new(GraphicsCallback$PeerPrintCallback));
 }
 
@@ -85,7 +46,38 @@ GraphicsCallback$PeerPrintCallback::GraphicsCallback$PeerPrintCallback() {
 }
 
 $Class* GraphicsCallback$PeerPrintCallback::load$($String* name, bool initialize) {
-	$loadClass(GraphicsCallback$PeerPrintCallback, name, initialize, &_GraphicsCallback$PeerPrintCallback_ClassInfo_, clinit$GraphicsCallback$PeerPrintCallback, allocate$GraphicsCallback$PeerPrintCallback);
+	$FieldInfo fieldInfos$$[] = {
+		{"instance", "Ljava/awt/GraphicsCallback$PeerPrintCallback;", nullptr, $PRIVATE | $STATIC, $staticField(GraphicsCallback$PeerPrintCallback, instance)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(GraphicsCallback$PeerPrintCallback, init$, void)},
+		{"getInstance", "()Ljava/awt/GraphicsCallback$PeerPrintCallback;", nullptr, $STATIC, $staticMethod(GraphicsCallback$PeerPrintCallback, getInstance, GraphicsCallback$PeerPrintCallback*)},
+		{"run", "(Ljava/awt/Component;Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(GraphicsCallback$PeerPrintCallback, run, void, $Component*, $Graphics*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.awt.GraphicsCallback$PeerPrintCallback", "java.awt.GraphicsCallback", "PeerPrintCallback", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.awt.GraphicsCallback$PeerPrintCallback",
+		"java.awt.GraphicsCallback",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.awt.GraphicsCallback"
+	};
+	$loadClass(GraphicsCallback$PeerPrintCallback, name, initialize, &classInfo$$, GraphicsCallback$PeerPrintCallback::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(GraphicsCallback$PeerPrintCallback);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/frame/WindowUpdateFrame.h>
-
 #include <jdk/internal/net/http/frame/Http2Frame.h>
 #include <jcpp.h>
 
@@ -16,34 +15,6 @@ namespace jdk {
 			namespace http {
 				namespace frame {
 
-$FieldInfo _WindowUpdateFrame_FieldInfo_[] = {
-	{"windowUpdate", "I", nullptr, $PRIVATE | $FINAL, $field(WindowUpdateFrame, windowUpdate)},
-	{"TYPE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(WindowUpdateFrame, TYPE)},
-	{}
-};
-
-$MethodInfo _WindowUpdateFrame_MethodInfo_[] = {
-	{"<init>", "(II)V", nullptr, $PUBLIC, $method(WindowUpdateFrame, init$, void, int32_t, int32_t)},
-	{"getUpdate", "()I", nullptr, $PUBLIC, $virtualMethod(WindowUpdateFrame, getUpdate, int32_t)},
-	{"length", "()I", nullptr, 0, $virtualMethod(WindowUpdateFrame, length, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(WindowUpdateFrame, toString, $String*)},
-	{"type", "()I", nullptr, $PUBLIC, $virtualMethod(WindowUpdateFrame, type, int32_t)},
-	{}
-};
-
-$ClassInfo _WindowUpdateFrame_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"jdk.internal.net.http.frame.WindowUpdateFrame",
-	"jdk.internal.net.http.frame.Http2Frame",
-	nullptr,
-	_WindowUpdateFrame_FieldInfo_,
-	_WindowUpdateFrame_MethodInfo_
-};
-
-$Object* allocate$WindowUpdateFrame($Class* clazz) {
-	return $of($alloc(WindowUpdateFrame));
-}
-
 void WindowUpdateFrame::init$(int32_t streamid, int32_t windowUpdate) {
 	$Http2Frame::init$(streamid, 0);
 	this->windowUpdate = windowUpdate;
@@ -58,7 +29,7 @@ int32_t WindowUpdateFrame::length() {
 }
 
 $String* WindowUpdateFrame::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, sb, $new($StringBuilder));
 	sb->append($($Http2Frame::toString()))->append(" WindowUpdate: "_s)->append(this->windowUpdate);
 	return sb->toString();
@@ -72,7 +43,30 @@ WindowUpdateFrame::WindowUpdateFrame() {
 }
 
 $Class* WindowUpdateFrame::load$($String* name, bool initialize) {
-	$loadClass(WindowUpdateFrame, name, initialize, &_WindowUpdateFrame_ClassInfo_, allocate$WindowUpdateFrame);
+	$FieldInfo fieldInfos$$[] = {
+		{"windowUpdate", "I", nullptr, $PRIVATE | $FINAL, $field(WindowUpdateFrame, windowUpdate)},
+		{"TYPE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(WindowUpdateFrame, TYPE)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(II)V", nullptr, $PUBLIC, $method(WindowUpdateFrame, init$, void, int32_t, int32_t)},
+		{"getUpdate", "()I", nullptr, $PUBLIC, $virtualMethod(WindowUpdateFrame, getUpdate, int32_t)},
+		{"length", "()I", nullptr, 0, $virtualMethod(WindowUpdateFrame, length, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(WindowUpdateFrame, toString, $String*)},
+		{"type", "()I", nullptr, $PUBLIC, $virtualMethod(WindowUpdateFrame, type, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"jdk.internal.net.http.frame.WindowUpdateFrame",
+		"jdk.internal.net.http.frame.Http2Frame",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(WindowUpdateFrame, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WindowUpdateFrame);
+	});
 	return class$;
 }
 

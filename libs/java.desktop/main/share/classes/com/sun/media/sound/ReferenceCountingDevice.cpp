@@ -1,5 +1,4 @@
 #include <com/sun/media/sound/ReferenceCountingDevice.h>
-
 #include <javax/sound/midi/Receiver.h>
 #include <javax/sound/midi/Transmitter.h>
 #include <jcpp.h>
@@ -14,27 +13,23 @@ namespace com {
 		namespace media {
 			namespace sound {
 
-$MethodInfo _ReferenceCountingDevice_MethodInfo_[] = {
-	{"getReceiverReferenceCounting", "()Ljavax/sound/midi/Receiver;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ReferenceCountingDevice, getReceiverReferenceCounting, $Receiver*), "javax.sound.midi.MidiUnavailableException"},
-	{"getTransmitterReferenceCounting", "()Ljavax/sound/midi/Transmitter;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ReferenceCountingDevice, getTransmitterReferenceCounting, $Transmitter*), "javax.sound.midi.MidiUnavailableException"},
-	{}
-};
-
-$ClassInfo _ReferenceCountingDevice_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.media.sound.ReferenceCountingDevice",
-	nullptr,
-	nullptr,
-	nullptr,
-	_ReferenceCountingDevice_MethodInfo_
-};
-
-$Object* allocate$ReferenceCountingDevice($Class* clazz) {
-	return $of($alloc(ReferenceCountingDevice));
-}
-
 $Class* ReferenceCountingDevice::load$($String* name, bool initialize) {
-	$loadClass(ReferenceCountingDevice, name, initialize, &_ReferenceCountingDevice_ClassInfo_, allocate$ReferenceCountingDevice);
+	$MethodInfo methodInfos$$[] = {
+		{"getReceiverReferenceCounting", "()Ljavax/sound/midi/Receiver;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ReferenceCountingDevice, getReceiverReferenceCounting, $Receiver*), "javax.sound.midi.MidiUnavailableException"},
+		{"getTransmitterReferenceCounting", "()Ljavax/sound/midi/Transmitter;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ReferenceCountingDevice, getTransmitterReferenceCounting, $Transmitter*), "javax.sound.midi.MidiUnavailableException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.media.sound.ReferenceCountingDevice",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ReferenceCountingDevice, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ReferenceCountingDevice);
+	});
 	return class$;
 }
 

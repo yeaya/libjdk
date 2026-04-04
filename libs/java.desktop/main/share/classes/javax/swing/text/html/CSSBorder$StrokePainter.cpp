@@ -1,5 +1,4 @@
 #include <javax/swing/text/html/CSSBorder$StrokePainter.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Graphics.h>
 #include <java/awt/Rectangle.h>
@@ -23,46 +22,14 @@ namespace javax {
 		namespace text {
 			namespace html {
 
-$MethodInfo _CSSBorder$StrokePainter_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(CSSBorder$StrokePainter, init$, void)},
-	{"paintStrokes", "(Ljava/awt/Rectangle;Ljava/awt/Graphics;I[I[Ljava/awt/Color;)V", nullptr, 0, $virtualMethod(CSSBorder$StrokePainter, paintStrokes, void, $Rectangle*, $Graphics*, int32_t, $ints*, $ColorArray*)},
-	{}
-};
-
-$InnerClassInfo _CSSBorder$StrokePainter_InnerClassesInfo_[] = {
-	{"javax.swing.text.html.CSSBorder$StrokePainter", "javax.swing.text.html.CSSBorder", "StrokePainter", $STATIC | $ABSTRACT},
-	{"javax.swing.text.html.CSSBorder$BorderPainter", "javax.swing.text.html.CSSBorder", "BorderPainter", $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _CSSBorder$StrokePainter_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"javax.swing.text.html.CSSBorder$StrokePainter",
-	"java.lang.Object",
-	"javax.swing.text.html.CSSBorder$BorderPainter",
-	nullptr,
-	_CSSBorder$StrokePainter_MethodInfo_,
-	nullptr,
-	nullptr,
-	_CSSBorder$StrokePainter_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.html.CSSBorder"
-};
-
-$Object* allocate$CSSBorder$StrokePainter($Class* clazz) {
-	return $of($alloc(CSSBorder$StrokePainter));
-}
-
 void CSSBorder$StrokePainter::init$() {
 }
 
 void CSSBorder$StrokePainter::paintStrokes($Rectangle* r, $Graphics* g, int32_t axis, $ints* lengthPattern, $ColorArray* colorPattern) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool xAxis = (axis == $View::X_AXIS);
 	int32_t start = 0;
-	int32_t end = (xAxis ? $nc(r)->width : r->height);
+	int32_t end = (xAxis ? $nc(r)->width : $nc(r)->height);
 	while (start < end) {
 		for (int32_t i = 0; i < $nc(lengthPattern)->length; ++i) {
 			if (start >= end) {
@@ -71,7 +38,7 @@ void CSSBorder$StrokePainter::paintStrokes($Rectangle* r, $Graphics* g, int32_t 
 			int32_t length = lengthPattern->get(i);
 			$var($Color, c, $nc(colorPattern)->get(i));
 			if (c != nullptr) {
-				int32_t x = r->x + (xAxis ? start : 0);
+				int32_t x = $nc(r)->x + (xAxis ? start : 0);
 				int32_t y = r->y + (xAxis ? 0 : start);
 				int32_t width = xAxis ? length : r->width;
 				int32_t height = xAxis ? r->height : length;
@@ -87,7 +54,34 @@ CSSBorder$StrokePainter::CSSBorder$StrokePainter() {
 }
 
 $Class* CSSBorder$StrokePainter::load$($String* name, bool initialize) {
-	$loadClass(CSSBorder$StrokePainter, name, initialize, &_CSSBorder$StrokePainter_ClassInfo_, allocate$CSSBorder$StrokePainter);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(CSSBorder$StrokePainter, init$, void)},
+		{"paintStrokes", "(Ljava/awt/Rectangle;Ljava/awt/Graphics;I[I[Ljava/awt/Color;)V", nullptr, 0, $virtualMethod(CSSBorder$StrokePainter, paintStrokes, void, $Rectangle*, $Graphics*, int32_t, $ints*, $ColorArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.html.CSSBorder$StrokePainter", "javax.swing.text.html.CSSBorder", "StrokePainter", $STATIC | $ABSTRACT},
+		{"javax.swing.text.html.CSSBorder$BorderPainter", "javax.swing.text.html.CSSBorder", "BorderPainter", $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"javax.swing.text.html.CSSBorder$StrokePainter",
+		"java.lang.Object",
+		"javax.swing.text.html.CSSBorder$BorderPainter",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.html.CSSBorder"
+	};
+	$loadClass(CSSBorder$StrokePainter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CSSBorder$StrokePainter);
+	});
 	return class$;
 }
 

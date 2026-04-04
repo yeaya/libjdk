@@ -31,6 +31,7 @@ class Big5_HKSCS_2001$Decoder : public ::sun::nio::cs::HKSCS$Decoder {
 public:
 	Big5_HKSCS_2001$Decoder();
 	using ::sun::nio::cs::HKSCS$Decoder::decode;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::nio::charset::Charset* cs);
 	static ::sun::nio::cs::DoubleByte$Decoder* big5;
 	static $Array<char16_t, 2>* b2cBmp;

@@ -182,6 +182,7 @@ class LWCToolkit : public ::sun::lwawt::LWToolkit {
 public:
 	LWCToolkit();
 	using ::sun::lwawt::LWToolkit::createImage;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void activateApplicationIgnoringOtherApps();
 	virtual bool areExtraMouseButtonsEnabled() override;

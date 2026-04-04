@@ -1,5 +1,4 @@
 #include <sun/lwawt/LWTextFieldPeer.h>
-
 #include <java/awt/AWTEvent.h>
 #include <java/awt/BufferCapabilities$FlipContents.h>
 #include <java/awt/BufferCapabilities.h>
@@ -12,10 +11,8 @@
 #include <java/awt/GraphicsConfiguration.h>
 #include <java/awt/Image.h>
 #include <java/awt/Point.h>
-#include <java/awt/TextComponent.h>
 #include <java/awt/TextField.h>
 #include <java/awt/event/ActionEvent.h>
-#include <java/awt/event/ActionListener.h>
 #include <java/awt/event/FocusEvent$Cause.h>
 #include <java/awt/event/FocusEvent.h>
 #include <java/awt/event/PaintEvent.h>
@@ -53,10 +50,8 @@ using $Graphics = ::java::awt::Graphics;
 using $GraphicsConfiguration = ::java::awt::GraphicsConfiguration;
 using $Image = ::java::awt::Image;
 using $Point = ::java::awt::Point;
-using $TextComponent = ::java::awt::TextComponent;
 using $TextField = ::java::awt::TextField;
 using $ActionEvent = ::java::awt::event::ActionEvent;
-using $ActionListener = ::java::awt::event::ActionListener;
 using $FocusEvent = ::java::awt::event::FocusEvent;
 using $FocusEvent$Cause = ::java::awt::event::FocusEvent$Cause;
 using $PaintEvent = ::java::awt::event::PaintEvent;
@@ -82,93 +77,6 @@ using $PlatformComponent = ::sun::lwawt::PlatformComponent;
 
 namespace sun {
 	namespace lwawt {
-
-$MethodInfo _LWTextFieldPeer_MethodInfo_[] = {
-	{"*applyShape", "(Lsun/java2d/pipe/Region;)V", nullptr, $PUBLIC | $FINAL},
-	{"*canDetermineObscurity", "()Z", nullptr, $PUBLIC},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*coalescePaintEvent", "(Ljava/awt/event/PaintEvent;)V", nullptr, $PUBLIC},
-	{"*createBuffers", "(ILjava/awt/BufferCapabilities;)V", nullptr, $PUBLIC | $FINAL},
-	{"*createImage", "(II)Ljava/awt/Image;", nullptr, $PUBLIC | $FINAL},
-	{"*createVolatileImage", "(II)Ljava/awt/image/VolatileImage;", nullptr, $PUBLIC | $FINAL},
-	{"*destroyBuffers", "()V", nullptr, $PUBLIC | $FINAL},
-	{"*dispose", "()V", nullptr, $PUBLIC | $FINAL},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*flip", "(IIIILjava/awt/BufferCapabilities$FlipContents;)V", nullptr, $PUBLIC | $FINAL},
-	{"*getBackBuffer", "()Ljava/awt/Image;", nullptr, $PUBLIC | $FINAL},
-	{"*getCaretPosition", "()I", nullptr, $PUBLIC | $FINAL},
-	{"*getColorModel", "()Ljava/awt/image/ColorModel;", nullptr, $PUBLIC},
-	{"*getFontMetrics", "(Ljava/awt/Font;)Ljava/awt/FontMetrics;", nullptr, $PUBLIC},
-	{"*getGraphics", "()Ljava/awt/Graphics;", nullptr, $PUBLIC},
-	{"*getGraphicsConfiguration", "()Ljava/awt/GraphicsConfiguration;", nullptr, $PUBLIC},
-	{"*getInputMethodRequests", "()Ljava/awt/im/InputMethodRequests;", nullptr, $PUBLIC | $FINAL},
-	{"*getLocationOnScreen", "()Ljava/awt/Point;", nullptr, $PUBLIC},
-	{"*getMinimumSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC},
-	{"*getPreferredSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC},
-	{"*getSelectionEnd", "()I", nullptr, $PUBLIC | $FINAL},
-	{"*getSelectionStart", "()I", nullptr, $PUBLIC | $FINAL},
-	{"*getText", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL},
-	{"*handleEvent", "(Ljava/awt/AWTEvent;)V", nullptr, $PUBLIC},
-	{"*handlesWheelScrolling", "()Z", nullptr, $PUBLIC},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/awt/TextField;Lsun/lwawt/PlatformComponent;)V", nullptr, 0, $method(LWTextFieldPeer, init$, void, $TextField*, $PlatformComponent*)},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(LWTextFieldPeer, actionPerformed, void, $ActionEvent*)},
-	{"createDelegate", "()Ljavax/swing/JPasswordField;", nullptr, 0, $virtualMethod(LWTextFieldPeer, createDelegate, $JComponent*)},
-	{"getMinimumSize", "(I)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(LWTextFieldPeer, getMinimumSize, $Dimension*, int32_t)},
-	{"getPreferredSize", "(I)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(LWTextFieldPeer, getPreferredSize, $Dimension*, int32_t)},
-	{"getTextComponent", "()Ljavax/swing/text/JTextComponent;", nullptr, $PUBLIC, $virtualMethod(LWTextFieldPeer, getTextComponent, $JTextComponent*)},
-	{"handleJavaFocusEvent", "(Ljava/awt/event/FocusEvent;)V", nullptr, 0, $virtualMethod(LWTextFieldPeer, handleJavaFocusEvent, void, $FocusEvent*)},
-	{"initializeImpl", "()V", nullptr, 0, $virtualMethod(LWTextFieldPeer, initializeImpl, void)},
-	{"*isFocusable", "()Z", nullptr, $PUBLIC | $FINAL},
-	{"*isObscured", "()Z", nullptr, $PUBLIC},
-	{"*isReparentSupported", "()Z", nullptr, $PUBLIC},
-	{"*layout", "()V", nullptr, $PUBLIC},
-	{"*paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC},
-	{"*print", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC},
-	{"*reparent", "(Ljava/awt/peer/ContainerPeer;)V", nullptr, $PUBLIC},
-	{"*requestFocus", "(Ljava/awt/Component;ZZJLjava/awt/event/FocusEvent$Cause;)Z", nullptr, $PUBLIC},
-	{"*select", "(II)V", nullptr, $PUBLIC | $FINAL},
-	{"*setBackground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC},
-	{"*setBounds", "(IIIII)V", nullptr, $PUBLIC},
-	{"*setCaretPosition", "(I)V", nullptr, $PUBLIC | $FINAL},
-	{"setEchoChar", "(C)V", nullptr, $PUBLIC, $virtualMethod(LWTextFieldPeer, setEchoChar, void, char16_t)},
-	{"*setEditable", "(Z)V", nullptr, $PUBLIC | $FINAL},
-	{"*setText", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $FINAL},
-	{"*updateGraphicsData", "(Ljava/awt/GraphicsConfiguration;)Z", nullptr, $PUBLIC},
-	{"*setForeground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC},
-	{"*setFont", "(Ljava/awt/Font;)V", nullptr, $PUBLIC},
-	{"*setEnabled", "(Z)V", nullptr, $PUBLIC},
-	{"*setVisible", "(Z)V", nullptr, $PUBLIC},
-	{"*setZOrder", "(Ljava/awt/peer/ComponentPeer;)V", nullptr, $PUBLIC},
-	{"*updateCursorImmediately", "()V", nullptr, $PUBLIC},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _LWTextFieldPeer_InnerClassesInfo_[] = {
-	{"sun.lwawt.LWTextFieldPeer$JPasswordFieldDelegate", "sun.lwawt.LWTextFieldPeer", "JPasswordFieldDelegate", $PRIVATE | $FINAL},
-	{}
-};
-
-$ClassInfo _LWTextFieldPeer_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.lwawt.LWTextFieldPeer",
-	"sun.lwawt.LWTextComponentPeer",
-	"java.awt.peer.TextFieldPeer,java.awt.event.ActionListener",
-	nullptr,
-	_LWTextFieldPeer_MethodInfo_,
-	"Lsun/lwawt/LWTextComponentPeer<Ljava/awt/TextField;Ljavax/swing/JPasswordField;>;Ljava/awt/peer/TextFieldPeer;Ljava/awt/event/ActionListener;",
-	nullptr,
-	_LWTextFieldPeer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.lwawt.LWTextFieldPeer$JPasswordFieldDelegate"
-};
-
-$Object* allocate$LWTextFieldPeer($Class* clazz) {
-	return $of($alloc(LWTextFieldPeer));
-}
 
 void LWTextFieldPeer::setEditable(bool editable) {
 	this->$LWTextComponentPeer::setEditable(editable);
@@ -379,11 +287,11 @@ $JComponent* LWTextFieldPeer::createDelegate() {
 }
 
 void LWTextFieldPeer::initializeImpl() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$LWTextComponentPeer::initializeImpl();
-	setEchoChar($nc(($cast($TextField, $(getTarget()))))->getEchoChar());
+	setEchoChar($$sure($TextField, getTarget())->getEchoChar());
 	$synchronized(getDelegateLock()) {
-		$nc(($cast($JPasswordField, $(getDelegate()))))->addActionListener(this);
+		$$sure($JPasswordField, getDelegate())->addActionListener(this);
 	}
 }
 
@@ -392,9 +300,9 @@ $JTextComponent* LWTextFieldPeer::getTextComponent() {
 }
 
 void LWTextFieldPeer::setEchoChar(char16_t echoChar) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized(getDelegateLock()) {
-		$nc(($cast($JPasswordField, $(getDelegate()))))->setEchoChar(echoChar);
+		$$sure($JPasswordField, getDelegate())->setEchoChar(echoChar);
 		bool cutCopyAllowed = false;
 		$var($String, focusInputMapKey, nullptr);
 		if (echoChar != 0) {
@@ -404,7 +312,7 @@ void LWTextFieldPeer::setEchoChar(char16_t echoChar) {
 			cutCopyAllowed = true;
 			$assign(focusInputMapKey, "TextField.focusInputMap"_s);
 		}
-		$nc(($cast($JPasswordField, $(getDelegate()))))->putClientProperty("JPasswordField.cutCopyAllowed"_s, $($Boolean::valueOf(cutCopyAllowed)));
+		$$sure($JPasswordField, getDelegate())->putClientProperty("JPasswordField.cutCopyAllowed"_s, $($Boolean::valueOf(cutCopyAllowed)));
 		$var($InputMap, inputMap, $cast($InputMap, $UIManager::get(focusInputMapKey)));
 		$SwingUtilities::replaceUIInputMap($(getDelegate()), $JComponent::WHEN_FOCUSED, inputMap);
 	}
@@ -419,8 +327,8 @@ $Dimension* LWTextFieldPeer::getMinimumSize(int32_t columns) {
 }
 
 void LWTextFieldPeer::actionPerformed($ActionEvent* e) {
-	$useLocalCurrentObjectStackCache();
-	$var($Object, var$0, $of(getTarget()));
+	$useLocalObjectStack();
+	$var($Object, var$0, getTarget());
 	$var($String, var$1, getText());
 	int64_t var$2 = $nc(e)->getWhen();
 	postEvent($$new($ActionEvent, var$0, $ActionEvent::ACTION_PERFORMED, var$1, var$2, e->getModifiers()));
@@ -437,7 +345,89 @@ LWTextFieldPeer::LWTextFieldPeer() {
 }
 
 $Class* LWTextFieldPeer::load$($String* name, bool initialize) {
-	$loadClass(LWTextFieldPeer, name, initialize, &_LWTextFieldPeer_ClassInfo_, allocate$LWTextFieldPeer);
+	$MethodInfo methodInfos$$[] = {
+		{"*applyShape", "(Lsun/java2d/pipe/Region;)V", nullptr, $PUBLIC | $FINAL},
+		{"*canDetermineObscurity", "()Z", nullptr, $PUBLIC},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*coalescePaintEvent", "(Ljava/awt/event/PaintEvent;)V", nullptr, $PUBLIC},
+		{"*createBuffers", "(ILjava/awt/BufferCapabilities;)V", nullptr, $PUBLIC | $FINAL},
+		{"*createImage", "(II)Ljava/awt/Image;", nullptr, $PUBLIC | $FINAL},
+		{"*createVolatileImage", "(II)Ljava/awt/image/VolatileImage;", nullptr, $PUBLIC | $FINAL},
+		{"*destroyBuffers", "()V", nullptr, $PUBLIC | $FINAL},
+		{"*dispose", "()V", nullptr, $PUBLIC | $FINAL},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*flip", "(IIIILjava/awt/BufferCapabilities$FlipContents;)V", nullptr, $PUBLIC | $FINAL},
+		{"*getBackBuffer", "()Ljava/awt/Image;", nullptr, $PUBLIC | $FINAL},
+		{"*getCaretPosition", "()I", nullptr, $PUBLIC | $FINAL},
+		{"*getColorModel", "()Ljava/awt/image/ColorModel;", nullptr, $PUBLIC},
+		{"*getFontMetrics", "(Ljava/awt/Font;)Ljava/awt/FontMetrics;", nullptr, $PUBLIC},
+		{"*getGraphics", "()Ljava/awt/Graphics;", nullptr, $PUBLIC},
+		{"*getGraphicsConfiguration", "()Ljava/awt/GraphicsConfiguration;", nullptr, $PUBLIC},
+		{"*getInputMethodRequests", "()Ljava/awt/im/InputMethodRequests;", nullptr, $PUBLIC | $FINAL},
+		{"*getLocationOnScreen", "()Ljava/awt/Point;", nullptr, $PUBLIC},
+		{"*getMinimumSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC},
+		{"*getPreferredSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC},
+		{"*getSelectionEnd", "()I", nullptr, $PUBLIC | $FINAL},
+		{"*getSelectionStart", "()I", nullptr, $PUBLIC | $FINAL},
+		{"*getText", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL},
+		{"*handleEvent", "(Ljava/awt/AWTEvent;)V", nullptr, $PUBLIC},
+		{"*handlesWheelScrolling", "()Z", nullptr, $PUBLIC},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/awt/TextField;Lsun/lwawt/PlatformComponent;)V", nullptr, 0, $method(LWTextFieldPeer, init$, void, $TextField*, $PlatformComponent*)},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(LWTextFieldPeer, actionPerformed, void, $ActionEvent*)},
+		{"createDelegate", "()Ljavax/swing/JPasswordField;", nullptr, 0, $virtualMethod(LWTextFieldPeer, createDelegate, $JComponent*)},
+		{"getMinimumSize", "(I)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(LWTextFieldPeer, getMinimumSize, $Dimension*, int32_t)},
+		{"getPreferredSize", "(I)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(LWTextFieldPeer, getPreferredSize, $Dimension*, int32_t)},
+		{"getTextComponent", "()Ljavax/swing/text/JTextComponent;", nullptr, $PUBLIC, $virtualMethod(LWTextFieldPeer, getTextComponent, $JTextComponent*)},
+		{"handleJavaFocusEvent", "(Ljava/awt/event/FocusEvent;)V", nullptr, 0, $virtualMethod(LWTextFieldPeer, handleJavaFocusEvent, void, $FocusEvent*)},
+		{"initializeImpl", "()V", nullptr, 0, $virtualMethod(LWTextFieldPeer, initializeImpl, void)},
+		{"*isFocusable", "()Z", nullptr, $PUBLIC | $FINAL},
+		{"*isObscured", "()Z", nullptr, $PUBLIC},
+		{"*isReparentSupported", "()Z", nullptr, $PUBLIC},
+		{"*layout", "()V", nullptr, $PUBLIC},
+		{"*paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC},
+		{"*print", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC},
+		{"*reparent", "(Ljava/awt/peer/ContainerPeer;)V", nullptr, $PUBLIC},
+		{"*requestFocus", "(Ljava/awt/Component;ZZJLjava/awt/event/FocusEvent$Cause;)Z", nullptr, $PUBLIC},
+		{"*select", "(II)V", nullptr, $PUBLIC | $FINAL},
+		{"*setBackground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC},
+		{"*setBounds", "(IIIII)V", nullptr, $PUBLIC},
+		{"*setCaretPosition", "(I)V", nullptr, $PUBLIC | $FINAL},
+		{"setEchoChar", "(C)V", nullptr, $PUBLIC, $virtualMethod(LWTextFieldPeer, setEchoChar, void, char16_t)},
+		{"*setEditable", "(Z)V", nullptr, $PUBLIC | $FINAL},
+		{"*setText", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $FINAL},
+		{"*updateGraphicsData", "(Ljava/awt/GraphicsConfiguration;)Z", nullptr, $PUBLIC},
+		{"*setForeground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC},
+		{"*setFont", "(Ljava/awt/Font;)V", nullptr, $PUBLIC},
+		{"*setEnabled", "(Z)V", nullptr, $PUBLIC},
+		{"*setVisible", "(Z)V", nullptr, $PUBLIC},
+		{"*setZOrder", "(Ljava/awt/peer/ComponentPeer;)V", nullptr, $PUBLIC},
+		{"*updateCursorImmediately", "()V", nullptr, $PUBLIC},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.lwawt.LWTextFieldPeer$JPasswordFieldDelegate", "sun.lwawt.LWTextFieldPeer", "JPasswordFieldDelegate", $PRIVATE | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.lwawt.LWTextFieldPeer",
+		"sun.lwawt.LWTextComponentPeer",
+		"java.awt.peer.TextFieldPeer,java.awt.event.ActionListener",
+		nullptr,
+		methodInfos$$,
+		"Lsun/lwawt/LWTextComponentPeer<Ljava/awt/TextField;Ljavax/swing/JPasswordField;>;Ljava/awt/peer/TextFieldPeer;Ljava/awt/event/ActionListener;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.lwawt.LWTextFieldPeer$JPasswordFieldDelegate"
+	};
+	$loadClass(LWTextFieldPeer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(LWTextFieldPeer));
+	});
 	return class$;
 }
 

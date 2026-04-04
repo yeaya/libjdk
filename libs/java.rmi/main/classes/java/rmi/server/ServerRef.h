@@ -27,7 +27,7 @@ class $export ServerRef : public ::java::rmi::server::RemoteRef {
 public:
 	virtual ::java::rmi::server::RemoteStub* exportObject(::java::rmi::Remote* obj, Object$* data) {return nullptr;}
 	virtual $String* getClientHost() {return nullptr;}
-	static const int64_t serialVersionUID = (int64_t)0xC0BF9D9F86B510DA;
+	static const int64_t serialVersionUID = (int64_t)0xc0bf9d9f86b510da;
 };
 
 		} // server

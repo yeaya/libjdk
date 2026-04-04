@@ -28,6 +28,7 @@ class $import JavacTaskPool$ReusableContext$ReusableLog : public ::com::sun::too
 	$class(JavacTaskPool$ReusableContext$ReusableLog, 0, ::com::sun::tools::javac::util::Log)
 public:
 	JavacTaskPool$ReusableContext$ReusableLog();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::com::sun::tools::javac::util::Context* context);
 	virtual void clear();
 	static ::com::sun::tools::javac::util::Context$Factory* factory;

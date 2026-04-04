@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/Infer$SubstBounds.h>
-
 #include <com/sun/tools/javac/code/Symtab.h>
 #include <com/sun/tools/javac/code/Type$UndetVar$InferenceBound.h>
 #include <com/sun/tools/javac/code/Type$UndetVar.h>
@@ -14,7 +13,6 @@
 #include <com/sun/tools/javac/util/List.h>
 #include <com/sun/tools/javac/util/Warner.h>
 #include <java/util/Iterator.h>
-#include <java/util/function/Predicate.h>
 #include <jcpp.h>
 
 #undef EQ
@@ -25,7 +23,6 @@ using $Type$UndetVar$InferenceBoundArray = $Array<::com::sun::tools::javac::code
 using $Type = ::com::sun::tools::javac::code::Type;
 using $Type$UndetVar = ::com::sun::tools::javac::code::Type$UndetVar;
 using $Type$UndetVar$InferenceBound = ::com::sun::tools::javac::code::Type$UndetVar$InferenceBound;
-using $Types = ::com::sun::tools::javac::code::Types;
 using $Infer = ::com::sun::tools::javac::comp::Infer;
 using $Infer$BoundFilter = ::com::sun::tools::javac::comp::Infer$BoundFilter;
 using $Infer$CheckInst = ::com::sun::tools::javac::comp::Infer$CheckInst;
@@ -38,52 +35,12 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Iterator = ::java::util::Iterator;
-using $Predicate = ::java::util::function::Predicate;
 
 namespace com {
 	namespace sun {
 		namespace tools {
 			namespace javac {
 				namespace comp {
-
-$FieldInfo _Infer$SubstBounds_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/comp/Infer;", nullptr, $FINAL | $SYNTHETIC, $field(Infer$SubstBounds, this$0)},
-	{}
-};
-
-$MethodInfo _Infer$SubstBounds_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Infer;Lcom/sun/tools/javac/code/Type$UndetVar;)V", nullptr, 0, $method(Infer$SubstBounds, init$, void, $Infer*, $Type$UndetVar*)},
-	{"apply", "(Lcom/sun/tools/javac/comp/InferenceContext;Lcom/sun/tools/javac/util/Warner;)V", nullptr, 0, $virtualMethod(Infer$SubstBounds, apply, void, $InferenceContext*, $Warner*)},
-	{"checkCompatibleUpperBounds", "(Lcom/sun/tools/javac/code/Type$UndetVar;Lcom/sun/tools/javac/comp/InferenceContext;)V", nullptr, 0, $virtualMethod(Infer$SubstBounds, checkCompatibleUpperBounds, void, $Type$UndetVar*, $InferenceContext*)},
-	{"dup", "(Lcom/sun/tools/javac/code/Type$UndetVar;)Lcom/sun/tools/javac/comp/Infer$IncorporationAction;", nullptr, $PUBLIC, $virtualMethod(Infer$SubstBounds, dup, $Infer$IncorporationAction*, $Type$UndetVar*)},
-	{}
-};
-
-$InnerClassInfo _Infer$SubstBounds_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.Infer$SubstBounds", "com.sun.tools.javac.comp.Infer", "SubstBounds", 0},
-	{"com.sun.tools.javac.comp.Infer$CheckInst", "com.sun.tools.javac.comp.Infer", "CheckInst", 0},
-	{}
-};
-
-$ClassInfo _Infer$SubstBounds_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.comp.Infer$SubstBounds",
-	"com.sun.tools.javac.comp.Infer$CheckInst",
-	nullptr,
-	_Infer$SubstBounds_FieldInfo_,
-	_Infer$SubstBounds_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Infer$SubstBounds_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.Infer"
-};
-
-$Object* allocate$Infer$SubstBounds($Class* clazz) {
-	return $of($alloc(Infer$SubstBounds));
-}
 
 void Infer$SubstBounds::init$($Infer* this$0, $Type$UndetVar* uv) {
 	$set(this, this$0, this$0);
@@ -99,7 +56,7 @@ $Infer$IncorporationAction* Infer$SubstBounds::dup($Type$UndetVar* that) {
 }
 
 void Infer$SubstBounds::apply($InferenceContext* inferenceContext, $Warner* warn) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	{
 		$var($Iterator, i$, $nc($nc(inferenceContext)->undetvars)->iterator());
 		for (; $nc(i$)->hasNext();) {
@@ -107,7 +64,7 @@ void Infer$SubstBounds::apply($InferenceContext* inferenceContext, $Warner* warn
 			{
 				$var($Type$UndetVar, uv2, $cast($Type$UndetVar, undet));
 				$var($List, var$0, $List::of($nc(this->uv)->qtype));
-				$nc(uv2)->substBounds(var$0, $($List::of($($nc(this->uv)->getInst()))), this->this$0->types);
+				$nc(uv2)->substBounds(var$0, $($List::of($(this->uv->getInst()))), this->this$0->types);
 				checkCompatibleUpperBounds(uv2, inferenceContext);
 			}
 		}
@@ -116,7 +73,7 @@ void Infer$SubstBounds::apply($InferenceContext* inferenceContext, $Warner* warn
 }
 
 void Infer$SubstBounds::checkCompatibleUpperBounds($Type$UndetVar* uv, $InferenceContext* inferenceContext) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Type$UndetVar$InferenceBound);
 	$var($List, var$0, $nc(uv)->getBounds($$new($Type$UndetVar$InferenceBoundArray, {$Type$UndetVar$InferenceBound::UPPER})));
 	$var($List, hibounds, $Type::filter(var$0, $$new($Infer$BoundFilter, inferenceContext)));
@@ -128,7 +85,7 @@ void Infer$SubstBounds::checkCompatibleUpperBounds($Type$UndetVar* uv, $Inferenc
 	} else {
 		$assign(hb, $nc(this->this$0->types)->glb(hibounds));
 	}
-	if (hb == nullptr || $nc(hb)->isErroneous()) {
+	if (hb == nullptr || hb->isErroneous()) {
 		this->this$0->reportBoundError(uv, $Type$UndetVar$InferenceBound::UPPER);
 	}
 }
@@ -137,7 +94,40 @@ Infer$SubstBounds::Infer$SubstBounds() {
 }
 
 $Class* Infer$SubstBounds::load$($String* name, bool initialize) {
-	$loadClass(Infer$SubstBounds, name, initialize, &_Infer$SubstBounds_ClassInfo_, allocate$Infer$SubstBounds);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/comp/Infer;", nullptr, $FINAL | $SYNTHETIC, $field(Infer$SubstBounds, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/comp/Infer;Lcom/sun/tools/javac/code/Type$UndetVar;)V", nullptr, 0, $method(Infer$SubstBounds, init$, void, $Infer*, $Type$UndetVar*)},
+		{"apply", "(Lcom/sun/tools/javac/comp/InferenceContext;Lcom/sun/tools/javac/util/Warner;)V", nullptr, 0, $virtualMethod(Infer$SubstBounds, apply, void, $InferenceContext*, $Warner*)},
+		{"checkCompatibleUpperBounds", "(Lcom/sun/tools/javac/code/Type$UndetVar;Lcom/sun/tools/javac/comp/InferenceContext;)V", nullptr, 0, $virtualMethod(Infer$SubstBounds, checkCompatibleUpperBounds, void, $Type$UndetVar*, $InferenceContext*)},
+		{"dup", "(Lcom/sun/tools/javac/code/Type$UndetVar;)Lcom/sun/tools/javac/comp/Infer$IncorporationAction;", nullptr, $PUBLIC, $virtualMethod(Infer$SubstBounds, dup, $Infer$IncorporationAction*, $Type$UndetVar*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.Infer$SubstBounds", "com.sun.tools.javac.comp.Infer", "SubstBounds", 0},
+		{"com.sun.tools.javac.comp.Infer$CheckInst", "com.sun.tools.javac.comp.Infer", "CheckInst", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.comp.Infer$SubstBounds",
+		"com.sun.tools.javac.comp.Infer$CheckInst",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.Infer"
+	};
+	$loadClass(Infer$SubstBounds, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Infer$SubstBounds);
+	});
 	return class$;
 }
 

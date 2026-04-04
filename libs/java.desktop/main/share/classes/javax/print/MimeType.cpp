@@ -1,5 +1,4 @@
 #include <javax/print/MimeType.h>
-
 #include <java/io/Serializable.h>
 #include <java/util/Map.h>
 #include <java/util/Vector.h>
@@ -29,67 +28,6 @@ using $MimeType$ParameterMap = ::javax::print::MimeType$ParameterMap;
 
 namespace javax {
 	namespace print {
-
-$FieldInfo _MimeType_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MimeType, serialVersionUID)},
-	{"myPieces", "[Ljava/lang/String;", nullptr, $PRIVATE, $field(MimeType, myPieces)},
-	{"myStringValue", "Ljava/lang/String;", nullptr, $PRIVATE | $TRANSIENT, $field(MimeType, myStringValue)},
-	{"myEntrySet", "Ljavax/print/MimeType$ParameterMapEntrySet;", nullptr, $PRIVATE | $TRANSIENT, $field(MimeType, myEntrySet)},
-	{"myParameterMap", "Ljavax/print/MimeType$ParameterMap;", nullptr, $PRIVATE | $TRANSIENT, $field(MimeType, myParameterMap)},
-	{"TOKEN_LEXEME", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MimeType, TOKEN_LEXEME)},
-	{"QUOTED_STRING_LEXEME", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MimeType, QUOTED_STRING_LEXEME)},
-	{"TSPECIAL_LEXEME", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MimeType, TSPECIAL_LEXEME)},
-	{"EOF_LEXEME", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MimeType, EOF_LEXEME)},
-	{"ILLEGAL_LEXEME", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MimeType, ILLEGAL_LEXEME)},
-	{}
-};
-
-$MethodInfo _MimeType_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(MimeType, init$, void, $String*)},
-	{"addQuotes", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(MimeType, addQuotes, $String*, $String*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(MimeType, equals, bool, Object$*)},
-	{"getMediaSubtype", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MimeType, getMediaSubtype, $String*)},
-	{"getMediaType", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MimeType, getMediaType, $String*)},
-	{"getMimeType", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MimeType, getMimeType, $String*)},
-	{"getParameterMap", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;", $PUBLIC, $virtualMethod(MimeType, getParameterMap, $Map*)},
-	{"getStringValue", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(MimeType, getStringValue, $String*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(MimeType, hashCode, int32_t)},
-	{"parse", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(MimeType, parse, void, $String*)},
-	{"removeBackslashes", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(MimeType, removeBackslashes, $String*, $String*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MimeType, toString, $String*)},
-	{"toUnicodeLowerCase", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(MimeType, toUnicodeLowerCase, $String*, $String*)},
-	{}
-};
-
-$InnerClassInfo _MimeType_InnerClassesInfo_[] = {
-	{"javax.print.MimeType$LexicalAnalyzer", "javax.print.MimeType", "LexicalAnalyzer", $PRIVATE | $STATIC},
-	{"javax.print.MimeType$ParameterMap", "javax.print.MimeType", "ParameterMap", $PRIVATE},
-	{"javax.print.MimeType$ParameterMapEntrySet", "javax.print.MimeType", "ParameterMapEntrySet", $PRIVATE},
-	{"javax.print.MimeType$ParameterMapEntrySetIterator", "javax.print.MimeType", "ParameterMapEntrySetIterator", $PRIVATE},
-	{"javax.print.MimeType$ParameterMapEntry", "javax.print.MimeType", "ParameterMapEntry", $PRIVATE},
-	{}
-};
-
-$ClassInfo _MimeType_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.print.MimeType",
-	"java.lang.Object",
-	"java.io.Serializable,java.lang.Cloneable",
-	_MimeType_FieldInfo_,
-	_MimeType_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MimeType_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.print.MimeType$LexicalAnalyzer,javax.print.MimeType$ParameterMap,javax.print.MimeType$ParameterMapEntrySet,javax.print.MimeType$ParameterMapEntrySetIterator,javax.print.MimeType$ParameterMapEntry"
-};
-
-$Object* allocate$MimeType($Class* clazz) {
-	return $of($alloc(MimeType));
-}
 
 $Object* MimeType::clone() {
 	 return this->$Serializable::clone();
@@ -130,28 +68,28 @@ $String* MimeType::toString() {
 }
 
 int32_t MimeType::hashCode() {
-	return $nc($(getStringValue()))->hashCode();
+	return $$nc(getStringValue())->hashCode();
 }
 
 bool MimeType::equals(Object$* obj) {
-	$useLocalCurrentObjectStackCache();
-	return (obj != nullptr && $instanceOf(MimeType, obj) && $nc($(getStringValue()))->equals($($nc(($cast(MimeType, obj)))->getStringValue())));
+	$useLocalObjectStack();
+	return (obj != nullptr && $instanceOf(MimeType, obj) && $$nc(getStringValue())->equals($($cast(MimeType, obj)->getStringValue())));
 }
 
 $String* MimeType::getStringValue() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->myStringValue == nullptr) {
 		$var($StringBuilder, result, $new($StringBuilder));
 		result->append($nc(this->myPieces)->get(0));
 		result->append(u'/');
-		result->append($nc(this->myPieces)->get(1));
-		int32_t n = $nc(this->myPieces)->length;
+		result->append(this->myPieces->get(1));
+		int32_t n = this->myPieces->length;
 		for (int32_t i = 2; i < n; i += 2) {
 			result->append(u';');
 			result->append(u' ');
 			result->append($nc(this->myPieces)->get(i));
 			result->append(u'=');
-			result->append($(addQuotes($nc(this->myPieces)->get(i + 1))));
+			result->append($(addQuotes(this->myPieces->get(i + 1))));
 		}
 		$set(this, myStringValue, result->toString());
 	}
@@ -204,7 +142,7 @@ $String* MimeType::addQuotes($String* s) {
 }
 
 void MimeType::parse($String* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (s == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -271,7 +209,7 @@ void MimeType::parse($String* s) {
 		$throwNew($IllegalArgumentException);
 	}
 	int32_t n = thePieces->size();
-	$set(this, myPieces, $fcast($StringArray, thePieces->toArray($$new($StringArray, n))));
+	$set(this, myPieces, $cast($StringArray, thePieces->toArray($$new($StringArray, n))));
 	int32_t i = 0;
 	int32_t j = 0;
 	$var($String, temp, nullptr);
@@ -282,11 +220,11 @@ void MimeType::parse($String* s) {
 		}
 		while (j < i) {
 			$assign(temp, $nc(this->myPieces)->get(j));
-			$nc(this->myPieces)->set(j, $nc(this->myPieces)->get(i));
-			$nc(this->myPieces)->set(i, temp);
-			$assign(temp, $nc(this->myPieces)->get(j + 1));
-			$nc(this->myPieces)->set(j + 1, $nc(this->myPieces)->get(i + 1));
-			$nc(this->myPieces)->set(i + 1, temp);
+			this->myPieces->set(j, this->myPieces->get(i));
+			this->myPieces->set(i, temp);
+			$assign(temp, this->myPieces->get(j + 1));
+			this->myPieces->set(j + 1, this->myPieces->get(i + 1));
+			this->myPieces->set(i + 1, temp);
 			j += 2;
 		}
 	}
@@ -296,7 +234,62 @@ MimeType::MimeType() {
 }
 
 $Class* MimeType::load$($String* name, bool initialize) {
-	$loadClass(MimeType, name, initialize, &_MimeType_ClassInfo_, allocate$MimeType);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MimeType, serialVersionUID)},
+		{"myPieces", "[Ljava/lang/String;", nullptr, $PRIVATE, $field(MimeType, myPieces)},
+		{"myStringValue", "Ljava/lang/String;", nullptr, $PRIVATE | $TRANSIENT, $field(MimeType, myStringValue)},
+		{"myEntrySet", "Ljavax/print/MimeType$ParameterMapEntrySet;", nullptr, $PRIVATE | $TRANSIENT, $field(MimeType, myEntrySet)},
+		{"myParameterMap", "Ljavax/print/MimeType$ParameterMap;", nullptr, $PRIVATE | $TRANSIENT, $field(MimeType, myParameterMap)},
+		{"TOKEN_LEXEME", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MimeType, TOKEN_LEXEME)},
+		{"QUOTED_STRING_LEXEME", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MimeType, QUOTED_STRING_LEXEME)},
+		{"TSPECIAL_LEXEME", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MimeType, TSPECIAL_LEXEME)},
+		{"EOF_LEXEME", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MimeType, EOF_LEXEME)},
+		{"ILLEGAL_LEXEME", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MimeType, ILLEGAL_LEXEME)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(MimeType, init$, void, $String*)},
+		{"addQuotes", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(MimeType, addQuotes, $String*, $String*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(MimeType, equals, bool, Object$*)},
+		{"getMediaSubtype", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MimeType, getMediaSubtype, $String*)},
+		{"getMediaType", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MimeType, getMediaType, $String*)},
+		{"getMimeType", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MimeType, getMimeType, $String*)},
+		{"getParameterMap", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;", $PUBLIC, $virtualMethod(MimeType, getParameterMap, $Map*)},
+		{"getStringValue", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(MimeType, getStringValue, $String*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(MimeType, hashCode, int32_t)},
+		{"parse", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(MimeType, parse, void, $String*)},
+		{"removeBackslashes", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(MimeType, removeBackslashes, $String*, $String*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MimeType, toString, $String*)},
+		{"toUnicodeLowerCase", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(MimeType, toUnicodeLowerCase, $String*, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.print.MimeType$LexicalAnalyzer", "javax.print.MimeType", "LexicalAnalyzer", $PRIVATE | $STATIC},
+		{"javax.print.MimeType$ParameterMap", "javax.print.MimeType", "ParameterMap", $PRIVATE},
+		{"javax.print.MimeType$ParameterMapEntrySet", "javax.print.MimeType", "ParameterMapEntrySet", $PRIVATE},
+		{"javax.print.MimeType$ParameterMapEntrySetIterator", "javax.print.MimeType", "ParameterMapEntrySetIterator", $PRIVATE},
+		{"javax.print.MimeType$ParameterMapEntry", "javax.print.MimeType", "ParameterMapEntry", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.print.MimeType",
+		"java.lang.Object",
+		"java.io.Serializable,java.lang.Cloneable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.print.MimeType$LexicalAnalyzer,javax.print.MimeType$ParameterMap,javax.print.MimeType$ParameterMapEntrySet,javax.print.MimeType$ParameterMapEntrySetIterator,javax.print.MimeType$ParameterMapEntry"
+	};
+	$loadClass(MimeType, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MimeType));
+	});
 	return class$;
 }
 

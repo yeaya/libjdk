@@ -1,5 +1,4 @@
 #include <javax/imageio/plugins/tiff/GeoTIFFTagSet$ModelTiepoint.h>
-
 #include <javax/imageio/plugins/tiff/GeoTIFFTagSet.h>
 #include <javax/imageio/plugins/tiff/TIFFTag.h>
 #include <jcpp.h>
@@ -16,36 +15,6 @@ namespace javax {
 		namespace plugins {
 			namespace tiff {
 
-$MethodInfo _GeoTIFFTagSet$ModelTiepoint_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(GeoTIFFTagSet$ModelTiepoint, init$, void)},
-	{}
-};
-
-$InnerClassInfo _GeoTIFFTagSet$ModelTiepoint_InnerClassesInfo_[] = {
-	{"javax.imageio.plugins.tiff.GeoTIFFTagSet$ModelTiepoint", "javax.imageio.plugins.tiff.GeoTIFFTagSet", "ModelTiepoint", $STATIC},
-	{}
-};
-
-$ClassInfo _GeoTIFFTagSet$ModelTiepoint_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.imageio.plugins.tiff.GeoTIFFTagSet$ModelTiepoint",
-	"javax.imageio.plugins.tiff.TIFFTag",
-	nullptr,
-	nullptr,
-	_GeoTIFFTagSet$ModelTiepoint_MethodInfo_,
-	nullptr,
-	nullptr,
-	_GeoTIFFTagSet$ModelTiepoint_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.imageio.plugins.tiff.GeoTIFFTagSet"
-};
-
-$Object* allocate$GeoTIFFTagSet$ModelTiepoint($Class* clazz) {
-	return $of($alloc(GeoTIFFTagSet$ModelTiepoint));
-}
-
 void GeoTIFFTagSet$ModelTiepoint::init$() {
 	$TIFFTag::init$("ModelTiepointTag"_s, 0x00008482, $sl(1, $TIFFTag::TIFF_DOUBLE));
 }
@@ -54,7 +23,32 @@ GeoTIFFTagSet$ModelTiepoint::GeoTIFFTagSet$ModelTiepoint() {
 }
 
 $Class* GeoTIFFTagSet$ModelTiepoint::load$($String* name, bool initialize) {
-	$loadClass(GeoTIFFTagSet$ModelTiepoint, name, initialize, &_GeoTIFFTagSet$ModelTiepoint_ClassInfo_, allocate$GeoTIFFTagSet$ModelTiepoint);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(GeoTIFFTagSet$ModelTiepoint, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.imageio.plugins.tiff.GeoTIFFTagSet$ModelTiepoint", "javax.imageio.plugins.tiff.GeoTIFFTagSet", "ModelTiepoint", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.imageio.plugins.tiff.GeoTIFFTagSet$ModelTiepoint",
+		"javax.imageio.plugins.tiff.TIFFTag",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.imageio.plugins.tiff.GeoTIFFTagSet"
+	};
+	$loadClass(GeoTIFFTagSet$ModelTiepoint, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(GeoTIFFTagSet$ModelTiepoint);
+	});
 	return class$;
 }
 

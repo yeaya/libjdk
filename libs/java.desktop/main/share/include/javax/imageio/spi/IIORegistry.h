@@ -19,6 +19,7 @@ class $import IIORegistry : public ::javax::imageio::spi::ServiceRegistry {
 	$class(IIORegistry, 0, ::javax::imageio::spi::ServiceRegistry)
 public:
 	IIORegistry();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::javax::imageio::spi::IIORegistry* getDefaultInstance();
 	void registerApplicationClasspathSpis();

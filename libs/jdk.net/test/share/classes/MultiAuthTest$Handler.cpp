@@ -1,5 +1,4 @@
 #include <MultiAuthTest$Handler.h>
-
 #include <MultiAuthTest.h>
 #include <com/sun/net/httpserver/HttpExchange.h>
 #include <java/io/InputStream.h>
@@ -21,49 +20,13 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $StandardCharsets = ::java::nio::charset::StandardCharsets;
 
-$FieldInfo _MultiAuthTest$Handler_FieldInfo_[] = {
-	{"ok", "Z", nullptr, $STATIC | $VOLATILE, $staticField(MultiAuthTest$Handler, ok)},
-	{}
-};
-
-$MethodInfo _MultiAuthTest$Handler_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(MultiAuthTest$Handler, init$, void)},
-	{"handle", "(Lcom/sun/net/httpserver/HttpExchange;)V", nullptr, $PUBLIC, $virtualMethod(MultiAuthTest$Handler, handle, void, $HttpExchange*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _MultiAuthTest$Handler_InnerClassesInfo_[] = {
-	{"MultiAuthTest$Handler", "MultiAuthTest", "Handler", $STATIC},
-	{}
-};
-
-$ClassInfo _MultiAuthTest$Handler_ClassInfo_ = {
-	$ACC_SUPER,
-	"MultiAuthTest$Handler",
-	"java.lang.Object",
-	"com.sun.net.httpserver.HttpHandler",
-	_MultiAuthTest$Handler_FieldInfo_,
-	_MultiAuthTest$Handler_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MultiAuthTest$Handler_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"MultiAuthTest"
-};
-
-$Object* allocate$MultiAuthTest$Handler($Class* clazz) {
-	return $of($alloc(MultiAuthTest$Handler));
-}
-
 $volatile(bool) MultiAuthTest$Handler::ok = false;
 
 void MultiAuthTest$Handler::init$() {
 }
 
 void MultiAuthTest$Handler::handle($HttpExchange* he) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, method, $nc(he)->getRequestMethod());
 	$var($InputStream, is, he->getRequestBody());
 	if ($nc(method)->equalsIgnoreCase("POST"_s)) {
@@ -91,7 +54,37 @@ MultiAuthTest$Handler::MultiAuthTest$Handler() {
 }
 
 $Class* MultiAuthTest$Handler::load$($String* name, bool initialize) {
-	$loadClass(MultiAuthTest$Handler, name, initialize, &_MultiAuthTest$Handler_ClassInfo_, allocate$MultiAuthTest$Handler);
+	$FieldInfo fieldInfos$$[] = {
+		{"ok", "Z", nullptr, $STATIC | $VOLATILE, $staticField(MultiAuthTest$Handler, ok)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(MultiAuthTest$Handler, init$, void)},
+		{"handle", "(Lcom/sun/net/httpserver/HttpExchange;)V", nullptr, $PUBLIC, $virtualMethod(MultiAuthTest$Handler, handle, void, $HttpExchange*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"MultiAuthTest$Handler", "MultiAuthTest", "Handler", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"MultiAuthTest$Handler",
+		"java.lang.Object",
+		"com.sun.net.httpserver.HttpHandler",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"MultiAuthTest"
+	};
+	$loadClass(MultiAuthTest$Handler, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MultiAuthTest$Handler);
+	});
 	return class$;
 }
 

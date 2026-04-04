@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/metal/MetalTitlePane$WindowHandler.h>
-
 #include <java/awt/event/WindowAdapter.h>
 #include <java/awt/event/WindowEvent.h>
 #include <javax/swing/plaf/metal/MetalTitlePane.h>
@@ -18,43 +17,6 @@ namespace javax {
 		namespace plaf {
 			namespace metal {
 
-$FieldInfo _MetalTitlePane$WindowHandler_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/plaf/metal/MetalTitlePane;", nullptr, $FINAL | $SYNTHETIC, $field(MetalTitlePane$WindowHandler, this$0)},
-	{}
-};
-
-$MethodInfo _MetalTitlePane$WindowHandler_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/plaf/metal/MetalTitlePane;)V", nullptr, $PRIVATE, $method(MetalTitlePane$WindowHandler, init$, void, $MetalTitlePane*)},
-	{"windowActivated", "(Ljava/awt/event/WindowEvent;)V", nullptr, $PUBLIC, $virtualMethod(MetalTitlePane$WindowHandler, windowActivated, void, $WindowEvent*)},
-	{"windowDeactivated", "(Ljava/awt/event/WindowEvent;)V", nullptr, $PUBLIC, $virtualMethod(MetalTitlePane$WindowHandler, windowDeactivated, void, $WindowEvent*)},
-	{}
-};
-
-$InnerClassInfo _MetalTitlePane$WindowHandler_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.metal.MetalTitlePane$WindowHandler", "javax.swing.plaf.metal.MetalTitlePane", "WindowHandler", $PRIVATE},
-	{}
-};
-
-$ClassInfo _MetalTitlePane$WindowHandler_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.metal.MetalTitlePane$WindowHandler",
-	"java.awt.event.WindowAdapter",
-	nullptr,
-	_MetalTitlePane$WindowHandler_FieldInfo_,
-	_MetalTitlePane$WindowHandler_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MetalTitlePane$WindowHandler_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.metal.MetalTitlePane"
-};
-
-$Object* allocate$MetalTitlePane$WindowHandler($Class* clazz) {
-	return $of($alloc(MetalTitlePane$WindowHandler));
-}
-
 void MetalTitlePane$WindowHandler::init$($MetalTitlePane* this$0) {
 	$set(this, this$0, this$0);
 	$WindowAdapter::init$();
@@ -72,7 +34,38 @@ MetalTitlePane$WindowHandler::MetalTitlePane$WindowHandler() {
 }
 
 $Class* MetalTitlePane$WindowHandler::load$($String* name, bool initialize) {
-	$loadClass(MetalTitlePane$WindowHandler, name, initialize, &_MetalTitlePane$WindowHandler_ClassInfo_, allocate$MetalTitlePane$WindowHandler);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/plaf/metal/MetalTitlePane;", nullptr, $FINAL | $SYNTHETIC, $field(MetalTitlePane$WindowHandler, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/plaf/metal/MetalTitlePane;)V", nullptr, $PRIVATE, $method(MetalTitlePane$WindowHandler, init$, void, $MetalTitlePane*)},
+		{"windowActivated", "(Ljava/awt/event/WindowEvent;)V", nullptr, $PUBLIC, $virtualMethod(MetalTitlePane$WindowHandler, windowActivated, void, $WindowEvent*)},
+		{"windowDeactivated", "(Ljava/awt/event/WindowEvent;)V", nullptr, $PUBLIC, $virtualMethod(MetalTitlePane$WindowHandler, windowDeactivated, void, $WindowEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.metal.MetalTitlePane$WindowHandler", "javax.swing.plaf.metal.MetalTitlePane", "WindowHandler", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.metal.MetalTitlePane$WindowHandler",
+		"java.awt.event.WindowAdapter",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.metal.MetalTitlePane"
+	};
+	$loadClass(MetalTitlePane$WindowHandler, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MetalTitlePane$WindowHandler));
+	});
 	return class$;
 }
 

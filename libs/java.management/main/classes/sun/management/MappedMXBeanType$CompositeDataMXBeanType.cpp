@@ -1,5 +1,4 @@
 #include <sun/management/MappedMXBeanType$CompositeDataMXBeanType.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/lang/IllegalAccessException.h>
 #include <java/lang/management/LockInfo.h>
@@ -11,9 +10,7 @@
 #include <java/lang/reflect/Method.h>
 #include <java/lang/reflect/Type.h>
 #include <java/security/AccessController.h>
-#include <java/security/PrivilegedAction.h>
 #include <java/security/PrivilegedActionException.h>
-#include <java/security/PrivilegedExceptionAction.h>
 #include <java/util/ArrayList.h>
 #include <java/util/List.h>
 #include <java/util/Set.h>
@@ -54,17 +51,13 @@ using $InvocationTargetException = ::java::lang::reflect::InvocationTargetExcept
 using $Method = ::java::lang::reflect::Method;
 using $Type = ::java::lang::reflect::Type;
 using $AccessController = ::java::security::AccessController;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $PrivilegedActionException = ::java::security::PrivilegedActionException;
-using $PrivilegedExceptionAction = ::java::security::PrivilegedExceptionAction;
 using $ArrayList = ::java::util::ArrayList;
 using $List = ::java::util::List;
-using $Set = ::java::util::Set;
 using $CompositeData = ::javax::management::openmbean::CompositeData;
 using $CompositeDataSupport = ::javax::management::openmbean::CompositeDataSupport;
 using $CompositeType = ::javax::management::openmbean::CompositeType;
 using $OpenDataException = ::javax::management::openmbean::OpenDataException;
-using $OpenType = ::javax::management::openmbean::OpenType;
 using $LockInfoCompositeData = ::sun::management::LockInfoCompositeData;
 using $MappedMXBeanType = ::sun::management::MappedMXBeanType;
 using $MappedMXBeanType$CompositeDataMXBeanType$1 = ::sun::management::MappedMXBeanType$CompositeDataMXBeanType$1;
@@ -77,52 +70,8 @@ using $ThreadInfoCompositeData = ::sun::management::ThreadInfoCompositeData;
 namespace sun {
 	namespace management {
 
-$FieldInfo _MappedMXBeanType$CompositeDataMXBeanType_FieldInfo_[] = {
-	{"javaClass", "Ljava/lang/Class;", "Ljava/lang/Class<*>;", $FINAL, $field(MappedMXBeanType$CompositeDataMXBeanType, javaClass)},
-	{"isCompositeData", "Z", nullptr, 0, $field(MappedMXBeanType$CompositeDataMXBeanType, isCompositeData)},
-	{"fromMethod", "Ljava/lang/reflect/Method;", nullptr, 0, $field(MappedMXBeanType$CompositeDataMXBeanType, fromMethod)},
-	{"toMethod", "Ljava/lang/reflect/Method;", nullptr, 0, $field(MappedMXBeanType$CompositeDataMXBeanType, toMethod)},
-	{}
-};
-
-$MethodInfo _MappedMXBeanType$CompositeDataMXBeanType_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;)V", 0, $method(MappedMXBeanType$CompositeDataMXBeanType, init$, void, $Class*), "javax.management.openmbean.OpenDataException"},
-	{"getJavaType", "()Ljava/lang/reflect/Type;", nullptr, 0, $virtualMethod(MappedMXBeanType$CompositeDataMXBeanType, getJavaType, $Type*)},
-	{"getName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(MappedMXBeanType$CompositeDataMXBeanType, getName, $String*)},
-	{"toJavaTypeData", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MappedMXBeanType$CompositeDataMXBeanType, toJavaTypeData, $Object*, Object$*), "javax.management.openmbean.OpenDataException,java.io.InvalidObjectException"},
-	{"toOpenTypeData", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MappedMXBeanType$CompositeDataMXBeanType, toOpenTypeData, $Object*, Object$*), "javax.management.openmbean.OpenDataException"},
-	{}
-};
-
-$InnerClassInfo _MappedMXBeanType$CompositeDataMXBeanType_InnerClassesInfo_[] = {
-	{"sun.management.MappedMXBeanType$CompositeDataMXBeanType", "sun.management.MappedMXBeanType", "CompositeDataMXBeanType", $STATIC},
-	{"sun.management.MappedMXBeanType$CompositeDataMXBeanType$2", nullptr, nullptr, 0},
-	{"sun.management.MappedMXBeanType$CompositeDataMXBeanType$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _MappedMXBeanType$CompositeDataMXBeanType_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.management.MappedMXBeanType$CompositeDataMXBeanType",
-	"sun.management.MappedMXBeanType",
-	nullptr,
-	_MappedMXBeanType$CompositeDataMXBeanType_FieldInfo_,
-	_MappedMXBeanType$CompositeDataMXBeanType_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MappedMXBeanType$CompositeDataMXBeanType_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.management.MappedMXBeanType"
-};
-
-$Object* allocate$MappedMXBeanType$CompositeDataMXBeanType($Class* clazz) {
-	return $of($alloc(MappedMXBeanType$CompositeDataMXBeanType));
-}
-
 void MappedMXBeanType$CompositeDataMXBeanType::init$($Class* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$MappedMXBeanType::init$();
 	this->isCompositeData = false;
@@ -132,7 +81,7 @@ void MappedMXBeanType$CompositeDataMXBeanType::init$($Class* c) {
 	$init($MappedMXBeanType);
 	$set(this, mappedTypeClass, $MappedMXBeanType::COMPOSITE_DATA_CLASS);
 	try {
-		$set(this, fromMethod, $cast($Method, $AccessController::doPrivileged(static_cast<$PrivilegedExceptionAction*>($$new($MappedMXBeanType$CompositeDataMXBeanType$1, this)))));
+		$set(this, fromMethod, $cast($Method, $AccessController::doPrivileged($$new($MappedMXBeanType$CompositeDataMXBeanType$1, this))));
 	} catch ($PrivilegedActionException& e) {
 	}
 	if ($nc($MappedMXBeanType::COMPOSITE_DATA_CLASS)->isAssignableFrom(c)) {
@@ -140,7 +89,7 @@ void MappedMXBeanType$CompositeDataMXBeanType::init$($Class* c) {
 		$set(this, openType, nullptr);
 	} else {
 		this->isCompositeData = false;
-		$var($MethodArray, methods, $cast($MethodArray, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($MappedMXBeanType$CompositeDataMXBeanType$2, this)))));
+		$var($MethodArray, methods, $cast($MethodArray, $AccessController::doPrivileged($$new($MappedMXBeanType$CompositeDataMXBeanType$2, this))));
 		$var($List, names, $new($ArrayList));
 		$var($List, types, $new($ArrayList));
 		for (int32_t i = 0; i < $nc(methods)->length; ++i) {
@@ -150,29 +99,23 @@ void MappedMXBeanType$CompositeDataMXBeanType::init$($Class* c) {
 			$var($String, rest, nullptr);
 			if ($nc(name)->startsWith("get"_s)) {
 				$assign(rest, name->substring(3));
+			} else if (name->startsWith("is"_s) && $instanceOf($Class, type) && $cast($Class, type) == $Boolean::TYPE) {
+				$assign(rest, name->substring(2));
 			} else {
-				$init($Boolean);
-				if (name->startsWith("is"_s) && $instanceOf($Class, type) && ($cast($Class, type)) == $Boolean::TYPE) {
-					$assign(rest, name->substring(2));
-				} else {
-					continue;
-				}
+				continue;
 			}
 			bool var$1 = $nc(rest)->isEmpty();
-			$init($Void);
 			bool var$0 = var$1 || $nc($(method->getParameterTypes()))->length > 0 || $equals(type, $Void::TYPE);
-			if (var$0 || $nc(rest)->equals("Class"_s)) {
+			if (var$0 || rest->equals("Class"_s)) {
 				continue;
 			}
 			names->add($($MappedMXBeanType::decapitalize(rest)));
 			types->add($(toOpenType(type)));
 		}
-		$var($StringArray, nameArray, $fcast($StringArray, names->toArray($$new($StringArray, 0))));
+		$var($StringArray, nameArray, $cast($StringArray, names->toArray($$new($StringArray, 0))));
 		$var($String, var$2, $nc(c)->getName());
 		$var($String, var$3, c->getName());
-		$var($StringArray, var$4, nameArray);
-		$var($StringArray, var$5, nameArray);
-		$set(this, openType, $new($CompositeType, var$2, var$3, var$4, var$5, $fcast($OpenTypeArray, $(types->toArray($$new($OpenTypeArray, 0))))));
+		$set(this, openType, $new($CompositeType, var$2, var$3, nameArray, nameArray, $$cast($OpenTypeArray, types->toArray($$new($OpenTypeArray, 0)))));
 	}
 }
 
@@ -185,40 +128,44 @@ $String* MappedMXBeanType$CompositeDataMXBeanType::getName() {
 }
 
 $Object* MappedMXBeanType$CompositeDataMXBeanType::toOpenTypeData(Object$* data) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	if (this->toMethod != nullptr) {
 		try {
-			return $of($nc(this->toMethod)->invoke(nullptr, $$new($ObjectArray, {data})));
+			return this->toMethod->invoke(nullptr, $$new($ObjectArray, {data}));
 		} catch ($IllegalAccessException& e) {
 			$throwNew($AssertionError, $of(e));
 		} catch ($InvocationTargetException& e) {
-			$var($String, var$1, $$str({"Failed to invoke "_s, $($nc(this->toMethod)->getName()), " to convert "_s}));
-			$var($String, var$0, $$concat(var$1, $($nc(this->javaClass)->getName())));
-			$var($OpenDataException, ode, $new($OpenDataException, $$concat(var$0, " to CompositeData"_s)));
+			$var($StringBuilder, var$0, $new($StringBuilder));
+			var$0->append("Failed to invoke "_s);
+			var$0->append($(this->toMethod->getName()));
+			var$0->append(" to convert "_s);
+			var$0->append($($nc(this->javaClass)->getName()));
+			var$0->append(" to CompositeData"_s);
+			$var($OpenDataException, ode, $new($OpenDataException, $$str(var$0)));
 			ode->initCause(e);
 			$throw(ode);
 		}
 	}
 	if ($instanceOf($MemoryUsage, data)) {
-		return $of($MemoryUsageCompositeData::toCompositeData($cast($MemoryUsage, data)));
+		return $MemoryUsageCompositeData::toCompositeData($cast($MemoryUsage, data));
 	}
 	if ($instanceOf($ThreadInfo, data)) {
-		return $of($ThreadInfoCompositeData::toCompositeData($cast($ThreadInfo, data)));
+		return $ThreadInfoCompositeData::toCompositeData($cast($ThreadInfo, data));
 	}
 	if ($instanceOf($LockInfo, data)) {
 		if ($instanceOf($MonitorInfo, data)) {
-			return $of($MonitorInfoCompositeData::toCompositeData($cast($MonitorInfo, data)));
+			return $MonitorInfoCompositeData::toCompositeData($cast($MonitorInfo, data));
 		}
-		return $of($LockInfoCompositeData::toCompositeData($cast($LockInfo, data)));
+		return $LockInfoCompositeData::toCompositeData($cast($LockInfo, data));
 	}
 	if ($instanceOf($MemoryNotificationInfo, data)) {
-		return $of($MemoryNotifInfoCompositeData::toCompositeData($cast($MemoryNotificationInfo, data)));
+		return $MemoryNotifInfoCompositeData::toCompositeData($cast($MemoryNotificationInfo, data));
 	}
 	if (this->isCompositeData) {
 		$var($CompositeData, cd, $cast($CompositeData, data));
 		$var($CompositeType, ct, $nc(cd)->getCompositeType());
-		$var($StringArray, itemNames, $fcast($StringArray, $nc($($nc(ct)->keySet()))->toArray($$new($StringArray, 0))));
+		$var($StringArray, itemNames, $cast($StringArray, $$nc($nc(ct)->keySet())->toArray($$new($StringArray, 0))));
 		$var($ObjectArray, itemValues, cd->getAll(itemNames));
 		return $of($new($CompositeDataSupport, ct, itemNames, itemValues));
 	}
@@ -226,18 +173,22 @@ $Object* MappedMXBeanType$CompositeDataMXBeanType::toOpenTypeData(Object$* data)
 }
 
 $Object* MappedMXBeanType$CompositeDataMXBeanType::toJavaTypeData(Object$* data) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	if (this->fromMethod == nullptr) {
 		$throwNew($AssertionError, $of("Does not support data conversion"_s));
 	}
 	try {
-		return $of($nc(this->fromMethod)->invoke(nullptr, $$new($ObjectArray, {data})));
+		return $nc(this->fromMethod)->invoke(nullptr, $$new($ObjectArray, {data}));
 	} catch ($IllegalAccessException& e) {
 		$throwNew($AssertionError, $of(e));
 	} catch ($InvocationTargetException& e) {
-		$var($String, var$0, $$str({"Failed to invoke "_s, $($nc(this->fromMethod)->getName()), " to convert CompositeData  to "_s}));
-		$var($OpenDataException, ode, $new($OpenDataException, $$concat(var$0, $($nc(this->javaClass)->getName()))));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append("Failed to invoke "_s);
+		var$0->append($($nc(this->fromMethod)->getName()));
+		var$0->append(" to convert CompositeData  to "_s);
+		var$0->append($($nc(this->javaClass)->getName()));
+		$var($OpenDataException, ode, $new($OpenDataException, $$str(var$0)));
 		ode->initCause(e);
 		$throw(ode);
 	}
@@ -248,7 +199,45 @@ MappedMXBeanType$CompositeDataMXBeanType::MappedMXBeanType$CompositeDataMXBeanTy
 }
 
 $Class* MappedMXBeanType$CompositeDataMXBeanType::load$($String* name, bool initialize) {
-	$loadClass(MappedMXBeanType$CompositeDataMXBeanType, name, initialize, &_MappedMXBeanType$CompositeDataMXBeanType_ClassInfo_, allocate$MappedMXBeanType$CompositeDataMXBeanType);
+	$FieldInfo fieldInfos$$[] = {
+		{"javaClass", "Ljava/lang/Class;", "Ljava/lang/Class<*>;", $FINAL, $field(MappedMXBeanType$CompositeDataMXBeanType, javaClass)},
+		{"isCompositeData", "Z", nullptr, 0, $field(MappedMXBeanType$CompositeDataMXBeanType, isCompositeData)},
+		{"fromMethod", "Ljava/lang/reflect/Method;", nullptr, 0, $field(MappedMXBeanType$CompositeDataMXBeanType, fromMethod)},
+		{"toMethod", "Ljava/lang/reflect/Method;", nullptr, 0, $field(MappedMXBeanType$CompositeDataMXBeanType, toMethod)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;)V", 0, $method(MappedMXBeanType$CompositeDataMXBeanType, init$, void, $Class*), "javax.management.openmbean.OpenDataException"},
+		{"getJavaType", "()Ljava/lang/reflect/Type;", nullptr, 0, $virtualMethod(MappedMXBeanType$CompositeDataMXBeanType, getJavaType, $Type*)},
+		{"getName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(MappedMXBeanType$CompositeDataMXBeanType, getName, $String*)},
+		{"toJavaTypeData", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MappedMXBeanType$CompositeDataMXBeanType, toJavaTypeData, $Object*, Object$*), "javax.management.openmbean.OpenDataException,java.io.InvalidObjectException"},
+		{"toOpenTypeData", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MappedMXBeanType$CompositeDataMXBeanType, toOpenTypeData, $Object*, Object$*), "javax.management.openmbean.OpenDataException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.management.MappedMXBeanType$CompositeDataMXBeanType", "sun.management.MappedMXBeanType", "CompositeDataMXBeanType", $STATIC},
+		{"sun.management.MappedMXBeanType$CompositeDataMXBeanType$2", nullptr, nullptr, 0},
+		{"sun.management.MappedMXBeanType$CompositeDataMXBeanType$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.management.MappedMXBeanType$CompositeDataMXBeanType",
+		"sun.management.MappedMXBeanType",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.management.MappedMXBeanType"
+	};
+	$loadClass(MappedMXBeanType$CompositeDataMXBeanType, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MappedMXBeanType$CompositeDataMXBeanType);
+	});
 	return class$;
 }
 

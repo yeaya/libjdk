@@ -1,8 +1,6 @@
 #include <com/sun/tools/javac/util/RichDiagnosticFormatter.h>
-
 #include <com/sun/tools/javac/api/DiagnosticFormatter$Configuration.h>
 #include <com/sun/tools/javac/api/DiagnosticFormatter.h>
-#include <com/sun/tools/javac/code/Printer.h>
 #include <com/sun/tools/javac/code/Symbol$TypeSymbol.h>
 #include <com/sun/tools/javac/code/Symbol.h>
 #include <com/sun/tools/javac/code/Symtab.h>
@@ -46,20 +44,15 @@
 #undef WHERE_CLAUSES
 
 using $RichDiagnosticFormatter$WhereClauseKindArray = $Array<::com::sun::tools::javac::util::RichDiagnosticFormatter$WhereClauseKind>;
-using $DiagnosticFormatter = ::com::sun::tools::javac::api::DiagnosticFormatter;
 using $DiagnosticFormatter$Configuration = ::com::sun::tools::javac::api::DiagnosticFormatter$Configuration;
-using $Printer = ::com::sun::tools::javac::code::Printer;
 using $Symbol = ::com::sun::tools::javac::code::Symbol;
 using $Symtab = ::com::sun::tools::javac::code::Symtab;
 using $Type = ::com::sun::tools::javac::code::Type;
 using $Type$TypeVar = ::com::sun::tools::javac::code::Type$TypeVar;
 using $Types = ::com::sun::tools::javac::code::Types;
-using $Types$DefaultSymbolVisitor = ::com::sun::tools::javac::code::Types$DefaultSymbolVisitor;
-using $Types$UnaryVisitor = ::com::sun::tools::javac::code::Types$UnaryVisitor;
 using $AbstractDiagnosticFormatter = ::com::sun::tools::javac::util::AbstractDiagnosticFormatter;
 using $Context = ::com::sun::tools::javac::util::Context;
 using $ForwardingDiagnosticFormatter = ::com::sun::tools::javac::util::ForwardingDiagnosticFormatter;
-using $ForwardingDiagnosticFormatter$ForwardingConfiguration = ::com::sun::tools::javac::util::ForwardingDiagnosticFormatter$ForwardingConfiguration;
 using $JCDiagnostic = ::com::sun::tools::javac::util::JCDiagnostic;
 using $JCDiagnostic$Factory = ::com::sun::tools::javac::util::JCDiagnostic$Factory;
 using $JCDiagnostic$MultilineDiagnostic = ::com::sun::tools::javac::util::JCDiagnostic$MultilineDiagnostic;
@@ -87,7 +80,6 @@ using $LinkedHashMap = ::java::util::LinkedHashMap;
 using $Locale = ::java::util::Locale;
 using $Map = ::java::util::Map;
 using $Map$Entry = ::java::util::Map$Entry;
-using $Set = ::java::util::Set;
 using $Diagnostic = ::javax::tools::Diagnostic;
 
 namespace com {
@@ -95,68 +87,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace util {
-
-$FieldInfo _RichDiagnosticFormatter_FieldInfo_[] = {
-	{"syms", "Lcom/sun/tools/javac/code/Symtab;", nullptr, $FINAL, $field(RichDiagnosticFormatter, syms)},
-	{"types", "Lcom/sun/tools/javac/code/Types;", nullptr, $FINAL, $field(RichDiagnosticFormatter, types)},
-	{"diags", "Lcom/sun/tools/javac/util/JCDiagnostic$Factory;", nullptr, $FINAL, $field(RichDiagnosticFormatter, diags)},
-	{"messages", "Lcom/sun/tools/javac/util/JavacMessages;", nullptr, $FINAL, $field(RichDiagnosticFormatter, messages)},
-	{"nameSimplifier", "Lcom/sun/tools/javac/util/RichDiagnosticFormatter$ClassNameSimplifier;", nullptr, $PROTECTED, $field(RichDiagnosticFormatter, nameSimplifier)},
-	{"printer", "Lcom/sun/tools/javac/util/RichDiagnosticFormatter$RichPrinter;", nullptr, $PRIVATE, $field(RichDiagnosticFormatter, printer)},
-	{"whereClauses", "Ljava/util/Map;", "Ljava/util/Map<Lcom/sun/tools/javac/util/RichDiagnosticFormatter$WhereClauseKind;Ljava/util/Map<Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/JCDiagnostic;>;>;", 0, $field(RichDiagnosticFormatter, whereClauses)},
-	{"typePreprocessor", "Lcom/sun/tools/javac/code/Types$UnaryVisitor;", "Lcom/sun/tools/javac/code/Types$UnaryVisitor<Ljava/lang/Void;>;", $PROTECTED, $field(RichDiagnosticFormatter, typePreprocessor)},
-	{"symbolPreprocessor", "Lcom/sun/tools/javac/code/Types$DefaultSymbolVisitor;", "Lcom/sun/tools/javac/code/Types$DefaultSymbolVisitor<Ljava/lang/Void;Ljava/lang/Void;>;", $PROTECTED, $field(RichDiagnosticFormatter, symbolPreprocessor)},
-	{}
-};
-
-$MethodInfo _RichDiagnosticFormatter_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/util/Context;)V", nullptr, $PROTECTED, $method(RichDiagnosticFormatter, init$, void, $Context*)},
-	{"format", "(Lcom/sun/tools/javac/util/JCDiagnostic;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RichDiagnosticFormatter, format, $String*, $JCDiagnostic*, $Locale*)},
-	{"format", "(Ljavax/tools/Diagnostic;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(RichDiagnosticFormatter, format, $String*, $Diagnostic*, $Locale*)},
-	{"formatMessage", "(Lcom/sun/tools/javac/util/JCDiagnostic;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RichDiagnosticFormatter, formatMessage, $String*, $JCDiagnostic*, $Locale*)},
-	{"formatMessage", "(Ljavax/tools/Diagnostic;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(RichDiagnosticFormatter, formatMessage, $String*, $Diagnostic*, $Locale*)},
-	{"getConfiguration", "()Lcom/sun/tools/javac/util/RichDiagnosticFormatter$RichConfiguration;", nullptr, $PUBLIC, $virtualMethod(RichDiagnosticFormatter, getConfiguration, $DiagnosticFormatter$Configuration*)},
-	{"getRichPrinter", "()Lcom/sun/tools/javac/util/RichDiagnosticFormatter$RichPrinter;", nullptr, $PROTECTED, $virtualMethod(RichDiagnosticFormatter, getRichPrinter, $RichDiagnosticFormatter$RichPrinter*)},
-	{"getWhereClauses", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/util/JCDiagnostic;>;", $PROTECTED, $virtualMethod(RichDiagnosticFormatter, getWhereClauses, $List*)},
-	{"indexOf", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/RichDiagnosticFormatter$WhereClauseKind;)I", nullptr, $PRIVATE, $method(RichDiagnosticFormatter, indexOf, int32_t, $Type*, $RichDiagnosticFormatter$WhereClauseKind*)},
-	{"instance", "(Lcom/sun/tools/javac/util/Context;)Lcom/sun/tools/javac/util/RichDiagnosticFormatter;", nullptr, $PUBLIC | $STATIC, $staticMethod(RichDiagnosticFormatter, instance, RichDiagnosticFormatter*, $Context*)},
-	{"preprocessArgument", "(Ljava/lang/Object;)V", nullptr, $PROTECTED, $virtualMethod(RichDiagnosticFormatter, preprocessArgument, void, Object$*)},
-	{"preprocessDiagnostic", "(Lcom/sun/tools/javac/util/JCDiagnostic;)V", nullptr, $PROTECTED, $virtualMethod(RichDiagnosticFormatter, preprocessDiagnostic, void, $JCDiagnostic*)},
-	{"preprocessSymbol", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PROTECTED, $virtualMethod(RichDiagnosticFormatter, preprocessSymbol, void, $Symbol*)},
-	{"preprocessType", "(Lcom/sun/tools/javac/code/Type;)V", nullptr, $PROTECTED, $virtualMethod(RichDiagnosticFormatter, preprocessType, void, $Type*)},
-	{"setRichPrinter", "(Lcom/sun/tools/javac/util/RichDiagnosticFormatter$RichPrinter;)V", nullptr, $PROTECTED, $virtualMethod(RichDiagnosticFormatter, setRichPrinter, void, $RichDiagnosticFormatter$RichPrinter*)},
-	{"unique", "(Lcom/sun/tools/javac/code/Type$TypeVar;)Z", nullptr, $PRIVATE, $method(RichDiagnosticFormatter, unique, bool, $Type$TypeVar*)},
-	{}
-};
-
-$InnerClassInfo _RichDiagnosticFormatter_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.util.RichDiagnosticFormatter$RichConfiguration", "com.sun.tools.javac.util.RichDiagnosticFormatter", "RichConfiguration", $PUBLIC | $STATIC},
-	{"com.sun.tools.javac.util.RichDiagnosticFormatter$RichPrinter", "com.sun.tools.javac.util.RichDiagnosticFormatter", "RichPrinter", $PROTECTED},
-	{"com.sun.tools.javac.util.RichDiagnosticFormatter$ClassNameSimplifier", "com.sun.tools.javac.util.RichDiagnosticFormatter", "ClassNameSimplifier", $PROTECTED},
-	{"com.sun.tools.javac.util.RichDiagnosticFormatter$WhereClauseKind", "com.sun.tools.javac.util.RichDiagnosticFormatter", "WhereClauseKind", $STATIC | $FINAL | $ENUM},
-	{"com.sun.tools.javac.util.RichDiagnosticFormatter$2", nullptr, nullptr, 0},
-	{"com.sun.tools.javac.util.RichDiagnosticFormatter$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _RichDiagnosticFormatter_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.util.RichDiagnosticFormatter",
-	"com.sun.tools.javac.util.ForwardingDiagnosticFormatter",
-	nullptr,
-	_RichDiagnosticFormatter_FieldInfo_,
-	_RichDiagnosticFormatter_MethodInfo_,
-	"Lcom/sun/tools/javac/util/ForwardingDiagnosticFormatter<Lcom/sun/tools/javac/util/JCDiagnostic;Lcom/sun/tools/javac/util/AbstractDiagnosticFormatter;>;",
-	nullptr,
-	_RichDiagnosticFormatter_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.util.RichDiagnosticFormatter$RichConfiguration,com.sun.tools.javac.util.RichDiagnosticFormatter$RichConfiguration$RichFormatterFeature,com.sun.tools.javac.util.RichDiagnosticFormatter$RichPrinter,com.sun.tools.javac.util.RichDiagnosticFormatter$ClassNameSimplifier,com.sun.tools.javac.util.RichDiagnosticFormatter$WhereClauseKind,com.sun.tools.javac.util.RichDiagnosticFormatter$2,com.sun.tools.javac.util.RichDiagnosticFormatter$1"
-};
-
-$Object* allocate$RichDiagnosticFormatter($Class* clazz) {
-	return $of($alloc(RichDiagnosticFormatter));
-}
 
 RichDiagnosticFormatter* RichDiagnosticFormatter::instance($Context* context) {
 	$init(RichDiagnosticFormatter);
@@ -168,8 +98,8 @@ RichDiagnosticFormatter* RichDiagnosticFormatter::instance($Context* context) {
 }
 
 void RichDiagnosticFormatter::init$($Context* context) {
-	$useLocalCurrentObjectStackCache();
-	$ForwardingDiagnosticFormatter::init$($cast($AbstractDiagnosticFormatter, $($nc($($Log::instance(context)))->getDiagnosticFormatter())));
+	$useLocalObjectStack();
+	$ForwardingDiagnosticFormatter::init$($$cast($AbstractDiagnosticFormatter, $$nc($Log::instance(context))->getDiagnosticFormatter()));
 	$set(this, typePreprocessor, $new($RichDiagnosticFormatter$1, this));
 	$set(this, symbolPreprocessor, $new($RichDiagnosticFormatter$2, this));
 	setRichPrinter($$new($RichDiagnosticFormatter$RichPrinter, this));
@@ -182,9 +112,7 @@ void RichDiagnosticFormatter::init$($Context* context) {
 	$set(this, configuration, $new($RichDiagnosticFormatter$RichConfiguration, $($Options::instance(context)), $cast($AbstractDiagnosticFormatter, this->formatter)));
 	{
 		$var($RichDiagnosticFormatter$WhereClauseKindArray, arr$, $RichDiagnosticFormatter$WhereClauseKind::values());
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 			$RichDiagnosticFormatter$WhereClauseKind* kind = arr$->get(i$);
 			$nc(this->whereClauses)->put(kind, $$new($LinkedHashMap));
 		}
@@ -192,30 +120,28 @@ void RichDiagnosticFormatter::init$($Context* context) {
 }
 
 $String* RichDiagnosticFormatter::format($JCDiagnostic* diag, $Locale* l) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, sb, $new($StringBuilder));
 	$set(this, nameSimplifier, $new($RichDiagnosticFormatter$ClassNameSimplifier, this));
 	{
 		$var($RichDiagnosticFormatter$WhereClauseKindArray, arr$, $RichDiagnosticFormatter$WhereClauseKind::values());
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 			$RichDiagnosticFormatter$WhereClauseKind* kind = arr$->get(i$);
-			$nc(($cast($Map, $($nc(this->whereClauses)->get(kind)))))->clear();
+			$$sure($Map, $nc(this->whereClauses)->get(kind))->clear();
 		}
 	}
 	preprocessDiagnostic(diag);
-	sb->append($($nc(($cast($AbstractDiagnosticFormatter, this->formatter)))->format(diag, l)));
+	sb->append($($nc($cast($AbstractDiagnosticFormatter, this->formatter))->format(diag, l)));
 	$init($RichDiagnosticFormatter$RichConfiguration$RichFormatterFeature);
-	if ($nc($($cast($RichDiagnosticFormatter$RichConfiguration, getConfiguration())))->isEnabled($RichDiagnosticFormatter$RichConfiguration$RichFormatterFeature::WHERE_CLAUSES)) {
+	if ($$sure($RichDiagnosticFormatter$RichConfiguration, getConfiguration())->isEnabled($RichDiagnosticFormatter$RichConfiguration$RichFormatterFeature::WHERE_CLAUSES)) {
 		$var($List, clauses, getWhereClauses());
-		$var($String, indent, $nc(($cast($AbstractDiagnosticFormatter, this->formatter)))->isRaw() ? ""_s : $nc(($cast($AbstractDiagnosticFormatter, this->formatter)))->indentString(2));
+		$var($String, indent, $nc($cast($AbstractDiagnosticFormatter, this->formatter))->isRaw() ? ""_s : $cast($AbstractDiagnosticFormatter, this->formatter)->indentString(2));
 		{
 			$var($Iterator, i$, $nc(clauses)->iterator());
 			for (; $nc(i$)->hasNext();) {
 				$var($JCDiagnostic, d, $cast($JCDiagnostic, i$->next()));
 				{
-					$var($String, whereClause, $nc(($cast($AbstractDiagnosticFormatter, this->formatter)))->format(d, l));
+					$var($String, whereClause, $nc($cast($AbstractDiagnosticFormatter, this->formatter))->format(d, l));
 					if ($nc(whereClause)->length() > 0) {
 						sb->append($$str({$$str(u'\n'), indent, whereClause}));
 					}
@@ -234,7 +160,7 @@ $String* RichDiagnosticFormatter::formatMessage($JCDiagnostic* diag, $Locale* l)
 
 void RichDiagnosticFormatter::setRichPrinter($RichDiagnosticFormatter$RichPrinter* printer) {
 	$set(this, printer, printer);
-	$nc(($cast($AbstractDiagnosticFormatter, this->formatter)))->setPrinter(printer);
+	$nc($cast($AbstractDiagnosticFormatter, this->formatter))->setPrinter(printer);
 }
 
 $RichDiagnosticFormatter$RichPrinter* RichDiagnosticFormatter::getRichPrinter() {
@@ -242,33 +168,27 @@ $RichDiagnosticFormatter$RichPrinter* RichDiagnosticFormatter::getRichPrinter() 
 }
 
 void RichDiagnosticFormatter::preprocessDiagnostic($JCDiagnostic* diag) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	{
 		$var($ObjectArray, arr$, $nc(diag)->getArgs());
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($Object0, o, arr$->get(i$));
-			{
-				if (o != nullptr) {
-					preprocessArgument(o);
-				}
+			if (o != nullptr) {
+				preprocessArgument(o);
 			}
 		}
 	}
 	if (diag->isMultiline()) {
-		{
-			$var($Iterator, i$, $nc($(diag->getSubdiagnostics()))->iterator());
-			for (; $nc(i$)->hasNext();) {
-				$var($JCDiagnostic, d, $cast($JCDiagnostic, i$->next()));
-				preprocessDiagnostic(d);
-			}
+		$var($Iterator, i$, $$nc(diag->getSubdiagnostics())->iterator());
+		for (; $nc(i$)->hasNext();) {
+			$var($JCDiagnostic, d, $cast($JCDiagnostic, i$->next()));
+			preprocessDiagnostic(d);
 		}
 	}
 }
 
 void RichDiagnosticFormatter::preprocessArgument(Object$* arg) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	{
 		$var($Type, type, nullptr);
 		$var($Symbol, symbol, nullptr);
@@ -282,35 +202,33 @@ void RichDiagnosticFormatter::preprocessArgument(Object$* arg) {
 		if (var$0) {
 			preprocessType(type);
 		} else {
-			bool var$2 = $instanceOf($Symbol, arg);
-			if (var$2) {
+			bool var$1 = $instanceOf($Symbol, arg);
+			if (var$1) {
 				$assign(symbol, $cast($Symbol, arg));
-				var$2 = true;
+				var$1 = true;
 			}
-			if (var$2) {
+			if (var$1) {
 				preprocessSymbol(symbol);
 			} else {
-				bool var$4 = $instanceOf($JCDiagnostic, arg);
-				if (var$4) {
+				bool var$2 = $instanceOf($JCDiagnostic, arg);
+				if (var$2) {
 					$assign(diagnostic, $cast($JCDiagnostic, arg));
-					var$4 = true;
+					var$2 = true;
 				}
-				if (var$4) {
+				if (var$2) {
 					preprocessDiagnostic(diagnostic);
 				} else {
-					bool var$6 = $instanceOf($Iterable, arg);
-					if (var$6) {
+					bool var$3 = $instanceOf($Iterable, arg);
+					if (var$3) {
 						$assign(iterable, $cast($Iterable, arg));
-						var$6 = true;
+						var$3 = true;
 					}
-					if (var$6 && !($instanceOf($Path, arg))) {
-						{
-							$var($Iterator, i$, $nc(iterable)->iterator());
-							for (; $nc(i$)->hasNext();) {
-								$var($Object, o, i$->next());
-								{
-									preprocessArgument(o);
-								}
+					if (var$3 && !($instanceOf($Path, arg))) {
+						$var($Iterator, i$, $nc(iterable)->iterator());
+						for (; $nc(i$)->hasNext();) {
+							$var($Object, o, i$->next());
+							{
+								preprocessArgument(o);
 							}
 						}
 					}
@@ -321,22 +239,22 @@ void RichDiagnosticFormatter::preprocessArgument(Object$* arg) {
 }
 
 $List* RichDiagnosticFormatter::getWhereClauses() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, clauses, $List::nil());
 	{
 		$var($RichDiagnosticFormatter$WhereClauseKindArray, arr$, $RichDiagnosticFormatter$WhereClauseKind::values());
-		int32_t len$ = $nc(arr$)->length;
+		int32_t len$ = arr$->length;
 		int32_t i$ = 0;
 		for (; i$ < len$; ++i$) {
 			$RichDiagnosticFormatter$WhereClauseKind* kind = arr$->get(i$);
 			{
 				$var($List, lines, $List::nil());
 				{
-					$var($Iterator, i$, $nc($($nc(($cast($Map, $($nc(this->whereClauses)->get(kind)))))->entrySet()))->iterator());
+					$var($Iterator, i$, $$nc($$sure($Map, $nc(this->whereClauses)->get(kind))->entrySet())->iterator());
 					for (; $nc(i$)->hasNext();) {
 						$var($Map$Entry, entry, $cast($Map$Entry, i$->next()));
 						{
-							$assign(lines, $nc(lines)->prepend($cast($JCDiagnostic, $($nc(entry)->getValue()))));
+							$assign(lines, $nc(lines)->prepend($$cast($JCDiagnostic, $nc(entry)->getValue())));
 						}
 					}
 				}
@@ -345,7 +263,7 @@ $List* RichDiagnosticFormatter::getWhereClauses() {
 					if (lines->size() > 1) {
 						$plusAssign(key, ".1"_s);
 					}
-					$var($JCDiagnostic, d, $nc(this->diags)->fragment(key, $$new($ObjectArray, {$($of($nc(($cast($Map, $($nc(this->whereClauses)->get(kind)))))->keySet()))})));
+					$var($JCDiagnostic, d, $nc(this->diags)->fragment(key, $$new($ObjectArray, {$($$sure($Map, $nc(this->whereClauses)->get(kind))->keySet())})));
 					$assign(d, $new($JCDiagnostic$MultilineDiagnostic, d, $(lines->reverse())));
 					$assign(clauses, $nc(clauses)->prepend(d));
 				}
@@ -356,10 +274,10 @@ $List* RichDiagnosticFormatter::getWhereClauses() {
 }
 
 int32_t RichDiagnosticFormatter::indexOf($Type* type, $RichDiagnosticFormatter$WhereClauseKind* kind) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t index = 1;
 	{
-		$var($Iterator, i$, $nc($($nc(($cast($Map, $($nc(this->whereClauses)->get(kind)))))->keySet()))->iterator());
+		$var($Iterator, i$, $$nc($$sure($Map, $nc(this->whereClauses)->get(kind))->keySet())->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Type, t, $cast($Type, i$->next()));
 			{
@@ -367,7 +285,7 @@ int32_t RichDiagnosticFormatter::indexOf($Type* type, $RichDiagnosticFormatter$W
 					return index;
 				}
 				$init($RichDiagnosticFormatter$WhereClauseKind);
-				if (kind != $RichDiagnosticFormatter$WhereClauseKind::TYPEVAR || $nc($($nc(t)->toString()))->equals($($nc(type)->toString()))) {
+				if (kind != $RichDiagnosticFormatter$WhereClauseKind::TYPEVAR || $$nc(t->toString())->equals($(type->toString()))) {
 					++index;
 				}
 			}
@@ -377,24 +295,22 @@ int32_t RichDiagnosticFormatter::indexOf($Type* type, $RichDiagnosticFormatter$W
 }
 
 bool RichDiagnosticFormatter::unique($Type$TypeVar* typevar$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Type$TypeVar, typevar, typevar$renamed);
 	$assign(typevar, $cast($Type$TypeVar, $nc(typevar)->stripMetadata()));
 	int32_t found = 0;
 	{
 		$init($RichDiagnosticFormatter$WhereClauseKind);
-		$var($Iterator, i$, $nc($($nc(($cast($Map, $($nc(this->whereClauses)->get($RichDiagnosticFormatter$WhereClauseKind::TYPEVAR)))))->keySet()))->iterator());
+		$var($Iterator, i$, $$nc($$sure($Map, $nc(this->whereClauses)->get($RichDiagnosticFormatter$WhereClauseKind::TYPEVAR))->keySet())->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Type, t, $cast($Type, i$->next()));
-			{
-				if ($nc($($nc($($nc(t)->stripMetadata()))->toString()))->equals($(typevar->toString()))) {
-					++found;
-				}
+			if ($$nc($$nc($nc(t)->stripMetadata())->toString())->equals($($nc(typevar)->toString()))) {
+				++found;
 			}
 		}
 	}
 	if (found < 1) {
-		$throwNew($AssertionError, $of($$str({"Missing type variable in where clause: "_s, typevar})));
+		$throwNew($AssertionError, $$of($str({"Missing type variable in where clause: "_s, typevar})));
 	}
 	return found == 1;
 }
@@ -423,7 +339,63 @@ RichDiagnosticFormatter::RichDiagnosticFormatter() {
 }
 
 $Class* RichDiagnosticFormatter::load$($String* name, bool initialize) {
-	$loadClass(RichDiagnosticFormatter, name, initialize, &_RichDiagnosticFormatter_ClassInfo_, allocate$RichDiagnosticFormatter);
+	$FieldInfo fieldInfos$$[] = {
+		{"syms", "Lcom/sun/tools/javac/code/Symtab;", nullptr, $FINAL, $field(RichDiagnosticFormatter, syms)},
+		{"types", "Lcom/sun/tools/javac/code/Types;", nullptr, $FINAL, $field(RichDiagnosticFormatter, types)},
+		{"diags", "Lcom/sun/tools/javac/util/JCDiagnostic$Factory;", nullptr, $FINAL, $field(RichDiagnosticFormatter, diags)},
+		{"messages", "Lcom/sun/tools/javac/util/JavacMessages;", nullptr, $FINAL, $field(RichDiagnosticFormatter, messages)},
+		{"nameSimplifier", "Lcom/sun/tools/javac/util/RichDiagnosticFormatter$ClassNameSimplifier;", nullptr, $PROTECTED, $field(RichDiagnosticFormatter, nameSimplifier)},
+		{"printer", "Lcom/sun/tools/javac/util/RichDiagnosticFormatter$RichPrinter;", nullptr, $PRIVATE, $field(RichDiagnosticFormatter, printer)},
+		{"whereClauses", "Ljava/util/Map;", "Ljava/util/Map<Lcom/sun/tools/javac/util/RichDiagnosticFormatter$WhereClauseKind;Ljava/util/Map<Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/JCDiagnostic;>;>;", 0, $field(RichDiagnosticFormatter, whereClauses)},
+		{"typePreprocessor", "Lcom/sun/tools/javac/code/Types$UnaryVisitor;", "Lcom/sun/tools/javac/code/Types$UnaryVisitor<Ljava/lang/Void;>;", $PROTECTED, $field(RichDiagnosticFormatter, typePreprocessor)},
+		{"symbolPreprocessor", "Lcom/sun/tools/javac/code/Types$DefaultSymbolVisitor;", "Lcom/sun/tools/javac/code/Types$DefaultSymbolVisitor<Ljava/lang/Void;Ljava/lang/Void;>;", $PROTECTED, $field(RichDiagnosticFormatter, symbolPreprocessor)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/util/Context;)V", nullptr, $PROTECTED, $method(RichDiagnosticFormatter, init$, void, $Context*)},
+		{"format", "(Lcom/sun/tools/javac/util/JCDiagnostic;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RichDiagnosticFormatter, format, $String*, $JCDiagnostic*, $Locale*)},
+		{"format", "(Ljavax/tools/Diagnostic;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(RichDiagnosticFormatter, format, $String*, $Diagnostic*, $Locale*)},
+		{"formatMessage", "(Lcom/sun/tools/javac/util/JCDiagnostic;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RichDiagnosticFormatter, formatMessage, $String*, $JCDiagnostic*, $Locale*)},
+		{"formatMessage", "(Ljavax/tools/Diagnostic;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(RichDiagnosticFormatter, formatMessage, $String*, $Diagnostic*, $Locale*)},
+		{"getConfiguration", "()Lcom/sun/tools/javac/util/RichDiagnosticFormatter$RichConfiguration;", nullptr, $PUBLIC, $virtualMethod(RichDiagnosticFormatter, getConfiguration, $DiagnosticFormatter$Configuration*)},
+		{"getRichPrinter", "()Lcom/sun/tools/javac/util/RichDiagnosticFormatter$RichPrinter;", nullptr, $PROTECTED, $virtualMethod(RichDiagnosticFormatter, getRichPrinter, $RichDiagnosticFormatter$RichPrinter*)},
+		{"getWhereClauses", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/util/JCDiagnostic;>;", $PROTECTED, $virtualMethod(RichDiagnosticFormatter, getWhereClauses, $List*)},
+		{"indexOf", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/RichDiagnosticFormatter$WhereClauseKind;)I", nullptr, $PRIVATE, $method(RichDiagnosticFormatter, indexOf, int32_t, $Type*, $RichDiagnosticFormatter$WhereClauseKind*)},
+		{"instance", "(Lcom/sun/tools/javac/util/Context;)Lcom/sun/tools/javac/util/RichDiagnosticFormatter;", nullptr, $PUBLIC | $STATIC, $staticMethod(RichDiagnosticFormatter, instance, RichDiagnosticFormatter*, $Context*)},
+		{"preprocessArgument", "(Ljava/lang/Object;)V", nullptr, $PROTECTED, $virtualMethod(RichDiagnosticFormatter, preprocessArgument, void, Object$*)},
+		{"preprocessDiagnostic", "(Lcom/sun/tools/javac/util/JCDiagnostic;)V", nullptr, $PROTECTED, $virtualMethod(RichDiagnosticFormatter, preprocessDiagnostic, void, $JCDiagnostic*)},
+		{"preprocessSymbol", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PROTECTED, $virtualMethod(RichDiagnosticFormatter, preprocessSymbol, void, $Symbol*)},
+		{"preprocessType", "(Lcom/sun/tools/javac/code/Type;)V", nullptr, $PROTECTED, $virtualMethod(RichDiagnosticFormatter, preprocessType, void, $Type*)},
+		{"setRichPrinter", "(Lcom/sun/tools/javac/util/RichDiagnosticFormatter$RichPrinter;)V", nullptr, $PROTECTED, $virtualMethod(RichDiagnosticFormatter, setRichPrinter, void, $RichDiagnosticFormatter$RichPrinter*)},
+		{"unique", "(Lcom/sun/tools/javac/code/Type$TypeVar;)Z", nullptr, $PRIVATE, $method(RichDiagnosticFormatter, unique, bool, $Type$TypeVar*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.util.RichDiagnosticFormatter$RichConfiguration", "com.sun.tools.javac.util.RichDiagnosticFormatter", "RichConfiguration", $PUBLIC | $STATIC},
+		{"com.sun.tools.javac.util.RichDiagnosticFormatter$RichPrinter", "com.sun.tools.javac.util.RichDiagnosticFormatter", "RichPrinter", $PROTECTED},
+		{"com.sun.tools.javac.util.RichDiagnosticFormatter$ClassNameSimplifier", "com.sun.tools.javac.util.RichDiagnosticFormatter", "ClassNameSimplifier", $PROTECTED},
+		{"com.sun.tools.javac.util.RichDiagnosticFormatter$WhereClauseKind", "com.sun.tools.javac.util.RichDiagnosticFormatter", "WhereClauseKind", $STATIC | $FINAL | $ENUM},
+		{"com.sun.tools.javac.util.RichDiagnosticFormatter$2", nullptr, nullptr, 0},
+		{"com.sun.tools.javac.util.RichDiagnosticFormatter$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.util.RichDiagnosticFormatter",
+		"com.sun.tools.javac.util.ForwardingDiagnosticFormatter",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Lcom/sun/tools/javac/util/ForwardingDiagnosticFormatter<Lcom/sun/tools/javac/util/JCDiagnostic;Lcom/sun/tools/javac/util/AbstractDiagnosticFormatter;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.util.RichDiagnosticFormatter$RichConfiguration,com.sun.tools.javac.util.RichDiagnosticFormatter$RichConfiguration$RichFormatterFeature,com.sun.tools.javac.util.RichDiagnosticFormatter$RichPrinter,com.sun.tools.javac.util.RichDiagnosticFormatter$ClassNameSimplifier,com.sun.tools.javac.util.RichDiagnosticFormatter$WhereClauseKind,com.sun.tools.javac.util.RichDiagnosticFormatter$2,com.sun.tools.javac.util.RichDiagnosticFormatter$1"
+	};
+	$loadClass(RichDiagnosticFormatter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RichDiagnosticFormatter);
+	});
 	return class$;
 }
 

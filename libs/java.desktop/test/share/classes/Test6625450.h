@@ -27,6 +27,7 @@ class $export Test6625450 : public ::java::lang::Object {
 	$class(Test6625450, 0, ::java::lang::Object)
 public:
 	Test6625450();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void main($StringArray* args);
 	static void test(bool expected, int32_t width, int32_t height);

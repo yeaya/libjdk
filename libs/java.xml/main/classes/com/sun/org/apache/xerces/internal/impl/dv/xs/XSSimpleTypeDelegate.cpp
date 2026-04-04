@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/impl/dv/xs/XSSimpleTypeDelegate.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/dv/ValidatedInfo.h>
 #include <com/sun/org/apache/xerces/internal/impl/dv/ValidationContext.h>
 #include <com/sun/org/apache/xerces/internal/impl/dv/XSFacets.h>
@@ -36,70 +35,6 @@ namespace com {
 						namespace impl {
 							namespace dv {
 								namespace xs {
-
-$FieldInfo _XSSimpleTypeDelegate_FieldInfo_[] = {
-	{"type", "Lcom/sun/org/apache/xerces/internal/impl/dv/XSSimpleType;", nullptr, $PROTECTED | $FINAL, $field(XSSimpleTypeDelegate, type)},
-	{}
-};
-
-$MethodInfo _XSSimpleTypeDelegate_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/org/apache/xerces/internal/impl/dv/XSSimpleType;)V", nullptr, $PUBLIC, $method(XSSimpleTypeDelegate, init$, void, $XSSimpleType*)},
-	{"applyFacets", "(Lcom/sun/org/apache/xerces/internal/impl/dv/XSFacets;SSLcom/sun/org/apache/xerces/internal/impl/dv/ValidationContext;)V", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDelegate, applyFacets, void, $XSFacets*, int16_t, int16_t, $ValidationContext*), "com.sun.org.apache.xerces.internal.impl.dv.InvalidDatatypeFacetException"},
-	{"derivedFrom", "(Ljava/lang/String;Ljava/lang/String;S)Z", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDelegate, derivedFrom, bool, $String*, $String*, int16_t)},
-	{"derivedFromType", "(Lcom/sun/org/apache/xerces/internal/xs/XSTypeDefinition;S)Z", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDelegate, derivedFromType, bool, $XSTypeDefinition*, int16_t)},
-	{"getAnnotations", "()Lcom/sun/org/apache/xerces/internal/xs/XSObjectList;", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDelegate, getAnnotations, $XSObjectList*)},
-	{"getAnonymous", "()Z", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDelegate, getAnonymous, bool)},
-	{"getBaseType", "()Lcom/sun/org/apache/xerces/internal/xs/XSTypeDefinition;", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDelegate, getBaseType, $XSTypeDefinition*)},
-	{"getBounded", "()Z", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDelegate, getBounded, bool)},
-	{"getBuiltInKind", "()S", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDelegate, getBuiltInKind, int16_t)},
-	{"getDefinedFacets", "()S", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDelegate, getDefinedFacets, int16_t)},
-	{"getFacet", "(I)Lcom/sun/org/apache/xerces/internal/xs/XSObject;", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDelegate, getFacet, $XSObject*, int32_t)},
-	{"getFacets", "()Lcom/sun/org/apache/xerces/internal/xs/XSObjectList;", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDelegate, getFacets, $XSObjectList*)},
-	{"getFinal", "()S", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDelegate, getFinal, int16_t)},
-	{"getFinite", "()Z", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDelegate, getFinite, bool)},
-	{"getFixedFacets", "()S", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDelegate, getFixedFacets, int16_t)},
-	{"getItemType", "()Lcom/sun/org/apache/xerces/internal/xs/XSSimpleTypeDefinition;", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDelegate, getItemType, $XSSimpleTypeDefinition*)},
-	{"getLexicalEnumeration", "()Lcom/sun/org/apache/xerces/internal/xs/StringList;", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDelegate, getLexicalEnumeration, $StringList*)},
-	{"getLexicalFacetValue", "(S)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDelegate, getLexicalFacetValue, $String*, int16_t)},
-	{"getLexicalPattern", "()Lcom/sun/org/apache/xerces/internal/xs/StringList;", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDelegate, getLexicalPattern, $StringList*)},
-	{"getMemberTypes", "()Lcom/sun/org/apache/xerces/internal/xs/XSObjectList;", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDelegate, getMemberTypes, $XSObjectList*)},
-	{"getMultiValueFacets", "()Lcom/sun/org/apache/xerces/internal/xs/XSObjectList;", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDelegate, getMultiValueFacets, $XSObjectList*)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDelegate, getName, $String*)},
-	{"getNamespace", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDelegate, getNamespace, $String*)},
-	{"getNamespaceItem", "()Lcom/sun/org/apache/xerces/internal/xs/XSNamespaceItem;", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDelegate, getNamespaceItem, $XSNamespaceItem*)},
-	{"getNumeric", "()Z", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDelegate, getNumeric, bool)},
-	{"getOrdered", "()S", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDelegate, getOrdered, int16_t)},
-	{"getPrimitiveKind", "()S", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDelegate, getPrimitiveKind, int16_t)},
-	{"getPrimitiveType", "()Lcom/sun/org/apache/xerces/internal/xs/XSSimpleTypeDefinition;", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDelegate, getPrimitiveType, $XSSimpleTypeDefinition*)},
-	{"getType", "()S", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDelegate, getType, int16_t)},
-	{"getTypeCategory", "()S", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDelegate, getTypeCategory, int16_t)},
-	{"getVariety", "()S", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDelegate, getVariety, int16_t)},
-	{"getWhitespace", "()S", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDelegate, getWhitespace, int16_t), "com.sun.org.apache.xerces.internal.impl.dv.DatatypeException"},
-	{"getWrappedXSSimpleType", "()Lcom/sun/org/apache/xerces/internal/impl/dv/XSSimpleType;", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDelegate, getWrappedXSSimpleType, $XSSimpleType*)},
-	{"isDefinedFacet", "(S)Z", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDelegate, isDefinedFacet, bool, int16_t)},
-	{"isEqual", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDelegate, isEqual, bool, Object$*, Object$*)},
-	{"isFinal", "(S)Z", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDelegate, isFinal, bool, int16_t)},
-	{"isFixedFacet", "(S)Z", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDelegate, isFixedFacet, bool, int16_t)},
-	{"isIDType", "()Z", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDelegate, isIDType, bool)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDelegate, toString, $String*)},
-	{"validate", "(Lcom/sun/org/apache/xerces/internal/impl/dv/ValidationContext;Lcom/sun/org/apache/xerces/internal/impl/dv/ValidatedInfo;)V", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDelegate, validate, void, $ValidationContext*, $ValidatedInfo*), "com.sun.org.apache.xerces.internal.impl.dv.InvalidDatatypeValueException"},
-	{"validate", "(Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/impl/dv/ValidationContext;Lcom/sun/org/apache/xerces/internal/impl/dv/ValidatedInfo;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDelegate, validate, $Object*, $String*, $ValidationContext*, $ValidatedInfo*), "com.sun.org.apache.xerces.internal.impl.dv.InvalidDatatypeValueException"},
-	{"validate", "(Ljava/lang/Object;Lcom/sun/org/apache/xerces/internal/impl/dv/ValidationContext;Lcom/sun/org/apache/xerces/internal/impl/dv/ValidatedInfo;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDelegate, validate, $Object*, Object$*, $ValidationContext*, $ValidatedInfo*), "com.sun.org.apache.xerces.internal.impl.dv.InvalidDatatypeValueException"},
-	{}
-};
-
-$ClassInfo _XSSimpleTypeDelegate_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.impl.dv.xs.XSSimpleTypeDelegate",
-	"java.lang.Object",
-	"com.sun.org.apache.xerces.internal.impl.dv.XSSimpleType",
-	_XSSimpleTypeDelegate_FieldInfo_,
-	_XSSimpleTypeDelegate_MethodInfo_
-};
-
-$Object* allocate$XSSimpleTypeDelegate($Class* clazz) {
-	return $of($alloc(XSSimpleTypeDelegate));
-}
 
 void XSSimpleTypeDelegate::init$($XSSimpleType* type) {
 	if (type == nullptr) {
@@ -261,22 +196,81 @@ void XSSimpleTypeDelegate::validate($ValidationContext* context, $ValidatedInfo*
 }
 
 $Object* XSSimpleTypeDelegate::validate($String* content, $ValidationContext* context, $ValidatedInfo* validatedInfo) {
-	return $of($nc(this->type)->validate(content, context, validatedInfo));
+	return $nc(this->type)->validate(content, context, validatedInfo);
 }
 
 $Object* XSSimpleTypeDelegate::validate(Object$* content, $ValidationContext* context, $ValidatedInfo* validatedInfo) {
-	return $of($nc(this->type)->validate(content, context, validatedInfo));
+	return $nc(this->type)->validate(content, context, validatedInfo);
 }
 
 $String* XSSimpleTypeDelegate::toString() {
-	return $nc($of(this->type))->toString();
+	return $nc(this->type)->toString();
 }
 
 XSSimpleTypeDelegate::XSSimpleTypeDelegate() {
 }
 
 $Class* XSSimpleTypeDelegate::load$($String* name, bool initialize) {
-	$loadClass(XSSimpleTypeDelegate, name, initialize, &_XSSimpleTypeDelegate_ClassInfo_, allocate$XSSimpleTypeDelegate);
+	$FieldInfo fieldInfos$$[] = {
+		{"type", "Lcom/sun/org/apache/xerces/internal/impl/dv/XSSimpleType;", nullptr, $PROTECTED | $FINAL, $field(XSSimpleTypeDelegate, type)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/org/apache/xerces/internal/impl/dv/XSSimpleType;)V", nullptr, $PUBLIC, $method(XSSimpleTypeDelegate, init$, void, $XSSimpleType*)},
+		{"applyFacets", "(Lcom/sun/org/apache/xerces/internal/impl/dv/XSFacets;SSLcom/sun/org/apache/xerces/internal/impl/dv/ValidationContext;)V", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDelegate, applyFacets, void, $XSFacets*, int16_t, int16_t, $ValidationContext*), "com.sun.org.apache.xerces.internal.impl.dv.InvalidDatatypeFacetException"},
+		{"derivedFrom", "(Ljava/lang/String;Ljava/lang/String;S)Z", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDelegate, derivedFrom, bool, $String*, $String*, int16_t)},
+		{"derivedFromType", "(Lcom/sun/org/apache/xerces/internal/xs/XSTypeDefinition;S)Z", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDelegate, derivedFromType, bool, $XSTypeDefinition*, int16_t)},
+		{"getAnnotations", "()Lcom/sun/org/apache/xerces/internal/xs/XSObjectList;", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDelegate, getAnnotations, $XSObjectList*)},
+		{"getAnonymous", "()Z", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDelegate, getAnonymous, bool)},
+		{"getBaseType", "()Lcom/sun/org/apache/xerces/internal/xs/XSTypeDefinition;", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDelegate, getBaseType, $XSTypeDefinition*)},
+		{"getBounded", "()Z", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDelegate, getBounded, bool)},
+		{"getBuiltInKind", "()S", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDelegate, getBuiltInKind, int16_t)},
+		{"getDefinedFacets", "()S", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDelegate, getDefinedFacets, int16_t)},
+		{"getFacet", "(I)Lcom/sun/org/apache/xerces/internal/xs/XSObject;", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDelegate, getFacet, $XSObject*, int32_t)},
+		{"getFacets", "()Lcom/sun/org/apache/xerces/internal/xs/XSObjectList;", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDelegate, getFacets, $XSObjectList*)},
+		{"getFinal", "()S", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDelegate, getFinal, int16_t)},
+		{"getFinite", "()Z", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDelegate, getFinite, bool)},
+		{"getFixedFacets", "()S", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDelegate, getFixedFacets, int16_t)},
+		{"getItemType", "()Lcom/sun/org/apache/xerces/internal/xs/XSSimpleTypeDefinition;", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDelegate, getItemType, $XSSimpleTypeDefinition*)},
+		{"getLexicalEnumeration", "()Lcom/sun/org/apache/xerces/internal/xs/StringList;", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDelegate, getLexicalEnumeration, $StringList*)},
+		{"getLexicalFacetValue", "(S)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDelegate, getLexicalFacetValue, $String*, int16_t)},
+		{"getLexicalPattern", "()Lcom/sun/org/apache/xerces/internal/xs/StringList;", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDelegate, getLexicalPattern, $StringList*)},
+		{"getMemberTypes", "()Lcom/sun/org/apache/xerces/internal/xs/XSObjectList;", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDelegate, getMemberTypes, $XSObjectList*)},
+		{"getMultiValueFacets", "()Lcom/sun/org/apache/xerces/internal/xs/XSObjectList;", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDelegate, getMultiValueFacets, $XSObjectList*)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDelegate, getName, $String*)},
+		{"getNamespace", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDelegate, getNamespace, $String*)},
+		{"getNamespaceItem", "()Lcom/sun/org/apache/xerces/internal/xs/XSNamespaceItem;", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDelegate, getNamespaceItem, $XSNamespaceItem*)},
+		{"getNumeric", "()Z", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDelegate, getNumeric, bool)},
+		{"getOrdered", "()S", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDelegate, getOrdered, int16_t)},
+		{"getPrimitiveKind", "()S", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDelegate, getPrimitiveKind, int16_t)},
+		{"getPrimitiveType", "()Lcom/sun/org/apache/xerces/internal/xs/XSSimpleTypeDefinition;", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDelegate, getPrimitiveType, $XSSimpleTypeDefinition*)},
+		{"getType", "()S", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDelegate, getType, int16_t)},
+		{"getTypeCategory", "()S", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDelegate, getTypeCategory, int16_t)},
+		{"getVariety", "()S", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDelegate, getVariety, int16_t)},
+		{"getWhitespace", "()S", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDelegate, getWhitespace, int16_t), "com.sun.org.apache.xerces.internal.impl.dv.DatatypeException"},
+		{"getWrappedXSSimpleType", "()Lcom/sun/org/apache/xerces/internal/impl/dv/XSSimpleType;", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDelegate, getWrappedXSSimpleType, $XSSimpleType*)},
+		{"isDefinedFacet", "(S)Z", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDelegate, isDefinedFacet, bool, int16_t)},
+		{"isEqual", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDelegate, isEqual, bool, Object$*, Object$*)},
+		{"isFinal", "(S)Z", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDelegate, isFinal, bool, int16_t)},
+		{"isFixedFacet", "(S)Z", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDelegate, isFixedFacet, bool, int16_t)},
+		{"isIDType", "()Z", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDelegate, isIDType, bool)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDelegate, toString, $String*)},
+		{"validate", "(Lcom/sun/org/apache/xerces/internal/impl/dv/ValidationContext;Lcom/sun/org/apache/xerces/internal/impl/dv/ValidatedInfo;)V", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDelegate, validate, void, $ValidationContext*, $ValidatedInfo*), "com.sun.org.apache.xerces.internal.impl.dv.InvalidDatatypeValueException"},
+		{"validate", "(Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/impl/dv/ValidationContext;Lcom/sun/org/apache/xerces/internal/impl/dv/ValidatedInfo;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDelegate, validate, $Object*, $String*, $ValidationContext*, $ValidatedInfo*), "com.sun.org.apache.xerces.internal.impl.dv.InvalidDatatypeValueException"},
+		{"validate", "(Ljava/lang/Object;Lcom/sun/org/apache/xerces/internal/impl/dv/ValidationContext;Lcom/sun/org/apache/xerces/internal/impl/dv/ValidatedInfo;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDelegate, validate, $Object*, Object$*, $ValidationContext*, $ValidatedInfo*), "com.sun.org.apache.xerces.internal.impl.dv.InvalidDatatypeValueException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.impl.dv.xs.XSSimpleTypeDelegate",
+		"java.lang.Object",
+		"com.sun.org.apache.xerces.internal.impl.dv.XSSimpleType",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XSSimpleTypeDelegate, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XSSimpleTypeDelegate);
+	});
 	return class$;
 }
 

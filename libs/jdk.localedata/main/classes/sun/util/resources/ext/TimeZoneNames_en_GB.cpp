@@ -1,5 +1,4 @@
 #include <sun/util/resources/ext/TimeZoneNames_en_GB.h>
-
 #include <sun/util/resources/TimeZoneNamesBundle.h>
 #include <jcpp.h>
 
@@ -13,41 +12,22 @@ namespace sun {
 		namespace resources {
 			namespace ext {
 
-$MethodInfo _TimeZoneNames_en_GB_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TimeZoneNames_en_GB, init$, void)},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(TimeZoneNames_en_GB, getContents, $ObjectArray2*)},
-	{}
-};
-
-$ClassInfo _TimeZoneNames_en_GB_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.util.resources.ext.TimeZoneNames_en_GB",
-	"sun.util.resources.TimeZoneNamesBundle",
-	nullptr,
-	nullptr,
-	_TimeZoneNames_en_GB_MethodInfo_
-};
-
-$Object* allocate$TimeZoneNames_en_GB($Class* clazz) {
-	return $of($alloc(TimeZoneNames_en_GB));
-}
-
 void TimeZoneNames_en_GB::init$() {
 	$TimeZoneNamesBundle::init$();
 }
 
 $ObjectArray2* TimeZoneNames_en_GB::getContents() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $new($ObjectArray2, {$$new($ObjectArray, {
-		$of("Europe/London"_s),
-		$of($$new($StringArray, {
+		"Europe/London"_s,
+		$$new($StringArray, {
 			"Greenwich Mean Time"_s,
 			"GMT"_s,
 			"British Summer Time"_s,
 			"BST"_s,
 			"British Time"_s,
 			"BT"_s
-		}))
+		})
 	})});
 }
 
@@ -55,7 +35,22 @@ TimeZoneNames_en_GB::TimeZoneNames_en_GB() {
 }
 
 $Class* TimeZoneNames_en_GB::load$($String* name, bool initialize) {
-	$loadClass(TimeZoneNames_en_GB, name, initialize, &_TimeZoneNames_en_GB_ClassInfo_, allocate$TimeZoneNames_en_GB);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TimeZoneNames_en_GB, init$, void)},
+		{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(TimeZoneNames_en_GB, getContents, $ObjectArray2*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.util.resources.ext.TimeZoneNames_en_GB",
+		"sun.util.resources.TimeZoneNamesBundle",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(TimeZoneNames_en_GB, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TimeZoneNames_en_GB);
+	});
 	return class$;
 }
 

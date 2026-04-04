@@ -1,5 +1,4 @@
 #include <javax/xml/crypto/dsig/spec/XSLTTransformParameterSpec.h>
-
 #include <javax/xml/crypto/XMLStructure.h>
 #include <jcpp.h>
 
@@ -14,30 +13,6 @@ namespace javax {
 		namespace crypto {
 			namespace dsig {
 				namespace spec {
-
-$FieldInfo _XSLTTransformParameterSpec_FieldInfo_[] = {
-	{"stylesheet", "Ljavax/xml/crypto/XMLStructure;", nullptr, $PRIVATE, $field(XSLTTransformParameterSpec, stylesheet)},
-	{}
-};
-
-$MethodInfo _XSLTTransformParameterSpec_MethodInfo_[] = {
-	{"<init>", "(Ljavax/xml/crypto/XMLStructure;)V", nullptr, $PUBLIC, $method(XSLTTransformParameterSpec, init$, void, $XMLStructure*)},
-	{"getStylesheet", "()Ljavax/xml/crypto/XMLStructure;", nullptr, $PUBLIC, $method(XSLTTransformParameterSpec, getStylesheet, $XMLStructure*)},
-	{}
-};
-
-$ClassInfo _XSLTTransformParameterSpec_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"javax.xml.crypto.dsig.spec.XSLTTransformParameterSpec",
-	"java.lang.Object",
-	"javax.xml.crypto.dsig.spec.TransformParameterSpec",
-	_XSLTTransformParameterSpec_FieldInfo_,
-	_XSLTTransformParameterSpec_MethodInfo_
-};
-
-$Object* allocate$XSLTTransformParameterSpec($Class* clazz) {
-	return $of($alloc(XSLTTransformParameterSpec));
-}
 
 void XSLTTransformParameterSpec::init$($XMLStructure* stylesheet) {
 	if (stylesheet == nullptr) {
@@ -54,7 +29,26 @@ XSLTTransformParameterSpec::XSLTTransformParameterSpec() {
 }
 
 $Class* XSLTTransformParameterSpec::load$($String* name, bool initialize) {
-	$loadClass(XSLTTransformParameterSpec, name, initialize, &_XSLTTransformParameterSpec_ClassInfo_, allocate$XSLTTransformParameterSpec);
+	$FieldInfo fieldInfos$$[] = {
+		{"stylesheet", "Ljavax/xml/crypto/XMLStructure;", nullptr, $PRIVATE, $field(XSLTTransformParameterSpec, stylesheet)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/xml/crypto/XMLStructure;)V", nullptr, $PUBLIC, $method(XSLTTransformParameterSpec, init$, void, $XMLStructure*)},
+		{"getStylesheet", "()Ljavax/xml/crypto/XMLStructure;", nullptr, $PUBLIC, $method(XSLTTransformParameterSpec, getStylesheet, $XMLStructure*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"javax.xml.crypto.dsig.spec.XSLTTransformParameterSpec",
+		"java.lang.Object",
+		"javax.xml.crypto.dsig.spec.TransformParameterSpec",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XSLTTransformParameterSpec, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XSLTTransformParameterSpec);
+	});
 	return class$;
 }
 

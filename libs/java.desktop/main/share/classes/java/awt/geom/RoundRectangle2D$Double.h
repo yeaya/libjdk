@@ -50,7 +50,7 @@ public:
 	double height = 0.0;
 	double arcwidth = 0.0;
 	double archeight = 0.0;
-	static const int64_t serialVersionUID = (int64_t)0x0E8E94C42B521A65;
+	static const int64_t serialVersionUID = (int64_t)0x0e8e94c42b521a65;
 };
 
 		} // geom

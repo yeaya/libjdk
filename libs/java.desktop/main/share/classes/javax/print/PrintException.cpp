@@ -1,5 +1,4 @@
 #include <javax/print/PrintException.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -10,32 +9,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace javax {
 	namespace print {
 
-$FieldInfo _PrintException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PrintException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _PrintException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(PrintException, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(PrintException, init$, void, $String*)},
-	{"<init>", "(Ljava/lang/Exception;)V", nullptr, $PUBLIC, $method(PrintException, init$, void, $Exception*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Exception;)V", nullptr, $PUBLIC, $method(PrintException, init$, void, $String*, $Exception*)},
-	{}
-};
-
-$ClassInfo _PrintException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.print.PrintException",
-	"java.lang.Exception",
-	nullptr,
-	_PrintException_FieldInfo_,
-	_PrintException_MethodInfo_
-};
-
-$Object* allocate$PrintException($Class* clazz) {
-	return $of($alloc(PrintException));
-}
-
 void PrintException::init$() {
 	$Exception::init$();
 }
@@ -45,7 +18,7 @@ void PrintException::init$($String* s) {
 }
 
 void PrintException::init$($Exception* e) {
-	$Exception::init$(static_cast<$Throwable*>(e));
+	$Exception::init$(e);
 }
 
 void PrintException::init$($String* s, $Exception* e) {
@@ -63,7 +36,28 @@ void PrintException::throw$() {
 }
 
 $Class* PrintException::load$($String* name, bool initialize) {
-	$loadClass(PrintException, name, initialize, &_PrintException_ClassInfo_, allocate$PrintException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PrintException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(PrintException, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(PrintException, init$, void, $String*)},
+		{"<init>", "(Ljava/lang/Exception;)V", nullptr, $PUBLIC, $method(PrintException, init$, void, $Exception*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/Exception;)V", nullptr, $PUBLIC, $method(PrintException, init$, void, $String*, $Exception*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.print.PrintException",
+		"java.lang.Exception",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(PrintException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PrintException);
+	});
 	return class$;
 }
 

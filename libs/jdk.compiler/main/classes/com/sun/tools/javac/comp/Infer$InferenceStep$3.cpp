@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/Infer$InferenceStep$3.h>
-
 #include <com/sun/tools/javac/code/Symtab.h>
 #include <com/sun/tools/javac/code/Type$UndetVar$InferenceBound.h>
 #include <com/sun/tools/javac/code/Type$UndetVar.h>
@@ -30,7 +29,6 @@ using $Type$UndetVar$InferenceBound = ::com::sun::tools::javac::code::Type$Undet
 using $Types = ::com::sun::tools::javac::code::Types;
 using $Infer$InferenceStep = ::com::sun::tools::javac::comp::Infer$InferenceStep;
 using $InferenceContext = ::com::sun::tools::javac::comp::InferenceContext;
-using $List = ::com::sun::tools::javac::util::List;
 using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
@@ -39,7 +37,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $Predicate = ::java::util::function::Predicate;
-using $Stream = ::java::util::stream::Stream;
 
 namespace com {
 	namespace sun {
@@ -56,33 +53,29 @@ public:
 	virtual bool test(Object$* b) override {
 		 return Infer$InferenceStep$3::lambda$accepts$0(inferenceContext, $cast($Type, b));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Infer$InferenceStep$3$$Lambda$lambda$accepts$0>());
-	}
 	$InferenceContext* inferenceContext = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Infer$InferenceStep$3$$Lambda$lambda$accepts$0::fieldInfos[2] = {
-	{"inferenceContext", "Lcom/sun/tools/javac/comp/InferenceContext;", nullptr, $PUBLIC, $field(Infer$InferenceStep$3$$Lambda$lambda$accepts$0, inferenceContext)},
-	{}
-};
-$MethodInfo Infer$InferenceStep$3$$Lambda$lambda$accepts$0::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/InferenceContext;)V", nullptr, $PUBLIC, $method(Infer$InferenceStep$3$$Lambda$lambda$accepts$0, init$, void, $InferenceContext*)},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Infer$InferenceStep$3$$Lambda$lambda$accepts$0, test, bool, Object$*)},
-	{}
-};
-$ClassInfo Infer$InferenceStep$3$$Lambda$lambda$accepts$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.comp.Infer$InferenceStep$3$$Lambda$lambda$accepts$0",
-	"java.lang.Object",
-	"java.util.function.Predicate",
-	fieldInfos,
-	methodInfos
 };
 $Class* Infer$InferenceStep$3$$Lambda$lambda$accepts$0::load$($String* name, bool initialize) {
-	$loadClass(Infer$InferenceStep$3$$Lambda$lambda$accepts$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inferenceContext", "Lcom/sun/tools/javac/comp/InferenceContext;", nullptr, $PUBLIC, $field(Infer$InferenceStep$3$$Lambda$lambda$accepts$0, inferenceContext)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/comp/InferenceContext;)V", nullptr, $PUBLIC, $method(Infer$InferenceStep$3$$Lambda$lambda$accepts$0, init$, void, $InferenceContext*)},
+		{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Infer$InferenceStep$3$$Lambda$lambda$accepts$0, test, bool, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.comp.Infer$InferenceStep$3$$Lambda$lambda$accepts$0",
+		"java.lang.Object",
+		"java.util.function.Predicate",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Infer$InferenceStep$3$$Lambda$lambda$accepts$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Infer$InferenceStep$3$$Lambda$lambda$accepts$0);
+	});
 	return class$;
 }
 $Class* Infer$InferenceStep$3$$Lambda$lambda$accepts$0::class$ = nullptr;
@@ -97,93 +90,48 @@ public:
 	virtual bool test(Object$* u) override {
 		 return Infer$InferenceStep$3::lambda$accepts$1(types, syms, $cast($Type, u));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Infer$InferenceStep$3$$Lambda$lambda$accepts$1$1>());
-	}
 	$Types* types = nullptr;
 	$Symtab* syms = nullptr;
-	static $FieldInfo fieldInfos[3];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Infer$InferenceStep$3$$Lambda$lambda$accepts$1$1::fieldInfos[3] = {
-	{"types", "Lcom/sun/tools/javac/code/Types;", nullptr, $PUBLIC, $field(Infer$InferenceStep$3$$Lambda$lambda$accepts$1$1, types)},
-	{"syms", "Lcom/sun/tools/javac/code/Symtab;", nullptr, $PUBLIC, $field(Infer$InferenceStep$3$$Lambda$lambda$accepts$1$1, syms)},
-	{}
-};
-$MethodInfo Infer$InferenceStep$3$$Lambda$lambda$accepts$1$1::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Types;Lcom/sun/tools/javac/code/Symtab;)V", nullptr, $PUBLIC, $method(Infer$InferenceStep$3$$Lambda$lambda$accepts$1$1, init$, void, $Types*, $Symtab*)},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Infer$InferenceStep$3$$Lambda$lambda$accepts$1$1, test, bool, Object$*)},
-	{}
-};
-$ClassInfo Infer$InferenceStep$3$$Lambda$lambda$accepts$1$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.comp.Infer$InferenceStep$3$$Lambda$lambda$accepts$1$1",
-	"java.lang.Object",
-	"java.util.function.Predicate",
-	fieldInfos,
-	methodInfos
 };
 $Class* Infer$InferenceStep$3$$Lambda$lambda$accepts$1$1::load$($String* name, bool initialize) {
-	$loadClass(Infer$InferenceStep$3$$Lambda$lambda$accepts$1$1, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"types", "Lcom/sun/tools/javac/code/Types;", nullptr, $PUBLIC, $field(Infer$InferenceStep$3$$Lambda$lambda$accepts$1$1, types)},
+		{"syms", "Lcom/sun/tools/javac/code/Symtab;", nullptr, $PUBLIC, $field(Infer$InferenceStep$3$$Lambda$lambda$accepts$1$1, syms)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/code/Types;Lcom/sun/tools/javac/code/Symtab;)V", nullptr, $PUBLIC, $method(Infer$InferenceStep$3$$Lambda$lambda$accepts$1$1, init$, void, $Types*, $Symtab*)},
+		{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Infer$InferenceStep$3$$Lambda$lambda$accepts$1$1, test, bool, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.comp.Infer$InferenceStep$3$$Lambda$lambda$accepts$1$1",
+		"java.lang.Object",
+		"java.util.function.Predicate",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Infer$InferenceStep$3$$Lambda$lambda$accepts$1$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Infer$InferenceStep$3$$Lambda$lambda$accepts$1$1);
+	});
 	return class$;
 }
 $Class* Infer$InferenceStep$3$$Lambda$lambda$accepts$1$1::class$ = nullptr;
-
-$MethodInfo _Infer$InferenceStep$3_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;ILcom/sun/tools/javac/code/Type$UndetVar$InferenceBound;)V", nullptr, $PRIVATE, $method(Infer$InferenceStep$3, init$, void, $String*, int32_t, $Type$UndetVar$InferenceBound*)},
-	{"accepts", "(Lcom/sun/tools/javac/code/Type$UndetVar;Lcom/sun/tools/javac/comp/InferenceContext;)Z", nullptr, $PUBLIC, $virtualMethod(Infer$InferenceStep$3, accepts, bool, $Type$UndetVar*, $InferenceContext*)},
-	{"lambda$accepts$0", "(Lcom/sun/tools/javac/comp/InferenceContext;Lcom/sun/tools/javac/code/Type;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Infer$InferenceStep$3, lambda$accepts$0, bool, $InferenceContext*, $Type*)},
-	{"lambda$accepts$1", "(Lcom/sun/tools/javac/code/Types;Lcom/sun/tools/javac/code/Symtab;Lcom/sun/tools/javac/code/Type;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Infer$InferenceStep$3, lambda$accepts$1, bool, $Types*, $Symtab*, $Type*)},
-	{"solve", "(Lcom/sun/tools/javac/code/Type$UndetVar;Lcom/sun/tools/javac/comp/InferenceContext;)Lcom/sun/tools/javac/code/Type;", nullptr, 0, $virtualMethod(Infer$InferenceStep$3, solve, $Type*, $Type$UndetVar*, $InferenceContext*)},
-	{}
-};
-
-$EnclosingMethodInfo _Infer$InferenceStep$3_EnclosingMethodInfo_ = {
-	"com.sun.tools.javac.comp.Infer$InferenceStep",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _Infer$InferenceStep$3_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.Infer$InferenceStep", "com.sun.tools.javac.comp.Infer", "InferenceStep", $STATIC | $ABSTRACT | $ENUM},
-	{"com.sun.tools.javac.comp.Infer$InferenceStep$3", nullptr, nullptr, $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _Infer$InferenceStep$3_ClassInfo_ = {
-	$FINAL | $ACC_SUPER | $ENUM,
-	"com.sun.tools.javac.comp.Infer$InferenceStep$3",
-	"com.sun.tools.javac.comp.Infer$InferenceStep",
-	nullptr,
-	nullptr,
-	_Infer$InferenceStep$3_MethodInfo_,
-	nullptr,
-	&_Infer$InferenceStep$3_EnclosingMethodInfo_,
-	_Infer$InferenceStep$3_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.Infer"
-};
-
-$Object* allocate$Infer$InferenceStep$3($Class* clazz) {
-	return $of($alloc(Infer$InferenceStep$3));
-}
 
 void Infer$InferenceStep$3::init$($String* $enum$name, int32_t $enum$ordinal, $Type$UndetVar$InferenceBound* ib) {
 	$Infer$InferenceStep::init$($enum$name, $enum$ordinal, ib);
 }
 
 bool Infer$InferenceStep$3::accepts($Type$UndetVar* t, $InferenceContext* inferenceContext) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!$nc(t)->isThrows()) {
 		return false;
 	}
 	$var($Types, types, $nc(inferenceContext)->types);
 	$var($Symtab, syms, $nc(inferenceContext->infer)->syms);
 	$init($Type$UndetVar$InferenceBound);
-	return $nc($($nc($($nc($($nc(t)->getBounds($$new($Type$UndetVar$InferenceBoundArray, {$Type$UndetVar$InferenceBound::UPPER}))))->stream()))->filter(static_cast<$Predicate*>($$new(Infer$InferenceStep$3$$Lambda$lambda$accepts$0, inferenceContext)))))->allMatch(static_cast<$Predicate*>($$new(Infer$InferenceStep$3$$Lambda$lambda$accepts$1$1, types, syms)));
+	return $$nc($$nc($$nc(t->getBounds($$new($Type$UndetVar$InferenceBoundArray, {$Type$UndetVar$InferenceBound::UPPER})))->stream())->filter($$new(Infer$InferenceStep$3$$Lambda$lambda$accepts$0, inferenceContext)))->allMatch($$new(Infer$InferenceStep$3$$Lambda$lambda$accepts$1$1, types, syms));
 }
 
 $Type* Infer$InferenceStep$3::solve($Type$UndetVar* uv, $InferenceContext* inferenceContext) {
@@ -205,14 +153,49 @@ Infer$InferenceStep$3::Infer$InferenceStep$3() {
 
 $Class* Infer$InferenceStep$3::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(Infer$InferenceStep$3$$Lambda$lambda$accepts$0::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.comp.Infer$InferenceStep$3$$Lambda$lambda$accepts$0")) {
 			return Infer$InferenceStep$3$$Lambda$lambda$accepts$0::load$(name, initialize);
 		}
-		if (name->equals(Infer$InferenceStep$3$$Lambda$lambda$accepts$1$1::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.comp.Infer$InferenceStep$3$$Lambda$lambda$accepts$1$1")) {
 			return Infer$InferenceStep$3$$Lambda$lambda$accepts$1$1::load$(name, initialize);
 		}
 	}
-	$loadClass(Infer$InferenceStep$3, name, initialize, &_Infer$InferenceStep$3_ClassInfo_, allocate$Infer$InferenceStep$3);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;ILcom/sun/tools/javac/code/Type$UndetVar$InferenceBound;)V", nullptr, $PRIVATE, $method(Infer$InferenceStep$3, init$, void, $String*, int32_t, $Type$UndetVar$InferenceBound*)},
+		{"accepts", "(Lcom/sun/tools/javac/code/Type$UndetVar;Lcom/sun/tools/javac/comp/InferenceContext;)Z", nullptr, $PUBLIC, $virtualMethod(Infer$InferenceStep$3, accepts, bool, $Type$UndetVar*, $InferenceContext*)},
+		{"lambda$accepts$0", "(Lcom/sun/tools/javac/comp/InferenceContext;Lcom/sun/tools/javac/code/Type;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Infer$InferenceStep$3, lambda$accepts$0, bool, $InferenceContext*, $Type*)},
+		{"lambda$accepts$1", "(Lcom/sun/tools/javac/code/Types;Lcom/sun/tools/javac/code/Symtab;Lcom/sun/tools/javac/code/Type;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Infer$InferenceStep$3, lambda$accepts$1, bool, $Types*, $Symtab*, $Type*)},
+		{"solve", "(Lcom/sun/tools/javac/code/Type$UndetVar;Lcom/sun/tools/javac/comp/InferenceContext;)Lcom/sun/tools/javac/code/Type;", nullptr, 0, $virtualMethod(Infer$InferenceStep$3, solve, $Type*, $Type$UndetVar*, $InferenceContext*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.tools.javac.comp.Infer$InferenceStep",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.Infer$InferenceStep", "com.sun.tools.javac.comp.Infer", "InferenceStep", $STATIC | $ABSTRACT | $ENUM},
+		{"com.sun.tools.javac.comp.Infer$InferenceStep$3", nullptr, nullptr, $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER | $ENUM,
+		"com.sun.tools.javac.comp.Infer$InferenceStep$3",
+		"com.sun.tools.javac.comp.Infer$InferenceStep",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.Infer"
+	};
+	$loadClass(Infer$InferenceStep$3, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Infer$InferenceStep$3));
+	});
 	return class$;
 }
 

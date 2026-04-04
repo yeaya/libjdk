@@ -1,5 +1,4 @@
 #include <com/sun/source/tree/MemberSelectTree.h>
-
 #include <com/sun/source/tree/ExpressionTree.h>
 #include <javax/lang/model/element/Name.h>
 #include <jcpp.h>
@@ -14,27 +13,23 @@ namespace com {
 		namespace source {
 			namespace tree {
 
-$MethodInfo _MemberSelectTree_MethodInfo_[] = {
-	{"getExpression", "()Lcom/sun/source/tree/ExpressionTree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MemberSelectTree, getExpression, $ExpressionTree*)},
-	{"getIdentifier", "()Ljavax/lang/model/element/Name;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MemberSelectTree, getIdentifier, $Name*)},
-	{}
-};
-
-$ClassInfo _MemberSelectTree_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.source.tree.MemberSelectTree",
-	nullptr,
-	"com.sun.source.tree.ExpressionTree",
-	nullptr,
-	_MemberSelectTree_MethodInfo_
-};
-
-$Object* allocate$MemberSelectTree($Class* clazz) {
-	return $of($alloc(MemberSelectTree));
-}
-
 $Class* MemberSelectTree::load$($String* name, bool initialize) {
-	$loadClass(MemberSelectTree, name, initialize, &_MemberSelectTree_ClassInfo_, allocate$MemberSelectTree);
+	$MethodInfo methodInfos$$[] = {
+		{"getExpression", "()Lcom/sun/source/tree/ExpressionTree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MemberSelectTree, getExpression, $ExpressionTree*)},
+		{"getIdentifier", "()Ljavax/lang/model/element/Name;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MemberSelectTree, getIdentifier, $Name*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.source.tree.MemberSelectTree",
+		nullptr,
+		"com.sun.source.tree.ExpressionTree",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(MemberSelectTree, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MemberSelectTree);
+	});
 	return class$;
 }
 

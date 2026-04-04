@@ -1,5 +1,4 @@
 #include <sun/font/X11KSC5601$Decoder.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/nio/CharBuffer.h>
@@ -32,45 +31,6 @@ using $EUC_KR = ::sun::nio::cs::EUC_KR;
 namespace sun {
 	namespace font {
 
-$FieldInfo _X11KSC5601$Decoder_FieldInfo_[] = {
-	{"this$0", "Lsun/font/X11KSC5601;", nullptr, $FINAL | $SYNTHETIC, $field(X11KSC5601$Decoder, this$0)},
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(X11KSC5601$Decoder, $assertionsDisabled)},
-	{"dec", "Lsun/nio/cs/DoubleByte$Decoder;", nullptr, $PRIVATE, $field(X11KSC5601$Decoder, dec)},
-	{}
-};
-
-$MethodInfo _X11KSC5601$Decoder_MethodInfo_[] = {
-	{"<init>", "(Lsun/font/X11KSC5601;Ljava/nio/charset/Charset;)V", nullptr, $PUBLIC, $method(X11KSC5601$Decoder, init$, void, $X11KSC5601*, $Charset*)},
-	{"decodeDouble", "(II)C", nullptr, $PROTECTED, $virtualMethod(X11KSC5601$Decoder, decodeDouble, char16_t, int32_t, int32_t)},
-	{"decodeLoop", "(Ljava/nio/ByteBuffer;Ljava/nio/CharBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PROTECTED, $virtualMethod(X11KSC5601$Decoder, decodeLoop, $CoderResult*, $ByteBuffer*, $CharBuffer*)},
-	{}
-};
-
-$InnerClassInfo _X11KSC5601$Decoder_InnerClassesInfo_[] = {
-	{"sun.font.X11KSC5601$Decoder", "sun.font.X11KSC5601", "Decoder", $PRIVATE},
-	{}
-};
-
-$ClassInfo _X11KSC5601$Decoder_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.font.X11KSC5601$Decoder",
-	"java.nio.charset.CharsetDecoder",
-	nullptr,
-	_X11KSC5601$Decoder_FieldInfo_,
-	_X11KSC5601$Decoder_MethodInfo_,
-	nullptr,
-	nullptr,
-	_X11KSC5601$Decoder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.font.X11KSC5601"
-};
-
-$Object* allocate$X11KSC5601$Decoder($Class* clazz) {
-	return $of($alloc(X11KSC5601$Decoder));
-}
-
 bool X11KSC5601$Decoder::$assertionsDisabled = false;
 
 void X11KSC5601$Decoder::init$($X11KSC5601* this$0, $Charset* cs) {
@@ -84,7 +44,7 @@ char16_t X11KSC5601$Decoder::decodeDouble(int32_t b1, int32_t b2) {
 }
 
 $CoderResult* X11KSC5601$Decoder::decodeLoop($ByteBuffer* src, $CharBuffer* dst) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, sa, $cast($bytes, $nc(src)->array()));
 	int32_t var$0 = src->arrayOffset();
 	int32_t sp = var$0 + src->position();
@@ -103,56 +63,54 @@ $CoderResult* X11KSC5601$Decoder::decodeLoop($ByteBuffer* src, $CharBuffer* dst)
 		$throwNew($AssertionError);
 	}
 	dp = (dp <= dl ? dp : dl);
-	{
-		$var($Throwable, var$4, nullptr);
-		$var($CoderResult, var$6, nullptr);
-		bool return$5 = false;
-		try {
-			while (sp < sl) {
-				if (sl - sp < 2) {
-					$init($CoderResult);
-					$assign(var$6, $CoderResult::UNDERFLOW);
-					return$5 = true;
-					goto $finally;
-				}
-				int32_t b1 = ((int32_t)($nc(sa)->get(sp) & (uint32_t)255)) | 128;
-				int32_t b2 = ((int32_t)(sa->get(sp + 1) & (uint32_t)255)) | 128;
-				char16_t c = decodeDouble(b1, b2);
-				if (c == (char16_t)0xFFFD) {
-					$assign(var$6, $CoderResult::unmappableForLength(2));
-					return$5 = true;
-					goto $finally;
-				}
-				if (dl - dp < 1) {
-					$init($CoderResult);
-					$assign(var$6, $CoderResult::OVERFLOW);
-					return$5 = true;
-					goto $finally;
-				}
-				$nc(da)->set(dp++, c);
-				sp += 2;
+	$var($Throwable, var$4, nullptr);
+	$var($CoderResult, var$6, nullptr);
+	bool return$5 = false;
+	try {
+		while (sp < sl) {
+			if (sl - sp < 2) {
+				$init($CoderResult);
+				$assign(var$6, $CoderResult::UNDERFLOW);
+				return$5 = true;
+				goto $finally;
 			}
-			$init($CoderResult);
-			$assign(var$6, $CoderResult::UNDERFLOW);
-			return$5 = true;
-			goto $finally;
-		} catch ($Throwable& var$7) {
-			$assign(var$4, var$7);
-		} $finally: {
-			src->position(sp - src->arrayOffset());
-			dst->position(dp - dst->arrayOffset());
+			int32_t b1 = ($nc(sa)->get(sp) & 0xff) | 0x80;
+			int32_t b2 = (sa->get(sp + 1) & 0xff) | 0x80;
+			char16_t c = decodeDouble(b1, b2);
+			if (c == (char16_t)0xfffd) {
+				$assign(var$6, $CoderResult::unmappableForLength(2));
+				return$5 = true;
+				goto $finally;
+			}
+			if (dl - dp < 1) {
+				$init($CoderResult);
+				$assign(var$6, $CoderResult::OVERFLOW);
+				return$5 = true;
+				goto $finally;
+			}
+			$nc(da)->set(dp++, c);
+			sp += 2;
 		}
-		if (var$4 != nullptr) {
-			$throw(var$4);
-		}
-		if (return$5) {
-			return var$6;
-		}
+		$init($CoderResult);
+		$assign(var$6, $CoderResult::UNDERFLOW);
+		return$5 = true;
+		goto $finally;
+	} catch ($Throwable& var$7) {
+		$assign(var$4, var$7);
+	} $finally: {
+		src->position(sp - src->arrayOffset());
+		dst->position(dp - dst->arrayOffset());
+	}
+	if (var$4 != nullptr) {
+		$throw(var$4);
+	}
+	if (return$5) {
+		return var$6;
 	}
 	$shouldNotReachHere();
 }
 
-void clinit$X11KSC5601$Decoder($Class* class$) {
+void X11KSC5601$Decoder::clinit$($Class* clazz) {
 	$load($X11KSC5601);
 	X11KSC5601$Decoder::$assertionsDisabled = !$X11KSC5601::class$->desiredAssertionStatus();
 }
@@ -161,7 +119,40 @@ X11KSC5601$Decoder::X11KSC5601$Decoder() {
 }
 
 $Class* X11KSC5601$Decoder::load$($String* name, bool initialize) {
-	$loadClass(X11KSC5601$Decoder, name, initialize, &_X11KSC5601$Decoder_ClassInfo_, clinit$X11KSC5601$Decoder, allocate$X11KSC5601$Decoder);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/font/X11KSC5601;", nullptr, $FINAL | $SYNTHETIC, $field(X11KSC5601$Decoder, this$0)},
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(X11KSC5601$Decoder, $assertionsDisabled)},
+		{"dec", "Lsun/nio/cs/DoubleByte$Decoder;", nullptr, $PRIVATE, $field(X11KSC5601$Decoder, dec)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/font/X11KSC5601;Ljava/nio/charset/Charset;)V", nullptr, $PUBLIC, $method(X11KSC5601$Decoder, init$, void, $X11KSC5601*, $Charset*)},
+		{"decodeDouble", "(II)C", nullptr, $PROTECTED, $virtualMethod(X11KSC5601$Decoder, decodeDouble, char16_t, int32_t, int32_t)},
+		{"decodeLoop", "(Ljava/nio/ByteBuffer;Ljava/nio/CharBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PROTECTED, $virtualMethod(X11KSC5601$Decoder, decodeLoop, $CoderResult*, $ByteBuffer*, $CharBuffer*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.font.X11KSC5601$Decoder", "sun.font.X11KSC5601", "Decoder", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.font.X11KSC5601$Decoder",
+		"java.nio.charset.CharsetDecoder",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.font.X11KSC5601"
+	};
+	$loadClass(X11KSC5601$Decoder, name, initialize, &classInfo$$, X11KSC5601$Decoder::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(X11KSC5601$Decoder);
+	});
 	return class$;
 }
 

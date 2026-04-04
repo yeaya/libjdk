@@ -1,6 +1,4 @@
 #include <com/sun/org/apache/xml/internal/security/transforms/implementations/TransformEnvelopedSignature.h>
-
-#include <com/sun/org/apache/xml/internal/security/signature/NodeFilter.h>
 #include <com/sun/org/apache/xml/internal/security/signature/XMLSignatureInput.h>
 #include <com/sun/org/apache/xml/internal/security/transforms/TransformSpi.h>
 #include <com/sun/org/apache/xml/internal/security/transforms/TransformationException.h>
@@ -16,7 +14,6 @@
 #undef TRANSFORM_ENVELOPED_SIGNATURE
 #undef _TAG_SIGNATURE
 
-using $NodeFilter = ::com::sun::org::apache::xml::internal::security::signature::NodeFilter;
 using $XMLSignatureInput = ::com::sun::org::apache::xml::internal::security::signature::XMLSignatureInput;
 using $TransformSpi = ::com::sun::org::apache::xml::internal::security::transforms::TransformSpi;
 using $TransformationException = ::com::sun::org::apache::xml::internal::security::transforms::TransformationException;
@@ -40,38 +37,6 @@ namespace com {
 							namespace transforms {
 								namespace implementations {
 
-$MethodInfo _TransformEnvelopedSignature_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TransformEnvelopedSignature, init$, void)},
-	{"engineGetURI", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(TransformEnvelopedSignature, engineGetURI, $String*)},
-	{"enginePerformTransform", "(Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;Ljava/io/OutputStream;Lorg/w3c/dom/Element;Ljava/lang/String;Z)Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;", nullptr, $PROTECTED, $virtualMethod(TransformEnvelopedSignature, enginePerformTransform, $XMLSignatureInput*, $XMLSignatureInput*, $OutputStream*, $Element*, $String*, bool), "com.sun.org.apache.xml.internal.security.transforms.TransformationException"},
-	{"searchSignatureElement", "(Lorg/w3c/dom/Node;)Lorg/w3c/dom/Node;", nullptr, $PRIVATE | $STATIC, $staticMethod(TransformEnvelopedSignature, searchSignatureElement, $Node*, $Node*), "com.sun.org.apache.xml.internal.security.transforms.TransformationException"},
-	{}
-};
-
-$InnerClassInfo _TransformEnvelopedSignature_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xml.internal.security.transforms.implementations.TransformEnvelopedSignature$EnvelopedNodeFilter", "com.sun.org.apache.xml.internal.security.transforms.implementations.TransformEnvelopedSignature", "EnvelopedNodeFilter", $STATIC},
-	{}
-};
-
-$ClassInfo _TransformEnvelopedSignature_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.security.transforms.implementations.TransformEnvelopedSignature",
-	"com.sun.org.apache.xml.internal.security.transforms.TransformSpi",
-	nullptr,
-	nullptr,
-	_TransformEnvelopedSignature_MethodInfo_,
-	nullptr,
-	nullptr,
-	_TransformEnvelopedSignature_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xml.internal.security.transforms.implementations.TransformEnvelopedSignature$EnvelopedNodeFilter"
-};
-
-$Object* allocate$TransformEnvelopedSignature($Class* clazz) {
-	return $of($alloc(TransformEnvelopedSignature));
-}
-
 void TransformEnvelopedSignature::init$() {
 	$TransformSpi::init$();
 }
@@ -82,7 +47,7 @@ $String* TransformEnvelopedSignature::engineGetURI() {
 }
 
 $XMLSignatureInput* TransformEnvelopedSignature::enginePerformTransform($XMLSignatureInput* input, $OutputStream* os, $Element* transformElement, $String* baseURI, bool secureValidation) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Node, signatureElement, searchSignatureElement(transformElement));
 	$nc(input)->setExcludeNode(signatureElement);
 	input->addNodeFilter($$new($TransformEnvelopedSignature$EnvelopedNodeFilter, signatureElement));
@@ -91,17 +56,17 @@ $XMLSignatureInput* TransformEnvelopedSignature::enginePerformTransform($XMLSign
 
 $Node* TransformEnvelopedSignature::searchSignatureElement($Node* signatureElement$renamed) {
 	$init(TransformEnvelopedSignature);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Node, signatureElement, signatureElement$renamed);
 	bool found = false;
 	while (true) {
-		if (signatureElement == nullptr || $nc(signatureElement)->getNodeType() == $Node::DOCUMENT_NODE) {
+		if (signatureElement == nullptr || signatureElement->getNodeType() == $Node::DOCUMENT_NODE) {
 			break;
 		}
 		$var($Element, el, $cast($Element, signatureElement));
 		$init($Constants);
-		bool var$0 = $nc($($nc(el)->getNamespaceURI()))->equals($Constants::SignatureSpecNS);
-		if (var$0 && $nc($(el->getLocalName()))->equals($Constants::_TAG_SIGNATURE)) {
+		bool var$0 = $$nc($nc(el)->getNamespaceURI())->equals($Constants::SignatureSpecNS);
+		if (var$0 && $$nc(el->getLocalName())->equals($Constants::_TAG_SIGNATURE)) {
 			found = true;
 			break;
 		}
@@ -117,7 +82,34 @@ TransformEnvelopedSignature::TransformEnvelopedSignature() {
 }
 
 $Class* TransformEnvelopedSignature::load$($String* name, bool initialize) {
-	$loadClass(TransformEnvelopedSignature, name, initialize, &_TransformEnvelopedSignature_ClassInfo_, allocate$TransformEnvelopedSignature);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TransformEnvelopedSignature, init$, void)},
+		{"engineGetURI", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(TransformEnvelopedSignature, engineGetURI, $String*)},
+		{"enginePerformTransform", "(Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;Ljava/io/OutputStream;Lorg/w3c/dom/Element;Ljava/lang/String;Z)Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;", nullptr, $PROTECTED, $virtualMethod(TransformEnvelopedSignature, enginePerformTransform, $XMLSignatureInput*, $XMLSignatureInput*, $OutputStream*, $Element*, $String*, bool), "com.sun.org.apache.xml.internal.security.transforms.TransformationException"},
+		{"searchSignatureElement", "(Lorg/w3c/dom/Node;)Lorg/w3c/dom/Node;", nullptr, $PRIVATE | $STATIC, $staticMethod(TransformEnvelopedSignature, searchSignatureElement, $Node*, $Node*), "com.sun.org.apache.xml.internal.security.transforms.TransformationException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xml.internal.security.transforms.implementations.TransformEnvelopedSignature$EnvelopedNodeFilter", "com.sun.org.apache.xml.internal.security.transforms.implementations.TransformEnvelopedSignature", "EnvelopedNodeFilter", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.security.transforms.implementations.TransformEnvelopedSignature",
+		"com.sun.org.apache.xml.internal.security.transforms.TransformSpi",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xml.internal.security.transforms.implementations.TransformEnvelopedSignature$EnvelopedNodeFilter"
+	};
+	$loadClass(TransformEnvelopedSignature, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TransformEnvelopedSignature);
+	});
 	return class$;
 }
 

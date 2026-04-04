@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/dom/DOMBuilder.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -13,19 +12,16 @@ namespace com {
 						namespace xsltc {
 							namespace dom {
 
-$ClassInfo _DOMBuilder_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.org.apache.xalan.internal.xsltc.dom.DOMBuilder",
-	nullptr,
-	"com.sun.org.apache.xalan.internal.xsltc.dom.ExtendedSAX"
-};
-
-$Object* allocate$DOMBuilder($Class* clazz) {
-	return $of($alloc(DOMBuilder));
-}
-
 $Class* DOMBuilder::load$($String* name, bool initialize) {
-	$loadClass(DOMBuilder, name, initialize, &_DOMBuilder_ClassInfo_, allocate$DOMBuilder);
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.org.apache.xalan.internal.xsltc.dom.DOMBuilder",
+		nullptr,
+		"com.sun.org.apache.xalan.internal.xsltc.dom.ExtendedSAX"
+	};
+	$loadClass(DOMBuilder, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DOMBuilder));
+	});
 	return class$;
 }
 

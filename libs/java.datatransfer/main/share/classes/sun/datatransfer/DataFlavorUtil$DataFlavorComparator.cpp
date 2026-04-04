@@ -1,5 +1,4 @@
 #include <sun/datatransfer/DataFlavorUtil$DataFlavorComparator.h>
-
 #include <java/awt/datatransfer/DataFlavor.h>
 #include <java/io/InputStream.h>
 #include <java/io/Reader.h>
@@ -42,51 +41,6 @@ using $DataFlavorUtil$RMI = ::sun::datatransfer::DataFlavorUtil$RMI;
 namespace sun {
 	namespace datatransfer {
 
-$FieldInfo _DataFlavorUtil$DataFlavorComparator_FieldInfo_[] = {
-	{"INSTANCE", "Lsun/datatransfer/DataFlavorUtil$DataFlavorComparator;", nullptr, $STATIC | $FINAL, $staticField(DataFlavorUtil$DataFlavorComparator, INSTANCE)},
-	{"exactTypes", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/Integer;>;", $PRIVATE | $STATIC | $FINAL, $staticField(DataFlavorUtil$DataFlavorComparator, exactTypes)},
-	{"primaryTypes", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/Integer;>;", $PRIVATE | $STATIC | $FINAL, $staticField(DataFlavorUtil$DataFlavorComparator, primaryTypes)},
-	{"nonTextRepresentations", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/Class<*>;Ljava/lang/Integer;>;", $PRIVATE | $STATIC | $FINAL, $staticField(DataFlavorUtil$DataFlavorComparator, nonTextRepresentations)},
-	{"textTypes", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/Integer;>;", $PRIVATE | $STATIC | $FINAL, $staticField(DataFlavorUtil$DataFlavorComparator, textTypes)},
-	{"decodedTextRepresentations", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/Class<*>;Ljava/lang/Integer;>;", $PRIVATE | $STATIC | $FINAL, $staticField(DataFlavorUtil$DataFlavorComparator, decodedTextRepresentations)},
-	{"encodedTextRepresentations", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/Class<*>;Ljava/lang/Integer;>;", $PRIVATE | $STATIC | $FINAL, $staticField(DataFlavorUtil$DataFlavorComparator, encodedTextRepresentations)},
-	{"UNKNOWN_OBJECT_LOSES", "Ljava/lang/Integer;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DataFlavorUtil$DataFlavorComparator, UNKNOWN_OBJECT_LOSES)},
-	{"UNKNOWN_OBJECT_WINS", "Ljava/lang/Integer;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DataFlavorUtil$DataFlavorComparator, UNKNOWN_OBJECT_WINS)},
-	{}
-};
-
-$MethodInfo _DataFlavorUtil$DataFlavorComparator_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(DataFlavorUtil$DataFlavorComparator, init$, void)},
-	{"compare", "(Ljava/awt/datatransfer/DataFlavor;Ljava/awt/datatransfer/DataFlavor;)I", nullptr, $PUBLIC, $virtualMethod(DataFlavorUtil$DataFlavorComparator, compare, int32_t, $DataFlavor*, $DataFlavor*)},
-	{"compare", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(DataFlavorUtil$DataFlavorComparator, compare, int32_t, Object$*, Object$*)},
-	{}
-};
-
-$InnerClassInfo _DataFlavorUtil$DataFlavorComparator_InnerClassesInfo_[] = {
-	{"sun.datatransfer.DataFlavorUtil$DataFlavorComparator", "sun.datatransfer.DataFlavorUtil", "DataFlavorComparator", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _DataFlavorUtil$DataFlavorComparator_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.datatransfer.DataFlavorUtil$DataFlavorComparator",
-	"java.lang.Object",
-	"java.util.Comparator",
-	_DataFlavorUtil$DataFlavorComparator_FieldInfo_,
-	_DataFlavorUtil$DataFlavorComparator_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/Comparator<Ljava/awt/datatransfer/DataFlavor;>;",
-	nullptr,
-	_DataFlavorUtil$DataFlavorComparator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.datatransfer.DataFlavorUtil"
-};
-
-$Object* allocate$DataFlavorUtil$DataFlavorComparator($Class* clazz) {
-	return $of($alloc(DataFlavorUtil$DataFlavorComparator));
-}
-
 DataFlavorUtil$DataFlavorComparator* DataFlavorUtil$DataFlavorComparator::INSTANCE = nullptr;
 $Map* DataFlavorUtil$DataFlavorComparator::exactTypes = nullptr;
 $Map* DataFlavorUtil$DataFlavorComparator::primaryTypes = nullptr;
@@ -101,12 +55,12 @@ void DataFlavorUtil$DataFlavorComparator::init$() {
 }
 
 int32_t DataFlavorUtil$DataFlavorComparator::compare($DataFlavor* flavor1, $DataFlavor* flavor2) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(flavor1)->equals(flavor2)) {
 		return 0;
 	}
 	int32_t comp = 0;
-	$var($String, primaryType1, $nc(flavor1)->getPrimaryType());
+	$var($String, primaryType1, flavor1->getPrimaryType());
 	$var($String, subType1, flavor1->getSubType());
 	$var($String, mimeType1, $str({primaryType1, "/"_s, subType1}));
 	$Class* class1 = flavor1->getRepresentationClass();
@@ -156,15 +110,15 @@ int32_t DataFlavorUtil$DataFlavorComparator::compare($DataFlavor* flavor1, $Data
 			return comp;
 		}
 	}
-	return $nc($(flavor1->getMimeType()))->compareTo($(flavor2->getMimeType()));
+	return $$nc(flavor1->getMimeType())->compareTo($(flavor2->getMimeType()));
 }
 
 int32_t DataFlavorUtil$DataFlavorComparator::compare(Object$* flavor1, Object$* flavor2) {
 	return this->compare($cast($DataFlavor, flavor1), $cast($DataFlavor, flavor2));
 }
 
-void clinit$DataFlavorUtil$DataFlavorComparator($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void DataFlavorUtil$DataFlavorComparator::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(DataFlavorUtil$DataFlavorComparator::INSTANCE, $new(DataFlavorUtil$DataFlavorComparator));
 	$assignStatic(DataFlavorUtil$DataFlavorComparator::UNKNOWN_OBJECT_LOSES, $Integer::valueOf($Integer::MIN_VALUE));
 	$assignStatic(DataFlavorUtil$DataFlavorComparator::UNKNOWN_OBJECT_WINS, $Integer::valueOf($Integer::MAX_VALUE));
@@ -188,7 +142,7 @@ void clinit$DataFlavorUtil$DataFlavorComparator($Class* class$) {
 			nonTextRepresentationsMap->put($InputStream::class$, $($Integer::valueOf(0)));
 			$load($Serializable);
 			nonTextRepresentationsMap->put($Serializable::class$, $($Integer::valueOf(1)));
-			$var($Object, var$0, $of($DataFlavorUtil$RMI::remoteClass()));
+			$var($Object, var$0, $DataFlavorUtil$RMI::remoteClass());
 			nonTextRepresentationsMap->put(var$0, $($Integer::valueOf(2)));
 			$assignStatic(DataFlavorUtil$DataFlavorComparator::nonTextRepresentations, $Collections::unmodifiableMap(nonTextRepresentationsMap));
 		}
@@ -214,7 +168,6 @@ void clinit$DataFlavorUtil$DataFlavorComparator($Class* class$) {
 		}
 		{
 			$var($Map, decodedTextRepresentationsMap, $new($HashMap, 4, 1.0f));
-			$load($chars);
 			decodedTextRepresentationsMap->put($getClass($chars), $($Integer::valueOf(0)));
 			$load($CharBuffer);
 			decodedTextRepresentationsMap->put($CharBuffer::class$, $($Integer::valueOf(1)));
@@ -225,11 +178,9 @@ void clinit$DataFlavorUtil$DataFlavorComparator($Class* class$) {
 		}
 		{
 			$var($Map, encodedTextRepresentationsMap, $new($HashMap, 3, 1.0f));
-			$load($bytes);
 			encodedTextRepresentationsMap->put($getClass($bytes), $($Integer::valueOf(0)));
 			$load($ByteBuffer);
 			encodedTextRepresentationsMap->put($ByteBuffer::class$, $($Integer::valueOf(1)));
-			$load($InputStream);
 			encodedTextRepresentationsMap->put($InputStream::class$, $($Integer::valueOf(2)));
 			$assignStatic(DataFlavorUtil$DataFlavorComparator::encodedTextRepresentations, $Collections::unmodifiableMap(encodedTextRepresentationsMap));
 		}
@@ -240,7 +191,46 @@ DataFlavorUtil$DataFlavorComparator::DataFlavorUtil$DataFlavorComparator() {
 }
 
 $Class* DataFlavorUtil$DataFlavorComparator::load$($String* name, bool initialize) {
-	$loadClass(DataFlavorUtil$DataFlavorComparator, name, initialize, &_DataFlavorUtil$DataFlavorComparator_ClassInfo_, clinit$DataFlavorUtil$DataFlavorComparator, allocate$DataFlavorUtil$DataFlavorComparator);
+	$FieldInfo fieldInfos$$[] = {
+		{"INSTANCE", "Lsun/datatransfer/DataFlavorUtil$DataFlavorComparator;", nullptr, $STATIC | $FINAL, $staticField(DataFlavorUtil$DataFlavorComparator, INSTANCE)},
+		{"exactTypes", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/Integer;>;", $PRIVATE | $STATIC | $FINAL, $staticField(DataFlavorUtil$DataFlavorComparator, exactTypes)},
+		{"primaryTypes", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/Integer;>;", $PRIVATE | $STATIC | $FINAL, $staticField(DataFlavorUtil$DataFlavorComparator, primaryTypes)},
+		{"nonTextRepresentations", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/Class<*>;Ljava/lang/Integer;>;", $PRIVATE | $STATIC | $FINAL, $staticField(DataFlavorUtil$DataFlavorComparator, nonTextRepresentations)},
+		{"textTypes", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/Integer;>;", $PRIVATE | $STATIC | $FINAL, $staticField(DataFlavorUtil$DataFlavorComparator, textTypes)},
+		{"decodedTextRepresentations", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/Class<*>;Ljava/lang/Integer;>;", $PRIVATE | $STATIC | $FINAL, $staticField(DataFlavorUtil$DataFlavorComparator, decodedTextRepresentations)},
+		{"encodedTextRepresentations", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/Class<*>;Ljava/lang/Integer;>;", $PRIVATE | $STATIC | $FINAL, $staticField(DataFlavorUtil$DataFlavorComparator, encodedTextRepresentations)},
+		{"UNKNOWN_OBJECT_LOSES", "Ljava/lang/Integer;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DataFlavorUtil$DataFlavorComparator, UNKNOWN_OBJECT_LOSES)},
+		{"UNKNOWN_OBJECT_WINS", "Ljava/lang/Integer;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DataFlavorUtil$DataFlavorComparator, UNKNOWN_OBJECT_WINS)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(DataFlavorUtil$DataFlavorComparator, init$, void)},
+		{"compare", "(Ljava/awt/datatransfer/DataFlavor;Ljava/awt/datatransfer/DataFlavor;)I", nullptr, $PUBLIC, $virtualMethod(DataFlavorUtil$DataFlavorComparator, compare, int32_t, $DataFlavor*, $DataFlavor*)},
+		{"compare", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(DataFlavorUtil$DataFlavorComparator, compare, int32_t, Object$*, Object$*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.datatransfer.DataFlavorUtil$DataFlavorComparator", "sun.datatransfer.DataFlavorUtil", "DataFlavorComparator", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.datatransfer.DataFlavorUtil$DataFlavorComparator",
+		"java.lang.Object",
+		"java.util.Comparator",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/Comparator<Ljava/awt/datatransfer/DataFlavor;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.datatransfer.DataFlavorUtil"
+	};
+	$loadClass(DataFlavorUtil$DataFlavorComparator, name, initialize, &classInfo$$, DataFlavorUtil$DataFlavorComparator::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(DataFlavorUtil$DataFlavorComparator);
+	});
 	return class$;
 }
 

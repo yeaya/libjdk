@@ -52,6 +52,7 @@ class BasicComboBoxUI$Actions : public ::sun::swing::UIAction {
 	$class(BasicComboBoxUI$Actions, 0, ::sun::swing::UIAction)
 public:
 	BasicComboBoxUI$Actions();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* name);
 	virtual bool accept(Object$* c) override;
 	virtual void actionPerformed(::java::awt::event::ActionEvent* e) override;

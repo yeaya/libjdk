@@ -25,6 +25,7 @@ class $export ShellFolderQueriesTest : public ::java::lang::Object {
 	$class(ShellFolderQueriesTest, 0, ::java::lang::Object)
 public:
 	ShellFolderQueriesTest();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::io::File* createVbsScript($String* script);
 	static void main($StringArray* args);

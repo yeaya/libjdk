@@ -1,5 +1,4 @@
 #include <javax/swing/event/HyperlinkListener.h>
-
 #include <javax/swing/event/HyperlinkEvent.h>
 #include <jcpp.h>
 
@@ -11,26 +10,22 @@ namespace javax {
 	namespace swing {
 		namespace event {
 
-$MethodInfo _HyperlinkListener_MethodInfo_[] = {
-	{"hyperlinkUpdate", "(Ljavax/swing/event/HyperlinkEvent;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(HyperlinkListener, hyperlinkUpdate, void, $HyperlinkEvent*)},
-	{}
-};
-
-$ClassInfo _HyperlinkListener_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"javax.swing.event.HyperlinkListener",
-	nullptr,
-	"java.util.EventListener",
-	nullptr,
-	_HyperlinkListener_MethodInfo_
-};
-
-$Object* allocate$HyperlinkListener($Class* clazz) {
-	return $of($alloc(HyperlinkListener));
-}
-
 $Class* HyperlinkListener::load$($String* name, bool initialize) {
-	$loadClass(HyperlinkListener, name, initialize, &_HyperlinkListener_ClassInfo_, allocate$HyperlinkListener);
+	$MethodInfo methodInfos$$[] = {
+		{"hyperlinkUpdate", "(Ljavax/swing/event/HyperlinkEvent;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(HyperlinkListener, hyperlinkUpdate, void, $HyperlinkEvent*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"javax.swing.event.HyperlinkListener",
+		nullptr,
+		"java.util.EventListener",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(HyperlinkListener, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HyperlinkListener);
+	});
 	return class$;
 }
 

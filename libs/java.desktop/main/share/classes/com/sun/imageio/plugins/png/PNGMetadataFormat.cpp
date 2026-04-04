@@ -1,5 +1,4 @@
 #include <com/sun/imageio/plugins/png/PNGMetadataFormat.h>
-
 #include <com/sun/imageio/plugins/png/PNGMetadata.h>
 #include <java/util/Arrays.h>
 #include <java/util/List.h>
@@ -43,41 +42,6 @@ namespace com {
 			namespace plugins {
 				namespace png {
 
-$FieldInfo _PNGMetadataFormat_FieldInfo_[] = {
-	{"instance", "Ljavax/imageio/metadata/IIOMetadataFormat;", nullptr, $PRIVATE | $STATIC, $staticField(PNGMetadataFormat, instance)},
-	{"VALUE_0", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(PNGMetadataFormat, VALUE_0)},
-	{"VALUE_1", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(PNGMetadataFormat, VALUE_1)},
-	{"VALUE_12", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(PNGMetadataFormat, VALUE_12)},
-	{"VALUE_23", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(PNGMetadataFormat, VALUE_23)},
-	{"VALUE_31", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(PNGMetadataFormat, VALUE_31)},
-	{"VALUE_59", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(PNGMetadataFormat, VALUE_59)},
-	{"VALUE_60", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(PNGMetadataFormat, VALUE_60)},
-	{"VALUE_255", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(PNGMetadataFormat, VALUE_255)},
-	{"VALUE_MAX_16", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(PNGMetadataFormat, VALUE_MAX_16)},
-	{"VALUE_MAX_32", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(PNGMetadataFormat, VALUE_MAX_32)},
-	{}
-};
-
-$MethodInfo _PNGMetadataFormat_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(PNGMetadataFormat, init$, void)},
-	{"canNodeAppear", "(Ljava/lang/String;Ljavax/imageio/ImageTypeSpecifier;)Z", nullptr, $PUBLIC, $virtualMethod(PNGMetadataFormat, canNodeAppear, bool, $String*, $ImageTypeSpecifier*)},
-	{"getInstance", "()Ljavax/imageio/metadata/IIOMetadataFormat;", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(PNGMetadataFormat, getInstance, $IIOMetadataFormat*)},
-	{}
-};
-
-$ClassInfo _PNGMetadataFormat_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.imageio.plugins.png.PNGMetadataFormat",
-	"javax.imageio.metadata.IIOMetadataFormatImpl",
-	nullptr,
-	_PNGMetadataFormat_FieldInfo_,
-	_PNGMetadataFormat_MethodInfo_
-};
-
-$Object* allocate$PNGMetadataFormat($Class* clazz) {
-	return $of($alloc(PNGMetadataFormat));
-}
-
 $IIOMetadataFormat* PNGMetadataFormat::instance = nullptr;
 $String* PNGMetadataFormat::VALUE_0 = nullptr;
 $String* PNGMetadataFormat::VALUE_1 = nullptr;
@@ -91,13 +55,13 @@ $String* PNGMetadataFormat::VALUE_MAX_16 = nullptr;
 $String* PNGMetadataFormat::VALUE_MAX_32 = nullptr;
 
 void PNGMetadataFormat::init$() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($PNGMetadata);
 	$IIOMetadataFormatImpl::init$($PNGMetadata::nativeMetadataFormatName, $IIOMetadataFormat::CHILD_POLICY_SOME);
 	addElement("IHDR"_s, $PNGMetadata::nativeMetadataFormatName, $IIOMetadataFormat::CHILD_POLICY_EMPTY);
 	addAttribute("IHDR"_s, "width"_s, $IIOMetadataFormat::DATATYPE_INTEGER, true, nullptr, PNGMetadataFormat::VALUE_1, PNGMetadataFormat::VALUE_MAX_32, true, true);
 	addAttribute("IHDR"_s, "height"_s, $IIOMetadataFormat::DATATYPE_INTEGER, true, nullptr, PNGMetadataFormat::VALUE_1, PNGMetadataFormat::VALUE_MAX_32, true, true);
-	addAttribute("IHDR"_s, "bitDepth"_s, $IIOMetadataFormat::DATATYPE_INTEGER, true, ($String*)nullptr, $($Arrays::asList($PNGMetadata::IHDR_bitDepths)));
+	addAttribute("IHDR"_s, "bitDepth"_s, $IIOMetadataFormat::DATATYPE_INTEGER, true, nullptr, $($Arrays::asList($PNGMetadata::IHDR_bitDepths)));
 	$var($StringArray, colorTypes, $new($StringArray, {
 		"Grayscale"_s,
 		"RGB"_s,
@@ -105,10 +69,10 @@ void PNGMetadataFormat::init$() {
 		"GrayAlpha"_s,
 		"RGBAlpha"_s
 	}));
-	addAttribute("IHDR"_s, "colorType"_s, $IIOMetadataFormat::DATATYPE_STRING, true, ($String*)nullptr, $($Arrays::asList(colorTypes)));
-	addAttribute("IHDR"_s, "compressionMethod"_s, $IIOMetadataFormat::DATATYPE_STRING, true, ($String*)nullptr, $($Arrays::asList($PNGMetadata::IHDR_compressionMethodNames)));
-	addAttribute("IHDR"_s, "filterMethod"_s, $IIOMetadataFormat::DATATYPE_STRING, true, ($String*)nullptr, $($Arrays::asList($PNGMetadata::IHDR_filterMethodNames)));
-	addAttribute("IHDR"_s, "interlaceMethod"_s, $IIOMetadataFormat::DATATYPE_STRING, true, ($String*)nullptr, $($Arrays::asList($PNGMetadata::IHDR_interlaceMethodNames)));
+	addAttribute("IHDR"_s, "colorType"_s, $IIOMetadataFormat::DATATYPE_STRING, true, nullptr, $($Arrays::asList(colorTypes)));
+	addAttribute("IHDR"_s, "compressionMethod"_s, $IIOMetadataFormat::DATATYPE_STRING, true, nullptr, $($Arrays::asList($PNGMetadata::IHDR_compressionMethodNames)));
+	addAttribute("IHDR"_s, "filterMethod"_s, $IIOMetadataFormat::DATATYPE_STRING, true, nullptr, $($Arrays::asList($PNGMetadata::IHDR_filterMethodNames)));
+	addAttribute("IHDR"_s, "interlaceMethod"_s, $IIOMetadataFormat::DATATYPE_STRING, true, nullptr, $($Arrays::asList($PNGMetadata::IHDR_interlaceMethodNames)));
 	addElement("PLTE"_s, $PNGMetadata::nativeMetadataFormatName, 1, 256);
 	addElement("PLTEEntry"_s, "PLTE"_s, $IIOMetadataFormat::CHILD_POLICY_EMPTY);
 	addAttribute("PLTEEntry"_s, "index"_s, $IIOMetadataFormat::DATATYPE_INTEGER, true, nullptr, PNGMetadataFormat::VALUE_0, PNGMetadataFormat::VALUE_255, true, true);
@@ -141,8 +105,7 @@ void PNGMetadataFormat::init$() {
 	addAttribute("hISTEntry"_s, "value"_s, $IIOMetadataFormat::DATATYPE_INTEGER, true, nullptr, PNGMetadataFormat::VALUE_0, PNGMetadataFormat::VALUE_MAX_16, true, true);
 	addElement("iCCP"_s, $PNGMetadata::nativeMetadataFormatName, $IIOMetadataFormat::CHILD_POLICY_EMPTY);
 	addAttribute("iCCP"_s, "profileName"_s, $IIOMetadataFormat::DATATYPE_STRING, true, nullptr);
-	addAttribute("iCCP"_s, "compressionMethod"_s, $IIOMetadataFormat::DATATYPE_STRING, true, ($String*)nullptr, $($Arrays::asList($PNGMetadata::iCCP_compressionMethodNames)));
-	$init($Byte);
+	addAttribute("iCCP"_s, "compressionMethod"_s, $IIOMetadataFormat::DATATYPE_STRING, true, nullptr, $($Arrays::asList($PNGMetadata::iCCP_compressionMethodNames)));
 	addObjectValue("iCCP"_s, $Byte::TYPE, 0, $Integer::MAX_VALUE);
 	addElement("iTXt"_s, $PNGMetadata::nativeMetadataFormatName, 1, $Integer::MAX_VALUE);
 	addElement("iTXtEntry"_s, "iTXt"_s, $IIOMetadataFormat::CHILD_POLICY_EMPTY);
@@ -155,7 +118,7 @@ void PNGMetadataFormat::init$() {
 	addElement("pHYS"_s, $PNGMetadata::nativeMetadataFormatName, $IIOMetadataFormat::CHILD_POLICY_EMPTY);
 	addAttribute("pHYS"_s, "pixelsPerUnitXAxis"_s, $IIOMetadataFormat::DATATYPE_INTEGER, true, nullptr, PNGMetadataFormat::VALUE_0, PNGMetadataFormat::VALUE_MAX_32, true, true);
 	addAttribute("pHYS"_s, "pixelsPerUnitYAxis"_s, $IIOMetadataFormat::DATATYPE_INTEGER, true, nullptr, PNGMetadataFormat::VALUE_0, PNGMetadataFormat::VALUE_MAX_32, true, true);
-	addAttribute("pHYS"_s, "unitSpecifier"_s, $IIOMetadataFormat::DATATYPE_STRING, true, ($String*)nullptr, $($Arrays::asList($PNGMetadata::unitSpecifierNames)));
+	addAttribute("pHYS"_s, "unitSpecifier"_s, $IIOMetadataFormat::DATATYPE_STRING, true, nullptr, $($Arrays::asList($PNGMetadata::unitSpecifierNames)));
 	addElement("sBIT"_s, $PNGMetadata::nativeMetadataFormatName, $IIOMetadataFormat::CHILD_POLICY_CHOICE);
 	addElement("sBIT_Grayscale"_s, "sBIT"_s, $IIOMetadataFormat::CHILD_POLICY_EMPTY);
 	addAttribute("sBIT_Grayscale"_s, "gray"_s, $IIOMetadataFormat::DATATYPE_INTEGER, true, nullptr, PNGMetadataFormat::VALUE_0, PNGMetadataFormat::VALUE_255, true, true);
@@ -183,7 +146,7 @@ void PNGMetadataFormat::init$() {
 	addAttribute("sPLTEntry"_s, "blue"_s, $IIOMetadataFormat::DATATYPE_INTEGER, true, nullptr, PNGMetadataFormat::VALUE_0, PNGMetadataFormat::VALUE_255, true, true);
 	addAttribute("sPLTEntry"_s, "alpha"_s, $IIOMetadataFormat::DATATYPE_INTEGER, true, nullptr, PNGMetadataFormat::VALUE_0, PNGMetadataFormat::VALUE_255, true, true);
 	addElement("sRGB"_s, $PNGMetadata::nativeMetadataFormatName, $IIOMetadataFormat::CHILD_POLICY_EMPTY);
-	addAttribute("sRGB"_s, "renderingIntent"_s, $IIOMetadataFormat::DATATYPE_STRING, true, ($String*)nullptr, $($Arrays::asList($PNGMetadata::renderingIntentNames)));
+	addAttribute("sRGB"_s, "renderingIntent"_s, $IIOMetadataFormat::DATATYPE_STRING, true, nullptr, $($Arrays::asList($PNGMetadata::renderingIntentNames)));
 	addElement("tEXt"_s, $PNGMetadata::nativeMetadataFormatName, 1, $Integer::MAX_VALUE);
 	addElement("tEXtEntry"_s, "tEXt"_s, $IIOMetadataFormat::CHILD_POLICY_EMPTY);
 	addAttribute("tEXtEntry"_s, "keyword"_s, $IIOMetadataFormat::DATATYPE_STRING, true, nullptr);
@@ -208,7 +171,7 @@ void PNGMetadataFormat::init$() {
 	addElement("zTXt"_s, $PNGMetadata::nativeMetadataFormatName, 1, $Integer::MAX_VALUE);
 	addElement("zTXtEntry"_s, "zTXt"_s, $IIOMetadataFormat::CHILD_POLICY_EMPTY);
 	addAttribute("zTXtEntry"_s, "keyword"_s, $IIOMetadataFormat::DATATYPE_STRING, true, nullptr);
-	addAttribute("zTXtEntry"_s, "compressionMethod"_s, $IIOMetadataFormat::DATATYPE_STRING, true, ($String*)nullptr, $($Arrays::asList($PNGMetadata::zTXt_compressionMethodNames)));
+	addAttribute("zTXtEntry"_s, "compressionMethod"_s, $IIOMetadataFormat::DATATYPE_STRING, true, nullptr, $($Arrays::asList($PNGMetadata::zTXt_compressionMethodNames)));
 	addAttribute("zTXtEntry"_s, "text"_s, $IIOMetadataFormat::DATATYPE_STRING, true, nullptr);
 	addElement("UnknownChunks"_s, $PNGMetadata::nativeMetadataFormatName, 1, $Integer::MAX_VALUE);
 	addElement("UnknownChunk"_s, "UnknownChunks"_s, $IIOMetadataFormat::CHILD_POLICY_EMPTY);
@@ -221,9 +184,8 @@ bool PNGMetadataFormat::canNodeAppear($String* elementName, $ImageTypeSpecifier*
 }
 
 $IIOMetadataFormat* PNGMetadataFormat::getInstance() {
-	$load(PNGMetadataFormat);
+	$init(PNGMetadataFormat);
 	$synchronized(class$) {
-		$init(PNGMetadataFormat);
 		if (PNGMetadataFormat::instance == nullptr) {
 			$assignStatic(PNGMetadataFormat::instance, $new(PNGMetadataFormat));
 		}
@@ -231,7 +193,7 @@ $IIOMetadataFormat* PNGMetadataFormat::getInstance() {
 	}
 }
 
-void clinit$PNGMetadataFormat($Class* class$) {
+void PNGMetadataFormat::clinit$($Class* clazz) {
 	$assignStatic(PNGMetadataFormat::instance, nullptr);
 	$assignStatic(PNGMetadataFormat::VALUE_0, "0"_s);
 	$assignStatic(PNGMetadataFormat::VALUE_1, "1"_s);
@@ -249,7 +211,37 @@ PNGMetadataFormat::PNGMetadataFormat() {
 }
 
 $Class* PNGMetadataFormat::load$($String* name, bool initialize) {
-	$loadClass(PNGMetadataFormat, name, initialize, &_PNGMetadataFormat_ClassInfo_, clinit$PNGMetadataFormat, allocate$PNGMetadataFormat);
+	$FieldInfo fieldInfos$$[] = {
+		{"instance", "Ljavax/imageio/metadata/IIOMetadataFormat;", nullptr, $PRIVATE | $STATIC, $staticField(PNGMetadataFormat, instance)},
+		{"VALUE_0", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(PNGMetadataFormat, VALUE_0)},
+		{"VALUE_1", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(PNGMetadataFormat, VALUE_1)},
+		{"VALUE_12", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(PNGMetadataFormat, VALUE_12)},
+		{"VALUE_23", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(PNGMetadataFormat, VALUE_23)},
+		{"VALUE_31", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(PNGMetadataFormat, VALUE_31)},
+		{"VALUE_59", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(PNGMetadataFormat, VALUE_59)},
+		{"VALUE_60", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(PNGMetadataFormat, VALUE_60)},
+		{"VALUE_255", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(PNGMetadataFormat, VALUE_255)},
+		{"VALUE_MAX_16", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(PNGMetadataFormat, VALUE_MAX_16)},
+		{"VALUE_MAX_32", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(PNGMetadataFormat, VALUE_MAX_32)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(PNGMetadataFormat, init$, void)},
+		{"canNodeAppear", "(Ljava/lang/String;Ljavax/imageio/ImageTypeSpecifier;)Z", nullptr, $PUBLIC, $virtualMethod(PNGMetadataFormat, canNodeAppear, bool, $String*, $ImageTypeSpecifier*)},
+		{"getInstance", "()Ljavax/imageio/metadata/IIOMetadataFormat;", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(PNGMetadataFormat, getInstance, $IIOMetadataFormat*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.imageio.plugins.png.PNGMetadataFormat",
+		"javax.imageio.metadata.IIOMetadataFormatImpl",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(PNGMetadataFormat, name, initialize, &classInfo$$, PNGMetadataFormat::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(PNGMetadataFormat);
+	});
 	return class$;
 }
 

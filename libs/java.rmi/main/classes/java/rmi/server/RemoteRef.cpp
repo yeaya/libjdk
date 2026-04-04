@@ -1,5 +1,4 @@
 #include <java/rmi/server/RemoteRef.h>
-
 #include <java/io/ObjectOutput.h>
 #include <java/lang/reflect/Method.h>
 #include <java/rmi/Remote.h>
@@ -23,65 +22,56 @@ namespace java {
 	namespace rmi {
 		namespace server {
 
-$CompoundAttribute _RemoteRef_FieldAnnotations_serialVersionUID[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _RemoteRef_MethodAnnotations_done0[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _RemoteRef_MethodAnnotations_invoke3[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _RemoteRef_MethodAnnotations_newCall4[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$FieldInfo _RemoteRef_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PUBLIC | $STATIC | $FINAL | $DEPRECATED, $constField(RemoteRef, serialVersionUID), _RemoteRef_FieldAnnotations_serialVersionUID},
-	{"packagePrefix", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(RemoteRef, packagePrefix)},
-	{}
-};
-
-$MethodInfo _RemoteRef_MethodInfo_[] = {
-	{"done", "(Ljava/rmi/server/RemoteCall;)V", nullptr, $PUBLIC | $ABSTRACT | $DEPRECATED, $virtualMethod(RemoteRef, done, void, $RemoteCall*), "java.rmi.RemoteException", nullptr, _RemoteRef_MethodAnnotations_done0},
-	{"getRefClass", "(Ljava/io/ObjectOutput;)Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RemoteRef, getRefClass, $String*, $ObjectOutput*)},
-	{"invoke", "(Ljava/rmi/Remote;Ljava/lang/reflect/Method;[Ljava/lang/Object;J)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RemoteRef, invoke, $Object*, $Remote*, $Method*, $ObjectArray*, int64_t), "java.lang.Exception"},
-	{"invoke", "(Ljava/rmi/server/RemoteCall;)V", nullptr, $PUBLIC | $ABSTRACT | $DEPRECATED, $virtualMethod(RemoteRef, invoke, void, $RemoteCall*), "java.lang.Exception", nullptr, _RemoteRef_MethodAnnotations_invoke3},
-	{"newCall", "(Ljava/rmi/server/RemoteObject;[Ljava/rmi/server/Operation;IJ)Ljava/rmi/server/RemoteCall;", nullptr, $PUBLIC | $ABSTRACT | $DEPRECATED, $virtualMethod(RemoteRef, newCall, $RemoteCall*, $RemoteObject*, $OperationArray*, int32_t, int64_t), "java.rmi.RemoteException", nullptr, _RemoteRef_MethodAnnotations_newCall4},
-	{"remoteEquals", "(Ljava/rmi/server/RemoteRef;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RemoteRef, remoteEquals, bool, RemoteRef*)},
-	{"remoteHashCode", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RemoteRef, remoteHashCode, int32_t)},
-	{"remoteToString", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RemoteRef, remoteToString, $String*)},
-	{}
-};
-
-$ClassInfo _RemoteRef_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.rmi.server.RemoteRef",
-	nullptr,
-	"java.io.Externalizable",
-	_RemoteRef_FieldInfo_,
-	_RemoteRef_MethodInfo_
-};
-
-$Object* allocate$RemoteRef($Class* clazz) {
-	return $of($alloc(RemoteRef));
-}
-
 $String* RemoteRef::packagePrefix = nullptr;
 
-void clinit$RemoteRef($Class* class$) {
+void RemoteRef::clinit$($Class* clazz) {
 	$assignStatic(RemoteRef::packagePrefix, "sun.rmi.server"_s);
 }
 
 $Class* RemoteRef::load$($String* name, bool initialize) {
-	$loadClass(RemoteRef, name, initialize, &_RemoteRef_ClassInfo_, clinit$RemoteRef, allocate$RemoteRef);
+	$CompoundAttribute serialVersionUIDfieldAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PUBLIC | $STATIC | $FINAL | $DEPRECATED, $constField(RemoteRef, serialVersionUID), serialVersionUIDfieldAnnotations$$},
+		{"packagePrefix", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(RemoteRef, packagePrefix)},
+		{}
+	};
+	$CompoundAttribute donemethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute invokemethodAnnotations$$$1[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute newCallmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"done", "(Ljava/rmi/server/RemoteCall;)V", nullptr, $PUBLIC | $ABSTRACT | $DEPRECATED, $virtualMethod(RemoteRef, done, void, $RemoteCall*), "java.rmi.RemoteException", nullptr, donemethodAnnotations$$},
+		{"getRefClass", "(Ljava/io/ObjectOutput;)Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RemoteRef, getRefClass, $String*, $ObjectOutput*)},
+		{"invoke", "(Ljava/rmi/Remote;Ljava/lang/reflect/Method;[Ljava/lang/Object;J)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RemoteRef, invoke, $Object*, $Remote*, $Method*, $ObjectArray*, int64_t), "java.lang.Exception"},
+		{"invoke", "(Ljava/rmi/server/RemoteCall;)V", nullptr, $PUBLIC | $ABSTRACT | $DEPRECATED, $virtualMethod(RemoteRef, invoke, void, $RemoteCall*), "java.lang.Exception", nullptr, invokemethodAnnotations$$$1},
+		{"newCall", "(Ljava/rmi/server/RemoteObject;[Ljava/rmi/server/Operation;IJ)Ljava/rmi/server/RemoteCall;", nullptr, $PUBLIC | $ABSTRACT | $DEPRECATED, $virtualMethod(RemoteRef, newCall, $RemoteCall*, $RemoteObject*, $OperationArray*, int32_t, int64_t), "java.rmi.RemoteException", nullptr, newCallmethodAnnotations$$},
+		{"remoteEquals", "(Ljava/rmi/server/RemoteRef;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RemoteRef, remoteEquals, bool, RemoteRef*)},
+		{"remoteHashCode", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RemoteRef, remoteHashCode, int32_t)},
+		{"remoteToString", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RemoteRef, remoteToString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.rmi.server.RemoteRef",
+		nullptr,
+		"java.io.Externalizable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(RemoteRef, name, initialize, &classInfo$$, RemoteRef::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(RemoteRef);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <javax/print/attribute/standard/PrinterStateReasons$PrinterStateReasonSet.h>
-
 #include <java/util/AbstractSet.h>
 #include <java/util/Iterator.h>
 #include <java/util/Set.h>
@@ -23,45 +22,6 @@ namespace javax {
 	namespace print {
 		namespace attribute {
 			namespace standard {
-
-$FieldInfo _PrinterStateReasons$PrinterStateReasonSet_FieldInfo_[] = {
-	{"this$0", "Ljavax/print/attribute/standard/PrinterStateReasons;", nullptr, $FINAL | $SYNTHETIC, $field(PrinterStateReasons$PrinterStateReasonSet, this$0)},
-	{"mySeverity", "Ljavax/print/attribute/standard/Severity;", nullptr, $PRIVATE, $field(PrinterStateReasons$PrinterStateReasonSet, mySeverity)},
-	{"myEntrySet", "Ljava/util/Set;", "Ljava/util/Set<Ljava/util/Map$Entry<Ljavax/print/attribute/standard/PrinterStateReason;Ljavax/print/attribute/standard/Severity;>;>;", $PRIVATE, $field(PrinterStateReasons$PrinterStateReasonSet, myEntrySet)},
-	{}
-};
-
-$MethodInfo _PrinterStateReasons$PrinterStateReasonSet_MethodInfo_[] = {
-	{"<init>", "(Ljavax/print/attribute/standard/PrinterStateReasons;Ljavax/print/attribute/standard/Severity;Ljava/util/Set;)V", "(Ljavax/print/attribute/standard/Severity;Ljava/util/Set<Ljava/util/Map$Entry<Ljavax/print/attribute/standard/PrinterStateReason;Ljavax/print/attribute/standard/Severity;>;>;)V", $PUBLIC, $method(PrinterStateReasons$PrinterStateReasonSet, init$, void, $PrinterStateReasons*, $Severity*, $Set*)},
-	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljavax/print/attribute/standard/PrinterStateReason;>;", $PUBLIC, $virtualMethod(PrinterStateReasons$PrinterStateReasonSet, iterator, $Iterator*)},
-	{"size", "()I", nullptr, $PUBLIC, $virtualMethod(PrinterStateReasons$PrinterStateReasonSet, size, int32_t)},
-	{}
-};
-
-$InnerClassInfo _PrinterStateReasons$PrinterStateReasonSet_InnerClassesInfo_[] = {
-	{"javax.print.attribute.standard.PrinterStateReasons$PrinterStateReasonSet", "javax.print.attribute.standard.PrinterStateReasons", "PrinterStateReasonSet", $PRIVATE},
-	{}
-};
-
-$ClassInfo _PrinterStateReasons$PrinterStateReasonSet_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.print.attribute.standard.PrinterStateReasons$PrinterStateReasonSet",
-	"java.util.AbstractSet",
-	nullptr,
-	_PrinterStateReasons$PrinterStateReasonSet_FieldInfo_,
-	_PrinterStateReasons$PrinterStateReasonSet_MethodInfo_,
-	"Ljava/util/AbstractSet<Ljavax/print/attribute/standard/PrinterStateReason;>;",
-	nullptr,
-	_PrinterStateReasons$PrinterStateReasonSet_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.print.attribute.standard.PrinterStateReasons"
-};
-
-$Object* allocate$PrinterStateReasons$PrinterStateReasonSet($Class* clazz) {
-	return $of($alloc(PrinterStateReasons$PrinterStateReasonSet));
-}
 
 void PrinterStateReasons$PrinterStateReasonSet::init$($PrinterStateReasons* this$0, $Severity* severity, $Set* entrySet) {
 	$set(this, this$0, this$0);
@@ -88,7 +48,40 @@ PrinterStateReasons$PrinterStateReasonSet::PrinterStateReasons$PrinterStateReaso
 }
 
 $Class* PrinterStateReasons$PrinterStateReasonSet::load$($String* name, bool initialize) {
-	$loadClass(PrinterStateReasons$PrinterStateReasonSet, name, initialize, &_PrinterStateReasons$PrinterStateReasonSet_ClassInfo_, allocate$PrinterStateReasons$PrinterStateReasonSet);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/print/attribute/standard/PrinterStateReasons;", nullptr, $FINAL | $SYNTHETIC, $field(PrinterStateReasons$PrinterStateReasonSet, this$0)},
+		{"mySeverity", "Ljavax/print/attribute/standard/Severity;", nullptr, $PRIVATE, $field(PrinterStateReasons$PrinterStateReasonSet, mySeverity)},
+		{"myEntrySet", "Ljava/util/Set;", "Ljava/util/Set<Ljava/util/Map$Entry<Ljavax/print/attribute/standard/PrinterStateReason;Ljavax/print/attribute/standard/Severity;>;>;", $PRIVATE, $field(PrinterStateReasons$PrinterStateReasonSet, myEntrySet)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/print/attribute/standard/PrinterStateReasons;Ljavax/print/attribute/standard/Severity;Ljava/util/Set;)V", "(Ljavax/print/attribute/standard/Severity;Ljava/util/Set<Ljava/util/Map$Entry<Ljavax/print/attribute/standard/PrinterStateReason;Ljavax/print/attribute/standard/Severity;>;>;)V", $PUBLIC, $method(PrinterStateReasons$PrinterStateReasonSet, init$, void, $PrinterStateReasons*, $Severity*, $Set*)},
+		{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljavax/print/attribute/standard/PrinterStateReason;>;", $PUBLIC, $virtualMethod(PrinterStateReasons$PrinterStateReasonSet, iterator, $Iterator*)},
+		{"size", "()I", nullptr, $PUBLIC, $virtualMethod(PrinterStateReasons$PrinterStateReasonSet, size, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.print.attribute.standard.PrinterStateReasons$PrinterStateReasonSet", "javax.print.attribute.standard.PrinterStateReasons", "PrinterStateReasonSet", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.print.attribute.standard.PrinterStateReasons$PrinterStateReasonSet",
+		"java.util.AbstractSet",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/util/AbstractSet<Ljavax/print/attribute/standard/PrinterStateReason;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.print.attribute.standard.PrinterStateReasons"
+	};
+	$loadClass(PrinterStateReasons$PrinterStateReasonSet, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(PrinterStateReasons$PrinterStateReasonSet));
+	});
 	return class$;
 }
 

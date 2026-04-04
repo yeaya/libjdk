@@ -1,5 +1,4 @@
 #include <sun/awt/image/ShortComponentRaster.h>
-
 #include <java/awt/Point.h>
 #include <java/awt/Rectangle.h>
 #include <java/awt/image/ComponentSampleModel.h>
@@ -23,7 +22,6 @@
 using $Point = ::java::awt::Point;
 using $Rectangle = ::java::awt::Rectangle;
 using $ComponentSampleModel = ::java::awt::image::ComponentSampleModel;
-using $DataBuffer = ::java::awt::image::DataBuffer;
 using $DataBufferUShort = ::java::awt::image::DataBufferUShort;
 using $Raster = ::java::awt::image::Raster;
 using $RasterFormatException = ::java::awt::image::RasterFormatException;
@@ -43,77 +41,20 @@ namespace sun {
 	namespace awt {
 		namespace image {
 
-$FieldInfo _ShortComponentRaster_FieldInfo_[] = {
-	{"bandOffset", "I", nullptr, $PROTECTED, $field(ShortComponentRaster, bandOffset)},
-	{"dataOffsets", "[I", nullptr, $PROTECTED, $field(ShortComponentRaster, dataOffsets)},
-	{"scanlineStride", "I", nullptr, $PROTECTED, $field(ShortComponentRaster, scanlineStride)},
-	{"pixelStride", "I", nullptr, $PROTECTED, $field(ShortComponentRaster, pixelStride)},
-	{"data", "[S", nullptr, $PROTECTED, $field(ShortComponentRaster, data)},
-	{"type", "I", nullptr, 0, $field(ShortComponentRaster, type)},
-	{"maxX", "I", nullptr, $PRIVATE, $field(ShortComponentRaster, maxX)},
-	{"maxY", "I", nullptr, $PRIVATE, $field(ShortComponentRaster, maxY)},
-	{}
-};
-
-$MethodInfo _ShortComponentRaster_MethodInfo_[] = {
-	{"<init>", "(Ljava/awt/image/SampleModel;Ljava/awt/Point;)V", nullptr, $PUBLIC, $method(ShortComponentRaster, init$, void, $SampleModel*, $Point*)},
-	{"<init>", "(Ljava/awt/image/SampleModel;Ljava/awt/image/DataBufferUShort;Ljava/awt/Point;)V", nullptr, $PUBLIC, $method(ShortComponentRaster, init$, void, $SampleModel*, $DataBufferUShort*, $Point*)},
-	{"<init>", "(Ljava/awt/image/SampleModel;Ljava/awt/image/DataBufferUShort;Ljava/awt/Rectangle;Ljava/awt/Point;Lsun/awt/image/ShortComponentRaster;)V", nullptr, $PUBLIC, $method(ShortComponentRaster, init$, void, $SampleModel*, $DataBufferUShort*, $Rectangle*, $Point*, ShortComponentRaster*)},
-	{"createChild", "(IIIIII[I)Ljava/awt/image/Raster;", nullptr, $PUBLIC, $virtualMethod(ShortComponentRaster, createChild, $Raster*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, $ints*)},
-	{"createCompatibleWritableRaster", "(II)Ljava/awt/image/WritableRaster;", nullptr, $PUBLIC, $virtualMethod(ShortComponentRaster, createCompatibleWritableRaster, $WritableRaster*, int32_t, int32_t)},
-	{"createCompatibleWritableRaster", "()Ljava/awt/image/WritableRaster;", nullptr, $PUBLIC, $virtualMethod(ShortComponentRaster, createCompatibleWritableRaster, $WritableRaster*)},
-	{"createWritableChild", "(IIIIII[I)Ljava/awt/image/WritableRaster;", nullptr, $PUBLIC, $virtualMethod(ShortComponentRaster, createWritableChild, $WritableRaster*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, $ints*)},
-	{"getDataElements", "(IILjava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ShortComponentRaster, getDataElements, $Object*, int32_t, int32_t, Object$*)},
-	{"getDataElements", "(IIIILjava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ShortComponentRaster, getDataElements, $Object*, int32_t, int32_t, int32_t, int32_t, Object$*)},
-	{"getDataOffset", "(I)I", nullptr, $PUBLIC, $virtualMethod(ShortComponentRaster, getDataOffset, int32_t, int32_t)},
-	{"getDataOffsets", "()[I", nullptr, $PUBLIC, $virtualMethod(ShortComponentRaster, getDataOffsets, $ints*)},
-	{"getDataStorage", "()[S", nullptr, $PUBLIC, $virtualMethod(ShortComponentRaster, getDataStorage, $shorts*)},
-	{"getPixelStride", "()I", nullptr, $PUBLIC, $virtualMethod(ShortComponentRaster, getPixelStride, int32_t)},
-	{"getScanlineStride", "()I", nullptr, $PUBLIC, $virtualMethod(ShortComponentRaster, getScanlineStride, int32_t)},
-	{"getShortData", "(IIIII[S)[S", nullptr, $PUBLIC, $virtualMethod(ShortComponentRaster, getShortData, $shorts*, int32_t, int32_t, int32_t, int32_t, int32_t, $shorts*)},
-	{"getShortData", "(IIII[S)[S", nullptr, $PUBLIC, $virtualMethod(ShortComponentRaster, getShortData, $shorts*, int32_t, int32_t, int32_t, int32_t, $shorts*)},
-	{"initIDs", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(ShortComponentRaster, initIDs, void)},
-	{"putShortData", "(IIIII[S)V", nullptr, $PUBLIC, $virtualMethod(ShortComponentRaster, putShortData, void, int32_t, int32_t, int32_t, int32_t, int32_t, $shorts*)},
-	{"putShortData", "(IIII[S)V", nullptr, $PUBLIC, $virtualMethod(ShortComponentRaster, putShortData, void, int32_t, int32_t, int32_t, int32_t, $shorts*)},
-	{"setDataElements", "(IILjava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(ShortComponentRaster, setDataElements, void, int32_t, int32_t, Object$*)},
-	{"setDataElements", "(IILjava/awt/image/Raster;)V", nullptr, $PUBLIC, $virtualMethod(ShortComponentRaster, setDataElements, void, int32_t, int32_t, $Raster*)},
-	{"setDataElements", "(IIIILjava/awt/image/Raster;)V", nullptr, $PRIVATE, $method(ShortComponentRaster, setDataElements, void, int32_t, int32_t, int32_t, int32_t, $Raster*)},
-	{"setDataElements", "(IIIILjava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(ShortComponentRaster, setDataElements, void, int32_t, int32_t, int32_t, int32_t, Object$*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ShortComponentRaster, toString, $String*)},
-	{"verify", "()V", nullptr, $PROTECTED | $FINAL, $method(ShortComponentRaster, verify, void)},
-	{}
-};
-
-#define _METHOD_INDEX_initIDs 16
-
-$ClassInfo _ShortComponentRaster_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.awt.image.ShortComponentRaster",
-	"sun.awt.image.SunWritableRaster",
-	nullptr,
-	_ShortComponentRaster_FieldInfo_,
-	_ShortComponentRaster_MethodInfo_
-};
-
-$Object* allocate$ShortComponentRaster($Class* clazz) {
-	return $of($alloc(ShortComponentRaster));
-}
-
 void ShortComponentRaster::initIDs() {
 	$init(ShortComponentRaster);
-	$prepareNativeStatic(ShortComponentRaster, initIDs, void);
+	$prepareNativeStatic(initIDs, void);
 	$invokeNativeStatic();
 	$finishNativeStatic();
 }
 
 void ShortComponentRaster::init$($SampleModel* sampleModel, $Point* origin) {
-	$useLocalCurrentObjectStackCache();
-	$var($SampleModel, var$0, sampleModel);
-	$var($DataBufferUShort, var$1, $cast($DataBufferUShort, $nc(sampleModel)->createDataBuffer()));
-	int32_t var$2 = $nc(origin)->x;
-	int32_t var$3 = origin->y;
-	int32_t var$4 = sampleModel->getWidth();
-	ShortComponentRaster::init$(var$0, var$1, $$new($Rectangle, var$2, var$3, var$4, sampleModel->getHeight()), origin, nullptr);
+	$useLocalObjectStack();
+	$var($DataBufferUShort, var$0, $cast($DataBufferUShort, $nc(sampleModel)->createDataBuffer()));
+	int32_t var$1 = $nc(origin)->x;
+	int32_t var$2 = origin->y;
+	int32_t var$3 = sampleModel->getWidth();
+	ShortComponentRaster::init$(sampleModel, var$0, $$new($Rectangle, var$1, var$2, var$3, sampleModel->getHeight()), origin, nullptr);
 }
 
 void ShortComponentRaster::init$($SampleModel* sampleModel, $DataBufferUShort* dataBuffer, $Point* origin) {
@@ -124,7 +65,7 @@ void ShortComponentRaster::init$($SampleModel* sampleModel, $DataBufferUShort* d
 }
 
 void ShortComponentRaster::init$($SampleModel* sampleModel, $DataBufferUShort* dataBuffer, $Rectangle* aRegion, $Point* origin, ShortComponentRaster* parent) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$SunWritableRaster::init$(sampleModel, dataBuffer, aRegion, origin, parent);
 	this->maxX = this->minX + this->width;
 	this->maxY = this->minY + this->height;
@@ -132,11 +73,11 @@ void ShortComponentRaster::init$($SampleModel* sampleModel, $DataBufferUShort* d
 	if ($nc(dataBuffer)->getNumBanks() != 1) {
 		$throwNew($RasterFormatException, "DataBuffer for ShortComponentRasters must only have 1 bank."_s);
 	}
-	int32_t dbOffset = $nc(dataBuffer)->getOffset();
+	int32_t dbOffset = dataBuffer->getOffset();
 	if ($instanceOf($ComponentSampleModel, sampleModel)) {
 		$var($ComponentSampleModel, csm, $cast($ComponentSampleModel, sampleModel));
 		this->type = $IntegerComponentRaster::TYPE_USHORT_SAMPLES;
-		this->scanlineStride = $nc(csm)->getScanlineStride();
+		this->scanlineStride = csm->getScanlineStride();
 		this->pixelStride = csm->getPixelStride();
 		$set(this, dataOffsets, csm->getBandOffsets());
 		int32_t xOffset = $nc(aRegion)->x - $nc(origin)->x;
@@ -147,10 +88,10 @@ void ShortComponentRaster::init$($SampleModel* sampleModel, $DataBufferUShort* d
 	} else if ($instanceOf($SinglePixelPackedSampleModel, sampleModel)) {
 		$var($SinglePixelPackedSampleModel, sppsm, $cast($SinglePixelPackedSampleModel, sampleModel));
 		this->type = $IntegerComponentRaster::TYPE_USHORT_PACKED_SAMPLES;
-		this->scanlineStride = $nc(sppsm)->getScanlineStride();
+		this->scanlineStride = sppsm->getScanlineStride();
 		this->pixelStride = 1;
 		$set(this, dataOffsets, $new($ints, 1));
-		$nc(this->dataOffsets)->set(0, dbOffset);
+		this->dataOffsets->set(0, dbOffset);
 		int32_t xOffset = $nc(aRegion)->x - $nc(origin)->x;
 		int32_t yOffset = aRegion->y - origin->y;
 		(*$nc(this->dataOffsets))[0] += xOffset + yOffset * this->scanlineStride;
@@ -195,7 +136,7 @@ $Object* ShortComponentRaster::getDataElements(int32_t x, int32_t y, Object$* ob
 	for (int32_t band = 0; band < this->numDataElements; ++band) {
 		$nc(outData)->set(band, $nc(this->data)->get($nc(this->dataOffsets)->get(band) + off));
 	}
-	return $of(outData);
+	return outData;
 }
 
 $Object* ShortComponentRaster::getDataElements(int32_t x, int32_t y, int32_t w, int32_t h, Object$* obj) {
@@ -221,7 +162,7 @@ $Object* ShortComponentRaster::getDataElements(int32_t x, int32_t y, int32_t w, 
 			}
 		}
 	}
-	return $of(outData);
+	return outData;
 }
 
 $shorts* ShortComponentRaster::getShortData(int32_t x, int32_t y, int32_t w, int32_t h, int32_t band, $shorts* outData$renamed) {
@@ -389,11 +330,11 @@ void ShortComponentRaster::putShortData(int32_t x, int32_t y, int32_t w, int32_t
 
 $Raster* ShortComponentRaster::createChild(int32_t x, int32_t y, int32_t width, int32_t height, int32_t x0, int32_t y0, $ints* bandList) {
 	$var($WritableRaster, newRaster, createWritableChild(x, y, width, height, x0, y0, bandList));
-	return static_cast<$Raster*>(newRaster);
+	return $cast($Raster, newRaster);
 }
 
 $WritableRaster* ShortComponentRaster::createWritableChild(int32_t x, int32_t y, int32_t width, int32_t height, int32_t x0, int32_t y0, $ints* bandList) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (x < this->minX) {
 		$throwNew($RasterFormatException, "x lies outside the raster"_s);
 	}
@@ -414,14 +355,13 @@ $WritableRaster* ShortComponentRaster::createWritableChild(int32_t x, int32_t y,
 	}
 	int32_t deltaX = x0 - x;
 	int32_t deltaY = y0 - y;
-	$var($SampleModel, var$0, sm);
-	$var($DataBufferUShort, var$1, $cast($DataBufferUShort, this->dataBuffer));
-	$var($Rectangle, var$2, $new($Rectangle, x0, y0, width, height));
-	return $new(ShortComponentRaster, var$0, var$1, var$2, $$new($Point, this->sampleModelTranslateX + deltaX, this->sampleModelTranslateY + deltaY), this);
+	$var($DataBufferUShort, var$0, $cast($DataBufferUShort, this->dataBuffer));
+	$var($Rectangle, var$1, $new($Rectangle, x0, y0, width, height));
+	return $new(ShortComponentRaster, sm, var$0, var$1, $$new($Point, this->sampleModelTranslateX + deltaX, this->sampleModelTranslateY + deltaY), this);
 }
 
 $WritableRaster* ShortComponentRaster::createCompatibleWritableRaster(int32_t w, int32_t h) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (w <= 0 || h <= 0) {
 		$throwNew($RasterFormatException, $$str({"negative "_s, ((w <= 0) ? "width"_s : "height"_s)}));
 	}
@@ -434,13 +374,13 @@ $WritableRaster* ShortComponentRaster::createCompatibleWritableRaster() {
 }
 
 void ShortComponentRaster::verify() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->width <= 0 || this->height <= 0 || this->height > ($div($Integer::MAX_VALUE, this->width))) {
 		$throwNew($RasterFormatException, "Invalid raster dimension"_s);
 	}
 	for (int32_t i = 0; i < $nc(this->dataOffsets)->length; ++i) {
-		if ($nc(this->dataOffsets)->get(i) < 0) {
-			$throwNew($RasterFormatException, $$str({"Data offsets for band "_s, $$str(i), "("_s, $$str($nc(this->dataOffsets)->get(i)), ") must be >= 0"_s}));
+		if (this->dataOffsets->get(i) < 0) {
+			$throwNew($RasterFormatException, $$str({"Data offsets for band "_s, $$str(i), "("_s, $$str(this->dataOffsets->get(i)), ") must be >= 0"_s}));
 		}
 	}
 	if ((int64_t)this->minX - this->sampleModelTranslateX < 0 || (int64_t)this->minY - this->sampleModelTranslateY < 0) {
@@ -466,10 +406,10 @@ void ShortComponentRaster::verify() {
 	int32_t index = 0;
 	int32_t maxIndex = 0;
 	for (int32_t i = 0; i < this->numDataElements; ++i) {
-		if ($nc(this->dataOffsets)->get(i) > ($Integer::MAX_VALUE - lastPixelOffset)) {
-			$throwNew($RasterFormatException, $$str({"Incorrect band offset: "_s, $$str($nc(this->dataOffsets)->get(i))}));
+		if (this->dataOffsets->get(i) > ($Integer::MAX_VALUE - lastPixelOffset)) {
+			$throwNew($RasterFormatException, $$str({"Incorrect band offset: "_s, $$str(this->dataOffsets->get(i))}));
 		}
-		index = lastPixelOffset + $nc(this->dataOffsets)->get(i);
+		index = lastPixelOffset + this->dataOffsets->get(i);
 		if (index > maxIndex) {
 			maxIndex = index;
 		}
@@ -480,11 +420,11 @@ void ShortComponentRaster::verify() {
 }
 
 $String* ShortComponentRaster::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $new($String, $$str({"ShortComponentRaster: width = "_s, $$str(this->width), " height = "_s, $$str(this->height), " #numDataElements "_s, $$str(this->numDataElements)}));
 }
 
-void clinit$ShortComponentRaster($Class* class$) {
+void ShortComponentRaster::clinit$($Class* clazz) {
 	{
 		$NativeLibLoader::loadLibraries();
 		ShortComponentRaster::initIDs();
@@ -495,7 +435,56 @@ ShortComponentRaster::ShortComponentRaster() {
 }
 
 $Class* ShortComponentRaster::load$($String* name, bool initialize) {
-	$loadClass(ShortComponentRaster, name, initialize, &_ShortComponentRaster_ClassInfo_, clinit$ShortComponentRaster, allocate$ShortComponentRaster);
+	$FieldInfo fieldInfos$$[] = {
+		{"bandOffset", "I", nullptr, $PROTECTED, $field(ShortComponentRaster, bandOffset)},
+		{"dataOffsets", "[I", nullptr, $PROTECTED, $field(ShortComponentRaster, dataOffsets)},
+		{"scanlineStride", "I", nullptr, $PROTECTED, $field(ShortComponentRaster, scanlineStride)},
+		{"pixelStride", "I", nullptr, $PROTECTED, $field(ShortComponentRaster, pixelStride)},
+		{"data", "[S", nullptr, $PROTECTED, $field(ShortComponentRaster, data)},
+		{"type", "I", nullptr, 0, $field(ShortComponentRaster, type)},
+		{"maxX", "I", nullptr, $PRIVATE, $field(ShortComponentRaster, maxX)},
+		{"maxY", "I", nullptr, $PRIVATE, $field(ShortComponentRaster, maxY)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/image/SampleModel;Ljava/awt/Point;)V", nullptr, $PUBLIC, $method(ShortComponentRaster, init$, void, $SampleModel*, $Point*)},
+		{"<init>", "(Ljava/awt/image/SampleModel;Ljava/awt/image/DataBufferUShort;Ljava/awt/Point;)V", nullptr, $PUBLIC, $method(ShortComponentRaster, init$, void, $SampleModel*, $DataBufferUShort*, $Point*)},
+		{"<init>", "(Ljava/awt/image/SampleModel;Ljava/awt/image/DataBufferUShort;Ljava/awt/Rectangle;Ljava/awt/Point;Lsun/awt/image/ShortComponentRaster;)V", nullptr, $PUBLIC, $method(ShortComponentRaster, init$, void, $SampleModel*, $DataBufferUShort*, $Rectangle*, $Point*, ShortComponentRaster*)},
+		{"createChild", "(IIIIII[I)Ljava/awt/image/Raster;", nullptr, $PUBLIC, $virtualMethod(ShortComponentRaster, createChild, $Raster*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, $ints*)},
+		{"createCompatibleWritableRaster", "(II)Ljava/awt/image/WritableRaster;", nullptr, $PUBLIC, $virtualMethod(ShortComponentRaster, createCompatibleWritableRaster, $WritableRaster*, int32_t, int32_t)},
+		{"createCompatibleWritableRaster", "()Ljava/awt/image/WritableRaster;", nullptr, $PUBLIC, $virtualMethod(ShortComponentRaster, createCompatibleWritableRaster, $WritableRaster*)},
+		{"createWritableChild", "(IIIIII[I)Ljava/awt/image/WritableRaster;", nullptr, $PUBLIC, $virtualMethod(ShortComponentRaster, createWritableChild, $WritableRaster*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, $ints*)},
+		{"getDataElements", "(IILjava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ShortComponentRaster, getDataElements, $Object*, int32_t, int32_t, Object$*)},
+		{"getDataElements", "(IIIILjava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ShortComponentRaster, getDataElements, $Object*, int32_t, int32_t, int32_t, int32_t, Object$*)},
+		{"getDataOffset", "(I)I", nullptr, $PUBLIC, $virtualMethod(ShortComponentRaster, getDataOffset, int32_t, int32_t)},
+		{"getDataOffsets", "()[I", nullptr, $PUBLIC, $virtualMethod(ShortComponentRaster, getDataOffsets, $ints*)},
+		{"getDataStorage", "()[S", nullptr, $PUBLIC, $virtualMethod(ShortComponentRaster, getDataStorage, $shorts*)},
+		{"getPixelStride", "()I", nullptr, $PUBLIC, $virtualMethod(ShortComponentRaster, getPixelStride, int32_t)},
+		{"getScanlineStride", "()I", nullptr, $PUBLIC, $virtualMethod(ShortComponentRaster, getScanlineStride, int32_t)},
+		{"getShortData", "(IIIII[S)[S", nullptr, $PUBLIC, $virtualMethod(ShortComponentRaster, getShortData, $shorts*, int32_t, int32_t, int32_t, int32_t, int32_t, $shorts*)},
+		{"getShortData", "(IIII[S)[S", nullptr, $PUBLIC, $virtualMethod(ShortComponentRaster, getShortData, $shorts*, int32_t, int32_t, int32_t, int32_t, $shorts*)},
+		{"initIDs", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(ShortComponentRaster, initIDs, void)},
+		{"putShortData", "(IIIII[S)V", nullptr, $PUBLIC, $virtualMethod(ShortComponentRaster, putShortData, void, int32_t, int32_t, int32_t, int32_t, int32_t, $shorts*)},
+		{"putShortData", "(IIII[S)V", nullptr, $PUBLIC, $virtualMethod(ShortComponentRaster, putShortData, void, int32_t, int32_t, int32_t, int32_t, $shorts*)},
+		{"setDataElements", "(IILjava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(ShortComponentRaster, setDataElements, void, int32_t, int32_t, Object$*)},
+		{"setDataElements", "(IILjava/awt/image/Raster;)V", nullptr, $PUBLIC, $virtualMethod(ShortComponentRaster, setDataElements, void, int32_t, int32_t, $Raster*)},
+		{"setDataElements", "(IIIILjava/awt/image/Raster;)V", nullptr, $PRIVATE, $method(ShortComponentRaster, setDataElements, void, int32_t, int32_t, int32_t, int32_t, $Raster*)},
+		{"setDataElements", "(IIIILjava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(ShortComponentRaster, setDataElements, void, int32_t, int32_t, int32_t, int32_t, Object$*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ShortComponentRaster, toString, $String*)},
+		{"verify", "()V", nullptr, $PROTECTED | $FINAL, $method(ShortComponentRaster, verify, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.awt.image.ShortComponentRaster",
+		"sun.awt.image.SunWritableRaster",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ShortComponentRaster, name, initialize, &classInfo$$, ShortComponentRaster::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ShortComponentRaster);
+	});
 	return class$;
 }
 

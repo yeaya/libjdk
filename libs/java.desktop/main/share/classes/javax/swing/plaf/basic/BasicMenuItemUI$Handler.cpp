@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/basic/BasicMenuItemUI$Handler.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Point.h>
 #include <java/awt/event/InputEvent.h>
@@ -31,7 +30,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Number = ::java::lang::Number;
-using $JComponent = ::javax::swing::JComponent;
 using $JMenuItem = ::javax::swing::JMenuItem;
 using $MenuSelectionManager = ::javax::swing::MenuSelectionManager;
 using $MenuDragMouseEvent = ::javax::swing::event::MenuDragMouseEvent;
@@ -44,58 +42,6 @@ namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace basic {
-
-$FieldInfo _BasicMenuItemUI$Handler_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/plaf/basic/BasicMenuItemUI;", nullptr, $FINAL | $SYNTHETIC, $field(BasicMenuItemUI$Handler, this$0)},
-	{}
-};
-
-$MethodInfo _BasicMenuItemUI$Handler_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljavax/swing/plaf/basic/BasicMenuItemUI;)V", nullptr, 0, $method(BasicMenuItemUI$Handler, init$, void, $BasicMenuItemUI*)},
-	{"menuDragMouseDragged", "(Ljavax/swing/event/MenuDragMouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicMenuItemUI$Handler, menuDragMouseDragged, void, $MenuDragMouseEvent*)},
-	{"menuDragMouseEntered", "(Ljavax/swing/event/MenuDragMouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicMenuItemUI$Handler, menuDragMouseEntered, void, $MenuDragMouseEvent*)},
-	{"menuDragMouseExited", "(Ljavax/swing/event/MenuDragMouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicMenuItemUI$Handler, menuDragMouseExited, void, $MenuDragMouseEvent*)},
-	{"menuDragMouseReleased", "(Ljavax/swing/event/MenuDragMouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicMenuItemUI$Handler, menuDragMouseReleased, void, $MenuDragMouseEvent*)},
-	{"mouseClicked", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicMenuItemUI$Handler, mouseClicked, void, $MouseEvent*)},
-	{"mouseDragged", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicMenuItemUI$Handler, mouseDragged, void, $MouseEvent*)},
-	{"mouseEntered", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicMenuItemUI$Handler, mouseEntered, void, $MouseEvent*)},
-	{"mouseExited", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicMenuItemUI$Handler, mouseExited, void, $MouseEvent*)},
-	{"mouseMoved", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicMenuItemUI$Handler, mouseMoved, void, $MouseEvent*)},
-	{"mousePressed", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicMenuItemUI$Handler, mousePressed, void, $MouseEvent*)},
-	{"mouseReleased", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicMenuItemUI$Handler, mouseReleased, void, $MouseEvent*)},
-	{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicMenuItemUI$Handler, propertyChange, void, $PropertyChangeEvent*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _BasicMenuItemUI$Handler_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.basic.BasicMenuItemUI$Handler", "javax.swing.plaf.basic.BasicMenuItemUI", "Handler", 0},
-	{}
-};
-
-$ClassInfo _BasicMenuItemUI$Handler_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.basic.BasicMenuItemUI$Handler",
-	"java.lang.Object",
-	"javax.swing.event.MenuDragMouseListener,javax.swing.event.MouseInputListener,java.beans.PropertyChangeListener",
-	_BasicMenuItemUI$Handler_FieldInfo_,
-	_BasicMenuItemUI$Handler_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BasicMenuItemUI$Handler_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.basic.BasicMenuItemUI"
-};
-
-$Object* allocate$BasicMenuItemUI$Handler($Class* clazz) {
-	return $of($alloc(BasicMenuItemUI$Handler));
-}
 
 int32_t BasicMenuItemUI$Handler::hashCode() {
 	 return this->$MenuDragMouseListener::hashCode();
@@ -128,14 +74,14 @@ void BasicMenuItemUI$Handler::mousePressed($MouseEvent* e) {
 }
 
 void BasicMenuItemUI$Handler::mouseReleased($MouseEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!$nc(this->this$0->menuItem)->isEnabled()) {
 		return;
 	}
 	$var($MenuSelectionManager, manager, $MenuSelectionManager::defaultManager());
 	$var($Point, p, $nc(e)->getPoint());
 	bool var$0 = $nc(p)->x >= 0 && p->x < $nc(this->this$0->menuItem)->getWidth() && p->y >= 0;
-	if (var$0 && p->y < $nc(this->this$0->menuItem)->getHeight()) {
+	if (var$0 && p->y < this->this$0->menuItem->getHeight()) {
 		this->this$0->doClick(manager);
 	} else {
 		$nc(manager)->processMouseEvent(e);
@@ -143,22 +89,22 @@ void BasicMenuItemUI$Handler::mouseReleased($MouseEvent* e) {
 }
 
 void BasicMenuItemUI$Handler::mouseEntered($MouseEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($MenuSelectionManager, manager, $MenuSelectionManager::defaultManager());
 	int32_t modifiers = $nc(e)->getModifiers();
-	if (((int32_t)(modifiers & (uint32_t)(($InputEvent::BUTTON1_MASK | $InputEvent::BUTTON2_MASK) | $InputEvent::BUTTON3_MASK))) != 0) {
-		$nc($($MenuSelectionManager::defaultManager()))->processMouseEvent(e);
+	if ((modifiers & (($InputEvent::BUTTON1_MASK | $InputEvent::BUTTON2_MASK) | $InputEvent::BUTTON3_MASK)) != 0) {
+		$$nc($MenuSelectionManager::defaultManager())->processMouseEvent(e);
 	} else {
 		$nc(manager)->setSelectedPath($(this->this$0->getPath()));
 	}
 }
 
 void BasicMenuItemUI$Handler::mouseExited($MouseEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($MenuSelectionManager, manager, $MenuSelectionManager::defaultManager());
 	int32_t modifiers = $nc(e)->getModifiers();
-	if (((int32_t)(modifiers & (uint32_t)(($InputEvent::BUTTON1_MASK | $InputEvent::BUTTON2_MASK) | $InputEvent::BUTTON3_MASK))) != 0) {
-		$nc($($MenuSelectionManager::defaultManager()))->processMouseEvent(e);
+	if ((modifiers & (($InputEvent::BUTTON1_MASK | $InputEvent::BUTTON2_MASK) | $InputEvent::BUTTON3_MASK)) != 0) {
+		$$nc($MenuSelectionManager::defaultManager())->processMouseEvent(e);
 	} else {
 		$var($MenuElementArray, path, $nc(manager)->getSelectedPath());
 		if ($nc(path)->length > 1 && $equals(path->get(path->length - 1), this->this$0->menuItem)) {
@@ -174,21 +120,21 @@ void BasicMenuItemUI$Handler::mouseExited($MouseEvent* e) {
 }
 
 void BasicMenuItemUI$Handler::mouseDragged($MouseEvent* e) {
-	$nc($($MenuSelectionManager::defaultManager()))->processMouseEvent(e);
+	$$nc($MenuSelectionManager::defaultManager())->processMouseEvent(e);
 }
 
 void BasicMenuItemUI$Handler::mouseMoved($MouseEvent* e) {
 }
 
 void BasicMenuItemUI$Handler::menuDragMouseEntered($MenuDragMouseEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($MenuSelectionManager, manager, $nc(e)->getMenuSelectionManager());
 	$var($MenuElementArray, path, e->getPath());
 	$nc(manager)->setSelectedPath(path);
 }
 
 void BasicMenuItemUI$Handler::menuDragMouseDragged($MenuDragMouseEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($MenuSelectionManager, manager, $nc(e)->getMenuSelectionManager());
 	$var($MenuElementArray, path, e->getPath());
 	$nc(manager)->setSelectedPath(path);
@@ -198,7 +144,7 @@ void BasicMenuItemUI$Handler::menuDragMouseExited($MenuDragMouseEvent* e) {
 }
 
 void BasicMenuItemUI$Handler::menuDragMouseReleased($MenuDragMouseEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!$nc(this->this$0->menuItem)->isEnabled()) {
 		return;
 	}
@@ -206,7 +152,7 @@ void BasicMenuItemUI$Handler::menuDragMouseReleased($MenuDragMouseEvent* e) {
 	$var($MenuElementArray, path, e->getPath());
 	$var($Point, p, e->getPoint());
 	bool var$0 = $nc(p)->x >= 0 && p->x < $nc(this->this$0->menuItem)->getWidth() && p->y >= 0;
-	if (var$0 && p->y < $nc(this->this$0->menuItem)->getHeight()) {
+	if (var$0 && p->y < this->this$0->menuItem->getHeight()) {
 		this->this$0->doClick(manager);
 	} else {
 		$nc(manager)->clearSelectedPath();
@@ -214,7 +160,7 @@ void BasicMenuItemUI$Handler::menuDragMouseReleased($MenuDragMouseEvent* e) {
 }
 
 void BasicMenuItemUI$Handler::propertyChange($PropertyChangeEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, name, $nc(e)->getPropertyName());
 	if (name == "labelFor"_s || name == "displayedMnemonic"_s || name == "accelerator"_s) {
 		this->this$0->updateAcceleratorBinding();
@@ -223,7 +169,7 @@ void BasicMenuItemUI$Handler::propertyChange($PropertyChangeEvent* e) {
 		$var($String, text, $nc(lbl)->getText());
 		$BasicHTML::updateRenderer(lbl, text);
 	} else if (name == "iconTextGap"_s) {
-		this->this$0->defaultTextIconGap = $nc(($cast($Number, $(e->getNewValue()))))->intValue();
+		this->this$0->defaultTextIconGap = $$sure($Number, e->getNewValue())->intValue();
 	}
 }
 
@@ -231,7 +177,53 @@ BasicMenuItemUI$Handler::BasicMenuItemUI$Handler() {
 }
 
 $Class* BasicMenuItemUI$Handler::load$($String* name, bool initialize) {
-	$loadClass(BasicMenuItemUI$Handler, name, initialize, &_BasicMenuItemUI$Handler_ClassInfo_, allocate$BasicMenuItemUI$Handler);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/plaf/basic/BasicMenuItemUI;", nullptr, $FINAL | $SYNTHETIC, $field(BasicMenuItemUI$Handler, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljavax/swing/plaf/basic/BasicMenuItemUI;)V", nullptr, 0, $method(BasicMenuItemUI$Handler, init$, void, $BasicMenuItemUI*)},
+		{"menuDragMouseDragged", "(Ljavax/swing/event/MenuDragMouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicMenuItemUI$Handler, menuDragMouseDragged, void, $MenuDragMouseEvent*)},
+		{"menuDragMouseEntered", "(Ljavax/swing/event/MenuDragMouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicMenuItemUI$Handler, menuDragMouseEntered, void, $MenuDragMouseEvent*)},
+		{"menuDragMouseExited", "(Ljavax/swing/event/MenuDragMouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicMenuItemUI$Handler, menuDragMouseExited, void, $MenuDragMouseEvent*)},
+		{"menuDragMouseReleased", "(Ljavax/swing/event/MenuDragMouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicMenuItemUI$Handler, menuDragMouseReleased, void, $MenuDragMouseEvent*)},
+		{"mouseClicked", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicMenuItemUI$Handler, mouseClicked, void, $MouseEvent*)},
+		{"mouseDragged", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicMenuItemUI$Handler, mouseDragged, void, $MouseEvent*)},
+		{"mouseEntered", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicMenuItemUI$Handler, mouseEntered, void, $MouseEvent*)},
+		{"mouseExited", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicMenuItemUI$Handler, mouseExited, void, $MouseEvent*)},
+		{"mouseMoved", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicMenuItemUI$Handler, mouseMoved, void, $MouseEvent*)},
+		{"mousePressed", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicMenuItemUI$Handler, mousePressed, void, $MouseEvent*)},
+		{"mouseReleased", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicMenuItemUI$Handler, mouseReleased, void, $MouseEvent*)},
+		{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicMenuItemUI$Handler, propertyChange, void, $PropertyChangeEvent*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.basic.BasicMenuItemUI$Handler", "javax.swing.plaf.basic.BasicMenuItemUI", "Handler", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.basic.BasicMenuItemUI$Handler",
+		"java.lang.Object",
+		"javax.swing.event.MenuDragMouseListener,javax.swing.event.MouseInputListener,java.beans.PropertyChangeListener",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.basic.BasicMenuItemUI"
+	};
+	$loadClass(BasicMenuItemUI$Handler, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(BasicMenuItemUI$Handler));
+	});
 	return class$;
 }
 

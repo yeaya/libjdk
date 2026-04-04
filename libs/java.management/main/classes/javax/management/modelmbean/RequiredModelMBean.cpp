@@ -1,8 +1,6 @@
 #include <javax/management/modelmbean/RequiredModelMBean.h>
-
 #include <com/sun/jmx/defaults/JmxProperties.h>
 #include <java/io/FileOutputStream.h>
-#include <java/io/OutputStream.h>
 #include <java/io/Serializable.h>
 #include <java/lang/ClassLoader.h>
 #include <java/lang/ClassNotFoundException.h>
@@ -21,7 +19,6 @@
 #include <java/lang/reflect/Method.h>
 #include <java/security/AccessControlContext.h>
 #include <java/security/AccessController.h>
-#include <java/security/PrivilegedAction.h>
 #include <java/util/Date.h>
 #include <java/util/HashMap.h>
 #include <java/util/HashSet.h>
@@ -97,7 +94,6 @@ using $ModelMBeanNotificationInfoArray = $Array<::javax::management::modelmbean:
 using $ModelMBeanOperationInfoArray = $Array<::javax::management::modelmbean::ModelMBeanOperationInfo>;
 using $JmxProperties = ::com::sun::jmx::defaults::JmxProperties;
 using $FileOutputStream = ::java::io::FileOutputStream;
-using $OutputStream = ::java::io::OutputStream;
 using $PrintStream = ::java::io::PrintStream;
 using $Serializable = ::java::io::Serializable;
 using $Boolean = ::java::lang::Boolean;
@@ -122,7 +118,6 @@ using $NoSuchMethodException = ::java::lang::NoSuchMethodException;
 using $NullPointerException = ::java::lang::NullPointerException;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $Short = ::java::lang::Short;
-using $System$Logger = ::java::lang::System$Logger;
 using $System$Logger$Level = ::java::lang::System$Logger$Level;
 using $Void = ::java::lang::Void;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
@@ -130,12 +125,10 @@ using $InvocationTargetException = ::java::lang::reflect::InvocationTargetExcept
 using $Method = ::java::lang::reflect::Method;
 using $AccessControlContext = ::java::security::AccessControlContext;
 using $AccessController = ::java::security::AccessController;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $Date = ::java::util::Date;
 using $HashMap = ::java::util::HashMap;
 using $HashSet = ::java::util::HashSet;
 using $Iterator = ::java::util::Iterator;
-using $List = ::java::util::List;
 using $Map = ::java::util::Map;
 using $Set = ::java::util::Set;
 using $Vector = ::java::util::Vector;
@@ -148,7 +141,6 @@ using $AttributeNotFoundException = ::javax::management::AttributeNotFoundExcept
 using $Descriptor = ::javax::management::Descriptor;
 using $InvalidAttributeValueException = ::javax::management::InvalidAttributeValueException;
 using $ListenerNotFoundException = ::javax::management::ListenerNotFoundException;
-using $MBeanAttributeInfo = ::javax::management::MBeanAttributeInfo;
 using $MBeanException = ::javax::management::MBeanException;
 using $MBeanInfo = ::javax::management::MBeanInfo;
 using $MBeanServer = ::javax::management::MBeanServer;
@@ -194,131 +186,32 @@ public:
 	virtual $Object* get() override {
 		 return $of($nc(inst$)->toString());
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<RequiredModelMBean$$Lambda$toString>());
-	}
 	$StringBuilder* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo RequiredModelMBean$$Lambda$toString::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(RequiredModelMBean$$Lambda$toString, inst$)},
-	{}
-};
-$MethodInfo RequiredModelMBean$$Lambda$toString::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/StringBuilder;)V", nullptr, $PUBLIC, $method(RequiredModelMBean$$Lambda$toString, init$, void, $StringBuilder*)},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(RequiredModelMBean$$Lambda$toString, get, $Object*)},
-	{}
-};
-$ClassInfo RequiredModelMBean$$Lambda$toString::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"javax.management.modelmbean.RequiredModelMBean$$Lambda$toString",
-	"java.lang.Object",
-	"java.util.function.Supplier",
-	fieldInfos,
-	methodInfos
 };
 $Class* RequiredModelMBean$$Lambda$toString::load$($String* name, bool initialize) {
-	$loadClass(RequiredModelMBean$$Lambda$toString, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(RequiredModelMBean$$Lambda$toString, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/StringBuilder;)V", nullptr, $PUBLIC, $method(RequiredModelMBean$$Lambda$toString, init$, void, $StringBuilder*)},
+		{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(RequiredModelMBean$$Lambda$toString, get, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"javax.management.modelmbean.RequiredModelMBean$$Lambda$toString",
+		"java.lang.Object",
+		"java.util.function.Supplier",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(RequiredModelMBean$$Lambda$toString, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RequiredModelMBean$$Lambda$toString);
+	});
 	return class$;
 }
 $Class* RequiredModelMBean$$Lambda$toString::class$ = nullptr;
-
-$FieldInfo _RequiredModelMBean_FieldInfo_[] = {
-	{"modelMBeanInfo", "Ljavax/management/modelmbean/ModelMBeanInfo;", nullptr, 0, $field(RequiredModelMBean, modelMBeanInfo)},
-	{"generalBroadcaster", "Ljavax/management/NotificationBroadcasterSupport;", nullptr, $PRIVATE, $field(RequiredModelMBean, generalBroadcaster)},
-	{"attributeBroadcaster", "Ljavax/management/NotificationBroadcasterSupport;", nullptr, $PRIVATE, $field(RequiredModelMBean, attributeBroadcaster)},
-	{"managedResource", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(RequiredModelMBean, managedResource)},
-	{"registered", "Z", nullptr, $PRIVATE, $field(RequiredModelMBean, registered)},
-	{"server", "Ljavax/management/MBeanServer;", nullptr, $PRIVATE | $TRANSIENT, $field(RequiredModelMBean, server)},
-	{"javaSecurityAccess", "Ljdk/internal/access/JavaSecurityAccess;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(RequiredModelMBean, javaSecurityAccess)},
-	{"acc", "Ljava/security/AccessControlContext;", nullptr, $PRIVATE | $FINAL, $field(RequiredModelMBean, acc)},
-	{"primitiveClasses", "[Ljava/lang/Class;", "[Ljava/lang/Class<*>;", $PRIVATE | $STATIC | $FINAL, $staticField(RequiredModelMBean, primitiveClasses)},
-	{"primitiveClassMap", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/Class<*>;>;", $PRIVATE | $STATIC | $FINAL, $staticField(RequiredModelMBean, primitiveClassMap)},
-	{"rmmbMethodNames", "Ljava/util/Set;", "Ljava/util/Set<Ljava/lang/String;>;", $PRIVATE | $STATIC, $staticField(RequiredModelMBean, rmmbMethodNames)},
-	{"primitiveTypes", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(RequiredModelMBean, primitiveTypes)},
-	{"primitiveWrappers", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(RequiredModelMBean, primitiveWrappers)},
-	{}
-};
-
-$MethodInfo _RequiredModelMBean_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(RequiredModelMBean, init$, void), "javax.management.MBeanException,javax.management.RuntimeOperationsException"},
-	{"<init>", "(Ljavax/management/modelmbean/ModelMBeanInfo;)V", nullptr, $PUBLIC, $method(RequiredModelMBean, init$, void, $ModelMBeanInfo*), "javax.management.MBeanException,javax.management.RuntimeOperationsException"},
-	{"addAttributeChangeNotificationListener", "(Ljavax/management/NotificationListener;Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(RequiredModelMBean, addAttributeChangeNotificationListener, void, $NotificationListener*, $String*, Object$*), "javax.management.MBeanException,javax.management.RuntimeOperationsException,java.lang.IllegalArgumentException"},
-	{"addNotificationListener", "(Ljavax/management/NotificationListener;Ljavax/management/NotificationFilter;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(RequiredModelMBean, addNotificationListener, void, $NotificationListener*, $NotificationFilter*, Object$*), "java.lang.IllegalArgumentException"},
-	{"cacheResult", "(Ljavax/management/modelmbean/ModelMBeanOperationInfo;Ljavax/management/Descriptor;Ljava/lang/Object;)V", nullptr, $PRIVATE, $method(RequiredModelMBean, cacheResult, void, $ModelMBeanOperationInfo*, $Descriptor*, Object$*), "javax.management.MBeanException"},
-	{"createDefaultModelMBeanInfo", "()Ljavax/management/modelmbean/ModelMBeanInfo;", nullptr, $PRIVATE, $method(RequiredModelMBean, createDefaultModelMBeanInfo, $ModelMBeanInfo*)},
-	{"findRMMBMethod", "(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/String;[Ljava/lang/String;)Ljava/lang/reflect/Method;", nullptr, $PRIVATE, $method(RequiredModelMBean, findRMMBMethod, $Method*, $String*, Object$*, $String*, $StringArray*)},
-	{"getAttribute", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(RequiredModelMBean, getAttribute, $Object*, $String*), "javax.management.AttributeNotFoundException,javax.management.MBeanException,javax.management.ReflectionException"},
-	{"getAttributes", "([Ljava/lang/String;)Ljavax/management/AttributeList;", nullptr, $PUBLIC, $virtualMethod(RequiredModelMBean, getAttributes, $AttributeList*, $StringArray*)},
-	{"getClassLoaderRepository", "()Ljavax/management/loading/ClassLoaderRepository;", nullptr, $PROTECTED, $virtualMethod(RequiredModelMBean, getClassLoaderRepository, $ClassLoaderRepository*)},
-	{"getMBeanInfo", "()Ljavax/management/MBeanInfo;", nullptr, $PUBLIC, $virtualMethod(RequiredModelMBean, getMBeanInfo, $MBeanInfo*)},
-	{"getNotificationInfo", "()[Ljavax/management/MBeanNotificationInfo;", nullptr, $PUBLIC, $virtualMethod(RequiredModelMBean, getNotificationInfo, $MBeanNotificationInfoArray*)},
-	{"hasNotification", "(Ljavax/management/modelmbean/ModelMBeanInfo;Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(RequiredModelMBean, hasNotification, bool, $ModelMBeanInfo*, $String*)},
-	{"invoke", "(Ljava/lang/String;[Ljava/lang/Object;[Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(RequiredModelMBean, invoke, $Object*, $String*, $ObjectArray*, $StringArray*), "javax.management.MBeanException,javax.management.ReflectionException"},
-	{"invokeMethod", "(Ljava/lang/String;Ljava/lang/reflect/Method;Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PRIVATE, $method(RequiredModelMBean, invokeMethod, $Object*, $String*, $Method*, Object$*, $ObjectArray*), "javax.management.MBeanException,javax.management.ReflectionException"},
-	{"isRMMBMethodName", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $SYNCHRONIZED, $staticMethod(RequiredModelMBean, isRMMBMethodName, bool, $String*)},
-	{"load", "()V", nullptr, $PUBLIC, $virtualMethod(RequiredModelMBean, load, void), "javax.management.MBeanException,javax.management.RuntimeOperationsException,javax.management.InstanceNotFoundException"},
-	{"loadClass", "(Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/String;)Ljava/lang/Class<*>;", $PRIVATE, $method(RequiredModelMBean, loadClass, $Class*, $String*), "java.lang.ClassNotFoundException"},
-	{"makeAttributeChangeInfo", "()Ljavax/management/modelmbean/ModelMBeanNotificationInfo;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(RequiredModelMBean, makeAttributeChangeInfo, $ModelMBeanNotificationInfo*)},
-	{"makeGenericInfo", "()Ljavax/management/modelmbean/ModelMBeanNotificationInfo;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(RequiredModelMBean, makeGenericInfo, $ModelMBeanNotificationInfo*)},
-	{"postDeregister", "()V", nullptr, $PUBLIC, $virtualMethod(RequiredModelMBean, postDeregister, void)},
-	{"postRegister", "(Ljava/lang/Boolean;)V", nullptr, $PUBLIC, $virtualMethod(RequiredModelMBean, postRegister, void, $Boolean*)},
-	{"preDeregister", "()V", nullptr, $PUBLIC, $virtualMethod(RequiredModelMBean, preDeregister, void), "java.lang.Exception"},
-	{"preRegister", "(Ljavax/management/MBeanServer;Ljavax/management/ObjectName;)Ljavax/management/ObjectName;", nullptr, $PUBLIC, $virtualMethod(RequiredModelMBean, preRegister, $ObjectName*, $MBeanServer*, $ObjectName*), "java.lang.Exception"},
-	{"printModelMBeanInfo", "(Ljavax/management/modelmbean/ModelMBeanInfo;)Ljava/lang/String;", nullptr, $PRIVATE, $method(RequiredModelMBean, printModelMBeanInfo, $String*, $ModelMBeanInfo*)},
-	{"removeAttributeChangeNotificationListener", "(Ljavax/management/NotificationListener;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(RequiredModelMBean, removeAttributeChangeNotificationListener, void, $NotificationListener*, $String*), "javax.management.MBeanException,javax.management.RuntimeOperationsException,javax.management.ListenerNotFoundException"},
-	{"removeNotificationListener", "(Ljavax/management/NotificationListener;)V", nullptr, $PUBLIC, $virtualMethod(RequiredModelMBean, removeNotificationListener, void, $NotificationListener*), "javax.management.ListenerNotFoundException"},
-	{"removeNotificationListener", "(Ljavax/management/NotificationListener;Ljavax/management/NotificationFilter;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(RequiredModelMBean, removeNotificationListener, void, $NotificationListener*, $NotificationFilter*, Object$*), "javax.management.ListenerNotFoundException"},
-	{"resolveForCacheValue", "(Ljavax/management/Descriptor;)Ljava/lang/Object;", nullptr, $PRIVATE, $method(RequiredModelMBean, resolveForCacheValue, $Object*, $Descriptor*), "javax.management.MBeanException,javax.management.RuntimeOperationsException"},
-	{"resolveMethod", "(Ljava/lang/Class;Ljava/lang/String;[Ljava/lang/String;)Ljava/lang/reflect/Method;", "(Ljava/lang/Class<*>;Ljava/lang/String;[Ljava/lang/String;)Ljava/lang/reflect/Method;", $PRIVATE, $method(RequiredModelMBean, resolveMethod, $Method*, $Class*, $String*, $StringArray*), "javax.management.ReflectionException"},
-	{"sendAttributeChangeNotification", "(Ljavax/management/AttributeChangeNotification;)V", nullptr, $PUBLIC, $virtualMethod(RequiredModelMBean, sendAttributeChangeNotification, void, $AttributeChangeNotification*), "javax.management.MBeanException,javax.management.RuntimeOperationsException"},
-	{"sendAttributeChangeNotification", "(Ljavax/management/Attribute;Ljavax/management/Attribute;)V", nullptr, $PUBLIC, $virtualMethod(RequiredModelMBean, sendAttributeChangeNotification, void, $Attribute*, $Attribute*), "javax.management.MBeanException,javax.management.RuntimeOperationsException"},
-	{"sendNotification", "(Ljavax/management/Notification;)V", nullptr, $PUBLIC, $virtualMethod(RequiredModelMBean, sendNotification, void, $Notification*), "javax.management.MBeanException,javax.management.RuntimeOperationsException"},
-	{"sendNotification", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(RequiredModelMBean, sendNotification, void, $String*), "javax.management.MBeanException,javax.management.RuntimeOperationsException"},
-	{"setAttribute", "(Ljavax/management/Attribute;)V", nullptr, $PUBLIC, $virtualMethod(RequiredModelMBean, setAttribute, void, $Attribute*), "javax.management.AttributeNotFoundException,javax.management.InvalidAttributeValueException,javax.management.MBeanException,javax.management.ReflectionException"},
-	{"setAttributes", "(Ljavax/management/AttributeList;)Ljavax/management/AttributeList;", nullptr, $PUBLIC, $virtualMethod(RequiredModelMBean, setAttributes, $AttributeList*, $AttributeList*)},
-	{"setManagedResource", "(Ljava/lang/Object;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(RequiredModelMBean, setManagedResource, void, Object$*, $String*), "javax.management.MBeanException,javax.management.RuntimeOperationsException,javax.management.InstanceNotFoundException,javax.management.modelmbean.InvalidTargetObjectTypeException"},
-	{"setModelMBeanInfo", "(Ljavax/management/modelmbean/ModelMBeanInfo;)V", nullptr, $PUBLIC, $virtualMethod(RequiredModelMBean, setModelMBeanInfo, void, $ModelMBeanInfo*), "javax.management.MBeanException,javax.management.RuntimeOperationsException"},
-	{"store", "()V", nullptr, $PUBLIC, $virtualMethod(RequiredModelMBean, store, void), "javax.management.MBeanException,javax.management.RuntimeOperationsException,javax.management.InstanceNotFoundException"},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"writeToLog", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(RequiredModelMBean, writeToLog, void, $String*, $String*), "java.lang.Exception"},
-	{}
-};
-
-$InnerClassInfo _RequiredModelMBean_InnerClassesInfo_[] = {
-	{"javax.management.modelmbean.RequiredModelMBean$6", nullptr, nullptr, 0},
-	{"javax.management.modelmbean.RequiredModelMBean$5", nullptr, nullptr, 0},
-	{"javax.management.modelmbean.RequiredModelMBean$4", nullptr, nullptr, 0},
-	{"javax.management.modelmbean.RequiredModelMBean$3", nullptr, nullptr, 0},
-	{"javax.management.modelmbean.RequiredModelMBean$2", nullptr, nullptr, 0},
-	{"javax.management.modelmbean.RequiredModelMBean$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _RequiredModelMBean_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.management.modelmbean.RequiredModelMBean",
-	"java.lang.Object",
-	"javax.management.modelmbean.ModelMBean,javax.management.MBeanRegistration,javax.management.NotificationEmitter",
-	_RequiredModelMBean_FieldInfo_,
-	_RequiredModelMBean_MethodInfo_,
-	nullptr,
-	nullptr,
-	_RequiredModelMBean_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.management.modelmbean.RequiredModelMBean$6,javax.management.modelmbean.RequiredModelMBean$5,javax.management.modelmbean.RequiredModelMBean$4,javax.management.modelmbean.RequiredModelMBean$3,javax.management.modelmbean.RequiredModelMBean$2,javax.management.modelmbean.RequiredModelMBean$1"
-};
-
-$Object* allocate$RequiredModelMBean($Class* clazz) {
-	return $of($alloc(RequiredModelMBean));
-}
 
 int32_t RequiredModelMBean::hashCode() {
 	 return this->$ModelMBean::hashCode();
@@ -357,11 +250,11 @@ void RequiredModelMBean::init$() {
 	$init($JmxProperties);
 	$init($System$Logger$Level);
 	if ($nc($JmxProperties::MODELMBEAN_LOGGER)->isLoggable($System$Logger$Level::TRACE)) {
-		$nc($JmxProperties::MODELMBEAN_LOGGER)->log($System$Logger$Level::TRACE, "Entry"_s);
+		$JmxProperties::MODELMBEAN_LOGGER->log($System$Logger$Level::TRACE, "Entry"_s);
 	}
 	$set(this, modelMBeanInfo, createDefaultModelMBeanInfo());
-	if ($nc($JmxProperties::MODELMBEAN_LOGGER)->isLoggable($System$Logger$Level::TRACE)) {
-		$nc($JmxProperties::MODELMBEAN_LOGGER)->log($System$Logger$Level::TRACE, "Exit"_s);
+	if ($JmxProperties::MODELMBEAN_LOGGER->isLoggable($System$Logger$Level::TRACE)) {
+		$JmxProperties::MODELMBEAN_LOGGER->log($System$Logger$Level::TRACE, "Exit"_s);
 	}
 }
 
@@ -375,49 +268,49 @@ void RequiredModelMBean::init$($ModelMBeanInfo* mbi) {
 	$init($JmxProperties);
 	$init($System$Logger$Level);
 	if ($nc($JmxProperties::MODELMBEAN_LOGGER)->isLoggable($System$Logger$Level::TRACE)) {
-		$nc($JmxProperties::MODELMBEAN_LOGGER)->log($System$Logger$Level::TRACE, "Entry"_s);
+		$JmxProperties::MODELMBEAN_LOGGER->log($System$Logger$Level::TRACE, "Entry"_s);
 	}
 	setModelMBeanInfo(mbi);
-	if ($nc($JmxProperties::MODELMBEAN_LOGGER)->isLoggable($System$Logger$Level::TRACE)) {
-		$nc($JmxProperties::MODELMBEAN_LOGGER)->log($System$Logger$Level::TRACE, "Exit"_s);
+	if ($JmxProperties::MODELMBEAN_LOGGER->isLoggable($System$Logger$Level::TRACE)) {
+		$JmxProperties::MODELMBEAN_LOGGER->log($System$Logger$Level::TRACE, "Exit"_s);
 	}
 }
 
 void RequiredModelMBean::setModelMBeanInfo($ModelMBeanInfo* mbi) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($JmxProperties);
 	$init($System$Logger$Level);
 	if ($nc($JmxProperties::MODELMBEAN_LOGGER)->isLoggable($System$Logger$Level::TRACE)) {
-		$nc($JmxProperties::MODELMBEAN_LOGGER)->log($System$Logger$Level::TRACE, "Entry"_s);
+		$JmxProperties::MODELMBEAN_LOGGER->log($System$Logger$Level::TRACE, "Entry"_s);
 	}
 	if (mbi == nullptr) {
-		if ($nc($JmxProperties::MODELMBEAN_LOGGER)->isLoggable($System$Logger$Level::TRACE)) {
-			$nc($JmxProperties::MODELMBEAN_LOGGER)->log($System$Logger$Level::TRACE, "ModelMBeanInfo is null: Raising exception."_s);
+		if ($JmxProperties::MODELMBEAN_LOGGER->isLoggable($System$Logger$Level::TRACE)) {
+			$JmxProperties::MODELMBEAN_LOGGER->log($System$Logger$Level::TRACE, "ModelMBeanInfo is null: Raising exception."_s);
 		}
 		$var($RuntimeException, x, $new($IllegalArgumentException, "ModelMBeanInfo must not be null"_s));
 		$var($String, exceptionText, "Exception occurred trying to initialize the ModelMBeanInfo of the RequiredModelMBean"_s);
 		$throwNew($RuntimeOperationsException, x, exceptionText);
 	}
 	if (this->registered) {
-		if ($nc($JmxProperties::MODELMBEAN_LOGGER)->isLoggable($System$Logger$Level::TRACE)) {
-			$nc($JmxProperties::MODELMBEAN_LOGGER)->log($System$Logger$Level::TRACE, "RequiredMBean is registered: Raising exception."_s);
+		if ($JmxProperties::MODELMBEAN_LOGGER->isLoggable($System$Logger$Level::TRACE)) {
+			$JmxProperties::MODELMBEAN_LOGGER->log($System$Logger$Level::TRACE, "RequiredMBean is registered: Raising exception."_s);
 		}
 		$var($String, exceptionText, "Exception occurred trying to set the ModelMBeanInfo of the RequiredModelMBean"_s);
 		$var($RuntimeException, x, $new($IllegalStateException, "cannot call setModelMBeanInfo while ModelMBean is registered"_s));
 		$throwNew($RuntimeOperationsException, x, exceptionText);
 	}
-	if ($nc($JmxProperties::MODELMBEAN_LOGGER)->isLoggable($System$Logger$Level::TRACE)) {
-		$nc($JmxProperties::MODELMBEAN_LOGGER)->log($System$Logger$Level::TRACE, $$str({"Setting ModelMBeanInfo to "_s, $(printModelMBeanInfo(mbi))}));
+	if ($JmxProperties::MODELMBEAN_LOGGER->isLoggable($System$Logger$Level::TRACE)) {
+		$JmxProperties::MODELMBEAN_LOGGER->log($System$Logger$Level::TRACE, $$str({"Setting ModelMBeanInfo to "_s, $(printModelMBeanInfo(mbi))}));
 		int32_t noOfNotifications = 0;
 		if ($nc(mbi)->getNotifications() != nullptr) {
 			noOfNotifications = $nc($(mbi->getNotifications()))->length;
 		}
-		$nc($JmxProperties::MODELMBEAN_LOGGER)->log($System$Logger$Level::TRACE, $$str({"ModelMBeanInfo notifications has "_s, $$str(noOfNotifications), " elements"_s}));
+		$JmxProperties::MODELMBEAN_LOGGER->log($System$Logger$Level::TRACE, $$str({"ModelMBeanInfo notifications has "_s, $$str(noOfNotifications), " elements"_s}));
 	}
 	$set(this, modelMBeanInfo, $cast($ModelMBeanInfo, $nc(mbi)->clone()));
-	if ($nc($JmxProperties::MODELMBEAN_LOGGER)->isLoggable($System$Logger$Level::TRACE)) {
-		$nc($JmxProperties::MODELMBEAN_LOGGER)->log($System$Logger$Level::TRACE, $$str({"set mbeanInfo to: "_s, $(printModelMBeanInfo(this->modelMBeanInfo))}));
-		$nc($JmxProperties::MODELMBEAN_LOGGER)->log($System$Logger$Level::TRACE, "Exit"_s);
+	if ($JmxProperties::MODELMBEAN_LOGGER->isLoggable($System$Logger$Level::TRACE)) {
+		$JmxProperties::MODELMBEAN_LOGGER->log($System$Logger$Level::TRACE, $$str({"set mbeanInfo to: "_s, $(printModelMBeanInfo(this->modelMBeanInfo))}));
+		$JmxProperties::MODELMBEAN_LOGGER->log($System$Logger$Level::TRACE, "Exit"_s);
 	}
 }
 
@@ -425,42 +318,42 @@ void RequiredModelMBean::setManagedResource(Object$* mr, $String* mr_type) {
 	$init($JmxProperties);
 	$init($System$Logger$Level);
 	if ($nc($JmxProperties::MODELMBEAN_LOGGER)->isLoggable($System$Logger$Level::TRACE)) {
-		$nc($JmxProperties::MODELMBEAN_LOGGER)->log($System$Logger$Level::TRACE, "Entry"_s);
+		$JmxProperties::MODELMBEAN_LOGGER->log($System$Logger$Level::TRACE, "Entry"_s);
 	}
-	if ((mr_type == nullptr) || (!$nc(mr_type)->equalsIgnoreCase("objectReference"_s))) {
-		if ($nc($JmxProperties::MODELMBEAN_LOGGER)->isLoggable($System$Logger$Level::TRACE)) {
-			$nc($JmxProperties::MODELMBEAN_LOGGER)->log($System$Logger$Level::TRACE, $$str({"Managed Resource Type is not supported: "_s, mr_type}));
+	if ((mr_type == nullptr) || (!mr_type->equalsIgnoreCase("objectReference"_s))) {
+		if ($JmxProperties::MODELMBEAN_LOGGER->isLoggable($System$Logger$Level::TRACE)) {
+			$JmxProperties::MODELMBEAN_LOGGER->log($System$Logger$Level::TRACE, $$str({"Managed Resource Type is not supported: "_s, mr_type}));
 		}
 		$throwNew($InvalidTargetObjectTypeException, mr_type);
 	}
-	if ($nc($JmxProperties::MODELMBEAN_LOGGER)->isLoggable($System$Logger$Level::TRACE)) {
-		$nc($JmxProperties::MODELMBEAN_LOGGER)->log($System$Logger$Level::TRACE, "Managed Resource is valid"_s);
+	if ($JmxProperties::MODELMBEAN_LOGGER->isLoggable($System$Logger$Level::TRACE)) {
+		$JmxProperties::MODELMBEAN_LOGGER->log($System$Logger$Level::TRACE, "Managed Resource is valid"_s);
 	}
 	$set(this, managedResource, mr);
-	if ($nc($JmxProperties::MODELMBEAN_LOGGER)->isLoggable($System$Logger$Level::TRACE)) {
-		$nc($JmxProperties::MODELMBEAN_LOGGER)->log($System$Logger$Level::TRACE, "Exit"_s);
+	if ($JmxProperties::MODELMBEAN_LOGGER->isLoggable($System$Logger$Level::TRACE)) {
+		$JmxProperties::MODELMBEAN_LOGGER->log($System$Logger$Level::TRACE, "Exit"_s);
 	}
 }
 
 void RequiredModelMBean::load() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ServiceNotFoundException, x, $new($ServiceNotFoundException, "Persistence not supported for this MBean"_s));
 	$throwNew($MBeanException, x, $(x->getMessage()));
 }
 
 void RequiredModelMBean::store() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ServiceNotFoundException, x, $new($ServiceNotFoundException, "Persistence not supported for this MBean"_s));
 	$throwNew($MBeanException, x, $(x->getMessage()));
 }
 
 $Object* RequiredModelMBean::resolveForCacheValue($Descriptor* descr) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($JmxProperties);
 	$init($System$Logger$Level);
 	bool tracing = $nc($JmxProperties::MODELMBEAN_LOGGER)->isLoggable($System$Logger$Level::TRACE);
 	if (tracing) {
-		$nc($JmxProperties::MODELMBEAN_LOGGER)->log($System$Logger$Level::TRACE, "Entry"_s);
+		$JmxProperties::MODELMBEAN_LOGGER->log($System$Logger$Level::TRACE, "Entry"_s);
 	}
 	$var($Object, response, nullptr);
 	bool resetValue = false;
@@ -468,98 +361,98 @@ $Object* RequiredModelMBean::resolveForCacheValue($Descriptor* descr) {
 	int64_t currencyPeriod = 0;
 	if (descr == nullptr) {
 		if (tracing) {
-			$nc($JmxProperties::MODELMBEAN_LOGGER)->log($System$Logger$Level::TRACE, "Input Descriptor is null"_s);
+			$JmxProperties::MODELMBEAN_LOGGER->log($System$Logger$Level::TRACE, "Input Descriptor is null"_s);
 		}
-		return $of(response);
+		return response;
 	}
 	if (tracing) {
-		$nc($JmxProperties::MODELMBEAN_LOGGER)->log($System$Logger$Level::TRACE, $$str({"descriptor is "_s, descr}));
+		$JmxProperties::MODELMBEAN_LOGGER->log($System$Logger$Level::TRACE, $$str({"descriptor is "_s, descr}));
 	}
 	$var($Descriptor, mmbDescr, $nc(this->modelMBeanInfo)->getMBeanDescriptor());
 	if (mmbDescr == nullptr) {
 		if (tracing) {
-			$nc($JmxProperties::MODELMBEAN_LOGGER)->log($System$Logger$Level::TRACE, "MBean Descriptor is null"_s);
+			$JmxProperties::MODELMBEAN_LOGGER->log($System$Logger$Level::TRACE, "MBean Descriptor is null"_s);
 		}
 	}
 	$var($Object, objExpTime, $nc(descr)->getFieldValue("currencyTimeLimit"_s));
 	$var($String, expTime, nullptr);
 	if (objExpTime != nullptr) {
-		$assign(expTime, $of(objExpTime)->toString());
+		$assign(expTime, objExpTime->toString());
 	} else {
 		$assign(expTime, nullptr);
 	}
 	if ((expTime == nullptr) && (mmbDescr != nullptr)) {
 		$assign(objExpTime, mmbDescr->getFieldValue("currencyTimeLimit"_s));
 		if (objExpTime != nullptr) {
-			$assign(expTime, $of(objExpTime)->toString());
+			$assign(expTime, objExpTime->toString());
 		} else {
 			$assign(expTime, nullptr);
 		}
 	}
 	if (expTime != nullptr) {
 		if (tracing) {
-			$nc($JmxProperties::MODELMBEAN_LOGGER)->log($System$Logger$Level::TRACE, $$str({"currencyTimeLimit: "_s, expTime}));
+			$JmxProperties::MODELMBEAN_LOGGER->log($System$Logger$Level::TRACE, $$str({"currencyTimeLimit: "_s, expTime}));
 		}
 		currencyPeriod = $Long::parseLong(expTime) * 1000;
 		if (currencyPeriod < 0) {
 			returnCachedValue = false;
 			resetValue = true;
 			if (tracing) {
-				$nc($JmxProperties::MODELMBEAN_LOGGER)->log($System$Logger$Level::TRACE, $$str({$$str(currencyPeriod), ": never Cached"_s}));
+				$JmxProperties::MODELMBEAN_LOGGER->log($System$Logger$Level::TRACE, $$str({$$str(currencyPeriod), ": never Cached"_s}));
 			}
 		} else if (currencyPeriod == 0) {
 			returnCachedValue = true;
 			resetValue = false;
 			if (tracing) {
-				$nc($JmxProperties::MODELMBEAN_LOGGER)->log($System$Logger$Level::TRACE, "always valid Cache"_s);
+				$JmxProperties::MODELMBEAN_LOGGER->log($System$Logger$Level::TRACE, "always valid Cache"_s);
 			}
 		} else {
 			$var($Object, objtStamp, descr->getFieldValue("lastUpdatedTimeStamp"_s));
 			$var($String, tStamp, nullptr);
 			if (objtStamp != nullptr) {
-				$assign(tStamp, $of(objtStamp)->toString());
+				$assign(tStamp, objtStamp->toString());
 			} else {
 				$assign(tStamp, nullptr);
 			}
 			if (tracing) {
-				$nc($JmxProperties::MODELMBEAN_LOGGER)->log($System$Logger$Level::TRACE, $$str({"lastUpdatedTimeStamp: "_s, tStamp}));
+				$JmxProperties::MODELMBEAN_LOGGER->log($System$Logger$Level::TRACE, $$str({"lastUpdatedTimeStamp: "_s, tStamp}));
 			}
 			if (tStamp == nullptr) {
 				$assign(tStamp, "0"_s);
 			}
 			int64_t lastTime = $Long::parseLong(tStamp);
 			if (tracing) {
-				$nc($JmxProperties::MODELMBEAN_LOGGER)->log($System$Logger$Level::TRACE, $$str({"currencyPeriod:"_s, $$str(currencyPeriod), " lastUpdatedTimeStamp:"_s, $$str(lastTime)}));
+				$JmxProperties::MODELMBEAN_LOGGER->log($System$Logger$Level::TRACE, $$str({"currencyPeriod:"_s, $$str(currencyPeriod), " lastUpdatedTimeStamp:"_s, $$str(lastTime)}));
 			}
 			int64_t now = ($$new($Date))->getTime();
 			if (now < (lastTime + currencyPeriod)) {
 				returnCachedValue = true;
 				resetValue = false;
 				if (tracing) {
-					$nc($JmxProperties::MODELMBEAN_LOGGER)->log($System$Logger$Level::TRACE, $$str({" timed valid Cache for "_s, $$str(now), " < "_s, $$str((lastTime + currencyPeriod))}));
+					$JmxProperties::MODELMBEAN_LOGGER->log($System$Logger$Level::TRACE, $$str({" timed valid Cache for "_s, $$str(now), " < "_s, $$str((lastTime + currencyPeriod))}));
 				}
 			} else {
 				returnCachedValue = false;
 				resetValue = true;
 				if (tracing) {
-					$nc($JmxProperties::MODELMBEAN_LOGGER)->log($System$Logger$Level::TRACE, $$str({"timed expired cache for "_s, $$str(now), " > "_s, $$str((lastTime + currencyPeriod))}));
+					$JmxProperties::MODELMBEAN_LOGGER->log($System$Logger$Level::TRACE, $$str({"timed expired cache for "_s, $$str(now), " > "_s, $$str((lastTime + currencyPeriod))}));
 				}
 			}
 		}
 		if (tracing) {
-			$nc($JmxProperties::MODELMBEAN_LOGGER)->log($System$Logger$Level::TRACE, $$str({"returnCachedValue:"_s, $$str(returnCachedValue), " resetValue: "_s, $$str(resetValue)}));
+			$JmxProperties::MODELMBEAN_LOGGER->log($System$Logger$Level::TRACE, $$str({"returnCachedValue:"_s, $$str(returnCachedValue), " resetValue: "_s, $$str(resetValue)}));
 		}
 		if (returnCachedValue == true) {
 			$var($Object, currValue, descr->getFieldValue("value"_s));
 			if (currValue != nullptr) {
 				$assign(response, currValue);
 				if (tracing) {
-					$nc($JmxProperties::MODELMBEAN_LOGGER)->log($System$Logger$Level::TRACE, $$str({"valid Cache value: "_s, currValue}));
+					$JmxProperties::MODELMBEAN_LOGGER->log($System$Logger$Level::TRACE, $$str({"valid Cache value: "_s, currValue}));
 				}
 			} else {
 				$assign(response, nullptr);
 				if (tracing) {
-					$nc($JmxProperties::MODELMBEAN_LOGGER)->log($System$Logger$Level::TRACE, "no Cached value"_s);
+					$JmxProperties::MODELMBEAN_LOGGER->log($System$Logger$Level::TRACE, "no Cached value"_s);
 				}
 			}
 		}
@@ -569,66 +462,70 @@ $Object* RequiredModelMBean::resolveForCacheValue($Descriptor* descr) {
 			$assign(response, nullptr);
 			$nc(this->modelMBeanInfo)->setDescriptor(descr, nullptr);
 			if (tracing) {
-				$nc($JmxProperties::MODELMBEAN_LOGGER)->log($System$Logger$Level::TRACE, "reset cached value to null"_s);
+				$JmxProperties::MODELMBEAN_LOGGER->log($System$Logger$Level::TRACE, "reset cached value to null"_s);
 			}
 		}
 	}
 	if (tracing) {
-		$nc($JmxProperties::MODELMBEAN_LOGGER)->log($System$Logger$Level::TRACE, "Exit"_s);
+		$JmxProperties::MODELMBEAN_LOGGER->log($System$Logger$Level::TRACE, "Exit"_s);
 	}
-	return $of(response);
+	return response;
 }
 
 $MBeanInfo* RequiredModelMBean::getMBeanInfo() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($JmxProperties);
 	$init($System$Logger$Level);
 	if ($nc($JmxProperties::MODELMBEAN_LOGGER)->isLoggable($System$Logger$Level::TRACE)) {
-		$nc($JmxProperties::MODELMBEAN_LOGGER)->log($System$Logger$Level::TRACE, "Entry"_s);
+		$JmxProperties::MODELMBEAN_LOGGER->log($System$Logger$Level::TRACE, "Entry"_s);
 	}
 	if (this->modelMBeanInfo == nullptr) {
-		if ($nc($JmxProperties::MODELMBEAN_LOGGER)->isLoggable($System$Logger$Level::TRACE)) {
-			$nc($JmxProperties::MODELMBEAN_LOGGER)->log($System$Logger$Level::TRACE, "modelMBeanInfo is null"_s);
+		if ($JmxProperties::MODELMBEAN_LOGGER->isLoggable($System$Logger$Level::TRACE)) {
+			$JmxProperties::MODELMBEAN_LOGGER->log($System$Logger$Level::TRACE, "modelMBeanInfo is null"_s);
 		}
 		$set(this, modelMBeanInfo, createDefaultModelMBeanInfo());
 	}
-	if ($nc($JmxProperties::MODELMBEAN_LOGGER)->isLoggable($System$Logger$Level::TRACE)) {
-		$var($String, var$0, $$str({"ModelMBeanInfo is "_s, $($nc(this->modelMBeanInfo)->getClassName()), " for "_s}));
-		$nc($JmxProperties::MODELMBEAN_LOGGER)->log($System$Logger$Level::TRACE, $$concat(var$0, $($nc(this->modelMBeanInfo)->getDescription())));
-		$nc($JmxProperties::MODELMBEAN_LOGGER)->log($System$Logger$Level::TRACE, $(printModelMBeanInfo(this->modelMBeanInfo)));
+	if ($JmxProperties::MODELMBEAN_LOGGER->isLoggable($System$Logger$Level::TRACE)) {
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append("ModelMBeanInfo is "_s);
+		var$0->append($($nc(this->modelMBeanInfo)->getClassName()));
+		var$0->append(" for "_s);
+		var$0->append($(this->modelMBeanInfo->getDescription()));
+		$JmxProperties::MODELMBEAN_LOGGER->log($System$Logger$Level::TRACE, $$str(var$0));
+		$JmxProperties::MODELMBEAN_LOGGER->log($System$Logger$Level::TRACE, $(printModelMBeanInfo(this->modelMBeanInfo)));
 	}
-	return ($cast($MBeanInfo, $nc(this->modelMBeanInfo)->clone()));
+	return $cast($MBeanInfo, $nc(this->modelMBeanInfo)->clone());
 }
 
 $String* RequiredModelMBean::printModelMBeanInfo($ModelMBeanInfo* info$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ModelMBeanInfo, info, info$renamed);
 	$var($StringBuilder, retStr, $new($StringBuilder));
 	if (info == nullptr) {
 		$init($JmxProperties);
 		$init($System$Logger$Level);
 		if ($nc($JmxProperties::MODELMBEAN_LOGGER)->isLoggable($System$Logger$Level::TRACE)) {
-			$nc($JmxProperties::MODELMBEAN_LOGGER)->log($System$Logger$Level::TRACE, "ModelMBeanInfo to print is null, printing local ModelMBeanInfo"_s);
+			$JmxProperties::MODELMBEAN_LOGGER->log($System$Logger$Level::TRACE, "ModelMBeanInfo to print is null, printing local ModelMBeanInfo"_s);
 		}
 		$assign(info, this->modelMBeanInfo);
 	}
 	retStr->append("\nMBeanInfo for ModelMBean is:"_s);
 	retStr->append("\nCLASSNAME: \t"_s)->append($($nc(info)->getClassName()));
-	retStr->append("\nDESCRIPTION: \t"_s)->append($($nc(info)->getDescription()));
+	retStr->append("\nDESCRIPTION: \t"_s)->append($(info->getDescription()));
 	try {
-		retStr->append("\nMBEAN DESCRIPTOR: \t"_s)->append($($of($nc(info)->getMBeanDescriptor())));
+		retStr->append("\nMBEAN DESCRIPTOR: \t"_s)->append($(info->getMBeanDescriptor()));
 	} catch ($Exception& e) {
 		retStr->append("\nMBEAN DESCRIPTOR: \t  is invalid"_s);
 	}
 	retStr->append("\nATTRIBUTES"_s);
-	$var($MBeanAttributeInfoArray, attrInfo, $nc(info)->getAttributes());
+	$var($MBeanAttributeInfoArray, attrInfo, info->getAttributes());
 	if ((attrInfo != nullptr) && (attrInfo->length > 0)) {
 		for (int32_t i = 0; i < attrInfo->length; ++i) {
 			$var($ModelMBeanAttributeInfo, attInfo, $cast($ModelMBeanAttributeInfo, attrInfo->get(i)));
 			retStr->append(" ** NAME: \t"_s)->append($($nc(attInfo)->getName()));
-			retStr->append("    DESCR: \t"_s)->append($($nc(attInfo)->getDescription()));
-			retStr->append("    TYPE: \t"_s)->append($($nc(attInfo)->getType()))->append("    READ: \t"_s)->append($nc(attInfo)->isReadable())->append("    WRITE: \t"_s)->append($nc(attInfo)->isWritable());
-			retStr->append("    DESCRIPTOR: "_s)->append($($of($nc(attInfo)->getDescriptor())));
+			retStr->append("    DESCR: \t"_s)->append($(attInfo->getDescription()));
+			retStr->append("    TYPE: \t"_s)->append($(attInfo->getType()))->append("    READ: \t"_s)->append(attInfo->isReadable())->append("    WRITE: \t"_s)->append(attInfo->isWritable());
+			retStr->append("    DESCRIPTOR: "_s)->append($(attInfo->getDescriptor()));
 		}
 	} else {
 		retStr->append(" ** No attributes **"_s);
@@ -639,9 +536,9 @@ $String* RequiredModelMBean::printModelMBeanInfo($ModelMBeanInfo* info$renamed) 
 		for (int32_t i = 0; i < constrInfo->length; ++i) {
 			$var($ModelMBeanConstructorInfo, ctorInfo, $cast($ModelMBeanConstructorInfo, constrInfo->get(i)));
 			retStr->append(" ** NAME: \t"_s)->append($($nc(ctorInfo)->getName()));
-			retStr->append("    DESCR: \t"_s)->append($($nc(ctorInfo)->getDescription()));
-			retStr->append("    PARAM: \t"_s)->append($nc($($nc(ctorInfo)->getSignature()))->length)->append(" parameter(s)"_s);
-			retStr->append("    DESCRIPTOR: "_s)->append($($of($nc(ctorInfo)->getDescriptor())));
+			retStr->append("    DESCR: \t"_s)->append($(ctorInfo->getDescription()));
+			retStr->append("    PARAM: \t"_s)->append($nc($(ctorInfo->getSignature()))->length)->append(" parameter(s)"_s);
+			retStr->append("    DESCRIPTOR: "_s)->append($(ctorInfo->getDescriptor()));
 		}
 	} else {
 		retStr->append(" ** No Constructors **"_s);
@@ -652,9 +549,9 @@ $String* RequiredModelMBean::printModelMBeanInfo($ModelMBeanInfo* info$renamed) 
 		for (int32_t i = 0; i < opsInfo->length; ++i) {
 			$var($ModelMBeanOperationInfo, operInfo, $cast($ModelMBeanOperationInfo, opsInfo->get(i)));
 			retStr->append(" ** NAME: \t"_s)->append($($nc(operInfo)->getName()));
-			retStr->append("    DESCR: \t"_s)->append($($nc(operInfo)->getDescription()));
-			retStr->append("    PARAM: \t"_s)->append($nc($($nc(operInfo)->getSignature()))->length)->append(" parameter(s)"_s);
-			retStr->append("    DESCRIPTOR: "_s)->append($($of($nc(operInfo)->getDescriptor())));
+			retStr->append("    DESCR: \t"_s)->append($(operInfo->getDescription()));
+			retStr->append("    PARAM: \t"_s)->append($nc($(operInfo->getSignature()))->length)->append(" parameter(s)"_s);
+			retStr->append("    DESCRIPTOR: "_s)->append($(operInfo->getDescriptor()));
 		}
 	} else {
 		retStr->append(" ** No operations ** "_s);
@@ -665,8 +562,8 @@ $String* RequiredModelMBean::printModelMBeanInfo($ModelMBeanInfo* info$renamed) 
 		for (int32_t i = 0; i < notifInfo->length; ++i) {
 			$var($ModelMBeanNotificationInfo, nInfo, $cast($ModelMBeanNotificationInfo, notifInfo->get(i)));
 			retStr->append(" ** NAME: \t"_s)->append($($nc(nInfo)->getName()));
-			retStr->append("    DESCR: \t"_s)->append($($nc(nInfo)->getDescription()));
-			retStr->append("    DESCRIPTOR: "_s)->append($($of($nc(nInfo)->getDescriptor())));
+			retStr->append("    DESCR: \t"_s)->append($(nInfo->getDescription()));
+			retStr->append("    DESCRIPTOR: "_s)->append($(nInfo->getDescriptor()));
 		}
 	} else {
 		retStr->append(" ** No notifications **"_s);
@@ -676,12 +573,12 @@ $String* RequiredModelMBean::printModelMBeanInfo($ModelMBeanInfo* info$renamed) 
 }
 
 $Object* RequiredModelMBean::invoke($String* opName, $ObjectArray* opArgs, $StringArray* sig) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($JmxProperties);
 	$init($System$Logger$Level);
 	bool tracing = $nc($JmxProperties::MODELMBEAN_LOGGER)->isLoggable($System$Logger$Level::TRACE);
 	if (tracing) {
-		$nc($JmxProperties::MODELMBEAN_LOGGER)->log($System$Logger$Level::TRACE, "Entry"_s);
+		$JmxProperties::MODELMBEAN_LOGGER->log($System$Logger$Level::TRACE, "Entry"_s);
 	}
 	if (opName == nullptr) {
 		$var($RuntimeException, x, $new($IllegalArgumentException, "Method name must not be null"_s));
@@ -689,19 +586,19 @@ $Object* RequiredModelMBean::invoke($String* opName, $ObjectArray* opArgs, $Stri
 	}
 	$var($String, opClassName, nullptr);
 	$var($String, opMethodName, nullptr);
-	int32_t opSplitter = $nc(opName)->lastIndexOf((int32_t)u'.');
+	int32_t opSplitter = $nc(opName)->lastIndexOf(u'.');
 	if (opSplitter > 0) {
 		$assign(opClassName, opName->substring(0, opSplitter));
 		$assign(opMethodName, opName->substring(opSplitter + 1));
 	} else {
 		$assign(opMethodName, opName);
 	}
-	opSplitter = $nc(opMethodName)->indexOf((int32_t)u'(');
+	opSplitter = $nc(opMethodName)->indexOf(u'(');
 	if (opSplitter > 0) {
 		$assign(opMethodName, opMethodName->substring(0, opSplitter));
 	}
 	if (tracing) {
-		$nc($JmxProperties::MODELMBEAN_LOGGER)->log($System$Logger$Level::TRACE, $$str({"Finding operation "_s, opName, " as "_s, opMethodName}));
+		$JmxProperties::MODELMBEAN_LOGGER->log($System$Logger$Level::TRACE, $$str({"Finding operation "_s, opName, " as "_s, opMethodName}));
 	}
 	$var($ModelMBeanOperationInfo, opInfo, $nc(this->modelMBeanInfo)->getOperation(opMethodName));
 	if (opInfo == nullptr) {
@@ -716,9 +613,9 @@ $Object* RequiredModelMBean::invoke($String* opName, $ObjectArray* opArgs, $Stri
 	$var($Object, cached, resolveForCacheValue(opDescr));
 	if (cached != nullptr) {
 		if (tracing) {
-			$nc($JmxProperties::MODELMBEAN_LOGGER)->log($System$Logger$Level::TRACE, "Returning cached value"_s);
+			$JmxProperties::MODELMBEAN_LOGGER->log($System$Logger$Level::TRACE, "Returning cached value"_s);
 		}
-		return $of(cached);
+		return cached;
 	}
 	if (opClassName == nullptr) {
 		$assign(opClassName, $cast($String, $nc(opDescr)->getFieldValue("class"_s)));
@@ -735,7 +632,7 @@ $Object* RequiredModelMBean::invoke($String* opName, $ObjectArray* opArgs, $Stri
 	}
 	$var($Object, targetObjectField, opDescr->getFieldValue("targetObject"_s));
 	if (tracing && targetObjectField != nullptr) {
-		$nc($JmxProperties::MODELMBEAN_LOGGER)->log($System$Logger$Level::TRACE, "Found target object in descriptor"_s);
+		$JmxProperties::MODELMBEAN_LOGGER->log($System$Logger$Level::TRACE, "Found target object in descriptor"_s);
 	}
 	$var($Method, method, nullptr);
 	$var($Object, targetObject, nullptr);
@@ -744,7 +641,7 @@ $Object* RequiredModelMBean::invoke($String* opName, $ObjectArray* opArgs, $Stri
 		$assign(targetObject, this);
 	} else {
 		if (tracing) {
-			$nc($JmxProperties::MODELMBEAN_LOGGER)->log($System$Logger$Level::TRACE, "looking for method in managedResource class"_s);
+			$JmxProperties::MODELMBEAN_LOGGER->log($System$Logger$Level::TRACE, "looking for method in managedResource class"_s);
 		}
 		if (targetObjectField != nullptr) {
 			$assign(targetObject, targetObjectField);
@@ -772,31 +669,31 @@ $Object* RequiredModelMBean::invoke($String* opName, $ObjectArray* opArgs, $Stri
 				$throwNew($ReflectionException, e, msg);
 			}
 		} else {
-			targetClass = $nc($of(targetObject))->getClass();
+			targetClass = $nc(targetObject)->getClass();
 		}
 		$assign(method, resolveMethod(targetClass, opMethodName, sig));
 	}
 	if (tracing) {
-		$nc($JmxProperties::MODELMBEAN_LOGGER)->log($System$Logger$Level::TRACE, $$str({"found "_s, opMethodName, ", now invoking"_s}));
+		$JmxProperties::MODELMBEAN_LOGGER->log($System$Logger$Level::TRACE, $$str({"found "_s, opMethodName, ", now invoking"_s}));
 	}
 	$var($Object, result, invokeMethod(opName, method, targetObject, opArgs));
 	if (tracing) {
-		$nc($JmxProperties::MODELMBEAN_LOGGER)->log($System$Logger$Level::TRACE, "successfully invoked method"_s);
+		$JmxProperties::MODELMBEAN_LOGGER->log($System$Logger$Level::TRACE, "successfully invoked method"_s);
 	}
 	if (result != nullptr) {
 		cacheResult(opInfo, opDescr, result);
 	}
-	return $of(result);
+	return result;
 }
 
 $Method* RequiredModelMBean::resolveMethod($Class* targetClass, $String* opMethodName, $StringArray* sig) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$init($JmxProperties);
 	$init($System$Logger$Level);
 	bool tracing = $nc($JmxProperties::MODELMBEAN_LOGGER)->isLoggable($System$Logger$Level::TRACE);
 	if (tracing) {
-		$nc($JmxProperties::MODELMBEAN_LOGGER)->log($System$Logger$Level::TRACE, $$str({"resolving "_s, $($nc(targetClass)->getName()), "."_s, opMethodName}));
+		$JmxProperties::MODELMBEAN_LOGGER->log($System$Logger$Level::TRACE, $$str({"resolving "_s, $($nc(targetClass)->getName()), "."_s, opMethodName}));
 	}
 	$var($ClassArray, argClasses, nullptr);
 	if (sig == nullptr) {
@@ -805,7 +702,7 @@ $Method* RequiredModelMBean::resolveMethod($Class* targetClass, $String* opMetho
 		$var($AccessControlContext, stack, $AccessController::getContext());
 		$var($ReflectionExceptionArray, caughtException, $new($ReflectionExceptionArray, 1));
 		$var($ClassLoader, targetClassLoader, $nc(targetClass)->getClassLoader());
-		$assign(argClasses, $new($ClassArray, $nc(sig)->length));
+		$assign(argClasses, $new($ClassArray, sig->length));
 		$nc(RequiredModelMBean::javaSecurityAccess)->doIntersectionPrivilege($$new($RequiredModelMBean$2, this, sig, tracing, argClasses, targetClassLoader, caughtException), stack, this->acc);
 		if (caughtException->get(0) != nullptr) {
 			$throw(caughtException->get(0));
@@ -821,12 +718,12 @@ $Method* RequiredModelMBean::resolveMethod($Class* targetClass, $String* opMetho
 }
 
 $Method* RequiredModelMBean::findRMMBMethod($String* opMethodName, Object$* targetObjectField, $String* opClassName, $StringArray* sig) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($JmxProperties);
 	$init($System$Logger$Level);
 	bool tracing = $nc($JmxProperties::MODELMBEAN_LOGGER)->isLoggable($System$Logger$Level::TRACE);
 	if (tracing) {
-		$nc($JmxProperties::MODELMBEAN_LOGGER)->log($System$Logger$Level::TRACE, "looking for method in RequiredModelMBean class"_s);
+		$JmxProperties::MODELMBEAN_LOGGER->log($System$Logger$Level::TRACE, "looking for method in RequiredModelMBean class"_s);
 	}
 	if (!isRMMBMethodName(opMethodName)) {
 		return nullptr;
@@ -852,7 +749,7 @@ $Method* RequiredModelMBean::findRMMBMethod($String* opMethodName, Object$* targ
 }
 
 $Object* RequiredModelMBean::invokeMethod($String* opName, $Method* method, Object$* targetObject, $ObjectArray* opArgs) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$var($ThrowableArray, caughtException, $new($ThrowableArray, 1));
 		$var($AccessControlContext, stack, $AccessController::getContext());
@@ -864,7 +761,7 @@ $Object* RequiredModelMBean::invokeMethod($String* opName, $Method* method, Obje
 				$throw($cast($Error, caughtException->get(0)));
 			}
 		}
-		return $of(rslt);
+		return rslt;
 	} catch ($RuntimeErrorException& ree) {
 		$throwNew($RuntimeOperationsException, ree, $$str({"RuntimeException occurred in RequiredModelMBean while trying to invoke operation "_s, opName}));
 	} catch ($RuntimeException& re) {
@@ -891,19 +788,19 @@ $Object* RequiredModelMBean::invokeMethod($String* opName, $Method* method, Obje
 }
 
 void RequiredModelMBean::cacheResult($ModelMBeanOperationInfo* opInfo, $Descriptor* opDescr, Object$* result) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Descriptor, mmbDesc, $nc(this->modelMBeanInfo)->getMBeanDescriptor());
 	$var($Object, objctl, $nc(opDescr)->getFieldValue("currencyTimeLimit"_s));
 	$var($String, ctl, nullptr);
 	if (objctl != nullptr) {
-		$assign(ctl, $of(objctl)->toString());
+		$assign(ctl, objctl->toString());
 	} else {
 		$assign(ctl, nullptr);
 	}
 	if ((ctl == nullptr) && (mmbDesc != nullptr)) {
 		$assign(objctl, mmbDesc->getFieldValue("currencyTimeLimit"_s));
 		if (objctl != nullptr) {
-			$assign(ctl, $of(objctl)->toString());
+			$assign(ctl, objctl->toString());
 		} else {
 			$assign(ctl, nullptr);
 		}
@@ -915,16 +812,15 @@ void RequiredModelMBean::cacheResult($ModelMBeanOperationInfo* opInfo, $Descript
 		$init($JmxProperties);
 		$init($System$Logger$Level);
 		if ($nc($JmxProperties::MODELMBEAN_LOGGER)->isLoggable($System$Logger$Level::TRACE)) {
-			$nc($JmxProperties::MODELMBEAN_LOGGER)->log($System$Logger$Level::TRACE, $$str({"new descriptor is "_s, opDescr}));
+			$JmxProperties::MODELMBEAN_LOGGER->log($System$Logger$Level::TRACE, $$str({"new descriptor is "_s, opDescr}));
 		}
 	}
 }
 
 bool RequiredModelMBean::isRMMBMethodName($String* name) {
-	$load(RequiredModelMBean);
+	$init(RequiredModelMBean);
 	$synchronized(class$) {
-		$init(RequiredModelMBean);
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$beforeCallerSensitive();
 		if (RequiredModelMBean::rmmbMethodNames == nullptr) {
 			try {
@@ -943,7 +839,7 @@ bool RequiredModelMBean::isRMMBMethodName($String* name) {
 }
 
 $Object* RequiredModelMBean::getAttribute($String* attrName) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (attrName == nullptr) {
 		$throwNew($RuntimeOperationsException, $$new($IllegalArgumentException, "attributeName must not be null"_s), "Exception occurred trying to get attribute of a RequiredModelMBean"_s);
 	}
@@ -951,7 +847,7 @@ $Object* RequiredModelMBean::getAttribute($String* attrName) {
 	$init($System$Logger$Level);
 	bool tracing = $nc($JmxProperties::MODELMBEAN_LOGGER)->isLoggable($System$Logger$Level::TRACE);
 	if (tracing) {
-		$nc($JmxProperties::MODELMBEAN_LOGGER)->log($System$Logger$Level::TRACE, $$str({"Entry with "_s, attrName}));
+		$JmxProperties::MODELMBEAN_LOGGER->log($System$Logger$Level::TRACE, $$str({"Entry with "_s, attrName}));
 	}
 	$var($Object, response, nullptr);
 	try {
@@ -970,41 +866,41 @@ $Object* RequiredModelMBean::getAttribute($String* attrName) {
 			}
 			$assign(response, resolveForCacheValue(attrDescr));
 			if (tracing) {
-				$nc($JmxProperties::MODELMBEAN_LOGGER)->log($System$Logger$Level::TRACE, $$str({"*** cached value is "_s, response}));
+				$JmxProperties::MODELMBEAN_LOGGER->log($System$Logger$Level::TRACE, $$str({"*** cached value is "_s, response}));
 			}
 			if (response == nullptr) {
 				if (tracing) {
-					$nc($JmxProperties::MODELMBEAN_LOGGER)->log($System$Logger$Level::TRACE, "**** cached value is null - getting getMethod"_s);
+					$JmxProperties::MODELMBEAN_LOGGER->log($System$Logger$Level::TRACE, "**** cached value is null - getting getMethod"_s);
 				}
-				$var($String, attrGetMethod, ($cast($String, attrDescr->getFieldValue("getMethod"_s))));
+				$var($String, attrGetMethod, $cast($String, attrDescr->getFieldValue("getMethod"_s)));
 				if (attrGetMethod != nullptr) {
 					if (tracing) {
-						$nc($JmxProperties::MODELMBEAN_LOGGER)->log($System$Logger$Level::TRACE, $$str({"invoking a getMethod for "_s, attrName}));
+						$JmxProperties::MODELMBEAN_LOGGER->log($System$Logger$Level::TRACE, $$str({"invoking a getMethod for "_s, attrName}));
 					}
 					$var($Object, getResponse, invoke(attrGetMethod, $$new($ObjectArray, 0), $$new($StringArray, 0)));
 					if (getResponse != nullptr) {
 						if (tracing) {
-							$nc($JmxProperties::MODELMBEAN_LOGGER)->log($System$Logger$Level::TRACE, "got a non-null response from getMethod\n"_s);
+							$JmxProperties::MODELMBEAN_LOGGER->log($System$Logger$Level::TRACE, "got a non-null response from getMethod\n"_s);
 						}
 						$assign(response, getResponse);
 						$var($Object, objctl, attrDescr->getFieldValue("currencyTimeLimit"_s));
 						$var($String, ctl, nullptr);
 						if (objctl != nullptr) {
-							$assign(ctl, $of(objctl)->toString());
+							$assign(ctl, objctl->toString());
 						} else {
 							$assign(ctl, nullptr);
 						}
 						if ((ctl == nullptr) && (mmbDesc != nullptr)) {
 							$assign(objctl, mmbDesc->getFieldValue("currencyTimeLimit"_s));
 							if (objctl != nullptr) {
-								$assign(ctl, $of(objctl)->toString());
+								$assign(ctl, objctl->toString());
 							} else {
 								$assign(ctl, nullptr);
 							}
 						}
 						if ((ctl != nullptr) && !(ctl->equals("-1"_s))) {
 							if (tracing) {
-								$nc($JmxProperties::MODELMBEAN_LOGGER)->log($System$Logger$Level::TRACE, "setting cached value and lastUpdatedTime in descriptor"_s);
+								$JmxProperties::MODELMBEAN_LOGGER->log($System$Logger$Level::TRACE, "setting cached value and lastUpdatedTime in descriptor"_s);
 							}
 							attrDescr->setField("value"_s, response);
 							$var($String, stamp, $String::valueOf(($$new($Date))->getTime()));
@@ -1012,15 +908,15 @@ $Object* RequiredModelMBean::getAttribute($String* attrName) {
 							attrInfo->setDescriptor(attrDescr);
 							$nc(this->modelMBeanInfo)->setDescriptor(attrDescr, "attribute"_s);
 							if (tracing) {
-								$nc($JmxProperties::MODELMBEAN_LOGGER)->log($System$Logger$Level::TRACE, $$str({"new descriptor is "_s, attrDescr}));
-								$nc($JmxProperties::MODELMBEAN_LOGGER)->log($System$Logger$Level::TRACE, $$str({"AttributeInfo descriptor is "_s, $(attrInfo->getDescriptor())}));
-								$var($String, attStr, $nc($of($($nc(this->modelMBeanInfo)->getDescriptor(attrName, "attribute"_s))))->toString());
-								$nc($JmxProperties::MODELMBEAN_LOGGER)->log($System$Logger$Level::TRACE, $$str({"modelMBeanInfo: AttributeInfo descriptor is "_s, attStr}));
+								$JmxProperties::MODELMBEAN_LOGGER->log($System$Logger$Level::TRACE, $$str({"new descriptor is "_s, attrDescr}));
+								$JmxProperties::MODELMBEAN_LOGGER->log($System$Logger$Level::TRACE, $$str({"AttributeInfo descriptor is "_s, $(attrInfo->getDescriptor())}));
+								$var($String, attStr, $$nc($nc(this->modelMBeanInfo)->getDescriptor(attrName, "attribute"_s))->toString());
+								$JmxProperties::MODELMBEAN_LOGGER->log($System$Logger$Level::TRACE, $$str({"modelMBeanInfo: AttributeInfo descriptor is "_s, attStr}));
 							}
 						}
 					} else {
 						if (tracing) {
-							$nc($JmxProperties::MODELMBEAN_LOGGER)->log($System$Logger$Level::TRACE, "got a null response from getMethod\n"_s);
+							$JmxProperties::MODELMBEAN_LOGGER->log($System$Logger$Level::TRACE, "got a null response from getMethod\n"_s);
 						}
 						$assign(response, nullptr);
 					}
@@ -1032,19 +928,19 @@ $Object* RequiredModelMBean::getAttribute($String* attrName) {
 						$assign(response, attrDescr->getFieldValue("default"_s));
 					}
 					if (tracing) {
-						$nc($JmxProperties::MODELMBEAN_LOGGER)->log($System$Logger$Level::TRACE, $$str({"could not find getMethod for "_s, attrName, ", returning descriptor "_s, qualifier, "value"_s}));
+						$JmxProperties::MODELMBEAN_LOGGER->log($System$Logger$Level::TRACE, $$str({"could not find getMethod for "_s, attrName, ", returning descriptor "_s, qualifier, "value"_s}));
 					}
 				}
 			}
 			$var($String, respType, attrInfo->getType());
 			if (response != nullptr) {
-				$var($String, responseClass, $of(response)->getClass()->getName());
+				$var($String, responseClass, response->getClass()->getName());
 				if (!$nc(respType)->equals(responseClass)) {
 					bool wrongType = false;
 					bool primitiveType = false;
 					bool correspondingTypes = false;
 					for (int32_t i = 0; i < $nc(RequiredModelMBean::primitiveTypes)->length; ++i) {
-						if (respType->equals($nc(RequiredModelMBean::primitiveTypes)->get(i))) {
+						if (respType->equals(RequiredModelMBean::primitiveTypes->get(i))) {
 							primitiveType = true;
 							if ($nc(responseClass)->equals($nc(RequiredModelMBean::primitiveWrappers)->get(i))) {
 								correspondingTypes = true;
@@ -1059,7 +955,7 @@ $Object* RequiredModelMBean::getAttribute($String* attrName) {
 					} else {
 						bool subtype = false;
 						try {
-							$Class* respClass = $of(response)->getClass();
+							$Class* respClass = response->getClass();
 							$var($ExceptionArray, caughException, $new($ExceptionArray, 1));
 							$var($AccessControlContext, stack, $AccessController::getContext());
 							$Class* c = $cast($Class, $nc(RequiredModelMBean::javaSecurityAccess)->doIntersectionPrivilege($$new($RequiredModelMBean$5, this, respType, respClass, caughException), stack, this->acc));
@@ -1070,7 +966,7 @@ $Object* RequiredModelMBean::getAttribute($String* attrName) {
 						} catch ($Exception& e) {
 							subtype = false;
 							if (tracing) {
-								$nc($JmxProperties::MODELMBEAN_LOGGER)->log($System$Logger$Level::TRACE, "Exception: "_s, static_cast<$Throwable*>(e));
+								$JmxProperties::MODELMBEAN_LOGGER->log($System$Logger$Level::TRACE, "Exception: "_s, e);
 							}
 						}
 						if (!subtype) {
@@ -1079,7 +975,7 @@ $Object* RequiredModelMBean::getAttribute($String* attrName) {
 					}
 					if (wrongType) {
 						if (tracing) {
-							$nc($JmxProperties::MODELMBEAN_LOGGER)->log($System$Logger$Level::TRACE, $$str({"Wrong response type \'"_s, respType, "\'"_s}));
+							$JmxProperties::MODELMBEAN_LOGGER->log($System$Logger$Level::TRACE, $$str({"Wrong response type \'"_s, respType, "\'"_s}));
 						}
 						$throwNew($MBeanException, $$new($InvalidAttributeValueException, "Wrong value type received for get attribute"_s), "An exception occurred while trying to get an attribute value through a RequiredModelMBean"_s);
 					}
@@ -1087,7 +983,7 @@ $Object* RequiredModelMBean::getAttribute($String* attrName) {
 			}
 		} else {
 			if (tracing) {
-				$nc($JmxProperties::MODELMBEAN_LOGGER)->log($System$Logger$Level::TRACE, $$str({"getMethod failed "_s, attrName, " not in attributeDescriptor\n"_s}));
+				$JmxProperties::MODELMBEAN_LOGGER->log($System$Logger$Level::TRACE, $$str({"getMethod failed "_s, attrName, " not in attributeDescriptor\n"_s}));
 			}
 			$throwNew($MBeanException, $$new($InvalidAttributeValueException, "Unable to resolve attribute value, no getMethod defined in descriptor for attribute"_s), "An exception occurred while trying to get an attribute value through a RequiredModelMBean"_s);
 		}
@@ -1097,23 +993,27 @@ $Object* RequiredModelMBean::getAttribute($String* attrName) {
 		$throw(t);
 	} catch ($Exception& e) {
 		if (tracing) {
-			$var($String, var$0, $$str({"getMethod failed with "_s, $(e->getMessage()), " exception type "_s}));
-			$nc($JmxProperties::MODELMBEAN_LOGGER)->log($System$Logger$Level::TRACE, $$concat(var$0, $(($of(e)->getClass())->toString())));
+			$var($StringBuilder, var$0, $new($StringBuilder));
+			var$0->append("getMethod failed with "_s);
+			var$0->append($(e->getMessage()));
+			var$0->append(" exception type "_s);
+			var$0->append($((e->getClass())->toString()));
+			$JmxProperties::MODELMBEAN_LOGGER->log($System$Logger$Level::TRACE, $$str(var$0));
 		}
 		$throwNew($MBeanException, e, $$str({"An exception occurred while trying to get an attribute value: "_s, $(e->getMessage())}));
 	}
 	if (tracing) {
-		$nc($JmxProperties::MODELMBEAN_LOGGER)->log($System$Logger$Level::TRACE, "Exit"_s);
+		$JmxProperties::MODELMBEAN_LOGGER->log($System$Logger$Level::TRACE, "Exit"_s);
 	}
-	return $of(response);
+	return response;
 }
 
 $AttributeList* RequiredModelMBean::getAttributes($StringArray* attrNames) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($JmxProperties);
 	$init($System$Logger$Level);
 	if ($nc($JmxProperties::MODELMBEAN_LOGGER)->isLoggable($System$Logger$Level::TRACE)) {
-		$nc($JmxProperties::MODELMBEAN_LOGGER)->log($System$Logger$Level::TRACE, $(RequiredModelMBean::class$->getName()), $$new($ObjectArray, {$of("Entry"_s)}));
+		$JmxProperties::MODELMBEAN_LOGGER->log($System$Logger$Level::TRACE, $(RequiredModelMBean::class$->getName()), $$new($ObjectArray, {"Entry"_s}));
 	}
 	if (attrNames == nullptr) {
 		$throwNew($RuntimeOperationsException, $$new($IllegalArgumentException, "attributeNames must not be null"_s), "Exception occurred trying to get attributes of a RequiredModelMBean"_s);
@@ -1123,24 +1023,24 @@ $AttributeList* RequiredModelMBean::getAttributes($StringArray* attrNames) {
 		try {
 			responseList->add($$new($Attribute, attrNames->get(i), $(getAttribute(attrNames->get(i)))));
 		} catch ($Exception& e) {
-			if ($nc($JmxProperties::MODELMBEAN_LOGGER)->isLoggable($System$Logger$Level::TRACE)) {
-				$nc($JmxProperties::MODELMBEAN_LOGGER)->log($System$Logger$Level::TRACE, $$str({"Failed to get \""_s, attrNames->get(i), "\": "_s}), static_cast<$Throwable*>(e));
+			if ($JmxProperties::MODELMBEAN_LOGGER->isLoggable($System$Logger$Level::TRACE)) {
+				$JmxProperties::MODELMBEAN_LOGGER->log($System$Logger$Level::TRACE, $$str({"Failed to get \""_s, attrNames->get(i), "\": "_s}), e);
 			}
 		}
 	}
-	if ($nc($JmxProperties::MODELMBEAN_LOGGER)->isLoggable($System$Logger$Level::TRACE)) {
-		$nc($JmxProperties::MODELMBEAN_LOGGER)->log($System$Logger$Level::TRACE, "Exit"_s);
+	if ($JmxProperties::MODELMBEAN_LOGGER->isLoggable($System$Logger$Level::TRACE)) {
+		$JmxProperties::MODELMBEAN_LOGGER->log($System$Logger$Level::TRACE, "Exit"_s);
 	}
 	return responseList;
 }
 
 void RequiredModelMBean::setAttribute($Attribute* attribute) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($JmxProperties);
 	$init($System$Logger$Level);
 	bool tracing = $nc($JmxProperties::MODELMBEAN_LOGGER)->isLoggable($System$Logger$Level::TRACE);
 	if (tracing) {
-		$nc($JmxProperties::MODELMBEAN_LOGGER)->log($System$Logger$Level::TRACE, "Entry"_s);
+		$JmxProperties::MODELMBEAN_LOGGER->log($System$Logger$Level::TRACE, "Entry"_s);
 	}
 	if (attribute == nullptr) {
 		$throwNew($RuntimeOperationsException, $$new($IllegalArgumentException, "attribute must not be null"_s), "Exception occurred trying to set an attribute of a RequiredModelMBean"_s);
@@ -1158,8 +1058,8 @@ void RequiredModelMBean::setAttribute($Attribute* attribute) {
 		if (!attrInfo->isWritable()) {
 			$throwNew($AttributeNotFoundException, $$str({"setAttribute failed: "_s, attrName, " is not writable "_s}));
 		}
-		$var($String, attrSetMethod, ($cast($String, attrDescr->getFieldValue("setMethod"_s))));
-		$var($String, attrGetMethod, ($cast($String, attrDescr->getFieldValue("getMethod"_s))));
+		$var($String, attrSetMethod, $cast($String, attrDescr->getFieldValue("setMethod"_s)));
+		$var($String, attrGetMethod, $cast($String, attrDescr->getFieldValue("getMethod"_s)));
 		$var($String, attrType, attrInfo->getType());
 		$var($Object, currValue, "Unknown"_s);
 		try {
@@ -1172,13 +1072,16 @@ void RequiredModelMBean::setAttribute($Attribute* attribute) {
 				try {
 					$Class* clazz = loadClass(attrType);
 					if (!$nc(clazz)->isInstance(attrValue)) {
-						$var($String, var$1, $$str({$(clazz->getName()), " expected, "_s}));
-						$var($String, var$0, $$concat(var$1, $($of(attrValue)->getClass()->getName())));
-						$throwNew($InvalidAttributeValueException, $$concat(var$0, " received."_s));
+						$var($StringBuilder, var$0, $new($StringBuilder));
+						var$0->append($(clazz->getName()));
+						var$0->append(" expected, "_s);
+						var$0->append($(attrValue->getClass()->getName()));
+						var$0->append(" received."_s);
+						$throwNew($InvalidAttributeValueException, $$str(var$0));
 					}
 				} catch ($ClassNotFoundException& x) {
-					if ($nc($JmxProperties::MODELMBEAN_LOGGER)->isLoggable($System$Logger$Level::TRACE)) {
-						$nc($JmxProperties::MODELMBEAN_LOGGER)->log($System$Logger$Level::TRACE, $$str({"Class "_s, attrType, " for attribute "_s, attrName, " not found: "_s}), static_cast<$Throwable*>(x));
+					if ($JmxProperties::MODELMBEAN_LOGGER->isLoggable($System$Logger$Level::TRACE)) {
+						$JmxProperties::MODELMBEAN_LOGGER->log($System$Logger$Level::TRACE, $$str({"Class "_s, attrType, " for attribute "_s, attrName, " not found: "_s}), x);
 					}
 				}
 			}
@@ -1189,14 +1092,14 @@ void RequiredModelMBean::setAttribute($Attribute* attribute) {
 		$var($Object, objctl, attrDescr->getFieldValue("currencyTimeLimit"_s));
 		$var($String, ctl, nullptr);
 		if (objctl != nullptr) {
-			$assign(ctl, $of(objctl)->toString());
+			$assign(ctl, objctl->toString());
 		} else {
 			$assign(ctl, nullptr);
 		}
 		if ((ctl == nullptr) && (mmbDesc != nullptr)) {
 			$assign(objctl, mmbDesc->getFieldValue("currencyTimeLimit"_s));
 			if (objctl != nullptr) {
-				$assign(ctl, $of(objctl)->toString());
+				$assign(ctl, objctl->toString());
 			} else {
 				$assign(ctl, nullptr);
 			}
@@ -1207,7 +1110,7 @@ void RequiredModelMBean::setAttribute($Attribute* attribute) {
 		}
 		if (updateCache || updateDescriptor) {
 			if (tracing) {
-				$nc($JmxProperties::MODELMBEAN_LOGGER)->log($System$Logger$Level::TRACE, $$str({"setting cached value of "_s, attrName, " to "_s, attrValue}));
+				$JmxProperties::MODELMBEAN_LOGGER->log($System$Logger$Level::TRACE, $$str({"setting cached value of "_s, attrName, " to "_s, attrValue}));
 			}
 			attrDescr->setField("value"_s, attrValue);
 			if (updateCache) {
@@ -1217,47 +1120,45 @@ void RequiredModelMBean::setAttribute($Attribute* attribute) {
 			attrInfo->setDescriptor(attrDescr);
 			$nc(this->modelMBeanInfo)->setDescriptor(attrDescr, "attribute"_s);
 			if (tracing) {
-				$var($StringBuilder, strb, $$new($StringBuilder)->append("new descriptor is "_s)->append($of(attrDescr))->append(". AttributeInfo descriptor is "_s)->append($($of(attrInfo->getDescriptor())))->append(". AttributeInfo descriptor is "_s)->append($($of($nc(this->modelMBeanInfo)->getDescriptor(attrName, "attribute"_s)))));
-				$nc($JmxProperties::MODELMBEAN_LOGGER)->log($System$Logger$Level::TRACE, static_cast<$Supplier*>($$new(RequiredModelMBean$$Lambda$toString, static_cast<$StringBuilder*>(strb))));
+				$var($StringBuilder, strb, $$new($StringBuilder)->append("new descriptor is "_s)->append(attrDescr)->append(". AttributeInfo descriptor is "_s)->append($(attrInfo->getDescriptor()))->append(". AttributeInfo descriptor is "_s)->append($($nc(this->modelMBeanInfo)->getDescriptor(attrName, "attribute"_s))));
+				$JmxProperties::MODELMBEAN_LOGGER->log($System$Logger$Level::TRACE, $$new(RequiredModelMBean$$Lambda$toString, strb));
 			}
 		}
 		if (tracing) {
-			$nc($JmxProperties::MODELMBEAN_LOGGER)->log($System$Logger$Level::TRACE, "sending sendAttributeNotification"_s);
+			$JmxProperties::MODELMBEAN_LOGGER->log($System$Logger$Level::TRACE, "sending sendAttributeNotification"_s);
 		}
 		sendAttributeChangeNotification(oldAttr, attribute);
 	} else {
 		if (tracing) {
-			$nc($JmxProperties::MODELMBEAN_LOGGER)->log($System$Logger$Level::TRACE, $$str({"setMethod failed "_s, attrName, " not in attributeDescriptor\n"_s}));
+			$JmxProperties::MODELMBEAN_LOGGER->log($System$Logger$Level::TRACE, $$str({"setMethod failed "_s, attrName, " not in attributeDescriptor\n"_s}));
 		}
 		$throwNew($InvalidAttributeValueException, "Unable to resolve attribute value, no defined in descriptor for attribute"_s);
 	}
 	if (tracing) {
-		$nc($JmxProperties::MODELMBEAN_LOGGER)->log($System$Logger$Level::TRACE, "Exit"_s);
+		$JmxProperties::MODELMBEAN_LOGGER->log($System$Logger$Level::TRACE, "Exit"_s);
 	}
 }
 
 $AttributeList* RequiredModelMBean::setAttributes($AttributeList* attributes) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($JmxProperties);
 	$init($System$Logger$Level);
 	if ($nc($JmxProperties::MODELMBEAN_LOGGER)->isLoggable($System$Logger$Level::TRACE)) {
-		$nc($JmxProperties::MODELMBEAN_LOGGER)->log($System$Logger$Level::TRACE, "Entry"_s);
+		$JmxProperties::MODELMBEAN_LOGGER->log($System$Logger$Level::TRACE, "Entry"_s);
 	}
 	if (attributes == nullptr) {
 		$throwNew($RuntimeOperationsException, $$new($IllegalArgumentException, "attributes must not be null"_s), "Exception occurred trying to set attributes of a RequiredModelMBean"_s);
 	}
 	$var($AttributeList, responseList, $new($AttributeList));
 	{
-		$var($Iterator, i$, $nc($($nc(attributes)->asList()))->iterator());
+		$var($Iterator, i$, $$nc($nc(attributes)->asList())->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Attribute, attr, $cast($Attribute, i$->next()));
-			{
-				try {
-					setAttribute(attr);
-					responseList->add(attr);
-				} catch ($Exception& excep) {
-					responseList->remove($of(attr));
-				}
+			try {
+				setAttribute(attr);
+				responseList->add(attr);
+			} catch ($Exception& excep) {
+				responseList->remove(attr);
 			}
 		}
 	}
@@ -1270,43 +1171,41 @@ $ModelMBeanInfo* RequiredModelMBean::createDefaultModelMBeanInfo() {
 
 void RequiredModelMBean::writeToLog($String* logFileName, $String* logEntry) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$init($JmxProperties);
 		$init($System$Logger$Level);
 		if ($nc($JmxProperties::MODELMBEAN_LOGGER)->isLoggable($System$Logger$Level::TRACE)) {
-			$nc($JmxProperties::MODELMBEAN_LOGGER)->log($System$Logger$Level::TRACE, $$str({"Notification Logging to "_s, logFileName, ": "_s, logEntry}));
+			$JmxProperties::MODELMBEAN_LOGGER->log($System$Logger$Level::TRACE, $$str({"Notification Logging to "_s, logFileName, ": "_s, logEntry}));
 		}
 		if ((logFileName == nullptr) || (logEntry == nullptr)) {
-			if ($nc($JmxProperties::MODELMBEAN_LOGGER)->isLoggable($System$Logger$Level::TRACE)) {
-				$nc($JmxProperties::MODELMBEAN_LOGGER)->log($System$Logger$Level::TRACE, "Bad input parameters, will not log this entry."_s);
+			if ($JmxProperties::MODELMBEAN_LOGGER->isLoggable($System$Logger$Level::TRACE)) {
+				$JmxProperties::MODELMBEAN_LOGGER->log($System$Logger$Level::TRACE, "Bad input parameters, will not log this entry."_s);
 			}
 			return;
 		}
 		$var($FileOutputStream, fos, $new($FileOutputStream, logFileName, true));
-		{
-			$var($Throwable, var$0, nullptr);
+		$var($Throwable, var$0, nullptr);
+		try {
 			try {
-				try {
-					$var($PrintStream, logOut, $new($PrintStream, static_cast<$OutputStream*>(fos)));
-					logOut->println(logEntry);
-					logOut->close();
-					if ($nc($JmxProperties::MODELMBEAN_LOGGER)->isLoggable($System$Logger$Level::TRACE)) {
-						$nc($JmxProperties::MODELMBEAN_LOGGER)->log($System$Logger$Level::TRACE, $$str({"Successfully opened log "_s, logFileName}));
-					}
-				} catch ($Exception& e) {
-					if ($nc($JmxProperties::MODELMBEAN_LOGGER)->isLoggable($System$Logger$Level::TRACE)) {
-						$nc($JmxProperties::MODELMBEAN_LOGGER)->log($System$Logger$Level::TRACE, $$str({"Exception "_s, $(e->toString()), " trying to write to the Notification log file "_s, logFileName}));
-					}
-					$throw(e);
+				$var($PrintStream, logOut, $new($PrintStream, fos));
+				logOut->println(logEntry);
+				logOut->close();
+				if ($JmxProperties::MODELMBEAN_LOGGER->isLoggable($System$Logger$Level::TRACE)) {
+					$JmxProperties::MODELMBEAN_LOGGER->log($System$Logger$Level::TRACE, $$str({"Successfully opened log "_s, logFileName}));
 				}
-			} catch ($Throwable& var$1) {
-				$assign(var$0, var$1);
-			} /*finally*/ {
-				fos->close();
+			} catch ($Exception& e) {
+				if ($JmxProperties::MODELMBEAN_LOGGER->isLoggable($System$Logger$Level::TRACE)) {
+					$JmxProperties::MODELMBEAN_LOGGER->log($System$Logger$Level::TRACE, $$str({"Exception "_s, $(e->toString()), " trying to write to the Notification log file "_s, logFileName}));
+				}
+				$throw(e);
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
+		} /*finally*/ {
+			fos->close();
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	}
 }
@@ -1315,7 +1214,7 @@ void RequiredModelMBean::addNotificationListener($NotificationListener* listener
 	$init($JmxProperties);
 	$init($System$Logger$Level);
 	if ($nc($JmxProperties::MODELMBEAN_LOGGER)->isLoggable($System$Logger$Level::TRACE)) {
-		$nc($JmxProperties::MODELMBEAN_LOGGER)->log($System$Logger$Level::TRACE, "Entry"_s);
+		$JmxProperties::MODELMBEAN_LOGGER->log($System$Logger$Level::TRACE, "Entry"_s);
 	}
 	if (listener == nullptr) {
 		$throwNew($IllegalArgumentException, "notification listener must not be null"_s);
@@ -1324,9 +1223,9 @@ void RequiredModelMBean::addNotificationListener($NotificationListener* listener
 		$set(this, generalBroadcaster, $new($NotificationBroadcasterSupport));
 	}
 	$nc(this->generalBroadcaster)->addNotificationListener(listener, filter, handback);
-	if ($nc($JmxProperties::MODELMBEAN_LOGGER)->isLoggable($System$Logger$Level::TRACE)) {
-		$nc($JmxProperties::MODELMBEAN_LOGGER)->log($System$Logger$Level::TRACE, "NotificationListener added"_s);
-		$nc($JmxProperties::MODELMBEAN_LOGGER)->log($System$Logger$Level::TRACE, "Exit"_s);
+	if ($JmxProperties::MODELMBEAN_LOGGER->isLoggable($System$Logger$Level::TRACE)) {
+		$JmxProperties::MODELMBEAN_LOGGER->log($System$Logger$Level::TRACE, "NotificationListener added"_s);
+		$JmxProperties::MODELMBEAN_LOGGER->log($System$Logger$Level::TRACE, "Exit"_s);
 	}
 }
 
@@ -1337,14 +1236,14 @@ void RequiredModelMBean::removeNotificationListener($NotificationListener* liste
 	$init($JmxProperties);
 	$init($System$Logger$Level);
 	if ($nc($JmxProperties::MODELMBEAN_LOGGER)->isLoggable($System$Logger$Level::TRACE)) {
-		$nc($JmxProperties::MODELMBEAN_LOGGER)->log($System$Logger$Level::TRACE, "Entry"_s);
+		$JmxProperties::MODELMBEAN_LOGGER->log($System$Logger$Level::TRACE, "Entry"_s);
 	}
 	if (this->generalBroadcaster == nullptr) {
 		$throwNew($ListenerNotFoundException, "No notification listeners registered"_s);
 	}
 	$nc(this->generalBroadcaster)->removeNotificationListener(listener);
-	if ($nc($JmxProperties::MODELMBEAN_LOGGER)->isLoggable($System$Logger$Level::TRACE)) {
-		$nc($JmxProperties::MODELMBEAN_LOGGER)->log($System$Logger$Level::TRACE, "Exit"_s);
+	if ($JmxProperties::MODELMBEAN_LOGGER->isLoggable($System$Logger$Level::TRACE)) {
+		$JmxProperties::MODELMBEAN_LOGGER->log($System$Logger$Level::TRACE, "Exit"_s);
 	}
 }
 
@@ -1355,23 +1254,23 @@ void RequiredModelMBean::removeNotificationListener($NotificationListener* liste
 	$init($JmxProperties);
 	$init($System$Logger$Level);
 	if ($nc($JmxProperties::MODELMBEAN_LOGGER)->isLoggable($System$Logger$Level::TRACE)) {
-		$nc($JmxProperties::MODELMBEAN_LOGGER)->log($System$Logger$Level::TRACE, "Entry"_s);
+		$JmxProperties::MODELMBEAN_LOGGER->log($System$Logger$Level::TRACE, "Entry"_s);
 	}
 	if (this->generalBroadcaster == nullptr) {
 		$throwNew($ListenerNotFoundException, "No notification listeners registered"_s);
 	}
 	$nc(this->generalBroadcaster)->removeNotificationListener(listener, filter, handback);
-	if ($nc($JmxProperties::MODELMBEAN_LOGGER)->isLoggable($System$Logger$Level::TRACE)) {
-		$nc($JmxProperties::MODELMBEAN_LOGGER)->log($System$Logger$Level::TRACE, "Exit"_s);
+	if ($JmxProperties::MODELMBEAN_LOGGER->isLoggable($System$Logger$Level::TRACE)) {
+		$JmxProperties::MODELMBEAN_LOGGER->log($System$Logger$Level::TRACE, "Exit"_s);
 	}
 }
 
 void RequiredModelMBean::sendNotification($Notification* ntfyObj) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($JmxProperties);
 	$init($System$Logger$Level);
 	if ($nc($JmxProperties::MODELMBEAN_LOGGER)->isLoggable($System$Logger$Level::TRACE)) {
-		$nc($JmxProperties::MODELMBEAN_LOGGER)->log($System$Logger$Level::TRACE, "Entry"_s);
+		$JmxProperties::MODELMBEAN_LOGGER->log($System$Logger$Level::TRACE, "Entry"_s);
 	}
 	if (ntfyObj == nullptr) {
 		$throwNew($RuntimeOperationsException, $$new($IllegalArgumentException, "notification object must not be null"_s), "Exception occurred trying to send a notification from a RequiredModelMBean"_s);
@@ -1385,10 +1284,10 @@ void RequiredModelMBean::sendNotification($Notification* ntfyObj) {
 				$assign(logging, $cast($String, mmbDesc->getFieldValue("log"_s)));
 			}
 		}
-		bool var$0 = (logging != nullptr);
+		bool var$0 = logging != nullptr;
 		if (var$0) {
 			bool var$1 = logging->equalsIgnoreCase("t"_s);
-			var$0 = (var$1 || logging->equalsIgnoreCase("true"_s));
+			var$0 = var$1 || logging->equalsIgnoreCase("true"_s);
 		}
 		if (var$0) {
 			$var($String, logfile, $cast($String, ntfyDesc->getFieldValue("logfile"_s)));
@@ -1399,44 +1298,48 @@ void RequiredModelMBean::sendNotification($Notification* ntfyObj) {
 			}
 			if (logfile != nullptr) {
 				try {
-					$var($String, var$6, $$str({"LogMsg: "_s, ($(($$new($Date, $nc(ntfyObj)->getTimeStamp()))->toString())), " "_s}));
-					$var($String, var$5, $$concat(var$6, $($nc(ntfyObj)->getType())));
-					$var($String, var$4, $$concat(var$5, " "_s));
-					$var($String, var$3, $$concat(var$4, $(ntfyObj->getMessage())));
-					$var($String, var$2, $$concat(var$3, " Severity = "_s));
-					writeToLog(logfile, $$concat(var$2, $cast($String, $(ntfyDesc->getFieldValue("severity"_s)))));
+					$var($StringBuilder, var$2, $new($StringBuilder));
+					var$2->append("LogMsg: "_s);
+					var$2->append($(($$new($Date, ntfyObj->getTimeStamp()))->toString()));
+					var$2->append(" "_s);
+					var$2->append($(ntfyObj->getType()));
+					var$2->append(" "_s);
+					var$2->append($(ntfyObj->getMessage()));
+					var$2->append(" Severity = "_s);
+					var$2->append($$cast($String, ntfyDesc->getFieldValue("severity"_s)));
+					writeToLog(logfile, $$str(var$2));
 				} catch ($Exception& e) {
-					if ($nc($JmxProperties::MODELMBEAN_LOGGER)->isLoggable($System$Logger$Level::DEBUG)) {
-						$nc($JmxProperties::MODELMBEAN_LOGGER)->log($System$Logger$Level::DEBUG, $$str({"Failed to log "_s, $($nc(ntfyObj)->getType()), " notification: "_s}), static_cast<$Throwable*>(e));
+					if ($JmxProperties::MODELMBEAN_LOGGER->isLoggable($System$Logger$Level::DEBUG)) {
+						$JmxProperties::MODELMBEAN_LOGGER->log($System$Logger$Level::DEBUG, $$str({"Failed to log "_s, $(ntfyObj->getType()), " notification: "_s}), e);
 					}
 				}
 			}
 		}
 	}
 	if (this->generalBroadcaster != nullptr) {
-		$nc(this->generalBroadcaster)->sendNotification(ntfyObj);
+		this->generalBroadcaster->sendNotification(ntfyObj);
 	}
-	if ($nc($JmxProperties::MODELMBEAN_LOGGER)->isLoggable($System$Logger$Level::TRACE)) {
-		$nc($JmxProperties::MODELMBEAN_LOGGER)->log($System$Logger$Level::TRACE, "sendNotification sent provided notification object"_s);
-		$nc($JmxProperties::MODELMBEAN_LOGGER)->log($System$Logger$Level::TRACE, "Exit"_s);
+	if ($JmxProperties::MODELMBEAN_LOGGER->isLoggable($System$Logger$Level::TRACE)) {
+		$JmxProperties::MODELMBEAN_LOGGER->log($System$Logger$Level::TRACE, "sendNotification sent provided notification object"_s);
+		$JmxProperties::MODELMBEAN_LOGGER->log($System$Logger$Level::TRACE, "Exit"_s);
 	}
 }
 
 void RequiredModelMBean::sendNotification($String* ntfyText) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($JmxProperties);
 	$init($System$Logger$Level);
 	if ($nc($JmxProperties::MODELMBEAN_LOGGER)->isLoggable($System$Logger$Level::TRACE)) {
-		$nc($JmxProperties::MODELMBEAN_LOGGER)->log($System$Logger$Level::TRACE, "Entry"_s);
+		$JmxProperties::MODELMBEAN_LOGGER->log($System$Logger$Level::TRACE, "Entry"_s);
 	}
 	if (ntfyText == nullptr) {
 		$throwNew($RuntimeOperationsException, $$new($IllegalArgumentException, "notification message must not be null"_s), "Exception occurred trying to send a text notification from a ModelMBean"_s);
 	}
-	$var($Notification, myNtfyObj, $new($Notification, "jmx.modelmbean.generic"_s, $of(this), (int64_t)1, ntfyText));
+	$var($Notification, myNtfyObj, $new($Notification, "jmx.modelmbean.generic"_s, this, 1, ntfyText));
 	sendNotification(myNtfyObj);
-	if ($nc($JmxProperties::MODELMBEAN_LOGGER)->isLoggable($System$Logger$Level::TRACE)) {
-		$nc($JmxProperties::MODELMBEAN_LOGGER)->log($System$Logger$Level::TRACE, "Notification sent"_s);
-		$nc($JmxProperties::MODELMBEAN_LOGGER)->log($System$Logger$Level::TRACE, "Exit"_s);
+	if ($JmxProperties::MODELMBEAN_LOGGER->isLoggable($System$Logger$Level::TRACE)) {
+		$JmxProperties::MODELMBEAN_LOGGER->log($System$Logger$Level::TRACE, "Notification sent"_s);
+		$JmxProperties::MODELMBEAN_LOGGER->log($System$Logger$Level::TRACE, "Exit"_s);
 	}
 }
 
@@ -1446,7 +1349,7 @@ bool RequiredModelMBean::hasNotification($ModelMBeanInfo* info, $String* notifNa
 		if (info == nullptr) {
 			return false;
 		} else {
-			return ($nc(info)->getNotification(notifName) != nullptr);
+			return (info->getNotification(notifName) != nullptr);
 		}
 	} catch ($MBeanException& x) {
 		return false;
@@ -1458,7 +1361,7 @@ bool RequiredModelMBean::hasNotification($ModelMBeanInfo* info, $String* notifNa
 
 $ModelMBeanNotificationInfo* RequiredModelMBean::makeGenericInfo() {
 	$init(RequiredModelMBean);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Descriptor, genericDescriptor, $new($DescriptorSupport, $$new($StringArray, {
 		"name=GENERIC"_s,
 		"descriptorType=notification"_s,
@@ -1471,7 +1374,7 @@ $ModelMBeanNotificationInfo* RequiredModelMBean::makeGenericInfo() {
 
 $ModelMBeanNotificationInfo* RequiredModelMBean::makeAttributeChangeInfo() {
 	$init(RequiredModelMBean);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Descriptor, attributeDescriptor, $new($DescriptorSupport, $$new($StringArray, {
 		"name=ATTRIBUTE_CHANGE"_s,
 		"descriptorType=notification"_s,
@@ -1483,16 +1386,16 @@ $ModelMBeanNotificationInfo* RequiredModelMBean::makeAttributeChangeInfo() {
 }
 
 $MBeanNotificationInfoArray* RequiredModelMBean::getNotificationInfo() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($JmxProperties);
 	$init($System$Logger$Level);
 	if ($nc($JmxProperties::MODELMBEAN_LOGGER)->isLoggable($System$Logger$Level::TRACE)) {
-		$nc($JmxProperties::MODELMBEAN_LOGGER)->log($System$Logger$Level::TRACE, "Entry"_s);
+		$JmxProperties::MODELMBEAN_LOGGER->log($System$Logger$Level::TRACE, "Entry"_s);
 	}
 	bool hasGeneric = hasNotification(this->modelMBeanInfo, "GENERIC"_s);
 	bool hasAttributeChange = hasNotification(this->modelMBeanInfo, "ATTRIBUTE_CHANGE"_s);
-	$var($ModelMBeanNotificationInfoArray, currInfo, $fcast($ModelMBeanNotificationInfoArray, $nc(this->modelMBeanInfo)->getNotifications()));
-	int32_t len = ((currInfo == nullptr ? 0 : $nc(currInfo)->length) + (hasGeneric ? 0 : 1) + (hasAttributeChange ? 0 : 1));
+	$var($ModelMBeanNotificationInfoArray, currInfo, $cast($ModelMBeanNotificationInfoArray, $nc(this->modelMBeanInfo)->getNotifications()));
+	int32_t len = ((currInfo == nullptr ? 0 : currInfo->length) + (hasGeneric ? 0 : 1) + (hasAttributeChange ? 0 : 1));
 	$var($ModelMBeanNotificationInfoArray, respInfo, $new($ModelMBeanNotificationInfoArray, len));
 	int32_t inserted = 0;
 	if (!hasGeneric) {
@@ -1501,23 +1404,23 @@ $MBeanNotificationInfoArray* RequiredModelMBean::getNotificationInfo() {
 	if (!hasAttributeChange) {
 		respInfo->set(inserted++, $(makeAttributeChangeInfo()));
 	}
-	int32_t count = currInfo->length;
+	int32_t count = $nc(currInfo)->length;
 	int32_t offset = inserted;
 	for (int32_t j = 0; j < count; ++j) {
 		respInfo->set(offset + j, currInfo->get(j));
 	}
-	if ($nc($JmxProperties::MODELMBEAN_LOGGER)->isLoggable($System$Logger$Level::TRACE)) {
-		$nc($JmxProperties::MODELMBEAN_LOGGER)->log($System$Logger$Level::TRACE, "Exit"_s);
+	if ($JmxProperties::MODELMBEAN_LOGGER->isLoggable($System$Logger$Level::TRACE)) {
+		$JmxProperties::MODELMBEAN_LOGGER->log($System$Logger$Level::TRACE, "Exit"_s);
 	}
-	return $fcast($MBeanNotificationInfoArray, respInfo);
+	return $cast($MBeanNotificationInfoArray, respInfo);
 }
 
 void RequiredModelMBean::addAttributeChangeNotificationListener($NotificationListener* inlistener, $String* inAttributeName, Object$* inhandback) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($JmxProperties);
 	$init($System$Logger$Level);
 	if ($nc($JmxProperties::MODELMBEAN_LOGGER)->isLoggable($System$Logger$Level::TRACE)) {
-		$nc($JmxProperties::MODELMBEAN_LOGGER)->log($System$Logger$Level::TRACE, "Entry"_s);
+		$JmxProperties::MODELMBEAN_LOGGER->log($System$Logger$Level::TRACE, "Entry"_s);
 	}
 	if (inlistener == nullptr) {
 		$throwNew($IllegalArgumentException, "Listener to be registered must not be null"_s);
@@ -1537,7 +1440,7 @@ void RequiredModelMBean::addAttributeChangeNotificationListener($NotificationLis
 	} else {
 		if ((attrInfo != nullptr) && (attrInfo->length > 0)) {
 			for (int32_t i = 0; i < attrInfo->length; ++i) {
-				if ($nc(inAttributeName)->equals($($nc(attrInfo->get(i))->getName()))) {
+				if (inAttributeName->equals($($nc(attrInfo->get(i))->getName()))) {
 					found = true;
 					currFilter->enableAttribute(inAttributeName);
 					break;
@@ -1548,27 +1451,27 @@ void RequiredModelMBean::addAttributeChangeNotificationListener($NotificationLis
 			$throwNew($RuntimeOperationsException, $$new($IllegalArgumentException, "The attribute name does not exist"_s), "Exception occurred trying to add an AttributeChangeNotification listener"_s);
 		}
 	}
-	if ($nc($JmxProperties::MODELMBEAN_LOGGER)->isLoggable($System$Logger$Level::TRACE)) {
+	if ($JmxProperties::MODELMBEAN_LOGGER->isLoggable($System$Logger$Level::TRACE)) {
 		$var($Vector, enabledAttrs, currFilter->getEnabledAttributes());
-		$var($String, s, ($nc(enabledAttrs)->size() > 1) ? $str({"["_s, $cast($String, $($nc(enabledAttrs)->firstElement())), ", ...]"_s}) : enabledAttrs->toString());
-		$nc($JmxProperties::MODELMBEAN_LOGGER)->log($System$Logger$Level::TRACE, $$str({"Set attribute change filter to "_s, s}));
+		$var($String, s, ($nc(enabledAttrs)->size() > 1) ? $str({"["_s, $$cast($String, enabledAttrs->firstElement()), ", ...]"_s}) : enabledAttrs->toString());
+		$JmxProperties::MODELMBEAN_LOGGER->log($System$Logger$Level::TRACE, $$str({"Set attribute change filter to "_s, s}));
 	}
 	$nc(this->attributeBroadcaster)->addNotificationListener(inlistener, currFilter, inhandback);
-	if ($nc($JmxProperties::MODELMBEAN_LOGGER)->isLoggable($System$Logger$Level::TRACE)) {
-		$nc($JmxProperties::MODELMBEAN_LOGGER)->log($System$Logger$Level::TRACE, $$str({"Notification listener added for "_s, inAttributeName}));
-		$nc($JmxProperties::MODELMBEAN_LOGGER)->log($System$Logger$Level::TRACE, "Exit"_s);
+	if ($JmxProperties::MODELMBEAN_LOGGER->isLoggable($System$Logger$Level::TRACE)) {
+		$JmxProperties::MODELMBEAN_LOGGER->log($System$Logger$Level::TRACE, $$str({"Notification listener added for "_s, inAttributeName}));
+		$JmxProperties::MODELMBEAN_LOGGER->log($System$Logger$Level::TRACE, "Exit"_s);
 	}
 }
 
 void RequiredModelMBean::removeAttributeChangeNotificationListener($NotificationListener* inlistener, $String* inAttributeName) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (inlistener == nullptr) {
 		$throwNew($ListenerNotFoundException, "Notification listener is null"_s);
 	}
 	$init($JmxProperties);
 	$init($System$Logger$Level);
 	if ($nc($JmxProperties::MODELMBEAN_LOGGER)->isLoggable($System$Logger$Level::TRACE)) {
-		$nc($JmxProperties::MODELMBEAN_LOGGER)->log($System$Logger$Level::TRACE, $(RequiredModelMBean::class$->getName()), $$new($ObjectArray, {$of("Entry"_s)}));
+		$JmxProperties::MODELMBEAN_LOGGER->log($System$Logger$Level::TRACE, $(RequiredModelMBean::class$->getName()), $$new($ObjectArray, {"Entry"_s}));
 	}
 	if (this->attributeBroadcaster == nullptr) {
 		$throwNew($ListenerNotFoundException, "No attribute change notification listeners registered"_s);
@@ -1577,7 +1480,7 @@ void RequiredModelMBean::removeAttributeChangeNotificationListener($Notification
 	bool found = false;
 	if ((attrInfo != nullptr) && (attrInfo->length > 0)) {
 		for (int32_t i = 0; i < attrInfo->length; ++i) {
-			if ($nc($($nc(attrInfo->get(i))->getName()))->equals(inAttributeName)) {
+			if ($$nc($nc(attrInfo->get(i))->getName())->equals(inAttributeName)) {
 				found = true;
 				break;
 			}
@@ -1587,17 +1490,17 @@ void RequiredModelMBean::removeAttributeChangeNotificationListener($Notification
 		$throwNew($RuntimeOperationsException, $$new($IllegalArgumentException, "Invalid attribute name"_s), "Exception occurred trying to remove attribute change notification listener"_s);
 	}
 	$nc(this->attributeBroadcaster)->removeNotificationListener(inlistener);
-	if ($nc($JmxProperties::MODELMBEAN_LOGGER)->isLoggable($System$Logger$Level::TRACE)) {
-		$nc($JmxProperties::MODELMBEAN_LOGGER)->log($System$Logger$Level::TRACE, "Exit"_s);
+	if ($JmxProperties::MODELMBEAN_LOGGER->isLoggable($System$Logger$Level::TRACE)) {
+		$JmxProperties::MODELMBEAN_LOGGER->log($System$Logger$Level::TRACE, "Exit"_s);
 	}
 }
 
 void RequiredModelMBean::sendAttributeChangeNotification($AttributeChangeNotification* ntfyObj) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($JmxProperties);
 	$init($System$Logger$Level);
 	if ($nc($JmxProperties::MODELMBEAN_LOGGER)->isLoggable($System$Logger$Level::TRACE)) {
-		$nc($JmxProperties::MODELMBEAN_LOGGER)->log($System$Logger$Level::TRACE, "Entry"_s);
+		$JmxProperties::MODELMBEAN_LOGGER->log($System$Logger$Level::TRACE, "Entry"_s);
 	}
 	if (ntfyObj == nullptr) {
 		$throwNew($RuntimeOperationsException, $$new($IllegalArgumentException, "attribute change notification object must not be null"_s), "Exception occurred trying to send attribute change notification of a ModelMBean"_s);
@@ -1610,11 +1513,14 @@ void RequiredModelMBean::sendAttributeChangeNotification($AttributeChangeNotific
 	if (newv == nullptr) {
 		$assign(newv, "null"_s);
 	}
-	if ($nc($JmxProperties::MODELMBEAN_LOGGER)->isLoggable($System$Logger$Level::TRACE)) {
-		$var($String, var$2, $$str({"Sending AttributeChangeNotification with "_s, $(ntfyObj->getAttributeName())}));
-		$var($String, var$1, $$concat(var$2, $(ntfyObj->getAttributeType())));
-		$var($String, var$0, $$concat(var$1, $(ntfyObj->getNewValue())));
-		$nc($JmxProperties::MODELMBEAN_LOGGER)->log($System$Logger$Level::TRACE, $$concat(var$0, $(ntfyObj->getOldValue())));
+	if ($JmxProperties::MODELMBEAN_LOGGER->isLoggable($System$Logger$Level::TRACE)) {
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append("Sending AttributeChangeNotification with "_s);
+		var$0->append($(ntfyObj->getAttributeName()));
+		var$0->append($(ntfyObj->getAttributeType()));
+		var$0->append($(ntfyObj->getNewValue()));
+		var$0->append($(ntfyObj->getOldValue()));
+		$JmxProperties::MODELMBEAN_LOGGER->log($System$Logger$Level::TRACE, $$str(var$0));
 	}
 	$var($Descriptor, ntfyDesc, $nc(this->modelMBeanInfo)->getDescriptor($(ntfyObj->getType()), "notification"_s));
 	$var($Descriptor, mmbDesc, $nc(this->modelMBeanInfo)->getMBeanDescriptor());
@@ -1627,12 +1533,12 @@ void RequiredModelMBean::sendAttributeChangeNotification($AttributeChangeNotific
 				$assign(logging, $cast($String, mmbDesc->getFieldValue("log"_s)));
 			}
 		}
-		bool var$3 = (logging != nullptr);
-		if (var$3) {
-			bool var$4 = logging->equalsIgnoreCase("t"_s);
-			var$3 = (var$4 || logging->equalsIgnoreCase("true"_s));
+		bool var$1 = logging != nullptr;
+		if (var$1) {
+			bool var$2 = logging->equalsIgnoreCase("t"_s);
+			var$1 = var$2 || logging->equalsIgnoreCase("true"_s);
 		}
-		if (var$3) {
+		if (var$1) {
 			$assign(logfile, $cast($String, ntfyDesc->getFieldValue("logfile"_s)));
 			if (logfile == nullptr) {
 				if (mmbDesc != nullptr) {
@@ -1641,95 +1547,102 @@ void RequiredModelMBean::sendAttributeChangeNotification($AttributeChangeNotific
 			}
 			if (logfile != nullptr) {
 				try {
-					$var($String, var$13, $$str({"LogMsg: "_s, ($(($$new($Date, ntfyObj->getTimeStamp()))->toString())), " "_s}));
-					$var($String, var$12, $$concat(var$13, $(ntfyObj->getType())));
-					$var($String, var$11, $$concat(var$12, " "_s));
-					$var($String, var$10, $$concat(var$11, $(ntfyObj->getMessage())));
-					$var($String, var$9, $$concat(var$10, " Name = "_s));
-					$var($String, var$8, $$concat(var$9, $(ntfyObj->getAttributeName())));
-					$var($String, var$7, $$concat(var$8, " Old value = "_s));
-					$var($String, var$6, $$concat(var$7, $(oldv)));
-					$var($String, var$5, $$concat(var$6, " New value = "_s));
-					writeToLog(logfile, $$concat(var$5, $(newv)));
+					$var($StringBuilder, var$3, $new($StringBuilder));
+					var$3->append("LogMsg: "_s);
+					var$3->append($(($$new($Date, ntfyObj->getTimeStamp()))->toString()));
+					var$3->append(" "_s);
+					var$3->append($(ntfyObj->getType()));
+					var$3->append(" "_s);
+					var$3->append($(ntfyObj->getMessage()));
+					var$3->append(" Name = "_s);
+					var$3->append($(ntfyObj->getAttributeName()));
+					var$3->append(" Old value = "_s);
+					var$3->append(oldv);
+					var$3->append(" New value = "_s);
+					var$3->append(newv);
+					writeToLog(logfile, $$str(var$3));
 				} catch ($Exception& e) {
-					if ($nc($JmxProperties::MODELMBEAN_LOGGER)->isLoggable($System$Logger$Level::DEBUG)) {
-						$nc($JmxProperties::MODELMBEAN_LOGGER)->log($System$Logger$Level::DEBUG, $$str({"Failed to log "_s, $(ntfyObj->getType()), " notification: "_s}), static_cast<$Throwable*>(e));
+					if ($JmxProperties::MODELMBEAN_LOGGER->isLoggable($System$Logger$Level::DEBUG)) {
+						$JmxProperties::MODELMBEAN_LOGGER->log($System$Logger$Level::DEBUG, $$str({"Failed to log "_s, $(ntfyObj->getType()), " notification: "_s}), e);
 					}
 				}
 			}
 		}
 	} else if (mmbDesc != nullptr) {
 		$assign(logging, $cast($String, mmbDesc->getFieldValue("log"_s)));
-		bool var$14 = (logging != nullptr);
-		if (var$14) {
-			bool var$15 = logging->equalsIgnoreCase("t"_s);
-			var$14 = (var$15 || logging->equalsIgnoreCase("true"_s));
+		bool var$4 = logging != nullptr;
+		if (var$4) {
+			bool var$5 = logging->equalsIgnoreCase("t"_s);
+			var$4 = var$5 || logging->equalsIgnoreCase("true"_s);
 		}
-		if (var$14) {
+		if (var$4) {
 			$assign(logfile, $cast($String, mmbDesc->getFieldValue("logfile"_s)));
 			if (logfile != nullptr) {
 				try {
-					$var($String, var$24, $$str({"LogMsg: "_s, ($(($$new($Date, ntfyObj->getTimeStamp()))->toString())), " "_s}));
-					$var($String, var$23, $$concat(var$24, $(ntfyObj->getType())));
-					$var($String, var$22, $$concat(var$23, " "_s));
-					$var($String, var$21, $$concat(var$22, $(ntfyObj->getMessage())));
-					$var($String, var$20, $$concat(var$21, " Name = "_s));
-					$var($String, var$19, $$concat(var$20, $(ntfyObj->getAttributeName())));
-					$var($String, var$18, $$concat(var$19, " Old value = "_s));
-					$var($String, var$17, $$concat(var$18, $(oldv)));
-					$var($String, var$16, $$concat(var$17, " New value = "_s));
-					writeToLog(logfile, $$concat(var$16, $(newv)));
+					$var($StringBuilder, var$6, $new($StringBuilder));
+					var$6->append("LogMsg: "_s);
+					var$6->append($(($$new($Date, ntfyObj->getTimeStamp()))->toString()));
+					var$6->append(" "_s);
+					var$6->append($(ntfyObj->getType()));
+					var$6->append(" "_s);
+					var$6->append($(ntfyObj->getMessage()));
+					var$6->append(" Name = "_s);
+					var$6->append($(ntfyObj->getAttributeName()));
+					var$6->append(" Old value = "_s);
+					var$6->append(oldv);
+					var$6->append(" New value = "_s);
+					var$6->append(newv);
+					writeToLog(logfile, $$str(var$6));
 				} catch ($Exception& e) {
-					if ($nc($JmxProperties::MODELMBEAN_LOGGER)->isLoggable($System$Logger$Level::DEBUG)) {
-						$nc($JmxProperties::MODELMBEAN_LOGGER)->log($System$Logger$Level::DEBUG, $$str({"Failed to log "_s, $(ntfyObj->getType()), " notification: "_s}), static_cast<$Throwable*>(e));
+					if ($JmxProperties::MODELMBEAN_LOGGER->isLoggable($System$Logger$Level::DEBUG)) {
+						$JmxProperties::MODELMBEAN_LOGGER->log($System$Logger$Level::DEBUG, $$str({"Failed to log "_s, $(ntfyObj->getType()), " notification: "_s}), e);
 					}
 				}
 			}
 		}
 	}
 	if (this->attributeBroadcaster != nullptr) {
-		$nc(this->attributeBroadcaster)->sendNotification(ntfyObj);
+		this->attributeBroadcaster->sendNotification(ntfyObj);
 	}
 	if (this->generalBroadcaster != nullptr) {
-		$nc(this->generalBroadcaster)->sendNotification(ntfyObj);
+		this->generalBroadcaster->sendNotification(ntfyObj);
 	}
-	if ($nc($JmxProperties::MODELMBEAN_LOGGER)->isLoggable($System$Logger$Level::TRACE)) {
-		$nc($JmxProperties::MODELMBEAN_LOGGER)->log($System$Logger$Level::TRACE, "sent notification"_s);
-		$nc($JmxProperties::MODELMBEAN_LOGGER)->log($System$Logger$Level::TRACE, "Exit"_s);
+	if ($JmxProperties::MODELMBEAN_LOGGER->isLoggable($System$Logger$Level::TRACE)) {
+		$JmxProperties::MODELMBEAN_LOGGER->log($System$Logger$Level::TRACE, "sent notification"_s);
+		$JmxProperties::MODELMBEAN_LOGGER->log($System$Logger$Level::TRACE, "Exit"_s);
 	}
 }
 
 void RequiredModelMBean::sendAttributeChangeNotification($Attribute* inOldVal, $Attribute* inNewVal) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($JmxProperties);
 	$init($System$Logger$Level);
 	if ($nc($JmxProperties::MODELMBEAN_LOGGER)->isLoggable($System$Logger$Level::TRACE)) {
-		$nc($JmxProperties::MODELMBEAN_LOGGER)->log($System$Logger$Level::TRACE, "Entry"_s);
+		$JmxProperties::MODELMBEAN_LOGGER->log($System$Logger$Level::TRACE, "Entry"_s);
 	}
 	if ((inOldVal == nullptr) || (inNewVal == nullptr)) {
 		$throwNew($RuntimeOperationsException, $$new($IllegalArgumentException, "Attribute object must not be null"_s), "Exception occurred trying to send attribute change notification of a ModelMBean"_s);
 	}
-	if (!($nc($($nc(inOldVal)->getName()))->equals($($nc(inNewVal)->getName())))) {
+	if (!($$nc($nc(inOldVal)->getName())->equals($($nc(inNewVal)->getName())))) {
 		$throwNew($RuntimeOperationsException, $$new($IllegalArgumentException, "Attribute names are not the same"_s), "Exception occurred trying to send attribute change notification of a ModelMBean"_s);
 	}
-	$var($Object, newVal, $nc(inNewVal)->getValue());
-	$var($Object, oldVal, $nc(inOldVal)->getValue());
+	$var($Object, newVal, inNewVal->getValue());
+	$var($Object, oldVal, inOldVal->getValue());
 	$var($String, className, "unknown"_s);
 	if (newVal != nullptr) {
-		$assign(className, $of(newVal)->getClass()->getName());
+		$assign(className, newVal->getClass()->getName());
 	}
 	if (oldVal != nullptr) {
-		$assign(className, $of(oldVal)->getClass()->getName());
+		$assign(className, oldVal->getClass()->getName());
 	}
-	int64_t var$0 = (($$new($Date))->getTime());
+	int64_t var$0 = ($$new($Date))->getTime();
 	$var($String, var$1, "AttributeChangeDetected"_s);
 	$var($String, var$2, inOldVal->getName());
-	$var($String, var$3, className);
-	$var($Object, var$4, inOldVal->getValue());
-	$var($AttributeChangeNotification, myNtfyObj, $new($AttributeChangeNotification, this, 1, var$0, var$1, var$2, var$3, var$4, $(inNewVal->getValue())));
+	$var($Object, var$3, inOldVal->getValue());
+	$var($AttributeChangeNotification, myNtfyObj, $new($AttributeChangeNotification, this, 1, var$0, var$1, var$2, className, var$3, $(inNewVal->getValue())));
 	sendAttributeChangeNotification(myNtfyObj);
-	if ($nc($JmxProperties::MODELMBEAN_LOGGER)->isLoggable($System$Logger$Level::TRACE)) {
-		$nc($JmxProperties::MODELMBEAN_LOGGER)->log($System$Logger$Level::TRACE, "Exit"_s);
+	if ($JmxProperties::MODELMBEAN_LOGGER->isLoggable($System$Logger$Level::TRACE)) {
+		$JmxProperties::MODELMBEAN_LOGGER->log($System$Logger$Level::TRACE, "Exit"_s);
 	}
 }
 
@@ -1738,7 +1651,7 @@ $ClassLoaderRepository* RequiredModelMBean::getClassLoaderRepository() {
 }
 
 $Class* RequiredModelMBean::loadClass($String* className) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AccessControlContext, stack, $AccessController::getContext());
 	$var($ClassNotFoundExceptionArray, caughtException, $new($ClassNotFoundExceptionArray, 1));
 	$Class* c = $cast($Class, $nc(RequiredModelMBean::javaSecurityAccess)->doIntersectionPrivilege($$new($RequiredModelMBean$6, this, className, caughtException), stack, this->acc));
@@ -1768,17 +1681,9 @@ void RequiredModelMBean::postDeregister() {
 	$set(this, server, nullptr);
 }
 
-void clinit$RequiredModelMBean($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void RequiredModelMBean::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(RequiredModelMBean::javaSecurityAccess, $SharedSecrets::getJavaSecurityAccess());
-	$init($Integer);
-	$init($Long);
-	$init($Boolean);
-	$init($Double);
-	$init($Float);
-	$init($Short);
-	$init($Byte);
-	$init($Character);
 	$assignStatic(RequiredModelMBean::primitiveClasses, $new($ClassArray, {
 		$Integer::TYPE,
 		$Long::TYPE,
@@ -1791,13 +1696,12 @@ void clinit$RequiredModelMBean($Class* class$) {
 	}));
 	$assignStatic(RequiredModelMBean::primitiveClassMap, $new($HashMap));
 	{
-		for (int32_t i = 0; i < $nc(RequiredModelMBean::primitiveClasses)->length; ++i) {
-			$Class* c = $nc(RequiredModelMBean::primitiveClasses)->get(i);
-			$nc(RequiredModelMBean::primitiveClassMap)->put($($nc(c)->getName()), c);
+		for (int32_t i = 0; i < RequiredModelMBean::primitiveClasses->length; ++i) {
+			$Class* c = RequiredModelMBean::primitiveClasses->get(i);
+			RequiredModelMBean::primitiveClassMap->put($($nc(c)->getName()), c);
 		}
 	}
 	{
-		$init($Void);
 		$assignStatic(RequiredModelMBean::primitiveTypes, $new($StringArray, {
 			$($nc($Boolean::TYPE)->getName()),
 			$($nc($Byte::TYPE)->getName()),
@@ -1828,11 +1732,100 @@ RequiredModelMBean::RequiredModelMBean() {
 
 $Class* RequiredModelMBean::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(RequiredModelMBean$$Lambda$toString::classInfo$.name)) {
+		if (name->equals("javax.management.modelmbean.RequiredModelMBean$$Lambda$toString")) {
 			return RequiredModelMBean$$Lambda$toString::load$(name, initialize);
 		}
 	}
-	$loadClass(RequiredModelMBean, name, initialize, &_RequiredModelMBean_ClassInfo_, clinit$RequiredModelMBean, allocate$RequiredModelMBean);
+	$FieldInfo fieldInfos$$[] = {
+		{"modelMBeanInfo", "Ljavax/management/modelmbean/ModelMBeanInfo;", nullptr, 0, $field(RequiredModelMBean, modelMBeanInfo)},
+		{"generalBroadcaster", "Ljavax/management/NotificationBroadcasterSupport;", nullptr, $PRIVATE, $field(RequiredModelMBean, generalBroadcaster)},
+		{"attributeBroadcaster", "Ljavax/management/NotificationBroadcasterSupport;", nullptr, $PRIVATE, $field(RequiredModelMBean, attributeBroadcaster)},
+		{"managedResource", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(RequiredModelMBean, managedResource)},
+		{"registered", "Z", nullptr, $PRIVATE, $field(RequiredModelMBean, registered)},
+		{"server", "Ljavax/management/MBeanServer;", nullptr, $PRIVATE | $TRANSIENT, $field(RequiredModelMBean, server)},
+		{"javaSecurityAccess", "Ljdk/internal/access/JavaSecurityAccess;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(RequiredModelMBean, javaSecurityAccess)},
+		{"acc", "Ljava/security/AccessControlContext;", nullptr, $PRIVATE | $FINAL, $field(RequiredModelMBean, acc)},
+		{"primitiveClasses", "[Ljava/lang/Class;", "[Ljava/lang/Class<*>;", $PRIVATE | $STATIC | $FINAL, $staticField(RequiredModelMBean, primitiveClasses)},
+		{"primitiveClassMap", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/Class<*>;>;", $PRIVATE | $STATIC | $FINAL, $staticField(RequiredModelMBean, primitiveClassMap)},
+		{"rmmbMethodNames", "Ljava/util/Set;", "Ljava/util/Set<Ljava/lang/String;>;", $PRIVATE | $STATIC, $staticField(RequiredModelMBean, rmmbMethodNames)},
+		{"primitiveTypes", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(RequiredModelMBean, primitiveTypes)},
+		{"primitiveWrappers", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(RequiredModelMBean, primitiveWrappers)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(RequiredModelMBean, init$, void), "javax.management.MBeanException,javax.management.RuntimeOperationsException"},
+		{"<init>", "(Ljavax/management/modelmbean/ModelMBeanInfo;)V", nullptr, $PUBLIC, $method(RequiredModelMBean, init$, void, $ModelMBeanInfo*), "javax.management.MBeanException,javax.management.RuntimeOperationsException"},
+		{"addAttributeChangeNotificationListener", "(Ljavax/management/NotificationListener;Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(RequiredModelMBean, addAttributeChangeNotificationListener, void, $NotificationListener*, $String*, Object$*), "javax.management.MBeanException,javax.management.RuntimeOperationsException,java.lang.IllegalArgumentException"},
+		{"addNotificationListener", "(Ljavax/management/NotificationListener;Ljavax/management/NotificationFilter;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(RequiredModelMBean, addNotificationListener, void, $NotificationListener*, $NotificationFilter*, Object$*), "java.lang.IllegalArgumentException"},
+		{"cacheResult", "(Ljavax/management/modelmbean/ModelMBeanOperationInfo;Ljavax/management/Descriptor;Ljava/lang/Object;)V", nullptr, $PRIVATE, $method(RequiredModelMBean, cacheResult, void, $ModelMBeanOperationInfo*, $Descriptor*, Object$*), "javax.management.MBeanException"},
+		{"createDefaultModelMBeanInfo", "()Ljavax/management/modelmbean/ModelMBeanInfo;", nullptr, $PRIVATE, $method(RequiredModelMBean, createDefaultModelMBeanInfo, $ModelMBeanInfo*)},
+		{"findRMMBMethod", "(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/String;[Ljava/lang/String;)Ljava/lang/reflect/Method;", nullptr, $PRIVATE, $method(RequiredModelMBean, findRMMBMethod, $Method*, $String*, Object$*, $String*, $StringArray*)},
+		{"getAttribute", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(RequiredModelMBean, getAttribute, $Object*, $String*), "javax.management.AttributeNotFoundException,javax.management.MBeanException,javax.management.ReflectionException"},
+		{"getAttributes", "([Ljava/lang/String;)Ljavax/management/AttributeList;", nullptr, $PUBLIC, $virtualMethod(RequiredModelMBean, getAttributes, $AttributeList*, $StringArray*)},
+		{"getClassLoaderRepository", "()Ljavax/management/loading/ClassLoaderRepository;", nullptr, $PROTECTED, $virtualMethod(RequiredModelMBean, getClassLoaderRepository, $ClassLoaderRepository*)},
+		{"getMBeanInfo", "()Ljavax/management/MBeanInfo;", nullptr, $PUBLIC, $virtualMethod(RequiredModelMBean, getMBeanInfo, $MBeanInfo*)},
+		{"getNotificationInfo", "()[Ljavax/management/MBeanNotificationInfo;", nullptr, $PUBLIC, $virtualMethod(RequiredModelMBean, getNotificationInfo, $MBeanNotificationInfoArray*)},
+		{"hasNotification", "(Ljavax/management/modelmbean/ModelMBeanInfo;Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(RequiredModelMBean, hasNotification, bool, $ModelMBeanInfo*, $String*)},
+		{"invoke", "(Ljava/lang/String;[Ljava/lang/Object;[Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(RequiredModelMBean, invoke, $Object*, $String*, $ObjectArray*, $StringArray*), "javax.management.MBeanException,javax.management.ReflectionException"},
+		{"invokeMethod", "(Ljava/lang/String;Ljava/lang/reflect/Method;Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PRIVATE, $method(RequiredModelMBean, invokeMethod, $Object*, $String*, $Method*, Object$*, $ObjectArray*), "javax.management.MBeanException,javax.management.ReflectionException"},
+		{"isRMMBMethodName", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $SYNCHRONIZED, $staticMethod(RequiredModelMBean, isRMMBMethodName, bool, $String*)},
+		{"load", "()V", nullptr, $PUBLIC, $virtualMethod(RequiredModelMBean, load, void), "javax.management.MBeanException,javax.management.RuntimeOperationsException,javax.management.InstanceNotFoundException"},
+		{"loadClass", "(Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/String;)Ljava/lang/Class<*>;", $PRIVATE, $method(RequiredModelMBean, loadClass, $Class*, $String*), "java.lang.ClassNotFoundException"},
+		{"makeAttributeChangeInfo", "()Ljavax/management/modelmbean/ModelMBeanNotificationInfo;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(RequiredModelMBean, makeAttributeChangeInfo, $ModelMBeanNotificationInfo*)},
+		{"makeGenericInfo", "()Ljavax/management/modelmbean/ModelMBeanNotificationInfo;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(RequiredModelMBean, makeGenericInfo, $ModelMBeanNotificationInfo*)},
+		{"postDeregister", "()V", nullptr, $PUBLIC, $virtualMethod(RequiredModelMBean, postDeregister, void)},
+		{"postRegister", "(Ljava/lang/Boolean;)V", nullptr, $PUBLIC, $virtualMethod(RequiredModelMBean, postRegister, void, $Boolean*)},
+		{"preDeregister", "()V", nullptr, $PUBLIC, $virtualMethod(RequiredModelMBean, preDeregister, void), "java.lang.Exception"},
+		{"preRegister", "(Ljavax/management/MBeanServer;Ljavax/management/ObjectName;)Ljavax/management/ObjectName;", nullptr, $PUBLIC, $virtualMethod(RequiredModelMBean, preRegister, $ObjectName*, $MBeanServer*, $ObjectName*), "java.lang.Exception"},
+		{"printModelMBeanInfo", "(Ljavax/management/modelmbean/ModelMBeanInfo;)Ljava/lang/String;", nullptr, $PRIVATE, $method(RequiredModelMBean, printModelMBeanInfo, $String*, $ModelMBeanInfo*)},
+		{"removeAttributeChangeNotificationListener", "(Ljavax/management/NotificationListener;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(RequiredModelMBean, removeAttributeChangeNotificationListener, void, $NotificationListener*, $String*), "javax.management.MBeanException,javax.management.RuntimeOperationsException,javax.management.ListenerNotFoundException"},
+		{"removeNotificationListener", "(Ljavax/management/NotificationListener;)V", nullptr, $PUBLIC, $virtualMethod(RequiredModelMBean, removeNotificationListener, void, $NotificationListener*), "javax.management.ListenerNotFoundException"},
+		{"removeNotificationListener", "(Ljavax/management/NotificationListener;Ljavax/management/NotificationFilter;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(RequiredModelMBean, removeNotificationListener, void, $NotificationListener*, $NotificationFilter*, Object$*), "javax.management.ListenerNotFoundException"},
+		{"resolveForCacheValue", "(Ljavax/management/Descriptor;)Ljava/lang/Object;", nullptr, $PRIVATE, $method(RequiredModelMBean, resolveForCacheValue, $Object*, $Descriptor*), "javax.management.MBeanException,javax.management.RuntimeOperationsException"},
+		{"resolveMethod", "(Ljava/lang/Class;Ljava/lang/String;[Ljava/lang/String;)Ljava/lang/reflect/Method;", "(Ljava/lang/Class<*>;Ljava/lang/String;[Ljava/lang/String;)Ljava/lang/reflect/Method;", $PRIVATE, $method(RequiredModelMBean, resolveMethod, $Method*, $Class*, $String*, $StringArray*), "javax.management.ReflectionException"},
+		{"sendAttributeChangeNotification", "(Ljavax/management/AttributeChangeNotification;)V", nullptr, $PUBLIC, $virtualMethod(RequiredModelMBean, sendAttributeChangeNotification, void, $AttributeChangeNotification*), "javax.management.MBeanException,javax.management.RuntimeOperationsException"},
+		{"sendAttributeChangeNotification", "(Ljavax/management/Attribute;Ljavax/management/Attribute;)V", nullptr, $PUBLIC, $virtualMethod(RequiredModelMBean, sendAttributeChangeNotification, void, $Attribute*, $Attribute*), "javax.management.MBeanException,javax.management.RuntimeOperationsException"},
+		{"sendNotification", "(Ljavax/management/Notification;)V", nullptr, $PUBLIC, $virtualMethod(RequiredModelMBean, sendNotification, void, $Notification*), "javax.management.MBeanException,javax.management.RuntimeOperationsException"},
+		{"sendNotification", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(RequiredModelMBean, sendNotification, void, $String*), "javax.management.MBeanException,javax.management.RuntimeOperationsException"},
+		{"setAttribute", "(Ljavax/management/Attribute;)V", nullptr, $PUBLIC, $virtualMethod(RequiredModelMBean, setAttribute, void, $Attribute*), "javax.management.AttributeNotFoundException,javax.management.InvalidAttributeValueException,javax.management.MBeanException,javax.management.ReflectionException"},
+		{"setAttributes", "(Ljavax/management/AttributeList;)Ljavax/management/AttributeList;", nullptr, $PUBLIC, $virtualMethod(RequiredModelMBean, setAttributes, $AttributeList*, $AttributeList*)},
+		{"setManagedResource", "(Ljava/lang/Object;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(RequiredModelMBean, setManagedResource, void, Object$*, $String*), "javax.management.MBeanException,javax.management.RuntimeOperationsException,javax.management.InstanceNotFoundException,javax.management.modelmbean.InvalidTargetObjectTypeException"},
+		{"setModelMBeanInfo", "(Ljavax/management/modelmbean/ModelMBeanInfo;)V", nullptr, $PUBLIC, $virtualMethod(RequiredModelMBean, setModelMBeanInfo, void, $ModelMBeanInfo*), "javax.management.MBeanException,javax.management.RuntimeOperationsException"},
+		{"store", "()V", nullptr, $PUBLIC, $virtualMethod(RequiredModelMBean, store, void), "javax.management.MBeanException,javax.management.RuntimeOperationsException,javax.management.InstanceNotFoundException"},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"writeToLog", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(RequiredModelMBean, writeToLog, void, $String*, $String*), "java.lang.Exception"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.management.modelmbean.RequiredModelMBean$6", nullptr, nullptr, 0},
+		{"javax.management.modelmbean.RequiredModelMBean$5", nullptr, nullptr, 0},
+		{"javax.management.modelmbean.RequiredModelMBean$4", nullptr, nullptr, 0},
+		{"javax.management.modelmbean.RequiredModelMBean$3", nullptr, nullptr, 0},
+		{"javax.management.modelmbean.RequiredModelMBean$2", nullptr, nullptr, 0},
+		{"javax.management.modelmbean.RequiredModelMBean$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.management.modelmbean.RequiredModelMBean",
+		"java.lang.Object",
+		"javax.management.modelmbean.ModelMBean,javax.management.MBeanRegistration,javax.management.NotificationEmitter",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.management.modelmbean.RequiredModelMBean$6,javax.management.modelmbean.RequiredModelMBean$5,javax.management.modelmbean.RequiredModelMBean$4,javax.management.modelmbean.RequiredModelMBean$3,javax.management.modelmbean.RequiredModelMBean$2,javax.management.modelmbean.RequiredModelMBean$1"
+	};
+	$loadClass(RequiredModelMBean, name, initialize, &classInfo$$, RequiredModelMBean::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(RequiredModelMBean));
+	});
 	return class$;
 }
 

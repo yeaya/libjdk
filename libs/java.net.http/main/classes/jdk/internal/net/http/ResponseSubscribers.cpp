@@ -1,10 +1,8 @@
 #include <jdk/internal/net/http/ResponseSubscribers.h>
-
 #include <java/io/BufferedReader.h>
 #include <java/io/Closeable.h>
 #include <java/io/InputStream.h>
 #include <java/io/InputStreamReader.h>
-#include <java/io/Reader.h>
 #include <java/io/Serializable.h>
 #include <java/lang/AssertionError.h>
 #include <java/lang/Runnable.h>
@@ -38,10 +36,8 @@
 
 using $CloseableArray = $Array<::java::io::Closeable>;
 using $BufferedReader = ::java::io::BufferedReader;
-using $Closeable = ::java::io::Closeable;
 using $InputStream = ::java::io::InputStream;
 using $InputStreamReader = ::java::io::InputStreamReader;
-using $Reader = ::java::io::Reader;
 using $Serializable = ::java::io::Serializable;
 using $AssertionError = ::java::lang::AssertionError;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -81,35 +77,31 @@ public:
 		$set(this, charset, charset);
 	}
 	virtual $Object* apply(Object$* stream) override {
-		 return $of(ResponseSubscribers::lambda$createLineStream$1(charset, $cast($InputStream, stream)));
-	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<ResponseSubscribers$$Lambda$lambda$createLineStream$1>());
+		 return ResponseSubscribers::lambda$createLineStream$1(charset, $cast($InputStream, stream));
 	}
 	$Charset* charset = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo ResponseSubscribers$$Lambda$lambda$createLineStream$1::fieldInfos[2] = {
-	{"charset", "Ljava/nio/charset/Charset;", nullptr, $PUBLIC, $field(ResponseSubscribers$$Lambda$lambda$createLineStream$1, charset)},
-	{}
-};
-$MethodInfo ResponseSubscribers$$Lambda$lambda$createLineStream$1::methodInfos[3] = {
-	{"<init>", "(Ljava/nio/charset/Charset;)V", nullptr, $PUBLIC, $method(ResponseSubscribers$$Lambda$lambda$createLineStream$1, init$, void, $Charset*)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ResponseSubscribers$$Lambda$lambda$createLineStream$1, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo ResponseSubscribers$$Lambda$lambda$createLineStream$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.net.http.ResponseSubscribers$$Lambda$lambda$createLineStream$1",
-	"java.lang.Object",
-	"java.util.function.Function",
-	fieldInfos,
-	methodInfos
 };
 $Class* ResponseSubscribers$$Lambda$lambda$createLineStream$1::load$($String* name, bool initialize) {
-	$loadClass(ResponseSubscribers$$Lambda$lambda$createLineStream$1, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"charset", "Ljava/nio/charset/Charset;", nullptr, $PUBLIC, $field(ResponseSubscribers$$Lambda$lambda$createLineStream$1, charset)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/nio/charset/Charset;)V", nullptr, $PUBLIC, $method(ResponseSubscribers$$Lambda$lambda$createLineStream$1, init$, void, $Charset*)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ResponseSubscribers$$Lambda$lambda$createLineStream$1, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.net.http.ResponseSubscribers$$Lambda$lambda$createLineStream$1",
+		"java.lang.Object",
+		"java.util.function.Function",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ResponseSubscribers$$Lambda$lambda$createLineStream$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ResponseSubscribers$$Lambda$lambda$createLineStream$1);
+	});
 	return class$;
 }
 $Class* ResponseSubscribers$$Lambda$lambda$createLineStream$1::class$ = nullptr;
@@ -123,33 +115,29 @@ public:
 	virtual void accept(Object$* arg0) override {
 		$nc(inst$)->completeExceptionally($cast($Throwable, arg0));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<ResponseSubscribers$$Lambda$completeExceptionally$1>());
-	}
 	$CompletableFuture* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo ResponseSubscribers$$Lambda$completeExceptionally$1::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(ResponseSubscribers$$Lambda$completeExceptionally$1, inst$)},
-	{}
-};
-$MethodInfo ResponseSubscribers$$Lambda$completeExceptionally$1::methodInfos[3] = {
-	{"<init>", "(Ljava/util/concurrent/CompletableFuture;)V", nullptr, $PUBLIC, $method(ResponseSubscribers$$Lambda$completeExceptionally$1, init$, void, $CompletableFuture*)},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(ResponseSubscribers$$Lambda$completeExceptionally$1, accept, void, Object$*)},
-	{}
-};
-$ClassInfo ResponseSubscribers$$Lambda$completeExceptionally$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.net.http.ResponseSubscribers$$Lambda$completeExceptionally$1",
-	"java.lang.Object",
-	"java.util.function.Consumer",
-	fieldInfos,
-	methodInfos
 };
 $Class* ResponseSubscribers$$Lambda$completeExceptionally$1::load$($String* name, bool initialize) {
-	$loadClass(ResponseSubscribers$$Lambda$completeExceptionally$1, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(ResponseSubscribers$$Lambda$completeExceptionally$1, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/concurrent/CompletableFuture;)V", nullptr, $PUBLIC, $method(ResponseSubscribers$$Lambda$completeExceptionally$1, init$, void, $CompletableFuture*)},
+		{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(ResponseSubscribers$$Lambda$completeExceptionally$1, accept, void, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.net.http.ResponseSubscribers$$Lambda$completeExceptionally$1",
+		"java.lang.Object",
+		"java.util.function.Consumer",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ResponseSubscribers$$Lambda$completeExceptionally$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ResponseSubscribers$$Lambda$completeExceptionally$1);
+	});
 	return class$;
 }
 $Class* ResponseSubscribers$$Lambda$completeExceptionally$1::class$ = nullptr;
@@ -165,37 +153,33 @@ public:
 	virtual void run() override {
 		ResponseSubscribers::lambda$getBodyAsync$3(bs, cf, errorHandler);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<ResponseSubscribers$$Lambda$lambda$getBodyAsync$3$2>());
-	}
 	$HttpResponse$BodySubscriber* bs = nullptr;
 	$CompletableFuture* cf = nullptr;
 	$Consumer* errorHandler = nullptr;
-	static $FieldInfo fieldInfos[4];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo ResponseSubscribers$$Lambda$lambda$getBodyAsync$3$2::fieldInfos[4] = {
-	{"bs", "Ljava/net/http/HttpResponse$BodySubscriber;", nullptr, $PUBLIC, $field(ResponseSubscribers$$Lambda$lambda$getBodyAsync$3$2, bs)},
-	{"cf", "Ljava/util/concurrent/CompletableFuture;", nullptr, $PUBLIC, $field(ResponseSubscribers$$Lambda$lambda$getBodyAsync$3$2, cf)},
-	{"errorHandler", "Ljava/util/function/Consumer;", nullptr, $PUBLIC, $field(ResponseSubscribers$$Lambda$lambda$getBodyAsync$3$2, errorHandler)},
-	{}
-};
-$MethodInfo ResponseSubscribers$$Lambda$lambda$getBodyAsync$3$2::methodInfos[3] = {
-	{"<init>", "(Ljava/net/http/HttpResponse$BodySubscriber;Ljava/util/concurrent/CompletableFuture;Ljava/util/function/Consumer;)V", nullptr, $PUBLIC, $method(ResponseSubscribers$$Lambda$lambda$getBodyAsync$3$2, init$, void, $HttpResponse$BodySubscriber*, $CompletableFuture*, $Consumer*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(ResponseSubscribers$$Lambda$lambda$getBodyAsync$3$2, run, void)},
-	{}
-};
-$ClassInfo ResponseSubscribers$$Lambda$lambda$getBodyAsync$3$2::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.net.http.ResponseSubscribers$$Lambda$lambda$getBodyAsync$3$2",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	fieldInfos,
-	methodInfos
 };
 $Class* ResponseSubscribers$$Lambda$lambda$getBodyAsync$3$2::load$($String* name, bool initialize) {
-	$loadClass(ResponseSubscribers$$Lambda$lambda$getBodyAsync$3$2, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"bs", "Ljava/net/http/HttpResponse$BodySubscriber;", nullptr, $PUBLIC, $field(ResponseSubscribers$$Lambda$lambda$getBodyAsync$3$2, bs)},
+		{"cf", "Ljava/util/concurrent/CompletableFuture;", nullptr, $PUBLIC, $field(ResponseSubscribers$$Lambda$lambda$getBodyAsync$3$2, cf)},
+		{"errorHandler", "Ljava/util/function/Consumer;", nullptr, $PUBLIC, $field(ResponseSubscribers$$Lambda$lambda$getBodyAsync$3$2, errorHandler)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/net/http/HttpResponse$BodySubscriber;Ljava/util/concurrent/CompletableFuture;Ljava/util/function/Consumer;)V", nullptr, $PUBLIC, $method(ResponseSubscribers$$Lambda$lambda$getBodyAsync$3$2, init$, void, $HttpResponse$BodySubscriber*, $CompletableFuture*, $Consumer*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(ResponseSubscribers$$Lambda$lambda$getBodyAsync$3$2, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.net.http.ResponseSubscribers$$Lambda$lambda$getBodyAsync$3$2",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ResponseSubscribers$$Lambda$lambda$getBodyAsync$3$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ResponseSubscribers$$Lambda$lambda$getBodyAsync$3$2);
+	});
 	return class$;
 }
 $Class* ResponseSubscribers$$Lambda$lambda$getBodyAsync$3$2::class$ = nullptr;
@@ -209,33 +193,29 @@ public:
 	virtual void accept(Object$* r, Object$* t) override {
 		ResponseSubscribers::lambda$getBodyAsync$2(cf, r, $cast($Throwable, t));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<ResponseSubscribers$$Lambda$lambda$getBodyAsync$2$3>());
-	}
 	$CompletableFuture* cf = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo ResponseSubscribers$$Lambda$lambda$getBodyAsync$2$3::fieldInfos[2] = {
-	{"cf", "Ljava/util/concurrent/CompletableFuture;", nullptr, $PUBLIC, $field(ResponseSubscribers$$Lambda$lambda$getBodyAsync$2$3, cf)},
-	{}
-};
-$MethodInfo ResponseSubscribers$$Lambda$lambda$getBodyAsync$2$3::methodInfos[3] = {
-	{"<init>", "(Ljava/util/concurrent/CompletableFuture;)V", nullptr, $PUBLIC, $method(ResponseSubscribers$$Lambda$lambda$getBodyAsync$2$3, init$, void, $CompletableFuture*)},
-	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(ResponseSubscribers$$Lambda$lambda$getBodyAsync$2$3, accept, void, Object$*, Object$*)},
-	{}
-};
-$ClassInfo ResponseSubscribers$$Lambda$lambda$getBodyAsync$2$3::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.net.http.ResponseSubscribers$$Lambda$lambda$getBodyAsync$2$3",
-	"java.lang.Object",
-	"java.util.function.BiConsumer",
-	fieldInfos,
-	methodInfos
 };
 $Class* ResponseSubscribers$$Lambda$lambda$getBodyAsync$2$3::load$($String* name, bool initialize) {
-	$loadClass(ResponseSubscribers$$Lambda$lambda$getBodyAsync$2$3, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"cf", "Ljava/util/concurrent/CompletableFuture;", nullptr, $PUBLIC, $field(ResponseSubscribers$$Lambda$lambda$getBodyAsync$2$3, cf)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/concurrent/CompletableFuture;)V", nullptr, $PUBLIC, $method(ResponseSubscribers$$Lambda$lambda$getBodyAsync$2$3, init$, void, $CompletableFuture*)},
+		{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(ResponseSubscribers$$Lambda$lambda$getBodyAsync$2$3, accept, void, Object$*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.net.http.ResponseSubscribers$$Lambda$lambda$getBodyAsync$2$3",
+		"java.lang.Object",
+		"java.util.function.BiConsumer",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ResponseSubscribers$$Lambda$lambda$getBodyAsync$2$3, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ResponseSubscribers$$Lambda$lambda$getBodyAsync$2$3);
+	});
 	return class$;
 }
 $Class* ResponseSubscribers$$Lambda$lambda$getBodyAsync$2$3::class$ = nullptr;
@@ -249,88 +229,32 @@ public:
 	virtual void run() override {
 		ResponseSubscribers::lambda$createLineStream$0(stream);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<ResponseSubscribers$$Lambda$lambda$createLineStream$0$4>());
-	}
 	$InputStream* stream = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo ResponseSubscribers$$Lambda$lambda$createLineStream$0$4::fieldInfos[2] = {
-	{"stream", "Ljava/io/InputStream;", nullptr, $PUBLIC, $field(ResponseSubscribers$$Lambda$lambda$createLineStream$0$4, stream)},
-	{}
-};
-$MethodInfo ResponseSubscribers$$Lambda$lambda$createLineStream$0$4::methodInfos[3] = {
-	{"<init>", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC, $method(ResponseSubscribers$$Lambda$lambda$createLineStream$0$4, init$, void, $InputStream*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(ResponseSubscribers$$Lambda$lambda$createLineStream$0$4, run, void)},
-	{}
-};
-$ClassInfo ResponseSubscribers$$Lambda$lambda$createLineStream$0$4::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.net.http.ResponseSubscribers$$Lambda$lambda$createLineStream$0$4",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	fieldInfos,
-	methodInfos
 };
 $Class* ResponseSubscribers$$Lambda$lambda$createLineStream$0$4::load$($String* name, bool initialize) {
-	$loadClass(ResponseSubscribers$$Lambda$lambda$createLineStream$0$4, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"stream", "Ljava/io/InputStream;", nullptr, $PUBLIC, $field(ResponseSubscribers$$Lambda$lambda$createLineStream$0$4, stream)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC, $method(ResponseSubscribers$$Lambda$lambda$createLineStream$0$4, init$, void, $InputStream*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(ResponseSubscribers$$Lambda$lambda$createLineStream$0$4, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.net.http.ResponseSubscribers$$Lambda$lambda$createLineStream$0$4",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ResponseSubscribers$$Lambda$lambda$createLineStream$0$4, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ResponseSubscribers$$Lambda$lambda$createLineStream$0$4);
+	});
 	return class$;
 }
 $Class* ResponseSubscribers$$Lambda$lambda$createLineStream$0$4::class$ = nullptr;
-
-$FieldInfo _ResponseSubscribers_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(ResponseSubscribers, $assertionsDisabled)},
-	{}
-};
-
-$MethodInfo _ResponseSubscribers_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ResponseSubscribers, init$, void)},
-	{"createLineStream", "()Ljava/net/http/HttpResponse$BodySubscriber;", "()Ljava/net/http/HttpResponse$BodySubscriber<Ljava/util/stream/Stream<Ljava/lang/String;>;>;", $PUBLIC | $STATIC, $staticMethod(ResponseSubscribers, createLineStream, $HttpResponse$BodySubscriber*)},
-	{"createLineStream", "(Ljava/nio/charset/Charset;)Ljava/net/http/HttpResponse$BodySubscriber;", "(Ljava/nio/charset/Charset;)Ljava/net/http/HttpResponse$BodySubscriber<Ljava/util/stream/Stream<Ljava/lang/String;>;>;", $PUBLIC | $STATIC, $staticMethod(ResponseSubscribers, createLineStream, $HttpResponse$BodySubscriber*, $Charset*)},
-	{"createPublisher", "()Ljava/net/http/HttpResponse$BodySubscriber;", "()Ljava/net/http/HttpResponse$BodySubscriber<Ljava/util/concurrent/Flow$Publisher<Ljava/util/List<Ljava/nio/ByteBuffer;>;>;>;", $PUBLIC | $STATIC, $staticMethod(ResponseSubscribers, createPublisher, $HttpResponse$BodySubscriber*)},
-	{"getBodyAsync", "(Ljava/util/concurrent/Executor;Ljava/net/http/HttpResponse$BodySubscriber;)Ljava/util/concurrent/CompletionStage;", "<T:Ljava/lang/Object;>(Ljava/util/concurrent/Executor;Ljava/net/http/HttpResponse$BodySubscriber<TT;>;)Ljava/util/concurrent/CompletionStage<TT;>;", $PUBLIC | $STATIC, $staticMethod(ResponseSubscribers, getBodyAsync, $CompletionStage*, $Executor*, $HttpResponse$BodySubscriber*)},
-	{"getBodyAsync", "(Ljava/util/concurrent/Executor;Ljava/net/http/HttpResponse$BodySubscriber;Ljava/util/concurrent/CompletableFuture;)Ljava/util/concurrent/CompletableFuture;", "<T:Ljava/lang/Object;>(Ljava/util/concurrent/Executor;Ljava/net/http/HttpResponse$BodySubscriber<TT;>;Ljava/util/concurrent/CompletableFuture<TT;>;)Ljava/util/concurrent/CompletableFuture<TT;>;", $PUBLIC | $STATIC, $staticMethod(ResponseSubscribers, getBodyAsync, $CompletableFuture*, $Executor*, $HttpResponse$BodySubscriber*, $CompletableFuture*)},
-	{"getBodyAsync", "(Ljava/util/concurrent/Executor;Ljava/net/http/HttpResponse$BodySubscriber;Ljava/util/concurrent/CompletableFuture;Ljava/util/function/Consumer;)Ljava/util/concurrent/CompletableFuture;", "<T:Ljava/lang/Object;>(Ljava/util/concurrent/Executor;Ljava/net/http/HttpResponse$BodySubscriber<TT;>;Ljava/util/concurrent/CompletableFuture<TT;>;Ljava/util/function/Consumer<Ljava/lang/Throwable;>;)Ljava/util/concurrent/CompletableFuture<TT;>;", $PUBLIC | $STATIC, $staticMethod(ResponseSubscribers, getBodyAsync, $CompletableFuture*, $Executor*, $HttpResponse$BodySubscriber*, $CompletableFuture*, $Consumer*)},
-	{"lambda$createLineStream$0", "(Ljava/io/InputStream;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ResponseSubscribers, lambda$createLineStream$0, void, $InputStream*)},
-	{"lambda$createLineStream$1", "(Ljava/nio/charset/Charset;Ljava/io/InputStream;)Ljava/util/stream/Stream;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ResponseSubscribers, lambda$createLineStream$1, $Stream*, $Charset*, $InputStream*)},
-	{"lambda$getBodyAsync$2", "(Ljava/util/concurrent/CompletableFuture;Ljava/lang/Object;Ljava/lang/Throwable;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ResponseSubscribers, lambda$getBodyAsync$2, void, $CompletableFuture*, Object$*, $Throwable*)},
-	{"lambda$getBodyAsync$3", "(Ljava/net/http/HttpResponse$BodySubscriber;Ljava/util/concurrent/CompletableFuture;Ljava/util/function/Consumer;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ResponseSubscribers, lambda$getBodyAsync$3, void, $HttpResponse$BodySubscriber*, $CompletableFuture*, $Consumer*)},
-	{}
-};
-
-$InnerClassInfo _ResponseSubscribers_InnerClassesInfo_[] = {
-	{"jdk.internal.net.http.ResponseSubscribers$PublishingBodySubscriber", "jdk.internal.net.http.ResponseSubscribers", "PublishingBodySubscriber", $STATIC},
-	{"jdk.internal.net.http.ResponseSubscribers$MappingSubscriber", "jdk.internal.net.http.ResponseSubscribers", "MappingSubscriber", $PUBLIC | $STATIC},
-	{"jdk.internal.net.http.ResponseSubscribers$SubscriberAdapter", "jdk.internal.net.http.ResponseSubscribers", "SubscriberAdapter", $PUBLIC | $STATIC | $FINAL},
-	{"jdk.internal.net.http.ResponseSubscribers$NullSubscriber", "jdk.internal.net.http.ResponseSubscribers", "NullSubscriber", $PUBLIC | $STATIC},
-	{"jdk.internal.net.http.ResponseSubscribers$HttpResponseInputStream", "jdk.internal.net.http.ResponseSubscribers", "HttpResponseInputStream", $PUBLIC | $STATIC},
-	{"jdk.internal.net.http.ResponseSubscribers$ByteArraySubscriber", "jdk.internal.net.http.ResponseSubscribers", "ByteArraySubscriber", $PUBLIC | $STATIC},
-	{"jdk.internal.net.http.ResponseSubscribers$PathSubscriber", "jdk.internal.net.http.ResponseSubscribers", "PathSubscriber", $PUBLIC | $STATIC},
-	{"jdk.internal.net.http.ResponseSubscribers$ConsumerSubscriber", "jdk.internal.net.http.ResponseSubscribers", "ConsumerSubscriber", $PUBLIC | $STATIC},
-	{"jdk.internal.net.http.ResponseSubscribers$TrustedSubscriber", "jdk.internal.net.http.ResponseSubscribers", "TrustedSubscriber", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _ResponseSubscribers_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"jdk.internal.net.http.ResponseSubscribers",
-	"java.lang.Object",
-	nullptr,
-	_ResponseSubscribers_FieldInfo_,
-	_ResponseSubscribers_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ResponseSubscribers_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"jdk.internal.net.http.ResponseSubscribers$PublishingBodySubscriber,jdk.internal.net.http.ResponseSubscribers$PublishingBodySubscriber$SubscriptionRef,jdk.internal.net.http.ResponseSubscribers$PublishingBodySubscriber$SubscriberRef,jdk.internal.net.http.ResponseSubscribers$PublishingBodySubscriber$1,jdk.internal.net.http.ResponseSubscribers$MappingSubscriber,jdk.internal.net.http.ResponseSubscribers$SubscriberAdapter,jdk.internal.net.http.ResponseSubscribers$NullSubscriber,jdk.internal.net.http.ResponseSubscribers$HttpResponseInputStream,jdk.internal.net.http.ResponseSubscribers$ByteArraySubscriber,jdk.internal.net.http.ResponseSubscribers$PathSubscriber,jdk.internal.net.http.ResponseSubscribers$ConsumerSubscriber,jdk.internal.net.http.ResponseSubscribers$TrustedSubscriber"
-};
-
-$Object* allocate$ResponseSubscribers($Class* clazz) {
-	return $of($alloc(ResponseSubscribers));
-}
 
 bool ResponseSubscribers::$assertionsDisabled = false;
 
@@ -345,10 +269,10 @@ $HttpResponse$BodySubscriber* ResponseSubscribers::createLineStream() {
 
 $HttpResponse$BodySubscriber* ResponseSubscribers::createLineStream($Charset* charset) {
 	$init(ResponseSubscribers);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Objects::requireNonNull(charset);
 	$var($HttpResponse$BodySubscriber, s, $new($ResponseSubscribers$HttpResponseInputStream));
-	return $new($ResponseSubscribers$MappingSubscriber, s, static_cast<$Function*>($$new(ResponseSubscribers$$Lambda$lambda$createLineStream$1, charset)), true);
+	return $new($ResponseSubscribers$MappingSubscriber, s, $$new(ResponseSubscribers$$Lambda$lambda$createLineStream$1, charset), true);
 }
 
 $HttpResponse$BodySubscriber* ResponseSubscribers::createPublisher() {
@@ -367,12 +291,12 @@ $CompletionStage* ResponseSubscribers::getBodyAsync($Executor* e, $HttpResponse$
 
 $CompletableFuture* ResponseSubscribers::getBodyAsync($Executor* e, $HttpResponse$BodySubscriber* bs, $CompletableFuture* cf) {
 	$init(ResponseSubscribers);
-	return getBodyAsync(e, bs, cf, static_cast<$Consumer*>($$new(ResponseSubscribers$$Lambda$completeExceptionally$1, static_cast<$CompletableFuture*>($nc(cf)))));
+	return getBodyAsync(e, bs, cf, $$new(ResponseSubscribers$$Lambda$completeExceptionally$1, $nc(cf)));
 }
 
 $CompletableFuture* ResponseSubscribers::getBodyAsync($Executor* e$renamed, $HttpResponse$BodySubscriber* bs, $CompletableFuture* cf, $Consumer* errorHandler) {
 	$init(ResponseSubscribers);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Executor, e, e$renamed);
 	if (!ResponseSubscribers::$assertionsDisabled && !(errorHandler != nullptr)) {
 		$throwNew($AssertionError);
@@ -385,9 +309,9 @@ $CompletableFuture* ResponseSubscribers::getBodyAsync($Executor* e$renamed, $Htt
 			$throwNew($AssertionError);
 		}
 		if ($ResponseSubscribers$TrustedSubscriber::needsExecutor(bs)) {
-			$assign(e, ($instanceOf($HttpClientImpl$DelegatingExecutor, e)) ? $nc(($cast($HttpClientImpl$DelegatingExecutor, e)))->delegate() : e);
+			$assign(e, ($instanceOf($HttpClientImpl$DelegatingExecutor, e)) ? $cast($HttpClientImpl$DelegatingExecutor, e)->delegate() : e);
 		}
-		$nc(e)->execute(static_cast<$Runnable*>($$new(ResponseSubscribers$$Lambda$lambda$getBodyAsync$3$2, bs, cf, errorHandler)));
+		$nc(e)->execute($$new(ResponseSubscribers$$Lambda$lambda$getBodyAsync$3$2, bs, cf, errorHandler));
 		return cf;
 	} catch ($Throwable& t) {
 		$nc(errorHandler)->accept(t);
@@ -397,9 +321,9 @@ $CompletableFuture* ResponseSubscribers::getBodyAsync($Executor* e$renamed, $Htt
 
 void ResponseSubscribers::lambda$getBodyAsync$3($HttpResponse$BodySubscriber* bs, $CompletableFuture* cf, $Consumer* errorHandler) {
 	$init(ResponseSubscribers);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
-		$nc($($nc(bs)->getBody()))->whenComplete(static_cast<$BiConsumer*>($$new(ResponseSubscribers$$Lambda$lambda$getBodyAsync$2$3, cf)));
+		$$nc($nc(bs)->getBody())->whenComplete($$new(ResponseSubscribers$$Lambda$lambda$getBodyAsync$2$3, cf));
 	} catch ($Throwable& t) {
 		$nc(errorHandler)->accept(t);
 	}
@@ -416,16 +340,16 @@ void ResponseSubscribers::lambda$getBodyAsync$2($CompletableFuture* cf, Object$*
 
 $Stream* ResponseSubscribers::lambda$createLineStream$1($Charset* charset, $InputStream* stream) {
 	$init(ResponseSubscribers);
-	$useLocalCurrentObjectStackCache();
-	return $cast($Stream, $nc($($$new($BufferedReader, $$new($InputStreamReader, stream, charset))->lines()))->onClose(static_cast<$Runnable*>($$new(ResponseSubscribers$$Lambda$lambda$createLineStream$0$4, stream))));
+	$useLocalObjectStack();
+	return $cast($Stream, $$nc($$new($BufferedReader, $$new($InputStreamReader, stream, charset))->lines())->onClose($$new(ResponseSubscribers$$Lambda$lambda$createLineStream$0$4, stream)));
 }
 
 void ResponseSubscribers::lambda$createLineStream$0($InputStream* stream) {
 	$init(ResponseSubscribers);
-	$Utils::close($$new($CloseableArray, {static_cast<$Closeable*>(stream)}));
+	$Utils::close($$new($CloseableArray, {stream}));
 }
 
-void clinit$ResponseSubscribers($Class* class$) {
+void ResponseSubscribers::clinit$($Class* clazz) {
 	ResponseSubscribers::$assertionsDisabled = !ResponseSubscribers::class$->desiredAssertionStatus();
 }
 
@@ -434,23 +358,69 @@ ResponseSubscribers::ResponseSubscribers() {
 
 $Class* ResponseSubscribers::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(ResponseSubscribers$$Lambda$lambda$createLineStream$1::classInfo$.name)) {
+		if (name->equals("jdk.internal.net.http.ResponseSubscribers$$Lambda$lambda$createLineStream$1")) {
 			return ResponseSubscribers$$Lambda$lambda$createLineStream$1::load$(name, initialize);
 		}
-		if (name->equals(ResponseSubscribers$$Lambda$completeExceptionally$1::classInfo$.name)) {
+		if (name->equals("jdk.internal.net.http.ResponseSubscribers$$Lambda$completeExceptionally$1")) {
 			return ResponseSubscribers$$Lambda$completeExceptionally$1::load$(name, initialize);
 		}
-		if (name->equals(ResponseSubscribers$$Lambda$lambda$getBodyAsync$3$2::classInfo$.name)) {
+		if (name->equals("jdk.internal.net.http.ResponseSubscribers$$Lambda$lambda$getBodyAsync$3$2")) {
 			return ResponseSubscribers$$Lambda$lambda$getBodyAsync$3$2::load$(name, initialize);
 		}
-		if (name->equals(ResponseSubscribers$$Lambda$lambda$getBodyAsync$2$3::classInfo$.name)) {
+		if (name->equals("jdk.internal.net.http.ResponseSubscribers$$Lambda$lambda$getBodyAsync$2$3")) {
 			return ResponseSubscribers$$Lambda$lambda$getBodyAsync$2$3::load$(name, initialize);
 		}
-		if (name->equals(ResponseSubscribers$$Lambda$lambda$createLineStream$0$4::classInfo$.name)) {
+		if (name->equals("jdk.internal.net.http.ResponseSubscribers$$Lambda$lambda$createLineStream$0$4")) {
 			return ResponseSubscribers$$Lambda$lambda$createLineStream$0$4::load$(name, initialize);
 		}
 	}
-	$loadClass(ResponseSubscribers, name, initialize, &_ResponseSubscribers_ClassInfo_, clinit$ResponseSubscribers, allocate$ResponseSubscribers);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(ResponseSubscribers, $assertionsDisabled)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ResponseSubscribers, init$, void)},
+		{"createLineStream", "()Ljava/net/http/HttpResponse$BodySubscriber;", "()Ljava/net/http/HttpResponse$BodySubscriber<Ljava/util/stream/Stream<Ljava/lang/String;>;>;", $PUBLIC | $STATIC, $staticMethod(ResponseSubscribers, createLineStream, $HttpResponse$BodySubscriber*)},
+		{"createLineStream", "(Ljava/nio/charset/Charset;)Ljava/net/http/HttpResponse$BodySubscriber;", "(Ljava/nio/charset/Charset;)Ljava/net/http/HttpResponse$BodySubscriber<Ljava/util/stream/Stream<Ljava/lang/String;>;>;", $PUBLIC | $STATIC, $staticMethod(ResponseSubscribers, createLineStream, $HttpResponse$BodySubscriber*, $Charset*)},
+		{"createPublisher", "()Ljava/net/http/HttpResponse$BodySubscriber;", "()Ljava/net/http/HttpResponse$BodySubscriber<Ljava/util/concurrent/Flow$Publisher<Ljava/util/List<Ljava/nio/ByteBuffer;>;>;>;", $PUBLIC | $STATIC, $staticMethod(ResponseSubscribers, createPublisher, $HttpResponse$BodySubscriber*)},
+		{"getBodyAsync", "(Ljava/util/concurrent/Executor;Ljava/net/http/HttpResponse$BodySubscriber;)Ljava/util/concurrent/CompletionStage;", "<T:Ljava/lang/Object;>(Ljava/util/concurrent/Executor;Ljava/net/http/HttpResponse$BodySubscriber<TT;>;)Ljava/util/concurrent/CompletionStage<TT;>;", $PUBLIC | $STATIC, $staticMethod(ResponseSubscribers, getBodyAsync, $CompletionStage*, $Executor*, $HttpResponse$BodySubscriber*)},
+		{"getBodyAsync", "(Ljava/util/concurrent/Executor;Ljava/net/http/HttpResponse$BodySubscriber;Ljava/util/concurrent/CompletableFuture;)Ljava/util/concurrent/CompletableFuture;", "<T:Ljava/lang/Object;>(Ljava/util/concurrent/Executor;Ljava/net/http/HttpResponse$BodySubscriber<TT;>;Ljava/util/concurrent/CompletableFuture<TT;>;)Ljava/util/concurrent/CompletableFuture<TT;>;", $PUBLIC | $STATIC, $staticMethod(ResponseSubscribers, getBodyAsync, $CompletableFuture*, $Executor*, $HttpResponse$BodySubscriber*, $CompletableFuture*)},
+		{"getBodyAsync", "(Ljava/util/concurrent/Executor;Ljava/net/http/HttpResponse$BodySubscriber;Ljava/util/concurrent/CompletableFuture;Ljava/util/function/Consumer;)Ljava/util/concurrent/CompletableFuture;", "<T:Ljava/lang/Object;>(Ljava/util/concurrent/Executor;Ljava/net/http/HttpResponse$BodySubscriber<TT;>;Ljava/util/concurrent/CompletableFuture<TT;>;Ljava/util/function/Consumer<Ljava/lang/Throwable;>;)Ljava/util/concurrent/CompletableFuture<TT;>;", $PUBLIC | $STATIC, $staticMethod(ResponseSubscribers, getBodyAsync, $CompletableFuture*, $Executor*, $HttpResponse$BodySubscriber*, $CompletableFuture*, $Consumer*)},
+		{"lambda$createLineStream$0", "(Ljava/io/InputStream;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ResponseSubscribers, lambda$createLineStream$0, void, $InputStream*)},
+		{"lambda$createLineStream$1", "(Ljava/nio/charset/Charset;Ljava/io/InputStream;)Ljava/util/stream/Stream;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ResponseSubscribers, lambda$createLineStream$1, $Stream*, $Charset*, $InputStream*)},
+		{"lambda$getBodyAsync$2", "(Ljava/util/concurrent/CompletableFuture;Ljava/lang/Object;Ljava/lang/Throwable;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ResponseSubscribers, lambda$getBodyAsync$2, void, $CompletableFuture*, Object$*, $Throwable*)},
+		{"lambda$getBodyAsync$3", "(Ljava/net/http/HttpResponse$BodySubscriber;Ljava/util/concurrent/CompletableFuture;Ljava/util/function/Consumer;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ResponseSubscribers, lambda$getBodyAsync$3, void, $HttpResponse$BodySubscriber*, $CompletableFuture*, $Consumer*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.net.http.ResponseSubscribers$PublishingBodySubscriber", "jdk.internal.net.http.ResponseSubscribers", "PublishingBodySubscriber", $STATIC},
+		{"jdk.internal.net.http.ResponseSubscribers$MappingSubscriber", "jdk.internal.net.http.ResponseSubscribers", "MappingSubscriber", $PUBLIC | $STATIC},
+		{"jdk.internal.net.http.ResponseSubscribers$SubscriberAdapter", "jdk.internal.net.http.ResponseSubscribers", "SubscriberAdapter", $PUBLIC | $STATIC | $FINAL},
+		{"jdk.internal.net.http.ResponseSubscribers$NullSubscriber", "jdk.internal.net.http.ResponseSubscribers", "NullSubscriber", $PUBLIC | $STATIC},
+		{"jdk.internal.net.http.ResponseSubscribers$HttpResponseInputStream", "jdk.internal.net.http.ResponseSubscribers", "HttpResponseInputStream", $PUBLIC | $STATIC},
+		{"jdk.internal.net.http.ResponseSubscribers$ByteArraySubscriber", "jdk.internal.net.http.ResponseSubscribers", "ByteArraySubscriber", $PUBLIC | $STATIC},
+		{"jdk.internal.net.http.ResponseSubscribers$PathSubscriber", "jdk.internal.net.http.ResponseSubscribers", "PathSubscriber", $PUBLIC | $STATIC},
+		{"jdk.internal.net.http.ResponseSubscribers$ConsumerSubscriber", "jdk.internal.net.http.ResponseSubscribers", "ConsumerSubscriber", $PUBLIC | $STATIC},
+		{"jdk.internal.net.http.ResponseSubscribers$TrustedSubscriber", "jdk.internal.net.http.ResponseSubscribers", "TrustedSubscriber", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"jdk.internal.net.http.ResponseSubscribers",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"jdk.internal.net.http.ResponseSubscribers$PublishingBodySubscriber,jdk.internal.net.http.ResponseSubscribers$PublishingBodySubscriber$SubscriptionRef,jdk.internal.net.http.ResponseSubscribers$PublishingBodySubscriber$SubscriberRef,jdk.internal.net.http.ResponseSubscribers$PublishingBodySubscriber$1,jdk.internal.net.http.ResponseSubscribers$MappingSubscriber,jdk.internal.net.http.ResponseSubscribers$SubscriberAdapter,jdk.internal.net.http.ResponseSubscribers$NullSubscriber,jdk.internal.net.http.ResponseSubscribers$HttpResponseInputStream,jdk.internal.net.http.ResponseSubscribers$ByteArraySubscriber,jdk.internal.net.http.ResponseSubscribers$PathSubscriber,jdk.internal.net.http.ResponseSubscribers$ConsumerSubscriber,jdk.internal.net.http.ResponseSubscribers$TrustedSubscriber"
+	};
+	$loadClass(ResponseSubscribers, name, initialize, &classInfo$$, ResponseSubscribers::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ResponseSubscribers);
+	});
 	return class$;
 }
 

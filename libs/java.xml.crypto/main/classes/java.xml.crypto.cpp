@@ -1,5 +1,4 @@
 #include <java.xml.crypto.h>
-
 #include <java.logging.h>
 #include <java.xml.h>
 #include <java.base.h>
@@ -8,8 +7,6 @@
 #include <java/lang/ModuleInfo.h>
 #include <java/lang/ResourceEntry.h>
 #include <jcpp.h>
-#include <module-info>
-
 #include <com/sun/org/apache/xml/internal/security/Init.h>
 #include <com/sun/org/apache/xml/internal/security/Init$1.h>
 #include <com/sun/org/apache/xml/internal/security/Init$2.h>
@@ -881,6 +878,7 @@ void java$xml$crypto::init() {
 	::java$logging::init();
 	::java$xml::init();
 	::java$base::init();
+	#include <module-info.h>
 	::java::lang::Library lib = {
 		"java.xml.crypto", "17.35", "",
 		&_java$xml$crypto_ModuleInfo_,

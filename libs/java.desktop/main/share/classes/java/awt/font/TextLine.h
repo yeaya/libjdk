@@ -66,6 +66,7 @@ class TextLine : public ::java::lang::Object {
 	$class(TextLine, 0, ::java::lang::Object)
 public:
 	TextLine();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::awt::font::FontRenderContext* frc, $Array<::sun::font::TextLineComponent>* components, $floats* baselineOffsets, $chars* chars, int32_t charsStart, int32_t charsLimit, $ints* charLogicalOrder, $bytes* charLevels, bool isDirectionLTR);
 	static bool advanceToFirstFont(::java::text::AttributedCharacterIterator* aci);
 	float applyFunctionAtIndex(int32_t logicalIndex, ::java::awt::font::TextLine$Function* f);

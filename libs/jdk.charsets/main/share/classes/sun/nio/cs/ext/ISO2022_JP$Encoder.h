@@ -39,6 +39,7 @@ class ISO2022_JP$Encoder : public ::java::nio::charset::CharsetEncoder {
 public:
 	ISO2022_JP$Encoder();
 	using ::java::nio::charset::CharsetEncoder::canEncode;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::nio::charset::Charset* cs);
 	void init$(::java::nio::charset::Charset* cs, ::sun::nio::cs::DoubleByte$Encoder* enc0208, ::sun::nio::cs::DoubleByte$Encoder* enc0212, bool doSBKANA);
 	virtual bool canEncode(char16_t c) override;

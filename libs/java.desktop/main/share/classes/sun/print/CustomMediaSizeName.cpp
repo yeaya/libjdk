@@ -1,5 +1,4 @@
 #include <sun/print/CustomMediaSizeName.h>
-
 #include <java/lang/Math.h>
 #include <java/util/ArrayList.h>
 #include <javax/print/attribute/EnumSyntax.h>
@@ -27,42 +26,6 @@ using $MediaSizeName = ::javax::print::attribute::standard::MediaSizeName;
 namespace sun {
 	namespace print {
 
-$FieldInfo _CustomMediaSizeName_FieldInfo_[] = {
-	{"customStringTable", "Ljava/util/ArrayList;", "Ljava/util/ArrayList<Ljava/lang/String;>;", $PRIVATE | $STATIC, $staticField(CustomMediaSizeName, customStringTable)},
-	{"customEnumTable", "Ljava/util/ArrayList;", "Ljava/util/ArrayList<Ljavax/print/attribute/standard/MediaSizeName;>;", $PRIVATE | $STATIC, $staticField(CustomMediaSizeName, customEnumTable)},
-	{"choiceName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(CustomMediaSizeName, choiceName)},
-	{"mediaName", "Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PRIVATE, $field(CustomMediaSizeName, mediaName)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CustomMediaSizeName, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _CustomMediaSizeName_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, $PRIVATE, $method(CustomMediaSizeName, init$, void, int32_t)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(CustomMediaSizeName, init$, void, $String*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;FF)V", nullptr, $PUBLIC, $method(CustomMediaSizeName, init$, void, $String*, $String*, float, float)},
-	{"findMedia", "([Ljavax/print/attribute/standard/Media;FFI)Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PUBLIC | $STATIC, $staticMethod(CustomMediaSizeName, findMedia, $MediaSizeName*, $MediaArray*, float, float, int32_t)},
-	{"getChoiceName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CustomMediaSizeName, getChoiceName, $String*)},
-	{"getEnumValueTable", "()[Ljavax/print/attribute/EnumSyntax;", nullptr, $PROTECTED, $virtualMethod(CustomMediaSizeName, getEnumValueTable, $EnumSyntaxArray*)},
-	{"getStandardMedia", "()Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PUBLIC, $virtualMethod(CustomMediaSizeName, getStandardMedia, $MediaSizeName*)},
-	{"getStringTable", "()[Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(CustomMediaSizeName, getStringTable, $StringArray*)},
-	{"getSuperEnumTable", "()[Ljavax/print/attribute/standard/Media;", nullptr, $PUBLIC, $virtualMethod(CustomMediaSizeName, getSuperEnumTable, $MediaArray*)},
-	{"nextValue", "(Ljava/lang/String;)I", nullptr, $PRIVATE | $STATIC | $SYNCHRONIZED, $staticMethod(CustomMediaSizeName, nextValue, int32_t, $String*)},
-	{}
-};
-
-$ClassInfo _CustomMediaSizeName_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.print.CustomMediaSizeName",
-	"javax.print.attribute.standard.MediaSizeName",
-	nullptr,
-	_CustomMediaSizeName_FieldInfo_,
-	_CustomMediaSizeName_MethodInfo_
-};
-
-$Object* allocate$CustomMediaSizeName($Class* clazz) {
-	return $of($alloc(CustomMediaSizeName));
-}
-
 $ArrayList* CustomMediaSizeName::customStringTable = nullptr;
 $ArrayList* CustomMediaSizeName::customEnumTable = nullptr;
 
@@ -71,11 +34,10 @@ void CustomMediaSizeName::init$(int32_t x) {
 }
 
 int32_t CustomMediaSizeName::nextValue($String* name) {
-	$load(CustomMediaSizeName);
+	$init(CustomMediaSizeName);
 	$synchronized(class$) {
-		$init(CustomMediaSizeName);
 		$nc(CustomMediaSizeName::customStringTable)->add(name);
-		return ($nc(CustomMediaSizeName::customStringTable)->size() - 1);
+		return (CustomMediaSizeName::customStringTable->size() - 1);
 	}
 }
 
@@ -100,7 +62,7 @@ void CustomMediaSizeName::init$($String* name, $String* choice, float width, flo
 		if (sz == nullptr) {
 			$set(this, mediaName, nullptr);
 		} else {
-			float w = $nc(sz)->getX($MediaSize::INCH);
+			float w = sz->getX($MediaSize::INCH);
 			float h = sz->getY($MediaSize::INCH);
 			float dw = $Math::abs(w - width);
 			float dh = $Math::abs(h - length);
@@ -121,11 +83,11 @@ $MediaSizeName* CustomMediaSizeName::getStandardMedia() {
 
 $MediaSizeName* CustomMediaSizeName::findMedia($MediaArray* media, float x, float y, int32_t units) {
 	$init(CustomMediaSizeName);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (x <= 0.0f || y <= 0.0f || units < 1) {
 		$throwNew($IllegalArgumentException, "args must be +ve values"_s);
 	}
-	if (media == nullptr || $nc(media)->length == 0) {
+	if (media == nullptr || media->length == 0) {
 		$throwNew($IllegalArgumentException, "args must have valid array of media"_s);
 	}
 	int32_t size = 0;
@@ -167,20 +129,20 @@ $MediaSizeName* CustomMediaSizeName::findMedia($MediaArray* media, float x, floa
 }
 
 $MediaArray* CustomMediaSizeName::getSuperEnumTable() {
-	return $fcast($MediaArray, $MediaSizeName::getEnumValueTable());
+	return $cast($MediaArray, $MediaSizeName::getEnumValueTable());
 }
 
 $StringArray* CustomMediaSizeName::getStringTable() {
 	$var($StringArray, nameTable, $new($StringArray, $nc(CustomMediaSizeName::customStringTable)->size()));
-	return $fcast($StringArray, $nc(CustomMediaSizeName::customStringTable)->toArray(nameTable));
+	return $cast($StringArray, CustomMediaSizeName::customStringTable->toArray(nameTable));
 }
 
 $EnumSyntaxArray* CustomMediaSizeName::getEnumValueTable() {
 	$var($MediaSizeNameArray, enumTable, $new($MediaSizeNameArray, $nc(CustomMediaSizeName::customEnumTable)->size()));
-	return $fcast($EnumSyntaxArray, $nc(CustomMediaSizeName::customEnumTable)->toArray(enumTable));
+	return $cast($EnumSyntaxArray, CustomMediaSizeName::customEnumTable->toArray(enumTable));
 }
 
-void clinit$CustomMediaSizeName($Class* class$) {
+void CustomMediaSizeName::clinit$($Class* clazz) {
 	$assignStatic(CustomMediaSizeName::customStringTable, $new($ArrayList));
 	$assignStatic(CustomMediaSizeName::customEnumTable, $new($ArrayList));
 }
@@ -189,7 +151,38 @@ CustomMediaSizeName::CustomMediaSizeName() {
 }
 
 $Class* CustomMediaSizeName::load$($String* name, bool initialize) {
-	$loadClass(CustomMediaSizeName, name, initialize, &_CustomMediaSizeName_ClassInfo_, clinit$CustomMediaSizeName, allocate$CustomMediaSizeName);
+	$FieldInfo fieldInfos$$[] = {
+		{"customStringTable", "Ljava/util/ArrayList;", "Ljava/util/ArrayList<Ljava/lang/String;>;", $PRIVATE | $STATIC, $staticField(CustomMediaSizeName, customStringTable)},
+		{"customEnumTable", "Ljava/util/ArrayList;", "Ljava/util/ArrayList<Ljavax/print/attribute/standard/MediaSizeName;>;", $PRIVATE | $STATIC, $staticField(CustomMediaSizeName, customEnumTable)},
+		{"choiceName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(CustomMediaSizeName, choiceName)},
+		{"mediaName", "Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PRIVATE, $field(CustomMediaSizeName, mediaName)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CustomMediaSizeName, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I)V", nullptr, $PRIVATE, $method(CustomMediaSizeName, init$, void, int32_t)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(CustomMediaSizeName, init$, void, $String*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;FF)V", nullptr, $PUBLIC, $method(CustomMediaSizeName, init$, void, $String*, $String*, float, float)},
+		{"findMedia", "([Ljavax/print/attribute/standard/Media;FFI)Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PUBLIC | $STATIC, $staticMethod(CustomMediaSizeName, findMedia, $MediaSizeName*, $MediaArray*, float, float, int32_t)},
+		{"getChoiceName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CustomMediaSizeName, getChoiceName, $String*)},
+		{"getEnumValueTable", "()[Ljavax/print/attribute/EnumSyntax;", nullptr, $PROTECTED, $virtualMethod(CustomMediaSizeName, getEnumValueTable, $EnumSyntaxArray*)},
+		{"getStandardMedia", "()Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PUBLIC, $virtualMethod(CustomMediaSizeName, getStandardMedia, $MediaSizeName*)},
+		{"getStringTable", "()[Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(CustomMediaSizeName, getStringTable, $StringArray*)},
+		{"getSuperEnumTable", "()[Ljavax/print/attribute/standard/Media;", nullptr, $PUBLIC, $virtualMethod(CustomMediaSizeName, getSuperEnumTable, $MediaArray*)},
+		{"nextValue", "(Ljava/lang/String;)I", nullptr, $PRIVATE | $STATIC | $SYNCHRONIZED, $staticMethod(CustomMediaSizeName, nextValue, int32_t, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.print.CustomMediaSizeName",
+		"javax.print.attribute.standard.MediaSizeName",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CustomMediaSizeName, name, initialize, &classInfo$$, CustomMediaSizeName::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(CustomMediaSizeName));
+	});
 	return class$;
 }
 

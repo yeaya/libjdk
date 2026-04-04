@@ -22,13 +22,14 @@ class $export XMLParseException : public ::java::lang::Exception {
 	$class(XMLParseException, 0, ::java::lang::Exception)
 public:
 	XMLParseException();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$($String* s);
 	void init$(::java::lang::Exception* e, $String* s);
 	void readObject(::java::io::ObjectInputStream* in);
 	void writeObject(::java::io::ObjectOutputStream* out);
-	static const int64_t oldSerialVersionUID = (int64_t)0x9407B65DF1B479F8;
-	static const int64_t newSerialVersionUID = (int64_t)0x2C15C79A5801029D;
+	static const int64_t oldSerialVersionUID = (int64_t)0x9407b65df1b479f8;
+	static const int64_t newSerialVersionUID = (int64_t)0x2c15c79a5801029d;
 	static $Array<::java::io::ObjectStreamField>* oldSerialPersistentFields;
 	static $Array<::java::io::ObjectStreamField>* newSerialPersistentFields;
 	static int64_t serialVersionUID;
@@ -36,7 +37,10 @@ public:
 	static bool compat;
 	XMLParseException(const XMLParseException& e);
 	virtual void throw$() override;
-	inline XMLParseException* operator ->() {
+	inline XMLParseException* operator ->() const {
+		return (XMLParseException*)throwing$;
+	}
+	inline operator XMLParseException*() const {
 		return (XMLParseException*)throwing$;
 	}
 };

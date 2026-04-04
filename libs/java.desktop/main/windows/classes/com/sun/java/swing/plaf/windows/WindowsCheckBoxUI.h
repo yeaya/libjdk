@@ -33,6 +33,7 @@ class $export WindowsCheckBoxUI : public ::com::sun::java::swing::plaf::windows:
 	$class(WindowsCheckBoxUI, 0, ::com::sun::java::swing::plaf::windows::WindowsRadioButtonUI)
 public:
 	WindowsCheckBoxUI();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::javax::swing::plaf::ComponentUI* createUI(::javax::swing::JComponent* c);
 	virtual $String* getPropertyPrefix() override;

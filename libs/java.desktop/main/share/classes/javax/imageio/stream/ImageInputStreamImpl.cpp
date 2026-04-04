@@ -1,6 +1,4 @@
 #include <javax/imageio/stream/ImageInputStreamImpl.h>
-
-#include <java/io/DataInput.h>
 #include <java/io/DataInputStream.h>
 #include <java/io/EOFException.h>
 #include <java/io/IOException.h>
@@ -16,7 +14,6 @@
 #undef BIG_ENDIAN
 #undef BYTE_BUF_LENGTH
 
-using $DataInput = ::java::io::DataInput;
 using $DataInputStream = ::java::io::DataInputStream;
 using $EOFException = ::java::io::EOFException;
 using $IOException = ::java::io::IOException;
@@ -42,100 +39,6 @@ using $ImageInputStream = ::javax::imageio::stream::ImageInputStream;
 namespace javax {
 	namespace imageio {
 		namespace stream {
-
-$NamedAttribute ImageInputStreamImpl_Attribute_var$0[] = {
-	{"since", 's', "9"},
-	{}
-};
-
-$CompoundAttribute _ImageInputStreamImpl_MethodAnnotations_finalize3[] = {
-	{"Ljava/lang/Deprecated;", ImageInputStreamImpl_Attribute_var$0},
-	{}
-};
-
-$FieldInfo _ImageInputStreamImpl_FieldInfo_[] = {
-	{"markByteStack", "Ljava/util/Stack;", "Ljava/util/Stack<Ljava/lang/Long;>;", $PRIVATE, $field(ImageInputStreamImpl, markByteStack)},
-	{"markBitStack", "Ljava/util/Stack;", "Ljava/util/Stack<Ljava/lang/Integer;>;", $PRIVATE, $field(ImageInputStreamImpl, markBitStack)},
-	{"isClosed", "Z", nullptr, $PRIVATE, $field(ImageInputStreamImpl, isClosed)},
-	{"BYTE_BUF_LENGTH", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ImageInputStreamImpl, BYTE_BUF_LENGTH)},
-	{"byteBuf", "[B", nullptr, 0, $field(ImageInputStreamImpl, byteBuf)},
-	{"byteOrder", "Ljava/nio/ByteOrder;", nullptr, $PROTECTED, $field(ImageInputStreamImpl, byteOrder)},
-	{"streamPos", "J", nullptr, $PROTECTED, $field(ImageInputStreamImpl, streamPos)},
-	{"bitOffset", "I", nullptr, $PROTECTED, $field(ImageInputStreamImpl, bitOffset)},
-	{"flushedPos", "J", nullptr, $PROTECTED, $field(ImageInputStreamImpl, flushedPos)},
-	{}
-};
-
-$MethodInfo _ImageInputStreamImpl_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ImageInputStreamImpl, init$, void)},
-	{"checkClosed", "()V", nullptr, $PROTECTED | $FINAL, $method(ImageInputStreamImpl, checkClosed, void), "java.io.IOException"},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(ImageInputStreamImpl, close, void), "java.io.IOException"},
-	{"finalize", "()V", nullptr, $PROTECTED | $DEPRECATED, $virtualMethod(ImageInputStreamImpl, finalize, void), "java.lang.Throwable", nullptr, _ImageInputStreamImpl_MethodAnnotations_finalize3},
-	{"flush", "()V", nullptr, $PUBLIC, $virtualMethod(ImageInputStreamImpl, flush, void), "java.io.IOException"},
-	{"flushBefore", "(J)V", nullptr, $PUBLIC, $virtualMethod(ImageInputStreamImpl, flushBefore, void, int64_t), "java.io.IOException"},
-	{"getBitOffset", "()I", nullptr, $PUBLIC, $virtualMethod(ImageInputStreamImpl, getBitOffset, int32_t), "java.io.IOException"},
-	{"getByteOrder", "()Ljava/nio/ByteOrder;", nullptr, $PUBLIC, $virtualMethod(ImageInputStreamImpl, getByteOrder, $ByteOrder*)},
-	{"getFlushedPosition", "()J", nullptr, $PUBLIC, $virtualMethod(ImageInputStreamImpl, getFlushedPosition, int64_t)},
-	{"getStreamPosition", "()J", nullptr, $PUBLIC, $virtualMethod(ImageInputStreamImpl, getStreamPosition, int64_t), "java.io.IOException"},
-	{"isCached", "()Z", nullptr, $PUBLIC, $virtualMethod(ImageInputStreamImpl, isCached, bool)},
-	{"isCachedFile", "()Z", nullptr, $PUBLIC, $virtualMethod(ImageInputStreamImpl, isCachedFile, bool)},
-	{"isCachedMemory", "()Z", nullptr, $PUBLIC, $virtualMethod(ImageInputStreamImpl, isCachedMemory, bool)},
-	{"length", "()J", nullptr, $PUBLIC, $virtualMethod(ImageInputStreamImpl, length, int64_t)},
-	{"mark", "()V", nullptr, $PUBLIC, $virtualMethod(ImageInputStreamImpl, mark, void)},
-	{"read", "()I", nullptr, $PUBLIC | $ABSTRACT},
-	{"read", "([BII)I", nullptr, $PUBLIC | $ABSTRACT},
-	{"read", "([B)I", nullptr, $PUBLIC, $virtualMethod(ImageInputStreamImpl, read, int32_t, $bytes*), "java.io.IOException"},
-	{"readBit", "()I", nullptr, $PUBLIC, $virtualMethod(ImageInputStreamImpl, readBit, int32_t), "java.io.IOException"},
-	{"readBits", "(I)J", nullptr, $PUBLIC, $virtualMethod(ImageInputStreamImpl, readBits, int64_t, int32_t), "java.io.IOException"},
-	{"readBoolean", "()Z", nullptr, $PUBLIC, $virtualMethod(ImageInputStreamImpl, readBoolean, bool), "java.io.IOException"},
-	{"readByte", "()B", nullptr, $PUBLIC, $virtualMethod(ImageInputStreamImpl, readByte, int8_t), "java.io.IOException"},
-	{"readBytes", "(Ljavax/imageio/stream/IIOByteBuffer;I)V", nullptr, $PUBLIC, $virtualMethod(ImageInputStreamImpl, readBytes, void, $IIOByteBuffer*, int32_t), "java.io.IOException"},
-	{"readChar", "()C", nullptr, $PUBLIC, $virtualMethod(ImageInputStreamImpl, readChar, char16_t), "java.io.IOException"},
-	{"readDouble", "()D", nullptr, $PUBLIC, $virtualMethod(ImageInputStreamImpl, readDouble, double), "java.io.IOException"},
-	{"readFloat", "()F", nullptr, $PUBLIC, $virtualMethod(ImageInputStreamImpl, readFloat, float), "java.io.IOException"},
-	{"readFully", "([BII)V", nullptr, $PUBLIC, $virtualMethod(ImageInputStreamImpl, readFully, void, $bytes*, int32_t, int32_t), "java.io.IOException"},
-	{"readFully", "([B)V", nullptr, $PUBLIC, $virtualMethod(ImageInputStreamImpl, readFully, void, $bytes*), "java.io.IOException"},
-	{"readFully", "([SII)V", nullptr, $PUBLIC, $virtualMethod(ImageInputStreamImpl, readFully, void, $shorts*, int32_t, int32_t), "java.io.IOException"},
-	{"readFully", "([CII)V", nullptr, $PUBLIC, $virtualMethod(ImageInputStreamImpl, readFully, void, $chars*, int32_t, int32_t), "java.io.IOException"},
-	{"readFully", "([III)V", nullptr, $PUBLIC, $virtualMethod(ImageInputStreamImpl, readFully, void, $ints*, int32_t, int32_t), "java.io.IOException"},
-	{"readFully", "([JII)V", nullptr, $PUBLIC, $virtualMethod(ImageInputStreamImpl, readFully, void, $longs*, int32_t, int32_t), "java.io.IOException"},
-	{"readFully", "([FII)V", nullptr, $PUBLIC, $virtualMethod(ImageInputStreamImpl, readFully, void, $floats*, int32_t, int32_t), "java.io.IOException"},
-	{"readFully", "([DII)V", nullptr, $PUBLIC, $virtualMethod(ImageInputStreamImpl, readFully, void, $doubles*, int32_t, int32_t), "java.io.IOException"},
-	{"readInt", "()I", nullptr, $PUBLIC, $virtualMethod(ImageInputStreamImpl, readInt, int32_t), "java.io.IOException"},
-	{"readLine", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ImageInputStreamImpl, readLine, $String*), "java.io.IOException"},
-	{"readLong", "()J", nullptr, $PUBLIC, $virtualMethod(ImageInputStreamImpl, readLong, int64_t), "java.io.IOException"},
-	{"readShort", "()S", nullptr, $PUBLIC, $virtualMethod(ImageInputStreamImpl, readShort, int16_t), "java.io.IOException"},
-	{"readUTF", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ImageInputStreamImpl, readUTF, $String*), "java.io.IOException"},
-	{"readUnsignedByte", "()I", nullptr, $PUBLIC, $virtualMethod(ImageInputStreamImpl, readUnsignedByte, int32_t), "java.io.IOException"},
-	{"readUnsignedInt", "()J", nullptr, $PUBLIC, $virtualMethod(ImageInputStreamImpl, readUnsignedInt, int64_t), "java.io.IOException"},
-	{"readUnsignedShort", "()I", nullptr, $PUBLIC, $virtualMethod(ImageInputStreamImpl, readUnsignedShort, int32_t), "java.io.IOException"},
-	{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(ImageInputStreamImpl, reset, void), "java.io.IOException"},
-	{"seek", "(J)V", nullptr, $PUBLIC, $virtualMethod(ImageInputStreamImpl, seek, void, int64_t), "java.io.IOException"},
-	{"setBitOffset", "(I)V", nullptr, $PUBLIC, $virtualMethod(ImageInputStreamImpl, setBitOffset, void, int32_t), "java.io.IOException"},
-	{"setByteOrder", "(Ljava/nio/ByteOrder;)V", nullptr, $PUBLIC, $virtualMethod(ImageInputStreamImpl, setByteOrder, void, $ByteOrder*)},
-	{"skipBytes", "(I)I", nullptr, $PUBLIC, $virtualMethod(ImageInputStreamImpl, skipBytes, int32_t, int32_t), "java.io.IOException"},
-	{"skipBytes", "(J)J", nullptr, $PUBLIC, $virtualMethod(ImageInputStreamImpl, skipBytes, int64_t, int64_t), "java.io.IOException"},
-	{"toChars", "([B[CII)V", nullptr, $PRIVATE, $method(ImageInputStreamImpl, toChars, void, $bytes*, $chars*, int32_t, int32_t)},
-	{"toDoubles", "([B[DII)V", nullptr, $PRIVATE, $method(ImageInputStreamImpl, toDoubles, void, $bytes*, $doubles*, int32_t, int32_t)},
-	{"toFloats", "([B[FII)V", nullptr, $PRIVATE, $method(ImageInputStreamImpl, toFloats, void, $bytes*, $floats*, int32_t, int32_t)},
-	{"toInts", "([B[III)V", nullptr, $PRIVATE, $method(ImageInputStreamImpl, toInts, void, $bytes*, $ints*, int32_t, int32_t)},
-	{"toLongs", "([B[JII)V", nullptr, $PRIVATE, $method(ImageInputStreamImpl, toLongs, void, $bytes*, $longs*, int32_t, int32_t)},
-	{"toShorts", "([B[SII)V", nullptr, $PRIVATE, $method(ImageInputStreamImpl, toShorts, void, $bytes*, $shorts*, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _ImageInputStreamImpl_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"javax.imageio.stream.ImageInputStreamImpl",
-	"java.lang.Object",
-	"javax.imageio.stream.ImageInputStream",
-	_ImageInputStreamImpl_FieldInfo_,
-	_ImageInputStreamImpl_MethodInfo_
-};
-
-$Object* allocate$ImageInputStreamImpl($Class* clazz) {
-	return $of($alloc(ImageInputStreamImpl));
-}
 
 void ImageInputStreamImpl::init$() {
 	$set(this, markByteStack, $new($Stack));
@@ -209,14 +112,14 @@ int16_t ImageInputStreamImpl::readShort() {
 	}
 	$init($ByteOrder);
 	if (this->byteOrder == $ByteOrder::BIG_ENDIAN) {
-		return (int16_t)((((int32_t)($nc(this->byteBuf)->get(0) & (uint32_t)255)) << 8) | (((int32_t)($nc(this->byteBuf)->get(1) & (uint32_t)255)) << 0));
+		return (int16_t)((($nc(this->byteBuf)->get(0) & 0xff) << 8) | (($nc(this->byteBuf)->get(1) & 0xff) << 0));
 	} else {
-		return (int16_t)((((int32_t)($nc(this->byteBuf)->get(1) & (uint32_t)255)) << 8) | (((int32_t)($nc(this->byteBuf)->get(0) & (uint32_t)255)) << 0));
+		return (int16_t)((($nc(this->byteBuf)->get(1) & 0xff) << 8) | (($nc(this->byteBuf)->get(0) & 0xff) << 0));
 	}
 }
 
 int32_t ImageInputStreamImpl::readUnsignedShort() {
-	return (int32_t)(((int32_t)readShort()) & (uint32_t)0x0000FFFF);
+	return ((int32_t)readShort()) & 0xffff;
 }
 
 char16_t ImageInputStreamImpl::readChar() {
@@ -229,14 +132,14 @@ int32_t ImageInputStreamImpl::readInt() {
 	}
 	$init($ByteOrder);
 	if (this->byteOrder == $ByteOrder::BIG_ENDIAN) {
-		return ((((((int32_t)($nc(this->byteBuf)->get(0) & (uint32_t)255)) << 24) | (((int32_t)($nc(this->byteBuf)->get(1) & (uint32_t)255)) << 16)) | (((int32_t)($nc(this->byteBuf)->get(2) & (uint32_t)255)) << 8)) | (((int32_t)($nc(this->byteBuf)->get(3) & (uint32_t)255)) << 0));
+		return ((((($nc(this->byteBuf)->get(0) & 0xff) << 24) | (($nc(this->byteBuf)->get(1) & 0xff) << 16)) | (($nc(this->byteBuf)->get(2) & 0xff) << 8)) | (($nc(this->byteBuf)->get(3) & 0xff) << 0));
 	} else {
-		return ((((((int32_t)($nc(this->byteBuf)->get(3) & (uint32_t)255)) << 24) | (((int32_t)($nc(this->byteBuf)->get(2) & (uint32_t)255)) << 16)) | (((int32_t)($nc(this->byteBuf)->get(1) & (uint32_t)255)) << 8)) | (((int32_t)($nc(this->byteBuf)->get(0) & (uint32_t)255)) << 0));
+		return ((((($nc(this->byteBuf)->get(3) & 0xff) << 24) | (($nc(this->byteBuf)->get(2) & 0xff) << 16)) | (($nc(this->byteBuf)->get(1) & 0xff) << 8)) | (($nc(this->byteBuf)->get(0) & 0xff) << 0));
 	}
 }
 
 int64_t ImageInputStreamImpl::readUnsignedInt() {
-	return (int64_t)(((int64_t)readInt()) & (uint64_t)(int64_t)0x00000000FFFFFFFF);
+	return ((int64_t)readInt()) & (int64_t)0xffffffff;
 }
 
 int64_t ImageInputStreamImpl::readLong() {
@@ -244,9 +147,9 @@ int64_t ImageInputStreamImpl::readLong() {
 	int32_t i2 = readInt();
 	$init($ByteOrder);
 	if (this->byteOrder == $ByteOrder::BIG_ENDIAN) {
-		return ((int64_t)i1 << 32) + ((int64_t)(i2 & (uint64_t)(int64_t)0x00000000FFFFFFFF));
+		return ((int64_t)i1 << 32) + (i2 & (int64_t)0xffffffff);
 	} else {
-		return ((int64_t)i2 << 32) + ((int64_t)(i1 & (uint64_t)(int64_t)0x00000000FFFFFFFF));
+		return ((int64_t)i2 << 32) + (i1 & (int64_t)0xffffffff);
 	}
 }
 
@@ -263,31 +166,22 @@ $String* ImageInputStreamImpl::readLine() {
 	int32_t c = -1;
 	bool eol = false;
 	while (!eol) {
-		{
-			int64_t cur = 0;
-			switch (c = read()) {
-			case -1:
-				{}
-			case u'\n':
-				{
-					eol = true;
-					break;
-				}
-			case u'\r':
-				{
-					eol = true;
-					cur = getStreamPosition();
-					if ((read()) != u'\n') {
-						seek(cur);
-					}
-					break;
-				}
-			default:
-				{
-					input->append((char16_t)c);
-					break;
-				}
+		int64_t cur = 0;
+		switch (c = read()) {
+		case -1:
+		case u'\n':
+			eol = true;
+			break;
+		case u'\r':
+			eol = true;
+			cur = getStreamPosition();
+			if ((read()) != u'\n') {
+				seek(cur);
 			}
+			break;
+		default:
+			input->append((char16_t)c);
+			break;
 		}
 	}
 	if ((c == -1) && (input->length() == 0)) {
@@ -297,7 +191,7 @@ $String* ImageInputStreamImpl::readLine() {
 }
 
 $String* ImageInputStreamImpl::readUTF() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->bitOffset = 0;
 	$var($ByteOrder, oldByteOrder, getByteOrder());
 	$init($ByteOrder);
@@ -415,14 +309,14 @@ void ImageInputStreamImpl::toShorts($bytes* b, $shorts* s, int32_t off, int32_t 
 	if (this->byteOrder == $ByteOrder::BIG_ENDIAN) {
 		for (int32_t j = 0; j < len; ++j) {
 			int32_t b0 = $nc(b)->get(boff);
-			int32_t b1 = (int32_t)(b->get(boff + 1) & (uint32_t)255);
+			int32_t b1 = b->get(boff + 1) & 0xff;
 			$nc(s)->set(off + j, (int16_t)((b0 << 8) | b1));
 			boff += 2;
 		}
 	} else {
 		for (int32_t j = 0; j < len; ++j) {
 			int32_t b0 = $nc(b)->get(boff + 1);
-			int32_t b1 = (int32_t)(b->get(boff) & (uint32_t)255);
+			int32_t b1 = b->get(boff) & 0xff;
 			$nc(s)->set(off + j, (int16_t)((b0 << 8) | b1));
 			boff += 2;
 		}
@@ -435,14 +329,14 @@ void ImageInputStreamImpl::toChars($bytes* b, $chars* c, int32_t off, int32_t le
 	if (this->byteOrder == $ByteOrder::BIG_ENDIAN) {
 		for (int32_t j = 0; j < len; ++j) {
 			int32_t b0 = $nc(b)->get(boff);
-			int32_t b1 = (int32_t)(b->get(boff + 1) & (uint32_t)255);
+			int32_t b1 = b->get(boff + 1) & 0xff;
 			$nc(c)->set(off + j, (char16_t)((b0 << 8) | b1));
 			boff += 2;
 		}
 	} else {
 		for (int32_t j = 0; j < len; ++j) {
 			int32_t b0 = $nc(b)->get(boff + 1);
-			int32_t b1 = (int32_t)(b->get(boff) & (uint32_t)255);
+			int32_t b1 = b->get(boff) & 0xff;
 			$nc(c)->set(off + j, (char16_t)((b0 << 8) | b1));
 			boff += 2;
 		}
@@ -455,18 +349,18 @@ void ImageInputStreamImpl::toInts($bytes* b, $ints* i, int32_t off, int32_t len)
 	if (this->byteOrder == $ByteOrder::BIG_ENDIAN) {
 		for (int32_t j = 0; j < len; ++j) {
 			int32_t b0 = $nc(b)->get(boff);
-			int32_t b1 = (int32_t)(b->get(boff + 1) & (uint32_t)255);
-			int32_t b2 = (int32_t)(b->get(boff + 2) & (uint32_t)255);
-			int32_t b3 = (int32_t)(b->get(boff + 3) & (uint32_t)255);
+			int32_t b1 = b->get(boff + 1) & 0xff;
+			int32_t b2 = b->get(boff + 2) & 0xff;
+			int32_t b3 = b->get(boff + 3) & 0xff;
 			$nc(i)->set(off + j, (((b0 << 24) | (b1 << 16)) | (b2 << 8)) | b3);
 			boff += 4;
 		}
 	} else {
 		for (int32_t j = 0; j < len; ++j) {
 			int32_t b0 = $nc(b)->get(boff + 3);
-			int32_t b1 = (int32_t)(b->get(boff + 2) & (uint32_t)255);
-			int32_t b2 = (int32_t)(b->get(boff + 1) & (uint32_t)255);
-			int32_t b3 = (int32_t)(b->get(boff) & (uint32_t)255);
+			int32_t b1 = b->get(boff + 2) & 0xff;
+			int32_t b2 = b->get(boff + 1) & 0xff;
+			int32_t b3 = b->get(boff) & 0xff;
 			$nc(i)->set(off + j, (((b0 << 24) | (b1 << 16)) | (b2 << 8)) | b3);
 			boff += 4;
 		}
@@ -479,31 +373,31 @@ void ImageInputStreamImpl::toLongs($bytes* b, $longs* l, int32_t off, int32_t le
 	if (this->byteOrder == $ByteOrder::BIG_ENDIAN) {
 		for (int32_t j = 0; j < len; ++j) {
 			int32_t b0 = $nc(b)->get(boff);
-			int32_t b1 = (int32_t)(b->get(boff + 1) & (uint32_t)255);
-			int32_t b2 = (int32_t)(b->get(boff + 2) & (uint32_t)255);
-			int32_t b3 = (int32_t)(b->get(boff + 3) & (uint32_t)255);
+			int32_t b1 = b->get(boff + 1) & 0xff;
+			int32_t b2 = b->get(boff + 2) & 0xff;
+			int32_t b3 = b->get(boff + 3) & 0xff;
 			int32_t b4 = b->get(boff + 4);
-			int32_t b5 = (int32_t)(b->get(boff + 5) & (uint32_t)255);
-			int32_t b6 = (int32_t)(b->get(boff + 6) & (uint32_t)255);
-			int32_t b7 = (int32_t)(b->get(boff + 7) & (uint32_t)255);
+			int32_t b5 = b->get(boff + 5) & 0xff;
+			int32_t b6 = b->get(boff + 6) & 0xff;
+			int32_t b7 = b->get(boff + 7) & 0xff;
 			int32_t i0 = (((b0 << 24) | (b1 << 16)) | (b2 << 8)) | b3;
 			int32_t i1 = (((b4 << 24) | (b5 << 16)) | (b6 << 8)) | b7;
-			$nc(l)->set(off + j, ((int64_t)i0 << 32) | ((int64_t)(i1 & (uint64_t)(int64_t)0x00000000FFFFFFFF)));
+			$nc(l)->set(off + j, ((int64_t)i0 << 32) | (i1 & (int64_t)0xffffffff));
 			boff += 8;
 		}
 	} else {
 		for (int32_t j = 0; j < len; ++j) {
 			int32_t b0 = $nc(b)->get(boff + 7);
-			int32_t b1 = (int32_t)(b->get(boff + 6) & (uint32_t)255);
-			int32_t b2 = (int32_t)(b->get(boff + 5) & (uint32_t)255);
-			int32_t b3 = (int32_t)(b->get(boff + 4) & (uint32_t)255);
+			int32_t b1 = b->get(boff + 6) & 0xff;
+			int32_t b2 = b->get(boff + 5) & 0xff;
+			int32_t b3 = b->get(boff + 4) & 0xff;
 			int32_t b4 = b->get(boff + 3);
-			int32_t b5 = (int32_t)(b->get(boff + 2) & (uint32_t)255);
-			int32_t b6 = (int32_t)(b->get(boff + 1) & (uint32_t)255);
-			int32_t b7 = (int32_t)(b->get(boff) & (uint32_t)255);
+			int32_t b5 = b->get(boff + 2) & 0xff;
+			int32_t b6 = b->get(boff + 1) & 0xff;
+			int32_t b7 = b->get(boff) & 0xff;
 			int32_t i0 = (((b0 << 24) | (b1 << 16)) | (b2 << 8)) | b3;
 			int32_t i1 = (((b4 << 24) | (b5 << 16)) | (b6 << 8)) | b7;
-			$nc(l)->set(off + j, ((int64_t)i0 << 32) | ((int64_t)(i1 & (uint64_t)(int64_t)0x00000000FFFFFFFF)));
+			$nc(l)->set(off + j, ((int64_t)i0 << 32) | (i1 & (int64_t)0xffffffff));
 			boff += 8;
 		}
 	}
@@ -515,9 +409,9 @@ void ImageInputStreamImpl::toFloats($bytes* b, $floats* f, int32_t off, int32_t 
 	if (this->byteOrder == $ByteOrder::BIG_ENDIAN) {
 		for (int32_t j = 0; j < len; ++j) {
 			int32_t b0 = $nc(b)->get(boff);
-			int32_t b1 = (int32_t)(b->get(boff + 1) & (uint32_t)255);
-			int32_t b2 = (int32_t)(b->get(boff + 2) & (uint32_t)255);
-			int32_t b3 = (int32_t)(b->get(boff + 3) & (uint32_t)255);
+			int32_t b1 = b->get(boff + 1) & 0xff;
+			int32_t b2 = b->get(boff + 2) & 0xff;
+			int32_t b3 = b->get(boff + 3) & 0xff;
 			int32_t i = (((b0 << 24) | (b1 << 16)) | (b2 << 8)) | b3;
 			$nc(f)->set(off + j, $Float::intBitsToFloat(i));
 			boff += 4;
@@ -525,9 +419,9 @@ void ImageInputStreamImpl::toFloats($bytes* b, $floats* f, int32_t off, int32_t 
 	} else {
 		for (int32_t j = 0; j < len; ++j) {
 			int32_t b0 = $nc(b)->get(boff + 3);
-			int32_t b1 = (int32_t)(b->get(boff + 2) & (uint32_t)255);
-			int32_t b2 = (int32_t)(b->get(boff + 1) & (uint32_t)255);
-			int32_t b3 = (int32_t)(b->get(boff + 0) & (uint32_t)255);
+			int32_t b1 = b->get(boff + 2) & 0xff;
+			int32_t b2 = b->get(boff + 1) & 0xff;
+			int32_t b3 = b->get(boff + 0) & 0xff;
 			int32_t i = (((b0 << 24) | (b1 << 16)) | (b2 << 8)) | b3;
 			$nc(f)->set(off + j, $Float::intBitsToFloat(i));
 			boff += 4;
@@ -541,32 +435,32 @@ void ImageInputStreamImpl::toDoubles($bytes* b, $doubles* d, int32_t off, int32_
 	if (this->byteOrder == $ByteOrder::BIG_ENDIAN) {
 		for (int32_t j = 0; j < len; ++j) {
 			int32_t b0 = $nc(b)->get(boff);
-			int32_t b1 = (int32_t)(b->get(boff + 1) & (uint32_t)255);
-			int32_t b2 = (int32_t)(b->get(boff + 2) & (uint32_t)255);
-			int32_t b3 = (int32_t)(b->get(boff + 3) & (uint32_t)255);
+			int32_t b1 = b->get(boff + 1) & 0xff;
+			int32_t b2 = b->get(boff + 2) & 0xff;
+			int32_t b3 = b->get(boff + 3) & 0xff;
 			int32_t b4 = b->get(boff + 4);
-			int32_t b5 = (int32_t)(b->get(boff + 5) & (uint32_t)255);
-			int32_t b6 = (int32_t)(b->get(boff + 6) & (uint32_t)255);
-			int32_t b7 = (int32_t)(b->get(boff + 7) & (uint32_t)255);
+			int32_t b5 = b->get(boff + 5) & 0xff;
+			int32_t b6 = b->get(boff + 6) & 0xff;
+			int32_t b7 = b->get(boff + 7) & 0xff;
 			int32_t i0 = (((b0 << 24) | (b1 << 16)) | (b2 << 8)) | b3;
 			int32_t i1 = (((b4 << 24) | (b5 << 16)) | (b6 << 8)) | b7;
-			int64_t l = ((int64_t)i0 << 32) | ((int64_t)(i1 & (uint64_t)(int64_t)0x00000000FFFFFFFF));
+			int64_t l = ((int64_t)i0 << 32) | (i1 & (int64_t)0xffffffff);
 			$nc(d)->set(off + j, $Double::longBitsToDouble(l));
 			boff += 8;
 		}
 	} else {
 		for (int32_t j = 0; j < len; ++j) {
 			int32_t b0 = $nc(b)->get(boff + 7);
-			int32_t b1 = (int32_t)(b->get(boff + 6) & (uint32_t)255);
-			int32_t b2 = (int32_t)(b->get(boff + 5) & (uint32_t)255);
-			int32_t b3 = (int32_t)(b->get(boff + 4) & (uint32_t)255);
+			int32_t b1 = b->get(boff + 6) & 0xff;
+			int32_t b2 = b->get(boff + 5) & 0xff;
+			int32_t b3 = b->get(boff + 4) & 0xff;
 			int32_t b4 = b->get(boff + 3);
-			int32_t b5 = (int32_t)(b->get(boff + 2) & (uint32_t)255);
-			int32_t b6 = (int32_t)(b->get(boff + 1) & (uint32_t)255);
-			int32_t b7 = (int32_t)(b->get(boff) & (uint32_t)255);
+			int32_t b5 = b->get(boff + 2) & 0xff;
+			int32_t b6 = b->get(boff + 1) & 0xff;
+			int32_t b7 = b->get(boff) & 0xff;
 			int32_t i0 = (((b0 << 24) | (b1 << 16)) | (b2 << 8)) | b3;
 			int32_t i1 = (((b4 << 24) | (b5 << 16)) | (b6 << 8)) | b7;
-			int64_t l = ((int64_t)i0 << 32) | ((int64_t)(i1 & (uint64_t)(int64_t)0x00000000FFFFFFFF));
+			int64_t l = ((int64_t)i0 << 32) | (i1 & (int64_t)0xffffffff);
 			$nc(d)->set(off + j, $Double::longBitsToDouble(l));
 			boff += 8;
 		}
@@ -593,7 +487,7 @@ void ImageInputStreamImpl::setBitOffset(int32_t bitOffset) {
 
 int32_t ImageInputStreamImpl::readBit() {
 	checkClosed();
-	int32_t newBitOffset = (int32_t)((this->bitOffset + 1) & (uint32_t)7);
+	int32_t newBitOffset = (this->bitOffset + 1) & 7;
 	int32_t val = read();
 	if (val == -1) {
 		$throwNew($EOFException);
@@ -603,7 +497,7 @@ int32_t ImageInputStreamImpl::readBit() {
 		val >>= 8 - newBitOffset;
 	}
 	this->bitOffset = newBitOffset;
-	return (int32_t)(val & (uint32_t)1);
+	return val & 1;
 }
 
 int64_t ImageInputStreamImpl::readBits(int32_t numBits) {
@@ -615,7 +509,7 @@ int64_t ImageInputStreamImpl::readBits(int32_t numBits) {
 		return 0;
 	}
 	int32_t bitsToRead = numBits + this->bitOffset;
-	int32_t newBitOffset = (int32_t)((this->bitOffset + numBits) & (uint32_t)7);
+	int32_t newBitOffset = (this->bitOffset + numBits) & 7;
 	int64_t accum = 0;
 	while (bitsToRead > 0) {
 		int32_t val = read();
@@ -661,7 +555,7 @@ void ImageInputStreamImpl::seek(int64_t pos) {
 }
 
 void ImageInputStreamImpl::mark() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$nc(this->markByteStack)->push($($Long::valueOf(getStreamPosition())));
 		$nc(this->markBitStack)->push($($Integer::valueOf(getBitOffset())));
@@ -670,16 +564,16 @@ void ImageInputStreamImpl::mark() {
 }
 
 void ImageInputStreamImpl::reset() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(this->markByteStack)->empty()) {
 		return;
 	}
-	int64_t pos = $nc(($cast($Long, $($nc(this->markByteStack)->pop()))))->longValue();
+	int64_t pos = $$sure($Long, this->markByteStack->pop())->longValue();
 	if (pos < this->flushedPos) {
 		$throwNew($IIOException, "Previous marked position has been discarded!"_s);
 	}
 	seek(pos);
-	int32_t offset = $nc(($cast($Integer, $($nc(this->markBitStack)->pop()))))->intValue();
+	int32_t offset = $$sure($Integer, $nc(this->markBitStack)->pop())->intValue();
 	setBitOffset(offset);
 }
 
@@ -733,7 +627,94 @@ ImageInputStreamImpl::ImageInputStreamImpl() {
 }
 
 $Class* ImageInputStreamImpl::load$($String* name, bool initialize) {
-	$loadClass(ImageInputStreamImpl, name, initialize, &_ImageInputStreamImpl_ClassInfo_, allocate$ImageInputStreamImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"markByteStack", "Ljava/util/Stack;", "Ljava/util/Stack<Ljava/lang/Long;>;", $PRIVATE, $field(ImageInputStreamImpl, markByteStack)},
+		{"markBitStack", "Ljava/util/Stack;", "Ljava/util/Stack<Ljava/lang/Integer;>;", $PRIVATE, $field(ImageInputStreamImpl, markBitStack)},
+		{"isClosed", "Z", nullptr, $PRIVATE, $field(ImageInputStreamImpl, isClosed)},
+		{"BYTE_BUF_LENGTH", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ImageInputStreamImpl, BYTE_BUF_LENGTH)},
+		{"byteBuf", "[B", nullptr, 0, $field(ImageInputStreamImpl, byteBuf)},
+		{"byteOrder", "Ljava/nio/ByteOrder;", nullptr, $PROTECTED, $field(ImageInputStreamImpl, byteOrder)},
+		{"streamPos", "J", nullptr, $PROTECTED, $field(ImageInputStreamImpl, streamPos)},
+		{"bitOffset", "I", nullptr, $PROTECTED, $field(ImageInputStreamImpl, bitOffset)},
+		{"flushedPos", "J", nullptr, $PROTECTED, $field(ImageInputStreamImpl, flushedPos)},
+		{}
+	};
+	$NamedAttribute finalizemethodAnnotations$$$namedAttribute[] = {
+		{"since", 's', "9"},
+		{}
+	};
+	$CompoundAttribute finalizemethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", finalizemethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ImageInputStreamImpl, init$, void)},
+		{"checkClosed", "()V", nullptr, $PROTECTED | $FINAL, $method(ImageInputStreamImpl, checkClosed, void), "java.io.IOException"},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(ImageInputStreamImpl, close, void), "java.io.IOException"},
+		{"finalize", "()V", nullptr, $PROTECTED | $DEPRECATED, $virtualMethod(ImageInputStreamImpl, finalize, void), "java.lang.Throwable", nullptr, finalizemethodAnnotations$$},
+		{"flush", "()V", nullptr, $PUBLIC, $virtualMethod(ImageInputStreamImpl, flush, void), "java.io.IOException"},
+		{"flushBefore", "(J)V", nullptr, $PUBLIC, $virtualMethod(ImageInputStreamImpl, flushBefore, void, int64_t), "java.io.IOException"},
+		{"getBitOffset", "()I", nullptr, $PUBLIC, $virtualMethod(ImageInputStreamImpl, getBitOffset, int32_t), "java.io.IOException"},
+		{"getByteOrder", "()Ljava/nio/ByteOrder;", nullptr, $PUBLIC, $virtualMethod(ImageInputStreamImpl, getByteOrder, $ByteOrder*)},
+		{"getFlushedPosition", "()J", nullptr, $PUBLIC, $virtualMethod(ImageInputStreamImpl, getFlushedPosition, int64_t)},
+		{"getStreamPosition", "()J", nullptr, $PUBLIC, $virtualMethod(ImageInputStreamImpl, getStreamPosition, int64_t), "java.io.IOException"},
+		{"isCached", "()Z", nullptr, $PUBLIC, $virtualMethod(ImageInputStreamImpl, isCached, bool)},
+		{"isCachedFile", "()Z", nullptr, $PUBLIC, $virtualMethod(ImageInputStreamImpl, isCachedFile, bool)},
+		{"isCachedMemory", "()Z", nullptr, $PUBLIC, $virtualMethod(ImageInputStreamImpl, isCachedMemory, bool)},
+		{"length", "()J", nullptr, $PUBLIC, $virtualMethod(ImageInputStreamImpl, length, int64_t)},
+		{"mark", "()V", nullptr, $PUBLIC, $virtualMethod(ImageInputStreamImpl, mark, void)},
+		{"read", "()I", nullptr, $PUBLIC | $ABSTRACT},
+		{"read", "([BII)I", nullptr, $PUBLIC | $ABSTRACT},
+		{"read", "([B)I", nullptr, $PUBLIC, $virtualMethod(ImageInputStreamImpl, read, int32_t, $bytes*), "java.io.IOException"},
+		{"readBit", "()I", nullptr, $PUBLIC, $virtualMethod(ImageInputStreamImpl, readBit, int32_t), "java.io.IOException"},
+		{"readBits", "(I)J", nullptr, $PUBLIC, $virtualMethod(ImageInputStreamImpl, readBits, int64_t, int32_t), "java.io.IOException"},
+		{"readBoolean", "()Z", nullptr, $PUBLIC, $virtualMethod(ImageInputStreamImpl, readBoolean, bool), "java.io.IOException"},
+		{"readByte", "()B", nullptr, $PUBLIC, $virtualMethod(ImageInputStreamImpl, readByte, int8_t), "java.io.IOException"},
+		{"readBytes", "(Ljavax/imageio/stream/IIOByteBuffer;I)V", nullptr, $PUBLIC, $virtualMethod(ImageInputStreamImpl, readBytes, void, $IIOByteBuffer*, int32_t), "java.io.IOException"},
+		{"readChar", "()C", nullptr, $PUBLIC, $virtualMethod(ImageInputStreamImpl, readChar, char16_t), "java.io.IOException"},
+		{"readDouble", "()D", nullptr, $PUBLIC, $virtualMethod(ImageInputStreamImpl, readDouble, double), "java.io.IOException"},
+		{"readFloat", "()F", nullptr, $PUBLIC, $virtualMethod(ImageInputStreamImpl, readFloat, float), "java.io.IOException"},
+		{"readFully", "([BII)V", nullptr, $PUBLIC, $virtualMethod(ImageInputStreamImpl, readFully, void, $bytes*, int32_t, int32_t), "java.io.IOException"},
+		{"readFully", "([B)V", nullptr, $PUBLIC, $virtualMethod(ImageInputStreamImpl, readFully, void, $bytes*), "java.io.IOException"},
+		{"readFully", "([SII)V", nullptr, $PUBLIC, $virtualMethod(ImageInputStreamImpl, readFully, void, $shorts*, int32_t, int32_t), "java.io.IOException"},
+		{"readFully", "([CII)V", nullptr, $PUBLIC, $virtualMethod(ImageInputStreamImpl, readFully, void, $chars*, int32_t, int32_t), "java.io.IOException"},
+		{"readFully", "([III)V", nullptr, $PUBLIC, $virtualMethod(ImageInputStreamImpl, readFully, void, $ints*, int32_t, int32_t), "java.io.IOException"},
+		{"readFully", "([JII)V", nullptr, $PUBLIC, $virtualMethod(ImageInputStreamImpl, readFully, void, $longs*, int32_t, int32_t), "java.io.IOException"},
+		{"readFully", "([FII)V", nullptr, $PUBLIC, $virtualMethod(ImageInputStreamImpl, readFully, void, $floats*, int32_t, int32_t), "java.io.IOException"},
+		{"readFully", "([DII)V", nullptr, $PUBLIC, $virtualMethod(ImageInputStreamImpl, readFully, void, $doubles*, int32_t, int32_t), "java.io.IOException"},
+		{"readInt", "()I", nullptr, $PUBLIC, $virtualMethod(ImageInputStreamImpl, readInt, int32_t), "java.io.IOException"},
+		{"readLine", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ImageInputStreamImpl, readLine, $String*), "java.io.IOException"},
+		{"readLong", "()J", nullptr, $PUBLIC, $virtualMethod(ImageInputStreamImpl, readLong, int64_t), "java.io.IOException"},
+		{"readShort", "()S", nullptr, $PUBLIC, $virtualMethod(ImageInputStreamImpl, readShort, int16_t), "java.io.IOException"},
+		{"readUTF", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ImageInputStreamImpl, readUTF, $String*), "java.io.IOException"},
+		{"readUnsignedByte", "()I", nullptr, $PUBLIC, $virtualMethod(ImageInputStreamImpl, readUnsignedByte, int32_t), "java.io.IOException"},
+		{"readUnsignedInt", "()J", nullptr, $PUBLIC, $virtualMethod(ImageInputStreamImpl, readUnsignedInt, int64_t), "java.io.IOException"},
+		{"readUnsignedShort", "()I", nullptr, $PUBLIC, $virtualMethod(ImageInputStreamImpl, readUnsignedShort, int32_t), "java.io.IOException"},
+		{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(ImageInputStreamImpl, reset, void), "java.io.IOException"},
+		{"seek", "(J)V", nullptr, $PUBLIC, $virtualMethod(ImageInputStreamImpl, seek, void, int64_t), "java.io.IOException"},
+		{"setBitOffset", "(I)V", nullptr, $PUBLIC, $virtualMethod(ImageInputStreamImpl, setBitOffset, void, int32_t), "java.io.IOException"},
+		{"setByteOrder", "(Ljava/nio/ByteOrder;)V", nullptr, $PUBLIC, $virtualMethod(ImageInputStreamImpl, setByteOrder, void, $ByteOrder*)},
+		{"skipBytes", "(I)I", nullptr, $PUBLIC, $virtualMethod(ImageInputStreamImpl, skipBytes, int32_t, int32_t), "java.io.IOException"},
+		{"skipBytes", "(J)J", nullptr, $PUBLIC, $virtualMethod(ImageInputStreamImpl, skipBytes, int64_t, int64_t), "java.io.IOException"},
+		{"toChars", "([B[CII)V", nullptr, $PRIVATE, $method(ImageInputStreamImpl, toChars, void, $bytes*, $chars*, int32_t, int32_t)},
+		{"toDoubles", "([B[DII)V", nullptr, $PRIVATE, $method(ImageInputStreamImpl, toDoubles, void, $bytes*, $doubles*, int32_t, int32_t)},
+		{"toFloats", "([B[FII)V", nullptr, $PRIVATE, $method(ImageInputStreamImpl, toFloats, void, $bytes*, $floats*, int32_t, int32_t)},
+		{"toInts", "([B[III)V", nullptr, $PRIVATE, $method(ImageInputStreamImpl, toInts, void, $bytes*, $ints*, int32_t, int32_t)},
+		{"toLongs", "([B[JII)V", nullptr, $PRIVATE, $method(ImageInputStreamImpl, toLongs, void, $bytes*, $longs*, int32_t, int32_t)},
+		{"toShorts", "([B[SII)V", nullptr, $PRIVATE, $method(ImageInputStreamImpl, toShorts, void, $bytes*, $shorts*, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"javax.imageio.stream.ImageInputStreamImpl",
+		"java.lang.Object",
+		"javax.imageio.stream.ImageInputStream",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ImageInputStreamImpl, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ImageInputStreamImpl));
+	});
 	return class$;
 }
 

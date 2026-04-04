@@ -23,11 +23,14 @@ public:
 	void init$(::java::lang::Exception* e, $String* message);
 	virtual $Throwable* getCause() override;
 	virtual ::java::lang::Exception* getTargetException();
-	static const int64_t serialVersionUID = (int64_t)0x7F45427E1D6D9161;
+	static const int64_t serialVersionUID = (int64_t)0x7f45427e1d6d9161;
 	::java::lang::Exception* exception = nullptr;
 	ReflectionException(const ReflectionException& e);
 	virtual void throw$() override;
-	inline ReflectionException* operator ->() {
+	inline ReflectionException* operator ->() const {
+		return (ReflectionException*)throwing$;
+	}
+	inline operator ReflectionException*() const {
 		return (ReflectionException*)throwing$;
 	}
 };

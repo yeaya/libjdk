@@ -1,5 +1,4 @@
 #include <com/apple/laf/AquaFileChooserUI$MacListSelectionModel.h>
-
 #include <com/apple/laf/AquaFileChooserUI.h>
 #include <com/apple/laf/AquaFileSystemModel.h>
 #include <java/io/File.h>
@@ -23,48 +22,6 @@ using $ListSelectionModel = ::javax::swing::ListSelectionModel;
 namespace com {
 	namespace apple {
 		namespace laf {
-
-$FieldInfo _AquaFileChooserUI$MacListSelectionModel_FieldInfo_[] = {
-	{"this$0", "Lcom/apple/laf/AquaFileChooserUI;", nullptr, $FINAL | $SYNTHETIC, $field(AquaFileChooserUI$MacListSelectionModel, this$0)},
-	{"fModel", "Lcom/apple/laf/AquaFileSystemModel;", nullptr, 0, $field(AquaFileChooserUI$MacListSelectionModel, fModel)},
-	{}
-};
-
-$MethodInfo _AquaFileChooserUI$MacListSelectionModel_MethodInfo_[] = {
-	{"<init>", "(Lcom/apple/laf/AquaFileChooserUI;Lcom/apple/laf/AquaFileSystemModel;)V", nullptr, 0, $method(AquaFileChooserUI$MacListSelectionModel, init$, void, $AquaFileChooserUI*, $AquaFileSystemModel*)},
-	{"addSelectionInterval", "(II)V", nullptr, $PUBLIC, $virtualMethod(AquaFileChooserUI$MacListSelectionModel, addSelectionInterval, void, int32_t, int32_t)},
-	{"isSelectableInListIndex", "(I)Z", nullptr, 0, $virtualMethod(AquaFileChooserUI$MacListSelectionModel, isSelectableInListIndex, bool, int32_t)},
-	{"setAnchorSelectionIndex", "(I)V", nullptr, $PUBLIC, $virtualMethod(AquaFileChooserUI$MacListSelectionModel, setAnchorSelectionIndex, void, int32_t)},
-	{"setLeadSelectionIndex", "(I)V", nullptr, $PUBLIC, $virtualMethod(AquaFileChooserUI$MacListSelectionModel, setLeadSelectionIndex, void, int32_t)},
-	{"setSelectionInterval", "(II)V", nullptr, $PUBLIC, $virtualMethod(AquaFileChooserUI$MacListSelectionModel, setSelectionInterval, void, int32_t, int32_t)},
-	{"verifySelectionInterval", "(IIZ)V", nullptr, 0, $virtualMethod(AquaFileChooserUI$MacListSelectionModel, verifySelectionInterval, void, int32_t, int32_t, bool)},
-	{}
-};
-
-$InnerClassInfo _AquaFileChooserUI$MacListSelectionModel_InnerClassesInfo_[] = {
-	{"com.apple.laf.AquaFileChooserUI$MacListSelectionModel", "com.apple.laf.AquaFileChooserUI", "MacListSelectionModel", 0},
-	{}
-};
-
-$ClassInfo _AquaFileChooserUI$MacListSelectionModel_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.apple.laf.AquaFileChooserUI$MacListSelectionModel",
-	"javax.swing.DefaultListSelectionModel",
-	nullptr,
-	_AquaFileChooserUI$MacListSelectionModel_FieldInfo_,
-	_AquaFileChooserUI$MacListSelectionModel_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AquaFileChooserUI$MacListSelectionModel_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.apple.laf.AquaFileChooserUI"
-};
-
-$Object* allocate$AquaFileChooserUI$MacListSelectionModel($Class* clazz) {
-	return $of($alloc(AquaFileChooserUI$MacListSelectionModel));
-}
 
 void AquaFileChooserUI$MacListSelectionModel::init$($AquaFileChooserUI* this$0, $AquaFileSystemModel* model) {
 	$set(this, this$0, this$0);
@@ -158,7 +115,43 @@ AquaFileChooserUI$MacListSelectionModel::AquaFileChooserUI$MacListSelectionModel
 }
 
 $Class* AquaFileChooserUI$MacListSelectionModel::load$($String* name, bool initialize) {
-	$loadClass(AquaFileChooserUI$MacListSelectionModel, name, initialize, &_AquaFileChooserUI$MacListSelectionModel_ClassInfo_, allocate$AquaFileChooserUI$MacListSelectionModel);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/apple/laf/AquaFileChooserUI;", nullptr, $FINAL | $SYNTHETIC, $field(AquaFileChooserUI$MacListSelectionModel, this$0)},
+		{"fModel", "Lcom/apple/laf/AquaFileSystemModel;", nullptr, 0, $field(AquaFileChooserUI$MacListSelectionModel, fModel)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/apple/laf/AquaFileChooserUI;Lcom/apple/laf/AquaFileSystemModel;)V", nullptr, 0, $method(AquaFileChooserUI$MacListSelectionModel, init$, void, $AquaFileChooserUI*, $AquaFileSystemModel*)},
+		{"addSelectionInterval", "(II)V", nullptr, $PUBLIC, $virtualMethod(AquaFileChooserUI$MacListSelectionModel, addSelectionInterval, void, int32_t, int32_t)},
+		{"isSelectableInListIndex", "(I)Z", nullptr, 0, $virtualMethod(AquaFileChooserUI$MacListSelectionModel, isSelectableInListIndex, bool, int32_t)},
+		{"setAnchorSelectionIndex", "(I)V", nullptr, $PUBLIC, $virtualMethod(AquaFileChooserUI$MacListSelectionModel, setAnchorSelectionIndex, void, int32_t)},
+		{"setLeadSelectionIndex", "(I)V", nullptr, $PUBLIC, $virtualMethod(AquaFileChooserUI$MacListSelectionModel, setLeadSelectionIndex, void, int32_t)},
+		{"setSelectionInterval", "(II)V", nullptr, $PUBLIC, $virtualMethod(AquaFileChooserUI$MacListSelectionModel, setSelectionInterval, void, int32_t, int32_t)},
+		{"verifySelectionInterval", "(IIZ)V", nullptr, 0, $virtualMethod(AquaFileChooserUI$MacListSelectionModel, verifySelectionInterval, void, int32_t, int32_t, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.laf.AquaFileChooserUI$MacListSelectionModel", "com.apple.laf.AquaFileChooserUI", "MacListSelectionModel", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.apple.laf.AquaFileChooserUI$MacListSelectionModel",
+		"javax.swing.DefaultListSelectionModel",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.apple.laf.AquaFileChooserUI"
+	};
+	$loadClass(AquaFileChooserUI$MacListSelectionModel, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AquaFileChooserUI$MacListSelectionModel));
+	});
 	return class$;
 }
 

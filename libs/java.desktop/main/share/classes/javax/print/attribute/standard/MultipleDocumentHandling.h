@@ -31,13 +31,14 @@ public:
 	virtual bool equals(Object$* arg0) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int32_t value);
 	virtual $Class* getCategory() override;
 	virtual $Array<::javax::print::attribute::EnumSyntax>* getEnumValueTable() override;
 	virtual $String* getName() override;
 	virtual $StringArray* getStringTable() override;
 	virtual $String* toString() override;
-	static const int64_t serialVersionUID = (int64_t)0x706309025FEFB59A;
+	static const int64_t serialVersionUID = (int64_t)0x706309025fefb59a;
 	static ::javax::print::attribute::standard::MultipleDocumentHandling* SINGLE_DOCUMENT;
 	static ::javax::print::attribute::standard::MultipleDocumentHandling* SEPARATE_DOCUMENTS_UNCOLLATED_COPIES;
 	static ::javax::print::attribute::standard::MultipleDocumentHandling* SEPARATE_DOCUMENTS_COLLATED_COPIES;

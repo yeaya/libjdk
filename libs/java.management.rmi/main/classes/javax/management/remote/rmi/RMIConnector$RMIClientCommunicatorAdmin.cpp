@@ -1,5 +1,4 @@
 #include <javax/management/remote/rmi/RMIConnector$RMIClientCommunicatorAdmin.h>
-
 #include <com/sun/jmx/remote/internal/ClientCommunicatorAdmin.h>
 #include <com/sun/jmx/remote/internal/ClientListenerInfo.h>
 #include <com/sun/jmx/remote/internal/ClientNotifForwarder.h>
@@ -37,7 +36,6 @@ using $ObjectNameArray = $Array<::javax::management::ObjectName>;
 using $SubjectArray = $Array<::javax::security::auth::Subject>;
 using $ClientCommunicatorAdmin = ::com::sun::jmx::remote::internal::ClientCommunicatorAdmin;
 using $ClientListenerInfo = ::com::sun::jmx::remote::internal::ClientListenerInfo;
-using $ClassLogger = ::com::sun::jmx::remote::util::ClassLogger;
 using $IOException = ::java::io::IOException;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
@@ -49,13 +47,10 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $MarshalledObject = ::java::rmi::MarshalledObject;
 using $NoSuchObjectException = ::java::rmi::NoSuchObjectException;
 using $ServerException = ::java::rmi::ServerException;
-using $Map = ::java::util::Map;
 using $InstanceNotFoundException = ::javax::management::InstanceNotFoundException;
 using $Notification = ::javax::management::Notification;
 using $JMXConnectionNotification = ::javax::management::remote::JMXConnectionNotification;
-using $RMIConnection = ::javax::management::remote::rmi::RMIConnection;
 using $RMIConnector = ::javax::management::remote::rmi::RMIConnector;
-using $RMIConnector$RMINotifClient = ::javax::management::remote::rmi::RMIConnector$RMINotifClient;
 using $RMIConnector$Util = ::javax::management::remote::rmi::RMIConnector$Util;
 using $RMIServer = ::javax::management::remote::rmi::RMIServer;
 using $NamingException = ::javax::naming::NamingException;
@@ -66,53 +61,13 @@ namespace javax {
 		namespace remote {
 			namespace rmi {
 
-$FieldInfo _RMIConnector$RMIClientCommunicatorAdmin_FieldInfo_[] = {
-	{"this$0", "Ljavax/management/remote/rmi/RMIConnector;", nullptr, $FINAL | $SYNTHETIC, $field(RMIConnector$RMIClientCommunicatorAdmin, this$0)},
-	{}
-};
-
-$MethodInfo _RMIConnector$RMIClientCommunicatorAdmin_MethodInfo_[] = {
-	{"<init>", "(Ljavax/management/remote/rmi/RMIConnector;J)V", nullptr, $PUBLIC, $method(RMIConnector$RMIClientCommunicatorAdmin, init$, void, $RMIConnector*, int64_t)},
-	{"checkConnection", "()V", nullptr, $PROTECTED, $virtualMethod(RMIConnector$RMIClientCommunicatorAdmin, checkConnection, void), "java.io.IOException"},
-	{"doStart", "()V", nullptr, $PROTECTED, $virtualMethod(RMIConnector$RMIClientCommunicatorAdmin, doStart, void), "java.io.IOException"},
-	{"doStop", "()V", nullptr, $PROTECTED, $virtualMethod(RMIConnector$RMIClientCommunicatorAdmin, doStop, void)},
-	{"gotIOException", "(Ljava/io/IOException;)V", nullptr, $PUBLIC, $virtualMethod(RMIConnector$RMIClientCommunicatorAdmin, gotIOException, void, $IOException*), "java.io.IOException"},
-	{"reconnectNotificationListeners", "([Lcom/sun/jmx/remote/internal/ClientListenerInfo;)V", nullptr, $PUBLIC, $virtualMethod(RMIConnector$RMIClientCommunicatorAdmin, reconnectNotificationListeners, void, $ClientListenerInfoArray*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _RMIConnector$RMIClientCommunicatorAdmin_InnerClassesInfo_[] = {
-	{"javax.management.remote.rmi.RMIConnector$RMIClientCommunicatorAdmin", "javax.management.remote.rmi.RMIConnector", "RMIClientCommunicatorAdmin", $PRIVATE},
-	{}
-};
-
-$ClassInfo _RMIConnector$RMIClientCommunicatorAdmin_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.management.remote.rmi.RMIConnector$RMIClientCommunicatorAdmin",
-	"com.sun.jmx.remote.internal.ClientCommunicatorAdmin",
-	nullptr,
-	_RMIConnector$RMIClientCommunicatorAdmin_FieldInfo_,
-	_RMIConnector$RMIClientCommunicatorAdmin_MethodInfo_,
-	nullptr,
-	nullptr,
-	_RMIConnector$RMIClientCommunicatorAdmin_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.management.remote.rmi.RMIConnector"
-};
-
-$Object* allocate$RMIConnector$RMIClientCommunicatorAdmin($Class* clazz) {
-	return $of($alloc(RMIConnector$RMIClientCommunicatorAdmin));
-}
-
 void RMIConnector$RMIClientCommunicatorAdmin::init$($RMIConnector* this$0, int64_t period) {
 	$set(this, this$0, this$0);
 	$ClientCommunicatorAdmin::init$(period);
 }
 
 void RMIConnector$RMIClientCommunicatorAdmin::gotIOException($IOException* ioe) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($instanceOf($NoSuchObjectException, ioe)) {
 		$ClientCommunicatorAdmin::gotIOException(ioe);
 		return;
@@ -140,7 +95,7 @@ void RMIConnector$RMIClientCommunicatorAdmin::gotIOException($IOException* ioe) 
 		}
 	}
 	if ($instanceOf($ServerException, ioe)) {
-		$var($Throwable, tt, $nc(($cast($ServerException, ioe)))->detail);
+		$var($Throwable, tt, $cast($ServerException, ioe)->detail);
 		if ($instanceOf($IOException, tt)) {
 			$throw($cast($IOException, tt));
 		} else if ($instanceOf($RuntimeException, tt)) {
@@ -151,7 +106,7 @@ void RMIConnector$RMIClientCommunicatorAdmin::gotIOException($IOException* ioe) 
 }
 
 void RMIConnector$RMIClientCommunicatorAdmin::reconnectNotificationListeners($ClientListenerInfoArray* old) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t len = $nc(old)->length;
 	int32_t i = 0;
 	$var($ClientListenerInfoArray, clis, $new($ClientListenerInfoArray, len));
@@ -199,13 +154,13 @@ void RMIConnector$RMIClientCommunicatorAdmin::reconnectNotificationListeners($Cl
 void RMIConnector$RMIClientCommunicatorAdmin::checkConnection() {
 	$init($RMIConnector);
 	if ($nc($RMIConnector::logger)->debugOn()) {
-		$nc($RMIConnector::logger)->debug("RMIClientCommunicatorAdmin-checkConnection"_s, "Calling the method getDefaultDomain."_s);
+		$RMIConnector::logger->debug("RMIClientCommunicatorAdmin-checkConnection"_s, "Calling the method getDefaultDomain."_s);
 	}
 	$nc(this->this$0->connection)->getDefaultDomain(nullptr);
 }
 
 void RMIConnector$RMIClientCommunicatorAdmin::doStart() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($RMIServer, stub, nullptr);
 	try {
 		$assign(stub, (this->this$0->rmiServer != nullptr) ? this->this$0->rmiServer : this->this$0->findRMIServer(this->this$0->jmxServiceURL, this->this$0->env));
@@ -230,7 +185,7 @@ void RMIConnector$RMIClientCommunicatorAdmin::doStop() {
 	} catch ($IOException& ioe) {
 		$init($RMIConnector);
 		$nc($RMIConnector::logger)->warning("RMIClientCommunicatorAdmin-doStop"_s, $$str({"Failed to call the method close():"_s, ioe}));
-		$nc($RMIConnector::logger)->debug("RMIClientCommunicatorAdmin-doStop"_s, static_cast<$Throwable*>(ioe));
+		$RMIConnector::logger->debug("RMIClientCommunicatorAdmin-doStop"_s, ioe);
 	}
 }
 
@@ -238,7 +193,41 @@ RMIConnector$RMIClientCommunicatorAdmin::RMIConnector$RMIClientCommunicatorAdmin
 }
 
 $Class* RMIConnector$RMIClientCommunicatorAdmin::load$($String* name, bool initialize) {
-	$loadClass(RMIConnector$RMIClientCommunicatorAdmin, name, initialize, &_RMIConnector$RMIClientCommunicatorAdmin_ClassInfo_, allocate$RMIConnector$RMIClientCommunicatorAdmin);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/management/remote/rmi/RMIConnector;", nullptr, $FINAL | $SYNTHETIC, $field(RMIConnector$RMIClientCommunicatorAdmin, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/management/remote/rmi/RMIConnector;J)V", nullptr, $PUBLIC, $method(RMIConnector$RMIClientCommunicatorAdmin, init$, void, $RMIConnector*, int64_t)},
+		{"checkConnection", "()V", nullptr, $PROTECTED, $virtualMethod(RMIConnector$RMIClientCommunicatorAdmin, checkConnection, void), "java.io.IOException"},
+		{"doStart", "()V", nullptr, $PROTECTED, $virtualMethod(RMIConnector$RMIClientCommunicatorAdmin, doStart, void), "java.io.IOException"},
+		{"doStop", "()V", nullptr, $PROTECTED, $virtualMethod(RMIConnector$RMIClientCommunicatorAdmin, doStop, void)},
+		{"gotIOException", "(Ljava/io/IOException;)V", nullptr, $PUBLIC, $virtualMethod(RMIConnector$RMIClientCommunicatorAdmin, gotIOException, void, $IOException*), "java.io.IOException"},
+		{"reconnectNotificationListeners", "([Lcom/sun/jmx/remote/internal/ClientListenerInfo;)V", nullptr, $PUBLIC, $virtualMethod(RMIConnector$RMIClientCommunicatorAdmin, reconnectNotificationListeners, void, $ClientListenerInfoArray*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.management.remote.rmi.RMIConnector$RMIClientCommunicatorAdmin", "javax.management.remote.rmi.RMIConnector", "RMIClientCommunicatorAdmin", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.management.remote.rmi.RMIConnector$RMIClientCommunicatorAdmin",
+		"com.sun.jmx.remote.internal.ClientCommunicatorAdmin",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.management.remote.rmi.RMIConnector"
+	};
+	$loadClass(RMIConnector$RMIClientCommunicatorAdmin, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RMIConnector$RMIClientCommunicatorAdmin);
+	});
 	return class$;
 }
 

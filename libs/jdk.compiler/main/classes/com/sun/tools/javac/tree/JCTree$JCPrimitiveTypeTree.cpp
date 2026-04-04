@@ -1,6 +1,4 @@
 #include <com/sun/tools/javac/tree/JCTree$JCPrimitiveTypeTree.h>
-
-#include <com/sun/source/tree/PrimitiveTypeTree.h>
 #include <com/sun/source/tree/Tree$Kind.h>
 #include <com/sun/source/tree/TreeVisitor.h>
 #include <com/sun/tools/javac/code/TypeTag.h>
@@ -14,7 +12,6 @@
 #undef PRIMITIVE_TYPE
 #undef TYPEIDENT
 
-using $PrimitiveTypeTree = ::com::sun::source::tree::PrimitiveTypeTree;
 using $Tree$Kind = ::com::sun::source::tree::Tree$Kind;
 using $TreeVisitor = ::com::sun::source::tree::TreeVisitor;
 using $TypeTag = ::com::sun::tools::javac::code::TypeTag;
@@ -32,52 +29,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace tree {
-
-$FieldInfo _JCTree$JCPrimitiveTypeTree_FieldInfo_[] = {
-	{"typetag", "Lcom/sun/tools/javac/code/TypeTag;", nullptr, $PUBLIC, $field(JCTree$JCPrimitiveTypeTree, typetag)},
-	{}
-};
-
-$MethodInfo _JCTree$JCPrimitiveTypeTree_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lcom/sun/tools/javac/code/TypeTag;)V", nullptr, $PROTECTED, $method(JCTree$JCPrimitiveTypeTree, init$, void, $TypeTag*)},
-	{"accept", "(Lcom/sun/tools/javac/tree/JCTree$Visitor;)V", nullptr, $PUBLIC, $virtualMethod(JCTree$JCPrimitiveTypeTree, accept, void, $JCTree$Visitor*)},
-	{"accept", "(Lcom/sun/source/tree/TreeVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;D:Ljava/lang/Object;>(Lcom/sun/source/tree/TreeVisitor<TR;TD;>;TD;)TR;", $PUBLIC, $virtualMethod(JCTree$JCPrimitiveTypeTree, accept, $Object*, $TreeVisitor*, Object$*)},
-	{"getKind", "()Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCPrimitiveTypeTree, getKind, $Tree$Kind*)},
-	{"getPrimitiveTypeKind", "()Ljavax/lang/model/type/TypeKind;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCPrimitiveTypeTree, getPrimitiveTypeKind, $TypeKind*)},
-	{"getTag", "()Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCPrimitiveTypeTree, getTag, $JCTree$Tag*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _JCTree$JCPrimitiveTypeTree_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.tree.JCTree$JCPrimitiveTypeTree", "com.sun.tools.javac.tree.JCTree", "JCPrimitiveTypeTree", $PUBLIC | $STATIC},
-	{"com.sun.tools.javac.tree.JCTree$JCExpression", "com.sun.tools.javac.tree.JCTree", "JCExpression", $PUBLIC | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _JCTree$JCPrimitiveTypeTree_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.tree.JCTree$JCPrimitiveTypeTree",
-	"com.sun.tools.javac.tree.JCTree$JCExpression",
-	"com.sun.source.tree.PrimitiveTypeTree",
-	_JCTree$JCPrimitiveTypeTree_FieldInfo_,
-	_JCTree$JCPrimitiveTypeTree_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JCTree$JCPrimitiveTypeTree_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.tree.JCTree"
-};
-
-$Object* allocate$JCTree$JCPrimitiveTypeTree($Class* clazz) {
-	return $of($alloc(JCTree$JCPrimitiveTypeTree));
-}
 
 $String* JCTree$JCPrimitiveTypeTree::toString() {
 	 return this->$JCTree$JCExpression::toString();
@@ -118,7 +69,7 @@ $TypeKind* JCTree$JCPrimitiveTypeTree::getPrimitiveTypeKind() {
 }
 
 $Object* JCTree$JCPrimitiveTypeTree::accept($TreeVisitor* v, Object$* d) {
-	return $of($nc(v)->visitPrimitiveType(this, d));
+	return $nc(v)->visitPrimitiveType(this, d);
 }
 
 $JCTree$Tag* JCTree$JCPrimitiveTypeTree::getTag() {
@@ -130,7 +81,47 @@ JCTree$JCPrimitiveTypeTree::JCTree$JCPrimitiveTypeTree() {
 }
 
 $Class* JCTree$JCPrimitiveTypeTree::load$($String* name, bool initialize) {
-	$loadClass(JCTree$JCPrimitiveTypeTree, name, initialize, &_JCTree$JCPrimitiveTypeTree_ClassInfo_, allocate$JCTree$JCPrimitiveTypeTree);
+	$FieldInfo fieldInfos$$[] = {
+		{"typetag", "Lcom/sun/tools/javac/code/TypeTag;", nullptr, $PUBLIC, $field(JCTree$JCPrimitiveTypeTree, typetag)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lcom/sun/tools/javac/code/TypeTag;)V", nullptr, $PROTECTED, $method(JCTree$JCPrimitiveTypeTree, init$, void, $TypeTag*)},
+		{"accept", "(Lcom/sun/tools/javac/tree/JCTree$Visitor;)V", nullptr, $PUBLIC, $virtualMethod(JCTree$JCPrimitiveTypeTree, accept, void, $JCTree$Visitor*)},
+		{"accept", "(Lcom/sun/source/tree/TreeVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;D:Ljava/lang/Object;>(Lcom/sun/source/tree/TreeVisitor<TR;TD;>;TD;)TR;", $PUBLIC, $virtualMethod(JCTree$JCPrimitiveTypeTree, accept, $Object*, $TreeVisitor*, Object$*)},
+		{"getKind", "()Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCPrimitiveTypeTree, getKind, $Tree$Kind*)},
+		{"getPrimitiveTypeKind", "()Ljavax/lang/model/type/TypeKind;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCPrimitiveTypeTree, getPrimitiveTypeKind, $TypeKind*)},
+		{"getTag", "()Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCPrimitiveTypeTree, getTag, $JCTree$Tag*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.tree.JCTree$JCPrimitiveTypeTree", "com.sun.tools.javac.tree.JCTree", "JCPrimitiveTypeTree", $PUBLIC | $STATIC},
+		{"com.sun.tools.javac.tree.JCTree$JCExpression", "com.sun.tools.javac.tree.JCTree", "JCExpression", $PUBLIC | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.tree.JCTree$JCPrimitiveTypeTree",
+		"com.sun.tools.javac.tree.JCTree$JCExpression",
+		"com.sun.source.tree.PrimitiveTypeTree",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.tree.JCTree"
+	};
+	$loadClass(JCTree$JCPrimitiveTypeTree, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JCTree$JCPrimitiveTypeTree));
+	});
 	return class$;
 }
 

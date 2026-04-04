@@ -38,6 +38,7 @@ class SecuritySupport : public ::java::lang::Object {
 	$class(SecuritySupport, 0, ::java::lang::Object)
 public:
 	SecuritySupport();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $String* checkAccess($String* systemId, $String* allowedProtocols, $String* accessAny);
 	static bool doesFileExist(::java::io::File* f);

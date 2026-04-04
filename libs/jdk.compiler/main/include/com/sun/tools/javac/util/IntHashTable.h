@@ -20,6 +20,7 @@ class $import IntHashTable : public ::java::lang::Object {
 	$class(IntHashTable, 0, ::java::lang::Object)
 public:
 	IntHashTable();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(int32_t capacity);
 	virtual void clear();

@@ -107,7 +107,7 @@ public:
 	int32_t iChangedValsInDbAndCRS = 0;
 	int32_t iChangedValsinDbOnly = 0;
 	::com::sun::rowset::JdbcRowSetResourceBundle* resBundle = nullptr;
-	static const int64_t serialVersionUID = (int64_t)0x89F481E63ED50A28;
+	static const int64_t serialVersionUID = (int64_t)0x89f481e63ed50a28;
 };
 
 			} // internal

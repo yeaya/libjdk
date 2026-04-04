@@ -68,7 +68,7 @@ public:
 	virtual $String* readModuleName(::javax::tools::JavaFileObject* jfo);
 	virtual $String* readModuleName(::java::io::InputStream* in);
 	virtual ::com::sun::tools::javac::util::Name$NameMapper* utf8Mapper(bool internalize);
-	static const int32_t INITIAL_BUFFER_SIZE = 0x0000FFF0;
+	static const int32_t INITIAL_BUFFER_SIZE = 0x0000fff0;
 	::com::sun::tools::javac::util::ByteBuffer* buf = nullptr;
 	int32_t bp = 0;
 	::com::sun::tools::javac::jvm::PoolReader* reader = nullptr;

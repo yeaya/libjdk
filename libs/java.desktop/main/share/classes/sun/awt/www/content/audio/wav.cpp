@@ -1,5 +1,4 @@
 #include <sun/awt/www/content/audio/wav.h>
-
 #include <com/sun/media/sound/JavaSoundAudioClip.h>
 #include <java/net/ContentHandler.h>
 #include <java/net/URLConnection.h>
@@ -17,25 +16,6 @@ namespace sun {
 			namespace content {
 				namespace audio {
 
-$MethodInfo _wav_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(wav, init$, void)},
-	{"getContent", "(Ljava/net/URLConnection;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(wav, getContent, $Object*, $URLConnection*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _wav_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.awt.www.content.audio.wav",
-	"java.net.ContentHandler",
-	nullptr,
-	nullptr,
-	_wav_MethodInfo_
-};
-
-$Object* allocate$wav($Class* clazz) {
-	return $of($alloc(wav));
-}
-
 void wav::init$() {
 	$ContentHandler::init$();
 }
@@ -48,7 +28,22 @@ wav::wav() {
 }
 
 $Class* wav::load$($String* name, bool initialize) {
-	$loadClass(wav, name, initialize, &_wav_ClassInfo_, allocate$wav);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(wav, init$, void)},
+		{"getContent", "(Ljava/net/URLConnection;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(wav, getContent, $Object*, $URLConnection*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.awt.www.content.audio.wav",
+		"java.net.ContentHandler",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(wav, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(wav);
+	});
 	return class$;
 }
 

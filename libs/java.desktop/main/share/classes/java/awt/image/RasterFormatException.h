@@ -14,10 +14,13 @@ class $export RasterFormatException : public ::java::lang::RuntimeException {
 public:
 	RasterFormatException();
 	void init$($String* s);
-	static const int64_t serialVersionUID = (int64_t)0x015730467129CEDB;
+	static const int64_t serialVersionUID = (int64_t)0x015730467129cedb;
 	RasterFormatException(const RasterFormatException& e);
 	virtual void throw$() override;
-	inline RasterFormatException* operator ->() {
+	inline RasterFormatException* operator ->() const {
+		return (RasterFormatException*)throwing$;
+	}
+	inline operator RasterFormatException*() const {
 		return (RasterFormatException*)throwing$;
 	}
 };

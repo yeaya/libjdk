@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/code/Types$Adapter.h>
-
 #include <com/sun/tools/javac/code/Symbol$TypeSymbol.h>
 #include <com/sun/tools/javac/code/Type$ArrayType.h>
 #include <com/sun/tools/javac/code/Type$ClassType.h>
@@ -42,67 +41,12 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Void = ::java::lang::Void;
 using $HashMap = ::java::util::HashMap;
 using $HashSet = ::java::util::HashSet;
-using $Map = ::java::util::Map;
-using $Set = ::java::util::Set;
 
 namespace com {
 	namespace sun {
 		namespace tools {
 			namespace javac {
 				namespace code {
-
-$FieldInfo _Types$Adapter_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/code/Types;", nullptr, $FINAL | $SYNTHETIC, $field(Types$Adapter, this$0)},
-	{"from", "Lcom/sun/tools/javac/util/ListBuffer;", "Lcom/sun/tools/javac/util/ListBuffer<Lcom/sun/tools/javac/code/Type;>;", 0, $field(Types$Adapter, from)},
-	{"to", "Lcom/sun/tools/javac/util/ListBuffer;", "Lcom/sun/tools/javac/util/ListBuffer<Lcom/sun/tools/javac/code/Type;>;", 0, $field(Types$Adapter, to)},
-	{"mapping", "Ljava/util/Map;", "Ljava/util/Map<Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Type;>;", 0, $field(Types$Adapter, mapping)},
-	{"cache", "Ljava/util/Set;", "Ljava/util/Set<Lcom/sun/tools/javac/code/Types$TypePair;>;", $PRIVATE, $field(Types$Adapter, cache)},
-	{}
-};
-
-$MethodInfo _Types$Adapter_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Types;Lcom/sun/tools/javac/util/ListBuffer;Lcom/sun/tools/javac/util/ListBuffer;)V", "(Lcom/sun/tools/javac/util/ListBuffer<Lcom/sun/tools/javac/code/Type;>;Lcom/sun/tools/javac/util/ListBuffer<Lcom/sun/tools/javac/code/Type;>;)V", 0, $method(Types$Adapter, init$, void, $Types*, $ListBuffer*, $ListBuffer*)},
-	{"adapt", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;)V", nullptr, $PUBLIC, $virtualMethod(Types$Adapter, adapt, void, $Type*, $Type*), "com.sun.tools.javac.code.Types$AdaptFailure"},
-	{"adaptRecursive", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;)V", nullptr, $PRIVATE, $method(Types$Adapter, adaptRecursive, void, $Type*, $Type*)},
-	{"adaptRecursive", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;)V", $PRIVATE, $method(Types$Adapter, adaptRecursive, void, $List*, $List*)},
-	{"visitArrayType", "(Lcom/sun/tools/javac/code/Type$ArrayType;Lcom/sun/tools/javac/code/Type;)Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(Types$Adapter, visitArrayType, $Void*, $Type$ArrayType*, $Type*), "com.sun.tools.javac.code.Types$AdaptFailure"},
-	{"visitArrayType", "(Lcom/sun/tools/javac/code/Type$ArrayType;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Types$Adapter, visitArrayType, $Object*, $Type$ArrayType*, Object$*)},
-	{"visitClassType", "(Lcom/sun/tools/javac/code/Type$ClassType;Lcom/sun/tools/javac/code/Type;)Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(Types$Adapter, visitClassType, $Void*, $Type$ClassType*, $Type*), "com.sun.tools.javac.code.Types$AdaptFailure"},
-	{"visitClassType", "(Lcom/sun/tools/javac/code/Type$ClassType;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Types$Adapter, visitClassType, $Object*, $Type$ClassType*, Object$*)},
-	{"visitType", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;)Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(Types$Adapter, visitType, $Void*, $Type*, $Type*)},
-	{"visitType", "(Lcom/sun/tools/javac/code/Type;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Types$Adapter, visitType, $Object*, $Type*, Object$*)},
-	{"visitTypeVar", "(Lcom/sun/tools/javac/code/Type$TypeVar;Lcom/sun/tools/javac/code/Type;)Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(Types$Adapter, visitTypeVar, $Void*, $Type$TypeVar*, $Type*), "com.sun.tools.javac.code.Types$AdaptFailure"},
-	{"visitTypeVar", "(Lcom/sun/tools/javac/code/Type$TypeVar;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Types$Adapter, visitTypeVar, $Object*, $Type$TypeVar*, Object$*)},
-	{"visitWildcardType", "(Lcom/sun/tools/javac/code/Type$WildcardType;Lcom/sun/tools/javac/code/Type;)Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(Types$Adapter, visitWildcardType, $Void*, $Type$WildcardType*, $Type*), "com.sun.tools.javac.code.Types$AdaptFailure"},
-	{"visitWildcardType", "(Lcom/sun/tools/javac/code/Type$WildcardType;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Types$Adapter, visitWildcardType, $Object*, $Type$WildcardType*, Object$*)},
-	{}
-};
-
-$InnerClassInfo _Types$Adapter_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.code.Types$Adapter", "com.sun.tools.javac.code.Types", "Adapter", 0},
-	{"com.sun.tools.javac.code.Types$SimpleVisitor", "com.sun.tools.javac.code.Types", "SimpleVisitor", $PUBLIC | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Types$Adapter_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.code.Types$Adapter",
-	"com.sun.tools.javac.code.Types$SimpleVisitor",
-	nullptr,
-	_Types$Adapter_FieldInfo_,
-	_Types$Adapter_MethodInfo_,
-	"Lcom/sun/tools/javac/code/Types$SimpleVisitor<Ljava/lang/Void;Lcom/sun/tools/javac/code/Type;>;",
-	nullptr,
-	_Types$Adapter_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.code.Types"
-};
-
-$Object* allocate$Types$Adapter($Class* clazz) {
-	return $of($alloc(Types$Adapter));
-}
 
 void Types$Adapter::init$($Types* this$0, $ListBuffer* from, $ListBuffer* to) {
 	$set(this, this$0, this$0);
@@ -114,7 +58,7 @@ void Types$Adapter::init$($Types* this$0, $ListBuffer* from, $ListBuffer* to) {
 }
 
 void Types$Adapter::adapt($Type* source, $Type* target) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	visit(source, target);
 	$var($List, fromList, $nc(this->from)->toList());
 	$var($List, toList, $nc(this->to)->toList());
@@ -124,12 +68,12 @@ void Types$Adapter::adapt($Type* source, $Type* target) {
 			$set(toList, head, val);
 		}
 		$assign(fromList, fromList->tail);
-		$assign(toList, $nc(toList)->tail);
+		$assign(toList, toList->tail);
 	}
 }
 
 $Void* Types$Adapter::visitClassType($Type$ClassType* source, $Type* target) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($TypeTag);
 	if ($nc(target)->hasTag($TypeTag::CLASS)) {
 		$var($List, var$0, $nc(source)->allparams());
@@ -139,7 +83,7 @@ $Void* Types$Adapter::visitClassType($Type$ClassType* source, $Type* target) {
 }
 
 $Void* Types$Adapter::visitArrayType($Type$ArrayType* source, $Type* target) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($TypeTag);
 	if ($nc(target)->hasTag($TypeTag::ARRAY)) {
 		$var($Type, var$0, this->this$0->elemtype(source));
@@ -149,7 +93,7 @@ $Void* Types$Adapter::visitArrayType($Type$ArrayType* source, $Type* target) {
 }
 
 $Void* Types$Adapter::visitWildcardType($Type$WildcardType* source, $Type* target) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(source)->isExtendsBound()) {
 		$var($Type, var$0, this->this$0->wildUpperBound(source));
 		adaptRecursive(var$0, $(this->this$0->wildUpperBound(target)));
@@ -161,7 +105,7 @@ $Void* Types$Adapter::visitWildcardType($Type$WildcardType* source, $Type* targe
 }
 
 $Void* Types$Adapter::visitTypeVar($Type$TypeVar* source, $Type* target) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Type, val, $cast($Type, $nc(this->mapping)->get($nc(source)->tsym)));
 	if (val != nullptr) {
 		bool var$0 = val->isSuperBound();
@@ -169,10 +113,10 @@ $Void* Types$Adapter::visitTypeVar($Type$TypeVar* source, $Type* target) {
 			$var($Type, var$1, this->this$0->wildLowerBound(val));
 			$assign(val, this->this$0->isSubtype(var$1, $(this->this$0->wildLowerBound(target))) ? target : val);
 		} else {
-			bool var$3 = val->isExtendsBound();
-			if (var$3 && target->isExtendsBound()) {
-				$var($Type, var$4, this->this$0->wildUpperBound(val));
-				$assign(val, this->this$0->isSubtype(var$4, $(this->this$0->wildUpperBound(target))) ? val : target);
+			bool var$2 = val->isExtendsBound();
+			if (var$2 && $nc(target)->isExtendsBound()) {
+				$var($Type, var$3, this->this$0->wildUpperBound(val));
+				$assign(val, this->this$0->isSubtype(var$3, $(this->this$0->wildUpperBound(target))) ? val : target);
 			} else if (!this->this$0->isSameType(val, target)) {
 				$throwNew($Types$AdaptFailure);
 			}
@@ -182,7 +126,7 @@ $Void* Types$Adapter::visitTypeVar($Type$TypeVar* source, $Type* target) {
 		$nc(this->from)->append(source);
 		$nc(this->to)->append(target);
 	}
-	$nc(this->mapping)->put($nc(source)->tsym, val);
+	$nc(this->mapping)->put(source->tsym, val);
 	return nullptr;
 }
 
@@ -191,27 +135,25 @@ $Void* Types$Adapter::visitType($Type* source, $Type* target) {
 }
 
 void Types$Adapter::adaptRecursive($Type* source, $Type* target) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Types$TypePair, pair, $new($Types$TypePair, this->this$0, source, target));
 	if ($nc(this->cache)->add(pair)) {
-		{
-			$var($Throwable, var$0, nullptr);
-			try {
-				visit(source, target);
-			} catch ($Throwable& var$1) {
-				$assign(var$0, var$1);
-			} /*finally*/ {
-				$nc(this->cache)->remove(pair);
-			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
+		$var($Throwable, var$0, nullptr);
+		try {
+			visit(source, target);
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
+		} /*finally*/ {
+			$nc(this->cache)->remove(pair);
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	}
 }
 
 void Types$Adapter::adaptRecursive($List* source$renamed, $List* target$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, source, source$renamed);
 	$var($List, target, target$renamed);
 	int32_t var$0 = $nc(source)->length();
@@ -219,36 +161,83 @@ void Types$Adapter::adaptRecursive($List* source$renamed, $List* target$renamed)
 		while ($nc(source)->nonEmpty()) {
 			adaptRecursive($cast($Type, source->head), $cast($Type, $nc(target)->head));
 			$assign(source, source->tail);
-			$assign(target, $nc(target)->tail);
+			$assign(target, target->tail);
 		}
 	}
 }
 
 $Object* Types$Adapter::visitTypeVar($Type$TypeVar* source, Object$* target) {
-	return $of(this->visitTypeVar(source, $cast($Type, target)));
+	return this->visitTypeVar(source, $cast($Type, target));
 }
 
 $Object* Types$Adapter::visitArrayType($Type$ArrayType* source, Object$* target) {
-	return $of(this->visitArrayType(source, $cast($Type, target)));
+	return this->visitArrayType(source, $cast($Type, target));
 }
 
 $Object* Types$Adapter::visitWildcardType($Type$WildcardType* source, Object$* target) {
-	return $of(this->visitWildcardType(source, $cast($Type, target)));
+	return this->visitWildcardType(source, $cast($Type, target));
 }
 
 $Object* Types$Adapter::visitClassType($Type$ClassType* source, Object$* target) {
-	return $of(this->visitClassType(source, $cast($Type, target)));
+	return this->visitClassType(source, $cast($Type, target));
 }
 
 $Object* Types$Adapter::visitType($Type* source, Object$* target) {
-	return $of(this->visitType(source, $cast($Type, target)));
+	return this->visitType(source, $cast($Type, target));
 }
 
 Types$Adapter::Types$Adapter() {
 }
 
 $Class* Types$Adapter::load$($String* name, bool initialize) {
-	$loadClass(Types$Adapter, name, initialize, &_Types$Adapter_ClassInfo_, allocate$Types$Adapter);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/code/Types;", nullptr, $FINAL | $SYNTHETIC, $field(Types$Adapter, this$0)},
+		{"from", "Lcom/sun/tools/javac/util/ListBuffer;", "Lcom/sun/tools/javac/util/ListBuffer<Lcom/sun/tools/javac/code/Type;>;", 0, $field(Types$Adapter, from)},
+		{"to", "Lcom/sun/tools/javac/util/ListBuffer;", "Lcom/sun/tools/javac/util/ListBuffer<Lcom/sun/tools/javac/code/Type;>;", 0, $field(Types$Adapter, to)},
+		{"mapping", "Ljava/util/Map;", "Ljava/util/Map<Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Type;>;", 0, $field(Types$Adapter, mapping)},
+		{"cache", "Ljava/util/Set;", "Ljava/util/Set<Lcom/sun/tools/javac/code/Types$TypePair;>;", $PRIVATE, $field(Types$Adapter, cache)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/code/Types;Lcom/sun/tools/javac/util/ListBuffer;Lcom/sun/tools/javac/util/ListBuffer;)V", "(Lcom/sun/tools/javac/util/ListBuffer<Lcom/sun/tools/javac/code/Type;>;Lcom/sun/tools/javac/util/ListBuffer<Lcom/sun/tools/javac/code/Type;>;)V", 0, $method(Types$Adapter, init$, void, $Types*, $ListBuffer*, $ListBuffer*)},
+		{"adapt", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;)V", nullptr, $PUBLIC, $virtualMethod(Types$Adapter, adapt, void, $Type*, $Type*), "com.sun.tools.javac.code.Types$AdaptFailure"},
+		{"adaptRecursive", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;)V", nullptr, $PRIVATE, $method(Types$Adapter, adaptRecursive, void, $Type*, $Type*)},
+		{"adaptRecursive", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;)V", $PRIVATE, $method(Types$Adapter, adaptRecursive, void, $List*, $List*)},
+		{"visitArrayType", "(Lcom/sun/tools/javac/code/Type$ArrayType;Lcom/sun/tools/javac/code/Type;)Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(Types$Adapter, visitArrayType, $Void*, $Type$ArrayType*, $Type*), "com.sun.tools.javac.code.Types$AdaptFailure"},
+		{"visitArrayType", "(Lcom/sun/tools/javac/code/Type$ArrayType;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Types$Adapter, visitArrayType, $Object*, $Type$ArrayType*, Object$*)},
+		{"visitClassType", "(Lcom/sun/tools/javac/code/Type$ClassType;Lcom/sun/tools/javac/code/Type;)Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(Types$Adapter, visitClassType, $Void*, $Type$ClassType*, $Type*), "com.sun.tools.javac.code.Types$AdaptFailure"},
+		{"visitClassType", "(Lcom/sun/tools/javac/code/Type$ClassType;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Types$Adapter, visitClassType, $Object*, $Type$ClassType*, Object$*)},
+		{"visitType", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;)Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(Types$Adapter, visitType, $Void*, $Type*, $Type*)},
+		{"visitType", "(Lcom/sun/tools/javac/code/Type;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Types$Adapter, visitType, $Object*, $Type*, Object$*)},
+		{"visitTypeVar", "(Lcom/sun/tools/javac/code/Type$TypeVar;Lcom/sun/tools/javac/code/Type;)Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(Types$Adapter, visitTypeVar, $Void*, $Type$TypeVar*, $Type*), "com.sun.tools.javac.code.Types$AdaptFailure"},
+		{"visitTypeVar", "(Lcom/sun/tools/javac/code/Type$TypeVar;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Types$Adapter, visitTypeVar, $Object*, $Type$TypeVar*, Object$*)},
+		{"visitWildcardType", "(Lcom/sun/tools/javac/code/Type$WildcardType;Lcom/sun/tools/javac/code/Type;)Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(Types$Adapter, visitWildcardType, $Void*, $Type$WildcardType*, $Type*), "com.sun.tools.javac.code.Types$AdaptFailure"},
+		{"visitWildcardType", "(Lcom/sun/tools/javac/code/Type$WildcardType;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Types$Adapter, visitWildcardType, $Object*, $Type$WildcardType*, Object$*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.code.Types$Adapter", "com.sun.tools.javac.code.Types", "Adapter", 0},
+		{"com.sun.tools.javac.code.Types$SimpleVisitor", "com.sun.tools.javac.code.Types", "SimpleVisitor", $PUBLIC | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.code.Types$Adapter",
+		"com.sun.tools.javac.code.Types$SimpleVisitor",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Lcom/sun/tools/javac/code/Types$SimpleVisitor<Ljava/lang/Void;Lcom/sun/tools/javac/code/Type;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.code.Types"
+	};
+	$loadClass(Types$Adapter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Types$Adapter);
+	});
 	return class$;
 }
 

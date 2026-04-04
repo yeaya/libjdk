@@ -1,5 +1,4 @@
 #include <javax/swing/text/AbstractDocument$DefaultFilterBypass.h>
-
 #include <javax/swing/text/AbstractDocument.h>
 #include <javax/swing/text/AttributeSet.h>
 #include <javax/swing/text/Document.h>
@@ -18,46 +17,6 @@ using $DocumentFilter$FilterBypass = ::javax::swing::text::DocumentFilter$Filter
 namespace javax {
 	namespace swing {
 		namespace text {
-
-$FieldInfo _AbstractDocument$DefaultFilterBypass_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/text/AbstractDocument;", nullptr, $FINAL | $SYNTHETIC, $field(AbstractDocument$DefaultFilterBypass, this$0)},
-	{}
-};
-
-$MethodInfo _AbstractDocument$DefaultFilterBypass_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/text/AbstractDocument;)V", nullptr, $PRIVATE, $method(AbstractDocument$DefaultFilterBypass, init$, void, $AbstractDocument*)},
-	{"getDocument", "()Ljavax/swing/text/Document;", nullptr, $PUBLIC, $virtualMethod(AbstractDocument$DefaultFilterBypass, getDocument, $Document*)},
-	{"insertString", "(ILjava/lang/String;Ljavax/swing/text/AttributeSet;)V", nullptr, $PUBLIC, $virtualMethod(AbstractDocument$DefaultFilterBypass, insertString, void, int32_t, $String*, $AttributeSet*), "javax.swing.text.BadLocationException"},
-	{"remove", "(II)V", nullptr, $PUBLIC, $virtualMethod(AbstractDocument$DefaultFilterBypass, remove, void, int32_t, int32_t), "javax.swing.text.BadLocationException"},
-	{"replace", "(IILjava/lang/String;Ljavax/swing/text/AttributeSet;)V", nullptr, $PUBLIC, $virtualMethod(AbstractDocument$DefaultFilterBypass, replace, void, int32_t, int32_t, $String*, $AttributeSet*), "javax.swing.text.BadLocationException"},
-	{}
-};
-
-$InnerClassInfo _AbstractDocument$DefaultFilterBypass_InnerClassesInfo_[] = {
-	{"javax.swing.text.AbstractDocument$DefaultFilterBypass", "javax.swing.text.AbstractDocument", "DefaultFilterBypass", $PRIVATE},
-	{"javax.swing.text.DocumentFilter$FilterBypass", "javax.swing.text.DocumentFilter", "FilterBypass", $PUBLIC | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _AbstractDocument$DefaultFilterBypass_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.text.AbstractDocument$DefaultFilterBypass",
-	"javax.swing.text.DocumentFilter$FilterBypass",
-	nullptr,
-	_AbstractDocument$DefaultFilterBypass_FieldInfo_,
-	_AbstractDocument$DefaultFilterBypass_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AbstractDocument$DefaultFilterBypass_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.AbstractDocument"
-};
-
-$Object* allocate$AbstractDocument$DefaultFilterBypass($Class* clazz) {
-	return $of($alloc(AbstractDocument$DefaultFilterBypass));
-}
 
 void AbstractDocument$DefaultFilterBypass::init$($AbstractDocument* this$0) {
 	$set(this, this$0, this$0);
@@ -85,7 +44,41 @@ AbstractDocument$DefaultFilterBypass::AbstractDocument$DefaultFilterBypass() {
 }
 
 $Class* AbstractDocument$DefaultFilterBypass::load$($String* name, bool initialize) {
-	$loadClass(AbstractDocument$DefaultFilterBypass, name, initialize, &_AbstractDocument$DefaultFilterBypass_ClassInfo_, allocate$AbstractDocument$DefaultFilterBypass);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/text/AbstractDocument;", nullptr, $FINAL | $SYNTHETIC, $field(AbstractDocument$DefaultFilterBypass, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/text/AbstractDocument;)V", nullptr, $PRIVATE, $method(AbstractDocument$DefaultFilterBypass, init$, void, $AbstractDocument*)},
+		{"getDocument", "()Ljavax/swing/text/Document;", nullptr, $PUBLIC, $virtualMethod(AbstractDocument$DefaultFilterBypass, getDocument, $Document*)},
+		{"insertString", "(ILjava/lang/String;Ljavax/swing/text/AttributeSet;)V", nullptr, $PUBLIC, $virtualMethod(AbstractDocument$DefaultFilterBypass, insertString, void, int32_t, $String*, $AttributeSet*), "javax.swing.text.BadLocationException"},
+		{"remove", "(II)V", nullptr, $PUBLIC, $virtualMethod(AbstractDocument$DefaultFilterBypass, remove, void, int32_t, int32_t), "javax.swing.text.BadLocationException"},
+		{"replace", "(IILjava/lang/String;Ljavax/swing/text/AttributeSet;)V", nullptr, $PUBLIC, $virtualMethod(AbstractDocument$DefaultFilterBypass, replace, void, int32_t, int32_t, $String*, $AttributeSet*), "javax.swing.text.BadLocationException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.AbstractDocument$DefaultFilterBypass", "javax.swing.text.AbstractDocument", "DefaultFilterBypass", $PRIVATE},
+		{"javax.swing.text.DocumentFilter$FilterBypass", "javax.swing.text.DocumentFilter", "FilterBypass", $PUBLIC | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.text.AbstractDocument$DefaultFilterBypass",
+		"javax.swing.text.DocumentFilter$FilterBypass",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.AbstractDocument"
+	};
+	$loadClass(AbstractDocument$DefaultFilterBypass, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AbstractDocument$DefaultFilterBypass);
+	});
 	return class$;
 }
 

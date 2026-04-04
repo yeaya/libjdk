@@ -1,5 +1,4 @@
 #include <javax/swing/JComponent$ActionStandin.h>
-
 #include <java/awt/event/ActionEvent.h>
 #include <java/awt/event/ActionListener.h>
 #include <java/beans/PropertyChangeListener.h>
@@ -23,51 +22,6 @@ using $JComponent = ::javax::swing::JComponent;
 namespace javax {
 	namespace swing {
 
-$FieldInfo _JComponent$ActionStandin_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/JComponent;", nullptr, $FINAL | $SYNTHETIC, $field(JComponent$ActionStandin, this$0)},
-	{"actionListener", "Ljava/awt/event/ActionListener;", nullptr, $PRIVATE | $FINAL, $field(JComponent$ActionStandin, actionListener)},
-	{"command", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(JComponent$ActionStandin, command)},
-	{"action", "Ljavax/swing/Action;", nullptr, $PRIVATE | $FINAL, $field(JComponent$ActionStandin, action)},
-	{}
-};
-
-$MethodInfo _JComponent$ActionStandin_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/JComponent;Ljava/awt/event/ActionListener;Ljava/lang/String;)V", nullptr, 0, $method(JComponent$ActionStandin, init$, void, $JComponent*, $ActionListener*, $String*)},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(JComponent$ActionStandin, actionPerformed, void, $ActionEvent*)},
-	{"addPropertyChangeListener", "(Ljava/beans/PropertyChangeListener;)V", nullptr, $PUBLIC, $virtualMethod(JComponent$ActionStandin, addPropertyChangeListener, void, $PropertyChangeListener*)},
-	{"getValue", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JComponent$ActionStandin, getValue, $Object*, $String*)},
-	{"isEnabled", "()Z", nullptr, $PUBLIC, $virtualMethod(JComponent$ActionStandin, isEnabled, bool)},
-	{"putValue", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(JComponent$ActionStandin, putValue, void, $String*, Object$*)},
-	{"removePropertyChangeListener", "(Ljava/beans/PropertyChangeListener;)V", nullptr, $PUBLIC, $virtualMethod(JComponent$ActionStandin, removePropertyChangeListener, void, $PropertyChangeListener*)},
-	{"setEnabled", "(Z)V", nullptr, $PUBLIC, $virtualMethod(JComponent$ActionStandin, setEnabled, void, bool)},
-	{}
-};
-
-$InnerClassInfo _JComponent$ActionStandin_InnerClassesInfo_[] = {
-	{"javax.swing.JComponent$ActionStandin", "javax.swing.JComponent", "ActionStandin", $FINAL},
-	{}
-};
-
-$ClassInfo _JComponent$ActionStandin_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"javax.swing.JComponent$ActionStandin",
-	"java.lang.Object",
-	"javax.swing.Action",
-	_JComponent$ActionStandin_FieldInfo_,
-	_JComponent$ActionStandin_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JComponent$ActionStandin_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.JComponent"
-};
-
-$Object* allocate$JComponent$ActionStandin($Class* clazz) {
-	return $of($alloc(JComponent$ActionStandin));
-}
-
 void JComponent$ActionStandin::init$($JComponent* this$0, $ActionListener* actionListener, $String* command) {
 	$set(this, this$0, this$0);
 	$set(this, actionListener, actionListener);
@@ -86,13 +40,13 @@ $Object* JComponent$ActionStandin::getValue($String* key) {
 			return $of(this->command);
 		}
 		if (this->action != nullptr) {
-			return $of($nc(this->action)->getValue(key));
+			return this->action->getValue(key);
 		}
 		if (key->equals($Action::NAME)) {
 			return $of("ActionStandin"_s);
 		}
 	}
-	return $of(nullptr);
+	return nullptr;
 }
 
 bool JComponent$ActionStandin::isEnabled() {
@@ -107,7 +61,7 @@ bool JComponent$ActionStandin::isEnabled() {
 
 void JComponent$ActionStandin::actionPerformed($ActionEvent* ae) {
 	if (this->actionListener != nullptr) {
-		$nc(this->actionListener)->actionPerformed(ae);
+		this->actionListener->actionPerformed(ae);
 	}
 }
 
@@ -127,7 +81,46 @@ JComponent$ActionStandin::JComponent$ActionStandin() {
 }
 
 $Class* JComponent$ActionStandin::load$($String* name, bool initialize) {
-	$loadClass(JComponent$ActionStandin, name, initialize, &_JComponent$ActionStandin_ClassInfo_, allocate$JComponent$ActionStandin);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/JComponent;", nullptr, $FINAL | $SYNTHETIC, $field(JComponent$ActionStandin, this$0)},
+		{"actionListener", "Ljava/awt/event/ActionListener;", nullptr, $PRIVATE | $FINAL, $field(JComponent$ActionStandin, actionListener)},
+		{"command", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(JComponent$ActionStandin, command)},
+		{"action", "Ljavax/swing/Action;", nullptr, $PRIVATE | $FINAL, $field(JComponent$ActionStandin, action)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/JComponent;Ljava/awt/event/ActionListener;Ljava/lang/String;)V", nullptr, 0, $method(JComponent$ActionStandin, init$, void, $JComponent*, $ActionListener*, $String*)},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(JComponent$ActionStandin, actionPerformed, void, $ActionEvent*)},
+		{"addPropertyChangeListener", "(Ljava/beans/PropertyChangeListener;)V", nullptr, $PUBLIC, $virtualMethod(JComponent$ActionStandin, addPropertyChangeListener, void, $PropertyChangeListener*)},
+		{"getValue", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JComponent$ActionStandin, getValue, $Object*, $String*)},
+		{"isEnabled", "()Z", nullptr, $PUBLIC, $virtualMethod(JComponent$ActionStandin, isEnabled, bool)},
+		{"putValue", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(JComponent$ActionStandin, putValue, void, $String*, Object$*)},
+		{"removePropertyChangeListener", "(Ljava/beans/PropertyChangeListener;)V", nullptr, $PUBLIC, $virtualMethod(JComponent$ActionStandin, removePropertyChangeListener, void, $PropertyChangeListener*)},
+		{"setEnabled", "(Z)V", nullptr, $PUBLIC, $virtualMethod(JComponent$ActionStandin, setEnabled, void, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.JComponent$ActionStandin", "javax.swing.JComponent", "ActionStandin", $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"javax.swing.JComponent$ActionStandin",
+		"java.lang.Object",
+		"javax.swing.Action",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.JComponent"
+	};
+	$loadClass(JComponent$ActionStandin, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JComponent$ActionStandin);
+	});
 	return class$;
 }
 

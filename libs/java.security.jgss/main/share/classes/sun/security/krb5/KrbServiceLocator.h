@@ -47,6 +47,7 @@ class KrbServiceLocator : public ::java::lang::Object {
 	$class(KrbServiceLocator, 0, ::java::lang::Object)
 public:
 	KrbServiceLocator();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $StringArray* extractHostports($Array<::sun::security::krb5::KrbServiceLocator$SrvRecord>* srvRecords);
 	static $StringArray* getKerberosService($String* realmName);

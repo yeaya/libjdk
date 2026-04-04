@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/tree/TreeInfo$2.h>
-
 #include <com/sun/tools/javac/tree/JCTree$Tag.h>
 #include <com/sun/tools/javac/tree/TreeInfo.h>
 #include <java/lang/NoSuchFieldError.h>
@@ -103,381 +102,345 @@ namespace com {
 			namespace javac {
 				namespace tree {
 
-$FieldInfo _TreeInfo$2_FieldInfo_[] = {
-	{"$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(TreeInfo$2, $SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)},
-	{}
-};
-
-$EnclosingMethodInfo _TreeInfo$2_EnclosingMethodInfo_ = {
-	"com.sun.tools.javac.tree.TreeInfo",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _TreeInfo$2_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.tree.TreeInfo$2", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{}
-};
-
-$ClassInfo _TreeInfo$2_ClassInfo_ = {
-	$ACC_SUPER | $SYNTHETIC,
-	"com.sun.tools.javac.tree.TreeInfo$2",
-	"java.lang.Object",
-	nullptr,
-	_TreeInfo$2_FieldInfo_,
-	nullptr,
-	nullptr,
-	&_TreeInfo$2_EnclosingMethodInfo_,
-	_TreeInfo$2_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.tree.TreeInfo"
-};
-
-$Object* allocate$TreeInfo$2($Class* clazz) {
-	return $of($alloc(TreeInfo$2));
-}
-
 $ints* TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag = nullptr;
 
-void clinit$TreeInfo$2($Class* class$) {
+void TreeInfo$2::clinit$($Class* clazz) {
 	$assignStatic(TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag, $new($ints, $($JCTree$Tag::values())->length));
 	{
 		try {
-			$nc(TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->set($JCTree$Tag::APPLY->ordinal(), 1);
+			TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag->set($JCTree$Tag::APPLY->ordinal(), 1);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->set($JCTree$Tag::NEWCLASS->ordinal(), 2);
+			TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag->set($JCTree$Tag::NEWCLASS->ordinal(), 2);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->set($JCTree$Tag::PARENS->ordinal(), 3);
+			TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag->set($JCTree$Tag::PARENS->ordinal(), 3);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->set($JCTree$Tag::IDENT->ordinal(), 4);
+			TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag->set($JCTree$Tag::IDENT->ordinal(), 4);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->set($JCTree$Tag::SELECT->ordinal(), 5);
+			TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag->set($JCTree$Tag::SELECT->ordinal(), 5);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->set($JCTree$Tag::TYPEAPPLY->ordinal(), 6);
+			TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag->set($JCTree$Tag::TYPEAPPLY->ordinal(), 6);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->set($JCTree$Tag::ANNOTATED_TYPE->ordinal(), 7);
+			TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag->set($JCTree$Tag::ANNOTATED_TYPE->ordinal(), 7);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->set($JCTree$Tag::VARDEF->ordinal(), 8);
+			TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag->set($JCTree$Tag::VARDEF->ordinal(), 8);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->set($JCTree$Tag::REFERENCE->ordinal(), 9);
+			TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag->set($JCTree$Tag::REFERENCE->ordinal(), 9);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->set($JCTree$Tag::PREINC->ordinal(), 10);
+			TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag->set($JCTree$Tag::PREINC->ordinal(), 10);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->set($JCTree$Tag::PREDEC->ordinal(), 11);
+			TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag->set($JCTree$Tag::PREDEC->ordinal(), 11);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->set($JCTree$Tag::POSTINC->ordinal(), 12);
+			TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag->set($JCTree$Tag::POSTINC->ordinal(), 12);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->set($JCTree$Tag::POSTDEC->ordinal(), 13);
+			TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag->set($JCTree$Tag::POSTDEC->ordinal(), 13);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->set($JCTree$Tag::ASSIGN->ordinal(), 14);
+			TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag->set($JCTree$Tag::ASSIGN->ordinal(), 14);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->set($JCTree$Tag::BITOR_ASG->ordinal(), 15);
+			TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag->set($JCTree$Tag::BITOR_ASG->ordinal(), 15);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->set($JCTree$Tag::BITXOR_ASG->ordinal(), 16);
+			TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag->set($JCTree$Tag::BITXOR_ASG->ordinal(), 16);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->set($JCTree$Tag::BITAND_ASG->ordinal(), 17);
+			TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag->set($JCTree$Tag::BITAND_ASG->ordinal(), 17);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->set($JCTree$Tag::SL_ASG->ordinal(), 18);
+			TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag->set($JCTree$Tag::SL_ASG->ordinal(), 18);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->set($JCTree$Tag::SR_ASG->ordinal(), 19);
+			TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag->set($JCTree$Tag::SR_ASG->ordinal(), 19);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->set($JCTree$Tag::USR_ASG->ordinal(), 20);
+			TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag->set($JCTree$Tag::USR_ASG->ordinal(), 20);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->set($JCTree$Tag::PLUS_ASG->ordinal(), 21);
+			TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag->set($JCTree$Tag::PLUS_ASG->ordinal(), 21);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->set($JCTree$Tag::MINUS_ASG->ordinal(), 22);
+			TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag->set($JCTree$Tag::MINUS_ASG->ordinal(), 22);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->set($JCTree$Tag::MUL_ASG->ordinal(), 23);
+			TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag->set($JCTree$Tag::MUL_ASG->ordinal(), 23);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->set($JCTree$Tag::DIV_ASG->ordinal(), 24);
+			TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag->set($JCTree$Tag::DIV_ASG->ordinal(), 24);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->set($JCTree$Tag::MOD_ASG->ordinal(), 25);
+			TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag->set($JCTree$Tag::MOD_ASG->ordinal(), 25);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->set($JCTree$Tag::ERRONEOUS->ordinal(), 26);
+			TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag->set($JCTree$Tag::ERRONEOUS->ordinal(), 26);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->set($JCTree$Tag::TYPEARRAY->ordinal(), 27);
+			TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag->set($JCTree$Tag::TYPEARRAY->ordinal(), 27);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->set($JCTree$Tag::MODULEDEF->ordinal(), 28);
+			TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag->set($JCTree$Tag::MODULEDEF->ordinal(), 28);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->set($JCTree$Tag::PACKAGEDEF->ordinal(), 29);
+			TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag->set($JCTree$Tag::PACKAGEDEF->ordinal(), 29);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->set($JCTree$Tag::OR->ordinal(), 30);
+			TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag->set($JCTree$Tag::OR->ordinal(), 30);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->set($JCTree$Tag::AND->ordinal(), 31);
+			TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag->set($JCTree$Tag::AND->ordinal(), 31);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->set($JCTree$Tag::BITOR->ordinal(), 32);
+			TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag->set($JCTree$Tag::BITOR->ordinal(), 32);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->set($JCTree$Tag::BITXOR->ordinal(), 33);
+			TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag->set($JCTree$Tag::BITXOR->ordinal(), 33);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->set($JCTree$Tag::BITAND->ordinal(), 34);
+			TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag->set($JCTree$Tag::BITAND->ordinal(), 34);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->set($JCTree$Tag::EQ->ordinal(), 35);
+			TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag->set($JCTree$Tag::EQ->ordinal(), 35);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->set($JCTree$Tag::NE->ordinal(), 36);
+			TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag->set($JCTree$Tag::NE->ordinal(), 36);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->set($JCTree$Tag::LT->ordinal(), 37);
+			TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag->set($JCTree$Tag::LT->ordinal(), 37);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->set($JCTree$Tag::GT->ordinal(), 38);
+			TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag->set($JCTree$Tag::GT->ordinal(), 38);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->set($JCTree$Tag::LE->ordinal(), 39);
+			TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag->set($JCTree$Tag::LE->ordinal(), 39);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->set($JCTree$Tag::GE->ordinal(), 40);
+			TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag->set($JCTree$Tag::GE->ordinal(), 40);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->set($JCTree$Tag::SL->ordinal(), 41);
+			TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag->set($JCTree$Tag::SL->ordinal(), 41);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->set($JCTree$Tag::SR->ordinal(), 42);
+			TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag->set($JCTree$Tag::SR->ordinal(), 42);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->set($JCTree$Tag::USR->ordinal(), 43);
+			TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag->set($JCTree$Tag::USR->ordinal(), 43);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->set($JCTree$Tag::PLUS->ordinal(), 44);
+			TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag->set($JCTree$Tag::PLUS->ordinal(), 44);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->set($JCTree$Tag::MINUS->ordinal(), 45);
+			TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag->set($JCTree$Tag::MINUS->ordinal(), 45);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->set($JCTree$Tag::MUL->ordinal(), 46);
+			TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag->set($JCTree$Tag::MUL->ordinal(), 46);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->set($JCTree$Tag::DIV->ordinal(), 47);
+			TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag->set($JCTree$Tag::DIV->ordinal(), 47);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->set($JCTree$Tag::MOD->ordinal(), 48);
+			TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag->set($JCTree$Tag::MOD->ordinal(), 48);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->set($JCTree$Tag::CLASSDEF->ordinal(), 49);
+			TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag->set($JCTree$Tag::CLASSDEF->ordinal(), 49);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->set($JCTree$Tag::CONDEXPR->ordinal(), 50);
+			TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag->set($JCTree$Tag::CONDEXPR->ordinal(), 50);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->set($JCTree$Tag::EXEC->ordinal(), 51);
+			TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag->set($JCTree$Tag::EXEC->ordinal(), 51);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->set($JCTree$Tag::INDEXED->ordinal(), 52);
+			TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag->set($JCTree$Tag::INDEXED->ordinal(), 52);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->set($JCTree$Tag::METHODDEF->ordinal(), 53);
+			TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag->set($JCTree$Tag::METHODDEF->ordinal(), 53);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->set($JCTree$Tag::TYPETEST->ordinal(), 54);
+			TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag->set($JCTree$Tag::TYPETEST->ordinal(), 54);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->set($JCTree$Tag::BINDINGPATTERN->ordinal(), 55);
+			TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag->set($JCTree$Tag::BINDINGPATTERN->ordinal(), 55);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->set($JCTree$Tag::GUARDPATTERN->ordinal(), 56);
+			TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag->set($JCTree$Tag::GUARDPATTERN->ordinal(), 56);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->set($JCTree$Tag::POS->ordinal(), 57);
+			TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag->set($JCTree$Tag::POS->ordinal(), 57);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->set($JCTree$Tag::NEG->ordinal(), 58);
+			TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag->set($JCTree$Tag::NEG->ordinal(), 58);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->set($JCTree$Tag::NOT->ordinal(), 59);
+			TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag->set($JCTree$Tag::NOT->ordinal(), 59);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->set($JCTree$Tag::COMPL->ordinal(), 60);
+			TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag->set($JCTree$Tag::COMPL->ordinal(), 60);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->set($JCTree$Tag::CASE->ordinal(), 61);
+			TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag->set($JCTree$Tag::CASE->ordinal(), 61);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->set($JCTree$Tag::CATCH->ordinal(), 62);
+			TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag->set($JCTree$Tag::CATCH->ordinal(), 62);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->set($JCTree$Tag::FORLOOP->ordinal(), 63);
+			TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag->set($JCTree$Tag::FORLOOP->ordinal(), 63);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->set($JCTree$Tag::FOREACHLOOP->ordinal(), 64);
+			TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag->set($JCTree$Tag::FOREACHLOOP->ordinal(), 64);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->set($JCTree$Tag::IF->ordinal(), 65);
+			TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag->set($JCTree$Tag::IF->ordinal(), 65);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->set($JCTree$Tag::LABELLED->ordinal(), 66);
+			TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag->set($JCTree$Tag::LABELLED->ordinal(), 66);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->set($JCTree$Tag::MODIFIERS->ordinal(), 67);
+			TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag->set($JCTree$Tag::MODIFIERS->ordinal(), 67);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->set($JCTree$Tag::SYNCHRONIZED->ordinal(), 68);
+			TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag->set($JCTree$Tag::SYNCHRONIZED->ordinal(), 68);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->set($JCTree$Tag::TOPLEVEL->ordinal(), 69);
+			TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag->set($JCTree$Tag::TOPLEVEL->ordinal(), 69);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->set($JCTree$Tag::TRY->ordinal(), 70);
+			TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag->set($JCTree$Tag::TRY->ordinal(), 70);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->set($JCTree$Tag::WILDCARD->ordinal(), 71);
+			TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag->set($JCTree$Tag::WILDCARD->ordinal(), 71);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->set($JCTree$Tag::TYPECAST->ordinal(), 72);
+			TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag->set($JCTree$Tag::TYPECAST->ordinal(), 72);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->set($JCTree$Tag::WHILELOOP->ordinal(), 73);
+			TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag->set($JCTree$Tag::WHILELOOP->ordinal(), 73);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->set($JCTree$Tag::PARENTHESIZEDPATTERN->ordinal(), 74);
+			TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag->set($JCTree$Tag::PARENTHESIZEDPATTERN->ordinal(), 74);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->set($JCTree$Tag::DOLOOP->ordinal(), 75);
+			TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag->set($JCTree$Tag::DOLOOP->ordinal(), 75);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->set($JCTree$Tag::SWITCH->ordinal(), 76);
+			TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag->set($JCTree$Tag::SWITCH->ordinal(), 76);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->set($JCTree$Tag::ANNOTATION->ordinal(), 77);
+			TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag->set($JCTree$Tag::ANNOTATION->ordinal(), 77);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->set($JCTree$Tag::TYPE_ANNOTATION->ordinal(), 78);
+			TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag->set($JCTree$Tag::TYPE_ANNOTATION->ordinal(), 78);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->set($JCTree$Tag::TYPEPARAMETER->ordinal(), 79);
+			TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag->set($JCTree$Tag::TYPEPARAMETER->ordinal(), 79);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->set($JCTree$Tag::BLOCK->ordinal(), 80);
+			TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag->set($JCTree$Tag::BLOCK->ordinal(), 80);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->set($JCTree$Tag::NULLCHK->ordinal(), 81);
+			TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag->set($JCTree$Tag::NULLCHK->ordinal(), 81);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->set($JCTree$Tag::EXPORTS->ordinal(), 82);
+			TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag->set($JCTree$Tag::EXPORTS->ordinal(), 82);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->set($JCTree$Tag::OPENS->ordinal(), 83);
+			TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag->set($JCTree$Tag::OPENS->ordinal(), 83);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->set($JCTree$Tag::TYPEIDENT->ordinal(), 84);
+			TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag->set($JCTree$Tag::TYPEIDENT->ordinal(), 84);
 		} catch ($NoSuchFieldError& ex) {
 		}
 	}
@@ -487,7 +450,37 @@ TreeInfo$2::TreeInfo$2() {
 }
 
 $Class* TreeInfo$2::load$($String* name, bool initialize) {
-	$loadClass(TreeInfo$2, name, initialize, &_TreeInfo$2_ClassInfo_, clinit$TreeInfo$2, allocate$TreeInfo$2);
+	$FieldInfo fieldInfos$$[] = {
+		{"$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(TreeInfo$2, $SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.tools.javac.tree.TreeInfo",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.tree.TreeInfo$2", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $SYNTHETIC,
+		"com.sun.tools.javac.tree.TreeInfo$2",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		nullptr,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.tree.TreeInfo"
+	};
+	$loadClass(TreeInfo$2, name, initialize, &classInfo$$, TreeInfo$2::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(TreeInfo$2);
+	});
 	return class$;
 }
 

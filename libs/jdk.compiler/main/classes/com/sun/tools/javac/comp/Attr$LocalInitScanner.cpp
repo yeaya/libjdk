@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/Attr$LocalInitScanner.h>
-
 #include <com/sun/tools/javac/comp/Attr.h>
 #include <com/sun/tools/javac/resources/CompilerProperties$Fragments.h>
 #include <com/sun/tools/javac/tree/JCTree$JCExpression.h>
@@ -32,48 +31,6 @@ namespace com {
 			namespace javac {
 				namespace comp {
 
-$FieldInfo _Attr$LocalInitScanner_FieldInfo_[] = {
-	{"badInferenceMsg", "Lcom/sun/tools/javac/util/JCDiagnostic$Fragment;", nullptr, 0, $field(Attr$LocalInitScanner, badInferenceMsg)},
-	{"needsTarget", "Z", nullptr, 0, $field(Attr$LocalInitScanner, needsTarget)},
-	{}
-};
-
-$MethodInfo _Attr$LocalInitScanner_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(Attr$LocalInitScanner, init$, void)},
-	{"visitApply", "(Lcom/sun/tools/javac/tree/JCTree$JCMethodInvocation;)V", nullptr, $PUBLIC, $virtualMethod(Attr$LocalInitScanner, visitApply, void, $JCTree$JCMethodInvocation*)},
-	{"visitLambda", "(Lcom/sun/tools/javac/tree/JCTree$JCLambda;)V", nullptr, $PUBLIC, $virtualMethod(Attr$LocalInitScanner, visitLambda, void, $JCTree$JCLambda*)},
-	{"visitNewArray", "(Lcom/sun/tools/javac/tree/JCTree$JCNewArray;)V", nullptr, $PUBLIC, $virtualMethod(Attr$LocalInitScanner, visitNewArray, void, $JCTree$JCNewArray*)},
-	{"visitNewClass", "(Lcom/sun/tools/javac/tree/JCTree$JCNewClass;)V", nullptr, $PUBLIC, $virtualMethod(Attr$LocalInitScanner, visitNewClass, void, $JCTree$JCNewClass*)},
-	{"visitReference", "(Lcom/sun/tools/javac/tree/JCTree$JCMemberReference;)V", nullptr, $PUBLIC, $virtualMethod(Attr$LocalInitScanner, visitReference, void, $JCTree$JCMemberReference*)},
-	{"visitTypeCast", "(Lcom/sun/tools/javac/tree/JCTree$JCTypeCast;)V", nullptr, $PUBLIC, $virtualMethod(Attr$LocalInitScanner, visitTypeCast, void, $JCTree$JCTypeCast*)},
-	{}
-};
-
-$InnerClassInfo _Attr$LocalInitScanner_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.Attr$LocalInitScanner", "com.sun.tools.javac.comp.Attr", "LocalInitScanner", $STATIC},
-	{}
-};
-
-$ClassInfo _Attr$LocalInitScanner_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.comp.Attr$LocalInitScanner",
-	"com.sun.tools.javac.tree.TreeScanner",
-	nullptr,
-	_Attr$LocalInitScanner_FieldInfo_,
-	_Attr$LocalInitScanner_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Attr$LocalInitScanner_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.Attr"
-};
-
-$Object* allocate$Attr$LocalInitScanner($Class* clazz) {
-	return $of($alloc(Attr$LocalInitScanner));
-}
-
 void Attr$LocalInitScanner::init$() {
 	$TreeScanner::init$();
 	$set(this, badInferenceMsg, nullptr);
@@ -96,19 +53,17 @@ void Attr$LocalInitScanner::visitLambda($JCTree$JCLambda* tree) {
 
 void Attr$LocalInitScanner::visitTypeCast($JCTree$JCTypeCast* tree) {
 	bool prevNeedsTarget = this->needsTarget;
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			this->needsTarget = false;
-			$TreeScanner::visitTypeCast(tree);
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			this->needsTarget = prevNeedsTarget;
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	$var($Throwable, var$0, nullptr);
+	try {
+		this->needsTarget = false;
+		$TreeScanner::visitTypeCast(tree);
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		this->needsTarget = prevNeedsTarget;
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
@@ -121,37 +76,33 @@ void Attr$LocalInitScanner::visitReference($JCTree$JCMemberReference* tree) {
 
 void Attr$LocalInitScanner::visitNewClass($JCTree$JCNewClass* tree) {
 	bool prevNeedsTarget = this->needsTarget;
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			this->needsTarget = false;
-			$TreeScanner::visitNewClass(tree);
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			this->needsTarget = prevNeedsTarget;
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	$var($Throwable, var$0, nullptr);
+	try {
+		this->needsTarget = false;
+		$TreeScanner::visitNewClass(tree);
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		this->needsTarget = prevNeedsTarget;
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 void Attr$LocalInitScanner::visitApply($JCTree$JCMethodInvocation* tree) {
 	bool prevNeedsTarget = this->needsTarget;
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			this->needsTarget = false;
-			$TreeScanner::visitApply(tree);
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			this->needsTarget = prevNeedsTarget;
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	$var($Throwable, var$0, nullptr);
+	try {
+		this->needsTarget = false;
+		$TreeScanner::visitApply(tree);
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		this->needsTarget = prevNeedsTarget;
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
@@ -159,7 +110,43 @@ Attr$LocalInitScanner::Attr$LocalInitScanner() {
 }
 
 $Class* Attr$LocalInitScanner::load$($String* name, bool initialize) {
-	$loadClass(Attr$LocalInitScanner, name, initialize, &_Attr$LocalInitScanner_ClassInfo_, allocate$Attr$LocalInitScanner);
+	$FieldInfo fieldInfos$$[] = {
+		{"badInferenceMsg", "Lcom/sun/tools/javac/util/JCDiagnostic$Fragment;", nullptr, 0, $field(Attr$LocalInitScanner, badInferenceMsg)},
+		{"needsTarget", "Z", nullptr, 0, $field(Attr$LocalInitScanner, needsTarget)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(Attr$LocalInitScanner, init$, void)},
+		{"visitApply", "(Lcom/sun/tools/javac/tree/JCTree$JCMethodInvocation;)V", nullptr, $PUBLIC, $virtualMethod(Attr$LocalInitScanner, visitApply, void, $JCTree$JCMethodInvocation*)},
+		{"visitLambda", "(Lcom/sun/tools/javac/tree/JCTree$JCLambda;)V", nullptr, $PUBLIC, $virtualMethod(Attr$LocalInitScanner, visitLambda, void, $JCTree$JCLambda*)},
+		{"visitNewArray", "(Lcom/sun/tools/javac/tree/JCTree$JCNewArray;)V", nullptr, $PUBLIC, $virtualMethod(Attr$LocalInitScanner, visitNewArray, void, $JCTree$JCNewArray*)},
+		{"visitNewClass", "(Lcom/sun/tools/javac/tree/JCTree$JCNewClass;)V", nullptr, $PUBLIC, $virtualMethod(Attr$LocalInitScanner, visitNewClass, void, $JCTree$JCNewClass*)},
+		{"visitReference", "(Lcom/sun/tools/javac/tree/JCTree$JCMemberReference;)V", nullptr, $PUBLIC, $virtualMethod(Attr$LocalInitScanner, visitReference, void, $JCTree$JCMemberReference*)},
+		{"visitTypeCast", "(Lcom/sun/tools/javac/tree/JCTree$JCTypeCast;)V", nullptr, $PUBLIC, $virtualMethod(Attr$LocalInitScanner, visitTypeCast, void, $JCTree$JCTypeCast*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.Attr$LocalInitScanner", "com.sun.tools.javac.comp.Attr", "LocalInitScanner", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.comp.Attr$LocalInitScanner",
+		"com.sun.tools.javac.tree.TreeScanner",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.Attr"
+	};
+	$loadClass(Attr$LocalInitScanner, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Attr$LocalInitScanner);
+	});
 	return class$;
 }
 

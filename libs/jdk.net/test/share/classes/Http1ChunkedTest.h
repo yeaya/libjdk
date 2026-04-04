@@ -20,6 +20,7 @@ class $export Http1ChunkedTest : public ::java::lang::Object {
 	$class(Http1ChunkedTest, 0, ::java::lang::Object)
 public:
 	Http1ChunkedTest();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void main($StringArray* args);
 	static void test($String* name, $String* headers, ::java::util::List* body, int64_t delay);

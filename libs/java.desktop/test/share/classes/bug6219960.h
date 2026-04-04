@@ -26,6 +26,7 @@ class $export bug6219960 : public ::java::lang::Object {
 	$class(bug6219960, 0, ::java::lang::Object)
 public:
 	bug6219960();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void createAndShowGUI();
 	static ::javax::swing::JTable* createTable();

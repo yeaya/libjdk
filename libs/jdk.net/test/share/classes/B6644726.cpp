@@ -1,5 +1,4 @@
 #include <B6644726.h>
-
 #include <java/net/CookieManager.h>
 #include <java/net/CookiePolicy.h>
 #include <java/net/CookieStore.h>
@@ -28,28 +27,6 @@ using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
 using $Map = ::java::util::Map;
 
-$MethodInfo _B6644726_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(B6644726, init$, void)},
-	{"fail", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(B6644726, fail, void, $String*), "java.lang.Exception"},
-	{"isIn", "(Ljava/util/List;Ljava/lang/String;)Z", "(Ljava/util/List<Ljava/lang/String;>;Ljava/lang/String;)Z", $PRIVATE | $STATIC, $staticMethod(B6644726, isIn, bool, $List*, $String*)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(B6644726, main, void, $StringArray*), "java.lang.Exception"},
-	{"testCookieStore", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(B6644726, testCookieStore, void), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _B6644726_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"B6644726",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_B6644726_MethodInfo_
-};
-
-$Object* allocate$B6644726($Class* clazz) {
-	return $of($alloc(B6644726));
-}
-
 void B6644726::init$() {
 }
 
@@ -58,7 +35,7 @@ void B6644726::main($StringArray* args) {
 }
 
 void B6644726::testCookieStore() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($CookieManager, cm, $new($CookieManager));
 	$var($CookieStore, cs, cm->getCookieStore());
 	$var($URI, uri, $new($URI, "http://www.s1.sun.com/dir/foo/doc.html"_s));
@@ -83,14 +60,12 @@ void B6644726::testCookieStore() {
 		fail($$str({"Should have 5 cookies. Got only "_s, $$str(cookies->size()), ", expires probably didn\'t parse correctly"_s}));
 	}
 	{
-		$var($Iterator, i$, $nc(cookies)->iterator());
+		$var($Iterator, i$, cookies->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($HttpCookie, c, $cast($HttpCookie, i$->next()));
-			{
-				if ($nc($($nc(c)->getName()))->equals("myCookie1"_s)) {
-					if (!"/dir/foo/"_s->equals($(c->getPath()))) {
-						fail($$str({"Default path for myCookie1 is "_s, $(c->getPath())}));
-					}
+			if ($$nc($nc(c)->getName())->equals("myCookie1"_s)) {
+				if (!"/dir/foo/"_s->equals($(c->getPath()))) {
+					fail($$str({"Default path for myCookie1 is "_s, $(c->getPath())}));
 				}
 			}
 		}
@@ -100,16 +75,16 @@ void B6644726::testCookieStore() {
 	$var($List, clst, $cast($List, $nc(m)->get("Cookie"_s)));
 	if ($nc(clst)->size() != 1) {
 		fail($$str({"We should have only 1 cookie, not "_s, $$str(clst->size())}));
-	} else if (!$nc(($cast($String, $(clst->get(0)))))->startsWith("myCookie4"_s)) {
-		fail($$str({"The cookie should be myCookie4, not "_s, $cast($String, $(clst->get(0)))}));
+	} else if (!$$sure($String, clst->get(0))->startsWith("myCookie4"_s)) {
+		fail($$str({"The cookie should be myCookie4, not "_s, $$cast($String, clst->get(0))}));
 	}
 	$assign(m, cm->get(suri, emptyMap));
-	$assign(clst, $cast($List, m->get("Cookie"_s)));
+	$assign(clst, $cast($List, $nc(m)->get("Cookie"_s)));
 	if ($nc(clst)->size() != 5) {
 		fail($$str({"Cookies didn\'t cross from http to https. Got only "_s, $$str(clst->size())}));
 	}
 	$assign(m, cm->get(uri, emptyMap));
-	$assign(clst, $cast($List, m->get("Cookie"_s)));
+	$assign(clst, $cast($List, $nc(m)->get("Cookie"_s)));
 	if ($nc(clst)->size() != 4) {
 		fail($$str({"We should have gotten only 4 cookies over http (non secure), got "_s, $$str(clst->size())}));
 	}
@@ -124,7 +99,7 @@ void B6644726::testCookieStore() {
 	cm->put(uri, map);
 	$assign(uri, $new($URI, "http://www.sun.com"_s));
 	$assign(m, cm->get(uri, emptyMap));
-	$assign(clst, $cast($List, m->get("Cookie"_s)));
+	$assign(clst, $cast($List, $nc(m)->get("Cookie"_s)));
 	if ($nc(clst)->size() != 1) {
 		fail("Missing a cookie when using an empty path"_s);
 	}
@@ -136,7 +111,7 @@ void B6644726::testCookieStore() {
 	cm->put(uri, map);
 	$assign(uri, $new($URI, "http://www.sun.com/"_s));
 	$assign(m, cm->get(uri, emptyMap));
-	$assign(clst, $cast($List, m->get("Cookie"_s)));
+	$assign(clst, $cast($List, $nc(m)->get("Cookie"_s)));
 	if (!isIn(clst, "myCookie7="_s)) {
 		fail("Missing a cookie when using an empty path"_s);
 	}
@@ -150,26 +125,24 @@ void B6644726::testCookieStore() {
 	cm->put(uri, map);
 	$assign(cookies, cs->getCookies());
 	{
-		$var($Iterator, i$, cookies->iterator());
+		$var($Iterator, i$, $nc(cookies)->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($HttpCookie, c, $cast($HttpCookie, i$->next()));
-			{
-				if ($nc($($nc(c)->getName()))->equals("myCookie10"_s)) {
-					fail("A cookie with an invalid port list was accepted"_s);
-				}
+			if ($$nc($nc(c)->getName())->equals("myCookie10"_s)) {
+				fail("A cookie with an invalid port list was accepted"_s);
 			}
 		}
 	}
 	$assign(uri, $new($URI, "http://www.sun.com:80/"_s));
 	$assign(m, cm->get(uri, emptyMap));
-	$assign(clst, $cast($List, m->get("Cookie"_s)));
+	$assign(clst, $cast($List, $nc(m)->get("Cookie"_s)));
 	bool var$0 = !isIn(clst, "myCookie8="_s);
 	if (var$0 || !isIn(clst, "myCookie9="_s)) {
 		fail("Missing a cookie on port 80"_s);
 	}
 	$assign(uri, $new($URI, "http://www.sun.com:8000/"_s));
 	$assign(m, cm->get(uri, emptyMap));
-	$assign(clst, $cast($List, m->get("Cookie"_s)));
+	$assign(clst, $cast($List, $nc(m)->get("Cookie"_s)));
 	if (!isIn(clst, "myCookie9="_s)) {
 		fail("Missing a cookie on port 80"_s);
 	}
@@ -178,37 +151,35 @@ void B6644726::testCookieStore() {
 	}
 	lst->clear();
 	map->clear();
-	$nc($(cm->getCookieStore()))->removeAll();
+	$$nc(cm->getCookieStore())->removeAll();
 	lst->add("myCookie11=httpOnlyTest; httpOnly"_s);
 	map->put("Set-Cookie"_s, lst);
 	$assign(uri, $new($URI, "http://www.sun.com/"_s));
 	cm->put(uri, map);
 	$assign(m, cm->get(uri, emptyMap));
-	$assign(clst, $cast($List, m->get("Cookie"_s)));
+	$assign(clst, $cast($List, $nc(m)->get("Cookie"_s)));
 	if (!isIn(clst, "myCookie11="_s)) {
 		fail("Missing cookie with httpOnly flag"_s);
 	}
 	$assign(uri, $new($URI, "javascript://www.sun.com/"_s));
 	$assign(m, cm->get(uri, emptyMap));
-	$assign(clst, $cast($List, m->get("Cookie"_s)));
+	$assign(clst, $cast($List, $nc(m)->get("Cookie"_s)));
 	if (isIn(clst, "myCookie11="_s)) {
 		fail("Should get the cookie with httpOnly when scheme is javascript:"_s);
 	}
 }
 
 bool B6644726::isIn($List* lst, $String* cookie) {
-	$useLocalCurrentObjectStackCache();
-	if (lst == nullptr || $nc(lst)->isEmpty()) {
+	$useLocalObjectStack();
+	if (lst == nullptr || lst->isEmpty()) {
 		return false;
 	}
 	{
 		$var($Iterator, i$, $nc(lst)->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($String, s, $cast($String, i$->next()));
-			{
-				if ($nc(s)->startsWith(cookie)) {
-					return true;
-				}
+			if ($nc(s)->startsWith(cookie)) {
+				return true;
 			}
 		}
 	}
@@ -223,7 +194,25 @@ B6644726::B6644726() {
 }
 
 $Class* B6644726::load$($String* name, bool initialize) {
-	$loadClass(B6644726, name, initialize, &_B6644726_ClassInfo_, allocate$B6644726);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(B6644726, init$, void)},
+		{"fail", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(B6644726, fail, void, $String*), "java.lang.Exception"},
+		{"isIn", "(Ljava/util/List;Ljava/lang/String;)Z", "(Ljava/util/List<Ljava/lang/String;>;Ljava/lang/String;)Z", $PRIVATE | $STATIC, $staticMethod(B6644726, isIn, bool, $List*, $String*)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(B6644726, main, void, $StringArray*), "java.lang.Exception"},
+		{"testCookieStore", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(B6644726, testCookieStore, void), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"B6644726",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(B6644726, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(B6644726);
+	});
 	return class$;
 }
 

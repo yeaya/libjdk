@@ -29,6 +29,7 @@ class $export Http1Exchange$State : public ::java::lang::Enum {
 public:
 	Http1Exchange$State();
 	static $Array<::jdk::internal::net::http::Http1Exchange$State>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::jdk::internal::net::http::Http1Exchange$State* valueOf($String* name);
 	static $Array<::jdk::internal::net::http::Http1Exchange$State>* values();

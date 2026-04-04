@@ -59,6 +59,7 @@ class Base64 : public ::java::lang::Object {
 	$class(Base64, 0, ::java::lang::Object)
 public:
 	Base64();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $bytes* decode(::org::w3c::dom::Element* element);
 	static $bytes* decode($bytes* base64);

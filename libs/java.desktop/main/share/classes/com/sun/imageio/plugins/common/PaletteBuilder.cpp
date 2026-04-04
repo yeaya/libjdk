@@ -1,5 +1,4 @@
 #include <com/sun/imageio/plugins/common/PaletteBuilder.h>
-
 #include <com/sun/imageio/plugins/common/PaletteBuilder$ColorNode.h>
 #include <java/awt/Color.h>
 #include <java/awt/Transparency.h>
@@ -21,9 +20,7 @@ using $PaletteBuilder$ColorNode = ::com::sun::imageio::plugins::common::PaletteB
 using $Color = ::java::awt::Color;
 using $Transparency = ::java::awt::Transparency;
 using $BufferedImage = ::java::awt::image::BufferedImage;
-using $ColorModel = ::java::awt::image::ColorModel;
 using $IndexColorModel = ::java::awt::image::IndexColorModel;
-using $Raster = ::java::awt::image::Raster;
 using $RenderedImage = ::java::awt::image::RenderedImage;
 using $WritableRaster = ::java::awt::image::WritableRaster;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -38,68 +35,6 @@ namespace com {
 		namespace imageio {
 			namespace plugins {
 				namespace common {
-
-$FieldInfo _PaletteBuilder_FieldInfo_[] = {
-	{"MAXLEVEL", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(PaletteBuilder, MAXLEVEL)},
-	{"src", "Ljava/awt/image/RenderedImage;", nullptr, $PROTECTED, $field(PaletteBuilder, src)},
-	{"srcColorModel", "Ljava/awt/image/ColorModel;", nullptr, $PROTECTED, $field(PaletteBuilder, srcColorModel)},
-	{"srcRaster", "Ljava/awt/image/Raster;", nullptr, $PROTECTED, $field(PaletteBuilder, srcRaster)},
-	{"requiredSize", "I", nullptr, $PROTECTED, $field(PaletteBuilder, requiredSize)},
-	{"root", "Lcom/sun/imageio/plugins/common/PaletteBuilder$ColorNode;", nullptr, $PROTECTED, $field(PaletteBuilder, root)},
-	{"numNodes", "I", nullptr, $PROTECTED, $field(PaletteBuilder, numNodes)},
-	{"maxNodes", "I", nullptr, $PROTECTED, $field(PaletteBuilder, maxNodes)},
-	{"currLevel", "I", nullptr, $PROTECTED, $field(PaletteBuilder, currLevel)},
-	{"currSize", "I", nullptr, $PROTECTED, $field(PaletteBuilder, currSize)},
-	{"reduceList", "[Lcom/sun/imageio/plugins/common/PaletteBuilder$ColorNode;", nullptr, $PROTECTED, $field(PaletteBuilder, reduceList)},
-	{"palette", "[Lcom/sun/imageio/plugins/common/PaletteBuilder$ColorNode;", nullptr, $PROTECTED, $field(PaletteBuilder, palette)},
-	{"transparency", "I", nullptr, $PROTECTED, $field(PaletteBuilder, transparency)},
-	{"transColor", "Lcom/sun/imageio/plugins/common/PaletteBuilder$ColorNode;", nullptr, $PROTECTED, $field(PaletteBuilder, transColor)},
-	{}
-};
-
-$MethodInfo _PaletteBuilder_MethodInfo_[] = {
-	{"<init>", "(Ljava/awt/image/RenderedImage;)V", nullptr, $PROTECTED, $method(PaletteBuilder, init$, void, $RenderedImage*)},
-	{"<init>", "(Ljava/awt/image/RenderedImage;I)V", nullptr, $PROTECTED, $method(PaletteBuilder, init$, void, $RenderedImage*, int32_t)},
-	{"buildPalette", "()V", nullptr, $PROTECTED, $virtualMethod(PaletteBuilder, buildPalette, void)},
-	{"canCreatePalette", "(Ljavax/imageio/ImageTypeSpecifier;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(PaletteBuilder, canCreatePalette, bool, $ImageTypeSpecifier*)},
-	{"canCreatePalette", "(Ljava/awt/image/RenderedImage;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(PaletteBuilder, canCreatePalette, bool, $RenderedImage*)},
-	{"createIndexColorModel", "(Ljava/awt/image/RenderedImage;)Ljava/awt/image/IndexColorModel;", nullptr, $PUBLIC | $STATIC, $staticMethod(PaletteBuilder, createIndexColorModel, $IndexColorModel*, $RenderedImage*)},
-	{"createIndexedImage", "(Ljava/awt/image/RenderedImage;)Ljava/awt/image/RenderedImage;", nullptr, $PUBLIC | $STATIC, $staticMethod(PaletteBuilder, createIndexedImage, $RenderedImage*, $RenderedImage*)},
-	{"findColorIndex", "(Lcom/sun/imageio/plugins/common/PaletteBuilder$ColorNode;Ljava/awt/Color;)I", nullptr, $PROTECTED, $virtualMethod(PaletteBuilder, findColorIndex, int32_t, $PaletteBuilder$ColorNode*, $Color*)},
-	{"findPaletteEntry", "(Lcom/sun/imageio/plugins/common/PaletteBuilder$ColorNode;I[B[B[B)I", nullptr, $PROTECTED, $virtualMethod(PaletteBuilder, findPaletteEntry, int32_t, $PaletteBuilder$ColorNode*, int32_t, $bytes*, $bytes*, $bytes*)},
-	{"freeTree", "(Lcom/sun/imageio/plugins/common/PaletteBuilder$ColorNode;)Lcom/sun/imageio/plugins/common/PaletteBuilder$ColorNode;", nullptr, $PROTECTED, $virtualMethod(PaletteBuilder, freeTree, $PaletteBuilder$ColorNode*, $PaletteBuilder$ColorNode*)},
-	{"getBranchIndex", "(Ljava/awt/Color;I)I", nullptr, $PROTECTED, $virtualMethod(PaletteBuilder, getBranchIndex, int32_t, $Color*, int32_t)},
-	{"getIndexColorModel", "()Ljava/awt/image/IndexColorModel;", nullptr, $PROTECTED, $virtualMethod(PaletteBuilder, getIndexColorModel, $IndexColorModel*)},
-	{"getIndexedImage", "()Ljava/awt/image/RenderedImage;", nullptr, $PROTECTED, $virtualMethod(PaletteBuilder, getIndexedImage, $RenderedImage*)},
-	{"getSrcColor", "(II)Ljava/awt/Color;", nullptr, $PRIVATE, $method(PaletteBuilder, getSrcColor, $Color*, int32_t, int32_t)},
-	{"insertNode", "(Lcom/sun/imageio/plugins/common/PaletteBuilder$ColorNode;Ljava/awt/Color;I)Lcom/sun/imageio/plugins/common/PaletteBuilder$ColorNode;", nullptr, $PROTECTED, $virtualMethod(PaletteBuilder, insertNode, $PaletteBuilder$ColorNode*, $PaletteBuilder$ColorNode*, $Color*, int32_t)},
-	{"reduceTree", "()V", nullptr, $PROTECTED, $virtualMethod(PaletteBuilder, reduceTree, void)},
-	{}
-};
-
-$InnerClassInfo _PaletteBuilder_InnerClassesInfo_[] = {
-	{"com.sun.imageio.plugins.common.PaletteBuilder$ColorNode", "com.sun.imageio.plugins.common.PaletteBuilder", "ColorNode", $PROTECTED},
-	{}
-};
-
-$ClassInfo _PaletteBuilder_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.imageio.plugins.common.PaletteBuilder",
-	"java.lang.Object",
-	nullptr,
-	_PaletteBuilder_FieldInfo_,
-	_PaletteBuilder_MethodInfo_,
-	nullptr,
-	nullptr,
-	_PaletteBuilder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.imageio.plugins.common.PaletteBuilder$ColorNode"
-};
-
-$Object* allocate$PaletteBuilder($Class* clazz) {
-	return $of($alloc(PaletteBuilder));
-}
 
 $RenderedImage* PaletteBuilder::createIndexedImage($RenderedImage* src) {
 	$var(PaletteBuilder, pb, $new(PaletteBuilder, src));
@@ -129,10 +64,10 @@ bool PaletteBuilder::canCreatePalette($RenderedImage* image) {
 }
 
 $RenderedImage* PaletteBuilder::getIndexedImage() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($IndexColorModel, icm, getIndexColorModel());
 	int32_t var$0 = $nc(this->src)->getWidth();
-	$var($BufferedImage, dst, $new($BufferedImage, var$0, $nc(this->src)->getHeight(), $BufferedImage::TYPE_BYTE_INDEXED, icm));
+	$var($BufferedImage, dst, $new($BufferedImage, var$0, this->src->getHeight(), $BufferedImage::TYPE_BYTE_INDEXED, icm));
 	$var($WritableRaster, wr, dst->getRaster());
 	for (int32_t y = 0; y < dst->getHeight(); ++y) {
 		for (int32_t x = 0; x < dst->getWidth(); ++x) {
@@ -173,10 +108,10 @@ int32_t PaletteBuilder::findColorIndex($PaletteBuilder$ColorNode* aNode, $Color*
 }
 
 void PaletteBuilder::buildPalette() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, reduceList, $new($PaletteBuilder$ColorNodeArray, PaletteBuilder::MAXLEVEL + 1));
-	for (int32_t i = 0; i < $nc(this->reduceList)->length; ++i) {
-		$nc(this->reduceList)->set(i, nullptr);
+	for (int32_t i = 0; i < this->reduceList->length; ++i) {
+		this->reduceList->set(i, nullptr);
 	}
 	this->numNodes = 0;
 	this->maxNodes = 0;
@@ -192,7 +127,7 @@ void PaletteBuilder::buildPalette() {
 				if (this->transColor == nullptr) {
 					--this->requiredSize;
 					$set(this, transColor, $new($PaletteBuilder$ColorNode, this));
-					$nc(this->transColor)->isLeaf = true;
+					this->transColor->isLeaf = true;
 				}
 				$set(this, transColor, insertNode(this->transColor, aColor, 0));
 			} else {
@@ -206,7 +141,7 @@ void PaletteBuilder::buildPalette() {
 }
 
 $PaletteBuilder$ColorNode* PaletteBuilder::insertNode($PaletteBuilder$ColorNode* aNode$renamed, $Color* aColor, int32_t aLevel) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($PaletteBuilder$ColorNode, aNode, aNode$renamed);
 	if (aNode == nullptr) {
 		$assign(aNode, $new($PaletteBuilder$ColorNode, this));
@@ -230,16 +165,16 @@ $PaletteBuilder$ColorNode* PaletteBuilder::insertNode($PaletteBuilder$ColorNode*
 			++aNode->childCount;
 			if (aNode->childCount == 2) {
 				$set(aNode, nextReducible, $nc(this->reduceList)->get(aLevel));
-				$nc(this->reduceList)->set(aLevel, aNode);
+				this->reduceList->set(aLevel, aNode);
 			}
 		}
-		$nc(aNode->children)->set(branchIndex, $(insertNode($nc(aNode->children)->get(branchIndex), aColor, aLevel + 1)));
+		aNode->children->set(branchIndex, $(insertNode(aNode->children->get(branchIndex), aColor, aLevel + 1)));
 	}
 	return aNode;
 }
 
 $IndexColorModel* PaletteBuilder::getIndexColorModel() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t size = this->currSize;
 	if (this->transColor != nullptr) {
 		++size;
@@ -275,7 +210,7 @@ int32_t PaletteBuilder::findPaletteEntry($PaletteBuilder$ColorNode* aNode, int32
 	} else {
 		for (int32_t i = 0; i < 8; ++i) {
 			if ($nc(aNode->children)->get(i) != nullptr) {
-				index = findPaletteEntry($nc(aNode->children)->get(i), index, red, green, blue);
+				index = findPaletteEntry(aNode->children->get(i), index, red, green, blue);
 			}
 		}
 	}
@@ -283,41 +218,41 @@ int32_t PaletteBuilder::findPaletteEntry($PaletteBuilder$ColorNode* aNode, int32
 }
 
 int32_t PaletteBuilder::getBranchIndex($Color* aColor, int32_t aLevel) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (aLevel > PaletteBuilder::MAXLEVEL || aLevel < 0) {
 		$throwNew($IllegalArgumentException, $$str({"Invalid octree node depth: "_s, $$str(aLevel)}));
 	}
 	int32_t shift = PaletteBuilder::MAXLEVEL - aLevel;
-	int32_t red_index = (int32_t)(1 & (uint32_t)($sr((int32_t)(255 & (uint32_t)$nc(aColor)->getRed()), shift)));
-	int32_t green_index = (int32_t)(1 & (uint32_t)($sr((int32_t)(255 & (uint32_t)aColor->getGreen()), shift)));
-	int32_t blue_index = (int32_t)(1 & (uint32_t)($sr((int32_t)(255 & (uint32_t)aColor->getBlue()), shift)));
+	int32_t red_index = 1 & ($sr(0xff & $nc(aColor)->getRed(), shift));
+	int32_t green_index = 1 & ($sr(0xff & aColor->getGreen(), shift));
+	int32_t blue_index = 1 & ($sr(0xff & aColor->getBlue(), shift));
 	int32_t index = ((red_index << 2) | (green_index << 1)) | blue_index;
 	return index;
 }
 
 void PaletteBuilder::reduceTree() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t level = $nc(this->reduceList)->length - 1;
-	while ($nc(this->reduceList)->get(level) == nullptr && level >= 0) {
+	while (this->reduceList->get(level) == nullptr && level >= 0) {
 		--level;
 	}
-	$var($PaletteBuilder$ColorNode, thisNode, $nc(this->reduceList)->get(level));
+	$var($PaletteBuilder$ColorNode, thisNode, this->reduceList->get(level));
 	if (thisNode == nullptr) {
 		return;
 	}
 	$var($PaletteBuilder$ColorNode, pList, thisNode);
 	int32_t minColorCount = $nc(pList)->colorCount;
 	int32_t cnt = 1;
-	while (pList->nextReducible != nullptr) {
-		if (minColorCount > $nc(pList->nextReducible)->colorCount) {
+	while ($nc(pList)->nextReducible != nullptr) {
+		if (minColorCount > pList->nextReducible->colorCount) {
 			$assign(thisNode, pList);
 			minColorCount = pList->colorCount;
 		}
 		$assign(pList, pList->nextReducible);
 		++cnt;
 	}
-	if (thisNode == $nc(this->reduceList)->get(level)) {
-		$nc(this->reduceList)->set(level, $nc(thisNode)->nextReducible);
+	if (thisNode == this->reduceList->get(level)) {
+		this->reduceList->set(level, $nc(thisNode)->nextReducible);
 	} else {
 		$assign(pList, $nc(thisNode)->nextReducible);
 		$set(thisNode, nextReducible, $nc(pList)->nextReducible);
@@ -326,7 +261,7 @@ void PaletteBuilder::reduceTree() {
 	if ($nc(thisNode)->isLeaf) {
 		return;
 	}
-	int32_t leafChildCount = $nc(thisNode)->getLeafChildCount();
+	int32_t leafChildCount = thisNode->getLeafChildCount();
 	thisNode->isLeaf = true;
 	this->currSize -= (leafChildCount - 1);
 	int32_t aDepth = thisNode->level;
@@ -337,12 +272,12 @@ void PaletteBuilder::reduceTree() {
 }
 
 $PaletteBuilder$ColorNode* PaletteBuilder::freeTree($PaletteBuilder$ColorNode* aNode) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (aNode == nullptr) {
 		return nullptr;
 	}
 	for (int32_t i = 0; i < 8; ++i) {
-		$nc($nc(aNode)->children)->set(i, $(freeTree($nc(aNode->children)->get(i))));
+		$nc($nc(aNode)->children)->set(i, $(freeTree($nc($nc(aNode)->children)->get(i))));
 	}
 	--this->numNodes;
 	return nullptr;
@@ -352,7 +287,63 @@ PaletteBuilder::PaletteBuilder() {
 }
 
 $Class* PaletteBuilder::load$($String* name, bool initialize) {
-	$loadClass(PaletteBuilder, name, initialize, &_PaletteBuilder_ClassInfo_, allocate$PaletteBuilder);
+	$FieldInfo fieldInfos$$[] = {
+		{"MAXLEVEL", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(PaletteBuilder, MAXLEVEL)},
+		{"src", "Ljava/awt/image/RenderedImage;", nullptr, $PROTECTED, $field(PaletteBuilder, src)},
+		{"srcColorModel", "Ljava/awt/image/ColorModel;", nullptr, $PROTECTED, $field(PaletteBuilder, srcColorModel)},
+		{"srcRaster", "Ljava/awt/image/Raster;", nullptr, $PROTECTED, $field(PaletteBuilder, srcRaster)},
+		{"requiredSize", "I", nullptr, $PROTECTED, $field(PaletteBuilder, requiredSize)},
+		{"root", "Lcom/sun/imageio/plugins/common/PaletteBuilder$ColorNode;", nullptr, $PROTECTED, $field(PaletteBuilder, root)},
+		{"numNodes", "I", nullptr, $PROTECTED, $field(PaletteBuilder, numNodes)},
+		{"maxNodes", "I", nullptr, $PROTECTED, $field(PaletteBuilder, maxNodes)},
+		{"currLevel", "I", nullptr, $PROTECTED, $field(PaletteBuilder, currLevel)},
+		{"currSize", "I", nullptr, $PROTECTED, $field(PaletteBuilder, currSize)},
+		{"reduceList", "[Lcom/sun/imageio/plugins/common/PaletteBuilder$ColorNode;", nullptr, $PROTECTED, $field(PaletteBuilder, reduceList)},
+		{"palette", "[Lcom/sun/imageio/plugins/common/PaletteBuilder$ColorNode;", nullptr, $PROTECTED, $field(PaletteBuilder, palette)},
+		{"transparency", "I", nullptr, $PROTECTED, $field(PaletteBuilder, transparency)},
+		{"transColor", "Lcom/sun/imageio/plugins/common/PaletteBuilder$ColorNode;", nullptr, $PROTECTED, $field(PaletteBuilder, transColor)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/image/RenderedImage;)V", nullptr, $PROTECTED, $method(PaletteBuilder, init$, void, $RenderedImage*)},
+		{"<init>", "(Ljava/awt/image/RenderedImage;I)V", nullptr, $PROTECTED, $method(PaletteBuilder, init$, void, $RenderedImage*, int32_t)},
+		{"buildPalette", "()V", nullptr, $PROTECTED, $virtualMethod(PaletteBuilder, buildPalette, void)},
+		{"canCreatePalette", "(Ljavax/imageio/ImageTypeSpecifier;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(PaletteBuilder, canCreatePalette, bool, $ImageTypeSpecifier*)},
+		{"canCreatePalette", "(Ljava/awt/image/RenderedImage;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(PaletteBuilder, canCreatePalette, bool, $RenderedImage*)},
+		{"createIndexColorModel", "(Ljava/awt/image/RenderedImage;)Ljava/awt/image/IndexColorModel;", nullptr, $PUBLIC | $STATIC, $staticMethod(PaletteBuilder, createIndexColorModel, $IndexColorModel*, $RenderedImage*)},
+		{"createIndexedImage", "(Ljava/awt/image/RenderedImage;)Ljava/awt/image/RenderedImage;", nullptr, $PUBLIC | $STATIC, $staticMethod(PaletteBuilder, createIndexedImage, $RenderedImage*, $RenderedImage*)},
+		{"findColorIndex", "(Lcom/sun/imageio/plugins/common/PaletteBuilder$ColorNode;Ljava/awt/Color;)I", nullptr, $PROTECTED, $virtualMethod(PaletteBuilder, findColorIndex, int32_t, $PaletteBuilder$ColorNode*, $Color*)},
+		{"findPaletteEntry", "(Lcom/sun/imageio/plugins/common/PaletteBuilder$ColorNode;I[B[B[B)I", nullptr, $PROTECTED, $virtualMethod(PaletteBuilder, findPaletteEntry, int32_t, $PaletteBuilder$ColorNode*, int32_t, $bytes*, $bytes*, $bytes*)},
+		{"freeTree", "(Lcom/sun/imageio/plugins/common/PaletteBuilder$ColorNode;)Lcom/sun/imageio/plugins/common/PaletteBuilder$ColorNode;", nullptr, $PROTECTED, $virtualMethod(PaletteBuilder, freeTree, $PaletteBuilder$ColorNode*, $PaletteBuilder$ColorNode*)},
+		{"getBranchIndex", "(Ljava/awt/Color;I)I", nullptr, $PROTECTED, $virtualMethod(PaletteBuilder, getBranchIndex, int32_t, $Color*, int32_t)},
+		{"getIndexColorModel", "()Ljava/awt/image/IndexColorModel;", nullptr, $PROTECTED, $virtualMethod(PaletteBuilder, getIndexColorModel, $IndexColorModel*)},
+		{"getIndexedImage", "()Ljava/awt/image/RenderedImage;", nullptr, $PROTECTED, $virtualMethod(PaletteBuilder, getIndexedImage, $RenderedImage*)},
+		{"getSrcColor", "(II)Ljava/awt/Color;", nullptr, $PRIVATE, $method(PaletteBuilder, getSrcColor, $Color*, int32_t, int32_t)},
+		{"insertNode", "(Lcom/sun/imageio/plugins/common/PaletteBuilder$ColorNode;Ljava/awt/Color;I)Lcom/sun/imageio/plugins/common/PaletteBuilder$ColorNode;", nullptr, $PROTECTED, $virtualMethod(PaletteBuilder, insertNode, $PaletteBuilder$ColorNode*, $PaletteBuilder$ColorNode*, $Color*, int32_t)},
+		{"reduceTree", "()V", nullptr, $PROTECTED, $virtualMethod(PaletteBuilder, reduceTree, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.imageio.plugins.common.PaletteBuilder$ColorNode", "com.sun.imageio.plugins.common.PaletteBuilder", "ColorNode", $PROTECTED},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.imageio.plugins.common.PaletteBuilder",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.imageio.plugins.common.PaletteBuilder$ColorNode"
+	};
+	$loadClass(PaletteBuilder, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PaletteBuilder);
+	});
 	return class$;
 }
 

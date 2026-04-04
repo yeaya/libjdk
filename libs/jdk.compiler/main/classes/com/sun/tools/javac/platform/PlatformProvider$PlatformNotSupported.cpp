@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/platform/PlatformProvider$PlatformNotSupported.h>
-
 #include <com/sun/tools/javac/platform/PlatformProvider.h>
 #include <jcpp.h>
 
@@ -14,41 +13,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace platform {
-
-$FieldInfo _PlatformProvider$PlatformNotSupported_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PlatformProvider$PlatformNotSupported, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _PlatformProvider$PlatformNotSupported_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(PlatformProvider$PlatformNotSupported, init$, void)},
-	{}
-};
-
-$InnerClassInfo _PlatformProvider$PlatformNotSupported_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.platform.PlatformProvider$PlatformNotSupported", "com.sun.tools.javac.platform.PlatformProvider", "PlatformNotSupported", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _PlatformProvider$PlatformNotSupported_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.platform.PlatformProvider$PlatformNotSupported",
-	"java.lang.Exception",
-	nullptr,
-	_PlatformProvider$PlatformNotSupported_FieldInfo_,
-	_PlatformProvider$PlatformNotSupported_MethodInfo_,
-	nullptr,
-	nullptr,
-	_PlatformProvider$PlatformNotSupported_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.platform.PlatformProvider"
-};
-
-$Object* allocate$PlatformProvider$PlatformNotSupported($Class* clazz) {
-	return $of($alloc(PlatformProvider$PlatformNotSupported));
-}
 
 void PlatformProvider$PlatformNotSupported::init$() {
 	$Exception::init$();
@@ -65,7 +29,36 @@ void PlatformProvider$PlatformNotSupported::throw$() {
 }
 
 $Class* PlatformProvider$PlatformNotSupported::load$($String* name, bool initialize) {
-	$loadClass(PlatformProvider$PlatformNotSupported, name, initialize, &_PlatformProvider$PlatformNotSupported_ClassInfo_, allocate$PlatformProvider$PlatformNotSupported);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PlatformProvider$PlatformNotSupported, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(PlatformProvider$PlatformNotSupported, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.platform.PlatformProvider$PlatformNotSupported", "com.sun.tools.javac.platform.PlatformProvider", "PlatformNotSupported", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.platform.PlatformProvider$PlatformNotSupported",
+		"java.lang.Exception",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.platform.PlatformProvider"
+	};
+	$loadClass(PlatformProvider$PlatformNotSupported, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PlatformProvider$PlatformNotSupported);
+	});
 	return class$;
 }
 

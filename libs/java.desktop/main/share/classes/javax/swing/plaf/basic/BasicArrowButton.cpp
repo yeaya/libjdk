@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/basic/BasicArrowButton.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/Dimension.h>
@@ -31,7 +30,6 @@ using $Color = ::java::awt::Color;
 using $Dimension = ::java::awt::Dimension;
 using $Graphics = ::java::awt::Graphics;
 using $Graphics2D = ::java::awt::Graphics2D;
-using $Shape = ::java::awt::Shape;
 using $AffineTransform = ::java::awt::geom::AffineTransform;
 using $Path2D$Double = ::java::awt::geom::Path2D$Double;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -39,7 +37,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $Integer = ::java::lang::Integer;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $ButtonModel = ::javax::swing::ButtonModel;
 using $JButton = ::javax::swing::JButton;
 using $SwingConstants = ::javax::swing::SwingConstants;
 using $UIManager = ::javax::swing::UIManager;
@@ -50,43 +47,6 @@ namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace basic {
-
-$FieldInfo _BasicArrowButton_FieldInfo_[] = {
-	{"direction", "I", nullptr, $PROTECTED, $field(BasicArrowButton, direction)},
-	{"shadow", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(BasicArrowButton, shadow)},
-	{"darkShadow", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(BasicArrowButton, darkShadow)},
-	{"highlight", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(BasicArrowButton, highlight)},
-	{}
-};
-
-$MethodInfo _BasicArrowButton_MethodInfo_[] = {
-	{"<init>", "(ILjava/awt/Color;Ljava/awt/Color;Ljava/awt/Color;Ljava/awt/Color;)V", nullptr, $PUBLIC, $method(BasicArrowButton, init$, void, int32_t, $Color*, $Color*, $Color*, $Color*)},
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(BasicArrowButton, init$, void, int32_t)},
-	{"getDirection", "()I", nullptr, $PUBLIC, $virtualMethod(BasicArrowButton, getDirection, int32_t)},
-	{"getMaximumSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BasicArrowButton, getMaximumSize, $Dimension*)},
-	{"getMinimumSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BasicArrowButton, getMinimumSize, $Dimension*)},
-	{"getPreferredSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BasicArrowButton, getPreferredSize, $Dimension*)},
-	{"isFocusTraversable", "()Z", nullptr, $PUBLIC, $virtualMethod(BasicArrowButton, isFocusTraversable, bool)},
-	{"paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(BasicArrowButton, paint, void, $Graphics*)},
-	{"paintScaledTriangle", "(Ljava/awt/Graphics;DDDIZ)V", nullptr, $PRIVATE, $method(BasicArrowButton, paintScaledTriangle, void, $Graphics*, double, double, double, int32_t, bool)},
-	{"paintTriangle", "(Ljava/awt/Graphics;IIIIZ)V", nullptr, $PUBLIC, $virtualMethod(BasicArrowButton, paintTriangle, void, $Graphics*, int32_t, int32_t, int32_t, int32_t, bool)},
-	{"paintUnscaledTriangle", "(Ljava/awt/Graphics;IIIIZ)V", nullptr, $PRIVATE, $method(BasicArrowButton, paintUnscaledTriangle, void, $Graphics*, int32_t, int32_t, int32_t, int32_t, bool)},
-	{"setDirection", "(I)V", nullptr, $PUBLIC, $virtualMethod(BasicArrowButton, setDirection, void, int32_t)},
-	{}
-};
-
-$ClassInfo _BasicArrowButton_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.basic.BasicArrowButton",
-	"javax.swing.JButton",
-	nullptr,
-	_BasicArrowButton_FieldInfo_,
-	_BasicArrowButton_MethodInfo_
-};
-
-$Object* allocate$BasicArrowButton($Class* clazz) {
-	return $of($alloc(BasicArrowButton));
-}
 
 void BasicArrowButton::init$(int32_t direction, $Color* background, $Color* shadow, $Color* darkShadow, $Color* highlight) {
 	$JButton::init$();
@@ -99,12 +59,11 @@ void BasicArrowButton::init$(int32_t direction, $Color* background, $Color* shad
 }
 
 void BasicArrowButton::init$(int32_t direction) {
-	$useLocalCurrentObjectStackCache();
-	int32_t var$0 = direction;
-	$var($Color, var$1, $UIManager::getColor("control"_s));
-	$var($Color, var$2, $UIManager::getColor("controlShadow"_s));
-	$var($Color, var$3, $UIManager::getColor("controlDkShadow"_s));
-	BasicArrowButton::init$(var$0, var$1, var$2, var$3, $($UIManager::getColor("controlLtHighlight"_s)));
+	$useLocalObjectStack();
+	$var($Color, var$0, $UIManager::getColor("control"_s));
+	$var($Color, var$1, $UIManager::getColor("controlShadow"_s));
+	$var($Color, var$2, $UIManager::getColor("controlDkShadow"_s));
+	BasicArrowButton::init$(direction, var$0, var$1, var$2, $($UIManager::getColor("controlLtHighlight"_s)));
 }
 
 int32_t BasicArrowButton::getDirection() {
@@ -116,7 +75,7 @@ void BasicArrowButton::setDirection(int32_t direction) {
 }
 
 void BasicArrowButton::paint($Graphics* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Color, origColor, nullptr);
 	bool isPressed = false;
 	bool isEnabled = false;
@@ -126,7 +85,7 @@ void BasicArrowButton::paint($Graphics* g) {
 	w = $nc($(getSize()))->width;
 	h = $nc($(getSize()))->height;
 	$assign(origColor, $nc(g)->getColor());
-	isPressed = $nc($(getModel()))->isPressed();
+	isPressed = $$nc(getModel())->isPressed();
 	isEnabled = this->isEnabled();
 	g->setColor($(getBackground()));
 	g->fillRect(1, 1, w - 2, h - 2);
@@ -205,77 +164,69 @@ void BasicArrowButton::paintUnscaledTriangle($Graphics* g, int32_t x, int32_t y,
 	}
 	switch (direction) {
 	case $SwingConstants::NORTH:
-		{
-			for (i = 0; i < size; ++i) {
-				g->drawLine(mid - i, i, mid + i, i);
-			}
-			if (!isEnabled) {
-				g->setColor(this->highlight);
-				g->drawLine(mid - i + 2, i, mid + i, i);
-			}
-			break;
+		for (i = 0; i < size; ++i) {
+			g->drawLine(mid - i, i, mid + i, i);
 		}
+		if (!isEnabled) {
+			g->setColor(this->highlight);
+			g->drawLine(mid - i + 2, i, mid + i, i);
+		}
+		break;
 	case $SwingConstants::SOUTH:
-		{
-			if (!isEnabled) {
-				g->translate(1, 1);
-				g->setColor(this->highlight);
-				for (i = size - 1; i >= 0; --i) {
-					g->drawLine(mid - i, j, mid + i, j);
-					++j;
-				}
-				g->translate(-1, -1);
-				g->setColor(this->shadow);
-			}
-			j = 0;
+		if (!isEnabled) {
+			g->translate(1, 1);
+			g->setColor(this->highlight);
 			for (i = size - 1; i >= 0; --i) {
 				g->drawLine(mid - i, j, mid + i, j);
 				++j;
 			}
-			break;
+			g->translate(-1, -1);
+			g->setColor(this->shadow);
 		}
+		j = 0;
+		for (i = size - 1; i >= 0; --i) {
+			g->drawLine(mid - i, j, mid + i, j);
+			++j;
+		}
+		break;
 	case $SwingConstants::WEST:
-		{
-			for (i = 0; i < size; ++i) {
-				g->drawLine(i, mid - i, i, mid + i);
-			}
-			if (!isEnabled) {
-				g->setColor(this->highlight);
-				g->drawLine(i, mid - i + 2, i, mid + i);
-			}
-			break;
+		for (i = 0; i < size; ++i) {
+			g->drawLine(i, mid - i, i, mid + i);
 		}
+		if (!isEnabled) {
+			g->setColor(this->highlight);
+			g->drawLine(i, mid - i + 2, i, mid + i);
+		}
+		break;
 	case $SwingConstants::EAST:
-		{
-			if (!isEnabled) {
-				g->translate(1, 1);
-				g->setColor(this->highlight);
-				for (i = size - 1; i >= 0; --i) {
-					g->drawLine(j, mid - i, j, mid + i);
-					++j;
-				}
-				g->translate(-1, -1);
-				g->setColor(this->shadow);
-			}
-			j = 0;
+		if (!isEnabled) {
+			g->translate(1, 1);
+			g->setColor(this->highlight);
 			for (i = size - 1; i >= 0; --i) {
 				g->drawLine(j, mid - i, j, mid + i);
 				++j;
 			}
-			break;
+			g->translate(-1, -1);
+			g->setColor(this->shadow);
 		}
+		j = 0;
+		for (i = size - 1; i >= 0; --i) {
+			g->drawLine(j, mid - i, j, mid + i);
+			++j;
+		}
+		break;
 	}
 	g->translate(-x, -y);
 	g->setColor(oldColor);
 }
 
 void BasicArrowButton::paintScaledTriangle($Graphics* g, double x, double y, double size, int32_t direction, bool isEnabled) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	size = $Math::max(size, (double)2);
 	$var($Path2D$Double, path, $new($Path2D$Double));
 	path->moveTo(-size, size / 2);
 	path->lineTo(size, size / 2);
-	path->lineTo((double)0, -size / 2);
+	path->lineTo(0, -size / 2);
 	path->closePath();
 	$var($AffineTransform, affineTransform, $new($AffineTransform));
 	affineTransform->rotate($Math::PI * (direction - 1) / 4);
@@ -301,7 +252,39 @@ BasicArrowButton::BasicArrowButton() {
 }
 
 $Class* BasicArrowButton::load$($String* name, bool initialize) {
-	$loadClass(BasicArrowButton, name, initialize, &_BasicArrowButton_ClassInfo_, allocate$BasicArrowButton);
+	$FieldInfo fieldInfos$$[] = {
+		{"direction", "I", nullptr, $PROTECTED, $field(BasicArrowButton, direction)},
+		{"shadow", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(BasicArrowButton, shadow)},
+		{"darkShadow", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(BasicArrowButton, darkShadow)},
+		{"highlight", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(BasicArrowButton, highlight)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(ILjava/awt/Color;Ljava/awt/Color;Ljava/awt/Color;Ljava/awt/Color;)V", nullptr, $PUBLIC, $method(BasicArrowButton, init$, void, int32_t, $Color*, $Color*, $Color*, $Color*)},
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(BasicArrowButton, init$, void, int32_t)},
+		{"getDirection", "()I", nullptr, $PUBLIC, $virtualMethod(BasicArrowButton, getDirection, int32_t)},
+		{"getMaximumSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BasicArrowButton, getMaximumSize, $Dimension*)},
+		{"getMinimumSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BasicArrowButton, getMinimumSize, $Dimension*)},
+		{"getPreferredSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BasicArrowButton, getPreferredSize, $Dimension*)},
+		{"isFocusTraversable", "()Z", nullptr, $PUBLIC, $virtualMethod(BasicArrowButton, isFocusTraversable, bool)},
+		{"paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(BasicArrowButton, paint, void, $Graphics*)},
+		{"paintScaledTriangle", "(Ljava/awt/Graphics;DDDIZ)V", nullptr, $PRIVATE, $method(BasicArrowButton, paintScaledTriangle, void, $Graphics*, double, double, double, int32_t, bool)},
+		{"paintTriangle", "(Ljava/awt/Graphics;IIIIZ)V", nullptr, $PUBLIC, $virtualMethod(BasicArrowButton, paintTriangle, void, $Graphics*, int32_t, int32_t, int32_t, int32_t, bool)},
+		{"paintUnscaledTriangle", "(Ljava/awt/Graphics;IIIIZ)V", nullptr, $PRIVATE, $method(BasicArrowButton, paintUnscaledTriangle, void, $Graphics*, int32_t, int32_t, int32_t, int32_t, bool)},
+		{"setDirection", "(I)V", nullptr, $PUBLIC, $virtualMethod(BasicArrowButton, setDirection, void, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.basic.BasicArrowButton",
+		"javax.swing.JButton",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(BasicArrowButton, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(BasicArrowButton));
+	});
 	return class$;
 }
 

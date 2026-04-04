@@ -16,6 +16,7 @@ class $export UIClientPropertyKeyTest : public ::java::lang::Object {
 	$class(UIClientPropertyKeyTest, 0, ::java::lang::Object)
 public:
 	UIClientPropertyKeyTest();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void main($StringArray* args);
 	static ::javax::swing::JComponent* serializeDeserialize(::javax::swing::JComponent* comp);

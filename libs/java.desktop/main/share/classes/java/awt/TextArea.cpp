@@ -1,5 +1,4 @@
 #include <java/awt/TextArea.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Dimension.h>
 #include <java/awt/GraphicsEnvironment.h>
@@ -29,7 +28,6 @@ using $KeyboardFocusManager = ::java::awt::KeyboardFocusManager;
 using $TextArea$AccessibleAWTTextArea = ::java::awt::TextArea$AccessibleAWTTextArea;
 using $TextComponent = ::java::awt::TextComponent;
 using $Toolkit = ::java::awt::Toolkit;
-using $ComponentPeer = ::java::awt::peer::ComponentPeer;
 using $TextAreaPeer = ::java::awt::peer::TextAreaPeer;
 using $ObjectInputStream = ::java::io::ObjectInputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -41,122 +39,9 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $HashSet = ::java::util::HashSet;
 using $Set = ::java::util::Set;
 using $AccessibleContext = ::javax::accessibility::AccessibleContext;
-using $ComponentFactory = ::sun::awt::ComponentFactory;
 
 namespace java {
 	namespace awt {
-
-$CompoundAttribute _TextArea_MethodAnnotations_appendText7[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _TextArea_MethodAnnotations_insertText19[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _TextArea_MethodAnnotations_minimumSize20[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _TextArea_MethodAnnotations_minimumSize21[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _TextArea_MethodAnnotations_preferredSize23[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _TextArea_MethodAnnotations_preferredSize24[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _TextArea_MethodAnnotations_replaceText27[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$FieldInfo _TextArea_FieldInfo_[] = {
-	{"rows", "I", nullptr, 0, $field(TextArea, rows)},
-	{"columns", "I", nullptr, 0, $field(TextArea, columns)},
-	{"base", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(TextArea, base)},
-	{"nameCounter", "I", nullptr, $PRIVATE | $STATIC, $staticField(TextArea, nameCounter)},
-	{"SCROLLBARS_BOTH", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TextArea, SCROLLBARS_BOTH)},
-	{"SCROLLBARS_VERTICAL_ONLY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TextArea, SCROLLBARS_VERTICAL_ONLY)},
-	{"SCROLLBARS_HORIZONTAL_ONLY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TextArea, SCROLLBARS_HORIZONTAL_ONLY)},
-	{"SCROLLBARS_NONE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TextArea, SCROLLBARS_NONE)},
-	{"scrollbarVisibility", "I", nullptr, $PRIVATE, $field(TextArea, scrollbarVisibility)},
-	{"forwardTraversalKeys", "Ljava/util/Set;", "Ljava/util/Set<Ljava/awt/AWTKeyStroke;>;", $PRIVATE | $STATIC, $staticField(TextArea, forwardTraversalKeys)},
-	{"backwardTraversalKeys", "Ljava/util/Set;", "Ljava/util/Set<Ljava/awt/AWTKeyStroke;>;", $PRIVATE | $STATIC, $staticField(TextArea, backwardTraversalKeys)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(TextArea, serialVersionUID)},
-	{"textAreaSerializedDataVersion", "I", nullptr, $PRIVATE, $field(TextArea, textAreaSerializedDataVersion)},
-	{}
-};
-
-$MethodInfo _TextArea_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TextArea, init$, void), "java.awt.HeadlessException"},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(TextArea, init$, void, $String*), "java.awt.HeadlessException"},
-	{"<init>", "(II)V", nullptr, $PUBLIC, $method(TextArea, init$, void, int32_t, int32_t), "java.awt.HeadlessException"},
-	{"<init>", "(Ljava/lang/String;II)V", nullptr, $PUBLIC, $method(TextArea, init$, void, $String*, int32_t, int32_t), "java.awt.HeadlessException"},
-	{"<init>", "(Ljava/lang/String;III)V", nullptr, $PUBLIC, $method(TextArea, init$, void, $String*, int32_t, int32_t, int32_t), "java.awt.HeadlessException"},
-	{"addNotify", "()V", nullptr, $PUBLIC, $virtualMethod(TextArea, addNotify, void)},
-	{"append", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(TextArea, append, void, $String*)},
-	{"appendText", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $SYNCHRONIZED | $DEPRECATED, $virtualMethod(TextArea, appendText, void, $String*), nullptr, nullptr, _TextArea_MethodAnnotations_appendText7},
-	{"constructComponentName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(TextArea, constructComponentName, $String*)},
-	{"getAccessibleContext", "()Ljavax/accessibility/AccessibleContext;", nullptr, $PUBLIC, $virtualMethod(TextArea, getAccessibleContext, $AccessibleContext*)},
-	{"getColumns", "()I", nullptr, $PUBLIC, $virtualMethod(TextArea, getColumns, int32_t)},
-	{"getMinimumSize", "(II)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(TextArea, getMinimumSize, $Dimension*, int32_t, int32_t)},
-	{"getMinimumSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(TextArea, getMinimumSize, $Dimension*)},
-	{"getPreferredSize", "(II)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(TextArea, getPreferredSize, $Dimension*, int32_t, int32_t)},
-	{"getPreferredSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(TextArea, getPreferredSize, $Dimension*)},
-	{"getRows", "()I", nullptr, $PUBLIC, $virtualMethod(TextArea, getRows, int32_t)},
-	{"getScrollbarVisibility", "()I", nullptr, $PUBLIC, $virtualMethod(TextArea, getScrollbarVisibility, int32_t)},
-	{"initIDs", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(TextArea, initIDs, void)},
-	{"insert", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $virtualMethod(TextArea, insert, void, $String*, int32_t)},
-	{"insertText", "(Ljava/lang/String;I)V", nullptr, $PUBLIC | $SYNCHRONIZED | $DEPRECATED, $virtualMethod(TextArea, insertText, void, $String*, int32_t), nullptr, nullptr, _TextArea_MethodAnnotations_insertText19},
-	{"minimumSize", "(II)Ljava/awt/Dimension;", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(TextArea, minimumSize, $Dimension*, int32_t, int32_t), nullptr, nullptr, _TextArea_MethodAnnotations_minimumSize20},
-	{"minimumSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(TextArea, minimumSize, $Dimension*), nullptr, nullptr, _TextArea_MethodAnnotations_minimumSize21},
-	{"paramString", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(TextArea, paramString, $String*)},
-	{"preferredSize", "(II)Ljava/awt/Dimension;", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(TextArea, preferredSize, $Dimension*, int32_t, int32_t), nullptr, nullptr, _TextArea_MethodAnnotations_preferredSize23},
-	{"preferredSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(TextArea, preferredSize, $Dimension*), nullptr, nullptr, _TextArea_MethodAnnotations_preferredSize24},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(TextArea, readObject, void, $ObjectInputStream*), "java.lang.ClassNotFoundException,java.io.IOException,java.awt.HeadlessException"},
-	{"replaceRange", "(Ljava/lang/String;II)V", nullptr, $PUBLIC, $virtualMethod(TextArea, replaceRange, void, $String*, int32_t, int32_t)},
-	{"replaceText", "(Ljava/lang/String;II)V", nullptr, $PUBLIC | $SYNCHRONIZED | $DEPRECATED, $virtualMethod(TextArea, replaceText, void, $String*, int32_t, int32_t), nullptr, nullptr, _TextArea_MethodAnnotations_replaceText27},
-	{"setColumns", "(I)V", nullptr, $PUBLIC, $virtualMethod(TextArea, setColumns, void, int32_t)},
-	{"setRows", "(I)V", nullptr, $PUBLIC, $virtualMethod(TextArea, setRows, void, int32_t)},
-	{}
-};
-
-#define _METHOD_INDEX_initIDs 17
-
-$InnerClassInfo _TextArea_InnerClassesInfo_[] = {
-	{"java.awt.TextArea$AccessibleAWTTextArea", "java.awt.TextArea", "AccessibleAWTTextArea", $PROTECTED},
-	{}
-};
-
-$ClassInfo _TextArea_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.awt.TextArea",
-	"java.awt.TextComponent",
-	nullptr,
-	_TextArea_FieldInfo_,
-	_TextArea_MethodInfo_,
-	nullptr,
-	nullptr,
-	_TextArea_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.awt.TextArea$AccessibleAWTTextArea"
-};
-
-$Object* allocate$TextArea($Class* clazz) {
-	return $of($alloc(TextArea));
-}
 
 $String* TextArea::base = nullptr;
 int32_t TextArea::nameCounter = 0;
@@ -165,7 +50,7 @@ $Set* TextArea::backwardTraversalKeys = nullptr;
 
 void TextArea::initIDs() {
 	$init(TextArea);
-	$prepareNativeStatic(TextArea, initIDs, void);
+	$prepareNativeStatic(initIDs, void);
 	$invokeNativeStatic();
 	$finishNativeStatic();
 }
@@ -201,17 +86,18 @@ void TextArea::init$($String* text, int32_t rows, int32_t columns, int32_t scrol
 }
 
 $String* TextArea::constructComponentName() {
-	$useLocalCurrentObjectStackCache();
 	$synchronized(TextArea::class$) {
-		$var($String, var$0, TextArea::base);
-		return $concat(var$0, $$str(TextArea::nameCounter++));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append(TextArea::base);
+		var$0->append(TextArea::nameCounter++);
+		return $str(var$0);
 	}
 }
 
 void TextArea::addNotify() {
 	$synchronized(getTreeLock()) {
 		if (this->peer == nullptr) {
-			$set(this, peer, $nc($(getComponentFactory()))->createTextArea(this));
+			$set(this, peer, $$nc(getComponentFactory())->createTextArea(this));
 		}
 		$TextComponent::addNotify();
 	}
@@ -223,13 +109,16 @@ void TextArea::insert($String* str, int32_t pos) {
 
 void TextArea::insertText($String* str, int32_t pos) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$var($TextAreaPeer, peer, $cast($TextAreaPeer, this->peer));
 		if (peer != nullptr) {
 			peer->insert(str, pos);
 		}
-		$var($String, var$0, $$str({$($nc(this->text)->substring(0, pos)), str}));
-		$set(this, text, $concat(var$0, $($nc(this->text)->substring(pos))));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append($($nc(this->text)->substring(0, pos)));
+		var$0->append(str);
+		var$0->append($(this->text->substring(pos)));
+		$set(this, text, $str(var$0));
 	}
 }
 
@@ -239,7 +128,7 @@ void TextArea::append($String* str) {
 
 void TextArea::appendText($String* str) {
 	$synchronized(this) {
-		insertText(str, $nc($(getText()))->length());
+		insertText(str, $$nc(getText())->length());
 	}
 }
 
@@ -249,13 +138,16 @@ void TextArea::replaceRange($String* str, int32_t start, int32_t end) {
 
 void TextArea::replaceText($String* str, int32_t start, int32_t end) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$var($TextAreaPeer, peer, $cast($TextAreaPeer, this->peer));
 		if (peer != nullptr) {
 			peer->replaceRange(str, start, end);
 		}
-		$var($String, var$0, $$str({$($nc(this->text)->substring(0, start)), str}));
-		$set(this, text, $concat(var$0, $($nc(this->text)->substring(end))));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append($($nc(this->text)->substring(0, start)));
+		var$0->append(str);
+		var$0->append($(this->text->substring(end)));
+		$set(this, text, $str(var$0));
 	}
 }
 
@@ -300,7 +192,7 @@ $Dimension* TextArea::getPreferredSize(int32_t rows, int32_t columns) {
 $Dimension* TextArea::preferredSize(int32_t rows, int32_t columns) {
 	$synchronized(getTreeLock()) {
 		$var($TextAreaPeer, peer, $cast($TextAreaPeer, this->peer));
-		return (peer != nullptr) ? $nc(peer)->getPreferredSize(rows, columns) : $TextComponent::preferredSize();
+		return (peer != nullptr) ? peer->getPreferredSize(rows, columns) : $TextComponent::preferredSize();
 	}
 }
 
@@ -321,7 +213,7 @@ $Dimension* TextArea::getMinimumSize(int32_t rows, int32_t columns) {
 $Dimension* TextArea::minimumSize(int32_t rows, int32_t columns) {
 	$synchronized(getTreeLock()) {
 		$var($TextAreaPeer, peer, $cast($TextAreaPeer, this->peer));
-		return (peer != nullptr) ? $nc(peer)->getMinimumSize(rows, columns) : $TextComponent::minimumSize();
+		return (peer != nullptr) ? peer->getMinimumSize(rows, columns) : $TextComponent::minimumSize();
 	}
 }
 
@@ -336,33 +228,23 @@ $Dimension* TextArea::minimumSize() {
 }
 
 $String* TextArea::paramString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, sbVisStr, nullptr);
 	switch (this->scrollbarVisibility) {
 	case TextArea::SCROLLBARS_BOTH:
-		{
-			$assign(sbVisStr, "both"_s);
-			break;
-		}
+		$assign(sbVisStr, "both"_s);
+		break;
 	case TextArea::SCROLLBARS_VERTICAL_ONLY:
-		{
-			$assign(sbVisStr, "vertical-only"_s);
-			break;
-		}
+		$assign(sbVisStr, "vertical-only"_s);
+		break;
 	case TextArea::SCROLLBARS_HORIZONTAL_ONLY:
-		{
-			$assign(sbVisStr, "horizontal-only"_s);
-			break;
-		}
+		$assign(sbVisStr, "horizontal-only"_s);
+		break;
 	case TextArea::SCROLLBARS_NONE:
-		{
-			$assign(sbVisStr, "none"_s);
-			break;
-		}
+		$assign(sbVisStr, "none"_s);
+		break;
 	default:
-		{
-			$assign(sbVisStr, "invalid display policy"_s);
-		}
+		$assign(sbVisStr, "invalid display policy"_s);
 	}
 	return $str({$($TextComponent::paramString()), ",rows="_s, $$str(this->rows), ",columns="_s, $$str(this->columns), ",scrollbarVisibility="_s, sbVisStr});
 }
@@ -391,8 +273,8 @@ $AccessibleContext* TextArea::getAccessibleContext() {
 	return this->accessibleContext;
 }
 
-void clinit$TextArea($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void TextArea::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(TextArea::base, "text"_s);
 	TextArea::nameCounter = 0;
 	{
@@ -409,7 +291,104 @@ TextArea::TextArea() {
 }
 
 $Class* TextArea::load$($String* name, bool initialize) {
-	$loadClass(TextArea, name, initialize, &_TextArea_ClassInfo_, clinit$TextArea, allocate$TextArea);
+	$FieldInfo fieldInfos$$[] = {
+		{"rows", "I", nullptr, 0, $field(TextArea, rows)},
+		{"columns", "I", nullptr, 0, $field(TextArea, columns)},
+		{"base", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(TextArea, base)},
+		{"nameCounter", "I", nullptr, $PRIVATE | $STATIC, $staticField(TextArea, nameCounter)},
+		{"SCROLLBARS_BOTH", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TextArea, SCROLLBARS_BOTH)},
+		{"SCROLLBARS_VERTICAL_ONLY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TextArea, SCROLLBARS_VERTICAL_ONLY)},
+		{"SCROLLBARS_HORIZONTAL_ONLY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TextArea, SCROLLBARS_HORIZONTAL_ONLY)},
+		{"SCROLLBARS_NONE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TextArea, SCROLLBARS_NONE)},
+		{"scrollbarVisibility", "I", nullptr, $PRIVATE, $field(TextArea, scrollbarVisibility)},
+		{"forwardTraversalKeys", "Ljava/util/Set;", "Ljava/util/Set<Ljava/awt/AWTKeyStroke;>;", $PRIVATE | $STATIC, $staticField(TextArea, forwardTraversalKeys)},
+		{"backwardTraversalKeys", "Ljava/util/Set;", "Ljava/util/Set<Ljava/awt/AWTKeyStroke;>;", $PRIVATE | $STATIC, $staticField(TextArea, backwardTraversalKeys)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(TextArea, serialVersionUID)},
+		{"textAreaSerializedDataVersion", "I", nullptr, $PRIVATE, $field(TextArea, textAreaSerializedDataVersion)},
+		{}
+	};
+	$CompoundAttribute appendTextmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute insertTextmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute minimumSizemethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute minimumSizemethodAnnotations$$$1[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute preferredSizemethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute preferredSizemethodAnnotations$$$1[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute replaceTextmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TextArea, init$, void), "java.awt.HeadlessException"},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(TextArea, init$, void, $String*), "java.awt.HeadlessException"},
+		{"<init>", "(II)V", nullptr, $PUBLIC, $method(TextArea, init$, void, int32_t, int32_t), "java.awt.HeadlessException"},
+		{"<init>", "(Ljava/lang/String;II)V", nullptr, $PUBLIC, $method(TextArea, init$, void, $String*, int32_t, int32_t), "java.awt.HeadlessException"},
+		{"<init>", "(Ljava/lang/String;III)V", nullptr, $PUBLIC, $method(TextArea, init$, void, $String*, int32_t, int32_t, int32_t), "java.awt.HeadlessException"},
+		{"addNotify", "()V", nullptr, $PUBLIC, $virtualMethod(TextArea, addNotify, void)},
+		{"append", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(TextArea, append, void, $String*)},
+		{"appendText", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $SYNCHRONIZED | $DEPRECATED, $virtualMethod(TextArea, appendText, void, $String*), nullptr, nullptr, appendTextmethodAnnotations$$},
+		{"constructComponentName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(TextArea, constructComponentName, $String*)},
+		{"getAccessibleContext", "()Ljavax/accessibility/AccessibleContext;", nullptr, $PUBLIC, $virtualMethod(TextArea, getAccessibleContext, $AccessibleContext*)},
+		{"getColumns", "()I", nullptr, $PUBLIC, $virtualMethod(TextArea, getColumns, int32_t)},
+		{"getMinimumSize", "(II)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(TextArea, getMinimumSize, $Dimension*, int32_t, int32_t)},
+		{"getMinimumSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(TextArea, getMinimumSize, $Dimension*)},
+		{"getPreferredSize", "(II)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(TextArea, getPreferredSize, $Dimension*, int32_t, int32_t)},
+		{"getPreferredSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(TextArea, getPreferredSize, $Dimension*)},
+		{"getRows", "()I", nullptr, $PUBLIC, $virtualMethod(TextArea, getRows, int32_t)},
+		{"getScrollbarVisibility", "()I", nullptr, $PUBLIC, $virtualMethod(TextArea, getScrollbarVisibility, int32_t)},
+		{"initIDs", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(TextArea, initIDs, void)},
+		{"insert", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $virtualMethod(TextArea, insert, void, $String*, int32_t)},
+		{"insertText", "(Ljava/lang/String;I)V", nullptr, $PUBLIC | $SYNCHRONIZED | $DEPRECATED, $virtualMethod(TextArea, insertText, void, $String*, int32_t), nullptr, nullptr, insertTextmethodAnnotations$$},
+		{"minimumSize", "(II)Ljava/awt/Dimension;", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(TextArea, minimumSize, $Dimension*, int32_t, int32_t), nullptr, nullptr, minimumSizemethodAnnotations$$},
+		{"minimumSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(TextArea, minimumSize, $Dimension*), nullptr, nullptr, minimumSizemethodAnnotations$$$1},
+		{"paramString", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(TextArea, paramString, $String*)},
+		{"preferredSize", "(II)Ljava/awt/Dimension;", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(TextArea, preferredSize, $Dimension*, int32_t, int32_t), nullptr, nullptr, preferredSizemethodAnnotations$$},
+		{"preferredSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(TextArea, preferredSize, $Dimension*), nullptr, nullptr, preferredSizemethodAnnotations$$$1},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(TextArea, readObject, void, $ObjectInputStream*), "java.lang.ClassNotFoundException,java.io.IOException,java.awt.HeadlessException"},
+		{"replaceRange", "(Ljava/lang/String;II)V", nullptr, $PUBLIC, $virtualMethod(TextArea, replaceRange, void, $String*, int32_t, int32_t)},
+		{"replaceText", "(Ljava/lang/String;II)V", nullptr, $PUBLIC | $SYNCHRONIZED | $DEPRECATED, $virtualMethod(TextArea, replaceText, void, $String*, int32_t, int32_t), nullptr, nullptr, replaceTextmethodAnnotations$$},
+		{"setColumns", "(I)V", nullptr, $PUBLIC, $virtualMethod(TextArea, setColumns, void, int32_t)},
+		{"setRows", "(I)V", nullptr, $PUBLIC, $virtualMethod(TextArea, setRows, void, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.awt.TextArea$AccessibleAWTTextArea", "java.awt.TextArea", "AccessibleAWTTextArea", $PROTECTED},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.awt.TextArea",
+		"java.awt.TextComponent",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.awt.TextArea$AccessibleAWTTextArea"
+	};
+	$loadClass(TextArea, name, initialize, &classInfo$$, TextArea::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(TextArea));
+	});
 	return class$;
 }
 

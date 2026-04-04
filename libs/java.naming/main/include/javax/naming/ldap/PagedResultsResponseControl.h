@@ -17,11 +17,12 @@ class $import PagedResultsResponseControl : public ::javax::naming::ldap::BasicC
 	$class(PagedResultsResponseControl, 0, ::javax::naming::ldap::BasicControl)
 public:
 	PagedResultsResponseControl();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* id, bool criticality, $bytes* value);
 	$bytes* getCookie();
 	int32_t getResultSize();
 	static $String* OID;
-	static const int64_t serialVersionUID = (int64_t)0x8599D9F5F4008A96;
+	static const int64_t serialVersionUID = (int64_t)0x8599d9f5f4008a96;
 	int32_t resultSize = 0;
 	$bytes* cookie = nullptr;
 };

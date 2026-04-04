@@ -25,6 +25,7 @@ class $import Diagnostic$Kind : public ::java::lang::Enum {
 public:
 	Diagnostic$Kind();
 	static $Array<::javax::tools::Diagnostic$Kind>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::javax::tools::Diagnostic$Kind* valueOf($String* name);
 	static $Array<::javax::tools::Diagnostic$Kind>* values();

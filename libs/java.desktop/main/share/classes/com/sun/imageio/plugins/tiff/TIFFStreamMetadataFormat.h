@@ -28,6 +28,7 @@ class TIFFStreamMetadataFormat : public ::com::sun::imageio::plugins::tiff::TIFF
 	$class(TIFFStreamMetadataFormat, 0, ::com::sun::imageio::plugins::tiff::TIFFMetadataFormat)
 public:
 	TIFFStreamMetadataFormat();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual bool canNodeAppear($String* elementName, ::javax::imageio::ImageTypeSpecifier* imageType) override;
 	static ::javax::imageio::metadata::IIOMetadataFormat* getInstance();

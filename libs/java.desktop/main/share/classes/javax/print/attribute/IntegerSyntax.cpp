@@ -1,5 +1,4 @@
 #include <javax/print/attribute/IntegerSyntax.h>
-
 #include <java/io/Serializable.h>
 #include <jcpp.h>
 
@@ -12,37 +11,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace javax {
 	namespace print {
 		namespace attribute {
-
-$FieldInfo _IntegerSyntax_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(IntegerSyntax, serialVersionUID)},
-	{"value", "I", nullptr, $PRIVATE, $field(IntegerSyntax, value)},
-	{}
-};
-
-$MethodInfo _IntegerSyntax_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"<init>", "(I)V", nullptr, $PROTECTED, $method(IntegerSyntax, init$, void, int32_t)},
-	{"<init>", "(III)V", nullptr, $PROTECTED, $method(IntegerSyntax, init$, void, int32_t, int32_t, int32_t)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(IntegerSyntax, equals, bool, Object$*)},
-	{"getValue", "()I", nullptr, $PUBLIC, $virtualMethod(IntegerSyntax, getValue, int32_t)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(IntegerSyntax, hashCode, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(IntegerSyntax, toString, $String*)},
-	{}
-};
-
-$ClassInfo _IntegerSyntax_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"javax.print.attribute.IntegerSyntax",
-	"java.lang.Object",
-	"java.io.Serializable,java.lang.Cloneable",
-	_IntegerSyntax_FieldInfo_,
-	_IntegerSyntax_MethodInfo_
-};
-
-$Object* allocate$IntegerSyntax($Class* clazz) {
-	return $of($alloc(IntegerSyntax));
-}
 
 $Object* IntegerSyntax::clone() {
 	 return this->$Serializable::clone();
@@ -57,7 +25,7 @@ void IntegerSyntax::init$(int32_t value) {
 }
 
 void IntegerSyntax::init$(int32_t value, int32_t lowerBound, int32_t upperBound) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (lowerBound > value || value > upperBound) {
 		$throwNew($IllegalArgumentException, $$str({"Value "_s, $$str(value), " not in range "_s, $$str(lowerBound), ".."_s, $$str(upperBound)}));
 	}
@@ -69,7 +37,7 @@ int32_t IntegerSyntax::getValue() {
 }
 
 bool IntegerSyntax::equals(Object$* object) {
-	return (object != nullptr && $instanceOf(IntegerSyntax, object) && this->value == $nc(($cast(IntegerSyntax, object)))->value);
+	return (object != nullptr && $instanceOf(IntegerSyntax, object) && this->value == $cast(IntegerSyntax, object)->value);
 }
 
 int32_t IntegerSyntax::hashCode() {
@@ -84,7 +52,33 @@ IntegerSyntax::IntegerSyntax() {
 }
 
 $Class* IntegerSyntax::load$($String* name, bool initialize) {
-	$loadClass(IntegerSyntax, name, initialize, &_IntegerSyntax_ClassInfo_, allocate$IntegerSyntax);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(IntegerSyntax, serialVersionUID)},
+		{"value", "I", nullptr, $PRIVATE, $field(IntegerSyntax, value)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"<init>", "(I)V", nullptr, $PROTECTED, $method(IntegerSyntax, init$, void, int32_t)},
+		{"<init>", "(III)V", nullptr, $PROTECTED, $method(IntegerSyntax, init$, void, int32_t, int32_t, int32_t)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(IntegerSyntax, equals, bool, Object$*)},
+		{"getValue", "()I", nullptr, $PUBLIC, $virtualMethod(IntegerSyntax, getValue, int32_t)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(IntegerSyntax, hashCode, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(IntegerSyntax, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"javax.print.attribute.IntegerSyntax",
+		"java.lang.Object",
+		"java.io.Serializable,java.lang.Cloneable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(IntegerSyntax, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(IntegerSyntax));
+	});
 	return class$;
 }
 

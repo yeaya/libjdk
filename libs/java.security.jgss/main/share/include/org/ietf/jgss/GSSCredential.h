@@ -49,7 +49,7 @@ public:
 	static const int32_t INITIATE_ONLY = 1;
 	static const int32_t ACCEPT_ONLY = 2;
 	static const int32_t DEFAULT_LIFETIME = 0;
-	static const int32_t INDEFINITE_LIFETIME = 0x7FFFFFFF; // Integer.MAX_VALUE
+	static const int32_t INDEFINITE_LIFETIME = 0x7fffffff; // Integer.MAX_VALUE
 };
 
 		} // jgss

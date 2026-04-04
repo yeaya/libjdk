@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/metal/MetalBorders$ErrorDialogBorder.h>
-
 #include <java/awt/Color.h>
 #include <javax/swing/UIManager.h>
 #include <javax/swing/plaf/metal/MetalBorders$DialogBorder.h>
@@ -18,38 +17,6 @@ namespace javax {
 		namespace plaf {
 			namespace metal {
 
-$MethodInfo _MetalBorders$ErrorDialogBorder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(MetalBorders$ErrorDialogBorder, init$, void)},
-	{"getActiveBackground", "()Ljava/awt/Color;", nullptr, $PROTECTED, $virtualMethod(MetalBorders$ErrorDialogBorder, getActiveBackground, $Color*)},
-	{}
-};
-
-$InnerClassInfo _MetalBorders$ErrorDialogBorder_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.metal.MetalBorders$ErrorDialogBorder", "javax.swing.plaf.metal.MetalBorders", "ErrorDialogBorder", $STATIC},
-	{"javax.swing.plaf.metal.MetalBorders$DialogBorder", "javax.swing.plaf.metal.MetalBorders", "DialogBorder", $STATIC},
-	{}
-};
-
-$ClassInfo _MetalBorders$ErrorDialogBorder_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.metal.MetalBorders$ErrorDialogBorder",
-	"javax.swing.plaf.metal.MetalBorders$DialogBorder",
-	nullptr,
-	nullptr,
-	_MetalBorders$ErrorDialogBorder_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MetalBorders$ErrorDialogBorder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.metal.MetalBorders"
-};
-
-$Object* allocate$MetalBorders$ErrorDialogBorder($Class* clazz) {
-	return $of($alloc(MetalBorders$ErrorDialogBorder));
-}
-
 void MetalBorders$ErrorDialogBorder::init$() {
 	$MetalBorders$DialogBorder::init$();
 }
@@ -62,7 +29,34 @@ MetalBorders$ErrorDialogBorder::MetalBorders$ErrorDialogBorder() {
 }
 
 $Class* MetalBorders$ErrorDialogBorder::load$($String* name, bool initialize) {
-	$loadClass(MetalBorders$ErrorDialogBorder, name, initialize, &_MetalBorders$ErrorDialogBorder_ClassInfo_, allocate$MetalBorders$ErrorDialogBorder);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(MetalBorders$ErrorDialogBorder, init$, void)},
+		{"getActiveBackground", "()Ljava/awt/Color;", nullptr, $PROTECTED, $virtualMethod(MetalBorders$ErrorDialogBorder, getActiveBackground, $Color*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.metal.MetalBorders$ErrorDialogBorder", "javax.swing.plaf.metal.MetalBorders", "ErrorDialogBorder", $STATIC},
+		{"javax.swing.plaf.metal.MetalBorders$DialogBorder", "javax.swing.plaf.metal.MetalBorders", "DialogBorder", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.metal.MetalBorders$ErrorDialogBorder",
+		"javax.swing.plaf.metal.MetalBorders$DialogBorder",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.metal.MetalBorders"
+	};
+	$loadClass(MetalBorders$ErrorDialogBorder, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MetalBorders$ErrorDialogBorder));
+	});
 	return class$;
 }
 

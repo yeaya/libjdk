@@ -1,11 +1,9 @@
 #include <com/sun/java/swing/plaf/motif/MotifFileChooserUI$MotifFileListModel.h>
-
 #include <com/sun/java/swing/plaf/motif/MotifFileChooserUI.h>
 #include <java/io/File.h>
 #include <java/util/Vector.h>
 #include <javax/swing/AbstractListModel.h>
 #include <javax/swing/event/ListDataEvent.h>
-#include <javax/swing/event/ListDataListener.h>
 #include <javax/swing/plaf/basic/BasicDirectoryModel.h>
 #include <jcpp.h>
 
@@ -15,11 +13,8 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Vector = ::java::util::Vector;
 using $AbstractListModel = ::javax::swing::AbstractListModel;
 using $ListDataEvent = ::javax::swing::event::ListDataEvent;
-using $ListDataListener = ::javax::swing::event::ListDataListener;
-using $BasicDirectoryModel = ::javax::swing::plaf::basic::BasicDirectoryModel;
 
 namespace com {
 	namespace sun {
@@ -27,54 +22,6 @@ namespace com {
 			namespace swing {
 				namespace plaf {
 					namespace motif {
-
-$FieldInfo _MotifFileChooserUI$MotifFileListModel_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/java/swing/plaf/motif/MotifFileChooserUI;", nullptr, $FINAL | $SYNTHETIC, $field(MotifFileChooserUI$MotifFileListModel, this$0)},
-	{}
-};
-
-$MethodInfo _MotifFileChooserUI$MotifFileListModel_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lcom/sun/java/swing/plaf/motif/MotifFileChooserUI;)V", nullptr, $PUBLIC, $method(MotifFileChooserUI$MotifFileListModel, init$, void, $MotifFileChooserUI*)},
-	{"contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(MotifFileChooserUI$MotifFileListModel, contains, bool, Object$*)},
-	{"contentsChanged", "(Ljavax/swing/event/ListDataEvent;)V", nullptr, $PUBLIC, $virtualMethod(MotifFileChooserUI$MotifFileListModel, contentsChanged, void, $ListDataEvent*)},
-	{"fireContentsChanged", "()V", nullptr, $PUBLIC, $virtualMethod(MotifFileChooserUI$MotifFileListModel, fireContentsChanged, void)},
-	{"getElementAt", "(I)Ljava/io/File;", nullptr, $PUBLIC, $virtualMethod(MotifFileChooserUI$MotifFileListModel, getElementAt, $Object*, int32_t)},
-	{"getSize", "()I", nullptr, $PUBLIC, $virtualMethod(MotifFileChooserUI$MotifFileListModel, getSize, int32_t)},
-	{"indexOf", "(Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(MotifFileChooserUI$MotifFileListModel, indexOf, int32_t, Object$*)},
-	{"intervalAdded", "(Ljavax/swing/event/ListDataEvent;)V", nullptr, $PUBLIC, $virtualMethod(MotifFileChooserUI$MotifFileListModel, intervalAdded, void, $ListDataEvent*)},
-	{"intervalRemoved", "(Ljavax/swing/event/ListDataEvent;)V", nullptr, $PUBLIC, $virtualMethod(MotifFileChooserUI$MotifFileListModel, intervalRemoved, void, $ListDataEvent*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _MotifFileChooserUI$MotifFileListModel_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.motif.MotifFileChooserUI$MotifFileListModel", "com.sun.java.swing.plaf.motif.MotifFileChooserUI", "MotifFileListModel", $PROTECTED},
-	{}
-};
-
-$ClassInfo _MotifFileChooserUI$MotifFileListModel_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.java.swing.plaf.motif.MotifFileChooserUI$MotifFileListModel",
-	"javax.swing.AbstractListModel",
-	"javax.swing.event.ListDataListener",
-	_MotifFileChooserUI$MotifFileListModel_FieldInfo_,
-	_MotifFileChooserUI$MotifFileListModel_MethodInfo_,
-	"Ljavax/swing/AbstractListModel<Ljava/io/File;>;Ljavax/swing/event/ListDataListener;",
-	nullptr,
-	_MotifFileChooserUI$MotifFileListModel_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.motif.MotifFileChooserUI"
-};
-
-$Object* allocate$MotifFileChooserUI$MotifFileListModel($Class* clazz) {
-	return $of($alloc(MotifFileChooserUI$MotifFileListModel));
-}
 
 int32_t MotifFileChooserUI$MotifFileListModel::hashCode() {
 	 return this->$AbstractListModel::hashCode();
@@ -99,27 +46,27 @@ void MotifFileChooserUI$MotifFileListModel::finalize() {
 void MotifFileChooserUI$MotifFileListModel::init$($MotifFileChooserUI* this$0) {
 	$set(this, this$0, this$0);
 	$AbstractListModel::init$();
-	$nc($(this$0->getModel()))->addListDataListener(this);
+	$$nc(this$0->getModel())->addListDataListener(this);
 }
 
 int32_t MotifFileChooserUI$MotifFileListModel::getSize() {
-	$useLocalCurrentObjectStackCache();
-	return $nc($($nc($(this->this$0->getModel()))->getFiles()))->size();
+	$useLocalObjectStack();
+	return $$nc($$nc(this->this$0->getModel())->getFiles())->size();
 }
 
 bool MotifFileChooserUI$MotifFileListModel::contains(Object$* o) {
-	$useLocalCurrentObjectStackCache();
-	return $nc($($nc($(this->this$0->getModel()))->getFiles()))->contains(o);
+	$useLocalObjectStack();
+	return $$nc($$nc(this->this$0->getModel())->getFiles())->contains(o);
 }
 
 int32_t MotifFileChooserUI$MotifFileListModel::indexOf(Object$* o) {
-	$useLocalCurrentObjectStackCache();
-	return $nc($($nc($(this->this$0->getModel()))->getFiles()))->indexOf(o);
+	$useLocalObjectStack();
+	return $$nc($$nc(this->this$0->getModel())->getFiles())->indexOf(o);
 }
 
 $Object* MotifFileChooserUI$MotifFileListModel::getElementAt(int32_t index) {
-	$useLocalCurrentObjectStackCache();
-	return $of($cast($File, $nc($($nc($(this->this$0->getModel()))->getFiles()))->elementAt(index)));
+	$useLocalObjectStack();
+	return $of($cast($File, $$nc($$nc(this->this$0->getModel())->getFiles())->elementAt(index)));
 }
 
 void MotifFileChooserUI$MotifFileListModel::intervalAdded($ListDataEvent* e) {
@@ -133,8 +80,8 @@ void MotifFileChooserUI$MotifFileListModel::intervalRemoved($ListDataEvent* e) {
 }
 
 void MotifFileChooserUI$MotifFileListModel::fireContentsChanged() {
-	$useLocalCurrentObjectStackCache();
-	fireContentsChanged(this, 0, $nc($($nc($(this->this$0->getModel()))->getFiles()))->size() - 1);
+	$useLocalObjectStack();
+	fireContentsChanged(this, 0, $$nc($$nc(this->this$0->getModel())->getFiles())->size() - 1);
 }
 
 void MotifFileChooserUI$MotifFileListModel::contentsChanged($ListDataEvent* e) {
@@ -145,7 +92,49 @@ MotifFileChooserUI$MotifFileListModel::MotifFileChooserUI$MotifFileListModel() {
 }
 
 $Class* MotifFileChooserUI$MotifFileListModel::load$($String* name, bool initialize) {
-	$loadClass(MotifFileChooserUI$MotifFileListModel, name, initialize, &_MotifFileChooserUI$MotifFileListModel_ClassInfo_, allocate$MotifFileChooserUI$MotifFileListModel);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/java/swing/plaf/motif/MotifFileChooserUI;", nullptr, $FINAL | $SYNTHETIC, $field(MotifFileChooserUI$MotifFileListModel, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lcom/sun/java/swing/plaf/motif/MotifFileChooserUI;)V", nullptr, $PUBLIC, $method(MotifFileChooserUI$MotifFileListModel, init$, void, $MotifFileChooserUI*)},
+		{"contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(MotifFileChooserUI$MotifFileListModel, contains, bool, Object$*)},
+		{"contentsChanged", "(Ljavax/swing/event/ListDataEvent;)V", nullptr, $PUBLIC, $virtualMethod(MotifFileChooserUI$MotifFileListModel, contentsChanged, void, $ListDataEvent*)},
+		{"fireContentsChanged", "()V", nullptr, $PUBLIC, $virtualMethod(MotifFileChooserUI$MotifFileListModel, fireContentsChanged, void)},
+		{"getElementAt", "(I)Ljava/io/File;", nullptr, $PUBLIC, $virtualMethod(MotifFileChooserUI$MotifFileListModel, getElementAt, $Object*, int32_t)},
+		{"getSize", "()I", nullptr, $PUBLIC, $virtualMethod(MotifFileChooserUI$MotifFileListModel, getSize, int32_t)},
+		{"indexOf", "(Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(MotifFileChooserUI$MotifFileListModel, indexOf, int32_t, Object$*)},
+		{"intervalAdded", "(Ljavax/swing/event/ListDataEvent;)V", nullptr, $PUBLIC, $virtualMethod(MotifFileChooserUI$MotifFileListModel, intervalAdded, void, $ListDataEvent*)},
+		{"intervalRemoved", "(Ljavax/swing/event/ListDataEvent;)V", nullptr, $PUBLIC, $virtualMethod(MotifFileChooserUI$MotifFileListModel, intervalRemoved, void, $ListDataEvent*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.motif.MotifFileChooserUI$MotifFileListModel", "com.sun.java.swing.plaf.motif.MotifFileChooserUI", "MotifFileListModel", $PROTECTED},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.java.swing.plaf.motif.MotifFileChooserUI$MotifFileListModel",
+		"javax.swing.AbstractListModel",
+		"javax.swing.event.ListDataListener",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljavax/swing/AbstractListModel<Ljava/io/File;>;Ljavax/swing/event/ListDataListener;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.motif.MotifFileChooserUI"
+	};
+	$loadClass(MotifFileChooserUI$MotifFileListModel, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MotifFileChooserUI$MotifFileListModel));
+	});
 	return class$;
 }
 

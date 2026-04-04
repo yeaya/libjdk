@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/security/utils/Signature11ElementProxy.h>
-
 #include <com/sun/org/apache/xml/internal/security/utils/Constants.h>
 #include <com/sun/org/apache/xml/internal/security/utils/ElementProxy.h>
 #include <com/sun/org/apache/xml/internal/security/utils/XMLUtils.h>
@@ -25,33 +24,12 @@ namespace com {
 						namespace security {
 							namespace utils {
 
-$MethodInfo _Signature11ElementProxy_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(Signature11ElementProxy, init$, void)},
-	{"<init>", "(Lorg/w3c/dom/Document;)V", nullptr, $PUBLIC, $method(Signature11ElementProxy, init$, void, $Document*)},
-	{"<init>", "(Lorg/w3c/dom/Element;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Signature11ElementProxy, init$, void, $Element*, $String*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
-	{"getBaseNamespace", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Signature11ElementProxy, getBaseNamespace, $String*)},
-	{}
-};
-
-$ClassInfo _Signature11ElementProxy_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"com.sun.org.apache.xml.internal.security.utils.Signature11ElementProxy",
-	"com.sun.org.apache.xml.internal.security.utils.ElementProxy",
-	nullptr,
-	nullptr,
-	_Signature11ElementProxy_MethodInfo_
-};
-
-$Object* allocate$Signature11ElementProxy($Class* clazz) {
-	return $of($alloc(Signature11ElementProxy));
-}
-
 void Signature11ElementProxy::init$() {
 	$ElementProxy::init$();
 }
 
 void Signature11ElementProxy::init$($Document* doc) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$ElementProxy::init$();
 	if (doc == nullptr) {
 		$throwNew($RuntimeException, "Document is null"_s);
@@ -59,12 +37,12 @@ void Signature11ElementProxy::init$($Document* doc) {
 	setDocument(doc);
 	setElement($($XMLUtils::createElementInSignature11Space(doc, $(this->getBaseLocalName()))));
 	$var($String, prefix, $ElementProxy::getDefaultPrefix($(getBaseNamespace())));
-	if (prefix == nullptr || $nc(prefix)->length() == 0) {
+	if (prefix == nullptr || prefix->length() == 0) {
 		$init($Constants);
-		$nc($(getElement()))->setAttributeNS($Constants::NamespaceSpecNS, "xmlns"_s, $(getBaseNamespace()));
+		$$nc(getElement())->setAttributeNS($Constants::NamespaceSpecNS, "xmlns"_s, $(getBaseNamespace()));
 	} else {
 		$init($Constants);
-		$nc($(getElement()))->setAttributeNS($Constants::NamespaceSpecNS, $$str({"xmlns:"_s, prefix}), $(getBaseNamespace()));
+		$$nc(getElement())->setAttributeNS($Constants::NamespaceSpecNS, $$str({"xmlns:"_s, prefix}), $(getBaseNamespace()));
 	}
 }
 
@@ -81,7 +59,24 @@ Signature11ElementProxy::Signature11ElementProxy() {
 }
 
 $Class* Signature11ElementProxy::load$($String* name, bool initialize) {
-	$loadClass(Signature11ElementProxy, name, initialize, &_Signature11ElementProxy_ClassInfo_, allocate$Signature11ElementProxy);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PROTECTED, $method(Signature11ElementProxy, init$, void)},
+		{"<init>", "(Lorg/w3c/dom/Document;)V", nullptr, $PUBLIC, $method(Signature11ElementProxy, init$, void, $Document*)},
+		{"<init>", "(Lorg/w3c/dom/Element;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Signature11ElementProxy, init$, void, $Element*, $String*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
+		{"getBaseNamespace", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Signature11ElementProxy, getBaseNamespace, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"com.sun.org.apache.xml.internal.security.utils.Signature11ElementProxy",
+		"com.sun.org.apache.xml.internal.security.utils.ElementProxy",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Signature11ElementProxy, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Signature11ElementProxy);
+	});
 	return class$;
 }
 

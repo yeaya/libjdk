@@ -1,5 +1,4 @@
 #include <org/ietf/jgss/GSSException.h>
-
 #include <jcpp.h>
 
 #undef BAD_BINDINGS
@@ -33,66 +32,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace org {
 	namespace ietf {
 		namespace jgss {
-
-$FieldInfo _GSSException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(GSSException, serialVersionUID)},
-	{"BAD_BINDINGS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(GSSException, BAD_BINDINGS)},
-	{"BAD_MECH", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(GSSException, BAD_MECH)},
-	{"BAD_NAME", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(GSSException, BAD_NAME)},
-	{"BAD_NAMETYPE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(GSSException, BAD_NAMETYPE)},
-	{"BAD_STATUS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(GSSException, BAD_STATUS)},
-	{"BAD_MIC", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(GSSException, BAD_MIC)},
-	{"CONTEXT_EXPIRED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(GSSException, CONTEXT_EXPIRED)},
-	{"CREDENTIALS_EXPIRED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(GSSException, CREDENTIALS_EXPIRED)},
-	{"DEFECTIVE_CREDENTIAL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(GSSException, DEFECTIVE_CREDENTIAL)},
-	{"DEFECTIVE_TOKEN", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(GSSException, DEFECTIVE_TOKEN)},
-	{"FAILURE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(GSSException, FAILURE)},
-	{"NO_CONTEXT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(GSSException, NO_CONTEXT)},
-	{"NO_CRED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(GSSException, NO_CRED)},
-	{"BAD_QOP", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(GSSException, BAD_QOP)},
-	{"UNAUTHORIZED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(GSSException, UNAUTHORIZED)},
-	{"UNAVAILABLE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(GSSException, UNAVAILABLE)},
-	{"DUPLICATE_ELEMENT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(GSSException, DUPLICATE_ELEMENT)},
-	{"NAME_NOT_MN", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(GSSException, NAME_NOT_MN)},
-	{"DUPLICATE_TOKEN", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(GSSException, DUPLICATE_TOKEN)},
-	{"OLD_TOKEN", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(GSSException, OLD_TOKEN)},
-	{"UNSEQ_TOKEN", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(GSSException, UNSEQ_TOKEN)},
-	{"GAP_TOKEN", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(GSSException, GAP_TOKEN)},
-	{"messages", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(GSSException, messages)},
-	{"major", "I", nullptr, $PRIVATE, $field(GSSException, major)},
-	{"minor", "I", nullptr, $PRIVATE, $field(GSSException, minor)},
-	{"minorMessage", "Ljava/lang/String;", nullptr, $PRIVATE, $field(GSSException, minorMessage)},
-	{"majorString", "Ljava/lang/String;", nullptr, $PRIVATE, $field(GSSException, majorString)},
-	{}
-};
-
-$MethodInfo _GSSException_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(GSSException, init$, void, int32_t)},
-	{"<init>", "(ILjava/lang/String;)V", nullptr, 0, $method(GSSException, init$, void, int32_t, $String*)},
-	{"<init>", "(IILjava/lang/String;)V", nullptr, $PUBLIC, $method(GSSException, init$, void, int32_t, int32_t, $String*)},
-	{"getMajor", "()I", nullptr, $PUBLIC, $virtualMethod(GSSException, getMajor, int32_t)},
-	{"getMajorString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(GSSException, getMajorString, $String*)},
-	{"getMessage", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(GSSException, getMessage, $String*)},
-	{"getMinor", "()I", nullptr, $PUBLIC, $virtualMethod(GSSException, getMinor, int32_t)},
-	{"getMinorString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(GSSException, getMinorString, $String*)},
-	{"setMinor", "(ILjava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(GSSException, setMinor, void, int32_t, $String*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(GSSException, toString, $String*)},
-	{"validateMajor", "(I)Z", nullptr, $PRIVATE, $method(GSSException, validateMajor, bool, int32_t)},
-	{}
-};
-
-$ClassInfo _GSSException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"org.ietf.jgss.GSSException",
-	"java.lang.Exception",
-	nullptr,
-	_GSSException_FieldInfo_,
-	_GSSException_MethodInfo_
-};
-
-$Object* allocate$GSSException($Class* clazz) {
-	return $of($alloc(GSSException));
-}
 
 $StringArray* GSSException::messages = nullptr;
 
@@ -165,13 +104,16 @@ $String* GSSException::toString() {
 }
 
 $String* GSSException::getMessage() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->minor == 0) {
 		return (getMajorString());
 	}
-	$var($String, var$1, $$str({$(getMajorString()), " (Mechanism level: "_s}));
-	$var($String, var$0, $$concat(var$1, $(getMinorString())));
-	return ($concat(var$0, ")"_s));
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append($(getMajorString()));
+	var$0->append(" (Mechanism level: "_s);
+	var$0->append($(getMinorString()));
+	var$0->append(")"_s);
+	return ($str(var$0));
 }
 
 bool GSSException::validateMajor(int32_t major) {
@@ -181,7 +123,7 @@ bool GSSException::validateMajor(int32_t major) {
 	return (false);
 }
 
-void clinit$GSSException($Class* class$) {
+void GSSException::clinit$($Class* clazz) {
 	$assignStatic(GSSException::messages, $new($StringArray, {
 		"Channel binding mismatch"_s,
 		"Unsupported mechanism requested"_s,
@@ -219,7 +161,62 @@ void GSSException::throw$() {
 }
 
 $Class* GSSException::load$($String* name, bool initialize) {
-	$loadClass(GSSException, name, initialize, &_GSSException_ClassInfo_, clinit$GSSException, allocate$GSSException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(GSSException, serialVersionUID)},
+		{"BAD_BINDINGS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(GSSException, BAD_BINDINGS)},
+		{"BAD_MECH", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(GSSException, BAD_MECH)},
+		{"BAD_NAME", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(GSSException, BAD_NAME)},
+		{"BAD_NAMETYPE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(GSSException, BAD_NAMETYPE)},
+		{"BAD_STATUS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(GSSException, BAD_STATUS)},
+		{"BAD_MIC", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(GSSException, BAD_MIC)},
+		{"CONTEXT_EXPIRED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(GSSException, CONTEXT_EXPIRED)},
+		{"CREDENTIALS_EXPIRED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(GSSException, CREDENTIALS_EXPIRED)},
+		{"DEFECTIVE_CREDENTIAL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(GSSException, DEFECTIVE_CREDENTIAL)},
+		{"DEFECTIVE_TOKEN", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(GSSException, DEFECTIVE_TOKEN)},
+		{"FAILURE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(GSSException, FAILURE)},
+		{"NO_CONTEXT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(GSSException, NO_CONTEXT)},
+		{"NO_CRED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(GSSException, NO_CRED)},
+		{"BAD_QOP", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(GSSException, BAD_QOP)},
+		{"UNAUTHORIZED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(GSSException, UNAUTHORIZED)},
+		{"UNAVAILABLE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(GSSException, UNAVAILABLE)},
+		{"DUPLICATE_ELEMENT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(GSSException, DUPLICATE_ELEMENT)},
+		{"NAME_NOT_MN", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(GSSException, NAME_NOT_MN)},
+		{"DUPLICATE_TOKEN", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(GSSException, DUPLICATE_TOKEN)},
+		{"OLD_TOKEN", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(GSSException, OLD_TOKEN)},
+		{"UNSEQ_TOKEN", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(GSSException, UNSEQ_TOKEN)},
+		{"GAP_TOKEN", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(GSSException, GAP_TOKEN)},
+		{"messages", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(GSSException, messages)},
+		{"major", "I", nullptr, $PRIVATE, $field(GSSException, major)},
+		{"minor", "I", nullptr, $PRIVATE, $field(GSSException, minor)},
+		{"minorMessage", "Ljava/lang/String;", nullptr, $PRIVATE, $field(GSSException, minorMessage)},
+		{"majorString", "Ljava/lang/String;", nullptr, $PRIVATE, $field(GSSException, majorString)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(GSSException, init$, void, int32_t)},
+		{"<init>", "(ILjava/lang/String;)V", nullptr, 0, $method(GSSException, init$, void, int32_t, $String*)},
+		{"<init>", "(IILjava/lang/String;)V", nullptr, $PUBLIC, $method(GSSException, init$, void, int32_t, int32_t, $String*)},
+		{"getMajor", "()I", nullptr, $PUBLIC, $virtualMethod(GSSException, getMajor, int32_t)},
+		{"getMajorString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(GSSException, getMajorString, $String*)},
+		{"getMessage", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(GSSException, getMessage, $String*)},
+		{"getMinor", "()I", nullptr, $PUBLIC, $virtualMethod(GSSException, getMinor, int32_t)},
+		{"getMinorString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(GSSException, getMinorString, $String*)},
+		{"setMinor", "(ILjava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(GSSException, setMinor, void, int32_t, $String*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(GSSException, toString, $String*)},
+		{"validateMajor", "(I)Z", nullptr, $PRIVATE, $method(GSSException, validateMajor, bool, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"org.ietf.jgss.GSSException",
+		"java.lang.Exception",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(GSSException, name, initialize, &classInfo$$, GSSException::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(GSSException);
+	});
 	return class$;
 }
 

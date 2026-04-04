@@ -1,5 +1,4 @@
 #include <javax/lang/model/type/PrimitiveType.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -9,19 +8,16 @@ namespace javax {
 		namespace model {
 			namespace type {
 
-$ClassInfo _PrimitiveType_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"javax.lang.model.type.PrimitiveType",
-	nullptr,
-	"javax.lang.model.type.TypeMirror"
-};
-
-$Object* allocate$PrimitiveType($Class* clazz) {
-	return $of($alloc(PrimitiveType));
-}
-
 $Class* PrimitiveType::load$($String* name, bool initialize) {
-	$loadClass(PrimitiveType, name, initialize, &_PrimitiveType_ClassInfo_, allocate$PrimitiveType);
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"javax.lang.model.type.PrimitiveType",
+		nullptr,
+		"javax.lang.model.type.TypeMirror"
+	};
+	$loadClass(PrimitiveType, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PrimitiveType);
+	});
 	return class$;
 }
 

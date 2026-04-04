@@ -1,5 +1,4 @@
 #include <java/util/logging/Level$RbAccess.h>
-
 #include <java/util/logging/Level.h>
 #include <jdk/internal/access/JavaUtilResourceBundleAccess.h>
 #include <jdk/internal/access/SharedSecrets.h>
@@ -18,47 +17,12 @@ namespace java {
 	namespace util {
 		namespace logging {
 
-$FieldInfo _Level$RbAccess_FieldInfo_[] = {
-	{"RB_ACCESS", "Ljdk/internal/access/JavaUtilResourceBundleAccess;", nullptr, $STATIC | $FINAL, $staticField(Level$RbAccess, RB_ACCESS)},
-	{}
-};
-
-$MethodInfo _Level$RbAccess_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(Level$RbAccess, init$, void)},
-	{}
-};
-
-$InnerClassInfo _Level$RbAccess_InnerClassesInfo_[] = {
-	{"java.util.logging.Level$RbAccess", "java.util.logging.Level", "RbAccess", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _Level$RbAccess_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.util.logging.Level$RbAccess",
-	"java.lang.Object",
-	nullptr,
-	_Level$RbAccess_FieldInfo_,
-	_Level$RbAccess_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Level$RbAccess_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.logging.Level"
-};
-
-$Object* allocate$Level$RbAccess($Class* clazz) {
-	return $of($alloc(Level$RbAccess));
-}
-
 $JavaUtilResourceBundleAccess* Level$RbAccess::RB_ACCESS = nullptr;
 
 void Level$RbAccess::init$() {
 }
 
-void clinit$Level$RbAccess($Class* class$) {
+void Level$RbAccess::clinit$($Class* clazz) {
 	$assignStatic(Level$RbAccess::RB_ACCESS, $SharedSecrets::getJavaUtilResourceBundleAccess());
 }
 
@@ -66,7 +30,36 @@ Level$RbAccess::Level$RbAccess() {
 }
 
 $Class* Level$RbAccess::load$($String* name, bool initialize) {
-	$loadClass(Level$RbAccess, name, initialize, &_Level$RbAccess_ClassInfo_, clinit$Level$RbAccess, allocate$Level$RbAccess);
+	$FieldInfo fieldInfos$$[] = {
+		{"RB_ACCESS", "Ljdk/internal/access/JavaUtilResourceBundleAccess;", nullptr, $STATIC | $FINAL, $staticField(Level$RbAccess, RB_ACCESS)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(Level$RbAccess, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.logging.Level$RbAccess", "java.util.logging.Level", "RbAccess", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.util.logging.Level$RbAccess",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.logging.Level"
+	};
+	$loadClass(Level$RbAccess, name, initialize, &classInfo$$, Level$RbAccess::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Level$RbAccess);
+	});
 	return class$;
 }
 

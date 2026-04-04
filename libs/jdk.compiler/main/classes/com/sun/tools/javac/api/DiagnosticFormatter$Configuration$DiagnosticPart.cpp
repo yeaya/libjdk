@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/api/DiagnosticFormatter$Configuration$DiagnosticPart.h>
-
 #include <com/sun/tools/javac/api/DiagnosticFormatter$Configuration.h>
 #include <java/lang/Enum.h>
 #include <jcpp.h>
@@ -22,50 +21,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace api {
-
-$FieldInfo _DiagnosticFormatter$Configuration$DiagnosticPart_FieldInfo_[] = {
-	{"SUMMARY", "Lcom/sun/tools/javac/api/DiagnosticFormatter$Configuration$DiagnosticPart;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DiagnosticFormatter$Configuration$DiagnosticPart, SUMMARY)},
-	{"DETAILS", "Lcom/sun/tools/javac/api/DiagnosticFormatter$Configuration$DiagnosticPart;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DiagnosticFormatter$Configuration$DiagnosticPart, DETAILS)},
-	{"SOURCE", "Lcom/sun/tools/javac/api/DiagnosticFormatter$Configuration$DiagnosticPart;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DiagnosticFormatter$Configuration$DiagnosticPart, SOURCE)},
-	{"SUBDIAGNOSTICS", "Lcom/sun/tools/javac/api/DiagnosticFormatter$Configuration$DiagnosticPart;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DiagnosticFormatter$Configuration$DiagnosticPart, SUBDIAGNOSTICS)},
-	{"JLS", "Lcom/sun/tools/javac/api/DiagnosticFormatter$Configuration$DiagnosticPart;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DiagnosticFormatter$Configuration$DiagnosticPart, JLS)},
-	{"$VALUES", "[Lcom/sun/tools/javac/api/DiagnosticFormatter$Configuration$DiagnosticPart;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(DiagnosticFormatter$Configuration$DiagnosticPart, $VALUES)},
-	{}
-};
-
-$MethodInfo _DiagnosticFormatter$Configuration$DiagnosticPart_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/javac/api/DiagnosticFormatter$Configuration$DiagnosticPart;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(DiagnosticFormatter$Configuration$DiagnosticPart, $values, $DiagnosticFormatter$Configuration$DiagnosticPartArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(DiagnosticFormatter$Configuration$DiagnosticPart, init$, void, $String*, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/api/DiagnosticFormatter$Configuration$DiagnosticPart;", nullptr, $PUBLIC | $STATIC, $staticMethod(DiagnosticFormatter$Configuration$DiagnosticPart, valueOf, DiagnosticFormatter$Configuration$DiagnosticPart*, $String*)},
-	{"values", "()[Lcom/sun/tools/javac/api/DiagnosticFormatter$Configuration$DiagnosticPart;", nullptr, $PUBLIC | $STATIC, $staticMethod(DiagnosticFormatter$Configuration$DiagnosticPart, values, $DiagnosticFormatter$Configuration$DiagnosticPartArray*)},
-	{}
-};
-
-$InnerClassInfo _DiagnosticFormatter$Configuration$DiagnosticPart_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.api.DiagnosticFormatter$Configuration", "com.sun.tools.javac.api.DiagnosticFormatter", "Configuration", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"com.sun.tools.javac.api.DiagnosticFormatter$Configuration$DiagnosticPart", "com.sun.tools.javac.api.DiagnosticFormatter$Configuration", "DiagnosticPart", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _DiagnosticFormatter$Configuration$DiagnosticPart_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"com.sun.tools.javac.api.DiagnosticFormatter$Configuration$DiagnosticPart",
-	"java.lang.Enum",
-	nullptr,
-	_DiagnosticFormatter$Configuration$DiagnosticPart_FieldInfo_,
-	_DiagnosticFormatter$Configuration$DiagnosticPart_MethodInfo_,
-	"Ljava/lang/Enum<Lcom/sun/tools/javac/api/DiagnosticFormatter$Configuration$DiagnosticPart;>;",
-	nullptr,
-	_DiagnosticFormatter$Configuration$DiagnosticPart_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.api.DiagnosticFormatter"
-};
-
-$Object* allocate$DiagnosticFormatter$Configuration$DiagnosticPart($Class* clazz) {
-	return $of($alloc(DiagnosticFormatter$Configuration$DiagnosticPart));
-}
 
 DiagnosticFormatter$Configuration$DiagnosticPart* DiagnosticFormatter$Configuration$DiagnosticPart::SUMMARY = nullptr;
 DiagnosticFormatter$Configuration$DiagnosticPart* DiagnosticFormatter$Configuration$DiagnosticPart::DETAILS = nullptr;
@@ -99,7 +54,7 @@ void DiagnosticFormatter$Configuration$DiagnosticPart::init$($String* $enum$name
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$DiagnosticFormatter$Configuration$DiagnosticPart($Class* class$) {
+void DiagnosticFormatter$Configuration$DiagnosticPart::clinit$($Class* clazz) {
 	$assignStatic(DiagnosticFormatter$Configuration$DiagnosticPart::SUMMARY, $new(DiagnosticFormatter$Configuration$DiagnosticPart, "SUMMARY"_s, 0));
 	$assignStatic(DiagnosticFormatter$Configuration$DiagnosticPart::DETAILS, $new(DiagnosticFormatter$Configuration$DiagnosticPart, "DETAILS"_s, 1));
 	$assignStatic(DiagnosticFormatter$Configuration$DiagnosticPart::SOURCE, $new(DiagnosticFormatter$Configuration$DiagnosticPart, "SOURCE"_s, 2));
@@ -112,7 +67,45 @@ DiagnosticFormatter$Configuration$DiagnosticPart::DiagnosticFormatter$Configurat
 }
 
 $Class* DiagnosticFormatter$Configuration$DiagnosticPart::load$($String* name, bool initialize) {
-	$loadClass(DiagnosticFormatter$Configuration$DiagnosticPart, name, initialize, &_DiagnosticFormatter$Configuration$DiagnosticPart_ClassInfo_, clinit$DiagnosticFormatter$Configuration$DiagnosticPart, allocate$DiagnosticFormatter$Configuration$DiagnosticPart);
+	$FieldInfo fieldInfos$$[] = {
+		{"SUMMARY", "Lcom/sun/tools/javac/api/DiagnosticFormatter$Configuration$DiagnosticPart;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DiagnosticFormatter$Configuration$DiagnosticPart, SUMMARY)},
+		{"DETAILS", "Lcom/sun/tools/javac/api/DiagnosticFormatter$Configuration$DiagnosticPart;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DiagnosticFormatter$Configuration$DiagnosticPart, DETAILS)},
+		{"SOURCE", "Lcom/sun/tools/javac/api/DiagnosticFormatter$Configuration$DiagnosticPart;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DiagnosticFormatter$Configuration$DiagnosticPart, SOURCE)},
+		{"SUBDIAGNOSTICS", "Lcom/sun/tools/javac/api/DiagnosticFormatter$Configuration$DiagnosticPart;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DiagnosticFormatter$Configuration$DiagnosticPart, SUBDIAGNOSTICS)},
+		{"JLS", "Lcom/sun/tools/javac/api/DiagnosticFormatter$Configuration$DiagnosticPart;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DiagnosticFormatter$Configuration$DiagnosticPart, JLS)},
+		{"$VALUES", "[Lcom/sun/tools/javac/api/DiagnosticFormatter$Configuration$DiagnosticPart;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(DiagnosticFormatter$Configuration$DiagnosticPart, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lcom/sun/tools/javac/api/DiagnosticFormatter$Configuration$DiagnosticPart;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(DiagnosticFormatter$Configuration$DiagnosticPart, $values, $DiagnosticFormatter$Configuration$DiagnosticPartArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(DiagnosticFormatter$Configuration$DiagnosticPart, init$, void, $String*, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/api/DiagnosticFormatter$Configuration$DiagnosticPart;", nullptr, $PUBLIC | $STATIC, $staticMethod(DiagnosticFormatter$Configuration$DiagnosticPart, valueOf, DiagnosticFormatter$Configuration$DiagnosticPart*, $String*)},
+		{"values", "()[Lcom/sun/tools/javac/api/DiagnosticFormatter$Configuration$DiagnosticPart;", nullptr, $PUBLIC | $STATIC, $staticMethod(DiagnosticFormatter$Configuration$DiagnosticPart, values, $DiagnosticFormatter$Configuration$DiagnosticPartArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.api.DiagnosticFormatter$Configuration", "com.sun.tools.javac.api.DiagnosticFormatter", "Configuration", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"com.sun.tools.javac.api.DiagnosticFormatter$Configuration$DiagnosticPart", "com.sun.tools.javac.api.DiagnosticFormatter$Configuration", "DiagnosticPart", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"com.sun.tools.javac.api.DiagnosticFormatter$Configuration$DiagnosticPart",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lcom/sun/tools/javac/api/DiagnosticFormatter$Configuration$DiagnosticPart;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.api.DiagnosticFormatter"
+	};
+	$loadClass(DiagnosticFormatter$Configuration$DiagnosticPart, name, initialize, &classInfo$$, DiagnosticFormatter$Configuration$DiagnosticPart::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DiagnosticFormatter$Configuration$DiagnosticPart));
+	});
 	return class$;
 }
 

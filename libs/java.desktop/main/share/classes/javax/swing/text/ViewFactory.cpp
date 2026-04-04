@@ -1,5 +1,4 @@
 #include <javax/swing/text/ViewFactory.h>
-
 #include <javax/swing/text/Element.h>
 #include <javax/swing/text/View.h>
 #include <jcpp.h>
@@ -13,26 +12,22 @@ namespace javax {
 	namespace swing {
 		namespace text {
 
-$MethodInfo _ViewFactory_MethodInfo_[] = {
-	{"create", "(Ljavax/swing/text/Element;)Ljavax/swing/text/View;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ViewFactory, create, $View*, $Element*)},
-	{}
-};
-
-$ClassInfo _ViewFactory_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"javax.swing.text.ViewFactory",
-	nullptr,
-	nullptr,
-	nullptr,
-	_ViewFactory_MethodInfo_
-};
-
-$Object* allocate$ViewFactory($Class* clazz) {
-	return $of($alloc(ViewFactory));
-}
-
 $Class* ViewFactory::load$($String* name, bool initialize) {
-	$loadClass(ViewFactory, name, initialize, &_ViewFactory_ClassInfo_, allocate$ViewFactory);
+	$MethodInfo methodInfos$$[] = {
+		{"create", "(Ljavax/swing/text/Element;)Ljavax/swing/text/View;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ViewFactory, create, $View*, $Element*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"javax.swing.text.ViewFactory",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ViewFactory, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ViewFactory);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/security/keys/content/x509/XMLX509SKI.h>
-
 #include <com/sun/org/apache/xml/internal/security/exceptions/XMLSecurityException.h>
 #include <com/sun/org/apache/xml/internal/security/utils/Constants.h>
 #include <com/sun/org/apache/xml/internal/security/utils/ElementProxy.h>
@@ -44,40 +43,6 @@ namespace com {
 								namespace content {
 									namespace x509 {
 
-$FieldInfo _XMLX509SKI_FieldInfo_[] = {
-	{"LOG", "Lcom/sun/org/slf4j/internal/Logger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XMLX509SKI, LOG)},
-	{"SKI_OID", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLX509SKI, SKI_OID)},
-	{}
-};
-
-$MethodInfo _XMLX509SKI_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"<init>", "(Lorg/w3c/dom/Document;[B)V", nullptr, $PUBLIC, $method(XMLX509SKI, init$, void, $Document*, $bytes*)},
-	{"<init>", "(Lorg/w3c/dom/Document;Ljava/security/cert/X509Certificate;)V", nullptr, $PUBLIC, $method(XMLX509SKI, init$, void, $Document*, $X509Certificate*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
-	{"<init>", "(Lorg/w3c/dom/Element;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(XMLX509SKI, init$, void, $Element*, $String*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(XMLX509SKI, equals, bool, Object$*)},
-	{"getBaseLocalName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLX509SKI, getBaseLocalName, $String*)},
-	{"getSKIBytes", "()[B", nullptr, $PUBLIC, $virtualMethod(XMLX509SKI, getSKIBytes, $bytes*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
-	{"getSKIBytesFromCert", "(Ljava/security/cert/X509Certificate;)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLX509SKI, getSKIBytesFromCert, $bytes*, $X509Certificate*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(XMLX509SKI, hashCode, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _XMLX509SKI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.security.keys.content.x509.XMLX509SKI",
-	"com.sun.org.apache.xml.internal.security.utils.SignatureElementProxy",
-	"com.sun.org.apache.xml.internal.security.keys.content.x509.XMLX509DataContent",
-	_XMLX509SKI_FieldInfo_,
-	_XMLX509SKI_MethodInfo_
-};
-
-$Object* allocate$XMLX509SKI($Class* clazz) {
-	return $of($alloc(XMLX509SKI));
-}
-
 $Object* XMLX509SKI::clone() {
 	 return this->$SignatureElementProxy::clone();
 }
@@ -113,25 +78,25 @@ $bytes* XMLX509SKI::getSKIBytes() {
 
 $bytes* XMLX509SKI::getSKIBytesFromCert($X509Certificate* cert) {
 	$init(XMLX509SKI);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(cert)->getVersion() < 3) {
-		$var($ObjectArray, exArgs, $new($ObjectArray, {$($of($Integer::valueOf(cert->getVersion())))}));
+		$var($ObjectArray, exArgs, $new($ObjectArray, {$($Integer::valueOf(cert->getVersion()))}));
 		$throwNew($XMLSecurityException, "certificate.noSki.lowVersion"_s, exArgs);
 	}
-	$var($bytes, extensionValue, $nc(cert)->getExtensionValue(XMLX509SKI::SKI_OID));
+	$var($bytes, extensionValue, cert->getExtensionValue(XMLX509SKI::SKI_OID));
 	if (extensionValue == nullptr) {
 		$throwNew($XMLSecurityException, "certificate.noSki.null"_s);
 	}
 	$var($bytes, skidValue, $new($bytes, $nc(extensionValue)->length - 4));
 	$System::arraycopy(extensionValue, 4, skidValue, 0, skidValue->length);
 	if ($nc(XMLX509SKI::LOG)->isDebugEnabled()) {
-		$nc(XMLX509SKI::LOG)->debug($$str({"Base64 of SKI is "_s, $($XMLUtils::encodeToString(skidValue))}));
+		XMLX509SKI::LOG->debug($$str({"Base64 of SKI is "_s, $($XMLUtils::encodeToString(skidValue))}));
 	}
 	return skidValue;
 }
 
 bool XMLX509SKI::equals(Object$* obj) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!($instanceOf(XMLX509SKI, obj))) {
 		return false;
 	}
@@ -146,7 +111,7 @@ bool XMLX509SKI::equals(Object$* obj) {
 }
 
 int32_t XMLX509SKI::hashCode() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t result = 17;
 	try {
 		$var($bytes, bytes, getSKIBytes());
@@ -154,7 +119,7 @@ int32_t XMLX509SKI::hashCode() {
 			result = 31 * result + bytes->get(i);
 		}
 	} catch ($XMLSecurityException& e) {
-		$nc(XMLX509SKI::LOG)->debug($(e->getMessage()), static_cast<$Throwable*>(e));
+		$nc(XMLX509SKI::LOG)->debug($(e->getMessage()), e);
 	}
 	return result;
 }
@@ -164,7 +129,7 @@ $String* XMLX509SKI::getBaseLocalName() {
 	return $Constants::_TAG_X509SKI;
 }
 
-void clinit$XMLX509SKI($Class* class$) {
+void XMLX509SKI::clinit$($Class* clazz) {
 	$assignStatic(XMLX509SKI::SKI_OID, "2.5.29.14"_s);
 	$assignStatic(XMLX509SKI::LOG, $LoggerFactory::getLogger(XMLX509SKI::class$));
 }
@@ -173,7 +138,36 @@ XMLX509SKI::XMLX509SKI() {
 }
 
 $Class* XMLX509SKI::load$($String* name, bool initialize) {
-	$loadClass(XMLX509SKI, name, initialize, &_XMLX509SKI_ClassInfo_, clinit$XMLX509SKI, allocate$XMLX509SKI);
+	$FieldInfo fieldInfos$$[] = {
+		{"LOG", "Lcom/sun/org/slf4j/internal/Logger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XMLX509SKI, LOG)},
+		{"SKI_OID", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLX509SKI, SKI_OID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"<init>", "(Lorg/w3c/dom/Document;[B)V", nullptr, $PUBLIC, $method(XMLX509SKI, init$, void, $Document*, $bytes*)},
+		{"<init>", "(Lorg/w3c/dom/Document;Ljava/security/cert/X509Certificate;)V", nullptr, $PUBLIC, $method(XMLX509SKI, init$, void, $Document*, $X509Certificate*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
+		{"<init>", "(Lorg/w3c/dom/Element;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(XMLX509SKI, init$, void, $Element*, $String*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(XMLX509SKI, equals, bool, Object$*)},
+		{"getBaseLocalName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLX509SKI, getBaseLocalName, $String*)},
+		{"getSKIBytes", "()[B", nullptr, $PUBLIC, $virtualMethod(XMLX509SKI, getSKIBytes, $bytes*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
+		{"getSKIBytesFromCert", "(Ljava/security/cert/X509Certificate;)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLX509SKI, getSKIBytesFromCert, $bytes*, $X509Certificate*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(XMLX509SKI, hashCode, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.security.keys.content.x509.XMLX509SKI",
+		"com.sun.org.apache.xml.internal.security.utils.SignatureElementProxy",
+		"com.sun.org.apache.xml.internal.security.keys.content.x509.XMLX509DataContent",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XMLX509SKI, name, initialize, &classInfo$$, XMLX509SKI::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(XMLX509SKI));
+	});
 	return class$;
 }
 

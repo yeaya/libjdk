@@ -63,6 +63,7 @@ class XSEmptyCM : public ::com::sun::org::apache::xerces::internal::impl::xs::mo
 	$class(XSEmptyCM, 0, ::com::sun::org::apache::xerces::internal::impl::xs::models::XSCMValidator)
 public:
 	XSEmptyCM();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual ::java::util::List* checkMinMaxBounds() override;
 	virtual bool checkUniqueParticleAttribution(::com::sun::org::apache::xerces::internal::impl::xs::SubstitutionGroupHandler* subGroupHandler) override;

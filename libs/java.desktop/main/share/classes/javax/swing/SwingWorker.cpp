@@ -1,10 +1,8 @@
 #include <javax/swing/SwingWorker.h>
-
 #include <java/beans/PropertyChangeListener.h>
 #include <java/beans/PropertyChangeSupport.h>
 #include <java/lang/Runnable.h>
 #include <java/util/List.h>
-#include <java/util/concurrent/BlockingQueue.h>
 #include <java/util/concurrent/Callable.h>
 #include <java/util/concurrent/ExecutorService.h>
 #include <java/util/concurrent/FutureTask.h>
@@ -47,10 +45,8 @@ using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
 using $List = ::java::util::List;
-using $BlockingQueue = ::java::util::concurrent::BlockingQueue;
 using $Callable = ::java::util::concurrent::Callable;
 using $ExecutorService = ::java::util::concurrent::ExecutorService;
-using $FutureTask = ::java::util::concurrent::FutureTask;
 using $LinkedBlockingQueue = ::java::util::concurrent::LinkedBlockingQueue;
 using $ThreadFactory = ::java::util::concurrent::ThreadFactory;
 using $ThreadPoolExecutor = ::java::util::concurrent::ThreadPoolExecutor;
@@ -72,84 +68,6 @@ using $AccumulativeRunnable = ::sun::swing::AccumulativeRunnable;
 namespace javax {
 	namespace swing {
 
-$CompoundAttribute _SwingWorker_MethodAnnotations_publish18[] = {
-	{"Ljava/lang/SafeVarargs;", nullptr},
-	{}
-};
-
-$FieldInfo _SwingWorker_FieldInfo_[] = {
-	{"MAX_WORKER_THREADS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SwingWorker, MAX_WORKER_THREADS)},
-	{"progress", "I", nullptr, $PRIVATE | $VOLATILE, $field(SwingWorker, progress)},
-	{"state", "Ljavax/swing/SwingWorker$StateValue;", nullptr, $PRIVATE | $VOLATILE, $field(SwingWorker, state)},
-	{"future", "Ljava/util/concurrent/FutureTask;", "Ljava/util/concurrent/FutureTask<TT;>;", $PRIVATE | $FINAL, $field(SwingWorker, future)},
-	{"propertyChangeSupport", "Ljava/beans/PropertyChangeSupport;", nullptr, $PRIVATE | $FINAL, $field(SwingWorker, propertyChangeSupport)},
-	{"doProcess", "Lsun/swing/AccumulativeRunnable;", "Lsun/swing/AccumulativeRunnable<TV;>;", $PRIVATE, $field(SwingWorker, doProcess)},
-	{"doNotifyProgressChange", "Lsun/swing/AccumulativeRunnable;", "Lsun/swing/AccumulativeRunnable<Ljava/lang/Integer;>;", $PRIVATE, $field(SwingWorker, doNotifyProgressChange)},
-	{"doSubmit", "Lsun/swing/AccumulativeRunnable;", "Lsun/swing/AccumulativeRunnable<Ljava/lang/Runnable;>;", $PRIVATE | $FINAL, $field(SwingWorker, doSubmit)},
-	{"DO_SUBMIT_KEY", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SwingWorker, DO_SUBMIT_KEY)},
-	{}
-};
-
-$MethodInfo _SwingWorker_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SwingWorker, init$, void)},
-	{"addPropertyChangeListener", "(Ljava/beans/PropertyChangeListener;)V", nullptr, $PUBLIC | $FINAL, $method(SwingWorker, addPropertyChangeListener, void, $PropertyChangeListener*)},
-	{"cancel", "(Z)Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(SwingWorker, cancel, bool, bool)},
-	{"doInBackground", "()Ljava/lang/Object;", "()TT;", $PROTECTED | $ABSTRACT, $virtualMethod(SwingWorker, doInBackground, $Object*), "java.lang.Exception"},
-	{"done", "()V", nullptr, $PROTECTED, $virtualMethod(SwingWorker, done, void)},
-	{"doneEDT", "()V", nullptr, $PRIVATE, $method(SwingWorker, doneEDT, void)},
-	{"execute", "()V", nullptr, $PUBLIC | $FINAL, $method(SwingWorker, execute, void)},
-	{"firePropertyChange", "(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC | $FINAL, $method(SwingWorker, firePropertyChange, void, $String*, Object$*, Object$*)},
-	{"get", "()Ljava/lang/Object;", "()TT;", $PUBLIC | $FINAL, $virtualMethod(SwingWorker, get, $Object*), "java.lang.InterruptedException,java.util.concurrent.ExecutionException"},
-	{"get", "(JLjava/util/concurrent/TimeUnit;)Ljava/lang/Object;", "(JLjava/util/concurrent/TimeUnit;)TT;", $PUBLIC | $FINAL, $virtualMethod(SwingWorker, get, $Object*, int64_t, $TimeUnit*), "java.lang.InterruptedException,java.util.concurrent.ExecutionException,java.util.concurrent.TimeoutException"},
-	{"getDoSubmit", "()Lsun/swing/AccumulativeRunnable;", "()Lsun/swing/AccumulativeRunnable<Ljava/lang/Runnable;>;", $PRIVATE | $STATIC, $staticMethod(SwingWorker, getDoSubmit, $AccumulativeRunnable*)},
-	{"getProgress", "()I", nullptr, $PUBLIC | $FINAL, $method(SwingWorker, getProgress, int32_t)},
-	{"getPropertyChangeSupport", "()Ljava/beans/PropertyChangeSupport;", nullptr, $PUBLIC | $FINAL, $method(SwingWorker, getPropertyChangeSupport, $PropertyChangeSupport*)},
-	{"getState", "()Ljavax/swing/SwingWorker$StateValue;", nullptr, $PUBLIC | $FINAL, $method(SwingWorker, getState, $SwingWorker$StateValue*)},
-	{"getWorkersExecutorService", "()Ljava/util/concurrent/ExecutorService;", nullptr, $PRIVATE | $STATIC | $SYNCHRONIZED, $staticMethod(SwingWorker, getWorkersExecutorService, $ExecutorService*)},
-	{"isCancelled", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(SwingWorker, isCancelled, bool)},
-	{"isDone", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(SwingWorker, isDone, bool)},
-	{"process", "(Ljava/util/List;)V", "(Ljava/util/List<TV;>;)V", $PROTECTED, $virtualMethod(SwingWorker, process, void, $List*)},
-	{"publish", "([Ljava/lang/Object;)V", "([TV;)V", $PROTECTED | $FINAL | $TRANSIENT, $method(SwingWorker, publish, void, $ObjectArray*), nullptr, nullptr, _SwingWorker_MethodAnnotations_publish18},
-	{"removePropertyChangeListener", "(Ljava/beans/PropertyChangeListener;)V", nullptr, $PUBLIC | $FINAL, $method(SwingWorker, removePropertyChangeListener, void, $PropertyChangeListener*)},
-	{"run", "()V", nullptr, $PUBLIC | $FINAL, $virtualMethod(SwingWorker, run, void)},
-	{"setProgress", "(I)V", nullptr, $PROTECTED | $FINAL, $method(SwingWorker, setProgress, void, int32_t)},
-	{"setState", "(Ljavax/swing/SwingWorker$StateValue;)V", nullptr, $PRIVATE, $method(SwingWorker, setState, void, $SwingWorker$StateValue*)},
-	{}
-};
-
-$InnerClassInfo _SwingWorker_InnerClassesInfo_[] = {
-	{"javax.swing.SwingWorker$SwingWorkerPropertyChangeSupport", "javax.swing.SwingWorker", "SwingWorkerPropertyChangeSupport", $PRIVATE},
-	{"javax.swing.SwingWorker$DoSubmitAccumulativeRunnable", "javax.swing.SwingWorker", "DoSubmitAccumulativeRunnable", $PRIVATE | $STATIC},
-	{"javax.swing.SwingWorker$StateValue", "javax.swing.SwingWorker", "StateValue", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{"javax.swing.SwingWorker$7", nullptr, nullptr, 0},
-	{"javax.swing.SwingWorker$6", nullptr, nullptr, 0},
-	{"javax.swing.SwingWorker$5", nullptr, nullptr, 0},
-	{"javax.swing.SwingWorker$4", nullptr, nullptr, 0},
-	{"javax.swing.SwingWorker$3", nullptr, nullptr, 0},
-	{"javax.swing.SwingWorker$2", nullptr, nullptr, 0},
-	{"javax.swing.SwingWorker$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _SwingWorker_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"javax.swing.SwingWorker",
-	"java.lang.Object",
-	"java.util.concurrent.RunnableFuture",
-	_SwingWorker_FieldInfo_,
-	_SwingWorker_MethodInfo_,
-	"<T:Ljava/lang/Object;V:Ljava/lang/Object;>Ljava/lang/Object;Ljava/util/concurrent/RunnableFuture<TT;>;",
-	nullptr,
-	_SwingWorker_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.swing.SwingWorker$SwingWorkerPropertyChangeSupport,javax.swing.SwingWorker$SwingWorkerPropertyChangeSupport$1,javax.swing.SwingWorker$DoSubmitAccumulativeRunnable,javax.swing.SwingWorker$StateValue,javax.swing.SwingWorker$7,javax.swing.SwingWorker$7$1,javax.swing.SwingWorker$6,javax.swing.SwingWorker$5,javax.swing.SwingWorker$4,javax.swing.SwingWorker$3,javax.swing.SwingWorker$2,javax.swing.SwingWorker$1"
-};
-
-$Object* allocate$SwingWorker($Class* clazz) {
-	return $of($alloc(SwingWorker));
-}
-
 $Object* SwingWorker::DO_SUBMIT_KEY = nullptr;
 
 void SwingWorker::init$() {
@@ -164,7 +82,7 @@ void SwingWorker::init$() {
 }
 
 void SwingWorker::run() {
-	$nc(this->future)->run();
+	this->future->run();
 }
 
 void SwingWorker::publish($ObjectArray* chunks) {
@@ -183,7 +101,7 @@ void SwingWorker::done() {
 }
 
 void SwingWorker::setProgress(int32_t progress) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (progress < 0 || progress > 100) {
 		$throwNew($IllegalArgumentException, "the value should be from 0 to 100"_s);
 	}
@@ -192,7 +110,7 @@ void SwingWorker::setProgress(int32_t progress) {
 	}
 	int32_t oldProgress = this->progress;
 	this->progress = progress;
-	if (!$nc($(getPropertyChangeSupport()))->hasListeners("progress"_s)) {
+	if (!$$nc(getPropertyChangeSupport())->hasListeners("progress"_s)) {
 		return;
 	}
 	$synchronized(this) {
@@ -211,39 +129,39 @@ int32_t SwingWorker::getProgress() {
 }
 
 void SwingWorker::execute() {
-	$nc($(getWorkersExecutorService()))->execute(this);
+	$$nc(getWorkersExecutorService())->execute(this);
 }
 
 bool SwingWorker::cancel(bool mayInterruptIfRunning) {
-	return $nc(this->future)->cancel(mayInterruptIfRunning);
+	return this->future->cancel(mayInterruptIfRunning);
 }
 
 bool SwingWorker::isCancelled() {
-	return $nc(this->future)->isCancelled();
+	return this->future->isCancelled();
 }
 
 bool SwingWorker::isDone() {
-	return $nc(this->future)->isDone();
+	return this->future->isDone();
 }
 
 $Object* SwingWorker::get() {
-	return $of($nc(this->future)->get());
+	return this->future->get();
 }
 
 $Object* SwingWorker::get(int64_t timeout, $TimeUnit* unit) {
-	return $of($nc(this->future)->get(timeout, unit));
+	return this->future->get(timeout, unit);
 }
 
 void SwingWorker::addPropertyChangeListener($PropertyChangeListener* listener) {
-	$nc($(getPropertyChangeSupport()))->addPropertyChangeListener(listener);
+	$$nc(getPropertyChangeSupport())->addPropertyChangeListener(listener);
 }
 
 void SwingWorker::removePropertyChangeListener($PropertyChangeListener* listener) {
-	$nc($(getPropertyChangeSupport()))->removePropertyChangeListener(listener);
+	$$nc(getPropertyChangeSupport())->removePropertyChangeListener(listener);
 }
 
 void SwingWorker::firePropertyChange($String* propertyName, Object$* oldValue, Object$* newValue) {
-	$nc($(getPropertyChangeSupport()))->firePropertyChange(propertyName, oldValue, newValue);
+	$$nc(getPropertyChangeSupport())->firePropertyChange(propertyName, oldValue, newValue);
 }
 
 $PropertyChangeSupport* SwingWorker::getPropertyChangeSupport() {
@@ -266,7 +184,7 @@ void SwingWorker::setState($SwingWorker$StateValue* state) {
 }
 
 void SwingWorker::doneEDT() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Runnable, doDone, $new($SwingWorker$5, this));
 	if ($SwingUtilities::isEventDispatchThread()) {
 		doDone->run();
@@ -276,16 +194,15 @@ void SwingWorker::doneEDT() {
 }
 
 $ExecutorService* SwingWorker::getWorkersExecutorService() {
-	$load(SwingWorker);
+	$init(SwingWorker);
 	$synchronized(class$) {
-		$init(SwingWorker);
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$var($AppContext, appContext, $AppContext::getAppContext());
 		$var($ExecutorService, executorService, $cast($ExecutorService, $nc(appContext)->get(SwingWorker::class$)));
 		if (executorService == nullptr) {
 			$var($ThreadFactory, threadFactory, $new($SwingWorker$6));
 			$init($TimeUnit);
-			$assign(executorService, $new($ThreadPoolExecutor, SwingWorker::MAX_WORKER_THREADS, SwingWorker::MAX_WORKER_THREADS, (int64_t)10, $TimeUnit::MINUTES, static_cast<$BlockingQueue*>($$new($LinkedBlockingQueue)), threadFactory));
+			$assign(executorService, $new($ThreadPoolExecutor, SwingWorker::MAX_WORKER_THREADS, SwingWorker::MAX_WORKER_THREADS, 10, $TimeUnit::MINUTES, $$new($LinkedBlockingQueue), threadFactory));
 			appContext->put(SwingWorker::class$, executorService);
 			$var($ExecutorService, es, executorService);
 			appContext->addPropertyChangeListener($AppContext::DISPOSED_PROPERTY_NAME, $$new($SwingWorker$7, es));
@@ -296,7 +213,7 @@ $ExecutorService* SwingWorker::getWorkersExecutorService() {
 
 $AccumulativeRunnable* SwingWorker::getDoSubmit() {
 	$init(SwingWorker);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized(SwingWorker::DO_SUBMIT_KEY) {
 		$var($AppContext, appContext, $AppContext::getAppContext());
 		$var($Object, doSubmit, $nc(appContext)->get(SwingWorker::DO_SUBMIT_KEY));
@@ -309,7 +226,7 @@ $AccumulativeRunnable* SwingWorker::getDoSubmit() {
 	}
 }
 
-void clinit$SwingWorker($Class* class$) {
+void SwingWorker::clinit$($Class* clazz) {
 	$assignStatic(SwingWorker::DO_SUBMIT_KEY, $new($StringBuilder, "doSubmit"_s));
 }
 
@@ -317,7 +234,78 @@ SwingWorker::SwingWorker() {
 }
 
 $Class* SwingWorker::load$($String* name, bool initialize) {
-	$loadClass(SwingWorker, name, initialize, &_SwingWorker_ClassInfo_, clinit$SwingWorker, allocate$SwingWorker);
+	$FieldInfo fieldInfos$$[] = {
+		{"MAX_WORKER_THREADS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SwingWorker, MAX_WORKER_THREADS)},
+		{"progress", "I", nullptr, $PRIVATE | $VOLATILE, $field(SwingWorker, progress)},
+		{"state", "Ljavax/swing/SwingWorker$StateValue;", nullptr, $PRIVATE | $VOLATILE, $field(SwingWorker, state)},
+		{"future", "Ljava/util/concurrent/FutureTask;", "Ljava/util/concurrent/FutureTask<TT;>;", $PRIVATE | $FINAL, $field(SwingWorker, future)},
+		{"propertyChangeSupport", "Ljava/beans/PropertyChangeSupport;", nullptr, $PRIVATE | $FINAL, $field(SwingWorker, propertyChangeSupport)},
+		{"doProcess", "Lsun/swing/AccumulativeRunnable;", "Lsun/swing/AccumulativeRunnable<TV;>;", $PRIVATE, $field(SwingWorker, doProcess)},
+		{"doNotifyProgressChange", "Lsun/swing/AccumulativeRunnable;", "Lsun/swing/AccumulativeRunnable<Ljava/lang/Integer;>;", $PRIVATE, $field(SwingWorker, doNotifyProgressChange)},
+		{"doSubmit", "Lsun/swing/AccumulativeRunnable;", "Lsun/swing/AccumulativeRunnable<Ljava/lang/Runnable;>;", $PRIVATE | $FINAL, $field(SwingWorker, doSubmit)},
+		{"DO_SUBMIT_KEY", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SwingWorker, DO_SUBMIT_KEY)},
+		{}
+	};
+	$CompoundAttribute publishmethodAnnotations$$[] = {
+		{"Ljava/lang/SafeVarargs;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SwingWorker, init$, void)},
+		{"addPropertyChangeListener", "(Ljava/beans/PropertyChangeListener;)V", nullptr, $PUBLIC | $FINAL, $method(SwingWorker, addPropertyChangeListener, void, $PropertyChangeListener*)},
+		{"cancel", "(Z)Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(SwingWorker, cancel, bool, bool)},
+		{"doInBackground", "()Ljava/lang/Object;", "()TT;", $PROTECTED | $ABSTRACT, $virtualMethod(SwingWorker, doInBackground, $Object*), "java.lang.Exception"},
+		{"done", "()V", nullptr, $PROTECTED, $virtualMethod(SwingWorker, done, void)},
+		{"doneEDT", "()V", nullptr, $PRIVATE, $method(SwingWorker, doneEDT, void)},
+		{"execute", "()V", nullptr, $PUBLIC | $FINAL, $method(SwingWorker, execute, void)},
+		{"firePropertyChange", "(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC | $FINAL, $method(SwingWorker, firePropertyChange, void, $String*, Object$*, Object$*)},
+		{"get", "()Ljava/lang/Object;", "()TT;", $PUBLIC | $FINAL, $virtualMethod(SwingWorker, get, $Object*), "java.lang.InterruptedException,java.util.concurrent.ExecutionException"},
+		{"get", "(JLjava/util/concurrent/TimeUnit;)Ljava/lang/Object;", "(JLjava/util/concurrent/TimeUnit;)TT;", $PUBLIC | $FINAL, $virtualMethod(SwingWorker, get, $Object*, int64_t, $TimeUnit*), "java.lang.InterruptedException,java.util.concurrent.ExecutionException,java.util.concurrent.TimeoutException"},
+		{"getDoSubmit", "()Lsun/swing/AccumulativeRunnable;", "()Lsun/swing/AccumulativeRunnable<Ljava/lang/Runnable;>;", $PRIVATE | $STATIC, $staticMethod(SwingWorker, getDoSubmit, $AccumulativeRunnable*)},
+		{"getProgress", "()I", nullptr, $PUBLIC | $FINAL, $method(SwingWorker, getProgress, int32_t)},
+		{"getPropertyChangeSupport", "()Ljava/beans/PropertyChangeSupport;", nullptr, $PUBLIC | $FINAL, $method(SwingWorker, getPropertyChangeSupport, $PropertyChangeSupport*)},
+		{"getState", "()Ljavax/swing/SwingWorker$StateValue;", nullptr, $PUBLIC | $FINAL, $method(SwingWorker, getState, $SwingWorker$StateValue*)},
+		{"getWorkersExecutorService", "()Ljava/util/concurrent/ExecutorService;", nullptr, $PRIVATE | $STATIC | $SYNCHRONIZED, $staticMethod(SwingWorker, getWorkersExecutorService, $ExecutorService*)},
+		{"isCancelled", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(SwingWorker, isCancelled, bool)},
+		{"isDone", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(SwingWorker, isDone, bool)},
+		{"process", "(Ljava/util/List;)V", "(Ljava/util/List<TV;>;)V", $PROTECTED, $virtualMethod(SwingWorker, process, void, $List*)},
+		{"publish", "([Ljava/lang/Object;)V", "([TV;)V", $PROTECTED | $FINAL | $TRANSIENT, $method(SwingWorker, publish, void, $ObjectArray*), nullptr, nullptr, publishmethodAnnotations$$},
+		{"removePropertyChangeListener", "(Ljava/beans/PropertyChangeListener;)V", nullptr, $PUBLIC | $FINAL, $method(SwingWorker, removePropertyChangeListener, void, $PropertyChangeListener*)},
+		{"run", "()V", nullptr, $PUBLIC | $FINAL, $virtualMethod(SwingWorker, run, void)},
+		{"setProgress", "(I)V", nullptr, $PROTECTED | $FINAL, $method(SwingWorker, setProgress, void, int32_t)},
+		{"setState", "(Ljavax/swing/SwingWorker$StateValue;)V", nullptr, $PRIVATE, $method(SwingWorker, setState, void, $SwingWorker$StateValue*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.SwingWorker$SwingWorkerPropertyChangeSupport", "javax.swing.SwingWorker", "SwingWorkerPropertyChangeSupport", $PRIVATE},
+		{"javax.swing.SwingWorker$DoSubmitAccumulativeRunnable", "javax.swing.SwingWorker", "DoSubmitAccumulativeRunnable", $PRIVATE | $STATIC},
+		{"javax.swing.SwingWorker$StateValue", "javax.swing.SwingWorker", "StateValue", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{"javax.swing.SwingWorker$7", nullptr, nullptr, 0},
+		{"javax.swing.SwingWorker$6", nullptr, nullptr, 0},
+		{"javax.swing.SwingWorker$5", nullptr, nullptr, 0},
+		{"javax.swing.SwingWorker$4", nullptr, nullptr, 0},
+		{"javax.swing.SwingWorker$3", nullptr, nullptr, 0},
+		{"javax.swing.SwingWorker$2", nullptr, nullptr, 0},
+		{"javax.swing.SwingWorker$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"javax.swing.SwingWorker",
+		"java.lang.Object",
+		"java.util.concurrent.RunnableFuture",
+		fieldInfos$$,
+		methodInfos$$,
+		"<T:Ljava/lang/Object;V:Ljava/lang/Object;>Ljava/lang/Object;Ljava/util/concurrent/RunnableFuture<TT;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.swing.SwingWorker$SwingWorkerPropertyChangeSupport,javax.swing.SwingWorker$SwingWorkerPropertyChangeSupport$1,javax.swing.SwingWorker$DoSubmitAccumulativeRunnable,javax.swing.SwingWorker$StateValue,javax.swing.SwingWorker$7,javax.swing.SwingWorker$7$1,javax.swing.SwingWorker$6,javax.swing.SwingWorker$5,javax.swing.SwingWorker$4,javax.swing.SwingWorker$3,javax.swing.SwingWorker$2,javax.swing.SwingWorker$1"
+	};
+	$loadClass(SwingWorker, name, initialize, &classInfo$$, SwingWorker::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SwingWorker));
+	});
 	return class$;
 }
 

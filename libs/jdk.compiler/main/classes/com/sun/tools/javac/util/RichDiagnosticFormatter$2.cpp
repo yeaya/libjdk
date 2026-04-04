@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/util/RichDiagnosticFormatter$2.h>
-
 #include <com/sun/tools/javac/code/Symbol$ClassSymbol.h>
 #include <com/sun/tools/javac/code/Symbol$MethodSymbol.h>
 #include <com/sun/tools/javac/code/Symbol.h>
@@ -13,11 +12,8 @@
 using $Symbol = ::com::sun::tools::javac::code::Symbol;
 using $Symbol$ClassSymbol = ::com::sun::tools::javac::code::Symbol$ClassSymbol;
 using $Symbol$MethodSymbol = ::com::sun::tools::javac::code::Symbol$MethodSymbol;
-using $Type = ::com::sun::tools::javac::code::Type;
 using $Types$DefaultSymbolVisitor = ::com::sun::tools::javac::code::Types$DefaultSymbolVisitor;
-using $Types$UnaryVisitor = ::com::sun::tools::javac::code::Types$UnaryVisitor;
 using $RichDiagnosticFormatter = ::com::sun::tools::javac::util::RichDiagnosticFormatter;
-using $RichDiagnosticFormatter$ClassNameSimplifier = ::com::sun::tools::javac::util::RichDiagnosticFormatter$ClassNameSimplifier;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -30,54 +26,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace util {
-
-$FieldInfo _RichDiagnosticFormatter$2_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/util/RichDiagnosticFormatter;", nullptr, $FINAL | $SYNTHETIC, $field(RichDiagnosticFormatter$2, this$0)},
-	{}
-};
-
-$MethodInfo _RichDiagnosticFormatter$2_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/util/RichDiagnosticFormatter;)V", nullptr, 0, $method(RichDiagnosticFormatter$2, init$, void, $RichDiagnosticFormatter*)},
-	{"visitClassSymbol", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;Ljava/lang/Void;)Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(RichDiagnosticFormatter$2, visitClassSymbol, $Void*, $Symbol$ClassSymbol*, $Void*)},
-	{"visitClassSymbol", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(RichDiagnosticFormatter$2, visitClassSymbol, $Object*, $Symbol$ClassSymbol*, Object$*)},
-	{"visitMethodSymbol", "(Lcom/sun/tools/javac/code/Symbol$MethodSymbol;Ljava/lang/Void;)Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(RichDiagnosticFormatter$2, visitMethodSymbol, $Void*, $Symbol$MethodSymbol*, $Void*)},
-	{"visitMethodSymbol", "(Lcom/sun/tools/javac/code/Symbol$MethodSymbol;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(RichDiagnosticFormatter$2, visitMethodSymbol, $Object*, $Symbol$MethodSymbol*, Object$*)},
-	{"visitSymbol", "(Lcom/sun/tools/javac/code/Symbol;Ljava/lang/Void;)Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(RichDiagnosticFormatter$2, visitSymbol, $Void*, $Symbol*, $Void*)},
-	{"visitSymbol", "(Lcom/sun/tools/javac/code/Symbol;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(RichDiagnosticFormatter$2, visitSymbol, $Object*, $Symbol*, Object$*)},
-	{}
-};
-
-$EnclosingMethodInfo _RichDiagnosticFormatter$2_EnclosingMethodInfo_ = {
-	"com.sun.tools.javac.util.RichDiagnosticFormatter",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _RichDiagnosticFormatter$2_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.util.RichDiagnosticFormatter$2", nullptr, nullptr, 0},
-	{"com.sun.tools.javac.code.Types$DefaultSymbolVisitor", "com.sun.tools.javac.code.Types", "DefaultSymbolVisitor", $PUBLIC | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _RichDiagnosticFormatter$2_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.util.RichDiagnosticFormatter$2",
-	"com.sun.tools.javac.code.Types$DefaultSymbolVisitor",
-	nullptr,
-	_RichDiagnosticFormatter$2_FieldInfo_,
-	_RichDiagnosticFormatter$2_MethodInfo_,
-	"Lcom/sun/tools/javac/code/Types$DefaultSymbolVisitor<Ljava/lang/Void;Ljava/lang/Void;>;",
-	&_RichDiagnosticFormatter$2_EnclosingMethodInfo_,
-	_RichDiagnosticFormatter$2_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.util.RichDiagnosticFormatter"
-};
-
-$Object* allocate$RichDiagnosticFormatter$2($Class* clazz) {
-	return $of($alloc(RichDiagnosticFormatter$2));
-}
 
 void RichDiagnosticFormatter$2::init$($RichDiagnosticFormatter* this$0) {
 	$set(this, this$0, this$0);
@@ -99,29 +47,70 @@ $Void* RichDiagnosticFormatter$2::visitSymbol($Symbol* s, $Void* ignored) {
 
 $Void* RichDiagnosticFormatter$2::visitMethodSymbol($Symbol$MethodSymbol* s, $Void* ignored) {
 	visit($nc(s)->owner, nullptr);
-	if ($nc(s)->type != nullptr) {
+	if (s->type != nullptr) {
 		$nc(this->this$0->typePreprocessor)->visit(s->type);
 	}
 	return nullptr;
 }
 
 $Object* RichDiagnosticFormatter$2::visitMethodSymbol($Symbol$MethodSymbol* s, Object$* ignored) {
-	return $of(this->visitMethodSymbol(s, $cast($Void, ignored)));
+	return this->visitMethodSymbol(s, $cast($Void, ignored));
 }
 
 $Object* RichDiagnosticFormatter$2::visitClassSymbol($Symbol$ClassSymbol* s, Object$* ignored) {
-	return $of(this->visitClassSymbol(s, $cast($Void, ignored)));
+	return this->visitClassSymbol(s, $cast($Void, ignored));
 }
 
 $Object* RichDiagnosticFormatter$2::visitSymbol($Symbol* s, Object$* ignored) {
-	return $of(this->visitSymbol(s, $cast($Void, ignored)));
+	return this->visitSymbol(s, $cast($Void, ignored));
 }
 
 RichDiagnosticFormatter$2::RichDiagnosticFormatter$2() {
 }
 
 $Class* RichDiagnosticFormatter$2::load$($String* name, bool initialize) {
-	$loadClass(RichDiagnosticFormatter$2, name, initialize, &_RichDiagnosticFormatter$2_ClassInfo_, allocate$RichDiagnosticFormatter$2);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/util/RichDiagnosticFormatter;", nullptr, $FINAL | $SYNTHETIC, $field(RichDiagnosticFormatter$2, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/util/RichDiagnosticFormatter;)V", nullptr, 0, $method(RichDiagnosticFormatter$2, init$, void, $RichDiagnosticFormatter*)},
+		{"visitClassSymbol", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;Ljava/lang/Void;)Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(RichDiagnosticFormatter$2, visitClassSymbol, $Void*, $Symbol$ClassSymbol*, $Void*)},
+		{"visitClassSymbol", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(RichDiagnosticFormatter$2, visitClassSymbol, $Object*, $Symbol$ClassSymbol*, Object$*)},
+		{"visitMethodSymbol", "(Lcom/sun/tools/javac/code/Symbol$MethodSymbol;Ljava/lang/Void;)Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(RichDiagnosticFormatter$2, visitMethodSymbol, $Void*, $Symbol$MethodSymbol*, $Void*)},
+		{"visitMethodSymbol", "(Lcom/sun/tools/javac/code/Symbol$MethodSymbol;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(RichDiagnosticFormatter$2, visitMethodSymbol, $Object*, $Symbol$MethodSymbol*, Object$*)},
+		{"visitSymbol", "(Lcom/sun/tools/javac/code/Symbol;Ljava/lang/Void;)Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(RichDiagnosticFormatter$2, visitSymbol, $Void*, $Symbol*, $Void*)},
+		{"visitSymbol", "(Lcom/sun/tools/javac/code/Symbol;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(RichDiagnosticFormatter$2, visitSymbol, $Object*, $Symbol*, Object$*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.tools.javac.util.RichDiagnosticFormatter",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.util.RichDiagnosticFormatter$2", nullptr, nullptr, 0},
+		{"com.sun.tools.javac.code.Types$DefaultSymbolVisitor", "com.sun.tools.javac.code.Types", "DefaultSymbolVisitor", $PUBLIC | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.util.RichDiagnosticFormatter$2",
+		"com.sun.tools.javac.code.Types$DefaultSymbolVisitor",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Lcom/sun/tools/javac/code/Types$DefaultSymbolVisitor<Ljava/lang/Void;Ljava/lang/Void;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.util.RichDiagnosticFormatter"
+	};
+	$loadClass(RichDiagnosticFormatter$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RichDiagnosticFormatter$2);
+	});
 	return class$;
 }
 

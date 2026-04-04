@@ -1,5 +1,4 @@
 #include <javax/management/ListenerNotFoundException.h>
-
 #include <javax/management/OperationsException.h>
 #include <jcpp.h>
 
@@ -10,30 +9,6 @@ using $OperationsException = ::javax::management::OperationsException;
 
 namespace javax {
 	namespace management {
-
-$FieldInfo _ListenerNotFoundException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ListenerNotFoundException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _ListenerNotFoundException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ListenerNotFoundException, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ListenerNotFoundException, init$, void, $String*)},
-	{}
-};
-
-$ClassInfo _ListenerNotFoundException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.management.ListenerNotFoundException",
-	"javax.management.OperationsException",
-	nullptr,
-	_ListenerNotFoundException_FieldInfo_,
-	_ListenerNotFoundException_MethodInfo_
-};
-
-$Object* allocate$ListenerNotFoundException($Class* clazz) {
-	return $of($alloc(ListenerNotFoundException));
-}
 
 void ListenerNotFoundException::init$() {
 	$OperationsException::init$();
@@ -54,7 +29,26 @@ void ListenerNotFoundException::throw$() {
 }
 
 $Class* ListenerNotFoundException::load$($String* name, bool initialize) {
-	$loadClass(ListenerNotFoundException, name, initialize, &_ListenerNotFoundException_ClassInfo_, allocate$ListenerNotFoundException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ListenerNotFoundException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ListenerNotFoundException, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ListenerNotFoundException, init$, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.management.ListenerNotFoundException",
+		"javax.management.OperationsException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ListenerNotFoundException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ListenerNotFoundException);
+	});
 	return class$;
 }
 

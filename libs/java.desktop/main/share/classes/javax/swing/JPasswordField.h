@@ -31,6 +31,7 @@ class $export JPasswordField : public ::javax::swing::JTextField {
 	$class(JPasswordField, 0, ::javax::swing::JTextField)
 public:
 	JPasswordField();
+	static void clinit$(::java::lang::Class* clazz);
 	using ::javax::swing::JTextField::getToolTipText;
 	using ::javax::swing::JTextField::contains;
 	using ::javax::swing::JTextField::enable;

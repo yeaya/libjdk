@@ -1,12 +1,10 @@
 #include <com/sun/tools/javac/code/Attribute$Enum.h>
-
 #include <com/sun/tools/javac/code/Attribute$Visitor.h>
 #include <com/sun/tools/javac/code/Attribute.h>
 #include <com/sun/tools/javac/code/Symbol$VarSymbol.h>
 #include <com/sun/tools/javac/code/Type.h>
 #include <com/sun/tools/javac/util/Assert.h>
 #include <javax/lang/model/element/AnnotationValueVisitor.h>
-#include <javax/lang/model/element/VariableElement.h>
 #include <jcpp.h>
 
 using $Attribute = ::com::sun::tools::javac::code::Attribute;
@@ -19,52 +17,12 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AnnotationValueVisitor = ::javax::lang::model::element::AnnotationValueVisitor;
-using $VariableElement = ::javax::lang::model::element::VariableElement;
 
 namespace com {
 	namespace sun {
 		namespace tools {
 			namespace javac {
 				namespace code {
-
-$FieldInfo _Attribute$Enum_FieldInfo_[] = {
-	{"value", "Lcom/sun/tools/javac/code/Symbol$VarSymbol;", nullptr, $PUBLIC, $field(Attribute$Enum, value)},
-	{}
-};
-
-$MethodInfo _Attribute$Enum_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol$VarSymbol;)V", nullptr, $PUBLIC, $method(Attribute$Enum, init$, void, $Type*, $Symbol$VarSymbol*)},
-	{"accept", "(Lcom/sun/tools/javac/code/Attribute$Visitor;)V", nullptr, $PUBLIC, $virtualMethod(Attribute$Enum, accept, void, $Attribute$Visitor*)},
-	{"accept", "(Ljavax/lang/model/element/AnnotationValueVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;P:Ljava/lang/Object;>(Ljavax/lang/model/element/AnnotationValueVisitor<TR;TP;>;TP;)TR;", $PUBLIC, $virtualMethod(Attribute$Enum, accept, $Object*, $AnnotationValueVisitor*, Object$*)},
-	{"getValue", "()Lcom/sun/tools/javac/code/Symbol$VarSymbol;", nullptr, $PUBLIC, $virtualMethod(Attribute$Enum, getValue, $Object*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Attribute$Enum, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _Attribute$Enum_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.code.Attribute$Enum", "com.sun.tools.javac.code.Attribute", "Enum", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _Attribute$Enum_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.code.Attribute$Enum",
-	"com.sun.tools.javac.code.Attribute",
-	nullptr,
-	_Attribute$Enum_FieldInfo_,
-	_Attribute$Enum_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Attribute$Enum_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.code.Attribute"
-};
-
-$Object* allocate$Attribute$Enum($Class* clazz) {
-	return $of($alloc(Attribute$Enum));
-}
 
 void Attribute$Enum::init$($Type* type, $Symbol$VarSymbol* value) {
 	$Attribute::init$(type);
@@ -84,14 +42,47 @@ $Object* Attribute$Enum::getValue() {
 }
 
 $Object* Attribute$Enum::accept($AnnotationValueVisitor* v, Object$* p) {
-	return $of($nc(v)->visitEnumConstant(this->value, p));
+	return $nc(v)->visitEnumConstant(this->value, p);
 }
 
 Attribute$Enum::Attribute$Enum() {
 }
 
 $Class* Attribute$Enum::load$($String* name, bool initialize) {
-	$loadClass(Attribute$Enum, name, initialize, &_Attribute$Enum_ClassInfo_, allocate$Attribute$Enum);
+	$FieldInfo fieldInfos$$[] = {
+		{"value", "Lcom/sun/tools/javac/code/Symbol$VarSymbol;", nullptr, $PUBLIC, $field(Attribute$Enum, value)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol$VarSymbol;)V", nullptr, $PUBLIC, $method(Attribute$Enum, init$, void, $Type*, $Symbol$VarSymbol*)},
+		{"accept", "(Lcom/sun/tools/javac/code/Attribute$Visitor;)V", nullptr, $PUBLIC, $virtualMethod(Attribute$Enum, accept, void, $Attribute$Visitor*)},
+		{"accept", "(Ljavax/lang/model/element/AnnotationValueVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;P:Ljava/lang/Object;>(Ljavax/lang/model/element/AnnotationValueVisitor<TR;TP;>;TP;)TR;", $PUBLIC, $virtualMethod(Attribute$Enum, accept, $Object*, $AnnotationValueVisitor*, Object$*)},
+		{"getValue", "()Lcom/sun/tools/javac/code/Symbol$VarSymbol;", nullptr, $PUBLIC, $virtualMethod(Attribute$Enum, getValue, $Object*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Attribute$Enum, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.code.Attribute$Enum", "com.sun.tools.javac.code.Attribute", "Enum", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.code.Attribute$Enum",
+		"com.sun.tools.javac.code.Attribute",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.code.Attribute"
+	};
+	$loadClass(Attribute$Enum, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Attribute$Enum);
+	});
 	return class$;
 }
 

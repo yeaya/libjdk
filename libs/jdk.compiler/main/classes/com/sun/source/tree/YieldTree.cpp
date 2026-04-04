@@ -1,5 +1,4 @@
 #include <com/sun/source/tree/YieldTree.h>
-
 #include <com/sun/source/tree/ExpressionTree.h>
 #include <jcpp.h>
 
@@ -12,26 +11,22 @@ namespace com {
 		namespace source {
 			namespace tree {
 
-$MethodInfo _YieldTree_MethodInfo_[] = {
-	{"getValue", "()Lcom/sun/source/tree/ExpressionTree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(YieldTree, getValue, $ExpressionTree*)},
-	{}
-};
-
-$ClassInfo _YieldTree_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.source.tree.YieldTree",
-	nullptr,
-	"com.sun.source.tree.StatementTree",
-	nullptr,
-	_YieldTree_MethodInfo_
-};
-
-$Object* allocate$YieldTree($Class* clazz) {
-	return $of($alloc(YieldTree));
-}
-
 $Class* YieldTree::load$($String* name, bool initialize) {
-	$loadClass(YieldTree, name, initialize, &_YieldTree_ClassInfo_, allocate$YieldTree);
+	$MethodInfo methodInfos$$[] = {
+		{"getValue", "()Lcom/sun/source/tree/ExpressionTree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(YieldTree, getValue, $ExpressionTree*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.source.tree.YieldTree",
+		nullptr,
+		"com.sun.source.tree.StatementTree",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(YieldTree, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(YieldTree);
+	});
 	return class$;
 }
 

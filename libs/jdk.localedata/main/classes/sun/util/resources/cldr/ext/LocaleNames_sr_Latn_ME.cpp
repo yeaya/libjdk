@@ -1,5 +1,4 @@
 #include <sun/util/resources/cldr/ext/LocaleNames_sr_Latn_ME.h>
-
 #include <sun/util/resources/OpenListResourceBundle.h>
 #include <jcpp.h>
 
@@ -14,131 +13,112 @@ namespace sun {
 			namespace cldr {
 				namespace ext {
 
-$MethodInfo _LocaleNames_sr_Latn_ME_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(LocaleNames_sr_Latn_ME, init$, void)},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(LocaleNames_sr_Latn_ME, getContents, $ObjectArray2*)},
-	{}
-};
-
-$ClassInfo _LocaleNames_sr_Latn_ME_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.util.resources.cldr.ext.LocaleNames_sr_Latn_ME",
-	"sun.util.resources.OpenListResourceBundle",
-	nullptr,
-	nullptr,
-	_LocaleNames_sr_Latn_ME_MethodInfo_
-};
-
-$Object* allocate$LocaleNames_sr_Latn_ME($Class* clazz) {
-	return $of($alloc(LocaleNames_sr_Latn_ME));
-}
-
 void LocaleNames_sr_Latn_ME::init$() {
 	$OpenListResourceBundle::init$();
 }
 
 $ObjectArray2* LocaleNames_sr_Latn_ME::getContents() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectArray2, data, $new($ObjectArray2, {
 		$$new($ObjectArray, {
-			$of("BY"_s),
-			$of("Bjelorusija"_s)
+			"BY"_s,
+			"Bjelorusija"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CG"_s),
-			$of("Kongo"_s)
+			"CG"_s,
+			"Kongo"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CZ"_s),
-			$of(u"Češka Republika"_s)
+			"CZ"_s,
+			u"Češka Republika"_s
 		}),
 		$$new($ObjectArray, {
-			$of("DE"_s),
-			$of(u"Njemačka"_s)
+			"DE"_s,
+			u"Njemačka"_s
 		}),
 		$$new($ObjectArray, {
-			$of("KN"_s),
-			$of("Sveti Kits i Nevis"_s)
+			"KN"_s,
+			"Sveti Kits i Nevis"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PM"_s),
-			$of("Sveti Pjer i Mikelon"_s)
+			"PM"_s,
+			"Sveti Pjer i Mikelon"_s
 		}),
 		$$new($ObjectArray, {
-			$of("RE"_s),
-			$of("Reunion"_s)
+			"RE"_s,
+			"Reunion"_s
 		}),
 		$$new($ObjectArray, {
-			$of("UM"_s),
-			$of("Manja udaljena ostrva SAD"_s)
+			"UM"_s,
+			"Manja udaljena ostrva SAD"_s
 		}),
 		$$new($ObjectArray, {
-			$of("VC"_s),
-			$of("Sveti Vinsent i Grenadini"_s)
+			"VC"_s,
+			"Sveti Vinsent i Grenadini"_s
 		}),
 		$$new($ObjectArray, {
-			$of("VG"_s),
-			$of(u"Britanska Djevičanska Ostrva"_s)
+			"VG"_s,
+			u"Britanska Djevičanska Ostrva"_s
 		}),
 		$$new($ObjectArray, {
-			$of("VI"_s),
-			$of(u"Američka Djevičanska Ostrva"_s)
+			"VI"_s,
+			u"Američka Djevičanska Ostrva"_s
 		}),
 		$$new($ObjectArray, {
-			$of("be"_s),
-			$of("bjeloruski"_s)
+			"be"_s,
+			"bjeloruski"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bm"_s),
-			$of("bamanankan"_s)
+			"bm"_s,
+			"bamanankan"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bn"_s),
-			$of("bangla"_s)
+			"bn"_s,
+			"bangla"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ff"_s),
-			$of("fulah"_s)
+			"ff"_s,
+			"fulah"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ht"_s),
-			$of(u"haićanski kreolski"_s)
+			"ht"_s,
+			u"haićanski kreolski"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lo"_s),
-			$of(u"laoški"_s)
+			"lo"_s,
+			u"laoški"_s
 		}),
 		$$new($ObjectArray, {
-			$of("xh"_s),
-			$of("isikosa"_s)
+			"xh"_s,
+			"isikosa"_s
 		}),
 		$$new($ObjectArray, {
-			$of("zu"_s),
-			$of("isizulu"_s)
+			"zu"_s,
+			"isizulu"_s
 		}),
 		$$new($ObjectArray, {
-			$of("arn"_s),
-			$of("mapudungun"_s)
+			"arn"_s,
+			"mapudungun"_s
 		}),
 		$$new($ObjectArray, {
-			$of("moh"_s),
-			$of("mohok"_s)
+			"moh"_s,
+			"mohok"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nqo"_s),
-			$of(u"n’ko"_s)
+			"nqo"_s,
+			u"n’ko"_s
 		}),
 		$$new($ObjectArray, {
-			$of("shi"_s),
-			$of(u"južni šilha"_s)
+			"shi"_s,
+			u"južni šilha"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tzm"_s),
-			$of(u"centralnoatlaski tamašek"_s)
+			"tzm"_s,
+			u"centralnoatlaski tamašek"_s
 		}),
 		$$new($ObjectArray, {
-			$of("zgh"_s),
-			$of(u"standardni marokanski tamašek"_s)
+			"zgh"_s,
+			u"standardni marokanski tamašek"_s
 		})
 	}));
 	return data;
@@ -148,7 +128,22 @@ LocaleNames_sr_Latn_ME::LocaleNames_sr_Latn_ME() {
 }
 
 $Class* LocaleNames_sr_Latn_ME::load$($String* name, bool initialize) {
-	$loadClass(LocaleNames_sr_Latn_ME, name, initialize, &_LocaleNames_sr_Latn_ME_ClassInfo_, allocate$LocaleNames_sr_Latn_ME);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(LocaleNames_sr_Latn_ME, init$, void)},
+		{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(LocaleNames_sr_Latn_ME, getContents, $ObjectArray2*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.util.resources.cldr.ext.LocaleNames_sr_Latn_ME",
+		"sun.util.resources.OpenListResourceBundle",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(LocaleNames_sr_Latn_ME, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LocaleNames_sr_Latn_ME);
+	});
 	return class$;
 }
 

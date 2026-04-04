@@ -16,6 +16,7 @@ class $export bug7010561 : public ::java::lang::Object {
 	$class(bug7010561, 0, ::java::lang::Object)
 public:
 	bug7010561();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void main($StringArray* args);
 	static $ints* TAB_PLACEMENT;

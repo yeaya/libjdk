@@ -1,5 +1,4 @@
 #include <com/sun/source/tree/UnionTypeTree.h>
-
 #include <java/util/List.h>
 #include <jcpp.h>
 
@@ -12,26 +11,22 @@ namespace com {
 		namespace source {
 			namespace tree {
 
-$MethodInfo _UnionTypeTree_MethodInfo_[] = {
-	{"getTypeAlternatives", "()Ljava/util/List;", "()Ljava/util/List<+Lcom/sun/source/tree/Tree;>;", $PUBLIC | $ABSTRACT, $virtualMethod(UnionTypeTree, getTypeAlternatives, $List*)},
-	{}
-};
-
-$ClassInfo _UnionTypeTree_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.source.tree.UnionTypeTree",
-	nullptr,
-	"com.sun.source.tree.Tree",
-	nullptr,
-	_UnionTypeTree_MethodInfo_
-};
-
-$Object* allocate$UnionTypeTree($Class* clazz) {
-	return $of($alloc(UnionTypeTree));
-}
-
 $Class* UnionTypeTree::load$($String* name, bool initialize) {
-	$loadClass(UnionTypeTree, name, initialize, &_UnionTypeTree_ClassInfo_, allocate$UnionTypeTree);
+	$MethodInfo methodInfos$$[] = {
+		{"getTypeAlternatives", "()Ljava/util/List;", "()Ljava/util/List<+Lcom/sun/source/tree/Tree;>;", $PUBLIC | $ABSTRACT, $virtualMethod(UnionTypeTree, getTypeAlternatives, $List*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.source.tree.UnionTypeTree",
+		nullptr,
+		"com.sun.source.tree.Tree",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(UnionTypeTree, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(UnionTypeTree);
+	});
 	return class$;
 }
 

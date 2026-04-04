@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/metal/MetalTitlePane$PropertyChangeHandler.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Frame.h>
 #include <java/beans/PropertyChangeEvent.h>
@@ -13,7 +12,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $JRootPane = ::javax::swing::JRootPane;
 using $MetalTitlePane = ::javax::swing::plaf::metal::MetalTitlePane;
 
 namespace javax {
@@ -21,48 +19,12 @@ namespace javax {
 		namespace plaf {
 			namespace metal {
 
-$FieldInfo _MetalTitlePane$PropertyChangeHandler_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/plaf/metal/MetalTitlePane;", nullptr, $FINAL | $SYNTHETIC, $field(MetalTitlePane$PropertyChangeHandler, this$0)},
-	{}
-};
-
-$MethodInfo _MetalTitlePane$PropertyChangeHandler_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/plaf/metal/MetalTitlePane;)V", nullptr, $PRIVATE, $method(MetalTitlePane$PropertyChangeHandler, init$, void, $MetalTitlePane*)},
-	{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(MetalTitlePane$PropertyChangeHandler, propertyChange, void, $PropertyChangeEvent*)},
-	{}
-};
-
-$InnerClassInfo _MetalTitlePane$PropertyChangeHandler_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.metal.MetalTitlePane$PropertyChangeHandler", "javax.swing.plaf.metal.MetalTitlePane", "PropertyChangeHandler", $PRIVATE},
-	{}
-};
-
-$ClassInfo _MetalTitlePane$PropertyChangeHandler_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.metal.MetalTitlePane$PropertyChangeHandler",
-	"java.lang.Object",
-	"java.beans.PropertyChangeListener",
-	_MetalTitlePane$PropertyChangeHandler_FieldInfo_,
-	_MetalTitlePane$PropertyChangeHandler_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MetalTitlePane$PropertyChangeHandler_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.metal.MetalTitlePane"
-};
-
-$Object* allocate$MetalTitlePane$PropertyChangeHandler($Class* clazz) {
-	return $of($alloc(MetalTitlePane$PropertyChangeHandler));
-}
-
 void MetalTitlePane$PropertyChangeHandler::init$($MetalTitlePane* this$0) {
 	$set(this, this$0, this$0);
 }
 
 void MetalTitlePane$PropertyChangeHandler::propertyChange($PropertyChangeEvent* pce) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, name, $nc(pce)->getPropertyName());
 	bool var$0 = "resizable"_s->equals(name);
 	if (var$0 || "state"_s->equals(name)) {
@@ -71,7 +33,7 @@ void MetalTitlePane$PropertyChangeHandler::propertyChange($PropertyChangeEvent* 
 			this->this$0->setState(frame->getExtendedState(), true);
 		}
 		if ("resizable"_s->equals(name)) {
-			$nc($(this->this$0->getRootPane()))->repaint();
+			$$nc(this->this$0->getRootPane())->repaint();
 		}
 	} else if ("title"_s->equals(name)) {
 		this->this$0->repaint();
@@ -89,7 +51,37 @@ MetalTitlePane$PropertyChangeHandler::MetalTitlePane$PropertyChangeHandler() {
 }
 
 $Class* MetalTitlePane$PropertyChangeHandler::load$($String* name, bool initialize) {
-	$loadClass(MetalTitlePane$PropertyChangeHandler, name, initialize, &_MetalTitlePane$PropertyChangeHandler_ClassInfo_, allocate$MetalTitlePane$PropertyChangeHandler);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/plaf/metal/MetalTitlePane;", nullptr, $FINAL | $SYNTHETIC, $field(MetalTitlePane$PropertyChangeHandler, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/plaf/metal/MetalTitlePane;)V", nullptr, $PRIVATE, $method(MetalTitlePane$PropertyChangeHandler, init$, void, $MetalTitlePane*)},
+		{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(MetalTitlePane$PropertyChangeHandler, propertyChange, void, $PropertyChangeEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.metal.MetalTitlePane$PropertyChangeHandler", "javax.swing.plaf.metal.MetalTitlePane", "PropertyChangeHandler", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.metal.MetalTitlePane$PropertyChangeHandler",
+		"java.lang.Object",
+		"java.beans.PropertyChangeListener",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.metal.MetalTitlePane"
+	};
+	$loadClass(MetalTitlePane$PropertyChangeHandler, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MetalTitlePane$PropertyChangeHandler);
+	});
 	return class$;
 }
 

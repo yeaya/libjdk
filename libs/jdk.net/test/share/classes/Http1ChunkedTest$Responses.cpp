@@ -1,5 +1,4 @@
 #include <Http1ChunkedTest$Responses.h>
-
 #include <Http1ChunkedTest$Data.h>
 #include <Http1ChunkedTest.h>
 #include <java/lang/Enum.h>
@@ -28,54 +27,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $List = ::java::util::List;
-
-$FieldInfo _Http1ChunkedTest$Responses_FieldInfo_[] = {
-	{"REQ0", "LHttp1ChunkedTest$Responses;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Http1ChunkedTest$Responses, REQ0)},
-	{"REQ1", "LHttp1ChunkedTest$Responses;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Http1ChunkedTest$Responses, REQ1)},
-	{"REQ2", "LHttp1ChunkedTest$Responses;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Http1ChunkedTest$Responses, REQ2)},
-	{"REQ3", "LHttp1ChunkedTest$Responses;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Http1ChunkedTest$Responses, REQ3)},
-	{"REQ4", "LHttp1ChunkedTest$Responses;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Http1ChunkedTest$Responses, REQ4)},
-	{"REQ5", "LHttp1ChunkedTest$Responses;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Http1ChunkedTest$Responses, REQ5)},
-	{"$VALUES", "[LHttp1ChunkedTest$Responses;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(Http1ChunkedTest$Responses, $VALUES)},
-	{"headers", "Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $field(Http1ChunkedTest$Responses, headers)},
-	{"body", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/String;>;", $PUBLIC | $FINAL, $field(Http1ChunkedTest$Responses, body)},
-	{"delay", "J", nullptr, $PUBLIC | $FINAL, $field(Http1ChunkedTest$Responses, delay)},
-	{}
-};
-
-$MethodInfo _Http1ChunkedTest$Responses_MethodInfo_[] = {
-	{"$values", "()[LHttp1ChunkedTest$Responses;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Http1ChunkedTest$Responses, $values, $Http1ChunkedTest$ResponsesArray*)},
-	{"<init>", "(Ljava/lang/String;ILjava/lang/String;Ljava/util/List;)V", "(Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;)V", $PRIVATE, $method(Http1ChunkedTest$Responses, init$, void, $String*, int32_t, $String*, $List*)},
-	{"<init>", "(Ljava/lang/String;ILjava/lang/String;Ljava/util/List;J)V", "(Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;J)V", $PRIVATE, $method(Http1ChunkedTest$Responses, init$, void, $String*, int32_t, $String*, $List*, int64_t)},
-	{"valueOf", "(Ljava/lang/String;)LHttp1ChunkedTest$Responses;", nullptr, $PUBLIC | $STATIC, $staticMethod(Http1ChunkedTest$Responses, valueOf, Http1ChunkedTest$Responses*, $String*)},
-	{"values", "()[LHttp1ChunkedTest$Responses;", nullptr, $PUBLIC | $STATIC, $staticMethod(Http1ChunkedTest$Responses, values, $Http1ChunkedTest$ResponsesArray*)},
-	{}
-};
-
-$InnerClassInfo _Http1ChunkedTest$Responses_InnerClassesInfo_[] = {
-	{"Http1ChunkedTest$Responses", "Http1ChunkedTest", "Responses", $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _Http1ChunkedTest$Responses_ClassInfo_ = {
-	$FINAL | $ACC_SUPER | $ENUM,
-	"Http1ChunkedTest$Responses",
-	"java.lang.Enum",
-	nullptr,
-	_Http1ChunkedTest$Responses_FieldInfo_,
-	_Http1ChunkedTest$Responses_MethodInfo_,
-	"Ljava/lang/Enum<LHttp1ChunkedTest$Responses;>;",
-	nullptr,
-	_Http1ChunkedTest$Responses_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"Http1ChunkedTest"
-};
-
-$Object* allocate$Http1ChunkedTest$Responses($Class* clazz) {
-	return $of($alloc(Http1ChunkedTest$Responses));
-}
 
 Http1ChunkedTest$Responses* Http1ChunkedTest$Responses::REQ0 = nullptr;
 Http1ChunkedTest$Responses* Http1ChunkedTest$Responses::REQ1 = nullptr;
@@ -118,7 +69,7 @@ void Http1ChunkedTest$Responses::init$($String* $enum$name, int32_t $enum$ordina
 	this->delay = delay;
 }
 
-void clinit$Http1ChunkedTest$Responses($Class* class$) {
+void Http1ChunkedTest$Responses::clinit$($Class* clazz) {
 	$init($Http1ChunkedTest$Data);
 	$assignStatic(Http1ChunkedTest$Responses::REQ0, $new(Http1ChunkedTest$Responses, "REQ0"_s, 0, $Http1ChunkedTest$Data::RESPONSE_HEADERS, $Http1ChunkedTest$Data::REQ0_RESPONSE_BODY));
 	$assignStatic(Http1ChunkedTest$Responses::REQ1, $new(Http1ChunkedTest$Responses, "REQ1"_s, 1, $Http1ChunkedTest$Data::RESPONSE_HEADERS, $Http1ChunkedTest$Data::REQ1_RESPONSE_BODY));
@@ -133,7 +84,49 @@ Http1ChunkedTest$Responses::Http1ChunkedTest$Responses() {
 }
 
 $Class* Http1ChunkedTest$Responses::load$($String* name, bool initialize) {
-	$loadClass(Http1ChunkedTest$Responses, name, initialize, &_Http1ChunkedTest$Responses_ClassInfo_, clinit$Http1ChunkedTest$Responses, allocate$Http1ChunkedTest$Responses);
+	$FieldInfo fieldInfos$$[] = {
+		{"REQ0", "LHttp1ChunkedTest$Responses;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Http1ChunkedTest$Responses, REQ0)},
+		{"REQ1", "LHttp1ChunkedTest$Responses;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Http1ChunkedTest$Responses, REQ1)},
+		{"REQ2", "LHttp1ChunkedTest$Responses;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Http1ChunkedTest$Responses, REQ2)},
+		{"REQ3", "LHttp1ChunkedTest$Responses;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Http1ChunkedTest$Responses, REQ3)},
+		{"REQ4", "LHttp1ChunkedTest$Responses;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Http1ChunkedTest$Responses, REQ4)},
+		{"REQ5", "LHttp1ChunkedTest$Responses;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Http1ChunkedTest$Responses, REQ5)},
+		{"$VALUES", "[LHttp1ChunkedTest$Responses;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(Http1ChunkedTest$Responses, $VALUES)},
+		{"headers", "Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $field(Http1ChunkedTest$Responses, headers)},
+		{"body", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/String;>;", $PUBLIC | $FINAL, $field(Http1ChunkedTest$Responses, body)},
+		{"delay", "J", nullptr, $PUBLIC | $FINAL, $field(Http1ChunkedTest$Responses, delay)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[LHttp1ChunkedTest$Responses;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Http1ChunkedTest$Responses, $values, $Http1ChunkedTest$ResponsesArray*)},
+		{"<init>", "(Ljava/lang/String;ILjava/lang/String;Ljava/util/List;)V", "(Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;)V", $PRIVATE, $method(Http1ChunkedTest$Responses, init$, void, $String*, int32_t, $String*, $List*)},
+		{"<init>", "(Ljava/lang/String;ILjava/lang/String;Ljava/util/List;J)V", "(Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;J)V", $PRIVATE, $method(Http1ChunkedTest$Responses, init$, void, $String*, int32_t, $String*, $List*, int64_t)},
+		{"valueOf", "(Ljava/lang/String;)LHttp1ChunkedTest$Responses;", nullptr, $PUBLIC | $STATIC, $staticMethod(Http1ChunkedTest$Responses, valueOf, Http1ChunkedTest$Responses*, $String*)},
+		{"values", "()[LHttp1ChunkedTest$Responses;", nullptr, $PUBLIC | $STATIC, $staticMethod(Http1ChunkedTest$Responses, values, $Http1ChunkedTest$ResponsesArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"Http1ChunkedTest$Responses", "Http1ChunkedTest", "Responses", $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER | $ENUM,
+		"Http1ChunkedTest$Responses",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<LHttp1ChunkedTest$Responses;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"Http1ChunkedTest"
+	};
+	$loadClass(Http1ChunkedTest$Responses, name, initialize, &classInfo$$, Http1ChunkedTest$Responses::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Http1ChunkedTest$Responses));
+	});
 	return class$;
 }
 

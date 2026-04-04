@@ -22,6 +22,7 @@ class SJIS_0213$Holder : public ::java::lang::Object {
 	$class(SJIS_0213$Holder, 0, ::java::lang::Object)
 public:
 	SJIS_0213$Holder();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::sun::nio::cs::CharsetMapping* mapping;
 };

@@ -40,6 +40,7 @@ namespace java {
 class $export RemoteRef : public ::java::io::Externalizable {
 	$interface(RemoteRef, 0, ::java::io::Externalizable)
 public:
+	static void clinit$(::java::lang::Class* clazz);
 	virtual void done(::java::rmi::server::RemoteCall* call) {}
 	virtual $String* getRefClass(::java::io::ObjectOutput* out) {return nullptr;}
 	virtual $Object* invoke(::java::rmi::Remote* obj, ::java::lang::reflect::Method* method, $ObjectArray* params, int64_t opnum) {return nullptr;}
@@ -48,7 +49,7 @@ public:
 	virtual bool remoteEquals(::java::rmi::server::RemoteRef* obj) {return false;}
 	virtual int32_t remoteHashCode() {return 0;}
 	virtual $String* remoteToString() {return nullptr;}
-	static const int64_t serialVersionUID = (int64_t)0x3269B97E7CD281B1;
+	static const int64_t serialVersionUID = (int64_t)0x3269b97e7cd281b1;
 	static $String* packagePrefix;
 };
 

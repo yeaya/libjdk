@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/basic/BasicBorders$RadioButtonBorder.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/Graphics.h>
@@ -28,51 +27,18 @@ namespace javax {
 		namespace plaf {
 			namespace basic {
 
-$MethodInfo _BasicBorders$RadioButtonBorder_MethodInfo_[] = {
-	{"<init>", "(Ljava/awt/Color;Ljava/awt/Color;Ljava/awt/Color;Ljava/awt/Color;)V", nullptr, $PUBLIC, $method(BasicBorders$RadioButtonBorder, init$, void, $Color*, $Color*, $Color*, $Color*)},
-	{"getBorderInsets", "(Ljava/awt/Component;Ljava/awt/Insets;)Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(BasicBorders$RadioButtonBorder, getBorderInsets, $Insets*, $Component*, $Insets*)},
-	{"paintBorder", "(Ljava/awt/Component;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(BasicBorders$RadioButtonBorder, paintBorder, void, $Component*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{}
-};
-
-$InnerClassInfo _BasicBorders$RadioButtonBorder_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.basic.BasicBorders$RadioButtonBorder", "javax.swing.plaf.basic.BasicBorders", "RadioButtonBorder", $PUBLIC | $STATIC},
-	{"javax.swing.plaf.basic.BasicBorders$ButtonBorder", "javax.swing.plaf.basic.BasicBorders", "ButtonBorder", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _BasicBorders$RadioButtonBorder_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.basic.BasicBorders$RadioButtonBorder",
-	"javax.swing.plaf.basic.BasicBorders$ButtonBorder",
-	nullptr,
-	nullptr,
-	_BasicBorders$RadioButtonBorder_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BasicBorders$RadioButtonBorder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.basic.BasicBorders"
-};
-
-$Object* allocate$BasicBorders$RadioButtonBorder($Class* clazz) {
-	return $of($alloc(BasicBorders$RadioButtonBorder));
-}
-
 void BasicBorders$RadioButtonBorder::init$($Color* shadow, $Color* darkShadow, $Color* highlight, $Color* lightHighlight) {
 	$BasicBorders$ButtonBorder::init$(shadow, darkShadow, highlight, lightHighlight);
 }
 
 void BasicBorders$RadioButtonBorder::paintBorder($Component* c, $Graphics* g, int32_t x, int32_t y, int32_t width, int32_t height) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($instanceOf($AbstractButton, c)) {
 		$var($AbstractButton, b, $cast($AbstractButton, c));
-		$var($ButtonModel, model, $nc(b)->getModel());
+		$var($ButtonModel, model, b->getModel());
 		bool var$1 = $nc(model)->isArmed();
 		bool var$0 = var$1 && model->isPressed();
-		if (var$0 || $nc(model)->isSelected()) {
+		if (var$0 || model->isSelected()) {
 			$BasicGraphicsUtils::drawLoweredBezel(g, x, y, width, height, this->shadow, this->darkShadow, this->highlight, this->lightHighlight);
 		} else {
 			bool var$2 = b->isFocusPainted();
@@ -92,7 +58,35 @@ BasicBorders$RadioButtonBorder::BasicBorders$RadioButtonBorder() {
 }
 
 $Class* BasicBorders$RadioButtonBorder::load$($String* name, bool initialize) {
-	$loadClass(BasicBorders$RadioButtonBorder, name, initialize, &_BasicBorders$RadioButtonBorder_ClassInfo_, allocate$BasicBorders$RadioButtonBorder);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/Color;Ljava/awt/Color;Ljava/awt/Color;Ljava/awt/Color;)V", nullptr, $PUBLIC, $method(BasicBorders$RadioButtonBorder, init$, void, $Color*, $Color*, $Color*, $Color*)},
+		{"getBorderInsets", "(Ljava/awt/Component;Ljava/awt/Insets;)Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(BasicBorders$RadioButtonBorder, getBorderInsets, $Insets*, $Component*, $Insets*)},
+		{"paintBorder", "(Ljava/awt/Component;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(BasicBorders$RadioButtonBorder, paintBorder, void, $Component*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.basic.BasicBorders$RadioButtonBorder", "javax.swing.plaf.basic.BasicBorders", "RadioButtonBorder", $PUBLIC | $STATIC},
+		{"javax.swing.plaf.basic.BasicBorders$ButtonBorder", "javax.swing.plaf.basic.BasicBorders", "ButtonBorder", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.basic.BasicBorders$RadioButtonBorder",
+		"javax.swing.plaf.basic.BasicBorders$ButtonBorder",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.basic.BasicBorders"
+	};
+	$loadClass(BasicBorders$RadioButtonBorder, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(BasicBorders$RadioButtonBorder));
+	});
 	return class$;
 }
 

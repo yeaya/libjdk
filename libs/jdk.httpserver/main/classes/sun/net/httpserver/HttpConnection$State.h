@@ -22,6 +22,7 @@ class HttpConnection$State : public ::java::lang::Enum {
 public:
 	HttpConnection$State();
 	static $Array<::sun::net::httpserver::HttpConnection$State>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::sun::net::httpserver::HttpConnection$State* valueOf($String* name);
 	static $Array<::sun::net::httpserver::HttpConnection$State>* values();

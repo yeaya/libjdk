@@ -33,6 +33,7 @@ class $export MotifHiDPIIconsTest : public ::java::lang::Object {
 	$class(MotifHiDPIIconsTest, 0, ::java::lang::Object)
 public:
 	MotifHiDPIIconsTest();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::javax::swing::JPanel* createJPanel();
 	static void createUI();

@@ -35,6 +35,7 @@ class $import RelationTypeSupport : public ::javax::management::relation::Relati
 	$class(RelationTypeSupport, 0, ::javax::management::relation::RelationType)
 public:
 	RelationTypeSupport();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* relationTypeName, $Array<::javax::management::relation::RoleInfo>* roleInfoArray);
 	void init$($String* relationTypeName);
 	virtual void addRoleInfo(::javax::management::relation::RoleInfo* roleInfo);
@@ -46,8 +47,8 @@ public:
 	void readObject(::java::io::ObjectInputStream* in);
 	virtual void setRelationServiceFlag(bool flag);
 	void writeObject(::java::io::ObjectOutputStream* out);
-	static const int64_t oldSerialVersionUID = (int64_t)0x8E7E491FC7F2FF3A;
-	static const int64_t newSerialVersionUID = (int64_t)0x3FFDD26C37591FDF;
+	static const int64_t oldSerialVersionUID = (int64_t)0x8e7e491fc7f2ff3a;
+	static const int64_t newSerialVersionUID = (int64_t)0x3ffdd26c37591fdf;
 	static $Array<::java::io::ObjectStreamField>* oldSerialPersistentFields;
 	static $Array<::java::io::ObjectStreamField>* newSerialPersistentFields;
 	static int64_t serialVersionUID;

@@ -15,6 +15,7 @@ class LambdaToMethod$1 : public ::java::lang::Object {
 	$class(LambdaToMethod$1, 0, ::java::lang::Object)
 public:
 	LambdaToMethod$1();
+	static void clinit$(::java::lang::Class* clazz);
 	static $ints* $SwitchMap$javax$lang$model$type$TypeKind;
 	static $ints* $SwitchMap$com$sun$tools$javac$comp$LambdaToMethod$LambdaSymbolKind;
 	static $ints* $SwitchMap$com$sun$tools$javac$tree$JCTree$Tag;

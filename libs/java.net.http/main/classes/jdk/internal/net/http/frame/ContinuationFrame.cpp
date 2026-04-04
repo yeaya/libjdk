@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/frame/ContinuationFrame.h>
-
 #include <java/nio/ByteBuffer.h>
 #include <java/util/List.h>
 #include <jdk/internal/net/http/frame/HeaderFrame.h>
@@ -20,38 +19,12 @@ namespace jdk {
 			namespace http {
 				namespace frame {
 
-$FieldInfo _ContinuationFrame_FieldInfo_[] = {
-	{"TYPE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ContinuationFrame, TYPE)},
-	{}
-};
-
-$MethodInfo _ContinuationFrame_MethodInfo_[] = {
-	{"<init>", "(IILjava/util/List;)V", "(IILjava/util/List<Ljava/nio/ByteBuffer;>;)V", $PUBLIC, $method(ContinuationFrame, init$, void, int32_t, int32_t, $List*)},
-	{"<init>", "(ILjava/nio/ByteBuffer;)V", nullptr, $PUBLIC, $method(ContinuationFrame, init$, void, int32_t, $ByteBuffer*)},
-	{"length", "()I", nullptr, 0, $virtualMethod(ContinuationFrame, length, int32_t)},
-	{"type", "()I", nullptr, $PUBLIC, $virtualMethod(ContinuationFrame, type, int32_t)},
-	{}
-};
-
-$ClassInfo _ContinuationFrame_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"jdk.internal.net.http.frame.ContinuationFrame",
-	"jdk.internal.net.http.frame.HeaderFrame",
-	nullptr,
-	_ContinuationFrame_FieldInfo_,
-	_ContinuationFrame_MethodInfo_
-};
-
-$Object* allocate$ContinuationFrame($Class* clazz) {
-	return $of($alloc(ContinuationFrame));
-}
-
 void ContinuationFrame::init$(int32_t streamid, int32_t flags, $List* headerBlocks) {
 	$HeaderFrame::init$(streamid, flags, headerBlocks);
 }
 
 void ContinuationFrame::init$(int32_t streamid, $ByteBuffer* headersBlock) {
-	ContinuationFrame::init$(streamid, 0, $($List::of($of(headersBlock))));
+	ContinuationFrame::init$(streamid, 0, $($List::of(headersBlock)));
 }
 
 int32_t ContinuationFrame::type() {
@@ -66,7 +39,28 @@ ContinuationFrame::ContinuationFrame() {
 }
 
 $Class* ContinuationFrame::load$($String* name, bool initialize) {
-	$loadClass(ContinuationFrame, name, initialize, &_ContinuationFrame_ClassInfo_, allocate$ContinuationFrame);
+	$FieldInfo fieldInfos$$[] = {
+		{"TYPE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ContinuationFrame, TYPE)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(IILjava/util/List;)V", "(IILjava/util/List<Ljava/nio/ByteBuffer;>;)V", $PUBLIC, $method(ContinuationFrame, init$, void, int32_t, int32_t, $List*)},
+		{"<init>", "(ILjava/nio/ByteBuffer;)V", nullptr, $PUBLIC, $method(ContinuationFrame, init$, void, int32_t, $ByteBuffer*)},
+		{"length", "()I", nullptr, 0, $virtualMethod(ContinuationFrame, length, int32_t)},
+		{"type", "()I", nullptr, $PUBLIC, $virtualMethod(ContinuationFrame, type, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"jdk.internal.net.http.frame.ContinuationFrame",
+		"jdk.internal.net.http.frame.HeaderFrame",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ContinuationFrame, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ContinuationFrame);
+	});
 	return class$;
 }
 

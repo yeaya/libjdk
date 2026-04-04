@@ -14,10 +14,13 @@ public:
 	SizeLimitExceededException();
 	void init$();
 	void init$($String* explanation);
-	static const int64_t serialVersionUID = (int64_t)0x62F053162F85A443;
+	static const int64_t serialVersionUID = (int64_t)0x62f053162f85a443;
 	SizeLimitExceededException(const SizeLimitExceededException& e);
 	virtual void throw$() override;
-	inline SizeLimitExceededException* operator ->() {
+	inline SizeLimitExceededException* operator ->() const {
+		return (SizeLimitExceededException*)throwing$;
+	}
+	inline operator SizeLimitExceededException*() const {
 		return (SizeLimitExceededException*)throwing$;
 	}
 };

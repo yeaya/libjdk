@@ -31,6 +31,7 @@ class MetaData : public ::java::lang::Object {
 	$class(MetaData, 0, ::java::lang::Object)
 public:
 	MetaData();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $StringArray* getAnnotationValue(::java::lang::reflect::Constructor* constructor);
 	static $Object* getBeanAttribute($Class* type, $String* attribute);

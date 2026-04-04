@@ -1,5 +1,4 @@
 #include <sun/java2d/pipe/RenderBuffer.h>
-
 #include <jdk/internal/misc/Unsafe.h>
 #include <jcpp.h>
 
@@ -24,65 +23,6 @@ using $Unsafe = ::jdk::internal::misc::Unsafe;
 namespace sun {
 	namespace java2d {
 		namespace pipe {
-
-$FieldInfo _RenderBuffer_FieldInfo_[] = {
-	{"SIZEOF_BYTE", "J", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(RenderBuffer, SIZEOF_BYTE)},
-	{"SIZEOF_SHORT", "J", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(RenderBuffer, SIZEOF_SHORT)},
-	{"SIZEOF_INT", "J", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(RenderBuffer, SIZEOF_INT)},
-	{"SIZEOF_FLOAT", "J", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(RenderBuffer, SIZEOF_FLOAT)},
-	{"SIZEOF_LONG", "J", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(RenderBuffer, SIZEOF_LONG)},
-	{"SIZEOF_DOUBLE", "J", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(RenderBuffer, SIZEOF_DOUBLE)},
-	{"COPY_FROM_ARRAY_THRESHOLD", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(RenderBuffer, COPY_FROM_ARRAY_THRESHOLD)},
-	{"unsafe", "Ljdk/internal/misc/Unsafe;", nullptr, $PROTECTED | $FINAL, $field(RenderBuffer, unsafe)},
-	{"baseAddress", "J", nullptr, $PROTECTED | $FINAL, $field(RenderBuffer, baseAddress)},
-	{"endAddress", "J", nullptr, $PROTECTED | $FINAL, $field(RenderBuffer, endAddress)},
-	{"curAddress", "J", nullptr, $PROTECTED, $field(RenderBuffer, curAddress)},
-	{"capacity", "I", nullptr, $PROTECTED | $FINAL, $field(RenderBuffer, capacity$)},
-	{}
-};
-
-$MethodInfo _RenderBuffer_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, $PROTECTED, $method(RenderBuffer, init$, void, int32_t)},
-	{"allocate", "(I)Lsun/java2d/pipe/RenderBuffer;", nullptr, $PUBLIC | $STATIC, $staticMethod(RenderBuffer, allocate, RenderBuffer*, int32_t)},
-	{"capacity", "()I", nullptr, $PUBLIC | $FINAL, $method(RenderBuffer, capacity, int32_t)},
-	{"clear", "()V", nullptr, $PUBLIC | $FINAL, $method(RenderBuffer, clear, void)},
-	{"getAddress", "()J", nullptr, $PUBLIC | $FINAL, $method(RenderBuffer, getAddress, int64_t)},
-	{"position", "()I", nullptr, $PUBLIC | $FINAL, $method(RenderBuffer, position, int32_t)},
-	{"position", "(J)V", nullptr, $PUBLIC | $FINAL, $method(RenderBuffer, position, void, int64_t)},
-	{"put", "([B)Lsun/java2d/pipe/RenderBuffer;", nullptr, $PUBLIC, $virtualMethod(RenderBuffer, put, RenderBuffer*, $bytes*)},
-	{"put", "([BII)Lsun/java2d/pipe/RenderBuffer;", nullptr, $PUBLIC, $virtualMethod(RenderBuffer, put, RenderBuffer*, $bytes*, int32_t, int32_t)},
-	{"put", "([S)Lsun/java2d/pipe/RenderBuffer;", nullptr, $PUBLIC, $virtualMethod(RenderBuffer, put, RenderBuffer*, $shorts*)},
-	{"put", "([SII)Lsun/java2d/pipe/RenderBuffer;", nullptr, $PUBLIC, $virtualMethod(RenderBuffer, put, RenderBuffer*, $shorts*, int32_t, int32_t)},
-	{"put", "([I)Lsun/java2d/pipe/RenderBuffer;", nullptr, $PUBLIC, $virtualMethod(RenderBuffer, put, RenderBuffer*, $ints*)},
-	{"put", "([III)Lsun/java2d/pipe/RenderBuffer;", nullptr, $PUBLIC, $virtualMethod(RenderBuffer, put, RenderBuffer*, $ints*, int32_t, int32_t)},
-	{"put", "([F)Lsun/java2d/pipe/RenderBuffer;", nullptr, $PUBLIC, $virtualMethod(RenderBuffer, put, RenderBuffer*, $floats*)},
-	{"put", "([FII)Lsun/java2d/pipe/RenderBuffer;", nullptr, $PUBLIC, $virtualMethod(RenderBuffer, put, RenderBuffer*, $floats*, int32_t, int32_t)},
-	{"put", "([J)Lsun/java2d/pipe/RenderBuffer;", nullptr, $PUBLIC, $virtualMethod(RenderBuffer, put, RenderBuffer*, $longs*)},
-	{"put", "([JII)Lsun/java2d/pipe/RenderBuffer;", nullptr, $PUBLIC, $virtualMethod(RenderBuffer, put, RenderBuffer*, $longs*, int32_t, int32_t)},
-	{"putByte", "(B)Lsun/java2d/pipe/RenderBuffer;", nullptr, $PUBLIC | $FINAL, $method(RenderBuffer, putByte, RenderBuffer*, int8_t)},
-	{"putDouble", "(D)Lsun/java2d/pipe/RenderBuffer;", nullptr, $PUBLIC | $FINAL, $method(RenderBuffer, putDouble, RenderBuffer*, double)},
-	{"putFloat", "(F)Lsun/java2d/pipe/RenderBuffer;", nullptr, $PUBLIC | $FINAL, $method(RenderBuffer, putFloat, RenderBuffer*, float)},
-	{"putInt", "(II)Lsun/java2d/pipe/RenderBuffer;", nullptr, $PUBLIC | $FINAL, $method(RenderBuffer, putInt, RenderBuffer*, int32_t, int32_t)},
-	{"putInt", "(I)Lsun/java2d/pipe/RenderBuffer;", nullptr, $PUBLIC | $FINAL, $method(RenderBuffer, putInt, RenderBuffer*, int32_t)},
-	{"putLong", "(J)Lsun/java2d/pipe/RenderBuffer;", nullptr, $PUBLIC | $FINAL, $method(RenderBuffer, putLong, RenderBuffer*, int64_t)},
-	{"putShort", "(S)Lsun/java2d/pipe/RenderBuffer;", nullptr, $PUBLIC | $FINAL, $method(RenderBuffer, putShort, RenderBuffer*, int16_t)},
-	{"remaining", "()I", nullptr, $PUBLIC | $FINAL, $method(RenderBuffer, remaining, int32_t)},
-	{"skip", "(J)Lsun/java2d/pipe/RenderBuffer;", nullptr, $PUBLIC | $FINAL, $method(RenderBuffer, skip, RenderBuffer*, int64_t)},
-	{}
-};
-
-$ClassInfo _RenderBuffer_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.java2d.pipe.RenderBuffer",
-	"java.lang.Object",
-	nullptr,
-	_RenderBuffer_FieldInfo_,
-	_RenderBuffer_MethodInfo_
-};
-
-$Object* allocate$RenderBuffer($Class* clazz) {
-	return $of($alloc(RenderBuffer));
-}
 
 void RenderBuffer::init$(int32_t numBytes) {
 	$set(this, unsafe, $Unsafe::getUnsafe());
@@ -269,7 +209,61 @@ RenderBuffer::RenderBuffer() {
 }
 
 $Class* RenderBuffer::load$($String* name, bool initialize) {
-	$loadClass(RenderBuffer, name, initialize, &_RenderBuffer_ClassInfo_, allocate$RenderBuffer);
+	$FieldInfo fieldInfos$$[] = {
+		{"SIZEOF_BYTE", "J", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(RenderBuffer, SIZEOF_BYTE)},
+		{"SIZEOF_SHORT", "J", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(RenderBuffer, SIZEOF_SHORT)},
+		{"SIZEOF_INT", "J", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(RenderBuffer, SIZEOF_INT)},
+		{"SIZEOF_FLOAT", "J", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(RenderBuffer, SIZEOF_FLOAT)},
+		{"SIZEOF_LONG", "J", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(RenderBuffer, SIZEOF_LONG)},
+		{"SIZEOF_DOUBLE", "J", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(RenderBuffer, SIZEOF_DOUBLE)},
+		{"COPY_FROM_ARRAY_THRESHOLD", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(RenderBuffer, COPY_FROM_ARRAY_THRESHOLD)},
+		{"unsafe", "Ljdk/internal/misc/Unsafe;", nullptr, $PROTECTED | $FINAL, $field(RenderBuffer, unsafe)},
+		{"baseAddress", "J", nullptr, $PROTECTED | $FINAL, $field(RenderBuffer, baseAddress)},
+		{"endAddress", "J", nullptr, $PROTECTED | $FINAL, $field(RenderBuffer, endAddress)},
+		{"curAddress", "J", nullptr, $PROTECTED, $field(RenderBuffer, curAddress)},
+		{"capacity", "I", nullptr, $PROTECTED | $FINAL, $field(RenderBuffer, capacity$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I)V", nullptr, $PROTECTED, $method(RenderBuffer, init$, void, int32_t)},
+		{"allocate", "(I)Lsun/java2d/pipe/RenderBuffer;", nullptr, $PUBLIC | $STATIC, $staticMethod(RenderBuffer, allocate, RenderBuffer*, int32_t)},
+		{"capacity", "()I", nullptr, $PUBLIC | $FINAL, $method(RenderBuffer, capacity, int32_t)},
+		{"clear", "()V", nullptr, $PUBLIC | $FINAL, $method(RenderBuffer, clear, void)},
+		{"getAddress", "()J", nullptr, $PUBLIC | $FINAL, $method(RenderBuffer, getAddress, int64_t)},
+		{"position", "()I", nullptr, $PUBLIC | $FINAL, $method(RenderBuffer, position, int32_t)},
+		{"position", "(J)V", nullptr, $PUBLIC | $FINAL, $method(RenderBuffer, position, void, int64_t)},
+		{"put", "([B)Lsun/java2d/pipe/RenderBuffer;", nullptr, $PUBLIC, $virtualMethod(RenderBuffer, put, RenderBuffer*, $bytes*)},
+		{"put", "([BII)Lsun/java2d/pipe/RenderBuffer;", nullptr, $PUBLIC, $virtualMethod(RenderBuffer, put, RenderBuffer*, $bytes*, int32_t, int32_t)},
+		{"put", "([S)Lsun/java2d/pipe/RenderBuffer;", nullptr, $PUBLIC, $virtualMethod(RenderBuffer, put, RenderBuffer*, $shorts*)},
+		{"put", "([SII)Lsun/java2d/pipe/RenderBuffer;", nullptr, $PUBLIC, $virtualMethod(RenderBuffer, put, RenderBuffer*, $shorts*, int32_t, int32_t)},
+		{"put", "([I)Lsun/java2d/pipe/RenderBuffer;", nullptr, $PUBLIC, $virtualMethod(RenderBuffer, put, RenderBuffer*, $ints*)},
+		{"put", "([III)Lsun/java2d/pipe/RenderBuffer;", nullptr, $PUBLIC, $virtualMethod(RenderBuffer, put, RenderBuffer*, $ints*, int32_t, int32_t)},
+		{"put", "([F)Lsun/java2d/pipe/RenderBuffer;", nullptr, $PUBLIC, $virtualMethod(RenderBuffer, put, RenderBuffer*, $floats*)},
+		{"put", "([FII)Lsun/java2d/pipe/RenderBuffer;", nullptr, $PUBLIC, $virtualMethod(RenderBuffer, put, RenderBuffer*, $floats*, int32_t, int32_t)},
+		{"put", "([J)Lsun/java2d/pipe/RenderBuffer;", nullptr, $PUBLIC, $virtualMethod(RenderBuffer, put, RenderBuffer*, $longs*)},
+		{"put", "([JII)Lsun/java2d/pipe/RenderBuffer;", nullptr, $PUBLIC, $virtualMethod(RenderBuffer, put, RenderBuffer*, $longs*, int32_t, int32_t)},
+		{"putByte", "(B)Lsun/java2d/pipe/RenderBuffer;", nullptr, $PUBLIC | $FINAL, $method(RenderBuffer, putByte, RenderBuffer*, int8_t)},
+		{"putDouble", "(D)Lsun/java2d/pipe/RenderBuffer;", nullptr, $PUBLIC | $FINAL, $method(RenderBuffer, putDouble, RenderBuffer*, double)},
+		{"putFloat", "(F)Lsun/java2d/pipe/RenderBuffer;", nullptr, $PUBLIC | $FINAL, $method(RenderBuffer, putFloat, RenderBuffer*, float)},
+		{"putInt", "(II)Lsun/java2d/pipe/RenderBuffer;", nullptr, $PUBLIC | $FINAL, $method(RenderBuffer, putInt, RenderBuffer*, int32_t, int32_t)},
+		{"putInt", "(I)Lsun/java2d/pipe/RenderBuffer;", nullptr, $PUBLIC | $FINAL, $method(RenderBuffer, putInt, RenderBuffer*, int32_t)},
+		{"putLong", "(J)Lsun/java2d/pipe/RenderBuffer;", nullptr, $PUBLIC | $FINAL, $method(RenderBuffer, putLong, RenderBuffer*, int64_t)},
+		{"putShort", "(S)Lsun/java2d/pipe/RenderBuffer;", nullptr, $PUBLIC | $FINAL, $method(RenderBuffer, putShort, RenderBuffer*, int16_t)},
+		{"remaining", "()I", nullptr, $PUBLIC | $FINAL, $method(RenderBuffer, remaining, int32_t)},
+		{"skip", "(J)Lsun/java2d/pipe/RenderBuffer;", nullptr, $PUBLIC | $FINAL, $method(RenderBuffer, skip, RenderBuffer*, int64_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.java2d.pipe.RenderBuffer",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(RenderBuffer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RenderBuffer);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <java/awt/MultipleGradientPaint$CycleMethod.h>
-
 #include <java/awt/MultipleGradientPaint.h>
 #include <java/lang/Enum.h>
 #include <jcpp.h>
@@ -17,47 +16,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace java {
 	namespace awt {
-
-$FieldInfo _MultipleGradientPaint$CycleMethod_FieldInfo_[] = {
-	{"NO_CYCLE", "Ljava/awt/MultipleGradientPaint$CycleMethod;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(MultipleGradientPaint$CycleMethod, NO_CYCLE)},
-	{"REFLECT", "Ljava/awt/MultipleGradientPaint$CycleMethod;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(MultipleGradientPaint$CycleMethod, REFLECT)},
-	{"REPEAT", "Ljava/awt/MultipleGradientPaint$CycleMethod;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(MultipleGradientPaint$CycleMethod, REPEAT)},
-	{"$VALUES", "[Ljava/awt/MultipleGradientPaint$CycleMethod;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(MultipleGradientPaint$CycleMethod, $VALUES)},
-	{}
-};
-
-$MethodInfo _MultipleGradientPaint$CycleMethod_MethodInfo_[] = {
-	{"$values", "()[Ljava/awt/MultipleGradientPaint$CycleMethod;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MultipleGradientPaint$CycleMethod, $values, $MultipleGradientPaint$CycleMethodArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(MultipleGradientPaint$CycleMethod, init$, void, $String*, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)Ljava/awt/MultipleGradientPaint$CycleMethod;", nullptr, $PUBLIC | $STATIC, $staticMethod(MultipleGradientPaint$CycleMethod, valueOf, MultipleGradientPaint$CycleMethod*, $String*)},
-	{"values", "()[Ljava/awt/MultipleGradientPaint$CycleMethod;", nullptr, $PUBLIC | $STATIC, $staticMethod(MultipleGradientPaint$CycleMethod, values, $MultipleGradientPaint$CycleMethodArray*)},
-	{}
-};
-
-$InnerClassInfo _MultipleGradientPaint$CycleMethod_InnerClassesInfo_[] = {
-	{"java.awt.MultipleGradientPaint$CycleMethod", "java.awt.MultipleGradientPaint", "CycleMethod", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _MultipleGradientPaint$CycleMethod_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"java.awt.MultipleGradientPaint$CycleMethod",
-	"java.lang.Enum",
-	nullptr,
-	_MultipleGradientPaint$CycleMethod_FieldInfo_,
-	_MultipleGradientPaint$CycleMethod_MethodInfo_,
-	"Ljava/lang/Enum<Ljava/awt/MultipleGradientPaint$CycleMethod;>;",
-	nullptr,
-	_MultipleGradientPaint$CycleMethod_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.awt.MultipleGradientPaint"
-};
-
-$Object* allocate$MultipleGradientPaint$CycleMethod($Class* clazz) {
-	return $of($alloc(MultipleGradientPaint$CycleMethod));
-}
 
 MultipleGradientPaint$CycleMethod* MultipleGradientPaint$CycleMethod::NO_CYCLE = nullptr;
 MultipleGradientPaint$CycleMethod* MultipleGradientPaint$CycleMethod::REFLECT = nullptr;
@@ -87,7 +45,7 @@ void MultipleGradientPaint$CycleMethod::init$($String* $enum$name, int32_t $enum
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$MultipleGradientPaint$CycleMethod($Class* class$) {
+void MultipleGradientPaint$CycleMethod::clinit$($Class* clazz) {
 	$assignStatic(MultipleGradientPaint$CycleMethod::NO_CYCLE, $new(MultipleGradientPaint$CycleMethod, "NO_CYCLE"_s, 0));
 	$assignStatic(MultipleGradientPaint$CycleMethod::REFLECT, $new(MultipleGradientPaint$CycleMethod, "REFLECT"_s, 1));
 	$assignStatic(MultipleGradientPaint$CycleMethod::REPEAT, $new(MultipleGradientPaint$CycleMethod, "REPEAT"_s, 2));
@@ -98,7 +56,42 @@ MultipleGradientPaint$CycleMethod::MultipleGradientPaint$CycleMethod() {
 }
 
 $Class* MultipleGradientPaint$CycleMethod::load$($String* name, bool initialize) {
-	$loadClass(MultipleGradientPaint$CycleMethod, name, initialize, &_MultipleGradientPaint$CycleMethod_ClassInfo_, clinit$MultipleGradientPaint$CycleMethod, allocate$MultipleGradientPaint$CycleMethod);
+	$FieldInfo fieldInfos$$[] = {
+		{"NO_CYCLE", "Ljava/awt/MultipleGradientPaint$CycleMethod;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(MultipleGradientPaint$CycleMethod, NO_CYCLE)},
+		{"REFLECT", "Ljava/awt/MultipleGradientPaint$CycleMethod;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(MultipleGradientPaint$CycleMethod, REFLECT)},
+		{"REPEAT", "Ljava/awt/MultipleGradientPaint$CycleMethod;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(MultipleGradientPaint$CycleMethod, REPEAT)},
+		{"$VALUES", "[Ljava/awt/MultipleGradientPaint$CycleMethod;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(MultipleGradientPaint$CycleMethod, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Ljava/awt/MultipleGradientPaint$CycleMethod;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MultipleGradientPaint$CycleMethod, $values, $MultipleGradientPaint$CycleMethodArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(MultipleGradientPaint$CycleMethod, init$, void, $String*, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)Ljava/awt/MultipleGradientPaint$CycleMethod;", nullptr, $PUBLIC | $STATIC, $staticMethod(MultipleGradientPaint$CycleMethod, valueOf, MultipleGradientPaint$CycleMethod*, $String*)},
+		{"values", "()[Ljava/awt/MultipleGradientPaint$CycleMethod;", nullptr, $PUBLIC | $STATIC, $staticMethod(MultipleGradientPaint$CycleMethod, values, $MultipleGradientPaint$CycleMethodArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.awt.MultipleGradientPaint$CycleMethod", "java.awt.MultipleGradientPaint", "CycleMethod", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"java.awt.MultipleGradientPaint$CycleMethod",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Ljava/awt/MultipleGradientPaint$CycleMethod;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.awt.MultipleGradientPaint"
+	};
+	$loadClass(MultipleGradientPaint$CycleMethod, name, initialize, &classInfo$$, MultipleGradientPaint$CycleMethod::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MultipleGradientPaint$CycleMethod));
+	});
 	return class$;
 }
 

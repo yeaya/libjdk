@@ -1,5 +1,4 @@
 #include <javax/swing/Spring.h>
-
 #include <java/awt/Component.h>
 #include <javax/swing/Spring$HeightSpring.h>
 #include <javax/swing/Spring$MaxSpring.h>
@@ -30,68 +29,6 @@ using $SpringLayout = ::javax::swing::SpringLayout;
 
 namespace javax {
 	namespace swing {
-
-$FieldInfo _Spring_FieldInfo_[] = {
-	{"UNSET", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Spring, UNSET)},
-	{}
-};
-
-$MethodInfo _Spring_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(Spring, init$, void)},
-	{"checkArg", "(Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Spring, checkArg, void, Object$*)},
-	{"constant", "(I)Ljavax/swing/Spring;", nullptr, $PUBLIC | $STATIC, $staticMethod(Spring, constant, Spring*, int32_t)},
-	{"constant", "(III)Ljavax/swing/Spring;", nullptr, $PUBLIC | $STATIC, $staticMethod(Spring, constant, Spring*, int32_t, int32_t, int32_t)},
-	{"difference", "(Ljavax/swing/Spring;Ljavax/swing/Spring;)Ljavax/swing/Spring;", nullptr, $STATIC, $staticMethod(Spring, difference, Spring*, Spring*, Spring*)},
-	{"getMaximumValue", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Spring, getMaximumValue, int32_t)},
-	{"getMinimumValue", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Spring, getMinimumValue, int32_t)},
-	{"getPreferredValue", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Spring, getPreferredValue, int32_t)},
-	{"getStrain", "()D", nullptr, 0, $virtualMethod(Spring, getStrain, double)},
-	{"getValue", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Spring, getValue, int32_t)},
-	{"height", "(Ljava/awt/Component;)Ljavax/swing/Spring;", nullptr, $PUBLIC | $STATIC, $staticMethod(Spring, height, Spring*, $Component*)},
-	{"isCyclic", "(Ljavax/swing/SpringLayout;)Z", nullptr, 0, $virtualMethod(Spring, isCyclic, bool, $SpringLayout*)},
-	{"max", "(Ljavax/swing/Spring;Ljavax/swing/Spring;)Ljavax/swing/Spring;", nullptr, $PUBLIC | $STATIC, $staticMethod(Spring, max, Spring*, Spring*, Spring*)},
-	{"minus", "(Ljavax/swing/Spring;)Ljavax/swing/Spring;", nullptr, $PUBLIC | $STATIC, $staticMethod(Spring, minus, Spring*, Spring*)},
-	{"range", "(Z)D", nullptr, $PRIVATE, $method(Spring, range, double, bool)},
-	{"scale", "(Ljavax/swing/Spring;F)Ljavax/swing/Spring;", nullptr, $PUBLIC | $STATIC, $staticMethod(Spring, scale, Spring*, Spring*, float)},
-	{"setStrain", "(D)V", nullptr, 0, $virtualMethod(Spring, setStrain, void, double)},
-	{"setValue", "(I)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Spring, setValue, void, int32_t)},
-	{"sum", "(Ljavax/swing/Spring;Ljavax/swing/Spring;)Ljavax/swing/Spring;", nullptr, $PUBLIC | $STATIC, $staticMethod(Spring, sum, Spring*, Spring*, Spring*)},
-	{"width", "(Ljava/awt/Component;)Ljavax/swing/Spring;", nullptr, $PUBLIC | $STATIC, $staticMethod(Spring, width, Spring*, $Component*)},
-	{}
-};
-
-$InnerClassInfo _Spring_InnerClassesInfo_[] = {
-	{"javax.swing.Spring$MaxSpring", "javax.swing.Spring", "MaxSpring", $PRIVATE | $STATIC},
-	{"javax.swing.Spring$SumSpring", "javax.swing.Spring", "SumSpring", $PRIVATE | $STATIC},
-	{"javax.swing.Spring$CompoundSpring", "javax.swing.Spring", "CompoundSpring", $STATIC | $ABSTRACT},
-	{"javax.swing.Spring$SpringMap", "javax.swing.Spring", "SpringMap", $STATIC | $ABSTRACT},
-	{"javax.swing.Spring$HeightSpring", "javax.swing.Spring", "HeightSpring", $STATIC},
-	{"javax.swing.Spring$WidthSpring", "javax.swing.Spring", "WidthSpring", $STATIC},
-	{"javax.swing.Spring$ScaleSpring", "javax.swing.Spring", "ScaleSpring", $PRIVATE | $STATIC},
-	{"javax.swing.Spring$NegativeSpring", "javax.swing.Spring", "NegativeSpring", $PRIVATE | $STATIC},
-	{"javax.swing.Spring$StaticSpring", "javax.swing.Spring", "StaticSpring", $PRIVATE | $STATIC},
-	{"javax.swing.Spring$AbstractSpring", "javax.swing.Spring", "AbstractSpring", $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Spring_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"javax.swing.Spring",
-	"java.lang.Object",
-	nullptr,
-	_Spring_FieldInfo_,
-	_Spring_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Spring_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.swing.Spring$MaxSpring,javax.swing.Spring$SumSpring,javax.swing.Spring$CompoundSpring,javax.swing.Spring$SpringMap,javax.swing.Spring$HeightSpring,javax.swing.Spring$WidthSpring,javax.swing.Spring$ScaleSpring,javax.swing.Spring$NegativeSpring,javax.swing.Spring$StaticSpring,javax.swing.Spring$AbstractSpring"
-};
-
-$Object* allocate$Spring($Class* clazz) {
-	return $of($alloc(Spring));
-}
 
 void Spring::init$() {
 }
@@ -175,7 +112,63 @@ Spring::Spring() {
 }
 
 $Class* Spring::load$($String* name, bool initialize) {
-	$loadClass(Spring, name, initialize, &_Spring_ClassInfo_, allocate$Spring);
+	$FieldInfo fieldInfos$$[] = {
+		{"UNSET", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Spring, UNSET)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PROTECTED, $method(Spring, init$, void)},
+		{"checkArg", "(Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Spring, checkArg, void, Object$*)},
+		{"constant", "(I)Ljavax/swing/Spring;", nullptr, $PUBLIC | $STATIC, $staticMethod(Spring, constant, Spring*, int32_t)},
+		{"constant", "(III)Ljavax/swing/Spring;", nullptr, $PUBLIC | $STATIC, $staticMethod(Spring, constant, Spring*, int32_t, int32_t, int32_t)},
+		{"difference", "(Ljavax/swing/Spring;Ljavax/swing/Spring;)Ljavax/swing/Spring;", nullptr, $STATIC, $staticMethod(Spring, difference, Spring*, Spring*, Spring*)},
+		{"getMaximumValue", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Spring, getMaximumValue, int32_t)},
+		{"getMinimumValue", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Spring, getMinimumValue, int32_t)},
+		{"getPreferredValue", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Spring, getPreferredValue, int32_t)},
+		{"getStrain", "()D", nullptr, 0, $virtualMethod(Spring, getStrain, double)},
+		{"getValue", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Spring, getValue, int32_t)},
+		{"height", "(Ljava/awt/Component;)Ljavax/swing/Spring;", nullptr, $PUBLIC | $STATIC, $staticMethod(Spring, height, Spring*, $Component*)},
+		{"isCyclic", "(Ljavax/swing/SpringLayout;)Z", nullptr, 0, $virtualMethod(Spring, isCyclic, bool, $SpringLayout*)},
+		{"max", "(Ljavax/swing/Spring;Ljavax/swing/Spring;)Ljavax/swing/Spring;", nullptr, $PUBLIC | $STATIC, $staticMethod(Spring, max, Spring*, Spring*, Spring*)},
+		{"minus", "(Ljavax/swing/Spring;)Ljavax/swing/Spring;", nullptr, $PUBLIC | $STATIC, $staticMethod(Spring, minus, Spring*, Spring*)},
+		{"range", "(Z)D", nullptr, $PRIVATE, $method(Spring, range, double, bool)},
+		{"scale", "(Ljavax/swing/Spring;F)Ljavax/swing/Spring;", nullptr, $PUBLIC | $STATIC, $staticMethod(Spring, scale, Spring*, Spring*, float)},
+		{"setStrain", "(D)V", nullptr, 0, $virtualMethod(Spring, setStrain, void, double)},
+		{"setValue", "(I)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Spring, setValue, void, int32_t)},
+		{"sum", "(Ljavax/swing/Spring;Ljavax/swing/Spring;)Ljavax/swing/Spring;", nullptr, $PUBLIC | $STATIC, $staticMethod(Spring, sum, Spring*, Spring*, Spring*)},
+		{"width", "(Ljava/awt/Component;)Ljavax/swing/Spring;", nullptr, $PUBLIC | $STATIC, $staticMethod(Spring, width, Spring*, $Component*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.Spring$MaxSpring", "javax.swing.Spring", "MaxSpring", $PRIVATE | $STATIC},
+		{"javax.swing.Spring$SumSpring", "javax.swing.Spring", "SumSpring", $PRIVATE | $STATIC},
+		{"javax.swing.Spring$CompoundSpring", "javax.swing.Spring", "CompoundSpring", $STATIC | $ABSTRACT},
+		{"javax.swing.Spring$SpringMap", "javax.swing.Spring", "SpringMap", $STATIC | $ABSTRACT},
+		{"javax.swing.Spring$HeightSpring", "javax.swing.Spring", "HeightSpring", $STATIC},
+		{"javax.swing.Spring$WidthSpring", "javax.swing.Spring", "WidthSpring", $STATIC},
+		{"javax.swing.Spring$ScaleSpring", "javax.swing.Spring", "ScaleSpring", $PRIVATE | $STATIC},
+		{"javax.swing.Spring$NegativeSpring", "javax.swing.Spring", "NegativeSpring", $PRIVATE | $STATIC},
+		{"javax.swing.Spring$StaticSpring", "javax.swing.Spring", "StaticSpring", $PRIVATE | $STATIC},
+		{"javax.swing.Spring$AbstractSpring", "javax.swing.Spring", "AbstractSpring", $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"javax.swing.Spring",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.swing.Spring$MaxSpring,javax.swing.Spring$SumSpring,javax.swing.Spring$CompoundSpring,javax.swing.Spring$SpringMap,javax.swing.Spring$HeightSpring,javax.swing.Spring$WidthSpring,javax.swing.Spring$ScaleSpring,javax.swing.Spring$NegativeSpring,javax.swing.Spring$StaticSpring,javax.swing.Spring$AbstractSpring"
+	};
+	$loadClass(Spring, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Spring);
+	});
 	return class$;
 }
 

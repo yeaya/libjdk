@@ -1,5 +1,4 @@
 #include <java/awt/Rectangle.h>
-
 #include <java/awt/Dimension.h>
 #include <java/awt/GraphicsEnvironment.h>
 #include <java/awt/Point.h>
@@ -37,108 +36,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace java {
 	namespace awt {
 
-$CompoundAttribute _Rectangle_MethodAnnotations_getBounds18[] = {
-	{"Ljava/beans/Transient;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Rectangle_MethodAnnotations_inside28[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Rectangle_MethodAnnotations_move32[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Rectangle_MethodAnnotations_reshape34[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Rectangle_MethodAnnotations_resize35[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$FieldInfo _Rectangle_FieldInfo_[] = {
-	{"x", "I", nullptr, $PUBLIC, $field(Rectangle, x)},
-	{"y", "I", nullptr, $PUBLIC, $field(Rectangle, y)},
-	{"width", "I", nullptr, $PUBLIC, $field(Rectangle, width)},
-	{"height", "I", nullptr, $PUBLIC, $field(Rectangle, height)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Rectangle, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _Rectangle_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Rectangle, init$, void)},
-	{"<init>", "(Ljava/awt/Rectangle;)V", nullptr, $PUBLIC, $method(Rectangle, init$, void, Rectangle*)},
-	{"<init>", "(IIII)V", nullptr, $PUBLIC, $method(Rectangle, init$, void, int32_t, int32_t, int32_t, int32_t)},
-	{"<init>", "(II)V", nullptr, $PUBLIC, $method(Rectangle, init$, void, int32_t, int32_t)},
-	{"<init>", "(Ljava/awt/Point;Ljava/awt/Dimension;)V", nullptr, $PUBLIC, $method(Rectangle, init$, void, $Point*, $Dimension*)},
-	{"<init>", "(Ljava/awt/Point;)V", nullptr, $PUBLIC, $method(Rectangle, init$, void, $Point*)},
-	{"<init>", "(Ljava/awt/Dimension;)V", nullptr, $PUBLIC, $method(Rectangle, init$, void, $Dimension*)},
-	{"add", "(II)V", nullptr, $PUBLIC, $virtualMethod(Rectangle, add, void, int32_t, int32_t)},
-	{"add", "(Ljava/awt/Point;)V", nullptr, $PUBLIC, $virtualMethod(Rectangle, add, void, $Point*)},
-	{"add", "(Ljava/awt/Rectangle;)V", nullptr, $PUBLIC, $virtualMethod(Rectangle, add, void, Rectangle*)},
-	{"clip", "(DZ)I", nullptr, $PRIVATE | $STATIC, $staticMethod(Rectangle, clip, int32_t, double, bool)},
-	{"contains", "(Ljava/awt/Point;)Z", nullptr, $PUBLIC, $virtualMethod(Rectangle, contains, bool, $Point*)},
-	{"contains", "(II)Z", nullptr, $PUBLIC, $virtualMethod(Rectangle, contains, bool, int32_t, int32_t)},
-	{"contains", "(Ljava/awt/Rectangle;)Z", nullptr, $PUBLIC, $virtualMethod(Rectangle, contains, bool, Rectangle*)},
-	{"contains", "(IIII)Z", nullptr, $PUBLIC, $virtualMethod(Rectangle, contains, bool, int32_t, int32_t, int32_t, int32_t)},
-	{"createIntersection", "(Ljava/awt/geom/Rectangle2D;)Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC, $virtualMethod(Rectangle, createIntersection, $Rectangle2D*, $Rectangle2D*)},
-	{"createUnion", "(Ljava/awt/geom/Rectangle2D;)Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC, $virtualMethod(Rectangle, createUnion, $Rectangle2D*, $Rectangle2D*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Rectangle, equals, bool, Object$*)},
-	{"getBounds", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(Rectangle, getBounds, Rectangle*), nullptr, nullptr, _Rectangle_MethodAnnotations_getBounds18},
-	{"getBounds2D", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC, $virtualMethod(Rectangle, getBounds2D, $Rectangle2D*)},
-	{"getHeight", "()D", nullptr, $PUBLIC, $virtualMethod(Rectangle, getHeight, double)},
-	{"getLocation", "()Ljava/awt/Point;", nullptr, $PUBLIC, $virtualMethod(Rectangle, getLocation, $Point*)},
-	{"getSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(Rectangle, getSize, $Dimension*)},
-	{"getWidth", "()D", nullptr, $PUBLIC, $virtualMethod(Rectangle, getWidth, double)},
-	{"getX", "()D", nullptr, $PUBLIC, $virtualMethod(Rectangle, getX, double)},
-	{"getY", "()D", nullptr, $PUBLIC, $virtualMethod(Rectangle, getY, double)},
-	{"grow", "(II)V", nullptr, $PUBLIC, $virtualMethod(Rectangle, grow, void, int32_t, int32_t)},
-	{"initIDs", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(Rectangle, initIDs, void)},
-	{"inside", "(II)Z", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(Rectangle, inside, bool, int32_t, int32_t), nullptr, nullptr, _Rectangle_MethodAnnotations_inside28},
-	{"intersection", "(Ljava/awt/Rectangle;)Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(Rectangle, intersection, Rectangle*, Rectangle*)},
-	{"intersects", "(Ljava/awt/Rectangle;)Z", nullptr, $PUBLIC, $virtualMethod(Rectangle, intersects, bool, Rectangle*)},
-	{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(Rectangle, isEmpty, bool)},
-	{"move", "(II)V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(Rectangle, move, void, int32_t, int32_t), nullptr, nullptr, _Rectangle_MethodAnnotations_move32},
-	{"outcode", "(DD)I", nullptr, $PUBLIC, $virtualMethod(Rectangle, outcode, int32_t, double, double)},
-	{"reshape", "(IIII)V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(Rectangle, reshape, void, int32_t, int32_t, int32_t, int32_t), nullptr, nullptr, _Rectangle_MethodAnnotations_reshape34},
-	{"resize", "(II)V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(Rectangle, resize, void, int32_t, int32_t), nullptr, nullptr, _Rectangle_MethodAnnotations_resize35},
-	{"setBounds", "(Ljava/awt/Rectangle;)V", nullptr, $PUBLIC, $virtualMethod(Rectangle, setBounds, void, Rectangle*)},
-	{"setBounds", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(Rectangle, setBounds, void, int32_t, int32_t, int32_t, int32_t)},
-	{"setLocation", "(Ljava/awt/Point;)V", nullptr, $PUBLIC, $virtualMethod(Rectangle, setLocation, void, $Point*)},
-	{"setLocation", "(II)V", nullptr, $PUBLIC, $virtualMethod(Rectangle, setLocation, void, int32_t, int32_t)},
-	{"setRect", "(DDDD)V", nullptr, $PUBLIC, $virtualMethod(Rectangle, setRect, void, double, double, double, double)},
-	{"setSize", "(Ljava/awt/Dimension;)V", nullptr, $PUBLIC, $virtualMethod(Rectangle, setSize, void, $Dimension*)},
-	{"setSize", "(II)V", nullptr, $PUBLIC, $virtualMethod(Rectangle, setSize, void, int32_t, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Rectangle, toString, $String*)},
-	{"translate", "(II)V", nullptr, $PUBLIC, $virtualMethod(Rectangle, translate, void, int32_t, int32_t)},
-	{"union", "(Ljava/awt/Rectangle;)Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(Rectangle, union$, Rectangle*, Rectangle*)},
-	{}
-};
-
-#define _METHOD_INDEX_initIDs 30
-
-$ClassInfo _Rectangle_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.awt.Rectangle",
-	"java.awt.geom.Rectangle2D",
-	"java.io.Serializable",
-	_Rectangle_FieldInfo_,
-	_Rectangle_MethodInfo_
-};
-
-$Object* allocate$Rectangle($Class* clazz) {
-	return $of($alloc(Rectangle));
-}
-
 int32_t Rectangle::hashCode() {
 	 return this->$Rectangle2D::hashCode();
 }
@@ -153,7 +50,7 @@ void Rectangle::finalize() {
 
 void Rectangle::initIDs() {
 	$init(Rectangle);
-	$prepareNativeStatic(Rectangle, initIDs, void);
+	$prepareNativeStatic(initIDs, void);
 	$invokeNativeStatic();
 	$finishNativeStatic();
 }
@@ -163,7 +60,7 @@ void Rectangle::init$() {
 }
 
 void Rectangle::init$(Rectangle* r) {
-	Rectangle::init$($nc(r)->x, r->y, r->width, r->height);
+	Rectangle::init$($nc(r)->x, $nc(r)->y, $nc(r)->width, $nc(r)->height);
 }
 
 void Rectangle::init$(int32_t x, int32_t y, int32_t width, int32_t height) {
@@ -179,15 +76,15 @@ void Rectangle::init$(int32_t width, int32_t height) {
 }
 
 void Rectangle::init$($Point* p, $Dimension* d) {
-	Rectangle::init$($nc(p)->x, p->y, $nc(d)->width, d->height);
+	Rectangle::init$($nc(p)->x, $nc(p)->y, $nc(d)->width, $nc(d)->height);
 }
 
 void Rectangle::init$($Point* p) {
-	Rectangle::init$($nc(p)->x, p->y, 0, 0);
+	Rectangle::init$($nc(p)->x, $nc(p)->y, 0, 0);
 }
 
 void Rectangle::init$($Dimension* d) {
-	Rectangle::init$(0, 0, $nc(d)->width, d->height);
+	Rectangle::init$(0, 0, $nc(d)->width, $nc(d)->height);
 }
 
 double Rectangle::getX() {
@@ -215,7 +112,7 @@ $Rectangle2D* Rectangle::getBounds2D() {
 }
 
 void Rectangle::setBounds(Rectangle* r) {
-	setBounds($nc(r)->x, r->y, r->width, r->height);
+	setBounds($nc(r)->x, $nc(r)->y, $nc(r)->width, $nc(r)->height);
 }
 
 void Rectangle::setBounds(int32_t x, int32_t y, int32_t width, int32_t height) {
@@ -273,7 +170,7 @@ $Point* Rectangle::getLocation() {
 }
 
 void Rectangle::setLocation($Point* p) {
-	setLocation($nc(p)->x, p->y);
+	setLocation($nc(p)->x, $nc(p)->y);
 }
 
 void Rectangle::setLocation(int32_t x, int32_t y) {
@@ -331,7 +228,7 @@ $Dimension* Rectangle::getSize() {
 }
 
 void Rectangle::setSize($Dimension* d) {
-	setSize($nc(d)->width, d->height);
+	setSize($nc(d)->width, $nc(d)->height);
 }
 
 void Rectangle::setSize(int32_t width, int32_t height) {
@@ -344,7 +241,7 @@ void Rectangle::resize(int32_t width, int32_t height) {
 }
 
 bool Rectangle::contains($Point* p) {
-	return contains($nc(p)->x, p->y);
+	return contains($nc(p)->x, $nc(p)->y);
 }
 
 bool Rectangle::contains(int32_t x, int32_t y) {
@@ -352,7 +249,7 @@ bool Rectangle::contains(int32_t x, int32_t y) {
 }
 
 bool Rectangle::contains(Rectangle* r) {
-	return contains($nc(r)->x, r->y, r->width, r->height);
+	return contains($nc(r)->x, $nc(r)->y, $nc(r)->width, $nc(r)->height);
 }
 
 bool Rectangle::contains(int32_t X, int32_t Y, int32_t W, int32_t H) {
@@ -537,14 +434,14 @@ void Rectangle::add(int32_t newx, int32_t newy) {
 }
 
 void Rectangle::add($Point* pt) {
-	add($nc(pt)->x, pt->y);
+	add($nc(pt)->x, $nc(pt)->y);
 }
 
 void Rectangle::add(Rectangle* r) {
 	int64_t tx2 = this->width;
 	int64_t ty2 = this->height;
 	if ((tx2 | ty2) < 0) {
-		reshape($nc(r)->x, r->y, r->width, r->height);
+		reshape($nc(r)->x, $nc(r)->y, $nc(r)->width, $nc(r)->height);
 	}
 	int64_t rx2 = $nc(r)->width;
 	int64_t ry2 = r->height;
@@ -686,17 +583,17 @@ $Rectangle2D* Rectangle::createUnion($Rectangle2D* r) {
 bool Rectangle::equals(Object$* obj) {
 	if ($instanceOf(Rectangle, obj)) {
 		$var(Rectangle, r, $cast(Rectangle, obj));
-		return ((this->x == $nc(r)->x) && (this->y == r->y) && (this->width == r->width) && (this->height == r->height));
+		return ((this->x == r->x) && (this->y == r->y) && (this->width == r->width) && (this->height == r->height));
 	}
 	return $Rectangle2D::equals(obj);
 }
 
 $String* Rectangle::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $str({$($of(this)->getClass()->getName()), "[x="_s, $$str(this->x), ",y="_s, $$str(this->y), ",width="_s, $$str(this->width), ",height="_s, $$str(this->height), "]"_s});
 }
 
-void clinit$Rectangle($Class* class$) {
+void Rectangle::clinit$($Class* clazz) {
 	{
 		$Toolkit::loadLibraries();
 		if (!$GraphicsEnvironment::isHeadless()) {
@@ -709,7 +606,97 @@ Rectangle::Rectangle() {
 }
 
 $Class* Rectangle::load$($String* name, bool initialize) {
-	$loadClass(Rectangle, name, initialize, &_Rectangle_ClassInfo_, clinit$Rectangle, allocate$Rectangle);
+	$FieldInfo fieldInfos$$[] = {
+		{"x", "I", nullptr, $PUBLIC, $field(Rectangle, x)},
+		{"y", "I", nullptr, $PUBLIC, $field(Rectangle, y)},
+		{"width", "I", nullptr, $PUBLIC, $field(Rectangle, width)},
+		{"height", "I", nullptr, $PUBLIC, $field(Rectangle, height)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Rectangle, serialVersionUID)},
+		{}
+	};
+	$CompoundAttribute getBoundsmethodAnnotations$$[] = {
+		{"Ljava/beans/Transient;", nullptr},
+		{}
+	};
+	$CompoundAttribute insidemethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute movemethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute reshapemethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute resizemethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Rectangle, init$, void)},
+		{"<init>", "(Ljava/awt/Rectangle;)V", nullptr, $PUBLIC, $method(Rectangle, init$, void, Rectangle*)},
+		{"<init>", "(IIII)V", nullptr, $PUBLIC, $method(Rectangle, init$, void, int32_t, int32_t, int32_t, int32_t)},
+		{"<init>", "(II)V", nullptr, $PUBLIC, $method(Rectangle, init$, void, int32_t, int32_t)},
+		{"<init>", "(Ljava/awt/Point;Ljava/awt/Dimension;)V", nullptr, $PUBLIC, $method(Rectangle, init$, void, $Point*, $Dimension*)},
+		{"<init>", "(Ljava/awt/Point;)V", nullptr, $PUBLIC, $method(Rectangle, init$, void, $Point*)},
+		{"<init>", "(Ljava/awt/Dimension;)V", nullptr, $PUBLIC, $method(Rectangle, init$, void, $Dimension*)},
+		{"add", "(II)V", nullptr, $PUBLIC, $virtualMethod(Rectangle, add, void, int32_t, int32_t)},
+		{"add", "(Ljava/awt/Point;)V", nullptr, $PUBLIC, $virtualMethod(Rectangle, add, void, $Point*)},
+		{"add", "(Ljava/awt/Rectangle;)V", nullptr, $PUBLIC, $virtualMethod(Rectangle, add, void, Rectangle*)},
+		{"clip", "(DZ)I", nullptr, $PRIVATE | $STATIC, $staticMethod(Rectangle, clip, int32_t, double, bool)},
+		{"contains", "(Ljava/awt/Point;)Z", nullptr, $PUBLIC, $virtualMethod(Rectangle, contains, bool, $Point*)},
+		{"contains", "(II)Z", nullptr, $PUBLIC, $virtualMethod(Rectangle, contains, bool, int32_t, int32_t)},
+		{"contains", "(Ljava/awt/Rectangle;)Z", nullptr, $PUBLIC, $virtualMethod(Rectangle, contains, bool, Rectangle*)},
+		{"contains", "(IIII)Z", nullptr, $PUBLIC, $virtualMethod(Rectangle, contains, bool, int32_t, int32_t, int32_t, int32_t)},
+		{"createIntersection", "(Ljava/awt/geom/Rectangle2D;)Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC, $virtualMethod(Rectangle, createIntersection, $Rectangle2D*, $Rectangle2D*)},
+		{"createUnion", "(Ljava/awt/geom/Rectangle2D;)Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC, $virtualMethod(Rectangle, createUnion, $Rectangle2D*, $Rectangle2D*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Rectangle, equals, bool, Object$*)},
+		{"getBounds", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(Rectangle, getBounds, Rectangle*), nullptr, nullptr, getBoundsmethodAnnotations$$},
+		{"getBounds2D", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC, $virtualMethod(Rectangle, getBounds2D, $Rectangle2D*)},
+		{"getHeight", "()D", nullptr, $PUBLIC, $virtualMethod(Rectangle, getHeight, double)},
+		{"getLocation", "()Ljava/awt/Point;", nullptr, $PUBLIC, $virtualMethod(Rectangle, getLocation, $Point*)},
+		{"getSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(Rectangle, getSize, $Dimension*)},
+		{"getWidth", "()D", nullptr, $PUBLIC, $virtualMethod(Rectangle, getWidth, double)},
+		{"getX", "()D", nullptr, $PUBLIC, $virtualMethod(Rectangle, getX, double)},
+		{"getY", "()D", nullptr, $PUBLIC, $virtualMethod(Rectangle, getY, double)},
+		{"grow", "(II)V", nullptr, $PUBLIC, $virtualMethod(Rectangle, grow, void, int32_t, int32_t)},
+		{"initIDs", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(Rectangle, initIDs, void)},
+		{"inside", "(II)Z", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(Rectangle, inside, bool, int32_t, int32_t), nullptr, nullptr, insidemethodAnnotations$$},
+		{"intersection", "(Ljava/awt/Rectangle;)Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(Rectangle, intersection, Rectangle*, Rectangle*)},
+		{"intersects", "(Ljava/awt/Rectangle;)Z", nullptr, $PUBLIC, $virtualMethod(Rectangle, intersects, bool, Rectangle*)},
+		{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(Rectangle, isEmpty, bool)},
+		{"move", "(II)V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(Rectangle, move, void, int32_t, int32_t), nullptr, nullptr, movemethodAnnotations$$},
+		{"outcode", "(DD)I", nullptr, $PUBLIC, $virtualMethod(Rectangle, outcode, int32_t, double, double)},
+		{"reshape", "(IIII)V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(Rectangle, reshape, void, int32_t, int32_t, int32_t, int32_t), nullptr, nullptr, reshapemethodAnnotations$$},
+		{"resize", "(II)V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(Rectangle, resize, void, int32_t, int32_t), nullptr, nullptr, resizemethodAnnotations$$},
+		{"setBounds", "(Ljava/awt/Rectangle;)V", nullptr, $PUBLIC, $virtualMethod(Rectangle, setBounds, void, Rectangle*)},
+		{"setBounds", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(Rectangle, setBounds, void, int32_t, int32_t, int32_t, int32_t)},
+		{"setLocation", "(Ljava/awt/Point;)V", nullptr, $PUBLIC, $virtualMethod(Rectangle, setLocation, void, $Point*)},
+		{"setLocation", "(II)V", nullptr, $PUBLIC, $virtualMethod(Rectangle, setLocation, void, int32_t, int32_t)},
+		{"setRect", "(DDDD)V", nullptr, $PUBLIC, $virtualMethod(Rectangle, setRect, void, double, double, double, double)},
+		{"setSize", "(Ljava/awt/Dimension;)V", nullptr, $PUBLIC, $virtualMethod(Rectangle, setSize, void, $Dimension*)},
+		{"setSize", "(II)V", nullptr, $PUBLIC, $virtualMethod(Rectangle, setSize, void, int32_t, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Rectangle, toString, $String*)},
+		{"translate", "(II)V", nullptr, $PUBLIC, $virtualMethod(Rectangle, translate, void, int32_t, int32_t)},
+		{"union", "(Ljava/awt/Rectangle;)Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(Rectangle, union$, Rectangle*, Rectangle*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.awt.Rectangle",
+		"java.awt.geom.Rectangle2D",
+		"java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Rectangle, name, initialize, &classInfo$$, Rectangle::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Rectangle));
+	});
 	return class$;
 }
 

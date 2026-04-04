@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/util/GraphUtils$DotVisitor.h>
-
 #include <com/sun/tools/javac/util/GraphUtils$DependencyKind.h>
 #include <com/sun/tools/javac/util/GraphUtils$DottableNode.h>
 #include <com/sun/tools/javac/util/GraphUtils$Node.h>
@@ -26,75 +25,36 @@ namespace com {
 			namespace javac {
 				namespace util {
 
-$MethodInfo _GraphUtils$DotVisitor_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(GraphUtils$DotVisitor, init$, void)},
-	{"formatProperties", "(Ljava/util/Properties;)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(GraphUtils$DotVisitor, formatProperties, $String*, $Properties*)},
-	{"visit", "(Ljava/util/Collection;Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(GraphUtils$DotVisitor, visit, void, $Collection*, Object$*)},
-	{"visitDependency", "(Lcom/sun/tools/javac/util/GraphUtils$DependencyKind;Lcom/sun/tools/javac/util/GraphUtils$DottableNode;Lcom/sun/tools/javac/util/GraphUtils$DottableNode;Ljava/lang/StringBuilder;)V", "(Lcom/sun/tools/javac/util/GraphUtils$DependencyKind;TN;TN;Ljava/lang/StringBuilder;)V", $PUBLIC, $virtualMethod(GraphUtils$DotVisitor, visitDependency, void, $GraphUtils$DependencyKind*, $GraphUtils$DottableNode*, $GraphUtils$DottableNode*, $StringBuilder*)},
-	{"visitDependency", "(Lcom/sun/tools/javac/util/GraphUtils$DependencyKind;Lcom/sun/tools/javac/util/GraphUtils$Node;Lcom/sun/tools/javac/util/GraphUtils$Node;Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(GraphUtils$DotVisitor, visitDependency, void, $GraphUtils$DependencyKind*, $GraphUtils$Node*, $GraphUtils$Node*, Object$*)},
-	{"visitNode", "(Lcom/sun/tools/javac/util/GraphUtils$DottableNode;Ljava/lang/StringBuilder;)V", "(TN;Ljava/lang/StringBuilder;)V", $PUBLIC, $virtualMethod(GraphUtils$DotVisitor, visitNode, void, $GraphUtils$DottableNode*, $StringBuilder*)},
-	{"visitNode", "(Lcom/sun/tools/javac/util/GraphUtils$Node;Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(GraphUtils$DotVisitor, visitNode, void, $GraphUtils$Node*, Object$*)},
-	{"wrap", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PROTECTED | $STATIC, $staticMethod(GraphUtils$DotVisitor, wrap, $String*, $String*)},
-	{}
-};
-
-$InnerClassInfo _GraphUtils$DotVisitor_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.util.GraphUtils$DotVisitor", "com.sun.tools.javac.util.GraphUtils", "DotVisitor", $PUBLIC | $STATIC},
-	{"com.sun.tools.javac.util.GraphUtils$NodeVisitor", "com.sun.tools.javac.util.GraphUtils", "NodeVisitor", $STATIC | $ABSTRACT},
-	{"com.sun.tools.javac.util.GraphUtils$DottableNode", "com.sun.tools.javac.util.GraphUtils", "DottableNode", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _GraphUtils$DotVisitor_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.util.GraphUtils$DotVisitor",
-	"com.sun.tools.javac.util.GraphUtils$NodeVisitor",
-	nullptr,
-	nullptr,
-	_GraphUtils$DotVisitor_MethodInfo_,
-	"<D:Ljava/lang/Object;N::Lcom/sun/tools/javac/util/GraphUtils$DottableNode<TD;TN;>;>Lcom/sun/tools/javac/util/GraphUtils$NodeVisitor<TD;TN;Ljava/lang/StringBuilder;>;",
-	nullptr,
-	_GraphUtils$DotVisitor_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.util.GraphUtils"
-};
-
-$Object* allocate$GraphUtils$DotVisitor($Class* clazz) {
-	return $of($alloc(GraphUtils$DotVisitor));
-}
-
 void GraphUtils$DotVisitor::init$() {
 	$GraphUtils$NodeVisitor::init$();
 }
 
 void GraphUtils$DotVisitor::visitDependency($GraphUtils$DependencyKind* dk, $GraphUtils$DottableNode* from, $GraphUtils$DottableNode* to, $StringBuilder* buf) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(buf)->append($($String::format("%s -> %s"_s, $$new($ObjectArray, {
-		$($of($Integer::valueOf($nc($of(from))->hashCode()))),
-		$($of($Integer::valueOf($nc($of(to))->hashCode())))
+		$($Integer::valueOf($nc($of(from))->hashCode())),
+		$($Integer::valueOf($nc($of(to))->hashCode()))
 	}))));
-	buf->append($(formatProperties($($nc(from)->dependencyAttributes(to, dk)))));
+	buf->append($(formatProperties($(from->dependencyAttributes(to, dk)))));
 	buf->append(u'\n');
 }
 
 void GraphUtils$DotVisitor::visitNode($GraphUtils$DottableNode* node, $StringBuilder* buf) {
-	$useLocalCurrentObjectStackCache();
-	$nc(buf)->append($($String::format("%s "_s, $$new($ObjectArray, {$($of($Integer::valueOf($nc($of(node))->hashCode())))}))));
-	buf->append($(formatProperties($($nc(node)->nodeAttributes()))));
+	$useLocalObjectStack();
+	$nc(buf)->append($($String::format("%s "_s, $$new($ObjectArray, {$($Integer::valueOf($nc($of(node))->hashCode()))}))));
+	buf->append($(formatProperties($(node->nodeAttributes()))));
 	buf->append(u'\n');
 }
 
 $String* GraphUtils$DotVisitor::formatProperties($Properties* p) {
-	$useLocalCurrentObjectStackCache();
-	return $($($nc($($nc(p)->toString()))->replaceAll(","_s, " "_s))->replaceAll("\\{"_s, "["_s))->replaceAll("\\}"_s, "]"_s);
+	$useLocalObjectStack();
+	return $($($$nc($nc(p)->toString())->replaceAll(","_s, " "_s))->replaceAll("\\{"_s, "["_s))->replaceAll("\\}"_s, "]"_s);
 }
 
 $String* GraphUtils$DotVisitor::wrap($String* s) {
 	$init(GraphUtils$DotVisitor);
 	$var($String, res, $str({"\""_s, s, "\""_s}));
-	return $nc(res)->replaceAll("\n"_s, ""_s);
+	return res->replaceAll("\n"_s, ""_s);
 }
 
 void GraphUtils$DotVisitor::visit($Collection* nodes, Object$* arg) {
@@ -113,7 +73,41 @@ GraphUtils$DotVisitor::GraphUtils$DotVisitor() {
 }
 
 $Class* GraphUtils$DotVisitor::load$($String* name, bool initialize) {
-	$loadClass(GraphUtils$DotVisitor, name, initialize, &_GraphUtils$DotVisitor_ClassInfo_, allocate$GraphUtils$DotVisitor);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(GraphUtils$DotVisitor, init$, void)},
+		{"formatProperties", "(Ljava/util/Properties;)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(GraphUtils$DotVisitor, formatProperties, $String*, $Properties*)},
+		{"visit", "(Ljava/util/Collection;Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(GraphUtils$DotVisitor, visit, void, $Collection*, Object$*)},
+		{"visitDependency", "(Lcom/sun/tools/javac/util/GraphUtils$DependencyKind;Lcom/sun/tools/javac/util/GraphUtils$DottableNode;Lcom/sun/tools/javac/util/GraphUtils$DottableNode;Ljava/lang/StringBuilder;)V", "(Lcom/sun/tools/javac/util/GraphUtils$DependencyKind;TN;TN;Ljava/lang/StringBuilder;)V", $PUBLIC, $virtualMethod(GraphUtils$DotVisitor, visitDependency, void, $GraphUtils$DependencyKind*, $GraphUtils$DottableNode*, $GraphUtils$DottableNode*, $StringBuilder*)},
+		{"visitDependency", "(Lcom/sun/tools/javac/util/GraphUtils$DependencyKind;Lcom/sun/tools/javac/util/GraphUtils$Node;Lcom/sun/tools/javac/util/GraphUtils$Node;Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(GraphUtils$DotVisitor, visitDependency, void, $GraphUtils$DependencyKind*, $GraphUtils$Node*, $GraphUtils$Node*, Object$*)},
+		{"visitNode", "(Lcom/sun/tools/javac/util/GraphUtils$DottableNode;Ljava/lang/StringBuilder;)V", "(TN;Ljava/lang/StringBuilder;)V", $PUBLIC, $virtualMethod(GraphUtils$DotVisitor, visitNode, void, $GraphUtils$DottableNode*, $StringBuilder*)},
+		{"visitNode", "(Lcom/sun/tools/javac/util/GraphUtils$Node;Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(GraphUtils$DotVisitor, visitNode, void, $GraphUtils$Node*, Object$*)},
+		{"wrap", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PROTECTED | $STATIC, $staticMethod(GraphUtils$DotVisitor, wrap, $String*, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.util.GraphUtils$DotVisitor", "com.sun.tools.javac.util.GraphUtils", "DotVisitor", $PUBLIC | $STATIC},
+		{"com.sun.tools.javac.util.GraphUtils$NodeVisitor", "com.sun.tools.javac.util.GraphUtils", "NodeVisitor", $STATIC | $ABSTRACT},
+		{"com.sun.tools.javac.util.GraphUtils$DottableNode", "com.sun.tools.javac.util.GraphUtils", "DottableNode", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.util.GraphUtils$DotVisitor",
+		"com.sun.tools.javac.util.GraphUtils$NodeVisitor",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		"<D:Ljava/lang/Object;N::Lcom/sun/tools/javac/util/GraphUtils$DottableNode<TD;TN;>;>Lcom/sun/tools/javac/util/GraphUtils$NodeVisitor<TD;TN;Ljava/lang/StringBuilder;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.util.GraphUtils"
+	};
+	$loadClass(GraphUtils$DotVisitor, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(GraphUtils$DotVisitor);
+	});
 	return class$;
 }
 

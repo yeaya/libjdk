@@ -1,5 +1,4 @@
 #include <com/sun/media/sound/SF2LayerRegion.h>
-
 #include <com/sun/media/sound/SF2Region.h>
 #include <com/sun/media/sound/SF2Sample.h>
 #include <jcpp.h>
@@ -14,31 +13,6 @@ namespace com {
 	namespace sun {
 		namespace media {
 			namespace sound {
-
-$FieldInfo _SF2LayerRegion_FieldInfo_[] = {
-	{"sample", "Lcom/sun/media/sound/SF2Sample;", nullptr, 0, $field(SF2LayerRegion, sample)},
-	{}
-};
-
-$MethodInfo _SF2LayerRegion_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SF2LayerRegion, init$, void)},
-	{"getSample", "()Lcom/sun/media/sound/SF2Sample;", nullptr, $PUBLIC, $method(SF2LayerRegion, getSample, $SF2Sample*)},
-	{"setSample", "(Lcom/sun/media/sound/SF2Sample;)V", nullptr, $PUBLIC, $method(SF2LayerRegion, setSample, void, $SF2Sample*)},
-	{}
-};
-
-$ClassInfo _SF2LayerRegion_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.media.sound.SF2LayerRegion",
-	"com.sun.media.sound.SF2Region",
-	nullptr,
-	_SF2LayerRegion_FieldInfo_,
-	_SF2LayerRegion_MethodInfo_
-};
-
-$Object* allocate$SF2LayerRegion($Class* clazz) {
-	return $of($alloc(SF2LayerRegion));
-}
 
 void SF2LayerRegion::init$() {
 	$SF2Region::init$();
@@ -56,7 +30,27 @@ SF2LayerRegion::SF2LayerRegion() {
 }
 
 $Class* SF2LayerRegion::load$($String* name, bool initialize) {
-	$loadClass(SF2LayerRegion, name, initialize, &_SF2LayerRegion_ClassInfo_, allocate$SF2LayerRegion);
+	$FieldInfo fieldInfos$$[] = {
+		{"sample", "Lcom/sun/media/sound/SF2Sample;", nullptr, 0, $field(SF2LayerRegion, sample)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SF2LayerRegion, init$, void)},
+		{"getSample", "()Lcom/sun/media/sound/SF2Sample;", nullptr, $PUBLIC, $method(SF2LayerRegion, getSample, $SF2Sample*)},
+		{"setSample", "(Lcom/sun/media/sound/SF2Sample;)V", nullptr, $PUBLIC, $method(SF2LayerRegion, setSample, void, $SF2Sample*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.media.sound.SF2LayerRegion",
+		"com.sun.media.sound.SF2Region",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SF2LayerRegion, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SF2LayerRegion);
+	});
 	return class$;
 }
 

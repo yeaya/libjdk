@@ -45,6 +45,7 @@ class KeyStoreResolver : public ::com::sun::org::apache::xml::internal::security
 	$class(KeyStoreResolver, 0, ::com::sun::org::apache::xml::internal::security::keys::storage::StorageResolverSpi)
 public:
 	KeyStoreResolver();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::security::KeyStore* keyStore);
 	virtual ::java::util::Iterator* getIterator() override;
 	static ::com::sun::org::slf4j::internal::Logger* LOG;

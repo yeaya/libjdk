@@ -1,5 +1,4 @@
 #include <java/util/logging/LogManager$LoggerWeakRef.h>
-
 #include <java/lang/ref/Reference.h>
 #include <java/lang/ref/ReferenceQueue.h>
 #include <java/lang/ref/WeakReference.h>
@@ -16,54 +15,11 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $WeakReference = ::java::lang::ref::WeakReference;
 using $LogManager = ::java::util::logging::LogManager;
 using $LogManager$LogNode = ::java::util::logging::LogManager$LogNode;
-using $LogManager$LoggerContext = ::java::util::logging::LogManager$LoggerContext;
 using $Logger = ::java::util::logging::Logger;
 
 namespace java {
 	namespace util {
 		namespace logging {
-
-$FieldInfo _LogManager$LoggerWeakRef_FieldInfo_[] = {
-	{"this$0", "Ljava/util/logging/LogManager;", nullptr, $FINAL | $SYNTHETIC, $field(LogManager$LoggerWeakRef, this$0)},
-	{"name", "Ljava/lang/String;", nullptr, $PRIVATE, $field(LogManager$LoggerWeakRef, name)},
-	{"node", "Ljava/util/logging/LogManager$LogNode;", nullptr, $PRIVATE, $field(LogManager$LoggerWeakRef, node)},
-	{"parentRef", "Ljava/lang/ref/WeakReference;", "Ljava/lang/ref/WeakReference<Ljava/util/logging/Logger;>;", $PRIVATE, $field(LogManager$LoggerWeakRef, parentRef)},
-	{"disposed", "Z", nullptr, $PRIVATE, $field(LogManager$LoggerWeakRef, disposed)},
-	{}
-};
-
-$MethodInfo _LogManager$LoggerWeakRef_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/logging/LogManager;Ljava/util/logging/Logger;)V", nullptr, 0, $method(LogManager$LoggerWeakRef, init$, void, $LogManager*, $Logger*)},
-	{"dispose", "()V", nullptr, 0, $method(LogManager$LoggerWeakRef, dispose, void)},
-	{"setNode", "(Ljava/util/logging/LogManager$LogNode;)V", nullptr, 0, $method(LogManager$LoggerWeakRef, setNode, void, $LogManager$LogNode*)},
-	{"setParentRef", "(Ljava/lang/ref/WeakReference;)V", "(Ljava/lang/ref/WeakReference<Ljava/util/logging/Logger;>;)V", 0, $method(LogManager$LoggerWeakRef, setParentRef, void, $WeakReference*)},
-	{}
-};
-
-$InnerClassInfo _LogManager$LoggerWeakRef_InnerClassesInfo_[] = {
-	{"java.util.logging.LogManager$LoggerWeakRef", "java.util.logging.LogManager", "LoggerWeakRef", $FINAL},
-	{}
-};
-
-$ClassInfo _LogManager$LoggerWeakRef_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.util.logging.LogManager$LoggerWeakRef",
-	"java.lang.ref.WeakReference",
-	nullptr,
-	_LogManager$LoggerWeakRef_FieldInfo_,
-	_LogManager$LoggerWeakRef_MethodInfo_,
-	"Ljava/lang/ref/WeakReference<Ljava/util/logging/Logger;>;",
-	nullptr,
-	_LogManager$LoggerWeakRef_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.logging.LogManager"
-};
-
-$Object* allocate$LogManager$LoggerWeakRef($Class* clazz) {
-	return $of($alloc(LogManager$LoggerWeakRef));
-}
 
 void LogManager$LoggerWeakRef::init$($LogManager* this$0, $Logger* logger) {
 	$set(this, this$0, this$0);
@@ -73,7 +29,7 @@ void LogManager$LoggerWeakRef::init$($LogManager* this$0, $Logger* logger) {
 }
 
 void LogManager$LoggerWeakRef::dispose() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized(this) {
 		if (this->disposed) {
 			return;
@@ -83,7 +39,7 @@ void LogManager$LoggerWeakRef::dispose() {
 	$var($LogManager$LogNode, n, this->node);
 	if (n != nullptr) {
 		$synchronized(n->context) {
-			$nc(n->context)->removeLoggerRef(this->name, this);
+			n->context->removeLoggerRef(this->name, this);
 			$set(this, name, nullptr);
 			if (n->loggerRef == this) {
 				$set(n, loggerRef, nullptr);
@@ -92,7 +48,7 @@ void LogManager$LoggerWeakRef::dispose() {
 		}
 	}
 	if (this->parentRef != nullptr) {
-		$var($Logger, parent, $cast($Logger, $nc(this->parentRef)->get()));
+		$var($Logger, parent, $cast($Logger, this->parentRef->get()));
 		if (parent != nullptr) {
 			parent->removeChildLogger(this);
 		}
@@ -112,7 +68,43 @@ LogManager$LoggerWeakRef::LogManager$LoggerWeakRef() {
 }
 
 $Class* LogManager$LoggerWeakRef::load$($String* name, bool initialize) {
-	$loadClass(LogManager$LoggerWeakRef, name, initialize, &_LogManager$LoggerWeakRef_ClassInfo_, allocate$LogManager$LoggerWeakRef);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljava/util/logging/LogManager;", nullptr, $FINAL | $SYNTHETIC, $field(LogManager$LoggerWeakRef, this$0)},
+		{"name", "Ljava/lang/String;", nullptr, $PRIVATE, $field(LogManager$LoggerWeakRef, name)},
+		{"node", "Ljava/util/logging/LogManager$LogNode;", nullptr, $PRIVATE, $field(LogManager$LoggerWeakRef, node)},
+		{"parentRef", "Ljava/lang/ref/WeakReference;", "Ljava/lang/ref/WeakReference<Ljava/util/logging/Logger;>;", $PRIVATE, $field(LogManager$LoggerWeakRef, parentRef)},
+		{"disposed", "Z", nullptr, $PRIVATE, $field(LogManager$LoggerWeakRef, disposed)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/logging/LogManager;Ljava/util/logging/Logger;)V", nullptr, 0, $method(LogManager$LoggerWeakRef, init$, void, $LogManager*, $Logger*)},
+		{"dispose", "()V", nullptr, 0, $method(LogManager$LoggerWeakRef, dispose, void)},
+		{"setNode", "(Ljava/util/logging/LogManager$LogNode;)V", nullptr, 0, $method(LogManager$LoggerWeakRef, setNode, void, $LogManager$LogNode*)},
+		{"setParentRef", "(Ljava/lang/ref/WeakReference;)V", "(Ljava/lang/ref/WeakReference<Ljava/util/logging/Logger;>;)V", 0, $method(LogManager$LoggerWeakRef, setParentRef, void, $WeakReference*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.logging.LogManager$LoggerWeakRef", "java.util.logging.LogManager", "LoggerWeakRef", $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.util.logging.LogManager$LoggerWeakRef",
+		"java.lang.ref.WeakReference",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/ref/WeakReference<Ljava/util/logging/Logger;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.logging.LogManager"
+	};
+	$loadClass(LogManager$LoggerWeakRef, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LogManager$LoggerWeakRef);
+	});
 	return class$;
 }
 

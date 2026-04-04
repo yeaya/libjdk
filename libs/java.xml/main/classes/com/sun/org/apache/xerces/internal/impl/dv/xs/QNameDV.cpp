@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/impl/dv/xs/QNameDV.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/dv/InvalidDatatypeValueException.h>
 #include <com/sun/org/apache/xerces/internal/impl/dv/ValidationContext.h>
 #include <com/sun/org/apache/xerces/internal/impl/dv/xs/QNameDV$XQName.h>
@@ -37,43 +36,6 @@ namespace com {
 							namespace dv {
 								namespace xs {
 
-$FieldInfo _QNameDV_FieldInfo_[] = {
-	{"EMPTY_STRING", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(QNameDV, EMPTY_STRING)},
-	{}
-};
-
-$MethodInfo _QNameDV_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(QNameDV, init$, void)},
-	{"getActualValue", "(Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/impl/dv/ValidationContext;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(QNameDV, getActualValue, $Object*, $String*, $ValidationContext*), "com.sun.org.apache.xerces.internal.impl.dv.InvalidDatatypeValueException"},
-	{"getAllowedFacets", "()S", nullptr, $PUBLIC, $virtualMethod(QNameDV, getAllowedFacets, int16_t)},
-	{"getDataLength", "(Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(QNameDV, getDataLength, int32_t, Object$*)},
-	{}
-};
-
-$InnerClassInfo _QNameDV_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xerces.internal.impl.dv.xs.QNameDV$XQName", "com.sun.org.apache.xerces.internal.impl.dv.xs.QNameDV", "XQName", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _QNameDV_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.impl.dv.xs.QNameDV",
-	"com.sun.org.apache.xerces.internal.impl.dv.xs.TypeValidator",
-	nullptr,
-	_QNameDV_FieldInfo_,
-	_QNameDV_MethodInfo_,
-	nullptr,
-	nullptr,
-	_QNameDV_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xerces.internal.impl.dv.xs.QNameDV$XQName"
-};
-
-$Object* allocate$QNameDV($Class* clazz) {
-	return $of($alloc(QNameDV));
-}
-
 $String* QNameDV::EMPTY_STRING = nullptr;
 
 void QNameDV::init$() {
@@ -85,7 +47,7 @@ int16_t QNameDV::getAllowedFacets() {
 }
 
 $Object* QNameDV::getActualValue($String* content, $ValidationContext* context) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, prefix, nullptr);
 	$var($String, localpart, nullptr);
 	int32_t colonptr = $nc(content)->indexOf(":"_s);
@@ -99,33 +61,32 @@ $Object* QNameDV::getActualValue($String* content, $ValidationContext* context) 
 	bool var$0 = $nc(prefix)->length() > 0;
 	if (var$0 && !$XMLChar::isValidNCName(prefix)) {
 		$throwNew($InvalidDatatypeValueException, "cvc-datatype-valid.1.2.1"_s, $$new($ObjectArray, {
-			$of(content),
-			$of("QName"_s)
+			content,
+			"QName"_s
 		}));
 	}
 	if (!$XMLChar::isValidNCName(localpart)) {
 		$throwNew($InvalidDatatypeValueException, "cvc-datatype-valid.1.2.1"_s, $$new($ObjectArray, {
-			$of(content),
-			$of("QName"_s)
+			content,
+			"QName"_s
 		}));
 	}
 	$var($String, uri, $nc(context)->getURI(prefix));
-	if ($nc(prefix)->length() > 0 && uri == nullptr) {
+	if (prefix->length() > 0 && uri == nullptr) {
 		$throwNew($InvalidDatatypeValueException, "UndeclaredPrefix"_s, $$new($ObjectArray, {
-			$of(content),
-			$of(prefix)
+			content,
+			prefix
 		}));
 	}
-	$var($String, var$1, prefix);
-	$var($String, var$2, context->getSymbol(localpart));
-	return $of($new($QNameDV$XQName, var$1, var$2, $(context->getSymbol(content)), uri));
+	$var($String, var$1, context->getSymbol(localpart));
+	return $of($new($QNameDV$XQName, prefix, var$1, $(context->getSymbol(content)), uri));
 }
 
 int32_t QNameDV::getDataLength(Object$* value) {
-	return $nc($nc(($cast($QNameDV$XQName, value)))->rawname)->length();
+	return $nc($nc($cast($QNameDV$XQName, value))->rawname)->length();
 }
 
-void clinit$QNameDV($Class* class$) {
+void QNameDV::clinit$($Class* clazz) {
 	$assignStatic(QNameDV::EMPTY_STRING, ""_s->intern());
 }
 
@@ -133,7 +94,38 @@ QNameDV::QNameDV() {
 }
 
 $Class* QNameDV::load$($String* name, bool initialize) {
-	$loadClass(QNameDV, name, initialize, &_QNameDV_ClassInfo_, clinit$QNameDV, allocate$QNameDV);
+	$FieldInfo fieldInfos$$[] = {
+		{"EMPTY_STRING", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(QNameDV, EMPTY_STRING)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(QNameDV, init$, void)},
+		{"getActualValue", "(Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/impl/dv/ValidationContext;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(QNameDV, getActualValue, $Object*, $String*, $ValidationContext*), "com.sun.org.apache.xerces.internal.impl.dv.InvalidDatatypeValueException"},
+		{"getAllowedFacets", "()S", nullptr, $PUBLIC, $virtualMethod(QNameDV, getAllowedFacets, int16_t)},
+		{"getDataLength", "(Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(QNameDV, getDataLength, int32_t, Object$*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xerces.internal.impl.dv.xs.QNameDV$XQName", "com.sun.org.apache.xerces.internal.impl.dv.xs.QNameDV", "XQName", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.impl.dv.xs.QNameDV",
+		"com.sun.org.apache.xerces.internal.impl.dv.xs.TypeValidator",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xerces.internal.impl.dv.xs.QNameDV$XQName"
+	};
+	$loadClass(QNameDV, name, initialize, &classInfo$$, QNameDV::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(QNameDV);
+	});
 	return class$;
 }
 

@@ -1,6 +1,4 @@
 #include <com/sun/tools/javac/tree/JCTree$JCErroneous.h>
-
-#include <com/sun/source/tree/ErroneousTree.h>
 #include <com/sun/source/tree/Tree$Kind.h>
 #include <com/sun/source/tree/TreeVisitor.h>
 #include <com/sun/tools/javac/tree/JCTree$JCExpression.h>
@@ -13,7 +11,6 @@
 
 #undef ERRONEOUS
 
-using $ErroneousTree = ::com::sun::source::tree::ErroneousTree;
 using $Tree$Kind = ::com::sun::source::tree::Tree$Kind;
 using $TreeVisitor = ::com::sun::source::tree::TreeVisitor;
 using $JCTree$JCExpression = ::com::sun::tools::javac::tree::JCTree$JCExpression;
@@ -31,52 +28,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace tree {
-
-$FieldInfo _JCTree$JCErroneous_FieldInfo_[] = {
-	{"errs", "Lcom/sun/tools/javac/util/List;", "Lcom/sun/tools/javac/util/List<+Lcom/sun/tools/javac/tree/JCTree;>;", $PUBLIC, $field(JCTree$JCErroneous, errs)},
-	{}
-};
-
-$MethodInfo _JCTree$JCErroneous_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/util/List<+Lcom/sun/tools/javac/tree/JCTree;>;)V", $PROTECTED, $method(JCTree$JCErroneous, init$, void, $List*)},
-	{"accept", "(Lcom/sun/tools/javac/tree/JCTree$Visitor;)V", nullptr, $PUBLIC, $virtualMethod(JCTree$JCErroneous, accept, void, $JCTree$Visitor*)},
-	{"accept", "(Lcom/sun/source/tree/TreeVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;D:Ljava/lang/Object;>(Lcom/sun/source/tree/TreeVisitor<TR;TD;>;TD;)TR;", $PUBLIC, $virtualMethod(JCTree$JCErroneous, accept, $Object*, $TreeVisitor*, Object$*)},
-	{"getErrorTrees", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<+Lcom/sun/tools/javac/tree/JCTree;>;", $PUBLIC, $virtualMethod(JCTree$JCErroneous, getErrorTrees, $1List*)},
-	{"getKind", "()Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCErroneous, getKind, $Tree$Kind*)},
-	{"getTag", "()Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCErroneous, getTag, $JCTree$Tag*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _JCTree$JCErroneous_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.tree.JCTree$JCErroneous", "com.sun.tools.javac.tree.JCTree", "JCErroneous", $PUBLIC | $STATIC},
-	{"com.sun.tools.javac.tree.JCTree$JCExpression", "com.sun.tools.javac.tree.JCTree", "JCExpression", $PUBLIC | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _JCTree$JCErroneous_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.tree.JCTree$JCErroneous",
-	"com.sun.tools.javac.tree.JCTree$JCExpression",
-	"com.sun.source.tree.ErroneousTree",
-	_JCTree$JCErroneous_FieldInfo_,
-	_JCTree$JCErroneous_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JCTree$JCErroneous_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.tree.JCTree"
-};
-
-$Object* allocate$JCTree$JCErroneous($Class* clazz) {
-	return $of($alloc(JCTree$JCErroneous));
-}
 
 $String* JCTree$JCErroneous::toString() {
 	 return this->$JCTree$JCExpression::toString();
@@ -117,7 +68,7 @@ $1List* JCTree$JCErroneous::getErrorTrees() {
 }
 
 $Object* JCTree$JCErroneous::accept($TreeVisitor* v, Object$* d) {
-	return $of($nc(v)->visitErroneous(this, d));
+	return $nc(v)->visitErroneous(this, d);
 }
 
 $JCTree$Tag* JCTree$JCErroneous::getTag() {
@@ -129,7 +80,47 @@ JCTree$JCErroneous::JCTree$JCErroneous() {
 }
 
 $Class* JCTree$JCErroneous::load$($String* name, bool initialize) {
-	$loadClass(JCTree$JCErroneous, name, initialize, &_JCTree$JCErroneous_ClassInfo_, allocate$JCTree$JCErroneous);
+	$FieldInfo fieldInfos$$[] = {
+		{"errs", "Lcom/sun/tools/javac/util/List;", "Lcom/sun/tools/javac/util/List<+Lcom/sun/tools/javac/tree/JCTree;>;", $PUBLIC, $field(JCTree$JCErroneous, errs)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/util/List<+Lcom/sun/tools/javac/tree/JCTree;>;)V", $PROTECTED, $method(JCTree$JCErroneous, init$, void, $List*)},
+		{"accept", "(Lcom/sun/tools/javac/tree/JCTree$Visitor;)V", nullptr, $PUBLIC, $virtualMethod(JCTree$JCErroneous, accept, void, $JCTree$Visitor*)},
+		{"accept", "(Lcom/sun/source/tree/TreeVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;D:Ljava/lang/Object;>(Lcom/sun/source/tree/TreeVisitor<TR;TD;>;TD;)TR;", $PUBLIC, $virtualMethod(JCTree$JCErroneous, accept, $Object*, $TreeVisitor*, Object$*)},
+		{"getErrorTrees", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<+Lcom/sun/tools/javac/tree/JCTree;>;", $PUBLIC, $virtualMethod(JCTree$JCErroneous, getErrorTrees, $1List*)},
+		{"getKind", "()Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCErroneous, getKind, $Tree$Kind*)},
+		{"getTag", "()Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCErroneous, getTag, $JCTree$Tag*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.tree.JCTree$JCErroneous", "com.sun.tools.javac.tree.JCTree", "JCErroneous", $PUBLIC | $STATIC},
+		{"com.sun.tools.javac.tree.JCTree$JCExpression", "com.sun.tools.javac.tree.JCTree", "JCExpression", $PUBLIC | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.tree.JCTree$JCErroneous",
+		"com.sun.tools.javac.tree.JCTree$JCExpression",
+		"com.sun.source.tree.ErroneousTree",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.tree.JCTree"
+	};
+	$loadClass(JCTree$JCErroneous, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JCTree$JCErroneous));
+	});
 	return class$;
 }
 

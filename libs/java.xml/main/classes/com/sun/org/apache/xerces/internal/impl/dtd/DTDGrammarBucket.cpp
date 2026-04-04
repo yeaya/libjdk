@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/impl/dtd/DTDGrammarBucket.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/dtd/DTDGrammar.h>
 #include <com/sun/org/apache/xerces/internal/impl/dtd/XMLDTDDescription.h>
 #include <com/sun/org/apache/xerces/internal/xni/grammars/XMLGrammarDescription.h>
@@ -14,7 +13,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $HashMap = ::java::util::HashMap;
-using $Map = ::java::util::Map;
 
 namespace com {
 	namespace sun {
@@ -24,38 +22,6 @@ namespace com {
 					namespace internal {
 						namespace impl {
 							namespace dtd {
-
-$FieldInfo _DTDGrammarBucket_FieldInfo_[] = {
-	{"fGrammars", "Ljava/util/Map;", "Ljava/util/Map<Lcom/sun/org/apache/xerces/internal/impl/dtd/XMLDTDDescription;Lcom/sun/org/apache/xerces/internal/impl/dtd/DTDGrammar;>;", $PROTECTED, $field(DTDGrammarBucket, fGrammars)},
-	{"fActiveGrammar", "Lcom/sun/org/apache/xerces/internal/impl/dtd/DTDGrammar;", nullptr, $PROTECTED, $field(DTDGrammarBucket, fActiveGrammar)},
-	{"fIsStandalone", "Z", nullptr, $PROTECTED, $field(DTDGrammarBucket, fIsStandalone)},
-	{}
-};
-
-$MethodInfo _DTDGrammarBucket_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(DTDGrammarBucket, init$, void)},
-	{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(DTDGrammarBucket, clear, void)},
-	{"getActiveGrammar", "()Lcom/sun/org/apache/xerces/internal/impl/dtd/DTDGrammar;", nullptr, 0, $virtualMethod(DTDGrammarBucket, getActiveGrammar, $DTDGrammar*)},
-	{"getGrammar", "(Lcom/sun/org/apache/xerces/internal/xni/grammars/XMLGrammarDescription;)Lcom/sun/org/apache/xerces/internal/impl/dtd/DTDGrammar;", nullptr, $PUBLIC, $virtualMethod(DTDGrammarBucket, getGrammar, $DTDGrammar*, $XMLGrammarDescription*)},
-	{"getStandalone", "()Z", nullptr, 0, $virtualMethod(DTDGrammarBucket, getStandalone, bool)},
-	{"putGrammar", "(Lcom/sun/org/apache/xerces/internal/impl/dtd/DTDGrammar;)V", nullptr, $PUBLIC, $virtualMethod(DTDGrammarBucket, putGrammar, void, $DTDGrammar*)},
-	{"setActiveGrammar", "(Lcom/sun/org/apache/xerces/internal/impl/dtd/DTDGrammar;)V", nullptr, 0, $virtualMethod(DTDGrammarBucket, setActiveGrammar, void, $DTDGrammar*)},
-	{"setStandalone", "(Z)V", nullptr, 0, $virtualMethod(DTDGrammarBucket, setStandalone, void, bool)},
-	{}
-};
-
-$ClassInfo _DTDGrammarBucket_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.impl.dtd.DTDGrammarBucket",
-	"java.lang.Object",
-	nullptr,
-	_DTDGrammarBucket_FieldInfo_,
-	_DTDGrammarBucket_MethodInfo_
-};
-
-$Object* allocate$DTDGrammarBucket($Class* clazz) {
-	return $of($alloc(DTDGrammarBucket));
-}
 
 void DTDGrammarBucket::init$() {
 	$set(this, fGrammars, $new($HashMap));
@@ -96,7 +62,34 @@ DTDGrammarBucket::DTDGrammarBucket() {
 }
 
 $Class* DTDGrammarBucket::load$($String* name, bool initialize) {
-	$loadClass(DTDGrammarBucket, name, initialize, &_DTDGrammarBucket_ClassInfo_, allocate$DTDGrammarBucket);
+	$FieldInfo fieldInfos$$[] = {
+		{"fGrammars", "Ljava/util/Map;", "Ljava/util/Map<Lcom/sun/org/apache/xerces/internal/impl/dtd/XMLDTDDescription;Lcom/sun/org/apache/xerces/internal/impl/dtd/DTDGrammar;>;", $PROTECTED, $field(DTDGrammarBucket, fGrammars)},
+		{"fActiveGrammar", "Lcom/sun/org/apache/xerces/internal/impl/dtd/DTDGrammar;", nullptr, $PROTECTED, $field(DTDGrammarBucket, fActiveGrammar)},
+		{"fIsStandalone", "Z", nullptr, $PROTECTED, $field(DTDGrammarBucket, fIsStandalone)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(DTDGrammarBucket, init$, void)},
+		{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(DTDGrammarBucket, clear, void)},
+		{"getActiveGrammar", "()Lcom/sun/org/apache/xerces/internal/impl/dtd/DTDGrammar;", nullptr, 0, $virtualMethod(DTDGrammarBucket, getActiveGrammar, $DTDGrammar*)},
+		{"getGrammar", "(Lcom/sun/org/apache/xerces/internal/xni/grammars/XMLGrammarDescription;)Lcom/sun/org/apache/xerces/internal/impl/dtd/DTDGrammar;", nullptr, $PUBLIC, $virtualMethod(DTDGrammarBucket, getGrammar, $DTDGrammar*, $XMLGrammarDescription*)},
+		{"getStandalone", "()Z", nullptr, 0, $virtualMethod(DTDGrammarBucket, getStandalone, bool)},
+		{"putGrammar", "(Lcom/sun/org/apache/xerces/internal/impl/dtd/DTDGrammar;)V", nullptr, $PUBLIC, $virtualMethod(DTDGrammarBucket, putGrammar, void, $DTDGrammar*)},
+		{"setActiveGrammar", "(Lcom/sun/org/apache/xerces/internal/impl/dtd/DTDGrammar;)V", nullptr, 0, $virtualMethod(DTDGrammarBucket, setActiveGrammar, void, $DTDGrammar*)},
+		{"setStandalone", "(Z)V", nullptr, 0, $virtualMethod(DTDGrammarBucket, setStandalone, void, bool)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.impl.dtd.DTDGrammarBucket",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DTDGrammarBucket, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DTDGrammarBucket);
+	});
 	return class$;
 }
 

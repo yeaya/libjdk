@@ -1,5 +1,4 @@
 #include <javax/lang/model/element/NestingKind.h>
-
 #include <java/lang/Enum.h>
 #include <jcpp.h>
 
@@ -18,38 +17,6 @@ namespace javax {
 	namespace lang {
 		namespace model {
 			namespace element {
-
-$FieldInfo _NestingKind_FieldInfo_[] = {
-	{"TOP_LEVEL", "Ljavax/lang/model/element/NestingKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(NestingKind, TOP_LEVEL)},
-	{"MEMBER", "Ljavax/lang/model/element/NestingKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(NestingKind, MEMBER)},
-	{"LOCAL", "Ljavax/lang/model/element/NestingKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(NestingKind, LOCAL)},
-	{"ANONYMOUS", "Ljavax/lang/model/element/NestingKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(NestingKind, ANONYMOUS)},
-	{"$VALUES", "[Ljavax/lang/model/element/NestingKind;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(NestingKind, $VALUES)},
-	{}
-};
-
-$MethodInfo _NestingKind_MethodInfo_[] = {
-	{"$values", "()[Ljavax/lang/model/element/NestingKind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(NestingKind, $values, $NestingKindArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(NestingKind, init$, void, $String*, int32_t)},
-	{"isNested", "()Z", nullptr, $PUBLIC, $method(NestingKind, isNested, bool)},
-	{"valueOf", "(Ljava/lang/String;)Ljavax/lang/model/element/NestingKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(NestingKind, valueOf, NestingKind*, $String*)},
-	{"values", "()[Ljavax/lang/model/element/NestingKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(NestingKind, values, $NestingKindArray*)},
-	{}
-};
-
-$ClassInfo _NestingKind_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"javax.lang.model.element.NestingKind",
-	"java.lang.Enum",
-	nullptr,
-	_NestingKind_FieldInfo_,
-	_NestingKind_MethodInfo_,
-	"Ljava/lang/Enum<Ljavax/lang/model/element/NestingKind;>;"
-};
-
-$Object* allocate$NestingKind($Class* clazz) {
-	return $of($alloc(NestingKind));
-}
 
 NestingKind* NestingKind::TOP_LEVEL = nullptr;
 NestingKind* NestingKind::MEMBER = nullptr;
@@ -85,7 +52,7 @@ bool NestingKind::isNested() {
 	return this != NestingKind::TOP_LEVEL;
 }
 
-void clinit$NestingKind($Class* class$) {
+void NestingKind::clinit$($Class* clazz) {
 	$assignStatic(NestingKind::TOP_LEVEL, $new(NestingKind, "TOP_LEVEL"_s, 0));
 	$assignStatic(NestingKind::MEMBER, $new(NestingKind, "MEMBER"_s, 1));
 	$assignStatic(NestingKind::LOCAL, $new(NestingKind, "LOCAL"_s, 2));
@@ -97,7 +64,34 @@ NestingKind::NestingKind() {
 }
 
 $Class* NestingKind::load$($String* name, bool initialize) {
-	$loadClass(NestingKind, name, initialize, &_NestingKind_ClassInfo_, clinit$NestingKind, allocate$NestingKind);
+	$FieldInfo fieldInfos$$[] = {
+		{"TOP_LEVEL", "Ljavax/lang/model/element/NestingKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(NestingKind, TOP_LEVEL)},
+		{"MEMBER", "Ljavax/lang/model/element/NestingKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(NestingKind, MEMBER)},
+		{"LOCAL", "Ljavax/lang/model/element/NestingKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(NestingKind, LOCAL)},
+		{"ANONYMOUS", "Ljavax/lang/model/element/NestingKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(NestingKind, ANONYMOUS)},
+		{"$VALUES", "[Ljavax/lang/model/element/NestingKind;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(NestingKind, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Ljavax/lang/model/element/NestingKind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(NestingKind, $values, $NestingKindArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(NestingKind, init$, void, $String*, int32_t)},
+		{"isNested", "()Z", nullptr, $PUBLIC, $method(NestingKind, isNested, bool)},
+		{"valueOf", "(Ljava/lang/String;)Ljavax/lang/model/element/NestingKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(NestingKind, valueOf, NestingKind*, $String*)},
+		{"values", "()[Ljavax/lang/model/element/NestingKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(NestingKind, values, $NestingKindArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"javax.lang.model.element.NestingKind",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Ljavax/lang/model/element/NestingKind;>;"
+	};
+	$loadClass(NestingKind, name, initialize, &classInfo$$, NestingKind::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(NestingKind));
+	});
 	return class$;
 }
 

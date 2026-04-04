@@ -1,5 +1,4 @@
 #include <sun/font/CMap$CMapFormat2.h>
-
 #include <java/nio/ByteBuffer.h>
 #include <java/nio/CharBuffer.h>
 #include <sun/font/CMap.h>
@@ -16,47 +15,6 @@ using $CMap = ::sun::font::CMap;
 namespace sun {
 	namespace font {
 
-$FieldInfo _CMap$CMapFormat2_FieldInfo_[] = {
-	{"subHeaderKey", "[C", nullptr, 0, $field(CMap$CMapFormat2, subHeaderKey)},
-	{"firstCodeArray", "[C", nullptr, 0, $field(CMap$CMapFormat2, firstCodeArray)},
-	{"entryCountArray", "[C", nullptr, 0, $field(CMap$CMapFormat2, entryCountArray)},
-	{"idDeltaArray", "[S", nullptr, 0, $field(CMap$CMapFormat2, idDeltaArray)},
-	{"idRangeOffSetArray", "[C", nullptr, 0, $field(CMap$CMapFormat2, idRangeOffSetArray)},
-	{"glyphIndexArray", "[C", nullptr, 0, $field(CMap$CMapFormat2, glyphIndexArray)},
-	{}
-};
-
-$MethodInfo _CMap$CMapFormat2_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/ByteBuffer;I[C)V", nullptr, 0, $method(CMap$CMapFormat2, init$, void, $ByteBuffer*, int32_t, $chars*)},
-	{"getGlyph", "(I)C", nullptr, 0, $virtualMethod(CMap$CMapFormat2, getGlyph, char16_t, int32_t)},
-	{}
-};
-
-$InnerClassInfo _CMap$CMapFormat2_InnerClassesInfo_[] = {
-	{"sun.font.CMap$CMapFormat2", "sun.font.CMap", "CMapFormat2", $STATIC},
-	{}
-};
-
-$ClassInfo _CMap$CMapFormat2_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.font.CMap$CMapFormat2",
-	"sun.font.CMap",
-	nullptr,
-	_CMap$CMapFormat2_FieldInfo_,
-	_CMap$CMapFormat2_MethodInfo_,
-	nullptr,
-	nullptr,
-	_CMap$CMapFormat2_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.font.CMap"
-};
-
-$Object* allocate$CMap$CMapFormat2($Class* clazz) {
-	return $of($alloc(CMap$CMapFormat2));
-}
-
 void CMap$CMapFormat2::init$($ByteBuffer* buffer, int32_t offset, $chars* xlat) {
 	$CMap::init$();
 	$set(this, subHeaderKey, $new($chars, 256));
@@ -64,11 +22,11 @@ void CMap$CMapFormat2::init$($ByteBuffer* buffer, int32_t offset, $chars* xlat) 
 	int32_t tableLen = $nc(buffer)->getChar(offset + 2);
 	buffer->position(offset + 6);
 	$var($CharBuffer, cBuffer, buffer->asCharBuffer());
-	char16_t maxSubHeader = (char16_t)0;
+	char16_t maxSubHeader = 0;
 	for (int32_t i = 0; i < 256; ++i) {
 		$nc(this->subHeaderKey)->set(i, $nc(cBuffer)->get());
 		if ($nc(this->subHeaderKey)->get(i) > maxSubHeader) {
-			maxSubHeader = $nc(this->subHeaderKey)->get(i);
+			maxSubHeader = this->subHeaderKey->get(i);
 		}
 	}
 	int32_t numSubHeaders = (maxSubHeader >> 3) + 1;
@@ -96,10 +54,10 @@ char16_t CMap$CMapFormat2::getGlyph(int32_t charCode) {
 		return (char16_t)controlGlyph;
 	}
 	if (this->xlat != nullptr) {
-		charCode = $nc(this->xlat)->get(charCode);
+		charCode = this->xlat->get(charCode);
 	}
 	char16_t highByte = (char16_t)(charCode >> 8);
-	char16_t lowByte = (char16_t)((int32_t)(charCode & (uint32_t)255));
+	char16_t lowByte = (char16_t)(charCode & 0xff);
 	int32_t key = $nc(this->subHeaderKey)->get(highByte) >> 3;
 	char16_t mapMe = 0;
 	if (key != 0) {
@@ -112,13 +70,13 @@ char16_t CMap$CMapFormat2::getGlyph(int32_t charCode) {
 	}
 	char16_t firstCode = $nc(this->firstCodeArray)->get(key);
 	if (mapMe < firstCode) {
-		return (char16_t)0;
+		return 0;
 	} else {
 		mapMe -= firstCode;
 	}
 	if (mapMe < $nc(this->entryCountArray)->get(key)) {
 		int32_t glyphArrayOffset = (($nc(this->idRangeOffSetArray)->length - key) * 8) - 6;
-		int32_t glyphSubArrayStart = ($nc(this->idRangeOffSetArray)->get(key) - glyphArrayOffset) / 2;
+		int32_t glyphSubArrayStart = (this->idRangeOffSetArray->get(key) - glyphArrayOffset) / 2;
 		char16_t glyphCode = $nc(this->glyphIndexArray)->get(glyphSubArrayStart + mapMe);
 		if (glyphCode != 0) {
 			glyphCode += $nc(this->idDeltaArray)->get(key);
@@ -132,7 +90,42 @@ CMap$CMapFormat2::CMap$CMapFormat2() {
 }
 
 $Class* CMap$CMapFormat2::load$($String* name, bool initialize) {
-	$loadClass(CMap$CMapFormat2, name, initialize, &_CMap$CMapFormat2_ClassInfo_, allocate$CMap$CMapFormat2);
+	$FieldInfo fieldInfos$$[] = {
+		{"subHeaderKey", "[C", nullptr, 0, $field(CMap$CMapFormat2, subHeaderKey)},
+		{"firstCodeArray", "[C", nullptr, 0, $field(CMap$CMapFormat2, firstCodeArray)},
+		{"entryCountArray", "[C", nullptr, 0, $field(CMap$CMapFormat2, entryCountArray)},
+		{"idDeltaArray", "[S", nullptr, 0, $field(CMap$CMapFormat2, idDeltaArray)},
+		{"idRangeOffSetArray", "[C", nullptr, 0, $field(CMap$CMapFormat2, idRangeOffSetArray)},
+		{"glyphIndexArray", "[C", nullptr, 0, $field(CMap$CMapFormat2, glyphIndexArray)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/nio/ByteBuffer;I[C)V", nullptr, 0, $method(CMap$CMapFormat2, init$, void, $ByteBuffer*, int32_t, $chars*)},
+		{"getGlyph", "(I)C", nullptr, 0, $virtualMethod(CMap$CMapFormat2, getGlyph, char16_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.font.CMap$CMapFormat2", "sun.font.CMap", "CMapFormat2", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.font.CMap$CMapFormat2",
+		"sun.font.CMap",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.font.CMap"
+	};
+	$loadClass(CMap$CMapFormat2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CMap$CMapFormat2);
+	});
 	return class$;
 }
 

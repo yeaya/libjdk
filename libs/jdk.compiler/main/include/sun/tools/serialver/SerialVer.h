@@ -19,6 +19,7 @@ class $import SerialVer : public ::java::lang::Object {
 	$class(SerialVer, 0, ::java::lang::Object)
 public:
 	SerialVer();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void initializeLoader($String* cp);
 	static void main($StringArray* args);

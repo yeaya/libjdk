@@ -1,8 +1,6 @@
 #include <sun/swing/plaf/DesktopProperty$WeakPCL.h>
-
 #include <java/awt/Toolkit.h>
 #include <java/beans/PropertyChangeEvent.h>
-#include <java/beans/PropertyChangeListener.h>
 #include <java/lang/ref/Reference.h>
 #include <java/lang/ref/ReferenceQueue.h>
 #include <java/lang/ref/WeakReference.h>
@@ -13,7 +11,6 @@
 
 using $Toolkit = ::java::awt::Toolkit;
 using $PropertyChangeEvent = ::java::beans::PropertyChangeEvent;
-using $PropertyChangeListener = ::java::beans::PropertyChangeListener;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -26,49 +23,6 @@ using $DesktopProperty = ::sun::swing::plaf::DesktopProperty;
 namespace sun {
 	namespace swing {
 		namespace plaf {
-
-$FieldInfo _DesktopProperty$WeakPCL_FieldInfo_[] = {
-	{"key", "Ljava/lang/String;", nullptr, $PRIVATE, $field(DesktopProperty$WeakPCL, key)},
-	{"laf", "Ljavax/swing/LookAndFeel;", nullptr, $PRIVATE, $field(DesktopProperty$WeakPCL, laf)},
-	{}
-};
-
-$MethodInfo _DesktopProperty$WeakPCL_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lsun/swing/plaf/DesktopProperty;Ljava/lang/String;Ljavax/swing/LookAndFeel;)V", nullptr, 0, $method(DesktopProperty$WeakPCL, init$, void, $DesktopProperty*, $String*, $LookAndFeel*)},
-	{"dispose", "()V", nullptr, 0, $virtualMethod(DesktopProperty$WeakPCL, dispose, void)},
-	{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(DesktopProperty$WeakPCL, propertyChange, void, $PropertyChangeEvent*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _DesktopProperty$WeakPCL_InnerClassesInfo_[] = {
-	{"sun.swing.plaf.DesktopProperty$WeakPCL", "sun.swing.plaf.DesktopProperty", "WeakPCL", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _DesktopProperty$WeakPCL_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.swing.plaf.DesktopProperty$WeakPCL",
-	"java.lang.ref.WeakReference",
-	"java.beans.PropertyChangeListener",
-	_DesktopProperty$WeakPCL_FieldInfo_,
-	_DesktopProperty$WeakPCL_MethodInfo_,
-	"Ljava/lang/ref/WeakReference<Lsun/swing/plaf/DesktopProperty;>;Ljava/beans/PropertyChangeListener;",
-	nullptr,
-	_DesktopProperty$WeakPCL_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.swing.plaf.DesktopProperty"
-};
-
-$Object* allocate$DesktopProperty$WeakPCL($Class* clazz) {
-	return $of($alloc(DesktopProperty$WeakPCL));
-}
 
 $Object* DesktopProperty$WeakPCL::clone() {
 	 return this->$WeakReference::clone();
@@ -102,20 +56,57 @@ void DesktopProperty$WeakPCL::propertyChange($PropertyChangeEvent* pce) {
 	if (property == nullptr || this->laf != $UIManager::getLookAndFeel()) {
 		dispose();
 	} else {
-		$nc(property)->invalidate(this->laf);
+		property->invalidate(this->laf);
 		property->updateUI();
 	}
 }
 
 void DesktopProperty$WeakPCL::dispose() {
-	$nc($($Toolkit::getDefaultToolkit()))->removePropertyChangeListener(this->key, this);
+	$$nc($Toolkit::getDefaultToolkit())->removePropertyChangeListener(this->key, this);
 }
 
 DesktopProperty$WeakPCL::DesktopProperty$WeakPCL() {
 }
 
 $Class* DesktopProperty$WeakPCL::load$($String* name, bool initialize) {
-	$loadClass(DesktopProperty$WeakPCL, name, initialize, &_DesktopProperty$WeakPCL_ClassInfo_, allocate$DesktopProperty$WeakPCL);
+	$FieldInfo fieldInfos$$[] = {
+		{"key", "Ljava/lang/String;", nullptr, $PRIVATE, $field(DesktopProperty$WeakPCL, key)},
+		{"laf", "Ljavax/swing/LookAndFeel;", nullptr, $PRIVATE, $field(DesktopProperty$WeakPCL, laf)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lsun/swing/plaf/DesktopProperty;Ljava/lang/String;Ljavax/swing/LookAndFeel;)V", nullptr, 0, $method(DesktopProperty$WeakPCL, init$, void, $DesktopProperty*, $String*, $LookAndFeel*)},
+		{"dispose", "()V", nullptr, 0, $virtualMethod(DesktopProperty$WeakPCL, dispose, void)},
+		{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(DesktopProperty$WeakPCL, propertyChange, void, $PropertyChangeEvent*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.swing.plaf.DesktopProperty$WeakPCL", "sun.swing.plaf.DesktopProperty", "WeakPCL", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.swing.plaf.DesktopProperty$WeakPCL",
+		"java.lang.ref.WeakReference",
+		"java.beans.PropertyChangeListener",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/ref/WeakReference<Lsun/swing/plaf/DesktopProperty;>;Ljava/beans/PropertyChangeListener;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.swing.plaf.DesktopProperty"
+	};
+	$loadClass(DesktopProperty$WeakPCL, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DesktopProperty$WeakPCL));
+	});
 	return class$;
 }
 

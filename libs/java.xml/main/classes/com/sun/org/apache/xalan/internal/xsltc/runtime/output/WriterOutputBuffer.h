@@ -31,6 +31,7 @@ class WriterOutputBuffer : public ::com::sun::org::apache::xalan::internal::xslt
 	$class(WriterOutputBuffer, 0, ::com::sun::org::apache::xalan::internal::xsltc::runtime::output::OutputBuffer)
 public:
 	WriterOutputBuffer();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::io::Writer* writer);
 	virtual ::com::sun::org::apache::xalan::internal::xsltc::runtime::output::OutputBuffer* append($String* s) override;
 	virtual ::com::sun::org::apache::xalan::internal::xsltc::runtime::output::OutputBuffer* append($chars* s, int32_t from, int32_t to) override;

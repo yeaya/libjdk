@@ -1,5 +1,4 @@
 #include <java/awt/desktop/QuitResponse.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -9,27 +8,23 @@ namespace java {
 	namespace awt {
 		namespace desktop {
 
-$MethodInfo _QuitResponse_MethodInfo_[] = {
-	{"cancelQuit", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(QuitResponse, cancelQuit, void)},
-	{"performQuit", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(QuitResponse, performQuit, void)},
-	{}
-};
-
-$ClassInfo _QuitResponse_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.awt.desktop.QuitResponse",
-	nullptr,
-	nullptr,
-	nullptr,
-	_QuitResponse_MethodInfo_
-};
-
-$Object* allocate$QuitResponse($Class* clazz) {
-	return $of($alloc(QuitResponse));
-}
-
 $Class* QuitResponse::load$($String* name, bool initialize) {
-	$loadClass(QuitResponse, name, initialize, &_QuitResponse_ClassInfo_, allocate$QuitResponse);
+	$MethodInfo methodInfos$$[] = {
+		{"cancelQuit", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(QuitResponse, cancelQuit, void)},
+		{"performQuit", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(QuitResponse, performQuit, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.awt.desktop.QuitResponse",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(QuitResponse, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(QuitResponse);
+	});
 	return class$;
 }
 

@@ -55,7 +55,7 @@ public:
 	using ::com::sun::org::apache::xerces::internal::dom::DocumentImpl::removeEventListener;
 	using ::com::sun::org::apache::xerces::internal::dom::DocumentImpl::setUserData;
 	void writeObject(::java::io::ObjectOutputStream* out);
-	static const int64_t serialVersionUID = (int64_t)0x85912D6C942C69A6;
+	static const int64_t serialVersionUID = (int64_t)0x85912d6c942c69a6;
 };
 
 						} // dom

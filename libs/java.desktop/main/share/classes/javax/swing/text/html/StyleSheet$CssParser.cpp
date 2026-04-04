@@ -1,5 +1,4 @@
 #include <javax/swing/text/html/StyleSheet$CssParser.h>
-
 #include <java/io/IOException.h>
 #include <java/io/Reader.h>
 #include <java/io/StringReader.h>
@@ -10,7 +9,6 @@
 #include <javax/swing/text/SimpleAttributeSet.h>
 #include <javax/swing/text/html/CSS$Attribute.h>
 #include <javax/swing/text/html/CSS.h>
-#include <javax/swing/text/html/CSSParser$CSSParserCallback.h>
 #include <javax/swing/text/html/CSSParser.h>
 #include <javax/swing/text/html/StyleSheet.h>
 #include <jcpp.h>
@@ -27,72 +25,16 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $URL = ::java::net::URL;
 using $Vector = ::java::util::Vector;
 using $AttributeSet = ::javax::swing::text::AttributeSet;
-using $MutableAttributeSet = ::javax::swing::text::MutableAttributeSet;
 using $SimpleAttributeSet = ::javax::swing::text::SimpleAttributeSet;
 using $CSS = ::javax::swing::text::html::CSS;
 using $CSS$Attribute = ::javax::swing::text::html::CSS$Attribute;
 using $CSSParser = ::javax::swing::text::html::CSSParser;
-using $CSSParser$CSSParserCallback = ::javax::swing::text::html::CSSParser$CSSParserCallback;
 using $StyleSheet = ::javax::swing::text::html::StyleSheet;
 
 namespace javax {
 	namespace swing {
 		namespace text {
 			namespace html {
-
-$FieldInfo _StyleSheet$CssParser_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/text/html/StyleSheet;", nullptr, $FINAL | $SYNTHETIC, $field(StyleSheet$CssParser, this$0)},
-	{"selectors", "Ljava/util/Vector;", "Ljava/util/Vector<[Ljava/lang/String;>;", 0, $field(StyleSheet$CssParser, selectors)},
-	{"selectorTokens", "Ljava/util/Vector;", "Ljava/util/Vector<Ljava/lang/String;>;", 0, $field(StyleSheet$CssParser, selectorTokens)},
-	{"propertyName", "Ljava/lang/String;", nullptr, 0, $field(StyleSheet$CssParser, propertyName)},
-	{"declaration", "Ljavax/swing/text/MutableAttributeSet;", nullptr, 0, $field(StyleSheet$CssParser, declaration)},
-	{"parsingDeclaration", "Z", nullptr, 0, $field(StyleSheet$CssParser, parsingDeclaration)},
-	{"isLink", "Z", nullptr, 0, $field(StyleSheet$CssParser, isLink)},
-	{"base", "Ljava/net/URL;", nullptr, 0, $field(StyleSheet$CssParser, base)},
-	{"parser", "Ljavax/swing/text/html/CSSParser;", nullptr, 0, $field(StyleSheet$CssParser, parser)},
-	{}
-};
-
-$MethodInfo _StyleSheet$CssParser_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/text/html/StyleSheet;)V", nullptr, 0, $method(StyleSheet$CssParser, init$, void, $StyleSheet*)},
-	{"addSelector", "()V", nullptr, $PRIVATE, $method(StyleSheet$CssParser, addSelector, void)},
-	{"endRule", "()V", nullptr, $PUBLIC, $virtualMethod(StyleSheet$CssParser, endRule, void)},
-	{"handleImport", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(StyleSheet$CssParser, handleImport, void, $String*)},
-	{"handleProperty", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(StyleSheet$CssParser, handleProperty, void, $String*)},
-	{"handleSelector", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(StyleSheet$CssParser, handleSelector, void, $String*)},
-	{"handleValue", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(StyleSheet$CssParser, handleValue, void, $String*)},
-	{"parse", "(Ljava/net/URL;Ljava/io/Reader;ZZ)V", nullptr, $PUBLIC, $virtualMethod(StyleSheet$CssParser, parse, void, $URL*, $Reader*, bool, bool), "java.io.IOException"},
-	{"parseDeclaration", "(Ljava/lang/String;)Ljavax/swing/text/AttributeSet;", nullptr, $PUBLIC, $virtualMethod(StyleSheet$CssParser, parseDeclaration, $AttributeSet*, $String*)},
-	{"parseDeclaration", "(Ljava/io/Reader;)Ljavax/swing/text/AttributeSet;", nullptr, $PUBLIC, $virtualMethod(StyleSheet$CssParser, parseDeclaration, $AttributeSet*, $Reader*), "java.io.IOException"},
-	{"startRule", "()V", nullptr, $PUBLIC, $virtualMethod(StyleSheet$CssParser, startRule, void)},
-	{}
-};
-
-$InnerClassInfo _StyleSheet$CssParser_InnerClassesInfo_[] = {
-	{"javax.swing.text.html.StyleSheet$CssParser", "javax.swing.text.html.StyleSheet", "CssParser", 0},
-	{"javax.swing.text.html.CSSParser$CSSParserCallback", "javax.swing.text.html.CSSParser", "CSSParserCallback", $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _StyleSheet$CssParser_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.text.html.StyleSheet$CssParser",
-	"java.lang.Object",
-	"javax.swing.text.html.CSSParser$CSSParserCallback",
-	_StyleSheet$CssParser_FieldInfo_,
-	_StyleSheet$CssParser_MethodInfo_,
-	nullptr,
-	nullptr,
-	_StyleSheet$CssParser_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.html.StyleSheet"
-};
-
-$Object* allocate$StyleSheet$CssParser($Class* clazz) {
-	return $of($alloc(StyleSheet$CssParser));
-}
 
 void StyleSheet$CssParser::init$($StyleSheet* this$0) {
 	$set(this, this$0, this$0);
@@ -104,7 +46,7 @@ void StyleSheet$CssParser::init$($StyleSheet* this$0) {
 
 $AttributeSet* StyleSheet$CssParser::parseDeclaration($String* string) {
 	try {
-		return parseDeclaration(static_cast<$Reader*>($$new($StringReader, string)));
+		return parseDeclaration($$new($StringReader, string));
 	} catch ($IOException& ioe) {
 	}
 	return nullptr;
@@ -119,7 +61,7 @@ void StyleSheet$CssParser::parse($URL* base, $Reader* r, bool parseDeclaration, 
 	$set(this, base, base);
 	this->isLink = isLink;
 	this->parsingDeclaration = parseDeclaration;
-	$nc(this->declaration)->removeAttributes(static_cast<$AttributeSet*>(this->declaration));
+	$nc(this->declaration)->removeAttributes(this->declaration);
 	$nc(this->selectorTokens)->removeAllElements();
 	$nc(this->selectors)->removeAllElements();
 	$set(this, propertyName, nullptr);
@@ -136,10 +78,10 @@ void StyleSheet$CssParser::handleImport($String* importString) {
 void StyleSheet$CssParser::handleSelector($String* selector$renamed) {
 	$var($String, selector, selector$renamed);
 	bool var$0 = $nc(selector)->startsWith("."_s);
-	if (!(var$0 || $nc(selector)->startsWith("#"_s))) {
+	if (!(var$0 || selector->startsWith("#"_s))) {
 		$assign(selector, selector->toLowerCase());
 	}
-	int32_t length = $nc(selector)->length();
+	int32_t length = selector->length();
 	if (selector->endsWith(","_s)) {
 		if (length > 1) {
 			$assign(selector, selector->substring(0, length - 1));
@@ -163,7 +105,7 @@ void StyleSheet$CssParser::handleProperty($String* property) {
 }
 
 void StyleSheet$CssParser::handleValue($String* value$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, value, value$renamed);
 	if (this->propertyName != nullptr && value != nullptr && value->length() > 0) {
 		$var($CSS$Attribute, cssKey, $CSS::getAttribute(this->propertyName));
@@ -184,7 +126,7 @@ void StyleSheet$CssParser::handleValue($String* value$renamed) {
 }
 
 void StyleSheet$CssParser::endRule() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t n = $nc(this->selectors)->size();
 	for (int32_t i = 0; i < n; ++i) {
 		$var($StringArray, selector, $cast($StringArray, $nc(this->selectors)->elementAt(i)));
@@ -192,22 +134,70 @@ void StyleSheet$CssParser::endRule() {
 			this->this$0->addRule(selector, this->declaration, this->isLink);
 		}
 	}
-	$nc(this->declaration)->removeAttributes(static_cast<$AttributeSet*>(this->declaration));
+	$nc(this->declaration)->removeAttributes(this->declaration);
 	$nc(this->selectors)->removeAllElements();
 }
 
 void StyleSheet$CssParser::addSelector() {
 	$var($StringArray, selector, $new($StringArray, $nc(this->selectorTokens)->size()));
-	$nc(this->selectorTokens)->copyInto(selector);
+	this->selectorTokens->copyInto(selector);
 	$nc(this->selectors)->addElement(selector);
-	$nc(this->selectorTokens)->removeAllElements();
+	this->selectorTokens->removeAllElements();
 }
 
 StyleSheet$CssParser::StyleSheet$CssParser() {
 }
 
 $Class* StyleSheet$CssParser::load$($String* name, bool initialize) {
-	$loadClass(StyleSheet$CssParser, name, initialize, &_StyleSheet$CssParser_ClassInfo_, allocate$StyleSheet$CssParser);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/text/html/StyleSheet;", nullptr, $FINAL | $SYNTHETIC, $field(StyleSheet$CssParser, this$0)},
+		{"selectors", "Ljava/util/Vector;", "Ljava/util/Vector<[Ljava/lang/String;>;", 0, $field(StyleSheet$CssParser, selectors)},
+		{"selectorTokens", "Ljava/util/Vector;", "Ljava/util/Vector<Ljava/lang/String;>;", 0, $field(StyleSheet$CssParser, selectorTokens)},
+		{"propertyName", "Ljava/lang/String;", nullptr, 0, $field(StyleSheet$CssParser, propertyName)},
+		{"declaration", "Ljavax/swing/text/MutableAttributeSet;", nullptr, 0, $field(StyleSheet$CssParser, declaration)},
+		{"parsingDeclaration", "Z", nullptr, 0, $field(StyleSheet$CssParser, parsingDeclaration)},
+		{"isLink", "Z", nullptr, 0, $field(StyleSheet$CssParser, isLink)},
+		{"base", "Ljava/net/URL;", nullptr, 0, $field(StyleSheet$CssParser, base)},
+		{"parser", "Ljavax/swing/text/html/CSSParser;", nullptr, 0, $field(StyleSheet$CssParser, parser)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/text/html/StyleSheet;)V", nullptr, 0, $method(StyleSheet$CssParser, init$, void, $StyleSheet*)},
+		{"addSelector", "()V", nullptr, $PRIVATE, $method(StyleSheet$CssParser, addSelector, void)},
+		{"endRule", "()V", nullptr, $PUBLIC, $virtualMethod(StyleSheet$CssParser, endRule, void)},
+		{"handleImport", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(StyleSheet$CssParser, handleImport, void, $String*)},
+		{"handleProperty", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(StyleSheet$CssParser, handleProperty, void, $String*)},
+		{"handleSelector", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(StyleSheet$CssParser, handleSelector, void, $String*)},
+		{"handleValue", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(StyleSheet$CssParser, handleValue, void, $String*)},
+		{"parse", "(Ljava/net/URL;Ljava/io/Reader;ZZ)V", nullptr, $PUBLIC, $virtualMethod(StyleSheet$CssParser, parse, void, $URL*, $Reader*, bool, bool), "java.io.IOException"},
+		{"parseDeclaration", "(Ljava/lang/String;)Ljavax/swing/text/AttributeSet;", nullptr, $PUBLIC, $virtualMethod(StyleSheet$CssParser, parseDeclaration, $AttributeSet*, $String*)},
+		{"parseDeclaration", "(Ljava/io/Reader;)Ljavax/swing/text/AttributeSet;", nullptr, $PUBLIC, $virtualMethod(StyleSheet$CssParser, parseDeclaration, $AttributeSet*, $Reader*), "java.io.IOException"},
+		{"startRule", "()V", nullptr, $PUBLIC, $virtualMethod(StyleSheet$CssParser, startRule, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.html.StyleSheet$CssParser", "javax.swing.text.html.StyleSheet", "CssParser", 0},
+		{"javax.swing.text.html.CSSParser$CSSParserCallback", "javax.swing.text.html.CSSParser", "CSSParserCallback", $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.text.html.StyleSheet$CssParser",
+		"java.lang.Object",
+		"javax.swing.text.html.CSSParser$CSSParserCallback",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.html.StyleSheet"
+	};
+	$loadClass(StyleSheet$CssParser, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(StyleSheet$CssParser);
+	});
 	return class$;
 }
 

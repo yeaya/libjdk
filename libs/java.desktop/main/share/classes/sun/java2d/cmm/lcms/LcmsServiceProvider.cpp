@@ -1,5 +1,4 @@
 #include <sun/java2d/cmm/lcms/LcmsServiceProvider.h>
-
 #include <sun/java2d/cmm/CMMServiceProvider.h>
 #include <sun/java2d/cmm/PCMM.h>
 #include <sun/java2d/cmm/lcms/LCMS.h>
@@ -16,25 +15,6 @@ namespace sun {
 		namespace cmm {
 			namespace lcms {
 
-$MethodInfo _LcmsServiceProvider_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(LcmsServiceProvider, init$, void)},
-	{"getModule", "()Lsun/java2d/cmm/PCMM;", nullptr, $PROTECTED, $virtualMethod(LcmsServiceProvider, getModule, $PCMM*)},
-	{}
-};
-
-$ClassInfo _LcmsServiceProvider_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.java2d.cmm.lcms.LcmsServiceProvider",
-	"sun.java2d.cmm.CMMServiceProvider",
-	nullptr,
-	nullptr,
-	_LcmsServiceProvider_MethodInfo_
-};
-
-$Object* allocate$LcmsServiceProvider($Class* clazz) {
-	return $of($alloc(LcmsServiceProvider));
-}
-
 void LcmsServiceProvider::init$() {
 	$CMMServiceProvider::init$();
 }
@@ -47,7 +27,22 @@ LcmsServiceProvider::LcmsServiceProvider() {
 }
 
 $Class* LcmsServiceProvider::load$($String* name, bool initialize) {
-	$loadClass(LcmsServiceProvider, name, initialize, &_LcmsServiceProvider_ClassInfo_, allocate$LcmsServiceProvider);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(LcmsServiceProvider, init$, void)},
+		{"getModule", "()Lsun/java2d/cmm/PCMM;", nullptr, $PROTECTED, $virtualMethod(LcmsServiceProvider, getModule, $PCMM*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.java2d.cmm.lcms.LcmsServiceProvider",
+		"sun.java2d.cmm.CMMServiceProvider",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(LcmsServiceProvider, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LcmsServiceProvider);
+	});
 	return class$;
 }
 

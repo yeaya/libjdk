@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/security/signature/reference/ReferenceData.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -14,17 +13,14 @@ namespace com {
 							namespace signature {
 								namespace reference {
 
-$ClassInfo _ReferenceData_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.org.apache.xml.internal.security.signature.reference.ReferenceData"
-};
-
-$Object* allocate$ReferenceData($Class* clazz) {
-	return $of($alloc(ReferenceData));
-}
-
 $Class* ReferenceData::load$($String* name, bool initialize) {
-	$loadClass(ReferenceData, name, initialize, &_ReferenceData_ClassInfo_, allocate$ReferenceData);
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.org.apache.xml.internal.security.signature.reference.ReferenceData"
+	};
+	$loadClass(ReferenceData, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ReferenceData);
+	});
 	return class$;
 }
 

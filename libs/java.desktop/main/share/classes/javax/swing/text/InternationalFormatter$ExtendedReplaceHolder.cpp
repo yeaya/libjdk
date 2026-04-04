@@ -1,5 +1,4 @@
 #include <javax/swing/text/InternationalFormatter$ExtendedReplaceHolder.h>
-
 #include <java/text/ParseException.h>
 #include <javax/swing/text/DefaultFormatter$ReplaceHolder.h>
 #include <javax/swing/text/Document.h>
@@ -13,51 +12,11 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ParseException = ::java::text::ParseException;
 using $DefaultFormatter$ReplaceHolder = ::javax::swing::text::DefaultFormatter$ReplaceHolder;
-using $Document = ::javax::swing::text::Document;
-using $DocumentFilter$FilterBypass = ::javax::swing::text::DocumentFilter$FilterBypass;
 using $InternationalFormatter = ::javax::swing::text::InternationalFormatter;
 
 namespace javax {
 	namespace swing {
 		namespace text {
-
-$FieldInfo _InternationalFormatter$ExtendedReplaceHolder_FieldInfo_[] = {
-	{"endOffset", "I", nullptr, 0, $field(InternationalFormatter$ExtendedReplaceHolder, endOffset)},
-	{"endTextLength", "I", nullptr, 0, $field(InternationalFormatter$ExtendedReplaceHolder, endTextLength)},
-	{}
-};
-
-$MethodInfo _InternationalFormatter$ExtendedReplaceHolder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(InternationalFormatter$ExtendedReplaceHolder, init$, void)},
-	{"resetFromValue", "(Ljavax/swing/text/InternationalFormatter;)V", nullptr, 0, $virtualMethod(InternationalFormatter$ExtendedReplaceHolder, resetFromValue, void, $InternationalFormatter*)},
-	{}
-};
-
-$InnerClassInfo _InternationalFormatter$ExtendedReplaceHolder_InnerClassesInfo_[] = {
-	{"javax.swing.text.InternationalFormatter$ExtendedReplaceHolder", "javax.swing.text.InternationalFormatter", "ExtendedReplaceHolder", $STATIC},
-	{"javax.swing.text.DefaultFormatter$ReplaceHolder", "javax.swing.text.DefaultFormatter", "ReplaceHolder", $STATIC},
-	{}
-};
-
-$ClassInfo _InternationalFormatter$ExtendedReplaceHolder_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.text.InternationalFormatter$ExtendedReplaceHolder",
-	"javax.swing.text.DefaultFormatter$ReplaceHolder",
-	nullptr,
-	_InternationalFormatter$ExtendedReplaceHolder_FieldInfo_,
-	_InternationalFormatter$ExtendedReplaceHolder_MethodInfo_,
-	nullptr,
-	nullptr,
-	_InternationalFormatter$ExtendedReplaceHolder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.InternationalFormatter"
-};
-
-$Object* allocate$InternationalFormatter$ExtendedReplaceHolder($Class* clazz) {
-	return $of($alloc(InternationalFormatter$ExtendedReplaceHolder));
-}
 
 void InternationalFormatter$ExtendedReplaceHolder::init$() {
 	$DefaultFormatter$ReplaceHolder::init$();
@@ -70,14 +29,46 @@ void InternationalFormatter$ExtendedReplaceHolder::resetFromValue($International
 	} catch ($ParseException& pe) {
 		$set(this, text, ""_s);
 	}
-	this->length = $nc($($nc(this->fb)->getDocument()))->getLength();
+	this->length = $$nc($nc(this->fb)->getDocument())->getLength();
 }
 
 InternationalFormatter$ExtendedReplaceHolder::InternationalFormatter$ExtendedReplaceHolder() {
 }
 
 $Class* InternationalFormatter$ExtendedReplaceHolder::load$($String* name, bool initialize) {
-	$loadClass(InternationalFormatter$ExtendedReplaceHolder, name, initialize, &_InternationalFormatter$ExtendedReplaceHolder_ClassInfo_, allocate$InternationalFormatter$ExtendedReplaceHolder);
+	$FieldInfo fieldInfos$$[] = {
+		{"endOffset", "I", nullptr, 0, $field(InternationalFormatter$ExtendedReplaceHolder, endOffset)},
+		{"endTextLength", "I", nullptr, 0, $field(InternationalFormatter$ExtendedReplaceHolder, endTextLength)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(InternationalFormatter$ExtendedReplaceHolder, init$, void)},
+		{"resetFromValue", "(Ljavax/swing/text/InternationalFormatter;)V", nullptr, 0, $virtualMethod(InternationalFormatter$ExtendedReplaceHolder, resetFromValue, void, $InternationalFormatter*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.InternationalFormatter$ExtendedReplaceHolder", "javax.swing.text.InternationalFormatter", "ExtendedReplaceHolder", $STATIC},
+		{"javax.swing.text.DefaultFormatter$ReplaceHolder", "javax.swing.text.DefaultFormatter", "ReplaceHolder", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.text.InternationalFormatter$ExtendedReplaceHolder",
+		"javax.swing.text.DefaultFormatter$ReplaceHolder",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.InternationalFormatter"
+	};
+	$loadClass(InternationalFormatter$ExtendedReplaceHolder, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(InternationalFormatter$ExtendedReplaceHolder);
+	});
 	return class$;
 }
 

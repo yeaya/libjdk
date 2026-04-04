@@ -1,10 +1,7 @@
 #include <com/sun/org/apache/bcel/internal/generic/SWAP.h>
-
 #include <com/sun/org/apache/bcel/internal/Const.h>
 #include <com/sun/org/apache/bcel/internal/generic/ConstantPoolGen.h>
-#include <com/sun/org/apache/bcel/internal/generic/StackConsumer.h>
 #include <com/sun/org/apache/bcel/internal/generic/StackInstruction.h>
-#include <com/sun/org/apache/bcel/internal/generic/StackProducer.h>
 #include <com/sun/org/apache/bcel/internal/generic/Visitor.h>
 #include <jcpp.h>
 
@@ -12,9 +9,7 @@
 
 using $Const = ::com::sun::org::apache::bcel::internal::Const;
 using $ConstantPoolGen = ::com::sun::org::apache::bcel::internal::generic::ConstantPoolGen;
-using $StackConsumer = ::com::sun::org::apache::bcel::internal::generic::StackConsumer;
 using $StackInstruction = ::com::sun::org::apache::bcel::internal::generic::StackInstruction;
-using $StackProducer = ::com::sun::org::apache::bcel::internal::generic::StackProducer;
 using $Visitor = ::com::sun::org::apache::bcel::internal::generic::Visitor;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -26,32 +21,6 @@ namespace com {
 				namespace bcel {
 					namespace internal {
 						namespace generic {
-
-$MethodInfo _SWAP_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*consumeStack", "(Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;)I", nullptr, $PUBLIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SWAP, init$, void)},
-	{"accept", "(Lcom/sun/org/apache/bcel/internal/generic/Visitor;)V", nullptr, $PUBLIC, $virtualMethod(SWAP, accept, void, $Visitor*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*produceStack", "(Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;)I", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _SWAP_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.bcel.internal.generic.SWAP",
-	"com.sun.org.apache.bcel.internal.generic.StackInstruction",
-	"com.sun.org.apache.bcel.internal.generic.StackConsumer,com.sun.org.apache.bcel.internal.generic.StackProducer",
-	nullptr,
-	_SWAP_MethodInfo_
-};
-
-$Object* allocate$SWAP($Class* clazz) {
-	return $of($alloc(SWAP));
-}
 
 $String* SWAP::toString() {
 	 return this->$StackInstruction::toString();
@@ -96,7 +65,29 @@ SWAP::SWAP() {
 }
 
 $Class* SWAP::load$($String* name, bool initialize) {
-	$loadClass(SWAP, name, initialize, &_SWAP_ClassInfo_, allocate$SWAP);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*consumeStack", "(Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;)I", nullptr, $PUBLIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SWAP, init$, void)},
+		{"accept", "(Lcom/sun/org/apache/bcel/internal/generic/Visitor;)V", nullptr, $PUBLIC, $virtualMethod(SWAP, accept, void, $Visitor*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*produceStack", "(Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;)I", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.bcel.internal.generic.SWAP",
+		"com.sun.org.apache.bcel.internal.generic.StackInstruction",
+		"com.sun.org.apache.bcel.internal.generic.StackConsumer,com.sun.org.apache.bcel.internal.generic.StackProducer",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(SWAP, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SWAP));
+	});
 	return class$;
 }
 

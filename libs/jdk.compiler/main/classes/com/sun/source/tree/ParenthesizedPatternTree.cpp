@@ -1,5 +1,4 @@
 #include <com/sun/source/tree/ParenthesizedPatternTree.h>
-
 #include <com/sun/source/tree/PatternTree.h>
 #include <jcpp.h>
 
@@ -13,34 +12,29 @@ namespace com {
 		namespace source {
 			namespace tree {
 
-$CompoundAttribute _ParenthesizedPatternTree_Annotations_[] = {
-	{}
-};
-
-$MethodInfo _ParenthesizedPatternTree_MethodInfo_[] = {
-	{"getPattern", "()Lcom/sun/source/tree/PatternTree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ParenthesizedPatternTree, getPattern, $PatternTree*)},
-	{}
-};
-
-$ClassInfo _ParenthesizedPatternTree_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.source.tree.ParenthesizedPatternTree",
-	nullptr,
-	"com.sun.source.tree.PatternTree",
-	nullptr,
-	_ParenthesizedPatternTree_MethodInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	_ParenthesizedPatternTree_Annotations_
-};
-
-$Object* allocate$ParenthesizedPatternTree($Class* clazz) {
-	return $of($alloc(ParenthesizedPatternTree));
-}
-
 $Class* ParenthesizedPatternTree::load$($String* name, bool initialize) {
-	$loadClass(ParenthesizedPatternTree, name, initialize, &_ParenthesizedPatternTree_ClassInfo_, allocate$ParenthesizedPatternTree);
+	$MethodInfo methodInfos$$[] = {
+		{"getPattern", "()Lcom/sun/source/tree/PatternTree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ParenthesizedPatternTree, getPattern, $PatternTree*)},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.source.tree.ParenthesizedPatternTree",
+		nullptr,
+		"com.sun.source.tree.PatternTree",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(ParenthesizedPatternTree, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ParenthesizedPatternTree);
+	});
 	return class$;
 }
 

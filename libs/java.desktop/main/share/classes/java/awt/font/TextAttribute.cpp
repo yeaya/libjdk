@@ -1,5 +1,4 @@
 #include <java/awt/font/TextAttribute.h>
-
 #include <java/awt/font/JavaAWTFontAccessImpl.h>
 #include <java/io/InvalidObjectException.h>
 #include <java/text/AttributedCharacterIterator$Attribute.h>
@@ -83,104 +82,11 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $AttributedCharacterIterator$Attribute = ::java::text::AttributedCharacterIterator$Attribute;
 using $HashMap = ::java::util::HashMap;
 using $Map = ::java::util::Map;
-using $JavaAWTFontAccess = ::jdk::internal::access::JavaAWTFontAccess;
 using $SharedSecrets = ::jdk::internal::access::SharedSecrets;
 
 namespace java {
 	namespace awt {
 		namespace font {
-
-$FieldInfo _TextAttribute_FieldInfo_[] = {
-	{"instanceMap", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/awt/font/TextAttribute;>;", $PRIVATE | $STATIC | $FINAL, $staticField(TextAttribute, instanceMap)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(TextAttribute, serialVersionUID)},
-	{"FAMILY", "Ljava/awt/font/TextAttribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TextAttribute, FAMILY)},
-	{"WEIGHT", "Ljava/awt/font/TextAttribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TextAttribute, WEIGHT)},
-	{"WEIGHT_EXTRA_LIGHT", "Ljava/lang/Float;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TextAttribute, WEIGHT_EXTRA_LIGHT)},
-	{"WEIGHT_LIGHT", "Ljava/lang/Float;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TextAttribute, WEIGHT_LIGHT)},
-	{"WEIGHT_DEMILIGHT", "Ljava/lang/Float;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TextAttribute, WEIGHT_DEMILIGHT)},
-	{"WEIGHT_REGULAR", "Ljava/lang/Float;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TextAttribute, WEIGHT_REGULAR)},
-	{"WEIGHT_SEMIBOLD", "Ljava/lang/Float;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TextAttribute, WEIGHT_SEMIBOLD)},
-	{"WEIGHT_MEDIUM", "Ljava/lang/Float;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TextAttribute, WEIGHT_MEDIUM)},
-	{"WEIGHT_DEMIBOLD", "Ljava/lang/Float;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TextAttribute, WEIGHT_DEMIBOLD)},
-	{"WEIGHT_BOLD", "Ljava/lang/Float;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TextAttribute, WEIGHT_BOLD)},
-	{"WEIGHT_HEAVY", "Ljava/lang/Float;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TextAttribute, WEIGHT_HEAVY)},
-	{"WEIGHT_EXTRABOLD", "Ljava/lang/Float;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TextAttribute, WEIGHT_EXTRABOLD)},
-	{"WEIGHT_ULTRABOLD", "Ljava/lang/Float;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TextAttribute, WEIGHT_ULTRABOLD)},
-	{"WIDTH", "Ljava/awt/font/TextAttribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TextAttribute, WIDTH)},
-	{"WIDTH_CONDENSED", "Ljava/lang/Float;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TextAttribute, WIDTH_CONDENSED)},
-	{"WIDTH_SEMI_CONDENSED", "Ljava/lang/Float;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TextAttribute, WIDTH_SEMI_CONDENSED)},
-	{"WIDTH_REGULAR", "Ljava/lang/Float;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TextAttribute, WIDTH_REGULAR)},
-	{"WIDTH_SEMI_EXTENDED", "Ljava/lang/Float;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TextAttribute, WIDTH_SEMI_EXTENDED)},
-	{"WIDTH_EXTENDED", "Ljava/lang/Float;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TextAttribute, WIDTH_EXTENDED)},
-	{"POSTURE", "Ljava/awt/font/TextAttribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TextAttribute, POSTURE)},
-	{"POSTURE_REGULAR", "Ljava/lang/Float;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TextAttribute, POSTURE_REGULAR)},
-	{"POSTURE_OBLIQUE", "Ljava/lang/Float;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TextAttribute, POSTURE_OBLIQUE)},
-	{"SIZE", "Ljava/awt/font/TextAttribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TextAttribute, SIZE)},
-	{"TRANSFORM", "Ljava/awt/font/TextAttribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TextAttribute, TRANSFORM)},
-	{"SUPERSCRIPT", "Ljava/awt/font/TextAttribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TextAttribute, SUPERSCRIPT)},
-	{"SUPERSCRIPT_SUPER", "Ljava/lang/Integer;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TextAttribute, SUPERSCRIPT_SUPER)},
-	{"SUPERSCRIPT_SUB", "Ljava/lang/Integer;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TextAttribute, SUPERSCRIPT_SUB)},
-	{"FONT", "Ljava/awt/font/TextAttribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TextAttribute, FONT)},
-	{"CHAR_REPLACEMENT", "Ljava/awt/font/TextAttribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TextAttribute, CHAR_REPLACEMENT)},
-	{"FOREGROUND", "Ljava/awt/font/TextAttribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TextAttribute, FOREGROUND)},
-	{"BACKGROUND", "Ljava/awt/font/TextAttribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TextAttribute, BACKGROUND)},
-	{"UNDERLINE", "Ljava/awt/font/TextAttribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TextAttribute, UNDERLINE)},
-	{"UNDERLINE_ON", "Ljava/lang/Integer;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TextAttribute, UNDERLINE_ON)},
-	{"STRIKETHROUGH", "Ljava/awt/font/TextAttribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TextAttribute, STRIKETHROUGH)},
-	{"STRIKETHROUGH_ON", "Ljava/lang/Boolean;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TextAttribute, STRIKETHROUGH_ON)},
-	{"RUN_DIRECTION", "Ljava/awt/font/TextAttribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TextAttribute, RUN_DIRECTION)},
-	{"RUN_DIRECTION_LTR", "Ljava/lang/Boolean;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TextAttribute, RUN_DIRECTION_LTR)},
-	{"RUN_DIRECTION_RTL", "Ljava/lang/Boolean;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TextAttribute, RUN_DIRECTION_RTL)},
-	{"BIDI_EMBEDDING", "Ljava/awt/font/TextAttribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TextAttribute, BIDI_EMBEDDING)},
-	{"JUSTIFICATION", "Ljava/awt/font/TextAttribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TextAttribute, JUSTIFICATION)},
-	{"JUSTIFICATION_FULL", "Ljava/lang/Float;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TextAttribute, JUSTIFICATION_FULL)},
-	{"JUSTIFICATION_NONE", "Ljava/lang/Float;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TextAttribute, JUSTIFICATION_NONE)},
-	{"INPUT_METHOD_HIGHLIGHT", "Ljava/awt/font/TextAttribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TextAttribute, INPUT_METHOD_HIGHLIGHT)},
-	{"INPUT_METHOD_UNDERLINE", "Ljava/awt/font/TextAttribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TextAttribute, INPUT_METHOD_UNDERLINE)},
-	{"UNDERLINE_LOW_ONE_PIXEL", "Ljava/lang/Integer;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TextAttribute, UNDERLINE_LOW_ONE_PIXEL)},
-	{"UNDERLINE_LOW_TWO_PIXEL", "Ljava/lang/Integer;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TextAttribute, UNDERLINE_LOW_TWO_PIXEL)},
-	{"UNDERLINE_LOW_DOTTED", "Ljava/lang/Integer;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TextAttribute, UNDERLINE_LOW_DOTTED)},
-	{"UNDERLINE_LOW_GRAY", "Ljava/lang/Integer;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TextAttribute, UNDERLINE_LOW_GRAY)},
-	{"UNDERLINE_LOW_DASHED", "Ljava/lang/Integer;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TextAttribute, UNDERLINE_LOW_DASHED)},
-	{"SWAP_COLORS", "Ljava/awt/font/TextAttribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TextAttribute, SWAP_COLORS)},
-	{"SWAP_COLORS_ON", "Ljava/lang/Boolean;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TextAttribute, SWAP_COLORS_ON)},
-	{"NUMERIC_SHAPING", "Ljava/awt/font/TextAttribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TextAttribute, NUMERIC_SHAPING)},
-	{"KERNING", "Ljava/awt/font/TextAttribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TextAttribute, KERNING)},
-	{"KERNING_ON", "Ljava/lang/Integer;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TextAttribute, KERNING_ON)},
-	{"LIGATURES", "Ljava/awt/font/TextAttribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TextAttribute, LIGATURES)},
-	{"LIGATURES_ON", "Ljava/lang/Integer;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TextAttribute, LIGATURES_ON)},
-	{"TRACKING", "Ljava/awt/font/TextAttribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TextAttribute, TRACKING)},
-	{"TRACKING_TIGHT", "Ljava/lang/Float;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TextAttribute, TRACKING_TIGHT)},
-	{"TRACKING_LOOSE", "Ljava/lang/Float;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TextAttribute, TRACKING_LOOSE)},
-	{}
-};
-
-$MethodInfo _TextAttribute_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $method(TextAttribute, init$, void, $String*)},
-	{"readResolve", "()Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(TextAttribute, readResolve, $Object*), "java.io.InvalidObjectException"},
-	{}
-};
-
-$InnerClassInfo _TextAttribute_InnerClassesInfo_[] = {
-	{"java.text.AttributedCharacterIterator$Attribute", "java.text.AttributedCharacterIterator", "Attribute", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _TextAttribute_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"java.awt.font.TextAttribute",
-	"java.text.AttributedCharacterIterator$Attribute",
-	nullptr,
-	_TextAttribute_FieldInfo_,
-	_TextAttribute_MethodInfo_,
-	nullptr,
-	nullptr,
-	_TextAttribute_InnerClassesInfo_
-};
-
-$Object* allocate$TextAttribute($Class* clazz) {
-	return $of($alloc(TextAttribute));
-}
 
 $Map* TextAttribute::instanceMap = nullptr;
 TextAttribute* TextAttribute::FAMILY = nullptr;
@@ -245,25 +151,25 @@ $Float* TextAttribute::TRACKING_LOOSE = nullptr;
 
 void TextAttribute::init$($String* name) {
 	$AttributedCharacterIterator$Attribute::init$(name);
-	if ($of(this)->getClass() == TextAttribute::class$) {
-		$nc(TextAttribute::instanceMap)->put(name, this);
+	if (this->getClass() == TextAttribute::class$) {
+		TextAttribute::instanceMap->put(name, this);
 	}
 }
 
 $Object* TextAttribute::readResolve() {
-	$useLocalCurrentObjectStackCache();
-	if ($of(this)->getClass() != TextAttribute::class$) {
+	$useLocalObjectStack();
+	if (this->getClass() != TextAttribute::class$) {
 		$throwNew($InvalidObjectException, "subclass didn\'t correctly implement readResolve"_s);
 	}
-	$var(TextAttribute, instance, $cast(TextAttribute, $nc(TextAttribute::instanceMap)->get($(getName()))));
+	$var(TextAttribute, instance, $cast(TextAttribute, TextAttribute::instanceMap->get($(getName()))));
 	if (instance != nullptr) {
-		return $of(instance);
+		return instance;
 	} else {
 		$throwNew($InvalidObjectException, "unknown attribute name"_s);
 	}
 }
 
-void clinit$TextAttribute($Class* class$) {
+void TextAttribute::clinit$($Class* clazz) {
 	$assignStatic(TextAttribute::instanceMap, $new($HashMap, 29));
 	{
 		if ($SharedSecrets::getJavaAWTFontAccess() == nullptr) {
@@ -304,7 +210,6 @@ void clinit$TextAttribute($Class* class$) {
 	$assignStatic(TextAttribute::UNDERLINE, $new(TextAttribute, "underline"_s));
 	$assignStatic(TextAttribute::UNDERLINE_ON, $Integer::valueOf(0));
 	$assignStatic(TextAttribute::STRIKETHROUGH, $new(TextAttribute, "strikethrough"_s));
-	$init($Boolean);
 	$assignStatic(TextAttribute::STRIKETHROUGH_ON, $Boolean::TRUE);
 	$assignStatic(TextAttribute::RUN_DIRECTION, $new(TextAttribute, "run_direction"_s));
 	$assignStatic(TextAttribute::RUN_DIRECTION_LTR, $Boolean::FALSE);
@@ -336,7 +241,93 @@ TextAttribute::TextAttribute() {
 }
 
 $Class* TextAttribute::load$($String* name, bool initialize) {
-	$loadClass(TextAttribute, name, initialize, &_TextAttribute_ClassInfo_, clinit$TextAttribute, allocate$TextAttribute);
+	$FieldInfo fieldInfos$$[] = {
+		{"instanceMap", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/awt/font/TextAttribute;>;", $PRIVATE | $STATIC | $FINAL, $staticField(TextAttribute, instanceMap)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(TextAttribute, serialVersionUID)},
+		{"FAMILY", "Ljava/awt/font/TextAttribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TextAttribute, FAMILY)},
+		{"WEIGHT", "Ljava/awt/font/TextAttribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TextAttribute, WEIGHT)},
+		{"WEIGHT_EXTRA_LIGHT", "Ljava/lang/Float;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TextAttribute, WEIGHT_EXTRA_LIGHT)},
+		{"WEIGHT_LIGHT", "Ljava/lang/Float;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TextAttribute, WEIGHT_LIGHT)},
+		{"WEIGHT_DEMILIGHT", "Ljava/lang/Float;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TextAttribute, WEIGHT_DEMILIGHT)},
+		{"WEIGHT_REGULAR", "Ljava/lang/Float;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TextAttribute, WEIGHT_REGULAR)},
+		{"WEIGHT_SEMIBOLD", "Ljava/lang/Float;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TextAttribute, WEIGHT_SEMIBOLD)},
+		{"WEIGHT_MEDIUM", "Ljava/lang/Float;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TextAttribute, WEIGHT_MEDIUM)},
+		{"WEIGHT_DEMIBOLD", "Ljava/lang/Float;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TextAttribute, WEIGHT_DEMIBOLD)},
+		{"WEIGHT_BOLD", "Ljava/lang/Float;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TextAttribute, WEIGHT_BOLD)},
+		{"WEIGHT_HEAVY", "Ljava/lang/Float;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TextAttribute, WEIGHT_HEAVY)},
+		{"WEIGHT_EXTRABOLD", "Ljava/lang/Float;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TextAttribute, WEIGHT_EXTRABOLD)},
+		{"WEIGHT_ULTRABOLD", "Ljava/lang/Float;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TextAttribute, WEIGHT_ULTRABOLD)},
+		{"WIDTH", "Ljava/awt/font/TextAttribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TextAttribute, WIDTH)},
+		{"WIDTH_CONDENSED", "Ljava/lang/Float;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TextAttribute, WIDTH_CONDENSED)},
+		{"WIDTH_SEMI_CONDENSED", "Ljava/lang/Float;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TextAttribute, WIDTH_SEMI_CONDENSED)},
+		{"WIDTH_REGULAR", "Ljava/lang/Float;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TextAttribute, WIDTH_REGULAR)},
+		{"WIDTH_SEMI_EXTENDED", "Ljava/lang/Float;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TextAttribute, WIDTH_SEMI_EXTENDED)},
+		{"WIDTH_EXTENDED", "Ljava/lang/Float;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TextAttribute, WIDTH_EXTENDED)},
+		{"POSTURE", "Ljava/awt/font/TextAttribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TextAttribute, POSTURE)},
+		{"POSTURE_REGULAR", "Ljava/lang/Float;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TextAttribute, POSTURE_REGULAR)},
+		{"POSTURE_OBLIQUE", "Ljava/lang/Float;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TextAttribute, POSTURE_OBLIQUE)},
+		{"SIZE", "Ljava/awt/font/TextAttribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TextAttribute, SIZE)},
+		{"TRANSFORM", "Ljava/awt/font/TextAttribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TextAttribute, TRANSFORM)},
+		{"SUPERSCRIPT", "Ljava/awt/font/TextAttribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TextAttribute, SUPERSCRIPT)},
+		{"SUPERSCRIPT_SUPER", "Ljava/lang/Integer;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TextAttribute, SUPERSCRIPT_SUPER)},
+		{"SUPERSCRIPT_SUB", "Ljava/lang/Integer;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TextAttribute, SUPERSCRIPT_SUB)},
+		{"FONT", "Ljava/awt/font/TextAttribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TextAttribute, FONT)},
+		{"CHAR_REPLACEMENT", "Ljava/awt/font/TextAttribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TextAttribute, CHAR_REPLACEMENT)},
+		{"FOREGROUND", "Ljava/awt/font/TextAttribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TextAttribute, FOREGROUND)},
+		{"BACKGROUND", "Ljava/awt/font/TextAttribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TextAttribute, BACKGROUND)},
+		{"UNDERLINE", "Ljava/awt/font/TextAttribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TextAttribute, UNDERLINE)},
+		{"UNDERLINE_ON", "Ljava/lang/Integer;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TextAttribute, UNDERLINE_ON)},
+		{"STRIKETHROUGH", "Ljava/awt/font/TextAttribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TextAttribute, STRIKETHROUGH)},
+		{"STRIKETHROUGH_ON", "Ljava/lang/Boolean;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TextAttribute, STRIKETHROUGH_ON)},
+		{"RUN_DIRECTION", "Ljava/awt/font/TextAttribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TextAttribute, RUN_DIRECTION)},
+		{"RUN_DIRECTION_LTR", "Ljava/lang/Boolean;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TextAttribute, RUN_DIRECTION_LTR)},
+		{"RUN_DIRECTION_RTL", "Ljava/lang/Boolean;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TextAttribute, RUN_DIRECTION_RTL)},
+		{"BIDI_EMBEDDING", "Ljava/awt/font/TextAttribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TextAttribute, BIDI_EMBEDDING)},
+		{"JUSTIFICATION", "Ljava/awt/font/TextAttribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TextAttribute, JUSTIFICATION)},
+		{"JUSTIFICATION_FULL", "Ljava/lang/Float;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TextAttribute, JUSTIFICATION_FULL)},
+		{"JUSTIFICATION_NONE", "Ljava/lang/Float;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TextAttribute, JUSTIFICATION_NONE)},
+		{"INPUT_METHOD_HIGHLIGHT", "Ljava/awt/font/TextAttribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TextAttribute, INPUT_METHOD_HIGHLIGHT)},
+		{"INPUT_METHOD_UNDERLINE", "Ljava/awt/font/TextAttribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TextAttribute, INPUT_METHOD_UNDERLINE)},
+		{"UNDERLINE_LOW_ONE_PIXEL", "Ljava/lang/Integer;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TextAttribute, UNDERLINE_LOW_ONE_PIXEL)},
+		{"UNDERLINE_LOW_TWO_PIXEL", "Ljava/lang/Integer;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TextAttribute, UNDERLINE_LOW_TWO_PIXEL)},
+		{"UNDERLINE_LOW_DOTTED", "Ljava/lang/Integer;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TextAttribute, UNDERLINE_LOW_DOTTED)},
+		{"UNDERLINE_LOW_GRAY", "Ljava/lang/Integer;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TextAttribute, UNDERLINE_LOW_GRAY)},
+		{"UNDERLINE_LOW_DASHED", "Ljava/lang/Integer;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TextAttribute, UNDERLINE_LOW_DASHED)},
+		{"SWAP_COLORS", "Ljava/awt/font/TextAttribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TextAttribute, SWAP_COLORS)},
+		{"SWAP_COLORS_ON", "Ljava/lang/Boolean;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TextAttribute, SWAP_COLORS_ON)},
+		{"NUMERIC_SHAPING", "Ljava/awt/font/TextAttribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TextAttribute, NUMERIC_SHAPING)},
+		{"KERNING", "Ljava/awt/font/TextAttribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TextAttribute, KERNING)},
+		{"KERNING_ON", "Ljava/lang/Integer;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TextAttribute, KERNING_ON)},
+		{"LIGATURES", "Ljava/awt/font/TextAttribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TextAttribute, LIGATURES)},
+		{"LIGATURES_ON", "Ljava/lang/Integer;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TextAttribute, LIGATURES_ON)},
+		{"TRACKING", "Ljava/awt/font/TextAttribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TextAttribute, TRACKING)},
+		{"TRACKING_TIGHT", "Ljava/lang/Float;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TextAttribute, TRACKING_TIGHT)},
+		{"TRACKING_LOOSE", "Ljava/lang/Float;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TextAttribute, TRACKING_LOOSE)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $method(TextAttribute, init$, void, $String*)},
+		{"readResolve", "()Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(TextAttribute, readResolve, $Object*), "java.io.InvalidObjectException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.text.AttributedCharacterIterator$Attribute", "java.text.AttributedCharacterIterator", "Attribute", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"java.awt.font.TextAttribute",
+		"java.text.AttributedCharacterIterator$Attribute",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$
+	};
+	$loadClass(TextAttribute, name, initialize, &classInfo$$, TextAttribute::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(TextAttribute);
+	});
 	return class$;
 }
 

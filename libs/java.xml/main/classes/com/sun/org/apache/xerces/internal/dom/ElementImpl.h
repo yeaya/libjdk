@@ -139,7 +139,7 @@ public:
 	virtual void setupDefaultAttributes();
 	virtual void synchronizeData() override;
 	virtual $String* toString() override;
-	static const int64_t serialVersionUID = (int64_t)0x33965660E8283866;
+	static const int64_t serialVersionUID = (int64_t)0x33965660e8283866;
 	$String* name = nullptr;
 	::com::sun::org::apache::xerces::internal::dom::AttributeMap* attributes = nullptr;
 };

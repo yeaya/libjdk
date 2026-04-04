@@ -24,6 +24,7 @@ class $export bug4514858 : public ::java::awt::event::ActionListener {
 	$class(bug4514858, 0, ::java::awt::event::ActionListener)
 public:
 	bug4514858();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void actionPerformed(::java::awt::event::ActionEvent* e) override;
 	virtual void createAndShowGUI();

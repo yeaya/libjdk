@@ -1,5 +1,4 @@
 #include <sun/java2d/opengl/OGLGeneralTransformedBlit.h>
-
 #include <java/awt/Composite.h>
 #include <java/awt/geom/AffineTransform.h>
 #include <java/awt/image/BufferedImage.h>
@@ -34,31 +33,6 @@ namespace sun {
 	namespace java2d {
 		namespace opengl {
 
-$FieldInfo _OGLGeneralTransformedBlit_FieldInfo_[] = {
-	{"performop", "Lsun/java2d/loops/TransformBlit;", nullptr, $PRIVATE | $FINAL, $field(OGLGeneralTransformedBlit, performop)},
-	{"srcTmp", "Ljava/lang/ref/WeakReference;", "Ljava/lang/ref/WeakReference<Lsun/java2d/SurfaceData;>;", $PRIVATE, $field(OGLGeneralTransformedBlit, srcTmp)},
-	{}
-};
-
-$MethodInfo _OGLGeneralTransformedBlit_MethodInfo_[] = {
-	{"<init>", "(Lsun/java2d/loops/TransformBlit;)V", nullptr, 0, $method(OGLGeneralTransformedBlit, init$, void, $TransformBlit*)},
-	{"Transform", "(Lsun/java2d/SurfaceData;Lsun/java2d/SurfaceData;Ljava/awt/Composite;Lsun/java2d/pipe/Region;Ljava/awt/geom/AffineTransform;IIIIIII)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(OGLGeneralTransformedBlit, Transform, void, $SurfaceData*, $SurfaceData*, $Composite*, $Region*, $AffineTransform*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _OGLGeneralTransformedBlit_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.java2d.opengl.OGLGeneralTransformedBlit",
-	"sun.java2d.loops.TransformBlit",
-	nullptr,
-	_OGLGeneralTransformedBlit_FieldInfo_,
-	_OGLGeneralTransformedBlit_MethodInfo_
-};
-
-$Object* allocate$OGLGeneralTransformedBlit($Class* clazz) {
-	return $of($alloc(OGLGeneralTransformedBlit));
-}
-
 void OGLGeneralTransformedBlit::init$($TransformBlit* performop) {
 	$init($SurfaceType);
 	$init($CompositeType);
@@ -69,12 +43,12 @@ void OGLGeneralTransformedBlit::init$($TransformBlit* performop) {
 
 void OGLGeneralTransformedBlit::Transform($SurfaceData* src$renamed, $SurfaceData* dst, $Composite* comp, $Region* clip, $AffineTransform* at, int32_t hint, int32_t srcx, int32_t srcy, int32_t dstx, int32_t dsty, int32_t width, int32_t height) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$var($SurfaceData, src, src$renamed);
 		$init($CompositeType);
 		$init($SurfaceType);
 		$var($Blit, convertsrc, $Blit::getFromCache($($nc(src)->getSurfaceType()), $CompositeType::SrcNoEa, $SurfaceType::IntArgbPre));
-		$var($SurfaceData, cachedSrc, this->srcTmp != nullptr ? $cast($SurfaceData, $nc(this->srcTmp)->get()) : ($SurfaceData*)nullptr);
+		$var($SurfaceData, cachedSrc, this->srcTmp != nullptr ? $cast($SurfaceData, this->srcTmp->get()) : ($SurfaceData*)nullptr);
 		$assign(src, convertFrom(convertsrc, src, srcx, srcy, width, height, cachedSrc, $BufferedImage::TYPE_INT_ARGB_PRE));
 		$nc(this->performop)->Transform(src, dst, comp, clip, at, hint, 0, 0, dstx, dsty, width, height);
 		if (src != cachedSrc) {
@@ -87,7 +61,27 @@ OGLGeneralTransformedBlit::OGLGeneralTransformedBlit() {
 }
 
 $Class* OGLGeneralTransformedBlit::load$($String* name, bool initialize) {
-	$loadClass(OGLGeneralTransformedBlit, name, initialize, &_OGLGeneralTransformedBlit_ClassInfo_, allocate$OGLGeneralTransformedBlit);
+	$FieldInfo fieldInfos$$[] = {
+		{"performop", "Lsun/java2d/loops/TransformBlit;", nullptr, $PRIVATE | $FINAL, $field(OGLGeneralTransformedBlit, performop)},
+		{"srcTmp", "Ljava/lang/ref/WeakReference;", "Ljava/lang/ref/WeakReference<Lsun/java2d/SurfaceData;>;", $PRIVATE, $field(OGLGeneralTransformedBlit, srcTmp)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/java2d/loops/TransformBlit;)V", nullptr, 0, $method(OGLGeneralTransformedBlit, init$, void, $TransformBlit*)},
+		{"Transform", "(Lsun/java2d/SurfaceData;Lsun/java2d/SurfaceData;Ljava/awt/Composite;Lsun/java2d/pipe/Region;Ljava/awt/geom/AffineTransform;IIIIIII)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(OGLGeneralTransformedBlit, Transform, void, $SurfaceData*, $SurfaceData*, $Composite*, $Region*, $AffineTransform*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.java2d.opengl.OGLGeneralTransformedBlit",
+		"sun.java2d.loops.TransformBlit",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(OGLGeneralTransformedBlit, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(OGLGeneralTransformedBlit);
+	});
 	return class$;
 }
 

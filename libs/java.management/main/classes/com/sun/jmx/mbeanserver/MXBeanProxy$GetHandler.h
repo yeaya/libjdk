@@ -31,6 +31,7 @@ class MXBeanProxy$GetHandler : public ::com::sun::jmx::mbeanserver::MXBeanProxy$
 	$class(MXBeanProxy$GetHandler, 0, ::com::sun::jmx::mbeanserver::MXBeanProxy$Handler)
 public:
 	MXBeanProxy$GetHandler();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* attributeName, ::com::sun::jmx::mbeanserver::ConvertingMethod* cm);
 	virtual $Object* invoke(::javax::management::MBeanServerConnection* mbsc, ::javax::management::ObjectName* name, $ObjectArray* args) override;
 	static bool $assertionsDisabled;

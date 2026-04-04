@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/IconUIResource.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Graphics.h>
 #include <javax/swing/Icon.h>
@@ -16,37 +15,6 @@ using $Icon = ::javax::swing::Icon;
 namespace javax {
 	namespace swing {
 		namespace plaf {
-
-$FieldInfo _IconUIResource_FieldInfo_[] = {
-	{"delegate", "Ljavax/swing/Icon;", nullptr, $PRIVATE, $field(IconUIResource, delegate)},
-	{}
-};
-
-$MethodInfo _IconUIResource_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljavax/swing/Icon;)V", nullptr, $PUBLIC, $method(IconUIResource, init$, void, $Icon*)},
-	{"getIconHeight", "()I", nullptr, $PUBLIC, $virtualMethod(IconUIResource, getIconHeight, int32_t)},
-	{"getIconWidth", "()I", nullptr, $PUBLIC, $virtualMethod(IconUIResource, getIconWidth, int32_t)},
-	{"paintIcon", "(Ljava/awt/Component;Ljava/awt/Graphics;II)V", nullptr, $PUBLIC, $virtualMethod(IconUIResource, paintIcon, void, $Component*, $Graphics*, int32_t, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _IconUIResource_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.IconUIResource",
-	"java.lang.Object",
-	"javax.swing.Icon,javax.swing.plaf.UIResource,java.io.Serializable",
-	_IconUIResource_FieldInfo_,
-	_IconUIResource_MethodInfo_
-};
-
-$Object* allocate$IconUIResource($Class* clazz) {
-	return $of($alloc(IconUIResource));
-}
 
 int32_t IconUIResource::hashCode() {
 	 return this->$Icon::hashCode();
@@ -91,7 +59,33 @@ IconUIResource::IconUIResource() {
 }
 
 $Class* IconUIResource::load$($String* name, bool initialize) {
-	$loadClass(IconUIResource, name, initialize, &_IconUIResource_ClassInfo_, allocate$IconUIResource);
+	$FieldInfo fieldInfos$$[] = {
+		{"delegate", "Ljavax/swing/Icon;", nullptr, $PRIVATE, $field(IconUIResource, delegate)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljavax/swing/Icon;)V", nullptr, $PUBLIC, $method(IconUIResource, init$, void, $Icon*)},
+		{"getIconHeight", "()I", nullptr, $PUBLIC, $virtualMethod(IconUIResource, getIconHeight, int32_t)},
+		{"getIconWidth", "()I", nullptr, $PUBLIC, $virtualMethod(IconUIResource, getIconWidth, int32_t)},
+		{"paintIcon", "(Ljava/awt/Component;Ljava/awt/Graphics;II)V", nullptr, $PUBLIC, $virtualMethod(IconUIResource, paintIcon, void, $Component*, $Graphics*, int32_t, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.IconUIResource",
+		"java.lang.Object",
+		"javax.swing.Icon,javax.swing.plaf.UIResource,java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(IconUIResource, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(IconUIResource));
+	});
 	return class$;
 }
 

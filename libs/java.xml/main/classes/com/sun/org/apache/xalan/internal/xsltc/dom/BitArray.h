@@ -29,6 +29,7 @@ class BitArray : public ::java::io::Externalizable {
 	$class(BitArray, 0, ::java::io::Externalizable)
 public:
 	BitArray();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(int32_t size);
 	void init$(int32_t size, $ints* bits);
@@ -45,7 +46,7 @@ public:
 	virtual void setMask(int32_t mask);
 	int32_t size();
 	virtual void writeExternal(::java::io::ObjectOutput* out) override;
-	static const int64_t serialVersionUID = (int64_t)0xBC54E5C0B4A273C1;
+	static const int64_t serialVersionUID = (int64_t)0xbc54e5c0b4a273c1;
 	$ints* _bits = nullptr;
 	int32_t _bitSize = 0;
 	int32_t _intSize = 0;

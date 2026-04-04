@@ -1,5 +1,4 @@
 #include <sun/java2d/x11/X11SurfaceData.h>
-
 #include <java/awt/Composite.h>
 #include <java/awt/GraphicsConfiguration.h>
 #include <java/awt/GraphicsDevice.h>
@@ -15,7 +14,6 @@
 #include <java/awt/image/Raster.h>
 #include <java/lang/InternalError.h>
 #include <java/security/AccessController.h>
-#include <java/security/PrivilegedAction.h>
 #include <sun/awt/SunHints.h>
 #include <sun/awt/SunToolkit.h>
 #include <sun/awt/X11ComponentPeer.h>
@@ -38,11 +36,8 @@
 #include <sun/java2d/loops/SurfaceType.h>
 #include <sun/java2d/loops/XORComposite.h>
 #include <sun/java2d/pipe/DrawImagePipe.h>
-#include <sun/java2d/pipe/PixelDrawPipe.h>
-#include <sun/java2d/pipe/PixelFillPipe.h>
 #include <sun/java2d/pipe/PixelToShapeConverter.h>
 #include <sun/java2d/pipe/Region.h>
-#include <sun/java2d/pipe/ShapeDrawPipe.h>
 #include <sun/java2d/pipe/TextPipe.h>
 #include <sun/java2d/x11/X11PMBlitBgLoops.h>
 #include <sun/java2d/x11/X11PMBlitLoops.h>
@@ -102,7 +97,6 @@ using $ComponentColorModel = ::java::awt::image::ComponentColorModel;
 using $DirectColorModel = ::java::awt::image::DirectColorModel;
 using $IndexColorModel = ::java::awt::image::IndexColorModel;
 using $Raster = ::java::awt::image::Raster;
-using $PrintStream = ::java::io::PrintStream;
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -110,7 +104,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $InternalError = ::java::lang::InternalError;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AccessController = ::java::security::AccessController;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $SunHints = ::sun::awt::SunHints;
 using $SunToolkit = ::sun::awt::SunToolkit;
 using $X11ComponentPeer = ::sun::awt::X11ComponentPeer;
@@ -130,12 +123,8 @@ using $GraphicsPrimitive = ::sun::java2d::loops::GraphicsPrimitive;
 using $RenderLoops = ::sun::java2d::loops::RenderLoops;
 using $SurfaceType = ::sun::java2d::loops::SurfaceType;
 using $XORComposite = ::sun::java2d::loops::XORComposite;
-using $DrawImagePipe = ::sun::java2d::pipe::DrawImagePipe;
-using $PixelDrawPipe = ::sun::java2d::pipe::PixelDrawPipe;
-using $PixelFillPipe = ::sun::java2d::pipe::PixelFillPipe;
 using $PixelToShapeConverter = ::sun::java2d::pipe::PixelToShapeConverter;
 using $Region = ::sun::java2d::pipe::Region;
-using $ShapeDrawPipe = ::sun::java2d::pipe::ShapeDrawPipe;
 using $TextPipe = ::sun::java2d::pipe::TextPipe;
 using $X11PMBlitBgLoops = ::sun::java2d::x11::X11PMBlitBgLoops;
 using $X11PMBlitLoops = ::sun::java2d::x11::X11PMBlitLoops;
@@ -150,131 +139,6 @@ using $GetPropertyAction = ::sun::security::action::GetPropertyAction;
 namespace sun {
 	namespace java2d {
 		namespace x11 {
-
-$FieldInfo _X11SurfaceData_FieldInfo_[] = {
-	{"peer", "Lsun/awt/X11ComponentPeer;", nullptr, 0, $field(X11SurfaceData, peer)},
-	{"graphicsConfig", "Lsun/awt/X11GraphicsConfig;", nullptr, 0, $field(X11SurfaceData, graphicsConfig)},
-	{"solidloops", "Lsun/java2d/loops/RenderLoops;", nullptr, $PRIVATE, $field(X11SurfaceData, solidloops)},
-	{"depth", "I", nullptr, $PROTECTED, $field(X11SurfaceData, depth)},
-	{"DESC_INT_BGR_X11", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(X11SurfaceData, DESC_INT_BGR_X11)},
-	{"DESC_INT_RGB_X11", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(X11SurfaceData, DESC_INT_RGB_X11)},
-	{"DESC_4BYTE_ABGR_PRE_X11", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(X11SurfaceData, DESC_4BYTE_ABGR_PRE_X11)},
-	{"DESC_INT_ARGB_PRE_X11", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(X11SurfaceData, DESC_INT_ARGB_PRE_X11)},
-	{"DESC_BYTE_IND_OPQ_X11", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(X11SurfaceData, DESC_BYTE_IND_OPQ_X11)},
-	{"DESC_INT_BGR_X11_BM", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(X11SurfaceData, DESC_INT_BGR_X11_BM)},
-	{"DESC_INT_RGB_X11_BM", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(X11SurfaceData, DESC_INT_RGB_X11_BM)},
-	{"DESC_BYTE_IND_X11_BM", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(X11SurfaceData, DESC_BYTE_IND_X11_BM)},
-	{"DESC_BYTE_GRAY_X11", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(X11SurfaceData, DESC_BYTE_GRAY_X11)},
-	{"DESC_INDEX8_GRAY_X11", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(X11SurfaceData, DESC_INDEX8_GRAY_X11)},
-	{"DESC_BYTE_GRAY_X11_BM", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(X11SurfaceData, DESC_BYTE_GRAY_X11_BM)},
-	{"DESC_INDEX8_GRAY_X11_BM", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(X11SurfaceData, DESC_INDEX8_GRAY_X11_BM)},
-	{"DESC_3BYTE_RGB_X11", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(X11SurfaceData, DESC_3BYTE_RGB_X11)},
-	{"DESC_3BYTE_BGR_X11", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(X11SurfaceData, DESC_3BYTE_BGR_X11)},
-	{"DESC_3BYTE_RGB_X11_BM", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(X11SurfaceData, DESC_3BYTE_RGB_X11_BM)},
-	{"DESC_3BYTE_BGR_X11_BM", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(X11SurfaceData, DESC_3BYTE_BGR_X11_BM)},
-	{"DESC_USHORT_555_RGB_X11", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(X11SurfaceData, DESC_USHORT_555_RGB_X11)},
-	{"DESC_USHORT_565_RGB_X11", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(X11SurfaceData, DESC_USHORT_565_RGB_X11)},
-	{"DESC_USHORT_555_RGB_X11_BM", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(X11SurfaceData, DESC_USHORT_555_RGB_X11_BM)},
-	{"DESC_USHORT_565_RGB_X11_BM", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(X11SurfaceData, DESC_USHORT_565_RGB_X11_BM)},
-	{"DESC_USHORT_INDEXED_X11", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(X11SurfaceData, DESC_USHORT_INDEXED_X11)},
-	{"DESC_USHORT_INDEXED_X11_BM", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(X11SurfaceData, DESC_USHORT_INDEXED_X11_BM)},
-	{"IntBgrX11", "Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(X11SurfaceData, IntBgrX11)},
-	{"IntRgbX11", "Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(X11SurfaceData, IntRgbX11)},
-	{"FourByteAbgrPreX11", "Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(X11SurfaceData, FourByteAbgrPreX11)},
-	{"IntArgbPreX11", "Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(X11SurfaceData, IntArgbPreX11)},
-	{"ThreeByteRgbX11", "Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(X11SurfaceData, ThreeByteRgbX11)},
-	{"ThreeByteBgrX11", "Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(X11SurfaceData, ThreeByteBgrX11)},
-	{"UShort555RgbX11", "Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(X11SurfaceData, UShort555RgbX11)},
-	{"UShort565RgbX11", "Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(X11SurfaceData, UShort565RgbX11)},
-	{"UShortIndexedX11", "Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(X11SurfaceData, UShortIndexedX11)},
-	{"ByteIndexedOpaqueX11", "Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(X11SurfaceData, ByteIndexedOpaqueX11)},
-	{"ByteGrayX11", "Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(X11SurfaceData, ByteGrayX11)},
-	{"Index8GrayX11", "Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(X11SurfaceData, Index8GrayX11)},
-	{"IntBgrX11_BM", "Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(X11SurfaceData, IntBgrX11_BM)},
-	{"IntRgbX11_BM", "Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(X11SurfaceData, IntRgbX11_BM)},
-	{"ThreeByteRgbX11_BM", "Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(X11SurfaceData, ThreeByteRgbX11_BM)},
-	{"ThreeByteBgrX11_BM", "Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(X11SurfaceData, ThreeByteBgrX11_BM)},
-	{"UShort555RgbX11_BM", "Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(X11SurfaceData, UShort555RgbX11_BM)},
-	{"UShort565RgbX11_BM", "Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(X11SurfaceData, UShort565RgbX11_BM)},
-	{"UShortIndexedX11_BM", "Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(X11SurfaceData, UShortIndexedX11_BM)},
-	{"ByteIndexedX11_BM", "Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(X11SurfaceData, ByteIndexedX11_BM)},
-	{"ByteGrayX11_BM", "Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(X11SurfaceData, ByteGrayX11_BM)},
-	{"Index8GrayX11_BM", "Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(X11SurfaceData, Index8GrayX11_BM)},
-	{"accelerationEnabled", "Ljava/lang/Boolean;", nullptr, $PRIVATE | $STATIC, $staticField(X11SurfaceData, accelerationEnabled)},
-	{"x11pipe", "Lsun/java2d/x11/X11Renderer;", nullptr, $PROTECTED, $field(X11SurfaceData, x11pipe)},
-	{"x11txpipe", "Lsun/java2d/pipe/PixelToShapeConverter;", nullptr, $PROTECTED, $field(X11SurfaceData, x11txpipe)},
-	{"x11textpipe", "Lsun/java2d/pipe/TextPipe;", nullptr, $PROTECTED | $STATIC, $staticField(X11SurfaceData, x11textpipe)},
-	{"xgc", "J", nullptr, $PRIVATE, $field(X11SurfaceData, xgc)},
-	{"validatedClip", "Lsun/java2d/pipe/Region;", nullptr, $PRIVATE, $field(X11SurfaceData, validatedClip)},
-	{"validatedXorComp", "Lsun/java2d/loops/XORComposite;", nullptr, $PRIVATE, $field(X11SurfaceData, validatedXorComp)},
-	{"xorpixelmod", "I", nullptr, $PRIVATE, $field(X11SurfaceData, xorpixelmod)},
-	{"validatedPixel", "I", nullptr, $PRIVATE, $field(X11SurfaceData, validatedPixel)},
-	{"validatedExposures", "Z", nullptr, $PRIVATE, $field(X11SurfaceData, validatedExposures)},
-	{"lazypipe", "Lsun/java2d/x11/X11SurfaceData$LazyPipe;", nullptr, $PRIVATE | $STATIC, $staticField(X11SurfaceData, lazypipe)},
-	{}
-};
-
-$MethodInfo _X11SurfaceData_MethodInfo_[] = {
-	{"<init>", "(Lsun/awt/X11ComponentPeer;Lsun/awt/X11GraphicsConfig;Lsun/java2d/loops/SurfaceType;Ljava/awt/image/ColorModel;)V", nullptr, $PROTECTED, $method(X11SurfaceData, init$, void, $X11ComponentPeer*, $X11GraphicsConfig*, $SurfaceType*, $ColorModel*)},
-	{"XSetCopyMode", "(J)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(X11SurfaceData, XSetCopyMode, void, int64_t)},
-	{"XSetForeground", "(JI)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(X11SurfaceData, XSetForeground, void, int64_t, int32_t)},
-	{"XSetXorMode", "(J)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(X11SurfaceData, XSetXorMode, void, int64_t)},
-	{"canSourceSendExposures", "(IIII)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(X11SurfaceData, canSourceSendExposures, bool, int32_t, int32_t, int32_t, int32_t)},
-	{"copyArea", "(Lsun/java2d/SunGraphics2D;IIIIII)Z", nullptr, $PUBLIC, $virtualMethod(X11SurfaceData, copyArea, bool, $SunGraphics2D*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"createData", "(Lsun/awt/X11ComponentPeer;)Lsun/java2d/x11/X11SurfaceData$X11WindowSurfaceData;", nullptr, $PUBLIC | $STATIC, $staticMethod(X11SurfaceData, createData, $X11SurfaceData$X11WindowSurfaceData*, $X11ComponentPeer*)},
-	{"createData", "(Lsun/awt/X11GraphicsConfig;IILjava/awt/image/ColorModel;Ljava/awt/Image;JIZ)Lsun/java2d/x11/X11SurfaceData$X11PixmapSurfaceData;", nullptr, $PUBLIC | $STATIC, $staticMethod(X11SurfaceData, createData, $X11SurfaceData$X11PixmapSurfaceData*, $X11GraphicsConfig*, int32_t, int32_t, $ColorModel*, $Image*, int64_t, int32_t, bool)},
-	{"getBlitGC", "(Lsun/java2d/pipe/Region;Z)J", nullptr, $PUBLIC | $FINAL, $method(X11SurfaceData, getBlitGC, int64_t, $Region*, bool)},
-	{"getDeviceConfiguration", "()Ljava/awt/GraphicsConfiguration;", nullptr, $PUBLIC, $virtualMethod(X11SurfaceData, getDeviceConfiguration, $GraphicsConfiguration*)},
-	{"getGC", "(Lsun/awt/X11ComponentPeer;)Lsun/awt/X11GraphicsConfig;", nullptr, $PUBLIC | $STATIC, $staticMethod(X11SurfaceData, getGC, $X11GraphicsConfig*, $X11ComponentPeer*)},
-	{"getGC", "(Lsun/java2d/pipe/Region;ILjava/awt/Composite;IZ)J", nullptr, $FINAL, $method(X11SurfaceData, getGC, int64_t, $Region*, int32_t, $Composite*, int32_t, bool)},
-	{"getRaster", "(IIII)Ljava/awt/image/Raster;", nullptr, $PUBLIC, $virtualMethod(X11SurfaceData, getRaster, $Raster*, int32_t, int32_t, int32_t, int32_t)},
-	{"getRenderGC", "(Lsun/java2d/pipe/Region;ILjava/awt/Composite;I)J", nullptr, $PUBLIC | $FINAL, $method(X11SurfaceData, getRenderGC, int64_t, $Region*, int32_t, $Composite*, int32_t)},
-	{"getRenderLoops", "(Lsun/java2d/SunGraphics2D;)Lsun/java2d/loops/RenderLoops;", nullptr, $PUBLIC, $virtualMethod(X11SurfaceData, getRenderLoops, $RenderLoops*, $SunGraphics2D*)},
-	{"getSurfaceType", "(Lsun/awt/X11GraphicsConfig;I)Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $STATIC, $staticMethod(X11SurfaceData, getSurfaceType, $SurfaceType*, $X11GraphicsConfig*, int32_t)},
-	{"getSurfaceType", "(Lsun/awt/X11GraphicsConfig;IZ)Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $STATIC, $staticMethod(X11SurfaceData, getSurfaceType, $SurfaceType*, $X11GraphicsConfig*, int32_t, bool)},
-	{"initIDs", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;)V", $PRIVATE | $STATIC | $NATIVE, $staticMethod(X11SurfaceData, initIDs, void, $Class*)},
-	{"initSurface", "(IIIJ)V", nullptr, $PROTECTED | $NATIVE, $virtualMethod(X11SurfaceData, initSurface, void, int32_t, int32_t, int32_t, int64_t)},
-	{"invalidate", "()V", nullptr, $PUBLIC, $virtualMethod(X11SurfaceData, invalidate, void)},
-	{"isAccelerationEnabled", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(X11SurfaceData, isAccelerationEnabled, bool)},
-	{"isShmPMAvailable", "()Z", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(X11SurfaceData, isShmPMAvailable, bool)},
-	{"makePipes", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(X11SurfaceData, makePipes, void)},
-	{"makeProxyFor", "(Lsun/java2d/SurfaceData;)Lsun/java2d/SurfaceDataProxy;", nullptr, $PUBLIC, $virtualMethod(X11SurfaceData, makeProxyFor, $SurfaceDataProxy*, $SurfaceData*)},
-	{"validatePipe", "(Lsun/java2d/SunGraphics2D;)V", nullptr, $PUBLIC, $virtualMethod(X11SurfaceData, validatePipe, void, $SunGraphics2D*)},
-	{}
-};
-
-#define _METHOD_INDEX_XSetCopyMode 1
-#define _METHOD_INDEX_XSetForeground 2
-#define _METHOD_INDEX_XSetXorMode 3
-#define _METHOD_INDEX_initIDs 17
-#define _METHOD_INDEX_initSurface 18
-#define _METHOD_INDEX_isShmPMAvailable 21
-
-$InnerClassInfo _X11SurfaceData_InnerClassesInfo_[] = {
-	{"sun.java2d.x11.X11SurfaceData$LazyPipe", "sun.java2d.x11.X11SurfaceData", "LazyPipe", $PUBLIC | $STATIC},
-	{"sun.java2d.x11.X11SurfaceData$X11PixmapSurfaceData", "sun.java2d.x11.X11SurfaceData", "X11PixmapSurfaceData", $PRIVATE | $STATIC | $FINAL},
-	{"sun.java2d.x11.X11SurfaceData$X11WindowSurfaceData", "sun.java2d.x11.X11SurfaceData", "X11WindowSurfaceData", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _X11SurfaceData_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"sun.java2d.x11.X11SurfaceData",
-	"sun.java2d.x11.XSurfaceData",
-	nullptr,
-	_X11SurfaceData_FieldInfo_,
-	_X11SurfaceData_MethodInfo_,
-	nullptr,
-	nullptr,
-	_X11SurfaceData_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.java2d.x11.X11SurfaceData$LazyPipe,sun.java2d.x11.X11SurfaceData$X11PixmapSurfaceData,sun.java2d.x11.X11SurfaceData$X11WindowSurfaceData"
-};
-
-$Object* allocate$X11SurfaceData($Class* clazz) {
-	return $of($alloc(X11SurfaceData));
-}
 
 $String* X11SurfaceData::DESC_INT_BGR_X11 = nullptr;
 $String* X11SurfaceData::DESC_INT_RGB_X11 = nullptr;
@@ -326,13 +190,13 @@ $X11SurfaceData$LazyPipe* X11SurfaceData::lazypipe = nullptr;
 
 void X11SurfaceData::initIDs($Class* xorComp) {
 	$init(X11SurfaceData);
-	$prepareNativeStatic(X11SurfaceData, initIDs, void, $Class* xorComp);
+	$prepareNativeStatic(initIDs, void, $Class* xorComp);
 	$invokeNativeStatic(xorComp);
 	$finishNativeStatic();
 }
 
 void X11SurfaceData::initSurface(int32_t depth, int32_t width, int32_t height, int64_t drawable) {
-	$prepareNative(X11SurfaceData, initSurface, void, int32_t depth, int32_t width, int32_t height, int64_t drawable);
+	$prepareNative(initSurface, void, int32_t depth, int32_t width, int32_t height, int64_t drawable);
 	$invokeNative(depth, width, height, drawable);
 	$finishNative();
 }
@@ -344,30 +208,28 @@ $Raster* X11SurfaceData::getRaster(int32_t x, int32_t y, int32_t w, int32_t h) {
 
 bool X11SurfaceData::isShmPMAvailable() {
 	$init(X11SurfaceData);
-	bool $ret = false;
-	$prepareNativeStatic(X11SurfaceData, isShmPMAvailable, bool);
-	$ret = $invokeNativeStatic();
+	$prepareNativeStatic(isShmPMAvailable, bool);
+	bool $ret = $invokeNativeStatic();
 	$finishNativeStatic();
 	return $ret;
 }
 
 bool X11SurfaceData::isAccelerationEnabled() {
 	$init(X11SurfaceData);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	if (X11SurfaceData::accelerationEnabled == nullptr) {
 		if ($GraphicsEnvironment::isHeadless()) {
-			$init($Boolean);
 			$assignStatic(X11SurfaceData::accelerationEnabled, $Boolean::FALSE);
 		} else {
-			$var($String, prop, $cast($String, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($GetPropertyAction, "sun.java2d.pmoffscreen"_s)))));
+			$var($String, prop, $cast($String, $AccessController::doPrivileged($$new($GetPropertyAction, "sun.java2d.pmoffscreen"_s))));
 			if (prop != nullptr) {
 				$assignStatic(X11SurfaceData::accelerationEnabled, $Boolean::valueOf(prop));
 			} else {
 				bool isDisplayLocal = false;
 				$var($GraphicsEnvironment, ge, $GraphicsEnvironment::getLocalGraphicsEnvironment());
 				if ($instanceOf($SunGraphicsEnvironment, ge)) {
-					isDisplayLocal = $nc(($cast($SunGraphicsEnvironment, ge)))->isDisplayLocal();
+					isDisplayLocal = $cast($SunGraphicsEnvironment, ge)->isDisplayLocal();
 				}
 				$assignStatic(X11SurfaceData::accelerationEnabled, $Boolean::valueOf(!(isDisplayLocal && !isShmPMAvailable())));
 			}
@@ -381,7 +243,7 @@ $SurfaceDataProxy* X11SurfaceData::makeProxyFor($SurfaceData* srcData) {
 }
 
 void X11SurfaceData::validatePipe($SunGraphics2D* sg2d) {
-	if ($nc(sg2d)->antialiasHint != $SunHints::INTVAL_ANTIALIAS_ON && sg2d->paintState <= $SunGraphics2D::PAINT_ALPHACOLOR && (sg2d->compositeState <= $SunGraphics2D::COMP_ISCOPY || $nc(sg2d)->compositeState == $SunGraphics2D::COMP_XOR)) {
+	if ($nc(sg2d)->antialiasHint != $SunHints::INTVAL_ANTIALIAS_ON && sg2d->paintState <= $SunGraphics2D::PAINT_ALPHACOLOR && (sg2d->compositeState <= $SunGraphics2D::COMP_ISCOPY || sg2d->compositeState == $SunGraphics2D::COMP_XOR)) {
 		if (this->x11txpipe == nullptr) {
 			$set(sg2d, drawpipe, X11SurfaceData::lazypipe);
 			$set(sg2d, fillpipe, X11SurfaceData::lazypipe);
@@ -395,9 +257,26 @@ void X11SurfaceData::validatePipe($SunGraphics2D* sg2d) {
 		} else {
 			switch (sg2d->textAntialiasHint) {
 			case $SunHints::INTVAL_TEXT_ANTIALIAS_DEFAULT:
-				{}
 			case $SunHints::INTVAL_TEXT_ANTIALIAS_OFF:
-				{
+				if (sg2d->compositeState == $SunGraphics2D::COMP_ISCOPY) {
+					$set(sg2d, textpipe, X11SurfaceData::x11textpipe);
+				} else {
+					$init($SurfaceData);
+					$set(sg2d, textpipe, $SurfaceData::solidTextRenderer);
+				}
+				break;
+			case $SunHints::INTVAL_TEXT_ANTIALIAS_ON:
+				$init($SurfaceData);
+				$set(sg2d, textpipe, $SurfaceData::aaTextRenderer);
+				break;
+			default:
+				switch ($nc($(sg2d->getFontInfo()))->aaHint) {
+				case $SunHints::INTVAL_TEXT_ANTIALIAS_LCD_HRGB:
+				case $SunHints::INTVAL_TEXT_ANTIALIAS_LCD_VRGB:
+					$init($SurfaceData);
+					$set(sg2d, textpipe, $SurfaceData::lcdTextRenderer);
+					break;
+				case $SunHints::INTVAL_TEXT_ANTIALIAS_OFF:
 					if (sg2d->compositeState == $SunGraphics2D::COMP_ISCOPY) {
 						$set(sg2d, textpipe, X11SurfaceData::x11textpipe);
 					} else {
@@ -405,46 +284,13 @@ void X11SurfaceData::validatePipe($SunGraphics2D* sg2d) {
 						$set(sg2d, textpipe, $SurfaceData::solidTextRenderer);
 					}
 					break;
-				}
-			case $SunHints::INTVAL_TEXT_ANTIALIAS_ON:
-				{
+				case $SunHints::INTVAL_TEXT_ANTIALIAS_ON:
 					$init($SurfaceData);
 					$set(sg2d, textpipe, $SurfaceData::aaTextRenderer);
 					break;
-				}
-			default:
-				{
-					switch ($nc($(sg2d->getFontInfo()))->aaHint) {
-					case $SunHints::INTVAL_TEXT_ANTIALIAS_LCD_HRGB:
-						{}
-					case $SunHints::INTVAL_TEXT_ANTIALIAS_LCD_VRGB:
-						{
-							$init($SurfaceData);
-							$set(sg2d, textpipe, $SurfaceData::lcdTextRenderer);
-							break;
-						}
-					case $SunHints::INTVAL_TEXT_ANTIALIAS_OFF:
-						{
-							if (sg2d->compositeState == $SunGraphics2D::COMP_ISCOPY) {
-								$set(sg2d, textpipe, X11SurfaceData::x11textpipe);
-							} else {
-								$init($SurfaceData);
-								$set(sg2d, textpipe, $SurfaceData::solidTextRenderer);
-							}
-							break;
-						}
-					case $SunHints::INTVAL_TEXT_ANTIALIAS_ON:
-						{
-							$init($SurfaceData);
-							$set(sg2d, textpipe, $SurfaceData::aaTextRenderer);
-							break;
-						}
-					default:
-						{
-							$init($SurfaceData);
-							$set(sg2d, textpipe, $SurfaceData::solidTextRenderer);
-						}
-					}
+				default:
+					$init($SurfaceData);
+					$set(sg2d, textpipe, $SurfaceData::solidTextRenderer);
 				}
 			}
 		}
@@ -482,7 +328,7 @@ $GraphicsConfiguration* X11SurfaceData::getDeviceConfiguration() {
 
 $X11SurfaceData$X11WindowSurfaceData* X11SurfaceData::createData($X11ComponentPeer* peer) {
 	$init(X11SurfaceData);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($X11GraphicsConfig, gc, getGC(peer));
 	return $new($X11SurfaceData$X11WindowSurfaceData, peer, gc, $($nc(gc)->getSurfaceType()));
 }
@@ -507,7 +353,7 @@ void X11SurfaceData::init$($X11ComponentPeer* peer, $X11GraphicsConfig* gc, $Sur
 
 $X11GraphicsConfig* X11SurfaceData::getGC($X11ComponentPeer* peer) {
 	$init(X11SurfaceData);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (peer != nullptr) {
 		return $cast($X11GraphicsConfig, peer->getGraphicsConfiguration());
 	} else {
@@ -518,7 +364,7 @@ $X11GraphicsConfig* X11SurfaceData::getGC($X11ComponentPeer* peer) {
 }
 
 bool X11SurfaceData::copyArea($SunGraphics2D* sg2d, int32_t x, int32_t y, int32_t w, int32_t h, int32_t dx, int32_t dy) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->x11pipe == nullptr) {
 		if (!isDrawableValid()) {
 			return true;
@@ -530,20 +376,18 @@ bool X11SurfaceData::copyArea($SunGraphics2D* sg2d, int32_t x, int32_t y, int32_
 	bool var$0 = $nc($CompositeType::SrcOverNoEa)->equals(comptype);
 	if (var$0 || $nc($CompositeType::SrcNoEa)->equals(comptype)) {
 		$SunToolkit::awtLock();
-		{
-			$var($Throwable, var$1, nullptr);
-			try {
-				bool needExposures = canSourceSendExposures(x, y, w, h);
-				int64_t xgc = getBlitGC($(sg2d->getCompClip()), needExposures);
-				$nc(this->x11pipe)->devCopyArea(getNativeOps(), xgc, x, y, x + dx, y + dy, w, h);
-			} catch ($Throwable& var$2) {
-				$assign(var$1, var$2);
-			} /*finally*/ {
-				$SunToolkit::awtUnlock();
-			}
-			if (var$1 != nullptr) {
-				$throw(var$1);
-			}
+		$var($Throwable, var$1, nullptr);
+		try {
+			bool needExposures = canSourceSendExposures(x, y, w, h);
+			int64_t xgc = getBlitGC($(sg2d->getCompClip()), needExposures);
+			$nc(this->x11pipe)->devCopyArea(getNativeOps(), xgc, x, y, x + dx, y + dy, w, h);
+		} catch ($Throwable& var$2) {
+			$assign(var$1, var$2);
+		} /*finally*/ {
+			$SunToolkit::awtUnlock();
+		}
+		if (var$1 != nullptr) {
+			$throw(var$1);
 		}
 		return true;
 	}
@@ -557,77 +401,63 @@ $SurfaceType* X11SurfaceData::getSurfaceType($X11GraphicsConfig* gc, int32_t tra
 
 $SurfaceType* X11SurfaceData::getSurfaceType($X11GraphicsConfig* gc, int32_t transparency, bool pixmapSurface) {
 	$init(X11SurfaceData);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool transparent = (transparency == $Transparency::BITMASK);
 	$var($SurfaceType, sType, nullptr);
 	$var($ColorModel, cm, $nc(gc)->getColorModel());
 	switch ($nc(cm)->getPixelSize()) {
 	case 24:
-		{
-			if (gc->getBitsPerPixel() == 24) {
-				if ($instanceOf($DirectColorModel, cm)) {
-					$assign(sType, transparent ? X11SurfaceData::ThreeByteBgrX11_BM : X11SurfaceData::ThreeByteBgrX11);
-				} else {
-					$throwNew($InvalidPipeException, $$str({"Unsupported bit depth/cm combo: "_s, $$str(cm->getPixelSize()), ", "_s, cm}));
-				}
-				break;
-			}
-		}
-	case 32:
-		{
+		if (gc->getBitsPerPixel() == 24) {
 			if ($instanceOf($DirectColorModel, cm)) {
-				if ($nc(($cast($SunToolkit, $($Toolkit::getDefaultToolkit()))))->isTranslucencyCapable(gc) && !pixmapSurface) {
-					$assign(sType, X11SurfaceData::IntArgbPreX11);
-				} else if ($nc(($cast($DirectColorModel, cm)))->getRedMask() == 0x00FF0000) {
-					$assign(sType, transparent ? X11SurfaceData::IntRgbX11_BM : X11SurfaceData::IntRgbX11);
-				} else {
-					$assign(sType, transparent ? X11SurfaceData::IntBgrX11_BM : X11SurfaceData::IntBgrX11);
-				}
-			} else if ($instanceOf($ComponentColorModel, cm)) {
-				$assign(sType, X11SurfaceData::FourByteAbgrPreX11);
+				$assign(sType, transparent ? X11SurfaceData::ThreeByteBgrX11_BM : X11SurfaceData::ThreeByteBgrX11);
 			} else {
 				$throwNew($InvalidPipeException, $$str({"Unsupported bit depth/cm combo: "_s, $$str(cm->getPixelSize()), ", "_s, cm}));
 			}
 			break;
 		}
+	case 32:
+		if ($instanceOf($DirectColorModel, cm)) {
+			if ($$sure($SunToolkit, $Toolkit::getDefaultToolkit())->isTranslucencyCapable(gc) && !pixmapSurface) {
+				$assign(sType, X11SurfaceData::IntArgbPreX11);
+			} else if ($cast($DirectColorModel, cm)->getRedMask() == 0x00ff0000) {
+				$assign(sType, transparent ? X11SurfaceData::IntRgbX11_BM : X11SurfaceData::IntRgbX11);
+			} else {
+				$assign(sType, transparent ? X11SurfaceData::IntBgrX11_BM : X11SurfaceData::IntBgrX11);
+			}
+		} else if ($instanceOf($ComponentColorModel, cm)) {
+			$assign(sType, X11SurfaceData::FourByteAbgrPreX11);
+		} else {
+			$throwNew($InvalidPipeException, $$str({"Unsupported bit depth/cm combo: "_s, $$str(cm->getPixelSize()), ", "_s, cm}));
+		}
+		break;
 	case 15:
-		{
-			$assign(sType, transparent ? X11SurfaceData::UShort555RgbX11_BM : X11SurfaceData::UShort555RgbX11);
-			break;
-		}
+		$assign(sType, transparent ? X11SurfaceData::UShort555RgbX11_BM : X11SurfaceData::UShort555RgbX11);
+		break;
 	case 16:
-		{
-			if (($instanceOf($DirectColorModel, cm)) && ($nc(($cast($DirectColorModel, cm)))->getGreenMask() == 992)) {
-				$assign(sType, transparent ? X11SurfaceData::UShort555RgbX11_BM : X11SurfaceData::UShort555RgbX11);
-			} else {
-				$assign(sType, transparent ? X11SurfaceData::UShort565RgbX11_BM : X11SurfaceData::UShort565RgbX11);
-			}
-			break;
+		if (($instanceOf($DirectColorModel, cm)) && ($cast($DirectColorModel, cm)->getGreenMask() == 992)) {
+			$assign(sType, transparent ? X11SurfaceData::UShort555RgbX11_BM : X11SurfaceData::UShort555RgbX11);
+		} else {
+			$assign(sType, transparent ? X11SurfaceData::UShort565RgbX11_BM : X11SurfaceData::UShort565RgbX11);
 		}
+		break;
 	case 12:
-		{
-			if ($instanceOf($IndexColorModel, cm)) {
-				$assign(sType, transparent ? X11SurfaceData::UShortIndexedX11_BM : X11SurfaceData::UShortIndexedX11);
-			} else {
-				$throwNew($InvalidPipeException, $$str({"Unsupported bit depth: "_s, $$str(cm->getPixelSize()), " cm="_s, cm}));
-			}
-			break;
+		if ($instanceOf($IndexColorModel, cm)) {
+			$assign(sType, transparent ? X11SurfaceData::UShortIndexedX11_BM : X11SurfaceData::UShortIndexedX11);
+		} else {
+			$throwNew($InvalidPipeException, $$str({"Unsupported bit depth: "_s, $$str(cm->getPixelSize()), " cm="_s, cm}));
 		}
+		break;
 	case 8:
-		{
-			if ($nc($(cm->getColorSpace()))->getType() == $ColorSpace::TYPE_GRAY && $instanceOf($ComponentColorModel, cm)) {
-				$assign(sType, transparent ? X11SurfaceData::ByteGrayX11_BM : X11SurfaceData::ByteGrayX11);
-			} else if ($instanceOf($IndexColorModel, cm) && isOpaqueGray($cast($IndexColorModel, cm))) {
-				$assign(sType, transparent ? X11SurfaceData::Index8GrayX11_BM : X11SurfaceData::Index8GrayX11);
-			} else {
-				$assign(sType, transparent ? X11SurfaceData::ByteIndexedX11_BM : X11SurfaceData::ByteIndexedOpaqueX11);
-			}
-			break;
+		if ($$nc(cm->getColorSpace())->getType() == $ColorSpace::TYPE_GRAY && $instanceOf($ComponentColorModel, cm)) {
+			$assign(sType, transparent ? X11SurfaceData::ByteGrayX11_BM : X11SurfaceData::ByteGrayX11);
+		} else if ($instanceOf($IndexColorModel, cm) && isOpaqueGray($cast($IndexColorModel, cm))) {
+			$assign(sType, transparent ? X11SurfaceData::Index8GrayX11_BM : X11SurfaceData::Index8GrayX11);
+		} else {
+			$assign(sType, transparent ? X11SurfaceData::ByteIndexedX11_BM : X11SurfaceData::ByteIndexedOpaqueX11);
 		}
+		break;
 	default:
-		{
-			$throwNew($InvalidPipeException, $$str({"Unsupported bit depth: "_s, $$str(cm->getPixelSize())}));
-		}
+		$throwNew($InvalidPipeException, $$str({"Unsupported bit depth: "_s, $$str(cm->getPixelSize())}));
 	}
 	return sType;
 }
@@ -641,21 +471,21 @@ void X11SurfaceData::invalidate() {
 
 void X11SurfaceData::XSetCopyMode(int64_t xgc) {
 	$init(X11SurfaceData);
-	$prepareNativeStatic(X11SurfaceData, XSetCopyMode, void, int64_t xgc);
+	$prepareNativeStatic(XSetCopyMode, void, int64_t xgc);
 	$invokeNativeStatic(xgc);
 	$finishNativeStatic();
 }
 
 void X11SurfaceData::XSetXorMode(int64_t xgc) {
 	$init(X11SurfaceData);
-	$prepareNativeStatic(X11SurfaceData, XSetXorMode, void, int64_t xgc);
+	$prepareNativeStatic(XSetXorMode, void, int64_t xgc);
 	$invokeNativeStatic(xgc);
 	$finishNativeStatic();
 }
 
 void X11SurfaceData::XSetForeground(int64_t xgc, int32_t pixel) {
 	$init(X11SurfaceData);
-	$prepareNativeStatic(X11SurfaceData, XSetForeground, void, int64_t xgc, int32_t pixel);
+	$prepareNativeStatic(XSetForeground, void, int64_t xgc, int32_t pixel);
 	$invokeNativeStatic(xgc, pixel);
 	$finishNativeStatic();
 }
@@ -712,18 +542,16 @@ void X11SurfaceData::makePipes() {
 	$synchronized(this) {
 		if (this->x11pipe == nullptr) {
 			$SunToolkit::awtLock();
-			{
-				$var($Throwable, var$0, nullptr);
-				try {
-					this->xgc = XCreateGC(getNativeOps());
-				} catch ($Throwable& var$1) {
-					$assign(var$0, var$1);
-				} /*finally*/ {
-					$SunToolkit::awtUnlock();
-				}
-				if (var$0 != nullptr) {
-					$throw(var$0);
-				}
+			$var($Throwable, var$0, nullptr);
+			try {
+				this->xgc = XCreateGC(getNativeOps());
+			} catch ($Throwable& var$1) {
+				$assign(var$0, var$1);
+			} /*finally*/ {
+				$SunToolkit::awtUnlock();
+			}
+			if (var$0 != nullptr) {
+				$throw(var$0);
 			}
 			$set(this, x11pipe, $X11Renderer::getInstance());
 			$set(this, x11txpipe, $new($PixelToShapeConverter, this->x11pipe));
@@ -731,8 +559,8 @@ void X11SurfaceData::makePipes() {
 	}
 }
 
-void clinit$X11SurfaceData($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void X11SurfaceData::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(X11SurfaceData::DESC_INT_BGR_X11, "Integer BGR Pixmap"_s);
 	$assignStatic(X11SurfaceData::DESC_INT_RGB_X11, "Integer RGB Pixmap"_s);
 	$assignStatic(X11SurfaceData::DESC_4BYTE_ABGR_PRE_X11, "4 byte ABGR Pixmap with pre-multplied alpha"_s);
@@ -772,31 +600,31 @@ void clinit$X11SurfaceData($Class* class$) {
 	$init($PixelConverter$Xbgr);
 	$assignStatic(X11SurfaceData::IntBgrX11_BM, $nc($SurfaceType::Custom)->deriveSubType(X11SurfaceData::DESC_INT_BGR_X11_BM, $PixelConverter$Xbgr::instance));
 	$init($PixelConverter$Xrgb);
-	$assignStatic(X11SurfaceData::IntRgbX11_BM, $nc($SurfaceType::Custom)->deriveSubType(X11SurfaceData::DESC_INT_RGB_X11_BM, $PixelConverter$Xrgb::instance));
-	$assignStatic(X11SurfaceData::ThreeByteRgbX11_BM, $nc($SurfaceType::Custom)->deriveSubType(X11SurfaceData::DESC_3BYTE_RGB_X11_BM, $PixelConverter$Xbgr::instance));
-	$assignStatic(X11SurfaceData::ThreeByteBgrX11_BM, $nc($SurfaceType::Custom)->deriveSubType(X11SurfaceData::DESC_3BYTE_BGR_X11_BM, $PixelConverter$Xrgb::instance));
+	$assignStatic(X11SurfaceData::IntRgbX11_BM, $SurfaceType::Custom->deriveSubType(X11SurfaceData::DESC_INT_RGB_X11_BM, $PixelConverter$Xrgb::instance));
+	$assignStatic(X11SurfaceData::ThreeByteRgbX11_BM, $SurfaceType::Custom->deriveSubType(X11SurfaceData::DESC_3BYTE_RGB_X11_BM, $PixelConverter$Xbgr::instance));
+	$assignStatic(X11SurfaceData::ThreeByteBgrX11_BM, $SurfaceType::Custom->deriveSubType(X11SurfaceData::DESC_3BYTE_BGR_X11_BM, $PixelConverter$Xrgb::instance));
 	$init($PixelConverter$Ushort555Rgb);
-	$assignStatic(X11SurfaceData::UShort555RgbX11_BM, $nc($SurfaceType::Custom)->deriveSubType(X11SurfaceData::DESC_USHORT_555_RGB_X11_BM, $PixelConverter$Ushort555Rgb::instance));
+	$assignStatic(X11SurfaceData::UShort555RgbX11_BM, $SurfaceType::Custom->deriveSubType(X11SurfaceData::DESC_USHORT_555_RGB_X11_BM, $PixelConverter$Ushort555Rgb::instance));
 	$init($PixelConverter$Ushort565Rgb);
-	$assignStatic(X11SurfaceData::UShort565RgbX11_BM, $nc($SurfaceType::Custom)->deriveSubType(X11SurfaceData::DESC_USHORT_565_RGB_X11_BM, $PixelConverter$Ushort565Rgb::instance));
-	$assignStatic(X11SurfaceData::UShortIndexedX11_BM, $nc($SurfaceType::Custom)->deriveSubType(X11SurfaceData::DESC_USHORT_INDEXED_X11_BM));
-	$assignStatic(X11SurfaceData::ByteIndexedX11_BM, $nc($SurfaceType::Custom)->deriveSubType(X11SurfaceData::DESC_BYTE_IND_X11_BM));
-	$assignStatic(X11SurfaceData::ByteGrayX11_BM, $nc($SurfaceType::Custom)->deriveSubType(X11SurfaceData::DESC_BYTE_GRAY_X11_BM));
-	$assignStatic(X11SurfaceData::Index8GrayX11_BM, $nc($SurfaceType::Custom)->deriveSubType(X11SurfaceData::DESC_INDEX8_GRAY_X11_BM));
+	$assignStatic(X11SurfaceData::UShort565RgbX11_BM, $SurfaceType::Custom->deriveSubType(X11SurfaceData::DESC_USHORT_565_RGB_X11_BM, $PixelConverter$Ushort565Rgb::instance));
+	$assignStatic(X11SurfaceData::UShortIndexedX11_BM, $SurfaceType::Custom->deriveSubType(X11SurfaceData::DESC_USHORT_INDEXED_X11_BM));
+	$assignStatic(X11SurfaceData::ByteIndexedX11_BM, $SurfaceType::Custom->deriveSubType(X11SurfaceData::DESC_BYTE_IND_X11_BM));
+	$assignStatic(X11SurfaceData::ByteGrayX11_BM, $SurfaceType::Custom->deriveSubType(X11SurfaceData::DESC_BYTE_GRAY_X11_BM));
+	$assignStatic(X11SurfaceData::Index8GrayX11_BM, $SurfaceType::Custom->deriveSubType(X11SurfaceData::DESC_INDEX8_GRAY_X11_BM));
 	$assignStatic(X11SurfaceData::accelerationEnabled, nullptr);
 	{
 		bool var$0 = !$XSurfaceData::isX11SurfaceDataInitialized();
 		if (var$0 && !$GraphicsEnvironment::isHeadless()) {
 			$load($XORComposite);
 			X11SurfaceData::initIDs($XORComposite::class$);
-			$var($String, xtextpipe, $cast($String, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($GetPropertyAction, "sun.java2d.xtextpipe"_s)))));
+			$var($String, xtextpipe, $cast($String, $AccessController::doPrivileged($$new($GetPropertyAction, "sun.java2d.xtextpipe"_s))));
 			if (xtextpipe == nullptr || "true"_s->startsWith(xtextpipe)) {
 				if ("true"_s->equals(xtextpipe)) {
 					$nc($System::out)->println("using X11 text renderer"_s);
 				}
 				$assignStatic(X11SurfaceData::x11textpipe, $new($X11TextRenderer));
 				if ($GraphicsPrimitive::tracingEnabled()) {
-					$assignStatic(X11SurfaceData::x11textpipe, $nc(($cast($X11TextRenderer, X11SurfaceData::x11textpipe)))->traceWrap());
+					$assignStatic(X11SurfaceData::x11textpipe, $nc($cast($X11TextRenderer, X11SurfaceData::x11textpipe))->traceWrap());
 				}
 			} else {
 				if ("false"_s->equals(xtextpipe)) {
@@ -818,7 +646,119 @@ X11SurfaceData::X11SurfaceData() {
 }
 
 $Class* X11SurfaceData::load$($String* name, bool initialize) {
-	$loadClass(X11SurfaceData, name, initialize, &_X11SurfaceData_ClassInfo_, clinit$X11SurfaceData, allocate$X11SurfaceData);
+	$FieldInfo fieldInfos$$[] = {
+		{"peer", "Lsun/awt/X11ComponentPeer;", nullptr, 0, $field(X11SurfaceData, peer)},
+		{"graphicsConfig", "Lsun/awt/X11GraphicsConfig;", nullptr, 0, $field(X11SurfaceData, graphicsConfig)},
+		{"solidloops", "Lsun/java2d/loops/RenderLoops;", nullptr, $PRIVATE, $field(X11SurfaceData, solidloops)},
+		{"depth", "I", nullptr, $PROTECTED, $field(X11SurfaceData, depth)},
+		{"DESC_INT_BGR_X11", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(X11SurfaceData, DESC_INT_BGR_X11)},
+		{"DESC_INT_RGB_X11", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(X11SurfaceData, DESC_INT_RGB_X11)},
+		{"DESC_4BYTE_ABGR_PRE_X11", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(X11SurfaceData, DESC_4BYTE_ABGR_PRE_X11)},
+		{"DESC_INT_ARGB_PRE_X11", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(X11SurfaceData, DESC_INT_ARGB_PRE_X11)},
+		{"DESC_BYTE_IND_OPQ_X11", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(X11SurfaceData, DESC_BYTE_IND_OPQ_X11)},
+		{"DESC_INT_BGR_X11_BM", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(X11SurfaceData, DESC_INT_BGR_X11_BM)},
+		{"DESC_INT_RGB_X11_BM", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(X11SurfaceData, DESC_INT_RGB_X11_BM)},
+		{"DESC_BYTE_IND_X11_BM", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(X11SurfaceData, DESC_BYTE_IND_X11_BM)},
+		{"DESC_BYTE_GRAY_X11", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(X11SurfaceData, DESC_BYTE_GRAY_X11)},
+		{"DESC_INDEX8_GRAY_X11", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(X11SurfaceData, DESC_INDEX8_GRAY_X11)},
+		{"DESC_BYTE_GRAY_X11_BM", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(X11SurfaceData, DESC_BYTE_GRAY_X11_BM)},
+		{"DESC_INDEX8_GRAY_X11_BM", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(X11SurfaceData, DESC_INDEX8_GRAY_X11_BM)},
+		{"DESC_3BYTE_RGB_X11", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(X11SurfaceData, DESC_3BYTE_RGB_X11)},
+		{"DESC_3BYTE_BGR_X11", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(X11SurfaceData, DESC_3BYTE_BGR_X11)},
+		{"DESC_3BYTE_RGB_X11_BM", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(X11SurfaceData, DESC_3BYTE_RGB_X11_BM)},
+		{"DESC_3BYTE_BGR_X11_BM", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(X11SurfaceData, DESC_3BYTE_BGR_X11_BM)},
+		{"DESC_USHORT_555_RGB_X11", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(X11SurfaceData, DESC_USHORT_555_RGB_X11)},
+		{"DESC_USHORT_565_RGB_X11", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(X11SurfaceData, DESC_USHORT_565_RGB_X11)},
+		{"DESC_USHORT_555_RGB_X11_BM", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(X11SurfaceData, DESC_USHORT_555_RGB_X11_BM)},
+		{"DESC_USHORT_565_RGB_X11_BM", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(X11SurfaceData, DESC_USHORT_565_RGB_X11_BM)},
+		{"DESC_USHORT_INDEXED_X11", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(X11SurfaceData, DESC_USHORT_INDEXED_X11)},
+		{"DESC_USHORT_INDEXED_X11_BM", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(X11SurfaceData, DESC_USHORT_INDEXED_X11_BM)},
+		{"IntBgrX11", "Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(X11SurfaceData, IntBgrX11)},
+		{"IntRgbX11", "Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(X11SurfaceData, IntRgbX11)},
+		{"FourByteAbgrPreX11", "Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(X11SurfaceData, FourByteAbgrPreX11)},
+		{"IntArgbPreX11", "Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(X11SurfaceData, IntArgbPreX11)},
+		{"ThreeByteRgbX11", "Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(X11SurfaceData, ThreeByteRgbX11)},
+		{"ThreeByteBgrX11", "Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(X11SurfaceData, ThreeByteBgrX11)},
+		{"UShort555RgbX11", "Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(X11SurfaceData, UShort555RgbX11)},
+		{"UShort565RgbX11", "Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(X11SurfaceData, UShort565RgbX11)},
+		{"UShortIndexedX11", "Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(X11SurfaceData, UShortIndexedX11)},
+		{"ByteIndexedOpaqueX11", "Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(X11SurfaceData, ByteIndexedOpaqueX11)},
+		{"ByteGrayX11", "Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(X11SurfaceData, ByteGrayX11)},
+		{"Index8GrayX11", "Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(X11SurfaceData, Index8GrayX11)},
+		{"IntBgrX11_BM", "Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(X11SurfaceData, IntBgrX11_BM)},
+		{"IntRgbX11_BM", "Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(X11SurfaceData, IntRgbX11_BM)},
+		{"ThreeByteRgbX11_BM", "Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(X11SurfaceData, ThreeByteRgbX11_BM)},
+		{"ThreeByteBgrX11_BM", "Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(X11SurfaceData, ThreeByteBgrX11_BM)},
+		{"UShort555RgbX11_BM", "Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(X11SurfaceData, UShort555RgbX11_BM)},
+		{"UShort565RgbX11_BM", "Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(X11SurfaceData, UShort565RgbX11_BM)},
+		{"UShortIndexedX11_BM", "Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(X11SurfaceData, UShortIndexedX11_BM)},
+		{"ByteIndexedX11_BM", "Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(X11SurfaceData, ByteIndexedX11_BM)},
+		{"ByteGrayX11_BM", "Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(X11SurfaceData, ByteGrayX11_BM)},
+		{"Index8GrayX11_BM", "Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(X11SurfaceData, Index8GrayX11_BM)},
+		{"accelerationEnabled", "Ljava/lang/Boolean;", nullptr, $PRIVATE | $STATIC, $staticField(X11SurfaceData, accelerationEnabled)},
+		{"x11pipe", "Lsun/java2d/x11/X11Renderer;", nullptr, $PROTECTED, $field(X11SurfaceData, x11pipe)},
+		{"x11txpipe", "Lsun/java2d/pipe/PixelToShapeConverter;", nullptr, $PROTECTED, $field(X11SurfaceData, x11txpipe)},
+		{"x11textpipe", "Lsun/java2d/pipe/TextPipe;", nullptr, $PROTECTED | $STATIC, $staticField(X11SurfaceData, x11textpipe)},
+		{"xgc", "J", nullptr, $PRIVATE, $field(X11SurfaceData, xgc)},
+		{"validatedClip", "Lsun/java2d/pipe/Region;", nullptr, $PRIVATE, $field(X11SurfaceData, validatedClip)},
+		{"validatedXorComp", "Lsun/java2d/loops/XORComposite;", nullptr, $PRIVATE, $field(X11SurfaceData, validatedXorComp)},
+		{"xorpixelmod", "I", nullptr, $PRIVATE, $field(X11SurfaceData, xorpixelmod)},
+		{"validatedPixel", "I", nullptr, $PRIVATE, $field(X11SurfaceData, validatedPixel)},
+		{"validatedExposures", "Z", nullptr, $PRIVATE, $field(X11SurfaceData, validatedExposures)},
+		{"lazypipe", "Lsun/java2d/x11/X11SurfaceData$LazyPipe;", nullptr, $PRIVATE | $STATIC, $staticField(X11SurfaceData, lazypipe)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/awt/X11ComponentPeer;Lsun/awt/X11GraphicsConfig;Lsun/java2d/loops/SurfaceType;Ljava/awt/image/ColorModel;)V", nullptr, $PROTECTED, $method(X11SurfaceData, init$, void, $X11ComponentPeer*, $X11GraphicsConfig*, $SurfaceType*, $ColorModel*)},
+		{"XSetCopyMode", "(J)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(X11SurfaceData, XSetCopyMode, void, int64_t)},
+		{"XSetForeground", "(JI)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(X11SurfaceData, XSetForeground, void, int64_t, int32_t)},
+		{"XSetXorMode", "(J)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(X11SurfaceData, XSetXorMode, void, int64_t)},
+		{"canSourceSendExposures", "(IIII)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(X11SurfaceData, canSourceSendExposures, bool, int32_t, int32_t, int32_t, int32_t)},
+		{"copyArea", "(Lsun/java2d/SunGraphics2D;IIIIII)Z", nullptr, $PUBLIC, $virtualMethod(X11SurfaceData, copyArea, bool, $SunGraphics2D*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"createData", "(Lsun/awt/X11ComponentPeer;)Lsun/java2d/x11/X11SurfaceData$X11WindowSurfaceData;", nullptr, $PUBLIC | $STATIC, $staticMethod(X11SurfaceData, createData, $X11SurfaceData$X11WindowSurfaceData*, $X11ComponentPeer*)},
+		{"createData", "(Lsun/awt/X11GraphicsConfig;IILjava/awt/image/ColorModel;Ljava/awt/Image;JIZ)Lsun/java2d/x11/X11SurfaceData$X11PixmapSurfaceData;", nullptr, $PUBLIC | $STATIC, $staticMethod(X11SurfaceData, createData, $X11SurfaceData$X11PixmapSurfaceData*, $X11GraphicsConfig*, int32_t, int32_t, $ColorModel*, $Image*, int64_t, int32_t, bool)},
+		{"getBlitGC", "(Lsun/java2d/pipe/Region;Z)J", nullptr, $PUBLIC | $FINAL, $method(X11SurfaceData, getBlitGC, int64_t, $Region*, bool)},
+		{"getDeviceConfiguration", "()Ljava/awt/GraphicsConfiguration;", nullptr, $PUBLIC, $virtualMethod(X11SurfaceData, getDeviceConfiguration, $GraphicsConfiguration*)},
+		{"getGC", "(Lsun/awt/X11ComponentPeer;)Lsun/awt/X11GraphicsConfig;", nullptr, $PUBLIC | $STATIC, $staticMethod(X11SurfaceData, getGC, $X11GraphicsConfig*, $X11ComponentPeer*)},
+		{"getGC", "(Lsun/java2d/pipe/Region;ILjava/awt/Composite;IZ)J", nullptr, $FINAL, $method(X11SurfaceData, getGC, int64_t, $Region*, int32_t, $Composite*, int32_t, bool)},
+		{"getRaster", "(IIII)Ljava/awt/image/Raster;", nullptr, $PUBLIC, $virtualMethod(X11SurfaceData, getRaster, $Raster*, int32_t, int32_t, int32_t, int32_t)},
+		{"getRenderGC", "(Lsun/java2d/pipe/Region;ILjava/awt/Composite;I)J", nullptr, $PUBLIC | $FINAL, $method(X11SurfaceData, getRenderGC, int64_t, $Region*, int32_t, $Composite*, int32_t)},
+		{"getRenderLoops", "(Lsun/java2d/SunGraphics2D;)Lsun/java2d/loops/RenderLoops;", nullptr, $PUBLIC, $virtualMethod(X11SurfaceData, getRenderLoops, $RenderLoops*, $SunGraphics2D*)},
+		{"getSurfaceType", "(Lsun/awt/X11GraphicsConfig;I)Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $STATIC, $staticMethod(X11SurfaceData, getSurfaceType, $SurfaceType*, $X11GraphicsConfig*, int32_t)},
+		{"getSurfaceType", "(Lsun/awt/X11GraphicsConfig;IZ)Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $STATIC, $staticMethod(X11SurfaceData, getSurfaceType, $SurfaceType*, $X11GraphicsConfig*, int32_t, bool)},
+		{"initIDs", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;)V", $PRIVATE | $STATIC | $NATIVE, $staticMethod(X11SurfaceData, initIDs, void, $Class*)},
+		{"initSurface", "(IIIJ)V", nullptr, $PROTECTED | $NATIVE, $virtualMethod(X11SurfaceData, initSurface, void, int32_t, int32_t, int32_t, int64_t)},
+		{"invalidate", "()V", nullptr, $PUBLIC, $virtualMethod(X11SurfaceData, invalidate, void)},
+		{"isAccelerationEnabled", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(X11SurfaceData, isAccelerationEnabled, bool)},
+		{"isShmPMAvailable", "()Z", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(X11SurfaceData, isShmPMAvailable, bool)},
+		{"makePipes", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(X11SurfaceData, makePipes, void)},
+		{"makeProxyFor", "(Lsun/java2d/SurfaceData;)Lsun/java2d/SurfaceDataProxy;", nullptr, $PUBLIC, $virtualMethod(X11SurfaceData, makeProxyFor, $SurfaceDataProxy*, $SurfaceData*)},
+		{"validatePipe", "(Lsun/java2d/SunGraphics2D;)V", nullptr, $PUBLIC, $virtualMethod(X11SurfaceData, validatePipe, void, $SunGraphics2D*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.java2d.x11.X11SurfaceData$LazyPipe", "sun.java2d.x11.X11SurfaceData", "LazyPipe", $PUBLIC | $STATIC},
+		{"sun.java2d.x11.X11SurfaceData$X11PixmapSurfaceData", "sun.java2d.x11.X11SurfaceData", "X11PixmapSurfaceData", $PRIVATE | $STATIC | $FINAL},
+		{"sun.java2d.x11.X11SurfaceData$X11WindowSurfaceData", "sun.java2d.x11.X11SurfaceData", "X11WindowSurfaceData", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"sun.java2d.x11.X11SurfaceData",
+		"sun.java2d.x11.XSurfaceData",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.java2d.x11.X11SurfaceData$LazyPipe,sun.java2d.x11.X11SurfaceData$X11PixmapSurfaceData,sun.java2d.x11.X11SurfaceData$X11WindowSurfaceData"
+	};
+	$loadClass(X11SurfaceData, name, initialize, &classInfo$$, X11SurfaceData::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(X11SurfaceData));
+	});
 	return class$;
 }
 

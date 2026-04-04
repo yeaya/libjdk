@@ -79,6 +79,7 @@ class CMBuilder : public ::java::lang::Object {
 	$class(CMBuilder, 0, ::java::lang::Object)
 public:
 	CMBuilder();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::com::sun::org::apache::xerces::internal::impl::xs::models::CMNodeFactory* nodeFactory);
 	::com::sun::org::apache::xerces::internal::impl::dtd::models::CMNode* buildCompactSyntaxTree(::com::sun::org::apache::xerces::internal::impl::xs::XSParticleDecl* particle);
 	::com::sun::org::apache::xerces::internal::impl::dtd::models::CMNode* buildCompactSyntaxTree2(::com::sun::org::apache::xerces::internal::impl::xs::XSParticleDecl* particle, int32_t minOccurs, int32_t maxOccurs);

@@ -36,6 +36,7 @@ class _AppMenuBarHandler : public ::java::lang::Object {
 	$class(_AppMenuBarHandler, 0, ::java::lang::Object)
 public:
 	_AppMenuBarHandler();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::com::apple::eawt::_AppMenuBarHandler* getInstance();
 	static void initMenuStates(bool aboutMenuItemVisible, bool aboutMenuItemEnabled, bool prefsMenuItemVisible, bool prefsMenuItemEnabled);

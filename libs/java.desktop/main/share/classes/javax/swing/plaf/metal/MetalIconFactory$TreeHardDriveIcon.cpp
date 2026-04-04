@@ -1,6 +1,4 @@
 #include <javax/swing/plaf/metal/MetalIconFactory$TreeHardDriveIcon.h>
-
-#include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/Graphics.h>
 #include <javax/swing/Icon.h>
@@ -9,7 +7,6 @@
 #include <javax/swing/plaf/metal/MetalLookAndFeel.h>
 #include <jcpp.h>
 
-using $Color = ::java::awt::Color;
 using $Component = ::java::awt::Component;
 using $Graphics = ::java::awt::Graphics;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -22,44 +19,6 @@ namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace metal {
-
-$MethodInfo _MetalIconFactory$TreeHardDriveIcon_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PRIVATE, $method(MetalIconFactory$TreeHardDriveIcon, init$, void)},
-	{"getIconHeight", "()I", nullptr, $PUBLIC, $virtualMethod(MetalIconFactory$TreeHardDriveIcon, getIconHeight, int32_t)},
-	{"getIconWidth", "()I", nullptr, $PUBLIC, $virtualMethod(MetalIconFactory$TreeHardDriveIcon, getIconWidth, int32_t)},
-	{"paintIcon", "(Ljava/awt/Component;Ljava/awt/Graphics;II)V", nullptr, $PUBLIC, $virtualMethod(MetalIconFactory$TreeHardDriveIcon, paintIcon, void, $Component*, $Graphics*, int32_t, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _MetalIconFactory$TreeHardDriveIcon_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.metal.MetalIconFactory$TreeHardDriveIcon", "javax.swing.plaf.metal.MetalIconFactory", "TreeHardDriveIcon", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _MetalIconFactory$TreeHardDriveIcon_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.metal.MetalIconFactory$TreeHardDriveIcon",
-	"java.lang.Object",
-	"javax.swing.Icon,javax.swing.plaf.UIResource,java.io.Serializable",
-	nullptr,
-	_MetalIconFactory$TreeHardDriveIcon_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MetalIconFactory$TreeHardDriveIcon_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.metal.MetalIconFactory"
-};
-
-$Object* allocate$MetalIconFactory$TreeHardDriveIcon($Class* clazz) {
-	return $of($alloc(MetalIconFactory$TreeHardDriveIcon));
-}
 
 int32_t MetalIconFactory$TreeHardDriveIcon::hashCode() {
 	 return this->$Icon::hashCode();
@@ -85,7 +44,7 @@ void MetalIconFactory$TreeHardDriveIcon::init$() {
 }
 
 void MetalIconFactory$TreeHardDriveIcon::paintIcon($Component* c, $Graphics* g, int32_t x, int32_t y) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(g)->translate(x, y);
 	g->setColor($($MetalLookAndFeel::getPrimaryControlInfo()));
 	g->drawLine(1, 4, 1, 5);
@@ -154,7 +113,40 @@ MetalIconFactory$TreeHardDriveIcon::MetalIconFactory$TreeHardDriveIcon() {
 }
 
 $Class* MetalIconFactory$TreeHardDriveIcon::load$($String* name, bool initialize) {
-	$loadClass(MetalIconFactory$TreeHardDriveIcon, name, initialize, &_MetalIconFactory$TreeHardDriveIcon_ClassInfo_, allocate$MetalIconFactory$TreeHardDriveIcon);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PRIVATE, $method(MetalIconFactory$TreeHardDriveIcon, init$, void)},
+		{"getIconHeight", "()I", nullptr, $PUBLIC, $virtualMethod(MetalIconFactory$TreeHardDriveIcon, getIconHeight, int32_t)},
+		{"getIconWidth", "()I", nullptr, $PUBLIC, $virtualMethod(MetalIconFactory$TreeHardDriveIcon, getIconWidth, int32_t)},
+		{"paintIcon", "(Ljava/awt/Component;Ljava/awt/Graphics;II)V", nullptr, $PUBLIC, $virtualMethod(MetalIconFactory$TreeHardDriveIcon, paintIcon, void, $Component*, $Graphics*, int32_t, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.metal.MetalIconFactory$TreeHardDriveIcon", "javax.swing.plaf.metal.MetalIconFactory", "TreeHardDriveIcon", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.metal.MetalIconFactory$TreeHardDriveIcon",
+		"java.lang.Object",
+		"javax.swing.Icon,javax.swing.plaf.UIResource,java.io.Serializable",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.metal.MetalIconFactory"
+	};
+	$loadClass(MetalIconFactory$TreeHardDriveIcon, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MetalIconFactory$TreeHardDriveIcon));
+	});
 	return class$;
 }
 

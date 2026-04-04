@@ -1,5 +1,4 @@
 #include <javax/xml/crypto/URIReferenceException.h>
-
 #include <java/io/PrintWriter.h>
 #include <javax/xml/crypto/URIReference.h>
 #include <jcpp.h>
@@ -16,40 +15,6 @@ using $URIReference = ::javax::xml::crypto::URIReference;
 namespace javax {
 	namespace xml {
 		namespace crypto {
-
-$FieldInfo _URIReferenceException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(URIReferenceException, serialVersionUID)},
-	{"cause", "Ljava/lang/Throwable;", nullptr, $PRIVATE, $field(URIReferenceException, cause)},
-	{"uriReference", "Ljavax/xml/crypto/URIReference;", nullptr, $PRIVATE, $field(URIReferenceException, uriReference)},
-	{}
-};
-
-$MethodInfo _URIReferenceException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(URIReferenceException, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(URIReferenceException, init$, void, $String*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(URIReferenceException, init$, void, $String*, $Throwable*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;Ljavax/xml/crypto/URIReference;)V", nullptr, $PUBLIC, $method(URIReferenceException, init$, void, $String*, $Throwable*, $URIReference*)},
-	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(URIReferenceException, init$, void, $Throwable*)},
-	{"getCause", "()Ljava/lang/Throwable;", nullptr, $PUBLIC, $virtualMethod(URIReferenceException, getCause, $Throwable*)},
-	{"getURIReference", "()Ljavax/xml/crypto/URIReference;", nullptr, $PUBLIC, $virtualMethod(URIReferenceException, getURIReference, $URIReference*)},
-	{"printStackTrace", "()V", nullptr, $PUBLIC, $virtualMethod(URIReferenceException, printStackTrace, void)},
-	{"printStackTrace", "(Ljava/io/PrintStream;)V", nullptr, $PUBLIC, $virtualMethod(URIReferenceException, printStackTrace, void, $PrintStream*)},
-	{"printStackTrace", "(Ljava/io/PrintWriter;)V", nullptr, $PUBLIC, $virtualMethod(URIReferenceException, printStackTrace, void, $PrintWriter*)},
-	{}
-};
-
-$ClassInfo _URIReferenceException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.xml.crypto.URIReferenceException",
-	"java.lang.Exception",
-	nullptr,
-	_URIReferenceException_FieldInfo_,
-	_URIReferenceException_MethodInfo_
-};
-
-$Object* allocate$URIReferenceException($Class* clazz) {
-	return $of($alloc(URIReferenceException));
-}
 
 void URIReferenceException::init$() {
 	$Exception::init$();
@@ -73,7 +38,7 @@ void URIReferenceException::init$($String* message, $Throwable* cause, $URIRefer
 }
 
 void URIReferenceException::init$($Throwable* cause) {
-	$Exception::init$(cause == nullptr ? ($String*)nullptr : $($nc(cause)->toString()));
+	$Exception::init$(cause == nullptr ? ($String*)nullptr : $(cause->toString()));
 	$set(this, cause, cause);
 }
 
@@ -108,7 +73,36 @@ void URIReferenceException::throw$() {
 }
 
 $Class* URIReferenceException::load$($String* name, bool initialize) {
-	$loadClass(URIReferenceException, name, initialize, &_URIReferenceException_ClassInfo_, allocate$URIReferenceException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(URIReferenceException, serialVersionUID)},
+		{"cause", "Ljava/lang/Throwable;", nullptr, $PRIVATE, $field(URIReferenceException, cause)},
+		{"uriReference", "Ljavax/xml/crypto/URIReference;", nullptr, $PRIVATE, $field(URIReferenceException, uriReference)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(URIReferenceException, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(URIReferenceException, init$, void, $String*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(URIReferenceException, init$, void, $String*, $Throwable*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;Ljavax/xml/crypto/URIReference;)V", nullptr, $PUBLIC, $method(URIReferenceException, init$, void, $String*, $Throwable*, $URIReference*)},
+		{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(URIReferenceException, init$, void, $Throwable*)},
+		{"getCause", "()Ljava/lang/Throwable;", nullptr, $PUBLIC, $virtualMethod(URIReferenceException, getCause, $Throwable*)},
+		{"getURIReference", "()Ljavax/xml/crypto/URIReference;", nullptr, $PUBLIC, $virtualMethod(URIReferenceException, getURIReference, $URIReference*)},
+		{"printStackTrace", "()V", nullptr, $PUBLIC, $virtualMethod(URIReferenceException, printStackTrace, void)},
+		{"printStackTrace", "(Ljava/io/PrintStream;)V", nullptr, $PUBLIC, $virtualMethod(URIReferenceException, printStackTrace, void, $PrintStream*)},
+		{"printStackTrace", "(Ljava/io/PrintWriter;)V", nullptr, $PUBLIC, $virtualMethod(URIReferenceException, printStackTrace, void, $PrintWriter*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.xml.crypto.URIReferenceException",
+		"java.lang.Exception",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(URIReferenceException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(URIReferenceException);
+	});
 	return class$;
 }
 

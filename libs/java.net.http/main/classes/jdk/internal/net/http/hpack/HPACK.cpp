@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/hpack/HPACK.h>
-
 #include <java/io/Serializable.h>
 #include <java/lang/AssertionError.h>
 #include <java/lang/CharSequence.h>
@@ -50,10 +49,8 @@ using $ByteBuffer = ::java::nio::ByteBuffer;
 using $AccessController = ::java::security::AccessController;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $Map = ::java::util::Map;
-using $Set = ::java::util::Set;
 using $Supplier = ::java::util::function::Supplier;
 using $Collectors = ::java::util::stream::Collectors;
-using $Stream = ::java::util::stream::Stream;
 using $HPACK$BufferUpdateConsumer = ::jdk::internal::net::http::hpack::HPACK$BufferUpdateConsumer;
 using $HPACK$Logger = ::jdk::internal::net::http::hpack::HPACK$Logger;
 using $HPACK$Logger$Level = ::jdk::internal::net::http::hpack::HPACK$Logger$Level;
@@ -74,33 +71,29 @@ public:
 	virtual $Object* run() override {
 		 return $of(HPACK::lambda$static$0(PROPERTY));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<HPACK$$Lambda$lambda$static$0>());
-	}
 	$String* PROPERTY = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo HPACK$$Lambda$lambda$static$0::fieldInfos[2] = {
-	{"PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC, $field(HPACK$$Lambda$lambda$static$0, PROPERTY)},
-	{}
-};
-$MethodInfo HPACK$$Lambda$lambda$static$0::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(HPACK$$Lambda$lambda$static$0, init$, void, $String*)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(HPACK$$Lambda$lambda$static$0, run, $Object*)},
-	{}
-};
-$ClassInfo HPACK$$Lambda$lambda$static$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.net.http.hpack.HPACK$$Lambda$lambda$static$0",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	fieldInfos,
-	methodInfos
 };
 $Class* HPACK$$Lambda$lambda$static$0::load$($String* name, bool initialize) {
-	$loadClass(HPACK$$Lambda$lambda$static$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC, $field(HPACK$$Lambda$lambda$static$0, PROPERTY)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(HPACK$$Lambda$lambda$static$0, init$, void, $String*)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(HPACK$$Lambda$lambda$static$0, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.net.http.hpack.HPACK$$Lambda$lambda$static$0",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(HPACK$$Lambda$lambda$static$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HPACK$$Lambda$lambda$static$0);
+	});
 	return class$;
 }
 $Class* HPACK$$Lambda$lambda$static$0::class$ = nullptr;
@@ -115,35 +108,31 @@ public:
 	virtual $Object* get() override {
 		 return $of(HPACK::lambda$static$1(PROPERTY, value));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<HPACK$$Lambda$lambda$static$1$1>());
-	}
 	$String* PROPERTY = nullptr;
 	$String* value = nullptr;
-	static $FieldInfo fieldInfos[3];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo HPACK$$Lambda$lambda$static$1$1::fieldInfos[3] = {
-	{"PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC, $field(HPACK$$Lambda$lambda$static$1$1, PROPERTY)},
-	{"value", "Ljava/lang/String;", nullptr, $PUBLIC, $field(HPACK$$Lambda$lambda$static$1$1, value)},
-	{}
-};
-$MethodInfo HPACK$$Lambda$lambda$static$1$1::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(HPACK$$Lambda$lambda$static$1$1, init$, void, $String*, $String*)},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(HPACK$$Lambda$lambda$static$1$1, get, $Object*)},
-	{}
-};
-$ClassInfo HPACK$$Lambda$lambda$static$1$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.net.http.hpack.HPACK$$Lambda$lambda$static$1$1",
-	"java.lang.Object",
-	"java.util.function.Supplier",
-	fieldInfos,
-	methodInfos
 };
 $Class* HPACK$$Lambda$lambda$static$1$1::load$($String* name, bool initialize) {
-	$loadClass(HPACK$$Lambda$lambda$static$1$1, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC, $field(HPACK$$Lambda$lambda$static$1$1, PROPERTY)},
+		{"value", "Ljava/lang/String;", nullptr, $PUBLIC, $field(HPACK$$Lambda$lambda$static$1$1, value)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(HPACK$$Lambda$lambda$static$1$1, init$, void, $String*, $String*)},
+		{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(HPACK$$Lambda$lambda$static$1$1, get, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.net.http.hpack.HPACK$$Lambda$lambda$static$1$1",
+		"java.lang.Object",
+		"java.util.function.Supplier",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(HPACK$$Lambda$lambda$static$1$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HPACK$$Lambda$lambda$static$1$1);
+	});
 	return class$;
 }
 $Class* HPACK$$Lambda$lambda$static$1$1::class$ = nullptr;
@@ -157,81 +146,32 @@ public:
 	virtual $Object* get() override {
 		 return $of(HPACK::lambda$static$2(l));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<HPACK$$Lambda$lambda$static$2$2>());
-	}
 	$HPACK$Logger$Level* l = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo HPACK$$Lambda$lambda$static$2$2::fieldInfos[2] = {
-	{"l", "Ljdk/internal/net/http/hpack/HPACK$Logger$Level;", nullptr, $PUBLIC, $field(HPACK$$Lambda$lambda$static$2$2, l)},
-	{}
-};
-$MethodInfo HPACK$$Lambda$lambda$static$2$2::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/hpack/HPACK$Logger$Level;)V", nullptr, $PUBLIC, $method(HPACK$$Lambda$lambda$static$2$2, init$, void, $HPACK$Logger$Level*)},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(HPACK$$Lambda$lambda$static$2$2, get, $Object*)},
-	{}
-};
-$ClassInfo HPACK$$Lambda$lambda$static$2$2::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.net.http.hpack.HPACK$$Lambda$lambda$static$2$2",
-	"java.lang.Object",
-	"java.util.function.Supplier",
-	fieldInfos,
-	methodInfos
 };
 $Class* HPACK$$Lambda$lambda$static$2$2::load$($String* name, bool initialize) {
-	$loadClass(HPACK$$Lambda$lambda$static$2$2, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"l", "Ljdk/internal/net/http/hpack/HPACK$Logger$Level;", nullptr, $PUBLIC, $field(HPACK$$Lambda$lambda$static$2$2, l)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/internal/net/http/hpack/HPACK$Logger$Level;)V", nullptr, $PUBLIC, $method(HPACK$$Lambda$lambda$static$2$2, init$, void, $HPACK$Logger$Level*)},
+		{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(HPACK$$Lambda$lambda$static$2$2, get, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.net.http.hpack.HPACK$$Lambda$lambda$static$2$2",
+		"java.lang.Object",
+		"java.util.function.Supplier",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(HPACK$$Lambda$lambda$static$2$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HPACK$$Lambda$lambda$static$2$2);
+	});
 	return class$;
 }
 $Class* HPACK$$Lambda$lambda$static$2$2::class$ = nullptr;
-
-$FieldInfo _HPACK_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(HPACK, $assertionsDisabled)},
-	{"LOGGER", "Ljdk/internal/net/http/hpack/HPACK$RootLogger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(HPACK, LOGGER)},
-	{"logLevels", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljdk/internal/net/http/hpack/HPACK$Logger$Level;>;", $PRIVATE | $STATIC | $FINAL, $staticField(HPACK, logLevels)},
-	{}
-};
-
-$MethodInfo _HPACK_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(HPACK, init$, void)},
-	{"bytesForBits", "(I)I", nullptr, $STATIC, $staticMethod(HPACK, bytesForBits, int32_t, int32_t)},
-	{"getLogger", "()Ljdk/internal/net/http/hpack/HPACK$Logger;", nullptr, $PUBLIC | $STATIC, $staticMethod(HPACK, getLogger, $HPACK$Logger*)},
-	{"lambda$static$0", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(HPACK, lambda$static$0, $String*, $String*)},
-	{"lambda$static$1", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(HPACK, lambda$static$1, $String*, $String*, $String*)},
-	{"lambda$static$2", "(Ljdk/internal/net/http/hpack/HPACK$Logger$Level;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(HPACK, lambda$static$2, $String*, $HPACK$Logger$Level*)},
-	{"read", "(Ljava/nio/ByteBuffer;JILjdk/internal/net/http/hpack/HPACK$BufferUpdateConsumer;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(HPACK, read, int32_t, $ByteBuffer*, int64_t, int32_t, $HPACK$BufferUpdateConsumer*)},
-	{"write", "(JILjdk/internal/net/http/hpack/HPACK$BufferUpdateConsumer;Ljava/nio/ByteBuffer;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(HPACK, write, int32_t, int64_t, int32_t, $HPACK$BufferUpdateConsumer*, $ByteBuffer*)},
-	{}
-};
-
-$InnerClassInfo _HPACK_InnerClassesInfo_[] = {
-	{"jdk.internal.net.http.hpack.HPACK$BufferUpdateConsumer", "jdk.internal.net.http.hpack.HPACK", "BufferUpdateConsumer", $STATIC | $INTERFACE | $ABSTRACT},
-	{"jdk.internal.net.http.hpack.HPACK$RootLogger", "jdk.internal.net.http.hpack.HPACK", "RootLogger", $PRIVATE | $STATIC | $FINAL},
-	{"jdk.internal.net.http.hpack.HPACK$Logger", "jdk.internal.net.http.hpack.HPACK", "Logger", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _HPACK_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"jdk.internal.net.http.hpack.HPACK",
-	"java.lang.Object",
-	nullptr,
-	_HPACK_FieldInfo_,
-	_HPACK_MethodInfo_,
-	nullptr,
-	nullptr,
-	_HPACK_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"jdk.internal.net.http.hpack.HPACK$BufferUpdateConsumer,jdk.internal.net.http.hpack.HPACK$RootLogger,jdk.internal.net.http.hpack.HPACK$Logger,jdk.internal.net.http.hpack.HPACK$Logger$Level"
-};
-
-$Object* allocate$HPACK($Class* clazz) {
-	return $of($alloc(HPACK));
-}
 
 bool HPACK::$assertionsDisabled = false;
 $HPACK$RootLogger* HPACK::LOGGER = nullptr;
@@ -250,59 +190,39 @@ int32_t HPACK::read($ByteBuffer* source, int64_t buffer, int32_t bufferLen, $HPA
 	int32_t nBytes = $Math::min((64 - bufferLen) >> 3, $nc(source)->remaining());
 	switch (nBytes) {
 	case 0:
-		{
-			break;
-		}
+		break;
 	case 3:
-		{
-			buffer |= ($sl((int64_t)($nc(source)->get() & (uint64_t)(int64_t)255), 56 - bufferLen));
-			bufferLen += 8;
-		}
+		buffer |= ($sl(source->get() & (int64_t)0xff, 56 - bufferLen));
+		bufferLen += 8;
 	case 2:
-		{
-			buffer |= ($sl((int64_t)($nc(source)->get() & (uint64_t)(int64_t)255), 56 - bufferLen));
-			bufferLen += 8;
-		}
+		buffer |= ($sl(source->get() & (int64_t)0xff, 56 - bufferLen));
+		bufferLen += 8;
 	case 1:
-		{
-			buffer |= ($sl((int64_t)($nc(source)->get() & (uint64_t)(int64_t)255), 56 - bufferLen));
-			bufferLen += 8;
-			$nc(consumer)->accept(buffer, bufferLen);
-			break;
-		}
+		buffer |= ($sl(source->get() & (int64_t)0xff, 56 - bufferLen));
+		bufferLen += 8;
+		$nc(consumer)->accept(buffer, bufferLen);
+		break;
 	case 7:
-		{
-			buffer |= ($sl((int64_t)($nc(source)->get() & (uint64_t)(int64_t)255), 56 - bufferLen));
-			bufferLen += 8;
-		}
+		buffer |= ($sl(source->get() & (int64_t)0xff, 56 - bufferLen));
+		bufferLen += 8;
 	case 6:
-		{
-			buffer |= ($sl((int64_t)($nc(source)->get() & (uint64_t)(int64_t)255), 56 - bufferLen));
-			bufferLen += 8;
-		}
+		buffer |= ($sl(source->get() & (int64_t)0xff, 56 - bufferLen));
+		bufferLen += 8;
 	case 5:
-		{
-			buffer |= ($sl((int64_t)($nc(source)->get() & (uint64_t)(int64_t)255), 56 - bufferLen));
-			bufferLen += 8;
-		}
+		buffer |= ($sl(source->get() & (int64_t)0xff, 56 - bufferLen));
+		bufferLen += 8;
 	case 4:
-		{
-			buffer |= ($sl((int64_t)($nc(source)->getInt() & (uint64_t)(int64_t)0x00000000FFFFFFFF), 32 - bufferLen));
-			bufferLen += 32;
-			$nc(consumer)->accept(buffer, bufferLen);
-			break;
-		}
+		buffer |= ($sl(source->getInt() & (int64_t)0xffffffff, 32 - bufferLen));
+		bufferLen += 32;
+		$nc(consumer)->accept(buffer, bufferLen);
+		break;
 	case 8:
-		{
-			buffer = $nc(source)->getLong();
-			bufferLen = 64;
-			$nc(consumer)->accept(buffer, bufferLen);
-			break;
-		}
+		buffer = source->getLong();
+		bufferLen = 64;
+		$nc(consumer)->accept(buffer, bufferLen);
+		break;
 	default:
-		{
-			$throwNew($InternalError, $($String::valueOf(nBytes)));
-		}
+		$throwNew($InternalError, $($String::valueOf(nBytes)));
 	}
 	return nBytes;
 }
@@ -312,67 +232,47 @@ int32_t HPACK::write(int64_t buffer, int32_t bufferLen, $HPACK$BufferUpdateConsu
 	int32_t nBytes = $Math::min(bufferLen >> 3, $nc(destination)->remaining());
 	switch (nBytes) {
 	case 0:
-		{
-			break;
-		}
+		break;
 	case 3:
-		{
-			$nc(destination)->put((int8_t)((int64_t)((uint64_t)buffer >> 56)));
-			buffer <<= 8;
-			bufferLen -= 8;
-		}
+		destination->put((int8_t)((int64_t)((uint64_t)buffer >> 56)));
+		buffer <<= 8;
+		bufferLen -= 8;
 	case 2:
-		{
-			$nc(destination)->put((int8_t)((int64_t)((uint64_t)buffer >> 56)));
-			buffer <<= 8;
-			bufferLen -= 8;
-		}
+		destination->put((int8_t)((int64_t)((uint64_t)buffer >> 56)));
+		buffer <<= 8;
+		bufferLen -= 8;
 	case 1:
-		{
-			$nc(destination)->put((int8_t)((int64_t)((uint64_t)buffer >> 56)));
-			buffer <<= 8;
-			bufferLen -= 8;
-			$nc(consumer)->accept(buffer, bufferLen);
-			break;
-		}
+		destination->put((int8_t)((int64_t)((uint64_t)buffer >> 56)));
+		buffer <<= 8;
+		bufferLen -= 8;
+		$nc(consumer)->accept(buffer, bufferLen);
+		break;
 	case 7:
-		{
-			$nc(destination)->put((int8_t)((int64_t)((uint64_t)buffer >> 56)));
-			buffer <<= 8;
-			bufferLen -= 8;
-		}
+		destination->put((int8_t)((int64_t)((uint64_t)buffer >> 56)));
+		buffer <<= 8;
+		bufferLen -= 8;
 	case 6:
-		{
-			$nc(destination)->put((int8_t)((int64_t)((uint64_t)buffer >> 56)));
-			buffer <<= 8;
-			bufferLen -= 8;
-		}
+		destination->put((int8_t)((int64_t)((uint64_t)buffer >> 56)));
+		buffer <<= 8;
+		bufferLen -= 8;
 	case 5:
-		{
-			$nc(destination)->put((int8_t)((int64_t)((uint64_t)buffer >> 56)));
-			buffer <<= 8;
-			bufferLen -= 8;
-		}
+		destination->put((int8_t)((int64_t)((uint64_t)buffer >> 56)));
+		buffer <<= 8;
+		bufferLen -= 8;
 	case 4:
-		{
-			$nc(destination)->putInt((int32_t)((int64_t)((uint64_t)buffer >> 32)));
-			buffer <<= 32;
-			bufferLen -= 32;
-			$nc(consumer)->accept(buffer, bufferLen);
-			break;
-		}
+		destination->putInt((int32_t)((int64_t)((uint64_t)buffer >> 32)));
+		buffer <<= 32;
+		bufferLen -= 32;
+		$nc(consumer)->accept(buffer, bufferLen);
+		break;
 	case 8:
-		{
-			$nc(destination)->putLong(buffer);
-			buffer = 0;
-			bufferLen = 0;
-			$nc(consumer)->accept(buffer, bufferLen);
-			break;
-		}
+		destination->putLong(buffer);
+		buffer = 0;
+		bufferLen = 0;
+		$nc(consumer)->accept(buffer, bufferLen);
+		break;
 	default:
-		{
-			$throwNew($InternalError, $($String::valueOf(nBytes)));
-		}
+		$throwNew($InternalError, $($String::valueOf(nBytes)));
 	}
 	return nBytes;
 }
@@ -387,16 +287,16 @@ int32_t HPACK::bytesForBits(int32_t n) {
 
 $String* HPACK::lambda$static$2($HPACK$Logger$Level* l) {
 	$init(HPACK);
-	return $String::format("logging level %s"_s, $$new($ObjectArray, {$of(l)}));
+	return $String::format("logging level %s"_s, $$new($ObjectArray, {l}));
 }
 
 $String* HPACK::lambda$static$1($String* PROPERTY, $String* value) {
 	$init(HPACK);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $String::format("%s value \'%s\' not recognized (use %s); logging disabled"_s, $$new($ObjectArray, {
-		$of(PROPERTY),
-		$of(value),
-		$($nc($($nc($($nc(HPACK::logLevels)->keySet()))->stream()))->collect($($Collectors::joining(", "_s))))
+		PROPERTY,
+		value,
+		$($$nc($$nc($nc(HPACK::logLevels)->keySet())->stream())->collect($($Collectors::joining(", "_s))))
 	}));
 }
 
@@ -405,28 +305,28 @@ $String* HPACK::lambda$static$0($String* PROPERTY) {
 	return $System::getProperty(PROPERTY);
 }
 
-void clinit$HPACK($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void HPACK::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	HPACK::$assertionsDisabled = !HPACK::class$->desiredAssertionStatus();
 	$init($HPACK$Logger$Level);
 	$assignStatic(HPACK::logLevels, $Map::of("NORMAL"_s, $HPACK$Logger$Level::NORMAL, "EXTRA"_s, $HPACK$Logger$Level::EXTRA));
 	{
 		$var($String, PROPERTY, "jdk.internal.httpclient.hpack.log.level"_s);
-		$var($String, value, $cast($String, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new(HPACK$$Lambda$lambda$static$0, PROPERTY)))));
+		$var($String, value, $cast($String, $AccessController::doPrivileged($cast($PrivilegedAction, $$new(HPACK$$Lambda$lambda$static$0, PROPERTY)))));
 		if (value == nullptr) {
 			$assignStatic(HPACK::LOGGER, $new($HPACK$RootLogger, $HPACK$Logger$Level::NONE));
 		} else {
-			$var($String, upperCasedValue, $nc(value)->toUpperCase());
+			$var($String, upperCasedValue, value->toUpperCase());
 			$HPACK$Logger$Level* l = $cast($HPACK$Logger$Level, $nc(HPACK::logLevels)->get(upperCasedValue));
 			if (l == nullptr) {
 				$assignStatic(HPACK::LOGGER, $new($HPACK$RootLogger, $HPACK$Logger$Level::NONE));
 				$init($System$Logger$Level);
-				$nc(HPACK::LOGGER)->log($System$Logger$Level::INFO, static_cast<$Supplier*>($$new(HPACK$$Lambda$lambda$static$1$1, PROPERTY, value)));
+				HPACK::LOGGER->log($System$Logger$Level::INFO, $$new(HPACK$$Lambda$lambda$static$1$1, PROPERTY, value));
 			} else {
 				$assignStatic(HPACK::LOGGER, $new($HPACK$RootLogger, l));
 				$init($System$Logger$Level);
-				$nc(HPACK::LOGGER)->log($System$Logger$Level::DEBUG, static_cast<$Supplier*>($$new(HPACK$$Lambda$lambda$static$2$2, l)));
+				HPACK::LOGGER->log($System$Logger$Level::DEBUG, $$new(HPACK$$Lambda$lambda$static$2$2, l));
 			}
 		}
 	}
@@ -437,17 +337,56 @@ HPACK::HPACK() {
 
 $Class* HPACK::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(HPACK$$Lambda$lambda$static$0::classInfo$.name)) {
+		if (name->equals("jdk.internal.net.http.hpack.HPACK$$Lambda$lambda$static$0")) {
 			return HPACK$$Lambda$lambda$static$0::load$(name, initialize);
 		}
-		if (name->equals(HPACK$$Lambda$lambda$static$1$1::classInfo$.name)) {
+		if (name->equals("jdk.internal.net.http.hpack.HPACK$$Lambda$lambda$static$1$1")) {
 			return HPACK$$Lambda$lambda$static$1$1::load$(name, initialize);
 		}
-		if (name->equals(HPACK$$Lambda$lambda$static$2$2::classInfo$.name)) {
+		if (name->equals("jdk.internal.net.http.hpack.HPACK$$Lambda$lambda$static$2$2")) {
 			return HPACK$$Lambda$lambda$static$2$2::load$(name, initialize);
 		}
 	}
-	$loadClass(HPACK, name, initialize, &_HPACK_ClassInfo_, clinit$HPACK, allocate$HPACK);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(HPACK, $assertionsDisabled)},
+		{"LOGGER", "Ljdk/internal/net/http/hpack/HPACK$RootLogger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(HPACK, LOGGER)},
+		{"logLevels", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljdk/internal/net/http/hpack/HPACK$Logger$Level;>;", $PRIVATE | $STATIC | $FINAL, $staticField(HPACK, logLevels)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(HPACK, init$, void)},
+		{"bytesForBits", "(I)I", nullptr, $STATIC, $staticMethod(HPACK, bytesForBits, int32_t, int32_t)},
+		{"getLogger", "()Ljdk/internal/net/http/hpack/HPACK$Logger;", nullptr, $PUBLIC | $STATIC, $staticMethod(HPACK, getLogger, $HPACK$Logger*)},
+		{"lambda$static$0", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(HPACK, lambda$static$0, $String*, $String*)},
+		{"lambda$static$1", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(HPACK, lambda$static$1, $String*, $String*, $String*)},
+		{"lambda$static$2", "(Ljdk/internal/net/http/hpack/HPACK$Logger$Level;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(HPACK, lambda$static$2, $String*, $HPACK$Logger$Level*)},
+		{"read", "(Ljava/nio/ByteBuffer;JILjdk/internal/net/http/hpack/HPACK$BufferUpdateConsumer;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(HPACK, read, int32_t, $ByteBuffer*, int64_t, int32_t, $HPACK$BufferUpdateConsumer*)},
+		{"write", "(JILjdk/internal/net/http/hpack/HPACK$BufferUpdateConsumer;Ljava/nio/ByteBuffer;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(HPACK, write, int32_t, int64_t, int32_t, $HPACK$BufferUpdateConsumer*, $ByteBuffer*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.net.http.hpack.HPACK$BufferUpdateConsumer", "jdk.internal.net.http.hpack.HPACK", "BufferUpdateConsumer", $STATIC | $INTERFACE | $ABSTRACT},
+		{"jdk.internal.net.http.hpack.HPACK$RootLogger", "jdk.internal.net.http.hpack.HPACK", "RootLogger", $PRIVATE | $STATIC | $FINAL},
+		{"jdk.internal.net.http.hpack.HPACK$Logger", "jdk.internal.net.http.hpack.HPACK", "Logger", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"jdk.internal.net.http.hpack.HPACK",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"jdk.internal.net.http.hpack.HPACK$BufferUpdateConsumer,jdk.internal.net.http.hpack.HPACK$RootLogger,jdk.internal.net.http.hpack.HPACK$Logger,jdk.internal.net.http.hpack.HPACK$Logger$Level"
+	};
+	$loadClass(HPACK, name, initialize, &classInfo$$, HPACK::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(HPACK);
+	});
 	return class$;
 }
 

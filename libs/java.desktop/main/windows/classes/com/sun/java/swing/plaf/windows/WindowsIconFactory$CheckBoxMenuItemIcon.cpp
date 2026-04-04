@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/windows/WindowsIconFactory$CheckBoxMenuItemIcon.h>
-
 #include <com/sun/java/swing/plaf/windows/WindowsIconFactory.h>
 #include <java/awt/Component.h>
 #include <java/awt/Graphics.h>
@@ -23,44 +22,6 @@ namespace com {
 			namespace swing {
 				namespace plaf {
 					namespace windows {
-
-$MethodInfo _WindowsIconFactory$CheckBoxMenuItemIcon_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PRIVATE, $method(WindowsIconFactory$CheckBoxMenuItemIcon, init$, void)},
-	{"getIconHeight", "()I", nullptr, $PUBLIC, $virtualMethod(WindowsIconFactory$CheckBoxMenuItemIcon, getIconHeight, int32_t)},
-	{"getIconWidth", "()I", nullptr, $PUBLIC, $virtualMethod(WindowsIconFactory$CheckBoxMenuItemIcon, getIconWidth, int32_t)},
-	{"paintIcon", "(Ljava/awt/Component;Ljava/awt/Graphics;II)V", nullptr, $PUBLIC, $virtualMethod(WindowsIconFactory$CheckBoxMenuItemIcon, paintIcon, void, $Component*, $Graphics*, int32_t, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _WindowsIconFactory$CheckBoxMenuItemIcon_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.windows.WindowsIconFactory$CheckBoxMenuItemIcon", "com.sun.java.swing.plaf.windows.WindowsIconFactory", "CheckBoxMenuItemIcon", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _WindowsIconFactory$CheckBoxMenuItemIcon_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.java.swing.plaf.windows.WindowsIconFactory$CheckBoxMenuItemIcon",
-	"java.lang.Object",
-	"javax.swing.Icon,javax.swing.plaf.UIResource,java.io.Serializable",
-	nullptr,
-	_WindowsIconFactory$CheckBoxMenuItemIcon_MethodInfo_,
-	nullptr,
-	nullptr,
-	_WindowsIconFactory$CheckBoxMenuItemIcon_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.windows.WindowsIconFactory"
-};
-
-$Object* allocate$WindowsIconFactory$CheckBoxMenuItemIcon($Class* clazz) {
-	return $of($alloc(WindowsIconFactory$CheckBoxMenuItemIcon));
-}
 
 int32_t WindowsIconFactory$CheckBoxMenuItemIcon::hashCode() {
 	 return this->$Icon::hashCode();
@@ -86,7 +47,7 @@ void WindowsIconFactory$CheckBoxMenuItemIcon::init$() {
 }
 
 void WindowsIconFactory$CheckBoxMenuItemIcon::paintIcon($Component* c, $Graphics* g, int32_t x, int32_t y) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AbstractButton, b, $cast($AbstractButton, c));
 	$var($ButtonModel, model, $nc(b)->getModel());
 	bool isSelected = $nc(model)->isSelected();
@@ -116,7 +77,40 @@ WindowsIconFactory$CheckBoxMenuItemIcon::WindowsIconFactory$CheckBoxMenuItemIcon
 }
 
 $Class* WindowsIconFactory$CheckBoxMenuItemIcon::load$($String* name, bool initialize) {
-	$loadClass(WindowsIconFactory$CheckBoxMenuItemIcon, name, initialize, &_WindowsIconFactory$CheckBoxMenuItemIcon_ClassInfo_, allocate$WindowsIconFactory$CheckBoxMenuItemIcon);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PRIVATE, $method(WindowsIconFactory$CheckBoxMenuItemIcon, init$, void)},
+		{"getIconHeight", "()I", nullptr, $PUBLIC, $virtualMethod(WindowsIconFactory$CheckBoxMenuItemIcon, getIconHeight, int32_t)},
+		{"getIconWidth", "()I", nullptr, $PUBLIC, $virtualMethod(WindowsIconFactory$CheckBoxMenuItemIcon, getIconWidth, int32_t)},
+		{"paintIcon", "(Ljava/awt/Component;Ljava/awt/Graphics;II)V", nullptr, $PUBLIC, $virtualMethod(WindowsIconFactory$CheckBoxMenuItemIcon, paintIcon, void, $Component*, $Graphics*, int32_t, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.windows.WindowsIconFactory$CheckBoxMenuItemIcon", "com.sun.java.swing.plaf.windows.WindowsIconFactory", "CheckBoxMenuItemIcon", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.java.swing.plaf.windows.WindowsIconFactory$CheckBoxMenuItemIcon",
+		"java.lang.Object",
+		"javax.swing.Icon,javax.swing.plaf.UIResource,java.io.Serializable",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.windows.WindowsIconFactory"
+	};
+	$loadClass(WindowsIconFactory$CheckBoxMenuItemIcon, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(WindowsIconFactory$CheckBoxMenuItemIcon));
+	});
 	return class$;
 }
 

@@ -48,6 +48,7 @@ class BasicScrollPaneUI$Actions : public ::sun::swing::UIAction {
 	$class(BasicScrollPaneUI$Actions, 0, ::sun::swing::UIAction)
 public:
 	BasicScrollPaneUI$Actions();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* key);
 	virtual void actionPerformed(::java::awt::event::ActionEvent* e) override;
 	void scroll(::javax::swing::JScrollPane* scrollpane, int32_t orientation, int32_t direction, bool block);

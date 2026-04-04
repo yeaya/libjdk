@@ -58,7 +58,7 @@ public:
 	virtual bool isConsumed() override;
 	virtual $String* paramString() override;
 	void readObject(::java::io::ObjectInputStream* s);
-	static const int64_t serialVersionUID = (int64_t)0x419A5B0E0CAA6EA5;
+	static const int64_t serialVersionUID = (int64_t)0x419a5b0e0caa6ea5;
 	static const int32_t INPUT_METHOD_FIRST = 1100;
 	static const int32_t INPUT_METHOD_TEXT_CHANGED = INPUT_METHOD_FIRST;
 	static const int32_t CARET_POSITION_CHANGED = 1101; // INPUT_METHOD_FIRST + 1

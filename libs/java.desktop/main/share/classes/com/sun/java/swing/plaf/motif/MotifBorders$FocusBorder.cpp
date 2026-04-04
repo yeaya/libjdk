@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/motif/MotifBorders$FocusBorder.h>
-
 #include <com/sun/java/swing/plaf/motif/MotifBorders.h>
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
@@ -24,49 +23,6 @@ namespace com {
 			namespace swing {
 				namespace plaf {
 					namespace motif {
-
-$FieldInfo _MotifBorders$FocusBorder_FieldInfo_[] = {
-	{"focus", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(MotifBorders$FocusBorder, focus)},
-	{"control", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(MotifBorders$FocusBorder, control)},
-	{}
-};
-
-$MethodInfo _MotifBorders$FocusBorder_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/awt/Color;Ljava/awt/Color;)V", nullptr, $PUBLIC, $method(MotifBorders$FocusBorder, init$, void, $Color*, $Color*)},
-	{"getBorderInsets", "(Ljava/awt/Component;Ljava/awt/Insets;)Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(MotifBorders$FocusBorder, getBorderInsets, $Insets*, $Component*, $Insets*)},
-	{"paintBorder", "(Ljava/awt/Component;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(MotifBorders$FocusBorder, paintBorder, void, $Component*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _MotifBorders$FocusBorder_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.motif.MotifBorders$FocusBorder", "com.sun.java.swing.plaf.motif.MotifBorders", "FocusBorder", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _MotifBorders$FocusBorder_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.java.swing.plaf.motif.MotifBorders$FocusBorder",
-	"javax.swing.border.AbstractBorder",
-	"javax.swing.plaf.UIResource",
-	_MotifBorders$FocusBorder_FieldInfo_,
-	_MotifBorders$FocusBorder_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MotifBorders$FocusBorder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.motif.MotifBorders"
-};
-
-$Object* allocate$MotifBorders$FocusBorder($Class* clazz) {
-	return $of($alloc(MotifBorders$FocusBorder));
-}
 
 int32_t MotifBorders$FocusBorder::hashCode() {
 	 return this->$AbstractBorder::hashCode();
@@ -113,7 +69,44 @@ MotifBorders$FocusBorder::MotifBorders$FocusBorder() {
 }
 
 $Class* MotifBorders$FocusBorder::load$($String* name, bool initialize) {
-	$loadClass(MotifBorders$FocusBorder, name, initialize, &_MotifBorders$FocusBorder_ClassInfo_, allocate$MotifBorders$FocusBorder);
+	$FieldInfo fieldInfos$$[] = {
+		{"focus", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(MotifBorders$FocusBorder, focus)},
+		{"control", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(MotifBorders$FocusBorder, control)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/awt/Color;Ljava/awt/Color;)V", nullptr, $PUBLIC, $method(MotifBorders$FocusBorder, init$, void, $Color*, $Color*)},
+		{"getBorderInsets", "(Ljava/awt/Component;Ljava/awt/Insets;)Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(MotifBorders$FocusBorder, getBorderInsets, $Insets*, $Component*, $Insets*)},
+		{"paintBorder", "(Ljava/awt/Component;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(MotifBorders$FocusBorder, paintBorder, void, $Component*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.motif.MotifBorders$FocusBorder", "com.sun.java.swing.plaf.motif.MotifBorders", "FocusBorder", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.java.swing.plaf.motif.MotifBorders$FocusBorder",
+		"javax.swing.border.AbstractBorder",
+		"javax.swing.plaf.UIResource",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.motif.MotifBorders"
+	};
+	$loadClass(MotifBorders$FocusBorder, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MotifBorders$FocusBorder));
+	});
 	return class$;
 }
 

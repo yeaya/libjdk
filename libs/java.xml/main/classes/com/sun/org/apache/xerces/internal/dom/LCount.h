@@ -23,6 +23,7 @@ class LCount : public ::java::lang::Object {
 	$class(LCount, 0, ::java::lang::Object)
 public:
 	LCount();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::com::sun::org::apache::xerces::internal::dom::LCount* lambda$lookup$0($String* key);
 	static ::com::sun::org::apache::xerces::internal::dom::LCount* lookup($String* evtName);

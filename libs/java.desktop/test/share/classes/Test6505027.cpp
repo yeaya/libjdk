@@ -1,5 +1,4 @@
 #include <Test6505027.h>
-
 #include <SwingTest.h>
 #include <java/awt/BorderLayout.h>
 #include <java/awt/Component.h>
@@ -20,7 +19,6 @@
 #include <javax/swing/JTextField.h>
 #include <javax/swing/SwingUtilities.h>
 #include <javax/swing/table/DefaultTableModel.h>
-#include <javax/swing/table/TableCellEditor.h>
 #include <javax/swing/table/TableColumn.h>
 #include <javax/swing/table/TableModel.h>
 #include <jcpp.h>
@@ -44,7 +42,6 @@ using $Component = ::java::awt::Component;
 using $Container = ::java::awt::Container;
 using $KeyboardFocusManager = ::java::awt::KeyboardFocusManager;
 using $Point = ::java::awt::Point;
-using $Rectangle = ::java::awt::Rectangle;
 using $Robot = ::java::awt::Robot;
 using $InputEvent = ::java::awt::event::InputEvent;
 using $Boolean = ::java::lang::Boolean;
@@ -63,43 +60,7 @@ using $JTable = ::javax::swing::JTable;
 using $JTextField = ::javax::swing::JTextField;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $DefaultTableModel = ::javax::swing::table::DefaultTableModel;
-using $TableCellEditor = ::javax::swing::table::TableCellEditor;
 using $TableColumn = ::javax::swing::table::TableColumn;
-using $TableModel = ::javax::swing::table::TableModel;
-
-$FieldInfo _Test6505027_FieldInfo_[] = {
-	{"INTERNAL", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Test6505027, INTERNAL)},
-	{"TERMINATE", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Test6505027, TERMINATE)},
-	{"WIDTH", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Test6505027, WIDTH)},
-	{"HEIGHT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Test6505027, HEIGHT)},
-	{"OFFSET", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Test6505027, OFFSET)},
-	{"COLUMNS", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Test6505027, COLUMNS)},
-	{"ITEMS", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Test6505027, ITEMS)},
-	{"KEY", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Test6505027, KEY)},
-	{"table", "Ljavax/swing/JTable;", nullptr, $PRIVATE | $FINAL, $field(Test6505027, table)},
-	{}
-};
-
-$MethodInfo _Test6505027_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/JFrame;)V", nullptr, $PUBLIC, $method(Test6505027, init$, void, $JFrame*)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Test6505027, main, void, $StringArray*), "java.lang.Throwable"},
-	{"press", "()V", nullptr, $PUBLIC, $virtualMethod(Test6505027, press, void), "java.awt.AWTException"},
-	{"validate", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(Test6505027, validate, void)},
-	{}
-};
-
-$ClassInfo _Test6505027_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"Test6505027",
-	"java.lang.Object",
-	nullptr,
-	_Test6505027_FieldInfo_,
-	_Test6505027_MethodInfo_
-};
-
-$Object* allocate$Test6505027($Class* clazz) {
-	return $of($alloc(Test6505027));
-}
 
 $StringArray* Test6505027::COLUMNS = nullptr;
 $StringArray* Test6505027::ITEMS = nullptr;
@@ -111,7 +72,7 @@ void Test6505027::main($StringArray* args) {
 }
 
 void Test6505027::init$($JFrame* main) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, table, $new($JTable, $$new($DefaultTableModel, Test6505027::COLUMNS, 2)));
 	$var($Container, container, main);
 	{
@@ -119,43 +80,42 @@ void Test6505027::init$($JFrame* main) {
 		frame->setBounds(Test6505027::OFFSET, Test6505027::OFFSET, Test6505027::WIDTH, Test6505027::HEIGHT);
 		frame->setVisible(true);
 		$var($JDesktopPane, desktop, $new($JDesktopPane));
-		desktop->add(static_cast<$Component*>(frame), $of($$new($Integer, 1)));
-		$nc(container)->add(static_cast<$Component*>(desktop));
+		desktop->add(frame, $$new($Integer, 1));
+		$nc(container)->add(desktop);
 		$assign(container, frame);
 	}
 	{
-		$init($Boolean);
 		$nc(this->table)->putClientProperty(Test6505027::KEY, $Boolean::TRUE);
 	}
-	$var($TableColumn, column, $nc(this->table)->getColumn($nc(Test6505027::COLUMNS)->get(1)));
+	$var($TableColumn, column, this->table->getColumn(Test6505027::COLUMNS->get(1)));
 	$nc(column)->setCellEditor($$new($DefaultCellEditor, $$new($JComboBox, Test6505027::ITEMS)));
 	$init($BorderLayout);
-	$nc(container)->add($BorderLayout::NORTH, static_cast<$Component*>($$new($JTextField)));
-	container->add($BorderLayout::CENTER, static_cast<$Component*>($$new($JScrollPane, this->table)));
+	container->add($BorderLayout::NORTH, $$new($JTextField));
+	container->add($BorderLayout::CENTER, $$new($JScrollPane, this->table));
 }
 
 void Test6505027::press() {
-	$useLocalCurrentObjectStackCache();
-	$var($Point, point, $nc($($nc(this->table)->getCellRect(1, 1, false)))->getLocation());
+	$useLocalObjectStack();
+	$var($Point, point, $$nc($nc(this->table)->getCellRect(1, 1, false))->getLocation());
 	$SwingUtilities::convertPointToScreen(point, this->table);
 	$var($Robot, robot, $new($Robot));
 	robot->setAutoDelay(50);
-	robot->mouseMove($nc(point)->x + 1, point->y + 1);
+	robot->mouseMove($nc(point)->x + 1, $nc(point)->y + 1);
 	robot->mousePress($InputEvent::BUTTON1_MASK);
 	robot->mouseRelease($InputEvent::BUTTON1_MASK);
 }
 
 void Test6505027::validate() {
 	$init(Test6505027);
-	$useLocalCurrentObjectStackCache();
-	$var($Component, component, $nc($($KeyboardFocusManager::getCurrentKeyboardFocusManager()))->getFocusOwner());
+	$useLocalObjectStack();
+	$var($Component, component, $$nc($KeyboardFocusManager::getCurrentKeyboardFocusManager())->getFocusOwner());
 	$load($JComboBox);
-	if (!$of($nc($of(component))->getClass())->equals($JComboBox::class$)) {
+	if (!$nc($of(component))->getClass()->equals($JComboBox::class$)) {
 		$throwNew($Error, $$str({"unexpected focus owner: "_s, component}));
 	}
 }
 
-void clinit$Test6505027($Class* class$) {
+void Test6505027::clinit$($Class* clazz) {
 	$assignStatic(Test6505027::KEY, "terminateEditOnFocusLost"_s);
 	$assignStatic(Test6505027::COLUMNS, $new($StringArray, {
 		"Size"_s,
@@ -173,7 +133,36 @@ Test6505027::Test6505027() {
 }
 
 $Class* Test6505027::load$($String* name, bool initialize) {
-	$loadClass(Test6505027, name, initialize, &_Test6505027_ClassInfo_, clinit$Test6505027, allocate$Test6505027);
+	$FieldInfo fieldInfos$$[] = {
+		{"INTERNAL", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Test6505027, INTERNAL)},
+		{"TERMINATE", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Test6505027, TERMINATE)},
+		{"WIDTH", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Test6505027, WIDTH)},
+		{"HEIGHT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Test6505027, HEIGHT)},
+		{"OFFSET", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Test6505027, OFFSET)},
+		{"COLUMNS", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Test6505027, COLUMNS)},
+		{"ITEMS", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Test6505027, ITEMS)},
+		{"KEY", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Test6505027, KEY)},
+		{"table", "Ljavax/swing/JTable;", nullptr, $PRIVATE | $FINAL, $field(Test6505027, table)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/JFrame;)V", nullptr, $PUBLIC, $method(Test6505027, init$, void, $JFrame*)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Test6505027, main, void, $StringArray*), "java.lang.Throwable"},
+		{"press", "()V", nullptr, $PUBLIC, $virtualMethod(Test6505027, press, void), "java.awt.AWTException"},
+		{"validate", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(Test6505027, validate, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"Test6505027",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Test6505027, name, initialize, &classInfo$$, Test6505027::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Test6505027);
+	});
 	return class$;
 }
 

@@ -431,7 +431,7 @@ public:
 	virtual void writeXml(::java::sql::ResultSet* rs, ::java::io::OutputStream* oStream) override;
 	::javax::sql::rowset::Predicate* p = nullptr;
 	bool onInsertRow = false;
-	static const int64_t serialVersionUID = (int64_t)0x55BE47B69B44FEF0;
+	static const int64_t serialVersionUID = (int64_t)0x55be47b69b44fef0;
 };
 
 		} // rowset

@@ -1,5 +1,4 @@
 #include <sun/lwawt/macosx/LWCToolkit$2.h>
-
 #include <sun/lwawt/macosx/LWCToolkit.h>
 #include <jcpp.h>
 
@@ -13,43 +12,6 @@ namespace sun {
 	namespace lwawt {
 		namespace macosx {
 
-$MethodInfo _LWCToolkit$2_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(LWCToolkit$2, init$, void)},
-	{"run", "()Ljava/lang/Boolean;", nullptr, $PUBLIC, $virtualMethod(LWCToolkit$2, run, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _LWCToolkit$2_EnclosingMethodInfo_ = {
-	"sun.lwawt.macosx.LWCToolkit",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _LWCToolkit$2_InnerClassesInfo_[] = {
-	{"sun.lwawt.macosx.LWCToolkit$2", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _LWCToolkit$2_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.lwawt.macosx.LWCToolkit$2",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	nullptr,
-	_LWCToolkit$2_MethodInfo_,
-	"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/Boolean;>;",
-	&_LWCToolkit$2_EnclosingMethodInfo_,
-	_LWCToolkit$2_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.lwawt.macosx.LWCToolkit"
-};
-
-$Object* allocate$LWCToolkit$2($Class* clazz) {
-	return $of($alloc(LWCToolkit$2));
-}
-
 void LWCToolkit$2::init$() {
 }
 
@@ -61,7 +23,38 @@ LWCToolkit$2::LWCToolkit$2() {
 }
 
 $Class* LWCToolkit$2::load$($String* name, bool initialize) {
-	$loadClass(LWCToolkit$2, name, initialize, &_LWCToolkit$2_ClassInfo_, allocate$LWCToolkit$2);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(LWCToolkit$2, init$, void)},
+		{"run", "()Ljava/lang/Boolean;", nullptr, $PUBLIC, $virtualMethod(LWCToolkit$2, run, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.lwawt.macosx.LWCToolkit",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.lwawt.macosx.LWCToolkit$2", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.lwawt.macosx.LWCToolkit$2",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		nullptr,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/Boolean;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.lwawt.macosx.LWCToolkit"
+	};
+	$loadClass(LWCToolkit$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LWCToolkit$2);
+	});
 	return class$;
 }
 

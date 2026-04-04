@@ -50,6 +50,7 @@ class $import Http1Response$BodyReader : public ::jdk::internal::net::http::Http
 	$class(Http1Response$BodyReader, 0, ::jdk::internal::net::http::Http1Response$Receiver)
 public:
 	Http1Response$BodyReader();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::jdk::internal::net::http::Http1Response* this$0, ::java::util::function::Consumer* onComplete);
 	virtual void close($Throwable* error) override;
 	virtual ::java::util::concurrent::CompletableFuture* completion() override;

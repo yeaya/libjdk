@@ -22,6 +22,7 @@ class X11Johab$Encoder : public ::sun::font::DoubleByteEncoder {
 public:
 	X11Johab$Encoder();
 	using ::sun::font::DoubleByteEncoder::canEncode;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::nio::charset::Charset* cs);
 	virtual bool isLegalReplacement($bytes* repl) override;
 	static $String* innerIndex0;

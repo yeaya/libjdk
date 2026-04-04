@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/code/Type$UndetVar$InferenceBound.h>
-
 #include <com/sun/tools/javac/code/Type$5.h>
 #include <com/sun/tools/javac/code/Type$UndetVar$InferenceBound$1.h>
 #include <com/sun/tools/javac/code/Type$UndetVar$InferenceBound$2.h>
@@ -31,53 +30,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace code {
-
-$FieldInfo _Type$UndetVar$InferenceBound_FieldInfo_[] = {
-	{"LOWER", "Lcom/sun/tools/javac/code/Type$UndetVar$InferenceBound;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Type$UndetVar$InferenceBound, LOWER)},
-	{"EQ", "Lcom/sun/tools/javac/code/Type$UndetVar$InferenceBound;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Type$UndetVar$InferenceBound, EQ)},
-	{"UPPER", "Lcom/sun/tools/javac/code/Type$UndetVar$InferenceBound;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Type$UndetVar$InferenceBound, UPPER)},
-	{"$VALUES", "[Lcom/sun/tools/javac/code/Type$UndetVar$InferenceBound;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(Type$UndetVar$InferenceBound, $VALUES)},
-	{}
-};
-
-$MethodInfo _Type$UndetVar$InferenceBound_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/javac/code/Type$UndetVar$InferenceBound;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Type$UndetVar$InferenceBound, $values, $Type$UndetVar$InferenceBoundArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(Type$UndetVar$InferenceBound, init$, void, $String*, int32_t)},
-	{"complement", "()Lcom/sun/tools/javac/code/Type$UndetVar$InferenceBound;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Type$UndetVar$InferenceBound, complement, Type$UndetVar$InferenceBound*)},
-	{"lessThan", "(Lcom/sun/tools/javac/code/Type$UndetVar$InferenceBound;)Z", nullptr, $PUBLIC, $virtualMethod(Type$UndetVar$InferenceBound, lessThan, bool, Type$UndetVar$InferenceBound*)},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/code/Type$UndetVar$InferenceBound;", nullptr, $PUBLIC | $STATIC, $staticMethod(Type$UndetVar$InferenceBound, valueOf, Type$UndetVar$InferenceBound*, $String*)},
-	{"values", "()[Lcom/sun/tools/javac/code/Type$UndetVar$InferenceBound;", nullptr, $PUBLIC | $STATIC, $staticMethod(Type$UndetVar$InferenceBound, values, $Type$UndetVar$InferenceBoundArray*)},
-	{}
-};
-
-$InnerClassInfo _Type$UndetVar$InferenceBound_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.code.Type$UndetVar", "com.sun.tools.javac.code.Type", "UndetVar", $PUBLIC | $STATIC},
-	{"com.sun.tools.javac.code.Type$UndetVar$InferenceBound", "com.sun.tools.javac.code.Type$UndetVar", "InferenceBound", $PUBLIC | $STATIC | $ABSTRACT | $ENUM},
-	{"com.sun.tools.javac.code.Type$UndetVar$InferenceBound$3", nullptr, nullptr, $FINAL | $ENUM},
-	{"com.sun.tools.javac.code.Type$UndetVar$InferenceBound$2", nullptr, nullptr, $FINAL | $ENUM},
-	{"com.sun.tools.javac.code.Type$UndetVar$InferenceBound$1", nullptr, nullptr, $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _Type$UndetVar$InferenceBound_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT | $ENUM,
-	"com.sun.tools.javac.code.Type$UndetVar$InferenceBound",
-	"java.lang.Enum",
-	nullptr,
-	_Type$UndetVar$InferenceBound_FieldInfo_,
-	_Type$UndetVar$InferenceBound_MethodInfo_,
-	"Ljava/lang/Enum<Lcom/sun/tools/javac/code/Type$UndetVar$InferenceBound;>;",
-	nullptr,
-	_Type$UndetVar$InferenceBound_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.code.Type"
-};
-
-$Object* allocate$Type$UndetVar$InferenceBound($Class* clazz) {
-	return $of($alloc(Type$UndetVar$InferenceBound));
-}
 
 Type$UndetVar$InferenceBound* Type$UndetVar$InferenceBound::LOWER = nullptr;
 Type$UndetVar$InferenceBound* Type$UndetVar$InferenceBound::EQ = nullptr;
@@ -112,29 +64,21 @@ bool Type$UndetVar$InferenceBound::lessThan(Type$UndetVar$InferenceBound* that) 
 		return false;
 	} else {
 		$init($Type$5);
-		switch ($nc($Type$5::$SwitchMap$com$sun$tools$javac$code$Type$UndetVar$InferenceBound)->get((that)->ordinal())) {
+		switch ($nc($Type$5::$SwitchMap$com$sun$tools$javac$code$Type$UndetVar$InferenceBound)->get($nc((that))->ordinal())) {
 		case 1:
-			{
-				return true;
-			}
+			return true;
 		case 2:
-			{
-				return false;
-			}
+			return false;
 		case 3:
-			{
-				return (this != Type$UndetVar$InferenceBound::UPPER);
-			}
+			return (this != Type$UndetVar$InferenceBound::UPPER);
 		default:
-			{
-				$Assert::error("Cannot get here!"_s);
-				return false;
-			}
+			$Assert::error("Cannot get here!"_s);
+			return false;
 		}
 	}
 }
 
-void clinit$Type$UndetVar$InferenceBound($Class* class$) {
+void Type$UndetVar$InferenceBound::clinit$($Class* clazz) {
 	$assignStatic(Type$UndetVar$InferenceBound::LOWER, $new($Type$UndetVar$InferenceBound$1, "LOWER"_s, 0));
 	$assignStatic(Type$UndetVar$InferenceBound::EQ, $new($Type$UndetVar$InferenceBound$2, "EQ"_s, 1));
 	$assignStatic(Type$UndetVar$InferenceBound::UPPER, $new($Type$UndetVar$InferenceBound$3, "UPPER"_s, 2));
@@ -145,7 +89,48 @@ Type$UndetVar$InferenceBound::Type$UndetVar$InferenceBound() {
 }
 
 $Class* Type$UndetVar$InferenceBound::load$($String* name, bool initialize) {
-	$loadClass(Type$UndetVar$InferenceBound, name, initialize, &_Type$UndetVar$InferenceBound_ClassInfo_, clinit$Type$UndetVar$InferenceBound, allocate$Type$UndetVar$InferenceBound);
+	$FieldInfo fieldInfos$$[] = {
+		{"LOWER", "Lcom/sun/tools/javac/code/Type$UndetVar$InferenceBound;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Type$UndetVar$InferenceBound, LOWER)},
+		{"EQ", "Lcom/sun/tools/javac/code/Type$UndetVar$InferenceBound;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Type$UndetVar$InferenceBound, EQ)},
+		{"UPPER", "Lcom/sun/tools/javac/code/Type$UndetVar$InferenceBound;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Type$UndetVar$InferenceBound, UPPER)},
+		{"$VALUES", "[Lcom/sun/tools/javac/code/Type$UndetVar$InferenceBound;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(Type$UndetVar$InferenceBound, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lcom/sun/tools/javac/code/Type$UndetVar$InferenceBound;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Type$UndetVar$InferenceBound, $values, $Type$UndetVar$InferenceBoundArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(Type$UndetVar$InferenceBound, init$, void, $String*, int32_t)},
+		{"complement", "()Lcom/sun/tools/javac/code/Type$UndetVar$InferenceBound;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Type$UndetVar$InferenceBound, complement, Type$UndetVar$InferenceBound*)},
+		{"lessThan", "(Lcom/sun/tools/javac/code/Type$UndetVar$InferenceBound;)Z", nullptr, $PUBLIC, $virtualMethod(Type$UndetVar$InferenceBound, lessThan, bool, Type$UndetVar$InferenceBound*)},
+		{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/code/Type$UndetVar$InferenceBound;", nullptr, $PUBLIC | $STATIC, $staticMethod(Type$UndetVar$InferenceBound, valueOf, Type$UndetVar$InferenceBound*, $String*)},
+		{"values", "()[Lcom/sun/tools/javac/code/Type$UndetVar$InferenceBound;", nullptr, $PUBLIC | $STATIC, $staticMethod(Type$UndetVar$InferenceBound, values, $Type$UndetVar$InferenceBoundArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.code.Type$UndetVar", "com.sun.tools.javac.code.Type", "UndetVar", $PUBLIC | $STATIC},
+		{"com.sun.tools.javac.code.Type$UndetVar$InferenceBound", "com.sun.tools.javac.code.Type$UndetVar", "InferenceBound", $PUBLIC | $STATIC | $ABSTRACT | $ENUM},
+		{"com.sun.tools.javac.code.Type$UndetVar$InferenceBound$3", nullptr, nullptr, $FINAL | $ENUM},
+		{"com.sun.tools.javac.code.Type$UndetVar$InferenceBound$2", nullptr, nullptr, $FINAL | $ENUM},
+		{"com.sun.tools.javac.code.Type$UndetVar$InferenceBound$1", nullptr, nullptr, $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT | $ENUM,
+		"com.sun.tools.javac.code.Type$UndetVar$InferenceBound",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lcom/sun/tools/javac/code/Type$UndetVar$InferenceBound;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.code.Type"
+	};
+	$loadClass(Type$UndetVar$InferenceBound, name, initialize, &classInfo$$, Type$UndetVar$InferenceBound::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Type$UndetVar$InferenceBound));
+	});
 	return class$;
 }
 

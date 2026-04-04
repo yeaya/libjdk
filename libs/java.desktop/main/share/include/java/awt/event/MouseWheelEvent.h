@@ -39,7 +39,7 @@ public:
 	int32_t scrollAmount = 0;
 	int32_t wheelRotation = 0;
 	double preciseWheelRotation = 0.0;
-	static const int64_t serialVersionUID = (int64_t)0x59A61A146B898BFD;
+	static const int64_t serialVersionUID = (int64_t)0x59a61a146b898bfd;
 };
 
 		} // event

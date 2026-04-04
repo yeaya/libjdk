@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/windows/WindowsTreeUI$WindowsTreeCellRenderer.h>
-
 #include <com/sun/java/swing/plaf/windows/WindowsTreeUI.h>
 #include <java/awt/Component.h>
 #include <javax/swing/Icon.h>
@@ -24,49 +23,13 @@ namespace com {
 				namespace plaf {
 					namespace windows {
 
-$FieldInfo _WindowsTreeUI$WindowsTreeCellRenderer_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/java/swing/plaf/windows/WindowsTreeUI;", nullptr, $FINAL | $SYNTHETIC, $field(WindowsTreeUI$WindowsTreeCellRenderer, this$0)},
-	{}
-};
-
-$MethodInfo _WindowsTreeUI$WindowsTreeCellRenderer_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/java/swing/plaf/windows/WindowsTreeUI;)V", nullptr, $PUBLIC, $method(WindowsTreeUI$WindowsTreeCellRenderer, init$, void, $WindowsTreeUI*)},
-	{"getTreeCellRendererComponent", "(Ljavax/swing/JTree;Ljava/lang/Object;ZZZIZ)Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(WindowsTreeUI$WindowsTreeCellRenderer, getTreeCellRendererComponent, $Component*, $JTree*, Object$*, bool, bool, bool, int32_t, bool)},
-	{}
-};
-
-$InnerClassInfo _WindowsTreeUI$WindowsTreeCellRenderer_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.windows.WindowsTreeUI$WindowsTreeCellRenderer", "com.sun.java.swing.plaf.windows.WindowsTreeUI", "WindowsTreeCellRenderer", $PUBLIC},
-	{}
-};
-
-$ClassInfo _WindowsTreeUI$WindowsTreeCellRenderer_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.java.swing.plaf.windows.WindowsTreeUI$WindowsTreeCellRenderer",
-	"javax.swing.tree.DefaultTreeCellRenderer",
-	nullptr,
-	_WindowsTreeUI$WindowsTreeCellRenderer_FieldInfo_,
-	_WindowsTreeUI$WindowsTreeCellRenderer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_WindowsTreeUI$WindowsTreeCellRenderer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.windows.WindowsTreeUI"
-};
-
-$Object* allocate$WindowsTreeUI$WindowsTreeCellRenderer($Class* clazz) {
-	return $of($alloc(WindowsTreeUI$WindowsTreeCellRenderer));
-}
-
 void WindowsTreeUI$WindowsTreeCellRenderer::init$($WindowsTreeUI* this$0) {
 	$set(this, this$0, this$0);
 	$DefaultTreeCellRenderer::init$();
 }
 
 $Component* WindowsTreeUI$WindowsTreeCellRenderer::getTreeCellRendererComponent($JTree* tree, Object$* value, bool sel, bool expanded, bool leaf, int32_t row, bool hasFocus) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$DefaultTreeCellRenderer::getTreeCellRendererComponent(tree, value, sel, expanded, leaf, row, hasFocus);
 	if (!$nc(tree)->isEnabled()) {
 		setEnabled(false);
@@ -94,7 +57,37 @@ WindowsTreeUI$WindowsTreeCellRenderer::WindowsTreeUI$WindowsTreeCellRenderer() {
 }
 
 $Class* WindowsTreeUI$WindowsTreeCellRenderer::load$($String* name, bool initialize) {
-	$loadClass(WindowsTreeUI$WindowsTreeCellRenderer, name, initialize, &_WindowsTreeUI$WindowsTreeCellRenderer_ClassInfo_, allocate$WindowsTreeUI$WindowsTreeCellRenderer);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/java/swing/plaf/windows/WindowsTreeUI;", nullptr, $FINAL | $SYNTHETIC, $field(WindowsTreeUI$WindowsTreeCellRenderer, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/java/swing/plaf/windows/WindowsTreeUI;)V", nullptr, $PUBLIC, $method(WindowsTreeUI$WindowsTreeCellRenderer, init$, void, $WindowsTreeUI*)},
+		{"getTreeCellRendererComponent", "(Ljavax/swing/JTree;Ljava/lang/Object;ZZZIZ)Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(WindowsTreeUI$WindowsTreeCellRenderer, getTreeCellRendererComponent, $Component*, $JTree*, Object$*, bool, bool, bool, int32_t, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.windows.WindowsTreeUI$WindowsTreeCellRenderer", "com.sun.java.swing.plaf.windows.WindowsTreeUI", "WindowsTreeCellRenderer", $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.java.swing.plaf.windows.WindowsTreeUI$WindowsTreeCellRenderer",
+		"javax.swing.tree.DefaultTreeCellRenderer",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.windows.WindowsTreeUI"
+	};
+	$loadClass(WindowsTreeUI$WindowsTreeCellRenderer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(WindowsTreeUI$WindowsTreeCellRenderer));
+	});
 	return class$;
 }
 

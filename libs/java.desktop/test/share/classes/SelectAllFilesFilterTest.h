@@ -24,6 +24,7 @@ class $export SelectAllFilesFilterTest : public ::java::lang::Object {
 	$class(SelectAllFilesFilterTest, 0, ::java::lang::Object)
 public:
 	SelectAllFilesFilterTest();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void createAndShowGUI();
 	static ::javax::swing::JComboBox* findComboBox(::java::awt::Component* comp);

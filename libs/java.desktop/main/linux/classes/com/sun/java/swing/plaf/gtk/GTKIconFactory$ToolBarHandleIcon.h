@@ -38,6 +38,7 @@ public:
 	GTKIconFactory$ToolBarHandleIcon();
 	using ::com::sun::java::swing::plaf::gtk::GTKIconFactory$DelegatingIcon::getIconWidth;
 	using ::com::sun::java::swing::plaf::gtk::GTKIconFactory$DelegatingIcon::getIconHeight;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual int32_t getIconHeight(::javax::swing::plaf::synth::SynthContext* context) override;
 	virtual int32_t getIconWidth(::javax::swing::plaf::synth::SynthContext* context) override;

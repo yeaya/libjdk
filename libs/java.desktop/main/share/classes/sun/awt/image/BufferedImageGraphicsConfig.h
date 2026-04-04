@@ -39,6 +39,7 @@ class BufferedImageGraphicsConfig : public ::java::awt::GraphicsConfiguration {
 public:
 	BufferedImageGraphicsConfig();
 	using ::java::awt::GraphicsConfiguration::createCompatibleImage;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::awt::image::BufferedImage* bufImg, ::java::awt::Component* comp, double scaleX, double scaleY);
 	virtual ::java::awt::image::BufferedImage* createCompatibleImage(int32_t width, int32_t height) override;
 	virtual ::java::awt::Rectangle* getBounds() override;

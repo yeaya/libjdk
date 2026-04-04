@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/impl/xs/util/XSNamedMap4Types.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/xs/util/XSNamedMapImpl.h>
 #include <com/sun/org/apache/xerces/internal/util/SymbolHash.h>
 #include <com/sun/org/apache/xerces/internal/xs/XSObject.h>
@@ -26,33 +25,6 @@ namespace com {
 							namespace xs {
 								namespace util {
 
-$FieldInfo _XSNamedMap4Types_FieldInfo_[] = {
-	{"fType", "S", nullptr, $PRIVATE | $FINAL, $field(XSNamedMap4Types, fType)},
-	{}
-};
-
-$MethodInfo _XSNamedMap4Types_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/util/SymbolHash;S)V", nullptr, $PUBLIC, $method(XSNamedMap4Types, init$, void, $String*, $SymbolHash*, int16_t)},
-	{"<init>", "([Ljava/lang/String;[Lcom/sun/org/apache/xerces/internal/util/SymbolHash;IS)V", nullptr, $PUBLIC, $method(XSNamedMap4Types, init$, void, $StringArray*, $SymbolHashArray*, int32_t, int16_t)},
-	{"getLength", "()I", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(XSNamedMap4Types, getLength, int32_t)},
-	{"item", "(I)Lcom/sun/org/apache/xerces/internal/xs/XSObject;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(XSNamedMap4Types, item, $XSObject*, int32_t)},
-	{"itemByName", "(Ljava/lang/String;Ljava/lang/String;)Lcom/sun/org/apache/xerces/internal/xs/XSObject;", nullptr, $PUBLIC, $virtualMethod(XSNamedMap4Types, itemByName, $XSObject*, $String*, $String*)},
-	{}
-};
-
-$ClassInfo _XSNamedMap4Types_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.impl.xs.util.XSNamedMap4Types",
-	"com.sun.org.apache.xerces.internal.impl.xs.util.XSNamedMapImpl",
-	nullptr,
-	_XSNamedMap4Types_FieldInfo_,
-	_XSNamedMap4Types_MethodInfo_
-};
-
-$Object* allocate$XSNamedMap4Types($Class* clazz) {
-	return $of($alloc(XSNamedMap4Types));
-}
-
 void XSNamedMap4Types::init$($String* namespace$, $SymbolHash* map, int16_t type) {
 	$XSNamedMapImpl::init$(namespace$, map);
 	this->fType = type;
@@ -65,7 +37,7 @@ void XSNamedMap4Types::init$($StringArray* namespaces, $SymbolHashArray* maps, i
 
 int32_t XSNamedMap4Types::getLength() {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		if (this->fLength == -1) {
 			int32_t length = 0;
 			for (int32_t i = 0; i < this->fNSNum; ++i) {
@@ -91,7 +63,7 @@ int32_t XSNamedMap4Types::getLength() {
 }
 
 $XSObject* XSNamedMap4Types::itemByName($String* namespace$, $String* localName) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (int32_t i = 0; i < this->fNSNum; ++i) {
 		if (isEqual(namespace$, $nc(this->fNamespaces)->get(i))) {
 			$var($XSTypeDefinition, type, $cast($XSTypeDefinition, $nc($nc(this->fMaps)->get(i))->get(localName)));
@@ -120,7 +92,29 @@ XSNamedMap4Types::XSNamedMap4Types() {
 }
 
 $Class* XSNamedMap4Types::load$($String* name, bool initialize) {
-	$loadClass(XSNamedMap4Types, name, initialize, &_XSNamedMap4Types_ClassInfo_, allocate$XSNamedMap4Types);
+	$FieldInfo fieldInfos$$[] = {
+		{"fType", "S", nullptr, $PRIVATE | $FINAL, $field(XSNamedMap4Types, fType)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/util/SymbolHash;S)V", nullptr, $PUBLIC, $method(XSNamedMap4Types, init$, void, $String*, $SymbolHash*, int16_t)},
+		{"<init>", "([Ljava/lang/String;[Lcom/sun/org/apache/xerces/internal/util/SymbolHash;IS)V", nullptr, $PUBLIC, $method(XSNamedMap4Types, init$, void, $StringArray*, $SymbolHashArray*, int32_t, int16_t)},
+		{"getLength", "()I", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(XSNamedMap4Types, getLength, int32_t)},
+		{"item", "(I)Lcom/sun/org/apache/xerces/internal/xs/XSObject;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(XSNamedMap4Types, item, $XSObject*, int32_t)},
+		{"itemByName", "(Ljava/lang/String;Ljava/lang/String;)Lcom/sun/org/apache/xerces/internal/xs/XSObject;", nullptr, $PUBLIC, $virtualMethod(XSNamedMap4Types, itemByName, $XSObject*, $String*, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.impl.xs.util.XSNamedMap4Types",
+		"com.sun.org.apache.xerces.internal.impl.xs.util.XSNamedMapImpl",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XSNamedMap4Types, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(XSNamedMap4Types));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xpath/internal/axes/ChildIterator.h>
-
 #include <com/sun/org/apache/xml/internal/dtm/Axis.h>
 #include <com/sun/org/apache/xml/internal/dtm/DTM.h>
 #include <com/sun/org/apache/xml/internal/dtm/DTMFilter.h>
@@ -31,32 +30,6 @@ namespace com {
 				namespace xpath {
 					namespace internal {
 						namespace axes {
-
-$FieldInfo _ChildIterator_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(ChildIterator, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _ChildIterator_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/org/apache/xpath/internal/compiler/Compiler;II)V", nullptr, 0, $method(ChildIterator, init$, void, $Compiler*, int32_t, int32_t), "javax.xml.transform.TransformerException"},
-	{"asNode", "(Lcom/sun/org/apache/xpath/internal/XPathContext;)I", nullptr, $PUBLIC, $virtualMethod(ChildIterator, asNode, int32_t, $XPathContext*), "javax.xml.transform.TransformerException"},
-	{"getAxis", "()I", nullptr, $PUBLIC, $virtualMethod(ChildIterator, getAxis, int32_t)},
-	{"nextNode", "()I", nullptr, $PUBLIC, $virtualMethod(ChildIterator, nextNode, int32_t)},
-	{}
-};
-
-$ClassInfo _ChildIterator_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xpath.internal.axes.ChildIterator",
-	"com.sun.org.apache.xpath.internal.axes.LocPathIterator",
-	nullptr,
-	_ChildIterator_FieldInfo_,
-	_ChildIterator_MethodInfo_
-};
-
-$Object* allocate$ChildIterator($Class* clazz) {
-	return $of($alloc(ChildIterator));
-}
 
 void ChildIterator::init$($Compiler* compiler, int32_t opPos, int32_t analysis) {
 	$LocPathIterator::init$(compiler, opPos, analysis, false);
@@ -92,7 +65,28 @@ ChildIterator::ChildIterator() {
 }
 
 $Class* ChildIterator::load$($String* name, bool initialize) {
-	$loadClass(ChildIterator, name, initialize, &_ChildIterator_ClassInfo_, allocate$ChildIterator);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(ChildIterator, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/org/apache/xpath/internal/compiler/Compiler;II)V", nullptr, 0, $method(ChildIterator, init$, void, $Compiler*, int32_t, int32_t), "javax.xml.transform.TransformerException"},
+		{"asNode", "(Lcom/sun/org/apache/xpath/internal/XPathContext;)I", nullptr, $PUBLIC, $virtualMethod(ChildIterator, asNode, int32_t, $XPathContext*), "javax.xml.transform.TransformerException"},
+		{"getAxis", "()I", nullptr, $PUBLIC, $virtualMethod(ChildIterator, getAxis, int32_t)},
+		{"nextNode", "()I", nullptr, $PUBLIC, $virtualMethod(ChildIterator, nextNode, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xpath.internal.axes.ChildIterator",
+		"com.sun.org.apache.xpath.internal.axes.LocPathIterator",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ChildIterator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ChildIterator));
+	});
 	return class$;
 }
 

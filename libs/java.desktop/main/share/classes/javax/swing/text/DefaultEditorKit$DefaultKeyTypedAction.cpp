@@ -1,5 +1,4 @@
 #include <javax/swing/text/DefaultEditorKit$DefaultKeyTypedAction.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Toolkit.h>
 #include <java/awt/event/ActionEvent.h>
@@ -22,46 +21,15 @@ namespace javax {
 	namespace swing {
 		namespace text {
 
-$MethodInfo _DefaultEditorKit$DefaultKeyTypedAction_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(DefaultEditorKit$DefaultKeyTypedAction, init$, void)},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(DefaultEditorKit$DefaultKeyTypedAction, actionPerformed, void, $ActionEvent*)},
-	{}
-};
-
-$InnerClassInfo _DefaultEditorKit$DefaultKeyTypedAction_InnerClassesInfo_[] = {
-	{"javax.swing.text.DefaultEditorKit$DefaultKeyTypedAction", "javax.swing.text.DefaultEditorKit", "DefaultKeyTypedAction", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _DefaultEditorKit$DefaultKeyTypedAction_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.text.DefaultEditorKit$DefaultKeyTypedAction",
-	"javax.swing.text.TextAction",
-	nullptr,
-	nullptr,
-	_DefaultEditorKit$DefaultKeyTypedAction_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DefaultEditorKit$DefaultKeyTypedAction_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.DefaultEditorKit"
-};
-
-$Object* allocate$DefaultEditorKit$DefaultKeyTypedAction($Class* clazz) {
-	return $of($alloc(DefaultEditorKit$DefaultKeyTypedAction));
-}
-
 void DefaultEditorKit$DefaultKeyTypedAction::init$() {
 	$TextAction::init$("default-typed"_s);
 }
 
 void DefaultEditorKit$DefaultKeyTypedAction::actionPerformed($ActionEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JTextComponent, target, getTextComponent(e));
 	if ((target != nullptr) && (e != nullptr)) {
-		bool var$0 = (!target->isEditable());
+		bool var$0 = !target->isEditable();
 		if (var$0 || (!target->isEnabled())) {
 			return;
 		}
@@ -71,7 +39,7 @@ void DefaultEditorKit$DefaultKeyTypedAction::actionPerformed($ActionEvent* e) {
 			bool isPrintableMask = true;
 			$var($Toolkit, tk, $Toolkit::getDefaultToolkit());
 			if ($instanceOf($SunToolkit, tk)) {
-				isPrintableMask = $nc(($cast($SunToolkit, tk)))->isPrintableCharacterModifiersMask(mod);
+				isPrintableMask = $cast($SunToolkit, tk)->isPrintableCharacterModifiersMask(mod);
 			}
 			char16_t c = content->charAt(0);
 			if ((isPrintableMask && (c >= 32) && (c != 127)) || (!isPrintableMask && (c >= 8204) && (c <= 8205))) {
@@ -85,7 +53,33 @@ DefaultEditorKit$DefaultKeyTypedAction::DefaultEditorKit$DefaultKeyTypedAction()
 }
 
 $Class* DefaultEditorKit$DefaultKeyTypedAction::load$($String* name, bool initialize) {
-	$loadClass(DefaultEditorKit$DefaultKeyTypedAction, name, initialize, &_DefaultEditorKit$DefaultKeyTypedAction_ClassInfo_, allocate$DefaultEditorKit$DefaultKeyTypedAction);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(DefaultEditorKit$DefaultKeyTypedAction, init$, void)},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(DefaultEditorKit$DefaultKeyTypedAction, actionPerformed, void, $ActionEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.DefaultEditorKit$DefaultKeyTypedAction", "javax.swing.text.DefaultEditorKit", "DefaultKeyTypedAction", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.text.DefaultEditorKit$DefaultKeyTypedAction",
+		"javax.swing.text.TextAction",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.DefaultEditorKit"
+	};
+	$loadClass(DefaultEditorKit$DefaultKeyTypedAction, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DefaultEditorKit$DefaultKeyTypedAction));
+	});
 	return class$;
 }
 

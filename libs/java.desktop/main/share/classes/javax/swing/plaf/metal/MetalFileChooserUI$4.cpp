@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/metal/MetalFileChooserUI$4.h>
-
 #include <java/awt/event/FocusAdapter.h>
 #include <java/awt/event/FocusEvent.h>
 #include <javax/swing/JFileChooser.h>
@@ -14,56 +13,12 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $JFileChooser = ::javax::swing::JFileChooser;
 using $MetalFileChooserUI = ::javax::swing::plaf::metal::MetalFileChooserUI;
-using $FilePane = ::sun::swing::FilePane;
 
 namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace metal {
-
-$FieldInfo _MetalFileChooserUI$4_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/plaf/metal/MetalFileChooserUI;", nullptr, $FINAL | $SYNTHETIC, $field(MetalFileChooserUI$4, this$0)},
-	{}
-};
-
-$MethodInfo _MetalFileChooserUI$4_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/plaf/metal/MetalFileChooserUI;)V", nullptr, 0, $method(MetalFileChooserUI$4, init$, void, $MetalFileChooserUI*)},
-	{"focusGained", "(Ljava/awt/event/FocusEvent;)V", nullptr, $PUBLIC, $virtualMethod(MetalFileChooserUI$4, focusGained, void, $FocusEvent*)},
-	{}
-};
-
-$EnclosingMethodInfo _MetalFileChooserUI$4_EnclosingMethodInfo_ = {
-	"javax.swing.plaf.metal.MetalFileChooserUI",
-	"installComponents",
-	"(Ljavax/swing/JFileChooser;)V"
-};
-
-$InnerClassInfo _MetalFileChooserUI$4_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.metal.MetalFileChooserUI$4", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _MetalFileChooserUI$4_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.metal.MetalFileChooserUI$4",
-	"java.awt.event.FocusAdapter",
-	nullptr,
-	_MetalFileChooserUI$4_FieldInfo_,
-	_MetalFileChooserUI$4_MethodInfo_,
-	nullptr,
-	&_MetalFileChooserUI$4_EnclosingMethodInfo_,
-	_MetalFileChooserUI$4_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.metal.MetalFileChooserUI"
-};
-
-$Object* allocate$MetalFileChooserUI$4($Class* clazz) {
-	return $of($alloc(MetalFileChooserUI$4));
-}
 
 void MetalFileChooserUI$4::init$($MetalFileChooserUI* this$0) {
 	$set(this, this$0, this$0);
@@ -71,7 +26,7 @@ void MetalFileChooserUI$4::init$($MetalFileChooserUI* this$0) {
 }
 
 void MetalFileChooserUI$4::focusGained($FocusEvent* e) {
-	if (!$nc($(this->this$0->getFileChooser()))->isMultiSelectionEnabled()) {
+	if (!$$nc(this->this$0->getFileChooser())->isMultiSelectionEnabled()) {
 		$nc(this->this$0->filePane)->clearSelection();
 	}
 }
@@ -80,7 +35,42 @@ MetalFileChooserUI$4::MetalFileChooserUI$4() {
 }
 
 $Class* MetalFileChooserUI$4::load$($String* name, bool initialize) {
-	$loadClass(MetalFileChooserUI$4, name, initialize, &_MetalFileChooserUI$4_ClassInfo_, allocate$MetalFileChooserUI$4);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/plaf/metal/MetalFileChooserUI;", nullptr, $FINAL | $SYNTHETIC, $field(MetalFileChooserUI$4, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/plaf/metal/MetalFileChooserUI;)V", nullptr, 0, $method(MetalFileChooserUI$4, init$, void, $MetalFileChooserUI*)},
+		{"focusGained", "(Ljava/awt/event/FocusEvent;)V", nullptr, $PUBLIC, $virtualMethod(MetalFileChooserUI$4, focusGained, void, $FocusEvent*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"javax.swing.plaf.metal.MetalFileChooserUI",
+		"installComponents",
+		"(Ljavax/swing/JFileChooser;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.metal.MetalFileChooserUI$4", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.metal.MetalFileChooserUI$4",
+		"java.awt.event.FocusAdapter",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.metal.MetalFileChooserUI"
+	};
+	$loadClass(MetalFileChooserUI$4, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MetalFileChooserUI$4);
+	});
 	return class$;
 }
 

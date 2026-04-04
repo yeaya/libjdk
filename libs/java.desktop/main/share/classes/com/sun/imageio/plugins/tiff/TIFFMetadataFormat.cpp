@@ -1,5 +1,4 @@
 #include <com/sun/imageio/plugins/tiff/TIFFMetadataFormat.h>
-
 #include <com/sun/imageio/plugins/tiff/TIFFAttrInfo.h>
 #include <com/sun/imageio/plugins/tiff/TIFFElementInfo.h>
 #include <java/lang/Comparable.h>
@@ -24,7 +23,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;
 using $HashMap = ::java::util::HashMap;
 using $Locale = ::java::util::Locale;
-using $Map = ::java::util::Map;
 using $MissingResourceException = ::java::util::MissingResourceException;
 using $ResourceBundle = ::java::util::ResourceBundle;
 using $IIOMetadataFormat = ::javax::imageio::metadata::IIOMetadataFormat;
@@ -35,73 +33,19 @@ namespace com {
 			namespace plugins {
 				namespace tiff {
 
-$FieldInfo _TIFFMetadataFormat_FieldInfo_[] = {
-	{"elementInfoMap", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Lcom/sun/imageio/plugins/tiff/TIFFElementInfo;>;", $PROTECTED, $field(TIFFMetadataFormat, elementInfoMap)},
-	{"attrInfoMap", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Lcom/sun/imageio/plugins/tiff/TIFFAttrInfo;>;", $PROTECTED, $field(TIFFMetadataFormat, attrInfoMap)},
-	{"resourceBaseName", "Ljava/lang/String;", nullptr, $PROTECTED, $field(TIFFMetadataFormat, resourceBaseName)},
-	{"rootName", "Ljava/lang/String;", nullptr, $PROTECTED, $field(TIFFMetadataFormat, rootName)},
-	{}
-};
-
-$MethodInfo _TIFFMetadataFormat_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TIFFMetadataFormat, init$, void)},
-	{"getAttrInfo", "(Ljava/lang/String;Ljava/lang/String;)Lcom/sun/imageio/plugins/tiff/TIFFAttrInfo;", nullptr, $PRIVATE, $method(TIFFMetadataFormat, getAttrInfo, $TIFFAttrInfo*, $String*, $String*)},
-	{"getAttributeDataType", "(Ljava/lang/String;Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(TIFFMetadataFormat, getAttributeDataType, int32_t, $String*, $String*)},
-	{"getAttributeDefaultValue", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TIFFMetadataFormat, getAttributeDefaultValue, $String*, $String*, $String*)},
-	{"getAttributeDescription", "(Ljava/lang/String;Ljava/lang/String;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TIFFMetadataFormat, getAttributeDescription, $String*, $String*, $String*, $Locale*)},
-	{"getAttributeEnumerations", "(Ljava/lang/String;Ljava/lang/String;)[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TIFFMetadataFormat, getAttributeEnumerations, $StringArray*, $String*, $String*)},
-	{"getAttributeListMaxLength", "(Ljava/lang/String;Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(TIFFMetadataFormat, getAttributeListMaxLength, int32_t, $String*, $String*)},
-	{"getAttributeListMinLength", "(Ljava/lang/String;Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(TIFFMetadataFormat, getAttributeListMinLength, int32_t, $String*, $String*)},
-	{"getAttributeMaxValue", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TIFFMetadataFormat, getAttributeMaxValue, $String*, $String*, $String*)},
-	{"getAttributeMinValue", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TIFFMetadataFormat, getAttributeMinValue, $String*, $String*, $String*)},
-	{"getAttributeNames", "(Ljava/lang/String;)[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TIFFMetadataFormat, getAttributeNames, $StringArray*, $String*)},
-	{"getAttributeValueType", "(Ljava/lang/String;Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(TIFFMetadataFormat, getAttributeValueType, int32_t, $String*, $String*)},
-	{"getChildNames", "(Ljava/lang/String;)[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TIFFMetadataFormat, getChildNames, $StringArray*, $String*)},
-	{"getChildPolicy", "(Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(TIFFMetadataFormat, getChildPolicy, int32_t, $String*)},
-	{"getElementDescription", "(Ljava/lang/String;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TIFFMetadataFormat, getElementDescription, $String*, $String*, $Locale*)},
-	{"getElementInfo", "(Ljava/lang/String;)Lcom/sun/imageio/plugins/tiff/TIFFElementInfo;", nullptr, $PRIVATE, $method(TIFFMetadataFormat, getElementInfo, $TIFFElementInfo*, $String*)},
-	{"getElementMaxChildren", "(Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(TIFFMetadataFormat, getElementMaxChildren, int32_t, $String*)},
-	{"getElementMinChildren", "(Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(TIFFMetadataFormat, getElementMinChildren, int32_t, $String*)},
-	{"getObjectArrayMaxLength", "(Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(TIFFMetadataFormat, getObjectArrayMaxLength, int32_t, $String*)},
-	{"getObjectArrayMinLength", "(Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(TIFFMetadataFormat, getObjectArrayMinLength, int32_t, $String*)},
-	{"getObjectClass", "(Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/String;)Ljava/lang/Class<*>;", $PUBLIC, $virtualMethod(TIFFMetadataFormat, getObjectClass, $Class*, $String*)},
-	{"getObjectDefaultValue", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(TIFFMetadataFormat, getObjectDefaultValue, $Object*, $String*)},
-	{"getObjectEnumerations", "(Ljava/lang/String;)[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(TIFFMetadataFormat, getObjectEnumerations, $ObjectArray*, $String*)},
-	{"getObjectMaxValue", "(Ljava/lang/String;)Ljava/lang/Comparable;", "(Ljava/lang/String;)Ljava/lang/Comparable<Ljava/lang/Object;>;", $PUBLIC, $virtualMethod(TIFFMetadataFormat, getObjectMaxValue, $Comparable*, $String*)},
-	{"getObjectMinValue", "(Ljava/lang/String;)Ljava/lang/Comparable;", "(Ljava/lang/String;)Ljava/lang/Comparable<Ljava/lang/Object;>;", $PUBLIC, $virtualMethod(TIFFMetadataFormat, getObjectMinValue, $Comparable*, $String*)},
-	{"getObjectValueType", "(Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(TIFFMetadataFormat, getObjectValueType, int32_t, $String*)},
-	{"getResource", "(Ljava/lang/String;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PRIVATE, $method(TIFFMetadataFormat, getResource, $String*, $String*, $Locale*)},
-	{"getRootName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TIFFMetadataFormat, getRootName, $String*)},
-	{"isAttributeRequired", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(TIFFMetadataFormat, isAttributeRequired, bool, $String*, $String*)},
-	{}
-};
-
-$ClassInfo _TIFFMetadataFormat_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"com.sun.imageio.plugins.tiff.TIFFMetadataFormat",
-	"java.lang.Object",
-	"javax.imageio.metadata.IIOMetadataFormat",
-	_TIFFMetadataFormat_FieldInfo_,
-	_TIFFMetadataFormat_MethodInfo_
-};
-
-$Object* allocate$TIFFMetadataFormat($Class* clazz) {
-	return $of($alloc(TIFFMetadataFormat));
-}
-
 $String* TIFFMetadataFormat::getRootName() {
 	return this->rootName;
 }
 
 $String* TIFFMetadataFormat::getResource($String* key, $Locale* locale$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Locale, locale, locale$renamed);
 	$beforeCallerSensitive();
 	if (locale == nullptr) {
 		$assign(locale, $Locale::getDefault());
 	}
 	try {
-		$var($ResourceBundle, bundle, $ResourceBundle::getBundle(this->resourceBaseName, locale, $($of(this)->getClass()->getModule())));
+		$var($ResourceBundle, bundle, $ResourceBundle::getBundle(this->resourceBaseName, locale, $(this->getClass()->getModule())));
 		return $nc(bundle)->getString(key);
 	} catch ($MissingResourceException& e) {
 		return nullptr;
@@ -110,7 +54,7 @@ $String* TIFFMetadataFormat::getResource($String* key, $Locale* locale$renamed) 
 }
 
 $TIFFElementInfo* TIFFMetadataFormat::getElementInfo($String* elementName) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (elementName == nullptr) {
 		$throwNew($NullPointerException, "elementName == null!"_s);
 	}
@@ -122,7 +66,7 @@ $TIFFElementInfo* TIFFMetadataFormat::getElementInfo($String* elementName) {
 }
 
 $TIFFAttrInfo* TIFFMetadataFormat::getAttrInfo($String* elementName, $String* attrName) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (elementName == nullptr) {
 		$throwNew($NullPointerException, "elementName == null!"_s);
 	}
@@ -214,7 +158,7 @@ int32_t TIFFMetadataFormat::getAttributeListMaxLength($String* elementName, $Str
 }
 
 $String* TIFFMetadataFormat::getAttributeDescription($String* elementName, $String* attrName, $Locale* locale) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, key, $str({elementName, "/"_s, attrName}));
 	if (!$nc(this->attrInfoMap)->containsKey(key)) {
 		$throwNew($IllegalArgumentException, $$str({"No such attribute: "_s, key}));
@@ -228,66 +172,66 @@ int32_t TIFFMetadataFormat::getObjectValueType($String* elementName) {
 }
 
 $Class* TIFFMetadataFormat::getObjectClass($String* elementName) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($TIFFElementInfo, info, getElementInfo(elementName));
 	if ($nc(info)->objectValueType == $IIOMetadataFormat::VALUE_NONE) {
 		$throwNew($IllegalArgumentException, $$str({"Element cannot contain an object value: "_s, elementName}));
 	}
-	return $nc(info)->objectClass;
+	return info->objectClass;
 }
 
 $Object* TIFFMetadataFormat::getObjectDefaultValue($String* elementName) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($TIFFElementInfo, info, getElementInfo(elementName));
 	if ($nc(info)->objectValueType == $IIOMetadataFormat::VALUE_NONE) {
 		$throwNew($IllegalArgumentException, $$str({"Element cannot contain an object value: "_s, elementName}));
 	}
-	return $of($nc(info)->objectDefaultValue);
+	return info->objectDefaultValue;
 }
 
 $ObjectArray* TIFFMetadataFormat::getObjectEnumerations($String* elementName) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($TIFFElementInfo, info, getElementInfo(elementName));
 	if ($nc(info)->objectValueType == $IIOMetadataFormat::VALUE_NONE) {
 		$throwNew($IllegalArgumentException, $$str({"Element cannot contain an object value: "_s, elementName}));
 	}
-	return $nc(info)->objectEnumerations;
+	return info->objectEnumerations;
 }
 
 $Comparable* TIFFMetadataFormat::getObjectMinValue($String* elementName) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($TIFFElementInfo, info, getElementInfo(elementName));
 	if ($nc(info)->objectValueType == $IIOMetadataFormat::VALUE_NONE) {
 		$throwNew($IllegalArgumentException, $$str({"Element cannot contain an object value: "_s, elementName}));
 	}
-	return $nc(info)->objectMinValue;
+	return info->objectMinValue;
 }
 
 $Comparable* TIFFMetadataFormat::getObjectMaxValue($String* elementName) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($TIFFElementInfo, info, getElementInfo(elementName));
 	if ($nc(info)->objectValueType == $IIOMetadataFormat::VALUE_NONE) {
 		$throwNew($IllegalArgumentException, $$str({"Element cannot contain an object value: "_s, elementName}));
 	}
-	return $nc(info)->objectMaxValue;
+	return info->objectMaxValue;
 }
 
 int32_t TIFFMetadataFormat::getObjectArrayMinLength($String* elementName) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($TIFFElementInfo, info, getElementInfo(elementName));
 	if ($nc(info)->objectValueType == $IIOMetadataFormat::VALUE_NONE) {
 		$throwNew($IllegalArgumentException, $$str({"Element cannot contain an object value: "_s, elementName}));
 	}
-	return $nc(info)->objectArrayMinLength;
+	return info->objectArrayMinLength;
 }
 
 int32_t TIFFMetadataFormat::getObjectArrayMaxLength($String* elementName) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($TIFFElementInfo, info, getElementInfo(elementName));
 	if ($nc(info)->objectValueType == $IIOMetadataFormat::VALUE_NONE) {
 		$throwNew($IllegalArgumentException, $$str({"Element cannot contain an object value: "_s, elementName}));
 	}
-	return $nc(info)->objectArrayMaxLength;
+	return info->objectArrayMaxLength;
 }
 
 void TIFFMetadataFormat::init$() {
@@ -299,7 +243,56 @@ TIFFMetadataFormat::TIFFMetadataFormat() {
 }
 
 $Class* TIFFMetadataFormat::load$($String* name, bool initialize) {
-	$loadClass(TIFFMetadataFormat, name, initialize, &_TIFFMetadataFormat_ClassInfo_, allocate$TIFFMetadataFormat);
+	$FieldInfo fieldInfos$$[] = {
+		{"elementInfoMap", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Lcom/sun/imageio/plugins/tiff/TIFFElementInfo;>;", $PROTECTED, $field(TIFFMetadataFormat, elementInfoMap)},
+		{"attrInfoMap", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Lcom/sun/imageio/plugins/tiff/TIFFAttrInfo;>;", $PROTECTED, $field(TIFFMetadataFormat, attrInfoMap)},
+		{"resourceBaseName", "Ljava/lang/String;", nullptr, $PROTECTED, $field(TIFFMetadataFormat, resourceBaseName)},
+		{"rootName", "Ljava/lang/String;", nullptr, $PROTECTED, $field(TIFFMetadataFormat, rootName)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TIFFMetadataFormat, init$, void)},
+		{"getAttrInfo", "(Ljava/lang/String;Ljava/lang/String;)Lcom/sun/imageio/plugins/tiff/TIFFAttrInfo;", nullptr, $PRIVATE, $method(TIFFMetadataFormat, getAttrInfo, $TIFFAttrInfo*, $String*, $String*)},
+		{"getAttributeDataType", "(Ljava/lang/String;Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(TIFFMetadataFormat, getAttributeDataType, int32_t, $String*, $String*)},
+		{"getAttributeDefaultValue", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TIFFMetadataFormat, getAttributeDefaultValue, $String*, $String*, $String*)},
+		{"getAttributeDescription", "(Ljava/lang/String;Ljava/lang/String;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TIFFMetadataFormat, getAttributeDescription, $String*, $String*, $String*, $Locale*)},
+		{"getAttributeEnumerations", "(Ljava/lang/String;Ljava/lang/String;)[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TIFFMetadataFormat, getAttributeEnumerations, $StringArray*, $String*, $String*)},
+		{"getAttributeListMaxLength", "(Ljava/lang/String;Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(TIFFMetadataFormat, getAttributeListMaxLength, int32_t, $String*, $String*)},
+		{"getAttributeListMinLength", "(Ljava/lang/String;Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(TIFFMetadataFormat, getAttributeListMinLength, int32_t, $String*, $String*)},
+		{"getAttributeMaxValue", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TIFFMetadataFormat, getAttributeMaxValue, $String*, $String*, $String*)},
+		{"getAttributeMinValue", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TIFFMetadataFormat, getAttributeMinValue, $String*, $String*, $String*)},
+		{"getAttributeNames", "(Ljava/lang/String;)[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TIFFMetadataFormat, getAttributeNames, $StringArray*, $String*)},
+		{"getAttributeValueType", "(Ljava/lang/String;Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(TIFFMetadataFormat, getAttributeValueType, int32_t, $String*, $String*)},
+		{"getChildNames", "(Ljava/lang/String;)[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TIFFMetadataFormat, getChildNames, $StringArray*, $String*)},
+		{"getChildPolicy", "(Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(TIFFMetadataFormat, getChildPolicy, int32_t, $String*)},
+		{"getElementDescription", "(Ljava/lang/String;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TIFFMetadataFormat, getElementDescription, $String*, $String*, $Locale*)},
+		{"getElementInfo", "(Ljava/lang/String;)Lcom/sun/imageio/plugins/tiff/TIFFElementInfo;", nullptr, $PRIVATE, $method(TIFFMetadataFormat, getElementInfo, $TIFFElementInfo*, $String*)},
+		{"getElementMaxChildren", "(Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(TIFFMetadataFormat, getElementMaxChildren, int32_t, $String*)},
+		{"getElementMinChildren", "(Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(TIFFMetadataFormat, getElementMinChildren, int32_t, $String*)},
+		{"getObjectArrayMaxLength", "(Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(TIFFMetadataFormat, getObjectArrayMaxLength, int32_t, $String*)},
+		{"getObjectArrayMinLength", "(Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(TIFFMetadataFormat, getObjectArrayMinLength, int32_t, $String*)},
+		{"getObjectClass", "(Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/String;)Ljava/lang/Class<*>;", $PUBLIC, $virtualMethod(TIFFMetadataFormat, getObjectClass, $Class*, $String*)},
+		{"getObjectDefaultValue", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(TIFFMetadataFormat, getObjectDefaultValue, $Object*, $String*)},
+		{"getObjectEnumerations", "(Ljava/lang/String;)[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(TIFFMetadataFormat, getObjectEnumerations, $ObjectArray*, $String*)},
+		{"getObjectMaxValue", "(Ljava/lang/String;)Ljava/lang/Comparable;", "(Ljava/lang/String;)Ljava/lang/Comparable<Ljava/lang/Object;>;", $PUBLIC, $virtualMethod(TIFFMetadataFormat, getObjectMaxValue, $Comparable*, $String*)},
+		{"getObjectMinValue", "(Ljava/lang/String;)Ljava/lang/Comparable;", "(Ljava/lang/String;)Ljava/lang/Comparable<Ljava/lang/Object;>;", $PUBLIC, $virtualMethod(TIFFMetadataFormat, getObjectMinValue, $Comparable*, $String*)},
+		{"getObjectValueType", "(Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(TIFFMetadataFormat, getObjectValueType, int32_t, $String*)},
+		{"getResource", "(Ljava/lang/String;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PRIVATE, $method(TIFFMetadataFormat, getResource, $String*, $String*, $Locale*)},
+		{"getRootName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TIFFMetadataFormat, getRootName, $String*)},
+		{"isAttributeRequired", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(TIFFMetadataFormat, isAttributeRequired, bool, $String*, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"com.sun.imageio.plugins.tiff.TIFFMetadataFormat",
+		"java.lang.Object",
+		"javax.imageio.metadata.IIOMetadataFormat",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TIFFMetadataFormat, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TIFFMetadataFormat);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/java2d/opengl/OGLTextureToSurfaceTransform.h>
-
 #include <java/awt/Composite.h>
 #include <java/awt/geom/AffineTransform.h>
 #include <java/awt/image/BufferedImage.h>
@@ -30,25 +29,6 @@ namespace sun {
 	namespace java2d {
 		namespace opengl {
 
-$MethodInfo _OGLTextureToSurfaceTransform_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(OGLTextureToSurfaceTransform, init$, void)},
-	{"Transform", "(Lsun/java2d/SurfaceData;Lsun/java2d/SurfaceData;Ljava/awt/Composite;Lsun/java2d/pipe/Region;Ljava/awt/geom/AffineTransform;IIIIIII)V", nullptr, $PUBLIC, $virtualMethod(OGLTextureToSurfaceTransform, Transform, void, $SurfaceData*, $SurfaceData*, $Composite*, $Region*, $AffineTransform*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _OGLTextureToSurfaceTransform_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.java2d.opengl.OGLTextureToSurfaceTransform",
-	"sun.java2d.loops.TransformBlit",
-	nullptr,
-	nullptr,
-	_OGLTextureToSurfaceTransform_MethodInfo_
-};
-
-$Object* allocate$OGLTextureToSurfaceTransform($Class* clazz) {
-	return $of($alloc(OGLTextureToSurfaceTransform));
-}
-
 void OGLTextureToSurfaceTransform::init$() {
 	$init($OGLSurfaceData);
 	$init($CompositeType);
@@ -63,7 +43,22 @@ OGLTextureToSurfaceTransform::OGLTextureToSurfaceTransform() {
 }
 
 $Class* OGLTextureToSurfaceTransform::load$($String* name, bool initialize) {
-	$loadClass(OGLTextureToSurfaceTransform, name, initialize, &_OGLTextureToSurfaceTransform_ClassInfo_, allocate$OGLTextureToSurfaceTransform);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(OGLTextureToSurfaceTransform, init$, void)},
+		{"Transform", "(Lsun/java2d/SurfaceData;Lsun/java2d/SurfaceData;Ljava/awt/Composite;Lsun/java2d/pipe/Region;Ljava/awt/geom/AffineTransform;IIIIIII)V", nullptr, $PUBLIC, $virtualMethod(OGLTextureToSurfaceTransform, Transform, void, $SurfaceData*, $SurfaceData*, $Composite*, $Region*, $AffineTransform*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.java2d.opengl.OGLTextureToSurfaceTransform",
+		"sun.java2d.loops.TransformBlit",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(OGLTextureToSurfaceTransform, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(OGLTextureToSurfaceTransform);
+	});
 	return class$;
 }
 

@@ -28,6 +28,7 @@ class XIncludeMessageFormatter : public ::com::sun::org::apache::xerces::interna
 	$class(XIncludeMessageFormatter, 0, ::com::sun::org::apache::xerces::internal::util::MessageFormatter)
 public:
 	XIncludeMessageFormatter();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual $String* formatMessage(::java::util::Locale* locale, $String* key, $ObjectArray* arguments) override;
 	static $String* XINCLUDE_DOMAIN;

@@ -113,6 +113,7 @@ class DOMHMACSignatureMethod : public ::org::jcp::xml::dsig::internal::dom::Abst
 	$class(DOMHMACSignatureMethod, 0, ::org::jcp::xml::dsig::internal::dom::AbstractDOMSignatureMethod)
 public:
 	DOMHMACSignatureMethod();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::security::spec::AlgorithmParameterSpec* params);
 	void init$(::org::w3c::dom::Element* smElem);
 	virtual void checkParams(::javax::xml::crypto::dsig::spec::SignatureMethodParameterSpec* params) override;

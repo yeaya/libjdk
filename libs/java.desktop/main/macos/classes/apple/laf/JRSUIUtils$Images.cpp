@@ -1,5 +1,4 @@
 #include <apple/laf/JRSUIUtils$Images.h>
-
 #include <apple/laf/JRSUIUtils.h>
 #include <jcpp.h>
 
@@ -10,37 +9,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace apple {
 	namespace laf {
-
-$MethodInfo _JRSUIUtils$Images_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(JRSUIUtils$Images, init$, void)},
-	{"shouldUseLegacySecurityUIPath", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(JRSUIUtils$Images, shouldUseLegacySecurityUIPath, bool)},
-	{}
-};
-
-$InnerClassInfo _JRSUIUtils$Images_InnerClassesInfo_[] = {
-	{"apple.laf.JRSUIUtils$Images", "apple.laf.JRSUIUtils", "Images", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _JRSUIUtils$Images_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"apple.laf.JRSUIUtils$Images",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_JRSUIUtils$Images_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JRSUIUtils$Images_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"apple.laf.JRSUIUtils"
-};
-
-$Object* allocate$JRSUIUtils$Images($Class* clazz) {
-	return $of($alloc(JRSUIUtils$Images));
-}
 
 void JRSUIUtils$Images::init$() {
 }
@@ -54,7 +22,33 @@ JRSUIUtils$Images::JRSUIUtils$Images() {
 }
 
 $Class* JRSUIUtils$Images::load$($String* name, bool initialize) {
-	$loadClass(JRSUIUtils$Images, name, initialize, &_JRSUIUtils$Images_ClassInfo_, allocate$JRSUIUtils$Images);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(JRSUIUtils$Images, init$, void)},
+		{"shouldUseLegacySecurityUIPath", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(JRSUIUtils$Images, shouldUseLegacySecurityUIPath, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"apple.laf.JRSUIUtils$Images", "apple.laf.JRSUIUtils", "Images", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"apple.laf.JRSUIUtils$Images",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"apple.laf.JRSUIUtils"
+	};
+	$loadClass(JRSUIUtils$Images, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JRSUIUtils$Images);
+	});
 	return class$;
 }
 

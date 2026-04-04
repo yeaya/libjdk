@@ -44,7 +44,7 @@ public:
 	bool returnObj = false;
 	int64_t countLimit = 0;
 	$StringArray* attributesToReturn = nullptr;
-	static const int64_t serialVersionUID = (int64_t)0xDD935921DD0F3E33;
+	static const int64_t serialVersionUID = (int64_t)0xdd935921dd0f3e33;
 };
 
 		} // directory

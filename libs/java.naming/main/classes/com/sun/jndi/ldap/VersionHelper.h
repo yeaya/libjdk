@@ -32,6 +32,7 @@ class VersionHelper : public ::java::lang::Object {
 	$class(VersionHelper, 0, ::java::lang::Object)
 public:
 	VersionHelper();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	$Thread* createThread(::java::lang::Runnable* r);
 	::java::lang::ClassLoader* getContextClassLoader();

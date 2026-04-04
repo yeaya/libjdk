@@ -42,6 +42,7 @@ class $import TextArea : public ::java::awt::TextComponent {
 	$class(TextArea, 0, ::java::awt::TextComponent)
 public:
 	TextArea();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$($String* text);
 	void init$(int32_t rows, int32_t columns);
@@ -83,7 +84,7 @@ public:
 	int32_t scrollbarVisibility = 0;
 	static ::java::util::Set* forwardTraversalKeys;
 	static ::java::util::Set* backwardTraversalKeys;
-	static const int64_t serialVersionUID = (int64_t)0x333DB1DE0443FE6A;
+	static const int64_t serialVersionUID = (int64_t)0x333db1de0443fe6a;
 	int32_t textAreaSerializedDataVersion = 0;
 };
 

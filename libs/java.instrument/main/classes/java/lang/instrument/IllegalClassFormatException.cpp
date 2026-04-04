@@ -1,5 +1,4 @@
 #include <java/lang/instrument/IllegalClassFormatException.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -10,30 +9,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace java {
 	namespace lang {
 		namespace instrument {
-
-$FieldInfo _IllegalClassFormatException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(IllegalClassFormatException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _IllegalClassFormatException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(IllegalClassFormatException, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(IllegalClassFormatException, init$, void, $String*)},
-	{}
-};
-
-$ClassInfo _IllegalClassFormatException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.lang.instrument.IllegalClassFormatException",
-	"java.lang.Exception",
-	nullptr,
-	_IllegalClassFormatException_FieldInfo_,
-	_IllegalClassFormatException_MethodInfo_
-};
-
-$Object* allocate$IllegalClassFormatException($Class* clazz) {
-	return $of($alloc(IllegalClassFormatException));
-}
 
 void IllegalClassFormatException::init$() {
 	$Exception::init$();
@@ -54,7 +29,26 @@ void IllegalClassFormatException::throw$() {
 }
 
 $Class* IllegalClassFormatException::load$($String* name, bool initialize) {
-	$loadClass(IllegalClassFormatException, name, initialize, &_IllegalClassFormatException_ClassInfo_, allocate$IllegalClassFormatException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(IllegalClassFormatException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(IllegalClassFormatException, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(IllegalClassFormatException, init$, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.lang.instrument.IllegalClassFormatException",
+		"java.lang.Exception",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(IllegalClassFormatException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(IllegalClassFormatException);
+	});
 	return class$;
 }
 

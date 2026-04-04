@@ -1,5 +1,4 @@
 #include <sun/java2d/metal/MTLRenderQueue$QueueFlusher.h>
-
 #include <java/lang/Error.h>
 #include <java/lang/InterruptedException.h>
 #include <java/lang/Runnable.h>
@@ -11,7 +10,6 @@
 
 #undef MAX_PRIORITY
 
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Error = ::java::lang::Error;
 using $Exception = ::java::lang::Exception;
@@ -22,62 +20,19 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
 using $ThreadGroupUtils = ::sun::awt::util::ThreadGroupUtils;
 using $MTLRenderQueue = ::sun::java2d::metal::MTLRenderQueue;
-using $RenderBuffer = ::sun::java2d::pipe::RenderBuffer;
 
 namespace sun {
 	namespace java2d {
 		namespace metal {
 
-$FieldInfo _MTLRenderQueue$QueueFlusher_FieldInfo_[] = {
-	{"this$0", "Lsun/java2d/metal/MTLRenderQueue;", nullptr, $FINAL | $SYNTHETIC, $field(MTLRenderQueue$QueueFlusher, this$0)},
-	{"needsFlush", "Z", nullptr, $PRIVATE, $field(MTLRenderQueue$QueueFlusher, needsFlush)},
-	{"task", "Ljava/lang/Runnable;", nullptr, $PRIVATE, $field(MTLRenderQueue$QueueFlusher, task)},
-	{"error", "Ljava/lang/Error;", nullptr, $PRIVATE, $field(MTLRenderQueue$QueueFlusher, error)},
-	{"thread", "Ljava/lang/Thread;", nullptr, $PRIVATE | $FINAL, $field(MTLRenderQueue$QueueFlusher, thread)},
-	{}
-};
-
-$MethodInfo _MTLRenderQueue$QueueFlusher_MethodInfo_[] = {
-	{"<init>", "(Lsun/java2d/metal/MTLRenderQueue;)V", nullptr, $PUBLIC, $method(MTLRenderQueue$QueueFlusher, init$, void, $MTLRenderQueue*)},
-	{"flushAndInvokeNow", "(Ljava/lang/Runnable;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(MTLRenderQueue$QueueFlusher, flushAndInvokeNow, void, $Runnable*)},
-	{"flushNow", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(MTLRenderQueue$QueueFlusher, flushNow, void)},
-	{"run", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(MTLRenderQueue$QueueFlusher, run, void)},
-	{}
-};
-
-$InnerClassInfo _MTLRenderQueue$QueueFlusher_InnerClassesInfo_[] = {
-	{"sun.java2d.metal.MTLRenderQueue$QueueFlusher", "sun.java2d.metal.MTLRenderQueue", "QueueFlusher", $PRIVATE},
-	{}
-};
-
-$ClassInfo _MTLRenderQueue$QueueFlusher_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.java2d.metal.MTLRenderQueue$QueueFlusher",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	_MTLRenderQueue$QueueFlusher_FieldInfo_,
-	_MTLRenderQueue$QueueFlusher_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MTLRenderQueue$QueueFlusher_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.java2d.metal.MTLRenderQueue"
-};
-
-$Object* allocate$MTLRenderQueue$QueueFlusher($Class* clazz) {
-	return $of($alloc(MTLRenderQueue$QueueFlusher));
-}
-
 void MTLRenderQueue$QueueFlusher::init$($MTLRenderQueue* this$0) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, this$0, this$0);
 	$var($String, name, "Java2D Queue Flusher"_s);
 	$set(this, thread, $new($Thread, $($ThreadGroupUtils::getRootThreadGroup()), this, name, 0, false));
-	$nc(this->thread)->setDaemon(true);
-	$nc(this->thread)->setPriority($Thread::MAX_PRIORITY);
-	$nc(this->thread)->start();
+	this->thread->setDaemon(true);
+	this->thread->setPriority($Thread::MAX_PRIORITY);
+	this->thread->start();
 }
 
 void MTLRenderQueue$QueueFlusher::flushNow() {
@@ -105,7 +60,7 @@ void MTLRenderQueue$QueueFlusher::flushAndInvokeNow($Runnable* task) {
 
 void MTLRenderQueue$QueueFlusher::run() {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		bool timedOut = false;
 		while (true) {
 			while (!this->needsFlush) {
@@ -113,7 +68,7 @@ void MTLRenderQueue$QueueFlusher::run() {
 					timedOut = false;
 					$of(this)->wait(100);
 					if (!this->needsFlush && (timedOut = this->this$0->tryLock())) {
-						if ($nc($($MTLRenderQueue::access$000(this->this$0)))->position() > 0) {
+						if ($$nc($MTLRenderQueue::access$000(this->this$0))->position() > 0) {
 							this->needsFlush = true;
 						} else {
 							this->this$0->unlock();
@@ -122,34 +77,32 @@ void MTLRenderQueue$QueueFlusher::run() {
 				} catch ($InterruptedException& e) {
 				}
 			}
-			{
-				$var($Throwable, var$0, nullptr);
+			$var($Throwable, var$0, nullptr);
+			try {
 				try {
-					try {
-						$set(this, error, nullptr);
-						this->this$0->flushBuffer();
-						if (this->task != nullptr) {
-							$nc(this->task)->run();
-						}
-					} catch ($Error& e) {
-						$set(this, error, e);
-					} catch ($Exception& x) {
-						$nc($System::err)->println("exception in QueueFlusher:"_s);
-						x->printStackTrace();
+					$set(this, error, nullptr);
+					this->this$0->flushBuffer();
+					if (this->task != nullptr) {
+						this->task->run();
 					}
-				} catch ($Throwable& var$1) {
-					$assign(var$0, var$1);
-				} /*finally*/ {
-					if (timedOut) {
-						this->this$0->unlock();
-					}
-					$set(this, task, nullptr);
-					this->needsFlush = false;
-					$of(this)->notify();
+				} catch ($Error& e) {
+					$set(this, error, e);
+				} catch ($Exception& x) {
+					$nc($System::err)->println("exception in QueueFlusher:"_s);
+					x->printStackTrace();
 				}
-				if (var$0 != nullptr) {
-					$throw(var$0);
+			} catch ($Throwable& var$1) {
+				$assign(var$0, var$1);
+			} /*finally*/ {
+				if (timedOut) {
+					this->this$0->unlock();
 				}
+				$set(this, task, nullptr);
+				this->needsFlush = false;
+				$of(this)->notify();
+			}
+			if (var$0 != nullptr) {
+				$throw(var$0);
 			}
 		}
 	}
@@ -159,7 +112,43 @@ MTLRenderQueue$QueueFlusher::MTLRenderQueue$QueueFlusher() {
 }
 
 $Class* MTLRenderQueue$QueueFlusher::load$($String* name, bool initialize) {
-	$loadClass(MTLRenderQueue$QueueFlusher, name, initialize, &_MTLRenderQueue$QueueFlusher_ClassInfo_, allocate$MTLRenderQueue$QueueFlusher);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/java2d/metal/MTLRenderQueue;", nullptr, $FINAL | $SYNTHETIC, $field(MTLRenderQueue$QueueFlusher, this$0)},
+		{"needsFlush", "Z", nullptr, $PRIVATE, $field(MTLRenderQueue$QueueFlusher, needsFlush)},
+		{"task", "Ljava/lang/Runnable;", nullptr, $PRIVATE, $field(MTLRenderQueue$QueueFlusher, task)},
+		{"error", "Ljava/lang/Error;", nullptr, $PRIVATE, $field(MTLRenderQueue$QueueFlusher, error)},
+		{"thread", "Ljava/lang/Thread;", nullptr, $PRIVATE | $FINAL, $field(MTLRenderQueue$QueueFlusher, thread)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/java2d/metal/MTLRenderQueue;)V", nullptr, $PUBLIC, $method(MTLRenderQueue$QueueFlusher, init$, void, $MTLRenderQueue*)},
+		{"flushAndInvokeNow", "(Ljava/lang/Runnable;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(MTLRenderQueue$QueueFlusher, flushAndInvokeNow, void, $Runnable*)},
+		{"flushNow", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(MTLRenderQueue$QueueFlusher, flushNow, void)},
+		{"run", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(MTLRenderQueue$QueueFlusher, run, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.java2d.metal.MTLRenderQueue$QueueFlusher", "sun.java2d.metal.MTLRenderQueue", "QueueFlusher", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.java2d.metal.MTLRenderQueue$QueueFlusher",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.java2d.metal.MTLRenderQueue"
+	};
+	$loadClass(MTLRenderQueue$QueueFlusher, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MTLRenderQueue$QueueFlusher);
+	});
 	return class$;
 }
 

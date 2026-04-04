@@ -53,6 +53,7 @@ class DGCClient : public ::java::lang::Object {
 	$class(DGCClient, 0, ::java::lang::Object)
 public:
 	DGCClient();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static int64_t computeRenewTime(int64_t grantTime, int64_t duration);
 	static int64_t getNextSequenceNum();

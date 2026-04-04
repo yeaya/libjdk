@@ -1,5 +1,4 @@
 #include <java/awt/image/PackedColorModel.h>
-
 #include <java/awt/Transparency.h>
 #include <java/awt/color/ColorSpace.h>
 #include <java/awt/image/ColorModel.h>
@@ -32,46 +31,8 @@ namespace java {
 	namespace awt {
 		namespace image {
 
-$FieldInfo _PackedColorModel_FieldInfo_[] = {
-	{"maskArray", "[I", nullptr, 0, $field(PackedColorModel, maskArray)},
-	{"maskOffsets", "[I", nullptr, 0, $field(PackedColorModel, maskOffsets)},
-	{"scaleFactors", "[F", nullptr, 0, $field(PackedColorModel, scaleFactors)},
-	{"hashCode", "I", nullptr, $PRIVATE | $VOLATILE, $field(PackedColorModel, hashCode$)},
-	{}
-};
-
-$MethodInfo _PackedColorModel_MethodInfo_[] = {
-	{"<init>", "(Ljava/awt/color/ColorSpace;I[IIZII)V", nullptr, $PUBLIC, $method(PackedColorModel, init$, void, $ColorSpace*, int32_t, $ints*, int32_t, bool, int32_t, int32_t)},
-	{"<init>", "(Ljava/awt/color/ColorSpace;IIIIIZII)V", nullptr, $PUBLIC, $method(PackedColorModel, init$, void, $ColorSpace*, int32_t, int32_t, int32_t, int32_t, int32_t, bool, int32_t, int32_t)},
-	{"DecomposeMask", "(IILjava/lang/String;)V", nullptr, $PRIVATE, $method(PackedColorModel, DecomposeMask, void, int32_t, int32_t, $String*)},
-	{"countBits", "(I)I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(PackedColorModel, countBits, int32_t, int32_t)},
-	{"createBitsArray", "([II)[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(PackedColorModel, createBitsArray, $ints*, $ints*, int32_t)},
-	{"createBitsArray", "(IIII)[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(PackedColorModel, createBitsArray, $ints*, int32_t, int32_t, int32_t, int32_t)},
-	{"createCompatibleSampleModel", "(II)Ljava/awt/image/SampleModel;", nullptr, $PUBLIC, $virtualMethod(PackedColorModel, createCompatibleSampleModel, $SampleModel*, int32_t, int32_t)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(PackedColorModel, equals, bool, Object$*)},
-	{"getAlphaRaster", "(Ljava/awt/image/WritableRaster;)Ljava/awt/image/WritableRaster;", nullptr, $PUBLIC, $virtualMethod(PackedColorModel, getAlphaRaster, $WritableRaster*, $WritableRaster*)},
-	{"getMask", "(I)I", nullptr, $PUBLIC | $FINAL, $method(PackedColorModel, getMask, int32_t, int32_t)},
-	{"getMasks", "()[I", nullptr, $PUBLIC | $FINAL, $method(PackedColorModel, getMasks, $ints*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(PackedColorModel, hashCode, int32_t)},
-	{"isCompatibleSampleModel", "(Ljava/awt/image/SampleModel;)Z", nullptr, $PUBLIC, $virtualMethod(PackedColorModel, isCompatibleSampleModel, bool, $SampleModel*)},
-	{}
-};
-
-$ClassInfo _PackedColorModel_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"java.awt.image.PackedColorModel",
-	"java.awt.image.ColorModel",
-	nullptr,
-	_PackedColorModel_FieldInfo_,
-	_PackedColorModel_MethodInfo_
-};
-
-$Object* allocate$PackedColorModel($Class* clazz) {
-	return $of($alloc(PackedColorModel));
-}
-
 void PackedColorModel::init$($ColorSpace* space, int32_t bits, $ints* colorMaskArray, int32_t alphaMask, bool isAlphaPremultiplied, int32_t trans, int32_t transferType) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$ColorModel::init$(bits, $(PackedColorModel::createBitsArray(colorMaskArray, alphaMask)), space, (alphaMask == 0 ? false : true), isAlphaPremultiplied, trans, transferType);
 	if (bits < 1 || bits > 32) {
 		$throwNew($IllegalArgumentException, "Number of bits must be between 1 and 32."_s);
@@ -118,18 +79,18 @@ $ints* PackedColorModel::getMasks() {
 }
 
 void PackedColorModel::DecomposeMask(int32_t mask, int32_t idx, $String* componentName) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t off = 0;
 	int32_t count = $nc(this->nBits)->get(idx);
 	$nc(this->maskArray)->set(idx, mask);
 	if (mask != 0) {
-		while (((int32_t)(mask & (uint32_t)1)) == 0) {
+		while ((mask & 1) == 0) {
 			$usrAssign(mask, 1);
 			++off;
 		}
 	}
 	if (off + count > this->pixel_bits) {
-		$throwNew($IllegalArgumentException, $$str({componentName, " mask "_s, $($Integer::toHexString($nc(this->maskArray)->get(idx))), " overflows pixel (expecting "_s, $$str(this->pixel_bits), " bits"_s}));
+		$throwNew($IllegalArgumentException, $$str({componentName, " mask "_s, $($Integer::toHexString(this->maskArray->get(idx))), " overflows pixel (expecting "_s, $$str(this->pixel_bits), " bits"_s}));
 	}
 	$nc(this->maskOffsets)->set(idx, off);
 	if (count == 0) {
@@ -144,24 +105,24 @@ $SampleModel* PackedColorModel::createCompatibleSampleModel(int32_t w, int32_t h
 }
 
 bool PackedColorModel::isCompatibleSampleModel($SampleModel* sm) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!($instanceOf($SinglePixelPackedSampleModel, sm))) {
 		return false;
 	}
 	if (this->numComponents != $nc(sm)->getNumBands()) {
 		return false;
 	}
-	if ($nc(sm)->getTransferType() != this->transferType) {
+	if (sm->getTransferType() != this->transferType) {
 		return false;
 	}
 	$var($SinglePixelPackedSampleModel, sppsm, $cast($SinglePixelPackedSampleModel, sm));
-	$var($ints, bitMasks, $nc(sppsm)->getBitMasks());
+	$var($ints, bitMasks, sppsm->getBitMasks());
 	if ($nc(bitMasks)->length != $nc(this->maskArray)->length) {
 		return false;
 	}
 	int32_t maxMask = (int32_t)(($sl((int64_t)1, $DataBuffer::getDataTypeSize(this->transferType))) - 1);
-	for (int32_t i = 0; i < $nc(bitMasks)->length; ++i) {
-		if (((int32_t)(maxMask & (uint32_t)bitMasks->get(i))) != ((int32_t)(maxMask & (uint32_t)$nc(this->maskArray)->get(i)))) {
+	for (int32_t i = 0; i < bitMasks->length; ++i) {
+		if ((maxMask & bitMasks->get(i)) != (maxMask & $nc(this->maskArray)->get(i))) {
 			return false;
 		}
 	}
@@ -176,27 +137,25 @@ $WritableRaster* PackedColorModel::getAlphaRaster($WritableRaster* raster) {
 	int32_t y = raster->getMinY();
 	$var($ints, band, $new($ints, 1));
 	band->set(0, raster->getNumBands() - 1);
-	int32_t var$0 = x;
-	int32_t var$1 = y;
-	int32_t var$2 = raster->getWidth();
-	return raster->createWritableChild(var$0, var$1, var$2, raster->getHeight(), x, y, band);
+	int32_t var$0 = raster->getWidth();
+	return raster->createWritableChild(x, y, var$0, raster->getHeight(), x, y, band);
 }
 
 bool PackedColorModel::equals(Object$* obj) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!($instanceOf(PackedColorModel, obj))) {
 		return false;
 	}
 	$var(PackedColorModel, cm, $cast(PackedColorModel, obj));
 	bool var$4 = this->supportsAlpha != $nc(cm)->hasAlpha();
-	bool var$3 = var$4 || this->isAlphaPremultiplied$ != $nc(cm)->isAlphaPremultiplied();
-	bool var$2 = var$3 || this->pixel_bits != $nc(cm)->getPixelSize();
-	bool var$1 = var$2 || this->transparency != $nc(cm)->getTransparency();
-	bool var$0 = var$1 || this->numComponents != $nc(cm)->getNumComponents();
-	if (var$0 || (!($nc($of(this->colorSpace))->equals($nc(cm)->colorSpace))) || this->transferType != $nc(cm)->transferType) {
+	bool var$3 = var$4 || this->isAlphaPremultiplied$ != cm->isAlphaPremultiplied();
+	bool var$2 = var$3 || this->pixel_bits != cm->getPixelSize();
+	bool var$1 = var$2 || this->transparency != cm->getTransparency();
+	bool var$0 = var$1 || this->numComponents != cm->getNumComponents();
+	if (var$0 || (!($nc(this->colorSpace)->equals(cm->colorSpace))) || this->transferType != cm->transferType) {
 		return false;
 	}
-	int32_t numC = $nc(cm)->getNumComponents();
+	int32_t numC = cm->getNumComponents();
 	for (int32_t i = 0; i < numC; ++i) {
 		if ($nc(this->maskArray)->get(i) != cm->getMask(i)) {
 			return false;
@@ -218,7 +177,7 @@ int32_t PackedColorModel::hashCode() {
 		result = 89 * result + (this->supportsAlpha ? 1 : 0);
 		result = 89 * result + (this->isAlphaPremultiplied$ ? 1 : 0);
 		result = 89 * result + this->numComponents;
-		result = 89 * result + $nc($of(this->colorSpace))->hashCode();
+		result = 89 * result + $nc(this->colorSpace)->hashCode();
 		result = 89 * result + this->transferType;
 		result = 89 * result + $Arrays::hashCode(this->maskArray);
 		this->hashCode$ = result;
@@ -228,7 +187,7 @@ int32_t PackedColorModel::hashCode() {
 
 $ints* PackedColorModel::createBitsArray($ints* colorMaskArray, int32_t alphaMask) {
 	$init(PackedColorModel);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t numColors = $nc(colorMaskArray)->length;
 	int32_t numAlpha = (alphaMask == 0 ? 0 : 1);
 	$var($ints, arr, $new($ints, numColors + numAlpha));
@@ -249,7 +208,7 @@ $ints* PackedColorModel::createBitsArray($ints* colorMaskArray, int32_t alphaMas
 
 $ints* PackedColorModel::createBitsArray(int32_t rmask, int32_t gmask, int32_t bmask, int32_t amask) {
 	$init(PackedColorModel);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ints, arr, $new($ints, 3 + (amask == 0 ? 0 : 1)));
 	arr->set(0, countBits(rmask));
 	arr->set(1, countBits(gmask));
@@ -274,10 +233,10 @@ int32_t PackedColorModel::countBits(int32_t mask) {
 	$init(PackedColorModel);
 	int32_t count = 0;
 	if (mask != 0) {
-		while (((int32_t)(mask & (uint32_t)1)) == 0) {
+		while ((mask & 1) == 0) {
 			$usrAssign(mask, 1);
 		}
-		while (((int32_t)(mask & (uint32_t)1)) == 1) {
+		while ((mask & 1) == 1) {
 			$usrAssign(mask, 1);
 			++count;
 		}
@@ -292,7 +251,40 @@ PackedColorModel::PackedColorModel() {
 }
 
 $Class* PackedColorModel::load$($String* name, bool initialize) {
-	$loadClass(PackedColorModel, name, initialize, &_PackedColorModel_ClassInfo_, allocate$PackedColorModel);
+	$FieldInfo fieldInfos$$[] = {
+		{"maskArray", "[I", nullptr, 0, $field(PackedColorModel, maskArray)},
+		{"maskOffsets", "[I", nullptr, 0, $field(PackedColorModel, maskOffsets)},
+		{"scaleFactors", "[F", nullptr, 0, $field(PackedColorModel, scaleFactors)},
+		{"hashCode", "I", nullptr, $PRIVATE | $VOLATILE, $field(PackedColorModel, hashCode$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/color/ColorSpace;I[IIZII)V", nullptr, $PUBLIC, $method(PackedColorModel, init$, void, $ColorSpace*, int32_t, $ints*, int32_t, bool, int32_t, int32_t)},
+		{"<init>", "(Ljava/awt/color/ColorSpace;IIIIIZII)V", nullptr, $PUBLIC, $method(PackedColorModel, init$, void, $ColorSpace*, int32_t, int32_t, int32_t, int32_t, int32_t, bool, int32_t, int32_t)},
+		{"DecomposeMask", "(IILjava/lang/String;)V", nullptr, $PRIVATE, $method(PackedColorModel, DecomposeMask, void, int32_t, int32_t, $String*)},
+		{"countBits", "(I)I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(PackedColorModel, countBits, int32_t, int32_t)},
+		{"createBitsArray", "([II)[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(PackedColorModel, createBitsArray, $ints*, $ints*, int32_t)},
+		{"createBitsArray", "(IIII)[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(PackedColorModel, createBitsArray, $ints*, int32_t, int32_t, int32_t, int32_t)},
+		{"createCompatibleSampleModel", "(II)Ljava/awt/image/SampleModel;", nullptr, $PUBLIC, $virtualMethod(PackedColorModel, createCompatibleSampleModel, $SampleModel*, int32_t, int32_t)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(PackedColorModel, equals, bool, Object$*)},
+		{"getAlphaRaster", "(Ljava/awt/image/WritableRaster;)Ljava/awt/image/WritableRaster;", nullptr, $PUBLIC, $virtualMethod(PackedColorModel, getAlphaRaster, $WritableRaster*, $WritableRaster*)},
+		{"getMask", "(I)I", nullptr, $PUBLIC | $FINAL, $method(PackedColorModel, getMask, int32_t, int32_t)},
+		{"getMasks", "()[I", nullptr, $PUBLIC | $FINAL, $method(PackedColorModel, getMasks, $ints*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(PackedColorModel, hashCode, int32_t)},
+		{"isCompatibleSampleModel", "(Ljava/awt/image/SampleModel;)Z", nullptr, $PUBLIC, $virtualMethod(PackedColorModel, isCompatibleSampleModel, bool, $SampleModel*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"java.awt.image.PackedColorModel",
+		"java.awt.image.ColorModel",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(PackedColorModel, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PackedColorModel);
+	});
 	return class$;
 }
 

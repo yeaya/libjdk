@@ -27,6 +27,7 @@ class RTFParser : public ::javax::swing::text::rtf::AbstractFilter {
 	$class(RTFParser, 0, ::javax::swing::text::rtf::AbstractFilter)
 public:
 	RTFParser();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void begingroup() {}
 	virtual void close() override;

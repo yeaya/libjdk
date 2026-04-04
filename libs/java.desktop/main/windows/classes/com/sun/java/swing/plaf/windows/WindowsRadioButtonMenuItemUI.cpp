@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/windows/WindowsRadioButtonMenuItemUI.h>
-
 #include <com/sun/java/swing/plaf/windows/WindowsGraphicsUtils.h>
 #include <com/sun/java/swing/plaf/windows/WindowsMenuItemUI.h>
 #include <com/sun/java/swing/plaf/windows/WindowsMenuItemUIAccessor.h>
@@ -7,7 +6,6 @@
 #include <java/awt/Color.h>
 #include <java/awt/Graphics.h>
 #include <java/awt/Rectangle.h>
-#include <javax/swing/AbstractButton.h>
 #include <javax/swing/ButtonModel.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JMenuItem.h>
@@ -17,7 +15,6 @@
 
 using $WindowsGraphicsUtils = ::com::sun::java::swing::plaf::windows::WindowsGraphicsUtils;
 using $WindowsMenuItemUI = ::com::sun::java::swing::plaf::windows::WindowsMenuItemUI;
-using $WindowsMenuItemUIAccessor = ::com::sun::java::swing::plaf::windows::WindowsMenuItemUIAccessor;
 using $WindowsRadioButtonMenuItemUI$1 = ::com::sun::java::swing::plaf::windows::WindowsRadioButtonMenuItemUI$1;
 using $Color = ::java::awt::Color;
 using $Graphics = ::java::awt::Graphics;
@@ -26,7 +23,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractButton = ::javax::swing::AbstractButton;
 using $ButtonModel = ::javax::swing::ButtonModel;
 using $JComponent = ::javax::swing::JComponent;
 using $JMenuItem = ::javax::swing::JMenuItem;
@@ -39,44 +35,6 @@ namespace com {
 			namespace swing {
 				namespace plaf {
 					namespace windows {
-
-$FieldInfo _WindowsRadioButtonMenuItemUI_FieldInfo_[] = {
-	{"accessor", "Lcom/sun/java/swing/plaf/windows/WindowsMenuItemUIAccessor;", nullptr, $FINAL, $field(WindowsRadioButtonMenuItemUI, accessor)},
-	{}
-};
-
-$MethodInfo _WindowsRadioButtonMenuItemUI_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(WindowsRadioButtonMenuItemUI, init$, void)},
-	{"access$000", "(Lcom/sun/java/swing/plaf/windows/WindowsRadioButtonMenuItemUI;)Ljavax/swing/JMenuItem;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(WindowsRadioButtonMenuItemUI, access$000, $JMenuItem*, WindowsRadioButtonMenuItemUI*)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(WindowsRadioButtonMenuItemUI, createUI, $ComponentUI*, $JComponent*)},
-	{"paintBackground", "(Ljava/awt/Graphics;Ljavax/swing/JMenuItem;Ljava/awt/Color;)V", nullptr, $PROTECTED, $virtualMethod(WindowsRadioButtonMenuItemUI, paintBackground, void, $Graphics*, $JMenuItem*, $Color*)},
-	{"paintText", "(Ljava/awt/Graphics;Ljavax/swing/JMenuItem;Ljava/awt/Rectangle;Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(WindowsRadioButtonMenuItemUI, paintText, void, $Graphics*, $JMenuItem*, $Rectangle*, $String*)},
-	{}
-};
-
-$InnerClassInfo _WindowsRadioButtonMenuItemUI_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.windows.WindowsRadioButtonMenuItemUI$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _WindowsRadioButtonMenuItemUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.java.swing.plaf.windows.WindowsRadioButtonMenuItemUI",
-	"javax.swing.plaf.basic.BasicRadioButtonMenuItemUI",
-	nullptr,
-	_WindowsRadioButtonMenuItemUI_FieldInfo_,
-	_WindowsRadioButtonMenuItemUI_MethodInfo_,
-	nullptr,
-	nullptr,
-	_WindowsRadioButtonMenuItemUI_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.windows.WindowsRadioButtonMenuItemUI$1"
-};
-
-$Object* allocate$WindowsRadioButtonMenuItemUI($Class* clazz) {
-	return $of($alloc(WindowsRadioButtonMenuItemUI));
-}
 
 $JMenuItem* WindowsRadioButtonMenuItemUI::access$000(WindowsRadioButtonMenuItemUI* x0) {
 	$init(WindowsRadioButtonMenuItemUI);
@@ -102,7 +60,7 @@ void WindowsRadioButtonMenuItemUI::paintBackground($Graphics* g, $JMenuItem* men
 }
 
 void WindowsRadioButtonMenuItemUI::paintText($Graphics* g, $JMenuItem* menuItem, $Rectangle* textRect, $String* text) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($WindowsMenuItemUI::isVistaPainting()) {
 		$WindowsMenuItemUI::paintText(this->accessor, g, menuItem, textRect, text);
 		return;
@@ -121,7 +79,39 @@ WindowsRadioButtonMenuItemUI::WindowsRadioButtonMenuItemUI() {
 }
 
 $Class* WindowsRadioButtonMenuItemUI::load$($String* name, bool initialize) {
-	$loadClass(WindowsRadioButtonMenuItemUI, name, initialize, &_WindowsRadioButtonMenuItemUI_ClassInfo_, allocate$WindowsRadioButtonMenuItemUI);
+	$FieldInfo fieldInfos$$[] = {
+		{"accessor", "Lcom/sun/java/swing/plaf/windows/WindowsMenuItemUIAccessor;", nullptr, $FINAL, $field(WindowsRadioButtonMenuItemUI, accessor)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(WindowsRadioButtonMenuItemUI, init$, void)},
+		{"access$000", "(Lcom/sun/java/swing/plaf/windows/WindowsRadioButtonMenuItemUI;)Ljavax/swing/JMenuItem;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(WindowsRadioButtonMenuItemUI, access$000, $JMenuItem*, WindowsRadioButtonMenuItemUI*)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(WindowsRadioButtonMenuItemUI, createUI, $ComponentUI*, $JComponent*)},
+		{"paintBackground", "(Ljava/awt/Graphics;Ljavax/swing/JMenuItem;Ljava/awt/Color;)V", nullptr, $PROTECTED, $virtualMethod(WindowsRadioButtonMenuItemUI, paintBackground, void, $Graphics*, $JMenuItem*, $Color*)},
+		{"paintText", "(Ljava/awt/Graphics;Ljavax/swing/JMenuItem;Ljava/awt/Rectangle;Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(WindowsRadioButtonMenuItemUI, paintText, void, $Graphics*, $JMenuItem*, $Rectangle*, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.windows.WindowsRadioButtonMenuItemUI$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.java.swing.plaf.windows.WindowsRadioButtonMenuItemUI",
+		"javax.swing.plaf.basic.BasicRadioButtonMenuItemUI",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.windows.WindowsRadioButtonMenuItemUI$1"
+	};
+	$loadClass(WindowsRadioButtonMenuItemUI, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WindowsRadioButtonMenuItemUI);
+	});
 	return class$;
 }
 

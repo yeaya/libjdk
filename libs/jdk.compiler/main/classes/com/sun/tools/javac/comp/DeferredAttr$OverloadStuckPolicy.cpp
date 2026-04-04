@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/DeferredAttr$OverloadStuckPolicy.h>
-
 #include <com/sun/tools/javac/comp/Attr$ResultInfo.h>
 #include <com/sun/tools/javac/comp/DeferredAttr$CheckStuckPolicy.h>
 #include <com/sun/tools/javac/comp/DeferredAttr$DeferredType.h>
@@ -32,46 +31,6 @@ namespace com {
 			namespace javac {
 				namespace comp {
 
-$FieldInfo _DeferredAttr$OverloadStuckPolicy_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/comp/DeferredAttr;", nullptr, $FINAL | $SYNTHETIC, $field(DeferredAttr$OverloadStuckPolicy, this$0)},
-	{"stuck", "Z", nullptr, 0, $field(DeferredAttr$OverloadStuckPolicy, stuck)},
-	{}
-};
-
-$MethodInfo _DeferredAttr$OverloadStuckPolicy_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/DeferredAttr;Lcom/sun/tools/javac/comp/Attr$ResultInfo;Lcom/sun/tools/javac/comp/DeferredAttr$DeferredType;)V", nullptr, $PUBLIC, $method(DeferredAttr$OverloadStuckPolicy, init$, void, $DeferredAttr*, $Attr$ResultInfo*, $DeferredAttr$DeferredType*)},
-	{"isStuck", "()Z", nullptr, $PUBLIC, $virtualMethod(DeferredAttr$OverloadStuckPolicy, isStuck, bool)},
-	{"visitLambda", "(Lcom/sun/tools/javac/tree/JCTree$JCLambda;)V", nullptr, $PUBLIC, $virtualMethod(DeferredAttr$OverloadStuckPolicy, visitLambda, void, $JCTree$JCLambda*)},
-	{"visitReference", "(Lcom/sun/tools/javac/tree/JCTree$JCMemberReference;)V", nullptr, $PUBLIC, $virtualMethod(DeferredAttr$OverloadStuckPolicy, visitReference, void, $JCTree$JCMemberReference*)},
-	{}
-};
-
-$InnerClassInfo _DeferredAttr$OverloadStuckPolicy_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.DeferredAttr$OverloadStuckPolicy", "com.sun.tools.javac.comp.DeferredAttr", "OverloadStuckPolicy", 0},
-	{"com.sun.tools.javac.comp.DeferredAttr$CheckStuckPolicy", "com.sun.tools.javac.comp.DeferredAttr", "CheckStuckPolicy", 0},
-	{}
-};
-
-$ClassInfo _DeferredAttr$OverloadStuckPolicy_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.comp.DeferredAttr$OverloadStuckPolicy",
-	"com.sun.tools.javac.comp.DeferredAttr$CheckStuckPolicy",
-	nullptr,
-	_DeferredAttr$OverloadStuckPolicy_FieldInfo_,
-	_DeferredAttr$OverloadStuckPolicy_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DeferredAttr$OverloadStuckPolicy_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.DeferredAttr"
-};
-
-$Object* allocate$DeferredAttr$OverloadStuckPolicy($Class* clazz) {
-	return $of($alloc(DeferredAttr$OverloadStuckPolicy));
-}
-
 bool DeferredAttr$OverloadStuckPolicy::isStuck() {
 	return $DeferredAttr$CheckStuckPolicy::isStuck() || this->stuck;
 }
@@ -101,7 +60,41 @@ DeferredAttr$OverloadStuckPolicy::DeferredAttr$OverloadStuckPolicy() {
 }
 
 $Class* DeferredAttr$OverloadStuckPolicy::load$($String* name, bool initialize) {
-	$loadClass(DeferredAttr$OverloadStuckPolicy, name, initialize, &_DeferredAttr$OverloadStuckPolicy_ClassInfo_, allocate$DeferredAttr$OverloadStuckPolicy);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/comp/DeferredAttr;", nullptr, $FINAL | $SYNTHETIC, $field(DeferredAttr$OverloadStuckPolicy, this$0)},
+		{"stuck", "Z", nullptr, 0, $field(DeferredAttr$OverloadStuckPolicy, stuck)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/comp/DeferredAttr;Lcom/sun/tools/javac/comp/Attr$ResultInfo;Lcom/sun/tools/javac/comp/DeferredAttr$DeferredType;)V", nullptr, $PUBLIC, $method(DeferredAttr$OverloadStuckPolicy, init$, void, $DeferredAttr*, $Attr$ResultInfo*, $DeferredAttr$DeferredType*)},
+		{"isStuck", "()Z", nullptr, $PUBLIC, $virtualMethod(DeferredAttr$OverloadStuckPolicy, isStuck, bool)},
+		{"visitLambda", "(Lcom/sun/tools/javac/tree/JCTree$JCLambda;)V", nullptr, $PUBLIC, $virtualMethod(DeferredAttr$OverloadStuckPolicy, visitLambda, void, $JCTree$JCLambda*)},
+		{"visitReference", "(Lcom/sun/tools/javac/tree/JCTree$JCMemberReference;)V", nullptr, $PUBLIC, $virtualMethod(DeferredAttr$OverloadStuckPolicy, visitReference, void, $JCTree$JCMemberReference*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.DeferredAttr$OverloadStuckPolicy", "com.sun.tools.javac.comp.DeferredAttr", "OverloadStuckPolicy", 0},
+		{"com.sun.tools.javac.comp.DeferredAttr$CheckStuckPolicy", "com.sun.tools.javac.comp.DeferredAttr", "CheckStuckPolicy", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.comp.DeferredAttr$OverloadStuckPolicy",
+		"com.sun.tools.javac.comp.DeferredAttr$CheckStuckPolicy",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.DeferredAttr"
+	};
+	$loadClass(DeferredAttr$OverloadStuckPolicy, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DeferredAttr$OverloadStuckPolicy));
+	});
 	return class$;
 }
 

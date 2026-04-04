@@ -42,6 +42,7 @@ class Disposer : public ::java::lang::Runnable {
 	$class(Disposer, 0, ::java::lang::Runnable)
 public:
 	Disposer();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void add(Object$* target, ::sun::java2d::DisposerRecord* rec);
 	static void addObjectRecord(Object$* obj, ::sun::java2d::DisposerRecord* rec);

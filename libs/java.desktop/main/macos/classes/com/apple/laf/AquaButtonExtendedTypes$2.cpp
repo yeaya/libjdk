@@ -1,5 +1,4 @@
 #include <com/apple/laf/AquaButtonExtendedTypes$2.h>
-
 #include <com/apple/laf/AquaButtonBorder.h>
 #include <com/apple/laf/AquaButtonExtendedTypes$TypeSpecifier.h>
 #include <com/apple/laf/AquaButtonExtendedTypes.h>
@@ -18,44 +17,6 @@ namespace com {
 	namespace apple {
 		namespace laf {
 
-$MethodInfo _AquaButtonExtendedTypes$2_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Z)V", nullptr, 0, $method(AquaButtonExtendedTypes$2, init$, void, $String*, bool)},
-	{"getBorder", "()Ljavax/swing/border/Border;", nullptr, 0, $virtualMethod(AquaButtonExtendedTypes$2, getBorder, $Border*)},
-	{}
-};
-
-$EnclosingMethodInfo _AquaButtonExtendedTypes$2_EnclosingMethodInfo_ = {
-	"com.apple.laf.AquaButtonExtendedTypes",
-	"getAllTypes",
-	"()Ljava/util/Map;"
-};
-
-$InnerClassInfo _AquaButtonExtendedTypes$2_InnerClassesInfo_[] = {
-	{"com.apple.laf.AquaButtonExtendedTypes$2", nullptr, nullptr, 0},
-	{"com.apple.laf.AquaButtonExtendedTypes$TypeSpecifier", "com.apple.laf.AquaButtonExtendedTypes", "TypeSpecifier", $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _AquaButtonExtendedTypes$2_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.apple.laf.AquaButtonExtendedTypes$2",
-	"com.apple.laf.AquaButtonExtendedTypes$TypeSpecifier",
-	nullptr,
-	nullptr,
-	_AquaButtonExtendedTypes$2_MethodInfo_,
-	nullptr,
-	&_AquaButtonExtendedTypes$2_EnclosingMethodInfo_,
-	_AquaButtonExtendedTypes$2_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.apple.laf.AquaButtonExtendedTypes"
-};
-
-$Object* allocate$AquaButtonExtendedTypes$2($Class* clazz) {
-	return $of($alloc(AquaButtonExtendedTypes$2));
-}
-
 void AquaButtonExtendedTypes$2::init$($String* name, bool setIconFont) {
 	$AquaButtonExtendedTypes$TypeSpecifier::init$(name, setIconFont);
 }
@@ -68,7 +29,39 @@ AquaButtonExtendedTypes$2::AquaButtonExtendedTypes$2() {
 }
 
 $Class* AquaButtonExtendedTypes$2::load$($String* name, bool initialize) {
-	$loadClass(AquaButtonExtendedTypes$2, name, initialize, &_AquaButtonExtendedTypes$2_ClassInfo_, allocate$AquaButtonExtendedTypes$2);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Z)V", nullptr, 0, $method(AquaButtonExtendedTypes$2, init$, void, $String*, bool)},
+		{"getBorder", "()Ljavax/swing/border/Border;", nullptr, 0, $virtualMethod(AquaButtonExtendedTypes$2, getBorder, $Border*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.apple.laf.AquaButtonExtendedTypes",
+		"getAllTypes",
+		"()Ljava/util/Map;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.laf.AquaButtonExtendedTypes$2", nullptr, nullptr, 0},
+		{"com.apple.laf.AquaButtonExtendedTypes$TypeSpecifier", "com.apple.laf.AquaButtonExtendedTypes", "TypeSpecifier", $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.apple.laf.AquaButtonExtendedTypes$2",
+		"com.apple.laf.AquaButtonExtendedTypes$TypeSpecifier",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.apple.laf.AquaButtonExtendedTypes"
+	};
+	$loadClass(AquaButtonExtendedTypes$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AquaButtonExtendedTypes$2);
+	});
 	return class$;
 }
 

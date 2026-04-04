@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/file/RelativePath$RelativeFile.h>
-
 #include <com/sun/tools/javac/file/RelativePath$RelativeDirectory.h>
 #include <com/sun/tools/javac/file/RelativePath.h>
 #include <java/lang/CharSequence.h>
@@ -25,48 +24,10 @@ namespace com {
 			namespace javac {
 				namespace file {
 
-$MethodInfo _RelativePath$RelativeFile_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(RelativePath$RelativeFile, init$, void, $String*)},
-	{"<init>", "(Lcom/sun/tools/javac/file/RelativePath$RelativeDirectory;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(RelativePath$RelativeFile, init$, void, $RelativePath$RelativeDirectory*, $String*)},
-	{"<init>", "(Lcom/sun/tools/javac/file/RelativePath$RelativeDirectory;Lcom/sun/tools/javac/file/RelativePath;)V", nullptr, 0, $method(RelativePath$RelativeFile, init$, void, $RelativePath$RelativeDirectory*, $RelativePath*)},
-	{"basename", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RelativePath$RelativeFile, basename, $String*)},
-	{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(RelativePath$RelativeFile, compareTo, int32_t, Object$*)},
-	{"dirname", "()Lcom/sun/tools/javac/file/RelativePath$RelativeDirectory;", nullptr, $PUBLIC, $virtualMethod(RelativePath$RelativeFile, dirname, $RelativePath$RelativeDirectory*)},
-	{"forClass", "(Ljava/lang/CharSequence;Ljavax/tools/JavaFileObject$Kind;)Lcom/sun/tools/javac/file/RelativePath$RelativeFile;", nullptr, $STATIC, $staticMethod(RelativePath$RelativeFile, forClass, RelativePath$RelativeFile*, $CharSequence*, $JavaFileObject$Kind*)},
-	{"getZipEntry", "(Ljava/util/zip/ZipFile;)Ljava/util/zip/ZipEntry;", nullptr, 0, $virtualMethod(RelativePath$RelativeFile, getZipEntry, $ZipEntry*, $ZipFile*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RelativePath$RelativeFile, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _RelativePath$RelativeFile_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.file.RelativePath$RelativeFile", "com.sun.tools.javac.file.RelativePath", "RelativeFile", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _RelativePath$RelativeFile_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.file.RelativePath$RelativeFile",
-	"com.sun.tools.javac.file.RelativePath",
-	nullptr,
-	nullptr,
-	_RelativePath$RelativeFile_MethodInfo_,
-	nullptr,
-	nullptr,
-	_RelativePath$RelativeFile_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.file.RelativePath"
-};
-
-$Object* allocate$RelativePath$RelativeFile($Class* clazz) {
-	return $of($alloc(RelativePath$RelativeFile));
-}
-
 RelativePath$RelativeFile* RelativePath$RelativeFile::forClass($CharSequence* className, $JavaFileObject$Kind* kind) {
 	$init(RelativePath$RelativeFile);
-	$useLocalCurrentObjectStackCache();
-	return $new(RelativePath$RelativeFile, $$str({$($nc($($nc(className)->toString()))->replace(u'.', u'/')), $nc(kind)->extension}));
+	$useLocalObjectStack();
+	return $new(RelativePath$RelativeFile, $$str({$($$nc($nc(className)->toString())->replace(u'.', u'/')), $nc(kind)->extension}));
 }
 
 void RelativePath$RelativeFile::init$($String* p) {
@@ -85,13 +46,13 @@ void RelativePath$RelativeFile::init$($RelativePath$RelativeDirectory* d, $Relat
 }
 
 $RelativePath$RelativeDirectory* RelativePath$RelativeFile::dirname() {
-	int32_t sep = $nc(this->path)->lastIndexOf((int32_t)u'/');
-	return $new($RelativePath$RelativeDirectory, $($nc(this->path)->substring(0, sep + 1)));
+	int32_t sep = $nc(this->path)->lastIndexOf(u'/');
+	return $new($RelativePath$RelativeDirectory, $(this->path->substring(0, sep + 1)));
 }
 
 $String* RelativePath$RelativeFile::basename() {
-	int32_t sep = $nc(this->path)->lastIndexOf((int32_t)u'/');
-	return $nc(this->path)->substring(sep + 1);
+	int32_t sep = $nc(this->path)->lastIndexOf(u'/');
+	return this->path->substring(sep + 1);
 }
 
 $ZipEntry* RelativePath$RelativeFile::getZipEntry($ZipFile* zip) {
@@ -110,7 +71,40 @@ RelativePath$RelativeFile::RelativePath$RelativeFile() {
 }
 
 $Class* RelativePath$RelativeFile::load$($String* name, bool initialize) {
-	$loadClass(RelativePath$RelativeFile, name, initialize, &_RelativePath$RelativeFile_ClassInfo_, allocate$RelativePath$RelativeFile);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(RelativePath$RelativeFile, init$, void, $String*)},
+		{"<init>", "(Lcom/sun/tools/javac/file/RelativePath$RelativeDirectory;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(RelativePath$RelativeFile, init$, void, $RelativePath$RelativeDirectory*, $String*)},
+		{"<init>", "(Lcom/sun/tools/javac/file/RelativePath$RelativeDirectory;Lcom/sun/tools/javac/file/RelativePath;)V", nullptr, 0, $method(RelativePath$RelativeFile, init$, void, $RelativePath$RelativeDirectory*, $RelativePath*)},
+		{"basename", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RelativePath$RelativeFile, basename, $String*)},
+		{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(RelativePath$RelativeFile, compareTo, int32_t, Object$*)},
+		{"dirname", "()Lcom/sun/tools/javac/file/RelativePath$RelativeDirectory;", nullptr, $PUBLIC, $virtualMethod(RelativePath$RelativeFile, dirname, $RelativePath$RelativeDirectory*)},
+		{"forClass", "(Ljava/lang/CharSequence;Ljavax/tools/JavaFileObject$Kind;)Lcom/sun/tools/javac/file/RelativePath$RelativeFile;", nullptr, $STATIC, $staticMethod(RelativePath$RelativeFile, forClass, RelativePath$RelativeFile*, $CharSequence*, $JavaFileObject$Kind*)},
+		{"getZipEntry", "(Ljava/util/zip/ZipFile;)Ljava/util/zip/ZipEntry;", nullptr, 0, $virtualMethod(RelativePath$RelativeFile, getZipEntry, $ZipEntry*, $ZipFile*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RelativePath$RelativeFile, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.file.RelativePath$RelativeFile", "com.sun.tools.javac.file.RelativePath", "RelativeFile", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.file.RelativePath$RelativeFile",
+		"com.sun.tools.javac.file.RelativePath",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.file.RelativePath"
+	};
+	$loadClass(RelativePath$RelativeFile, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RelativePath$RelativeFile);
+	});
 	return class$;
 }
 

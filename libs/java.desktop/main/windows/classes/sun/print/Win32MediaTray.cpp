@@ -1,7 +1,5 @@
 #include <sun/print/Win32MediaTray.h>
-
 #include <java/util/AbstractCollection.h>
-#include <java/util/AbstractList.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Collection.h>
 #include <javax/print/attribute/EnumSyntax.h>
@@ -21,52 +19,11 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AbstractCollection = ::java::util::AbstractCollection;
-using $AbstractList = ::java::util::AbstractList;
 using $ArrayList = ::java::util::ArrayList;
-using $Collection = ::java::util::Collection;
 using $MediaTray = ::javax::print::attribute::standard::MediaTray;
 
 namespace sun {
 	namespace print {
-
-$FieldInfo _Win32MediaTray_FieldInfo_[] = {
-	{"ENVELOPE_MANUAL", "Lsun/print/Win32MediaTray;", nullptr, $STATIC | $FINAL, $staticField(Win32MediaTray, ENVELOPE_MANUAL)},
-	{"AUTO", "Lsun/print/Win32MediaTray;", nullptr, $STATIC | $FINAL, $staticField(Win32MediaTray, AUTO)},
-	{"TRACTOR", "Lsun/print/Win32MediaTray;", nullptr, $STATIC | $FINAL, $staticField(Win32MediaTray, TRACTOR)},
-	{"SMALL_FORMAT", "Lsun/print/Win32MediaTray;", nullptr, $STATIC | $FINAL, $staticField(Win32MediaTray, SMALL_FORMAT)},
-	{"LARGE_FORMAT", "Lsun/print/Win32MediaTray;", nullptr, $STATIC | $FINAL, $staticField(Win32MediaTray, LARGE_FORMAT)},
-	{"FORMSOURCE", "Lsun/print/Win32MediaTray;", nullptr, $STATIC | $FINAL, $staticField(Win32MediaTray, FORMSOURCE)},
-	{"winStringTable", "Ljava/util/ArrayList;", "Ljava/util/ArrayList<Ljava/lang/String;>;", $PRIVATE | $STATIC, $staticField(Win32MediaTray, winStringTable)},
-	{"winEnumTable", "Ljava/util/ArrayList;", "Ljava/util/ArrayList<Lsun/print/Win32MediaTray;>;", $PRIVATE | $STATIC, $staticField(Win32MediaTray, winEnumTable)},
-	{"winID", "I", nullptr, $PUBLIC, $field(Win32MediaTray, winID)},
-	{"myStringTable", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Win32MediaTray, myStringTable)},
-	{"myEnumValueTable", "[Ljavax/print/attribute/standard/MediaTray;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Win32MediaTray, myEnumValueTable)},
-	{}
-};
-
-$MethodInfo _Win32MediaTray_MethodInfo_[] = {
-	{"<init>", "(II)V", nullptr, $PRIVATE, $method(Win32MediaTray, init$, void, int32_t, int32_t)},
-	{"<init>", "(ILjava/lang/String;)V", nullptr, $PROTECTED, $method(Win32MediaTray, init$, void, int32_t, $String*)},
-	{"getDMBinID", "()I", nullptr, $PUBLIC, $virtualMethod(Win32MediaTray, getDMBinID, int32_t)},
-	{"getEnumValueTable", "()[Ljavax/print/attribute/EnumSyntax;", nullptr, $PROTECTED, $virtualMethod(Win32MediaTray, getEnumValueTable, $EnumSyntaxArray*)},
-	{"getStringTable", "()[Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(Win32MediaTray, getStringTable, $StringArray*)},
-	{"getTraySize", "()I", nullptr, $PROTECTED | $STATIC, $staticMethod(Win32MediaTray, getTraySize, int32_t)},
-	{"nextValue", "(Ljava/lang/String;)I", nullptr, $PRIVATE | $STATIC | $SYNCHRONIZED, $staticMethod(Win32MediaTray, nextValue, int32_t, $String*)},
-	{}
-};
-
-$ClassInfo _Win32MediaTray_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.print.Win32MediaTray",
-	"javax.print.attribute.standard.MediaTray",
-	nullptr,
-	_Win32MediaTray_FieldInfo_,
-	_Win32MediaTray_MethodInfo_
-};
-
-$Object* allocate$Win32MediaTray($Class* clazz) {
-	return $of($alloc(Win32MediaTray));
-}
 
 Win32MediaTray* Win32MediaTray::ENVELOPE_MANUAL = nullptr;
 Win32MediaTray* Win32MediaTray::AUTO = nullptr;
@@ -85,9 +42,8 @@ void Win32MediaTray::init$(int32_t value, int32_t id) {
 }
 
 int32_t Win32MediaTray::nextValue($String* name) {
-	$load(Win32MediaTray);
+	$init(Win32MediaTray);
 	$synchronized(class$) {
-		$init(Win32MediaTray);
 		$nc(Win32MediaTray::winStringTable)->add(name);
 		return (getTraySize() - 1);
 	}
@@ -105,32 +61,32 @@ int32_t Win32MediaTray::getDMBinID() {
 
 int32_t Win32MediaTray::getTraySize() {
 	$init(Win32MediaTray);
-	return ($nc(Win32MediaTray::myStringTable)->length + $nc(Win32MediaTray::winStringTable)->size());
+	return (Win32MediaTray::myStringTable->length + $nc(Win32MediaTray::winStringTable)->size());
 }
 
 $StringArray* Win32MediaTray::getStringTable() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ArrayList, completeList, $new($ArrayList));
-	for (int32_t i = 0; i < $nc(Win32MediaTray::myStringTable)->length; ++i) {
-		completeList->add($nc(Win32MediaTray::myStringTable)->get(i));
+	for (int32_t i = 0; i < Win32MediaTray::myStringTable->length; ++i) {
+		completeList->add(Win32MediaTray::myStringTable->get(i));
 	}
-	completeList->addAll(static_cast<$Collection*>(static_cast<$AbstractCollection*>(static_cast<$AbstractList*>(Win32MediaTray::winStringTable))));
+	completeList->addAll($cast($AbstractCollection, Win32MediaTray::winStringTable));
 	$var($StringArray, nameTable, $new($StringArray, completeList->size()));
-	return $fcast($StringArray, completeList->toArray(nameTable));
+	return $cast($StringArray, completeList->toArray(nameTable));
 }
 
 $EnumSyntaxArray* Win32MediaTray::getEnumValueTable() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ArrayList, completeList, $new($ArrayList));
-	for (int32_t i = 0; i < $nc(Win32MediaTray::myEnumValueTable)->length; ++i) {
-		completeList->add($nc(Win32MediaTray::myEnumValueTable)->get(i));
+	for (int32_t i = 0; i < Win32MediaTray::myEnumValueTable->length; ++i) {
+		completeList->add(Win32MediaTray::myEnumValueTable->get(i));
 	}
-	completeList->addAll(static_cast<$Collection*>(static_cast<$AbstractCollection*>(static_cast<$AbstractList*>(Win32MediaTray::winEnumTable))));
+	completeList->addAll($cast($AbstractCollection, Win32MediaTray::winEnumTable));
 	$var($MediaTrayArray, enumTable, $new($MediaTrayArray, completeList->size()));
-	return $fcast($EnumSyntaxArray, completeList->toArray(enumTable));
+	return $cast($EnumSyntaxArray, completeList->toArray(enumTable));
 }
 
-void clinit$Win32MediaTray($Class* class$) {
+void Win32MediaTray::clinit$($Class* clazz) {
 	$assignStatic(Win32MediaTray::ENVELOPE_MANUAL, $new(Win32MediaTray, 0, 6));
 	$assignStatic(Win32MediaTray::AUTO, $new(Win32MediaTray, 1, 7));
 	$assignStatic(Win32MediaTray::TRACTOR, $new(Win32MediaTray, 2, 8));
@@ -148,12 +104,12 @@ void clinit$Win32MediaTray($Class* class$) {
 		"Form-Source"_s
 	}));
 	$assignStatic(Win32MediaTray::myEnumValueTable, $new($MediaTrayArray, {
-		static_cast<$MediaTray*>(Win32MediaTray::ENVELOPE_MANUAL),
-		static_cast<$MediaTray*>(Win32MediaTray::AUTO),
-		static_cast<$MediaTray*>(Win32MediaTray::TRACTOR),
-		static_cast<$MediaTray*>(Win32MediaTray::SMALL_FORMAT),
-		static_cast<$MediaTray*>(Win32MediaTray::LARGE_FORMAT),
-		static_cast<$MediaTray*>(Win32MediaTray::FORMSOURCE)
+		Win32MediaTray::ENVELOPE_MANUAL,
+		Win32MediaTray::AUTO,
+		Win32MediaTray::TRACTOR,
+		Win32MediaTray::SMALL_FORMAT,
+		Win32MediaTray::LARGE_FORMAT,
+		Win32MediaTray::FORMSOURCE
 	}));
 }
 
@@ -161,7 +117,41 @@ Win32MediaTray::Win32MediaTray() {
 }
 
 $Class* Win32MediaTray::load$($String* name, bool initialize) {
-	$loadClass(Win32MediaTray, name, initialize, &_Win32MediaTray_ClassInfo_, clinit$Win32MediaTray, allocate$Win32MediaTray);
+	$FieldInfo fieldInfos$$[] = {
+		{"ENVELOPE_MANUAL", "Lsun/print/Win32MediaTray;", nullptr, $STATIC | $FINAL, $staticField(Win32MediaTray, ENVELOPE_MANUAL)},
+		{"AUTO", "Lsun/print/Win32MediaTray;", nullptr, $STATIC | $FINAL, $staticField(Win32MediaTray, AUTO)},
+		{"TRACTOR", "Lsun/print/Win32MediaTray;", nullptr, $STATIC | $FINAL, $staticField(Win32MediaTray, TRACTOR)},
+		{"SMALL_FORMAT", "Lsun/print/Win32MediaTray;", nullptr, $STATIC | $FINAL, $staticField(Win32MediaTray, SMALL_FORMAT)},
+		{"LARGE_FORMAT", "Lsun/print/Win32MediaTray;", nullptr, $STATIC | $FINAL, $staticField(Win32MediaTray, LARGE_FORMAT)},
+		{"FORMSOURCE", "Lsun/print/Win32MediaTray;", nullptr, $STATIC | $FINAL, $staticField(Win32MediaTray, FORMSOURCE)},
+		{"winStringTable", "Ljava/util/ArrayList;", "Ljava/util/ArrayList<Ljava/lang/String;>;", $PRIVATE | $STATIC, $staticField(Win32MediaTray, winStringTable)},
+		{"winEnumTable", "Ljava/util/ArrayList;", "Ljava/util/ArrayList<Lsun/print/Win32MediaTray;>;", $PRIVATE | $STATIC, $staticField(Win32MediaTray, winEnumTable)},
+		{"winID", "I", nullptr, $PUBLIC, $field(Win32MediaTray, winID)},
+		{"myStringTable", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Win32MediaTray, myStringTable)},
+		{"myEnumValueTable", "[Ljavax/print/attribute/standard/MediaTray;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Win32MediaTray, myEnumValueTable)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(II)V", nullptr, $PRIVATE, $method(Win32MediaTray, init$, void, int32_t, int32_t)},
+		{"<init>", "(ILjava/lang/String;)V", nullptr, $PROTECTED, $method(Win32MediaTray, init$, void, int32_t, $String*)},
+		{"getDMBinID", "()I", nullptr, $PUBLIC, $virtualMethod(Win32MediaTray, getDMBinID, int32_t)},
+		{"getEnumValueTable", "()[Ljavax/print/attribute/EnumSyntax;", nullptr, $PROTECTED, $virtualMethod(Win32MediaTray, getEnumValueTable, $EnumSyntaxArray*)},
+		{"getStringTable", "()[Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(Win32MediaTray, getStringTable, $StringArray*)},
+		{"getTraySize", "()I", nullptr, $PROTECTED | $STATIC, $staticMethod(Win32MediaTray, getTraySize, int32_t)},
+		{"nextValue", "(Ljava/lang/String;)I", nullptr, $PRIVATE | $STATIC | $SYNCHRONIZED, $staticMethod(Win32MediaTray, nextValue, int32_t, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.print.Win32MediaTray",
+		"javax.print.attribute.standard.MediaTray",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Win32MediaTray, name, initialize, &classInfo$$, Win32MediaTray::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Win32MediaTray));
+	});
 	return class$;
 }
 

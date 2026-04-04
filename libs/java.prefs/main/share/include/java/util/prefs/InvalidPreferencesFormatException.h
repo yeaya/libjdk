@@ -22,10 +22,13 @@ public:
 	void init$($Throwable* cause);
 	void init$($String* message);
 	void init$($String* message, $Throwable* cause);
-	static const int64_t serialVersionUID = (int64_t)0xF503433C108FC28B;
+	static const int64_t serialVersionUID = (int64_t)0xf503433c108fc28b;
 	InvalidPreferencesFormatException(const InvalidPreferencesFormatException& e);
 	virtual void throw$() override;
-	inline InvalidPreferencesFormatException* operator ->() {
+	inline InvalidPreferencesFormatException* operator ->() const {
+		return (InvalidPreferencesFormatException*)throwing$;
+	}
+	inline operator InvalidPreferencesFormatException*() const {
 		return (InvalidPreferencesFormatException*)throwing$;
 	}
 };

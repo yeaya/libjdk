@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/code/Symbol$Completer$1.h>
-
 #include <com/sun/tools/javac/code/Symbol.h>
 #include <jcpp.h>
 
@@ -15,45 +14,6 @@ namespace com {
 			namespace javac {
 				namespace code {
 
-$MethodInfo _Symbol$Completer$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(Symbol$Completer$1, init$, void)},
-	{"complete", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, $virtualMethod(Symbol$Completer$1, complete, void, $Symbol*)},
-	{"isTerminal", "()Z", nullptr, $PUBLIC, $virtualMethod(Symbol$Completer$1, isTerminal, bool)},
-	{}
-};
-
-$EnclosingMethodInfo _Symbol$Completer$1_EnclosingMethodInfo_ = {
-	"com.sun.tools.javac.code.Symbol$Completer",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _Symbol$Completer$1_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.code.Symbol$Completer", "com.sun.tools.javac.code.Symbol", "Completer", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"com.sun.tools.javac.code.Symbol$Completer$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Symbol$Completer$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.code.Symbol$Completer$1",
-	"java.lang.Object",
-	"com.sun.tools.javac.code.Symbol$Completer",
-	nullptr,
-	_Symbol$Completer$1_MethodInfo_,
-	nullptr,
-	&_Symbol$Completer$1_EnclosingMethodInfo_,
-	_Symbol$Completer$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.code.Symbol"
-};
-
-$Object* allocate$Symbol$Completer$1($Class* clazz) {
-	return $of($alloc(Symbol$Completer$1));
-}
-
 void Symbol$Completer$1::init$() {
 }
 
@@ -68,7 +28,40 @@ Symbol$Completer$1::Symbol$Completer$1() {
 }
 
 $Class* Symbol$Completer$1::load$($String* name, bool initialize) {
-	$loadClass(Symbol$Completer$1, name, initialize, &_Symbol$Completer$1_ClassInfo_, allocate$Symbol$Completer$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(Symbol$Completer$1, init$, void)},
+		{"complete", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, $virtualMethod(Symbol$Completer$1, complete, void, $Symbol*)},
+		{"isTerminal", "()Z", nullptr, $PUBLIC, $virtualMethod(Symbol$Completer$1, isTerminal, bool)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.tools.javac.code.Symbol$Completer",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.code.Symbol$Completer", "com.sun.tools.javac.code.Symbol", "Completer", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"com.sun.tools.javac.code.Symbol$Completer$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.code.Symbol$Completer$1",
+		"java.lang.Object",
+		"com.sun.tools.javac.code.Symbol$Completer",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.code.Symbol"
+	};
+	$loadClass(Symbol$Completer$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Symbol$Completer$1);
+	});
 	return class$;
 }
 

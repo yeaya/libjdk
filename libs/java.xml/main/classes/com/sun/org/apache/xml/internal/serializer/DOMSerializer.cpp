@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/serializer/DOMSerializer.h>
-
 #include <org/w3c/dom/Node.h>
 #include <jcpp.h>
 
@@ -15,26 +14,22 @@ namespace com {
 					namespace internal {
 						namespace serializer {
 
-$MethodInfo _DOMSerializer_MethodInfo_[] = {
-	{"serialize", "(Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DOMSerializer, serialize, void, $Node*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _DOMSerializer_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.org.apache.xml.internal.serializer.DOMSerializer",
-	nullptr,
-	nullptr,
-	nullptr,
-	_DOMSerializer_MethodInfo_
-};
-
-$Object* allocate$DOMSerializer($Class* clazz) {
-	return $of($alloc(DOMSerializer));
-}
-
 $Class* DOMSerializer::load$($String* name, bool initialize) {
-	$loadClass(DOMSerializer, name, initialize, &_DOMSerializer_ClassInfo_, allocate$DOMSerializer);
+	$MethodInfo methodInfos$$[] = {
+		{"serialize", "(Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DOMSerializer, serialize, void, $Node*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.org.apache.xml.internal.serializer.DOMSerializer",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(DOMSerializer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DOMSerializer);
+	});
 	return class$;
 }
 

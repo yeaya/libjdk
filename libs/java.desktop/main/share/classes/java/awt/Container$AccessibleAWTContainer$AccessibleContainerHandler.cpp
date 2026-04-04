@@ -1,5 +1,4 @@
 #include <java/awt/Container$AccessibleAWTContainer$AccessibleContainerHandler.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Container$AccessibleAWTContainer.h>
 #include <java/awt/event/ContainerEvent.h>
@@ -23,50 +22,6 @@ using $AccessibleContext = ::javax::accessibility::AccessibleContext;
 
 namespace java {
 	namespace awt {
-
-$FieldInfo _Container$AccessibleAWTContainer$AccessibleContainerHandler_FieldInfo_[] = {
-	{"this$1", "Ljava/awt/Container$AccessibleAWTContainer;", nullptr, $FINAL | $SYNTHETIC, $field(Container$AccessibleAWTContainer$AccessibleContainerHandler, this$1)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Container$AccessibleAWTContainer$AccessibleContainerHandler, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _Container$AccessibleAWTContainer$AccessibleContainerHandler_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/awt/Container$AccessibleAWTContainer;)V", nullptr, $PROTECTED, $method(Container$AccessibleAWTContainer$AccessibleContainerHandler, init$, void, $Container$AccessibleAWTContainer*)},
-	{"componentAdded", "(Ljava/awt/event/ContainerEvent;)V", nullptr, $PUBLIC, $virtualMethod(Container$AccessibleAWTContainer$AccessibleContainerHandler, componentAdded, void, $ContainerEvent*)},
-	{"componentRemoved", "(Ljava/awt/event/ContainerEvent;)V", nullptr, $PUBLIC, $virtualMethod(Container$AccessibleAWTContainer$AccessibleContainerHandler, componentRemoved, void, $ContainerEvent*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _Container$AccessibleAWTContainer$AccessibleContainerHandler_InnerClassesInfo_[] = {
-	{"java.awt.Container$AccessibleAWTContainer", "java.awt.Container", "AccessibleAWTContainer", $PROTECTED},
-	{"java.awt.Container$AccessibleAWTContainer$AccessibleContainerHandler", "java.awt.Container$AccessibleAWTContainer", "AccessibleContainerHandler", $PROTECTED},
-	{}
-};
-
-$ClassInfo _Container$AccessibleAWTContainer$AccessibleContainerHandler_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.awt.Container$AccessibleAWTContainer$AccessibleContainerHandler",
-	"java.lang.Object",
-	"java.awt.event.ContainerListener,java.io.Serializable",
-	_Container$AccessibleAWTContainer$AccessibleContainerHandler_FieldInfo_,
-	_Container$AccessibleAWTContainer$AccessibleContainerHandler_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Container$AccessibleAWTContainer$AccessibleContainerHandler_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.awt.Container"
-};
-
-$Object* allocate$Container$AccessibleAWTContainer$AccessibleContainerHandler($Class* clazz) {
-	return $of($alloc(Container$AccessibleAWTContainer$AccessibleContainerHandler));
-}
 
 int32_t Container$AccessibleAWTContainer$AccessibleContainerHandler::hashCode() {
 	 return this->$ContainerListener::hashCode();
@@ -93,20 +48,20 @@ void Container$AccessibleAWTContainer$AccessibleContainerHandler::init$($Contain
 }
 
 void Container$AccessibleAWTContainer$AccessibleContainerHandler::componentAdded($ContainerEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Component, c, $nc(e)->getChild());
 	if (c != nullptr && $instanceOf($Accessible, c)) {
 		$init($AccessibleContext);
-		this->this$1->firePropertyChange($AccessibleContext::ACCESSIBLE_CHILD_PROPERTY, nullptr, $($nc(($cast($Accessible, c)))->getAccessibleContext()));
+		this->this$1->firePropertyChange($AccessibleContext::ACCESSIBLE_CHILD_PROPERTY, nullptr, $($cast($Accessible, c)->getAccessibleContext()));
 	}
 }
 
 void Container$AccessibleAWTContainer$AccessibleContainerHandler::componentRemoved($ContainerEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Component, c, $nc(e)->getChild());
 	if (c != nullptr && $instanceOf($Accessible, c)) {
 		$init($AccessibleContext);
-		this->this$1->firePropertyChange($AccessibleContext::ACCESSIBLE_CHILD_PROPERTY, $($nc(($cast($Accessible, c)))->getAccessibleContext()), nullptr);
+		this->this$1->firePropertyChange($AccessibleContext::ACCESSIBLE_CHILD_PROPERTY, $($cast($Accessible, c)->getAccessibleContext()), nullptr);
 	}
 }
 
@@ -114,7 +69,45 @@ Container$AccessibleAWTContainer$AccessibleContainerHandler::Container$Accessibl
 }
 
 $Class* Container$AccessibleAWTContainer$AccessibleContainerHandler::load$($String* name, bool initialize) {
-	$loadClass(Container$AccessibleAWTContainer$AccessibleContainerHandler, name, initialize, &_Container$AccessibleAWTContainer$AccessibleContainerHandler_ClassInfo_, allocate$Container$AccessibleAWTContainer$AccessibleContainerHandler);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$1", "Ljava/awt/Container$AccessibleAWTContainer;", nullptr, $FINAL | $SYNTHETIC, $field(Container$AccessibleAWTContainer$AccessibleContainerHandler, this$1)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Container$AccessibleAWTContainer$AccessibleContainerHandler, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/awt/Container$AccessibleAWTContainer;)V", nullptr, $PROTECTED, $method(Container$AccessibleAWTContainer$AccessibleContainerHandler, init$, void, $Container$AccessibleAWTContainer*)},
+		{"componentAdded", "(Ljava/awt/event/ContainerEvent;)V", nullptr, $PUBLIC, $virtualMethod(Container$AccessibleAWTContainer$AccessibleContainerHandler, componentAdded, void, $ContainerEvent*)},
+		{"componentRemoved", "(Ljava/awt/event/ContainerEvent;)V", nullptr, $PUBLIC, $virtualMethod(Container$AccessibleAWTContainer$AccessibleContainerHandler, componentRemoved, void, $ContainerEvent*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.awt.Container$AccessibleAWTContainer", "java.awt.Container", "AccessibleAWTContainer", $PROTECTED},
+		{"java.awt.Container$AccessibleAWTContainer$AccessibleContainerHandler", "java.awt.Container$AccessibleAWTContainer", "AccessibleContainerHandler", $PROTECTED},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.awt.Container$AccessibleAWTContainer$AccessibleContainerHandler",
+		"java.lang.Object",
+		"java.awt.event.ContainerListener,java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.awt.Container"
+	};
+	$loadClass(Container$AccessibleAWTContainer$AccessibleContainerHandler, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Container$AccessibleAWTContainer$AccessibleContainerHandler));
+	});
 	return class$;
 }
 

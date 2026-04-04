@@ -1,5 +1,4 @@
 #include <com/sun/jndi/ldap/ServiceLocator$SrvRecord.h>
-
 #include <com/sun/jndi/ldap/ServiceLocator.h>
 #include <java/util/StringTokenizer.h>
 #include <jcpp.h>
@@ -17,48 +16,8 @@ namespace com {
 		namespace jndi {
 			namespace ldap {
 
-$FieldInfo _ServiceLocator$SrvRecord_FieldInfo_[] = {
-	{"priority", "I", nullptr, 0, $field(ServiceLocator$SrvRecord, priority)},
-	{"weight", "I", nullptr, 0, $field(ServiceLocator$SrvRecord, weight)},
-	{"sum", "I", nullptr, 0, $field(ServiceLocator$SrvRecord, sum)},
-	{"hostport", "Ljava/lang/String;", nullptr, 0, $field(ServiceLocator$SrvRecord, hostport)},
-	{}
-};
-
-$MethodInfo _ServiceLocator$SrvRecord_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(ServiceLocator$SrvRecord, init$, void, $String*), "java.lang.Exception"},
-	{"compareTo", "(Lcom/sun/jndi/ldap/ServiceLocator$SrvRecord;)I", nullptr, $PUBLIC, $virtualMethod(ServiceLocator$SrvRecord, compareTo, int32_t, ServiceLocator$SrvRecord*)},
-	{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(ServiceLocator$SrvRecord, compareTo, int32_t, Object$*)},
-	{}
-};
-
-$InnerClassInfo _ServiceLocator$SrvRecord_InnerClassesInfo_[] = {
-	{"com.sun.jndi.ldap.ServiceLocator$SrvRecord", "com.sun.jndi.ldap.ServiceLocator", "SrvRecord", $STATIC},
-	{}
-};
-
-$ClassInfo _ServiceLocator$SrvRecord_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.jndi.ldap.ServiceLocator$SrvRecord",
-	"java.lang.Object",
-	"java.lang.Comparable",
-	_ServiceLocator$SrvRecord_FieldInfo_,
-	_ServiceLocator$SrvRecord_MethodInfo_,
-	"Ljava/lang/Object;Ljava/lang/Comparable<Lcom/sun/jndi/ldap/ServiceLocator$SrvRecord;>;",
-	nullptr,
-	_ServiceLocator$SrvRecord_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.jndi.ldap.ServiceLocator"
-};
-
-$Object* allocate$ServiceLocator$SrvRecord($Class* clazz) {
-	return $of($alloc(ServiceLocator$SrvRecord));
-}
-
 void ServiceLocator$SrvRecord::init$($String* srvRecord) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringTokenizer, tokenizer, $new($StringTokenizer, srvRecord, " "_s));
 	$var($String, port, nullptr);
 	if (tokenizer->countTokens() == 4) {
@@ -93,7 +52,41 @@ ServiceLocator$SrvRecord::ServiceLocator$SrvRecord() {
 }
 
 $Class* ServiceLocator$SrvRecord::load$($String* name, bool initialize) {
-	$loadClass(ServiceLocator$SrvRecord, name, initialize, &_ServiceLocator$SrvRecord_ClassInfo_, allocate$ServiceLocator$SrvRecord);
+	$FieldInfo fieldInfos$$[] = {
+		{"priority", "I", nullptr, 0, $field(ServiceLocator$SrvRecord, priority)},
+		{"weight", "I", nullptr, 0, $field(ServiceLocator$SrvRecord, weight)},
+		{"sum", "I", nullptr, 0, $field(ServiceLocator$SrvRecord, sum)},
+		{"hostport", "Ljava/lang/String;", nullptr, 0, $field(ServiceLocator$SrvRecord, hostport)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(ServiceLocator$SrvRecord, init$, void, $String*), "java.lang.Exception"},
+		{"compareTo", "(Lcom/sun/jndi/ldap/ServiceLocator$SrvRecord;)I", nullptr, $PUBLIC, $virtualMethod(ServiceLocator$SrvRecord, compareTo, int32_t, ServiceLocator$SrvRecord*)},
+		{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(ServiceLocator$SrvRecord, compareTo, int32_t, Object$*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.jndi.ldap.ServiceLocator$SrvRecord", "com.sun.jndi.ldap.ServiceLocator", "SrvRecord", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.jndi.ldap.ServiceLocator$SrvRecord",
+		"java.lang.Object",
+		"java.lang.Comparable",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/lang/Comparable<Lcom/sun/jndi/ldap/ServiceLocator$SrvRecord;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.jndi.ldap.ServiceLocator"
+	};
+	$loadClass(ServiceLocator$SrvRecord, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ServiceLocator$SrvRecord);
+	});
 	return class$;
 }
 

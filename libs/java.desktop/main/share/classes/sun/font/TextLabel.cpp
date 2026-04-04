@@ -1,5 +1,4 @@
 #include <sun/font/TextLabel.h>
-
 #include <java/awt/Graphics2D.h>
 #include <java/awt/Shape.h>
 #include <java/awt/geom/Rectangle2D.h>
@@ -14,36 +13,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace sun {
 	namespace font {
-
-$MethodInfo _TextLabel_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TextLabel, init$, void)},
-	{"draw", "(Ljava/awt/Graphics2D;FF)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TextLabel, draw, void, $Graphics2D*, float, float)},
-	{"draw", "(Ljava/awt/Graphics2D;)V", nullptr, $PUBLIC, $virtualMethod(TextLabel, draw, void, $Graphics2D*)},
-	{"getAlignBounds", "(FF)Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TextLabel, getAlignBounds, $Rectangle2D*, float, float)},
-	{"getAlignBounds", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC, $virtualMethod(TextLabel, getAlignBounds, $Rectangle2D*)},
-	{"getItalicBounds", "(FF)Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TextLabel, getItalicBounds, $Rectangle2D*, float, float)},
-	{"getItalicBounds", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC, $virtualMethod(TextLabel, getItalicBounds, $Rectangle2D*)},
-	{"getLogicalBounds", "(FF)Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TextLabel, getLogicalBounds, $Rectangle2D*, float, float)},
-	{"getLogicalBounds", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC, $virtualMethod(TextLabel, getLogicalBounds, $Rectangle2D*)},
-	{"getOutline", "(FF)Ljava/awt/Shape;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TextLabel, getOutline, $Shape*, float, float)},
-	{"getOutline", "()Ljava/awt/Shape;", nullptr, $PUBLIC, $virtualMethod(TextLabel, getOutline, $Shape*)},
-	{"getVisualBounds", "(FF)Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TextLabel, getVisualBounds, $Rectangle2D*, float, float)},
-	{"getVisualBounds", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC, $virtualMethod(TextLabel, getVisualBounds, $Rectangle2D*)},
-	{}
-};
-
-$ClassInfo _TextLabel_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"sun.font.TextLabel",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_TextLabel_MethodInfo_
-};
-
-$Object* allocate$TextLabel($Class* clazz) {
-	return $of($alloc(TextLabel));
-}
 
 void TextLabel::init$() {
 }
@@ -76,7 +45,33 @@ TextLabel::TextLabel() {
 }
 
 $Class* TextLabel::load$($String* name, bool initialize) {
-	$loadClass(TextLabel, name, initialize, &_TextLabel_ClassInfo_, allocate$TextLabel);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TextLabel, init$, void)},
+		{"draw", "(Ljava/awt/Graphics2D;FF)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TextLabel, draw, void, $Graphics2D*, float, float)},
+		{"draw", "(Ljava/awt/Graphics2D;)V", nullptr, $PUBLIC, $virtualMethod(TextLabel, draw, void, $Graphics2D*)},
+		{"getAlignBounds", "(FF)Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TextLabel, getAlignBounds, $Rectangle2D*, float, float)},
+		{"getAlignBounds", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC, $virtualMethod(TextLabel, getAlignBounds, $Rectangle2D*)},
+		{"getItalicBounds", "(FF)Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TextLabel, getItalicBounds, $Rectangle2D*, float, float)},
+		{"getItalicBounds", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC, $virtualMethod(TextLabel, getItalicBounds, $Rectangle2D*)},
+		{"getLogicalBounds", "(FF)Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TextLabel, getLogicalBounds, $Rectangle2D*, float, float)},
+		{"getLogicalBounds", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC, $virtualMethod(TextLabel, getLogicalBounds, $Rectangle2D*)},
+		{"getOutline", "(FF)Ljava/awt/Shape;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TextLabel, getOutline, $Shape*, float, float)},
+		{"getOutline", "()Ljava/awt/Shape;", nullptr, $PUBLIC, $virtualMethod(TextLabel, getOutline, $Shape*)},
+		{"getVisualBounds", "(FF)Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TextLabel, getVisualBounds, $Rectangle2D*, float, float)},
+		{"getVisualBounds", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC, $virtualMethod(TextLabel, getVisualBounds, $Rectangle2D*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"sun.font.TextLabel",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(TextLabel, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TextLabel);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/CompileStates$CompileState.h>
-
 #include <com/sun/tools/javac/comp/CompileStates.h>
 #include <java/lang/Enum.h>
 #include <jcpp.h>
@@ -28,58 +27,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace comp {
-
-$FieldInfo _CompileStates$CompileState_FieldInfo_[] = {
-	{"INIT", "Lcom/sun/tools/javac/comp/CompileStates$CompileState;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CompileStates$CompileState, INIT)},
-	{"PARSE", "Lcom/sun/tools/javac/comp/CompileStates$CompileState;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CompileStates$CompileState, PARSE)},
-	{"ENTER", "Lcom/sun/tools/javac/comp/CompileStates$CompileState;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CompileStates$CompileState, ENTER)},
-	{"PROCESS", "Lcom/sun/tools/javac/comp/CompileStates$CompileState;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CompileStates$CompileState, PROCESS)},
-	{"ATTR", "Lcom/sun/tools/javac/comp/CompileStates$CompileState;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CompileStates$CompileState, ATTR)},
-	{"FLOW", "Lcom/sun/tools/javac/comp/CompileStates$CompileState;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CompileStates$CompileState, FLOW)},
-	{"TRANSTYPES", "Lcom/sun/tools/javac/comp/CompileStates$CompileState;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CompileStates$CompileState, TRANSTYPES)},
-	{"TRANSPATTERNS", "Lcom/sun/tools/javac/comp/CompileStates$CompileState;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CompileStates$CompileState, TRANSPATTERNS)},
-	{"UNLAMBDA", "Lcom/sun/tools/javac/comp/CompileStates$CompileState;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CompileStates$CompileState, UNLAMBDA)},
-	{"LOWER", "Lcom/sun/tools/javac/comp/CompileStates$CompileState;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CompileStates$CompileState, LOWER)},
-	{"GENERATE", "Lcom/sun/tools/javac/comp/CompileStates$CompileState;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CompileStates$CompileState, GENERATE)},
-	{"$VALUES", "[Lcom/sun/tools/javac/comp/CompileStates$CompileState;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(CompileStates$CompileState, $VALUES)},
-	{"value", "I", nullptr, $PRIVATE | $FINAL, $field(CompileStates$CompileState, value)},
-	{}
-};
-
-$MethodInfo _CompileStates$CompileState_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/javac/comp/CompileStates$CompileState;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(CompileStates$CompileState, $values, $CompileStates$CompileStateArray*)},
-	{"<init>", "(Ljava/lang/String;II)V", "(I)V", $PRIVATE, $method(CompileStates$CompileState, init$, void, $String*, int32_t, int32_t)},
-	{"isAfter", "(Lcom/sun/tools/javac/comp/CompileStates$CompileState;)Z", nullptr, $PUBLIC, $method(CompileStates$CompileState, isAfter, bool, CompileStates$CompileState*)},
-	{"max", "(Lcom/sun/tools/javac/comp/CompileStates$CompileState;Lcom/sun/tools/javac/comp/CompileStates$CompileState;)Lcom/sun/tools/javac/comp/CompileStates$CompileState;", nullptr, $PUBLIC | $STATIC, $staticMethod(CompileStates$CompileState, max, CompileStates$CompileState*, CompileStates$CompileState*, CompileStates$CompileState*)},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/comp/CompileStates$CompileState;", nullptr, $PUBLIC | $STATIC, $staticMethod(CompileStates$CompileState, valueOf, CompileStates$CompileState*, $String*)},
-	{"values", "()[Lcom/sun/tools/javac/comp/CompileStates$CompileState;", nullptr, $PUBLIC | $STATIC, $staticMethod(CompileStates$CompileState, values, $CompileStates$CompileStateArray*)},
-	{}
-};
-
-$InnerClassInfo _CompileStates$CompileState_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.CompileStates$CompileState", "com.sun.tools.javac.comp.CompileStates", "CompileState", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _CompileStates$CompileState_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"com.sun.tools.javac.comp.CompileStates$CompileState",
-	"java.lang.Enum",
-	nullptr,
-	_CompileStates$CompileState_FieldInfo_,
-	_CompileStates$CompileState_MethodInfo_,
-	"Ljava/lang/Enum<Lcom/sun/tools/javac/comp/CompileStates$CompileState;>;",
-	nullptr,
-	_CompileStates$CompileState_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.CompileStates"
-};
-
-$Object* allocate$CompileStates$CompileState($Class* clazz) {
-	return $of($alloc(CompileStates$CompileState));
-}
 
 CompileStates$CompileState* CompileStates$CompileState::INIT = nullptr;
 CompileStates$CompileState* CompileStates$CompileState::PARSE = nullptr;
@@ -135,7 +82,7 @@ CompileStates$CompileState* CompileStates$CompileState::max(CompileStates$Compil
 	return $nc(a)->value > $nc(b)->value ? a : b;
 }
 
-void clinit$CompileStates$CompileState($Class* class$) {
+void CompileStates$CompileState::clinit$($Class* clazz) {
 	$assignStatic(CompileStates$CompileState::INIT, $new(CompileStates$CompileState, "INIT"_s, 0, 0));
 	$assignStatic(CompileStates$CompileState::PARSE, $new(CompileStates$CompileState, "PARSE"_s, 1, 1));
 	$assignStatic(CompileStates$CompileState::ENTER, $new(CompileStates$CompileState, "ENTER"_s, 2, 2));
@@ -154,7 +101,53 @@ CompileStates$CompileState::CompileStates$CompileState() {
 }
 
 $Class* CompileStates$CompileState::load$($String* name, bool initialize) {
-	$loadClass(CompileStates$CompileState, name, initialize, &_CompileStates$CompileState_ClassInfo_, clinit$CompileStates$CompileState, allocate$CompileStates$CompileState);
+	$FieldInfo fieldInfos$$[] = {
+		{"INIT", "Lcom/sun/tools/javac/comp/CompileStates$CompileState;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CompileStates$CompileState, INIT)},
+		{"PARSE", "Lcom/sun/tools/javac/comp/CompileStates$CompileState;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CompileStates$CompileState, PARSE)},
+		{"ENTER", "Lcom/sun/tools/javac/comp/CompileStates$CompileState;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CompileStates$CompileState, ENTER)},
+		{"PROCESS", "Lcom/sun/tools/javac/comp/CompileStates$CompileState;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CompileStates$CompileState, PROCESS)},
+		{"ATTR", "Lcom/sun/tools/javac/comp/CompileStates$CompileState;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CompileStates$CompileState, ATTR)},
+		{"FLOW", "Lcom/sun/tools/javac/comp/CompileStates$CompileState;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CompileStates$CompileState, FLOW)},
+		{"TRANSTYPES", "Lcom/sun/tools/javac/comp/CompileStates$CompileState;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CompileStates$CompileState, TRANSTYPES)},
+		{"TRANSPATTERNS", "Lcom/sun/tools/javac/comp/CompileStates$CompileState;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CompileStates$CompileState, TRANSPATTERNS)},
+		{"UNLAMBDA", "Lcom/sun/tools/javac/comp/CompileStates$CompileState;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CompileStates$CompileState, UNLAMBDA)},
+		{"LOWER", "Lcom/sun/tools/javac/comp/CompileStates$CompileState;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CompileStates$CompileState, LOWER)},
+		{"GENERATE", "Lcom/sun/tools/javac/comp/CompileStates$CompileState;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CompileStates$CompileState, GENERATE)},
+		{"$VALUES", "[Lcom/sun/tools/javac/comp/CompileStates$CompileState;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(CompileStates$CompileState, $VALUES)},
+		{"value", "I", nullptr, $PRIVATE | $FINAL, $field(CompileStates$CompileState, value)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lcom/sun/tools/javac/comp/CompileStates$CompileState;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(CompileStates$CompileState, $values, $CompileStates$CompileStateArray*)},
+		{"<init>", "(Ljava/lang/String;II)V", "(I)V", $PRIVATE, $method(CompileStates$CompileState, init$, void, $String*, int32_t, int32_t)},
+		{"isAfter", "(Lcom/sun/tools/javac/comp/CompileStates$CompileState;)Z", nullptr, $PUBLIC, $method(CompileStates$CompileState, isAfter, bool, CompileStates$CompileState*)},
+		{"max", "(Lcom/sun/tools/javac/comp/CompileStates$CompileState;Lcom/sun/tools/javac/comp/CompileStates$CompileState;)Lcom/sun/tools/javac/comp/CompileStates$CompileState;", nullptr, $PUBLIC | $STATIC, $staticMethod(CompileStates$CompileState, max, CompileStates$CompileState*, CompileStates$CompileState*, CompileStates$CompileState*)},
+		{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/comp/CompileStates$CompileState;", nullptr, $PUBLIC | $STATIC, $staticMethod(CompileStates$CompileState, valueOf, CompileStates$CompileState*, $String*)},
+		{"values", "()[Lcom/sun/tools/javac/comp/CompileStates$CompileState;", nullptr, $PUBLIC | $STATIC, $staticMethod(CompileStates$CompileState, values, $CompileStates$CompileStateArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.CompileStates$CompileState", "com.sun.tools.javac.comp.CompileStates", "CompileState", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"com.sun.tools.javac.comp.CompileStates$CompileState",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lcom/sun/tools/javac/comp/CompileStates$CompileState;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.CompileStates"
+	};
+	$loadClass(CompileStates$CompileState, name, initialize, &classInfo$$, CompileStates$CompileState::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(CompileStates$CompileState));
+	});
 	return class$;
 }
 

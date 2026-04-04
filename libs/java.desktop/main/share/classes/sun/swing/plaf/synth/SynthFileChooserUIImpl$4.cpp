@@ -1,5 +1,4 @@
 #include <sun/swing/plaf/synth/SynthFileChooserUIImpl$4.h>
-
 #include <java/awt/event/FocusAdapter.h>
 #include <java/awt/event/FocusEvent.h>
 #include <javax/swing/JFileChooser.h>
@@ -15,8 +14,6 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $JFileChooser = ::javax::swing::JFileChooser;
-using $FilePane = ::sun::swing::FilePane;
 using $SynthFileChooserUIImpl = ::sun::swing::plaf::synth::SynthFileChooserUIImpl;
 
 namespace sun {
@@ -24,55 +21,13 @@ namespace sun {
 		namespace plaf {
 			namespace synth {
 
-$FieldInfo _SynthFileChooserUIImpl$4_FieldInfo_[] = {
-	{"this$0", "Lsun/swing/plaf/synth/SynthFileChooserUIImpl;", nullptr, $FINAL | $SYNTHETIC, $field(SynthFileChooserUIImpl$4, this$0)},
-	{}
-};
-
-$MethodInfo _SynthFileChooserUIImpl$4_MethodInfo_[] = {
-	{"<init>", "(Lsun/swing/plaf/synth/SynthFileChooserUIImpl;)V", nullptr, 0, $method(SynthFileChooserUIImpl$4, init$, void, $SynthFileChooserUIImpl*)},
-	{"focusGained", "(Ljava/awt/event/FocusEvent;)V", nullptr, $PUBLIC, $virtualMethod(SynthFileChooserUIImpl$4, focusGained, void, $FocusEvent*)},
-	{}
-};
-
-$EnclosingMethodInfo _SynthFileChooserUIImpl$4_EnclosingMethodInfo_ = {
-	"sun.swing.plaf.synth.SynthFileChooserUIImpl",
-	"installComponents",
-	"(Ljavax/swing/JFileChooser;)V"
-};
-
-$InnerClassInfo _SynthFileChooserUIImpl$4_InnerClassesInfo_[] = {
-	{"sun.swing.plaf.synth.SynthFileChooserUIImpl$4", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _SynthFileChooserUIImpl$4_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.swing.plaf.synth.SynthFileChooserUIImpl$4",
-	"java.awt.event.FocusAdapter",
-	nullptr,
-	_SynthFileChooserUIImpl$4_FieldInfo_,
-	_SynthFileChooserUIImpl$4_MethodInfo_,
-	nullptr,
-	&_SynthFileChooserUIImpl$4_EnclosingMethodInfo_,
-	_SynthFileChooserUIImpl$4_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.swing.plaf.synth.SynthFileChooserUIImpl"
-};
-
-$Object* allocate$SynthFileChooserUIImpl$4($Class* clazz) {
-	return $of($alloc(SynthFileChooserUIImpl$4));
-}
-
 void SynthFileChooserUIImpl$4::init$($SynthFileChooserUIImpl* this$0) {
 	$set(this, this$0, this$0);
 	$FocusAdapter::init$();
 }
 
 void SynthFileChooserUIImpl$4::focusGained($FocusEvent* e) {
-	if (!$nc($(this->this$0->getFileChooser()))->isMultiSelectionEnabled()) {
+	if (!$$nc(this->this$0->getFileChooser())->isMultiSelectionEnabled()) {
 		$nc(this->this$0->filePane)->clearSelection();
 	}
 }
@@ -81,7 +36,42 @@ SynthFileChooserUIImpl$4::SynthFileChooserUIImpl$4() {
 }
 
 $Class* SynthFileChooserUIImpl$4::load$($String* name, bool initialize) {
-	$loadClass(SynthFileChooserUIImpl$4, name, initialize, &_SynthFileChooserUIImpl$4_ClassInfo_, allocate$SynthFileChooserUIImpl$4);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/swing/plaf/synth/SynthFileChooserUIImpl;", nullptr, $FINAL | $SYNTHETIC, $field(SynthFileChooserUIImpl$4, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/swing/plaf/synth/SynthFileChooserUIImpl;)V", nullptr, 0, $method(SynthFileChooserUIImpl$4, init$, void, $SynthFileChooserUIImpl*)},
+		{"focusGained", "(Ljava/awt/event/FocusEvent;)V", nullptr, $PUBLIC, $virtualMethod(SynthFileChooserUIImpl$4, focusGained, void, $FocusEvent*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.swing.plaf.synth.SynthFileChooserUIImpl",
+		"installComponents",
+		"(Ljavax/swing/JFileChooser;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.swing.plaf.synth.SynthFileChooserUIImpl$4", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.swing.plaf.synth.SynthFileChooserUIImpl$4",
+		"java.awt.event.FocusAdapter",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.swing.plaf.synth.SynthFileChooserUIImpl"
+	};
+	$loadClass(SynthFileChooserUIImpl$4, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SynthFileChooserUIImpl$4);
+	});
 	return class$;
 }
 

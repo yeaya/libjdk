@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/runtime/InternalRuntimeError.h>
-
 #include <java/lang/Error.h>
 #include <jcpp.h>
 
@@ -17,29 +16,6 @@ namespace com {
 						namespace xsltc {
 							namespace runtime {
 
-$FieldInfo _InternalRuntimeError_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(InternalRuntimeError, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _InternalRuntimeError_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(InternalRuntimeError, init$, void, $String*)},
-	{}
-};
-
-$ClassInfo _InternalRuntimeError_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xalan.internal.xsltc.runtime.InternalRuntimeError",
-	"java.lang.Error",
-	nullptr,
-	_InternalRuntimeError_FieldInfo_,
-	_InternalRuntimeError_MethodInfo_
-};
-
-$Object* allocate$InternalRuntimeError($Class* clazz) {
-	return $of($alloc(InternalRuntimeError));
-}
-
 void InternalRuntimeError::init$($String* message) {
 	$Error::init$(message);
 }
@@ -55,7 +31,25 @@ void InternalRuntimeError::throw$() {
 }
 
 $Class* InternalRuntimeError::load$($String* name, bool initialize) {
-	$loadClass(InternalRuntimeError, name, initialize, &_InternalRuntimeError_ClassInfo_, allocate$InternalRuntimeError);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(InternalRuntimeError, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(InternalRuntimeError, init$, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xalan.internal.xsltc.runtime.InternalRuntimeError",
+		"java.lang.Error",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(InternalRuntimeError, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(InternalRuntimeError);
+	});
 	return class$;
 }
 

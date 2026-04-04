@@ -23,6 +23,7 @@ class MacOSXPreferences : public ::java::util::prefs::AbstractPreferences {
 	$class(MacOSXPreferences, 0, ::java::util::prefs::AbstractPreferences)
 public:
 	MacOSXPreferences();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(bool newIsUser);
 	void init$(::java::util::prefs::MacOSXPreferences* parent, $String* name);
 	void init$(::java::util::prefs::MacOSXPreferences* parent, $String* name, bool isNew);

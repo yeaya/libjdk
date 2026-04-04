@@ -28,6 +28,7 @@ class $export TestJProgressBarHighlightColor : public ::java::lang::Object {
 	$class(TestJProgressBarHighlightColor, 0, ::java::lang::Object)
 public:
 	TestJProgressBarHighlightColor();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void blockTillDisplayed(::java::awt::Component* comp);
 	static int32_t getMaxColorDiff(::java::awt::Color* c1, ::java::awt::Color* c2);

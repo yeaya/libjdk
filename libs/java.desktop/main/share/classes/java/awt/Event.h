@@ -138,6 +138,7 @@ class $export Event : public ::java::io::Serializable {
 	$class(Event, 0, ::java::io::Serializable)
 public:
 	Event();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(Object$* target, int64_t when, int32_t id, int32_t x, int32_t y, int32_t key, int32_t modifiers, Object$* arg);
 	void init$(Object$* target, int64_t when, int32_t id, int32_t x, int32_t y, int32_t key, int32_t modifiers);
 	void init$(Object$* target, int32_t id, Object$* arg);
@@ -235,7 +236,7 @@ public:
 	::java::awt::Event* evt = nullptr;
 	static $Array<int32_t, 2>* actionKeyCodes;
 	bool consumed = false;
-	static const int64_t serialVersionUID = (int64_t)0x4C2C91F0D476797F;
+	static const int64_t serialVersionUID = (int64_t)0x4c2c91f0d476797f;
 };
 
 	} // awt

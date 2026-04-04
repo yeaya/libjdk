@@ -20,10 +20,13 @@ public:
 	StubNotFoundException();
 	void init$($String* s);
 	void init$($String* s, ::java::lang::Exception* ex);
-	static const int64_t serialVersionUID = (int64_t)0x9DA1A83213E4914B;
+	static const int64_t serialVersionUID = (int64_t)0x9da1a83213e4914b;
 	StubNotFoundException(const StubNotFoundException& e);
 	virtual void throw$() override;
-	inline StubNotFoundException* operator ->() {
+	inline StubNotFoundException* operator ->() const {
+		return (StubNotFoundException*)throwing$;
+	}
+	inline operator StubNotFoundException*() const {
 		return (StubNotFoundException*)throwing$;
 	}
 };

@@ -24,6 +24,7 @@ class $export FontSetToNull : public ::java::lang::Object {
 	$class(FontSetToNull, 0, ::java::lang::Object)
 public:
 	FontSetToNull();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void lambda$main$0(::javax::swing::UIManager$LookAndFeelInfo* laf);
 	static void lambda$main$1();

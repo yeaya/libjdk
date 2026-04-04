@@ -1,12 +1,10 @@
 #include <bug6937798.h>
-
 #include <bug6937798$1.h>
 #include <bug6937798$2.h>
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/Graphics.h>
 #include <java/awt/image/BufferedImage.h>
-#include <java/lang/Runnable.h>
 #include <javax/swing/JTable.h>
 #include <javax/swing/LookAndFeel.h>
 #include <javax/swing/SwingUtilities.h>
@@ -23,60 +21,25 @@ using $bug6937798$2 = ::bug6937798$2;
 using $Color = ::java::awt::Color;
 using $Graphics = ::java::awt::Graphics;
 using $BufferedImage = ::java::awt::image::BufferedImage;
-using $PrintStream = ::java::io::PrintStream;
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $JTable = ::javax::swing::JTable;
-using $LookAndFeel = ::javax::swing::LookAndFeel;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $UIManager = ::javax::swing::UIManager;
 using $NimbusLookAndFeel = ::javax::swing::plaf::nimbus::NimbusLookAndFeel;
 using $TableModel = ::javax::swing::table::TableModel;
 
-$MethodInfo _bug6937798_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(bug6937798, init$, void)},
-	{"createCountryTable", "()Ljavax/swing/JTable;", nullptr, $PROTECTED, $virtualMethod(bug6937798, createCountryTable, $JTable*)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(bug6937798, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$InnerClassInfo _bug6937798_InnerClassesInfo_[] = {
-	{"bug6937798$2", nullptr, nullptr, 0},
-	{"bug6937798$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _bug6937798_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"bug6937798",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_bug6937798_MethodInfo_,
-	nullptr,
-	nullptr,
-	_bug6937798_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"bug6937798$2,bug6937798$1"
-};
-
-$Object* allocate$bug6937798($Class* clazz) {
-	return $of($alloc(bug6937798));
-}
-
 void bug6937798::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
-	$UIManager::setLookAndFeel(static_cast<$LookAndFeel*>($$new($NimbusLookAndFeel)));
+	$useLocalObjectStack();
+	$UIManager::setLookAndFeel($$new($NimbusLookAndFeel));
 	$SwingUtilities::invokeAndWait($$new($bug6937798$1));
 }
 
 void bug6937798::init$() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JTable, table, createCountryTable());
 	$nc(table)->setShowGrid(true);
 	table->setSize(100, 100);
@@ -88,7 +51,7 @@ void bug6937798::init$() {
 	for (int32_t i = 0; i < im->getHeight(); ++i) {
 		for (int32_t j = 0; j < im->getWidth(); ++j) {
 			int32_t var$1 = im->getRGB(i, j);
-			if (var$1 == $nc($(table->getGridColor()))->getRGB()) {
+			if (var$1 == $$nc(table->getGridColor())->getRGB()) {
 				$nc($System::out)->println("got it!"_s);
 				return;
 			}
@@ -98,7 +61,7 @@ void bug6937798::init$() {
 }
 
 $JTable* bug6937798::createCountryTable() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringArray, headers, $new($StringArray, {
 		"Name"_s,
 		"Capital City"_s,
@@ -108,305 +71,305 @@ $JTable* bug6937798::createCountryTable() {
 	}));
 	$var($ObjectArray2, data, $new($ObjectArray2, {
 		$$new($ObjectArray, {
-			$of("Albania"_s),
-			$of("Tirane"_s),
-			$of("Albanian, Greek"_s),
-			$of("Lek"_s),
-			$of($$new($Boolean, false))
+			"Albania"_s,
+			"Tirane"_s,
+			"Albanian, Greek"_s,
+			"Lek"_s,
+			$$new($Boolean, false)
 		}),
 		$$new($ObjectArray, {
-			$of("Andorra"_s),
-			$of("Andorra la Vella"_s),
-			$of("Catalan, French, Spanish"_s),
-			$of("French Franc, Spanish Peseta"_s),
-			$of($$new($Boolean, false))
+			"Andorra"_s,
+			"Andorra la Vella"_s,
+			"Catalan, French, Spanish"_s,
+			"French Franc, Spanish Peseta"_s,
+			$$new($Boolean, false)
 		}),
 		$$new($ObjectArray, {
-			$of("Austria"_s),
-			$of("Vienna"_s),
-			$of("German, Slovenian, Croatian"_s),
-			$of("Schilling"_s),
-			$of($$new($Boolean, false))
+			"Austria"_s,
+			"Vienna"_s,
+			"German, Slovenian, Croatian"_s,
+			"Schilling"_s,
+			$$new($Boolean, false)
 		}),
 		$$new($ObjectArray, {
-			$of("Belarus"_s),
-			$of("Minsk"_s),
-			$of("Byelorussian, Russian"_s),
-			$of("Belarusian Rubel"_s),
-			$of($$new($Boolean, false))
+			"Belarus"_s,
+			"Minsk"_s,
+			"Byelorussian, Russian"_s,
+			"Belarusian Rubel"_s,
+			$$new($Boolean, false)
 		}),
 		$$new($ObjectArray, {
-			$of("Belgium"_s),
-			$of("Brussels"_s),
-			$of("French, Flemish, German"_s),
-			$of("Belgian Franc"_s),
-			$of($$new($Boolean, true))
+			"Belgium"_s,
+			"Brussels"_s,
+			"French, Flemish, German"_s,
+			"Belgian Franc"_s,
+			$$new($Boolean, true)
 		}),
 		$$new($ObjectArray, {
-			$of("Bosnia & Herzegovina"_s),
-			$of("Sarajevo"_s),
-			$of("Serbo-Croatian"_s),
-			$of("Dinar"_s),
-			$of($$new($Boolean, false))
+			"Bosnia & Herzegovina"_s,
+			"Sarajevo"_s,
+			"Serbo-Croatian"_s,
+			"Dinar"_s,
+			$$new($Boolean, false)
 		}),
 		$$new($ObjectArray, {
-			$of("Bulgaria"_s),
-			$of("Sofia"_s),
-			$of("Bulgarian, Turkish"_s),
-			$of("Lev"_s),
-			$of($$new($Boolean, false))
+			"Bulgaria"_s,
+			"Sofia"_s,
+			"Bulgarian, Turkish"_s,
+			"Lev"_s,
+			$$new($Boolean, false)
 		}),
 		$$new($ObjectArray, {
-			$of("Croatia"_s),
-			$of("Zagreb"_s),
-			$of("Serbo-Croatian"_s),
-			$of("Croatian Kuna"_s),
-			$of($$new($Boolean, false))
+			"Croatia"_s,
+			"Zagreb"_s,
+			"Serbo-Croatian"_s,
+			"Croatian Kuna"_s,
+			$$new($Boolean, false)
 		}),
 		$$new($ObjectArray, {
-			$of("Czech Republic"_s),
-			$of("Prague"_s),
-			$of("Czech, Slovak"_s),
-			$of("Koruna"_s),
-			$of($$new($Boolean, false))
+			"Czech Republic"_s,
+			"Prague"_s,
+			"Czech, Slovak"_s,
+			"Koruna"_s,
+			$$new($Boolean, false)
 		}),
 		$$new($ObjectArray, {
-			$of("Denmark"_s),
-			$of("Copenhagen"_s),
-			$of("Danish"_s),
-			$of("Krone"_s),
-			$of($$new($Boolean, true))
+			"Denmark"_s,
+			"Copenhagen"_s,
+			"Danish"_s,
+			"Krone"_s,
+			$$new($Boolean, true)
 		}),
 		$$new($ObjectArray, {
-			$of("Estonia"_s),
-			$of("Tallinn"_s),
-			$of("Estonian, Latvian, Lithuanian, Russian"_s),
-			$of("Estonian Kroon"_s),
-			$of($$new($Boolean, false))
+			"Estonia"_s,
+			"Tallinn"_s,
+			"Estonian, Latvian, Lithuanian, Russian"_s,
+			"Estonian Kroon"_s,
+			$$new($Boolean, false)
 		}),
 		$$new($ObjectArray, {
-			$of("Finland"_s),
-			$of("Helsinki"_s),
-			$of("Finnish, Swedish, Lappish"_s),
-			$of("Markka"_s),
-			$of($$new($Boolean, false))
+			"Finland"_s,
+			"Helsinki"_s,
+			"Finnish, Swedish, Lappish"_s,
+			"Markka"_s,
+			$$new($Boolean, false)
 		}),
 		$$new($ObjectArray, {
-			$of("France"_s),
-			$of("Paris"_s),
-			$of("French"_s),
-			$of("Franc"_s),
-			$of($$new($Boolean, true))
+			"France"_s,
+			"Paris"_s,
+			"French"_s,
+			"Franc"_s,
+			$$new($Boolean, true)
 		}),
 		$$new($ObjectArray, {
-			$of("Germany"_s),
-			$of("Berlin"_s),
-			$of("German"_s),
-			$of("Deutsche Mark"_s),
-			$of($$new($Boolean, true))
+			"Germany"_s,
+			"Berlin"_s,
+			"German"_s,
+			"Deutsche Mark"_s,
+			$$new($Boolean, true)
 		}),
 		$$new($ObjectArray, {
-			$of("Greece"_s),
-			$of("Athens"_s),
-			$of("Greek, English, French"_s),
-			$of("Drachma"_s),
-			$of($$new($Boolean, true))
+			"Greece"_s,
+			"Athens"_s,
+			"Greek, English, French"_s,
+			"Drachma"_s,
+			$$new($Boolean, true)
 		}),
 		$$new($ObjectArray, {
-			$of("Hungary"_s),
-			$of("Budapest"_s),
-			$of("Hungarian"_s),
-			$of("Forint"_s),
-			$of($$new($Boolean, false))
+			"Hungary"_s,
+			"Budapest"_s,
+			"Hungarian"_s,
+			"Forint"_s,
+			$$new($Boolean, false)
 		}),
 		$$new($ObjectArray, {
-			$of("Iceland"_s),
-			$of("Reykjavik"_s),
-			$of("Icelandic"_s),
-			$of("Icelandic Krona"_s),
-			$of($$new($Boolean, false))
+			"Iceland"_s,
+			"Reykjavik"_s,
+			"Icelandic"_s,
+			"Icelandic Krona"_s,
+			$$new($Boolean, false)
 		}),
 		$$new($ObjectArray, {
-			$of("Ireland"_s),
-			$of("Dublin"_s),
-			$of("Irish, English"_s),
-			$of("Pound"_s),
-			$of($$new($Boolean, true))
+			"Ireland"_s,
+			"Dublin"_s,
+			"Irish, English"_s,
+			"Pound"_s,
+			$$new($Boolean, true)
 		}),
 		$$new($ObjectArray, {
-			$of("Italy"_s),
-			$of("Rome"_s),
-			$of("Italian"_s),
-			$of("Lira"_s),
-			$of($$new($Boolean, true))
+			"Italy"_s,
+			"Rome"_s,
+			"Italian"_s,
+			"Lira"_s,
+			$$new($Boolean, true)
 		}),
 		$$new($ObjectArray, {
-			$of("Latvia"_s),
-			$of("Riga"_s),
-			$of("Lettish, Lithuanian, Russian"_s),
-			$of("Lat"_s),
-			$of($$new($Boolean, false))
+			"Latvia"_s,
+			"Riga"_s,
+			"Lettish, Lithuanian, Russian"_s,
+			"Lat"_s,
+			$$new($Boolean, false)
 		}),
 		$$new($ObjectArray, {
-			$of("Liechtenstein"_s),
-			$of("Vaduz"_s),
-			$of("German"_s),
-			$of("Swiss Franc"_s),
-			$of($$new($Boolean, false))
+			"Liechtenstein"_s,
+			"Vaduz"_s,
+			"German"_s,
+			"Swiss Franc"_s,
+			$$new($Boolean, false)
 		}),
 		$$new($ObjectArray, {
-			$of("Lithuania"_s),
-			$of("Vilnius"_s),
-			$of("Lithuanian, Polish, Russian"_s),
-			$of("Lita"_s),
-			$of($$new($Boolean, false))
+			"Lithuania"_s,
+			"Vilnius"_s,
+			"Lithuanian, Polish, Russian"_s,
+			"Lita"_s,
+			$$new($Boolean, false)
 		}),
 		$$new($ObjectArray, {
-			$of("Luxembourg"_s),
-			$of("Luxembourg"_s),
-			$of("French, German, Letzeburgesch"_s),
-			$of("Luxembourg Franc"_s),
-			$of($$new($Boolean, true))
+			"Luxembourg"_s,
+			"Luxembourg"_s,
+			"French, German, Letzeburgesch"_s,
+			"Luxembourg Franc"_s,
+			$$new($Boolean, true)
 		}),
 		$$new($ObjectArray, {
-			$of("Macedonia"_s),
-			$of("Skopje"_s),
-			$of("Macedonian, Albanian, Turkish, Serbo-Croatian"_s),
-			$of("Denar"_s),
-			$of($$new($Boolean, false))
+			"Macedonia"_s,
+			"Skopje"_s,
+			"Macedonian, Albanian, Turkish, Serbo-Croatian"_s,
+			"Denar"_s,
+			$$new($Boolean, false)
 		}),
 		$$new($ObjectArray, {
-			$of("Malta"_s),
-			$of("Valletta"_s),
-			$of("Maltese, English"_s),
-			$of("Maltese Lira"_s),
-			$of($$new($Boolean, false))
+			"Malta"_s,
+			"Valletta"_s,
+			"Maltese, English"_s,
+			"Maltese Lira"_s,
+			$$new($Boolean, false)
 		}),
 		$$new($ObjectArray, {
-			$of("Moldova"_s),
-			$of("Chisinau"_s),
-			$of("Moldovan, Russian"_s),
-			$of("Leu"_s),
-			$of($$new($Boolean, false))
+			"Moldova"_s,
+			"Chisinau"_s,
+			"Moldovan, Russian"_s,
+			"Leu"_s,
+			$$new($Boolean, false)
 		}),
 		$$new($ObjectArray, {
-			$of("Monaco"_s),
-			$of("Monaco"_s),
-			$of("French, English, Italian"_s),
-			$of("French Franc"_s),
-			$of($$new($Boolean, false))
+			"Monaco"_s,
+			"Monaco"_s,
+			"French, English, Italian"_s,
+			"French Franc"_s,
+			$$new($Boolean, false)
 		}),
 		$$new($ObjectArray, {
-			$of("the Netherlands"_s),
-			$of("Amsterdam"_s),
-			$of("Dutch"_s),
-			$of("Guilder"_s),
-			$of($$new($Boolean, true))
+			"the Netherlands"_s,
+			"Amsterdam"_s,
+			"Dutch"_s,
+			"Guilder"_s,
+			$$new($Boolean, true)
 		}),
 		$$new($ObjectArray, {
-			$of("Norway"_s),
-			$of("Oslo"_s),
-			$of("Norwegian"_s),
-			$of("Krone"_s),
-			$of($$new($Boolean, false))
+			"Norway"_s,
+			"Oslo"_s,
+			"Norwegian"_s,
+			"Krone"_s,
+			$$new($Boolean, false)
 		}),
 		$$new($ObjectArray, {
-			$of("Poland"_s),
-			$of("Warsaw"_s),
-			$of("Polish"_s),
-			$of("Zloty"_s),
-			$of($$new($Boolean, false))
+			"Poland"_s,
+			"Warsaw"_s,
+			"Polish"_s,
+			"Zloty"_s,
+			$$new($Boolean, false)
 		}),
 		$$new($ObjectArray, {
-			$of("Portugal"_s),
-			$of("Lisbon"_s),
-			$of("Portuguese"_s),
-			$of("Escudo"_s),
-			$of($$new($Boolean, true))
+			"Portugal"_s,
+			"Lisbon"_s,
+			"Portuguese"_s,
+			"Escudo"_s,
+			$$new($Boolean, true)
 		}),
 		$$new($ObjectArray, {
-			$of("Romania"_s),
-			$of("Bucharest"_s),
-			$of("Romanian"_s),
-			$of("Leu"_s),
-			$of($$new($Boolean, false))
+			"Romania"_s,
+			"Bucharest"_s,
+			"Romanian"_s,
+			"Leu"_s,
+			$$new($Boolean, false)
 		}),
 		$$new($ObjectArray, {
-			$of("Russia"_s),
-			$of("Moscow"_s),
-			$of("Russian"_s),
-			$of("Ruble"_s),
-			$of($$new($Boolean, false))
+			"Russia"_s,
+			"Moscow"_s,
+			"Russian"_s,
+			"Ruble"_s,
+			$$new($Boolean, false)
 		}),
 		$$new($ObjectArray, {
-			$of("San Marino"_s),
-			$of("San Marino"_s),
-			$of("Italian"_s),
-			$of("Italian Lira"_s),
-			$of($$new($Boolean, false))
+			"San Marino"_s,
+			"San Marino"_s,
+			"Italian"_s,
+			"Italian Lira"_s,
+			$$new($Boolean, false)
 		}),
 		$$new($ObjectArray, {
-			$of("Slovakia"_s),
-			$of("Bratislava"_s),
-			$of("Slovak, Hungarian"_s),
-			$of("Koruna"_s),
-			$of($$new($Boolean, false))
+			"Slovakia"_s,
+			"Bratislava"_s,
+			"Slovak, Hungarian"_s,
+			"Koruna"_s,
+			$$new($Boolean, false)
 		}),
 		$$new($ObjectArray, {
-			$of("Slovenia"_s),
-			$of("Ljubljana"_s),
-			$of("Slovenian, Serbo-Croatian"_s),
-			$of("Tolar"_s),
-			$of($$new($Boolean, false))
+			"Slovenia"_s,
+			"Ljubljana"_s,
+			"Slovenian, Serbo-Croatian"_s,
+			"Tolar"_s,
+			$$new($Boolean, false)
 		}),
 		$$new($ObjectArray, {
-			$of("Spain"_s),
-			$of("Madrid"_s),
-			$of("Spanish"_s),
-			$of("Peseta"_s),
-			$of($$new($Boolean, true))
+			"Spain"_s,
+			"Madrid"_s,
+			"Spanish"_s,
+			"Peseta"_s,
+			$$new($Boolean, true)
 		}),
 		$$new($ObjectArray, {
-			$of("Sweden"_s),
-			$of("Stockholm"_s),
-			$of("Swedish"_s),
-			$of("Krona"_s),
-			$of($$new($Boolean, false))
+			"Sweden"_s,
+			"Stockholm"_s,
+			"Swedish"_s,
+			"Krona"_s,
+			$$new($Boolean, false)
 		}),
 		$$new($ObjectArray, {
-			$of("Switzerland"_s),
-			$of("Bern"_s),
-			$of("German, French, Italian"_s),
-			$of("Swiss Franc"_s),
-			$of($$new($Boolean, false))
+			"Switzerland"_s,
+			"Bern"_s,
+			"German, French, Italian"_s,
+			"Swiss Franc"_s,
+			$$new($Boolean, false)
 		}),
 		$$new($ObjectArray, {
-			$of("Turkey"_s),
-			$of("Ankara"_s),
-			$of("Turkish"_s),
-			$of("Turkish Lira"_s),
-			$of($$new($Boolean, false))
+			"Turkey"_s,
+			"Ankara"_s,
+			"Turkish"_s,
+			"Turkish Lira"_s,
+			$$new($Boolean, false)
 		}),
 		$$new($ObjectArray, {
-			$of("Ukraine"_s),
-			$of("Kiev"_s),
-			$of("Ukranian, Russian, Romanian, Polish, Hungarian"_s),
-			$of("Hryvnia"_s),
-			$of($$new($Boolean, false))
+			"Ukraine"_s,
+			"Kiev"_s,
+			"Ukranian, Russian, Romanian, Polish, Hungarian"_s,
+			"Hryvnia"_s,
+			$$new($Boolean, false)
 		}),
 		$$new($ObjectArray, {
-			$of("United Kingdom"_s),
-			$of("London"_s),
-			$of("English, Welsh"_s),
-			$of("British Pound"_s),
-			$of($$new($Boolean, true))
+			"United Kingdom"_s,
+			"London"_s,
+			"English, Welsh"_s,
+			"British Pound"_s,
+			$$new($Boolean, true)
 		}),
 		$$new($ObjectArray, {
-			$of("Yugoslavia"_s),
-			$of("Belgrade"_s),
-			$of("Serbo-Croatian, Slovenian, Macedonian"_s),
-			$of("Dinar"_s),
-			$of($$new($Boolean, false))
+			"Yugoslavia"_s,
+			"Belgrade"_s,
+			"Serbo-Croatian, Slovenian, Macedonian"_s,
+			"Dinar"_s,
+			$$new($Boolean, false)
 		})
 	}));
 	$var($TableModel, dataModel, $new($bug6937798$2, this, headers, data));
@@ -422,7 +385,34 @@ bug6937798::bug6937798() {
 }
 
 $Class* bug6937798::load$($String* name, bool initialize) {
-	$loadClass(bug6937798, name, initialize, &_bug6937798_ClassInfo_, allocate$bug6937798);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(bug6937798, init$, void)},
+		{"createCountryTable", "()Ljavax/swing/JTable;", nullptr, $PROTECTED, $virtualMethod(bug6937798, createCountryTable, $JTable*)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(bug6937798, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"bug6937798$2", nullptr, nullptr, 0},
+		{"bug6937798$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"bug6937798",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"bug6937798$2,bug6937798$1"
+	};
+	$loadClass(bug6937798, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(bug6937798);
+	});
 	return class$;
 }
 

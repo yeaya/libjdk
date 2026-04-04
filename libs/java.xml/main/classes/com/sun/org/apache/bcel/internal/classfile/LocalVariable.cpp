@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/bcel/internal/classfile/LocalVariable.h>
-
 #include <com/sun/org/apache/bcel/internal/Const.h>
 #include <com/sun/org/apache/bcel/internal/classfile/Constant.h>
 #include <com/sun/org/apache/bcel/internal/classfile/ConstantPool.h>
@@ -33,62 +32,6 @@ namespace com {
 					namespace internal {
 						namespace classfile {
 
-$FieldInfo _LocalVariable_FieldInfo_[] = {
-	{"startPc", "I", nullptr, $PRIVATE, $field(LocalVariable, startPc)},
-	{"length", "I", nullptr, $PRIVATE, $field(LocalVariable, length)},
-	{"nameIndex", "I", nullptr, $PRIVATE, $field(LocalVariable, nameIndex)},
-	{"signatureIndex", "I", nullptr, $PRIVATE, $field(LocalVariable, signatureIndex)},
-	{"index", "I", nullptr, $PRIVATE, $field(LocalVariable, index)},
-	{"constantPool", "Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;", nullptr, $PRIVATE, $field(LocalVariable, constantPool)},
-	{"origIndex", "I", nullptr, $PRIVATE, $field(LocalVariable, origIndex)},
-	{}
-};
-
-$MethodInfo _LocalVariable_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lcom/sun/org/apache/bcel/internal/classfile/LocalVariable;)V", nullptr, $PUBLIC, $method(LocalVariable, init$, void, LocalVariable*)},
-	{"<init>", "(Ljava/io/DataInput;Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;)V", nullptr, 0, $method(LocalVariable, init$, void, $DataInput*, $ConstantPool*), "java.io.IOException"},
-	{"<init>", "(IIIIILcom/sun/org/apache/bcel/internal/classfile/ConstantPool;)V", nullptr, $PUBLIC, $method(LocalVariable, init$, void, int32_t, int32_t, int32_t, int32_t, int32_t, $ConstantPool*)},
-	{"<init>", "(IIIIILcom/sun/org/apache/bcel/internal/classfile/ConstantPool;I)V", nullptr, $PUBLIC, $method(LocalVariable, init$, void, int32_t, int32_t, int32_t, int32_t, int32_t, $ConstantPool*, int32_t)},
-	{"accept", "(Lcom/sun/org/apache/bcel/internal/classfile/Visitor;)V", nullptr, $PUBLIC, $virtualMethod(LocalVariable, accept, void, $Visitor*)},
-	{"copy", "()Lcom/sun/org/apache/bcel/internal/classfile/LocalVariable;", nullptr, $PUBLIC, $method(LocalVariable, copy, LocalVariable*)},
-	{"dump", "(Ljava/io/DataOutputStream;)V", nullptr, $PUBLIC, $method(LocalVariable, dump, void, $DataOutputStream*), "java.io.IOException"},
-	{"getConstantPool", "()Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;", nullptr, $PUBLIC, $method(LocalVariable, getConstantPool, $ConstantPool*)},
-	{"getIndex", "()I", nullptr, $PUBLIC, $method(LocalVariable, getIndex, int32_t)},
-	{"getLength", "()I", nullptr, $PUBLIC, $method(LocalVariable, getLength, int32_t)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(LocalVariable, getName, $String*)},
-	{"getNameIndex", "()I", nullptr, $PUBLIC, $method(LocalVariable, getNameIndex, int32_t)},
-	{"getOrigIndex", "()I", nullptr, $PUBLIC, $method(LocalVariable, getOrigIndex, int32_t)},
-	{"getSignature", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(LocalVariable, getSignature, $String*)},
-	{"getSignatureIndex", "()I", nullptr, $PUBLIC, $method(LocalVariable, getSignatureIndex, int32_t)},
-	{"getStartPC", "()I", nullptr, $PUBLIC, $method(LocalVariable, getStartPC, int32_t)},
-	{"setConstantPool", "(Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;)V", nullptr, $PUBLIC, $method(LocalVariable, setConstantPool, void, $ConstantPool*)},
-	{"setIndex", "(I)V", nullptr, $PUBLIC, $method(LocalVariable, setIndex, void, int32_t)},
-	{"setLength", "(I)V", nullptr, $PUBLIC, $method(LocalVariable, setLength, void, int32_t)},
-	{"setNameIndex", "(I)V", nullptr, $PUBLIC, $method(LocalVariable, setNameIndex, void, int32_t)},
-	{"setSignatureIndex", "(I)V", nullptr, $PUBLIC, $method(LocalVariable, setSignatureIndex, void, int32_t)},
-	{"setStartPC", "(I)V", nullptr, $PUBLIC, $method(LocalVariable, setStartPC, void, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LocalVariable, toString, $String*)},
-	{"toStringShared", "(Z)Ljava/lang/String;", nullptr, 0, $method(LocalVariable, toStringShared, $String*, bool)},
-	{}
-};
-
-$ClassInfo _LocalVariable_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.org.apache.bcel.internal.classfile.LocalVariable",
-	"java.lang.Object",
-	"java.lang.Cloneable,com.sun.org.apache.bcel.internal.classfile.Node",
-	_LocalVariable_FieldInfo_,
-	_LocalVariable_MethodInfo_
-};
-
-$Object* allocate$LocalVariable($Class* clazz) {
-	return $of($alloc(LocalVariable));
-}
-
 int32_t LocalVariable::hashCode() {
 	 return this->$Cloneable::hashCode();
 }
@@ -112,7 +55,7 @@ void LocalVariable::init$(LocalVariable* localVariable) {
 	int32_t var$3 = localVariable->getSignatureIndex();
 	int32_t var$4 = localVariable->getIndex();
 	LocalVariable::init$(var$0, var$1, var$2, var$3, var$4, $(localVariable->getConstantPool()));
-	this->origIndex = $nc(localVariable)->getOrigIndex();
+	this->origIndex = localVariable->getOrigIndex();
 }
 
 void LocalVariable::init$($DataInput* file, $ConstantPool* constant_pool) {
@@ -196,7 +139,7 @@ int32_t LocalVariable::getStartPC() {
 }
 
 $String* LocalVariable::toStringShared(bool typeTable) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, name, getName());
 	$var($String, signature, $Utility::signatureToString($(getSignature()), false));
 	$var($String, label, $str({"LocalVariable"_s, (typeTable ? "Types"_s : ""_s)}));
@@ -243,7 +186,58 @@ LocalVariable::LocalVariable() {
 }
 
 $Class* LocalVariable::load$($String* name, bool initialize) {
-	$loadClass(LocalVariable, name, initialize, &_LocalVariable_ClassInfo_, allocate$LocalVariable);
+	$FieldInfo fieldInfos$$[] = {
+		{"startPc", "I", nullptr, $PRIVATE, $field(LocalVariable, startPc)},
+		{"length", "I", nullptr, $PRIVATE, $field(LocalVariable, length)},
+		{"nameIndex", "I", nullptr, $PRIVATE, $field(LocalVariable, nameIndex)},
+		{"signatureIndex", "I", nullptr, $PRIVATE, $field(LocalVariable, signatureIndex)},
+		{"index", "I", nullptr, $PRIVATE, $field(LocalVariable, index)},
+		{"constantPool", "Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;", nullptr, $PRIVATE, $field(LocalVariable, constantPool)},
+		{"origIndex", "I", nullptr, $PRIVATE, $field(LocalVariable, origIndex)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lcom/sun/org/apache/bcel/internal/classfile/LocalVariable;)V", nullptr, $PUBLIC, $method(LocalVariable, init$, void, LocalVariable*)},
+		{"<init>", "(Ljava/io/DataInput;Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;)V", nullptr, 0, $method(LocalVariable, init$, void, $DataInput*, $ConstantPool*), "java.io.IOException"},
+		{"<init>", "(IIIIILcom/sun/org/apache/bcel/internal/classfile/ConstantPool;)V", nullptr, $PUBLIC, $method(LocalVariable, init$, void, int32_t, int32_t, int32_t, int32_t, int32_t, $ConstantPool*)},
+		{"<init>", "(IIIIILcom/sun/org/apache/bcel/internal/classfile/ConstantPool;I)V", nullptr, $PUBLIC, $method(LocalVariable, init$, void, int32_t, int32_t, int32_t, int32_t, int32_t, $ConstantPool*, int32_t)},
+		{"accept", "(Lcom/sun/org/apache/bcel/internal/classfile/Visitor;)V", nullptr, $PUBLIC, $virtualMethod(LocalVariable, accept, void, $Visitor*)},
+		{"copy", "()Lcom/sun/org/apache/bcel/internal/classfile/LocalVariable;", nullptr, $PUBLIC, $method(LocalVariable, copy, LocalVariable*)},
+		{"dump", "(Ljava/io/DataOutputStream;)V", nullptr, $PUBLIC, $method(LocalVariable, dump, void, $DataOutputStream*), "java.io.IOException"},
+		{"getConstantPool", "()Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;", nullptr, $PUBLIC, $method(LocalVariable, getConstantPool, $ConstantPool*)},
+		{"getIndex", "()I", nullptr, $PUBLIC, $method(LocalVariable, getIndex, int32_t)},
+		{"getLength", "()I", nullptr, $PUBLIC, $method(LocalVariable, getLength, int32_t)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(LocalVariable, getName, $String*)},
+		{"getNameIndex", "()I", nullptr, $PUBLIC, $method(LocalVariable, getNameIndex, int32_t)},
+		{"getOrigIndex", "()I", nullptr, $PUBLIC, $method(LocalVariable, getOrigIndex, int32_t)},
+		{"getSignature", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(LocalVariable, getSignature, $String*)},
+		{"getSignatureIndex", "()I", nullptr, $PUBLIC, $method(LocalVariable, getSignatureIndex, int32_t)},
+		{"getStartPC", "()I", nullptr, $PUBLIC, $method(LocalVariable, getStartPC, int32_t)},
+		{"setConstantPool", "(Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;)V", nullptr, $PUBLIC, $method(LocalVariable, setConstantPool, void, $ConstantPool*)},
+		{"setIndex", "(I)V", nullptr, $PUBLIC, $method(LocalVariable, setIndex, void, int32_t)},
+		{"setLength", "(I)V", nullptr, $PUBLIC, $method(LocalVariable, setLength, void, int32_t)},
+		{"setNameIndex", "(I)V", nullptr, $PUBLIC, $method(LocalVariable, setNameIndex, void, int32_t)},
+		{"setSignatureIndex", "(I)V", nullptr, $PUBLIC, $method(LocalVariable, setSignatureIndex, void, int32_t)},
+		{"setStartPC", "(I)V", nullptr, $PUBLIC, $method(LocalVariable, setStartPC, void, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LocalVariable, toString, $String*)},
+		{"toStringShared", "(Z)Ljava/lang/String;", nullptr, 0, $method(LocalVariable, toStringShared, $String*, bool)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.org.apache.bcel.internal.classfile.LocalVariable",
+		"java.lang.Object",
+		"java.lang.Cloneable,com.sun.org.apache.bcel.internal.classfile.Node",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(LocalVariable, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(LocalVariable));
+	});
 	return class$;
 }
 

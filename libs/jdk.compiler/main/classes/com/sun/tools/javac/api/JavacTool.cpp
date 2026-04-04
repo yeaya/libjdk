@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/api/JavacTool.h>
-
 #include <com/sun/source/util/JavacTask.h>
 #include <com/sun/tools/javac/Main.h>
 #include <com/sun/tools/javac/api/ClientCodeWrapper.h>
@@ -21,8 +20,6 @@
 #include <java/io/OutputStreamWriter.h>
 #include <java/io/PrintWriter.h>
 #include <java/io/Writer.h>
-#include <java/lang/CharSequence.h>
-#include <java/lang/Enum.h>
 #include <java/lang/Iterable.h>
 #include <java/nio/charset/Charset.h>
 #include <java/util/Collections.h>
@@ -64,10 +61,8 @@ using $OutputStream = ::java::io::OutputStream;
 using $OutputStreamWriter = ::java::io::OutputStreamWriter;
 using $PrintWriter = ::java::io::PrintWriter;
 using $Writer = ::java::io::Writer;
-using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
-using $Enum = ::java::lang::Enum;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $Iterable = ::java::lang::Iterable;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -93,37 +88,6 @@ namespace com {
 			namespace javac {
 				namespace api {
 
-$CompoundAttribute _JavacTool_MethodAnnotations_init$0[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$MethodInfo _JavacTool_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC | $DEPRECATED, $method(JavacTool, init$, void), nullptr, nullptr, _JavacTool_MethodAnnotations_init$0},
-	{"create", "()Lcom/sun/tools/javac/api/JavacTool;", nullptr, $PUBLIC | $STATIC, $staticMethod(JavacTool, create, JavacTool*)},
-	{"getSourceVersions", "()Ljava/util/Set;", "()Ljava/util/Set<Ljavax/lang/model/SourceVersion;>;", $PUBLIC, $virtualMethod(JavacTool, getSourceVersions, $Set*)},
-	{"getStandardFileManager", "(Ljavax/tools/DiagnosticListener;Ljava/util/Locale;Ljava/nio/charset/Charset;)Lcom/sun/tools/javac/file/JavacFileManager;", "(Ljavax/tools/DiagnosticListener<-Ljavax/tools/JavaFileObject;>;Ljava/util/Locale;Ljava/nio/charset/Charset;)Lcom/sun/tools/javac/file/JavacFileManager;", $PUBLIC, $virtualMethod(JavacTool, getStandardFileManager, $StandardJavaFileManager*, $DiagnosticListener*, $Locale*, $Charset*)},
-	{"getTask", "(Ljava/io/Writer;Ljavax/tools/JavaFileManager;Ljavax/tools/DiagnosticListener;Ljava/lang/Iterable;Ljava/lang/Iterable;Ljava/lang/Iterable;)Lcom/sun/source/util/JavacTask;", "(Ljava/io/Writer;Ljavax/tools/JavaFileManager;Ljavax/tools/DiagnosticListener<-Ljavax/tools/JavaFileObject;>;Ljava/lang/Iterable<Ljava/lang/String;>;Ljava/lang/Iterable<Ljava/lang/String;>;Ljava/lang/Iterable<+Ljavax/tools/JavaFileObject;>;)Lcom/sun/source/util/JavacTask;", $PUBLIC, $virtualMethod(JavacTool, getTask, $JavaCompiler$CompilationTask*, $Writer*, $JavaFileManager*, $DiagnosticListener*, $Iterable*, $Iterable*, $Iterable*)},
-	{"getTask", "(Ljava/io/Writer;Ljavax/tools/JavaFileManager;Ljavax/tools/DiagnosticListener;Ljava/lang/Iterable;Ljava/lang/Iterable;Ljava/lang/Iterable;Lcom/sun/tools/javac/util/Context;)Lcom/sun/source/util/JavacTask;", "(Ljava/io/Writer;Ljavax/tools/JavaFileManager;Ljavax/tools/DiagnosticListener<-Ljavax/tools/JavaFileObject;>;Ljava/lang/Iterable<Ljava/lang/String;>;Ljava/lang/Iterable<Ljava/lang/String;>;Ljava/lang/Iterable<+Ljavax/tools/JavaFileObject;>;Lcom/sun/tools/javac/util/Context;)Lcom/sun/source/util/JavacTask;", $PUBLIC, $method(JavacTool, getTask, $JavacTask*, $Writer*, $JavaFileManager*, $DiagnosticListener*, $Iterable*, $Iterable*, $Iterable*, $Context*)},
-	{"isSupportedOption", "(Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(JavacTool, isSupportedOption, int32_t, $String*)},
-	{"name", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JavacTool, name, $String*)},
-	{"run", "(Ljava/io/InputStream;Ljava/io/OutputStream;Ljava/io/OutputStream;[Ljava/lang/String;)I", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(JavacTool, run, int32_t, $InputStream*, $OutputStream*, $OutputStream*, $StringArray*)},
-	{}
-};
-
-$ClassInfo _JavacTool_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.tools.javac.api.JavacTool",
-	"java.lang.Object",
-	"javax.tools.JavaCompiler",
-	nullptr,
-	_JavacTool_MethodInfo_
-};
-
-$Object* allocate$JavacTool($Class* clazz) {
-	return $of($alloc(JavacTool));
-}
-
 void JavacTool::init$() {
 }
 
@@ -137,17 +101,17 @@ JavacTool* JavacTool::create() {
 }
 
 $StandardJavaFileManager* JavacTool::getStandardFileManager($DiagnosticListener* diagnosticListener, $Locale* locale, $Charset* charset) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Context, context, $new($Context));
 	$load($Locale);
-	context->put($Locale::class$, $of(locale));
+	context->put($Locale::class$, locale);
 	if (diagnosticListener != nullptr) {
 		$load($DiagnosticListener);
-		context->put($DiagnosticListener::class$, $of(diagnosticListener));
+		context->put($DiagnosticListener::class$, diagnosticListener);
 	}
-	$var($PrintWriter, pw, (charset == nullptr) ? $new($PrintWriter, static_cast<$OutputStream*>($System::err), true) : $new($PrintWriter, static_cast<$Writer*>($$new($OutputStreamWriter, static_cast<$OutputStream*>($System::err), charset)), true));
+	$var($PrintWriter, pw, (charset == nullptr) ? $new($PrintWriter, $System::err, true) : $new($PrintWriter, $$new($OutputStreamWriter, $System::err, charset), true));
 	$init($Log);
-	context->put($Log::errKey, $of(pw));
+	context->put($Log::errKey, pw);
 	$CacheFSInfo::preRegister(context);
 	return $new($JavacFileManager, context, true, charset);
 }
@@ -158,37 +122,33 @@ $JavaCompiler$CompilationTask* JavacTool::getTask($Writer* out, $JavaFileManager
 }
 
 $JavacTask* JavacTool::getTask($Writer* out, $JavaFileManager* fileManager$renamed, $DiagnosticListener* diagnosticListener, $Iterable* options, $Iterable* classes, $Iterable* compilationUnits$renamed, $Context* context) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JavaFileManager, fileManager, fileManager$renamed);
 	$var($Iterable, compilationUnits, compilationUnits$renamed);
 	try {
 		$var($ClientCodeWrapper, ccw, $ClientCodeWrapper::instance(context));
 		if (options != nullptr) {
-			{
-				$var($Iterator, i$, options->iterator());
-				for (; $nc(i$)->hasNext();) {
-					$var($String, option, $cast($String, i$->next()));
-					$Objects::requireNonNull(option);
-				}
+			$var($Iterator, i$, options->iterator());
+			for (; $nc(i$)->hasNext();) {
+				$var($String, option, $cast($String, i$->next()));
+				$Objects::requireNonNull(option);
 			}
 		}
 		if (classes != nullptr) {
-			{
-				$var($Iterator, i$, classes->iterator());
-				for (; $nc(i$)->hasNext();) {
-					$var($String, cls, $cast($String, i$->next()));
-					{
-						int32_t sep = $nc(cls)->indexOf((int32_t)u'/');
-						if (sep > 0) {
-							$var($String, mod, cls->substring(0, sep));
-							if (!$SourceVersion::isName(mod)) {
-								$throwNew($IllegalArgumentException, $$str({"Not a valid module name: "_s, mod}));
-							}
-							$assign(cls, cls->substring(sep + 1));
+			$var($Iterator, i$, classes->iterator());
+			for (; $nc(i$)->hasNext();) {
+				$var($String, cls, $cast($String, i$->next()));
+				{
+					int32_t sep = $nc(cls)->indexOf(u'/');
+					if (sep > 0) {
+						$var($String, mod, cls->substring(0, sep));
+						if (!$SourceVersion::isName(mod)) {
+							$throwNew($IllegalArgumentException, $$str({"Not a valid module name: "_s, mod}));
 						}
-						if (!$SourceVersion::isName(cls)) {
-							$throwNew($IllegalArgumentException, $$str({"Not a valid class name: "_s, cls}));
-						}
+						$assign(cls, cls->substring(sep + 1));
+					}
+					if (!$SourceVersion::isName(cls)) {
+						$throwNew($IllegalArgumentException, $$str({"Not a valid class name: "_s, cls}));
 					}
 				}
 			}
@@ -199,35 +159,33 @@ $JavacTask* JavacTool::getTask($Writer* out, $JavaFileManager* fileManager$renam
 				$var($Iterator, i$, $nc(compilationUnits)->iterator());
 				for (; $nc(i$)->hasNext();) {
 					$var($JavaFileObject, cu, $cast($JavaFileObject, i$->next()));
-					{
-						$init($JavaFileObject$Kind);
-						if ($nc(cu)->getKind() != $JavaFileObject$Kind::SOURCE) {
-							$var($String, kindMsg, $str({"Compilation unit is not of SOURCE kind: \""_s, $(cu->getName()), "\""_s}));
-							$throwNew($IllegalArgumentException, kindMsg);
-						}
+					$init($JavaFileObject$Kind);
+					if ($nc(cu)->getKind() != $JavaFileObject$Kind::SOURCE) {
+						$var($String, kindMsg, $str({"Compilation unit is not of SOURCE kind: \""_s, $(cu->getName()), "\""_s}));
+						$throwNew($IllegalArgumentException, kindMsg);
 					}
 				}
 			}
 		}
 		if (diagnosticListener != nullptr) {
 			$load($DiagnosticListener);
-			$nc(context)->put($DiagnosticListener::class$, $($of($nc(ccw)->wrap(diagnosticListener))));
+			$nc(context)->put($DiagnosticListener::class$, $($nc(ccw)->wrap(diagnosticListener)));
 		}
 		{
 			$var($PrintWriter, pw, nullptr);
 			$init($Log);
 			if (out == nullptr && $nc(context)->get($Log::errKey) == nullptr) {
-				context->put($Log::errKey, $of($$new($PrintWriter, static_cast<$OutputStream*>($System::err), true)));
+				context->put($Log::errKey, $$new($PrintWriter, $System::err, true));
 			} else {
-				bool var$1 = $instanceOf($PrintWriter, out);
-				if (var$1) {
+				bool var$0 = $instanceOf($PrintWriter, out);
+				if (var$0) {
 					$assign(pw, $cast($PrintWriter, out));
-					var$1 = true;
+					var$0 = true;
 				}
-				if (var$1) {
-					context->put($Log::errKey, $of(pw));
+				if (var$0) {
+					$nc(context)->put($Log::errKey, pw);
 				} else if (out != nullptr) {
-					context->put($Log::errKey, $of($$new($PrintWriter, out, true)));
+					$nc(context)->put($Log::errKey, $$new($PrintWriter, out, true));
 				}
 			}
 		}
@@ -235,19 +193,19 @@ $JavacTask* JavacTool::getTask($Writer* out, $JavaFileManager* fileManager$renam
 			$assign(fileManager, getStandardFileManager(diagnosticListener, nullptr, nullptr));
 			{
 				$var($BaseFileManager, baseFileManager, nullptr);
-				bool var$2 = $instanceOf($BaseFileManager, fileManager);
-				if (var$2) {
+				bool var$1 = $instanceOf($BaseFileManager, fileManager);
+				if (var$1) {
 					$assign(baseFileManager, $cast($BaseFileManager, fileManager));
-					var$2 = true;
+					var$1 = true;
 				}
-				if (var$2) {
+				if (var$1) {
 					$nc(baseFileManager)->autoClose = true;
 				}
 			}
 		}
 		$assign(fileManager, $nc(ccw)->wrap(fileManager));
 		$load($JavaFileManager);
-		$nc(context)->put($JavaFileManager::class$, $of(fileManager));
+		$nc(context)->put($JavaFileManager::class$, fileManager);
 		$var($Arguments, args, $Arguments::instance(context));
 		$nc(args)->init("javac"_s, options, classes, compilationUnits);
 		$init($Option);
@@ -266,16 +224,14 @@ $JavacTask* JavacTool::getTask($Writer* out, $JavaFileManager* fileManager$renam
 }
 
 int32_t JavacTool::run($InputStream* in, $OutputStream* out, $OutputStream* err$renamed, $StringArray* arguments) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($OutputStream, err, err$renamed);
 	if (err == nullptr) {
 		$assign(err, $System::err);
 	}
 	{
 		$var($StringArray, arr$, arguments);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($String, argument, arr$->get(i$));
 			$Objects::requireNonNull(argument);
 		}
@@ -284,22 +240,20 @@ int32_t JavacTool::run($InputStream* in, $OutputStream* out, $OutputStream* err$
 }
 
 $Set* JavacTool::getSourceVersions() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($SourceVersion);
 	return $Collections::unmodifiableSet($($EnumSet::range($SourceVersion::RELEASE_3, $($SourceVersion::latest()))));
 }
 
 int32_t JavacTool::isSupportedOption($String* option) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Set, recognizedOptions, $Option::getJavacToolOptions());
 	{
 		$var($Iterator, i$, $nc(recognizedOptions)->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$Option* o = $cast($Option, i$->next());
-			{
-				if ($nc(o)->matches(option)) {
-					return o->hasSeparateArg() ? 1 : 0;
-				}
+			if ($nc(o)->matches(option)) {
+				return o->hasSeparateArg() ? 1 : 0;
 			}
 		}
 	}
@@ -310,7 +264,33 @@ JavacTool::JavacTool() {
 }
 
 $Class* JavacTool::load$($String* name, bool initialize) {
-	$loadClass(JavacTool, name, initialize, &_JavacTool_ClassInfo_, allocate$JavacTool);
+	$CompoundAttribute init$methodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC | $DEPRECATED, $method(JavacTool, init$, void), nullptr, nullptr, init$methodAnnotations$$},
+		{"create", "()Lcom/sun/tools/javac/api/JavacTool;", nullptr, $PUBLIC | $STATIC, $staticMethod(JavacTool, create, JavacTool*)},
+		{"getSourceVersions", "()Ljava/util/Set;", "()Ljava/util/Set<Ljavax/lang/model/SourceVersion;>;", $PUBLIC, $virtualMethod(JavacTool, getSourceVersions, $Set*)},
+		{"getStandardFileManager", "(Ljavax/tools/DiagnosticListener;Ljava/util/Locale;Ljava/nio/charset/Charset;)Lcom/sun/tools/javac/file/JavacFileManager;", "(Ljavax/tools/DiagnosticListener<-Ljavax/tools/JavaFileObject;>;Ljava/util/Locale;Ljava/nio/charset/Charset;)Lcom/sun/tools/javac/file/JavacFileManager;", $PUBLIC, $virtualMethod(JavacTool, getStandardFileManager, $StandardJavaFileManager*, $DiagnosticListener*, $Locale*, $Charset*)},
+		{"getTask", "(Ljava/io/Writer;Ljavax/tools/JavaFileManager;Ljavax/tools/DiagnosticListener;Ljava/lang/Iterable;Ljava/lang/Iterable;Ljava/lang/Iterable;)Lcom/sun/source/util/JavacTask;", "(Ljava/io/Writer;Ljavax/tools/JavaFileManager;Ljavax/tools/DiagnosticListener<-Ljavax/tools/JavaFileObject;>;Ljava/lang/Iterable<Ljava/lang/String;>;Ljava/lang/Iterable<Ljava/lang/String;>;Ljava/lang/Iterable<+Ljavax/tools/JavaFileObject;>;)Lcom/sun/source/util/JavacTask;", $PUBLIC, $virtualMethod(JavacTool, getTask, $JavaCompiler$CompilationTask*, $Writer*, $JavaFileManager*, $DiagnosticListener*, $Iterable*, $Iterable*, $Iterable*)},
+		{"getTask", "(Ljava/io/Writer;Ljavax/tools/JavaFileManager;Ljavax/tools/DiagnosticListener;Ljava/lang/Iterable;Ljava/lang/Iterable;Ljava/lang/Iterable;Lcom/sun/tools/javac/util/Context;)Lcom/sun/source/util/JavacTask;", "(Ljava/io/Writer;Ljavax/tools/JavaFileManager;Ljavax/tools/DiagnosticListener<-Ljavax/tools/JavaFileObject;>;Ljava/lang/Iterable<Ljava/lang/String;>;Ljava/lang/Iterable<Ljava/lang/String;>;Ljava/lang/Iterable<+Ljavax/tools/JavaFileObject;>;Lcom/sun/tools/javac/util/Context;)Lcom/sun/source/util/JavacTask;", $PUBLIC, $method(JavacTool, getTask, $JavacTask*, $Writer*, $JavaFileManager*, $DiagnosticListener*, $Iterable*, $Iterable*, $Iterable*, $Context*)},
+		{"isSupportedOption", "(Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(JavacTool, isSupportedOption, int32_t, $String*)},
+		{"name", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JavacTool, name, $String*)},
+		{"run", "(Ljava/io/InputStream;Ljava/io/OutputStream;Ljava/io/OutputStream;[Ljava/lang/String;)I", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(JavacTool, run, int32_t, $InputStream*, $OutputStream*, $OutputStream*, $StringArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.tools.javac.api.JavacTool",
+		"java.lang.Object",
+		"javax.tools.JavaCompiler",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(JavacTool, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JavacTool));
+	});
 	return class$;
 }
 

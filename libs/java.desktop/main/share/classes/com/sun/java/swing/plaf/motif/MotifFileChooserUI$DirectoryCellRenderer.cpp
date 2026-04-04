@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/motif/MotifFileChooserUI$DirectoryCellRenderer.h>
-
 #include <com/sun/java/swing/plaf/motif/MotifFileChooserUI.h>
 #include <java/awt/Component.h>
 #include <java/io/File.h>
@@ -17,7 +16,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $DefaultListCellRenderer = ::javax::swing::DefaultListCellRenderer;
-using $JFileChooser = ::javax::swing::JFileChooser;
 using $JList = ::javax::swing::JList;
 
 namespace com {
@@ -27,51 +25,15 @@ namespace com {
 				namespace plaf {
 					namespace motif {
 
-$FieldInfo _MotifFileChooserUI$DirectoryCellRenderer_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/java/swing/plaf/motif/MotifFileChooserUI;", nullptr, $FINAL | $SYNTHETIC, $field(MotifFileChooserUI$DirectoryCellRenderer, this$0)},
-	{}
-};
-
-$MethodInfo _MotifFileChooserUI$DirectoryCellRenderer_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/java/swing/plaf/motif/MotifFileChooserUI;)V", nullptr, $PROTECTED, $method(MotifFileChooserUI$DirectoryCellRenderer, init$, void, $MotifFileChooserUI*)},
-	{"getListCellRendererComponent", "(Ljavax/swing/JList;Ljava/lang/Object;IZZ)Ljava/awt/Component;", "(Ljavax/swing/JList<*>;Ljava/lang/Object;IZZ)Ljava/awt/Component;", $PUBLIC, $virtualMethod(MotifFileChooserUI$DirectoryCellRenderer, getListCellRendererComponent, $Component*, $JList*, Object$*, int32_t, bool, bool)},
-	{}
-};
-
-$InnerClassInfo _MotifFileChooserUI$DirectoryCellRenderer_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.motif.MotifFileChooserUI$DirectoryCellRenderer", "com.sun.java.swing.plaf.motif.MotifFileChooserUI", "DirectoryCellRenderer", $PROTECTED},
-	{}
-};
-
-$ClassInfo _MotifFileChooserUI$DirectoryCellRenderer_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.java.swing.plaf.motif.MotifFileChooserUI$DirectoryCellRenderer",
-	"javax.swing.DefaultListCellRenderer",
-	nullptr,
-	_MotifFileChooserUI$DirectoryCellRenderer_FieldInfo_,
-	_MotifFileChooserUI$DirectoryCellRenderer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MotifFileChooserUI$DirectoryCellRenderer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.motif.MotifFileChooserUI"
-};
-
-$Object* allocate$MotifFileChooserUI$DirectoryCellRenderer($Class* clazz) {
-	return $of($alloc(MotifFileChooserUI$DirectoryCellRenderer));
-}
-
 void MotifFileChooserUI$DirectoryCellRenderer::init$($MotifFileChooserUI* this$0) {
 	$set(this, this$0, this$0);
 	$DefaultListCellRenderer::init$();
 }
 
 $Component* MotifFileChooserUI$DirectoryCellRenderer::getListCellRendererComponent($JList* list, Object$* value, int32_t index, bool isSelected, bool cellHasFocus) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$DefaultListCellRenderer::getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
-	setText($($nc($(this->this$0->getFileChooser()))->getName($cast($File, value))));
+	setText($($$nc(this->this$0->getFileChooser())->getName($cast($File, value))));
 	setInheritsPopupMenu(true);
 	return this;
 }
@@ -80,7 +42,37 @@ MotifFileChooserUI$DirectoryCellRenderer::MotifFileChooserUI$DirectoryCellRender
 }
 
 $Class* MotifFileChooserUI$DirectoryCellRenderer::load$($String* name, bool initialize) {
-	$loadClass(MotifFileChooserUI$DirectoryCellRenderer, name, initialize, &_MotifFileChooserUI$DirectoryCellRenderer_ClassInfo_, allocate$MotifFileChooserUI$DirectoryCellRenderer);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/java/swing/plaf/motif/MotifFileChooserUI;", nullptr, $FINAL | $SYNTHETIC, $field(MotifFileChooserUI$DirectoryCellRenderer, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/java/swing/plaf/motif/MotifFileChooserUI;)V", nullptr, $PROTECTED, $method(MotifFileChooserUI$DirectoryCellRenderer, init$, void, $MotifFileChooserUI*)},
+		{"getListCellRendererComponent", "(Ljavax/swing/JList;Ljava/lang/Object;IZZ)Ljava/awt/Component;", "(Ljavax/swing/JList<*>;Ljava/lang/Object;IZZ)Ljava/awt/Component;", $PUBLIC, $virtualMethod(MotifFileChooserUI$DirectoryCellRenderer, getListCellRendererComponent, $Component*, $JList*, Object$*, int32_t, bool, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.motif.MotifFileChooserUI$DirectoryCellRenderer", "com.sun.java.swing.plaf.motif.MotifFileChooserUI", "DirectoryCellRenderer", $PROTECTED},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.java.swing.plaf.motif.MotifFileChooserUI$DirectoryCellRenderer",
+		"javax.swing.DefaultListCellRenderer",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.motif.MotifFileChooserUI"
+	};
+	$loadClass(MotifFileChooserUI$DirectoryCellRenderer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MotifFileChooserUI$DirectoryCellRenderer));
+	});
 	return class$;
 }
 

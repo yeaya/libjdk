@@ -1,10 +1,8 @@
 #include <javax/swing/plaf/basic/BasicDirectoryModel.h>
-
 #include <java/beans/PropertyChangeEvent.h>
 #include <java/beans/PropertyChangeListener.h>
 #include <java/beans/PropertyChangeSupport.h>
 #include <java/io/File.h>
-#include <java/lang/Runnable.h>
 #include <java/util/List.h>
 #include <java/util/Vector.h>
 #include <java/util/concurrent/atomic/AtomicInteger.h>
@@ -36,15 +34,12 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NamedAttribute = ::java::lang::NamedAttribute;
-using $Runnable = ::java::lang::Runnable;
-using $List = ::java::util::List;
 using $Vector = ::java::util::Vector;
 using $AtomicInteger = ::java::util::concurrent::atomic::AtomicInteger;
 using $AbstractListModel = ::javax::swing::AbstractListModel;
 using $JFileChooser = ::javax::swing::JFileChooser;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $ListDataEvent = ::javax::swing::event::ListDataEvent;
-using $FileSystemView = ::javax::swing::filechooser::FileSystemView;
 using $BasicDirectoryModel$1 = ::javax::swing::plaf::basic::BasicDirectoryModel$1;
 using $BasicDirectoryModel$FilesLoader = ::javax::swing::plaf::basic::BasicDirectoryModel$FilesLoader;
 using $BasicFileChooserUI = ::javax::swing::plaf::basic::BasicFileChooserUI;
@@ -54,106 +49,6 @@ namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace basic {
-
-$NamedAttribute BasicDirectoryModel_Attribute_var$0[] = {
-	{"since", 's', "17"},
-	{}
-};
-
-$CompoundAttribute _BasicDirectoryModel_MethodAnnotations_intervalAdded13[] = {
-	{"Ljava/lang/Deprecated;", BasicDirectoryModel_Attribute_var$0},
-	{}
-};
-
-$NamedAttribute BasicDirectoryModel_Attribute_var$1[] = {
-	{"since", 's', "17"},
-	{}
-};
-
-$CompoundAttribute _BasicDirectoryModel_MethodAnnotations_intervalRemoved14[] = {
-	{"Ljava/lang/Deprecated;", BasicDirectoryModel_Attribute_var$1},
-	{}
-};
-
-$NamedAttribute BasicDirectoryModel_Attribute_var$2[] = {
-	{"since", 's', "17"},
-	{}
-};
-
-$CompoundAttribute _BasicDirectoryModel_MethodAnnotations_lt16[] = {
-	{"Ljava/lang/Deprecated;", BasicDirectoryModel_Attribute_var$2},
-	{}
-};
-
-$FieldInfo _BasicDirectoryModel_FieldInfo_[] = {
-	{"filechooser", "Ljavax/swing/JFileChooser;", nullptr, $PRIVATE | $FINAL, $field(BasicDirectoryModel, filechooser)},
-	{"fileCache", "Ljava/util/Vector;", "Ljava/util/Vector<Ljava/io/File;>;", $PRIVATE | $FINAL, $field(BasicDirectoryModel, fileCache)},
-	{"filesLoader", "Ljavax/swing/plaf/basic/BasicDirectoryModel$FilesLoader;", nullptr, $PRIVATE, $field(BasicDirectoryModel, filesLoader)},
-	{"files", "Ljava/util/Vector;", "Ljava/util/Vector<Ljava/io/File;>;", $PRIVATE, $field(BasicDirectoryModel, files)},
-	{"directories", "Ljava/util/Vector;", "Ljava/util/Vector<Ljava/io/File;>;", $PRIVATE, $field(BasicDirectoryModel, directories)},
-	{"fetchID", "Ljava/util/concurrent/atomic/AtomicInteger;", nullptr, $PRIVATE | $FINAL, $field(BasicDirectoryModel, fetchID)},
-	{"changeSupport", "Ljava/beans/PropertyChangeSupport;", nullptr, $PRIVATE, $field(BasicDirectoryModel, changeSupport)},
-	{"busy", "Z", nullptr, $PRIVATE, $field(BasicDirectoryModel, busy)},
-	{}
-};
-
-$MethodInfo _BasicDirectoryModel_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljavax/swing/JFileChooser;)V", nullptr, $PUBLIC, $method(BasicDirectoryModel, init$, void, $JFileChooser*)},
-	{"access$000", "(Ljavax/swing/plaf/basic/BasicDirectoryModel;Ljava/lang/Object;II)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(BasicDirectoryModel, access$000, void, BasicDirectoryModel*, Object$*, int32_t, int32_t)},
-	{"access$100", "(Ljavax/swing/plaf/basic/BasicDirectoryModel;Ljava/lang/Object;II)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(BasicDirectoryModel, access$100, void, BasicDirectoryModel*, Object$*, int32_t, int32_t)},
-	{"addPropertyChangeListener", "(Ljava/beans/PropertyChangeListener;)V", nullptr, $PUBLIC, $virtualMethod(BasicDirectoryModel, addPropertyChangeListener, void, $PropertyChangeListener*)},
-	{"contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(BasicDirectoryModel, contains, bool, Object$*)},
-	{"fireContentsChanged", "()V", nullptr, $PUBLIC, $virtualMethod(BasicDirectoryModel, fireContentsChanged, void)},
-	{"firePropertyChange", "(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PROTECTED, $virtualMethod(BasicDirectoryModel, firePropertyChange, void, $String*, Object$*, Object$*)},
-	{"getDirectories", "()Ljava/util/Vector;", "()Ljava/util/Vector<Ljava/io/File;>;", $PUBLIC, $virtualMethod(BasicDirectoryModel, getDirectories, $Vector*)},
-	{"getElementAt", "(I)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(BasicDirectoryModel, getElementAt, $Object*, int32_t)},
-	{"getFiles", "()Ljava/util/Vector;", "()Ljava/util/Vector<Ljava/io/File;>;", $PUBLIC, $virtualMethod(BasicDirectoryModel, getFiles, $Vector*)},
-	{"getPropertyChangeListeners", "()[Ljava/beans/PropertyChangeListener;", nullptr, $PUBLIC, $virtualMethod(BasicDirectoryModel, getPropertyChangeListeners, $PropertyChangeListenerArray*)},
-	{"getSize", "()I", nullptr, $PUBLIC, $virtualMethod(BasicDirectoryModel, getSize, int32_t)},
-	{"indexOf", "(Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(BasicDirectoryModel, indexOf, int32_t, Object$*)},
-	{"intervalAdded", "(Ljavax/swing/event/ListDataEvent;)V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(BasicDirectoryModel, intervalAdded, void, $ListDataEvent*), nullptr, nullptr, _BasicDirectoryModel_MethodAnnotations_intervalAdded13},
-	{"intervalRemoved", "(Ljavax/swing/event/ListDataEvent;)V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(BasicDirectoryModel, intervalRemoved, void, $ListDataEvent*), nullptr, nullptr, _BasicDirectoryModel_MethodAnnotations_intervalRemoved14},
-	{"invalidateFileCache", "()V", nullptr, $PUBLIC, $virtualMethod(BasicDirectoryModel, invalidateFileCache, void)},
-	{"lt", "(Ljava/io/File;Ljava/io/File;)Z", nullptr, $PROTECTED | $DEPRECATED, $virtualMethod(BasicDirectoryModel, lt, bool, $File*, $File*), nullptr, nullptr, _BasicDirectoryModel_MethodAnnotations_lt16},
-	{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicDirectoryModel, propertyChange, void, $PropertyChangeEvent*)},
-	{"removePropertyChangeListener", "(Ljava/beans/PropertyChangeListener;)V", nullptr, $PUBLIC, $virtualMethod(BasicDirectoryModel, removePropertyChangeListener, void, $PropertyChangeListener*)},
-	{"renameFile", "(Ljava/io/File;Ljava/io/File;)Z", nullptr, $PUBLIC, $virtualMethod(BasicDirectoryModel, renameFile, bool, $File*, $File*)},
-	{"setBusy", "(ZI)V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(BasicDirectoryModel, setBusy, void, bool, int32_t)},
-	{"sort", "(Ljava/util/Vector;)V", "(Ljava/util/Vector<+Ljava/io/File;>;)V", $PROTECTED, $virtualMethod(BasicDirectoryModel, sort, void, $Vector*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"validateFileCache", "()V", nullptr, $PUBLIC, $virtualMethod(BasicDirectoryModel, validateFileCache, void)},
-	{}
-};
-
-$InnerClassInfo _BasicDirectoryModel_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.basic.BasicDirectoryModel$DoChangeContents", "javax.swing.plaf.basic.BasicDirectoryModel", "DoChangeContents", $PRIVATE | $FINAL},
-	{"javax.swing.plaf.basic.BasicDirectoryModel$FilesLoader", "javax.swing.plaf.basic.BasicDirectoryModel", "FilesLoader", $PRIVATE | $FINAL},
-	{"javax.swing.plaf.basic.BasicDirectoryModel$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _BasicDirectoryModel_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.basic.BasicDirectoryModel",
-	"javax.swing.AbstractListModel",
-	"java.beans.PropertyChangeListener",
-	_BasicDirectoryModel_FieldInfo_,
-	_BasicDirectoryModel_MethodInfo_,
-	"Ljavax/swing/AbstractListModel<Ljava/lang/Object;>;Ljava/beans/PropertyChangeListener;",
-	nullptr,
-	_BasicDirectoryModel_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.basic.BasicDirectoryModel$DoChangeContents,javax.swing.plaf.basic.BasicDirectoryModel$FilesLoader,javax.swing.plaf.basic.BasicDirectoryModel$FilesLoader$1,javax.swing.plaf.basic.BasicDirectoryModel$1"
-};
-
-$Object* allocate$BasicDirectoryModel($Class* clazz) {
-	return $of($alloc(BasicDirectoryModel));
-}
 
 int32_t BasicDirectoryModel::hashCode() {
 	 return this->$AbstractListModel::hashCode();
@@ -198,7 +93,7 @@ void BasicDirectoryModel::init$($JFileChooser* filechooser) {
 }
 
 void BasicDirectoryModel::propertyChange($PropertyChangeEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, prop, $nc(e)->getPropertyName());
 	$init($JFileChooser);
 	if (prop == $JFileChooser::DIRECTORY_CHANGED_PROPERTY || prop == $JFileChooser::FILE_VIEW_CHANGED_PROPERTY || prop == $JFileChooser::FILE_FILTER_CHANGED_PROPERTY || prop == $JFileChooser::FILE_HIDING_CHANGED_PROPERTY || prop == $JFileChooser::FILE_SELECTION_MODE_CHANGED_PROPERTY) {
@@ -207,7 +102,7 @@ void BasicDirectoryModel::propertyChange($PropertyChangeEvent* e) {
 		$var($Object, old, e->getOldValue());
 		if ($instanceOf($BasicFileChooserUI, old)) {
 			$var($BasicFileChooserUI, ui, $cast($BasicFileChooserUI, old));
-			$var(BasicDirectoryModel, model, $nc(ui)->getModel());
+			$var(BasicDirectoryModel, model, ui->getModel());
 			if (model != nullptr) {
 				model->invalidateFileCache();
 			}
@@ -219,8 +114,8 @@ void BasicDirectoryModel::propertyChange($PropertyChangeEvent* e) {
 
 void BasicDirectoryModel::invalidateFileCache() {
 	if (this->filesLoader != nullptr) {
-		$nc($nc(this->filesLoader)->loadThread)->interrupt();
-		$nc(this->filesLoader)->cancelRunnables();
+		$nc(this->filesLoader->loadThread)->interrupt();
+		this->filesLoader->cancelRunnables();
 		$set(this, filesLoader, nullptr);
 	}
 }
@@ -236,17 +131,17 @@ $Vector* BasicDirectoryModel::getDirectories() {
 }
 
 $Vector* BasicDirectoryModel::getFiles() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized(this->fileCache) {
 		if (this->files != nullptr) {
 			return this->files;
 		}
 		$set(this, files, $new($Vector));
 		$set(this, directories, $new($Vector));
-		$nc(this->directories)->addElement($($nc($($nc(this->filechooser)->getFileSystemView()))->createFileObject($($nc(this->filechooser)->getCurrentDirectory()), ".."_s)));
+		this->directories->addElement($($$nc($nc(this->filechooser)->getFileSystemView())->createFileObject($($nc(this->filechooser)->getCurrentDirectory()), ".."_s)));
 		for (int32_t i = 0; i < getSize(); ++i) {
-			$var($File, f, $cast($File, $nc(this->fileCache)->get(i)));
-			if ($nc(this->filechooser)->isTraversable(f)) {
+			$var($File, f, $cast($File, this->fileCache->get(i)));
+			if (this->filechooser->isTraversable(f)) {
 				$nc(this->directories)->add(f);
 			} else {
 				$nc(this->files)->add(f);
@@ -262,10 +157,10 @@ void BasicDirectoryModel::validateFileCache() {
 		return;
 	}
 	if (this->filesLoader != nullptr) {
-		$nc($nc(this->filesLoader)->loadThread)->interrupt();
-		$nc(this->filesLoader)->cancelRunnables();
+		$nc(this->filesLoader->loadThread)->interrupt();
+		this->filesLoader->cancelRunnables();
 	}
-	int32_t fid = $nc(this->fetchID)->incrementAndGet();
+	int32_t fid = this->fetchID->incrementAndGet();
 	setBusy(true, fid);
 	$set(this, filesLoader, $new($BasicDirectoryModel$FilesLoader, this, currentDirectory, fid));
 }
@@ -285,19 +180,19 @@ void BasicDirectoryModel::fireContentsChanged() {
 }
 
 int32_t BasicDirectoryModel::getSize() {
-	return $nc(this->fileCache)->size();
+	return this->fileCache->size();
 }
 
 bool BasicDirectoryModel::contains(Object$* o) {
-	return $nc(this->fileCache)->contains(o);
+	return this->fileCache->contains(o);
 }
 
 int32_t BasicDirectoryModel::indexOf(Object$* o) {
-	return $nc(this->fileCache)->indexOf(o);
+	return this->fileCache->indexOf(o);
 }
 
 $Object* BasicDirectoryModel::getElementAt(int32_t index) {
-	return $of($nc(this->fileCache)->get(index));
+	return this->fileCache->get(index);
 }
 
 void BasicDirectoryModel::intervalAdded($ListDataEvent* e) {
@@ -311,12 +206,12 @@ void BasicDirectoryModel::sort($Vector* v) {
 }
 
 bool BasicDirectoryModel::lt($File* a, $File* b) {
-	$useLocalCurrentObjectStackCache();
-	int32_t diff = $($nc($($nc(a)->getName()))->toLowerCase())->compareTo($($nc($($nc(b)->getName()))->toLowerCase()));
+	$useLocalObjectStack();
+	int32_t diff = $($$nc($nc(a)->getName())->toLowerCase())->compareTo($($$nc($nc(b)->getName())->toLowerCase()));
 	if (diff != 0) {
 		return diff < 0;
 	} else {
-		return $nc($(a->getName()))->compareTo($($nc(b)->getName())) < 0;
+		return $$nc(a->getName())->compareTo($(b->getName())) < 0;
 	}
 }
 
@@ -329,7 +224,7 @@ void BasicDirectoryModel::addPropertyChangeListener($PropertyChangeListener* lis
 
 void BasicDirectoryModel::removePropertyChangeListener($PropertyChangeListener* listener) {
 	if (this->changeSupport != nullptr) {
-		$nc(this->changeSupport)->removePropertyChangeListener(listener);
+		this->changeSupport->removePropertyChangeListener(listener);
 	}
 }
 
@@ -342,13 +237,13 @@ $PropertyChangeListenerArray* BasicDirectoryModel::getPropertyChangeListeners() 
 
 void BasicDirectoryModel::firePropertyChange($String* propertyName, Object$* oldValue, Object$* newValue) {
 	if (this->changeSupport != nullptr) {
-		$nc(this->changeSupport)->firePropertyChange(propertyName, oldValue, newValue);
+		this->changeSupport->firePropertyChange(propertyName, oldValue, newValue);
 	}
 }
 
 void BasicDirectoryModel::setBusy(bool busy, int32_t fid) {
 	$synchronized(this) {
-		if (fid == $nc(this->fetchID)->get()) {
+		if (fid == this->fetchID->get()) {
 			bool oldValue = this->busy;
 			this->busy = busy;
 			if (this->changeSupport != nullptr && busy != oldValue) {
@@ -362,7 +257,95 @@ BasicDirectoryModel::BasicDirectoryModel() {
 }
 
 $Class* BasicDirectoryModel::load$($String* name, bool initialize) {
-	$loadClass(BasicDirectoryModel, name, initialize, &_BasicDirectoryModel_ClassInfo_, allocate$BasicDirectoryModel);
+	$FieldInfo fieldInfos$$[] = {
+		{"filechooser", "Ljavax/swing/JFileChooser;", nullptr, $PRIVATE | $FINAL, $field(BasicDirectoryModel, filechooser)},
+		{"fileCache", "Ljava/util/Vector;", "Ljava/util/Vector<Ljava/io/File;>;", $PRIVATE | $FINAL, $field(BasicDirectoryModel, fileCache)},
+		{"filesLoader", "Ljavax/swing/plaf/basic/BasicDirectoryModel$FilesLoader;", nullptr, $PRIVATE, $field(BasicDirectoryModel, filesLoader)},
+		{"files", "Ljava/util/Vector;", "Ljava/util/Vector<Ljava/io/File;>;", $PRIVATE, $field(BasicDirectoryModel, files)},
+		{"directories", "Ljava/util/Vector;", "Ljava/util/Vector<Ljava/io/File;>;", $PRIVATE, $field(BasicDirectoryModel, directories)},
+		{"fetchID", "Ljava/util/concurrent/atomic/AtomicInteger;", nullptr, $PRIVATE | $FINAL, $field(BasicDirectoryModel, fetchID)},
+		{"changeSupport", "Ljava/beans/PropertyChangeSupport;", nullptr, $PRIVATE, $field(BasicDirectoryModel, changeSupport)},
+		{"busy", "Z", nullptr, $PRIVATE, $field(BasicDirectoryModel, busy)},
+		{}
+	};
+	$NamedAttribute intervalAddedmethodAnnotations$$$namedAttribute[] = {
+		{"since", 's', "17"},
+		{}
+	};
+	$CompoundAttribute intervalAddedmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", intervalAddedmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute intervalRemovedmethodAnnotations$$$namedAttribute[] = {
+		{"since", 's', "17"},
+		{}
+	};
+	$CompoundAttribute intervalRemovedmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", intervalRemovedmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute ltmethodAnnotations$$$namedAttribute[] = {
+		{"since", 's', "17"},
+		{}
+	};
+	$CompoundAttribute ltmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", ltmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljavax/swing/JFileChooser;)V", nullptr, $PUBLIC, $method(BasicDirectoryModel, init$, void, $JFileChooser*)},
+		{"access$000", "(Ljavax/swing/plaf/basic/BasicDirectoryModel;Ljava/lang/Object;II)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(BasicDirectoryModel, access$000, void, BasicDirectoryModel*, Object$*, int32_t, int32_t)},
+		{"access$100", "(Ljavax/swing/plaf/basic/BasicDirectoryModel;Ljava/lang/Object;II)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(BasicDirectoryModel, access$100, void, BasicDirectoryModel*, Object$*, int32_t, int32_t)},
+		{"addPropertyChangeListener", "(Ljava/beans/PropertyChangeListener;)V", nullptr, $PUBLIC, $virtualMethod(BasicDirectoryModel, addPropertyChangeListener, void, $PropertyChangeListener*)},
+		{"contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(BasicDirectoryModel, contains, bool, Object$*)},
+		{"fireContentsChanged", "()V", nullptr, $PUBLIC, $virtualMethod(BasicDirectoryModel, fireContentsChanged, void)},
+		{"firePropertyChange", "(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PROTECTED, $virtualMethod(BasicDirectoryModel, firePropertyChange, void, $String*, Object$*, Object$*)},
+		{"getDirectories", "()Ljava/util/Vector;", "()Ljava/util/Vector<Ljava/io/File;>;", $PUBLIC, $virtualMethod(BasicDirectoryModel, getDirectories, $Vector*)},
+		{"getElementAt", "(I)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(BasicDirectoryModel, getElementAt, $Object*, int32_t)},
+		{"getFiles", "()Ljava/util/Vector;", "()Ljava/util/Vector<Ljava/io/File;>;", $PUBLIC, $virtualMethod(BasicDirectoryModel, getFiles, $Vector*)},
+		{"getPropertyChangeListeners", "()[Ljava/beans/PropertyChangeListener;", nullptr, $PUBLIC, $virtualMethod(BasicDirectoryModel, getPropertyChangeListeners, $PropertyChangeListenerArray*)},
+		{"getSize", "()I", nullptr, $PUBLIC, $virtualMethod(BasicDirectoryModel, getSize, int32_t)},
+		{"indexOf", "(Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(BasicDirectoryModel, indexOf, int32_t, Object$*)},
+		{"intervalAdded", "(Ljavax/swing/event/ListDataEvent;)V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(BasicDirectoryModel, intervalAdded, void, $ListDataEvent*), nullptr, nullptr, intervalAddedmethodAnnotations$$},
+		{"intervalRemoved", "(Ljavax/swing/event/ListDataEvent;)V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(BasicDirectoryModel, intervalRemoved, void, $ListDataEvent*), nullptr, nullptr, intervalRemovedmethodAnnotations$$},
+		{"invalidateFileCache", "()V", nullptr, $PUBLIC, $virtualMethod(BasicDirectoryModel, invalidateFileCache, void)},
+		{"lt", "(Ljava/io/File;Ljava/io/File;)Z", nullptr, $PROTECTED | $DEPRECATED, $virtualMethod(BasicDirectoryModel, lt, bool, $File*, $File*), nullptr, nullptr, ltmethodAnnotations$$},
+		{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicDirectoryModel, propertyChange, void, $PropertyChangeEvent*)},
+		{"removePropertyChangeListener", "(Ljava/beans/PropertyChangeListener;)V", nullptr, $PUBLIC, $virtualMethod(BasicDirectoryModel, removePropertyChangeListener, void, $PropertyChangeListener*)},
+		{"renameFile", "(Ljava/io/File;Ljava/io/File;)Z", nullptr, $PUBLIC, $virtualMethod(BasicDirectoryModel, renameFile, bool, $File*, $File*)},
+		{"setBusy", "(ZI)V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(BasicDirectoryModel, setBusy, void, bool, int32_t)},
+		{"sort", "(Ljava/util/Vector;)V", "(Ljava/util/Vector<+Ljava/io/File;>;)V", $PROTECTED, $virtualMethod(BasicDirectoryModel, sort, void, $Vector*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"validateFileCache", "()V", nullptr, $PUBLIC, $virtualMethod(BasicDirectoryModel, validateFileCache, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.basic.BasicDirectoryModel$DoChangeContents", "javax.swing.plaf.basic.BasicDirectoryModel", "DoChangeContents", $PRIVATE | $FINAL},
+		{"javax.swing.plaf.basic.BasicDirectoryModel$FilesLoader", "javax.swing.plaf.basic.BasicDirectoryModel", "FilesLoader", $PRIVATE | $FINAL},
+		{"javax.swing.plaf.basic.BasicDirectoryModel$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.basic.BasicDirectoryModel",
+		"javax.swing.AbstractListModel",
+		"java.beans.PropertyChangeListener",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljavax/swing/AbstractListModel<Ljava/lang/Object;>;Ljava/beans/PropertyChangeListener;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.basic.BasicDirectoryModel$DoChangeContents,javax.swing.plaf.basic.BasicDirectoryModel$FilesLoader,javax.swing.plaf.basic.BasicDirectoryModel$FilesLoader$1,javax.swing.plaf.basic.BasicDirectoryModel$1"
+	};
+	$loadClass(BasicDirectoryModel, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(BasicDirectoryModel));
+	});
 	return class$;
 }
 

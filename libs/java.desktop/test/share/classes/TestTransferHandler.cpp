@@ -1,5 +1,4 @@
 #include <TestTransferHandler.h>
-
 #include <TestTransferHandler$1.h>
 #include <TestTransferHandler$UserJComponent.h>
 #include <java/awt/Color.h>
@@ -13,7 +12,6 @@
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/SwingUtilities.h>
 #include <javax/swing/TransferHandler.h>
 #include <jcpp.h>
@@ -22,7 +20,6 @@
 
 using $TestTransferHandler$1 = ::TestTransferHandler$1;
 using $TestTransferHandler$UserJComponent = ::TestTransferHandler$UserJComponent;
-using $Color = ::java::awt::Color;
 using $DataFlavor = ::java::awt::datatransfer::DataFlavor;
 using $Transferable = ::java::awt::datatransfer::Transferable;
 using $Serializable = ::java::io::Serializable;
@@ -34,7 +31,6 @@ using $Runnable = ::java::lang::Runnable;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $SecurityManager = ::java::lang::SecurityManager;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $JComponent = ::javax::swing::JComponent;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $TransferHandler = ::javax::swing::TransferHandler;
 
@@ -46,77 +42,42 @@ public:
 	virtual void run() override {
 		TestTransferHandler::testTransferHandler();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<TestTransferHandler$$Lambda$testTransferHandler>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo TestTransferHandler$$Lambda$testTransferHandler::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TestTransferHandler$$Lambda$testTransferHandler, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestTransferHandler$$Lambda$testTransferHandler, run, void)},
-	{}
-};
-$ClassInfo TestTransferHandler$$Lambda$testTransferHandler::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"TestTransferHandler$$Lambda$testTransferHandler",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* TestTransferHandler$$Lambda$testTransferHandler::load$($String* name, bool initialize) {
-	$loadClass(TestTransferHandler$$Lambda$testTransferHandler, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TestTransferHandler$$Lambda$testTransferHandler, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestTransferHandler$$Lambda$testTransferHandler, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"TestTransferHandler$$Lambda$testTransferHandler",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(TestTransferHandler$$Lambda$testTransferHandler, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TestTransferHandler$$Lambda$testTransferHandler);
+	});
 	return class$;
 }
 $Class* TestTransferHandler$$Lambda$testTransferHandler::class$ = nullptr;
-
-$MethodInfo _TestTransferHandler_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TestTransferHandler, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TestTransferHandler, main, void, $StringArray*), "java.lang.Exception"},
-	{"testTransferHandler", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(TestTransferHandler, testTransferHandler, void)},
-	{}
-};
-
-$InnerClassInfo _TestTransferHandler_InnerClassesInfo_[] = {
-	{"TestTransferHandler$UserJComponent", "TestTransferHandler", "UserJComponent", $PUBLIC | $STATIC},
-	{"TestTransferHandler$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _TestTransferHandler_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"TestTransferHandler",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_TestTransferHandler_MethodInfo_,
-	nullptr,
-	nullptr,
-	_TestTransferHandler_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"TestTransferHandler$UserJComponent,TestTransferHandler$1"
-};
-
-$Object* allocate$TestTransferHandler($Class* clazz) {
-	return $of($alloc(TestTransferHandler));
-}
 
 void TestTransferHandler::init$() {
 }
 
 void TestTransferHandler::main($StringArray* args) {
+	$useLocalObjectStack();
 	$load(TestTransferHandler);
-	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
-	$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(TestTransferHandler$$Lambda$testTransferHandler)));
+	$SwingUtilities::invokeAndWait($$new(TestTransferHandler$$Lambda$testTransferHandler));
 	$System::setSecurityManager($$new($SecurityManager));
-	$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(TestTransferHandler$$Lambda$testTransferHandler)));
+	$SwingUtilities::invokeAndWait($$new(TestTransferHandler$$Lambda$testTransferHandler));
 }
 
 void TestTransferHandler::testTransferHandler() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$var($TransferHandler, transferHandler, $new($TransferHandler, "userColor"_s));
 		$var($TestTransferHandler$UserJComponent, comp, $new($TestTransferHandler$UserJComponent));
@@ -125,12 +86,11 @@ void TestTransferHandler::testTransferHandler() {
 		$var($DataFlavor, colorFlavor, $new($DataFlavor, colorType));
 		$var($Transferable, transferable, $new($TestTransferHandler$1, colorFlavor));
 		transferHandler->importData(comp, transferable);
-		$init($TestTransferHandler$UserJComponent);
 		if (!$nc($TestTransferHandler$UserJComponent::TEST_COLOR)->equals(comp->color)) {
 			$throwNew($RuntimeException, "Wrong color!"_s);
 		}
 	} catch ($Exception& e) {
-		$throwNew($RuntimeException, static_cast<$Throwable*>(e));
+		$throwNew($RuntimeException, e);
 	}
 }
 
@@ -139,11 +99,38 @@ TestTransferHandler::TestTransferHandler() {
 
 $Class* TestTransferHandler::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(TestTransferHandler$$Lambda$testTransferHandler::classInfo$.name)) {
+		if (name->equals("TestTransferHandler$$Lambda$testTransferHandler")) {
 			return TestTransferHandler$$Lambda$testTransferHandler::load$(name, initialize);
 		}
 	}
-	$loadClass(TestTransferHandler, name, initialize, &_TestTransferHandler_ClassInfo_, allocate$TestTransferHandler);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TestTransferHandler, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TestTransferHandler, main, void, $StringArray*), "java.lang.Exception"},
+		{"testTransferHandler", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(TestTransferHandler, testTransferHandler, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"TestTransferHandler$UserJComponent", "TestTransferHandler", "UserJComponent", $PUBLIC | $STATIC},
+		{"TestTransferHandler$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"TestTransferHandler",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"TestTransferHandler$UserJComponent,TestTransferHandler$1"
+	};
+	$loadClass(TestTransferHandler, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TestTransferHandler);
+	});
 	return class$;
 }
 

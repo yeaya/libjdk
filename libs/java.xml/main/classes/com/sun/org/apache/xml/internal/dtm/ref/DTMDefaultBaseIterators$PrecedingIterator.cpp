@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/dtm/ref/DTMDefaultBaseIterators$PrecedingIterator.h>
-
 #include <com/sun/org/apache/xml/internal/dtm/DTM.h>
 #include <com/sun/org/apache/xml/internal/dtm/DTMAxisIterator.h>
 #include <com/sun/org/apache/xml/internal/dtm/DTMException.h>
@@ -39,56 +38,6 @@ namespace com {
 						namespace dtm {
 							namespace ref {
 
-$FieldInfo _DTMDefaultBaseIterators$PrecedingIterator_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/org/apache/xml/internal/dtm/ref/DTMDefaultBaseIterators;", nullptr, $FINAL | $SYNTHETIC, $field(DTMDefaultBaseIterators$PrecedingIterator, this$0)},
-	{"_maxAncestors", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DTMDefaultBaseIterators$PrecedingIterator, _maxAncestors)},
-	{"_stack", "[I", nullptr, $PROTECTED, $field(DTMDefaultBaseIterators$PrecedingIterator, _stack)},
-	{"_sp", "I", nullptr, $PROTECTED, $field(DTMDefaultBaseIterators$PrecedingIterator, _sp)},
-	{"_oldsp", "I", nullptr, $PROTECTED, $field(DTMDefaultBaseIterators$PrecedingIterator, _oldsp)},
-	{"_markedsp", "I", nullptr, $PROTECTED, $field(DTMDefaultBaseIterators$PrecedingIterator, _markedsp)},
-	{"_markedNode", "I", nullptr, $PROTECTED, $field(DTMDefaultBaseIterators$PrecedingIterator, _markedNode)},
-	{"_markedDescendant", "I", nullptr, $PROTECTED, $field(DTMDefaultBaseIterators$PrecedingIterator, _markedDescendant)},
-	{}
-};
-
-$MethodInfo _DTMDefaultBaseIterators$PrecedingIterator_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/org/apache/xml/internal/dtm/ref/DTMDefaultBaseIterators;)V", nullptr, $PUBLIC, $method(DTMDefaultBaseIterators$PrecedingIterator, init$, void, $DTMDefaultBaseIterators*)},
-	{"cloneIterator", "()Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;", nullptr, $PUBLIC, $virtualMethod(DTMDefaultBaseIterators$PrecedingIterator, cloneIterator, $DTMAxisIterator*)},
-	{"gotoMark", "()V", nullptr, $PUBLIC, $virtualMethod(DTMDefaultBaseIterators$PrecedingIterator, gotoMark, void)},
-	{"isReverse", "()Z", nullptr, $PUBLIC, $virtualMethod(DTMDefaultBaseIterators$PrecedingIterator, isReverse, bool)},
-	{"next", "()I", nullptr, $PUBLIC, $virtualMethod(DTMDefaultBaseIterators$PrecedingIterator, next, int32_t)},
-	{"reset", "()Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;", nullptr, $PUBLIC, $virtualMethod(DTMDefaultBaseIterators$PrecedingIterator, reset, $DTMAxisIterator*)},
-	{"setMark", "()V", nullptr, $PUBLIC, $virtualMethod(DTMDefaultBaseIterators$PrecedingIterator, setMark, void)},
-	{"setStartNode", "(I)Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;", nullptr, $PUBLIC, $virtualMethod(DTMDefaultBaseIterators$PrecedingIterator, setStartNode, $DTMAxisIterator*, int32_t)},
-	{}
-};
-
-$InnerClassInfo _DTMDefaultBaseIterators$PrecedingIterator_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xml.internal.dtm.ref.DTMDefaultBaseIterators$PrecedingIterator", "com.sun.org.apache.xml.internal.dtm.ref.DTMDefaultBaseIterators", "PrecedingIterator", $PUBLIC},
-	{"com.sun.org.apache.xml.internal.dtm.ref.DTMDefaultBaseIterators$InternalAxisIteratorBase", "com.sun.org.apache.xml.internal.dtm.ref.DTMDefaultBaseIterators", "InternalAxisIteratorBase", $PUBLIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _DTMDefaultBaseIterators$PrecedingIterator_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.dtm.ref.DTMDefaultBaseIterators$PrecedingIterator",
-	"com.sun.org.apache.xml.internal.dtm.ref.DTMDefaultBaseIterators$InternalAxisIteratorBase",
-	nullptr,
-	_DTMDefaultBaseIterators$PrecedingIterator_FieldInfo_,
-	_DTMDefaultBaseIterators$PrecedingIterator_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DTMDefaultBaseIterators$PrecedingIterator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xml.internal.dtm.ref.DTMDefaultBaseIterators"
-};
-
-$Object* allocate$DTMDefaultBaseIterators$PrecedingIterator($Class* clazz) {
-	return $of($alloc(DTMDefaultBaseIterators$PrecedingIterator));
-}
-
 void DTMDefaultBaseIterators$PrecedingIterator::init$($DTMDefaultBaseIterators* this$0) {
 	$set(this, this$0, this$0);
 	$DTMDefaultBaseIterators$InternalAxisIteratorBase::init$(this$0);
@@ -100,12 +49,12 @@ bool DTMDefaultBaseIterators$PrecedingIterator::isReverse() {
 }
 
 $DTMAxisIterator* DTMDefaultBaseIterators$PrecedingIterator::cloneIterator() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->_isRestartable = false;
 	try {
 		$var(DTMDefaultBaseIterators$PrecedingIterator, clone, $cast(DTMDefaultBaseIterators$PrecedingIterator, $DTMDefaultBaseIterators$InternalAxisIteratorBase::clone()));
 		$var($ints, stackCopy, $new($ints, $nc(this->_stack)->length));
-		$System::arraycopy(this->_stack, 0, stackCopy, 0, $nc(this->_stack)->length);
+		$System::arraycopy(this->_stack, 0, stackCopy, 0, this->_stack->length);
 		$set($nc(clone), _stack, stackCopy);
 		return clone;
 	} catch ($CloneNotSupportedException& e) {
@@ -116,7 +65,7 @@ $DTMAxisIterator* DTMDefaultBaseIterators$PrecedingIterator::cloneIterator() {
 }
 
 $DTMAxisIterator* DTMDefaultBaseIterators$PrecedingIterator::setStartNode(int32_t node) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (node == $DTMDefaultBase::ROOTNODE) {
 		node = this->this$0->getDocument();
 	}
@@ -136,7 +85,7 @@ $DTMAxisIterator* DTMDefaultBaseIterators$PrecedingIterator::setStartNode(int32_
 				$System::arraycopy(this->_stack, 0, stack, 0, index);
 				$set(this, _stack, stack);
 			}
-			$nc(this->_stack)->set(index, parent);
+			this->_stack->set(index, parent);
 		}
 		if (index > 0) {
 			--index;
@@ -151,8 +100,8 @@ $DTMAxisIterator* DTMDefaultBaseIterators$PrecedingIterator::setStartNode(int32_
 int32_t DTMDefaultBaseIterators$PrecedingIterator::next() {
 	for (++this->_currentNode; this->_sp >= 0; ++this->_currentNode) {
 		if (this->_currentNode < $nc(this->_stack)->get(this->_sp)) {
-			bool var$0 = this->this$0->_type(this->_currentNode) != (int16_t)2;
-			if (var$0 && this->this$0->_type(this->_currentNode) != (int16_t)13) {
+			bool var$0 = this->this$0->_type(this->_currentNode) != 2;
+			if (var$0 && this->this$0->_type(this->_currentNode) != 13) {
 				return returnNode(this->this$0->makeNodeHandle(this->_currentNode));
 			}
 		} else {
@@ -182,7 +131,51 @@ DTMDefaultBaseIterators$PrecedingIterator::DTMDefaultBaseIterators$PrecedingIter
 }
 
 $Class* DTMDefaultBaseIterators$PrecedingIterator::load$($String* name, bool initialize) {
-	$loadClass(DTMDefaultBaseIterators$PrecedingIterator, name, initialize, &_DTMDefaultBaseIterators$PrecedingIterator_ClassInfo_, allocate$DTMDefaultBaseIterators$PrecedingIterator);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/org/apache/xml/internal/dtm/ref/DTMDefaultBaseIterators;", nullptr, $FINAL | $SYNTHETIC, $field(DTMDefaultBaseIterators$PrecedingIterator, this$0)},
+		{"_maxAncestors", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DTMDefaultBaseIterators$PrecedingIterator, _maxAncestors)},
+		{"_stack", "[I", nullptr, $PROTECTED, $field(DTMDefaultBaseIterators$PrecedingIterator, _stack)},
+		{"_sp", "I", nullptr, $PROTECTED, $field(DTMDefaultBaseIterators$PrecedingIterator, _sp)},
+		{"_oldsp", "I", nullptr, $PROTECTED, $field(DTMDefaultBaseIterators$PrecedingIterator, _oldsp)},
+		{"_markedsp", "I", nullptr, $PROTECTED, $field(DTMDefaultBaseIterators$PrecedingIterator, _markedsp)},
+		{"_markedNode", "I", nullptr, $PROTECTED, $field(DTMDefaultBaseIterators$PrecedingIterator, _markedNode)},
+		{"_markedDescendant", "I", nullptr, $PROTECTED, $field(DTMDefaultBaseIterators$PrecedingIterator, _markedDescendant)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/org/apache/xml/internal/dtm/ref/DTMDefaultBaseIterators;)V", nullptr, $PUBLIC, $method(DTMDefaultBaseIterators$PrecedingIterator, init$, void, $DTMDefaultBaseIterators*)},
+		{"cloneIterator", "()Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;", nullptr, $PUBLIC, $virtualMethod(DTMDefaultBaseIterators$PrecedingIterator, cloneIterator, $DTMAxisIterator*)},
+		{"gotoMark", "()V", nullptr, $PUBLIC, $virtualMethod(DTMDefaultBaseIterators$PrecedingIterator, gotoMark, void)},
+		{"isReverse", "()Z", nullptr, $PUBLIC, $virtualMethod(DTMDefaultBaseIterators$PrecedingIterator, isReverse, bool)},
+		{"next", "()I", nullptr, $PUBLIC, $virtualMethod(DTMDefaultBaseIterators$PrecedingIterator, next, int32_t)},
+		{"reset", "()Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;", nullptr, $PUBLIC, $virtualMethod(DTMDefaultBaseIterators$PrecedingIterator, reset, $DTMAxisIterator*)},
+		{"setMark", "()V", nullptr, $PUBLIC, $virtualMethod(DTMDefaultBaseIterators$PrecedingIterator, setMark, void)},
+		{"setStartNode", "(I)Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;", nullptr, $PUBLIC, $virtualMethod(DTMDefaultBaseIterators$PrecedingIterator, setStartNode, $DTMAxisIterator*, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xml.internal.dtm.ref.DTMDefaultBaseIterators$PrecedingIterator", "com.sun.org.apache.xml.internal.dtm.ref.DTMDefaultBaseIterators", "PrecedingIterator", $PUBLIC},
+		{"com.sun.org.apache.xml.internal.dtm.ref.DTMDefaultBaseIterators$InternalAxisIteratorBase", "com.sun.org.apache.xml.internal.dtm.ref.DTMDefaultBaseIterators", "InternalAxisIteratorBase", $PUBLIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.dtm.ref.DTMDefaultBaseIterators$PrecedingIterator",
+		"com.sun.org.apache.xml.internal.dtm.ref.DTMDefaultBaseIterators$InternalAxisIteratorBase",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xml.internal.dtm.ref.DTMDefaultBaseIterators"
+	};
+	$loadClass(DTMDefaultBaseIterators$PrecedingIterator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DTMDefaultBaseIterators$PrecedingIterator);
+	});
 	return class$;
 }
 

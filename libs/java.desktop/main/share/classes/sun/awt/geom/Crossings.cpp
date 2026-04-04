@@ -1,5 +1,4 @@
 #include <sun/awt/geom/Crossings.h>
-
 #include <java/awt/geom/PathIterator.h>
 #include <java/lang/Math.h>
 #include <java/util/Enumeration.h>
@@ -17,7 +16,6 @@
 #undef WIND_EVEN_ODD
 
 using $PathIterator = ::java::awt::geom::PathIterator;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -32,62 +30,6 @@ using $Curve = ::sun::awt::geom::Curve;
 namespace sun {
 	namespace awt {
 		namespace geom {
-
-$FieldInfo _Crossings_FieldInfo_[] = {
-	{"debug", "Z", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Crossings, debug)},
-	{"limit", "I", nullptr, 0, $field(Crossings, limit)},
-	{"yranges", "[D", nullptr, 0, $field(Crossings, yranges)},
-	{"xlo", "D", nullptr, 0, $field(Crossings, xlo)},
-	{"ylo", "D", nullptr, 0, $field(Crossings, ylo)},
-	{"xhi", "D", nullptr, 0, $field(Crossings, xhi)},
-	{"yhi", "D", nullptr, 0, $field(Crossings, yhi)},
-	{"tmp", "Ljava/util/Vector;", "Ljava/util/Vector<Lsun/awt/geom/Curve;>;", $PRIVATE, $field(Crossings, tmp)},
-	{}
-};
-
-$MethodInfo _Crossings_MethodInfo_[] = {
-	{"<init>", "(DDDD)V", nullptr, $PUBLIC, $method(Crossings, init$, void, double, double, double, double)},
-	{"accumulateCubic", "(DD[D)Z", nullptr, $PUBLIC, $virtualMethod(Crossings, accumulateCubic, bool, double, double, $doubles*)},
-	{"accumulateLine", "(DDDD)Z", nullptr, $PUBLIC, $virtualMethod(Crossings, accumulateLine, bool, double, double, double, double)},
-	{"accumulateLine", "(DDDDI)Z", nullptr, $PUBLIC, $virtualMethod(Crossings, accumulateLine, bool, double, double, double, double, int32_t)},
-	{"accumulateQuad", "(DD[D)Z", nullptr, $PUBLIC, $virtualMethod(Crossings, accumulateQuad, bool, double, double, $doubles*)},
-	{"covers", "(DD)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Crossings, covers, bool, double, double)},
-	{"findCrossings", "(Ljava/util/Vector;DDDD)Lsun/awt/geom/Crossings;", "(Ljava/util/Vector<+Lsun/awt/geom/Curve;>;DDDD)Lsun/awt/geom/Crossings;", $PUBLIC | $STATIC, $staticMethod(Crossings, findCrossings, Crossings*, $Vector*, double, double, double, double)},
-	{"findCrossings", "(Ljava/awt/geom/PathIterator;DDDD)Lsun/awt/geom/Crossings;", nullptr, $PUBLIC | $STATIC, $staticMethod(Crossings, findCrossings, Crossings*, $PathIterator*, double, double, double, double)},
-	{"getXHi", "()D", nullptr, $PUBLIC | $FINAL, $method(Crossings, getXHi, double)},
-	{"getXLo", "()D", nullptr, $PUBLIC | $FINAL, $method(Crossings, getXLo, double)},
-	{"getYHi", "()D", nullptr, $PUBLIC | $FINAL, $method(Crossings, getYHi, double)},
-	{"getYLo", "()D", nullptr, $PUBLIC | $FINAL, $method(Crossings, getYLo, double)},
-	{"isEmpty", "()Z", nullptr, $PUBLIC | $FINAL, $method(Crossings, isEmpty, bool)},
-	{"print", "()V", nullptr, $PUBLIC, $virtualMethod(Crossings, print, void)},
-	{"record", "(DDI)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Crossings, record, void, double, double, int32_t)},
-	{}
-};
-
-$InnerClassInfo _Crossings_InnerClassesInfo_[] = {
-	{"sun.awt.geom.Crossings$NonZero", "sun.awt.geom.Crossings", "NonZero", $PUBLIC | $STATIC | $FINAL},
-	{"sun.awt.geom.Crossings$EvenOdd", "sun.awt.geom.Crossings", "EvenOdd", $PUBLIC | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _Crossings_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"sun.awt.geom.Crossings",
-	"java.lang.Object",
-	nullptr,
-	_Crossings_FieldInfo_,
-	_Crossings_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Crossings_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.awt.geom.Crossings$NonZero,sun.awt.geom.Crossings$EvenOdd"
-};
-
-$Object* allocate$Crossings($Class* clazz) {
-	return $of($alloc(Crossings));
-}
 
 void Crossings::init$(double xlo, double ylo, double xhi, double yhi) {
 	this->limit = 0;
@@ -116,13 +58,13 @@ double Crossings::getYHi() {
 }
 
 void Crossings::print() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc($System::out)->println("Crossings ["_s);
-	$nc($System::out)->println($$str({"  bounds = ["_s, $$str(this->ylo), ", "_s, $$str(this->yhi), "]"_s}));
+	$System::out->println($$str({"  bounds = ["_s, $$str(this->ylo), ", "_s, $$str(this->yhi), "]"_s}));
 	for (int32_t i = 0; i < this->limit; i += 2) {
-		$nc($System::out)->println($$str({"  ["_s, $$str($nc(this->yranges)->get(i)), ", "_s, $$str($nc(this->yranges)->get(i + 1)), "]"_s}));
+		$System::out->println($$str({"  ["_s, $$str($nc(this->yranges)->get(i)), ", "_s, $$str($nc(this->yranges)->get(i + 1)), "]"_s}));
 	}
-	$nc($System::out)->println("]"_s);
+	$System::out->println("]"_s);
 }
 
 bool Crossings::isEmpty() {
@@ -130,7 +72,7 @@ bool Crossings::isEmpty() {
 }
 
 Crossings* Crossings::findCrossings($Vector* curves, double xlo, double ylo, double xhi, double yhi) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(Crossings, cross, $new($Crossings$EvenOdd, xlo, ylo, xhi, yhi));
 	$var($Enumeration, enum_, $nc(curves)->elements());
 	while ($nc(enum_)->hasMoreElements()) {
@@ -139,11 +81,12 @@ Crossings* Crossings::findCrossings($Vector* curves, double xlo, double ylo, dou
 			return nullptr;
 		}
 	}
+	;
 	return cross;
 }
 
 Crossings* Crossings::findCrossings($PathIterator* pi, double xlo, double ylo, double xhi, double yhi) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(Crossings, cross, nullptr);
 	if ($nc(pi)->getWindingRule() == $PathIterator::WIND_EVEN_ODD) {
 		$assign(cross, $new($Crossings$EvenOdd, xlo, ylo, xhi, yhi));
@@ -151,66 +94,56 @@ Crossings* Crossings::findCrossings($PathIterator* pi, double xlo, double ylo, d
 		$assign(cross, $new($Crossings$NonZero, xlo, ylo, xhi, yhi));
 	}
 	$var($doubles, coords, $new($doubles, 23));
-	double movx = (double)0;
-	double movy = (double)0;
-	double curx = (double)0;
-	double cury = (double)0;
+	double movx = 0;
+	double movy = 0;
+	double curx = 0;
+	double cury = 0;
 	double newx = 0.0;
 	double newy = 0.0;
-	while (!$nc(pi)->isDone()) {
+	while (!pi->isDone()) {
 		int32_t type = pi->currentSegment(coords);
 		switch (type) {
 		case $PathIterator::SEG_MOVETO:
-			{
-				if (movy != cury && $nc(cross)->accumulateLine(curx, cury, movx, movy)) {
-					return nullptr;
-				}
-				movx = (curx = coords->get(0));
-				movy = (cury = coords->get(1));
-				break;
+			if (movy != cury && $nc(cross)->accumulateLine(curx, cury, movx, movy)) {
+				return nullptr;
 			}
+			movx = (curx = coords->get(0));
+			movy = (cury = coords->get(1));
+			break;
 		case $PathIterator::SEG_LINETO:
-			{
-				newx = coords->get(0);
-				newy = coords->get(1);
-				if ($nc(cross)->accumulateLine(curx, cury, newx, newy)) {
-					return nullptr;
-				}
-				curx = newx;
-				cury = newy;
-				break;
+			newx = coords->get(0);
+			newy = coords->get(1);
+			if ($nc(cross)->accumulateLine(curx, cury, newx, newy)) {
+				return nullptr;
 			}
+			curx = newx;
+			cury = newy;
+			break;
 		case $PathIterator::SEG_QUADTO:
-			{
-				newx = coords->get(2);
-				newy = coords->get(3);
-				if ($nc(cross)->accumulateQuad(curx, cury, coords)) {
-					return nullptr;
-				}
-				curx = newx;
-				cury = newy;
-				break;
+			newx = coords->get(2);
+			newy = coords->get(3);
+			if ($nc(cross)->accumulateQuad(curx, cury, coords)) {
+				return nullptr;
 			}
+			curx = newx;
+			cury = newy;
+			break;
 		case $PathIterator::SEG_CUBICTO:
-			{
-				newx = coords->get(4);
-				newy = coords->get(5);
-				if ($nc(cross)->accumulateCubic(curx, cury, coords)) {
-					return nullptr;
-				}
-				curx = newx;
-				cury = newy;
-				break;
+			newx = coords->get(4);
+			newy = coords->get(5);
+			if ($nc(cross)->accumulateCubic(curx, cury, coords)) {
+				return nullptr;
 			}
+			curx = newx;
+			cury = newy;
+			break;
 		case $PathIterator::SEG_CLOSE:
-			{
-				if (movy != cury && $nc(cross)->accumulateLine(curx, cury, movx, movy)) {
-					return nullptr;
-				}
-				curx = movx;
-				cury = movy;
-				break;
+			if (movy != cury && $nc(cross)->accumulateLine(curx, cury, movx, movy)) {
+				return nullptr;
 			}
+			curx = movx;
+			cury = movy;
+			break;
 		}
 		pi->next();
 	}
@@ -219,6 +152,7 @@ Crossings* Crossings::findCrossings($PathIterator* pi, double xlo, double ylo, d
 			return nullptr;
 		}
 	}
+	;
 	return cross;
 }
 
@@ -271,7 +205,7 @@ bool Crossings::accumulateLine(double x0, double y0, double x1, double y1, int32
 }
 
 bool Crossings::accumulateQuad(double x0, double y0, $doubles* coords) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (y0 < this->ylo && $nc(coords)->get(1) < this->ylo && coords->get(3) < this->ylo) {
 		return false;
 	}
@@ -304,7 +238,7 @@ bool Crossings::accumulateQuad(double x0, double y0, $doubles* coords) {
 }
 
 bool Crossings::accumulateCubic(double x0, double y0, $doubles* coords) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (y0 < this->ylo && $nc(coords)->get(1) < this->ylo && coords->get(3) < this->ylo && coords->get(5) < this->ylo) {
 		return false;
 	}
@@ -340,7 +274,57 @@ Crossings::Crossings() {
 }
 
 $Class* Crossings::load$($String* name, bool initialize) {
-	$loadClass(Crossings, name, initialize, &_Crossings_ClassInfo_, allocate$Crossings);
+	$FieldInfo fieldInfos$$[] = {
+		{"debug", "Z", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Crossings, debug)},
+		{"limit", "I", nullptr, 0, $field(Crossings, limit)},
+		{"yranges", "[D", nullptr, 0, $field(Crossings, yranges)},
+		{"xlo", "D", nullptr, 0, $field(Crossings, xlo)},
+		{"ylo", "D", nullptr, 0, $field(Crossings, ylo)},
+		{"xhi", "D", nullptr, 0, $field(Crossings, xhi)},
+		{"yhi", "D", nullptr, 0, $field(Crossings, yhi)},
+		{"tmp", "Ljava/util/Vector;", "Ljava/util/Vector<Lsun/awt/geom/Curve;>;", $PRIVATE, $field(Crossings, tmp)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(DDDD)V", nullptr, $PUBLIC, $method(Crossings, init$, void, double, double, double, double)},
+		{"accumulateCubic", "(DD[D)Z", nullptr, $PUBLIC, $virtualMethod(Crossings, accumulateCubic, bool, double, double, $doubles*)},
+		{"accumulateLine", "(DDDD)Z", nullptr, $PUBLIC, $virtualMethod(Crossings, accumulateLine, bool, double, double, double, double)},
+		{"accumulateLine", "(DDDDI)Z", nullptr, $PUBLIC, $virtualMethod(Crossings, accumulateLine, bool, double, double, double, double, int32_t)},
+		{"accumulateQuad", "(DD[D)Z", nullptr, $PUBLIC, $virtualMethod(Crossings, accumulateQuad, bool, double, double, $doubles*)},
+		{"covers", "(DD)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Crossings, covers, bool, double, double)},
+		{"findCrossings", "(Ljava/util/Vector;DDDD)Lsun/awt/geom/Crossings;", "(Ljava/util/Vector<+Lsun/awt/geom/Curve;>;DDDD)Lsun/awt/geom/Crossings;", $PUBLIC | $STATIC, $staticMethod(Crossings, findCrossings, Crossings*, $Vector*, double, double, double, double)},
+		{"findCrossings", "(Ljava/awt/geom/PathIterator;DDDD)Lsun/awt/geom/Crossings;", nullptr, $PUBLIC | $STATIC, $staticMethod(Crossings, findCrossings, Crossings*, $PathIterator*, double, double, double, double)},
+		{"getXHi", "()D", nullptr, $PUBLIC | $FINAL, $method(Crossings, getXHi, double)},
+		{"getXLo", "()D", nullptr, $PUBLIC | $FINAL, $method(Crossings, getXLo, double)},
+		{"getYHi", "()D", nullptr, $PUBLIC | $FINAL, $method(Crossings, getYHi, double)},
+		{"getYLo", "()D", nullptr, $PUBLIC | $FINAL, $method(Crossings, getYLo, double)},
+		{"isEmpty", "()Z", nullptr, $PUBLIC | $FINAL, $method(Crossings, isEmpty, bool)},
+		{"print", "()V", nullptr, $PUBLIC, $virtualMethod(Crossings, print, void)},
+		{"record", "(DDI)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Crossings, record, void, double, double, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.geom.Crossings$NonZero", "sun.awt.geom.Crossings", "NonZero", $PUBLIC | $STATIC | $FINAL},
+		{"sun.awt.geom.Crossings$EvenOdd", "sun.awt.geom.Crossings", "EvenOdd", $PUBLIC | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"sun.awt.geom.Crossings",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.awt.geom.Crossings$NonZero,sun.awt.geom.Crossings$EvenOdd"
+	};
+	$loadClass(Crossings, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Crossings);
+	});
 	return class$;
 }
 

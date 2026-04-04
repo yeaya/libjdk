@@ -1,5 +1,4 @@
 #include <sun/awt/X11GraphicsDevice.h>
-
 #include <java/awt/AWTPermission.h>
 #include <java/awt/Component.h>
 #include <java/awt/DisplayMode.h>
@@ -51,14 +50,12 @@
 using $DisplayModeArray = $Array<::java::awt::DisplayMode>;
 using $GraphicsConfigurationArray = $Array<::java::awt::GraphicsConfiguration>;
 using $AWTPermission = ::java::awt::AWTPermission;
-using $Component = ::java::awt::Component;
 using $DisplayMode = ::java::awt::DisplayMode;
 using $GraphicsConfiguration = ::java::awt::GraphicsConfiguration;
 using $GraphicsDevice = ::java::awt::GraphicsDevice;
 using $GraphicsEnvironment = ::java::awt::GraphicsEnvironment;
 using $Rectangle = ::java::awt::Rectangle;
 using $Window = ::java::awt::Window;
-using $PrintStream = ::java::io::PrintStream;
 using $Serializable = ::java::io::Serializable;
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -76,13 +73,11 @@ using $SecurityManager = ::java::lang::SecurityManager;
 using $Void = ::java::lang::Void;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $AccessController = ::java::security::AccessController;
-using $Permission = ::java::security::Permission;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $ArrayList = ::java::util::ArrayList;
 using $HashMap = ::java::util::HashMap;
 using $HashSet = ::java::util::HashSet;
 using $AWTAccessor = ::sun::awt::AWTAccessor;
-using $AWTAccessor$ComponentAccessor = ::sun::awt::AWTAccessor$ComponentAccessor;
 using $DisplayChangedListener = ::sun::awt::DisplayChangedListener;
 using $SunDisplayChanger = ::sun::awt::SunDisplayChanger;
 using $X11ComponentPeer = ::sun::awt::X11ComponentPeer;
@@ -105,35 +100,31 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* run() override {
-		 return $of($nc(inst$)->lambda$setDisplayMode$1());
-	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<X11GraphicsDevice$$Lambda$lambda$setDisplayMode$1>());
+		 return $nc(inst$)->lambda$setDisplayMode$1();
 	}
 	X11GraphicsDevice* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo X11GraphicsDevice$$Lambda$lambda$setDisplayMode$1::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(X11GraphicsDevice$$Lambda$lambda$setDisplayMode$1, inst$)},
-	{}
-};
-$MethodInfo X11GraphicsDevice$$Lambda$lambda$setDisplayMode$1::methodInfos[3] = {
-	{"<init>", "(Lsun/awt/X11GraphicsDevice;)V", nullptr, $PUBLIC, $method(X11GraphicsDevice$$Lambda$lambda$setDisplayMode$1, init$, void, X11GraphicsDevice*)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(X11GraphicsDevice$$Lambda$lambda$setDisplayMode$1, run, $Object*)},
-	{}
-};
-$ClassInfo X11GraphicsDevice$$Lambda$lambda$setDisplayMode$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.awt.X11GraphicsDevice$$Lambda$lambda$setDisplayMode$1",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	fieldInfos,
-	methodInfos
 };
 $Class* X11GraphicsDevice$$Lambda$lambda$setDisplayMode$1::load$($String* name, bool initialize) {
-	$loadClass(X11GraphicsDevice$$Lambda$lambda$setDisplayMode$1, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(X11GraphicsDevice$$Lambda$lambda$setDisplayMode$1, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/awt/X11GraphicsDevice;)V", nullptr, $PUBLIC, $method(X11GraphicsDevice$$Lambda$lambda$setDisplayMode$1, init$, void, X11GraphicsDevice*)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(X11GraphicsDevice$$Lambda$lambda$setDisplayMode$1, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.awt.X11GraphicsDevice$$Lambda$lambda$setDisplayMode$1",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(X11GraphicsDevice$$Lambda$lambda$setDisplayMode$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(X11GraphicsDevice$$Lambda$lambda$setDisplayMode$1);
+	});
 	return class$;
 }
 $Class* X11GraphicsDevice$$Lambda$lambda$setDisplayMode$1::class$ = nullptr;
@@ -147,139 +138,32 @@ public:
 	virtual void run() override {
 		$nc(inst$)->lambda$setDisplayMode$0();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<X11GraphicsDevice$$Lambda$lambda$setDisplayMode$0$1>());
-	}
 	X11GraphicsDevice* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo X11GraphicsDevice$$Lambda$lambda$setDisplayMode$0$1::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(X11GraphicsDevice$$Lambda$lambda$setDisplayMode$0$1, inst$)},
-	{}
-};
-$MethodInfo X11GraphicsDevice$$Lambda$lambda$setDisplayMode$0$1::methodInfos[3] = {
-	{"<init>", "(Lsun/awt/X11GraphicsDevice;)V", nullptr, $PUBLIC, $method(X11GraphicsDevice$$Lambda$lambda$setDisplayMode$0$1, init$, void, X11GraphicsDevice*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(X11GraphicsDevice$$Lambda$lambda$setDisplayMode$0$1, run, void)},
-	{}
-};
-$ClassInfo X11GraphicsDevice$$Lambda$lambda$setDisplayMode$0$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.awt.X11GraphicsDevice$$Lambda$lambda$setDisplayMode$0$1",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	fieldInfos,
-	methodInfos
 };
 $Class* X11GraphicsDevice$$Lambda$lambda$setDisplayMode$0$1::load$($String* name, bool initialize) {
-	$loadClass(X11GraphicsDevice$$Lambda$lambda$setDisplayMode$0$1, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(X11GraphicsDevice$$Lambda$lambda$setDisplayMode$0$1, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/awt/X11GraphicsDevice;)V", nullptr, $PUBLIC, $method(X11GraphicsDevice$$Lambda$lambda$setDisplayMode$0$1, init$, void, X11GraphicsDevice*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(X11GraphicsDevice$$Lambda$lambda$setDisplayMode$0$1, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.awt.X11GraphicsDevice$$Lambda$lambda$setDisplayMode$0$1",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(X11GraphicsDevice$$Lambda$lambda$setDisplayMode$0$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(X11GraphicsDevice$$Lambda$lambda$setDisplayMode$0$1);
+	});
 	return class$;
 }
 $Class* X11GraphicsDevice$$Lambda$lambda$setDisplayMode$0$1::class$ = nullptr;
-
-$FieldInfo _X11GraphicsDevice_FieldInfo_[] = {
-	{"screen", "I", nullptr, $PRIVATE | $VOLATILE, $field(X11GraphicsDevice, screen)},
-	{"x11ProxyKeyMap", "Ljava/util/HashMap;", "Ljava/util/HashMap<Lsun/java2d/loops/SurfaceType;Ljava/lang/Object;>;", 0, $field(X11GraphicsDevice, x11ProxyKeyMap)},
-	{"fullScreenExclusivePermission", "Ljava/awt/AWTPermission;", nullptr, $PRIVATE | $STATIC, $staticField(X11GraphicsDevice, fullScreenExclusivePermission)},
-	{"xrandrExtSupported", "Ljava/lang/Boolean;", nullptr, $PRIVATE | $STATIC, $staticField(X11GraphicsDevice, xrandrExtSupported)},
-	{"configLock", "Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $field(X11GraphicsDevice, configLock)},
-	{"topLevels", "Lsun/awt/SunDisplayChanger;", nullptr, $PRIVATE, $field(X11GraphicsDevice, topLevels)},
-	{"origDisplayMode", "Ljava/awt/DisplayMode;", nullptr, $PRIVATE, $field(X11GraphicsDevice, origDisplayMode)},
-	{"shutdownHookRegistered", "Z", nullptr, $PRIVATE, $field(X11GraphicsDevice, shutdownHookRegistered)},
-	{"scale", "I", nullptr, $PRIVATE, $field(X11GraphicsDevice, scale)},
-	{"configs", "[Ljava/awt/GraphicsConfiguration;", nullptr, 0, $field(X11GraphicsDevice, configs)},
-	{"defaultConfig", "Ljava/awt/GraphicsConfiguration;", nullptr, 0, $field(X11GraphicsDevice, defaultConfig)},
-	{"doubleBufferVisuals", "Ljava/util/HashSet;", "Ljava/util/HashSet<Ljava/lang/Integer;>;", 0, $field(X11GraphicsDevice, doubleBufferVisuals)},
-	{}
-};
-
-$MethodInfo _X11GraphicsDevice_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(X11GraphicsDevice, init$, void, int32_t)},
-	{"addDisplayChangedListener", "(Lsun/awt/DisplayChangedListener;)V", nullptr, $PUBLIC, $method(X11GraphicsDevice, addDisplayChangedListener, void, $DisplayChangedListener*)},
-	{"addDoubleBufferVisual", "(I)V", nullptr, $PRIVATE, $method(X11GraphicsDevice, addDoubleBufferVisual, void, int32_t)},
-	{"configDisplayMode", "(IIII)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(X11GraphicsDevice, configDisplayMode, void, int32_t, int32_t, int32_t, int32_t)},
-	{"displayChanged", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(X11GraphicsDevice, displayChanged, void)},
-	{"enterFullScreenExclusive", "(J)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(X11GraphicsDevice, enterFullScreenExclusive, void, int64_t)},
-	{"enterFullScreenExclusive", "(Ljava/awt/Window;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(X11GraphicsDevice, enterFullScreenExclusive, void, $Window*)},
-	{"enumDisplayModes", "(ILjava/util/ArrayList;)V", "(ILjava/util/ArrayList<Ljava/awt/DisplayMode;>;)V", $PRIVATE | $STATIC | $NATIVE, $staticMethod(X11GraphicsDevice, enumDisplayModes, void, int32_t, $ArrayList*)},
-	{"exitFullScreenExclusive", "(J)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(X11GraphicsDevice, exitFullScreenExclusive, void, int64_t)},
-	{"exitFullScreenExclusive", "(Ljava/awt/Window;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(X11GraphicsDevice, exitFullScreenExclusive, void, $Window*)},
-	{"getBounds", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC, $method(X11GraphicsDevice, getBounds, $Rectangle*)},
-	{"getConfigColormap", "(II)I", nullptr, $PRIVATE | $NATIVE, $method(X11GraphicsDevice, getConfigColormap, int32_t, int32_t, int32_t)},
-	{"getConfigDepth", "(II)I", nullptr, $PRIVATE | $NATIVE, $method(X11GraphicsDevice, getConfigDepth, int32_t, int32_t, int32_t)},
-	{"getConfigVisualId", "(II)I", nullptr, $PUBLIC | $NATIVE, $method(X11GraphicsDevice, getConfigVisualId, int32_t, int32_t, int32_t)},
-	{"getConfigurations", "()[Ljava/awt/GraphicsConfiguration;", nullptr, $PUBLIC, $virtualMethod(X11GraphicsDevice, getConfigurations, $GraphicsConfigurationArray*)},
-	{"getCurrentDisplayMode", "(I)Ljava/awt/DisplayMode;", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(X11GraphicsDevice, getCurrentDisplayMode, $DisplayMode*, int32_t)},
-	{"getDefaultConfiguration", "()Ljava/awt/GraphicsConfiguration;", nullptr, $PUBLIC, $virtualMethod(X11GraphicsDevice, getDefaultConfiguration, $GraphicsConfiguration*)},
-	{"getDefaultDisplayMode", "()Ljava/awt/DisplayMode;", nullptr, $PRIVATE, $method(X11GraphicsDevice, getDefaultDisplayMode, $DisplayMode*)},
-	{"getDisplay", "()J", nullptr, $PUBLIC | $NATIVE, $method(X11GraphicsDevice, getDisplay, int64_t)},
-	{"getDisplayMode", "()Ljava/awt/DisplayMode;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(X11GraphicsDevice, getDisplayMode, $DisplayMode*)},
-	{"getDisplayModes", "()[Ljava/awt/DisplayMode;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(X11GraphicsDevice, getDisplayModes, $DisplayModeArray*)},
-	{"getDoubleBufferVisuals", "(I)V", nullptr, $PRIVATE | $NATIVE, $method(X11GraphicsDevice, getDoubleBufferVisuals, void, int32_t)},
-	{"getIDstring", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(X11GraphicsDevice, getIDstring, $String*)},
-	{"getMatchingDisplayMode", "(Ljava/awt/DisplayMode;)Ljava/awt/DisplayMode;", nullptr, $PRIVATE | $SYNCHRONIZED, $method(X11GraphicsDevice, getMatchingDisplayMode, $DisplayMode*, $DisplayMode*)},
-	{"getNativeScale", "()I", nullptr, $PUBLIC, $method(X11GraphicsDevice, getNativeScale, int32_t)},
-	{"getNativeScaleFactor", "(I)D", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(X11GraphicsDevice, getNativeScaleFactor, double, int32_t)},
-	{"getNumConfigs", "(I)I", nullptr, $PUBLIC | $NATIVE, $method(X11GraphicsDevice, getNumConfigs, int32_t, int32_t)},
-	{"getProxyKeyFor", "(Lsun/java2d/loops/SurfaceType;)Ljava/lang/Object;", nullptr, $PUBLIC, $method(X11GraphicsDevice, getProxyKeyFor, $Object*, $SurfaceType*)},
-	{"getScaleFactor", "()I", nullptr, $PUBLIC, $method(X11GraphicsDevice, getScaleFactor, int32_t)},
-	{"getScreen", "()I", nullptr, $PUBLIC, $method(X11GraphicsDevice, getScreen, int32_t)},
-	{"getType", "()I", nullptr, $PUBLIC, $virtualMethod(X11GraphicsDevice, getType, int32_t)},
-	{"initScaleFactor", "()I", nullptr, $PRIVATE, $method(X11GraphicsDevice, initScaleFactor, int32_t)},
-	{"initXrandrExtension", "()Z", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(X11GraphicsDevice, initXrandrExtension, bool)},
-	{"invalidate", "(Lsun/awt/X11GraphicsDevice;)V", nullptr, $PUBLIC, $method(X11GraphicsDevice, invalidate, void, X11GraphicsDevice*)},
-	{"isDBESupported", "()Z", nullptr, $STATIC | $NATIVE, $staticMethod(X11GraphicsDevice, isDBESupported, bool)},
-	{"isDisplayChangeSupported", "()Z", nullptr, $PUBLIC, $virtualMethod(X11GraphicsDevice, isDisplayChangeSupported, bool)},
-	{"isFullScreenSupported", "()Z", nullptr, $PUBLIC, $virtualMethod(X11GraphicsDevice, isFullScreenSupported, bool)},
-	{"isXrandrExtensionSupported", "()Z", nullptr, $PRIVATE | $STATIC | $SYNCHRONIZED, $staticMethod(X11GraphicsDevice, isXrandrExtensionSupported, bool)},
-	{"lambda$setDisplayMode$0", "()V", nullptr, $PRIVATE | $SYNTHETIC, $method(X11GraphicsDevice, lambda$setDisplayMode$0, void)},
-	{"lambda$setDisplayMode$1", "()Ljava/lang/Void;", nullptr, $PRIVATE | $SYNTHETIC, $method(X11GraphicsDevice, lambda$setDisplayMode$1, $Void*)},
-	{"makeConfigurations", "()V", nullptr, $PRIVATE, $method(X11GraphicsDevice, makeConfigurations, void)},
-	{"makeDefaultConfiguration", "()V", nullptr, $PRIVATE, $method(X11GraphicsDevice, makeDefaultConfiguration, void)},
-	{"pGetBounds", "(I)Ljava/awt/Rectangle;", nullptr, $PRIVATE | $NATIVE, $method(X11GraphicsDevice, pGetBounds, $Rectangle*, int32_t)},
-	{"paletteChanged", "()V", nullptr, $PUBLIC, $virtualMethod(X11GraphicsDevice, paletteChanged, void)},
-	{"removeDisplayChangedListener", "(Lsun/awt/DisplayChangedListener;)V", nullptr, $PUBLIC, $method(X11GraphicsDevice, removeDisplayChangedListener, void, $DisplayChangedListener*)},
-	{"scaleDown", "(I)I", nullptr, $PUBLIC, $method(X11GraphicsDevice, scaleDown, int32_t, int32_t)},
-	{"scaleUp", "(I)I", nullptr, $PUBLIC, $method(X11GraphicsDevice, scaleUp, int32_t, int32_t)},
-	{"setDisplayMode", "(Ljava/awt/DisplayMode;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(X11GraphicsDevice, setDisplayMode, void, $DisplayMode*)},
-	{"setFullScreenWindow", "(Ljava/awt/Window;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(X11GraphicsDevice, setFullScreenWindow, void, $Window*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(X11GraphicsDevice, toString, $String*)},
-	{}
-};
-
-#define _METHOD_INDEX_configDisplayMode 7
-#define _METHOD_INDEX_enterFullScreenExclusive 9
-#define _METHOD_INDEX_enumDisplayModes 11
-#define _METHOD_INDEX_exitFullScreenExclusive 12
-#define _METHOD_INDEX_getConfigColormap 15
-#define _METHOD_INDEX_getConfigDepth 16
-#define _METHOD_INDEX_getConfigVisualId 17
-#define _METHOD_INDEX_getCurrentDisplayMode 19
-#define _METHOD_INDEX_getDisplay 22
-#define _METHOD_INDEX_getDoubleBufferVisuals 25
-#define _METHOD_INDEX_getNativeScaleFactor 29
-#define _METHOD_INDEX_getNumConfigs 30
-#define _METHOD_INDEX_initXrandrExtension 36
-#define _METHOD_INDEX_isDBESupported 38
-#define _METHOD_INDEX_pGetBounds 46
-
-$ClassInfo _X11GraphicsDevice_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.awt.X11GraphicsDevice",
-	"java.awt.GraphicsDevice",
-	"sun.awt.DisplayChangedListener",
-	_X11GraphicsDevice_FieldInfo_,
-	_X11GraphicsDevice_MethodInfo_
-};
-
-$Object* allocate$X11GraphicsDevice($Class* clazz) {
-	return $of($alloc(X11GraphicsDevice));
-}
 
 int32_t X11GraphicsDevice::hashCode() {
 	 return this->$GraphicsDevice::hashCode();
@@ -315,19 +199,18 @@ int32_t X11GraphicsDevice::getScreen() {
 
 $Object* X11GraphicsDevice::getProxyKeyFor($SurfaceType* st) {
 	$synchronized(this->x11ProxyKeyMap) {
-		$var($Object, o, $nc(this->x11ProxyKeyMap)->get(st));
+		$var($Object, o, this->x11ProxyKeyMap->get(st));
 		if (o == nullptr) {
 			$assign(o, $new($Object));
-			$nc(this->x11ProxyKeyMap)->put(st, o);
+			this->x11ProxyKeyMap->put(st, o);
 		}
-		return $of(o);
+		return o;
 	}
 }
 
 int64_t X11GraphicsDevice::getDisplay() {
-	int64_t $ret = 0;
-	$prepareNative(X11GraphicsDevice, getDisplay, int64_t);
-	$ret = $invokeNative();
+	$prepareNative(getDisplay, int64_t);
+	int64_t $ret = $invokeNative();
 	$finishNative();
 	return $ret;
 }
@@ -347,7 +230,7 @@ int32_t X11GraphicsDevice::scaleDown(int32_t x) {
 $Rectangle* X11GraphicsDevice::getBounds() {
 	$var($Rectangle, rect, pGetBounds(getScreen()));
 	if (getScaleFactor() != 1) {
-		$nc(rect)->x = scaleDown(rect->x);
+		$nc(rect)->x = scaleDown($nc(rect)->x);
 		rect->y = scaleDown(rect->y);
 		rect->width = scaleDown(rect->width);
 		rect->height = scaleDown(rect->height);
@@ -369,7 +252,7 @@ $GraphicsConfigurationArray* X11GraphicsDevice::getConfigurations() {
 }
 
 void X11GraphicsDevice::makeConfigurations() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->configs == nullptr) {
 		int32_t i = 1;
 		int32_t num = getNumConfigs(this->screen);
@@ -406,42 +289,37 @@ void X11GraphicsDevice::makeConfigurations() {
 }
 
 int32_t X11GraphicsDevice::getNumConfigs(int32_t screen) {
-	int32_t $ret = 0;
-	$prepareNative(X11GraphicsDevice, getNumConfigs, int32_t, int32_t screen);
-	$ret = $invokeNative(screen);
+	$prepareNative(getNumConfigs, int32_t, int32_t screen);
+	int32_t $ret = $invokeNative(screen);
 	$finishNative();
 	return $ret;
 }
 
 int32_t X11GraphicsDevice::getConfigVisualId(int32_t index, int32_t screen) {
-	int32_t $ret = 0;
-	$prepareNative(X11GraphicsDevice, getConfigVisualId, int32_t, int32_t index, int32_t screen);
-	$ret = $invokeNative(index, screen);
+	$prepareNative(getConfigVisualId, int32_t, int32_t index, int32_t screen);
+	int32_t $ret = $invokeNative(index, screen);
 	$finishNative();
 	return $ret;
 }
 
 int32_t X11GraphicsDevice::getConfigDepth(int32_t index, int32_t screen) {
-	int32_t $ret = 0;
-	$prepareNative(X11GraphicsDevice, getConfigDepth, int32_t, int32_t index, int32_t screen);
-	$ret = $invokeNative(index, screen);
+	$prepareNative(getConfigDepth, int32_t, int32_t index, int32_t screen);
+	int32_t $ret = $invokeNative(index, screen);
 	$finishNative();
 	return $ret;
 }
 
 int32_t X11GraphicsDevice::getConfigColormap(int32_t index, int32_t screen) {
-	int32_t $ret = 0;
-	$prepareNative(X11GraphicsDevice, getConfigColormap, int32_t, int32_t index, int32_t screen);
-	$ret = $invokeNative(index, screen);
+	$prepareNative(getConfigColormap, int32_t, int32_t index, int32_t screen);
+	int32_t $ret = $invokeNative(index, screen);
 	$finishNative();
 	return $ret;
 }
 
 bool X11GraphicsDevice::isDBESupported() {
 	$init(X11GraphicsDevice);
-	bool $ret = false;
-	$prepareNativeStatic(X11GraphicsDevice, isDBESupported, bool);
-	$ret = $invokeNativeStatic();
+	$prepareNativeStatic(isDBESupported, bool);
+	bool $ret = $invokeNativeStatic();
 	$finishNativeStatic();
 	return $ret;
 }
@@ -451,7 +329,7 @@ void X11GraphicsDevice::addDoubleBufferVisual(int32_t visNum) {
 }
 
 void X11GraphicsDevice::getDoubleBufferVisuals(int32_t screen) {
-	$prepareNative(X11GraphicsDevice, getDoubleBufferVisuals, void, int32_t screen);
+	$prepareNative(getDoubleBufferVisuals, void, int32_t screen);
 	$invokeNative(screen);
 	$finishNative();
 }
@@ -466,7 +344,7 @@ $GraphicsConfiguration* X11GraphicsDevice::getDefaultConfiguration() {
 }
 
 void X11GraphicsDevice::makeDefaultConfiguration() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->defaultConfig == nullptr) {
 		int32_t visNum = getConfigVisualId(0, this->screen);
 		if ($X11GraphicsEnvironment::isGLXAvailable()) {
@@ -502,71 +380,66 @@ void X11GraphicsDevice::makeDefaultConfiguration() {
 
 void X11GraphicsDevice::enterFullScreenExclusive(int64_t window) {
 	$init(X11GraphicsDevice);
-	$prepareNativeStatic(X11GraphicsDevice, enterFullScreenExclusive, void, int64_t window);
+	$prepareNativeStatic(enterFullScreenExclusive, void, int64_t window);
 	$invokeNativeStatic(window);
 	$finishNativeStatic();
 }
 
 void X11GraphicsDevice::exitFullScreenExclusive(int64_t window) {
 	$init(X11GraphicsDevice);
-	$prepareNativeStatic(X11GraphicsDevice, exitFullScreenExclusive, void, int64_t window);
+	$prepareNativeStatic(exitFullScreenExclusive, void, int64_t window);
 	$invokeNativeStatic(window);
 	$finishNativeStatic();
 }
 
 bool X11GraphicsDevice::initXrandrExtension() {
 	$init(X11GraphicsDevice);
-	bool $ret = false;
-	$prepareNativeStatic(X11GraphicsDevice, initXrandrExtension, bool);
-	$ret = $invokeNativeStatic();
+	$prepareNativeStatic(initXrandrExtension, bool);
+	bool $ret = $invokeNativeStatic();
 	$finishNativeStatic();
 	return $ret;
 }
 
 $DisplayMode* X11GraphicsDevice::getCurrentDisplayMode(int32_t screen) {
 	$init(X11GraphicsDevice);
-	$var($DisplayMode, $ret, nullptr);
-	$prepareNativeStatic(X11GraphicsDevice, getCurrentDisplayMode, $DisplayMode*, int32_t screen);
-	$assign($ret, $invokeNativeStaticObject(screen));
+	$prepareNativeStatic(getCurrentDisplayMode, $DisplayMode*, int32_t screen);
+	$var($DisplayMode, $ret, $invokeNativeStaticObject(screen));
 	$finishNativeStatic();
 	return $ret;
 }
 
 void X11GraphicsDevice::enumDisplayModes(int32_t screen, $ArrayList* modes) {
 	$init(X11GraphicsDevice);
-	$prepareNativeStatic(X11GraphicsDevice, enumDisplayModes, void, int32_t screen, $ArrayList* modes);
+	$prepareNativeStatic(enumDisplayModes, void, int32_t screen, $ArrayList* modes);
 	$invokeNativeStatic(screen, modes);
 	$finishNativeStatic();
 }
 
 void X11GraphicsDevice::configDisplayMode(int32_t screen, int32_t width, int32_t height, int32_t displayMode) {
 	$init(X11GraphicsDevice);
-	$prepareNativeStatic(X11GraphicsDevice, configDisplayMode, void, int32_t screen, int32_t width, int32_t height, int32_t displayMode);
+	$prepareNativeStatic(configDisplayMode, void, int32_t screen, int32_t width, int32_t height, int32_t displayMode);
 	$invokeNativeStatic(screen, width, height, displayMode);
 	$finishNativeStatic();
 }
 
 double X11GraphicsDevice::getNativeScaleFactor(int32_t screen) {
 	$init(X11GraphicsDevice);
-	double $ret = 0.0;
-	$prepareNativeStatic(X11GraphicsDevice, getNativeScaleFactor, double, int32_t screen);
-	$ret = $invokeNativeStatic(screen);
+	$prepareNativeStatic(getNativeScaleFactor, double, int32_t screen);
+	double $ret = $invokeNativeStatic(screen);
 	$finishNativeStatic();
 	return $ret;
 }
 
 $Rectangle* X11GraphicsDevice::pGetBounds(int32_t screenNum) {
-	$var($Rectangle, $ret, nullptr);
-	$prepareNative(X11GraphicsDevice, pGetBounds, $Rectangle*, int32_t screenNum);
-	$assign($ret, $invokeNativeObject(screenNum));
+	$prepareNative(pGetBounds, $Rectangle*, int32_t screenNum);
+	$var($Rectangle, $ret, $invokeNativeObject(screenNum));
 	$finishNative();
 	return $ret;
 }
 
 bool X11GraphicsDevice::isXrandrExtensionSupported() {
-	$load(X11GraphicsDevice);
+	$init(X11GraphicsDevice);
 	$synchronized(class$) {
-		$init(X11GraphicsDevice);
 		if (X11GraphicsDevice::xrandrExtSupported == nullptr) {
 			$assignStatic(X11GraphicsDevice::xrandrExtSupported, $Boolean::valueOf(initXrandrExtension()));
 		}
@@ -595,13 +468,13 @@ bool X11GraphicsDevice::isFullScreenSupported() {
 bool X11GraphicsDevice::isDisplayChangeSupported() {
 	bool var$1 = isFullScreenSupported();
 	bool var$0 = var$1 && (getFullScreenWindow() != nullptr);
-	return (var$0 && !$nc(($cast($X11GraphicsEnvironment, $($GraphicsEnvironment::getLocalGraphicsEnvironment()))))->runningXinerama());
+	return (var$0 && !$$sure($X11GraphicsEnvironment, $GraphicsEnvironment::getLocalGraphicsEnvironment())->runningXinerama());
 }
 
 void X11GraphicsDevice::enterFullScreenExclusive($Window* w) {
 	$init(X11GraphicsDevice);
-	$useLocalCurrentObjectStackCache();
-	$var($X11ComponentPeer, peer, $cast($X11ComponentPeer, $nc($($AWTAccessor::getComponentAccessor()))->getPeer(w)));
+	$useLocalObjectStack();
+	$var($X11ComponentPeer, peer, $cast($X11ComponentPeer, $$nc($AWTAccessor::getComponentAccessor())->getPeer(w)));
 	if (peer != nullptr) {
 		enterFullScreenExclusive(peer->getWindow());
 		peer->setFullScreenExclusiveModeState(true);
@@ -610,8 +483,8 @@ void X11GraphicsDevice::enterFullScreenExclusive($Window* w) {
 
 void X11GraphicsDevice::exitFullScreenExclusive($Window* w) {
 	$init(X11GraphicsDevice);
-	$useLocalCurrentObjectStackCache();
-	$var($X11ComponentPeer, peer, $cast($X11ComponentPeer, $nc($($AWTAccessor::getComponentAccessor()))->getPeer(w)));
+	$useLocalObjectStack();
+	$var($X11ComponentPeer, peer, $cast($X11ComponentPeer, $$nc($AWTAccessor::getComponentAccessor())->getPeer(w)));
 	if (peer != nullptr) {
 		peer->setFullScreenExclusiveModeState(false);
 		exitFullScreenExclusive(peer->getWindow());
@@ -642,10 +515,10 @@ void X11GraphicsDevice::setFullScreenWindow($Window* w) {
 }
 
 $DisplayMode* X11GraphicsDevice::getDefaultDisplayMode() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($GraphicsConfiguration, gc, getDefaultConfiguration());
 	$var($Rectangle, r, $nc(gc)->getBounds());
-	return $new($DisplayMode, $nc(r)->width, r->height, $DisplayMode::BIT_DEPTH_MULTI, $DisplayMode::REFRESH_RATE_UNKNOWN);
+	return $new($DisplayMode, $nc(r)->width, $nc(r)->height, $DisplayMode::BIT_DEPTH_MULTI, $DisplayMode::REFRESH_RATE_UNKNOWN);
 }
 
 $DisplayMode* X11GraphicsDevice::getDisplayMode() {
@@ -667,21 +540,21 @@ $DisplayMode* X11GraphicsDevice::getDisplayMode() {
 
 $DisplayModeArray* X11GraphicsDevice::getDisplayModes() {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		bool var$0 = !isFullScreenSupported();
-		if (var$0 || $nc(($cast($X11GraphicsEnvironment, $($GraphicsEnvironment::getLocalGraphicsEnvironment()))))->runningXinerama()) {
+		if (var$0 || $$sure($X11GraphicsEnvironment, $GraphicsEnvironment::getLocalGraphicsEnvironment())->runningXinerama()) {
 			return $GraphicsDevice::getDisplayModes();
 		}
 		$var($ArrayList, modes, $new($ArrayList));
 		enumDisplayModes(this->screen, modes);
 		$var($DisplayModeArray, retArray, $new($DisplayModeArray, modes->size()));
-		return $fcast($DisplayModeArray, modes->toArray(retArray));
+		return $cast($DisplayModeArray, modes->toArray(retArray));
 	}
 }
 
 void X11GraphicsDevice::setDisplayMode($DisplayMode* dm$renamed) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$var($DisplayMode, dm, dm$renamed);
 		$beforeCallerSensitive();
 		if (!isDisplayChangeSupported()) {
@@ -692,7 +565,7 @@ void X11GraphicsDevice::setDisplayMode($DisplayMode* dm$renamed) {
 		if (w == nullptr) {
 			$throwNew($IllegalStateException, "Must be in fullscreen mode in order to set display mode"_s);
 		}
-		if ($nc($(getDisplayMode()))->equals(dm)) {
+		if ($$nc(getDisplayMode())->equals(dm)) {
 			return;
 		}
 		if (dm == nullptr || ($assign(dm, getMatchingDisplayMode(dm))) == nullptr) {
@@ -700,36 +573,34 @@ void X11GraphicsDevice::setDisplayMode($DisplayMode* dm$renamed) {
 		}
 		if (!this->shutdownHookRegistered) {
 			this->shutdownHookRegistered = true;
-			$var($PrivilegedAction, a, static_cast<$PrivilegedAction*>($new(X11GraphicsDevice$$Lambda$lambda$setDisplayMode$1, this)));
+			$var($PrivilegedAction, a, $new(X11GraphicsDevice$$Lambda$lambda$setDisplayMode$1, this));
 			$AccessController::doPrivileged(a);
 		}
 		int32_t var$0 = this->screen;
 		int32_t var$1 = $nc(dm)->getWidth();
 		int32_t var$2 = dm->getHeight();
 		configDisplayMode(var$0, var$1, var$2, dm->getRefreshRate());
-		int32_t var$3 = $nc(dm)->getWidth();
+		int32_t var$3 = dm->getWidth();
 		$nc(w)->setBounds(0, 0, var$3, dm->getHeight());
-		$nc(($cast($X11GraphicsEnvironment, $($GraphicsEnvironment::getLocalGraphicsEnvironment()))))->displayChanged();
+		$$sure($X11GraphicsEnvironment, $GraphicsEnvironment::getLocalGraphicsEnvironment())->displayChanged();
 	}
 }
 
 $DisplayMode* X11GraphicsDevice::getMatchingDisplayMode($DisplayMode* dm) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		if (!isDisplayChangeSupported()) {
 			return nullptr;
 		}
 		$var($DisplayModeArray, modes, getDisplayModes());
 		{
 			$var($DisplayModeArray, arr$, modes);
-			int32_t len$ = $nc(arr$)->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
+			for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 				$var($DisplayMode, mode, arr$->get(i$));
 				{
 					bool var$0 = $nc(dm)->equals(mode);
 					if (!var$0) {
-						bool var$3 = $nc(dm)->getRefreshRate() == $DisplayMode::REFRESH_RATE_UNKNOWN;
+						bool var$3 = dm->getRefreshRate() == $DisplayMode::REFRESH_RATE_UNKNOWN;
 						if (var$3) {
 							int32_t var$4 = dm->getWidth();
 							var$3 = var$4 == $nc(mode)->getWidth();
@@ -737,14 +608,14 @@ $DisplayMode* X11GraphicsDevice::getMatchingDisplayMode($DisplayMode* dm) {
 						bool var$2 = var$3;
 						if (var$2) {
 							int32_t var$5 = dm->getHeight();
-							var$2 = var$5 == mode->getHeight();
+							var$2 = var$5 == $nc(mode)->getHeight();
 						}
 						bool var$1 = var$2;
 						if (var$1) {
 							int32_t var$6 = dm->getBitDepth();
-							var$1 = var$6 == mode->getBitDepth();
+							var$1 = var$6 == $nc(mode)->getBitDepth();
 						}
-						var$0 = (var$1);
+						var$0 = var$1;
 					}
 					if (var$0) {
 						return mode;
@@ -803,12 +674,12 @@ void X11GraphicsDevice::invalidate(X11GraphicsDevice* device) {
 }
 
 $Void* X11GraphicsDevice::lambda$setDisplayMode$1() {
-	$useLocalCurrentObjectStackCache();
-	$var($Runnable, r, static_cast<$Runnable*>($new(X11GraphicsDevice$$Lambda$lambda$setDisplayMode$0$1, this)));
+	$useLocalObjectStack();
+	$var($Runnable, r, $new(X11GraphicsDevice$$Lambda$lambda$setDisplayMode$0$1, this));
 	$var($String, name, $str({"Display-Change-Shutdown-Thread-"_s, $$str(this->screen)}));
 	$var($Thread, t, $new($Thread, $($ThreadGroupUtils::getRootThreadGroup()), r, name, 0, false));
 	t->setContextClassLoader(nullptr);
-	$nc($($Runtime::getRuntime()))->addShutdownHook(t);
+	$$nc($Runtime::getRuntime())->addShutdownHook(t);
 	return nullptr;
 }
 
@@ -827,14 +698,96 @@ X11GraphicsDevice::X11GraphicsDevice() {
 
 $Class* X11GraphicsDevice::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(X11GraphicsDevice$$Lambda$lambda$setDisplayMode$1::classInfo$.name)) {
+		if (name->equals("sun.awt.X11GraphicsDevice$$Lambda$lambda$setDisplayMode$1")) {
 			return X11GraphicsDevice$$Lambda$lambda$setDisplayMode$1::load$(name, initialize);
 		}
-		if (name->equals(X11GraphicsDevice$$Lambda$lambda$setDisplayMode$0$1::classInfo$.name)) {
+		if (name->equals("sun.awt.X11GraphicsDevice$$Lambda$lambda$setDisplayMode$0$1")) {
 			return X11GraphicsDevice$$Lambda$lambda$setDisplayMode$0$1::load$(name, initialize);
 		}
 	}
-	$loadClass(X11GraphicsDevice, name, initialize, &_X11GraphicsDevice_ClassInfo_, allocate$X11GraphicsDevice);
+	$FieldInfo fieldInfos$$[] = {
+		{"screen", "I", nullptr, $PRIVATE | $VOLATILE, $field(X11GraphicsDevice, screen)},
+		{"x11ProxyKeyMap", "Ljava/util/HashMap;", "Ljava/util/HashMap<Lsun/java2d/loops/SurfaceType;Ljava/lang/Object;>;", 0, $field(X11GraphicsDevice, x11ProxyKeyMap)},
+		{"fullScreenExclusivePermission", "Ljava/awt/AWTPermission;", nullptr, $PRIVATE | $STATIC, $staticField(X11GraphicsDevice, fullScreenExclusivePermission)},
+		{"xrandrExtSupported", "Ljava/lang/Boolean;", nullptr, $PRIVATE | $STATIC, $staticField(X11GraphicsDevice, xrandrExtSupported)},
+		{"configLock", "Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $field(X11GraphicsDevice, configLock)},
+		{"topLevels", "Lsun/awt/SunDisplayChanger;", nullptr, $PRIVATE, $field(X11GraphicsDevice, topLevels)},
+		{"origDisplayMode", "Ljava/awt/DisplayMode;", nullptr, $PRIVATE, $field(X11GraphicsDevice, origDisplayMode)},
+		{"shutdownHookRegistered", "Z", nullptr, $PRIVATE, $field(X11GraphicsDevice, shutdownHookRegistered)},
+		{"scale", "I", nullptr, $PRIVATE, $field(X11GraphicsDevice, scale)},
+		{"configs", "[Ljava/awt/GraphicsConfiguration;", nullptr, 0, $field(X11GraphicsDevice, configs)},
+		{"defaultConfig", "Ljava/awt/GraphicsConfiguration;", nullptr, 0, $field(X11GraphicsDevice, defaultConfig)},
+		{"doubleBufferVisuals", "Ljava/util/HashSet;", "Ljava/util/HashSet<Ljava/lang/Integer;>;", 0, $field(X11GraphicsDevice, doubleBufferVisuals)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(X11GraphicsDevice, init$, void, int32_t)},
+		{"addDisplayChangedListener", "(Lsun/awt/DisplayChangedListener;)V", nullptr, $PUBLIC, $method(X11GraphicsDevice, addDisplayChangedListener, void, $DisplayChangedListener*)},
+		{"addDoubleBufferVisual", "(I)V", nullptr, $PRIVATE, $method(X11GraphicsDevice, addDoubleBufferVisual, void, int32_t)},
+		{"configDisplayMode", "(IIII)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(X11GraphicsDevice, configDisplayMode, void, int32_t, int32_t, int32_t, int32_t)},
+		{"displayChanged", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(X11GraphicsDevice, displayChanged, void)},
+		{"enterFullScreenExclusive", "(J)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(X11GraphicsDevice, enterFullScreenExclusive, void, int64_t)},
+		{"enterFullScreenExclusive", "(Ljava/awt/Window;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(X11GraphicsDevice, enterFullScreenExclusive, void, $Window*)},
+		{"enumDisplayModes", "(ILjava/util/ArrayList;)V", "(ILjava/util/ArrayList<Ljava/awt/DisplayMode;>;)V", $PRIVATE | $STATIC | $NATIVE, $staticMethod(X11GraphicsDevice, enumDisplayModes, void, int32_t, $ArrayList*)},
+		{"exitFullScreenExclusive", "(J)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(X11GraphicsDevice, exitFullScreenExclusive, void, int64_t)},
+		{"exitFullScreenExclusive", "(Ljava/awt/Window;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(X11GraphicsDevice, exitFullScreenExclusive, void, $Window*)},
+		{"getBounds", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC, $method(X11GraphicsDevice, getBounds, $Rectangle*)},
+		{"getConfigColormap", "(II)I", nullptr, $PRIVATE | $NATIVE, $method(X11GraphicsDevice, getConfigColormap, int32_t, int32_t, int32_t)},
+		{"getConfigDepth", "(II)I", nullptr, $PRIVATE | $NATIVE, $method(X11GraphicsDevice, getConfigDepth, int32_t, int32_t, int32_t)},
+		{"getConfigVisualId", "(II)I", nullptr, $PUBLIC | $NATIVE, $method(X11GraphicsDevice, getConfigVisualId, int32_t, int32_t, int32_t)},
+		{"getConfigurations", "()[Ljava/awt/GraphicsConfiguration;", nullptr, $PUBLIC, $virtualMethod(X11GraphicsDevice, getConfigurations, $GraphicsConfigurationArray*)},
+		{"getCurrentDisplayMode", "(I)Ljava/awt/DisplayMode;", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(X11GraphicsDevice, getCurrentDisplayMode, $DisplayMode*, int32_t)},
+		{"getDefaultConfiguration", "()Ljava/awt/GraphicsConfiguration;", nullptr, $PUBLIC, $virtualMethod(X11GraphicsDevice, getDefaultConfiguration, $GraphicsConfiguration*)},
+		{"getDefaultDisplayMode", "()Ljava/awt/DisplayMode;", nullptr, $PRIVATE, $method(X11GraphicsDevice, getDefaultDisplayMode, $DisplayMode*)},
+		{"getDisplay", "()J", nullptr, $PUBLIC | $NATIVE, $method(X11GraphicsDevice, getDisplay, int64_t)},
+		{"getDisplayMode", "()Ljava/awt/DisplayMode;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(X11GraphicsDevice, getDisplayMode, $DisplayMode*)},
+		{"getDisplayModes", "()[Ljava/awt/DisplayMode;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(X11GraphicsDevice, getDisplayModes, $DisplayModeArray*)},
+		{"getDoubleBufferVisuals", "(I)V", nullptr, $PRIVATE | $NATIVE, $method(X11GraphicsDevice, getDoubleBufferVisuals, void, int32_t)},
+		{"getIDstring", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(X11GraphicsDevice, getIDstring, $String*)},
+		{"getMatchingDisplayMode", "(Ljava/awt/DisplayMode;)Ljava/awt/DisplayMode;", nullptr, $PRIVATE | $SYNCHRONIZED, $method(X11GraphicsDevice, getMatchingDisplayMode, $DisplayMode*, $DisplayMode*)},
+		{"getNativeScale", "()I", nullptr, $PUBLIC, $method(X11GraphicsDevice, getNativeScale, int32_t)},
+		{"getNativeScaleFactor", "(I)D", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(X11GraphicsDevice, getNativeScaleFactor, double, int32_t)},
+		{"getNumConfigs", "(I)I", nullptr, $PUBLIC | $NATIVE, $method(X11GraphicsDevice, getNumConfigs, int32_t, int32_t)},
+		{"getProxyKeyFor", "(Lsun/java2d/loops/SurfaceType;)Ljava/lang/Object;", nullptr, $PUBLIC, $method(X11GraphicsDevice, getProxyKeyFor, $Object*, $SurfaceType*)},
+		{"getScaleFactor", "()I", nullptr, $PUBLIC, $method(X11GraphicsDevice, getScaleFactor, int32_t)},
+		{"getScreen", "()I", nullptr, $PUBLIC, $method(X11GraphicsDevice, getScreen, int32_t)},
+		{"getType", "()I", nullptr, $PUBLIC, $virtualMethod(X11GraphicsDevice, getType, int32_t)},
+		{"initScaleFactor", "()I", nullptr, $PRIVATE, $method(X11GraphicsDevice, initScaleFactor, int32_t)},
+		{"initXrandrExtension", "()Z", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(X11GraphicsDevice, initXrandrExtension, bool)},
+		{"invalidate", "(Lsun/awt/X11GraphicsDevice;)V", nullptr, $PUBLIC, $method(X11GraphicsDevice, invalidate, void, X11GraphicsDevice*)},
+		{"isDBESupported", "()Z", nullptr, $STATIC | $NATIVE, $staticMethod(X11GraphicsDevice, isDBESupported, bool)},
+		{"isDisplayChangeSupported", "()Z", nullptr, $PUBLIC, $virtualMethod(X11GraphicsDevice, isDisplayChangeSupported, bool)},
+		{"isFullScreenSupported", "()Z", nullptr, $PUBLIC, $virtualMethod(X11GraphicsDevice, isFullScreenSupported, bool)},
+		{"isXrandrExtensionSupported", "()Z", nullptr, $PRIVATE | $STATIC | $SYNCHRONIZED, $staticMethod(X11GraphicsDevice, isXrandrExtensionSupported, bool)},
+		{"lambda$setDisplayMode$0", "()V", nullptr, $PRIVATE | $SYNTHETIC, $method(X11GraphicsDevice, lambda$setDisplayMode$0, void)},
+		{"lambda$setDisplayMode$1", "()Ljava/lang/Void;", nullptr, $PRIVATE | $SYNTHETIC, $method(X11GraphicsDevice, lambda$setDisplayMode$1, $Void*)},
+		{"makeConfigurations", "()V", nullptr, $PRIVATE, $method(X11GraphicsDevice, makeConfigurations, void)},
+		{"makeDefaultConfiguration", "()V", nullptr, $PRIVATE, $method(X11GraphicsDevice, makeDefaultConfiguration, void)},
+		{"pGetBounds", "(I)Ljava/awt/Rectangle;", nullptr, $PRIVATE | $NATIVE, $method(X11GraphicsDevice, pGetBounds, $Rectangle*, int32_t)},
+		{"paletteChanged", "()V", nullptr, $PUBLIC, $virtualMethod(X11GraphicsDevice, paletteChanged, void)},
+		{"removeDisplayChangedListener", "(Lsun/awt/DisplayChangedListener;)V", nullptr, $PUBLIC, $method(X11GraphicsDevice, removeDisplayChangedListener, void, $DisplayChangedListener*)},
+		{"scaleDown", "(I)I", nullptr, $PUBLIC, $method(X11GraphicsDevice, scaleDown, int32_t, int32_t)},
+		{"scaleUp", "(I)I", nullptr, $PUBLIC, $method(X11GraphicsDevice, scaleUp, int32_t, int32_t)},
+		{"setDisplayMode", "(Ljava/awt/DisplayMode;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(X11GraphicsDevice, setDisplayMode, void, $DisplayMode*)},
+		{"setFullScreenWindow", "(Ljava/awt/Window;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(X11GraphicsDevice, setFullScreenWindow, void, $Window*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(X11GraphicsDevice, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.awt.X11GraphicsDevice",
+		"java.awt.GraphicsDevice",
+		"sun.awt.DisplayChangedListener",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(X11GraphicsDevice, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(X11GraphicsDevice));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <java.transaction.xa.test.h>
-
 #include <java.transaction.xa.h>
 #include <java.base.h>
 #include <java/lang/ClassEntry.h>

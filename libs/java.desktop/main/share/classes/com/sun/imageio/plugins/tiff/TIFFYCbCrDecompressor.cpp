@@ -1,5 +1,4 @@
 #include <com/sun/imageio/plugins/tiff/TIFFYCbCrDecompressor.h>
-
 #include <com/sun/imageio/plugins/tiff/TIFFDecompressor.h>
 #include <com/sun/imageio/plugins/tiff/TIFFImageMetadata.h>
 #include <com/sun/imageio/plugins/tiff/TIFFImageReader.h>
@@ -8,7 +7,6 @@
 #include <java/awt/image/WritableRaster.h>
 #include <java/io/ByteArrayInputStream.h>
 #include <java/io/EOFException.h>
-#include <java/io/InputStream.h>
 #include <java/util/Hashtable.h>
 #include <javax/imageio/ImageReader.h>
 #include <javax/imageio/metadata/IIOMetadata.h>
@@ -34,7 +32,6 @@ using $ColorModel = ::java::awt::image::ColorModel;
 using $WritableRaster = ::java::awt::image::WritableRaster;
 using $ByteArrayInputStream = ::java::io::ByteArrayInputStream;
 using $EOFException = ::java::io::EOFException;
-using $InputStream = ::java::io::InputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $Float = ::java::lang::Float;
@@ -52,87 +49,6 @@ namespace com {
 		namespace imageio {
 			namespace plugins {
 				namespace tiff {
-
-$FieldInfo _TIFFYCbCrDecompressor_FieldInfo_[] = {
-	{"FRAC_BITS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(TIFFYCbCrDecompressor, FRAC_BITS)},
-	{"FRAC_SCALE", "F", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(TIFFYCbCrDecompressor, FRAC_SCALE)},
-	{"lumaRed", "F", nullptr, $PRIVATE, $field(TIFFYCbCrDecompressor, lumaRed)},
-	{"lumaGreen", "F", nullptr, $PRIVATE, $field(TIFFYCbCrDecompressor, lumaGreen)},
-	{"lumaBlue", "F", nullptr, $PRIVATE, $field(TIFFYCbCrDecompressor, lumaBlue)},
-	{"referenceBlackY", "F", nullptr, $PRIVATE, $field(TIFFYCbCrDecompressor, referenceBlackY)},
-	{"referenceWhiteY", "F", nullptr, $PRIVATE, $field(TIFFYCbCrDecompressor, referenceWhiteY)},
-	{"referenceBlackCb", "F", nullptr, $PRIVATE, $field(TIFFYCbCrDecompressor, referenceBlackCb)},
-	{"referenceWhiteCb", "F", nullptr, $PRIVATE, $field(TIFFYCbCrDecompressor, referenceWhiteCb)},
-	{"referenceBlackCr", "F", nullptr, $PRIVATE, $field(TIFFYCbCrDecompressor, referenceBlackCr)},
-	{"referenceWhiteCr", "F", nullptr, $PRIVATE, $field(TIFFYCbCrDecompressor, referenceWhiteCr)},
-	{"codingRangeY", "F", nullptr, $PRIVATE, $field(TIFFYCbCrDecompressor, codingRangeY)},
-	{"iYTab", "[I", nullptr, $PRIVATE, $field(TIFFYCbCrDecompressor, iYTab)},
-	{"iCbTab", "[I", nullptr, $PRIVATE, $field(TIFFYCbCrDecompressor, iCbTab)},
-	{"iCrTab", "[I", nullptr, $PRIVATE, $field(TIFFYCbCrDecompressor, iCrTab)},
-	{"iGYTab", "[I", nullptr, $PRIVATE, $field(TIFFYCbCrDecompressor, iGYTab)},
-	{"iGCbTab", "[I", nullptr, $PRIVATE, $field(TIFFYCbCrDecompressor, iGCbTab)},
-	{"iGCrTab", "[I", nullptr, $PRIVATE, $field(TIFFYCbCrDecompressor, iGCrTab)},
-	{"chromaSubsampleH", "I", nullptr, $PRIVATE, $field(TIFFYCbCrDecompressor, chromaSubsampleH)},
-	{"chromaSubsampleV", "I", nullptr, $PRIVATE, $field(TIFFYCbCrDecompressor, chromaSubsampleV)},
-	{"colorConvert", "Z", nullptr, $PRIVATE, $field(TIFFYCbCrDecompressor, colorConvert)},
-	{"decompressor", "Lcom/sun/imageio/plugins/tiff/TIFFDecompressor;", nullptr, $PRIVATE, $field(TIFFYCbCrDecompressor, decompressor)},
-	{"tmpImage", "Ljava/awt/image/BufferedImage;", nullptr, $PRIVATE, $field(TIFFYCbCrDecompressor, tmpImage)},
-	{}
-};
-
-$MethodInfo _TIFFYCbCrDecompressor_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/imageio/plugins/tiff/TIFFDecompressor;Z)V", nullptr, $PUBLIC, $method(TIFFYCbCrDecompressor, init$, void, $TIFFDecompressor*, bool)},
-	{"beginDecoding", "()V", nullptr, $PUBLIC, $virtualMethod(TIFFYCbCrDecompressor, beginDecoding, void)},
-	{"clamp", "(I)B", nullptr, $PRIVATE, $method(TIFFYCbCrDecompressor, clamp, int8_t, int32_t)},
-	{"decodeRaw", "([BIII)V", nullptr, $PUBLIC, $virtualMethod(TIFFYCbCrDecompressor, decodeRaw, void, $bytes*, int32_t, int32_t, int32_t), "java.io.IOException"},
-	{"setActiveSrcHeight", "(I)V", nullptr, $PUBLIC, $virtualMethod(TIFFYCbCrDecompressor, setActiveSrcHeight, void, int32_t)},
-	{"setActiveSrcMinX", "(I)V", nullptr, $PUBLIC, $virtualMethod(TIFFYCbCrDecompressor, setActiveSrcMinX, void, int32_t)},
-	{"setActiveSrcMinY", "(I)V", nullptr, $PUBLIC, $virtualMethod(TIFFYCbCrDecompressor, setActiveSrcMinY, void, int32_t)},
-	{"setActiveSrcWidth", "(I)V", nullptr, $PUBLIC, $virtualMethod(TIFFYCbCrDecompressor, setActiveSrcWidth, void, int32_t)},
-	{"setBitsPerSample", "([I)V", nullptr, $PUBLIC, $virtualMethod(TIFFYCbCrDecompressor, setBitsPerSample, void, $ints*)},
-	{"setByteCount", "(I)V", nullptr, $PUBLIC, $virtualMethod(TIFFYCbCrDecompressor, setByteCount, void, int32_t)},
-	{"setColorMap", "([C)V", nullptr, $PUBLIC, $virtualMethod(TIFFYCbCrDecompressor, setColorMap, void, $chars*)},
-	{"setCompression", "(I)V", nullptr, $PUBLIC, $virtualMethod(TIFFYCbCrDecompressor, setCompression, void, int32_t)},
-	{"setDestinationBands", "([I)V", nullptr, $PUBLIC, $virtualMethod(TIFFYCbCrDecompressor, setDestinationBands, void, $ints*)},
-	{"setDstHeight", "(I)V", nullptr, $PUBLIC, $virtualMethod(TIFFYCbCrDecompressor, setDstHeight, void, int32_t)},
-	{"setDstMinX", "(I)V", nullptr, $PUBLIC, $virtualMethod(TIFFYCbCrDecompressor, setDstMinX, void, int32_t)},
-	{"setDstMinY", "(I)V", nullptr, $PUBLIC, $virtualMethod(TIFFYCbCrDecompressor, setDstMinY, void, int32_t)},
-	{"setDstWidth", "(I)V", nullptr, $PUBLIC, $virtualMethod(TIFFYCbCrDecompressor, setDstWidth, void, int32_t)},
-	{"setDstXOffset", "(I)V", nullptr, $PUBLIC, $virtualMethod(TIFFYCbCrDecompressor, setDstXOffset, void, int32_t)},
-	{"setDstYOffset", "(I)V", nullptr, $PUBLIC, $virtualMethod(TIFFYCbCrDecompressor, setDstYOffset, void, int32_t)},
-	{"setExtraSamples", "([I)V", nullptr, $PUBLIC, $virtualMethod(TIFFYCbCrDecompressor, setExtraSamples, void, $ints*)},
-	{"setImage", "(Ljava/awt/image/BufferedImage;)V", nullptr, $PUBLIC, $virtualMethod(TIFFYCbCrDecompressor, setImage, void, $BufferedImage*)},
-	{"setMetadata", "(Ljavax/imageio/metadata/IIOMetadata;)V", nullptr, $PUBLIC, $virtualMethod(TIFFYCbCrDecompressor, setMetadata, void, $IIOMetadata*)},
-	{"setOffset", "(J)V", nullptr, $PUBLIC, $virtualMethod(TIFFYCbCrDecompressor, setOffset, void, int64_t)},
-	{"setPhotometricInterpretation", "(I)V", nullptr, $PUBLIC, $virtualMethod(TIFFYCbCrDecompressor, setPhotometricInterpretation, void, int32_t)},
-	{"setPlanar", "(Z)V", nullptr, $PUBLIC, $virtualMethod(TIFFYCbCrDecompressor, setPlanar, void, bool)},
-	{"setReader", "(Ljavax/imageio/ImageReader;)V", nullptr, $PUBLIC, $virtualMethod(TIFFYCbCrDecompressor, setReader, void, $ImageReader*)},
-	{"setSampleFormat", "([I)V", nullptr, $PUBLIC, $virtualMethod(TIFFYCbCrDecompressor, setSampleFormat, void, $ints*)},
-	{"setSamplesPerPixel", "(I)V", nullptr, $PUBLIC, $virtualMethod(TIFFYCbCrDecompressor, setSamplesPerPixel, void, int32_t)},
-	{"setSourceBands", "([I)V", nullptr, $PUBLIC, $virtualMethod(TIFFYCbCrDecompressor, setSourceBands, void, $ints*)},
-	{"setSourceXOffset", "(I)V", nullptr, $PUBLIC, $virtualMethod(TIFFYCbCrDecompressor, setSourceXOffset, void, int32_t)},
-	{"setSourceYOffset", "(I)V", nullptr, $PUBLIC, $virtualMethod(TIFFYCbCrDecompressor, setSourceYOffset, void, int32_t)},
-	{"setSrcHeight", "(I)V", nullptr, $PUBLIC, $virtualMethod(TIFFYCbCrDecompressor, setSrcHeight, void, int32_t)},
-	{"setSrcMinX", "(I)V", nullptr, $PUBLIC, $virtualMethod(TIFFYCbCrDecompressor, setSrcMinX, void, int32_t)},
-	{"setSrcMinY", "(I)V", nullptr, $PUBLIC, $virtualMethod(TIFFYCbCrDecompressor, setSrcMinY, void, int32_t)},
-	{"setSrcWidth", "(I)V", nullptr, $PUBLIC, $virtualMethod(TIFFYCbCrDecompressor, setSrcWidth, void, int32_t)},
-	{"setStream", "(Ljavax/imageio/stream/ImageInputStream;)V", nullptr, $PUBLIC, $virtualMethod(TIFFYCbCrDecompressor, setStream, void, $ImageInputStream*)},
-	{"warning", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(TIFFYCbCrDecompressor, warning, void, $String*)},
-	{}
-};
-
-$ClassInfo _TIFFYCbCrDecompressor_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.imageio.plugins.tiff.TIFFYCbCrDecompressor",
-	"com.sun.imageio.plugins.tiff.TIFFDecompressor",
-	nullptr,
-	_TIFFYCbCrDecompressor_FieldInfo_,
-	_TIFFYCbCrDecompressor_MethodInfo_
-};
-
-$Object* allocate$TIFFYCbCrDecompressor($Class* clazz) {
-	return $of($alloc(TIFFYCbCrDecompressor));
-}
 
 float TIFFYCbCrDecompressor::FRAC_SCALE = 0.0;
 
@@ -162,83 +78,83 @@ void TIFFYCbCrDecompressor::init$($TIFFDecompressor* decompressor, bool colorCon
 
 void TIFFYCbCrDecompressor::warning($String* message) {
 	if ($instanceOf($TIFFImageReader, this->reader)) {
-		$nc(($cast($TIFFImageReader, this->reader)))->forwardWarningMessage(message);
+		$nc($cast($TIFFImageReader, this->reader))->forwardWarningMessage(message);
 	}
 }
 
 void TIFFYCbCrDecompressor::setReader($ImageReader* reader) {
 	if (this->decompressor != nullptr) {
-		$nc(this->decompressor)->setReader(reader);
+		this->decompressor->setReader(reader);
 	}
 	$TIFFDecompressor::setReader(reader);
 }
 
 void TIFFYCbCrDecompressor::setMetadata($IIOMetadata* metadata) {
 	if (this->decompressor != nullptr) {
-		$nc(this->decompressor)->setMetadata(metadata);
+		this->decompressor->setMetadata(metadata);
 	}
 	$TIFFDecompressor::setMetadata(metadata);
 }
 
 void TIFFYCbCrDecompressor::setPhotometricInterpretation(int32_t photometricInterpretation) {
 	if (this->decompressor != nullptr) {
-		$nc(this->decompressor)->setPhotometricInterpretation(photometricInterpretation);
+		this->decompressor->setPhotometricInterpretation(photometricInterpretation);
 	}
 	$TIFFDecompressor::setPhotometricInterpretation(photometricInterpretation);
 }
 
 void TIFFYCbCrDecompressor::setCompression(int32_t compression) {
 	if (this->decompressor != nullptr) {
-		$nc(this->decompressor)->setCompression(compression);
+		this->decompressor->setCompression(compression);
 	}
 	$TIFFDecompressor::setCompression(compression);
 }
 
 void TIFFYCbCrDecompressor::setPlanar(bool planar) {
 	if (this->decompressor != nullptr) {
-		$nc(this->decompressor)->setPlanar(planar);
+		this->decompressor->setPlanar(planar);
 	}
 	$TIFFDecompressor::setPlanar(planar);
 }
 
 void TIFFYCbCrDecompressor::setSamplesPerPixel(int32_t samplesPerPixel) {
 	if (this->decompressor != nullptr) {
-		$nc(this->decompressor)->setSamplesPerPixel(samplesPerPixel);
+		this->decompressor->setSamplesPerPixel(samplesPerPixel);
 	}
 	$TIFFDecompressor::setSamplesPerPixel(samplesPerPixel);
 }
 
 void TIFFYCbCrDecompressor::setBitsPerSample($ints* bitsPerSample) {
 	if (this->decompressor != nullptr) {
-		$nc(this->decompressor)->setBitsPerSample(bitsPerSample);
+		this->decompressor->setBitsPerSample(bitsPerSample);
 	}
 	$TIFFDecompressor::setBitsPerSample(bitsPerSample);
 }
 
 void TIFFYCbCrDecompressor::setSampleFormat($ints* sampleFormat) {
 	if (this->decompressor != nullptr) {
-		$nc(this->decompressor)->setSampleFormat(sampleFormat);
+		this->decompressor->setSampleFormat(sampleFormat);
 	}
 	$TIFFDecompressor::setSampleFormat(sampleFormat);
 }
 
 void TIFFYCbCrDecompressor::setExtraSamples($ints* extraSamples) {
 	if (this->decompressor != nullptr) {
-		$nc(this->decompressor)->setExtraSamples(extraSamples);
+		this->decompressor->setExtraSamples(extraSamples);
 	}
 	$TIFFDecompressor::setExtraSamples(extraSamples);
 }
 
 void TIFFYCbCrDecompressor::setColorMap($chars* colorMap) {
 	if (this->decompressor != nullptr) {
-		$nc(this->decompressor)->setColorMap(colorMap);
+		this->decompressor->setColorMap(colorMap);
 	}
 	$TIFFDecompressor::setColorMap(colorMap);
 }
 
 void TIFFYCbCrDecompressor::setStream($ImageInputStream* stream) {
 	if (this->decompressor != nullptr) {
-		$nc(this->decompressor)->setStream(stream);
+		this->decompressor->setStream(stream);
 	} else {
 		$TIFFDecompressor::setStream(stream);
 	}
@@ -246,95 +162,94 @@ void TIFFYCbCrDecompressor::setStream($ImageInputStream* stream) {
 
 void TIFFYCbCrDecompressor::setOffset(int64_t offset) {
 	if (this->decompressor != nullptr) {
-		$nc(this->decompressor)->setOffset(offset);
+		this->decompressor->setOffset(offset);
 	}
 	$TIFFDecompressor::setOffset(offset);
 }
 
 void TIFFYCbCrDecompressor::setByteCount(int32_t byteCount) {
 	if (this->decompressor != nullptr) {
-		$nc(this->decompressor)->setByteCount(byteCount);
+		this->decompressor->setByteCount(byteCount);
 	}
 	$TIFFDecompressor::setByteCount(byteCount);
 }
 
 void TIFFYCbCrDecompressor::setSrcMinX(int32_t srcMinX) {
 	if (this->decompressor != nullptr) {
-		$nc(this->decompressor)->setSrcMinX(srcMinX);
+		this->decompressor->setSrcMinX(srcMinX);
 	}
 	$TIFFDecompressor::setSrcMinX(srcMinX);
 }
 
 void TIFFYCbCrDecompressor::setSrcMinY(int32_t srcMinY) {
 	if (this->decompressor != nullptr) {
-		$nc(this->decompressor)->setSrcMinY(srcMinY);
+		this->decompressor->setSrcMinY(srcMinY);
 	}
 	$TIFFDecompressor::setSrcMinY(srcMinY);
 }
 
 void TIFFYCbCrDecompressor::setSrcWidth(int32_t srcWidth) {
 	if (this->decompressor != nullptr) {
-		$nc(this->decompressor)->setSrcWidth(srcWidth);
+		this->decompressor->setSrcWidth(srcWidth);
 	}
 	$TIFFDecompressor::setSrcWidth(srcWidth);
 }
 
 void TIFFYCbCrDecompressor::setSrcHeight(int32_t srcHeight) {
 	if (this->decompressor != nullptr) {
-		$nc(this->decompressor)->setSrcHeight(srcHeight);
+		this->decompressor->setSrcHeight(srcHeight);
 	}
 	$TIFFDecompressor::setSrcHeight(srcHeight);
 }
 
 void TIFFYCbCrDecompressor::setSourceXOffset(int32_t sourceXOffset) {
 	if (this->decompressor != nullptr) {
-		$nc(this->decompressor)->setSourceXOffset(sourceXOffset);
+		this->decompressor->setSourceXOffset(sourceXOffset);
 	}
 	$TIFFDecompressor::setSourceXOffset(sourceXOffset);
 }
 
 void TIFFYCbCrDecompressor::setDstXOffset(int32_t dstXOffset) {
 	if (this->decompressor != nullptr) {
-		$nc(this->decompressor)->setDstXOffset(dstXOffset);
+		this->decompressor->setDstXOffset(dstXOffset);
 	}
 	$TIFFDecompressor::setDstXOffset(dstXOffset);
 }
 
 void TIFFYCbCrDecompressor::setSourceYOffset(int32_t sourceYOffset) {
 	if (this->decompressor != nullptr) {
-		$nc(this->decompressor)->setSourceYOffset(sourceYOffset);
+		this->decompressor->setSourceYOffset(sourceYOffset);
 	}
 	$TIFFDecompressor::setSourceYOffset(sourceYOffset);
 }
 
 void TIFFYCbCrDecompressor::setDstYOffset(int32_t dstYOffset) {
 	if (this->decompressor != nullptr) {
-		$nc(this->decompressor)->setDstYOffset(dstYOffset);
+		this->decompressor->setDstYOffset(dstYOffset);
 	}
 	$TIFFDecompressor::setDstYOffset(dstYOffset);
 }
 
 void TIFFYCbCrDecompressor::setSourceBands($ints* sourceBands) {
 	if (this->decompressor != nullptr) {
-		$nc(this->decompressor)->setSourceBands(sourceBands);
+		this->decompressor->setSourceBands(sourceBands);
 	}
 	$TIFFDecompressor::setSourceBands(sourceBands);
 }
 
 void TIFFYCbCrDecompressor::setDestinationBands($ints* destinationBands) {
 	if (this->decompressor != nullptr) {
-		$nc(this->decompressor)->setDestinationBands(destinationBands);
+		this->decompressor->setDestinationBands(destinationBands);
 	}
 	$TIFFDecompressor::setDestinationBands(destinationBands);
 }
 
 void TIFFYCbCrDecompressor::setImage($BufferedImage* image) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->decompressor != nullptr) {
 		$var($ColorModel, cm, $nc(image)->getColorModel());
-		$var($ColorModel, var$0, cm);
-		$var($WritableRaster, var$1, $nc($(image->getRaster()))->createCompatibleWritableRaster(1, 1));
-		$set(this, tmpImage, $new($BufferedImage, var$0, var$1, $nc(cm)->isAlphaPremultiplied(), ($Hashtable*)nullptr));
+		$var($WritableRaster, var$0, $$nc(image->getRaster())->createCompatibleWritableRaster(1, 1));
+		$set(this, tmpImage, $new($BufferedImage, cm, var$0, $nc(cm)->isAlphaPremultiplied(), nullptr));
 		$nc(this->decompressor)->setImage(this->tmpImage);
 	}
 	$TIFFDecompressor::setImage(image);
@@ -342,56 +257,56 @@ void TIFFYCbCrDecompressor::setImage($BufferedImage* image) {
 
 void TIFFYCbCrDecompressor::setDstMinX(int32_t dstMinX) {
 	if (this->decompressor != nullptr) {
-		$nc(this->decompressor)->setDstMinX(dstMinX);
+		this->decompressor->setDstMinX(dstMinX);
 	}
 	$TIFFDecompressor::setDstMinX(dstMinX);
 }
 
 void TIFFYCbCrDecompressor::setDstMinY(int32_t dstMinY) {
 	if (this->decompressor != nullptr) {
-		$nc(this->decompressor)->setDstMinY(dstMinY);
+		this->decompressor->setDstMinY(dstMinY);
 	}
 	$TIFFDecompressor::setDstMinY(dstMinY);
 }
 
 void TIFFYCbCrDecompressor::setDstWidth(int32_t dstWidth) {
 	if (this->decompressor != nullptr) {
-		$nc(this->decompressor)->setDstWidth(dstWidth);
+		this->decompressor->setDstWidth(dstWidth);
 	}
 	$TIFFDecompressor::setDstWidth(dstWidth);
 }
 
 void TIFFYCbCrDecompressor::setDstHeight(int32_t dstHeight) {
 	if (this->decompressor != nullptr) {
-		$nc(this->decompressor)->setDstHeight(dstHeight);
+		this->decompressor->setDstHeight(dstHeight);
 	}
 	$TIFFDecompressor::setDstHeight(dstHeight);
 }
 
 void TIFFYCbCrDecompressor::setActiveSrcMinX(int32_t activeSrcMinX) {
 	if (this->decompressor != nullptr) {
-		$nc(this->decompressor)->setActiveSrcMinX(activeSrcMinX);
+		this->decompressor->setActiveSrcMinX(activeSrcMinX);
 	}
 	$TIFFDecompressor::setActiveSrcMinX(activeSrcMinX);
 }
 
 void TIFFYCbCrDecompressor::setActiveSrcMinY(int32_t activeSrcMinY) {
 	if (this->decompressor != nullptr) {
-		$nc(this->decompressor)->setActiveSrcMinY(activeSrcMinY);
+		this->decompressor->setActiveSrcMinY(activeSrcMinY);
 	}
 	$TIFFDecompressor::setActiveSrcMinY(activeSrcMinY);
 }
 
 void TIFFYCbCrDecompressor::setActiveSrcWidth(int32_t activeSrcWidth) {
 	if (this->decompressor != nullptr) {
-		$nc(this->decompressor)->setActiveSrcWidth(activeSrcWidth);
+		this->decompressor->setActiveSrcWidth(activeSrcWidth);
 	}
 	$TIFFDecompressor::setActiveSrcWidth(activeSrcWidth);
 }
 
 void TIFFYCbCrDecompressor::setActiveSrcHeight(int32_t activeSrcHeight) {
 	if (this->decompressor != nullptr) {
-		$nc(this->decompressor)->setActiveSrcHeight(activeSrcHeight);
+		this->decompressor->setActiveSrcHeight(activeSrcHeight);
 	}
 	$TIFFDecompressor::setActiveSrcHeight(activeSrcHeight);
 }
@@ -407,9 +322,9 @@ int8_t TIFFYCbCrDecompressor::clamp(int32_t f) {
 }
 
 void TIFFYCbCrDecompressor::beginDecoding() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->decompressor != nullptr) {
-		$nc(this->decompressor)->beginDecoding();
+		this->decompressor->beginDecoding();
 	}
 	$var($TIFFImageMetadata, tmetadata, $cast($TIFFImageMetadata, this->metadata));
 	$var($TIFFField, f, nullptr);
@@ -475,13 +390,13 @@ void TIFFYCbCrDecompressor::beginDecoding() {
 }
 
 void TIFFYCbCrDecompressor::decodeRaw($bytes* buf, int32_t dstOffset, int32_t bitsPerPixel, int32_t scanlineStride) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t elementsPerPacket = this->chromaSubsampleH * this->chromaSubsampleV + 2;
 	$var($bytes, packet, $new($bytes, elementsPerPacket));
 	if (this->decompressor != nullptr) {
 		int32_t bytesPerRow = 3 * this->srcWidth;
 		$var($bytes, tmpBuf, $new($bytes, bytesPerRow * this->srcHeight));
-		$nc(this->decompressor)->decodeRaw(tmpBuf, dstOffset, bitsPerPixel, bytesPerRow);
+		this->decompressor->decodeRaw(tmpBuf, dstOffset, bitsPerPixel, bytesPerRow);
 		$var($ByteArrayInputStream, byteStream, $new($ByteArrayInputStream, tmpBuf));
 		$set(this, stream, $new($MemoryCacheImageInputStream, byteStream));
 	} else {
@@ -501,8 +416,8 @@ void TIFFYCbCrDecompressor::decodeRaw($bytes* buf, int32_t dstOffset, int32_t bi
 			int32_t iGCb = 0;
 			int32_t iGCr = 0;
 			if (this->colorConvert) {
-				int32_t Cbp = (int32_t)(Cb & (uint32_t)255);
-				int32_t Crp = (int32_t)(Cr & (uint32_t)255);
+				int32_t Cbp = Cb & 0xff;
+				int32_t Crp = Cr & 0xff;
 				iCb = $nc(this->iCbTab)->get(Cbp);
 				iCr = $nc(this->iCrTab)->get(Crp);
 				iGCb = $nc(this->iGCbTab)->get(Cbp);
@@ -520,7 +435,7 @@ void TIFFYCbCrDecompressor::decodeRaw($bytes* buf, int32_t dstOffset, int32_t bi
 					}
 					int8_t Y = packet->get(yIndex++);
 					if (this->colorConvert) {
-						int32_t Yp = (int32_t)(Y & (uint32_t)255);
+						int32_t Yp = Y & 0xff;
 						int32_t iY = $nc(this->iYTab)->get(Yp);
 						int32_t iGY = $nc(this->iGYTab)->get(Yp);
 						int32_t iR = iY + iCr;
@@ -547,12 +462,88 @@ void TIFFYCbCrDecompressor::decodeRaw($bytes* buf, int32_t dstOffset, int32_t bi
 TIFFYCbCrDecompressor::TIFFYCbCrDecompressor() {
 }
 
-void clinit$TIFFYCbCrDecompressor($Class* class$) {
+void TIFFYCbCrDecompressor::clinit$($Class* clazz) {
 	TIFFYCbCrDecompressor::FRAC_SCALE = (float)($sl(1, TIFFYCbCrDecompressor::FRAC_BITS));
 }
 
 $Class* TIFFYCbCrDecompressor::load$($String* name, bool initialize) {
-	$loadClass(TIFFYCbCrDecompressor, name, initialize, &_TIFFYCbCrDecompressor_ClassInfo_, clinit$TIFFYCbCrDecompressor, allocate$TIFFYCbCrDecompressor);
+	$FieldInfo fieldInfos$$[] = {
+		{"FRAC_BITS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(TIFFYCbCrDecompressor, FRAC_BITS)},
+		{"FRAC_SCALE", "F", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(TIFFYCbCrDecompressor, FRAC_SCALE)},
+		{"lumaRed", "F", nullptr, $PRIVATE, $field(TIFFYCbCrDecompressor, lumaRed)},
+		{"lumaGreen", "F", nullptr, $PRIVATE, $field(TIFFYCbCrDecompressor, lumaGreen)},
+		{"lumaBlue", "F", nullptr, $PRIVATE, $field(TIFFYCbCrDecompressor, lumaBlue)},
+		{"referenceBlackY", "F", nullptr, $PRIVATE, $field(TIFFYCbCrDecompressor, referenceBlackY)},
+		{"referenceWhiteY", "F", nullptr, $PRIVATE, $field(TIFFYCbCrDecompressor, referenceWhiteY)},
+		{"referenceBlackCb", "F", nullptr, $PRIVATE, $field(TIFFYCbCrDecompressor, referenceBlackCb)},
+		{"referenceWhiteCb", "F", nullptr, $PRIVATE, $field(TIFFYCbCrDecompressor, referenceWhiteCb)},
+		{"referenceBlackCr", "F", nullptr, $PRIVATE, $field(TIFFYCbCrDecompressor, referenceBlackCr)},
+		{"referenceWhiteCr", "F", nullptr, $PRIVATE, $field(TIFFYCbCrDecompressor, referenceWhiteCr)},
+		{"codingRangeY", "F", nullptr, $PRIVATE, $field(TIFFYCbCrDecompressor, codingRangeY)},
+		{"iYTab", "[I", nullptr, $PRIVATE, $field(TIFFYCbCrDecompressor, iYTab)},
+		{"iCbTab", "[I", nullptr, $PRIVATE, $field(TIFFYCbCrDecompressor, iCbTab)},
+		{"iCrTab", "[I", nullptr, $PRIVATE, $field(TIFFYCbCrDecompressor, iCrTab)},
+		{"iGYTab", "[I", nullptr, $PRIVATE, $field(TIFFYCbCrDecompressor, iGYTab)},
+		{"iGCbTab", "[I", nullptr, $PRIVATE, $field(TIFFYCbCrDecompressor, iGCbTab)},
+		{"iGCrTab", "[I", nullptr, $PRIVATE, $field(TIFFYCbCrDecompressor, iGCrTab)},
+		{"chromaSubsampleH", "I", nullptr, $PRIVATE, $field(TIFFYCbCrDecompressor, chromaSubsampleH)},
+		{"chromaSubsampleV", "I", nullptr, $PRIVATE, $field(TIFFYCbCrDecompressor, chromaSubsampleV)},
+		{"colorConvert", "Z", nullptr, $PRIVATE, $field(TIFFYCbCrDecompressor, colorConvert)},
+		{"decompressor", "Lcom/sun/imageio/plugins/tiff/TIFFDecompressor;", nullptr, $PRIVATE, $field(TIFFYCbCrDecompressor, decompressor)},
+		{"tmpImage", "Ljava/awt/image/BufferedImage;", nullptr, $PRIVATE, $field(TIFFYCbCrDecompressor, tmpImage)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/imageio/plugins/tiff/TIFFDecompressor;Z)V", nullptr, $PUBLIC, $method(TIFFYCbCrDecompressor, init$, void, $TIFFDecompressor*, bool)},
+		{"beginDecoding", "()V", nullptr, $PUBLIC, $virtualMethod(TIFFYCbCrDecompressor, beginDecoding, void)},
+		{"clamp", "(I)B", nullptr, $PRIVATE, $method(TIFFYCbCrDecompressor, clamp, int8_t, int32_t)},
+		{"decodeRaw", "([BIII)V", nullptr, $PUBLIC, $virtualMethod(TIFFYCbCrDecompressor, decodeRaw, void, $bytes*, int32_t, int32_t, int32_t), "java.io.IOException"},
+		{"setActiveSrcHeight", "(I)V", nullptr, $PUBLIC, $virtualMethod(TIFFYCbCrDecompressor, setActiveSrcHeight, void, int32_t)},
+		{"setActiveSrcMinX", "(I)V", nullptr, $PUBLIC, $virtualMethod(TIFFYCbCrDecompressor, setActiveSrcMinX, void, int32_t)},
+		{"setActiveSrcMinY", "(I)V", nullptr, $PUBLIC, $virtualMethod(TIFFYCbCrDecompressor, setActiveSrcMinY, void, int32_t)},
+		{"setActiveSrcWidth", "(I)V", nullptr, $PUBLIC, $virtualMethod(TIFFYCbCrDecompressor, setActiveSrcWidth, void, int32_t)},
+		{"setBitsPerSample", "([I)V", nullptr, $PUBLIC, $virtualMethod(TIFFYCbCrDecompressor, setBitsPerSample, void, $ints*)},
+		{"setByteCount", "(I)V", nullptr, $PUBLIC, $virtualMethod(TIFFYCbCrDecompressor, setByteCount, void, int32_t)},
+		{"setColorMap", "([C)V", nullptr, $PUBLIC, $virtualMethod(TIFFYCbCrDecompressor, setColorMap, void, $chars*)},
+		{"setCompression", "(I)V", nullptr, $PUBLIC, $virtualMethod(TIFFYCbCrDecompressor, setCompression, void, int32_t)},
+		{"setDestinationBands", "([I)V", nullptr, $PUBLIC, $virtualMethod(TIFFYCbCrDecompressor, setDestinationBands, void, $ints*)},
+		{"setDstHeight", "(I)V", nullptr, $PUBLIC, $virtualMethod(TIFFYCbCrDecompressor, setDstHeight, void, int32_t)},
+		{"setDstMinX", "(I)V", nullptr, $PUBLIC, $virtualMethod(TIFFYCbCrDecompressor, setDstMinX, void, int32_t)},
+		{"setDstMinY", "(I)V", nullptr, $PUBLIC, $virtualMethod(TIFFYCbCrDecompressor, setDstMinY, void, int32_t)},
+		{"setDstWidth", "(I)V", nullptr, $PUBLIC, $virtualMethod(TIFFYCbCrDecompressor, setDstWidth, void, int32_t)},
+		{"setDstXOffset", "(I)V", nullptr, $PUBLIC, $virtualMethod(TIFFYCbCrDecompressor, setDstXOffset, void, int32_t)},
+		{"setDstYOffset", "(I)V", nullptr, $PUBLIC, $virtualMethod(TIFFYCbCrDecompressor, setDstYOffset, void, int32_t)},
+		{"setExtraSamples", "([I)V", nullptr, $PUBLIC, $virtualMethod(TIFFYCbCrDecompressor, setExtraSamples, void, $ints*)},
+		{"setImage", "(Ljava/awt/image/BufferedImage;)V", nullptr, $PUBLIC, $virtualMethod(TIFFYCbCrDecompressor, setImage, void, $BufferedImage*)},
+		{"setMetadata", "(Ljavax/imageio/metadata/IIOMetadata;)V", nullptr, $PUBLIC, $virtualMethod(TIFFYCbCrDecompressor, setMetadata, void, $IIOMetadata*)},
+		{"setOffset", "(J)V", nullptr, $PUBLIC, $virtualMethod(TIFFYCbCrDecompressor, setOffset, void, int64_t)},
+		{"setPhotometricInterpretation", "(I)V", nullptr, $PUBLIC, $virtualMethod(TIFFYCbCrDecompressor, setPhotometricInterpretation, void, int32_t)},
+		{"setPlanar", "(Z)V", nullptr, $PUBLIC, $virtualMethod(TIFFYCbCrDecompressor, setPlanar, void, bool)},
+		{"setReader", "(Ljavax/imageio/ImageReader;)V", nullptr, $PUBLIC, $virtualMethod(TIFFYCbCrDecompressor, setReader, void, $ImageReader*)},
+		{"setSampleFormat", "([I)V", nullptr, $PUBLIC, $virtualMethod(TIFFYCbCrDecompressor, setSampleFormat, void, $ints*)},
+		{"setSamplesPerPixel", "(I)V", nullptr, $PUBLIC, $virtualMethod(TIFFYCbCrDecompressor, setSamplesPerPixel, void, int32_t)},
+		{"setSourceBands", "([I)V", nullptr, $PUBLIC, $virtualMethod(TIFFYCbCrDecompressor, setSourceBands, void, $ints*)},
+		{"setSourceXOffset", "(I)V", nullptr, $PUBLIC, $virtualMethod(TIFFYCbCrDecompressor, setSourceXOffset, void, int32_t)},
+		{"setSourceYOffset", "(I)V", nullptr, $PUBLIC, $virtualMethod(TIFFYCbCrDecompressor, setSourceYOffset, void, int32_t)},
+		{"setSrcHeight", "(I)V", nullptr, $PUBLIC, $virtualMethod(TIFFYCbCrDecompressor, setSrcHeight, void, int32_t)},
+		{"setSrcMinX", "(I)V", nullptr, $PUBLIC, $virtualMethod(TIFFYCbCrDecompressor, setSrcMinX, void, int32_t)},
+		{"setSrcMinY", "(I)V", nullptr, $PUBLIC, $virtualMethod(TIFFYCbCrDecompressor, setSrcMinY, void, int32_t)},
+		{"setSrcWidth", "(I)V", nullptr, $PUBLIC, $virtualMethod(TIFFYCbCrDecompressor, setSrcWidth, void, int32_t)},
+		{"setStream", "(Ljavax/imageio/stream/ImageInputStream;)V", nullptr, $PUBLIC, $virtualMethod(TIFFYCbCrDecompressor, setStream, void, $ImageInputStream*)},
+		{"warning", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(TIFFYCbCrDecompressor, warning, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.imageio.plugins.tiff.TIFFYCbCrDecompressor",
+		"com.sun.imageio.plugins.tiff.TIFFDecompressor",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TIFFYCbCrDecompressor, name, initialize, &classInfo$$, TIFFYCbCrDecompressor::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(TIFFYCbCrDecompressor);
+	});
 	return class$;
 }
 

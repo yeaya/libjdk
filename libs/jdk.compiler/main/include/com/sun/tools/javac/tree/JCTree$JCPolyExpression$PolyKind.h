@@ -22,6 +22,7 @@ class $import JCTree$JCPolyExpression$PolyKind : public ::java::lang::Enum {
 public:
 	JCTree$JCPolyExpression$PolyKind();
 	static $Array<::com::sun::tools::javac::tree::JCTree$JCPolyExpression$PolyKind>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::com::sun::tools::javac::tree::JCTree$JCPolyExpression$PolyKind* valueOf($String* name);
 	static $Array<::com::sun::tools::javac::tree::JCTree$JCPolyExpression$PolyKind>* values();

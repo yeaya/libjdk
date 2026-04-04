@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/metal/MetalLabelUI.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Graphics.h>
 #include <java/lang/SecurityManager.h>
@@ -31,32 +30,6 @@ namespace javax {
 		namespace plaf {
 			namespace metal {
 
-$FieldInfo _MetalLabelUI_FieldInfo_[] = {
-	{"metalLabelUI", "Ljavax/swing/plaf/metal/MetalLabelUI;", nullptr, $PROTECTED | $STATIC, $staticField(MetalLabelUI, metalLabelUI)},
-	{"METAL_LABEL_UI_KEY", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MetalLabelUI, METAL_LABEL_UI_KEY)},
-	{}
-};
-
-$MethodInfo _MetalLabelUI_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MetalLabelUI, init$, void)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalLabelUI, createUI, $ComponentUI*, $JComponent*)},
-	{"paintDisabledText", "(Ljavax/swing/JLabel;Ljava/awt/Graphics;Ljava/lang/String;II)V", nullptr, $PROTECTED, $virtualMethod(MetalLabelUI, paintDisabledText, void, $JLabel*, $Graphics*, $String*, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _MetalLabelUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.metal.MetalLabelUI",
-	"javax.swing.plaf.basic.BasicLabelUI",
-	nullptr,
-	_MetalLabelUI_FieldInfo_,
-	_MetalLabelUI_MethodInfo_
-};
-
-$Object* allocate$MetalLabelUI($Class* clazz) {
-	return $of($alloc(MetalLabelUI));
-}
-
 MetalLabelUI* MetalLabelUI::metalLabelUI = nullptr;
 $Object* MetalLabelUI::METAL_LABEL_UI_KEY = nullptr;
 
@@ -66,7 +39,7 @@ void MetalLabelUI::init$() {
 
 $ComponentUI* MetalLabelUI::createUI($JComponent* c) {
 	$init(MetalLabelUI);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($System::getSecurityManager() != nullptr) {
 		$var($AppContext, appContext, $AppContext::getAppContext());
 		$var(MetalLabelUI, safeMetalLabelUI, $cast(MetalLabelUI, $nc(appContext)->get(MetalLabelUI::METAL_LABEL_UI_KEY)));
@@ -85,7 +58,7 @@ void MetalLabelUI::paintDisabledText($JLabel* l, $Graphics* g, $String* s, int32
 	$SwingUtilities2::drawStringUnderlineCharAt(l, g, s, mnemIndex, textX, textY);
 }
 
-void clinit$MetalLabelUI($Class* class$) {
+void MetalLabelUI::clinit$($Class* clazz) {
 	$assignStatic(MetalLabelUI::metalLabelUI, $new(MetalLabelUI));
 	$assignStatic(MetalLabelUI::METAL_LABEL_UI_KEY, $new($Object));
 }
@@ -94,7 +67,28 @@ MetalLabelUI::MetalLabelUI() {
 }
 
 $Class* MetalLabelUI::load$($String* name, bool initialize) {
-	$loadClass(MetalLabelUI, name, initialize, &_MetalLabelUI_ClassInfo_, clinit$MetalLabelUI, allocate$MetalLabelUI);
+	$FieldInfo fieldInfos$$[] = {
+		{"metalLabelUI", "Ljavax/swing/plaf/metal/MetalLabelUI;", nullptr, $PROTECTED | $STATIC, $staticField(MetalLabelUI, metalLabelUI)},
+		{"METAL_LABEL_UI_KEY", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MetalLabelUI, METAL_LABEL_UI_KEY)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MetalLabelUI, init$, void)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalLabelUI, createUI, $ComponentUI*, $JComponent*)},
+		{"paintDisabledText", "(Ljavax/swing/JLabel;Ljava/awt/Graphics;Ljava/lang/String;II)V", nullptr, $PROTECTED, $virtualMethod(MetalLabelUI, paintDisabledText, void, $JLabel*, $Graphics*, $String*, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.metal.MetalLabelUI",
+		"javax.swing.plaf.basic.BasicLabelUI",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(MetalLabelUI, name, initialize, &classInfo$$, MetalLabelUI::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MetalLabelUI));
+	});
 	return class$;
 }
 

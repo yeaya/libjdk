@@ -26,6 +26,7 @@ class DeferredDOMImplementationImpl : public ::com::sun::org::apache::xerces::in
 public:
 	DeferredDOMImplementationImpl();
 	using ::com::sun::org::apache::xerces::internal::dom::DOMImplementationImpl::createDocument;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::org::w3c::dom::DOMImplementation* getDOMImplementation();
 	static ::com::sun::org::apache::xerces::internal::dom::DeferredDOMImplementationImpl* singleton;

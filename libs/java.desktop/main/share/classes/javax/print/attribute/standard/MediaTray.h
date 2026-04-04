@@ -40,10 +40,11 @@ class $export MediaTray : public ::javax::print::attribute::standard::Media {
 	$class(MediaTray, 0, ::javax::print::attribute::standard::Media)
 public:
 	MediaTray();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int32_t value);
 	virtual $Array<::javax::print::attribute::EnumSyntax>* getEnumValueTable() override;
 	virtual $StringArray* getStringTable() override;
-	static const int64_t serialVersionUID = (int64_t)0xF25D722BD6219591;
+	static const int64_t serialVersionUID = (int64_t)0xf25d722bd6219591;
 	static ::javax::print::attribute::standard::MediaTray* TOP;
 	static ::javax::print::attribute::standard::MediaTray* MIDDLE;
 	static ::javax::print::attribute::standard::MediaTray* BOTTOM;

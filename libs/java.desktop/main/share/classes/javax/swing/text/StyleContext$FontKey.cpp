@@ -1,5 +1,4 @@
 #include <javax/swing/text/StyleContext$FontKey.h>
-
 #include <javax/swing/text/StyleContext.h>
 #include <jcpp.h>
 
@@ -12,65 +11,25 @@ namespace javax {
 	namespace swing {
 		namespace text {
 
-$FieldInfo _StyleContext$FontKey_FieldInfo_[] = {
-	{"family", "Ljava/lang/String;", nullptr, $PRIVATE, $field(StyleContext$FontKey, family)},
-	{"style", "I", nullptr, $PRIVATE, $field(StyleContext$FontKey, style)},
-	{"size", "I", nullptr, $PRIVATE, $field(StyleContext$FontKey, size)},
-	{}
-};
-
-$MethodInfo _StyleContext$FontKey_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;II)V", nullptr, $PUBLIC, $method(StyleContext$FontKey, init$, void, $String*, int32_t, int32_t)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(StyleContext$FontKey, equals, bool, Object$*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(StyleContext$FontKey, hashCode, int32_t)},
-	{"setValue", "(Ljava/lang/String;II)V", nullptr, $PUBLIC, $virtualMethod(StyleContext$FontKey, setValue, void, $String*, int32_t, int32_t)},
-	{}
-};
-
-$InnerClassInfo _StyleContext$FontKey_InnerClassesInfo_[] = {
-	{"javax.swing.text.StyleContext$FontKey", "javax.swing.text.StyleContext", "FontKey", $STATIC},
-	{}
-};
-
-$ClassInfo _StyleContext$FontKey_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.text.StyleContext$FontKey",
-	"java.lang.Object",
-	nullptr,
-	_StyleContext$FontKey_FieldInfo_,
-	_StyleContext$FontKey_MethodInfo_,
-	nullptr,
-	nullptr,
-	_StyleContext$FontKey_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.StyleContext"
-};
-
-$Object* allocate$StyleContext$FontKey($Class* clazz) {
-	return $of($alloc(StyleContext$FontKey));
-}
-
 void StyleContext$FontKey::init$($String* family, int32_t style, int32_t size) {
 	setValue(family, style, size);
 }
 
 void StyleContext$FontKey::setValue($String* family, int32_t style, int32_t size) {
-	$set(this, family, (family != nullptr) ? $nc(family)->intern() : ($String*)nullptr);
+	$set(this, family, (family != nullptr) ? family->intern() : ($String*)nullptr);
 	this->style = style;
 	this->size = size;
 }
 
 int32_t StyleContext$FontKey::hashCode() {
-	int32_t fhash = (this->family != nullptr) ? $nc(this->family)->hashCode() : 0;
+	int32_t fhash = (this->family != nullptr) ? this->family->hashCode() : 0;
 	return (fhash ^ this->style) ^ this->size;
 }
 
 bool StyleContext$FontKey::equals(Object$* obj) {
 	if ($instanceOf(StyleContext$FontKey, obj)) {
 		$var(StyleContext$FontKey, font, $cast(StyleContext$FontKey, obj));
-		return (this->size == $nc(font)->size) && (this->style == font->style) && (this->family == font->family);
+		return (this->size == font->size) && (this->style == font->style) && (this->family == font->family);
 	}
 	return false;
 }
@@ -79,7 +38,41 @@ StyleContext$FontKey::StyleContext$FontKey() {
 }
 
 $Class* StyleContext$FontKey::load$($String* name, bool initialize) {
-	$loadClass(StyleContext$FontKey, name, initialize, &_StyleContext$FontKey_ClassInfo_, allocate$StyleContext$FontKey);
+	$FieldInfo fieldInfos$$[] = {
+		{"family", "Ljava/lang/String;", nullptr, $PRIVATE, $field(StyleContext$FontKey, family)},
+		{"style", "I", nullptr, $PRIVATE, $field(StyleContext$FontKey, style)},
+		{"size", "I", nullptr, $PRIVATE, $field(StyleContext$FontKey, size)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;II)V", nullptr, $PUBLIC, $method(StyleContext$FontKey, init$, void, $String*, int32_t, int32_t)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(StyleContext$FontKey, equals, bool, Object$*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(StyleContext$FontKey, hashCode, int32_t)},
+		{"setValue", "(Ljava/lang/String;II)V", nullptr, $PUBLIC, $virtualMethod(StyleContext$FontKey, setValue, void, $String*, int32_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.StyleContext$FontKey", "javax.swing.text.StyleContext", "FontKey", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.text.StyleContext$FontKey",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.StyleContext"
+	};
+	$loadClass(StyleContext$FontKey, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(StyleContext$FontKey);
+	});
 	return class$;
 }
 

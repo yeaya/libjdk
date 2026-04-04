@@ -1,5 +1,4 @@
 #include <sun/security/jgss/spnego/NegTokenTarg.h>
-
 #include <java/io/IOException.h>
 #include <java/io/OutputStream.h>
 #include <org/ietf/jgss/GSSException.h>
@@ -19,7 +18,6 @@
 #undef TAG_CONTEXT
 
 using $IOException = ::java::io::IOException;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -27,7 +25,6 @@ using $GSSException = ::org::ietf::jgss::GSSException;
 using $Oid = ::org::ietf::jgss::Oid;
 using $GSSUtil = ::sun::security::jgss::GSSUtil;
 using $SpNegoToken = ::sun::security::jgss::spnego::SpNegoToken;
-using $DerInputStream = ::sun::security::util::DerInputStream;
 using $DerOutputStream = ::sun::security::util::DerOutputStream;
 using $DerValue = ::sun::security::util::DerValue;
 using $ObjectIdentifier = ::sun::security::util::ObjectIdentifier;
@@ -36,39 +33,6 @@ namespace sun {
 	namespace security {
 		namespace jgss {
 			namespace spnego {
-
-$FieldInfo _NegTokenTarg_FieldInfo_[] = {
-	{"negResult", "I", nullptr, $PRIVATE, $field(NegTokenTarg, negResult)},
-	{"supportedMech", "Lorg/ietf/jgss/Oid;", nullptr, $PRIVATE, $field(NegTokenTarg, supportedMech)},
-	{"responseToken", "[B", nullptr, $PRIVATE, $field(NegTokenTarg, responseToken)},
-	{"mechListMIC", "[B", nullptr, $PRIVATE, $field(NegTokenTarg, mechListMIC)},
-	{}
-};
-
-$MethodInfo _NegTokenTarg_MethodInfo_[] = {
-	{"<init>", "(ILorg/ietf/jgss/Oid;[B[B)V", nullptr, 0, $method(NegTokenTarg, init$, void, int32_t, $Oid*, $bytes*, $bytes*)},
-	{"<init>", "([B)V", nullptr, $PUBLIC, $method(NegTokenTarg, init$, void, $bytes*), "org.ietf.jgss.GSSException"},
-	{"encode", "()[B", nullptr, $FINAL, $virtualMethod(NegTokenTarg, encode, $bytes*), "org.ietf.jgss.GSSException"},
-	{"getMechListMIC", "()[B", nullptr, 0, $virtualMethod(NegTokenTarg, getMechListMIC, $bytes*)},
-	{"getNegotiatedResult", "()I", nullptr, 0, $virtualMethod(NegTokenTarg, getNegotiatedResult, int32_t)},
-	{"getResponseToken", "()[B", nullptr, 0, $virtualMethod(NegTokenTarg, getResponseToken, $bytes*)},
-	{"getSupportedMech", "()Lorg/ietf/jgss/Oid;", nullptr, $PUBLIC, $virtualMethod(NegTokenTarg, getSupportedMech, $Oid*)},
-	{"parseToken", "([B)V", nullptr, $PRIVATE, $method(NegTokenTarg, parseToken, void, $bytes*), "org.ietf.jgss.GSSException"},
-	{}
-};
-
-$ClassInfo _NegTokenTarg_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.jgss.spnego.NegTokenTarg",
-	"sun.security.jgss.spnego.SpNegoToken",
-	nullptr,
-	_NegTokenTarg_FieldInfo_,
-	_NegTokenTarg_MethodInfo_
-};
-
-$Object* allocate$NegTokenTarg($Class* clazz) {
-	return $of($alloc(NegTokenTarg));
-}
 
 void NegTokenTarg::init$(int32_t result, $Oid* mech, $bytes* token, $bytes* mechListMIC) {
 	$SpNegoToken::init$($SpNegoToken::NEG_TOKEN_TARG_ID);
@@ -92,7 +56,7 @@ void NegTokenTarg::init$($bytes* in) {
 }
 
 $bytes* NegTokenTarg::encode() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$var($DerOutputStream, targToken, $new($DerOutputStream));
 		$var($DerOutputStream, result, $new($DerOutputStream));
@@ -100,7 +64,7 @@ $bytes* NegTokenTarg::encode() {
 		targToken->write($DerValue::createTag($DerValue::TAG_CONTEXT, true, (int8_t)0), result);
 		if (this->supportedMech != nullptr) {
 			$var($DerOutputStream, mech, $new($DerOutputStream));
-			$var($bytes, mechType, $nc(this->supportedMech)->getDER());
+			$var($bytes, mechType, this->supportedMech->getDER());
 			mech->write(mechType);
 			targToken->write($DerValue::createTag($DerValue::TAG_CONTEXT, true, (int8_t)1), mech);
 		}
@@ -128,7 +92,7 @@ $bytes* NegTokenTarg::encode() {
 }
 
 void NegTokenTarg::parseToken($bytes* in) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$var($DerValue, der, $new($DerValue, in));
 		if (!der->isContextSpecific((int8_t)$SpNegoToken::NEG_TOKEN_TARG_ID)) {
@@ -139,8 +103,8 @@ void NegTokenTarg::parseToken($bytes* in) {
 			$throwNew($IOException, "SPNEGO NegoTokenTarg : did not have the Sequence tag"_s);
 		}
 		int32_t lastField = -1;
-		while ($nc($nc(tmp1)->data$)->available() > 0) {
-			$var($DerValue, tmp2, $nc(tmp1->data$)->getDerValue());
+		while ($nc(tmp1->data$)->available() > 0) {
+			$var($DerValue, tmp2, tmp1->data$->getDerValue());
 			if ($nc(tmp2)->isContextSpecific((int8_t)0)) {
 				lastField = checkNextField(lastField, 0);
 				this->negResult = $nc(tmp2->data$)->getEnumerated();
@@ -195,7 +159,35 @@ NegTokenTarg::NegTokenTarg() {
 }
 
 $Class* NegTokenTarg::load$($String* name, bool initialize) {
-	$loadClass(NegTokenTarg, name, initialize, &_NegTokenTarg_ClassInfo_, allocate$NegTokenTarg);
+	$FieldInfo fieldInfos$$[] = {
+		{"negResult", "I", nullptr, $PRIVATE, $field(NegTokenTarg, negResult)},
+		{"supportedMech", "Lorg/ietf/jgss/Oid;", nullptr, $PRIVATE, $field(NegTokenTarg, supportedMech)},
+		{"responseToken", "[B", nullptr, $PRIVATE, $field(NegTokenTarg, responseToken)},
+		{"mechListMIC", "[B", nullptr, $PRIVATE, $field(NegTokenTarg, mechListMIC)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(ILorg/ietf/jgss/Oid;[B[B)V", nullptr, 0, $method(NegTokenTarg, init$, void, int32_t, $Oid*, $bytes*, $bytes*)},
+		{"<init>", "([B)V", nullptr, $PUBLIC, $method(NegTokenTarg, init$, void, $bytes*), "org.ietf.jgss.GSSException"},
+		{"encode", "()[B", nullptr, $FINAL, $virtualMethod(NegTokenTarg, encode, $bytes*), "org.ietf.jgss.GSSException"},
+		{"getMechListMIC", "()[B", nullptr, 0, $virtualMethod(NegTokenTarg, getMechListMIC, $bytes*)},
+		{"getNegotiatedResult", "()I", nullptr, 0, $virtualMethod(NegTokenTarg, getNegotiatedResult, int32_t)},
+		{"getResponseToken", "()[B", nullptr, 0, $virtualMethod(NegTokenTarg, getResponseToken, $bytes*)},
+		{"getSupportedMech", "()Lorg/ietf/jgss/Oid;", nullptr, $PUBLIC, $virtualMethod(NegTokenTarg, getSupportedMech, $Oid*)},
+		{"parseToken", "([B)V", nullptr, $PRIVATE, $method(NegTokenTarg, parseToken, void, $bytes*), "org.ietf.jgss.GSSException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.jgss.spnego.NegTokenTarg",
+		"sun.security.jgss.spnego.SpNegoToken",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(NegTokenTarg, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(NegTokenTarg);
+	});
 	return class$;
 }
 

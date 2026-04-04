@@ -1,5 +1,4 @@
 #include <javax/print/attribute/HashDocAttributeSet.h>
-
 #include <javax/print/attribute/Attribute.h>
 #include <javax/print/attribute/AttributeSet.h>
 #include <javax/print/attribute/DocAttribute.h>
@@ -21,48 +20,6 @@ using $HashAttributeSet = ::javax::print::attribute::HashAttributeSet;
 namespace javax {
 	namespace print {
 		namespace attribute {
-
-$FieldInfo _HashDocAttributeSet_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(HashDocAttributeSet, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _HashDocAttributeSet_MethodInfo_[] = {
-	{"*add", "(Ljavax/print/attribute/Attribute;)Z", nullptr, $PUBLIC},
-	{"*addAll", "(Ljavax/print/attribute/AttributeSet;)Z", nullptr, $PUBLIC},
-	{"*clear", "()V", nullptr, $PUBLIC},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*containsKey", "(Ljava/lang/Class;)Z", nullptr, $PUBLIC},
-	{"*containsValue", "(Ljavax/print/attribute/Attribute;)Z", nullptr, $PUBLIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*get", "(Ljava/lang/Class;)Ljavax/print/attribute/Attribute;", nullptr, $PUBLIC},
-	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(HashDocAttributeSet, init$, void)},
-	{"<init>", "(Ljavax/print/attribute/DocAttribute;)V", nullptr, $PUBLIC, $method(HashDocAttributeSet, init$, void, $DocAttribute*)},
-	{"<init>", "([Ljavax/print/attribute/DocAttribute;)V", nullptr, $PUBLIC, $method(HashDocAttributeSet, init$, void, $DocAttributeArray*)},
-	{"<init>", "(Ljavax/print/attribute/DocAttributeSet;)V", nullptr, $PUBLIC, $method(HashDocAttributeSet, init$, void, $DocAttributeSet*)},
-	{"*remove", "(Ljava/lang/Class;)Z", nullptr, $PUBLIC},
-	{"*remove", "(Ljavax/print/attribute/Attribute;)Z", nullptr, $PUBLIC},
-	{"*size", "()I", nullptr, $PUBLIC},
-	{"*toArray", "()[Ljavax/print/attribute/Attribute;", nullptr, $PUBLIC},
-	{"*isEmpty", "()Z", nullptr, $PUBLIC},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _HashDocAttributeSet_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.print.attribute.HashDocAttributeSet",
-	"javax.print.attribute.HashAttributeSet",
-	"javax.print.attribute.DocAttributeSet",
-	_HashDocAttributeSet_FieldInfo_,
-	_HashDocAttributeSet_MethodInfo_
-};
-
-$Object* allocate$HashDocAttributeSet($Class* clazz) {
-	return $of($alloc(HashDocAttributeSet));
-}
 
 $Attribute* HashDocAttributeSet::get($Class* category) {
 	 return this->$HashAttributeSet::get(category);
@@ -135,24 +92,61 @@ void HashDocAttributeSet::init$() {
 
 void HashDocAttributeSet::init$($DocAttribute* attribute) {
 	$load($DocAttribute);
-	$HashAttributeSet::init$(static_cast<$Attribute*>(attribute), $DocAttribute::class$);
+	$HashAttributeSet::init$(attribute, $DocAttribute::class$);
 }
 
 void HashDocAttributeSet::init$($DocAttributeArray* attributes) {
 	$load($DocAttribute);
-	$HashAttributeSet::init$($fcast($AttributeArray, attributes), $DocAttribute::class$);
+	$HashAttributeSet::init$($cast($AttributeArray, attributes), $DocAttribute::class$);
 }
 
 void HashDocAttributeSet::init$($DocAttributeSet* attributes) {
 	$load($DocAttribute);
-	$HashAttributeSet::init$(static_cast<$AttributeSet*>(attributes), $DocAttribute::class$);
+	$HashAttributeSet::init$(attributes, $DocAttribute::class$);
 }
 
 HashDocAttributeSet::HashDocAttributeSet() {
 }
 
 $Class* HashDocAttributeSet::load$($String* name, bool initialize) {
-	$loadClass(HashDocAttributeSet, name, initialize, &_HashDocAttributeSet_ClassInfo_, allocate$HashDocAttributeSet);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(HashDocAttributeSet, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*add", "(Ljavax/print/attribute/Attribute;)Z", nullptr, $PUBLIC},
+		{"*addAll", "(Ljavax/print/attribute/AttributeSet;)Z", nullptr, $PUBLIC},
+		{"*clear", "()V", nullptr, $PUBLIC},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*containsKey", "(Ljava/lang/Class;)Z", nullptr, $PUBLIC},
+		{"*containsValue", "(Ljavax/print/attribute/Attribute;)Z", nullptr, $PUBLIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*get", "(Ljava/lang/Class;)Ljavax/print/attribute/Attribute;", nullptr, $PUBLIC},
+		{"*hashCode", "()I", nullptr, $PUBLIC},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(HashDocAttributeSet, init$, void)},
+		{"<init>", "(Ljavax/print/attribute/DocAttribute;)V", nullptr, $PUBLIC, $method(HashDocAttributeSet, init$, void, $DocAttribute*)},
+		{"<init>", "([Ljavax/print/attribute/DocAttribute;)V", nullptr, $PUBLIC, $method(HashDocAttributeSet, init$, void, $DocAttributeArray*)},
+		{"<init>", "(Ljavax/print/attribute/DocAttributeSet;)V", nullptr, $PUBLIC, $method(HashDocAttributeSet, init$, void, $DocAttributeSet*)},
+		{"*remove", "(Ljava/lang/Class;)Z", nullptr, $PUBLIC},
+		{"*remove", "(Ljavax/print/attribute/Attribute;)Z", nullptr, $PUBLIC},
+		{"*size", "()I", nullptr, $PUBLIC},
+		{"*toArray", "()[Ljavax/print/attribute/Attribute;", nullptr, $PUBLIC},
+		{"*isEmpty", "()Z", nullptr, $PUBLIC},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.print.attribute.HashDocAttributeSet",
+		"javax.print.attribute.HashAttributeSet",
+		"javax.print.attribute.DocAttributeSet",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(HashDocAttributeSet, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(HashDocAttributeSet));
+	});
 	return class$;
 }
 

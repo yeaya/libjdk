@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/HttpClientImpl$DefaultThreadFactory.h>
-
 #include <java/lang/Runnable.h>
 #include <java/lang/SecurityManager.h>
 #include <java/lang/ThreadGroup.h>
@@ -22,51 +21,14 @@ namespace jdk {
 		namespace net {
 			namespace http {
 
-$FieldInfo _HttpClientImpl$DefaultThreadFactory_FieldInfo_[] = {
-	{"namePrefix", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(HttpClientImpl$DefaultThreadFactory, namePrefix)},
-	{"nextId", "Ljava/util/concurrent/atomic/AtomicInteger;", nullptr, $PRIVATE | $FINAL, $field(HttpClientImpl$DefaultThreadFactory, nextId)},
-	{}
-};
-
-$MethodInfo _HttpClientImpl$DefaultThreadFactory_MethodInfo_[] = {
-	{"<init>", "(J)V", nullptr, 0, $method(HttpClientImpl$DefaultThreadFactory, init$, void, int64_t)},
-	{"newThread", "(Ljava/lang/Runnable;)Ljava/lang/Thread;", nullptr, $PUBLIC, $virtualMethod(HttpClientImpl$DefaultThreadFactory, newThread, $Thread*, $Runnable*)},
-	{}
-};
-
-$InnerClassInfo _HttpClientImpl$DefaultThreadFactory_InnerClassesInfo_[] = {
-	{"jdk.internal.net.http.HttpClientImpl$DefaultThreadFactory", "jdk.internal.net.http.HttpClientImpl", "DefaultThreadFactory", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _HttpClientImpl$DefaultThreadFactory_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"jdk.internal.net.http.HttpClientImpl$DefaultThreadFactory",
-	"java.lang.Object",
-	"java.util.concurrent.ThreadFactory",
-	_HttpClientImpl$DefaultThreadFactory_FieldInfo_,
-	_HttpClientImpl$DefaultThreadFactory_MethodInfo_,
-	nullptr,
-	nullptr,
-	_HttpClientImpl$DefaultThreadFactory_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.net.http.HttpClientImpl"
-};
-
-$Object* allocate$HttpClientImpl$DefaultThreadFactory($Class* clazz) {
-	return $of($alloc(HttpClientImpl$DefaultThreadFactory));
-}
-
 void HttpClientImpl$DefaultThreadFactory::init$(int64_t clientID) {
 	$set(this, nextId, $new($AtomicInteger));
 	$set(this, namePrefix, $str({"HttpClient-"_s, $$str(clientID), "-Worker-"_s}));
 }
 
 $Thread* HttpClientImpl$DefaultThreadFactory::newThread($Runnable* r) {
-	$useLocalCurrentObjectStackCache();
-	$var($String, name, $str({this->namePrefix, $$str($nc(this->nextId)->getAndIncrement())}));
+	$useLocalObjectStack();
+	$var($String, name, $str({this->namePrefix, $$str(this->nextId->getAndIncrement())}));
 	$var($Thread, t, nullptr);
 	if ($System::getSecurityManager() == nullptr) {
 		$assign(t, $new($Thread, nullptr, r, name, 0, false));
@@ -81,7 +43,38 @@ HttpClientImpl$DefaultThreadFactory::HttpClientImpl$DefaultThreadFactory() {
 }
 
 $Class* HttpClientImpl$DefaultThreadFactory::load$($String* name, bool initialize) {
-	$loadClass(HttpClientImpl$DefaultThreadFactory, name, initialize, &_HttpClientImpl$DefaultThreadFactory_ClassInfo_, allocate$HttpClientImpl$DefaultThreadFactory);
+	$FieldInfo fieldInfos$$[] = {
+		{"namePrefix", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(HttpClientImpl$DefaultThreadFactory, namePrefix)},
+		{"nextId", "Ljava/util/concurrent/atomic/AtomicInteger;", nullptr, $PRIVATE | $FINAL, $field(HttpClientImpl$DefaultThreadFactory, nextId)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(J)V", nullptr, 0, $method(HttpClientImpl$DefaultThreadFactory, init$, void, int64_t)},
+		{"newThread", "(Ljava/lang/Runnable;)Ljava/lang/Thread;", nullptr, $PUBLIC, $virtualMethod(HttpClientImpl$DefaultThreadFactory, newThread, $Thread*, $Runnable*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.net.http.HttpClientImpl$DefaultThreadFactory", "jdk.internal.net.http.HttpClientImpl", "DefaultThreadFactory", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"jdk.internal.net.http.HttpClientImpl$DefaultThreadFactory",
+		"java.lang.Object",
+		"java.util.concurrent.ThreadFactory",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.net.http.HttpClientImpl"
+	};
+	$loadClass(HttpClientImpl$DefaultThreadFactory, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HttpClientImpl$DefaultThreadFactory);
+	});
 	return class$;
 }
 

@@ -30,6 +30,7 @@ class $export X11GraphicsEnvironment : public ::sun::java2d::SunGraphicsEnvironm
 	$class(X11GraphicsEnvironment, 0, ::sun::java2d::SunGraphicsEnvironment)
 public:
 	X11GraphicsEnvironment();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static bool _isDisplayLocal();
 	static int32_t checkShmExt();

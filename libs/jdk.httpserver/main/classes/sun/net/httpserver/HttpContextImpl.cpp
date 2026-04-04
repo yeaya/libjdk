@@ -1,5 +1,4 @@
 #include <sun/net/httpserver/HttpContextImpl.h>
-
 #include <com/sun/net/httpserver/Authenticator.h>
 #include <com/sun/net/httpserver/HttpContext.h>
 #include <com/sun/net/httpserver/HttpHandler.h>
@@ -36,68 +35,25 @@ namespace sun {
 	namespace net {
 		namespace httpserver {
 
-$FieldInfo _HttpContextImpl_FieldInfo_[] = {
-	{"path", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(HttpContextImpl, path)},
-	{"protocol", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(HttpContextImpl, protocol)},
-	{"server", "Lsun/net/httpserver/ServerImpl;", nullptr, $PRIVATE | $FINAL, $field(HttpContextImpl, server)},
-	{"authfilter", "Lsun/net/httpserver/AuthFilter;", nullptr, $PRIVATE | $FINAL, $field(HttpContextImpl, authfilter)},
-	{"attributes", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;", $PRIVATE | $FINAL, $field(HttpContextImpl, attributes)},
-	{"sfilters", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/net/httpserver/Filter;>;", $PRIVATE | $FINAL, $field(HttpContextImpl, sfilters)},
-	{"ufilters", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/net/httpserver/Filter;>;", $PRIVATE | $FINAL, $field(HttpContextImpl, ufilters)},
-	{"authenticator", "Lcom/sun/net/httpserver/Authenticator;", nullptr, $PRIVATE, $field(HttpContextImpl, authenticator)},
-	{"handler", "Lcom/sun/net/httpserver/HttpHandler;", nullptr, $PRIVATE, $field(HttpContextImpl, handler)},
-	{}
-};
-
-$MethodInfo _HttpContextImpl_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Lcom/sun/net/httpserver/HttpHandler;Lsun/net/httpserver/ServerImpl;)V", nullptr, 0, $method(HttpContextImpl, init$, void, $String*, $String*, $HttpHandler*, $ServerImpl*)},
-	{"getAttributes", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;", $PUBLIC, $virtualMethod(HttpContextImpl, getAttributes, $Map*)},
-	{"getAuthenticator", "()Lcom/sun/net/httpserver/Authenticator;", nullptr, $PUBLIC, $virtualMethod(HttpContextImpl, getAuthenticator, $Authenticator*)},
-	{"getFilters", "()Ljava/util/List;", "()Ljava/util/List<Lcom/sun/net/httpserver/Filter;>;", $PUBLIC, $virtualMethod(HttpContextImpl, getFilters, $List*)},
-	{"getHandler", "()Lcom/sun/net/httpserver/HttpHandler;", nullptr, $PUBLIC, $virtualMethod(HttpContextImpl, getHandler, $HttpHandler*)},
-	{"getLogger", "()Ljava/lang/System$Logger;", nullptr, 0, $virtualMethod(HttpContextImpl, getLogger, $System$Logger*)},
-	{"getPath", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HttpContextImpl, getPath, $String*)},
-	{"getProtocol", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HttpContextImpl, getProtocol, $String*)},
-	{"getServer", "()Lcom/sun/net/httpserver/HttpServer;", nullptr, $PUBLIC, $virtualMethod(HttpContextImpl, getServer, $HttpServer*)},
-	{"getServerImpl", "()Lsun/net/httpserver/ServerImpl;", nullptr, 0, $virtualMethod(HttpContextImpl, getServerImpl, $ServerImpl*)},
-	{"getSystemFilters", "()Ljava/util/List;", "()Ljava/util/List<Lcom/sun/net/httpserver/Filter;>;", 0, $virtualMethod(HttpContextImpl, getSystemFilters, $List*)},
-	{"setAuthenticator", "(Lcom/sun/net/httpserver/Authenticator;)Lcom/sun/net/httpserver/Authenticator;", nullptr, $PUBLIC, $virtualMethod(HttpContextImpl, setAuthenticator, $Authenticator*, $Authenticator*)},
-	{"setHandler", "(Lcom/sun/net/httpserver/HttpHandler;)V", nullptr, $PUBLIC, $virtualMethod(HttpContextImpl, setHandler, void, $HttpHandler*)},
-	{}
-};
-
-$ClassInfo _HttpContextImpl_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.net.httpserver.HttpContextImpl",
-	"com.sun.net.httpserver.HttpContext",
-	nullptr,
-	_HttpContextImpl_FieldInfo_,
-	_HttpContextImpl_MethodInfo_
-};
-
-$Object* allocate$HttpContextImpl($Class* clazz) {
-	return $of($alloc(HttpContextImpl));
-}
-
 void HttpContextImpl::init$($String* protocol, $String* path, $HttpHandler* cb, $ServerImpl* server) {
 	$HttpContext::init$();
-	$set(this, attributes, static_cast<$Map*>(static_cast<$AbstractMap*>($new($ConcurrentHashMap))));
+	$set(this, attributes, $cast($AbstractMap, $new($ConcurrentHashMap)));
 	$set(this, sfilters, $new($CopyOnWriteArrayList));
 	$set(this, ufilters, $new($CopyOnWriteArrayList));
-	bool var$0 = path == nullptr || protocol == nullptr || $nc(path)->length() < 1;
-	if (var$0 || $nc(path)->charAt(0) != u'/') {
+	bool var$0 = path == nullptr || protocol == nullptr || path->length() < 1;
+	if (var$0 || path->charAt(0) != u'/') {
 		$throwNew($IllegalArgumentException, "Illegal value for path or protocol"_s);
 	}
 	$set(this, protocol, $nc(protocol)->toLowerCase());
 	$set(this, path, path);
-	bool var$1 = !$nc(this->protocol)->equals("http"_s);
-	if (var$1 && !$nc(this->protocol)->equals("https"_s)) {
+	bool var$1 = !this->protocol->equals("http"_s);
+	if (var$1 && !this->protocol->equals("https"_s)) {
 		$throwNew($IllegalArgumentException, "Illegal value for protocol"_s);
 	}
 	$set(this, handler, cb);
 	$set(this, server, server);
 	$set(this, authfilter, $new($AuthFilter, nullptr));
-	$nc(this->sfilters)->add(this->authfilter);
+	this->sfilters->add(this->authfilter);
 }
 
 $HttpHandler* HttpContextImpl::getHandler() {
@@ -145,7 +101,7 @@ $List* HttpContextImpl::getSystemFilters() {
 $Authenticator* HttpContextImpl::setAuthenticator($Authenticator* auth) {
 	$var($Authenticator, old, this->authenticator);
 	$set(this, authenticator, auth);
-	$nc(this->authfilter)->setAuthenticator(auth);
+	this->authfilter->setAuthenticator(auth);
 	return old;
 }
 
@@ -161,7 +117,45 @@ HttpContextImpl::HttpContextImpl() {
 }
 
 $Class* HttpContextImpl::load$($String* name, bool initialize) {
-	$loadClass(HttpContextImpl, name, initialize, &_HttpContextImpl_ClassInfo_, allocate$HttpContextImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"path", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(HttpContextImpl, path)},
+		{"protocol", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(HttpContextImpl, protocol)},
+		{"server", "Lsun/net/httpserver/ServerImpl;", nullptr, $PRIVATE | $FINAL, $field(HttpContextImpl, server)},
+		{"authfilter", "Lsun/net/httpserver/AuthFilter;", nullptr, $PRIVATE | $FINAL, $field(HttpContextImpl, authfilter)},
+		{"attributes", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;", $PRIVATE | $FINAL, $field(HttpContextImpl, attributes)},
+		{"sfilters", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/net/httpserver/Filter;>;", $PRIVATE | $FINAL, $field(HttpContextImpl, sfilters)},
+		{"ufilters", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/net/httpserver/Filter;>;", $PRIVATE | $FINAL, $field(HttpContextImpl, ufilters)},
+		{"authenticator", "Lcom/sun/net/httpserver/Authenticator;", nullptr, $PRIVATE, $field(HttpContextImpl, authenticator)},
+		{"handler", "Lcom/sun/net/httpserver/HttpHandler;", nullptr, $PRIVATE, $field(HttpContextImpl, handler)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;Lcom/sun/net/httpserver/HttpHandler;Lsun/net/httpserver/ServerImpl;)V", nullptr, 0, $method(HttpContextImpl, init$, void, $String*, $String*, $HttpHandler*, $ServerImpl*)},
+		{"getAttributes", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;", $PUBLIC, $virtualMethod(HttpContextImpl, getAttributes, $Map*)},
+		{"getAuthenticator", "()Lcom/sun/net/httpserver/Authenticator;", nullptr, $PUBLIC, $virtualMethod(HttpContextImpl, getAuthenticator, $Authenticator*)},
+		{"getFilters", "()Ljava/util/List;", "()Ljava/util/List<Lcom/sun/net/httpserver/Filter;>;", $PUBLIC, $virtualMethod(HttpContextImpl, getFilters, $List*)},
+		{"getHandler", "()Lcom/sun/net/httpserver/HttpHandler;", nullptr, $PUBLIC, $virtualMethod(HttpContextImpl, getHandler, $HttpHandler*)},
+		{"getLogger", "()Ljava/lang/System$Logger;", nullptr, 0, $virtualMethod(HttpContextImpl, getLogger, $System$Logger*)},
+		{"getPath", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HttpContextImpl, getPath, $String*)},
+		{"getProtocol", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HttpContextImpl, getProtocol, $String*)},
+		{"getServer", "()Lcom/sun/net/httpserver/HttpServer;", nullptr, $PUBLIC, $virtualMethod(HttpContextImpl, getServer, $HttpServer*)},
+		{"getServerImpl", "()Lsun/net/httpserver/ServerImpl;", nullptr, 0, $virtualMethod(HttpContextImpl, getServerImpl, $ServerImpl*)},
+		{"getSystemFilters", "()Ljava/util/List;", "()Ljava/util/List<Lcom/sun/net/httpserver/Filter;>;", 0, $virtualMethod(HttpContextImpl, getSystemFilters, $List*)},
+		{"setAuthenticator", "(Lcom/sun/net/httpserver/Authenticator;)Lcom/sun/net/httpserver/Authenticator;", nullptr, $PUBLIC, $virtualMethod(HttpContextImpl, setAuthenticator, $Authenticator*, $Authenticator*)},
+		{"setHandler", "(Lcom/sun/net/httpserver/HttpHandler;)V", nullptr, $PUBLIC, $virtualMethod(HttpContextImpl, setHandler, void, $HttpHandler*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.net.httpserver.HttpContextImpl",
+		"com.sun.net.httpserver.HttpContext",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(HttpContextImpl, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HttpContextImpl);
+	});
 	return class$;
 }
 

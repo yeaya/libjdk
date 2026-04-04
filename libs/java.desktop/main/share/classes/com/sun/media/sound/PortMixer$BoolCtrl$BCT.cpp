@@ -1,5 +1,4 @@
 #include <com/sun/media/sound/PortMixer$BoolCtrl$BCT.h>
-
 #include <com/sun/media/sound/PortMixer$BoolCtrl.h>
 #include <javax/sound/sampled/BooleanControl$Type.h>
 #include <jcpp.h>
@@ -14,38 +13,6 @@ namespace com {
 		namespace media {
 			namespace sound {
 
-$MethodInfo _PortMixer$BoolCtrl$BCT_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(PortMixer$BoolCtrl$BCT, init$, void, $String*)},
-	{}
-};
-
-$InnerClassInfo _PortMixer$BoolCtrl$BCT_InnerClassesInfo_[] = {
-	{"com.sun.media.sound.PortMixer$BoolCtrl", "com.sun.media.sound.PortMixer", "BoolCtrl", $PRIVATE | $STATIC | $FINAL},
-	{"com.sun.media.sound.PortMixer$BoolCtrl$BCT", "com.sun.media.sound.PortMixer$BoolCtrl", "BCT", $PRIVATE | $STATIC | $FINAL},
-	{"javax.sound.sampled.BooleanControl$Type", "javax.sound.sampled.BooleanControl", "Type", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _PortMixer$BoolCtrl$BCT_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.media.sound.PortMixer$BoolCtrl$BCT",
-	"javax.sound.sampled.BooleanControl$Type",
-	nullptr,
-	nullptr,
-	_PortMixer$BoolCtrl$BCT_MethodInfo_,
-	nullptr,
-	nullptr,
-	_PortMixer$BoolCtrl$BCT_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.media.sound.PortMixer"
-};
-
-$Object* allocate$PortMixer$BoolCtrl$BCT($Class* clazz) {
-	return $of($alloc(PortMixer$BoolCtrl$BCT));
-}
-
 void PortMixer$BoolCtrl$BCT::init$($String* name) {
 	$BooleanControl$Type::init$(name);
 }
@@ -54,7 +21,34 @@ PortMixer$BoolCtrl$BCT::PortMixer$BoolCtrl$BCT() {
 }
 
 $Class* PortMixer$BoolCtrl$BCT::load$($String* name, bool initialize) {
-	$loadClass(PortMixer$BoolCtrl$BCT, name, initialize, &_PortMixer$BoolCtrl$BCT_ClassInfo_, allocate$PortMixer$BoolCtrl$BCT);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(PortMixer$BoolCtrl$BCT, init$, void, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.media.sound.PortMixer$BoolCtrl", "com.sun.media.sound.PortMixer", "BoolCtrl", $PRIVATE | $STATIC | $FINAL},
+		{"com.sun.media.sound.PortMixer$BoolCtrl$BCT", "com.sun.media.sound.PortMixer$BoolCtrl", "BCT", $PRIVATE | $STATIC | $FINAL},
+		{"javax.sound.sampled.BooleanControl$Type", "javax.sound.sampled.BooleanControl", "Type", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.media.sound.PortMixer$BoolCtrl$BCT",
+		"javax.sound.sampled.BooleanControl$Type",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.media.sound.PortMixer"
+	};
+	$loadClass(PortMixer$BoolCtrl$BCT, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PortMixer$BoolCtrl$BCT);
+	});
 	return class$;
 }
 

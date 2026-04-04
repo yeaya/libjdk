@@ -1,5 +1,4 @@
 #include <PressedButtonRightClickTest.h>
-
 #include <PressedButtonRightClickTest$1.h>
 #include <java/awt/AWTException.h>
 #include <java/awt/BorderLayout.h>
@@ -10,7 +9,6 @@
 #include <java/awt/Robot.h>
 #include <java/awt/Window.h>
 #include <java/awt/event/InputEvent.h>
-#include <java/lang/Runnable.h>
 #include <javax/swing/ButtonModel.h>
 #include <javax/swing/JButton.h>
 #include <javax/swing/JFrame.h>
@@ -26,7 +24,6 @@ using $PressedButtonRightClickTest$1 = ::PressedButtonRightClickTest$1;
 using $AWTException = ::java::awt::AWTException;
 using $BorderLayout = ::java::awt::BorderLayout;
 using $Component = ::java::awt::Component;
-using $LayoutManager = ::java::awt::LayoutManager;
 using $Point = ::java::awt::Point;
 using $Robot = ::java::awt::Robot;
 using $InputEvent = ::java::awt::event::InputEvent;
@@ -34,52 +31,10 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
 using $RuntimeException = ::java::lang::RuntimeException;
-using $ButtonModel = ::javax::swing::ButtonModel;
 using $JButton = ::javax::swing::JButton;
 using $JFrame = ::javax::swing::JFrame;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
-
-$FieldInfo _PressedButtonRightClickTest_FieldInfo_[] = {
-	{"testRobot", "Ljava/awt/Robot;", nullptr, $PRIVATE | $STATIC, $staticField(PressedButtonRightClickTest, testRobot)},
-	{"myFrame", "Ljavax/swing/JFrame;", nullptr, $PRIVATE | $STATIC, $staticField(PressedButtonRightClickTest, myFrame)},
-	{"myButton", "Ljavax/swing/JButton;", nullptr, $PRIVATE | $STATIC, $staticField(PressedButtonRightClickTest, myButton)},
-	{}
-};
-
-$MethodInfo _PressedButtonRightClickTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(PressedButtonRightClickTest, init$, void)},
-	{"constructTestUI", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(PressedButtonRightClickTest, constructTestUI, void)},
-	{"disposeTestUI", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(PressedButtonRightClickTest, disposeTestUI, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(PressedButtonRightClickTest, main, void, $StringArray*), "java.lang.Throwable"},
-	{"test", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(PressedButtonRightClickTest, test, void)},
-	{}
-};
-
-$InnerClassInfo _PressedButtonRightClickTest_InnerClassesInfo_[] = {
-	{"PressedButtonRightClickTest$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _PressedButtonRightClickTest_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"PressedButtonRightClickTest",
-	"java.lang.Object",
-	nullptr,
-	_PressedButtonRightClickTest_FieldInfo_,
-	_PressedButtonRightClickTest_MethodInfo_,
-	nullptr,
-	nullptr,
-	_PressedButtonRightClickTest_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"PressedButtonRightClickTest$1"
-};
-
-$Object* allocate$PressedButtonRightClickTest($Class* clazz) {
-	return $of($alloc(PressedButtonRightClickTest));
-}
 
 $Robot* PressedButtonRightClickTest::testRobot = nullptr;
 $JFrame* PressedButtonRightClickTest::myFrame = nullptr;
@@ -103,10 +58,10 @@ void PressedButtonRightClickTest::main($StringArray* args) {
 }
 
 void PressedButtonRightClickTest::test() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init(PressedButtonRightClickTest);
 	$var($Point, loc, $nc(PressedButtonRightClickTest::myFrame)->getLocationOnScreen());
-	$nc(PressedButtonRightClickTest::testRobot)->mouseMove(($nc(loc)->x + 100), (loc->y + 100));
+	$nc(PressedButtonRightClickTest::testRobot)->mouseMove(($nc(loc)->x + 100), ($nc(loc)->y + 100));
 	$nc(PressedButtonRightClickTest::testRobot)->mousePress($InputEvent::BUTTON1_DOWN_MASK);
 	$nc(PressedButtonRightClickTest::myButton)->setText("Left button pressed"_s);
 	$nc(PressedButtonRightClickTest::testRobot)->delay(1000);
@@ -116,7 +71,7 @@ void PressedButtonRightClickTest::test() {
 	$nc(PressedButtonRightClickTest::testRobot)->mouseRelease($InputEvent::BUTTON3_DOWN_MASK);
 	$nc(PressedButtonRightClickTest::myButton)->setText("Right button released"_s);
 	$nc(PressedButtonRightClickTest::testRobot)->delay(1000);
-	bool pressed = $nc($($nc(PressedButtonRightClickTest::myButton)->getModel()))->isPressed();
+	bool pressed = $$nc($nc(PressedButtonRightClickTest::myButton)->getModel())->isPressed();
 	$nc(PressedButtonRightClickTest::testRobot)->mouseRelease($InputEvent::BUTTON1_DOWN_MASK);
 	if (!pressed) {
 		disposeTestUI();
@@ -133,10 +88,9 @@ void PressedButtonRightClickTest::disposeTestUI() {
 void PressedButtonRightClickTest::constructTestUI() {
 	$init(PressedButtonRightClickTest);
 	$assignStatic(PressedButtonRightClickTest::myFrame, $new($JFrame));
-	$nc(PressedButtonRightClickTest::myFrame)->setLayout($$new($BorderLayout));
+	PressedButtonRightClickTest::myFrame->setLayout($$new($BorderLayout));
 	$assignStatic(PressedButtonRightClickTest::myButton, $new($JButton, "Whatever"_s));
-	$init($BorderLayout);
-	$nc(PressedButtonRightClickTest::myFrame)->add(static_cast<$Component*>(PressedButtonRightClickTest::myButton), $of($BorderLayout::CENTER));
+	$nc(PressedButtonRightClickTest::myFrame)->add(PressedButtonRightClickTest::myButton, $BorderLayout::CENTER);
 	$nc(PressedButtonRightClickTest::myFrame)->setSize(400, 300);
 	$nc(PressedButtonRightClickTest::myFrame)->setDefaultCloseOperation($JFrame::EXIT_ON_CLOSE);
 	$nc(PressedButtonRightClickTest::myFrame)->setLocationRelativeTo(nullptr);
@@ -147,7 +101,41 @@ PressedButtonRightClickTest::PressedButtonRightClickTest() {
 }
 
 $Class* PressedButtonRightClickTest::load$($String* name, bool initialize) {
-	$loadClass(PressedButtonRightClickTest, name, initialize, &_PressedButtonRightClickTest_ClassInfo_, allocate$PressedButtonRightClickTest);
+	$FieldInfo fieldInfos$$[] = {
+		{"testRobot", "Ljava/awt/Robot;", nullptr, $PRIVATE | $STATIC, $staticField(PressedButtonRightClickTest, testRobot)},
+		{"myFrame", "Ljavax/swing/JFrame;", nullptr, $PRIVATE | $STATIC, $staticField(PressedButtonRightClickTest, myFrame)},
+		{"myButton", "Ljavax/swing/JButton;", nullptr, $PRIVATE | $STATIC, $staticField(PressedButtonRightClickTest, myButton)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(PressedButtonRightClickTest, init$, void)},
+		{"constructTestUI", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(PressedButtonRightClickTest, constructTestUI, void)},
+		{"disposeTestUI", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(PressedButtonRightClickTest, disposeTestUI, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(PressedButtonRightClickTest, main, void, $StringArray*), "java.lang.Throwable"},
+		{"test", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(PressedButtonRightClickTest, test, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"PressedButtonRightClickTest$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"PressedButtonRightClickTest",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"PressedButtonRightClickTest$1"
+	};
+	$loadClass(PressedButtonRightClickTest, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PressedButtonRightClickTest);
+	});
 	return class$;
 }
 

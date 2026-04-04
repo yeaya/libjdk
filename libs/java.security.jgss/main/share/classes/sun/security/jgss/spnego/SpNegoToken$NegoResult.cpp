@@ -1,5 +1,4 @@
 #include <sun/security/jgss/spnego/SpNegoToken$NegoResult.h>
-
 #include <java/lang/Enum.h>
 #include <sun/security/jgss/spnego/SpNegoToken.h>
 #include <jcpp.h>
@@ -19,47 +18,6 @@ namespace sun {
 	namespace security {
 		namespace jgss {
 			namespace spnego {
-
-$FieldInfo _SpNegoToken$NegoResult_FieldInfo_[] = {
-	{"ACCEPT_COMPLETE", "Lsun/security/jgss/spnego/SpNegoToken$NegoResult;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SpNegoToken$NegoResult, ACCEPT_COMPLETE)},
-	{"ACCEPT_INCOMPLETE", "Lsun/security/jgss/spnego/SpNegoToken$NegoResult;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SpNegoToken$NegoResult, ACCEPT_INCOMPLETE)},
-	{"REJECT", "Lsun/security/jgss/spnego/SpNegoToken$NegoResult;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SpNegoToken$NegoResult, REJECT)},
-	{"$VALUES", "[Lsun/security/jgss/spnego/SpNegoToken$NegoResult;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(SpNegoToken$NegoResult, $VALUES)},
-	{}
-};
-
-$MethodInfo _SpNegoToken$NegoResult_MethodInfo_[] = {
-	{"$values", "()[Lsun/security/jgss/spnego/SpNegoToken$NegoResult;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(SpNegoToken$NegoResult, $values, $SpNegoToken$NegoResultArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(SpNegoToken$NegoResult, init$, void, $String*, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)Lsun/security/jgss/spnego/SpNegoToken$NegoResult;", nullptr, $PUBLIC | $STATIC, $staticMethod(SpNegoToken$NegoResult, valueOf, SpNegoToken$NegoResult*, $String*)},
-	{"values", "()[Lsun/security/jgss/spnego/SpNegoToken$NegoResult;", nullptr, $PUBLIC | $STATIC, $staticMethod(SpNegoToken$NegoResult, values, $SpNegoToken$NegoResultArray*)},
-	{}
-};
-
-$InnerClassInfo _SpNegoToken$NegoResult_InnerClassesInfo_[] = {
-	{"sun.security.jgss.spnego.SpNegoToken$NegoResult", "sun.security.jgss.spnego.SpNegoToken", "NegoResult", $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _SpNegoToken$NegoResult_ClassInfo_ = {
-	$FINAL | $ACC_SUPER | $ENUM,
-	"sun.security.jgss.spnego.SpNegoToken$NegoResult",
-	"java.lang.Enum",
-	nullptr,
-	_SpNegoToken$NegoResult_FieldInfo_,
-	_SpNegoToken$NegoResult_MethodInfo_,
-	"Ljava/lang/Enum<Lsun/security/jgss/spnego/SpNegoToken$NegoResult;>;",
-	nullptr,
-	_SpNegoToken$NegoResult_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.jgss.spnego.SpNegoToken"
-};
-
-$Object* allocate$SpNegoToken$NegoResult($Class* clazz) {
-	return $of($alloc(SpNegoToken$NegoResult));
-}
 
 SpNegoToken$NegoResult* SpNegoToken$NegoResult::ACCEPT_COMPLETE = nullptr;
 SpNegoToken$NegoResult* SpNegoToken$NegoResult::ACCEPT_INCOMPLETE = nullptr;
@@ -89,7 +47,7 @@ void SpNegoToken$NegoResult::init$($String* $enum$name, int32_t $enum$ordinal) {
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$SpNegoToken$NegoResult($Class* class$) {
+void SpNegoToken$NegoResult::clinit$($Class* clazz) {
 	$assignStatic(SpNegoToken$NegoResult::ACCEPT_COMPLETE, $new(SpNegoToken$NegoResult, "ACCEPT_COMPLETE"_s, 0));
 	$assignStatic(SpNegoToken$NegoResult::ACCEPT_INCOMPLETE, $new(SpNegoToken$NegoResult, "ACCEPT_INCOMPLETE"_s, 1));
 	$assignStatic(SpNegoToken$NegoResult::REJECT, $new(SpNegoToken$NegoResult, "REJECT"_s, 2));
@@ -100,7 +58,42 @@ SpNegoToken$NegoResult::SpNegoToken$NegoResult() {
 }
 
 $Class* SpNegoToken$NegoResult::load$($String* name, bool initialize) {
-	$loadClass(SpNegoToken$NegoResult, name, initialize, &_SpNegoToken$NegoResult_ClassInfo_, clinit$SpNegoToken$NegoResult, allocate$SpNegoToken$NegoResult);
+	$FieldInfo fieldInfos$$[] = {
+		{"ACCEPT_COMPLETE", "Lsun/security/jgss/spnego/SpNegoToken$NegoResult;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SpNegoToken$NegoResult, ACCEPT_COMPLETE)},
+		{"ACCEPT_INCOMPLETE", "Lsun/security/jgss/spnego/SpNegoToken$NegoResult;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SpNegoToken$NegoResult, ACCEPT_INCOMPLETE)},
+		{"REJECT", "Lsun/security/jgss/spnego/SpNegoToken$NegoResult;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SpNegoToken$NegoResult, REJECT)},
+		{"$VALUES", "[Lsun/security/jgss/spnego/SpNegoToken$NegoResult;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(SpNegoToken$NegoResult, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lsun/security/jgss/spnego/SpNegoToken$NegoResult;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(SpNegoToken$NegoResult, $values, $SpNegoToken$NegoResultArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(SpNegoToken$NegoResult, init$, void, $String*, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)Lsun/security/jgss/spnego/SpNegoToken$NegoResult;", nullptr, $PUBLIC | $STATIC, $staticMethod(SpNegoToken$NegoResult, valueOf, SpNegoToken$NegoResult*, $String*)},
+		{"values", "()[Lsun/security/jgss/spnego/SpNegoToken$NegoResult;", nullptr, $PUBLIC | $STATIC, $staticMethod(SpNegoToken$NegoResult, values, $SpNegoToken$NegoResultArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.jgss.spnego.SpNegoToken$NegoResult", "sun.security.jgss.spnego.SpNegoToken", "NegoResult", $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER | $ENUM,
+		"sun.security.jgss.spnego.SpNegoToken$NegoResult",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lsun/security/jgss/spnego/SpNegoToken$NegoResult;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.jgss.spnego.SpNegoToken"
+	};
+	$loadClass(SpNegoToken$NegoResult, name, initialize, &classInfo$$, SpNegoToken$NegoResult::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SpNegoToken$NegoResult));
+	});
 	return class$;
 }
 

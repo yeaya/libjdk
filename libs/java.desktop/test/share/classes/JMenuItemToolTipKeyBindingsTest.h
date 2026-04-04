@@ -32,6 +32,7 @@ class $export JMenuItemToolTipKeyBindingsTest : public ::java::lang::Object {
 	$class(JMenuItemToolTipKeyBindingsTest, 0, ::java::lang::Object)
 public:
 	JMenuItemToolTipKeyBindingsTest();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void completeTest();
 	static void createAndShowGUI();

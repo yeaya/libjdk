@@ -86,7 +86,7 @@ public:
 	virtual void setSources(::java::util::Vector* sources);
 	virtual $Object* shallowClone();
 	virtual $String* toString() override;
-	static const int64_t serialVersionUID = (int64_t)0x96D8AD8D09C0B752;
+	static const int64_t serialVersionUID = (int64_t)0x96d8ad8d09c0b752;
 	::java::util::Vector* sources = nullptr;
 	::java::util::Vector* parameters = nullptr;
 };

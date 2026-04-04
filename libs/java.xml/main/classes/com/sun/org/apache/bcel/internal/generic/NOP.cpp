@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/bcel/internal/generic/NOP.h>
-
 #include <com/sun/org/apache/bcel/internal/Const.h>
 #include <com/sun/org/apache/bcel/internal/generic/Instruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/Visitor.h>
@@ -21,25 +20,6 @@ namespace com {
 					namespace internal {
 						namespace generic {
 
-$MethodInfo _NOP_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(NOP, init$, void)},
-	{"accept", "(Lcom/sun/org/apache/bcel/internal/generic/Visitor;)V", nullptr, $PUBLIC, $virtualMethod(NOP, accept, void, $Visitor*)},
-	{}
-};
-
-$ClassInfo _NOP_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.bcel.internal.generic.NOP",
-	"com.sun.org.apache.bcel.internal.generic.Instruction",
-	nullptr,
-	nullptr,
-	_NOP_MethodInfo_
-};
-
-$Object* allocate$NOP($Class* clazz) {
-	return $of($alloc(NOP));
-}
-
 void NOP::init$() {
 	$Instruction::init$($Const::NOP, (int16_t)1);
 }
@@ -52,7 +32,22 @@ NOP::NOP() {
 }
 
 $Class* NOP::load$($String* name, bool initialize) {
-	$loadClass(NOP, name, initialize, &_NOP_ClassInfo_, allocate$NOP);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(NOP, init$, void)},
+		{"accept", "(Lcom/sun/org/apache/bcel/internal/generic/Visitor;)V", nullptr, $PUBLIC, $virtualMethod(NOP, accept, void, $Visitor*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.bcel.internal.generic.NOP",
+		"com.sun.org.apache.bcel.internal.generic.Instruction",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(NOP, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(NOP);
+	});
 	return class$;
 }
 

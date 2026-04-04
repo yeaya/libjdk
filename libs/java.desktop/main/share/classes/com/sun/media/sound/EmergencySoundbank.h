@@ -46,6 +46,7 @@ class EmergencySoundbank : public ::java::lang::Object {
 	$class(EmergencySoundbank, 0, ::java::lang::Object)
 public:
 	EmergencySoundbank();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void complexGaussianDist($doubles* cdata, double m, double s, double v);
 	static ::com::sun::media::sound::SF2Soundbank* createSoundbank();

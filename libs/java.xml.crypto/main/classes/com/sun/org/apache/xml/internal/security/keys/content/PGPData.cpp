@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/security/keys/content/PGPData.h>
-
 #include <com/sun/org/apache/xml/internal/security/utils/Constants.h>
 #include <com/sun/org/apache/xml/internal/security/utils/SignatureElementProxy.h>
 #include <org/w3c/dom/Element.h>
@@ -22,30 +21,6 @@ namespace com {
 						namespace security {
 							namespace keys {
 								namespace content {
-
-$MethodInfo _PGPData_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lorg/w3c/dom/Element;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(PGPData, init$, void, $Element*, $String*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
-	{"getBaseLocalName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PGPData, getBaseLocalName, $String*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _PGPData_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.security.keys.content.PGPData",
-	"com.sun.org.apache.xml.internal.security.utils.SignatureElementProxy",
-	"com.sun.org.apache.xml.internal.security.keys.content.KeyInfoContent",
-	nullptr,
-	_PGPData_MethodInfo_
-};
-
-$Object* allocate$PGPData($Class* clazz) {
-	return $of($alloc(PGPData));
-}
 
 int32_t PGPData::hashCode() {
 	 return this->$SignatureElementProxy::hashCode();
@@ -80,7 +55,27 @@ PGPData::PGPData() {
 }
 
 $Class* PGPData::load$($String* name, bool initialize) {
-	$loadClass(PGPData, name, initialize, &_PGPData_ClassInfo_, allocate$PGPData);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lorg/w3c/dom/Element;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(PGPData, init$, void, $Element*, $String*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
+		{"getBaseLocalName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PGPData, getBaseLocalName, $String*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.security.keys.content.PGPData",
+		"com.sun.org.apache.xml.internal.security.utils.SignatureElementProxy",
+		"com.sun.org.apache.xml.internal.security.keys.content.KeyInfoContent",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(PGPData, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(PGPData));
+	});
 	return class$;
 }
 

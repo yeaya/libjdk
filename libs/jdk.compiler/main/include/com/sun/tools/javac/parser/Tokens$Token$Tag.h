@@ -26,6 +26,7 @@ class $import Tokens$Token$Tag : public ::java::lang::Enum {
 public:
 	Tokens$Token$Tag();
 	static $Array<::com::sun::tools::javac::parser::Tokens$Token$Tag>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::com::sun::tools::javac::parser::Tokens$Token$Tag* valueOf($String* name);
 	static $Array<::com::sun::tools::javac::parser::Tokens$Token$Tag>* values();

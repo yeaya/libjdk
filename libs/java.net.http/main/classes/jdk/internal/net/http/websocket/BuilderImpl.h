@@ -49,6 +49,7 @@ class BuilderImpl : public ::java::net::http::WebSocket$Builder {
 	$class(BuilderImpl, 0, ::java::net::http::WebSocket$Builder)
 public:
 	BuilderImpl();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::net::http::HttpClient* client, ::java::net::ProxySelector* proxySelector);
 	void init$(::java::net::http::HttpClient* client, ::java::net::URI* uri, ::java::net::http::WebSocket$Listener* listener, ::java::util::Optional* proxySelector, ::java::util::Collection* headers, ::java::util::Collection* subprotocols, ::java::time::Duration* timeout);
 	virtual ::java::util::concurrent::CompletableFuture* buildAsync(::java::net::URI* uri, ::java::net::http::WebSocket$Listener* listener) override;

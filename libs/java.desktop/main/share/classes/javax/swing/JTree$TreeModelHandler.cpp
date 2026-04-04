@@ -1,5 +1,4 @@
 #include <javax/swing/JTree$TreeModelHandler.h>
-
 #include <java/lang/Math.h>
 #include <java/util/Enumeration.h>
 #include <java/util/Hashtable.h>
@@ -19,7 +18,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Hashtable = ::java::util::Hashtable;
 using $Vector = ::java::util::Vector;
 using $JTree = ::javax::swing::JTree;
 using $TreeModelEvent = ::javax::swing::event::TreeModelEvent;
@@ -29,45 +27,6 @@ using $SwingUtilities2 = ::sun::swing::SwingUtilities2;
 
 namespace javax {
 	namespace swing {
-
-$FieldInfo _JTree$TreeModelHandler_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/JTree;", nullptr, $FINAL | $SYNTHETIC, $field(JTree$TreeModelHandler, this$0)},
-	{}
-};
-
-$MethodInfo _JTree$TreeModelHandler_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/JTree;)V", nullptr, $PROTECTED, $method(JTree$TreeModelHandler, init$, void, $JTree*)},
-	{"treeNodesChanged", "(Ljavax/swing/event/TreeModelEvent;)V", nullptr, $PUBLIC, $virtualMethod(JTree$TreeModelHandler, treeNodesChanged, void, $TreeModelEvent*)},
-	{"treeNodesInserted", "(Ljavax/swing/event/TreeModelEvent;)V", nullptr, $PUBLIC, $virtualMethod(JTree$TreeModelHandler, treeNodesInserted, void, $TreeModelEvent*)},
-	{"treeNodesRemoved", "(Ljavax/swing/event/TreeModelEvent;)V", nullptr, $PUBLIC, $virtualMethod(JTree$TreeModelHandler, treeNodesRemoved, void, $TreeModelEvent*)},
-	{"treeStructureChanged", "(Ljavax/swing/event/TreeModelEvent;)V", nullptr, $PUBLIC, $virtualMethod(JTree$TreeModelHandler, treeStructureChanged, void, $TreeModelEvent*)},
-	{}
-};
-
-$InnerClassInfo _JTree$TreeModelHandler_InnerClassesInfo_[] = {
-	{"javax.swing.JTree$TreeModelHandler", "javax.swing.JTree", "TreeModelHandler", $PROTECTED},
-	{}
-};
-
-$ClassInfo _JTree$TreeModelHandler_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.JTree$TreeModelHandler",
-	"java.lang.Object",
-	"javax.swing.event.TreeModelListener",
-	_JTree$TreeModelHandler_FieldInfo_,
-	_JTree$TreeModelHandler_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JTree$TreeModelHandler_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.JTree"
-};
-
-$Object* allocate$JTree$TreeModelHandler($Class* clazz) {
-	return $of($alloc(JTree$TreeModelHandler));
-}
 
 void JTree$TreeModelHandler::init$($JTree* this$0) {
 	$set(this, this$0, this$0);
@@ -80,7 +39,7 @@ void JTree$TreeModelHandler::treeNodesInserted($TreeModelEvent* e) {
 }
 
 void JTree$TreeModelHandler::treeStructureChanged($TreeModelEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (e == nullptr) {
 		return;
 	}
@@ -92,7 +51,6 @@ void JTree$TreeModelHandler::treeStructureChanged($TreeModelEvent* e) {
 		this->this$0->clearToggledPaths();
 		$var($Object, treeRoot, $nc(this->this$0->treeModel)->getRoot());
 		if (treeRoot != nullptr && !$nc(this->this$0->treeModel)->isLeaf(treeRoot)) {
-			$init($Boolean);
 			$nc(this->this$0->expandedState)->put(parent, $Boolean::TRUE);
 		}
 	} else if ($nc(this->this$0->expandedState)->get(parent) != nullptr) {
@@ -102,10 +60,9 @@ void JTree$TreeModelHandler::treeStructureChanged($TreeModelEvent* e) {
 		this->this$0->removeDescendantToggledPaths($(toRemove->elements()));
 		if (isExpanded) {
 			$var($TreeModel, model, this->this$0->getModel());
-			if (model == nullptr || $nc(model)->isLeaf($(parent->getLastPathComponent()))) {
+			if (model == nullptr || model->isLeaf($(parent->getLastPathComponent()))) {
 				this->this$0->collapsePath(parent);
 			} else {
-				$init($Boolean);
 				$nc(this->this$0->expandedState)->put(parent, $Boolean::TRUE);
 			}
 		}
@@ -114,7 +71,7 @@ void JTree$TreeModelHandler::treeStructureChanged($TreeModelEvent* e) {
 }
 
 void JTree$TreeModelHandler::treeNodesRemoved($TreeModelEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (e == nullptr) {
 		return;
 	}
@@ -125,7 +82,7 @@ void JTree$TreeModelHandler::treeNodesRemoved($TreeModelEvent* e) {
 	}
 	$var($TreePath, rPath, nullptr);
 	$var($Vector, toRemove, $new($Vector, $Math::max(1, $nc(children)->length)));
-	for (int32_t counter = $nc(children)->length - 1; counter >= 0; --counter) {
+	for (int32_t counter = children->length - 1; counter >= 0; --counter) {
 		$assign(rPath, $nc(parent)->pathByAddingChild(children->get(counter)));
 		if ($nc(this->this$0->expandedState)->get(rPath) != nullptr) {
 			toRemove->addElement(rPath);
@@ -135,7 +92,7 @@ void JTree$TreeModelHandler::treeNodesRemoved($TreeModelEvent* e) {
 		this->this$0->removeDescendantToggledPaths($(toRemove->elements()));
 	}
 	$var($TreeModel, model, this->this$0->getModel());
-	if (model == nullptr || $nc(model)->isLeaf($($nc(parent)->getLastPathComponent()))) {
+	if (model == nullptr || model->isLeaf($($nc(parent)->getLastPathComponent()))) {
 		$nc(this->this$0->expandedState)->remove(parent);
 	}
 	this->this$0->removeDescendantSelectedPaths(e);
@@ -145,7 +102,40 @@ JTree$TreeModelHandler::JTree$TreeModelHandler() {
 }
 
 $Class* JTree$TreeModelHandler::load$($String* name, bool initialize) {
-	$loadClass(JTree$TreeModelHandler, name, initialize, &_JTree$TreeModelHandler_ClassInfo_, allocate$JTree$TreeModelHandler);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/JTree;", nullptr, $FINAL | $SYNTHETIC, $field(JTree$TreeModelHandler, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/JTree;)V", nullptr, $PROTECTED, $method(JTree$TreeModelHandler, init$, void, $JTree*)},
+		{"treeNodesChanged", "(Ljavax/swing/event/TreeModelEvent;)V", nullptr, $PUBLIC, $virtualMethod(JTree$TreeModelHandler, treeNodesChanged, void, $TreeModelEvent*)},
+		{"treeNodesInserted", "(Ljavax/swing/event/TreeModelEvent;)V", nullptr, $PUBLIC, $virtualMethod(JTree$TreeModelHandler, treeNodesInserted, void, $TreeModelEvent*)},
+		{"treeNodesRemoved", "(Ljavax/swing/event/TreeModelEvent;)V", nullptr, $PUBLIC, $virtualMethod(JTree$TreeModelHandler, treeNodesRemoved, void, $TreeModelEvent*)},
+		{"treeStructureChanged", "(Ljavax/swing/event/TreeModelEvent;)V", nullptr, $PUBLIC, $virtualMethod(JTree$TreeModelHandler, treeStructureChanged, void, $TreeModelEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.JTree$TreeModelHandler", "javax.swing.JTree", "TreeModelHandler", $PROTECTED},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.JTree$TreeModelHandler",
+		"java.lang.Object",
+		"javax.swing.event.TreeModelListener",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.JTree"
+	};
+	$loadClass(JTree$TreeModelHandler, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JTree$TreeModelHandler);
+	});
 	return class$;
 }
 

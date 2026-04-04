@@ -1,5 +1,4 @@
 #include <javax/swing/text/Highlighter.h>
-
 #include <java/awt/Graphics.h>
 #include <javax/swing/text/Highlighter$Highlight.h>
 #include <javax/swing/text/Highlighter$HighlightPainter.h>
@@ -18,45 +17,40 @@ namespace javax {
 	namespace swing {
 		namespace text {
 
-$MethodInfo _Highlighter_MethodInfo_[] = {
-	{"addHighlight", "(IILjavax/swing/text/Highlighter$HighlightPainter;)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Highlighter, addHighlight, $Object*, int32_t, int32_t, $Highlighter$HighlightPainter*), "javax.swing.text.BadLocationException"},
-	{"changeHighlight", "(Ljava/lang/Object;II)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Highlighter, changeHighlight, void, Object$*, int32_t, int32_t), "javax.swing.text.BadLocationException"},
-	{"deinstall", "(Ljavax/swing/text/JTextComponent;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Highlighter, deinstall, void, $JTextComponent*)},
-	{"getHighlights", "()[Ljavax/swing/text/Highlighter$Highlight;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Highlighter, getHighlights, $Highlighter$HighlightArray*)},
-	{"install", "(Ljavax/swing/text/JTextComponent;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Highlighter, install, void, $JTextComponent*)},
-	{"paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Highlighter, paint, void, $Graphics*)},
-	{"removeAllHighlights", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Highlighter, removeAllHighlights, void)},
-	{"removeHighlight", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Highlighter, removeHighlight, void, Object$*)},
-	{}
-};
-
-$InnerClassInfo _Highlighter_InnerClassesInfo_[] = {
-	{"javax.swing.text.Highlighter$Highlight", "javax.swing.text.Highlighter", "Highlight", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"javax.swing.text.Highlighter$HighlightPainter", "javax.swing.text.Highlighter", "HighlightPainter", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Highlighter_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"javax.swing.text.Highlighter",
-	nullptr,
-	nullptr,
-	nullptr,
-	_Highlighter_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Highlighter_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.swing.text.Highlighter$Highlight,javax.swing.text.Highlighter$HighlightPainter"
-};
-
-$Object* allocate$Highlighter($Class* clazz) {
-	return $of($alloc(Highlighter));
-}
-
 $Class* Highlighter::load$($String* name, bool initialize) {
-	$loadClass(Highlighter, name, initialize, &_Highlighter_ClassInfo_, allocate$Highlighter);
+	$MethodInfo methodInfos$$[] = {
+		{"addHighlight", "(IILjavax/swing/text/Highlighter$HighlightPainter;)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Highlighter, addHighlight, $Object*, int32_t, int32_t, $Highlighter$HighlightPainter*), "javax.swing.text.BadLocationException"},
+		{"changeHighlight", "(Ljava/lang/Object;II)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Highlighter, changeHighlight, void, Object$*, int32_t, int32_t), "javax.swing.text.BadLocationException"},
+		{"deinstall", "(Ljavax/swing/text/JTextComponent;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Highlighter, deinstall, void, $JTextComponent*)},
+		{"getHighlights", "()[Ljavax/swing/text/Highlighter$Highlight;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Highlighter, getHighlights, $Highlighter$HighlightArray*)},
+		{"install", "(Ljavax/swing/text/JTextComponent;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Highlighter, install, void, $JTextComponent*)},
+		{"paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Highlighter, paint, void, $Graphics*)},
+		{"removeAllHighlights", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Highlighter, removeAllHighlights, void)},
+		{"removeHighlight", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Highlighter, removeHighlight, void, Object$*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.Highlighter$Highlight", "javax.swing.text.Highlighter", "Highlight", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"javax.swing.text.Highlighter$HighlightPainter", "javax.swing.text.Highlighter", "HighlightPainter", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"javax.swing.text.Highlighter",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.swing.text.Highlighter$Highlight,javax.swing.text.Highlighter$HighlightPainter"
+	};
+	$loadClass(Highlighter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Highlighter);
+	});
 	return class$;
 }
 

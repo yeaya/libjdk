@@ -64,7 +64,7 @@ public:
 	virtual bool isValue(Object$* obj) override;
 	$Object* readResolve();
 	virtual $String* toString() override;
-	static const int64_t serialVersionUID = (int64_t)0x9B980E7C6FABB98E;
+	static const int64_t serialVersionUID = (int64_t)0x9b980e7c6fabb98e;
 	::javax::management::openmbean::OpenType* openType = nullptr;
 	$Object* defaultValue = nullptr;
 	::java::util::Set* legalValues = nullptr;

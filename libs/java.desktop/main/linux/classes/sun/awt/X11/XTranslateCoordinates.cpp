@@ -1,5 +1,4 @@
 #include <sun/awt/X11/XTranslateCoordinates.h>
-
 #include <java/lang/IllegalStateException.h>
 #include <jdk/internal/misc/Unsafe.h>
 #include <sun/awt/SunToolkit.h>
@@ -10,7 +9,6 @@
 #include <sun/awt/X11/XToolkit.h>
 #include <sun/awt/X11/XlibWrapper.h>
 #include <sun/java2d/Disposer.h>
-#include <sun/java2d/DisposerRecord.h>
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -25,62 +23,10 @@ using $XErrorHandlerUtil = ::sun::awt::X11::XErrorHandlerUtil;
 using $XToolkit = ::sun::awt::X11::XToolkit;
 using $XlibWrapper = ::sun::awt::X11::XlibWrapper;
 using $Disposer = ::sun::java2d::Disposer;
-using $DisposerRecord = ::sun::java2d::DisposerRecord;
 
 namespace sun {
 	namespace awt {
 		namespace X11 {
-
-$FieldInfo _XTranslateCoordinates_FieldInfo_[] = {
-	{"unsafe", "Ljdk/internal/misc/Unsafe;", nullptr, $PRIVATE | $STATIC, $staticField(XTranslateCoordinates, unsafe)},
-	{"__executed", "Z", nullptr, $PRIVATE, $field(XTranslateCoordinates, __executed)},
-	{"_scr_w", "J", nullptr, 0, $field(XTranslateCoordinates, _scr_w)},
-	{"_dest_w", "J", nullptr, 0, $field(XTranslateCoordinates, _dest_w)},
-	{"_src_x", "I", nullptr, 0, $field(XTranslateCoordinates, _src_x)},
-	{"_src_y", "I", nullptr, 0, $field(XTranslateCoordinates, _src_y)},
-	{"dest_x_ptr", "J", nullptr, 0, $field(XTranslateCoordinates, dest_x_ptr)},
-	{"dest_y_ptr", "J", nullptr, 0, $field(XTranslateCoordinates, dest_y_ptr)},
-	{"child_ptr", "J", nullptr, 0, $field(XTranslateCoordinates, child_ptr)},
-	{"disposer", "Lsun/awt/X11/UnsafeXDisposerRecord;", nullptr, 0, $field(XTranslateCoordinates, disposer)},
-	{}
-};
-
-$MethodInfo _XTranslateCoordinates_MethodInfo_[] = {
-	{"<init>", "(JJII)V", nullptr, $PUBLIC, $method(XTranslateCoordinates, init$, void, int64_t, int64_t, int32_t, int32_t)},
-	{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(XTranslateCoordinates, dispose, void)},
-	{"execute", "()I", nullptr, $PUBLIC, $virtualMethod(XTranslateCoordinates, execute, int32_t)},
-	{"execute", "(Lsun/awt/X11/XErrorHandler;)I", nullptr, $PUBLIC, $virtualMethod(XTranslateCoordinates, execute, int32_t, $XErrorHandler*)},
-	{"get_child", "()J", nullptr, $PUBLIC, $virtualMethod(XTranslateCoordinates, get_child, int64_t)},
-	{"get_dest_w", "()J", nullptr, $PUBLIC, $virtualMethod(XTranslateCoordinates, get_dest_w, int64_t)},
-	{"get_dest_x", "()I", nullptr, $PUBLIC, $virtualMethod(XTranslateCoordinates, get_dest_x, int32_t)},
-	{"get_dest_y", "()I", nullptr, $PUBLIC, $virtualMethod(XTranslateCoordinates, get_dest_y, int32_t)},
-	{"get_scr_w", "()J", nullptr, $PUBLIC, $virtualMethod(XTranslateCoordinates, get_scr_w, int64_t)},
-	{"get_src_x", "()I", nullptr, $PUBLIC, $virtualMethod(XTranslateCoordinates, get_src_x, int32_t)},
-	{"get_src_y", "()I", nullptr, $PUBLIC, $virtualMethod(XTranslateCoordinates, get_src_y, int32_t)},
-	{"isDisposed", "()Z", nullptr, $PUBLIC, $virtualMethod(XTranslateCoordinates, isDisposed, bool)},
-	{"isExecuted", "()Z", nullptr, $PUBLIC, $virtualMethod(XTranslateCoordinates, isExecuted, bool)},
-	{"set_child", "(J)V", nullptr, $PUBLIC, $virtualMethod(XTranslateCoordinates, set_child, void, int64_t)},
-	{"set_dest_w", "(J)V", nullptr, $PUBLIC, $virtualMethod(XTranslateCoordinates, set_dest_w, void, int64_t)},
-	{"set_dest_x", "(I)V", nullptr, $PUBLIC, $virtualMethod(XTranslateCoordinates, set_dest_x, void, int32_t)},
-	{"set_dest_y", "(I)V", nullptr, $PUBLIC, $virtualMethod(XTranslateCoordinates, set_dest_y, void, int32_t)},
-	{"set_scr_w", "(J)V", nullptr, $PUBLIC, $virtualMethod(XTranslateCoordinates, set_scr_w, void, int64_t)},
-	{"set_src_x", "(I)V", nullptr, $PUBLIC, $virtualMethod(XTranslateCoordinates, set_src_x, void, int32_t)},
-	{"set_src_y", "(I)V", nullptr, $PUBLIC, $virtualMethod(XTranslateCoordinates, set_src_y, void, int32_t)},
-	{}
-};
-
-$ClassInfo _XTranslateCoordinates_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.awt.X11.XTranslateCoordinates",
-	"java.lang.Object",
-	nullptr,
-	_XTranslateCoordinates_FieldInfo_,
-	_XTranslateCoordinates_MethodInfo_
-};
-
-$Object* allocate$XTranslateCoordinates($Class* clazz) {
-	return $of($alloc(XTranslateCoordinates));
-}
 
 $Unsafe* XTranslateCoordinates::unsafe = nullptr;
 
@@ -93,11 +39,11 @@ void XTranslateCoordinates::init$(int64_t scr_w, int64_t dest_w, int32_t src_x, 
 	set_dest_w(dest_w);
 	set_src_x(src_x);
 	set_src_y(src_y);
-	$Disposer::addRecord(this, ($set(this, disposer, $new($UnsafeXDisposerRecord, "XTranslateCoordinates"_s, $$new($longs, {
+	$Disposer::addRecord(this, $set(this, disposer, $new($UnsafeXDisposerRecord, "XTranslateCoordinates"_s, $$new($longs, {
 		this->dest_x_ptr,
 		this->dest_y_ptr,
 		this->child_ptr
-	})))));
+	}))));
 }
 
 int32_t XTranslateCoordinates::execute() {
@@ -106,43 +52,41 @@ int32_t XTranslateCoordinates::execute() {
 
 int32_t XTranslateCoordinates::execute($XErrorHandler* errorHandler) {
 	$XToolkit::awtLock();
-	{
-		$var($Throwable, var$0, nullptr);
-		int32_t var$2 = 0;
-		bool return$1 = false;
-		try {
-			if (isDisposed()) {
-				$throwNew($IllegalStateException, "Disposed"_s);
-			}
-			if (this->__executed) {
-				$throwNew($IllegalStateException, "Already executed"_s);
-			}
-			this->__executed = true;
-			if (errorHandler != nullptr) {
-				$XErrorHandlerUtil::WITH_XERROR_HANDLER(errorHandler);
-			}
-			int64_t var$3 = $XToolkit::getDisplay();
-			int64_t var$4 = get_scr_w();
-			int64_t var$5 = get_dest_w();
-			int64_t var$6 = (int64_t)get_src_x();
-			int32_t status = $XlibWrapper::XTranslateCoordinates(var$3, var$4, var$5, var$6, get_src_y(), this->dest_x_ptr, this->dest_y_ptr, this->child_ptr);
-			if (errorHandler != nullptr) {
-				$XErrorHandlerUtil::RESTORE_XERROR_HANDLER();
-			}
-			var$2 = status;
-			return$1 = true;
-			goto $finally;
-		} catch ($Throwable& var$7) {
-			$assign(var$0, var$7);
-		} $finally: {
-			$XToolkit::awtUnlock();
+	$var($Throwable, var$0, nullptr);
+	int32_t var$2 = 0;
+	bool return$1 = false;
+	try {
+		if (isDisposed()) {
+			$throwNew($IllegalStateException, "Disposed"_s);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+		if (this->__executed) {
+			$throwNew($IllegalStateException, "Already executed"_s);
 		}
-		if (return$1) {
-			return var$2;
+		this->__executed = true;
+		if (errorHandler != nullptr) {
+			$XErrorHandlerUtil::WITH_XERROR_HANDLER(errorHandler);
 		}
+		int64_t var$3 = $XToolkit::getDisplay();
+		int64_t var$4 = get_scr_w();
+		int64_t var$5 = get_dest_w();
+		int64_t var$6 = get_src_x();
+		int32_t status = $XlibWrapper::XTranslateCoordinates(var$3, var$4, var$5, var$6, get_src_y(), this->dest_x_ptr, this->dest_y_ptr, this->child_ptr);
+		if (errorHandler != nullptr) {
+			$XErrorHandlerUtil::RESTORE_XERROR_HANDLER();
+		}
+		var$2 = status;
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$7) {
+		$assign(var$0, var$7);
+	} $finally: {
+		$XToolkit::awtUnlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
@@ -157,26 +101,24 @@ bool XTranslateCoordinates::isDisposed() {
 
 void XTranslateCoordinates::dispose() {
 	$XToolkit::awtLock();
-	{
-		$var($Throwable, var$0, nullptr);
-		bool return$1 = false;
-		try {
-			if (isDisposed()) {
-				return$1 = true;
-				goto $finally;
-			}
-			$nc(this->disposer)->dispose();
-		} catch ($Throwable& var$2) {
-			$assign(var$0, var$2);
-		} $finally: {
-			$XToolkit::awtUnlock();
+	$var($Throwable, var$0, nullptr);
+	bool return$1 = false;
+	try {
+		if (isDisposed()) {
+			return$1 = true;
+			goto $finally;
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return;
-		}
+		$nc(this->disposer)->dispose();
+	} catch ($Throwable& var$2) {
+		$assign(var$0, var$2);
+	} $finally: {
+		$XToolkit::awtUnlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return;
 	}
 }
 
@@ -278,7 +220,7 @@ void XTranslateCoordinates::set_child(int64_t data) {
 	$Native::putLong(this->child_ptr, data);
 }
 
-void clinit$XTranslateCoordinates($Class* class$) {
+void XTranslateCoordinates::clinit$($Class* clazz) {
 	$init($XlibWrapper);
 	$assignStatic(XTranslateCoordinates::unsafe, $XlibWrapper::unsafe);
 }
@@ -287,7 +229,53 @@ XTranslateCoordinates::XTranslateCoordinates() {
 }
 
 $Class* XTranslateCoordinates::load$($String* name, bool initialize) {
-	$loadClass(XTranslateCoordinates, name, initialize, &_XTranslateCoordinates_ClassInfo_, clinit$XTranslateCoordinates, allocate$XTranslateCoordinates);
+	$FieldInfo fieldInfos$$[] = {
+		{"unsafe", "Ljdk/internal/misc/Unsafe;", nullptr, $PRIVATE | $STATIC, $staticField(XTranslateCoordinates, unsafe)},
+		{"__executed", "Z", nullptr, $PRIVATE, $field(XTranslateCoordinates, __executed)},
+		{"_scr_w", "J", nullptr, 0, $field(XTranslateCoordinates, _scr_w)},
+		{"_dest_w", "J", nullptr, 0, $field(XTranslateCoordinates, _dest_w)},
+		{"_src_x", "I", nullptr, 0, $field(XTranslateCoordinates, _src_x)},
+		{"_src_y", "I", nullptr, 0, $field(XTranslateCoordinates, _src_y)},
+		{"dest_x_ptr", "J", nullptr, 0, $field(XTranslateCoordinates, dest_x_ptr)},
+		{"dest_y_ptr", "J", nullptr, 0, $field(XTranslateCoordinates, dest_y_ptr)},
+		{"child_ptr", "J", nullptr, 0, $field(XTranslateCoordinates, child_ptr)},
+		{"disposer", "Lsun/awt/X11/UnsafeXDisposerRecord;", nullptr, 0, $field(XTranslateCoordinates, disposer)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(JJII)V", nullptr, $PUBLIC, $method(XTranslateCoordinates, init$, void, int64_t, int64_t, int32_t, int32_t)},
+		{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(XTranslateCoordinates, dispose, void)},
+		{"execute", "()I", nullptr, $PUBLIC, $virtualMethod(XTranslateCoordinates, execute, int32_t)},
+		{"execute", "(Lsun/awt/X11/XErrorHandler;)I", nullptr, $PUBLIC, $virtualMethod(XTranslateCoordinates, execute, int32_t, $XErrorHandler*)},
+		{"get_child", "()J", nullptr, $PUBLIC, $virtualMethod(XTranslateCoordinates, get_child, int64_t)},
+		{"get_dest_w", "()J", nullptr, $PUBLIC, $virtualMethod(XTranslateCoordinates, get_dest_w, int64_t)},
+		{"get_dest_x", "()I", nullptr, $PUBLIC, $virtualMethod(XTranslateCoordinates, get_dest_x, int32_t)},
+		{"get_dest_y", "()I", nullptr, $PUBLIC, $virtualMethod(XTranslateCoordinates, get_dest_y, int32_t)},
+		{"get_scr_w", "()J", nullptr, $PUBLIC, $virtualMethod(XTranslateCoordinates, get_scr_w, int64_t)},
+		{"get_src_x", "()I", nullptr, $PUBLIC, $virtualMethod(XTranslateCoordinates, get_src_x, int32_t)},
+		{"get_src_y", "()I", nullptr, $PUBLIC, $virtualMethod(XTranslateCoordinates, get_src_y, int32_t)},
+		{"isDisposed", "()Z", nullptr, $PUBLIC, $virtualMethod(XTranslateCoordinates, isDisposed, bool)},
+		{"isExecuted", "()Z", nullptr, $PUBLIC, $virtualMethod(XTranslateCoordinates, isExecuted, bool)},
+		{"set_child", "(J)V", nullptr, $PUBLIC, $virtualMethod(XTranslateCoordinates, set_child, void, int64_t)},
+		{"set_dest_w", "(J)V", nullptr, $PUBLIC, $virtualMethod(XTranslateCoordinates, set_dest_w, void, int64_t)},
+		{"set_dest_x", "(I)V", nullptr, $PUBLIC, $virtualMethod(XTranslateCoordinates, set_dest_x, void, int32_t)},
+		{"set_dest_y", "(I)V", nullptr, $PUBLIC, $virtualMethod(XTranslateCoordinates, set_dest_y, void, int32_t)},
+		{"set_scr_w", "(J)V", nullptr, $PUBLIC, $virtualMethod(XTranslateCoordinates, set_scr_w, void, int64_t)},
+		{"set_src_x", "(I)V", nullptr, $PUBLIC, $virtualMethod(XTranslateCoordinates, set_src_x, void, int32_t)},
+		{"set_src_y", "(I)V", nullptr, $PUBLIC, $virtualMethod(XTranslateCoordinates, set_src_y, void, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.awt.X11.XTranslateCoordinates",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XTranslateCoordinates, name, initialize, &classInfo$$, XTranslateCoordinates::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(XTranslateCoordinates);
+	});
 	return class$;
 }
 

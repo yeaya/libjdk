@@ -1,5 +1,4 @@
 #include <com/sun/media/sound/SoftChannel$1.h>
-
 #include <com/sun/media/sound/SoftChannel.h>
 #include <jcpp.h>
 
@@ -15,49 +14,6 @@ namespace com {
 	namespace sun {
 		namespace media {
 			namespace sound {
-
-$FieldInfo _SoftChannel$1_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/media/sound/SoftChannel;", nullptr, $FINAL | $SYNTHETIC, $field(SoftChannel$1, this$0)},
-	{"cc", "[[D", nullptr, 0, $field(SoftChannel$1, cc)},
-	{}
-};
-
-$MethodInfo _SoftChannel$1_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/media/sound/SoftChannel;)V", nullptr, 0, $method(SoftChannel$1, init$, void, $SoftChannel*)},
-	{"get", "(ILjava/lang/String;)[D", nullptr, $PUBLIC, $virtualMethod(SoftChannel$1, get, $doubles*, int32_t, $String*)},
-	{}
-};
-
-$EnclosingMethodInfo _SoftChannel$1_EnclosingMethodInfo_ = {
-	"com.sun.media.sound.SoftChannel",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _SoftChannel$1_InnerClassesInfo_[] = {
-	{"com.sun.media.sound.SoftChannel$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _SoftChannel$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.media.sound.SoftChannel$1",
-	"java.lang.Object",
-	"com.sun.media.sound.SoftControl",
-	_SoftChannel$1_FieldInfo_,
-	_SoftChannel$1_MethodInfo_,
-	nullptr,
-	&_SoftChannel$1_EnclosingMethodInfo_,
-	_SoftChannel$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.media.sound.SoftChannel"
-};
-
-$Object* allocate$SoftChannel$1($Class* clazz) {
-	return $of($alloc(SoftChannel$1));
-}
 
 void SoftChannel$1::init$($SoftChannel* this$0) {
 	$set(this, this$0, this$0);
@@ -75,7 +31,43 @@ SoftChannel$1::SoftChannel$1() {
 }
 
 $Class* SoftChannel$1::load$($String* name, bool initialize) {
-	$loadClass(SoftChannel$1, name, initialize, &_SoftChannel$1_ClassInfo_, allocate$SoftChannel$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/media/sound/SoftChannel;", nullptr, $FINAL | $SYNTHETIC, $field(SoftChannel$1, this$0)},
+		{"cc", "[[D", nullptr, 0, $field(SoftChannel$1, cc)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/media/sound/SoftChannel;)V", nullptr, 0, $method(SoftChannel$1, init$, void, $SoftChannel*)},
+		{"get", "(ILjava/lang/String;)[D", nullptr, $PUBLIC, $virtualMethod(SoftChannel$1, get, $doubles*, int32_t, $String*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.media.sound.SoftChannel",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.media.sound.SoftChannel$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.media.sound.SoftChannel$1",
+		"java.lang.Object",
+		"com.sun.media.sound.SoftControl",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.media.sound.SoftChannel"
+	};
+	$loadClass(SoftChannel$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SoftChannel$1);
+	});
 	return class$;
 }
 

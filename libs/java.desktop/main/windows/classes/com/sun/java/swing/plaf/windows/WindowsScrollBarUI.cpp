@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/windows/WindowsScrollBarUI.h>
-
 #include <com/sun/java/swing/plaf/windows/TMSchema$Part.h>
 #include <com/sun/java/swing/plaf/windows/TMSchema$Prop.h>
 #include <com/sun/java/swing/plaf/windows/TMSchema$State.h>
@@ -60,7 +59,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $ButtonModel = ::javax::swing::ButtonModel;
 using $JButton = ::javax::swing::JButton;
 using $JComponent = ::javax::swing::JComponent;
 using $JScrollBar = ::javax::swing::JScrollBar;
@@ -76,68 +74,6 @@ namespace com {
 			namespace swing {
 				namespace plaf {
 					namespace windows {
-
-$FieldInfo _WindowsScrollBarUI_FieldInfo_[] = {
-	{"thumbGrid", "Lcom/sun/java/swing/plaf/windows/WindowsScrollBarUI$Grid;", nullptr, $PRIVATE, $field(WindowsScrollBarUI, thumbGrid)},
-	{"highlightGrid", "Lcom/sun/java/swing/plaf/windows/WindowsScrollBarUI$Grid;", nullptr, $PRIVATE, $field(WindowsScrollBarUI, highlightGrid)},
-	{"horizontalThumbSize", "Ljava/awt/Dimension;", nullptr, $PRIVATE, $field(WindowsScrollBarUI, horizontalThumbSize)},
-	{"verticalThumbSize", "Ljava/awt/Dimension;", nullptr, $PRIVATE, $field(WindowsScrollBarUI, verticalThumbSize)},
-	{}
-};
-
-$MethodInfo _WindowsScrollBarUI_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(WindowsScrollBarUI, init$, void)},
-	{"access$000", "(Lcom/sun/java/swing/plaf/windows/WindowsScrollBarUI;)Ljavax/swing/JScrollBar;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(WindowsScrollBarUI, access$000, $JScrollBar*, WindowsScrollBarUI*)},
-	{"access$100", "(Lcom/sun/java/swing/plaf/windows/WindowsScrollBarUI;)Ljavax/swing/JButton;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(WindowsScrollBarUI, access$100, $JButton*, WindowsScrollBarUI*)},
-	{"access$200", "(Lcom/sun/java/swing/plaf/windows/WindowsScrollBarUI;)Ljavax/swing/JButton;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(WindowsScrollBarUI, access$200, $JButton*, WindowsScrollBarUI*)},
-	{"access$300", "(Lcom/sun/java/swing/plaf/windows/WindowsScrollBarUI;)Ljavax/swing/JButton;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(WindowsScrollBarUI, access$300, $JButton*, WindowsScrollBarUI*)},
-	{"access$400", "(Lcom/sun/java/swing/plaf/windows/WindowsScrollBarUI;)Ljavax/swing/JButton;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(WindowsScrollBarUI, access$400, $JButton*, WindowsScrollBarUI*)},
-	{"access$500", "(Lcom/sun/java/swing/plaf/windows/WindowsScrollBarUI;)Ljavax/swing/JScrollBar;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(WindowsScrollBarUI, access$500, $JScrollBar*, WindowsScrollBarUI*)},
-	{"access$600", "(Lcom/sun/java/swing/plaf/windows/WindowsScrollBarUI;)Ljavax/swing/JScrollBar;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(WindowsScrollBarUI, access$600, $JScrollBar*, WindowsScrollBarUI*)},
-	{"access$700", "(Lcom/sun/java/swing/plaf/windows/WindowsScrollBarUI;)Ljavax/swing/JScrollBar;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(WindowsScrollBarUI, access$700, $JScrollBar*, WindowsScrollBarUI*)},
-	{"access$800", "(Lcom/sun/java/swing/plaf/windows/WindowsScrollBarUI;)Ljavax/swing/JScrollBar;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(WindowsScrollBarUI, access$800, $JScrollBar*, WindowsScrollBarUI*)},
-	{"configureScrollBarColors", "()V", nullptr, $PROTECTED, $virtualMethod(WindowsScrollBarUI, configureScrollBarColors, void)},
-	{"createArrowButtonListener", "()Ljavax/swing/plaf/basic/BasicScrollBarUI$ArrowButtonListener;", nullptr, $PROTECTED, $virtualMethod(WindowsScrollBarUI, createArrowButtonListener, $BasicScrollBarUI$ArrowButtonListener*)},
-	{"createDecreaseButton", "(I)Ljavax/swing/JButton;", nullptr, $PROTECTED, $virtualMethod(WindowsScrollBarUI, createDecreaseButton, $JButton*, int32_t)},
-	{"createIncreaseButton", "(I)Ljavax/swing/JButton;", nullptr, $PROTECTED, $virtualMethod(WindowsScrollBarUI, createIncreaseButton, $JButton*, int32_t)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(WindowsScrollBarUI, createUI, $ComponentUI*, $JComponent*)},
-	{"getMinimumThumbSize", "()Ljava/awt/Dimension;", nullptr, $PROTECTED, $virtualMethod(WindowsScrollBarUI, getMinimumThumbSize, $Dimension*)},
-	{"getSize", "(Ljava/awt/Component;Lcom/sun/java/swing/plaf/windows/XPStyle;Lcom/sun/java/swing/plaf/windows/TMSchema$Part;)Ljava/awt/Dimension;", nullptr, $PRIVATE | $STATIC, $staticMethod(WindowsScrollBarUI, getSize, $Dimension*, $Component*, $XPStyle*, $TMSchema$Part*)},
-	{"installDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(WindowsScrollBarUI, installDefaults, void)},
-	{"paintDecreaseHighlight", "(Ljava/awt/Graphics;)V", nullptr, $PROTECTED, $virtualMethod(WindowsScrollBarUI, paintDecreaseHighlight, void, $Graphics*)},
-	{"paintIncreaseHighlight", "(Ljava/awt/Graphics;)V", nullptr, $PROTECTED, $virtualMethod(WindowsScrollBarUI, paintIncreaseHighlight, void, $Graphics*)},
-	{"paintThumb", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;Ljava/awt/Rectangle;)V", nullptr, $PROTECTED, $virtualMethod(WindowsScrollBarUI, paintThumb, void, $Graphics*, $JComponent*, $Rectangle*)},
-	{"paintTrack", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;Ljava/awt/Rectangle;)V", nullptr, $PROTECTED, $virtualMethod(WindowsScrollBarUI, paintTrack, void, $Graphics*, $JComponent*, $Rectangle*)},
-	{"setThumbRollover", "(Z)V", nullptr, $PROTECTED, $virtualMethod(WindowsScrollBarUI, setThumbRollover, void, bool)},
-	{"uninstallUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(WindowsScrollBarUI, uninstallUI, void, $JComponent*)},
-	{}
-};
-
-$InnerClassInfo _WindowsScrollBarUI_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.windows.WindowsScrollBarUI$Grid", "com.sun.java.swing.plaf.windows.WindowsScrollBarUI", "Grid", $PRIVATE | $STATIC},
-	{"com.sun.java.swing.plaf.windows.WindowsScrollBarUI$WindowsArrowButton", "com.sun.java.swing.plaf.windows.WindowsScrollBarUI", "WindowsArrowButton", $PRIVATE},
-	{"com.sun.java.swing.plaf.windows.WindowsScrollBarUI$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _WindowsScrollBarUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.java.swing.plaf.windows.WindowsScrollBarUI",
-	"javax.swing.plaf.basic.BasicScrollBarUI",
-	nullptr,
-	_WindowsScrollBarUI_FieldInfo_,
-	_WindowsScrollBarUI_MethodInfo_,
-	nullptr,
-	nullptr,
-	_WindowsScrollBarUI_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.windows.WindowsScrollBarUI$Grid,com.sun.java.swing.plaf.windows.WindowsScrollBarUI$WindowsArrowButton,com.sun.java.swing.plaf.windows.WindowsScrollBarUI$1"
-};
-
-$Object* allocate$WindowsScrollBarUI($Class* clazz) {
-	return $of($alloc(WindowsScrollBarUI));
-}
 
 $JScrollBar* WindowsScrollBarUI::access$800(WindowsScrollBarUI* x0) {
 	$init(WindowsScrollBarUI);
@@ -223,7 +159,7 @@ $Dimension* WindowsScrollBarUI::getMinimumThumbSize() {
 
 void WindowsScrollBarUI::uninstallUI($JComponent* c) {
 	$BasicScrollBarUI::uninstallUI(c);
-	$set(this, thumbGrid, ($set(this, highlightGrid, nullptr)));
+	$set(this, thumbGrid, $set(this, highlightGrid, nullptr));
 }
 
 void WindowsScrollBarUI::configureScrollBarColors() {
@@ -239,21 +175,19 @@ void WindowsScrollBarUI::configureScrollBarColors() {
 }
 
 $JButton* WindowsScrollBarUI::createDecreaseButton(int32_t orientation) {
-	$useLocalCurrentObjectStackCache();
-	int32_t var$0 = orientation;
-	$var($Color, var$1, $UIManager::getColor("ScrollBar.thumb"_s));
-	$var($Color, var$2, $UIManager::getColor("ScrollBar.thumbShadow"_s));
-	$var($Color, var$3, $UIManager::getColor("ScrollBar.thumbDarkShadow"_s));
-	return $new($WindowsScrollBarUI$WindowsArrowButton, this, var$0, var$1, var$2, var$3, $($UIManager::getColor("ScrollBar.thumbHighlight"_s)));
+	$useLocalObjectStack();
+	$var($Color, var$0, $UIManager::getColor("ScrollBar.thumb"_s));
+	$var($Color, var$1, $UIManager::getColor("ScrollBar.thumbShadow"_s));
+	$var($Color, var$2, $UIManager::getColor("ScrollBar.thumbDarkShadow"_s));
+	return $new($WindowsScrollBarUI$WindowsArrowButton, this, orientation, var$0, var$1, var$2, $($UIManager::getColor("ScrollBar.thumbHighlight"_s)));
 }
 
 $JButton* WindowsScrollBarUI::createIncreaseButton(int32_t orientation) {
-	$useLocalCurrentObjectStackCache();
-	int32_t var$0 = orientation;
-	$var($Color, var$1, $UIManager::getColor("ScrollBar.thumb"_s));
-	$var($Color, var$2, $UIManager::getColor("ScrollBar.thumbShadow"_s));
-	$var($Color, var$3, $UIManager::getColor("ScrollBar.thumbDarkShadow"_s));
-	return $new($WindowsScrollBarUI$WindowsArrowButton, this, var$0, var$1, var$2, var$3, $($UIManager::getColor("ScrollBar.thumbHighlight"_s)));
+	$useLocalObjectStack();
+	$var($Color, var$0, $UIManager::getColor("ScrollBar.thumb"_s));
+	$var($Color, var$1, $UIManager::getColor("ScrollBar.thumbShadow"_s));
+	$var($Color, var$2, $UIManager::getColor("ScrollBar.thumbDarkShadow"_s));
+	return $new($WindowsScrollBarUI$WindowsArrowButton, this, orientation, var$0, var$1, var$2, $($UIManager::getColor("ScrollBar.thumbHighlight"_s)));
 }
 
 $BasicScrollBarUI$ArrowButtonListener* WindowsScrollBarUI::createArrowButtonListener() {
@@ -265,7 +199,7 @@ $BasicScrollBarUI$ArrowButtonListener* WindowsScrollBarUI::createArrowButtonList
 }
 
 void WindowsScrollBarUI::paintTrack($Graphics* g, $JComponent* c, $Rectangle* trackBounds) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool v = ($nc(this->scrollbar)->getOrientation() == $JScrollBar::VERTICAL);
 	$var($XPStyle, xp, $XPStyle::getXP());
 	if (xp != nullptr) {
@@ -277,11 +211,11 @@ void WindowsScrollBarUI::paintTrack($Graphics* g, $JComponent* c, $Rectangle* tr
 		}
 		$init($TMSchema$Part);
 		$TMSchema$Part* part = v ? $TMSchema$Part::SBP_LOWERTRACKVERT : $TMSchema$Part::SBP_LOWERTRACKHORZ;
-		$nc($(xp->getSkin(sb, part)))->paintSkin(g, trackBounds, state);
+		$$nc(xp->getSkin(sb, part))->paintSkin(g, trackBounds, state);
 	} else if (this->thumbGrid == nullptr) {
 		$BasicScrollBarUI::paintTrack(g, c, trackBounds);
 	} else {
-		$nc(this->thumbGrid)->paint(g, $nc(trackBounds)->x, trackBounds->y, trackBounds->width, trackBounds->height);
+		this->thumbGrid->paint(g, $nc(trackBounds)->x, $nc(trackBounds)->y, $nc(trackBounds)->width, $nc(trackBounds)->height);
 		if (this->trackHighlight == $BasicScrollBarUI::DECREASE_HIGHLIGHT) {
 			paintDecreaseHighlight(g);
 		} else if (this->trackHighlight == $BasicScrollBarUI::INCREASE_HIGHLIGHT) {
@@ -291,7 +225,7 @@ void WindowsScrollBarUI::paintTrack($Graphics* g, $JComponent* c, $Rectangle* tr
 }
 
 void WindowsScrollBarUI::paintThumb($Graphics* g, $JComponent* c, $Rectangle* thumbBounds) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool v = ($nc(this->scrollbar)->getOrientation() == $JScrollBar::VERTICAL);
 	$var($XPStyle, xp, $XPStyle::getXP());
 	if (xp != nullptr) {
@@ -305,25 +239,24 @@ void WindowsScrollBarUI::paintThumb($Graphics* g, $JComponent* c, $Rectangle* th
 		} else if (isThumbRollover()) {
 			state = $TMSchema$State::HOT;
 		} else if ($XPStyle::isVista()) {
-			bool var$0 = (this->incrButton != nullptr && $nc($($nc(this->incrButton)->getModel()))->isRollover());
-			if (var$0 || (this->decrButton != nullptr && $nc($($nc(this->decrButton)->getModel()))->isRollover())) {
+			bool var$0 = this->incrButton != nullptr && $$nc(this->incrButton->getModel())->isRollover();
+			if (var$0 || (this->decrButton != nullptr && $$nc(this->decrButton->getModel())->isRollover())) {
 				state = $TMSchema$State::HOVER;
 			}
 		}
 		$init($TMSchema$Part);
 		$TMSchema$Part* thumbPart = v ? $TMSchema$Part::SBP_THUMBBTNVERT : $TMSchema$Part::SBP_THUMBBTNHORZ;
-		$nc($(xp->getSkin(sb, thumbPart)))->paintSkin(g, thumbBounds, state);
+		$$nc(xp->getSkin(sb, thumbPart))->paintSkin(g, thumbBounds, state);
 		$TMSchema$Part* gripperPart = v ? $TMSchema$Part::SBP_GRIPPERVERT : $TMSchema$Part::SBP_GRIPPERHORZ;
 		$var($XPStyle$Skin, skin, xp->getSkin(sb, gripperPart));
 		$init($TMSchema$Prop);
 		$var($Insets, gripperInsets, xp->getMargin(c, thumbPart, nullptr, $TMSchema$Prop::CONTENTMARGINS));
-		bool var$1 = gripperInsets == nullptr || (v && ($nc(thumbBounds)->height - $nc(gripperInsets)->top - gripperInsets->bottom >= $nc(skin)->getHeight()));
-		if (var$1 || (!v && ($nc(thumbBounds)->width - $nc(gripperInsets)->left - gripperInsets->right >= $nc(skin)->getWidth()))) {
-			$var($Graphics, var$2, g);
-			int32_t var$3 = thumbBounds->x + (thumbBounds->width - skin->getWidth()) / 2;
-			int32_t var$4 = thumbBounds->y + (thumbBounds->height - skin->getHeight()) / 2;
-			int32_t var$5 = skin->getWidth();
-			skin->paintSkin(var$2, var$3, var$4, var$5, skin->getHeight(), state);
+		bool var$1 = gripperInsets == nullptr || (v && ($nc(thumbBounds)->height - gripperInsets->top - gripperInsets->bottom >= $nc(skin)->getHeight()));
+		if (var$1 || (!v && ($nc(thumbBounds)->width - gripperInsets->left - gripperInsets->right >= $nc(skin)->getWidth()))) {
+			int32_t var$2 = $nc(thumbBounds)->x + ($nc(thumbBounds)->width - $nc(skin)->getWidth()) / 2;
+			int32_t var$3 = thumbBounds->y + (thumbBounds->height - skin->getHeight()) / 2;
+			int32_t var$4 = skin->getWidth();
+			$nc(skin)->paintSkin(g, var$2, var$3, var$4, skin->getHeight(), state);
 		}
 	} else {
 		$BasicScrollBarUI::paintThumb(g, c, thumbBounds);
@@ -331,7 +264,7 @@ void WindowsScrollBarUI::paintThumb($Graphics* g, $JComponent* c, $Rectangle* th
 }
 
 void WindowsScrollBarUI::paintDecreaseHighlight($Graphics* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->highlightGrid == nullptr) {
 		$BasicScrollBarUI::paintDecreaseHighlight(g);
 	} else {
@@ -344,12 +277,12 @@ void WindowsScrollBarUI::paintDecreaseHighlight($Graphics* g) {
 		if ($nc(this->scrollbar)->getOrientation() == $JScrollBar::VERTICAL) {
 			x = $nc(insets)->left;
 			int32_t var$0 = $nc(this->decrButton)->getY();
-			y = var$0 + $nc(this->decrButton)->getHeight();
+			y = var$0 + this->decrButton->getHeight();
 			w = $nc(this->scrollbar)->getWidth() - (insets->left + insets->right);
 			h = $nc(thumbR)->y - y;
 		} else {
 			int32_t var$1 = $nc(this->decrButton)->getX();
-			x = var$1 + $nc(this->decrButton)->getHeight();
+			x = var$1 + this->decrButton->getHeight();
 			y = $nc(insets)->top;
 			w = $nc(thumbR)->x - x;
 			h = $nc(this->scrollbar)->getHeight() - (insets->top + insets->bottom);
@@ -359,7 +292,7 @@ void WindowsScrollBarUI::paintDecreaseHighlight($Graphics* g) {
 }
 
 void WindowsScrollBarUI::paintIncreaseHighlight($Graphics* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->highlightGrid == nullptr) {
 		$BasicScrollBarUI::paintDecreaseHighlight(g);
 	} else {
@@ -371,11 +304,11 @@ void WindowsScrollBarUI::paintIncreaseHighlight($Graphics* g) {
 		int32_t h = 0;
 		if ($nc(this->scrollbar)->getOrientation() == $JScrollBar::VERTICAL) {
 			x = $nc(insets)->left;
-			y = $nc(thumbR)->y + thumbR->height;
+			y = $nc(thumbR)->y + $nc(thumbR)->height;
 			w = $nc(this->scrollbar)->getWidth() - (insets->left + insets->right);
 			h = $nc(this->incrButton)->getY() - y;
 		} else {
-			x = $nc(thumbR)->x + thumbR->width;
+			x = $nc(thumbR)->x + $nc(thumbR)->width;
 			y = $nc(insets)->top;
 			w = $nc(this->incrButton)->getX() - x;
 			h = $nc(this->scrollbar)->getHeight() - (insets->top + insets->bottom);
@@ -396,7 +329,63 @@ WindowsScrollBarUI::WindowsScrollBarUI() {
 }
 
 $Class* WindowsScrollBarUI::load$($String* name, bool initialize) {
-	$loadClass(WindowsScrollBarUI, name, initialize, &_WindowsScrollBarUI_ClassInfo_, allocate$WindowsScrollBarUI);
+	$FieldInfo fieldInfos$$[] = {
+		{"thumbGrid", "Lcom/sun/java/swing/plaf/windows/WindowsScrollBarUI$Grid;", nullptr, $PRIVATE, $field(WindowsScrollBarUI, thumbGrid)},
+		{"highlightGrid", "Lcom/sun/java/swing/plaf/windows/WindowsScrollBarUI$Grid;", nullptr, $PRIVATE, $field(WindowsScrollBarUI, highlightGrid)},
+		{"horizontalThumbSize", "Ljava/awt/Dimension;", nullptr, $PRIVATE, $field(WindowsScrollBarUI, horizontalThumbSize)},
+		{"verticalThumbSize", "Ljava/awt/Dimension;", nullptr, $PRIVATE, $field(WindowsScrollBarUI, verticalThumbSize)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(WindowsScrollBarUI, init$, void)},
+		{"access$000", "(Lcom/sun/java/swing/plaf/windows/WindowsScrollBarUI;)Ljavax/swing/JScrollBar;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(WindowsScrollBarUI, access$000, $JScrollBar*, WindowsScrollBarUI*)},
+		{"access$100", "(Lcom/sun/java/swing/plaf/windows/WindowsScrollBarUI;)Ljavax/swing/JButton;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(WindowsScrollBarUI, access$100, $JButton*, WindowsScrollBarUI*)},
+		{"access$200", "(Lcom/sun/java/swing/plaf/windows/WindowsScrollBarUI;)Ljavax/swing/JButton;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(WindowsScrollBarUI, access$200, $JButton*, WindowsScrollBarUI*)},
+		{"access$300", "(Lcom/sun/java/swing/plaf/windows/WindowsScrollBarUI;)Ljavax/swing/JButton;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(WindowsScrollBarUI, access$300, $JButton*, WindowsScrollBarUI*)},
+		{"access$400", "(Lcom/sun/java/swing/plaf/windows/WindowsScrollBarUI;)Ljavax/swing/JButton;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(WindowsScrollBarUI, access$400, $JButton*, WindowsScrollBarUI*)},
+		{"access$500", "(Lcom/sun/java/swing/plaf/windows/WindowsScrollBarUI;)Ljavax/swing/JScrollBar;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(WindowsScrollBarUI, access$500, $JScrollBar*, WindowsScrollBarUI*)},
+		{"access$600", "(Lcom/sun/java/swing/plaf/windows/WindowsScrollBarUI;)Ljavax/swing/JScrollBar;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(WindowsScrollBarUI, access$600, $JScrollBar*, WindowsScrollBarUI*)},
+		{"access$700", "(Lcom/sun/java/swing/plaf/windows/WindowsScrollBarUI;)Ljavax/swing/JScrollBar;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(WindowsScrollBarUI, access$700, $JScrollBar*, WindowsScrollBarUI*)},
+		{"access$800", "(Lcom/sun/java/swing/plaf/windows/WindowsScrollBarUI;)Ljavax/swing/JScrollBar;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(WindowsScrollBarUI, access$800, $JScrollBar*, WindowsScrollBarUI*)},
+		{"configureScrollBarColors", "()V", nullptr, $PROTECTED, $virtualMethod(WindowsScrollBarUI, configureScrollBarColors, void)},
+		{"createArrowButtonListener", "()Ljavax/swing/plaf/basic/BasicScrollBarUI$ArrowButtonListener;", nullptr, $PROTECTED, $virtualMethod(WindowsScrollBarUI, createArrowButtonListener, $BasicScrollBarUI$ArrowButtonListener*)},
+		{"createDecreaseButton", "(I)Ljavax/swing/JButton;", nullptr, $PROTECTED, $virtualMethod(WindowsScrollBarUI, createDecreaseButton, $JButton*, int32_t)},
+		{"createIncreaseButton", "(I)Ljavax/swing/JButton;", nullptr, $PROTECTED, $virtualMethod(WindowsScrollBarUI, createIncreaseButton, $JButton*, int32_t)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(WindowsScrollBarUI, createUI, $ComponentUI*, $JComponent*)},
+		{"getMinimumThumbSize", "()Ljava/awt/Dimension;", nullptr, $PROTECTED, $virtualMethod(WindowsScrollBarUI, getMinimumThumbSize, $Dimension*)},
+		{"getSize", "(Ljava/awt/Component;Lcom/sun/java/swing/plaf/windows/XPStyle;Lcom/sun/java/swing/plaf/windows/TMSchema$Part;)Ljava/awt/Dimension;", nullptr, $PRIVATE | $STATIC, $staticMethod(WindowsScrollBarUI, getSize, $Dimension*, $Component*, $XPStyle*, $TMSchema$Part*)},
+		{"installDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(WindowsScrollBarUI, installDefaults, void)},
+		{"paintDecreaseHighlight", "(Ljava/awt/Graphics;)V", nullptr, $PROTECTED, $virtualMethod(WindowsScrollBarUI, paintDecreaseHighlight, void, $Graphics*)},
+		{"paintIncreaseHighlight", "(Ljava/awt/Graphics;)V", nullptr, $PROTECTED, $virtualMethod(WindowsScrollBarUI, paintIncreaseHighlight, void, $Graphics*)},
+		{"paintThumb", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;Ljava/awt/Rectangle;)V", nullptr, $PROTECTED, $virtualMethod(WindowsScrollBarUI, paintThumb, void, $Graphics*, $JComponent*, $Rectangle*)},
+		{"paintTrack", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;Ljava/awt/Rectangle;)V", nullptr, $PROTECTED, $virtualMethod(WindowsScrollBarUI, paintTrack, void, $Graphics*, $JComponent*, $Rectangle*)},
+		{"setThumbRollover", "(Z)V", nullptr, $PROTECTED, $virtualMethod(WindowsScrollBarUI, setThumbRollover, void, bool)},
+		{"uninstallUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(WindowsScrollBarUI, uninstallUI, void, $JComponent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.windows.WindowsScrollBarUI$Grid", "com.sun.java.swing.plaf.windows.WindowsScrollBarUI", "Grid", $PRIVATE | $STATIC},
+		{"com.sun.java.swing.plaf.windows.WindowsScrollBarUI$WindowsArrowButton", "com.sun.java.swing.plaf.windows.WindowsScrollBarUI", "WindowsArrowButton", $PRIVATE},
+		{"com.sun.java.swing.plaf.windows.WindowsScrollBarUI$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.java.swing.plaf.windows.WindowsScrollBarUI",
+		"javax.swing.plaf.basic.BasicScrollBarUI",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.windows.WindowsScrollBarUI$Grid,com.sun.java.swing.plaf.windows.WindowsScrollBarUI$WindowsArrowButton,com.sun.java.swing.plaf.windows.WindowsScrollBarUI$1"
+	};
+	$loadClass(WindowsScrollBarUI, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(WindowsScrollBarUI));
+	});
 	return class$;
 }
 

@@ -190,6 +190,7 @@ class ZipConstants : public ::java::lang::Object {
 	$class(ZipConstants, 0, ::java::lang::Object)
 public:
 	ZipConstants();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static int32_t CENATT($bytes* b, int32_t pos);
 	static int64_t CENATX($bytes* b, int32_t pos);
@@ -303,8 +304,8 @@ public:
 	static const int32_t ZIP64_LOCHDR = 20;
 	static const int32_t ZIP64_EXTHDR = 24;
 	static const int32_t ZIP64_EXTID = 1;
-	static const int32_t ZIP64_MINVAL32 = 0x0000FFFF;
-	static const int64_t ZIP64_MINVAL = (int64_t)0x00000000FFFFFFFF;
+	static const int32_t ZIP64_MINVAL32 = 0x0000ffff;
+	static const int64_t ZIP64_MINVAL = (int64_t)0x00000000ffffffff;
 	static const int32_t ZIP64_ENDLEN = 4;
 	static const int32_t ZIP64_ENDVEM = 12;
 	static const int32_t ZIP64_ENDVER = 14;

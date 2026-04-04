@@ -1,5 +1,4 @@
 #include <sun/font/SunFontManager$TTorT1Filter.h>
-
 #include <java/io/File.h>
 #include <sun/font/SunFontManager.h>
 #include <jcpp.h>
@@ -12,37 +11,6 @@ using $SunFontManager = ::sun::font::SunFontManager;
 
 namespace sun {
 	namespace font {
-
-$MethodInfo _SunFontManager$TTorT1Filter_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(SunFontManager$TTorT1Filter, init$, void)},
-	{"accept", "(Ljava/io/File;Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(SunFontManager$TTorT1Filter, accept, bool, $File*, $String*)},
-	{}
-};
-
-$InnerClassInfo _SunFontManager$TTorT1Filter_InnerClassesInfo_[] = {
-	{"sun.font.SunFontManager$TTorT1Filter", "sun.font.SunFontManager", "TTorT1Filter", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _SunFontManager$TTorT1Filter_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.font.SunFontManager$TTorT1Filter",
-	"java.lang.Object",
-	"java.io.FilenameFilter",
-	nullptr,
-	_SunFontManager$TTorT1Filter_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SunFontManager$TTorT1Filter_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.font.SunFontManager"
-};
-
-$Object* allocate$SunFontManager$TTorT1Filter($Class* clazz) {
-	return $of($alloc(SunFontManager$TTorT1Filter));
-}
 
 void SunFontManager$TTorT1Filter::init$() {
 }
@@ -78,7 +46,33 @@ SunFontManager$TTorT1Filter::SunFontManager$TTorT1Filter() {
 }
 
 $Class* SunFontManager$TTorT1Filter::load$($String* name, bool initialize) {
-	$loadClass(SunFontManager$TTorT1Filter, name, initialize, &_SunFontManager$TTorT1Filter_ClassInfo_, allocate$SunFontManager$TTorT1Filter);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(SunFontManager$TTorT1Filter, init$, void)},
+		{"accept", "(Ljava/io/File;Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(SunFontManager$TTorT1Filter, accept, bool, $File*, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.font.SunFontManager$TTorT1Filter", "sun.font.SunFontManager", "TTorT1Filter", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.font.SunFontManager$TTorT1Filter",
+		"java.lang.Object",
+		"java.io.FilenameFilter",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.font.SunFontManager"
+	};
+	$loadClass(SunFontManager$TTorT1Filter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SunFontManager$TTorT1Filter);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/main/Option$40.h>
-
 #include <com/sun/tools/javac/main/Option.h>
 #include <java/text/Collator.h>
 #include <java/util/Locale.h>
@@ -23,50 +22,6 @@ namespace com {
 			namespace javac {
 				namespace main {
 
-$FieldInfo _Option$40_FieldInfo_[] = {
-	{"collator", "Ljava/text/Collator;", nullptr, $FINAL, $field(Option$40, collator)},
-	{}
-};
-
-$MethodInfo _Option$40_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(Option$40, init$, void)},
-	{"compare", "(Lcom/sun/tools/javac/main/Option;Lcom/sun/tools/javac/main/Option;)I", nullptr, $PUBLIC, $virtualMethod(Option$40, compare, int32_t, $Option*, $Option*)},
-	{"compare", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Option$40, compare, int32_t, Object$*, Object$*)},
-	{}
-};
-
-$EnclosingMethodInfo _Option$40_EnclosingMethodInfo_ = {
-	"com.sun.tools.javac.main.Option",
-	"showHelp",
-	"(Lcom/sun/tools/javac/util/Log;Lcom/sun/tools/javac/main/Option$OptionKind;)V"
-};
-
-$InnerClassInfo _Option$40_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.main.Option$40", nullptr, nullptr, 0},
-	{"com.sun.tools.javac.main.Option$OptionKind", "com.sun.tools.javac.main.Option", "OptionKind", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _Option$40_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.main.Option$40",
-	"java.lang.Object",
-	"java.util.Comparator",
-	_Option$40_FieldInfo_,
-	_Option$40_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/Comparator<Lcom/sun/tools/javac/main/Option;>;",
-	&_Option$40_EnclosingMethodInfo_,
-	_Option$40_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.main.Option"
-};
-
-$Object* allocate$Option$40($Class* clazz) {
-	return $of($alloc(Option$40));
-}
-
 void Option$40::init$() {
 	$init($Locale);
 	$set(this, collator, $Collator::getInstance($Locale::US));
@@ -87,7 +42,44 @@ Option$40::Option$40() {
 }
 
 $Class* Option$40::load$($String* name, bool initialize) {
-	$loadClass(Option$40, name, initialize, &_Option$40_ClassInfo_, allocate$Option$40);
+	$FieldInfo fieldInfos$$[] = {
+		{"collator", "Ljava/text/Collator;", nullptr, $FINAL, $field(Option$40, collator)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(Option$40, init$, void)},
+		{"compare", "(Lcom/sun/tools/javac/main/Option;Lcom/sun/tools/javac/main/Option;)I", nullptr, $PUBLIC, $virtualMethod(Option$40, compare, int32_t, $Option*, $Option*)},
+		{"compare", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Option$40, compare, int32_t, Object$*, Object$*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.tools.javac.main.Option",
+		"showHelp",
+		"(Lcom/sun/tools/javac/util/Log;Lcom/sun/tools/javac/main/Option$OptionKind;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.main.Option$40", nullptr, nullptr, 0},
+		{"com.sun.tools.javac.main.Option$OptionKind", "com.sun.tools.javac.main.Option", "OptionKind", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.main.Option$40",
+		"java.lang.Object",
+		"java.util.Comparator",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/Comparator<Lcom/sun/tools/javac/main/Option;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.main.Option"
+	};
+	$loadClass(Option$40, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Option$40);
+	});
 	return class$;
 }
 

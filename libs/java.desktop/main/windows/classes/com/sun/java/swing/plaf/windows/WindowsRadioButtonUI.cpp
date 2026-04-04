@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/windows/WindowsRadioButtonUI.h>
-
 #include <com/sun/java/swing/plaf/windows/WindowsGraphicsUtils.h>
 #include <com/sun/java/swing/plaf/windows/XPStyle.h>
 #include <java/awt/Color.h>
@@ -47,42 +46,6 @@ namespace com {
 				namespace plaf {
 					namespace windows {
 
-$FieldInfo _WindowsRadioButtonUI_FieldInfo_[] = {
-	{"WINDOWS_RADIO_BUTTON_UI_KEY", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(WindowsRadioButtonUI, WINDOWS_RADIO_BUTTON_UI_KEY)},
-	{"dashedRectGapX", "I", nullptr, $PROTECTED, $field(WindowsRadioButtonUI, dashedRectGapX)},
-	{"dashedRectGapY", "I", nullptr, $PROTECTED, $field(WindowsRadioButtonUI, dashedRectGapY)},
-	{"dashedRectGapWidth", "I", nullptr, $PROTECTED, $field(WindowsRadioButtonUI, dashedRectGapWidth)},
-	{"dashedRectGapHeight", "I", nullptr, $PROTECTED, $field(WindowsRadioButtonUI, dashedRectGapHeight)},
-	{"focusColor", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(WindowsRadioButtonUI, focusColor)},
-	{"initialized", "Z", nullptr, $PRIVATE, $field(WindowsRadioButtonUI, initialized)},
-	{}
-};
-
-$MethodInfo _WindowsRadioButtonUI_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(WindowsRadioButtonUI, init$, void)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(WindowsRadioButtonUI, createUI, $ComponentUI*, $JComponent*)},
-	{"getFocusColor", "()Ljava/awt/Color;", nullptr, $PROTECTED, $virtualMethod(WindowsRadioButtonUI, getFocusColor, $Color*)},
-	{"getPreferredSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(WindowsRadioButtonUI, getPreferredSize, $Dimension*, $JComponent*)},
-	{"installDefaults", "(Ljavax/swing/AbstractButton;)V", nullptr, $PUBLIC, $virtualMethod(WindowsRadioButtonUI, installDefaults, void, $AbstractButton*)},
-	{"paintFocus", "(Ljava/awt/Graphics;Ljava/awt/Rectangle;Ljava/awt/Dimension;)V", nullptr, $PROTECTED, $virtualMethod(WindowsRadioButtonUI, paintFocus, void, $Graphics*, $Rectangle*, $Dimension*)},
-	{"paintText", "(Ljava/awt/Graphics;Ljavax/swing/AbstractButton;Ljava/awt/Rectangle;Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(WindowsRadioButtonUI, paintText, void, $Graphics*, $AbstractButton*, $Rectangle*, $String*)},
-	{"uninstallDefaults", "(Ljavax/swing/AbstractButton;)V", nullptr, $PROTECTED, $virtualMethod(WindowsRadioButtonUI, uninstallDefaults, void, $AbstractButton*)},
-	{}
-};
-
-$ClassInfo _WindowsRadioButtonUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.java.swing.plaf.windows.WindowsRadioButtonUI",
-	"javax.swing.plaf.basic.BasicRadioButtonUI",
-	nullptr,
-	_WindowsRadioButtonUI_FieldInfo_,
-	_WindowsRadioButtonUI_MethodInfo_
-};
-
-$Object* allocate$WindowsRadioButtonUI($Class* clazz) {
-	return $of($alloc(WindowsRadioButtonUI));
-}
-
 $Object* WindowsRadioButtonUI::WINDOWS_RADIO_BUTTON_UI_KEY = nullptr;
 
 void WindowsRadioButtonUI::init$() {
@@ -92,7 +55,7 @@ void WindowsRadioButtonUI::init$() {
 
 $ComponentUI* WindowsRadioButtonUI::createUI($JComponent* c) {
 	$init(WindowsRadioButtonUI);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AppContext, appContext, $AppContext::getAppContext());
 	$var(WindowsRadioButtonUI, windowsRadioButtonUI, $cast(WindowsRadioButtonUI, $nc(appContext)->get(WindowsRadioButtonUI::WINDOWS_RADIO_BUTTON_UI_KEY)));
 	if (windowsRadioButtonUI == nullptr) {
@@ -103,18 +66,17 @@ $ComponentUI* WindowsRadioButtonUI::createUI($JComponent* c) {
 }
 
 void WindowsRadioButtonUI::installDefaults($AbstractButton* b) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$BasicRadioButtonUI::installDefaults(b);
 	if (!this->initialized) {
-		this->dashedRectGapX = $nc(($cast($Integer, $($UIManager::get("Button.dashedRectGapX"_s)))))->intValue();
-		this->dashedRectGapY = $nc(($cast($Integer, $($UIManager::get("Button.dashedRectGapY"_s)))))->intValue();
-		this->dashedRectGapWidth = $nc(($cast($Integer, $($UIManager::get("Button.dashedRectGapWidth"_s)))))->intValue();
-		this->dashedRectGapHeight = $nc(($cast($Integer, $($UIManager::get("Button.dashedRectGapHeight"_s)))))->intValue();
+		this->dashedRectGapX = $$sure($Integer, $UIManager::get("Button.dashedRectGapX"_s))->intValue();
+		this->dashedRectGapY = $$sure($Integer, $UIManager::get("Button.dashedRectGapY"_s))->intValue();
+		this->dashedRectGapWidth = $$sure($Integer, $UIManager::get("Button.dashedRectGapWidth"_s))->intValue();
+		this->dashedRectGapHeight = $$sure($Integer, $UIManager::get("Button.dashedRectGapHeight"_s))->intValue();
 		$set(this, focusColor, $UIManager::getColor($$str({$(getPropertyPrefix()), "focus"_s})));
 		this->initialized = true;
 	}
 	if ($XPStyle::getXP() != nullptr) {
-		$init($Boolean);
 		$LookAndFeel::installProperty(b, "rolloverEnabled"_s, $Boolean::TRUE);
 	}
 }
@@ -134,11 +96,11 @@ void WindowsRadioButtonUI::paintText($Graphics* g, $AbstractButton* b, $Rectangl
 
 void WindowsRadioButtonUI::paintFocus($Graphics* g, $Rectangle* textRect, $Dimension* d) {
 	$nc(g)->setColor($(getFocusColor()));
-	$BasicGraphicsUtils::drawDashedRect(g, $nc(textRect)->x, textRect->y, textRect->width, textRect->height);
+	$BasicGraphicsUtils::drawDashedRect(g, $nc(textRect)->x, $nc(textRect)->y, $nc(textRect)->width, $nc(textRect)->height);
 }
 
 $Dimension* WindowsRadioButtonUI::getPreferredSize($JComponent* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Dimension, d, $BasicRadioButtonUI::getPreferredSize(c));
 	$var($AbstractButton, b, $cast($AbstractButton, c));
 	if (d != nullptr && $nc(b)->isFocusPainted()) {
@@ -152,7 +114,7 @@ $Dimension* WindowsRadioButtonUI::getPreferredSize($JComponent* c) {
 	return d;
 }
 
-void clinit$WindowsRadioButtonUI($Class* class$) {
+void WindowsRadioButtonUI::clinit$($Class* clazz) {
 	$assignStatic(WindowsRadioButtonUI::WINDOWS_RADIO_BUTTON_UI_KEY, $new($Object));
 }
 
@@ -160,7 +122,38 @@ WindowsRadioButtonUI::WindowsRadioButtonUI() {
 }
 
 $Class* WindowsRadioButtonUI::load$($String* name, bool initialize) {
-	$loadClass(WindowsRadioButtonUI, name, initialize, &_WindowsRadioButtonUI_ClassInfo_, clinit$WindowsRadioButtonUI, allocate$WindowsRadioButtonUI);
+	$FieldInfo fieldInfos$$[] = {
+		{"WINDOWS_RADIO_BUTTON_UI_KEY", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(WindowsRadioButtonUI, WINDOWS_RADIO_BUTTON_UI_KEY)},
+		{"dashedRectGapX", "I", nullptr, $PROTECTED, $field(WindowsRadioButtonUI, dashedRectGapX)},
+		{"dashedRectGapY", "I", nullptr, $PROTECTED, $field(WindowsRadioButtonUI, dashedRectGapY)},
+		{"dashedRectGapWidth", "I", nullptr, $PROTECTED, $field(WindowsRadioButtonUI, dashedRectGapWidth)},
+		{"dashedRectGapHeight", "I", nullptr, $PROTECTED, $field(WindowsRadioButtonUI, dashedRectGapHeight)},
+		{"focusColor", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(WindowsRadioButtonUI, focusColor)},
+		{"initialized", "Z", nullptr, $PRIVATE, $field(WindowsRadioButtonUI, initialized)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(WindowsRadioButtonUI, init$, void)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(WindowsRadioButtonUI, createUI, $ComponentUI*, $JComponent*)},
+		{"getFocusColor", "()Ljava/awt/Color;", nullptr, $PROTECTED, $virtualMethod(WindowsRadioButtonUI, getFocusColor, $Color*)},
+		{"getPreferredSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(WindowsRadioButtonUI, getPreferredSize, $Dimension*, $JComponent*)},
+		{"installDefaults", "(Ljavax/swing/AbstractButton;)V", nullptr, $PUBLIC, $virtualMethod(WindowsRadioButtonUI, installDefaults, void, $AbstractButton*)},
+		{"paintFocus", "(Ljava/awt/Graphics;Ljava/awt/Rectangle;Ljava/awt/Dimension;)V", nullptr, $PROTECTED, $virtualMethod(WindowsRadioButtonUI, paintFocus, void, $Graphics*, $Rectangle*, $Dimension*)},
+		{"paintText", "(Ljava/awt/Graphics;Ljavax/swing/AbstractButton;Ljava/awt/Rectangle;Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(WindowsRadioButtonUI, paintText, void, $Graphics*, $AbstractButton*, $Rectangle*, $String*)},
+		{"uninstallDefaults", "(Ljavax/swing/AbstractButton;)V", nullptr, $PROTECTED, $virtualMethod(WindowsRadioButtonUI, uninstallDefaults, void, $AbstractButton*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.java.swing.plaf.windows.WindowsRadioButtonUI",
+		"javax.swing.plaf.basic.BasicRadioButtonUI",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(WindowsRadioButtonUI, name, initialize, &classInfo$$, WindowsRadioButtonUI::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(WindowsRadioButtonUI);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <javax/tools/StandardLocation.h>
-
 #include <java/lang/Enum.h>
 #include <java/util/concurrent/ConcurrentHashMap.h>
 #include <java/util/concurrent/ConcurrentMap.h>
@@ -36,68 +35,6 @@ using $StandardLocation$2 = ::javax::tools::StandardLocation$2;
 
 namespace javax {
 	namespace tools {
-
-$FieldInfo _StandardLocation_FieldInfo_[] = {
-	{"CLASS_OUTPUT", "Ljavax/tools/StandardLocation;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(StandardLocation, CLASS_OUTPUT)},
-	{"SOURCE_OUTPUT", "Ljavax/tools/StandardLocation;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(StandardLocation, SOURCE_OUTPUT)},
-	{"CLASS_PATH", "Ljavax/tools/StandardLocation;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(StandardLocation, CLASS_PATH)},
-	{"SOURCE_PATH", "Ljavax/tools/StandardLocation;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(StandardLocation, SOURCE_PATH)},
-	{"ANNOTATION_PROCESSOR_PATH", "Ljavax/tools/StandardLocation;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(StandardLocation, ANNOTATION_PROCESSOR_PATH)},
-	{"ANNOTATION_PROCESSOR_MODULE_PATH", "Ljavax/tools/StandardLocation;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(StandardLocation, ANNOTATION_PROCESSOR_MODULE_PATH)},
-	{"PLATFORM_CLASS_PATH", "Ljavax/tools/StandardLocation;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(StandardLocation, PLATFORM_CLASS_PATH)},
-	{"NATIVE_HEADER_OUTPUT", "Ljavax/tools/StandardLocation;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(StandardLocation, NATIVE_HEADER_OUTPUT)},
-	{"MODULE_SOURCE_PATH", "Ljavax/tools/StandardLocation;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(StandardLocation, MODULE_SOURCE_PATH)},
-	{"UPGRADE_MODULE_PATH", "Ljavax/tools/StandardLocation;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(StandardLocation, UPGRADE_MODULE_PATH)},
-	{"SYSTEM_MODULES", "Ljavax/tools/StandardLocation;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(StandardLocation, SYSTEM_MODULES)},
-	{"MODULE_PATH", "Ljavax/tools/StandardLocation;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(StandardLocation, MODULE_PATH)},
-	{"PATCH_MODULE_PATH", "Ljavax/tools/StandardLocation;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(StandardLocation, PATCH_MODULE_PATH)},
-	{"$VALUES", "[Ljavax/tools/StandardLocation;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(StandardLocation, $VALUES)},
-	{"locations", "Ljava/util/concurrent/ConcurrentMap;", "Ljava/util/concurrent/ConcurrentMap<Ljava/lang/String;Ljavax/tools/JavaFileManager$Location;>;", $PRIVATE | $STATIC | $FINAL, $staticField(StandardLocation, locations)},
-	{}
-};
-
-$MethodInfo _StandardLocation_MethodInfo_[] = {
-	{"$values", "()[Ljavax/tools/StandardLocation;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(StandardLocation, $values, $StandardLocationArray*)},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
-	{"*finalize", "()V", nullptr, $PROTECTED | $FINAL},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $FINAL},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(StandardLocation, init$, void, $String*, int32_t)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StandardLocation, getName, $String*)},
-	{"isModuleOrientedLocation", "()Z", nullptr, $PUBLIC, $virtualMethod(StandardLocation, isModuleOrientedLocation, bool)},
-	{"isOutputLocation", "()Z", nullptr, $PUBLIC, $virtualMethod(StandardLocation, isOutputLocation, bool)},
-	{"locationFor", "(Ljava/lang/String;)Ljavax/tools/JavaFileManager$Location;", nullptr, $PUBLIC | $STATIC, $staticMethod(StandardLocation, locationFor, $JavaFileManager$Location*, $String*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"valueOf", "(Ljava/lang/String;)Ljavax/tools/StandardLocation;", nullptr, $PUBLIC | $STATIC, $staticMethod(StandardLocation, valueOf, StandardLocation*, $String*)},
-	{"values", "()[Ljavax/tools/StandardLocation;", nullptr, $PUBLIC | $STATIC, $staticMethod(StandardLocation, values, $StandardLocationArray*)},
-	{}
-};
-
-$InnerClassInfo _StandardLocation_InnerClassesInfo_[] = {
-	{"javax.tools.JavaFileManager$Location", "javax.tools.JavaFileManager", "Location", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"javax.tools.StandardLocation$2", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{"javax.tools.StandardLocation$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _StandardLocation_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"javax.tools.StandardLocation",
-	"java.lang.Enum",
-	"javax.tools.JavaFileManager$Location",
-	_StandardLocation_FieldInfo_,
-	_StandardLocation_MethodInfo_,
-	"Ljava/lang/Enum<Ljavax/tools/StandardLocation;>;Ljavax/tools/JavaFileManager$Location;",
-	nullptr,
-	_StandardLocation_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.tools.StandardLocation$2,javax.tools.StandardLocation$1"
-};
-
-$Object* allocate$StandardLocation($Class* clazz) {
-	return $of($alloc(StandardLocation));
-}
 
 $String* StandardLocation::toString() {
 	 return this->$Enum::toString();
@@ -170,21 +107,17 @@ void StandardLocation::init$($String* $enum$name, int32_t $enum$ordinal) {
 
 $JavaFileManager$Location* StandardLocation::locationFor($String* name) {
 	$init(StandardLocation);
-	$useLocalCurrentObjectStackCache();
-	if ($nc(StandardLocation::locations)->isEmpty()) {
-		{
-			$var($StandardLocationArray, arr$, values());
-			int32_t len$ = $nc(arr$)->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
-				$var($JavaFileManager$Location, location, arr$->get(i$));
-				$nc(StandardLocation::locations)->putIfAbsent($($nc(location)->getName()), location);
-			}
+	$useLocalObjectStack();
+	if (StandardLocation::locations->isEmpty()) {
+		$var($StandardLocationArray, arr$, values());
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
+			$var($JavaFileManager$Location, location, arr$->get(i$));
+			StandardLocation::locations->putIfAbsent($($nc(location)->getName()), location);
 		}
 	}
 	$nc($of(name))->getClass();
-	$nc(StandardLocation::locations)->putIfAbsent(name, $$new($StandardLocation$1, name));
-	return $cast($JavaFileManager$Location, $nc(StandardLocation::locations)->get(name));
+	StandardLocation::locations->putIfAbsent(name, $$new($StandardLocation$1, name));
+	return $cast($JavaFileManager$Location, StandardLocation::locations->get(name));
 }
 
 $String* StandardLocation::getName() {
@@ -195,17 +128,11 @@ bool StandardLocation::isOutputLocation() {
 	$init($StandardLocation$2);
 	switch ($nc($StandardLocation$2::$SwitchMap$javax$tools$StandardLocation)->get((this)->ordinal())) {
 	case 1:
-		{}
 	case 2:
-		{}
 	case 3:
-		{
-			return true;
-		}
+		return true;
 	default:
-		{
-			return false;
-		}
+		return false;
 	}
 }
 
@@ -213,27 +140,18 @@ bool StandardLocation::isModuleOrientedLocation() {
 	$init($StandardLocation$2);
 	switch ($nc($StandardLocation$2::$SwitchMap$javax$tools$StandardLocation)->get((this)->ordinal())) {
 	case 4:
-		{}
 	case 5:
-		{}
 	case 6:
-		{}
 	case 7:
-		{}
 	case 8:
-		{}
 	case 9:
-		{
-			return true;
-		}
+		return true;
 	default:
-		{
-			return false;
-		}
+		return false;
 	}
 }
 
-void clinit$StandardLocation($Class* class$) {
+void StandardLocation::clinit$($Class* clazz) {
 	$assignStatic(StandardLocation::CLASS_OUTPUT, $new(StandardLocation, "CLASS_OUTPUT"_s, 0));
 	$assignStatic(StandardLocation::SOURCE_OUTPUT, $new(StandardLocation, "SOURCE_OUTPUT"_s, 1));
 	$assignStatic(StandardLocation::CLASS_PATH, $new(StandardLocation, "CLASS_PATH"_s, 2));
@@ -255,7 +173,63 @@ StandardLocation::StandardLocation() {
 }
 
 $Class* StandardLocation::load$($String* name, bool initialize) {
-	$loadClass(StandardLocation, name, initialize, &_StandardLocation_ClassInfo_, clinit$StandardLocation, allocate$StandardLocation);
+	$FieldInfo fieldInfos$$[] = {
+		{"CLASS_OUTPUT", "Ljavax/tools/StandardLocation;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(StandardLocation, CLASS_OUTPUT)},
+		{"SOURCE_OUTPUT", "Ljavax/tools/StandardLocation;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(StandardLocation, SOURCE_OUTPUT)},
+		{"CLASS_PATH", "Ljavax/tools/StandardLocation;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(StandardLocation, CLASS_PATH)},
+		{"SOURCE_PATH", "Ljavax/tools/StandardLocation;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(StandardLocation, SOURCE_PATH)},
+		{"ANNOTATION_PROCESSOR_PATH", "Ljavax/tools/StandardLocation;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(StandardLocation, ANNOTATION_PROCESSOR_PATH)},
+		{"ANNOTATION_PROCESSOR_MODULE_PATH", "Ljavax/tools/StandardLocation;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(StandardLocation, ANNOTATION_PROCESSOR_MODULE_PATH)},
+		{"PLATFORM_CLASS_PATH", "Ljavax/tools/StandardLocation;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(StandardLocation, PLATFORM_CLASS_PATH)},
+		{"NATIVE_HEADER_OUTPUT", "Ljavax/tools/StandardLocation;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(StandardLocation, NATIVE_HEADER_OUTPUT)},
+		{"MODULE_SOURCE_PATH", "Ljavax/tools/StandardLocation;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(StandardLocation, MODULE_SOURCE_PATH)},
+		{"UPGRADE_MODULE_PATH", "Ljavax/tools/StandardLocation;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(StandardLocation, UPGRADE_MODULE_PATH)},
+		{"SYSTEM_MODULES", "Ljavax/tools/StandardLocation;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(StandardLocation, SYSTEM_MODULES)},
+		{"MODULE_PATH", "Ljavax/tools/StandardLocation;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(StandardLocation, MODULE_PATH)},
+		{"PATCH_MODULE_PATH", "Ljavax/tools/StandardLocation;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(StandardLocation, PATCH_MODULE_PATH)},
+		{"$VALUES", "[Ljavax/tools/StandardLocation;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(StandardLocation, $VALUES)},
+		{"locations", "Ljava/util/concurrent/ConcurrentMap;", "Ljava/util/concurrent/ConcurrentMap<Ljava/lang/String;Ljavax/tools/JavaFileManager$Location;>;", $PRIVATE | $STATIC | $FINAL, $staticField(StandardLocation, locations)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Ljavax/tools/StandardLocation;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(StandardLocation, $values, $StandardLocationArray*)},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
+		{"*finalize", "()V", nullptr, $PROTECTED | $FINAL},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $FINAL},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(StandardLocation, init$, void, $String*, int32_t)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StandardLocation, getName, $String*)},
+		{"isModuleOrientedLocation", "()Z", nullptr, $PUBLIC, $virtualMethod(StandardLocation, isModuleOrientedLocation, bool)},
+		{"isOutputLocation", "()Z", nullptr, $PUBLIC, $virtualMethod(StandardLocation, isOutputLocation, bool)},
+		{"locationFor", "(Ljava/lang/String;)Ljavax/tools/JavaFileManager$Location;", nullptr, $PUBLIC | $STATIC, $staticMethod(StandardLocation, locationFor, $JavaFileManager$Location*, $String*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"valueOf", "(Ljava/lang/String;)Ljavax/tools/StandardLocation;", nullptr, $PUBLIC | $STATIC, $staticMethod(StandardLocation, valueOf, StandardLocation*, $String*)},
+		{"values", "()[Ljavax/tools/StandardLocation;", nullptr, $PUBLIC | $STATIC, $staticMethod(StandardLocation, values, $StandardLocationArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.tools.JavaFileManager$Location", "javax.tools.JavaFileManager", "Location", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"javax.tools.StandardLocation$2", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{"javax.tools.StandardLocation$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"javax.tools.StandardLocation",
+		"java.lang.Enum",
+		"javax.tools.JavaFileManager$Location",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Ljavax/tools/StandardLocation;>;Ljavax/tools/JavaFileManager$Location;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.tools.StandardLocation$2,javax.tools.StandardLocation$1"
+	};
+	$loadClass(StandardLocation, name, initialize, &classInfo$$, StandardLocation::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(StandardLocation));
+	});
 	return class$;
 }
 

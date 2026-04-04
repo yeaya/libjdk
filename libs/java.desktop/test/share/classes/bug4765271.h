@@ -29,6 +29,7 @@ class $export bug4765271 : public ::java::lang::Object {
 	$class(bug4765271, 0, ::java::lang::Object)
 public:
 	bug4765271();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(bool showFrame);
 	virtual void init();
 	static void lambda$main$0(::bug4765271* test);

@@ -1,5 +1,4 @@
 #include <javax/imageio/metadata/IIONodeList.h>
-
 #include <java/util/List.h>
 #include <org/w3c/dom/Node.h>
 #include <jcpp.h>
@@ -13,31 +12,6 @@ using $Node = ::org::w3c::dom::Node;
 namespace javax {
 	namespace imageio {
 		namespace metadata {
-
-$FieldInfo _IIONodeList_FieldInfo_[] = {
-	{"nodes", "Ljava/util/List;", "Ljava/util/List<+Lorg/w3c/dom/Node;>;", 0, $field(IIONodeList, nodes)},
-	{}
-};
-
-$MethodInfo _IIONodeList_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/List;)V", "(Ljava/util/List<+Lorg/w3c/dom/Node;>;)V", $PUBLIC, $method(IIONodeList, init$, void, $List*)},
-	{"getLength", "()I", nullptr, $PUBLIC, $virtualMethod(IIONodeList, getLength, int32_t)},
-	{"item", "(I)Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(IIONodeList, item, $Node*, int32_t)},
-	{}
-};
-
-$ClassInfo _IIONodeList_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.imageio.metadata.IIONodeList",
-	"java.lang.Object",
-	"org.w3c.dom.NodeList",
-	_IIONodeList_FieldInfo_,
-	_IIONodeList_MethodInfo_
-};
-
-$Object* allocate$IIONodeList($Class* clazz) {
-	return $of($alloc(IIONodeList));
-}
 
 void IIONodeList::init$($List* nodes) {
 	$set(this, nodes, nodes);
@@ -58,7 +32,27 @@ IIONodeList::IIONodeList() {
 }
 
 $Class* IIONodeList::load$($String* name, bool initialize) {
-	$loadClass(IIONodeList, name, initialize, &_IIONodeList_ClassInfo_, allocate$IIONodeList);
+	$FieldInfo fieldInfos$$[] = {
+		{"nodes", "Ljava/util/List;", "Ljava/util/List<+Lorg/w3c/dom/Node;>;", 0, $field(IIONodeList, nodes)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/List;)V", "(Ljava/util/List<+Lorg/w3c/dom/Node;>;)V", $PUBLIC, $method(IIONodeList, init$, void, $List*)},
+		{"getLength", "()I", nullptr, $PUBLIC, $virtualMethod(IIONodeList, getLength, int32_t)},
+		{"item", "(I)Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(IIONodeList, item, $Node*, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.imageio.metadata.IIONodeList",
+		"java.lang.Object",
+		"org.w3c.dom.NodeList",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(IIONodeList, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(IIONodeList);
+	});
 	return class$;
 }
 

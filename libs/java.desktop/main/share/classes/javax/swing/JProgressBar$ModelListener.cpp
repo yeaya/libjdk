@@ -1,5 +1,4 @@
 #include <javax/swing/JProgressBar$ModelListener.h>
-
 #include <javax/swing/JProgressBar.h>
 #include <javax/swing/event/ChangeEvent.h>
 #include <javax/swing/event/ChangeListener.h>
@@ -15,47 +14,6 @@ using $ChangeListener = ::javax::swing::event::ChangeListener;
 
 namespace javax {
 	namespace swing {
-
-$FieldInfo _JProgressBar$ModelListener_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/JProgressBar;", nullptr, $FINAL | $SYNTHETIC, $field(JProgressBar$ModelListener, this$0)},
-	{}
-};
-
-$MethodInfo _JProgressBar$ModelListener_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljavax/swing/JProgressBar;)V", nullptr, $PRIVATE, $method(JProgressBar$ModelListener, init$, void, $JProgressBar*)},
-	{"stateChanged", "(Ljavax/swing/event/ChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(JProgressBar$ModelListener, stateChanged, void, $ChangeEvent*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _JProgressBar$ModelListener_InnerClassesInfo_[] = {
-	{"javax.swing.JProgressBar$ModelListener", "javax.swing.JProgressBar", "ModelListener", $PRIVATE},
-	{}
-};
-
-$ClassInfo _JProgressBar$ModelListener_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.JProgressBar$ModelListener",
-	"java.lang.Object",
-	"javax.swing.event.ChangeListener,java.io.Serializable",
-	_JProgressBar$ModelListener_FieldInfo_,
-	_JProgressBar$ModelListener_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JProgressBar$ModelListener_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.JProgressBar"
-};
-
-$Object* allocate$JProgressBar$ModelListener($Class* clazz) {
-	return $of($alloc(JProgressBar$ModelListener));
-}
 
 int32_t JProgressBar$ModelListener::hashCode() {
 	 return this->$ChangeListener::hashCode();
@@ -89,7 +47,42 @@ JProgressBar$ModelListener::JProgressBar$ModelListener() {
 }
 
 $Class* JProgressBar$ModelListener::load$($String* name, bool initialize) {
-	$loadClass(JProgressBar$ModelListener, name, initialize, &_JProgressBar$ModelListener_ClassInfo_, allocate$JProgressBar$ModelListener);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/JProgressBar;", nullptr, $FINAL | $SYNTHETIC, $field(JProgressBar$ModelListener, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljavax/swing/JProgressBar;)V", nullptr, $PRIVATE, $method(JProgressBar$ModelListener, init$, void, $JProgressBar*)},
+		{"stateChanged", "(Ljavax/swing/event/ChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(JProgressBar$ModelListener, stateChanged, void, $ChangeEvent*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.JProgressBar$ModelListener", "javax.swing.JProgressBar", "ModelListener", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.JProgressBar$ModelListener",
+		"java.lang.Object",
+		"javax.swing.event.ChangeListener,java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.JProgressBar"
+	};
+	$loadClass(JProgressBar$ModelListener, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JProgressBar$ModelListener));
+	});
 	return class$;
 }
 

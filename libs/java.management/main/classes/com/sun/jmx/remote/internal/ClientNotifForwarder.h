@@ -94,6 +94,7 @@ class $export ClientNotifForwarder : public ::java::lang::Object {
 	$class(ClientNotifForwarder, 0, ::java::lang::Object)
 public:
 	ClientNotifForwarder();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::util::Map* env);
 	void init$(::java::lang::ClassLoader* defaultClassLoader, ::java::util::Map* env);
 	virtual ::java::lang::Integer* addListenerForMBeanRemovedNotif() {return nullptr;}

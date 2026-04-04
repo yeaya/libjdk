@@ -12,6 +12,7 @@ class $export AWTIcon64_security_icon_interim32_png : public ::java::lang::Objec
 	$class(AWTIcon64_security_icon_interim32_png, 0, ::java::lang::Object)
 public:
 	AWTIcon64_security_icon_interim32_png();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $longs* security_icon_interim32_png;
 };

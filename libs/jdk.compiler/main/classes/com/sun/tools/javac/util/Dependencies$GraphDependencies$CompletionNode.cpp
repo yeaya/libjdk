@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/util/Dependencies$GraphDependencies$CompletionNode.h>
-
 #include <com/sun/tools/javac/code/Symbol$ClassSymbol.h>
 #include <com/sun/tools/javac/util/Dependencies$GraphDependencies$CompletionNode$Kind.h>
 #include <com/sun/tools/javac/util/Dependencies$GraphDependencies$Node.h>
@@ -21,7 +20,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Properties = ::java::util::Properties;
-using $JavaFileObject = ::javax::tools::JavaFileObject;
 using $JavaFileObject$Kind = ::javax::tools::JavaFileObject$Kind;
 
 namespace com {
@@ -30,50 +28,10 @@ namespace com {
 			namespace javac {
 				namespace util {
 
-$FieldInfo _Dependencies$GraphDependencies$CompletionNode_FieldInfo_[] = {
-	{"ck", "Lcom/sun/tools/javac/util/Dependencies$GraphDependencies$CompletionNode$Kind;", nullptr, $FINAL, $field(Dependencies$GraphDependencies$CompletionNode, ck)},
-	{}
-};
-
-$MethodInfo _Dependencies$GraphDependencies$CompletionNode_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)V", nullptr, 0, $method(Dependencies$GraphDependencies$CompletionNode, init$, void, $Symbol$ClassSymbol*)},
-	{"getClassSymbol", "()Lcom/sun/tools/javac/code/Symbol$ClassSymbol;", nullptr, $PUBLIC, $virtualMethod(Dependencies$GraphDependencies$CompletionNode, getClassSymbol, $Symbol$ClassSymbol*)},
-	{"nodeAttributes", "()Ljava/util/Properties;", nullptr, $PUBLIC, $virtualMethod(Dependencies$GraphDependencies$CompletionNode, nodeAttributes, $Properties*)},
-	{}
-};
-
-$InnerClassInfo _Dependencies$GraphDependencies$CompletionNode_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.util.Dependencies$GraphDependencies", "com.sun.tools.javac.util.Dependencies", "GraphDependencies", $PUBLIC | $STATIC},
-	{"com.sun.tools.javac.util.Dependencies$GraphDependencies$CompletionNode", "com.sun.tools.javac.util.Dependencies$GraphDependencies", "CompletionNode", $PUBLIC | $STATIC},
-	{"com.sun.tools.javac.util.Dependencies$GraphDependencies$Node", "com.sun.tools.javac.util.Dependencies$GraphDependencies", "Node", $PUBLIC | $STATIC | $ABSTRACT},
-	{"com.sun.tools.javac.util.Dependencies$GraphDependencies$CompletionNode$Kind", "com.sun.tools.javac.util.Dependencies$GraphDependencies$CompletionNode", "Kind", $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _Dependencies$GraphDependencies$CompletionNode_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.util.Dependencies$GraphDependencies$CompletionNode",
-	"com.sun.tools.javac.util.Dependencies$GraphDependencies$Node",
-	nullptr,
-	_Dependencies$GraphDependencies$CompletionNode_FieldInfo_,
-	_Dependencies$GraphDependencies$CompletionNode_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Dependencies$GraphDependencies$CompletionNode_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.util.Dependencies"
-};
-
-$Object* allocate$Dependencies$GraphDependencies$CompletionNode($Class* clazz) {
-	return $of($alloc(Dependencies$GraphDependencies$CompletionNode));
-}
-
 void Dependencies$GraphDependencies$CompletionNode::init$($Symbol$ClassSymbol* sym) {
 	$Dependencies$GraphDependencies$Node::init$(sym);
 	$init($JavaFileObject$Kind);
-	bool fromClass = ($nc(sym)->classfile == nullptr && sym->sourcefile == nullptr) || ($nc(sym)->classfile != nullptr && $nc(sym->classfile)->getKind() == $JavaFileObject$Kind::CLASS);
+	bool fromClass = ($nc(sym)->classfile == nullptr && sym->sourcefile == nullptr) || (sym->classfile != nullptr && sym->classfile->getKind() == $JavaFileObject$Kind::CLASS);
 	$init($Dependencies$GraphDependencies$CompletionNode$Kind);
 	$set(this, ck, fromClass ? $Dependencies$GraphDependencies$CompletionNode$Kind::CLASS : $Dependencies$GraphDependencies$CompletionNode$Kind::SOURCE);
 }
@@ -93,7 +51,41 @@ Dependencies$GraphDependencies$CompletionNode::Dependencies$GraphDependencies$Co
 }
 
 $Class* Dependencies$GraphDependencies$CompletionNode::load$($String* name, bool initialize) {
-	$loadClass(Dependencies$GraphDependencies$CompletionNode, name, initialize, &_Dependencies$GraphDependencies$CompletionNode_ClassInfo_, allocate$Dependencies$GraphDependencies$CompletionNode);
+	$FieldInfo fieldInfos$$[] = {
+		{"ck", "Lcom/sun/tools/javac/util/Dependencies$GraphDependencies$CompletionNode$Kind;", nullptr, $FINAL, $field(Dependencies$GraphDependencies$CompletionNode, ck)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)V", nullptr, 0, $method(Dependencies$GraphDependencies$CompletionNode, init$, void, $Symbol$ClassSymbol*)},
+		{"getClassSymbol", "()Lcom/sun/tools/javac/code/Symbol$ClassSymbol;", nullptr, $PUBLIC, $virtualMethod(Dependencies$GraphDependencies$CompletionNode, getClassSymbol, $Symbol$ClassSymbol*)},
+		{"nodeAttributes", "()Ljava/util/Properties;", nullptr, $PUBLIC, $virtualMethod(Dependencies$GraphDependencies$CompletionNode, nodeAttributes, $Properties*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.util.Dependencies$GraphDependencies", "com.sun.tools.javac.util.Dependencies", "GraphDependencies", $PUBLIC | $STATIC},
+		{"com.sun.tools.javac.util.Dependencies$GraphDependencies$CompletionNode", "com.sun.tools.javac.util.Dependencies$GraphDependencies", "CompletionNode", $PUBLIC | $STATIC},
+		{"com.sun.tools.javac.util.Dependencies$GraphDependencies$Node", "com.sun.tools.javac.util.Dependencies$GraphDependencies", "Node", $PUBLIC | $STATIC | $ABSTRACT},
+		{"com.sun.tools.javac.util.Dependencies$GraphDependencies$CompletionNode$Kind", "com.sun.tools.javac.util.Dependencies$GraphDependencies$CompletionNode", "Kind", $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.util.Dependencies$GraphDependencies$CompletionNode",
+		"com.sun.tools.javac.util.Dependencies$GraphDependencies$Node",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.util.Dependencies"
+	};
+	$loadClass(Dependencies$GraphDependencies$CompletionNode, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Dependencies$GraphDependencies$CompletionNode));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/source/util/ParameterNameProvider.h>
-
 #include <java/lang/CharSequence.h>
 #include <javax/lang/model/element/VariableElement.h>
 #include <jcpp.h>
@@ -14,26 +13,22 @@ namespace com {
 		namespace source {
 			namespace util {
 
-$MethodInfo _ParameterNameProvider_MethodInfo_[] = {
-	{"getParameterName", "(Ljavax/lang/model/element/VariableElement;)Ljava/lang/CharSequence;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ParameterNameProvider, getParameterName, $CharSequence*, $VariableElement*)},
-	{}
-};
-
-$ClassInfo _ParameterNameProvider_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.source.util.ParameterNameProvider",
-	nullptr,
-	nullptr,
-	nullptr,
-	_ParameterNameProvider_MethodInfo_
-};
-
-$Object* allocate$ParameterNameProvider($Class* clazz) {
-	return $of($alloc(ParameterNameProvider));
-}
-
 $Class* ParameterNameProvider::load$($String* name, bool initialize) {
-	$loadClass(ParameterNameProvider, name, initialize, &_ParameterNameProvider_ClassInfo_, allocate$ParameterNameProvider);
+	$MethodInfo methodInfos$$[] = {
+		{"getParameterName", "(Ljavax/lang/model/element/VariableElement;)Ljava/lang/CharSequence;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ParameterNameProvider, getParameterName, $CharSequence*, $VariableElement*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.source.util.ParameterNameProvider",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ParameterNameProvider, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ParameterNameProvider);
+	});
 	return class$;
 }
 

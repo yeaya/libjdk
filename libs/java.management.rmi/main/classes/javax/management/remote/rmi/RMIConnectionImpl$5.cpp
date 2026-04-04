@@ -1,5 +1,4 @@
 #include <javax/management/remote/rmi/RMIConnectionImpl$5.h>
-
 #include <java/lang/ClassLoader.h>
 #include <javax/management/MBeanServer.h>
 #include <javax/management/ObjectName.h>
@@ -11,7 +10,6 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $MBeanServer = ::javax::management::MBeanServer;
 using $ObjectName = ::javax::management::ObjectName;
 using $RMIConnectionImpl = ::javax::management::remote::rmi::RMIConnectionImpl;
 
@@ -20,63 +18,56 @@ namespace javax {
 		namespace remote {
 			namespace rmi {
 
-$FieldInfo _RMIConnectionImpl$5_FieldInfo_[] = {
-	{"this$0", "Ljavax/management/remote/rmi/RMIConnectionImpl;", nullptr, $FINAL | $SYNTHETIC, $field(RMIConnectionImpl$5, this$0)},
-	{"val$name", "Ljavax/management/ObjectName;", nullptr, $FINAL | $SYNTHETIC, $field(RMIConnectionImpl$5, val$name)},
-	{}
-};
-
-$MethodInfo _RMIConnectionImpl$5_MethodInfo_[] = {
-	{"<init>", "(Ljavax/management/remote/rmi/RMIConnectionImpl;Ljavax/management/ObjectName;)V", "()V", 0, $method(RMIConnectionImpl$5, init$, void, $RMIConnectionImpl*, $ObjectName*)},
-	{"run", "()Ljava/lang/ClassLoader;", nullptr, $PUBLIC, $virtualMethod(RMIConnectionImpl$5, run, $Object*), "javax.management.InstanceNotFoundException"},
-	{}
-};
-
-$EnclosingMethodInfo _RMIConnectionImpl$5_EnclosingMethodInfo_ = {
-	"javax.management.remote.rmi.RMIConnectionImpl",
-	"getClassLoader",
-	"(Ljavax/management/ObjectName;)Ljava/lang/ClassLoader;"
-};
-
-$InnerClassInfo _RMIConnectionImpl$5_InnerClassesInfo_[] = {
-	{"javax.management.remote.rmi.RMIConnectionImpl$5", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _RMIConnectionImpl$5_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.management.remote.rmi.RMIConnectionImpl$5",
-	"java.lang.Object",
-	"java.security.PrivilegedExceptionAction",
-	_RMIConnectionImpl$5_FieldInfo_,
-	_RMIConnectionImpl$5_MethodInfo_,
-	"Ljava/lang/Object;Ljava/security/PrivilegedExceptionAction<Ljava/lang/ClassLoader;>;",
-	&_RMIConnectionImpl$5_EnclosingMethodInfo_,
-	_RMIConnectionImpl$5_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.management.remote.rmi.RMIConnectionImpl"
-};
-
-$Object* allocate$RMIConnectionImpl$5($Class* clazz) {
-	return $of($alloc(RMIConnectionImpl$5));
-}
-
 void RMIConnectionImpl$5::init$($RMIConnectionImpl* this$0, $ObjectName* val$name) {
 	$set(this, this$0, this$0);
 	$set(this, val$name, val$name);
 }
 
 $Object* RMIConnectionImpl$5::run() {
-	return $of($nc(this->this$0->mbeanServer)->getClassLoader(this->val$name));
+	return $nc(this->this$0->mbeanServer)->getClassLoader(this->val$name);
 }
 
 RMIConnectionImpl$5::RMIConnectionImpl$5() {
 }
 
 $Class* RMIConnectionImpl$5::load$($String* name, bool initialize) {
-	$loadClass(RMIConnectionImpl$5, name, initialize, &_RMIConnectionImpl$5_ClassInfo_, allocate$RMIConnectionImpl$5);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/management/remote/rmi/RMIConnectionImpl;", nullptr, $FINAL | $SYNTHETIC, $field(RMIConnectionImpl$5, this$0)},
+		{"val$name", "Ljavax/management/ObjectName;", nullptr, $FINAL | $SYNTHETIC, $field(RMIConnectionImpl$5, val$name)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/management/remote/rmi/RMIConnectionImpl;Ljavax/management/ObjectName;)V", "()V", 0, $method(RMIConnectionImpl$5, init$, void, $RMIConnectionImpl*, $ObjectName*)},
+		{"run", "()Ljava/lang/ClassLoader;", nullptr, $PUBLIC, $virtualMethod(RMIConnectionImpl$5, run, $Object*), "javax.management.InstanceNotFoundException"},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"javax.management.remote.rmi.RMIConnectionImpl",
+		"getClassLoader",
+		"(Ljavax/management/ObjectName;)Ljava/lang/ClassLoader;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.management.remote.rmi.RMIConnectionImpl$5", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.management.remote.rmi.RMIConnectionImpl$5",
+		"java.lang.Object",
+		"java.security.PrivilegedExceptionAction",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/security/PrivilegedExceptionAction<Ljava/lang/ClassLoader;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.management.remote.rmi.RMIConnectionImpl"
+	};
+	$loadClass(RMIConnectionImpl$5, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RMIConnectionImpl$5);
+	});
 	return class$;
 }
 

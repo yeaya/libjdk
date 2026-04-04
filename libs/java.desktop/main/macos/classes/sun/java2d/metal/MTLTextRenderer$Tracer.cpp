@@ -1,5 +1,4 @@
 #include <sun/java2d/metal/MTLTextRenderer$Tracer.h>
-
 #include <sun/font/GlyphList.h>
 #include <sun/java2d/SunGraphics2D.h>
 #include <sun/java2d/loops/GraphicsPrimitive.h>
@@ -20,37 +19,6 @@ namespace sun {
 	namespace java2d {
 		namespace metal {
 
-$MethodInfo _MTLTextRenderer$Tracer_MethodInfo_[] = {
-	{"<init>", "(Lsun/java2d/metal/MTLTextRenderer;)V", nullptr, 0, $method(MTLTextRenderer$Tracer, init$, void, $MTLTextRenderer*)},
-	{"drawGlyphList", "(Lsun/java2d/SunGraphics2D;Lsun/font/GlyphList;)V", nullptr, $PROTECTED, $virtualMethod(MTLTextRenderer$Tracer, drawGlyphList, void, $SunGraphics2D*, $GlyphList*)},
-	{}
-};
-
-$InnerClassInfo _MTLTextRenderer$Tracer_InnerClassesInfo_[] = {
-	{"sun.java2d.metal.MTLTextRenderer$Tracer", "sun.java2d.metal.MTLTextRenderer", "Tracer", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _MTLTextRenderer$Tracer_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.java2d.metal.MTLTextRenderer$Tracer",
-	"sun.java2d.metal.MTLTextRenderer",
-	nullptr,
-	nullptr,
-	_MTLTextRenderer$Tracer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MTLTextRenderer$Tracer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.java2d.metal.MTLTextRenderer"
-};
-
-$Object* allocate$MTLTextRenderer$Tracer($Class* clazz) {
-	return $of($alloc(MTLTextRenderer$Tracer));
-}
-
 void MTLTextRenderer$Tracer::init$($MTLTextRenderer* mtltr) {
 	$MTLTextRenderer::init$($($MTLTextRenderer::access$000(mtltr)));
 }
@@ -64,7 +32,33 @@ MTLTextRenderer$Tracer::MTLTextRenderer$Tracer() {
 }
 
 $Class* MTLTextRenderer$Tracer::load$($String* name, bool initialize) {
-	$loadClass(MTLTextRenderer$Tracer, name, initialize, &_MTLTextRenderer$Tracer_ClassInfo_, allocate$MTLTextRenderer$Tracer);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/java2d/metal/MTLTextRenderer;)V", nullptr, 0, $method(MTLTextRenderer$Tracer, init$, void, $MTLTextRenderer*)},
+		{"drawGlyphList", "(Lsun/java2d/SunGraphics2D;Lsun/font/GlyphList;)V", nullptr, $PROTECTED, $virtualMethod(MTLTextRenderer$Tracer, drawGlyphList, void, $SunGraphics2D*, $GlyphList*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.java2d.metal.MTLTextRenderer$Tracer", "sun.java2d.metal.MTLTextRenderer", "Tracer", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.java2d.metal.MTLTextRenderer$Tracer",
+		"sun.java2d.metal.MTLTextRenderer",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.java2d.metal.MTLTextRenderer"
+	};
+	$loadClass(MTLTextRenderer$Tracer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MTLTextRenderer$Tracer);
+	});
 	return class$;
 }
 

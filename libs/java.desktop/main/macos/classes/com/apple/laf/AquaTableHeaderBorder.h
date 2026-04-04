@@ -53,6 +53,7 @@ class AquaTableHeaderBorder : public ::javax::swing::border::AbstractBorder {
 	$class(AquaTableHeaderBorder, 0, ::javax::swing::border::AbstractBorder)
 public:
 	AquaTableHeaderBorder();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::javax::swing::border::Border* getAlternateBorder();
 	virtual ::java::awt::Insets* getBorderInsets(::java::awt::Component* c) override;

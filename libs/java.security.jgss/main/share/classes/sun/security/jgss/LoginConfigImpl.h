@@ -48,6 +48,7 @@ class $export LoginConfigImpl : public ::javax::security::auth::login::Configura
 	$class(LoginConfigImpl, 0, ::javax::security::auth::login::Configuration)
 public:
 	LoginConfigImpl();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::security::jgss::GSSCaller* caller, ::org::ietf::jgss::Oid* mech);
 	virtual $Array<::javax::security::auth::login::AppConfigurationEntry>* getAppConfigurationEntry($String* name) override;
 	$Array<::javax::security::auth::login::AppConfigurationEntry>* getDefaultConfigurationEntry();

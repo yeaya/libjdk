@@ -1,12 +1,8 @@
 #include <JSpinnerButtonFocusTest.h>
-
 #include <JSpinnerButtonFocusTest$1.h>
 #include <java/awt/BorderLayout.h>
-#include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <java/awt/ContainerOrderFocusTraversalPolicy.h>
-#include <java/awt/FocusTraversalPolicy.h>
-#include <java/awt/LayoutManager.h>
 #include <java/awt/Robot.h>
 #include <java/awt/Window.h>
 #include <java/awt/event/FocusListener.h>
@@ -37,14 +33,9 @@
 using $JSpinnerButtonFocusTest$1 = ::JSpinnerButtonFocusTest$1;
 using $UIManager$LookAndFeelInfoArray = $Array<::javax::swing::UIManager$LookAndFeelInfo>;
 using $BorderLayout = ::java::awt::BorderLayout;
-using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $ContainerOrderFocusTraversalPolicy = ::java::awt::ContainerOrderFocusTraversalPolicy;
-using $FocusTraversalPolicy = ::java::awt::FocusTraversalPolicy;
-using $LayoutManager = ::java::awt::LayoutManager;
 using $Robot = ::java::awt::Robot;
 using $Window = ::java::awt::Window;
-using $FocusListener = ::java::awt::event::FocusListener;
 using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -55,7 +46,6 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $CountDownLatch = ::java::util::concurrent::CountDownLatch;
 using $TimeUnit = ::java::util::concurrent::TimeUnit;
-using $JFormattedTextField = ::javax::swing::JFormattedTextField;
 using $JFrame = ::javax::swing::JFrame;
 using $JSpinner = ::javax::swing::JSpinner;
 using $JSpinner$DefaultEditor = ::javax::swing::JSpinner$DefaultEditor;
@@ -71,27 +61,24 @@ public:
 	virtual void run() override {
 		JSpinnerButtonFocusTest::lambda$main$0();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<JSpinnerButtonFocusTest$$Lambda$lambda$main$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo JSpinnerButtonFocusTest$$Lambda$lambda$main$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(JSpinnerButtonFocusTest$$Lambda$lambda$main$0, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(JSpinnerButtonFocusTest$$Lambda$lambda$main$0, run, void)},
-	{}
-};
-$ClassInfo JSpinnerButtonFocusTest$$Lambda$lambda$main$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"JSpinnerButtonFocusTest$$Lambda$lambda$main$0",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* JSpinnerButtonFocusTest$$Lambda$lambda$main$0::load$($String* name, bool initialize) {
-	$loadClass(JSpinnerButtonFocusTest$$Lambda$lambda$main$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(JSpinnerButtonFocusTest$$Lambda$lambda$main$0, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(JSpinnerButtonFocusTest$$Lambda$lambda$main$0, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"JSpinnerButtonFocusTest$$Lambda$lambda$main$0",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(JSpinnerButtonFocusTest$$Lambda$lambda$main$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JSpinnerButtonFocusTest$$Lambda$lambda$main$0);
+	});
 	return class$;
 }
 $Class* JSpinnerButtonFocusTest$$Lambda$lambda$main$0::class$ = nullptr;
@@ -104,27 +91,24 @@ public:
 	virtual void run() override {
 		JSpinnerButtonFocusTest::lambda$main$1();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<JSpinnerButtonFocusTest$$Lambda$lambda$main$1$1>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo JSpinnerButtonFocusTest$$Lambda$lambda$main$1$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(JSpinnerButtonFocusTest$$Lambda$lambda$main$1$1, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(JSpinnerButtonFocusTest$$Lambda$lambda$main$1$1, run, void)},
-	{}
-};
-$ClassInfo JSpinnerButtonFocusTest$$Lambda$lambda$main$1$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"JSpinnerButtonFocusTest$$Lambda$lambda$main$1$1",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* JSpinnerButtonFocusTest$$Lambda$lambda$main$1$1::load$($String* name, bool initialize) {
-	$loadClass(JSpinnerButtonFocusTest$$Lambda$lambda$main$1$1, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(JSpinnerButtonFocusTest$$Lambda$lambda$main$1$1, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(JSpinnerButtonFocusTest$$Lambda$lambda$main$1$1, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"JSpinnerButtonFocusTest$$Lambda$lambda$main$1$1",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(JSpinnerButtonFocusTest$$Lambda$lambda$main$1$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JSpinnerButtonFocusTest$$Lambda$lambda$main$1$1);
+	});
 	return class$;
 }
 $Class* JSpinnerButtonFocusTest$$Lambda$lambda$main$1$1::class$ = nullptr;
@@ -137,27 +121,24 @@ public:
 	virtual void run() override {
 		JSpinnerButtonFocusTest::lambda$main$2();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<JSpinnerButtonFocusTest$$Lambda$lambda$main$2$2>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo JSpinnerButtonFocusTest$$Lambda$lambda$main$2$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(JSpinnerButtonFocusTest$$Lambda$lambda$main$2$2, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(JSpinnerButtonFocusTest$$Lambda$lambda$main$2$2, run, void)},
-	{}
-};
-$ClassInfo JSpinnerButtonFocusTest$$Lambda$lambda$main$2$2::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"JSpinnerButtonFocusTest$$Lambda$lambda$main$2$2",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* JSpinnerButtonFocusTest$$Lambda$lambda$main$2$2::load$($String* name, bool initialize) {
-	$loadClass(JSpinnerButtonFocusTest$$Lambda$lambda$main$2$2, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(JSpinnerButtonFocusTest$$Lambda$lambda$main$2$2, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(JSpinnerButtonFocusTest$$Lambda$lambda$main$2$2, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"JSpinnerButtonFocusTest$$Lambda$lambda$main$2$2",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(JSpinnerButtonFocusTest$$Lambda$lambda$main$2$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JSpinnerButtonFocusTest$$Lambda$lambda$main$2$2);
+	});
 	return class$;
 }
 $Class* JSpinnerButtonFocusTest$$Lambda$lambda$main$2$2::class$ = nullptr;
@@ -171,81 +152,32 @@ public:
 	virtual void run() override {
 		$nc(inst$)->dispose();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<JSpinnerButtonFocusTest$$Lambda$dispose$3>());
-	}
 	$Window* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo JSpinnerButtonFocusTest$$Lambda$dispose$3::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(JSpinnerButtonFocusTest$$Lambda$dispose$3, inst$)},
-	{}
-};
-$MethodInfo JSpinnerButtonFocusTest$$Lambda$dispose$3::methodInfos[3] = {
-	{"<init>", "(Ljava/awt/Window;)V", nullptr, $PUBLIC, $method(JSpinnerButtonFocusTest$$Lambda$dispose$3, init$, void, $Window*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(JSpinnerButtonFocusTest$$Lambda$dispose$3, run, void)},
-	{}
-};
-$ClassInfo JSpinnerButtonFocusTest$$Lambda$dispose$3::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"JSpinnerButtonFocusTest$$Lambda$dispose$3",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	fieldInfos,
-	methodInfos
 };
 $Class* JSpinnerButtonFocusTest$$Lambda$dispose$3::load$($String* name, bool initialize) {
-	$loadClass(JSpinnerButtonFocusTest$$Lambda$dispose$3, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(JSpinnerButtonFocusTest$$Lambda$dispose$3, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/Window;)V", nullptr, $PUBLIC, $method(JSpinnerButtonFocusTest$$Lambda$dispose$3, init$, void, $Window*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(JSpinnerButtonFocusTest$$Lambda$dispose$3, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"JSpinnerButtonFocusTest$$Lambda$dispose$3",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(JSpinnerButtonFocusTest$$Lambda$dispose$3, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JSpinnerButtonFocusTest$$Lambda$dispose$3);
+	});
 	return class$;
 }
 $Class* JSpinnerButtonFocusTest$$Lambda$dispose$3::class$ = nullptr;
-
-$FieldInfo _JSpinnerButtonFocusTest_FieldInfo_[] = {
-	{"frame", "Ljavax/swing/JFrame;", nullptr, $STATIC, $staticField(JSpinnerButtonFocusTest, frame)},
-	{"robot", "Ljava/awt/Robot;", nullptr, $STATIC, $staticField(JSpinnerButtonFocusTest, robot)},
-	{"spinner1", "Ljavax/swing/JSpinner;", nullptr, $STATIC, $staticField(JSpinnerButtonFocusTest, spinner1)},
-	{"spinner2", "Ljavax/swing/JSpinner;", nullptr, $STATIC, $staticField(JSpinnerButtonFocusTest, spinner2)},
-	{"editor1", "Ljavax/swing/JSpinner$DefaultEditor;", nullptr, $STATIC, $staticField(JSpinnerButtonFocusTest, editor1)},
-	{"editor2", "Ljavax/swing/JSpinner$DefaultEditor;", nullptr, $STATIC, $staticField(JSpinnerButtonFocusTest, editor2)},
-	{"isJTextFieldFocused", "Z", nullptr, $STATIC | $VOLATILE, $staticField(JSpinnerButtonFocusTest, isJTextFieldFocused)},
-	{"latch1", "Ljava/util/concurrent/CountDownLatch;", nullptr, $STATIC | $VOLATILE, $staticField(JSpinnerButtonFocusTest, latch1)},
-	{}
-};
-
-$MethodInfo _JSpinnerButtonFocusTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(JSpinnerButtonFocusTest, init$, void)},
-	{"lambda$main$0", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JSpinnerButtonFocusTest, lambda$main$0, void)},
-	{"lambda$main$1", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JSpinnerButtonFocusTest, lambda$main$1, void)},
-	{"lambda$main$2", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JSpinnerButtonFocusTest, lambda$main$2, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(JSpinnerButtonFocusTest, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$InnerClassInfo _JSpinnerButtonFocusTest_InnerClassesInfo_[] = {
-	{"JSpinnerButtonFocusTest$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _JSpinnerButtonFocusTest_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"JSpinnerButtonFocusTest",
-	"java.lang.Object",
-	nullptr,
-	_JSpinnerButtonFocusTest_FieldInfo_,
-	_JSpinnerButtonFocusTest_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JSpinnerButtonFocusTest_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"JSpinnerButtonFocusTest$1"
-};
-
-$Object* allocate$JSpinnerButtonFocusTest($Class* clazz) {
-	return $of($alloc(JSpinnerButtonFocusTest));
-}
 
 $JFrame* JSpinnerButtonFocusTest::frame = nullptr;
 $Robot* JSpinnerButtonFocusTest::robot = nullptr;
@@ -260,46 +192,40 @@ void JSpinnerButtonFocusTest::init$() {
 }
 
 void JSpinnerButtonFocusTest::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($UIManager$LookAndFeelInfoArray, arr$, $UIManager::getInstalledLookAndFeels());
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
-			$var($UIManager$LookAndFeelInfo, LF, arr$->get(i$));
-			{
-				$init(JSpinnerButtonFocusTest);
-				$assignStatic(JSpinnerButtonFocusTest::latch1, $new($CountDownLatch, 1));
-				{
-					$var($Throwable, var$0, nullptr);
-					try {
-						$UIManager::setLookAndFeel($($nc(LF)->getClassName()));
-						$assignStatic(JSpinnerButtonFocusTest::robot, $new($Robot));
-						$nc(JSpinnerButtonFocusTest::robot)->setAutoDelay(50);
-						$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(JSpinnerButtonFocusTest$$Lambda$lambda$main$0)));
-						$nc(JSpinnerButtonFocusTest::robot)->waitForIdle();
-						$nc($($nc(JSpinnerButtonFocusTest::editor1)->getTextField()))->addFocusListener($$new($JSpinnerButtonFocusTest$1));
-						$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(JSpinnerButtonFocusTest$$Lambda$lambda$main$1$1)));
-						$init($TimeUnit);
-						if (!$nc(JSpinnerButtonFocusTest::latch1)->await(15, $TimeUnit::MINUTES)) {
-							$throwNew($RuntimeException, $$str({$($nc(LF)->getClassName()), ": Timeout waiting for editor1 to gain focus."_s}));
-						}
-						$nc(JSpinnerButtonFocusTest::robot)->waitForIdle();
-						$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(JSpinnerButtonFocusTest$$Lambda$lambda$main$2$2)));
-						if (!JSpinnerButtonFocusTest::isJTextFieldFocused) {
-							$throwNew($RuntimeException, $$str({$($nc(LF)->getClassName()), ": Spinner\'s Text Field doesn\'t have focus "_s}));
-						}
-					} catch ($Throwable& var$1) {
-						$assign(var$0, var$1);
-					} /*finally*/ {
-						if (JSpinnerButtonFocusTest::frame != nullptr) {
-							$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(JSpinnerButtonFocusTest$$Lambda$dispose$3, static_cast<$JFrame*>($nc(JSpinnerButtonFocusTest::frame)))));
-						}
-					}
-					if (var$0 != nullptr) {
-						$throw(var$0);
-					}
+	$useLocalObjectStack();
+	$var($UIManager$LookAndFeelInfoArray, arr$, $UIManager::getInstalledLookAndFeels());
+	for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
+		$var($UIManager$LookAndFeelInfo, LF, arr$->get(i$));
+		{
+			$init(JSpinnerButtonFocusTest);
+			$assignStatic(JSpinnerButtonFocusTest::latch1, $new($CountDownLatch, 1));
+			$var($Throwable, var$0, nullptr);
+			try {
+				$UIManager::setLookAndFeel($($nc(LF)->getClassName()));
+				$assignStatic(JSpinnerButtonFocusTest::robot, $new($Robot));
+				JSpinnerButtonFocusTest::robot->setAutoDelay(50);
+				$SwingUtilities::invokeAndWait($$new(JSpinnerButtonFocusTest$$Lambda$lambda$main$0));
+				$nc(JSpinnerButtonFocusTest::robot)->waitForIdle();
+				$$nc($nc(JSpinnerButtonFocusTest::editor1)->getTextField())->addFocusListener($$new($JSpinnerButtonFocusTest$1));
+				$SwingUtilities::invokeAndWait($$new(JSpinnerButtonFocusTest$$Lambda$lambda$main$1$1));
+				$init($TimeUnit);
+				if (!$nc(JSpinnerButtonFocusTest::latch1)->await(15, $TimeUnit::MINUTES)) {
+					$throwNew($RuntimeException, $$str({$(LF->getClassName()), ": Timeout waiting for editor1 to gain focus."_s}));
 				}
+				$nc(JSpinnerButtonFocusTest::robot)->waitForIdle();
+				$SwingUtilities::invokeAndWait($$new(JSpinnerButtonFocusTest$$Lambda$lambda$main$2$2));
+				if (!JSpinnerButtonFocusTest::isJTextFieldFocused) {
+					$throwNew($RuntimeException, $$str({$(LF->getClassName()), ": Spinner\'s Text Field doesn\'t have focus "_s}));
+				}
+			} catch ($Throwable& var$1) {
+				$assign(var$0, var$1);
+			} /*finally*/ {
+				if (JSpinnerButtonFocusTest::frame != nullptr) {
+					$SwingUtilities::invokeAndWait($$new(JSpinnerButtonFocusTest$$Lambda$dispose$3, JSpinnerButtonFocusTest::frame));
+				}
+			}
+			if (var$0 != nullptr) {
+				$throw(var$0);
 			}
 		}
 	}
@@ -307,24 +233,23 @@ void JSpinnerButtonFocusTest::main($StringArray* args) {
 
 void JSpinnerButtonFocusTest::lambda$main$2() {
 	$init(JSpinnerButtonFocusTest);
-	JSpinnerButtonFocusTest::isJTextFieldFocused = $nc($($nc(JSpinnerButtonFocusTest::editor2)->getTextField()))->isFocusOwner();
+	JSpinnerButtonFocusTest::isJTextFieldFocused = $$nc($nc(JSpinnerButtonFocusTest::editor2)->getTextField())->isFocusOwner();
 }
 
 void JSpinnerButtonFocusTest::lambda$main$1() {
 	$init(JSpinnerButtonFocusTest);
-	$nc($($nc(JSpinnerButtonFocusTest::editor1)->getTextField()))->requestFocusInWindow();
+	$$nc($nc(JSpinnerButtonFocusTest::editor1)->getTextField())->requestFocusInWindow();
 }
 
 void JSpinnerButtonFocusTest::lambda$main$0() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init(JSpinnerButtonFocusTest);
 	$assignStatic(JSpinnerButtonFocusTest::frame, $new($JFrame));
 	$assignStatic(JSpinnerButtonFocusTest::spinner1, $new($JSpinner));
 	$assignStatic(JSpinnerButtonFocusTest::spinner2, $new($JSpinner));
-	$nc(JSpinnerButtonFocusTest::frame)->setLayout($$new($BorderLayout));
-	$init($BorderLayout);
-	$nc($($nc(JSpinnerButtonFocusTest::frame)->getContentPane()))->add(static_cast<$Component*>(JSpinnerButtonFocusTest::spinner1), $of($BorderLayout::NORTH));
-	$nc($($nc(JSpinnerButtonFocusTest::frame)->getContentPane()))->add(static_cast<$Component*>(JSpinnerButtonFocusTest::spinner2), $of($BorderLayout::SOUTH));
+	JSpinnerButtonFocusTest::frame->setLayout($$new($BorderLayout));
+	$$nc($nc(JSpinnerButtonFocusTest::frame)->getContentPane())->add(JSpinnerButtonFocusTest::spinner1, $BorderLayout::NORTH);
+	$$nc($nc(JSpinnerButtonFocusTest::frame)->getContentPane())->add(JSpinnerButtonFocusTest::spinner2, $BorderLayout::SOUTH);
 	$assignStatic(JSpinnerButtonFocusTest::editor1, $cast($JSpinner$DefaultEditor, $nc(JSpinnerButtonFocusTest::spinner1)->getEditor()));
 	$nc(JSpinnerButtonFocusTest::editor1)->setFocusable(false);
 	$nc(JSpinnerButtonFocusTest::spinner1)->setFocusable(false);
@@ -343,20 +268,59 @@ JSpinnerButtonFocusTest::JSpinnerButtonFocusTest() {
 
 $Class* JSpinnerButtonFocusTest::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(JSpinnerButtonFocusTest$$Lambda$lambda$main$0::classInfo$.name)) {
+		if (name->equals("JSpinnerButtonFocusTest$$Lambda$lambda$main$0")) {
 			return JSpinnerButtonFocusTest$$Lambda$lambda$main$0::load$(name, initialize);
 		}
-		if (name->equals(JSpinnerButtonFocusTest$$Lambda$lambda$main$1$1::classInfo$.name)) {
+		if (name->equals("JSpinnerButtonFocusTest$$Lambda$lambda$main$1$1")) {
 			return JSpinnerButtonFocusTest$$Lambda$lambda$main$1$1::load$(name, initialize);
 		}
-		if (name->equals(JSpinnerButtonFocusTest$$Lambda$lambda$main$2$2::classInfo$.name)) {
+		if (name->equals("JSpinnerButtonFocusTest$$Lambda$lambda$main$2$2")) {
 			return JSpinnerButtonFocusTest$$Lambda$lambda$main$2$2::load$(name, initialize);
 		}
-		if (name->equals(JSpinnerButtonFocusTest$$Lambda$dispose$3::classInfo$.name)) {
+		if (name->equals("JSpinnerButtonFocusTest$$Lambda$dispose$3")) {
 			return JSpinnerButtonFocusTest$$Lambda$dispose$3::load$(name, initialize);
 		}
 	}
-	$loadClass(JSpinnerButtonFocusTest, name, initialize, &_JSpinnerButtonFocusTest_ClassInfo_, allocate$JSpinnerButtonFocusTest);
+	$FieldInfo fieldInfos$$[] = {
+		{"frame", "Ljavax/swing/JFrame;", nullptr, $STATIC, $staticField(JSpinnerButtonFocusTest, frame)},
+		{"robot", "Ljava/awt/Robot;", nullptr, $STATIC, $staticField(JSpinnerButtonFocusTest, robot)},
+		{"spinner1", "Ljavax/swing/JSpinner;", nullptr, $STATIC, $staticField(JSpinnerButtonFocusTest, spinner1)},
+		{"spinner2", "Ljavax/swing/JSpinner;", nullptr, $STATIC, $staticField(JSpinnerButtonFocusTest, spinner2)},
+		{"editor1", "Ljavax/swing/JSpinner$DefaultEditor;", nullptr, $STATIC, $staticField(JSpinnerButtonFocusTest, editor1)},
+		{"editor2", "Ljavax/swing/JSpinner$DefaultEditor;", nullptr, $STATIC, $staticField(JSpinnerButtonFocusTest, editor2)},
+		{"isJTextFieldFocused", "Z", nullptr, $STATIC | $VOLATILE, $staticField(JSpinnerButtonFocusTest, isJTextFieldFocused)},
+		{"latch1", "Ljava/util/concurrent/CountDownLatch;", nullptr, $STATIC | $VOLATILE, $staticField(JSpinnerButtonFocusTest, latch1)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(JSpinnerButtonFocusTest, init$, void)},
+		{"lambda$main$0", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JSpinnerButtonFocusTest, lambda$main$0, void)},
+		{"lambda$main$1", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JSpinnerButtonFocusTest, lambda$main$1, void)},
+		{"lambda$main$2", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JSpinnerButtonFocusTest, lambda$main$2, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(JSpinnerButtonFocusTest, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"JSpinnerButtonFocusTest$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"JSpinnerButtonFocusTest",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"JSpinnerButtonFocusTest$1"
+	};
+	$loadClass(JSpinnerButtonFocusTest, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JSpinnerButtonFocusTest);
+	});
 	return class$;
 }
 

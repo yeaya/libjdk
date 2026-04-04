@@ -66,6 +66,7 @@ class HTMLCodec : public ::java::io::InputStream {
 	$class(HTMLCodec, 0, ::java::io::InputStream)
 public:
 	HTMLCodec();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::io::InputStream* _bytestream, ::sun::awt::windows::EHTMLReadMode* _readMode);
 	virtual void close() override;
 	static $bytes* convertToHTMLFormat($bytes* bytes);

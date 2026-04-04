@@ -1,5 +1,4 @@
 #include <bug8041982$BusyLayer.h>
-
 #include <bug8041982.h>
 #include <java/awt/Component.h>
 #include <java/awt/Graphics.h>
@@ -14,65 +13,19 @@
 #include <jcpp.h>
 
 using $bug8041982 = ::bug8041982;
-using $Component = ::java::awt::Component;
 using $Graphics = ::java::awt::Graphics;
 using $Image = ::java::awt::Image;
 using $PropertyChangeEvent = ::java::beans::PropertyChangeEvent;
-using $PrintStream = ::java::io::PrintStream;
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
-using $Icon = ::javax::swing::Icon;
 using $ImageIcon = ::javax::swing::ImageIcon;
 using $JComponent = ::javax::swing::JComponent;
 using $JLayer = ::javax::swing::JLayer;
 using $LayerUI = ::javax::swing::plaf::LayerUI;
-
-$FieldInfo _bug8041982$BusyLayer_FieldInfo_[] = {
-	{"this$0", "Lbug8041982;", nullptr, $FINAL | $SYNTHETIC, $field(bug8041982$BusyLayer, this$0)},
-	{"animated", "Z", nullptr, $PRIVATE | $VOLATILE, $field(bug8041982$BusyLayer, animated)},
-	{"icon", "Ljavax/swing/Icon;", nullptr, $PRIVATE, $field(bug8041982$BusyLayer, icon)},
-	{"imageUpdateCount", "I", nullptr, $PRIVATE, $field(bug8041982$BusyLayer, imageUpdateCount)},
-	{}
-};
-
-$MethodInfo _bug8041982$BusyLayer_MethodInfo_[] = {
-	{"<init>", "(Lbug8041982;)V", nullptr, $PRIVATE, $method(bug8041982$BusyLayer, init$, void, $bug8041982*)},
-	{"applyPropertyChange", "(Ljava/beans/PropertyChangeEvent;Ljavax/swing/JLayer;)V", nullptr, $PUBLIC, $virtualMethod(bug8041982$BusyLayer, applyPropertyChange, void, $PropertyChangeEvent*, $JLayer*)},
-	{"imageUpdate", "(Ljava/awt/Image;IIIIILjavax/swing/JLayer;)Z", "(Ljava/awt/Image;IIIIILjavax/swing/JLayer<+Ljavax/swing/JComponent;>;)Z", $PUBLIC, $virtualMethod(bug8041982$BusyLayer, imageUpdate, bool, $Image*, int32_t, int32_t, int32_t, int32_t, int32_t, $JLayer*)},
-	{"isAnimated", "()Z", nullptr, $PUBLIC, $virtualMethod(bug8041982$BusyLayer, isAnimated, bool)},
-	{"paint", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(bug8041982$BusyLayer, paint, void, $Graphics*, $JComponent*)},
-	{"setAnimated", "(Z)V", nullptr, $PUBLIC, $virtualMethod(bug8041982$BusyLayer, setAnimated, void, bool)},
-	{}
-};
-
-$InnerClassInfo _bug8041982$BusyLayer_InnerClassesInfo_[] = {
-	{"bug8041982$BusyLayer", "bug8041982", "BusyLayer", $PRIVATE},
-	{}
-};
-
-$ClassInfo _bug8041982$BusyLayer_ClassInfo_ = {
-	$ACC_SUPER,
-	"bug8041982$BusyLayer",
-	"javax.swing.plaf.LayerUI",
-	nullptr,
-	_bug8041982$BusyLayer_FieldInfo_,
-	_bug8041982$BusyLayer_MethodInfo_,
-	"Ljavax/swing/plaf/LayerUI<Ljavax/swing/JComponent;>;",
-	nullptr,
-	_bug8041982$BusyLayer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"bug8041982"
-};
-
-$Object* allocate$bug8041982$BusyLayer($Class* clazz) {
-	return $of($alloc(bug8041982$BusyLayer));
-}
 
 void bug8041982$BusyLayer::init$($bug8041982* this$0) {
 	$beforeCallerSensitive();
@@ -84,15 +37,12 @@ void bug8041982$BusyLayer::init$($bug8041982* this$0) {
 }
 
 void bug8041982$BusyLayer::paint($Graphics* g, $JComponent* c) {
-	$useLocalCurrentObjectStackCache();
 	$LayerUI::paint(g, c);
 	if (isAnimated()) {
-		$var($Component, var$0, static_cast<$Component*>(c));
-		$var($Graphics, var$1, g);
-		int32_t var$3 = $nc(c)->getWidth() / 2;
-		int32_t var$2 = var$3 - $nc(this->icon)->getIconWidth() / 2;
-		int32_t var$4 = c->getHeight() / 2;
-		$nc(this->icon)->paintIcon(var$0, var$1, var$2, var$4 - $nc(this->icon)->getIconHeight() / 2);
+		int32_t var$1 = $nc(c)->getWidth() / 2;
+		int32_t var$0 = var$1 - $nc(this->icon)->getIconWidth() / 2;
+		int32_t var$2 = c->getHeight() / 2;
+		$nc(this->icon)->paintIcon(c, g, var$0, var$2 - this->icon->getIconHeight() / 2);
 	}
 }
 
@@ -101,11 +51,11 @@ bool bug8041982$BusyLayer::isAnimated() {
 }
 
 void bug8041982$BusyLayer::setAnimated(bool animated) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->animated != animated) {
 		this->animated = animated;
 		$var($String, var$0, "animated"_s);
-		$var($Object, var$1, $of($Boolean::valueOf(!animated)));
+		$var($Object, var$1, $Boolean::valueOf(!animated));
 		firePropertyChange(var$0, var$1, $($Boolean::valueOf(animated)));
 	}
 }
@@ -115,7 +65,7 @@ void bug8041982$BusyLayer::applyPropertyChange($PropertyChangeEvent* evt, $JLaye
 }
 
 bool bug8041982$BusyLayer::imageUpdate($Image* img, int32_t infoflags, int32_t x, int32_t y, int32_t w, int32_t h, $JLayer* l) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc($System::out)->println($$str({"imageUpdate "_s, $$str(this->imageUpdateCount)}));
 	if (this->imageUpdateCount++ == 100) {
 		setAnimated(false);
@@ -130,7 +80,44 @@ bug8041982$BusyLayer::bug8041982$BusyLayer() {
 }
 
 $Class* bug8041982$BusyLayer::load$($String* name, bool initialize) {
-	$loadClass(bug8041982$BusyLayer, name, initialize, &_bug8041982$BusyLayer_ClassInfo_, allocate$bug8041982$BusyLayer);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lbug8041982;", nullptr, $FINAL | $SYNTHETIC, $field(bug8041982$BusyLayer, this$0)},
+		{"animated", "Z", nullptr, $PRIVATE | $VOLATILE, $field(bug8041982$BusyLayer, animated)},
+		{"icon", "Ljavax/swing/Icon;", nullptr, $PRIVATE, $field(bug8041982$BusyLayer, icon)},
+		{"imageUpdateCount", "I", nullptr, $PRIVATE, $field(bug8041982$BusyLayer, imageUpdateCount)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lbug8041982;)V", nullptr, $PRIVATE, $method(bug8041982$BusyLayer, init$, void, $bug8041982*)},
+		{"applyPropertyChange", "(Ljava/beans/PropertyChangeEvent;Ljavax/swing/JLayer;)V", nullptr, $PUBLIC, $virtualMethod(bug8041982$BusyLayer, applyPropertyChange, void, $PropertyChangeEvent*, $JLayer*)},
+		{"imageUpdate", "(Ljava/awt/Image;IIIIILjavax/swing/JLayer;)Z", "(Ljava/awt/Image;IIIIILjavax/swing/JLayer<+Ljavax/swing/JComponent;>;)Z", $PUBLIC, $virtualMethod(bug8041982$BusyLayer, imageUpdate, bool, $Image*, int32_t, int32_t, int32_t, int32_t, int32_t, $JLayer*)},
+		{"isAnimated", "()Z", nullptr, $PUBLIC, $virtualMethod(bug8041982$BusyLayer, isAnimated, bool)},
+		{"paint", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(bug8041982$BusyLayer, paint, void, $Graphics*, $JComponent*)},
+		{"setAnimated", "(Z)V", nullptr, $PUBLIC, $virtualMethod(bug8041982$BusyLayer, setAnimated, void, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"bug8041982$BusyLayer", "bug8041982", "BusyLayer", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"bug8041982$BusyLayer",
+		"javax.swing.plaf.LayerUI",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljavax/swing/plaf/LayerUI<Ljavax/swing/JComponent;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"bug8041982"
+	};
+	$loadClass(bug8041982$BusyLayer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(bug8041982$BusyLayer));
+	});
 	return class$;
 }
 

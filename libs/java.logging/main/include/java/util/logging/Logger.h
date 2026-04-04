@@ -65,6 +65,7 @@ class $import Logger : public ::java::lang::Object {
 	$class(Logger, 0, ::java::lang::Object)
 public:
 	Logger();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* name, $String* resourceBundleName);
 	void init$($String* name, $String* resourceBundleName, ::java::lang::Module* caller, ::java::util::logging::LogManager* manager, bool isSystemLogger);
 	void init$($String* name);

@@ -1,5 +1,4 @@
 #include <sun/awt/image/IntegerInterleavedRaster.h>
-
 #include <java/awt/Point.h>
 #include <java/awt/Rectangle.h>
 #include <java/awt/image/DataBuffer.h>
@@ -32,56 +31,13 @@ namespace sun {
 	namespace awt {
 		namespace image {
 
-$FieldInfo _IntegerInterleavedRaster_FieldInfo_[] = {
-	{"maxX", "I", nullptr, $PRIVATE, $field(IntegerInterleavedRaster, maxX)},
-	{"maxY", "I", nullptr, $PRIVATE, $field(IntegerInterleavedRaster, maxY)},
-	{}
-};
-
-$MethodInfo _IntegerInterleavedRaster_MethodInfo_[] = {
-	{"<init>", "(Ljava/awt/image/SampleModel;Ljava/awt/Point;)V", nullptr, $PUBLIC, $method(IntegerInterleavedRaster, init$, void, $SampleModel*, $Point*)},
-	{"<init>", "(Ljava/awt/image/SampleModel;Ljava/awt/image/DataBufferInt;Ljava/awt/Point;)V", nullptr, $PUBLIC, $method(IntegerInterleavedRaster, init$, void, $SampleModel*, $DataBufferInt*, $Point*)},
-	{"<init>", "(Ljava/awt/image/SampleModel;Ljava/awt/image/DataBufferInt;Ljava/awt/Rectangle;Ljava/awt/Point;Lsun/awt/image/IntegerInterleavedRaster;)V", nullptr, $PUBLIC, $method(IntegerInterleavedRaster, init$, void, $SampleModel*, $DataBufferInt*, $Rectangle*, $Point*, IntegerInterleavedRaster*)},
-	{"createChild", "(IIIIII[I)Ljava/awt/image/Raster;", nullptr, $PUBLIC, $virtualMethod(IntegerInterleavedRaster, createChild, $Raster*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, $ints*)},
-	{"createCompatibleWritableRaster", "(II)Ljava/awt/image/WritableRaster;", nullptr, $PUBLIC, $virtualMethod(IntegerInterleavedRaster, createCompatibleWritableRaster, $WritableRaster*, int32_t, int32_t)},
-	{"createCompatibleWritableRaster", "()Ljava/awt/image/WritableRaster;", nullptr, $PUBLIC, $virtualMethod(IntegerInterleavedRaster, createCompatibleWritableRaster, $WritableRaster*)},
-	{"createWritableChild", "(IIIIII[I)Ljava/awt/image/WritableRaster;", nullptr, $PUBLIC, $virtualMethod(IntegerInterleavedRaster, createWritableChild, $WritableRaster*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, $ints*)},
-	{"getDataElements", "(IILjava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(IntegerInterleavedRaster, getDataElements, $Object*, int32_t, int32_t, Object$*)},
-	{"getDataElements", "(IIIILjava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(IntegerInterleavedRaster, getDataElements, $Object*, int32_t, int32_t, int32_t, int32_t, Object$*)},
-	{"getDataOffset", "(I)I", nullptr, $PUBLIC, $virtualMethod(IntegerInterleavedRaster, getDataOffset, int32_t, int32_t)},
-	{"getDataOffsets", "()[I", nullptr, $PUBLIC, $virtualMethod(IntegerInterleavedRaster, getDataOffsets, $ints*)},
-	{"getDataStorage", "()[I", nullptr, $PUBLIC, $virtualMethod(IntegerInterleavedRaster, getDataStorage, $ints*)},
-	{"getPixelStride", "()I", nullptr, $PUBLIC, $virtualMethod(IntegerInterleavedRaster, getPixelStride, int32_t)},
-	{"getScanlineStride", "()I", nullptr, $PUBLIC, $virtualMethod(IntegerInterleavedRaster, getScanlineStride, int32_t)},
-	{"setDataElements", "(IILjava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(IntegerInterleavedRaster, setDataElements, void, int32_t, int32_t, Object$*)},
-	{"setDataElements", "(IILjava/awt/image/Raster;)V", nullptr, $PUBLIC, $virtualMethod(IntegerInterleavedRaster, setDataElements, void, int32_t, int32_t, $Raster*)},
-	{"setDataElements", "(IIIILjava/awt/image/Raster;)V", nullptr, $PRIVATE, $method(IntegerInterleavedRaster, setDataElements, void, int32_t, int32_t, int32_t, int32_t, $Raster*)},
-	{"setDataElements", "(IIIILjava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(IntegerInterleavedRaster, setDataElements, void, int32_t, int32_t, int32_t, int32_t, Object$*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(IntegerInterleavedRaster, toString, $String*)},
-	{}
-};
-
-$ClassInfo _IntegerInterleavedRaster_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.awt.image.IntegerInterleavedRaster",
-	"sun.awt.image.IntegerComponentRaster",
-	nullptr,
-	_IntegerInterleavedRaster_FieldInfo_,
-	_IntegerInterleavedRaster_MethodInfo_
-};
-
-$Object* allocate$IntegerInterleavedRaster($Class* clazz) {
-	return $of($alloc(IntegerInterleavedRaster));
-}
-
 void IntegerInterleavedRaster::init$($SampleModel* sampleModel, $Point* origin) {
-	$useLocalCurrentObjectStackCache();
-	$var($SampleModel, var$0, sampleModel);
-	$var($DataBufferInt, var$1, $cast($DataBufferInt, $nc(sampleModel)->createDataBuffer()));
-	int32_t var$2 = $nc(origin)->x;
-	int32_t var$3 = origin->y;
-	int32_t var$4 = sampleModel->getWidth();
-	IntegerInterleavedRaster::init$(var$0, var$1, $$new($Rectangle, var$2, var$3, var$4, sampleModel->getHeight()), origin, nullptr);
+	$useLocalObjectStack();
+	$var($DataBufferInt, var$0, $cast($DataBufferInt, $nc(sampleModel)->createDataBuffer()));
+	int32_t var$1 = $nc(origin)->x;
+	int32_t var$2 = origin->y;
+	int32_t var$3 = sampleModel->getWidth();
+	IntegerInterleavedRaster::init$(sampleModel, var$0, $$new($Rectangle, var$1, var$2, var$3, sampleModel->getHeight()), origin, nullptr);
 }
 
 void IntegerInterleavedRaster::init$($SampleModel* sampleModel, $DataBufferInt* dataBuffer, $Point* origin) {
@@ -98,10 +54,10 @@ void IntegerInterleavedRaster::init$($SampleModel* sampleModel, $DataBufferInt* 
 	$set(this, data, stealData(dataBuffer, 0));
 	if ($instanceOf($SinglePixelPackedSampleModel, sampleModel)) {
 		$var($SinglePixelPackedSampleModel, sppsm, $cast($SinglePixelPackedSampleModel, sampleModel));
-		this->scanlineStride = $nc(sppsm)->getScanlineStride();
+		this->scanlineStride = sppsm->getScanlineStride();
 		this->pixelStride = 1;
 		$set(this, dataOffsets, $new($ints, 1));
-		$nc(this->dataOffsets)->set(0, $nc(dataBuffer)->getOffset());
+		this->dataOffsets->set(0, $nc(dataBuffer)->getOffset());
 		this->bandOffset = $nc(this->dataOffsets)->get(0);
 		int32_t xOffset = $nc(aRegion)->x - $nc(origin)->x;
 		int32_t yOffset = aRegion->y - origin->y;
@@ -145,7 +101,7 @@ $Object* IntegerInterleavedRaster::getDataElements(int32_t x, int32_t y, Object$
 	}
 	int32_t off = (y - this->minY) * this->scanlineStride + (x - this->minX) + $nc(this->dataOffsets)->get(0);
 	$nc(outData)->set(0, $nc(this->data)->get(off));
-	return $of(outData);
+	return outData;
 }
 
 $Object* IntegerInterleavedRaster::getDataElements(int32_t x, int32_t y, int32_t w, int32_t h, Object$* obj) {
@@ -165,7 +121,7 @@ $Object* IntegerInterleavedRaster::getDataElements(int32_t x, int32_t y, int32_t
 		off += w;
 		yoff += this->scanlineStride;
 	}
-	return $of(outData);
+	return outData;
 }
 
 void IntegerInterleavedRaster::setDataElements(int32_t x, int32_t y, Object$* obj) {
@@ -190,7 +146,7 @@ void IntegerInterleavedRaster::setDataElements(int32_t x, int32_t y, $Raster* in
 }
 
 void IntegerInterleavedRaster::setDataElements(int32_t dstX, int32_t dstY, int32_t width, int32_t height, $Raster* inRaster) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (width <= 0 || height <= 0) {
 		return;
 	}
@@ -235,7 +191,7 @@ void IntegerInterleavedRaster::setDataElements(int32_t x, int32_t y, int32_t w, 
 }
 
 $WritableRaster* IntegerInterleavedRaster::createWritableChild(int32_t x, int32_t y, int32_t width, int32_t height, int32_t x0, int32_t y0, $ints* bandList) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (x < this->minX) {
 		$throwNew($RasterFormatException, "x lies outside raster"_s);
 	}
@@ -256,10 +212,9 @@ $WritableRaster* IntegerInterleavedRaster::createWritableChild(int32_t x, int32_
 	}
 	int32_t deltaX = x0 - x;
 	int32_t deltaY = y0 - y;
-	$var($SampleModel, var$0, sm);
-	$var($DataBufferInt, var$1, $cast($DataBufferInt, this->dataBuffer));
-	$var($Rectangle, var$2, $new($Rectangle, x0, y0, width, height));
-	return $new(IntegerInterleavedRaster, var$0, var$1, var$2, $$new($Point, this->sampleModelTranslateX + deltaX, this->sampleModelTranslateY + deltaY), this);
+	$var($DataBufferInt, var$0, $cast($DataBufferInt, this->dataBuffer));
+	$var($Rectangle, var$1, $new($Rectangle, x0, y0, width, height));
+	return $new(IntegerInterleavedRaster, sm, var$0, var$1, $$new($Point, this->sampleModelTranslateX + deltaX, this->sampleModelTranslateY + deltaY), this);
 }
 
 $Raster* IntegerInterleavedRaster::createChild(int32_t x, int32_t y, int32_t width, int32_t height, int32_t x0, int32_t y0, $ints* bandList) {
@@ -267,7 +222,7 @@ $Raster* IntegerInterleavedRaster::createChild(int32_t x, int32_t y, int32_t wid
 }
 
 $WritableRaster* IntegerInterleavedRaster::createCompatibleWritableRaster(int32_t w, int32_t h) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (w <= 0 || h <= 0) {
 		$throwNew($RasterFormatException, $$str({"negative "_s, ((w <= 0) ? "width"_s : "height"_s)}));
 	}
@@ -280,7 +235,7 @@ $WritableRaster* IntegerInterleavedRaster::createCompatibleWritableRaster() {
 }
 
 $String* IntegerInterleavedRaster::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $new($String, $$str({"IntegerInterleavedRaster: width = "_s, $$str(this->width), " height = "_s, $$str(this->height), " #Bands = "_s, $$str(this->numBands), " xOff = "_s, $$str(this->sampleModelTranslateX), " yOff = "_s, $$str(this->sampleModelTranslateY), " dataOffset[0] "_s, $$str($nc(this->dataOffsets)->get(0))}));
 }
 
@@ -288,7 +243,44 @@ IntegerInterleavedRaster::IntegerInterleavedRaster() {
 }
 
 $Class* IntegerInterleavedRaster::load$($String* name, bool initialize) {
-	$loadClass(IntegerInterleavedRaster, name, initialize, &_IntegerInterleavedRaster_ClassInfo_, allocate$IntegerInterleavedRaster);
+	$FieldInfo fieldInfos$$[] = {
+		{"maxX", "I", nullptr, $PRIVATE, $field(IntegerInterleavedRaster, maxX)},
+		{"maxY", "I", nullptr, $PRIVATE, $field(IntegerInterleavedRaster, maxY)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/image/SampleModel;Ljava/awt/Point;)V", nullptr, $PUBLIC, $method(IntegerInterleavedRaster, init$, void, $SampleModel*, $Point*)},
+		{"<init>", "(Ljava/awt/image/SampleModel;Ljava/awt/image/DataBufferInt;Ljava/awt/Point;)V", nullptr, $PUBLIC, $method(IntegerInterleavedRaster, init$, void, $SampleModel*, $DataBufferInt*, $Point*)},
+		{"<init>", "(Ljava/awt/image/SampleModel;Ljava/awt/image/DataBufferInt;Ljava/awt/Rectangle;Ljava/awt/Point;Lsun/awt/image/IntegerInterleavedRaster;)V", nullptr, $PUBLIC, $method(IntegerInterleavedRaster, init$, void, $SampleModel*, $DataBufferInt*, $Rectangle*, $Point*, IntegerInterleavedRaster*)},
+		{"createChild", "(IIIIII[I)Ljava/awt/image/Raster;", nullptr, $PUBLIC, $virtualMethod(IntegerInterleavedRaster, createChild, $Raster*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, $ints*)},
+		{"createCompatibleWritableRaster", "(II)Ljava/awt/image/WritableRaster;", nullptr, $PUBLIC, $virtualMethod(IntegerInterleavedRaster, createCompatibleWritableRaster, $WritableRaster*, int32_t, int32_t)},
+		{"createCompatibleWritableRaster", "()Ljava/awt/image/WritableRaster;", nullptr, $PUBLIC, $virtualMethod(IntegerInterleavedRaster, createCompatibleWritableRaster, $WritableRaster*)},
+		{"createWritableChild", "(IIIIII[I)Ljava/awt/image/WritableRaster;", nullptr, $PUBLIC, $virtualMethod(IntegerInterleavedRaster, createWritableChild, $WritableRaster*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, $ints*)},
+		{"getDataElements", "(IILjava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(IntegerInterleavedRaster, getDataElements, $Object*, int32_t, int32_t, Object$*)},
+		{"getDataElements", "(IIIILjava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(IntegerInterleavedRaster, getDataElements, $Object*, int32_t, int32_t, int32_t, int32_t, Object$*)},
+		{"getDataOffset", "(I)I", nullptr, $PUBLIC, $virtualMethod(IntegerInterleavedRaster, getDataOffset, int32_t, int32_t)},
+		{"getDataOffsets", "()[I", nullptr, $PUBLIC, $virtualMethod(IntegerInterleavedRaster, getDataOffsets, $ints*)},
+		{"getDataStorage", "()[I", nullptr, $PUBLIC, $virtualMethod(IntegerInterleavedRaster, getDataStorage, $ints*)},
+		{"getPixelStride", "()I", nullptr, $PUBLIC, $virtualMethod(IntegerInterleavedRaster, getPixelStride, int32_t)},
+		{"getScanlineStride", "()I", nullptr, $PUBLIC, $virtualMethod(IntegerInterleavedRaster, getScanlineStride, int32_t)},
+		{"setDataElements", "(IILjava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(IntegerInterleavedRaster, setDataElements, void, int32_t, int32_t, Object$*)},
+		{"setDataElements", "(IILjava/awt/image/Raster;)V", nullptr, $PUBLIC, $virtualMethod(IntegerInterleavedRaster, setDataElements, void, int32_t, int32_t, $Raster*)},
+		{"setDataElements", "(IIIILjava/awt/image/Raster;)V", nullptr, $PRIVATE, $method(IntegerInterleavedRaster, setDataElements, void, int32_t, int32_t, int32_t, int32_t, $Raster*)},
+		{"setDataElements", "(IIIILjava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(IntegerInterleavedRaster, setDataElements, void, int32_t, int32_t, int32_t, int32_t, Object$*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(IntegerInterleavedRaster, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.awt.image.IntegerInterleavedRaster",
+		"sun.awt.image.IntegerComponentRaster",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(IntegerInterleavedRaster, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(IntegerInterleavedRaster);
+	});
 	return class$;
 }
 

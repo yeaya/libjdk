@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/parser/JavacParser$BasicErrorRecoveryAction$1.h>
-
 #include <com/sun/tools/javac/parser/JavacParser$BasicErrorRecoveryAction.h>
 #include <com/sun/tools/javac/parser/JavacParser.h>
 #include <com/sun/tools/javac/tree/JCTree$JCStatement.h>
@@ -20,44 +19,6 @@ namespace com {
 			namespace javac {
 				namespace parser {
 
-$MethodInfo _JavacParser$BasicErrorRecoveryAction$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;I)V", nullptr, $PRIVATE, $method(JavacParser$BasicErrorRecoveryAction$1, init$, void, $String*, int32_t)},
-	{"doRecover", "(Lcom/sun/tools/javac/parser/JavacParser;)Lcom/sun/tools/javac/tree/JCTree;", nullptr, $PUBLIC, $virtualMethod(JavacParser$BasicErrorRecoveryAction$1, doRecover, $JCTree*, $JavacParser*)},
-	{}
-};
-
-$EnclosingMethodInfo _JavacParser$BasicErrorRecoveryAction$1_EnclosingMethodInfo_ = {
-	"com.sun.tools.javac.parser.JavacParser$BasicErrorRecoveryAction",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _JavacParser$BasicErrorRecoveryAction$1_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.parser.JavacParser$BasicErrorRecoveryAction", "com.sun.tools.javac.parser.JavacParser", "BasicErrorRecoveryAction", $STATIC | $ABSTRACT | $ENUM},
-	{"com.sun.tools.javac.parser.JavacParser$BasicErrorRecoveryAction$1", nullptr, nullptr, $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _JavacParser$BasicErrorRecoveryAction$1_ClassInfo_ = {
-	$FINAL | $ACC_SUPER | $ENUM,
-	"com.sun.tools.javac.parser.JavacParser$BasicErrorRecoveryAction$1",
-	"com.sun.tools.javac.parser.JavacParser$BasicErrorRecoveryAction",
-	nullptr,
-	nullptr,
-	_JavacParser$BasicErrorRecoveryAction$1_MethodInfo_,
-	nullptr,
-	&_JavacParser$BasicErrorRecoveryAction$1_EnclosingMethodInfo_,
-	_JavacParser$BasicErrorRecoveryAction$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.parser.JavacParser"
-};
-
-$Object* allocate$JavacParser$BasicErrorRecoveryAction$1($Class* clazz) {
-	return $of($alloc(JavacParser$BasicErrorRecoveryAction$1));
-}
-
 void JavacParser$BasicErrorRecoveryAction$1::init$($String* $enum$name, int32_t $enum$ordinal) {
 	$JavacParser$BasicErrorRecoveryAction::init$($enum$name, $enum$ordinal);
 }
@@ -70,7 +31,39 @@ JavacParser$BasicErrorRecoveryAction$1::JavacParser$BasicErrorRecoveryAction$1()
 }
 
 $Class* JavacParser$BasicErrorRecoveryAction$1::load$($String* name, bool initialize) {
-	$loadClass(JavacParser$BasicErrorRecoveryAction$1, name, initialize, &_JavacParser$BasicErrorRecoveryAction$1_ClassInfo_, allocate$JavacParser$BasicErrorRecoveryAction$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;I)V", nullptr, $PRIVATE, $method(JavacParser$BasicErrorRecoveryAction$1, init$, void, $String*, int32_t)},
+		{"doRecover", "(Lcom/sun/tools/javac/parser/JavacParser;)Lcom/sun/tools/javac/tree/JCTree;", nullptr, $PUBLIC, $virtualMethod(JavacParser$BasicErrorRecoveryAction$1, doRecover, $JCTree*, $JavacParser*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.tools.javac.parser.JavacParser$BasicErrorRecoveryAction",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.parser.JavacParser$BasicErrorRecoveryAction", "com.sun.tools.javac.parser.JavacParser", "BasicErrorRecoveryAction", $STATIC | $ABSTRACT | $ENUM},
+		{"com.sun.tools.javac.parser.JavacParser$BasicErrorRecoveryAction$1", nullptr, nullptr, $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER | $ENUM,
+		"com.sun.tools.javac.parser.JavacParser$BasicErrorRecoveryAction$1",
+		"com.sun.tools.javac.parser.JavacParser$BasicErrorRecoveryAction",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.parser.JavacParser"
+	};
+	$loadClass(JavacParser$BasicErrorRecoveryAction$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JavacParser$BasicErrorRecoveryAction$1));
+	});
 	return class$;
 }
 

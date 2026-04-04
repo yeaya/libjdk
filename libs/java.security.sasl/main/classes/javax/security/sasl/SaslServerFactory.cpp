@@ -1,5 +1,4 @@
 #include <javax/security/sasl/SaslServerFactory.h>
-
 #include <java/util/Map.h>
 #include <javax/security/auth/callback/CallbackHandler.h>
 #include <javax/security/sasl/SaslServer.h>
@@ -15,27 +14,23 @@ namespace javax {
 	namespace security {
 		namespace sasl {
 
-$MethodInfo _SaslServerFactory_MethodInfo_[] = {
-	{"createSaslServer", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/Map;Ljavax/security/auth/callback/CallbackHandler;)Ljavax/security/sasl/SaslServer;", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/Map<Ljava/lang/String;*>;Ljavax/security/auth/callback/CallbackHandler;)Ljavax/security/sasl/SaslServer;", $PUBLIC | $ABSTRACT, $virtualMethod(SaslServerFactory, createSaslServer, $SaslServer*, $String*, $String*, $String*, $Map*, $CallbackHandler*), "javax.security.sasl.SaslException"},
-	{"getMechanismNames", "(Ljava/util/Map;)[Ljava/lang/String;", "(Ljava/util/Map<Ljava/lang/String;*>;)[Ljava/lang/String;", $PUBLIC | $ABSTRACT, $virtualMethod(SaslServerFactory, getMechanismNames, $StringArray*, $Map*)},
-	{}
-};
-
-$ClassInfo _SaslServerFactory_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"javax.security.sasl.SaslServerFactory",
-	nullptr,
-	nullptr,
-	nullptr,
-	_SaslServerFactory_MethodInfo_
-};
-
-$Object* allocate$SaslServerFactory($Class* clazz) {
-	return $of($alloc(SaslServerFactory));
-}
-
 $Class* SaslServerFactory::load$($String* name, bool initialize) {
-	$loadClass(SaslServerFactory, name, initialize, &_SaslServerFactory_ClassInfo_, allocate$SaslServerFactory);
+	$MethodInfo methodInfos$$[] = {
+		{"createSaslServer", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/Map;Ljavax/security/auth/callback/CallbackHandler;)Ljavax/security/sasl/SaslServer;", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/Map<Ljava/lang/String;*>;Ljavax/security/auth/callback/CallbackHandler;)Ljavax/security/sasl/SaslServer;", $PUBLIC | $ABSTRACT, $virtualMethod(SaslServerFactory, createSaslServer, $SaslServer*, $String*, $String*, $String*, $Map*, $CallbackHandler*), "javax.security.sasl.SaslException"},
+		{"getMechanismNames", "(Ljava/util/Map;)[Ljava/lang/String;", "(Ljava/util/Map<Ljava/lang/String;*>;)[Ljava/lang/String;", $PUBLIC | $ABSTRACT, $virtualMethod(SaslServerFactory, getMechanismNames, $StringArray*, $Map*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"javax.security.sasl.SaslServerFactory",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(SaslServerFactory, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SaslServerFactory);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/synth/SynthRadioButtonUI.h>
-
 #include <java/awt/Graphics.h>
 #include <javax/swing/AbstractButton.h>
 #include <javax/swing/Icon.h>
@@ -19,36 +18,12 @@ using $Icon = ::javax::swing::Icon;
 using $JComponent = ::javax::swing::JComponent;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
 using $SynthContext = ::javax::swing::plaf::synth::SynthContext;
-using $SynthPainter = ::javax::swing::plaf::synth::SynthPainter;
 using $SynthToggleButtonUI = ::javax::swing::plaf::synth::SynthToggleButtonUI;
 
 namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace synth {
-
-$MethodInfo _SynthRadioButtonUI_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SynthRadioButtonUI, init$, void)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(SynthRadioButtonUI, createUI, $ComponentUI*, $JComponent*)},
-	{"getPropertyPrefix", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(SynthRadioButtonUI, getPropertyPrefix, $String*)},
-	{"getSizingIcon", "(Ljavax/swing/AbstractButton;)Ljavax/swing/Icon;", nullptr, $PROTECTED, $virtualMethod(SynthRadioButtonUI, getSizingIcon, $Icon*, $AbstractButton*)},
-	{"paintBackground", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, 0, $virtualMethod(SynthRadioButtonUI, paintBackground, void, $SynthContext*, $Graphics*, $JComponent*)},
-	{"paintBorder", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(SynthRadioButtonUI, paintBorder, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _SynthRadioButtonUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.synth.SynthRadioButtonUI",
-	"javax.swing.plaf.synth.SynthToggleButtonUI",
-	nullptr,
-	nullptr,
-	_SynthRadioButtonUI_MethodInfo_
-};
-
-$Object* allocate$SynthRadioButtonUI($Class* clazz) {
-	return $of($alloc(SynthRadioButtonUI));
-}
 
 void SynthRadioButtonUI::init$() {
 	$SynthToggleButtonUI::init$();
@@ -68,22 +43,38 @@ $Icon* SynthRadioButtonUI::getSizingIcon($AbstractButton* b) {
 }
 
 void SynthRadioButtonUI::paintBackground($SynthContext* context, $Graphics* g, $JComponent* c) {
-	$useLocalCurrentObjectStackCache();
-	$var($SynthContext, var$0, context);
-	$var($Graphics, var$1, g);
-	int32_t var$2 = $nc(c)->getWidth();
-	$nc($($nc(context)->getPainter()))->paintRadioButtonBackground(var$0, var$1, 0, 0, var$2, c->getHeight());
+	int32_t var$0 = $nc(c)->getWidth();
+	$$nc($nc(context)->getPainter())->paintRadioButtonBackground(context, g, 0, 0, var$0, c->getHeight());
 }
 
 void SynthRadioButtonUI::paintBorder($SynthContext* context, $Graphics* g, int32_t x, int32_t y, int32_t w, int32_t h) {
-	$nc($($nc(context)->getPainter()))->paintRadioButtonBorder(context, g, x, y, w, h);
+	$$nc($nc(context)->getPainter())->paintRadioButtonBorder(context, g, x, y, w, h);
 }
 
 SynthRadioButtonUI::SynthRadioButtonUI() {
 }
 
 $Class* SynthRadioButtonUI::load$($String* name, bool initialize) {
-	$loadClass(SynthRadioButtonUI, name, initialize, &_SynthRadioButtonUI_ClassInfo_, allocate$SynthRadioButtonUI);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SynthRadioButtonUI, init$, void)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(SynthRadioButtonUI, createUI, $ComponentUI*, $JComponent*)},
+		{"getPropertyPrefix", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(SynthRadioButtonUI, getPropertyPrefix, $String*)},
+		{"getSizingIcon", "(Ljavax/swing/AbstractButton;)Ljavax/swing/Icon;", nullptr, $PROTECTED, $virtualMethod(SynthRadioButtonUI, getSizingIcon, $Icon*, $AbstractButton*)},
+		{"paintBackground", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, 0, $virtualMethod(SynthRadioButtonUI, paintBackground, void, $SynthContext*, $Graphics*, $JComponent*)},
+		{"paintBorder", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(SynthRadioButtonUI, paintBorder, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.synth.SynthRadioButtonUI",
+		"javax.swing.plaf.synth.SynthToggleButtonUI",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(SynthRadioButtonUI, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SynthRadioButtonUI));
+	});
 	return class$;
 }
 

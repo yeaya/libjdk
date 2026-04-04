@@ -1,5 +1,4 @@
 #include <javax/swing/text/ElementIterator.h>
-
 #include <java/lang/CloneNotSupportedException.h>
 #include <java/lang/InternalError.h>
 #include <java/util/Enumeration.h>
@@ -10,7 +9,6 @@
 #include <javax/swing/text/ElementIterator$StackItem.h>
 #include <jcpp.h>
 
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CloneNotSupportedException = ::java::lang::CloneNotSupportedException;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -28,50 +26,6 @@ namespace javax {
 	namespace swing {
 		namespace text {
 
-$FieldInfo _ElementIterator_FieldInfo_[] = {
-	{"root", "Ljavax/swing/text/Element;", nullptr, $PRIVATE, $field(ElementIterator, root)},
-	{"elementStack", "Ljava/util/Stack;", "Ljava/util/Stack<Ljavax/swing/text/ElementIterator$StackItem;>;", $PRIVATE, $field(ElementIterator, elementStack)},
-	{}
-};
-
-$MethodInfo _ElementIterator_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/text/Document;)V", nullptr, $PUBLIC, $method(ElementIterator, init$, void, $Document*)},
-	{"<init>", "(Ljavax/swing/text/Element;)V", nullptr, $PUBLIC, $method(ElementIterator, init$, void, $Element*)},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ElementIterator, clone, $Object*)},
-	{"current", "()Ljavax/swing/text/Element;", nullptr, $PUBLIC, $virtualMethod(ElementIterator, current, $Element*)},
-	{"depth", "()I", nullptr, $PUBLIC, $virtualMethod(ElementIterator, depth, int32_t)},
-	{"dumpTree", "()V", nullptr, $PRIVATE, $method(ElementIterator, dumpTree, void)},
-	{"first", "()Ljavax/swing/text/Element;", nullptr, $PUBLIC, $virtualMethod(ElementIterator, first, $Element*)},
-	{"getDeepestLeaf", "(Ljavax/swing/text/Element;)Ljavax/swing/text/Element;", nullptr, $PRIVATE, $method(ElementIterator, getDeepestLeaf, $Element*, $Element*)},
-	{"next", "()Ljavax/swing/text/Element;", nullptr, $PUBLIC, $virtualMethod(ElementIterator, next, $Element*)},
-	{"previous", "()Ljavax/swing/text/Element;", nullptr, $PUBLIC, $virtualMethod(ElementIterator, previous, $Element*)},
-	{}
-};
-
-$InnerClassInfo _ElementIterator_InnerClassesInfo_[] = {
-	{"javax.swing.text.ElementIterator$StackItem", "javax.swing.text.ElementIterator", "StackItem", $PRIVATE},
-	{}
-};
-
-$ClassInfo _ElementIterator_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.text.ElementIterator",
-	"java.lang.Object",
-	"java.lang.Cloneable",
-	_ElementIterator_FieldInfo_,
-	_ElementIterator_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ElementIterator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.swing.text.ElementIterator$StackItem"
-};
-
-$Object* allocate$ElementIterator($Class* clazz) {
-	return $of($alloc(ElementIterator));
-}
-
 void ElementIterator::init$($Document* document) {
 	$set(this, elementStack, nullptr);
 	$set(this, root, $nc(document)->getDefaultRootElement());
@@ -84,20 +38,20 @@ void ElementIterator::init$($Element* root) {
 
 $Object* ElementIterator::clone() {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		try {
 			$var(ElementIterator, it, $new(ElementIterator, this->root));
 			if (this->elementStack != nullptr) {
 				$set(it, elementStack, $new($Stack));
 				for (int32_t i = 0; i < $nc(this->elementStack)->size(); ++i) {
-					$var($ElementIterator$StackItem, item, $cast($ElementIterator$StackItem, $nc(this->elementStack)->elementAt(i)));
+					$var($ElementIterator$StackItem, item, $cast($ElementIterator$StackItem, this->elementStack->elementAt(i)));
 					$var($ElementIterator$StackItem, clonee, $cast($ElementIterator$StackItem, $nc(item)->clone()));
 					$nc(it->elementStack)->push(clonee);
 				}
 			}
-			return $of(it);
+			return it;
 		} catch ($CloneNotSupportedException& e) {
-			$throwNew($InternalError, static_cast<$Throwable*>(e));
+			$throwNew($InternalError, e);
 		}
 	}
 	$shouldNotReachHere();
@@ -122,12 +76,12 @@ int32_t ElementIterator::depth() {
 }
 
 $Element* ElementIterator::current() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->elementStack == nullptr) {
 		return first();
 	}
 	if (!$nc(this->elementStack)->empty()) {
-		$var($ElementIterator$StackItem, item, $cast($ElementIterator$StackItem, $nc(this->elementStack)->peek()));
+		$var($ElementIterator$StackItem, item, $cast($ElementIterator$StackItem, this->elementStack->peek()));
 		$var($Element, elem, $nc(item)->getElement());
 		int32_t index = item->getIndex();
 		if (index == -1) {
@@ -139,14 +93,14 @@ $Element* ElementIterator::current() {
 }
 
 $Element* ElementIterator::next() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->elementStack == nullptr) {
 		return first();
 	}
 	if ($nc(this->elementStack)->isEmpty()) {
 		return nullptr;
 	}
-	$var($ElementIterator$StackItem, item, $cast($ElementIterator$StackItem, $nc(this->elementStack)->peek()));
+	$var($ElementIterator$StackItem, item, $cast($ElementIterator$StackItem, this->elementStack->peek()));
 	$var($Element, elem, $nc(item)->getElement());
 	int32_t index = item->getIndex();
 	if (index + 1 < $nc(elem)->getElementCount()) {
@@ -159,8 +113,8 @@ $Element* ElementIterator::next() {
 		return child;
 	} else {
 		$nc(this->elementStack)->pop();
-		if (!$nc(this->elementStack)->isEmpty()) {
-			$var($ElementIterator$StackItem, top, $cast($ElementIterator$StackItem, $nc(this->elementStack)->peek()));
+		if (!this->elementStack->isEmpty()) {
+			$var($ElementIterator$StackItem, top, $cast($ElementIterator$StackItem, this->elementStack->peek()));
 			$nc(top)->incrementIndex();
 			return next();
 		}
@@ -169,9 +123,9 @@ $Element* ElementIterator::next() {
 }
 
 $Element* ElementIterator::previous() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t stackSize = 0;
-	if (this->elementStack == nullptr || (stackSize = $nc(this->elementStack)->size()) == 0) {
+	if (this->elementStack == nullptr || (stackSize = this->elementStack->size()) == 0) {
 		return nullptr;
 	}
 	$var($ElementIterator$StackItem, item, $cast($ElementIterator$StackItem, $nc(this->elementStack)->peek()));
@@ -186,8 +140,8 @@ $Element* ElementIterator::previous() {
 			return nullptr;
 		}
 		$var($ElementIterator$StackItem, top, $cast($ElementIterator$StackItem, $nc(this->elementStack)->pop()));
-		$assign(item, $cast($ElementIterator$StackItem, $nc(this->elementStack)->peek()));
-		$nc(this->elementStack)->push(top);
+		$assign(item, $cast($ElementIterator$StackItem, this->elementStack->peek()));
+		this->elementStack->push(top);
 		$assign(elem, $nc(item)->getElement());
 		index = item->getIndex();
 		return ((index == -1) ? elem : getDeepestLeaf($($nc(elem)->getElement(index))));
@@ -199,7 +153,7 @@ $Element* ElementIterator::getDeepestLeaf($Element* parent) {
 	if ($nc(parent)->isLeaf()) {
 		return parent;
 	}
-	int32_t childCount = $nc(parent)->getElementCount();
+	int32_t childCount = parent->getElementCount();
 	if (childCount == 0) {
 		return parent;
 	}
@@ -207,12 +161,12 @@ $Element* ElementIterator::getDeepestLeaf($Element* parent) {
 }
 
 void ElementIterator::dumpTree() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Element, elem, nullptr);
 	while (true) {
 		if (($assign(elem, next())) != nullptr) {
 			$nc($System::out)->println($$str({"elem: "_s, $($nc(elem)->getName())}));
-			$var($AttributeSet, attr, $nc(elem)->getAttributes());
+			$var($AttributeSet, attr, elem->getAttributes());
 			$var($String, s, ""_s);
 			$var($Enumeration, names, $nc(attr)->getAttributeNames());
 			while ($nc(names)->hasMoreElements()) {
@@ -224,7 +178,7 @@ void ElementIterator::dumpTree() {
 					$assign(s, $str({s, key, "="_s, value, " "_s}));
 				}
 			}
-			$nc($System::out)->println($$str({"attributes: "_s, s}));
+			$System::out->println($$str({"attributes: "_s, s}));
 		} else {
 			break;
 		}
@@ -235,7 +189,45 @@ ElementIterator::ElementIterator() {
 }
 
 $Class* ElementIterator::load$($String* name, bool initialize) {
-	$loadClass(ElementIterator, name, initialize, &_ElementIterator_ClassInfo_, allocate$ElementIterator);
+	$FieldInfo fieldInfos$$[] = {
+		{"root", "Ljavax/swing/text/Element;", nullptr, $PRIVATE, $field(ElementIterator, root)},
+		{"elementStack", "Ljava/util/Stack;", "Ljava/util/Stack<Ljavax/swing/text/ElementIterator$StackItem;>;", $PRIVATE, $field(ElementIterator, elementStack)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/text/Document;)V", nullptr, $PUBLIC, $method(ElementIterator, init$, void, $Document*)},
+		{"<init>", "(Ljavax/swing/text/Element;)V", nullptr, $PUBLIC, $method(ElementIterator, init$, void, $Element*)},
+		{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ElementIterator, clone, $Object*)},
+		{"current", "()Ljavax/swing/text/Element;", nullptr, $PUBLIC, $virtualMethod(ElementIterator, current, $Element*)},
+		{"depth", "()I", nullptr, $PUBLIC, $virtualMethod(ElementIterator, depth, int32_t)},
+		{"dumpTree", "()V", nullptr, $PRIVATE, $method(ElementIterator, dumpTree, void)},
+		{"first", "()Ljavax/swing/text/Element;", nullptr, $PUBLIC, $virtualMethod(ElementIterator, first, $Element*)},
+		{"getDeepestLeaf", "(Ljavax/swing/text/Element;)Ljavax/swing/text/Element;", nullptr, $PRIVATE, $method(ElementIterator, getDeepestLeaf, $Element*, $Element*)},
+		{"next", "()Ljavax/swing/text/Element;", nullptr, $PUBLIC, $virtualMethod(ElementIterator, next, $Element*)},
+		{"previous", "()Ljavax/swing/text/Element;", nullptr, $PUBLIC, $virtualMethod(ElementIterator, previous, $Element*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.ElementIterator$StackItem", "javax.swing.text.ElementIterator", "StackItem", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.text.ElementIterator",
+		"java.lang.Object",
+		"java.lang.Cloneable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.swing.text.ElementIterator$StackItem"
+	};
+	$loadClass(ElementIterator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ElementIterator);
+	});
 	return class$;
 }
 

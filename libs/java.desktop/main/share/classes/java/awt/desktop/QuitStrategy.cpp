@@ -1,5 +1,4 @@
 #include <java/awt/desktop/QuitStrategy.h>
-
 #include <java/lang/Enum.h>
 #include <jcpp.h>
 
@@ -15,35 +14,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace java {
 	namespace awt {
 		namespace desktop {
-
-$FieldInfo _QuitStrategy_FieldInfo_[] = {
-	{"NORMAL_EXIT", "Ljava/awt/desktop/QuitStrategy;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(QuitStrategy, NORMAL_EXIT)},
-	{"CLOSE_ALL_WINDOWS", "Ljava/awt/desktop/QuitStrategy;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(QuitStrategy, CLOSE_ALL_WINDOWS)},
-	{"$VALUES", "[Ljava/awt/desktop/QuitStrategy;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(QuitStrategy, $VALUES)},
-	{}
-};
-
-$MethodInfo _QuitStrategy_MethodInfo_[] = {
-	{"$values", "()[Ljava/awt/desktop/QuitStrategy;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(QuitStrategy, $values, $QuitStrategyArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(QuitStrategy, init$, void, $String*, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)Ljava/awt/desktop/QuitStrategy;", nullptr, $PUBLIC | $STATIC, $staticMethod(QuitStrategy, valueOf, QuitStrategy*, $String*)},
-	{"values", "()[Ljava/awt/desktop/QuitStrategy;", nullptr, $PUBLIC | $STATIC, $staticMethod(QuitStrategy, values, $QuitStrategyArray*)},
-	{}
-};
-
-$ClassInfo _QuitStrategy_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"java.awt.desktop.QuitStrategy",
-	"java.lang.Enum",
-	nullptr,
-	_QuitStrategy_FieldInfo_,
-	_QuitStrategy_MethodInfo_,
-	"Ljava/lang/Enum<Ljava/awt/desktop/QuitStrategy;>;"
-};
-
-$Object* allocate$QuitStrategy($Class* clazz) {
-	return $of($alloc(QuitStrategy));
-}
 
 QuitStrategy* QuitStrategy::NORMAL_EXIT = nullptr;
 QuitStrategy* QuitStrategy::CLOSE_ALL_WINDOWS = nullptr;
@@ -71,7 +41,7 @@ void QuitStrategy::init$($String* $enum$name, int32_t $enum$ordinal) {
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$QuitStrategy($Class* class$) {
+void QuitStrategy::clinit$($Class* clazz) {
 	$assignStatic(QuitStrategy::NORMAL_EXIT, $new(QuitStrategy, "NORMAL_EXIT"_s, 0));
 	$assignStatic(QuitStrategy::CLOSE_ALL_WINDOWS, $new(QuitStrategy, "CLOSE_ALL_WINDOWS"_s, 1));
 	$assignStatic(QuitStrategy::$VALUES, QuitStrategy::$values());
@@ -81,7 +51,31 @@ QuitStrategy::QuitStrategy() {
 }
 
 $Class* QuitStrategy::load$($String* name, bool initialize) {
-	$loadClass(QuitStrategy, name, initialize, &_QuitStrategy_ClassInfo_, clinit$QuitStrategy, allocate$QuitStrategy);
+	$FieldInfo fieldInfos$$[] = {
+		{"NORMAL_EXIT", "Ljava/awt/desktop/QuitStrategy;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(QuitStrategy, NORMAL_EXIT)},
+		{"CLOSE_ALL_WINDOWS", "Ljava/awt/desktop/QuitStrategy;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(QuitStrategy, CLOSE_ALL_WINDOWS)},
+		{"$VALUES", "[Ljava/awt/desktop/QuitStrategy;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(QuitStrategy, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Ljava/awt/desktop/QuitStrategy;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(QuitStrategy, $values, $QuitStrategyArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(QuitStrategy, init$, void, $String*, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)Ljava/awt/desktop/QuitStrategy;", nullptr, $PUBLIC | $STATIC, $staticMethod(QuitStrategy, valueOf, QuitStrategy*, $String*)},
+		{"values", "()[Ljava/awt/desktop/QuitStrategy;", nullptr, $PUBLIC | $STATIC, $staticMethod(QuitStrategy, values, $QuitStrategyArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"java.awt.desktop.QuitStrategy",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Ljava/awt/desktop/QuitStrategy;>;"
+	};
+	$loadClass(QuitStrategy, name, initialize, &classInfo$$, QuitStrategy::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(QuitStrategy));
+	});
 	return class$;
 }
 

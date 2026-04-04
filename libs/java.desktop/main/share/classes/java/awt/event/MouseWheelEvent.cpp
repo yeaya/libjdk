@@ -1,5 +1,4 @@
 #include <java/awt/event/MouseWheelEvent.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/event/MouseEvent.h>
 #include <jcpp.h>
@@ -17,43 +16,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace java {
 	namespace awt {
 		namespace event {
-
-$FieldInfo _MouseWheelEvent_FieldInfo_[] = {
-	{"WHEEL_UNIT_SCROLL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(MouseWheelEvent, WHEEL_UNIT_SCROLL)},
-	{"WHEEL_BLOCK_SCROLL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(MouseWheelEvent, WHEEL_BLOCK_SCROLL)},
-	{"scrollType", "I", nullptr, 0, $field(MouseWheelEvent, scrollType)},
-	{"scrollAmount", "I", nullptr, 0, $field(MouseWheelEvent, scrollAmount)},
-	{"wheelRotation", "I", nullptr, 0, $field(MouseWheelEvent, wheelRotation)},
-	{"preciseWheelRotation", "D", nullptr, 0, $field(MouseWheelEvent, preciseWheelRotation)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MouseWheelEvent, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _MouseWheelEvent_MethodInfo_[] = {
-	{"<init>", "(Ljava/awt/Component;IJIIIIZIII)V", nullptr, $PUBLIC, $method(MouseWheelEvent, init$, void, $Component*, int32_t, int64_t, int32_t, int32_t, int32_t, int32_t, bool, int32_t, int32_t, int32_t)},
-	{"<init>", "(Ljava/awt/Component;IJIIIIIIZIII)V", nullptr, $PUBLIC, $method(MouseWheelEvent, init$, void, $Component*, int32_t, int64_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, bool, int32_t, int32_t, int32_t)},
-	{"<init>", "(Ljava/awt/Component;IJIIIIIIZIIID)V", nullptr, $PUBLIC, $method(MouseWheelEvent, init$, void, $Component*, int32_t, int64_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, bool, int32_t, int32_t, int32_t, double)},
-	{"getPreciseWheelRotation", "()D", nullptr, $PUBLIC, $virtualMethod(MouseWheelEvent, getPreciseWheelRotation, double)},
-	{"getScrollAmount", "()I", nullptr, $PUBLIC, $virtualMethod(MouseWheelEvent, getScrollAmount, int32_t)},
-	{"getScrollType", "()I", nullptr, $PUBLIC, $virtualMethod(MouseWheelEvent, getScrollType, int32_t)},
-	{"getUnitsToScroll", "()I", nullptr, $PUBLIC, $virtualMethod(MouseWheelEvent, getUnitsToScroll, int32_t)},
-	{"getWheelRotation", "()I", nullptr, $PUBLIC, $virtualMethod(MouseWheelEvent, getWheelRotation, int32_t)},
-	{"paramString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MouseWheelEvent, paramString, $String*)},
-	{}
-};
-
-$ClassInfo _MouseWheelEvent_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.awt.event.MouseWheelEvent",
-	"java.awt.event.MouseEvent",
-	nullptr,
-	_MouseWheelEvent_FieldInfo_,
-	_MouseWheelEvent_MethodInfo_
-};
-
-$Object* allocate$MouseWheelEvent($Class* clazz) {
-	return $of($alloc(MouseWheelEvent));
-}
 
 void MouseWheelEvent::init$($Component* source, int32_t id, int64_t when, int32_t modifiers, int32_t x, int32_t y, int32_t clickCount, bool popupTrigger, int32_t scrollType, int32_t scrollAmount, int32_t wheelRotation) {
 	MouseWheelEvent::init$(source, id, when, modifiers, x, y, 0, 0, clickCount, popupTrigger, scrollType, scrollAmount, wheelRotation);
@@ -92,7 +54,7 @@ int32_t MouseWheelEvent::getUnitsToScroll() {
 }
 
 $String* MouseWheelEvent::paramString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, scrollTypeStr, nullptr);
 	if (getScrollType() == MouseWheelEvent::WHEEL_UNIT_SCROLL) {
 		$assign(scrollTypeStr, "WHEEL_UNIT_SCROLL"_s);
@@ -101,19 +63,56 @@ $String* MouseWheelEvent::paramString() {
 	} else {
 		$assign(scrollTypeStr, "unknown scroll type"_s);
 	}
-	$var($String, var$4, $$str({$($MouseEvent::paramString()), ",scrollType="_s, scrollTypeStr, ",scrollAmount="_s}));
-	$var($String, var$3, $$concat(var$4, $$str(getScrollAmount())));
-	$var($String, var$2, $$concat(var$3, ",wheelRotation="_s));
-	$var($String, var$1, $$concat(var$2, $$str(getWheelRotation())));
-	$var($String, var$0, $$concat(var$1, ",preciseWheelRotation="_s));
-	return $concat(var$0, $$str(getPreciseWheelRotation()));
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append($($MouseEvent::paramString()));
+	var$0->append(",scrollType="_s);
+	var$0->append(scrollTypeStr);
+	var$0->append(",scrollAmount="_s);
+	var$0->append(getScrollAmount());
+	var$0->append(",wheelRotation="_s);
+	var$0->append(getWheelRotation());
+	var$0->append(",preciseWheelRotation="_s);
+	var$0->append(getPreciseWheelRotation());
+	return $str(var$0);
 }
 
 MouseWheelEvent::MouseWheelEvent() {
 }
 
 $Class* MouseWheelEvent::load$($String* name, bool initialize) {
-	$loadClass(MouseWheelEvent, name, initialize, &_MouseWheelEvent_ClassInfo_, allocate$MouseWheelEvent);
+	$FieldInfo fieldInfos$$[] = {
+		{"WHEEL_UNIT_SCROLL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(MouseWheelEvent, WHEEL_UNIT_SCROLL)},
+		{"WHEEL_BLOCK_SCROLL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(MouseWheelEvent, WHEEL_BLOCK_SCROLL)},
+		{"scrollType", "I", nullptr, 0, $field(MouseWheelEvent, scrollType)},
+		{"scrollAmount", "I", nullptr, 0, $field(MouseWheelEvent, scrollAmount)},
+		{"wheelRotation", "I", nullptr, 0, $field(MouseWheelEvent, wheelRotation)},
+		{"preciseWheelRotation", "D", nullptr, 0, $field(MouseWheelEvent, preciseWheelRotation)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MouseWheelEvent, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/Component;IJIIIIZIII)V", nullptr, $PUBLIC, $method(MouseWheelEvent, init$, void, $Component*, int32_t, int64_t, int32_t, int32_t, int32_t, int32_t, bool, int32_t, int32_t, int32_t)},
+		{"<init>", "(Ljava/awt/Component;IJIIIIIIZIII)V", nullptr, $PUBLIC, $method(MouseWheelEvent, init$, void, $Component*, int32_t, int64_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, bool, int32_t, int32_t, int32_t)},
+		{"<init>", "(Ljava/awt/Component;IJIIIIIIZIIID)V", nullptr, $PUBLIC, $method(MouseWheelEvent, init$, void, $Component*, int32_t, int64_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, bool, int32_t, int32_t, int32_t, double)},
+		{"getPreciseWheelRotation", "()D", nullptr, $PUBLIC, $virtualMethod(MouseWheelEvent, getPreciseWheelRotation, double)},
+		{"getScrollAmount", "()I", nullptr, $PUBLIC, $virtualMethod(MouseWheelEvent, getScrollAmount, int32_t)},
+		{"getScrollType", "()I", nullptr, $PUBLIC, $virtualMethod(MouseWheelEvent, getScrollType, int32_t)},
+		{"getUnitsToScroll", "()I", nullptr, $PUBLIC, $virtualMethod(MouseWheelEvent, getUnitsToScroll, int32_t)},
+		{"getWheelRotation", "()I", nullptr, $PUBLIC, $virtualMethod(MouseWheelEvent, getWheelRotation, int32_t)},
+		{"paramString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MouseWheelEvent, paramString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.awt.event.MouseWheelEvent",
+		"java.awt.event.MouseEvent",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(MouseWheelEvent, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MouseWheelEvent);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <javax/swing/text/html/Map$CircleRegionContainment.h>
-
 #include <java/lang/Math.h>
 #include <javax/swing/text/AttributeSet.h>
 #include <javax/swing/text/html/HTML$Attribute.h>
@@ -24,53 +23,11 @@ namespace javax {
 		namespace text {
 			namespace html {
 
-$FieldInfo _Map$CircleRegionContainment_FieldInfo_[] = {
-	{"x", "I", nullptr, 0, $field(Map$CircleRegionContainment, x)},
-	{"y", "I", nullptr, 0, $field(Map$CircleRegionContainment, y)},
-	{"radiusSquared", "I", nullptr, 0, $field(Map$CircleRegionContainment, radiusSquared)},
-	{"percentValues", "[F", nullptr, 0, $field(Map$CircleRegionContainment, percentValues)},
-	{"lastWidth", "I", nullptr, 0, $field(Map$CircleRegionContainment, lastWidth)},
-	{"lastHeight", "I", nullptr, 0, $field(Map$CircleRegionContainment, lastHeight)},
-	{}
-};
-
-$MethodInfo _Map$CircleRegionContainment_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/text/AttributeSet;)V", nullptr, $PUBLIC, $method(Map$CircleRegionContainment, init$, void, $AttributeSet*)},
-	{"contains", "(IIII)Z", nullptr, $PUBLIC, $virtualMethod(Map$CircleRegionContainment, contains, bool, int32_t, int32_t, int32_t, int32_t)},
-	{}
-};
-
-$InnerClassInfo _Map$CircleRegionContainment_InnerClassesInfo_[] = {
-	{"javax.swing.text.html.Map$CircleRegionContainment", "javax.swing.text.html.Map", "CircleRegionContainment", $STATIC},
-	{"javax.swing.text.html.Map$RegionContainment", "javax.swing.text.html.Map", "RegionContainment", $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Map$CircleRegionContainment_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.text.html.Map$CircleRegionContainment",
-	"java.lang.Object",
-	"javax.swing.text.html.Map$RegionContainment",
-	_Map$CircleRegionContainment_FieldInfo_,
-	_Map$CircleRegionContainment_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Map$CircleRegionContainment_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.html.Map"
-};
-
-$Object* allocate$Map$CircleRegionContainment($Class* clazz) {
-	return $of($alloc(Map$CircleRegionContainment));
-}
-
 void Map$CircleRegionContainment::init$($AttributeSet* as) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($HTML$Attribute);
 	$var($ints, coords, $Map::extractCoords($($nc(as)->getAttribute($HTML$Attribute::COORDS))));
-	if (coords == nullptr || $nc(coords)->length != 3) {
+	if (coords == nullptr || coords->length != 3) {
 		$throwNew($RuntimeException, "Unable to parse circular area"_s);
 	}
 	this->x = $nc(coords)->get(0);
@@ -81,9 +38,9 @@ void Map$CircleRegionContainment::init$($AttributeSet* as) {
 		$set(this, percentValues, $new($floats, 3));
 		for (int32_t counter = 0; counter < 3; ++counter) {
 			if (coords->get(counter) < 0) {
-				$nc(this->percentValues)->set(counter, $div(coords->get(counter), -100.0f));
+				this->percentValues->set(counter, $div(coords->get(counter), -100.0f));
 			} else {
-				$nc(this->percentValues)->set(counter, -1.0f);
+				this->percentValues->set(counter, -1.0f);
 			}
 		}
 	} else {
@@ -96,14 +53,14 @@ bool Map$CircleRegionContainment::contains(int32_t x, int32_t y, int32_t width, 
 		int32_t newRad = $Math::min(width, height) / 2;
 		this->lastWidth = width;
 		this->lastHeight = height;
-		if ($nc(this->percentValues)->get(0) != -1.0f) {
-			this->x = $cast(int32_t, ($nc(this->percentValues)->get(0) * width));
+		if (this->percentValues->get(0) != -1.0f) {
+			this->x = $cast(int32_t, (this->percentValues->get(0) * width));
 		}
-		if ($nc(this->percentValues)->get(1) != -1.0f) {
-			this->y = $cast(int32_t, ($nc(this->percentValues)->get(1) * height));
+		if (this->percentValues->get(1) != -1.0f) {
+			this->y = $cast(int32_t, (this->percentValues->get(1) * height));
 		}
-		if ($nc(this->percentValues)->get(2) != -1.0f) {
-			this->radiusSquared = $cast(int32_t, ($nc(this->percentValues)->get(2) * $Math::min(width, height)));
+		if (this->percentValues->get(2) != -1.0f) {
+			this->radiusSquared = $cast(int32_t, (this->percentValues->get(2) * $Math::min(width, height)));
 			this->radiusSquared *= this->radiusSquared;
 		}
 	}
@@ -114,7 +71,43 @@ Map$CircleRegionContainment::Map$CircleRegionContainment() {
 }
 
 $Class* Map$CircleRegionContainment::load$($String* name, bool initialize) {
-	$loadClass(Map$CircleRegionContainment, name, initialize, &_Map$CircleRegionContainment_ClassInfo_, allocate$Map$CircleRegionContainment);
+	$FieldInfo fieldInfos$$[] = {
+		{"x", "I", nullptr, 0, $field(Map$CircleRegionContainment, x)},
+		{"y", "I", nullptr, 0, $field(Map$CircleRegionContainment, y)},
+		{"radiusSquared", "I", nullptr, 0, $field(Map$CircleRegionContainment, radiusSquared)},
+		{"percentValues", "[F", nullptr, 0, $field(Map$CircleRegionContainment, percentValues)},
+		{"lastWidth", "I", nullptr, 0, $field(Map$CircleRegionContainment, lastWidth)},
+		{"lastHeight", "I", nullptr, 0, $field(Map$CircleRegionContainment, lastHeight)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/text/AttributeSet;)V", nullptr, $PUBLIC, $method(Map$CircleRegionContainment, init$, void, $AttributeSet*)},
+		{"contains", "(IIII)Z", nullptr, $PUBLIC, $virtualMethod(Map$CircleRegionContainment, contains, bool, int32_t, int32_t, int32_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.html.Map$CircleRegionContainment", "javax.swing.text.html.Map", "CircleRegionContainment", $STATIC},
+		{"javax.swing.text.html.Map$RegionContainment", "javax.swing.text.html.Map", "RegionContainment", $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.text.html.Map$CircleRegionContainment",
+		"java.lang.Object",
+		"javax.swing.text.html.Map$RegionContainment",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.html.Map"
+	};
+	$loadClass(Map$CircleRegionContainment, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Map$CircleRegionContainment);
+	});
 	return class$;
 }
 

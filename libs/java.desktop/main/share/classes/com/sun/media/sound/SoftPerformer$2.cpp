@@ -1,5 +1,4 @@
 #include <com/sun/media/sound/SoftPerformer$2.h>
-
 #include <com/sun/media/sound/SoftPerformer.h>
 #include <jcpp.h>
 
@@ -14,50 +13,6 @@ namespace com {
 	namespace sun {
 		namespace media {
 			namespace sound {
-
-$FieldInfo _SoftPerformer$2_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/media/sound/SoftPerformer;", nullptr, $FINAL | $SYNTHETIC, $field(SoftPerformer$2, this$0)},
-	{"val$scale", "D", nullptr, $FINAL | $SYNTHETIC, $field(SoftPerformer$2, val$scale)},
-	{"s", "D", nullptr, 0, $field(SoftPerformer$2, s)},
-	{}
-};
-
-$MethodInfo _SoftPerformer$2_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/media/sound/SoftPerformer;D)V", "()V", 0, $method(SoftPerformer$2, init$, void, $SoftPerformer*, double)},
-	{"transform", "(D)D", nullptr, $PUBLIC, $virtualMethod(SoftPerformer$2, transform, double, double)},
-	{}
-};
-
-$EnclosingMethodInfo _SoftPerformer$2_EnclosingMethodInfo_ = {
-	"com.sun.media.sound.SoftPerformer",
-	"<init>",
-	"(Lcom/sun/media/sound/ModelPerformer;)V"
-};
-
-$InnerClassInfo _SoftPerformer$2_InnerClassesInfo_[] = {
-	{"com.sun.media.sound.SoftPerformer$2", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _SoftPerformer$2_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.media.sound.SoftPerformer$2",
-	"java.lang.Object",
-	"com.sun.media.sound.ModelTransform",
-	_SoftPerformer$2_FieldInfo_,
-	_SoftPerformer$2_MethodInfo_,
-	nullptr,
-	&_SoftPerformer$2_EnclosingMethodInfo_,
-	_SoftPerformer$2_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.media.sound.SoftPerformer"
-};
-
-$Object* allocate$SoftPerformer$2($Class* clazz) {
-	return $of($alloc(SoftPerformer$2));
-}
 
 void SoftPerformer$2::init$($SoftPerformer* this$0, double val$scale) {
 	$set(this, this$0, this$0);
@@ -87,7 +42,44 @@ SoftPerformer$2::SoftPerformer$2() {
 }
 
 $Class* SoftPerformer$2::load$($String* name, bool initialize) {
-	$loadClass(SoftPerformer$2, name, initialize, &_SoftPerformer$2_ClassInfo_, allocate$SoftPerformer$2);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/media/sound/SoftPerformer;", nullptr, $FINAL | $SYNTHETIC, $field(SoftPerformer$2, this$0)},
+		{"val$scale", "D", nullptr, $FINAL | $SYNTHETIC, $field(SoftPerformer$2, val$scale)},
+		{"s", "D", nullptr, 0, $field(SoftPerformer$2, s)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/media/sound/SoftPerformer;D)V", "()V", 0, $method(SoftPerformer$2, init$, void, $SoftPerformer*, double)},
+		{"transform", "(D)D", nullptr, $PUBLIC, $virtualMethod(SoftPerformer$2, transform, double, double)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.media.sound.SoftPerformer",
+		"<init>",
+		"(Lcom/sun/media/sound/ModelPerformer;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.media.sound.SoftPerformer$2", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.media.sound.SoftPerformer$2",
+		"java.lang.Object",
+		"com.sun.media.sound.ModelTransform",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.media.sound.SoftPerformer"
+	};
+	$loadClass(SoftPerformer$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SoftPerformer$2);
+	});
 	return class$;
 }
 

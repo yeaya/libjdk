@@ -23,6 +23,7 @@ class StateTrackable$State : public ::java::lang::Enum {
 public:
 	StateTrackable$State();
 	static $Array<::sun::java2d::StateTrackable$State>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::sun::java2d::StateTrackable$State* valueOf($String* name);
 	static $Array<::sun::java2d::StateTrackable$State>* values();

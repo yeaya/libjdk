@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/utils/XMLStringDefault.h>
-
 #include <com/sun/org/apache/xml/internal/utils/XMLString.h>
 #include <java/lang/NumberFormatException.h>
 #include <java/util/Locale.h>
@@ -24,67 +23,6 @@ namespace com {
 				namespace xml {
 					namespace internal {
 						namespace utils {
-
-$FieldInfo _XMLStringDefault_FieldInfo_[] = {
-	{"m_str", "Ljava/lang/String;", nullptr, $PRIVATE, $field(XMLStringDefault, m_str)},
-	{}
-};
-
-$MethodInfo _XMLStringDefault_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(XMLStringDefault, init$, void, $String*)},
-	{"charAt", "(I)C", nullptr, $PUBLIC, $virtualMethod(XMLStringDefault, charAt, char16_t, int32_t)},
-	{"compareTo", "(Lcom/sun/org/apache/xml/internal/utils/XMLString;)I", nullptr, $PUBLIC, $virtualMethod(XMLStringDefault, compareTo, int32_t, $XMLString*)},
-	{"compareToIgnoreCase", "(Lcom/sun/org/apache/xml/internal/utils/XMLString;)I", nullptr, $PUBLIC, $virtualMethod(XMLStringDefault, compareToIgnoreCase, int32_t, $XMLString*)},
-	{"concat", "(Ljava/lang/String;)Lcom/sun/org/apache/xml/internal/utils/XMLString;", nullptr, $PUBLIC, $virtualMethod(XMLStringDefault, concat, $XMLString*, $String*)},
-	{"dispatchAsComment", "(Lorg/xml/sax/ext/LexicalHandler;)V", nullptr, $PUBLIC, $virtualMethod(XMLStringDefault, dispatchAsComment, void, $LexicalHandler*), "org.xml.sax.SAXException"},
-	{"dispatchCharactersEvents", "(Lorg/xml/sax/ContentHandler;)V", nullptr, $PUBLIC, $virtualMethod(XMLStringDefault, dispatchCharactersEvents, void, $ContentHandler*), "org.xml.sax.SAXException"},
-	{"endsWith", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(XMLStringDefault, endsWith, bool, $String*)},
-	{"equals", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(XMLStringDefault, equals, bool, $String*)},
-	{"equals", "(Lcom/sun/org/apache/xml/internal/utils/XMLString;)Z", nullptr, $PUBLIC, $virtualMethod(XMLStringDefault, equals, bool, $XMLString*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(XMLStringDefault, equals, bool, Object$*)},
-	{"equalsIgnoreCase", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(XMLStringDefault, equalsIgnoreCase, bool, $String*)},
-	{"fixWhiteSpace", "(ZZZ)Lcom/sun/org/apache/xml/internal/utils/XMLString;", nullptr, $PUBLIC, $virtualMethod(XMLStringDefault, fixWhiteSpace, $XMLString*, bool, bool, bool)},
-	{"getChars", "(II[CI)V", nullptr, $PUBLIC, $virtualMethod(XMLStringDefault, getChars, void, int32_t, int32_t, $chars*, int32_t)},
-	{"hasString", "()Z", nullptr, $PUBLIC, $virtualMethod(XMLStringDefault, hasString, bool)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(XMLStringDefault, hashCode, int32_t)},
-	{"indexOf", "(I)I", nullptr, $PUBLIC, $virtualMethod(XMLStringDefault, indexOf, int32_t, int32_t)},
-	{"indexOf", "(II)I", nullptr, $PUBLIC, $virtualMethod(XMLStringDefault, indexOf, int32_t, int32_t, int32_t)},
-	{"indexOf", "(Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(XMLStringDefault, indexOf, int32_t, $String*)},
-	{"indexOf", "(Lcom/sun/org/apache/xml/internal/utils/XMLString;)I", nullptr, $PUBLIC, $virtualMethod(XMLStringDefault, indexOf, int32_t, $XMLString*)},
-	{"indexOf", "(Ljava/lang/String;I)I", nullptr, $PUBLIC, $virtualMethod(XMLStringDefault, indexOf, int32_t, $String*, int32_t)},
-	{"lastIndexOf", "(I)I", nullptr, $PUBLIC, $virtualMethod(XMLStringDefault, lastIndexOf, int32_t, int32_t)},
-	{"lastIndexOf", "(II)I", nullptr, $PUBLIC, $virtualMethod(XMLStringDefault, lastIndexOf, int32_t, int32_t, int32_t)},
-	{"lastIndexOf", "(Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(XMLStringDefault, lastIndexOf, int32_t, $String*)},
-	{"lastIndexOf", "(Ljava/lang/String;I)I", nullptr, $PUBLIC, $virtualMethod(XMLStringDefault, lastIndexOf, int32_t, $String*, int32_t)},
-	{"length", "()I", nullptr, $PUBLIC, $virtualMethod(XMLStringDefault, length, int32_t)},
-	{"startsWith", "(Ljava/lang/String;I)Z", nullptr, $PUBLIC, $virtualMethod(XMLStringDefault, startsWith, bool, $String*, int32_t)},
-	{"startsWith", "(Lcom/sun/org/apache/xml/internal/utils/XMLString;I)Z", nullptr, $PUBLIC, $virtualMethod(XMLStringDefault, startsWith, bool, $XMLString*, int32_t)},
-	{"startsWith", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(XMLStringDefault, startsWith, bool, $String*)},
-	{"startsWith", "(Lcom/sun/org/apache/xml/internal/utils/XMLString;)Z", nullptr, $PUBLIC, $virtualMethod(XMLStringDefault, startsWith, bool, $XMLString*)},
-	{"substring", "(I)Lcom/sun/org/apache/xml/internal/utils/XMLString;", nullptr, $PUBLIC, $virtualMethod(XMLStringDefault, substring, $XMLString*, int32_t)},
-	{"substring", "(II)Lcom/sun/org/apache/xml/internal/utils/XMLString;", nullptr, $PUBLIC, $virtualMethod(XMLStringDefault, substring, $XMLString*, int32_t, int32_t)},
-	{"toDouble", "()D", nullptr, $PUBLIC, $virtualMethod(XMLStringDefault, toDouble, double)},
-	{"toLowerCase", "(Ljava/util/Locale;)Lcom/sun/org/apache/xml/internal/utils/XMLString;", nullptr, $PUBLIC, $virtualMethod(XMLStringDefault, toLowerCase, $XMLString*, $Locale*)},
-	{"toLowerCase", "()Lcom/sun/org/apache/xml/internal/utils/XMLString;", nullptr, $PUBLIC, $virtualMethod(XMLStringDefault, toLowerCase, $XMLString*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLStringDefault, toString, $String*)},
-	{"toUpperCase", "(Ljava/util/Locale;)Lcom/sun/org/apache/xml/internal/utils/XMLString;", nullptr, $PUBLIC, $virtualMethod(XMLStringDefault, toUpperCase, $XMLString*, $Locale*)},
-	{"toUpperCase", "()Lcom/sun/org/apache/xml/internal/utils/XMLString;", nullptr, $PUBLIC, $virtualMethod(XMLStringDefault, toUpperCase, $XMLString*)},
-	{"trim", "()Lcom/sun/org/apache/xml/internal/utils/XMLString;", nullptr, $PUBLIC, $virtualMethod(XMLStringDefault, trim, $XMLString*)},
-	{}
-};
-
-$ClassInfo _XMLStringDefault_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.utils.XMLStringDefault",
-	"java.lang.Object",
-	"com.sun.org.apache.xml.internal.utils.XMLString",
-	_XMLStringDefault_FieldInfo_,
-	_XMLStringDefault_MethodInfo_
-};
-
-$Object* allocate$XMLStringDefault($Class* clazz) {
-	return $of($alloc(XMLStringDefault));
-}
 
 void XMLStringDefault::init$($String* str) {
 	$set(this, m_str, str);
@@ -241,9 +179,8 @@ bool XMLStringDefault::hasString() {
 
 double XMLStringDefault::toDouble() {
 	try {
-		return $nc($($Double::valueOf(this->m_str)))->doubleValue();
+		return $($Double::valueOf(this->m_str))->doubleValue();
 	} catch ($NumberFormatException& nfe) {
-		$init($Double);
 		return $Double::NaN;
 	}
 	$shouldNotReachHere();
@@ -253,7 +190,63 @@ XMLStringDefault::XMLStringDefault() {
 }
 
 $Class* XMLStringDefault::load$($String* name, bool initialize) {
-	$loadClass(XMLStringDefault, name, initialize, &_XMLStringDefault_ClassInfo_, allocate$XMLStringDefault);
+	$FieldInfo fieldInfos$$[] = {
+		{"m_str", "Ljava/lang/String;", nullptr, $PRIVATE, $field(XMLStringDefault, m_str)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(XMLStringDefault, init$, void, $String*)},
+		{"charAt", "(I)C", nullptr, $PUBLIC, $virtualMethod(XMLStringDefault, charAt, char16_t, int32_t)},
+		{"compareTo", "(Lcom/sun/org/apache/xml/internal/utils/XMLString;)I", nullptr, $PUBLIC, $virtualMethod(XMLStringDefault, compareTo, int32_t, $XMLString*)},
+		{"compareToIgnoreCase", "(Lcom/sun/org/apache/xml/internal/utils/XMLString;)I", nullptr, $PUBLIC, $virtualMethod(XMLStringDefault, compareToIgnoreCase, int32_t, $XMLString*)},
+		{"concat", "(Ljava/lang/String;)Lcom/sun/org/apache/xml/internal/utils/XMLString;", nullptr, $PUBLIC, $virtualMethod(XMLStringDefault, concat, $XMLString*, $String*)},
+		{"dispatchAsComment", "(Lorg/xml/sax/ext/LexicalHandler;)V", nullptr, $PUBLIC, $virtualMethod(XMLStringDefault, dispatchAsComment, void, $LexicalHandler*), "org.xml.sax.SAXException"},
+		{"dispatchCharactersEvents", "(Lorg/xml/sax/ContentHandler;)V", nullptr, $PUBLIC, $virtualMethod(XMLStringDefault, dispatchCharactersEvents, void, $ContentHandler*), "org.xml.sax.SAXException"},
+		{"endsWith", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(XMLStringDefault, endsWith, bool, $String*)},
+		{"equals", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(XMLStringDefault, equals, bool, $String*)},
+		{"equals", "(Lcom/sun/org/apache/xml/internal/utils/XMLString;)Z", nullptr, $PUBLIC, $virtualMethod(XMLStringDefault, equals, bool, $XMLString*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(XMLStringDefault, equals, bool, Object$*)},
+		{"equalsIgnoreCase", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(XMLStringDefault, equalsIgnoreCase, bool, $String*)},
+		{"fixWhiteSpace", "(ZZZ)Lcom/sun/org/apache/xml/internal/utils/XMLString;", nullptr, $PUBLIC, $virtualMethod(XMLStringDefault, fixWhiteSpace, $XMLString*, bool, bool, bool)},
+		{"getChars", "(II[CI)V", nullptr, $PUBLIC, $virtualMethod(XMLStringDefault, getChars, void, int32_t, int32_t, $chars*, int32_t)},
+		{"hasString", "()Z", nullptr, $PUBLIC, $virtualMethod(XMLStringDefault, hasString, bool)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(XMLStringDefault, hashCode, int32_t)},
+		{"indexOf", "(I)I", nullptr, $PUBLIC, $virtualMethod(XMLStringDefault, indexOf, int32_t, int32_t)},
+		{"indexOf", "(II)I", nullptr, $PUBLIC, $virtualMethod(XMLStringDefault, indexOf, int32_t, int32_t, int32_t)},
+		{"indexOf", "(Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(XMLStringDefault, indexOf, int32_t, $String*)},
+		{"indexOf", "(Lcom/sun/org/apache/xml/internal/utils/XMLString;)I", nullptr, $PUBLIC, $virtualMethod(XMLStringDefault, indexOf, int32_t, $XMLString*)},
+		{"indexOf", "(Ljava/lang/String;I)I", nullptr, $PUBLIC, $virtualMethod(XMLStringDefault, indexOf, int32_t, $String*, int32_t)},
+		{"lastIndexOf", "(I)I", nullptr, $PUBLIC, $virtualMethod(XMLStringDefault, lastIndexOf, int32_t, int32_t)},
+		{"lastIndexOf", "(II)I", nullptr, $PUBLIC, $virtualMethod(XMLStringDefault, lastIndexOf, int32_t, int32_t, int32_t)},
+		{"lastIndexOf", "(Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(XMLStringDefault, lastIndexOf, int32_t, $String*)},
+		{"lastIndexOf", "(Ljava/lang/String;I)I", nullptr, $PUBLIC, $virtualMethod(XMLStringDefault, lastIndexOf, int32_t, $String*, int32_t)},
+		{"length", "()I", nullptr, $PUBLIC, $virtualMethod(XMLStringDefault, length, int32_t)},
+		{"startsWith", "(Ljava/lang/String;I)Z", nullptr, $PUBLIC, $virtualMethod(XMLStringDefault, startsWith, bool, $String*, int32_t)},
+		{"startsWith", "(Lcom/sun/org/apache/xml/internal/utils/XMLString;I)Z", nullptr, $PUBLIC, $virtualMethod(XMLStringDefault, startsWith, bool, $XMLString*, int32_t)},
+		{"startsWith", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(XMLStringDefault, startsWith, bool, $String*)},
+		{"startsWith", "(Lcom/sun/org/apache/xml/internal/utils/XMLString;)Z", nullptr, $PUBLIC, $virtualMethod(XMLStringDefault, startsWith, bool, $XMLString*)},
+		{"substring", "(I)Lcom/sun/org/apache/xml/internal/utils/XMLString;", nullptr, $PUBLIC, $virtualMethod(XMLStringDefault, substring, $XMLString*, int32_t)},
+		{"substring", "(II)Lcom/sun/org/apache/xml/internal/utils/XMLString;", nullptr, $PUBLIC, $virtualMethod(XMLStringDefault, substring, $XMLString*, int32_t, int32_t)},
+		{"toDouble", "()D", nullptr, $PUBLIC, $virtualMethod(XMLStringDefault, toDouble, double)},
+		{"toLowerCase", "(Ljava/util/Locale;)Lcom/sun/org/apache/xml/internal/utils/XMLString;", nullptr, $PUBLIC, $virtualMethod(XMLStringDefault, toLowerCase, $XMLString*, $Locale*)},
+		{"toLowerCase", "()Lcom/sun/org/apache/xml/internal/utils/XMLString;", nullptr, $PUBLIC, $virtualMethod(XMLStringDefault, toLowerCase, $XMLString*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLStringDefault, toString, $String*)},
+		{"toUpperCase", "(Ljava/util/Locale;)Lcom/sun/org/apache/xml/internal/utils/XMLString;", nullptr, $PUBLIC, $virtualMethod(XMLStringDefault, toUpperCase, $XMLString*, $Locale*)},
+		{"toUpperCase", "()Lcom/sun/org/apache/xml/internal/utils/XMLString;", nullptr, $PUBLIC, $virtualMethod(XMLStringDefault, toUpperCase, $XMLString*)},
+		{"trim", "()Lcom/sun/org/apache/xml/internal/utils/XMLString;", nullptr, $PUBLIC, $virtualMethod(XMLStringDefault, trim, $XMLString*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.utils.XMLStringDefault",
+		"java.lang.Object",
+		"com.sun.org.apache.xml.internal.utils.XMLString",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XMLStringDefault, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XMLStringDefault);
+	});
 	return class$;
 }
 

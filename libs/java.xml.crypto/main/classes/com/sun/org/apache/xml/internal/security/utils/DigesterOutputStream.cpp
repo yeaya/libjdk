@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/security/utils/DigesterOutputStream.h>
-
 #include <com/sun/org/apache/xml/internal/security/algorithms/MessageDigestAlgorithm.h>
 #include <com/sun/org/slf4j/internal/Logger.h>
 #include <com/sun/org/slf4j/internal/LoggerFactory.h>
@@ -25,34 +24,6 @@ namespace com {
 						namespace security {
 							namespace utils {
 
-$FieldInfo _DigesterOutputStream_FieldInfo_[] = {
-	{"LOG", "Lcom/sun/org/slf4j/internal/Logger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DigesterOutputStream, LOG)},
-	{"mda", "Lcom/sun/org/apache/xml/internal/security/algorithms/MessageDigestAlgorithm;", nullptr, $FINAL, $field(DigesterOutputStream, mda)},
-	{}
-};
-
-$MethodInfo _DigesterOutputStream_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/org/apache/xml/internal/security/algorithms/MessageDigestAlgorithm;)V", nullptr, $PUBLIC, $method(DigesterOutputStream, init$, void, $MessageDigestAlgorithm*)},
-	{"getDigestValue", "()[B", nullptr, $PUBLIC, $virtualMethod(DigesterOutputStream, getDigestValue, $bytes*)},
-	{"write", "([B)V", nullptr, $PUBLIC, $virtualMethod(DigesterOutputStream, write, void, $bytes*)},
-	{"write", "(I)V", nullptr, $PUBLIC, $virtualMethod(DigesterOutputStream, write, void, int32_t)},
-	{"write", "([BII)V", nullptr, $PUBLIC, $virtualMethod(DigesterOutputStream, write, void, $bytes*, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _DigesterOutputStream_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.security.utils.DigesterOutputStream",
-	"java.io.ByteArrayOutputStream",
-	nullptr,
-	_DigesterOutputStream_FieldInfo_,
-	_DigesterOutputStream_MethodInfo_
-};
-
-$Object* allocate$DigesterOutputStream($Class* clazz) {
-	return $of($alloc(DigesterOutputStream));
-}
-
 $Logger* DigesterOutputStream::LOG = nullptr;
 
 void DigesterOutputStream::init$($MessageDigestAlgorithm* mda) {
@@ -69,14 +40,14 @@ void DigesterOutputStream::write(int32_t arg0) {
 }
 
 void DigesterOutputStream::write($bytes* arg0, int32_t arg1, int32_t arg2) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(DigesterOutputStream::LOG)->isDebugEnabled()) {
-		$nc(DigesterOutputStream::LOG)->debug("Pre-digested input:"_s);
+		DigesterOutputStream::LOG->debug("Pre-digested input:"_s);
 		$var($StringBuilder, sb, $new($StringBuilder, arg2));
 		for (int32_t i = arg1; i < (arg1 + arg2); ++i) {
 			sb->append((char16_t)$nc(arg0)->get(i));
 		}
-		$nc(DigesterOutputStream::LOG)->debug($(sb->toString()));
+		DigesterOutputStream::LOG->debug($(sb->toString()));
 	}
 	$nc(this->mda)->update(arg0, arg1, arg2);
 }
@@ -85,7 +56,7 @@ $bytes* DigesterOutputStream::getDigestValue() {
 	return $nc(this->mda)->digest();
 }
 
-void clinit$DigesterOutputStream($Class* class$) {
+void DigesterOutputStream::clinit$($Class* clazz) {
 	$assignStatic(DigesterOutputStream::LOG, $LoggerFactory::getLogger(DigesterOutputStream::class$));
 }
 
@@ -93,7 +64,30 @@ DigesterOutputStream::DigesterOutputStream() {
 }
 
 $Class* DigesterOutputStream::load$($String* name, bool initialize) {
-	$loadClass(DigesterOutputStream, name, initialize, &_DigesterOutputStream_ClassInfo_, clinit$DigesterOutputStream, allocate$DigesterOutputStream);
+	$FieldInfo fieldInfos$$[] = {
+		{"LOG", "Lcom/sun/org/slf4j/internal/Logger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DigesterOutputStream, LOG)},
+		{"mda", "Lcom/sun/org/apache/xml/internal/security/algorithms/MessageDigestAlgorithm;", nullptr, $FINAL, $field(DigesterOutputStream, mda)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/org/apache/xml/internal/security/algorithms/MessageDigestAlgorithm;)V", nullptr, $PUBLIC, $method(DigesterOutputStream, init$, void, $MessageDigestAlgorithm*)},
+		{"getDigestValue", "()[B", nullptr, $PUBLIC, $virtualMethod(DigesterOutputStream, getDigestValue, $bytes*)},
+		{"write", "([B)V", nullptr, $PUBLIC, $virtualMethod(DigesterOutputStream, write, void, $bytes*)},
+		{"write", "(I)V", nullptr, $PUBLIC, $virtualMethod(DigesterOutputStream, write, void, int32_t)},
+		{"write", "([BII)V", nullptr, $PUBLIC, $virtualMethod(DigesterOutputStream, write, void, $bytes*, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.security.utils.DigesterOutputStream",
+		"java.io.ByteArrayOutputStream",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DigesterOutputStream, name, initialize, &classInfo$$, DigesterOutputStream::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DigesterOutputStream));
+	});
 	return class$;
 }
 

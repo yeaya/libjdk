@@ -24,6 +24,7 @@ class DocCommentParser$WhitespaceRetentionPolicy : public ::java::lang::Enum {
 public:
 	DocCommentParser$WhitespaceRetentionPolicy();
 	static $Array<::com::sun::tools::javac::parser::DocCommentParser$WhitespaceRetentionPolicy>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::com::sun::tools::javac::parser::DocCommentParser$WhitespaceRetentionPolicy* valueOf($String* name);
 	static $Array<::com::sun::tools::javac::parser::DocCommentParser$WhitespaceRetentionPolicy>* values();

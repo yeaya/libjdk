@@ -1,5 +1,4 @@
 #include <SilenceOfDeprecatedMenuBar$DeprecatedFrame.h>
-
 #include <SilenceOfDeprecatedMenuBar$DeprecatedFrame$1.h>
 #include <SilenceOfDeprecatedMenuBar.h>
 #include <javax/swing/JFrame.h>
@@ -13,38 +12,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $JFrame = ::javax::swing::JFrame;
 using $JRootPane = ::javax::swing::JRootPane;
 
-$MethodInfo _SilenceOfDeprecatedMenuBar$DeprecatedFrame_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(SilenceOfDeprecatedMenuBar$DeprecatedFrame, init$, void)},
-	{"createRootPane", "()Ljavax/swing/JRootPane;", nullptr, $PROTECTED, $virtualMethod(SilenceOfDeprecatedMenuBar$DeprecatedFrame, createRootPane, $JRootPane*)},
-	{}
-};
-
-$InnerClassInfo _SilenceOfDeprecatedMenuBar$DeprecatedFrame_InnerClassesInfo_[] = {
-	{"SilenceOfDeprecatedMenuBar$DeprecatedFrame", "SilenceOfDeprecatedMenuBar", "DeprecatedFrame", $PRIVATE | $STATIC},
-	{"SilenceOfDeprecatedMenuBar$DeprecatedFrame$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _SilenceOfDeprecatedMenuBar$DeprecatedFrame_ClassInfo_ = {
-	$ACC_SUPER,
-	"SilenceOfDeprecatedMenuBar$DeprecatedFrame",
-	"javax.swing.JFrame",
-	nullptr,
-	nullptr,
-	_SilenceOfDeprecatedMenuBar$DeprecatedFrame_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SilenceOfDeprecatedMenuBar$DeprecatedFrame_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"SilenceOfDeprecatedMenuBar"
-};
-
-$Object* allocate$SilenceOfDeprecatedMenuBar$DeprecatedFrame($Class* clazz) {
-	return $of($alloc(SilenceOfDeprecatedMenuBar$DeprecatedFrame));
-}
-
 void SilenceOfDeprecatedMenuBar$DeprecatedFrame::init$() {
 	$JFrame::init$();
 }
@@ -57,7 +24,34 @@ SilenceOfDeprecatedMenuBar$DeprecatedFrame::SilenceOfDeprecatedMenuBar$Deprecate
 }
 
 $Class* SilenceOfDeprecatedMenuBar$DeprecatedFrame::load$($String* name, bool initialize) {
-	$loadClass(SilenceOfDeprecatedMenuBar$DeprecatedFrame, name, initialize, &_SilenceOfDeprecatedMenuBar$DeprecatedFrame_ClassInfo_, allocate$SilenceOfDeprecatedMenuBar$DeprecatedFrame);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(SilenceOfDeprecatedMenuBar$DeprecatedFrame, init$, void)},
+		{"createRootPane", "()Ljavax/swing/JRootPane;", nullptr, $PROTECTED, $virtualMethod(SilenceOfDeprecatedMenuBar$DeprecatedFrame, createRootPane, $JRootPane*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"SilenceOfDeprecatedMenuBar$DeprecatedFrame", "SilenceOfDeprecatedMenuBar", "DeprecatedFrame", $PRIVATE | $STATIC},
+		{"SilenceOfDeprecatedMenuBar$DeprecatedFrame$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"SilenceOfDeprecatedMenuBar$DeprecatedFrame",
+		"javax.swing.JFrame",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"SilenceOfDeprecatedMenuBar"
+	};
+	$loadClass(SilenceOfDeprecatedMenuBar$DeprecatedFrame, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SilenceOfDeprecatedMenuBar$DeprecatedFrame));
+	});
 	return class$;
 }
 

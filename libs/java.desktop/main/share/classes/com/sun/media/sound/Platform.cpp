@@ -1,5 +1,4 @@
 #include <com/sun/media/sound/Platform.h>
-
 #include <com/sun/media/sound/Printer.h>
 #include <java/io/Serializable.h>
 #include <java/lang/invoke/CallSite.h>
@@ -32,67 +31,29 @@ public:
 	void init$() {
 	}
 	virtual $Object* run() override {
-		 return $of(Platform::lambda$loadLibraries$0());
+		 return Platform::lambda$loadLibraries$0();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Platform$$Lambda$lambda$loadLibraries$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo Platform$$Lambda$lambda$loadLibraries$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Platform$$Lambda$lambda$loadLibraries$0, init$, void)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Platform$$Lambda$lambda$loadLibraries$0, run, $Object*)},
-	{}
-};
-$ClassInfo Platform$$Lambda$lambda$loadLibraries$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.media.sound.Platform$$Lambda$lambda$loadLibraries$0",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	nullptr,
-	methodInfos
 };
 $Class* Platform$$Lambda$lambda$loadLibraries$0::load$($String* name, bool initialize) {
-	$loadClass(Platform$$Lambda$lambda$loadLibraries$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Platform$$Lambda$lambda$loadLibraries$0, init$, void)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Platform$$Lambda$lambda$loadLibraries$0, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.media.sound.Platform$$Lambda$lambda$loadLibraries$0",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Platform$$Lambda$lambda$loadLibraries$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Platform$$Lambda$lambda$loadLibraries$0);
+	});
 	return class$;
 }
 $Class* Platform$$Lambda$lambda$loadLibraries$0::class$ = nullptr;
-
-$FieldInfo _Platform_FieldInfo_[] = {
-	{"libName", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Platform, libName)},
-	{"isNativeLibLoaded", "Z", nullptr, $PRIVATE | $STATIC, $staticField(Platform, isNativeLibLoaded)},
-	{"bigEndian", "Z", nullptr, $PRIVATE | $STATIC, $staticField(Platform, bigEndian)},
-	{}
-};
-
-$MethodInfo _Platform_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(Platform, init$, void)},
-	{"initialize", "()V", nullptr, $STATIC, $staticMethod(Platform, initialize, void)},
-	{"isBigEndian", "()Z", nullptr, $STATIC, $staticMethod(Platform, isBigEndian, bool)},
-	{"isDirectAudioEnabled", "()Z", nullptr, $STATIC, $staticMethod(Platform, isDirectAudioEnabled, bool)},
-	{"isMidiIOEnabled", "()Z", nullptr, $STATIC, $staticMethod(Platform, isMidiIOEnabled, bool)},
-	{"isPortsEnabled", "()Z", nullptr, $STATIC, $staticMethod(Platform, isPortsEnabled, bool)},
-	{"lambda$loadLibraries$0", "()Ljava/lang/Void;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Platform, lambda$loadLibraries$0, $Void*)},
-	{"loadLibraries", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(Platform, loadLibraries, void)},
-	{"nIsBigEndian", "()Z", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(Platform, nIsBigEndian, bool)},
-	{}
-};
-
-#define _METHOD_INDEX_nIsBigEndian 8
-
-$ClassInfo _Platform_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.media.sound.Platform",
-	"java.lang.Object",
-	nullptr,
-	_Platform_FieldInfo_,
-	_Platform_MethodInfo_
-};
-
-$Object* allocate$Platform($Class* clazz) {
-	return $of($alloc(Platform));
-}
 
 $String* Platform::libName = nullptr;
 bool Platform::isNativeLibLoaded = false;
@@ -112,11 +73,11 @@ bool Platform::isBigEndian() {
 
 void Platform::loadLibraries() {
 	$init(Platform);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	Platform::isNativeLibLoaded = true;
 	try {
-		$AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new(Platform$$Lambda$lambda$loadLibraries$0)));
+		$AccessController::doPrivileged($cast($PrivilegedAction, $$new(Platform$$Lambda$lambda$loadLibraries$0)));
 	} catch ($Throwable& t) {
 		$init($Printer);
 		if ($Printer::err$) {
@@ -146,9 +107,8 @@ bool Platform::isDirectAudioEnabled() {
 
 bool Platform::nIsBigEndian() {
 	$init(Platform);
-	bool $ret = false;
-	$prepareNativeStatic(Platform, nIsBigEndian, bool);
-	$ret = $invokeNativeStatic();
+	$prepareNativeStatic(nIsBigEndian, bool);
+	bool $ret = $invokeNativeStatic();
 	$finishNativeStatic();
 	return $ret;
 }
@@ -160,7 +120,7 @@ $Void* Platform::lambda$loadLibraries$0() {
 	return nullptr;
 }
 
-void clinit$Platform($Class* class$) {
+void Platform::clinit$($Class* clazz) {
 	$assignStatic(Platform::libName, "jsound"_s);
 	{
 		Platform::loadLibraries();
@@ -172,11 +132,39 @@ Platform::Platform() {
 
 $Class* Platform::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(Platform$$Lambda$lambda$loadLibraries$0::classInfo$.name)) {
+		if (name->equals("com.sun.media.sound.Platform$$Lambda$lambda$loadLibraries$0")) {
 			return Platform$$Lambda$lambda$loadLibraries$0::load$(name, initialize);
 		}
 	}
-	$loadClass(Platform, name, initialize, &_Platform_ClassInfo_, clinit$Platform, allocate$Platform);
+	$FieldInfo fieldInfos$$[] = {
+		{"libName", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Platform, libName)},
+		{"isNativeLibLoaded", "Z", nullptr, $PRIVATE | $STATIC, $staticField(Platform, isNativeLibLoaded)},
+		{"bigEndian", "Z", nullptr, $PRIVATE | $STATIC, $staticField(Platform, bigEndian)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(Platform, init$, void)},
+		{"initialize", "()V", nullptr, $STATIC, $staticMethod(Platform, initialize, void)},
+		{"isBigEndian", "()Z", nullptr, $STATIC, $staticMethod(Platform, isBigEndian, bool)},
+		{"isDirectAudioEnabled", "()Z", nullptr, $STATIC, $staticMethod(Platform, isDirectAudioEnabled, bool)},
+		{"isMidiIOEnabled", "()Z", nullptr, $STATIC, $staticMethod(Platform, isMidiIOEnabled, bool)},
+		{"isPortsEnabled", "()Z", nullptr, $STATIC, $staticMethod(Platform, isPortsEnabled, bool)},
+		{"lambda$loadLibraries$0", "()Ljava/lang/Void;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Platform, lambda$loadLibraries$0, $Void*)},
+		{"loadLibraries", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(Platform, loadLibraries, void)},
+		{"nIsBigEndian", "()Z", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(Platform, nIsBigEndian, bool)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.media.sound.Platform",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Platform, name, initialize, &classInfo$$, Platform::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Platform);
+	});
 	return class$;
 }
 

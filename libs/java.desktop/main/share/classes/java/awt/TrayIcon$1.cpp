@@ -1,5 +1,4 @@
 #include <java/awt/TrayIcon$1.h>
-
 #include <java/awt/TrayIcon.h>
 #include <jcpp.h>
 
@@ -11,45 +10,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace java {
 	namespace awt {
-
-$MethodInfo _TrayIcon$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(TrayIcon$1, init$, void)},
-	{"addNotify", "(Ljava/awt/TrayIcon;)V", nullptr, $PUBLIC, $virtualMethod(TrayIcon$1, addNotify, void, $TrayIcon*), "java.awt.AWTException"},
-	{"removeNotify", "(Ljava/awt/TrayIcon;)V", nullptr, $PUBLIC, $virtualMethod(TrayIcon$1, removeNotify, void, $TrayIcon*)},
-	{}
-};
-
-$EnclosingMethodInfo _TrayIcon$1_EnclosingMethodInfo_ = {
-	"java.awt.TrayIcon",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _TrayIcon$1_InnerClassesInfo_[] = {
-	{"java.awt.TrayIcon$1", nullptr, nullptr, 0},
-	{"sun.awt.AWTAccessor$TrayIconAccessor", "sun.awt.AWTAccessor", "TrayIconAccessor", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _TrayIcon$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.awt.TrayIcon$1",
-	"java.lang.Object",
-	"sun.awt.AWTAccessor$TrayIconAccessor",
-	nullptr,
-	_TrayIcon$1_MethodInfo_,
-	nullptr,
-	&_TrayIcon$1_EnclosingMethodInfo_,
-	_TrayIcon$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.awt.TrayIcon"
-};
-
-$Object* allocate$TrayIcon$1($Class* clazz) {
-	return $of($alloc(TrayIcon$1));
-}
 
 void TrayIcon$1::init$() {
 }
@@ -66,7 +26,40 @@ TrayIcon$1::TrayIcon$1() {
 }
 
 $Class* TrayIcon$1::load$($String* name, bool initialize) {
-	$loadClass(TrayIcon$1, name, initialize, &_TrayIcon$1_ClassInfo_, allocate$TrayIcon$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(TrayIcon$1, init$, void)},
+		{"addNotify", "(Ljava/awt/TrayIcon;)V", nullptr, $PUBLIC, $virtualMethod(TrayIcon$1, addNotify, void, $TrayIcon*), "java.awt.AWTException"},
+		{"removeNotify", "(Ljava/awt/TrayIcon;)V", nullptr, $PUBLIC, $virtualMethod(TrayIcon$1, removeNotify, void, $TrayIcon*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.awt.TrayIcon",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.awt.TrayIcon$1", nullptr, nullptr, 0},
+		{"sun.awt.AWTAccessor$TrayIconAccessor", "sun.awt.AWTAccessor", "TrayIconAccessor", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.awt.TrayIcon$1",
+		"java.lang.Object",
+		"sun.awt.AWTAccessor$TrayIconAccessor",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.awt.TrayIcon"
+	};
+	$loadClass(TrayIcon$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TrayIcon$1);
+	});
 	return class$;
 }
 

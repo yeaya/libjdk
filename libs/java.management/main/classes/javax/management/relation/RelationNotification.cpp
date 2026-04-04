@@ -1,5 +1,4 @@
 #include <javax/management/relation/RelationNotification.h>
-
 #include <com/sun/jmx/mbeanserver/GetPropertyAction.h>
 #include <com/sun/jmx/mbeanserver/Util.h>
 #include <java/io/InvalidObjectException.h>
@@ -9,10 +8,8 @@
 #include <java/io/ObjectOutputStream.h>
 #include <java/io/ObjectStreamField.h>
 #include <java/security/AccessController.h>
-#include <java/security/PrivilegedAction.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Arrays.h>
-#include <java/util/Collection.h>
 #include <java/util/Collections.h>
 #include <java/util/EventObject.h>
 #include <java/util/HashSet.h>
@@ -46,10 +43,8 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AccessController = ::java::security::AccessController;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $ArrayList = ::java::util::ArrayList;
 using $Arrays = ::java::util::Arrays;
-using $Collection = ::java::util::Collection;
 using $Collections = ::java::util::Collections;
 using $HashSet = ::java::util::HashSet;
 using $Iterator = ::java::util::Iterator;
@@ -62,64 +57,6 @@ using $RelationService = ::javax::management::relation::RelationService;
 namespace javax {
 	namespace management {
 		namespace relation {
-
-$FieldInfo _RelationNotification_FieldInfo_[] = {
-	{"oldSerialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(RelationNotification, oldSerialVersionUID)},
-	{"newSerialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(RelationNotification, newSerialVersionUID)},
-	{"oldSerialPersistentFields", "[Ljava/io/ObjectStreamField;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(RelationNotification, oldSerialPersistentFields)},
-	{"newSerialPersistentFields", "[Ljava/io/ObjectStreamField;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(RelationNotification, newSerialPersistentFields)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(RelationNotification, serialVersionUID)},
-	{"serialPersistentFields", "[Ljava/io/ObjectStreamField;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(RelationNotification, serialPersistentFields)},
-	{"compat", "Z", nullptr, $PRIVATE | $STATIC, $staticField(RelationNotification, compat)},
-	{"RELATION_BASIC_CREATION", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(RelationNotification, RELATION_BASIC_CREATION)},
-	{"RELATION_MBEAN_CREATION", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(RelationNotification, RELATION_MBEAN_CREATION)},
-	{"RELATION_BASIC_UPDATE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(RelationNotification, RELATION_BASIC_UPDATE)},
-	{"RELATION_MBEAN_UPDATE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(RelationNotification, RELATION_MBEAN_UPDATE)},
-	{"RELATION_BASIC_REMOVAL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(RelationNotification, RELATION_BASIC_REMOVAL)},
-	{"RELATION_MBEAN_REMOVAL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(RelationNotification, RELATION_MBEAN_REMOVAL)},
-	{"relationId", "Ljava/lang/String;", nullptr, $PRIVATE, $field(RelationNotification, relationId)},
-	{"relationTypeName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(RelationNotification, relationTypeName)},
-	{"relationObjName", "Ljavax/management/ObjectName;", nullptr, $PRIVATE, $field(RelationNotification, relationObjName)},
-	{"unregisterMBeanList", "Ljava/util/List;", "Ljava/util/List<Ljavax/management/ObjectName;>;", $PRIVATE, $field(RelationNotification, unregisterMBeanList)},
-	{"roleName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(RelationNotification, roleName)},
-	{"oldRoleValue", "Ljava/util/List;", "Ljava/util/List<Ljavax/management/ObjectName;>;", $PRIVATE, $field(RelationNotification, oldRoleValue)},
-	{"newRoleValue", "Ljava/util/List;", "Ljava/util/List<Ljavax/management/ObjectName;>;", $PRIVATE, $field(RelationNotification, newRoleValue)},
-	{}
-};
-
-$MethodInfo _RelationNotification_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Object;JJLjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljavax/management/ObjectName;Ljava/util/List;)V", "(Ljava/lang/String;Ljava/lang/Object;JJLjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljavax/management/ObjectName;Ljava/util/List<Ljavax/management/ObjectName;>;)V", $PUBLIC, $method(RelationNotification, init$, void, $String*, Object$*, int64_t, int64_t, $String*, $String*, $String*, $ObjectName*, $List*), "java.lang.IllegalArgumentException"},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Object;JJLjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljavax/management/ObjectName;Ljava/lang/String;Ljava/util/List;Ljava/util/List;)V", "(Ljava/lang/String;Ljava/lang/Object;JJLjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljavax/management/ObjectName;Ljava/lang/String;Ljava/util/List<Ljavax/management/ObjectName;>;Ljava/util/List<Ljavax/management/ObjectName;>;)V", $PUBLIC, $method(RelationNotification, init$, void, $String*, Object$*, int64_t, int64_t, $String*, $String*, $String*, $ObjectName*, $String*, $List*, $List*), "java.lang.IllegalArgumentException"},
-	{"getMBeansToUnregister", "()Ljava/util/List;", "()Ljava/util/List<Ljavax/management/ObjectName;>;", $PUBLIC, $virtualMethod(RelationNotification, getMBeansToUnregister, $List*)},
-	{"getNewRoleValue", "()Ljava/util/List;", "()Ljava/util/List<Ljavax/management/ObjectName;>;", $PUBLIC, $virtualMethod(RelationNotification, getNewRoleValue, $List*)},
-	{"getObjectName", "()Ljavax/management/ObjectName;", nullptr, $PUBLIC, $virtualMethod(RelationNotification, getObjectName, $ObjectName*)},
-	{"getOldRoleValue", "()Ljava/util/List;", "()Ljava/util/List<Ljavax/management/ObjectName;>;", $PUBLIC, $virtualMethod(RelationNotification, getOldRoleValue, $List*)},
-	{"getRelationId", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RelationNotification, getRelationId, $String*)},
-	{"getRelationTypeName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RelationNotification, getRelationTypeName, $String*)},
-	{"getRoleName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RelationNotification, getRoleName, $String*)},
-	{"isValidBasic", "(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PRIVATE, $method(RelationNotification, isValidBasic, bool, $String*, Object$*, $String*, $String*)},
-	{"isValidBasicStrict", "(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PRIVATE, $method(RelationNotification, isValidBasicStrict, bool, $String*, Object$*, $String*, $String*)},
-	{"isValidCreate", "(Ljava/lang/String;)Z", nullptr, $PRIVATE, $method(RelationNotification, isValidCreate, bool, $String*)},
-	{"isValidUpdate", "(Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Ljava/util/List;)Z", "(Ljava/lang/String;Ljava/lang/String;Ljava/util/List<Ljavax/management/ObjectName;>;Ljava/util/List<Ljavax/management/ObjectName;>;)Z", $PRIVATE, $method(RelationNotification, isValidUpdate, bool, $String*, $String*, $List*, $List*)},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(RelationNotification, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"safeGetObjectName", "(Ljavax/management/ObjectName;)Ljavax/management/ObjectName;", nullptr, $PRIVATE, $method(RelationNotification, safeGetObjectName, $ObjectName*, $ObjectName*)},
-	{"safeGetObjectNameList", "(Ljava/util/List;)Ljava/util/ArrayList;", "(Ljava/util/List<Ljavax/management/ObjectName;>;)Ljava/util/ArrayList<Ljavax/management/ObjectName;>;", $PRIVATE, $method(RelationNotification, safeGetObjectNameList, $ArrayList*, $List*)},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(RelationNotification, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _RelationNotification_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.management.relation.RelationNotification",
-	"javax.management.Notification",
-	nullptr,
-	_RelationNotification_FieldInfo_,
-	_RelationNotification_MethodInfo_
-};
-
-$Object* allocate$RelationNotification($Class* clazz) {
-	return $of($alloc(RelationNotification));
-}
 
 $ObjectStreamFieldArray* RelationNotification::oldSerialPersistentFields = nullptr;
 $ObjectStreamFieldArray* RelationNotification::newSerialPersistentFields = nullptr;
@@ -188,7 +125,7 @@ $ObjectName* RelationNotification::getObjectName() {
 $List* RelationNotification::getMBeansToUnregister() {
 	$var($List, result, nullptr);
 	if (this->unregisterMBeanList != nullptr) {
-		$assign(result, $new($ArrayList, static_cast<$Collection*>(this->unregisterMBeanList)));
+		$assign(result, $new($ArrayList, this->unregisterMBeanList));
 	} else {
 		$assign(result, $Collections::emptyList());
 	}
@@ -206,7 +143,7 @@ $String* RelationNotification::getRoleName() {
 $List* RelationNotification::getOldRoleValue() {
 	$var($List, result, nullptr);
 	if (this->oldRoleValue != nullptr) {
-		$assign(result, $new($ArrayList, static_cast<$Collection*>(this->oldRoleValue)));
+		$assign(result, $new($ArrayList, this->oldRoleValue));
 	} else {
 		$assign(result, $Collections::emptyList());
 	}
@@ -216,7 +153,7 @@ $List* RelationNotification::getOldRoleValue() {
 $List* RelationNotification::getNewRoleValue() {
 	$var($List, result, nullptr);
 	if (this->newRoleValue != nullptr) {
-		$assign(result, $new($ArrayList, static_cast<$Collection*>(this->newRoleValue)));
+		$assign(result, $new($ArrayList, this->newRoleValue));
 	} else {
 		$assign(result, $Collections::emptyList());
 	}
@@ -241,14 +178,14 @@ bool RelationNotification::isValidBasic($String* notifType, Object$* sourceObj, 
 }
 
 bool RelationNotification::isValidCreate($String* notifType) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringArray, validTypes, $new($StringArray, {
 		RelationNotification::RELATION_BASIC_CREATION,
 		RelationNotification::RELATION_MBEAN_CREATION,
 		RelationNotification::RELATION_BASIC_REMOVAL,
 		RelationNotification::RELATION_MBEAN_REMOVAL
 	}));
-	$var($Set, ctSet, $new($HashSet, $(static_cast<$Collection*>($Arrays::asList(validTypes)))));
+	$var($Set, ctSet, $new($HashSet, $($Arrays::asList(validTypes))));
 	return ctSet->contains(notifType);
 }
 
@@ -264,7 +201,7 @@ bool RelationNotification::isValidUpdate($String* notifType, $String* name, $Lis
 }
 
 $ArrayList* RelationNotification::safeGetObjectNameList($List* src) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ArrayList, dest, nullptr);
 	if (src != nullptr) {
 		$assign(dest, $new($ArrayList));
@@ -290,7 +227,7 @@ $ObjectName* RelationNotification::safeGetObjectName($ObjectName* src) {
 }
 
 void RelationNotification::readObject($ObjectInputStream* in) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, tmpRelationId, nullptr);
 	$var($String, tmpRelationTypeName, nullptr);
 	$var($String, tmpRoleName, nullptr);
@@ -300,27 +237,27 @@ void RelationNotification::readObject($ObjectInputStream* in) {
 	$var($List, tmpUnregMBeanList, nullptr);
 	$var($ObjectInputStream$GetField, fields, $nc(in)->readFields());
 	if (RelationNotification::compat) {
-		$assign(tmpRelationId, $cast($String, $nc(fields)->get("myRelId"_s, ($Object*)nullptr)));
-		$assign(tmpRelationTypeName, $cast($String, fields->get("myRelTypeName"_s, ($Object*)nullptr)));
-		$assign(tmpRoleName, $cast($String, fields->get("myRoleName"_s, ($Object*)nullptr)));
-		$assign(tmpRelationObjName, $cast($ObjectName, fields->get("myRelObjName"_s, ($Object*)nullptr)));
-		$assign(tmpNewRoleValue, $cast($List, $Util::cast($(fields->get("myNewRoleValue"_s, ($Object*)nullptr)))));
-		$assign(tmpOldRoleValue, $cast($List, $Util::cast($(fields->get("myOldRoleValue"_s, ($Object*)nullptr)))));
-		$assign(tmpUnregMBeanList, $cast($List, $Util::cast($(fields->get("myUnregMBeanList"_s, ($Object*)nullptr)))));
+		$assign(tmpRelationId, $cast($String, $nc(fields)->get("myRelId"_s, nullptr)));
+		$assign(tmpRelationTypeName, $cast($String, fields->get("myRelTypeName"_s, nullptr)));
+		$assign(tmpRoleName, $cast($String, fields->get("myRoleName"_s, nullptr)));
+		$assign(tmpRelationObjName, $cast($ObjectName, fields->get("myRelObjName"_s, nullptr)));
+		$assign(tmpNewRoleValue, $cast($List, $Util::cast($(fields->get("myNewRoleValue"_s, nullptr)))));
+		$assign(tmpOldRoleValue, $cast($List, $Util::cast($(fields->get("myOldRoleValue"_s, nullptr)))));
+		$assign(tmpUnregMBeanList, $cast($List, $Util::cast($(fields->get("myUnregMBeanList"_s, nullptr)))));
 	} else {
-		$assign(tmpRelationId, $cast($String, $nc(fields)->get("relationId"_s, ($Object*)nullptr)));
-		$assign(tmpRelationTypeName, $cast($String, fields->get("relationTypeName"_s, ($Object*)nullptr)));
-		$assign(tmpRoleName, $cast($String, fields->get("roleName"_s, ($Object*)nullptr)));
-		$assign(tmpRelationObjName, $cast($ObjectName, fields->get("relationObjName"_s, ($Object*)nullptr)));
-		$assign(tmpNewRoleValue, $cast($List, $Util::cast($(fields->get("newRoleValue"_s, ($Object*)nullptr)))));
-		$assign(tmpOldRoleValue, $cast($List, $Util::cast($(fields->get("oldRoleValue"_s, ($Object*)nullptr)))));
-		$assign(tmpUnregMBeanList, $cast($List, $Util::cast($(fields->get("unregisterMBeanList"_s, ($Object*)nullptr)))));
+		$assign(tmpRelationId, $cast($String, $nc(fields)->get("relationId"_s, nullptr)));
+		$assign(tmpRelationTypeName, $cast($String, fields->get("relationTypeName"_s, nullptr)));
+		$assign(tmpRoleName, $cast($String, fields->get("roleName"_s, nullptr)));
+		$assign(tmpRelationObjName, $cast($ObjectName, fields->get("relationObjName"_s, nullptr)));
+		$assign(tmpNewRoleValue, $cast($List, $Util::cast($(fields->get("newRoleValue"_s, nullptr)))));
+		$assign(tmpOldRoleValue, $cast($List, $Util::cast($(fields->get("oldRoleValue"_s, nullptr)))));
+		$assign(tmpUnregMBeanList, $cast($List, $Util::cast($(fields->get("unregisterMBeanList"_s, nullptr)))));
 	}
 	$var($String, notifType, $Notification::getType());
 	bool var$0 = !isValidBasic(notifType, $($Notification::getSource()), tmpRelationId, tmpRelationTypeName);
 	if (!var$0) {
 		bool var$1 = !isValidCreate(notifType);
-		var$0 = (var$1 && !isValidUpdate(notifType, tmpRoleName, tmpNewRoleValue, tmpOldRoleValue));
+		var$0 = var$1 && !isValidUpdate(notifType, tmpRoleName, tmpNewRoleValue, tmpOldRoleValue);
 	}
 	if (var$0) {
 		$Notification::setSource(nullptr);
@@ -338,21 +275,21 @@ void RelationNotification::readObject($ObjectInputStream* in) {
 void RelationNotification::writeObject($ObjectOutputStream* out) {
 	if (RelationNotification::compat) {
 		$var($ObjectOutputStream$PutField, fields, $nc(out)->putFields());
-		$nc(fields)->put("myNewRoleValue"_s, $of(this->newRoleValue));
-		fields->put("myOldRoleValue"_s, $of(this->oldRoleValue));
-		fields->put("myRelId"_s, $of(this->relationId));
-		fields->put("myRelObjName"_s, $of(this->relationObjName));
-		fields->put("myRelTypeName"_s, $of(this->relationTypeName));
-		fields->put("myRoleName"_s, $of(this->roleName));
-		fields->put("myUnregMBeanList"_s, $of(this->unregisterMBeanList));
+		$nc(fields)->put("myNewRoleValue"_s, this->newRoleValue);
+		fields->put("myOldRoleValue"_s, this->oldRoleValue);
+		fields->put("myRelId"_s, this->relationId);
+		fields->put("myRelObjName"_s, this->relationObjName);
+		fields->put("myRelTypeName"_s, this->relationTypeName);
+		fields->put("myRoleName"_s, this->roleName);
+		fields->put("myUnregMBeanList"_s, this->unregisterMBeanList);
 		out->writeFields();
 	} else {
 		$nc(out)->defaultWriteObject();
 	}
 }
 
-void clinit$RelationNotification($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void RelationNotification::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(RelationNotification::RELATION_BASIC_CREATION, "jmx.relation.creation.basic"_s);
 	$assignStatic(RelationNotification::RELATION_MBEAN_CREATION, "jmx.relation.creation.mbean"_s);
 	$assignStatic(RelationNotification::RELATION_BASIC_UPDATE, "jmx.relation.update.basic"_s);
@@ -385,7 +322,7 @@ void clinit$RelationNotification($Class* class$) {
 	{
 		try {
 			$var($GetPropertyAction, act, $new($GetPropertyAction, "jmx.serial.form"_s));
-			$var($String, form, $cast($String, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>(act))));
+			$var($String, form, $cast($String, $AccessController::doPrivileged(act)));
 			RelationNotification::compat = (form != nullptr && form->equals("1.0"_s));
 		} catch ($Exception& e) {
 		}
@@ -403,7 +340,60 @@ RelationNotification::RelationNotification() {
 }
 
 $Class* RelationNotification::load$($String* name, bool initialize) {
-	$loadClass(RelationNotification, name, initialize, &_RelationNotification_ClassInfo_, clinit$RelationNotification, allocate$RelationNotification);
+	$FieldInfo fieldInfos$$[] = {
+		{"oldSerialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(RelationNotification, oldSerialVersionUID)},
+		{"newSerialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(RelationNotification, newSerialVersionUID)},
+		{"oldSerialPersistentFields", "[Ljava/io/ObjectStreamField;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(RelationNotification, oldSerialPersistentFields)},
+		{"newSerialPersistentFields", "[Ljava/io/ObjectStreamField;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(RelationNotification, newSerialPersistentFields)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(RelationNotification, serialVersionUID)},
+		{"serialPersistentFields", "[Ljava/io/ObjectStreamField;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(RelationNotification, serialPersistentFields)},
+		{"compat", "Z", nullptr, $PRIVATE | $STATIC, $staticField(RelationNotification, compat)},
+		{"RELATION_BASIC_CREATION", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(RelationNotification, RELATION_BASIC_CREATION)},
+		{"RELATION_MBEAN_CREATION", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(RelationNotification, RELATION_MBEAN_CREATION)},
+		{"RELATION_BASIC_UPDATE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(RelationNotification, RELATION_BASIC_UPDATE)},
+		{"RELATION_MBEAN_UPDATE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(RelationNotification, RELATION_MBEAN_UPDATE)},
+		{"RELATION_BASIC_REMOVAL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(RelationNotification, RELATION_BASIC_REMOVAL)},
+		{"RELATION_MBEAN_REMOVAL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(RelationNotification, RELATION_MBEAN_REMOVAL)},
+		{"relationId", "Ljava/lang/String;", nullptr, $PRIVATE, $field(RelationNotification, relationId)},
+		{"relationTypeName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(RelationNotification, relationTypeName)},
+		{"relationObjName", "Ljavax/management/ObjectName;", nullptr, $PRIVATE, $field(RelationNotification, relationObjName)},
+		{"unregisterMBeanList", "Ljava/util/List;", "Ljava/util/List<Ljavax/management/ObjectName;>;", $PRIVATE, $field(RelationNotification, unregisterMBeanList)},
+		{"roleName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(RelationNotification, roleName)},
+		{"oldRoleValue", "Ljava/util/List;", "Ljava/util/List<Ljavax/management/ObjectName;>;", $PRIVATE, $field(RelationNotification, oldRoleValue)},
+		{"newRoleValue", "Ljava/util/List;", "Ljava/util/List<Ljavax/management/ObjectName;>;", $PRIVATE, $field(RelationNotification, newRoleValue)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljava/lang/Object;JJLjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljavax/management/ObjectName;Ljava/util/List;)V", "(Ljava/lang/String;Ljava/lang/Object;JJLjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljavax/management/ObjectName;Ljava/util/List<Ljavax/management/ObjectName;>;)V", $PUBLIC, $method(RelationNotification, init$, void, $String*, Object$*, int64_t, int64_t, $String*, $String*, $String*, $ObjectName*, $List*), "java.lang.IllegalArgumentException"},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/Object;JJLjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljavax/management/ObjectName;Ljava/lang/String;Ljava/util/List;Ljava/util/List;)V", "(Ljava/lang/String;Ljava/lang/Object;JJLjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljavax/management/ObjectName;Ljava/lang/String;Ljava/util/List<Ljavax/management/ObjectName;>;Ljava/util/List<Ljavax/management/ObjectName;>;)V", $PUBLIC, $method(RelationNotification, init$, void, $String*, Object$*, int64_t, int64_t, $String*, $String*, $String*, $ObjectName*, $String*, $List*, $List*), "java.lang.IllegalArgumentException"},
+		{"getMBeansToUnregister", "()Ljava/util/List;", "()Ljava/util/List<Ljavax/management/ObjectName;>;", $PUBLIC, $virtualMethod(RelationNotification, getMBeansToUnregister, $List*)},
+		{"getNewRoleValue", "()Ljava/util/List;", "()Ljava/util/List<Ljavax/management/ObjectName;>;", $PUBLIC, $virtualMethod(RelationNotification, getNewRoleValue, $List*)},
+		{"getObjectName", "()Ljavax/management/ObjectName;", nullptr, $PUBLIC, $virtualMethod(RelationNotification, getObjectName, $ObjectName*)},
+		{"getOldRoleValue", "()Ljava/util/List;", "()Ljava/util/List<Ljavax/management/ObjectName;>;", $PUBLIC, $virtualMethod(RelationNotification, getOldRoleValue, $List*)},
+		{"getRelationId", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RelationNotification, getRelationId, $String*)},
+		{"getRelationTypeName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RelationNotification, getRelationTypeName, $String*)},
+		{"getRoleName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RelationNotification, getRoleName, $String*)},
+		{"isValidBasic", "(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PRIVATE, $method(RelationNotification, isValidBasic, bool, $String*, Object$*, $String*, $String*)},
+		{"isValidBasicStrict", "(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PRIVATE, $method(RelationNotification, isValidBasicStrict, bool, $String*, Object$*, $String*, $String*)},
+		{"isValidCreate", "(Ljava/lang/String;)Z", nullptr, $PRIVATE, $method(RelationNotification, isValidCreate, bool, $String*)},
+		{"isValidUpdate", "(Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Ljava/util/List;)Z", "(Ljava/lang/String;Ljava/lang/String;Ljava/util/List<Ljavax/management/ObjectName;>;Ljava/util/List<Ljavax/management/ObjectName;>;)Z", $PRIVATE, $method(RelationNotification, isValidUpdate, bool, $String*, $String*, $List*, $List*)},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(RelationNotification, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+		{"safeGetObjectName", "(Ljavax/management/ObjectName;)Ljavax/management/ObjectName;", nullptr, $PRIVATE, $method(RelationNotification, safeGetObjectName, $ObjectName*, $ObjectName*)},
+		{"safeGetObjectNameList", "(Ljava/util/List;)Ljava/util/ArrayList;", "(Ljava/util/List<Ljavax/management/ObjectName;>;)Ljava/util/ArrayList<Ljavax/management/ObjectName;>;", $PRIVATE, $method(RelationNotification, safeGetObjectNameList, $ArrayList*, $List*)},
+		{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(RelationNotification, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.management.relation.RelationNotification",
+		"javax.management.Notification",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(RelationNotification, name, initialize, &classInfo$$, RelationNotification::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(RelationNotification);
+	});
 	return class$;
 }
 

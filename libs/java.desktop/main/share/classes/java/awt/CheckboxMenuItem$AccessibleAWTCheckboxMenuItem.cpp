@@ -1,8 +1,6 @@
 #include <java/awt/CheckboxMenuItem$AccessibleAWTCheckboxMenuItem.h>
-
 #include <java/awt/CheckboxMenuItem.h>
 #include <java/awt/MenuItem$AccessibleAWTMenuItem.h>
-#include <java/awt/MenuItem.h>
 #include <java/lang/Number.h>
 #include <javax/accessibility/AccessibleAction.h>
 #include <javax/accessibility/AccessibleRole.h>
@@ -12,7 +10,6 @@
 #undef CHECK_BOX
 
 using $CheckboxMenuItem = ::java::awt::CheckboxMenuItem;
-using $MenuItem = ::java::awt::MenuItem;
 using $MenuItem$AccessibleAWTMenuItem = ::java::awt::MenuItem$AccessibleAWTMenuItem;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -25,53 +22,6 @@ using $AccessibleValue = ::javax::accessibility::AccessibleValue;
 
 namespace java {
 	namespace awt {
-
-$FieldInfo _CheckboxMenuItem$AccessibleAWTCheckboxMenuItem_FieldInfo_[] = {
-	{"this$0", "Ljava/awt/CheckboxMenuItem;", nullptr, $FINAL | $SYNTHETIC, $field(CheckboxMenuItem$AccessibleAWTCheckboxMenuItem, this$0)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CheckboxMenuItem$AccessibleAWTCheckboxMenuItem, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _CheckboxMenuItem$AccessibleAWTCheckboxMenuItem_MethodInfo_[] = {
-	{"<init>", "(Ljava/awt/CheckboxMenuItem;)V", nullptr, $PROTECTED, $method(CheckboxMenuItem$AccessibleAWTCheckboxMenuItem, init$, void, $CheckboxMenuItem*)},
-	{"doAccessibleAction", "(I)Z", nullptr, $PUBLIC, $virtualMethod(CheckboxMenuItem$AccessibleAWTCheckboxMenuItem, doAccessibleAction, bool, int32_t)},
-	{"getAccessibleAction", "()Ljavax/accessibility/AccessibleAction;", nullptr, $PUBLIC, $virtualMethod(CheckboxMenuItem$AccessibleAWTCheckboxMenuItem, getAccessibleAction, $AccessibleAction*)},
-	{"getAccessibleActionCount", "()I", nullptr, $PUBLIC, $virtualMethod(CheckboxMenuItem$AccessibleAWTCheckboxMenuItem, getAccessibleActionCount, int32_t)},
-	{"getAccessibleActionDescription", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CheckboxMenuItem$AccessibleAWTCheckboxMenuItem, getAccessibleActionDescription, $String*, int32_t)},
-	{"getAccessibleRole", "()Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC, $virtualMethod(CheckboxMenuItem$AccessibleAWTCheckboxMenuItem, getAccessibleRole, $AccessibleRole*)},
-	{"getAccessibleValue", "()Ljavax/accessibility/AccessibleValue;", nullptr, $PUBLIC, $virtualMethod(CheckboxMenuItem$AccessibleAWTCheckboxMenuItem, getAccessibleValue, $AccessibleValue*)},
-	{"getCurrentAccessibleValue", "()Ljava/lang/Number;", nullptr, $PUBLIC, $virtualMethod(CheckboxMenuItem$AccessibleAWTCheckboxMenuItem, getCurrentAccessibleValue, $Number*)},
-	{"getMaximumAccessibleValue", "()Ljava/lang/Number;", nullptr, $PUBLIC, $virtualMethod(CheckboxMenuItem$AccessibleAWTCheckboxMenuItem, getMaximumAccessibleValue, $Number*)},
-	{"getMinimumAccessibleValue", "()Ljava/lang/Number;", nullptr, $PUBLIC, $virtualMethod(CheckboxMenuItem$AccessibleAWTCheckboxMenuItem, getMinimumAccessibleValue, $Number*)},
-	{"setCurrentAccessibleValue", "(Ljava/lang/Number;)Z", nullptr, $PUBLIC, $virtualMethod(CheckboxMenuItem$AccessibleAWTCheckboxMenuItem, setCurrentAccessibleValue, bool, $Number*)},
-	{}
-};
-
-$InnerClassInfo _CheckboxMenuItem$AccessibleAWTCheckboxMenuItem_InnerClassesInfo_[] = {
-	{"java.awt.CheckboxMenuItem$AccessibleAWTCheckboxMenuItem", "java.awt.CheckboxMenuItem", "AccessibleAWTCheckboxMenuItem", $PROTECTED},
-	{"java.awt.MenuItem$AccessibleAWTMenuItem", "java.awt.MenuItem", "AccessibleAWTMenuItem", $PROTECTED},
-	{}
-};
-
-$ClassInfo _CheckboxMenuItem$AccessibleAWTCheckboxMenuItem_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.awt.CheckboxMenuItem$AccessibleAWTCheckboxMenuItem",
-	"java.awt.MenuItem$AccessibleAWTMenuItem",
-	nullptr,
-	_CheckboxMenuItem$AccessibleAWTCheckboxMenuItem_FieldInfo_,
-	_CheckboxMenuItem$AccessibleAWTCheckboxMenuItem_MethodInfo_,
-	nullptr,
-	nullptr,
-	_CheckboxMenuItem$AccessibleAWTCheckboxMenuItem_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.awt.CheckboxMenuItem"
-};
-
-$Object* allocate$CheckboxMenuItem$AccessibleAWTCheckboxMenuItem($Class* clazz) {
-	return $of($alloc(CheckboxMenuItem$AccessibleAWTCheckboxMenuItem));
-}
 
 void CheckboxMenuItem$AccessibleAWTCheckboxMenuItem::init$($CheckboxMenuItem* this$0) {
 	$set(this, this$0, this$0);
@@ -123,7 +73,48 @@ CheckboxMenuItem$AccessibleAWTCheckboxMenuItem::CheckboxMenuItem$AccessibleAWTCh
 }
 
 $Class* CheckboxMenuItem$AccessibleAWTCheckboxMenuItem::load$($String* name, bool initialize) {
-	$loadClass(CheckboxMenuItem$AccessibleAWTCheckboxMenuItem, name, initialize, &_CheckboxMenuItem$AccessibleAWTCheckboxMenuItem_ClassInfo_, allocate$CheckboxMenuItem$AccessibleAWTCheckboxMenuItem);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljava/awt/CheckboxMenuItem;", nullptr, $FINAL | $SYNTHETIC, $field(CheckboxMenuItem$AccessibleAWTCheckboxMenuItem, this$0)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CheckboxMenuItem$AccessibleAWTCheckboxMenuItem, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/CheckboxMenuItem;)V", nullptr, $PROTECTED, $method(CheckboxMenuItem$AccessibleAWTCheckboxMenuItem, init$, void, $CheckboxMenuItem*)},
+		{"doAccessibleAction", "(I)Z", nullptr, $PUBLIC, $virtualMethod(CheckboxMenuItem$AccessibleAWTCheckboxMenuItem, doAccessibleAction, bool, int32_t)},
+		{"getAccessibleAction", "()Ljavax/accessibility/AccessibleAction;", nullptr, $PUBLIC, $virtualMethod(CheckboxMenuItem$AccessibleAWTCheckboxMenuItem, getAccessibleAction, $AccessibleAction*)},
+		{"getAccessibleActionCount", "()I", nullptr, $PUBLIC, $virtualMethod(CheckboxMenuItem$AccessibleAWTCheckboxMenuItem, getAccessibleActionCount, int32_t)},
+		{"getAccessibleActionDescription", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CheckboxMenuItem$AccessibleAWTCheckboxMenuItem, getAccessibleActionDescription, $String*, int32_t)},
+		{"getAccessibleRole", "()Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC, $virtualMethod(CheckboxMenuItem$AccessibleAWTCheckboxMenuItem, getAccessibleRole, $AccessibleRole*)},
+		{"getAccessibleValue", "()Ljavax/accessibility/AccessibleValue;", nullptr, $PUBLIC, $virtualMethod(CheckboxMenuItem$AccessibleAWTCheckboxMenuItem, getAccessibleValue, $AccessibleValue*)},
+		{"getCurrentAccessibleValue", "()Ljava/lang/Number;", nullptr, $PUBLIC, $virtualMethod(CheckboxMenuItem$AccessibleAWTCheckboxMenuItem, getCurrentAccessibleValue, $Number*)},
+		{"getMaximumAccessibleValue", "()Ljava/lang/Number;", nullptr, $PUBLIC, $virtualMethod(CheckboxMenuItem$AccessibleAWTCheckboxMenuItem, getMaximumAccessibleValue, $Number*)},
+		{"getMinimumAccessibleValue", "()Ljava/lang/Number;", nullptr, $PUBLIC, $virtualMethod(CheckboxMenuItem$AccessibleAWTCheckboxMenuItem, getMinimumAccessibleValue, $Number*)},
+		{"setCurrentAccessibleValue", "(Ljava/lang/Number;)Z", nullptr, $PUBLIC, $virtualMethod(CheckboxMenuItem$AccessibleAWTCheckboxMenuItem, setCurrentAccessibleValue, bool, $Number*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.awt.CheckboxMenuItem$AccessibleAWTCheckboxMenuItem", "java.awt.CheckboxMenuItem", "AccessibleAWTCheckboxMenuItem", $PROTECTED},
+		{"java.awt.MenuItem$AccessibleAWTMenuItem", "java.awt.MenuItem", "AccessibleAWTMenuItem", $PROTECTED},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.awt.CheckboxMenuItem$AccessibleAWTCheckboxMenuItem",
+		"java.awt.MenuItem$AccessibleAWTMenuItem",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.awt.CheckboxMenuItem"
+	};
+	$loadClass(CheckboxMenuItem$AccessibleAWTCheckboxMenuItem, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(CheckboxMenuItem$AccessibleAWTCheckboxMenuItem));
+	});
 	return class$;
 }
 

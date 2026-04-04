@@ -78,6 +78,7 @@ public:
 	virtual bool equals(Object$* arg0) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void addImpl(::java::awt::Component* comp, Object$* constraints, int32_t index) override;
 	virtual void addNotify() override;

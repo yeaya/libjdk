@@ -1,13 +1,10 @@
 #include <sun/lwawt/LWWindowPeer.h>
-
 #include <java/awt/AWTEvent.h>
 #include <java/awt/AlphaComposite.h>
 #include <java/awt/BufferCapabilities$FlipContents.h>
 #include <java/awt/BufferCapabilities.h>
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
-#include <java/awt/Composite.h>
-#include <java/awt/Container.h>
 #include <java/awt/Dialog.h>
 #include <java/awt/Dimension.h>
 #include <java/awt/Font.h>
@@ -42,7 +39,6 @@
 #include <java/awt/peer/KeyboardFocusManagerPeer.h>
 #include <java/awt/peer/WindowPeer.h>
 #include <java/lang/Math.h>
-#include <java/lang/Runnable.h>
 #include <java/util/Iterator.h>
 #include <java/util/List.h>
 #include <sun/awt/AWTAccessor$ComponentAccessor.h>
@@ -53,7 +49,6 @@
 #include <sun/awt/AWTAccessor.h>
 #include <sun/awt/AppContext.h>
 #include <sun/awt/CGraphicsDevice.h>
-#include <sun/awt/DisplayChangedListener.h>
 #include <sun/awt/ExtendedKeyCodes.h>
 #include <sun/awt/SunToolkit.h>
 #include <sun/awt/TimedWindowEvent.h>
@@ -121,8 +116,6 @@ using $BufferCapabilities = ::java::awt::BufferCapabilities;
 using $BufferCapabilities$FlipContents = ::java::awt::BufferCapabilities$FlipContents;
 using $Color = ::java::awt::Color;
 using $Component = ::java::awt::Component;
-using $Composite = ::java::awt::Composite;
-using $Container = ::java::awt::Container;
 using $Dialog = ::java::awt::Dialog;
 using $Dimension = ::java::awt::Dimension;
 using $Font = ::java::awt::Font;
@@ -162,19 +155,13 @@ using $Float = ::java::lang::Float;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
 using $AWTAccessor = ::sun::awt::AWTAccessor;
 using $AWTAccessor$ComponentAccessor = ::sun::awt::AWTAccessor$ComponentAccessor;
-using $AWTAccessor$FrameAccessor = ::sun::awt::AWTAccessor$FrameAccessor;
-using $AWTAccessor$KeyEventAccessor = ::sun::awt::AWTAccessor$KeyEventAccessor;
-using $AWTAccessor$KeyboardFocusManagerAccessor = ::sun::awt::AWTAccessor$KeyboardFocusManagerAccessor;
-using $AWTAccessor$WindowAccessor = ::sun::awt::AWTAccessor$WindowAccessor;
 using $AppContext = ::sun::awt::AppContext;
 using $CGraphicsDevice = ::sun::awt::CGraphicsDevice;
-using $DisplayChangedListener = ::sun::awt::DisplayChangedListener;
 using $ExtendedKeyCodes = ::sun::awt::ExtendedKeyCodes;
 using $SunToolkit = ::sun::awt::SunToolkit;
 using $TimedWindowEvent = ::sun::awt::TimedWindowEvent;
@@ -189,8 +176,6 @@ using $SurfaceType = ::sun::java2d::loops::SurfaceType;
 using $Region = ::sun::java2d::pipe::Region;
 using $LWComponentPeer = ::sun::lwawt::LWComponentPeer;
 using $LWContainerPeer = ::sun::lwawt::LWContainerPeer;
-using $LWCursorManager = ::sun::lwawt::LWCursorManager;
-using $LWGraphicsConfig = ::sun::lwawt::LWGraphicsConfig;
 using $LWKeyboardFocusManagerPeer = ::sun::lwawt::LWKeyboardFocusManagerPeer;
 using $LWToolkit = ::sun::lwawt::LWToolkit;
 using $LWWindowPeer$1 = ::sun::lwawt::LWWindowPeer$1;
@@ -203,196 +188,6 @@ using $PlatformLogger$Level = ::sun::util::logging::PlatformLogger$Level;
 
 namespace sun {
 	namespace lwawt {
-
-$FieldInfo _LWWindowPeer_FieldInfo_[] = {
-	{"focusLog", "Lsun/util/logging/PlatformLogger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LWWindowPeer, focusLog)},
-	{"platformWindow", "Lsun/lwawt/PlatformWindow;", nullptr, $PRIVATE | $FINAL, $field(LWWindowPeer, platformWindow)},
-	{"MINIMUM_WIDTH", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LWWindowPeer, MINIMUM_WIDTH)},
-	{"MINIMUM_HEIGHT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LWWindowPeer, MINIMUM_HEIGHT)},
-	{"insets", "Ljava/awt/Insets;", nullptr, $PRIVATE, $field(LWWindowPeer, insets)},
-	{"maximizedBounds", "Ljava/awt/Rectangle;", nullptr, $PRIVATE, $field(LWWindowPeer, maximizedBounds)},
-	{"graphicsDevice", "Ljava/awt/GraphicsDevice;", nullptr, $PRIVATE, $field(LWWindowPeer, graphicsDevice)},
-	{"graphicsConfig", "Ljava/awt/GraphicsConfiguration;", nullptr, $PRIVATE, $field(LWWindowPeer, graphicsConfig)},
-	{"surfaceData", "Lsun/java2d/SurfaceData;", nullptr, $PRIVATE, $field(LWWindowPeer, surfaceData)},
-	{"surfaceDataLock", "Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $field(LWWindowPeer, surfaceDataLock)},
-	{"windowState", "I", nullptr, $PRIVATE | $VOLATILE, $field(LWWindowPeer, windowState)},
-	{"isMouseOver", "Z", nullptr, $PRIVATE | $VOLATILE, $field(LWWindowPeer, isMouseOver)},
-	{"lastCommonMouseEventPeer", "Lsun/lwawt/LWComponentPeer;", "Lsun/lwawt/LWComponentPeer<**>;", $PRIVATE | $STATIC | $VOLATILE, $staticField(LWWindowPeer, lastCommonMouseEventPeer)},
-	{"lastMouseEventPeer", "Lsun/lwawt/LWComponentPeer;", "Lsun/lwawt/LWComponentPeer<**>;", $PRIVATE | $VOLATILE, $field(LWWindowPeer, lastMouseEventPeer)},
-	{"mouseDownTarget", "[Lsun/lwawt/LWComponentPeer;", "[Lsun/lwawt/LWComponentPeer<**>;", $PRIVATE | $STATIC | $FINAL, $staticField(LWWindowPeer, mouseDownTarget)},
-	{"mouseClickButtons", "I", nullptr, $PRIVATE | $STATIC, $staticField(LWWindowPeer, mouseClickButtons)},
-	{"isOpaque", "Z", nullptr, $PRIVATE | $VOLATILE, $field(LWWindowPeer, isOpaque)},
-	{"DEFAULT_FONT", "Ljava/awt/Font;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LWWindowPeer, DEFAULT_FONT)},
-	{"grabbingWindow", "Lsun/lwawt/LWWindowPeer;", nullptr, $PRIVATE | $STATIC, $staticField(LWWindowPeer, grabbingWindow)},
-	{"skipNextFocusChange", "Z", nullptr, $PRIVATE | $VOLATILE, $field(LWWindowPeer, skipNextFocusChange)},
-	{"nonOpaqueBackground", "Ljava/awt/Color;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LWWindowPeer, nonOpaqueBackground)},
-	{"textured", "Z", nullptr, $PRIVATE | $VOLATILE, $field(LWWindowPeer, textured)},
-	{"peerType", "Lsun/lwawt/LWWindowPeer$PeerType;", nullptr, $PRIVATE | $FINAL, $field(LWWindowPeer, peerType)},
-	{"warningWindow", "Lsun/lwawt/SecurityWarningWindow;", nullptr, $PRIVATE | $FINAL, $field(LWWindowPeer, warningWindow)},
-	{"targetFocusable", "Z", nullptr, $PRIVATE | $VOLATILE, $field(LWWindowPeer, targetFocusable)},
-	{"blocker", "Lsun/lwawt/LWWindowPeer;", nullptr, $PRIVATE, $field(LWWindowPeer, blocker)},
-	{}
-};
-
-$MethodInfo _LWWindowPeer_MethodInfo_[] = {
-	{"*applyShape", "(Lsun/java2d/pipe/Region;)V", nullptr, $PUBLIC | $FINAL},
-	{"*beginLayout", "()V", nullptr, $PUBLIC | $FINAL},
-	{"*beginValidate", "()V", nullptr, $PUBLIC | $FINAL},
-	{"*canDetermineObscurity", "()Z", nullptr, $PUBLIC},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*coalescePaintEvent", "(Ljava/awt/event/PaintEvent;)V", nullptr, $PUBLIC},
-	{"*createBuffers", "(ILjava/awt/BufferCapabilities;)V", nullptr, $PUBLIC | $FINAL},
-	{"*createImage", "(II)Ljava/awt/Image;", nullptr, $PUBLIC | $FINAL},
-	{"*createVolatileImage", "(II)Ljava/awt/image/VolatileImage;", nullptr, $PUBLIC | $FINAL},
-	{"*destroyBuffers", "()V", nullptr, $PUBLIC | $FINAL},
-	{"*dispose", "()V", nullptr, $PUBLIC | $FINAL},
-	{"*endLayout", "()V", nullptr, $PUBLIC | $FINAL},
-	{"*endValidate", "()V", nullptr, $PUBLIC | $FINAL},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*flip", "(IIIILjava/awt/BufferCapabilities$FlipContents;)V", nullptr, $PUBLIC | $FINAL},
-	{"*getBackBuffer", "()Ljava/awt/Image;", nullptr, $PUBLIC | $FINAL},
-	{"*getColorModel", "()Ljava/awt/image/ColorModel;", nullptr, $PUBLIC},
-	{"*getGraphics", "()Ljava/awt/Graphics;", nullptr, $PUBLIC},
-	{"*getMinimumSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC | $FINAL},
-	{"*getPreferredSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC | $FINAL},
-	{"*handleEvent", "(Ljava/awt/AWTEvent;)V", nullptr, $PUBLIC},
-	{"*handlesWheelScrolling", "()Z", nullptr, $PUBLIC},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/awt/Window;Lsun/lwawt/PlatformComponent;Lsun/lwawt/PlatformWindow;Lsun/lwawt/LWWindowPeer$PeerType;)V", nullptr, $PUBLIC, $method(LWWindowPeer, init$, void, $Window*, $PlatformComponent*, $PlatformWindow*, $LWWindowPeer$PeerType*)},
-	{"activateDisplayListener", "()V", nullptr, $PRIVATE, $method(LWWindowPeer, activateDisplayListener, void)},
-	{"applyShapeImpl", "(Lsun/java2d/pipe/Region;)V", nullptr, $FINAL, $virtualMethod(LWWindowPeer, applyShapeImpl, void, $Region*)},
-	{"blitSurfaceData", "(Lsun/java2d/SurfaceData;Lsun/java2d/SurfaceData;)V", nullptr, $PRIVATE, $method(LWWindowPeer, blitSurfaceData, void, $SurfaceData*, $SurfaceData*)},
-	{"blockWindows", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/awt/Window;>;)V", $PUBLIC, $virtualMethod(LWWindowPeer, blockWindows, void, $List*)},
-	{"changeFocusedWindow", "(ZLjava/awt/Window;)V", nullptr, $PROTECTED, $virtualMethod(LWWindowPeer, changeFocusedWindow, void, bool, $Window*)},
-	{"clearBackground", "(II)V", nullptr, $PRIVATE, $method(LWWindowPeer, clearBackground, void, int32_t, int32_t)},
-	{"constrainBounds", "(Ljava/awt/Rectangle;)Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(LWWindowPeer, constrainBounds, $Rectangle*, $Rectangle*)},
-	{"constrainBounds", "(IIII)Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(LWWindowPeer, constrainBounds, $Rectangle*, int32_t, int32_t, int32_t, int32_t)},
-	{"deactivateDisplayListener", "()V", nullptr, $PRIVATE, $method(LWWindowPeer, deactivateDisplayListener, void)},
-	{"displayChanged", "()V", nullptr, $PUBLIC | $FINAL, $virtualMethod(LWWindowPeer, displayChanged, void)},
-	{"disposeImpl", "()V", nullptr, $PROTECTED, $virtualMethod(LWWindowPeer, disposeImpl, void)},
-	{"emulateActivation", "(Z)V", nullptr, $PUBLIC, $virtualMethod(LWWindowPeer, emulateActivation, void, bool)},
-	{"enterFullScreenMode", "()V", nullptr, $PUBLIC, $virtualMethod(LWWindowPeer, enterFullScreenMode, void)},
-	{"exitFullScreenMode", "()V", nullptr, $PUBLIC, $virtualMethod(LWWindowPeer, exitFullScreenMode, void)},
-	{"focusAllowedFor", "()Z", nullptr, $PROTECTED, $virtualMethod(LWWindowPeer, focusAllowedFor, bool)},
-	{"generateMouseEnterExitEventsForComponents", "(JIIIIIIIZLsun/lwawt/LWComponentPeer;)V", "(JIIIIIIIZLsun/lwawt/LWComponentPeer<**>;)V", $PRIVATE, $method(LWWindowPeer, generateMouseEnterExitEventsForComponents, void, int64_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, bool, $LWComponentPeer*)},
-	{"getBlocker", "()Lsun/lwawt/LWWindowPeer;", nullptr, $PUBLIC, $virtualMethod(LWWindowPeer, getBlocker, LWWindowPeer*)},
-	{"getBoundsPrivate", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(LWWindowPeer, getBoundsPrivate, $Rectangle*)},
-	{"getDefaultMaximizedBounds", "()Ljava/awt/Rectangle;", nullptr, $PRIVATE, $method(LWWindowPeer, getDefaultMaximizedBounds, $Rectangle*)},
-	{"getFontMetrics", "(Ljava/awt/Font;)Ljava/awt/FontMetrics;", nullptr, $PUBLIC, $virtualMethod(LWWindowPeer, getFontMetrics, $FontMetrics*, $Font*)},
-	{"getGraphicsConfigScreen", "(Ljava/awt/GraphicsConfiguration;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(LWWindowPeer, getGraphicsConfigScreen, int32_t, $GraphicsConfiguration*)},
-	{"getGraphicsConfiguration", "()Ljava/awt/GraphicsConfiguration;", nullptr, $PUBLIC | $FINAL, $virtualMethod(LWWindowPeer, getGraphicsConfiguration, $GraphicsConfiguration*)},
-	{"getInsets", "()Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(LWWindowPeer, getInsets, $Insets*)},
-	{"getLayerPtr", "()J", nullptr, $PUBLIC, $virtualMethod(LWWindowPeer, getLayerPtr, int64_t)},
-	{"getLocationOnScreen", "()Ljava/awt/Point;", nullptr, $PUBLIC, $virtualMethod(LWWindowPeer, getLocationOnScreen, $Point*)},
-	{"getMaximizedBounds", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(LWWindowPeer, getMaximizedBounds, $Rectangle*)},
-	{"getOnscreenGraphics", "(Ljava/awt/Color;Ljava/awt/Color;Ljava/awt/Font;)Ljava/awt/Graphics;", nullptr, $PROTECTED | $FINAL, $method(LWWindowPeer, getOnscreenGraphics, $Graphics*, $Color*, $Color*, $Font*)},
-	{"getOwnerFrameDialog", "(Lsun/lwawt/LWWindowPeer;)Lsun/lwawt/LWWindowPeer;", nullptr, $STATIC, $staticMethod(LWWindowPeer, getOwnerFrameDialog, LWWindowPeer*, LWWindowPeer*)},
-	{"getPeerType", "()Lsun/lwawt/LWWindowPeer$PeerType;", nullptr, $PUBLIC, $virtualMethod(LWWindowPeer, getPeerType, $LWWindowPeer$PeerType*)},
-	{"getPeerUnderCursor", "()Lsun/lwawt/LWComponentPeer;", "()Lsun/lwawt/LWComponentPeer<**>;", $PUBLIC | $STATIC, $staticMethod(LWWindowPeer, getPeerUnderCursor, $LWComponentPeer*)},
-	{"getPlatformWindow", "()Lsun/lwawt/PlatformWindow;", nullptr, $PUBLIC, $virtualMethod(LWWindowPeer, getPlatformWindow, $PlatformWindow*)},
-	{"getState", "()I", nullptr, $PUBLIC, $virtualMethod(LWWindowPeer, getState, int32_t)},
-	{"getSurfaceData", "()Lsun/java2d/SurfaceData;", nullptr, $PUBLIC, $virtualMethod(LWWindowPeer, getSurfaceData, $SurfaceData*)},
-	{"getWindowPeerOrSelf", "()Lsun/lwawt/LWWindowPeer;", nullptr, $PROTECTED, $virtualMethod(LWWindowPeer, getWindowPeerOrSelf, LWWindowPeer*)},
-	{"getWindowUnderCursor", "()Lsun/lwawt/LWWindowPeer;", nullptr, $PUBLIC | $STATIC, $staticMethod(LWWindowPeer, getWindowUnderCursor, LWWindowPeer*)},
-	{"grab", "()V", nullptr, 0, $virtualMethod(LWWindowPeer, grab, void)},
-	{"initializeImpl", "()V", nullptr, 0, $virtualMethod(LWWindowPeer, initializeImpl, void)},
-	{"*isFocusable", "()Z", nullptr, $PUBLIC},
-	{"isFocusableWindow", "()Z", nullptr, $PRIVATE, $method(LWWindowPeer, isFocusableWindow, bool)},
-	{"isGrabbing", "()Z", nullptr, $PRIVATE, $method(LWWindowPeer, isGrabbing, bool)},
-	{"isMaximizedBoundsSet", "()Z", nullptr, $PRIVATE, $method(LWWindowPeer, isMaximizedBoundsSet, bool)},
-	{"*isObscured", "()Z", nullptr, $PUBLIC},
-	{"isOneOfOwnersOf", "(Lsun/lwawt/LWWindowPeer;)Z", nullptr, $PRIVATE, $method(LWWindowPeer, isOneOfOwnersOf, bool, LWWindowPeer*)},
-	{"*isReparentSupported", "()Z", nullptr, $PUBLIC},
-	{"isSimpleWindow", "()Z", nullptr, $PUBLIC, $virtualMethod(LWWindowPeer, isSimpleWindow, bool)},
-	{"isTextured", "()Z", nullptr, $PUBLIC | $FINAL, $method(LWWindowPeer, isTextured, bool)},
-	{"isTranslucent", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(LWWindowPeer, isTranslucent, bool)},
-	{"*layout", "()V", nullptr, $PUBLIC},
-	{"notifyActivation", "(ZLsun/lwawt/LWWindowPeer;)V", nullptr, $PUBLIC, $virtualMethod(LWWindowPeer, notifyActivation, void, bool, LWWindowPeer*)},
-	{"notifyExpose", "(Ljava/awt/Rectangle;)V", nullptr, $PUBLIC, $virtualMethod(LWWindowPeer, notifyExpose, void, $Rectangle*)},
-	{"notifyIconify", "(Z)V", nullptr, $PUBLIC, $virtualMethod(LWWindowPeer, notifyIconify, void, bool)},
-	{"notifyKeyEvent", "(IJIICI)V", nullptr, $PUBLIC, $virtualMethod(LWWindowPeer, notifyKeyEvent, void, int32_t, int64_t, int32_t, int32_t, char16_t, int32_t)},
-	{"notifyMouseEvent", "(IJIIIIIIIZ[B)V", nullptr, $PUBLIC, $virtualMethod(LWWindowPeer, notifyMouseEvent, void, int32_t, int64_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, bool, $bytes*)},
-	{"notifyMouseWheelEvent", "(JIIIIIIIID[B)V", nullptr, $PUBLIC, $virtualMethod(LWWindowPeer, notifyMouseWheelEvent, void, int64_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, double, $bytes*)},
-	{"notifyNCMouseDown", "()V", nullptr, $PUBLIC, $virtualMethod(LWWindowPeer, notifyNCMouseDown, void)},
-	{"notifyReshape", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(LWWindowPeer, notifyReshape, void, int32_t, int32_t, int32_t, int32_t)},
-	{"notifyUpdateCursor", "()V", nullptr, $PUBLIC, $virtualMethod(LWWindowPeer, notifyUpdateCursor, void)},
-	{"notifyZoom", "(Z)V", nullptr, $PUBLIC, $virtualMethod(LWWindowPeer, notifyZoom, void, bool)},
-	{"*paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC | $FINAL},
-	{"paletteChanged", "()V", nullptr, $PUBLIC | $FINAL, $virtualMethod(LWWindowPeer, paletteChanged, void)},
-	{"postMouseEnteredEvent", "(Ljava/awt/Component;JILjava/awt/Point;IIIZI)V", nullptr, $PRIVATE, $method(LWWindowPeer, postMouseEnteredEvent, void, $Component*, int64_t, int32_t, $Point*, int32_t, int32_t, int32_t, bool, int32_t)},
-	{"postMouseExitedEvent", "(Ljava/awt/Component;JILjava/awt/Point;IIIZI)V", nullptr, $PRIVATE, $method(LWWindowPeer, postMouseExitedEvent, void, $Component*, int64_t, int32_t, $Point*, int32_t, int32_t, int32_t, bool, int32_t)},
-	{"postWindowStateChangedEvent", "(I)V", nullptr, $PRIVATE, $method(LWWindowPeer, postWindowStateChangedEvent, void, int32_t)},
-	{"*print", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC | $FINAL},
-	{"*reparent", "(Ljava/awt/peer/ContainerPeer;)V", nullptr, $PUBLIC},
-	{"replaceSurfaceData", "()V", nullptr, $PRIVATE, $method(LWWindowPeer, replaceSurfaceData, void)},
-	{"replaceSurfaceData", "(Z)V", nullptr, $PRIVATE, $method(LWWindowPeer, replaceSurfaceData, void, bool)},
-	{"repositionSecurityWarning", "()V", nullptr, $PUBLIC, $virtualMethod(LWWindowPeer, repositionSecurityWarning, void)},
-	{"*requestFocus", "(Ljava/awt/Component;ZZJLjava/awt/event/FocusEvent$Cause;)Z", nullptr, $PUBLIC},
-	{"requestWindowFocus", "(Ljava/awt/event/FocusEvent$Cause;)Z", nullptr, $PUBLIC, $virtualMethod(LWWindowPeer, requestWindowFocus, bool, $FocusEvent$Cause*)},
-	{"setBackground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(LWWindowPeer, setBackground, void, $Color*)},
-	{"setBounds", "(IIIII)V", nullptr, $PUBLIC, $virtualMethod(LWWindowPeer, setBounds, void, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"setBoundsPrivate", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(LWWindowPeer, setBoundsPrivate, void, int32_t, int32_t, int32_t, int32_t)},
-	{"setEnabled", "(Z)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(LWWindowPeer, setEnabled, void, bool)},
-	{"setFont", "(Ljava/awt/Font;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(LWWindowPeer, setFont, void, $Font*)},
-	{"setForeground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(LWWindowPeer, setForeground, void, $Color*)},
-	{"setGraphicsConfig", "(Ljava/awt/GraphicsConfiguration;)Z", nullptr, $PRIVATE, $method(LWWindowPeer, setGraphicsConfig, bool, $GraphicsConfiguration*)},
-	{"setMaximizedBounds", "(Ljava/awt/Rectangle;)V", nullptr, $PUBLIC, $virtualMethod(LWWindowPeer, setMaximizedBounds, void, $Rectangle*)},
-	{"setMenuBar", "(Ljava/awt/MenuBar;)V", nullptr, $PUBLIC, $virtualMethod(LWWindowPeer, setMenuBar, void, $MenuBar*)},
-	{"setModalBlocked", "(Ljava/awt/Dialog;Z)V", nullptr, $PUBLIC, $virtualMethod(LWWindowPeer, setModalBlocked, void, $Dialog*, bool)},
-	{"setOpacity", "(F)V", nullptr, $PUBLIC, $virtualMethod(LWWindowPeer, setOpacity, void, float)},
-	{"setOpaque", "(Z)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(LWWindowPeer, setOpaque, void, bool)},
-	{"setPlatformMaximizedBounds", "(Ljava/awt/Rectangle;)V", nullptr, $PRIVATE, $method(LWWindowPeer, setPlatformMaximizedBounds, void, $Rectangle*)},
-	{"setResizable", "(Z)V", nullptr, $PUBLIC, $virtualMethod(LWWindowPeer, setResizable, void, bool)},
-	{"setState", "(I)V", nullptr, $PUBLIC, $virtualMethod(LWWindowPeer, setState, void, int32_t)},
-	{"setTextured", "(Z)V", nullptr, $PUBLIC | $FINAL, $method(LWWindowPeer, setTextured, void, bool)},
-	{"setTitle", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(LWWindowPeer, setTitle, void, $String*)},
-	{"*setVisible", "(Z)V", nullptr, $PUBLIC},
-	{"setVisibleImpl", "(Z)V", nullptr, $PROTECTED, $virtualMethod(LWWindowPeer, setVisibleImpl, void, bool)},
-	{"setZOrder", "(Ljava/awt/peer/ComponentPeer;)V", nullptr, $PUBLIC, $virtualMethod(LWWindowPeer, setZOrder, void, $ComponentPeer*)},
-	{"toBack", "()V", nullptr, $PUBLIC, $virtualMethod(LWWindowPeer, toBack, void)},
-	{"toFront", "()V", nullptr, $PUBLIC, $virtualMethod(LWWindowPeer, toFront, void)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LWWindowPeer, toString, $String*)},
-	{"ungrab", "(Z)V", nullptr, $FINAL, $method(LWWindowPeer, ungrab, void, bool)},
-	{"ungrab", "()V", nullptr, 0, $virtualMethod(LWWindowPeer, ungrab, void)},
-	{"updateAlwaysOnTopState", "()V", nullptr, $PUBLIC, $virtualMethod(LWWindowPeer, updateAlwaysOnTopState, void)},
-	{"*updateCursorImmediately", "()V", nullptr, $PUBLIC},
-	{"updateFocusableWindowState", "()V", nullptr, $PUBLIC, $virtualMethod(LWWindowPeer, updateFocusableWindowState, void)},
-	{"updateGraphicsData", "(Ljava/awt/GraphicsConfiguration;)Z", nullptr, $PUBLIC, $virtualMethod(LWWindowPeer, updateGraphicsData, bool, $GraphicsConfiguration*)},
-	{"updateGraphicsDevice", "()Z", nullptr, $PUBLIC, $virtualMethod(LWWindowPeer, updateGraphicsDevice, bool)},
-	{"updateIconImages", "()V", nullptr, $PUBLIC, $virtualMethod(LWWindowPeer, updateIconImages, void)},
-	{"updateInsets", "(Ljava/awt/Insets;)Z", nullptr, $PUBLIC | $FINAL, $method(LWWindowPeer, updateInsets, bool, $Insets*)},
-	{"updateMinimumSize", "()V", nullptr, $PUBLIC, $virtualMethod(LWWindowPeer, updateMinimumSize, void)},
-	{"updateOpaque", "()V", nullptr, $PRIVATE, $method(LWWindowPeer, updateOpaque, void)},
-	{"updateSecurityWarningVisibility", "()V", nullptr, $PUBLIC, $virtualMethod(LWWindowPeer, updateSecurityWarningVisibility, void)},
-	{"updateWindow", "()V", nullptr, $PUBLIC, $virtualMethod(LWWindowPeer, updateWindow, void)},
-	{}
-};
-
-$InnerClassInfo _LWWindowPeer_InnerClassesInfo_[] = {
-	{"sun.lwawt.LWWindowPeer$PeerType", "sun.lwawt.LWWindowPeer", "PeerType", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{"sun.lwawt.LWWindowPeer$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _LWWindowPeer_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.lwawt.LWWindowPeer",
-	"sun.lwawt.LWContainerPeer",
-	"java.awt.peer.FramePeer,java.awt.peer.DialogPeer,sun.awt.FullScreenCapable,sun.awt.DisplayChangedListener,sun.lwawt.PlatformEventNotifier",
-	_LWWindowPeer_FieldInfo_,
-	_LWWindowPeer_MethodInfo_,
-	"Lsun/lwawt/LWContainerPeer<Ljava/awt/Window;Ljavax/swing/JComponent;>;Ljava/awt/peer/FramePeer;Ljava/awt/peer/DialogPeer;Lsun/awt/FullScreenCapable;Lsun/awt/DisplayChangedListener;Lsun/lwawt/PlatformEventNotifier;",
-	nullptr,
-	_LWWindowPeer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.lwawt.LWWindowPeer$PeerType,sun.lwawt.LWWindowPeer$1"
-};
-
-$Object* allocate$LWWindowPeer($Class* clazz) {
-	return $of($alloc(LWWindowPeer));
-}
 
 void LWWindowPeer::beginValidate() {
 	this->$LWContainerPeer::beginValidate();
@@ -539,7 +334,7 @@ LWWindowPeer* LWWindowPeer::grabbingWindow = nullptr;
 $Color* LWWindowPeer::nonOpaqueBackground = nullptr;
 
 void LWWindowPeer::init$($Window* target, $PlatformComponent* platformComponent, $PlatformWindow* platformWindow, $LWWindowPeer$PeerType* peerType) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$LWContainerPeer::init$(target, platformComponent);
 	$set(this, insets, $new($Insets, 0, 0, 0, 0));
 	$set(this, surfaceDataLock, $new($Object));
@@ -549,9 +344,9 @@ void LWWindowPeer::init$($Window* target, $PlatformComponent* platformComponent,
 	$set(this, platformWindow, platformWindow);
 	$set(this, peerType, peerType);
 	$var($Window, owner, $nc(target)->getOwner());
-	$var(LWWindowPeer, ownerPeer, owner == nullptr ? (LWWindowPeer*)nullptr : $cast(LWWindowPeer, $nc($($AWTAccessor::getComponentAccessor()))->getPeer(owner)));
-	$var($PlatformWindow, ownerDelegate, (ownerPeer != nullptr) ? $nc(ownerPeer)->getPlatformWindow() : ($PlatformWindow*)nullptr);
-	$var($GraphicsConfiguration, gc, $nc(($cast($Window, $(getTarget()))))->getGraphicsConfiguration());
+	$var(LWWindowPeer, ownerPeer, owner == nullptr ? (LWWindowPeer*)nullptr : $cast(LWWindowPeer, $$nc($AWTAccessor::getComponentAccessor())->getPeer(owner)));
+	$var($PlatformWindow, ownerDelegate, (ownerPeer != nullptr) ? ownerPeer->getPlatformWindow() : ($PlatformWindow*)nullptr);
+	$var($GraphicsConfiguration, gc, $$sure($Window, getTarget())->getGraphicsConfiguration());
 	$synchronized(getStateLock()) {
 		$set(this, graphicsConfig, gc);
 	}
@@ -570,7 +365,7 @@ void LWWindowPeer::init$($Window* target, $PlatformComponent* platformComponent,
 	$nc(platformWindow)->initialize(target, this, ownerDelegate);
 	$var($SecurityWarningWindow, warn, nullptr);
 	if (target->getWarningString() != nullptr) {
-		if (!$nc($($AWTAccessor::getWindowAccessor()))->isTrayIconWindow(target)) {
+		if (!$$nc($AWTAccessor::getWindowAccessor())->isTrayIconWindow(target)) {
 			$var($LWToolkit, toolkit, $cast($LWToolkit, $Toolkit::getDefaultToolkit()));
 			$assign(warn, $nc(toolkit)->createSecurityWarning(target, this));
 		}
@@ -579,28 +374,28 @@ void LWWindowPeer::init$($Window* target, $PlatformComponent* platformComponent,
 }
 
 void LWWindowPeer::initializeImpl() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$LWContainerPeer::initializeImpl();
 	if ($instanceOf($Frame, $(getTarget()))) {
 		$var($Frame, frame, $cast($Frame, getTarget()));
 		setTitle($($nc(frame)->getTitle()));
-		setState($nc(frame)->getExtendedState());
-		setMaximizedBounds($($nc(frame)->getMaximizedBounds()));
+		setState(frame->getExtendedState());
+		setMaximizedBounds($(frame->getMaximizedBounds()));
 	} else if ($instanceOf($Dialog, $(getTarget()))) {
-		setTitle($($nc(($cast($Dialog, $(getTarget()))))->getTitle()));
+		setTitle($($$sure($Dialog, getTarget())->getTitle()));
 	}
 	updateAlwaysOnTopState();
 	updateMinimumSize();
 	updateFocusableWindowState();
-	$var($Shape, shape, $nc(($cast($Window, $(getTarget()))))->getShape());
+	$var($Shape, shape, $$sure($Window, getTarget())->getShape());
 	if (shape != nullptr) {
-		applyShape($($Region::getInstance(shape, ($AffineTransform*)nullptr)));
+		applyShape($($Region::getInstance(shape, nullptr)));
 	}
-	float opacity = $nc(($cast($Window, $(getTarget()))))->getOpacity();
+	float opacity = $$sure($Window, getTarget())->getOpacity();
 	if (opacity < 1.0f) {
 		setOpacity(opacity);
 	}
-	setOpaque($nc(($cast($Window, $(getTarget()))))->isOpaque());
+	setOpaque($$sure($Window, getTarget())->isOpaque());
 	updateInsets($($nc(this->platformWindow)->getInsets()));
 	if (getSurfaceData() == nullptr) {
 		replaceSurfaceData(false);
@@ -629,16 +424,16 @@ void LWWindowPeer::disposeImpl() {
 		ungrab();
 	}
 	if (this->warningWindow != nullptr) {
-		$nc(this->warningWindow)->dispose();
+		this->warningWindow->dispose();
 	}
 	$nc(this->platformWindow)->dispose();
 	$LWContainerPeer::disposeImpl();
 }
 
 void LWWindowPeer::setVisibleImpl(bool visible) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!visible && this->warningWindow != nullptr) {
-		$nc(this->warningWindow)->setVisible(false, false);
+		this->warningWindow->setVisible(false, false);
 	}
 	updateFocusableWindowState();
 	$LWContainerPeer::setVisibleImpl(visible);
@@ -646,7 +441,7 @@ void LWWindowPeer::setVisibleImpl(bool visible) {
 	if (isSimpleWindow()) {
 		$var($KeyboardFocusManagerPeer, kfmPeer, $LWKeyboardFocusManagerPeer::getInstance());
 		if (visible) {
-			if (!$nc(($cast($Window, $(getTarget()))))->isAutoRequestFocus()) {
+			if (!$$sure($Window, getTarget())->isAutoRequestFocus()) {
 				return;
 			} else {
 				$init($FocusEvent$Cause);
@@ -674,7 +469,7 @@ bool LWWindowPeer::updateGraphicsData($GraphicsConfiguration* gc) {
 }
 
 $Graphics* LWWindowPeer::getOnscreenGraphics($Color* fg$renamed, $Color* bg$renamed, $Font* f$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Color, fg, fg$renamed);
 	$var($Color, bg, bg$renamed);
 	$var($Font, f, f$renamed);
@@ -697,22 +492,22 @@ $Graphics* LWWindowPeer::getOnscreenGraphics($Color* fg$renamed, $Color* bg$rena
 }
 
 void LWWindowPeer::setBounds(int32_t x, int32_t y, int32_t w, int32_t h, int32_t op) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($LWWindowPeer$PeerType);
-	if (((int32_t)(op & (uint32_t)$ComponentPeer::NO_EMBEDDED_CHECK)) == 0 && getPeerType() == $LWWindowPeer$PeerType::VIEW_EMBEDDED_FRAME) {
+	if ((op & $ComponentPeer::NO_EMBEDDED_CHECK) == 0 && getPeerType() == $LWWindowPeer$PeerType::VIEW_EMBEDDED_FRAME) {
 		return;
 	}
-	if (((int32_t)(op & (uint32_t)$ComponentPeer::SET_CLIENT_SIZE)) != 0) {
+	if ((op & $ComponentPeer::SET_CLIENT_SIZE) != 0) {
 		op &= (uint32_t)~$ComponentPeer::SET_CLIENT_SIZE;
 		op |= $ComponentPeer::SET_SIZE;
 	}
 	$var($Rectangle, cb, constrainBounds(x, y, w, h));
 	$var($Rectangle, newBounds, $new($Rectangle, $(getBounds())));
-	if (((int32_t)(op & (uint32_t)($ComponentPeer::SET_LOCATION | $ComponentPeer::SET_BOUNDS))) != 0) {
+	if ((op & ($ComponentPeer::SET_LOCATION | $ComponentPeer::SET_BOUNDS)) != 0) {
 		newBounds->x = $nc(cb)->x;
 		newBounds->y = cb->y;
 	}
-	if (((int32_t)(op & (uint32_t)($ComponentPeer::SET_SIZE | $ComponentPeer::SET_BOUNDS))) != 0) {
+	if ((op & ($ComponentPeer::SET_SIZE | $ComponentPeer::SET_BOUNDS)) != 0) {
 		newBounds->width = $nc(cb)->width;
 		newBounds->height = cb->height;
 	}
@@ -720,19 +515,19 @@ void LWWindowPeer::setBounds(int32_t x, int32_t y, int32_t w, int32_t h, int32_t
 }
 
 $Rectangle* LWWindowPeer::constrainBounds($Rectangle* bounds) {
-	return constrainBounds($nc(bounds)->x, bounds->y, bounds->width, bounds->height);
+	return constrainBounds($nc(bounds)->x, $nc(bounds)->y, $nc(bounds)->width, $nc(bounds)->height);
 }
 
 $Rectangle* LWWindowPeer::constrainBounds(int32_t x, int32_t y, int32_t w, int32_t h) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (w < LWWindowPeer::MINIMUM_WIDTH) {
 		w = LWWindowPeer::MINIMUM_WIDTH;
 	}
 	if (h < LWWindowPeer::MINIMUM_HEIGHT) {
 		h = LWWindowPeer::MINIMUM_HEIGHT;
 	}
-	int32_t maxW = $nc($(getLWGC()))->getMaxTextureWidth();
-	int32_t maxH = $nc($(getLWGC()))->getMaxTextureHeight();
+	int32_t maxW = $$nc(getLWGC())->getMaxTextureWidth();
+	int32_t maxH = $$nc(getLWGC())->getMaxTextureHeight();
 	if (w > maxW) {
 		w = maxW;
 	}
@@ -769,18 +564,18 @@ void LWWindowPeer::setZOrder($ComponentPeer* above) {
 }
 
 void LWWindowPeer::updateAlwaysOnTopState() {
-	$nc(this->platformWindow)->setAlwaysOnTop($nc(($cast($Window, $(getTarget()))))->isAlwaysOnTop());
+	$nc(this->platformWindow)->setAlwaysOnTop($$sure($Window, getTarget())->isAlwaysOnTop());
 }
 
 void LWWindowPeer::updateFocusableWindowState() {
-	this->targetFocusable = $nc(($cast($Window, $(getTarget()))))->isFocusableWindow();
+	this->targetFocusable = $$sure($Window, getTarget())->isFocusableWindow();
 	$nc(this->platformWindow)->updateFocusableWindowState();
 }
 
 void LWWindowPeer::setModalBlocked($Dialog* blocker, bool blocked) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized(getPeerTreeLock()) {
-		$var($ComponentPeer, peer, $nc($($AWTAccessor::getComponentAccessor()))->getPeer(blocker));
+		$var($ComponentPeer, peer, $$nc($AWTAccessor::getComponentAccessor())->getPeer(blocker));
 		if (blocked && ($instanceOf(LWWindowPeer, peer))) {
 			$set(this, blocker, $cast(LWWindowPeer, peer));
 		} else {
@@ -791,33 +586,33 @@ void LWWindowPeer::setModalBlocked($Dialog* blocker, bool blocked) {
 }
 
 void LWWindowPeer::updateMinimumSize() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Dimension, min, nullptr);
-	if ($nc(($cast($Window, $(getTarget()))))->isMinimumSizeSet()) {
-		$assign(min, $nc(($cast($Window, $(getTarget()))))->getMinimumSize());
-		$nc(min)->width = $Math::max(min->width, LWWindowPeer::MINIMUM_WIDTH);
+	if ($$sure($Window, getTarget())->isMinimumSizeSet()) {
+		$assign(min, $$sure($Window, getTarget())->getMinimumSize());
+		$nc(min)->width = $Math::max($nc(min)->width, LWWindowPeer::MINIMUM_WIDTH);
 		min->height = $Math::max(min->height, LWWindowPeer::MINIMUM_HEIGHT);
 	} else {
 		$assign(min, $new($Dimension, LWWindowPeer::MINIMUM_WIDTH, LWWindowPeer::MINIMUM_HEIGHT));
 	}
 	$var($Dimension, max, nullptr);
-	if ($nc(($cast($Window, $(getTarget()))))->isMaximumSizeSet()) {
-		$assign(max, $nc(($cast($Window, $(getTarget()))))->getMaximumSize());
-		$nc(max)->width = $Math::min(max->width, $nc($(getLWGC()))->getMaxTextureWidth());
-		max->height = $Math::min(max->height, $nc($(getLWGC()))->getMaxTextureHeight());
+	if ($$sure($Window, getTarget())->isMaximumSizeSet()) {
+		$assign(max, $$sure($Window, getTarget())->getMaximumSize());
+		$nc(max)->width = $Math::min($nc(max)->width, $$nc(getLWGC())->getMaxTextureWidth());
+		max->height = $Math::min(max->height, $$nc(getLWGC())->getMaxTextureHeight());
 	} else {
-		int32_t var$0 = $nc($(getLWGC()))->getMaxTextureWidth();
-		$assign(max, $new($Dimension, var$0, $nc($(getLWGC()))->getMaxTextureHeight()));
+		int32_t var$0 = $$nc(getLWGC())->getMaxTextureWidth();
+		$assign(max, $new($Dimension, var$0, $$nc(getLWGC())->getMaxTextureHeight()));
 	}
-	$nc(this->platformWindow)->setSizeConstraints($nc(min)->width, min->height, $nc(max)->width, max->height);
+	$nc(this->platformWindow)->setSizeConstraints($nc(min)->width, $nc(min)->height, $nc(max)->width, $nc(max)->height);
 }
 
 void LWWindowPeer::updateIconImages() {
-	$nc($(getPlatformWindow()))->updateIconImages();
+	$$nc(getPlatformWindow())->updateIconImages();
 }
 
 void LWWindowPeer::setOpacity(float opacity) {
-	$nc($(getPlatformWindow()))->setOpacity(opacity);
+	$$nc(getPlatformWindow())->setOpacity(opacity);
 	repaintPeer();
 }
 
@@ -829,7 +624,7 @@ void LWWindowPeer::setOpaque(bool isOpaque) {
 }
 
 void LWWindowPeer::updateOpaque() {
-	$nc($(getPlatformWindow()))->setOpaque(!isTranslucent());
+	$$nc(getPlatformWindow())->setOpaque(!isTranslucent());
 	replaceSurfaceData(false);
 	repaintPeer();
 }
@@ -858,7 +653,7 @@ void LWWindowPeer::applyShapeImpl($Region* shape) {
 }
 
 void LWWindowPeer::repositionSecurityWarning() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->warningWindow != nullptr) {
 		$var($AWTAccessor$ComponentAccessor, compAccessor, $AWTAccessor::getComponentAccessor());
 		$var($Window, target, $cast($Window, getTarget()));
@@ -866,7 +661,7 @@ void LWWindowPeer::repositionSecurityWarning() {
 		int32_t y = compAccessor->getY(target);
 		int32_t width = compAccessor->getWidth(target);
 		int32_t height = compAccessor->getHeight(target);
-		$nc(this->warningWindow)->reposition(x, y, width, height);
+		this->warningWindow->reposition(x, y, width, height);
 	}
 }
 
@@ -897,11 +692,11 @@ bool LWWindowPeer::isMaximizedBoundsSet() {
 }
 
 $Rectangle* LWWindowPeer::getDefaultMaximizedBounds() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($GraphicsConfiguration, config, getGraphicsConfiguration());
-	$var($Insets, screenInsets, $nc(($cast($CGraphicsDevice, $($nc(config)->getDevice()))))->getScreenInsets());
+	$var($Insets, screenInsets, $$sure($CGraphicsDevice, $nc(config)->getDevice())->getScreenInsets());
 	$var($Rectangle, gcBounds, config->getBounds());
-	return $new($Rectangle, $nc(gcBounds)->x + $nc(screenInsets)->left, gcBounds->y + screenInsets->top, gcBounds->width - screenInsets->left - screenInsets->right, gcBounds->height - screenInsets->top - screenInsets->bottom);
+	return $new($Rectangle, $nc(gcBounds)->x + $nc(screenInsets)->left, $nc(gcBounds)->y + $nc(screenInsets)->top, $nc(gcBounds)->width - $nc(screenInsets)->left - $nc(screenInsets)->right, $nc(gcBounds)->height - $nc(screenInsets)->top - $nc(screenInsets)->bottom);
 }
 
 void LWWindowPeer::setMaximizedBounds($Rectangle* bounds) {
@@ -919,7 +714,7 @@ $Rectangle* LWWindowPeer::getMaximizedBounds() {
 }
 
 void LWWindowPeer::setPlatformMaximizedBounds($Rectangle* bounds) {
-	$nc(this->platformWindow)->setMaximizedBounds($nc(bounds)->x, bounds->y, bounds->width, bounds->height);
+	$nc(this->platformWindow)->setMaximizedBounds($nc(bounds)->x, $nc(bounds)->y, $nc(bounds)->width, $nc(bounds)->height);
 }
 
 void LWWindowPeer::setBoundsPrivate(int32_t x, int32_t y, int32_t width, int32_t height) {
@@ -932,24 +727,22 @@ $Rectangle* LWWindowPeer::getBoundsPrivate() {
 }
 
 void LWWindowPeer::blockWindows($List* windows) {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Iterator, i$, $nc(windows)->iterator());
-		for (; $nc(i$)->hasNext();) {
-			$var($Window, w, $cast($Window, i$->next()));
-			{
-				$var($WindowPeer, wp, $cast($WindowPeer, $nc($($AWTAccessor::getComponentAccessor()))->getPeer(w)));
-				if (wp != nullptr) {
-					wp->setModalBlocked($cast($Dialog, $(getTarget())), true);
-				}
+	$useLocalObjectStack();
+	$var($Iterator, i$, $nc(windows)->iterator());
+	for (; $nc(i$)->hasNext();) {
+		$var($Window, w, $cast($Window, i$->next()));
+		{
+			$var($WindowPeer, wp, $cast($WindowPeer, $$nc($AWTAccessor::getComponentAccessor())->getPeer(w)));
+			if (wp != nullptr) {
+				wp->setModalBlocked($$cast($Dialog, getTarget()), true);
 			}
 		}
 	}
 }
 
 void LWWindowPeer::notifyIconify(bool iconify) {
-	$useLocalCurrentObjectStackCache();
-	$var($WindowEvent, iconifyEvent, $new($WindowEvent, $cast($Window, $(getTarget())), iconify ? $WindowEvent::WINDOW_ICONIFIED : $WindowEvent::WINDOW_DEICONIFIED));
+	$useLocalObjectStack();
+	$var($WindowEvent, iconifyEvent, $new($WindowEvent, $$cast($Window, getTarget()), iconify ? $WindowEvent::WINDOW_ICONIFIED : $WindowEvent::WINDOW_DEICONIFIED));
 	postEvent(iconifyEvent);
 	int32_t newWindowState = iconify ? $Frame::ICONIFIED : $Frame::NORMAL;
 	postWindowStateChangedEvent(newWindowState);
@@ -968,14 +761,14 @@ void LWWindowPeer::notifyExpose($Rectangle* r) {
 }
 
 void LWWindowPeer::notifyReshape(int32_t x, int32_t y, int32_t w, int32_t h) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle, pBounds, getBounds());
 	bool invalid = updateInsets($($nc(this->platformWindow)->getInsets()));
-	bool pMoved = (x != $nc(pBounds)->x) || (y != $nc(pBounds)->y);
+	bool pMoved = (x != $nc(pBounds)->x) || (y != pBounds->y);
 	bool pResized = (w != pBounds->width) || (h != pBounds->height);
 	$var($AWTAccessor$ComponentAccessor, accessor, $AWTAccessor::getComponentAccessor());
 	$var($Rectangle, tBounds, $nc(accessor)->getBounds($(getTarget())));
-	bool tMoved = (x != $nc(tBounds)->x) || (y != $nc(tBounds)->y);
+	bool tMoved = (x != $nc(tBounds)->x) || (y != tBounds->y);
 	bool tResized = (w != tBounds->width) || (h != tBounds->height);
 	if (!tMoved && !tResized && !pMoved && !pResized && !invalid) {
 		return;
@@ -1000,61 +793,59 @@ void LWWindowPeer::notifyReshape(int32_t x, int32_t y, int32_t w, int32_t h) {
 }
 
 void LWWindowPeer::clearBackground(int32_t w, int32_t h) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Color, var$0, getForeground());
 	$var($Color, var$1, getBackground());
 	$var($Graphics, g, getOnscreenGraphics(var$0, var$1, $(getFont())));
 	if (g != nullptr) {
-		{
-			$var($Throwable, var$2, nullptr);
-			try {
-				if ($instanceOf($Graphics2D, g)) {
-					$init($AlphaComposite);
-					$nc(($cast($Graphics2D, g)))->setComposite($AlphaComposite::Src);
-				}
-				if (isTranslucent()) {
-					g->setColor(LWWindowPeer::nonOpaqueBackground);
-					g->fillRect(0, 0, w, h);
-				}
-				if (!isTextured()) {
-					if ($instanceOf($SunGraphics2D, g)) {
-						$nc(($cast($SunGraphics2D, g)))->constrain(0, 0, w, h, $(getRegion()));
-					}
-					g->setColor($(getBackground()));
-					g->fillRect(0, 0, w, h);
-				}
-			} catch ($Throwable& var$3) {
-				$assign(var$2, var$3);
-			} /*finally*/ {
-				g->dispose();
+		$var($Throwable, var$2, nullptr);
+		try {
+			if ($instanceOf($Graphics2D, g)) {
+				$init($AlphaComposite);
+				$cast($Graphics2D, g)->setComposite($AlphaComposite::Src);
 			}
-			if (var$2 != nullptr) {
-				$throw(var$2);
+			if (isTranslucent()) {
+				g->setColor(LWWindowPeer::nonOpaqueBackground);
+				g->fillRect(0, 0, w, h);
 			}
+			if (!isTextured()) {
+				if ($instanceOf($SunGraphics2D, g)) {
+					$cast($SunGraphics2D, g)->constrain(0, 0, w, h, $(getRegion()));
+				}
+				g->setColor($(getBackground()));
+				g->fillRect(0, 0, w, h);
+			}
+		} catch ($Throwable& var$3) {
+			$assign(var$2, var$3);
+		} /*finally*/ {
+			g->dispose();
+		}
+		if (var$2 != nullptr) {
+			$throw(var$2);
 		}
 	}
 }
 
 void LWWindowPeer::notifyUpdateCursor() {
-	$useLocalCurrentObjectStackCache();
-	$nc($($nc($(getLWToolkit()))->getCursorManager()))->updateCursorLater(this);
+	$useLocalObjectStack();
+	$$nc($$nc(getLWToolkit())->getCursorManager())->updateCursorLater(this);
 }
 
 void LWWindowPeer::notifyActivation(bool activation, LWWindowPeer* opposite) {
-	$var($Window, oppositeWindow, (opposite == nullptr) ? ($Window*)nullptr : $cast($Window, $nc(opposite)->getTarget()));
+	$var($Window, oppositeWindow, (opposite == nullptr) ? ($Window*)nullptr : $cast($Window, opposite->getTarget()));
 	changeFocusedWindow(activation, oppositeWindow);
 }
 
 void LWWindowPeer::notifyNCMouseDown() {
-	if (LWWindowPeer::grabbingWindow != nullptr && !$nc(LWWindowPeer::grabbingWindow)->isOneOfOwnersOf(this)) {
-		$nc(LWWindowPeer::grabbingWindow)->ungrab();
+	if (LWWindowPeer::grabbingWindow != nullptr && !LWWindowPeer::grabbingWindow->isOneOfOwnersOf(this)) {
+		LWWindowPeer::grabbingWindow->ungrab();
 	}
 }
 
 void LWWindowPeer::notifyMouseEvent(int32_t id, int64_t when, int32_t button, int32_t x, int32_t y, int32_t absX, int32_t absY, int32_t modifiers, int32_t clickCount, bool popupTrigger, $bytes* bdata) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle, r, getBounds());
-	$var($LWComponentPeer, targetPeer, findPeerAt($nc(r)->x + x, r->y + y));
+	$var($LWComponentPeer, targetPeer, findPeerAt($nc(r)->x + x, $nc(r)->y + y));
 	if (id == $MouseEvent::MOUSE_EXITED) {
 		this->isMouseOver = false;
 		if (this->lastMouseEventPeer != nullptr) {
@@ -1080,21 +871,21 @@ void LWWindowPeer::notifyMouseEvent(int32_t id, int64_t when, int32_t button, in
 			$set(this, lastMouseEventPeer, targetPeer);
 		}
 	} else {
-		$var($PlatformWindow, topmostPlatformWindow, $nc($($LWToolkit::getLWToolkit()))->getPlatformWindowUnderMouse());
-		$var(LWWindowPeer, topmostWindowPeer, topmostPlatformWindow != nullptr ? $nc(topmostPlatformWindow)->getPeer() : (LWWindowPeer*)nullptr);
+		$var($PlatformWindow, topmostPlatformWindow, $$nc($LWToolkit::getLWToolkit())->getPlatformWindowUnderMouse());
+		$var(LWWindowPeer, topmostWindowPeer, topmostPlatformWindow != nullptr ? topmostPlatformWindow->getPeer() : (LWWindowPeer*)nullptr);
 		if (topmostWindowPeer == this || topmostWindowPeer == nullptr) {
 			generateMouseEnterExitEventsForComponents(when, button, x, y, absX, absY, modifiers, clickCount, popupTrigger, targetPeer);
 		} else {
-			$var($LWComponentPeer, topmostTargetPeer, $nc(topmostWindowPeer)->findPeerAt($nc(r)->x + x, r->y + y));
+			$var($LWComponentPeer, topmostTargetPeer, topmostWindowPeer->findPeerAt(r->x + x, r->y + y));
 			topmostWindowPeer->generateMouseEnterExitEventsForComponents(when, button, x, y, absX, absY, modifiers, clickCount, popupTrigger, topmostTargetPeer);
 		}
 		int32_t eventButtonMask = (button > 0) ? $MouseEvent::getMaskForButton(button) : 0;
-		int32_t otherButtonsPressed = (int32_t)(modifiers & (uint32_t)~eventButtonMask);
+		int32_t otherButtonsPressed = modifiers & ~eventButtonMask;
 		int32_t targetIdx = (button > 3) ? $MouseEvent::BUTTON2 - 1 : button - 1;
 		if (id == $MouseEvent::MOUSE_PRESSED) {
 			bool var$0 = !isGrabbing() && LWWindowPeer::grabbingWindow != nullptr;
-			if (var$0 && !$nc(LWWindowPeer::grabbingWindow)->isOneOfOwnersOf(this)) {
-				$nc(LWWindowPeer::grabbingWindow)->ungrab();
+			if (var$0 && !LWWindowPeer::grabbingWindow->isOneOfOwnersOf(this)) {
+				LWWindowPeer::grabbingWindow->ungrab();
 			}
 			if (otherButtonsPressed == 0) {
 				LWWindowPeer::mouseClickButtons = eventButtonMask;
@@ -1103,14 +894,14 @@ void LWWindowPeer::notifyMouseEvent(int32_t id, int64_t when, int32_t button, in
 			}
 			$init($FocusEvent$Cause);
 			requestWindowFocus($FocusEvent$Cause::MOUSE_EVENT);
-			$nc(LWWindowPeer::mouseDownTarget)->set(targetIdx, targetPeer);
+			LWWindowPeer::mouseDownTarget->set(targetIdx, targetPeer);
 		} else if (id == $MouseEvent::MOUSE_DRAGGED) {
-			$assign(targetPeer, $nc(LWWindowPeer::mouseDownTarget)->get(targetIdx));
+			$assign(targetPeer, LWWindowPeer::mouseDownTarget->get(targetIdx));
 			LWWindowPeer::mouseClickButtons &= (uint32_t)~modifiers;
 		} else if (id == $MouseEvent::MOUSE_RELEASED) {
-			$assign(targetPeer, $nc(LWWindowPeer::mouseDownTarget)->get(targetIdx));
-			if (((int32_t)(modifiers & (uint32_t)eventButtonMask)) == 0) {
-				$nc(LWWindowPeer::mouseDownTarget)->set(targetIdx, nullptr);
+			$assign(targetPeer, LWWindowPeer::mouseDownTarget->get(targetIdx));
+			if ((modifiers & eventButtonMask) == 0) {
+				LWWindowPeer::mouseDownTarget->set(targetIdx, nullptr);
 			}
 		}
 		if (targetPeer == nullptr) {
@@ -1118,12 +909,12 @@ void LWWindowPeer::notifyMouseEvent(int32_t id, int64_t when, int32_t button, in
 		}
 		$var($Point, lp, $nc(targetPeer)->windowToLocal(x, y, this));
 		if (targetPeer->isEnabled()) {
-			$var($MouseEvent, event, $new($MouseEvent, $(targetPeer->getTarget()), id, when, modifiers, $nc(lp)->x, lp->y, absX, absY, clickCount, popupTrigger, button));
+			$var($MouseEvent, event, $new($MouseEvent, $(targetPeer->getTarget()), id, when, modifiers, $nc(lp)->x, $nc(lp)->y, absX, absY, clickCount, popupTrigger, button));
 			postEvent(event);
 		}
 		if (id == $MouseEvent::MOUSE_RELEASED) {
-			if (((int32_t)(LWWindowPeer::mouseClickButtons & (uint32_t)eventButtonMask)) != 0 && targetPeer->isEnabled()) {
-				postEvent($$new($MouseEvent, $(targetPeer->getTarget()), $MouseEvent::MOUSE_CLICKED, when, modifiers, $nc(lp)->x, lp->y, absX, absY, clickCount, popupTrigger, button));
+			if ((LWWindowPeer::mouseClickButtons & eventButtonMask) != 0 && targetPeer->isEnabled()) {
+				postEvent($$new($MouseEvent, $(targetPeer->getTarget()), $MouseEvent::MOUSE_CLICKED, when, modifiers, $nc(lp)->x, $nc(lp)->y, absX, absY, clickCount, popupTrigger, button));
 			}
 			LWWindowPeer::mouseClickButtons &= (uint32_t)~eventButtonMask;
 		}
@@ -1132,7 +923,7 @@ void LWWindowPeer::notifyMouseEvent(int32_t id, int64_t when, int32_t button, in
 }
 
 void LWWindowPeer::generateMouseEnterExitEventsForComponents(int64_t when, int32_t button, int32_t x, int32_t y, int32_t screenX, int32_t screenY, int32_t modifiers, int32_t clickCount, bool popupTrigger, $LWComponentPeer* targetPeer) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!this->isMouseOver || targetPeer == this->lastMouseEventPeer) {
 		return;
 	}
@@ -1152,27 +943,27 @@ void LWWindowPeer::generateMouseEnterExitEventsForComponents(int64_t when, int32
 
 void LWWindowPeer::postMouseEnteredEvent($Component* target, int64_t when, int32_t modifiers, $Point* loc, int32_t xAbs, int32_t yAbs, int32_t clickCount, bool popupTrigger, int32_t button) {
 	updateSecurityWarningVisibility();
-	postEvent($$new($MouseEvent, target, $MouseEvent::MOUSE_ENTERED, when, modifiers, $nc(loc)->x, loc->y, xAbs, yAbs, clickCount, popupTrigger, button));
+	postEvent($$new($MouseEvent, target, $MouseEvent::MOUSE_ENTERED, when, modifiers, $nc(loc)->x, $nc(loc)->y, xAbs, yAbs, clickCount, popupTrigger, button));
 }
 
 void LWWindowPeer::postMouseExitedEvent($Component* target, int64_t when, int32_t modifiers, $Point* loc, int32_t xAbs, int32_t yAbs, int32_t clickCount, bool popupTrigger, int32_t button) {
 	updateSecurityWarningVisibility();
-	postEvent($$new($MouseEvent, target, $MouseEvent::MOUSE_EXITED, when, modifiers, $nc(loc)->x, loc->y, xAbs, yAbs, clickCount, popupTrigger, button));
+	postEvent($$new($MouseEvent, target, $MouseEvent::MOUSE_EXITED, when, modifiers, $nc(loc)->x, $nc(loc)->y, xAbs, yAbs, clickCount, popupTrigger, button));
 }
 
 void LWWindowPeer::notifyMouseWheelEvent(int64_t when, int32_t x, int32_t y, int32_t absX, int32_t absY, int32_t modifiers, int32_t scrollType, int32_t scrollAmount, int32_t wheelRotation, double preciseWheelRotation, $bytes* bdata) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle, r, getBounds());
-	$var($LWComponentPeer, targetPeer, findPeerAt($nc(r)->x + x, r->y + y));
-	if (targetPeer == nullptr || !$nc(targetPeer)->isEnabled()) {
+	$var($LWComponentPeer, targetPeer, findPeerAt($nc(r)->x + x, $nc(r)->y + y));
+	if (targetPeer == nullptr || !targetPeer->isEnabled()) {
 		return;
 	}
 	$var($Point, lp, $nc(targetPeer)->windowToLocal(x, y, this));
-	postEvent($$new($MouseWheelEvent, $(targetPeer->getTarget()), $MouseEvent::MOUSE_WHEEL, when, modifiers, $nc(lp)->x, lp->y, absX, absY, 0, false, scrollType, scrollAmount, wheelRotation, preciseWheelRotation));
+	postEvent($$new($MouseWheelEvent, $(targetPeer->getTarget()), $MouseEvent::MOUSE_WHEEL, when, modifiers, $nc(lp)->x, $nc(lp)->y, absX, absY, 0, false, scrollType, scrollAmount, wheelRotation, preciseWheelRotation));
 }
 
 void LWWindowPeer::notifyKeyEvent(int32_t id, int64_t when, int32_t modifiers, int32_t keyCode, char16_t keyChar, int32_t keyLocation) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($LWKeyboardFocusManagerPeer, kfmPeer, $LWKeyboardFocusManagerPeer::getInstance());
 	$var($Component, focusOwner, $nc(kfmPeer)->getCurrentFocusOwner());
 	if (focusOwner == nullptr) {
@@ -1182,26 +973,26 @@ void LWWindowPeer::notifyKeyEvent(int32_t id, int64_t when, int32_t modifiers, i
 		}
 	}
 	$var($KeyEvent, keyEvent, $new($KeyEvent, focusOwner, id, when, modifiers, keyCode, keyChar, keyLocation));
-	$nc($($AWTAccessor::getKeyEventAccessor()))->setExtendedKeyCode(keyEvent, (keyChar == $KeyEvent::CHAR_UNDEFINED) ? keyCode : $ExtendedKeyCodes::getExtendedKeyCodeForChar(keyChar));
+	$$nc($AWTAccessor::getKeyEventAccessor())->setExtendedKeyCode(keyEvent, (keyChar == $KeyEvent::CHAR_UNDEFINED) ? keyCode : $ExtendedKeyCodes::getExtendedKeyCodeForChar(keyChar));
 	postEvent(keyEvent);
 }
 
 void LWWindowPeer::activateDisplayListener() {
 	$var($GraphicsEnvironment, ge, $GraphicsEnvironment::getLocalGraphicsEnvironment());
-	$nc(($cast($SunGraphicsEnvironment, ge)))->addDisplayChangedListener(this);
+	$nc($cast($SunGraphicsEnvironment, ge))->addDisplayChangedListener(this);
 }
 
 void LWWindowPeer::deactivateDisplayListener() {
 	$var($GraphicsEnvironment, ge, $GraphicsEnvironment::getLocalGraphicsEnvironment());
-	$nc(($cast($SunGraphicsEnvironment, ge)))->removeDisplayChangedListener(this);
+	$nc($cast($SunGraphicsEnvironment, ge))->removeDisplayChangedListener(this);
 }
 
 void LWWindowPeer::postWindowStateChangedEvent(int32_t newWindowState) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($instanceOf($Frame, $(getTarget()))) {
-		$nc($($AWTAccessor::getFrameAccessor()))->setExtendedState($cast($Frame, $(getTarget())), newWindowState);
+		$$nc($AWTAccessor::getFrameAccessor())->setExtendedState($$cast($Frame, getTarget()), newWindowState);
 	}
-	$var($WindowEvent, stateChangedEvent, $new($WindowEvent, $cast($Window, $(getTarget())), $WindowEvent::WINDOW_STATE_CHANGED, this->windowState, newWindowState));
+	$var($WindowEvent, stateChangedEvent, $new($WindowEvent, $$cast($Window, getTarget()), $WindowEvent::WINDOW_STATE_CHANGED, this->windowState, newWindowState));
 	postEvent(stateChangedEvent);
 	this->windowState = newWindowState;
 	updateSecurityWarningVisibility();
@@ -1209,7 +1000,7 @@ void LWWindowPeer::postWindowStateChangedEvent(int32_t newWindowState) {
 
 int32_t LWWindowPeer::getGraphicsConfigScreen($GraphicsConfiguration* gc) {
 	$init(LWWindowPeer);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($GraphicsDevice, gd, $nc(gc)->getDevice());
 	$var($GraphicsEnvironment, ge, $GraphicsEnvironment::getLocalGraphicsEnvironment());
 	$var($GraphicsDeviceArray, gds, $nc(ge)->getScreenDevices());
@@ -1232,7 +1023,7 @@ bool LWWindowPeer::setGraphicsConfig($GraphicsConfiguration* gc) {
 }
 
 bool LWWindowPeer::updateGraphicsDevice() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($GraphicsDevice, newGraphicsDevice, $nc(this->platformWindow)->getGraphicsDevice());
 	$synchronized(getStateLock()) {
 		if (this->graphicsDevice == newGraphicsDevice) {
@@ -1244,7 +1035,7 @@ bool LWWindowPeer::updateGraphicsDevice() {
 	if (!setGraphicsConfig(newGC)) {
 		return false;
 	}
-	$var($Object, var$0, $of(getTarget()));
+	$var($Object, var$0, getTarget());
 	$SunToolkit::executeOnEventHandlerThread(var$0, $$new($LWWindowPeer$1, this, newGC));
 	return true;
 }
@@ -1274,14 +1065,14 @@ void LWWindowPeer::replaceSurfaceData() {
 }
 
 void LWWindowPeer::replaceSurfaceData(bool blit) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized(this->surfaceDataLock) {
 		$var($SurfaceData, oldData, getSurfaceData());
 		$set(this, surfaceData, $nc(this->platformWindow)->replaceSurfaceData());
 		$var($Rectangle, size, getSize());
 		bool var$0 = getSurfaceData() != nullptr;
 		if (var$0 && oldData != getSurfaceData()) {
-			clearBackground($nc(size)->width, size->height);
+			clearBackground($nc(size)->width, $nc(size)->height);
 		}
 		if (blit) {
 			blitSurfaceData(oldData, $(getSurfaceData()));
@@ -1294,26 +1085,26 @@ void LWWindowPeer::replaceSurfaceData(bool blit) {
 }
 
 void LWWindowPeer::blitSurfaceData($SurfaceData* src, $SurfaceData* dst) {
-	$useLocalCurrentObjectStackCache();
-	bool var$1 = src != dst && src != nullptr && dst != nullptr && !($instanceOf($NullSurfaceData, dst)) && !($instanceOf($NullSurfaceData, src)) && $nc($(src->getSurfaceType()))->equals($(dst->getSurfaceType()));
+	$useLocalObjectStack();
+	bool var$1 = src != dst && src != nullptr && dst != nullptr && !($instanceOf($NullSurfaceData, dst)) && !($instanceOf($NullSurfaceData, src)) && $$nc(src->getSurfaceType())->equals($(dst->getSurfaceType()));
 	if (var$1) {
 		double var$2 = src->getDefaultScaleX();
 		var$1 = var$2 == dst->getDefaultScaleX();
 	}
 	bool var$0 = var$1;
 	if (var$0) {
-		double var$3 = src->getDefaultScaleY();
-		var$0 = var$3 == dst->getDefaultScaleY();
+		double var$3 = $nc(src)->getDefaultScaleY();
+		var$0 = var$3 == $nc(dst)->getDefaultScaleY();
 	}
 	if (var$0) {
-		$var($Rectangle, size, src->getBounds());
+		$var($Rectangle, size, $nc(src)->getBounds());
 		$var($SurfaceType, var$4, src->getSurfaceType());
 		$init($CompositeType);
 		$var($CompositeType, var$5, $CompositeType::Src);
-		$var($Blit, blit, $Blit::locate(var$4, var$5, $(dst->getSurfaceType())));
+		$var($Blit, blit, $Blit::locate(var$4, var$5, $($nc(dst)->getSurfaceType())));
 		if (blit != nullptr) {
 			$init($AlphaComposite);
-			blit->Blit$(src, dst, $AlphaComposite::Src, nullptr, 0, 0, 0, 0, $nc(size)->width, size->height);
+			blit->Blit$(src, dst, $AlphaComposite::Src, nullptr, 0, 0, 0, 0, $nc(size)->width, $nc(size)->height);
 		}
 	}
 }
@@ -1339,48 +1130,48 @@ $LWComponentPeer* LWWindowPeer::getPeerUnderCursor() {
 }
 
 bool LWWindowPeer::requestWindowFocus($FocusEvent$Cause* cause) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($PlatformLogger$Level);
 	if ($nc(LWWindowPeer::focusLog)->isLoggable($PlatformLogger$Level::FINE)) {
-		$nc(LWWindowPeer::focusLog)->fine($$str({"requesting native focus to "_s, this}));
+		LWWindowPeer::focusLog->fine($$str({"requesting native focus to "_s, this}));
 	}
 	if (!focusAllowedFor()) {
-		$nc(LWWindowPeer::focusLog)->fine("focus is not allowed"_s);
+		LWWindowPeer::focusLog->fine("focus is not allowed"_s);
 		return false;
 	}
 	if ($nc(this->platformWindow)->rejectFocusRequest(cause)) {
 		return false;
 	}
-	$var($AppContext, targetAppContext, $nc($($AWTAccessor::getComponentAccessor()))->getAppContext($(getTarget())));
-	$var($KeyboardFocusManager, kfm, $nc($($AWTAccessor::getKeyboardFocusManagerAccessor()))->getCurrentKeyboardFocusManager(targetAppContext));
+	$var($AppContext, targetAppContext, $$nc($AWTAccessor::getComponentAccessor())->getAppContext($(getTarget())));
+	$var($KeyboardFocusManager, kfm, $$nc($AWTAccessor::getKeyboardFocusManagerAccessor())->getCurrentKeyboardFocusManager(targetAppContext));
 	$var($Window, currentActive, $nc(kfm)->getActiveWindow());
-	$var($Window, opposite, $nc($($LWKeyboardFocusManagerPeer::getInstance()))->getCurrentFocusedWindow());
+	$var($Window, opposite, $$nc($LWKeyboardFocusManagerPeer::getInstance())->getCurrentFocusedWindow());
 	if (isSimpleWindow()) {
 		$var(LWWindowPeer, owner, getOwnerFrameDialog(this));
 		if (owner != nullptr && !$nc(owner->platformWindow)->isActive()) {
-			if ($nc(LWWindowPeer::focusLog)->isLoggable($PlatformLogger$Level::FINE)) {
-				$nc(LWWindowPeer::focusLog)->fine($$str({"requesting native focus to the owner "_s, owner}));
+			if (LWWindowPeer::focusLog->isLoggable($PlatformLogger$Level::FINE)) {
+				LWWindowPeer::focusLog->fine($$str({"requesting native focus to the owner "_s, owner}));
 			}
-			$var(LWWindowPeer, currentActivePeer, currentActive == nullptr ? (LWWindowPeer*)nullptr : $cast(LWWindowPeer, $nc($($AWTAccessor::getComponentAccessor()))->getPeer(currentActive)));
+			$var(LWWindowPeer, currentActivePeer, currentActive == nullptr ? (LWWindowPeer*)nullptr : $cast(LWWindowPeer, $$nc($AWTAccessor::getComponentAccessor())->getPeer(currentActive)));
 			if (currentActivePeer != nullptr && $nc(currentActivePeer->platformWindow)->isActive()) {
-				if ($nc(LWWindowPeer::focusLog)->isLoggable($PlatformLogger$Level::FINE)) {
-					$nc(LWWindowPeer::focusLog)->fine($$str({"the opposite is "_s, currentActivePeer}));
+				if (LWWindowPeer::focusLog->isLoggable($PlatformLogger$Level::FINE)) {
+					LWWindowPeer::focusLog->fine($$str({"the opposite is "_s, currentActivePeer}));
 				}
 				currentActivePeer->skipNextFocusChange = true;
 			}
 			owner->skipNextFocusChange = true;
-			$nc(owner->platformWindow)->requestWindowFocus();
+			owner->platformWindow->requestWindowFocus();
 		}
 		changeFocusedWindow(true, opposite);
 		return true;
 	} else {
-		bool var$1 = $equals(getTarget(), currentActive);
-		if (var$1 && !$nc(($cast($Window, $(getTarget()))))->hasFocus()) {
+		bool var$0 = $equals(getTarget(), currentActive);
+		if (var$0 && !$$sure($Window, getTarget())->hasFocus()) {
 			changeFocusedWindow(true, opposite);
 			return true;
 		}
 	}
-	return $nc(this->platformWindow)->requestWindowFocus();
+	return this->platformWindow->requestWindowFocus();
 }
 
 bool LWWindowPeer::focusAllowedFor() {
@@ -1412,8 +1203,8 @@ void LWWindowPeer::emulateActivation(bool activate) {
 }
 
 bool LWWindowPeer::isOneOfOwnersOf(LWWindowPeer* peer) {
-	$useLocalCurrentObjectStackCache();
-	$var($Window, owner, peer != nullptr ? $nc(($cast($Window, $($nc(peer)->getTarget()))))->getOwner() : ($Window*)nullptr);
+	$useLocalObjectStack();
+	$var($Window, owner, peer != nullptr ? $$sure($Window, peer->getTarget())->getOwner() : ($Window*)nullptr);
 	while (owner != nullptr) {
 		$var($AWTAccessor$ComponentAccessor, acc, $AWTAccessor::getComponentAccessor());
 		if ($equals($nc(acc)->getPeer(owner), this)) {
@@ -1425,25 +1216,25 @@ bool LWWindowPeer::isOneOfOwnersOf(LWWindowPeer* peer) {
 }
 
 void LWWindowPeer::changeFocusedWindow(bool becomesFocused, $Window* opposite) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($PlatformLogger$Level);
 	if ($nc(LWWindowPeer::focusLog)->isLoggable($PlatformLogger$Level::FINE)) {
-		$nc(LWWindowPeer::focusLog)->fine($$str({(becomesFocused ? "gaining"_s : "loosing"_s), " focus window: "_s, this}));
+		LWWindowPeer::focusLog->fine($$str({(becomesFocused ? "gaining"_s : "loosing"_s), " focus window: "_s, this}));
 	}
 	if (this->skipNextFocusChange) {
-		$nc(LWWindowPeer::focusLog)->fine("skipping focus change"_s);
+		LWWindowPeer::focusLog->fine("skipping focus change"_s);
 		this->skipNextFocusChange = false;
 		return;
 	}
 	if (!isFocusableWindow() && becomesFocused) {
-		$nc(LWWindowPeer::focusLog)->fine("the window is not focusable"_s);
+		LWWindowPeer::focusLog->fine("the window is not focusable"_s);
 		return;
 	}
 	if (becomesFocused) {
 		$synchronized(getPeerTreeLock()) {
 			if (this->blocker != nullptr) {
-				if ($nc(LWWindowPeer::focusLog)->isLoggable($PlatformLogger$Level::FINEST)) {
-					$nc(LWWindowPeer::focusLog)->finest($$str({"the window is blocked by "_s, this->blocker}));
+				if (LWWindowPeer::focusLog->isLoggable($PlatformLogger$Level::FINEST)) {
+					LWWindowPeer::focusLog->finest($$str({"the window is blocked by "_s, this->blocker}));
 				}
 				return;
 			}
@@ -1452,11 +1243,11 @@ void LWWindowPeer::changeFocusedWindow(bool becomesFocused, $Window* opposite) {
 	bool var$0 = !becomesFocused;
 	if (var$0) {
 		bool var$1 = isGrabbing();
-		var$0 = (var$1 || this->isOneOfOwnersOf(LWWindowPeer::grabbingWindow));
+		var$0 = var$1 || this->isOneOfOwnersOf(LWWindowPeer::grabbingWindow);
 	}
 	if (var$0) {
-		if ($nc(LWWindowPeer::focusLog)->isLoggable($PlatformLogger$Level::FINE)) {
-			$nc(LWWindowPeer::focusLog)->fine($$str({"ungrabbing on "_s, LWWindowPeer::grabbingWindow}));
+		if (LWWindowPeer::focusLog->isLoggable($PlatformLogger$Level::FINE)) {
+			LWWindowPeer::focusLog->fine($$str({"ungrabbing on "_s, LWWindowPeer::grabbingWindow}));
 		}
 		$nc(LWWindowPeer::grabbingWindow)->ungrab();
 	}
@@ -1468,23 +1259,21 @@ void LWWindowPeer::changeFocusedWindow(bool becomesFocused, $Window* opposite) {
 	if (var$2) {
 		return;
 	}
-	$nc(kfmPeer)->setCurrentFocusedWindow(becomesFocused ? $cast($Window, $(getTarget())) : ($Window*)nullptr);
+	$nc(kfmPeer)->setCurrentFocusedWindow(becomesFocused ? $$cast($Window, getTarget()) : ($Window*)nullptr);
 	int32_t eventID = becomesFocused ? $WindowEvent::WINDOW_GAINED_FOCUS : $WindowEvent::WINDOW_LOST_FOCUS;
 	$var($Window, var$3, $cast($Window, getTarget()));
-	int32_t var$4 = eventID;
-	$var($Window, var$5, opposite);
-	$var($WindowEvent, windowEvent, $new($TimedWindowEvent, var$3, var$4, var$5, $System::currentTimeMillis()));
+	$var($WindowEvent, windowEvent, $new($TimedWindowEvent, var$3, eventID, opposite, $System::currentTimeMillis()));
 	postEvent(windowEvent);
 }
 
 LWWindowPeer* LWWindowPeer::getOwnerFrameDialog(LWWindowPeer* peer) {
 	$init(LWWindowPeer);
-	$useLocalCurrentObjectStackCache();
-	$var($Window, owner, peer != nullptr ? $nc(($cast($Window, $($nc(peer)->getTarget()))))->getOwner() : ($Window*)nullptr);
+	$useLocalObjectStack();
+	$var($Window, owner, peer != nullptr ? $$sure($Window, peer->getTarget())->getOwner() : ($Window*)nullptr);
 	while (owner != nullptr && !($instanceOf($Frame, owner) || $instanceOf($Dialog, owner))) {
-		$assign(owner, $nc(owner)->getOwner());
+		$assign(owner, owner->getOwner());
 	}
-	return owner == nullptr ? (LWWindowPeer*)nullptr : $cast(LWWindowPeer, $nc($($AWTAccessor::getComponentAccessor()))->getPeer(owner));
+	return owner == nullptr ? (LWWindowPeer*)nullptr : $cast(LWWindowPeer, $$nc($AWTAccessor::getComponentAccessor())->getPeer(owner));
 }
 
 LWWindowPeer* LWWindowPeer::getBlocker() {
@@ -1511,18 +1300,18 @@ void LWWindowPeer::exitFullScreenMode() {
 }
 
 int64_t LWWindowPeer::getLayerPtr() {
-	return $nc($(getPlatformWindow()))->getLayerPtr();
+	return $$nc(getPlatformWindow())->getLayerPtr();
 }
 
 void LWWindowPeer::grab() {
 	if (LWWindowPeer::grabbingWindow != nullptr && !isGrabbing()) {
-		$nc(LWWindowPeer::grabbingWindow)->ungrab();
+		LWWindowPeer::grabbingWindow->ungrab();
 	}
 	$assignStatic(LWWindowPeer::grabbingWindow, this);
 }
 
 void LWWindowPeer::ungrab(bool doPost) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (isGrabbing()) {
 		$assignStatic(LWWindowPeer::grabbingWindow, nullptr);
 		if (doPost) {
@@ -1553,10 +1342,10 @@ void LWWindowPeer::updateSecurityWarningVisibility() {
 	bool show = false;
 	if (!$nc(this->platformWindow)->isFullScreenMode()) {
 		if (isVisible()) {
-			if ($equals($nc($($LWKeyboardFocusManagerPeer::getInstance()))->getCurrentFocusedWindow(), getTarget())) {
+			if ($equals($$nc($LWKeyboardFocusManagerPeer::getInstance())->getCurrentFocusedWindow(), getTarget())) {
 				show = true;
 			}
-			bool var$0 = $nc(this->platformWindow)->isUnderMouse();
+			bool var$0 = this->platformWindow->isUnderMouse();
 			if (var$0 || $nc(this->warningWindow)->isUnderMouse()) {
 				show = true;
 			}
@@ -1566,10 +1355,13 @@ void LWWindowPeer::updateSecurityWarningVisibility() {
 }
 
 $String* LWWindowPeer::toString() {
-	$useLocalCurrentObjectStackCache();
-	$var($String, var$1, $$str({$($LWContainerPeer::toString()), " [target is "_s}));
-	$var($String, var$0, $$concat(var$1, $(getTarget())));
-	return $concat(var$0, "]"_s);
+	$useLocalObjectStack();
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append($($LWContainerPeer::toString()));
+	var$0->append(" [target is "_s);
+	var$0->append($(getTarget()));
+	var$0->append("]"_s);
+	return $str(var$0);
 }
 
 void LWWindowPeer::setFont($Font* f) {
@@ -1588,7 +1380,7 @@ void LWWindowPeer::setEnabled(bool e) {
 	$LWContainerPeer::setEnabled(e);
 }
 
-void clinit$LWWindowPeer($Class* class$) {
+void LWWindowPeer::clinit$($Class* clazz) {
 	$assignStatic(LWWindowPeer::focusLog, $PlatformLogger::getLogger("sun.lwawt.focus.LWWindowPeer"_s));
 	$assignStatic(LWWindowPeer::mouseDownTarget, $new($LWComponentPeerArray, 3));
 	LWWindowPeer::mouseClickButtons = 0;
@@ -1600,7 +1392,191 @@ LWWindowPeer::LWWindowPeer() {
 }
 
 $Class* LWWindowPeer::load$($String* name, bool initialize) {
-	$loadClass(LWWindowPeer, name, initialize, &_LWWindowPeer_ClassInfo_, clinit$LWWindowPeer, allocate$LWWindowPeer);
+	$FieldInfo fieldInfos$$[] = {
+		{"focusLog", "Lsun/util/logging/PlatformLogger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LWWindowPeer, focusLog)},
+		{"platformWindow", "Lsun/lwawt/PlatformWindow;", nullptr, $PRIVATE | $FINAL, $field(LWWindowPeer, platformWindow)},
+		{"MINIMUM_WIDTH", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LWWindowPeer, MINIMUM_WIDTH)},
+		{"MINIMUM_HEIGHT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LWWindowPeer, MINIMUM_HEIGHT)},
+		{"insets", "Ljava/awt/Insets;", nullptr, $PRIVATE, $field(LWWindowPeer, insets)},
+		{"maximizedBounds", "Ljava/awt/Rectangle;", nullptr, $PRIVATE, $field(LWWindowPeer, maximizedBounds)},
+		{"graphicsDevice", "Ljava/awt/GraphicsDevice;", nullptr, $PRIVATE, $field(LWWindowPeer, graphicsDevice)},
+		{"graphicsConfig", "Ljava/awt/GraphicsConfiguration;", nullptr, $PRIVATE, $field(LWWindowPeer, graphicsConfig)},
+		{"surfaceData", "Lsun/java2d/SurfaceData;", nullptr, $PRIVATE, $field(LWWindowPeer, surfaceData)},
+		{"surfaceDataLock", "Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $field(LWWindowPeer, surfaceDataLock)},
+		{"windowState", "I", nullptr, $PRIVATE | $VOLATILE, $field(LWWindowPeer, windowState)},
+		{"isMouseOver", "Z", nullptr, $PRIVATE | $VOLATILE, $field(LWWindowPeer, isMouseOver)},
+		{"lastCommonMouseEventPeer", "Lsun/lwawt/LWComponentPeer;", "Lsun/lwawt/LWComponentPeer<**>;", $PRIVATE | $STATIC | $VOLATILE, $staticField(LWWindowPeer, lastCommonMouseEventPeer)},
+		{"lastMouseEventPeer", "Lsun/lwawt/LWComponentPeer;", "Lsun/lwawt/LWComponentPeer<**>;", $PRIVATE | $VOLATILE, $field(LWWindowPeer, lastMouseEventPeer)},
+		{"mouseDownTarget", "[Lsun/lwawt/LWComponentPeer;", "[Lsun/lwawt/LWComponentPeer<**>;", $PRIVATE | $STATIC | $FINAL, $staticField(LWWindowPeer, mouseDownTarget)},
+		{"mouseClickButtons", "I", nullptr, $PRIVATE | $STATIC, $staticField(LWWindowPeer, mouseClickButtons)},
+		{"isOpaque", "Z", nullptr, $PRIVATE | $VOLATILE, $field(LWWindowPeer, isOpaque)},
+		{"DEFAULT_FONT", "Ljava/awt/Font;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LWWindowPeer, DEFAULT_FONT)},
+		{"grabbingWindow", "Lsun/lwawt/LWWindowPeer;", nullptr, $PRIVATE | $STATIC, $staticField(LWWindowPeer, grabbingWindow)},
+		{"skipNextFocusChange", "Z", nullptr, $PRIVATE | $VOLATILE, $field(LWWindowPeer, skipNextFocusChange)},
+		{"nonOpaqueBackground", "Ljava/awt/Color;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LWWindowPeer, nonOpaqueBackground)},
+		{"textured", "Z", nullptr, $PRIVATE | $VOLATILE, $field(LWWindowPeer, textured)},
+		{"peerType", "Lsun/lwawt/LWWindowPeer$PeerType;", nullptr, $PRIVATE | $FINAL, $field(LWWindowPeer, peerType)},
+		{"warningWindow", "Lsun/lwawt/SecurityWarningWindow;", nullptr, $PRIVATE | $FINAL, $field(LWWindowPeer, warningWindow)},
+		{"targetFocusable", "Z", nullptr, $PRIVATE | $VOLATILE, $field(LWWindowPeer, targetFocusable)},
+		{"blocker", "Lsun/lwawt/LWWindowPeer;", nullptr, $PRIVATE, $field(LWWindowPeer, blocker)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*applyShape", "(Lsun/java2d/pipe/Region;)V", nullptr, $PUBLIC | $FINAL},
+		{"*beginLayout", "()V", nullptr, $PUBLIC | $FINAL},
+		{"*beginValidate", "()V", nullptr, $PUBLIC | $FINAL},
+		{"*canDetermineObscurity", "()Z", nullptr, $PUBLIC},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*coalescePaintEvent", "(Ljava/awt/event/PaintEvent;)V", nullptr, $PUBLIC},
+		{"*createBuffers", "(ILjava/awt/BufferCapabilities;)V", nullptr, $PUBLIC | $FINAL},
+		{"*createImage", "(II)Ljava/awt/Image;", nullptr, $PUBLIC | $FINAL},
+		{"*createVolatileImage", "(II)Ljava/awt/image/VolatileImage;", nullptr, $PUBLIC | $FINAL},
+		{"*destroyBuffers", "()V", nullptr, $PUBLIC | $FINAL},
+		{"*dispose", "()V", nullptr, $PUBLIC | $FINAL},
+		{"*endLayout", "()V", nullptr, $PUBLIC | $FINAL},
+		{"*endValidate", "()V", nullptr, $PUBLIC | $FINAL},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*flip", "(IIIILjava/awt/BufferCapabilities$FlipContents;)V", nullptr, $PUBLIC | $FINAL},
+		{"*getBackBuffer", "()Ljava/awt/Image;", nullptr, $PUBLIC | $FINAL},
+		{"*getColorModel", "()Ljava/awt/image/ColorModel;", nullptr, $PUBLIC},
+		{"*getGraphics", "()Ljava/awt/Graphics;", nullptr, $PUBLIC},
+		{"*getMinimumSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC | $FINAL},
+		{"*getPreferredSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC | $FINAL},
+		{"*handleEvent", "(Ljava/awt/AWTEvent;)V", nullptr, $PUBLIC},
+		{"*handlesWheelScrolling", "()Z", nullptr, $PUBLIC},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/awt/Window;Lsun/lwawt/PlatformComponent;Lsun/lwawt/PlatformWindow;Lsun/lwawt/LWWindowPeer$PeerType;)V", nullptr, $PUBLIC, $method(LWWindowPeer, init$, void, $Window*, $PlatformComponent*, $PlatformWindow*, $LWWindowPeer$PeerType*)},
+		{"activateDisplayListener", "()V", nullptr, $PRIVATE, $method(LWWindowPeer, activateDisplayListener, void)},
+		{"applyShapeImpl", "(Lsun/java2d/pipe/Region;)V", nullptr, $FINAL, $virtualMethod(LWWindowPeer, applyShapeImpl, void, $Region*)},
+		{"blitSurfaceData", "(Lsun/java2d/SurfaceData;Lsun/java2d/SurfaceData;)V", nullptr, $PRIVATE, $method(LWWindowPeer, blitSurfaceData, void, $SurfaceData*, $SurfaceData*)},
+		{"blockWindows", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/awt/Window;>;)V", $PUBLIC, $virtualMethod(LWWindowPeer, blockWindows, void, $List*)},
+		{"changeFocusedWindow", "(ZLjava/awt/Window;)V", nullptr, $PROTECTED, $virtualMethod(LWWindowPeer, changeFocusedWindow, void, bool, $Window*)},
+		{"clearBackground", "(II)V", nullptr, $PRIVATE, $method(LWWindowPeer, clearBackground, void, int32_t, int32_t)},
+		{"constrainBounds", "(Ljava/awt/Rectangle;)Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(LWWindowPeer, constrainBounds, $Rectangle*, $Rectangle*)},
+		{"constrainBounds", "(IIII)Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(LWWindowPeer, constrainBounds, $Rectangle*, int32_t, int32_t, int32_t, int32_t)},
+		{"deactivateDisplayListener", "()V", nullptr, $PRIVATE, $method(LWWindowPeer, deactivateDisplayListener, void)},
+		{"displayChanged", "()V", nullptr, $PUBLIC | $FINAL, $virtualMethod(LWWindowPeer, displayChanged, void)},
+		{"disposeImpl", "()V", nullptr, $PROTECTED, $virtualMethod(LWWindowPeer, disposeImpl, void)},
+		{"emulateActivation", "(Z)V", nullptr, $PUBLIC, $virtualMethod(LWWindowPeer, emulateActivation, void, bool)},
+		{"enterFullScreenMode", "()V", nullptr, $PUBLIC, $virtualMethod(LWWindowPeer, enterFullScreenMode, void)},
+		{"exitFullScreenMode", "()V", nullptr, $PUBLIC, $virtualMethod(LWWindowPeer, exitFullScreenMode, void)},
+		{"focusAllowedFor", "()Z", nullptr, $PROTECTED, $virtualMethod(LWWindowPeer, focusAllowedFor, bool)},
+		{"generateMouseEnterExitEventsForComponents", "(JIIIIIIIZLsun/lwawt/LWComponentPeer;)V", "(JIIIIIIIZLsun/lwawt/LWComponentPeer<**>;)V", $PRIVATE, $method(LWWindowPeer, generateMouseEnterExitEventsForComponents, void, int64_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, bool, $LWComponentPeer*)},
+		{"getBlocker", "()Lsun/lwawt/LWWindowPeer;", nullptr, $PUBLIC, $virtualMethod(LWWindowPeer, getBlocker, LWWindowPeer*)},
+		{"getBoundsPrivate", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(LWWindowPeer, getBoundsPrivate, $Rectangle*)},
+		{"getDefaultMaximizedBounds", "()Ljava/awt/Rectangle;", nullptr, $PRIVATE, $method(LWWindowPeer, getDefaultMaximizedBounds, $Rectangle*)},
+		{"getFontMetrics", "(Ljava/awt/Font;)Ljava/awt/FontMetrics;", nullptr, $PUBLIC, $virtualMethod(LWWindowPeer, getFontMetrics, $FontMetrics*, $Font*)},
+		{"getGraphicsConfigScreen", "(Ljava/awt/GraphicsConfiguration;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(LWWindowPeer, getGraphicsConfigScreen, int32_t, $GraphicsConfiguration*)},
+		{"getGraphicsConfiguration", "()Ljava/awt/GraphicsConfiguration;", nullptr, $PUBLIC | $FINAL, $virtualMethod(LWWindowPeer, getGraphicsConfiguration, $GraphicsConfiguration*)},
+		{"getInsets", "()Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(LWWindowPeer, getInsets, $Insets*)},
+		{"getLayerPtr", "()J", nullptr, $PUBLIC, $virtualMethod(LWWindowPeer, getLayerPtr, int64_t)},
+		{"getLocationOnScreen", "()Ljava/awt/Point;", nullptr, $PUBLIC, $virtualMethod(LWWindowPeer, getLocationOnScreen, $Point*)},
+		{"getMaximizedBounds", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(LWWindowPeer, getMaximizedBounds, $Rectangle*)},
+		{"getOnscreenGraphics", "(Ljava/awt/Color;Ljava/awt/Color;Ljava/awt/Font;)Ljava/awt/Graphics;", nullptr, $PROTECTED | $FINAL, $method(LWWindowPeer, getOnscreenGraphics, $Graphics*, $Color*, $Color*, $Font*)},
+		{"getOwnerFrameDialog", "(Lsun/lwawt/LWWindowPeer;)Lsun/lwawt/LWWindowPeer;", nullptr, $STATIC, $staticMethod(LWWindowPeer, getOwnerFrameDialog, LWWindowPeer*, LWWindowPeer*)},
+		{"getPeerType", "()Lsun/lwawt/LWWindowPeer$PeerType;", nullptr, $PUBLIC, $virtualMethod(LWWindowPeer, getPeerType, $LWWindowPeer$PeerType*)},
+		{"getPeerUnderCursor", "()Lsun/lwawt/LWComponentPeer;", "()Lsun/lwawt/LWComponentPeer<**>;", $PUBLIC | $STATIC, $staticMethod(LWWindowPeer, getPeerUnderCursor, $LWComponentPeer*)},
+		{"getPlatformWindow", "()Lsun/lwawt/PlatformWindow;", nullptr, $PUBLIC, $virtualMethod(LWWindowPeer, getPlatformWindow, $PlatformWindow*)},
+		{"getState", "()I", nullptr, $PUBLIC, $virtualMethod(LWWindowPeer, getState, int32_t)},
+		{"getSurfaceData", "()Lsun/java2d/SurfaceData;", nullptr, $PUBLIC, $virtualMethod(LWWindowPeer, getSurfaceData, $SurfaceData*)},
+		{"getWindowPeerOrSelf", "()Lsun/lwawt/LWWindowPeer;", nullptr, $PROTECTED, $virtualMethod(LWWindowPeer, getWindowPeerOrSelf, LWWindowPeer*)},
+		{"getWindowUnderCursor", "()Lsun/lwawt/LWWindowPeer;", nullptr, $PUBLIC | $STATIC, $staticMethod(LWWindowPeer, getWindowUnderCursor, LWWindowPeer*)},
+		{"grab", "()V", nullptr, 0, $virtualMethod(LWWindowPeer, grab, void)},
+		{"initializeImpl", "()V", nullptr, 0, $virtualMethod(LWWindowPeer, initializeImpl, void)},
+		{"*isFocusable", "()Z", nullptr, $PUBLIC},
+		{"isFocusableWindow", "()Z", nullptr, $PRIVATE, $method(LWWindowPeer, isFocusableWindow, bool)},
+		{"isGrabbing", "()Z", nullptr, $PRIVATE, $method(LWWindowPeer, isGrabbing, bool)},
+		{"isMaximizedBoundsSet", "()Z", nullptr, $PRIVATE, $method(LWWindowPeer, isMaximizedBoundsSet, bool)},
+		{"*isObscured", "()Z", nullptr, $PUBLIC},
+		{"isOneOfOwnersOf", "(Lsun/lwawt/LWWindowPeer;)Z", nullptr, $PRIVATE, $method(LWWindowPeer, isOneOfOwnersOf, bool, LWWindowPeer*)},
+		{"*isReparentSupported", "()Z", nullptr, $PUBLIC},
+		{"isSimpleWindow", "()Z", nullptr, $PUBLIC, $virtualMethod(LWWindowPeer, isSimpleWindow, bool)},
+		{"isTextured", "()Z", nullptr, $PUBLIC | $FINAL, $method(LWWindowPeer, isTextured, bool)},
+		{"isTranslucent", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(LWWindowPeer, isTranslucent, bool)},
+		{"*layout", "()V", nullptr, $PUBLIC},
+		{"notifyActivation", "(ZLsun/lwawt/LWWindowPeer;)V", nullptr, $PUBLIC, $virtualMethod(LWWindowPeer, notifyActivation, void, bool, LWWindowPeer*)},
+		{"notifyExpose", "(Ljava/awt/Rectangle;)V", nullptr, $PUBLIC, $virtualMethod(LWWindowPeer, notifyExpose, void, $Rectangle*)},
+		{"notifyIconify", "(Z)V", nullptr, $PUBLIC, $virtualMethod(LWWindowPeer, notifyIconify, void, bool)},
+		{"notifyKeyEvent", "(IJIICI)V", nullptr, $PUBLIC, $virtualMethod(LWWindowPeer, notifyKeyEvent, void, int32_t, int64_t, int32_t, int32_t, char16_t, int32_t)},
+		{"notifyMouseEvent", "(IJIIIIIIIZ[B)V", nullptr, $PUBLIC, $virtualMethod(LWWindowPeer, notifyMouseEvent, void, int32_t, int64_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, bool, $bytes*)},
+		{"notifyMouseWheelEvent", "(JIIIIIIIID[B)V", nullptr, $PUBLIC, $virtualMethod(LWWindowPeer, notifyMouseWheelEvent, void, int64_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, double, $bytes*)},
+		{"notifyNCMouseDown", "()V", nullptr, $PUBLIC, $virtualMethod(LWWindowPeer, notifyNCMouseDown, void)},
+		{"notifyReshape", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(LWWindowPeer, notifyReshape, void, int32_t, int32_t, int32_t, int32_t)},
+		{"notifyUpdateCursor", "()V", nullptr, $PUBLIC, $virtualMethod(LWWindowPeer, notifyUpdateCursor, void)},
+		{"notifyZoom", "(Z)V", nullptr, $PUBLIC, $virtualMethod(LWWindowPeer, notifyZoom, void, bool)},
+		{"*paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC | $FINAL},
+		{"paletteChanged", "()V", nullptr, $PUBLIC | $FINAL, $virtualMethod(LWWindowPeer, paletteChanged, void)},
+		{"postMouseEnteredEvent", "(Ljava/awt/Component;JILjava/awt/Point;IIIZI)V", nullptr, $PRIVATE, $method(LWWindowPeer, postMouseEnteredEvent, void, $Component*, int64_t, int32_t, $Point*, int32_t, int32_t, int32_t, bool, int32_t)},
+		{"postMouseExitedEvent", "(Ljava/awt/Component;JILjava/awt/Point;IIIZI)V", nullptr, $PRIVATE, $method(LWWindowPeer, postMouseExitedEvent, void, $Component*, int64_t, int32_t, $Point*, int32_t, int32_t, int32_t, bool, int32_t)},
+		{"postWindowStateChangedEvent", "(I)V", nullptr, $PRIVATE, $method(LWWindowPeer, postWindowStateChangedEvent, void, int32_t)},
+		{"*print", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC | $FINAL},
+		{"*reparent", "(Ljava/awt/peer/ContainerPeer;)V", nullptr, $PUBLIC},
+		{"replaceSurfaceData", "()V", nullptr, $PRIVATE, $method(LWWindowPeer, replaceSurfaceData, void)},
+		{"replaceSurfaceData", "(Z)V", nullptr, $PRIVATE, $method(LWWindowPeer, replaceSurfaceData, void, bool)},
+		{"repositionSecurityWarning", "()V", nullptr, $PUBLIC, $virtualMethod(LWWindowPeer, repositionSecurityWarning, void)},
+		{"*requestFocus", "(Ljava/awt/Component;ZZJLjava/awt/event/FocusEvent$Cause;)Z", nullptr, $PUBLIC},
+		{"requestWindowFocus", "(Ljava/awt/event/FocusEvent$Cause;)Z", nullptr, $PUBLIC, $virtualMethod(LWWindowPeer, requestWindowFocus, bool, $FocusEvent$Cause*)},
+		{"setBackground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(LWWindowPeer, setBackground, void, $Color*)},
+		{"setBounds", "(IIIII)V", nullptr, $PUBLIC, $virtualMethod(LWWindowPeer, setBounds, void, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"setBoundsPrivate", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(LWWindowPeer, setBoundsPrivate, void, int32_t, int32_t, int32_t, int32_t)},
+		{"setEnabled", "(Z)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(LWWindowPeer, setEnabled, void, bool)},
+		{"setFont", "(Ljava/awt/Font;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(LWWindowPeer, setFont, void, $Font*)},
+		{"setForeground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(LWWindowPeer, setForeground, void, $Color*)},
+		{"setGraphicsConfig", "(Ljava/awt/GraphicsConfiguration;)Z", nullptr, $PRIVATE, $method(LWWindowPeer, setGraphicsConfig, bool, $GraphicsConfiguration*)},
+		{"setMaximizedBounds", "(Ljava/awt/Rectangle;)V", nullptr, $PUBLIC, $virtualMethod(LWWindowPeer, setMaximizedBounds, void, $Rectangle*)},
+		{"setMenuBar", "(Ljava/awt/MenuBar;)V", nullptr, $PUBLIC, $virtualMethod(LWWindowPeer, setMenuBar, void, $MenuBar*)},
+		{"setModalBlocked", "(Ljava/awt/Dialog;Z)V", nullptr, $PUBLIC, $virtualMethod(LWWindowPeer, setModalBlocked, void, $Dialog*, bool)},
+		{"setOpacity", "(F)V", nullptr, $PUBLIC, $virtualMethod(LWWindowPeer, setOpacity, void, float)},
+		{"setOpaque", "(Z)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(LWWindowPeer, setOpaque, void, bool)},
+		{"setPlatformMaximizedBounds", "(Ljava/awt/Rectangle;)V", nullptr, $PRIVATE, $method(LWWindowPeer, setPlatformMaximizedBounds, void, $Rectangle*)},
+		{"setResizable", "(Z)V", nullptr, $PUBLIC, $virtualMethod(LWWindowPeer, setResizable, void, bool)},
+		{"setState", "(I)V", nullptr, $PUBLIC, $virtualMethod(LWWindowPeer, setState, void, int32_t)},
+		{"setTextured", "(Z)V", nullptr, $PUBLIC | $FINAL, $method(LWWindowPeer, setTextured, void, bool)},
+		{"setTitle", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(LWWindowPeer, setTitle, void, $String*)},
+		{"*setVisible", "(Z)V", nullptr, $PUBLIC},
+		{"setVisibleImpl", "(Z)V", nullptr, $PROTECTED, $virtualMethod(LWWindowPeer, setVisibleImpl, void, bool)},
+		{"setZOrder", "(Ljava/awt/peer/ComponentPeer;)V", nullptr, $PUBLIC, $virtualMethod(LWWindowPeer, setZOrder, void, $ComponentPeer*)},
+		{"toBack", "()V", nullptr, $PUBLIC, $virtualMethod(LWWindowPeer, toBack, void)},
+		{"toFront", "()V", nullptr, $PUBLIC, $virtualMethod(LWWindowPeer, toFront, void)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LWWindowPeer, toString, $String*)},
+		{"ungrab", "(Z)V", nullptr, $FINAL, $method(LWWindowPeer, ungrab, void, bool)},
+		{"ungrab", "()V", nullptr, 0, $virtualMethod(LWWindowPeer, ungrab, void)},
+		{"updateAlwaysOnTopState", "()V", nullptr, $PUBLIC, $virtualMethod(LWWindowPeer, updateAlwaysOnTopState, void)},
+		{"*updateCursorImmediately", "()V", nullptr, $PUBLIC},
+		{"updateFocusableWindowState", "()V", nullptr, $PUBLIC, $virtualMethod(LWWindowPeer, updateFocusableWindowState, void)},
+		{"updateGraphicsData", "(Ljava/awt/GraphicsConfiguration;)Z", nullptr, $PUBLIC, $virtualMethod(LWWindowPeer, updateGraphicsData, bool, $GraphicsConfiguration*)},
+		{"updateGraphicsDevice", "()Z", nullptr, $PUBLIC, $virtualMethod(LWWindowPeer, updateGraphicsDevice, bool)},
+		{"updateIconImages", "()V", nullptr, $PUBLIC, $virtualMethod(LWWindowPeer, updateIconImages, void)},
+		{"updateInsets", "(Ljava/awt/Insets;)Z", nullptr, $PUBLIC | $FINAL, $method(LWWindowPeer, updateInsets, bool, $Insets*)},
+		{"updateMinimumSize", "()V", nullptr, $PUBLIC, $virtualMethod(LWWindowPeer, updateMinimumSize, void)},
+		{"updateOpaque", "()V", nullptr, $PRIVATE, $method(LWWindowPeer, updateOpaque, void)},
+		{"updateSecurityWarningVisibility", "()V", nullptr, $PUBLIC, $virtualMethod(LWWindowPeer, updateSecurityWarningVisibility, void)},
+		{"updateWindow", "()V", nullptr, $PUBLIC, $virtualMethod(LWWindowPeer, updateWindow, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.lwawt.LWWindowPeer$PeerType", "sun.lwawt.LWWindowPeer", "PeerType", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{"sun.lwawt.LWWindowPeer$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.lwawt.LWWindowPeer",
+		"sun.lwawt.LWContainerPeer",
+		"java.awt.peer.FramePeer,java.awt.peer.DialogPeer,sun.awt.FullScreenCapable,sun.awt.DisplayChangedListener,sun.lwawt.PlatformEventNotifier",
+		fieldInfos$$,
+		methodInfos$$,
+		"Lsun/lwawt/LWContainerPeer<Ljava/awt/Window;Ljavax/swing/JComponent;>;Ljava/awt/peer/FramePeer;Ljava/awt/peer/DialogPeer;Lsun/awt/FullScreenCapable;Lsun/awt/DisplayChangedListener;Lsun/lwawt/PlatformEventNotifier;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.lwawt.LWWindowPeer$PeerType,sun.lwawt.LWWindowPeer$1"
+	};
+	$loadClass(LWWindowPeer, name, initialize, &classInfo$$, LWWindowPeer::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(LWWindowPeer));
+	});
 	return class$;
 }
 

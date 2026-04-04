@@ -36,7 +36,7 @@ public:
 	virtual void componentRemoved(::java::awt::event::ContainerEvent* e) override;
 	virtual $String* toString() override;
 	::java::awt::Container$AccessibleAWTContainer* this$1 = nullptr;
-	static const int64_t serialVersionUID = (int64_t)0xF953A89A6CF921EB;
+	static const int64_t serialVersionUID = (int64_t)0xf953a89a6cf921eb;
 };
 
 	} // awt

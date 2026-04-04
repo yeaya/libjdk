@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/windows/WindowsLookAndFeel$XPColorValue$XPColorValueKey.h>
-
 #include <com/sun/java/swing/plaf/windows/TMSchema$Part.h>
 #include <com/sun/java/swing/plaf/windows/TMSchema$Prop.h>
 #include <com/sun/java/swing/plaf/windows/TMSchema$State.h>
@@ -23,43 +22,6 @@ namespace com {
 				namespace plaf {
 					namespace windows {
 
-$FieldInfo _WindowsLookAndFeel$XPColorValue$XPColorValueKey_FieldInfo_[] = {
-	{"skin", "Lcom/sun/java/swing/plaf/windows/XPStyle$Skin;", nullptr, 0, $field(WindowsLookAndFeel$XPColorValue$XPColorValueKey, skin)},
-	{"prop", "Lcom/sun/java/swing/plaf/windows/TMSchema$Prop;", nullptr, 0, $field(WindowsLookAndFeel$XPColorValue$XPColorValueKey, prop)},
-	{}
-};
-
-$MethodInfo _WindowsLookAndFeel$XPColorValue$XPColorValueKey_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/java/swing/plaf/windows/TMSchema$Part;Lcom/sun/java/swing/plaf/windows/TMSchema$State;Lcom/sun/java/swing/plaf/windows/TMSchema$Prop;)V", nullptr, 0, $method(WindowsLookAndFeel$XPColorValue$XPColorValueKey, init$, void, $TMSchema$Part*, $TMSchema$State*, $TMSchema$Prop*)},
-	{}
-};
-
-$InnerClassInfo _WindowsLookAndFeel$XPColorValue$XPColorValueKey_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$XPColorValue", "com.sun.java.swing.plaf.windows.WindowsLookAndFeel", "XPColorValue", $PRIVATE | $STATIC},
-	{"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$XPColorValue$XPColorValueKey", "com.sun.java.swing.plaf.windows.WindowsLookAndFeel$XPColorValue", "XPColorValueKey", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _WindowsLookAndFeel$XPColorValue$XPColorValueKey_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$XPColorValue$XPColorValueKey",
-	"java.lang.Object",
-	nullptr,
-	_WindowsLookAndFeel$XPColorValue$XPColorValueKey_FieldInfo_,
-	_WindowsLookAndFeel$XPColorValue$XPColorValueKey_MethodInfo_,
-	nullptr,
-	nullptr,
-	_WindowsLookAndFeel$XPColorValue$XPColorValueKey_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.windows.WindowsLookAndFeel"
-};
-
-$Object* allocate$WindowsLookAndFeel$XPColorValue$XPColorValueKey($Class* clazz) {
-	return $of($alloc(WindowsLookAndFeel$XPColorValue$XPColorValueKey));
-}
-
 void WindowsLookAndFeel$XPColorValue$XPColorValueKey::init$($TMSchema$Part* part, $TMSchema$State* state, $TMSchema$Prop* prop) {
 	$set(this, skin, $new($XPStyle$Skin, part, state));
 	$set(this, prop, prop);
@@ -69,7 +31,38 @@ WindowsLookAndFeel$XPColorValue$XPColorValueKey::WindowsLookAndFeel$XPColorValue
 }
 
 $Class* WindowsLookAndFeel$XPColorValue$XPColorValueKey::load$($String* name, bool initialize) {
-	$loadClass(WindowsLookAndFeel$XPColorValue$XPColorValueKey, name, initialize, &_WindowsLookAndFeel$XPColorValue$XPColorValueKey_ClassInfo_, allocate$WindowsLookAndFeel$XPColorValue$XPColorValueKey);
+	$FieldInfo fieldInfos$$[] = {
+		{"skin", "Lcom/sun/java/swing/plaf/windows/XPStyle$Skin;", nullptr, 0, $field(WindowsLookAndFeel$XPColorValue$XPColorValueKey, skin)},
+		{"prop", "Lcom/sun/java/swing/plaf/windows/TMSchema$Prop;", nullptr, 0, $field(WindowsLookAndFeel$XPColorValue$XPColorValueKey, prop)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/java/swing/plaf/windows/TMSchema$Part;Lcom/sun/java/swing/plaf/windows/TMSchema$State;Lcom/sun/java/swing/plaf/windows/TMSchema$Prop;)V", nullptr, 0, $method(WindowsLookAndFeel$XPColorValue$XPColorValueKey, init$, void, $TMSchema$Part*, $TMSchema$State*, $TMSchema$Prop*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$XPColorValue", "com.sun.java.swing.plaf.windows.WindowsLookAndFeel", "XPColorValue", $PRIVATE | $STATIC},
+		{"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$XPColorValue$XPColorValueKey", "com.sun.java.swing.plaf.windows.WindowsLookAndFeel$XPColorValue", "XPColorValueKey", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$XPColorValue$XPColorValueKey",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.windows.WindowsLookAndFeel"
+	};
+	$loadClass(WindowsLookAndFeel$XPColorValue$XPColorValueKey, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WindowsLookAndFeel$XPColorValue$XPColorValueKey);
+	});
 	return class$;
 }
 

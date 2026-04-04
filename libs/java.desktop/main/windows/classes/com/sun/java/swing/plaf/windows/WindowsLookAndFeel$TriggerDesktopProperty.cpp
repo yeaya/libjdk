@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/windows/WindowsLookAndFeel$TriggerDesktopProperty.h>
-
 #include <com/sun/java/swing/plaf/windows/WindowsDesktopProperty.h>
 #include <com/sun/java/swing/plaf/windows/WindowsLookAndFeel.h>
 #include <sun/swing/plaf/DesktopProperty.h>
@@ -19,42 +18,6 @@ namespace com {
 				namespace plaf {
 					namespace windows {
 
-$FieldInfo _WindowsLookAndFeel$TriggerDesktopProperty_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/java/swing/plaf/windows/WindowsLookAndFeel;", nullptr, $FINAL | $SYNTHETIC, $field(WindowsLookAndFeel$TriggerDesktopProperty, this$0)},
-	{}
-};
-
-$MethodInfo _WindowsLookAndFeel$TriggerDesktopProperty_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/java/swing/plaf/windows/WindowsLookAndFeel;Ljava/lang/String;)V", nullptr, 0, $method(WindowsLookAndFeel$TriggerDesktopProperty, init$, void, $WindowsLookAndFeel*, $String*)},
-	{"updateUI", "()V", nullptr, $PROTECTED, $virtualMethod(WindowsLookAndFeel$TriggerDesktopProperty, updateUI, void)},
-	{}
-};
-
-$InnerClassInfo _WindowsLookAndFeel$TriggerDesktopProperty_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$TriggerDesktopProperty", "com.sun.java.swing.plaf.windows.WindowsLookAndFeel", "TriggerDesktopProperty", $PRIVATE},
-	{}
-};
-
-$ClassInfo _WindowsLookAndFeel$TriggerDesktopProperty_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$TriggerDesktopProperty",
-	"com.sun.java.swing.plaf.windows.WindowsDesktopProperty",
-	nullptr,
-	_WindowsLookAndFeel$TriggerDesktopProperty_FieldInfo_,
-	_WindowsLookAndFeel$TriggerDesktopProperty_MethodInfo_,
-	nullptr,
-	nullptr,
-	_WindowsLookAndFeel$TriggerDesktopProperty_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.windows.WindowsLookAndFeel"
-};
-
-$Object* allocate$WindowsLookAndFeel$TriggerDesktopProperty($Class* clazz) {
-	return $of($alloc(WindowsLookAndFeel$TriggerDesktopProperty));
-}
-
 void WindowsLookAndFeel$TriggerDesktopProperty::init$($WindowsLookAndFeel* this$0, $String* key) {
 	$set(this, this$0, this$0);
 	$WindowsDesktopProperty::init$(key, nullptr);
@@ -70,7 +33,37 @@ WindowsLookAndFeel$TriggerDesktopProperty::WindowsLookAndFeel$TriggerDesktopProp
 }
 
 $Class* WindowsLookAndFeel$TriggerDesktopProperty::load$($String* name, bool initialize) {
-	$loadClass(WindowsLookAndFeel$TriggerDesktopProperty, name, initialize, &_WindowsLookAndFeel$TriggerDesktopProperty_ClassInfo_, allocate$WindowsLookAndFeel$TriggerDesktopProperty);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/java/swing/plaf/windows/WindowsLookAndFeel;", nullptr, $FINAL | $SYNTHETIC, $field(WindowsLookAndFeel$TriggerDesktopProperty, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/java/swing/plaf/windows/WindowsLookAndFeel;Ljava/lang/String;)V", nullptr, 0, $method(WindowsLookAndFeel$TriggerDesktopProperty, init$, void, $WindowsLookAndFeel*, $String*)},
+		{"updateUI", "()V", nullptr, $PROTECTED, $virtualMethod(WindowsLookAndFeel$TriggerDesktopProperty, updateUI, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$TriggerDesktopProperty", "com.sun.java.swing.plaf.windows.WindowsLookAndFeel", "TriggerDesktopProperty", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$TriggerDesktopProperty",
+		"com.sun.java.swing.plaf.windows.WindowsDesktopProperty",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.windows.WindowsLookAndFeel"
+	};
+	$loadClass(WindowsLookAndFeel$TriggerDesktopProperty, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WindowsLookAndFeel$TriggerDesktopProperty);
+	});
 	return class$;
 }
 

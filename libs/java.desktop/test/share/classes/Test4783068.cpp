@@ -1,5 +1,4 @@
 #include <Test4783068.h>
-
 #include <Test4783068$1.h>
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
@@ -7,7 +6,6 @@
 #include <java/awt/Graphics.h>
 #include <java/awt/image/BufferedImage.h>
 #include <java/lang/Error.h>
-#include <java/lang/Runnable.h>
 #include <javax/swing/JButton.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JEditorPane.h>
@@ -34,56 +32,16 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $JButton = ::javax::swing::JButton;
 using $JComponent = ::javax::swing::JComponent;
 using $JEditorPane = ::javax::swing::JEditorPane;
 using $JLabel = ::javax::swing::JLabel;
-using $LookAndFeel = ::javax::swing::LookAndFeel;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $UIManager = ::javax::swing::UIManager;
 using $UnsupportedLookAndFeelException = ::javax::swing::UnsupportedLookAndFeelException;
 using $Border = ::javax::swing::border::Border;
 using $MetalLookAndFeel = ::javax::swing::plaf::metal::MetalLookAndFeel;
-
-$FieldInfo _Test4783068_FieldInfo_[] = {
-	{"TEST_COLOR", "Ljava/awt/Color;", nullptr, $STATIC | $FINAL, $staticField(Test4783068, TEST_COLOR)},
-	{"html", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(Test4783068, html)},
-	{}
-};
-
-$MethodInfo _Test4783068_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Test4783068, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Test4783068, main, void, $StringArray*), "java.lang.Exception"},
-	{"test", "()V", nullptr, 0, $virtualMethod(Test4783068, test, void)},
-	{"test", "(Ljavax/swing/JComponent;)V", nullptr, 0, $virtualMethod(Test4783068, test, void, $JComponent*)},
-	{}
-};
-
-$InnerClassInfo _Test4783068_InnerClassesInfo_[] = {
-	{"Test4783068$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Test4783068_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"Test4783068",
-	"java.lang.Object",
-	nullptr,
-	_Test4783068_FieldInfo_,
-	_Test4783068_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Test4783068_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"Test4783068$1"
-};
-
-$Object* allocate$Test4783068($Class* clazz) {
-	return $of($alloc(Test4783068));
-}
 
 $Color* Test4783068::TEST_COLOR = nullptr;
 $String* Test4783068::html = nullptr;
@@ -92,9 +50,9 @@ void Test4783068::init$() {
 }
 
 void Test4783068::test() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
-		$UIManager::setLookAndFeel(static_cast<$LookAndFeel*>($$new($MetalLookAndFeel)));
+		$UIManager::setLookAndFeel($$new($MetalLookAndFeel));
 	} catch ($UnsupportedLookAndFeelException& e) {
 		$throwNew($Error, "Cannot set Metal LAF"_s);
 	}
@@ -107,22 +65,22 @@ void Test4783068::test() {
 }
 
 void Test4783068::test($JComponent* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(c)->setEnabled(false);
 	c->setOpaque(true);
 	c->setBackground(Test4783068::TEST_COLOR);
 	c->setBorder(nullptr);
 	$var($Dimension, size, c->getPreferredSize());
-	c->setBounds(0, 0, $nc(size)->width, size->height);
-	$var($BufferedImage, image, $new($BufferedImage, $nc(size)->width, size->height, $BufferedImage::TYPE_INT_ARGB));
+	c->setBounds(0, 0, $nc(size)->width, $nc(size)->height);
+	$var($BufferedImage, image, $new($BufferedImage, size->width, size->height, $BufferedImage::TYPE_INT_ARGB));
 	c->paint($(image->getGraphics()));
 	int32_t rgb = $nc(Test4783068::TEST_COLOR)->getRGB();
-	for (int32_t i = 0; i < $nc(size)->height; ++i) {
+	for (int32_t i = 0; i < size->height; ++i) {
 		for (int32_t j = 0; j < size->width; ++j) {
 			if (image->getRGB(j, i) != rgb) {
 				$throwNew($RuntimeException, $($String::format("Color mismatch at [%d, %d]"_s, $$new($ObjectArray, {
-					$($of($Integer::valueOf(j))),
-					$($of($Integer::valueOf(i)))
+					$($Integer::valueOf(j)),
+					$($Integer::valueOf(i))
 				}))));
 			}
 		}
@@ -134,7 +92,7 @@ void Test4783068::main($StringArray* args) {
 	$SwingUtilities::invokeAndWait($$new($Test4783068$1));
 }
 
-void clinit$Test4783068($Class* class$) {
+void Test4783068::clinit$($Class* clazz) {
 	$assignStatic(Test4783068::html, "<html>This is a <font color=\'red\'>colored</font> <b>text</b><p>with a <a href=\'http://ru.sun.com\'>link</a><ul><li>an unordered<li>list</ul><ol><li>and an ordered<li>list</ol></html>"_s);
 	$init($Color);
 	$assignStatic(Test4783068::TEST_COLOR, $Color::WHITE);
@@ -144,7 +102,39 @@ Test4783068::Test4783068() {
 }
 
 $Class* Test4783068::load$($String* name, bool initialize) {
-	$loadClass(Test4783068, name, initialize, &_Test4783068_ClassInfo_, clinit$Test4783068, allocate$Test4783068);
+	$FieldInfo fieldInfos$$[] = {
+		{"TEST_COLOR", "Ljava/awt/Color;", nullptr, $STATIC | $FINAL, $staticField(Test4783068, TEST_COLOR)},
+		{"html", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(Test4783068, html)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Test4783068, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Test4783068, main, void, $StringArray*), "java.lang.Exception"},
+		{"test", "()V", nullptr, 0, $virtualMethod(Test4783068, test, void)},
+		{"test", "(Ljavax/swing/JComponent;)V", nullptr, 0, $virtualMethod(Test4783068, test, void, $JComponent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"Test4783068$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"Test4783068",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"Test4783068$1"
+	};
+	$loadClass(Test4783068, name, initialize, &classInfo$$, Test4783068::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Test4783068);
+	});
 	return class$;
 }
 

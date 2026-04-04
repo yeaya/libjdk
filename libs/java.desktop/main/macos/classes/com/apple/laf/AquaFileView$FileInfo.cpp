@@ -1,5 +1,4 @@
 #include <com/apple/laf/AquaFileView$FileInfo.h>
-
 #include <com/apple/laf/AquaFileView.h>
 #include <java/io/File.h>
 #include <java/io/UnsupportedEncodingException.h>
@@ -17,46 +16,6 @@ namespace com {
 	namespace apple {
 		namespace laf {
 
-$FieldInfo _AquaFileView$FileInfo_FieldInfo_[] = {
-	{"isDirectory", "Z", nullptr, $FINAL, $field(AquaFileView$FileInfo, isDirectory)},
-	{"absolutePath", "Ljava/lang/String;", nullptr, $FINAL, $field(AquaFileView$FileInfo, absolutePath)},
-	{"pathBytes", "[B", nullptr, 0, $field(AquaFileView$FileInfo, pathBytes)},
-	{"displayName", "Ljava/lang/String;", nullptr, 0, $field(AquaFileView$FileInfo, displayName)},
-	{"icon", "Ljavax/swing/Icon;", nullptr, 0, $field(AquaFileView$FileInfo, icon)},
-	{"launchServicesInfo", "I", nullptr, 0, $field(AquaFileView$FileInfo, launchServicesInfo)},
-	{}
-};
-
-$MethodInfo _AquaFileView$FileInfo_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/File;)V", nullptr, 0, $method(AquaFileView$FileInfo, init$, void, $File*)},
-	{}
-};
-
-$InnerClassInfo _AquaFileView$FileInfo_InnerClassesInfo_[] = {
-	{"com.apple.laf.AquaFileView$FileInfo", "com.apple.laf.AquaFileView", "FileInfo", $STATIC},
-	{}
-};
-
-$ClassInfo _AquaFileView$FileInfo_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.apple.laf.AquaFileView$FileInfo",
-	"java.lang.Object",
-	nullptr,
-	_AquaFileView$FileInfo_FieldInfo_,
-	_AquaFileView$FileInfo_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AquaFileView$FileInfo_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.apple.laf.AquaFileView"
-};
-
-$Object* allocate$AquaFileView$FileInfo($Class* clazz) {
-	return $of($alloc(AquaFileView$FileInfo));
-}
-
 void AquaFileView$FileInfo::init$($File* file) {
 	this->launchServicesInfo = -1;
 	this->isDirectory = $nc(file)->isDirectory();
@@ -72,7 +31,41 @@ AquaFileView$FileInfo::AquaFileView$FileInfo() {
 }
 
 $Class* AquaFileView$FileInfo::load$($String* name, bool initialize) {
-	$loadClass(AquaFileView$FileInfo, name, initialize, &_AquaFileView$FileInfo_ClassInfo_, allocate$AquaFileView$FileInfo);
+	$FieldInfo fieldInfos$$[] = {
+		{"isDirectory", "Z", nullptr, $FINAL, $field(AquaFileView$FileInfo, isDirectory)},
+		{"absolutePath", "Ljava/lang/String;", nullptr, $FINAL, $field(AquaFileView$FileInfo, absolutePath)},
+		{"pathBytes", "[B", nullptr, 0, $field(AquaFileView$FileInfo, pathBytes)},
+		{"displayName", "Ljava/lang/String;", nullptr, 0, $field(AquaFileView$FileInfo, displayName)},
+		{"icon", "Ljavax/swing/Icon;", nullptr, 0, $field(AquaFileView$FileInfo, icon)},
+		{"launchServicesInfo", "I", nullptr, 0, $field(AquaFileView$FileInfo, launchServicesInfo)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/io/File;)V", nullptr, 0, $method(AquaFileView$FileInfo, init$, void, $File*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.laf.AquaFileView$FileInfo", "com.apple.laf.AquaFileView", "FileInfo", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.apple.laf.AquaFileView$FileInfo",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.apple.laf.AquaFileView"
+	};
+	$loadClass(AquaFileView$FileInfo, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AquaFileView$FileInfo);
+	});
 	return class$;
 }
 

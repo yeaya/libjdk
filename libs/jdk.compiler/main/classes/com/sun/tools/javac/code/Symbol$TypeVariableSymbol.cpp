@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/code/Symbol$TypeVariableSymbol.h>
-
 #include <com/sun/tools/javac/code/Attribute$Compound.h>
 #include <com/sun/tools/javac/code/Attribute$TypeCompound.h>
 #include <com/sun/tools/javac/code/Kinds$Kind.h>
@@ -12,7 +11,6 @@
 #include <com/sun/tools/javac/code/TypeAnnotationPosition.h>
 #include <com/sun/tools/javac/util/List.h>
 #include <com/sun/tools/javac/util/Name.h>
-#include <java/lang/CharSequence.h>
 #include <java/lang/annotation/Annotation.h>
 #include <java/util/Iterator.h>
 #include <java/util/List.h>
@@ -21,7 +19,6 @@
 #include <javax/lang/model/element/ElementKind.h>
 #include <javax/lang/model/element/ElementVisitor.h>
 #include <javax/lang/model/element/Name.h>
-#include <javax/lang/model/element/TypeParameterElement.h>
 #include <javax/lang/model/type/TypeMirror.h>
 #include <jcpp.h>
 
@@ -41,8 +38,7 @@ using $Type = ::com::sun::tools::javac::code::Type;
 using $Type$ClassType = ::com::sun::tools::javac::code::Type$ClassType;
 using $Type$TypeVar = ::com::sun::tools::javac::code::Type$TypeVar;
 using $1List = ::com::sun::tools::javac::util::List;
-using $Name = ::com::sun::tools::javac::util::Name;
-using $CharSequence = ::java::lang::CharSequence;
+using $1Name = ::com::sun::tools::javac::util::Name;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -53,8 +49,7 @@ using $Set = ::java::util::Set;
 using $Element = ::javax::lang::model::element::Element;
 using $ElementKind = ::javax::lang::model::element::ElementKind;
 using $ElementVisitor = ::javax::lang::model::element::ElementVisitor;
-using $1Name = ::javax::lang::model::element::Name;
-using $TypeParameterElement = ::javax::lang::model::element::TypeParameterElement;
+using $Name = ::javax::lang::model::element::Name;
 using $TypeMirror = ::javax::lang::model::type::TypeMirror;
 
 namespace com {
@@ -62,56 +57,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace code {
-
-$MethodInfo _Symbol$TypeVariableSymbol_MethodInfo_[] = {
-	{"*asType", "()Ljavax/lang/model/type/TypeMirror;", nullptr, $PUBLIC | $SYNTHETIC},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*getAnnotation", "(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;", nullptr, $PUBLIC},
-	{"*getAnnotationsByType", "(Ljava/lang/Class;)[Ljava/lang/annotation/Annotation;", nullptr, $PUBLIC},
-	{"*getEnclosedElements", "()Ljava/util/List;", nullptr, $PUBLIC},
-	{"*getEnclosingElement", "()Ljavax/lang/model/element/Element;", nullptr, $PUBLIC | $SYNTHETIC},
-	{"*getModifiers", "()Ljava/util/Set;", nullptr, $PUBLIC},
-	{"*getSimpleName", "()Ljavax/lang/model/element/Name;", nullptr, $PUBLIC | $SYNTHETIC},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(JLcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, $method(Symbol$TypeVariableSymbol, init$, void, int64_t, $Name*, $Type*, $Symbol*)},
-	{"accept", "(Ljavax/lang/model/element/ElementVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;P:Ljava/lang/Object;>(Ljavax/lang/model/element/ElementVisitor<TR;TP;>;TP;)TR;", $PUBLIC, $virtualMethod(Symbol$TypeVariableSymbol, accept, $Object*, $ElementVisitor*, Object$*)},
-	{"getAnnotationMirrors", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute$Compound;>;", $PUBLIC, $virtualMethod(Symbol$TypeVariableSymbol, getAnnotationMirrors, $List*)},
-	{"getAttribute", "(Ljava/lang/Class;)Lcom/sun/tools/javac/code/Attribute$Compound;", "<A::Ljava/lang/annotation/Annotation;>(Ljava/lang/Class<TA;>;)Lcom/sun/tools/javac/code/Attribute$Compound;", $PUBLIC, $virtualMethod(Symbol$TypeVariableSymbol, getAttribute, $Attribute$Compound*, $Class*)},
-	{"getBounds", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", $PUBLIC, $virtualMethod(Symbol$TypeVariableSymbol, getBounds, $List*)},
-	{"getGenericElement", "()Lcom/sun/tools/javac/code/Symbol;", nullptr, $PUBLIC, $virtualMethod(Symbol$TypeVariableSymbol, getGenericElement, $Element*)},
-	{"getKind", "()Ljavax/lang/model/element/ElementKind;", nullptr, $PUBLIC, $virtualMethod(Symbol$TypeVariableSymbol, getKind, $ElementKind*)},
-	{"isCurrentSymbolsAnnotation", "(Lcom/sun/tools/javac/code/Attribute$TypeCompound;I)Z", nullptr, 0, $virtualMethod(Symbol$TypeVariableSymbol, isCurrentSymbolsAnnotation, bool, $Attribute$TypeCompound*, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _Symbol$TypeVariableSymbol_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.code.Symbol$TypeVariableSymbol", "com.sun.tools.javac.code.Symbol", "TypeVariableSymbol", $PUBLIC | $STATIC},
-	{"com.sun.tools.javac.code.Symbol$TypeSymbol", "com.sun.tools.javac.code.Symbol", "TypeSymbol", $PUBLIC | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Symbol$TypeVariableSymbol_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.code.Symbol$TypeVariableSymbol",
-	"com.sun.tools.javac.code.Symbol$TypeSymbol",
-	"javax.lang.model.element.TypeParameterElement",
-	nullptr,
-	_Symbol$TypeVariableSymbol_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Symbol$TypeVariableSymbol_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.code.Symbol"
-};
-
-$Object* allocate$Symbol$TypeVariableSymbol($Class* clazz) {
-	return $of($alloc(Symbol$TypeVariableSymbol));
-}
 
 $List* Symbol$TypeVariableSymbol::getEnclosedElements() {
 	 return this->$Symbol$TypeSymbol::getEnclosedElements();
@@ -121,7 +66,7 @@ $Element* Symbol$TypeVariableSymbol::getEnclosingElement() {
 	 return this->$Symbol$TypeSymbol::getEnclosingElement();
 }
 
-$1Name* Symbol$TypeVariableSymbol::getSimpleName() {
+$Name* Symbol$TypeVariableSymbol::getSimpleName() {
 	 return this->$Symbol$TypeSymbol::getSimpleName();
 }
 
@@ -161,7 +106,7 @@ void Symbol$TypeVariableSymbol::finalize() {
 	this->$Symbol$TypeSymbol::finalize();
 }
 
-void Symbol$TypeVariableSymbol::init$(int64_t flags, $Name* name, $Type* type, $Symbol* owner) {
+void Symbol$TypeVariableSymbol::init$(int64_t flags, $1Name* name, $Type* type, $Symbol* owner) {
 	$init($Kinds$Kind);
 	$Symbol$TypeSymbol::init$($Kinds$Kind::TYP, flags, name, type, owner);
 }
@@ -176,14 +121,14 @@ $Element* Symbol$TypeVariableSymbol::getGenericElement() {
 }
 
 $List* Symbol$TypeVariableSymbol::getBounds() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Type$TypeVar, t, $cast($Type$TypeVar, this->type));
 	$var($Type, bound, $nc(t)->getUpperBound());
 	if (!$nc(bound)->isCompound()) {
 		return $1List::of(bound);
 	}
 	$var($Type$ClassType, ct, $cast($Type$ClassType, bound));
-	if (!$nc($nc($nc(ct)->tsym)->erasure_field)->isInterface()) {
+	if (!$nc($nc(ct->tsym)->erasure_field)->isInterface()) {
 		return $nc(ct->interfaces_field)->prepend(ct->supertype_field);
 	} else {
 		return ct->interfaces_field;
@@ -191,18 +136,16 @@ $List* Symbol$TypeVariableSymbol::getBounds() {
 }
 
 $List* Symbol$TypeVariableSymbol::getAnnotationMirrors() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($1List, candidates, $nc(this->owner)->getRawTypeAttributes());
-	int32_t index = $nc($($nc(this->owner)->getTypeParameters()))->indexOf(this);
+	int32_t index = $$nc($nc(this->owner)->getTypeParameters())->indexOf(this);
 	$var($1List, res, $1List::nil());
 	{
 		$var($Iterator, i$, $nc(candidates)->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Attribute$TypeCompound, a, $cast($Attribute$TypeCompound, i$->next()));
-			{
-				if (isCurrentSymbolsAnnotation(a, index)) {
-					$assign(res, $nc(res)->prepend(a));
-				}
+			if (isCurrentSymbolsAnnotation(a, index)) {
+				$assign(res, $nc(res)->prepend(a));
 			}
 		}
 	}
@@ -210,16 +153,16 @@ $List* Symbol$TypeVariableSymbol::getAnnotationMirrors() {
 }
 
 $Attribute$Compound* Symbol$TypeVariableSymbol::getAttribute($Class* annoType) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, name, $nc(annoType)->getName());
 	$var($1List, candidates, $nc(this->owner)->getRawTypeAttributes());
-	int32_t index = $nc($($nc(this->owner)->getTypeParameters()))->indexOf(this);
+	int32_t index = $$nc($nc(this->owner)->getTypeParameters())->indexOf(this);
 	{
 		$var($Iterator, i$, $nc(candidates)->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Attribute$TypeCompound, anno, $cast($Attribute$TypeCompound, i$->next()));
 			bool var$0 = isCurrentSymbolsAnnotation(anno, index);
-			if (var$0 && $nc(name)->contentEquals($(static_cast<$CharSequence*>($nc($nc($nc(anno)->type)->tsym)->flatName())))) {
+			if (var$0 && $nc(name)->contentEquals($($nc($nc($nc(anno)->type)->tsym)->flatName()))) {
 				return anno;
 			}
 		}
@@ -229,18 +172,63 @@ $Attribute$Compound* Symbol$TypeVariableSymbol::getAttribute($Class* annoType) {
 
 bool Symbol$TypeVariableSymbol::isCurrentSymbolsAnnotation($Attribute$TypeCompound* anno, int32_t index) {
 	$init($TargetType);
-	return ($nc($nc(anno)->position)->type == $TargetType::CLASS_TYPE_PARAMETER || $nc($nc(anno)->position)->type == $TargetType::METHOD_TYPE_PARAMETER) && $nc(anno->position)->parameter_index == index;
+	return ($nc($nc(anno)->position)->type == $TargetType::CLASS_TYPE_PARAMETER || anno->position->type == $TargetType::METHOD_TYPE_PARAMETER) && anno->position->parameter_index == index;
 }
 
 $Object* Symbol$TypeVariableSymbol::accept($ElementVisitor* v, Object$* p) {
-	return $of($nc(v)->visitTypeParameter(this, p));
+	return $nc(v)->visitTypeParameter(this, p);
 }
 
 Symbol$TypeVariableSymbol::Symbol$TypeVariableSymbol() {
 }
 
 $Class* Symbol$TypeVariableSymbol::load$($String* name, bool initialize) {
-	$loadClass(Symbol$TypeVariableSymbol, name, initialize, &_Symbol$TypeVariableSymbol_ClassInfo_, allocate$Symbol$TypeVariableSymbol);
+	$MethodInfo methodInfos$$[] = {
+		{"*asType", "()Ljavax/lang/model/type/TypeMirror;", nullptr, $PUBLIC | $SYNTHETIC},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*getAnnotation", "(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;", nullptr, $PUBLIC},
+		{"*getAnnotationsByType", "(Ljava/lang/Class;)[Ljava/lang/annotation/Annotation;", nullptr, $PUBLIC},
+		{"*getEnclosedElements", "()Ljava/util/List;", nullptr, $PUBLIC},
+		{"*getEnclosingElement", "()Ljavax/lang/model/element/Element;", nullptr, $PUBLIC | $SYNTHETIC},
+		{"*getModifiers", "()Ljava/util/Set;", nullptr, $PUBLIC},
+		{"*getSimpleName", "()Ljavax/lang/model/element/Name;", nullptr, $PUBLIC | $SYNTHETIC},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(JLcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, $method(Symbol$TypeVariableSymbol, init$, void, int64_t, $1Name*, $Type*, $Symbol*)},
+		{"accept", "(Ljavax/lang/model/element/ElementVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;P:Ljava/lang/Object;>(Ljavax/lang/model/element/ElementVisitor<TR;TP;>;TP;)TR;", $PUBLIC, $virtualMethod(Symbol$TypeVariableSymbol, accept, $Object*, $ElementVisitor*, Object$*)},
+		{"getAnnotationMirrors", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute$Compound;>;", $PUBLIC, $virtualMethod(Symbol$TypeVariableSymbol, getAnnotationMirrors, $List*)},
+		{"getAttribute", "(Ljava/lang/Class;)Lcom/sun/tools/javac/code/Attribute$Compound;", "<A::Ljava/lang/annotation/Annotation;>(Ljava/lang/Class<TA;>;)Lcom/sun/tools/javac/code/Attribute$Compound;", $PUBLIC, $virtualMethod(Symbol$TypeVariableSymbol, getAttribute, $Attribute$Compound*, $Class*)},
+		{"getBounds", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", $PUBLIC, $virtualMethod(Symbol$TypeVariableSymbol, getBounds, $List*)},
+		{"getGenericElement", "()Lcom/sun/tools/javac/code/Symbol;", nullptr, $PUBLIC, $virtualMethod(Symbol$TypeVariableSymbol, getGenericElement, $Element*)},
+		{"getKind", "()Ljavax/lang/model/element/ElementKind;", nullptr, $PUBLIC, $virtualMethod(Symbol$TypeVariableSymbol, getKind, $ElementKind*)},
+		{"isCurrentSymbolsAnnotation", "(Lcom/sun/tools/javac/code/Attribute$TypeCompound;I)Z", nullptr, 0, $virtualMethod(Symbol$TypeVariableSymbol, isCurrentSymbolsAnnotation, bool, $Attribute$TypeCompound*, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.code.Symbol$TypeVariableSymbol", "com.sun.tools.javac.code.Symbol", "TypeVariableSymbol", $PUBLIC | $STATIC},
+		{"com.sun.tools.javac.code.Symbol$TypeSymbol", "com.sun.tools.javac.code.Symbol", "TypeSymbol", $PUBLIC | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.code.Symbol$TypeVariableSymbol",
+		"com.sun.tools.javac.code.Symbol$TypeSymbol",
+		"javax.lang.model.element.TypeParameterElement",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.code.Symbol"
+	};
+	$loadClass(Symbol$TypeVariableSymbol, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Symbol$TypeVariableSymbol));
+	});
 	return class$;
 }
 

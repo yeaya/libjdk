@@ -52,6 +52,7 @@ public:
 	virtual bool equals(Object$* arg0) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::javax::swing::text::html::parser::DTD* createDTD(::javax::swing::text::html::parser::DTD* dtd, $String* name);
 	static ::javax::swing::text::html::parser::DTD* getDefaultDTD();

@@ -33,6 +33,7 @@ class $import TimeoutEvent : public ::java::lang::Comparable {
 	$class(TimeoutEvent, 0, ::java::lang::Comparable)
 public:
 	TimeoutEvent();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::time::Duration* duration);
 	virtual int32_t compareTo(::jdk::internal::net::http::TimeoutEvent* other);
 	virtual int32_t compareTo(Object$* other) override;

@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/util/Constants.h>
-
 #include <com/sun/tools/javac/code/Type.h>
 #include <com/sun/tools/javac/code/TypeTag.h>
 #include <com/sun/tools/javac/util/Constants$1.h>
@@ -7,7 +6,6 @@
 #include <jcpp.h>
 
 using $Type = ::com::sun::tools::javac::code::Type;
-using $TypeTag = ::com::sun::tools::javac::code::TypeTag;
 using $Constants$1 = ::com::sun::tools::javac::util::Constants$1;
 using $Convert = ::com::sun::tools::javac::util::Convert;
 using $Boolean = ::java::lang::Boolean;
@@ -29,50 +27,11 @@ namespace com {
 			namespace javac {
 				namespace util {
 
-$MethodInfo _Constants_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Constants, init$, void)},
-	{"decode", "(Ljava/lang/Object;Lcom/sun/tools/javac/code/Type;)Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC, $staticMethod(Constants, decode, $Object*, Object$*, $Type*)},
-	{"format", "(Ljava/lang/Object;Lcom/sun/tools/javac/code/Type;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Constants, format, $String*, Object$*, $Type*)},
-	{"format", "(Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Constants, format, $String*, Object$*)},
-	{"formatByte", "(B)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Constants, formatByte, $String*, int8_t)},
-	{"formatChar", "(C)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Constants, formatChar, $String*, char16_t)},
-	{"formatDouble", "(D)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Constants, formatDouble, $String*, double)},
-	{"formatFloat", "(F)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Constants, formatFloat, $String*, float)},
-	{"formatLong", "(J)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Constants, formatLong, $String*, int64_t)},
-	{"formatShort", "(S)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Constants, formatShort, $String*, int16_t)},
-	{"formatString", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Constants, formatString, $String*, $String*)},
-	{}
-};
-
-$InnerClassInfo _Constants_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.util.Constants$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{}
-};
-
-$ClassInfo _Constants_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.util.Constants",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_Constants_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Constants_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.util.Constants$1"
-};
-
-$Object* allocate$Constants($Class* clazz) {
-	return $of($alloc(Constants));
-}
-
 void Constants::init$() {
 }
 
 $Object* Constants::decode(Object$* value, $Type* type) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	{
 		$var($Integer, intVal, nullptr);
 		bool var$0 = $instanceOf($Integer, value);
@@ -83,23 +42,15 @@ $Object* Constants::decode(Object$* value, $Type* type) {
 		if (var$0) {
 			int32_t i = $nc(intVal)->intValue();
 			$init($Constants$1);
-			switch ($nc($Constants$1::$SwitchMap$com$sun$tools$javac$code$TypeTag)->get($nc(($($nc(type)->getTag())))->ordinal())) {
+			switch ($nc($Constants$1::$SwitchMap$com$sun$tools$javac$code$TypeTag)->get(($$nc($nc(type)->getTag()))->ordinal())) {
 			case 1:
-				{
-					return $of($Boolean::valueOf(i != 0));
-				}
+				return $of($Boolean::valueOf(i != 0));
 			case 2:
-				{
-					return $of($Character::valueOf((char16_t)i));
-				}
+				return $of($Character::valueOf((char16_t)i));
 			case 3:
-				{
-					return $of($Byte::valueOf((int8_t)i));
-				}
+				return $of($Byte::valueOf((int8_t)i));
 			case 4:
-				{
-					return $of($Short::valueOf((int16_t)i));
-				}
+				return $of($Short::valueOf((int16_t)i));
 			}
 		}
 	}
@@ -107,31 +58,21 @@ $Object* Constants::decode(Object$* value, $Type* type) {
 }
 
 $String* Constants::format(Object$* value$renamed, $Type* type) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, value, value$renamed);
 	$assign(value, decode(value, type));
 	$init($Constants$1);
-	switch ($nc($Constants$1::$SwitchMap$com$sun$tools$javac$code$TypeTag)->get($nc(($($nc(type)->getTag())))->ordinal())) {
+	switch ($nc($Constants$1::$SwitchMap$com$sun$tools$javac$code$TypeTag)->get(($$nc($nc(type)->getTag()))->ordinal())) {
 	case 3:
-		{
-			return formatByte($nc(($cast($Byte, value)))->byteValue());
-		}
+		return formatByte($nc($cast($Byte, value))->byteValue());
 	case 5:
-		{
-			return formatLong($nc(($cast($Long, value)))->longValue());
-		}
+		return formatLong($nc($cast($Long, value))->longValue());
 	case 6:
-		{
-			return formatFloat($nc(($cast($Float, value)))->floatValue());
-		}
+		return formatFloat($nc($cast($Float, value))->floatValue());
 	case 7:
-		{
-			return formatDouble($nc(($cast($Double, value)))->doubleValue());
-		}
+		return formatDouble($nc($cast($Double, value))->doubleValue());
 	case 2:
-		{
-			return formatChar($nc(($cast($Character, value)))->charValue());
-		}
+		return formatChar($nc($cast($Character, value))->charValue());
 	}
 	{
 		$var($String, str, nullptr);
@@ -148,7 +89,7 @@ $String* Constants::format(Object$* value$renamed, $Type* type) {
 }
 
 $String* Constants::format(Object$* value) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	{
 		$var($Byte, byteVal, nullptr);
 		bool var$0 = $instanceOf($Byte, value);
@@ -229,18 +170,18 @@ $String* Constants::format(Object$* value) {
 	if ($instanceOf($Integer, value) || $instanceOf($Boolean, value)) {
 		return $nc($of(value))->toString();
 	} else {
-		$throwNew($IllegalArgumentException, $$str({"Argument is not a primitive type or a string; it "_s, ((value == nullptr) ? "is a null value."_s : $$str({"has class "_s, $($nc($of(value))->getClass()->getName())})), "."_s}));
+		$throwNew($IllegalArgumentException, $$str({"Argument is not a primitive type or a string; it "_s, ((value == nullptr) ? "is a null value."_s : $$str({"has class "_s, $($of(value)->getClass()->getName())})), "."_s}));
 	}
 }
 
 $String* Constants::formatByte(int8_t b) {
-	$useLocalCurrentObjectStackCache();
-	return $String::format("(byte)0x%02x"_s, $$new($ObjectArray, {$($of($Byte::valueOf(b)))}));
+	$useLocalObjectStack();
+	return $String::format("(byte)0x%02x"_s, $$new($ObjectArray, {$($Byte::valueOf(b))}));
 }
 
 $String* Constants::formatShort(int16_t s) {
-	$useLocalCurrentObjectStackCache();
-	return $String::format("(short)%d"_s, $$new($ObjectArray, {$($of($Short::valueOf(s)))}));
+	$useLocalObjectStack();
+	return $String::format("(short)%d"_s, $$new($ObjectArray, {$($Short::valueOf(s))}));
 }
 
 $String* Constants::formatLong(int64_t lng) {
@@ -268,12 +209,12 @@ $String* Constants::formatDouble(double d) {
 }
 
 $String* Constants::formatChar(char16_t c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $str({$$str(u'\''), $($Convert::quote(c)), $$str(u'\'')});
 }
 
 $String* Constants::formatString($String* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $str({$$str(u'\"'), $($Convert::quote(s)), $$str(u'\"')});
 }
 
@@ -281,7 +222,41 @@ Constants::Constants() {
 }
 
 $Class* Constants::load$($String* name, bool initialize) {
-	$loadClass(Constants, name, initialize, &_Constants_ClassInfo_, allocate$Constants);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Constants, init$, void)},
+		{"decode", "(Ljava/lang/Object;Lcom/sun/tools/javac/code/Type;)Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC, $staticMethod(Constants, decode, $Object*, Object$*, $Type*)},
+		{"format", "(Ljava/lang/Object;Lcom/sun/tools/javac/code/Type;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Constants, format, $String*, Object$*, $Type*)},
+		{"format", "(Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Constants, format, $String*, Object$*)},
+		{"formatByte", "(B)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Constants, formatByte, $String*, int8_t)},
+		{"formatChar", "(C)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Constants, formatChar, $String*, char16_t)},
+		{"formatDouble", "(D)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Constants, formatDouble, $String*, double)},
+		{"formatFloat", "(F)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Constants, formatFloat, $String*, float)},
+		{"formatLong", "(J)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Constants, formatLong, $String*, int64_t)},
+		{"formatShort", "(S)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Constants, formatShort, $String*, int16_t)},
+		{"formatString", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Constants, formatString, $String*, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.util.Constants$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.util.Constants",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.util.Constants$1"
+	};
+	$loadClass(Constants, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Constants);
+	});
 	return class$;
 }
 

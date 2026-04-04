@@ -40,6 +40,7 @@ class AquaButtonLabeledUI : public ::com::apple::laf::AquaButtonToggleUI {
 	$class(AquaButtonLabeledUI, 0, ::com::apple::laf::AquaButtonToggleUI)
 public:
 	AquaButtonLabeledUI();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void applySizeFor(::javax::swing::JComponent* c, ::apple::laf::JRSUIConstants$Size* newSize) override;
 	virtual ::javax::swing::Icon* getDefaultIcon(::javax::swing::JComponent* c);

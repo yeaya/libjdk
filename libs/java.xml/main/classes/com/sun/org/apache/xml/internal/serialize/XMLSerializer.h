@@ -78,6 +78,7 @@ class XMLSerializer : public ::com::sun::org::apache::xml::internal::serialize::
 	$class(XMLSerializer, 0, ::com::sun::org::apache::xml::internal::serialize::BaseMarkupSerializer)
 public:
 	XMLSerializer();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(::com::sun::org::apache::xml::internal::serialize::OutputFormat* format);
 	void init$(::java::io::Writer* writer, ::com::sun::org::apache::xml::internal::serialize::OutputFormat* format);

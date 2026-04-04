@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/serializer/TransformStateSetter.h>
-
 #include <javax/xml/transform/Transformer.h>
 #include <org/w3c/dom/Node.h>
 #include <jcpp.h>
@@ -17,27 +16,23 @@ namespace com {
 					namespace internal {
 						namespace serializer {
 
-$MethodInfo _TransformStateSetter_MethodInfo_[] = {
-	{"resetState", "(Ljavax/xml/transform/Transformer;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TransformStateSetter, resetState, void, $Transformer*)},
-	{"setCurrentNode", "(Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TransformStateSetter, setCurrentNode, void, $Node*)},
-	{}
-};
-
-$ClassInfo _TransformStateSetter_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.org.apache.xml.internal.serializer.TransformStateSetter",
-	nullptr,
-	nullptr,
-	nullptr,
-	_TransformStateSetter_MethodInfo_
-};
-
-$Object* allocate$TransformStateSetter($Class* clazz) {
-	return $of($alloc(TransformStateSetter));
-}
-
 $Class* TransformStateSetter::load$($String* name, bool initialize) {
-	$loadClass(TransformStateSetter, name, initialize, &_TransformStateSetter_ClassInfo_, allocate$TransformStateSetter);
+	$MethodInfo methodInfos$$[] = {
+		{"resetState", "(Ljavax/xml/transform/Transformer;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TransformStateSetter, resetState, void, $Transformer*)},
+		{"setCurrentNode", "(Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TransformStateSetter, setCurrentNode, void, $Node*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.org.apache.xml.internal.serializer.TransformStateSetter",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(TransformStateSetter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TransformStateSetter);
+	});
 	return class$;
 }
 

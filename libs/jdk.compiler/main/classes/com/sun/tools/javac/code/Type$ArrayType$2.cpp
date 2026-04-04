@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/code/Type$ArrayType$2.h>
-
 #include <com/sun/tools/javac/code/Symbol$TypeSymbol.h>
 #include <com/sun/tools/javac/code/Type$ArrayType.h>
 #include <com/sun/tools/javac/code/Type.h>
@@ -27,52 +26,6 @@ namespace com {
 			namespace javac {
 				namespace code {
 
-$FieldInfo _Type$ArrayType$2_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/code/Type$ArrayType;", nullptr, $FINAL | $SYNTHETIC, $field(Type$ArrayType$2, this$0)},
-	{}
-};
-
-$MethodInfo _Type$ArrayType$2_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Type$ArrayType;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/code/TypeMetadata;)V", nullptr, 0, $method(Type$ArrayType$2, init$, void, $Type$ArrayType*, $Type*, $Symbol$TypeSymbol*, $TypeMetadata*)},
-	{"cloneWithMetadata", "(Lcom/sun/tools/javac/code/TypeMetadata;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Type$ArrayType$2, cloneWithMetadata, $Type$ArrayType*, $TypeMetadata*)},
-	{"getAnnotationMirrors", "()Ljava/util/List;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Type$ArrayType$2, getAnnotationMirrors, $List*)},
-	{"getComponentType", "()Ljavax/lang/model/type/TypeMirror;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Type$ArrayType$2, getComponentType, $TypeMirror*)},
-	{"isVarargs", "()Z", nullptr, $PUBLIC, $virtualMethod(Type$ArrayType$2, isVarargs, bool)},
-	{}
-};
-
-$EnclosingMethodInfo _Type$ArrayType$2_EnclosingMethodInfo_ = {
-	"com.sun.tools.javac.code.Type$ArrayType",
-	"makeVarargs",
-	"()Lcom/sun/tools/javac/code/Type$ArrayType;"
-};
-
-$InnerClassInfo _Type$ArrayType$2_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.code.Type$ArrayType", "com.sun.tools.javac.code.Type", "ArrayType", $PUBLIC | $STATIC},
-	{"com.sun.tools.javac.code.Type$ArrayType$2", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Type$ArrayType$2_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.code.Type$ArrayType$2",
-	"com.sun.tools.javac.code.Type$ArrayType",
-	nullptr,
-	_Type$ArrayType$2_FieldInfo_,
-	_Type$ArrayType$2_MethodInfo_,
-	nullptr,
-	&_Type$ArrayType$2_EnclosingMethodInfo_,
-	_Type$ArrayType$2_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.code.Type"
-};
-
-$Object* allocate$Type$ArrayType$2($Class* clazz) {
-	return $of($alloc(Type$ArrayType$2));
-}
-
 void Type$ArrayType$2::init$($Type$ArrayType* this$0, $Type* elemtype, $Symbol$TypeSymbol* arrayClass, $TypeMetadata* metadata) {
 	$set(this, this$0, this$0);
 	$Type$ArrayType::init$(elemtype, arrayClass, metadata);
@@ -98,7 +51,46 @@ Type$ArrayType$2::Type$ArrayType$2() {
 }
 
 $Class* Type$ArrayType$2::load$($String* name, bool initialize) {
-	$loadClass(Type$ArrayType$2, name, initialize, &_Type$ArrayType$2_ClassInfo_, allocate$Type$ArrayType$2);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/code/Type$ArrayType;", nullptr, $FINAL | $SYNTHETIC, $field(Type$ArrayType$2, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/code/Type$ArrayType;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/code/TypeMetadata;)V", nullptr, 0, $method(Type$ArrayType$2, init$, void, $Type$ArrayType*, $Type*, $Symbol$TypeSymbol*, $TypeMetadata*)},
+		{"cloneWithMetadata", "(Lcom/sun/tools/javac/code/TypeMetadata;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Type$ArrayType$2, cloneWithMetadata, $Type$ArrayType*, $TypeMetadata*)},
+		{"getAnnotationMirrors", "()Ljava/util/List;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Type$ArrayType$2, getAnnotationMirrors, $List*)},
+		{"getComponentType", "()Ljavax/lang/model/type/TypeMirror;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Type$ArrayType$2, getComponentType, $TypeMirror*)},
+		{"isVarargs", "()Z", nullptr, $PUBLIC, $virtualMethod(Type$ArrayType$2, isVarargs, bool)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.tools.javac.code.Type$ArrayType",
+		"makeVarargs",
+		"()Lcom/sun/tools/javac/code/Type$ArrayType;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.code.Type$ArrayType", "com.sun.tools.javac.code.Type", "ArrayType", $PUBLIC | $STATIC},
+		{"com.sun.tools.javac.code.Type$ArrayType$2", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.code.Type$ArrayType$2",
+		"com.sun.tools.javac.code.Type$ArrayType",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.code.Type"
+	};
+	$loadClass(Type$ArrayType$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Type$ArrayType$2));
+	});
 	return class$;
 }
 

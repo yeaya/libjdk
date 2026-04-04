@@ -60,6 +60,7 @@ class VersionHelper : public ::java::lang::Object {
 	$class(VersionHelper, 0, ::java::lang::Object)
 public:
 	VersionHelper();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	::java::lang::ClassLoader* getContextClassLoader();
 	::java::io::InputStream* getJavaHomeConfStream($String* filename);

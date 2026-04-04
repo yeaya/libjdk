@@ -1,5 +1,4 @@
 #include <sun/management/HotspotInternal.h>
-
 #include <javax/management/MBeanServer.h>
 #include <javax/management/ObjectName.h>
 #include <sun/management/HotspotInternalMBean.h>
@@ -21,40 +20,6 @@ using $Util = ::sun::management::Util;
 
 namespace sun {
 	namespace management {
-
-$FieldInfo _HotspotInternal_FieldInfo_[] = {
-	{"HOTSPOT_INTERNAL_MBEAN_NAME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(HotspotInternal, HOTSPOT_INTERNAL_MBEAN_NAME)},
-	{"objName", "Ljavax/management/ObjectName;", nullptr, $PRIVATE | $STATIC, $staticField(HotspotInternal, objName)},
-	{"server", "Ljavax/management/MBeanServer;", nullptr, $PRIVATE, $field(HotspotInternal, server)},
-	{}
-};
-
-$MethodInfo _HotspotInternal_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(HotspotInternal, init$, void)},
-	{"postDeregister", "()V", nullptr, $PUBLIC, $virtualMethod(HotspotInternal, postDeregister, void)},
-	{"postRegister", "(Ljava/lang/Boolean;)V", nullptr, $PUBLIC, $virtualMethod(HotspotInternal, postRegister, void, $Boolean*)},
-	{"preDeregister", "()V", nullptr, $PUBLIC, $virtualMethod(HotspotInternal, preDeregister, void), "java.lang.Exception"},
-	{"preRegister", "(Ljavax/management/MBeanServer;Ljavax/management/ObjectName;)Ljavax/management/ObjectName;", nullptr, $PUBLIC, $virtualMethod(HotspotInternal, preRegister, $ObjectName*, $MBeanServer*, $ObjectName*), "java.lang.Exception"},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _HotspotInternal_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.management.HotspotInternal",
-	"java.lang.Object",
-	"sun.management.HotspotInternalMBean,javax.management.MBeanRegistration",
-	_HotspotInternal_FieldInfo_,
-	_HotspotInternal_MethodInfo_
-};
-
-$Object* allocate$HotspotInternal($Class* clazz) {
-	return $of($alloc(HotspotInternal));
-}
 
 int32_t HotspotInternal::hashCode() {
 	 return this->$HotspotInternalMBean::hashCode();
@@ -99,7 +64,7 @@ void HotspotInternal::preDeregister() {
 void HotspotInternal::postDeregister() {
 }
 
-void clinit$HotspotInternal($Class* class$) {
+void HotspotInternal::clinit$($Class* clazz) {
 	$assignStatic(HotspotInternal::HOTSPOT_INTERNAL_MBEAN_NAME, "sun.management:type=HotspotInternal"_s);
 	$assignStatic(HotspotInternal::objName, $Util::newObjectName(HotspotInternal::HOTSPOT_INTERNAL_MBEAN_NAME));
 }
@@ -108,7 +73,36 @@ HotspotInternal::HotspotInternal() {
 }
 
 $Class* HotspotInternal::load$($String* name, bool initialize) {
-	$loadClass(HotspotInternal, name, initialize, &_HotspotInternal_ClassInfo_, clinit$HotspotInternal, allocate$HotspotInternal);
+	$FieldInfo fieldInfos$$[] = {
+		{"HOTSPOT_INTERNAL_MBEAN_NAME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(HotspotInternal, HOTSPOT_INTERNAL_MBEAN_NAME)},
+		{"objName", "Ljavax/management/ObjectName;", nullptr, $PRIVATE | $STATIC, $staticField(HotspotInternal, objName)},
+		{"server", "Ljavax/management/MBeanServer;", nullptr, $PRIVATE, $field(HotspotInternal, server)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(HotspotInternal, init$, void)},
+		{"postDeregister", "()V", nullptr, $PUBLIC, $virtualMethod(HotspotInternal, postDeregister, void)},
+		{"postRegister", "(Ljava/lang/Boolean;)V", nullptr, $PUBLIC, $virtualMethod(HotspotInternal, postRegister, void, $Boolean*)},
+		{"preDeregister", "()V", nullptr, $PUBLIC, $virtualMethod(HotspotInternal, preDeregister, void), "java.lang.Exception"},
+		{"preRegister", "(Ljavax/management/MBeanServer;Ljavax/management/ObjectName;)Ljavax/management/ObjectName;", nullptr, $PUBLIC, $virtualMethod(HotspotInternal, preRegister, $ObjectName*, $MBeanServer*, $ObjectName*), "java.lang.Exception"},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.management.HotspotInternal",
+		"java.lang.Object",
+		"sun.management.HotspotInternalMBean,javax.management.MBeanRegistration",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(HotspotInternal, name, initialize, &classInfo$$, HotspotInternal::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(HotspotInternal));
+	});
 	return class$;
 }
 

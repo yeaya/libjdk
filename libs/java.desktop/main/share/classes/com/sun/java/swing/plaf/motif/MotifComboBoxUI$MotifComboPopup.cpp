@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/motif/MotifComboBoxUI$MotifComboPopup.h>
-
 #include <com/sun/java/swing/plaf/motif/MotifComboBoxUI$MotifComboPopup$1.h>
 #include <com/sun/java/swing/plaf/motif/MotifComboBoxUI.h>
 #include <java/awt/event/KeyListener.h>
@@ -26,45 +25,6 @@ namespace com {
 				namespace plaf {
 					namespace motif {
 
-$FieldInfo _MotifComboBoxUI$MotifComboPopup_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/java/swing/plaf/motif/MotifComboBoxUI;", nullptr, $FINAL | $SYNTHETIC, $field(MotifComboBoxUI$MotifComboPopup, this$0)},
-	{}
-};
-
-$MethodInfo _MotifComboBoxUI$MotifComboPopup_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/java/swing/plaf/motif/MotifComboBoxUI;Ljavax/swing/JComboBox;)V", "(Ljavax/swing/JComboBox<Ljava/lang/Object;>;)V", $PUBLIC, $method(MotifComboBoxUI$MotifComboPopup, init$, void, $MotifComboBoxUI*, $JComboBox*)},
-	{"createKeyListener", "()Ljava/awt/event/KeyListener;", nullptr, $PUBLIC, $virtualMethod(MotifComboBoxUI$MotifComboPopup, createKeyListener, $KeyListener*)},
-	{"createListMouseMotionListener", "()Ljava/awt/event/MouseMotionListener;", nullptr, $PUBLIC, $virtualMethod(MotifComboBoxUI$MotifComboPopup, createListMouseMotionListener, $MouseMotionListener*)},
-	{}
-};
-
-$InnerClassInfo _MotifComboBoxUI$MotifComboPopup_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.motif.MotifComboBoxUI$MotifComboPopup", "com.sun.java.swing.plaf.motif.MotifComboBoxUI", "MotifComboPopup", $PROTECTED},
-	{"com.sun.java.swing.plaf.motif.MotifComboBoxUI$MotifComboPopup$InvocationKeyHandler", "com.sun.java.swing.plaf.motif.MotifComboBoxUI$MotifComboPopup", "InvocationKeyHandler", $PROTECTED},
-	{"com.sun.java.swing.plaf.motif.MotifComboBoxUI$MotifComboPopup$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _MotifComboBoxUI$MotifComboPopup_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.java.swing.plaf.motif.MotifComboBoxUI$MotifComboPopup",
-	"javax.swing.plaf.basic.BasicComboPopup",
-	nullptr,
-	_MotifComboBoxUI$MotifComboPopup_FieldInfo_,
-	_MotifComboBoxUI$MotifComboPopup_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MotifComboBoxUI$MotifComboPopup_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.motif.MotifComboBoxUI"
-};
-
-$Object* allocate$MotifComboBoxUI$MotifComboPopup($Class* clazz) {
-	return $of($alloc(MotifComboBoxUI$MotifComboPopup));
-}
-
 void MotifComboBoxUI$MotifComboPopup::init$($MotifComboBoxUI* this$0, $JComboBox* comboBox) {
 	$set(this, this$0, this$0);
 	$BasicComboPopup::init$(comboBox);
@@ -82,7 +42,40 @@ MotifComboBoxUI$MotifComboPopup::MotifComboBoxUI$MotifComboPopup() {
 }
 
 $Class* MotifComboBoxUI$MotifComboPopup::load$($String* name, bool initialize) {
-	$loadClass(MotifComboBoxUI$MotifComboPopup, name, initialize, &_MotifComboBoxUI$MotifComboPopup_ClassInfo_, allocate$MotifComboBoxUI$MotifComboPopup);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/java/swing/plaf/motif/MotifComboBoxUI;", nullptr, $FINAL | $SYNTHETIC, $field(MotifComboBoxUI$MotifComboPopup, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/java/swing/plaf/motif/MotifComboBoxUI;Ljavax/swing/JComboBox;)V", "(Ljavax/swing/JComboBox<Ljava/lang/Object;>;)V", $PUBLIC, $method(MotifComboBoxUI$MotifComboPopup, init$, void, $MotifComboBoxUI*, $JComboBox*)},
+		{"createKeyListener", "()Ljava/awt/event/KeyListener;", nullptr, $PUBLIC, $virtualMethod(MotifComboBoxUI$MotifComboPopup, createKeyListener, $KeyListener*)},
+		{"createListMouseMotionListener", "()Ljava/awt/event/MouseMotionListener;", nullptr, $PUBLIC, $virtualMethod(MotifComboBoxUI$MotifComboPopup, createListMouseMotionListener, $MouseMotionListener*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.motif.MotifComboBoxUI$MotifComboPopup", "com.sun.java.swing.plaf.motif.MotifComboBoxUI", "MotifComboPopup", $PROTECTED},
+		{"com.sun.java.swing.plaf.motif.MotifComboBoxUI$MotifComboPopup$InvocationKeyHandler", "com.sun.java.swing.plaf.motif.MotifComboBoxUI$MotifComboPopup", "InvocationKeyHandler", $PROTECTED},
+		{"com.sun.java.swing.plaf.motif.MotifComboBoxUI$MotifComboPopup$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.java.swing.plaf.motif.MotifComboBoxUI$MotifComboPopup",
+		"javax.swing.plaf.basic.BasicComboPopup",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.motif.MotifComboBoxUI"
+	};
+	$loadClass(MotifComboBoxUI$MotifComboPopup, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MotifComboBoxUI$MotifComboPopup));
+	});
 	return class$;
 }
 

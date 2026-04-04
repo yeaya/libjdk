@@ -51,6 +51,7 @@ class $import Config : public ::java::lang::Object {
 	$class(Config, 0, ::java::lang::Object)
 public:
 	Config();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $String* checkRealm($String* mapRealm);
 	virtual $ints* defaultEtype($String* configName);

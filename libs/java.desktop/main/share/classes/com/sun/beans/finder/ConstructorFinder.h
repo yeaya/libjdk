@@ -35,6 +35,7 @@ class ConstructorFinder : public ::com::sun::beans::finder::AbstractFinder {
 	$class(ConstructorFinder, 0, ::com::sun::beans::finder::AbstractFinder)
 public:
 	ConstructorFinder();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($ClassArray* args);
 	static ::java::lang::reflect::Constructor* findConstructor($Class* type, $ClassArray* args);
 	static ::com::sun::beans::util::Cache* CACHE;

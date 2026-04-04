@@ -1,5 +1,4 @@
 #include <org/jcp/xml/dsig/internal/dom/DOMKeyValue$DSA.h>
-
 #include <java/math/BigInteger.h>
 #include <java/security/KeyFactory.h>
 #include <java/security/NoSuchAlgorithmException.h>
@@ -7,7 +6,6 @@
 #include <java/security/interfaces/DSAParams.h>
 #include <java/security/interfaces/DSAPublicKey.h>
 #include <java/security/spec/DSAPublicKeySpec.h>
-#include <java/security/spec/KeySpec.h>
 #include <javax/xml/crypto/MarshalException.h>
 #include <javax/xml/crypto/dom/DOMCryptoContext.h>
 #include <javax/xml/crypto/dsig/XMLSignature.h>
@@ -33,7 +31,6 @@ using $PublicKey = ::java::security::PublicKey;
 using $DSAParams = ::java::security::interfaces::DSAParams;
 using $DSAPublicKey = ::java::security::interfaces::DSAPublicKey;
 using $DSAPublicKeySpec = ::java::security::spec::DSAPublicKeySpec;
-using $KeySpec = ::java::security::spec::KeySpec;
 using $MarshalException = ::javax::xml::crypto::MarshalException;
 using $DOMCryptoContext = ::javax::xml::crypto::dom::DOMCryptoContext;
 using $XMLSignature = ::javax::xml::crypto::dsig::XMLSignature;
@@ -51,56 +48,14 @@ namespace org {
 				namespace internal {
 					namespace dom {
 
-$FieldInfo _DOMKeyValue$DSA_FieldInfo_[] = {
-	{"p", "Lorg/jcp/xml/dsig/internal/dom/DOMCryptoBinary;", nullptr, $PRIVATE, $field(DOMKeyValue$DSA, p)},
-	{"q", "Lorg/jcp/xml/dsig/internal/dom/DOMCryptoBinary;", nullptr, $PRIVATE, $field(DOMKeyValue$DSA, q)},
-	{"g", "Lorg/jcp/xml/dsig/internal/dom/DOMCryptoBinary;", nullptr, $PRIVATE, $field(DOMKeyValue$DSA, g)},
-	{"y", "Lorg/jcp/xml/dsig/internal/dom/DOMCryptoBinary;", nullptr, $PRIVATE, $field(DOMKeyValue$DSA, y)},
-	{"dsakf", "Ljava/security/KeyFactory;", nullptr, $PRIVATE, $field(DOMKeyValue$DSA, dsakf)},
-	{}
-};
-
-$MethodInfo _DOMKeyValue$DSA_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/interfaces/DSAPublicKey;)V", nullptr, 0, $method(DOMKeyValue$DSA, init$, void, $DSAPublicKey*), "java.security.KeyException"},
-	{"<init>", "(Lorg/w3c/dom/Element;)V", nullptr, 0, $method(DOMKeyValue$DSA, init$, void, $Element*), "javax.xml.crypto.MarshalException"},
-	{"marshalPublicKey", "(Lorg/w3c/dom/Node;Lorg/w3c/dom/Document;Ljava/lang/String;Ljavax/xml/crypto/dom/DOMCryptoContext;)V", nullptr, 0, $virtualMethod(DOMKeyValue$DSA, marshalPublicKey, void, $Node*, $Document*, $String*, $DOMCryptoContext*), "javax.xml.crypto.MarshalException"},
-	{"unmarshalKeyValue", "(Lorg/w3c/dom/Element;)Ljava/security/interfaces/DSAPublicKey;", nullptr, 0, $virtualMethod(DOMKeyValue$DSA, unmarshalKeyValue, $PublicKey*, $Element*), "javax.xml.crypto.MarshalException"},
-	{}
-};
-
-$InnerClassInfo _DOMKeyValue$DSA_InnerClassesInfo_[] = {
-	{"org.jcp.xml.dsig.internal.dom.DOMKeyValue$DSA", "org.jcp.xml.dsig.internal.dom.DOMKeyValue", "DSA", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _DOMKeyValue$DSA_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"org.jcp.xml.dsig.internal.dom.DOMKeyValue$DSA",
-	"org.jcp.xml.dsig.internal.dom.DOMKeyValue",
-	nullptr,
-	_DOMKeyValue$DSA_FieldInfo_,
-	_DOMKeyValue$DSA_MethodInfo_,
-	"Lorg/jcp/xml/dsig/internal/dom/DOMKeyValue<Ljava/security/interfaces/DSAPublicKey;>;",
-	nullptr,
-	_DOMKeyValue$DSA_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"org.jcp.xml.dsig.internal.dom.DOMKeyValue"
-};
-
-$Object* allocate$DOMKeyValue$DSA($Class* clazz) {
-	return $of($alloc(DOMKeyValue$DSA));
-}
-
 void DOMKeyValue$DSA::init$($DSAPublicKey* key) {
-	$useLocalCurrentObjectStackCache();
-	$DOMKeyValue::init$(static_cast<$PublicKey*>(key));
+	$useLocalObjectStack();
+	$DOMKeyValue::init$(key);
 	$var($DSAPublicKey, dkey, key);
 	$var($DSAParams, params, $nc(dkey)->getParams());
 	$set(this, p, $new($DOMCryptoBinary, $($nc(params)->getP())));
-	$set(this, q, $new($DOMCryptoBinary, $($nc(params)->getQ())));
-	$set(this, g, $new($DOMCryptoBinary, $($nc(params)->getG())));
+	$set(this, q, $new($DOMCryptoBinary, $(params->getQ())));
+	$set(this, g, $new($DOMCryptoBinary, $(params->getG())));
 	$set(this, y, $new($DOMCryptoBinary, $(dkey->getY())));
 }
 
@@ -109,7 +64,7 @@ void DOMKeyValue$DSA::init$($Element* elem) {
 }
 
 void DOMKeyValue$DSA::marshalPublicKey($Node* parent, $Document* doc, $String* dsPrefix, $DOMCryptoContext* context) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($XMLSignature);
 	$var($Element, dsaElem, $DOMUtils::createElement(doc, "DSAKeyValue"_s, $XMLSignature::XMLNS, dsPrefix));
 	$var($Element, pElem, $DOMUtils::createElement(doc, "P"_s, $XMLSignature::XMLNS, dsPrefix));
@@ -128,7 +83,7 @@ void DOMKeyValue$DSA::marshalPublicKey($Node* parent, $Document* doc, $String* d
 }
 
 $PublicKey* DOMKeyValue$DSA::unmarshalKeyValue($Element* kvtElem) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->dsakf == nullptr) {
 		try {
 			$set(this, dsakf, $KeyFactory::getInstance("DSA"_s));
@@ -144,7 +99,7 @@ $PublicKey* DOMKeyValue$DSA::unmarshalKeyValue($Element* kvtElem) {
 	$var($BigInteger, q, nullptr);
 	bool var$0 = "P"_s->equals($($nc(curElem)->getLocalName()));
 	$init($XMLSignature);
-	if (var$0 && $nc($XMLSignature::XMLNS)->equals($($nc(curElem)->getNamespaceURI()))) {
+	if (var$0 && $nc($XMLSignature::XMLNS)->equals($(curElem->getNamespaceURI()))) {
 		$assign(p, decode(curElem));
 		$assign(curElem, $DOMUtils::getNextSiblingElement(curElem, "Q"_s, $XMLSignature::XMLNS));
 		$assign(q, decode(curElem));
@@ -169,7 +124,43 @@ DOMKeyValue$DSA::DOMKeyValue$DSA() {
 }
 
 $Class* DOMKeyValue$DSA::load$($String* name, bool initialize) {
-	$loadClass(DOMKeyValue$DSA, name, initialize, &_DOMKeyValue$DSA_ClassInfo_, allocate$DOMKeyValue$DSA);
+	$FieldInfo fieldInfos$$[] = {
+		{"p", "Lorg/jcp/xml/dsig/internal/dom/DOMCryptoBinary;", nullptr, $PRIVATE, $field(DOMKeyValue$DSA, p)},
+		{"q", "Lorg/jcp/xml/dsig/internal/dom/DOMCryptoBinary;", nullptr, $PRIVATE, $field(DOMKeyValue$DSA, q)},
+		{"g", "Lorg/jcp/xml/dsig/internal/dom/DOMCryptoBinary;", nullptr, $PRIVATE, $field(DOMKeyValue$DSA, g)},
+		{"y", "Lorg/jcp/xml/dsig/internal/dom/DOMCryptoBinary;", nullptr, $PRIVATE, $field(DOMKeyValue$DSA, y)},
+		{"dsakf", "Ljava/security/KeyFactory;", nullptr, $PRIVATE, $field(DOMKeyValue$DSA, dsakf)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/security/interfaces/DSAPublicKey;)V", nullptr, 0, $method(DOMKeyValue$DSA, init$, void, $DSAPublicKey*), "java.security.KeyException"},
+		{"<init>", "(Lorg/w3c/dom/Element;)V", nullptr, 0, $method(DOMKeyValue$DSA, init$, void, $Element*), "javax.xml.crypto.MarshalException"},
+		{"marshalPublicKey", "(Lorg/w3c/dom/Node;Lorg/w3c/dom/Document;Ljava/lang/String;Ljavax/xml/crypto/dom/DOMCryptoContext;)V", nullptr, 0, $virtualMethod(DOMKeyValue$DSA, marshalPublicKey, void, $Node*, $Document*, $String*, $DOMCryptoContext*), "javax.xml.crypto.MarshalException"},
+		{"unmarshalKeyValue", "(Lorg/w3c/dom/Element;)Ljava/security/interfaces/DSAPublicKey;", nullptr, 0, $virtualMethod(DOMKeyValue$DSA, unmarshalKeyValue, $PublicKey*, $Element*), "javax.xml.crypto.MarshalException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"org.jcp.xml.dsig.internal.dom.DOMKeyValue$DSA", "org.jcp.xml.dsig.internal.dom.DOMKeyValue", "DSA", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"org.jcp.xml.dsig.internal.dom.DOMKeyValue$DSA",
+		"org.jcp.xml.dsig.internal.dom.DOMKeyValue",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Lorg/jcp/xml/dsig/internal/dom/DOMKeyValue<Ljava/security/interfaces/DSAPublicKey;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"org.jcp.xml.dsig.internal.dom.DOMKeyValue"
+	};
+	$loadClass(DOMKeyValue$DSA, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DOMKeyValue$DSA));
+	});
 	return class$;
 }
 

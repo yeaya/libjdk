@@ -1,5 +1,4 @@
 #include <com/sun/beans/finder/MethodFinder$1.h>
-
 #include <com/sun/beans/finder/MethodFinder.h>
 #include <com/sun/beans/finder/Signature.h>
 #include <com/sun/beans/finder/SignatureException.h>
@@ -27,55 +26,17 @@ namespace com {
 		namespace beans {
 			namespace finder {
 
-$MethodInfo _MethodFinder$1_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/beans/util/Cache$Kind;Lcom/sun/beans/util/Cache$Kind;)V", nullptr, 0, $method(MethodFinder$1, init$, void, $Cache$Kind*, $Cache$Kind*)},
-	{"create", "(Lcom/sun/beans/finder/Signature;)Ljava/lang/reflect/Method;", nullptr, $PUBLIC, $virtualMethod(MethodFinder$1, create, $Method*, $Signature*)},
-	{"create", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(MethodFinder$1, create, $Object*, Object$*)},
-	{}
-};
-
-$EnclosingMethodInfo _MethodFinder$1_EnclosingMethodInfo_ = {
-	"com.sun.beans.finder.MethodFinder",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _MethodFinder$1_InnerClassesInfo_[] = {
-	{"com.sun.beans.finder.MethodFinder$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _MethodFinder$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.beans.finder.MethodFinder$1",
-	"com.sun.beans.util.Cache",
-	nullptr,
-	nullptr,
-	_MethodFinder$1_MethodInfo_,
-	"Lcom/sun/beans/util/Cache<Lcom/sun/beans/finder/Signature;Ljava/lang/reflect/Method;>;",
-	&_MethodFinder$1_EnclosingMethodInfo_,
-	_MethodFinder$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.beans.finder.MethodFinder"
-};
-
-$Object* allocate$MethodFinder$1($Class* clazz) {
-	return $of($alloc(MethodFinder$1));
-}
-
 void MethodFinder$1::init$($Cache$Kind* keyKind, $Cache$Kind* valueKind) {
 	$Cache::init$(keyKind, valueKind);
 }
 
 $Method* MethodFinder$1::create($Signature* signature) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	try {
 		$var($String, var$0, $nc(signature)->getName());
 		$var($MethodFinder, finder, $new($MethodFinder, var$0, $(signature->getArgs())));
-		return $MethodFinder::findAccessibleMethod($cast($Method, $(finder->find($($fcast($ExecutableArray, $nc($nc(signature)->getType())->getMethods()))))));
+		return $MethodFinder::findAccessibleMethod($$cast($Method, finder->find($$cast($ExecutableArray, $nc(signature->getType())->getMethods()))));
 	} catch ($Exception& exception) {
 		$throwNew($SignatureException, exception);
 	}
@@ -90,7 +51,39 @@ MethodFinder$1::MethodFinder$1() {
 }
 
 $Class* MethodFinder$1::load$($String* name, bool initialize) {
-	$loadClass(MethodFinder$1, name, initialize, &_MethodFinder$1_ClassInfo_, allocate$MethodFinder$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/beans/util/Cache$Kind;Lcom/sun/beans/util/Cache$Kind;)V", nullptr, 0, $method(MethodFinder$1, init$, void, $Cache$Kind*, $Cache$Kind*)},
+		{"create", "(Lcom/sun/beans/finder/Signature;)Ljava/lang/reflect/Method;", nullptr, $PUBLIC, $virtualMethod(MethodFinder$1, create, $Method*, $Signature*)},
+		{"create", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(MethodFinder$1, create, $Object*, Object$*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.beans.finder.MethodFinder",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.beans.finder.MethodFinder$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.beans.finder.MethodFinder$1",
+		"com.sun.beans.util.Cache",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		"Lcom/sun/beans/util/Cache<Lcom/sun/beans/finder/Signature;Ljava/lang/reflect/Method;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.beans.finder.MethodFinder"
+	};
+	$loadClass(MethodFinder$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MethodFinder$1);
+	});
 	return class$;
 }
 

@@ -87,6 +87,7 @@ public:
 	Type();
 	virtual $Object* clone() override;
 	virtual void finalize() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::com::sun::tools::javac::code::Symbol$TypeSymbol* tsym, ::com::sun::tools::javac::code::TypeMetadata* metadata);
 	virtual $Object* accept(::com::sun::tools::javac::code::Type$Visitor* v, Object$* s);
 	virtual $Object* accept(::javax::lang::model::type::TypeVisitor* v, Object$* p) override;

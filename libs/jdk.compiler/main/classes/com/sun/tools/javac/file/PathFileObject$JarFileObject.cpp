@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/file/PathFileObject$JarFileObject.h>
-
 #include <com/sun/tools/javac/file/BaseFileManager.h>
 #include <com/sun/tools/javac/file/PathFileObject$CannotCreateUriError.h>
 #include <com/sun/tools/javac/file/PathFileObject.h>
@@ -21,56 +20,13 @@ using $Iterable = ::java::lang::Iterable;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $URI = ::java::net::URI;
 using $URISyntaxException = ::java::net::URISyntaxException;
-using $FileSystem = ::java::nio::file::FileSystem;
 using $Path = ::java::nio::file::Path;
-using $Iterator = ::java::util::Iterator;
 
 namespace com {
 	namespace sun {
 		namespace tools {
 			namespace javac {
 				namespace file {
-
-$FieldInfo _PathFileObject$JarFileObject_FieldInfo_[] = {
-	{"userJarPath", "Ljava/nio/file/Path;", nullptr, $PRIVATE | $FINAL, $field(PathFileObject$JarFileObject, userJarPath)},
-	{}
-};
-
-$MethodInfo _PathFileObject$JarFileObject_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/file/BaseFileManager;Ljava/nio/file/Path;Ljava/nio/file/Path;)V", nullptr, $PRIVATE, $method(PathFileObject$JarFileObject, init$, void, $BaseFileManager*, $Path*, $Path*)},
-	{"createJarUri", "(Ljava/nio/file/Path;Ljava/lang/String;)Ljava/net/URI;", nullptr, $PRIVATE | $STATIC, $staticMethod(PathFileObject$JarFileObject, createJarUri, $URI*, $Path*, $String*)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PathFileObject$JarFileObject, getName, $String*)},
-	{"getSibling", "(Ljava/lang/String;)Lcom/sun/tools/javac/file/PathFileObject;", nullptr, 0, $virtualMethod(PathFileObject$JarFileObject, getSibling, $PathFileObject*, $String*)},
-	{"inferBinaryName", "(Ljava/lang/Iterable;)Ljava/lang/String;", "(Ljava/lang/Iterable<+Ljava/nio/file/Path;>;)Ljava/lang/String;", $PUBLIC, $virtualMethod(PathFileObject$JarFileObject, inferBinaryName, $String*, $Iterable*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PathFileObject$JarFileObject, toString, $String*)},
-	{"toUri", "()Ljava/net/URI;", nullptr, $PUBLIC, $virtualMethod(PathFileObject$JarFileObject, toUri, $URI*)},
-	{}
-};
-
-$InnerClassInfo _PathFileObject$JarFileObject_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.file.PathFileObject$JarFileObject", "com.sun.tools.javac.file.PathFileObject", "JarFileObject", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _PathFileObject$JarFileObject_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.file.PathFileObject$JarFileObject",
-	"com.sun.tools.javac.file.PathFileObject",
-	nullptr,
-	_PathFileObject$JarFileObject_FieldInfo_,
-	_PathFileObject$JarFileObject_MethodInfo_,
-	nullptr,
-	nullptr,
-	_PathFileObject$JarFileObject_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.file.PathFileObject"
-};
-
-$Object* allocate$PathFileObject$JarFileObject($Class* clazz) {
-	return $of($alloc(PathFileObject$JarFileObject));
-}
 
 void PathFileObject$JarFileObject::init$($BaseFileManager* fileManager, $Path* path, $Path* userJarPath) {
 	$PathFileObject::init$(fileManager, path);
@@ -82,8 +38,8 @@ $String* PathFileObject$JarFileObject::getName() {
 }
 
 $String* PathFileObject$JarFileObject::inferBinaryName($Iterable* paths) {
-	$useLocalCurrentObjectStackCache();
-	$var($Path, root, $cast($Path, $nc($($nc($($nc($($nc(this->path)->getFileSystem()))->getRootDirectories()))->iterator()))->next()));
+	$useLocalObjectStack();
+	$var($Path, root, $cast($Path, $$nc($$nc($$nc($nc(this->path)->getFileSystem())->getRootDirectories())->iterator())->next()));
 	return toBinaryName($($nc(root)->relativize(this->path)));
 }
 
@@ -101,8 +57,8 @@ $PathFileObject* PathFileObject$JarFileObject::getSibling($String* baseName) {
 
 $URI* PathFileObject$JarFileObject::createJarUri($Path* jarFile, $String* entryName) {
 	$init(PathFileObject$JarFileObject);
-	$useLocalCurrentObjectStackCache();
-	$var($URI, jarURI, $nc($($nc(jarFile)->toUri()))->normalize());
+	$useLocalObjectStack();
+	$var($URI, jarURI, $$nc($nc(jarFile)->toUri())->normalize());
 	$var($String, separator, $nc(entryName)->startsWith("/"_s) ? "!"_s : "!/"_s);
 	try {
 		return $new($URI, $$str({"jar:"_s, jarURI, separator, entryName}));
@@ -116,7 +72,42 @@ PathFileObject$JarFileObject::PathFileObject$JarFileObject() {
 }
 
 $Class* PathFileObject$JarFileObject::load$($String* name, bool initialize) {
-	$loadClass(PathFileObject$JarFileObject, name, initialize, &_PathFileObject$JarFileObject_ClassInfo_, allocate$PathFileObject$JarFileObject);
+	$FieldInfo fieldInfos$$[] = {
+		{"userJarPath", "Ljava/nio/file/Path;", nullptr, $PRIVATE | $FINAL, $field(PathFileObject$JarFileObject, userJarPath)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/file/BaseFileManager;Ljava/nio/file/Path;Ljava/nio/file/Path;)V", nullptr, $PRIVATE, $method(PathFileObject$JarFileObject, init$, void, $BaseFileManager*, $Path*, $Path*)},
+		{"createJarUri", "(Ljava/nio/file/Path;Ljava/lang/String;)Ljava/net/URI;", nullptr, $PRIVATE | $STATIC, $staticMethod(PathFileObject$JarFileObject, createJarUri, $URI*, $Path*, $String*)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PathFileObject$JarFileObject, getName, $String*)},
+		{"getSibling", "(Ljava/lang/String;)Lcom/sun/tools/javac/file/PathFileObject;", nullptr, 0, $virtualMethod(PathFileObject$JarFileObject, getSibling, $PathFileObject*, $String*)},
+		{"inferBinaryName", "(Ljava/lang/Iterable;)Ljava/lang/String;", "(Ljava/lang/Iterable<+Ljava/nio/file/Path;>;)Ljava/lang/String;", $PUBLIC, $virtualMethod(PathFileObject$JarFileObject, inferBinaryName, $String*, $Iterable*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PathFileObject$JarFileObject, toString, $String*)},
+		{"toUri", "()Ljava/net/URI;", nullptr, $PUBLIC, $virtualMethod(PathFileObject$JarFileObject, toUri, $URI*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.file.PathFileObject$JarFileObject", "com.sun.tools.javac.file.PathFileObject", "JarFileObject", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.file.PathFileObject$JarFileObject",
+		"com.sun.tools.javac.file.PathFileObject",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.file.PathFileObject"
+	};
+	$loadClass(PathFileObject$JarFileObject, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PathFileObject$JarFileObject);
+	});
 	return class$;
 }
 

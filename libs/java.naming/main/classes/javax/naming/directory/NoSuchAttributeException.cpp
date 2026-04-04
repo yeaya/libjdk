@@ -1,5 +1,4 @@
 #include <javax/naming/directory/NoSuchAttributeException.h>
-
 #include <javax/naming/NamingException.h>
 #include <jcpp.h>
 
@@ -11,30 +10,6 @@ using $NamingException = ::javax::naming::NamingException;
 namespace javax {
 	namespace naming {
 		namespace directory {
-
-$FieldInfo _NoSuchAttributeException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NoSuchAttributeException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _NoSuchAttributeException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(NoSuchAttributeException, init$, void, $String*)},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(NoSuchAttributeException, init$, void)},
-	{}
-};
-
-$ClassInfo _NoSuchAttributeException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.naming.directory.NoSuchAttributeException",
-	"javax.naming.NamingException",
-	nullptr,
-	_NoSuchAttributeException_FieldInfo_,
-	_NoSuchAttributeException_MethodInfo_
-};
-
-$Object* allocate$NoSuchAttributeException($Class* clazz) {
-	return $of($alloc(NoSuchAttributeException));
-}
 
 void NoSuchAttributeException::init$($String* explanation) {
 	$NamingException::init$(explanation);
@@ -55,7 +30,26 @@ void NoSuchAttributeException::throw$() {
 }
 
 $Class* NoSuchAttributeException::load$($String* name, bool initialize) {
-	$loadClass(NoSuchAttributeException, name, initialize, &_NoSuchAttributeException_ClassInfo_, allocate$NoSuchAttributeException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NoSuchAttributeException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(NoSuchAttributeException, init$, void, $String*)},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(NoSuchAttributeException, init$, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.naming.directory.NoSuchAttributeException",
+		"javax.naming.NamingException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(NoSuchAttributeException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(NoSuchAttributeException);
+	});
 	return class$;
 }
 

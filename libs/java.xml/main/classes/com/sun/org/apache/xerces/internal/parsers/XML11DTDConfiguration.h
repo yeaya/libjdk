@@ -229,6 +229,7 @@ class XML11DTDConfiguration : public ::com::sun::org::apache::xerces::internal::
 	$class(XML11DTDConfiguration, 0, ::com::sun::org::apache::xerces::internal::util::ParserConfigurationSettings, ::com::sun::org::apache::xerces::internal::xni::parser::XMLPullParserConfiguration, ::com::sun::org::apache::xerces::internal::parsers::XML11Configurable)
 public:
 	XML11DTDConfiguration();
+	static void clinit$(::java::lang::Class* clazz);
 	virtual void addRecognizedFeatures($StringArray* featureIds) override;
 	virtual void addRecognizedProperties($StringArray* propertyIds) override;
 	virtual $Object* clone() override;

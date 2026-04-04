@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/Flow$BaseAnalyzer$JumpKind$2.h>
-
 #include <com/sun/tools/javac/comp/Flow$BaseAnalyzer$JumpKind.h>
 #include <com/sun/tools/javac/tree/JCTree$JCContinue.h>
 #include <com/sun/tools/javac/tree/JCTree$Tag.h>
@@ -21,58 +20,52 @@ namespace com {
 			namespace javac {
 				namespace comp {
 
-$MethodInfo _Flow$BaseAnalyzer$JumpKind$2_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;ILcom/sun/tools/javac/tree/JCTree$Tag;)V", nullptr, $PRIVATE, $method(Flow$BaseAnalyzer$JumpKind$2, init$, void, $String*, int32_t, $JCTree$Tag*)},
-	{"getTarget", "(Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/tree/JCTree;", nullptr, 0, $virtualMethod(Flow$BaseAnalyzer$JumpKind$2, getTarget, $JCTree*, $JCTree*)},
-	{}
-};
-
-$EnclosingMethodInfo _Flow$BaseAnalyzer$JumpKind$2_EnclosingMethodInfo_ = {
-	"com.sun.tools.javac.comp.Flow$BaseAnalyzer$JumpKind",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _Flow$BaseAnalyzer$JumpKind$2_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.Flow$BaseAnalyzer", "com.sun.tools.javac.comp.Flow", "BaseAnalyzer", $STATIC | $ABSTRACT},
-	{"com.sun.tools.javac.comp.Flow$BaseAnalyzer$JumpKind", "com.sun.tools.javac.comp.Flow$BaseAnalyzer", "JumpKind", $STATIC | $ABSTRACT | $ENUM},
-	{"com.sun.tools.javac.comp.Flow$BaseAnalyzer$JumpKind$2", nullptr, nullptr, $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _Flow$BaseAnalyzer$JumpKind$2_ClassInfo_ = {
-	$FINAL | $ACC_SUPER | $ENUM,
-	"com.sun.tools.javac.comp.Flow$BaseAnalyzer$JumpKind$2",
-	"com.sun.tools.javac.comp.Flow$BaseAnalyzer$JumpKind",
-	nullptr,
-	nullptr,
-	_Flow$BaseAnalyzer$JumpKind$2_MethodInfo_,
-	nullptr,
-	&_Flow$BaseAnalyzer$JumpKind$2_EnclosingMethodInfo_,
-	_Flow$BaseAnalyzer$JumpKind$2_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.Flow"
-};
-
-$Object* allocate$Flow$BaseAnalyzer$JumpKind$2($Class* clazz) {
-	return $of($alloc(Flow$BaseAnalyzer$JumpKind$2));
-}
-
 void Flow$BaseAnalyzer$JumpKind$2::init$($String* $enum$name, int32_t $enum$ordinal, $JCTree$Tag* treeTag) {
 	$Flow$BaseAnalyzer$JumpKind::init$($enum$name, $enum$ordinal, treeTag);
 }
 
 $JCTree* Flow$BaseAnalyzer$JumpKind$2::getTarget($JCTree* tree) {
-	return $nc(($cast($JCTree$JCContinue, tree)))->target;
+	return $nc($cast($JCTree$JCContinue, tree))->target;
 }
 
 Flow$BaseAnalyzer$JumpKind$2::Flow$BaseAnalyzer$JumpKind$2() {
 }
 
 $Class* Flow$BaseAnalyzer$JumpKind$2::load$($String* name, bool initialize) {
-	$loadClass(Flow$BaseAnalyzer$JumpKind$2, name, initialize, &_Flow$BaseAnalyzer$JumpKind$2_ClassInfo_, allocate$Flow$BaseAnalyzer$JumpKind$2);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;ILcom/sun/tools/javac/tree/JCTree$Tag;)V", nullptr, $PRIVATE, $method(Flow$BaseAnalyzer$JumpKind$2, init$, void, $String*, int32_t, $JCTree$Tag*)},
+		{"getTarget", "(Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/tree/JCTree;", nullptr, 0, $virtualMethod(Flow$BaseAnalyzer$JumpKind$2, getTarget, $JCTree*, $JCTree*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.tools.javac.comp.Flow$BaseAnalyzer$JumpKind",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.Flow$BaseAnalyzer", "com.sun.tools.javac.comp.Flow", "BaseAnalyzer", $STATIC | $ABSTRACT},
+		{"com.sun.tools.javac.comp.Flow$BaseAnalyzer$JumpKind", "com.sun.tools.javac.comp.Flow$BaseAnalyzer", "JumpKind", $STATIC | $ABSTRACT | $ENUM},
+		{"com.sun.tools.javac.comp.Flow$BaseAnalyzer$JumpKind$2", nullptr, nullptr, $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER | $ENUM,
+		"com.sun.tools.javac.comp.Flow$BaseAnalyzer$JumpKind$2",
+		"com.sun.tools.javac.comp.Flow$BaseAnalyzer$JumpKind",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.Flow"
+	};
+	$loadClass(Flow$BaseAnalyzer$JumpKind$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Flow$BaseAnalyzer$JumpKind$2));
+	});
 	return class$;
 }
 

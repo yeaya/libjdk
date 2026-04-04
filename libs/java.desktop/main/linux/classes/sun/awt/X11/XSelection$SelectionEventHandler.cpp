@@ -1,5 +1,4 @@
 #include <sun/awt/X11/XSelection$SelectionEventHandler.h>
-
 #include <sun/awt/SunToolkit.h>
 #include <sun/awt/X11/WindowPropertyGetter.h>
 #include <sun/awt/X11/XAtom.h>
@@ -15,7 +14,6 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $WindowPropertyGetter = ::sun::awt::X11::WindowPropertyGetter;
 using $XAtom = ::sun::awt::X11::XAtom;
 using $XConstants = ::sun::awt::X11::XConstants;
 using $XEvent = ::sun::awt::X11::XEvent;
@@ -29,112 +27,71 @@ namespace sun {
 	namespace awt {
 		namespace X11 {
 
-$MethodInfo _XSelection$SelectionEventHandler_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(XSelection$SelectionEventHandler, init$, void)},
-	{"dispatchEvent", "(Lsun/awt/X11/XEvent;)V", nullptr, $PUBLIC, $virtualMethod(XSelection$SelectionEventHandler, dispatchEvent, void, $XEvent*)},
-	{}
-};
-
-$InnerClassInfo _XSelection$SelectionEventHandler_InnerClassesInfo_[] = {
-	{"sun.awt.X11.XSelection$SelectionEventHandler", "sun.awt.X11.XSelection", "SelectionEventHandler", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _XSelection$SelectionEventHandler_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.awt.X11.XSelection$SelectionEventHandler",
-	"java.lang.Object",
-	"sun.awt.X11.XEventDispatcher",
-	nullptr,
-	_XSelection$SelectionEventHandler_MethodInfo_,
-	nullptr,
-	nullptr,
-	_XSelection$SelectionEventHandler_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.awt.X11.XSelection"
-};
-
-$Object* allocate$XSelection$SelectionEventHandler($Class* clazz) {
-	return $of($alloc(XSelection$SelectionEventHandler));
-}
-
 void XSelection$SelectionEventHandler::init$() {
 }
 
 void XSelection$SelectionEventHandler::dispatchEvent($XEvent* ev) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	switch ($nc(ev)->get_type()) {
 	case $XConstants::SelectionNotify:
 		{
-			{
-				$XToolkit::awtLock();
-				{
-					$var($Throwable, var$0, nullptr);
-					try {
-						$var($XSelectionEvent, xse, ev->get_xselection());
-						$init($XSelection);
-						if ($XSelection::propertyGetter != nullptr && $nc(xse)->get_time() == $XSelection::lastRequestServerTime) {
-							int64_t var$1 = xse->get_property();
-							if (var$1 == $nc($XSelection::selectionPropertyAtom)->getAtom()) {
-								$nc($XSelection::propertyGetter)->execute();
-								$assignStatic($XSelection::propertyGetter, nullptr);
-							} else if (xse->get_property() == 0) {
-								$nc($XSelection::propertyGetter)->dispose();
-								$assignStatic($XSelection::propertyGetter, nullptr);
-							}
-						}
-						$XToolkit::awtLockNotifyAll();
-					} catch ($Throwable& var$2) {
-						$assign(var$0, var$2);
-					} /*finally*/ {
-						$XToolkit::awtUnlock();
-					}
-					if (var$0 != nullptr) {
-						$throw(var$0);
+			$XToolkit::awtLock();
+			$var($Throwable, var$0, nullptr);
+			try {
+				$var($XSelectionEvent, xse, ev->get_xselection());
+				$init($XSelection);
+				if ($XSelection::propertyGetter != nullptr && $nc(xse)->get_time() == $XSelection::lastRequestServerTime) {
+					int64_t var$1 = xse->get_property();
+					if (var$1 == $nc($XSelection::selectionPropertyAtom)->getAtom()) {
+						$nc($XSelection::propertyGetter)->execute();
+						$assignStatic($XSelection::propertyGetter, nullptr);
+					} else if (xse->get_property() == 0) {
+						$nc($XSelection::propertyGetter)->dispose();
+						$assignStatic($XSelection::propertyGetter, nullptr);
 					}
 				}
-				break;
+				$XToolkit::awtLockNotifyAll();
+			} catch ($Throwable& var$2) {
+				$assign(var$0, var$2);
+			} /*finally*/ {
+				$XToolkit::awtUnlock();
 			}
+			if (var$0 != nullptr) {
+				$throw(var$0);
+			}
+			break;
 		}
 	case $XConstants::SelectionRequest:
 		{
-			{
-				$var($XSelectionRequestEvent, xsre, ev->get_xselectionrequest());
-				int64_t atom = $nc(xsre)->get_selection();
-				$var($XSelection, selection, $XSelection::getSelection($($XAtom::get(atom))));
-				if (selection != nullptr) {
-					selection->handleSelectionRequest(xsre);
-				}
-				break;
+			$var($XSelectionRequestEvent, xsre, ev->get_xselectionrequest());
+			int64_t atom = $nc(xsre)->get_selection();
+			$var($XSelection, selection, $XSelection::getSelection($($XAtom::get(atom))));
+			if (selection != nullptr) {
+				selection->handleSelectionRequest(xsre);
 			}
+			break;
 		}
 	case $XConstants::SelectionClear:
 		{
-			{
-				$var($XSelectionClearEvent, xsce, ev->get_xselectionclear());
-				int64_t atom = $nc(xsce)->get_selection();
-				$var($XSelection, selection, $XSelection::getSelection($($XAtom::get(atom))));
-				if (selection != nullptr) {
-					selection->lostOwnership();
-				}
-				$XToolkit::awtLock();
-				{
-					$var($Throwable, var$3, nullptr);
-					try {
-						$XToolkit::awtLockNotifyAll();
-					} catch ($Throwable& var$4) {
-						$assign(var$3, var$4);
-					} /*finally*/ {
-						$XToolkit::awtUnlock();
-					}
-					if (var$3 != nullptr) {
-						$throw(var$3);
-					}
-				}
-				break;
+			$var($XSelectionClearEvent, xsce, ev->get_xselectionclear());
+			int64_t atom = $nc(xsce)->get_selection();
+			$var($XSelection, selection, $XSelection::getSelection($($XAtom::get(atom))));
+			if (selection != nullptr) {
+				selection->lostOwnership();
 			}
+			$XToolkit::awtLock();
+			$var($Throwable, var$3, nullptr);
+			try {
+				$XToolkit::awtLockNotifyAll();
+			} catch ($Throwable& var$4) {
+				$assign(var$3, var$4);
+			} /*finally*/ {
+				$XToolkit::awtUnlock();
+			}
+			if (var$3 != nullptr) {
+				$throw(var$3);
+			}
+			break;
 		}
 	}
 }
@@ -143,7 +100,33 @@ XSelection$SelectionEventHandler::XSelection$SelectionEventHandler() {
 }
 
 $Class* XSelection$SelectionEventHandler::load$($String* name, bool initialize) {
-	$loadClass(XSelection$SelectionEventHandler, name, initialize, &_XSelection$SelectionEventHandler_ClassInfo_, allocate$XSelection$SelectionEventHandler);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(XSelection$SelectionEventHandler, init$, void)},
+		{"dispatchEvent", "(Lsun/awt/X11/XEvent;)V", nullptr, $PUBLIC, $virtualMethod(XSelection$SelectionEventHandler, dispatchEvent, void, $XEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.X11.XSelection$SelectionEventHandler", "sun.awt.X11.XSelection", "SelectionEventHandler", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.awt.X11.XSelection$SelectionEventHandler",
+		"java.lang.Object",
+		"sun.awt.X11.XEventDispatcher",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.awt.X11.XSelection"
+	};
+	$loadClass(XSelection$SelectionEventHandler, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XSelection$SelectionEventHandler);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <java/awt/FontFormatException.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -9,29 +8,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace java {
 	namespace awt {
-
-$FieldInfo _FontFormatException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(FontFormatException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _FontFormatException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(FontFormatException, init$, void, $String*)},
-	{}
-};
-
-$ClassInfo _FontFormatException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.awt.FontFormatException",
-	"java.lang.Exception",
-	nullptr,
-	_FontFormatException_FieldInfo_,
-	_FontFormatException_MethodInfo_
-};
-
-$Object* allocate$FontFormatException($Class* clazz) {
-	return $of($alloc(FontFormatException));
-}
 
 void FontFormatException::init$($String* reason) {
 	$Exception::init$(reason);
@@ -48,7 +24,25 @@ void FontFormatException::throw$() {
 }
 
 $Class* FontFormatException::load$($String* name, bool initialize) {
-	$loadClass(FontFormatException, name, initialize, &_FontFormatException_ClassInfo_, allocate$FontFormatException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(FontFormatException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(FontFormatException, init$, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.awt.FontFormatException",
+		"java.lang.Exception",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(FontFormatException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FontFormatException);
+	});
 	return class$;
 }
 

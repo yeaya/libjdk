@@ -1,5 +1,4 @@
 #include <sun/rmi/transport/StreamRemoteCall.h>
-
 #include <java/io/DataInputStream.h>
 #include <java/io/DataOutputStream.h>
 #include <java/io/IOException.h>
@@ -48,7 +47,6 @@ using $IOException = ::java::io::IOException;
 using $ObjectInput = ::java::io::ObjectInput;
 using $ObjectInputFilter = ::java::io::ObjectInputFilter;
 using $ObjectOutput = ::java::io::ObjectOutput;
-using $OutputStream = ::java::io::OutputStream;
 using $Serializable = ::java::io::Serializable;
 using $StreamCorruptedException = ::java::io::StreamCorruptedException;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -66,7 +64,6 @@ using $AccessController = ::java::security::AccessController;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $Log = ::sun::rmi::runtime::Log;
 using $UnicastRef = ::sun::rmi::server::UnicastRef;
-using $Channel = ::sun::rmi::transport::Channel;
 using $Connection = ::sun::rmi::transport::Connection;
 using $ConnectionInputStream = ::sun::rmi::transport::ConnectionInputStream;
 using $ConnectionOutputStream = ::sun::rmi::transport::ConnectionOutputStream;
@@ -86,81 +83,34 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* run() override {
-		 return $of($nc(inst$)->lambda$getInputStream$0());
-	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<StreamRemoteCall$$Lambda$lambda$getInputStream$0>());
+		 return $nc(inst$)->lambda$getInputStream$0();
 	}
 	StreamRemoteCall* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo StreamRemoteCall$$Lambda$lambda$getInputStream$0::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(StreamRemoteCall$$Lambda$lambda$getInputStream$0, inst$)},
-	{}
-};
-$MethodInfo StreamRemoteCall$$Lambda$lambda$getInputStream$0::methodInfos[3] = {
-	{"<init>", "(Lsun/rmi/transport/StreamRemoteCall;)V", nullptr, $PUBLIC, $method(StreamRemoteCall$$Lambda$lambda$getInputStream$0, init$, void, StreamRemoteCall*)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(StreamRemoteCall$$Lambda$lambda$getInputStream$0, run, $Object*)},
-	{}
-};
-$ClassInfo StreamRemoteCall$$Lambda$lambda$getInputStream$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.rmi.transport.StreamRemoteCall$$Lambda$lambda$getInputStream$0",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	fieldInfos,
-	methodInfos
 };
 $Class* StreamRemoteCall$$Lambda$lambda$getInputStream$0::load$($String* name, bool initialize) {
-	$loadClass(StreamRemoteCall$$Lambda$lambda$getInputStream$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(StreamRemoteCall$$Lambda$lambda$getInputStream$0, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/rmi/transport/StreamRemoteCall;)V", nullptr, $PUBLIC, $method(StreamRemoteCall$$Lambda$lambda$getInputStream$0, init$, void, StreamRemoteCall*)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(StreamRemoteCall$$Lambda$lambda$getInputStream$0, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.rmi.transport.StreamRemoteCall$$Lambda$lambda$getInputStream$0",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(StreamRemoteCall$$Lambda$lambda$getInputStream$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(StreamRemoteCall$$Lambda$lambda$getInputStream$0);
+	});
 	return class$;
 }
 $Class* StreamRemoteCall$$Lambda$lambda$getInputStream$0::class$ = nullptr;
-
-$FieldInfo _StreamRemoteCall_FieldInfo_[] = {
-	{"in", "Lsun/rmi/transport/ConnectionInputStream;", nullptr, $PRIVATE, $field(StreamRemoteCall, in)},
-	{"out", "Lsun/rmi/transport/ConnectionOutputStream;", nullptr, $PRIVATE, $field(StreamRemoteCall, out)},
-	{"conn", "Lsun/rmi/transport/Connection;", nullptr, $PRIVATE, $field(StreamRemoteCall, conn)},
-	{"filter", "Ljava/io/ObjectInputFilter;", nullptr, $PRIVATE, $field(StreamRemoteCall, filter)},
-	{"resultStarted", "Z", nullptr, $PRIVATE, $field(StreamRemoteCall, resultStarted)},
-	{"serverException", "Ljava/lang/Exception;", nullptr, $PRIVATE, $field(StreamRemoteCall, serverException)},
-	{}
-};
-
-$MethodInfo _StreamRemoteCall_MethodInfo_[] = {
-	{"<init>", "(Lsun/rmi/transport/Connection;)V", nullptr, $PUBLIC, $method(StreamRemoteCall, init$, void, $Connection*)},
-	{"<init>", "(Lsun/rmi/transport/Connection;Ljava/rmi/server/ObjID;IJ)V", nullptr, $PUBLIC, $method(StreamRemoteCall, init$, void, $Connection*, $ObjID*, int32_t, int64_t), "java.rmi.RemoteException"},
-	{"discardPendingRefs", "()V", nullptr, $PUBLIC, $virtualMethod(StreamRemoteCall, discardPendingRefs, void)},
-	{"done", "()V", nullptr, $PUBLIC, $virtualMethod(StreamRemoteCall, done, void), "java.io.IOException"},
-	{"exceptionReceivedFromServer", "(Ljava/lang/Exception;)V", nullptr, $PROTECTED, $virtualMethod(StreamRemoteCall, exceptionReceivedFromServer, void, $Exception*), "java.lang.Exception"},
-	{"executeCall", "()V", nullptr, $PUBLIC, $virtualMethod(StreamRemoteCall, executeCall, void), "java.lang.Exception"},
-	{"getConnection", "()Lsun/rmi/transport/Connection;", nullptr, $PUBLIC, $virtualMethod(StreamRemoteCall, getConnection, $Connection*)},
-	{"getInputStream", "()Ljava/io/ObjectInput;", nullptr, $PUBLIC, $virtualMethod(StreamRemoteCall, getInputStream, $ObjectInput*), "java.io.IOException"},
-	{"getOutputStream", "()Ljava/io/ObjectOutput;", nullptr, $PUBLIC, $virtualMethod(StreamRemoteCall, getOutputStream, $ObjectOutput*), "java.io.IOException"},
-	{"getOutputStream", "(Z)Ljava/io/ObjectOutput;", nullptr, $PRIVATE, $method(StreamRemoteCall, getOutputStream, $ObjectOutput*, bool), "java.io.IOException"},
-	{"getResultStream", "(Z)Ljava/io/ObjectOutput;", nullptr, $PUBLIC, $virtualMethod(StreamRemoteCall, getResultStream, $ObjectOutput*, bool), "java.io.IOException"},
-	{"getServerException", "()Ljava/lang/Exception;", nullptr, $PUBLIC, $virtualMethod(StreamRemoteCall, getServerException, $Exception*)},
-	{"lambda$getInputStream$0", "()Ljava/lang/Void;", nullptr, $PRIVATE | $SYNTHETIC, $method(StreamRemoteCall, lambda$getInputStream$0, $Void*)},
-	{"releaseInputStream", "()V", nullptr, $PUBLIC, $virtualMethod(StreamRemoteCall, releaseInputStream, void), "java.io.IOException"},
-	{"releaseOutputStream", "()V", nullptr, $PUBLIC, $virtualMethod(StreamRemoteCall, releaseOutputStream, void), "java.io.IOException"},
-	{"setObjectInputFilter", "(Ljava/io/ObjectInputFilter;)V", nullptr, $PUBLIC, $virtualMethod(StreamRemoteCall, setObjectInputFilter, void, $ObjectInputFilter*)},
-	{}
-};
-
-$ClassInfo _StreamRemoteCall_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.rmi.transport.StreamRemoteCall",
-	"java.lang.Object",
-	"java.rmi.server.RemoteCall",
-	_StreamRemoteCall_FieldInfo_,
-	_StreamRemoteCall_MethodInfo_
-};
-
-$Object* allocate$StreamRemoteCall($Class* clazz) {
-	return $of($alloc(StreamRemoteCall));
-}
 
 void StreamRemoteCall::init$($Connection* c) {
 	$set(this, in, nullptr);
@@ -182,11 +132,11 @@ void StreamRemoteCall::init$($Connection* c, $ObjID* id, int32_t op, int64_t has
 		$init($Transport);
 		$init($Log);
 		$nc($Transport::transportLog)->log($Log::VERBOSE, "write remote call header..."_s);
-		$nc($($nc(this->conn)->getOutputStream()))->write((int32_t)$TransportConstants::Call);
+		$$nc($nc(this->conn)->getOutputStream())->write($TransportConstants::Call);
 		getOutputStream();
 		$nc(id)->write(this->out);
 		$nc(this->out)->writeInt(op);
-		$nc(this->out)->writeLong(hash);
+		this->out->writeLong(hash);
 	} catch ($IOException& e) {
 		$throwNew($MarshalException, "Error marshaling call header"_s, e);
 	}
@@ -211,34 +161,30 @@ $ObjectOutput* StreamRemoteCall::getOutputStream(bool resultStream) {
 }
 
 void StreamRemoteCall::releaseOutputStream() {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			if (this->out != nullptr) {
-				{
-					$var($Throwable, var$1, nullptr);
-					try {
-						$nc(this->out)->flush();
-					} catch ($Throwable& var$2) {
-						$assign(var$1, var$2);
-					} /*finally*/ {
-						$nc(this->out)->done();
-					}
-					if (var$1 != nullptr) {
-						$throw(var$1);
-					}
-				}
+	$useLocalObjectStack();
+	$var($Throwable, var$0, nullptr);
+	try {
+		if (this->out != nullptr) {
+			$var($Throwable, var$1, nullptr);
+			try {
+				this->out->flush();
+			} catch ($Throwable& var$2) {
+				$assign(var$1, var$2);
+			} /*finally*/ {
+				this->out->done();
 			}
-			$nc(this->conn)->releaseOutputStream();
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} /*finally*/ {
-			$set(this, out, nullptr);
+			if (var$1 != nullptr) {
+				$throw(var$1);
+			}
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+		$nc(this->conn)->releaseOutputStream();
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} /*finally*/ {
+		$set(this, out, nullptr);
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
@@ -250,7 +196,7 @@ void StreamRemoteCall::setObjectInputFilter($ObjectInputFilter* filter) {
 }
 
 $ObjectInput* StreamRemoteCall::getInputStream() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	if (this->in == nullptr) {
 		$init($Transport);
@@ -258,33 +204,31 @@ $ObjectInput* StreamRemoteCall::getInputStream() {
 		$nc($Transport::transportLog)->log($Log::VERBOSE, "getting input stream"_s);
 		$set(this, in, $new($ConnectionInputStream, $($nc(this->conn)->getInputStream())));
 		if (this->filter != nullptr) {
-			$AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new(StreamRemoteCall$$Lambda$lambda$getInputStream$0, this)));
+			$AccessController::doPrivileged($cast($PrivilegedAction, $$new(StreamRemoteCall$$Lambda$lambda$getInputStream$0, this)));
 		}
 	}
 	return this->in;
 }
 
 void StreamRemoteCall::releaseInputStream() {
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			if (this->in != nullptr) {
-				try {
-					$nc(this->in)->done();
-				} catch ($RuntimeException& e) {
-				}
-				$nc(this->in)->registerRefs();
-				$nc(this->in)->done(this->conn);
+	$var($Throwable, var$0, nullptr);
+	try {
+		if (this->in != nullptr) {
+			try {
+				this->in->done();
+			} catch ($RuntimeException& e) {
 			}
-			$nc(this->conn)->releaseInputStream();
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$set(this, in, nullptr);
+			$nc(this->in)->registerRefs();
+			$nc(this->in)->done(this->conn);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+		$nc(this->conn)->releaseInputStream();
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$set(this, in, nullptr);
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
@@ -293,7 +237,7 @@ void StreamRemoteCall::discardPendingRefs() {
 }
 
 $ObjectOutput* StreamRemoteCall::getResultStream(bool success) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->resultStarted) {
 		$throwNew($StreamCorruptedException, "result already in progress"_s);
 	} else {
@@ -312,83 +256,75 @@ $ObjectOutput* StreamRemoteCall::getResultStream(bool success) {
 }
 
 void StreamRemoteCall::executeCall() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int8_t returnType = 0;
 	$var($DGCAckHandler, ackHandler, nullptr);
-	{
-		$var($Throwable, var$0, nullptr);
+	$var($Throwable, var$0, nullptr);
+	try {
 		try {
-			try {
-				if (this->out != nullptr) {
-					$assign(ackHandler, $nc(this->out)->getDGCAckHandler());
-				}
-				releaseOutputStream();
-				$var($DataInputStream, rd, $new($DataInputStream, $($nc(this->conn)->getInputStream())));
-				int8_t op = rd->readByte();
-				if (op != $TransportConstants::Return) {
-					$init($Transport);
-					$init($Log);
-					if ($nc($Transport::transportLog)->isLoggable($Log::BRIEF)) {
-						$nc($Transport::transportLog)->log($Log::BRIEF, $$str({"transport return code invalid: "_s, $$str(op)}));
-					}
-					$throwNew($UnmarshalException, "Transport return code invalid"_s);
-				}
-				getInputStream();
-				returnType = $nc(this->in)->readByte();
-				$nc(this->in)->readID();
-			} catch ($UnmarshalException& e) {
-				$throw(e);
-			} catch ($IOException& e) {
-				$throwNew($UnmarshalException, "Error unmarshaling return header"_s, e);
+			if (this->out != nullptr) {
+				$assign(ackHandler, this->out->getDGCAckHandler());
 			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			if (ackHandler != nullptr) {
-				ackHandler->release();
-			}
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-	}
-	{
-		$var($Object, ex, nullptr)
-		switch (returnType) {
-		case $TransportConstants::NormalReturn:
-			{
-				break;
-			}
-		case $TransportConstants::ExceptionalReturn:
-			{
-				try {
-					$assign(ex, $nc(this->in)->readObject());
-				} catch ($Exception& e) {
-					discardPendingRefs();
-					$throwNew($UnmarshalException, "Error unmarshaling return"_s, e);
-				}
-				if ($instanceOf($Exception, ex)) {
-					exceptionReceivedFromServer($cast($Exception, ex));
-				} else {
-					discardPendingRefs();
-					$throwNew($UnmarshalException, "Return type not Exception"_s);
-				}
-			}
-		default:
-			{
+			releaseOutputStream();
+			$var($DataInputStream, rd, $new($DataInputStream, $($nc(this->conn)->getInputStream())));
+			int8_t op = rd->readByte();
+			if (op != $TransportConstants::Return) {
 				$init($Transport);
 				$init($Log);
 				if ($nc($Transport::transportLog)->isLoggable($Log::BRIEF)) {
-					$nc($Transport::transportLog)->log($Log::BRIEF, $$str({"return code invalid: "_s, $$str(returnType)}));
+					$Transport::transportLog->log($Log::BRIEF, $$str({"transport return code invalid: "_s, $$str(op)}));
 				}
-				$throwNew($UnmarshalException, "Return code invalid"_s);
+				$throwNew($UnmarshalException, "Transport return code invalid"_s);
 			}
+			getInputStream();
+			returnType = $nc(this->in)->readByte();
+			this->in->readID();
+		} catch ($UnmarshalException& e) {
+			$throw(e);
+		} catch ($IOException& e) {
+			$throwNew($UnmarshalException, "Error unmarshaling return header"_s, e);
+		}
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		if (ackHandler != nullptr) {
+			ackHandler->release();
+		}
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	{
+		$var($Object, ex, nullptr);
+		switch (returnType) {
+		case $TransportConstants::NormalReturn:
+			break;
+		case $TransportConstants::ExceptionalReturn:
+			try {
+				$assign(ex, $nc(this->in)->readObject());
+			} catch ($Exception& e) {
+				discardPendingRefs();
+				$throwNew($UnmarshalException, "Error unmarshaling return"_s, e);
+			}
+			if ($instanceOf($Exception, ex)) {
+				exceptionReceivedFromServer($cast($Exception, ex));
+			} else {
+				discardPendingRefs();
+				$throwNew($UnmarshalException, "Return type not Exception"_s);
+			}
+		default:
+			$init($Transport);
+			$init($Log);
+			if ($nc($Transport::transportLog)->isLoggable($Log::BRIEF)) {
+				$Transport::transportLog->log($Log::BRIEF, $$str({"return code invalid: "_s, $$str(returnType)}));
+			}
+			$throwNew($UnmarshalException, "Return code invalid"_s);
 		}
 	}
 }
 
 void StreamRemoteCall::exceptionReceivedFromServer($Exception* ex) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, serverException, ex);
 	$var($StackTraceElementArray, serverTrace, $nc(ex)->getStackTrace());
 	$var($StackTraceElementArray, clientTrace, ($$new($Throwable))->getStackTrace());
@@ -399,10 +335,14 @@ void StreamRemoteCall::exceptionReceivedFromServer($Exception* ex) {
 	$init($UnicastRef);
 	$init($Log);
 	if ($nc($UnicastRef::clientCallLog)->isLoggable($Log::BRIEF)) {
-		$var($TCPEndpoint, ep, $cast($TCPEndpoint, $nc($($nc(this->conn)->getChannel()))->getEndpoint()));
-		$var($String, var$1, $$str({"outbound call received exception: ["_s, $($nc(ep)->getHost()), ":"_s}));
-		$var($String, var$0, $$concat(var$1, $$str(ep->getPort())));
-		$nc($UnicastRef::clientCallLog)->log($Log::BRIEF, $$concat(var$0, "] exception: "_s), ex);
+		$var($TCPEndpoint, ep, $cast($TCPEndpoint, $$nc($nc(this->conn)->getChannel())->getEndpoint()));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append("outbound call received exception: ["_s);
+		var$0->append($($nc(ep)->getHost()));
+		var$0->append(":"_s);
+		var$0->append(ep->getPort());
+		var$0->append("] exception: "_s);
+		$UnicastRef::clientCallLog->log($Log::BRIEF, $$str(var$0), ex);
 	}
 	$throw(ex);
 }
@@ -425,11 +365,49 @@ StreamRemoteCall::StreamRemoteCall() {
 
 $Class* StreamRemoteCall::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(StreamRemoteCall$$Lambda$lambda$getInputStream$0::classInfo$.name)) {
+		if (name->equals("sun.rmi.transport.StreamRemoteCall$$Lambda$lambda$getInputStream$0")) {
 			return StreamRemoteCall$$Lambda$lambda$getInputStream$0::load$(name, initialize);
 		}
 	}
-	$loadClass(StreamRemoteCall, name, initialize, &_StreamRemoteCall_ClassInfo_, allocate$StreamRemoteCall);
+	$FieldInfo fieldInfos$$[] = {
+		{"in", "Lsun/rmi/transport/ConnectionInputStream;", nullptr, $PRIVATE, $field(StreamRemoteCall, in)},
+		{"out", "Lsun/rmi/transport/ConnectionOutputStream;", nullptr, $PRIVATE, $field(StreamRemoteCall, out)},
+		{"conn", "Lsun/rmi/transport/Connection;", nullptr, $PRIVATE, $field(StreamRemoteCall, conn)},
+		{"filter", "Ljava/io/ObjectInputFilter;", nullptr, $PRIVATE, $field(StreamRemoteCall, filter)},
+		{"resultStarted", "Z", nullptr, $PRIVATE, $field(StreamRemoteCall, resultStarted)},
+		{"serverException", "Ljava/lang/Exception;", nullptr, $PRIVATE, $field(StreamRemoteCall, serverException)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/rmi/transport/Connection;)V", nullptr, $PUBLIC, $method(StreamRemoteCall, init$, void, $Connection*)},
+		{"<init>", "(Lsun/rmi/transport/Connection;Ljava/rmi/server/ObjID;IJ)V", nullptr, $PUBLIC, $method(StreamRemoteCall, init$, void, $Connection*, $ObjID*, int32_t, int64_t), "java.rmi.RemoteException"},
+		{"discardPendingRefs", "()V", nullptr, $PUBLIC, $virtualMethod(StreamRemoteCall, discardPendingRefs, void)},
+		{"done", "()V", nullptr, $PUBLIC, $virtualMethod(StreamRemoteCall, done, void), "java.io.IOException"},
+		{"exceptionReceivedFromServer", "(Ljava/lang/Exception;)V", nullptr, $PROTECTED, $virtualMethod(StreamRemoteCall, exceptionReceivedFromServer, void, $Exception*), "java.lang.Exception"},
+		{"executeCall", "()V", nullptr, $PUBLIC, $virtualMethod(StreamRemoteCall, executeCall, void), "java.lang.Exception"},
+		{"getConnection", "()Lsun/rmi/transport/Connection;", nullptr, $PUBLIC, $virtualMethod(StreamRemoteCall, getConnection, $Connection*)},
+		{"getInputStream", "()Ljava/io/ObjectInput;", nullptr, $PUBLIC, $virtualMethod(StreamRemoteCall, getInputStream, $ObjectInput*), "java.io.IOException"},
+		{"getOutputStream", "()Ljava/io/ObjectOutput;", nullptr, $PUBLIC, $virtualMethod(StreamRemoteCall, getOutputStream, $ObjectOutput*), "java.io.IOException"},
+		{"getOutputStream", "(Z)Ljava/io/ObjectOutput;", nullptr, $PRIVATE, $method(StreamRemoteCall, getOutputStream, $ObjectOutput*, bool), "java.io.IOException"},
+		{"getResultStream", "(Z)Ljava/io/ObjectOutput;", nullptr, $PUBLIC, $virtualMethod(StreamRemoteCall, getResultStream, $ObjectOutput*, bool), "java.io.IOException"},
+		{"getServerException", "()Ljava/lang/Exception;", nullptr, $PUBLIC, $virtualMethod(StreamRemoteCall, getServerException, $Exception*)},
+		{"lambda$getInputStream$0", "()Ljava/lang/Void;", nullptr, $PRIVATE | $SYNTHETIC, $method(StreamRemoteCall, lambda$getInputStream$0, $Void*)},
+		{"releaseInputStream", "()V", nullptr, $PUBLIC, $virtualMethod(StreamRemoteCall, releaseInputStream, void), "java.io.IOException"},
+		{"releaseOutputStream", "()V", nullptr, $PUBLIC, $virtualMethod(StreamRemoteCall, releaseOutputStream, void), "java.io.IOException"},
+		{"setObjectInputFilter", "(Ljava/io/ObjectInputFilter;)V", nullptr, $PUBLIC, $virtualMethod(StreamRemoteCall, setObjectInputFilter, void, $ObjectInputFilter*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.rmi.transport.StreamRemoteCall",
+		"java.lang.Object",
+		"java.rmi.server.RemoteCall",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(StreamRemoteCall, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(StreamRemoteCall);
+	});
 	return class$;
 }
 

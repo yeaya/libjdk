@@ -98,8 +98,8 @@ public:
 	virtual int32_t size();
 	::com::sun::tools::javac::util::Name* typeSig(::com::sun::tools::javac::code::Type* type);
 	virtual void writePool(::java::io::OutputStream* out);
-	static const int32_t MAX_ENTRIES = 0x0000FFFF;
-	static const int32_t MAX_STRING_LENGTH = 0x0000FFFF;
+	static const int32_t MAX_ENTRIES = 0x0000ffff;
+	static const int32_t MAX_STRING_LENGTH = 0x0000ffff;
 	static const int32_t POOL_BUF_SIZE = 32767;
 	::com::sun::tools::javac::code::Types* types = nullptr;
 	::com::sun::tools::javac::util::Names* names = nullptr;

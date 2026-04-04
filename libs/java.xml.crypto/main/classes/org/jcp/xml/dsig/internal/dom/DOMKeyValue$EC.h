@@ -71,6 +71,7 @@ class DOMKeyValue$EC : public ::org::jcp::xml::dsig::internal::dom::DOMKeyValue 
 	$class(DOMKeyValue$EC, 0, ::org::jcp::xml::dsig::internal::dom::DOMKeyValue)
 public:
 	DOMKeyValue$EC();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::security::interfaces::ECPublicKey* ecKey);
 	void init$(::org::w3c::dom::Element* dmElem);
 	static ::java::security::spec::ECPoint* decodePoint($bytes* data, ::java::security::spec::EllipticCurve* curve);

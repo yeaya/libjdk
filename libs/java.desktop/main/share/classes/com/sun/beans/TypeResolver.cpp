@@ -1,5 +1,4 @@
 #include <com/sun/beans/TypeResolver.h>
-
 #include <com/sun/beans/WeakCache.h>
 #include <com/sun/beans/WildcardTypeImpl.h>
 #include <java/lang/AssertionError.h>
@@ -39,46 +38,12 @@ using $HashMap = ::java::util::HashMap;
 using $Iterator = ::java::util::Iterator;
 using $Map = ::java::util::Map;
 using $Map$Entry = ::java::util::Map$Entry;
-using $Set = ::java::util::Set;
 using $GenericArrayTypeImpl = ::sun::reflect::generics::reflectiveObjects::GenericArrayTypeImpl;
 using $ParameterizedTypeImpl = ::sun::reflect::generics::reflectiveObjects::ParameterizedTypeImpl;
 
 namespace com {
 	namespace sun {
 		namespace beans {
-
-$FieldInfo _TypeResolver_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(TypeResolver, $assertionsDisabled)},
-	{"CACHE", "Lcom/sun/beans/WeakCache;", "Lcom/sun/beans/WeakCache<Ljava/lang/reflect/Type;Ljava/util/Map<Ljava/lang/reflect/Type;Ljava/lang/reflect/Type;>;>;", $PRIVATE | $STATIC | $FINAL, $staticField(TypeResolver, CACHE)},
-	{}
-};
-
-$MethodInfo _TypeResolver_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TypeResolver, init$, void)},
-	{"erase", "(Ljava/lang/reflect/Type;)Ljava/lang/Class;", "(Ljava/lang/reflect/Type;)Ljava/lang/Class<*>;", $PUBLIC | $STATIC, $staticMethod(TypeResolver, erase, $Class*, $Type*)},
-	{"erase", "([Ljava/lang/reflect/Type;)[Ljava/lang/Class;", "([Ljava/lang/reflect/Type;)[Ljava/lang/Class<*>;", $PUBLIC | $STATIC, $staticMethod(TypeResolver, erase, $ClassArray*, $TypeArray*)},
-	{"fixGenericArray", "(Ljava/lang/reflect/Type;)Ljava/lang/reflect/Type;", nullptr, $PRIVATE | $STATIC, $staticMethod(TypeResolver, fixGenericArray, $Type*, $Type*)},
-	{"getActualType", "(Ljava/lang/Class;)Ljava/lang/reflect/Type;", "(Ljava/lang/Class<*>;)Ljava/lang/reflect/Type;", $PRIVATE | $STATIC, $staticMethod(TypeResolver, getActualType, $Type*, $Class*)},
-	{"prepare", "(Ljava/util/Map;Ljava/lang/reflect/Type;)V", "(Ljava/util/Map<Ljava/lang/reflect/Type;Ljava/lang/reflect/Type;>;Ljava/lang/reflect/Type;)V", $PRIVATE | $STATIC, $staticMethod(TypeResolver, prepare, void, $Map*, $Type*)},
-	{"resolve", "(Ljava/lang/reflect/Type;Ljava/lang/reflect/Type;)Ljava/lang/reflect/Type;", nullptr, $PUBLIC | $STATIC, $staticMethod(TypeResolver, resolve, $Type*, $Type*, $Type*)},
-	{"resolve", "(Ljava/lang/reflect/Type;[Ljava/lang/reflect/Type;)[Ljava/lang/reflect/Type;", nullptr, $PUBLIC | $STATIC, $staticMethod(TypeResolver, resolve, $TypeArray*, $Type*, $TypeArray*)},
-	{"resolveInClass", "(Ljava/lang/Class;Ljava/lang/reflect/Type;)Ljava/lang/reflect/Type;", "(Ljava/lang/Class<*>;Ljava/lang/reflect/Type;)Ljava/lang/reflect/Type;", $PUBLIC | $STATIC, $staticMethod(TypeResolver, resolveInClass, $Type*, $Class*, $Type*)},
-	{"resolveInClass", "(Ljava/lang/Class;[Ljava/lang/reflect/Type;)[Ljava/lang/reflect/Type;", "(Ljava/lang/Class<*>;[Ljava/lang/reflect/Type;)[Ljava/lang/reflect/Type;", $PUBLIC | $STATIC, $staticMethod(TypeResolver, resolveInClass, $TypeArray*, $Class*, $TypeArray*)},
-	{}
-};
-
-$ClassInfo _TypeResolver_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.beans.TypeResolver",
-	"java.lang.Object",
-	nullptr,
-	_TypeResolver_FieldInfo_,
-	_TypeResolver_MethodInfo_
-};
-
-$Object* allocate$TypeResolver($Class* clazz) {
-	return $of($alloc(TypeResolver));
-}
 
 bool TypeResolver::$assertionsDisabled = false;
 $WeakCache* TypeResolver::CACHE = nullptr;
@@ -98,40 +63,39 @@ $TypeArray* TypeResolver::resolveInClass($Class* inClass, $TypeArray* types) {
 
 $Type* TypeResolver::resolve($Type* actual, $Type* formal) {
 	$init(TypeResolver);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($instanceOf($Class, formal)) {
 		return formal;
 	}
 	if ($instanceOf($GenericArrayType, formal)) {
-		$var($Type, comp, $nc(($cast($GenericArrayType, formal)))->getGenericComponentType());
+		$var($Type, comp, $cast($GenericArrayType, formal)->getGenericComponentType());
 		$assign(comp, resolve(actual, comp));
-		return ($instanceOf($Class, comp)) ? static_cast<$Type*>($of($($1Array::newInstance($cast($Class, comp), 0)))->getClass()) : static_cast<$Type*>($GenericArrayTypeImpl::make(comp));
+		return ($instanceOf($Class, comp)) ? $cast($Type, $($1Array::newInstance($cast($Class, comp), 0))->getClass()) : $cast($Type, $GenericArrayTypeImpl::make(comp));
 	}
 	if ($instanceOf($ParameterizedType, formal)) {
 		$var($ParameterizedType, fpt, $cast($ParameterizedType, formal));
-		$var($TypeArray, actuals, resolve(actual, $($nc(fpt)->getActualTypeArguments())));
-		$Class* var$0 = $cast($Class, $nc(fpt)->getRawType());
-		$var($TypeArray, var$1, actuals);
-		return $ParameterizedTypeImpl::make(var$0, var$1, $(fpt->getOwnerType()));
+		$var($TypeArray, actuals, resolve(actual, $(fpt->getActualTypeArguments())));
+		$Class* var$0 = $cast($Class, fpt->getRawType());
+		return $ParameterizedTypeImpl::make(var$0, actuals, $(fpt->getOwnerType()));
 	}
 	if ($instanceOf($WildcardType, formal)) {
 		$var($WildcardType, fwt, $cast($WildcardType, formal));
-		$var($TypeArray, upper, resolve(actual, $($nc(fwt)->getUpperBounds())));
-		$var($TypeArray, lower, resolve(actual, $($nc(fwt)->getLowerBounds())));
+		$var($TypeArray, upper, resolve(actual, $(fwt->getUpperBounds())));
+		$var($TypeArray, lower, resolve(actual, $(fwt->getLowerBounds())));
 		return $new($WildcardTypeImpl, upper, lower);
 	}
 	if ($instanceOf($TypeVariable, formal)) {
 		$var($Map, map, nullptr);
 		$synchronized(TypeResolver::CACHE) {
-			$assign(map, $cast($Map, $nc(TypeResolver::CACHE)->get(actual)));
+			$assign(map, $cast($Map, TypeResolver::CACHE->get(actual)));
 			if (map == nullptr) {
 				$assign(map, $new($HashMap));
 				prepare(map, actual);
-				$nc(TypeResolver::CACHE)->put(actual, map);
+				TypeResolver::CACHE->put(actual, map);
 			}
 		}
 		$var($Type, result, $cast($Type, $nc(map)->get(formal)));
-		if (result == nullptr || $nc($of(result))->equals(formal)) {
+		if (result == nullptr || result->equals(formal)) {
 			return formal;
 		}
 		$assign(result, fixGenericArray(result));
@@ -142,7 +106,7 @@ $Type* TypeResolver::resolve($Type* actual, $Type* formal) {
 
 $TypeArray* TypeResolver::resolve($Type* actual, $TypeArray* formals) {
 	$init(TypeResolver);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t length = $nc(formals)->length;
 	$var($TypeArray, actuals, $new($TypeArray, length));
 	for (int32_t i = 0; i < length; ++i) {
@@ -153,27 +117,27 @@ $TypeArray* TypeResolver::resolve($Type* actual, $TypeArray* formals) {
 
 $Class* TypeResolver::erase($Type* type) {
 	$init(TypeResolver);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($instanceOf($Class, type)) {
 		return $cast($Class, type);
 	}
 	if ($instanceOf($ParameterizedType, type)) {
 		$var($ParameterizedType, pt, $cast($ParameterizedType, type));
-		return $cast($Class, $nc(pt)->getRawType());
+		return $cast($Class, pt->getRawType());
 	}
 	if ($instanceOf($TypeVariable, type)) {
 		$var($TypeVariable, tv, $cast($TypeVariable, type));
-		$var($TypeArray, bounds, $nc(tv)->getBounds());
-		return (0 < $nc(bounds)->length) ? erase($nc(bounds)->get(0)) : $Object::class$;
+		$var($TypeArray, bounds, tv->getBounds());
+		return (0 < $nc(bounds)->length) ? erase(bounds->get(0)) : $Object::class$;
 	}
 	if ($instanceOf($WildcardType, type)) {
 		$var($WildcardType, wt, $cast($WildcardType, type));
-		$var($TypeArray, bounds, $nc(wt)->getUpperBounds());
-		return (0 < $nc(bounds)->length) ? erase($nc(bounds)->get(0)) : $Object::class$;
+		$var($TypeArray, bounds, wt->getUpperBounds());
+		return (0 < $nc(bounds)->length) ? erase(bounds->get(0)) : $Object::class$;
 	}
 	if ($instanceOf($GenericArrayType, type)) {
 		$var($GenericArrayType, gat, $cast($GenericArrayType, type));
-		return $of($($1Array::newInstance(erase($($nc(gat)->getGenericComponentType())), 0)))->getClass();
+		return $($1Array::newInstance(erase($(gat->getGenericComponentType())), 0))->getClass();
 	}
 	$throwNew($IllegalArgumentException, $$str({"Unknown Type kind: "_s, $nc($of(type))->getClass()}));
 }
@@ -190,10 +154,10 @@ $ClassArray* TypeResolver::erase($TypeArray* types) {
 
 void TypeResolver::prepare($Map* map, $Type* type) {
 	$init(TypeResolver);
-	$useLocalCurrentObjectStackCache();
-	$Class* raw = ($cast($Class, (($instanceOf($Class, type)) ? type : $nc(($cast($ParameterizedType, type)))->getRawType())));
+	$useLocalObjectStack();
+	$Class* raw = $cast($Class, (($instanceOf($Class, type)) ? type : $nc($cast($ParameterizedType, type))->getRawType()));
 	$var($TypeVariableArray, formals, $nc(raw)->getTypeParameters());
-	$var($TypeArray, actuals, ($instanceOf($Class, type)) ? $fcast($TypeArray, formals) : ($cast($ParameterizedType, type))->getActualTypeArguments());
+	$var($TypeArray, actuals, ($instanceOf($Class, type)) ? $cast($TypeArray, formals) : $nc($cast($ParameterizedType, type))->getActualTypeArguments());
 	if (!TypeResolver::$assertionsDisabled && !($nc(formals)->length == $nc(actuals)->length)) {
 		$throwNew($AssertionError);
 	}
@@ -206,23 +170,19 @@ void TypeResolver::prepare($Map* map, $Type* type) {
 	}
 	{
 		$var($TypeArray, arr$, raw->getGenericInterfaces());
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($Type, gInterface, arr$->get(i$));
 			{
 				prepare(map, gInterface);
 			}
 		}
 	}
-	if ($instanceOf($Class, type) && $nc(formals)->length > 0) {
-		{
-			$var($Iterator, i$, $nc($($nc(map)->entrySet()))->iterator());
-			for (; $nc(i$)->hasNext();) {
-				$var($Map$Entry, entry, $cast($Map$Entry, i$->next()));
-				{
-					$nc(entry)->setValue(erase($cast($Type, $(entry->getValue()))));
-				}
+	if ($instanceOf($Class, type) && formals->length > 0) {
+		$var($Iterator, i$, $$nc($nc(map)->entrySet())->iterator());
+		for (; $nc(i$)->hasNext();) {
+			$var($Map$Entry, entry, $cast($Map$Entry, i$->next()));
+			{
+				$nc(entry)->setValue(erase($$cast($Type, $nc(entry)->getValue())));
 			}
 		}
 	}
@@ -230,12 +190,12 @@ void TypeResolver::prepare($Map* map, $Type* type) {
 
 $Type* TypeResolver::fixGenericArray($Type* type) {
 	$init(TypeResolver);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($instanceOf($GenericArrayType, type)) {
-		$var($Type, comp, $nc(($cast($GenericArrayType, type)))->getGenericComponentType());
+		$var($Type, comp, $cast($GenericArrayType, type)->getGenericComponentType());
 		$assign(comp, fixGenericArray(comp));
 		if ($instanceOf($Class, comp)) {
-			return $of($($1Array::newInstance($cast($Class, comp), 0)))->getClass();
+			return $($1Array::newInstance($cast($Class, comp), 0))->getClass();
 		}
 	}
 	return type;
@@ -244,11 +204,11 @@ $Type* TypeResolver::fixGenericArray($Type* type) {
 $Type* TypeResolver::getActualType($Class* inClass) {
 	$init(TypeResolver);
 	$beforeCallerSensitive();
-	$var($TypeArray, params, $fcast($TypeArray, $nc(inClass)->getTypeParameters()));
-	return ($nc(params)->length == 0) ? static_cast<$Type*>(inClass) : static_cast<$Type*>($ParameterizedTypeImpl::make(inClass, params, inClass->getEnclosingClass()));
+	$var($TypeArray, params, $cast($TypeArray, $nc(inClass)->getTypeParameters()));
+	return ($nc(params)->length == 0) ? $cast($Type, inClass) : $cast($Type, $ParameterizedTypeImpl::make(inClass, params, inClass->getEnclosingClass()));
 }
 
-void clinit$TypeResolver($Class* class$) {
+void TypeResolver::clinit$($Class* clazz) {
 	TypeResolver::$assertionsDisabled = !TypeResolver::class$->desiredAssertionStatus();
 	$assignStatic(TypeResolver::CACHE, $new($WeakCache));
 }
@@ -257,7 +217,35 @@ TypeResolver::TypeResolver() {
 }
 
 $Class* TypeResolver::load$($String* name, bool initialize) {
-	$loadClass(TypeResolver, name, initialize, &_TypeResolver_ClassInfo_, clinit$TypeResolver, allocate$TypeResolver);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(TypeResolver, $assertionsDisabled)},
+		{"CACHE", "Lcom/sun/beans/WeakCache;", "Lcom/sun/beans/WeakCache<Ljava/lang/reflect/Type;Ljava/util/Map<Ljava/lang/reflect/Type;Ljava/lang/reflect/Type;>;>;", $PRIVATE | $STATIC | $FINAL, $staticField(TypeResolver, CACHE)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TypeResolver, init$, void)},
+		{"erase", "(Ljava/lang/reflect/Type;)Ljava/lang/Class;", "(Ljava/lang/reflect/Type;)Ljava/lang/Class<*>;", $PUBLIC | $STATIC, $staticMethod(TypeResolver, erase, $Class*, $Type*)},
+		{"erase", "([Ljava/lang/reflect/Type;)[Ljava/lang/Class;", "([Ljava/lang/reflect/Type;)[Ljava/lang/Class<*>;", $PUBLIC | $STATIC, $staticMethod(TypeResolver, erase, $ClassArray*, $TypeArray*)},
+		{"fixGenericArray", "(Ljava/lang/reflect/Type;)Ljava/lang/reflect/Type;", nullptr, $PRIVATE | $STATIC, $staticMethod(TypeResolver, fixGenericArray, $Type*, $Type*)},
+		{"getActualType", "(Ljava/lang/Class;)Ljava/lang/reflect/Type;", "(Ljava/lang/Class<*>;)Ljava/lang/reflect/Type;", $PRIVATE | $STATIC, $staticMethod(TypeResolver, getActualType, $Type*, $Class*)},
+		{"prepare", "(Ljava/util/Map;Ljava/lang/reflect/Type;)V", "(Ljava/util/Map<Ljava/lang/reflect/Type;Ljava/lang/reflect/Type;>;Ljava/lang/reflect/Type;)V", $PRIVATE | $STATIC, $staticMethod(TypeResolver, prepare, void, $Map*, $Type*)},
+		{"resolve", "(Ljava/lang/reflect/Type;Ljava/lang/reflect/Type;)Ljava/lang/reflect/Type;", nullptr, $PUBLIC | $STATIC, $staticMethod(TypeResolver, resolve, $Type*, $Type*, $Type*)},
+		{"resolve", "(Ljava/lang/reflect/Type;[Ljava/lang/reflect/Type;)[Ljava/lang/reflect/Type;", nullptr, $PUBLIC | $STATIC, $staticMethod(TypeResolver, resolve, $TypeArray*, $Type*, $TypeArray*)},
+		{"resolveInClass", "(Ljava/lang/Class;Ljava/lang/reflect/Type;)Ljava/lang/reflect/Type;", "(Ljava/lang/Class<*>;Ljava/lang/reflect/Type;)Ljava/lang/reflect/Type;", $PUBLIC | $STATIC, $staticMethod(TypeResolver, resolveInClass, $Type*, $Class*, $Type*)},
+		{"resolveInClass", "(Ljava/lang/Class;[Ljava/lang/reflect/Type;)[Ljava/lang/reflect/Type;", "(Ljava/lang/Class<*>;[Ljava/lang/reflect/Type;)[Ljava/lang/reflect/Type;", $PUBLIC | $STATIC, $staticMethod(TypeResolver, resolveInClass, $TypeArray*, $Class*, $TypeArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.beans.TypeResolver",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TypeResolver, name, initialize, &classInfo$$, TypeResolver::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(TypeResolver);
+	});
 	return class$;
 }
 

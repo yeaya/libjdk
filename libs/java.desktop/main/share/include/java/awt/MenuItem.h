@@ -51,6 +51,7 @@ public:
 	virtual bool equals(Object$* arg0) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$($String* label);
 	void init$($String* label, ::java::awt::MenuShortcut* s);
@@ -97,7 +98,7 @@ public:
 	$volatile(::java::awt::MenuShortcut*) shortcut = nullptr;
 	static $String* base;
 	static int32_t nameCounter;
-	static const int64_t serialVersionUID = (int64_t)0xFFB2B3D19A69D586;
+	static const int64_t serialVersionUID = (int64_t)0xffb2b3d19a69d586;
 	int32_t menuItemSerializedDataVersion = 0;
 };
 

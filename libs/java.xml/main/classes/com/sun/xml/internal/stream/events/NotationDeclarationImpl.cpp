@@ -1,5 +1,4 @@
 #include <com/sun/xml/internal/stream/events/NotationDeclarationImpl.h>
-
 #include <com/sun/xml/internal/stream/dtd/nonvalidating/XMLNotationDecl.h>
 #include <com/sun/xml/internal/stream/events/DummyEvent.h>
 #include <java/io/Writer.h>
@@ -32,61 +31,6 @@ namespace com {
 			namespace internal {
 				namespace stream {
 					namespace events {
-
-$FieldInfo _NotationDeclarationImpl_FieldInfo_[] = {
-	{"fName", "Ljava/lang/String;", nullptr, 0, $field(NotationDeclarationImpl, fName)},
-	{"fPublicId", "Ljava/lang/String;", nullptr, 0, $field(NotationDeclarationImpl, fPublicId)},
-	{"fSystemId", "Ljava/lang/String;", nullptr, 0, $field(NotationDeclarationImpl, fSystemId)},
-	{}
-};
-
-$MethodInfo _NotationDeclarationImpl_MethodInfo_[] = {
-	{"*asCharacters", "()Ljavax/xml/stream/events/Characters;", nullptr, $PUBLIC},
-	{"*asEndElement", "()Ljavax/xml/stream/events/EndElement;", nullptr, $PUBLIC},
-	{"*asStartElement", "()Ljavax/xml/stream/events/StartElement;", nullptr, $PUBLIC},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*getEventType", "()I", nullptr, $PUBLIC},
-	{"*getLocation", "()Ljavax/xml/stream/Location;", nullptr, $PUBLIC},
-	{"*getSchemaType", "()Ljavax/xml/namespace/QName;", nullptr, $PUBLIC},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(NotationDeclarationImpl, init$, void)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(NotationDeclarationImpl, init$, void, $String*, $String*, $String*)},
-	{"<init>", "(Lcom/sun/xml/internal/stream/dtd/nonvalidating/XMLNotationDecl;)V", nullptr, $PUBLIC, $method(NotationDeclarationImpl, init$, void, $XMLNotationDecl*)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(NotationDeclarationImpl, getName, $String*)},
-	{"getPublicId", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(NotationDeclarationImpl, getPublicId, $String*)},
-	{"getSystemId", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(NotationDeclarationImpl, getSystemId, $String*)},
-	{"*isAttribute", "()Z", nullptr, $PUBLIC},
-	{"*isCharacters", "()Z", nullptr, $PUBLIC},
-	{"*isEndDocument", "()Z", nullptr, $PUBLIC},
-	{"*isEndElement", "()Z", nullptr, $PUBLIC},
-	{"*isEntityReference", "()Z", nullptr, $PUBLIC},
-	{"*isNamespace", "()Z", nullptr, $PUBLIC},
-	{"*isProcessingInstruction", "()Z", nullptr, $PUBLIC},
-	{"*isStartDocument", "()Z", nullptr, $PUBLIC},
-	{"*isStartElement", "()Z", nullptr, $PUBLIC},
-	{"setName", "(Ljava/lang/String;)V", nullptr, 0, $virtualMethod(NotationDeclarationImpl, setName, void, $String*)},
-	{"setPublicId", "(Ljava/lang/String;)V", nullptr, 0, $virtualMethod(NotationDeclarationImpl, setPublicId, void, $String*)},
-	{"setSystemId", "(Ljava/lang/String;)V", nullptr, 0, $virtualMethod(NotationDeclarationImpl, setSystemId, void, $String*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*writeAsEncodedUnicode", "(Ljava/io/Writer;)V", nullptr, $PUBLIC},
-	{"writeAsEncodedUnicodeEx", "(Ljava/io/Writer;)V", nullptr, $PROTECTED, $virtualMethod(NotationDeclarationImpl, writeAsEncodedUnicodeEx, void, $Writer*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _NotationDeclarationImpl_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.xml.internal.stream.events.NotationDeclarationImpl",
-	"com.sun.xml.internal.stream.events.DummyEvent",
-	"javax.xml.stream.events.NotationDeclaration",
-	_NotationDeclarationImpl_FieldInfo_,
-	_NotationDeclarationImpl_MethodInfo_
-};
-
-$Object* allocate$NotationDeclarationImpl($Class* clazz) {
-	return $of($alloc(NotationDeclarationImpl));
-}
 
 int32_t NotationDeclarationImpl::getEventType() {
 	 return this->$DummyEvent::getEventType();
@@ -239,14 +183,64 @@ void NotationDeclarationImpl::writeAsEncodedUnicodeEx($Writer* writer) {
 		writer->write(this->fSystemId);
 		writer->write("\""_s);
 	}
-	writer->write((int32_t)u'>');
+	writer->write(u'>');
 }
 
 NotationDeclarationImpl::NotationDeclarationImpl() {
 }
 
 $Class* NotationDeclarationImpl::load$($String* name, bool initialize) {
-	$loadClass(NotationDeclarationImpl, name, initialize, &_NotationDeclarationImpl_ClassInfo_, allocate$NotationDeclarationImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"fName", "Ljava/lang/String;", nullptr, 0, $field(NotationDeclarationImpl, fName)},
+		{"fPublicId", "Ljava/lang/String;", nullptr, 0, $field(NotationDeclarationImpl, fPublicId)},
+		{"fSystemId", "Ljava/lang/String;", nullptr, 0, $field(NotationDeclarationImpl, fSystemId)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*asCharacters", "()Ljavax/xml/stream/events/Characters;", nullptr, $PUBLIC},
+		{"*asEndElement", "()Ljavax/xml/stream/events/EndElement;", nullptr, $PUBLIC},
+		{"*asStartElement", "()Ljavax/xml/stream/events/StartElement;", nullptr, $PUBLIC},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*getEventType", "()I", nullptr, $PUBLIC},
+		{"*getLocation", "()Ljavax/xml/stream/Location;", nullptr, $PUBLIC},
+		{"*getSchemaType", "()Ljavax/xml/namespace/QName;", nullptr, $PUBLIC},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(NotationDeclarationImpl, init$, void)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(NotationDeclarationImpl, init$, void, $String*, $String*, $String*)},
+		{"<init>", "(Lcom/sun/xml/internal/stream/dtd/nonvalidating/XMLNotationDecl;)V", nullptr, $PUBLIC, $method(NotationDeclarationImpl, init$, void, $XMLNotationDecl*)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(NotationDeclarationImpl, getName, $String*)},
+		{"getPublicId", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(NotationDeclarationImpl, getPublicId, $String*)},
+		{"getSystemId", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(NotationDeclarationImpl, getSystemId, $String*)},
+		{"*isAttribute", "()Z", nullptr, $PUBLIC},
+		{"*isCharacters", "()Z", nullptr, $PUBLIC},
+		{"*isEndDocument", "()Z", nullptr, $PUBLIC},
+		{"*isEndElement", "()Z", nullptr, $PUBLIC},
+		{"*isEntityReference", "()Z", nullptr, $PUBLIC},
+		{"*isNamespace", "()Z", nullptr, $PUBLIC},
+		{"*isProcessingInstruction", "()Z", nullptr, $PUBLIC},
+		{"*isStartDocument", "()Z", nullptr, $PUBLIC},
+		{"*isStartElement", "()Z", nullptr, $PUBLIC},
+		{"setName", "(Ljava/lang/String;)V", nullptr, 0, $virtualMethod(NotationDeclarationImpl, setName, void, $String*)},
+		{"setPublicId", "(Ljava/lang/String;)V", nullptr, 0, $virtualMethod(NotationDeclarationImpl, setPublicId, void, $String*)},
+		{"setSystemId", "(Ljava/lang/String;)V", nullptr, 0, $virtualMethod(NotationDeclarationImpl, setSystemId, void, $String*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*writeAsEncodedUnicode", "(Ljava/io/Writer;)V", nullptr, $PUBLIC},
+		{"writeAsEncodedUnicodeEx", "(Ljava/io/Writer;)V", nullptr, $PROTECTED, $virtualMethod(NotationDeclarationImpl, writeAsEncodedUnicodeEx, void, $Writer*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.xml.internal.stream.events.NotationDeclarationImpl",
+		"com.sun.xml.internal.stream.events.DummyEvent",
+		"javax.xml.stream.events.NotationDeclaration",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(NotationDeclarationImpl, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(NotationDeclarationImpl));
+	});
 	return class$;
 }
 

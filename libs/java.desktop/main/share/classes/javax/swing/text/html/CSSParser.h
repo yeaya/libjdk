@@ -51,6 +51,7 @@ class CSSParser : public ::java::lang::Object {
 	$class(CSSParser, 0, ::java::lang::Object)
 public:
 	CSSParser();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void append(char16_t character);
 	void endBlock(int32_t endToken);

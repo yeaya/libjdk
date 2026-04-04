@@ -57,6 +57,7 @@ class $import DragSource : public ::java::io::Serializable {
 	$class(DragSource, 0, ::java::io::Serializable)
 public:
 	DragSource();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void addDragSourceListener(::java::awt::dnd::DragSourceListener* dsl);
 	virtual void addDragSourceMotionListener(::java::awt::dnd::DragSourceMotionListener* dsml);
@@ -85,7 +86,7 @@ public:
 	virtual void startDrag(::java::awt::dnd::DragGestureEvent* trigger, ::java::awt::Cursor* dragCursor, ::java::awt::Image* dragImage, ::java::awt::Point* dragOffset, ::java::awt::datatransfer::Transferable* transferable, ::java::awt::dnd::DragSourceListener* dsl);
 	virtual void startDrag(::java::awt::dnd::DragGestureEvent* trigger, ::java::awt::Cursor* dragCursor, ::java::awt::datatransfer::Transferable* transferable, ::java::awt::dnd::DragSourceListener* dsl);
 	void writeObject(::java::io::ObjectOutputStream* s);
-	static const int64_t serialVersionUID = (int64_t)0x568B1124D8628632;
+	static const int64_t serialVersionUID = (int64_t)0x568b1124d8628632;
 	static ::java::awt::Cursor* DefaultCopyDrop;
 	static ::java::awt::Cursor* DefaultMoveDrop;
 	static ::java::awt::Cursor* DefaultLinkDrop;

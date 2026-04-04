@@ -1,5 +1,4 @@
 #include <bug6647340.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <java/awt/Dimension.h>
@@ -26,11 +25,9 @@
 
 using $Component = ::java::awt::Component;
 using $Dimension = ::java::awt::Dimension;
-using $Point = ::java::awt::Point;
 using $Robot = ::java::awt::Robot;
 using $Toolkit = ::java::awt::Toolkit;
 using $PropertyVetoException = ::java::beans::PropertyVetoException;
-using $PrintStream = ::java::io::PrintStream;
 using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -41,7 +38,6 @@ using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $JDesktopPane = ::javax::swing::JDesktopPane;
 using $JFrame = ::javax::swing::JFrame;
 using $JInternalFrame = ::javax::swing::JInternalFrame;
-using $JInternalFrame$JDesktopIcon = ::javax::swing::JInternalFrame$JDesktopIcon;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 
 class bug6647340$$Lambda$lambda$main$0 : public $Runnable {
@@ -53,33 +49,29 @@ public:
 	virtual void run() override {
 		bug6647340::lambda$main$0(test);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<bug6647340$$Lambda$lambda$main$0>());
-	}
 	bug6647340* test = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo bug6647340$$Lambda$lambda$main$0::fieldInfos[2] = {
-	{"test", "Lbug6647340;", nullptr, $PUBLIC, $field(bug6647340$$Lambda$lambda$main$0, test)},
-	{}
-};
-$MethodInfo bug6647340$$Lambda$lambda$main$0::methodInfos[3] = {
-	{"<init>", "(Lbug6647340;)V", nullptr, $PUBLIC, $method(bug6647340$$Lambda$lambda$main$0, init$, void, bug6647340*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug6647340$$Lambda$lambda$main$0, run, void)},
-	{}
-};
-$ClassInfo bug6647340$$Lambda$lambda$main$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"bug6647340$$Lambda$lambda$main$0",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	fieldInfos,
-	methodInfos
 };
 $Class* bug6647340$$Lambda$lambda$main$0::load$($String* name, bool initialize) {
-	$loadClass(bug6647340$$Lambda$lambda$main$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"test", "Lbug6647340;", nullptr, $PUBLIC, $field(bug6647340$$Lambda$lambda$main$0, test)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lbug6647340;)V", nullptr, $PUBLIC, $method(bug6647340$$Lambda$lambda$main$0, init$, void, bug6647340*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug6647340$$Lambda$lambda$main$0, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"bug6647340$$Lambda$lambda$main$0",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(bug6647340$$Lambda$lambda$main$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(bug6647340$$Lambda$lambda$main$0);
+	});
 	return class$;
 }
 $Class* bug6647340$$Lambda$lambda$main$0::class$ = nullptr;
@@ -93,33 +85,29 @@ public:
 	virtual void run() override {
 		bug6647340::lambda$main$1(test);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<bug6647340$$Lambda$lambda$main$1$1>());
-	}
 	bug6647340* test = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo bug6647340$$Lambda$lambda$main$1$1::fieldInfos[2] = {
-	{"test", "Lbug6647340;", nullptr, $PUBLIC, $field(bug6647340$$Lambda$lambda$main$1$1, test)},
-	{}
-};
-$MethodInfo bug6647340$$Lambda$lambda$main$1$1::methodInfos[3] = {
-	{"<init>", "(Lbug6647340;)V", nullptr, $PUBLIC, $method(bug6647340$$Lambda$lambda$main$1$1, init$, void, bug6647340*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug6647340$$Lambda$lambda$main$1$1, run, void)},
-	{}
-};
-$ClassInfo bug6647340$$Lambda$lambda$main$1$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"bug6647340$$Lambda$lambda$main$1$1",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	fieldInfos,
-	methodInfos
 };
 $Class* bug6647340$$Lambda$lambda$main$1$1::load$($String* name, bool initialize) {
-	$loadClass(bug6647340$$Lambda$lambda$main$1$1, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"test", "Lbug6647340;", nullptr, $PUBLIC, $field(bug6647340$$Lambda$lambda$main$1$1, test)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lbug6647340;)V", nullptr, $PUBLIC, $method(bug6647340$$Lambda$lambda$main$1$1, init$, void, bug6647340*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug6647340$$Lambda$lambda$main$1$1, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"bug6647340$$Lambda$lambda$main$1$1",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(bug6647340$$Lambda$lambda$main$1$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(bug6647340$$Lambda$lambda$main$1$1);
+	});
 	return class$;
 }
 $Class* bug6647340$$Lambda$lambda$main$1$1::class$ = nullptr;
@@ -133,33 +121,29 @@ public:
 	virtual void run() override {
 		$nc(inst$)->lambda$test1$2();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<bug6647340$$Lambda$lambda$test1$2$2>());
-	}
 	bug6647340* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo bug6647340$$Lambda$lambda$test1$2$2::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(bug6647340$$Lambda$lambda$test1$2$2, inst$)},
-	{}
-};
-$MethodInfo bug6647340$$Lambda$lambda$test1$2$2::methodInfos[3] = {
-	{"<init>", "(Lbug6647340;)V", nullptr, $PUBLIC, $method(bug6647340$$Lambda$lambda$test1$2$2, init$, void, bug6647340*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug6647340$$Lambda$lambda$test1$2$2, run, void)},
-	{}
-};
-$ClassInfo bug6647340$$Lambda$lambda$test1$2$2::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"bug6647340$$Lambda$lambda$test1$2$2",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	fieldInfos,
-	methodInfos
 };
 $Class* bug6647340$$Lambda$lambda$test1$2$2::load$($String* name, bool initialize) {
-	$loadClass(bug6647340$$Lambda$lambda$test1$2$2, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(bug6647340$$Lambda$lambda$test1$2$2, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lbug6647340;)V", nullptr, $PUBLIC, $method(bug6647340$$Lambda$lambda$test1$2$2, init$, void, bug6647340*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug6647340$$Lambda$lambda$test1$2$2, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"bug6647340$$Lambda$lambda$test1$2$2",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(bug6647340$$Lambda$lambda$test1$2$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(bug6647340$$Lambda$lambda$test1$2$2);
+	});
 	return class$;
 }
 $Class* bug6647340$$Lambda$lambda$test1$2$2::class$ = nullptr;
@@ -173,33 +157,29 @@ public:
 	virtual void run() override {
 		$nc(inst$)->lambda$test2$3();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<bug6647340$$Lambda$lambda$test2$3$3>());
-	}
 	bug6647340* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo bug6647340$$Lambda$lambda$test2$3$3::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(bug6647340$$Lambda$lambda$test2$3$3, inst$)},
-	{}
-};
-$MethodInfo bug6647340$$Lambda$lambda$test2$3$3::methodInfos[3] = {
-	{"<init>", "(Lbug6647340;)V", nullptr, $PUBLIC, $method(bug6647340$$Lambda$lambda$test2$3$3, init$, void, bug6647340*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug6647340$$Lambda$lambda$test2$3$3, run, void)},
-	{}
-};
-$ClassInfo bug6647340$$Lambda$lambda$test2$3$3::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"bug6647340$$Lambda$lambda$test2$3$3",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	fieldInfos,
-	methodInfos
 };
 $Class* bug6647340$$Lambda$lambda$test2$3$3::load$($String* name, bool initialize) {
-	$loadClass(bug6647340$$Lambda$lambda$test2$3$3, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(bug6647340$$Lambda$lambda$test2$3$3, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lbug6647340;)V", nullptr, $PUBLIC, $method(bug6647340$$Lambda$lambda$test2$3$3, init$, void, bug6647340*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug6647340$$Lambda$lambda$test2$3$3, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"bug6647340$$Lambda$lambda$test2$3$3",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(bug6647340$$Lambda$lambda$test2$3$3, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(bug6647340$$Lambda$lambda$test2$3$3);
+	});
 	return class$;
 }
 $Class* bug6647340$$Lambda$lambda$test2$3$3::class$ = nullptr;
@@ -213,33 +193,29 @@ public:
 	virtual void run() override {
 		$nc(inst$)->lambda$test2$4();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<bug6647340$$Lambda$lambda$test2$4$4>());
-	}
 	bug6647340* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo bug6647340$$Lambda$lambda$test2$4$4::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(bug6647340$$Lambda$lambda$test2$4$4, inst$)},
-	{}
-};
-$MethodInfo bug6647340$$Lambda$lambda$test2$4$4::methodInfos[3] = {
-	{"<init>", "(Lbug6647340;)V", nullptr, $PUBLIC, $method(bug6647340$$Lambda$lambda$test2$4$4, init$, void, bug6647340*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug6647340$$Lambda$lambda$test2$4$4, run, void)},
-	{}
-};
-$ClassInfo bug6647340$$Lambda$lambda$test2$4$4::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"bug6647340$$Lambda$lambda$test2$4$4",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	fieldInfos,
-	methodInfos
 };
 $Class* bug6647340$$Lambda$lambda$test2$4$4::load$($String* name, bool initialize) {
-	$loadClass(bug6647340$$Lambda$lambda$test2$4$4, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(bug6647340$$Lambda$lambda$test2$4$4, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lbug6647340;)V", nullptr, $PUBLIC, $method(bug6647340$$Lambda$lambda$test2$4$4, init$, void, bug6647340*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug6647340$$Lambda$lambda$test2$4$4, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"bug6647340$$Lambda$lambda$test2$4$4",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(bug6647340$$Lambda$lambda$test2$4$4, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(bug6647340$$Lambda$lambda$test2$4$4);
+	});
 	return class$;
 }
 $Class* bug6647340$$Lambda$lambda$test2$4$4::class$ = nullptr;
@@ -253,33 +229,29 @@ public:
 	virtual void run() override {
 		$nc(inst$)->lambda$test2$5();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<bug6647340$$Lambda$lambda$test2$5$5>());
-	}
 	bug6647340* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo bug6647340$$Lambda$lambda$test2$5$5::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(bug6647340$$Lambda$lambda$test2$5$5, inst$)},
-	{}
-};
-$MethodInfo bug6647340$$Lambda$lambda$test2$5$5::methodInfos[3] = {
-	{"<init>", "(Lbug6647340;)V", nullptr, $PUBLIC, $method(bug6647340$$Lambda$lambda$test2$5$5, init$, void, bug6647340*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug6647340$$Lambda$lambda$test2$5$5, run, void)},
-	{}
-};
-$ClassInfo bug6647340$$Lambda$lambda$test2$5$5::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"bug6647340$$Lambda$lambda$test2$5$5",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	fieldInfos,
-	methodInfos
 };
 $Class* bug6647340$$Lambda$lambda$test2$5$5::load$($String* name, bool initialize) {
-	$loadClass(bug6647340$$Lambda$lambda$test2$5$5, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(bug6647340$$Lambda$lambda$test2$5$5, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lbug6647340;)V", nullptr, $PUBLIC, $method(bug6647340$$Lambda$lambda$test2$5$5, init$, void, bug6647340*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug6647340$$Lambda$lambda$test2$5$5, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"bug6647340$$Lambda$lambda$test2$5$5",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(bug6647340$$Lambda$lambda$test2$5$5, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(bug6647340$$Lambda$lambda$test2$5$5);
+	});
 	return class$;
 }
 $Class* bug6647340$$Lambda$lambda$test2$5$5::class$ = nullptr;
@@ -293,78 +265,32 @@ public:
 	virtual void run() override {
 		$nc(inst$)->lambda$check1$6();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<bug6647340$$Lambda$lambda$check1$6$6>());
-	}
 	bug6647340* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo bug6647340$$Lambda$lambda$check1$6$6::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(bug6647340$$Lambda$lambda$check1$6$6, inst$)},
-	{}
-};
-$MethodInfo bug6647340$$Lambda$lambda$check1$6$6::methodInfos[3] = {
-	{"<init>", "(Lbug6647340;)V", nullptr, $PUBLIC, $method(bug6647340$$Lambda$lambda$check1$6$6, init$, void, bug6647340*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug6647340$$Lambda$lambda$check1$6$6, run, void)},
-	{}
-};
-$ClassInfo bug6647340$$Lambda$lambda$check1$6$6::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"bug6647340$$Lambda$lambda$check1$6$6",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	fieldInfos,
-	methodInfos
 };
 $Class* bug6647340$$Lambda$lambda$check1$6$6::load$($String* name, bool initialize) {
-	$loadClass(bug6647340$$Lambda$lambda$check1$6$6, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(bug6647340$$Lambda$lambda$check1$6$6, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lbug6647340;)V", nullptr, $PUBLIC, $method(bug6647340$$Lambda$lambda$check1$6$6, init$, void, bug6647340*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug6647340$$Lambda$lambda$check1$6$6, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"bug6647340$$Lambda$lambda$check1$6$6",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(bug6647340$$Lambda$lambda$check1$6$6, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(bug6647340$$Lambda$lambda$check1$6$6);
+	});
 	return class$;
 }
 $Class* bug6647340$$Lambda$lambda$check1$6$6::class$ = nullptr;
-
-$FieldInfo _bug6647340_FieldInfo_[] = {
-	{"frame", "Ljavax/swing/JFrame;", nullptr, $PRIVATE, $field(bug6647340, frame)},
-	{"location", "Ljava/awt/Point;", nullptr, $PRIVATE | $VOLATILE, $field(bug6647340, location)},
-	{"iconloc", "Ljava/awt/Point;", nullptr, $PRIVATE | $VOLATILE, $field(bug6647340, iconloc)},
-	{"jif", "Ljavax/swing/JInternalFrame;", nullptr, $PRIVATE, $field(bug6647340, jif)},
-	{"robot", "Ljava/awt/Robot;", nullptr, $PRIVATE | $STATIC, $staticField(bug6647340, robot)},
-	{}
-};
-
-$MethodInfo _bug6647340_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(bug6647340, init$, void)},
-	{"check1", "()V", nullptr, $PRIVATE, $method(bug6647340, check1, void), "java.lang.Exception"},
-	{"check2", "()V", nullptr, $PRIVATE, $method(bug6647340, check2, void), "java.lang.Exception"},
-	{"lambda$check1$6", "()V", nullptr, $PRIVATE | $SYNTHETIC, $method(bug6647340, lambda$check1$6, void)},
-	{"lambda$main$0", "(Lbug6647340;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(bug6647340, lambda$main$0, void, bug6647340*)},
-	{"lambda$main$1", "(Lbug6647340;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(bug6647340, lambda$main$1, void, bug6647340*)},
-	{"lambda$test1$2", "()V", nullptr, $PRIVATE | $SYNTHETIC, $method(bug6647340, lambda$test1$2, void)},
-	{"lambda$test2$3", "()V", nullptr, $PRIVATE | $SYNTHETIC, $method(bug6647340, lambda$test2$3, void)},
-	{"lambda$test2$4", "()V", nullptr, $PRIVATE | $SYNTHETIC, $method(bug6647340, lambda$test2$4, void)},
-	{"lambda$test2$5", "()V", nullptr, $PRIVATE | $SYNTHETIC, $method(bug6647340, lambda$test2$5, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(bug6647340, main, void, $StringArray*), "java.lang.Exception"},
-	{"setIcon", "(Z)V", nullptr, $PRIVATE, $method(bug6647340, setIcon, void, bool)},
-	{"setupUI", "()V", nullptr, $PRIVATE, $method(bug6647340, setupUI, void)},
-	{"test", "()V", nullptr, $PRIVATE, $method(bug6647340, test, void), "java.lang.Exception"},
-	{"test1", "()V", nullptr, $PRIVATE, $method(bug6647340, test1, void), "java.lang.Exception"},
-	{"test2", "()V", nullptr, $PRIVATE, $method(bug6647340, test2, void), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _bug6647340_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"bug6647340",
-	"java.lang.Object",
-	nullptr,
-	_bug6647340_FieldInfo_,
-	_bug6647340_MethodInfo_
-};
-
-$Object* allocate$bug6647340($Class* clazz) {
-	return $of($alloc(bug6647340));
-}
 
 $Robot* bug6647340::robot = nullptr;
 
@@ -372,42 +298,40 @@ void bug6647340::init$() {
 }
 
 void bug6647340::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init(bug6647340);
 	$assignStatic(bug6647340::robot, $new($Robot));
 	$var(bug6647340, test, $new(bug6647340));
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(bug6647340$$Lambda$lambda$main$0, test)));
-			$nc(bug6647340::robot)->waitForIdle();
-			$nc(bug6647340::robot)->delay(1000);
-			test->test();
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			if (test->frame != nullptr) {
-				$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(bug6647340$$Lambda$lambda$main$1$1, test)));
-			}
+	$var($Throwable, var$0, nullptr);
+	try {
+		$SwingUtilities::invokeAndWait($$new(bug6647340$$Lambda$lambda$main$0, test));
+		$nc(bug6647340::robot)->waitForIdle();
+		$nc(bug6647340::robot)->delay(1000);
+		test->test();
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		if (test->frame != nullptr) {
+			$SwingUtilities::invokeAndWait($$new(bug6647340$$Lambda$lambda$main$1$1, test));
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 void bug6647340::setupUI() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, frame, $new($JFrame));
-	$nc(this->frame)->setDefaultCloseOperation($JFrame::EXIT_ON_CLOSE);
+	this->frame->setDefaultCloseOperation($JFrame::EXIT_ON_CLOSE);
 	$var($JDesktopPane, desktop, $new($JDesktopPane));
-	$nc(this->frame)->add(static_cast<$Component*>(desktop));
+	$nc(this->frame)->add(desktop);
 	$set(this, jif, $new($JInternalFrame, "Internal Frame"_s, true, true, true, true));
-	$nc(this->jif)->setBounds(20, 20, 200, 100);
-	desktop->add(static_cast<$Component*>(this->jif));
+	this->jif->setBounds(20, 20, 200, 100);
+	desktop->add(this->jif);
 	$nc(this->jif)->setVisible(true);
-	$var($Dimension, screen, $nc($($Toolkit::getDefaultToolkit()))->getScreenSize());
-	$nc(this->frame)->setBounds(($nc(screen)->width - 400) / 2, (screen->height - 400) / 2, 400, 400);
+	$var($Dimension, screen, $$nc($Toolkit::getDefaultToolkit())->getScreenSize());
+	$nc(this->frame)->setBounds(($nc(screen)->width - 400) / 2, ($nc(screen)->height - 400) / 2, 400, 400);
 	$nc(this->frame)->setLocationRelativeTo(nullptr);
 	$nc(this->frame)->setVisible(true);
 }
@@ -425,22 +349,22 @@ void bug6647340::test() {
 }
 
 void bug6647340::test1() {
-	$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(bug6647340$$Lambda$lambda$test1$2$2, this)));
+	$SwingUtilities::invokeAndWait($$new(bug6647340$$Lambda$lambda$test1$2$2, this));
 }
 
 void bug6647340::test2() {
-	$useLocalCurrentObjectStackCache();
-	$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(bug6647340$$Lambda$lambda$test2$3$3, this)));
+	$useLocalObjectStack();
+	$SwingUtilities::invokeAndWait($$new(bug6647340$$Lambda$lambda$test2$3$3, this));
 	$nc(bug6647340::robot)->waitForIdle();
 	$nc(bug6647340::robot)->delay(500);
-	$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(bug6647340$$Lambda$lambda$test2$4$4, this)));
+	$SwingUtilities::invokeAndWait($$new(bug6647340$$Lambda$lambda$test2$4$4, this));
 	$nc(bug6647340::robot)->waitForIdle();
 	$nc(bug6647340::robot)->delay(500);
-	$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(bug6647340$$Lambda$lambda$test2$5$5, this)));
+	$SwingUtilities::invokeAndWait($$new(bug6647340$$Lambda$lambda$test2$5$5, this));
 }
 
 void bug6647340::check1() {
-	$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(bug6647340$$Lambda$lambda$check1$6$6, this)));
+	$SwingUtilities::invokeAndWait($$new(bug6647340$$Lambda$lambda$check1$6$6, this));
 	if (!$nc(this->iconloc)->equals(this->location)) {
 		$nc($System::out)->println("First test passed"_s);
 	} else {
@@ -449,7 +373,7 @@ void bug6647340::check1() {
 }
 
 void bug6647340::check2() {
-	$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(bug6647340$$Lambda$lambda$check1$6$6, this)));
+	$SwingUtilities::invokeAndWait($$new(bug6647340$$Lambda$lambda$check1$6$6, this));
 	if ($nc(this->iconloc)->equals(this->location)) {
 		$nc($System::out)->println("Second test passed"_s);
 	} else {
@@ -466,7 +390,7 @@ void bug6647340::setIcon(bool b) {
 }
 
 void bug6647340::lambda$check1$6() {
-	$set(this, iconloc, $nc($($nc(this->jif)->getDesktopIcon()))->getLocation());
+	$set(this, iconloc, $$nc($nc(this->jif)->getDesktopIcon())->getLocation());
 }
 
 void bug6647340::lambda$test2$5() {
@@ -475,7 +399,7 @@ void bug6647340::lambda$test2$5() {
 
 void bug6647340::lambda$test2$4() {
 	$var($Dimension, size, $nc(this->frame)->getSize());
-	$nc(this->frame)->setSize($nc(size)->width - 100, size->height - 100);
+	$nc(this->frame)->setSize($nc(size)->width - 100, $nc(size)->height - 100);
 }
 
 void bug6647340::lambda$test2$3() {
@@ -483,11 +407,11 @@ void bug6647340::lambda$test2$3() {
 }
 
 void bug6647340::lambda$test1$2() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	setIcon(true);
-	$set(this, location, $nc($($nc(this->jif)->getDesktopIcon()))->getLocation());
+	$set(this, location, $$nc($nc(this->jif)->getDesktopIcon())->getLocation());
 	$var($Dimension, size, $nc(this->frame)->getSize());
-	$nc(this->frame)->setSize($nc(size)->width + 100, size->height + 100);
+	$nc(this->frame)->setSize($nc(size)->width + 100, $nc(size)->height + 100);
 }
 
 void bug6647340::lambda$main$1(bug6647340* test) {
@@ -503,29 +427,66 @@ bug6647340::bug6647340() {
 
 $Class* bug6647340::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(bug6647340$$Lambda$lambda$main$0::classInfo$.name)) {
+		if (name->equals("bug6647340$$Lambda$lambda$main$0")) {
 			return bug6647340$$Lambda$lambda$main$0::load$(name, initialize);
 		}
-		if (name->equals(bug6647340$$Lambda$lambda$main$1$1::classInfo$.name)) {
+		if (name->equals("bug6647340$$Lambda$lambda$main$1$1")) {
 			return bug6647340$$Lambda$lambda$main$1$1::load$(name, initialize);
 		}
-		if (name->equals(bug6647340$$Lambda$lambda$test1$2$2::classInfo$.name)) {
+		if (name->equals("bug6647340$$Lambda$lambda$test1$2$2")) {
 			return bug6647340$$Lambda$lambda$test1$2$2::load$(name, initialize);
 		}
-		if (name->equals(bug6647340$$Lambda$lambda$test2$3$3::classInfo$.name)) {
+		if (name->equals("bug6647340$$Lambda$lambda$test2$3$3")) {
 			return bug6647340$$Lambda$lambda$test2$3$3::load$(name, initialize);
 		}
-		if (name->equals(bug6647340$$Lambda$lambda$test2$4$4::classInfo$.name)) {
+		if (name->equals("bug6647340$$Lambda$lambda$test2$4$4")) {
 			return bug6647340$$Lambda$lambda$test2$4$4::load$(name, initialize);
 		}
-		if (name->equals(bug6647340$$Lambda$lambda$test2$5$5::classInfo$.name)) {
+		if (name->equals("bug6647340$$Lambda$lambda$test2$5$5")) {
 			return bug6647340$$Lambda$lambda$test2$5$5::load$(name, initialize);
 		}
-		if (name->equals(bug6647340$$Lambda$lambda$check1$6$6::classInfo$.name)) {
+		if (name->equals("bug6647340$$Lambda$lambda$check1$6$6")) {
 			return bug6647340$$Lambda$lambda$check1$6$6::load$(name, initialize);
 		}
 	}
-	$loadClass(bug6647340, name, initialize, &_bug6647340_ClassInfo_, allocate$bug6647340);
+	$FieldInfo fieldInfos$$[] = {
+		{"frame", "Ljavax/swing/JFrame;", nullptr, $PRIVATE, $field(bug6647340, frame)},
+		{"location", "Ljava/awt/Point;", nullptr, $PRIVATE | $VOLATILE, $field(bug6647340, location)},
+		{"iconloc", "Ljava/awt/Point;", nullptr, $PRIVATE | $VOLATILE, $field(bug6647340, iconloc)},
+		{"jif", "Ljavax/swing/JInternalFrame;", nullptr, $PRIVATE, $field(bug6647340, jif)},
+		{"robot", "Ljava/awt/Robot;", nullptr, $PRIVATE | $STATIC, $staticField(bug6647340, robot)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(bug6647340, init$, void)},
+		{"check1", "()V", nullptr, $PRIVATE, $method(bug6647340, check1, void), "java.lang.Exception"},
+		{"check2", "()V", nullptr, $PRIVATE, $method(bug6647340, check2, void), "java.lang.Exception"},
+		{"lambda$check1$6", "()V", nullptr, $PRIVATE | $SYNTHETIC, $method(bug6647340, lambda$check1$6, void)},
+		{"lambda$main$0", "(Lbug6647340;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(bug6647340, lambda$main$0, void, bug6647340*)},
+		{"lambda$main$1", "(Lbug6647340;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(bug6647340, lambda$main$1, void, bug6647340*)},
+		{"lambda$test1$2", "()V", nullptr, $PRIVATE | $SYNTHETIC, $method(bug6647340, lambda$test1$2, void)},
+		{"lambda$test2$3", "()V", nullptr, $PRIVATE | $SYNTHETIC, $method(bug6647340, lambda$test2$3, void)},
+		{"lambda$test2$4", "()V", nullptr, $PRIVATE | $SYNTHETIC, $method(bug6647340, lambda$test2$4, void)},
+		{"lambda$test2$5", "()V", nullptr, $PRIVATE | $SYNTHETIC, $method(bug6647340, lambda$test2$5, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(bug6647340, main, void, $StringArray*), "java.lang.Exception"},
+		{"setIcon", "(Z)V", nullptr, $PRIVATE, $method(bug6647340, setIcon, void, bool)},
+		{"setupUI", "()V", nullptr, $PRIVATE, $method(bug6647340, setupUI, void)},
+		{"test", "()V", nullptr, $PRIVATE, $method(bug6647340, test, void), "java.lang.Exception"},
+		{"test1", "()V", nullptr, $PRIVATE, $method(bug6647340, test1, void), "java.lang.Exception"},
+		{"test2", "()V", nullptr, $PRIVATE, $method(bug6647340, test2, void), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"bug6647340",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(bug6647340, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(bug6647340);
+	});
 	return class$;
 }
 

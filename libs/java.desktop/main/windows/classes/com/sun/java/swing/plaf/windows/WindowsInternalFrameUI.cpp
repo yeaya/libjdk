@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/windows/WindowsInternalFrameUI.h>
-
 #include <com/sun/java/swing/plaf/windows/WindowsDesktopManager.h>
 #include <com/sun/java/swing/plaf/windows/WindowsInternalFrameTitlePane.h>
 #include <com/sun/java/swing/plaf/windows/WindowsInternalFrameUI$XPBorder.h>
@@ -44,51 +43,6 @@ namespace com {
 				namespace plaf {
 					namespace windows {
 
-$FieldInfo _WindowsInternalFrameUI_FieldInfo_[] = {
-	{"xp", "Lcom/sun/java/swing/plaf/windows/XPStyle;", nullptr, 0, $field(WindowsInternalFrameUI, xp)},
-	{}
-};
-
-$MethodInfo _WindowsInternalFrameUI_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/JInternalFrame;)V", nullptr, $PUBLIC, $method(WindowsInternalFrameUI, init$, void, $JInternalFrame*)},
-	{"access$000", "(Lcom/sun/java/swing/plaf/windows/WindowsInternalFrameUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(WindowsInternalFrameUI, access$000, $JInternalFrame*, WindowsInternalFrameUI*)},
-	{"access$100", "(Lcom/sun/java/swing/plaf/windows/WindowsInternalFrameUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(WindowsInternalFrameUI, access$100, $JInternalFrame*, WindowsInternalFrameUI*)},
-	{"access$200", "(Lcom/sun/java/swing/plaf/windows/WindowsInternalFrameUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(WindowsInternalFrameUI, access$200, $JInternalFrame*, WindowsInternalFrameUI*)},
-	{"access$300", "(Lcom/sun/java/swing/plaf/windows/WindowsInternalFrameUI;)Ljavax/swing/plaf/basic/BasicInternalFrameTitlePane;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(WindowsInternalFrameUI, access$300, $BasicInternalFrameTitlePane*, WindowsInternalFrameUI*)},
-	{"access$400", "(Lcom/sun/java/swing/plaf/windows/WindowsInternalFrameUI;)Ljavax/swing/plaf/basic/BasicInternalFrameTitlePane;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(WindowsInternalFrameUI, access$400, $BasicInternalFrameTitlePane*, WindowsInternalFrameUI*)},
-	{"createDesktopManager", "()Ljavax/swing/DesktopManager;", nullptr, $PROTECTED, $virtualMethod(WindowsInternalFrameUI, createDesktopManager, $DesktopManager*)},
-	{"createNorthPane", "(Ljavax/swing/JInternalFrame;)Ljavax/swing/JComponent;", nullptr, $PROTECTED, $virtualMethod(WindowsInternalFrameUI, createNorthPane, $JComponent*, $JInternalFrame*)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(WindowsInternalFrameUI, createUI, $ComponentUI*, $JComponent*)},
-	{"installDefaults", "()V", nullptr, $PUBLIC, $virtualMethod(WindowsInternalFrameUI, installDefaults, void)},
-	{"installUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(WindowsInternalFrameUI, installUI, void, $JComponent*)},
-	{"uninstallDefaults", "()V", nullptr, $PUBLIC, $virtualMethod(WindowsInternalFrameUI, uninstallDefaults, void)},
-	{}
-};
-
-$InnerClassInfo _WindowsInternalFrameUI_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.windows.WindowsInternalFrameUI$XPBorder", "com.sun.java.swing.plaf.windows.WindowsInternalFrameUI", "XPBorder", $PRIVATE},
-	{}
-};
-
-$ClassInfo _WindowsInternalFrameUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.java.swing.plaf.windows.WindowsInternalFrameUI",
-	"javax.swing.plaf.basic.BasicInternalFrameUI",
-	nullptr,
-	_WindowsInternalFrameUI_FieldInfo_,
-	_WindowsInternalFrameUI_MethodInfo_,
-	nullptr,
-	nullptr,
-	_WindowsInternalFrameUI_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.windows.WindowsInternalFrameUI$XPBorder"
-};
-
-$Object* allocate$WindowsInternalFrameUI($Class* clazz) {
-	return $of($alloc(WindowsInternalFrameUI));
-}
-
 $BasicInternalFrameTitlePane* WindowsInternalFrameUI::access$400(WindowsInternalFrameUI* x0) {
 	$init(WindowsInternalFrameUI);
 	return $nc(x0)->titlePane;
@@ -115,7 +69,7 @@ $JInternalFrame* WindowsInternalFrameUI::access$000(WindowsInternalFrameUI* x0) 
 }
 
 void WindowsInternalFrameUI::installDefaults() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$BasicInternalFrameUI::installDefaults();
 	if (this->xp != nullptr) {
 		$nc(this->frame)->setBorder($$new($WindowsInternalFrameUI$XPBorder, this));
@@ -126,7 +80,6 @@ void WindowsInternalFrameUI::installDefaults() {
 
 void WindowsInternalFrameUI::installUI($JComponent* c) {
 	$BasicInternalFrameUI::installUI(c);
-	$init($Boolean);
 	$LookAndFeel::installProperty(c, "opaque"_s, this->xp == nullptr ? $Boolean::TRUE : $Boolean::FALSE);
 }
 
@@ -158,7 +111,46 @@ WindowsInternalFrameUI::WindowsInternalFrameUI() {
 }
 
 $Class* WindowsInternalFrameUI::load$($String* name, bool initialize) {
-	$loadClass(WindowsInternalFrameUI, name, initialize, &_WindowsInternalFrameUI_ClassInfo_, allocate$WindowsInternalFrameUI);
+	$FieldInfo fieldInfos$$[] = {
+		{"xp", "Lcom/sun/java/swing/plaf/windows/XPStyle;", nullptr, 0, $field(WindowsInternalFrameUI, xp)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/JInternalFrame;)V", nullptr, $PUBLIC, $method(WindowsInternalFrameUI, init$, void, $JInternalFrame*)},
+		{"access$000", "(Lcom/sun/java/swing/plaf/windows/WindowsInternalFrameUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(WindowsInternalFrameUI, access$000, $JInternalFrame*, WindowsInternalFrameUI*)},
+		{"access$100", "(Lcom/sun/java/swing/plaf/windows/WindowsInternalFrameUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(WindowsInternalFrameUI, access$100, $JInternalFrame*, WindowsInternalFrameUI*)},
+		{"access$200", "(Lcom/sun/java/swing/plaf/windows/WindowsInternalFrameUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(WindowsInternalFrameUI, access$200, $JInternalFrame*, WindowsInternalFrameUI*)},
+		{"access$300", "(Lcom/sun/java/swing/plaf/windows/WindowsInternalFrameUI;)Ljavax/swing/plaf/basic/BasicInternalFrameTitlePane;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(WindowsInternalFrameUI, access$300, $BasicInternalFrameTitlePane*, WindowsInternalFrameUI*)},
+		{"access$400", "(Lcom/sun/java/swing/plaf/windows/WindowsInternalFrameUI;)Ljavax/swing/plaf/basic/BasicInternalFrameTitlePane;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(WindowsInternalFrameUI, access$400, $BasicInternalFrameTitlePane*, WindowsInternalFrameUI*)},
+		{"createDesktopManager", "()Ljavax/swing/DesktopManager;", nullptr, $PROTECTED, $virtualMethod(WindowsInternalFrameUI, createDesktopManager, $DesktopManager*)},
+		{"createNorthPane", "(Ljavax/swing/JInternalFrame;)Ljavax/swing/JComponent;", nullptr, $PROTECTED, $virtualMethod(WindowsInternalFrameUI, createNorthPane, $JComponent*, $JInternalFrame*)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(WindowsInternalFrameUI, createUI, $ComponentUI*, $JComponent*)},
+		{"installDefaults", "()V", nullptr, $PUBLIC, $virtualMethod(WindowsInternalFrameUI, installDefaults, void)},
+		{"installUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(WindowsInternalFrameUI, installUI, void, $JComponent*)},
+		{"uninstallDefaults", "()V", nullptr, $PUBLIC, $virtualMethod(WindowsInternalFrameUI, uninstallDefaults, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.windows.WindowsInternalFrameUI$XPBorder", "com.sun.java.swing.plaf.windows.WindowsInternalFrameUI", "XPBorder", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.java.swing.plaf.windows.WindowsInternalFrameUI",
+		"javax.swing.plaf.basic.BasicInternalFrameUI",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.windows.WindowsInternalFrameUI$XPBorder"
+	};
+	$loadClass(WindowsInternalFrameUI, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WindowsInternalFrameUI);
+	});
 	return class$;
 }
 

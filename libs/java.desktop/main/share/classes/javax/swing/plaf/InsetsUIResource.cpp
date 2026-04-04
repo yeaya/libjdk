@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/InsetsUIResource.h>
-
 #include <java/awt/Insets.h>
 #include <jcpp.h>
 
@@ -10,29 +9,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace javax {
 	namespace swing {
 		namespace plaf {
-
-$MethodInfo _InsetsUIResource_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "(IIII)V", nullptr, $PUBLIC, $method(InsetsUIResource, init$, void, int32_t, int32_t, int32_t, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _InsetsUIResource_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.InsetsUIResource",
-	"java.awt.Insets",
-	"javax.swing.plaf.UIResource",
-	nullptr,
-	_InsetsUIResource_MethodInfo_
-};
-
-$Object* allocate$InsetsUIResource($Class* clazz) {
-	return $of($alloc(InsetsUIResource));
-}
 
 bool InsetsUIResource::equals(Object$* obj) {
 	 return this->$Insets::equals(obj);
@@ -62,7 +38,26 @@ InsetsUIResource::InsetsUIResource() {
 }
 
 $Class* InsetsUIResource::load$($String* name, bool initialize) {
-	$loadClass(InsetsUIResource, name, initialize, &_InsetsUIResource_ClassInfo_, allocate$InsetsUIResource);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC},
+		{"<init>", "(IIII)V", nullptr, $PUBLIC, $method(InsetsUIResource, init$, void, int32_t, int32_t, int32_t, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.InsetsUIResource",
+		"java.awt.Insets",
+		"javax.swing.plaf.UIResource",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(InsetsUIResource, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(InsetsUIResource));
+	});
 	return class$;
 }
 

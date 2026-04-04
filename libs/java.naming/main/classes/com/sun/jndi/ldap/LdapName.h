@@ -59,7 +59,7 @@ public:
 	$String* unparsed = nullptr;
 	::java::util::Vector* rdns = nullptr;
 	bool valuesCaseSensitive = false;
-	static const int64_t serialVersionUID = (int64_t)0xE9DB92FB56620714;
+	static const int64_t serialVersionUID = (int64_t)0xe9db92fb56620714;
 };
 
 			} // ldap

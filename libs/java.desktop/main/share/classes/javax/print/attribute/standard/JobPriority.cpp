@@ -1,5 +1,4 @@
 #include <javax/print/attribute/standard/JobPriority.h>
-
 #include <javax/print/attribute/IntegerSyntax.h>
 #include <jcpp.h>
 
@@ -12,36 +11,6 @@ namespace javax {
 	namespace print {
 		namespace attribute {
 			namespace standard {
-
-$FieldInfo _JobPriority_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JobPriority, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _JobPriority_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(JobPriority, init$, void, int32_t)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(JobPriority, equals, bool, Object$*)},
-	{"getCategory", "()Ljava/lang/Class;", "()Ljava/lang/Class<+Ljavax/print/attribute/Attribute;>;", $PUBLIC | $FINAL, $virtualMethod(JobPriority, getCategory, $Class*)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(JobPriority, getName, $String*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _JobPriority_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"javax.print.attribute.standard.JobPriority",
-	"javax.print.attribute.IntegerSyntax",
-	"javax.print.attribute.PrintRequestAttribute,javax.print.attribute.PrintJobAttribute",
-	_JobPriority_FieldInfo_,
-	_JobPriority_MethodInfo_
-};
-
-$Object* allocate$JobPriority($Class* clazz) {
-	return $of($alloc(JobPriority));
-}
 
 int32_t JobPriority::hashCode() {
 	 return this->$IntegerSyntax::hashCode();
@@ -79,7 +48,32 @@ JobPriority::JobPriority() {
 }
 
 $Class* JobPriority::load$($String* name, bool initialize) {
-	$loadClass(JobPriority, name, initialize, &_JobPriority_ClassInfo_, allocate$JobPriority);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JobPriority, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC},
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(JobPriority, init$, void, int32_t)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(JobPriority, equals, bool, Object$*)},
+		{"getCategory", "()Ljava/lang/Class;", "()Ljava/lang/Class<+Ljavax/print/attribute/Attribute;>;", $PUBLIC | $FINAL, $virtualMethod(JobPriority, getCategory, $Class*)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(JobPriority, getName, $String*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"javax.print.attribute.standard.JobPriority",
+		"javax.print.attribute.IntegerSyntax",
+		"javax.print.attribute.PrintRequestAttribute,javax.print.attribute.PrintJobAttribute",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(JobPriority, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JobPriority));
+	});
 	return class$;
 }
 

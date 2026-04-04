@@ -33,6 +33,7 @@ class TIFFStreamMetadata : public ::javax::imageio::metadata::IIOMetadata {
 	$class(TIFFStreamMetadata, 0, ::javax::imageio::metadata::IIOMetadata)
 public:
 	TIFFStreamMetadata();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void fatal(::org::w3c::dom::Node* node, $String* reason);
 	virtual ::org::w3c::dom::Node* getAsTree($String* formatName) override;

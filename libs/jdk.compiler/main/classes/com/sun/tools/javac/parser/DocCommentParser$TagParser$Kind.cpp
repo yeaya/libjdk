@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/parser/DocCommentParser$TagParser$Kind.h>
-
 #include <com/sun/tools/javac/parser/DocCommentParser$TagParser.h>
 #include <com/sun/tools/javac/parser/DocCommentParser.h>
 #include <java/lang/Enum.h>
@@ -21,48 +20,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace parser {
-
-$FieldInfo _DocCommentParser$TagParser$Kind_FieldInfo_[] = {
-	{"INLINE", "Lcom/sun/tools/javac/parser/DocCommentParser$TagParser$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DocCommentParser$TagParser$Kind, INLINE)},
-	{"BLOCK", "Lcom/sun/tools/javac/parser/DocCommentParser$TagParser$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DocCommentParser$TagParser$Kind, BLOCK)},
-	{"EITHER", "Lcom/sun/tools/javac/parser/DocCommentParser$TagParser$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DocCommentParser$TagParser$Kind, EITHER)},
-	{"$VALUES", "[Lcom/sun/tools/javac/parser/DocCommentParser$TagParser$Kind;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(DocCommentParser$TagParser$Kind, $VALUES)},
-	{}
-};
-
-$MethodInfo _DocCommentParser$TagParser$Kind_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/javac/parser/DocCommentParser$TagParser$Kind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(DocCommentParser$TagParser$Kind, $values, $DocCommentParser$TagParser$KindArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(DocCommentParser$TagParser$Kind, init$, void, $String*, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/parser/DocCommentParser$TagParser$Kind;", nullptr, $PUBLIC | $STATIC, $staticMethod(DocCommentParser$TagParser$Kind, valueOf, DocCommentParser$TagParser$Kind*, $String*)},
-	{"values", "()[Lcom/sun/tools/javac/parser/DocCommentParser$TagParser$Kind;", nullptr, $PUBLIC | $STATIC, $staticMethod(DocCommentParser$TagParser$Kind, values, $DocCommentParser$TagParser$KindArray*)},
-	{}
-};
-
-$InnerClassInfo _DocCommentParser$TagParser$Kind_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.parser.DocCommentParser$TagParser", "com.sun.tools.javac.parser.DocCommentParser", "TagParser", $PRIVATE | $STATIC | $ABSTRACT},
-	{"com.sun.tools.javac.parser.DocCommentParser$TagParser$Kind", "com.sun.tools.javac.parser.DocCommentParser$TagParser", "Kind", $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _DocCommentParser$TagParser$Kind_ClassInfo_ = {
-	$FINAL | $ACC_SUPER | $ENUM,
-	"com.sun.tools.javac.parser.DocCommentParser$TagParser$Kind",
-	"java.lang.Enum",
-	nullptr,
-	_DocCommentParser$TagParser$Kind_FieldInfo_,
-	_DocCommentParser$TagParser$Kind_MethodInfo_,
-	"Ljava/lang/Enum<Lcom/sun/tools/javac/parser/DocCommentParser$TagParser$Kind;>;",
-	nullptr,
-	_DocCommentParser$TagParser$Kind_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.parser.DocCommentParser"
-};
-
-$Object* allocate$DocCommentParser$TagParser$Kind($Class* clazz) {
-	return $of($alloc(DocCommentParser$TagParser$Kind));
-}
 
 DocCommentParser$TagParser$Kind* DocCommentParser$TagParser$Kind::INLINE = nullptr;
 DocCommentParser$TagParser$Kind* DocCommentParser$TagParser$Kind::BLOCK = nullptr;
@@ -92,7 +49,7 @@ void DocCommentParser$TagParser$Kind::init$($String* $enum$name, int32_t $enum$o
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$DocCommentParser$TagParser$Kind($Class* class$) {
+void DocCommentParser$TagParser$Kind::clinit$($Class* clazz) {
 	$assignStatic(DocCommentParser$TagParser$Kind::INLINE, $new(DocCommentParser$TagParser$Kind, "INLINE"_s, 0));
 	$assignStatic(DocCommentParser$TagParser$Kind::BLOCK, $new(DocCommentParser$TagParser$Kind, "BLOCK"_s, 1));
 	$assignStatic(DocCommentParser$TagParser$Kind::EITHER, $new(DocCommentParser$TagParser$Kind, "EITHER"_s, 2));
@@ -103,7 +60,43 @@ DocCommentParser$TagParser$Kind::DocCommentParser$TagParser$Kind() {
 }
 
 $Class* DocCommentParser$TagParser$Kind::load$($String* name, bool initialize) {
-	$loadClass(DocCommentParser$TagParser$Kind, name, initialize, &_DocCommentParser$TagParser$Kind_ClassInfo_, clinit$DocCommentParser$TagParser$Kind, allocate$DocCommentParser$TagParser$Kind);
+	$FieldInfo fieldInfos$$[] = {
+		{"INLINE", "Lcom/sun/tools/javac/parser/DocCommentParser$TagParser$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DocCommentParser$TagParser$Kind, INLINE)},
+		{"BLOCK", "Lcom/sun/tools/javac/parser/DocCommentParser$TagParser$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DocCommentParser$TagParser$Kind, BLOCK)},
+		{"EITHER", "Lcom/sun/tools/javac/parser/DocCommentParser$TagParser$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DocCommentParser$TagParser$Kind, EITHER)},
+		{"$VALUES", "[Lcom/sun/tools/javac/parser/DocCommentParser$TagParser$Kind;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(DocCommentParser$TagParser$Kind, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lcom/sun/tools/javac/parser/DocCommentParser$TagParser$Kind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(DocCommentParser$TagParser$Kind, $values, $DocCommentParser$TagParser$KindArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(DocCommentParser$TagParser$Kind, init$, void, $String*, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/parser/DocCommentParser$TagParser$Kind;", nullptr, $PUBLIC | $STATIC, $staticMethod(DocCommentParser$TagParser$Kind, valueOf, DocCommentParser$TagParser$Kind*, $String*)},
+		{"values", "()[Lcom/sun/tools/javac/parser/DocCommentParser$TagParser$Kind;", nullptr, $PUBLIC | $STATIC, $staticMethod(DocCommentParser$TagParser$Kind, values, $DocCommentParser$TagParser$KindArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.parser.DocCommentParser$TagParser", "com.sun.tools.javac.parser.DocCommentParser", "TagParser", $PRIVATE | $STATIC | $ABSTRACT},
+		{"com.sun.tools.javac.parser.DocCommentParser$TagParser$Kind", "com.sun.tools.javac.parser.DocCommentParser$TagParser", "Kind", $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER | $ENUM,
+		"com.sun.tools.javac.parser.DocCommentParser$TagParser$Kind",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lcom/sun/tools/javac/parser/DocCommentParser$TagParser$Kind;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.parser.DocCommentParser"
+	};
+	$loadClass(DocCommentParser$TagParser$Kind, name, initialize, &classInfo$$, DocCommentParser$TagParser$Kind::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DocCommentParser$TagParser$Kind));
+	});
 	return class$;
 }
 

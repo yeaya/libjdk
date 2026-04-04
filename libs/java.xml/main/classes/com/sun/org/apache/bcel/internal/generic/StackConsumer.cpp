@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/bcel/internal/generic/StackConsumer.h>
-
 #include <com/sun/org/apache/bcel/internal/generic/ConstantPoolGen.h>
 #include <jcpp.h>
 
@@ -15,26 +14,22 @@ namespace com {
 					namespace internal {
 						namespace generic {
 
-$MethodInfo _StackConsumer_MethodInfo_[] = {
-	{"consumeStack", "(Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(StackConsumer, consumeStack, int32_t, $ConstantPoolGen*)},
-	{}
-};
-
-$ClassInfo _StackConsumer_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.org.apache.bcel.internal.generic.StackConsumer",
-	nullptr,
-	nullptr,
-	nullptr,
-	_StackConsumer_MethodInfo_
-};
-
-$Object* allocate$StackConsumer($Class* clazz) {
-	return $of($alloc(StackConsumer));
-}
-
 $Class* StackConsumer::load$($String* name, bool initialize) {
-	$loadClass(StackConsumer, name, initialize, &_StackConsumer_ClassInfo_, allocate$StackConsumer);
+	$MethodInfo methodInfos$$[] = {
+		{"consumeStack", "(Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(StackConsumer, consumeStack, int32_t, $ConstantPoolGen*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.org.apache.bcel.internal.generic.StackConsumer",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(StackConsumer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(StackConsumer);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/rowset/providers/RIOptimisticProvider.h>
-
 #include <com/sun/rowset/JdbcRowSetResourceBundle.h>
 #include <com/sun/rowset/internal/CachedRowSetReader.h>
 #include <com/sun/rowset/internal/CachedRowSetWriter.h>
@@ -36,50 +35,6 @@ namespace com {
 		namespace rowset {
 			namespace providers {
 
-$FieldInfo _RIOptimisticProvider_FieldInfo_[] = {
-	{"reader", "Lcom/sun/rowset/internal/CachedRowSetReader;", nullptr, $PRIVATE, $field(RIOptimisticProvider, reader)},
-	{"writer", "Lcom/sun/rowset/internal/CachedRowSetWriter;", nullptr, $PRIVATE, $field(RIOptimisticProvider, writer)},
-	{"providerID", "Ljava/lang/String;", nullptr, $PRIVATE, $field(RIOptimisticProvider, providerID)},
-	{"vendorName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(RIOptimisticProvider, vendorName)},
-	{"versionNumber", "Ljava/lang/String;", nullptr, $PRIVATE, $field(RIOptimisticProvider, versionNumber)},
-	{"resBundle", "Lcom/sun/rowset/JdbcRowSetResourceBundle;", nullptr, $PRIVATE, $field(RIOptimisticProvider, resBundle)},
-	{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(RIOptimisticProvider, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _RIOptimisticProvider_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(RIOptimisticProvider, init$, void)},
-	{"getDataSourceLock", "()I", nullptr, $PUBLIC, $virtualMethod(RIOptimisticProvider, getDataSourceLock, int32_t), "javax.sql.rowset.spi.SyncProviderException"},
-	{"getProviderGrade", "()I", nullptr, $PUBLIC, $virtualMethod(RIOptimisticProvider, getProviderGrade, int32_t)},
-	{"getProviderID", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RIOptimisticProvider, getProviderID, $String*)},
-	{"getRowSetReader", "()Ljavax/sql/RowSetReader;", nullptr, $PUBLIC, $virtualMethod(RIOptimisticProvider, getRowSetReader, $RowSetReader*)},
-	{"getRowSetWriter", "()Ljavax/sql/RowSetWriter;", nullptr, $PUBLIC, $virtualMethod(RIOptimisticProvider, getRowSetWriter, $RowSetWriter*)},
-	{"getVendor", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RIOptimisticProvider, getVendor, $String*)},
-	{"getVersion", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RIOptimisticProvider, getVersion, $String*)},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(RIOptimisticProvider, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"setDataSourceLock", "(I)V", nullptr, $PUBLIC, $virtualMethod(RIOptimisticProvider, setDataSourceLock, void, int32_t), "javax.sql.rowset.spi.SyncProviderException"},
-	{"supportsUpdatableView", "()I", nullptr, $PUBLIC, $virtualMethod(RIOptimisticProvider, supportsUpdatableView, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _RIOptimisticProvider_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.rowset.providers.RIOptimisticProvider",
-	"javax.sql.rowset.spi.SyncProvider",
-	"java.io.Serializable",
-	_RIOptimisticProvider_FieldInfo_,
-	_RIOptimisticProvider_MethodInfo_
-};
-
-$Object* allocate$RIOptimisticProvider($Class* clazz) {
-	return $of($alloc(RIOptimisticProvider));
-}
-
 int32_t RIOptimisticProvider::hashCode() {
 	 return this->$SyncProvider::hashCode();
 }
@@ -111,7 +66,7 @@ void RIOptimisticProvider::init$() {
 	try {
 		$set(this, resBundle, $JdbcRowSetResourceBundle::getJdbcRowSetResourceBundle());
 	} catch ($IOException& ioe) {
-		$throwNew($RuntimeException, static_cast<$Throwable*>(ioe));
+		$throwNew($RuntimeException, ioe);
 	}
 }
 
@@ -136,9 +91,9 @@ int32_t RIOptimisticProvider::getProviderGrade() {
 }
 
 void RIOptimisticProvider::setDataSourceLock(int32_t datasource_lock) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (datasource_lock != $SyncProvider::DATASOURCE_NO_LOCK) {
-		$throwNew($SyncProviderException, $($nc($of($($nc(this->resBundle)->handleGetObject("riop.locking"_s))))->toString()));
+		$throwNew($SyncProviderException, $($$nc($nc(this->resBundle)->handleGetObject("riop.locking"_s))->toString()));
 	}
 }
 
@@ -163,7 +118,7 @@ void RIOptimisticProvider::readObject($ObjectInputStream* ois) {
 	try {
 		$set(this, resBundle, $JdbcRowSetResourceBundle::getJdbcRowSetResourceBundle());
 	} catch ($IOException& ioe) {
-		$throwNew($RuntimeException, static_cast<$Throwable*>(ioe));
+		$throwNew($RuntimeException, ioe);
 	}
 }
 
@@ -171,7 +126,46 @@ RIOptimisticProvider::RIOptimisticProvider() {
 }
 
 $Class* RIOptimisticProvider::load$($String* name, bool initialize) {
-	$loadClass(RIOptimisticProvider, name, initialize, &_RIOptimisticProvider_ClassInfo_, allocate$RIOptimisticProvider);
+	$FieldInfo fieldInfos$$[] = {
+		{"reader", "Lcom/sun/rowset/internal/CachedRowSetReader;", nullptr, $PRIVATE, $field(RIOptimisticProvider, reader)},
+		{"writer", "Lcom/sun/rowset/internal/CachedRowSetWriter;", nullptr, $PRIVATE, $field(RIOptimisticProvider, writer)},
+		{"providerID", "Ljava/lang/String;", nullptr, $PRIVATE, $field(RIOptimisticProvider, providerID)},
+		{"vendorName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(RIOptimisticProvider, vendorName)},
+		{"versionNumber", "Ljava/lang/String;", nullptr, $PRIVATE, $field(RIOptimisticProvider, versionNumber)},
+		{"resBundle", "Lcom/sun/rowset/JdbcRowSetResourceBundle;", nullptr, $PRIVATE, $field(RIOptimisticProvider, resBundle)},
+		{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(RIOptimisticProvider, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(RIOptimisticProvider, init$, void)},
+		{"getDataSourceLock", "()I", nullptr, $PUBLIC, $virtualMethod(RIOptimisticProvider, getDataSourceLock, int32_t), "javax.sql.rowset.spi.SyncProviderException"},
+		{"getProviderGrade", "()I", nullptr, $PUBLIC, $virtualMethod(RIOptimisticProvider, getProviderGrade, int32_t)},
+		{"getProviderID", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RIOptimisticProvider, getProviderID, $String*)},
+		{"getRowSetReader", "()Ljavax/sql/RowSetReader;", nullptr, $PUBLIC, $virtualMethod(RIOptimisticProvider, getRowSetReader, $RowSetReader*)},
+		{"getRowSetWriter", "()Ljavax/sql/RowSetWriter;", nullptr, $PUBLIC, $virtualMethod(RIOptimisticProvider, getRowSetWriter, $RowSetWriter*)},
+		{"getVendor", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RIOptimisticProvider, getVendor, $String*)},
+		{"getVersion", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RIOptimisticProvider, getVersion, $String*)},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(RIOptimisticProvider, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+		{"setDataSourceLock", "(I)V", nullptr, $PUBLIC, $virtualMethod(RIOptimisticProvider, setDataSourceLock, void, int32_t), "javax.sql.rowset.spi.SyncProviderException"},
+		{"supportsUpdatableView", "()I", nullptr, $PUBLIC, $virtualMethod(RIOptimisticProvider, supportsUpdatableView, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.rowset.providers.RIOptimisticProvider",
+		"javax.sql.rowset.spi.SyncProvider",
+		"java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(RIOptimisticProvider, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(RIOptimisticProvider));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <javax/swing/Spring$HeightSpring.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Dimension.h>
 #include <java/lang/Math.h>
@@ -21,45 +20,6 @@ using $Spring$AbstractSpring = ::javax::swing::Spring$AbstractSpring;
 namespace javax {
 	namespace swing {
 
-$FieldInfo _Spring$HeightSpring_FieldInfo_[] = {
-	{"c", "Ljava/awt/Component;", nullptr, 0, $field(Spring$HeightSpring, c)},
-	{}
-};
-
-$MethodInfo _Spring$HeightSpring_MethodInfo_[] = {
-	{"<init>", "(Ljava/awt/Component;)V", nullptr, $PUBLIC, $method(Spring$HeightSpring, init$, void, $Component*)},
-	{"getMaximumValue", "()I", nullptr, $PUBLIC, $virtualMethod(Spring$HeightSpring, getMaximumValue, int32_t)},
-	{"getMinimumValue", "()I", nullptr, $PUBLIC, $virtualMethod(Spring$HeightSpring, getMinimumValue, int32_t)},
-	{"getPreferredValue", "()I", nullptr, $PUBLIC, $virtualMethod(Spring$HeightSpring, getPreferredValue, int32_t)},
-	{}
-};
-
-$InnerClassInfo _Spring$HeightSpring_InnerClassesInfo_[] = {
-	{"javax.swing.Spring$HeightSpring", "javax.swing.Spring", "HeightSpring", $STATIC},
-	{"javax.swing.Spring$AbstractSpring", "javax.swing.Spring", "AbstractSpring", $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Spring$HeightSpring_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.Spring$HeightSpring",
-	"javax.swing.Spring$AbstractSpring",
-	nullptr,
-	_Spring$HeightSpring_FieldInfo_,
-	_Spring$HeightSpring_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Spring$HeightSpring_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.Spring"
-};
-
-$Object* allocate$Spring$HeightSpring($Class* clazz) {
-	return $of($alloc(Spring$HeightSpring));
-}
-
 void Spring$HeightSpring::init$($Component* c) {
 	$Spring$AbstractSpring::init$();
 	$set(this, c, c);
@@ -74,14 +34,47 @@ int32_t Spring$HeightSpring::getPreferredValue() {
 }
 
 int32_t Spring$HeightSpring::getMaximumValue() {
-	return $Math::min((int32_t)$Short::MAX_VALUE, $nc($($nc(this->c)->getMaximumSize()))->height);
+	return $Math::min($Short::MAX_VALUE, $nc($($nc(this->c)->getMaximumSize()))->height);
 }
 
 Spring$HeightSpring::Spring$HeightSpring() {
 }
 
 $Class* Spring$HeightSpring::load$($String* name, bool initialize) {
-	$loadClass(Spring$HeightSpring, name, initialize, &_Spring$HeightSpring_ClassInfo_, allocate$Spring$HeightSpring);
+	$FieldInfo fieldInfos$$[] = {
+		{"c", "Ljava/awt/Component;", nullptr, 0, $field(Spring$HeightSpring, c)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/Component;)V", nullptr, $PUBLIC, $method(Spring$HeightSpring, init$, void, $Component*)},
+		{"getMaximumValue", "()I", nullptr, $PUBLIC, $virtualMethod(Spring$HeightSpring, getMaximumValue, int32_t)},
+		{"getMinimumValue", "()I", nullptr, $PUBLIC, $virtualMethod(Spring$HeightSpring, getMinimumValue, int32_t)},
+		{"getPreferredValue", "()I", nullptr, $PUBLIC, $virtualMethod(Spring$HeightSpring, getPreferredValue, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.Spring$HeightSpring", "javax.swing.Spring", "HeightSpring", $STATIC},
+		{"javax.swing.Spring$AbstractSpring", "javax.swing.Spring", "AbstractSpring", $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.Spring$HeightSpring",
+		"javax.swing.Spring$AbstractSpring",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.Spring"
+	};
+	$loadClass(Spring$HeightSpring, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Spring$HeightSpring);
+	});
 	return class$;
 }
 

@@ -44,6 +44,7 @@ class BaseEntry$CatalogEntryType : public ::java::lang::Enum {
 public:
 	BaseEntry$CatalogEntryType();
 	static $Array<::javax::xml::catalog::BaseEntry$CatalogEntryType>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal, $String* literal);
 	static ::javax::xml::catalog::BaseEntry$CatalogEntryType* getType($String* entryType);
 	virtual bool isType($String* type);

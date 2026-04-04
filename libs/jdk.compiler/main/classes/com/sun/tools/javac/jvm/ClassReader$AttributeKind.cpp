@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/jvm/ClassReader$AttributeKind.h>
-
 #include <com/sun/tools/javac/jvm/ClassReader.h>
 #include <java/lang/Enum.h>
 #include <jcpp.h>
@@ -19,46 +18,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace jvm {
-
-$FieldInfo _ClassReader$AttributeKind_FieldInfo_[] = {
-	{"CLASS", "Lcom/sun/tools/javac/jvm/ClassReader$AttributeKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ClassReader$AttributeKind, CLASS)},
-	{"MEMBER", "Lcom/sun/tools/javac/jvm/ClassReader$AttributeKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ClassReader$AttributeKind, MEMBER)},
-	{"$VALUES", "[Lcom/sun/tools/javac/jvm/ClassReader$AttributeKind;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(ClassReader$AttributeKind, $VALUES)},
-	{}
-};
-
-$MethodInfo _ClassReader$AttributeKind_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/javac/jvm/ClassReader$AttributeKind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ClassReader$AttributeKind, $values, $ClassReader$AttributeKindArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(ClassReader$AttributeKind, init$, void, $String*, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/jvm/ClassReader$AttributeKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(ClassReader$AttributeKind, valueOf, ClassReader$AttributeKind*, $String*)},
-	{"values", "()[Lcom/sun/tools/javac/jvm/ClassReader$AttributeKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(ClassReader$AttributeKind, values, $ClassReader$AttributeKindArray*)},
-	{}
-};
-
-$InnerClassInfo _ClassReader$AttributeKind_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.jvm.ClassReader$AttributeKind", "com.sun.tools.javac.jvm.ClassReader", "AttributeKind", $PROTECTED | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _ClassReader$AttributeKind_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"com.sun.tools.javac.jvm.ClassReader$AttributeKind",
-	"java.lang.Enum",
-	nullptr,
-	_ClassReader$AttributeKind_FieldInfo_,
-	_ClassReader$AttributeKind_MethodInfo_,
-	"Ljava/lang/Enum<Lcom/sun/tools/javac/jvm/ClassReader$AttributeKind;>;",
-	nullptr,
-	_ClassReader$AttributeKind_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.jvm.ClassReader"
-};
-
-$Object* allocate$ClassReader$AttributeKind($Class* clazz) {
-	return $of($alloc(ClassReader$AttributeKind));
-}
 
 ClassReader$AttributeKind* ClassReader$AttributeKind::CLASS = nullptr;
 ClassReader$AttributeKind* ClassReader$AttributeKind::MEMBER = nullptr;
@@ -86,7 +45,7 @@ void ClassReader$AttributeKind::init$($String* $enum$name, int32_t $enum$ordinal
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$ClassReader$AttributeKind($Class* class$) {
+void ClassReader$AttributeKind::clinit$($Class* clazz) {
 	$assignStatic(ClassReader$AttributeKind::CLASS, $new(ClassReader$AttributeKind, "CLASS"_s, 0));
 	$assignStatic(ClassReader$AttributeKind::MEMBER, $new(ClassReader$AttributeKind, "MEMBER"_s, 1));
 	$assignStatic(ClassReader$AttributeKind::$VALUES, ClassReader$AttributeKind::$values());
@@ -96,7 +55,41 @@ ClassReader$AttributeKind::ClassReader$AttributeKind() {
 }
 
 $Class* ClassReader$AttributeKind::load$($String* name, bool initialize) {
-	$loadClass(ClassReader$AttributeKind, name, initialize, &_ClassReader$AttributeKind_ClassInfo_, clinit$ClassReader$AttributeKind, allocate$ClassReader$AttributeKind);
+	$FieldInfo fieldInfos$$[] = {
+		{"CLASS", "Lcom/sun/tools/javac/jvm/ClassReader$AttributeKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ClassReader$AttributeKind, CLASS)},
+		{"MEMBER", "Lcom/sun/tools/javac/jvm/ClassReader$AttributeKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ClassReader$AttributeKind, MEMBER)},
+		{"$VALUES", "[Lcom/sun/tools/javac/jvm/ClassReader$AttributeKind;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(ClassReader$AttributeKind, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lcom/sun/tools/javac/jvm/ClassReader$AttributeKind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ClassReader$AttributeKind, $values, $ClassReader$AttributeKindArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(ClassReader$AttributeKind, init$, void, $String*, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/jvm/ClassReader$AttributeKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(ClassReader$AttributeKind, valueOf, ClassReader$AttributeKind*, $String*)},
+		{"values", "()[Lcom/sun/tools/javac/jvm/ClassReader$AttributeKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(ClassReader$AttributeKind, values, $ClassReader$AttributeKindArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.jvm.ClassReader$AttributeKind", "com.sun.tools.javac.jvm.ClassReader", "AttributeKind", $PROTECTED | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"com.sun.tools.javac.jvm.ClassReader$AttributeKind",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lcom/sun/tools/javac/jvm/ClassReader$AttributeKind;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.jvm.ClassReader"
+	};
+	$loadClass(ClassReader$AttributeKind, name, initialize, &classInfo$$, ClassReader$AttributeKind::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ClassReader$AttributeKind));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/rmi/registry/RegistryImpl$6.h>
-
 #include <java/net/URL.h>
 #include <java/security/CodeSource.h>
 #include <java/security/PermissionCollection.h>
@@ -23,54 +22,17 @@ namespace sun {
 	namespace rmi {
 		namespace registry {
 
-$MethodInfo _RegistryImpl$6_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(RegistryImpl$6, init$, void)},
-	{"run", "()Ljava/security/PermissionCollection;", nullptr, $PUBLIC, $virtualMethod(RegistryImpl$6, run, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _RegistryImpl$6_EnclosingMethodInfo_ = {
-	"sun.rmi.registry.RegistryImpl",
-	"getAccessControlContext",
-	"(I)Ljava/security/AccessControlContext;"
-};
-
-$InnerClassInfo _RegistryImpl$6_InnerClassesInfo_[] = {
-	{"sun.rmi.registry.RegistryImpl$6", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _RegistryImpl$6_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.rmi.registry.RegistryImpl$6",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	nullptr,
-	_RegistryImpl$6_MethodInfo_,
-	"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/security/PermissionCollection;>;",
-	&_RegistryImpl$6_EnclosingMethodInfo_,
-	_RegistryImpl$6_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.rmi.registry.RegistryImpl"
-};
-
-$Object* allocate$RegistryImpl$6($Class* clazz) {
-	return $of($alloc(RegistryImpl$6));
-}
-
 void RegistryImpl$6::init$() {
 }
 
 $Object* RegistryImpl$6::run() {
-	$useLocalCurrentObjectStackCache();
-	$var($CodeSource, codesource, $new($CodeSource, ($URL*)nullptr, ($CertificateArray*)nullptr));
+	$useLocalObjectStack();
+	$var($CodeSource, codesource, $new($CodeSource, nullptr, ($CertificateArray*)nullptr));
 	$var($Policy, p, $Policy::getPolicy());
 	if (p != nullptr) {
-		return $of(p->getPermissions(codesource));
+		return p->getPermissions(codesource);
 	} else {
-		return $of($new($Permissions));
+		return $new($Permissions);
 	}
 }
 
@@ -78,7 +40,38 @@ RegistryImpl$6::RegistryImpl$6() {
 }
 
 $Class* RegistryImpl$6::load$($String* name, bool initialize) {
-	$loadClass(RegistryImpl$6, name, initialize, &_RegistryImpl$6_ClassInfo_, allocate$RegistryImpl$6);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(RegistryImpl$6, init$, void)},
+		{"run", "()Ljava/security/PermissionCollection;", nullptr, $PUBLIC, $virtualMethod(RegistryImpl$6, run, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.rmi.registry.RegistryImpl",
+		"getAccessControlContext",
+		"(I)Ljava/security/AccessControlContext;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.rmi.registry.RegistryImpl$6", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.rmi.registry.RegistryImpl$6",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		nullptr,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/security/PermissionCollection;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.rmi.registry.RegistryImpl"
+	};
+	$loadClass(RegistryImpl$6, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RegistryImpl$6);
+	});
 	return class$;
 }
 

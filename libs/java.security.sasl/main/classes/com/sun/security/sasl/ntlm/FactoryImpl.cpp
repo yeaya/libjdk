@@ -1,5 +1,4 @@
 #include <com/sun/security/sasl/ntlm/FactoryImpl.h>
-
 #include <com/sun/security/sasl/ntlm/NTLMClient.h>
 #include <com/sun/security/sasl/ntlm/NTLMServer.h>
 #include <com/sun/security/sasl/util/PolicyUtils.h>
@@ -36,38 +35,6 @@ namespace com {
 			namespace sasl {
 				namespace ntlm {
 
-$FieldInfo _FactoryImpl_FieldInfo_[] = {
-	{"myMechs", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(FactoryImpl, myMechs)},
-	{"mechPolicies", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(FactoryImpl, mechPolicies)},
-	{}
-};
-
-$MethodInfo _FactoryImpl_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(FactoryImpl, init$, void)},
-	{"createSaslClient", "([Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/Map;Ljavax/security/auth/callback/CallbackHandler;)Ljavax/security/sasl/SaslClient;", "([Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/Map<Ljava/lang/String;*>;Ljavax/security/auth/callback/CallbackHandler;)Ljavax/security/sasl/SaslClient;", $PUBLIC, $virtualMethod(FactoryImpl, createSaslClient, $SaslClient*, $StringArray*, $String*, $String*, $String*, $Map*, $CallbackHandler*), "javax.security.sasl.SaslException"},
-	{"createSaslServer", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/Map;Ljavax/security/auth/callback/CallbackHandler;)Ljavax/security/sasl/SaslServer;", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/Map<Ljava/lang/String;*>;Ljavax/security/auth/callback/CallbackHandler;)Ljavax/security/sasl/SaslServer;", $PUBLIC, $virtualMethod(FactoryImpl, createSaslServer, $SaslServer*, $String*, $String*, $String*, $Map*, $CallbackHandler*), "javax.security.sasl.SaslException"},
-	{"getMechanismNames", "(Ljava/util/Map;)[Ljava/lang/String;", "(Ljava/util/Map<Ljava/lang/String;*>;)[Ljava/lang/String;", $PUBLIC, $virtualMethod(FactoryImpl, getMechanismNames, $StringArray*, $Map*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _FactoryImpl_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.security.sasl.ntlm.FactoryImpl",
-	"java.lang.Object",
-	"javax.security.sasl.SaslClientFactory,javax.security.sasl.SaslServerFactory",
-	_FactoryImpl_FieldInfo_,
-	_FactoryImpl_MethodInfo_
-};
-
-$Object* allocate$FactoryImpl($Class* clazz) {
-	return $of($alloc(FactoryImpl));
-}
-
 int32_t FactoryImpl::hashCode() {
 	 return this->$SaslClientFactory::hashCode();
 }
@@ -97,7 +64,7 @@ void FactoryImpl::init$() {
 $SaslClient* FactoryImpl::createSaslClient($StringArray* mechs, $String* authorizationId, $String* protocol, $String* serverName, $Map* props, $CallbackHandler* cbh) {
 	for (int32_t i = 0; i < $nc(mechs)->length; ++i) {
 		bool var$0 = $nc(mechs->get(i))->equals("NTLM"_s);
-		if (var$0 && $PolicyUtils::checkPolicy($nc(FactoryImpl::mechPolicies)->get(0), props)) {
+		if (var$0 && $PolicyUtils::checkPolicy(FactoryImpl::mechPolicies->get(0), props)) {
 			if (cbh == nullptr) {
 				$throwNew($SaslException, "Callback handler with support for RealmCallback, NameCallback, and PasswordCallback required"_s);
 			}
@@ -109,7 +76,7 @@ $SaslClient* FactoryImpl::createSaslClient($StringArray* mechs, $String* authori
 
 $SaslServer* FactoryImpl::createSaslServer($String* mech, $String* protocol, $String* serverName, $Map* props, $CallbackHandler* cbh) {
 	bool var$0 = $nc(mech)->equals("NTLM"_s);
-	if (var$0 && $PolicyUtils::checkPolicy($nc(FactoryImpl::mechPolicies)->get(0), props)) {
+	if (var$0 && $PolicyUtils::checkPolicy(FactoryImpl::mechPolicies->get(0), props)) {
 		if (props != nullptr) {
 			$init($Sasl);
 			$var($String, qop, $cast($String, props->get($Sasl::QOP)));
@@ -129,7 +96,7 @@ $StringArray* FactoryImpl::getMechanismNames($Map* env) {
 	return $PolicyUtils::filterMechs(FactoryImpl::myMechs, FactoryImpl::mechPolicies, env);
 }
 
-void clinit$FactoryImpl($Class* class$) {
+void FactoryImpl::clinit$($Class* clazz) {
 	$assignStatic(FactoryImpl::myMechs, $new($StringArray, {"NTLM"_s}));
 	$assignStatic(FactoryImpl::mechPolicies, $new($ints, {$PolicyUtils::NOPLAINTEXT | $PolicyUtils::NOANONYMOUS}));
 }
@@ -138,7 +105,34 @@ FactoryImpl::FactoryImpl() {
 }
 
 $Class* FactoryImpl::load$($String* name, bool initialize) {
-	$loadClass(FactoryImpl, name, initialize, &_FactoryImpl_ClassInfo_, clinit$FactoryImpl, allocate$FactoryImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"myMechs", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(FactoryImpl, myMechs)},
+		{"mechPolicies", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(FactoryImpl, mechPolicies)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(FactoryImpl, init$, void)},
+		{"createSaslClient", "([Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/Map;Ljavax/security/auth/callback/CallbackHandler;)Ljavax/security/sasl/SaslClient;", "([Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/Map<Ljava/lang/String;*>;Ljavax/security/auth/callback/CallbackHandler;)Ljavax/security/sasl/SaslClient;", $PUBLIC, $virtualMethod(FactoryImpl, createSaslClient, $SaslClient*, $StringArray*, $String*, $String*, $String*, $Map*, $CallbackHandler*), "javax.security.sasl.SaslException"},
+		{"createSaslServer", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/Map;Ljavax/security/auth/callback/CallbackHandler;)Ljavax/security/sasl/SaslServer;", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/Map<Ljava/lang/String;*>;Ljavax/security/auth/callback/CallbackHandler;)Ljavax/security/sasl/SaslServer;", $PUBLIC, $virtualMethod(FactoryImpl, createSaslServer, $SaslServer*, $String*, $String*, $String*, $Map*, $CallbackHandler*), "javax.security.sasl.SaslException"},
+		{"getMechanismNames", "(Ljava/util/Map;)[Ljava/lang/String;", "(Ljava/util/Map<Ljava/lang/String;*>;)[Ljava/lang/String;", $PUBLIC, $virtualMethod(FactoryImpl, getMechanismNames, $StringArray*, $Map*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.security.sasl.ntlm.FactoryImpl",
+		"java.lang.Object",
+		"javax.security.sasl.SaslClientFactory,javax.security.sasl.SaslServerFactory",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(FactoryImpl, name, initialize, &classInfo$$, FactoryImpl::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(FactoryImpl));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <javax/print/attribute/PrintServiceAttributeSet.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -9,27 +8,23 @@ namespace javax {
 	namespace print {
 		namespace attribute {
 
-$MethodInfo _PrintServiceAttributeSet_MethodInfo_[] = {
-	{"add", "(Ljavax/print/attribute/Attribute;)Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"addAll", "(Ljavax/print/attribute/AttributeSet;)Z", nullptr, $PUBLIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _PrintServiceAttributeSet_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"javax.print.attribute.PrintServiceAttributeSet",
-	nullptr,
-	"javax.print.attribute.AttributeSet",
-	nullptr,
-	_PrintServiceAttributeSet_MethodInfo_
-};
-
-$Object* allocate$PrintServiceAttributeSet($Class* clazz) {
-	return $of($alloc(PrintServiceAttributeSet));
-}
-
 $Class* PrintServiceAttributeSet::load$($String* name, bool initialize) {
-	$loadClass(PrintServiceAttributeSet, name, initialize, &_PrintServiceAttributeSet_ClassInfo_, allocate$PrintServiceAttributeSet);
+	$MethodInfo methodInfos$$[] = {
+		{"add", "(Ljavax/print/attribute/Attribute;)Z", nullptr, $PUBLIC | $ABSTRACT},
+		{"addAll", "(Ljavax/print/attribute/AttributeSet;)Z", nullptr, $PUBLIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"javax.print.attribute.PrintServiceAttributeSet",
+		nullptr,
+		"javax.print.attribute.AttributeSet",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(PrintServiceAttributeSet, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PrintServiceAttributeSet);
+	});
 	return class$;
 }
 

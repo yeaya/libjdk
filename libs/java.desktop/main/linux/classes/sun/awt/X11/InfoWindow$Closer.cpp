@@ -1,5 +1,4 @@
 #include <sun/awt/X11/InfoWindow$Closer.h>
-
 #include <java/lang/Runnable.h>
 #include <sun/awt/SunToolkit.h>
 #include <sun/awt/X11/InfoWindow$Closer$1.h>
@@ -20,49 +19,6 @@ using $XToolkit = ::sun::awt::X11::XToolkit;
 namespace sun {
 	namespace awt {
 		namespace X11 {
-
-$FieldInfo _InfoWindow$Closer_FieldInfo_[] = {
-	{"this$0", "Lsun/awt/X11/InfoWindow;", nullptr, $FINAL | $SYNTHETIC, $field(InfoWindow$Closer, this$0)},
-	{"action", "Ljava/lang/Runnable;", nullptr, 0, $field(InfoWindow$Closer, action)},
-	{"time", "I", nullptr, 0, $field(InfoWindow$Closer, time)},
-	{}
-};
-
-$MethodInfo _InfoWindow$Closer_MethodInfo_[] = {
-	{"<init>", "(Lsun/awt/X11/InfoWindow;)V", nullptr, $PRIVATE, $method(InfoWindow$Closer, init$, void, $InfoWindow*)},
-	{"close", "()V", nullptr, 0, $virtualMethod(InfoWindow$Closer, close, void)},
-	{"doClose", "()V", nullptr, $PRIVATE, $method(InfoWindow$Closer, doClose, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(InfoWindow$Closer, run, void)},
-	{"schedule", "()V", nullptr, 0, $virtualMethod(InfoWindow$Closer, schedule, void)},
-	{"set", "(Ljava/lang/Runnable;I)V", nullptr, 0, $virtualMethod(InfoWindow$Closer, set, void, $Runnable*, int32_t)},
-	{}
-};
-
-$InnerClassInfo _InfoWindow$Closer_InnerClassesInfo_[] = {
-	{"sun.awt.X11.InfoWindow$Closer", "sun.awt.X11.InfoWindow", "Closer", $PRIVATE},
-	{"sun.awt.X11.InfoWindow$Closer$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _InfoWindow$Closer_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.awt.X11.InfoWindow$Closer",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	_InfoWindow$Closer_FieldInfo_,
-	_InfoWindow$Closer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_InfoWindow$Closer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.awt.X11.InfoWindow"
-};
-
-$Object* allocate$InfoWindow$Closer($Class* clazz) {
-	return $of($alloc(InfoWindow$Closer));
-}
 
 void InfoWindow$Closer::init$($InfoWindow* this$0) {
 	$set(this, this$0, this$0);
@@ -94,7 +50,44 @@ InfoWindow$Closer::InfoWindow$Closer() {
 }
 
 $Class* InfoWindow$Closer::load$($String* name, bool initialize) {
-	$loadClass(InfoWindow$Closer, name, initialize, &_InfoWindow$Closer_ClassInfo_, allocate$InfoWindow$Closer);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/awt/X11/InfoWindow;", nullptr, $FINAL | $SYNTHETIC, $field(InfoWindow$Closer, this$0)},
+		{"action", "Ljava/lang/Runnable;", nullptr, 0, $field(InfoWindow$Closer, action)},
+		{"time", "I", nullptr, 0, $field(InfoWindow$Closer, time)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/awt/X11/InfoWindow;)V", nullptr, $PRIVATE, $method(InfoWindow$Closer, init$, void, $InfoWindow*)},
+		{"close", "()V", nullptr, 0, $virtualMethod(InfoWindow$Closer, close, void)},
+		{"doClose", "()V", nullptr, $PRIVATE, $method(InfoWindow$Closer, doClose, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(InfoWindow$Closer, run, void)},
+		{"schedule", "()V", nullptr, 0, $virtualMethod(InfoWindow$Closer, schedule, void)},
+		{"set", "(Ljava/lang/Runnable;I)V", nullptr, 0, $virtualMethod(InfoWindow$Closer, set, void, $Runnable*, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.X11.InfoWindow$Closer", "sun.awt.X11.InfoWindow", "Closer", $PRIVATE},
+		{"sun.awt.X11.InfoWindow$Closer$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.awt.X11.InfoWindow$Closer",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.awt.X11.InfoWindow"
+	};
+	$loadClass(InfoWindow$Closer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(InfoWindow$Closer);
+	});
 	return class$;
 }
 

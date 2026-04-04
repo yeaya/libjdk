@@ -22,6 +22,7 @@ class MethodInfo$MethodOrder : public ::java::util::Comparator {
 	$class(MethodInfo$MethodOrder, 0, ::java::util::Comparator)
 public:
 	MethodInfo$MethodOrder();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	int32_t compare(::java::lang::reflect::Method* a, ::java::lang::reflect::Method* b);
 	virtual int32_t compare(Object$* a, Object$* b) override;

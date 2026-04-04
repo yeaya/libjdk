@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/code/Type$PackageType.h>
-
 #include <com/sun/tools/javac/code/Symbol$PackageSymbol.h>
 #include <com/sun/tools/javac/code/Symbol$TypeSymbol.h>
 #include <com/sun/tools/javac/code/Type$Visitor.h>
@@ -11,7 +10,6 @@
 #include <java/lang/AssertionError.h>
 #include <java/lang/annotation/Annotation.h>
 #include <java/util/List.h>
-#include <javax/lang/model/type/NoType.h>
 #include <javax/lang/model/type/TypeKind.h>
 #include <javax/lang/model/type/TypeVisitor.h>
 #include <jcpp.h>
@@ -21,19 +19,16 @@
 
 using $AnnotationArray = $Array<::java::lang::annotation::Annotation>;
 using $Symbol$PackageSymbol = ::com::sun::tools::javac::code::Symbol$PackageSymbol;
-using $Symbol$TypeSymbol = ::com::sun::tools::javac::code::Symbol$TypeSymbol;
 using $Type = ::com::sun::tools::javac::code::Type;
 using $Type$Visitor = ::com::sun::tools::javac::code::Type$Visitor;
 using $TypeMetadata = ::com::sun::tools::javac::code::TypeMetadata;
 using $TypeTag = ::com::sun::tools::javac::code::TypeTag;
-using $Name = ::com::sun::tools::javac::util::Name;
 using $AssertionError = ::java::lang::AssertionError;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Annotation = ::java::lang::annotation::Annotation;
 using $List = ::java::util::List;
-using $NoType = ::javax::lang::model::type::NoType;
 using $TypeKind = ::javax::lang::model::type::TypeKind;
 using $TypeVisitor = ::javax::lang::model::type::TypeVisitor;
 
@@ -42,49 +37,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace code {
-
-$MethodInfo _Type$PackageType_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*getAnnotation", "(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;", nullptr, $PUBLIC},
-	{"*getAnnotationsByType", "(Ljava/lang/Class;)[Ljava/lang/annotation/Annotation;", nullptr, $PUBLIC},
-	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "(Lcom/sun/tools/javac/code/Symbol$PackageSymbol;)V", nullptr, 0, $method(Type$PackageType, init$, void, $Symbol$PackageSymbol*)},
-	{"accept", "(Lcom/sun/tools/javac/code/Type$Visitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;S:Ljava/lang/Object;>(Lcom/sun/tools/javac/code/Type$Visitor<TR;TS;>;TS;)TR;", $PUBLIC, $virtualMethod(Type$PackageType, accept, $Object*, $Type$Visitor*, Object$*)},
-	{"accept", "(Ljavax/lang/model/type/TypeVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;P:Ljava/lang/Object;>(Ljavax/lang/model/type/TypeVisitor<TR;TP;>;TP;)TR;", $PUBLIC, $virtualMethod(Type$PackageType, accept, $Object*, $TypeVisitor*, Object$*)},
-	{"cloneWithMetadata", "(Lcom/sun/tools/javac/code/TypeMetadata;)Lcom/sun/tools/javac/code/Type$PackageType;", nullptr, $PUBLIC, $virtualMethod(Type$PackageType, cloneWithMetadata, Type$PackageType*, $TypeMetadata*)},
-	{"getAnnotationMirrors", "()Ljava/util/List;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Type$PackageType, getAnnotationMirrors, $List*)},
-	{"getKind", "()Ljavax/lang/model/type/TypeKind;", nullptr, $PUBLIC, $virtualMethod(Type$PackageType, getKind, $TypeKind*)},
-	{"getTag", "()Lcom/sun/tools/javac/code/TypeTag;", nullptr, $PUBLIC, $virtualMethod(Type$PackageType, getTag, $TypeTag*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Type$PackageType, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _Type$PackageType_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.code.Type$PackageType", "com.sun.tools.javac.code.Type", "PackageType", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _Type$PackageType_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.code.Type$PackageType",
-	"com.sun.tools.javac.code.Type",
-	"javax.lang.model.type.NoType",
-	nullptr,
-	_Type$PackageType_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Type$PackageType_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.code.Type"
-};
-
-$Object* allocate$Type$PackageType($Class* clazz) {
-	return $of($alloc(Type$PackageType));
-}
 
 $Annotation* Type$PackageType::getAnnotation($Class* annotationType) {
 	 return this->$Type::getAnnotation(annotationType);
@@ -126,11 +78,11 @@ $TypeTag* Type$PackageType::getTag() {
 }
 
 $Object* Type$PackageType::accept($Type$Visitor* v, Object$* s) {
-	return $of($nc(v)->visitPackageType(this, s));
+	return $nc(v)->visitPackageType(this, s);
 }
 
 $String* Type$PackageType::toString() {
-	return $nc($($nc(this->tsym)->getQualifiedName()))->toString();
+	return $$nc($nc(this->tsym)->getQualifiedName())->toString();
 }
 
 $TypeKind* Type$PackageType::getKind() {
@@ -139,7 +91,7 @@ $TypeKind* Type$PackageType::getKind() {
 }
 
 $Object* Type$PackageType::accept($TypeVisitor* v, Object$* p) {
-	return $of($nc(v)->visitNoType(this, p));
+	return $nc(v)->visitNoType(this, p);
 }
 
 $List* Type$PackageType::getAnnotationMirrors() {
@@ -150,7 +102,45 @@ Type$PackageType::Type$PackageType() {
 }
 
 $Class* Type$PackageType::load$($String* name, bool initialize) {
-	$loadClass(Type$PackageType, name, initialize, &_Type$PackageType_ClassInfo_, allocate$Type$PackageType);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*getAnnotation", "(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;", nullptr, $PUBLIC},
+		{"*getAnnotationsByType", "(Ljava/lang/Class;)[Ljava/lang/annotation/Annotation;", nullptr, $PUBLIC},
+		{"*hashCode", "()I", nullptr, $PUBLIC},
+		{"<init>", "(Lcom/sun/tools/javac/code/Symbol$PackageSymbol;)V", nullptr, 0, $method(Type$PackageType, init$, void, $Symbol$PackageSymbol*)},
+		{"accept", "(Lcom/sun/tools/javac/code/Type$Visitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;S:Ljava/lang/Object;>(Lcom/sun/tools/javac/code/Type$Visitor<TR;TS;>;TS;)TR;", $PUBLIC, $virtualMethod(Type$PackageType, accept, $Object*, $Type$Visitor*, Object$*)},
+		{"accept", "(Ljavax/lang/model/type/TypeVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;P:Ljava/lang/Object;>(Ljavax/lang/model/type/TypeVisitor<TR;TP;>;TP;)TR;", $PUBLIC, $virtualMethod(Type$PackageType, accept, $Object*, $TypeVisitor*, Object$*)},
+		{"cloneWithMetadata", "(Lcom/sun/tools/javac/code/TypeMetadata;)Lcom/sun/tools/javac/code/Type$PackageType;", nullptr, $PUBLIC, $virtualMethod(Type$PackageType, cloneWithMetadata, Type$PackageType*, $TypeMetadata*)},
+		{"getAnnotationMirrors", "()Ljava/util/List;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Type$PackageType, getAnnotationMirrors, $List*)},
+		{"getKind", "()Ljavax/lang/model/type/TypeKind;", nullptr, $PUBLIC, $virtualMethod(Type$PackageType, getKind, $TypeKind*)},
+		{"getTag", "()Lcom/sun/tools/javac/code/TypeTag;", nullptr, $PUBLIC, $virtualMethod(Type$PackageType, getTag, $TypeTag*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Type$PackageType, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.code.Type$PackageType", "com.sun.tools.javac.code.Type", "PackageType", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.code.Type$PackageType",
+		"com.sun.tools.javac.code.Type",
+		"javax.lang.model.type.NoType",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.code.Type"
+	};
+	$loadClass(Type$PackageType, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Type$PackageType));
+	});
 	return class$;
 }
 

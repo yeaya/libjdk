@@ -1,6 +1,4 @@
 #include <com/sun/tools/javac/tree/JCTree$JCBinary.h>
-
-#include <com/sun/source/tree/BinaryTree.h>
 #include <com/sun/source/tree/ExpressionTree.h>
 #include <com/sun/source/tree/Tree$Kind.h>
 #include <com/sun/source/tree/TreeVisitor.h>
@@ -16,7 +14,6 @@
 
 #undef LEFT
 
-using $BinaryTree = ::com::sun::source::tree::BinaryTree;
 using $ExpressionTree = ::com::sun::source::tree::ExpressionTree;
 using $Tree$Kind = ::com::sun::source::tree::Tree$Kind;
 using $TreeVisitor = ::com::sun::source::tree::TreeVisitor;
@@ -37,54 +34,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace tree {
-
-$FieldInfo _JCTree$JCBinary_FieldInfo_[] = {
-	{"lhs", "Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, $PUBLIC, $field(JCTree$JCBinary, lhs)},
-	{"rhs", "Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, $PUBLIC, $field(JCTree$JCBinary, rhs)},
-	{}
-};
-
-$MethodInfo _JCTree$JCBinary_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lcom/sun/tools/javac/tree/JCTree$Tag;Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/code/Symbol$OperatorSymbol;)V", nullptr, $PROTECTED, $method(JCTree$JCBinary, init$, void, $JCTree$Tag*, $JCTree$JCExpression*, $JCTree$JCExpression*, $Symbol$OperatorSymbol*)},
-	{"accept", "(Lcom/sun/tools/javac/tree/JCTree$Visitor;)V", nullptr, $PUBLIC, $virtualMethod(JCTree$JCBinary, accept, void, $JCTree$Visitor*)},
-	{"accept", "(Lcom/sun/source/tree/TreeVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;D:Ljava/lang/Object;>(Lcom/sun/source/tree/TreeVisitor<TR;TD;>;TD;)TR;", $PUBLIC, $virtualMethod(JCTree$JCBinary, accept, $Object*, $TreeVisitor*, Object$*)},
-	{"getKind", "()Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCBinary, getKind, $Tree$Kind*)},
-	{"getLeftOperand", "()Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCBinary, getLeftOperand, $ExpressionTree*)},
-	{"getOperand", "(Lcom/sun/tools/javac/tree/JCTree$JCOperatorExpression$OperandPos;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCBinary, getOperand, $JCTree$JCExpression*, $JCTree$JCOperatorExpression$OperandPos*)},
-	{"getRightOperand", "()Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCBinary, getRightOperand, $ExpressionTree*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _JCTree$JCBinary_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.tree.JCTree$JCBinary", "com.sun.tools.javac.tree.JCTree", "JCBinary", $PUBLIC | $STATIC},
-	{"com.sun.tools.javac.tree.JCTree$JCOperatorExpression", "com.sun.tools.javac.tree.JCTree", "JCOperatorExpression", $PUBLIC | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _JCTree$JCBinary_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.tree.JCTree$JCBinary",
-	"com.sun.tools.javac.tree.JCTree$JCOperatorExpression",
-	"com.sun.source.tree.BinaryTree",
-	_JCTree$JCBinary_FieldInfo_,
-	_JCTree$JCBinary_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JCTree$JCBinary_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.tree.JCTree"
-};
-
-$Object* allocate$JCTree$JCBinary($Class* clazz) {
-	return $of($alloc(JCTree$JCBinary));
-}
 
 $String* JCTree$JCBinary::toString() {
 	 return this->$JCTree$JCOperatorExpression::toString();
@@ -131,7 +80,7 @@ $ExpressionTree* JCTree$JCBinary::getRightOperand() {
 }
 
 $Object* JCTree$JCBinary::accept($TreeVisitor* v, Object$* d) {
-	return $of($nc(v)->visitBinary(this, d));
+	return $nc(v)->visitBinary(this, d);
 }
 
 $JCTree$JCExpression* JCTree$JCBinary::getOperand($JCTree$JCOperatorExpression$OperandPos* pos) {
@@ -143,7 +92,49 @@ JCTree$JCBinary::JCTree$JCBinary() {
 }
 
 $Class* JCTree$JCBinary::load$($String* name, bool initialize) {
-	$loadClass(JCTree$JCBinary, name, initialize, &_JCTree$JCBinary_ClassInfo_, allocate$JCTree$JCBinary);
+	$FieldInfo fieldInfos$$[] = {
+		{"lhs", "Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, $PUBLIC, $field(JCTree$JCBinary, lhs)},
+		{"rhs", "Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, $PUBLIC, $field(JCTree$JCBinary, rhs)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lcom/sun/tools/javac/tree/JCTree$Tag;Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/code/Symbol$OperatorSymbol;)V", nullptr, $PROTECTED, $method(JCTree$JCBinary, init$, void, $JCTree$Tag*, $JCTree$JCExpression*, $JCTree$JCExpression*, $Symbol$OperatorSymbol*)},
+		{"accept", "(Lcom/sun/tools/javac/tree/JCTree$Visitor;)V", nullptr, $PUBLIC, $virtualMethod(JCTree$JCBinary, accept, void, $JCTree$Visitor*)},
+		{"accept", "(Lcom/sun/source/tree/TreeVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;D:Ljava/lang/Object;>(Lcom/sun/source/tree/TreeVisitor<TR;TD;>;TD;)TR;", $PUBLIC, $virtualMethod(JCTree$JCBinary, accept, $Object*, $TreeVisitor*, Object$*)},
+		{"getKind", "()Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCBinary, getKind, $Tree$Kind*)},
+		{"getLeftOperand", "()Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCBinary, getLeftOperand, $ExpressionTree*)},
+		{"getOperand", "(Lcom/sun/tools/javac/tree/JCTree$JCOperatorExpression$OperandPos;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCBinary, getOperand, $JCTree$JCExpression*, $JCTree$JCOperatorExpression$OperandPos*)},
+		{"getRightOperand", "()Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCBinary, getRightOperand, $ExpressionTree*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.tree.JCTree$JCBinary", "com.sun.tools.javac.tree.JCTree", "JCBinary", $PUBLIC | $STATIC},
+		{"com.sun.tools.javac.tree.JCTree$JCOperatorExpression", "com.sun.tools.javac.tree.JCTree", "JCOperatorExpression", $PUBLIC | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.tree.JCTree$JCBinary",
+		"com.sun.tools.javac.tree.JCTree$JCOperatorExpression",
+		"com.sun.source.tree.BinaryTree",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.tree.JCTree"
+	};
+	$loadClass(JCTree$JCBinary, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JCTree$JCBinary));
+	});
 	return class$;
 }
 

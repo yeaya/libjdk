@@ -1,6 +1,4 @@
 #include <javax/swing/plaf/metal/MetalBorders.h>
-
-#include <java/awt/Color.h>
 #include <javax/swing/border/Border.h>
 #include <javax/swing/border/CompoundBorder.h>
 #include <javax/swing/border/LineBorder.h>
@@ -20,7 +18,6 @@
 
 #undef NO_BUTTON_ROLLOVER
 
-using $Color = ::java::awt::Color;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -45,70 +42,6 @@ namespace javax {
 		namespace plaf {
 			namespace metal {
 
-$FieldInfo _MetalBorders_FieldInfo_[] = {
-	{"NO_BUTTON_ROLLOVER", "Ljava/lang/Object;", nullptr, $STATIC, $staticField(MetalBorders, NO_BUTTON_ROLLOVER)},
-	{"buttonBorder", "Ljavax/swing/border/Border;", nullptr, $PRIVATE | $STATIC, $staticField(MetalBorders, buttonBorder)},
-	{"textBorder", "Ljavax/swing/border/Border;", nullptr, $PRIVATE | $STATIC, $staticField(MetalBorders, textBorder)},
-	{"textFieldBorder", "Ljavax/swing/border/Border;", nullptr, $PRIVATE | $STATIC, $staticField(MetalBorders, textFieldBorder)},
-	{"toggleButtonBorder", "Ljavax/swing/border/Border;", nullptr, $PRIVATE | $STATIC, $staticField(MetalBorders, toggleButtonBorder)},
-	{}
-};
-
-$MethodInfo _MetalBorders_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MetalBorders, init$, void)},
-	{"getButtonBorder", "()Ljavax/swing/border/Border;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalBorders, getButtonBorder, $Border*)},
-	{"getDesktopIconBorder", "()Ljavax/swing/border/Border;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalBorders, getDesktopIconBorder, $Border*)},
-	{"getTextBorder", "()Ljavax/swing/border/Border;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalBorders, getTextBorder, $Border*)},
-	{"getTextFieldBorder", "()Ljavax/swing/border/Border;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalBorders, getTextFieldBorder, $Border*)},
-	{"getToggleButtonBorder", "()Ljavax/swing/border/Border;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalBorders, getToggleButtonBorder, $Border*)},
-	{"getToolBarNonrolloverBorder", "()Ljavax/swing/border/Border;", nullptr, $STATIC, $staticMethod(MetalBorders, getToolBarNonrolloverBorder, $Border*)},
-	{"getToolBarRolloverBorder", "()Ljavax/swing/border/Border;", nullptr, $STATIC, $staticMethod(MetalBorders, getToolBarRolloverBorder, $Border*)},
-	{}
-};
-
-$InnerClassInfo _MetalBorders_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.metal.MetalBorders$TableHeaderBorder", "javax.swing.plaf.metal.MetalBorders", "TableHeaderBorder", $PUBLIC | $STATIC},
-	{"javax.swing.plaf.metal.MetalBorders$ToggleButtonBorder", "javax.swing.plaf.metal.MetalBorders", "ToggleButtonBorder", $PUBLIC | $STATIC},
-	{"javax.swing.plaf.metal.MetalBorders$ScrollPaneBorder", "javax.swing.plaf.metal.MetalBorders", "ScrollPaneBorder", $PUBLIC | $STATIC},
-	{"javax.swing.plaf.metal.MetalBorders$TextFieldBorder", "javax.swing.plaf.metal.MetalBorders", "TextFieldBorder", $PUBLIC | $STATIC},
-	{"javax.swing.plaf.metal.MetalBorders$ToolBarBorder", "javax.swing.plaf.metal.MetalBorders", "ToolBarBorder", $PUBLIC | $STATIC},
-	{"javax.swing.plaf.metal.MetalBorders$RolloverMarginBorder", "javax.swing.plaf.metal.MetalBorders", "RolloverMarginBorder", $STATIC},
-	{"javax.swing.plaf.metal.MetalBorders$RolloverButtonBorder", "javax.swing.plaf.metal.MetalBorders", "RolloverButtonBorder", $PUBLIC | $STATIC},
-	{"javax.swing.plaf.metal.MetalBorders$PopupMenuBorder", "javax.swing.plaf.metal.MetalBorders", "PopupMenuBorder", $PUBLIC | $STATIC},
-	{"javax.swing.plaf.metal.MetalBorders$MenuItemBorder", "javax.swing.plaf.metal.MetalBorders", "MenuItemBorder", $PUBLIC | $STATIC},
-	{"javax.swing.plaf.metal.MetalBorders$MenuBarBorder", "javax.swing.plaf.metal.MetalBorders", "MenuBarBorder", $PUBLIC | $STATIC},
-	{"javax.swing.plaf.metal.MetalBorders$OptionDialogBorder", "javax.swing.plaf.metal.MetalBorders", "OptionDialogBorder", $PUBLIC | $STATIC},
-	{"javax.swing.plaf.metal.MetalBorders$PaletteBorder", "javax.swing.plaf.metal.MetalBorders", "PaletteBorder", $PUBLIC | $STATIC},
-	{"javax.swing.plaf.metal.MetalBorders$WarningDialogBorder", "javax.swing.plaf.metal.MetalBorders", "WarningDialogBorder", $STATIC},
-	{"javax.swing.plaf.metal.MetalBorders$QuestionDialogBorder", "javax.swing.plaf.metal.MetalBorders", "QuestionDialogBorder", $STATIC},
-	{"javax.swing.plaf.metal.MetalBorders$ErrorDialogBorder", "javax.swing.plaf.metal.MetalBorders", "ErrorDialogBorder", $STATIC},
-	{"javax.swing.plaf.metal.MetalBorders$DialogBorder", "javax.swing.plaf.metal.MetalBorders", "DialogBorder", $STATIC},
-	{"javax.swing.plaf.metal.MetalBorders$FrameBorder", "javax.swing.plaf.metal.MetalBorders", "FrameBorder", $STATIC},
-	{"javax.swing.plaf.metal.MetalBorders$InternalFrameBorder", "javax.swing.plaf.metal.MetalBorders", "InternalFrameBorder", $PUBLIC | $STATIC},
-	{"javax.swing.plaf.metal.MetalBorders$ButtonBorder", "javax.swing.plaf.metal.MetalBorders", "ButtonBorder", $PUBLIC | $STATIC},
-	{"javax.swing.plaf.metal.MetalBorders$Flush3DBorder", "javax.swing.plaf.metal.MetalBorders", "Flush3DBorder", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _MetalBorders_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.metal.MetalBorders",
-	"java.lang.Object",
-	nullptr,
-	_MetalBorders_FieldInfo_,
-	_MetalBorders_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MetalBorders_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.metal.MetalBorders$TableHeaderBorder,javax.swing.plaf.metal.MetalBorders$ToggleButtonBorder,javax.swing.plaf.metal.MetalBorders$ScrollPaneBorder,javax.swing.plaf.metal.MetalBorders$TextFieldBorder,javax.swing.plaf.metal.MetalBorders$ToolBarBorder,javax.swing.plaf.metal.MetalBorders$RolloverMarginBorder,javax.swing.plaf.metal.MetalBorders$RolloverButtonBorder,javax.swing.plaf.metal.MetalBorders$PopupMenuBorder,javax.swing.plaf.metal.MetalBorders$MenuItemBorder,javax.swing.plaf.metal.MetalBorders$MenuBarBorder,javax.swing.plaf.metal.MetalBorders$OptionDialogBorder,javax.swing.plaf.metal.MetalBorders$PaletteBorder,javax.swing.plaf.metal.MetalBorders$WarningDialogBorder,javax.swing.plaf.metal.MetalBorders$QuestionDialogBorder,javax.swing.plaf.metal.MetalBorders$ErrorDialogBorder,javax.swing.plaf.metal.MetalBorders$DialogBorder,javax.swing.plaf.metal.MetalBorders$FrameBorder,javax.swing.plaf.metal.MetalBorders$InternalFrameBorder,javax.swing.plaf.metal.MetalBorders$ButtonBorder,javax.swing.plaf.metal.MetalBorders$Flush3DBorder"
-};
-
-$Object* allocate$MetalBorders($Class* clazz) {
-	return $of($alloc(MetalBorders));
-}
-
 $Object* MetalBorders::NO_BUTTON_ROLLOVER = nullptr;
 $Border* MetalBorders::buttonBorder = nullptr;
 $Border* MetalBorders::textBorder = nullptr;
@@ -120,9 +53,9 @@ void MetalBorders::init$() {
 
 $Border* MetalBorders::getButtonBorder() {
 	$init(MetalBorders);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (MetalBorders::buttonBorder == nullptr) {
-		$var($Border, var$0, static_cast<$Border*>($new($MetalBorders$ButtonBorder)));
+		$var($Border, var$0, $new($MetalBorders$ButtonBorder));
 		$assignStatic(MetalBorders::buttonBorder, $new($BorderUIResource$CompoundBorderUIResource, var$0, $$new($BasicBorders$MarginBorder)));
 	}
 	return MetalBorders::buttonBorder;
@@ -130,9 +63,9 @@ $Border* MetalBorders::getButtonBorder() {
 
 $Border* MetalBorders::getTextBorder() {
 	$init(MetalBorders);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (MetalBorders::textBorder == nullptr) {
-		$var($Border, var$0, static_cast<$Border*>($new($MetalBorders$Flush3DBorder)));
+		$var($Border, var$0, $new($MetalBorders$Flush3DBorder));
 		$assignStatic(MetalBorders::textBorder, $new($BorderUIResource$CompoundBorderUIResource, var$0, $$new($BasicBorders$MarginBorder)));
 	}
 	return MetalBorders::textBorder;
@@ -140,9 +73,9 @@ $Border* MetalBorders::getTextBorder() {
 
 $Border* MetalBorders::getTextFieldBorder() {
 	$init(MetalBorders);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (MetalBorders::textFieldBorder == nullptr) {
-		$var($Border, var$0, static_cast<$Border*>($new($MetalBorders$TextFieldBorder)));
+		$var($Border, var$0, $new($MetalBorders$TextFieldBorder));
 		$assignStatic(MetalBorders::textFieldBorder, $new($BorderUIResource$CompoundBorderUIResource, var$0, $$new($BasicBorders$MarginBorder)));
 	}
 	return MetalBorders::textFieldBorder;
@@ -150,9 +83,9 @@ $Border* MetalBorders::getTextFieldBorder() {
 
 $Border* MetalBorders::getToggleButtonBorder() {
 	$init(MetalBorders);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (MetalBorders::toggleButtonBorder == nullptr) {
-		$var($Border, var$0, static_cast<$Border*>($new($MetalBorders$ToggleButtonBorder)));
+		$var($Border, var$0, $new($MetalBorders$ToggleButtonBorder));
 		$assignStatic(MetalBorders::toggleButtonBorder, $new($BorderUIResource$CompoundBorderUIResource, var$0, $$new($BasicBorders$MarginBorder)));
 	}
 	return MetalBorders::toggleButtonBorder;
@@ -160,34 +93,34 @@ $Border* MetalBorders::getToggleButtonBorder() {
 
 $Border* MetalBorders::getDesktopIconBorder() {
 	$init(MetalBorders);
-	$useLocalCurrentObjectStackCache();
-	$var($Border, var$0, static_cast<$Border*>($new($LineBorder, $($MetalLookAndFeel::getControlDarkShadow()), 1)));
-	return $new($BorderUIResource$CompoundBorderUIResource, var$0, $$new($MatteBorder, 2, 2, 1, 2, $(static_cast<$Color*>($MetalLookAndFeel::getControl()))));
+	$useLocalObjectStack();
+	$var($Border, var$0, $new($LineBorder, $($MetalLookAndFeel::getControlDarkShadow()), 1));
+	return $new($BorderUIResource$CompoundBorderUIResource, var$0, $$new($MatteBorder, 2, 2, 1, 2, $($MetalLookAndFeel::getControl())));
 }
 
 $Border* MetalBorders::getToolBarRolloverBorder() {
 	$init(MetalBorders);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($MetalLookAndFeel::usingOcean()) {
-		$var($Border, var$0, static_cast<$Border*>($new($MetalBorders$ButtonBorder)));
+		$var($Border, var$0, $new($MetalBorders$ButtonBorder));
 		return $new($CompoundBorder, var$0, $$new($MetalBorders$RolloverMarginBorder));
 	}
-	$var($Border, var$1, static_cast<$Border*>($new($MetalBorders$RolloverButtonBorder)));
+	$var($Border, var$1, $new($MetalBorders$RolloverButtonBorder));
 	return $new($CompoundBorder, var$1, $$new($MetalBorders$RolloverMarginBorder));
 }
 
 $Border* MetalBorders::getToolBarNonrolloverBorder() {
 	$init(MetalBorders);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($MetalLookAndFeel::usingOcean()) {
-		$var($Border, var$0, static_cast<$Border*>($new($MetalBorders$ButtonBorder)));
+		$var($Border, var$0, $new($MetalBorders$ButtonBorder));
 		$new($CompoundBorder, var$0, $$new($MetalBorders$RolloverMarginBorder));
 	}
-	$var($Border, var$1, static_cast<$Border*>($new($MetalBorders$ButtonBorder)));
+	$var($Border, var$1, $new($MetalBorders$ButtonBorder));
 	return $new($CompoundBorder, var$1, $$new($MetalBorders$RolloverMarginBorder));
 }
 
-void clinit$MetalBorders($Class* class$) {
+void MetalBorders::clinit$($Class* clazz) {
 	$assignStatic(MetalBorders::NO_BUTTON_ROLLOVER, $new($StringUIClientPropertyKey, "NoButtonRollover"_s));
 }
 
@@ -195,7 +128,65 @@ MetalBorders::MetalBorders() {
 }
 
 $Class* MetalBorders::load$($String* name, bool initialize) {
-	$loadClass(MetalBorders, name, initialize, &_MetalBorders_ClassInfo_, clinit$MetalBorders, allocate$MetalBorders);
+	$FieldInfo fieldInfos$$[] = {
+		{"NO_BUTTON_ROLLOVER", "Ljava/lang/Object;", nullptr, $STATIC, $staticField(MetalBorders, NO_BUTTON_ROLLOVER)},
+		{"buttonBorder", "Ljavax/swing/border/Border;", nullptr, $PRIVATE | $STATIC, $staticField(MetalBorders, buttonBorder)},
+		{"textBorder", "Ljavax/swing/border/Border;", nullptr, $PRIVATE | $STATIC, $staticField(MetalBorders, textBorder)},
+		{"textFieldBorder", "Ljavax/swing/border/Border;", nullptr, $PRIVATE | $STATIC, $staticField(MetalBorders, textFieldBorder)},
+		{"toggleButtonBorder", "Ljavax/swing/border/Border;", nullptr, $PRIVATE | $STATIC, $staticField(MetalBorders, toggleButtonBorder)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MetalBorders, init$, void)},
+		{"getButtonBorder", "()Ljavax/swing/border/Border;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalBorders, getButtonBorder, $Border*)},
+		{"getDesktopIconBorder", "()Ljavax/swing/border/Border;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalBorders, getDesktopIconBorder, $Border*)},
+		{"getTextBorder", "()Ljavax/swing/border/Border;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalBorders, getTextBorder, $Border*)},
+		{"getTextFieldBorder", "()Ljavax/swing/border/Border;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalBorders, getTextFieldBorder, $Border*)},
+		{"getToggleButtonBorder", "()Ljavax/swing/border/Border;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalBorders, getToggleButtonBorder, $Border*)},
+		{"getToolBarNonrolloverBorder", "()Ljavax/swing/border/Border;", nullptr, $STATIC, $staticMethod(MetalBorders, getToolBarNonrolloverBorder, $Border*)},
+		{"getToolBarRolloverBorder", "()Ljavax/swing/border/Border;", nullptr, $STATIC, $staticMethod(MetalBorders, getToolBarRolloverBorder, $Border*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.metal.MetalBorders$TableHeaderBorder", "javax.swing.plaf.metal.MetalBorders", "TableHeaderBorder", $PUBLIC | $STATIC},
+		{"javax.swing.plaf.metal.MetalBorders$ToggleButtonBorder", "javax.swing.plaf.metal.MetalBorders", "ToggleButtonBorder", $PUBLIC | $STATIC},
+		{"javax.swing.plaf.metal.MetalBorders$ScrollPaneBorder", "javax.swing.plaf.metal.MetalBorders", "ScrollPaneBorder", $PUBLIC | $STATIC},
+		{"javax.swing.plaf.metal.MetalBorders$TextFieldBorder", "javax.swing.plaf.metal.MetalBorders", "TextFieldBorder", $PUBLIC | $STATIC},
+		{"javax.swing.plaf.metal.MetalBorders$ToolBarBorder", "javax.swing.plaf.metal.MetalBorders", "ToolBarBorder", $PUBLIC | $STATIC},
+		{"javax.swing.plaf.metal.MetalBorders$RolloverMarginBorder", "javax.swing.plaf.metal.MetalBorders", "RolloverMarginBorder", $STATIC},
+		{"javax.swing.plaf.metal.MetalBorders$RolloverButtonBorder", "javax.swing.plaf.metal.MetalBorders", "RolloverButtonBorder", $PUBLIC | $STATIC},
+		{"javax.swing.plaf.metal.MetalBorders$PopupMenuBorder", "javax.swing.plaf.metal.MetalBorders", "PopupMenuBorder", $PUBLIC | $STATIC},
+		{"javax.swing.plaf.metal.MetalBorders$MenuItemBorder", "javax.swing.plaf.metal.MetalBorders", "MenuItemBorder", $PUBLIC | $STATIC},
+		{"javax.swing.plaf.metal.MetalBorders$MenuBarBorder", "javax.swing.plaf.metal.MetalBorders", "MenuBarBorder", $PUBLIC | $STATIC},
+		{"javax.swing.plaf.metal.MetalBorders$OptionDialogBorder", "javax.swing.plaf.metal.MetalBorders", "OptionDialogBorder", $PUBLIC | $STATIC},
+		{"javax.swing.plaf.metal.MetalBorders$PaletteBorder", "javax.swing.plaf.metal.MetalBorders", "PaletteBorder", $PUBLIC | $STATIC},
+		{"javax.swing.plaf.metal.MetalBorders$WarningDialogBorder", "javax.swing.plaf.metal.MetalBorders", "WarningDialogBorder", $STATIC},
+		{"javax.swing.plaf.metal.MetalBorders$QuestionDialogBorder", "javax.swing.plaf.metal.MetalBorders", "QuestionDialogBorder", $STATIC},
+		{"javax.swing.plaf.metal.MetalBorders$ErrorDialogBorder", "javax.swing.plaf.metal.MetalBorders", "ErrorDialogBorder", $STATIC},
+		{"javax.swing.plaf.metal.MetalBorders$DialogBorder", "javax.swing.plaf.metal.MetalBorders", "DialogBorder", $STATIC},
+		{"javax.swing.plaf.metal.MetalBorders$FrameBorder", "javax.swing.plaf.metal.MetalBorders", "FrameBorder", $STATIC},
+		{"javax.swing.plaf.metal.MetalBorders$InternalFrameBorder", "javax.swing.plaf.metal.MetalBorders", "InternalFrameBorder", $PUBLIC | $STATIC},
+		{"javax.swing.plaf.metal.MetalBorders$ButtonBorder", "javax.swing.plaf.metal.MetalBorders", "ButtonBorder", $PUBLIC | $STATIC},
+		{"javax.swing.plaf.metal.MetalBorders$Flush3DBorder", "javax.swing.plaf.metal.MetalBorders", "Flush3DBorder", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.metal.MetalBorders",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.metal.MetalBorders$TableHeaderBorder,javax.swing.plaf.metal.MetalBorders$ToggleButtonBorder,javax.swing.plaf.metal.MetalBorders$ScrollPaneBorder,javax.swing.plaf.metal.MetalBorders$TextFieldBorder,javax.swing.plaf.metal.MetalBorders$ToolBarBorder,javax.swing.plaf.metal.MetalBorders$RolloverMarginBorder,javax.swing.plaf.metal.MetalBorders$RolloverButtonBorder,javax.swing.plaf.metal.MetalBorders$PopupMenuBorder,javax.swing.plaf.metal.MetalBorders$MenuItemBorder,javax.swing.plaf.metal.MetalBorders$MenuBarBorder,javax.swing.plaf.metal.MetalBorders$OptionDialogBorder,javax.swing.plaf.metal.MetalBorders$PaletteBorder,javax.swing.plaf.metal.MetalBorders$WarningDialogBorder,javax.swing.plaf.metal.MetalBorders$QuestionDialogBorder,javax.swing.plaf.metal.MetalBorders$ErrorDialogBorder,javax.swing.plaf.metal.MetalBorders$DialogBorder,javax.swing.plaf.metal.MetalBorders$FrameBorder,javax.swing.plaf.metal.MetalBorders$InternalFrameBorder,javax.swing.plaf.metal.MetalBorders$ButtonBorder,javax.swing.plaf.metal.MetalBorders$Flush3DBorder"
+	};
+	$loadClass(MetalBorders, name, initialize, &classInfo$$, MetalBorders::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(MetalBorders);
+	});
 	return class$;
 }
 

@@ -37,6 +37,7 @@ public:
 	GTKIconFactory$MenuArrowIcon();
 	using ::com::sun::java::swing::plaf::gtk::GTKIconFactory$DelegatingIcon::getIconWidth;
 	using ::com::sun::java::swing::plaf::gtk::GTKIconFactory$DelegatingIcon::getIconHeight;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual $ClassArray* getMethodParamTypes() override;
 	using ::com::sun::java::swing::plaf::gtk::GTKIconFactory$DelegatingIcon::paintIcon;

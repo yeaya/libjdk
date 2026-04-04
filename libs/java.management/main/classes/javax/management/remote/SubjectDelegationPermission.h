@@ -15,7 +15,7 @@ public:
 	SubjectDelegationPermission();
 	void init$($String* name);
 	void init$($String* name, $String* actions);
-	static const int64_t serialVersionUID = (int64_t)0x148FC3D2E6AAC567;
+	static const int64_t serialVersionUID = (int64_t)0x148fc3d2e6aac567;
 };
 
 		} // remote

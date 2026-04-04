@@ -31,6 +31,7 @@ class $export JInternalFrameIconTest : public ::java::lang::Object {
 	$class(JInternalFrameIconTest, 0, ::java::lang::Object)
 public:
 	JInternalFrameIconTest();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static bool bufferedImagesEqual(::java::awt::image::BufferedImage* bufferedImage1, ::java::awt::image::BufferedImage* bufferedImage2);
 	static void cleanUp();

@@ -30,10 +30,13 @@ public:
 	virtual ::javax::sql::rowset::spi::SyncResolver* getSyncResolver();
 	virtual void setSyncResolver(::javax::sql::rowset::spi::SyncResolver* syncResolver);
 	::javax::sql::rowset::spi::SyncResolver* syncResolver = nullptr;
-	static const int64_t serialVersionUID = (int64_t)0xF2F4C62D783AD84C;
+	static const int64_t serialVersionUID = (int64_t)0xf2f4c62d783ad84c;
 	SyncProviderException(const SyncProviderException& e);
 	virtual void throw$() override;
-	inline SyncProviderException* operator ->() {
+	inline SyncProviderException* operator ->() const {
+		return (SyncProviderException*)throwing$;
+	}
+	inline operator SyncProviderException*() const {
 		return (SyncProviderException*)throwing$;
 	}
 };

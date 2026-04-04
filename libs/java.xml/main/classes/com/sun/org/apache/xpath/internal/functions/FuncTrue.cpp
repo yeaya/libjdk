@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xpath/internal/functions/FuncTrue.h>
-
 #include <com/sun/org/apache/xpath/internal/XPathContext.h>
 #include <com/sun/org/apache/xpath/internal/functions/Function.h>
 #include <com/sun/org/apache/xpath/internal/objects/XBoolean.h>
@@ -26,31 +25,6 @@ namespace com {
 					namespace internal {
 						namespace functions {
 
-$FieldInfo _FuncTrue_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(FuncTrue, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _FuncTrue_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(FuncTrue, init$, void)},
-	{"execute", "(Lcom/sun/org/apache/xpath/internal/XPathContext;)Lcom/sun/org/apache/xpath/internal/objects/XObject;", nullptr, $PUBLIC, $virtualMethod(FuncTrue, execute, $XObject*, $XPathContext*), "javax.xml.transform.TransformerException"},
-	{"fixupVariables", "(Ljava/util/List;I)V", "(Ljava/util/List<Lcom/sun/org/apache/xml/internal/utils/QName;>;I)V", $PUBLIC, $virtualMethod(FuncTrue, fixupVariables, void, $List*, int32_t)},
-	{}
-};
-
-$ClassInfo _FuncTrue_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xpath.internal.functions.FuncTrue",
-	"com.sun.org.apache.xpath.internal.functions.Function",
-	nullptr,
-	_FuncTrue_FieldInfo_,
-	_FuncTrue_MethodInfo_
-};
-
-$Object* allocate$FuncTrue($Class* clazz) {
-	return $of($alloc(FuncTrue));
-}
-
 void FuncTrue::init$() {
 	$Function::init$();
 }
@@ -67,7 +41,27 @@ FuncTrue::FuncTrue() {
 }
 
 $Class* FuncTrue::load$($String* name, bool initialize) {
-	$loadClass(FuncTrue, name, initialize, &_FuncTrue_ClassInfo_, allocate$FuncTrue);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(FuncTrue, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(FuncTrue, init$, void)},
+		{"execute", "(Lcom/sun/org/apache/xpath/internal/XPathContext;)Lcom/sun/org/apache/xpath/internal/objects/XObject;", nullptr, $PUBLIC, $virtualMethod(FuncTrue, execute, $XObject*, $XPathContext*), "javax.xml.transform.TransformerException"},
+		{"fixupVariables", "(Ljava/util/List;I)V", "(Ljava/util/List<Lcom/sun/org/apache/xml/internal/utils/QName;>;I)V", $PUBLIC, $virtualMethod(FuncTrue, fixupVariables, void, $List*, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xpath.internal.functions.FuncTrue",
+		"com.sun.org.apache.xpath.internal.functions.Function",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(FuncTrue, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(FuncTrue));
+	});
 	return class$;
 }
 

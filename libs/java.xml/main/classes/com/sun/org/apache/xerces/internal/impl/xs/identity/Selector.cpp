@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/impl/xs/identity/Selector.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/xpath/XPath.h>
 #include <com/sun/org/apache/xerces/internal/impl/xs/identity/FieldActivator.h>
 #include <com/sun/org/apache/xerces/internal/impl/xs/identity/IdentityConstraint.h>
@@ -29,47 +28,6 @@ namespace com {
 							namespace xs {
 								namespace identity {
 
-$FieldInfo _Selector_FieldInfo_[] = {
-	{"fXPath", "Lcom/sun/org/apache/xerces/internal/impl/xs/identity/Selector$XPath;", nullptr, $PROTECTED | $FINAL, $field(Selector, fXPath)},
-	{"fIdentityConstraint", "Lcom/sun/org/apache/xerces/internal/impl/xs/identity/IdentityConstraint;", nullptr, $PROTECTED | $FINAL, $field(Selector, fIdentityConstraint)},
-	{"fIDConstraint", "Lcom/sun/org/apache/xerces/internal/impl/xs/identity/IdentityConstraint;", nullptr, $PROTECTED, $field(Selector, fIDConstraint)},
-	{}
-};
-
-$MethodInfo _Selector_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/org/apache/xerces/internal/impl/xs/identity/Selector$XPath;Lcom/sun/org/apache/xerces/internal/impl/xs/identity/IdentityConstraint;)V", nullptr, $PUBLIC, $method(Selector, init$, void, $Selector$XPath*, $IdentityConstraint*)},
-	{"createMatcher", "(Lcom/sun/org/apache/xerces/internal/impl/xs/identity/FieldActivator;I)Lcom/sun/org/apache/xerces/internal/impl/xs/identity/XPathMatcher;", nullptr, $PUBLIC, $virtualMethod(Selector, createMatcher, $XPathMatcher*, $FieldActivator*, int32_t)},
-	{"getIDConstraint", "()Lcom/sun/org/apache/xerces/internal/impl/xs/identity/IdentityConstraint;", nullptr, $PUBLIC, $virtualMethod(Selector, getIDConstraint, $IdentityConstraint*)},
-	{"getXPath", "()Lcom/sun/org/apache/xerces/internal/impl/xpath/XPath;", nullptr, $PUBLIC, $virtualMethod(Selector, getXPath, $XPath*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Selector, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _Selector_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xerces.internal.impl.xs.identity.Selector$Matcher", "com.sun.org.apache.xerces.internal.impl.xs.identity.Selector", "Matcher", $PUBLIC},
-	{"com.sun.org.apache.xerces.internal.impl.xs.identity.Selector$XPath", "com.sun.org.apache.xerces.internal.impl.xs.identity.Selector", "XPath", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _Selector_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.impl.xs.identity.Selector",
-	"java.lang.Object",
-	nullptr,
-	_Selector_FieldInfo_,
-	_Selector_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Selector_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xerces.internal.impl.xs.identity.Selector$Matcher,com.sun.org.apache.xerces.internal.impl.xs.identity.Selector$XPath"
-};
-
-$Object* allocate$Selector($Class* clazz) {
-	return $of($alloc(Selector));
-}
-
 void Selector::init$($Selector$XPath* xpath, $IdentityConstraint* identityConstraint) {
 	$set(this, fXPath, xpath);
 	$set(this, fIdentityConstraint, identityConstraint);
@@ -95,7 +53,42 @@ Selector::Selector() {
 }
 
 $Class* Selector::load$($String* name, bool initialize) {
-	$loadClass(Selector, name, initialize, &_Selector_ClassInfo_, allocate$Selector);
+	$FieldInfo fieldInfos$$[] = {
+		{"fXPath", "Lcom/sun/org/apache/xerces/internal/impl/xs/identity/Selector$XPath;", nullptr, $PROTECTED | $FINAL, $field(Selector, fXPath)},
+		{"fIdentityConstraint", "Lcom/sun/org/apache/xerces/internal/impl/xs/identity/IdentityConstraint;", nullptr, $PROTECTED | $FINAL, $field(Selector, fIdentityConstraint)},
+		{"fIDConstraint", "Lcom/sun/org/apache/xerces/internal/impl/xs/identity/IdentityConstraint;", nullptr, $PROTECTED, $field(Selector, fIDConstraint)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/org/apache/xerces/internal/impl/xs/identity/Selector$XPath;Lcom/sun/org/apache/xerces/internal/impl/xs/identity/IdentityConstraint;)V", nullptr, $PUBLIC, $method(Selector, init$, void, $Selector$XPath*, $IdentityConstraint*)},
+		{"createMatcher", "(Lcom/sun/org/apache/xerces/internal/impl/xs/identity/FieldActivator;I)Lcom/sun/org/apache/xerces/internal/impl/xs/identity/XPathMatcher;", nullptr, $PUBLIC, $virtualMethod(Selector, createMatcher, $XPathMatcher*, $FieldActivator*, int32_t)},
+		{"getIDConstraint", "()Lcom/sun/org/apache/xerces/internal/impl/xs/identity/IdentityConstraint;", nullptr, $PUBLIC, $virtualMethod(Selector, getIDConstraint, $IdentityConstraint*)},
+		{"getXPath", "()Lcom/sun/org/apache/xerces/internal/impl/xpath/XPath;", nullptr, $PUBLIC, $virtualMethod(Selector, getXPath, $XPath*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Selector, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xerces.internal.impl.xs.identity.Selector$Matcher", "com.sun.org.apache.xerces.internal.impl.xs.identity.Selector", "Matcher", $PUBLIC},
+		{"com.sun.org.apache.xerces.internal.impl.xs.identity.Selector$XPath", "com.sun.org.apache.xerces.internal.impl.xs.identity.Selector", "XPath", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.impl.xs.identity.Selector",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xerces.internal.impl.xs.identity.Selector$Matcher,com.sun.org.apache.xerces.internal.impl.xs.identity.Selector$XPath"
+	};
+	$loadClass(Selector, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Selector);
+	});
 	return class$;
 }
 

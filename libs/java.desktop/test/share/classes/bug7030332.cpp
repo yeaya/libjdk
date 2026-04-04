@@ -1,14 +1,10 @@
 #include <bug7030332.h>
-
 #include <bug7030332$1.h>
 #include <bug7030332$2.h>
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <java/awt/GridLayout.h>
-#include <java/awt/LayoutManager.h>
-#include <java/lang/Runnable.h>
 #include <java/net/URL.h>
-#include <javax/swing/Icon.h>
 #include <javax/swing/ImageIcon.h>
 #include <javax/swing/JApplet.h>
 #include <javax/swing/JEditorPane.h>
@@ -24,19 +20,15 @@
 
 using $bug7030332$1 = ::bug7030332$1;
 using $bug7030332$2 = ::bug7030332$2;
-using $Component = ::java::awt::Component;
 using $Container = ::java::awt::Container;
 using $GridLayout = ::java::awt::GridLayout;
-using $LayoutManager = ::java::awt::LayoutManager;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $URL = ::java::net::URL;
-using $Icon = ::javax::swing::Icon;
 using $ImageIcon = ::javax::swing::ImageIcon;
 using $JApplet = ::javax::swing::JApplet;
 using $JEditorPane = ::javax::swing::JEditorPane;
@@ -45,44 +37,6 @@ using $JPanel = ::javax::swing::JPanel;
 using $JTextArea = ::javax::swing::JTextArea;
 using $SwingConstants = ::javax::swing::SwingConstants;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
-
-$FieldInfo _bug7030332_FieldInfo_[] = {
-	{"HTML_SAMPLES", "[Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(bug7030332, HTML_SAMPLES)},
-	{}
-};
-
-$MethodInfo _bug7030332_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(bug7030332, init$, void)},
-	{"createContentPane", "()Ljava/awt/Container;", nullptr, $PRIVATE | $STATIC, $staticMethod(bug7030332, createContentPane, $Container*)},
-	{"init", "()V", nullptr, $PUBLIC, $virtualMethod(bug7030332, init, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(bug7030332, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$InnerClassInfo _bug7030332_InnerClassesInfo_[] = {
-	{"bug7030332$2", nullptr, nullptr, 0},
-	{"bug7030332$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _bug7030332_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"bug7030332",
-	"javax.swing.JApplet",
-	nullptr,
-	_bug7030332_FieldInfo_,
-	_bug7030332_MethodInfo_,
-	nullptr,
-	nullptr,
-	_bug7030332_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"bug7030332$2,bug7030332$1"
-};
-
-$Object* allocate$bug7030332($Class* clazz) {
-	return $of($alloc(bug7030332));
-}
 
 $StringArray* bug7030332::HTML_SAMPLES = nullptr;
 
@@ -99,32 +53,32 @@ void bug7030332::init() {
 	try {
 		$SwingUtilities::invokeAndWait($$new($bug7030332$2, this));
 	} catch ($Exception& e) {
-		$throwNew($RuntimeException, static_cast<$Throwable*>(e));
+		$throwNew($RuntimeException, e);
 	}
 }
 
 $Container* bug7030332::createContentPane() {
 	$init(bug7030332);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
-	$var($JPanel, result, $new($JPanel, static_cast<$LayoutManager*>($$new($GridLayout, $nc(bug7030332::HTML_SAMPLES)->length + 1, 3, 10, 10))));
-	result->add(static_cast<$Component*>($$new($JLabel, "Html code"_s)));
-	result->add(static_cast<$Component*>($$new($JLabel, "Golden image"_s)));
-	result->add(static_cast<$Component*>($$new($JLabel, "JEditorPane"_s)));
-	for (int32_t i = 0; i < $nc(bug7030332::HTML_SAMPLES)->length; ++i) {
-		$var($String, htmlSample, $nc(bug7030332::HTML_SAMPLES)->get(i));
+	$var($JPanel, result, $new($JPanel, $$new($GridLayout, bug7030332::HTML_SAMPLES->length + 1, 3, 10, 10)));
+	result->add($$new($JLabel, "Html code"_s));
+	result->add($$new($JLabel, "Golden image"_s));
+	result->add($$new($JLabel, "JEditorPane"_s));
+	for (int32_t i = 0; i < bug7030332::HTML_SAMPLES->length; ++i) {
+		$var($String, htmlSample, bug7030332::HTML_SAMPLES->get(i));
 		$var($JTextArea, textArea, $new($JTextArea, htmlSample));
 		textArea->setLineWrap(true);
-		result->add(static_cast<$Component*>(textArea));
+		result->add(textArea);
 		$var($String, imageName, $str({"sample"_s, $$str(i), ".png"_s}));
 		$var($URL, resource, bug7030332::class$->getResource(imageName));
-		result->add(resource == nullptr ? static_cast<$Component*>($$new($JLabel, $$str({imageName, " not found"_s}))) : static_cast<$Component*>($$new($JLabel, static_cast<$Icon*>($$new($ImageIcon, resource)), $SwingConstants::LEFT)));
-		result->add(static_cast<$Component*>($$new($JEditorPane, "text/html"_s, htmlSample)));
+		result->add(resource == nullptr ? $$new($JLabel, $$str({imageName, " not found"_s})) : $$new($JLabel, $$new($ImageIcon, resource), $SwingConstants::LEFT));
+		result->add($$new($JEditorPane, "text/html"_s, htmlSample));
 	}
 	return result;
 }
 
-void clinit$bug7030332($Class* class$) {
+void bug7030332::clinit$($Class* clazz) {
 	$assignStatic(bug7030332::HTML_SAMPLES, $new($StringArray, {
 		"<table border><tr><th>Column1</th><th>Column2</th></tr></table>"_s,
 		"<table border=\"\"><tr><th>Column1</th><th>Column2</th></tr></table>"_s,
@@ -137,7 +91,39 @@ bug7030332::bug7030332() {
 }
 
 $Class* bug7030332::load$($String* name, bool initialize) {
-	$loadClass(bug7030332, name, initialize, &_bug7030332_ClassInfo_, clinit$bug7030332, allocate$bug7030332);
+	$FieldInfo fieldInfos$$[] = {
+		{"HTML_SAMPLES", "[Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(bug7030332, HTML_SAMPLES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(bug7030332, init$, void)},
+		{"createContentPane", "()Ljava/awt/Container;", nullptr, $PRIVATE | $STATIC, $staticMethod(bug7030332, createContentPane, $Container*)},
+		{"init", "()V", nullptr, $PUBLIC, $virtualMethod(bug7030332, init, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(bug7030332, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"bug7030332$2", nullptr, nullptr, 0},
+		{"bug7030332$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"bug7030332",
+		"javax.swing.JApplet",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"bug7030332$2,bug7030332$1"
+	};
+	$loadClass(bug7030332, name, initialize, &classInfo$$, bug7030332::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(bug7030332));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xpath/internal/jaxp/XPathNodesImpl$NodeSetIterator.h>
-
 #include <com/sun/org/apache/xpath/internal/jaxp/XPathNodesImpl.h>
 #include <org/w3c/dom/Node.h>
 #include <org/w3c/dom/NodeList.h>
@@ -10,7 +9,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NodeList = ::org::w3c::dom::NodeList;
 
 namespace com {
 	namespace sun {
@@ -20,45 +18,6 @@ namespace com {
 					namespace internal {
 						namespace jaxp {
 
-$FieldInfo _XPathNodesImpl$NodeSetIterator_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/org/apache/xpath/internal/jaxp/XPathNodesImpl;", nullptr, $FINAL | $SYNTHETIC, $field(XPathNodesImpl$NodeSetIterator, this$0)},
-	{"currentIndex", "I", nullptr, 0, $field(XPathNodesImpl$NodeSetIterator, currentIndex)},
-	{"elementType", "Ljava/lang/Class;", "Ljava/lang/Class<TE;>;", 0, $field(XPathNodesImpl$NodeSetIterator, elementType)},
-	{}
-};
-
-$MethodInfo _XPathNodesImpl$NodeSetIterator_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/org/apache/xpath/internal/jaxp/XPathNodesImpl;Ljava/lang/Class;)V", "(Ljava/lang/Class<TE;>;)V", 0, $method(XPathNodesImpl$NodeSetIterator, init$, void, $XPathNodesImpl*, $Class*)},
-	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(XPathNodesImpl$NodeSetIterator, hasNext, bool)},
-	{"next", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(XPathNodesImpl$NodeSetIterator, next, $Object*)},
-	{}
-};
-
-$InnerClassInfo _XPathNodesImpl$NodeSetIterator_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xpath.internal.jaxp.XPathNodesImpl$NodeSetIterator", "com.sun.org.apache.xpath.internal.jaxp.XPathNodesImpl", "NodeSetIterator", 0},
-	{}
-};
-
-$ClassInfo _XPathNodesImpl$NodeSetIterator_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.org.apache.xpath.internal.jaxp.XPathNodesImpl$NodeSetIterator",
-	"java.lang.Object",
-	"java.util.Iterator",
-	_XPathNodesImpl$NodeSetIterator_FieldInfo_,
-	_XPathNodesImpl$NodeSetIterator_MethodInfo_,
-	"<E:Ljava/lang/Object;>Ljava/lang/Object;Ljava/util/Iterator<TE;>;",
-	nullptr,
-	_XPathNodesImpl$NodeSetIterator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xpath.internal.jaxp.XPathNodesImpl"
-};
-
-$Object* allocate$XPathNodesImpl$NodeSetIterator($Class* clazz) {
-	return $of($alloc(XPathNodesImpl$NodeSetIterator));
-}
-
 void XPathNodesImpl$NodeSetIterator::init$($XPathNodesImpl* this$0, $Class* elementType) {
 	$set(this, this$0, this$0);
 	$set(this, elementType, elementType);
@@ -66,23 +25,56 @@ void XPathNodesImpl$NodeSetIterator::init$($XPathNodesImpl* this$0, $Class* elem
 
 bool XPathNodesImpl$NodeSetIterator::hasNext() {
 	if (this->this$0->nodeList != nullptr) {
-		return this->currentIndex < $nc(this->this$0->nodeList)->getLength();
+		return this->currentIndex < this->this$0->nodeList->getLength();
 	}
 	return false;
 }
 
 $Object* XPathNodesImpl$NodeSetIterator::next() {
-	if (this->this$0->nodeList != nullptr && $nc(this->this$0->nodeList)->getLength() > 0) {
-		return $of($nc(this->elementType)->cast($($nc(this->this$0->nodeList)->item(this->currentIndex++))));
+	if (this->this$0->nodeList != nullptr && this->this$0->nodeList->getLength() > 0) {
+		return $nc(this->elementType)->cast($(this->this$0->nodeList->item(this->currentIndex++)));
 	}
-	return $of(nullptr);
+	return nullptr;
 }
 
 XPathNodesImpl$NodeSetIterator::XPathNodesImpl$NodeSetIterator() {
 }
 
 $Class* XPathNodesImpl$NodeSetIterator::load$($String* name, bool initialize) {
-	$loadClass(XPathNodesImpl$NodeSetIterator, name, initialize, &_XPathNodesImpl$NodeSetIterator_ClassInfo_, allocate$XPathNodesImpl$NodeSetIterator);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/org/apache/xpath/internal/jaxp/XPathNodesImpl;", nullptr, $FINAL | $SYNTHETIC, $field(XPathNodesImpl$NodeSetIterator, this$0)},
+		{"currentIndex", "I", nullptr, 0, $field(XPathNodesImpl$NodeSetIterator, currentIndex)},
+		{"elementType", "Ljava/lang/Class;", "Ljava/lang/Class<TE;>;", 0, $field(XPathNodesImpl$NodeSetIterator, elementType)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/org/apache/xpath/internal/jaxp/XPathNodesImpl;Ljava/lang/Class;)V", "(Ljava/lang/Class<TE;>;)V", 0, $method(XPathNodesImpl$NodeSetIterator, init$, void, $XPathNodesImpl*, $Class*)},
+		{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(XPathNodesImpl$NodeSetIterator, hasNext, bool)},
+		{"next", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(XPathNodesImpl$NodeSetIterator, next, $Object*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xpath.internal.jaxp.XPathNodesImpl$NodeSetIterator", "com.sun.org.apache.xpath.internal.jaxp.XPathNodesImpl", "NodeSetIterator", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.org.apache.xpath.internal.jaxp.XPathNodesImpl$NodeSetIterator",
+		"java.lang.Object",
+		"java.util.Iterator",
+		fieldInfos$$,
+		methodInfos$$,
+		"<E:Ljava/lang/Object;>Ljava/lang/Object;Ljava/util/Iterator<TE;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xpath.internal.jaxp.XPathNodesImpl"
+	};
+	$loadClass(XPathNodesImpl$NodeSetIterator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XPathNodesImpl$NodeSetIterator);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <javax/swing/text/html/HTMLDocument$HTMLReader.h>
-
 #include <java/awt/font/TextAttribute.h>
 #include <java/lang/Math.h>
 #include <java/net/MalformedURLException.h>
@@ -8,7 +7,6 @@
 #include <java/util/Stack.h>
 #include <java/util/Vector.h>
 #include <javax/swing/event/DocumentEvent$EventType.h>
-#include <javax/swing/event/DocumentEvent.h>
 #include <javax/swing/event/UndoableEditEvent.h>
 #include <javax/swing/text/AbstractDocument$BranchElement.h>
 #include <javax/swing/text/AbstractDocument$Content.h>
@@ -155,12 +153,9 @@ using $URL = ::java::net::URL;
 using $Hashtable = ::java::util::Hashtable;
 using $Stack = ::java::util::Stack;
 using $Vector = ::java::util::Vector;
-using $DocumentEvent = ::javax::swing::event::DocumentEvent;
 using $DocumentEvent$EventType = ::javax::swing::event::DocumentEvent$EventType;
 using $UndoableEditEvent = ::javax::swing::event::UndoableEditEvent;
-using $AbstractDocument = ::javax::swing::text::AbstractDocument;
 using $AbstractDocument$BranchElement = ::javax::swing::text::AbstractDocument$BranchElement;
-using $AbstractDocument$Content = ::javax::swing::text::AbstractDocument$Content;
 using $AbstractDocument$DefaultDocumentEvent = ::javax::swing::text::AbstractDocument$DefaultDocumentEvent;
 using $AbstractDocument$ElementEdit = ::javax::swing::text::AbstractDocument$ElementEdit;
 using $AttributeSet = ::javax::swing::text::AttributeSet;
@@ -200,9 +195,7 @@ using $HTMLDocument$HTMLReader$TagAction = ::javax::swing::text::html::HTMLDocum
 using $HTMLDocument$HTMLReader$TitleAction = ::javax::swing::text::html::HTMLDocument$HTMLReader$TitleAction;
 using $HTMLDocument$TaggedAttributeSet = ::javax::swing::text::html::HTMLDocument$TaggedAttributeSet;
 using $HTMLEditorKit$ParserCallback = ::javax::swing::text::html::HTMLEditorKit$ParserCallback;
-using $Option = ::javax::swing::text::html::Option;
 using $StyleSheet = ::javax::swing::text::html::StyleSheet;
-using $TextAreaDocument = ::javax::swing::text::html::TextAreaDocument;
 using $UndoableEdit = ::javax::swing::undo::UndoableEdit;
 using $SwingUtilities2 = ::sun::swing::SwingUtilities2;
 
@@ -210,132 +203,6 @@ namespace javax {
 	namespace swing {
 		namespace text {
 			namespace html {
-
-$FieldInfo _HTMLDocument$HTMLReader_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/text/html/HTMLDocument;", nullptr, $FINAL | $SYNTHETIC, $field(HTMLDocument$HTMLReader, this$0)},
-	{"receivedEndHTML", "Z", nullptr, $PRIVATE, $field(HTMLDocument$HTMLReader, receivedEndHTML)},
-	{"flushCount", "I", nullptr, $PRIVATE, $field(HTMLDocument$HTMLReader, flushCount)},
-	{"insertAfterImplied", "Z", nullptr, $PRIVATE, $field(HTMLDocument$HTMLReader, insertAfterImplied)},
-	{"wantsTrailingNewline", "Z", nullptr, $PRIVATE, $field(HTMLDocument$HTMLReader, wantsTrailingNewline)},
-	{"threshold", "I", nullptr, 0, $field(HTMLDocument$HTMLReader, threshold)},
-	{"offset", "I", nullptr, 0, $field(HTMLDocument$HTMLReader, offset)},
-	{"inParagraph", "Z", nullptr, 0, $field(HTMLDocument$HTMLReader, inParagraph)},
-	{"impliedP", "Z", nullptr, 0, $field(HTMLDocument$HTMLReader, impliedP)},
-	{"inPre", "Z", nullptr, 0, $field(HTMLDocument$HTMLReader, inPre)},
-	{"inTextArea", "Z", nullptr, 0, $field(HTMLDocument$HTMLReader, inTextArea)},
-	{"textAreaDocument", "Ljavax/swing/text/html/TextAreaDocument;", nullptr, 0, $field(HTMLDocument$HTMLReader, textAreaDocument)},
-	{"inTitle", "Z", nullptr, 0, $field(HTMLDocument$HTMLReader, inTitle)},
-	{"lastWasNewline", "Z", nullptr, 0, $field(HTMLDocument$HTMLReader, lastWasNewline)},
-	{"emptyAnchor", "Z", nullptr, 0, $field(HTMLDocument$HTMLReader, emptyAnchor)},
-	{"midInsert", "Z", nullptr, 0, $field(HTMLDocument$HTMLReader, midInsert)},
-	{"inBody", "Z", nullptr, 0, $field(HTMLDocument$HTMLReader, inBody)},
-	{"insertTag", "Ljavax/swing/text/html/HTML$Tag;", nullptr, 0, $field(HTMLDocument$HTMLReader, insertTag)},
-	{"insertInsertTag", "Z", nullptr, 0, $field(HTMLDocument$HTMLReader, insertInsertTag)},
-	{"foundInsertTag", "Z", nullptr, 0, $field(HTMLDocument$HTMLReader, foundInsertTag$)},
-	{"insertTagDepthDelta", "I", nullptr, 0, $field(HTMLDocument$HTMLReader, insertTagDepthDelta)},
-	{"popDepth", "I", nullptr, 0, $field(HTMLDocument$HTMLReader, popDepth)},
-	{"pushDepth", "I", nullptr, 0, $field(HTMLDocument$HTMLReader, pushDepth)},
-	{"lastMap", "Ljavax/swing/text/html/Map;", nullptr, 0, $field(HTMLDocument$HTMLReader, lastMap)},
-	{"inStyle", "Z", nullptr, 0, $field(HTMLDocument$HTMLReader, inStyle)},
-	{"defaultStyle", "Ljava/lang/String;", nullptr, 0, $field(HTMLDocument$HTMLReader, defaultStyle)},
-	{"styles", "Ljava/util/Vector;", "Ljava/util/Vector<Ljava/lang/Object;>;", 0, $field(HTMLDocument$HTMLReader, styles)},
-	{"inHead", "Z", nullptr, 0, $field(HTMLDocument$HTMLReader, inHead)},
-	{"isStyleCSS", "Z", nullptr, 0, $field(HTMLDocument$HTMLReader, isStyleCSS)},
-	{"emptyDocument", "Z", nullptr, 0, $field(HTMLDocument$HTMLReader, emptyDocument)},
-	{"styleAttributes", "Ljavax/swing/text/AttributeSet;", nullptr, 0, $field(HTMLDocument$HTMLReader, styleAttributes)},
-	{"option", "Ljavax/swing/text/html/Option;", nullptr, 0, $field(HTMLDocument$HTMLReader, option)},
-	{"parseBuffer", "Ljava/util/Vector;", "Ljava/util/Vector<Ljavax/swing/text/DefaultStyledDocument$ElementSpec;>;", $PROTECTED, $field(HTMLDocument$HTMLReader, parseBuffer)},
-	{"charAttr", "Ljavax/swing/text/MutableAttributeSet;", nullptr, $PROTECTED, $field(HTMLDocument$HTMLReader, charAttr)},
-	{"charAttrStack", "Ljava/util/Stack;", "Ljava/util/Stack<Ljavax/swing/text/AttributeSet;>;", 0, $field(HTMLDocument$HTMLReader, charAttrStack)},
-	{"tagMap", "Ljava/util/Hashtable;", "Ljava/util/Hashtable<Ljavax/swing/text/html/HTML$Tag;Ljavax/swing/text/html/HTMLDocument$HTMLReader$TagAction;>;", 0, $field(HTMLDocument$HTMLReader, tagMap)},
-	{"inBlock", "I", nullptr, 0, $field(HTMLDocument$HTMLReader, inBlock)},
-	{"nextTagAfterPImplied", "Ljavax/swing/text/html/HTML$Tag;", nullptr, $PRIVATE, $field(HTMLDocument$HTMLReader, nextTagAfterPImplied)},
-	{}
-};
-
-$MethodInfo _HTMLDocument$HTMLReader_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/text/html/HTMLDocument;I)V", nullptr, $PUBLIC, $method(HTMLDocument$HTMLReader, init$, void, $HTMLDocument*, int32_t)},
-	{"<init>", "(Ljavax/swing/text/html/HTMLDocument;IIILjavax/swing/text/html/HTML$Tag;)V", nullptr, $PUBLIC, $method(HTMLDocument$HTMLReader, init$, void, $HTMLDocument*, int32_t, int32_t, int32_t, $HTML$Tag*)},
-	{"<init>", "(Ljavax/swing/text/html/HTMLDocument;IIILjavax/swing/text/html/HTML$Tag;ZZZ)V", nullptr, 0, $method(HTMLDocument$HTMLReader, init$, void, $HTMLDocument*, int32_t, int32_t, int32_t, $HTML$Tag*, bool, bool, bool)},
-	{"addCSSRules", "(Ljava/lang/String;)V", nullptr, 0, $virtualMethod(HTMLDocument$HTMLReader, addCSSRules, void, $String*)},
-	{"addContent", "([CII)V", nullptr, $PROTECTED, $virtualMethod(HTMLDocument$HTMLReader, addContent, void, $chars*, int32_t, int32_t)},
-	{"addContent", "([CIIZ)V", nullptr, $PROTECTED, $virtualMethod(HTMLDocument$HTMLReader, addContent, void, $chars*, int32_t, int32_t, bool)},
-	{"addExternalComment", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(HTMLDocument$HTMLReader, addExternalComment, void, $String*)},
-	{"addSpecialElement", "(Ljavax/swing/text/html/HTML$Tag;Ljavax/swing/text/MutableAttributeSet;)V", nullptr, $PROTECTED, $virtualMethod(HTMLDocument$HTMLReader, addSpecialElement, void, $HTML$Tag*, $MutableAttributeSet*)},
-	{"adjustEndElement", "()V", nullptr, $PRIVATE, $method(HTMLDocument$HTMLReader, adjustEndElement, void)},
-	{"adjustEndSpecsForPartialInsert", "()V", nullptr, $PRIVATE, $method(HTMLDocument$HTMLReader, adjustEndSpecsForPartialInsert, void)},
-	{"blockClose", "(Ljavax/swing/text/html/HTML$Tag;)V", nullptr, $PROTECTED, $virtualMethod(HTMLDocument$HTMLReader, blockClose, void, $HTML$Tag*)},
-	{"blockOpen", "(Ljavax/swing/text/html/HTML$Tag;Ljavax/swing/text/MutableAttributeSet;)V", nullptr, $PROTECTED, $virtualMethod(HTMLDocument$HTMLReader, blockOpen, void, $HTML$Tag*, $MutableAttributeSet*)},
-	{"canInsertTag", "(Ljavax/swing/text/html/HTML$Tag;Ljavax/swing/text/AttributeSet;Z)Z", nullptr, $PRIVATE, $method(HTMLDocument$HTMLReader, canInsertTag, bool, $HTML$Tag*, $AttributeSet*, bool)},
-	{"depthTo", "(I)I", nullptr, $PRIVATE, $method(HTMLDocument$HTMLReader, depthTo, int32_t, int32_t)},
-	{"flush", "()V", nullptr, $PUBLIC, $virtualMethod(HTMLDocument$HTMLReader, flush, void), "javax.swing.text.BadLocationException"},
-	{"flushBuffer", "(Z)V", nullptr, 0, $virtualMethod(HTMLDocument$HTMLReader, flushBuffer, void, bool), "javax.swing.text.BadLocationException"},
-	{"foundInsertTag", "(Z)V", nullptr, $PRIVATE, $method(HTMLDocument$HTMLReader, foundInsertTag, void, bool)},
-	{"generateEndsSpecsForMidInsert", "()V", nullptr, $PRIVATE, $method(HTMLDocument$HTMLReader, generateEndsSpecsForMidInsert, void)},
-	{"getPathTo", "(I)[Ljavax/swing/text/Element;", nullptr, $PRIVATE, $method(HTMLDocument$HTMLReader, getPathTo, $ElementArray*, int32_t)},
-	{"handleComment", "([CI)V", nullptr, $PUBLIC, $virtualMethod(HTMLDocument$HTMLReader, handleComment, void, $chars*, int32_t)},
-	{"handleEndOfLineString", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(HTMLDocument$HTMLReader, handleEndOfLineString, void, $String*)},
-	{"handleEndTag", "(Ljavax/swing/text/html/HTML$Tag;I)V", nullptr, $PUBLIC, $virtualMethod(HTMLDocument$HTMLReader, handleEndTag, void, $HTML$Tag*, int32_t)},
-	{"handleSimpleTag", "(Ljavax/swing/text/html/HTML$Tag;Ljavax/swing/text/MutableAttributeSet;I)V", nullptr, $PUBLIC, $virtualMethod(HTMLDocument$HTMLReader, handleSimpleTag, void, $HTML$Tag*, $MutableAttributeSet*, int32_t)},
-	{"handleStartTag", "(Ljavax/swing/text/html/HTML$Tag;Ljavax/swing/text/MutableAttributeSet;I)V", nullptr, $PUBLIC, $virtualMethod(HTMLDocument$HTMLReader, handleStartTag, void, $HTML$Tag*, $MutableAttributeSet*, int32_t)},
-	{"handleText", "([CI)V", nullptr, $PUBLIC, $virtualMethod(HTMLDocument$HTMLReader, handleText, void, $chars*, int32_t)},
-	{"heightToElementWithName", "(Ljava/lang/Object;I)I", nullptr, $PRIVATE, $method(HTMLDocument$HTMLReader, heightToElementWithName, int32_t, Object$*, int32_t)},
-	{"isInsertTag", "(Ljavax/swing/text/html/HTML$Tag;)Z", nullptr, $PRIVATE, $method(HTMLDocument$HTMLReader, isInsertTag, bool, $HTML$Tag*)},
-	{"linkCSSStyleSheet", "(Ljava/lang/String;)V", nullptr, 0, $virtualMethod(HTMLDocument$HTMLReader, linkCSSStyleSheet, void, $String*)},
-	{"popCharacterStyle", "()V", nullptr, $PROTECTED, $virtualMethod(HTMLDocument$HTMLReader, popCharacterStyle, void)},
-	{"preContent", "([C)V", nullptr, $PROTECTED, $virtualMethod(HTMLDocument$HTMLReader, preContent, void, $chars*)},
-	{"pushCharacterStyle", "()V", nullptr, $PROTECTED, $virtualMethod(HTMLDocument$HTMLReader, pushCharacterStyle, void)},
-	{"registerTag", "(Ljavax/swing/text/html/HTML$Tag;Ljavax/swing/text/html/HTMLDocument$HTMLReader$TagAction;)V", nullptr, $PROTECTED, $virtualMethod(HTMLDocument$HTMLReader, registerTag, void, $HTML$Tag*, $HTMLDocument$HTMLReader$TagAction*)},
-	{"textAreaContent", "([C)V", nullptr, $PROTECTED, $virtualMethod(HTMLDocument$HTMLReader, textAreaContent, void, $chars*)},
-	{}
-};
-
-$InnerClassInfo _HTMLDocument$HTMLReader_InnerClassesInfo_[] = {
-	{"javax.swing.text.html.HTMLDocument$HTMLReader", "javax.swing.text.html.HTMLDocument", "HTMLReader", $PUBLIC},
-	{"javax.swing.text.html.HTMLEditorKit$ParserCallback", "javax.swing.text.html.HTMLEditorKit", "ParserCallback", $PUBLIC | $STATIC},
-	{"javax.swing.text.html.HTMLDocument$HTMLReader$FormAction", "javax.swing.text.html.HTMLDocument$HTMLReader", "FormAction", $PUBLIC},
-	{"javax.swing.text.html.HTMLDocument$HTMLReader$ObjectAction", "javax.swing.text.html.HTMLDocument$HTMLReader", "ObjectAction", 0},
-	{"javax.swing.text.html.HTMLDocument$HTMLReader$BaseAction", "javax.swing.text.html.HTMLDocument$HTMLReader", "BaseAction", 0},
-	{"javax.swing.text.html.HTMLDocument$HTMLReader$TitleAction", "javax.swing.text.html.HTMLDocument$HTMLReader", "TitleAction", 0},
-	{"javax.swing.text.html.HTMLDocument$HTMLReader$AnchorAction", "javax.swing.text.html.HTMLDocument$HTMLReader", "AnchorAction", 0},
-	{"javax.swing.text.html.HTMLDocument$HTMLReader$ConvertAction", "javax.swing.text.html.HTMLDocument$HTMLReader", "ConvertAction", 0},
-	{"javax.swing.text.html.HTMLDocument$HTMLReader$CharacterAction", "javax.swing.text.html.HTMLDocument$HTMLReader", "CharacterAction", $PUBLIC},
-	{"javax.swing.text.html.HTMLDocument$HTMLReader$PreAction", "javax.swing.text.html.HTMLDocument$HTMLReader", "PreAction", $PUBLIC},
-	{"javax.swing.text.html.HTMLDocument$HTMLReader$StyleAction", "javax.swing.text.html.HTMLDocument$HTMLReader", "StyleAction", 0},
-	{"javax.swing.text.html.HTMLDocument$HTMLReader$AreaAction", "javax.swing.text.html.HTMLDocument$HTMLReader", "AreaAction", 0},
-	{"javax.swing.text.html.HTMLDocument$HTMLReader$MapAction", "javax.swing.text.html.HTMLDocument$HTMLReader", "MapAction", 0},
-	{"javax.swing.text.html.HTMLDocument$HTMLReader$LinkAction", "javax.swing.text.html.HTMLDocument$HTMLReader", "LinkAction", 0},
-	{"javax.swing.text.html.HTMLDocument$HTMLReader$HeadAction", "javax.swing.text.html.HTMLDocument$HTMLReader", "HeadAction", 0},
-	{"javax.swing.text.html.HTMLDocument$HTMLReader$MetaAction", "javax.swing.text.html.HTMLDocument$HTMLReader", "MetaAction", 0},
-	{"javax.swing.text.html.HTMLDocument$HTMLReader$HiddenAction", "javax.swing.text.html.HTMLDocument$HTMLReader", "HiddenAction", $PUBLIC},
-	{"javax.swing.text.html.HTMLDocument$HTMLReader$IsindexAction", "javax.swing.text.html.HTMLDocument$HTMLReader", "IsindexAction", $PUBLIC},
-	{"javax.swing.text.html.HTMLDocument$HTMLReader$SpecialAction", "javax.swing.text.html.HTMLDocument$HTMLReader", "SpecialAction", $PUBLIC},
-	{"javax.swing.text.html.HTMLDocument$HTMLReader$ParagraphAction", "javax.swing.text.html.HTMLDocument$HTMLReader", "ParagraphAction", $PUBLIC},
-	{"javax.swing.text.html.HTMLDocument$HTMLReader$FormTagAction", "javax.swing.text.html.HTMLDocument$HTMLReader", "FormTagAction", $PRIVATE},
-	{"javax.swing.text.html.HTMLDocument$HTMLReader$BlockAction", "javax.swing.text.html.HTMLDocument$HTMLReader", "BlockAction", $PUBLIC},
-	{"javax.swing.text.html.HTMLDocument$HTMLReader$TagAction", "javax.swing.text.html.HTMLDocument$HTMLReader", "TagAction", $PUBLIC},
-	{}
-};
-
-$ClassInfo _HTMLDocument$HTMLReader_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.text.html.HTMLDocument$HTMLReader",
-	"javax.swing.text.html.HTMLEditorKit$ParserCallback",
-	nullptr,
-	_HTMLDocument$HTMLReader_FieldInfo_,
-	_HTMLDocument$HTMLReader_MethodInfo_,
-	nullptr,
-	nullptr,
-	_HTMLDocument$HTMLReader_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.html.HTMLDocument"
-};
-
-$Object* allocate$HTMLDocument$HTMLReader($Class* clazz) {
-	return $of($alloc(HTMLDocument$HTMLReader));
-}
 
 void HTMLDocument$HTMLReader::init$($HTMLDocument* this$0, int32_t offset) {
 	HTMLDocument$HTMLReader::init$(this$0, offset, 0, 0, nullptr);
@@ -346,7 +213,7 @@ void HTMLDocument$HTMLReader::init$($HTMLDocument* this$0, int32_t offset, int32
 }
 
 void HTMLDocument$HTMLReader::init$($HTMLDocument* this$0, int32_t offset, int32_t popDepth, int32_t pushDepth, $HTML$Tag* insertTag, bool insertInsertTag, bool insertAfterImplied, bool wantsTrailingNewline) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, this$0, this$0);
 	$HTMLEditorKit$ParserCallback::init$();
 	this->inParagraph = false;
@@ -377,80 +244,80 @@ void HTMLDocument$HTMLReader::init$($HTMLDocument* this$0, int32_t offset, int32
 	$var($HTMLDocument$HTMLReader$TagAction, ha, $new($HTMLDocument$HTMLReader$HiddenAction, this));
 	$var($HTMLDocument$HTMLReader$TagAction, conv, $new($HTMLDocument$HTMLReader$ConvertAction, this));
 	$init($HTML$Tag);
-	$nc(this->tagMap)->put($HTML$Tag::A, $$new($HTMLDocument$HTMLReader$AnchorAction, this));
-	$nc(this->tagMap)->put($HTML$Tag::ADDRESS, ca);
-	$nc(this->tagMap)->put($HTML$Tag::APPLET, ha);
-	$nc(this->tagMap)->put($HTML$Tag::AREA, $$new($HTMLDocument$HTMLReader$AreaAction, this));
-	$nc(this->tagMap)->put($HTML$Tag::B, conv);
-	$nc(this->tagMap)->put($HTML$Tag::BASE, $$new($HTMLDocument$HTMLReader$BaseAction, this));
-	$nc(this->tagMap)->put($HTML$Tag::BASEFONT, ca);
-	$nc(this->tagMap)->put($HTML$Tag::BIG, ca);
-	$nc(this->tagMap)->put($HTML$Tag::BLOCKQUOTE, ba);
-	$nc(this->tagMap)->put($HTML$Tag::BODY, ba);
-	$nc(this->tagMap)->put($HTML$Tag::BR, sa);
-	$nc(this->tagMap)->put($HTML$Tag::CAPTION, ba);
-	$nc(this->tagMap)->put($HTML$Tag::CENTER, ba);
-	$nc(this->tagMap)->put($HTML$Tag::CITE, ca);
-	$nc(this->tagMap)->put($HTML$Tag::CODE, ca);
-	$nc(this->tagMap)->put($HTML$Tag::DD, ba);
-	$nc(this->tagMap)->put($HTML$Tag::DFN, ca);
-	$nc(this->tagMap)->put($HTML$Tag::DIR, ba);
-	$nc(this->tagMap)->put($HTML$Tag::DIV, ba);
-	$nc(this->tagMap)->put($HTML$Tag::DL, ba);
-	$nc(this->tagMap)->put($HTML$Tag::DT, pa);
-	$nc(this->tagMap)->put($HTML$Tag::EM, ca);
-	$nc(this->tagMap)->put($HTML$Tag::FONT, conv);
-	$nc(this->tagMap)->put($HTML$Tag::FORM, $$new($HTMLDocument$HTMLReader$FormTagAction, this));
-	$nc(this->tagMap)->put($HTML$Tag::FRAME, sa);
-	$nc(this->tagMap)->put($HTML$Tag::FRAMESET, ba);
-	$nc(this->tagMap)->put($HTML$Tag::H1, pa);
-	$nc(this->tagMap)->put($HTML$Tag::H2, pa);
-	$nc(this->tagMap)->put($HTML$Tag::H3, pa);
-	$nc(this->tagMap)->put($HTML$Tag::H4, pa);
-	$nc(this->tagMap)->put($HTML$Tag::H5, pa);
-	$nc(this->tagMap)->put($HTML$Tag::H6, pa);
-	$nc(this->tagMap)->put($HTML$Tag::HEAD, $$new($HTMLDocument$HTMLReader$HeadAction, this));
-	$nc(this->tagMap)->put($HTML$Tag::HR, sa);
-	$nc(this->tagMap)->put($HTML$Tag::HTML, ba);
-	$nc(this->tagMap)->put($HTML$Tag::I, conv);
-	$nc(this->tagMap)->put($HTML$Tag::IMG, sa);
-	$nc(this->tagMap)->put($HTML$Tag::INPUT, fa);
-	$nc(this->tagMap)->put($HTML$Tag::ISINDEX, $$new($HTMLDocument$HTMLReader$IsindexAction, this));
-	$nc(this->tagMap)->put($HTML$Tag::KBD, ca);
-	$nc(this->tagMap)->put($HTML$Tag::LI, ba);
-	$nc(this->tagMap)->put($HTML$Tag::LINK, $$new($HTMLDocument$HTMLReader$LinkAction, this));
-	$nc(this->tagMap)->put($HTML$Tag::MAP, $$new($HTMLDocument$HTMLReader$MapAction, this));
-	$nc(this->tagMap)->put($HTML$Tag::MENU, ba);
-	$nc(this->tagMap)->put($HTML$Tag::META, $$new($HTMLDocument$HTMLReader$MetaAction, this));
-	$nc(this->tagMap)->put($HTML$Tag::NOBR, ca);
-	$nc(this->tagMap)->put($HTML$Tag::NOFRAMES, ba);
-	$nc(this->tagMap)->put($HTML$Tag::OBJECT, sa);
-	$nc(this->tagMap)->put($HTML$Tag::OL, ba);
-	$nc(this->tagMap)->put($HTML$Tag::OPTION, fa);
-	$nc(this->tagMap)->put($HTML$Tag::P, pa);
-	$nc(this->tagMap)->put($HTML$Tag::PARAM, $$new($HTMLDocument$HTMLReader$ObjectAction, this));
-	$nc(this->tagMap)->put($HTML$Tag::PRE, $$new($HTMLDocument$HTMLReader$PreAction, this));
-	$nc(this->tagMap)->put($HTML$Tag::SAMP, ca);
-	$nc(this->tagMap)->put($HTML$Tag::SCRIPT, ha);
-	$nc(this->tagMap)->put($HTML$Tag::SELECT, fa);
-	$nc(this->tagMap)->put($HTML$Tag::SMALL, ca);
-	$nc(this->tagMap)->put($HTML$Tag::SPAN, ca);
-	$nc(this->tagMap)->put($HTML$Tag::STRIKE, conv);
-	$nc(this->tagMap)->put($HTML$Tag::S, ca);
-	$nc(this->tagMap)->put($HTML$Tag::STRONG, ca);
-	$nc(this->tagMap)->put($HTML$Tag::STYLE, $$new($HTMLDocument$HTMLReader$StyleAction, this));
-	$nc(this->tagMap)->put($HTML$Tag::SUB, conv);
-	$nc(this->tagMap)->put($HTML$Tag::SUP, conv);
-	$nc(this->tagMap)->put($HTML$Tag::TABLE, ba);
-	$nc(this->tagMap)->put($HTML$Tag::TD, ba);
-	$nc(this->tagMap)->put($HTML$Tag::TEXTAREA, fa);
-	$nc(this->tagMap)->put($HTML$Tag::TH, ba);
-	$nc(this->tagMap)->put($HTML$Tag::TITLE, $$new($HTMLDocument$HTMLReader$TitleAction, this));
-	$nc(this->tagMap)->put($HTML$Tag::TR, ba);
-	$nc(this->tagMap)->put($HTML$Tag::TT, ca);
-	$nc(this->tagMap)->put($HTML$Tag::U, conv);
-	$nc(this->tagMap)->put($HTML$Tag::UL, ba);
-	$nc(this->tagMap)->put($HTML$Tag::VAR, ca);
+	this->tagMap->put($HTML$Tag::A, $$new($HTMLDocument$HTMLReader$AnchorAction, this));
+	this->tagMap->put($HTML$Tag::ADDRESS, ca);
+	this->tagMap->put($HTML$Tag::APPLET, ha);
+	this->tagMap->put($HTML$Tag::AREA, $$new($HTMLDocument$HTMLReader$AreaAction, this));
+	this->tagMap->put($HTML$Tag::B, conv);
+	this->tagMap->put($HTML$Tag::BASE, $$new($HTMLDocument$HTMLReader$BaseAction, this));
+	this->tagMap->put($HTML$Tag::BASEFONT, ca);
+	this->tagMap->put($HTML$Tag::BIG, ca);
+	this->tagMap->put($HTML$Tag::BLOCKQUOTE, ba);
+	this->tagMap->put($HTML$Tag::BODY, ba);
+	this->tagMap->put($HTML$Tag::BR, sa);
+	this->tagMap->put($HTML$Tag::CAPTION, ba);
+	this->tagMap->put($HTML$Tag::CENTER, ba);
+	this->tagMap->put($HTML$Tag::CITE, ca);
+	this->tagMap->put($HTML$Tag::CODE, ca);
+	this->tagMap->put($HTML$Tag::DD, ba);
+	this->tagMap->put($HTML$Tag::DFN, ca);
+	this->tagMap->put($HTML$Tag::DIR, ba);
+	this->tagMap->put($HTML$Tag::DIV, ba);
+	this->tagMap->put($HTML$Tag::DL, ba);
+	this->tagMap->put($HTML$Tag::DT, pa);
+	this->tagMap->put($HTML$Tag::EM, ca);
+	this->tagMap->put($HTML$Tag::FONT, conv);
+	this->tagMap->put($HTML$Tag::FORM, $$new($HTMLDocument$HTMLReader$FormTagAction, this));
+	this->tagMap->put($HTML$Tag::FRAME, sa);
+	this->tagMap->put($HTML$Tag::FRAMESET, ba);
+	this->tagMap->put($HTML$Tag::H1, pa);
+	this->tagMap->put($HTML$Tag::H2, pa);
+	this->tagMap->put($HTML$Tag::H3, pa);
+	this->tagMap->put($HTML$Tag::H4, pa);
+	this->tagMap->put($HTML$Tag::H5, pa);
+	this->tagMap->put($HTML$Tag::H6, pa);
+	this->tagMap->put($HTML$Tag::HEAD, $$new($HTMLDocument$HTMLReader$HeadAction, this));
+	this->tagMap->put($HTML$Tag::HR, sa);
+	this->tagMap->put($HTML$Tag::HTML, ba);
+	this->tagMap->put($HTML$Tag::I, conv);
+	this->tagMap->put($HTML$Tag::IMG, sa);
+	this->tagMap->put($HTML$Tag::INPUT, fa);
+	this->tagMap->put($HTML$Tag::ISINDEX, $$new($HTMLDocument$HTMLReader$IsindexAction, this));
+	this->tagMap->put($HTML$Tag::KBD, ca);
+	this->tagMap->put($HTML$Tag::LI, ba);
+	this->tagMap->put($HTML$Tag::LINK, $$new($HTMLDocument$HTMLReader$LinkAction, this));
+	this->tagMap->put($HTML$Tag::MAP, $$new($HTMLDocument$HTMLReader$MapAction, this));
+	this->tagMap->put($HTML$Tag::MENU, ba);
+	this->tagMap->put($HTML$Tag::META, $$new($HTMLDocument$HTMLReader$MetaAction, this));
+	this->tagMap->put($HTML$Tag::NOBR, ca);
+	this->tagMap->put($HTML$Tag::NOFRAMES, ba);
+	this->tagMap->put($HTML$Tag::OBJECT, sa);
+	this->tagMap->put($HTML$Tag::OL, ba);
+	this->tagMap->put($HTML$Tag::OPTION, fa);
+	this->tagMap->put($HTML$Tag::P, pa);
+	this->tagMap->put($HTML$Tag::PARAM, $$new($HTMLDocument$HTMLReader$ObjectAction, this));
+	this->tagMap->put($HTML$Tag::PRE, $$new($HTMLDocument$HTMLReader$PreAction, this));
+	this->tagMap->put($HTML$Tag::SAMP, ca);
+	this->tagMap->put($HTML$Tag::SCRIPT, ha);
+	this->tagMap->put($HTML$Tag::SELECT, fa);
+	this->tagMap->put($HTML$Tag::SMALL, ca);
+	this->tagMap->put($HTML$Tag::SPAN, ca);
+	this->tagMap->put($HTML$Tag::STRIKE, conv);
+	this->tagMap->put($HTML$Tag::S, ca);
+	this->tagMap->put($HTML$Tag::STRONG, ca);
+	this->tagMap->put($HTML$Tag::STYLE, $$new($HTMLDocument$HTMLReader$StyleAction, this));
+	this->tagMap->put($HTML$Tag::SUB, conv);
+	this->tagMap->put($HTML$Tag::SUP, conv);
+	this->tagMap->put($HTML$Tag::TABLE, ba);
+	this->tagMap->put($HTML$Tag::TD, ba);
+	this->tagMap->put($HTML$Tag::TEXTAREA, fa);
+	this->tagMap->put($HTML$Tag::TH, ba);
+	this->tagMap->put($HTML$Tag::TITLE, $$new($HTMLDocument$HTMLReader$TitleAction, this));
+	this->tagMap->put($HTML$Tag::TR, ba);
+	this->tagMap->put($HTML$Tag::TT, ca);
+	this->tagMap->put($HTML$Tag::U, conv);
+	this->tagMap->put($HTML$Tag::UL, ba);
+	this->tagMap->put($HTML$Tag::VAR, ca);
 	if (insertTag != nullptr) {
 		$set(this, insertTag, insertTag);
 		this->popDepth = popDepth;
@@ -496,7 +363,7 @@ void HTMLDocument$HTMLReader::init$($HTMLDocument* this$0, int32_t offset, int32
 }
 
 void HTMLDocument$HTMLReader::generateEndsSpecsForMidInsert() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($HTML$Tag);
 	int32_t count = heightToElementWithName($HTML$Tag::BODY, $Math::max(0, this->offset - 1));
 	bool joinNext = false;
@@ -512,11 +379,10 @@ void HTMLDocument$HTMLReader::generateEndsSpecsForMidInsert() {
 	}
 	if (count != -1) {
 		try {
-			if (!joinNext && this->offset > 0 && !$nc($(this->this$0->getText(this->offset - 1, 1)))->equals("\n"_s)) {
+			if (!joinNext && this->offset > 0 && !$$nc(this->this$0->getText(this->offset - 1, 1))->equals("\n"_s)) {
 				$var($SimpleAttributeSet, newAttrs, $new($SimpleAttributeSet));
 				$init($StyleConstants);
 				newAttrs->addAttribute($StyleConstants::NameAttribute, $HTML$Tag::CONTENT);
-				$init($HTMLDocument);
 				$var($DefaultStyledDocument$ElementSpec, spec, $new($DefaultStyledDocument$ElementSpec, newAttrs, $DefaultStyledDocument$ElementSpec::ContentType, $HTMLDocument::NEWLINE, 0, 1));
 				$nc(this->parseBuffer)->addElement(spec);
 			}
@@ -544,11 +410,11 @@ int32_t HTMLDocument$HTMLReader::depthTo(int32_t offset) {
 }
 
 int32_t HTMLDocument$HTMLReader::heightToElementWithName(Object$* name, int32_t offset) {
-	$useLocalCurrentObjectStackCache();
-	$var($Element, e, $nc($(this->this$0->getCharacterElement(offset)))->getParentElement());
+	$useLocalObjectStack();
+	$var($Element, e, $$nc(this->this$0->getCharacterElement(offset))->getParentElement());
 	int32_t count = 0;
 	$init($StyleConstants);
-	while (e != nullptr && !$equals($nc($(e->getAttributes()))->getAttribute($StyleConstants::NameAttribute), name)) {
+	while (e != nullptr && !$equals($$nc(e->getAttributes())->getAttribute($StyleConstants::NameAttribute), name)) {
 		++count;
 		$assign(e, e->getParentElement());
 	}
@@ -556,76 +422,73 @@ int32_t HTMLDocument$HTMLReader::heightToElementWithName(Object$* name, int32_t 
 }
 
 void HTMLDocument$HTMLReader::adjustEndElement() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t length = this->this$0->getLength();
 	if (length == 0) {
 		return;
 	}
 	this->this$0->obtainLock();
-	{
-		$var($Throwable, var$0, nullptr);
+	$var($Throwable, var$0, nullptr);
+	try {
 		try {
-			try {
-				$var($ElementArray, pPath, getPathTo(length - 1));
-				int32_t pLength = $nc(pPath)->length;
-				$init($StyleConstants);
-				$init($HTML$Tag);
-				bool var$1 = pLength > 1 && $equals($nc($($nc(pPath->get(1))->getAttributes()))->getAttribute($StyleConstants::NameAttribute), $HTML$Tag::BODY);
-				if (var$1 && $nc(pPath->get(1))->getEndOffset() == length) {
-					$var($String, lastText, this->this$0->getText(length - 1, 1));
-					$var($AbstractDocument$DefaultDocumentEvent, event, nullptr);
-					$var($ElementArray, added, nullptr);
-					$var($ElementArray, removed, nullptr);
-					int32_t index = 0;
-					$assign(added, $new($ElementArray, 0));
-					$assign(removed, $new($ElementArray, 1));
-					index = $nc(pPath->get(0))->getElementIndex(length);
-					removed->set(0, $($nc(pPath->get(0))->getElement(index)));
-					$nc(($cast($AbstractDocument$BranchElement, pPath->get(0))))->replace(index, 1, added);
-					$var($AbstractDocument$ElementEdit, firstEdit, $new($AbstractDocument$ElementEdit, pPath->get(0), index, removed, added));
-					$var($SimpleAttributeSet, sas, $new($SimpleAttributeSet));
-					sas->addAttribute($StyleConstants::NameAttribute, $HTML$Tag::CONTENT);
-					$init($Boolean);
-					sas->addAttribute("CR"_s, $Boolean::TRUE);
-					$assign(added, $new($ElementArray, 1));
-					added->set(0, $(this->this$0->createLeafElement(pPath->get(pLength - 1), sas, length, length + 1)));
-					index = $nc(pPath->get(pLength - 1))->getElementCount();
-					$nc(($cast($AbstractDocument$BranchElement, pPath->get(pLength - 1))))->replace(index, 0, added);
-					$init($DocumentEvent$EventType);
-					$assign(event, $new($AbstractDocument$DefaultDocumentEvent, this->this$0, length, 1, $DocumentEvent$EventType::CHANGE));
-					event->addEdit($$new($AbstractDocument$ElementEdit, pPath->get(pLength - 1), index, $$new($ElementArray, 0), added));
-					event->addEdit(firstEdit);
-					event->end();
-					this->this$0->fireChangedUpdate(event);
-					this->this$0->fireUndoableEditUpdate($$new($UndoableEditEvent, this, event));
-					if ($nc(lastText)->equals("\n"_s)) {
-						$assign(event, $new($AbstractDocument$DefaultDocumentEvent, this->this$0, length - 1, 1, $DocumentEvent$EventType::REMOVE));
-						$HTMLDocument::access$000(this->this$0, event);
-						$var($UndoableEdit, u, $nc($($HTMLDocument::access$100(this->this$0)))->remove(length - 1, 1));
-						if (u != nullptr) {
-							event->addEdit(u);
-						}
-						$HTMLDocument::access$200(this->this$0, event);
-						event->end();
-						$HTMLDocument::access$300(this->this$0, event);
-						this->this$0->fireUndoableEditUpdate($$new($UndoableEditEvent, this, event));
+			$var($ElementArray, pPath, getPathTo(length - 1));
+			int32_t pLength = $nc(pPath)->length;
+			$init($StyleConstants);
+			$init($HTML$Tag);
+			bool var$1 = pLength > 1 && $equals($$nc($nc(pPath->get(1))->getAttributes())->getAttribute($StyleConstants::NameAttribute), $HTML$Tag::BODY);
+			if (var$1 && $nc(pPath->get(1))->getEndOffset() == length) {
+				$var($String, lastText, this->this$0->getText(length - 1, 1));
+				$var($AbstractDocument$DefaultDocumentEvent, event, nullptr);
+				$var($ElementArray, added, nullptr);
+				$var($ElementArray, removed, nullptr);
+				int32_t index = 0;
+				$assign(added, $new($ElementArray, 0));
+				$assign(removed, $new($ElementArray, 1));
+				index = $nc(pPath->get(0))->getElementIndex(length);
+				removed->set(0, $($nc(pPath->get(0))->getElement(index)));
+				$nc($cast($AbstractDocument$BranchElement, pPath->get(0)))->replace(index, 1, added);
+				$var($AbstractDocument$ElementEdit, firstEdit, $new($AbstractDocument$ElementEdit, pPath->get(0), index, removed, added));
+				$var($SimpleAttributeSet, sas, $new($SimpleAttributeSet));
+				sas->addAttribute($StyleConstants::NameAttribute, $HTML$Tag::CONTENT);
+				sas->addAttribute("CR"_s, $Boolean::TRUE);
+				$assign(added, $new($ElementArray, 1));
+				added->set(0, $(this->this$0->createLeafElement(pPath->get(pLength - 1), sas, length, length + 1)));
+				index = $nc(pPath->get(pLength - 1))->getElementCount();
+				$nc($cast($AbstractDocument$BranchElement, pPath->get(pLength - 1)))->replace(index, 0, added);
+				$init($DocumentEvent$EventType);
+				$assign(event, $new($AbstractDocument$DefaultDocumentEvent, this->this$0, length, 1, $DocumentEvent$EventType::CHANGE));
+				event->addEdit($$new($AbstractDocument$ElementEdit, pPath->get(pLength - 1), index, $$new($ElementArray, 0), added));
+				event->addEdit(firstEdit);
+				event->end();
+				this->this$0->fireChangedUpdate(event);
+				this->this$0->fireUndoableEditUpdate($$new($UndoableEditEvent, this, event));
+				if ($nc(lastText)->equals("\n"_s)) {
+					$assign(event, $new($AbstractDocument$DefaultDocumentEvent, this->this$0, length - 1, 1, $DocumentEvent$EventType::REMOVE));
+					$HTMLDocument::access$000(this->this$0, event);
+					$var($UndoableEdit, u, $$nc($HTMLDocument::access$100(this->this$0))->remove(length - 1, 1));
+					if (u != nullptr) {
+						event->addEdit(u);
 					}
+					$HTMLDocument::access$200(this->this$0, event);
+					event->end();
+					$HTMLDocument::access$300(this->this$0, event);
+					this->this$0->fireUndoableEditUpdate($$new($UndoableEditEvent, this, event));
 				}
-			} catch ($BadLocationException& ble) {
 			}
-		} catch ($Throwable& var$2) {
-			$assign(var$0, var$2);
-		} /*finally*/ {
-			this->this$0->releaseLock();
+		} catch ($BadLocationException& ble) {
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	} catch ($Throwable& var$2) {
+		$assign(var$0, var$2);
+	} /*finally*/ {
+		this->this$0->releaseLock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 $ElementArray* HTMLDocument$HTMLReader::getPathTo(int32_t offset) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Stack, elements, $new($Stack));
 	$var($Element, e, this->this$0->getDefaultRootElement());
 	int32_t index = 0;
@@ -651,15 +514,14 @@ void HTMLDocument$HTMLReader::flush() {
 }
 
 void HTMLDocument$HTMLReader::handleText($chars* data, int32_t pos) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->receivedEndHTML || (this->midInsert && !this->inBody)) {
 		return;
 	}
-	$init($Boolean);
-	if ($nc($of($(this->this$0->getProperty("i18n"_s))))->equals($Boolean::FALSE)) {
+	if ($$nc(this->this$0->getProperty("i18n"_s))->equals($Boolean::FALSE)) {
 		$init($TextAttribute);
 		$var($Object, d, this->this$0->getProperty($TextAttribute::RUN_DIRECTION));
-		if ((d != nullptr) && ($of(d)->equals($TextAttribute::RUN_DIRECTION_RTL))) {
+		if ((d != nullptr) && (d->equals($TextAttribute::RUN_DIRECTION_RTL))) {
 			this->this$0->putProperty("i18n"_s, $Boolean::TRUE);
 		} else if ($SwingUtilities2::isComplexLayout(data, 0, $nc(data)->length)) {
 			this->this$0->putProperty("i18n"_s, $Boolean::TRUE);
@@ -673,10 +535,10 @@ void HTMLDocument$HTMLReader::handleText($chars* data, int32_t pos) {
 		$init($Document);
 		this->this$0->putProperty($Document::TitleProperty, $$new($String, data));
 	} else if (this->option != nullptr) {
-		$nc(this->option)->setLabel($$new($String, data));
+		this->option->setLabel($$new($String, data));
 	} else if (this->inStyle) {
 		if (this->styles != nullptr) {
-			$nc(this->styles)->addElement($$new($String, data));
+			this->styles->addElement($$new($String, data));
 		}
 	} else if (this->inBlock > 0) {
 		if (!this->foundInsertTag$ && this->insertAfterImplied) {
@@ -691,7 +553,7 @@ void HTMLDocument$HTMLReader::handleText($chars* data, int32_t pos) {
 }
 
 void HTMLDocument$HTMLReader::handleStartTag($HTML$Tag* t, $MutableAttributeSet* a, int32_t pos) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->receivedEndHTML) {
 		return;
 	}
@@ -711,7 +573,7 @@ void HTMLDocument$HTMLReader::handleStartTag($HTML$Tag* t, $MutableAttributeSet*
 	if (this->isStyleCSS && $nc(a)->isDefined($HTML$Attribute::STYLE)) {
 		$var($String, decl, $cast($String, a->getAttribute($HTML$Attribute::STYLE)));
 		a->removeAttribute($HTML$Attribute::STYLE);
-		$set(this, styleAttributes, $nc($(this->this$0->getStyleSheet()))->getDeclaration(decl));
+		$set(this, styleAttributes, $$nc(this->this$0->getStyleSheet())->getDeclaration(decl));
 		a->addAttributes(this->styleAttributes);
 	} else {
 		$set(this, styleAttributes, nullptr);
@@ -723,14 +585,14 @@ void HTMLDocument$HTMLReader::handleStartTag($HTML$Tag* t, $MutableAttributeSet*
 }
 
 void HTMLDocument$HTMLReader::handleComment($chars* data, int32_t pos) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->receivedEndHTML) {
 		addExternalComment($$new($String, data));
 		return;
 	}
 	if (this->inStyle) {
 		if (this->styles != nullptr) {
-			$nc(this->styles)->addElement($$new($String, data));
+			this->styles->addElement($$new($String, data));
 		}
 	} else if (this->this$0->getPreservesUnknownTags()) {
 		$init($HTML$Tag);
@@ -752,7 +614,7 @@ void HTMLDocument$HTMLReader::handleComment($chars* data, int32_t pos) {
 }
 
 void HTMLDocument$HTMLReader::addExternalComment($String* comment) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, comments, this->this$0->getProperty("AdditionalComments"_s));
 	if (comments != nullptr && !($instanceOf($Vector, comments))) {
 		return;
@@ -786,7 +648,7 @@ void HTMLDocument$HTMLReader::handleEndTag($HTML$Tag* t, int32_t pos) {
 }
 
 void HTMLDocument$HTMLReader::handleSimpleTag($HTML$Tag* t, $MutableAttributeSet* a, int32_t pos) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->receivedEndHTML || (this->midInsert && !this->inBody)) {
 		return;
 	}
@@ -794,7 +656,7 @@ void HTMLDocument$HTMLReader::handleSimpleTag($HTML$Tag* t, $MutableAttributeSet
 	if (this->isStyleCSS && $nc(a)->isDefined($HTML$Attribute::STYLE)) {
 		$var($String, decl, $cast($String, a->getAttribute($HTML$Attribute::STYLE)));
 		a->removeAttribute($HTML$Attribute::STYLE);
-		$set(this, styleAttributes, $nc($(this->this$0->getStyleSheet()))->getDeclaration(decl));
+		$set(this, styleAttributes, $$nc(this->this$0->getStyleSheet())->getDeclaration(decl));
 		a->addAttributes(this->styleAttributes);
 	} else {
 		$set(this, styleAttributes, nullptr);
@@ -825,8 +687,8 @@ void HTMLDocument$HTMLReader::pushCharacterStyle() {
 
 void HTMLDocument$HTMLReader::popCharacterStyle() {
 	if (!$nc(this->charAttrStack)->empty()) {
-		$set(this, charAttr, $cast($MutableAttributeSet, $nc(this->charAttrStack)->peek()));
-		$nc(this->charAttrStack)->pop();
+		$set(this, charAttr, $cast($MutableAttributeSet, this->charAttrStack->peek()));
+		this->charAttrStack->pop();
 	}
 }
 
@@ -839,7 +701,7 @@ void HTMLDocument$HTMLReader::textAreaContent($chars* data) {
 }
 
 void HTMLDocument$HTMLReader::preContent($chars* data) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t last = 0;
 	for (int32_t i = 0; i < $nc(data)->length; ++i) {
 		if (data->get(i) == u'\n') {
@@ -853,13 +715,13 @@ void HTMLDocument$HTMLReader::preContent($chars* data) {
 			last = i + 1;
 		}
 	}
-	if (last < $nc(data)->length) {
+	if (last < data->length) {
 		addContent(data, last, data->length - last);
 	}
 }
 
 void HTMLDocument$HTMLReader::blockOpen($HTML$Tag* t, $MutableAttributeSet* attr) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->impliedP) {
 		$init($HTML$Tag);
 		blockClose($HTML$Tag::IMPLIED);
@@ -874,20 +736,19 @@ void HTMLDocument$HTMLReader::blockOpen($HTML$Tag* t, $MutableAttributeSet* attr
 	}
 	this->lastWasNewline = false;
 	$init($StyleConstants);
-	$nc(attr)->addAttribute($StyleConstants::NameAttribute, t);
+	attr->addAttribute($StyleConstants::NameAttribute, t);
 	$var($DefaultStyledDocument$ElementSpec, es, $new($DefaultStyledDocument$ElementSpec, $(attr->copyAttributes()), $DefaultStyledDocument$ElementSpec::StartTagType));
 	$nc(this->parseBuffer)->addElement(es);
 }
 
 void HTMLDocument$HTMLReader::blockClose($HTML$Tag* t) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	--this->inBlock;
 	if (!this->foundInsertTag$) {
 		return;
 	}
 	if (!this->lastWasNewline) {
 		pushCharacterStyle();
-		$init($Boolean);
 		$nc(this->charAttr)->addAttribute("CR"_s, $Boolean::TRUE);
 		$init($HTMLDocument);
 		addContent($HTMLDocument::NEWLINE, 0, 1, true);
@@ -902,7 +763,7 @@ void HTMLDocument$HTMLReader::blockClose($HTML$Tag* t) {
 			blockClose($HTML$Tag::IMPLIED);
 		}
 	}
-	$var($DefaultStyledDocument$ElementSpec, prev, ($nc(this->parseBuffer)->size() > 0) ? $cast($DefaultStyledDocument$ElementSpec, $nc(this->parseBuffer)->lastElement()) : ($DefaultStyledDocument$ElementSpec*)nullptr);
+	$var($DefaultStyledDocument$ElementSpec, prev, ($nc(this->parseBuffer)->size() > 0) ? $cast($DefaultStyledDocument$ElementSpec, this->parseBuffer->lastElement()) : ($DefaultStyledDocument$ElementSpec*)nullptr);
 	if (prev != nullptr && prev->getType() == $DefaultStyledDocument$ElementSpec::StartTagType) {
 		$var($chars, one, $new($chars, 1));
 		one->set(0, u' ');
@@ -917,7 +778,7 @@ void HTMLDocument$HTMLReader::addContent($chars* data, int32_t offs, int32_t len
 }
 
 void HTMLDocument$HTMLReader::addContent($chars* data, int32_t offs, int32_t length, bool generateImpliedPIfNecessary) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!this->foundInsertTag$) {
 		return;
 	}
@@ -934,7 +795,7 @@ void HTMLDocument$HTMLReader::addContent($chars* data, int32_t offs, int32_t len
 	$var($AttributeSet, a, $nc(this->charAttr)->copyAttributes());
 	$var($DefaultStyledDocument$ElementSpec, es, $new($DefaultStyledDocument$ElementSpec, a, $DefaultStyledDocument$ElementSpec::ContentType, data, offs, length));
 	$nc(this->parseBuffer)->addElement(es);
-	if ($nc(this->parseBuffer)->size() > this->threshold) {
+	if (this->parseBuffer->size() > this->threshold) {
 		if (this->threshold <= 10000) {
 			this->threshold *= 5;
 		}
@@ -949,7 +810,7 @@ void HTMLDocument$HTMLReader::addContent($chars* data, int32_t offs, int32_t len
 }
 
 void HTMLDocument$HTMLReader::addSpecialElement($HTML$Tag* t, $MutableAttributeSet* a) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($HTML$Tag);
 	if ((t != $HTML$Tag::FRAME) && (!this->inParagraph) && (!this->inPre)) {
 		$set(this, nextTagAfterPImplied, t);
@@ -966,7 +827,7 @@ void HTMLDocument$HTMLReader::addSpecialElement($HTML$Tag* t, $MutableAttributeS
 		a->removeAttribute($HTMLEditorKit$ParserCallback::IMPLIED);
 	}
 	this->emptyAnchor = false;
-	$nc(a)->addAttributes(this->charAttr);
+	a->addAttributes(this->charAttr);
 	$init($StyleConstants);
 	a->addAttribute($StyleConstants::NameAttribute, t);
 	$var($chars, one, $new($chars, 1));
@@ -998,35 +859,35 @@ void HTMLDocument$HTMLReader::flushBuffer(bool endOfStream) {
 }
 
 void HTMLDocument$HTMLReader::adjustEndSpecsForPartialInsert() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t size = $nc(this->parseBuffer)->size();
 	if (this->insertTagDepthDelta < 0) {
 		int32_t removeCounter = this->insertTagDepthDelta;
-		while (removeCounter < 0 && size >= 0 && $nc(($cast($DefaultStyledDocument$ElementSpec, $($nc(this->parseBuffer)->elementAt(size - 1)))))->getType() == $DefaultStyledDocument$ElementSpec::EndTagType) {
-			$nc(this->parseBuffer)->removeElementAt(--size);
+		while (removeCounter < 0 && size >= 0 && $$sure($DefaultStyledDocument$ElementSpec, this->parseBuffer->elementAt(size - 1))->getType() == $DefaultStyledDocument$ElementSpec::EndTagType) {
+			this->parseBuffer->removeElementAt(--size);
 			++removeCounter;
 		}
 	}
 	if (this->flushCount == 0 && (!this->insertAfterImplied || !this->wantsTrailingNewline)) {
 		int32_t index = 0;
 		if (this->pushDepth > 0) {
-			if ($nc(($cast($DefaultStyledDocument$ElementSpec, $($nc(this->parseBuffer)->elementAt(0)))))->getType() == $DefaultStyledDocument$ElementSpec::ContentType) {
+			if ($$sure($DefaultStyledDocument$ElementSpec, this->parseBuffer->elementAt(0))->getType() == $DefaultStyledDocument$ElementSpec::ContentType) {
 				++index;
 			}
 		}
 		index += (this->popDepth + this->pushDepth);
 		int32_t cCount = 0;
 		int32_t cStart = index;
-		while (index < size && $nc(($cast($DefaultStyledDocument$ElementSpec, $($nc(this->parseBuffer)->elementAt(index)))))->getType() == $DefaultStyledDocument$ElementSpec::ContentType) {
+		while (index < size && $$sure($DefaultStyledDocument$ElementSpec, $nc(this->parseBuffer)->elementAt(index))->getType() == $DefaultStyledDocument$ElementSpec::ContentType) {
 			++index;
 			++cCount;
 		}
 		if (cCount > 1) {
-			while (index < size && $nc(($cast($DefaultStyledDocument$ElementSpec, $($nc(this->parseBuffer)->elementAt(index)))))->getType() == $DefaultStyledDocument$ElementSpec::EndTagType) {
+			while (index < size && $$sure($DefaultStyledDocument$ElementSpec, $nc(this->parseBuffer)->elementAt(index))->getType() == $DefaultStyledDocument$ElementSpec::EndTagType) {
 				++index;
 			}
 			if (index == size) {
-				$var($chars, lastText, $nc(($cast($DefaultStyledDocument$ElementSpec, $($nc(this->parseBuffer)->elementAt(cStart + cCount - 1)))))->getArray());
+				$var($chars, lastText, $$sure($DefaultStyledDocument$ElementSpec, $nc(this->parseBuffer)->elementAt(cStart + cCount - 1))->getArray());
 				$init($HTMLDocument);
 				if ($nc(lastText)->length == 1 && lastText->get(0) == $nc($HTMLDocument::NEWLINE)->get(0)) {
 					index = cStart + cCount - 1;
@@ -1061,7 +922,7 @@ void HTMLDocument$HTMLReader::addCSSRules($String* rules) {
 }
 
 void HTMLDocument$HTMLReader::linkCSSStyleSheet($String* href) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($URL, url, nullptr);
 	try {
 		$assign(url, $new($URL, this->this$0->base, href));
@@ -1073,7 +934,7 @@ void HTMLDocument$HTMLReader::linkCSSStyleSheet($String* href) {
 		}
 	}
 	if (url != nullptr) {
-		$nc($(this->this$0->getStyleSheet()))->importStyleSheet(url);
+		$$nc(this->this$0->getStyleSheet())->importStyleSheet(url);
 	}
 }
 
@@ -1089,9 +950,9 @@ bool HTMLDocument$HTMLReader::canInsertTag($HTML$Tag* t, $AttributeSet* attr, bo
 				}
 			}
 		} else {
-			bool var$1 = (this->insertTag != nullptr && !isInsertTag(t));
+			bool var$0 = this->insertTag != nullptr && !isInsertTag(t);
 			$init($HTMLEditorKit$ParserCallback);
-			if (var$1 || (this->insertAfterImplied && (attr == nullptr || $nc(attr)->isDefined($HTMLEditorKit$ParserCallback::IMPLIED) || t == $HTML$Tag::IMPLIED))) {
+			if (var$0 || (this->insertAfterImplied && (attr == nullptr || attr->isDefined($HTMLEditorKit$ParserCallback::IMPLIED) || t == $HTML$Tag::IMPLIED))) {
 				return false;
 			}
 		}
@@ -1108,11 +969,11 @@ bool HTMLDocument$HTMLReader::isInsertTag($HTML$Tag* tag) {
 }
 
 void HTMLDocument$HTMLReader::foundInsertTag(bool isBlockTag) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->foundInsertTag$ = true;
 	if (!this->insertAfterImplied && (this->popDepth > 0 || this->pushDepth > 0)) {
 		try {
-			if (this->offset == 0 || !$nc($(this->this$0->getText(this->offset - 1, 1)))->equals("\n"_s)) {
+			if (this->offset == 0 || !$$nc(this->this$0->getText(this->offset - 1, 1))->equals("\n"_s)) {
 				$var($AttributeSet, newAttrs, nullptr);
 				bool joinP = true;
 				if (this->offset != 0) {
@@ -1136,7 +997,7 @@ void HTMLDocument$HTMLReader::foundInsertTag(bool isBlockTag) {
 					$assign(newAttrs, $new($SimpleAttributeSet));
 					$init($StyleConstants);
 					$init($HTML$Tag);
-					$nc(($cast($SimpleAttributeSet, newAttrs)))->addAttribute($StyleConstants::NameAttribute, $HTML$Tag::CONTENT);
+					$cast($SimpleAttributeSet, newAttrs)->addAttribute($StyleConstants::NameAttribute, $HTML$Tag::CONTENT);
 				}
 				$init($HTMLDocument);
 				$var($DefaultStyledDocument$ElementSpec, es, $new($DefaultStyledDocument$ElementSpec, newAttrs, $DefaultStyledDocument$ElementSpec::ContentType, $HTMLDocument::NEWLINE, 0, $nc($HTMLDocument::NEWLINE)->length));
@@ -1170,7 +1031,127 @@ HTMLDocument$HTMLReader::HTMLDocument$HTMLReader() {
 }
 
 $Class* HTMLDocument$HTMLReader::load$($String* name, bool initialize) {
-	$loadClass(HTMLDocument$HTMLReader, name, initialize, &_HTMLDocument$HTMLReader_ClassInfo_, allocate$HTMLDocument$HTMLReader);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/text/html/HTMLDocument;", nullptr, $FINAL | $SYNTHETIC, $field(HTMLDocument$HTMLReader, this$0)},
+		{"receivedEndHTML", "Z", nullptr, $PRIVATE, $field(HTMLDocument$HTMLReader, receivedEndHTML)},
+		{"flushCount", "I", nullptr, $PRIVATE, $field(HTMLDocument$HTMLReader, flushCount)},
+		{"insertAfterImplied", "Z", nullptr, $PRIVATE, $field(HTMLDocument$HTMLReader, insertAfterImplied)},
+		{"wantsTrailingNewline", "Z", nullptr, $PRIVATE, $field(HTMLDocument$HTMLReader, wantsTrailingNewline)},
+		{"threshold", "I", nullptr, 0, $field(HTMLDocument$HTMLReader, threshold)},
+		{"offset", "I", nullptr, 0, $field(HTMLDocument$HTMLReader, offset)},
+		{"inParagraph", "Z", nullptr, 0, $field(HTMLDocument$HTMLReader, inParagraph)},
+		{"impliedP", "Z", nullptr, 0, $field(HTMLDocument$HTMLReader, impliedP)},
+		{"inPre", "Z", nullptr, 0, $field(HTMLDocument$HTMLReader, inPre)},
+		{"inTextArea", "Z", nullptr, 0, $field(HTMLDocument$HTMLReader, inTextArea)},
+		{"textAreaDocument", "Ljavax/swing/text/html/TextAreaDocument;", nullptr, 0, $field(HTMLDocument$HTMLReader, textAreaDocument)},
+		{"inTitle", "Z", nullptr, 0, $field(HTMLDocument$HTMLReader, inTitle)},
+		{"lastWasNewline", "Z", nullptr, 0, $field(HTMLDocument$HTMLReader, lastWasNewline)},
+		{"emptyAnchor", "Z", nullptr, 0, $field(HTMLDocument$HTMLReader, emptyAnchor)},
+		{"midInsert", "Z", nullptr, 0, $field(HTMLDocument$HTMLReader, midInsert)},
+		{"inBody", "Z", nullptr, 0, $field(HTMLDocument$HTMLReader, inBody)},
+		{"insertTag", "Ljavax/swing/text/html/HTML$Tag;", nullptr, 0, $field(HTMLDocument$HTMLReader, insertTag)},
+		{"insertInsertTag", "Z", nullptr, 0, $field(HTMLDocument$HTMLReader, insertInsertTag)},
+		{"foundInsertTag", "Z", nullptr, 0, $field(HTMLDocument$HTMLReader, foundInsertTag$)},
+		{"insertTagDepthDelta", "I", nullptr, 0, $field(HTMLDocument$HTMLReader, insertTagDepthDelta)},
+		{"popDepth", "I", nullptr, 0, $field(HTMLDocument$HTMLReader, popDepth)},
+		{"pushDepth", "I", nullptr, 0, $field(HTMLDocument$HTMLReader, pushDepth)},
+		{"lastMap", "Ljavax/swing/text/html/Map;", nullptr, 0, $field(HTMLDocument$HTMLReader, lastMap)},
+		{"inStyle", "Z", nullptr, 0, $field(HTMLDocument$HTMLReader, inStyle)},
+		{"defaultStyle", "Ljava/lang/String;", nullptr, 0, $field(HTMLDocument$HTMLReader, defaultStyle)},
+		{"styles", "Ljava/util/Vector;", "Ljava/util/Vector<Ljava/lang/Object;>;", 0, $field(HTMLDocument$HTMLReader, styles)},
+		{"inHead", "Z", nullptr, 0, $field(HTMLDocument$HTMLReader, inHead)},
+		{"isStyleCSS", "Z", nullptr, 0, $field(HTMLDocument$HTMLReader, isStyleCSS)},
+		{"emptyDocument", "Z", nullptr, 0, $field(HTMLDocument$HTMLReader, emptyDocument)},
+		{"styleAttributes", "Ljavax/swing/text/AttributeSet;", nullptr, 0, $field(HTMLDocument$HTMLReader, styleAttributes)},
+		{"option", "Ljavax/swing/text/html/Option;", nullptr, 0, $field(HTMLDocument$HTMLReader, option)},
+		{"parseBuffer", "Ljava/util/Vector;", "Ljava/util/Vector<Ljavax/swing/text/DefaultStyledDocument$ElementSpec;>;", $PROTECTED, $field(HTMLDocument$HTMLReader, parseBuffer)},
+		{"charAttr", "Ljavax/swing/text/MutableAttributeSet;", nullptr, $PROTECTED, $field(HTMLDocument$HTMLReader, charAttr)},
+		{"charAttrStack", "Ljava/util/Stack;", "Ljava/util/Stack<Ljavax/swing/text/AttributeSet;>;", 0, $field(HTMLDocument$HTMLReader, charAttrStack)},
+		{"tagMap", "Ljava/util/Hashtable;", "Ljava/util/Hashtable<Ljavax/swing/text/html/HTML$Tag;Ljavax/swing/text/html/HTMLDocument$HTMLReader$TagAction;>;", 0, $field(HTMLDocument$HTMLReader, tagMap)},
+		{"inBlock", "I", nullptr, 0, $field(HTMLDocument$HTMLReader, inBlock)},
+		{"nextTagAfterPImplied", "Ljavax/swing/text/html/HTML$Tag;", nullptr, $PRIVATE, $field(HTMLDocument$HTMLReader, nextTagAfterPImplied)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/text/html/HTMLDocument;I)V", nullptr, $PUBLIC, $method(HTMLDocument$HTMLReader, init$, void, $HTMLDocument*, int32_t)},
+		{"<init>", "(Ljavax/swing/text/html/HTMLDocument;IIILjavax/swing/text/html/HTML$Tag;)V", nullptr, $PUBLIC, $method(HTMLDocument$HTMLReader, init$, void, $HTMLDocument*, int32_t, int32_t, int32_t, $HTML$Tag*)},
+		{"<init>", "(Ljavax/swing/text/html/HTMLDocument;IIILjavax/swing/text/html/HTML$Tag;ZZZ)V", nullptr, 0, $method(HTMLDocument$HTMLReader, init$, void, $HTMLDocument*, int32_t, int32_t, int32_t, $HTML$Tag*, bool, bool, bool)},
+		{"addCSSRules", "(Ljava/lang/String;)V", nullptr, 0, $virtualMethod(HTMLDocument$HTMLReader, addCSSRules, void, $String*)},
+		{"addContent", "([CII)V", nullptr, $PROTECTED, $virtualMethod(HTMLDocument$HTMLReader, addContent, void, $chars*, int32_t, int32_t)},
+		{"addContent", "([CIIZ)V", nullptr, $PROTECTED, $virtualMethod(HTMLDocument$HTMLReader, addContent, void, $chars*, int32_t, int32_t, bool)},
+		{"addExternalComment", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(HTMLDocument$HTMLReader, addExternalComment, void, $String*)},
+		{"addSpecialElement", "(Ljavax/swing/text/html/HTML$Tag;Ljavax/swing/text/MutableAttributeSet;)V", nullptr, $PROTECTED, $virtualMethod(HTMLDocument$HTMLReader, addSpecialElement, void, $HTML$Tag*, $MutableAttributeSet*)},
+		{"adjustEndElement", "()V", nullptr, $PRIVATE, $method(HTMLDocument$HTMLReader, adjustEndElement, void)},
+		{"adjustEndSpecsForPartialInsert", "()V", nullptr, $PRIVATE, $method(HTMLDocument$HTMLReader, adjustEndSpecsForPartialInsert, void)},
+		{"blockClose", "(Ljavax/swing/text/html/HTML$Tag;)V", nullptr, $PROTECTED, $virtualMethod(HTMLDocument$HTMLReader, blockClose, void, $HTML$Tag*)},
+		{"blockOpen", "(Ljavax/swing/text/html/HTML$Tag;Ljavax/swing/text/MutableAttributeSet;)V", nullptr, $PROTECTED, $virtualMethod(HTMLDocument$HTMLReader, blockOpen, void, $HTML$Tag*, $MutableAttributeSet*)},
+		{"canInsertTag", "(Ljavax/swing/text/html/HTML$Tag;Ljavax/swing/text/AttributeSet;Z)Z", nullptr, $PRIVATE, $method(HTMLDocument$HTMLReader, canInsertTag, bool, $HTML$Tag*, $AttributeSet*, bool)},
+		{"depthTo", "(I)I", nullptr, $PRIVATE, $method(HTMLDocument$HTMLReader, depthTo, int32_t, int32_t)},
+		{"flush", "()V", nullptr, $PUBLIC, $virtualMethod(HTMLDocument$HTMLReader, flush, void), "javax.swing.text.BadLocationException"},
+		{"flushBuffer", "(Z)V", nullptr, 0, $virtualMethod(HTMLDocument$HTMLReader, flushBuffer, void, bool), "javax.swing.text.BadLocationException"},
+		{"foundInsertTag", "(Z)V", nullptr, $PRIVATE, $method(HTMLDocument$HTMLReader, foundInsertTag, void, bool)},
+		{"generateEndsSpecsForMidInsert", "()V", nullptr, $PRIVATE, $method(HTMLDocument$HTMLReader, generateEndsSpecsForMidInsert, void)},
+		{"getPathTo", "(I)[Ljavax/swing/text/Element;", nullptr, $PRIVATE, $method(HTMLDocument$HTMLReader, getPathTo, $ElementArray*, int32_t)},
+		{"handleComment", "([CI)V", nullptr, $PUBLIC, $virtualMethod(HTMLDocument$HTMLReader, handleComment, void, $chars*, int32_t)},
+		{"handleEndOfLineString", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(HTMLDocument$HTMLReader, handleEndOfLineString, void, $String*)},
+		{"handleEndTag", "(Ljavax/swing/text/html/HTML$Tag;I)V", nullptr, $PUBLIC, $virtualMethod(HTMLDocument$HTMLReader, handleEndTag, void, $HTML$Tag*, int32_t)},
+		{"handleSimpleTag", "(Ljavax/swing/text/html/HTML$Tag;Ljavax/swing/text/MutableAttributeSet;I)V", nullptr, $PUBLIC, $virtualMethod(HTMLDocument$HTMLReader, handleSimpleTag, void, $HTML$Tag*, $MutableAttributeSet*, int32_t)},
+		{"handleStartTag", "(Ljavax/swing/text/html/HTML$Tag;Ljavax/swing/text/MutableAttributeSet;I)V", nullptr, $PUBLIC, $virtualMethod(HTMLDocument$HTMLReader, handleStartTag, void, $HTML$Tag*, $MutableAttributeSet*, int32_t)},
+		{"handleText", "([CI)V", nullptr, $PUBLIC, $virtualMethod(HTMLDocument$HTMLReader, handleText, void, $chars*, int32_t)},
+		{"heightToElementWithName", "(Ljava/lang/Object;I)I", nullptr, $PRIVATE, $method(HTMLDocument$HTMLReader, heightToElementWithName, int32_t, Object$*, int32_t)},
+		{"isInsertTag", "(Ljavax/swing/text/html/HTML$Tag;)Z", nullptr, $PRIVATE, $method(HTMLDocument$HTMLReader, isInsertTag, bool, $HTML$Tag*)},
+		{"linkCSSStyleSheet", "(Ljava/lang/String;)V", nullptr, 0, $virtualMethod(HTMLDocument$HTMLReader, linkCSSStyleSheet, void, $String*)},
+		{"popCharacterStyle", "()V", nullptr, $PROTECTED, $virtualMethod(HTMLDocument$HTMLReader, popCharacterStyle, void)},
+		{"preContent", "([C)V", nullptr, $PROTECTED, $virtualMethod(HTMLDocument$HTMLReader, preContent, void, $chars*)},
+		{"pushCharacterStyle", "()V", nullptr, $PROTECTED, $virtualMethod(HTMLDocument$HTMLReader, pushCharacterStyle, void)},
+		{"registerTag", "(Ljavax/swing/text/html/HTML$Tag;Ljavax/swing/text/html/HTMLDocument$HTMLReader$TagAction;)V", nullptr, $PROTECTED, $virtualMethod(HTMLDocument$HTMLReader, registerTag, void, $HTML$Tag*, $HTMLDocument$HTMLReader$TagAction*)},
+		{"textAreaContent", "([C)V", nullptr, $PROTECTED, $virtualMethod(HTMLDocument$HTMLReader, textAreaContent, void, $chars*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.html.HTMLDocument$HTMLReader", "javax.swing.text.html.HTMLDocument", "HTMLReader", $PUBLIC},
+		{"javax.swing.text.html.HTMLEditorKit$ParserCallback", "javax.swing.text.html.HTMLEditorKit", "ParserCallback", $PUBLIC | $STATIC},
+		{"javax.swing.text.html.HTMLDocument$HTMLReader$FormAction", "javax.swing.text.html.HTMLDocument$HTMLReader", "FormAction", $PUBLIC},
+		{"javax.swing.text.html.HTMLDocument$HTMLReader$ObjectAction", "javax.swing.text.html.HTMLDocument$HTMLReader", "ObjectAction", 0},
+		{"javax.swing.text.html.HTMLDocument$HTMLReader$BaseAction", "javax.swing.text.html.HTMLDocument$HTMLReader", "BaseAction", 0},
+		{"javax.swing.text.html.HTMLDocument$HTMLReader$TitleAction", "javax.swing.text.html.HTMLDocument$HTMLReader", "TitleAction", 0},
+		{"javax.swing.text.html.HTMLDocument$HTMLReader$AnchorAction", "javax.swing.text.html.HTMLDocument$HTMLReader", "AnchorAction", 0},
+		{"javax.swing.text.html.HTMLDocument$HTMLReader$ConvertAction", "javax.swing.text.html.HTMLDocument$HTMLReader", "ConvertAction", 0},
+		{"javax.swing.text.html.HTMLDocument$HTMLReader$CharacterAction", "javax.swing.text.html.HTMLDocument$HTMLReader", "CharacterAction", $PUBLIC},
+		{"javax.swing.text.html.HTMLDocument$HTMLReader$PreAction", "javax.swing.text.html.HTMLDocument$HTMLReader", "PreAction", $PUBLIC},
+		{"javax.swing.text.html.HTMLDocument$HTMLReader$StyleAction", "javax.swing.text.html.HTMLDocument$HTMLReader", "StyleAction", 0},
+		{"javax.swing.text.html.HTMLDocument$HTMLReader$AreaAction", "javax.swing.text.html.HTMLDocument$HTMLReader", "AreaAction", 0},
+		{"javax.swing.text.html.HTMLDocument$HTMLReader$MapAction", "javax.swing.text.html.HTMLDocument$HTMLReader", "MapAction", 0},
+		{"javax.swing.text.html.HTMLDocument$HTMLReader$LinkAction", "javax.swing.text.html.HTMLDocument$HTMLReader", "LinkAction", 0},
+		{"javax.swing.text.html.HTMLDocument$HTMLReader$HeadAction", "javax.swing.text.html.HTMLDocument$HTMLReader", "HeadAction", 0},
+		{"javax.swing.text.html.HTMLDocument$HTMLReader$MetaAction", "javax.swing.text.html.HTMLDocument$HTMLReader", "MetaAction", 0},
+		{"javax.swing.text.html.HTMLDocument$HTMLReader$HiddenAction", "javax.swing.text.html.HTMLDocument$HTMLReader", "HiddenAction", $PUBLIC},
+		{"javax.swing.text.html.HTMLDocument$HTMLReader$IsindexAction", "javax.swing.text.html.HTMLDocument$HTMLReader", "IsindexAction", $PUBLIC},
+		{"javax.swing.text.html.HTMLDocument$HTMLReader$SpecialAction", "javax.swing.text.html.HTMLDocument$HTMLReader", "SpecialAction", $PUBLIC},
+		{"javax.swing.text.html.HTMLDocument$HTMLReader$ParagraphAction", "javax.swing.text.html.HTMLDocument$HTMLReader", "ParagraphAction", $PUBLIC},
+		{"javax.swing.text.html.HTMLDocument$HTMLReader$FormTagAction", "javax.swing.text.html.HTMLDocument$HTMLReader", "FormTagAction", $PRIVATE},
+		{"javax.swing.text.html.HTMLDocument$HTMLReader$BlockAction", "javax.swing.text.html.HTMLDocument$HTMLReader", "BlockAction", $PUBLIC},
+		{"javax.swing.text.html.HTMLDocument$HTMLReader$TagAction", "javax.swing.text.html.HTMLDocument$HTMLReader", "TagAction", $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.text.html.HTMLDocument$HTMLReader",
+		"javax.swing.text.html.HTMLEditorKit$ParserCallback",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.html.HTMLDocument"
+	};
+	$loadClass(HTMLDocument$HTMLReader, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HTMLDocument$HTMLReader);
+	});
 	return class$;
 }
 

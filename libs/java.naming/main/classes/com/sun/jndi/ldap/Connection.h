@@ -71,6 +71,7 @@ class Connection : public ::java::lang::Runnable {
 	$class(Connection, 0, ::java::lang::Runnable)
 public:
 	Connection();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::com::sun::jndi::ldap::LdapClient* parent, $String* host, int32_t port, $String* socketFactory, int32_t connectTimeout, int32_t readTimeout, ::java::io::OutputStream* trace);
 	void abandonOutstandingReqs($Array<::javax::naming::ldap::Control>* reqCtls);
 	void abandonRequest(::com::sun::jndi::ldap::LdapRequest* ldr, $Array<::javax::naming::ldap::Control>* reqCtls);

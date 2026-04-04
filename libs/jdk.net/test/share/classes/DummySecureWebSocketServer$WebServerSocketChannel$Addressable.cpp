@@ -1,5 +1,4 @@
 #include <DummySecureWebSocketServer$WebServerSocketChannel$Addressable.h>
-
 #include <DummySecureWebSocketServer$WebServerSocketChannel.h>
 #include <java/net/SocketAddress.h>
 #include <jcpp.h>
@@ -9,39 +8,34 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $SocketAddress = ::java::net::SocketAddress;
 
-$MethodInfo _DummySecureWebSocketServer$WebServerSocketChannel$Addressable_MethodInfo_[] = {
-	{"getLocalAddress", "()Ljava/net/SocketAddress;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DummySecureWebSocketServer$WebServerSocketChannel$Addressable, getLocalAddress, $SocketAddress*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _DummySecureWebSocketServer$WebServerSocketChannel$Addressable_InnerClassesInfo_[] = {
-	{"DummySecureWebSocketServer$WebServerSocketChannel", "DummySecureWebSocketServer", "WebServerSocketChannel", $PUBLIC | $STATIC},
-	{"DummySecureWebSocketServer$WebServerSocketChannel$Addressable", "DummySecureWebSocketServer$WebServerSocketChannel", "Addressable", $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _DummySecureWebSocketServer$WebServerSocketChannel$Addressable_ClassInfo_ = {
-	$INTERFACE | $ABSTRACT,
-	"DummySecureWebSocketServer$WebServerSocketChannel$Addressable",
-	nullptr,
-	nullptr,
-	nullptr,
-	_DummySecureWebSocketServer$WebServerSocketChannel$Addressable_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DummySecureWebSocketServer$WebServerSocketChannel$Addressable_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"DummySecureWebSocketServer"
-};
-
-$Object* allocate$DummySecureWebSocketServer$WebServerSocketChannel$Addressable($Class* clazz) {
-	return $of($alloc(DummySecureWebSocketServer$WebServerSocketChannel$Addressable));
-}
-
 $Class* DummySecureWebSocketServer$WebServerSocketChannel$Addressable::load$($String* name, bool initialize) {
-	$loadClass(DummySecureWebSocketServer$WebServerSocketChannel$Addressable, name, initialize, &_DummySecureWebSocketServer$WebServerSocketChannel$Addressable_ClassInfo_, allocate$DummySecureWebSocketServer$WebServerSocketChannel$Addressable);
+	$MethodInfo methodInfos$$[] = {
+		{"getLocalAddress", "()Ljava/net/SocketAddress;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DummySecureWebSocketServer$WebServerSocketChannel$Addressable, getLocalAddress, $SocketAddress*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"DummySecureWebSocketServer$WebServerSocketChannel", "DummySecureWebSocketServer", "WebServerSocketChannel", $PUBLIC | $STATIC},
+		{"DummySecureWebSocketServer$WebServerSocketChannel$Addressable", "DummySecureWebSocketServer$WebServerSocketChannel", "Addressable", $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$INTERFACE | $ABSTRACT,
+		"DummySecureWebSocketServer$WebServerSocketChannel$Addressable",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"DummySecureWebSocketServer"
+	};
+	$loadClass(DummySecureWebSocketServer$WebServerSocketChannel$Addressable, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DummySecureWebSocketServer$WebServerSocketChannel$Addressable);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/java2d/loops/SurfaceType.h>
-
 #include <java/awt/image/ColorModel.h>
 #include <java/lang/InternalError.h>
 #include <java/util/HashMap.h>
@@ -90,139 +89,6 @@ using $PixelConverter$Xrgb = ::sun::awt::image::PixelConverter$Xrgb;
 namespace sun {
 	namespace java2d {
 		namespace loops {
-
-$FieldInfo _SurfaceType_FieldInfo_[] = {
-	{"unusedUID", "I", nullptr, $PRIVATE | $STATIC, $staticField(SurfaceType, unusedUID)},
-	{"surfaceUIDMap", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/Integer;>;", $PRIVATE | $STATIC, $staticField(SurfaceType, surfaceUIDMap)},
-	{"DESC_ANY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, DESC_ANY)},
-	{"DESC_INT_RGB", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, DESC_INT_RGB)},
-	{"DESC_INT_ARGB", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, DESC_INT_ARGB)},
-	{"DESC_INT_ARGB_PRE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, DESC_INT_ARGB_PRE)},
-	{"DESC_INT_BGR", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, DESC_INT_BGR)},
-	{"DESC_3BYTE_BGR", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, DESC_3BYTE_BGR)},
-	{"DESC_4BYTE_ABGR", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, DESC_4BYTE_ABGR)},
-	{"DESC_4BYTE_ABGR_PRE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, DESC_4BYTE_ABGR_PRE)},
-	{"DESC_USHORT_565_RGB", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, DESC_USHORT_565_RGB)},
-	{"DESC_USHORT_555_RGB", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, DESC_USHORT_555_RGB)},
-	{"DESC_USHORT_555_RGBx", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, DESC_USHORT_555_RGBx)},
-	{"DESC_USHORT_4444_ARGB", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, DESC_USHORT_4444_ARGB)},
-	{"DESC_BYTE_GRAY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, DESC_BYTE_GRAY)},
-	{"DESC_USHORT_INDEXED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, DESC_USHORT_INDEXED)},
-	{"DESC_USHORT_GRAY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, DESC_USHORT_GRAY)},
-	{"DESC_BYTE_BINARY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, DESC_BYTE_BINARY)},
-	{"DESC_BYTE_INDEXED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, DESC_BYTE_INDEXED)},
-	{"DESC_ANY_INT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, DESC_ANY_INT)},
-	{"DESC_ANY_SHORT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, DESC_ANY_SHORT)},
-	{"DESC_ANY_BYTE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, DESC_ANY_BYTE)},
-	{"DESC_ANY_3BYTE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, DESC_ANY_3BYTE)},
-	{"DESC_ANY_4BYTE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, DESC_ANY_4BYTE)},
-	{"DESC_ANY_INT_DCM", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, DESC_ANY_INT_DCM)},
-	{"DESC_INT_RGBx", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, DESC_INT_RGBx)},
-	{"DESC_INT_BGRx", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, DESC_INT_BGRx)},
-	{"DESC_3BYTE_RGB", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, DESC_3BYTE_RGB)},
-	{"DESC_INT_ARGB_BM", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, DESC_INT_ARGB_BM)},
-	{"DESC_BYTE_INDEXED_BM", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, DESC_BYTE_INDEXED_BM)},
-	{"DESC_BYTE_INDEXED_OPAQUE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, DESC_BYTE_INDEXED_OPAQUE)},
-	{"DESC_INDEX8_GRAY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, DESC_INDEX8_GRAY)},
-	{"DESC_INDEX12_GRAY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, DESC_INDEX12_GRAY)},
-	{"DESC_BYTE_BINARY_1BIT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, DESC_BYTE_BINARY_1BIT)},
-	{"DESC_BYTE_BINARY_2BIT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, DESC_BYTE_BINARY_2BIT)},
-	{"DESC_BYTE_BINARY_4BIT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, DESC_BYTE_BINARY_4BIT)},
-	{"DESC_ANY_PAINT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, DESC_ANY_PAINT)},
-	{"DESC_ANY_COLOR", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, DESC_ANY_COLOR)},
-	{"DESC_OPAQUE_COLOR", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, DESC_OPAQUE_COLOR)},
-	{"DESC_GRADIENT_PAINT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, DESC_GRADIENT_PAINT)},
-	{"DESC_OPAQUE_GRADIENT_PAINT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, DESC_OPAQUE_GRADIENT_PAINT)},
-	{"DESC_TEXTURE_PAINT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, DESC_TEXTURE_PAINT)},
-	{"DESC_OPAQUE_TEXTURE_PAINT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, DESC_OPAQUE_TEXTURE_PAINT)},
-	{"DESC_LINEAR_GRADIENT_PAINT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, DESC_LINEAR_GRADIENT_PAINT)},
-	{"DESC_OPAQUE_LINEAR_GRADIENT_PAINT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, DESC_OPAQUE_LINEAR_GRADIENT_PAINT)},
-	{"DESC_RADIAL_GRADIENT_PAINT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, DESC_RADIAL_GRADIENT_PAINT)},
-	{"DESC_OPAQUE_RADIAL_GRADIENT_PAINT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, DESC_OPAQUE_RADIAL_GRADIENT_PAINT)},
-	{"Any", "Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, Any)},
-	{"AnyInt", "Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, AnyInt)},
-	{"AnyShort", "Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, AnyShort)},
-	{"AnyByte", "Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, AnyByte)},
-	{"AnyByteBinary", "Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, AnyByteBinary)},
-	{"Any3Byte", "Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, Any3Byte)},
-	{"Any4Byte", "Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, Any4Byte)},
-	{"AnyDcm", "Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, AnyDcm)},
-	{"Custom", "Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, Custom)},
-	{"IntRgb", "Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, IntRgb)},
-	{"IntArgb", "Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, IntArgb)},
-	{"IntArgbPre", "Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, IntArgbPre)},
-	{"IntBgr", "Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, IntBgr)},
-	{"ThreeByteBgr", "Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, ThreeByteBgr)},
-	{"FourByteAbgr", "Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, FourByteAbgr)},
-	{"FourByteAbgrPre", "Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, FourByteAbgrPre)},
-	{"Ushort565Rgb", "Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, Ushort565Rgb)},
-	{"Ushort555Rgb", "Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, Ushort555Rgb)},
-	{"Ushort555Rgbx", "Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, Ushort555Rgbx)},
-	{"Ushort4444Argb", "Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, Ushort4444Argb)},
-	{"UshortIndexed", "Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, UshortIndexed)},
-	{"ByteGray", "Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, ByteGray)},
-	{"UshortGray", "Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, UshortGray)},
-	{"ByteBinary1Bit", "Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, ByteBinary1Bit)},
-	{"ByteBinary2Bit", "Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, ByteBinary2Bit)},
-	{"ByteBinary4Bit", "Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, ByteBinary4Bit)},
-	{"ByteIndexed", "Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, ByteIndexed)},
-	{"IntRgbx", "Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, IntRgbx)},
-	{"IntBgrx", "Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, IntBgrx)},
-	{"ThreeByteRgb", "Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, ThreeByteRgb)},
-	{"IntArgbBm", "Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, IntArgbBm)},
-	{"ByteIndexedBm", "Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, ByteIndexedBm)},
-	{"ByteIndexedOpaque", "Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, ByteIndexedOpaque)},
-	{"Index8Gray", "Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, Index8Gray)},
-	{"Index12Gray", "Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, Index12Gray)},
-	{"AnyPaint", "Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, AnyPaint)},
-	{"AnyColor", "Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, AnyColor)},
-	{"OpaqueColor", "Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, OpaqueColor)},
-	{"GradientPaint", "Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, GradientPaint)},
-	{"OpaqueGradientPaint", "Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, OpaqueGradientPaint)},
-	{"LinearGradientPaint", "Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, LinearGradientPaint)},
-	{"OpaqueLinearGradientPaint", "Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, OpaqueLinearGradientPaint)},
-	{"RadialGradientPaint", "Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, RadialGradientPaint)},
-	{"OpaqueRadialGradientPaint", "Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, OpaqueRadialGradientPaint)},
-	{"TexturePaint", "Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, TexturePaint)},
-	{"OpaqueTexturePaint", "Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, OpaqueTexturePaint)},
-	{"uniqueID", "I", nullptr, $PRIVATE, $field(SurfaceType, uniqueID)},
-	{"desc", "Ljava/lang/String;", nullptr, $PRIVATE, $field(SurfaceType, desc)},
-	{"next", "Lsun/java2d/loops/SurfaceType;", nullptr, $PRIVATE, $field(SurfaceType, next)},
-	{"pixelConverter", "Lsun/awt/image/PixelConverter;", nullptr, $PROTECTED, $field(SurfaceType, pixelConverter)},
-	{}
-};
-
-$MethodInfo _SurfaceType_MethodInfo_[] = {
-	{"<init>", "(Lsun/java2d/loops/SurfaceType;Ljava/lang/String;Lsun/awt/image/PixelConverter;)V", nullptr, $PRIVATE, $method(SurfaceType, init$, void, SurfaceType*, $String*, $PixelConverter*)},
-	{"<init>", "(Lsun/java2d/loops/SurfaceType;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(SurfaceType, init$, void, SurfaceType*, $String*)},
-	{"deriveSubType", "(Ljava/lang/String;)Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC, $method(SurfaceType, deriveSubType, SurfaceType*, $String*)},
-	{"deriveSubType", "(Ljava/lang/String;Lsun/awt/image/PixelConverter;)Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC, $method(SurfaceType, deriveSubType, SurfaceType*, $String*, $PixelConverter*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(SurfaceType, equals, bool, Object$*)},
-	{"getAlphaMask", "()I", nullptr, $PUBLIC, $method(SurfaceType, getAlphaMask, int32_t)},
-	{"getDescriptor", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(SurfaceType, getDescriptor, $String*)},
-	{"getPixelConverter", "()Lsun/awt/image/PixelConverter;", nullptr, $PUBLIC, $method(SurfaceType, getPixelConverter, $PixelConverter*)},
-	{"getSuperType", "()Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC, $method(SurfaceType, getSuperType, SurfaceType*)},
-	{"getUniqueID", "()I", nullptr, $PUBLIC, $method(SurfaceType, getUniqueID, int32_t)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(SurfaceType, hashCode, int32_t)},
-	{"makeUniqueID", "(Ljava/lang/String;)I", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(SurfaceType, makeUniqueID, int32_t, $String*)},
-	{"pixelFor", "(ILjava/awt/image/ColorModel;)I", nullptr, $PUBLIC, $method(SurfaceType, pixelFor, int32_t, int32_t, $ColorModel*)},
-	{"rgbFor", "(ILjava/awt/image/ColorModel;)I", nullptr, $PUBLIC, $method(SurfaceType, rgbFor, int32_t, int32_t, $ColorModel*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SurfaceType, toString, $String*)},
-	{}
-};
-
-$ClassInfo _SurfaceType_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.java2d.loops.SurfaceType",
-	"java.lang.Object",
-	nullptr,
-	_SurfaceType_FieldInfo_,
-	_SurfaceType_MethodInfo_
-};
-
-$Object* allocate$SurfaceType($Class* clazz) {
-	return $of($alloc(SurfaceType));
-}
 
 int32_t SurfaceType::unusedUID = 0;
 $HashMap* SurfaceType::surfaceUIDMap = nullptr;
@@ -341,16 +207,15 @@ void SurfaceType::init$(SurfaceType* parent, $String* desc) {
 }
 
 int32_t SurfaceType::makeUniqueID($String* desc) {
-	$load(SurfaceType);
+	$init(SurfaceType);
 	$synchronized(class$) {
-		$init(SurfaceType);
 		$var($Integer, i, $cast($Integer, $nc(SurfaceType::surfaceUIDMap)->get(desc)));
 		if (i == nullptr) {
 			if (SurfaceType::unusedUID > 255) {
 				$throwNew($InternalError, "surface type id overflow"_s);
 			}
 			$assign(i, $Integer::valueOf(SurfaceType::unusedUID++));
-			$nc(SurfaceType::surfaceUIDMap)->put(desc, i);
+			SurfaceType::surfaceUIDMap->put(desc, i);
 		}
 		return $nc(i)->intValue();
 	}
@@ -390,7 +255,7 @@ int32_t SurfaceType::hashCode() {
 
 bool SurfaceType::equals(Object$* o) {
 	if ($instanceOf(SurfaceType, o)) {
-		return ($nc(($cast(SurfaceType, o)))->uniqueID == this->uniqueID);
+		return ($cast(SurfaceType, o)->uniqueID == this->uniqueID);
 	}
 	return false;
 }
@@ -399,7 +264,7 @@ $String* SurfaceType::toString() {
 	return this->desc;
 }
 
-void clinit$SurfaceType($Class* class$) {
+void SurfaceType::clinit$($Class* clazz) {
 	$assignStatic(SurfaceType::DESC_ANY, "Any Surface"_s);
 	$assignStatic(SurfaceType::DESC_INT_RGB, "Integer RGB"_s);
 	$assignStatic(SurfaceType::DESC_INT_ARGB, "Integer ARGB"_s);
@@ -449,65 +314,65 @@ void clinit$SurfaceType($Class* class$) {
 	$assignStatic(SurfaceType::surfaceUIDMap, $new($HashMap, 100));
 	$init($PixelConverter);
 	$assignStatic(SurfaceType::Any, $new(SurfaceType, nullptr, SurfaceType::DESC_ANY, $PixelConverter::instance));
-	$assignStatic(SurfaceType::AnyInt, $nc(SurfaceType::Any)->deriveSubType(SurfaceType::DESC_ANY_INT));
-	$assignStatic(SurfaceType::AnyShort, $nc(SurfaceType::Any)->deriveSubType(SurfaceType::DESC_ANY_SHORT));
-	$assignStatic(SurfaceType::AnyByte, $nc(SurfaceType::Any)->deriveSubType(SurfaceType::DESC_ANY_BYTE));
-	$assignStatic(SurfaceType::AnyByteBinary, $nc(SurfaceType::Any)->deriveSubType(SurfaceType::DESC_BYTE_BINARY));
-	$assignStatic(SurfaceType::Any3Byte, $nc(SurfaceType::Any)->deriveSubType(SurfaceType::DESC_ANY_3BYTE));
-	$assignStatic(SurfaceType::Any4Byte, $nc(SurfaceType::Any)->deriveSubType(SurfaceType::DESC_ANY_4BYTE));
+	$assignStatic(SurfaceType::AnyInt, SurfaceType::Any->deriveSubType(SurfaceType::DESC_ANY_INT));
+	$assignStatic(SurfaceType::AnyShort, SurfaceType::Any->deriveSubType(SurfaceType::DESC_ANY_SHORT));
+	$assignStatic(SurfaceType::AnyByte, SurfaceType::Any->deriveSubType(SurfaceType::DESC_ANY_BYTE));
+	$assignStatic(SurfaceType::AnyByteBinary, SurfaceType::Any->deriveSubType(SurfaceType::DESC_BYTE_BINARY));
+	$assignStatic(SurfaceType::Any3Byte, SurfaceType::Any->deriveSubType(SurfaceType::DESC_ANY_3BYTE));
+	$assignStatic(SurfaceType::Any4Byte, SurfaceType::Any->deriveSubType(SurfaceType::DESC_ANY_4BYTE));
 	$assignStatic(SurfaceType::AnyDcm, $nc(SurfaceType::AnyInt)->deriveSubType(SurfaceType::DESC_ANY_INT_DCM));
 	$assignStatic(SurfaceType::Custom, SurfaceType::Any);
 	$init($PixelConverter$Xrgb);
 	$assignStatic(SurfaceType::IntRgb, $nc(SurfaceType::AnyDcm)->deriveSubType(SurfaceType::DESC_INT_RGB, $PixelConverter$Xrgb::instance));
 	$init($PixelConverter$Argb);
-	$assignStatic(SurfaceType::IntArgb, $nc(SurfaceType::AnyDcm)->deriveSubType(SurfaceType::DESC_INT_ARGB, $PixelConverter$Argb::instance));
+	$assignStatic(SurfaceType::IntArgb, SurfaceType::AnyDcm->deriveSubType(SurfaceType::DESC_INT_ARGB, $PixelConverter$Argb::instance));
 	$init($PixelConverter$ArgbPre);
-	$assignStatic(SurfaceType::IntArgbPre, $nc(SurfaceType::AnyDcm)->deriveSubType(SurfaceType::DESC_INT_ARGB_PRE, $PixelConverter$ArgbPre::instance));
+	$assignStatic(SurfaceType::IntArgbPre, SurfaceType::AnyDcm->deriveSubType(SurfaceType::DESC_INT_ARGB_PRE, $PixelConverter$ArgbPre::instance));
 	$init($PixelConverter$Xbgr);
-	$assignStatic(SurfaceType::IntBgr, $nc(SurfaceType::AnyDcm)->deriveSubType(SurfaceType::DESC_INT_BGR, $PixelConverter$Xbgr::instance));
+	$assignStatic(SurfaceType::IntBgr, SurfaceType::AnyDcm->deriveSubType(SurfaceType::DESC_INT_BGR, $PixelConverter$Xbgr::instance));
 	$assignStatic(SurfaceType::ThreeByteBgr, $nc(SurfaceType::Any3Byte)->deriveSubType(SurfaceType::DESC_3BYTE_BGR, $PixelConverter$Xrgb::instance));
 	$init($PixelConverter$Rgba);
 	$assignStatic(SurfaceType::FourByteAbgr, $nc(SurfaceType::Any4Byte)->deriveSubType(SurfaceType::DESC_4BYTE_ABGR, $PixelConverter$Rgba::instance));
 	$init($PixelConverter$RgbaPre);
-	$assignStatic(SurfaceType::FourByteAbgrPre, $nc(SurfaceType::Any4Byte)->deriveSubType(SurfaceType::DESC_4BYTE_ABGR_PRE, $PixelConverter$RgbaPre::instance));
+	$assignStatic(SurfaceType::FourByteAbgrPre, SurfaceType::Any4Byte->deriveSubType(SurfaceType::DESC_4BYTE_ABGR_PRE, $PixelConverter$RgbaPre::instance));
 	$init($PixelConverter$Ushort565Rgb);
 	$assignStatic(SurfaceType::Ushort565Rgb, $nc(SurfaceType::AnyShort)->deriveSubType(SurfaceType::DESC_USHORT_565_RGB, $PixelConverter$Ushort565Rgb::instance));
 	$init($PixelConverter$Ushort555Rgb);
-	$assignStatic(SurfaceType::Ushort555Rgb, $nc(SurfaceType::AnyShort)->deriveSubType(SurfaceType::DESC_USHORT_555_RGB, $PixelConverter$Ushort555Rgb::instance));
+	$assignStatic(SurfaceType::Ushort555Rgb, SurfaceType::AnyShort->deriveSubType(SurfaceType::DESC_USHORT_555_RGB, $PixelConverter$Ushort555Rgb::instance));
 	$init($PixelConverter$Ushort555Rgbx);
-	$assignStatic(SurfaceType::Ushort555Rgbx, $nc(SurfaceType::AnyShort)->deriveSubType(SurfaceType::DESC_USHORT_555_RGBx, $PixelConverter$Ushort555Rgbx::instance));
+	$assignStatic(SurfaceType::Ushort555Rgbx, SurfaceType::AnyShort->deriveSubType(SurfaceType::DESC_USHORT_555_RGBx, $PixelConverter$Ushort555Rgbx::instance));
 	$init($PixelConverter$Ushort4444Argb);
-	$assignStatic(SurfaceType::Ushort4444Argb, $nc(SurfaceType::AnyShort)->deriveSubType(SurfaceType::DESC_USHORT_4444_ARGB, $PixelConverter$Ushort4444Argb::instance));
-	$assignStatic(SurfaceType::UshortIndexed, $nc(SurfaceType::AnyShort)->deriveSubType(SurfaceType::DESC_USHORT_INDEXED));
+	$assignStatic(SurfaceType::Ushort4444Argb, SurfaceType::AnyShort->deriveSubType(SurfaceType::DESC_USHORT_4444_ARGB, $PixelConverter$Ushort4444Argb::instance));
+	$assignStatic(SurfaceType::UshortIndexed, SurfaceType::AnyShort->deriveSubType(SurfaceType::DESC_USHORT_INDEXED));
 	$init($PixelConverter$ByteGray);
 	$assignStatic(SurfaceType::ByteGray, $nc(SurfaceType::AnyByte)->deriveSubType(SurfaceType::DESC_BYTE_GRAY, $PixelConverter$ByteGray::instance));
 	$init($PixelConverter$UshortGray);
-	$assignStatic(SurfaceType::UshortGray, $nc(SurfaceType::AnyShort)->deriveSubType(SurfaceType::DESC_USHORT_GRAY, $PixelConverter$UshortGray::instance));
+	$assignStatic(SurfaceType::UshortGray, SurfaceType::AnyShort->deriveSubType(SurfaceType::DESC_USHORT_GRAY, $PixelConverter$UshortGray::instance));
 	$assignStatic(SurfaceType::ByteBinary1Bit, $nc(SurfaceType::AnyByteBinary)->deriveSubType(SurfaceType::DESC_BYTE_BINARY_1BIT));
-	$assignStatic(SurfaceType::ByteBinary2Bit, $nc(SurfaceType::AnyByteBinary)->deriveSubType(SurfaceType::DESC_BYTE_BINARY_2BIT));
-	$assignStatic(SurfaceType::ByteBinary4Bit, $nc(SurfaceType::AnyByteBinary)->deriveSubType(SurfaceType::DESC_BYTE_BINARY_4BIT));
-	$assignStatic(SurfaceType::ByteIndexed, $nc(SurfaceType::AnyByte)->deriveSubType(SurfaceType::DESC_BYTE_INDEXED));
+	$assignStatic(SurfaceType::ByteBinary2Bit, SurfaceType::AnyByteBinary->deriveSubType(SurfaceType::DESC_BYTE_BINARY_2BIT));
+	$assignStatic(SurfaceType::ByteBinary4Bit, SurfaceType::AnyByteBinary->deriveSubType(SurfaceType::DESC_BYTE_BINARY_4BIT));
+	$assignStatic(SurfaceType::ByteIndexed, SurfaceType::AnyByte->deriveSubType(SurfaceType::DESC_BYTE_INDEXED));
 	$init($PixelConverter$Rgbx);
-	$assignStatic(SurfaceType::IntRgbx, $nc(SurfaceType::AnyDcm)->deriveSubType(SurfaceType::DESC_INT_RGBx, $PixelConverter$Rgbx::instance));
+	$assignStatic(SurfaceType::IntRgbx, SurfaceType::AnyDcm->deriveSubType(SurfaceType::DESC_INT_RGBx, $PixelConverter$Rgbx::instance));
 	$init($PixelConverter$Bgrx);
-	$assignStatic(SurfaceType::IntBgrx, $nc(SurfaceType::AnyDcm)->deriveSubType(SurfaceType::DESC_INT_BGRx, $PixelConverter$Bgrx::instance));
-	$assignStatic(SurfaceType::ThreeByteRgb, $nc(SurfaceType::Any3Byte)->deriveSubType(SurfaceType::DESC_3BYTE_RGB, $PixelConverter$Xbgr::instance));
+	$assignStatic(SurfaceType::IntBgrx, SurfaceType::AnyDcm->deriveSubType(SurfaceType::DESC_INT_BGRx, $PixelConverter$Bgrx::instance));
+	$assignStatic(SurfaceType::ThreeByteRgb, SurfaceType::Any3Byte->deriveSubType(SurfaceType::DESC_3BYTE_RGB, $PixelConverter$Xbgr::instance));
 	$init($PixelConverter$ArgbBm);
-	$assignStatic(SurfaceType::IntArgbBm, $nc(SurfaceType::AnyDcm)->deriveSubType(SurfaceType::DESC_INT_ARGB_BM, $PixelConverter$ArgbBm::instance));
+	$assignStatic(SurfaceType::IntArgbBm, SurfaceType::AnyDcm->deriveSubType(SurfaceType::DESC_INT_ARGB_BM, $PixelConverter$ArgbBm::instance));
 	$assignStatic(SurfaceType::ByteIndexedBm, $nc(SurfaceType::ByteIndexed)->deriveSubType(SurfaceType::DESC_BYTE_INDEXED_BM));
 	$assignStatic(SurfaceType::ByteIndexedOpaque, $nc(SurfaceType::ByteIndexedBm)->deriveSubType(SurfaceType::DESC_BYTE_INDEXED_OPAQUE));
 	$assignStatic(SurfaceType::Index8Gray, $nc(SurfaceType::ByteIndexedOpaque)->deriveSubType(SurfaceType::DESC_INDEX8_GRAY));
-	$assignStatic(SurfaceType::Index12Gray, $nc(SurfaceType::Any)->deriveSubType(SurfaceType::DESC_INDEX12_GRAY));
-	$assignStatic(SurfaceType::AnyPaint, $nc(SurfaceType::Any)->deriveSubType(SurfaceType::DESC_ANY_PAINT));
+	$assignStatic(SurfaceType::Index12Gray, SurfaceType::Any->deriveSubType(SurfaceType::DESC_INDEX12_GRAY));
+	$assignStatic(SurfaceType::AnyPaint, SurfaceType::Any->deriveSubType(SurfaceType::DESC_ANY_PAINT));
 	$assignStatic(SurfaceType::AnyColor, $nc(SurfaceType::AnyPaint)->deriveSubType(SurfaceType::DESC_ANY_COLOR));
 	$assignStatic(SurfaceType::OpaqueColor, $nc(SurfaceType::AnyColor)->deriveSubType(SurfaceType::DESC_OPAQUE_COLOR));
-	$assignStatic(SurfaceType::GradientPaint, $nc(SurfaceType::AnyPaint)->deriveSubType(SurfaceType::DESC_GRADIENT_PAINT));
+	$assignStatic(SurfaceType::GradientPaint, SurfaceType::AnyPaint->deriveSubType(SurfaceType::DESC_GRADIENT_PAINT));
 	$assignStatic(SurfaceType::OpaqueGradientPaint, $nc(SurfaceType::GradientPaint)->deriveSubType(SurfaceType::DESC_OPAQUE_GRADIENT_PAINT));
-	$assignStatic(SurfaceType::LinearGradientPaint, $nc(SurfaceType::AnyPaint)->deriveSubType(SurfaceType::DESC_LINEAR_GRADIENT_PAINT));
+	$assignStatic(SurfaceType::LinearGradientPaint, SurfaceType::AnyPaint->deriveSubType(SurfaceType::DESC_LINEAR_GRADIENT_PAINT));
 	$assignStatic(SurfaceType::OpaqueLinearGradientPaint, $nc(SurfaceType::LinearGradientPaint)->deriveSubType(SurfaceType::DESC_OPAQUE_LINEAR_GRADIENT_PAINT));
-	$assignStatic(SurfaceType::RadialGradientPaint, $nc(SurfaceType::AnyPaint)->deriveSubType(SurfaceType::DESC_RADIAL_GRADIENT_PAINT));
+	$assignStatic(SurfaceType::RadialGradientPaint, SurfaceType::AnyPaint->deriveSubType(SurfaceType::DESC_RADIAL_GRADIENT_PAINT));
 	$assignStatic(SurfaceType::OpaqueRadialGradientPaint, $nc(SurfaceType::RadialGradientPaint)->deriveSubType(SurfaceType::DESC_OPAQUE_RADIAL_GRADIENT_PAINT));
-	$assignStatic(SurfaceType::TexturePaint, $nc(SurfaceType::AnyPaint)->deriveSubType(SurfaceType::DESC_TEXTURE_PAINT));
+	$assignStatic(SurfaceType::TexturePaint, SurfaceType::AnyPaint->deriveSubType(SurfaceType::DESC_TEXTURE_PAINT));
 	$assignStatic(SurfaceType::OpaqueTexturePaint, $nc(SurfaceType::TexturePaint)->deriveSubType(SurfaceType::DESC_OPAQUE_TEXTURE_PAINT));
 }
 
@@ -515,7 +380,135 @@ SurfaceType::SurfaceType() {
 }
 
 $Class* SurfaceType::load$($String* name, bool initialize) {
-	$loadClass(SurfaceType, name, initialize, &_SurfaceType_ClassInfo_, clinit$SurfaceType, allocate$SurfaceType);
+	$FieldInfo fieldInfos$$[] = {
+		{"unusedUID", "I", nullptr, $PRIVATE | $STATIC, $staticField(SurfaceType, unusedUID)},
+		{"surfaceUIDMap", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/Integer;>;", $PRIVATE | $STATIC, $staticField(SurfaceType, surfaceUIDMap)},
+		{"DESC_ANY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, DESC_ANY)},
+		{"DESC_INT_RGB", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, DESC_INT_RGB)},
+		{"DESC_INT_ARGB", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, DESC_INT_ARGB)},
+		{"DESC_INT_ARGB_PRE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, DESC_INT_ARGB_PRE)},
+		{"DESC_INT_BGR", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, DESC_INT_BGR)},
+		{"DESC_3BYTE_BGR", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, DESC_3BYTE_BGR)},
+		{"DESC_4BYTE_ABGR", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, DESC_4BYTE_ABGR)},
+		{"DESC_4BYTE_ABGR_PRE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, DESC_4BYTE_ABGR_PRE)},
+		{"DESC_USHORT_565_RGB", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, DESC_USHORT_565_RGB)},
+		{"DESC_USHORT_555_RGB", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, DESC_USHORT_555_RGB)},
+		{"DESC_USHORT_555_RGBx", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, DESC_USHORT_555_RGBx)},
+		{"DESC_USHORT_4444_ARGB", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, DESC_USHORT_4444_ARGB)},
+		{"DESC_BYTE_GRAY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, DESC_BYTE_GRAY)},
+		{"DESC_USHORT_INDEXED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, DESC_USHORT_INDEXED)},
+		{"DESC_USHORT_GRAY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, DESC_USHORT_GRAY)},
+		{"DESC_BYTE_BINARY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, DESC_BYTE_BINARY)},
+		{"DESC_BYTE_INDEXED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, DESC_BYTE_INDEXED)},
+		{"DESC_ANY_INT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, DESC_ANY_INT)},
+		{"DESC_ANY_SHORT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, DESC_ANY_SHORT)},
+		{"DESC_ANY_BYTE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, DESC_ANY_BYTE)},
+		{"DESC_ANY_3BYTE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, DESC_ANY_3BYTE)},
+		{"DESC_ANY_4BYTE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, DESC_ANY_4BYTE)},
+		{"DESC_ANY_INT_DCM", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, DESC_ANY_INT_DCM)},
+		{"DESC_INT_RGBx", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, DESC_INT_RGBx)},
+		{"DESC_INT_BGRx", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, DESC_INT_BGRx)},
+		{"DESC_3BYTE_RGB", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, DESC_3BYTE_RGB)},
+		{"DESC_INT_ARGB_BM", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, DESC_INT_ARGB_BM)},
+		{"DESC_BYTE_INDEXED_BM", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, DESC_BYTE_INDEXED_BM)},
+		{"DESC_BYTE_INDEXED_OPAQUE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, DESC_BYTE_INDEXED_OPAQUE)},
+		{"DESC_INDEX8_GRAY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, DESC_INDEX8_GRAY)},
+		{"DESC_INDEX12_GRAY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, DESC_INDEX12_GRAY)},
+		{"DESC_BYTE_BINARY_1BIT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, DESC_BYTE_BINARY_1BIT)},
+		{"DESC_BYTE_BINARY_2BIT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, DESC_BYTE_BINARY_2BIT)},
+		{"DESC_BYTE_BINARY_4BIT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, DESC_BYTE_BINARY_4BIT)},
+		{"DESC_ANY_PAINT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, DESC_ANY_PAINT)},
+		{"DESC_ANY_COLOR", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, DESC_ANY_COLOR)},
+		{"DESC_OPAQUE_COLOR", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, DESC_OPAQUE_COLOR)},
+		{"DESC_GRADIENT_PAINT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, DESC_GRADIENT_PAINT)},
+		{"DESC_OPAQUE_GRADIENT_PAINT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, DESC_OPAQUE_GRADIENT_PAINT)},
+		{"DESC_TEXTURE_PAINT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, DESC_TEXTURE_PAINT)},
+		{"DESC_OPAQUE_TEXTURE_PAINT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, DESC_OPAQUE_TEXTURE_PAINT)},
+		{"DESC_LINEAR_GRADIENT_PAINT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, DESC_LINEAR_GRADIENT_PAINT)},
+		{"DESC_OPAQUE_LINEAR_GRADIENT_PAINT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, DESC_OPAQUE_LINEAR_GRADIENT_PAINT)},
+		{"DESC_RADIAL_GRADIENT_PAINT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, DESC_RADIAL_GRADIENT_PAINT)},
+		{"DESC_OPAQUE_RADIAL_GRADIENT_PAINT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, DESC_OPAQUE_RADIAL_GRADIENT_PAINT)},
+		{"Any", "Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, Any)},
+		{"AnyInt", "Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, AnyInt)},
+		{"AnyShort", "Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, AnyShort)},
+		{"AnyByte", "Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, AnyByte)},
+		{"AnyByteBinary", "Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, AnyByteBinary)},
+		{"Any3Byte", "Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, Any3Byte)},
+		{"Any4Byte", "Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, Any4Byte)},
+		{"AnyDcm", "Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, AnyDcm)},
+		{"Custom", "Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, Custom)},
+		{"IntRgb", "Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, IntRgb)},
+		{"IntArgb", "Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, IntArgb)},
+		{"IntArgbPre", "Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, IntArgbPre)},
+		{"IntBgr", "Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, IntBgr)},
+		{"ThreeByteBgr", "Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, ThreeByteBgr)},
+		{"FourByteAbgr", "Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, FourByteAbgr)},
+		{"FourByteAbgrPre", "Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, FourByteAbgrPre)},
+		{"Ushort565Rgb", "Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, Ushort565Rgb)},
+		{"Ushort555Rgb", "Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, Ushort555Rgb)},
+		{"Ushort555Rgbx", "Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, Ushort555Rgbx)},
+		{"Ushort4444Argb", "Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, Ushort4444Argb)},
+		{"UshortIndexed", "Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, UshortIndexed)},
+		{"ByteGray", "Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, ByteGray)},
+		{"UshortGray", "Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, UshortGray)},
+		{"ByteBinary1Bit", "Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, ByteBinary1Bit)},
+		{"ByteBinary2Bit", "Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, ByteBinary2Bit)},
+		{"ByteBinary4Bit", "Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, ByteBinary4Bit)},
+		{"ByteIndexed", "Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, ByteIndexed)},
+		{"IntRgbx", "Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, IntRgbx)},
+		{"IntBgrx", "Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, IntBgrx)},
+		{"ThreeByteRgb", "Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, ThreeByteRgb)},
+		{"IntArgbBm", "Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, IntArgbBm)},
+		{"ByteIndexedBm", "Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, ByteIndexedBm)},
+		{"ByteIndexedOpaque", "Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, ByteIndexedOpaque)},
+		{"Index8Gray", "Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, Index8Gray)},
+		{"Index12Gray", "Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, Index12Gray)},
+		{"AnyPaint", "Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, AnyPaint)},
+		{"AnyColor", "Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, AnyColor)},
+		{"OpaqueColor", "Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, OpaqueColor)},
+		{"GradientPaint", "Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, GradientPaint)},
+		{"OpaqueGradientPaint", "Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, OpaqueGradientPaint)},
+		{"LinearGradientPaint", "Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, LinearGradientPaint)},
+		{"OpaqueLinearGradientPaint", "Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, OpaqueLinearGradientPaint)},
+		{"RadialGradientPaint", "Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, RadialGradientPaint)},
+		{"OpaqueRadialGradientPaint", "Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, OpaqueRadialGradientPaint)},
+		{"TexturePaint", "Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, TexturePaint)},
+		{"OpaqueTexturePaint", "Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SurfaceType, OpaqueTexturePaint)},
+		{"uniqueID", "I", nullptr, $PRIVATE, $field(SurfaceType, uniqueID)},
+		{"desc", "Ljava/lang/String;", nullptr, $PRIVATE, $field(SurfaceType, desc)},
+		{"next", "Lsun/java2d/loops/SurfaceType;", nullptr, $PRIVATE, $field(SurfaceType, next)},
+		{"pixelConverter", "Lsun/awt/image/PixelConverter;", nullptr, $PROTECTED, $field(SurfaceType, pixelConverter)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/java2d/loops/SurfaceType;Ljava/lang/String;Lsun/awt/image/PixelConverter;)V", nullptr, $PRIVATE, $method(SurfaceType, init$, void, SurfaceType*, $String*, $PixelConverter*)},
+		{"<init>", "(Lsun/java2d/loops/SurfaceType;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(SurfaceType, init$, void, SurfaceType*, $String*)},
+		{"deriveSubType", "(Ljava/lang/String;)Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC, $method(SurfaceType, deriveSubType, SurfaceType*, $String*)},
+		{"deriveSubType", "(Ljava/lang/String;Lsun/awt/image/PixelConverter;)Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC, $method(SurfaceType, deriveSubType, SurfaceType*, $String*, $PixelConverter*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(SurfaceType, equals, bool, Object$*)},
+		{"getAlphaMask", "()I", nullptr, $PUBLIC, $method(SurfaceType, getAlphaMask, int32_t)},
+		{"getDescriptor", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(SurfaceType, getDescriptor, $String*)},
+		{"getPixelConverter", "()Lsun/awt/image/PixelConverter;", nullptr, $PUBLIC, $method(SurfaceType, getPixelConverter, $PixelConverter*)},
+		{"getSuperType", "()Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC, $method(SurfaceType, getSuperType, SurfaceType*)},
+		{"getUniqueID", "()I", nullptr, $PUBLIC, $method(SurfaceType, getUniqueID, int32_t)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(SurfaceType, hashCode, int32_t)},
+		{"makeUniqueID", "(Ljava/lang/String;)I", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(SurfaceType, makeUniqueID, int32_t, $String*)},
+		{"pixelFor", "(ILjava/awt/image/ColorModel;)I", nullptr, $PUBLIC, $method(SurfaceType, pixelFor, int32_t, int32_t, $ColorModel*)},
+		{"rgbFor", "(ILjava/awt/image/ColorModel;)I", nullptr, $PUBLIC, $method(SurfaceType, rgbFor, int32_t, int32_t, $ColorModel*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SurfaceType, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.java2d.loops.SurfaceType",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SurfaceType, name, initialize, &classInfo$$, SurfaceType::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(SurfaceType);
+	});
 	return class$;
 }
 

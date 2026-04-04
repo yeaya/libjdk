@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/windows/resources/windows_zh_TW.h>
-
 #include <java/util/ListResourceBundle.h>
 #include <jcpp.h>
 
@@ -16,139 +15,120 @@ namespace com {
 					namespace windows {
 						namespace resources {
 
-$MethodInfo _windows_zh_TW_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(windows_zh_TW, init$, void)},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(windows_zh_TW, getContents, $ObjectArray2*)},
-	{}
-};
-
-$ClassInfo _windows_zh_TW_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.java.swing.plaf.windows.resources.windows_zh_TW",
-	"java.util.ListResourceBundle",
-	nullptr,
-	nullptr,
-	_windows_zh_TW_MethodInfo_
-};
-
-$Object* allocate$windows_zh_TW($Class* clazz) {
-	return $of($alloc(windows_zh_TW));
-}
-
 void windows_zh_TW::init$() {
 	$ListResourceBundle::init$();
 }
 
 $ObjectArray2* windows_zh_TW::getContents() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $new($ObjectArray2, {
 		$$new($ObjectArray, {
-			$of("FileChooser.detailsViewActionLabel.textAndMnemonic"_s),
-			$of(u"詳細資訊"_s)
+			"FileChooser.detailsViewActionLabel.textAndMnemonic"_s,
+			u"詳細資訊"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.detailsViewButtonAccessibleName"_s),
-			$of(u"詳細資訊"_s)
+			"FileChooser.detailsViewButtonAccessibleName"_s,
+			u"詳細資訊"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.detailsViewButtonToolTip.textAndMnemonic"_s),
-			$of(u"詳細資訊"_s)
+			"FileChooser.detailsViewButtonToolTip.textAndMnemonic"_s,
+			u"詳細資訊"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.fileAttrHeader.textAndMnemonic"_s),
-			$of(u"屬性"_s)
+			"FileChooser.fileAttrHeader.textAndMnemonic"_s,
+			u"屬性"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.fileDateHeader.textAndMnemonic"_s),
-			$of(u"修改日期"_s)
+			"FileChooser.fileDateHeader.textAndMnemonic"_s,
+			u"修改日期"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.fileNameHeader.textAndMnemonic"_s),
-			$of(u"名稱"_s)
+			"FileChooser.fileNameHeader.textAndMnemonic"_s,
+			u"名稱"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.fileNameLabel.textAndMnemonic"_s),
-			$of(u"檔案名稱(&N):"_s)
+			"FileChooser.fileNameLabel.textAndMnemonic"_s,
+			u"檔案名稱(&N):"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.fileSizeHeader.textAndMnemonic"_s),
-			$of(u"大小"_s)
+			"FileChooser.fileSizeHeader.textAndMnemonic"_s,
+			u"大小"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.fileTypeHeader.textAndMnemonic"_s),
-			$of(u"類型"_s)
+			"FileChooser.fileTypeHeader.textAndMnemonic"_s,
+			u"類型"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.filesOfTypeLabel.textAndMnemonic"_s),
-			$of(u"檔案類型(&T):"_s)
+			"FileChooser.filesOfTypeLabel.textAndMnemonic"_s,
+			u"檔案類型(&T):"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.folderNameLabel.textAndMnemonic"_s),
-			$of(u"資料夾名稱(&N):"_s)
+			"FileChooser.folderNameLabel.textAndMnemonic"_s,
+			u"資料夾名稱(&N):"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.homeFolderAccessibleName"_s),
-			$of(u"主目錄"_s)
+			"FileChooser.homeFolderAccessibleName"_s,
+			u"主目錄"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.homeFolderToolTip.textAndMnemonic"_s),
-			$of(u"主目錄"_s)
+			"FileChooser.homeFolderToolTip.textAndMnemonic"_s,
+			u"主目錄"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.listViewActionLabel.textAndMnemonic"_s),
-			$of(u"清單"_s)
+			"FileChooser.listViewActionLabel.textAndMnemonic"_s,
+			u"清單"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.listViewButtonAccessibleName"_s),
-			$of(u"清單"_s)
+			"FileChooser.listViewButtonAccessibleName"_s,
+			u"清單"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.listViewButtonToolTip.textAndMnemonic"_s),
-			$of(u"清單"_s)
+			"FileChooser.listViewButtonToolTip.textAndMnemonic"_s,
+			u"清單"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.lookInLabel.textAndMnemonic"_s),
-			$of(u"查詢(&I):"_s)
+			"FileChooser.lookInLabel.textAndMnemonic"_s,
+			u"查詢(&I):"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.newFolderAccessibleName"_s),
-			$of(u"新資料夾"_s)
+			"FileChooser.newFolderAccessibleName"_s,
+			u"新資料夾"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.newFolderActionLabel.textAndMnemonic"_s),
-			$of(u"新資料夾"_s)
+			"FileChooser.newFolderActionLabel.textAndMnemonic"_s,
+			u"新資料夾"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.newFolderToolTip.textAndMnemonic"_s),
-			$of(u"建立新資料夾"_s)
+			"FileChooser.newFolderToolTip.textAndMnemonic"_s,
+			u"建立新資料夾"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.refreshActionLabel.textAndMnemonic"_s),
-			$of(u"重新整理"_s)
+			"FileChooser.refreshActionLabel.textAndMnemonic"_s,
+			u"重新整理"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.saveInLabel.textAndMnemonic"_s),
-			$of(u"儲存於: "_s)
+			"FileChooser.saveInLabel.textAndMnemonic"_s,
+			u"儲存於: "_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.upFolderAccessibleName"_s),
-			$of(u"往上"_s)
+			"FileChooser.upFolderAccessibleName"_s,
+			u"往上"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.upFolderToolTip.textAndMnemonic"_s),
-			$of(u"往上一層"_s)
+			"FileChooser.upFolderToolTip.textAndMnemonic"_s,
+			u"往上一層"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.viewMenuButtonAccessibleName"_s),
-			$of(u"檢視功能表"_s)
+			"FileChooser.viewMenuButtonAccessibleName"_s,
+			u"檢視功能表"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.viewMenuButtonToolTipText"_s),
-			$of(u"檢視功能表"_s)
+			"FileChooser.viewMenuButtonToolTipText"_s,
+			u"檢視功能表"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.viewMenuLabel.textAndMnemonic"_s),
-			$of(u"檢視"_s)
+			"FileChooser.viewMenuLabel.textAndMnemonic"_s,
+			u"檢視"_s
 		})
 	});
 }
@@ -157,7 +137,22 @@ windows_zh_TW::windows_zh_TW() {
 }
 
 $Class* windows_zh_TW::load$($String* name, bool initialize) {
-	$loadClass(windows_zh_TW, name, initialize, &_windows_zh_TW_ClassInfo_, allocate$windows_zh_TW);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(windows_zh_TW, init$, void)},
+		{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(windows_zh_TW, getContents, $ObjectArray2*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.java.swing.plaf.windows.resources.windows_zh_TW",
+		"java.util.ListResourceBundle",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(windows_zh_TW, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(windows_zh_TW);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/launcher/Main$MemoryClassLoader$MemoryURLConnection.h>
-
 #include <com/sun/tools/javac/launcher/Main$MemoryClassLoader.h>
 #include <java/io/ByteArrayInputStream.h>
 #include <java/io/FileNotFoundException.h>
@@ -24,57 +23,16 @@ namespace com {
 			namespace javac {
 				namespace launcher {
 
-$FieldInfo _Main$MemoryClassLoader$MemoryURLConnection_FieldInfo_[] = {
-	{"bytes", "[B", nullptr, $PRIVATE, $field(Main$MemoryClassLoader$MemoryURLConnection, bytes)},
-	{"in", "Ljava/io/InputStream;", nullptr, $PRIVATE, $field(Main$MemoryClassLoader$MemoryURLConnection, in)},
-	{}
-};
-
-$MethodInfo _Main$MemoryClassLoader$MemoryURLConnection_MethodInfo_[] = {
-	{"<init>", "(Ljava/net/URL;[B)V", nullptr, 0, $method(Main$MemoryClassLoader$MemoryURLConnection, init$, void, $URL*, $bytes*)},
-	{"connect", "()V", nullptr, $PUBLIC, $virtualMethod(Main$MemoryClassLoader$MemoryURLConnection, connect, void), "java.io.IOException"},
-	{"getContentLengthLong", "()J", nullptr, $PUBLIC, $virtualMethod(Main$MemoryClassLoader$MemoryURLConnection, getContentLengthLong, int64_t)},
-	{"getContentType", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Main$MemoryClassLoader$MemoryURLConnection, getContentType, $String*)},
-	{"getInputStream", "()Ljava/io/InputStream;", nullptr, $PUBLIC, $virtualMethod(Main$MemoryClassLoader$MemoryURLConnection, getInputStream, $InputStream*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _Main$MemoryClassLoader$MemoryURLConnection_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.launcher.Main$MemoryClassLoader", "com.sun.tools.javac.launcher.Main", "MemoryClassLoader", $PRIVATE | $STATIC},
-	{"com.sun.tools.javac.launcher.Main$MemoryClassLoader$MemoryURLConnection", "com.sun.tools.javac.launcher.Main$MemoryClassLoader", "MemoryURLConnection", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _Main$MemoryClassLoader$MemoryURLConnection_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.launcher.Main$MemoryClassLoader$MemoryURLConnection",
-	"java.net.URLConnection",
-	nullptr,
-	_Main$MemoryClassLoader$MemoryURLConnection_FieldInfo_,
-	_Main$MemoryClassLoader$MemoryURLConnection_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Main$MemoryClassLoader$MemoryURLConnection_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.launcher.Main"
-};
-
-$Object* allocate$Main$MemoryClassLoader$MemoryURLConnection($Class* clazz) {
-	return $of($alloc(Main$MemoryClassLoader$MemoryURLConnection));
-}
-
 void Main$MemoryClassLoader$MemoryURLConnection::init$($URL* u, $bytes* bytes) {
 	$URLConnection::init$(u);
 	$set(this, bytes, bytes);
 }
 
 void Main$MemoryClassLoader$MemoryURLConnection::connect() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!this->connected) {
 		if (this->bytes == nullptr) {
-			$throwNew($FileNotFoundException, $($nc($(getURL()))->getPath()));
+			$throwNew($FileNotFoundException, $($$nc(getURL())->getPath()));
 		}
 		$set(this, in, $new($ByteArrayInputStream, this->bytes));
 		this->connected = true;
@@ -98,7 +56,42 @@ Main$MemoryClassLoader$MemoryURLConnection::Main$MemoryClassLoader$MemoryURLConn
 }
 
 $Class* Main$MemoryClassLoader$MemoryURLConnection::load$($String* name, bool initialize) {
-	$loadClass(Main$MemoryClassLoader$MemoryURLConnection, name, initialize, &_Main$MemoryClassLoader$MemoryURLConnection_ClassInfo_, allocate$Main$MemoryClassLoader$MemoryURLConnection);
+	$FieldInfo fieldInfos$$[] = {
+		{"bytes", "[B", nullptr, $PRIVATE, $field(Main$MemoryClassLoader$MemoryURLConnection, bytes)},
+		{"in", "Ljava/io/InputStream;", nullptr, $PRIVATE, $field(Main$MemoryClassLoader$MemoryURLConnection, in)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/net/URL;[B)V", nullptr, 0, $method(Main$MemoryClassLoader$MemoryURLConnection, init$, void, $URL*, $bytes*)},
+		{"connect", "()V", nullptr, $PUBLIC, $virtualMethod(Main$MemoryClassLoader$MemoryURLConnection, connect, void), "java.io.IOException"},
+		{"getContentLengthLong", "()J", nullptr, $PUBLIC, $virtualMethod(Main$MemoryClassLoader$MemoryURLConnection, getContentLengthLong, int64_t)},
+		{"getContentType", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Main$MemoryClassLoader$MemoryURLConnection, getContentType, $String*)},
+		{"getInputStream", "()Ljava/io/InputStream;", nullptr, $PUBLIC, $virtualMethod(Main$MemoryClassLoader$MemoryURLConnection, getInputStream, $InputStream*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.launcher.Main$MemoryClassLoader", "com.sun.tools.javac.launcher.Main", "MemoryClassLoader", $PRIVATE | $STATIC},
+		{"com.sun.tools.javac.launcher.Main$MemoryClassLoader$MemoryURLConnection", "com.sun.tools.javac.launcher.Main$MemoryClassLoader", "MemoryURLConnection", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.launcher.Main$MemoryClassLoader$MemoryURLConnection",
+		"java.net.URLConnection",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.launcher.Main"
+	};
+	$loadClass(Main$MemoryClassLoader$MemoryURLConnection, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Main$MemoryClassLoader$MemoryURLConnection);
+	});
 	return class$;
 }
 

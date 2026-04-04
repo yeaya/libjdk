@@ -156,6 +156,7 @@ class XSConstraints : public ::java::lang::Object {
 	$class(XSConstraints, 0, ::java::lang::Object)
 public:
 	XSConstraints();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $Object* ElementDefaultValidImmediate(::com::sun::org::apache::xerces::internal::xs::XSTypeDefinition* type, $String* value, ::com::sun::org::apache::xerces::internal::impl::dv::ValidationContext* context, ::com::sun::org::apache::xerces::internal::impl::dv::ValidatedInfo* vinfo);
 	static void addElementToParticleVector(::java::util::List* v, ::com::sun::org::apache::xerces::internal::impl::xs::XSElementDecl* d);

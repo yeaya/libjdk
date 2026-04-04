@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/tree/TreeInfo$1DiagScanner.h>
-
 #include <com/sun/tools/javac/code/Symbol.h>
 #include <com/sun/tools/javac/tree/JCTree$JCFieldAccess.h>
 #include <com/sun/tools/javac/tree/JCTree$JCIdent.h>
@@ -10,7 +9,6 @@
 #include <jcpp.h>
 
 using $Symbol = ::com::sun::tools::javac::code::Symbol;
-using $JCTree = ::com::sun::tools::javac::tree::JCTree;
 using $JCTree$JCFieldAccess = ::com::sun::tools::javac::tree::JCTree$JCFieldAccess;
 using $JCTree$JCIdent = ::com::sun::tools::javac::tree::JCTree$JCIdent;
 using $TreeInfo$DeclScanner = ::com::sun::tools::javac::tree::TreeInfo$DeclScanner;
@@ -24,46 +22,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace tree {
-
-$MethodInfo _TreeInfo$1DiagScanner_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, 0, $method(TreeInfo$1DiagScanner, init$, void, $Symbol*)},
-	{"visitIdent", "(Lcom/sun/tools/javac/tree/JCTree$JCIdent;)V", nullptr, $PUBLIC, $virtualMethod(TreeInfo$1DiagScanner, visitIdent, void, $JCTree$JCIdent*)},
-	{"visitSelect", "(Lcom/sun/tools/javac/tree/JCTree$JCFieldAccess;)V", nullptr, $PUBLIC, $virtualMethod(TreeInfo$1DiagScanner, visitSelect, void, $JCTree$JCFieldAccess*)},
-	{}
-};
-
-$EnclosingMethodInfo _TreeInfo$1DiagScanner_EnclosingMethodInfo_ = {
-	"com.sun.tools.javac.tree.TreeInfo",
-	"diagnosticPositionFor",
-	"(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/tree/JCTree;Z)Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;"
-};
-
-$InnerClassInfo _TreeInfo$1DiagScanner_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.tree.TreeInfo$1DiagScanner", nullptr, "DiagScanner", 0},
-	{"com.sun.tools.javac.tree.TreeInfo$DeclScanner", "com.sun.tools.javac.tree.TreeInfo", "DeclScanner", $PRIVATE | $STATIC},
-	{"com.sun.tools.javac.util.JCDiagnostic$DiagnosticPosition", "com.sun.tools.javac.util.JCDiagnostic", "DiagnosticPosition", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _TreeInfo$1DiagScanner_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.tree.TreeInfo$1DiagScanner",
-	"com.sun.tools.javac.tree.TreeInfo$DeclScanner",
-	nullptr,
-	nullptr,
-	_TreeInfo$1DiagScanner_MethodInfo_,
-	nullptr,
-	&_TreeInfo$1DiagScanner_EnclosingMethodInfo_,
-	_TreeInfo$1DiagScanner_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.tree.TreeInfo"
-};
-
-$Object* allocate$TreeInfo$1DiagScanner($Class* clazz) {
-	return $of($alloc(TreeInfo$1DiagScanner));
-}
 
 void TreeInfo$1DiagScanner::init$($Symbol* sym) {
 	$TreeInfo$DeclScanner::init$(sym);
@@ -89,7 +47,41 @@ TreeInfo$1DiagScanner::TreeInfo$1DiagScanner() {
 }
 
 $Class* TreeInfo$1DiagScanner::load$($String* name, bool initialize) {
-	$loadClass(TreeInfo$1DiagScanner, name, initialize, &_TreeInfo$1DiagScanner_ClassInfo_, allocate$TreeInfo$1DiagScanner);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, 0, $method(TreeInfo$1DiagScanner, init$, void, $Symbol*)},
+		{"visitIdent", "(Lcom/sun/tools/javac/tree/JCTree$JCIdent;)V", nullptr, $PUBLIC, $virtualMethod(TreeInfo$1DiagScanner, visitIdent, void, $JCTree$JCIdent*)},
+		{"visitSelect", "(Lcom/sun/tools/javac/tree/JCTree$JCFieldAccess;)V", nullptr, $PUBLIC, $virtualMethod(TreeInfo$1DiagScanner, visitSelect, void, $JCTree$JCFieldAccess*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.tools.javac.tree.TreeInfo",
+		"diagnosticPositionFor",
+		"(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/tree/JCTree;Z)Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.tree.TreeInfo$1DiagScanner", nullptr, "DiagScanner", 0},
+		{"com.sun.tools.javac.tree.TreeInfo$DeclScanner", "com.sun.tools.javac.tree.TreeInfo", "DeclScanner", $PRIVATE | $STATIC},
+		{"com.sun.tools.javac.util.JCDiagnostic$DiagnosticPosition", "com.sun.tools.javac.util.JCDiagnostic", "DiagnosticPosition", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.tree.TreeInfo$1DiagScanner",
+		"com.sun.tools.javac.tree.TreeInfo$DeclScanner",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.tree.TreeInfo"
+	};
+	$loadClass(TreeInfo$1DiagScanner, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TreeInfo$1DiagScanner);
+	});
 	return class$;
 }
 

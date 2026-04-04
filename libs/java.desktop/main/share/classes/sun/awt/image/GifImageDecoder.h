@@ -60,6 +60,7 @@ class GifImageDecoder : public ::sun::awt::image::ImageDecoder {
 	$class(GifImageDecoder, 0, ::sun::awt::image::ImageDecoder)
 public:
 	GifImageDecoder();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::awt::image::InputStreamImageSource* src, ::java::io::InputStream* is);
 	static int32_t ExtractByte($bytes* buf, int32_t off);
 	static int32_t ExtractWord($bytes* buf, int32_t off);

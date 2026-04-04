@@ -15,10 +15,13 @@ public:
 	InvalidRoleInfoException();
 	void init$();
 	void init$($String* message);
-	static const int64_t serialVersionUID = (int64_t)0x6854B6D5491A066A;
+	static const int64_t serialVersionUID = (int64_t)0x6854b6d5491a066a;
 	InvalidRoleInfoException(const InvalidRoleInfoException& e);
 	virtual void throw$() override;
-	inline InvalidRoleInfoException* operator ->() {
+	inline InvalidRoleInfoException* operator ->() const {
+		return (InvalidRoleInfoException*)throwing$;
+	}
+	inline operator InvalidRoleInfoException*() const {
 		return (InvalidRoleInfoException*)throwing$;
 	}
 };

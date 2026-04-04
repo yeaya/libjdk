@@ -1,5 +1,4 @@
 #include <sun/java2d/d3d/D3DRTTSurfaceToSurfaceTransform.h>
-
 #include <java/awt/Composite.h>
 #include <java/awt/geom/AffineTransform.h>
 #include <java/awt/image/BufferedImage.h>
@@ -30,25 +29,6 @@ namespace sun {
 	namespace java2d {
 		namespace d3d {
 
-$MethodInfo _D3DRTTSurfaceToSurfaceTransform_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(D3DRTTSurfaceToSurfaceTransform, init$, void)},
-	{"Transform", "(Lsun/java2d/SurfaceData;Lsun/java2d/SurfaceData;Ljava/awt/Composite;Lsun/java2d/pipe/Region;Ljava/awt/geom/AffineTransform;IIIIIII)V", nullptr, $PUBLIC, $virtualMethod(D3DRTTSurfaceToSurfaceTransform, Transform, void, $SurfaceData*, $SurfaceData*, $Composite*, $Region*, $AffineTransform*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _D3DRTTSurfaceToSurfaceTransform_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.java2d.d3d.D3DRTTSurfaceToSurfaceTransform",
-	"sun.java2d.loops.TransformBlit",
-	nullptr,
-	nullptr,
-	_D3DRTTSurfaceToSurfaceTransform_MethodInfo_
-};
-
-$Object* allocate$D3DRTTSurfaceToSurfaceTransform($Class* clazz) {
-	return $of($alloc(D3DRTTSurfaceToSurfaceTransform));
-}
-
 void D3DRTTSurfaceToSurfaceTransform::init$() {
 	$init($D3DSurfaceData);
 	$init($CompositeType);
@@ -63,7 +43,22 @@ D3DRTTSurfaceToSurfaceTransform::D3DRTTSurfaceToSurfaceTransform() {
 }
 
 $Class* D3DRTTSurfaceToSurfaceTransform::load$($String* name, bool initialize) {
-	$loadClass(D3DRTTSurfaceToSurfaceTransform, name, initialize, &_D3DRTTSurfaceToSurfaceTransform_ClassInfo_, allocate$D3DRTTSurfaceToSurfaceTransform);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(D3DRTTSurfaceToSurfaceTransform, init$, void)},
+		{"Transform", "(Lsun/java2d/SurfaceData;Lsun/java2d/SurfaceData;Ljava/awt/Composite;Lsun/java2d/pipe/Region;Ljava/awt/geom/AffineTransform;IIIIIII)V", nullptr, $PUBLIC, $virtualMethod(D3DRTTSurfaceToSurfaceTransform, Transform, void, $SurfaceData*, $SurfaceData*, $Composite*, $Region*, $AffineTransform*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.java2d.d3d.D3DRTTSurfaceToSurfaceTransform",
+		"sun.java2d.loops.TransformBlit",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(D3DRTTSurfaceToSurfaceTransform, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(D3DRTTSurfaceToSurfaceTransform);
+	});
 	return class$;
 }
 

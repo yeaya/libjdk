@@ -1,5 +1,4 @@
 #include <javax/management/InstanceNotFoundException.h>
-
 #include <javax/management/OperationsException.h>
 #include <jcpp.h>
 
@@ -10,30 +9,6 @@ using $OperationsException = ::javax::management::OperationsException;
 
 namespace javax {
 	namespace management {
-
-$FieldInfo _InstanceNotFoundException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(InstanceNotFoundException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _InstanceNotFoundException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(InstanceNotFoundException, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(InstanceNotFoundException, init$, void, $String*)},
-	{}
-};
-
-$ClassInfo _InstanceNotFoundException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.management.InstanceNotFoundException",
-	"javax.management.OperationsException",
-	nullptr,
-	_InstanceNotFoundException_FieldInfo_,
-	_InstanceNotFoundException_MethodInfo_
-};
-
-$Object* allocate$InstanceNotFoundException($Class* clazz) {
-	return $of($alloc(InstanceNotFoundException));
-}
 
 void InstanceNotFoundException::init$() {
 	$OperationsException::init$();
@@ -54,7 +29,26 @@ void InstanceNotFoundException::throw$() {
 }
 
 $Class* InstanceNotFoundException::load$($String* name, bool initialize) {
-	$loadClass(InstanceNotFoundException, name, initialize, &_InstanceNotFoundException_ClassInfo_, allocate$InstanceNotFoundException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(InstanceNotFoundException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(InstanceNotFoundException, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(InstanceNotFoundException, init$, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.management.InstanceNotFoundException",
+		"javax.management.OperationsException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(InstanceNotFoundException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(InstanceNotFoundException);
+	});
 	return class$;
 }
 

@@ -73,7 +73,7 @@ public:
 	virtual void postCompileStep(::com::sun::org::apache::xpath::internal::compiler::Compiler* compiler);
 	virtual void reportWrongNumberArgs();
 	virtual void setArg(::com::sun::org::apache::xpath::internal::Expression* arg, int32_t argNum);
-	static const int64_t serialVersionUID = (int64_t)0x6023FF31B9615858;
+	static const int64_t serialVersionUID = (int64_t)0x6023ff31b9615858;
 };
 
 						} // functions

@@ -1,5 +1,4 @@
 #include <sun/management/counter/perf/PerfDataType.h>
-
 #include <java/io/UnsupportedEncodingException.h>
 #include <java/lang/InternalError.h>
 #include <jcpp.h>
@@ -25,45 +24,6 @@ namespace sun {
 	namespace management {
 		namespace counter {
 			namespace perf {
-
-$FieldInfo _PerfDataType_FieldInfo_[] = {
-	{"name", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(PerfDataType, name)},
-	{"value", "B", nullptr, $PRIVATE | $FINAL, $field(PerfDataType, value)},
-	{"size", "I", nullptr, $PRIVATE | $FINAL, $field(PerfDataType, size$)},
-	{"BOOLEAN", "Lsun/management/counter/perf/PerfDataType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PerfDataType, BOOLEAN)},
-	{"CHAR", "Lsun/management/counter/perf/PerfDataType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PerfDataType, CHAR)},
-	{"FLOAT", "Lsun/management/counter/perf/PerfDataType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PerfDataType, FLOAT)},
-	{"DOUBLE", "Lsun/management/counter/perf/PerfDataType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PerfDataType, DOUBLE)},
-	{"BYTE", "Lsun/management/counter/perf/PerfDataType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PerfDataType, BYTE)},
-	{"SHORT", "Lsun/management/counter/perf/PerfDataType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PerfDataType, SHORT)},
-	{"INT", "Lsun/management/counter/perf/PerfDataType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PerfDataType, INT)},
-	{"LONG", "Lsun/management/counter/perf/PerfDataType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PerfDataType, LONG)},
-	{"ILLEGAL", "Lsun/management/counter/perf/PerfDataType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PerfDataType, ILLEGAL)},
-	{"basicTypes", "[Lsun/management/counter/perf/PerfDataType;", nullptr, $PRIVATE | $STATIC, $staticField(PerfDataType, basicTypes)},
-	{}
-};
-
-$MethodInfo _PerfDataType_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;I)V", nullptr, $PRIVATE, $method(PerfDataType, init$, void, $String*, $String*, int32_t)},
-	{"byteValue", "()B", nullptr, $PUBLIC, $virtualMethod(PerfDataType, byteValue, int8_t)},
-	{"size", "()I", nullptr, $PUBLIC, $virtualMethod(PerfDataType, size, int32_t)},
-	{"toPerfDataType", "(B)Lsun/management/counter/perf/PerfDataType;", nullptr, $PUBLIC | $STATIC, $staticMethod(PerfDataType, toPerfDataType, PerfDataType*, int8_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PerfDataType, toString, $String*)},
-	{}
-};
-
-$ClassInfo _PerfDataType_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.management.counter.perf.PerfDataType",
-	"java.lang.Object",
-	nullptr,
-	_PerfDataType_FieldInfo_,
-	_PerfDataType_MethodInfo_
-};
-
-$Object* allocate$PerfDataType($Class* clazz) {
-	return $of($alloc(PerfDataType));
-}
 
 PerfDataType* PerfDataType::BOOLEAN = nullptr;
 PerfDataType* PerfDataType::CHAR = nullptr;
@@ -91,7 +51,7 @@ int32_t PerfDataType::size() {
 PerfDataType* PerfDataType::toPerfDataType(int8_t type) {
 	$init(PerfDataType);
 	for (int32_t j = 0; j < $nc(PerfDataType::basicTypes)->length; ++j) {
-		if ($nc($nc(PerfDataType::basicTypes)->get(j))->byteValue() == type) {
+		if ($nc(PerfDataType::basicTypes->get(j))->byteValue() == type) {
 			return ($nc(PerfDataType::basicTypes)->get(j));
 		}
 	}
@@ -109,7 +69,7 @@ void PerfDataType::init$($String* name, $String* c, int32_t size) {
 	}
 }
 
-void clinit$PerfDataType($Class* class$) {
+void PerfDataType::clinit$($Class* clazz) {
 	$assignStatic(PerfDataType::BOOLEAN, $new(PerfDataType, "boolean"_s, "Z"_s, 1));
 	$assignStatic(PerfDataType::CHAR, $new(PerfDataType, "char"_s, "C"_s, 1));
 	$assignStatic(PerfDataType::FLOAT, $new(PerfDataType, "float"_s, "F"_s, 8));
@@ -135,7 +95,41 @@ PerfDataType::PerfDataType() {
 }
 
 $Class* PerfDataType::load$($String* name, bool initialize) {
-	$loadClass(PerfDataType, name, initialize, &_PerfDataType_ClassInfo_, clinit$PerfDataType, allocate$PerfDataType);
+	$FieldInfo fieldInfos$$[] = {
+		{"name", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(PerfDataType, name)},
+		{"value", "B", nullptr, $PRIVATE | $FINAL, $field(PerfDataType, value)},
+		{"size", "I", nullptr, $PRIVATE | $FINAL, $field(PerfDataType, size$)},
+		{"BOOLEAN", "Lsun/management/counter/perf/PerfDataType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PerfDataType, BOOLEAN)},
+		{"CHAR", "Lsun/management/counter/perf/PerfDataType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PerfDataType, CHAR)},
+		{"FLOAT", "Lsun/management/counter/perf/PerfDataType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PerfDataType, FLOAT)},
+		{"DOUBLE", "Lsun/management/counter/perf/PerfDataType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PerfDataType, DOUBLE)},
+		{"BYTE", "Lsun/management/counter/perf/PerfDataType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PerfDataType, BYTE)},
+		{"SHORT", "Lsun/management/counter/perf/PerfDataType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PerfDataType, SHORT)},
+		{"INT", "Lsun/management/counter/perf/PerfDataType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PerfDataType, INT)},
+		{"LONG", "Lsun/management/counter/perf/PerfDataType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PerfDataType, LONG)},
+		{"ILLEGAL", "Lsun/management/counter/perf/PerfDataType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PerfDataType, ILLEGAL)},
+		{"basicTypes", "[Lsun/management/counter/perf/PerfDataType;", nullptr, $PRIVATE | $STATIC, $staticField(PerfDataType, basicTypes)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;I)V", nullptr, $PRIVATE, $method(PerfDataType, init$, void, $String*, $String*, int32_t)},
+		{"byteValue", "()B", nullptr, $PUBLIC, $virtualMethod(PerfDataType, byteValue, int8_t)},
+		{"size", "()I", nullptr, $PUBLIC, $virtualMethod(PerfDataType, size, int32_t)},
+		{"toPerfDataType", "(B)Lsun/management/counter/perf/PerfDataType;", nullptr, $PUBLIC | $STATIC, $staticMethod(PerfDataType, toPerfDataType, PerfDataType*, int8_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PerfDataType, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.management.counter.perf.PerfDataType",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(PerfDataType, name, initialize, &classInfo$$, PerfDataType::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(PerfDataType);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/bcel/internal/generic/InstructionList.h>
-
 #include <com/sun/org/apache/bcel/internal/Const.h>
 #include <com/sun/org/apache/bcel/internal/classfile/Constant.h>
 #include <com/sun/org/apache/bcel/internal/generic/BranchHandle.h>
@@ -21,7 +20,6 @@
 #include <java/io/DataOutputStream.h>
 #include <java/io/FilterInputStream.h>
 #include <java/io/IOException.h>
-#include <java/io/OutputStream.h>
 #include <java/util/ArrayList.h>
 #include <java/util/HashMap.h>
 #include <java/util/Iterator.h>
@@ -58,8 +56,6 @@ using $ByteSequence = ::com::sun::org::apache::bcel::internal::util::ByteSequenc
 using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;
 using $DataOutputStream = ::java::io::DataOutputStream;
 using $IOException = ::java::io::IOException;
-using $OutputStream = ::java::io::OutputStream;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -77,109 +73,6 @@ namespace com {
 				namespace bcel {
 					namespace internal {
 						namespace generic {
-
-$FieldInfo _InstructionList_FieldInfo_[] = {
-	{"start", "Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;", nullptr, $PRIVATE, $field(InstructionList, start)},
-	{"end", "Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;", nullptr, $PRIVATE, $field(InstructionList, end)},
-	{"length", "I", nullptr, $PRIVATE, $field(InstructionList, length)},
-	{"bytePositions", "[I", nullptr, $PRIVATE, $field(InstructionList, bytePositions)},
-	{"observers", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/org/apache/bcel/internal/generic/InstructionListObserver;>;", $PRIVATE, $field(InstructionList, observers)},
-	{}
-};
-
-$MethodInfo _InstructionList_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(InstructionList, init$, void)},
-	{"<init>", "(Lcom/sun/org/apache/bcel/internal/generic/Instruction;)V", nullptr, $PUBLIC, $method(InstructionList, init$, void, $Instruction*)},
-	{"<init>", "(Lcom/sun/org/apache/bcel/internal/generic/BranchInstruction;)V", nullptr, $PUBLIC, $method(InstructionList, init$, void, $BranchInstruction*)},
-	{"<init>", "(Lcom/sun/org/apache/bcel/internal/generic/CompoundInstruction;)V", nullptr, $PUBLIC, $method(InstructionList, init$, void, $CompoundInstruction*)},
-	{"<init>", "([B)V", nullptr, $PUBLIC, $method(InstructionList, init$, void, $bytes*)},
-	{"addObserver", "(Lcom/sun/org/apache/bcel/internal/generic/InstructionListObserver;)V", nullptr, $PUBLIC, $virtualMethod(InstructionList, addObserver, void, $InstructionListObserver*)},
-	{"append", "(Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;Lcom/sun/org/apache/bcel/internal/generic/InstructionList;)Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;", nullptr, $PUBLIC, $virtualMethod(InstructionList, append, $InstructionHandle*, $InstructionHandle*, InstructionList*)},
-	{"append", "(Lcom/sun/org/apache/bcel/internal/generic/Instruction;Lcom/sun/org/apache/bcel/internal/generic/InstructionList;)Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;", nullptr, $PUBLIC, $virtualMethod(InstructionList, append, $InstructionHandle*, $Instruction*, InstructionList*)},
-	{"append", "(Lcom/sun/org/apache/bcel/internal/generic/InstructionList;)Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;", nullptr, $PUBLIC, $virtualMethod(InstructionList, append, $InstructionHandle*, InstructionList*)},
-	{"append", "(Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;)V", nullptr, $PRIVATE, $method(InstructionList, append, void, $InstructionHandle*)},
-	{"append", "(Lcom/sun/org/apache/bcel/internal/generic/Instruction;)Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;", nullptr, $PUBLIC, $virtualMethod(InstructionList, append, $InstructionHandle*, $Instruction*)},
-	{"append", "(Lcom/sun/org/apache/bcel/internal/generic/BranchInstruction;)Lcom/sun/org/apache/bcel/internal/generic/BranchHandle;", nullptr, $PUBLIC, $virtualMethod(InstructionList, append, $BranchHandle*, $BranchInstruction*)},
-	{"append", "(Lcom/sun/org/apache/bcel/internal/generic/Instruction;Lcom/sun/org/apache/bcel/internal/generic/Instruction;)Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;", nullptr, $PUBLIC, $virtualMethod(InstructionList, append, $InstructionHandle*, $Instruction*, $Instruction*)},
-	{"append", "(Lcom/sun/org/apache/bcel/internal/generic/Instruction;Lcom/sun/org/apache/bcel/internal/generic/CompoundInstruction;)Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;", nullptr, $PUBLIC, $virtualMethod(InstructionList, append, $InstructionHandle*, $Instruction*, $CompoundInstruction*)},
-	{"append", "(Lcom/sun/org/apache/bcel/internal/generic/CompoundInstruction;)Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;", nullptr, $PUBLIC, $virtualMethod(InstructionList, append, $InstructionHandle*, $CompoundInstruction*)},
-	{"append", "(Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;Lcom/sun/org/apache/bcel/internal/generic/CompoundInstruction;)Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;", nullptr, $PUBLIC, $virtualMethod(InstructionList, append, $InstructionHandle*, $InstructionHandle*, $CompoundInstruction*)},
-	{"append", "(Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;Lcom/sun/org/apache/bcel/internal/generic/Instruction;)Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;", nullptr, $PUBLIC, $virtualMethod(InstructionList, append, $InstructionHandle*, $InstructionHandle*, $Instruction*)},
-	{"append", "(Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;Lcom/sun/org/apache/bcel/internal/generic/BranchInstruction;)Lcom/sun/org/apache/bcel/internal/generic/BranchHandle;", nullptr, $PUBLIC, $virtualMethod(InstructionList, append, $BranchHandle*, $InstructionHandle*, $BranchInstruction*)},
-	{"clear", "()V", nullptr, $PRIVATE, $method(InstructionList, clear, void)},
-	{"contains", "(Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;)Z", nullptr, $PUBLIC, $virtualMethod(InstructionList, contains, bool, $InstructionHandle*)},
-	{"contains", "(Lcom/sun/org/apache/bcel/internal/generic/Instruction;)Z", nullptr, $PUBLIC, $virtualMethod(InstructionList, contains, bool, $Instruction*)},
-	{"copy", "()Lcom/sun/org/apache/bcel/internal/generic/InstructionList;", nullptr, $PUBLIC, $virtualMethod(InstructionList, copy, InstructionList*)},
-	{"delete", "(Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;)V", nullptr, $PUBLIC, $virtualMethod(InstructionList, delete$, void, $InstructionHandle*), "com.sun.org.apache.bcel.internal.generic.TargetLostException"},
-	{"delete", "(Lcom/sun/org/apache/bcel/internal/generic/Instruction;)V", nullptr, $PUBLIC, $virtualMethod(InstructionList, delete$, void, $Instruction*), "com.sun.org.apache.bcel.internal.generic.TargetLostException"},
-	{"delete", "(Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;)V", nullptr, $PUBLIC, $virtualMethod(InstructionList, delete$, void, $InstructionHandle*, $InstructionHandle*), "com.sun.org.apache.bcel.internal.generic.TargetLostException"},
-	{"delete", "(Lcom/sun/org/apache/bcel/internal/generic/Instruction;Lcom/sun/org/apache/bcel/internal/generic/Instruction;)V", nullptr, $PUBLIC, $virtualMethod(InstructionList, delete$, void, $Instruction*, $Instruction*), "com.sun.org.apache.bcel.internal.generic.TargetLostException"},
-	{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(InstructionList, dispose, void)},
-	{"findHandle", "([Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;[III)Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;", nullptr, $PUBLIC | $STATIC, $staticMethod(InstructionList, findHandle, $InstructionHandle*, $InstructionHandleArray*, $ints*, int32_t, int32_t)},
-	{"findHandle", "(I)Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;", nullptr, $PUBLIC, $virtualMethod(InstructionList, findHandle, $InstructionHandle*, int32_t)},
-	{"findInstruction1", "(Lcom/sun/org/apache/bcel/internal/generic/Instruction;)Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;", nullptr, $PRIVATE, $method(InstructionList, findInstruction1, $InstructionHandle*, $Instruction*)},
-	{"findInstruction2", "(Lcom/sun/org/apache/bcel/internal/generic/Instruction;)Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;", nullptr, $PRIVATE, $method(InstructionList, findInstruction2, $InstructionHandle*, $Instruction*)},
-	{"getByteCode", "()[B", nullptr, $PUBLIC, $virtualMethod(InstructionList, getByteCode, $bytes*)},
-	{"getEnd", "()Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;", nullptr, $PUBLIC, $virtualMethod(InstructionList, getEnd, $InstructionHandle*)},
-	{"getInstructionHandles", "()[Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;", nullptr, $PUBLIC, $virtualMethod(InstructionList, getInstructionHandles, $InstructionHandleArray*)},
-	{"getInstructionPositions", "()[I", nullptr, $PUBLIC, $virtualMethod(InstructionList, getInstructionPositions, $ints*)},
-	{"getInstructions", "()[Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PUBLIC, $virtualMethod(InstructionList, getInstructions, $InstructionArray*)},
-	{"getLength", "()I", nullptr, $PUBLIC, $virtualMethod(InstructionList, getLength, int32_t)},
-	{"getStart", "()Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;", nullptr, $PUBLIC, $virtualMethod(InstructionList, getStart, $InstructionHandle*)},
-	{"insert", "(Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;Lcom/sun/org/apache/bcel/internal/generic/InstructionList;)Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;", nullptr, $PUBLIC, $virtualMethod(InstructionList, insert, $InstructionHandle*, $InstructionHandle*, InstructionList*)},
-	{"insert", "(Lcom/sun/org/apache/bcel/internal/generic/InstructionList;)Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;", nullptr, $PUBLIC, $virtualMethod(InstructionList, insert, $InstructionHandle*, InstructionList*)},
-	{"insert", "(Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;)V", nullptr, $PRIVATE, $method(InstructionList, insert, void, $InstructionHandle*)},
-	{"insert", "(Lcom/sun/org/apache/bcel/internal/generic/Instruction;Lcom/sun/org/apache/bcel/internal/generic/InstructionList;)Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;", nullptr, $PUBLIC, $virtualMethod(InstructionList, insert, $InstructionHandle*, $Instruction*, InstructionList*)},
-	{"insert", "(Lcom/sun/org/apache/bcel/internal/generic/Instruction;)Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;", nullptr, $PUBLIC, $virtualMethod(InstructionList, insert, $InstructionHandle*, $Instruction*)},
-	{"insert", "(Lcom/sun/org/apache/bcel/internal/generic/BranchInstruction;)Lcom/sun/org/apache/bcel/internal/generic/BranchHandle;", nullptr, $PUBLIC, $virtualMethod(InstructionList, insert, $BranchHandle*, $BranchInstruction*)},
-	{"insert", "(Lcom/sun/org/apache/bcel/internal/generic/Instruction;Lcom/sun/org/apache/bcel/internal/generic/Instruction;)Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;", nullptr, $PUBLIC, $virtualMethod(InstructionList, insert, $InstructionHandle*, $Instruction*, $Instruction*)},
-	{"insert", "(Lcom/sun/org/apache/bcel/internal/generic/Instruction;Lcom/sun/org/apache/bcel/internal/generic/CompoundInstruction;)Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;", nullptr, $PUBLIC, $virtualMethod(InstructionList, insert, $InstructionHandle*, $Instruction*, $CompoundInstruction*)},
-	{"insert", "(Lcom/sun/org/apache/bcel/internal/generic/CompoundInstruction;)Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;", nullptr, $PUBLIC, $virtualMethod(InstructionList, insert, $InstructionHandle*, $CompoundInstruction*)},
-	{"insert", "(Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;Lcom/sun/org/apache/bcel/internal/generic/Instruction;)Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;", nullptr, $PUBLIC, $virtualMethod(InstructionList, insert, $InstructionHandle*, $InstructionHandle*, $Instruction*)},
-	{"insert", "(Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;Lcom/sun/org/apache/bcel/internal/generic/CompoundInstruction;)Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;", nullptr, $PUBLIC, $virtualMethod(InstructionList, insert, $InstructionHandle*, $InstructionHandle*, $CompoundInstruction*)},
-	{"insert", "(Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;Lcom/sun/org/apache/bcel/internal/generic/BranchInstruction;)Lcom/sun/org/apache/bcel/internal/generic/BranchHandle;", nullptr, $PUBLIC, $virtualMethod(InstructionList, insert, $BranchHandle*, $InstructionHandle*, $BranchInstruction*)},
-	{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(InstructionList, isEmpty, bool)},
-	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;>;", $PUBLIC, $virtualMethod(InstructionList, iterator, $Iterator*)},
-	{"move", "(Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;)V", nullptr, $PUBLIC, $virtualMethod(InstructionList, move, void, $InstructionHandle*, $InstructionHandle*, $InstructionHandle*)},
-	{"move", "(Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;)V", nullptr, $PUBLIC, $virtualMethod(InstructionList, move, void, $InstructionHandle*, $InstructionHandle*)},
-	{"redirectBranches", "(Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;)V", nullptr, $PUBLIC, $virtualMethod(InstructionList, redirectBranches, void, $InstructionHandle*, $InstructionHandle*)},
-	{"redirectExceptionHandlers", "([Lcom/sun/org/apache/bcel/internal/generic/CodeExceptionGen;Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;)V", nullptr, $PUBLIC, $virtualMethod(InstructionList, redirectExceptionHandlers, void, $CodeExceptionGenArray*, $InstructionHandle*, $InstructionHandle*)},
-	{"redirectLocalVariables", "([Lcom/sun/org/apache/bcel/internal/generic/LocalVariableGen;Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;)V", nullptr, $PUBLIC, $virtualMethod(InstructionList, redirectLocalVariables, void, $LocalVariableGenArray*, $InstructionHandle*, $InstructionHandle*)},
-	{"remove", "(Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;)V", nullptr, $PRIVATE, $method(InstructionList, remove, void, $InstructionHandle*, $InstructionHandle*), "com.sun.org.apache.bcel.internal.generic.TargetLostException"},
-	{"removeObserver", "(Lcom/sun/org/apache/bcel/internal/generic/InstructionListObserver;)V", nullptr, $PUBLIC, $virtualMethod(InstructionList, removeObserver, void, $InstructionListObserver*)},
-	{"replaceConstantPool", "(Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;)V", nullptr, $PUBLIC, $virtualMethod(InstructionList, replaceConstantPool, void, $ConstantPoolGen*, $ConstantPoolGen*)},
-	{"setPositions", "()V", nullptr, $PUBLIC, $virtualMethod(InstructionList, setPositions, void)},
-	{"setPositions", "(Z)V", nullptr, $PUBLIC, $virtualMethod(InstructionList, setPositions, void, bool)},
-	{"size", "()I", nullptr, $PUBLIC, $virtualMethod(InstructionList, size, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(InstructionList, toString, $String*)},
-	{"toString", "(Z)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(InstructionList, toString, $String*, bool)},
-	{"update", "()V", nullptr, $PUBLIC, $virtualMethod(InstructionList, update, void)},
-	{}
-};
-
-$InnerClassInfo _InstructionList_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.bcel.internal.generic.InstructionList$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _InstructionList_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.bcel.internal.generic.InstructionList",
-	"java.lang.Object",
-	"java.lang.Iterable",
-	_InstructionList_FieldInfo_,
-	_InstructionList_MethodInfo_,
-	"Ljava/lang/Object;Ljava/lang/Iterable<Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;>;",
-	nullptr,
-	_InstructionList_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.bcel.internal.generic.InstructionList$1"
-};
-
-$Object* allocate$InstructionList($Class* clazz) {
-	return $of($alloc(InstructionList));
-}
 
 void InstructionList::init$() {
 	$set(this, start, nullptr);
@@ -231,7 +124,7 @@ $InstructionHandle* InstructionList::findHandle($InstructionHandleArray* ihs, $i
 }
 
 $InstructionHandle* InstructionList::findHandle(int32_t pos) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ints, positions, this->bytePositions);
 	$var($InstructionHandle, ih, this->start);
 	for (int32_t i = 0; i < this->length; ++i) {
@@ -244,7 +137,7 @@ $InstructionHandle* InstructionList::findHandle(int32_t pos) {
 }
 
 void InstructionList::init$($bytes* code) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, start, nullptr);
 	$set(this, end, nullptr);
 	this->length = 0;
@@ -253,42 +146,40 @@ void InstructionList::init$($bytes* code) {
 	$var($InstructionHandleArray, ihs, nullptr);
 	try {
 		$var($ByteSequence, bytes, $new($ByteSequence, code));
-		{
-			$var($Throwable, var$0, nullptr);
+		$var($Throwable, var$0, nullptr);
+		try {
 			try {
-				try {
-					$assign(ihs, $new($InstructionHandleArray, $nc(code)->length));
-					$assign(pos, $new($ints, code->length));
-					while (bytes->available() > 0) {
-						int32_t off = bytes->getIndex();
-						pos->set(count, off);
-						$var($Instruction, i, $Instruction::readInstruction(bytes));
-						$var($InstructionHandle, ih, nullptr);
-						if ($instanceOf($BranchInstruction, i)) {
-							$assign(ih, append($cast($BranchInstruction, i)));
-						} else {
-							$assign(ih, append(i));
-						}
-						$nc(ih)->setPosition(off);
-						ihs->set(count, ih);
-						++count;
+				$assign(ihs, $new($InstructionHandleArray, $nc(code)->length));
+				$assign(pos, $new($ints, code->length));
+				while (bytes->available() > 0) {
+					int32_t off = bytes->getIndex();
+					pos->set(count, off);
+					$var($Instruction, i, $Instruction::readInstruction(bytes));
+					$var($InstructionHandle, ih, nullptr);
+					if ($instanceOf($BranchInstruction, i)) {
+						$assign(ih, append($cast($BranchInstruction, i)));
+					} else {
+						$assign(ih, append(i));
 					}
-				} catch ($Throwable& t$) {
-					try {
-						bytes->close();
-					} catch ($Throwable& x2) {
-						t$->addSuppressed(x2);
-					}
-					$throw(t$);
+					$nc(ih)->setPosition(off);
+					ihs->set(count, ih);
+					++count;
 				}
-			} catch ($Throwable& var$1) {
-				$assign(var$0, var$1);
-			} /*finally*/ {
-				bytes->close();
+			} catch ($Throwable& t$) {
+				try {
+					bytes->close();
+				} catch ($Throwable& x2) {
+					t$->addSuppressed(x2);
+				}
+				$throw(t$);
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
+		} /*finally*/ {
+			bytes->close();
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	} catch ($IOException& e) {
 		$throwNew($ClassGenException, $(e->toString()), e);
@@ -322,7 +213,7 @@ void InstructionList::init$($bytes* code) {
 }
 
 $InstructionHandle* InstructionList::append($InstructionHandle* ih, InstructionList* il) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (il == nullptr) {
 		$throwNew($ClassGenException, "Appending null InstructionList"_s);
 	}
@@ -330,7 +221,7 @@ $InstructionHandle* InstructionList::append($InstructionHandle* ih, InstructionL
 		return ih;
 	}
 	$var($InstructionHandle, next, $nc(ih)->getNext());
-	$var($InstructionHandle, ret, $nc(il)->start);
+	$var($InstructionHandle, ret, il->start);
 	ih->setNext(il->start);
 	$nc(il->start)->setPrev(ih);
 	$nc(il->end)->setNext(next);
@@ -345,7 +236,7 @@ $InstructionHandle* InstructionList::append($InstructionHandle* ih, InstructionL
 }
 
 $InstructionHandle* InstructionList::append($Instruction* i, InstructionList* il) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($InstructionHandle, ih, nullptr);
 	if (($assign(ih, findInstruction2(i))) == nullptr) {
 		$throwNew($ClassGenException, $$str({"Instruction "_s, i, " is not contained in this list."_s}));
@@ -361,7 +252,7 @@ $InstructionHandle* InstructionList::append(InstructionList* il) {
 		return nullptr;
 	}
 	if (isEmpty()) {
-		$set(this, start, $nc(il)->start);
+		$set(this, start, il->start);
 		$set(this, end, il->end);
 		this->length = il->length;
 		il->clear();
@@ -372,8 +263,8 @@ $InstructionHandle* InstructionList::append(InstructionList* il) {
 
 void InstructionList::append($InstructionHandle* ih) {
 	if (isEmpty()) {
-		$set(this, start, ($set(this, end, ih)));
-		$nc(ih)->setNext($(ih->setPrev(nullptr)));
+		$set(this, start, $set(this, end, ih));
+		$nc(ih)->setNext($($nc(ih)->setPrev(nullptr)));
 	} else {
 		$nc(this->end)->setNext(ih);
 		$nc(ih)->setPrev(this->end);
@@ -391,7 +282,7 @@ $InstructionHandle* InstructionList::append($Instruction* i) {
 
 $BranchHandle* InstructionList::append($BranchInstruction* i) {
 	$var($BranchHandle, ih, $BranchHandle::getBranchHandle(i));
-	append(static_cast<$InstructionHandle*>(ih));
+	append(ih);
 	return ih;
 }
 
@@ -416,16 +307,16 @@ $InstructionHandle* InstructionList::append($InstructionHandle* ih, $Instruction
 }
 
 $BranchHandle* InstructionList::append($InstructionHandle* ih, $BranchInstruction* i) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($BranchHandle, bh, $BranchHandle::getBranchHandle(i));
 	$var(InstructionList, il, $new(InstructionList));
-	il->append(static_cast<$InstructionHandle*>(bh));
+	il->append(bh);
 	append(ih, il);
 	return bh;
 }
 
 $InstructionHandle* InstructionList::insert($InstructionHandle* ih, InstructionList* il) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (il == nullptr) {
 		$throwNew($ClassGenException, "Inserting null InstructionList"_s);
 	}
@@ -433,7 +324,7 @@ $InstructionHandle* InstructionList::insert($InstructionHandle* ih, InstructionL
 		return ih;
 	}
 	$var($InstructionHandle, prev, $nc(ih)->getPrev());
-	$var($InstructionHandle, ret, $nc(il)->start);
+	$var($InstructionHandle, ret, il->start);
 	ih->setPrev(il->end);
 	$nc(il->end)->setNext(ih);
 	$nc(il->start)->setPrev(prev);
@@ -457,8 +348,8 @@ $InstructionHandle* InstructionList::insert(InstructionList* il) {
 
 void InstructionList::insert($InstructionHandle* ih) {
 	if (isEmpty()) {
-		$set(this, start, ($set(this, end, ih)));
-		$nc(ih)->setNext($(ih->setPrev(nullptr)));
+		$set(this, start, $set(this, end, ih));
+		$nc(ih)->setNext($($nc(ih)->setPrev(nullptr)));
 	} else {
 		$nc(this->start)->setPrev(ih);
 		$nc(ih)->setNext(this->start);
@@ -469,7 +360,7 @@ void InstructionList::insert($InstructionHandle* ih) {
 }
 
 $InstructionHandle* InstructionList::insert($Instruction* i, InstructionList* il) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($InstructionHandle, ih, nullptr);
 	if (($assign(ih, findInstruction1(i))) == nullptr) {
 		$throwNew($ClassGenException, $$str({"Instruction "_s, i, " is not contained in this list."_s}));
@@ -485,7 +376,7 @@ $InstructionHandle* InstructionList::insert($Instruction* i) {
 
 $BranchHandle* InstructionList::insert($BranchInstruction* i) {
 	$var($BranchHandle, ih, $BranchHandle::getBranchHandle(i));
-	insert(static_cast<$InstructionHandle*>(ih));
+	insert(ih);
 	return ih;
 }
 
@@ -510,16 +401,16 @@ $InstructionHandle* InstructionList::insert($InstructionHandle* ih, $CompoundIns
 }
 
 $BranchHandle* InstructionList::insert($InstructionHandle* ih, $BranchInstruction* i) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($BranchHandle, bh, $BranchHandle::getBranchHandle(i));
 	$var(InstructionList, il, $new(InstructionList));
-	il->append(static_cast<$InstructionHandle*>(bh));
+	il->append(bh);
 	insert(ih, il);
 	return bh;
 }
 
 void InstructionList::move($InstructionHandle* start, $InstructionHandle* end, $InstructionHandle* target) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ((start == nullptr) || (end == nullptr)) {
 		$throwNew($ClassGenException, $$str({"Invalid null handle: From "_s, start, " to "_s, end}));
 	}
@@ -537,7 +428,7 @@ void InstructionList::move($InstructionHandle* start, $InstructionHandle* end, $
 		}
 	}
 	$var($InstructionHandle, prev, $nc(start)->getPrev());
-	$var($InstructionHandle, next, $nc(end)->getNext());
+	$var($InstructionHandle, next, end->getNext());
 	if (prev != nullptr) {
 		prev->setNext(next);
 	} else {
@@ -551,12 +442,12 @@ void InstructionList::move($InstructionHandle* start, $InstructionHandle* end, $
 	start->setPrev($(end->setNext(nullptr)));
 	if (target == nullptr) {
 		if (this->start != nullptr) {
-			$nc(this->start)->setPrev(end);
+			this->start->setPrev(end);
 		}
 		end->setNext(this->start);
 		$set(this, start, start);
 	} else {
-		$assign(next, $nc(target)->getNext());
+		$assign(next, target->getNext());
 		target->setNext(start);
 		start->setPrev(target);
 		end->setNext(next);
@@ -573,27 +464,27 @@ void InstructionList::move($InstructionHandle* ih, $InstructionHandle* target) {
 }
 
 void InstructionList::remove($InstructionHandle* prev, $InstructionHandle* next$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($InstructionHandle, next, next$renamed);
 	$var($InstructionHandle, first, nullptr);
 	$var($InstructionHandle, last, nullptr);
 	if ((prev == nullptr) && (next == nullptr)) {
 		$assign(first, this->start);
 		$assign(last, this->end);
-		$set(this, start, ($set(this, end, nullptr)));
+		$set(this, start, $set(this, end, nullptr));
 	} else {
 		if (prev == nullptr) {
 			$assign(first, this->start);
 			$set(this, start, next);
 		} else {
-			$assign(first, $nc(prev)->getNext());
+			$assign(first, prev->getNext());
 			prev->setNext(next);
 		}
 		if (next == nullptr) {
 			$assign(last, this->end);
 			$set(this, end, prev);
 		} else {
-			$assign(last, $nc(next)->getPrev());
+			$assign(last, next->getPrev());
 			next->setPrev(prev);
 		}
 	}
@@ -603,14 +494,14 @@ void InstructionList::remove($InstructionHandle* prev, $InstructionHandle* next$
 	{
 		$var($InstructionHandle, ih, first);
 		for (; ih != nullptr; $assign(ih, ih->getNext())) {
-			$nc($($nc(ih)->getInstruction()))->dispose();
+			$$nc(ih->getInstruction())->dispose();
 		}
 	}
 	$var($StringBuilder, buf, $new($StringBuilder, "{ "_s));
 	{
 		$var($InstructionHandle, ih, first);
 		for (; ih != nullptr; $assign(ih, next)) {
-			$assign(next, $nc(ih)->getNext());
+			$assign(next, ih->getNext());
 			--this->length;
 			if (ih->hasTargeters()) {
 				target_vec->add(ih);
@@ -630,13 +521,13 @@ void InstructionList::remove($InstructionHandle* prev, $InstructionHandle* next$
 }
 
 void InstructionList::delete$($InstructionHandle* ih) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($InstructionHandle, var$0, $nc(ih)->getPrev());
 	remove(var$0, $(ih->getNext()));
 }
 
 void InstructionList::delete$($Instruction* i) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($InstructionHandle, ih, nullptr);
 	if (($assign(ih, findInstruction1(i))) == nullptr) {
 		$throwNew($ClassGenException, $$str({"Instruction "_s, i, " is not contained in this list."_s}));
@@ -645,13 +536,13 @@ void InstructionList::delete$($Instruction* i) {
 }
 
 void InstructionList::delete$($InstructionHandle* from, $InstructionHandle* to) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($InstructionHandle, var$0, $nc(from)->getPrev());
 	remove(var$0, $($nc(to)->getNext()));
 }
 
 void InstructionList::delete$($Instruction* from, $Instruction* to) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($InstructionHandle, from_ih, nullptr);
 	$var($InstructionHandle, to_ih, nullptr);
 	if (($assign(from_ih, findInstruction1(from))) == nullptr) {
@@ -664,24 +555,20 @@ void InstructionList::delete$($Instruction* from, $Instruction* to) {
 }
 
 $InstructionHandle* InstructionList::findInstruction1($Instruction* i) {
-	{
-		$var($InstructionHandle, ih, this->start);
-		for (; ih != nullptr; $assign(ih, $nc(ih)->getNext())) {
-			if (ih->getInstruction() == i) {
-				return ih;
-			}
+	$var($InstructionHandle, ih, this->start);
+	for (; ih != nullptr; $assign(ih, ih->getNext())) {
+		if (ih->getInstruction() == i) {
+			return ih;
 		}
 	}
 	return nullptr;
 }
 
 $InstructionHandle* InstructionList::findInstruction2($Instruction* i) {
-	{
-		$var($InstructionHandle, ih, this->end);
-		for (; ih != nullptr; $assign(ih, $nc(ih)->getPrev())) {
-			if (ih->getInstruction() == i) {
-				return ih;
-			}
+	$var($InstructionHandle, ih, this->end);
+	for (; ih != nullptr; $assign(ih, ih->getPrev())) {
+		if (ih->getInstruction() == i) {
+			return ih;
 		}
 	}
 	return nullptr;
@@ -693,7 +580,7 @@ bool InstructionList::contains($InstructionHandle* i) {
 	}
 	{
 		$var($InstructionHandle, ih, this->start);
-		for (; ih != nullptr; $assign(ih, $nc(ih)->getNext())) {
+		for (; ih != nullptr; $assign(ih, ih->getNext())) {
 			if (ih == i) {
 				return true;
 			}
@@ -711,67 +598,57 @@ void InstructionList::setPositions() {
 }
 
 void InstructionList::setPositions(bool check) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t max_additional_bytes = 0;
 	int32_t additional_bytes = 0;
 	int32_t index = 0;
 	int32_t count = 0;
 	$var($ints, pos, $new($ints, this->length));
 	if (check) {
-		{
-			$var($InstructionHandle, ih, this->start);
-			for (; ih != nullptr; $assign(ih, $nc(ih)->getNext())) {
-				$var($Instruction, i, ih->getInstruction());
-				if ($instanceOf($BranchInstruction, i)) {
-					$var($Instruction, inst, $nc($($nc(($cast($BranchInstruction, i)))->getTarget()))->getInstruction());
-					if (!contains(inst)) {
-						$throwNew($ClassGenException, $$str({"Branch target of "_s, $($Const::getOpcodeName($nc(i)->getOpcode())), ":"_s, inst, " not in instruction list"_s}));
-					}
-					if ($instanceOf($Select, i)) {
-						$var($InstructionHandleArray, targets, $nc(($cast($Select, i)))->getTargets());
-						{
-							$var($InstructionHandleArray, arr$, targets);
-							int32_t len$ = $nc(arr$)->length;
-							int32_t i$ = 0;
-							for (; i$ < len$; ++i$) {
-								$var($InstructionHandle, target, arr$->get(i$));
-								{
-									$assign(inst, $nc(target)->getInstruction());
-									if (!contains(inst)) {
-										$throwNew($ClassGenException, $$str({"Branch target of "_s, $($Const::getOpcodeName($nc(i)->getOpcode())), ":"_s, inst, " not in instruction list"_s}));
-									}
+		$var($InstructionHandle, ih, this->start);
+		for (; ih != nullptr; $assign(ih, ih->getNext())) {
+			$var($Instruction, i, ih->getInstruction());
+			if ($instanceOf($BranchInstruction, i)) {
+				$var($Instruction, inst, $$nc($cast($BranchInstruction, i)->getTarget())->getInstruction());
+				if (!contains(inst)) {
+					$throwNew($ClassGenException, $$str({"Branch target of "_s, $($Const::getOpcodeName(i->getOpcode())), ":"_s, inst, " not in instruction list"_s}));
+				}
+				if ($instanceOf($Select, i)) {
+					$var($InstructionHandleArray, targets, $cast($Select, i)->getTargets());
+					{
+						$var($InstructionHandleArray, arr$, targets);
+						for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
+							$var($InstructionHandle, target, arr$->get(i$));
+							{
+								$assign(inst, $nc(target)->getInstruction());
+								if (!contains(inst)) {
+									$throwNew($ClassGenException, $$str({"Branch target of "_s, $($Const::getOpcodeName(i->getOpcode())), ":"_s, inst, " not in instruction list"_s}));
 								}
 							}
 						}
 					}
-					if (!($instanceOf($BranchHandle, ih))) {
-						$throwNew($ClassGenException, $$str({"Branch instruction "_s, $($Const::getOpcodeName($nc(i)->getOpcode())), ":"_s, inst, " not contained in BranchHandle."_s}));
-					}
+				}
+				if (!($instanceOf($BranchHandle, ih))) {
+					$throwNew($ClassGenException, $$str({"Branch instruction "_s, $($Const::getOpcodeName(i->getOpcode())), ":"_s, inst, " not contained in BranchHandle."_s}));
 				}
 			}
 		}
 	}
 	{
 		$var($InstructionHandle, ih, this->start);
-		for (; ih != nullptr; $assign(ih, $nc(ih)->getNext())) {
+		for (; ih != nullptr; $assign(ih, ih->getNext())) {
 			$var($Instruction, i, ih->getInstruction());
 			ih->setPosition(index);
 			pos->set(count++, index);
 			switch ($nc(i)->getOpcode()) {
 			case $Const::JSR:
-				{}
 			case $Const::GOTO:
-				{
-					max_additional_bytes += 2;
-					break;
-				}
+				max_additional_bytes += 2;
+				break;
 			case $Const::TABLESWITCH:
-				{}
 			case $Const::LOOKUPSWITCH:
-				{
-					max_additional_bytes += 3;
-					break;
-				}
+				max_additional_bytes += 3;
+				break;
 			}
 			index += i->getLength();
 		}
@@ -779,14 +656,14 @@ void InstructionList::setPositions(bool check) {
 	{
 		$var($InstructionHandle, ih, this->start);
 		for (; ih != nullptr; $assign(ih, ih->getNext())) {
-			additional_bytes += $nc(ih)->updatePosition(additional_bytes, max_additional_bytes);
+			additional_bytes += ih->updatePosition(additional_bytes, max_additional_bytes);
 		}
 	}
 	index = (count = 0);
 	{
 		$var($InstructionHandle, ih, this->start);
 		for (; ih != nullptr; $assign(ih, ih->getNext())) {
-			$var($Instruction, i, $nc(ih)->getInstruction());
+			$var($Instruction, i, ih->getInstruction());
 			ih->setPosition(index);
 			pos->set(count++, index);
 			index += $nc(i)->getLength();
@@ -797,14 +674,14 @@ void InstructionList::setPositions(bool check) {
 }
 
 $bytes* InstructionList::getByteCode() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	setPositions();
 	$var($ByteArrayOutputStream, b, $new($ByteArrayOutputStream));
 	$var($DataOutputStream, out, $new($DataOutputStream, b));
 	try {
 		{
 			$var($InstructionHandle, ih, this->start);
-			for (; ih != nullptr; $assign(ih, $nc(ih)->getNext())) {
+			for (; ih != nullptr; $assign(ih, ih->getNext())) {
 				$var($Instruction, i, ih->getInstruction());
 				$nc(i)->dump(out);
 			}
@@ -818,38 +695,36 @@ $bytes* InstructionList::getByteCode() {
 }
 
 $InstructionArray* InstructionList::getInstructions() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, instructions, $new($ArrayList));
 	try {
 		$var($ByteSequence, bytes, $new($ByteSequence, $(getByteCode())));
-		{
-			$var($Throwable, var$0, nullptr);
+		$var($Throwable, var$0, nullptr);
+		try {
 			try {
-				try {
-					while (bytes->available() > 0) {
-						instructions->add($($Instruction::readInstruction(bytes)));
-					}
-				} catch ($Throwable& t$) {
-					try {
-						bytes->close();
-					} catch ($Throwable& x2) {
-						t$->addSuppressed(x2);
-					}
-					$throw(t$);
+				while (bytes->available() > 0) {
+					instructions->add($($Instruction::readInstruction(bytes)));
 				}
-			} catch ($Throwable& var$1) {
-				$assign(var$0, var$1);
-			} /*finally*/ {
-				bytes->close();
+			} catch ($Throwable& t$) {
+				try {
+					bytes->close();
+				} catch ($Throwable& x2) {
+					t$->addSuppressed(x2);
+				}
+				$throw(t$);
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
+		} /*finally*/ {
+			bytes->close();
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	} catch ($IOException& e) {
 		$throwNew($ClassGenException, $(e->toString()), e);
 	}
-	return $fcast($InstructionArray, instructions->toArray($$new($InstructionArray, instructions->size())));
+	return $cast($InstructionArray, instructions->toArray($$new($InstructionArray, instructions->size())));
 }
 
 $String* InstructionList::toString() {
@@ -857,11 +732,11 @@ $String* InstructionList::toString() {
 }
 
 $String* InstructionList::toString(bool verbose) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, buf, $new($StringBuilder));
 	{
 		$var($InstructionHandle, ih, this->start);
-		for (; ih != nullptr; $assign(ih, $nc(ih)->getNext())) {
+		for (; ih != nullptr; $assign(ih, ih->getNext())) {
 			buf->append($(ih->toString(verbose)))->append("\n"_s);
 		}
 	}
@@ -873,7 +748,7 @@ $Iterator* InstructionList::iterator() {
 }
 
 $InstructionHandleArray* InstructionList::getInstructionHandles() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($InstructionHandleArray, ihs, $new($InstructionHandleArray, this->length));
 	$var($InstructionHandle, ih, this->start);
 	for (int32_t i = 0; i < this->length; ++i) {
@@ -888,12 +763,12 @@ $ints* InstructionList::getInstructionPositions() {
 }
 
 InstructionList* InstructionList::copy() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Map, map, $new($HashMap));
 	$var(InstructionList, il, $new(InstructionList));
 	{
 		$var($InstructionHandle, ih, this->start);
-		for (; ih != nullptr; $assign(ih, $nc(ih)->getNext())) {
+		for (; ih != nullptr; $assign(ih, ih->getNext())) {
 			$var($Instruction, i, ih->getInstruction());
 			$var($Instruction, c, $nc(i)->copy());
 			if ($instanceOf($BranchInstruction, c)) {
@@ -911,13 +786,13 @@ InstructionList* InstructionList::copy() {
 		if ($instanceOf($BranchInstruction, i)) {
 			$var($BranchInstruction, bi, $cast($BranchInstruction, i));
 			$var($BranchInstruction, bc, $cast($BranchInstruction, c));
-			$var($InstructionHandle, itarget, $nc(bi)->getTarget());
-			$nc(bc)->setTarget($cast($InstructionHandle, $(map->get(itarget))));
+			$var($InstructionHandle, itarget, bi->getTarget());
+			$nc(bc)->setTarget($$cast($InstructionHandle, map->get(itarget)));
 			if ($instanceOf($Select, bi)) {
-				$var($InstructionHandleArray, itargets, $nc(($cast($Select, bi)))->getTargets());
-				$var($InstructionHandleArray, ctargets, $nc(($cast($Select, bc)))->getTargets());
+				$var($InstructionHandleArray, itargets, $cast($Select, bi)->getTargets());
+				$var($InstructionHandleArray, ctargets, $cast($Select, bc)->getTargets());
 				for (int32_t j = 0; j < $nc(itargets)->length; ++j) {
-					$nc(ctargets)->set(j, $cast($InstructionHandle, $(map->get(itargets->get(j)))));
+					$nc(ctargets)->set(j, $$cast($InstructionHandle, map->get(itargets->get(j))));
 				}
 			}
 		}
@@ -928,29 +803,27 @@ InstructionList* InstructionList::copy() {
 }
 
 void InstructionList::replaceConstantPool($ConstantPoolGen* old_cp, $ConstantPoolGen* new_cp) {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($InstructionHandle, ih, this->start);
-		for (; ih != nullptr; $assign(ih, $nc(ih)->getNext())) {
-			$var($Instruction, i, ih->getInstruction());
-			if ($instanceOf($CPInstruction, i)) {
-				$var($CPInstruction, ci, $cast($CPInstruction, i));
-				$var($Constant, c, $nc(old_cp)->getConstant($nc(ci)->getIndex()));
-				$nc(ci)->setIndex($nc(new_cp)->addConstant(c, old_cp));
-			}
+	$useLocalObjectStack();
+	$var($InstructionHandle, ih, this->start);
+	for (; ih != nullptr; $assign(ih, ih->getNext())) {
+		$var($Instruction, i, ih->getInstruction());
+		if ($instanceOf($CPInstruction, i)) {
+			$var($CPInstruction, ci, $cast($CPInstruction, i));
+			$var($Constant, c, $nc(old_cp)->getConstant(ci->getIndex()));
+			ci->setIndex($nc(new_cp)->addConstant(c, old_cp));
 		}
 	}
 }
 
 void InstructionList::clear() {
-	$set(this, start, ($set(this, end, nullptr)));
+	$set(this, start, $set(this, end, nullptr));
 	this->length = 0;
 }
 
 void InstructionList::dispose() {
 	{
 		$var($InstructionHandle, ih, this->end);
-		for (; ih != nullptr; $assign(ih, $nc(ih)->getPrev())) {
+		for (; ih != nullptr; $assign(ih, ih->getPrev())) {
 			ih->dispose();
 		}
 	}
@@ -974,23 +847,21 @@ int32_t InstructionList::size() {
 }
 
 void InstructionList::redirectBranches($InstructionHandle* old_target, $InstructionHandle* new_target) {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($InstructionHandle, ih, this->start);
-		for (; ih != nullptr; $assign(ih, $nc(ih)->getNext())) {
-			$var($Instruction, i, ih->getInstruction());
-			if ($instanceOf($BranchInstruction, i)) {
-				$var($BranchInstruction, b, $cast($BranchInstruction, i));
-				$var($InstructionHandle, target, $nc(b)->getTarget());
-				if (target == old_target) {
-					b->setTarget(new_target);
-				}
-				if ($instanceOf($Select, b)) {
-					$var($InstructionHandleArray, targets, $nc(($cast($Select, b)))->getTargets());
-					for (int32_t j = 0; j < $nc(targets)->length; ++j) {
-						if (targets->get(j) == old_target) {
-							$nc(($cast($Select, b)))->setTarget(j, new_target);
-						}
+	$useLocalObjectStack();
+	$var($InstructionHandle, ih, this->start);
+	for (; ih != nullptr; $assign(ih, ih->getNext())) {
+		$var($Instruction, i, ih->getInstruction());
+		if ($instanceOf($BranchInstruction, i)) {
+			$var($BranchInstruction, b, $cast($BranchInstruction, i));
+			$var($InstructionHandle, target, b->getTarget());
+			if (target == old_target) {
+				b->setTarget(new_target);
+			}
+			if ($instanceOf($Select, b)) {
+				$var($InstructionHandleArray, targets, $cast($Select, b)->getTargets());
+				for (int32_t j = 0; j < $nc(targets)->length; ++j) {
+					if (targets->get(j) == old_target) {
+						$cast($Select, b)->setTarget(j, new_target);
 					}
 				}
 			}
@@ -999,45 +870,37 @@ void InstructionList::redirectBranches($InstructionHandle* old_target, $Instruct
 }
 
 void InstructionList::redirectLocalVariables($LocalVariableGenArray* lg, $InstructionHandle* old_target, $InstructionHandle* new_target) {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($LocalVariableGenArray, arr$, lg);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
-			$var($LocalVariableGen, element, arr$->get(i$));
-			{
-				$var($InstructionHandle, start, $nc(element)->getStart());
-				$var($InstructionHandle, end, element->getEnd());
-				if (start == old_target) {
-					element->setStart(new_target);
-				}
-				if (end == old_target) {
-					element->setEnd(new_target);
-				}
+	$useLocalObjectStack();
+	$var($LocalVariableGenArray, arr$, lg);
+	for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
+		$var($LocalVariableGen, element, arr$->get(i$));
+		{
+			$var($InstructionHandle, start, $nc(element)->getStart());
+			$var($InstructionHandle, end, element->getEnd());
+			if (start == old_target) {
+				element->setStart(new_target);
+			}
+			if (end == old_target) {
+				element->setEnd(new_target);
 			}
 		}
 	}
 }
 
 void InstructionList::redirectExceptionHandlers($CodeExceptionGenArray* exceptions, $InstructionHandle* old_target, $InstructionHandle* new_target) {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($CodeExceptionGenArray, arr$, exceptions);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
-			$var($CodeExceptionGen, exception, arr$->get(i$));
-			{
-				if ($nc(exception)->getStartPC() == old_target) {
-					exception->setStartPC(new_target);
-				}
-				if ($nc(exception)->getEndPC() == old_target) {
-					exception->setEndPC(new_target);
-				}
-				if ($nc(exception)->getHandlerPC() == old_target) {
-					exception->setHandlerPC(new_target);
-				}
+	$useLocalObjectStack();
+	$var($CodeExceptionGenArray, arr$, exceptions);
+	for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
+		$var($CodeExceptionGen, exception, arr$->get(i$));
+		{
+			if ($nc(exception)->getStartPC() == old_target) {
+				exception->setStartPC(new_target);
+			}
+			if (exception->getEndPC() == old_target) {
+				exception->setEndPC(new_target);
+			}
+			if (exception->getHandlerPC() == old_target) {
+				exception->setHandlerPC(new_target);
 			}
 		}
 	}
@@ -1052,20 +915,18 @@ void InstructionList::addObserver($InstructionListObserver* o) {
 
 void InstructionList::removeObserver($InstructionListObserver* o) {
 	if (this->observers != nullptr) {
-		$nc(this->observers)->remove($of(o));
+		this->observers->remove(o);
 	}
 }
 
 void InstructionList::update() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->observers != nullptr) {
-		{
-			$var($Iterator, i$, $nc(this->observers)->iterator());
-			for (; $nc(i$)->hasNext();) {
-				$var($InstructionListObserver, observer, $cast($InstructionListObserver, i$->next()));
-				{
-					$nc(observer)->notify(this);
-				}
+		$var($Iterator, i$, this->observers->iterator());
+		for (; $nc(i$)->hasNext();) {
+			$var($InstructionListObserver, observer, $cast($InstructionListObserver, i$->next()));
+			{
+				$nc(observer)->notify(this);
 			}
 		}
 	}
@@ -1075,7 +936,104 @@ InstructionList::InstructionList() {
 }
 
 $Class* InstructionList::load$($String* name, bool initialize) {
-	$loadClass(InstructionList, name, initialize, &_InstructionList_ClassInfo_, allocate$InstructionList);
+	$FieldInfo fieldInfos$$[] = {
+		{"start", "Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;", nullptr, $PRIVATE, $field(InstructionList, start)},
+		{"end", "Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;", nullptr, $PRIVATE, $field(InstructionList, end)},
+		{"length", "I", nullptr, $PRIVATE, $field(InstructionList, length)},
+		{"bytePositions", "[I", nullptr, $PRIVATE, $field(InstructionList, bytePositions)},
+		{"observers", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/org/apache/bcel/internal/generic/InstructionListObserver;>;", $PRIVATE, $field(InstructionList, observers)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(InstructionList, init$, void)},
+		{"<init>", "(Lcom/sun/org/apache/bcel/internal/generic/Instruction;)V", nullptr, $PUBLIC, $method(InstructionList, init$, void, $Instruction*)},
+		{"<init>", "(Lcom/sun/org/apache/bcel/internal/generic/BranchInstruction;)V", nullptr, $PUBLIC, $method(InstructionList, init$, void, $BranchInstruction*)},
+		{"<init>", "(Lcom/sun/org/apache/bcel/internal/generic/CompoundInstruction;)V", nullptr, $PUBLIC, $method(InstructionList, init$, void, $CompoundInstruction*)},
+		{"<init>", "([B)V", nullptr, $PUBLIC, $method(InstructionList, init$, void, $bytes*)},
+		{"addObserver", "(Lcom/sun/org/apache/bcel/internal/generic/InstructionListObserver;)V", nullptr, $PUBLIC, $virtualMethod(InstructionList, addObserver, void, $InstructionListObserver*)},
+		{"append", "(Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;Lcom/sun/org/apache/bcel/internal/generic/InstructionList;)Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;", nullptr, $PUBLIC, $virtualMethod(InstructionList, append, $InstructionHandle*, $InstructionHandle*, InstructionList*)},
+		{"append", "(Lcom/sun/org/apache/bcel/internal/generic/Instruction;Lcom/sun/org/apache/bcel/internal/generic/InstructionList;)Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;", nullptr, $PUBLIC, $virtualMethod(InstructionList, append, $InstructionHandle*, $Instruction*, InstructionList*)},
+		{"append", "(Lcom/sun/org/apache/bcel/internal/generic/InstructionList;)Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;", nullptr, $PUBLIC, $virtualMethod(InstructionList, append, $InstructionHandle*, InstructionList*)},
+		{"append", "(Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;)V", nullptr, $PRIVATE, $method(InstructionList, append, void, $InstructionHandle*)},
+		{"append", "(Lcom/sun/org/apache/bcel/internal/generic/Instruction;)Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;", nullptr, $PUBLIC, $virtualMethod(InstructionList, append, $InstructionHandle*, $Instruction*)},
+		{"append", "(Lcom/sun/org/apache/bcel/internal/generic/BranchInstruction;)Lcom/sun/org/apache/bcel/internal/generic/BranchHandle;", nullptr, $PUBLIC, $virtualMethod(InstructionList, append, $BranchHandle*, $BranchInstruction*)},
+		{"append", "(Lcom/sun/org/apache/bcel/internal/generic/Instruction;Lcom/sun/org/apache/bcel/internal/generic/Instruction;)Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;", nullptr, $PUBLIC, $virtualMethod(InstructionList, append, $InstructionHandle*, $Instruction*, $Instruction*)},
+		{"append", "(Lcom/sun/org/apache/bcel/internal/generic/Instruction;Lcom/sun/org/apache/bcel/internal/generic/CompoundInstruction;)Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;", nullptr, $PUBLIC, $virtualMethod(InstructionList, append, $InstructionHandle*, $Instruction*, $CompoundInstruction*)},
+		{"append", "(Lcom/sun/org/apache/bcel/internal/generic/CompoundInstruction;)Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;", nullptr, $PUBLIC, $virtualMethod(InstructionList, append, $InstructionHandle*, $CompoundInstruction*)},
+		{"append", "(Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;Lcom/sun/org/apache/bcel/internal/generic/CompoundInstruction;)Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;", nullptr, $PUBLIC, $virtualMethod(InstructionList, append, $InstructionHandle*, $InstructionHandle*, $CompoundInstruction*)},
+		{"append", "(Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;Lcom/sun/org/apache/bcel/internal/generic/Instruction;)Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;", nullptr, $PUBLIC, $virtualMethod(InstructionList, append, $InstructionHandle*, $InstructionHandle*, $Instruction*)},
+		{"append", "(Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;Lcom/sun/org/apache/bcel/internal/generic/BranchInstruction;)Lcom/sun/org/apache/bcel/internal/generic/BranchHandle;", nullptr, $PUBLIC, $virtualMethod(InstructionList, append, $BranchHandle*, $InstructionHandle*, $BranchInstruction*)},
+		{"clear", "()V", nullptr, $PRIVATE, $method(InstructionList, clear, void)},
+		{"contains", "(Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;)Z", nullptr, $PUBLIC, $virtualMethod(InstructionList, contains, bool, $InstructionHandle*)},
+		{"contains", "(Lcom/sun/org/apache/bcel/internal/generic/Instruction;)Z", nullptr, $PUBLIC, $virtualMethod(InstructionList, contains, bool, $Instruction*)},
+		{"copy", "()Lcom/sun/org/apache/bcel/internal/generic/InstructionList;", nullptr, $PUBLIC, $virtualMethod(InstructionList, copy, InstructionList*)},
+		{"delete", "(Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;)V", nullptr, $PUBLIC, $virtualMethod(InstructionList, delete$, void, $InstructionHandle*), "com.sun.org.apache.bcel.internal.generic.TargetLostException"},
+		{"delete", "(Lcom/sun/org/apache/bcel/internal/generic/Instruction;)V", nullptr, $PUBLIC, $virtualMethod(InstructionList, delete$, void, $Instruction*), "com.sun.org.apache.bcel.internal.generic.TargetLostException"},
+		{"delete", "(Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;)V", nullptr, $PUBLIC, $virtualMethod(InstructionList, delete$, void, $InstructionHandle*, $InstructionHandle*), "com.sun.org.apache.bcel.internal.generic.TargetLostException"},
+		{"delete", "(Lcom/sun/org/apache/bcel/internal/generic/Instruction;Lcom/sun/org/apache/bcel/internal/generic/Instruction;)V", nullptr, $PUBLIC, $virtualMethod(InstructionList, delete$, void, $Instruction*, $Instruction*), "com.sun.org.apache.bcel.internal.generic.TargetLostException"},
+		{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(InstructionList, dispose, void)},
+		{"findHandle", "([Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;[III)Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;", nullptr, $PUBLIC | $STATIC, $staticMethod(InstructionList, findHandle, $InstructionHandle*, $InstructionHandleArray*, $ints*, int32_t, int32_t)},
+		{"findHandle", "(I)Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;", nullptr, $PUBLIC, $virtualMethod(InstructionList, findHandle, $InstructionHandle*, int32_t)},
+		{"findInstruction1", "(Lcom/sun/org/apache/bcel/internal/generic/Instruction;)Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;", nullptr, $PRIVATE, $method(InstructionList, findInstruction1, $InstructionHandle*, $Instruction*)},
+		{"findInstruction2", "(Lcom/sun/org/apache/bcel/internal/generic/Instruction;)Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;", nullptr, $PRIVATE, $method(InstructionList, findInstruction2, $InstructionHandle*, $Instruction*)},
+		{"getByteCode", "()[B", nullptr, $PUBLIC, $virtualMethod(InstructionList, getByteCode, $bytes*)},
+		{"getEnd", "()Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;", nullptr, $PUBLIC, $virtualMethod(InstructionList, getEnd, $InstructionHandle*)},
+		{"getInstructionHandles", "()[Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;", nullptr, $PUBLIC, $virtualMethod(InstructionList, getInstructionHandles, $InstructionHandleArray*)},
+		{"getInstructionPositions", "()[I", nullptr, $PUBLIC, $virtualMethod(InstructionList, getInstructionPositions, $ints*)},
+		{"getInstructions", "()[Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PUBLIC, $virtualMethod(InstructionList, getInstructions, $InstructionArray*)},
+		{"getLength", "()I", nullptr, $PUBLIC, $virtualMethod(InstructionList, getLength, int32_t)},
+		{"getStart", "()Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;", nullptr, $PUBLIC, $virtualMethod(InstructionList, getStart, $InstructionHandle*)},
+		{"insert", "(Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;Lcom/sun/org/apache/bcel/internal/generic/InstructionList;)Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;", nullptr, $PUBLIC, $virtualMethod(InstructionList, insert, $InstructionHandle*, $InstructionHandle*, InstructionList*)},
+		{"insert", "(Lcom/sun/org/apache/bcel/internal/generic/InstructionList;)Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;", nullptr, $PUBLIC, $virtualMethod(InstructionList, insert, $InstructionHandle*, InstructionList*)},
+		{"insert", "(Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;)V", nullptr, $PRIVATE, $method(InstructionList, insert, void, $InstructionHandle*)},
+		{"insert", "(Lcom/sun/org/apache/bcel/internal/generic/Instruction;Lcom/sun/org/apache/bcel/internal/generic/InstructionList;)Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;", nullptr, $PUBLIC, $virtualMethod(InstructionList, insert, $InstructionHandle*, $Instruction*, InstructionList*)},
+		{"insert", "(Lcom/sun/org/apache/bcel/internal/generic/Instruction;)Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;", nullptr, $PUBLIC, $virtualMethod(InstructionList, insert, $InstructionHandle*, $Instruction*)},
+		{"insert", "(Lcom/sun/org/apache/bcel/internal/generic/BranchInstruction;)Lcom/sun/org/apache/bcel/internal/generic/BranchHandle;", nullptr, $PUBLIC, $virtualMethod(InstructionList, insert, $BranchHandle*, $BranchInstruction*)},
+		{"insert", "(Lcom/sun/org/apache/bcel/internal/generic/Instruction;Lcom/sun/org/apache/bcel/internal/generic/Instruction;)Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;", nullptr, $PUBLIC, $virtualMethod(InstructionList, insert, $InstructionHandle*, $Instruction*, $Instruction*)},
+		{"insert", "(Lcom/sun/org/apache/bcel/internal/generic/Instruction;Lcom/sun/org/apache/bcel/internal/generic/CompoundInstruction;)Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;", nullptr, $PUBLIC, $virtualMethod(InstructionList, insert, $InstructionHandle*, $Instruction*, $CompoundInstruction*)},
+		{"insert", "(Lcom/sun/org/apache/bcel/internal/generic/CompoundInstruction;)Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;", nullptr, $PUBLIC, $virtualMethod(InstructionList, insert, $InstructionHandle*, $CompoundInstruction*)},
+		{"insert", "(Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;Lcom/sun/org/apache/bcel/internal/generic/Instruction;)Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;", nullptr, $PUBLIC, $virtualMethod(InstructionList, insert, $InstructionHandle*, $InstructionHandle*, $Instruction*)},
+		{"insert", "(Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;Lcom/sun/org/apache/bcel/internal/generic/CompoundInstruction;)Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;", nullptr, $PUBLIC, $virtualMethod(InstructionList, insert, $InstructionHandle*, $InstructionHandle*, $CompoundInstruction*)},
+		{"insert", "(Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;Lcom/sun/org/apache/bcel/internal/generic/BranchInstruction;)Lcom/sun/org/apache/bcel/internal/generic/BranchHandle;", nullptr, $PUBLIC, $virtualMethod(InstructionList, insert, $BranchHandle*, $InstructionHandle*, $BranchInstruction*)},
+		{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(InstructionList, isEmpty, bool)},
+		{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;>;", $PUBLIC, $virtualMethod(InstructionList, iterator, $Iterator*)},
+		{"move", "(Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;)V", nullptr, $PUBLIC, $virtualMethod(InstructionList, move, void, $InstructionHandle*, $InstructionHandle*, $InstructionHandle*)},
+		{"move", "(Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;)V", nullptr, $PUBLIC, $virtualMethod(InstructionList, move, void, $InstructionHandle*, $InstructionHandle*)},
+		{"redirectBranches", "(Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;)V", nullptr, $PUBLIC, $virtualMethod(InstructionList, redirectBranches, void, $InstructionHandle*, $InstructionHandle*)},
+		{"redirectExceptionHandlers", "([Lcom/sun/org/apache/bcel/internal/generic/CodeExceptionGen;Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;)V", nullptr, $PUBLIC, $virtualMethod(InstructionList, redirectExceptionHandlers, void, $CodeExceptionGenArray*, $InstructionHandle*, $InstructionHandle*)},
+		{"redirectLocalVariables", "([Lcom/sun/org/apache/bcel/internal/generic/LocalVariableGen;Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;)V", nullptr, $PUBLIC, $virtualMethod(InstructionList, redirectLocalVariables, void, $LocalVariableGenArray*, $InstructionHandle*, $InstructionHandle*)},
+		{"remove", "(Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;)V", nullptr, $PRIVATE, $method(InstructionList, remove, void, $InstructionHandle*, $InstructionHandle*), "com.sun.org.apache.bcel.internal.generic.TargetLostException"},
+		{"removeObserver", "(Lcom/sun/org/apache/bcel/internal/generic/InstructionListObserver;)V", nullptr, $PUBLIC, $virtualMethod(InstructionList, removeObserver, void, $InstructionListObserver*)},
+		{"replaceConstantPool", "(Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;)V", nullptr, $PUBLIC, $virtualMethod(InstructionList, replaceConstantPool, void, $ConstantPoolGen*, $ConstantPoolGen*)},
+		{"setPositions", "()V", nullptr, $PUBLIC, $virtualMethod(InstructionList, setPositions, void)},
+		{"setPositions", "(Z)V", nullptr, $PUBLIC, $virtualMethod(InstructionList, setPositions, void, bool)},
+		{"size", "()I", nullptr, $PUBLIC, $virtualMethod(InstructionList, size, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(InstructionList, toString, $String*)},
+		{"toString", "(Z)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(InstructionList, toString, $String*, bool)},
+		{"update", "()V", nullptr, $PUBLIC, $virtualMethod(InstructionList, update, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.bcel.internal.generic.InstructionList$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.bcel.internal.generic.InstructionList",
+		"java.lang.Object",
+		"java.lang.Iterable",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/lang/Iterable<Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.bcel.internal.generic.InstructionList$1"
+	};
+	$loadClass(InstructionList, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(InstructionList);
+	});
 	return class$;
 }
 

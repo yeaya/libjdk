@@ -36,6 +36,7 @@ class AquaFonts : public ::java::lang::Object {
 	$class(AquaFonts, 0, ::java::lang::Object)
 public:
 	AquaFonts();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::javax::swing::plaf::FontUIResource* getAlertHeaderFont();
 	static ::javax::swing::plaf::FontUIResource* getAlertMessageFont();

@@ -1,5 +1,4 @@
 #include <sun/lwawt/LWTextAreaPeer.h>
-
 #include <java/awt/AWTEvent.h>
 #include <java/awt/BufferCapabilities$FlipContents.h>
 #include <java/awt/BufferCapabilities.h>
@@ -16,7 +15,6 @@
 #include <java/awt/Point.h>
 #include <java/awt/Rectangle.h>
 #include <java/awt/TextArea.h>
-#include <java/awt/TextComponent.h>
 #include <java/awt/event/FocusEvent$Cause.h>
 #include <java/awt/event/PaintEvent.h>
 #include <java/awt/event/TextEvent.h>
@@ -65,9 +63,7 @@ using $GraphicsConfiguration = ::java::awt::GraphicsConfiguration;
 using $Image = ::java::awt::Image;
 using $Insets = ::java::awt::Insets;
 using $Point = ::java::awt::Point;
-using $Rectangle = ::java::awt::Rectangle;
 using $TextArea = ::java::awt::TextArea;
-using $TextComponent = ::java::awt::TextComponent;
 using $FocusEvent$Cause = ::java::awt::event::FocusEvent$Cause;
 using $PaintEvent = ::java::awt::event::PaintEvent;
 using $TextEvent = ::java::awt::event::TextEvent;
@@ -83,9 +79,7 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $JComponent = ::javax::swing::JComponent;
 using $JScrollBar = ::javax::swing::JScrollBar;
 using $JTextArea = ::javax::swing::JTextArea;
-using $JViewport = ::javax::swing::JViewport;
 using $ScrollPaneConstants = ::javax::swing::ScrollPaneConstants;
-using $DocumentListener = ::javax::swing::event::DocumentListener;
 using $Document = ::javax::swing::text::Document;
 using $JTextComponent = ::javax::swing::text::JTextComponent;
 using $Region = ::sun::java2d::pipe::Region;
@@ -95,101 +89,6 @@ using $PlatformComponent = ::sun::lwawt::PlatformComponent;
 
 namespace sun {
 	namespace lwawt {
-
-$FieldInfo _LWTextAreaPeer_FieldInfo_[] = {
-	{"DEFAULT_COLUMNS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LWTextAreaPeer, DEFAULT_COLUMNS)},
-	{"DEFAULT_ROWS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LWTextAreaPeer, DEFAULT_ROWS)},
-	{}
-};
-
-$MethodInfo _LWTextAreaPeer_MethodInfo_[] = {
-	{"*applyShape", "(Lsun/java2d/pipe/Region;)V", nullptr, $PUBLIC | $FINAL},
-	{"*canDetermineObscurity", "()Z", nullptr, $PUBLIC},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*coalescePaintEvent", "(Ljava/awt/event/PaintEvent;)V", nullptr, $PUBLIC},
-	{"*createBuffers", "(ILjava/awt/BufferCapabilities;)V", nullptr, $PUBLIC | $FINAL},
-	{"*createImage", "(II)Ljava/awt/Image;", nullptr, $PUBLIC | $FINAL},
-	{"*createVolatileImage", "(II)Ljava/awt/image/VolatileImage;", nullptr, $PUBLIC | $FINAL},
-	{"*destroyBuffers", "()V", nullptr, $PUBLIC | $FINAL},
-	{"*dispose", "()V", nullptr, $PUBLIC | $FINAL},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*flip", "(IIIILjava/awt/BufferCapabilities$FlipContents;)V", nullptr, $PUBLIC | $FINAL},
-	{"*getBackBuffer", "()Ljava/awt/Image;", nullptr, $PUBLIC | $FINAL},
-	{"*getCaretPosition", "()I", nullptr, $PUBLIC | $FINAL},
-	{"*getColorModel", "()Ljava/awt/image/ColorModel;", nullptr, $PUBLIC},
-	{"*getFontMetrics", "(Ljava/awt/Font;)Ljava/awt/FontMetrics;", nullptr, $PUBLIC},
-	{"*getGraphics", "()Ljava/awt/Graphics;", nullptr, $PUBLIC},
-	{"*getGraphicsConfiguration", "()Ljava/awt/GraphicsConfiguration;", nullptr, $PUBLIC},
-	{"*getInputMethodRequests", "()Ljava/awt/im/InputMethodRequests;", nullptr, $PUBLIC | $FINAL},
-	{"*getLocationOnScreen", "()Ljava/awt/Point;", nullptr, $PUBLIC},
-	{"*getSelectionEnd", "()I", nullptr, $PUBLIC | $FINAL},
-	{"*getSelectionStart", "()I", nullptr, $PUBLIC | $FINAL},
-	{"*getText", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL},
-	{"*handleEvent", "(Ljava/awt/AWTEvent;)V", nullptr, $PUBLIC},
-	{"*handlesWheelScrolling", "()Z", nullptr, $PUBLIC},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/awt/TextArea;Lsun/lwawt/PlatformComponent;)V", nullptr, 0, $method(LWTextAreaPeer, init$, void, $TextArea*, $PlatformComponent*)},
-	{"createDelegate", "()Lsun/lwawt/LWTextAreaPeer$ScrollableJTextArea;", nullptr, 0, $virtualMethod(LWTextAreaPeer, createDelegate, $JComponent*)},
-	{"getCursor", "(Ljava/awt/Point;)Ljava/awt/Cursor;", nullptr, 0, $virtualMethod(LWTextAreaPeer, getCursor, $Cursor*, $Point*)},
-	{"getDelegateFocusOwner", "()Ljava/awt/Component;", nullptr, 0, $virtualMethod(LWTextAreaPeer, getDelegateFocusOwner, $Component*)},
-	{"getMinimumSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(LWTextAreaPeer, getMinimumSize, $Dimension*)},
-	{"getMinimumSize", "(II)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(LWTextAreaPeer, getMinimumSize, $Dimension*, int32_t, int32_t)},
-	{"getPreferredSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(LWTextAreaPeer, getPreferredSize, $Dimension*)},
-	{"getPreferredSize", "(II)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(LWTextAreaPeer, getPreferredSize, $Dimension*, int32_t, int32_t)},
-	{"getTextComponent", "()Ljavax/swing/JTextArea;", nullptr, 0, $virtualMethod(LWTextAreaPeer, getTextComponent, $JTextComponent*)},
-	{"initializeImpl", "()V", nullptr, 0, $virtualMethod(LWTextAreaPeer, initializeImpl, void)},
-	{"insert", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $virtualMethod(LWTextAreaPeer, insert, void, $String*, int32_t)},
-	{"*isFocusable", "()Z", nullptr, $PUBLIC | $FINAL},
-	{"*isObscured", "()Z", nullptr, $PUBLIC},
-	{"*isReparentSupported", "()Z", nullptr, $PUBLIC},
-	{"*layout", "()V", nullptr, $PUBLIC},
-	{"*paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC},
-	{"*print", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC},
-	{"*reparent", "(Ljava/awt/peer/ContainerPeer;)V", nullptr, $PUBLIC},
-	{"replaceRange", "(Ljava/lang/String;II)V", nullptr, $PUBLIC, $virtualMethod(LWTextAreaPeer, replaceRange, void, $String*, int32_t, int32_t)},
-	{"*requestFocus", "(Ljava/awt/Component;ZZJLjava/awt/event/FocusEvent$Cause;)Z", nullptr, $PUBLIC},
-	{"*select", "(II)V", nullptr, $PUBLIC | $FINAL},
-	{"*setBackground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC},
-	{"*setBounds", "(IIIII)V", nullptr, $PUBLIC},
-	{"*setCaretPosition", "(I)V", nullptr, $PUBLIC | $FINAL},
-	{"*setEditable", "(Z)V", nullptr, $PUBLIC | $FINAL},
-	{"*setEnabled", "(Z)V", nullptr, $PUBLIC},
-	{"*setFont", "(Ljava/awt/Font;)V", nullptr, $PUBLIC},
-	{"*setForeground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC},
-	{"setScrollBarVisibility", "(I)V", nullptr, $PRIVATE, $method(LWTextAreaPeer, setScrollBarVisibility, void, int32_t)},
-	{"*setText", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $FINAL},
-	{"*updateGraphicsData", "(Ljava/awt/GraphicsConfiguration;)Z", nullptr, $PUBLIC},
-	{"*setVisible", "(Z)V", nullptr, $PUBLIC},
-	{"*setZOrder", "(Ljava/awt/peer/ComponentPeer;)V", nullptr, $PUBLIC},
-	{"*updateCursorImmediately", "()V", nullptr, $PUBLIC},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _LWTextAreaPeer_InnerClassesInfo_[] = {
-	{"sun.lwawt.LWTextAreaPeer$ScrollableJTextArea", "sun.lwawt.LWTextAreaPeer", "ScrollableJTextArea", $FINAL},
-	{}
-};
-
-$ClassInfo _LWTextAreaPeer_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.lwawt.LWTextAreaPeer",
-	"sun.lwawt.LWTextComponentPeer",
-	"java.awt.peer.TextAreaPeer",
-	_LWTextAreaPeer_FieldInfo_,
-	_LWTextAreaPeer_MethodInfo_,
-	"Lsun/lwawt/LWTextComponentPeer<Ljava/awt/TextArea;Lsun/lwawt/LWTextAreaPeer$ScrollableJTextArea;>;Ljava/awt/peer/TextAreaPeer;",
-	nullptr,
-	_LWTextAreaPeer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.lwawt.LWTextAreaPeer$ScrollableJTextArea,sun.lwawt.LWTextAreaPeer$ScrollableJTextArea$JTextAreaDelegate"
-};
-
-$Object* allocate$LWTextAreaPeer($Class* clazz) {
-	return $of($alloc(LWTextAreaPeer));
-}
 
 void LWTextAreaPeer::setEditable(bool editable) {
 	this->$LWTextComponentPeer::setEditable(editable);
@@ -392,24 +291,24 @@ $JComponent* LWTextAreaPeer::createDelegate() {
 }
 
 void LWTextAreaPeer::initializeImpl() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$LWTextComponentPeer::initializeImpl();
-	int32_t visibility = $nc(($cast($TextArea, $(getTarget()))))->getScrollbarVisibility();
+	int32_t visibility = $$sure($TextArea, getTarget())->getScrollbarVisibility();
 	$synchronized(getDelegateLock()) {
-		$nc($($cast($JTextArea, getTextComponent())))->setWrapStyleWord(true);
+		$$sure($JTextArea, getTextComponent())->setWrapStyleWord(true);
 		setScrollBarVisibility(visibility);
 	}
 }
 
 $JTextComponent* LWTextAreaPeer::getTextComponent() {
-	return $nc(($cast($LWTextAreaPeer$ScrollableJTextArea, $(getDelegate()))))->getView();
+	return $$sure($LWTextAreaPeer$ScrollableJTextArea, getDelegate())->getView();
 }
 
 $Cursor* LWTextAreaPeer::getCursor($Point* p) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool isContains = false;
 	$synchronized(getDelegateLock()) {
-		isContains = $nc($($nc($($nc(($cast($LWTextAreaPeer$ScrollableJTextArea, $(getDelegate()))))->getViewport()))->getBounds()))->contains(p);
+		isContains = $$nc($$nc($$sure($LWTextAreaPeer$ScrollableJTextArea, getDelegate())->getViewport())->getBounds())->contains(p);
 	}
 	return isContains ? $LWTextComponentPeer::getCursor(p) : ($Cursor*)nullptr;
 }
@@ -431,33 +330,33 @@ $Dimension* LWTextAreaPeer::getPreferredSize(int32_t rows, int32_t columns) {
 }
 
 $Dimension* LWTextAreaPeer::getMinimumSize(int32_t rows, int32_t columns) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Dimension, size, $LWTextComponentPeer::getMinimumSize(rows, columns));
 	$synchronized(getDelegateLock()) {
-		$var($Insets, pi, $nc(($cast($LWTextAreaPeer$ScrollableJTextArea, $(getDelegate()))))->getInsets());
-		$nc(size)->width += $nc(pi)->left + pi->right;
+		$var($Insets, pi, $$sure($LWTextAreaPeer$ScrollableJTextArea, getDelegate())->getInsets());
+		$nc(size)->width += $nc(pi)->left + $nc(pi)->right;
 		size->height += pi->top + pi->bottom;
-		int32_t vsbPolicy = $nc(($cast($LWTextAreaPeer$ScrollableJTextArea, $(getDelegate()))))->getVerticalScrollBarPolicy();
+		int32_t vsbPolicy = $$sure($LWTextAreaPeer$ScrollableJTextArea, getDelegate())->getVerticalScrollBarPolicy();
 		if (vsbPolicy == $ScrollPaneConstants::VERTICAL_SCROLLBAR_ALWAYS) {
-			$var($JScrollBar, vbar, $nc(($cast($LWTextAreaPeer$ScrollableJTextArea, $(getDelegate()))))->getVerticalScrollBar());
-			size->width += vbar != nullptr ? $nc($($nc(vbar)->getMinimumSize()))->width : 0;
+			$var($JScrollBar, vbar, $$sure($LWTextAreaPeer$ScrollableJTextArea, getDelegate())->getVerticalScrollBar());
+			size->width += vbar != nullptr ? $nc($(vbar->getMinimumSize()))->width : 0;
 		}
-		int32_t hsbPolicy = $nc(($cast($LWTextAreaPeer$ScrollableJTextArea, $(getDelegate()))))->getHorizontalScrollBarPolicy();
+		int32_t hsbPolicy = $$sure($LWTextAreaPeer$ScrollableJTextArea, getDelegate())->getHorizontalScrollBarPolicy();
 		if (hsbPolicy == $ScrollPaneConstants::HORIZONTAL_SCROLLBAR_ALWAYS) {
-			$var($JScrollBar, hbar, $nc(($cast($LWTextAreaPeer$ScrollableJTextArea, $(getDelegate()))))->getHorizontalScrollBar());
-			size->height += hbar != nullptr ? $nc($($nc(hbar)->getMinimumSize()))->height : 0;
+			$var($JScrollBar, hbar, $$sure($LWTextAreaPeer$ScrollableJTextArea, getDelegate())->getHorizontalScrollBar());
+			size->height += hbar != nullptr ? $nc($(hbar->getMinimumSize()))->height : 0;
 		}
 	}
 	return size;
 }
 
 void LWTextAreaPeer::insert($String* text, int32_t pos) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($LWTextAreaPeer$ScrollableJTextArea, pane, $cast($LWTextAreaPeer$ScrollableJTextArea, getDelegate()));
 	$synchronized(getDelegateLock()) {
 		$var($JTextArea, area, $nc(pane)->getView());
-		bool var$0 = pos >= $nc($($nc(area)->getDocument()))->getLength();
-		bool doScroll = var$0 && $nc($(area->getDocument()))->getLength() != 0;
+		bool var$0 = pos >= $$nc($nc(area)->getDocument())->getLength();
+		bool doScroll = var$0 && $$nc(area->getDocument())->getLength() != 0;
 		area->insert(text, pos);
 		revalidate();
 		if (doScroll) {
@@ -472,11 +371,11 @@ void LWTextAreaPeer::insert($String* text, int32_t pos) {
 }
 
 void LWTextAreaPeer::replaceRange($String* text, int32_t start, int32_t end) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized(getDelegateLock()) {
-		$var($Document, document, $nc($($cast($JTextArea, getTextComponent())))->getDocument());
+		$var($Document, document, $$sure($JTextArea, getTextComponent())->getDocument());
 		$nc(document)->removeDocumentListener(this);
-		$nc($($cast($JTextArea, getTextComponent())))->replaceRange(text, start, end);
+		$$sure($JTextArea, getTextComponent())->replaceRange(text, start, end);
 		revalidate();
 		postEvent($$new($TextEvent, $(getTarget()), $TextEvent::TEXT_VALUE_CHANGED));
 		document->addDocumentListener(this);
@@ -485,37 +384,29 @@ void LWTextAreaPeer::replaceRange($String* text, int32_t start, int32_t end) {
 }
 
 void LWTextAreaPeer::setScrollBarVisibility(int32_t visibility) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($LWTextAreaPeer$ScrollableJTextArea, pane, $cast($LWTextAreaPeer$ScrollableJTextArea, getDelegate()));
 	$var($JTextArea, view, $nc(pane)->getView());
 	$nc(view)->setLineWrap(false);
 	switch (visibility) {
 	case $TextArea::SCROLLBARS_NONE:
-		{
-			pane->setHorizontalScrollBarPolicy($ScrollPaneConstants::HORIZONTAL_SCROLLBAR_NEVER);
-			pane->setVerticalScrollBarPolicy($ScrollPaneConstants::VERTICAL_SCROLLBAR_NEVER);
-			view->setLineWrap(true);
-			break;
-		}
+		pane->setHorizontalScrollBarPolicy($ScrollPaneConstants::HORIZONTAL_SCROLLBAR_NEVER);
+		pane->setVerticalScrollBarPolicy($ScrollPaneConstants::VERTICAL_SCROLLBAR_NEVER);
+		view->setLineWrap(true);
+		break;
 	case $TextArea::SCROLLBARS_VERTICAL_ONLY:
-		{
-			pane->setHorizontalScrollBarPolicy($ScrollPaneConstants::HORIZONTAL_SCROLLBAR_NEVER);
-			pane->setVerticalScrollBarPolicy($ScrollPaneConstants::VERTICAL_SCROLLBAR_ALWAYS);
-			view->setLineWrap(true);
-			break;
-		}
+		pane->setHorizontalScrollBarPolicy($ScrollPaneConstants::HORIZONTAL_SCROLLBAR_NEVER);
+		pane->setVerticalScrollBarPolicy($ScrollPaneConstants::VERTICAL_SCROLLBAR_ALWAYS);
+		view->setLineWrap(true);
+		break;
 	case $TextArea::SCROLLBARS_HORIZONTAL_ONLY:
-		{
-			pane->setVerticalScrollBarPolicy($ScrollPaneConstants::VERTICAL_SCROLLBAR_NEVER);
-			pane->setHorizontalScrollBarPolicy($ScrollPaneConstants::HORIZONTAL_SCROLLBAR_ALWAYS);
-			break;
-		}
+		pane->setVerticalScrollBarPolicy($ScrollPaneConstants::VERTICAL_SCROLLBAR_NEVER);
+		pane->setHorizontalScrollBarPolicy($ScrollPaneConstants::HORIZONTAL_SCROLLBAR_ALWAYS);
+		break;
 	default:
-		{
-			pane->setHorizontalScrollBarPolicy($ScrollPaneConstants::HORIZONTAL_SCROLLBAR_ALWAYS);
-			pane->setVerticalScrollBarPolicy($ScrollPaneConstants::VERTICAL_SCROLLBAR_ALWAYS);
-			break;
-		}
+		pane->setHorizontalScrollBarPolicy($ScrollPaneConstants::HORIZONTAL_SCROLLBAR_ALWAYS);
+		pane->setVerticalScrollBarPolicy($ScrollPaneConstants::VERTICAL_SCROLLBAR_ALWAYS);
+		break;
 	}
 }
 
@@ -523,7 +414,96 @@ LWTextAreaPeer::LWTextAreaPeer() {
 }
 
 $Class* LWTextAreaPeer::load$($String* name, bool initialize) {
-	$loadClass(LWTextAreaPeer, name, initialize, &_LWTextAreaPeer_ClassInfo_, allocate$LWTextAreaPeer);
+	$FieldInfo fieldInfos$$[] = {
+		{"DEFAULT_COLUMNS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LWTextAreaPeer, DEFAULT_COLUMNS)},
+		{"DEFAULT_ROWS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LWTextAreaPeer, DEFAULT_ROWS)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*applyShape", "(Lsun/java2d/pipe/Region;)V", nullptr, $PUBLIC | $FINAL},
+		{"*canDetermineObscurity", "()Z", nullptr, $PUBLIC},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*coalescePaintEvent", "(Ljava/awt/event/PaintEvent;)V", nullptr, $PUBLIC},
+		{"*createBuffers", "(ILjava/awt/BufferCapabilities;)V", nullptr, $PUBLIC | $FINAL},
+		{"*createImage", "(II)Ljava/awt/Image;", nullptr, $PUBLIC | $FINAL},
+		{"*createVolatileImage", "(II)Ljava/awt/image/VolatileImage;", nullptr, $PUBLIC | $FINAL},
+		{"*destroyBuffers", "()V", nullptr, $PUBLIC | $FINAL},
+		{"*dispose", "()V", nullptr, $PUBLIC | $FINAL},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*flip", "(IIIILjava/awt/BufferCapabilities$FlipContents;)V", nullptr, $PUBLIC | $FINAL},
+		{"*getBackBuffer", "()Ljava/awt/Image;", nullptr, $PUBLIC | $FINAL},
+		{"*getCaretPosition", "()I", nullptr, $PUBLIC | $FINAL},
+		{"*getColorModel", "()Ljava/awt/image/ColorModel;", nullptr, $PUBLIC},
+		{"*getFontMetrics", "(Ljava/awt/Font;)Ljava/awt/FontMetrics;", nullptr, $PUBLIC},
+		{"*getGraphics", "()Ljava/awt/Graphics;", nullptr, $PUBLIC},
+		{"*getGraphicsConfiguration", "()Ljava/awt/GraphicsConfiguration;", nullptr, $PUBLIC},
+		{"*getInputMethodRequests", "()Ljava/awt/im/InputMethodRequests;", nullptr, $PUBLIC | $FINAL},
+		{"*getLocationOnScreen", "()Ljava/awt/Point;", nullptr, $PUBLIC},
+		{"*getSelectionEnd", "()I", nullptr, $PUBLIC | $FINAL},
+		{"*getSelectionStart", "()I", nullptr, $PUBLIC | $FINAL},
+		{"*getText", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL},
+		{"*handleEvent", "(Ljava/awt/AWTEvent;)V", nullptr, $PUBLIC},
+		{"*handlesWheelScrolling", "()Z", nullptr, $PUBLIC},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/awt/TextArea;Lsun/lwawt/PlatformComponent;)V", nullptr, 0, $method(LWTextAreaPeer, init$, void, $TextArea*, $PlatformComponent*)},
+		{"createDelegate", "()Lsun/lwawt/LWTextAreaPeer$ScrollableJTextArea;", nullptr, 0, $virtualMethod(LWTextAreaPeer, createDelegate, $JComponent*)},
+		{"getCursor", "(Ljava/awt/Point;)Ljava/awt/Cursor;", nullptr, 0, $virtualMethod(LWTextAreaPeer, getCursor, $Cursor*, $Point*)},
+		{"getDelegateFocusOwner", "()Ljava/awt/Component;", nullptr, 0, $virtualMethod(LWTextAreaPeer, getDelegateFocusOwner, $Component*)},
+		{"getMinimumSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(LWTextAreaPeer, getMinimumSize, $Dimension*)},
+		{"getMinimumSize", "(II)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(LWTextAreaPeer, getMinimumSize, $Dimension*, int32_t, int32_t)},
+		{"getPreferredSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(LWTextAreaPeer, getPreferredSize, $Dimension*)},
+		{"getPreferredSize", "(II)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(LWTextAreaPeer, getPreferredSize, $Dimension*, int32_t, int32_t)},
+		{"getTextComponent", "()Ljavax/swing/JTextArea;", nullptr, 0, $virtualMethod(LWTextAreaPeer, getTextComponent, $JTextComponent*)},
+		{"initializeImpl", "()V", nullptr, 0, $virtualMethod(LWTextAreaPeer, initializeImpl, void)},
+		{"insert", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $virtualMethod(LWTextAreaPeer, insert, void, $String*, int32_t)},
+		{"*isFocusable", "()Z", nullptr, $PUBLIC | $FINAL},
+		{"*isObscured", "()Z", nullptr, $PUBLIC},
+		{"*isReparentSupported", "()Z", nullptr, $PUBLIC},
+		{"*layout", "()V", nullptr, $PUBLIC},
+		{"*paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC},
+		{"*print", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC},
+		{"*reparent", "(Ljava/awt/peer/ContainerPeer;)V", nullptr, $PUBLIC},
+		{"replaceRange", "(Ljava/lang/String;II)V", nullptr, $PUBLIC, $virtualMethod(LWTextAreaPeer, replaceRange, void, $String*, int32_t, int32_t)},
+		{"*requestFocus", "(Ljava/awt/Component;ZZJLjava/awt/event/FocusEvent$Cause;)Z", nullptr, $PUBLIC},
+		{"*select", "(II)V", nullptr, $PUBLIC | $FINAL},
+		{"*setBackground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC},
+		{"*setBounds", "(IIIII)V", nullptr, $PUBLIC},
+		{"*setCaretPosition", "(I)V", nullptr, $PUBLIC | $FINAL},
+		{"*setEditable", "(Z)V", nullptr, $PUBLIC | $FINAL},
+		{"*setEnabled", "(Z)V", nullptr, $PUBLIC},
+		{"*setFont", "(Ljava/awt/Font;)V", nullptr, $PUBLIC},
+		{"*setForeground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC},
+		{"setScrollBarVisibility", "(I)V", nullptr, $PRIVATE, $method(LWTextAreaPeer, setScrollBarVisibility, void, int32_t)},
+		{"*setText", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $FINAL},
+		{"*updateGraphicsData", "(Ljava/awt/GraphicsConfiguration;)Z", nullptr, $PUBLIC},
+		{"*setVisible", "(Z)V", nullptr, $PUBLIC},
+		{"*setZOrder", "(Ljava/awt/peer/ComponentPeer;)V", nullptr, $PUBLIC},
+		{"*updateCursorImmediately", "()V", nullptr, $PUBLIC},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.lwawt.LWTextAreaPeer$ScrollableJTextArea", "sun.lwawt.LWTextAreaPeer", "ScrollableJTextArea", $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.lwawt.LWTextAreaPeer",
+		"sun.lwawt.LWTextComponentPeer",
+		"java.awt.peer.TextAreaPeer",
+		fieldInfos$$,
+		methodInfos$$,
+		"Lsun/lwawt/LWTextComponentPeer<Ljava/awt/TextArea;Lsun/lwawt/LWTextAreaPeer$ScrollableJTextArea;>;Ljava/awt/peer/TextAreaPeer;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.lwawt.LWTextAreaPeer$ScrollableJTextArea,sun.lwawt.LWTextAreaPeer$ScrollableJTextArea$JTextAreaDelegate"
+	};
+	$loadClass(LWTextAreaPeer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(LWTextAreaPeer));
+	});
 	return class$;
 }
 

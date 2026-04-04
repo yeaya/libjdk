@@ -1,5 +1,4 @@
 #include <sun/font/X11SunUnicode_0.h>
-
 #include <java/lang/Error.h>
 #include <java/nio/charset/Charset.h>
 #include <java/nio/charset/CharsetDecoder.h>
@@ -18,38 +17,6 @@ using $X11SunUnicode_0$Encoder = ::sun::font::X11SunUnicode_0$Encoder;
 
 namespace sun {
 	namespace font {
-
-$MethodInfo _X11SunUnicode_0_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(X11SunUnicode_0, init$, void)},
-	{"contains", "(Ljava/nio/charset/Charset;)Z", nullptr, $PUBLIC, $virtualMethod(X11SunUnicode_0, contains, bool, $Charset*)},
-	{"newDecoder", "()Ljava/nio/charset/CharsetDecoder;", nullptr, $PUBLIC, $virtualMethod(X11SunUnicode_0, newDecoder, $CharsetDecoder*)},
-	{"newEncoder", "()Ljava/nio/charset/CharsetEncoder;", nullptr, $PUBLIC, $virtualMethod(X11SunUnicode_0, newEncoder, $CharsetEncoder*)},
-	{}
-};
-
-$InnerClassInfo _X11SunUnicode_0_InnerClassesInfo_[] = {
-	{"sun.font.X11SunUnicode_0$Encoder", "sun.font.X11SunUnicode_0", "Encoder", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _X11SunUnicode_0_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.font.X11SunUnicode_0",
-	"java.nio.charset.Charset",
-	nullptr,
-	nullptr,
-	_X11SunUnicode_0_MethodInfo_,
-	nullptr,
-	nullptr,
-	_X11SunUnicode_0_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.font.X11SunUnicode_0$Encoder"
-};
-
-$Object* allocate$X11SunUnicode_0($Class* clazz) {
-	return $of($alloc(X11SunUnicode_0));
-}
 
 void X11SunUnicode_0::init$() {
 	$Charset::init$("X11SunUnicode_0"_s, nullptr);
@@ -72,7 +39,34 @@ X11SunUnicode_0::X11SunUnicode_0() {
 }
 
 $Class* X11SunUnicode_0::load$($String* name, bool initialize) {
-	$loadClass(X11SunUnicode_0, name, initialize, &_X11SunUnicode_0_ClassInfo_, allocate$X11SunUnicode_0);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(X11SunUnicode_0, init$, void)},
+		{"contains", "(Ljava/nio/charset/Charset;)Z", nullptr, $PUBLIC, $virtualMethod(X11SunUnicode_0, contains, bool, $Charset*)},
+		{"newDecoder", "()Ljava/nio/charset/CharsetDecoder;", nullptr, $PUBLIC, $virtualMethod(X11SunUnicode_0, newDecoder, $CharsetDecoder*)},
+		{"newEncoder", "()Ljava/nio/charset/CharsetEncoder;", nullptr, $PUBLIC, $virtualMethod(X11SunUnicode_0, newEncoder, $CharsetEncoder*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.font.X11SunUnicode_0$Encoder", "sun.font.X11SunUnicode_0", "Encoder", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.font.X11SunUnicode_0",
+		"java.nio.charset.Charset",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.font.X11SunUnicode_0$Encoder"
+	};
+	$loadClass(X11SunUnicode_0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(X11SunUnicode_0);
+	});
 	return class$;
 }
 

@@ -21,11 +21,14 @@ public:
 	void init$();
 	void init$($String* key);
 	virtual $String* getKey();
-	static const int64_t serialVersionUID = (int64_t)0xF2D6505CC365236B;
+	static const int64_t serialVersionUID = (int64_t)0xf2d6505cc365236b;
 	$String* fKey = nullptr;
 	XPathException(const XPathException& e);
 	virtual void throw$() override;
-	inline XPathException* operator ->() {
+	inline XPathException* operator ->() const {
+		return (XPathException*)throwing$;
+	}
+	inline operator XPathException*() const {
 		return (XPathException*)throwing$;
 	}
 };

@@ -25,10 +25,13 @@ public:
 	XMLEntityScanner$1();
 	void init$();
 	virtual $Throwable* fillInStackTrace() override;
-	static const int64_t serialVersionUID = (int64_t)0x0D9ADC0245BEB3C4;
+	static const int64_t serialVersionUID = (int64_t)0x0d9adc0245beb3c4;
 	XMLEntityScanner$1(const XMLEntityScanner$1& e);
 	virtual void throw$() override;
-	inline XMLEntityScanner$1* operator ->() {
+	inline XMLEntityScanner$1* operator ->() const {
+		return (XMLEntityScanner$1*)throwing$;
+	}
+	inline operator XMLEntityScanner$1*() const {
 		return (XMLEntityScanner$1*)throwing$;
 	}
 };

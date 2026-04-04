@@ -1,5 +1,4 @@
 #include <sun/awt/X11/XMSelection$2.h>
-
 #include <sun/awt/X11/XEvent.h>
 #include <sun/awt/X11/XMSelection.h>
 #include <jcpp.h>
@@ -16,49 +15,6 @@ namespace sun {
 	namespace awt {
 		namespace X11 {
 
-$FieldInfo _XMSelection$2_FieldInfo_[] = {
-	{"this$0", "Lsun/awt/X11/XMSelection;", nullptr, $FINAL | $SYNTHETIC, $field(XMSelection$2, this$0)},
-	{"val$screen", "I", nullptr, $FINAL | $SYNTHETIC, $field(XMSelection$2, val$screen)},
-	{}
-};
-
-$MethodInfo _XMSelection$2_MethodInfo_[] = {
-	{"<init>", "(Lsun/awt/X11/XMSelection;I)V", "()V", 0, $method(XMSelection$2, init$, void, $XMSelection*, int32_t)},
-	{"dispatchEvent", "(Lsun/awt/X11/XEvent;)V", nullptr, $PUBLIC, $virtualMethod(XMSelection$2, dispatchEvent, void, $XEvent*)},
-	{}
-};
-
-$EnclosingMethodInfo _XMSelection$2_EnclosingMethodInfo_ = {
-	"sun.awt.X11.XMSelection",
-	"resetOwner",
-	"(JI)V"
-};
-
-$InnerClassInfo _XMSelection$2_InnerClassesInfo_[] = {
-	{"sun.awt.X11.XMSelection$2", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _XMSelection$2_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.awt.X11.XMSelection$2",
-	"java.lang.Object",
-	"sun.awt.X11.XEventDispatcher",
-	_XMSelection$2_FieldInfo_,
-	_XMSelection$2_MethodInfo_,
-	nullptr,
-	&_XMSelection$2_EnclosingMethodInfo_,
-	_XMSelection$2_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.awt.X11.XMSelection"
-};
-
-$Object* allocate$XMSelection$2($Class* clazz) {
-	return $of($alloc(XMSelection$2));
-}
-
 void XMSelection$2::init$($XMSelection* this$0, int32_t val$screen) {
 	$set(this, this$0, this$0);
 	this->val$screen = val$screen;
@@ -72,7 +28,43 @@ XMSelection$2::XMSelection$2() {
 }
 
 $Class* XMSelection$2::load$($String* name, bool initialize) {
-	$loadClass(XMSelection$2, name, initialize, &_XMSelection$2_ClassInfo_, allocate$XMSelection$2);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/awt/X11/XMSelection;", nullptr, $FINAL | $SYNTHETIC, $field(XMSelection$2, this$0)},
+		{"val$screen", "I", nullptr, $FINAL | $SYNTHETIC, $field(XMSelection$2, val$screen)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/awt/X11/XMSelection;I)V", "()V", 0, $method(XMSelection$2, init$, void, $XMSelection*, int32_t)},
+		{"dispatchEvent", "(Lsun/awt/X11/XEvent;)V", nullptr, $PUBLIC, $virtualMethod(XMSelection$2, dispatchEvent, void, $XEvent*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.awt.X11.XMSelection",
+		"resetOwner",
+		"(JI)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.X11.XMSelection$2", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.awt.X11.XMSelection$2",
+		"java.lang.Object",
+		"sun.awt.X11.XEventDispatcher",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.awt.X11.XMSelection"
+	};
+	$loadClass(XMSelection$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XMSelection$2);
+	});
 	return class$;
 }
 

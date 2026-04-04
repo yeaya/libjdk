@@ -1,5 +1,4 @@
 #include <com/sun/beans/finder/PropertyEditorFinder.h>
-
 #include <com/sun/beans/WeakCache.h>
 #include <com/sun/beans/editors/BooleanEditor.h>
 #include <com/sun/beans/editors/ByteEditor.h>
@@ -44,37 +43,6 @@ namespace com {
 		namespace beans {
 			namespace finder {
 
-$FieldInfo _PropertyEditorFinder_FieldInfo_[] = {
-	{"DEFAULT", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PropertyEditorFinder, DEFAULT)},
-	{"DEFAULT_NEW", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PropertyEditorFinder, DEFAULT_NEW)},
-	{"registry", "Lcom/sun/beans/WeakCache;", "Lcom/sun/beans/WeakCache<Ljava/lang/Class<*>;Ljava/lang/Class<*>;>;", $PRIVATE | $FINAL, $field(PropertyEditorFinder, registry)},
-	{}
-};
-
-$MethodInfo _PropertyEditorFinder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(PropertyEditorFinder, init$, void)},
-	{"find", "(Ljava/lang/Class;)Ljava/beans/PropertyEditor;", "(Ljava/lang/Class<*>;)Ljava/beans/PropertyEditor;", $PUBLIC, $virtualMethod(PropertyEditorFinder, find, $Object*, $Class*)},
-	{"getPackages", "()[Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(PropertyEditorFinder, getPackages, $StringArray*)},
-	{"instantiate", "(Ljava/lang/Class;Ljava/lang/String;Ljava/lang/String;)Ljava/beans/PropertyEditor;", "(Ljava/lang/Class<*>;Ljava/lang/String;Ljava/lang/String;)Ljava/beans/PropertyEditor;", $PROTECTED, $virtualMethod(PropertyEditorFinder, instantiate, $Object*, $Class*, $String*, $String*)},
-	{"register", "(Ljava/lang/Class;Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;)V", $PUBLIC, $method(PropertyEditorFinder, register$, void, $Class*, $Class*)},
-	{"setPackages", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(PropertyEditorFinder, setPackages, void, $StringArray*)},
-	{}
-};
-
-$ClassInfo _PropertyEditorFinder_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.beans.finder.PropertyEditorFinder",
-	"com.sun.beans.finder.InstanceFinder",
-	nullptr,
-	_PropertyEditorFinder_FieldInfo_,
-	_PropertyEditorFinder_MethodInfo_,
-	"Lcom/sun/beans/finder/InstanceFinder<Ljava/beans/PropertyEditor;>;"
-};
-
-$Object* allocate$PropertyEditorFinder($Class* clazz) {
-	return $of($alloc(PropertyEditorFinder));
-}
-
 $String* PropertyEditorFinder::DEFAULT = nullptr;
 $String* PropertyEditorFinder::DEFAULT_NEW = nullptr;
 
@@ -82,39 +50,32 @@ void PropertyEditorFinder::init$() {
 	$load($PropertyEditor);
 	$InstanceFinder::init$($PropertyEditor::class$, false, "Editor"_s, $$new($StringArray, {PropertyEditorFinder::DEFAULT}));
 	$set(this, registry, $new($WeakCache));
-	$init($Byte);
 	$load($ByteEditor);
-	$nc(this->registry)->put($Byte::TYPE, $ByteEditor::class$);
-	$init($Short);
+	this->registry->put($Byte::TYPE, $ByteEditor::class$);
 	$load($ShortEditor);
-	$nc(this->registry)->put($Short::TYPE, $ShortEditor::class$);
-	$init($Integer);
+	this->registry->put($Short::TYPE, $ShortEditor::class$);
 	$load($IntegerEditor);
-	$nc(this->registry)->put($Integer::TYPE, $IntegerEditor::class$);
-	$init($Long);
+	this->registry->put($Integer::TYPE, $IntegerEditor::class$);
 	$load($LongEditor);
-	$nc(this->registry)->put($Long::TYPE, $LongEditor::class$);
-	$init($Boolean);
+	this->registry->put($Long::TYPE, $LongEditor::class$);
 	$load($BooleanEditor);
-	$nc(this->registry)->put($Boolean::TYPE, $BooleanEditor::class$);
-	$init($Float);
+	this->registry->put($Boolean::TYPE, $BooleanEditor::class$);
 	$load($FloatEditor);
-	$nc(this->registry)->put($Float::TYPE, $FloatEditor::class$);
-	$init($Double);
+	this->registry->put($Float::TYPE, $FloatEditor::class$);
 	$load($DoubleEditor);
-	$nc(this->registry)->put($Double::TYPE, $DoubleEditor::class$);
+	this->registry->put($Double::TYPE, $DoubleEditor::class$);
 }
 
 void PropertyEditorFinder::register$($Class* type, $Class* editor) {
 	$synchronized(this->registry) {
-		$nc(this->registry)->put(type, editor);
+		this->registry->put(type, editor);
 	}
 }
 
 $Object* PropertyEditorFinder::find($Class* type) {
 	$Class* predefined = nullptr;
 	$synchronized(this->registry) {
-		predefined = $cast($Class, $nc(this->registry)->get(type));
+		predefined = $cast($Class, this->registry->get(type));
 	}
 	$var($PropertyEditor, editor, $cast($PropertyEditor, instantiate(predefined, nullptr)));
 	if (editor == nullptr) {
@@ -123,11 +84,11 @@ $Object* PropertyEditorFinder::find($Class* type) {
 			$assign(editor, $new($EnumEditor, type));
 		}
 	}
-	return $of(editor);
+	return editor;
 }
 
 $Object* PropertyEditorFinder::instantiate($Class* type, $String* prefix, $String* name) {
-	return $of($cast($PropertyEditor, $InstanceFinder::instantiate(type, $nc(PropertyEditorFinder::DEFAULT)->equals(prefix) ? PropertyEditorFinder::DEFAULT_NEW : prefix, name)));
+	return $cast($PropertyEditor, $InstanceFinder::instantiate(type, PropertyEditorFinder::DEFAULT->equals(prefix) ? PropertyEditorFinder::DEFAULT_NEW : prefix, name));
 }
 
 void PropertyEditorFinder::setPackages($StringArray* packages) {
@@ -141,13 +102,39 @@ $StringArray* PropertyEditorFinder::getPackages() {
 PropertyEditorFinder::PropertyEditorFinder() {
 }
 
-void clinit$PropertyEditorFinder($Class* class$) {
+void PropertyEditorFinder::clinit$($Class* clazz) {
 	$assignStatic(PropertyEditorFinder::DEFAULT, "sun.beans.editors"_s);
 	$assignStatic(PropertyEditorFinder::DEFAULT_NEW, "com.sun.beans.editors"_s);
 }
 
 $Class* PropertyEditorFinder::load$($String* name, bool initialize) {
-	$loadClass(PropertyEditorFinder, name, initialize, &_PropertyEditorFinder_ClassInfo_, clinit$PropertyEditorFinder, allocate$PropertyEditorFinder);
+	$FieldInfo fieldInfos$$[] = {
+		{"DEFAULT", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PropertyEditorFinder, DEFAULT)},
+		{"DEFAULT_NEW", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PropertyEditorFinder, DEFAULT_NEW)},
+		{"registry", "Lcom/sun/beans/WeakCache;", "Lcom/sun/beans/WeakCache<Ljava/lang/Class<*>;Ljava/lang/Class<*>;>;", $PRIVATE | $FINAL, $field(PropertyEditorFinder, registry)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(PropertyEditorFinder, init$, void)},
+		{"find", "(Ljava/lang/Class;)Ljava/beans/PropertyEditor;", "(Ljava/lang/Class<*>;)Ljava/beans/PropertyEditor;", $PUBLIC, $virtualMethod(PropertyEditorFinder, find, $Object*, $Class*)},
+		{"getPackages", "()[Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(PropertyEditorFinder, getPackages, $StringArray*)},
+		{"instantiate", "(Ljava/lang/Class;Ljava/lang/String;Ljava/lang/String;)Ljava/beans/PropertyEditor;", "(Ljava/lang/Class<*>;Ljava/lang/String;Ljava/lang/String;)Ljava/beans/PropertyEditor;", $PROTECTED, $virtualMethod(PropertyEditorFinder, instantiate, $Object*, $Class*, $String*, $String*)},
+		{"register", "(Ljava/lang/Class;Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;)V", $PUBLIC, $method(PropertyEditorFinder, register$, void, $Class*, $Class*)},
+		{"setPackages", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(PropertyEditorFinder, setPackages, void, $StringArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.beans.finder.PropertyEditorFinder",
+		"com.sun.beans.finder.InstanceFinder",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Lcom/sun/beans/finder/InstanceFinder<Ljava/beans/PropertyEditor;>;"
+	};
+	$loadClass(PropertyEditorFinder, name, initialize, &classInfo$$, PropertyEditorFinder::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(PropertyEditorFinder);
+	});
 	return class$;
 }
 

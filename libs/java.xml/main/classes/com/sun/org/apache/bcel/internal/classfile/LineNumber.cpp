@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/bcel/internal/classfile/LineNumber.h>
-
 #include <com/sun/org/apache/bcel/internal/classfile/Visitor.h>
 #include <java/io/DataInput.h>
 #include <java/io/DataOutputStream.h>
@@ -23,44 +22,6 @@ namespace com {
 				namespace bcel {
 					namespace internal {
 						namespace classfile {
-
-$FieldInfo _LineNumber_FieldInfo_[] = {
-	{"startPc", "S", nullptr, $PRIVATE, $field(LineNumber, startPc)},
-	{"lineNumber", "S", nullptr, $PRIVATE, $field(LineNumber, lineNumber)},
-	{}
-};
-
-$MethodInfo _LineNumber_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lcom/sun/org/apache/bcel/internal/classfile/LineNumber;)V", nullptr, $PUBLIC, $method(LineNumber, init$, void, LineNumber*)},
-	{"<init>", "(Ljava/io/DataInput;)V", nullptr, 0, $method(LineNumber, init$, void, $DataInput*), "java.io.IOException"},
-	{"<init>", "(II)V", nullptr, $PUBLIC, $method(LineNumber, init$, void, int32_t, int32_t)},
-	{"accept", "(Lcom/sun/org/apache/bcel/internal/classfile/Visitor;)V", nullptr, $PUBLIC, $virtualMethod(LineNumber, accept, void, $Visitor*)},
-	{"copy", "()Lcom/sun/org/apache/bcel/internal/classfile/LineNumber;", nullptr, $PUBLIC, $method(LineNumber, copy, LineNumber*)},
-	{"dump", "(Ljava/io/DataOutputStream;)V", nullptr, $PUBLIC, $method(LineNumber, dump, void, $DataOutputStream*), "java.io.IOException"},
-	{"getLineNumber", "()I", nullptr, $PUBLIC, $method(LineNumber, getLineNumber, int32_t)},
-	{"getStartPC", "()I", nullptr, $PUBLIC, $method(LineNumber, getStartPC, int32_t)},
-	{"setLineNumber", "(I)V", nullptr, $PUBLIC, $method(LineNumber, setLineNumber, void, int32_t)},
-	{"setStartPC", "(I)V", nullptr, $PUBLIC, $method(LineNumber, setStartPC, void, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LineNumber, toString, $String*)},
-	{}
-};
-
-$ClassInfo _LineNumber_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.org.apache.bcel.internal.classfile.LineNumber",
-	"java.lang.Object",
-	"java.lang.Cloneable,com.sun.org.apache.bcel.internal.classfile.Node",
-	_LineNumber_FieldInfo_,
-	_LineNumber_MethodInfo_
-};
-
-$Object* allocate$LineNumber($Class* clazz) {
-	return $of($alloc(LineNumber));
-}
 
 int32_t LineNumber::hashCode() {
 	 return this->$Cloneable::hashCode();
@@ -103,11 +64,11 @@ void LineNumber::dump($DataOutputStream* file) {
 }
 
 int32_t LineNumber::getLineNumber() {
-	return (int32_t)(0x0000FFFF & (uint32_t)(int32_t)this->lineNumber);
+	return 0xffff & this->lineNumber;
 }
 
 int32_t LineNumber::getStartPC() {
-	return (int32_t)(0x0000FFFF & (uint32_t)(int32_t)this->startPc);
+	return 0xffff & this->startPc;
 }
 
 void LineNumber::setLineNumber(int32_t lineNumber) {
@@ -119,7 +80,7 @@ void LineNumber::setStartPC(int32_t startPc) {
 }
 
 $String* LineNumber::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $str({"LineNumber("_s, $$str(this->startPc), ", "_s, $$str(this->lineNumber), ")"_s});
 }
 
@@ -135,7 +96,40 @@ LineNumber::LineNumber() {
 }
 
 $Class* LineNumber::load$($String* name, bool initialize) {
-	$loadClass(LineNumber, name, initialize, &_LineNumber_ClassInfo_, allocate$LineNumber);
+	$FieldInfo fieldInfos$$[] = {
+		{"startPc", "S", nullptr, $PRIVATE, $field(LineNumber, startPc)},
+		{"lineNumber", "S", nullptr, $PRIVATE, $field(LineNumber, lineNumber)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lcom/sun/org/apache/bcel/internal/classfile/LineNumber;)V", nullptr, $PUBLIC, $method(LineNumber, init$, void, LineNumber*)},
+		{"<init>", "(Ljava/io/DataInput;)V", nullptr, 0, $method(LineNumber, init$, void, $DataInput*), "java.io.IOException"},
+		{"<init>", "(II)V", nullptr, $PUBLIC, $method(LineNumber, init$, void, int32_t, int32_t)},
+		{"accept", "(Lcom/sun/org/apache/bcel/internal/classfile/Visitor;)V", nullptr, $PUBLIC, $virtualMethod(LineNumber, accept, void, $Visitor*)},
+		{"copy", "()Lcom/sun/org/apache/bcel/internal/classfile/LineNumber;", nullptr, $PUBLIC, $method(LineNumber, copy, LineNumber*)},
+		{"dump", "(Ljava/io/DataOutputStream;)V", nullptr, $PUBLIC, $method(LineNumber, dump, void, $DataOutputStream*), "java.io.IOException"},
+		{"getLineNumber", "()I", nullptr, $PUBLIC, $method(LineNumber, getLineNumber, int32_t)},
+		{"getStartPC", "()I", nullptr, $PUBLIC, $method(LineNumber, getStartPC, int32_t)},
+		{"setLineNumber", "(I)V", nullptr, $PUBLIC, $method(LineNumber, setLineNumber, void, int32_t)},
+		{"setStartPC", "(I)V", nullptr, $PUBLIC, $method(LineNumber, setStartPC, void, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LineNumber, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.org.apache.bcel.internal.classfile.LineNumber",
+		"java.lang.Object",
+		"java.lang.Cloneable,com.sun.org.apache.bcel.internal.classfile.Node",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(LineNumber, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(LineNumber));
+	});
 	return class$;
 }
 

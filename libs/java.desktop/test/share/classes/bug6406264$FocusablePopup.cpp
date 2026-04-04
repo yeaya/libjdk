@@ -1,5 +1,4 @@
 #include <bug6406264$FocusablePopup.h>
-
 #include <bug6406264.h>
 #include <javax/swing/JComboBox.h>
 #include <javax/swing/plaf/basic/BasicComboPopup.h>
@@ -12,42 +11,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $JComboBox = ::javax::swing::JComboBox;
 using $BasicComboPopup = ::javax::swing::plaf::basic::BasicComboPopup;
-
-$FieldInfo _bug6406264$FocusablePopup_FieldInfo_[] = {
-	{"this$0", "Lbug6406264;", nullptr, $FINAL | $SYNTHETIC, $field(bug6406264$FocusablePopup, this$0)},
-	{}
-};
-
-$MethodInfo _bug6406264$FocusablePopup_MethodInfo_[] = {
-	{"<init>", "(Lbug6406264;Ljavax/swing/JComboBox;)V", nullptr, $PUBLIC, $method(bug6406264$FocusablePopup, init$, void, $bug6406264*, $JComboBox*)},
-	{"isFocusable", "()Z", nullptr, $PUBLIC, $virtualMethod(bug6406264$FocusablePopup, isFocusable, bool)},
-	{}
-};
-
-$InnerClassInfo _bug6406264$FocusablePopup_InnerClassesInfo_[] = {
-	{"bug6406264$FocusablePopup", "bug6406264", "FocusablePopup", $PRIVATE},
-	{}
-};
-
-$ClassInfo _bug6406264$FocusablePopup_ClassInfo_ = {
-	$ACC_SUPER,
-	"bug6406264$FocusablePopup",
-	"javax.swing.plaf.basic.BasicComboPopup",
-	nullptr,
-	_bug6406264$FocusablePopup_FieldInfo_,
-	_bug6406264$FocusablePopup_MethodInfo_,
-	nullptr,
-	nullptr,
-	_bug6406264$FocusablePopup_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"bug6406264"
-};
-
-$Object* allocate$bug6406264$FocusablePopup($Class* clazz) {
-	return $of($alloc(bug6406264$FocusablePopup));
-}
 
 void bug6406264$FocusablePopup::init$($bug6406264* this$0, $JComboBox* combo) {
 	$set(this, this$0, this$0);
@@ -62,7 +25,37 @@ bug6406264$FocusablePopup::bug6406264$FocusablePopup() {
 }
 
 $Class* bug6406264$FocusablePopup::load$($String* name, bool initialize) {
-	$loadClass(bug6406264$FocusablePopup, name, initialize, &_bug6406264$FocusablePopup_ClassInfo_, allocate$bug6406264$FocusablePopup);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lbug6406264;", nullptr, $FINAL | $SYNTHETIC, $field(bug6406264$FocusablePopup, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lbug6406264;Ljavax/swing/JComboBox;)V", nullptr, $PUBLIC, $method(bug6406264$FocusablePopup, init$, void, $bug6406264*, $JComboBox*)},
+		{"isFocusable", "()Z", nullptr, $PUBLIC, $virtualMethod(bug6406264$FocusablePopup, isFocusable, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"bug6406264$FocusablePopup", "bug6406264", "FocusablePopup", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"bug6406264$FocusablePopup",
+		"javax.swing.plaf.basic.BasicComboPopup",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"bug6406264"
+	};
+	$loadClass(bug6406264$FocusablePopup, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(bug6406264$FocusablePopup));
+	});
 	return class$;
 }
 

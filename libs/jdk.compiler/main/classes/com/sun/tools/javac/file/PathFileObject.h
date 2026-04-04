@@ -71,6 +71,7 @@ class $export PathFileObject : public ::javax::tools::JavaFileObject {
 	$class(PathFileObject, 0, ::javax::tools::JavaFileObject)
 public:
 	PathFileObject();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::com::sun::tools::javac::file::BaseFileManager* fileManager, ::java::nio::file::Path* path);
 	virtual bool delete$() override;
 	void ensureParentDirectoriesExist();

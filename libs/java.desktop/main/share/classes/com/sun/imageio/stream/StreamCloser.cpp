@@ -1,5 +1,4 @@
 #include <com/sun/imageio/stream/StreamCloser.h>
-
 #include <com/sun/imageio/stream/StreamCloser$1.h>
 #include <com/sun/imageio/stream/StreamCloser$CloseAction.h>
 #include <java/io/Serializable.h>
@@ -51,76 +50,32 @@ public:
 	virtual $Object* run() override {
 		 return StreamCloser::lambda$addToQueue$0(streamCloserRunnable);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<StreamCloser$$Lambda$lambda$addToQueue$0>());
-	}
 	$Runnable* streamCloserRunnable = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo StreamCloser$$Lambda$lambda$addToQueue$0::fieldInfos[2] = {
-	{"streamCloserRunnable", "Ljava/lang/Runnable;", nullptr, $PUBLIC, $field(StreamCloser$$Lambda$lambda$addToQueue$0, streamCloserRunnable)},
-	{}
-};
-$MethodInfo StreamCloser$$Lambda$lambda$addToQueue$0::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/Runnable;)V", nullptr, $PUBLIC, $method(StreamCloser$$Lambda$lambda$addToQueue$0, init$, void, $Runnable*)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(StreamCloser$$Lambda$lambda$addToQueue$0, run, $Object*)},
-	{}
-};
-$ClassInfo StreamCloser$$Lambda$lambda$addToQueue$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.imageio.stream.StreamCloser$$Lambda$lambda$addToQueue$0",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	fieldInfos,
-	methodInfos
 };
 $Class* StreamCloser$$Lambda$lambda$addToQueue$0::load$($String* name, bool initialize) {
-	$loadClass(StreamCloser$$Lambda$lambda$addToQueue$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"streamCloserRunnable", "Ljava/lang/Runnable;", nullptr, $PUBLIC, $field(StreamCloser$$Lambda$lambda$addToQueue$0, streamCloserRunnable)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Runnable;)V", nullptr, $PUBLIC, $method(StreamCloser$$Lambda$lambda$addToQueue$0, init$, void, $Runnable*)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(StreamCloser$$Lambda$lambda$addToQueue$0, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.imageio.stream.StreamCloser$$Lambda$lambda$addToQueue$0",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(StreamCloser$$Lambda$lambda$addToQueue$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(StreamCloser$$Lambda$lambda$addToQueue$0);
+	});
 	return class$;
 }
 $Class* StreamCloser$$Lambda$lambda$addToQueue$0::class$ = nullptr;
-
-$FieldInfo _StreamCloser_FieldInfo_[] = {
-	{"toCloseQueue", "Ljava/util/WeakHashMap;", "Ljava/util/WeakHashMap<Lcom/sun/imageio/stream/StreamCloser$CloseAction;Ljava/lang/Object;>;", $PRIVATE | $STATIC, $staticField(StreamCloser, toCloseQueue)},
-	{"streamCloser", "Ljava/lang/Thread;", nullptr, $PRIVATE | $STATIC, $staticField(StreamCloser, streamCloser)},
-	{}
-};
-
-$MethodInfo _StreamCloser_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(StreamCloser, init$, void)},
-	{"addToQueue", "(Lcom/sun/imageio/stream/StreamCloser$CloseAction;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(StreamCloser, addToQueue, void, $StreamCloser$CloseAction*)},
-	{"createCloseAction", "(Ljavax/imageio/stream/ImageInputStream;)Lcom/sun/imageio/stream/StreamCloser$CloseAction;", nullptr, $PUBLIC | $STATIC, $staticMethod(StreamCloser, createCloseAction, $StreamCloser$CloseAction*, $ImageInputStream*)},
-	{"lambda$addToQueue$0", "(Ljava/lang/Runnable;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(StreamCloser, lambda$addToQueue$0, $Object*, $Runnable*)},
-	{"removeFromQueue", "(Lcom/sun/imageio/stream/StreamCloser$CloseAction;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(StreamCloser, removeFromQueue, void, $StreamCloser$CloseAction*)},
-	{}
-};
-
-$InnerClassInfo _StreamCloser_InnerClassesInfo_[] = {
-	{"com.sun.imageio.stream.StreamCloser$CloseAction", "com.sun.imageio.stream.StreamCloser", "CloseAction", $PUBLIC | $STATIC | $FINAL},
-	{"com.sun.imageio.stream.StreamCloser$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _StreamCloser_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.imageio.stream.StreamCloser",
-	"java.lang.Object",
-	nullptr,
-	_StreamCloser_FieldInfo_,
-	_StreamCloser_MethodInfo_,
-	nullptr,
-	nullptr,
-	_StreamCloser_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.imageio.stream.StreamCloser$CloseAction,com.sun.imageio.stream.StreamCloser$1"
-};
-
-$Object* allocate$StreamCloser($Class* clazz) {
-	return $of($alloc(StreamCloser));
-}
 
 $WeakHashMap* StreamCloser::toCloseQueue = nullptr;
 $Thread* StreamCloser::streamCloser = nullptr;
@@ -129,8 +84,8 @@ void StreamCloser::init$() {
 }
 
 void StreamCloser::addToQueue($StreamCloser$CloseAction* ca) {
+	$useLocalObjectStack();
 	$load(StreamCloser);
-	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$synchronized(StreamCloser::class$) {
 		$init(StreamCloser);
@@ -140,7 +95,7 @@ void StreamCloser::addToQueue($StreamCloser$CloseAction* ca) {
 		$nc(StreamCloser::toCloseQueue)->put(ca, nullptr);
 		if (StreamCloser::streamCloser == nullptr) {
 			$var($Runnable, streamCloserRunnable, $new($StreamCloser$1));
-			$AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new(StreamCloser$$Lambda$lambda$addToQueue$0, streamCloserRunnable)));
+			$AccessController::doPrivileged($cast($PrivilegedAction, $$new(StreamCloser$$Lambda$lambda$addToQueue$0, streamCloserRunnable)));
 		}
 	}
 }
@@ -150,7 +105,7 @@ void StreamCloser::removeFromQueue($StreamCloser$CloseAction* ca) {
 	$synchronized(StreamCloser::class$) {
 		$init(StreamCloser);
 		if (StreamCloser::toCloseQueue != nullptr) {
-			$nc(StreamCloser::toCloseQueue)->remove(ca);
+			StreamCloser::toCloseQueue->remove(ca);
 		}
 	}
 }
@@ -160,13 +115,13 @@ $StreamCloser$CloseAction* StreamCloser::createCloseAction($ImageInputStream* ii
 }
 
 $Object* StreamCloser::lambda$addToQueue$0($Runnable* streamCloserRunnable) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ThreadGroup, tg, $ThreadGroupUtils::getRootThreadGroup());
 	$init(StreamCloser);
 	$assignStatic(StreamCloser::streamCloser, $new($Thread, tg, streamCloserRunnable, "StreamCloser"_s, 0, false));
-	$nc(StreamCloser::streamCloser)->setContextClassLoader(nullptr);
-	$nc($($Runtime::getRuntime()))->addShutdownHook(StreamCloser::streamCloser);
-	return $of(nullptr);
+	StreamCloser::streamCloser->setContextClassLoader(nullptr);
+	$$nc($Runtime::getRuntime())->addShutdownHook(StreamCloser::streamCloser);
+	return nullptr;
 }
 
 StreamCloser::StreamCloser() {
@@ -174,11 +129,45 @@ StreamCloser::StreamCloser() {
 
 $Class* StreamCloser::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(StreamCloser$$Lambda$lambda$addToQueue$0::classInfo$.name)) {
+		if (name->equals("com.sun.imageio.stream.StreamCloser$$Lambda$lambda$addToQueue$0")) {
 			return StreamCloser$$Lambda$lambda$addToQueue$0::load$(name, initialize);
 		}
 	}
-	$loadClass(StreamCloser, name, initialize, &_StreamCloser_ClassInfo_, allocate$StreamCloser);
+	$FieldInfo fieldInfos$$[] = {
+		{"toCloseQueue", "Ljava/util/WeakHashMap;", "Ljava/util/WeakHashMap<Lcom/sun/imageio/stream/StreamCloser$CloseAction;Ljava/lang/Object;>;", $PRIVATE | $STATIC, $staticField(StreamCloser, toCloseQueue)},
+		{"streamCloser", "Ljava/lang/Thread;", nullptr, $PRIVATE | $STATIC, $staticField(StreamCloser, streamCloser)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(StreamCloser, init$, void)},
+		{"addToQueue", "(Lcom/sun/imageio/stream/StreamCloser$CloseAction;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(StreamCloser, addToQueue, void, $StreamCloser$CloseAction*)},
+		{"createCloseAction", "(Ljavax/imageio/stream/ImageInputStream;)Lcom/sun/imageio/stream/StreamCloser$CloseAction;", nullptr, $PUBLIC | $STATIC, $staticMethod(StreamCloser, createCloseAction, $StreamCloser$CloseAction*, $ImageInputStream*)},
+		{"lambda$addToQueue$0", "(Ljava/lang/Runnable;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(StreamCloser, lambda$addToQueue$0, $Object*, $Runnable*)},
+		{"removeFromQueue", "(Lcom/sun/imageio/stream/StreamCloser$CloseAction;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(StreamCloser, removeFromQueue, void, $StreamCloser$CloseAction*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.imageio.stream.StreamCloser$CloseAction", "com.sun.imageio.stream.StreamCloser", "CloseAction", $PUBLIC | $STATIC | $FINAL},
+		{"com.sun.imageio.stream.StreamCloser$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.imageio.stream.StreamCloser",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.imageio.stream.StreamCloser$CloseAction,com.sun.imageio.stream.StreamCloser$1"
+	};
+	$loadClass(StreamCloser, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(StreamCloser);
+	});
 	return class$;
 }
 

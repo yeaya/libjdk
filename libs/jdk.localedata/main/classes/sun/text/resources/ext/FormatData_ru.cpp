@@ -1,5 +1,4 @@
 #include <sun/text/resources/ext/FormatData_ru.h>
-
 #include <sun/util/resources/ParallelListResourceBundle.h>
 #include <jcpp.h>
 
@@ -13,35 +12,16 @@ namespace sun {
 		namespace resources {
 			namespace ext {
 
-$MethodInfo _FormatData_ru_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(FormatData_ru, init$, void)},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(FormatData_ru, getContents, $ObjectArray2*)},
-	{}
-};
-
-$ClassInfo _FormatData_ru_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.text.resources.ext.FormatData_ru",
-	"sun.util.resources.ParallelListResourceBundle",
-	nullptr,
-	nullptr,
-	_FormatData_ru_MethodInfo_
-};
-
-$Object* allocate$FormatData_ru($Class* clazz) {
-	return $of($alloc(FormatData_ru));
-}
-
 void FormatData_ru::init$() {
 	$ParallelListResourceBundle::init$();
 }
 
 $ObjectArray2* FormatData_ru::getContents() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $new($ObjectArray2, {
 		$$new($ObjectArray, {
-			$of("MonthNames"_s),
-			$of($$new($StringArray, {
+			"MonthNames"_s,
+			$$new($StringArray, {
 				u"января"_s,
 				u"февраля"_s,
 				u"марта"_s,
@@ -55,11 +35,11 @@ $ObjectArray2* FormatData_ru::getContents() {
 				u"ноября"_s,
 				u"декабря"_s,
 				""_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("standalone.MonthNames"_s),
-			$of($$new($StringArray, {
+			"standalone.MonthNames"_s,
+			$$new($StringArray, {
 				u"Январь"_s,
 				u"Февраль"_s,
 				u"Март"_s,
@@ -73,11 +53,11 @@ $ObjectArray2* FormatData_ru::getContents() {
 				u"Ноябрь"_s,
 				u"Декабрь"_s,
 				""_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("MonthAbbreviations"_s),
-			$of($$new($StringArray, {
+			"MonthAbbreviations"_s,
+			$$new($StringArray, {
 				u"янв"_s,
 				u"фев"_s,
 				u"мар"_s,
@@ -91,11 +71,11 @@ $ObjectArray2* FormatData_ru::getContents() {
 				u"ноя"_s,
 				u"дек"_s,
 				""_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("standalone.MonthAbbreviations"_s),
-			$of($$new($StringArray, {
+			"standalone.MonthAbbreviations"_s,
+			$$new($StringArray, {
 				u"Янв."_s,
 				u"Февр."_s,
 				u"Март"_s,
@@ -109,11 +89,11 @@ $ObjectArray2* FormatData_ru::getContents() {
 				u"Нояб."_s,
 				u"Дек."_s,
 				""_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("MonthNarrows"_s),
-			$of($$new($StringArray, {
+			"MonthNarrows"_s,
+			$$new($StringArray, {
 				u"Я"_s,
 				u"Ф"_s,
 				u"М"_s,
@@ -127,11 +107,11 @@ $ObjectArray2* FormatData_ru::getContents() {
 				u"Н"_s,
 				u"Д"_s,
 				""_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("standalone.MonthNarrows"_s),
-			$of($$new($StringArray, {
+			"standalone.MonthNarrows"_s,
+			$$new($StringArray, {
 				u"Я"_s,
 				u"Ф"_s,
 				u"М"_s,
@@ -145,11 +125,11 @@ $ObjectArray2* FormatData_ru::getContents() {
 				u"Н"_s,
 				u"Д"_s,
 				""_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("DayNames"_s),
-			$of($$new($StringArray, {
+			"DayNames"_s,
+			$$new($StringArray, {
 				u"воскресенье"_s,
 				u"понедельник"_s,
 				u"вторник"_s,
@@ -157,11 +137,11 @@ $ObjectArray2* FormatData_ru::getContents() {
 				u"четверг"_s,
 				u"пятница"_s,
 				u"суббота"_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("standalone.DayNames"_s),
-			$of($$new($StringArray, {
+			"standalone.DayNames"_s,
+			$$new($StringArray, {
 				u"Воскресенье"_s,
 				u"Понедельник"_s,
 				u"Вторник"_s,
@@ -169,11 +149,11 @@ $ObjectArray2* FormatData_ru::getContents() {
 				u"Четверг"_s,
 				u"Пятница"_s,
 				u"Суббота"_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("DayAbbreviations"_s),
-			$of($$new($StringArray, {
+			"DayAbbreviations"_s,
+			$$new($StringArray, {
 				u"Вс"_s,
 				u"Пн"_s,
 				u"Вт"_s,
@@ -181,11 +161,11 @@ $ObjectArray2* FormatData_ru::getContents() {
 				u"Чт"_s,
 				u"Пт"_s,
 				u"Сб"_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("standalone.DayAbbreviations"_s),
-			$of($$new($StringArray, {
+			"standalone.DayAbbreviations"_s,
+			$$new($StringArray, {
 				u"Вс"_s,
 				u"Пн"_s,
 				u"Вт"_s,
@@ -193,11 +173,11 @@ $ObjectArray2* FormatData_ru::getContents() {
 				u"Чт"_s,
 				u"Пт"_s,
 				u"Сб"_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("DayNarrows"_s),
-			$of($$new($StringArray, {
+			"DayNarrows"_s,
+			$$new($StringArray, {
 				u"В"_s,
 				u"Пн"_s,
 				u"Вт"_s,
@@ -205,11 +185,11 @@ $ObjectArray2* FormatData_ru::getContents() {
 				u"Ч"_s,
 				u"П"_s,
 				u"С"_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("standalone.DayNarrows"_s),
-			$of($$new($StringArray, {
+			"standalone.DayNarrows"_s,
+			$$new($StringArray, {
 				u"В"_s,
 				u"П"_s,
 				u"В"_s,
@@ -217,18 +197,18 @@ $ObjectArray2* FormatData_ru::getContents() {
 				u"Ч"_s,
 				u"П"_s,
 				u"С"_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("Eras"_s),
-			$of($$new($StringArray, {
+			"Eras"_s,
+			$$new($StringArray, {
 				u"до н.э."_s,
 				u"н.э."_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("NumberElements"_s),
-			$of($$new($StringArray, {
+			"NumberElements"_s,
+			$$new($StringArray, {
 				","_s,
 				u" "_s,
 				";"_s,
@@ -240,33 +220,33 @@ $ObjectArray2* FormatData_ru::getContents() {
 				u"‰"_s,
 				u"∞"_s,
 				u"�"_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("TimePatterns"_s),
-			$of($$new($StringArray, {
+			"TimePatterns"_s,
+			$$new($StringArray, {
 				"H:mm:ss z"_s,
 				"H:mm:ss z"_s,
 				"H:mm:ss"_s,
 				"H:mm"_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("DatePatterns"_s),
-			$of($$new($StringArray, {
+			"DatePatterns"_s,
+			$$new($StringArray, {
 				u"d MMMM yyyy \'г.\'"_s,
 				u"d MMMM yyyy \'г.\'"_s,
 				"dd.MM.yyyy"_s,
 				"dd.MM.yy"_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("DateTimePatterns"_s),
-			$of($$new($StringArray, {"{1} {0}"_s}))
+			"DateTimePatterns"_s,
+			$$new($StringArray, {"{1} {0}"_s})
 		}),
 		$$new($ObjectArray, {
-			$of("DateTimePatternChars"_s),
-			$of("GanjkHmsSEDFwWxhKzZ"_s)
+			"DateTimePatternChars"_s,
+			"GanjkHmsSEDFwWxhKzZ"_s
 		})
 	});
 }
@@ -275,7 +255,22 @@ FormatData_ru::FormatData_ru() {
 }
 
 $Class* FormatData_ru::load$($String* name, bool initialize) {
-	$loadClass(FormatData_ru, name, initialize, &_FormatData_ru_ClassInfo_, allocate$FormatData_ru);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(FormatData_ru, init$, void)},
+		{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(FormatData_ru, getContents, $ObjectArray2*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.text.resources.ext.FormatData_ru",
+		"sun.util.resources.ParallelListResourceBundle",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(FormatData_ru, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FormatData_ru);
+	});
 	return class$;
 }
 

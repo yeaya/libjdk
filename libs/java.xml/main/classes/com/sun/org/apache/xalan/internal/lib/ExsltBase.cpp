@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xalan/internal/lib/ExsltBase.h>
-
 #include <com/sun/org/apache/xml/internal/dtm/ref/DTMNodeProxy.h>
 #include <java/lang/NumberFormatException.h>
 #include <java/lang/StringBuffer.h>
@@ -24,33 +23,13 @@ namespace com {
 					namespace internal {
 						namespace lib {
 
-$MethodInfo _ExsltBase_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ExsltBase, init$, void)},
-	{"toNumber", "(Lorg/w3c/dom/Node;)D", nullptr, $PROTECTED | $STATIC, $staticMethod(ExsltBase, toNumber, double, $Node*)},
-	{"toString", "(Lorg/w3c/dom/Node;)Ljava/lang/String;", nullptr, $PROTECTED | $STATIC, $staticMethod(ExsltBase, toString, $String*, $Node*)},
-	{}
-};
-
-$ClassInfo _ExsltBase_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"com.sun.org.apache.xalan.internal.lib.ExsltBase",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_ExsltBase_MethodInfo_
-};
-
-$Object* allocate$ExsltBase($Class* clazz) {
-	return $of($alloc(ExsltBase));
-}
-
 void ExsltBase::init$() {
 }
 
 $String* ExsltBase::toString($Node* n) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($instanceOf($DTMNodeProxy, n)) {
-		return $nc(($cast($DTMNodeProxy, n)))->getStringValue();
+		return $cast($DTMNodeProxy, n)->getStringValue();
 	} else {
 		$var($String, value, $nc(n)->getNodeValue());
 		if (value == nullptr) {
@@ -68,13 +47,12 @@ $String* ExsltBase::toString($Node* n) {
 }
 
 double ExsltBase::toNumber($Node* n) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	double d = 0.0;
 	$var($String, str, toString(n));
 	try {
-		d = $nc($($Double::valueOf(str)))->doubleValue();
+		d = $($Double::valueOf(str))->doubleValue();
 	} catch ($NumberFormatException& e) {
-		$init($Double);
 		d = $Double::NaN;
 	}
 	return d;
@@ -84,7 +62,23 @@ ExsltBase::ExsltBase() {
 }
 
 $Class* ExsltBase::load$($String* name, bool initialize) {
-	$loadClass(ExsltBase, name, initialize, &_ExsltBase_ClassInfo_, allocate$ExsltBase);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ExsltBase, init$, void)},
+		{"toNumber", "(Lorg/w3c/dom/Node;)D", nullptr, $PROTECTED | $STATIC, $staticMethod(ExsltBase, toNumber, double, $Node*)},
+		{"toString", "(Lorg/w3c/dom/Node;)Ljava/lang/String;", nullptr, $PROTECTED | $STATIC, $staticMethod(ExsltBase, toString, $String*, $Node*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"com.sun.org.apache.xalan.internal.lib.ExsltBase",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ExsltBase, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ExsltBase);
+	});
 	return class$;
 }
 

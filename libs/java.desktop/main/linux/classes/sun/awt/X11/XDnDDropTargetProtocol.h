@@ -39,6 +39,7 @@ class XDnDDropTargetProtocol : public ::sun::awt::X11::XDropTargetProtocol {
 	$class(XDnDDropTargetProtocol, 0, ::sun::awt::X11::XDropTargetProtocol)
 public:
 	XDnDDropTargetProtocol();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::awt::X11::XDropTargetProtocolListener* listener);
 	virtual void adjustEventForForwarding(::sun::awt::X11::XClientMessageEvent* xclient, ::sun::awt::X11::XDropTargetProtocol$EmbedderRegistryEntry* entry) override;
 	virtual void cleanup() override;

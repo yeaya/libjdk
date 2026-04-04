@@ -15,6 +15,7 @@ class Attr$13 : public ::java::lang::Object {
 	$class(Attr$13, 0, ::java::lang::Object)
 public:
 	Attr$13();
+	static void clinit$(::java::lang::Class* clazz);
 	static $ints* $SwitchMap$com$sun$tools$javac$code$TypeTag;
 	static $ints* $SwitchMap$com$sun$source$tree$MemberReferenceTree$ReferenceMode;
 	static $ints* $SwitchMap$com$sun$tools$javac$code$Kinds$Kind;

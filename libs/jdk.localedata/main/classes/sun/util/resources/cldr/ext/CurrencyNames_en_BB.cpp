@@ -1,5 +1,4 @@
 #include <sun/util/resources/cldr/ext/CurrencyNames_en_BB.h>
-
 #include <sun/util/resources/OpenListResourceBundle.h>
 #include <jcpp.h>
 
@@ -14,34 +13,15 @@ namespace sun {
 			namespace cldr {
 				namespace ext {
 
-$MethodInfo _CurrencyNames_en_BB_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(CurrencyNames_en_BB, init$, void)},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(CurrencyNames_en_BB, getContents, $ObjectArray2*)},
-	{}
-};
-
-$ClassInfo _CurrencyNames_en_BB_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.util.resources.cldr.ext.CurrencyNames_en_BB",
-	"sun.util.resources.OpenListResourceBundle",
-	nullptr,
-	nullptr,
-	_CurrencyNames_en_BB_MethodInfo_
-};
-
-$Object* allocate$CurrencyNames_en_BB($Class* clazz) {
-	return $of($alloc(CurrencyNames_en_BB));
-}
-
 void CurrencyNames_en_BB::init$() {
 	$OpenListResourceBundle::init$();
 }
 
 $ObjectArray2* CurrencyNames_en_BB::getContents() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectArray2, data, $new($ObjectArray2, {$$new($ObjectArray, {
-		$of("BBD"_s),
-		$of("$"_s)
+		"BBD"_s,
+		"$"_s
 	})}));
 	return data;
 }
@@ -50,7 +30,22 @@ CurrencyNames_en_BB::CurrencyNames_en_BB() {
 }
 
 $Class* CurrencyNames_en_BB::load$($String* name, bool initialize) {
-	$loadClass(CurrencyNames_en_BB, name, initialize, &_CurrencyNames_en_BB_ClassInfo_, allocate$CurrencyNames_en_BB);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(CurrencyNames_en_BB, init$, void)},
+		{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(CurrencyNames_en_BB, getContents, $ObjectArray2*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.util.resources.cldr.ext.CurrencyNames_en_BB",
+		"sun.util.resources.OpenListResourceBundle",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(CurrencyNames_en_BB, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CurrencyNames_en_BB);
+	});
 	return class$;
 }
 

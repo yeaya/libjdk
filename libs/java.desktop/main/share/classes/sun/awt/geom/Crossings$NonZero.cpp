@@ -1,5 +1,4 @@
 #include <sun/awt/geom/Crossings$NonZero.h>
-
 #include <java/lang/Math.h>
 #include <sun/awt/geom/Crossings.h>
 #include <jcpp.h>
@@ -15,45 +14,6 @@ namespace sun {
 	namespace awt {
 		namespace geom {
 
-$FieldInfo _Crossings$NonZero_FieldInfo_[] = {
-	{"crosscounts", "[I", nullptr, $PRIVATE, $field(Crossings$NonZero, crosscounts)},
-	{}
-};
-
-$MethodInfo _Crossings$NonZero_MethodInfo_[] = {
-	{"<init>", "(DDDD)V", nullptr, $PUBLIC, $method(Crossings$NonZero, init$, void, double, double, double, double)},
-	{"covers", "(DD)Z", nullptr, $PUBLIC, $virtualMethod(Crossings$NonZero, covers, bool, double, double)},
-	{"insert", "(IDDI)V", nullptr, $PUBLIC, $method(Crossings$NonZero, insert, void, int32_t, double, double, int32_t)},
-	{"record", "(DDI)V", nullptr, $PUBLIC, $virtualMethod(Crossings$NonZero, record, void, double, double, int32_t)},
-	{"remove", "(I)V", nullptr, $PUBLIC, $method(Crossings$NonZero, remove, void, int32_t)},
-	{}
-};
-
-$InnerClassInfo _Crossings$NonZero_InnerClassesInfo_[] = {
-	{"sun.awt.geom.Crossings$NonZero", "sun.awt.geom.Crossings", "NonZero", $PUBLIC | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _Crossings$NonZero_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.awt.geom.Crossings$NonZero",
-	"sun.awt.geom.Crossings",
-	nullptr,
-	_Crossings$NonZero_FieldInfo_,
-	_Crossings$NonZero_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Crossings$NonZero_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.awt.geom.Crossings"
-};
-
-$Object* allocate$Crossings$NonZero($Class* clazz) {
-	return $of($alloc(Crossings$NonZero));
-}
-
 void Crossings$NonZero::init$(double xlo, double ylo, double xhi, double yhi) {
 	$Crossings::init$(xlo, ylo, xhi, yhi);
 	$set(this, crosscounts, $new($ints, $nc(this->yranges)->length / 2));
@@ -63,7 +23,7 @@ bool Crossings$NonZero::covers(double ystart, double yend) {
 	int32_t i = 0;
 	while (i < this->limit) {
 		double ylo = $nc(this->yranges)->get(i++);
-		double yhi = $nc(this->yranges)->get(i++);
+		double yhi = this->yranges->get(i++);
 		if (ystart >= yhi) {
 			continue;
 		}
@@ -88,7 +48,7 @@ void Crossings$NonZero::remove(int32_t cur) {
 }
 
 void Crossings$NonZero::insert(int32_t cur, double lo, double hi, int32_t dir) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t rem = this->limit - cur;
 	$var($doubles, oldranges, this->yranges);
 	$var($ints, oldcounts, this->crosscounts);
@@ -102,8 +62,8 @@ void Crossings$NonZero::insert(int32_t cur, double lo, double hi, int32_t dir) {
 		$System::arraycopy(oldranges, cur, this->yranges, cur + 2, rem);
 		$System::arraycopy(oldcounts, cur / 2, this->crosscounts, cur / 2 + 1, rem / 2);
 	}
-	$nc(this->yranges)->set(cur + 0, lo);
-	$nc(this->yranges)->set(cur + 1, hi);
+	this->yranges->set(cur + 0, lo);
+	this->yranges->set(cur + 1, hi);
 	$nc(this->crosscounts)->set(cur / 2, dir);
 	this->limit += 2;
 }
@@ -119,17 +79,17 @@ void Crossings$NonZero::record(double ystart, double yend, int32_t direction) {
 	if (cur < this->limit) {
 		int32_t rdir = $nc(this->crosscounts)->get(cur / 2);
 		double yrlo = $nc(this->yranges)->get(cur + 0);
-		double yrhi = $nc(this->yranges)->get(cur + 1);
+		double yrhi = this->yranges->get(cur + 1);
 		if (yrhi == ystart && rdir == direction) {
 			if (cur + 2 == this->limit) {
-				$nc(this->yranges)->set(cur + 1, yend);
+				this->yranges->set(cur + 1, yend);
 				return;
 			}
 			remove(cur);
 			ystart = yrlo;
 			rdir = $nc(this->crosscounts)->get(cur / 2);
 			yrlo = $nc(this->yranges)->get(cur + 0);
-			yrhi = $nc(this->yranges)->get(cur + 1);
+			yrhi = this->yranges->get(cur + 1);
 		}
 		if (yend < yrlo) {
 			insert(cur, ystart, yend, direction);
@@ -155,7 +115,7 @@ void Crossings$NonZero::record(double ystart, double yend, int32_t direction) {
 		} else {
 			$nc(this->crosscounts)->set(cur / 2, newdir);
 			$nc(this->yranges)->set(cur++, ystart);
-			$nc(this->yranges)->set(cur++, newend);
+			this->yranges->set(cur++, newend);
 		}
 		ystart = (yrlo = newend);
 		if (yrlo < yrhi) {
@@ -171,7 +131,40 @@ Crossings$NonZero::Crossings$NonZero() {
 }
 
 $Class* Crossings$NonZero::load$($String* name, bool initialize) {
-	$loadClass(Crossings$NonZero, name, initialize, &_Crossings$NonZero_ClassInfo_, allocate$Crossings$NonZero);
+	$FieldInfo fieldInfos$$[] = {
+		{"crosscounts", "[I", nullptr, $PRIVATE, $field(Crossings$NonZero, crosscounts)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(DDDD)V", nullptr, $PUBLIC, $method(Crossings$NonZero, init$, void, double, double, double, double)},
+		{"covers", "(DD)Z", nullptr, $PUBLIC, $virtualMethod(Crossings$NonZero, covers, bool, double, double)},
+		{"insert", "(IDDI)V", nullptr, $PUBLIC, $method(Crossings$NonZero, insert, void, int32_t, double, double, int32_t)},
+		{"record", "(DDI)V", nullptr, $PUBLIC, $virtualMethod(Crossings$NonZero, record, void, double, double, int32_t)},
+		{"remove", "(I)V", nullptr, $PUBLIC, $method(Crossings$NonZero, remove, void, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.geom.Crossings$NonZero", "sun.awt.geom.Crossings", "NonZero", $PUBLIC | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.awt.geom.Crossings$NonZero",
+		"sun.awt.geom.Crossings",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.awt.geom.Crossings"
+	};
+	$loadClass(Crossings$NonZero, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Crossings$NonZero);
+	});
 	return class$;
 }
 

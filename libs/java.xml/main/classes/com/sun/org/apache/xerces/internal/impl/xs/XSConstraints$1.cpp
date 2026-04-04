@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/impl/xs/XSConstraints$1.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/xs/XSElementDecl.h>
 #include <com/sun/org/apache/xerces/internal/impl/xs/XSParticleDecl.h>
 #include <com/sun/org/apache/xerces/internal/xs/XSTerm.h>
@@ -21,49 +20,11 @@ namespace com {
 						namespace impl {
 							namespace xs {
 
-$MethodInfo _XSConstraints$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(XSConstraints$1, init$, void)},
-	{"compare", "(Lcom/sun/org/apache/xerces/internal/impl/xs/XSParticleDecl;Lcom/sun/org/apache/xerces/internal/impl/xs/XSParticleDecl;)I", nullptr, $PUBLIC, $virtualMethod(XSConstraints$1, compare, int32_t, $XSParticleDecl*, $XSParticleDecl*)},
-	{"compare", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XSConstraints$1, compare, int32_t, Object$*, Object$*)},
-	{}
-};
-
-$EnclosingMethodInfo _XSConstraints$1_EnclosingMethodInfo_ = {
-	"com.sun.org.apache.xerces.internal.impl.xs.XSConstraints",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _XSConstraints$1_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xerces.internal.impl.xs.XSConstraints$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _XSConstraints$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.impl.xs.XSConstraints$1",
-	"java.lang.Object",
-	"java.util.Comparator",
-	nullptr,
-	_XSConstraints$1_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/Comparator<Lcom/sun/org/apache/xerces/internal/impl/xs/XSParticleDecl;>;",
-	&_XSConstraints$1_EnclosingMethodInfo_,
-	_XSConstraints$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xerces.internal.impl.xs.XSConstraints"
-};
-
-$Object* allocate$XSConstraints$1($Class* clazz) {
-	return $of($alloc(XSConstraints$1));
-}
-
 void XSConstraints$1::init$() {
 }
 
 int32_t XSConstraints$1::compare($XSParticleDecl* o1, $XSParticleDecl* o2) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($XSParticleDecl, pDecl1, o1);
 	$var($XSParticleDecl, pDecl2, o2);
 	$var($XSElementDecl, decl1, $cast($XSElementDecl, $nc(pDecl1)->fValue));
@@ -96,7 +57,39 @@ XSConstraints$1::XSConstraints$1() {
 }
 
 $Class* XSConstraints$1::load$($String* name, bool initialize) {
-	$loadClass(XSConstraints$1, name, initialize, &_XSConstraints$1_ClassInfo_, allocate$XSConstraints$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(XSConstraints$1, init$, void)},
+		{"compare", "(Lcom/sun/org/apache/xerces/internal/impl/xs/XSParticleDecl;Lcom/sun/org/apache/xerces/internal/impl/xs/XSParticleDecl;)I", nullptr, $PUBLIC, $virtualMethod(XSConstraints$1, compare, int32_t, $XSParticleDecl*, $XSParticleDecl*)},
+		{"compare", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XSConstraints$1, compare, int32_t, Object$*, Object$*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.org.apache.xerces.internal.impl.xs.XSConstraints",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xerces.internal.impl.xs.XSConstraints$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.impl.xs.XSConstraints$1",
+		"java.lang.Object",
+		"java.util.Comparator",
+		nullptr,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/Comparator<Lcom/sun/org/apache/xerces/internal/impl/xs/XSParticleDecl;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xerces.internal.impl.xs.XSConstraints"
+	};
+	$loadClass(XSConstraints$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XSConstraints$1);
+	});
 	return class$;
 }
 

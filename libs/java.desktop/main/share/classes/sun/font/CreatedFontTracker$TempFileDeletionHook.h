@@ -30,6 +30,7 @@ class CreatedFontTracker$TempFileDeletionHook : public ::java::lang::Object {
 	$class(CreatedFontTracker$TempFileDeletionHook, 0, ::java::lang::Object)
 public:
 	CreatedFontTracker$TempFileDeletionHook();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void add(::java::io::File* file);
 	static void init();

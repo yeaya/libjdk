@@ -1,5 +1,4 @@
 #include <sun/awt/windows/WDataTransferer.h>
-
 #include <java/awt/Graphics2D.h>
 #include <java/awt/Image.h>
 #include <java/awt/Point.h>
@@ -113,74 +112,6 @@ namespace sun {
 	namespace awt {
 		namespace windows {
 
-$FieldInfo _WDataTransferer_FieldInfo_[] = {
-	{"predefinedClipboardNames", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(WDataTransferer, predefinedClipboardNames)},
-	{"predefinedClipboardNameMap", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/Long;>;", $PRIVATE | $STATIC | $FINAL, $staticField(WDataTransferer, predefinedClipboardNameMap)},
-	{"CF_TEXT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(WDataTransferer, CF_TEXT)},
-	{"CF_METAFILEPICT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(WDataTransferer, CF_METAFILEPICT)},
-	{"CF_DIB", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(WDataTransferer, CF_DIB)},
-	{"CF_ENHMETAFILE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(WDataTransferer, CF_ENHMETAFILE)},
-	{"CF_HDROP", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(WDataTransferer, CF_HDROP)},
-	{"CF_LOCALE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(WDataTransferer, CF_LOCALE)},
-	{"CF_HTML", "J", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(WDataTransferer, CF_HTML)},
-	{"CFSTR_INETURL", "J", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(WDataTransferer, CFSTR_INETURL)},
-	{"CF_PNG", "J", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(WDataTransferer, CF_PNG)},
-	{"CF_JFIF", "J", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(WDataTransferer, CF_JFIF)},
-	{"CF_FILEGROUPDESCRIPTORW", "J", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(WDataTransferer, CF_FILEGROUPDESCRIPTORW)},
-	{"CF_FILEGROUPDESCRIPTORA", "J", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(WDataTransferer, CF_FILEGROUPDESCRIPTORA)},
-	{"L_CF_LOCALE", "Ljava/lang/Long;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(WDataTransferer, L_CF_LOCALE)},
-	{"directColorModel", "Ljava/awt/image/DirectColorModel;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(WDataTransferer, directColorModel)},
-	{"bandmasks", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(WDataTransferer, bandmasks)},
-	{"transferer", "Lsun/awt/windows/WDataTransferer;", nullptr, $PRIVATE | $STATIC, $staticField(WDataTransferer, transferer)},
-	{"handler", "Lsun/awt/datatransfer/ToolkitThreadBlockedHandler;", nullptr, $PRIVATE | $FINAL, $field(WDataTransferer, handler)},
-	{"UNICODE_NULL_TERMINATOR", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(WDataTransferer, UNICODE_NULL_TERMINATOR)},
-	{}
-};
-
-$MethodInfo _WDataTransferer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(WDataTransferer, init$, void)},
-	{"convertFileListToBytes", "(Ljava/util/ArrayList;)Ljava/io/ByteArrayOutputStream;", "(Ljava/util/ArrayList<Ljava/lang/String;>;)Ljava/io/ByteArrayOutputStream;", $PROTECTED, $virtualMethod(WDataTransferer, convertFileListToBytes, $ByteArrayOutputStream*, $ArrayList*), "java.io.IOException"},
-	{"dragQueryFile", "([B)[Ljava/lang/String;", nullptr, $PROTECTED | $NATIVE, $virtualMethod(WDataTransferer, dragQueryFile, $StringArray*, $bytes*)},
-	{"getClipboardFormatName", "(J)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(WDataTransferer, getClipboardFormatName, $String*, int64_t)},
-	{"getDefaultUnicodeEncoding", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(WDataTransferer, getDefaultUnicodeEncoding, $String*)},
-	{"getFormatForNativeAsLong", "(Ljava/lang/String;)Ljava/lang/Long;", nullptr, $PROTECTED, $virtualMethod(WDataTransferer, getFormatForNativeAsLong, $Long*, $String*)},
-	{"getFormatsForFlavors", "([Ljava/awt/datatransfer/DataFlavor;Ljava/awt/datatransfer/FlavorTable;)Ljava/util/SortedMap;", "([Ljava/awt/datatransfer/DataFlavor;Ljava/awt/datatransfer/FlavorTable;)Ljava/util/SortedMap<Ljava/lang/Long;Ljava/awt/datatransfer/DataFlavor;>;", $PUBLIC, $virtualMethod(WDataTransferer, getFormatsForFlavors, $SortedMap*, $DataFlavorArray*, $FlavorTable*)},
-	{"getInstanceImpl", "()Lsun/awt/windows/WDataTransferer;", nullptr, $STATIC | $SYNCHRONIZED, $staticMethod(WDataTransferer, getInstanceImpl, WDataTransferer*)},
-	{"getNativeForFormat", "(J)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(WDataTransferer, getNativeForFormat, $String*, int64_t)},
-	{"getToolkitThreadBlockedHandler", "()Lsun/awt/datatransfer/ToolkitThreadBlockedHandler;", nullptr, $PUBLIC, $virtualMethod(WDataTransferer, getToolkitThreadBlockedHandler, $ToolkitThreadBlockedHandler*)},
-	{"imageDataToPlatformImageBytes", "([BIIJ)[B", nullptr, $PRIVATE | $NATIVE, $method(WDataTransferer, imageDataToPlatformImageBytes, $bytes*, $bytes*, int32_t, int32_t, int64_t)},
-	{"imageToPlatformBytes", "(Ljava/awt/Image;J)[B", nullptr, $PROTECTED, $virtualMethod(WDataTransferer, imageToPlatformBytes, $bytes*, $Image*, int64_t), "java.io.IOException"},
-	{"isFileFormat", "(J)Z", nullptr, $PUBLIC, $virtualMethod(WDataTransferer, isFileFormat, bool, int64_t)},
-	{"isImageFormat", "(J)Z", nullptr, $PUBLIC, $virtualMethod(WDataTransferer, isImageFormat, bool, int64_t)},
-	{"isLocaleDependentTextFormat", "(J)Z", nullptr, $PUBLIC, $virtualMethod(WDataTransferer, isLocaleDependentTextFormat, bool, int64_t)},
-	{"platformImageBytesToImage", "([BJ)Ljava/awt/Image;", nullptr, $PROTECTED, $virtualMethod(WDataTransferer, platformImageBytesToImage, $Image*, $bytes*, int64_t), "java.io.IOException"},
-	{"platformImageBytesToImageData", "([BJ)[I", nullptr, $PRIVATE | $NATIVE, $method(WDataTransferer, platformImageBytesToImageData, $ints*, $bytes*, int64_t), "java.io.IOException"},
-	{"registerClipboardFormat", "(Ljava/lang/String;)J", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(WDataTransferer, registerClipboardFormat, int64_t, $String*)},
-	{"translateBytes", "([BLjava/awt/datatransfer/DataFlavor;JLjava/awt/datatransfer/Transferable;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(WDataTransferer, translateBytes, $Object*, $bytes*, $DataFlavor*, int64_t, $Transferable*), "java.io.IOException"},
-	{"translateStream", "(Ljava/io/InputStream;Ljava/awt/datatransfer/DataFlavor;JLjava/awt/datatransfer/Transferable;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(WDataTransferer, translateStream, $Object*, $InputStream*, $DataFlavor*, int64_t, $Transferable*), "java.io.IOException"},
-	{"translateTransferable", "(Ljava/awt/datatransfer/Transferable;Ljava/awt/datatransfer/DataFlavor;J)[B", nullptr, $PUBLIC, $virtualMethod(WDataTransferer, translateTransferable, $bytes*, $Transferable*, $DataFlavor*, int64_t), "java.io.IOException"},
-	{}
-};
-
-#define _METHOD_INDEX_dragQueryFile 2
-#define _METHOD_INDEX_getClipboardFormatName 3
-#define _METHOD_INDEX_imageDataToPlatformImageBytes 10
-#define _METHOD_INDEX_platformImageBytesToImageData 16
-#define _METHOD_INDEX_registerClipboardFormat 17
-
-$ClassInfo _WDataTransferer_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.awt.windows.WDataTransferer",
-	"sun.awt.datatransfer.DataTransferer",
-	nullptr,
-	_WDataTransferer_FieldInfo_,
-	_WDataTransferer_MethodInfo_
-};
-
-$Object* allocate$WDataTransferer($Class* clazz) {
-	return $of($alloc(WDataTransferer));
-}
-
 $StringArray* WDataTransferer::predefinedClipboardNames = nullptr;
 $Map* WDataTransferer::predefinedClipboardNameMap = nullptr;
 int64_t WDataTransferer::CF_HTML = 0;
@@ -201,9 +132,8 @@ void WDataTransferer::init$() {
 }
 
 WDataTransferer* WDataTransferer::getInstanceImpl() {
-	$load(WDataTransferer);
+	$init(WDataTransferer);
 	$synchronized(class$) {
-		$init(WDataTransferer);
 		if (WDataTransferer::transferer == nullptr) {
 			$assignStatic(WDataTransferer::transferer, $new(WDataTransferer));
 		}
@@ -222,18 +152,16 @@ $String* WDataTransferer::getDefaultUnicodeEncoding() {
 }
 
 $bytes* WDataTransferer::translateTransferable($Transferable* contents, $DataFlavor* flavor, int64_t format) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, bytes, nullptr);
 	if (format == WDataTransferer::CF_HTML) {
 		$init($DataFlavor);
 		if ($nc(contents)->isDataFlavorSupported($DataFlavor::selectionHtmlFlavor)) {
 			$assign(bytes, $DataTransferer::translateTransferable(contents, $DataFlavor::selectionHtmlFlavor, format));
+		} else if (contents->isDataFlavorSupported($DataFlavor::allHtmlFlavor)) {
+			$assign(bytes, $DataTransferer::translateTransferable(contents, $DataFlavor::allHtmlFlavor, format));
 		} else {
-			if (contents->isDataFlavorSupported($DataFlavor::allHtmlFlavor)) {
-				$assign(bytes, $DataTransferer::translateTransferable(contents, $DataFlavor::allHtmlFlavor, format));
-			} else {
-				$assign(bytes, $HTMLCodec::convertToHTMLFormat($($DataTransferer::translateTransferable(contents, flavor, format))));
-			}
+			$assign(bytes, $HTMLCodec::convertToHTMLFormat($($DataTransferer::translateTransferable(contents, flavor, format))));
 		}
 	} else {
 		$assign(bytes, $DataTransferer::translateTransferable(contents, flavor, format));
@@ -242,16 +170,16 @@ $bytes* WDataTransferer::translateTransferable($Transferable* contents, $DataFla
 }
 
 $Object* WDataTransferer::translateStream($InputStream* str$renamed, $DataFlavor* flavor, int64_t format, $Transferable* localeTransferable) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($InputStream, str, str$renamed);
 	if (format == WDataTransferer::CF_HTML && $nc(flavor)->isFlavorTextType()) {
 		$assign(str, $new($HTMLCodec, str, $($EHTMLReadMode::getEHTMLReadMode(flavor))));
 	}
-	return $of($DataTransferer::translateStream(str, flavor, format, localeTransferable));
+	return $DataTransferer::translateStream(str, flavor, format, localeTransferable);
 }
 
 $Object* WDataTransferer::translateBytes($bytes* bytes, $DataFlavor* flavor, int64_t format, $Transferable* localeTransferable) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (format == WDataTransferer::CF_FILEGROUPDESCRIPTORA || format == WDataTransferer::CF_FILEGROUPDESCRIPTORW) {
 		$init($DataFlavor);
 		if (bytes == nullptr || !$nc($DataFlavor::javaFileListFlavor)->equals(flavor)) {
@@ -260,28 +188,28 @@ $Object* WDataTransferer::translateBytes($bytes* bytes, $DataFlavor* flavor, int
 		$var($String, st, $new($String, bytes, 0, $nc(bytes)->length, "UTF-16LE"_s));
 		$var($StringArray, filenames, st->split($cstr({'\0'})));
 		if (0 == filenames->length) {
-			return $of(nullptr);
+			return nullptr;
 		}
 		$var($FileArray, files, $new($FileArray, filenames->length));
 		for (int32_t i = 0; i < filenames->length; ++i) {
 			files->set(i, $$new($File, filenames->get(i)));
 			$nc(files->get(i))->deleteOnExit();
 		}
-		return $of($Arrays::asList(files));
+		return $Arrays::asList(files);
 	}
 	$load($URL);
-	if (format == WDataTransferer::CFSTR_INETURL && $of($URL::class$)->equals($nc(flavor)->getRepresentationClass())) {
-		$var($String, charset, $nc($($Charset::defaultCharset()))->name());
+	if (format == WDataTransferer::CFSTR_INETURL && $URL::class$->equals($nc(flavor)->getRepresentationClass())) {
+		$var($String, charset, $$nc($Charset::defaultCharset())->name());
 		$init($DataTransferer);
 		if (localeTransferable != nullptr && localeTransferable->isDataFlavorSupported($DataTransferer::javaTextEncodingFlavor)) {
 			try {
-				$assign(charset, $new($String, $cast($bytes, $(localeTransferable->getTransferData($DataTransferer::javaTextEncodingFlavor))), "UTF-8"_s));
+				$assign(charset, $new($String, $$cast($bytes, localeTransferable->getTransferData($DataTransferer::javaTextEncodingFlavor)), "UTF-8"_s));
 			} catch ($UnsupportedFlavorException& cannotHappen) {
 			}
 		}
-		return $of($new($URL, $$new($String, bytes, charset)));
+		return $new($URL, $$new($String, bytes, charset));
 	}
-	return $of($DataTransferer::translateBytes(bytes, flavor, format, localeTransferable));
+	return $DataTransferer::translateBytes(bytes, flavor, format, localeTransferable);
 }
 
 bool WDataTransferer::isLocaleDependentTextFormat(int64_t format) {
@@ -301,7 +229,7 @@ $Long* WDataTransferer::getFormatForNativeAsLong($String* str) {
 }
 
 $String* WDataTransferer::getNativeForFormat(int64_t format) {
-	return (format < $nc(WDataTransferer::predefinedClipboardNames)->length) ? $nc(WDataTransferer::predefinedClipboardNames)->get((int32_t)format) : getClipboardFormatName(format);
+	return (format < WDataTransferer::predefinedClipboardNames->length) ? WDataTransferer::predefinedClipboardNames->get((int32_t)format) : getClipboardFormatName(format);
 }
 
 $ToolkitThreadBlockedHandler* WDataTransferer::getToolkitThreadBlockedHandler() {
@@ -310,18 +238,16 @@ $ToolkitThreadBlockedHandler* WDataTransferer::getToolkitThreadBlockedHandler() 
 
 int64_t WDataTransferer::registerClipboardFormat($String* str) {
 	$init(WDataTransferer);
-	int64_t $ret = 0;
-	$prepareNativeStatic(WDataTransferer, registerClipboardFormat, int64_t, $String* str);
-	$ret = $invokeNativeStatic(str);
+	$prepareNativeStatic(registerClipboardFormat, int64_t, $String* str);
+	int64_t $ret = $invokeNativeStatic(str);
 	$finishNativeStatic();
 	return $ret;
 }
 
 $String* WDataTransferer::getClipboardFormatName(int64_t format) {
 	$init(WDataTransferer);
-	$var($String, $ret, nullptr);
-	$prepareNativeStatic(WDataTransferer, getClipboardFormatName, $String*, int64_t format);
-	$assign($ret, $invokeNativeStaticObject(format));
+	$prepareNativeStatic(getClipboardFormatName, $String*, int64_t format);
+	$var($String, $ret, $invokeNativeStaticObject(format));
 	$finishNativeStatic();
 	return $ret;
 }
@@ -331,7 +257,7 @@ bool WDataTransferer::isImageFormat(int64_t format) {
 }
 
 $bytes* WDataTransferer::imageToPlatformBytes($Image* image, int64_t format) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, mimeType, nullptr);
 	if (format == WDataTransferer::CF_PNG) {
 		$assign(mimeType, "image/png"_s);
@@ -344,7 +270,7 @@ $bytes* WDataTransferer::imageToPlatformBytes($Image* image, int64_t format) {
 	int32_t width = 0;
 	int32_t height = 0;
 	if ($instanceOf($ToolkitImage, image)) {
-		$var($ImageRepresentation, ir, $nc(($cast($ToolkitImage, image)))->getImageRep());
+		$var($ImageRepresentation, ir, $cast($ToolkitImage, image)->getImageRep());
 		$nc(ir)->reconstruct($ImageObserver::ALLBITS);
 		width = ir->getWidth();
 		height = ir->getHeight();
@@ -366,22 +292,20 @@ $bytes* WDataTransferer::imageToPlatformBytes($Image* image, int64_t format) {
 		0
 	}));
 	$var($ColorModel, colorModel, $new($ComponentColorModel, cs, nBits, false, false, $Transparency::OPAQUE, $DataBuffer::TYPE_BYTE));
-	$var($WritableRaster, raster, $Raster::createInterleavedRaster($DataBuffer::TYPE_BYTE, width, height, width * 3 + pad, 3, bOffs, ($Point*)nullptr));
-	$var($BufferedImage, bimage, $new($BufferedImage, colorModel, raster, false, ($Hashtable*)nullptr));
-	$var($AffineTransform, imageFlipTransform, $new($AffineTransform, (float)1, (float)0, (float)0, (float)-1, (float)0, (float)height));
+	$var($WritableRaster, raster, $Raster::createInterleavedRaster($DataBuffer::TYPE_BYTE, width, height, width * 3 + pad, 3, bOffs, nullptr));
+	$var($BufferedImage, bimage, $new($BufferedImage, colorModel, raster, false, nullptr));
+	$var($AffineTransform, imageFlipTransform, $new($AffineTransform, (float)1, 0, 0, -1, 0, (float)height));
 	$var($Graphics2D, g2d, bimage->createGraphics());
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$nc(g2d)->drawImage(image, imageFlipTransform, nullptr);
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$nc(g2d)->dispose();
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	$var($Throwable, var$0, nullptr);
+	try {
+		$nc(g2d)->drawImage(image, imageFlipTransform, nullptr);
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$nc(g2d)->dispose();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 	$var($DataBufferByte, buffer, $cast($DataBufferByte, $nc(raster)->getDataBuffer()));
 	$var($bytes, imageData, $nc(buffer)->getData());
@@ -389,13 +313,13 @@ $bytes* WDataTransferer::imageToPlatformBytes($Image* image, int64_t format) {
 }
 
 $ByteArrayOutputStream* WDataTransferer::convertFileListToBytes($ArrayList* fileList) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ByteArrayOutputStream, bos, $new($ByteArrayOutputStream));
 	if ($nc(fileList)->isEmpty()) {
 		bos->write(WDataTransferer::UNICODE_NULL_TERMINATOR);
 	} else {
 		for (int32_t i = 0; i < fileList->size(); ++i) {
-			$var($bytes, bytes, $nc(($cast($String, $(fileList->get(i)))))->getBytes($(getDefaultUnicodeEncoding())));
+			$var($bytes, bytes, $$sure($String, fileList->get(i))->getBytes($(getDefaultUnicodeEncoding())));
 			bos->write(bytes, 0, bytes->length);
 			bos->write(WDataTransferer::UNICODE_NULL_TERMINATOR);
 		}
@@ -405,15 +329,14 @@ $ByteArrayOutputStream* WDataTransferer::convertFileListToBytes($ArrayList* file
 }
 
 $bytes* WDataTransferer::imageDataToPlatformImageBytes($bytes* imageData, int32_t width, int32_t height, int64_t format) {
-	$var($bytes, $ret, nullptr);
-	$prepareNative(WDataTransferer, imageDataToPlatformImageBytes, $bytes*, $bytes* imageData, int32_t width, int32_t height, int64_t format);
-	$assign($ret, $invokeNativeObject(imageData, width, height, format));
+	$prepareNative(imageDataToPlatformImageBytes, $bytes*, $bytes* imageData, int32_t width, int32_t height, int64_t format);
+	$var($bytes, $ret, $invokeNativeObject(imageData, width, height, format));
 	$finishNative();
 	return $ret;
 }
 
 $Image* WDataTransferer::platformImageBytesToImage($bytes* bytes, int64_t format) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, mimeType, nullptr);
 	if (format == WDataTransferer::CF_PNG) {
 		$assign(mimeType, "image/png"_s);
@@ -431,28 +354,26 @@ $Image* WDataTransferer::platformImageBytesToImage($bytes* bytes, int64_t format
 	int32_t width = imageData->get(len);
 	int32_t height = imageData->get(len + 1);
 	$var($DataBufferInt, buffer, $new($DataBufferInt, imageData, len));
-	$var($WritableRaster, raster, $Raster::createPackedRaster(static_cast<$DataBuffer*>(buffer), width, height, width, WDataTransferer::bandmasks, ($Point*)nullptr));
-	return $new($BufferedImage, static_cast<$ColorModel*>(WDataTransferer::directColorModel), raster, false, ($Hashtable*)nullptr);
+	$var($WritableRaster, raster, $Raster::createPackedRaster(buffer, width, height, width, WDataTransferer::bandmasks, nullptr));
+	return $new($BufferedImage, WDataTransferer::directColorModel, raster, false, nullptr);
 }
 
 $ints* WDataTransferer::platformImageBytesToImageData($bytes* bytes, int64_t format) {
-	$var($ints, $ret, nullptr);
-	$prepareNative(WDataTransferer, platformImageBytesToImageData, $ints*, $bytes* bytes, int64_t format);
-	$assign($ret, $invokeNativeObject(bytes, format));
+	$prepareNative(platformImageBytesToImageData, $ints*, $bytes* bytes, int64_t format);
+	$var($ints, $ret, $invokeNativeObject(bytes, format));
 	$finishNative();
 	return $ret;
 }
 
 $StringArray* WDataTransferer::dragQueryFile($bytes* bytes) {
-	$var($StringArray, $ret, nullptr);
-	$prepareNative(WDataTransferer, dragQueryFile, $StringArray*, $bytes* bytes);
-	$assign($ret, $invokeNativeObject(bytes));
+	$prepareNative(dragQueryFile, $StringArray*, $bytes* bytes);
+	$var($StringArray, $ret, $invokeNativeObject(bytes));
 	$finishNative();
 	return $ret;
 }
 
-void clinit$WDataTransferer($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void WDataTransferer::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(WDataTransferer::predefinedClipboardNames, $new($StringArray, {
 		""_s,
 		"TEXT"_s,
@@ -474,9 +395,9 @@ void clinit$WDataTransferer($Class* class$) {
 		"DIBV5"_s
 	}));
 	{
-		$var($Map, tempMap, $new($HashMap, $nc(WDataTransferer::predefinedClipboardNames)->length, 1.0f));
-		for (int32_t i = 1; i < $nc(WDataTransferer::predefinedClipboardNames)->length; ++i) {
-			tempMap->put($nc(WDataTransferer::predefinedClipboardNames)->get(i), $($Long::valueOf((int64_t)i)));
+		$var($Map, tempMap, $new($HashMap, WDataTransferer::predefinedClipboardNames->length, 1.0f));
+		for (int32_t i = 1; i < WDataTransferer::predefinedClipboardNames->length; ++i) {
+			tempMap->put(WDataTransferer::predefinedClipboardNames->get(i), $($Long::valueOf(i)));
 		}
 		$assignStatic(WDataTransferer::predefinedClipboardNameMap, $Collections::synchronizedMap(tempMap));
 	}
@@ -486,16 +407,16 @@ void clinit$WDataTransferer($Class* class$) {
 	WDataTransferer::CF_JFIF = WDataTransferer::registerClipboardFormat("JFIF"_s);
 	WDataTransferer::CF_FILEGROUPDESCRIPTORW = WDataTransferer::registerClipboardFormat("FileGroupDescriptorW"_s);
 	WDataTransferer::CF_FILEGROUPDESCRIPTORA = WDataTransferer::registerClipboardFormat("FileGroupDescriptor"_s);
-	$assignStatic(WDataTransferer::L_CF_LOCALE, $cast($Long, $nc(WDataTransferer::predefinedClipboardNameMap)->get($nc(WDataTransferer::predefinedClipboardNames)->get(WDataTransferer::CF_LOCALE))));
-	$assignStatic(WDataTransferer::directColorModel, $new($DirectColorModel, 24, 0x00FF0000, 0x0000FF00, 255));
+	$assignStatic(WDataTransferer::L_CF_LOCALE, $cast($Long, $nc(WDataTransferer::predefinedClipboardNameMap)->get(WDataTransferer::predefinedClipboardNames->get(WDataTransferer::CF_LOCALE))));
+	$assignStatic(WDataTransferer::directColorModel, $new($DirectColorModel, 24, 0x00ff0000, 0x0000ff00, 255));
 	$assignStatic(WDataTransferer::bandmasks, $new($ints, {
-		$nc(WDataTransferer::directColorModel)->getRedMask(),
-		$nc(WDataTransferer::directColorModel)->getGreenMask(),
-		$nc(WDataTransferer::directColorModel)->getBlueMask()
+		WDataTransferer::directColorModel->getRedMask(),
+		WDataTransferer::directColorModel->getGreenMask(),
+		WDataTransferer::directColorModel->getBlueMask()
 	}));
 	$assignStatic(WDataTransferer::UNICODE_NULL_TERMINATOR, $new($bytes, {
-		(int8_t)0,
-		(int8_t)0
+		0,
+		0
 	}));
 }
 
@@ -503,7 +424,64 @@ WDataTransferer::WDataTransferer() {
 }
 
 $Class* WDataTransferer::load$($String* name, bool initialize) {
-	$loadClass(WDataTransferer, name, initialize, &_WDataTransferer_ClassInfo_, clinit$WDataTransferer, allocate$WDataTransferer);
+	$FieldInfo fieldInfos$$[] = {
+		{"predefinedClipboardNames", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(WDataTransferer, predefinedClipboardNames)},
+		{"predefinedClipboardNameMap", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/Long;>;", $PRIVATE | $STATIC | $FINAL, $staticField(WDataTransferer, predefinedClipboardNameMap)},
+		{"CF_TEXT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(WDataTransferer, CF_TEXT)},
+		{"CF_METAFILEPICT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(WDataTransferer, CF_METAFILEPICT)},
+		{"CF_DIB", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(WDataTransferer, CF_DIB)},
+		{"CF_ENHMETAFILE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(WDataTransferer, CF_ENHMETAFILE)},
+		{"CF_HDROP", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(WDataTransferer, CF_HDROP)},
+		{"CF_LOCALE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(WDataTransferer, CF_LOCALE)},
+		{"CF_HTML", "J", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(WDataTransferer, CF_HTML)},
+		{"CFSTR_INETURL", "J", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(WDataTransferer, CFSTR_INETURL)},
+		{"CF_PNG", "J", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(WDataTransferer, CF_PNG)},
+		{"CF_JFIF", "J", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(WDataTransferer, CF_JFIF)},
+		{"CF_FILEGROUPDESCRIPTORW", "J", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(WDataTransferer, CF_FILEGROUPDESCRIPTORW)},
+		{"CF_FILEGROUPDESCRIPTORA", "J", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(WDataTransferer, CF_FILEGROUPDESCRIPTORA)},
+		{"L_CF_LOCALE", "Ljava/lang/Long;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(WDataTransferer, L_CF_LOCALE)},
+		{"directColorModel", "Ljava/awt/image/DirectColorModel;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(WDataTransferer, directColorModel)},
+		{"bandmasks", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(WDataTransferer, bandmasks)},
+		{"transferer", "Lsun/awt/windows/WDataTransferer;", nullptr, $PRIVATE | $STATIC, $staticField(WDataTransferer, transferer)},
+		{"handler", "Lsun/awt/datatransfer/ToolkitThreadBlockedHandler;", nullptr, $PRIVATE | $FINAL, $field(WDataTransferer, handler)},
+		{"UNICODE_NULL_TERMINATOR", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(WDataTransferer, UNICODE_NULL_TERMINATOR)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(WDataTransferer, init$, void)},
+		{"convertFileListToBytes", "(Ljava/util/ArrayList;)Ljava/io/ByteArrayOutputStream;", "(Ljava/util/ArrayList<Ljava/lang/String;>;)Ljava/io/ByteArrayOutputStream;", $PROTECTED, $virtualMethod(WDataTransferer, convertFileListToBytes, $ByteArrayOutputStream*, $ArrayList*), "java.io.IOException"},
+		{"dragQueryFile", "([B)[Ljava/lang/String;", nullptr, $PROTECTED | $NATIVE, $virtualMethod(WDataTransferer, dragQueryFile, $StringArray*, $bytes*)},
+		{"getClipboardFormatName", "(J)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(WDataTransferer, getClipboardFormatName, $String*, int64_t)},
+		{"getDefaultUnicodeEncoding", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(WDataTransferer, getDefaultUnicodeEncoding, $String*)},
+		{"getFormatForNativeAsLong", "(Ljava/lang/String;)Ljava/lang/Long;", nullptr, $PROTECTED, $virtualMethod(WDataTransferer, getFormatForNativeAsLong, $Long*, $String*)},
+		{"getFormatsForFlavors", "([Ljava/awt/datatransfer/DataFlavor;Ljava/awt/datatransfer/FlavorTable;)Ljava/util/SortedMap;", "([Ljava/awt/datatransfer/DataFlavor;Ljava/awt/datatransfer/FlavorTable;)Ljava/util/SortedMap<Ljava/lang/Long;Ljava/awt/datatransfer/DataFlavor;>;", $PUBLIC, $virtualMethod(WDataTransferer, getFormatsForFlavors, $SortedMap*, $DataFlavorArray*, $FlavorTable*)},
+		{"getInstanceImpl", "()Lsun/awt/windows/WDataTransferer;", nullptr, $STATIC | $SYNCHRONIZED, $staticMethod(WDataTransferer, getInstanceImpl, WDataTransferer*)},
+		{"getNativeForFormat", "(J)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(WDataTransferer, getNativeForFormat, $String*, int64_t)},
+		{"getToolkitThreadBlockedHandler", "()Lsun/awt/datatransfer/ToolkitThreadBlockedHandler;", nullptr, $PUBLIC, $virtualMethod(WDataTransferer, getToolkitThreadBlockedHandler, $ToolkitThreadBlockedHandler*)},
+		{"imageDataToPlatformImageBytes", "([BIIJ)[B", nullptr, $PRIVATE | $NATIVE, $method(WDataTransferer, imageDataToPlatformImageBytes, $bytes*, $bytes*, int32_t, int32_t, int64_t)},
+		{"imageToPlatformBytes", "(Ljava/awt/Image;J)[B", nullptr, $PROTECTED, $virtualMethod(WDataTransferer, imageToPlatformBytes, $bytes*, $Image*, int64_t), "java.io.IOException"},
+		{"isFileFormat", "(J)Z", nullptr, $PUBLIC, $virtualMethod(WDataTransferer, isFileFormat, bool, int64_t)},
+		{"isImageFormat", "(J)Z", nullptr, $PUBLIC, $virtualMethod(WDataTransferer, isImageFormat, bool, int64_t)},
+		{"isLocaleDependentTextFormat", "(J)Z", nullptr, $PUBLIC, $virtualMethod(WDataTransferer, isLocaleDependentTextFormat, bool, int64_t)},
+		{"platformImageBytesToImage", "([BJ)Ljava/awt/Image;", nullptr, $PROTECTED, $virtualMethod(WDataTransferer, platformImageBytesToImage, $Image*, $bytes*, int64_t), "java.io.IOException"},
+		{"platformImageBytesToImageData", "([BJ)[I", nullptr, $PRIVATE | $NATIVE, $method(WDataTransferer, platformImageBytesToImageData, $ints*, $bytes*, int64_t), "java.io.IOException"},
+		{"registerClipboardFormat", "(Ljava/lang/String;)J", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(WDataTransferer, registerClipboardFormat, int64_t, $String*)},
+		{"translateBytes", "([BLjava/awt/datatransfer/DataFlavor;JLjava/awt/datatransfer/Transferable;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(WDataTransferer, translateBytes, $Object*, $bytes*, $DataFlavor*, int64_t, $Transferable*), "java.io.IOException"},
+		{"translateStream", "(Ljava/io/InputStream;Ljava/awt/datatransfer/DataFlavor;JLjava/awt/datatransfer/Transferable;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(WDataTransferer, translateStream, $Object*, $InputStream*, $DataFlavor*, int64_t, $Transferable*), "java.io.IOException"},
+		{"translateTransferable", "(Ljava/awt/datatransfer/Transferable;Ljava/awt/datatransfer/DataFlavor;J)[B", nullptr, $PUBLIC, $virtualMethod(WDataTransferer, translateTransferable, $bytes*, $Transferable*, $DataFlavor*, int64_t), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.awt.windows.WDataTransferer",
+		"sun.awt.datatransfer.DataTransferer",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(WDataTransferer, name, initialize, &classInfo$$, WDataTransferer::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(WDataTransferer);
+	});
 	return class$;
 }
 

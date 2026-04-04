@@ -1,5 +1,4 @@
 #include <java/beans/beancontext/BeanContext.h>
-
 #include <java/beans/beancontext/BeanContextChild.h>
 #include <java/beans/beancontext/BeanContextMembershipListener.h>
 #include <java/io/InputStream.h>
@@ -17,38 +16,6 @@ using $URL = ::java::net::URL;
 namespace java {
 	namespace beans {
 		namespace beancontext {
-
-$FieldInfo _BeanContext_FieldInfo_[] = {
-	{"globalHierarchyLock", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(BeanContext, globalHierarchyLock)},
-	{}
-};
-
-$MethodInfo _BeanContext_MethodInfo_[] = {
-	{"addBeanContextMembershipListener", "(Ljava/beans/beancontext/BeanContextMembershipListener;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(BeanContext, addBeanContextMembershipListener, void, $BeanContextMembershipListener*)},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"getResource", "(Ljava/lang/String;Ljava/beans/beancontext/BeanContextChild;)Ljava/net/URL;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(BeanContext, getResource, $URL*, $String*, $BeanContextChild*), "java.lang.IllegalArgumentException"},
-	{"getResourceAsStream", "(Ljava/lang/String;Ljava/beans/beancontext/BeanContextChild;)Ljava/io/InputStream;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(BeanContext, getResourceAsStream, $InputStream*, $String*, $BeanContextChild*), "java.lang.IllegalArgumentException"},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"instantiateChild", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(BeanContext, instantiateChild, $Object*, $String*), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"removeBeanContextMembershipListener", "(Ljava/beans/beancontext/BeanContextMembershipListener;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(BeanContext, removeBeanContextMembershipListener, void, $BeanContextMembershipListener*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _BeanContext_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.beans.beancontext.BeanContext",
-	nullptr,
-	"java.beans.beancontext.BeanContextChild,java.util.Collection,java.beans.DesignMode,java.beans.Visibility",
-	_BeanContext_FieldInfo_,
-	_BeanContext_MethodInfo_
-};
-
-$Object* allocate$BeanContext($Class* clazz) {
-	return $of($alloc(BeanContext));
-}
 
 int32_t BeanContext::hashCode() {
 	 return this->$BeanContextChild::hashCode();
@@ -72,12 +39,39 @@ void BeanContext::finalize() {
 
 $Object* BeanContext::globalHierarchyLock = nullptr;
 
-void clinit$BeanContext($Class* class$) {
+void BeanContext::clinit$($Class* clazz) {
 	$assignStatic(BeanContext::globalHierarchyLock, $new($Object));
 }
 
 $Class* BeanContext::load$($String* name, bool initialize) {
-	$loadClass(BeanContext, name, initialize, &_BeanContext_ClassInfo_, clinit$BeanContext, allocate$BeanContext);
+	$FieldInfo fieldInfos$$[] = {
+		{"globalHierarchyLock", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(BeanContext, globalHierarchyLock)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"addBeanContextMembershipListener", "(Ljava/beans/beancontext/BeanContextMembershipListener;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(BeanContext, addBeanContextMembershipListener, void, $BeanContextMembershipListener*)},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"getResource", "(Ljava/lang/String;Ljava/beans/beancontext/BeanContextChild;)Ljava/net/URL;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(BeanContext, getResource, $URL*, $String*, $BeanContextChild*), "java.lang.IllegalArgumentException"},
+		{"getResourceAsStream", "(Ljava/lang/String;Ljava/beans/beancontext/BeanContextChild;)Ljava/io/InputStream;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(BeanContext, getResourceAsStream, $InputStream*, $String*, $BeanContextChild*), "java.lang.IllegalArgumentException"},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"instantiateChild", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(BeanContext, instantiateChild, $Object*, $String*), "java.io.IOException,java.lang.ClassNotFoundException"},
+		{"removeBeanContextMembershipListener", "(Ljava/beans/beancontext/BeanContextMembershipListener;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(BeanContext, removeBeanContextMembershipListener, void, $BeanContextMembershipListener*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.beans.beancontext.BeanContext",
+		nullptr,
+		"java.beans.beancontext.BeanContextChild,java.util.Collection,java.beans.DesignMode,java.beans.Visibility",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(BeanContext, name, initialize, &classInfo$$, BeanContext::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(BeanContext));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/awt/AWTAccessor$MenuBarAccessor.h>
-
 #include <java/awt/Menu.h>
 #include <java/awt/MenuBar.h>
 #include <java/util/Vector.h>
@@ -16,39 +15,34 @@ using $Vector = ::java::util::Vector;
 namespace sun {
 	namespace awt {
 
-$MethodInfo _AWTAccessor$MenuBarAccessor_MethodInfo_[] = {
-	{"getHelpMenu", "(Ljava/awt/MenuBar;)Ljava/awt/Menu;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AWTAccessor$MenuBarAccessor, getHelpMenu, $Menu*, $MenuBar*)},
-	{"getMenus", "(Ljava/awt/MenuBar;)Ljava/util/Vector;", "(Ljava/awt/MenuBar;)Ljava/util/Vector<Ljava/awt/Menu;>;", $PUBLIC | $ABSTRACT, $virtualMethod(AWTAccessor$MenuBarAccessor, getMenus, $Vector*, $MenuBar*)},
-	{}
-};
-
-$InnerClassInfo _AWTAccessor$MenuBarAccessor_InnerClassesInfo_[] = {
-	{"sun.awt.AWTAccessor$MenuBarAccessor", "sun.awt.AWTAccessor", "MenuBarAccessor", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _AWTAccessor$MenuBarAccessor_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"sun.awt.AWTAccessor$MenuBarAccessor",
-	nullptr,
-	nullptr,
-	nullptr,
-	_AWTAccessor$MenuBarAccessor_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AWTAccessor$MenuBarAccessor_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.awt.AWTAccessor"
-};
-
-$Object* allocate$AWTAccessor$MenuBarAccessor($Class* clazz) {
-	return $of($alloc(AWTAccessor$MenuBarAccessor));
-}
-
 $Class* AWTAccessor$MenuBarAccessor::load$($String* name, bool initialize) {
-	$loadClass(AWTAccessor$MenuBarAccessor, name, initialize, &_AWTAccessor$MenuBarAccessor_ClassInfo_, allocate$AWTAccessor$MenuBarAccessor);
+	$MethodInfo methodInfos$$[] = {
+		{"getHelpMenu", "(Ljava/awt/MenuBar;)Ljava/awt/Menu;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AWTAccessor$MenuBarAccessor, getHelpMenu, $Menu*, $MenuBar*)},
+		{"getMenus", "(Ljava/awt/MenuBar;)Ljava/util/Vector;", "(Ljava/awt/MenuBar;)Ljava/util/Vector<Ljava/awt/Menu;>;", $PUBLIC | $ABSTRACT, $virtualMethod(AWTAccessor$MenuBarAccessor, getMenus, $Vector*, $MenuBar*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.AWTAccessor$MenuBarAccessor", "sun.awt.AWTAccessor", "MenuBarAccessor", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"sun.awt.AWTAccessor$MenuBarAccessor",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.awt.AWTAccessor"
+	};
+	$loadClass(AWTAccessor$MenuBarAccessor, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AWTAccessor$MenuBarAccessor);
+	});
 	return class$;
 }
 

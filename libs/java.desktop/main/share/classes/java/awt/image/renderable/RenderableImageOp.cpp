@@ -1,5 +1,4 @@
 #include <java/awt/image/renderable/RenderableImageOp.h>
-
 #include <java/awt/RenderingHints.h>
 #include <java/awt/geom/AffineTransform.h>
 #include <java/awt/geom/Rectangle2D.h>
@@ -17,7 +16,6 @@
 
 using $RenderingHints = ::java::awt::RenderingHints;
 using $AffineTransform = ::java::awt::geom::AffineTransform;
-using $Rectangle2D = ::java::awt::geom::Rectangle2D;
 using $RenderedImage = ::java::awt::image::RenderedImage;
 using $ContextualRenderedImageFactory = ::java::awt::image::renderable::ContextualRenderedImageFactory;
 using $ParameterBlock = ::java::awt::image::renderable::ParameterBlock;
@@ -36,45 +34,6 @@ namespace java {
 		namespace image {
 			namespace renderable {
 
-$FieldInfo _RenderableImageOp_FieldInfo_[] = {
-	{"paramBlock", "Ljava/awt/image/renderable/ParameterBlock;", nullptr, 0, $field(RenderableImageOp, paramBlock)},
-	{"myCRIF", "Ljava/awt/image/renderable/ContextualRenderedImageFactory;", nullptr, 0, $field(RenderableImageOp, myCRIF)},
-	{"boundingBox", "Ljava/awt/geom/Rectangle2D;", nullptr, 0, $field(RenderableImageOp, boundingBox)},
-	{}
-};
-
-$MethodInfo _RenderableImageOp_MethodInfo_[] = {
-	{"<init>", "(Ljava/awt/image/renderable/ContextualRenderedImageFactory;Ljava/awt/image/renderable/ParameterBlock;)V", nullptr, $PUBLIC, $method(RenderableImageOp, init$, void, $ContextualRenderedImageFactory*, $ParameterBlock*)},
-	{"createDefaultRendering", "()Ljava/awt/image/RenderedImage;", nullptr, $PUBLIC, $virtualMethod(RenderableImageOp, createDefaultRendering, $RenderedImage*)},
-	{"createRendering", "(Ljava/awt/image/renderable/RenderContext;)Ljava/awt/image/RenderedImage;", nullptr, $PUBLIC, $virtualMethod(RenderableImageOp, createRendering, $RenderedImage*, $RenderContext*)},
-	{"createScaledRendering", "(IILjava/awt/RenderingHints;)Ljava/awt/image/RenderedImage;", nullptr, $PUBLIC, $virtualMethod(RenderableImageOp, createScaledRendering, $RenderedImage*, int32_t, int32_t, $RenderingHints*)},
-	{"getHeight", "()F", nullptr, $PUBLIC, $virtualMethod(RenderableImageOp, getHeight, float)},
-	{"getMinX", "()F", nullptr, $PUBLIC, $virtualMethod(RenderableImageOp, getMinX, float)},
-	{"getMinY", "()F", nullptr, $PUBLIC, $virtualMethod(RenderableImageOp, getMinY, float)},
-	{"getParameterBlock", "()Ljava/awt/image/renderable/ParameterBlock;", nullptr, $PUBLIC, $virtualMethod(RenderableImageOp, getParameterBlock, $ParameterBlock*)},
-	{"getProperty", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(RenderableImageOp, getProperty, $Object*, $String*)},
-	{"getPropertyNames", "()[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RenderableImageOp, getPropertyNames, $StringArray*)},
-	{"getRenderableSources", "()Ljava/util/Vector;", "()Ljava/util/Vector<Ljava/awt/image/renderable/RenderableImage;>;", $PRIVATE, $method(RenderableImageOp, getRenderableSources, $Vector*)},
-	{"getSources", "()Ljava/util/Vector;", "()Ljava/util/Vector<Ljava/awt/image/renderable/RenderableImage;>;", $PUBLIC, $virtualMethod(RenderableImageOp, getSources, $Vector*)},
-	{"getWidth", "()F", nullptr, $PUBLIC, $virtualMethod(RenderableImageOp, getWidth, float)},
-	{"isDynamic", "()Z", nullptr, $PUBLIC, $virtualMethod(RenderableImageOp, isDynamic, bool)},
-	{"setParameterBlock", "(Ljava/awt/image/renderable/ParameterBlock;)Ljava/awt/image/renderable/ParameterBlock;", nullptr, $PUBLIC, $virtualMethod(RenderableImageOp, setParameterBlock, $ParameterBlock*, $ParameterBlock*)},
-	{}
-};
-
-$ClassInfo _RenderableImageOp_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.awt.image.renderable.RenderableImageOp",
-	"java.lang.Object",
-	"java.awt.image.renderable.RenderableImage",
-	_RenderableImageOp_FieldInfo_,
-	_RenderableImageOp_MethodInfo_
-};
-
-$Object* allocate$RenderableImageOp($Class* clazz) {
-	return $of($alloc(RenderableImageOp));
-}
-
 void RenderableImageOp::init$($ContextualRenderedImageFactory* CRIF, $ParameterBlock* paramBlock) {
 	$set(this, myCRIF, CRIF);
 	$set(this, paramBlock, $cast($ParameterBlock, $nc(paramBlock)->clone()));
@@ -85,13 +44,13 @@ $Vector* RenderableImageOp::getSources() {
 }
 
 $Vector* RenderableImageOp::getRenderableSources() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Vector, sources, nullptr);
 	if ($nc(this->paramBlock)->getNumSources() > 0) {
 		$assign(sources, $new($Vector));
 		int32_t i = 0;
 		while (i < $nc(this->paramBlock)->getNumSources()) {
-			$var($Object, o, $nc(this->paramBlock)->getSource(i));
+			$var($Object, o, this->paramBlock->getSource(i));
 			if ($instanceOf($RenderableImage, o)) {
 				sources->add($cast($RenderableImage, o));
 				++i;
@@ -104,7 +63,7 @@ $Vector* RenderableImageOp::getRenderableSources() {
 }
 
 $Object* RenderableImageOp::getProperty($String* name) {
-	return $of($nc(this->myCRIF)->getProperty(this->paramBlock, name));
+	return $nc(this->myCRIF)->getProperty(this->paramBlock, name);
 }
 
 $StringArray* RenderableImageOp::getPropertyNames() {
@@ -154,7 +113,7 @@ $ParameterBlock* RenderableImageOp::getParameterBlock() {
 }
 
 $RenderedImage* RenderableImageOp::createScaledRendering(int32_t w, int32_t h, $RenderingHints* hints) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	double sx = (double)w / getWidth();
 	double sy = (double)h / getHeight();
 	if ($Math::abs(sx / sy - 1.0) < 0.01) {
@@ -166,14 +125,14 @@ $RenderedImage* RenderableImageOp::createScaledRendering(int32_t w, int32_t h, $
 }
 
 $RenderedImage* RenderableImageOp::createDefaultRendering() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AffineTransform, usr2dev, $new($AffineTransform));
 	$var($RenderContext, newRC, $new($RenderContext, usr2dev));
 	return createRendering(newRC);
 }
 
 $RenderedImage* RenderableImageOp::createRendering($RenderContext* renderContext) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($RenderedImage, image, nullptr);
 	$var($RenderContext, rcOut, nullptr);
 	$var($ParameterBlock, renderedParamBlock, $cast($ParameterBlock, $nc(this->paramBlock)->clone()));
@@ -183,7 +142,7 @@ $RenderedImage* RenderableImageOp::createRendering($RenderContext* renderContext
 			$var($Vector, renderedSources, $new($Vector));
 			for (int32_t i = 0; i < sources->size(); ++i) {
 				$assign(rcOut, $nc(this->myCRIF)->mapRenderContext(i, renderContext, this->paramBlock, this));
-				$var($RenderedImage, rdrdImage, $nc(($cast($RenderableImage, $(sources->elementAt(i)))))->createRendering(rcOut));
+				$var($RenderedImage, rdrdImage, $$sure($RenderableImage, sources->elementAt(i))->createRendering(rcOut));
 				if (rdrdImage == nullptr) {
 					return nullptr;
 				}
@@ -204,7 +163,41 @@ RenderableImageOp::RenderableImageOp() {
 }
 
 $Class* RenderableImageOp::load$($String* name, bool initialize) {
-	$loadClass(RenderableImageOp, name, initialize, &_RenderableImageOp_ClassInfo_, allocate$RenderableImageOp);
+	$FieldInfo fieldInfos$$[] = {
+		{"paramBlock", "Ljava/awt/image/renderable/ParameterBlock;", nullptr, 0, $field(RenderableImageOp, paramBlock)},
+		{"myCRIF", "Ljava/awt/image/renderable/ContextualRenderedImageFactory;", nullptr, 0, $field(RenderableImageOp, myCRIF)},
+		{"boundingBox", "Ljava/awt/geom/Rectangle2D;", nullptr, 0, $field(RenderableImageOp, boundingBox)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/image/renderable/ContextualRenderedImageFactory;Ljava/awt/image/renderable/ParameterBlock;)V", nullptr, $PUBLIC, $method(RenderableImageOp, init$, void, $ContextualRenderedImageFactory*, $ParameterBlock*)},
+		{"createDefaultRendering", "()Ljava/awt/image/RenderedImage;", nullptr, $PUBLIC, $virtualMethod(RenderableImageOp, createDefaultRendering, $RenderedImage*)},
+		{"createRendering", "(Ljava/awt/image/renderable/RenderContext;)Ljava/awt/image/RenderedImage;", nullptr, $PUBLIC, $virtualMethod(RenderableImageOp, createRendering, $RenderedImage*, $RenderContext*)},
+		{"createScaledRendering", "(IILjava/awt/RenderingHints;)Ljava/awt/image/RenderedImage;", nullptr, $PUBLIC, $virtualMethod(RenderableImageOp, createScaledRendering, $RenderedImage*, int32_t, int32_t, $RenderingHints*)},
+		{"getHeight", "()F", nullptr, $PUBLIC, $virtualMethod(RenderableImageOp, getHeight, float)},
+		{"getMinX", "()F", nullptr, $PUBLIC, $virtualMethod(RenderableImageOp, getMinX, float)},
+		{"getMinY", "()F", nullptr, $PUBLIC, $virtualMethod(RenderableImageOp, getMinY, float)},
+		{"getParameterBlock", "()Ljava/awt/image/renderable/ParameterBlock;", nullptr, $PUBLIC, $virtualMethod(RenderableImageOp, getParameterBlock, $ParameterBlock*)},
+		{"getProperty", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(RenderableImageOp, getProperty, $Object*, $String*)},
+		{"getPropertyNames", "()[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RenderableImageOp, getPropertyNames, $StringArray*)},
+		{"getRenderableSources", "()Ljava/util/Vector;", "()Ljava/util/Vector<Ljava/awt/image/renderable/RenderableImage;>;", $PRIVATE, $method(RenderableImageOp, getRenderableSources, $Vector*)},
+		{"getSources", "()Ljava/util/Vector;", "()Ljava/util/Vector<Ljava/awt/image/renderable/RenderableImage;>;", $PUBLIC, $virtualMethod(RenderableImageOp, getSources, $Vector*)},
+		{"getWidth", "()F", nullptr, $PUBLIC, $virtualMethod(RenderableImageOp, getWidth, float)},
+		{"isDynamic", "()Z", nullptr, $PUBLIC, $virtualMethod(RenderableImageOp, isDynamic, bool)},
+		{"setParameterBlock", "(Ljava/awt/image/renderable/ParameterBlock;)Ljava/awt/image/renderable/ParameterBlock;", nullptr, $PUBLIC, $virtualMethod(RenderableImageOp, setParameterBlock, $ParameterBlock*, $ParameterBlock*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.awt.image.renderable.RenderableImageOp",
+		"java.lang.Object",
+		"java.awt.image.renderable.RenderableImage",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(RenderableImageOp, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RenderableImageOp);
+	});
 	return class$;
 }
 

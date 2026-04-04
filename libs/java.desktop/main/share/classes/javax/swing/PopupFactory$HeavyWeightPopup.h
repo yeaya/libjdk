@@ -24,6 +24,7 @@ class PopupFactory$HeavyWeightPopup : public ::javax::swing::Popup {
 	$class(PopupFactory$HeavyWeightPopup, 0, ::javax::swing::Popup)
 public:
 	PopupFactory$HeavyWeightPopup();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void _dispose();
 	virtual void dispose() override;

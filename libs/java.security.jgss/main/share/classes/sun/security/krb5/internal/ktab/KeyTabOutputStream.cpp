@@ -1,5 +1,4 @@
 #include <sun/security/krb5/internal/ktab/KeyTabOutputStream.h>
-
 #include <java/io/FilterOutputStream.h>
 #include <java/io/OutputStream.h>
 #include <java/nio/charset/Charset.h>
@@ -18,8 +17,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $StandardCharsets = ::java::nio::charset::StandardCharsets;
-using $PrincipalName = ::sun::security::krb5::PrincipalName;
-using $KerberosTime = ::sun::security::krb5::internal::KerberosTime;
 using $KeyTabConstants = ::sun::security::krb5::internal::ktab::KeyTabConstants;
 using $KeyTabEntry = ::sun::security::krb5::internal::ktab::KeyTabEntry;
 using $KrbDataOutputStream = ::sun::security::krb5::internal::util::KrbDataOutputStream;
@@ -29,39 +26,6 @@ namespace sun {
 		namespace krb5 {
 			namespace internal {
 				namespace ktab {
-
-$FieldInfo _KeyTabOutputStream_FieldInfo_[] = {
-	{"entry", "Lsun/security/krb5/internal/ktab/KeyTabEntry;", nullptr, $PRIVATE, $field(KeyTabOutputStream, entry)},
-	{"keyType", "I", nullptr, $PRIVATE, $field(KeyTabOutputStream, keyType)},
-	{"keyValue", "[B", nullptr, $PRIVATE, $field(KeyTabOutputStream, keyValue)},
-	{"version", "I", nullptr, $PUBLIC, $field(KeyTabOutputStream, version)},
-	{}
-};
-
-$MethodInfo _KeyTabOutputStream_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $method(KeyTabOutputStream, init$, void, $OutputStream*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"writeEntry", "(Lsun/security/krb5/internal/ktab/KeyTabEntry;)V", nullptr, $PUBLIC, $virtualMethod(KeyTabOutputStream, writeEntry, void, $KeyTabEntry*), "java.io.IOException"},
-	{"writeVersion", "(I)V", nullptr, $PUBLIC, $virtualMethod(KeyTabOutputStream, writeVersion, void, int32_t), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _KeyTabOutputStream_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.krb5.internal.ktab.KeyTabOutputStream",
-	"sun.security.krb5.internal.util.KrbDataOutputStream",
-	"sun.security.krb5.internal.ktab.KeyTabConstants",
-	_KeyTabOutputStream_FieldInfo_,
-	_KeyTabOutputStream_MethodInfo_
-};
-
-$Object* allocate$KeyTabOutputStream($Class* clazz) {
-	return $of($alloc(KeyTabOutputStream));
-}
 
 int32_t KeyTabOutputStream::hashCode() {
 	 return this->$KrbDataOutputStream::hashCode();
@@ -93,9 +57,9 @@ void KeyTabOutputStream::writeVersion(int32_t num) {
 }
 
 void KeyTabOutputStream::writeEntry($KeyTabEntry* entry) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	write32($nc(entry)->entryLength());
-	$var($StringArray, serviceNames, $nc($nc(entry)->service)->getNameStrings());
+	$var($StringArray, serviceNames, $nc(entry->service)->getNameStrings());
 	int32_t comp_num = $nc(serviceNames)->length;
 	if (this->version == $KeyTabConstants::KRB5_KT_VNO_1) {
 		write16(comp_num + 1);
@@ -103,7 +67,7 @@ void KeyTabOutputStream::writeEntry($KeyTabEntry* entry) {
 		write16(comp_num);
 	}
 	$init($StandardCharsets);
-	$var($bytes, realm, $nc($($nc(entry->service)->getRealmString()))->getBytes($StandardCharsets::ISO_8859_1));
+	$var($bytes, realm, $$nc($nc(entry->service)->getRealmString())->getBytes($StandardCharsets::ISO_8859_1));
 	write16(realm->length);
 	write(realm);
 	for (int32_t i = 0; i < comp_num; ++i) {
@@ -123,7 +87,35 @@ KeyTabOutputStream::KeyTabOutputStream() {
 }
 
 $Class* KeyTabOutputStream::load$($String* name, bool initialize) {
-	$loadClass(KeyTabOutputStream, name, initialize, &_KeyTabOutputStream_ClassInfo_, allocate$KeyTabOutputStream);
+	$FieldInfo fieldInfos$$[] = {
+		{"entry", "Lsun/security/krb5/internal/ktab/KeyTabEntry;", nullptr, $PRIVATE, $field(KeyTabOutputStream, entry)},
+		{"keyType", "I", nullptr, $PRIVATE, $field(KeyTabOutputStream, keyType)},
+		{"keyValue", "[B", nullptr, $PRIVATE, $field(KeyTabOutputStream, keyValue)},
+		{"version", "I", nullptr, $PUBLIC, $field(KeyTabOutputStream, version)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $method(KeyTabOutputStream, init$, void, $OutputStream*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"writeEntry", "(Lsun/security/krb5/internal/ktab/KeyTabEntry;)V", nullptr, $PUBLIC, $virtualMethod(KeyTabOutputStream, writeEntry, void, $KeyTabEntry*), "java.io.IOException"},
+		{"writeVersion", "(I)V", nullptr, $PUBLIC, $virtualMethod(KeyTabOutputStream, writeVersion, void, int32_t), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.krb5.internal.ktab.KeyTabOutputStream",
+		"sun.security.krb5.internal.util.KrbDataOutputStream",
+		"sun.security.krb5.internal.ktab.KeyTabConstants",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(KeyTabOutputStream, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(KeyTabOutputStream));
+	});
 	return class$;
 }
 

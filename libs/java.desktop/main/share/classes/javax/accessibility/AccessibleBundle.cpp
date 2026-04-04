@@ -1,11 +1,9 @@
 #include <javax/accessibility/AccessibleBundle.h>
-
 #include <java/lang/ClassCastException.h>
 #include <java/util/Locale.h>
 #include <java/util/MissingResourceException.h>
 #include <java/util/ResourceBundle.h>
 #include <javax/accessibility/AccessibleBundle$1.h>
-#include <sun/awt/AWTAccessor$AccessibleBundleAccessor.h>
 #include <sun/awt/AWTAccessor.h>
 #include <jcpp.h>
 
@@ -19,49 +17,9 @@ using $MissingResourceException = ::java::util::MissingResourceException;
 using $ResourceBundle = ::java::util::ResourceBundle;
 using $AccessibleBundle$1 = ::javax::accessibility::AccessibleBundle$1;
 using $AWTAccessor = ::sun::awt::AWTAccessor;
-using $AWTAccessor$AccessibleBundleAccessor = ::sun::awt::AWTAccessor$AccessibleBundleAccessor;
 
 namespace javax {
 	namespace accessibility {
-
-$FieldInfo _AccessibleBundle_FieldInfo_[] = {
-	{"defaultResourceBundleName", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(AccessibleBundle, defaultResourceBundleName)},
-	{"key", "Ljava/lang/String;", nullptr, $PROTECTED, $field(AccessibleBundle, key)},
-	{}
-};
-
-$MethodInfo _AccessibleBundle_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AccessibleBundle, init$, void)},
-	{"toDisplayString", "(Ljava/lang/String;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(AccessibleBundle, toDisplayString, $String*, $String*, $Locale*)},
-	{"toDisplayString", "(Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AccessibleBundle, toDisplayString, $String*, $Locale*)},
-	{"toDisplayString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AccessibleBundle, toDisplayString, $String*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AccessibleBundle, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _AccessibleBundle_InnerClassesInfo_[] = {
-	{"javax.accessibility.AccessibleBundle$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _AccessibleBundle_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"javax.accessibility.AccessibleBundle",
-	"java.lang.Object",
-	nullptr,
-	_AccessibleBundle_FieldInfo_,
-	_AccessibleBundle_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AccessibleBundle_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.accessibility.AccessibleBundle$1"
-};
-
-$Object* allocate$AccessibleBundle($Class* clazz) {
-	return $of($alloc(AccessibleBundle));
-}
 
 void AccessibleBundle::init$() {
 	$set(this, defaultResourceBundleName, "com.sun.accessibility.internal.resources.accessibility"_s);
@@ -71,7 +29,7 @@ void AccessibleBundle::init$() {
 $String* AccessibleBundle::toDisplayString($String* name, $Locale* locale) {
 	$beforeCallerSensitive();
 	try {
-		return $nc($($ResourceBundle::getBundle(name, locale)))->getString(this->key);
+		return $$nc($ResourceBundle::getBundle(name, locale))->getString(this->key);
 	} catch ($ClassCastException& ignored) {
 		return this->key;
 	} catch ($MissingResourceException& ignored) {
@@ -92,7 +50,7 @@ $String* AccessibleBundle::toString() {
 	return toDisplayString();
 }
 
-void clinit$AccessibleBundle($Class* class$) {
+void AccessibleBundle::clinit$($Class* clazz) {
 	{
 		$AWTAccessor::setAccessibleBundleAccessor($$new($AccessibleBundle$1));
 	}
@@ -102,7 +60,40 @@ AccessibleBundle::AccessibleBundle() {
 }
 
 $Class* AccessibleBundle::load$($String* name, bool initialize) {
-	$loadClass(AccessibleBundle, name, initialize, &_AccessibleBundle_ClassInfo_, clinit$AccessibleBundle, allocate$AccessibleBundle);
+	$FieldInfo fieldInfos$$[] = {
+		{"defaultResourceBundleName", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(AccessibleBundle, defaultResourceBundleName)},
+		{"key", "Ljava/lang/String;", nullptr, $PROTECTED, $field(AccessibleBundle, key)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AccessibleBundle, init$, void)},
+		{"toDisplayString", "(Ljava/lang/String;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(AccessibleBundle, toDisplayString, $String*, $String*, $Locale*)},
+		{"toDisplayString", "(Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AccessibleBundle, toDisplayString, $String*, $Locale*)},
+		{"toDisplayString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AccessibleBundle, toDisplayString, $String*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AccessibleBundle, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.accessibility.AccessibleBundle$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"javax.accessibility.AccessibleBundle",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.accessibility.AccessibleBundle$1"
+	};
+	$loadClass(AccessibleBundle, name, initialize, &classInfo$$, AccessibleBundle::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(AccessibleBundle);
+	});
 	return class$;
 }
 

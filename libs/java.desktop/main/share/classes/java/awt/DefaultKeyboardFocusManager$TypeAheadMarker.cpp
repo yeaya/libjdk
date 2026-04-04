@@ -1,5 +1,4 @@
 #include <java/awt/DefaultKeyboardFocusManager$TypeAheadMarker.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/DefaultKeyboardFocusManager.h>
 #include <jcpp.h>
@@ -12,43 +11,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace java {
 	namespace awt {
-
-$FieldInfo _DefaultKeyboardFocusManager$TypeAheadMarker_FieldInfo_[] = {
-	{"after", "J", nullptr, 0, $field(DefaultKeyboardFocusManager$TypeAheadMarker, after)},
-	{"untilFocused", "Ljava/awt/Component;", nullptr, 0, $field(DefaultKeyboardFocusManager$TypeAheadMarker, untilFocused)},
-	{}
-};
-
-$MethodInfo _DefaultKeyboardFocusManager$TypeAheadMarker_MethodInfo_[] = {
-	{"<init>", "(JLjava/awt/Component;)V", nullptr, 0, $method(DefaultKeyboardFocusManager$TypeAheadMarker, init$, void, int64_t, $Component*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DefaultKeyboardFocusManager$TypeAheadMarker, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _DefaultKeyboardFocusManager$TypeAheadMarker_InnerClassesInfo_[] = {
-	{"java.awt.DefaultKeyboardFocusManager$TypeAheadMarker", "java.awt.DefaultKeyboardFocusManager", "TypeAheadMarker", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _DefaultKeyboardFocusManager$TypeAheadMarker_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.awt.DefaultKeyboardFocusManager$TypeAheadMarker",
-	"java.lang.Object",
-	nullptr,
-	_DefaultKeyboardFocusManager$TypeAheadMarker_FieldInfo_,
-	_DefaultKeyboardFocusManager$TypeAheadMarker_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DefaultKeyboardFocusManager$TypeAheadMarker_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.awt.DefaultKeyboardFocusManager"
-};
-
-$Object* allocate$DefaultKeyboardFocusManager$TypeAheadMarker($Class* clazz) {
-	return $of($alloc(DefaultKeyboardFocusManager$TypeAheadMarker));
-}
 
 void DefaultKeyboardFocusManager$TypeAheadMarker::init$(int64_t after, $Component* untilFocused) {
 	this->after = after;
@@ -63,7 +25,38 @@ DefaultKeyboardFocusManager$TypeAheadMarker::DefaultKeyboardFocusManager$TypeAhe
 }
 
 $Class* DefaultKeyboardFocusManager$TypeAheadMarker::load$($String* name, bool initialize) {
-	$loadClass(DefaultKeyboardFocusManager$TypeAheadMarker, name, initialize, &_DefaultKeyboardFocusManager$TypeAheadMarker_ClassInfo_, allocate$DefaultKeyboardFocusManager$TypeAheadMarker);
+	$FieldInfo fieldInfos$$[] = {
+		{"after", "J", nullptr, 0, $field(DefaultKeyboardFocusManager$TypeAheadMarker, after)},
+		{"untilFocused", "Ljava/awt/Component;", nullptr, 0, $field(DefaultKeyboardFocusManager$TypeAheadMarker, untilFocused)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(JLjava/awt/Component;)V", nullptr, 0, $method(DefaultKeyboardFocusManager$TypeAheadMarker, init$, void, int64_t, $Component*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DefaultKeyboardFocusManager$TypeAheadMarker, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.awt.DefaultKeyboardFocusManager$TypeAheadMarker", "java.awt.DefaultKeyboardFocusManager", "TypeAheadMarker", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.awt.DefaultKeyboardFocusManager$TypeAheadMarker",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.awt.DefaultKeyboardFocusManager"
+	};
+	$loadClass(DefaultKeyboardFocusManager$TypeAheadMarker, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DefaultKeyboardFocusManager$TypeAheadMarker);
+	});
 	return class$;
 }
 

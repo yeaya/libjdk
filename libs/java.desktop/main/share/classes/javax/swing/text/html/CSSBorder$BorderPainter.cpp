@@ -1,5 +1,4 @@
 #include <javax/swing/text/html/CSSBorder$BorderPainter.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Graphics.h>
 #include <java/awt/Polygon.h>
@@ -18,38 +17,33 @@ namespace javax {
 		namespace text {
 			namespace html {
 
-$MethodInfo _CSSBorder$BorderPainter_MethodInfo_[] = {
-	{"paint", "(Ljava/awt/Polygon;Ljava/awt/Graphics;Ljava/awt/Color;I)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CSSBorder$BorderPainter, paint, void, $Polygon*, $Graphics*, $Color*, int32_t)},
-	{}
-};
-
-$InnerClassInfo _CSSBorder$BorderPainter_InnerClassesInfo_[] = {
-	{"javax.swing.text.html.CSSBorder$BorderPainter", "javax.swing.text.html.CSSBorder", "BorderPainter", $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _CSSBorder$BorderPainter_ClassInfo_ = {
-	$INTERFACE | $ABSTRACT,
-	"javax.swing.text.html.CSSBorder$BorderPainter",
-	nullptr,
-	nullptr,
-	nullptr,
-	_CSSBorder$BorderPainter_MethodInfo_,
-	nullptr,
-	nullptr,
-	_CSSBorder$BorderPainter_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.html.CSSBorder"
-};
-
-$Object* allocate$CSSBorder$BorderPainter($Class* clazz) {
-	return $of($alloc(CSSBorder$BorderPainter));
-}
-
 $Class* CSSBorder$BorderPainter::load$($String* name, bool initialize) {
-	$loadClass(CSSBorder$BorderPainter, name, initialize, &_CSSBorder$BorderPainter_ClassInfo_, allocate$CSSBorder$BorderPainter);
+	$MethodInfo methodInfos$$[] = {
+		{"paint", "(Ljava/awt/Polygon;Ljava/awt/Graphics;Ljava/awt/Color;I)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CSSBorder$BorderPainter, paint, void, $Polygon*, $Graphics*, $Color*, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.html.CSSBorder$BorderPainter", "javax.swing.text.html.CSSBorder", "BorderPainter", $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$INTERFACE | $ABSTRACT,
+		"javax.swing.text.html.CSSBorder$BorderPainter",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.html.CSSBorder"
+	};
+	$loadClass(CSSBorder$BorderPainter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CSSBorder$BorderPainter);
+	});
 	return class$;
 }
 

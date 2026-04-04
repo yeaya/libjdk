@@ -1,14 +1,11 @@
 #include <javax/imageio/ImageTypeSpecifier$Grayscale.h>
-
 #include <java/awt/Transparency.h>
 #include <java/awt/color/ColorSpace.h>
-#include <java/awt/image/ColorModel.h>
 #include <java/awt/image/ComponentColorModel.h>
 #include <java/awt/image/DataBuffer.h>
 #include <java/awt/image/IndexColorModel.h>
 #include <java/awt/image/MultiPixelPackedSampleModel.h>
 #include <java/awt/image/PixelInterleavedSampleModel.h>
-#include <java/awt/image/SampleModel.h>
 #include <javax/imageio/ImageTypeSpecifier.h>
 #include <jcpp.h>
 
@@ -21,13 +18,11 @@
 
 using $Transparency = ::java::awt::Transparency;
 using $ColorSpace = ::java::awt::color::ColorSpace;
-using $ColorModel = ::java::awt::image::ColorModel;
 using $ComponentColorModel = ::java::awt::image::ComponentColorModel;
 using $DataBuffer = ::java::awt::image::DataBuffer;
 using $IndexColorModel = ::java::awt::image::IndexColorModel;
 using $MultiPixelPackedSampleModel = ::java::awt::image::MultiPixelPackedSampleModel;
 using $PixelInterleavedSampleModel = ::java::awt::image::PixelInterleavedSampleModel;
-using $SampleModel = ::java::awt::image::SampleModel;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
@@ -38,47 +33,8 @@ using $ImageTypeSpecifier = ::javax::imageio::ImageTypeSpecifier;
 namespace javax {
 	namespace imageio {
 
-$FieldInfo _ImageTypeSpecifier$Grayscale_FieldInfo_[] = {
-	{"bits", "I", nullptr, 0, $field(ImageTypeSpecifier$Grayscale, bits)},
-	{"dataType", "I", nullptr, 0, $field(ImageTypeSpecifier$Grayscale, dataType)},
-	{"isSigned", "Z", nullptr, 0, $field(ImageTypeSpecifier$Grayscale, isSigned)},
-	{"hasAlpha", "Z", nullptr, 0, $field(ImageTypeSpecifier$Grayscale, hasAlpha)},
-	{"isAlphaPremultiplied", "Z", nullptr, 0, $field(ImageTypeSpecifier$Grayscale, isAlphaPremultiplied)},
-	{}
-};
-
-$MethodInfo _ImageTypeSpecifier$Grayscale_MethodInfo_[] = {
-	{"<init>", "(IIZZZ)V", nullptr, $PUBLIC, $method(ImageTypeSpecifier$Grayscale, init$, void, int32_t, int32_t, bool, bool, bool)},
-	{}
-};
-
-$InnerClassInfo _ImageTypeSpecifier$Grayscale_InnerClassesInfo_[] = {
-	{"javax.imageio.ImageTypeSpecifier$Grayscale", "javax.imageio.ImageTypeSpecifier", "Grayscale", $STATIC},
-	{}
-};
-
-$ClassInfo _ImageTypeSpecifier$Grayscale_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.imageio.ImageTypeSpecifier$Grayscale",
-	"javax.imageio.ImageTypeSpecifier",
-	nullptr,
-	_ImageTypeSpecifier$Grayscale_FieldInfo_,
-	_ImageTypeSpecifier$Grayscale_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ImageTypeSpecifier$Grayscale_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.imageio.ImageTypeSpecifier"
-};
-
-$Object* allocate$ImageTypeSpecifier$Grayscale($Class* clazz) {
-	return $of($alloc(ImageTypeSpecifier$Grayscale));
-}
-
 void ImageTypeSpecifier$Grayscale::init$(int32_t bits, int32_t dataType, bool isSigned, bool hasAlpha, bool isAlphaPremultiplied) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$ImageTypeSpecifier::init$();
 	if (bits != 1 && bits != 2 && bits != 4 && bits != 8 && bits != 16) {
 		$throwNew($IllegalArgumentException, "Bad value for bits!"_s);
@@ -127,7 +83,40 @@ ImageTypeSpecifier$Grayscale::ImageTypeSpecifier$Grayscale() {
 }
 
 $Class* ImageTypeSpecifier$Grayscale::load$($String* name, bool initialize) {
-	$loadClass(ImageTypeSpecifier$Grayscale, name, initialize, &_ImageTypeSpecifier$Grayscale_ClassInfo_, allocate$ImageTypeSpecifier$Grayscale);
+	$FieldInfo fieldInfos$$[] = {
+		{"bits", "I", nullptr, 0, $field(ImageTypeSpecifier$Grayscale, bits)},
+		{"dataType", "I", nullptr, 0, $field(ImageTypeSpecifier$Grayscale, dataType)},
+		{"isSigned", "Z", nullptr, 0, $field(ImageTypeSpecifier$Grayscale, isSigned)},
+		{"hasAlpha", "Z", nullptr, 0, $field(ImageTypeSpecifier$Grayscale, hasAlpha)},
+		{"isAlphaPremultiplied", "Z", nullptr, 0, $field(ImageTypeSpecifier$Grayscale, isAlphaPremultiplied)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(IIZZZ)V", nullptr, $PUBLIC, $method(ImageTypeSpecifier$Grayscale, init$, void, int32_t, int32_t, bool, bool, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.imageio.ImageTypeSpecifier$Grayscale", "javax.imageio.ImageTypeSpecifier", "Grayscale", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.imageio.ImageTypeSpecifier$Grayscale",
+		"javax.imageio.ImageTypeSpecifier",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.imageio.ImageTypeSpecifier"
+	};
+	$loadClass(ImageTypeSpecifier$Grayscale, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ImageTypeSpecifier$Grayscale);
+	});
 	return class$;
 }
 

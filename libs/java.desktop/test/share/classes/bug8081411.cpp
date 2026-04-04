@@ -1,5 +1,4 @@
 #include <bug8081411.h>
-
 #include <bug8081411$CenteredSynthIcon.h>
 #include <java/awt/Color.h>
 #include <java/awt/Graphics.h>
@@ -47,7 +46,6 @@ using $Runnable = ::java::lang::Runnable;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $Icon = ::javax::swing::Icon;
-using $JComponent = ::javax::swing::JComponent;
 using $JMenuItem = ::javax::swing::JMenuItem;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $UIManager = ::javax::swing::UIManager;
@@ -68,68 +66,27 @@ public:
 	virtual void run() override {
 		bug8081411::testSynthIcon();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<bug8081411$$Lambda$testSynthIcon>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo bug8081411$$Lambda$testSynthIcon::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(bug8081411$$Lambda$testSynthIcon, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug8081411$$Lambda$testSynthIcon, run, void)},
-	{}
-};
-$ClassInfo bug8081411$$Lambda$testSynthIcon::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"bug8081411$$Lambda$testSynthIcon",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* bug8081411$$Lambda$testSynthIcon::load$($String* name, bool initialize) {
-	$loadClass(bug8081411$$Lambda$testSynthIcon, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(bug8081411$$Lambda$testSynthIcon, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug8081411$$Lambda$testSynthIcon, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"bug8081411$$Lambda$testSynthIcon",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(bug8081411$$Lambda$testSynthIcon, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(bug8081411$$Lambda$testSynthIcon);
+	});
 	return class$;
 }
 $Class* bug8081411$$Lambda$testSynthIcon::class$ = nullptr;
-
-$FieldInfo _bug8081411_FieldInfo_[] = {
-	{"TEST_COLOR", "Ljava/awt/Color;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(bug8081411, TEST_COLOR)},
-	{}
-};
-
-$MethodInfo _bug8081411_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(bug8081411, init$, void)},
-	{"checkAndSetNimbusLookAndFeel", "()Z", nullptr, $PRIVATE | $STATIC, $staticMethod(bug8081411, checkAndSetNimbusLookAndFeel, bool)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(bug8081411, main, void, $StringArray*), "java.lang.Exception"},
-	{"paintAndCheckIcon", "(Ljavax/swing/Icon;Ljavax/swing/plaf/synth/SynthContext;II)V", nullptr, $PRIVATE | $STATIC, $staticMethod(bug8081411, paintAndCheckIcon, void, $Icon*, $SynthContext*, int32_t, int32_t)},
-	{"testSynthIcon", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(bug8081411, testSynthIcon, void)},
-	{}
-};
-
-$InnerClassInfo _bug8081411_InnerClassesInfo_[] = {
-	{"bug8081411$CenteredSynthIcon", "bug8081411", "CenteredSynthIcon", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _bug8081411_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"bug8081411",
-	"java.lang.Object",
-	nullptr,
-	_bug8081411_FieldInfo_,
-	_bug8081411_MethodInfo_,
-	nullptr,
-	nullptr,
-	_bug8081411_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"bug8081411$CenteredSynthIcon"
-};
-
-$Object* allocate$bug8081411($Class* clazz) {
-	return $of($alloc(bug8081411));
-}
 
 $Color* bug8081411::TEST_COLOR = nullptr;
 
@@ -138,12 +95,12 @@ void bug8081411::init$() {
 
 void bug8081411::main($StringArray* args) {
 	$init(bug8081411);
-	$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(bug8081411$$Lambda$testSynthIcon)));
+	$SwingUtilities::invokeAndWait($$new(bug8081411$$Lambda$testSynthIcon));
 }
 
 void bug8081411::testSynthIcon() {
 	$init(bug8081411);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!checkAndSetNimbusLookAndFeel()) {
 		return;
 	}
@@ -166,7 +123,7 @@ void bug8081411::testSynthIcon() {
 
 void bug8081411::paintAndCheckIcon($Icon* icon, $SynthContext* synthContext, int32_t width, int32_t height) {
 	$init(bug8081411);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($BufferedImage, buffImage, $new($BufferedImage, width, height, $BufferedImage::TYPE_INT_RGB));
 	$var($Graphics, g, buffImage->createGraphics());
 	$init($Color);
@@ -175,27 +132,21 @@ void bug8081411::paintAndCheckIcon($Icon* icon, $SynthContext* synthContext, int
 	$SynthGraphicsUtils::paintIcon(icon, synthContext, g, 0, 0, width, height);
 	g->dispose();
 	$var($Color, iconCenterColor, $new($Color, buffImage->getRGB(width / 2, height / 2)));
-	if (!$nc(bug8081411::TEST_COLOR)->equals(iconCenterColor)) {
+	if (!bug8081411::TEST_COLOR->equals(iconCenterColor)) {
 		$throwNew($RuntimeException, "Icon is painted incorrectly!"_s);
 	}
 }
 
 bool bug8081411::checkAndSetNimbusLookAndFeel() {
 	$init(bug8081411);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
-		{
-			$var($UIManager$LookAndFeelInfoArray, arr$, $UIManager::getInstalledLookAndFeels());
-			int32_t len$ = $nc(arr$)->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
-				$var($UIManager$LookAndFeelInfo, info, arr$->get(i$));
-				{
-					if ("Nimbus"_s->equals($($nc(info)->getName()))) {
-						$UIManager::setLookAndFeel($($nc(info)->getClassName()));
-						return true;
-					}
-				}
+		$var($UIManager$LookAndFeelInfoArray, arr$, $UIManager::getInstalledLookAndFeels());
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
+			$var($UIManager$LookAndFeelInfo, info, arr$->get(i$));
+			if ("Nimbus"_s->equals($($nc(info)->getName()))) {
+				$UIManager::setLookAndFeel($(info->getClassName()));
+				return true;
 			}
 		}
 		return false;
@@ -205,7 +156,7 @@ bool bug8081411::checkAndSetNimbusLookAndFeel() {
 	$shouldNotReachHere();
 }
 
-void clinit$bug8081411($Class* class$) {
+void bug8081411::clinit$($Class* clazz) {
 	$assignStatic(bug8081411::TEST_COLOR, $new($Color, 71, 71, 72));
 }
 
@@ -214,11 +165,43 @@ bug8081411::bug8081411() {
 
 $Class* bug8081411::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(bug8081411$$Lambda$testSynthIcon::classInfo$.name)) {
+		if (name->equals("bug8081411$$Lambda$testSynthIcon")) {
 			return bug8081411$$Lambda$testSynthIcon::load$(name, initialize);
 		}
 	}
-	$loadClass(bug8081411, name, initialize, &_bug8081411_ClassInfo_, clinit$bug8081411, allocate$bug8081411);
+	$FieldInfo fieldInfos$$[] = {
+		{"TEST_COLOR", "Ljava/awt/Color;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(bug8081411, TEST_COLOR)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(bug8081411, init$, void)},
+		{"checkAndSetNimbusLookAndFeel", "()Z", nullptr, $PRIVATE | $STATIC, $staticMethod(bug8081411, checkAndSetNimbusLookAndFeel, bool)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(bug8081411, main, void, $StringArray*), "java.lang.Exception"},
+		{"paintAndCheckIcon", "(Ljavax/swing/Icon;Ljavax/swing/plaf/synth/SynthContext;II)V", nullptr, $PRIVATE | $STATIC, $staticMethod(bug8081411, paintAndCheckIcon, void, $Icon*, $SynthContext*, int32_t, int32_t)},
+		{"testSynthIcon", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(bug8081411, testSynthIcon, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"bug8081411$CenteredSynthIcon", "bug8081411", "CenteredSynthIcon", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"bug8081411",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"bug8081411$CenteredSynthIcon"
+	};
+	$loadClass(bug8081411, name, initialize, &classInfo$$, bug8081411::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(bug8081411);
+	});
 	return class$;
 }
 

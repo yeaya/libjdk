@@ -1,5 +1,4 @@
 #include <javax/print/attribute/TextSyntax.h>
-
 #include <java/io/Serializable.h>
 #include <java/util/Locale.h>
 #include <jcpp.h>
@@ -14,40 +13,6 @@ using $Locale = ::java::util::Locale;
 namespace javax {
 	namespace print {
 		namespace attribute {
-
-$FieldInfo _TextSyntax_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(TextSyntax, serialVersionUID)},
-	{"value", "Ljava/lang/String;", nullptr, $PRIVATE, $field(TextSyntax, value)},
-	{"locale", "Ljava/util/Locale;", nullptr, $PRIVATE, $field(TextSyntax, locale)},
-	{}
-};
-
-$MethodInfo _TextSyntax_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"<init>", "(Ljava/lang/String;Ljava/util/Locale;)V", nullptr, $PROTECTED, $method(TextSyntax, init$, void, $String*, $Locale*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(TextSyntax, equals, bool, Object$*)},
-	{"getLocale", "()Ljava/util/Locale;", nullptr, $PUBLIC, $virtualMethod(TextSyntax, getLocale, $Locale*)},
-	{"getValue", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TextSyntax, getValue, $String*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(TextSyntax, hashCode, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TextSyntax, toString, $String*)},
-	{"verify", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(TextSyntax, verify, $String*, $String*)},
-	{"verify", "(Ljava/util/Locale;)Ljava/util/Locale;", nullptr, $PRIVATE | $STATIC, $staticMethod(TextSyntax, verify, $Locale*, $Locale*)},
-	{}
-};
-
-$ClassInfo _TextSyntax_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"javax.print.attribute.TextSyntax",
-	"java.lang.Object",
-	"java.io.Serializable,java.lang.Cloneable",
-	_TextSyntax_FieldInfo_,
-	_TextSyntax_MethodInfo_
-};
-
-$Object* allocate$TextSyntax($Class* clazz) {
-	return $of($alloc(TextSyntax));
-}
 
 $Object* TextSyntax::clone() {
 	 return this->$Serializable::clone();
@@ -92,8 +57,8 @@ int32_t TextSyntax::hashCode() {
 }
 
 bool TextSyntax::equals(Object$* object) {
-	bool var$0 = object != nullptr && $instanceOf(TextSyntax, object) && $nc(this->value)->equals($nc(($cast(TextSyntax, object)))->value);
-	return (var$0 && $nc(this->locale)->equals($nc(($cast(TextSyntax, object)))->locale));
+	bool var$0 = object != nullptr && $instanceOf(TextSyntax, object) && $nc(this->value)->equals($cast(TextSyntax, object)->value);
+	return (var$0 && $nc(this->locale)->equals($cast(TextSyntax, object)->locale));
 }
 
 $String* TextSyntax::toString() {
@@ -104,7 +69,36 @@ TextSyntax::TextSyntax() {
 }
 
 $Class* TextSyntax::load$($String* name, bool initialize) {
-	$loadClass(TextSyntax, name, initialize, &_TextSyntax_ClassInfo_, allocate$TextSyntax);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(TextSyntax, serialVersionUID)},
+		{"value", "Ljava/lang/String;", nullptr, $PRIVATE, $field(TextSyntax, value)},
+		{"locale", "Ljava/util/Locale;", nullptr, $PRIVATE, $field(TextSyntax, locale)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"<init>", "(Ljava/lang/String;Ljava/util/Locale;)V", nullptr, $PROTECTED, $method(TextSyntax, init$, void, $String*, $Locale*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(TextSyntax, equals, bool, Object$*)},
+		{"getLocale", "()Ljava/util/Locale;", nullptr, $PUBLIC, $virtualMethod(TextSyntax, getLocale, $Locale*)},
+		{"getValue", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TextSyntax, getValue, $String*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(TextSyntax, hashCode, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TextSyntax, toString, $String*)},
+		{"verify", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(TextSyntax, verify, $String*, $String*)},
+		{"verify", "(Ljava/util/Locale;)Ljava/util/Locale;", nullptr, $PRIVATE | $STATIC, $staticMethod(TextSyntax, verify, $Locale*, $Locale*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"javax.print.attribute.TextSyntax",
+		"java.lang.Object",
+		"java.io.Serializable,java.lang.Cloneable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TextSyntax, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(TextSyntax));
+	});
 	return class$;
 }
 

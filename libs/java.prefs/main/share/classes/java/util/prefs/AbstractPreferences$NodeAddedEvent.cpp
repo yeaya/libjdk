@@ -1,5 +1,4 @@
 #include <java/util/prefs/AbstractPreferences$NodeAddedEvent.h>
-
 #include <java/util/prefs/AbstractPreferences.h>
 #include <java/util/prefs/NodeChangeEvent.h>
 #include <java/util/prefs/Preferences.h>
@@ -17,42 +16,6 @@ namespace java {
 	namespace util {
 		namespace prefs {
 
-$FieldInfo _AbstractPreferences$NodeAddedEvent_FieldInfo_[] = {
-	{"this$0", "Ljava/util/prefs/AbstractPreferences;", nullptr, $FINAL | $SYNTHETIC, $field(AbstractPreferences$NodeAddedEvent, this$0)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AbstractPreferences$NodeAddedEvent, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _AbstractPreferences$NodeAddedEvent_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/prefs/AbstractPreferences;Ljava/util/prefs/Preferences;Ljava/util/prefs/Preferences;)V", nullptr, 0, $method(AbstractPreferences$NodeAddedEvent, init$, void, $AbstractPreferences*, $Preferences*, $Preferences*)},
-	{}
-};
-
-$InnerClassInfo _AbstractPreferences$NodeAddedEvent_InnerClassesInfo_[] = {
-	{"java.util.prefs.AbstractPreferences$NodeAddedEvent", "java.util.prefs.AbstractPreferences", "NodeAddedEvent", $PRIVATE},
-	{}
-};
-
-$ClassInfo _AbstractPreferences$NodeAddedEvent_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.prefs.AbstractPreferences$NodeAddedEvent",
-	"java.util.prefs.NodeChangeEvent",
-	nullptr,
-	_AbstractPreferences$NodeAddedEvent_FieldInfo_,
-	_AbstractPreferences$NodeAddedEvent_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AbstractPreferences$NodeAddedEvent_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.prefs.AbstractPreferences"
-};
-
-$Object* allocate$AbstractPreferences$NodeAddedEvent($Class* clazz) {
-	return $of($alloc(AbstractPreferences$NodeAddedEvent));
-}
-
 void AbstractPreferences$NodeAddedEvent::init$($AbstractPreferences* this$0, $Preferences* parent, $Preferences* child) {
 	$set(this, this$0, this$0);
 	$NodeChangeEvent::init$(parent, child);
@@ -62,7 +25,37 @@ AbstractPreferences$NodeAddedEvent::AbstractPreferences$NodeAddedEvent() {
 }
 
 $Class* AbstractPreferences$NodeAddedEvent::load$($String* name, bool initialize) {
-	$loadClass(AbstractPreferences$NodeAddedEvent, name, initialize, &_AbstractPreferences$NodeAddedEvent_ClassInfo_, allocate$AbstractPreferences$NodeAddedEvent);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljava/util/prefs/AbstractPreferences;", nullptr, $FINAL | $SYNTHETIC, $field(AbstractPreferences$NodeAddedEvent, this$0)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AbstractPreferences$NodeAddedEvent, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/prefs/AbstractPreferences;Ljava/util/prefs/Preferences;Ljava/util/prefs/Preferences;)V", nullptr, 0, $method(AbstractPreferences$NodeAddedEvent, init$, void, $AbstractPreferences*, $Preferences*, $Preferences*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.prefs.AbstractPreferences$NodeAddedEvent", "java.util.prefs.AbstractPreferences", "NodeAddedEvent", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.prefs.AbstractPreferences$NodeAddedEvent",
+		"java.util.prefs.NodeChangeEvent",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.prefs.AbstractPreferences"
+	};
+	$loadClass(AbstractPreferences$NodeAddedEvent, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AbstractPreferences$NodeAddedEvent);
+	});
 	return class$;
 }
 

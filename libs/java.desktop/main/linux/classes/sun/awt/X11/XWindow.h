@@ -106,6 +106,7 @@ public:
 	virtual int64_t getContentWindow() override;
 	virtual int64_t getWindow() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::awt::X11::XCreateWindowParams* params);
 	void init$();
 	void init$(int64_t parentWindow, ::java::awt::Rectangle* bounds);

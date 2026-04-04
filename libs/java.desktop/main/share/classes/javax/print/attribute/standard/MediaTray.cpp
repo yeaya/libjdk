@@ -1,5 +1,4 @@
 #include <javax/print/attribute/standard/MediaTray.h>
-
 #include <javax/print/attribute/EnumSyntax.h>
 #include <javax/print/attribute/standard/Media.h>
 #include <jcpp.h>
@@ -25,41 +24,6 @@ namespace javax {
 		namespace attribute {
 			namespace standard {
 
-$FieldInfo _MediaTray_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MediaTray, serialVersionUID)},
-	{"TOP", "Ljavax/print/attribute/standard/MediaTray;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaTray, TOP)},
-	{"MIDDLE", "Ljavax/print/attribute/standard/MediaTray;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaTray, MIDDLE)},
-	{"BOTTOM", "Ljavax/print/attribute/standard/MediaTray;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaTray, BOTTOM)},
-	{"ENVELOPE", "Ljavax/print/attribute/standard/MediaTray;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaTray, ENVELOPE)},
-	{"MANUAL", "Ljavax/print/attribute/standard/MediaTray;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaTray, MANUAL)},
-	{"LARGE_CAPACITY", "Ljavax/print/attribute/standard/MediaTray;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaTray, LARGE_CAPACITY)},
-	{"MAIN", "Ljavax/print/attribute/standard/MediaTray;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaTray, MAIN)},
-	{"SIDE", "Ljavax/print/attribute/standard/MediaTray;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaTray, SIDE)},
-	{"myStringTable", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MediaTray, myStringTable)},
-	{"myEnumValueTable", "[Ljavax/print/attribute/standard/MediaTray;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MediaTray, myEnumValueTable)},
-	{}
-};
-
-$MethodInfo _MediaTray_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, $PROTECTED, $method(MediaTray, init$, void, int32_t)},
-	{"getEnumValueTable", "()[Ljavax/print/attribute/EnumSyntax;", nullptr, $PROTECTED, $virtualMethod(MediaTray, getEnumValueTable, $EnumSyntaxArray*)},
-	{"getStringTable", "()[Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(MediaTray, getStringTable, $StringArray*)},
-	{}
-};
-
-$ClassInfo _MediaTray_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.print.attribute.standard.MediaTray",
-	"javax.print.attribute.standard.Media",
-	nullptr,
-	_MediaTray_FieldInfo_,
-	_MediaTray_MethodInfo_
-};
-
-$Object* allocate$MediaTray($Class* clazz) {
-	return $of($alloc(MediaTray));
-}
-
 MediaTray* MediaTray::TOP = nullptr;
 MediaTray* MediaTray::MIDDLE = nullptr;
 MediaTray* MediaTray::BOTTOM = nullptr;
@@ -76,14 +40,14 @@ void MediaTray::init$(int32_t value) {
 }
 
 $StringArray* MediaTray::getStringTable() {
-	return $cast($StringArray, $nc(MediaTray::myStringTable)->clone());
+	return $cast($StringArray, MediaTray::myStringTable->clone());
 }
 
 $EnumSyntaxArray* MediaTray::getEnumValueTable() {
-	return $cast($EnumSyntaxArray, $nc(MediaTray::myEnumValueTable)->clone());
+	return $cast($EnumSyntaxArray, MediaTray::myEnumValueTable->clone());
 }
 
-void clinit$MediaTray($Class* class$) {
+void MediaTray::clinit$($Class* clazz) {
 	$assignStatic(MediaTray::TOP, $new(MediaTray, 0));
 	$assignStatic(MediaTray::MIDDLE, $new(MediaTray, 1));
 	$assignStatic(MediaTray::BOTTOM, $new(MediaTray, 2));
@@ -118,7 +82,37 @@ MediaTray::MediaTray() {
 }
 
 $Class* MediaTray::load$($String* name, bool initialize) {
-	$loadClass(MediaTray, name, initialize, &_MediaTray_ClassInfo_, clinit$MediaTray, allocate$MediaTray);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MediaTray, serialVersionUID)},
+		{"TOP", "Ljavax/print/attribute/standard/MediaTray;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaTray, TOP)},
+		{"MIDDLE", "Ljavax/print/attribute/standard/MediaTray;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaTray, MIDDLE)},
+		{"BOTTOM", "Ljavax/print/attribute/standard/MediaTray;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaTray, BOTTOM)},
+		{"ENVELOPE", "Ljavax/print/attribute/standard/MediaTray;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaTray, ENVELOPE)},
+		{"MANUAL", "Ljavax/print/attribute/standard/MediaTray;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaTray, MANUAL)},
+		{"LARGE_CAPACITY", "Ljavax/print/attribute/standard/MediaTray;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaTray, LARGE_CAPACITY)},
+		{"MAIN", "Ljavax/print/attribute/standard/MediaTray;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaTray, MAIN)},
+		{"SIDE", "Ljavax/print/attribute/standard/MediaTray;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaTray, SIDE)},
+		{"myStringTable", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MediaTray, myStringTable)},
+		{"myEnumValueTable", "[Ljavax/print/attribute/standard/MediaTray;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MediaTray, myEnumValueTable)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I)V", nullptr, $PROTECTED, $method(MediaTray, init$, void, int32_t)},
+		{"getEnumValueTable", "()[Ljavax/print/attribute/EnumSyntax;", nullptr, $PROTECTED, $virtualMethod(MediaTray, getEnumValueTable, $EnumSyntaxArray*)},
+		{"getStringTable", "()[Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(MediaTray, getStringTable, $StringArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.print.attribute.standard.MediaTray",
+		"javax.print.attribute.standard.Media",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(MediaTray, name, initialize, &classInfo$$, MediaTray::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MediaTray));
+	});
 	return class$;
 }
 

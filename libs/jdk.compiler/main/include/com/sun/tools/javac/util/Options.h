@@ -51,6 +51,7 @@ class $import Options : public ::java::lang::Object {
 	$class(Options, 0, ::java::lang::Object)
 public:
 	Options();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::com::sun::tools::javac::util::Context* context);
 	virtual void addListener(::java::lang::Runnable* listener);
 	virtual void clear();

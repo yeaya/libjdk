@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/code/TypeAnnotationPosition$TypePathEntry.h>
-
 #include <com/sun/tools/javac/code/TypeAnnotationPosition$TypePathEntryKind.h>
 #include <com/sun/tools/javac/code/TypeAnnotationPosition.h>
 #include <com/sun/tools/javac/util/Assert.h>
@@ -23,51 +22,6 @@ namespace com {
 			namespace javac {
 				namespace code {
 
-$FieldInfo _TypeAnnotationPosition$TypePathEntry_FieldInfo_[] = {
-	{"bytesPerEntry", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TypeAnnotationPosition$TypePathEntry, bytesPerEntry)},
-	{"tag", "Lcom/sun/tools/javac/code/TypeAnnotationPosition$TypePathEntryKind;", nullptr, $PUBLIC | $FINAL, $field(TypeAnnotationPosition$TypePathEntry, tag)},
-	{"arg", "I", nullptr, $PUBLIC | $FINAL, $field(TypeAnnotationPosition$TypePathEntry, arg)},
-	{"ARRAY", "Lcom/sun/tools/javac/code/TypeAnnotationPosition$TypePathEntry;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TypeAnnotationPosition$TypePathEntry, ARRAY)},
-	{"INNER_TYPE", "Lcom/sun/tools/javac/code/TypeAnnotationPosition$TypePathEntry;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TypeAnnotationPosition$TypePathEntry, INNER_TYPE)},
-	{"WILDCARD", "Lcom/sun/tools/javac/code/TypeAnnotationPosition$TypePathEntry;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TypeAnnotationPosition$TypePathEntry, WILDCARD)},
-	{}
-};
-
-$MethodInfo _TypeAnnotationPosition$TypePathEntry_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/TypeAnnotationPosition$TypePathEntryKind;)V", nullptr, $PRIVATE, $method(TypeAnnotationPosition$TypePathEntry, init$, void, $TypeAnnotationPosition$TypePathEntryKind*)},
-	{"<init>", "(Lcom/sun/tools/javac/code/TypeAnnotationPosition$TypePathEntryKind;I)V", nullptr, $PUBLIC, $method(TypeAnnotationPosition$TypePathEntry, init$, void, $TypeAnnotationPosition$TypePathEntryKind*, int32_t)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(TypeAnnotationPosition$TypePathEntry, equals, bool, Object$*)},
-	{"fromBinary", "(II)Lcom/sun/tools/javac/code/TypeAnnotationPosition$TypePathEntry;", nullptr, $PUBLIC | $STATIC, $staticMethod(TypeAnnotationPosition$TypePathEntry, fromBinary, TypeAnnotationPosition$TypePathEntry*, int32_t, int32_t)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(TypeAnnotationPosition$TypePathEntry, hashCode, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TypeAnnotationPosition$TypePathEntry, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _TypeAnnotationPosition$TypePathEntry_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.code.TypeAnnotationPosition$TypePathEntry", "com.sun.tools.javac.code.TypeAnnotationPosition", "TypePathEntry", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _TypeAnnotationPosition$TypePathEntry_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.code.TypeAnnotationPosition$TypePathEntry",
-	"java.lang.Object",
-	nullptr,
-	_TypeAnnotationPosition$TypePathEntry_FieldInfo_,
-	_TypeAnnotationPosition$TypePathEntry_MethodInfo_,
-	nullptr,
-	nullptr,
-	_TypeAnnotationPosition$TypePathEntry_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.code.TypeAnnotationPosition"
-};
-
-$Object* allocate$TypeAnnotationPosition$TypePathEntry($Class* clazz) {
-	return $of($alloc(TypeAnnotationPosition$TypePathEntry));
-}
-
 TypeAnnotationPosition$TypePathEntry* TypeAnnotationPosition$TypePathEntry::ARRAY = nullptr;
 TypeAnnotationPosition$TypePathEntry* TypeAnnotationPosition$TypePathEntry::INNER_TYPE = nullptr;
 TypeAnnotationPosition$TypePathEntry* TypeAnnotationPosition$TypePathEntry::WILDCARD = nullptr;
@@ -88,36 +42,26 @@ void TypeAnnotationPosition$TypePathEntry::init$($TypeAnnotationPosition$TypePat
 
 TypeAnnotationPosition$TypePathEntry* TypeAnnotationPosition$TypePathEntry::fromBinary(int32_t tag, int32_t arg) {
 	$init(TypeAnnotationPosition$TypePathEntry);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($TypeAnnotationPosition$TypePathEntryKind);
 	$Assert::check(arg == 0 || tag == $TypeAnnotationPosition$TypePathEntryKind::TYPE_ARGUMENT->tag);
 	switch (tag) {
 	case 0:
-		{
-			return TypeAnnotationPosition$TypePathEntry::ARRAY;
-		}
+		return TypeAnnotationPosition$TypePathEntry::ARRAY;
 	case 1:
-		{
-			return TypeAnnotationPosition$TypePathEntry::INNER_TYPE;
-		}
+		return TypeAnnotationPosition$TypePathEntry::INNER_TYPE;
 	case 2:
-		{
-			return TypeAnnotationPosition$TypePathEntry::WILDCARD;
-		}
+		return TypeAnnotationPosition$TypePathEntry::WILDCARD;
 	case 3:
-		{
-			return $new(TypeAnnotationPosition$TypePathEntry, $TypeAnnotationPosition$TypePathEntryKind::TYPE_ARGUMENT, arg);
-		}
+		return $new(TypeAnnotationPosition$TypePathEntry, $TypeAnnotationPosition$TypePathEntryKind::TYPE_ARGUMENT, arg);
 	default:
-		{
-			$Assert::error($$str({"Invalid TypePathEntryKind tag: "_s, $$str(tag)}));
-			return nullptr;
-		}
+		$Assert::error($$str({"Invalid TypePathEntryKind tag: "_s, $$str(tag)}));
+		return nullptr;
 	}
 }
 
 $String* TypeAnnotationPosition$TypePathEntry::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($TypeAnnotationPosition$TypePathEntryKind);
 	return $str({$(this->tag->toString()), (this->tag == $TypeAnnotationPosition$TypePathEntryKind::TYPE_ARGUMENT ? ($$str({"("_s, $$str(this->arg), ")"_s})) : ""_s)});
 }
@@ -129,7 +73,7 @@ bool TypeAnnotationPosition$TypePathEntry::equals(Object$* other) {
 		$assign(entry, $cast(TypeAnnotationPosition$TypePathEntry, other));
 		var$2 = true;
 	}
-	bool var$1 = (var$2);
+	bool var$1 = var$2;
 	bool var$0 = var$1 && this->tag == $nc(entry)->tag;
 	return var$0 && this->arg == entry->arg;
 }
@@ -138,7 +82,7 @@ int32_t TypeAnnotationPosition$TypePathEntry::hashCode() {
 	return this->tag->hashCode() * 17 + this->arg;
 }
 
-void clinit$TypeAnnotationPosition$TypePathEntry($Class* class$) {
+void TypeAnnotationPosition$TypePathEntry::clinit$($Class* clazz) {
 	$init($TypeAnnotationPosition$TypePathEntryKind);
 	$assignStatic(TypeAnnotationPosition$TypePathEntry::ARRAY, $new(TypeAnnotationPosition$TypePathEntry, $TypeAnnotationPosition$TypePathEntryKind::ARRAY));
 	$assignStatic(TypeAnnotationPosition$TypePathEntry::INNER_TYPE, $new(TypeAnnotationPosition$TypePathEntry, $TypeAnnotationPosition$TypePathEntryKind::INNER_TYPE));
@@ -149,7 +93,46 @@ TypeAnnotationPosition$TypePathEntry::TypeAnnotationPosition$TypePathEntry() {
 }
 
 $Class* TypeAnnotationPosition$TypePathEntry::load$($String* name, bool initialize) {
-	$loadClass(TypeAnnotationPosition$TypePathEntry, name, initialize, &_TypeAnnotationPosition$TypePathEntry_ClassInfo_, clinit$TypeAnnotationPosition$TypePathEntry, allocate$TypeAnnotationPosition$TypePathEntry);
+	$FieldInfo fieldInfos$$[] = {
+		{"bytesPerEntry", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TypeAnnotationPosition$TypePathEntry, bytesPerEntry)},
+		{"tag", "Lcom/sun/tools/javac/code/TypeAnnotationPosition$TypePathEntryKind;", nullptr, $PUBLIC | $FINAL, $field(TypeAnnotationPosition$TypePathEntry, tag)},
+		{"arg", "I", nullptr, $PUBLIC | $FINAL, $field(TypeAnnotationPosition$TypePathEntry, arg)},
+		{"ARRAY", "Lcom/sun/tools/javac/code/TypeAnnotationPosition$TypePathEntry;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TypeAnnotationPosition$TypePathEntry, ARRAY)},
+		{"INNER_TYPE", "Lcom/sun/tools/javac/code/TypeAnnotationPosition$TypePathEntry;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TypeAnnotationPosition$TypePathEntry, INNER_TYPE)},
+		{"WILDCARD", "Lcom/sun/tools/javac/code/TypeAnnotationPosition$TypePathEntry;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TypeAnnotationPosition$TypePathEntry, WILDCARD)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/code/TypeAnnotationPosition$TypePathEntryKind;)V", nullptr, $PRIVATE, $method(TypeAnnotationPosition$TypePathEntry, init$, void, $TypeAnnotationPosition$TypePathEntryKind*)},
+		{"<init>", "(Lcom/sun/tools/javac/code/TypeAnnotationPosition$TypePathEntryKind;I)V", nullptr, $PUBLIC, $method(TypeAnnotationPosition$TypePathEntry, init$, void, $TypeAnnotationPosition$TypePathEntryKind*, int32_t)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(TypeAnnotationPosition$TypePathEntry, equals, bool, Object$*)},
+		{"fromBinary", "(II)Lcom/sun/tools/javac/code/TypeAnnotationPosition$TypePathEntry;", nullptr, $PUBLIC | $STATIC, $staticMethod(TypeAnnotationPosition$TypePathEntry, fromBinary, TypeAnnotationPosition$TypePathEntry*, int32_t, int32_t)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(TypeAnnotationPosition$TypePathEntry, hashCode, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TypeAnnotationPosition$TypePathEntry, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.code.TypeAnnotationPosition$TypePathEntry", "com.sun.tools.javac.code.TypeAnnotationPosition", "TypePathEntry", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.code.TypeAnnotationPosition$TypePathEntry",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.code.TypeAnnotationPosition"
+	};
+	$loadClass(TypeAnnotationPosition$TypePathEntry, name, initialize, &classInfo$$, TypeAnnotationPosition$TypePathEntry::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(TypeAnnotationPosition$TypePathEntry);
+	});
 	return class$;
 }
 

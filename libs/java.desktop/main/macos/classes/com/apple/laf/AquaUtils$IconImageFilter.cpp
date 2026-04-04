@@ -1,5 +1,4 @@
 #include <com/apple/laf/AquaUtils$IconImageFilter.h>
-
 #include <com/apple/laf/AquaUtils.h>
 #include <java/awt/image/RGBImageFilter.h>
 #include <jcpp.h>
@@ -14,50 +13,17 @@ namespace com {
 	namespace apple {
 		namespace laf {
 
-$MethodInfo _AquaUtils$IconImageFilter_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(AquaUtils$IconImageFilter, init$, void)},
-	{"filterRGB", "(III)I", nullptr, $PUBLIC | $FINAL, $virtualMethod(AquaUtils$IconImageFilter, filterRGB, int32_t, int32_t, int32_t, int32_t)},
-	{"getGreyFor", "(I)I", nullptr, $ABSTRACT, $virtualMethod(AquaUtils$IconImageFilter, getGreyFor, int32_t, int32_t)},
-	{"grayTransform", "(II)I", nullptr, $PRIVATE | $STATIC, $staticMethod(AquaUtils$IconImageFilter, grayTransform, int32_t, int32_t, int32_t)},
-	{}
-};
-
-$InnerClassInfo _AquaUtils$IconImageFilter_InnerClassesInfo_[] = {
-	{"com.apple.laf.AquaUtils$IconImageFilter", "com.apple.laf.AquaUtils", "IconImageFilter", $PRIVATE | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _AquaUtils$IconImageFilter_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"com.apple.laf.AquaUtils$IconImageFilter",
-	"java.awt.image.RGBImageFilter",
-	nullptr,
-	nullptr,
-	_AquaUtils$IconImageFilter_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AquaUtils$IconImageFilter_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.apple.laf.AquaUtils"
-};
-
-$Object* allocate$AquaUtils$IconImageFilter($Class* clazz) {
-	return $of($alloc(AquaUtils$IconImageFilter));
-}
-
 void AquaUtils$IconImageFilter::init$() {
 	$RGBImageFilter::init$();
 	this->canFilterIndexColorModel = true;
 }
 
 int32_t AquaUtils$IconImageFilter::filterRGB(int32_t x, int32_t y, int32_t rgb) {
-	int32_t red = (int32_t)((rgb >> 16) & (uint32_t)255);
-	int32_t green = (int32_t)((rgb >> 8) & (uint32_t)255);
-	int32_t blue = (int32_t)(rgb & (uint32_t)255);
+	int32_t red = (rgb >> 16) & 0xff;
+	int32_t green = (rgb >> 8) & 0xff;
+	int32_t blue = rgb & 0xff;
 	int32_t gray = getGreyFor($cast(int32_t, ((0.3 * red + 0.59 * green + 0.11 * blue) / 3)));
-	int32_t var$1 = ((int32_t)(rgb & (uint32_t)(int32_t)0xFF000000)) | (grayTransform(red, gray) << 16);
+	int32_t var$1 = (rgb & (int32_t)0xff000000) | (grayTransform(red, gray) << 16);
 	int32_t var$0 = var$1 | (grayTransform(green, gray) << 8);
 	return var$0 | (grayTransform(blue, gray) << 0);
 }
@@ -78,7 +44,35 @@ AquaUtils$IconImageFilter::AquaUtils$IconImageFilter() {
 }
 
 $Class* AquaUtils$IconImageFilter::load$($String* name, bool initialize) {
-	$loadClass(AquaUtils$IconImageFilter, name, initialize, &_AquaUtils$IconImageFilter_ClassInfo_, allocate$AquaUtils$IconImageFilter);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(AquaUtils$IconImageFilter, init$, void)},
+		{"filterRGB", "(III)I", nullptr, $PUBLIC | $FINAL, $virtualMethod(AquaUtils$IconImageFilter, filterRGB, int32_t, int32_t, int32_t, int32_t)},
+		{"getGreyFor", "(I)I", nullptr, $ABSTRACT, $virtualMethod(AquaUtils$IconImageFilter, getGreyFor, int32_t, int32_t)},
+		{"grayTransform", "(II)I", nullptr, $PRIVATE | $STATIC, $staticMethod(AquaUtils$IconImageFilter, grayTransform, int32_t, int32_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.laf.AquaUtils$IconImageFilter", "com.apple.laf.AquaUtils", "IconImageFilter", $PRIVATE | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"com.apple.laf.AquaUtils$IconImageFilter",
+		"java.awt.image.RGBImageFilter",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.apple.laf.AquaUtils"
+	};
+	$loadClass(AquaUtils$IconImageFilter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AquaUtils$IconImageFilter));
+	});
 	return class$;
 }
 

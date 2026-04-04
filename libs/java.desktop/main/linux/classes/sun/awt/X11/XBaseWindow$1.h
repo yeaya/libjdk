@@ -13,6 +13,7 @@ class XBaseWindow$1 : public ::java::lang::Object {
 	$class(XBaseWindow$1, 0, ::java::lang::Object)
 public:
 	XBaseWindow$1();
+	static void clinit$(::java::lang::Class* clazz);
 	static $ints* $SwitchMap$sun$awt$X11$XBaseWindow$InitialiseState;
 };
 

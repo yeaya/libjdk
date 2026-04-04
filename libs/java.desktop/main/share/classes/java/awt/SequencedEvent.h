@@ -37,6 +37,7 @@ public:
 	virtual bool equals(Object$* arg0) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::awt::AWTEvent* nested);
 	virtual void dispatch() override;
 	void dispose();
@@ -46,7 +47,7 @@ public:
 	static bool isOwnerAppContextDisposed(::java::awt::SequencedEvent* se);
 	bool lambda$dispatch$0();
 	virtual $String* toString() override;
-	static const int64_t serialVersionUID = (int64_t)0x0799F90BE83EFF2B;
+	static const int64_t serialVersionUID = (int64_t)0x0799f90be83eff2b;
 	static const int32_t ID = 1006; // java.awt.event.FocusEvent.FOCUS_LAST + 1
 	static ::java::util::LinkedList* list;
 	::java::awt::AWTEvent* nested = nullptr;

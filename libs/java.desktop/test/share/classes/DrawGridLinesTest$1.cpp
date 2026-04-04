@@ -1,5 +1,4 @@
 #include <DrawGridLinesTest$1.h>
-
 #include <DrawGridLinesTest.h>
 #include <javax/swing/table/AbstractTableModel.h>
 #include <jcpp.h>
@@ -9,45 +8,6 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AbstractTableModel = ::javax::swing::table::AbstractTableModel;
-
-$MethodInfo _DrawGridLinesTest$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(DrawGridLinesTest$1, init$, void)},
-	{"getColumnCount", "()I", nullptr, $PUBLIC, $virtualMethod(DrawGridLinesTest$1, getColumnCount, int32_t)},
-	{"getRowCount", "()I", nullptr, $PUBLIC, $virtualMethod(DrawGridLinesTest$1, getRowCount, int32_t)},
-	{"getValueAt", "(II)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DrawGridLinesTest$1, getValueAt, $Object*, int32_t, int32_t)},
-	{}
-};
-
-$EnclosingMethodInfo _DrawGridLinesTest$1_EnclosingMethodInfo_ = {
-	"DrawGridLinesTest",
-	"checkTableGridLines",
-	"()V"
-};
-
-$InnerClassInfo _DrawGridLinesTest$1_InnerClassesInfo_[] = {
-	{"DrawGridLinesTest$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _DrawGridLinesTest$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"DrawGridLinesTest$1",
-	"javax.swing.table.AbstractTableModel",
-	nullptr,
-	nullptr,
-	_DrawGridLinesTest$1_MethodInfo_,
-	nullptr,
-	&_DrawGridLinesTest$1_EnclosingMethodInfo_,
-	_DrawGridLinesTest$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"DrawGridLinesTest"
-};
-
-$Object* allocate$DrawGridLinesTest$1($Class* clazz) {
-	return $of($alloc(DrawGridLinesTest$1));
-}
 
 void DrawGridLinesTest$1::init$() {
 	$AbstractTableModel::init$();
@@ -69,7 +29,40 @@ DrawGridLinesTest$1::DrawGridLinesTest$1() {
 }
 
 $Class* DrawGridLinesTest$1::load$($String* name, bool initialize) {
-	$loadClass(DrawGridLinesTest$1, name, initialize, &_DrawGridLinesTest$1_ClassInfo_, allocate$DrawGridLinesTest$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(DrawGridLinesTest$1, init$, void)},
+		{"getColumnCount", "()I", nullptr, $PUBLIC, $virtualMethod(DrawGridLinesTest$1, getColumnCount, int32_t)},
+		{"getRowCount", "()I", nullptr, $PUBLIC, $virtualMethod(DrawGridLinesTest$1, getRowCount, int32_t)},
+		{"getValueAt", "(II)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DrawGridLinesTest$1, getValueAt, $Object*, int32_t, int32_t)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"DrawGridLinesTest",
+		"checkTableGridLines",
+		"()V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"DrawGridLinesTest$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"DrawGridLinesTest$1",
+		"javax.swing.table.AbstractTableModel",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"DrawGridLinesTest"
+	};
+	$loadClass(DrawGridLinesTest$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DrawGridLinesTest$1));
+	});
 	return class$;
 }
 

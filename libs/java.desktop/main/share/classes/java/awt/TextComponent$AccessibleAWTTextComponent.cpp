@@ -1,12 +1,9 @@
 #include <java/awt/TextComponent$AccessibleAWTTextComponent.h>
-
 #include <java/awt/Component$AccessibleAWTComponent.h>
-#include <java/awt/Component.h>
 #include <java/awt/Point.h>
 #include <java/awt/Rectangle.h>
 #include <java/awt/TextComponent.h>
 #include <java/awt/event/TextEvent.h>
-#include <java/awt/event/TextListener.h>
 #include <java/lang/Math.h>
 #include <java/text/BreakIterator.h>
 #include <javax/accessibility/AccessibleContext.h>
@@ -27,13 +24,11 @@
 #undef TEXT
 #undef WORD
 
-using $Component = ::java::awt::Component;
 using $Component$AccessibleAWTComponent = ::java::awt::Component$AccessibleAWTComponent;
 using $Point = ::java::awt::Point;
 using $Rectangle = ::java::awt::Rectangle;
 using $TextComponent = ::java::awt::TextComponent;
 using $TextEvent = ::java::awt::event::TextEvent;
-using $TextListener = ::java::awt::event::TextListener;
 using $Character = ::java::lang::Character;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -51,66 +46,6 @@ using $AttributeSet = ::javax::swing::text::AttributeSet;
 
 namespace java {
 	namespace awt {
-
-$FieldInfo _TextComponent$AccessibleAWTTextComponent_FieldInfo_[] = {
-	{"this$0", "Ljava/awt/TextComponent;", nullptr, $FINAL | $SYNTHETIC, $field(TextComponent$AccessibleAWTTextComponent, this$0)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(TextComponent$AccessibleAWTTextComponent, serialVersionUID)},
-	{"NEXT", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(TextComponent$AccessibleAWTTextComponent, NEXT)},
-	{"PREVIOUS", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(TextComponent$AccessibleAWTTextComponent, PREVIOUS)},
-	{}
-};
-
-$MethodInfo _TextComponent$AccessibleAWTTextComponent_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/awt/TextComponent;)V", nullptr, $PUBLIC, $method(TextComponent$AccessibleAWTTextComponent, init$, void, $TextComponent*)},
-	{"findWordLimit", "(ILjava/text/BreakIterator;ZLjava/lang/String;)I", nullptr, $PRIVATE, $method(TextComponent$AccessibleAWTTextComponent, findWordLimit, int32_t, int32_t, $BreakIterator*, bool, $String*)},
-	{"getAccessibleRole", "()Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC, $virtualMethod(TextComponent$AccessibleAWTTextComponent, getAccessibleRole, $AccessibleRole*)},
-	{"getAccessibleStateSet", "()Ljavax/accessibility/AccessibleStateSet;", nullptr, $PUBLIC, $virtualMethod(TextComponent$AccessibleAWTTextComponent, getAccessibleStateSet, $AccessibleStateSet*)},
-	{"getAccessibleText", "()Ljavax/accessibility/AccessibleText;", nullptr, $PUBLIC, $virtualMethod(TextComponent$AccessibleAWTTextComponent, getAccessibleText, $AccessibleText*)},
-	{"getAfterIndex", "(II)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TextComponent$AccessibleAWTTextComponent, getAfterIndex, $String*, int32_t, int32_t)},
-	{"getAtIndex", "(II)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TextComponent$AccessibleAWTTextComponent, getAtIndex, $String*, int32_t, int32_t)},
-	{"getBeforeIndex", "(II)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TextComponent$AccessibleAWTTextComponent, getBeforeIndex, $String*, int32_t, int32_t)},
-	{"getCaretPosition", "()I", nullptr, $PUBLIC, $virtualMethod(TextComponent$AccessibleAWTTextComponent, getCaretPosition, int32_t)},
-	{"getCharCount", "()I", nullptr, $PUBLIC, $virtualMethod(TextComponent$AccessibleAWTTextComponent, getCharCount, int32_t)},
-	{"getCharacterAttribute", "(I)Ljavax/swing/text/AttributeSet;", nullptr, $PUBLIC, $virtualMethod(TextComponent$AccessibleAWTTextComponent, getCharacterAttribute, $AttributeSet*, int32_t)},
-	{"getCharacterBounds", "(I)Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(TextComponent$AccessibleAWTTextComponent, getCharacterBounds, $Rectangle*, int32_t)},
-	{"getIndexAtPoint", "(Ljava/awt/Point;)I", nullptr, $PUBLIC, $virtualMethod(TextComponent$AccessibleAWTTextComponent, getIndexAtPoint, int32_t, $Point*)},
-	{"getSelectedText", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TextComponent$AccessibleAWTTextComponent, getSelectedText, $String*)},
-	{"getSelectionEnd", "()I", nullptr, $PUBLIC, $virtualMethod(TextComponent$AccessibleAWTTextComponent, getSelectionEnd, int32_t)},
-	{"getSelectionStart", "()I", nullptr, $PUBLIC, $virtualMethod(TextComponent$AccessibleAWTTextComponent, getSelectionStart, int32_t)},
-	{"textValueChanged", "(Ljava/awt/event/TextEvent;)V", nullptr, $PUBLIC, $virtualMethod(TextComponent$AccessibleAWTTextComponent, textValueChanged, void, $TextEvent*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _TextComponent$AccessibleAWTTextComponent_InnerClassesInfo_[] = {
-	{"java.awt.TextComponent$AccessibleAWTTextComponent", "java.awt.TextComponent", "AccessibleAWTTextComponent", $PROTECTED},
-	{"java.awt.Component$AccessibleAWTComponent", "java.awt.Component", "AccessibleAWTComponent", $PROTECTED | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _TextComponent$AccessibleAWTTextComponent_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.awt.TextComponent$AccessibleAWTTextComponent",
-	"java.awt.Component$AccessibleAWTComponent",
-	"javax.accessibility.AccessibleText,java.awt.event.TextListener",
-	_TextComponent$AccessibleAWTTextComponent_FieldInfo_,
-	_TextComponent$AccessibleAWTTextComponent_MethodInfo_,
-	nullptr,
-	nullptr,
-	_TextComponent$AccessibleAWTTextComponent_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.awt.TextComponent"
-};
-
-$Object* allocate$TextComponent$AccessibleAWTTextComponent($Class* clazz) {
-	return $of($alloc(TextComponent$AccessibleAWTTextComponent));
-}
 
 int32_t TextComponent$AccessibleAWTTextComponent::hashCode() {
 	 return this->$Component$AccessibleAWTComponent::hashCode();
@@ -171,7 +106,7 @@ $Rectangle* TextComponent$AccessibleAWTTextComponent::getCharacterBounds(int32_t
 }
 
 int32_t TextComponent$AccessibleAWTTextComponent::getCharCount() {
-	return $nc($(this->this$0->getText()))->length();
+	return $$nc(this->this$0->getText())->length();
 }
 
 int32_t TextComponent$AccessibleAWTTextComponent::getCaretPosition() {
@@ -192,52 +127,44 @@ int32_t TextComponent$AccessibleAWTTextComponent::getSelectionEnd() {
 
 $String* TextComponent$AccessibleAWTTextComponent::getSelectedText() {
 	$var($String, selText, this->this$0->getSelectedText());
-	if (selText == nullptr || $nc(selText)->isEmpty()) {
+	if (selText == nullptr || selText->isEmpty()) {
 		return nullptr;
 	}
 	return selText;
 }
 
 $String* TextComponent$AccessibleAWTTextComponent::getAtIndex(int32_t part, int32_t index) {
-	$useLocalCurrentObjectStackCache();
-	if (index < 0 || index >= $nc($(this->this$0->getText()))->length()) {
+	$useLocalObjectStack();
+	if (index < 0 || index >= $$nc(this->this$0->getText())->length()) {
 		return nullptr;
 	}
 	switch (part) {
 	case $AccessibleText::CHARACTER:
-		{
-			return $nc($(this->this$0->getText()))->substring(index, index + 1);
-		}
+		return $$nc(this->this$0->getText())->substring(index, index + 1);
 	case $AccessibleText::WORD:
 		{
-			{
-				$var($String, s, this->this$0->getText());
-				$var($BreakIterator, words, $BreakIterator::getWordInstance());
-				$nc(words)->setText(s);
-				int32_t end = words->following(index);
-				return $nc(s)->substring(words->previous(), end);
-			}
+			$var($String, s, this->this$0->getText());
+			$var($BreakIterator, words, $BreakIterator::getWordInstance());
+			$nc(words)->setText(s);
+			int32_t end = words->following(index);
+			return $nc(s)->substring(words->previous(), end);
 		}
 	case $AccessibleText::SENTENCE:
 		{
-			{
-				$var($String, s, this->this$0->getText());
-				$var($BreakIterator, sentence, $BreakIterator::getSentenceInstance());
-				$nc(sentence)->setText(s);
-				int32_t end = sentence->following(index);
-				return $nc(s)->substring(sentence->previous(), end);
-			}
+			$var($String, s, this->this$0->getText());
+			$var($BreakIterator, sentence, $BreakIterator::getSentenceInstance());
+			$nc(sentence)->setText(s);
+			int32_t end = sentence->following(index);
+			return $nc(s)->substring(sentence->previous(), end);
 		}
 	default:
-		{
-			return nullptr;
-		}
+		return nullptr;
 	}
 }
 
 int32_t TextComponent$AccessibleAWTTextComponent::findWordLimit(int32_t index, $BreakIterator* words, bool direction, $String* s) {
-	int32_t last = (direction == TextComponent$AccessibleAWTTextComponent::NEXT) ? $nc(words)->following(index) : words->preceding(index);
-	int32_t current = (direction == TextComponent$AccessibleAWTTextComponent::NEXT) ? words->next() : words->previous();
+	int32_t last = (direction == TextComponent$AccessibleAWTTextComponent::NEXT) ? $nc(words)->following(index) : $nc(words)->preceding(index);
+	int32_t current = (direction == TextComponent$AccessibleAWTTextComponent::NEXT) ? $nc(words)->next() : $nc(words)->previous();
 	while (current != $BreakIterator::DONE) {
 		for (int32_t p = $Math::min(last, current); p < $Math::max(last, current); ++p) {
 			if ($Character::isLetter($nc(s)->charAt(p))) {
@@ -245,114 +172,98 @@ int32_t TextComponent$AccessibleAWTTextComponent::findWordLimit(int32_t index, $
 			}
 		}
 		last = current;
-		current = (direction == TextComponent$AccessibleAWTTextComponent::NEXT) ? words->next() : words->previous();
+		current = (direction == TextComponent$AccessibleAWTTextComponent::NEXT) ? $nc(words)->next() : $nc(words)->previous();
 	}
 	return $BreakIterator::DONE;
 }
 
 $String* TextComponent$AccessibleAWTTextComponent::getAfterIndex(int32_t part, int32_t index) {
-	$useLocalCurrentObjectStackCache();
-	if (index < 0 || index >= $nc($(this->this$0->getText()))->length()) {
+	$useLocalObjectStack();
+	if (index < 0 || index >= $$nc(this->this$0->getText())->length()) {
 		return nullptr;
 	}
 	switch (part) {
 	case $AccessibleText::CHARACTER:
-		{
-			if (index + 1 >= $nc($(this->this$0->getText()))->length()) {
-				return nullptr;
-			}
-			return $nc($(this->this$0->getText()))->substring(index + 1, index + 2);
+		if (index + 1 >= $$nc(this->this$0->getText())->length()) {
+			return nullptr;
 		}
+		return $$nc(this->this$0->getText())->substring(index + 1, index + 2);
 	case $AccessibleText::WORD:
 		{
-			{
-				$var($String, s, this->this$0->getText());
-				$var($BreakIterator, words, $BreakIterator::getWordInstance());
-				$nc(words)->setText(s);
-				int32_t start = findWordLimit(index, words, TextComponent$AccessibleAWTTextComponent::NEXT, s);
-				if (start == $BreakIterator::DONE || start >= $nc(s)->length()) {
-					return nullptr;
-				}
-				int32_t end = words->following(start);
-				if (end == $BreakIterator::DONE || end >= $nc(s)->length()) {
-					return nullptr;
-				}
-				return $nc(s)->substring(start, end);
+			$var($String, s, this->this$0->getText());
+			$var($BreakIterator, words, $BreakIterator::getWordInstance());
+			$nc(words)->setText(s);
+			int32_t start = findWordLimit(index, words, TextComponent$AccessibleAWTTextComponent::NEXT, s);
+			if (start == $BreakIterator::DONE || start >= $nc(s)->length()) {
+				return nullptr;
 			}
+			int32_t end = words->following(start);
+			if (end == $BreakIterator::DONE || end >= $nc(s)->length()) {
+				return nullptr;
+			}
+			return $nc(s)->substring(start, end);
 		}
 	case $AccessibleText::SENTENCE:
 		{
-			{
-				$var($String, s, this->this$0->getText());
-				$var($BreakIterator, sentence, $BreakIterator::getSentenceInstance());
-				$nc(sentence)->setText(s);
-				int32_t start = sentence->following(index);
-				if (start == $BreakIterator::DONE || start >= $nc(s)->length()) {
-					return nullptr;
-				}
-				int32_t end = sentence->following(start);
-				if (end == $BreakIterator::DONE || end >= $nc(s)->length()) {
-					return nullptr;
-				}
-				return $nc(s)->substring(start, end);
+			$var($String, s, this->this$0->getText());
+			$var($BreakIterator, sentence, $BreakIterator::getSentenceInstance());
+			$nc(sentence)->setText(s);
+			int32_t start = sentence->following(index);
+			if (start == $BreakIterator::DONE || start >= $nc(s)->length()) {
+				return nullptr;
 			}
+			int32_t end = sentence->following(start);
+			if (end == $BreakIterator::DONE || end >= $nc(s)->length()) {
+				return nullptr;
+			}
+			return $nc(s)->substring(start, end);
 		}
 	default:
-		{
-			return nullptr;
-		}
+		return nullptr;
 	}
 }
 
 $String* TextComponent$AccessibleAWTTextComponent::getBeforeIndex(int32_t part, int32_t index) {
-	$useLocalCurrentObjectStackCache();
-	if (index < 0 || index > $nc($(this->this$0->getText()))->length() - 1) {
+	$useLocalObjectStack();
+	if (index < 0 || index > $$nc(this->this$0->getText())->length() - 1) {
 		return nullptr;
 	}
 	switch (part) {
 	case $AccessibleText::CHARACTER:
-		{
-			if (index == 0) {
-				return nullptr;
-			}
-			return $nc($(this->this$0->getText()))->substring(index - 1, index);
+		if (index == 0) {
+			return nullptr;
 		}
+		return $$nc(this->this$0->getText())->substring(index - 1, index);
 	case $AccessibleText::WORD:
 		{
-			{
-				$var($String, s, this->this$0->getText());
-				$var($BreakIterator, words, $BreakIterator::getWordInstance());
-				$nc(words)->setText(s);
-				int32_t end = findWordLimit(index, words, TextComponent$AccessibleAWTTextComponent::PREVIOUS, s);
-				if (end == $BreakIterator::DONE) {
-					return nullptr;
-				}
-				int32_t start = words->preceding(end);
-				if (start == $BreakIterator::DONE) {
-					return nullptr;
-				}
-				return $nc(s)->substring(start, end);
+			$var($String, s, this->this$0->getText());
+			$var($BreakIterator, words, $BreakIterator::getWordInstance());
+			$nc(words)->setText(s);
+			int32_t end = findWordLimit(index, words, TextComponent$AccessibleAWTTextComponent::PREVIOUS, s);
+			if (end == $BreakIterator::DONE) {
+				return nullptr;
 			}
+			int32_t start = words->preceding(end);
+			if (start == $BreakIterator::DONE) {
+				return nullptr;
+			}
+			return $nc(s)->substring(start, end);
 		}
 	case $AccessibleText::SENTENCE:
 		{
-			{
-				$var($String, s, this->this$0->getText());
-				$var($BreakIterator, sentence, $BreakIterator::getSentenceInstance());
-				$nc(sentence)->setText(s);
-				int32_t end = sentence->following(index);
-				end = sentence->previous();
-				int32_t start = sentence->previous();
-				if (start == $BreakIterator::DONE) {
-					return nullptr;
-				}
-				return $nc(s)->substring(start, end);
+			$var($String, s, this->this$0->getText());
+			$var($BreakIterator, sentence, $BreakIterator::getSentenceInstance());
+			$nc(sentence)->setText(s);
+			int32_t end = sentence->following(index);
+			end = sentence->previous();
+			int32_t start = sentence->previous();
+			if (start == $BreakIterator::DONE) {
+				return nullptr;
 			}
+			return $nc(s)->substring(start, end);
 		}
 	default:
-		{
-			return nullptr;
-		}
+		return nullptr;
 	}
 }
 
@@ -360,7 +271,61 @@ TextComponent$AccessibleAWTTextComponent::TextComponent$AccessibleAWTTextCompone
 }
 
 $Class* TextComponent$AccessibleAWTTextComponent::load$($String* name, bool initialize) {
-	$loadClass(TextComponent$AccessibleAWTTextComponent, name, initialize, &_TextComponent$AccessibleAWTTextComponent_ClassInfo_, allocate$TextComponent$AccessibleAWTTextComponent);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljava/awt/TextComponent;", nullptr, $FINAL | $SYNTHETIC, $field(TextComponent$AccessibleAWTTextComponent, this$0)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(TextComponent$AccessibleAWTTextComponent, serialVersionUID)},
+		{"NEXT", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(TextComponent$AccessibleAWTTextComponent, NEXT)},
+		{"PREVIOUS", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(TextComponent$AccessibleAWTTextComponent, PREVIOUS)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/awt/TextComponent;)V", nullptr, $PUBLIC, $method(TextComponent$AccessibleAWTTextComponent, init$, void, $TextComponent*)},
+		{"findWordLimit", "(ILjava/text/BreakIterator;ZLjava/lang/String;)I", nullptr, $PRIVATE, $method(TextComponent$AccessibleAWTTextComponent, findWordLimit, int32_t, int32_t, $BreakIterator*, bool, $String*)},
+		{"getAccessibleRole", "()Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC, $virtualMethod(TextComponent$AccessibleAWTTextComponent, getAccessibleRole, $AccessibleRole*)},
+		{"getAccessibleStateSet", "()Ljavax/accessibility/AccessibleStateSet;", nullptr, $PUBLIC, $virtualMethod(TextComponent$AccessibleAWTTextComponent, getAccessibleStateSet, $AccessibleStateSet*)},
+		{"getAccessibleText", "()Ljavax/accessibility/AccessibleText;", nullptr, $PUBLIC, $virtualMethod(TextComponent$AccessibleAWTTextComponent, getAccessibleText, $AccessibleText*)},
+		{"getAfterIndex", "(II)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TextComponent$AccessibleAWTTextComponent, getAfterIndex, $String*, int32_t, int32_t)},
+		{"getAtIndex", "(II)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TextComponent$AccessibleAWTTextComponent, getAtIndex, $String*, int32_t, int32_t)},
+		{"getBeforeIndex", "(II)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TextComponent$AccessibleAWTTextComponent, getBeforeIndex, $String*, int32_t, int32_t)},
+		{"getCaretPosition", "()I", nullptr, $PUBLIC, $virtualMethod(TextComponent$AccessibleAWTTextComponent, getCaretPosition, int32_t)},
+		{"getCharCount", "()I", nullptr, $PUBLIC, $virtualMethod(TextComponent$AccessibleAWTTextComponent, getCharCount, int32_t)},
+		{"getCharacterAttribute", "(I)Ljavax/swing/text/AttributeSet;", nullptr, $PUBLIC, $virtualMethod(TextComponent$AccessibleAWTTextComponent, getCharacterAttribute, $AttributeSet*, int32_t)},
+		{"getCharacterBounds", "(I)Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(TextComponent$AccessibleAWTTextComponent, getCharacterBounds, $Rectangle*, int32_t)},
+		{"getIndexAtPoint", "(Ljava/awt/Point;)I", nullptr, $PUBLIC, $virtualMethod(TextComponent$AccessibleAWTTextComponent, getIndexAtPoint, int32_t, $Point*)},
+		{"getSelectedText", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TextComponent$AccessibleAWTTextComponent, getSelectedText, $String*)},
+		{"getSelectionEnd", "()I", nullptr, $PUBLIC, $virtualMethod(TextComponent$AccessibleAWTTextComponent, getSelectionEnd, int32_t)},
+		{"getSelectionStart", "()I", nullptr, $PUBLIC, $virtualMethod(TextComponent$AccessibleAWTTextComponent, getSelectionStart, int32_t)},
+		{"textValueChanged", "(Ljava/awt/event/TextEvent;)V", nullptr, $PUBLIC, $virtualMethod(TextComponent$AccessibleAWTTextComponent, textValueChanged, void, $TextEvent*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.awt.TextComponent$AccessibleAWTTextComponent", "java.awt.TextComponent", "AccessibleAWTTextComponent", $PROTECTED},
+		{"java.awt.Component$AccessibleAWTComponent", "java.awt.Component", "AccessibleAWTComponent", $PROTECTED | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.awt.TextComponent$AccessibleAWTTextComponent",
+		"java.awt.Component$AccessibleAWTComponent",
+		"javax.accessibility.AccessibleText,java.awt.event.TextListener",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.awt.TextComponent"
+	};
+	$loadClass(TextComponent$AccessibleAWTTextComponent, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(TextComponent$AccessibleAWTTextComponent));
+	});
 	return class$;
 }
 

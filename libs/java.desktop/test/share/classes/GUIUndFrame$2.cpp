@@ -1,5 +1,4 @@
 #include <GUIUndFrame$2.h>
-
 #include <GUIUndFrame.h>
 #include <java/awt/Component.h>
 #include <java/awt/event/WindowAdapter.h>
@@ -15,52 +14,6 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-
-$FieldInfo _GUIUndFrame$2_FieldInfo_[] = {
-	{"this$0", "LGUIUndFrame;", nullptr, $FINAL | $SYNTHETIC, $field(GUIUndFrame$2, this$0)},
-	{}
-};
-
-$MethodInfo _GUIUndFrame$2_MethodInfo_[] = {
-	{"<init>", "(LGUIUndFrame;)V", nullptr, 0, $method(GUIUndFrame$2, init$, void, $GUIUndFrame*)},
-	{"windowActivated", "(Ljava/awt/event/WindowEvent;)V", nullptr, $PUBLIC, $virtualMethod(GUIUndFrame$2, windowActivated, void, $WindowEvent*)},
-	{"windowClosed", "(Ljava/awt/event/WindowEvent;)V", nullptr, $PUBLIC, $virtualMethod(GUIUndFrame$2, windowClosed, void, $WindowEvent*)},
-	{"windowDeactivated", "(Ljava/awt/event/WindowEvent;)V", nullptr, $PUBLIC, $virtualMethod(GUIUndFrame$2, windowDeactivated, void, $WindowEvent*)},
-	{"windowDeiconified", "(Ljava/awt/event/WindowEvent;)V", nullptr, $PUBLIC, $virtualMethod(GUIUndFrame$2, windowDeiconified, void, $WindowEvent*)},
-	{"windowIconified", "(Ljava/awt/event/WindowEvent;)V", nullptr, $PUBLIC, $virtualMethod(GUIUndFrame$2, windowIconified, void, $WindowEvent*)},
-	{}
-};
-
-$EnclosingMethodInfo _GUIUndFrame$2_EnclosingMethodInfo_ = {
-	"GUIUndFrame",
-	"<init>",
-	"()V"
-};
-
-$InnerClassInfo _GUIUndFrame$2_InnerClassesInfo_[] = {
-	{"GUIUndFrame$2", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _GUIUndFrame$2_ClassInfo_ = {
-	$ACC_SUPER,
-	"GUIUndFrame$2",
-	"java.awt.event.WindowAdapter",
-	nullptr,
-	_GUIUndFrame$2_FieldInfo_,
-	_GUIUndFrame$2_MethodInfo_,
-	nullptr,
-	&_GUIUndFrame$2_EnclosingMethodInfo_,
-	_GUIUndFrame$2_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"GUIUndFrame"
-};
-
-$Object* allocate$GUIUndFrame$2($Class* clazz) {
-	return $of($alloc(GUIUndFrame$2));
-}
 
 void GUIUndFrame$2::init$($GUIUndFrame* this$0) {
 	$set(this, this$0, this$0);
@@ -95,7 +48,46 @@ GUIUndFrame$2::GUIUndFrame$2() {
 }
 
 $Class* GUIUndFrame$2::load$($String* name, bool initialize) {
-	$loadClass(GUIUndFrame$2, name, initialize, &_GUIUndFrame$2_ClassInfo_, allocate$GUIUndFrame$2);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "LGUIUndFrame;", nullptr, $FINAL | $SYNTHETIC, $field(GUIUndFrame$2, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(LGUIUndFrame;)V", nullptr, 0, $method(GUIUndFrame$2, init$, void, $GUIUndFrame*)},
+		{"windowActivated", "(Ljava/awt/event/WindowEvent;)V", nullptr, $PUBLIC, $virtualMethod(GUIUndFrame$2, windowActivated, void, $WindowEvent*)},
+		{"windowClosed", "(Ljava/awt/event/WindowEvent;)V", nullptr, $PUBLIC, $virtualMethod(GUIUndFrame$2, windowClosed, void, $WindowEvent*)},
+		{"windowDeactivated", "(Ljava/awt/event/WindowEvent;)V", nullptr, $PUBLIC, $virtualMethod(GUIUndFrame$2, windowDeactivated, void, $WindowEvent*)},
+		{"windowDeiconified", "(Ljava/awt/event/WindowEvent;)V", nullptr, $PUBLIC, $virtualMethod(GUIUndFrame$2, windowDeiconified, void, $WindowEvent*)},
+		{"windowIconified", "(Ljava/awt/event/WindowEvent;)V", nullptr, $PUBLIC, $virtualMethod(GUIUndFrame$2, windowIconified, void, $WindowEvent*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"GUIUndFrame",
+		"<init>",
+		"()V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"GUIUndFrame$2", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"GUIUndFrame$2",
+		"java.awt.event.WindowAdapter",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"GUIUndFrame"
+	};
+	$loadClass(GUIUndFrame$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(GUIUndFrame$2));
+	});
 	return class$;
 }
 

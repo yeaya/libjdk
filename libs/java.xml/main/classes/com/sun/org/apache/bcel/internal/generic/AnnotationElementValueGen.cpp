@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/bcel/internal/generic/AnnotationElementValueGen.h>
-
 #include <com/sun/org/apache/bcel/internal/classfile/AnnotationElementValue.h>
 #include <com/sun/org/apache/bcel/internal/classfile/AnnotationEntry.h>
 #include <com/sun/org/apache/bcel/internal/classfile/ConstantPool.h>
@@ -34,42 +33,13 @@ namespace com {
 					namespace internal {
 						namespace generic {
 
-$FieldInfo _AnnotationElementValueGen_FieldInfo_[] = {
-	{"a", "Lcom/sun/org/apache/bcel/internal/generic/AnnotationEntryGen;", nullptr, $PRIVATE | $FINAL, $field(AnnotationElementValueGen, a)},
-	{}
-};
-
-$MethodInfo _AnnotationElementValueGen_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/org/apache/bcel/internal/generic/AnnotationEntryGen;Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;)V", nullptr, $PUBLIC, $method(AnnotationElementValueGen, init$, void, $AnnotationEntryGen*, $ConstantPoolGen*)},
-	{"<init>", "(ILcom/sun/org/apache/bcel/internal/generic/AnnotationEntryGen;Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;)V", nullptr, $PUBLIC, $method(AnnotationElementValueGen, init$, void, int32_t, $AnnotationEntryGen*, $ConstantPoolGen*)},
-	{"<init>", "(Lcom/sun/org/apache/bcel/internal/classfile/AnnotationElementValue;Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;Z)V", nullptr, $PUBLIC, $method(AnnotationElementValueGen, init$, void, $AnnotationElementValue*, $ConstantPoolGen*, bool)},
-	{"dump", "(Ljava/io/DataOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(AnnotationElementValueGen, dump, void, $DataOutputStream*), "java.io.IOException"},
-	{"getAnnotation", "()Lcom/sun/org/apache/bcel/internal/generic/AnnotationEntryGen;", nullptr, $PUBLIC, $virtualMethod(AnnotationElementValueGen, getAnnotation, $AnnotationEntryGen*)},
-	{"getElementValue", "()Lcom/sun/org/apache/bcel/internal/classfile/ElementValue;", nullptr, $PUBLIC, $virtualMethod(AnnotationElementValueGen, getElementValue, $ElementValue*)},
-	{"stringifyValue", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AnnotationElementValueGen, stringifyValue, $String*)},
-	{}
-};
-
-$ClassInfo _AnnotationElementValueGen_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.bcel.internal.generic.AnnotationElementValueGen",
-	"com.sun.org.apache.bcel.internal.generic.ElementValueGen",
-	nullptr,
-	_AnnotationElementValueGen_FieldInfo_,
-	_AnnotationElementValueGen_MethodInfo_
-};
-
-$Object* allocate$AnnotationElementValueGen($Class* clazz) {
-	return $of($alloc(AnnotationElementValueGen));
-}
-
 void AnnotationElementValueGen::init$($AnnotationEntryGen* a, $ConstantPoolGen* cpool) {
 	$ElementValueGen::init$($ElementValueGen::ANNOTATION, cpool);
 	$set(this, a, a);
 }
 
 void AnnotationElementValueGen::init$(int32_t type, $AnnotationEntryGen* annotation, $ConstantPoolGen* cpool) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$ElementValueGen::init$(type, cpool);
 	if (type != $ElementValueGen::ANNOTATION) {
 		$throwNew($IllegalArgumentException, $$str({"Only element values of type annotation can be built with this ctor - type specified: "_s, $$str(type)}));
@@ -93,10 +63,10 @@ $String* AnnotationElementValueGen::stringifyValue() {
 }
 
 $ElementValue* AnnotationElementValueGen::getElementValue() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t var$0 = $ElementValueGen::getElementValueType();
 	$var($AnnotationEntry, var$1, $nc(this->a)->getAnnotation());
-	return $new($AnnotationElementValue, var$0, var$1, $($nc($(getConstantPool()))->getConstantPool()));
+	return $new($AnnotationElementValue, var$0, var$1, $($$nc(getConstantPool())->getConstantPool()));
 }
 
 $AnnotationEntryGen* AnnotationElementValueGen::getAnnotation() {
@@ -107,7 +77,31 @@ AnnotationElementValueGen::AnnotationElementValueGen() {
 }
 
 $Class* AnnotationElementValueGen::load$($String* name, bool initialize) {
-	$loadClass(AnnotationElementValueGen, name, initialize, &_AnnotationElementValueGen_ClassInfo_, allocate$AnnotationElementValueGen);
+	$FieldInfo fieldInfos$$[] = {
+		{"a", "Lcom/sun/org/apache/bcel/internal/generic/AnnotationEntryGen;", nullptr, $PRIVATE | $FINAL, $field(AnnotationElementValueGen, a)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/org/apache/bcel/internal/generic/AnnotationEntryGen;Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;)V", nullptr, $PUBLIC, $method(AnnotationElementValueGen, init$, void, $AnnotationEntryGen*, $ConstantPoolGen*)},
+		{"<init>", "(ILcom/sun/org/apache/bcel/internal/generic/AnnotationEntryGen;Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;)V", nullptr, $PUBLIC, $method(AnnotationElementValueGen, init$, void, int32_t, $AnnotationEntryGen*, $ConstantPoolGen*)},
+		{"<init>", "(Lcom/sun/org/apache/bcel/internal/classfile/AnnotationElementValue;Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;Z)V", nullptr, $PUBLIC, $method(AnnotationElementValueGen, init$, void, $AnnotationElementValue*, $ConstantPoolGen*, bool)},
+		{"dump", "(Ljava/io/DataOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(AnnotationElementValueGen, dump, void, $DataOutputStream*), "java.io.IOException"},
+		{"getAnnotation", "()Lcom/sun/org/apache/bcel/internal/generic/AnnotationEntryGen;", nullptr, $PUBLIC, $virtualMethod(AnnotationElementValueGen, getAnnotation, $AnnotationEntryGen*)},
+		{"getElementValue", "()Lcom/sun/org/apache/bcel/internal/classfile/ElementValue;", nullptr, $PUBLIC, $virtualMethod(AnnotationElementValueGen, getElementValue, $ElementValue*)},
+		{"stringifyValue", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AnnotationElementValueGen, stringifyValue, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.bcel.internal.generic.AnnotationElementValueGen",
+		"com.sun.org.apache.bcel.internal.generic.ElementValueGen",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(AnnotationElementValueGen, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AnnotationElementValueGen);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/file/Locations$ModuleLocationHandler.h>
-
 #include <com/sun/tools/javac/file/Locations$LocationHandler.h>
 #include <com/sun/tools/javac/file/Locations.h>
 #include <com/sun/tools/javac/main/Option.h>
@@ -28,63 +27,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace file {
-
-$FieldInfo _Locations$ModuleLocationHandler_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/file/Locations;", nullptr, $FINAL | $SYNTHETIC, $field(Locations$ModuleLocationHandler, this$0)},
-	{"parent", "Lcom/sun/tools/javac/file/Locations$LocationHandler;", nullptr, $PRIVATE | $FINAL, $field(Locations$ModuleLocationHandler, parent)},
-	{"name", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(Locations$ModuleLocationHandler, name)},
-	{"moduleName", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(Locations$ModuleLocationHandler, moduleName)},
-	{"output", "Z", nullptr, $PRIVATE | $FINAL, $field(Locations$ModuleLocationHandler, output)},
-	{"explicit", "Z", nullptr, 0, $field(Locations$ModuleLocationHandler, explicit$)},
-	{"searchPath", "Ljava/util/Collection;", "Ljava/util/Collection<Ljava/nio/file/Path;>;", 0, $field(Locations$ModuleLocationHandler, searchPath)},
-	{}
-};
-
-$MethodInfo _Locations$ModuleLocationHandler_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lcom/sun/tools/javac/file/Locations;Lcom/sun/tools/javac/file/Locations$LocationHandler;Ljava/lang/String;Ljava/lang/String;Ljava/util/Collection;Z)V", "(Lcom/sun/tools/javac/file/Locations$LocationHandler;Ljava/lang/String;Ljava/lang/String;Ljava/util/Collection<Ljava/nio/file/Path;>;Z)V", 0, $method(Locations$ModuleLocationHandler, init$, void, $Locations*, $Locations$LocationHandler*, $String*, $String*, $Collection*, bool)},
-	{"contains", "(Ljava/nio/file/Path;)Z", nullptr, 0, $virtualMethod(Locations$ModuleLocationHandler, contains, bool, $Path*), "java.io.IOException"},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Locations$ModuleLocationHandler, getName, $String*)},
-	{"getPaths", "()Ljava/util/Collection;", "()Ljava/util/Collection<Ljava/nio/file/Path;>;", 0, $virtualMethod(Locations$ModuleLocationHandler, getPaths, $Collection*)},
-	{"handleOption", "(Lcom/sun/tools/javac/main/Option;Ljava/lang/String;)Z", nullptr, 0, $virtualMethod(Locations$ModuleLocationHandler, handleOption, bool, $Option*, $String*)},
-	{"inferModuleName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(Locations$ModuleLocationHandler, inferModuleName, $String*)},
-	{"isExplicit", "()Z", nullptr, 0, $virtualMethod(Locations$ModuleLocationHandler, isExplicit, bool)},
-	{"isOutputLocation", "()Z", nullptr, $PUBLIC, $virtualMethod(Locations$ModuleLocationHandler, isOutputLocation, bool)},
-	{"setPaths", "(Ljava/lang/Iterable;)V", "(Ljava/lang/Iterable<+Ljava/nio/file/Path;>;)V", 0, $virtualMethod(Locations$ModuleLocationHandler, setPaths, void, $Iterable*), "java.io.IOException"},
-	{"setPathsForModule", "(Ljava/lang/String;Ljava/lang/Iterable;)V", "(Ljava/lang/String;Ljava/lang/Iterable<+Ljava/nio/file/Path;>;)V", 0, $virtualMethod(Locations$ModuleLocationHandler, setPathsForModule, void, $String*, $Iterable*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Locations$ModuleLocationHandler, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _Locations$ModuleLocationHandler_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.file.Locations$ModuleLocationHandler", "com.sun.tools.javac.file.Locations", "ModuleLocationHandler", $PRIVATE},
-	{"com.sun.tools.javac.file.Locations$LocationHandler", "com.sun.tools.javac.file.Locations", "LocationHandler", $PROTECTED | $STATIC | $ABSTRACT},
-	{"javax.tools.JavaFileManager$Location", "javax.tools.JavaFileManager", "Location", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Locations$ModuleLocationHandler_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.file.Locations$ModuleLocationHandler",
-	"com.sun.tools.javac.file.Locations$LocationHandler",
-	"javax.tools.JavaFileManager$Location",
-	_Locations$ModuleLocationHandler_FieldInfo_,
-	_Locations$ModuleLocationHandler_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Locations$ModuleLocationHandler_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.file.Locations"
-};
-
-$Object* allocate$Locations$ModuleLocationHandler($Class* clazz) {
-	return $of($alloc(Locations$ModuleLocationHandler));
-}
 
 int32_t Locations$ModuleLocationHandler::hashCode() {
 	 return this->$Locations$LocationHandler::hashCode();
@@ -157,7 +99,58 @@ Locations$ModuleLocationHandler::Locations$ModuleLocationHandler() {
 }
 
 $Class* Locations$ModuleLocationHandler::load$($String* name, bool initialize) {
-	$loadClass(Locations$ModuleLocationHandler, name, initialize, &_Locations$ModuleLocationHandler_ClassInfo_, allocate$Locations$ModuleLocationHandler);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/file/Locations;", nullptr, $FINAL | $SYNTHETIC, $field(Locations$ModuleLocationHandler, this$0)},
+		{"parent", "Lcom/sun/tools/javac/file/Locations$LocationHandler;", nullptr, $PRIVATE | $FINAL, $field(Locations$ModuleLocationHandler, parent)},
+		{"name", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(Locations$ModuleLocationHandler, name)},
+		{"moduleName", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(Locations$ModuleLocationHandler, moduleName)},
+		{"output", "Z", nullptr, $PRIVATE | $FINAL, $field(Locations$ModuleLocationHandler, output)},
+		{"explicit", "Z", nullptr, 0, $field(Locations$ModuleLocationHandler, explicit$)},
+		{"searchPath", "Ljava/util/Collection;", "Ljava/util/Collection<Ljava/nio/file/Path;>;", 0, $field(Locations$ModuleLocationHandler, searchPath)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lcom/sun/tools/javac/file/Locations;Lcom/sun/tools/javac/file/Locations$LocationHandler;Ljava/lang/String;Ljava/lang/String;Ljava/util/Collection;Z)V", "(Lcom/sun/tools/javac/file/Locations$LocationHandler;Ljava/lang/String;Ljava/lang/String;Ljava/util/Collection<Ljava/nio/file/Path;>;Z)V", 0, $method(Locations$ModuleLocationHandler, init$, void, $Locations*, $Locations$LocationHandler*, $String*, $String*, $Collection*, bool)},
+		{"contains", "(Ljava/nio/file/Path;)Z", nullptr, 0, $virtualMethod(Locations$ModuleLocationHandler, contains, bool, $Path*), "java.io.IOException"},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Locations$ModuleLocationHandler, getName, $String*)},
+		{"getPaths", "()Ljava/util/Collection;", "()Ljava/util/Collection<Ljava/nio/file/Path;>;", 0, $virtualMethod(Locations$ModuleLocationHandler, getPaths, $Collection*)},
+		{"handleOption", "(Lcom/sun/tools/javac/main/Option;Ljava/lang/String;)Z", nullptr, 0, $virtualMethod(Locations$ModuleLocationHandler, handleOption, bool, $Option*, $String*)},
+		{"inferModuleName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(Locations$ModuleLocationHandler, inferModuleName, $String*)},
+		{"isExplicit", "()Z", nullptr, 0, $virtualMethod(Locations$ModuleLocationHandler, isExplicit, bool)},
+		{"isOutputLocation", "()Z", nullptr, $PUBLIC, $virtualMethod(Locations$ModuleLocationHandler, isOutputLocation, bool)},
+		{"setPaths", "(Ljava/lang/Iterable;)V", "(Ljava/lang/Iterable<+Ljava/nio/file/Path;>;)V", 0, $virtualMethod(Locations$ModuleLocationHandler, setPaths, void, $Iterable*), "java.io.IOException"},
+		{"setPathsForModule", "(Ljava/lang/String;Ljava/lang/Iterable;)V", "(Ljava/lang/String;Ljava/lang/Iterable<+Ljava/nio/file/Path;>;)V", 0, $virtualMethod(Locations$ModuleLocationHandler, setPathsForModule, void, $String*, $Iterable*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Locations$ModuleLocationHandler, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.file.Locations$ModuleLocationHandler", "com.sun.tools.javac.file.Locations", "ModuleLocationHandler", $PRIVATE},
+		{"com.sun.tools.javac.file.Locations$LocationHandler", "com.sun.tools.javac.file.Locations", "LocationHandler", $PROTECTED | $STATIC | $ABSTRACT},
+		{"javax.tools.JavaFileManager$Location", "javax.tools.JavaFileManager", "Location", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.file.Locations$ModuleLocationHandler",
+		"com.sun.tools.javac.file.Locations$LocationHandler",
+		"javax.tools.JavaFileManager$Location",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.file.Locations"
+	};
+	$loadClass(Locations$ModuleLocationHandler, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Locations$ModuleLocationHandler));
+	});
 	return class$;
 }
 

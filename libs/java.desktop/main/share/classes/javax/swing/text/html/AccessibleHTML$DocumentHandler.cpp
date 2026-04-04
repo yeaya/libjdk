@@ -1,5 +1,4 @@
 #include <javax/swing/text/html/AccessibleHTML$DocumentHandler.h>
-
 #include <javax/swing/event/DocumentEvent.h>
 #include <javax/swing/text/html/AccessibleHTML$ElementInfo.h>
 #include <javax/swing/text/html/AccessibleHTML.h>
@@ -11,72 +10,65 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $DocumentEvent = ::javax::swing::event::DocumentEvent;
 using $AccessibleHTML = ::javax::swing::text::html::AccessibleHTML;
-using $AccessibleHTML$ElementInfo = ::javax::swing::text::html::AccessibleHTML$ElementInfo;
 
 namespace javax {
 	namespace swing {
 		namespace text {
 			namespace html {
 
-$FieldInfo _AccessibleHTML$DocumentHandler_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/text/html/AccessibleHTML;", nullptr, $FINAL | $SYNTHETIC, $field(AccessibleHTML$DocumentHandler, this$0)},
-	{}
-};
-
-$MethodInfo _AccessibleHTML$DocumentHandler_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/text/html/AccessibleHTML;)V", nullptr, $PRIVATE, $method(AccessibleHTML$DocumentHandler, init$, void, $AccessibleHTML*)},
-	{"changedUpdate", "(Ljavax/swing/event/DocumentEvent;)V", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$DocumentHandler, changedUpdate, void, $DocumentEvent*)},
-	{"insertUpdate", "(Ljavax/swing/event/DocumentEvent;)V", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$DocumentHandler, insertUpdate, void, $DocumentEvent*)},
-	{"removeUpdate", "(Ljavax/swing/event/DocumentEvent;)V", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$DocumentHandler, removeUpdate, void, $DocumentEvent*)},
-	{}
-};
-
-$InnerClassInfo _AccessibleHTML$DocumentHandler_InnerClassesInfo_[] = {
-	{"javax.swing.text.html.AccessibleHTML$DocumentHandler", "javax.swing.text.html.AccessibleHTML", "DocumentHandler", $PRIVATE},
-	{}
-};
-
-$ClassInfo _AccessibleHTML$DocumentHandler_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.text.html.AccessibleHTML$DocumentHandler",
-	"java.lang.Object",
-	"javax.swing.event.DocumentListener",
-	_AccessibleHTML$DocumentHandler_FieldInfo_,
-	_AccessibleHTML$DocumentHandler_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AccessibleHTML$DocumentHandler_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.html.AccessibleHTML"
-};
-
-$Object* allocate$AccessibleHTML$DocumentHandler($Class* clazz) {
-	return $of($alloc(AccessibleHTML$DocumentHandler));
-}
-
 void AccessibleHTML$DocumentHandler::init$($AccessibleHTML* this$0) {
 	$set(this, this$0, this$0);
 }
 
 void AccessibleHTML$DocumentHandler::insertUpdate($DocumentEvent* e) {
-	$nc($(this->this$0->getRootInfo()))->update(e);
+	$$nc(this->this$0->getRootInfo())->update(e);
 }
 
 void AccessibleHTML$DocumentHandler::removeUpdate($DocumentEvent* e) {
-	$nc($(this->this$0->getRootInfo()))->update(e);
+	$$nc(this->this$0->getRootInfo())->update(e);
 }
 
 void AccessibleHTML$DocumentHandler::changedUpdate($DocumentEvent* e) {
-	$nc($(this->this$0->getRootInfo()))->update(e);
+	$$nc(this->this$0->getRootInfo())->update(e);
 }
 
 AccessibleHTML$DocumentHandler::AccessibleHTML$DocumentHandler() {
 }
 
 $Class* AccessibleHTML$DocumentHandler::load$($String* name, bool initialize) {
-	$loadClass(AccessibleHTML$DocumentHandler, name, initialize, &_AccessibleHTML$DocumentHandler_ClassInfo_, allocate$AccessibleHTML$DocumentHandler);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/text/html/AccessibleHTML;", nullptr, $FINAL | $SYNTHETIC, $field(AccessibleHTML$DocumentHandler, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/text/html/AccessibleHTML;)V", nullptr, $PRIVATE, $method(AccessibleHTML$DocumentHandler, init$, void, $AccessibleHTML*)},
+		{"changedUpdate", "(Ljavax/swing/event/DocumentEvent;)V", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$DocumentHandler, changedUpdate, void, $DocumentEvent*)},
+		{"insertUpdate", "(Ljavax/swing/event/DocumentEvent;)V", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$DocumentHandler, insertUpdate, void, $DocumentEvent*)},
+		{"removeUpdate", "(Ljavax/swing/event/DocumentEvent;)V", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$DocumentHandler, removeUpdate, void, $DocumentEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.html.AccessibleHTML$DocumentHandler", "javax.swing.text.html.AccessibleHTML", "DocumentHandler", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.text.html.AccessibleHTML$DocumentHandler",
+		"java.lang.Object",
+		"javax.swing.event.DocumentListener",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.html.AccessibleHTML"
+	};
+	$loadClass(AccessibleHTML$DocumentHandler, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AccessibleHTML$DocumentHandler);
+	});
 	return class$;
 }
 

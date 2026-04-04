@@ -23,11 +23,14 @@ public:
 	void init$(::java::lang::RuntimeException* e, $String* message);
 	virtual $Throwable* getCause() override;
 	virtual ::java::lang::RuntimeException* getTargetException();
-	static const int64_t serialVersionUID = (int64_t)0x49344133431BDBBB;
+	static const int64_t serialVersionUID = (int64_t)0x49344133431bdbbb;
 	::java::lang::RuntimeException* runtimeException = nullptr;
 	RuntimeMBeanException(const RuntimeMBeanException& e);
 	virtual void throw$() override;
-	inline RuntimeMBeanException* operator ->() {
+	inline RuntimeMBeanException* operator ->() const {
+		return (RuntimeMBeanException*)throwing$;
+	}
+	inline operator RuntimeMBeanException*() const {
 		return (RuntimeMBeanException*)throwing$;
 	}
 };

@@ -148,6 +148,7 @@ class $export SwingUtilities2 : public ::java::lang::Object {
 	$class(SwingUtilities2, 0, ::java::lang::Object)
 public:
 	SwingUtilities2();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void adjustFocus(::javax::swing::JComponent* c);
 	static bool canAccessSystemClipboard();

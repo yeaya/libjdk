@@ -1,5 +1,4 @@
 #include <sun/awt/X11GraphicsEnvironment$2.h>
-
 #include <java/net/InetAddress.h>
 #include <java/net/NetworkInterface.h>
 #include <java/net/SocketException.h>
@@ -12,7 +11,6 @@
 #undef TRUE
 
 using $InetAddressArray = $Array<::java::net::InetAddress>;
-using $PrintStream = ::java::io::PrintStream;
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
@@ -28,54 +26,12 @@ using $Enumeration = ::java::util::Enumeration;
 namespace sun {
 	namespace awt {
 
-$FieldInfo _X11GraphicsEnvironment$2_FieldInfo_[] = {
-	{"val$hostName", "Ljava/lang/String;", nullptr, $FINAL | $SYNTHETIC, $field(X11GraphicsEnvironment$2, val$hostName)},
-	{}
-};
-
-$MethodInfo _X11GraphicsEnvironment$2_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", "()V", 0, $method(X11GraphicsEnvironment$2, init$, void, $String*)},
-	{"run", "()Ljava/lang/Boolean;", nullptr, $PUBLIC, $virtualMethod(X11GraphicsEnvironment$2, run, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _X11GraphicsEnvironment$2_EnclosingMethodInfo_ = {
-	"sun.awt.X11GraphicsEnvironment",
-	"_isDisplayLocal",
-	"()Z"
-};
-
-$InnerClassInfo _X11GraphicsEnvironment$2_InnerClassesInfo_[] = {
-	{"sun.awt.X11GraphicsEnvironment$2", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _X11GraphicsEnvironment$2_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.awt.X11GraphicsEnvironment$2",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	_X11GraphicsEnvironment$2_FieldInfo_,
-	_X11GraphicsEnvironment$2_MethodInfo_,
-	"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/Boolean;>;",
-	&_X11GraphicsEnvironment$2_EnclosingMethodInfo_,
-	_X11GraphicsEnvironment$2_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.awt.X11GraphicsEnvironment"
-};
-
-$Object* allocate$X11GraphicsEnvironment$2($Class* clazz) {
-	return $of($alloc(X11GraphicsEnvironment$2));
-}
-
 void X11GraphicsEnvironment$2::init$($String* val$hostName) {
 	$set(this, val$hostName, val$hostName);
 }
 
 $Object* X11GraphicsEnvironment$2::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($InetAddressArray, remAddr, nullptr);
 	$var($Enumeration, locals, nullptr);
 	$var($Enumeration, interfaces, nullptr);
@@ -83,31 +39,26 @@ $Object* X11GraphicsEnvironment$2::run() {
 		$assign(interfaces, $NetworkInterface::getNetworkInterfaces());
 		$assign(remAddr, $InetAddress::getAllByName(this->val$hostName));
 		if (remAddr == nullptr) {
-			$init($Boolean);
 			return $of($Boolean::FALSE);
 		}
 	} catch ($UnknownHostException& e) {
 		$nc($System::err)->println($$str({"Unknown host: "_s, this->val$hostName}));
-		$init($Boolean);
 		return $of($Boolean::FALSE);
 	} catch ($SocketException& e1) {
 		$nc($System::err)->println($(e1->getMessage()));
-		$init($Boolean);
 		return $of($Boolean::FALSE);
 	}
 	for (; $nc(interfaces)->hasMoreElements();) {
-		$assign(locals, $nc(($cast($NetworkInterface, $(interfaces->nextElement()))))->getInetAddresses());
+		$assign(locals, $$sure($NetworkInterface, interfaces->nextElement())->getInetAddresses());
 		for (; $nc(locals)->hasMoreElements();) {
 			$var($InetAddress, localAddr, $cast($InetAddress, locals->nextElement()));
 			for (int32_t i = 0; i < $nc(remAddr)->length; ++i) {
 				if ($nc(localAddr)->equals(remAddr->get(i))) {
-					$init($Boolean);
 					return $of($Boolean::TRUE);
 				}
 			}
 		}
 	}
-	$init($Boolean);
 	return $of($Boolean::FALSE);
 }
 
@@ -115,7 +66,42 @@ X11GraphicsEnvironment$2::X11GraphicsEnvironment$2() {
 }
 
 $Class* X11GraphicsEnvironment$2::load$($String* name, bool initialize) {
-	$loadClass(X11GraphicsEnvironment$2, name, initialize, &_X11GraphicsEnvironment$2_ClassInfo_, allocate$X11GraphicsEnvironment$2);
+	$FieldInfo fieldInfos$$[] = {
+		{"val$hostName", "Ljava/lang/String;", nullptr, $FINAL | $SYNTHETIC, $field(X11GraphicsEnvironment$2, val$hostName)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", "()V", 0, $method(X11GraphicsEnvironment$2, init$, void, $String*)},
+		{"run", "()Ljava/lang/Boolean;", nullptr, $PUBLIC, $virtualMethod(X11GraphicsEnvironment$2, run, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.awt.X11GraphicsEnvironment",
+		"_isDisplayLocal",
+		"()Z"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.X11GraphicsEnvironment$2", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.awt.X11GraphicsEnvironment$2",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/Boolean;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.awt.X11GraphicsEnvironment"
+	};
+	$loadClass(X11GraphicsEnvironment$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(X11GraphicsEnvironment$2);
+	});
 	return class$;
 }
 

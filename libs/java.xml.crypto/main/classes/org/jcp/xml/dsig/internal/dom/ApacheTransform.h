@@ -89,6 +89,7 @@ class ApacheTransform : public ::javax::xml::crypto::dsig::TransformService {
 public:
 	ApacheTransform();
 	using ::javax::xml::crypto::dsig::TransformService::init;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual ::java::security::spec::AlgorithmParameterSpec* getParameterSpec() override;
 	virtual void init(::javax::xml::crypto::XMLStructure* parent, ::javax::xml::crypto::XMLCryptoContext* context) override;

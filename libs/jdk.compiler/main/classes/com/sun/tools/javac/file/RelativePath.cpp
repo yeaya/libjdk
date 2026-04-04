@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/file/RelativePath.h>
-
 #include <com/sun/tools/javac/file/RelativePath$RelativeDirectory.h>
 #include <java/lang/CharSequence.h>
 #include <java/lang/Iterable.h>
@@ -13,11 +12,9 @@ using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
-using $Iterable = ::java::lang::Iterable;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $FileSystem = ::java::nio::file::FileSystem;
 using $Path = ::java::nio::file::Path;
-using $Iterator = ::java::util::Iterator;
 
 namespace com {
 	namespace sun {
@@ -25,66 +22,21 @@ namespace com {
 			namespace javac {
 				namespace file {
 
-$FieldInfo _RelativePath_FieldInfo_[] = {
-	{"path", "Ljava/lang/String;", nullptr, $PROTECTED | $FINAL, $field(RelativePath, path)},
-	{}
-};
-
-$MethodInfo _RelativePath_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $method(RelativePath, init$, void, $String*)},
-	{"basename", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RelativePath, basename, $String*)},
-	{"compareTo", "(Lcom/sun/tools/javac/file/RelativePath;)I", nullptr, $PUBLIC, $virtualMethod(RelativePath, compareTo, int32_t, RelativePath*)},
-	{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(RelativePath, compareTo, int32_t, Object$*)},
-	{"dirname", "()Lcom/sun/tools/javac/file/RelativePath$RelativeDirectory;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RelativePath, dirname, $RelativePath$RelativeDirectory*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(RelativePath, equals, bool, Object$*)},
-	{"getPath", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RelativePath, getPath, $String*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(RelativePath, hashCode, int32_t)},
-	{"resolveAgainst", "(Ljava/nio/file/Path;)Ljava/nio/file/Path;", nullptr, $PUBLIC, $virtualMethod(RelativePath, resolveAgainst, $Path*, $Path*), "java.nio.file.InvalidPathException"},
-	{"resolveAgainst", "(Ljava/nio/file/FileSystem;)Ljava/nio/file/Path;", nullptr, $PUBLIC, $virtualMethod(RelativePath, resolveAgainst, $Path*, $FileSystem*), "java.nio.file.InvalidPathException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RelativePath, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _RelativePath_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.file.RelativePath$RelativeFile", "com.sun.tools.javac.file.RelativePath", "RelativeFile", $PUBLIC | $STATIC},
-	{"com.sun.tools.javac.file.RelativePath$RelativeDirectory", "com.sun.tools.javac.file.RelativePath", "RelativeDirectory", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _RelativePath_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"com.sun.tools.javac.file.RelativePath",
-	"java.lang.Object",
-	"java.lang.Comparable",
-	_RelativePath_FieldInfo_,
-	_RelativePath_MethodInfo_,
-	"Ljava/lang/Object;Ljava/lang/Comparable<Lcom/sun/tools/javac/file/RelativePath;>;",
-	nullptr,
-	_RelativePath_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.file.RelativePath$RelativeFile,com.sun.tools.javac.file.RelativePath$RelativeDirectory"
-};
-
-$Object* allocate$RelativePath($Class* clazz) {
-	return $of($alloc(RelativePath));
-}
-
 void RelativePath::init$($String* p) {
 	$set(this, path, p);
 }
 
 $Path* RelativePath::resolveAgainst($Path* directory) {
-	$useLocalCurrentObjectStackCache();
-	$var($String, sep, $nc($($nc(directory)->getFileSystem()))->getSeparator());
-	return directory->resolve($($nc(this->path)->replace(static_cast<$CharSequence*>("/"_s), static_cast<$CharSequence*>(sep))));
+	$useLocalObjectStack();
+	$var($String, sep, $$nc($nc(directory)->getFileSystem())->getSeparator());
+	return directory->resolve($($nc(this->path)->replace("/"_s, sep)));
 }
 
 $Path* RelativePath::resolveAgainst($FileSystem* fs) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, sep, $nc(fs)->getSeparator());
-	$var($Path, root, $cast($Path, $nc($($nc($(fs->getRootDirectories()))->iterator()))->next()));
-	return $nc(root)->resolve($($nc(this->path)->replace(static_cast<$CharSequence*>("/"_s), static_cast<$CharSequence*>(sep))));
+	$var($Path, root, $cast($Path, $$nc($$nc(fs->getRootDirectories())->iterator())->next()));
+	return $nc(root)->resolve($($nc(this->path)->replace("/"_s, sep)));
 }
 
 int32_t RelativePath::compareTo(RelativePath* other) {
@@ -98,7 +50,7 @@ bool RelativePath::equals(Object$* other) {
 		$assign(relativePath, $cast(RelativePath, other));
 		var$1 = true;
 	}
-	bool var$0 = (var$1);
+	bool var$0 = var$1;
 	return var$0 && $nc(this->path)->equals($nc(relativePath)->path);
 }
 
@@ -122,7 +74,46 @@ RelativePath::RelativePath() {
 }
 
 $Class* RelativePath::load$($String* name, bool initialize) {
-	$loadClass(RelativePath, name, initialize, &_RelativePath_ClassInfo_, allocate$RelativePath);
+	$FieldInfo fieldInfos$$[] = {
+		{"path", "Ljava/lang/String;", nullptr, $PROTECTED | $FINAL, $field(RelativePath, path)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $method(RelativePath, init$, void, $String*)},
+		{"basename", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RelativePath, basename, $String*)},
+		{"compareTo", "(Lcom/sun/tools/javac/file/RelativePath;)I", nullptr, $PUBLIC, $virtualMethod(RelativePath, compareTo, int32_t, RelativePath*)},
+		{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(RelativePath, compareTo, int32_t, Object$*)},
+		{"dirname", "()Lcom/sun/tools/javac/file/RelativePath$RelativeDirectory;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RelativePath, dirname, $RelativePath$RelativeDirectory*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(RelativePath, equals, bool, Object$*)},
+		{"getPath", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RelativePath, getPath, $String*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(RelativePath, hashCode, int32_t)},
+		{"resolveAgainst", "(Ljava/nio/file/Path;)Ljava/nio/file/Path;", nullptr, $PUBLIC, $virtualMethod(RelativePath, resolveAgainst, $Path*, $Path*), "java.nio.file.InvalidPathException"},
+		{"resolveAgainst", "(Ljava/nio/file/FileSystem;)Ljava/nio/file/Path;", nullptr, $PUBLIC, $virtualMethod(RelativePath, resolveAgainst, $Path*, $FileSystem*), "java.nio.file.InvalidPathException"},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RelativePath, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.file.RelativePath$RelativeFile", "com.sun.tools.javac.file.RelativePath", "RelativeFile", $PUBLIC | $STATIC},
+		{"com.sun.tools.javac.file.RelativePath$RelativeDirectory", "com.sun.tools.javac.file.RelativePath", "RelativeDirectory", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"com.sun.tools.javac.file.RelativePath",
+		"java.lang.Object",
+		"java.lang.Comparable",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/lang/Comparable<Lcom/sun/tools/javac/file/RelativePath;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.file.RelativePath$RelativeFile,com.sun.tools.javac.file.RelativePath$RelativeDirectory"
+	};
+	$loadClass(RelativePath, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RelativePath);
+	});
 	return class$;
 }
 

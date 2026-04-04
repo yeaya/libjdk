@@ -31,11 +31,14 @@ public:
 	void init$(int32_t majorCode, ::java::lang::Exception* cause);
 	void init$(int32_t majorCode, $String* majorMessage, ::java::lang::Exception* cause);
 	virtual $String* getMessage() override;
-	static const int64_t serialVersionUID = (int64_t)0x3AFF4A007414AF07;
+	static const int64_t serialVersionUID = (int64_t)0x3aff4a007414af07;
 	$String* majorMessage = nullptr;
 	GSSExceptionImpl(const GSSExceptionImpl& e);
 	virtual void throw$() override;
-	inline GSSExceptionImpl* operator ->() {
+	inline GSSExceptionImpl* operator ->() const {
+		return (GSSExceptionImpl*)throwing$;
+	}
+	inline operator GSSExceptionImpl*() const {
 		return (GSSExceptionImpl*)throwing$;
 	}
 };

@@ -1,5 +1,4 @@
 #include <javax/management/NumericValueExp.h>
-
 #include <com/sun/jmx/mbeanserver/GetPropertyAction.h>
 #include <java/io/ObjectInputStream$GetField.h>
 #include <java/io/ObjectInputStream.h>
@@ -8,7 +7,6 @@
 #include <java/io/ObjectStreamField.h>
 #include <java/lang/Number.h>
 #include <java/security/AccessController.h>
-#include <java/security/PrivilegedAction.h>
 #include <javax/management/MBeanServer.h>
 #include <javax/management/ObjectName.h>
 #include <javax/management/QueryEval.h>
@@ -36,7 +34,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;
 using $Number = ::java::lang::Number;
 using $AccessController = ::java::security::AccessController;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $MBeanServer = ::javax::management::MBeanServer;
 using $ObjectName = ::javax::management::ObjectName;
 using $QueryEval = ::javax::management::QueryEval;
@@ -44,54 +41,6 @@ using $ValueExp = ::javax::management::ValueExp;
 
 namespace javax {
 	namespace management {
-
-$CompoundAttribute _NumericValueExp_MethodAnnotations_setMBeanServer7[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$FieldInfo _NumericValueExp_FieldInfo_[] = {
-	{"oldSerialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NumericValueExp, oldSerialVersionUID)},
-	{"newSerialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NumericValueExp, newSerialVersionUID)},
-	{"oldSerialPersistentFields", "[Ljava/io/ObjectStreamField;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(NumericValueExp, oldSerialPersistentFields)},
-	{"newSerialPersistentFields", "[Ljava/io/ObjectStreamField;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(NumericValueExp, newSerialPersistentFields)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(NumericValueExp, serialVersionUID)},
-	{"serialPersistentFields", "[Ljava/io/ObjectStreamField;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(NumericValueExp, serialPersistentFields)},
-	{"val", "Ljava/lang/Number;", nullptr, $PRIVATE, $field(NumericValueExp, val)},
-	{"compat", "Z", nullptr, $PRIVATE | $STATIC, $staticField(NumericValueExp, compat)},
-	{}
-};
-
-$MethodInfo _NumericValueExp_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(NumericValueExp, init$, void)},
-	{"<init>", "(Ljava/lang/Number;)V", nullptr, 0, $method(NumericValueExp, init$, void, $Number*)},
-	{"apply", "(Ljavax/management/ObjectName;)Ljavax/management/ValueExp;", nullptr, $PUBLIC, $virtualMethod(NumericValueExp, apply, $ValueExp*, $ObjectName*), "javax.management.BadStringOperationException,javax.management.BadBinaryOpValueExpException,javax.management.BadAttributeValueExpException,javax.management.InvalidApplicationException"},
-	{"doubleValue", "()D", nullptr, $PUBLIC, $virtualMethod(NumericValueExp, doubleValue, double)},
-	{"isLong", "()Z", nullptr, $PUBLIC, $virtualMethod(NumericValueExp, isLong, bool)},
-	{"longValue", "()J", nullptr, $PUBLIC, $virtualMethod(NumericValueExp, longValue, int64_t)},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(NumericValueExp, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"setMBeanServer", "(Ljavax/management/MBeanServer;)V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(NumericValueExp, setMBeanServer, void, $MBeanServer*), nullptr, nullptr, _NumericValueExp_MethodAnnotations_setMBeanServer7},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(NumericValueExp, toString, $String*)},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(NumericValueExp, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _NumericValueExp_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.management.NumericValueExp",
-	"javax.management.QueryEval",
-	"javax.management.ValueExp",
-	_NumericValueExp_FieldInfo_,
-	_NumericValueExp_MethodInfo_
-};
-
-$Object* allocate$NumericValueExp($Class* clazz) {
-	return $of($alloc(NumericValueExp));
-}
 
 int32_t NumericValueExp::hashCode() {
 	 return this->$QueryEval::hashCode();
@@ -209,24 +158,20 @@ void NumericValueExp::setMBeanServer($MBeanServer* s) {
 	$QueryEval::setMBeanServer(s);
 }
 
-void clinit$NumericValueExp($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void NumericValueExp::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
-	$init($Long);
-	$init($Double);
-	$init($Boolean);
 	$assignStatic(NumericValueExp::oldSerialPersistentFields, $new($ObjectStreamFieldArray, {
 		$$new($ObjectStreamField, "longVal"_s, $Long::TYPE),
 		$$new($ObjectStreamField, "doubleVal"_s, $Double::TYPE),
 		$$new($ObjectStreamField, "valIsLong"_s, $Boolean::TYPE)
 	}));
-	$load($Number);
 	$assignStatic(NumericValueExp::newSerialPersistentFields, $new($ObjectStreamFieldArray, {$$new($ObjectStreamField, "val"_s, $Number::class$)}));
 	NumericValueExp::compat = false;
 	{
 		try {
 			$var($GetPropertyAction, act, $new($GetPropertyAction, "jmx.serial.form"_s));
-			$var($String, form, $cast($String, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>(act))));
+			$var($String, form, $cast($String, $AccessController::doPrivileged(act)));
 			NumericValueExp::compat = (form != nullptr && form->equals("1.0"_s));
 		} catch ($Exception& e) {
 		}
@@ -244,7 +189,49 @@ NumericValueExp::NumericValueExp() {
 }
 
 $Class* NumericValueExp::load$($String* name, bool initialize) {
-	$loadClass(NumericValueExp, name, initialize, &_NumericValueExp_ClassInfo_, clinit$NumericValueExp, allocate$NumericValueExp);
+	$FieldInfo fieldInfos$$[] = {
+		{"oldSerialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NumericValueExp, oldSerialVersionUID)},
+		{"newSerialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NumericValueExp, newSerialVersionUID)},
+		{"oldSerialPersistentFields", "[Ljava/io/ObjectStreamField;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(NumericValueExp, oldSerialPersistentFields)},
+		{"newSerialPersistentFields", "[Ljava/io/ObjectStreamField;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(NumericValueExp, newSerialPersistentFields)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(NumericValueExp, serialVersionUID)},
+		{"serialPersistentFields", "[Ljava/io/ObjectStreamField;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(NumericValueExp, serialPersistentFields)},
+		{"val", "Ljava/lang/Number;", nullptr, $PRIVATE, $field(NumericValueExp, val)},
+		{"compat", "Z", nullptr, $PRIVATE | $STATIC, $staticField(NumericValueExp, compat)},
+		{}
+	};
+	$CompoundAttribute setMBeanServermethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(NumericValueExp, init$, void)},
+		{"<init>", "(Ljava/lang/Number;)V", nullptr, 0, $method(NumericValueExp, init$, void, $Number*)},
+		{"apply", "(Ljavax/management/ObjectName;)Ljavax/management/ValueExp;", nullptr, $PUBLIC, $virtualMethod(NumericValueExp, apply, $ValueExp*, $ObjectName*), "javax.management.BadStringOperationException,javax.management.BadBinaryOpValueExpException,javax.management.BadAttributeValueExpException,javax.management.InvalidApplicationException"},
+		{"doubleValue", "()D", nullptr, $PUBLIC, $virtualMethod(NumericValueExp, doubleValue, double)},
+		{"isLong", "()Z", nullptr, $PUBLIC, $virtualMethod(NumericValueExp, isLong, bool)},
+		{"longValue", "()J", nullptr, $PUBLIC, $virtualMethod(NumericValueExp, longValue, int64_t)},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(NumericValueExp, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+		{"setMBeanServer", "(Ljavax/management/MBeanServer;)V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(NumericValueExp, setMBeanServer, void, $MBeanServer*), nullptr, nullptr, setMBeanServermethodAnnotations$$},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(NumericValueExp, toString, $String*)},
+		{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(NumericValueExp, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.management.NumericValueExp",
+		"javax.management.QueryEval",
+		"javax.management.ValueExp",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(NumericValueExp, name, initialize, &classInfo$$, NumericValueExp::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(NumericValueExp));
+	});
 	return class$;
 }
 

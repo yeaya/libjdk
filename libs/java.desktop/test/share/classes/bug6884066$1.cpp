@@ -1,5 +1,4 @@
 #include <bug6884066$1.h>
-
 #include <bug6884066.h>
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
@@ -13,7 +12,6 @@
 #undef EXIT_ON_CLOSE
 
 using $bug6884066 = ::bug6884066;
-using $Component = ::java::awt::Component;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -22,54 +20,17 @@ using $JFrame = ::javax::swing::JFrame;
 using $JTable = ::javax::swing::JTable;
 using $JTableHeader = ::javax::swing::table::JTableHeader;
 
-$MethodInfo _bug6884066$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(bug6884066$1, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug6884066$1, run, void)},
-	{}
-};
-
-$EnclosingMethodInfo _bug6884066$1_EnclosingMethodInfo_ = {
-	"bug6884066",
-	"main",
-	"([Ljava/lang/String;)V"
-};
-
-$InnerClassInfo _bug6884066$1_InnerClassesInfo_[] = {
-	{"bug6884066$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _bug6884066$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"bug6884066$1",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	_bug6884066$1_MethodInfo_,
-	nullptr,
-	&_bug6884066$1_EnclosingMethodInfo_,
-	_bug6884066$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"bug6884066"
-};
-
-$Object* allocate$bug6884066$1($Class* clazz) {
-	return $of($alloc(bug6884066$1));
-}
-
 void bug6884066$1::init$() {
 }
 
 void bug6884066$1::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JTable, table, $new($JTable, 10, 5));
 	$init($bug6884066);
 	$assignStatic($bug6884066::header, $new($JTableHeader, $(table->getColumnModel())));
 	$bug6884066::checkColumn(0, "A"_s);
 	$var($JFrame, frame, $new($JFrame, "standalone header"_s));
-	frame->add(static_cast<$Component*>($bug6884066::header));
+	frame->add($bug6884066::header);
 	frame->pack();
 	frame->setVisible(true);
 	frame->setDefaultCloseOperation($JFrame::EXIT_ON_CLOSE);
@@ -79,7 +40,38 @@ bug6884066$1::bug6884066$1() {
 }
 
 $Class* bug6884066$1::load$($String* name, bool initialize) {
-	$loadClass(bug6884066$1, name, initialize, &_bug6884066$1_ClassInfo_, allocate$bug6884066$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(bug6884066$1, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug6884066$1, run, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"bug6884066",
+		"main",
+		"([Ljava/lang/String;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"bug6884066$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"bug6884066$1",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"bug6884066"
+	};
+	$loadClass(bug6884066$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(bug6884066$1);
+	});
 	return class$;
 }
 

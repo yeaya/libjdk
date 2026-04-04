@@ -1,7 +1,5 @@
 #include <com/apple/laf/AquaTreeUI.h>
-
 #include <apple/laf/JRSUIConstants$Direction.h>
-#include <apple/laf/JRSUIConstants$Property.h>
 #include <apple/laf/JRSUIConstants$State.h>
 #include <apple/laf/JRSUIState$AnimationFrameState.h>
 #include <apple/laf/JRSUIState.h>
@@ -53,9 +51,7 @@
 #undef RIGHT
 
 using $JRSUIConstants$Direction = ::apple::laf::JRSUIConstants$Direction;
-using $JRSUIConstants$Property = ::apple::laf::JRSUIConstants$Property;
 using $JRSUIConstants$State = ::apple::laf::JRSUIConstants$State;
-using $JRSUIState = ::apple::laf::JRSUIState;
 using $JRSUIState$AnimationFrameState = ::apple::laf::JRSUIState$AnimationFrameState;
 using $JRSUIStateFactory = ::apple::laf::JRSUIStateFactory;
 using $JRSUIUtils$Tree = ::apple::laf::JRSUIUtils$Tree;
@@ -66,7 +62,6 @@ using $AquaTreeUI$LineListener = ::com::apple::laf::AquaTreeUI$LineListener;
 using $AquaTreeUI$MacPropertyChangeHandler = ::com::apple::laf::AquaTreeUI$MacPropertyChangeHandler;
 using $AquaTreeUI$TreeArrowMouseInputHandler = ::com::apple::laf::AquaTreeUI$TreeArrowMouseInputHandler;
 using $AquaUtils = ::com::apple::laf::AquaUtils;
-using $Component = ::java::awt::Component;
 using $Graphics = ::java::awt::Graphics;
 using $Insets = ::java::awt::Insets;
 using $Rectangle = ::java::awt::Rectangle;
@@ -77,8 +72,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Action = ::javax::swing::Action;
-using $ActionMap = ::javax::swing::ActionMap;
 using $Icon = ::javax::swing::Icon;
 using $JComponent = ::javax::swing::JComponent;
 using $JTree = ::javax::swing::JTree;
@@ -94,116 +87,6 @@ using $TreePath = ::javax::swing::tree::TreePath;
 namespace com {
 	namespace apple {
 		namespace laf {
-
-$FieldInfo _AquaTreeUI_FieldInfo_[] = {
-	{"LINE_STYLE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AquaTreeUI, LINE_STYLE)},
-	{"LEG_LINE_STYLE_STRING", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AquaTreeUI, LEG_LINE_STYLE_STRING)},
-	{"HORIZ_STYLE_STRING", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AquaTreeUI, HORIZ_STYLE_STRING)},
-	{"NO_STYLE_STRING", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AquaTreeUI, NO_STYLE_STRING)},
-	{"LEG_LINE_STYLE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AquaTreeUI, LEG_LINE_STYLE)},
-	{"HORIZ_LINE_STYLE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AquaTreeUI, HORIZ_LINE_STYLE)},
-	{"NO_LINE_STYLE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AquaTreeUI, NO_LINE_STYLE)},
-	{"lineStyle", "I", nullptr, $PRIVATE, $field(AquaTreeUI, lineStyle)},
-	{"lineStyleListener", "Ljava/beans/PropertyChangeListener;", nullptr, $PRIVATE | $FINAL, $field(AquaTreeUI, lineStyleListener)},
-	{"fTrackingPath", "Ljavax/swing/tree/TreePath;", nullptr, $PROTECTED, $field(AquaTreeUI, fTrackingPath)},
-	{"fIsPressed", "Z", nullptr, $PROTECTED, $field(AquaTreeUI, fIsPressed)},
-	{"fIsInBounds", "Z", nullptr, $PROTECTED, $field(AquaTreeUI, fIsInBounds)},
-	{"fAnimationFrame", "I", nullptr, $PROTECTED, $field(AquaTreeUI, fAnimationFrame)},
-	{"fMouseHandler", "Lcom/apple/laf/AquaTreeUI$TreeArrowMouseInputHandler;", nullptr, $PROTECTED, $field(AquaTreeUI, fMouseHandler)},
-	{"painter", "Lcom/apple/laf/AquaPainter;", "Lcom/apple/laf/AquaPainter<Lapple/laf/JRSUIState$AnimationFrameState;>;", $PROTECTED | $FINAL, $field(AquaTreeUI, painter)},
-	{}
-};
-
-$MethodInfo _AquaTreeUI_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AquaTreeUI, init$, void)},
-	{"access$000", "(Lcom/apple/laf/AquaTreeUI;)Ljavax/swing/JTree;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaTreeUI, access$000, $JTree*, AquaTreeUI*)},
-	{"access$100", "(Lcom/apple/laf/AquaTreeUI;)Ljavax/swing/JTree;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaTreeUI, access$100, $JTree*, AquaTreeUI*)},
-	{"access$1000", "(Lcom/apple/laf/AquaTreeUI;)Ljavax/swing/JTree;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaTreeUI, access$1000, $JTree*, AquaTreeUI*)},
-	{"access$1100", "(Lcom/apple/laf/AquaTreeUI;)Ljavax/swing/tree/TreeModel;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaTreeUI, access$1100, $TreeModel*, AquaTreeUI*)},
-	{"access$1200", "(Lcom/apple/laf/AquaTreeUI;)Ljavax/swing/tree/AbstractLayoutCache;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaTreeUI, access$1200, $AbstractLayoutCache*, AquaTreeUI*)},
-	{"access$1300", "(Lcom/apple/laf/AquaTreeUI;)Ljavax/swing/JTree;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaTreeUI, access$1300, $JTree*, AquaTreeUI*)},
-	{"access$1400", "(Lcom/apple/laf/AquaTreeUI;)Ljavax/swing/tree/AbstractLayoutCache;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaTreeUI, access$1400, $AbstractLayoutCache*, AquaTreeUI*)},
-	{"access$1500", "(Lcom/apple/laf/AquaTreeUI;)Ljavax/swing/JTree;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaTreeUI, access$1500, $JTree*, AquaTreeUI*)},
-	{"access$1600", "(Lcom/apple/laf/AquaTreeUI;Ljavax/swing/tree/TreePath;)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaTreeUI, access$1600, void, AquaTreeUI*, $TreePath*)},
-	{"access$1700", "(Lcom/apple/laf/AquaTreeUI;)Ljavax/swing/JTree;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaTreeUI, access$1700, $JTree*, AquaTreeUI*)},
-	{"access$1800", "(Lcom/apple/laf/AquaTreeUI;)Ljavax/swing/JTree;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaTreeUI, access$1800, $JTree*, AquaTreeUI*)},
-	{"access$1900", "(Lcom/apple/laf/AquaTreeUI;)Z", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaTreeUI, access$1900, bool, AquaTreeUI*)},
-	{"access$200", "(Lcom/apple/laf/AquaTreeUI;)Ljavax/swing/JTree;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaTreeUI, access$200, $JTree*, AquaTreeUI*)},
-	{"access$2000", "(Lcom/apple/laf/AquaTreeUI;)Ljavax/swing/JTree;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaTreeUI, access$2000, $JTree*, AquaTreeUI*)},
-	{"access$2100", "(Lcom/apple/laf/AquaTreeUI;)Ljavax/swing/JTree;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaTreeUI, access$2100, $JTree*, AquaTreeUI*)},
-	{"access$2200", "(Lcom/apple/laf/AquaTreeUI;)Ljavax/swing/JTree;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaTreeUI, access$2200, $JTree*, AquaTreeUI*)},
-	{"access$2300", "(Lcom/apple/laf/AquaTreeUI;)Ljavax/swing/JTree;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaTreeUI, access$2300, $JTree*, AquaTreeUI*)},
-	{"access$2400", "(Lcom/apple/laf/AquaTreeUI;)Ljavax/swing/JTree;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaTreeUI, access$2400, $JTree*, AquaTreeUI*)},
-	{"access$2500", "(Lcom/apple/laf/AquaTreeUI;)Ljavax/swing/JTree;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaTreeUI, access$2500, $JTree*, AquaTreeUI*)},
-	{"access$2600", "(Lcom/apple/laf/AquaTreeUI;)Ljavax/swing/JTree;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaTreeUI, access$2600, $JTree*, AquaTreeUI*)},
-	{"access$2700", "(Lcom/apple/laf/AquaTreeUI;)Ljavax/swing/JTree;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaTreeUI, access$2700, $JTree*, AquaTreeUI*)},
-	{"access$2800", "(Lcom/apple/laf/AquaTreeUI;)Ljavax/swing/JTree;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaTreeUI, access$2800, $JTree*, AquaTreeUI*)},
-	{"access$2900", "(Lcom/apple/laf/AquaTreeUI;)Ljavax/swing/JTree;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaTreeUI, access$2900, $JTree*, AquaTreeUI*)},
-	{"access$300", "(Lcom/apple/laf/AquaTreeUI;)Ljavax/swing/JTree;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaTreeUI, access$300, $JTree*, AquaTreeUI*)},
-	{"access$3000", "(Lcom/apple/laf/AquaTreeUI;)Ljavax/swing/JTree;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaTreeUI, access$3000, $JTree*, AquaTreeUI*)},
-	{"access$3100", "(Lcom/apple/laf/AquaTreeUI;)Ljavax/swing/JTree;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaTreeUI, access$3100, $JTree*, AquaTreeUI*)},
-	{"access$3200", "(Lcom/apple/laf/AquaTreeUI;)Ljavax/swing/JTree;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaTreeUI, access$3200, $JTree*, AquaTreeUI*)},
-	{"access$400", "(Lcom/apple/laf/AquaTreeUI;)Ljavax/swing/JTree;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaTreeUI, access$400, $JTree*, AquaTreeUI*)},
-	{"access$500", "(Lcom/apple/laf/AquaTreeUI;)Ljavax/swing/JTree;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaTreeUI, access$500, $JTree*, AquaTreeUI*)},
-	{"access$600", "(Lcom/apple/laf/AquaTreeUI;)Ljavax/swing/JTree;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaTreeUI, access$600, $JTree*, AquaTreeUI*)},
-	{"access$700", "(Lcom/apple/laf/AquaTreeUI;)Ljavax/swing/JTree;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaTreeUI, access$700, $JTree*, AquaTreeUI*)},
-	{"access$800", "(Lcom/apple/laf/AquaTreeUI;)Ljavax/swing/JTree;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaTreeUI, access$800, $JTree*, AquaTreeUI*)},
-	{"access$900", "(Lcom/apple/laf/AquaTreeUI;)Ljavax/swing/JTree;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaTreeUI, access$900, $JTree*, AquaTreeUI*)},
-	{"collapseAllNodes", "(Ljavax/swing/tree/TreePath;I)V", nullptr, 0, $virtualMethod(AquaTreeUI, collapseAllNodes, void, $TreePath*, int32_t)},
-	{"collapseNode", "(IZ)V", nullptr, 0, $virtualMethod(AquaTreeUI, collapseNode, void, int32_t, bool)},
-	{"createFocusListener", "()Ljava/awt/event/FocusListener;", nullptr, $PROTECTED, $virtualMethod(AquaTreeUI, createFocusListener, $FocusListener*)},
-	{"createPropertyChangeListener", "()Ljava/beans/PropertyChangeListener;", nullptr, $PROTECTED, $virtualMethod(AquaTreeUI, createPropertyChangeListener, $PropertyChangeListener*)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(AquaTreeUI, createUI, $ComponentUI*, $JComponent*)},
-	{"decodeLineStyle", "(Ljava/lang/Object;)V", nullptr, $PROTECTED, $virtualMethod(AquaTreeUI, decodeLineStyle, void, Object$*)},
-	{"expandAllNodes", "(Ljavax/swing/tree/TreePath;I)V", nullptr, 0, $virtualMethod(AquaTreeUI, expandAllNodes, void, $TreePath*, int32_t)},
-	{"expandNode", "(IZ)V", nullptr, 0, $virtualMethod(AquaTreeUI, expandNode, void, int32_t, bool)},
-	{"getClosestPathForLocation", "(Ljavax/swing/JTree;II)Ljavax/swing/tree/TreePath;", nullptr, $PUBLIC, $virtualMethod(AquaTreeUI, getClosestPathForLocation, $TreePath*, $JTree*, int32_t, int32_t)},
-	{"getCollapsedIcon", "()Ljavax/swing/Icon;", nullptr, $PUBLIC, $virtualMethod(AquaTreeUI, getCollapsedIcon, $Icon*)},
-	{"getDirection", "(ZZ)Lapple/laf/JRSUIConstants$Direction;", nullptr, $PROTECTED, $virtualMethod(AquaTreeUI, getDirection, $JRSUIConstants$Direction*, bool, bool)},
-	{"getPathArrowBounds", "(Ljavax/swing/tree/TreePath;)Ljava/awt/Rectangle;", nullptr, $PROTECTED, $virtualMethod(AquaTreeUI, getPathArrowBounds, $Rectangle*, $TreePath*)},
-	{"getRowForPath", "(Ljavax/swing/tree/TreePath;)I", nullptr, $PROTECTED, $virtualMethod(AquaTreeUI, getRowForPath, int32_t, $TreePath*)},
-	{"getState", "(Ljavax/swing/tree/TreePath;)Lapple/laf/JRSUIConstants$State;", nullptr, $PROTECTED, $virtualMethod(AquaTreeUI, getState, $JRSUIConstants$State*, $TreePath*)},
-	{"handleExpandControlClick", "(Ljavax/swing/tree/TreePath;II)V", nullptr, $PROTECTED, $virtualMethod(AquaTreeUI, handleExpandControlClick, void, $TreePath*, int32_t, int32_t)},
-	{"installKeyboardActions", "()V", nullptr, $PROTECTED, $virtualMethod(AquaTreeUI, installKeyboardActions, void)},
-	{"installUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(AquaTreeUI, installUI, void, $JComponent*)},
-	{"isToggleSelectionEvent", "(Ljava/awt/event/MouseEvent;)Z", nullptr, $PROTECTED, $virtualMethod(AquaTreeUI, isToggleSelectionEvent, bool, $MouseEvent*)},
-	{"paint", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(AquaTreeUI, paint, void, $Graphics*, $JComponent*)},
-	{"paintExpandControl", "(Ljava/awt/Graphics;Ljava/awt/Rectangle;Ljava/awt/Insets;Ljava/awt/Rectangle;Ljavax/swing/tree/TreePath;IZZZ)V", nullptr, $PROTECTED, $virtualMethod(AquaTreeUI, paintExpandControl, void, $Graphics*, $Rectangle*, $Insets*, $Rectangle*, $TreePath*, int32_t, bool, bool, bool)},
-	{"paintHorizontalPartOfLeg", "(Ljava/awt/Graphics;Ljava/awt/Rectangle;Ljava/awt/Insets;Ljava/awt/Rectangle;Ljavax/swing/tree/TreePath;IZZZ)V", nullptr, $PROTECTED, $virtualMethod(AquaTreeUI, paintHorizontalPartOfLeg, void, $Graphics*, $Rectangle*, $Insets*, $Rectangle*, $TreePath*, int32_t, bool, bool, bool)},
-	{"paintHorizontalSeparators", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PROTECTED, $virtualMethod(AquaTreeUI, paintHorizontalSeparators, void, $Graphics*, $JComponent*)},
-	{"paintVerticalPartOfLeg", "(Ljava/awt/Graphics;Ljava/awt/Rectangle;Ljava/awt/Insets;Ljavax/swing/tree/TreePath;)V", nullptr, $PROTECTED, $virtualMethod(AquaTreeUI, paintVerticalPartOfLeg, void, $Graphics*, $Rectangle*, $Insets*, $TreePath*)},
-	{"setupPainter", "(Lapple/laf/JRSUIConstants$State;ZZ)V", nullptr, $PROTECTED, $virtualMethod(AquaTreeUI, setupPainter, void, $JRSUIConstants$State*, bool, bool)},
-	{"uninstallUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(AquaTreeUI, uninstallUI, void, $JComponent*)},
-	{}
-};
-
-$InnerClassInfo _AquaTreeUI_InnerClassesInfo_[] = {
-	{"com.apple.laf.AquaTreeUI$KeyboardExpandCollapseAction", "com.apple.laf.AquaTreeUI", "KeyboardExpandCollapseAction", 0},
-	{"com.apple.laf.AquaTreeUI$TreeArrowMouseInputHandler", "com.apple.laf.AquaTreeUI", "TreeArrowMouseInputHandler", 0},
-	{"com.apple.laf.AquaTreeUI$MacPropertyChangeHandler", "com.apple.laf.AquaTreeUI", "MacPropertyChangeHandler", $PUBLIC},
-	{"com.apple.laf.AquaTreeUI$FocusHandler", "com.apple.laf.AquaTreeUI", "FocusHandler", 0},
-	{"com.apple.laf.AquaTreeUI$LineListener", "com.apple.laf.AquaTreeUI", "LineListener", 0},
-	{}
-};
-
-$ClassInfo _AquaTreeUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.apple.laf.AquaTreeUI",
-	"javax.swing.plaf.basic.BasicTreeUI",
-	nullptr,
-	_AquaTreeUI_FieldInfo_,
-	_AquaTreeUI_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AquaTreeUI_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.apple.laf.AquaTreeUI$KeyboardExpandCollapseAction,com.apple.laf.AquaTreeUI$TreeArrowMouseInputHandler,com.apple.laf.AquaTreeUI$MacPropertyChangeHandler,com.apple.laf.AquaTreeUI$FocusHandler,com.apple.laf.AquaTreeUI$LineListener"
-};
-
-$Object* allocate$AquaTreeUI($Class* clazz) {
-	return $of($alloc(AquaTreeUI));
-}
 
 $String* AquaTreeUI::LINE_STYLE = nullptr;
 $String* AquaTreeUI::LEG_LINE_STYLE_STRING = nullptr;
@@ -407,13 +290,13 @@ $FocusListener* AquaTreeUI::createFocusListener() {
 }
 
 void AquaTreeUI::decodeLineStyle(Object$* lineStyleFlag) {
-	if (lineStyleFlag == nullptr || $nc(AquaTreeUI::NO_STYLE_STRING)->equals(lineStyleFlag)) {
+	if (lineStyleFlag == nullptr || AquaTreeUI::NO_STYLE_STRING->equals(lineStyleFlag)) {
 		this->lineStyle = AquaTreeUI::NO_LINE_STYLE;
 		return;
 	}
-	if ($nc(AquaTreeUI::LEG_LINE_STYLE_STRING)->equals(lineStyleFlag)) {
+	if (AquaTreeUI::LEG_LINE_STYLE_STRING->equals(lineStyleFlag)) {
 		this->lineStyle = AquaTreeUI::LEG_LINE_STYLE;
-	} else if ($nc(AquaTreeUI::HORIZ_STYLE_STRING)->equals(lineStyleFlag)) {
+	} else if (AquaTreeUI::HORIZ_STYLE_STRING->equals(lineStyleFlag)) {
 		this->lineStyle = AquaTreeUI::HORIZ_LINE_STYLE;
 	}
 }
@@ -426,7 +309,7 @@ $TreePath* AquaTreeUI::getClosestPathForLocation($JTree* treeLocal, int32_t x, i
 	if (i == nullptr) {
 		$assign(i, $new($Insets, 0, 0, 0, 0));
 	}
-	return $nc(this->treeState)->getPathClosestTo(x - $nc(i)->left, y - i->top);
+	return $nc(this->treeState)->getPathClosestTo(x - $nc(i)->left, y - $nc(i)->top);
 }
 
 void AquaTreeUI::paint($Graphics* g, $JComponent* c) {
@@ -437,11 +320,11 @@ void AquaTreeUI::paint($Graphics* g, $JComponent* c) {
 }
 
 void AquaTreeUI::paintHorizontalSeparators($Graphics* g, $JComponent* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(g)->setColor($($UIManager::getColor("Tree.line"_s)));
 	$var($Rectangle, clipBounds, g->getClipBounds());
 	int32_t beginRow = getRowForPath(this->tree, $(getClosestPathForLocation(this->tree, 0, $nc(clipBounds)->y)));
-	int32_t endRow = getRowForPath(this->tree, $(getClosestPathForLocation(this->tree, 0, $nc(clipBounds)->y + clipBounds->height - 1)));
+	int32_t endRow = getRowForPath(this->tree, $(getClosestPathForLocation(this->tree, 0, clipBounds->y + clipBounds->height - 1)));
 	if (beginRow <= -1 || endRow <= -1) {
 		return;
 	}
@@ -450,7 +333,7 @@ void AquaTreeUI::paintHorizontalSeparators($Graphics* g, $JComponent* c) {
 		if (path != nullptr && path->getPathCount() == 2) {
 			$var($Rectangle, rowBounds, getPathBounds(this->tree, $(getPathForRow(this->tree, i))));
 			if (rowBounds != nullptr) {
-				g->drawLine($nc(clipBounds)->x, rowBounds->y, clipBounds->x + clipBounds->width, rowBounds->y);
+				g->drawLine(clipBounds->x, rowBounds->y, clipBounds->x + clipBounds->width, rowBounds->y);
 			}
 		}
 	}
@@ -469,7 +352,7 @@ void AquaTreeUI::paintHorizontalPartOfLeg($Graphics* g, $Rectangle* clipBounds, 
 }
 
 void AquaTreeUI::paintExpandControl($Graphics* g, $Rectangle* clipBounds, $Insets* insets, $Rectangle* bounds, $TreePath* path, int32_t row, bool isExpanded, bool hasBeenExpanded, bool isLeaf) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, value, $nc(path)->getLastPathComponent());
 	if (isLeaf || (hasBeenExpanded && $nc(this->treeModel)->getChildCount(value) <= 0)) {
 		return;
@@ -490,9 +373,9 @@ void AquaTreeUI::paintExpandControl($Graphics* g, $Rectangle* clipBounds, $Inset
 	if (isLeftToRight) {
 		middleXOfKnob = $nc(bounds)->x - (getRightChildIndent() - 1);
 	} else {
-		middleXOfKnob = $nc(clipBounds)->x + clipBounds->width / 2;
+		middleXOfKnob = $nc(clipBounds)->x + $nc(clipBounds)->width / 2;
 	}
-	int32_t middleYOfKnob = $nc(bounds)->y + (bounds->height / 2);
+	int32_t middleYOfKnob = $nc(bounds)->y + ($nc(bounds)->height / 2);
 	int32_t x = middleXOfKnob - $nc(icon)->getIconWidth() / 2;
 	int32_t y = middleYOfKnob - icon->getIconHeight() / 2;
 	int32_t height = icon->getIconHeight();
@@ -513,25 +396,25 @@ $Icon* AquaTreeUI::getCollapsedIcon() {
 }
 
 void AquaTreeUI::setupPainter($JRSUIConstants$State* state$renamed, bool isExpanded, bool leftToRight) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JRSUIConstants$State, state, state$renamed);
 	$init($JRSUIConstants$State);
 	if (!this->fIsInBounds && state == $JRSUIConstants$State::PRESSED) {
 		$assign(state, $JRSUIConstants$State::ACTIVE);
 	}
-	$nc(($cast($JRSUIState$AnimationFrameState, $nc(this->painter)->state)))->set(state);
+	$nc($cast($JRSUIState$AnimationFrameState, $nc(this->painter)->state))->set(state);
 	if ($JRSUIUtils$Tree::useLegacyTreeKnobs()) {
 		if (this->fAnimationFrame == -1) {
 			$init($JRSUIConstants$Direction);
-			$nc(($cast($JRSUIState$AnimationFrameState, $nc(this->painter)->state)))->set(isExpanded ? static_cast<$JRSUIConstants$Property*>($JRSUIConstants$Direction::DOWN) : static_cast<$JRSUIConstants$Property*>($JRSUIConstants$Direction::RIGHT));
+			$nc($cast($JRSUIState$AnimationFrameState, this->painter->state))->set(isExpanded ? $JRSUIConstants$Direction::DOWN : $JRSUIConstants$Direction::RIGHT);
 		} else {
 			$init($JRSUIConstants$Direction);
-			$nc(($cast($JRSUIState$AnimationFrameState, $nc(this->painter)->state)))->set($JRSUIConstants$Direction::NONE);
-			$nc(($cast($JRSUIState$AnimationFrameState, $nc(this->painter)->state)))->setAnimationFrame(this->fAnimationFrame - 1);
+			$nc($cast($JRSUIState$AnimationFrameState, this->painter->state))->set($JRSUIConstants$Direction::NONE);
+			$nc($cast($JRSUIState$AnimationFrameState, this->painter->state))->setAnimationFrame(this->fAnimationFrame - 1);
 		}
 	} else {
-		$nc(($cast($JRSUIState$AnimationFrameState, $nc(this->painter)->state)))->set($(getDirection(isExpanded, leftToRight)));
-		$nc(($cast($JRSUIState$AnimationFrameState, $nc(this->painter)->state)))->setAnimationFrame(this->fAnimationFrame);
+		$nc($cast($JRSUIState$AnimationFrameState, this->painter->state))->set($(getDirection(isExpanded, leftToRight)));
+		$nc($cast($JRSUIState$AnimationFrameState, this->painter->state))->setAnimationFrame(this->fAnimationFrame);
 	}
 }
 
@@ -577,17 +460,17 @@ int32_t AquaTreeUI::getRowForPath($TreePath* path) {
 }
 
 $Rectangle* AquaTreeUI::getPathArrowBounds($TreePath* path) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle, bounds, getPathBounds(this->tree, path));
 	$var($Insets, i, $nc(this->tree)->getInsets());
 	if (getExpandedIcon() != nullptr) {
-		$nc(bounds)->width = $nc($(getExpandedIcon()))->getIconWidth();
+		$nc(bounds)->width = $$nc(getExpandedIcon())->getIconWidth();
 	} else {
 		$nc(bounds)->width = 8;
 	}
-	int32_t boxLeftX = (i != nullptr) ? $nc(i)->left : 0;
+	int32_t boxLeftX = (i != nullptr) ? i->left : 0;
 	if ($AquaUtils::isLeftToRight(this->tree)) {
-		int32_t var$0 = (($nc(path)->getPathCount() + this->depthOffset - 2) * this->totalChildIndent);
+		int32_t var$0 = ($nc(path)->getPathCount() + this->depthOffset - 2) * this->totalChildIndent;
 		boxLeftX += (var$0 + getLeftChildIndent()) - $nc(bounds)->width / 2;
 	} else {
 		int32_t var$2 = $nc(this->tree)->getWidth() - 1;
@@ -599,12 +482,12 @@ $Rectangle* AquaTreeUI::getPathArrowBounds($TreePath* path) {
 }
 
 void AquaTreeUI::installKeyboardActions() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$BasicTreeUI::installKeyboardActions();
-	$nc($($nc(this->tree)->getActionMap()))->put("aquaExpandNode"_s, $$new($AquaTreeUI$KeyboardExpandCollapseAction, this, true, false));
-	$nc($($nc(this->tree)->getActionMap()))->put("aquaCollapseNode"_s, $$new($AquaTreeUI$KeyboardExpandCollapseAction, this, false, false));
-	$nc($($nc(this->tree)->getActionMap()))->put("aquaFullyExpandNode"_s, $$new($AquaTreeUI$KeyboardExpandCollapseAction, this, true, true));
-	$nc($($nc(this->tree)->getActionMap()))->put("aquaFullyCollapseNode"_s, $$new($AquaTreeUI$KeyboardExpandCollapseAction, this, false, true));
+	$$nc($nc(this->tree)->getActionMap())->put("aquaExpandNode"_s, $$new($AquaTreeUI$KeyboardExpandCollapseAction, this, true, false));
+	$$nc($nc(this->tree)->getActionMap())->put("aquaCollapseNode"_s, $$new($AquaTreeUI$KeyboardExpandCollapseAction, this, false, false));
+	$$nc($nc(this->tree)->getActionMap())->put("aquaFullyExpandNode"_s, $$new($AquaTreeUI$KeyboardExpandCollapseAction, this, true, true));
+	$$nc($nc(this->tree)->getActionMap())->put("aquaFullyCollapseNode"_s, $$new($AquaTreeUI$KeyboardExpandCollapseAction, this, false, true));
 }
 
 void AquaTreeUI::expandNode(int32_t row, bool recursive) {
@@ -620,7 +503,7 @@ void AquaTreeUI::expandNode(int32_t row, bool recursive) {
 }
 
 void AquaTreeUI::expandAllNodes($TreePath* parent, int32_t initialRow) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (int32_t i = initialRow; true; ++i) {
 		$var($TreePath, path, getPathForRow(this->tree, i));
 		if (!$nc(parent)->isDescendant(path)) {
@@ -642,7 +525,7 @@ void AquaTreeUI::collapseNode(int32_t row, bool recursive) {
 }
 
 void AquaTreeUI::collapseAllNodes($TreePath* parent, int32_t initialRow) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t lastRow = -1;
 	for (int32_t i = initialRow; lastRow == -1; ++i) {
 		$var($TreePath, path, getPathForRow(this->tree, i));
@@ -659,7 +542,7 @@ void AquaTreeUI::collapseAllNodes($TreePath* parent, int32_t initialRow) {
 AquaTreeUI::AquaTreeUI() {
 }
 
-void clinit$AquaTreeUI($Class* class$) {
+void AquaTreeUI::clinit$($Class* clazz) {
 	$assignStatic(AquaTreeUI::LINE_STYLE, "JTree.lineStyle"_s);
 	$assignStatic(AquaTreeUI::LEG_LINE_STYLE_STRING, "Angled"_s);
 	$assignStatic(AquaTreeUI::HORIZ_STYLE_STRING, "Horizontal"_s);
@@ -667,7 +550,111 @@ void clinit$AquaTreeUI($Class* class$) {
 }
 
 $Class* AquaTreeUI::load$($String* name, bool initialize) {
-	$loadClass(AquaTreeUI, name, initialize, &_AquaTreeUI_ClassInfo_, clinit$AquaTreeUI, allocate$AquaTreeUI);
+	$FieldInfo fieldInfos$$[] = {
+		{"LINE_STYLE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AquaTreeUI, LINE_STYLE)},
+		{"LEG_LINE_STYLE_STRING", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AquaTreeUI, LEG_LINE_STYLE_STRING)},
+		{"HORIZ_STYLE_STRING", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AquaTreeUI, HORIZ_STYLE_STRING)},
+		{"NO_STYLE_STRING", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AquaTreeUI, NO_STYLE_STRING)},
+		{"LEG_LINE_STYLE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AquaTreeUI, LEG_LINE_STYLE)},
+		{"HORIZ_LINE_STYLE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AquaTreeUI, HORIZ_LINE_STYLE)},
+		{"NO_LINE_STYLE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AquaTreeUI, NO_LINE_STYLE)},
+		{"lineStyle", "I", nullptr, $PRIVATE, $field(AquaTreeUI, lineStyle)},
+		{"lineStyleListener", "Ljava/beans/PropertyChangeListener;", nullptr, $PRIVATE | $FINAL, $field(AquaTreeUI, lineStyleListener)},
+		{"fTrackingPath", "Ljavax/swing/tree/TreePath;", nullptr, $PROTECTED, $field(AquaTreeUI, fTrackingPath)},
+		{"fIsPressed", "Z", nullptr, $PROTECTED, $field(AquaTreeUI, fIsPressed)},
+		{"fIsInBounds", "Z", nullptr, $PROTECTED, $field(AquaTreeUI, fIsInBounds)},
+		{"fAnimationFrame", "I", nullptr, $PROTECTED, $field(AquaTreeUI, fAnimationFrame)},
+		{"fMouseHandler", "Lcom/apple/laf/AquaTreeUI$TreeArrowMouseInputHandler;", nullptr, $PROTECTED, $field(AquaTreeUI, fMouseHandler)},
+		{"painter", "Lcom/apple/laf/AquaPainter;", "Lcom/apple/laf/AquaPainter<Lapple/laf/JRSUIState$AnimationFrameState;>;", $PROTECTED | $FINAL, $field(AquaTreeUI, painter)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AquaTreeUI, init$, void)},
+		{"access$000", "(Lcom/apple/laf/AquaTreeUI;)Ljavax/swing/JTree;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaTreeUI, access$000, $JTree*, AquaTreeUI*)},
+		{"access$100", "(Lcom/apple/laf/AquaTreeUI;)Ljavax/swing/JTree;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaTreeUI, access$100, $JTree*, AquaTreeUI*)},
+		{"access$1000", "(Lcom/apple/laf/AquaTreeUI;)Ljavax/swing/JTree;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaTreeUI, access$1000, $JTree*, AquaTreeUI*)},
+		{"access$1100", "(Lcom/apple/laf/AquaTreeUI;)Ljavax/swing/tree/TreeModel;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaTreeUI, access$1100, $TreeModel*, AquaTreeUI*)},
+		{"access$1200", "(Lcom/apple/laf/AquaTreeUI;)Ljavax/swing/tree/AbstractLayoutCache;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaTreeUI, access$1200, $AbstractLayoutCache*, AquaTreeUI*)},
+		{"access$1300", "(Lcom/apple/laf/AquaTreeUI;)Ljavax/swing/JTree;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaTreeUI, access$1300, $JTree*, AquaTreeUI*)},
+		{"access$1400", "(Lcom/apple/laf/AquaTreeUI;)Ljavax/swing/tree/AbstractLayoutCache;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaTreeUI, access$1400, $AbstractLayoutCache*, AquaTreeUI*)},
+		{"access$1500", "(Lcom/apple/laf/AquaTreeUI;)Ljavax/swing/JTree;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaTreeUI, access$1500, $JTree*, AquaTreeUI*)},
+		{"access$1600", "(Lcom/apple/laf/AquaTreeUI;Ljavax/swing/tree/TreePath;)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaTreeUI, access$1600, void, AquaTreeUI*, $TreePath*)},
+		{"access$1700", "(Lcom/apple/laf/AquaTreeUI;)Ljavax/swing/JTree;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaTreeUI, access$1700, $JTree*, AquaTreeUI*)},
+		{"access$1800", "(Lcom/apple/laf/AquaTreeUI;)Ljavax/swing/JTree;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaTreeUI, access$1800, $JTree*, AquaTreeUI*)},
+		{"access$1900", "(Lcom/apple/laf/AquaTreeUI;)Z", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaTreeUI, access$1900, bool, AquaTreeUI*)},
+		{"access$200", "(Lcom/apple/laf/AquaTreeUI;)Ljavax/swing/JTree;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaTreeUI, access$200, $JTree*, AquaTreeUI*)},
+		{"access$2000", "(Lcom/apple/laf/AquaTreeUI;)Ljavax/swing/JTree;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaTreeUI, access$2000, $JTree*, AquaTreeUI*)},
+		{"access$2100", "(Lcom/apple/laf/AquaTreeUI;)Ljavax/swing/JTree;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaTreeUI, access$2100, $JTree*, AquaTreeUI*)},
+		{"access$2200", "(Lcom/apple/laf/AquaTreeUI;)Ljavax/swing/JTree;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaTreeUI, access$2200, $JTree*, AquaTreeUI*)},
+		{"access$2300", "(Lcom/apple/laf/AquaTreeUI;)Ljavax/swing/JTree;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaTreeUI, access$2300, $JTree*, AquaTreeUI*)},
+		{"access$2400", "(Lcom/apple/laf/AquaTreeUI;)Ljavax/swing/JTree;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaTreeUI, access$2400, $JTree*, AquaTreeUI*)},
+		{"access$2500", "(Lcom/apple/laf/AquaTreeUI;)Ljavax/swing/JTree;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaTreeUI, access$2500, $JTree*, AquaTreeUI*)},
+		{"access$2600", "(Lcom/apple/laf/AquaTreeUI;)Ljavax/swing/JTree;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaTreeUI, access$2600, $JTree*, AquaTreeUI*)},
+		{"access$2700", "(Lcom/apple/laf/AquaTreeUI;)Ljavax/swing/JTree;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaTreeUI, access$2700, $JTree*, AquaTreeUI*)},
+		{"access$2800", "(Lcom/apple/laf/AquaTreeUI;)Ljavax/swing/JTree;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaTreeUI, access$2800, $JTree*, AquaTreeUI*)},
+		{"access$2900", "(Lcom/apple/laf/AquaTreeUI;)Ljavax/swing/JTree;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaTreeUI, access$2900, $JTree*, AquaTreeUI*)},
+		{"access$300", "(Lcom/apple/laf/AquaTreeUI;)Ljavax/swing/JTree;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaTreeUI, access$300, $JTree*, AquaTreeUI*)},
+		{"access$3000", "(Lcom/apple/laf/AquaTreeUI;)Ljavax/swing/JTree;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaTreeUI, access$3000, $JTree*, AquaTreeUI*)},
+		{"access$3100", "(Lcom/apple/laf/AquaTreeUI;)Ljavax/swing/JTree;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaTreeUI, access$3100, $JTree*, AquaTreeUI*)},
+		{"access$3200", "(Lcom/apple/laf/AquaTreeUI;)Ljavax/swing/JTree;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaTreeUI, access$3200, $JTree*, AquaTreeUI*)},
+		{"access$400", "(Lcom/apple/laf/AquaTreeUI;)Ljavax/swing/JTree;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaTreeUI, access$400, $JTree*, AquaTreeUI*)},
+		{"access$500", "(Lcom/apple/laf/AquaTreeUI;)Ljavax/swing/JTree;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaTreeUI, access$500, $JTree*, AquaTreeUI*)},
+		{"access$600", "(Lcom/apple/laf/AquaTreeUI;)Ljavax/swing/JTree;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaTreeUI, access$600, $JTree*, AquaTreeUI*)},
+		{"access$700", "(Lcom/apple/laf/AquaTreeUI;)Ljavax/swing/JTree;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaTreeUI, access$700, $JTree*, AquaTreeUI*)},
+		{"access$800", "(Lcom/apple/laf/AquaTreeUI;)Ljavax/swing/JTree;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaTreeUI, access$800, $JTree*, AquaTreeUI*)},
+		{"access$900", "(Lcom/apple/laf/AquaTreeUI;)Ljavax/swing/JTree;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaTreeUI, access$900, $JTree*, AquaTreeUI*)},
+		{"collapseAllNodes", "(Ljavax/swing/tree/TreePath;I)V", nullptr, 0, $virtualMethod(AquaTreeUI, collapseAllNodes, void, $TreePath*, int32_t)},
+		{"collapseNode", "(IZ)V", nullptr, 0, $virtualMethod(AquaTreeUI, collapseNode, void, int32_t, bool)},
+		{"createFocusListener", "()Ljava/awt/event/FocusListener;", nullptr, $PROTECTED, $virtualMethod(AquaTreeUI, createFocusListener, $FocusListener*)},
+		{"createPropertyChangeListener", "()Ljava/beans/PropertyChangeListener;", nullptr, $PROTECTED, $virtualMethod(AquaTreeUI, createPropertyChangeListener, $PropertyChangeListener*)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(AquaTreeUI, createUI, $ComponentUI*, $JComponent*)},
+		{"decodeLineStyle", "(Ljava/lang/Object;)V", nullptr, $PROTECTED, $virtualMethod(AquaTreeUI, decodeLineStyle, void, Object$*)},
+		{"expandAllNodes", "(Ljavax/swing/tree/TreePath;I)V", nullptr, 0, $virtualMethod(AquaTreeUI, expandAllNodes, void, $TreePath*, int32_t)},
+		{"expandNode", "(IZ)V", nullptr, 0, $virtualMethod(AquaTreeUI, expandNode, void, int32_t, bool)},
+		{"getClosestPathForLocation", "(Ljavax/swing/JTree;II)Ljavax/swing/tree/TreePath;", nullptr, $PUBLIC, $virtualMethod(AquaTreeUI, getClosestPathForLocation, $TreePath*, $JTree*, int32_t, int32_t)},
+		{"getCollapsedIcon", "()Ljavax/swing/Icon;", nullptr, $PUBLIC, $virtualMethod(AquaTreeUI, getCollapsedIcon, $Icon*)},
+		{"getDirection", "(ZZ)Lapple/laf/JRSUIConstants$Direction;", nullptr, $PROTECTED, $virtualMethod(AquaTreeUI, getDirection, $JRSUIConstants$Direction*, bool, bool)},
+		{"getPathArrowBounds", "(Ljavax/swing/tree/TreePath;)Ljava/awt/Rectangle;", nullptr, $PROTECTED, $virtualMethod(AquaTreeUI, getPathArrowBounds, $Rectangle*, $TreePath*)},
+		{"getRowForPath", "(Ljavax/swing/tree/TreePath;)I", nullptr, $PROTECTED, $virtualMethod(AquaTreeUI, getRowForPath, int32_t, $TreePath*)},
+		{"getState", "(Ljavax/swing/tree/TreePath;)Lapple/laf/JRSUIConstants$State;", nullptr, $PROTECTED, $virtualMethod(AquaTreeUI, getState, $JRSUIConstants$State*, $TreePath*)},
+		{"handleExpandControlClick", "(Ljavax/swing/tree/TreePath;II)V", nullptr, $PROTECTED, $virtualMethod(AquaTreeUI, handleExpandControlClick, void, $TreePath*, int32_t, int32_t)},
+		{"installKeyboardActions", "()V", nullptr, $PROTECTED, $virtualMethod(AquaTreeUI, installKeyboardActions, void)},
+		{"installUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(AquaTreeUI, installUI, void, $JComponent*)},
+		{"isToggleSelectionEvent", "(Ljava/awt/event/MouseEvent;)Z", nullptr, $PROTECTED, $virtualMethod(AquaTreeUI, isToggleSelectionEvent, bool, $MouseEvent*)},
+		{"paint", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(AquaTreeUI, paint, void, $Graphics*, $JComponent*)},
+		{"paintExpandControl", "(Ljava/awt/Graphics;Ljava/awt/Rectangle;Ljava/awt/Insets;Ljava/awt/Rectangle;Ljavax/swing/tree/TreePath;IZZZ)V", nullptr, $PROTECTED, $virtualMethod(AquaTreeUI, paintExpandControl, void, $Graphics*, $Rectangle*, $Insets*, $Rectangle*, $TreePath*, int32_t, bool, bool, bool)},
+		{"paintHorizontalPartOfLeg", "(Ljava/awt/Graphics;Ljava/awt/Rectangle;Ljava/awt/Insets;Ljava/awt/Rectangle;Ljavax/swing/tree/TreePath;IZZZ)V", nullptr, $PROTECTED, $virtualMethod(AquaTreeUI, paintHorizontalPartOfLeg, void, $Graphics*, $Rectangle*, $Insets*, $Rectangle*, $TreePath*, int32_t, bool, bool, bool)},
+		{"paintHorizontalSeparators", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PROTECTED, $virtualMethod(AquaTreeUI, paintHorizontalSeparators, void, $Graphics*, $JComponent*)},
+		{"paintVerticalPartOfLeg", "(Ljava/awt/Graphics;Ljava/awt/Rectangle;Ljava/awt/Insets;Ljavax/swing/tree/TreePath;)V", nullptr, $PROTECTED, $virtualMethod(AquaTreeUI, paintVerticalPartOfLeg, void, $Graphics*, $Rectangle*, $Insets*, $TreePath*)},
+		{"setupPainter", "(Lapple/laf/JRSUIConstants$State;ZZ)V", nullptr, $PROTECTED, $virtualMethod(AquaTreeUI, setupPainter, void, $JRSUIConstants$State*, bool, bool)},
+		{"uninstallUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(AquaTreeUI, uninstallUI, void, $JComponent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.laf.AquaTreeUI$KeyboardExpandCollapseAction", "com.apple.laf.AquaTreeUI", "KeyboardExpandCollapseAction", 0},
+		{"com.apple.laf.AquaTreeUI$TreeArrowMouseInputHandler", "com.apple.laf.AquaTreeUI", "TreeArrowMouseInputHandler", 0},
+		{"com.apple.laf.AquaTreeUI$MacPropertyChangeHandler", "com.apple.laf.AquaTreeUI", "MacPropertyChangeHandler", $PUBLIC},
+		{"com.apple.laf.AquaTreeUI$FocusHandler", "com.apple.laf.AquaTreeUI", "FocusHandler", 0},
+		{"com.apple.laf.AquaTreeUI$LineListener", "com.apple.laf.AquaTreeUI", "LineListener", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.apple.laf.AquaTreeUI",
+		"javax.swing.plaf.basic.BasicTreeUI",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.apple.laf.AquaTreeUI$KeyboardExpandCollapseAction,com.apple.laf.AquaTreeUI$TreeArrowMouseInputHandler,com.apple.laf.AquaTreeUI$MacPropertyChangeHandler,com.apple.laf.AquaTreeUI$FocusHandler,com.apple.laf.AquaTreeUI$LineListener"
+	};
+	$loadClass(AquaTreeUI, name, initialize, &classInfo$$, AquaTreeUI::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(AquaTreeUI);
+	});
 	return class$;
 }
 

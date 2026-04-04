@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xalan/internal/lib/ExsltDatetime.h>
-
 #include <com/sun/org/apache/xpath/internal/objects/XBoolean.h>
 #include <com/sun/org/apache/xpath/internal/objects/XNumber.h>
 #include <com/sun/org/apache/xpath/internal/objects/XObject.h>
@@ -31,7 +30,6 @@
 using $XBoolean = ::com::sun::org::apache::xpath::internal::objects::XBoolean;
 using $XNumber = ::com::sun::org::apache::xpath::internal::objects::XNumber;
 using $XObject = ::com::sun::org::apache::xpath::internal::objects::XObject;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Double = ::java::lang::Double;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -53,81 +51,6 @@ namespace com {
 					namespace internal {
 						namespace lib {
 
-$FieldInfo _ExsltDatetime_FieldInfo_[] = {
-	{"dt", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(ExsltDatetime, dt)},
-	{"d", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(ExsltDatetime, d)},
-	{"gym", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(ExsltDatetime, gym)},
-	{"gy", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(ExsltDatetime, gy)},
-	{"gmd", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(ExsltDatetime, gmd)},
-	{"gm", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(ExsltDatetime, gm)},
-	{"gd", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(ExsltDatetime, gd)},
-	{"t", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(ExsltDatetime, t)},
-	{"EMPTY_STR", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(ExsltDatetime, EMPTY_STR)},
-	{}
-};
-
-$MethodInfo _ExsltDatetime_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ExsltDatetime, init$, void)},
-	{"date", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(ExsltDatetime, date, $String*, $String*), "java.text.ParseException"},
-	{"date", "()Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(ExsltDatetime, date, $String*)},
-	{"dateTime", "()Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(ExsltDatetime, dateTime, $String*)},
-	{"dayAbbreviation", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(ExsltDatetime, dayAbbreviation, $String*, $String*), "java.text.ParseException"},
-	{"dayAbbreviation", "()Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(ExsltDatetime, dayAbbreviation, $String*)},
-	{"dayInMonth", "(Ljava/lang/String;)D", nullptr, $PUBLIC | $STATIC, $staticMethod(ExsltDatetime, dayInMonth, double, $String*), "java.text.ParseException"},
-	{"dayInMonth", "()D", nullptr, $PUBLIC | $STATIC, $staticMethod(ExsltDatetime, dayInMonth, double)},
-	{"dayInWeek", "(Ljava/lang/String;)D", nullptr, $PUBLIC | $STATIC, $staticMethod(ExsltDatetime, dayInWeek, double, $String*), "java.text.ParseException"},
-	{"dayInWeek", "()D", nullptr, $PUBLIC | $STATIC, $staticMethod(ExsltDatetime, dayInWeek, double)},
-	{"dayInYear", "(Ljava/lang/String;)D", nullptr, $PUBLIC | $STATIC, $staticMethod(ExsltDatetime, dayInYear, double, $String*), "java.text.ParseException"},
-	{"dayInYear", "()D", nullptr, $PUBLIC | $STATIC, $staticMethod(ExsltDatetime, dayInYear, double)},
-	{"dayName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(ExsltDatetime, dayName, $String*, $String*), "java.text.ParseException"},
-	{"dayName", "()Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(ExsltDatetime, dayName, $String*)},
-	{"dayOfWeekInMonth", "(Ljava/lang/String;)D", nullptr, $PUBLIC | $STATIC, $staticMethod(ExsltDatetime, dayOfWeekInMonth, double, $String*), "java.text.ParseException"},
-	{"dayOfWeekInMonth", "()D", nullptr, $PUBLIC | $STATIC, $staticMethod(ExsltDatetime, dayOfWeekInMonth, double)},
-	{"formatDate", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(ExsltDatetime, formatDate, $String*, $String*, $String*)},
-	{"formatDigits", "(I)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(ExsltDatetime, formatDigits, $String*, int32_t)},
-	{"getEraDatetimeZone", "(Ljava/lang/String;)[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(ExsltDatetime, getEraDatetimeZone, $StringArray*, $String*)},
-	{"getNameOrAbbrev", "(Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(ExsltDatetime, getNameOrAbbrev, $String*, $String*, $StringArray*, $String*), "java.text.ParseException"},
-	{"getNameOrAbbrev", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(ExsltDatetime, getNameOrAbbrev, $String*, $String*)},
-	{"getNumber", "(Ljava/lang/String;[Ljava/lang/String;I)D", nullptr, $PRIVATE | $STATIC, $staticMethod(ExsltDatetime, getNumber, double, $String*, $StringArray*, int32_t), "java.text.ParseException"},
-	{"getZoneStart", "(Ljava/lang/String;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(ExsltDatetime, getZoneStart, int32_t, $String*)},
-	{"hourInDay", "(Ljava/lang/String;)D", nullptr, $PUBLIC | $STATIC, $staticMethod(ExsltDatetime, hourInDay, double, $String*), "java.text.ParseException"},
-	{"hourInDay", "()D", nullptr, $PUBLIC | $STATIC, $staticMethod(ExsltDatetime, hourInDay, double)},
-	{"leapYear", "(Ljava/lang/String;)Lcom/sun/org/apache/xpath/internal/objects/XObject;", nullptr, $PUBLIC | $STATIC, $staticMethod(ExsltDatetime, leapYear, $XObject*, $String*), "java.text.ParseException"},
-	{"leapYear", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(ExsltDatetime, leapYear, bool)},
-	{"minuteInHour", "(Ljava/lang/String;)D", nullptr, $PUBLIC | $STATIC, $staticMethod(ExsltDatetime, minuteInHour, double, $String*), "java.text.ParseException"},
-	{"minuteInHour", "()D", nullptr, $PUBLIC | $STATIC, $staticMethod(ExsltDatetime, minuteInHour, double)},
-	{"monthAbbreviation", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(ExsltDatetime, monthAbbreviation, $String*, $String*), "java.text.ParseException"},
-	{"monthAbbreviation", "()Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(ExsltDatetime, monthAbbreviation, $String*)},
-	{"monthInYear", "(Ljava/lang/String;)D", nullptr, $PUBLIC | $STATIC, $staticMethod(ExsltDatetime, monthInYear, double, $String*), "java.text.ParseException"},
-	{"monthInYear", "()D", nullptr, $PUBLIC | $STATIC, $staticMethod(ExsltDatetime, monthInYear, double)},
-	{"monthName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(ExsltDatetime, monthName, $String*, $String*), "java.text.ParseException"},
-	{"monthName", "()Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(ExsltDatetime, monthName, $String*)},
-	{"secondInMinute", "(Ljava/lang/String;)D", nullptr, $PUBLIC | $STATIC, $staticMethod(ExsltDatetime, secondInMinute, double, $String*), "java.text.ParseException"},
-	{"secondInMinute", "()D", nullptr, $PUBLIC | $STATIC, $staticMethod(ExsltDatetime, secondInMinute, double)},
-	{"strip", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(ExsltDatetime, strip, $String*, $String*, $String*)},
-	{"testFormats", "(Ljava/lang/String;[Ljava/lang/String;)Ljava/util/Date;", nullptr, $PRIVATE | $STATIC, $staticMethod(ExsltDatetime, testFormats, $Date*, $String*, $StringArray*), "java.text.ParseException"},
-	{"time", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(ExsltDatetime, time, $String*, $String*), "java.text.ParseException"},
-	{"time", "()Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(ExsltDatetime, time, $String*)},
-	{"weekInYear", "(Ljava/lang/String;)D", nullptr, $PUBLIC | $STATIC, $staticMethod(ExsltDatetime, weekInYear, double, $String*), "java.text.ParseException"},
-	{"weekInYear", "()D", nullptr, $PUBLIC | $STATIC, $staticMethod(ExsltDatetime, weekInYear, double)},
-	{"year", "(Ljava/lang/String;)D", nullptr, $PUBLIC | $STATIC, $staticMethod(ExsltDatetime, year, double, $String*), "java.text.ParseException"},
-	{"year", "()D", nullptr, $PUBLIC | $STATIC, $staticMethod(ExsltDatetime, year, double)},
-	{}
-};
-
-$ClassInfo _ExsltDatetime_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xalan.internal.lib.ExsltDatetime",
-	"java.lang.Object",
-	nullptr,
-	_ExsltDatetime_FieldInfo_,
-	_ExsltDatetime_MethodInfo_
-};
-
-$Object* allocate$ExsltDatetime($Class* clazz) {
-	return $of($alloc(ExsltDatetime));
-}
-
 $String* ExsltDatetime::dt = nullptr;
 $String* ExsltDatetime::d = nullptr;
 $String* ExsltDatetime::gym = nullptr;
@@ -143,7 +66,7 @@ void ExsltDatetime::init$() {
 
 $String* ExsltDatetime::dateTime() {
 	$init(ExsltDatetime);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Calendar, cal, $Calendar::getInstance());
 	$var($Date, datetime, $nc(cal)->getTime());
 	$var($SimpleDateFormat, dateFormat, $new($SimpleDateFormat, ExsltDatetime::dt));
@@ -163,14 +86,14 @@ $String* ExsltDatetime::dateTime() {
 
 $String* ExsltDatetime::formatDigits(int32_t q) {
 	$init(ExsltDatetime);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, dd, $String::valueOf($Math::abs(q)));
 	return dd->length() == 1 ? $str({$$str(u'0'), dd}) : dd;
 }
 
 $String* ExsltDatetime::date($String* datetimeIn) {
 	$init(ExsltDatetime);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringArray, edz, getEraDatetimeZone(datetimeIn));
 	$var($String, leader, $nc(edz)->get(0));
 	$var($String, datetime, edz->get(1));
@@ -199,8 +122,8 @@ $String* ExsltDatetime::date($String* datetimeIn) {
 
 $String* ExsltDatetime::date() {
 	$init(ExsltDatetime);
-	$useLocalCurrentObjectStackCache();
-	$var($String, datetime, $nc($(dateTime()))->toString());
+	$useLocalObjectStack();
+	$var($String, datetime, $$nc(dateTime())->toString());
 	$var($String, date, datetime->substring(0, datetime->indexOf("T"_s)));
 	$var($String, zone, datetime->substring(getZoneStart(datetime)));
 	return ($str({date, zone}));
@@ -208,7 +131,7 @@ $String* ExsltDatetime::date() {
 
 $String* ExsltDatetime::time($String* timeIn) {
 	$init(ExsltDatetime);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringArray, edz, getEraDatetimeZone(timeIn));
 	$var($String, time, $nc(edz)->get(1));
 	$var($String, zone, edz->get(2));
@@ -232,20 +155,19 @@ $String* ExsltDatetime::time($String* timeIn) {
 
 $String* ExsltDatetime::time() {
 	$init(ExsltDatetime);
-	$useLocalCurrentObjectStackCache();
-	$var($String, datetime, $nc($(dateTime()))->toString());
+	$useLocalObjectStack();
+	$var($String, datetime, $$nc(dateTime())->toString());
 	$var($String, time, datetime->substring(datetime->indexOf("T"_s) + 1));
 	return (time);
 }
 
 double ExsltDatetime::year($String* datetimeIn) {
 	$init(ExsltDatetime);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringArray, edz, getEraDatetimeZone(datetimeIn));
 	bool ad = $nc($nc(edz)->get(0))->length() == 0;
 	$var($String, datetime, edz->get(1));
 	if (datetime == nullptr) {
-		$init($Double);
 		return $Double::NaN;
 	}
 	$var($StringArray, formats, $new($StringArray, {
@@ -255,7 +177,6 @@ double ExsltDatetime::year($String* datetimeIn) {
 		ExsltDatetime::gy
 	}));
 	double yr = getNumber(datetime, formats, $Calendar::YEAR);
-	$init($Double);
 	if (ad || yr == $Double::NaN) {
 		return yr;
 	} else {
@@ -271,11 +192,10 @@ double ExsltDatetime::year() {
 
 double ExsltDatetime::monthInYear($String* datetimeIn) {
 	$init(ExsltDatetime);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringArray, edz, getEraDatetimeZone(datetimeIn));
 	$var($String, datetime, $nc(edz)->get(1));
 	if (datetime == nullptr) {
-		$init($Double);
 		return $Double::NaN;
 	}
 	$var($StringArray, formats, $new($StringArray, {
@@ -296,11 +216,10 @@ double ExsltDatetime::monthInYear() {
 
 double ExsltDatetime::weekInYear($String* datetimeIn) {
 	$init(ExsltDatetime);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringArray, edz, getEraDatetimeZone(datetimeIn));
 	$var($String, datetime, $nc(edz)->get(1));
 	if (datetime == nullptr) {
-		$init($Double);
 		return $Double::NaN;
 	}
 	$var($StringArray, formats, $new($StringArray, {
@@ -318,11 +237,10 @@ double ExsltDatetime::weekInYear() {
 
 double ExsltDatetime::dayInYear($String* datetimeIn) {
 	$init(ExsltDatetime);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringArray, edz, getEraDatetimeZone(datetimeIn));
 	$var($String, datetime, $nc(edz)->get(1));
 	if (datetime == nullptr) {
-		$init($Double);
 		return $Double::NaN;
 	}
 	$var($StringArray, formats, $new($StringArray, {
@@ -340,7 +258,7 @@ double ExsltDatetime::dayInYear() {
 
 double ExsltDatetime::dayInMonth($String* datetimeIn) {
 	$init(ExsltDatetime);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringArray, edz, getEraDatetimeZone(datetimeIn));
 	$var($String, datetime, $nc(edz)->get(1));
 	$var($StringArray, formats, $new($StringArray, {
@@ -361,11 +279,10 @@ double ExsltDatetime::dayInMonth() {
 
 double ExsltDatetime::dayOfWeekInMonth($String* datetimeIn) {
 	$init(ExsltDatetime);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringArray, edz, getEraDatetimeZone(datetimeIn));
 	$var($String, datetime, $nc(edz)->get(1));
 	if (datetime == nullptr) {
-		$init($Double);
 		return $Double::NaN;
 	}
 	$var($StringArray, formats, $new($StringArray, {
@@ -383,11 +300,10 @@ double ExsltDatetime::dayOfWeekInMonth() {
 
 double ExsltDatetime::dayInWeek($String* datetimeIn) {
 	$init(ExsltDatetime);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringArray, edz, getEraDatetimeZone(datetimeIn));
 	$var($String, datetime, $nc(edz)->get(1));
 	if (datetime == nullptr) {
-		$init($Double);
 		return $Double::NaN;
 	}
 	$var($StringArray, formats, $new($StringArray, {
@@ -405,11 +321,10 @@ double ExsltDatetime::dayInWeek() {
 
 double ExsltDatetime::hourInDay($String* datetimeIn) {
 	$init(ExsltDatetime);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringArray, edz, getEraDatetimeZone(datetimeIn));
 	$var($String, datetime, $nc(edz)->get(1));
 	if (datetime == nullptr) {
-		$init($Double);
 		return $Double::NaN;
 	}
 	$var($StringArray, formats, $new($StringArray, {
@@ -427,11 +342,10 @@ double ExsltDatetime::hourInDay() {
 
 double ExsltDatetime::minuteInHour($String* datetimeIn) {
 	$init(ExsltDatetime);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringArray, edz, getEraDatetimeZone(datetimeIn));
 	$var($String, datetime, $nc(edz)->get(1));
 	if (datetime == nullptr) {
-		$init($Double);
 		return $Double::NaN;
 	}
 	$var($StringArray, formats, $new($StringArray, {
@@ -449,11 +363,10 @@ double ExsltDatetime::minuteInHour() {
 
 double ExsltDatetime::secondInMinute($String* datetimeIn) {
 	$init(ExsltDatetime);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringArray, edz, getEraDatetimeZone(datetimeIn));
 	$var($String, datetime, $nc(edz)->get(1));
 	if (datetime == nullptr) {
-		$init($Double);
 		return $Double::NaN;
 	}
 	$var($StringArray, formats, $new($StringArray, {
@@ -471,11 +384,10 @@ double ExsltDatetime::secondInMinute() {
 
 $XObject* ExsltDatetime::leapYear($String* datetimeIn) {
 	$init(ExsltDatetime);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringArray, edz, getEraDatetimeZone(datetimeIn));
 	$var($String, datetime, $nc(edz)->get(1));
 	if (datetime == nullptr) {
-		$init($Double);
 		return $new($XNumber, $Double::NaN);
 	}
 	$var($StringArray, formats, $new($StringArray, {
@@ -485,7 +397,6 @@ $XObject* ExsltDatetime::leapYear($String* datetimeIn) {
 		ExsltDatetime::gy
 	}));
 	double dbl = getNumber(datetime, formats, $Calendar::YEAR);
-	$init($Double);
 	if (dbl == $Double::NaN) {
 		return $new($XNumber, $Double::NaN);
 	}
@@ -502,7 +413,7 @@ bool ExsltDatetime::leapYear() {
 
 $String* ExsltDatetime::monthName($String* datetimeIn) {
 	$init(ExsltDatetime);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringArray, edz, getEraDatetimeZone(datetimeIn));
 	$var($String, datetime, $nc(edz)->get(1));
 	if (datetime == nullptr) {
@@ -520,7 +431,7 @@ $String* ExsltDatetime::monthName($String* datetimeIn) {
 
 $String* ExsltDatetime::monthName() {
 	$init(ExsltDatetime);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Calendar, cal, $Calendar::getInstance());
 	$var($String, format, "MMMM"_s);
 	return getNameOrAbbrev(format);
@@ -528,7 +439,7 @@ $String* ExsltDatetime::monthName() {
 
 $String* ExsltDatetime::monthAbbreviation($String* datetimeIn) {
 	$init(ExsltDatetime);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringArray, edz, getEraDatetimeZone(datetimeIn));
 	$var($String, datetime, $nc(edz)->get(1));
 	if (datetime == nullptr) {
@@ -552,7 +463,7 @@ $String* ExsltDatetime::monthAbbreviation() {
 
 $String* ExsltDatetime::dayName($String* datetimeIn) {
 	$init(ExsltDatetime);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringArray, edz, getEraDatetimeZone(datetimeIn));
 	$var($String, datetime, $nc(edz)->get(1));
 	if (datetime == nullptr) {
@@ -574,7 +485,7 @@ $String* ExsltDatetime::dayName() {
 
 $String* ExsltDatetime::dayAbbreviation($String* datetimeIn) {
 	$init(ExsltDatetime);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringArray, edz, getEraDatetimeZone(datetimeIn));
 	$var($String, datetime, $nc(edz)->get(1));
 	if (datetime == nullptr) {
@@ -596,7 +507,7 @@ $String* ExsltDatetime::dayAbbreviation() {
 
 $StringArray* ExsltDatetime::getEraDatetimeZone($String* in) {
 	$init(ExsltDatetime);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, leader, ""_s);
 	$var($String, datetime, in);
 	$var($String, zone, ""_s);
@@ -621,18 +532,18 @@ $StringArray* ExsltDatetime::getEraDatetimeZone($String* in) {
 
 int32_t ExsltDatetime::getZoneStart($String* datetime) {
 	$init(ExsltDatetime);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t var$0 = $nc(datetime)->indexOf("Z"_s);
 	if (var$0 == datetime->length() - 1) {
 		return datetime->length() - 1;
 	} else {
-		bool var$5 = datetime->length() >= 6;
-		bool var$4 = var$5 && datetime->charAt(datetime->length() - 3) == u':';
-		if (var$4) {
-			bool var$6 = datetime->charAt(datetime->length() - 6) == u'+';
-			var$4 = (var$6 || datetime->charAt(datetime->length() - 6) == u'-');
+		bool var$2 = datetime->length() >= 6;
+		bool var$1 = var$2 && datetime->charAt(datetime->length() - 3) == u':';
+		if (var$1) {
+			bool var$3 = datetime->charAt(datetime->length() - 6) == u'+';
+			var$1 = var$3 || datetime->charAt(datetime->length() - 6) == u'-';
 		}
-		if (var$4) {
+		if (var$1) {
 			try {
 				$var($SimpleDateFormat, dateFormat, $new($SimpleDateFormat, "HH:mm"_s));
 				dateFormat->setLenient(false);
@@ -649,7 +560,7 @@ int32_t ExsltDatetime::getZoneStart($String* datetime) {
 
 $Date* ExsltDatetime::testFormats($String* in, $StringArray* formats) {
 	$init(ExsltDatetime);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (int32_t i = 0; i < $nc(formats)->length; ++i) {
 		try {
 			$var($SimpleDateFormat, dateFormat, $new($SimpleDateFormat, formats->get(i)));
@@ -663,12 +574,11 @@ $Date* ExsltDatetime::testFormats($String* in, $StringArray* formats) {
 
 double ExsltDatetime::getNumber($String* in, $StringArray* formats, int32_t calField) {
 	$init(ExsltDatetime);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Calendar, cal, $Calendar::getInstance());
 	$nc(cal)->setLenient(false);
 	$var($Date, date, testFormats(in, formats));
 	if (date == nullptr) {
-		$init($Double);
 		return $Double::NaN;
 	}
 	cal->setTime(date);
@@ -677,7 +587,7 @@ double ExsltDatetime::getNumber($String* in, $StringArray* formats, int32_t calF
 
 $String* ExsltDatetime::getNameOrAbbrev($String* in, $StringArray* formatsIn, $String* formatOut) {
 	$init(ExsltDatetime);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (int32_t i = 0; i < $nc(formatsIn)->length; ++i) {
 		try {
 			$init($Locale);
@@ -694,7 +604,7 @@ $String* ExsltDatetime::getNameOrAbbrev($String* in, $StringArray* formatsIn, $S
 
 $String* ExsltDatetime::getNameOrAbbrev($String* format) {
 	$init(ExsltDatetime);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Calendar, cal, $Calendar::getInstance());
 	$init($Locale);
 	$var($SimpleDateFormat, dateFormat, $new($SimpleDateFormat, format, $Locale::ENGLISH));
@@ -703,7 +613,7 @@ $String* ExsltDatetime::getNameOrAbbrev($String* format) {
 
 $String* ExsltDatetime::formatDate($String* dateTime$renamed, $String* pattern) {
 	$init(ExsltDatetime);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, dateTime, dateTime$renamed);
 	$var($String, yearSymbols, "Gy"_s);
 	$var($String, monthSymbols, "M"_s);
@@ -711,21 +621,21 @@ $String* ExsltDatetime::formatDate($String* dateTime$renamed, $String* pattern) 
 	$var($TimeZone, timeZone, nullptr);
 	$var($String, zone, nullptr);
 	bool var$0 = $nc(dateTime)->endsWith("Z"_s);
-	if (var$0 || $nc(dateTime)->endsWith("z"_s)) {
+	if (var$0 || dateTime->endsWith("z"_s)) {
 		$assign(timeZone, $TimeZone::getTimeZone("GMT"_s));
 		$assign(dateTime, $str({$(dateTime->substring(0, dateTime->length() - 1)), "GMT"_s}));
 		$assign(zone, "z"_s);
 	} else {
-		bool var$5 = (dateTime->length() >= 6);
-		bool var$4 = var$5 && (dateTime->charAt(dateTime->length() - 3) == u':');
-		if (var$4) {
-			bool var$6 = (dateTime->charAt(dateTime->length() - 6) == u'+');
-			var$4 = (var$6 || (dateTime->charAt(dateTime->length() - 6) == u'-'));
+		bool var$2 = dateTime->length() >= 6;
+		bool var$1 = var$2 && (dateTime->charAt(dateTime->length() - 3) == u':');
+		if (var$1) {
+			bool var$3 = dateTime->charAt(dateTime->length() - 6) == u'+';
+			var$1 = var$3 || (dateTime->charAt(dateTime->length() - 6) == u'-');
 		}
-		if (var$4) {
+		if (var$1) {
 			$var($String, offset, dateTime->substring(dateTime->length() - 6));
-			bool var$7 = "+00:00"_s->equals(offset);
-			if (var$7 || "-00:00"_s->equals(offset)) {
+			bool var$4 = "+00:00"_s->equals(offset);
+			if (var$4 || "-00:00"_s->equals(offset)) {
 				$assign(timeZone, $TimeZone::getTimeZone("GMT"_s));
 			} else {
 				$assign(timeZone, $TimeZone::getTimeZone($$str({"GMT"_s, offset})));
@@ -795,20 +705,20 @@ $String* ExsltDatetime::formatDate($String* dateTime$renamed, $String* pattern) 
 
 $String* ExsltDatetime::strip($String* symbols, $String* pattern) {
 	$init(ExsltDatetime);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t quoteSemaphore = 0;
 	int32_t i = 0;
 	$var($StringBuffer, result, $new($StringBuffer, $nc(pattern)->length()));
-	while (i < $nc(pattern)->length()) {
+	while (i < pattern->length()) {
 		char16_t ch = pattern->charAt(i);
 		if (ch == u'\'') {
-			int32_t endQuote = pattern->indexOf((int32_t)u'\'', i + 1);
+			int32_t endQuote = pattern->indexOf(u'\'', i + 1);
 			if (endQuote == -1) {
 				endQuote = pattern->length();
 			}
 			result->append($(pattern->substring(i, endQuote)));
 			i = endQuote++;
-		} else if ($nc(symbols)->indexOf((int32_t)ch) > -1) {
+		} else if ($nc(symbols)->indexOf(ch) > -1) {
 			++i;
 		} else {
 			result->append(ch);
@@ -821,7 +731,7 @@ $String* ExsltDatetime::strip($String* symbols, $String* pattern) {
 ExsltDatetime::ExsltDatetime() {
 }
 
-void clinit$ExsltDatetime($Class* class$) {
+void ExsltDatetime::clinit$($Class* clazz) {
 	$assignStatic(ExsltDatetime::dt, "yyyy-MM-dd\'T\'HH:mm:ss"_s);
 	$assignStatic(ExsltDatetime::d, "yyyy-MM-dd"_s);
 	$assignStatic(ExsltDatetime::gym, "yyyy-MM"_s);
@@ -834,7 +744,77 @@ void clinit$ExsltDatetime($Class* class$) {
 }
 
 $Class* ExsltDatetime::load$($String* name, bool initialize) {
-	$loadClass(ExsltDatetime, name, initialize, &_ExsltDatetime_ClassInfo_, clinit$ExsltDatetime, allocate$ExsltDatetime);
+	$FieldInfo fieldInfos$$[] = {
+		{"dt", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(ExsltDatetime, dt)},
+		{"d", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(ExsltDatetime, d)},
+		{"gym", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(ExsltDatetime, gym)},
+		{"gy", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(ExsltDatetime, gy)},
+		{"gmd", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(ExsltDatetime, gmd)},
+		{"gm", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(ExsltDatetime, gm)},
+		{"gd", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(ExsltDatetime, gd)},
+		{"t", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(ExsltDatetime, t)},
+		{"EMPTY_STR", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(ExsltDatetime, EMPTY_STR)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ExsltDatetime, init$, void)},
+		{"date", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(ExsltDatetime, date, $String*, $String*), "java.text.ParseException"},
+		{"date", "()Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(ExsltDatetime, date, $String*)},
+		{"dateTime", "()Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(ExsltDatetime, dateTime, $String*)},
+		{"dayAbbreviation", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(ExsltDatetime, dayAbbreviation, $String*, $String*), "java.text.ParseException"},
+		{"dayAbbreviation", "()Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(ExsltDatetime, dayAbbreviation, $String*)},
+		{"dayInMonth", "(Ljava/lang/String;)D", nullptr, $PUBLIC | $STATIC, $staticMethod(ExsltDatetime, dayInMonth, double, $String*), "java.text.ParseException"},
+		{"dayInMonth", "()D", nullptr, $PUBLIC | $STATIC, $staticMethod(ExsltDatetime, dayInMonth, double)},
+		{"dayInWeek", "(Ljava/lang/String;)D", nullptr, $PUBLIC | $STATIC, $staticMethod(ExsltDatetime, dayInWeek, double, $String*), "java.text.ParseException"},
+		{"dayInWeek", "()D", nullptr, $PUBLIC | $STATIC, $staticMethod(ExsltDatetime, dayInWeek, double)},
+		{"dayInYear", "(Ljava/lang/String;)D", nullptr, $PUBLIC | $STATIC, $staticMethod(ExsltDatetime, dayInYear, double, $String*), "java.text.ParseException"},
+		{"dayInYear", "()D", nullptr, $PUBLIC | $STATIC, $staticMethod(ExsltDatetime, dayInYear, double)},
+		{"dayName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(ExsltDatetime, dayName, $String*, $String*), "java.text.ParseException"},
+		{"dayName", "()Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(ExsltDatetime, dayName, $String*)},
+		{"dayOfWeekInMonth", "(Ljava/lang/String;)D", nullptr, $PUBLIC | $STATIC, $staticMethod(ExsltDatetime, dayOfWeekInMonth, double, $String*), "java.text.ParseException"},
+		{"dayOfWeekInMonth", "()D", nullptr, $PUBLIC | $STATIC, $staticMethod(ExsltDatetime, dayOfWeekInMonth, double)},
+		{"formatDate", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(ExsltDatetime, formatDate, $String*, $String*, $String*)},
+		{"formatDigits", "(I)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(ExsltDatetime, formatDigits, $String*, int32_t)},
+		{"getEraDatetimeZone", "(Ljava/lang/String;)[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(ExsltDatetime, getEraDatetimeZone, $StringArray*, $String*)},
+		{"getNameOrAbbrev", "(Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(ExsltDatetime, getNameOrAbbrev, $String*, $String*, $StringArray*, $String*), "java.text.ParseException"},
+		{"getNameOrAbbrev", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(ExsltDatetime, getNameOrAbbrev, $String*, $String*)},
+		{"getNumber", "(Ljava/lang/String;[Ljava/lang/String;I)D", nullptr, $PRIVATE | $STATIC, $staticMethod(ExsltDatetime, getNumber, double, $String*, $StringArray*, int32_t), "java.text.ParseException"},
+		{"getZoneStart", "(Ljava/lang/String;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(ExsltDatetime, getZoneStart, int32_t, $String*)},
+		{"hourInDay", "(Ljava/lang/String;)D", nullptr, $PUBLIC | $STATIC, $staticMethod(ExsltDatetime, hourInDay, double, $String*), "java.text.ParseException"},
+		{"hourInDay", "()D", nullptr, $PUBLIC | $STATIC, $staticMethod(ExsltDatetime, hourInDay, double)},
+		{"leapYear", "(Ljava/lang/String;)Lcom/sun/org/apache/xpath/internal/objects/XObject;", nullptr, $PUBLIC | $STATIC, $staticMethod(ExsltDatetime, leapYear, $XObject*, $String*), "java.text.ParseException"},
+		{"leapYear", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(ExsltDatetime, leapYear, bool)},
+		{"minuteInHour", "(Ljava/lang/String;)D", nullptr, $PUBLIC | $STATIC, $staticMethod(ExsltDatetime, minuteInHour, double, $String*), "java.text.ParseException"},
+		{"minuteInHour", "()D", nullptr, $PUBLIC | $STATIC, $staticMethod(ExsltDatetime, minuteInHour, double)},
+		{"monthAbbreviation", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(ExsltDatetime, monthAbbreviation, $String*, $String*), "java.text.ParseException"},
+		{"monthAbbreviation", "()Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(ExsltDatetime, monthAbbreviation, $String*)},
+		{"monthInYear", "(Ljava/lang/String;)D", nullptr, $PUBLIC | $STATIC, $staticMethod(ExsltDatetime, monthInYear, double, $String*), "java.text.ParseException"},
+		{"monthInYear", "()D", nullptr, $PUBLIC | $STATIC, $staticMethod(ExsltDatetime, monthInYear, double)},
+		{"monthName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(ExsltDatetime, monthName, $String*, $String*), "java.text.ParseException"},
+		{"monthName", "()Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(ExsltDatetime, monthName, $String*)},
+		{"secondInMinute", "(Ljava/lang/String;)D", nullptr, $PUBLIC | $STATIC, $staticMethod(ExsltDatetime, secondInMinute, double, $String*), "java.text.ParseException"},
+		{"secondInMinute", "()D", nullptr, $PUBLIC | $STATIC, $staticMethod(ExsltDatetime, secondInMinute, double)},
+		{"strip", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(ExsltDatetime, strip, $String*, $String*, $String*)},
+		{"testFormats", "(Ljava/lang/String;[Ljava/lang/String;)Ljava/util/Date;", nullptr, $PRIVATE | $STATIC, $staticMethod(ExsltDatetime, testFormats, $Date*, $String*, $StringArray*), "java.text.ParseException"},
+		{"time", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(ExsltDatetime, time, $String*, $String*), "java.text.ParseException"},
+		{"time", "()Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(ExsltDatetime, time, $String*)},
+		{"weekInYear", "(Ljava/lang/String;)D", nullptr, $PUBLIC | $STATIC, $staticMethod(ExsltDatetime, weekInYear, double, $String*), "java.text.ParseException"},
+		{"weekInYear", "()D", nullptr, $PUBLIC | $STATIC, $staticMethod(ExsltDatetime, weekInYear, double)},
+		{"year", "(Ljava/lang/String;)D", nullptr, $PUBLIC | $STATIC, $staticMethod(ExsltDatetime, year, double, $String*), "java.text.ParseException"},
+		{"year", "()D", nullptr, $PUBLIC | $STATIC, $staticMethod(ExsltDatetime, year, double)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xalan.internal.lib.ExsltDatetime",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ExsltDatetime, name, initialize, &classInfo$$, ExsltDatetime::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ExsltDatetime);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <FixedHttpResponse.h>
-
 #include <java/net/URI.h>
 #include <java/net/http/HttpClient$Version.h>
 #include <java/net/http/HttpHeaders.h>
@@ -19,45 +18,6 @@ using $HttpRequest = ::java::net::http::HttpRequest;
 using $HttpResponse = ::java::net::http::HttpResponse;
 using $Optional = ::java::util::Optional;
 using $SSLSession = ::javax::net::ssl::SSLSession;
-
-$FieldInfo _FixedHttpResponse_FieldInfo_[] = {
-	{"statusCode", "I", nullptr, $PRIVATE | $FINAL, $field(FixedHttpResponse, statusCode$)},
-	{"request", "Ljava/net/http/HttpRequest;", nullptr, $PRIVATE | $FINAL, $field(FixedHttpResponse, request$)},
-	{"headers", "Ljava/net/http/HttpHeaders;", nullptr, $PRIVATE | $FINAL, $field(FixedHttpResponse, headers$)},
-	{"body", "Ljava/lang/Object;", "TT;", $PRIVATE | $FINAL, $field(FixedHttpResponse, body$)},
-	{"sslSession", "Ljavax/net/ssl/SSLSession;", nullptr, $PRIVATE | $FINAL, $field(FixedHttpResponse, sslSession$)},
-	{"uri", "Ljava/net/URI;", nullptr, $PRIVATE | $FINAL, $field(FixedHttpResponse, uri$)},
-	{"version", "Ljava/net/http/HttpClient$Version;", nullptr, $PRIVATE | $FINAL, $field(FixedHttpResponse, version$)},
-	{}
-};
-
-$MethodInfo _FixedHttpResponse_MethodInfo_[] = {
-	{"<init>", "(ILjava/net/http/HttpRequest;Ljava/net/http/HttpHeaders;Ljava/lang/Object;Ljavax/net/ssl/SSLSession;Ljava/net/URI;Ljava/net/http/HttpClient$Version;)V", "(ILjava/net/http/HttpRequest;Ljava/net/http/HttpHeaders;TT;Ljavax/net/ssl/SSLSession;Ljava/net/URI;Ljava/net/http/HttpClient$Version;)V", $PUBLIC, $method(FixedHttpResponse, init$, void, int32_t, $HttpRequest*, $HttpHeaders*, Object$*, $SSLSession*, $URI*, $HttpClient$Version*)},
-	{"body", "()Ljava/lang/Object;", "()TT;", $PUBLIC, $virtualMethod(FixedHttpResponse, body, $Object*)},
-	{"headers", "()Ljava/net/http/HttpHeaders;", nullptr, $PUBLIC, $virtualMethod(FixedHttpResponse, headers, $HttpHeaders*)},
-	{"previousResponse", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/net/http/HttpResponse<TT;>;>;", $PUBLIC, $virtualMethod(FixedHttpResponse, previousResponse, $Optional*)},
-	{"request", "()Ljava/net/http/HttpRequest;", nullptr, $PUBLIC, $virtualMethod(FixedHttpResponse, request, $HttpRequest*)},
-	{"sslSession", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljavax/net/ssl/SSLSession;>;", $PUBLIC, $virtualMethod(FixedHttpResponse, sslSession, $Optional*)},
-	{"statusCode", "()I", nullptr, $PUBLIC, $virtualMethod(FixedHttpResponse, statusCode, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(FixedHttpResponse, toString, $String*)},
-	{"uri", "()Ljava/net/URI;", nullptr, $PUBLIC, $virtualMethod(FixedHttpResponse, uri, $URI*)},
-	{"version", "()Ljava/net/http/HttpClient$Version;", nullptr, $PUBLIC, $virtualMethod(FixedHttpResponse, version, $HttpClient$Version*)},
-	{}
-};
-
-$ClassInfo _FixedHttpResponse_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"FixedHttpResponse",
-	"java.lang.Object",
-	"java.net.http.HttpResponse",
-	_FixedHttpResponse_FieldInfo_,
-	_FixedHttpResponse_MethodInfo_,
-	"<T:Ljava/lang/Object;>Ljava/lang/Object;Ljava/net/http/HttpResponse<TT;>;"
-};
-
-$Object* allocate$FixedHttpResponse($Class* clazz) {
-	return $of($alloc(FixedHttpResponse));
-}
 
 void FixedHttpResponse::init$(int32_t statusCode, $HttpRequest* request, $HttpHeaders* headers, Object$* body, $SSLSession* sslSession, $URI* uri, $HttpClient$Version* version) {
 	this->statusCode$ = statusCode;
@@ -86,7 +46,7 @@ $HttpHeaders* FixedHttpResponse::headers() {
 }
 
 $Object* FixedHttpResponse::body() {
-	return $of(this->body$);
+	return this->body$;
 }
 
 $Optional* FixedHttpResponse::sslSession() {
@@ -102,16 +62,50 @@ $HttpClient$Version* FixedHttpResponse::version() {
 }
 
 $String* FixedHttpResponse::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, sb, $new($StringBuilder));
-	return sb->append($($HttpResponse::toString()))->append(" [ "_s)->append("status code: "_s)->append(this->statusCode$)->append(", request: "_s)->append($of(this->request$))->append(", headers: "_s)->append($of(this->headers$))->append(" ]"_s)->toString();
+	return sb->append($($HttpResponse::toString()))->append(" [ "_s)->append("status code: "_s)->append(this->statusCode$)->append(", request: "_s)->append(this->request$)->append(", headers: "_s)->append(this->headers$)->append(" ]"_s)->toString();
 }
 
 FixedHttpResponse::FixedHttpResponse() {
 }
 
 $Class* FixedHttpResponse::load$($String* name, bool initialize) {
-	$loadClass(FixedHttpResponse, name, initialize, &_FixedHttpResponse_ClassInfo_, allocate$FixedHttpResponse);
+	$FieldInfo fieldInfos$$[] = {
+		{"statusCode", "I", nullptr, $PRIVATE | $FINAL, $field(FixedHttpResponse, statusCode$)},
+		{"request", "Ljava/net/http/HttpRequest;", nullptr, $PRIVATE | $FINAL, $field(FixedHttpResponse, request$)},
+		{"headers", "Ljava/net/http/HttpHeaders;", nullptr, $PRIVATE | $FINAL, $field(FixedHttpResponse, headers$)},
+		{"body", "Ljava/lang/Object;", "TT;", $PRIVATE | $FINAL, $field(FixedHttpResponse, body$)},
+		{"sslSession", "Ljavax/net/ssl/SSLSession;", nullptr, $PRIVATE | $FINAL, $field(FixedHttpResponse, sslSession$)},
+		{"uri", "Ljava/net/URI;", nullptr, $PRIVATE | $FINAL, $field(FixedHttpResponse, uri$)},
+		{"version", "Ljava/net/http/HttpClient$Version;", nullptr, $PRIVATE | $FINAL, $field(FixedHttpResponse, version$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(ILjava/net/http/HttpRequest;Ljava/net/http/HttpHeaders;Ljava/lang/Object;Ljavax/net/ssl/SSLSession;Ljava/net/URI;Ljava/net/http/HttpClient$Version;)V", "(ILjava/net/http/HttpRequest;Ljava/net/http/HttpHeaders;TT;Ljavax/net/ssl/SSLSession;Ljava/net/URI;Ljava/net/http/HttpClient$Version;)V", $PUBLIC, $method(FixedHttpResponse, init$, void, int32_t, $HttpRequest*, $HttpHeaders*, Object$*, $SSLSession*, $URI*, $HttpClient$Version*)},
+		{"body", "()Ljava/lang/Object;", "()TT;", $PUBLIC, $virtualMethod(FixedHttpResponse, body, $Object*)},
+		{"headers", "()Ljava/net/http/HttpHeaders;", nullptr, $PUBLIC, $virtualMethod(FixedHttpResponse, headers, $HttpHeaders*)},
+		{"previousResponse", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/net/http/HttpResponse<TT;>;>;", $PUBLIC, $virtualMethod(FixedHttpResponse, previousResponse, $Optional*)},
+		{"request", "()Ljava/net/http/HttpRequest;", nullptr, $PUBLIC, $virtualMethod(FixedHttpResponse, request, $HttpRequest*)},
+		{"sslSession", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljavax/net/ssl/SSLSession;>;", $PUBLIC, $virtualMethod(FixedHttpResponse, sslSession, $Optional*)},
+		{"statusCode", "()I", nullptr, $PUBLIC, $virtualMethod(FixedHttpResponse, statusCode, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(FixedHttpResponse, toString, $String*)},
+		{"uri", "()Ljava/net/URI;", nullptr, $PUBLIC, $virtualMethod(FixedHttpResponse, uri, $URI*)},
+		{"version", "()Ljava/net/http/HttpClient$Version;", nullptr, $PUBLIC, $virtualMethod(FixedHttpResponse, version, $HttpClient$Version*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"FixedHttpResponse",
+		"java.lang.Object",
+		"java.net.http.HttpResponse",
+		fieldInfos$$,
+		methodInfos$$,
+		"<T:Ljava/lang/Object;>Ljava/lang/Object;Ljava/net/http/HttpResponse<TT;>;"
+	};
+	$loadClass(FixedHttpResponse, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FixedHttpResponse);
+	});
 	return class$;
 }
 

@@ -28,6 +28,7 @@ class GNUStyleOptions$OptionType : public ::java::lang::Enum {
 public:
 	GNUStyleOptions$OptionType();
 	static $Array<::sun::tools::jar::GNUStyleOptions$OptionType>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal, $String* name);
 	static ::sun::tools::jar::GNUStyleOptions$OptionType* valueOf($String* name);
 	static $Array<::sun::tools::jar::GNUStyleOptions$OptionType>* values();
